@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 959E4C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 14:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65622C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 14:03:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EOEB7IVKZaW1PZ6sIgI8umGsLZ0fzThiODmAgEs2dvM=; b=K7nuOoIdV7NPaHpb6DOOH+ITfx
-	SDvrslNzV/psGzSNp6ot6u/NV4VsBxdtNKAPCv8Bd24vluy0ATmQiTkQ6SEIIlefxotLQf/do8V5f
-	zS0bpJO+G5yyP3KJx/h+LYFAQL8GhO51nkZkFqq8dv9f+FXZ3HvWafktlT/6MUx+wUavXW+M2gemC
-	523g767IZh0UcI2l2YeIob6XoLonXwSA6AZBELK/inik65fcQlhnFHlE6NkZkJHGwdHXGsAtvgEKJ
-	PwCbN2A2VNowFhjxg9SfqSTWrTu5I0ClFLEMqJsqT6cBAYvfDEGSk14+cuBECvPaX+dKtT/tFD+7q
-	hT/dJNkw==;
+	bh=RlfAg/7rLSoS1Ke1F+8yA+aiyZO+gcbIufljerVjsNI=; b=gO2UAh66Sj8SOcsstEO/2aK8ON
+	49PBwWS3rPCDLDVySy2ErHrSpwYupwTQLUg6nLe8fIT0mhZ1T21eHNXp+rRMMYcAl5lOZtp4R5+i0
+	Ym8KOHsd0aj+lcywH+EuQgi3t1bmC5hw4+GfPQiGTfSDBrPTJkdI86omVdNCSHfvm9Vvl3WWsBIIG
+	BHQJNXwlaVCEjBSHfro/2J4800Ivwcj/UBhoOOidg8sn1Y+6hZXXSHF2Ov3vhDMDV3GorZFbkWg66
+	J92NF5qKHJRsMDHIkKhVN6XEastRAdMa0bHnOpxTYb/It2Dqop1jmGNSBPtr6wB2dUba+A3VHrDzo
+	P+m47huw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyAGh-0000000DWmY-0Wsi;
-	Fri, 28 Mar 2025 14:01:07 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tyAIO-0000000DX7z-3M59;
+	Fri, 28 Mar 2025 14:02:52 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty9nb-0000000DQiM-2CoP
+	id 1ty9nc-0000000DQij-0DwN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 13:31:04 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e614da8615so4054012a12.1
+	Fri, 28 Mar 2025 13:31:05 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5e6167d0536so311950a12.1
         for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 06:31:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743168662; x=1743773462; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1743168663; x=1743773463; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=EOEB7IVKZaW1PZ6sIgI8umGsLZ0fzThiODmAgEs2dvM=;
-        b=kSuPhoPnKGYBvB/XUCnis83rGRY5Rg8t6iPQRj80tpNOaSxTELBZ5oq8Wr9cmNx+ae
-         eVRUs1/Fi3e2S9LDZqAhTcrW0OctHytYLL35rncZq3Z/gw6uihEcn5OjN4sAucYJ5Fzv
-         4e70UtblwdT31R5tSOJQS0hu9nulJ7aWtgnPPpXXh3s4Bu/HXpFJ4HUeMCUyNd4Av/38
-         Gc7lVhYRstlk3Mh6787JvFkni8ylZAH/hz1v9jgZqMPBZZRpCyKOH1eD1mJ2bytHPybQ
-         ZZ0Ys9wgs023Ykjjx9kkpuhHQHQx0O1sB4kDHZKt4erySQI6ynJj8BVhhxcl6VsotNkx
-         SehA==
+        bh=RlfAg/7rLSoS1Ke1F+8yA+aiyZO+gcbIufljerVjsNI=;
+        b=oyuCysqJtwrCTUbnqPE8zfiXZddsQFevQeebUwFsxN8CHWc4zpIpmbdhAp3grHcp/6
+         0hI33zDLfL/UzI90MBhPKhKhBDpnFqoBLETvAjgBdtg+sFqdirXGo0X68QA9LgsMMVQo
+         rOF997LJ3CSAbM8E0tBn1cvuAz016GtJR+oQqGTWlpDzSkmxD9fz9bgcn4m7kmR2oBIz
+         o2GwawKmS979wcDH7dLFkQu7RiZyvokNrIS65ZoUIVJiSFdNHWDL4kCGRkYyj0rnN3Op
+         0MzfLZWnCphzWEtsWbYr83q9Mvtfmvp9W2D9OYQ4niv0FBHthjpgpGRrQI0EZTBQ8qgv
+         rYPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743168662; x=1743773462;
+        d=1e100.net; s=20230601; t=1743168663; x=1743773463;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EOEB7IVKZaW1PZ6sIgI8umGsLZ0fzThiODmAgEs2dvM=;
-        b=Dk0HM/gd75vyicQsMviYejPfMIKGt0I6+nKVhVijpoSaPt4tGMExwrzp9NmmY//LQa
-         vpFme1SPlnOoe26TBYeGxR2LwfWibwP5OEo8XanGDAAv9W9qXh7hrjtGU663uCxnsAHC
-         n6+Ps+7ttmM2gH0qj9ThMXyk+V9jIJKotrdkGn2Lwdxrfxy+3Pv5wHBHJRWdH/jkBJNb
-         9Ni9mwzzHFYFsuzvzIc+gEL3QfJ3LLMNTn/ACeBkXnerHgrnC/9X/CGjnjLB04S8NCa2
-         bWAZrYJPLnL1TKkpGsiS0i/hiniQ9frEErTMB5bGI8RkzI3DcLhvIGkev3hmhgnvBBTG
-         fWkg==
-X-Forwarded-Encrypted: i=1; AJvYcCVnXhMbg9LIcLVLf3vTiOr2FTGrX+3nhWcQLlVrsSO4RLc80lI18N1F05up8Znj0KKKU2cdQvokmNipUG44z8uj@lists.infradead.org
-X-Gm-Message-State: AOJu0YypRvJLdvQAFEN8HY9WmhZXQ+mjruC6tUkq7Gxo3SDg28TBBDuP
-	nBAbtAmnCWS9ZDQyvfbpAk5SHJso+rk6CUf0gfPNvApKX5sNDWTajgom0NxUuIU=
-X-Gm-Gg: ASbGncseSYjczDRgAfYl3Lc3WB9J8wZe3BFLzFUH9RH1zfmRHCcP8KWCWaoswM5ggla
-	JgiEYhdVFBxJwLIcbUPSLFigJGebMiNQKElafeja71K1tkh1T8GWXFa9tVV2j0pF4zJrRqZ93oZ
-	oQSI/UEs1NmEfqHHSOOaZ4h0GY644Pok1QZsouqzr9or4h3w8mx8rxRCU5zCeKNJaqwXsRX1rPh
-	/3K+4UxkjHlrtIArq7pJ2AptxwbXdY96iJ9uBtGaWENO6fjR5NbS9UYZrjgUliV4ApXF60BpCpU
-	j4wz+hTZB09ezTZn3NrJfFTe+RSjMviil9n4ayCOIXqAKhi7ufNQi7WGmuPI66NaaMUPwX0AweA
-	ig8dI4Z3EbDAXcfVk+PNfNwEtf/9C
-X-Google-Smtp-Source: AGHT+IENTriv0ZKQDvxOFGqnTo7xSy+uELps+TAzZydZP4h3NfKqEFYmhwGmgFpAh/R37lkn+8E27g==
-X-Received: by 2002:a05:6402:1ecd:b0:5e5:ba77:6f42 with SMTP id 4fb4d7f45d1cf-5edc44c9935mr2924122a12.4.1743168662019;
+        bh=RlfAg/7rLSoS1Ke1F+8yA+aiyZO+gcbIufljerVjsNI=;
+        b=i2OwpGShouwzsvbSwWN/MEg3qytjRb9/uuoDekr8vr/MhImFHz9kEuL8zOY37kGSWZ
+         obxto08rmWz9D8zhaGWvDS3fX5jy329fDpM/yOpfHOB1twMX+wf5ZInDCuD06pSfaorI
+         YlYD43NEyM2De5xL01RkmNDJfqFP9qVnzBRNk+4whlhOkHgwDykX3xE7wBC0tgtafkCH
+         GxLH6Nih8GrBdBtbbeNc5/WE4FKNUuz185lggAP7vutcD3ORdfDeKIT49Nepe6rGD9xr
+         EZDwY92PuK5K+Axf1/+VB0uCljFQ02d6o2GHxk0EJWlnU0oi4VeHjOkps5tfWSote778
+         5/Zg==
+X-Forwarded-Encrypted: i=1; AJvYcCWG25XDiry5nfCAzjxoWjuSFlJiFbI3KNRjYRIpPlCp24BL+8+mzsCUtZIfWlNWpAkNTRwrqwrRgEX/hjXaM1zE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyd8lw71umRpVxN/DIw/62SE4iYdPBNjJ91hI2tYiX+E32aiivd
+	TeL5ao/tUZUDiwnbyYNPzf1Khkom1hSQqsL7xH/+CNx9dO/c7TTa65SoVVCtwFY=
+X-Gm-Gg: ASbGncs21j20sF1qm0ZTCND0gmaEPN6Fyr+yYXKgjVwCwf0LrFUNj77RrtUilffxOQe
+	z5yFLMzA8VaHIk7yPCg8ZCZDbdByzbZ9mC0Mla+uqmWtSmQy3b0D/u7QFydAwLkJ4DsHsUnFzck
+	TGvMKQNY6DYdPRyjvmA2QIL8eNkzne2qudKV2vSn6KOgI6WsUiI8u11+5imAxAxgVXDyMY8Nnw6
+	qjQXZVfhAEPmXy1HVfKn0O2pzwoRKVpwwZPc+VvB5PISZbPWgfNMmFeYnUGkFWOV0WDQNKaqq/i
+	UxVEl2ieEyWUhCLv4TEs5/wx000Z1PerblbGsoygzFwoY3gNb2l4gySvxCR6vgGh0BNUUphBO1v
+	Ii+6Wo1teQ6JU8P4UBUB5xilcCrRH
+X-Google-Smtp-Source: AGHT+IE0dtnKjtCZHZKjoZR/7zYAQaAO0Ef9xCaVRLiZP5a5mCNoA/66zq9oZtEH5A6PFmv8Us35Lg==
+X-Received: by 2002:a05:6402:524a:b0:5ed:1841:18c5 with SMTP id 4fb4d7f45d1cf-5ed8ee288c7mr7337352a12.30.1743168662613;
         Fri, 28 Mar 2025 06:31:02 -0700 (PDT)
 Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5edc17e01f7sm1355284a12.79.2025.03.28.06.31.01
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5edc17e01f7sm1355284a12.79.2025.03.28.06.31.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Mar 2025 06:31:01 -0700 (PDT)
+        Fri, 28 Mar 2025 06:31:02 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Fri, 28 Mar 2025 13:29:02 +0000
-Subject: [PATCH v2 16/32] mfd: sec: don't ignore errors from sec_irq_init()
+Date: Fri, 28 Mar 2025 13:29:03 +0000
+Subject: [PATCH v2 17/32] mfd: sec: rework platform data and regmap
+ instantiating
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250328-s2mpg10-v2-16-b54dee33fb6b@linaro.org>
+Message-Id: <20250328-s2mpg10-v2-17-b54dee33fb6b@linaro.org>
 References: <20250328-s2mpg10-v2-0-b54dee33fb6b@linaro.org>
 In-Reply-To: <20250328-s2mpg10-v2-0-b54dee33fb6b@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, 
@@ -92,12 +93,11 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_063103_565699_9FD09E38 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20250328_063104_112501_E4BE8C04 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,30 +112,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sec_irq_init() can fail, we shouldn't continue and ignore the error in
-that case, but actually error out.
+Instead of a large open-coded switch statement, just add both regmap
+config and device type to the OF match data. This allows us to have all
+related information in one place, and avoids a long switch() statement.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- drivers/mfd/sec-common.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mfd/sec-common.c b/drivers/mfd/sec-common.c
-index f4c606c5ee5a809a106b13e947464f35a926b199..bb0eb3c2d9a260ddf2fb110cc255f08a0d25230d 100644
---- a/drivers/mfd/sec-common.c
-+++ b/drivers/mfd/sec-common.c
-@@ -183,7 +183,9 @@ int sec_pmic_probe(struct device *dev, unsigned long device_type,
+---
+v2: fix typo in platform data for "samsung,s2mps14-pmic"
+---
+ drivers/mfd/sec-i2c.c | 133 +++++++++++++++++++++++++-------------------------
+ 1 file changed, 66 insertions(+), 67 deletions(-)
+
+diff --git a/drivers/mfd/sec-i2c.c b/drivers/mfd/sec-i2c.c
+index 81f90003eea2a40f2caaebb49fc9494b89370e7f..41b09f5e3c49f410604a5d47e625cbb37d7f5fa2 100644
+--- a/drivers/mfd/sec-i2c.c
++++ b/drivers/mfd/sec-i2c.c
+@@ -20,11 +20,16 @@
+ #include <linux/mfd/samsung/s5m8767.h>
+ #include <linux/mod_devicetable.h>
+ #include <linux/module.h>
+-#include <linux/of.h>
+ #include <linux/pm.h>
++#include <linux/property.h>
+ #include <linux/regmap.h>
+ #include "sec-core.h"
  
- 	sec_pmic->pdata = pdata;
++struct sec_pmic_i2c_platform_data {
++	const struct regmap_config *regmap_cfg;
++	unsigned long device_type;
++};
++
+ static bool s2mpa01_volatile(struct device *dev, unsigned int reg)
+ {
+ 	switch (reg) {
+@@ -136,52 +141,20 @@ static const struct regmap_config s5m8767_regmap_config = {
  
--	sec_irq_init(sec_pmic);
-+	ret = sec_irq_init(sec_pmic);
-+	if (ret)
-+		return ret;
+ static int sec_pmic_i2c_probe(struct i2c_client *client)
+ {
+-	const struct regmap_config *regmap;
+-	unsigned long device_type;
++	const struct sec_pmic_i2c_platform_data *pdata;
+ 	struct regmap *regmap_pmic;
  
- 	pm_runtime_set_active(sec_pmic->dev);
+-	device_type = (unsigned long)of_device_get_match_data(&client->dev);
+-
+-	switch (device_type) {
+-	case S2DOS05:
+-		regmap = &s2dos05_regmap_config;
+-		break;
+-	case S2MPA01:
+-		regmap = &s2mpa01_regmap_config;
+-		break;
+-	case S2MPS11X:
+-		regmap = &s2mps11_regmap_config;
+-		break;
+-	case S2MPS13X:
+-		regmap = &s2mps13_regmap_config;
+-		break;
+-	case S2MPS14X:
+-		regmap = &s2mps14_regmap_config;
+-		break;
+-	case S2MPS15X:
+-		regmap = &s2mps15_regmap_config;
+-		break;
+-	case S2MPU02:
+-		regmap = &s2mpu02_regmap_config;
+-		break;
+-	case S2MPU05:
+-		regmap = &s2mpu05_regmap_config;
+-		break;
+-	case S5M8767X:
+-		regmap = &s5m8767_regmap_config;
+-		break;
+-	default:
++	pdata = device_get_match_data(&client->dev);
++	if (!pdata)
+ 		return dev_err_probe(&client->dev, -ENODEV,
+-				     "Unsupported device type %lu\n",
+-				     device_type);
+-	}
++				     "Unsupported device type\n");
  
+-	regmap_pmic = devm_regmap_init_i2c(client, regmap);
++	regmap_pmic = devm_regmap_init_i2c(client, pdata->regmap_cfg);
+ 	if (IS_ERR(regmap_pmic))
+ 		return dev_err_probe(&client->dev, PTR_ERR(regmap_pmic),
+ 				     "regmap init failed\n");
+ 
+-	return sec_pmic_probe(&client->dev, device_type, client->irq,
++	return sec_pmic_probe(&client->dev, pdata->device_type, client->irq,
+ 			      regmap_pmic, client);
+ }
+ 
+@@ -190,35 +163,61 @@ static void sec_pmic_i2c_shutdown(struct i2c_client *i2c)
+ 	sec_pmic_shutdown(&i2c->dev);
+ }
+ 
++static const struct sec_pmic_i2c_platform_data s2dos05_data = {
++	.regmap_cfg = &s2dos05_regmap_config,
++	.device_type = S2DOS05
++};
++
++static const struct sec_pmic_i2c_platform_data s2mpa01_data = {
++	.regmap_cfg = &s2mpa01_regmap_config,
++	.device_type = S2MPA01,
++};
++
++static const struct sec_pmic_i2c_platform_data s2mps11_data = {
++	.regmap_cfg = &s2mps11_regmap_config,
++	.device_type = S2MPS11X,
++};
++
++static const struct sec_pmic_i2c_platform_data s2mps13_data = {
++	.regmap_cfg = &s2mps13_regmap_config,
++	.device_type = S2MPS13X,
++};
++
++static const struct sec_pmic_i2c_platform_data s2mps14_data = {
++	.regmap_cfg = &s2mps14_regmap_config,
++	.device_type = S2MPS14X,
++};
++
++static const struct sec_pmic_i2c_platform_data s2mps15_data = {
++	.regmap_cfg = &s2mps15_regmap_config,
++	.device_type = S2MPS15X,
++};
++
++static const struct sec_pmic_i2c_platform_data s2mpu02_data = {
++	.regmap_cfg = &s2mpu02_regmap_config,
++	.device_type = S2MPU02,
++};
++
++static const struct sec_pmic_i2c_platform_data s2mpu05_data = {
++	.regmap_cfg = &s2mpu05_regmap_config,
++	.device_type = S2MPU05,
++};
++
++static const struct sec_pmic_i2c_platform_data s5m8767_data = {
++	.regmap_cfg = &s5m8767_regmap_config,
++	.device_type = S5M8767X,
++};
++
+ static const struct of_device_id sec_pmic_i2c_of_match[] = {
+-	{
+-		.compatible = "samsung,s2dos05",
+-		.data = (void *)S2DOS05,
+-	}, {
+-		.compatible = "samsung,s2mpa01-pmic",
+-		.data = (void *)S2MPA01,
+-	}, {
+-		.compatible = "samsung,s2mps11-pmic",
+-		.data = (void *)S2MPS11X,
+-	}, {
+-		.compatible = "samsung,s2mps13-pmic",
+-		.data = (void *)S2MPS13X,
+-	}, {
+-		.compatible = "samsung,s2mps14-pmic",
+-		.data = (void *)S2MPS14X,
+-	}, {
+-		.compatible = "samsung,s2mps15-pmic",
+-		.data = (void *)S2MPS15X,
+-	}, {
+-		.compatible = "samsung,s2mpu02-pmic",
+-		.data = (void *)S2MPU02,
+-	}, {
+-		.compatible = "samsung,s2mpu05-pmic",
+-		.data = (void *)S2MPU05,
+-	}, {
+-		.compatible = "samsung,s5m8767-pmic",
+-		.data = (void *)S5M8767X,
+-	},
++	{ .compatible = "samsung,s2dos05", .data = &s2dos05_data, },
++	{ .compatible = "samsung,s2mpa01-pmic", .data = &s2mpa01_data, },
++	{ .compatible = "samsung,s2mps11-pmic", .data = &s2mps11_data, },
++	{ .compatible = "samsung,s2mps13-pmic", .data = &s2mps13_data, },
++	{ .compatible = "samsung,s2mps14-pmic", .data = &s2mps14_data, },
++	{ .compatible = "samsung,s2mps15-pmic", .data = &s2mps15_data, },
++	{ .compatible = "samsung,s2mpu02-pmic", .data = &s2mpu02_data, },
++	{ .compatible = "samsung,s2mpu05-pmic", .data = &s2mpu05_data, },
++	{ .compatible = "samsung,s5m8767-pmic", .data = &s5m8767_data, },
+ 	{ },
+ };
+ MODULE_DEVICE_TABLE(of, sec_pmic_i2c_of_match);
 
 -- 
 2.49.0.472.ge94155a9ec-goog
