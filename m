@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D375DC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 08:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C480C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 08:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RYbY51/WxGMaDR4VDeSov/drtxwtC1OK6EoxP0AVW+Y=; b=KhV3dnk6bSNoei44N7OusN2arF
-	vFaj9k4L/EqUyQe+v5pTYYQCV/IWfdaGeUSTzEJwhaMYqRje9FZUucZsZ8dnLm5+znkbm9opvEVxl
-	MQqp+5/uciN8cUR0GYl5t07CEDcwlvorvCoKqqIwxNbuEIQh8WpNX9+JmgIlSqeKdM7g8WakC8Wkt
-	ENiCDLdiuNZbMJeeiwmjeWyiF+3Q/2Xv2ptqhyoSYzWd49eUrcUfN0WC1rkDe9VNB8MXYZTGFK0HY
-	EdSXalDH7Tki5sPAOVDe0DwWJnHqJbo81QlvuQyjvFFvNTJLGjrJDelM00MXliIUaiA7Q6LmDmT9W
-	QY2G5k5A==;
+	bh=DVpRsmWEm6VHRcvKSyjFF3aB5sQLjqRBeWRP7or5xJs=; b=muXwOZc/DnGFbLD1hFaN2SIT3f
+	uZmM4nHCCjJlk0SQAtC6dA6f1F3TKbbayp5foMQ3JXFVo6+05Ow4ti2il9cURPAz7O79L4Kx5PFHz
+	pK2c2i8RiuMHoI4d60s3Uu/4bF5m5o9/WN+y6oMSdx9ULbAjDSRI+Am2p5WBgMzPxm18jY1SfgDC5
+	pQcPsX0j6LmTA1OyUd5v+Uf4KtDJ6d+q3eruEwY6s8IQ4s8ylbA7xYvk0mZ9DEfQyHIqjaG2w+gFX
+	C/hpskR6MuJGkRnv02/xBtdE46S1d7wAoTF5SUSrK0UZLurrxWXGigWpcgrnEfsKt+g7TuTn/rLUz
+	/scHujAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4xT-0000000Ctvp-3JcP;
-	Fri, 28 Mar 2025 08:20:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ty52A-0000000Cuez-0xXn;
+	Fri, 28 Mar 2025 08:25:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4vk-0000000CtfA-1ZO3;
-	Fri, 28 Mar 2025 08:19:08 +0000
+	id 1ty50Q-0000000CuN6-3xjw;
+	Fri, 28 Mar 2025 08:24:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C9F9614B5;
-	Fri, 28 Mar 2025 08:19:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60D4AC4CEE4;
-	Fri, 28 Mar 2025 08:19:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E288DA41318;
+	Fri, 28 Mar 2025 08:18:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA09DC4CEE4;
+	Fri, 28 Mar 2025 08:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743149947;
-	bh=eXkyQAmWLQhgbflGuE6/2roWByAJGJzRKnWkxqKXpr0=;
+	s=k20201202; t=1743150237;
+	bh=EChM5lZ02vQW3NFPu4SvlJhSoekdEWsTAF8Ta+yEhxs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qG3GtZtnCFsiKLE21GDIQj94MikZUdLpBnmZDeoZNnTD4vf6OZTlRrVb/NtZAe/TW
-	 xMQySvO4HGCmmIA/+2e6Yyf97jRCGtfxzaFD9JfBBdqMCSHugcNjRSf0k0pMeWNgkh
-	 JIlDAfdbTjEMPggbhusLn7HjPZRbb9ZyDaSM9gNN1uHaer1mVDimaxp4XXvlg9DaQN
-	 8A9hMhvqSYBg39PkGF82aQkFCwKwLe8JRmwdXBGyenkYje5d/VayiU2KFIO1pOGS0P
-	 6taEZ0fWLi6pnQqARE7alhTwPZKLy55U8x0/sD7ZVfQmljHmIx4+JjPZQI+p0rSACc
-	 ps4zNQAIpwVfw==
-Date: Fri, 28 Mar 2025 09:19:03 +0100
+	b=kfdEU50tAlrImVBnCDiKUb91BGet1mqQjVmlmN0LJxzj3fb6Zx+gnBwOkbROkkaAy
+	 VkPuX5MSz7e8ApRUdk12TUrQp1q/IEPIEKPQ+Mq6/J8H75jsOr79xrFQOzv8VT8bRn
+	 GnAiYg3pgDS/lt6qLw/HsNRhTcVnlk/9VKDUywnGyqQBsT5B2AG/jX8IkAdKPfiOQC
+	 VYGVP89JlLmIG78fyih0GYUoqKKz2xf1T99Bw0FT+pHDQR0bSXWlF8at/5KhtiZHkS
+	 O0nh+26hROskyWX6ySHBkfPokPVHjPhT/aemHaTCLeaGA1o1yZIVgd5o2gCWVTLqCw
+	 DWoOV+bRBxhjg==
+Date: Fri, 28 Mar 2025 09:23:53 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
-Cc: Matthias Kaehlcke <mka@chromium.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Benjamin Bara <benjamin.bara@skidata.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Klaus Goger <klaus.goger@theobroma-systems.com>, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, quentin.schulz@cherry.de, stable@vger.kernel.org
-Subject: Re: [PATCH 1/5] usb: misc: onboard_usb_dev: fix support for Cypress
- HX3 hubs
-Message-ID: <20250328-holistic-feathered-guppy-5bac92@krzk-bin>
-References: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
- <20250326-onboard_usb_dev-v1-1-a4b0a5d1b32c@thaumatec.com>
+To: justin.chen@broadcom.com
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-phy@lists.infradead.org, rafal@milecki.pl, alcooperx@gmail.com, 
+	bcm-kernel-feedback-list@broadcom.com, florian.fainelli@broadcom.com, conor+dt@kernel.org, 
+	krzk+dt@kernel.org, robh@kernel.org, kishon@kernel.org, vkoul@kernel.org
+Subject: Re: [PATCH 2/2] dt-bindings: phy: brcmstb-usb-phy: Add support for
+ bcm74110
+Message-ID: <20250328-acrid-pygmy-dogfish-babce2@krzk-bin>
+References: <20250327185623.3047893-1-justin.chen@broadcom.com>
+ <20250327185623.3047893-3-justin.chen@broadcom.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250326-onboard_usb_dev-v1-1-a4b0a5d1b32c@thaumatec.com>
+In-Reply-To: <20250327185623.3047893-3-justin.chen@broadcom.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250328_012359_047381_206B6FE2 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,25 +74,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 26, 2025 at 05:22:56PM +0100, Lukasz Czechowski wrote:
-> diff --git a/drivers/usb/misc/onboard_usb_dev.h b/drivers/usb/misc/onboard_usb_dev.h
-> index 317b3eb99c02..17696f7c5e43 100644
-> --- a/drivers/usb/misc/onboard_usb_dev.h
-> +++ b/drivers/usb/misc/onboard_usb_dev.h
-> @@ -104,8 +104,14 @@ static const struct of_device_id onboard_dev_match[] = {
->  	{ .compatible = "usb451,8027", .data = &ti_tusb8020b_data, },
->  	{ .compatible = "usb451,8140", .data = &ti_tusb8041_data, },
->  	{ .compatible = "usb451,8142", .data = &ti_tusb8041_data, },
-> +	{ .compatible = "usb4b4,6500", .data = &cypress_hx3_data, },
-> +	{ .compatible = "usb4b4,6502", .data = &cypress_hx3_data, },
-> +	{ .compatible = "usb4b4,6503", .data = &cypress_hx3_data, },
->  	{ .compatible = "usb4b4,6504", .data = &cypress_hx3_data, },
->  	{ .compatible = "usb4b4,6506", .data = &cypress_hx3_data, },
-> +	{ .compatible = "usb4b4,6507", .data = &cypress_hx3_data, },
-> +	{ .compatible = "usb4b4,6508", .data = &cypress_hx3_data, },
+On Thu, Mar 27, 2025 at 11:56:23AM -0700, justin.chen@broadcom.com wrote:
+> From: Justin Chen <justin.chen@broadcom.com>
+> 
+> bcm74110 brcmstb usb phy adds further power savings during suspend
+> states.
+> 
+> Signed-off-by: Justin Chen <justin.chen@broadcom.com>
 
-Why are you adding so many entries? Same entry is a strong sign these
-are compatible.
+Please order the patches as stated in DT submitting patches.
+
+> ---
+>  Documentation/devicetree/bindings/phy/brcm,brcmstb-usb-phy.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/brcm,brcmstb-usb-phy.yaml b/Documentation/devicetree/bindings/phy/brcm,brcmstb-usb-phy.yaml
+> index 580fbe37b37f..2e668935b454 100644
+> --- a/Documentation/devicetree/bindings/phy/brcm,brcmstb-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/brcm,brcmstb-usb-phy.yaml
+> @@ -15,6 +15,7 @@ maintainers:
+>  properties:
+>    compatible:
+>      enum:
+> +      - brcm,bcm74110-usb-phy
+>        - brcm,bcm4908-usb-phy
+>        - brcm,bcm7211-usb-phy
+>        - brcm,bcm7216-usb-phy
+
+That's incomplete. Where are the updates for constraints? Look at entire
+file, not just top 10 lines.
 
 Best regards,
 Krzysztof
