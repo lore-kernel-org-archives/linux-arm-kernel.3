@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F13C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 19:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1078C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 19:33:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=90Q+4dJPZ++gRc8qjEAkgpjYJdb5VOUpPRHZ+O0S5l4=; b=WqKc8sg1dYEdmlNeHUSyfdGkbr
-	QMmyxc0tyS6sB4uIGm6WFHUcso5j6z25W1WCpUCEeEhiEDt+2iaxr0HaL197QdynfsMIw+knYvK9+
-	NyZQC+s5ZtnGyNfbw48scPcWLrFeGjijX0z0tD6m4ThMUDotYK2FAHQ79tUqdTM9ebkN4NhujUov4
-	IMj+Y4Y+tHRmxLaTV2e4NIklMsgM+F5ITH6fihG9mxVoWZcoHknKnV48eRb7K6+knSCjzrUJQkbs/
-	ghwOxQynB3Rb3VjCGN/nW7LiWQ1Gu2VoBgotYJhFr4Kj/e2R68m1bN9ZWbQ8wsbUf+HEx3ORXireL
-	X0oBQvZQ==;
+	bh=TFduLiTfomk9uJG1Kj9Vc20+YiO1goOrnmEnJTn6ZxQ=; b=Prf2x3Ku8aqfRLRlRFsNnoywj6
+	b4Ic45ENGhsZ2ZlygUqCJuwPQDfSgutGm8mkaPQQk4ygYAJbMpcuJmwjQHV9elBq67jKSykCt0gib
+	RA5Oc/WRebiZ1NH7LkOsTWL9okmSkZCQvM56LoIIJT6Gh6fIZsW4JLfKI64ATPa1MwDL1t4+SCAuG
+	LD/f6MapbVOLg011ka9CEACRxr5E/RbC/EzbZnQozCstWL3D8GLnBv+BnnyBeOhXdTj+FK8Jq6m8i
+	p1BfP6/uW2k38Hjybf7iSJ2Wrjc5TElykVOUBP3cH7pK/pnPFWzd/ax+aeRw0gJQ4UlmENiTfMktv
+	1D3yFBcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyFBk-0000000EA9O-0Xaq;
-	Fri, 28 Mar 2025 19:16:20 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tyFRg-0000000EAzp-1q0U;
+	Fri, 28 Mar 2025 19:32:48 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyFA0-0000000EA00-433f
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 28 Mar 2025 19:14:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=90Q+4dJPZ++gRc8qjEAkgpjYJdb5VOUpPRHZ+O0S5l4=; b=HLCfb4k2r/rHy/w+UYAen83Wc+
-	dsKCYV8PnrQ5ZHUuxWn0mkw/Q2XFZkxGxTsit8jmvcDJgMBBNfFEfsR5vdfFzD7X6tCcuwmzuWJAP
-	DZxxwdAOTTjO5EWbktI9ydKRZUVfHee9DeTf0msC7VuWag1kIzHNibARYV4uXt8oABMleV9ZEb9hl
-	ie+5LZOSr+QZ2mUovgjSEI0BzF4K0e7EmzSk6uqXiE0bDeasEdJqW8x5egSvmEApsxQWNJLyaWBys
-	B1Y/fYo8GOr9dDOwYLqOyr2kYAUyG2pJHC4vdfc8/I3h6gTsprPy2axjgHB/a8yfv7d+/H7BS8PCv
-	y6PRjJpw==;
-Received: from willy by casper.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyF9y-00000008yK0-2NDn;
-	Fri, 28 Mar 2025 19:14:30 +0000
-Date: Fri, 28 Mar 2025 19:14:30 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Kalesh Singh <kaleshsingh@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>,
-	Dave Chinner <david@fromorbit.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH v3] mm/filemap: Allow arch to request folio size for exec
- memory
-Message-ID: <Z-b1FmZ5nHzh5huL@casper.infradead.org>
-References: <20250327160700.1147155-1-ryan.roberts@arm.com>
- <Z-WAbWfZzG1GA-4n@casper.infradead.org>
- <5131c7ad-cc37-44fc-8672-5866ecbef65b@arm.com>
+	id 1tyFPv-0000000EAna-40SI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Mar 2025 19:31:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=TFduLiTfomk9uJG1Kj9Vc20+YiO1goOrnmEnJTn6ZxQ=; b=Qg/RgZsHJ6n5TSHc9kOVCiY3q+
+	jwDA83rcvHJ4eU0fyc6UKImuj4/1gn8A7Zj8trcIhavWYd/tLlc6Jwza6elEtnBv5D6hTLcXM6fNG
+	SH0IBUg5HRH7abQVfr6lIEul5kl1EzkzXwVfUVZ+h+O1ZB4wWRw0BT9lxJCLAQbC/m4w=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tyFPi-007O5S-8p; Fri, 28 Mar 2025 20:30:46 +0100
+Date: Fri, 28 Mar 2025 20:30:46 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/4] net: mtip: The L2 switch driver for imx287
+Message-ID: <3648e94f-93e6-4fb0-a432-f834fe755ee3@lunn.ch>
+References: <20250328133544.4149716-1-lukma@denx.de>
+ <20250328133544.4149716-5-lukma@denx.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5131c7ad-cc37-44fc-8672-5866ecbef65b@arm.com>
+In-Reply-To: <20250328133544.4149716-5-lukma@denx.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250328_123100_142225_4D6BF92E 
+X-CRM114-Status: GOOD (  39.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +78,313 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 04:23:14PM -0400, Ryan Roberts wrote:
-> + Kalesh
-> 
-> On 27/03/2025 12:44, Matthew Wilcox wrote:
-> > On Thu, Mar 27, 2025 at 04:06:58PM +0000, Ryan Roberts wrote:
-> >> So let's special-case the read(ahead) logic for executable mappings. The
-> >> trade-off is performance improvement (due to more efficient storage of
-> >> the translations in iTLB) vs potential read amplification (due to
-> >> reading too much data around the fault which won't be used), and the
-> >> latter is independent of base page size. I've chosen 64K folio size for
-> >> arm64 which benefits both the 4K and 16K base page size configs and
-> >> shouldn't lead to any read amplification in practice since the old
-> >> read-around path was (usually) reading blocks of 128K. I don't
-> >> anticipate any write amplification because text is always RO.
-> > 
-> > Is there not also the potential for wasted memory due to ELF alignment?
-> 
-> I think this is an orthogonal issue? My change isn't making that any worse.
+> +static bool bridge_offload;
+> +module_param(bridge_offload, bool, 0644); /* Allow setting by root on boot */
+> +MODULE_PARM_DESC(bridge_offload, "L2 switch offload mode enable:1, disable:0");
 
-To a certain extent, it is.  If readahead was doing order-2 allocations
-before and is now doing order-4, you're tying up 0-12 extra pages which
-happen to be filled with zeroes due to being used to cache the contents
-of a hole.
+Please drop. module parameters are not liked.
 
-> > Kalesh talked about it in the MM BOF at the same time that Ted and I
-> > were discussing it in the FS BOF.  Some coordination required (like
-> > maybe Kalesh could have mentioned it to me rathere than assuming I'd be
-> > there?)
-> 
-> I was at Kalesh's talk. David H suggested that a potential solution might be for
-> readahead to ask the fs where the next hole is and then truncate readahead to
-> avoid reading the hole. Given it's padding, nothing should directly fault it in
-> so it never ends up in the page cache. Not sure if you discussed anything like
-> that if you were talking in parallel?
+In Linux, ports of a switch always starting in isolated mode, and
+userspace needs to add them to the same bridge.
 
-Ted said that he and Kalesh had talked about that solution.  I have a
-more bold solution in mind which lifts the ext4 extent cache to the
-VFS inode so that the readahead code can interrogate it.
+> +
+> +static netdev_tx_t mtip_start_xmit(struct sk_buff *skb,
+> +				   struct net_device *dev);
+> +static void mtip_switch_tx(struct net_device *dev);
+> +static int mtip_switch_rx(struct net_device *dev, int budget, int *port);
+> +static void mtip_set_multicast_list(struct net_device *dev);
+> +static void mtip_switch_restart(struct net_device *dev, int duplex0,
+> +				int duplex1);
 
-> Anyway, I'm not sure if you're suggesting these changes need to be considered as
-> one somehow or if you're just mentioning it given it is loosely related? My view
-> is that this change is an improvement indepently and could go in much sooner.
+Forwards references are not like. Put the functions in the correct
+order so they are not needed.
 
-This is not a reason to delay this patch.  It's just a downside which
-should be mentioned in the commit message.
+> +/* Calculate Galois Field Arithmetic CRC for Polynom x^8+x^2+x+1.
+> + * It omits the final shift in of 8 zeroes a "normal" CRC would do
+> + * (getting the remainder).
+> + *
+> + *  Examples (hexadecimal values):<br>
+> + *   10-11-12-13-14-15  => CRC=0xc2
+> + *   10-11-cc-dd-ee-00  => CRC=0xe6
+> + *
+> + *   param: pmacaddress
+> + *          A 6-byte array with the MAC address.
+> + *          The first byte is the first byte transmitted
+> + *   return The 8-bit CRC in bits 7:0
+> + */
+> +static int crc8_calc(unsigned char *pmacaddress)
+> +{
+> +	/* byte index */
+> +	int byt;
+> +	/* bit index */
+> +	int bit;
+> +	int inval;
+> +	int crc;
 
-> >> +static inline int arch_exec_folio_order(void)
-> >> +{
-> >> +	return -1;
-> >> +}
-> > 
-> > This feels a bit fragile.  I often expect to be able to store an order
-> > in an unsigned int.  Why not return 0 instead?
-> 
-> Well 0 is a valid order, no? I think we have had the "is order signed or
-> unsigned" argument before. get_order() returns a signed int :)
+Reverse Christmas tree. Please look through the whole driver and fix
+it up.
 
-But why not always return a valid order?  I don't think we need a
-sentinel.  The default value can be 0 to do what we do today.
+> +/* updates MAC address lookup table with a static entry
+> + * Searches if the MAC address is already there in the block and replaces
+> + * the older entry with new one. If MAC address is not there then puts a
+> + * new entry in the first empty slot available in the block
+> + *
+> + * mac_addr Pointer to the array containing MAC address to
+> + *          be put as static entry
+> + * port     Port bitmask numbers to be added in static entry,
+> + *          valid values are 1-7
+> + * priority The priority for the static entry in table
+> + *
+> + * return 0 for a successful update else -1  when no slot available
 
+It would be nice to turn this into proper kerneldoc. It is not too far
+away at the moment.
+
+Also, return a proper error code not -1. ENOSPC?
+
+> +static int mtip_update_atable_dynamic1(unsigned long write_lo,
+> +				       unsigned long write_hi, int block_index,
+> +				       unsigned int port,
+> +				       unsigned int curr_time,
+> +				       struct switch_enet_private *fep)
+
+It would be good to document the return value, because it is not the
+usual 0 success or negative error code.
+
+> +static const struct net_device_ops mtip_netdev_ops;
+
+more forward declarations.
+
+> +struct switch_enet_private *mtip_netdev_get_priv(const struct net_device *ndev)
+> +{
+> +	if (ndev->netdev_ops == &mtip_netdev_ops)
+> +		return netdev_priv(ndev);
+> +
+> +	return NULL;
+> +}
+
+I _think_ the return value is not actually used. So maybe 0 or
+-ENODEV?
+
+> +static int esw_mac_addr_static(struct switch_enet_private *fep)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < SWITCH_EPORT_NUMBER; i++) {
+> +		if (is_valid_ether_addr(fep->ndev[i]->dev_addr)) {
+
+Is that possible? This is the interfaces own MAC address? If it is not
+valid, the probe should of failed.
+
+> +			mtip_update_atable_static((unsigned char *)
+> +						  fep->ndev[i]->dev_addr,
+> +						  7, 7, fep);
+> +		} else {
+> +			dev_err(&fep->pdev->dev,
+> +				"Can not add mac address %pM to switch!\n",
+> +				fep->ndev[i]->dev_addr);
+> +			return -EFAULT;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void mtip_print_link_status(struct phy_device *phydev)
+> +{
+> +	if (phydev->link)
+> +		netdev_info(phydev->attached_dev,
+> +			    "Link is Up - %s/%s - flow control %s\n",
+> +			    phy_speed_to_str(phydev->speed),
+> +			    phy_duplex_to_str(phydev->duplex),
+> +			    phydev->pause ? "rx/tx" : "off");
+> +	else
+> +		netdev_info(phydev->attached_dev, "Link is Down\n");
+> +}
+
+phy_print_status()
+
+> +static void mtip_adjust_link(struct net_device *dev)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +	struct phy_device *phy_dev;
+> +	int status_change = 0, idx;
+> +	unsigned long flags;
+> +
+> +	spin_lock_irqsave(&fep->hw_lock, flags);
+> +
+> +	idx = priv->portnum - 1;
+> +	phy_dev = fep->phy_dev[idx];
+> +
+> +	/* Prevent a state halted on mii error */
+> +	if (fep->mii_timeout && phy_dev->state == PHY_HALTED) {
+> +		phy_dev->state = PHY_UP;
+> +		goto spin_unlock;
+> +	}
+
+A MAC driver should not be playing around with the internal state of
+phylib.
+
+> +static int mtip_mii_probe(struct net_device *dev)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +	int port_idx = priv->portnum - 1;
+> +	struct phy_device *phy_dev = NULL;
+> +
+> +	if (fep->phy_np[port_idx]) {
+> +		phy_dev = of_phy_connect(dev, fep->phy_np[port_idx],
+> +					 &mtip_adjust_link, 0,
+> +					 fep->phy_interface[port_idx]);
+> +		if (!phy_dev) {
+> +			netdev_err(dev, "Unable to connect to phy\n");
+> +			return -ENODEV;
+> +		}
+> +	}
+> +
+> +	phy_set_max_speed(phy_dev, 100);
+> +	fep->phy_dev[port_idx] = phy_dev;
+> +	fep->link[port_idx] = 0;
+> +	fep->full_duplex[port_idx] = 0;
+> +
+> +	dev_info(&dev->dev,
+> +		 "MTIP PHY driver [%s] (mii_bus:phy_addr=%s, irq=%d)\n",
+> +		 fep->phy_dev[port_idx]->drv->name,
+> +		 phydev_name(fep->phy_dev[port_idx]),
+> +		 fep->phy_dev[port_idx]->irq);
+
+phylib already prints something like that.
+
+> +static int mtip_mdiobus_reset(struct mii_bus *bus)
+> +{
+> +	if (!bus || !bus->reset_gpiod) {
+> +		dev_err(&bus->dev, "Reset GPIO pin not provided!\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	gpiod_set_value_cansleep(bus->reset_gpiod, 1);
+> +
+> +	/* Extra time to allow:
+> +	 * 1. GPIO RESET pin go high to prevent situation where its value is
+> +	 *    "LOW" as it is NOT configured.
+> +	 * 2. The ENET CLK to stabilize before GPIO RESET is asserted
+> +	 */
+> +	usleep_range(200, 300);
+> +
+> +	gpiod_set_value_cansleep(bus->reset_gpiod, 0);
+> +	usleep_range(bus->reset_delay_us, bus->reset_delay_us + 1000);
+> +	gpiod_set_value_cansleep(bus->reset_gpiod, 1);
+> +
+> +	if (bus->reset_post_delay_us > 0)
+> +		usleep_range(bus->reset_post_delay_us,
+> +			     bus->reset_post_delay_us + 1000);
+> +
+> +	return 0;
+> +}
+
+What is wrong with the core code __mdiobus_register() which does the
+bus reset.
+
+> +static void mtip_get_drvinfo(struct net_device *dev,
+> +			     struct ethtool_drvinfo *info)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +
+> +	strscpy(info->driver, fep->pdev->dev.driver->name,
+> +		sizeof(info->driver));
+> +	strscpy(info->version, VERSION, sizeof(info->version));
+
+Leave this empty, so you get the git hash of the kernel.
+
+> +static void mtip_ndev_setup(struct net_device *dev)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +
+> +	ether_setup(dev);
+
+That is pretty unusual
+
+> +	dev->ethtool_ops = &mtip_ethtool_ops;
+> +	dev->netdev_ops = &mtip_netdev_ops;
+> +
+> +	memset(priv, 0, sizeof(struct mtip_ndev_priv));
+
+priv should already be zero....
+
+> +static int mtip_ndev_init(struct switch_enet_private *fep)
+> +{
+> +	struct mtip_ndev_priv *priv;
+> +	int i, ret = 0;
+> +
+> +	for (i = 0; i < SWITCH_EPORT_NUMBER; i++) {
+> +		fep->ndev[i] = alloc_netdev(sizeof(struct mtip_ndev_priv),
+> +					    fep->ndev_name[i], NET_NAME_USER,
+> +					    mtip_ndev_setup);
+
+This explains the ether_setup(). It would be more normal to pass
+ether_setup() here, and set dev->ethtool_ops and dev->netdev_ops here.
+
+> +		if (!fep->ndev[i]) {
+> +			ret = -1;
+
+-ENOMEM?
+
+> +			break;
+> +		}
+> +
+> +		priv = netdev_priv(fep->ndev[i]);
+> +		priv->fep = fep;
+> +		priv->portnum = i + 1;
+> +		fep->ndev[i]->irq = fep->irq;
+> +
+> +		ret = mtip_setup_mac(fep->ndev[i]);
+> +		if (ret) {
+> +			dev_err(&fep->ndev[i]->dev,
+> +				"%s: ndev %s MAC setup err: %d\n",
+> +				__func__, fep->ndev[i]->name, ret);
+> +			break;
+> +		}
+> +
+> +		ret = register_netdev(fep->ndev[i]);
+> +		if (ret) {
+> +			dev_err(&fep->ndev[i]->dev,
+> +				"%s: ndev %s register err: %d\n", __func__,
+> +				fep->ndev[i]->name, ret);
+> +			break;
+> +		}
+> +		dev_info(&fep->ndev[i]->dev, "%s: MTIP eth L2 switch %pM\n",
+> +			 fep->ndev[i]->name, fep->ndev[i]->dev_addr);
+
+I would drop this. A driver is normally silent unless things go wrong.
+
+> +	}
+> +
+> +	if (ret)
+> +		mtip_ndev_cleanup(fep);
+> +
+> +	return 0;
+
+return ret?
+
+> +static int mtip_ndev_port_link(struct net_device *ndev,
+> +			       struct net_device *br_ndev)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(ndev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +
+> +	dev_dbg(&ndev->dev, "%s: ndev: %s br: %s fep: 0x%x\n",
+> +		__func__, ndev->name,  br_ndev->name, (unsigned int)fep);
+> +
+> +	/* Check if MTIP switch is already enabled */
+> +	if (!fep->br_offload) {
+> +		if (!priv->master_dev)
+> +			priv->master_dev = br_ndev;
+
+It needs to be a little bit more complex than that, because the two
+ports could be assigned to two different bridges. You should only
+enable hardware bridging if they are a member of the same bridge.
+
+	Andrew
 
