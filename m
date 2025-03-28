@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0294AC36013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 07:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA28AC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 07:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H0VhS/v22NU8eHmN3wX2UOpbzS0x/EJicz5QW5NMbiE=; b=dIc3WUCOKbPAh+sOQMS5oGwbMA
-	OMY+uBB5ZZR82P9UigWkGVKGi+im3GK/McRaqGXGEXZAPXcJLyDvo3VkWFh4UFIoesx7QoDT2gv0U
-	wgYXm2MpovaX5PiqyflK1PN7TjtmErA9w0+FE7puI0saKIiKGxPQtdMzWsc/UXhS9ABZum3/8z86W
-	dQMLWsVTw1T2GrjPA6dogeUkJaetVp7q4TluFQR85FkwXDa5FdfVXFnyZmC09RLKKiSbTYHeP4fdE
-	lDNOlB9KJz2B5W6PyYB4tAYXiIfkiSTyx9FsIDBrH0XmGvYCDC2/3Qn0T96xjxgO8cDd/v3DIAocl
-	on+qUlmg==;
+	bh=e4+m0DQrar8QI/tlP9bedfL21OK40rHqMTDJEYU92jM=; b=uPc6a+TX7gUYtnjLkCEiJO1oaj
+	cW1qAE3p/sA6MF3QlwotvRLFowWj0A/ipWJgHiOW+NsMszIlevxLycLo8eYuqc1PTPFJOwe7Y+4hm
+	780VIpYvRErANLk2YWnY6TJmUb5C7sfKBVd0Lv73vaSM/jz+ZPCDkQ3OMWO9QkGCjdcbM35nA0hjR
+	EnH4D33qm/C84eQX0IpAtKzMloLHtEY0wYn5z7YbPAUKr+x7GJGkihkneYZExNmTKEKKOgQiSLjjn
+	OFIRFI3BuNCJWFpGl8Lb2zb9hp1xptDbJhVzqf3aXE9/NmfODuNPNPjNHLDa7EJjABlFb5kFKAhvv
+	bc8B25Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4RH-0000000CpnM-1yBk;
-	Fri, 28 Mar 2025 07:47:39 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1ty4Sz-0000000Cq8t-0wXk;
+	Fri, 28 Mar 2025 07:49:25 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4Nq-0000000CokP-2sAg
+	id 1ty4Ns-0000000Cokz-1Dhw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 07:44:07 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54acc04516fso1799968e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 00:44:06 -0700 (PDT)
+	Fri, 28 Mar 2025 07:44:09 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54addb5a139so2098046e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 00:44:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743147845; x=1743752645; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1743147846; x=1743752646; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=H0VhS/v22NU8eHmN3wX2UOpbzS0x/EJicz5QW5NMbiE=;
-        b=prkZELBamvc4g8ZVcCIW1Xq4arMC+pSopphfnVBumM6u1ySvKrl3+EoISzcgv/Ww/m
-         CorhF3PKrxfr3m7WDxTaIQhVoZwVQkxiUle4rH533dhcQ9nCh3doR1pdxjKgMnqjEGfm
-         JBPhsz5mA4R8OINA1ZbelCCw0Hz31gHChhONzFu2xK8jc8U5vyRqnJgrs5S9iSIQLUce
-         TR61dtHdS2hFifuor/Cxzx9SEeCeJL9XzzJKQH52Ywif0yKCyCIyE46Gfi4vz2Sbloyb
-         DJGZfr/r/2jyufjT6Bi1LHozSvFpjqL5uqqPrmnrF/zPqhRglb8j8PQPJ7Ut4DZam0YS
-         EB7w==
+        bh=e4+m0DQrar8QI/tlP9bedfL21OK40rHqMTDJEYU92jM=;
+        b=EWkbLRGVc37oEskI3xmTLDQa7y8oqhMmOrrrPRKI4xzVu9WM3uFu8txIK7PFf3FnRg
+         ThQw1vov/TMPJebPXhavhTJ0aUiMyijkbmHmU3izpN2v6xGIRe0Re/qsSPJYtm1KHfAc
+         0anLdLAA0JlS8o5PGWJac8iyO1jxSlFZf5UvtyvvNqSe8P+dLK7kCpL6epfZsUAtOVlh
+         lqWgLpK3DH+7vAqiaqp8LEkvt90HiXg3Ep17OV/IOsA3XvpJm4gsAL6JcU59vnhKEXWA
+         41p70u9AlCGdDn7Z9gyhTa7fs2sB52CTSPiiBcNM4Em7qsYxXiXvVZQn6uz9fNbXg2x+
+         mAtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743147845; x=1743752645;
+        d=1e100.net; s=20230601; t=1743147846; x=1743752646;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=H0VhS/v22NU8eHmN3wX2UOpbzS0x/EJicz5QW5NMbiE=;
-        b=O92/G9XbdVISc/tapsMky5ng3ACkYSbzx2pbUJHVw/WAmUOKiii8ymvM3eyzT4VSqT
-         hansyMZfCHKBp/5eqeoBnN5sPQZif3owpvwsGsO2XPji6mXwZUqaRBqc4u/YxN2YYkuU
-         jziKtoMIpzvXd8zxFTdOEFP6Er6x6xWA8XhoyRB38vW8rxjwBOq3DzQgPWMCEb3qTkc8
-         W92oijXsApmwsXc4wQCE4/ULQ+AFHeJIavT+7ojRVLjhUH1ztNMKORyFSLmJ5/XTwjXj
-         AdRZ3FUvcfShKGkPcwuwqnokvccq4vYqJCTLrMoSSJxCNvG/CW5UT/g4mmHyu7mU5zTS
-         SRJA==
-X-Forwarded-Encrypted: i=1; AJvYcCUAgPsF7PpBmn9Pz0O3VAZ2bbiwa9xFpZhl4FqGhBNmA9MRlizuO8nCJV30IX1IDrJhjLYyCGT1ySxy1Ra7WNSk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbGHsFZXJrj3ieuE2MQPtW5VqCEkm9NVdG2B2XHll34MyAY2VM
-	43uw9Yg5LSbp2zvhiahrn6Iu8TOMv/mtogkLvYETcjiHeb2SpyIAElu8NNXplXk=
-X-Gm-Gg: ASbGncuD2XhoHKg3i9p5rvwvGv9LLlw2b2Ps+RtbJDCKF8wVfx9iWhf0Kz7enkgfqVo
-	L2/VF3KoMTpqQEwzeLSQK3eDUB5i9GZp5yxgKK3rnGFAXmsfkHY3QRLgQ3F4ldY9GLXfLokXZwo
-	kKVW3Cf7ZtBJ0OhGPC8PU5PPspwS4bGrQglrEuQ9hO/xLc6kZYEh25UpT+kyY3Z2n9e0nqADex1
-	2ujN/VvHYOiFbYVILjQ+dpN5oMKP4vC3hscueLCvvn2l3SOuf8q+C0jvigghIXN7u9RVqO2e2YO
-	qyVHSe7qS6Dp7AmzPq9pAk/JVhyMx72z0hYyiVJO1u8hJ3a8gBcmRZllFpze4wb71A==
-X-Google-Smtp-Source: AGHT+IFqexEpUV8AIrXmhig8TO6o/adeivq1AYJStXwRnF5UkTeMDdMVIJ/YWHWaksBob2pUlYpnUA==
-X-Received: by 2002:a05:6512:10c4:b0:545:60b:f381 with SMTP id 2adb3069b0e04-54b011dceb2mr1996778e87.29.1743147844697;
-        Fri, 28 Mar 2025 00:44:04 -0700 (PDT)
+        bh=e4+m0DQrar8QI/tlP9bedfL21OK40rHqMTDJEYU92jM=;
+        b=FOf0/4QML/Lv55BBmXovj019dR1dLpWoVmq2ZRy9aaceoW9Pvf0viQcqSZzhCe3Hxw
+         X2TpeMs6zDoSYDR4aq4zZI8yEZ9ynxmjVyDQLcZirwjI3f22c114mbVaBV5O4k4/qRyC
+         pTRGQqsdv2GW6Mdn04aPsQddTjU30s9CeFJUzwrJI8+/YzSiZxKQgcLoPWF2s/g/vY7n
+         c8PeV3aJnrqalox996kJ9GNKVlH7b9zC5zbot0aUSgD8V0VF2Xjwsi8tpJKZMWWkgmxm
+         snyODP8rxUyz31dXGeC6LZNz3Ec3hXXNqLPfbOJGr5nP51Qp75TB9UJVxmY1DCoGquMu
+         0dHA==
+X-Forwarded-Encrypted: i=1; AJvYcCUo5iDt5gOz98P6VZItiDKDJ6CxRshPeOZfjzY1Y5mp3xir3Ef8g1eK89e3AQUvIqirZ+VClC/X6UfKNutz8+r/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeRq8P1sUcIS1N7Gpz02A5g3PA6OPFLncGxnYV0Z32/Uy3Q4nz
+	mO2GyWHoK9Cbrp7HxKMRr7WVkM82yjHxqv4o4fFtkUz30ESrz3+ErqrZTO2L3/4=
+X-Gm-Gg: ASbGncv56JeNpKzKtWI/AlY6SagTcNwcn3/9JvRsjTfOe2dSbxqWWzV4K2avgEAJoxP
+	v1d/o/qAK30IbJjZnnBDVnvtojP72DpSyTIV7lJYf/4e5yXNzpKabgMQz1EKRyvWpywYOmQF9TQ
+	wZHoYKpbwropeW1VIJFUVVxfY6laKU15aQ5/JqEEhk6Ydm7of5fxuRWkzdSKyA0ycG7DhfHplT8
+	+CNezUrwR+9CUs+fByWLzrRpyadkQUEp+Eh4I9KhzmP9HAi+JHCQBCu0AtHZnAmHAzG7nLi9Dud
+	tEyeDtiE/FB5VUfD2M9c8CRuoh2aqB+W9F7pGQpPyj1DBTHK5K6h9TxCK2rnHEI0Dg==
+X-Google-Smtp-Source: AGHT+IGEJLYduYUPeoDkIamTghfK6td5L59kTNjPxXBCyjG4pfVB1wPpXcD2GVk/GNmyMa7totuByg==
+X-Received: by 2002:a05:6512:1196:b0:548:91f6:4328 with SMTP id 2adb3069b0e04-54b011d5afamr2870433e87.15.1743147846331;
+        Fri, 28 Mar 2025 00:44:06 -0700 (PDT)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54b094bb32esm215589e87.26.2025.03.28.00.44.03
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54b094bb32esm215589e87.26.2025.03.28.00.44.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Mar 2025 00:44:03 -0700 (PDT)
+        Fri, 28 Mar 2025 00:44:05 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 28 Mar 2025 08:43:51 +0100
-Subject: [PATCH 01/12] ARM: dts: bcm6878: Correct UART0 IRQ number
+Date: Fri, 28 Mar 2025 08:43:52 +0100
+Subject: [PATCH 02/12] dt-bindings: rng: r200: Add interrupt property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250328-bcmbca-peripherals-arm-v1-1-e4e515dc9b8c@linaro.org>
+Message-Id: <20250328-bcmbca-peripherals-arm-v1-2-e4e515dc9b8c@linaro.org>
 References: <20250328-bcmbca-peripherals-arm-v1-0-e4e515dc9b8c@linaro.org>
 In-Reply-To: <20250328-bcmbca-peripherals-arm-v1-0-e4e515dc9b8c@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -92,8 +92,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-crypto@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_004406_726010_6429682A 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250328_004408_330965_B8BFB032 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,29 +108,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the vendor file 6878_intr.h the UART0 has IRQ
-28, not 32.
-
-Assuming this is a copy-and-paste error.
+This IP block has an interrupt. Add it and add it to the
+example as well.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/boot/dts/broadcom/bcm6878.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/devicetree/bindings/rng/brcm,iproc-rng200.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm6878.dtsi b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-index 70cf23a65fdb5ac7ed9eabc986f4ebb4df263c43..cf378970db08c05c40564a38931417a7be759532 100644
---- a/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-@@ -137,7 +137,7 @@ nandcs: nand@0 {
- 		uart0: serial@12000 {
- 			compatible = "arm,pl011", "arm,primecell";
- 			reg = <0x12000 0x1000>;
--			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&uart_clk>, <&uart_clk>;
- 			clock-names = "uartclk", "apb_pclk";
- 			status = "disabled";
+diff --git a/Documentation/devicetree/bindings/rng/brcm,iproc-rng200.yaml b/Documentation/devicetree/bindings/rng/brcm,iproc-rng200.yaml
+index 827983008ecf707019f45847cd86d5686e3b2469..817cbdaa2b2d75705eda212521186c40a9975ea0 100644
+--- a/Documentation/devicetree/bindings/rng/brcm,iproc-rng200.yaml
++++ b/Documentation/devicetree/bindings/rng/brcm,iproc-rng200.yaml
+@@ -20,11 +20,17 @@ properties:
+   reg:
+     maxItems: 1
+ 
++  interrupts:
++    maxItems: 1
++
+ additionalProperties: false
+ 
+ examples:
+   - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
+     rng@18032000 {
+         compatible = "brcm,iproc-rng200";
+         reg = <0x18032000 0x28>;
++        interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
+     };
 
 -- 
 2.48.1
