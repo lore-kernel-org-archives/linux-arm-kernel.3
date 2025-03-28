@@ -4,149 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB9BC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 15:28:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7FEC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 15:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ktZhJASY3Bmjxjrq8qUmB8aqIVCn0jPRenbvl4WejPo=; b=U/7BlSdz8Ybm+lysoa/vK35C+W
-	SKv1DDJRINZ0Wv6i8HISZ/pl6PIKGcQ2O7jNxFWH3Mx8mDMwqPxpq+nFsrYjgRirBM6NpkmC5R6BD
-	IblSeub1fmsv2QGKX6+s0jrSVR7i3S07dQEA2YItbPuFN+Lp4B0dGsUAS8DMRenMz5X/hi42Ux1il
-	DS6KJ/loS4rJ23gAO8bKnbXyo1m5meA4EYB5IwRsQ+6khU+mhNRF3CzbIuAqz1WysaR2vmVR3NECq
-	Fsx4t7O3ZZ5vs+AOsPw9L/pTTuwYvlHO1b/KNrBH4lxlJDotQjb1zq6flBucIG/xT0WfPqmde2t14
-	DpGxiovg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W7R2gZBzWBuPUH9E8mLgn5iH+bIAruEwVlJhbgs2hj4=; b=IeRwkW1HrZsnwcs9FgF3m1YM8H
+	whNOvdE6Mga5kM/Um32EeQo4/sx50ns5Bgz0RbxCbufUdkg6GDY4cA/ejxHhP0If1g7WOcQIJEPgk
+	wGqiONJ/2sjVJpLomCcFxNjMbAVA1SqWryPAwcEsjpEMZKFmSzXGYxxSPI9uxjJrYRPpjLq3+GJrd
+	jDgeQpJC8R6J7s+e5rGreqJuB54eCNnUnH87WWYh1YdBS4hd3tueiAykUo+Q1tIxLkUq7y+ow1kZd
+	8mNMr0JT2qpQecrT40u634RlVzpKp3Kpq5Xk3JXolJSVQc75OFcMPlcrOBUIRHPm22N0kjld2+oK7
+	U1zy0Eyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyBca-0000000DlxO-1xGf;
-	Fri, 28 Mar 2025 15:27:48 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1tyBeI-0000000Dm63-0XAr;
+	Fri, 28 Mar 2025 15:29:34 +0000
+Received: from mail-vk1-xa30.google.com ([2607:f8b0:4864:20::a30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyAzL-0000000De51-1n3B
+	id 1tyB0R-0000000DeFU-3YOK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 14:47:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Nuge7WeaHb+hjuRyo4mbuURBkzbntReKd1ZeC+J1n8qA6dp77CiLcFQX0LhGE0tpcK65hlkqGHdSxjGKRFndD7Cz8gYbH/a20aXdS/8B9kYiRmSnYHMpxiXZqS8IXyw3VjALTiUufJtZ1mFlUllC04EUIYqZ3ZTn6n28LxbLRZkDO0xOkVcwOV80Fjc8eawqjA72JSR+6xs+XlVM0FgSwE54cg5wFzoxcZa4HmLPrc2VT/fIkzK+yi/SFdYra2KjOpoeE59/ddPXxmLnmLSGbhvUAmht+PCAYIkOCPECnKexHGjIx5VZSQYacsU05PokXTBXzIGsHDz6xrN6lkm70Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ktZhJASY3Bmjxjrq8qUmB8aqIVCn0jPRenbvl4WejPo=;
- b=OFc4t5xEDiOhkJ7a2tZ3TpVGJS0j+z+6IgO8md8Ht4bmSVUhosJuk96LPhr84m2aj+eIsj57QfGvAIDPDpXTbEoTKfrplo/BTKEe+1HT1uv4hXR9IHEYiCYuj5Lmh1uLhxptmRqYg/Q0P/FnKIoyxGkcz14WR/KWUeO5DzGDGM2iNhaYPhApUc6nUgWMUrNiAANEncrtDCK+Eg+MosvI87YK9qHG7vWKO0bpZn+pjR2MMNKLc1DKpW50WY6NPXP8DuhhG14wve2W69bJkIAMh5x5XnnUZb0FnzOEkhS3kkmszVbuhqHWrOjgY+DLp0oePwbQUhetxr/t7X2ixMpbCA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ktZhJASY3Bmjxjrq8qUmB8aqIVCn0jPRenbvl4WejPo=;
- b=eQXn33nRLoM5cVTLROcadkXO55pazMoF3jlcEDvpSIIRrFGCsc8C+2Kg2g4x8ZnVkMV2WmvDnlnBDoimuQqueUl7F7l5H7PD2vdGZxW4dKjz5r6dmpFlS+nr6P4bW0X43HtmZj2Gnnj+f6ai6twC1tgmkOlmT279yKFYN/fzSwEYQv/jOj+D6sRL3yi6rtYiNPVAB2MYIHlSNc1fWm8kTtX8u8ksZ29qn5Q08XhhCXjlGHbc36SdHVXNCf6VHK+equSRS6RRnnTNNUuR+y2QUOWPtaDLfrCSMrNbQx8bWSu920z/LN4BynsNn3lBb2005KVW2hb838ieDhuY7a8y1w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PA4PR04MB9415.eurprd04.prod.outlook.com (2603:10a6:102:2aa::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.48; Fri, 28 Mar
- 2025 14:47:12 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%4]) with mapi id 15.20.8534.043; Fri, 28 Mar 2025
- 14:47:12 +0000
-Date: Fri, 28 Mar 2025 10:47:03 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kw@linux.com,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/6] PCI: imx6: Start link directly when workaround is
- not required
-Message-ID: <Z+a2Z0X9hZ5CDvsA@lizhi-Precision-Tower-5810>
-References: <20250328030213.1650990-1-hongxing.zhu@nxp.com>
- <20250328030213.1650990-2-hongxing.zhu@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250328030213.1650990-2-hongxing.zhu@nxp.com>
-X-ClientProxiedBy: SJ0PR13CA0103.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::18) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Fri, 28 Mar 2025 14:48:25 +0000
+Received: by mail-vk1-xa30.google.com with SMTP id 71dfb90a1353d-523ee30e0d4so1247951e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 07:48:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743173302; x=1743778102; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W7R2gZBzWBuPUH9E8mLgn5iH+bIAruEwVlJhbgs2hj4=;
+        b=Ohhg3683+x2YJQ5McSTnUrDc2Gn/uqlxXkp4nlMhvTRRcl4doicLkWahRDwZJQv3nx
+         0cnBRmfwa+MO3bLUNJv9CCmh/BVJoJOU3f+ewCUb4Zsn2FXPdAACEvFGWG79LtZNKac+
+         9s6zEe2oO6PyG1EVD0UArtOYuM1NAD0O/rYSxk4LprPOump/pHmDj6E0BNqsZiQ4Wmsh
+         gFK5NW6LwYSwBGIdIEFnrR5Imv7JdjnJilxdFzl22Jjh7e31IMCZcBMWIsX+Fyp1+ggn
+         zOCMl4iLcyIF1SkCEGKR5x/DBZhPox9tZ6hKWj/bRoSbpYE3mwW54tAOcQGyQmvvoIIW
+         P29w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743173302; x=1743778102;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=W7R2gZBzWBuPUH9E8mLgn5iH+bIAruEwVlJhbgs2hj4=;
+        b=HRMJ2zskwRwGVSv5DE8othO8aXxATdCij/SxIp9EbZgFkqI8nnilCacqldaJCo8HDt
+         a45acAaZqQJOicsV4+Uu2g349uK75G2pJ08x2ZxnJPMnXQ70XqaJ/OiuHR7B2hDpN/Ea
+         dPlcyFyEWx9L6awncyjhdq41ciq//buqsddy/7gyok4zabyDOFrGFwo1B8OWR7KcZj1o
+         wONcXcZDGgpRubjqZ4mm7TQj2MesQG3gq4QiOHBWTB1qOrfdj9I4ZhveDba6UxOjOnNi
+         qIz3Yussg1g2eilesteHaD5Bezq4yTcIlwKeID45SqEPAFwGgKHeTQw2vJ6+sm3b4M1+
+         AeQg==
+X-Forwarded-Encrypted: i=1; AJvYcCW4XEFN6CVd+IxNuerkPrNvmc9Yc6VrwCOOSq3Cb8RHTryhu4D1h5DNffYV81lAUsdJAkKFKSdSXZqXOhsce9Sp@lists.infradead.org
+X-Gm-Message-State: AOJu0YygStXBPORXdShXyODnEfnzc7KZSOw84QEQFspYJ869AmsABNLW
+	JtI6p05ZIirxt4si2XSnMwTK+ZVSGOQFgvNmp5MZ+QomwS10mEpMtPzfA4RXFZAaACXzSYMyqMr
+	XyQiEhoNv+c+DgVGE/5GIwpIaJ3u7iJE/QRc=
+X-Gm-Gg: ASbGncs9mFPr3Mzoph+pGptyCJkUcdQ1mLO2r9zcTRnKUoVMoYv7fMdg01sO3cLHx4B
+	ycJHvQVXO8Wwg5CBt180utvO3cr658yggmpJpNreA5CNp1ec0BXF1qFyvMOH7YRXwIuykU3ziVI
+	vgAHMXAwd2XdiX/OM/ttVD+Jm23PvdCwfDeDSOOsUWZcofo2J4bOvh7z9u
+X-Google-Smtp-Source: AGHT+IHouldgTyP6Q/w4w6vBsXV6nSeyEMfHGqZjhRlDBBXFbUfgEyb6My2WMEzsfSI0GSy57EiD1BG9iD1i8bsYjz8=
+X-Received: by 2002:a05:6122:3d0a:b0:525:a70d:3110 with SMTP id
+ 71dfb90a1353d-52600a8712bmr6248996e0c.8.1743173302143; Fri, 28 Mar 2025
+ 07:48:22 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PA4PR04MB9415:EE_
-X-MS-Office365-Filtering-Correlation-Id: 93779f73-7b1b-4060-e905-08dd6e076c55
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oSN7uql7dswu5q6OtbpfuWaIQJWru6iCweK1Mtuc8FTN7F4DMMOHTlsdVsYe?=
- =?us-ascii?Q?5gGJ3s3Wtbz5vI4Ib5R6fZn82ojaupi5OyIQcLD566WFrsyrSoDYIpJdbNim?=
- =?us-ascii?Q?qNCMlR7T7tw9SbnSCbpr0BfojJgRCi//Hk3nYL7/dJU/Gjap50eeQ/vpWNVK?=
- =?us-ascii?Q?G7EiIPCMgPuWjsBve4hULAJtpqicP3LPwCKkylS5F3srPB7hAIII9HUxygUb?=
- =?us-ascii?Q?W6M8QNLO4Zb98ujVpQfLxgL6y6nS6bBYbOLImXyY1ahOdMTlY803XI+X2qjK?=
- =?us-ascii?Q?w4aFB87NbH7ZYyf/rFtnnxMdnHGr+ds8fguu0pyzDtVyT71OIiPbGCPysbXp?=
- =?us-ascii?Q?xyXg6v22lnBJ3dXQpRgXliQ0bqgRPYkSaEuW37xUojEeYW6kroXivKIBACL/?=
- =?us-ascii?Q?ghpefAjuypLqgcezHntuy1nP67YV/fDiG3x+/j0fgYf+2kpO65jJGguicrvm?=
- =?us-ascii?Q?UFXQap9SKU4wlv+iZrRUt/EzzdTxaSXEF62KXtP2gcS4KponO7tQGfWBDMHj?=
- =?us-ascii?Q?atpfnA7Ildp65tB2euQdGH0jEvz3R3D4BbAGoePBAcc4/3mDEXvQ+rWJgXs6?=
- =?us-ascii?Q?Udq+jfs+cVN4OulMlGhYworO/Y9e6F1b3NrgYFfr2tOCxCXIL45riNDucTHP?=
- =?us-ascii?Q?1j3SMMo55Y9I4mWbf/lHeMNcxf7jokCjzAyvZMV7IURj5U89T2b4X+ngH6zj?=
- =?us-ascii?Q?IvuvGDdSSwRgpGzp5zXbJs2aKP9jsyeYfza9URg61m7ReKtLVkycCGH7yD/w?=
- =?us-ascii?Q?ZyC+ad3O288OZXn+DmhpHINa5HCgqL/y4xbrpm5I1UehcclZrVgyRMsZrLy+?=
- =?us-ascii?Q?+cXWd9Wy7ThhQ1vZc2ggIRpr2pvsTNb/gh1peEMjE9ewzV8Ud6oqp2goxkGl?=
- =?us-ascii?Q?h6bHhJ1R4lKbudfdHhU4qSA9/oTZe0JF9chWPSWkg2kazGZtBzF9E6+Y86oO?=
- =?us-ascii?Q?vJ+zUKVbdY+23b3ehCdUElM/0jcWboe1ep4ZMtqimlLtlUq8WkeVTTdPulkZ?=
- =?us-ascii?Q?fQasiB3C2hh3tTNEf3xse+VpfmmPfDzeroRS8x6N+9TYFnMgvejK2qFaIvzR?=
- =?us-ascii?Q?Xdapu5/FIvKWe8Ael6j/FPlUyAj8ISa3elghMHvPWLvNwV0vtDUNI2b7eG2L?=
- =?us-ascii?Q?XIyoUZTHHLXh+H2G2ebtJ1WG5qFVYgPwuhK1ZKixWji4Tddm+4rnTA69Dsgl?=
- =?us-ascii?Q?evzL70Vxo2gA0tBfXb9EsutqchqR8SP80nzJ8ebtsxZTJlGhAjYngUtplMY+?=
- =?us-ascii?Q?xwuE1YyAq1oWl+MN8yqAeHkxl3p2DjR2V+RQjvCZXW4mZP1XD3pA72vmRXor?=
- =?us-ascii?Q?5TFVnZA/GZmfiDvcR5NVmUT/KHImJfQMcb/dvZz3ZRQ0Prs9bEoLLfk8mc8h?=
- =?us-ascii?Q?lFaa1ez7Hn+PQNmVTQfpLhL3lV1kSmtgNDJgDlq5Xc/N2o1sAoiZTWNI1Cld?=
- =?us-ascii?Q?C2nF3dXhuyhb5Q75p8cvjBl46CJQyOp+?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?T1IBd06EuoAC+JzE1BqVraRyFOQzzHIsqViVSRUDZey0EAtJlD3pCC+2MB2r?=
- =?us-ascii?Q?3BTwDOKZe6ED91OHLPaXqthn+ykIkEA0c4qq6/0IAHieMLOHKfnyGPKn3D09?=
- =?us-ascii?Q?yO+QDiPXPwVcrSopoTt6ImAFATgpwzQbW7RhxqadHiyqkVFGg5VJdYxRuLsT?=
- =?us-ascii?Q?ZA/lVD2yZ0b8wziB7Mio3uISsu/DLqI6cwpca92rXRa2VvfW7uGDuQYRO3ea?=
- =?us-ascii?Q?riYUgO/YI/fw9elM1Qpaiqo7aS64nOrlvaLp3CFVZ7UOthEzFYz9wWX0hcpM?=
- =?us-ascii?Q?BsowDJk3ubI0vZ0FpHQLqcF08ShGOSAKgPTWWFt+pedE8kEBvek58zfyaCMK?=
- =?us-ascii?Q?o1Gr0Ba7hR7vadkWjNkXvMFd1BXnS0oSVT1GnVG0vXJJ0V04QQWJPxtBWZ9l?=
- =?us-ascii?Q?IruMsl/hbs0IhpgC9qV8kRFES3AlA0pp3M3gZ69IOAnMXj5O1udLtd+cHjpi?=
- =?us-ascii?Q?AyPk/TvNZ3Tj9e9y+xJXMyBtgCKKLwHTIwJOGGZqwW8V0vasXffAcVTEYc6d?=
- =?us-ascii?Q?9G4BfaxOS6X+rf+E6xzwxsdEB5GtJdxBzIxMUT5N/tuJHwHdC7wlzGz90mti?=
- =?us-ascii?Q?2AZxXsjW1OYXe1WJOyLfZjunC1mPwV+sgIJk+nIt8jz3vKeEGM772ZXrHv4r?=
- =?us-ascii?Q?5yT2ZakAQaZV2+7rH5WGYM8ZueqkRfJjpBUOAJ41KieSI6TMu7OH36Y2lDDz?=
- =?us-ascii?Q?cwlD+od5z+giES+PIDYC4a2KgdGQgsDjPtgOMc2g7AjiJ9b3WNSrQbNDVybn?=
- =?us-ascii?Q?eOCISKT02EUwt+kkkcDalHN70HwjOHgSbNRzwCc/GTytRoQaJZ1q9x0EEcnX?=
- =?us-ascii?Q?vrrNRR3Nx9xkKwqzj1VQhmeMzKsPiq0b40yvcdmaj/9ooq9A8VZpBSae/32H?=
- =?us-ascii?Q?kAxd5MWlbY2y6dOZgKO1uPqKHCkJiaHHWB6NE1s+8zQtFVCeO0BoPReYpbVg?=
- =?us-ascii?Q?2Kjy+9zFLmnXZVfiEIRtVxjtUAU/kLTbKg9B9wy3SzdqC79NDIS5Pgt/SFXz?=
- =?us-ascii?Q?/IoYSJ9IDzjXqiPCAarLH6i92qzew6GdyHTAZMYC0DjaWpEqtQw0pEwUogxG?=
- =?us-ascii?Q?QHNg79YPO5Q25LsV+zMaaPLcCdXSRUtXsrrAKzVlIRMhygXdckM/ptx2M0BK?=
- =?us-ascii?Q?4zBS2219azM4fZ3Ths/lHU0Ofk4Xx1CcxAZHiYYJ8ZDZvWqRusmEQ56j2Yag?=
- =?us-ascii?Q?WtyN+WeNxfo0xTlS5LCcS89YAEijgbVhzKfh+48JHKGwLjivD9qw+eWgXqwU?=
- =?us-ascii?Q?5bEK4vvXguy6SK8DVAHltasJqwKws3AJbfKE1Om6Nrt2vlsPCyuize7FFGCV?=
- =?us-ascii?Q?QJqyXlCz+8QiyR3+s+vbD5+B3fLV8VrFjejxvTRq61dfoABNW0ex11Qh3Nfx?=
- =?us-ascii?Q?eh8VrYJJN+2lQsDGV6WlKEtFIU8kiwQnxodJCDH8KhzWX7otIwHmeX7HEX4h?=
- =?us-ascii?Q?1KMqnSnhwio2pVa6kPLLuu8yXbZ02sIgmLcQXdq+GLdi1MHBBMQVLYJavmh7?=
- =?us-ascii?Q?ZucSs2jxw6Kfj1bZVjLpWxCujbzkhCZiMOBgsnFY8H8FSOPPLUnGWsYYCQbp?=
- =?us-ascii?Q?0BkNo6rz4Z+r7uNhAqzHAJQYnlEp72oE7FC657U2?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93779f73-7b1b-4060-e905-08dd6e076c55
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Mar 2025 14:47:12.0741
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: L84+g43BZRAYdD38b1pQC/zTZDGDtWBuTz/M4rKU4xfHR+UizaxGPdnZ9Ll2T1VDUOrslI2x0+G1GLrnbgVRWQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9415
+References: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250326143945.82142-3-prabhakar.mahadev-lad.rj@bp.renesas.com> <f03c3a6a-aa6c-47be-8a03-7486131f6d32@kernel.org>
+In-Reply-To: <f03c3a6a-aa6c-47be-8a03-7486131f6d32@kernel.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 28 Mar 2025 14:47:56 +0000
+X-Gm-Features: AQ5f1Jr8bCu5jfB7gzVdmCLWSNd82UxgDWDDpWjIQfNCBC-6gPx3a_B0ei82wkA
+Message-ID: <CA+V-a8vx2VKoADpw5rG0jH6773=QiHB=reNYBr4ncYZGS-H+XQ@mail.gmail.com>
+Subject: Re: [PATCH 02/15] dt-bindings: soc: renesas: Document RZ/V2N EVK board
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mmc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_074715_469582_AC5295D1 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20250328_074823_894085_8E397672 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,105 +107,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 11:02:08AM +0800, Richard Zhu wrote:
-> The current link setup procedure is one workaround to detect the device
-> behind PCIe switches on some i.MX6 platforms.
->
-> To describe more accurately, change the flag name from
-> IMX_PCIE_FLAG_IMX_SPEED_CHANGE to IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND.
->
-> Start PCIe link directly when this flag is not set on i.MX7 or later
-> platforms to simple and speed up link training.
->
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
+Hi Krzysztof,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Thank you for the review.
 
->  drivers/pci/controller/dwc/pci-imx6.c | 34 +++++++++++----------------
->  1 file changed, 14 insertions(+), 20 deletions(-)
+On Thu, Mar 27, 2025 at 7:41=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
 >
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index c1f7904e3600..57aa777231ae 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -91,7 +91,7 @@ enum imx_pcie_variants {
->  };
+> On 26/03/2025 15:39, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Add "renesas,rzv2n-evk" which targets the Renesas RZ/V2N ("R9A09G056")
+> > EVK board.
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > ---
+> Squash, previous patch makes no sense on its own.
 >
->  #define IMX_PCIE_FLAG_IMX_PHY			BIT(0)
-> -#define IMX_PCIE_FLAG_IMX_SPEED_CHANGE		BIT(1)
-> +#define IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND	BIT(1)
->  #define IMX_PCIE_FLAG_SUPPORTS_SUSPEND		BIT(2)
->  #define IMX_PCIE_FLAG_HAS_PHYDRV		BIT(3)
->  #define IMX_PCIE_FLAG_HAS_APP_RESET		BIT(4)
-> @@ -860,6 +860,12 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
->  	u32 tmp;
->  	int ret;
+Agreed, I will squash this as patch patch 1/15.
+
+> You, Renesas, already received exactly that feedback!
 >
-> +	if (!(imx_pcie->drvdata->flags &
-> +	    IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND)) {
-> +		imx_pcie_ltssm_enable(dev);
-> +		return 0;
-> +	}
-> +
->  	/*
->  	 * Force Gen1 operation when starting the link.  In case the link is
->  	 * started in Gen2 mode, there is a possibility the devices on the
-> @@ -896,22 +902,10 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
->  		dw_pcie_writel_dbi(pci, PCIE_LINK_WIDTH_SPEED_CONTROL, tmp);
->  		dw_pcie_dbi_ro_wr_dis(pci);
->
-> -		if (imx_pcie->drvdata->flags &
-> -		    IMX_PCIE_FLAG_IMX_SPEED_CHANGE) {
-> -
-> -			/*
-> -			 * On i.MX7, DIRECT_SPEED_CHANGE behaves differently
-> -			 * from i.MX6 family when no link speed transition
-> -			 * occurs and we go Gen1 -> yep, Gen1. The difference
-> -			 * is that, in such case, it will not be cleared by HW
-> -			 * which will cause the following code to report false
-> -			 * failure.
-> -			 */
-> -			ret = imx_pcie_wait_for_speed_change(imx_pcie);
-> -			if (ret) {
-> -				dev_err(dev, "Failed to bring link up!\n");
-> -				goto err_reset_phy;
-> -			}
-> +		ret = imx_pcie_wait_for_speed_change(imx_pcie);
-> +		if (ret) {
-> +			dev_err(dev, "Failed to bring link up!\n");
-> +			goto err_reset_phy;
->  		}
->
->  		/* Make sure link training is finished as well! */
-> @@ -1665,7 +1659,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX6Q] = {
->  		.variant = IMX6Q,
->  		.flags = IMX_PCIE_FLAG_IMX_PHY |
-> -			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE |
-> +			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
->  			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
->  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.dbi_length = 0x200,
-> @@ -1681,7 +1675,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX6SX] = {
->  		.variant = IMX6SX,
->  		.flags = IMX_PCIE_FLAG_IMX_PHY |
-> -			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE |
-> +			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
->  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.gpr = "fsl,imx6q-iomuxc-gpr",
->  		.ltssm_off = IOMUXC_GPR12,
-> @@ -1696,7 +1690,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX6QP] = {
->  		.variant = IMX6QP,
->  		.flags = IMX_PCIE_FLAG_IMX_PHY |
-> -			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE |
-> +			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
->  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.dbi_length = 0x200,
->  		.gpr = "fsl,imx6q-iomuxc-gpr",
-> --
-> 2.37.1
->
+I truly apologize for the oversight and appreciate your patience. I=E2=80=
+=99ll
+make sure this doesn=E2=80=99t happen again. Thank you for your understandi=
+ng.
+
+Cheers,
+Prabhakar
 
