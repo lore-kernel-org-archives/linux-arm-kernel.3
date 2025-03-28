@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D2BC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 22:55:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E8DC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 23:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hjn6OQfKcnQqzXpH9VPAPsfgl9EOnFCHDZpoojninHo=; b=I9jQXS/WJmx3nxDhmSSoYZfvhA
-	SW0rhdLBgI+H576vlZKtkW8Zo6X9j01ij+DuhEkae2iLWmkQu/ZfxG4K8jR+TbBgkmmYTsE474VWC
-	DF/A9DW2hRcj2y7WJS39Fn/iATi6Wo8ta8oaQo2wgMDRyBLbIvExyvtsGycc4w0t3TOO9rtPFg7R+
-	r2Cqlr+0rgreL/Z5kRuOMXtYkvFU+ObgSwDh1yWMaSVVFsKeMph5pSib8emtXyJ1xzu//thO+GBva
-	YPFO9JWMMOU3hYb7cf5+axsLQPB3KoDuzD1983lP9HO7nDPYJNRhUG3D0mK8Zn2cW2E7dCC/duogo
-	IKMQK3pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=STZ5FqUicffkrJ/L4Iet8L5svtmsV0SOVrQ2kmJ0+Bs=; b=XMNeRnXSId4MYgxBoPZdwTlGCG
+	aVP9bKX+VqwuO1xq5vDWpslSZ8MGHl6n2y3KE44hmTqqxJ9ywggQqYH6ZbatsBkdw+3AA0hD7sbi2
+	Q3LtDsg+gZBx9Vj/YW6cIFUcD6w8H1K1sfnlsVn6Rvm1tZo20XoLPz0GLtId+R3PgcRqOZ7POM7sB
+	yMWmUGPEec2zH7VLDFEJeE7OpQio/fksq38zecV79PajrcnEsEmz+G7uLXYV+YLjZ8ip2O0s0U5Ka
+	Ubv//kZDiCsmSenXTwXBCxrE6/kTv+IFrVVR9HI5EWNjh9JmgG0dfKYTeZsHm+a1a7cvdDA/mXPfX
+	3b0Iplew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyIbF-0000000EQyA-47SE;
-	Fri, 28 Mar 2025 22:54:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tyIrx-0000000ES4Y-1Yy0;
+	Fri, 28 Mar 2025 23:12:09 +0000
+Received: from out-173.mta1.migadu.com ([95.215.58.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyIZV-0000000EQlb-1DnC;
-	Fri, 28 Mar 2025 22:53:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C37B9A43040;
-	Fri, 28 Mar 2025 22:47:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 353EEC4CEE4;
-	Fri, 28 Mar 2025 22:53:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1743202383;
-	bh=uMHCMkIp1JpzwK/KslzBXCnJB3B/qFWTnmOMAK1in40=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ILMyTjyBso7K5+o4nbs26Pn5cHVWQm2GLLUBUU6L6Xi+fwqx2KCM3V3LBajgA8puB
-	 KnrvP/bQN8GP5OomQ+aEM6tjBdfck+qoFXs8ztHAbcsuc/oeySEGgq4ad2PiOAdMnP
-	 tYCiaYsel0JulQkbsLDNglaz+OTqx9udrazM6AgY=
-Date: Fri, 28 Mar 2025 15:53:01 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Shuah Khan <skhan@linuxfoundation.org>
-Cc: Guenter Roeck <linux@roeck-us.net>, Brendan Higgins
- <brendan.higgins@linux.dev>, David Gow <davidgow@google.com>, Rae Moar
- <rmoar@google.com>, Maxime Ripard <mripard@kernel.org>, Kees Cook
- <kees@kernel.org>, Alessandro Carminati <acarmina@redhat.com>,
- linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>, Arnd
- Bergmann <arnd@arndb.de>, =?ISO-8859-1?Q?Ma=EDra?= Canal
- <mcanal@igalia.com>, Dan Carpenter <dan.carpenter@linaro.org>, Daniel Diaz
- <daniel.diaz@linaro.org>, Arthur Grillo <arthurgrillo@riseup.net>, Naresh
- Kamboju <naresh.kamboju@linaro.org>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Ville =?ISO-8859-1?Q?Syrj=E4l=E4?=
- <ville.syrjala@linux.intel.com>, Daniel Vetter <daniel@ffwll.ch>, Thomas
- Zimmermann <tzimmermann@suse.de>, Alessandro Carminati
- <alessandro.carminati@gmail.com>, Jani Nikula <jani.nikula@intel.com>,
- dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, loongarch@lists.linux.dev, x86@kernel.org
-Subject: Re: [PATCH v4 00/14] Add support for suppressing warning backtraces
-Message-Id: <20250328155301.ab5514e2ab8043512a8527bd@linux-foundation.org>
-In-Reply-To: <a998f3fa-495c-4165-884a-a11c5cb61e96@linuxfoundation.org>
-References: <20250313114329.284104-1-acarmina@redhat.com>
-	<202503131016.5DCEAEC945@keescook>
-	<20250313-abiding-vivid-robin-159dfa@houat>
-	<c8287bde-fa1c-4113-af22-4701d40d386e@roeck-us.net>
-	<20250313150505.cf1568bf7197a52a8ab302e6@linux-foundation.org>
-	<a998f3fa-495c-4165-884a-a11c5cb61e96@linuxfoundation.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1tyIqB-0000000ERra-1y9h
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Mar 2025 23:10:22 +0000
 Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1743203414;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=STZ5FqUicffkrJ/L4Iet8L5svtmsV0SOVrQ2kmJ0+Bs=;
+	b=peZbvp+uX7RO7KoL4c5LkiMV9GUERmSid94u0cMFjbQaGFwSN2DSW1OpH1skNxvhkURo1A
+	jkRtr5yBcOCnJmSgWrw9Co3B0VdJ6u8y2RHP1+vpYoxZFStx1ZFVVelXjAe3Ngy7GVdL8c
+	sU5xd+qeBvnfJUH68MmOS8Qlx/oHez74A2izAtEDSVJfTD4Jj3VsTM3KLmrdP59ofcc/ig
+	MvkIz9QP/dgniHvjNifvgwaikCR1ZLkpxMPaQxn/bFsSgSO1BW6cvNDU7bDm3zPyTS5rcq
+	2m7l6bOb01EHQ4Jr7Bk80AsAO/1IfMSt2m9MUCzpb1As6R477TQ1Rsiq21gCmA==
+Content-Type: multipart/signed;
+ boundary=7c928e379149c708ec657bfbf13635c86dc30623af4f2b5a98f0c352d1dd;
+ micalg=pgp-sha256; protocol="application/pgp-signature"
+Date: Sat, 29 Mar 2025 00:09:37 +0100
+Message-Id: <D8SA0W2ZEAQ3.3BO4NMONFJCRC@cknow.org>
+Cc: "Ezequiel Garcia" <ezequiel@vanguardiasur.com.ar>, "Mauro Carvalho
+ Chehab" <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Heiko Stuebner" <heiko@sntech.de>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Hans Verkuil" <hverkuil@xs4all.nl>, "Nicolas
+ Dufresne" <nicolas.dufresne@collabora.com>, "Andrzej Pietrasiewicz"
+ <andrzej.p@collabora.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Sebastian
+ Reichel" <sebastian.reichel@collabora.com>, "Niklas Cassel"
+ <cassel@kernel.org>, "Alexey Charkov" <alchark@gmail.com>, "Dragan Simic"
+ <dsimic@manjaro.org>, "Jianfeng Liu" <liujianfeng1994@gmail.com>, "Jacopo
+ Mondi" <jacopo.mondi@ideasonboard.com>, "Sakari Ailus"
+ <sakari.ailus@linux.intel.com>, "Kieran Bingham"
+ <kieran.bingham@ideasonboard.com>, "Laurent Pinchart"
+ <laurent.pinchart@ideasonboard.com>, "Umang Jain"
+ <umang.jain@ideasonboard.com>, "Naushir Patuck" <naush@raspberrypi.com>,
+ "Jean-Michel Hautbois" <jeanmichel.hautbois@ideasonboard.com>, "Dmitry
+ Perchanov" <dmitry.perchanov@intel.com>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-staging@lists.linux.dev>,
+ <kernel@collabora.com>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 1/6] media: v4l2: Add NV15 and NV20 pixel formats
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Detlev Casanova" <detlev.casanova@collabora.com>,
+ <linux-media@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
+References: <20250325213303.826925-1-detlev.casanova@collabora.com>
+ <20250325213303.826925-2-detlev.casanova@collabora.com>
+In-Reply-To: <20250325213303.826925-2-detlev.casanova@collabora.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_155305_482253_1092F695 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20250328_161020_268108_F4CBC176 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,43 +90,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Mar 2025 16:14:55 -0600 Shuah Khan <skhan@linuxfoundation.org> wrote:
+--7c928e379149c708ec657bfbf13635c86dc30623af4f2b5a98f0c352d1dd
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-> On 3/13/25 16:05, Andrew Morton wrote:
-> > On Thu, 13 Mar 2025 11:31:12 -0700 Guenter Roeck <linux@roeck-us.net> wrote:
-> > 
-> >> On Thu, Mar 13, 2025 at 06:24:25PM +0100, Maxime Ripard wrote:
-> >>>>
-> >>>> Yeah, as with my prior review, I'm a fan of this. It makes a bunch of my
-> >>>> very noisy tests much easier to deal with.
-> >>>
-> >>> And for the record, we're also affected by this in DRM and would very
-> >>> much like to get it merged in one shape or another.
-> >>>
-> >>
-> >> I was unable to get maintainers of major architectures interested enough
-> >> to provide feedback, and did not see a path forward. Maybe Alessandro
-> >> has more success than me.
-> > 
-> > I'll put them into mm.git, to advance things a bit.
-> 
-> I haven't heard from kunit maintainers yet. This thread got lost
-> in inbox due to travel.
-> 
-> David/Brendan/Rae, Okay to take this series?
-> 
+Hi Detlev,
+
+On Tue Mar 25, 2025 at 10:22 PM CET, Detlev Casanova wrote:
+> From: Jonas Karlman <jonas@kwiboo.se>
 >
-> Andrew, Okay to take this through your tree - this needs merging.
+> Add NV15 and NV20 pixel formats used by the Rockchip Video Decoder for
+> 10-bit buffers.
+>
+> NV15 and NV20 is 10-bit 4:2:0/4:2:2 semi-planar YUV formats similar to
+> NV12 and NV16, using 10-bit components with no padding between each
+> component. Instead, a group of 4 luminance/chrominance samples are
+> stored over 5 bytes in little endian order:
+>
+> YYYY =3D UVUV =3D 4 * 10 bits =3D 40 bits =3D 5 bytes
+>
+> The '15' and '20' suffix refers to the optimum effective bits per pixel
+> which is achieved when the total number of luminance samples is a
+> multiple of 8 for NV15 and 4 for NV20.
+>
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> Tested-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Tested-by: Christopher Obbard <chris.obbard@collabora.com>
+> ---
+>  .../media/v4l/pixfmt-yuv-planar.rst           | 128 ++++++++++++++++++
+>  drivers/media/v4l2-core/v4l2-common.c         |   2 +
+>  drivers/media/v4l2-core/v4l2-ioctl.c          |   2 +
+>  include/uapi/linux/videodev2.h                |   2 +
+>  4 files changed, 134 insertions(+)
+>
+> diff --git a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst =
+b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
+> index b788f69338554..22cad8c9726bf 100644
+> --- a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
+> +++ b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
+> @@ -79,6 +79,13 @@ All components are stored with the same number of bits=
+ per component.
+>        - Cr, Cb
+>        - Yes
+>        - Linear
+> +    * - V4L2_PIX_FMT_NV15
+> +      - 'NV15'
+> +      - 10
+> +      - 4:2:0
+> +      - Cb, Cr
+> +      - Yes
+> +      - Linear
 
+In your cover letter you mentioned:
+Imported improvements from [1]
+[1]: https://lore.kernel.org/linux-media/20250225-rkvdec_h264_high10_and_42=
+2_support-v7-2-7992a68a4910@collabora.com/
 
-The review for 07/14 made me expect an update - perhaps tweak the asm
-constraints and add a comment.  This can be addressed later, as long as
-we don't forget.
+The changelog of "media: rkvdec: Add H.264 High 10 and 4:2:2 profile
+support" v7 had this:
+- Move V4L2_PIX_FMT_NV15/V4L2_PIX_FMT_NV20 documentation as suggested
 
-However
-https://lkml.kernel.org/r/20250324104702.12139E73-hca@linux.ibm.com
-needs to be addressed before a merge.  The series in mm.git breaks the
-s390 build.
+Following a comment on v6 of that series.
 
+But it seems these blocks are now placed at the location as it was in
+the v6 series, thus NOT importing its improvements?
 
+>      * - V4L2_PIX_FMT_NV12M
+>        - 'NM12'
+>        - 8
+> @@ -172,6 +179,13 @@ All components are stored with the same number of bi=
+ts per component.
+>        - Cr, Cb
+>        - Yes
+>        - Linear
+> +    * - V4L2_PIX_FMT_NV20
+> +      - 'NV20'
+> +      - 10
+> +      - 4:2:2
+> +      - Cb, Cr
+> +      - Yes
+> +      - Linear
+>      * - V4L2_PIX_FMT_NV16M
+>        - 'NM16'
+>        - 8
+
+The same thing seemed to have happened here?
+
+Cheers,
+  Diederik
+
+> @@ -302,6 +316,57 @@ of the luma plane.
+>        - Cr\ :sub:`11`
+> =20
+> =20
+> +.. _V4L2-PIX-FMT-NV15:
+> +
+> +NV15
+> +----
+> +
+> +Semi-planar 10-bit YUV 4:2:0 format similar to NV12, using 10-bit compon=
+ents
+> +with no padding between each component. A group of 4 components are stor=
+ed over
+> +5 bytes in little endian order.
+> +
+> +.. flat-table:: Sample 4x4 NV15 Image (1 byte per cell)
+> +    :header-rows:  0
+> +    :stub-columns: 0
+
+--7c928e379149c708ec657bfbf13635c86dc30623af4f2b5a98f0c352d1dd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZ+csSwAKCRDXblvOeH7b
+bnEaAQDRs0XJAsCh5SV9NORF9yiBN4xK9/ksqMZ7dptPRBqK+wEA6MAvdIFDX8KV
+IsH2OmXqqcmhBEjMEtZRNbYrv/vtFQM=
+=JnIi
+-----END PGP SIGNATURE-----
+
+--7c928e379149c708ec657bfbf13635c86dc30623af4f2b5a98f0c352d1dd--
 
