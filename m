@@ -4,61 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A8EC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 14:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FED6C36013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 14:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Ogm0LJ7VkP94MhhD6dwlFnwqrw4sCcq6nxTdivNOtU=; b=dHs4YLb49+MO3IdUcYvgOfqhtL
-	Z7KRle1SptB7XHgqbyCgg39wluk6p9DXWWff2eTYPRlwK4HsItPrH35m2+TtTDduMglZb2ckmXvEJ
-	fvYloI6PADaM0wS+I7FtoacelLLS1bCqn5IXlpg3/9KMY5cJrYr5PfKOUXZkqP5Wpwt2MYub0WWs3
-	SaUFL+LGT09m7b7r5EU8KeCpC6U56/JhwjlqfeJthePtJklEqNY968Bp1ExemQblkWZn1TO8mRDjh
-	PQxSVqVBN2bvJExUPGmk2H1q5W2Rg765S8sh3UeDpHCOsogdZGCWAFId2QYy332Fk6HLvDOAtc/nc
-	/cSr9Suw==;
+	bh=rv/iabu6WfCszRPYihS+4SVRdVorNaAcS98YDa/o1uE=; b=ZXzj3pg49yNvljhSZ+PsYKKtYD
+	FIXsFww0LbFwomXuc/0mQkHNBCFkrTk4MJp65h6X+QMZ8Owk862wsoRj3pv/hWYTSTnNL9kTJA5oJ
+	Yii18boweCT+medMNcCBGVlVdV/kWaG8qhCNSph6PgosnZlzeDImtbv7XTVSszJiFtWlQkVeFfspq
+	20rpSI72fLuk8wQhpzxbiU3zQF02Zy0UdSD78Pwrm+eYikYP7ToMwKKt6fycjQbTJkzGPZk+kMhDj
+	NN2xAvOcdYkYrIKghQdHcxss9EDfE29Kg/ERP7515jMzKBD4X2pTqbaJtVKJ8abh/ZsgQayo8uO+w
+	IaAHOYuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyB0t-0000000DeHu-3mxC;
-	Fri, 28 Mar 2025 14:48:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyA6p-0000000DUvL-23Ze
+	id 1tyB2c-0000000DeRj-2Sby;
+	Fri, 28 Mar 2025 14:50:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tyADs-0000000DWEG-3jsq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 13:50:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98F041691;
-	Fri, 28 Mar 2025 06:50:59 -0700 (PDT)
-Received: from [10.57.87.112] (unknown [10.57.87.112])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1646F3F63F;
-	Fri, 28 Mar 2025 06:50:52 -0700 (PDT)
-Message-ID: <ef307875-1fa1-45f4-8e42-ab78d87b3582@arm.com>
-Date: Fri, 28 Mar 2025 13:50:51 +0000
+	Fri, 28 Mar 2025 13:58:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1B1AE5C6300;
+	Fri, 28 Mar 2025 13:55:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A7DC4CEE4;
+	Fri, 28 Mar 2025 13:58:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743170291;
+	bh=XSCdrJQEWIrHVn8xzc9lalhtcwRlcYbMFTCUYLBYzZo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uLwVVrH5ItzcI4ZQSajfKuqiEq5I4+VGtgW/8u/y+sVxdWx2FPjjvo6QTgIrB8SZi
+	 uIZgVVAvJuBBaS5rxVUx3F2LYqlN+aV94yKfoRXzba4iT0DWmfajwob+kRCSjdFNW4
+	 hhEl/5VRAqvsjFRVaSAGChHIHkL/oFCMP0sdn06OFC6Hv6ihWZlejHWjoCRN3IGED3
+	 Ma/qW+1ph9p1J59eZR3lUuKa+8omGfu66/OZwnM3LoEbZ1m9BqdXr0Sd2lyKs5suX/
+	 OpMiYeRT/rMzGHLzVg4M0nbIh7mRg/95fU3x8M8YS3UQS9nuD1169bycGscRhGA+bF
+	 Puhzk33HuXKZA==
+Message-ID: <9a8635d8-631e-483f-9d31-33cf0bea7daf@kernel.org>
+Date: Fri, 28 Mar 2025 14:58:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] mm/filemap: Allow arch to request folio size for exec
- memory
-Content-Language: en-GB
-To: Zi Yan <ziy@nvidia.com>
-Cc: Matthew Wilcox <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
-References: <20250327160700.1147155-1-ryan.roberts@arm.com>
- <Z-WAbWfZzG1GA-4n@casper.infradead.org>
- <731D8D6E-52A0-4144-A2BB-7243BFACC92D@nvidia.com>
- <dfc06a39-3d92-4995-ab06-c552e351f7c8@arm.com>
- <8DEB30F0-52D0-4857-9BAC-CDAC045A396E@nvidia.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <8DEB30F0-52D0-4857-9BAC-CDAC045A396E@nvidia.com>
+Subject: Re: [PATCH 1/3] dt-bindings: add imx8mp-libra-rdk-fpsc
+To: Yannic Moog <y.moog@phytec.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: upstream@lists.phytec.de, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Benjamin Hahn <b.hahn@phytec.de>,
+ Jan Remmet <j.remmet@phytec.de>, Teresa Remmet <t.remmet@phytec.de>,
+ Yashwanth Varakala <y.varakala@phytec.de>
+References: <20250328-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v1-0-28324c7f81fa@phytec.de>
+ <20250328-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v1-1-28324c7f81fa@phytec.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250328-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v1-1-28324c7f81fa@phytec.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_065055_612663_AE62C14D 
-X-CRM114-Status: GOOD (  20.16  )
+X-CRM114-CacheID: sfid-20250328_065813_049512_DF358D63 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,64 +125,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/03/2025 09:32, Zi Yan wrote:
-> On 28 Mar 2025, at 9:09, Ryan Roberts wrote:
+On 28/03/2025 14:04, Yannic Moog wrote:
+> imx8mp-libra-rdk-fpsc is a development board based on the phyCORE-i.MX 8M
+> Plus FPSC SoM. Add its description and binding.
 > 
->> On 27/03/2025 20:07, Zi Yan wrote:
->>> On 27 Mar 2025, at 12:44, Matthew Wilcox wrote:
->>>
->>>> On Thu, Mar 27, 2025 at 04:06:58PM +0000, Ryan Roberts wrote:
->>>>> So let's special-case the read(ahead) logic for executable mappings. The
->>>>> trade-off is performance improvement (due to more efficient storage of
->>>>> the translations in iTLB) vs potential read amplification (due to
->>>>> reading too much data around the fault which won't be used), and the
->>>>> latter is independent of base page size. I've chosen 64K folio size for
->>>>> arm64 which benefits both the 4K and 16K base page size configs and
->>>>> shouldn't lead to any read amplification in practice since the old
->>>>> read-around path was (usually) reading blocks of 128K. I don't
->>>>> anticipate any write amplification because text is always RO.
->>>>
->>>> Is there not also the potential for wasted memory due to ELF alignment?
->>>> Kalesh talked about it in the MM BOF at the same time that Ted and I
->>>> were discussing it in the FS BOF.  Some coordination required (like
->>>> maybe Kalesh could have mentioned it to me rathere than assuming I'd be
->>>> there?)
->>>>
->>>>> +#define arch_exec_folio_order() ilog2(SZ_64K >> PAGE_SHIFT)
->>>>
->>>> I don't think the "arch" really adds much value here.
->>>>
->>>> #define exec_folio_order()	get_order(SZ_64K)
->>>
->>> How about AMD’s PTE coalescing, which does PTE compression at
->>> 16KB or 32KB level? It covers 4 16KB and 2 32KB, at least it will
->>> not hurt AMD PTE coalescing. Starting with 64KB across all arch
->>> might be simpler to see the performance impact. Just a comment,
->>> no objection. :)
->>
->> exec_folio_order() is defined per-architecture and SZ_64K is the arm64 preferred
->> size. At the moment x86 is not opted in, but they could choose to opt in with
->> 32K (or whatever else makese sense) if the HW supports coalescing.
+> Signed-off-by: Yannic Moog <y.moog@phytec.de>
+> ---
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
-> Oh, I missed that part. I thought, since arch_ is not there, it was the same
-> for all arch.
-> >>
->> I'm not sure if you thought this was global and are arguing against that, or if
->> you are arguing for it to be global because it will more easily show us
->> performance regressions earlier if x86 is doing this too?
-> 
-> I thought it was global. It might be OK to set it global and let different arch
-> to optimize it as it rolls out. Opt-in might be "never" until someone looks
-> into it, but if it is global and it changes performance, people will notice
-> and look into it.
+> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+> index 1b90870958a22e49355dd1f932bf3d84cd864b5f..22f05e6709fd60bef1d22a378cf0bd57090774d4 100644
+> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+> @@ -1156,6 +1156,13 @@ properties:
+>            - const: kontron,imx8mp-osm-s               # Kontron i.MX8MP OSM-S SoM
+>            - const: fsl,imx8mp
+>  
+> +      - description: PHYTEC phyCORE-i.MX8MP FPSC based boards
+> +        items:
+> +          - enum:
+> +              - phytec,imx8mp-libra-rdk-fpsc  # i.MX 8M Plus Libra RDK
+> +          - const: phytec,imx8mp-phycore-fpsc # phyCORE-i.MX 8M Plus FPSC
 
-Ahh now that we are both clear, I'd prefer to stick with the policy as
-implemented; exec_folio_order() defaults to "use the existing readahead method"
-but can be overridden by arches (arm64) that want specific behaviour (64K folios).
+And that's different than existing phycore som? You have entire commit
+msg to explain that.
 
-> 
-> --
-> Best Regards,
-> Yan, Zi
-
+Best regards,
+Krzysztof
 
