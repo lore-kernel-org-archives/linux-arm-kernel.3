@@ -4,110 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D149AC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 09:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E602FC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 09:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9hTW4/68sDHOOggMkMJh2LAQAZ5X6tT+n4eti7MNx+c=; b=giDSWqtPAUteG+dxcN5wWbvGq5
-	0EfBXP4n90dCQBHGGbf2F6uG5NSQtoS4fBCETjdUv45/tRt8331fF9rBYXwWC3ts9nLIGuku9bZDS
-	pAwywjlixv64zxDHEgBXCaZN8kbejOQRgOjrnhCgeCu6U1gKe7vYPeYiKEfM1k179qmYLdxG+yf8o
-	suugOepviR726lmOAAQuGNWd+2aJUzPblxs9GVbC7UFxp8Zo1bd1wjv5MN8FpVtU28g0PwD7deFzG
-	SsUws/ZqCUeiNUvaUz6POI0tDCoVgZaWqEfj9myfP7jUbzmVIvQU5lRxpOmyH/7EoOydLTYpCVVwn
-	HX1ME9Cw==;
+	bh=DblYywReEGB3Jd3PE0LbE/Jq4cSyUAJYOznikHNbaVU=; b=G0MyB4qrvqIrWuMRG3ybPZ5HtK
+	gR1W0qnqpJDKQWcA76oI3jVrhn/EfZ0M7RH0SKeNA+/gqVv5FtMIJslnuRc89exPnwnqRAJdZQQR+
+	+CIljK3YiZvKAEWyceIege5trhpAlZ8XxtjMugTwwhnJvm/l47kL9pQrMUQq61IP8szIDqMn+wJXn
+	wbbAPw38JlaU8Iw7Kt6Q6PsQT0hz+srlj8MmXXfcR7uT0jOQzESjAMU7svdWI1S+Y5JHkrraOCZXw
+	cOeQJizWZA9HAjHcgqyQ6j89baUR4fQWDk9L382Wx7K/cm4cS6rHg8BMjbhDkx42LG7lXpVS5mniO
+	CsAj3mLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty6BV-0000000D2tH-0Aef;
-	Fri, 28 Mar 2025 09:39:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ty6In-0000000D3xG-08Uh;
+	Fri, 28 Mar 2025 09:47:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty69j-0000000D2n4-1uWs
+	id 1ty6H3-0000000D3lX-1bPW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 09:37:40 +0000
+	Fri, 28 Mar 2025 09:45:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 78B67A41655;
-	Fri, 28 Mar 2025 09:32:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3417EC4CEE4;
-	Fri, 28 Mar 2025 09:37:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7306D614BC;
+	Fri, 28 Mar 2025 09:45:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 246D5C4CEE4;
+	Fri, 28 Mar 2025 09:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743154652;
-	bh=0fclWiepa/taOkA725bzSJS68oko6/7LBYyWLSBlxDk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q6zF2ynJhkl5yzeak6vXduN2dKM0dPK06WtOZjKVWlDcX+jDEkRlfrb0z/bpCWrFQ
-	 s1EcLmtlgGwo8b92WifNdbPK4wKYyywEvhNfjffG0Gpb/a53QnmBclbjvMOw8K3V1g
-	 acBPl828nzpd2rQwz6ZMuO1fHgaZabV8kL/ahqz1Oil8Z4bx/HO7332WS2hlwt3PxA
-	 L8ooAvtN2RxJ6f1ZnQ5eNiRvU5Kijdk5hXahXllqD4QS8M1X1K2Oj9VqYc+CAlLsSm
-	 S5All6X3M5xlVSZ6ymvycs7IvOPM2CEgibXJhF75BcZ2WoPemBh4NIBWVJvZBOzWO0
-	 9BhC0gm7ww3QQ==
-Message-ID: <aad0e28d-1164-47fb-b08b-ee70d94eab9c@kernel.org>
-Date: Fri, 28 Mar 2025 10:37:23 +0100
+	s=k20201202; t=1743155112;
+	bh=9h0GJzU6Aief9ThMESTGvq/UEVqXhEwYJGASD6M/NUc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GBHlJRpSIZQn96cJHjJLy3wu05TPyg5mO09E2xVwucYpNQ2bRpIUHBpzp/KLou7S6
+	 x93Lb4VopnCFGlKajP/00wL7cweb1eX+tgaAnKYp5D55b+9Hh4Awo3w4l4CHs1XP7v
+	 Xzd+0p2Hl89qgLRU7jCvUGjQfYgIqTuofWqjSS3dV56jvFbIX4FRAxnFBDvQnQ+LD8
+	 398Oipf/KwTJp9fwuyZK3hGwVpxu8FUU9TT3J55/AFdzuBq891qXJxdJ3Rf2bI4z9A
+	 3JOzmGIzsSV5tmFaknlYT9Isj1CG9YOl/OAI6zMqxb4QyPvYUu7w18FQp5sJ1sJq6P
+	 koxTGFAHOc9wg==
+Date: Fri, 28 Mar 2025 09:44:54 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Michael Hennerich <Michael.Hennerich@analog.com>, Kim
+ Seer Paller <kimseer.paller@analog.com>, Anshul Dalal
+ <anshulusr@gmail.com>, Ramona Gradinariu <ramona.gradinariu@analog.com>,
+ Antoniu Miclaus <antoniu.miclaus@analog.com>, Robert Budai
+ <robert.budai@analog.com>, Petre Rodan <petre.rodan@subdimension.ro>,
+ Andreas Klinger <ak@it-klinger.de>, Fabrice Gasnier
+ <fabrice.gasnier@foss.st.com>, Matti Vaittinen <mazziesaccount@gmail.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: iio: Correct indentation and style in
+ DTS example
+Message-ID: <20250328094454.3ec9dd7d@jic23-huawei>
+In-Reply-To: <20250324125313.82226-1-krzysztof.kozlowski@linaro.org>
+References: <20250324125313.82226-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 0/2] arm64: dts: fsd: Add Ethernet support for FSD SoC
-To: Swathi K S <swathi.ks@samsung.com>, krzk+dt@kernel.org,
- linux-fsd@tesla.com, robh@kernel.org, conor+dt@kernel.org,
- richardcochran@gmail.com, alim.akhtar@samsung.com
-Cc: jayati.sahu@samsung.com, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- pankaj.dubey@samsung.com, ravi.patel@samsung.com, gost.dev@samsung.com
-References: <CGME20250307045516epcas5p3b4006a5e2005beda04170179dc92ad16@epcas5p3.samsung.com>
- <20250307044904.59077-1-swathi.ks@samsung.com>
- <017801db9fbc$81bfa490$853eedb0$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <017801db9fbc$81bfa490$853eedb0$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_023739_637470_521FC7EF 
-X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,92 +82,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/03/2025 09:36, Swathi K S wrote:
-> 
-> 
->> -----Original Message-----
->> From: Swathi K S <swathi.ks@samsung.com>
->> Sent: 18 March 2025 16:22
->> To: 'krzk+dt@kernel.org' <krzk+dt@kernel.org>; 'linux-fsd@tesla.com'
->> <linux-fsd@tesla.com>; 'robh@kernel.org' <robh@kernel.org>;
->> 'conor+dt@kernel.org' <conor+dt@kernel.org>; 'richardcochran@gmail.com'
->> <richardcochran@gmail.com>; 'alim.akhtar@samsung.com'
->> <alim.akhtar@samsung.com>
->> Cc: 'jayati.sahu@samsung.com' <jayati.sahu@samsung.com>; 'linux-arm-
->> kernel@lists.infradead.org' <linux-arm-kernel@lists.infradead.org>; 'linux-
->> samsung-soc@vger.kernel.org' <linux-samsung-soc@vger.kernel.org>;
->> 'devicetree@vger.kernel.org' <devicetree@vger.kernel.org>; 'linux-
->> kernel@vger.kernel.org' <linux-kernel@vger.kernel.org>;
->> 'netdev@vger.kernel.org' <netdev@vger.kernel.org>;
->> 'pankaj.dubey@samsung.com' <pankaj.dubey@samsung.com>;
->> 'ravi.patel@samsung.com' <ravi.patel@samsung.com>;
->> 'gost.dev@samsung.com' <gost.dev@samsung.com>
->> Subject: RE: [PATCH v8 0/2] arm64: dts: fsd: Add Ethernet support for FSD
->> SoC
->>
->>
->>
->>> -----Original Message-----
->>> From: Swathi K S <swathi.ks@samsung.com>
->>> Sent: 07 March 2025 10:19
->>> To: krzk+dt@kernel.org; linux-fsd@tesla.com; robh@kernel.org;
->>> conor+dt@kernel.org; richardcochran@gmail.com;
->>> alim.akhtar@samsung.com
->>> Cc: jayati.sahu@samsung.com; swathi.ks@samsung.com; linux-arm-
->>> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org;
->>> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org;
->>> netdev@vger.kernel.org; pankaj.dubey@samsung.com;
->>> ravi.patel@samsung.com; gost.dev@samsung.com
->>> Subject: [PATCH v8 0/2] arm64: dts: fsd: Add Ethernet support for FSD
->>> SoC
->>>
->>> FSD platform has two instances of EQoS IP, one is in FSYS0 block and
->>> another one is in PERIC block. This patch series add required DT file
->>> modifications for the same.
->>>
->>> Changes since v1:
->>> 1. Addressed the format related corrections.
->>> 2. Addressed the MAC address correction.
->>>
->>> Changes since v2:
->>> 1. Corrected intendation issues.
->>>
->>> Changes since v3:
->>> 1. Removed alias names of ethernet nodes
->>>
->>> Changes since v4:
->>> 1. Added more details to the commit message as per review comment.
->>>
->>> Changes since v5:
->>> 1. Avoided inserting node in the end and inserted it in between as per
->>> address.
->>> 2. Changed the node label.
->>> 3. Separating DT patches from net patches and posting in different
->> branches.
->>>
->>> Changes since v6:
->>> 1. Addressed Andrew's review comment and removed phy-mode from
->> .dtsi
->>> to .dts
->>>
->>> Changes since v7:
->>> 1. Addressed Russell's review comment-Implemented clock tree setup in
->>> DT
->>>
->>
->> Hi,
->> The DT binding and driver patches corresponding to this patch is now
->> reflecting in linux-next
->> https://web.git.kernel.org/pub/scm/linux/kernel/git/next/linux-
->> next.git/diff/Documentation/devicetree/bindings/net/tesla,fsd-
->> ethqos.yaml?id=f654ead4682a1d351d4d780b1b59ab02477b1185
->>
-> 
-> Hi reviewers, 
-> Could you please confirm whether this set of patches can be considered for review or should I resend them?
+On Mon, 24 Mar 2025 13:53:12 +0100
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> wrote:
 
-Don't ping during merge window.
+> DTS example in the bindings should be indented with 2- or 4-spaces and
+> aligned with opening '- |', so correct any differences like 3-spaces or
+> mixtures 2- and 4-spaces in one binding.
+> 
+> No functional changes here, but saves some comments during reviews of
+> new patches built on existing code.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Applied both patches to my testing branch. I'll rebase on rc1 once
+that is available and push out as togreg.
 
-Best regards,
-Krzysztof
+Thanks,
+
+Jonathan
+> ---
+>  .../bindings/iio/adc/st,stm32-adc.yaml        | 102 +++++++++---------
+>  1 file changed, 51 insertions(+), 51 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml b/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml
+> index ef9dcc365eab..17bb60e18a1c 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml
+> @@ -498,7 +498,7 @@ patternProperties:
+>  examples:
+>    - |
+>      // Example 1: with stm32f429, ADC1, single-ended channel 8
+> -      adc123: adc@40012000 {
+> +    adc123: adc@40012000 {
+>          compatible = "st,stm32f4-adc-core";
+>          reg = <0x40012000 0x400>;
+>          interrupts = <18>;
+> @@ -512,28 +512,28 @@ examples:
+>          #address-cells = <1>;
+>          #size-cells = <0>;
+>          adc@0 {
+> -          compatible = "st,stm32f4-adc";
+> -          #io-channel-cells = <1>;
+> -          reg = <0x0>;
+> -          clocks = <&rcc 0 168>;
+> -          interrupt-parent = <&adc123>;
+> -          interrupts = <0>;
+> -          st,adc-channels = <8>;
+> -          dmas = <&dma2 0 0 0x400 0x0>;
+> -          dma-names = "rx";
+> -          assigned-resolution-bits = <8>;
+> +            compatible = "st,stm32f4-adc";
+> +            #io-channel-cells = <1>;
+> +            reg = <0x0>;
+> +            clocks = <&rcc 0 168>;
+> +            interrupt-parent = <&adc123>;
+> +            interrupts = <0>;
+> +            st,adc-channels = <8>;
+> +            dmas = <&dma2 0 0 0x400 0x0>;
+> +            dma-names = "rx";
+> +            assigned-resolution-bits = <8>;
+>          };
+>          // ...
+>          // other adc child nodes follow...
+> -      };
+> +    };
+>  
+>    - |
+>      // Example 2: with stm32mp157c to setup ADC1 with:
+>      // - channels 0 & 1 as single-ended
+>      // - channels 2 & 3 as differential (with resp. 6 & 7 negative inputs)
+> -      #include <dt-bindings/interrupt-controller/arm-gic.h>
+> -      #include <dt-bindings/clock/stm32mp1-clks.h>
+> -      adc12: adc@48003000 {
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/clock/stm32mp1-clks.h>
+> +    adc12: adc@48003000 {
+>          compatible = "st,stm32mp1-adc-core";
+>          reg = <0x48003000 0x400>;
+>          interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>,
+> @@ -550,27 +550,27 @@ examples:
+>          #address-cells = <1>;
+>          #size-cells = <0>;
+>          adc@0 {
+> -          compatible = "st,stm32mp1-adc";
+> -          #io-channel-cells = <1>;
+> -          reg = <0x0>;
+> -          interrupt-parent = <&adc12>;
+> -          interrupts = <0>;
+> -          st,adc-channels = <0 1>;
+> -          st,adc-diff-channels = <2 6>, <3 7>;
+> -          st,min-sample-time-nsecs = <5000>;
+> -          dmas = <&dmamux1 9 0x400 0x05>;
+> -          dma-names = "rx";
+> +            compatible = "st,stm32mp1-adc";
+> +            #io-channel-cells = <1>;
+> +            reg = <0x0>;
+> +            interrupt-parent = <&adc12>;
+> +            interrupts = <0>;
+> +            st,adc-channels = <0 1>;
+> +            st,adc-diff-channels = <2 6>, <3 7>;
+> +            st,min-sample-time-nsecs = <5000>;
+> +            dmas = <&dmamux1 9 0x400 0x05>;
+> +            dma-names = "rx";
+>          };
+>          // ...
+>          // other adc child node follow...
+> -      };
+> +    };
+>  
+>    - |
+>      // Example 3: with stm32mp157c to setup ADC2 with:
+>      // - internal channels 13, 14, 15.
+> -      #include <dt-bindings/interrupt-controller/arm-gic.h>
+> -      #include <dt-bindings/clock/stm32mp1-clks.h>
+> -      adc122: adc@48003000 {
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/clock/stm32mp1-clks.h>
+> +    adc122: adc@48003000 {
+>          compatible = "st,stm32mp1-adc-core";
+>          reg = <0x48003000 0x400>;
+>          interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>,
+> @@ -587,28 +587,28 @@ examples:
+>          #address-cells = <1>;
+>          #size-cells = <0>;
+>          adc@100 {
+> -          compatible = "st,stm32mp1-adc";
+> -          #io-channel-cells = <1>;
+> -          reg = <0x100>;
+> -          interrupts = <1>;
+> -          #address-cells = <1>;
+> -          #size-cells = <0>;
+> -          channel@13 {
+> -            reg = <13>;
+> -            label = "vrefint";
+> -            st,min-sample-time-ns = <9000>;
+> -          };
+> -          channel@14 {
+> -            reg = <14>;
+> -            label = "vddcore";
+> -            st,min-sample-time-ns = <9000>;
+> -          };
+> -          channel@15 {
+> -            reg = <15>;
+> -            label = "vbat";
+> -            st,min-sample-time-ns = <9000>;
+> -          };
+> +            compatible = "st,stm32mp1-adc";
+> +            #io-channel-cells = <1>;
+> +            reg = <0x100>;
+> +            interrupts = <1>;
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +            channel@13 {
+> +                reg = <13>;
+> +                label = "vrefint";
+> +                st,min-sample-time-ns = <9000>;
+> +            };
+> +            channel@14 {
+> +                reg = <14>;
+> +                label = "vddcore";
+> +                st,min-sample-time-ns = <9000>;
+> +            };
+> +            channel@15 {
+> +                reg = <15>;
+> +                label = "vbat";
+> +                st,min-sample-time-ns = <9000>;
+> +            };
+>          };
+> -      };
+> +    };
+>  
+>  ...
+
 
