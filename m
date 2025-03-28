@@ -4,109 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D234C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 10:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187DBC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 10:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J44WYwbQmwUxJSoY1CFYPYmUkjVg/QF5th50I1dm/fA=; b=JEaNxafnW69fJtPc3KcAaC3RfJ
-	/Z7Z7JNWfaj5yTHrZcoM/kiDiMvCjjVKcHhpKLeS2zWDxScie5YIPL6iEWIojmORbPX6I7WRY/i2y
-	H9MxHuNCbnWERILO/ytAb8bnlPjDK/ylfIZlsyqiWhoPZvOOAB5Mel9O4BX5d+iR5bN0OxNv7/FXf
-	xIjQDoPPkwEiKPqPjYQPsN7X+eBEBCZtZgrLMqvNeshi7j6TB5eZJa7w1qhgCI2TcHKG5haw7Ub0m
-	AUed2Wd/XV4Hv7yM1iLhwfqfcVHTNhTB70QkpHbhIAwEtXU553/whrFz0nVcY0BHSvvVt3RQQzVrF
-	qNjs3Oog==;
+	Content-Type:MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I2eMAS1QoFOyVHmK1FI/Y9oGcQmoyT9GZd4/d7u4S2Y=; b=1czGDi2F421tFALQYsgS6lLR4+
+	Gj86JsOMHN40XaprXMR1BqxcTvwzFaFK3n6iInkEJpNdYl6jAAvNpT5kJeVbLvG4li3oJ13kRBC7l
+	IYoN4HZCjE74nSn1rM7HvHRB6DD/aKniK9VVl/Ele+Z7swVq59qbMkAseNnIELoiO4ErogkT0uCFb
+	rs61gw8oWMkYY8p21bOitlTGkA6zvo9poJ4QgjI0u2RmO4jUI5qIoBJHcLogD0ZyIa8Xr9d5OeKs+
+	/M9R/+fDRmpymDczDdx0yts1nJSoyoJNNSZH+CvbwZSTVAIvGAaUr4RlmdCizk7m0SakGO0A8/Qis
+	H0goc8QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty6d4-0000000D5yT-1sYM;
-	Fri, 28 Mar 2025 10:07:58 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1ty6rG-0000000D7GQ-1ZBp;
+	Fri, 28 Mar 2025 10:22:38 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty6ax-0000000D5Pe-3lIC
+	id 1ty6pV-0000000D76n-2BJu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 10:05:49 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 72179752;
-	Fri, 28 Mar 2025 11:03:54 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1743156235;
-	bh=Q0o2ssfPoSfk2eKGd9eiql4gPDexAE3aFwWQnyBXpoc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mX1QPbBLJEwxALUPzb156MKV7SX+inreNYBm1ScvPWaks58uWu+fV/tcaklVvTsIA
-	 QsMAdJlOTcp43Stn5phQRP81RA6BYehj+ymIfGqdx8MPUTI+sHkXBIq2xHfYbcYmmH
-	 LyDXuwvul+c+1V32lfPmjo2JJLj0GTUU4SBuiiws=
-Message-ID: <5282b9f9-edef-45fd-8228-16096981a11a@ideasonboard.com>
-Date: Fri, 28 Mar 2025 12:05:40 +0200
+	Fri, 28 Mar 2025 10:20:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1743157247; bh=I2eMAS1QoFOyVHmK1FI/Y9oGcQmoyT9GZd4/d7u4S2Y=;
+	h=From:To:Cc:Subject:Date;
+	b=D18MpWGLOQ1fSszwG+hGtGFG6ZLCM238mK3A/sa7ATAFJFlDbOaB8RTqtiTPn8UNW
+	 hwhXT1ugIJE7znrNzkcZ22X/+aoPnnDuVC88HxZ5RdYiHSk2RPkNDF5zPA0yjj569V
+	 zG3Y/vbJp+br9nrit0UjJGISWtajczE+RkHPnAmk=
+Received: from mail.red54.com ([139.99.8.57])
+	by newxmesmtplogicsvrszc11-0.qq.com (NewEsmtp) with SMTP
+	id 5179D080; Fri, 28 Mar 2025 18:20:23 +0800
+X-QQ-mid: xmsmtpt1743157223tws36nd57
+Message-ID: <tencent_3E8155B4A33D48D6637F16CFE5ED293F0E08@qq.com>
+X-QQ-XMAILINFO: NQR8mRxMnur9ApmSjGAwIgWVyFsdwRYfpF6XWUljFL9CGWaXb+SYBegsQSuHDa
+	 nI0O7Z+SDmOWqkDMzxaTGO3i7OLfvQtyuwZTtBFzupP2Hhi4/Jw0ie/8c8I+9e9Bz6rOBMDvmpFh
+	 LjGhF4kIEyIHDng1mYjUXoPH/4hAt1ExAxHyDIfOuEOFGTrXsz1GvmEJgWev5InZEOe6XNT7KOfG
+	 i+HZ/Z8zXKp6BCf6dZqzZu88SHg3p70mUuuoE+JaMupi7pDsHUdXqEHfjnuAX0bXY4RfnpDdI+Tt
+	 3Sw1o6aBIdLu/e9hsxnwp8ecxctSB/sw0x8xjmVnfImb9HwPWjXX3ON6RwRge8jWYKHuusMa8QCE
+	 fOJ/7yfeH6Ls7UxIifcVcAHwbZVKQcPbeZTbFFnf6M5GlqlSWispUd5euM/9w7l3l8kjcMHZh2H0
+	 IiXm0GawkZ3AIq37R9Ec3IIvjMhEWkV9E2FTWEoDH9HX4/rkDkwUplHMODNOWqBdAgAMr1k/QgVz
+	 h1KVDcnqTnjgu/3rTRmLBOtdjqcYkaCvD6w4L5KBBTmu5zaaiZ3ZUVFi7KBY7OmDSR4AEUzsYXGc
+	 TBJpGK6KdTXxMYWh/rYT9ZBfLvakVZvrdm8Bp2o7o6Boa3NUhrC0gpBirYS2yYMfJ+mf0E8wgspC
+	 ZZkBLrUnYNo1X0qpepJJBohoWZaRGZQO3Hz7/W+K/nuCV32tdCjA9LEtI+DPfQQd16sdOqXfAAJ2
+	 Nom+TP5uAR4l6SFs8+vfPoKIFsaXqicDrtE/bePN7AHSNRUM08NAOwgGIVFhhGUX5EBpR9Szz+fm
+	 SJ3ijjMWKDtbF9BKHbKYHxbM7noR0mR3er4vNLCs4eqKUIS4BL/6TzKLKoeVBFHAD+O9VY+/oNoE
+	 tdl99IPisRdF7LTjyQ/MrnZzdJDveQYP5gUDYegQ/QIQWOeliZU44VZHgARWnCbF10OfdZzWcDyZ
+	 vN6+jra0REvKMV93KNnddkuFcsX60ue7kGgVMA6s/9mG3jF+u1aw==
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+From: Yeking@Red54.com
+To: linux-arm-kernel@lists.infradead.org
+Cc: =?UTF-8?q?=E8=B0=A2=E8=87=B4=E9=82=A6=20=28XIE=20Zhibang=29?= <Yeking@Red54.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Eric Biggers <ebiggers@google.com>,
+	Yuntao Liu <liuyuntao12@huawei.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Dave Vasilevsky <dave@vasilevsky.ca>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Victor Boivie <victor.boivie@sonyericsson.com>,
+	Nicolas Pitre <nico@fluxnic.net>,
+	Oskar Andero <oskar.andero@sonyericsson.com>,
+	Bjorn Andersson <bjorn.andersson@sonyericsson.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: Fix support for CMDLINE_EXTEND
+Date: Fri, 28 Mar 2025 10:20:17 +0000
+X-OQ-MSGID: <20250328102017.53121-1-Yeking@Red54.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/11] drm/fourcc: Add DRM_FORMAT_XV15/XV20
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
- <20250326-xilinx-formats-v4-2-322a300c6d72@ideasonboard.com>
- <20250327223449.GA16629@pendragon.ideasonboard.com>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20250327223449.GA16629@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_030548_083203_84C2AE27 
-X-CRM114-Status: GOOD (  24.53  )
+X-CRM114-CacheID: sfid-20250328_032049_879355_3BB8D035 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,96 +96,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: 谢致邦 (XIE Zhibang) <Yeking@Red54.com>
 
-On 28/03/2025 00:34, Laurent Pinchart wrote:
-> Hi Tomi,
-> 
-> Thank you for the patch.
-> 
-> On Wed, Mar 26, 2025 at 03:22:45PM +0200, Tomi Valkeinen wrote:
->> Add two new pixel formats:
->>
->> DRM_FORMAT_XV15 ("XV15")
->> DRM_FORMAT_XV20 ("XV20")
->>
->> The formats are 2 plane 10 bit per component YCbCr, with the XV15 2x2
->> subsampled whereas XV20 is 2x1 subsampled.
->>
->> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
->> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
->> ---
->>   drivers/gpu/drm/drm_fourcc.c  | 6 ++++++
->>   include/uapi/drm/drm_fourcc.h | 8 ++++++++
->>   2 files changed, 14 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
->> index 2f5781f5dcda..e101d1b99aeb 100644
->> --- a/drivers/gpu/drm/drm_fourcc.c
->> +++ b/drivers/gpu/drm/drm_fourcc.c
->> @@ -346,6 +346,12 @@ const struct drm_format_info *__drm_format_info(u32 format)
->>   		{ .format = DRM_FORMAT_P030,            .depth = 0,  .num_planes = 2,
->>   		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
->>   		  .hsub = 2, .vsub = 2, .is_yuv = true},
->> +		{ .format = DRM_FORMAT_XV15,		.depth = 0,  .num_planes = 2,
->> +		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
->> +		  .hsub = 2, .vsub = 2, .is_yuv = true },
->> +		{ .format = DRM_FORMAT_XV20,		.depth = 0,  .num_planes = 2,
->> +		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
->> +		  .hsub = 2, .vsub = 1, .is_yuv = true },
-> 
-> It appears we can never have too much (or enough) documentation, as
-> reading the format info documentation leaves me with unanswered
-> questions.
-> 
-> Looking at drm_format_info_min_pitch():
-> 
-> uint64_t drm_format_info_min_pitch(const struct drm_format_info *info,
-> 				   int plane, unsigned int buffer_width)
-> {
-> 	if (!info || plane < 0 || plane >= info->num_planes)
-> 		return 0;
-> 
-> 	return DIV_ROUND_UP_ULL((u64)buffer_width * info->char_per_block[plane],
-> 			    drm_format_info_block_width(info, plane) *
-> 			    drm_format_info_block_height(info, plane));
-> }
-> 
-> For the first plane, the function will return `buffer_width * 4 / 3`
-> (rouding up), which I think is right. For the second plane, it will
-> return `buffer_width * 8 / 3`, which I believe is wrong as the format is
-> subsampled by a factor 2 horizontally. It seems that either
-> char_per_block and block_w need to take horizontal subsampling into
-> account (and therefore be 8 and 6 for the second plane), or
-> drm_format_info_min_pitch() should consider .hsub. Or there's something
-> else I'm missing :-)
+It should be the default command line appended to the bootloader command
+line, not the bootloader command line appended to the default command
+line.
 
-The buffer_width is already divided by the hsub, in 
-drm_format_info_plane_width().
+This will be consistent with the behavior of FDT, EFI, and other
+platforms.
 
->>   	};
->>   
->>   	unsigned int i;
->> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
->> index 81202a50dc9e..1247b814bd66 100644
->> --- a/include/uapi/drm/drm_fourcc.h
->> +++ b/include/uapi/drm/drm_fourcc.h
->> @@ -304,6 +304,14 @@ extern "C" {
->>   #define DRM_FORMAT_RGB565_A8	fourcc_code('R', '5', 'A', '8')
->>   #define DRM_FORMAT_BGR565_A8	fourcc_code('B', '5', 'A', '8')
->>   
->> +/*
->> + * 2 plane 10 bit per component YCrCb
->> + * index 0 = Y plane, [31:0] x:Y2:Y1:Y0 2:10:10:10 little endian
->> + * index 1 = Cb:Cr plane, [63:0] x:Cr2:Cb2:Cr1:x:Cb1:Cr0:Cb0 2:10:10:10:2:10:10:10 little endian
-> 
-> I believe this is right, but I have a hard time validating it, as I
-> think the corresponding figures in UG1085 are incorrect (they show a
-> 8bpp format as far as I can tell). Do I assume correctly that you've
-> tested the formats ?
+Fixes: 4394c1244249 ("ARM: 6893/1: Allow for kernel command line concatenation")
+Signed-off-by: 谢致邦 (XIE Zhibang) <Yeking@Red54.com>
+---
+ arch/arm/Kconfig              |  4 ++--
+ arch/arm/kernel/atags_parse.c | 10 +++++-----
+ 2 files changed, 7 insertions(+), 7 deletions(-)
 
-Yes. kms++'s master branch has support for all the formats in this series.
-
-  Tomi
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 25ed6f1a7c7a..635e4da33fff 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -1534,8 +1534,8 @@ config CMDLINE_FROM_BOOTLOADER
+ config CMDLINE_EXTEND
+ 	bool "Extend bootloader kernel arguments"
+ 	help
+-	  The command-line arguments provided by the boot loader will be
+-	  appended to the default kernel command string.
++	  The default kernel command string will be appended to the
++	  command-line arguments provided by the boot loader.
+ 
+ config CMDLINE_FORCE
+ 	bool "Always use the default kernel command string"
+diff --git a/arch/arm/kernel/atags_parse.c b/arch/arm/kernel/atags_parse.c
+index 4ec591bde3df..bd163f00602e 100644
+--- a/arch/arm/kernel/atags_parse.c
++++ b/arch/arm/kernel/atags_parse.c
+@@ -120,15 +120,15 @@ __tagtable(ATAG_REVISION, parse_tag_revision);
+ 
+ static int __init parse_tag_cmdline(const struct tag *tag)
+ {
+-#if defined(CONFIG_CMDLINE_EXTEND)
+-	strlcat(default_command_line, " ", COMMAND_LINE_SIZE);
+-	strlcat(default_command_line, tag->u.cmdline.cmdline,
+-		COMMAND_LINE_SIZE);
+-#elif defined(CONFIG_CMDLINE_FORCE)
++#if defined(CONFIG_CMDLINE_FORCE)
+ 	pr_warn("Ignoring tag cmdline (using the default kernel command line)\n");
+ #else
+ 	strscpy(default_command_line, tag->u.cmdline.cmdline,
+ 		COMMAND_LINE_SIZE);
++#if defined(CONFIG_CMDLINE_EXTEND)
++	strlcat(default_command_line, " ", COMMAND_LINE_SIZE);
++	strlcat(default_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
++#endif
+ #endif
+ 	return 0;
+ }
+-- 
+2.43.0
 
 
