@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02937C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 22:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE2EC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 22:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NRoSmZerjcWNJMKApvxHU572E9gAzbyUGVwA014Um5g=; b=vveplus3rNhfD8uYhP0uX+o9qU
-	NuT32hhfkcNMO1DboarCHe8E3jD47d7uzlRrJjIyqwB+a6QQbamS8IKqE3wZT9lwcTVnn5la2FG7x
-	we1K5as1KA6a/T4ckMg301n2Arkd+/eNCYpD6j91kf9YvR5aLPWpNXLF4NEmei5ADpyfZQ45tTIO5
-	7JutdSA3PjPpD8fekfCLjEhDJpV1rYk9IDgTlmqoyvsQ0jCrEgV+/daqOLSOD45+9XIRTTpg3jeQ9
-	gCS7XZGpVWVyvCh0mflDjdtbfsFrKQFJXD65lwqVVtTBLS/YoWR2+o+SPqzGBPW0g2ClU7WIREWrJ
-	ivNGbjAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cc5P5hGT8omPbAoKUs5LB2twNDU/1hPEvDD6Kld6z5Y=; b=HRcowQxgdAxbtAQgcOCFwpZKyM
+	FubD4cWvVKrfeT05DRecdAw8XJ5IbS6/rVlNbOH4JJXwDloCK0Zt3gt+bB7hqMsp6NX6NgwYYnuEr
+	4ypvwayARQ0PKj5U8Ohn+9gR5hy8YZ8E658eASHmPCutD8ZERyxpUpbL4/MaHncg3GuMau5gYK7oP
+	6eBdOud+6Vqp37Jg/k7TCb1g+xXeH1WAYb6DYBi3P6y9RWhLHkGqDSVwndAIJ4+5qShbqWgNKHi0x
+	yirlzE7gMFeG0H29UAd3qJtplIyy6Hpss76fJGRWIoMxceZRJ1klZ9kZ1/nS2bs4Qd8gswvVwqrsS
+	1AGUYdRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyINM-0000000EQ7Z-3jte;
-	Fri, 28 Mar 2025 22:40:32 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1tyIYR-0000000EQgo-14UC;
+	Fri, 28 Mar 2025 22:51:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyILb-0000000EPr3-0p2F
+	id 1tyIWi-0000000EQcH-1YSY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 22:38:44 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff7cf599beso4707586a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 15:38:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743201522; x=1743806322; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=NRoSmZerjcWNJMKApvxHU572E9gAzbyUGVwA014Um5g=;
-        b=2UGZDMThT284w55Pt43SfDXiUwbvMSgAVta+7n9390BQDN8vl+QdbhuSKOjZq4JfQO
-         4+EdL6/sHO7ygosJM28Y283IUW3/+7Mk20vPB6nyJzSIZlTIpUbANMocs0dC7CcASsZc
-         pzb5KDjIdLOyqEN8aFr6sEhy1X0XqfBwdp8mpfZLNPqNVs2uhWuApAqlNu2OltyLQd5h
-         1EqKP96j14kU/4qEVGr3j6+B2Ulst9Xc7bTjQsWRLRpiKLgOW59eKz69MNuZK8c0gKw7
-         2u6MdnASSTwUaz6Xj3Pyywv3Bov5rzFBkIaaBqk7Fgc85d4t4eulbvBlXB8AimoGyGcd
-         MnfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743201522; x=1743806322;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NRoSmZerjcWNJMKApvxHU572E9gAzbyUGVwA014Um5g=;
-        b=iKItbsxEElW6fImK7LWgmzM7V2+T9cCymKTQAVVu2LO2cNAhQcwgR/AneN+eu40lp2
-         soF1I0U8PHB8v+HbBZLSy/z+5Zfq8lveRNMDK3zFm65kD5IzSGwLEyI79l7EwM+CLhOc
-         iLHJB8E+gBEWz3ioOvMxgYV/0mfPU+VWny1lcY2LHPHQ0nObrwkKDlhXuMM/YQIz1J0K
-         vL24U/M0YdexbURXDq38i8O/yYtLQkvwwPCvZpR7Nzvvv56tMk0p4MY9uyzcvPOBgpyk
-         BnZ5UC/TMzbBdCcxGPxTfe3J8j+/xCOeYEQGTtANkRNU8RlIypp3KQsWThY0mAwMMJHC
-         fg0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW9k/PDw9pLLcERFqkfhQ8Zz8Ao+9SDNwGg9tc5V3dFJbfEUBH8lRVfPQGm/2aGeWdkTk5VVZ6FMsqairrdkfsG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyw1UeL1AwQ41FyutHR/+2/nOkVjs8PEHZ9Q3X+bmXN2wUN4dp9
-	XM03FCyLQ2WFDLptBWpXCUHNBYJAuhWDSHpeiQwAb4YPxN0ojnTcTKUngrBW+AFF+2n8cjsKfJY
-	l
-X-Google-Smtp-Source: AGHT+IGeQZV4YMlQxGu7ri71cw78XHpKeqc/l8mlvDEHbjUvRl4ijS7WcnHjYHx3fHp6/g82yZfeWhv+0gw=
-X-Received: from pjbdb4.prod.google.com ([2002:a17:90a:d644:b0:2ef:8055:93d9])
- (user=yabinc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4b41:b0:2ee:ee77:227c
- with SMTP id 98e67ed59e1d1-30531f782c1mr1299876a91.3.1743201521746; Fri, 28
- Mar 2025 15:38:41 -0700 (PDT)
-Date: Fri, 28 Mar 2025 15:38:37 -0700
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.49.0.472.ge94155a9ec-goog
-Message-ID: <20250328223837.2314277-1-yabinc@google.com>
-Subject: [PATCH] coresight: catu: Introduce refcount and spinlock for enabling/disabling
-From: Yabin Cui <yabinc@google.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Yabin Cui <yabinc@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_153843_254324_1651072E 
-X-CRM114-Status: GOOD (  19.15  )
+	Fri, 28 Mar 2025 22:50:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 06E6E6115E;
+	Fri, 28 Mar 2025 22:50:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C00BC4CEE5;
+	Fri, 28 Mar 2025 22:50:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743202210;
+	bh=pIhGQE/1P2w/Z6ls3ujHTWGCRkN+4MM0yocX26uPY40=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XJ3f5Km6mArkj8v01eNpCYx7SZ40tboCBXWtdtmqATSFapWM1xgUuCuACHaSmbHrs
+	 lD+Ix4vvP0uZAW/7qXQM2aK4fFMJDX0pYiqxyYTNeIWLJfxnvr3WFi806A3XtkWIEr
+	 oFdnRYIRlphqA5hM5W6nFw3/eO+eak625GqZ/etC7BFxtPIOtTpSYTwxw4MR0KSJxI
+	 b1i8Y2bvPUQKBhleqQWokXdfbePYoU2qW4J9DuA/gebeqg5CJ9WMkTDJB6Zxqr+aP1
+	 /1xgWGriqqsBNYs6/fLHFoZD9Pn7Vg6CrjCChlMgfWhv3CEYjN7+p+nCB5rj8pqcwh
+	 RKerLvIYlyO6w==
+Date: Sat, 29 Mar 2025 01:50:02 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Dev Jain <dev.jain@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, gshan@redhat.com,
+	steven.price@arm.com, suzuki.poulose@arm.com,
+	tianyaxiong@kylinos.cn, ardb@kernel.org, david@redhat.com,
+	ryan.roberts@arm.com, urezki@gmail.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: pageattr: Explicitly bail out when changing
+ permissions for vmalloc_huge mappings
+Message-ID: <Z-cnmklGUojMzsUF@kernel.org>
+References: <20250328062103.79462-1-dev.jain@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250328062103.79462-1-dev.jain@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,102 +72,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When tracing ETM data on multiple CPUs concurrently via the
-perf interface, the CATU device is shared across different CPU
-paths. This can lead to race conditions when multiple CPUs attempt
-to enable or disable the CATU device simultaneously.
+On Fri, Mar 28, 2025 at 11:51:03AM +0530, Dev Jain wrote:
+> arm64 uses apply_to_page_range to change permissions for kernel VA mappings,
 
-To address these race conditions, this patch introduces the
-following changes:
+                                                     for vmalloc mappings ^
 
-1. The enable and disable operations for the CATU device are not
-   reentrant. Therefore, a spinlock is added to ensure that only
-   one CPU can enable or disable a given CATU device at any point
-   in time.
+arm64 does not allow changing permissions to any VA address right now.
 
-2. A reference counter is used to manage the enable/disable state
-   of the CATU device. The device is enabled when the first CPU
-   requires it and is only disabled when the last CPU finishes
-   using it. This ensures the device remains active as long as at
-   least one CPU needs it.
+> which does not support changing permissions for leaf mappings. This function
+> will change permissions until it encounters a leaf mapping, and will bail
+> out. To avoid this partial change, explicitly disallow changing permissions
+> for VM_ALLOW_HUGE_VMAP mappings.
+> 
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  arch/arm64/mm/pageattr.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 39fd1f7ff02a..8337c88eec69 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -96,7 +96,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>  	 * we are operating on does not result in such splitting.
+>  	 *
+>  	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
+> -	 * Those are guaranteed to consist entirely of page mappings, and
+> +	 * Disallow VM_ALLOW_HUGE_VMAP vmalloc mappings so that
 
-Signed-off-by: Yabin Cui <yabinc@google.com>
----
- drivers/hwtracing/coresight/coresight-catu.c | 29 ++++++++++++++------
- drivers/hwtracing/coresight/coresight-catu.h |  1 +
- 2 files changed, 22 insertions(+), 8 deletions(-)
+I'd keep mention of page mappings in the comment, e.g
 
-diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-index 275cc0d9f505..834a7ffbbdbc 100644
---- a/drivers/hwtracing/coresight/coresight-catu.c
-+++ b/drivers/hwtracing/coresight/coresight-catu.c
-@@ -458,12 +458,19 @@ static int catu_enable_hw(struct catu_drvdata *drvdata, enum cs_mode cs_mode,
- static int catu_enable(struct coresight_device *csdev, enum cs_mode mode,
- 		       void *data)
- {
--	int rc;
-+	int rc = 0;
-+	unsigned long flags;
- 	struct catu_drvdata *catu_drvdata = csdev_to_catu_drvdata(csdev);
- 
--	CS_UNLOCK(catu_drvdata->base);
--	rc = catu_enable_hw(catu_drvdata, mode, data);
--	CS_LOCK(catu_drvdata->base);
-+	spin_lock_irqsave(&catu_drvdata->spinlock, flags);
-+	if (csdev->refcnt == 0) {
-+		CS_UNLOCK(catu_drvdata->base);
-+		rc = catu_enable_hw(catu_drvdata, mode, data);
-+		CS_LOCK(catu_drvdata->base);
-+	}
-+	if (!rc)
-+		csdev->refcnt++;
-+	spin_unlock_irqrestore(&catu_drvdata->spinlock, flags);
- 	return rc;
- }
- 
-@@ -486,12 +493,17 @@ static int catu_disable_hw(struct catu_drvdata *drvdata)
- 
- static int catu_disable(struct coresight_device *csdev, void *__unused)
- {
--	int rc;
-+	int rc = 0;
-+	unsigned long flags;
- 	struct catu_drvdata *catu_drvdata = csdev_to_catu_drvdata(csdev);
- 
--	CS_UNLOCK(catu_drvdata->base);
--	rc = catu_disable_hw(catu_drvdata);
--	CS_LOCK(catu_drvdata->base);
-+	spin_lock_irqsave(&catu_drvdata->spinlock, flags);
-+	if (--csdev->refcnt == 0) {
-+		CS_UNLOCK(catu_drvdata->base);
-+		rc = catu_disable_hw(catu_drvdata);
-+		CS_LOCK(catu_drvdata->base);
-+	}
-+	spin_unlock_irqrestore(&catu_drvdata->spinlock, flags);
- 	return rc;
- }
- 
-@@ -550,6 +562,7 @@ static int __catu_probe(struct device *dev, struct resource *res)
- 	dev->platform_data = pdata;
- 
- 	drvdata->base = base;
-+	spin_lock_init(&drvdata->spinlock);
- 	catu_desc.access = CSDEV_ACCESS_IOMEM(base);
- 	catu_desc.pdata = pdata;
- 	catu_desc.dev = dev;
-diff --git a/drivers/hwtracing/coresight/coresight-catu.h b/drivers/hwtracing/coresight/coresight-catu.h
-index 141feac1c14b..663282ec6381 100644
---- a/drivers/hwtracing/coresight/coresight-catu.h
-+++ b/drivers/hwtracing/coresight/coresight-catu.h
-@@ -65,6 +65,7 @@ struct catu_drvdata {
- 	void __iomem *base;
- 	struct coresight_device *csdev;
- 	int irq;
-+	spinlock_t spinlock;
- };
- 
- #define CATU_REG32(name, offset)					\
+	* Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
+	* mappings are updated and splitting is never needed.
+
+With this and changelog updates Ryan asked for
+
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+
+
+>  	 * splitting is never needed.
+>  	 *
+>  	 * So check whether the [addr, addr + size) interval is entirely
+> @@ -105,7 +105,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>  	area = find_vm_area((void *)addr);
+>  	if (!area ||
+>  	    end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
+> -	    !(area->flags & VM_ALLOC))
+> +	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
+>  		return -EINVAL;
+>  
+>  	if (!numpages)
+> -- 
+> 2.30.2
+> 
+
 -- 
-2.49.0.472.ge94155a9ec-goog
-
+Sincerely yours,
+Mike.
 
