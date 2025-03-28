@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D444AC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 12:38:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF49C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 12:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s91gS3ZTf8YeYYH5MnclAC4ck1ph3hH5lBLldv1VsOA=; b=yFw+SXVU0WLu+5jNZhVlDWx2IJ
-	4IbMZMRKWH6wGCaKbc7GxTAkybh6B+IQRbwILFan17Xydnw10Nok5lLVg9MDNqlIOq4QPNYUFVhjP
-	ImutVrF53XeQKz3LkSvgLZfP1Xb7bSuOCZ1LnGWM1xpokjnqLzMfmQP5mtxGIX1Rj8+OFwK2vidSW
-	MQVTjANS5jiHHGyezePJnXS4snns5Hs47Fb6EmajtZNv+cvapQ5O4Dxsl/Q0eNB5KCh/qa+fmc78z
-	MsjbS7x1A8uaYH7SsImkvFVJzF0x11Z4YqzzKkFnOgpsu53QeP6oQeSlHNTLhRdC3O9MUQbmdE1M7
-	LAaWRf+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vnX3eQ6ImWFHV3yinCub9dwiAWQ/AdU8d6C5xkRCwOM=; b=xdgHyw97Mii7WTR+d6MLocUsAr
+	gxZRfVoC3hGtQipV7iZdzUlyHdgUd6+tWovvw3A7uFuWYVEDB5d4g5SvCq1qMY1uxMjJ2yioPS4Xg
+	B8ILQa2D7BpgbMXu54BsDXvaCae/oVQmNE7L0edlY4MDY8fEbU91JKUlWRIF7LZG8PMMvKMtPzYPM
+	aCdFsSGA4BmnyQb0lpR79FPb2aibx+s8myk9OB9ns0iIQyaJT6j9es1JEMFN3qzVuh1a23boG3t98
+	pNIe0Umk/f182Ovb8BUHp2dr9pT5GnEfGb4u7Z8vsFsD3XkvdWBqWqXyaWZOGOtp/x8p3Ce9a06Me
+	nJO1LUTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty8yS-0000000DKKA-35Sk;
-	Fri, 28 Mar 2025 12:38:12 +0000
-Received: from mail-pj1-f44.google.com ([209.85.216.44])
+	id 1ty94w-0000000DL3g-2ECA;
+	Fri, 28 Mar 2025 12:44:54 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty8wc-0000000DK7P-0751;
-	Fri, 28 Mar 2025 12:36:19 +0000
-Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-30362ee1312so3668187a91.0;
-        Fri, 28 Mar 2025 05:36:17 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743165377; x=1743770177;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s91gS3ZTf8YeYYH5MnclAC4ck1ph3hH5lBLldv1VsOA=;
-        b=LIl1YPUwyE8L+eJiu6rI9sXW0Zrx/Yax2Cw2uLYPpv/bnNimVvbfJpGuDs2TmYJEE+
-         9yv7UhScOMpZFJQ3I5q4XJz9Tn7eDCpCeQ200ZoZNbzw4nUs1hYEm9NsIYgL+pnf/8nS
-         Z8xmRnqTVLjrtPz81pydU4SwB78R8HLhzug1Mk2cCzBaViF6+7cVNM9VIQoPT29KHBc7
-         fjIncHM+riCeIyLEfwMjrcBUY6BFNjOPe7iT2F+SzjJwSOsbWp4AOoifzs0zk+gkfvHm
-         maR2BgOxxDsh9HcScje7vqFM7q09FQ1LvM3YhRRGyWKvifX3+LvdTBB/Dg3ggiypb5BF
-         hVlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVaU/O1SWhAr9GUfcxq+j5+urTne4VuGXNFUgrTLBtpAlEjFMza1x51r4qj/se4w2ME1UsWx8wsLd8HwAT4t7Q=@lists.infradead.org, AJvYcCX90gM4wj3ZnQNA1qf0PloFH1SaxUo95mwrO3PDhFxFu0Sm9ZdrgvHbN9aUy0OLs5NKSyFN8NsN2E9d4EdlIas+@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywshqqte7YL5xyStjVLbk7GS8CWNVBM9iD9XdBOAiLnuNns624u
-	h0bm5x9YQUbqjA2JDuGZmyctJRFN20w/mr4MgkwLCHF28vZQJj+j
-X-Gm-Gg: ASbGnctzihOy+xIulMrv4fF3gL56ILTC84r3R3XKkVgQD6ZB0aKzXyFOx8Mpk4h0ZVT
-	pH94qFClnF4PDmd52qVx5+K5msD7znsP3WLNXPSSU1maElPLLae+NhDKVRhFbO1kK5IE1+o6EJE
-	r6kC/bqPovAWC8cIZK0Bgv0mqiL+NEIJYIHtzj3m+HGPjlLZqMYmMI4lF8dJ2e0BwvJX8RUSpW3
-	xCGvsKolLGGx96emo7Agk3492OZm5limrnnPGD1KcQkLVsip4uNrxHlCIQ8UZuw0R0tXVVIJBVx
-	2nhmyBAri686ip/Z8vcQoAQlI8JAmGnNw05lTZkWQ9c8LjUVa8ZulMbyhf8m4jqXCQ3uRJlQDu5
-	m6A0SF5r9C4+3OA==
-X-Google-Smtp-Source: AGHT+IGlAd66FNmavdbS7CR1qNFbwkljXHkJb48mCAC2R7hMVIyBsmG47UAORbPRGzD6ZvlyCmfhIQ==
-X-Received: by 2002:a17:90a:c2cb:b0:2ee:d024:e4fc with SMTP id 98e67ed59e1d1-303a8e78b3emr12478191a91.33.1743165376962;
-        Fri, 28 Mar 2025 05:36:16 -0700 (PDT)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-30516d61686sm1690708a91.22.2025.03.28.05.36.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Mar 2025 05:36:16 -0700 (PDT)
-Date: Fri, 28 Mar 2025 21:36:14 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] PCI: rockchip-ep: Mark RK3399 as intx_capable
-Message-ID: <20250328123614.GA1188225@rocinante>
-References: <20250326200115.3804380-2-cassel@kernel.org>
- <20250328122123.GA1187318@rocinante>
+	id 1ty93B-0000000DKlz-03uv
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Mar 2025 12:43:07 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52SCh0Ol2149260
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 28 Mar 2025 07:43:00 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1743165780;
+	bh=vnX3eQ6ImWFHV3yinCub9dwiAWQ/AdU8d6C5xkRCwOM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=KutOjeNG6E928QIhhp6BEZu1OUKddC2aamjOjK+7Z3uTxxtq/oCZMZi7GeS8bNcGH
+	 SKZXtVdRxuJ9r6MTTqs5rYvpciQPe0ptnxnLP2imOBlcLAK5KWvGrLxqjWKi1g8k/3
+	 ptooCMuhlInRQ4sZiQ+jUrxcgb9xXU17ixenjA00=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52SCh0mK001229
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 28 Mar 2025 07:43:00 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 28
+ Mar 2025 07:42:59 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 28 Mar 2025 07:43:00 -0500
+Received: from [10.24.69.37] (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37] (may be forged))
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52SCguCw001359;
+	Fri, 28 Mar 2025 07:42:57 -0500
+Message-ID: <71f19095-02c5-4d9a-8c6f-c51fb4ea9b36@ti.com>
+Date: Fri, 28 Mar 2025 18:12:56 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250328122123.GA1187318@rocinante>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: soc: ti: bist: Add BIST for K3
+ devices
+To: Krzysztof Kozlowski <krzk@kernel.org>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20250328111439.374748-1-n-francis@ti.com>
+ <20250328111439.374748-2-n-francis@ti.com>
+ <fc4d9a33-2d3f-47e2-b1cf-59962cc54bce@kernel.org>
+Content-Language: en-US
+From: Neha Malcom Francis <n-francis@ti.com>
+In-Reply-To: <fc4d9a33-2d3f-47e2-b1cf-59962cc54bce@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_053618_062956_FC271154 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250328_054305_150456_198A98BA 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,30 +90,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On 28/03/25 17:18, Krzysztof Kozlowski wrote:
+> On 28/03/2025 12:14, Neha Malcom Francis wrote:
+>> +properties:
+>> +  compatible:
+>> +    const: ti,j784s4-bist
+>> +
+>> +  reg:
+>> +    maxItems: 2
+>> +
+>> +  reg-names:
+>> +    items:
+>> +      - const: cfg
+>> +      - const: ctrl_mmr
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +  power-domains:
+>> +    maxItems: 1
+>> +
+>> +  ti,bist-under-test:
+>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>> +    description:
+>> +      the device IDs of the devices under test control of the BIST device, the
+> 
+> Still not phandle... What is a "device ID"?
 
-> > RK3399 can raise INTx interrupts, as can be seen by
-> > rockchip_pcie_ep_send_intx_irq().
-> > 
-> > This is also in line with the register description of
-> > PCIE_CLIENT_LEGACY_INT_CTRL, section "17.6.3 PCIe Client Detail Register
-> > Description" of the RK3399 TRM.
-> > 
-> > Thus, mark RK3399 as intx_capable.
-> 
-> Replaced the following commit:
-> 
->   e55c67837a8c ("PCI: dw-rockchip: Endpoint mode cannot raise INTx interrupts")
-> 
-> With this one directly on the "endpoint-test" branch.  This is per the
-> conversation at:
-> 
->   https://lore.kernel.org/linux-pci/20250318103330.1840678-6-cassel@kernel.org
-> 
-> Thank you!
+I took a shot at working with the phandle, however the test devices may
+or may not be present in the devicetree at bootloader stage which is the
+only place this BIST driver can execute (I know I shouldn't be bringing
+up the driver here but it's crucial to how I can model this property).
+HW mandates you run it as early as possible before any other software
+executes on the test device.
 
-That said, Bjorn is preparing this Pull Request, this might not make the
-cut at this time.
+So now thinking of other possible ways to define the test devices, we
+have unique HW identifiers [1] for each of the device which is what I've
+used here...
 
-	Krzysztof
+[1]
+https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/arm/keystone/ti%2Ck3-sci-common.yaml#L31
+
+> 
+>> +      number of devices may be more than one. The HW logic will trigger the
+>> +      tests on all of these devices at once.
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - reg-names
+>> +  - ti,bist-under-test
+>> +
+>> +additionalProperties: false
+> 
+> 
+> Best regards,
+> Krzysztof
+
+-- 
+Thanking You
+Neha Malcom Francis
 
