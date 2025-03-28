@@ -4,108 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E58FC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 11:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D9E7C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 11:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=is5p35pvqs0Bq6yH1m/fRKqUY3zKsEbOxj1CWHDiN7I=; b=2HwMNkoXO4kCjNaKK9LrBtOEFD
-	DNML6Z0ucH5QO1JzX4xVvoFuo3wIHTQRv2GAuxYS6AAGG5qKmBt4xgtg4jFw+P40p1em4HFhVrb0z
-	1H7niMbKgan8Q6ajrsNb1yZ2csQW81TYbkC6Y9jUyjkxQvSRGDDe4dbpEeBPMsNYnDBf2Rm6Sns6j
-	gk+y81LVUztPwnIZWh5jw02HDrhh5FNtXEFz6DQfFw86eXX0Dx5hBZsYUPTx2kKmy8T23aLXwd/TB
-	cm+cV7ErQFh63yqqk29PvzVpEVDn7vGBY/9bn9lU8vZZ5cJlqtUkbJ71NDkQoHqQLpYBbFSfLS1VP
-	TKvRuJ6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YGI/j4ynqxN6GqQggKFCvfGgUMFQAVYXUDeIgesP+LI=; b=aWslkHQoTvdXXA0Y6MlgDgyrVw
+	ndIxbZq+4MZ7i+sipoW45CvOYF5kWhF6StFzD3E/DuKxW7HmDSD43YvNo/Se5e7oQOR8Sbc5rPUfH
+	A127n92BI2SHet4crr8Wc841ahJKqDPoqoxevD2XbXdNx9qz/tgV1JA8Dp38Q3BfXJURciqXBe4sd
+	gJmz4fV9aJc6V7BIVvDEulw8cbeNpTDq/nTP++z8Z/LVL6oPwDDjc1YYiqQZiSVW+oGAYL8ceXw5t
+	huFV1FfGg7go9/YkgrUM2bSOYV5q57o8smXjBy9e+aixTTv38fEKjX39wkrsOQb0JGMajjpfzvbzn
+	mbVp8Gdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty8Dm-0000000DGWM-2c64;
-	Fri, 28 Mar 2025 11:49:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ty8Hl-0000000DGnd-21zS;
+	Fri, 28 Mar 2025 11:54:05 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty8C3-0000000DGI1-3OoB
+	id 1ty8G0-0000000DGhh-3uje
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 11:48:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 16DF45C48F5;
-	Fri, 28 Mar 2025 11:45:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 062A9C4CEE4;
-	Fri, 28 Mar 2025 11:48:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743162490;
-	bh=zUtebBjH55CnQyB7qOWJh7tG/blA6JzN9MwAUcSs3ds=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=M6E2M6/yepb6TFdvsuisCuEmjwXQsBRCZJ1nl52Zt6qkJ5VzU68CQFKy17CmQnIJ2
-	 jHWP+5A5t+glQXYUeCW9EaHsE/lqcbV9qdubvapFYICcndX5qBRD/ZUVvyKvo9okD/
-	 PBU4q0ewdbn8jP1qa+eVo+t4gvQyVclq9W/eekd1qzLEloHg/e9Pvs/5Ep6WrY6J3o
-	 s8FN8uau96AYw7IAZQpsReHlVXo8xrTol+Hw8VI/OcwtE+HEerSrBtRrBz0FD1hhbw
-	 wxaqRHQ+FYEgPNB9u5You+X0TjayNxRfzBZEYM2qXYThdNGeZDGvaggDF1MnOJS4rZ
-	 EKZSjP1/A5amQ==
-Message-ID: <fc4d9a33-2d3f-47e2-b1cf-59962cc54bce@kernel.org>
-Date: Fri, 28 Mar 2025 12:48:03 +0100
+	Fri, 28 Mar 2025 11:52:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1743162737; x=1774698737;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=og9me2UIjvz1buLK89o91k+q4riorp3hweBNmsCxNi8=;
+  b=Q3FzvDYBNt2s9LarwnDNKM6dlGZB6c2l51pU+1qVepUBMlvLh0zwSk8f
+   VJtjbDpeCKzwpcdzuPKy7fViykVxRaC0kHo8vqt8Ges/bW5Bvmov7mfA+
+   OHBBSKd+UP6A+tTmUBZzJJckiQVEx+gQacE7IhUF456Rq0bo5pDWuUUib
+   Dw3x2xsu2H1/d7G1zdwfgoc2yBstwDdqjKJ65UXW9SKJRhu68Ql6pyJ+8
+   MxTUXraporaeIBC61E19EPVrhP4H7Rb90qEQNVyBrrR3ir8IPBIl1WfBt
+   kuiLwqby3AwVlVpFG6ZFSX+TYGelu2q0quHpSbDuo3uaCuEX38NjZug5n
+   Q==;
+X-CSE-ConnectionGUID: DjlVmTYaT6SO4vt0XZkilw==
+X-CSE-MsgGUID: I8hYAlZDT1u9L8VVTe8bug==
+X-IronPort-AV: E=McAfee;i="6700,10204,11385"; a="66993893"
+X-IronPort-AV: E=Sophos;i="6.14,283,1736841600"; 
+   d="scan'208";a="66993893"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Mar 2025 04:52:11 -0700
+X-CSE-ConnectionGUID: ooAZ/oguQEu6yml4c1rpfQ==
+X-CSE-MsgGUID: 9FMHMzzDRzKdDsgOcZI2yA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,283,1736841600"; 
+   d="scan'208";a="125428401"
+Received: from lkp-server02.sh.intel.com (HELO e98e3655d6d2) ([10.239.97.151])
+  by orviesa006.jf.intel.com with ESMTP; 28 Mar 2025 04:52:10 -0700
+Received: from kbuild by e98e3655d6d2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ty8Fq-0007Pu-36;
+	Fri, 28 Mar 2025 11:52:06 +0000
+Date: Fri, 28 Mar 2025 19:51:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:hack/ppi 17/17] include/linux/interrupt.h:130:2:
+ error: expected member name or ';' after declaration specifiers
+Message-ID: <202503281921.2bXEpvLm-lkp@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: soc: ti: bist: Add BIST for K3
- devices
-To: Neha Malcom Francis <n-francis@ti.com>, nm@ti.com, vigneshr@ti.com,
- kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, u-kumar1@ti.com
-References: <20250328111439.374748-1-n-francis@ti.com>
- <20250328111439.374748-2-n-francis@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250328111439.374748-2-n-francis@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_044811_968255_26B8C015 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250328_045217_022276_A940509A 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,44 +85,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/03/2025 12:14, Neha Malcom Francis wrote:
-> +properties:
-> +  compatible:
-> +    const: ti,j784s4-bist
-> +
-> +  reg:
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    items:
-> +      - const: cfg
-> +      - const: ctrl_mmr
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  ti,bist-under-test:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      the device IDs of the devices under test control of the BIST device, the
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git hack/ppi
+head:   e9141d0584201dc14a70533175804e111ab53f36
+commit: e9141d0584201dc14a70533175804e111ab53f36 [17/17] WIP
+config: hexagon-randconfig-001-20250328 (https://download.01.org/0day-ci/archive/20250328/202503281921.2bXEpvLm-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 7eccafc3c84606587a175c0a8c1ebea6e4fb21cd)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250328/202503281921.2bXEpvLm-lkp@intel.com/reproduce)
 
-Still not phandle... What is a "device ID"?
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503281921.2bXEpvLm-lkp@intel.com/
 
-> +      number of devices may be more than one. The HW logic will trigger the
-> +      tests on all of these devices at once.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - ti,bist-under-test
-> +
-> +additionalProperties: false
+All errors (new ones prefixed by >>):
+
+   In file included from arch/hexagon/kernel/asm-offsets.c:15:
+>> include/linux/interrupt.h:130:2: error: expected member name or ';' after declaration specifiers
+     129 |         cpumask_t               *valid_mask,
+         |         ~~~~~~~~~
+     130 |         struct irqaction        *next;
+         |         ^
+>> include/linux/interrupt.h:129:25: error: expected ';' at end of declaration list
+     129 |         cpumask_t               *valid_mask,
+         |                                             ^
+         |                                             ;
+   2 errors generated.
+   make[3]: *** [scripts/Makefile.build:102: arch/hexagon/kernel/asm-offsets.s] Error 1 shuffle=1775872522
+   make[3]: Target 'prepare' not remade because of errors.
+   make[2]: *** [Makefile:1269: prepare0] Error 2 shuffle=1775872522
+   make[2]: Target 'prepare' not remade because of errors.
+   make[1]: *** [Makefile:251: __sub-make] Error 2 shuffle=1775872522
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [Makefile:251: __sub-make] Error 2 shuffle=1775872522
+   make: Target 'prepare' not remade because of errors.
 
 
-Best regards,
-Krzysztof
+vim +130 include/linux/interrupt.h
+
+da482792a6d1a3 David Howells   2006-10-05  105  
+a9d0a1a38352c4 Thomas Gleixner 2009-03-03  106  /**
+a9d0a1a38352c4 Thomas Gleixner 2009-03-03  107   * struct irqaction - per interrupt action descriptor
+a9d0a1a38352c4 Thomas Gleixner 2009-03-03  108   * @handler:	interrupt handler function
+a9d0a1a38352c4 Thomas Gleixner 2009-03-03  109   * @name:	name of the device
+a9d0a1a38352c4 Thomas Gleixner 2009-03-03  110   * @dev_id:	cookie to identify the device
+31d9d9b6d83030 Marc Zyngier    2011-09-23  111   * @percpu_dev_id:	cookie to identify the device
+a9d0a1a38352c4 Thomas Gleixner 2009-03-03  112   * @next:	pointer to the next irqaction for shared interrupts
+a9d0a1a38352c4 Thomas Gleixner 2009-03-03  113   * @irq:	interrupt number
+c0ecaa06d6d40c Thomas Gleixner 2012-04-19  114   * @flags:	flags (see IRQF_* above)
+25985edcedea63 Lucas De Marchi 2011-03-30  115   * @thread_fn:	interrupt handler function for threaded interrupts
+3aa551c9b4c400 Thomas Gleixner 2009-03-23  116   * @thread:	thread pointer for threaded interrupts
+2a1d3ab8986d1b Thomas Gleixner 2015-09-21  117   * @secondary:	pointer to secondary irqaction (force threading)
+3aa551c9b4c400 Thomas Gleixner 2009-03-23  118   * @thread_flags:	flags related to @thread
+b5faba21a6805c Thomas Gleixner 2011-02-23  119   * @thread_mask:	bitmask for keeping track of @thread activity
+c0ecaa06d6d40c Thomas Gleixner 2012-04-19  120   * @dir:	pointer to the proc/irq/NN/name entry
+a9d0a1a38352c4 Thomas Gleixner 2009-03-03  121   */
+^1da177e4c3f41 Linus Torvalds  2005-04-16  122  struct irqaction {
+da482792a6d1a3 David Howells   2006-10-05  123  	irq_handler_t		handler;
+e9141d0584201d Marc Zyngier    2025-03-26  124  	union {
+^1da177e4c3f41 Linus Torvalds  2005-04-16  125  		void		*dev_id;
+31d9d9b6d83030 Marc Zyngier    2011-09-23  126  		void __percpu	*percpu_dev_id;
+e9141d0584201d Marc Zyngier    2025-03-26  127  		void __percpu	**part_percpu_dev_id;
+e9141d0584201d Marc Zyngier    2025-03-26  128  	};
+e9141d0584201d Marc Zyngier    2025-03-26 @129  	cpumask_t		*valid_mask,
+^1da177e4c3f41 Linus Torvalds  2005-04-16 @130  	struct irqaction	*next;
+3aa551c9b4c400 Thomas Gleixner 2009-03-23  131  	irq_handler_t		thread_fn;
+3aa551c9b4c400 Thomas Gleixner 2009-03-23  132  	struct task_struct	*thread;
+2a1d3ab8986d1b Thomas Gleixner 2015-09-21  133  	struct irqaction	*secondary;
+c0ecaa06d6d40c Thomas Gleixner 2012-04-19  134  	unsigned int		irq;
+c0ecaa06d6d40c Thomas Gleixner 2012-04-19  135  	unsigned int		flags;
+3aa551c9b4c400 Thomas Gleixner 2009-03-23  136  	unsigned long		thread_flags;
+b5faba21a6805c Thomas Gleixner 2011-02-23  137  	unsigned long		thread_mask;
+f6cd24777513fc Eric Dumazet    2010-11-04  138  	const char		*name;
+f6cd24777513fc Eric Dumazet    2010-11-04  139  	struct proc_dir_entry	*dir;
+f6cd24777513fc Eric Dumazet    2010-11-04  140  } ____cacheline_internodealigned_in_smp;
+^1da177e4c3f41 Linus Torvalds  2005-04-16  141  
+
+:::::: The code at line 130 was first introduced by commit
+:::::: 1da177e4c3f41524e886b7f1b8a0c1fc7321cac2 Linux-2.6.12-rc2
+
+:::::: TO: Linus Torvalds <torvalds@ppc970.osdl.org>
+:::::: CC: Linus Torvalds <torvalds@ppc970.osdl.org>
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
