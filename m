@@ -4,92 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4D5C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 17:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B2EC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 17:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7RiNKZlkxAxgBvokSU2RyRmQNQI1s7tLyPaBleKgV+A=; b=1XziT2kU7nOpMcH9OLnAj/NVET
-	mu/Ypa5QP2D/0BlJxZp5+O+i5inLbMeUpj7hAtMxJFqoytUTcLnfBN1DUDSVFTm1iIXzCjS1NnPpm
-	nKplRHgCmS8SuZhgBhVVmwiI66AJslhB6x3kl4LDY6rvoU8WFqd2jAqrYac1EVSzAJRR1al3KR8L2
-	FACTtrG08t8srFielPBEFyEGN3jw3wM1xnSIB4pYSeA5WiE2io9eNIojtVU/ESdlheFseF9Gaq7j/
-	z9y7cUFl1+7gxwzvWxSWlkrmJql6JEEQul9hdSz2sZNsK3kqnX6dB9+3YjK+hcWeXrNkb752NSiOh
-	tfvXAP7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9j4odLxnceh7apcVAiP4Wd/cq+w+zx2Ev6TwhMMzuE0=; b=YawlOPGQxs1mqBOHwu/wmyjBQu
+	c/Xq10yMXsog/1qwQ5taTGaHfMuyCvjdRW53sWIJCXCu6Bn/cA+77+k1C+bW+Wv63ru8SeQhCZdA4
+	C7Nsc0tcdWwW/Kk9/iROmHtrKQWjCdENp/zWo5rN3eFZZIdagIcMsMT4ajmvpFBLZiGU0sfeDj3C1
+	ia1i3uA4hyRSRmPy0XHGUF4CJn2072PQgszW6Ld6rzqP+MIZuvXA5Tr7XBRKn8BJPcN8hXzPVQ9yB
+	Rhx8FWkfCm6A5YvRf2hQZBX5qnxBLlw6MjWNaO+E5ijwN/puvTtBxot1EdHYcGXQ5hNx9YC4/PaKC
+	beEKFZGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyDJP-0000000DyHO-3hF3;
-	Fri, 28 Mar 2025 17:16:07 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tyDR5-0000000DzSk-0X2A;
+	Fri, 28 Mar 2025 17:24:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyDHe-0000000Dxmf-1u6H
+	id 1tyCNy-0000000Dsxw-4AKF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 28 Mar 2025 16:16:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9j4odLxnceh7apcVAiP4Wd/cq+w+zx2Ev6TwhMMzuE0=; b=NrKjGKnKdV9c1vPyR/2GdxR4uh
+	/ir9/rzCXXpIOZoQqOaGASjJ/SBou8AnN27U/y6QpM4k1ks0GwT+gsIgoxyQm4vMP3T7+1TZQiYGg
+	ce8CJnv9XE3j9ukrm9VdQjG26c2sxazgiBoAhzdRjPOWOW1yxllv+ma9WUlE2jJQU6IZ88Ac0C+uX
+	QvvrCwvxI4mv+JqgPXFIoO9RmuYM6uVhZpkagvzF11aVou0h4p7uDhEzDVmcIii+KfAvshLlCt6FQ
+	xHf3bELfKFWDFJujeFyB8477tiiKXRj6bos2SklFa2N8vYy09ACBaAcZk2yBDuxwuoWoGjpgexLkf
+	YZikX1RQ==;
+Received: from mx0a-00823401.pphosted.com ([148.163.148.104])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tyCNv-00000006A1F-1HaR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 17:14:20 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43bb6b0b898so23020975e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 10:14:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743182056; x=1743786856; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7RiNKZlkxAxgBvokSU2RyRmQNQI1s7tLyPaBleKgV+A=;
-        b=V27jYC4n+7nuSqPxD3HWtx0PujxLTlouRsN3qjZ5KsEaiTu9DzIUUb33Wkr5evj8XE
-         qm9YM+Vch93PaiavvX2bWgK5gMncsB4bJGyMe10OJ3P8Nw4t06eLHHp8kRUne2axvVI0
-         9k3oi2cm6loiKupYHFQG9E697XS4UNx8+F0OmxWAwaWjZFUJWFQTz2FfKfFFjkG5Wm9D
-         CHHCgCWTsi+6jvg5M7l7PyDMAHSe7T9BIyRt2RNFWLapP4pu2bkf/peHKNr1MsJsrGZ+
-         xsri4D0zCM7ivMQbesQ0uLJSjOrIAqA0A28/uI3mue4IMu8lIhpg9YyB533vE97SAzCd
-         Qy6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743182056; x=1743786856;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7RiNKZlkxAxgBvokSU2RyRmQNQI1s7tLyPaBleKgV+A=;
-        b=MC3GoGg7R3W887z2bHPuCYIrkON9u5duLdf4rRBGYi1ARkGDbx63VmQ85xv2AnY+00
-         Js9gbuwoBcWd+lpGIQa4vXilHg798XEMJAKU5BEGdv5zqYhsOAjPzMk1NLIB9gDWH3iy
-         dRrWFD9/fqQKxNhnlIYKUHO26BXK2k3JGlawe2oziuCkEFSE6S8Ie47YZ0U+bYHOw9sz
-         kZnW3Mu9S5BJ2uZUOxql0AAEsa7tIOwFtRq2HM4MGgjmtiLTqJN1hUHuJOi0Vw2suu1e
-         3PAnnKIfWPsPEE8P5SKZ/+kZ1x3kOMtRaysqtHeDaFcePoQczu0QYEA6YOJsGXlBSFSq
-         I+MA==
-X-Forwarded-Encrypted: i=1; AJvYcCXYmGV83wJBykmkjZb58Qf/YxPaONXSEFLQKm8nSu2IamkYEQRPi/dMCUvkxmms438aHCV3rVvCocBmYfJ6GFxE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZ2/vgZZAEogh02u54IA7Brs/G8v4Ywjz8d0PAlEYWavzzY81a
-	RbReQ9tAov+rjcOHlwbxLUnvk9BKZdwokbmJ+/dqyPKfTdoJi9py6pGozOimB/0=
-X-Gm-Gg: ASbGncvjn30ndkd0lkENoO+QxsW0WEoyD5BXXdKW2xUjjlEhNNSNpEUJyHpWz5Y9Z33
-	khONPU8gWmldInBabaQbwclKXhHMdx0gVUpzApy0VA8et3XrqHxYrmIuza8Ap+8wrGdwSV0duWj
-	BxuGOTTzZ/V5YEgYXsAXDzrnC7xhzxcijTyw5wtwhRWnq+uQ3HC3dTtSmfYwg9cpbKmWtmC2FOB
-	iOmv/YLvw1oM1KGjZjpafNTZcrSzwXUpNheeqgG78bly+KIYdMJXIBfnndHcR7zsPKm539nn6UZ
-	46+8PZoWpMlFtiJ1IsXATXkN644ObhYl7SORIWeH4bv/g/+rfR8Zn2eBpLBWKGH9/UL3kTUUUnQ
-	qOTG6BY4pB5k=
-X-Google-Smtp-Source: AGHT+IGR/kzMV6Atudb0fRu185H6wdA1+X5asjv7gAZNnxUUZIM/KcLBLHgVDu+28V8mgpkJV6Xccw==
-X-Received: by 2002:a05:600c:310c:b0:43b:c0fa:f9cd with SMTP id 5b1f17b1804b1-43db6227ac9mr3380065e9.7.1743182056212;
-        Fri, 28 Mar 2025 10:14:16 -0700 (PDT)
-Received: from localhost (p200300f65f14610400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f14:6104::1b9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d8ff042c8sm33411655e9.27.2025.03.28.10.14.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Mar 2025 10:14:15 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: [PATCH] ARM: dts: stm32: Add nvmem-cells to ethernet nodes for constant mac-addresses
-Date: Fri, 28 Mar 2025 18:14:05 +0100
-Message-ID: <20250328171406.3307778-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.1
+	Fri, 28 Mar 2025 16:16:45 +0000
+Received: from pps.filterd (m0355086.ppops.net [127.0.0.1])
+	by mx0a-00823401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52SFbYxM017688;
+	Fri, 28 Mar 2025 16:15:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=motorola.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=DKIM202306; bh=9j4odLxnceh7apcVAiP4Wd/
+	cq+w+zx2Ev6TwhMMzuE0=; b=0WvXQAiW/76kFpea8kQSCe9+Lw1CeFh0JP5Xa74
+	ZR8N/QsQpWkla++PYdW2ATRqe1SNflQDepOxM/P+EmxL0/AlKySeUKUWv++64+Ob
+	IbhBS+TB6SZFsfOsGz8UKXmO+MGr6lFfFAf437d3LlBi9TvhruWj/BM94pox/CeN
+	eQsWaLHVj5S9TB10RNh7N3YIYGpqc7N58kEDQjeaXIQwFhiq9yLop+0diKm/TcCZ
+	taaf6d62STxe7SK1gBUKoh/A2CxuUJ+iqNxHHE72pNqXVe20mEpLFz/1IKzymIAT
+	IwqGzMAYDWnYWPGzVFgHhM8IVi2HEfsBOMXa5R//PmODqZg==
+Received: from va32lpfpp02.lenovo.com ([104.232.228.22])
+	by mx0a-00823401.pphosted.com (PPS) with ESMTPS id 45nrfq1cj9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 28 Mar 2025 16:15:49 +0000 (GMT)
+Received: from va32lmmrp01.lenovo.com (unknown [10.62.177.113])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by va32lpfpp02.lenovo.com (Postfix) with ESMTPS id 4ZPQcN5k1nzxd6r9;
+	Fri, 28 Mar 2025 16:15:48 +0000 (UTC)
+Received: from ilclasset02 (ilclasset02.mot.com [100.64.11.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mbland)
+	by va32lmmrp01.lenovo.com (Postfix) with ESMTPSA id 4ZPQcN1WR7z2VZ18;
+	Fri, 28 Mar 2025 16:15:48 +0000 (UTC)
+Date: Fri, 28 Mar 2025 11:15:44 -0500
+From: Maxwell Bland <mbland@motorola.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+        Mark Brown <broonie@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+        Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Andy Lutomirski <luto@kernel.org>, Marc Zyngier <maz@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Pierre Langlois <pierre.langlois@arm.com>,
+        Quentin Perret <qperret@google.com>,
+        "Mike Rapoport (IBM)" <rppt@kernel.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+        Matthew Wilcox <willy@infradead.org>,
+        Qi Zheng <zhengqi.arch@bytedance.com>,
+        linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+        x86@kernel.org
+Subject: Re: [RFC PATCH v3 00/15] pkeys-based page table hardening
+Message-ID: <rzmxyxnufxrti7nxw3i25dil4bcqjzwqty4alwikm7bgbpjbju@dx5leafgss5l>
+References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
+ <a32cjyekuecoowzbitc2xykilvpu6l3jjtityp7x5hw7xbiysp@5l2lptwmqiug>
+ <802963a0-32bd-49e8-82b1-34443acdd5ae@arm.com>
+ <epnxrdkidbrjyjzapms7dfsvjcc7ewewjue7khbuxhresy5x5n@hyhokacdi2yg>
+ <bcaa98c0-4218-470d-981d-9ab0894d3b1b@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1643; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=BHpq2UbaF3kL6H8YXDTV3jWJ+lPDn0AShBL5PzMnA/s=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBn5tjen6l7NAtT3+JrsCCThqn5k1qsVD1vc0M9Y ZVXM89Rdy2JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ+bY3gAKCRCPgPtYfRL+ TvPRB/9KuR3rJQ0M41W3nqDBh5GaE52iNnZd3KKvvPv9z7cHHQyJwdW77AFGgNSv3keG14zGVSh nAHzmRdowRt1Fv163Ri4lOD0ZQnL/albfzfHGGROLZGh3oZBuL0i0maRccS66D8bgiBlBfDjRHg 3v3ENgAwKOizz1eaAS4zsVozyMRtX8NC90c1HgQmwEdL6kCE5QFbvcLSaq+9yUTv0pxa0uyJFBA yWEcssCDxRMk38qor1VgCbVh7P67TQtNg0RHohxrNulSGjG15Ca8O29fr4AGZHWvZg3qejOSO52 aMUKLoIqXEQ5DMJ5DpPflMnYGF52droNnFSzBVBd1q3/1nyV
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bcaa98c0-4218-470d-981d-9ab0894d3b1b@arm.com>
+X-Proofpoint-GUID: By7ecez9b07SC0eYU3xi0wyy38YFY6RM
+X-Proofpoint-ORIG-GUID: By7ecez9b07SC0eYU3xi0wyy38YFY6RM
+X-Authority-Analysis: v=2.4 cv=IoAecK/g c=1 sm=1 tr=0 ts=67e6cb35 cx=c_pps a=7qI18unSaIz3cJfMvNS4Ww==:117 a=7qI18unSaIz3cJfMvNS4Ww==:17 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=NEAV23lmAAAA:8 a=ohFQ4D2nnO60rt9TArUA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-28_08,2025-03-27_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
+ phishscore=0 adultscore=0 priorityscore=1501 mlxlogscore=999 clxscore=1015
+ impostorscore=0 bulkscore=0 mlxscore=0 lowpriorityscore=0 spamscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503280112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_101418_495438_89AD4503 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20250328_161643_827726_49D0B36E 
+X-CRM114-Status: GOOD (  65.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,47 +132,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The efuse device tree description already has the two labels pointing to
-the efuse nodes that specify the mac-addresses to be used. Wire them up
-to the ethernet nodes. This is enough to make barebox pick the right
-mac-addresses and pass them to Linux.
+On Tue, Mar 25, 2025 at 06:11:24PM +0100, Kevin Brodsky wrote:
+> >>> Where overwriting f_op is a "classic" bypass of protection systems like
+> >>> this one.
+> >> Indeed, this has been pointed out to me on a few occasions. On that note
+> >> I should reference the follow-up series that aims at protecting struct
+> >> cred [1].
+> >>
+> >> Using kpkeys to ensure that the task->cred pointer itself is mostly
+> >> read-only is not straightforward, because there is just too much
+> >> existing code that directly writes to other fields in task_struct -
+> >> meaning we can't simply make the whole task_struct mostly read-only.
+> >> What could be done is to split out the cred fields in a separate
+> >> kpkeys-protected page, and link that page from task_struct. There is a
+> >> clear overhead associated with this approach though, and maybe more
+> >> importantly we have just displaced the issue as the pointer to that
+> >> protected page remains writeable... I'm not sure how much a page-based
+> >> technique like pkeys can help here.
+> > __randomize_layout accomplished some of what is necessary here, while
+> > accommodating contemporary hardware limitations, albeit to a finer
+> > granularity and lesser degree. I am also not sure how well it works on
+> > production systems (yet! It is on my TODO list in the short term), or
+> > how much protection it really implies for an adversary with a "read
+> > gadget" that can determine where to write (either from associated asm or
+> > from the struct itself).
+> >
+> > But...
+> >
+> > (1) After thinking about this for a few hours, __randomize_layout implies
+> > something valuable: under circumstances where this is supported, because
+> > we assume the struct's layout itself is modifable, it becomes possible
+> > to introduce a canary value _not_ for the modifiable portions, but just
+> > for the non-modifiable portions, store this canary value in a strictly
+> > read-only region of memory that also tracks pointers to the structure,
+> > and ensure uses of the non-modifiable fields must always leverage the
+> > canary value stored in this secondary region.
+> 
+> I don't think this can be enforced with pkeys, since the overall struct
+> would have to remain RW. But I'm not sure I completely understand how
+> that scheme would work overall, or how __randomize_layout is a
+> prerequisite for it.
 
-Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
- arch/arm/boot/dts/st/stm32mp131.dtsi | 2 ++
- arch/arm/boot/dts/st/stm32mp133.dtsi | 2 ++
- 2 files changed, 4 insertions(+)
+Hi, so __randomize_layout is interesting only in that it demonstrates we
+can modify the layout (and therefore associated code accessing fields)
+for a given datastructure.
 
-diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
-index 8512a6e46b33..9175ed77d769 100644
---- a/arch/arm/boot/dts/st/stm32mp131.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
-@@ -1609,6 +1609,8 @@ ethernet1: ethernet@5800a000 {
- 				snps,axi-config = <&stmmac_axi_config_1>;
- 				snps,tso;
- 				access-controllers = <&etzpc 48>;
-+				nvmem-cells = <&ethernet_mac1_address>;
-+				nvmem-cell-names = "mac-address";
- 				status = "disabled";
- 
- 				stmmac_axi_config_1: stmmac-axi-config {
-diff --git a/arch/arm/boot/dts/st/stm32mp133.dtsi b/arch/arm/boot/dts/st/stm32mp133.dtsi
-index 73e470019ce4..708c0af50bc4 100644
---- a/arch/arm/boot/dts/st/stm32mp133.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp133.dtsi
-@@ -91,6 +91,8 @@ ethernet2: ethernet@5800e000 {
- 		snps,axi-config = <&stmmac_axi_config_2>;
- 		snps,tso;
- 		access-controllers = <&etzpc 49>;
-+		nvmem-cells = <&ethernet_mac2_address>;
-+		nvmem-cell-names = "mac-address";
- 		status = "disabled";
- 
- 		stmmac_axi_config_2: stmmac-axi-config {
+When I wrote the previous email, I thought maybe we'd be able to use it
+to do more, but not so much any more.
 
-base-commit: e21edb1638e82460f126a6e49bcdd958d452929c
--- 
-2.47.1
+However, the "real" idea here is:
 
+(1) "splitting up" each RW data structure ($X$) into mutable and non-mutable
+parts would be difficult and difficult to maintain, so I was looking for
+a solution outside of that.
+(2) The primitive we do have, thanks to POE and this patch, is
+the ability to make a page of memory writable only from a specific
+context, and read only otherwise.
+(3) The well-trodden solution is to allocate a field on a second,
+independent page $p$ when allocating $X$, with some field/hash/magic to
+guarantee the integrity of writes to the immutable fields of $X$
+(sometimes called shadow memory).
+
+Valid, CFI-guaranteed functions would have access to $p$, and would
+be instrumented to update $p$ with a new hash of the fields of $X$
+when updating $X$, but likely something more performance-friendly.
+When readig from $X$, the data is pulled from $p$ to ensure the
+field being read from $X$ is valid and has not been modified. It is
+not possible to modify $p$ outside of the valid contexts in which
+we can modify the read-mostly or constant fields of $X$.
+
+Importantly, this does not rely on the confidentiality of $p$, which I
+think was an issue with trying an approach like this with ARM MTE
+previously, or at least the version of ARM MTE that Juhee Kim et al. at
+Georgia Tech broke with speculative exectuion, iirc.
+
+I think performance is difficult here, but that's more of a development
+concern, I hope, than a concern in theory.
+
+> 
+> > [...]
+> >
+> > It may be possible to write a plugin modification to
+> >
+> > https://github.com/gcc-mirror/gcc/blob/12b2c414b6d0e0d1b3d328b58d654c19c30bee8c/gcc/config/arm/aarch-bti-insert.cc
+> >
+> > To also inject the POE/register set instructions conditioned upon the an
+> > expected privilege (kpkeys) level of the executing function.
+> >
+> > Instead of adding code to set the privilege state via a specialized
+> > callgate function, having this function's call explicitly tied into the
+> > GCC CFI instrumentation pass. Determination of the specific "key level",
+> > i.e. KPKEYS_LVL_PGTABLES, could likely be determined by the file
+> > name/path via the compiler, or many other clever mechanisms, potentially
+> > with support for exceptions via function attribute tags.
+> 
+> Right I'm with you now. This is actually something we considered, but
+> I'm not sure it really helps all that much. Adding a guard object to a
+> function is basically the same amount of churn as marking that function
+> with an attribute, except it doesn't require compiler support. It would
+> get more useful if you wanted all functions in a file to switch kpkeys
+> level (using a compiler flag), but for the purpose of making certain
+> data mostly read-only, I doubt you actually want that - the granularity
+> is just too coarse.
+> 
+> A different angle would be use an attribute to mark struct members,
+> rather than functions. That would instruct the compiler to switch kpkeys
+> level whenever that member is written (and only then). You would
+> probably want to forbid taking the address of the member too, as the
+> compiler can't easily track that. That said this doesn't solve the
+> bigger issue of existing code expecting to be able to write to other
+> members in the struct. It most likely works only if the kpkeys switch is
+> done when writing to any member of the struct (which may get very
+> expensive).
+
+We agree. Doing something like this doesn't crash stuff, but it makes
+the phone sluggish and terrible to use. (-: Hence, I may try the above:
+keep the struct read-write, but when reading from "critical fields"
+(pointers to function pointers), require the compiler to inject a check
+for an integrity value stored on a mostly-read-only page. That integrity
+value can only be updated by code that is resonsible for writing said
+critical fields.
+
+Since the supposition is things like f_ops don't really need to change
+much ($p$ does not need to be accessed much), and otherwise the data
+structure is fully writable, the performance impact seems like it would
+not be significant.
+
+That said, and if I am not mistaken, the downside is it'd require
+Clang/GCC support, same as CFI.
+
+> 
+> > [...]
+> > Noticed as well, just now, the reliance on the static_key for branch
+> > unlikely ... the following data structure (at the end of this email) may
+> > be of interest as an FYI ... it can be used to track whether the kernel
+> > self patching API is only being used to patch expected locations.
+> >
+> > I use this right now with additional checks that the instruction being
+> > written for the indirect branch matches the expected offset.
+> 
+> Are there exploits out there corrupting the address of a static branch?
+> This seems difficult to me in practice because the __jump_table section
+> where the addresses of instructions to be patched are stored is marked
+> __ro_after_init.
+
+There are a couple of different ways. You can do the attack this patch
+is intended to prevent, change the page tables unwillingly to give
+yourself permissions to write to the static key struct as part of a
+larger chain, there's the ability to inject code into a kernel
+module to call the patch text API and use it as a write gadget for the
+rest of the kernel, etc..
+
+There were a lot of claims back in the day that kernel code would be
+marked strictly read-only by the EL2 secure monitor or kernel proection
+systems, but there's self-modifying code built right into it under many
+KConfigs. To have a guarantee of CFI you kind of have to ensure the
+kernel can't patch itself.
+
+Maxwell
 
