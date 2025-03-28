@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE22C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 08:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D375DC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 08:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wmKs5OSCjwxn+BEAg9J6m4zzinMCVB2P/5oIyjO+7Zc=; b=KgJYKscxlpd11yiPp8/j7s61N6
-	KbTuiI0692dEY3PasdXu6uSZWwMZFO1/6V8Eo0WNLrNuhqxEIDUyMIdILVjzENp94hu9sk49f0xYJ
-	M9BhlM/3iq4SBgSwYto5MuxEx4d9mdewkdvngBMoh7XSIcU1PV9Zv5WNLS0k7hkvO9iqAHbB77HpC
-	XMCtYsY9NOXSGimVPt12G5gpLX34rsTSBF+lLEgSRL2g+W39KE94JzaQNjZw5xFpIFNdUhYKpDVEc
-	e0Rzo8BsaRrjh0T6lzS3ymW8WHId4cYTQIyZds8wt8FwvlEs0LPrV0MvBdGee+63WFbTgcbjQvdwj
-	KaZI19CQ==;
+	bh=RYbY51/WxGMaDR4VDeSov/drtxwtC1OK6EoxP0AVW+Y=; b=KhV3dnk6bSNoei44N7OusN2arF
+	vFaj9k4L/EqUyQe+v5pTYYQCV/IWfdaGeUSTzEJwhaMYqRje9FZUucZsZ8dnLm5+znkbm9opvEVxl
+	MQqp+5/uciN8cUR0GYl5t07CEDcwlvorvCoKqqIwxNbuEIQh8WpNX9+JmgIlSqeKdM7g8WakC8Wkt
+	ENiCDLdiuNZbMJeeiwmjeWyiF+3Q/2Xv2ptqhyoSYzWd49eUrcUfN0WC1rkDe9VNB8MXYZTGFK0HY
+	EdSXalDH7Tki5sPAOVDe0DwWJnHqJbo81QlvuQyjvFFvNTJLGjrJDelM00MXliIUaiA7Q6LmDmT9W
+	QY2G5k5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4qn-0000000CtBn-0BBK;
-	Fri, 28 Mar 2025 08:14:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ty4xT-0000000Ctvp-3JcP;
+	Fri, 28 Mar 2025 08:20:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4oH-0000000CstW-2L1Y
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 08:11:26 +0000
+	id 1ty4vk-0000000CtfA-1ZO3;
+	Fri, 28 Mar 2025 08:19:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 85BEAA41387;
-	Fri, 28 Mar 2025 08:05:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7847FC4CEE4;
-	Fri, 28 Mar 2025 08:11:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C9F9614B5;
+	Fri, 28 Mar 2025 08:19:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60D4AC4CEE4;
+	Fri, 28 Mar 2025 08:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743149477;
-	bh=ZNaYWFv07hnLmJ9t204CNI9QvNiZyS05eYgMuawmNeo=;
+	s=k20201202; t=1743149947;
+	bh=eXkyQAmWLQhgbflGuE6/2roWByAJGJzRKnWkxqKXpr0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cbJhLYTVmN2DzSXg+9Z1Zap5RcmMrU/7n3IWA4E2scR1NMRk7ZW/g4uLcU21mqg/T
-	 5uNDMh1P4nFMyKPtZwd5jCSBIlaaioCsDWkJ777fb+EeA4LTKjxljxkK0XkmMXKFya
-	 xHUg/PtG+nzvRwWYfsyH4ZbU5JiQQN7PP0Y2AftAxAqUhE+i/A/gITOhsN7NmHXFvY
-	 U5+thN5A0+8XBxHhKEKxn4ToYmz9mc0aiXBJ+hqgZUMAcX2CZSgU9adBik2KpuPQWZ
-	 6M5gtVw2FoW4ujodcMx25nHUHf0T9XQV4msE2ySyJKE3jbevu0eoPChvE/CigTGJ7s
-	 YyQwnTPbJX4Ww==
-Date: Fri, 28 Mar 2025 08:11:10 +0000
-From: Lee Jones <lee@kernel.org>
-To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
-Subject: Re: [PATCH 00/34] Samsung S2MPG10 PMIC MFD-based drivers
-Message-ID: <20250328081110.GA585744@google.com>
-References: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
+	b=qG3GtZtnCFsiKLE21GDIQj94MikZUdLpBnmZDeoZNnTD4vf6OZTlRrVb/NtZAe/TW
+	 xMQySvO4HGCmmIA/+2e6Yyf97jRCGtfxzaFD9JfBBdqMCSHugcNjRSf0k0pMeWNgkh
+	 JIlDAfdbTjEMPggbhusLn7HjPZRbb9ZyDaSM9gNN1uHaer1mVDimaxp4XXvlg9DaQN
+	 8A9hMhvqSYBg39PkGF82aQkFCwKwLe8JRmwdXBGyenkYje5d/VayiU2KFIO1pOGS0P
+	 6taEZ0fWLi6pnQqARE7alhTwPZKLy55U8x0/sD7ZVfQmljHmIx4+JjPZQI+p0rSACc
+	 ps4zNQAIpwVfw==
+Date: Fri, 28 Mar 2025 09:19:03 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+Cc: Matthias Kaehlcke <mka@chromium.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Benjamin Bara <benjamin.bara@skidata.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Klaus Goger <klaus.goger@theobroma-systems.com>, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, quentin.schulz@cherry.de, stable@vger.kernel.org
+Subject: Re: [PATCH 1/5] usb: misc: onboard_usb_dev: fix support for Cypress
+ HX3 hubs
+Message-ID: <20250328-holistic-feathered-guppy-5bac92@krzk-bin>
+References: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
+ <20250326-onboard_usb_dev-v1-1-a4b0a5d1b32c@thaumatec.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250323-s2mpg10-v1-0-d08943702707@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_011125_663434_D8312D57 
-X-CRM114-Status: GOOD (  12.96  )
+In-Reply-To: <20250326-onboard_usb_dev-v1-1-a4b0a5d1b32c@thaumatec.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,22 +74,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 23 Mar 2025, André Draszik wrote:
+On Wed, Mar 26, 2025 at 05:22:56PM +0100, Lukasz Czechowski wrote:
+> diff --git a/drivers/usb/misc/onboard_usb_dev.h b/drivers/usb/misc/onboard_usb_dev.h
+> index 317b3eb99c02..17696f7c5e43 100644
+> --- a/drivers/usb/misc/onboard_usb_dev.h
+> +++ b/drivers/usb/misc/onboard_usb_dev.h
+> @@ -104,8 +104,14 @@ static const struct of_device_id onboard_dev_match[] = {
+>  	{ .compatible = "usb451,8027", .data = &ti_tusb8020b_data, },
+>  	{ .compatible = "usb451,8140", .data = &ti_tusb8041_data, },
+>  	{ .compatible = "usb451,8142", .data = &ti_tusb8041_data, },
+> +	{ .compatible = "usb4b4,6500", .data = &cypress_hx3_data, },
+> +	{ .compatible = "usb4b4,6502", .data = &cypress_hx3_data, },
+> +	{ .compatible = "usb4b4,6503", .data = &cypress_hx3_data, },
+>  	{ .compatible = "usb4b4,6504", .data = &cypress_hx3_data, },
+>  	{ .compatible = "usb4b4,6506", .data = &cypress_hx3_data, },
+> +	{ .compatible = "usb4b4,6507", .data = &cypress_hx3_data, },
+> +	{ .compatible = "usb4b4,6508", .data = &cypress_hx3_data, },
 
-> This series adds initial support for the Samsung S2MPG10 PMIC using the
-> MFD framework. This is a PMIC for mobile applications and is used on
-> the Google Pixel 6 and 6 Pro (oriole / raven).
-> 
-> *** dependency note ***
-> 
-> This depends on the Samsung ACPM driver in Linux next, and runtime
-> depends on some fixes for it:
-> https://lore.kernel.org/all/20250321-acpm-atomic-v1-0-fb887bde7e61@linaro.org/
-> https://lore.kernel.org/all/20250319-acpm-fixes-v2-0-ac2c1bcf322b@linaro.org/
+Why are you adding so many entries? Same entry is a strong sign these
+are compatible.
 
-FTR, I have no intention of reviewing this until Krzysztof's review
-comments have been satisfied.
+Best regards,
+Krzysztof
 
--- 
-Lee Jones [李琼斯]
 
