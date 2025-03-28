@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F1DC36013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 08:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16389C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 08:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aSnI14BbYG44AW/1FazNe/GgOwu32Ov8br248K1Kr2c=; b=f5r3CXrbiYi5ue+J6no7sJbd74
-	7kbNDirIQiuZRt/OViyXahz54ohGP0XLsSjWB3jrhQeWUN9vZbYutSELlxnPU24zv/x1NDDUKolQn
-	+K1furrBIBlcloDN1UYJ7H9R1g0ulT3BHLwLCblq8ICTNsbu7C5cHrz79q1XgzKmtw2MBeL1ot1sg
-	VXJWgOffi1ZXL6a8mvv1kGYaqd7cfa/stx2RZPMNREECQ7FVNazj202cmPN4j+SkVY6gB+SX/9t8i
-	DTGu1gmwfbuV/RIq7HxxvphmWE0uBEE/2o+6IVFbBo4rjWkwn/x3fnXKObC6MQHxj1Pb+BoLh2Ep9
-	eU+a4gQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=txpxsTy5Igy4BZd7LQw51gIz0+Sc/EV673tLlRbxdo0=; b=mDNlz7c0WneTjj7fl3RN/pxItB
+	yTRPI5z6wzMLjjZoL7ycjbjgyMPeurI7L0aO3NBoD/9Z9C2KgUCk3dHLt6rSmGwlEeDHuRzpjf2Dm
+	ViIs6LkPCNnxiAxwgvLrg3GotFFDz2fNO82rRHt2AxyZNoJERHUzf1oN6vqgI1BZr5BDM1taqgVKt
+	n0pHXeQfsnsBs5xuuC1AQa/Fh0KxPU8ZJI3NXoh+liXQPpiz+b1Bcah+scHRPqSi0wRQ6gfOnpNl+
+	CnGr7McGcV1mqAUueDUHXrEUJ+GhAskGw0LGf2wnh1KJuzYeNkcSmx+tJhG/DWJH3in6Ns5QodnUA
+	Hv09RX1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4nO-0000000Csjt-2a3C;
-	Fri, 28 Mar 2025 08:10:30 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1ty4p5-0000000Ct0I-1Z2F;
+	Fri, 28 Mar 2025 08:12:15 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4fL-0000000CrSL-0xnm
+	id 1ty4jc-0000000Cs4X-0OzM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 08:02:12 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3914bc3e01aso1033770f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 01:02:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743148929; x=1743753729; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aSnI14BbYG44AW/1FazNe/GgOwu32Ov8br248K1Kr2c=;
-        b=XlCyOUkpV8q1rjU0xpQ1/lgmVJ+o5ZmEOxUL+2dvtBj60Ti5Uaot94hRFTqLvyucxJ
-         fEKkDvPh4EM3uRHJ+yET7qxoS5wOJFusSvvAqxiYnRWvMJ0rWk8FZ4aZLKxwaYyi5cfM
-         k1UK7OKqk//6kWYEg1tlsyGD6DZ9ybvjlewOhSM3MbOZF2I0f3a1ycj8KBUefYt4/b2o
-         9NrQr3Z1Pi6BakxTm58oZBfNE8O4QTT2b3D+oZfmO29Vjn8kUUrmWSyl+JO/J+ZVP+OW
-         gGdx1g6kP2NSWn+gtCvpVp0sOdnp66gwf5zOWii4NsiO33G4D9o2igoDS3oARlAwj8Fr
-         71dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743148929; x=1743753729;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aSnI14BbYG44AW/1FazNe/GgOwu32Ov8br248K1Kr2c=;
-        b=T8R2YnH5WnggwU54vUf5m6N4we45WksljMBqskbrAe1S8gI+KkuMQxdGZP3HWzDdTO
-         oN3sAlG/oIOxZsEhsjTIxxifDMWiNVOmK+aHiSguSYtrzAAg9v5I6fJb7aiPK45MO+Lp
-         MmXAz+lXjXPw9Z8ihYApzAPFsHrRZFR+XnaU95Epm3WdwkefNlFVXpKXyZGz13yoEV9W
-         d107rXtpQ7CJqOs+S+AWCcEyJupgttn97Ai0yr78eduvp1rUYs7CydfbA5qJRKoXaqyF
-         PCWe4UezW83ja3cpNYzvhDuLVjlqg9CN4vmXKAP3z1YeDm3e6D2xKoiOZXvk2pY/gpi9
-         hIQw==
-X-Forwarded-Encrypted: i=1; AJvYcCW3p6/ezS8wAjd4qRS4lFu+1Ef/S1HXgCK7AJ1J7RC3utYHR9sAu07RjN1mQl07O73fiN/YnaNxE/WnIorxf5NF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyK5gVn1Y5/z8UI/nhjUB+SJC/5Sp1VqrnQVXIoFEkVRUCkoZqc
-	exFdr2oeOP+2/uLqUfoVDx9ddkOkEwjUWVVjzbHvCem4lAba3l5VjdkdwCYR6UM=
-X-Gm-Gg: ASbGnctVdBJfPU6k7KZLl85qYry2HhUGYOJcp5pB2L+N7ulikdm+bO1EPd9+6YLU+57
-	gWZhfx/ovDpCrVUHOUGa1W8wFPY47WtVL/EU9Iyiu4alThZqFuW5C0JvHLNniMfPuQP09WT1JDs
-	+E5oBBEfY8yXqv07BCvcAPYX57AiRnNtidfQ0LsGS4kMRsMVrBH1MD17Y5zmSCznonMikeVRNuU
-	kNF2Um9Ck5XmjyfpTJAefBtBnh0sjaV1GYZyQ1q8VsrWiWuP1Ifb3eUqwnCCPcpIcyXDqDaNjrb
-	yc889KFSYrH2TmN66Ys2QuEDTeiO26xplzDk/N4s2XF8YEV3Lg==
-X-Google-Smtp-Source: AGHT+IFJDzuS2myCBT8Z8eorHzwkBKAKIK4T2dNn586UW/tt61K1e2XI3JFfo+oVpAzMnbvgnYtY2g==
-X-Received: by 2002:a5d:5885:0:b0:391:4999:778b with SMTP id ffacd0b85a97d-39ad17505d5mr5896059f8f.28.1743148928856;
-        Fri, 28 Mar 2025 01:02:08 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-39c0b7a4482sm1795937f8f.86.2025.03.28.01.02.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Mar 2025 01:02:08 -0700 (PDT)
-Date: Fri, 28 Mar 2025 11:02:05 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: "Malladi, Meghana" <m-malladi@ti.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, pabeni@redhat.com,
-	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kory.maincent@bootlin.com, javier.carrasco.cruz@gmail.com,
-	diogo.ivo@siemens.com, jacob.e.keller@intel.com, horms@kernel.org,
-	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
-	ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>,
-	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
-Subject: Re: [PATCH net-next v2 3/3] net: ti: icss-iep: Fix possible NULL
- pointer dereference for perout request
-Message-ID: <326ebaa2-7b8f-455c-bf22-12e95f32b71a@stanley.mountain>
-References: <20250321081313.37112-1-m-malladi@ti.com>
- <20250321081313.37112-4-m-malladi@ti.com>
- <20250325104801.632ff98d@kernel.org>
- <0799d2f6-3777-45f6-a6b6-9ca3f145d611@ti.com>
+	Fri, 28 Mar 2025 08:06:38 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D2FFF4434A;
+	Fri, 28 Mar 2025 08:06:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1743149191;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=txpxsTy5Igy4BZd7LQw51gIz0+Sc/EV673tLlRbxdo0=;
+	b=N092Qp7O4xu0C0LC9Jld0qwLeROPEa2bmbHa5rx+7UryRNUCT3x0EbFCiiWUWjRguxk6bB
+	mk5ZtVAtYtX97CjiRg3dkVV4YPzvVEpfg3s6RuvDbBbyi7EThmLtS8fwI66Suwlaciq4v4
+	Rf5krwbNXkTmZYMJ7T0t9iWAPu+oYN2jjP7XWMYgPNm4BSi9QSsNkhuz1x4FyBogit97es
+	W72asT8vzmkMmAk7JAXCvNR8IV2i+d2x6sW/Nm3I9waCp8fsWg5YR8x8iMiLD/HTNIPxbf
+	nkPnXDB1e6ODDgjV81XDs3Ui/33W81KOClPg8T5JShIJvqKJASv5fz4JworyEg==
+Date: Fri, 28 Mar 2025 09:06:21 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Alexander H Duyck <alexander.duyck@gmail.com>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
+ <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next v5 09/13] net: phylink: Use phy_caps_lookup for
+ fixed-link configuration
+Message-ID: <20250328090621.2d0b3665@fedora-2.home>
+In-Reply-To: <8d3a9c9bb76b1c6bc27d2bd01f4831b2cac83f7f.camel@gmail.com>
+References: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
+	<20250307173611.129125-10-maxime.chevallier@bootlin.com>
+	<8d3a9c9bb76b1c6bc27d2bd01f4831b2cac83f7f.camel@gmail.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0799d2f6-3777-45f6-a6b6-9ca3f145d611@ti.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddujedtjeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjeeifeevjeevfeeujeeuieeftdehieejkedukeffhfehhedvieeugeejvefhffeinecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrqddvrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvtddprhgtphhtthhopegrlhgvgigrnhguvghrrdguuhihtghksehgmhgrihhlrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdpr
+ hgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_010211_272639_F669AEBB 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20250328_010636_793160_ACF079C7 
+X-CRM114-Status: GOOD (  33.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,55 +90,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 11:46:49AM +0530, Malladi, Meghana wrote:
-> 
-> 
-> On 3/25/2025 11:18 PM, Jakub Kicinski wrote:
-> > On Fri, 21 Mar 2025 13:43:13 +0530 Meghana Malladi wrote:
-> > > Whenever there is a perout request from the user application,
-> > > kernel receives req structure containing the configuration info
-> > > for that req.
-> > 
-> > This doesn't really explain the condition under which the bug triggers.
-> > Presumably when user request comes in req is never NULL?
-> > 
-> 
-> You are right, I have looked into what would trigger this bug but seems like
-> user request can never be NULL, but the contents inside the req can be
-> invalid, but that is already being handled by the kernel. So this bug fix
-> makes no sense and I will be dropping this patch for v3. Thanks.
-> 
+On Thu, 27 Mar 2025 18:16:00 -0700
+Alexander H Duyck <alexander.duyck@gmail.com> wrote:
 
-I don't remember bug reports for more than a few hours so I had to dig
-this up on lore:
+> On Fri, 2025-03-07 at 18:36 +0100, Maxime Chevallier wrote:
+> > When phylink creates a fixed-link configuration, it finds a matching
+> > linkmode to set as the advertised, lp_advertising and supported modes
+> > based on the speed and duplex of the fixed link.
+> >=20
+> > Use the newly introduced phy_caps_lookup to get these modes instead of
+> > phy_lookup_settings(). This has the side effect that the matched
+> > settings and configured linkmodes may now contain several linkmodes (the
+> > intersection of supported linkmodes from the phylink settings and the
+> > linkmodes that match speed/duplex) instead of the one from
+> > phy_lookup_settings().
+> >=20
+> > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> > ---
+> >  drivers/net/phy/phylink.c | 44 +++++++++++++++++++++++++++------------
+> >  1 file changed, 31 insertions(+), 13 deletions(-)
+> >=20
+> > diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> > index cf9f019382ad..8e2b7d647a92 100644
+> > --- a/drivers/net/phy/phylink.c
+> > +++ b/drivers/net/phy/phylink.c
+> > @@ -802,12 +802,26 @@ static int phylink_validate(struct phylink *pl, u=
+nsigned long *supported,
+> >  	return phylink_validate_mac_and_pcs(pl, supported, state);
+> >  }
+> > =20
+> > +static void phylink_fill_fixedlink_supported(unsigned long *supported)
+> > +{
+> > +	linkmode_set_bit(ETHTOOL_LINK_MODE_10baseT_Half_BIT, supported);
+> > +	linkmode_set_bit(ETHTOOL_LINK_MODE_10baseT_Full_BIT, supported);
+> > +	linkmode_set_bit(ETHTOOL_LINK_MODE_100baseT_Half_BIT, supported);
+> > +	linkmode_set_bit(ETHTOOL_LINK_MODE_100baseT_Full_BIT, supported);
+> > +	linkmode_set_bit(ETHTOOL_LINK_MODE_1000baseT_Half_BIT, supported);
+> > +	linkmode_set_bit(ETHTOOL_LINK_MODE_1000baseT_Full_BIT, supported);
+> > +	linkmode_set_bit(ETHTOOL_LINK_MODE_2500baseT_Full_BIT, supported);
+> > +	linkmode_set_bit(ETHTOOL_LINK_MODE_5000baseT_Full_BIT, supported);
+> > +	linkmode_set_bit(ETHTOOL_LINK_MODE_10000baseT_Full_BIT, supported);
+> > +}
+> > + =20
+>=20
+> Any chance we can go with a different route here than just locking
+> fixed mode to being only for BaseT configurations?
+>=20
+> I am currently working on getting the fbnic driver up and running and I
+> am using fixed-link mode as a crutch until I can finish up enabling
+> QSFP module support for phylink and this just knocked out the supported
+> link modes as I was using 25CR, 50CR, 50CR2, and 100CR2.
+>=20
+> Seems like this should really be something handled by some sort of
+> validation function rather than just forcing all devices using fixed
+> link to assume that they are BaseT. I know in our direct attached
+> copper case we aren't running autoneg so that plan was to use fixed
+> link until we can add more flexibility by getting QSFP support going.
 
-https://lore.kernel.org/all/7b1c7c36-363a-4085-b26c-4f210bee1df6@stanley.mountain/
+These baseT mode were for compatibility with the previous way to deal
+with fixed links, but we can extend what's being report above 10G with
+other modes. Indeed the above code unnecessarily restricts the
+linkmodes. Can you tell me if the following patch works for you ?
 
-This is definitely still a real bug on today's linux-next but yes, the
-fix is bad.
+Maxime
 
-drivers/net/ethernet/ti/icssg/icss_iep.c
-   814  int icss_iep_exit(struct icss_iep *iep)
-   815  {
-   816          if (iep->ptp_clock) {
-   817                  ptp_clock_unregister(iep->ptp_clock);
-   818                  iep->ptp_clock = NULL;
-   819          }
-   820          icss_iep_disable(iep);
-   821  
-   822          if (iep->pps_enabled)
-   823                  icss_iep_pps_enable(iep, false);
-   824          else if (iep->perout_enabled)
-   825                  icss_iep_perout_enable(iep, NULL, false);
-                                                    ^^^^
-A better fix probably to delete this function call instead of
-turning it into a no-op.
+-----------
 
-   826  
-   827          return 0;
-   828  }
+=46rom 595888afb23f209f2b1002d0b0406380195d53c1 Mon Sep 17 00:00:00 2001
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Date: Fri, 28 Mar 2025 08:53:00 +0100
+Subject: [PATCH] net: phylink: Allow fixed-link registration above 10G
 
-regards,
-dan carpenter
+The blamed commit introduced a helper to keep the linkmodes reported by
+fixed links identical to what they were before phy_caps. This means
+filtering linkmodes only to report BaseT modes.
+
+Doing so, it also filtered out any linkmode above 10G. Reinstate the
+reporting of linkmodes above 10G, where we report any linkmodes that
+exist at these speeds.
+
+Reported-by: Alexander H Duyck <alexander.duyck@gmail.com>
+Closes: https://lore.kernel.org/netdev/8d3a9c9bb76b1c6bc27d2bd01f4831b2cac8=
+3f7f.camel@gmail.com/
+Fixes: de7d3f87be3c ("net: phylink: Use phy_caps_lookup for fixed-link conf=
+iguration")
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ drivers/net/phy/phylink.c | 17 +++++++++++++----
+ 1 file changed, 13 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index 69ca765485db..de90fed9c207 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -715,16 +715,25 @@ static int phylink_parse_fixedlink(struct phylink *pl,
+ 		phylink_warn(pl, "fixed link specifies half duplex for %dMbps link?\n",
+ 			     pl->link_config.speed);
+=20
+-	linkmode_zero(pl->supported);
+-	phylink_fill_fixedlink_supported(pl->supported);
++	linkmode_fill(pl->supported);
+=20
+ 	linkmode_copy(pl->link_config.advertising, pl->supported);
+ 	phylink_validate(pl, pl->supported, &pl->link_config);
+=20
++	phylink_fill_fixedlink_supported(match);
++
+ 	c =3D phy_caps_lookup(pl->link_config.speed, pl->link_config.duplex,
+ 			    pl->supported, true);
+-	if (c)
+-		linkmode_and(match, pl->supported, c->linkmodes);
++	if (c) {
++		/* Compatbility with the legacy behaviour : Report one single
++		 * BaseT mode for fixed-link speeds under or at 10G, or all
++		 * linkmodes at the speed/duplex for speeds over 10G
++		 */
++		if (linkmode_intersects(match, c->linkmodes))
++			linkmode_and(match, match, c->linkmodes);
++		else
++			linkmode_copy(match, c->linkmodes);
++	}
+=20
+ 	linkmode_set_bit(ETHTOOL_LINK_MODE_Pause_BIT, mask);
+ 	linkmode_set_bit(ETHTOOL_LINK_MODE_Asym_Pause_BIT, mask);
+--=20
+2.48.1
 
 
