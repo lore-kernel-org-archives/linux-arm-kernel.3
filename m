@@ -4,97 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9097CC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 14:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A019EC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 14:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ZE+cd4BF6DxUBAmY/OkkgML45nE3/ZZOvYLMZAwwYc=; b=zpCsMXGpce2ZvH9ixKneGii+dF
-	RyH0HwjBEuDpaXzRkE6MqyKVChWGclGO2e3K2ialgm+Gv7wKsz4GG1m+uScdJ8e2fR1e0HYb+Zi+P
-	1B45bzWut48n05Ia2K7qXWXwakd9xN4NnfDGp+2uOOrWreYrdqd0857OfapYepnqXt1bWjHmqchc5
-	DCP2w+/TA5mFZ+rkef+alXpxAJi5QPtr1QZjPjZywuYwJ3RLPfELknszxZh+4A2Mrqzix3aRb/gjR
-	l/Rt7dSRILot3kgokxsocAGoaf+LZQ8RrbB9B9+N5B8xNrwTmqnnVhxNsEm7CDe7r797joC6NJzLw
-	MjIW2Cpw==;
+	bh=GuepTOp0fnjkQGfzHefLS6Lxya5YylKmxoB5FK1TopI=; b=SS2Jyi0x12edHMfDMHFZLe4Sfm
+	iEmLnwwcQeE3AnWDZXZ3wLzXbvROO/JAVMENb4SmL7ar7iL37kapBbA69UnDAUNG3B6S8bHWLs66/
+	dM77nRHb8k+WmF19eUEMDWJTEwQqk4mzPwPVdTktN1G0oainX4Y5jGxfThQ03Mkt62BbFYLIdwNVI
+	KHDp9jlEQbbifrB5jQGs/IbHBA8HDD4eU8G6/1+5cNyOy5VhshRw8vfNPKz8VKM17IN9Oilece/By
+	ABbtCq0H13i2+DYvFK6NVz+w43K+h5NTbApwvGuhu4yT2/FxrCYQgqNU2gOCEKc9TIb/6FH89OJB3
+	V7H5HKkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyB4K-0000000DeoH-3ZQ0;
-	Fri, 28 Mar 2025 14:52:24 +0000
-Received: from 004.mia.mailroute.net ([199.89.3.7])
+	id 1tyB63-0000000Df2j-0yLV;
+	Fri, 28 Mar 2025 14:54:11 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyAIX-0000000DX75-0BHo;
-	Fri, 28 Mar 2025 14:03:02 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by 004.mia.mailroute.net (Postfix) with ESMTP id 4ZPMfw4yNVznsPmg;
-	Fri, 28 Mar 2025 14:02:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1743170565; x=1745762566; bh=4ZE+cd4BF6DxUBAmY/OkkgML
-	45nE3/ZZOvYLMZAwwYc=; b=UPm1J3mpblKfQc0YCZUMmcge9Fp2Hef+73/B73p/
-	+KPKKDSby43MhHWq8epDKk3NYStHZ1OtKRT2+Uy2GUKG3KmayPt0HQ2zTr3YoX9X
-	Mhmuyla+B676KGjl9r1BkBgGM1KIxXrtFqC66hhgh41Mu9FEZ2Oj7SzQSaSqTliY
-	VWaUxxFFSTaNVCpLA9arQbDnjYmHQ9ymBJ1/gxoczCX+jDZt3741OPKPpJzxWz2g
-	tWMT4et2zzF+4M/b9fZhBrMTpFdN8yW9GhqN/ZAHfhUvAWJNJp6pnT0TZ3rwIHQa
-	TskXsuvMcSpf0/Z3Jk7cN/6vV/e0n57/z9uq3n59JLigWg==
-X-Virus-Scanned: by MailRoute
-Received: from 004.mia.mailroute.net ([127.0.0.1])
- by localhost (004.mia [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id QSa-olsH7qKs; Fri, 28 Mar 2025 14:02:45 +0000 (UTC)
-Received: from [192.168.50.14] (c-73-231-117-72.hsd1.ca.comcast.net [73.231.117.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 004.mia.mailroute.net (Postfix) with ESMTPSA id 4ZPMfR3GjYzm0ytY;
-	Fri, 28 Mar 2025 14:02:21 +0000 (UTC)
-Message-ID: <989e695e-e6a4-4427-9041-e39ecf5b5674@acm.org>
-Date: Fri, 28 Mar 2025 07:02:20 -0700
+	id 1tyAMg-0000000DXpW-1PH7
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Mar 2025 14:07:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 897AAA42886;
+	Fri, 28 Mar 2025 14:01:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF549C4CEE4;
+	Fri, 28 Mar 2025 14:07:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743170837;
+	bh=m017URjN596GwKkMkzZo8oOJMvuSa3Xs2AK+8jl9Z9U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=s5vEc6owtcnEmyzB67vXFa0oU+WhqZIM6jjUTxMoU+QBRxZlqLTVJvm3L2NKv6f11
+	 8NiILl2mebnpAM9BHrNlc9aOg+dbBF8kFTVz8rcvKZQaF5hxLqPgUY84U2Ny3a3la+
+	 iNEIJAr0z7lT5qWSV7Zqt8wAb5KOwF/c5H1mMrv/X/7NKhfIdKo6yTPWP4JgA2TpUe
+	 9/34mL93bdOl9b0SsrVMWy6DgBPBD6q3f0olPNLQtQVxj6LK+Id/eqUa0S3oJ+xGCA
+	 YYr+ViDmrW2+FZ9MeR4NbzvFyiQIXXGPlXTAqk+zCI/JfV3zqCblzr1qAnJny9H8Z7
+	 cRLHcv3/UcFKQ==
+Message-ID: <e6f3e50f-8d97-4dbc-9de3-1d9a137ae09c@kernel.org>
+Date: Fri, 28 Mar 2025 15:07:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/1] scsi: ufs: core: add device level exception
- support
-To: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>,
- Arthur Simchaev <Arthur.Simchaev@sandisk.com>,
- "quic_cang@quicinc.com" <quic_cang@quicinc.com>,
- "quic_nitirawa@quicinc.com" <quic_nitirawa@quicinc.com>,
- "avri.altman@wdc.com" <avri.altman@wdc.com>,
- "peter.wang@mediatek.com" <peter.wang@mediatek.com>,
- "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
- "minwoo.im@samsung.com" <minwoo.im@samsung.com>,
- "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
- "martin.petersen@oracle.com" <martin.petersen@oracle.com>
-Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Bean Huo <beanhuo@micron.com>, Keoseong Park <keosung.park@samsung.com>,
- Ziqi Chen <quic_ziqichen@quicinc.com>, Al Viro <viro@zeniv.linux.org.uk>,
- Gwendal Grignou <gwendal@chromium.org>, Eric Biggers <ebiggers@google.com>,
- open list <linux-kernel@vger.kernel.org>,
- "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
- <linux-arm-kernel@lists.infradead.org>,
- "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
- <linux-mediatek@lists.infradead.org>
-References: <4370b3a3b5a5675bb3e75aaa48a273674c159339.1742526978.git.quic_nguyenb@quicinc.com>
- <SA2PR16MB4251229744D717821D3D8353F4A72@SA2PR16MB4251.namprd16.prod.outlook.com>
- <c5ab13ec-f650-ea10-5cb8-d6a2ddf1e825@quicinc.com>
- <0a68d437-5d6a-42aa-ae4e-6f5d89cfcaf3@acm.org>
- <ad246ef4-7429-63bb-0279-90738736f6e3@quicinc.com>
- <3d7b543c-1165-42e0-8471-25b04c7572ac@acm.org>
- <4cb20c80-9bb0-e147-e3c0-467f4c8828ba@quicinc.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: net: Add MTIP L2 switch description
+To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250328133544.4149716-1-lukma@denx.de>
+ <20250328133544.4149716-2-lukma@denx.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <4cb20c80-9bb0-e147-e3c0-467f4c8828ba@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250328133544.4149716-2-lukma@denx.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_070301_186234_7130D095 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250328_070718_528950_EFA43E52 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,29 +125,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/27/25 5:45 PM, Bao D. Nguyen wrote:
-> Thanks Bart. How about we change the current utp_upiu_query_v4_0 to
->=20
-> struct utp_upiu_query_v4_0 {
->  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 __u8 opcode;
->  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 __u8 idn;
->  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 __u8 index;
->  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 __u8 selector;
->  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 __u8 cmd_specifics[8];
->  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /* private: */
->  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 __be32 reserved;
-> };
->=20
-> Depending on the opcode/transaction, the cmd_specifics[] can be type=20
-> casted to access the LENGTH, FLAG_VALUE, VALUE[0:63] fields of the QUER=
-Y=20
-> UPIU. The __u8 array[8] would also prevent the compiler padding to the=20
-> data.
+On 28/03/2025 14:35, Lukasz Majewski wrote:
+> This patch provides description of the MTIP L2 switch available in some
+> NXP's SOCs - e.g. imx287.
+> 
+> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> ---
+> Changes for v2:
+> - Rename the file to match exactly the compatible
+>   (nxp,imx287-mtip-switch)
 
-Are there any user space applications that use the osf3/4/5/6/7 member
-names? Has it been considered to preserve these by introducing a union?
+Please implement all the changes, not only the rename. I gave several
+comments, although quick glance suggests you did implement them, so then
+changelog is just incomplete.
 
-Thanks,
+> ---
+>  .../bindings/net/nxp,imx287-mtip-switch.yaml  | 165 ++++++++++++++++++
+>  1 file changed, 165 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> new file mode 100644
+> index 000000000000..a3e0fe7783ec
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> @@ -0,0 +1,165 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/nxp,imx287-mtip-switch.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
+> +
+> +maintainers:
+> +  - Lukasz Majewski <lukma@denx.de>
+> +
+> +description:
+> +  The 2-port switch ethernet subsystem provides ethernet packet (L2)
+> +  communication and can be configured as an ethernet switch. It provides the
+> +  reduced media independent interface (RMII), the management data input
+> +  output (MDIO) for physical layer device (PHY) management.
+> +
 
-Bart.
+If this is ethernet switch, why it does not reference ethernet-switch
+schema? or dsa.yaml or dsa/ethernet-ports? I am not sure which one
+should go here, but surprising to see none.
+
+> +properties:
+> +  compatible:
+> +    const: nxp,imx287-mtip--switch
+
+Just one -.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +    description:
+> +      The physical base address and size of the MTIP L2 SW module IO range
+
+Wasn't here, drop.
+
+> +
+> +  phy-supply:
+> +    description:
+> +      Regulator that powers Ethernet PHYs.
+> +
+> +  clocks:
+> +    items:
+> +      - description: Register accessing clock
+> +      - description: Bus access clock
+> +      - description: Output clock for external device - e.g. PHY source clock
+> +      - description: IEEE1588 timer clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: ipg
+> +      - const: ahb
+> +      - const: enet_out
+> +      - const: ptp
+> +
+> +  interrupts:
+> +    items:
+> +      - description: Switch interrupt
+> +      - description: ENET0 interrupt
+> +      - description: ENET1 interrupt
+> +
+> +  pinctrl-names: true
+
+Drop
+
+> +
+> +  ethernet-ports:
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      '#address-cells':
+> +        const: 1
+> +      '#size-cells':
+> +        const: 0
+> +
+> +    patternProperties:
+> +      "^port@[0-9]+$":
+
+Keep consistent quotes, either " or '. Also [01]
+
+
+> +        type: object
+> +        description: MTIP L2 switch external ports
+> +
+> +        $ref: ethernet-controller.yaml#
+> +        unevaluatedProperties: false
+> +
+> +        properties:
+> +          reg:
+> +            items:
+> +              - enum: [1, 2]
+> +            description: MTIP L2 switch port number
+> +
+> +          label:
+> +            description: Label associated with this port
+> +
+> +        required:
+> +          - reg
+> +          - label
+> +          - phy-mode
+> +          - phy-handle
+> +
+> +  mdio:
+> +    type: object
+> +    $ref: mdio.yaml#
+> +    unevaluatedProperties: false
+> +    description:
+> +      Specifies the mdio bus in the switch, used as a container for phy nodes.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - mdio
+> +  - ethernet-ports
+> +  - '#address-cells'
+> +  - '#size-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include<dt-bindings/interrupt-controller/irq.h>
+> +    switch@800f0000 {
+> +        compatible = "nxp,imx287-mtip-switch";
+> +        reg = <0x800f0000 0x20000>;
+> +        pinctrl-names = "default";
+> +        pinctrl-0 = <&mac0_pins_a>, <&mac1_pins_a>;
+> +        phy-supply = <&reg_fec_3v3>;
+> +        interrupts = <100>, <101>, <102>;
+> +        clocks = <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
+> +        clock-names = "ipg", "ahb", "enet_out", "ptp";
+> +        status = "okay";
+
+Drop
+
+> +
+> +        ethernet-ports {
+> +                #address-cells = <1>;
+> +                #size-cells = <0>;
+
+Messed indentation. See example-schema or writing-schema.
+
+
+
+Best regards,
+Krzysztof
 
