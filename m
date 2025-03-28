@@ -4,63 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 050E9C36013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 00:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5A9C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Mar 2025 01:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p+ra6T2kuA7+mt1Iw7ON824iAjkZzokAvi5uNjYApfw=; b=u6RT5YUdyBSDQZJIKkb1kqyYrS
-	bRC5jDTqvxqFlLQsY67VfRAnGwSj816NB0J3WFn3JLVTI6u2e4GFM+o5RzvdiL1dRA0tEQC6oNMjl
-	0ptgB3gazvdoIrN+HRDZ1ePiZBsz+80ZfJPn9TZXg9WK/MVnANXGXlStBg4WmTnNP8td5dgeVvKjO
-	rfxxz/WnZXC1wff8xMdcyKvT3MxYhogLJ5xsDQYhvtkQYEmpbkji3Gg2Dg/An57mPfQahPAFBSvb9
-	Z5EMPm+SjN4u8InBlMIBb+On2Mku4bq/Tj1yvRMVigW73SJ6xhu48B9X3g/VOBVajtNHIvrt4/Eqr
-	h1S6GNiQ==;
+	bh=UktKUUVgFXfpNQzRoxlwygzcOcwN5oFlxC5sDzVSosE=; b=Oq1DI6ntpdSnG/0HG0QPbU055f
+	ygi2Ag5ahU8p6kbLe7CgQk5SueHbRjPbj0Qs15/mmg3TLsszyLW4dXui4l8n+mifRsAZIZI3hGVxG
+	PfuqJ3pnYg/zDq4YF22i0PLYBAzW70dyiIPvvB4+PyH5yn71o5+rWD5/Ua123L2a5c/34GzH8JA/+
+	30hH1hAoOt7dIishdDNLehgUE4N4hqERHDuTgSENfLIUolEokf7+swahKeixey5DhH6yQN6qUpnV5
+	2CxgkUY9MlDkMFRaykT0m/VoE1mBLEJusqZmAy3Xc0T/lwQQVPrKKpZYCSr+fCko1dAUDLO2M837G
+	fCffd5wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txxtz-0000000CJBU-37zs;
-	Fri, 28 Mar 2025 00:48:51 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1txyM5-0000000CKdx-1Ed2;
+	Fri, 28 Mar 2025 01:17:53 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txxsF-0000000CJ6N-2xot
+	id 1txyKK-0000000CKVk-3jJN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Mar 2025 00:47:05 +0000
+	Fri, 28 Mar 2025 01:16:07 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2239c066347so39455795ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Mar 2025 18:16:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1743122814;
-	bh=p+ra6T2kuA7+mt1Iw7ON824iAjkZzokAvi5uNjYApfw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=l8YUapQxzkeoWlqLL49sQe2NZt+CDE+Nbw6PPh7eZKP++2Ac/TSsnK1tiM8aLmjXH
-	 ar97VpEYv4CJvV2HBzYiqAYvGRrXS5SX1+jOn8cZbD2UXHu0hG+ziM/hyTG7h0MAyp
-	 eCrvBZPGJH/pl5yjqZGxCdUUZbbPn8RAshQSwN2XFyx4y5qhrlsHmE6fttMcr9p63Y
-	 mWibmTpNIuw6aArxfyUc4gHIgIdHCwAgKe6okSnUvEjAtjpNnsrMVqHfJBpdi0NiFD
-	 essgIYoScXVdiCnLgBILlmAyiayUxWWj4wNKzK4NeNA9WT/igeteJsm/lHbAnK/DGU
-	 wBJTYZY0MyPmg==
-Received: from [192.168.68.112] (unknown [180.150.112.225])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id C0E4C7BC5A;
-	Fri, 28 Mar 2025 08:46:50 +0800 (AWST)
-Message-ID: <d0f7003c22e19c8fc7617610043edc7be925a180.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v4 2/3] dt-bindings: pinctrl: aspeed,ast2600-pinctrl
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Willie Thai <wthai@nvidia.com>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, joel@jms.id.au, kees@kernel.org, tony.luck@intel.com, 
-	gpiccoli@igalia.com, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	openbmc@lists.ozlabs.org
-Cc: leohu@nvidia.com, tingkaic@nvidia.com, dkodihalli@nvidia.com
-Date: Fri, 28 Mar 2025 11:16:49 +1030
-In-Reply-To: <20250324175926.222473-3-wthai@nvidia.com>
-References: <20250324175926.222473-1-wthai@nvidia.com>
-	 <20250324175926.222473-3-wthai@nvidia.com>
+        d=gmail.com; s=20230601; t=1743124563; x=1743729363; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=UktKUUVgFXfpNQzRoxlwygzcOcwN5oFlxC5sDzVSosE=;
+        b=B4G/6Nc+Pw4bmH6hIpBld0mI8UAVY/hWxd3roz/N68rCSiJfmeUVNrL4uB+QkdVDHc
+         LxmdFs/PkQkbzrbjNakQyTz4XZyPpkg/oSDpNXXFND8xpuwXrD5SPh2MTteStufOG84I
+         yKz24qrJHJ5/hrJKT1/dLemWJFru1kv2geYKYfUGBb3BnjS8wi8/+QEwA48NkzQMii8E
+         3N00dhb6gr/zz6OSz+WJOUvjCC2veohAYmttjNGI/pbuttZkmzXdcs6x9nv8yUntACSM
+         YimDbOIwFrenNiayxWFG6uncC3nXke+zsaQ5/nRZ6Rmb1Mz+vkSffE+dBDN6kU9VgLse
+         RGLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743124563; x=1743729363;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UktKUUVgFXfpNQzRoxlwygzcOcwN5oFlxC5sDzVSosE=;
+        b=RjpmemlO5bvs0+PxKH8L9PXSG0UkKhnWb24X2B87AIvB3LRq0WGgxeAzOFRoqe50pa
+         A/Qw7zVmTcVRJ7BOfFNGFrnu7ZHVHzat6iY02O4k4WY2i3cL1m6+VyloPpwWXsK8yji1
+         JU2jAgOfWDJkBsxBK2HwPE6zOTAlu9fkJyOtiH6uH5mJ3e4Ay6wd/xTKd8pSf1AdD+PE
+         pdS0Nhqk/brSCRjQJvVVVT/hZpjPv4Wly2kqj+fwjWgZ4Nzoh0UJgo+3SnoQvyttAEtJ
+         rZ21XCC+Kd9y+N7QTpTZw27g256/KMiYJgeK4zuFyX69Xp3qV0GEJmpTjaRfQKg05gI0
+         JqYg==
+X-Forwarded-Encrypted: i=1; AJvYcCW6bKJeWCGp6j3PbTzxzSjRAxXJxNIdmg497QV8sr96+pcfSFKsCYfbpbrKY+kEbPwfp+5Y0rUHUkdlo4Z6g0vg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfMmSHPQqS7xPlc7T9rbbbTM1o7E4BAtCg4S1IWf7rqUCHNdYd
+	QCiqhCXrwJdjdi+fq9m8yELqfTp6QyrwKxQsBJ1aHMT4+83jPmgP
+X-Gm-Gg: ASbGncuILD/M8S1PVMzvGHisb7uUtrO+qdWQ08znIxjsdvfuij8pDWRfIGUyRRXs0U/
+	AG9/KXCBGd3ZZcwpZ06plgGOuvPyIKWVbit0GECcbLeFnih90KKipuKy0IEbjbUBdnNMIP3st24
+	qxR9TbkDU/IEztA17Kqi2P+z+LJKOzfAHnu3KOEq79fyHnfLaNufim0whzTmpAhzDCs81TErwEZ
+	rYvVSTJL4kEOkbwzqKDAkEe+WYvEMfMN/G1Ha+luqVSg1vb3MClJS0l67YiviWjE0jpuyOShtyp
+	KGQgEGNBnRdNhLmxdnYW6cKirPm3Y7c0S9DPZo1jDzJNczQqHesuqrSXYvuBATXaUrRaZyOLyuy
+	dZDQFsUAFxogCY3TC0/wlPy879XmylnoHcSs=
+X-Google-Smtp-Source: AGHT+IFsa4ooa9WyM+hXEZ/VKN3czMhSBprfgrFtEeIEImHL9Em/a0EmMkNmL2FmVwvZNwNZ3kwIyg==
+X-Received: by 2002:a05:6a00:4fc1:b0:736:5c8e:bab8 with SMTP id d2e1a72fcca58-73960e10bdemr8365322b3a.3.1743124563325;
+        Thu, 27 Mar 2025 18:16:03 -0700 (PDT)
+Received: from ?IPv6:2605:59c8:829:4c00:82ee:73ff:fe41:9a02? ([2605:59c8:829:4c00:82ee:73ff:fe41:9a02])
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-73970def6d9sm549308b3a.10.2025.03.27.18.16.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Mar 2025 18:16:02 -0700 (PDT)
+Message-ID: <8d3a9c9bb76b1c6bc27d2bd01f4831b2cac83f7f.camel@gmail.com>
+Subject: Re: [PATCH net-next v5 09/13] net: phylink: Use phy_caps_lookup for
+ fixed-link configuration
+From: Alexander H Duyck <alexander.duyck@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net, 
+ Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, Eric
+ Dumazet <edumazet@google.com>,  Paolo Abeni <pabeni@redhat.com>, Russell
+ King <linux@armlinux.org.uk>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
+ <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,  =?ISO-8859-1?Q?K=F6ry?=
+ Maincent <kory.maincent@bootlin.com>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>
+Date: Thu, 27 Mar 2025 18:16:00 -0700
+In-Reply-To: <20250307173611.129125-10-maxime.chevallier@bootlin.com>
+References: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
+	 <20250307173611.129125-10-maxime.chevallier@bootlin.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_174703_951665_77AC1FE3 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250327_181604_927655_4ACAD558 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +110,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-03-24 at 17:59 +0000, Willie Thai wrote:
-> Add EMMCG5 enum to compatible list of pinctrl binding for emmc
-> enabling.
+On Fri, 2025-03-07 at 18:36 +0100, Maxime Chevallier wrote:
+> When phylink creates a fixed-link configuration, it finds a matching
+> linkmode to set as the advertised, lp_advertising and supported modes
+> based on the speed and duplex of the fixed link.
 >=20
-> Cc: Andrew Jeffery <andrew@codeconstruct.com.au>
-> Signed-off-by: Willie Thai <wthai@nvidia.com>
+> Use the newly introduced phy_caps_lookup to get these modes instead of
+> phy_lookup_settings(). This has the side effect that the matched
+> settings and configured linkmodes may now contain several linkmodes (the
+> intersection of supported linkmodes from the phylink settings and the
+> linkmodes that match speed/duplex) instead of the one from
+> phy_lookup_settings().
+>=20
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 > ---
-> =C2=A0.../devicetree/bindings/pinctrl/aspeed,ast2600-pinctrl.yaml=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 | 1
-> +
-> =C2=A01 file changed, 1 insertion(+)
+>  drivers/net/phy/phylink.c | 44 +++++++++++++++++++++++++++------------
+>  1 file changed, 31 insertions(+), 13 deletions(-)
 >=20
-> diff --git
-> a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-
-> pinctrl.yaml
-> b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-
-> pinctrl.yaml
-> index 80974c46f3ef..cb75e979f5e0 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-
-> pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-
-> pinctrl.yaml
-> @@ -276,6 +276,7 @@ additionalProperties:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - BMCINT
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - EMMCG1
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - EMMCG4
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - EMMCG5
+> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> index cf9f019382ad..8e2b7d647a92 100644
+> --- a/drivers/net/phy/phylink.c
+> +++ b/drivers/net/phy/phylink.c
+> @@ -802,12 +802,26 @@ static int phylink_validate(struct phylink *pl, uns=
+igned long *supported,
+>  	return phylink_validate_mac_and_pcs(pl, supported, state);
+>  }
+> =20
+> +static void phylink_fill_fixedlink_supported(unsigned long *supported)
+> +{
+> +	linkmode_set_bit(ETHTOOL_LINK_MODE_10baseT_Half_BIT, supported);
+> +	linkmode_set_bit(ETHTOOL_LINK_MODE_10baseT_Full_BIT, supported);
+> +	linkmode_set_bit(ETHTOOL_LINK_MODE_100baseT_Half_BIT, supported);
+> +	linkmode_set_bit(ETHTOOL_LINK_MODE_100baseT_Full_BIT, supported);
+> +	linkmode_set_bit(ETHTOOL_LINK_MODE_1000baseT_Half_BIT, supported);
+> +	linkmode_set_bit(ETHTOOL_LINK_MODE_1000baseT_Full_BIT, supported);
+> +	linkmode_set_bit(ETHTOOL_LINK_MODE_2500baseT_Full_BIT, supported);
+> +	linkmode_set_bit(ETHTOOL_LINK_MODE_5000baseT_Full_BIT, supported);
+> +	linkmode_set_bit(ETHTOOL_LINK_MODE_10000baseT_Full_BIT, supported);
+> +}
+> +
 
-What pin configuration does this correspond to for the eMMC controller?
-These groups aren't arbitrary, they correspond to the 1, 4 and 8-bit
-bus modes.
+Any chance we can go with a different route here than just locking
+fixed mode to being only for BaseT configurations?
 
-You may have added this squash a warning, but I suspect the pinctrl
-configuration in your devicetree is incorrect.
+I am currently working on getting the fbnic driver up and running and I
+am using fixed-link mode as a crutch until I can finish up enabling
+QSFP module support for phylink and this just knocked out the supported
+link modes as I was using 25CR, 50CR, 50CR2, and 100CR2.
 
-Andrew
-
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - EMMCG8
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ESPI
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ESPIALT
-
+Seems like this should really be something handled by some sort of
+validation function rather than just forcing all devices using fixed
+link to assume that they are BaseT. I know in our direct attached
+copper case we aren't running autoneg so that plan was to use fixed
+link until we can add more flexibility by getting QSFP support going.
 
