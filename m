@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87886C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 10:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5D0C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 12:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DDmthsGyNqQlLVQNRtR/8yYP7m5d+s914cxYpColTaM=; b=pCQpsa0Yi7/lHz28TRj2bg6QKC
-	BtnY/rAE87EzlS973oh74946Gfv6p8QvgB5t+HDo0ReWER1RqYDpKjb5Lp+Jxl695FOb8i28b0rzd
-	fNFsqI4gjliRIVfhRGyKjeF25i+UlKDiesVIX+mTu41A3AGFn8uTc3XNcEg3MLo9ft/Gc1UvCeXZL
-	WL8HctL1v37zzmSMWvSLrwJJpUVT6W2RnMHJgKiczjUTZMmgpWxW/V5SUs0mpDNJfGf4BNUczpXku
-	nVmbJS3kIlKvJ94x9lspzhyXL+qIfIAZlcMzi7bAdbVrmnPHJGeTQIFOKrQjPfMJdS7w0kc0Jz3Dl
-	Mxe7YVyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8eCl6CZTUbFxawHBHfRNrN5PBTE71kQx/9ktTJkzUx4=; b=iVakBFZuhmv8LppUVjF3UA1iZl
+	6zlRvB/2qTIypa+rcGxeJIgJVJom7+e90Bv6J719X1JP4wyiwSyhPp8k9Epb+lN+N9pk54SKmC1U1
+	utg40/EPe8WlRdzewEPN5MgFa6/kg/BP6M2Dc/Fu+zlt3eicbZZovwO27i2AzWaOqDOlXFJabJZnd
+	hNk4sssknustTKMl73LFlq5MlX49zyqxhUeWKEH1h198wFxbgekJQo8XP5fqD5IwnPeIciIgjHQVF
+	bFPOLKGgKwfJ/+KaE2PF++/FfIA/6fxgQWTzTjAqppCeyEi/W40Vcg+JT8/AaDKpgdwaoGmbIbrOU
+	Ay8nVW9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyTf7-0000000F2mv-3nQB;
-	Sat, 29 Mar 2025 10:43:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tyV36-0000000F7uo-1GiG;
+	Sat, 29 Mar 2025 12:12:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyTdN-0000000F2jt-0SxI
+	id 1tyV1L-0000000F7qz-0eiH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 10:41:50 +0000
+	Sat, 29 Mar 2025 12:10:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 14F2240C07;
-	Sat, 29 Mar 2025 10:41:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 504F5C4CEE2;
-	Sat, 29 Mar 2025 10:41:48 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D4BF9A42E3A;
+	Sat, 29 Mar 2025 12:05:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 56773C4CEE2;
+	Sat, 29 Mar 2025 12:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743244908;
-	bh=R8Ehua1Ddi0UOvOWPaw8MNQK7gNNTZlo2knNcD5hlK0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nmuTYT2gpwi/s1I376Ijk4EJUC71JUoSC/Z/3qfLz3xuPwOpJyXWWNd2nTfSJMmNz
-	 2Vmt1PPwDuNHamlt8j3auCJiFflid4W3ZL4rzxyJMm/1kvl3ud43in/fH6+p71vAmw
-	 iQcVDZCIwhubGiYixZgUTdr4ahdG99fbyBsLjJ7HAxGrwyAmETG3CesjqAyg975c3i
-	 BQBfprBqQ/c2tj6hvXOzN/G4OEcabK0yUWy81/bn7uiDoQ+r1s8fxElWT2S1sNsavi
-	 sS767fCsBnEkq85w7TlVjnqb80RvliOKbTTKc/+ryST0hJw/QbI2c5ORci8xFcHAi0
-	 ByOmoDMCMDBbQ==
-Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tyTdJ-000YHT-Tu;
-	Sat, 29 Mar 2025 10:41:46 +0000
-Date: Sat, 29 Mar 2025 10:41:46 +0000
-Message-ID: <87r02gyv85.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: <catalin.marinas@arm.com>,
-	<will@kernel.org>,
-	<oliver.upton@linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>,
-	<joey.gouly@arm.com>,
-	<suzuki.poulose@arm.com>,
-	<shameerali.kolothum.thodi@huawei.com>,
-	<jonathan.cameron@huawei.com>,
-	<prime.zeng@hisilicon.com>,
-	<xuwei5@huawei.com>,
-	<yangyicong@hisilicon.com>,
-	Linuxarm <linuxarm@huawei.com>
-Subject: Re: [PATCH 2/3] arm64/cpufeature: Add cpucap for HCR_EL2.E2H RES1 (!FEAT_E2H0)
-In-Reply-To: <75a93cfd-1e1b-3d8a-9ff0-3991b5ef05cc@huawei.com>
-References: <20250329034409.21354-1-yangyicong@huawei.com>
-	<20250329034409.21354-3-yangyicong@huawei.com>
-	<87semwz24p.wl-maz@kernel.org>
-	<75a93cfd-1e1b-3d8a-9ff0-3991b5ef05cc@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 91.161.240.24
-X-SA-Exim-Rcpt-To: yangyicong@huawei.com, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shameerali.kolothum.thodi@huawei.com, jonathan.cameron@huawei.com, prime.zeng@hisilicon.com, xuwei5@huawei.com, yangyicong@hisilicon.com, linuxarm@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1743250237;
+	bh=80jFHIrCBi/yzSoHffaggIFyzzx4mYBt2QJfX0/mmq4=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=YoYXw7Ifei7X0/qcZk1nvS2qQ4dQI1uzTLKUV+JUVL5kqkBJ73SMHiqCJx1c0vuhP
+	 JxfEXS+mzQ6cqclxZx+pWkEi/NMcxRbGGRbT6s7UFJiwMIrbHptBdgq8I7wEt+SxGE
+	 BJR4XmK3GOfnzvHvBhVKD+YK4Nb29oLiiWt/H9/FtXFTNrCfdb8SwezclqzvIPGFSo
+	 yoHMtJqrXWvCDMP1GCfK2qr4FG+pxKzV1kLmTSUW2riBD5QFlaiFISKKaPKeIMCXOA
+	 eK+XfGYjplHhIYCp3drqW53RaDJBnp2cNuezC+ws5+jA2HBRRnL8r93zT4hqFxRV9l
+	 Xc3nx+2QpN9bA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4BC8EC36008;
+	Sat, 29 Mar 2025 12:10:37 +0000 (UTC)
+From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
+Date: Sat, 29 Mar 2025 13:10:04 +0100
+Subject: [PATCH v2] ARM: multi_v7_defconfig add /proc/config.gz
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250329-arm-config_gz-v2-1-f725d331fb5d@ixit.cz>
+X-B4-Tracking: v=1; b=H4sIABzj52cC/43OQQ6DIBCF4asY1sXAGFC66j0a0xBBnYXSDMRYj
+ XcvmnTf5b94X97Ooif0kd2LnZFfMGKYc8CtYN1o58FzdLkZCFCiAsMtTbwLc4/Da9h47bTSjTL
+ WKcPy5k2+x/Xynm3unsLE00je/pRKaAkgBYimlMKArrnkzi7oHrhiKrvtdEaMKdDnurXIU/tz2
+ x7H8QV+51ff1QAAAA==
+X-Change-ID: 20250329-arm-config_gz-7d656859ad59
+To: Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ David Heidelberg <david@ixit.cz>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1193; i=david@ixit.cz;
+ h=from:subject:message-id;
+ bh=CbA+gZnkNtIFncohuGK/3N46iMOwo2R3h73PJJZfyhA=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBn5+M8TVTU30peaj6GGd1EoPFBWTPo29JY3IH4+
+ Jy5GzOK5tOJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCZ+fjPAAKCRBgAj/E00kg
+ cszhD/0UJegGCFX+OSuIwG70meXkExgC8YlChrr49t9ZKSZMLiaagx4qX2Wk1Y4hP4Rb55PXgTJ
+ H8VhUU3ak18CnRDETxJGqJznu4klqIsZqzKyf2Xz+BIvcpg1rAn6HPp9b+F8s62xd9Eum6uxsiJ
+ OqR9uuSYHEIPirUR9x2FAZpPTZyl2+F5w5eXHObikoVsAHERzcSv/5vFblMzyIa1kj9eZ26D6hT
+ 22EhHwY7e7gI3Ll/nJgz4iv4mJi19UaTWGaBBfrF99bqCDIQAZisZOQHUXo/Erx0dp2q/h4bLJN
+ 274jm8OpYQTyNTIts76z44MFEcjd5cEMCtm2RoSSaOToOaS/7+OBz6+LUBbTZ/5kv/dz4wuKj5a
+ 1dwVCsc/9llGXa50oJDWay0P9jgxZ5QtgGCG3Lp3F/sj/idgS9RTbu4BxMEaBW1RZup4ucZBDGo
+ 6qTd0A6qsc/QY2l0Gt62H5AKtJ5TbBDi9zikMEJXl6yct2T0UQz3ONX1umpMCY/OGhDzLWZ0vY6
+ 1u9h0vVmtfV3uEYwMMhBzqJYcj3+8FWRLF4K2un2G4SVYWtZpwd+8RiDxNBXp0yJylLj0kquegR
+ HrOmJePcSOFuVxc5VMqwdRLbV+vEhHG65oau7cheeZj0sgl/BKc+d+UAnaFLrqqAZ9lsbgTjLJG
+ wkheOjZsBNxBWYA==
+X-Developer-Key: i=david@ixit.cz; a=openpgp;
+ fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
+X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
+X-Original-From: David Heidelberg <david@ixit.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_034149_196835_F54619B0 
-X-CRM114-Status: GOOD (  44.83  )
+X-CRM114-CacheID: sfid-20250329_051039_335282_F1E540A7 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,128 +95,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: david@ixit.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 Mar 2025 08:41:09 +0000,
-Yicong Yang <yangyicong@huawei.com> wrote:
-> 
-> On 2025/3/29 16:12, Marc Zyngier wrote:
-> > On Sat, 29 Mar 2025 03:44:08 +0000,
-> > Yicong Yang <yangyicong@huawei.com> wrote:
-> >>
-> >> From: Yicong Yang <yangyicong@hisilicon.com>
-> >>
-> >> Arm introduced a "new" feature FEAT_E2H0 indicates that HCR_EL2.E2H can
-> >> be programmed to the value 0 for legacy hardwares supported VHE. The
-> >> feature is indicated by ID_AA64MMFR4_EL1.E2H0 == 0. It is needed to
-> >> detect this feature for KVM mode initialization. Instead of bothering
-> >> the existed hardwares, introduce a new cpucap HAS_E2H_RES1 to indicate
-> >> FEAT_E2H0 is not supported. Make this a ARM64_CPUCAP_SYSTEM_FEATURE
-> >> just like VHE.
-> >>
-> >> Introduce cpu_has_e2h_res1() for checking the feature's support
-> >> which can be used in the early boot stage where CPU capabilities
-> >> are not initialized.
-> >>
-> >> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> >> ---
-> >>  arch/arm64/include/asm/cpufeature.h | 23 +++++++++++++++++++++++
-> >>  arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
-> >>  arch/arm64/tools/cpucaps            |  1 +
-> >>  3 files changed, 36 insertions(+)
-> >>
-> >> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> >> index c4326f1cb917..b35d393da28d 100644
-> >> --- a/arch/arm64/include/asm/cpufeature.h
-> >> +++ b/arch/arm64/include/asm/cpufeature.h
-> >> @@ -889,6 +889,29 @@ static inline bool cpu_has_hw_af(void)
-> >>  						ID_AA64MMFR1_EL1_HAFDBS_SHIFT);
-> >>  }
-> >>  
-> >> +/*
-> >> + * Check whether FEAT_E2H0 is not supported, in which case HCR_EL2.E2H
-> >> + * is implemented as RES1.
-> >> + */
-> >> +static __always_inline bool cpu_has_e2h_res1(void)
-> >> +{
-> >> +	u64 mmfr4;
-> >> +	u32 val;
-> >> +
-> >> +	/*
-> >> +	 * It's also used for checking the kvm mode cfg in early_param()
-> >> +	 * where boot capabilities is not initialized. In such case read
-> >> +	 * mmfr4 directly. This works same after boot stage since
-> >> +	 * ARM64_HAS_E2H_RES1 is a system feature, the cached sanitised
-> >> +	 * value keeps same with every single CPU.
-> >> +	 */
-> >> +	mmfr4 = read_sysreg_s(SYS_ID_AA64MMFR4_EL1);
-> > 
-> > This will result in traps to EL2 with nested. Are you expecting this
-> > to be used on any form of hot paths?
-> > 
-> 
-> No. If any use required in the hotpath, check ARM64_HAS_E2H_RES1 by
-> alternative_has_cap* instead. We cannot check the capabilites in
-> the early_param() (in early_kvm_mode_cfg()) since they are not initialized,
-> so we can only rely on the registers directly.
+From: David Heidelberg <david@ixit.cz>
 
-Then I think an explicit comment would help clarifying what is
-expected to be used. I also don't think the __always_inline is
-mandated here. Specially if the helper needs to account for the broken
-Apple stuff.
+While 32-bit ARM isn't that widespread, multi_v7_defconfig is used for
+building more generic images, where having access to config can be handy.
 
-> 
-> >> +	val = cpuid_feature_extract_signed_field(mmfr4,
-> >> +						 ID_AA64MMFR4_EL1_E2H0_SHIFT);
-> >> +
-> >> +	return val != ID_AA64MMFR4_EL1_E2H0_IMP;
-> > 
-> > This is going to break badly on Apple HW, which predate the
-> > "!FEAT_E2H0" relaxation and yet have HCR_EL2.E2H RAO/WI and
-> > ID_AA64MMFR4_EL1.E2H0==0.
-> 
-> currently maybe only a wrong declaration of HCR_EL2.E2H RES1 and we can have
-> a workaround for the apple? considering the only use case of this is in the
-> early_kvm_mode_cfg() described below.
+arm64 and x86_64 already bundle config.gz, so this is an effort to provide
+the same level of comfort with ARMv7 devices.
 
-Indeed, I think you would need to handle the Apple behaviour here.
+Signed-off-by: David Heidelberg <david@ixit.cz>
+---
+Changes in v2:
+- IKCONFIG is now module instead of built-in (Greg).
+- Link to v1: https://lore.kernel.org/r/20230612210208.109267-1-david@ixit.cz
+---
+ arch/arm/configs/multi_v7_defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> 
-> > 
-> > The curent code was carefully designed to *avoid* doing this, because
-> > the kernel doesn't really need to know anything about FEAT_E2H0 apart
-> > from the very early boot.
-> > 
-> > What do we gain with this?
-> > 
-> 
-> Only one usecase introduced in patch 3/3, avoid triggering the warning on
-> !E2H0 platforms when booting with "kvm-arm.mode=nvhe". In such case "nvhe"
-> is inavailable but user has no hint on this, booting with "kvm-arm.mode=nvhe"
-> will trigger the warn [1]. Need to give some hint if user try to boot with
-> "nvhe" mode on !FEAT_E2H0 platforms. But we need a ARM64_CPUCAP_SYSTEM_FEATURE
-> capability to make this feature system wide consistent.
-> 
-> [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/kvm/arm.c#n2917
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index ad037c175fdb0ec8601c9b3607aca0c0e5f3c145..16144a519243daee25fbd339b3250e2ff77928ee 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -1,6 +1,8 @@
+ CONFIG_SYSVIPC=y
+ CONFIG_NO_HZ_IDLE=y
+ CONFIG_HIGH_RES_TIMERS=y
++CONFIG_IKCONFIG=m
++CONFIG_IKCONFIG_PROC=y
+ CONFIG_CGROUPS=y
+ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_EXPERT=y
 
-But *why* do we need an extra helper for this only functionnality? If
-we reach the point where early_kvm_mode_cfg() gets called, that we are
-still at EL2, and that the requested mode is "nvhe", then we know, by
-construction, that we couldn't switch to E2H==0.
+---
+base-commit: e21edb1638e82460f126a6e49bcdd958d452929c
+change-id: 20250329-arm-config_gz-7d656859ad59
 
-That's because idreg-override.c defines this:
-
- { "kvm_arm.mode=nvhe",		"arm64_sw.hvhe=0 id_aa64mmfr1.vh=0" },
-
-and "id_aa64mmfr1.vh=0" gets filtered out by mmfr1_vh_filter().
-
-Or am I missing something obvious?
-
-Thanks,
-
-	M.
-
+Best regards,
 -- 
-Jazz isn't dead. It just smells funny.
+David Heidelberg <david@ixit.cz>
+
+
 
