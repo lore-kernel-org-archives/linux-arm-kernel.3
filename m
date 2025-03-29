@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E32CC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 00:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A441C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 00:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T16tHjdcydDyfcQnO+rO78FihM7DOnKeDErtF6szV0c=; b=AjkKTEKciik1h5wLtfbFpiQv7S
-	lAFd5p5Xn5slHIeUylfaQwHQe7O6srsjayj6amxlTdoQHdzs8iiMqMQKC12dfw+a9vT21wjd0mHx1
-	ZISfbhtzc5LSficbqMfOr0+RKpXsy0mIiDcVJJmMPdlp3zVB4c2Za+fOwyzslfpra1uwH6jZeaXHJ
-	R/6BcVLvGrXkoEyjGzrjN3aXAWllVFAxI2euXdAUtMVz4vQ/Jg6ZzeRCSN9eejlDwPXM30L1Hm2G3
-	vRnT2Ipvfa6rcaM5JCcfWCjrAF4WaIOu/gc46e6u2/87gJS1yJ0+y+KNjB1X8tIs/69YktbicphB0
-	HQi6/aEg==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mEgmoeCU7ZoBbD/6q07yzTwvuV9KDxvtvsClWJ9QuF8=; b=BdZsjWfKduhLPe7S8WLgYfuRIU
+	zWfQK4Dlva3WPJx87Yfzp0RNP4pIhsSzVaAH+y+HUkW1kTZuHuRxQexLkR9EIn9ELayeBEB/DTTgi
+	GT9py0dptZ8wba+vW5K4of4DNKGxmuQtdk+JulSlAgxFusE+WNvqZbIubqb5cCpu2KVIj9b/OSDE2
+	jKLtQrnsUNX2B5LBNstyWbtMYICpyBSPMA7GWU0TZ3rHWhEXX2OYyp7DyfNwcUG+4BYO9TbJZXBwt
+	D6GuIDFTCSjFsCIWkBKcLLM3mWNPzb4K+xOdK+l12p2/EYQP4Jf8aH3DCmIR2pQ1TTasPJ74yRqMg
+	JzBXi/KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyJhj-0000000EWlH-27ec;
-	Sat, 29 Mar 2025 00:05:39 +0000
+	id 1tyJjS-0000000EWth-0dvD;
+	Sat, 29 Mar 2025 00:07:26 +0000
 Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyJfy-0000000EWVK-3KHs
+	id 1tyJg0-0000000EWVY-0Utl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 00:03:51 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-225107fbdc7so48538185ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 17:03:49 -0700 (PDT)
+	Sat, 29 Mar 2025 00:03:53 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2240a7aceeaso48106615ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 17:03:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743206629; x=1743811429; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=T16tHjdcydDyfcQnO+rO78FihM7DOnKeDErtF6szV0c=;
-        b=A9iHhB0LWF6T1j+sgGg+zfFxWzf9UBXzzPHa0V7MxPfkMBeiC5F22vEt1qV4zkAsdp
-         JeSkg/ezQh+U2Azv4DxShmPAYkR6VwCUMVeEvK72vGqxeqKoCzouLjE9XeXHOMdEwbKZ
-         TH4BVtNRrBafqsTnqwwZppt/3c7qs0c39n/TWp6lAdQBTlwdKMyX1S4THnFz1FFxD+dE
-         KGqDtLvHwU+Bft1g+bcZ71BmkJ6k+iVzt/7CGBWMhXRGXit5P7/tTlwhFlMoWI2KPUyK
-         k68kJsojvZV4bvhu/govJ1AjAAAVLggStacbRAyJvKeQ7ivl70lGqtKEzxxTZ25oPxb4
-         aoAg==
+        d=google.com; s=20230601; t=1743206631; x=1743811431; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mEgmoeCU7ZoBbD/6q07yzTwvuV9KDxvtvsClWJ9QuF8=;
+        b=GPMImk0mrn2J+u1uR1PG8gNm6m+bR+xYaonH3BihzYsFvOfRuM5Au2SP5ywPeYJbMa
+         QFkXvzQFZ8TYZWTaA3U4YWcYrOf1p7kwNgHG6lDr7C4CyE/M2Uw9LI1ZVk8hs8lbqA6N
+         tDDgFwue4cvZbJJuoDcqbRJ9g7Ma6nS8tOiVe2cDvtWhvi6zvAfffaNd3Xsm8LtCslOI
+         CFWRBGmHYFkCU7ZdZJXzpxFfKNt2ZB9WKN6J/HUD+aVebDA5GzeJRoZho181djAZ4+Ir
+         l0pQIl9kkj02IbE02CNBYzluQX0Z/rIqwXrORZwrKS/szTdLo6DDf/UTHSQJjrpADUYZ
+         0b/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743206629; x=1743811429;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=T16tHjdcydDyfcQnO+rO78FihM7DOnKeDErtF6szV0c=;
-        b=pAPXhuoIuXJ1+jPU2Oo3SgUrM6y85zt20QSSyLJB9pSGDPCX5+qKlrafbRhqW9+HNx
-         ItYvEbZTqvjz5StlfwZC4hxflUk5JpPiWt7cPreiRAS15ZJUOpSKSpb4v/ww4f/5n+1y
-         tlxG5NbPLqaEKWLmybx/VOwghcINkq+MsaX30YJkO//K6lSZCZVQ/CzWNZNjCHACttxA
-         3IO/8ue87r6rcwEDHp7bBNP5Go29HS02dBovsosqrXolu0Rxc5KpAg7al5su0xctirMl
-         I40xmHESp7xXFTcwaFhKm0WybUiHMqYBeoaavWAH2u82VAoZ19QZKoitcALHqyYka4W7
-         vgXw==
-X-Forwarded-Encrypted: i=1; AJvYcCUfUAhkqDHgH5CRHgKM7HvnBI+D6ah6qcXEK8AR+2RVC4WKTRmnTJe6VpfjPt6XJaGXmFmfpA6AuDVWc/P0xqrT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLsMTt5j0+yFlBDbbgrpRGpZtDS11EonYVMr1C3lsQslsj2yfH
-	HmgbLJTnUWvL47pqD1mGVTtGOHs+UssxZ8HL+XH+Y0PEI/Q1NXlbHHp8iwqv42RGPw==
-X-Google-Smtp-Source: AGHT+IFXbp95YRShZyWDHTfWt39VhfR88gtKILTuI2qmMg5tUTqt0nYA/ekMozYHGJNsTbYe2UjU9BY=
-X-Received: from pgac16.prod.google.com ([2002:a05:6a02:2950:b0:af2:37c4:2ad])
- (user=pcc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:9e4a:b0:1f5:862b:a583
- with SMTP id adf61e73a8af0-2009f78553bmr2229842637.34.1743206629156; Fri, 28
- Mar 2025 17:03:49 -0700 (PDT)
-Date: Fri, 28 Mar 2025 17:03:35 -0700
+        d=1e100.net; s=20230601; t=1743206631; x=1743811431;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mEgmoeCU7ZoBbD/6q07yzTwvuV9KDxvtvsClWJ9QuF8=;
+        b=Q+S5wiqYB2FkoFTw/JYFfUIVp9R0xDDL0Hp27bCB3Q1pKOVyUkeb5FaexNfyuA6Qhn
+         CwfkTYs56VMLXyDREYTqKAcCxWr9dUY1nz0fhaMErxDuIPFcwofBI6u47utn2J6plZ/1
+         +p1S+NozJ8PaYHRowNq/jd2xO7B0QyKRM9yzSf8h7MbT356ze/fLuw2T+s0L0747oih0
+         KNRZE1x2KNmlLECDVzcz6Q7K+GNft0a/Liwp1O0zV10V5LVIGZu3GI38XR2riZVb6W2G
+         ifbJMobRy1z698nPV3Qrlm6xVymjooNNp6WqjYlpoBQS05plYGuwKFwR31ogP2PIV18+
+         eNig==
+X-Forwarded-Encrypted: i=1; AJvYcCV4wfU9apVoIj2wZ2JSeEwXfFiZSoSueQoaUuXLWPy3bSf2rTzs3X6wGtDeKaHFPeuEbn77St5jB4FgGmTeakED@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP17XERrwm6tAHzpcU/UssBq2ScboPitx4FQ3aSRqAEn3BGvNg
+	zyQrNav+LyIeK8WAuUZ/obLsBWbf9LRn05/Suzb7SPdm3RP0YUZjuUvruphTZglW/Q==
+X-Google-Smtp-Source: AGHT+IHjR6hGtSOVpUkc0nyNRot3w3fhTtOD52YS62CSenulpOThQdeL5LjrShYtAkO27skye9Y/6dw=
+X-Received: from pfbmd6.prod.google.com ([2002:a05:6a00:7706:b0:739:4935:6146])
+ (user=pcc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e887:b0:223:f408:c3f8
+ with SMTP id d9443c01a7336-2292f960348mr16354725ad.14.1743206631260; Fri, 28
+ Mar 2025 17:03:51 -0700 (PDT)
+Date: Fri, 28 Mar 2025 17:03:36 -0700
+In-Reply-To: <20250329000338.1031289-1-pcc@google.com>
 Mime-Version: 1.0
+References: <20250329000338.1031289-1-pcc@google.com>
 X-Mailer: git-send-email 2.49.0.472.ge94155a9ec-goog
-Message-ID: <20250329000338.1031289-1-pcc@google.com>
-Subject: [PATCH v4 0/2] string: Add load_unaligned_zeropad() code path to sized_strscpy()
+Message-ID: <20250329000338.1031289-2-pcc@google.com>
+Subject: [PATCH v4 1/2] string: Add load_unaligned_zeropad() code path to sized_strscpy()
 From: Peter Collingbourne <pcc@google.com>
 To: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
 	Andrew Morton <akpm@linux-foundation.org>, Kees Cook <kees@kernel.org>, 
@@ -71,12 +73,11 @@ To: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.
 	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>
 Cc: Peter Collingbourne <pcc@google.com>, linux-fsdevel@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_170350_846918_999D657F 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250328_170352_155906_C6F52469 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,26 +92,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes an issue where strscpy() would sometimes trigger
-a false positive KASAN report with MTE.
+The call to read_word_at_a_time() in sized_strscpy() is problematic
+with MTE because it may trigger a tag check fault when reading
+across a tag granule (16 bytes) boundary. To make this code
+MTE compatible, let's start using load_unaligned_zeropad()
+on architectures where it is available (i.e. architectures that
+define CONFIG_DCACHE_WORD_ACCESS). Because load_unaligned_zeropad()
+takes care of page boundaries as well as tag granule boundaries,
+also disable the code preventing crossing page boundaries when using
+load_unaligned_zeropad().
 
-v4:
-- clarify commit message
-- improve comment
+Signed-off-by: Peter Collingbourne <pcc@google.com>
+Link: https://linux-review.googlesource.com/id/If4b22e43b5a4ca49726b4bf98ada827fdf755548
+Fixes: 94ab5b61ee16 ("kasan, arm64: enable CONFIG_KASAN_HW_TAGS")
+Cc: stable@vger.kernel.org
+---
+v2:
+- new approach
 
-v3:
-- simplify test case
+ lib/string.c | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
 
-Peter Collingbourne (1):
-  string: Add load_unaligned_zeropad() code path to sized_strscpy()
-
-Vincenzo Frascino (1):
-  kasan: Add strscpy() test to trigger tag fault on arm64
-
- lib/string.c            | 13 ++++++++++---
- mm/kasan/kasan_test_c.c | 16 ++++++++++++++++
- 2 files changed, 26 insertions(+), 3 deletions(-)
-
+diff --git a/lib/string.c b/lib/string.c
+index eb4486ed40d25..b632c71df1a50 100644
+--- a/lib/string.c
++++ b/lib/string.c
+@@ -119,6 +119,7 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+ 	if (count == 0 || WARN_ON_ONCE(count > INT_MAX))
+ 		return -E2BIG;
+ 
++#ifndef CONFIG_DCACHE_WORD_ACCESS
+ #ifdef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
+ 	/*
+ 	 * If src is unaligned, don't cross a page boundary,
+@@ -133,12 +134,14 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+ 	/* If src or dest is unaligned, don't do word-at-a-time. */
+ 	if (((long) dest | (long) src) & (sizeof(long) - 1))
+ 		max = 0;
++#endif
+ #endif
+ 
+ 	/*
+-	 * read_word_at_a_time() below may read uninitialized bytes after the
+-	 * trailing zero and use them in comparisons. Disable this optimization
+-	 * under KMSAN to prevent false positive reports.
++	 * load_unaligned_zeropad() or read_word_at_a_time() below may read
++	 * uninitialized bytes after the trailing zero and use them in
++	 * comparisons. Disable this optimization under KMSAN to prevent
++	 * false positive reports.
+ 	 */
+ 	if (IS_ENABLED(CONFIG_KMSAN))
+ 		max = 0;
+@@ -146,7 +149,11 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+ 	while (max >= sizeof(unsigned long)) {
+ 		unsigned long c, data;
+ 
++#ifdef CONFIG_DCACHE_WORD_ACCESS
++		c = load_unaligned_zeropad(src+res);
++#else
+ 		c = read_word_at_a_time(src+res);
++#endif
+ 		if (has_zero(c, &data, &constants)) {
+ 			data = prep_zero_mask(c, data, &constants);
+ 			data = create_zero_mask(data);
 -- 
 2.49.0.472.ge94155a9ec-goog
 
