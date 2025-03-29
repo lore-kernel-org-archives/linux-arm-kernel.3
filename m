@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0CCC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 05:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7763C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 05:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WfLctzd3L2+Qi3W3hSjC0e40qX75gI59hLkhPtBFfXs=; b=NMEKmYX8HYAuNuAAiw8brGrD2W
-	NjW7OwgmFg8vfQGuWDMTT4BcXg/GoxvHfTSpoaLB+qQCz5xrm7rQRARUM/utRKaQcNA/O5+LAA9G2
-	aF5qAR8NNj4HcZXrUATht5+FZDDLsV8RB+yX9u02GlLgDObW4DJP8guV7miWp/IpwPUcXzS3Fr324
-	i+Nht84J6mecQnt475y+n9lWgT/5w0RT7ECK3U2khTVm8STagoxv8Hywaq9QCHWYeLIVav+Sowwzw
-	4wkSa5qhY82i/96cHw+K1o/SdZMkVVOH1n0dHa50pitAs/aQ3XqiN0D+mzq5mpFVF29Z+qwNL130t
-	k7Ak1Cjw==;
+	bh=mTrXmh3VX0yjV+BO4JFeuqme4WE1DJZQ+WQzn3yHUyE=; b=4mpQn0ahx88pE36XS9x+YrZCPN
+	TIroviWmK5lR5J0YqeThidsorZ4JTnU2QvlwCDRZXxZGu0+/t8Cr29cgctJQHLHCNlpLBsoAeNMgN
+	KrxivZpenwuTGSFOyNTQGCmt1xGVvTD7pa3LlnDUm9VQRemoJl7tM5Pu8EBnWnGMCSAGSIwOgKw+O
+	OlkWfeFc24Z4KBL7b/yzgESwcgA9lWtLwlFFJnZKNQyNsx8C08ZDIojFkKpT688tFhOXRzkReWK9M
+	GOJKFIYKCszNEvk7J31RhUyp+pv3bfGl9tEV9X3mR+oOw9pzRfq+Wfus6PtKd7L/A3HgED2M0N+p5
+	LeKzDEoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyOJd-0000000Ek3n-3jB8;
-	Sat, 29 Mar 2025 05:01:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tyOOM-0000000EkKG-36Gn;
+	Sat, 29 Mar 2025 05:05:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyOHt-0000000EjXM-1TkS
+	id 1tyOMb-0000000EkCE-2u3l
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 04:59:18 +0000
+	Sat, 29 Mar 2025 05:04:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7FD45A4307D;
-	Sat, 29 Mar 2025 04:53:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D554AC4CEE2;
-	Sat, 29 Mar 2025 04:59:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DD97C5C03BC;
+	Sat, 29 Mar 2025 05:01:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7A8AC4CEE2;
+	Sat, 29 Mar 2025 05:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743224355;
-	bh=MjvLsjOhoUCj12Cu7Ko4BrNiS+GzaxVSVFniRoHJB6s=;
+	s=k20201202; t=1743224648;
+	bh=lYO+q8seCZ2rCtp87F3094VljvpXkkXa7eg6tmFl/sk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Pm3ehZX3uHEn4NmSfkU9SUfJtTsJnVAjOKkx8vicYrP7SMLPp/f4pO/FQtz99rJvO
-	 /JWhNxH57Vukt7p5uhGE/lbO6hkATpXxzHz/TIuBSwtLN/b6RE6ZmZaTPutGpUmNtu
-	 x/aPm30T9WHMXstXgMT3MoP4S6CBG4P2lRHcub7oVk4T25KN7wPM0s89sH+M1AmJjR
-	 G5La+3/0856hOcQr+nFJhSasfCuehTIXOSw8k5oV587Q3PKvx92ZMOoVkOZxxmVvXS
-	 EjyC9eKVom7115wZdchG2PoZt4vCPY1YZR6v21EicmZ9Qaldu25SUUAZXwHueH2ok1
-	 9MhImU61nC1tg==
-Message-ID: <02496a88-3d9c-49ee-93ab-8f1400fc0c6b@kernel.org>
-Date: Sat, 29 Mar 2025 05:59:07 +0100
+	b=IuTME070DKGOGws3i2K8vP1pjugsfZJ4jJ8C/su6eyeYIR0m1lhyc+ivIufD7D4SN
+	 8v7ficS37zcXSWW3hxURxhdrl+DqDq25Psbll0HAicNvKahGBRTlbXw9V3PymmB3dN
+	 97u8mGh65Kyud8WTz/IXm80QbkWCyBasTx4wVa+VOfrHJms5JT0N0wJ2tVwseBxtn+
+	 7dvvhGPBl8K7VOrLReyih9cThGsqfXCEGEUSuAW6/m3EQIFI4ET2CwK5uTFdJWDcTc
+	 p6m+KZvgWovVtOxDrlCpGOmxNTwyOw2nhHOltpZZ2sYBOXTPFQ4Pwu+82NkE7DxiPX
+	 b/6UrDJIdttUg==
+Message-ID: <a81c615a-a1f5-4dfc-81ce-6235abed0820@kernel.org>
+Date: Sat, 29 Mar 2025 06:03:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: fpga: zynq: Document ICAP on boot
-To: Sam Winchenbach <sam.winchenbach@framepointer.org>,
- linux-kernel@vger.kernel.org
-Cc: mdf@kernel.org, hao.wu@intel.com, yilun.xu@intel.com, trix@redhat.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- michal.simek@amd.com, linux-fpga@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Sam Winchenbach <swinchenbach@arka.org>
-References: <20250328141944.119504-1-sam.winchenbach@framepointer.org>
+Subject: Re: [PATCH v2 1/2] dt-bindings: timer: Add NXP System Timer Module
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, tglx@linutronix.de
+Cc: linux-kernel@vger.kernel.org, thomas.fossati@linaro.org,
+ Larisa.Grigore@nxp.com, ghennadi.procopciuc@nxp.com, S32@nxp.com,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20250328134208.2183653-1-daniel.lezcano@linaro.org>
+ <20250328134208.2183653-2-daniel.lezcano@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250328141944.119504-1-sam.winchenbach@framepointer.org>
+In-Reply-To: <20250328134208.2183653-2-daniel.lezcano@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_215917_527006_669522C0 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20250328_220409_850889_40D8CAF5 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,42 +129,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/03/2025 15:19, Sam Winchenbach wrote:
-> From: Sam Winchenbach <swinchenbach@arka.org>
+On 28/03/2025 14:42, Daniel Lezcano wrote:
+> Add the System Timer Module description found on the NXP s32 platform
+> and the compatible for the s32g2 variant.
 > 
-> Documents the ability to enable the ICAP interface on boot.
-> 
-> Signed-off-by: Sam Winchenbach <swinchenbach@arka.org>
+> Cc: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+> Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Cc: Thomas Fossati <thomas.fossati@linaro.org>
+> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
 > ---
->  .../devicetree/bindings/fpga/xilinx-zynq-fpga-mgr.yaml     | 7 +++++++
->  1 file changed, 7 insertions(+)
+
+I got only this patch, no cover letter, no changelog. What happened here?
+
+>  .../bindings/timer/nxp,stm-timer.yaml         | 50 +++++++++++++++++++
+>  1 file changed, 50 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/fpga/xilinx-zynq-fpga-mgr.yaml b/Documentation/devicetree/bindings/fpga/xilinx-zynq-fpga-mgr.yaml
-> index 04dcadc2c20e9..bb2781ae126ca 100644
-> --- a/Documentation/devicetree/bindings/fpga/xilinx-zynq-fpga-mgr.yaml
-> +++ b/Documentation/devicetree/bindings/fpga/xilinx-zynq-fpga-mgr.yaml
-> @@ -31,6 +31,13 @@ properties:
->      description:
->        Phandle to syscon block which provide access to SLCR registers
->  
-> +  enable-icap-on-load:
+> diff --git a/Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml b/Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml
+> new file mode 100644
+> index 000000000000..a9c0151d62be
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/timer/nxp,stm-timer.yaml
 
-Missing vendor prefix.
+Filename following compatible.
 
-> +    type: boolean
-> +    description: If present, the ICAP controller will be enabled when
-> +      the driver probes. This is useful if the fabric is loaded
-> +      during the boot process and contains a core, such as the SEM,
-
-I don't get how this is suitable for DT. If you decide to load the
-fabric from driver, that's driver decision so not DT.
-
-> +      that requires access to ICAP interface to operate properly.
+> @@ -0,0 +1,50 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/timer/nxp,stm-timer.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
->  required:
->    - compatible
->    - reg
+> +title: NXP System Timer Module (STM)
+> +
+> +maintainers:
+> +  - Daniel Lezcano <daniel.lezcano@kernel.org>
+> +
+> +description:
+> +  The System Timer Module supports commonly required system and application
+> +  software timing functions. STM includes a 32-bit count-up timer and four
+> +  32-bit compare channels with a separate interrupt source for each channel.
+> +  The timer is driven by the STM module clock divided by an 8-bit prescale
+> +  value.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - nxp,s32g-stm
 
+Previously it was told to me there is no such soc as s32g but they are
+named differently, e.g. s32g2. See other bindings.
+
+Please consult internally and come with one unified approach to all NXP
+bindings. Otherwise, if this is a real soc, fix this for top level
+compatibles, because there is no s32g there either.
+
+This applies to all NXP-related patches (which I am sure was previously
+discussed on the lists).
+
+What is confusing: previous compatible was correct and I did not ask to
+change it.
 
 Best regards,
 Krzysztof
