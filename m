@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6608C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 04:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0CCC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 05:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZOtbZWHKJq1fKUTHc3MKAcM5tyMaffSyZyyDs2jaTtY=; b=zXv1fqPFWknMVYAN7ShI4xp91H
-	AAXtfXXv74747PIIwn5Wg80r4lCMc/VD7GWs3Nu6l69xVPvyEe/3Gsgvq/LYe4uGaFNDVUPd1Lexd
-	hYQTLBsH3AwkoI9tYdlK3Ils4eZGYvnzFrWoNoF1VEFXlXvvM2pIGnl9HZhEX82DUCYXL21r+sHd6
-	bvmeE9n9tuAVaqYCgVFmN1wz5FU8CW0H3DYMwB0A5VvAJgV+QonsW1eAaM9vLsE/gaZrO/BY179Nx
-	cBIBq4A4VX+zV01ZhBkYEFgrgmbVaIiObyjt8vN4azZlUdApaJPp4wdn1KD5m6o25mk0ncZc6EDyl
-	NY89/zwQ==;
+	bh=WfLctzd3L2+Qi3W3hSjC0e40qX75gI59hLkhPtBFfXs=; b=NMEKmYX8HYAuNuAAiw8brGrD2W
+	NjW7OwgmFg8vfQGuWDMTT4BcXg/GoxvHfTSpoaLB+qQCz5xrm7rQRARUM/utRKaQcNA/O5+LAA9G2
+	aF5qAR8NNj4HcZXrUATht5+FZDDLsV8RB+yX9u02GlLgDObW4DJP8guV7miWp/IpwPUcXzS3Fr324
+	i+Nht84J6mecQnt475y+n9lWgT/5w0RT7ECK3U2khTVm8STagoxv8Hywaq9QCHWYeLIVav+Sowwzw
+	4wkSa5qhY82i/96cHw+K1o/SdZMkVVOH1n0dHa50pitAs/aQ3XqiN0D+mzq5mpFVF29Z+qwNL130t
+	k7Ak1Cjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyNzn-0000000EiLP-1OvC;
-	Sat, 29 Mar 2025 04:40:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tyOJd-0000000Ek3n-3jB8;
+	Sat, 29 Mar 2025 05:01:05 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyNy2-0000000EiFL-2Fo3
+	id 1tyOHt-0000000EjXM-1TkS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 04:38:47 +0000
+	Sat, 29 Mar 2025 04:59:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E32BD5C256E;
-	Sat, 29 Mar 2025 04:36:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A214CC4CEE2;
-	Sat, 29 Mar 2025 04:38:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7FD45A4307D;
+	Sat, 29 Mar 2025 04:53:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D554AC4CEE2;
+	Sat, 29 Mar 2025 04:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743223125;
-	bh=7q+Yck0Cj6soZ9tM/uUP3AbbuXduATe0/O5ptwVEFl4=;
+	s=k20201202; t=1743224355;
+	bh=MjvLsjOhoUCj12Cu7Ko4BrNiS+GzaxVSVFniRoHJB6s=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uwfM2noPG2VVUQs9TuPyNnrEGG27RYJpinuBps7bz436mXOYOs6HdJ4V1lmjdNLU/
-	 GJ0/oEcBRdZAmEU/u3HU81vNQPnJfM7tnxJJM+ljzMyFlh+VTEWLGsaeDgxvURn6q/
-	 p6tniCTH2Etqhak7oe4L/ZTYwOJwDOACKgVN3GxBRCgDzX4raGBQCLHUQtWaMr4RsL
-	 2HIACrUIMEWxOpsQZOCIbWiILdKNsL4c5In2i32SEwBOn6qzJWlq0HB7tGRrNeoK8O
-	 QuyN7VJuHbadyKsPuTLBEbrjCmc5G/LE0CD/EAmm3nRmdtz0mLWbITJEl411iHlKhA
-	 u+vYO50fiOhig==
-Message-ID: <26ab079e-9178-4936-9dd9-6aa66916a59a@kernel.org>
-Date: Sat, 29 Mar 2025 05:38:38 +0100
+	b=Pm3ehZX3uHEn4NmSfkU9SUfJtTsJnVAjOKkx8vicYrP7SMLPp/f4pO/FQtz99rJvO
+	 /JWhNxH57Vukt7p5uhGE/lbO6hkATpXxzHz/TIuBSwtLN/b6RE6ZmZaTPutGpUmNtu
+	 x/aPm30T9WHMXstXgMT3MoP4S6CBG4P2lRHcub7oVk4T25KN7wPM0s89sH+M1AmJjR
+	 G5La+3/0856hOcQr+nFJhSasfCuehTIXOSw8k5oV587Q3PKvx92ZMOoVkOZxxmVvXS
+	 EjyC9eKVom7115wZdchG2PoZt4vCPY1YZR6v21EicmZ9Qaldu25SUUAZXwHueH2ok1
+	 9MhImU61nC1tg==
+Message-ID: <02496a88-3d9c-49ee-93ab-8f1400fc0c6b@kernel.org>
+Date: Sat, 29 Mar 2025 05:59:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: soc: ti: bist: Add BIST for K3
- devices
-To: Neha Malcom Francis <n-francis@ti.com>, nm@ti.com, vigneshr@ti.com,
- kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, u-kumar1@ti.com
-References: <20250328111439.374748-1-n-francis@ti.com>
- <20250328111439.374748-2-n-francis@ti.com>
- <fc4d9a33-2d3f-47e2-b1cf-59962cc54bce@kernel.org>
- <71f19095-02c5-4d9a-8c6f-c51fb4ea9b36@ti.com>
+Subject: Re: [PATCH 1/2] dt-bindings: fpga: zynq: Document ICAP on boot
+To: Sam Winchenbach <sam.winchenbach@framepointer.org>,
+ linux-kernel@vger.kernel.org
+Cc: mdf@kernel.org, hao.wu@intel.com, yilun.xu@intel.com, trix@redhat.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ michal.simek@amd.com, linux-fpga@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Sam Winchenbach <swinchenbach@arka.org>
+References: <20250328141944.119504-1-sam.winchenbach@framepointer.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <71f19095-02c5-4d9a-8c6f-c51fb4ea9b36@ti.com>
+In-Reply-To: <20250328141944.119504-1-sam.winchenbach@framepointer.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_213846_672399_765E8C60 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20250328_215917_527006_669522C0 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,53 +120,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/03/2025 13:42, Neha Malcom Francis wrote:
-> On 28/03/25 17:18, Krzysztof Kozlowski wrote:
->> On 28/03/2025 12:14, Neha Malcom Francis wrote:
->>> +properties:
->>> +  compatible:
->>> +    const: ti,j784s4-bist
->>> +
->>> +  reg:
->>> +    maxItems: 2
->>> +
->>> +  reg-names:
->>> +    items:
->>> +      - const: cfg
->>> +      - const: ctrl_mmr
->>> +
->>> +  clocks:
->>> +    maxItems: 1
->>> +
->>> +  power-domains:
->>> +    maxItems: 1
->>> +
->>> +  ti,bist-under-test:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
->>> +    description:
->>> +      the device IDs of the devices under test control of the BIST device, the
->>
->> Still not phandle... What is a "device ID"?
+On 28/03/2025 15:19, Sam Winchenbach wrote:
+> From: Sam Winchenbach <swinchenbach@arka.org>
 > 
-> I took a shot at working with the phandle, however the test devices may
-> or may not be present in the devicetree at bootloader stage which is the
-
-If the nodes are not in DT, then you should not reference them here.
-Bootloader is supposed to receive all the nodes it is expected to work on.
-
-> only place this BIST driver can execute (I know I shouldn't be bringing
-> up the driver here but it's crucial to how I can model this property).
-> HW mandates you run it as early as possible before any other software
-> executes on the test device.
+> Documents the ability to enable the ICAP interface on boot.
 > 
-> So now thinking of other possible ways to define the test devices, we
-> have unique HW identifiers [1] for each of the device which is what I've
-> used here...
+> Signed-off-by: Sam Winchenbach <swinchenbach@arka.org>
+> ---
+>  .../devicetree/bindings/fpga/xilinx-zynq-fpga-mgr.yaml     | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
-> [1]
-> https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/arm/keystone/ti%2Ck3-sci-common.yaml#L31
+> diff --git a/Documentation/devicetree/bindings/fpga/xilinx-zynq-fpga-mgr.yaml b/Documentation/devicetree/bindings/fpga/xilinx-zynq-fpga-mgr.yaml
+> index 04dcadc2c20e9..bb2781ae126ca 100644
+> --- a/Documentation/devicetree/bindings/fpga/xilinx-zynq-fpga-mgr.yaml
+> +++ b/Documentation/devicetree/bindings/fpga/xilinx-zynq-fpga-mgr.yaml
+> @@ -31,6 +31,13 @@ properties:
+>      description:
+>        Phandle to syscon block which provide access to SLCR registers
+>  
+> +  enable-icap-on-load:
 
-Then do not redefine properties, but use one common definition.
+Missing vendor prefix.
+
+> +    type: boolean
+> +    description: If present, the ICAP controller will be enabled when
+> +      the driver probes. This is useful if the fabric is loaded
+> +      during the boot process and contains a core, such as the SEM,
+
+I don't get how this is suitable for DT. If you decide to load the
+fabric from driver, that's driver decision so not DT.
+
+> +      that requires access to ICAP interface to operate properly.
+> +
+>  required:
+>    - compatible
+>    - reg
 
 
 Best regards,
