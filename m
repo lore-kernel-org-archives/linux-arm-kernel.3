@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDBAC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 00:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3717C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 01:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WYXL/IJoE9Di2fp4ccVQCgQpgTyRfUoS3TC43hdzJJQ=; b=PSaDeJ/qdRd1L3QxuzD0gON6Tr
-	44oI2ZV4VwbSkkn9YGfg979N1HgkjVfqm7XPkFJgpXwkXiCHbhoT6gyPsoGjJ/BxZzMEClTlD8OEt
-	V1YT2J6R3M6ejTRahO88s48wcSwo2ZSEwrwiswygj/YCqjdv/QGYhOI4gaQv9RRYqStwqFYCq+S8Z
-	Vz/pdfL3qMaaNNX0yhPgugfbmBn6yiF6iAZDPOBtX9FxQq8ova+QP4sG6JA3ed6wXJDaxueEHPxZj
-	MZdsxCv4ydoZCBpJL8Nr1jwJ7pEdNANrBiIs0GXnRHOcnL+ZzB4cxHuihGRvFmZZdPgQBvnHHINf8
-	+iiMrY1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WSBVJ/HRqS9Lf9qDswgY8VH0zHUnhdRJwmPFV0FziDE=; b=fjmfFXypgXbhltY9l2Ob4U1FmP
+	1SopUj1Eira23NgEBxlD+kq8uUXZd5IiU1d2UlhdS9G02CfDVYOhhwhjABG7ULuHxWfANH0/RnLBz
+	503ww5/vtxoqz3KIFQOlywrViCt1aZKPg2i1B9CZNzTyRXSKwHCnfs53uzbDf9lxn0nw783HccK45
+	5acnHWY8hEKMIPa8w2QV6uLCxowii2tIMY1O919zMPFcnCwiXh5XXwAlCx2SFVm8L8wS1J9qeF45m
+	indR3kNCm6IqrFBXc6l1PNZ/wCPk7bwhChAKSQxwnVh7dOwiFmIY5BwcVDgVwe6mL5A/SWHL1PDlz
+	um8yFy4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyK6O-0000000EYC6-0k8Q;
-	Sat, 29 Mar 2025 00:31:08 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1tyL9w-0000000EaxY-1mea;
+	Sat, 29 Mar 2025 01:38:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyK4e-0000000EY86-3D0x
+	id 1tyL8D-0000000EanB-0m1a
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 00:29:21 +0000
-Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-224341bbc1dso54069885ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 17:29:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743208159; x=1743812959; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WYXL/IJoE9Di2fp4ccVQCgQpgTyRfUoS3TC43hdzJJQ=;
-        b=Tpbyeyxj28UduVzMsUqA2Jd+UoMdPwU1QwzwLqFc/wUtaSqTbYuuu6x90aeIJvPIxD
-         G8GJHPmr9KZ5t4YLJnk1qkaM26ftDoP5IAhp1G8uR014G0ZuAqXw7B8r0yte83ojiZw3
-         2YcCJPXiSdvvItWanmo0Vslf962OCIOPoFxCl+TJHPanp+8kocfOl1V8AMjhuksVj0ZS
-         wW3c0cqagkGQ5HNRwB9ELnE6i4u+Trv7bjL1U44FKFE/mxqgkE1B0+3QMgOq/Coqoj8q
-         Whj4gtTdj8KiCMOkx67rNss6vZtuwQS41wh1Xjv+R+Y7qMjN8zrTJSROdFQV7/nlJSRG
-         wJ7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743208159; x=1743812959;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WYXL/IJoE9Di2fp4ccVQCgQpgTyRfUoS3TC43hdzJJQ=;
-        b=jafGR/F3SDSIAKZ37aS1Kd6bDFZIH4VpzJlFfjz5IzVKC5y3VwUlserc5oITOxvypd
-         pOvsS7EFmzH7oV8sepJMQH3cC1C8DU7howSWMaenI9IgNh9EpHzah5+yhkVwByrCFOvd
-         gU5m0qBBSw+Xbn8hWB5qLPx6Go7jmEYyDSkJdOA4DokWjneapbCglqg26e6oTYqzpUJV
-         pZ96MuNp374UU/0UDKiJov3qasBp9yXSOD6PaYdP8i3vJzbUhs8fxvley0HYMdqJvOJG
-         qUKjKtNPkT+HtR13cwwOBzfRaUxyTDUNUIkrbj/EBo58Nn3CRVn1Mkd+zkJW78ajxoGM
-         D1zA==
-X-Forwarded-Encrypted: i=1; AJvYcCVvi0NMNPNQXMx4Jerhr3IfEnoo4y4mH5yrTwfbo35Hu5M6av5W4QvXxlOM0znGVETVZeO6gzewprSqQHl7GSSk@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTMkh+vY97/2H5w5BYBEdlgTCRpXZMCfRJT3nr6MTHq/jZDjQM
-	DddZ1ziLdQvO43APKOeUiMWofmH5BKfG2VI7CVYCuq+wpBboeaKM
-X-Gm-Gg: ASbGncuz52yLYLfjU0dhb9A5xYs26f5Z//Y9Nr4UzxF3aFZRNHpsQ9oTF+yUIm641n0
-	v+TkW8Yk4W9MRREe8JUvSG4ZrJlBCX31ame4c6FoWXxH46O1B0tPJ4Hvr1aMbuSy62B2fnWZ0Mp
-	NgzJkGJuI9/nt3b2ikSFP68NBpabpzHShHsac0XDhnIfVrGFhgdyUkz7Y7AUwi7GyUuemW8wbr3
-	Xb3lKkl1BrN4F94hZK7bdy3pZ8xZSQIs0/o1zeAvCKPZYpuC2kcUJHVtU85nZMnXcyAxLlW6251
-	mBMKa+zanNd0F4DNogksZqO4AFGNamoDOQ/vUuGHKH0ClDj7xWnubGcqypnZXj5rOd3euA==
-X-Google-Smtp-Source: AGHT+IFA2z+X2uC61UN1KJifyXv9jI8e3ROzSjHTCWF6TbJpXqQnAeo9E5gok3I3WbstaxxTgqoAHg==
-X-Received: by 2002:a17:90b:134d:b0:2fa:e9b:33b8 with SMTP id 98e67ed59e1d1-305320afaadmr1854600a91.18.1743208159280;
-        Fri, 28 Mar 2025 17:29:19 -0700 (PDT)
-Received: from henry.localdomain ([36.112.187.254])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30516d3e535sm2541627a91.1.2025.03.28.17.29.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Mar 2025 17:29:18 -0700 (PDT)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: linux-usb@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org
-Cc: gregkh@linuxfoundation.org,
-	linux-arm-kernel@lists.infradead.org,
-	Henry Martin <bsdhenrymartin@gmail.com>
-Subject: [PATCH] Subject: [PATCH] usb: gadget: aspeed: Add NULL check in the ast_vhub_init_dev
-Date: Sat, 29 Mar 2025 08:29:11 +0800
-Message-Id: <20250329002911.132826-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	Sat, 29 Mar 2025 01:37:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C1052A43056;
+	Sat, 29 Mar 2025 01:31:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6478C4CEE4;
+	Sat, 29 Mar 2025 01:37:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743212223;
+	bh=o5gMyn/mlm4eQI/Dl0X9AbYok0h90x/eTaw9nzXxVOE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=NxBdoQmZGTDH1AlPECrbDPD9Q2HdKGVHCD+APkAyVEB0q3uQbazXzYky6Uk/oQhz/
+	 pdOGfSrTaKOgAc4VcVRZfAEeiI1qeZe5rcQqtMxARHt39JOCgb5oXdNc/2+oIqllVj
+	 kPhKxEbmrxXvFX44pgNw4bTya/KBOWJsy0KjRBDxKq1Dz1p8lF3wAnWKakTdKgv4h0
+	 WsD3vYjVelPUch+0ShOmeqVCeu6YY4m3tH0m3xXswnSorSpmpTv4rSzOOME1zfSw61
+	 mcWfEv4Lhqbm3mkPpViVSSVrKEeRZWdoBKOdvvFdV+du49Rm3Q6ucakKlxEwxFgCHs
+	 0O//k268HPjvw==
+Date: Fri, 28 Mar 2025 20:37:02 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: davem@davemloft.net, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, netdev@vger.kernel.org, 
+ Jakub Kicinski <kuba@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Fabio Estevam <festevam@gmail.com>, 
+ Eric Dumazet <edumazet@google.com>, linux-arm-kernel@lists.infradead.org, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Lukasz Majewski <lukma@denx.de>
+In-Reply-To: <20250328133544.4149716-2-lukma@denx.de>
+References: <20250328133544.4149716-1-lukma@denx.de>
+ <20250328133544.4149716-2-lukma@denx.de>
+Message-Id: <174321222112.2172775.16689010014876150131.robh@kernel.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: net: Add MTIP L2 switch
+ description
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_172920_806425_B2BD20E3 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20250328_183705_293231_D76D9575 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +80,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When devm_kasprintf() fails, it returns a NULL pointer. However, this return value is not properly checked in the function ast_vhub_init_dev.
 
-A NULL check should be added after the devm_kasprintf call to prevent potential NULL pointer dereference error.
+On Fri, 28 Mar 2025 14:35:41 +0100, Lukasz Majewski wrote:
+> This patch provides description of the MTIP L2 switch available in some
+> NXP's SOCs - e.g. imx287.
+> 
+> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> ---
+> Changes for v2:
+> - Rename the file to match exactly the compatible
+>   (nxp,imx287-mtip-switch)
+> ---
+>  .../bindings/net/nxp,imx287-mtip-switch.yaml  | 165 ++++++++++++++++++
+>  1 file changed, 165 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> 
 
-Fixes: 7ecca2a4080cb ("usb/gadget: Add driver for Aspeed SoC virtual hub")
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
- drivers/usb/gadget/udc/aspeed-vhub/dev.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-index 573109ca5b79..1709a58299a5 100644
---- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-+++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-@@ -545,9 +545,11 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx)
- 	struct device *parent = &vhub->pdev->dev;
- 	int rc;
- 
-+	d->name = devm_kasprintf(parent, GFP_KERNEL, "port%d", idx + 1);
-+	if (!d->name)
-+		return -ENOMEM;
- 	d->vhub = vhub;
- 	d->index = idx;
--	d->name = devm_kasprintf(parent, GFP_KERNEL, "port%d", idx+1);
- 	d->regs = vhub->regs + 0x100 + 0x10 * idx;
- 
- 	ast_vhub_init_ep0(vhub, &d->ep0, d);
--- 
-2.34.1
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.example.dtb: /example-0/switch@800f0000: failed to match any schema with compatible: ['nxp,imx287-mtip-switch']
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.example.dtb: ethernet-phy@0: interrupts: [[13], [2]] is too long
+	from schema $id: http://devicetree.org/schemas/net/ethernet-phy.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.example.dtb: ethernet-phy@1: interrupts: [[13], [2]] is too long
+	from schema $id: http://devicetree.org/schemas/net/ethernet-phy.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250328133544.4149716-2-lukma@denx.de
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
