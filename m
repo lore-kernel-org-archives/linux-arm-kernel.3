@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3F9C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 03:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C5A7C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 03:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+aR14lbVmAtukTyCbAkseNWhGnXaucpuMGaS4Jr03w8=; b=hTgqVSGv9W+HWeEtNLbJzx+wCG
-	FWEaSWTMYx1J9ruE4KKYWVtN4XMA80L0bWaiN3wnQO6+jbG4deLA6LLxzQ+0UeyVIJYAMPLlLyIj1
-	5Gotya9aDxmDjH1lENOPw8Io6jlsVEvXqPxpIFJ8UQfp35mcaDklinwFuiW1Kpc2R/YTZsIOGqMck
-	RCHIzHfJm6bWh1HKyeQ9s+ZMscF9r6ug0r2UkWdzrggOd8/0p8ENC40csZ4JTRbmRJsb7U2eN6j9f
-	EjAuPf1cKC/lGVdUMU7Bhht5vApFNjacZWz7dMRAmrP6gj3EZOp3+hnRccG/KsZUCLIkPA8pfepGM
-	5fwgwzsQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6bksi0ClpeLu/YdtJuf0xLijhkWkH1CO8Ud4A2ADlXQ=; b=Ib+yBOBp046Hx0DsgRRsC/eB4E
+	K22PDx7CStRNt+m4C6g95joYqETC438CxG4mh/fzzsHyhDapejWhGJDCnBYF6VOvucDo+IgXSw8Pj
+	jhIBXbfd4nm+xCn3yf6GT3tJJeQmbszQ4836MqTN/K5QC8k8l+vNT5T3jpykYbm2T+ZHyaqpoulxx
+	at0cH7RK8fkUQ3qQ0wbz3JEYVXqadUyrg+6lLzl9omXCzzftm28YiL/33qpxXuolezhrdiXvgYy6K
+	9Gr9MPh2/9UlFziK4PEabZj5nFpDvsKSYibknexm2jxcgXLr90RXHZCbJ04v2OW4KjmLH6q+I9yz2
+	4CZiwv+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyNAZ-0000000Ef4l-0n8q;
-	Sat, 29 Mar 2025 03:47:39 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1tyNCF-0000000EfAl-3XWk;
+	Sat, 29 Mar 2025 03:49:23 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyN78-0000000Eeut-2tlL
+	id 1tyN79-0000000Eeuu-0Esx
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 29 Mar 2025 03:44:08 +0000
 Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4ZPjpX3TPJzHrJb;
-	Sat, 29 Mar 2025 11:40:36 +0800 (CST)
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4ZPjst2Phbz1d0y5;
+	Sat, 29 Mar 2025 11:43:30 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id E42E91800B4;
-	Sat, 29 Mar 2025 11:43:54 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 773A41800B4;
+	Sat, 29 Mar 2025 11:43:56 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Sat, 29 Mar 2025 11:43:54 +0800
+ 15.2.1748.10; Sat, 29 Mar 2025 11:43:55 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
 	<oliver.upton@linux.dev>, <linux-arm-kernel@lists.infradead.org>,
@@ -45,10 +45,12 @@ CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
 	<shameerali.kolothum.thodi@huawei.com>, <jonathan.cameron@huawei.com>,
 	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
 	<linuxarm@huawei.com>
-Subject: [PATCH 0/3] Two minor fixups around FEAT_E2H0
-Date: Sat, 29 Mar 2025 11:44:06 +0800
-Message-ID: <20250329034409.21354-1-yangyicong@huawei.com>
+Subject: [PATCH 3/3] KVM: arm64: Fix boot warning with kvm-arm.mode=nvhe on !FEAT_E2H0 platforms
+Date: Sat, 29 Mar 2025 11:44:09 +0800
+Message-ID: <20250329034409.21354-4-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250329034409.21354-1-yangyicong@huawei.com>
+References: <20250329034409.21354-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -56,9 +58,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_204406_895365_F770F2FB 
-X-CRM114-Status: UNSURE (   6.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250328_204407_254245_66502682 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,24 +76,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Two minor fixups for the FEAT_E2H0:
-1) add missing feature register update
-2) fix boot warning with kvm-arm.mode=nvhe if !FEAT_E2H0
+If platforms don't support FEAT_E2H0, HCR_EL2.E2H is RES1 and nVHE is
+not available. The warning in early_kvm_mode_cfg() will be triggered
+if boot with kvm-arm.mode=nvhe and no indication for this. Fix this by
+skipping the non-VHE checking on !FEAT_E2H0 platform.
 
-Add a cpucap identify the HCR_EL2.E2H RES1 (!FEAT_E2H0) support.
+Since this should only affect the "nvhe" mode, move "nested" mode check
+ahead to avoid being affected.
 
-Yicong Yang (3):
-  arm64/cpufeature: Add missing id_aa64mmfr4 feature reg update
-  arm64/cpufeature: Add cpucap for HCR_EL2.E2H RES1 (!FEAT_E2H0)
-  KVM: arm64: Fix boot warning with kvm-arm.mode=nvhe on !FEAT_E2H0
-    platforms
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ arch/arm64/kvm/arm.c | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
- arch/arm64/include/asm/cpufeature.h | 23 +++++++++++++++++++++++
- arch/arm64/kernel/cpufeature.c      | 14 ++++++++++++++
- arch/arm64/kvm/arm.c                | 14 +++++++++++---
- arch/arm64/tools/cpucaps            |  1 +
- 4 files changed, 49 insertions(+), 3 deletions(-)
-
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 68fec8c95fee..a0c0bd936a53 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2905,6 +2905,11 @@ static int __init early_kvm_mode_cfg(char *arg)
+ 		return 0;
+ 	}
+ 
++	if (strcmp(arg, "nested") == 0 && !WARN_ON(!is_kernel_in_hyp_mode())) {
++		kvm_mode = KVM_MODE_NV;
++		return 0;
++	}
++
+ 	if (strcmp(arg, "protected") == 0) {
+ 		if (!is_kernel_in_hyp_mode())
+ 			kvm_mode = KVM_MODE_PROTECTED;
+@@ -2914,13 +2919,16 @@ static int __init early_kvm_mode_cfg(char *arg)
+ 		return 0;
+ 	}
+ 
+-	if (strcmp(arg, "nvhe") == 0 && !WARN_ON(is_kernel_in_hyp_mode())) {
++	/* If system doesn't support FEAT_E2H0, nVHE host is not available */
++	if (cpu_has_e2h_res1()) {
++		WARN_ON(!is_kernel_in_hyp_mode());
+ 		kvm_mode = KVM_MODE_DEFAULT;
++		pr_warn_once("FEAT_E2H0 not supported. Ignoring kvm-arm.mode\n");
+ 		return 0;
+ 	}
+ 
+-	if (strcmp(arg, "nested") == 0 && !WARN_ON(!is_kernel_in_hyp_mode())) {
+-		kvm_mode = KVM_MODE_NV;
++	if (strcmp(arg, "nvhe") == 0 && !WARN_ON(is_kernel_in_hyp_mode())) {
++		kvm_mode = KVM_MODE_DEFAULT;
+ 		return 0;
+ 	}
+ 
 -- 
 2.24.0
 
