@@ -4,60 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31AAC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 10:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87886C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 10:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4/lGj6ICowfePMFm+RZRWeblwzVjHeQcX5TTHLcnzWc=; b=ILdUFjq4WhdNw9NTqiNBE743z8
-	1pTZRfz8atQyCxQRZSG5FbqStELpAiZxZ+Ivzu0z9EX8j99exbeYHKx9u8qUvUjvRBhbjuBVtbc1L
-	TLNzhFmJugfhDZVg/s6WyrUx89+dtq2uMk+PMAd7OWp0msdLSIHjO8Rz5DnQ+sWTv5CTmfScc2fd/
-	WxupSPWvmuE0EUDQ/WZEFv1y37jhdX5DtwnErji3ZKh/TNbYeII1AjJdgKm80H4QWF4cnn5HzHMge
-	k+99GyP1WV6BdAbKiylA/DfUZqfLOFLxlt8RucAPvZn3/ecjuVsW/t2El8R+e1IIiCYGb2cozY+VF
-	VF7gI77A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DDmthsGyNqQlLVQNRtR/8yYP7m5d+s914cxYpColTaM=; b=pCQpsa0Yi7/lHz28TRj2bg6QKC
+	BtnY/rAE87EzlS973oh74946Gfv6p8QvgB5t+HDo0ReWER1RqYDpKjb5Lp+Jxl695FOb8i28b0rzd
+	fNFsqI4gjliRIVfhRGyKjeF25i+UlKDiesVIX+mTu41A3AGFn8uTc3XNcEg3MLo9ft/Gc1UvCeXZL
+	WL8HctL1v37zzmSMWvSLrwJJpUVT6W2RnMHJgKiczjUTZMmgpWxW/V5SUs0mpDNJfGf4BNUczpXku
+	nVmbJS3kIlKvJ94x9lspzhyXL+qIfIAZlcMzi7bAdbVrmnPHJGeTQIFOKrQjPfMJdS7w0kc0Jz3Dl
+	Mxe7YVyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyT8T-0000000F1J8-04nK;
-	Sat, 29 Mar 2025 10:09:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyT6i-0000000F1Aw-0cYJ
+	id 1tyTf7-0000000F2mv-3nQB;
+	Sat, 29 Mar 2025 10:43:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tyTdN-0000000F2jt-0SxI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 10:08:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6505D152B;
-	Sat, 29 Mar 2025 03:08:07 -0700 (PDT)
-Received: from [10.57.87.112] (unknown [10.57.87.112])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BA713F694;
-	Sat, 29 Mar 2025 03:08:01 -0700 (PDT)
-Message-ID: <ee11907a-5bd7-44ec-844c-8f10ff406b46@arm.com>
-Date: Sat, 29 Mar 2025 10:07:59 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] mm/filemap: Allow arch to request folio size for exec
- memory
-Content-Language: en-GB
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Kalesh Singh <kaleshsingh@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
-References: <20250327160700.1147155-1-ryan.roberts@arm.com>
- <Z-WAbWfZzG1GA-4n@casper.infradead.org>
- <5131c7ad-cc37-44fc-8672-5866ecbef65b@arm.com>
- <Z-b1FmZ5nHzh5huL@casper.infradead.org>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <Z-b1FmZ5nHzh5huL@casper.infradead.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Sat, 29 Mar 2025 10:41:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 14F2240C07;
+	Sat, 29 Mar 2025 10:41:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 504F5C4CEE2;
+	Sat, 29 Mar 2025 10:41:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743244908;
+	bh=R8Ehua1Ddi0UOvOWPaw8MNQK7gNNTZlo2knNcD5hlK0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nmuTYT2gpwi/s1I376Ijk4EJUC71JUoSC/Z/3qfLz3xuPwOpJyXWWNd2nTfSJMmNz
+	 2Vmt1PPwDuNHamlt8j3auCJiFflid4W3ZL4rzxyJMm/1kvl3ud43in/fH6+p71vAmw
+	 iQcVDZCIwhubGiYixZgUTdr4ahdG99fbyBsLjJ7HAxGrwyAmETG3CesjqAyg975c3i
+	 BQBfprBqQ/c2tj6hvXOzN/G4OEcabK0yUWy81/bn7uiDoQ+r1s8fxElWT2S1sNsavi
+	 sS767fCsBnEkq85w7TlVjnqb80RvliOKbTTKc/+ryST0hJw/QbI2c5ORci8xFcHAi0
+	 ByOmoDMCMDBbQ==
+Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tyTdJ-000YHT-Tu;
+	Sat, 29 Mar 2025 10:41:46 +0000
+Date: Sat, 29 Mar 2025 10:41:46 +0000
+Message-ID: <87r02gyv85.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: <catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<oliver.upton@linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>,
+	<shameerali.kolothum.thodi@huawei.com>,
+	<jonathan.cameron@huawei.com>,
+	<prime.zeng@hisilicon.com>,
+	<xuwei5@huawei.com>,
+	<yangyicong@hisilicon.com>,
+	Linuxarm <linuxarm@huawei.com>
+Subject: Re: [PATCH 2/3] arm64/cpufeature: Add cpucap for HCR_EL2.E2H RES1 (!FEAT_E2H0)
+In-Reply-To: <75a93cfd-1e1b-3d8a-9ff0-3991b5ef05cc@huawei.com>
+References: <20250329034409.21354-1-yangyicong@huawei.com>
+	<20250329034409.21354-3-yangyicong@huawei.com>
+	<87semwz24p.wl-maz@kernel.org>
+	<75a93cfd-1e1b-3d8a-9ff0-3991b5ef05cc@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 91.161.240.24
+X-SA-Exim-Rcpt-To: yangyicong@huawei.com, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shameerali.kolothum.thodi@huawei.com, jonathan.cameron@huawei.com, prime.zeng@hisilicon.com, xuwei5@huawei.com, yangyicong@hisilicon.com, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_030804_278229_E9A5AB40 
-X-CRM114-Status: GOOD (  35.19  )
+X-CRM114-CacheID: sfid-20250329_034149_196835_F54619B0 
+X-CRM114-Status: GOOD (  44.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,109 +97,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/03/2025 15:14, Matthew Wilcox wrote:
-> On Thu, Mar 27, 2025 at 04:23:14PM -0400, Ryan Roberts wrote:
->> + Kalesh
->>
->> On 27/03/2025 12:44, Matthew Wilcox wrote:
->>> On Thu, Mar 27, 2025 at 04:06:58PM +0000, Ryan Roberts wrote:
->>>> So let's special-case the read(ahead) logic for executable mappings. The
->>>> trade-off is performance improvement (due to more efficient storage of
->>>> the translations in iTLB) vs potential read amplification (due to
->>>> reading too much data around the fault which won't be used), and the
->>>> latter is independent of base page size. I've chosen 64K folio size for
->>>> arm64 which benefits both the 4K and 16K base page size configs and
->>>> shouldn't lead to any read amplification in practice since the old
->>>> read-around path was (usually) reading blocks of 128K. I don't
->>>> anticipate any write amplification because text is always RO.
->>>
->>> Is there not also the potential for wasted memory due to ELF alignment?
->>
->> I think this is an orthogonal issue? My change isn't making that any worse.
+On Sat, 29 Mar 2025 08:41:09 +0000,
+Yicong Yang <yangyicong@huawei.com> wrote:
 > 
-> To a certain extent, it is.  If readahead was doing order-2 allocations
-> before and is now doing order-4, you're tying up 0-12 extra pages which
-> happen to be filled with zeroes due to being used to cache the contents
-> of a hole.
+> On 2025/3/29 16:12, Marc Zyngier wrote:
+> > On Sat, 29 Mar 2025 03:44:08 +0000,
+> > Yicong Yang <yangyicong@huawei.com> wrote:
+> >>
+> >> From: Yicong Yang <yangyicong@hisilicon.com>
+> >>
+> >> Arm introduced a "new" feature FEAT_E2H0 indicates that HCR_EL2.E2H can
+> >> be programmed to the value 0 for legacy hardwares supported VHE. The
+> >> feature is indicated by ID_AA64MMFR4_EL1.E2H0 == 0. It is needed to
+> >> detect this feature for KVM mode initialization. Instead of bothering
+> >> the existed hardwares, introduce a new cpucap HAS_E2H_RES1 to indicate
+> >> FEAT_E2H0 is not supported. Make this a ARM64_CPUCAP_SYSTEM_FEATURE
+> >> just like VHE.
+> >>
+> >> Introduce cpu_has_e2h_res1() for checking the feature's support
+> >> which can be used in the early boot stage where CPU capabilities
+> >> are not initialized.
+> >>
+> >> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> >> ---
+> >>  arch/arm64/include/asm/cpufeature.h | 23 +++++++++++++++++++++++
+> >>  arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
+> >>  arch/arm64/tools/cpucaps            |  1 +
+> >>  3 files changed, 36 insertions(+)
+> >>
+> >> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> >> index c4326f1cb917..b35d393da28d 100644
+> >> --- a/arch/arm64/include/asm/cpufeature.h
+> >> +++ b/arch/arm64/include/asm/cpufeature.h
+> >> @@ -889,6 +889,29 @@ static inline bool cpu_has_hw_af(void)
+> >>  						ID_AA64MMFR1_EL1_HAFDBS_SHIFT);
+> >>  }
+> >>  
+> >> +/*
+> >> + * Check whether FEAT_E2H0 is not supported, in which case HCR_EL2.E2H
+> >> + * is implemented as RES1.
+> >> + */
+> >> +static __always_inline bool cpu_has_e2h_res1(void)
+> >> +{
+> >> +	u64 mmfr4;
+> >> +	u32 val;
+> >> +
+> >> +	/*
+> >> +	 * It's also used for checking the kvm mode cfg in early_param()
+> >> +	 * where boot capabilities is not initialized. In such case read
+> >> +	 * mmfr4 directly. This works same after boot stage since
+> >> +	 * ARM64_HAS_E2H_RES1 is a system feature, the cached sanitised
+> >> +	 * value keeps same with every single CPU.
+> >> +	 */
+> >> +	mmfr4 = read_sysreg_s(SYS_ID_AA64MMFR4_EL1);
+> > 
+> > This will result in traps to EL2 with nested. Are you expecting this
+> > to be used on any form of hot paths?
+> > 
+> 
+> No. If any use required in the hotpath, check ARM64_HAS_E2H_RES1 by
+> alternative_has_cap* instead. We cannot check the capabilites in
+> the early_param() (in early_kvm_mode_cfg()) since they are not initialized,
+> so we can only rely on the registers directly.
 
-Well we would still have read them in before, nothing has changed there. But I
-guess your point is more about reclaim? Because those pages are now contained in
-a larger folio, if part of the folio is in use then all of it remains active.
-Whereas before, if the folio was fully contained in the pad area and never
-accessed, it would fall down the LRU quickly and get reclaimed.
+Then I think an explicit comment would help clarifying what is
+expected to be used. I also don't think the __always_inline is
+mandated here. Specially if the helper needs to account for the broken
+Apple stuff.
 
 > 
->>> Kalesh talked about it in the MM BOF at the same time that Ted and I
->>> were discussing it in the FS BOF.  Some coordination required (like
->>> maybe Kalesh could have mentioned it to me rathere than assuming I'd be
->>> there?)
->>
->> I was at Kalesh's talk. David H suggested that a potential solution might be for
->> readahead to ask the fs where the next hole is and then truncate readahead to
->> avoid reading the hole. Given it's padding, nothing should directly fault it in
->> so it never ends up in the page cache. Not sure if you discussed anything like
->> that if you were talking in parallel?
+> >> +	val = cpuid_feature_extract_signed_field(mmfr4,
+> >> +						 ID_AA64MMFR4_EL1_E2H0_SHIFT);
+> >> +
+> >> +	return val != ID_AA64MMFR4_EL1_E2H0_IMP;
+> > 
+> > This is going to break badly on Apple HW, which predate the
+> > "!FEAT_E2H0" relaxation and yet have HCR_EL2.E2H RAO/WI and
+> > ID_AA64MMFR4_EL1.E2H0==0.
 > 
-> Ted said that he and Kalesh had talked about that solution.  I have a
-> more bold solution in mind which lifts the ext4 extent cache to the
-> VFS inode so that the readahead code can interrogate it.
-> 
->> Anyway, I'm not sure if you're suggesting these changes need to be considered as
->> one somehow or if you're just mentioning it given it is loosely related? My view
->> is that this change is an improvement indepently and could go in much sooner.
-> 
-> This is not a reason to delay this patch.  It's just a downside which
-> should be mentioned in the commit message.
+> currently maybe only a wrong declaration of HCR_EL2.E2H RES1 and we can have
+> a workaround for the apple? considering the only use case of this is in the
+> early_kvm_mode_cfg() described below.
 
-Fair point; I'll add a paragraph about the potential reclaim issue.
+Indeed, I think you would need to handle the Apple behaviour here.
 
 > 
->>>> +static inline int arch_exec_folio_order(void)
->>>> +{
->>>> +	return -1;
->>>> +}
->>>
->>> This feels a bit fragile.  I often expect to be able to store an order
->>> in an unsigned int.  Why not return 0 instead?
->>
->> Well 0 is a valid order, no? I think we have had the "is order signed or
->> unsigned" argument before. get_order() returns a signed int :)
+> > 
+> > The curent code was carefully designed to *avoid* doing this, because
+> > the kernel doesn't really need to know anything about FEAT_E2H0 apart
+> > from the very early boot.
+> > 
+> > What do we gain with this?
+> > 
 > 
-> But why not always return a valid order?  I don't think we need a
-> sentinel.  The default value can be 0 to do what we do today.
+> Only one usecase introduced in patch 3/3, avoid triggering the warning on
+> !E2H0 platforms when booting with "kvm-arm.mode=nvhe". In such case "nvhe"
+> is inavailable but user has no hint on this, booting with "kvm-arm.mode=nvhe"
+> will trigger the warn [1]. Need to give some hint if user try to boot with
+> "nvhe" mode on !FEAT_E2H0 platforms. But we need a ARM64_CPUCAP_SYSTEM_FEATURE
+> capability to make this feature system wide consistent.
 > 
+> [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/kvm/arm.c#n2917
 
-But a single order-0 folio is not what we do today. Note that my change as
-currently implemented requests to read a *single* folio of the specified order.
-And note that we only get the order we request to page_cache_ra_order() because
-the size is limited to a single folio. If the size were bigger, that function
-would actually expand the requested order by 2. (although the parameter is
-called "new_order", it's actually interpretted as "old_order").
+But *why* do we need an extra helper for this only functionnality? If
+we reach the point where early_kvm_mode_cfg() gets called, that we are
+still at EL2, and that the requested mode is "nvhe", then we know, by
+construction, that we couldn't switch to E2H==0.
 
-The current behavior is effectively to read 128K in order-2 folios (with smaller
-folios for boundary alignment).
+That's because idreg-override.c defines this:
 
-So I see a few options:
+ { "kvm_arm.mode=nvhe",		"arm64_sw.hvhe=0 id_aa64mmfr1.vh=0" },
 
-  - Continue to allow non-opted in arches to use the existing behaviour; in this
-case we need a sentinel. This could be -1, UINT_MAX or 0. But in the latter case
-you are preventing an opted-in arch from specifying that they want order-0 -
-it's meaning is overridden.
+and "id_aa64mmfr1.vh=0" gets filtered out by mmfr1_vh_filter().
 
-  - Force all arches to use the new approach with a default folio order (and
-readahead size) of order-0. (The default can be overridden per-arch). Personally
-I'd be nervous about making this change.
-
-  - Decouple the read size from the folio order size; continue to use the 128K
-read size and only allow opting-in to a specific folio order. The default order
-would be 2 (or 0). We would need to fix page_cache_async_ra() to call
-page_cache_ra_order() with "order + 2" (the new order) and fix
-page_cache_ra_order() to treat its order parameter as the *new* order.
-
-Perhaps we should do those fixes anyway (and then actually start with a folio
-order of 0 - which I think you said in the past was your original intention?).
+Or am I missing something obvious?
 
 Thanks,
-Ryan
 
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
