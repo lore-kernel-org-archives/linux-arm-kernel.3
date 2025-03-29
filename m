@@ -4,74 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DBEC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 18:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A41C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 19:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=akVyMKQyCxWZ3yLiQHM8pT2PU+T/9mwnNjkwN1GvFNU=; b=fzX827PWNeUqOvAwjATfZkfb7y
-	SVaECiqxqsgoFgbcUF359mKMhJd6hBAOCrWIewzkz/lJs+725G62dEjQZafMsQgw0n90J1JGCqKHs
-	tBOwYch//BnHrieEMFzfo1JmQQVcpQkf6Vqb0R9CBNb5BasEDK0HXbIjSNA8TtZkTCxWSGTqZf8L4
-	9W5pvHvQTsZ1+rT7gUzVcjty4d+olgIOevb5PtyU+KlkhdxHdzo7IsHUaQcVXPSMLeO1U+cu3M3oQ
-	ze7A0hdFZ4wtUNPfJC5bGFxkVHMxxTIcQUEz8xql3jxGHPR+W9sjFu0edqoj0b6sZ79oei0EQcf88
-	XD7Wl8/A==;
+	bh=5GVWx3U81+0/GXIOVP80B3wI0lY+sgpXX7M13r9xpuc=; b=jnsCgpgiZBvo3tiOUrLzFKjA/d
+	EpuVfTnIjNpOfistHrcZNrA40EPWRDm6OMinwYJFIxzz2nhnIw0ErSaDXuNBcSXGxdoFvvg/wf2G8
+	D5Zwfw67uKNKX3SNGivjqwm+skdDbx3eccN2XIUizBoBBSmLa8H+Jdrdh7c2x/cshcl/r6Nea2QC6
+	vvQ4gIi1koKZSP+3k90F4KSRWL4uihaNRzu740QNvDhPE2eCkjlVyOYA+pIicplZYcWIDa8s1x2a8
+	8+oNM4lsWTMTqje6zM7H3pGbYSbf+iGiHSelW6/1XVCToGh0MGwCbEbOba3lQ6xTeTfVvUisz52TT
+	BIoRaLgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyak8-0000000FO4G-0PpK;
-	Sat, 29 Mar 2025 18:17:16 +0000
-Received: from 3.mo575.mail-out.ovh.net ([46.105.58.60])
+	id 1tybQX-0000000FQT3-3gX1;
+	Sat, 29 Mar 2025 19:01:05 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyaiM-0000000FO0i-3tZq
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 18:15:29 +0000
-Received: from director11.ghost.mail-out.ovh.net (unknown [10.109.140.73])
-	by mo575.mail-out.ovh.net (Postfix) with ESMTP id 4ZQ5Cj1gtwz1qht
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Mar 2025 18:15:13 +0000 (UTC)
-Received: from ghost-submission-5b5ff79f4f-bnbm7 (unknown [10.111.182.49])
-	by director11.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 9C73E1FE64;
-	Sat, 29 Mar 2025 18:15:10 +0000 (UTC)
-Received: from labcsmart.com ([37.59.142.99])
-	by ghost-submission-5b5ff79f4f-bnbm7 with ESMTPSA
-	id lXD9Eq446GegAwAAx023iw
-	(envelope-from <john.madieu@labcsmart.com>); Sat, 29 Mar 2025 18:15:10 +0000
-Authentication-Results: garm.ovh; auth=pass (GARM-99G00370defa65-2e12-46e3-a76d-ab6dc0455f8d,
-                    1AA15D79FD1645C8296C06E669C502FD88205396) smtp.auth=john.madieu@labcsmart.com
-X-OVh-ClientIp: 141.94.163.193
-From: John Madieu <john.madieu@labcsmart.com>
-To: sven@svenpeter.dev,
-	j@jannau.net,
-	linus.walleij@linaro.org
-Cc: alyssa@rosenzweig.io,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
+	id 1tybOn-0000000FPwo-2xrH;
+	Sat, 29 Mar 2025 18:59:19 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-abf3d64849dso495819866b.3;
+        Sat, 29 Mar 2025 11:59:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1743274755; x=1743879555; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5GVWx3U81+0/GXIOVP80B3wI0lY+sgpXX7M13r9xpuc=;
+        b=lVGGhAfUnMkOHvwWdirx2DyNPdRYbH7I4+6snxAhAE7YfGZyNWUNyocvGPyxilLW+C
+         7EmLeLm9daGYCkRi/w0GnT0RsqscgXiWyC0xmqkCzQzYqMRcO7wKanxseDNFy4md0Q4R
+         IHXzdVb5+ZmoAhuM6FEmMXgPUdGlP+zjo0xyDO+LvE3/MX51uTLJSOLWsy17H01na1St
+         pch7DTEJqAkfrXc3I/hDCFLyisMf6hWO4USQE40rZY7L/kYRuP/vKNIIbEwc9HLsso7Q
+         KPvR4qMNVRctN12R56vGnmvXv8gxip61AYar2yBDWb53pX2BFGH908KIo+cOrhsBPJym
+         VWcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743274755; x=1743879555;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5GVWx3U81+0/GXIOVP80B3wI0lY+sgpXX7M13r9xpuc=;
+        b=EU6q/njodHUZhZLqbLJykRSAoicfq8qqrZaI8cK+2Zd98QNhENLSH56wtWxvW3rCwk
+         grqtx23iP7UGB35Z3C5uKkJA6ePUtwHTybShMqxl+VdiPLXbkvbRASE8QjWufg7sygzl
+         revqvC2YM4woUzDcYFc5POyIl64sSfVJQYl/K7CYS79nyindlyXj00uKE4NcImpuod37
+         h+ozpu6Pip4+bjX3WStS37EgXXMLn64765o7LSNsrY2YcbtssKnRi/TEv0q23WMbVGIG
+         Q6pIvQiMww/QzNTpC52G/M0doge4uwj15RK0Udbg+8ZwY1Shh63EUDUiUXdxbbeGUMEa
+         UwtQ==
+X-Gm-Message-State: AOJu0Yw7ICoBFeIjCamM484hme/0XZpCKb7coH1vTfxlLWfS7mBWtbJD
+	0qEdkM4vbVPSn55r0no7fiuXFTSHHT5luQhqYGivMnhRzeeM5jzIdIj6CQ==
+X-Gm-Gg: ASbGncuJklE3Qvy+oTr1UJOUKbjWMGN9gBgfzaLU2qRRkFCbRqoWgT1/Pno2hrWiMfS
+	9aTQqNBD2R/q9OKcC1maRqclyFzsKezZ3hNUP8TxnmD6P7/qhSTp1rBSabz2OCB1mY/wkQSO8L5
+	XdfGLoFHgfBf5USSB1xxbpTcj8TY6D0fI9jiKw/a5oRv99mD+f6BbQ5TTLvum1ibpDz+fv4LXmi
+	olgoUjGGwV/y7MNrpxvWlvOg+CO/urrZ4RrnHKiEP4XP6Z45eyY8urTfwsXh7AMFzyAncdOPxmk
+	nEVWfyaNS6w4zB1FFo6Cqsf1ukv+fsCcGH0+Wzq2n1IYMB1lb0I2OLSqqdrlhksRXq11uj4ML0f
+	UL9IUingc7r9Sxj1Sj3v08b9nEWkkcDdRBnGzAuYbw3kdUBOJoWMwI6Wgr1kWIBIFlXZyBw==
+X-Google-Smtp-Source: AGHT+IFk/KARCjCUyhGU/vgF6K1Sn2uPB37x4iuQwrcxiHKFEPycVyCYu/EqsFuwOcWYcCe/tapuaQ==
+X-Received: by 2002:a17:907:6d27:b0:ac7:1aff:1183 with SMTP id a640c23a62f3a-ac738932eecmr276308566b.2.1743274754676;
+        Sat, 29 Mar 2025 11:59:14 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-ad73-6800-0000-0000-0000-0e63.310.pool.telefonica.de. [2a02:3100:ad73:6800::e63])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ac7196dd46asm364497866b.160.2025.03.29.11.59.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 29 Mar 2025 11:59:13 -0700 (PDT)
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+To: linux-amlogic@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	john.madieu@gmail.com,
-	John Madieu <john.madieu@labcsmart.com>
-Subject: [PATCH] pinctrl: apple: Make regmap_config static const and fix indentation
-Date: Sat, 29 Mar 2025 18:15:06 +0000
-Message-Id: <20250329181506.890043-1-john.madieu@labcsmart.com>
-X-Mailer: git-send-email 2.25.1
+	devicetree@vger.kernel.org,
+	jbrunet@baylibre.com,
+	khilman@baylibre.com,
+	neil.armstrong@linaro.org,
+	christianshewitt@gmail.com,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Subject: [PATCH 0/7] dts: amlogic: enable UART RX and TX pull up by default
+Date: Sat, 29 Mar 2025 19:58:48 +0100
+Message-ID: <20250329185855.854186-1-martin.blumenstingl@googlemail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Ovh-Tracer-Id: 4085046338809924234
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: 0
-X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddujeegkeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuqfggjfdpvefjgfevmfevgfenuceurghilhhouhhtmecuhedttdenucenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpeflohhhnhcuofgrughivghuuceojhhohhhnrdhmrgguihgvuheslhgrsggtshhmrghrthdrtghomheqnecuggftrfgrthhtvghrnhepgeegteetieettdffleeludeliedvueeuuefhveffhfehtdehiefhfefflefguddvnecukfhppeduvdejrddtrddtrddupddugedurdelgedrudeifedrudelfedpfeejrdehledrudegvddrleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepuddvjedrtddrtddruddpmhgrihhlfhhrohhmpehjohhhnhdrmhgrughivghusehlrggstghsmhgrrhhtrdgtohhmpdhnsggprhgtphhtthhopedupdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdfovfetjfhoshhtpehmohehjeehmgdpmhhouggvpehsmhhtphhouhht
-DKIM-Signature: a=rsa-sha256; bh=akVyMKQyCxWZ3yLiQHM8pT2PU+T/9mwnNjkwN1GvFNU=;
- c=relaxed/relaxed; d=labcsmart.com; h=From; s=ovhmo4089092-selector1;
- t=1743272113; v=1;
- b=T0Vm1s/Vrkc1RsJQHrYki+Vr3ubVgaOhtDZs744k67Osex0cxMGi6iFlHHwWn/vqtIKTC93P
- e1VZxhXuFjq2tNtU8IkyAFaJdFJqmVsbUEGGyq9CTzs03Pkkr+6CVnfiJd3EHQVvA3sJIiWQp8G
- z3H/BNoJUOQ1Gq4qJcrHfL8gCaKqQJHnfybZLKx838mt49Bg+CXmbWEekOhzvM6HqxbKewphJAD
- JbpI7fIyADsh+2pmzFirD+dT7wEj6CYcVwUymZ9XlRDevENOV7a5hZsVYxGPgdPZSGmCzgLLnwj
- 42HRqU1sPKlyqcFxY20HYqEYS7B1wY+6abjC+mwJEB5sg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_111528_079531_76013FDF 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250329_115917_761169_7E7ABA61 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,137 +99,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark the regmap_config as static const since it is only used in this file
-and never modified, allowing the compiler to optimize it and enforce
-const-correctness.
+On the LibreELEC forum there have been reports that Odroid-C2 does not
+boot when UART is left disconnected [0]. It turns out that this can be
+solved by enabling the SoCs pull-up resistor on the UART RX and TX
+pads [1].
+It's not clear whether that specific Odroid-C2 board has a broken
+resistor, the resistor is not populated (either by accident or on
+purpose) or if there's another reason.
 
-Also fix minor indentation inconsistencies in function parameter alignment
-to conform with kernel coding style.
+Testing on an SM1 X96-Air shows that pull-ups being enabled on UART
+RX and TX is actually the default (either set in vendor u-boot or an
+actual hardware default).
 
-Signed-off-by: John Madieu <john.madieu@labcsmart.com>
----
-Most changes replace space indentation with tabs.
+This series enables the UART RX and TX pull up resistors in the
+default pin configuration on all supported SoCs.
 
- drivers/pinctrl/pinctrl-apple-gpio.c | 30 ++++++++++++++--------------
- 1 file changed, 15 insertions(+), 15 deletions(-)
+Testing has been done on:
+- GXBB Odroid-C1 on u-boot by a user in the LibreELEC forums [2]
+- Meson8b Odroid-C1 on Linux (with vendor u-boot)
+- SM1 X96-Air on Linux (with vendor u-boot)
 
-diff --git a/drivers/pinctrl/pinctrl-apple-gpio.c b/drivers/pinctrl/pinctrl-apple-gpio.c
-index f861e63f4115..0f551d67d482 100644
---- a/drivers/pinctrl/pinctrl-apple-gpio.c
-+++ b/drivers/pinctrl/pinctrl-apple-gpio.c
-@@ -66,7 +66,7 @@ struct apple_gpio_pinctrl {
- #define REG_GPIOx_DRIVE_STRENGTH1 GENMASK(23, 22)
- #define REG_IRQ(g, x)        (0x800 + 0x40 * (g) + 4 * ((x) >> 5))
- 
--struct regmap_config regmap_config = {
-+static const struct regmap_config regmap_config = {
- 	.reg_bits = 32,
- 	.val_bits = 32,
- 	.reg_stride = 4,
-@@ -79,13 +79,13 @@ struct regmap_config regmap_config = {
- 
- /* No locking needed to mask/unmask IRQs as the interrupt mode is per pin-register. */
- static void apple_gpio_set_reg(struct apple_gpio_pinctrl *pctl,
--                               unsigned int pin, u32 mask, u32 value)
-+			       unsigned int pin, u32 mask, u32 value)
- {
- 	regmap_update_bits(pctl->map, REG_GPIO(pin), mask, value);
- }
- 
- static u32 apple_gpio_get_reg(struct apple_gpio_pinctrl *pctl,
--                              unsigned int pin)
-+			      unsigned int pin)
- {
- 	int ret;
- 	u32 val;
-@@ -100,9 +100,9 @@ static u32 apple_gpio_get_reg(struct apple_gpio_pinctrl *pctl,
- /* Pin controller functions */
- 
- static int apple_gpio_dt_node_to_map(struct pinctrl_dev *pctldev,
--                                     struct device_node *node,
--                                     struct pinctrl_map **map,
--                                     unsigned *num_maps)
-+				     struct device_node *node,
-+				     struct pinctrl_map **map,
-+				     unsigned *num_maps)
- {
- 	unsigned reserved_maps;
- 	struct apple_gpio_pinctrl *pctl;
-@@ -147,8 +147,8 @@ static int apple_gpio_dt_node_to_map(struct pinctrl_dev *pctldev,
- 		group_name = pinctrl_generic_get_group_name(pctldev, pin);
- 		function_name = pinmux_generic_get_function_name(pctl->pctldev, func);
- 		ret = pinctrl_utils_add_map_mux(pctl->pctldev, map,
--		                                &reserved_maps, num_maps,
--		                                group_name, function_name);
-+						&reserved_maps, num_maps,
-+						group_name, function_name);
- 		if (ret)
- 			goto free_map;
- 	}
-@@ -171,7 +171,7 @@ static const struct pinctrl_ops apple_gpio_pinctrl_ops = {
- /* Pin multiplexer functions */
- 
- static int apple_gpio_pinmux_set(struct pinctrl_dev *pctldev, unsigned func,
--                                 unsigned group)
-+				 unsigned group)
- {
- 	struct apple_gpio_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
- 
-@@ -237,7 +237,7 @@ static int apple_gpio_direction_input(struct gpio_chip *chip, unsigned int offse
- }
- 
- static int apple_gpio_direction_output(struct gpio_chip *chip,
--                                       unsigned int offset, int value)
-+				       unsigned int offset, int value)
- {
- 	struct apple_gpio_pinctrl *pctl = gpiochip_get_data(chip);
- 
-@@ -282,7 +282,7 @@ static void apple_gpio_irq_mask(struct irq_data *data)
- 	struct apple_gpio_pinctrl *pctl = gpiochip_get_data(gc);
- 
- 	apple_gpio_set_reg(pctl, data->hwirq, REG_GPIOx_MODE,
--	                   FIELD_PREP(REG_GPIOx_MODE, REG_GPIOx_IN_IRQ_OFF));
-+			   FIELD_PREP(REG_GPIOx_MODE, REG_GPIOx_IN_IRQ_OFF));
- 	gpiochip_disable_irq(gc, data->hwirq);
- }
- 
-@@ -294,7 +294,7 @@ static void apple_gpio_irq_unmask(struct irq_data *data)
- 
- 	gpiochip_enable_irq(gc, data->hwirq);
- 	apple_gpio_set_reg(pctl, data->hwirq, REG_GPIOx_MODE,
--	                   FIELD_PREP(REG_GPIOx_MODE, irqtype));
-+			   FIELD_PREP(REG_GPIOx_MODE, irqtype));
- }
- 
- static unsigned int apple_gpio_irq_startup(struct irq_data *data)
-@@ -303,7 +303,7 @@ static unsigned int apple_gpio_irq_startup(struct irq_data *data)
- 	struct apple_gpio_pinctrl *pctl = gpiochip_get_data(chip);
- 
- 	apple_gpio_set_reg(pctl, data->hwirq, REG_GPIOx_GRP,
--	                   FIELD_PREP(REG_GPIOx_GRP, 0));
-+			   FIELD_PREP(REG_GPIOx_GRP, 0));
- 
- 	apple_gpio_direction_input(chip, data->hwirq);
- 	apple_gpio_irq_unmask(data);
-@@ -320,7 +320,7 @@ static int apple_gpio_irq_set_type(struct irq_data *data, unsigned int type)
- 		return -EINVAL;
- 
- 	apple_gpio_set_reg(pctl, data->hwirq, REG_GPIOx_MODE,
--	                   FIELD_PREP(REG_GPIOx_MODE, irqtype));
-+			   FIELD_PREP(REG_GPIOx_MODE, irqtype));
- 
- 	if (type & IRQ_TYPE_LEVEL_MASK)
- 		irq_set_handler_locked(data, handle_level_irq);
-@@ -429,7 +429,7 @@ static int apple_gpio_pinctrl_probe(struct platform_device *pdev)
- 	unsigned int npins;
- 	const char **pin_names;
- 	unsigned int *pin_nums;
--	static const char* pinmux_functions[] = {
-+	static const char *pinmux_functions[] = {
- 		"gpio", "periph1", "periph2", "periph3"
- 	};
- 	unsigned int i, nirqs = 0;
+Please include this early so the various CI systems can test these
+patches.
+
+
+[0] https://forum.libreelec.tv/thread/28586-odroid-c2-gxbb-s905-and-le-11-06-or-12-does-not-boot/?postID=195481#post195481
+[1] https://forum.libreelec.tv/thread/28586-odroid-c2-gxbb-s905-and-le-11-06-or-12-does-not-boot/?postID=195667#post195667
+[2] https://forum.libreelec.tv/thread/28586-odroid-c2-gxbb-s905-and-le-11-06-or-12-does-not-boot/?postID=195674#post195674
+
+
+Martin Blumenstingl (7):
+  ARM: dts: amlogic: meson8: enable UART RX and TX pull up by default
+  ARM: dts: amlogic: meson8b: enable UART RX and TX pull up by default
+  arm64: dts: amlogic: gxbb: enable UART RX and TX pull up by default
+  arm64: dts: amlogic: gxl: enable UART RX and TX pull up by default
+  arm64: dts: amlogic: g12: enable UART RX and TX pull up by default
+  arm64: dts: amlogic: axg: enable UART RX and TX pull up by default
+  arm64: dts: amlogic: a1: enable UART RX and TX pull up by default
+
+ arch/arm/boot/dts/amlogic/meson8.dtsi             |  4 ++--
+ arch/arm/boot/dts/amlogic/meson8b.dtsi            |  4 ++--
+ arch/arm64/boot/dts/amlogic/meson-a1.dtsi         |  1 +
+ arch/arm64/boot/dts/amlogic/meson-axg.dtsi        | 12 ++++++------
+ arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi | 10 +++++-----
+ arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi       | 10 +++++-----
+ arch/arm64/boot/dts/amlogic/meson-gxl.dtsi        | 12 ++++++------
+ 7 files changed, 27 insertions(+), 26 deletions(-)
+
 -- 
-2.25.1
+2.49.0
 
 
