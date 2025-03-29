@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA236C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 17:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DBEC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 18:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=loomyeiCFnFYgwxoF262fF2k3IXCFxhccdSxr9Y8Ab0=; b=O6MhSoLILy8MxxkcN3umXiBCP9
-	va8GtouxA1Q0zu4Yu3+1mhQhyboVwaLMjdufOG3dI+0n83ebYujWdI2fK9O1lujEHJQtkan3c+sbz
-	pp0fBR+2mhKy/0VjUDI5mlIbxmk3A7Acs59hCxpwAr9ABpoV7czid2hgLPo93jevuPCMGP+8bpMOK
-	ksB2gf+XRvvwDnt2T3Qt3+qFpFoYgVJssYb0dXdhtF8NIgh5g00Ubcr7rNG58J0jerrD55ilGPtkL
-	eb/fmZQkI/aefXLEG9tEWm2M7YIyhGYHUpYCMuud47pSzYrlo7AVJ0weo0evXwEB17S9eKxkfVozJ
-	fiXz4UhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=akVyMKQyCxWZ3yLiQHM8pT2PU+T/9mwnNjkwN1GvFNU=; b=fzX827PWNeUqOvAwjATfZkfb7y
+	SVaECiqxqsgoFgbcUF359mKMhJd6hBAOCrWIewzkz/lJs+725G62dEjQZafMsQgw0n90J1JGCqKHs
+	tBOwYch//BnHrieEMFzfo1JmQQVcpQkf6Vqb0R9CBNb5BasEDK0HXbIjSNA8TtZkTCxWSGTqZf8L4
+	9W5pvHvQTsZ1+rT7gUzVcjty4d+olgIOevb5PtyU+KlkhdxHdzo7IsHUaQcVXPSMLeO1U+cu3M3oQ
+	ze7A0hdFZ4wtUNPfJC5bGFxkVHMxxTIcQUEz8xql3jxGHPR+W9sjFu0edqoj0b6sZ79oei0EQcf88
+	XD7Wl8/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyZiQ-0000000FLls-32AM;
-	Sat, 29 Mar 2025 17:11:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tyak8-0000000FO4G-0PpK;
+	Sat, 29 Mar 2025 18:17:16 +0000
+Received: from 3.mo575.mail-out.ovh.net ([46.105.58.60])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyZgg-0000000FLdj-1MeF
+	id 1tyaiM-0000000FO0i-3tZq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 17:09:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 57764437A5;
-	Sat, 29 Mar 2025 17:09:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 620FFC4CEE2;
-	Sat, 29 Mar 2025 17:09:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743268177;
-	bh=Yrw919Z8v9sEOEODycWBG0VcN6JIS2JIx7r8X2SNbqU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R2e1lVzEIvqf8lTsrBOSozuxtbCArwAs8UQRY23wwkrO922x4WOT97/YmYE1kBx1h
-	 hrVMXalk0q6ylxGuY63GwGj7vkUCTafxVvG+KXeW0+LpkmXoXfAPjdw+ZqHFaFbS/m
-	 p0km9gIq2073Orqk0UMuOroc/9WQi1mZFq8RtD1mPY76N3y4LD4uk1PUmOGCIMGkoS
-	 U/bt8VATBZu9+hSBrfVxZ0zG9WASaNewvAakSIzZ13y2Dzu1j5r4WEwL1gdY7Asa1y
-	 Xe/km4URkWd6FU13FL6jv4jaXkN5+sKt5bUpMlooiEHVVLugz7mmuJ7G1vnvOMnLbS
-	 xUONiztU+GCmA==
-Date: Sat, 29 Mar 2025 12:09:36 -0500
-From: Rob Herring <robh@kernel.org>
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: net: Add MTIP L2 switch description
-Message-ID: <20250329170936.GA2246988-robh@kernel.org>
-References: <20250328133544.4149716-1-lukma@denx.de>
- <20250328133544.4149716-2-lukma@denx.de>
+	Sat, 29 Mar 2025 18:15:29 +0000
+Received: from director11.ghost.mail-out.ovh.net (unknown [10.109.140.73])
+	by mo575.mail-out.ovh.net (Postfix) with ESMTP id 4ZQ5Cj1gtwz1qht
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Mar 2025 18:15:13 +0000 (UTC)
+Received: from ghost-submission-5b5ff79f4f-bnbm7 (unknown [10.111.182.49])
+	by director11.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 9C73E1FE64;
+	Sat, 29 Mar 2025 18:15:10 +0000 (UTC)
+Received: from labcsmart.com ([37.59.142.99])
+	by ghost-submission-5b5ff79f4f-bnbm7 with ESMTPSA
+	id lXD9Eq446GegAwAAx023iw
+	(envelope-from <john.madieu@labcsmart.com>); Sat, 29 Mar 2025 18:15:10 +0000
+Authentication-Results: garm.ovh; auth=pass (GARM-99G00370defa65-2e12-46e3-a76d-ab6dc0455f8d,
+                    1AA15D79FD1645C8296C06E669C502FD88205396) smtp.auth=john.madieu@labcsmart.com
+X-OVh-ClientIp: 141.94.163.193
+From: John Madieu <john.madieu@labcsmart.com>
+To: sven@svenpeter.dev,
+	j@jannau.net,
+	linus.walleij@linaro.org
+Cc: alyssa@rosenzweig.io,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	john.madieu@gmail.com,
+	John Madieu <john.madieu@labcsmart.com>
+Subject: [PATCH] pinctrl: apple: Make regmap_config static const and fix indentation
+Date: Sat, 29 Mar 2025 18:15:06 +0000
+Message-Id: <20250329181506.890043-1-john.madieu@labcsmart.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250328133544.4149716-2-lukma@denx.de>
+Content-Transfer-Encoding: 8bit
+X-Ovh-Tracer-Id: 4085046338809924234
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: 0
+X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddujeegkeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuqfggjfdpvefjgfevmfevgfenuceurghilhhouhhtmecuhedttdenucenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpeflohhhnhcuofgrughivghuuceojhhohhhnrdhmrgguihgvuheslhgrsggtshhmrghrthdrtghomheqnecuggftrfgrthhtvghrnhepgeegteetieettdffleeludeliedvueeuuefhveffhfehtdehiefhfefflefguddvnecukfhppeduvdejrddtrddtrddupddugedurdelgedrudeifedrudelfedpfeejrdehledrudegvddrleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepuddvjedrtddrtddruddpmhgrihhlfhhrohhmpehjohhhnhdrmhgrughivghusehlrggstghsmhgrrhhtrdgtohhmpdhnsggprhgtphhtthhopedupdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdfovfetjfhoshhtpehmohehjeehmgdpmhhouggvpehsmhhtphhouhht
+DKIM-Signature: a=rsa-sha256; bh=akVyMKQyCxWZ3yLiQHM8pT2PU+T/9mwnNjkwN1GvFNU=;
+ c=relaxed/relaxed; d=labcsmart.com; h=From; s=ovhmo4089092-selector1;
+ t=1743272113; v=1;
+ b=T0Vm1s/Vrkc1RsJQHrYki+Vr3ubVgaOhtDZs744k67Osex0cxMGi6iFlHHwWn/vqtIKTC93P
+ e1VZxhXuFjq2tNtU8IkyAFaJdFJqmVsbUEGGyq9CTzs03Pkkr+6CVnfiJd3EHQVvA3sJIiWQp8G
+ z3H/BNoJUOQ1Gq4qJcrHfL8gCaKqQJHnfybZLKx838mt49Bg+CXmbWEekOhzvM6HqxbKewphJAD
+ JbpI7fIyADsh+2pmzFirD+dT7wEj6CYcVwUymZ9XlRDevENOV7a5hZsVYxGPgdPZSGmCzgLLnwj
+ 42HRqU1sPKlyqcFxY20HYqEYS7B1wY+6abjC+mwJEB5sg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_100938_409327_E377D31E 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20250329_111528_079531_76013FDF 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,191 +86,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 02:35:41PM +0100, Lukasz Majewski wrote:
-> This patch provides description of the MTIP L2 switch available in some
-> NXP's SOCs - e.g. imx287.
-> 
-> Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> ---
-> Changes for v2:
-> - Rename the file to match exactly the compatible
->   (nxp,imx287-mtip-switch)
-> ---
->  .../bindings/net/nxp,imx287-mtip-switch.yaml  | 165 ++++++++++++++++++
->  1 file changed, 165 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> new file mode 100644
-> index 000000000000..a3e0fe7783ec
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> @@ -0,0 +1,165 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/nxp,imx287-mtip-switch.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
-> +
-> +maintainers:
-> +  - Lukasz Majewski <lukma@denx.de>
-> +
-> +description:
-> +  The 2-port switch ethernet subsystem provides ethernet packet (L2)
-> +  communication and can be configured as an ethernet switch. It provides the
-> +  reduced media independent interface (RMII), the management data input
-> +  output (MDIO) for physical layer device (PHY) management.
-> +
-> +properties:
-> +  compatible:
-> +    const: nxp,imx287-mtip--switch
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description:
-> +      The physical base address and size of the MTIP L2 SW module IO range
-> +
-> +  phy-supply:
-> +    description:
-> +      Regulator that powers Ethernet PHYs.
-> +
-> +  clocks:
-> +    items:
-> +      - description: Register accessing clock
-> +      - description: Bus access clock
-> +      - description: Output clock for external device - e.g. PHY source clock
-> +      - description: IEEE1588 timer clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: ipg
-> +      - const: ahb
-> +      - const: enet_out
-> +      - const: ptp
-> +
-> +  interrupts:
-> +    items:
-> +      - description: Switch interrupt
-> +      - description: ENET0 interrupt
-> +      - description: ENET1 interrupt
-> +
-> +  pinctrl-names: true
-> +
-> +  ethernet-ports:
-> +    type: object
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      '#address-cells':
-> +        const: 1
-> +      '#size-cells':
-> +        const: 0
-> +
-> +    patternProperties:
-> +      "^port@[0-9]+$":
-> +        type: object
-> +        description: MTIP L2 switch external ports
-> +
-> +        $ref: ethernet-controller.yaml#
-> +        unevaluatedProperties: false
-> +
-> +        properties:
-> +          reg:
-> +            items:
-> +              - enum: [1, 2]
-> +            description: MTIP L2 switch port number
-> +
-> +          label:
-> +            description: Label associated with this port
-> +
-> +        required:
-> +          - reg
-> +          - label
-> +          - phy-mode
-> +          - phy-handle
-> +
-> +  mdio:
-> +    type: object
-> +    $ref: mdio.yaml#
-> +    unevaluatedProperties: false
-> +    description:
-> +      Specifies the mdio bus in the switch, used as a container for phy nodes.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +  - mdio
-> +  - ethernet-ports
-> +  - '#address-cells'
-> +  - '#size-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include<dt-bindings/interrupt-controller/irq.h>
-> +    switch@800f0000 {
-> +        compatible = "nxp,imx287-mtip-switch";
-> +        reg = <0x800f0000 0x20000>;
-> +        pinctrl-names = "default";
-> +        pinctrl-0 = <&mac0_pins_a>, <&mac1_pins_a>;
-> +        phy-supply = <&reg_fec_3v3>;
-> +        interrupts = <100>, <101>, <102>;
-> +        clocks = <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
-> +        clock-names = "ipg", "ahb", "enet_out", "ptp";
-> +        status = "okay";
-> +
-> +        ethernet-ports {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                mtip_port1: port@1 {
-> +                        reg = <1>;
-> +                        label = "lan0";
-> +                        local-mac-address = [ 00 00 00 00 00 00 ];
-> +                        phy-mode = "rmii";
-> +                        phy-handle = <&ethphy0>;
-> +                };
-> +
-> +                mtip_port2: port@2 {
-> +                        reg = <2>;
-> +                        label = "lan1";
-> +                        local-mac-address = [ 00 00 00 00 00 00 ];
-> +                        phy-mode = "rmii";
-> +                        phy-handle = <&ethphy1>;
-> +                };
-> +        };
-> +
-> +        mdio_sw: mdio {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                reset-gpios = <&gpio2 13 0>;
-> +                reset-delay-us = <25000>;
-> +                reset-post-delay-us = <10000>;
-> +
-> +                ethphy0: ethernet-phy@0 {
-> +                        reg = <0>;
-> +                        smsc,disable-energy-detect;
+Mark the regmap_config as static const since it is only used in this file
+and never modified, allowing the compiler to optimize it and enforce
+const-correctness.
 
-With a custom property, you should have a specific compatible.
+Also fix minor indentation inconsistencies in function parameter alignment
+to conform with kernel coding style.
 
-> +                        /* Both PHYs (i.e. 0,1) have the same, single GPIO, */
-> +                        /* line to handle both, their interrupts (AND'ed) */
-> +                        interrupt-parent = <&gpio4>;
-> +                        interrupts = <13 IRQ_TYPE_EDGE_FALLING>;
+Signed-off-by: John Madieu <john.madieu@labcsmart.com>
+---
+Most changes replace space indentation with tabs.
 
-The error report is because the examples have to guess the number of 
-provider interrupt cells and only 1 guess is supported. It guessed 1 
-from above.
+ drivers/pinctrl/pinctrl-apple-gpio.c | 30 ++++++++++++++--------------
+ 1 file changed, 15 insertions(+), 15 deletions(-)
 
-In any case, unless the phys are built-in and fixed, they are out of 
-scope of this binding. So perhaps drop the interrupts and smsc property.
+diff --git a/drivers/pinctrl/pinctrl-apple-gpio.c b/drivers/pinctrl/pinctrl-apple-gpio.c
+index f861e63f4115..0f551d67d482 100644
+--- a/drivers/pinctrl/pinctrl-apple-gpio.c
++++ b/drivers/pinctrl/pinctrl-apple-gpio.c
+@@ -66,7 +66,7 @@ struct apple_gpio_pinctrl {
+ #define REG_GPIOx_DRIVE_STRENGTH1 GENMASK(23, 22)
+ #define REG_IRQ(g, x)        (0x800 + 0x40 * (g) + 4 * ((x) >> 5))
+ 
+-struct regmap_config regmap_config = {
++static const struct regmap_config regmap_config = {
+ 	.reg_bits = 32,
+ 	.val_bits = 32,
+ 	.reg_stride = 4,
+@@ -79,13 +79,13 @@ struct regmap_config regmap_config = {
+ 
+ /* No locking needed to mask/unmask IRQs as the interrupt mode is per pin-register. */
+ static void apple_gpio_set_reg(struct apple_gpio_pinctrl *pctl,
+-                               unsigned int pin, u32 mask, u32 value)
++			       unsigned int pin, u32 mask, u32 value)
+ {
+ 	regmap_update_bits(pctl->map, REG_GPIO(pin), mask, value);
+ }
+ 
+ static u32 apple_gpio_get_reg(struct apple_gpio_pinctrl *pctl,
+-                              unsigned int pin)
++			      unsigned int pin)
+ {
+ 	int ret;
+ 	u32 val;
+@@ -100,9 +100,9 @@ static u32 apple_gpio_get_reg(struct apple_gpio_pinctrl *pctl,
+ /* Pin controller functions */
+ 
+ static int apple_gpio_dt_node_to_map(struct pinctrl_dev *pctldev,
+-                                     struct device_node *node,
+-                                     struct pinctrl_map **map,
+-                                     unsigned *num_maps)
++				     struct device_node *node,
++				     struct pinctrl_map **map,
++				     unsigned *num_maps)
+ {
+ 	unsigned reserved_maps;
+ 	struct apple_gpio_pinctrl *pctl;
+@@ -147,8 +147,8 @@ static int apple_gpio_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 		group_name = pinctrl_generic_get_group_name(pctldev, pin);
+ 		function_name = pinmux_generic_get_function_name(pctl->pctldev, func);
+ 		ret = pinctrl_utils_add_map_mux(pctl->pctldev, map,
+-		                                &reserved_maps, num_maps,
+-		                                group_name, function_name);
++						&reserved_maps, num_maps,
++						group_name, function_name);
+ 		if (ret)
+ 			goto free_map;
+ 	}
+@@ -171,7 +171,7 @@ static const struct pinctrl_ops apple_gpio_pinctrl_ops = {
+ /* Pin multiplexer functions */
+ 
+ static int apple_gpio_pinmux_set(struct pinctrl_dev *pctldev, unsigned func,
+-                                 unsigned group)
++				 unsigned group)
+ {
+ 	struct apple_gpio_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -237,7 +237,7 @@ static int apple_gpio_direction_input(struct gpio_chip *chip, unsigned int offse
+ }
+ 
+ static int apple_gpio_direction_output(struct gpio_chip *chip,
+-                                       unsigned int offset, int value)
++				       unsigned int offset, int value)
+ {
+ 	struct apple_gpio_pinctrl *pctl = gpiochip_get_data(chip);
+ 
+@@ -282,7 +282,7 @@ static void apple_gpio_irq_mask(struct irq_data *data)
+ 	struct apple_gpio_pinctrl *pctl = gpiochip_get_data(gc);
+ 
+ 	apple_gpio_set_reg(pctl, data->hwirq, REG_GPIOx_MODE,
+-	                   FIELD_PREP(REG_GPIOx_MODE, REG_GPIOx_IN_IRQ_OFF));
++			   FIELD_PREP(REG_GPIOx_MODE, REG_GPIOx_IN_IRQ_OFF));
+ 	gpiochip_disable_irq(gc, data->hwirq);
+ }
+ 
+@@ -294,7 +294,7 @@ static void apple_gpio_irq_unmask(struct irq_data *data)
+ 
+ 	gpiochip_enable_irq(gc, data->hwirq);
+ 	apple_gpio_set_reg(pctl, data->hwirq, REG_GPIOx_MODE,
+-	                   FIELD_PREP(REG_GPIOx_MODE, irqtype));
++			   FIELD_PREP(REG_GPIOx_MODE, irqtype));
+ }
+ 
+ static unsigned int apple_gpio_irq_startup(struct irq_data *data)
+@@ -303,7 +303,7 @@ static unsigned int apple_gpio_irq_startup(struct irq_data *data)
+ 	struct apple_gpio_pinctrl *pctl = gpiochip_get_data(chip);
+ 
+ 	apple_gpio_set_reg(pctl, data->hwirq, REG_GPIOx_GRP,
+-	                   FIELD_PREP(REG_GPIOx_GRP, 0));
++			   FIELD_PREP(REG_GPIOx_GRP, 0));
+ 
+ 	apple_gpio_direction_input(chip, data->hwirq);
+ 	apple_gpio_irq_unmask(data);
+@@ -320,7 +320,7 @@ static int apple_gpio_irq_set_type(struct irq_data *data, unsigned int type)
+ 		return -EINVAL;
+ 
+ 	apple_gpio_set_reg(pctl, data->hwirq, REG_GPIOx_MODE,
+-	                   FIELD_PREP(REG_GPIOx_MODE, irqtype));
++			   FIELD_PREP(REG_GPIOx_MODE, irqtype));
+ 
+ 	if (type & IRQ_TYPE_LEVEL_MASK)
+ 		irq_set_handler_locked(data, handle_level_irq);
+@@ -429,7 +429,7 @@ static int apple_gpio_pinctrl_probe(struct platform_device *pdev)
+ 	unsigned int npins;
+ 	const char **pin_names;
+ 	unsigned int *pin_nums;
+-	static const char* pinmux_functions[] = {
++	static const char *pinmux_functions[] = {
+ 		"gpio", "periph1", "periph2", "periph3"
+ 	};
+ 	unsigned int i, nirqs = 0;
+-- 
+2.25.1
 
-Rob
 
