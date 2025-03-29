@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D99C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 19:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E032C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 19:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GKkfbO1BiF+QlXbqBxEEyljYmITDjKlUPtvMrkXYk1M=; b=Y5fzrm5soOGOyOm1XtPMSyLGsW
-	zyFFvs/Q1i+y2er/xuf3ClD26oujnN3yWEhBDU/xf7qm9tNZe8ddwjNY8P5n5BFra3UPzPObwVQpo
-	+Ck4SedI9bPBgfCWjn/fcavwMC9cvJoY4Ly3KrAsilMgfyM8058cmt2u6THEAAIGxsQxdFiPGiim/
-	5Eo9m2XI2NIQGpU5dSh5iClgbGzyY05Fpk2FmEYUtyY8OGnBAIKtiQERj6s3QGztArR47dyY7GBrI
-	Gqf56RzHD7Y9RbSZY1lIfLGtsF4Qj0AWXqedHfXRgA0JEu6o6Om2rK+QlhXWoMc7snE37qe+o/1pY
-	syIhhGbA==;
+	bh=yHjnimUXRB9yqs2JrX76wgCEkUn1WbBc4dXkc5jfVng=; b=uViF4jY6Xu241iQkp/9lqZSUGH
+	gXJ2rqSEQ2X4P7Xry1s1fpQN3muapwSm3tq/mwQlskyvIV3UB6e6JNjx+++UMn32CwnQi/0RtuGmE
+	GRoCvs483Lot4JURYVbEvheWNbU+0hbQ1N168qhqGW8MqIVqUHzaxfJppusSB6Fp4ZZuB7K3t2lFL
+	KnWD7IUmC0R18lao30Xb6nZWk1c4ZB8XJU2qY16xjgFPXj9XB98BfZBDLSREDZh/+TRHxXlA5YKAx
+	3hM6YHv7QBkamycjNPHTSV//ocg9S7k14hTOub15reotdLAzwtGeBp3zPMoGdV6qed5xqbw8C6q9i
+	/eosPC6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tybVf-0000000FQyu-0tYD;
-	Sat, 29 Mar 2025 19:06:23 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1tybXO-0000000FRFZ-0upi;
+	Sat, 29 Mar 2025 19:08:10 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tybOv-0000000FPyr-34FU;
-	Sat, 29 Mar 2025 18:59:26 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aaee2c5ee6eso489574966b.1;
-        Sat, 29 Mar 2025 11:59:25 -0700 (PDT)
+	id 1tybOy-0000000FPzd-2iH9;
+	Sat, 29 Mar 2025 18:59:29 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5e5c9662131so4971896a12.3;
+        Sat, 29 Mar 2025 11:59:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1743274764; x=1743879564; darn=lists.infradead.org;
+        d=googlemail.com; s=20230601; t=1743274766; x=1743879566; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GKkfbO1BiF+QlXbqBxEEyljYmITDjKlUPtvMrkXYk1M=;
-        b=Ti3rPXa0cNjKtf403FNHQGOa1qs+UGkbkbpus5MJv0qdacD3cD4vk/+B+I0XENoDpk
-         HmnyLodziUmi29Unqon26kF6CNrUXwVPpyM017zmO9xPWYni/7IiGmk70FHIWm3QcNC+
-         86NMqHqXPlC8QJRBB4BRiVZylSjp6iYc5DqOlXwj/pXenF4EbMVL/imuA2n7mgcKJnQd
-         5GnUhGcU1ecSQGwF8h1yzIiSVD2Izt3OM96zp3jVQZOQVOtKIxFSwxNeKMzjsqC4XI7B
-         Zvso0pKLwVPBpQ0mOMEt0iC5Nkkhs1AWOYX1MmNx+xWTkRln1ztxYRjhEuEfIq+K121s
-         lVDw==
+        bh=yHjnimUXRB9yqs2JrX76wgCEkUn1WbBc4dXkc5jfVng=;
+        b=LViaFSQ8hTP20DwGJsirioJO/rltd/6Ug77BVoSDXUw3JfSfMl78B0ZeQKwn9WDy6S
+         Wfn74vBcQfs2vvZZTlsjmLU3eYbty24vS5Qng0Hz/GDTtmzy9IqCJT40ivcCIP3+rm+C
+         GtgRf2Tb+xwResRFUcsdACEXfCBx0VB54be+SIZUuxx6XTvEesybP6Z8IDAb1Nd9gpRZ
+         YGOE0BHruiXMZyZ8PA5chYT1QD2X21z5Gl7oQ9Bj1B6YIT2EPh+z8bOSwtyZ00OaJI+6
+         fvVqSco3FZUXz2ODtHT4PHQG2BVC1zU6iQdMEDExSjAhz6w3OyiXk20uztfk2fAnigqq
+         7x/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743274764; x=1743879564;
+        d=1e100.net; s=20230601; t=1743274766; x=1743879566;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=GKkfbO1BiF+QlXbqBxEEyljYmITDjKlUPtvMrkXYk1M=;
-        b=krPZMjSpkn68O47191nvgtUkGn0j2tNnoDPVZJ0041rIZ9wiRjJHBFdYBGlFJJySUb
-         r7cHazi5q2foBRsYPqQV4JL029LffzLR+TPhDtCIBoe0cvQvlxhvIomnRff0x4DslbMx
-         eSenKAKRLA+WDnJxJdXyJ5vA8vwnej0FMWG3OZ/puHu+p0ggMqttSeD6uKPK+lVpTQa0
-         uopZEalQ0Br8voHG5ZYpiPKiTSRF2UMmEAcnpDlhhFTBbXq/FizS9F10aZ8b9mPupShM
-         7rTGzqeSYAPEwTWJFfC0SQHMlW5jHcolwyc0BUCNV5wxfo1o0unChC4wrD35wBH5ge2S
-         xPmw==
-X-Gm-Message-State: AOJu0Yzaka5fVow2uoJC8oWPw9Q49WCWXEDaTfq4pGEkdWNHmgeJeLHR
-	MqdXnAu1trugVP1ABog9ZyVaFjSqRCrL4fzbOKQC3MX4teejrlGd+zGAKA==
-X-Gm-Gg: ASbGncusMpPEkM1mNO6HSjoDkZCDCw4Og4hmDGwIoLjp2iyS5UiMIO7U/h/AA9TqXLt
-	cERK06CJ7f0QRQuOrg7Mv4/vXJwRD4GRh2t3l12iJ6mSV7j0+8Vzp9a5mn5zqRyOSwptsBhSRpK
-	ffbINMXiZsbHUFAEtRWXgZuoM6rlLPPsXYJ+lt2/+Fn8WqWRd2StmWqAnEbFE1tImh7oWcFPSsw
-	4mFR71GnWS+S4q9dX8AtbphGRPBoCBIaAdDOqFnTWpnIm0SFpCQIzxfD67GfYlGKzr3hbMdb6NU
-	sL2PxxnqZs1chi3NLM2CDw4Oh4aswvm0Q7vDrBzgdaOBic8ROslEDoLL71jKSGUkIvo9RY4Z/c+
-	7pljNJbwwXkB3u57MSwHtFKW5pU2k0AZaXkPUO9oeGItKvOQGCrq4kY7NGml1NE+kiw21/lu0Gz
-	Hnt8Ok
-X-Google-Smtp-Source: AGHT+IE5q4K7Ef6k7rcJl7ZBvAtJqJkvDsSBkJ2ZbFVfGwP8BH9jLRx/9uvMrwpU0vICOl+FUBSWnQ==
-X-Received: by 2002:a17:907:7d8c:b0:ac3:8790:ce75 with SMTP id a640c23a62f3a-ac7389ea3a2mr289697566b.10.1743274763406;
-        Sat, 29 Mar 2025 11:59:23 -0700 (PDT)
+        bh=yHjnimUXRB9yqs2JrX76wgCEkUn1WbBc4dXkc5jfVng=;
+        b=Dtj9PQvxiObWWevZ1s92bA8mPrvi7t/IuT2cQm5w/JvbdDUDLuRNGGwdx0Dz1C18Zp
+         7TmyaF3QGpDQyAAjiEK9+U0J5Yfctrli3bGmUEHKFGpq9Y7M/UC4FBt/uz1S8JrshI5S
+         zIz/IWGvRMLF/HGduGWg+s5f2gu/MfsdJbYiJ5G6BDQ4/j9DxNC5J3vCmwVOuDllsIJV
+         Tzz3eRH5Iu7epCzK+XADUPCH/DfMisXJJaIOhk+BOGF0FF+6M+66BiCogksBA2egjRji
+         oEf/zvqyATIQjDSiP+OC8aq28tDYXwZzqEqNcKbvK9yw2KqAlukb9FoSpSNsEyZjh60i
+         M1Bg==
+X-Gm-Message-State: AOJu0YxYitpFZpj84UToR3map7IBhyFxwTT9BWv2mzJHWK89bfgKS+Dc
+	XX/HvZZUAinksmyZKwNSHuDrXYeJiKuR56x1STgdLOum2c7In/vOC3m3gA==
+X-Gm-Gg: ASbGnctkdNkDHd47Ln5z2vMrtmXRmTpAVwO+DBdGzyx324qe5cxokt4e+qY7gxf8F7G
+	AdMxcC4Ag47V/kx+JPciiaNEqYwBysag2/MPZ8hXYhWi1ZC0O4iXFkJB9hGXbhn70uXN0k7Cw6m
+	piBgypPUsmkmkpFvBsK1l0icCdvwkFBnLzyyxF4i222RnW5Zjmz5Lbnrf3Y+avJZvpddrGS9J8t
+	1rs/aFb5FpQxkpS2+Yf39qkqhTjtvnr/iuKChuexw61Bzkj7FC2gGxWWk3Gwb3zRLMH/Cnwjsx1
+	qLAT7tv+MaFhJ7XmRAPpJ3Vnah8qz7miQzGj7hqkO7Wt7hLf01CBMgAfHjfpigojWW1vyDQ/UII
+	28lCAgrQHb+LgNGtAzUS8ucXLJ7nwyjZME78XrF9FbVcpb5N8Qg8Nph3FIyNlp/IjUhDVN9QT4d
+	LsyynM
+X-Google-Smtp-Source: AGHT+IFWI6IwRE1qRMFr432PaEFmBmF6a/bj6HZe2GViLF3Hz14MG35bIU/UGxCXhgixCty/+QMSGQ==
+X-Received: by 2002:a17:906:7955:b0:abf:4bde:51b1 with SMTP id a640c23a62f3a-ac738a4bf32mr302869766b.21.1743274766374;
+        Sat, 29 Mar 2025 11:59:26 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-ad73-6800-0000-0000-0000-0e63.310.pool.telefonica.de. [2a02:3100:ad73:6800::e63])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ac7196dd46asm364497866b.160.2025.03.29.11.59.21
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ac7196dd46asm364497866b.160.2025.03.29.11.59.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Mar 2025 11:59:22 -0700 (PDT)
+        Sat, 29 Mar 2025 11:59:24 -0700 (PDT)
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 To: linux-amlogic@lists.infradead.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -78,17 +78,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	neil.armstrong@linaro.org,
 	christianshewitt@gmail.com,
 	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Subject: [PATCH 3/7] arm64: dts: amlogic: gxbb: enable UART RX and TX pull up by default
-Date: Sat, 29 Mar 2025 19:58:51 +0100
-Message-ID: <20250329185855.854186-4-martin.blumenstingl@googlemail.com>
+Subject: [PATCH 4/7] arm64: dts: amlogic: gxl: enable UART RX and TX pull up by default
+Date: Sat, 29 Mar 2025 19:58:52 +0100
+Message-ID: <20250329185855.854186-5-martin.blumenstingl@googlemail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250329185855.854186-1-martin.blumenstingl@googlemail.com>
 References: <20250329185855.854186-1-martin.blumenstingl@googlemail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_115925_768065_3AEF88F6 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20250329_115928_684625_A1F13A31 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,14 +112,14 @@ or SoC hardware) state for the pinmux configuration on these pads.
 
 Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 ---
- arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ arch/arm64/boot/dts/amlogic/meson-gxl.dtsi | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi
-index 8ebce7114a60..c4a9f855e5de 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi
-@@ -105,7 +105,7 @@ uart_ao_a_pins: uart_ao_a {
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
+index 2dc2fdaecf9f..460c46cfad6a 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
+@@ -163,7 +163,7 @@ uart_ao_a_pins: uart_ao_a {
  			mux {
  				groups = "uart_tx_ao_a", "uart_rx_ao_a";
  				function = "uart_ao";
@@ -128,7 +128,7 @@ index 8ebce7114a60..c4a9f855e5de 100644
  			};
  		};
  
-@@ -122,7 +122,7 @@ uart_ao_b_pins: uart_ao_b {
+@@ -180,7 +180,7 @@ uart_ao_b_pins: uart_ao_b {
  			mux {
  				groups = "uart_tx_ao_b", "uart_rx_ao_b";
  				function = "uart_ao_b";
@@ -137,7 +137,16 @@ index 8ebce7114a60..c4a9f855e5de 100644
  			};
  		};
  
-@@ -520,7 +520,7 @@ mux {
+@@ -188,7 +188,7 @@ uart_ao_b_0_1_pins: uart_ao_b_0_1 {
+ 			mux {
+ 				groups = "uart_tx_ao_b_0", "uart_rx_ao_b_1";
+ 				function = "uart_ao_b";
+-				bias-disable;
++				bias-pull-up;
+ 			};
+ 		};
+ 
+@@ -522,7 +522,7 @@ mux {
  				groups = "uart_tx_a",
  				       "uart_rx_a";
  				function = "uart_a";
@@ -146,7 +155,7 @@ index 8ebce7114a60..c4a9f855e5de 100644
  			};
  		};
  
-@@ -538,7 +538,7 @@ mux {
+@@ -540,7 +540,7 @@ mux {
  				groups = "uart_tx_b",
  				       "uart_rx_b";
  				function = "uart_b";
@@ -155,7 +164,7 @@ index 8ebce7114a60..c4a9f855e5de 100644
  			};
  		};
  
-@@ -556,7 +556,7 @@ mux {
+@@ -558,7 +558,7 @@ mux {
  				groups = "uart_tx_c",
  				       "uart_rx_c";
  				function = "uart_c";
