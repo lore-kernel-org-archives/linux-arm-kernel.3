@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C9DDC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 22:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D65C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 23:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OfWmKzMpdhulgNMGGh3laefwHhLvWPtC8uEl5axzFsw=; b=ilxBjySLvDXF0KG+L/9aHAqml0
-	r/unVchIAyBIbzKiW5FL62tqAP6M96DTcHD20ZTRFCp5fQM+JlvSyZvBW48+pzZr0ilHrbWWHXbzr
-	Noy6hAZ/RLmJdvuT/oijYWAzHGZQ4Pl0cHOhnYba4oLI5wfwcMV80eoMGXOQo9Y3EFNnqWo5fixub
-	nFauP73vd9PqGZGPLjDRLTjDokn4DCTr6l2dGHQ88CyE8v8UuBUfrtW/n5iApKKrpVxxgLQqKDq0K
-	/mKbEY9T+jv31xEdDQmgIrLPIBxKAhgB8BrIrmoPosFlLGZZJH5c1vQhaRFROElXmXGS/+x9W/rak
-	Ej3LGx/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nmdLuCAm1CAJ4jEnyOVq/bYPb1GgUEH4akc+65VyZ94=; b=NJXPH8CYJ6fBgFbIrrnFePoGNU
+	B1xpMLGTQGGl1nutubZeZyh0nAmDTubv30RYyGe/AE7pAcGNg7X1hXGZ/mM5kaQwRUOssti4QHrsL
+	INOTcE+RPyokW2cxWnuPbVi5eUype84r6Xn+i25cqsKtx6X7R+z8yPnvxVNLYandrIEPQSk4qITkb
+	Rf3UHh3ZXqRwZMq3SwOiPnYEdGAclR8wyccq8ROdFdwxEOYOQl6p1UsM9wTEAWRzntnHYzuOe6j0U
+	RXWm8HuIuqiy38CIyLB2wV8aHZ0iyD63ZXTRIHF+GTvEXanM59nqxGkxMgxxkzOMQEhZ8A1CJHVGh
+	+W2Z75CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyePJ-0000000FYts-1bbf;
-	Sat, 29 Mar 2025 22:12:01 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tyg5O-0000000FegL-0n0g;
+	Sat, 29 Mar 2025 23:59:34 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyeNY-0000000FYlH-13aT
+	id 1tyg3e-0000000FeaQ-47hL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 22:10:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2117910290279;
-	Sat, 29 Mar 2025 23:10:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1743286209; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=OfWmKzMpdhulgNMGGh3laefwHhLvWPtC8uEl5axzFsw=;
-	b=AE8ZduE3XoX4GiJCzdR+S+uagY3W1crhK/9Od/0Du+QVU4y8VvoDLlYYTDV9kGoIoNpilx
-	WR3M9k1vokP49/Jn1bmr8qz7R86785D0aJ3iKLhYhpS4gtcANNPMRIDso7WMGTKdMOUzX2
-	eO5q4adU7YC7IFkjmcY3sMOEPGgbqou7xoIuZ03aiLgGXXaUuk6FlMNdsGUOYE0+JS9Qgj
-	ncNBLIEhuz2buRy3I6eQinFMApz+GtQm1owfcp97isb/GbKyt6Dv9wIelTUU3mvWvc9H9z
-	O8GLVicWGe3phK+pjb6gV6wvRPH2H+OeHpQEHAjhrxQOJKgreOGqXSy9dYmM3A==
-Date: Sat, 29 Mar 2025 23:10:04 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: net: Add MTIP L2 switch description
-Message-ID: <20250329231004.4432831b@wsk>
-In-Reply-To: <e6f3e50f-8d97-4dbc-9de3-1d9a137ae09c@kernel.org>
-References: <20250328133544.4149716-1-lukma@denx.de>
-	<20250328133544.4149716-2-lukma@denx.de>
-	<e6f3e50f-8d97-4dbc-9de3-1d9a137ae09c@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Sat, 29 Mar 2025 23:57:48 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-602224af11bso1825230eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Mar 2025 16:57:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743292665; x=1743897465; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=nmdLuCAm1CAJ4jEnyOVq/bYPb1GgUEH4akc+65VyZ94=;
+        b=Gb8UTVPoADmBj4yIPLALSnXPOT7DOrwDVsr29HdHxge1qRP6Z4hXjarLCIBQ2Wdh42
+         hW9W9dLT0eGu8o5eYqALXBg48P6NHFM2VRlr/2TFOvBRQ1uOsNSxYHkplBIHb3U8KtJi
+         nLAqng9dRTRMPhuXRDLMuwi0gizkgC+j9JrrsUq+Ut+kq2O1QztA3U7Y3d2hNMr2deA5
+         pa4VQ7dSQIb+oJ48LeOfTV8EX1Y89KBc56TgBQ6HcT+gLoNY9jmmduyCBFaXTeeEUBWx
+         PQFGmwrpDgR/0/vBlNdFfH6FNEroysqRIELgSI0RkYyzErkDNW/8w/CvBhzp6Bl+h6tN
+         uJ9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743292665; x=1743897465;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nmdLuCAm1CAJ4jEnyOVq/bYPb1GgUEH4akc+65VyZ94=;
+        b=tM363scwwDPjrSJ75jc1dwu5vCO4p1OAGb59mwqav0qJqONnIm6XAEjH5Yv5p+no14
+         tD9tCHoJPN2kMbfR1AVcrbqnmVdHf5pTGzsSl6wrgEeSheIrOiUynlAo7U/tt5rxRZtH
+         J+8tf0aAkTA00z2IveRkVwy3df8waVIEZlzzqcb1d2+fPu9Jl4FsQETyZcPHwPWOnyi7
+         DxrIBYVUq0fSqTyPFFu1PO+sm4IngiPgRUp8mYhrPFhtArcjxPL6SzW/DV01mHaswClP
+         rJZvHCNnx5EKFvvmfyn/NyXVWWdFpz0tU1aUsinSwRxR13e4yFCotFKjC0Vo1SUdf2Su
+         PoVw==
+X-Forwarded-Encrypted: i=1; AJvYcCVsZ3/F8m9pXfo/r6Oxnb0c5bF7iiI01nxFlHBMs/k4GMMId3dG3la0r186EzdeimUkvJvwqJAzGix0LVudNgEc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXkETfOfyM5pGSa0gthoIwIJ22upAAM8NFo3fY0AFjlWmYKOKV
+	ioJKsGbLJ0ppckLdJoHTr4vPQTZJTGG0gIebrB98qdczWb6Fmk+4JVEngQ7sl2IGeptn5g8FB13
+	sHgtl/0Ek+OQEuZX3ibDEqoqnDNE=
+X-Gm-Gg: ASbGncvgv0w1omaaBUgOqMt3HCxIUqeSBxZUaZsSY+5RcPz6y7TC57wlo04g4jGHI/p
+	wD3z9I9tc8B5853iACIvTOJ5nCkrleem+N0NDBrq3JPHZasD25LXHsmJ+Tr8dNUPgW2csJwMddm
+	PdWOz9yHOpCrQh5cVIK2KITCmzUmg=
+X-Google-Smtp-Source: AGHT+IHun+H7WFPlKCwkbZmr48Ry4kBTHVoSBceNootkXSTXeWa/xWKLJ9WlUHvRVxHSm9sMcNguBCc9GExdVj5PNQE=
+X-Received: by 2002:a05:6820:2710:b0:600:29ec:7619 with SMTP id
+ 006d021491bc7-60290e5821cmr2130089eaf.2.1743292665379; Sat, 29 Mar 2025
+ 16:57:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/GOaK/S/VyPuiJbaUJ6=UdAb";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Sat, 29 Mar 2025 18:57:34 -0500
+X-Gm-Features: AQ5f1JoYZOgXhh_ZakSNYcgqU00butGrTYEuoZM0qK0JvlcozMWOWi-dvPiJAnU
+Message-ID: <CABb+yY3nL=VjLZq_pDxQfr3m2-B78hiuJyEWhSNRU_zcjaQdKg@mail.gmail.com>
+Subject: [GIT PULL] Mailbox changes for v6.15
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_151012_587728_ED1AD414 
-X-CRM114-Status: GOOD (  35.09  )
+X-CRM114-CacheID: sfid-20250329_165747_024382_7B17B914 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,269 +89,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/GOaK/S/VyPuiJbaUJ6=UdAb
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Hi Linus,
 
-Hi Krzysztof,
+The following changes since commit 4701f33a10702d5fc577c32434eb62adde0a1ae1:
 
-> On 28/03/2025 14:35, Lukasz Majewski wrote:
-> > This patch provides description of the MTIP L2 switch available in
-> > some NXP's SOCs - e.g. imx287.
-> >=20
-> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> > ---
-> > Changes for v2:
-> > - Rename the file to match exactly the compatible
-> >   (nxp,imx287-mtip-switch) =20
->=20
-> Please implement all the changes, not only the rename. I gave several
-> comments, although quick glance suggests you did implement them, so
-> then changelog is just incomplete.
+  Linux 6.14-rc7 (2025-03-16 12:55:17 -1000)
 
-Those comments were IMHO addressed automatically, as this time I took
-(I suppose :-) ) better file as a starting point.
+are available in the Git repository at:
 
-To be more specific it was:
-./Documentation/devicetree/bindings/net/ti,cpsw-switch.yaml
+  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
+tags/mailbox-v6.15
 
-as I've been advised to use for the MTIP driver the same DTS
-description as the above one has (i.e. they are conceptually similar,
-so DTS description ABI can be used for both).
+for you to fetch changes up to 1ec12fd31ecc38e2a81a137be7eec5df51894bcc:
 
-I've also checked the:
-make CHECK_DTBS=3Dy DT_SCHEMA_FILES=3Dnxp,imx287-mtip-switch.yaml
-nxp/mxs/imx28-xea.dtb
+  mailbox: Remove unneeded semicolon (2025-03-26 20:58:26 -0500)
 
-on Linux next and it gave no errors.
+----------------------------------------------------------------
+misc: Constify amba_id table
+pcc: cleanup and refactoring of shmem and irq handling
+qcom: add MSM8226 compatible
+fsl,mu: add i.MX94 compatible
+core: misc rejig of header includes
+  minor const fixes
+mediatek: remove cl in struct cmdq_pkt
+tegra: define dimensioning masks in SoC data
 
->=20
-> > ---
-> >  .../bindings/net/nxp,imx287-mtip-switch.yaml  | 165
-> > ++++++++++++++++++ 1 file changed, 165 insertions(+)
-> >  create mode 100644
-> > Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> >=20
-> > diff --git
-> > a/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> > b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> > new file mode 100644 index 000000000000..a3e0fe7783ec --- /dev/null
-> > +++
-> > b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> > @@ -0,0 +1,165 @@ +# SPDX-License-Identifier: (GPL-2.0-only OR
-> > BSD-2-Clause) +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/net/nxp,imx287-mtip-switch.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
-> > +
-> > +maintainers:
-> > +  - Lukasz Majewski <lukma@denx.de>
-> > +
-> > +description:
-> > +  The 2-port switch ethernet subsystem provides ethernet packet
-> > (L2)
-> > +  communication and can be configured as an ethernet switch. It
-> > provides the
-> > +  reduced media independent interface (RMII), the management data
-> > input
-> > +  output (MDIO) for physical layer device (PHY) management.
-> > + =20
->=20
-> If this is ethernet switch, why it does not reference ethernet-switch
-> schema? or dsa.yaml or dsa/ethernet-ports? I am not sure which one
-> should go here, but surprising to see none.
+----------------------------------------------------------------
+Chen Ni (1):
+      mailbox: Remove unneeded semicolon
 
-It uses:
-$ref:=C2=B7ethernet-controller.yaml#
+Chun-Kuang Hu (1):
+      mailbox: mtk-cmdq: remove cl in struct cmdq_pkt
 
-for "ports".
+Frank Li (1):
+      dt-bindings: mailbox: fsl,mu: Add i.MX94 compatible
 
-Other crucial node is "mdio", which references $ref: mdio.yaml#
+Huisong Li (1):
+      mailbox: pcc: Fix the possible race in updation of chan_in_use flag
 
->=20
-> > +properties:
-> > +  compatible:
-> > +    const: nxp,imx287-mtip--switch =20
->=20
-> Just one -.
->=20
+Jason-JH Lin (1):
+      dt-bindings: mailbox: mediatek: Add support for MT8196 GCE mailbox
 
-Ok.
+Kartik Rajput (1):
+      mailbox: tegra-hsp: Define dimensioning masks in SoC data
 
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +    description:
-> > +      The physical base address and size of the MTIP L2 SW module
-> > IO range =20
->=20
-> Wasn't here, drop.
->=20
+Krzysztof Kozlowski (5):
+      mailbox: pl320-ipc: Drop unused xxx_destination functions
+      mailbox: pl320-ipc: Constify amba_id table
+      mailbox: arm_mhu: Constify amba_id table
+      mailbox: arm_mhu_db: Constify amba_id table
+      mailbox: arm_mhuv2: Constify amba_id table
 
-The 'reg' property (reg =3D <0x800f0000 0x20000>;) is defined in
-imx28.dtsi, where the SoC generic properties (as suggested by Andrew -
-like clocks, interrupts, clock-names) are moved.
+Luca Weiss (1):
+      dt-bindings: mailbox: qcom: add compatible for MSM8226 SoC
 
-> > +
-> > +  phy-supply:
-> > +    description:
-> > +      Regulator that powers Ethernet PHYs.
-> > +
-> > +  clocks:
-> > +    items:
-> > +      - description: Register accessing clock
-> > +      - description: Bus access clock
-> > +      - description: Output clock for external device - e.g. PHY
-> > source clock
-> > +      - description: IEEE1588 timer clock
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: ipg
-> > +      - const: ahb
-> > +      - const: enet_out
-> > +      - const: ptp
-> > +
-> > +  interrupts:
-> > +    items:
-> > +      - description: Switch interrupt
-> > +      - description: ENET0 interrupt
-> > +      - description: ENET1 interrupt
-> > +
-> > +  pinctrl-names: true =20
->=20
-> Drop
+Sudeep Holla (7):
+      mailbox: pcc: Always clear the platform ack interrupt first
+      mailbox: pcc: Drop unnecessary endianness conversion of pcc_hdr.flags
+      mailbox: pcc: Return early if no GAS register from
+pcc_mbox_cmd_complete_check
+      mailbox: pcc: Use acpi_os_ioremap() instead of ioremap()
+      mailbox: pcc: Refactor error handling in irq handler into
+separate function
+      mailbox: pcc: Always map the shared memory communication address
+      mailbox: pcc: Refactor and simplify check_and_ack()
 
-The 'pinctrl-names =3D "default";' are specified.
+Tudor Ambarus (6):
+      mailbox: use error ret code of of_parse_phandle_with_args()
+      mailbox: don't protect of_parse_phandle_with_args with con_mutex
+      mailbox: sort headers alphabetically
+      mailbox: explicitly include <linux/bits.h>
+      mailbox: remove unused header files
+      MAINTAINERS: add mailbox API's tree type and location
 
-Shouldn't it be kept?
-
->=20
-> > +
-> > +  ethernet-ports:
-> > +    type: object
-> > +    additionalProperties: false
-> > +
-> > +    properties:
-> > +      '#address-cells':
-> > +        const: 1
-> > +      '#size-cells':
-> > +        const: 0
-> > +
-> > +    patternProperties:
-> > +      "^port@[0-9]+$": =20
->=20
-> Keep consistent quotes, either " or '. Also [01]
->=20
-
-[12] - ports are numbered starting from 1.
-
->=20
-> > +        type: object
-> > +        description: MTIP L2 switch external ports
-> > +
-> > +        $ref: ethernet-controller.yaml#
-> > +        unevaluatedProperties: false
-> > +
-> > +        properties:
-> > +          reg:
-> > +            items:
-> > +              - enum: [1, 2]
-> > +            description: MTIP L2 switch port number
-> > +
-> > +          label:
-> > +            description: Label associated with this port
-> > +
-> > +        required:
-> > +          - reg
-> > +          - label
-> > +          - phy-mode
-> > +          - phy-handle
-> > +
-> > +  mdio:
-> > +    type: object
-> > +    $ref: mdio.yaml#
-> > +    unevaluatedProperties: false
-> > +    description:
-> > +      Specifies the mdio bus in the switch, used as a container
-> > for phy nodes. +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - clock-names
-> > +  - interrupts
-> > +  - mdio
-> > +  - ethernet-ports
-> > +  - '#address-cells'
-> > +  - '#size-cells'
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include<dt-bindings/interrupt-controller/irq.h>
-> > +    switch@800f0000 {
-> > +        compatible =3D "nxp,imx287-mtip-switch";
-> > +        reg =3D <0x800f0000 0x20000>;
-> > +        pinctrl-names =3D "default";
-> > +        pinctrl-0 =3D <&mac0_pins_a>, <&mac1_pins_a>;
-> > +        phy-supply =3D <&reg_fec_3v3>;
-> > +        interrupts =3D <100>, <101>, <102>;
-> > +        clocks =3D <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
-> > +        clock-names =3D "ipg", "ahb", "enet_out", "ptp";
-> > +        status =3D "okay"; =20
->=20
-> Drop
-
-Ok.
-
->=20
-> > +
-> > +        ethernet-ports {
-> > +                #address-cells =3D <1>;
-> > +                #size-cells =3D <0>; =20
->=20
-> Messed indentation. See example-schema or writing-schema.
->=20
-
-Ok.
-
->=20
->=20
-> Best regards,
-> Krzysztof
-
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/GOaK/S/VyPuiJbaUJ6=UdAb
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfob7wACgkQAR8vZIA0
-zr1dnAf+K8wn68GHQnDP8Ngyr4LbkqtyX9vgW/b3tfNaPTIZkL1lMEUZ2HD2n+yv
-zlFrkNAv/msNWFbZKT/+yFvX3YNPLS0gc8TV0SyMoZ6naIlto86WX8t4qv1pWi6X
-38gwP4DGcCYMSALmPwyn3JH2pOnY7LuGT2GbomsOYfdn8UgjACmHJIVDWyhn/AA3
-cQHdJbFC2p7J+7QFGihcig3Neoepo1vI76sProBWIw7U9dIu+ybP14y5tmBAaxpV
-Urcqt7Wg43hU7HgM27muOk7XFttDbfbt408y//qjkHKdsQehjfJKpT4NKhol0oDK
-baCZykor3+/dSnMz0IhemScHL+k6rw==
-=IoZW
------END PGP SIGNATURE-----
-
---Sig_/GOaK/S/VyPuiJbaUJ6=UdAb--
+ .../devicetree/bindings/mailbox/fsl,mu.yaml        |   7 +-
+ .../bindings/mailbox/mediatek,gce-mailbox.yaml     |   4 +
+ .../bindings/mailbox/qcom,apcs-kpss-global.yaml    |   1 +
+ MAINTAINERS                                        |   1 +
+ drivers/mailbox/arm_mhu.c                          |   2 +-
+ drivers/mailbox/arm_mhu_db.c                       |   2 +-
+ drivers/mailbox/arm_mhuv2.c                        |   2 +-
+ drivers/mailbox/exynos-mailbox.c                   |   2 +-
+ drivers/mailbox/mailbox.c                          |  23 ++---
+ drivers/mailbox/mailbox.h                          |   2 +
+ drivers/mailbox/pcc.c                              | 113 ++++++++++-----------
+ drivers/mailbox/pl320-ipc.c                        |  14 +--
+ drivers/mailbox/tegra-hsp.c                        |  72 ++++++++++---
+ include/acpi/pcc.h                                 |   6 --
+ include/linux/mailbox/mtk-cmdq-mailbox.h           |   1 -
+ include/linux/mailbox_client.h                     |   2 +-
+ include/linux/mailbox_controller.h                 |   6 +-
+ 17 files changed, 149 insertions(+), 111 deletions(-)
 
