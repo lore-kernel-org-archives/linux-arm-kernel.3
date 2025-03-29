@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B1DC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 03:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3F9C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 03:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tAHH9KrMEobkIlXW9ZawD+0mGx69oP+FIw5ULlaz1RU=; b=e2pXigIUfYZsvSYQ3vlPEY3Foh
-	7NEGGkjlHrb+9ngvpJIIacrSnQWhcJFQjzcFd96YcUSKvEQf78P9lf7+yXzl+EiYs3O8K6Y1XgE2/
-	xSG4UOcOIFZHitSD4GDAB8ZKGKbDlj14Xtyu9uT0ALyS3udVXwh5djt2AeEPFGqf99rvSh/OWgtW2
-	2w4ZPST8mXmKDwQ1AjyvOwSMoQrA3oEwAZhpLhZ7SSPnF7v9ejd8XkGaY6jlmsjh2lcAoXyH5aILZ
-	MHBeJ45Phh4X1u93m6XUt9cB/xS9WSrJC8rQo7THRpDbjJ4PXcSszKuCtUWxDAwXYOkMR2T5v2K9i
-	+U3hHLBw==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+aR14lbVmAtukTyCbAkseNWhGnXaucpuMGaS4Jr03w8=; b=hTgqVSGv9W+HWeEtNLbJzx+wCG
+	FWEaSWTMYx1J9ruE4KKYWVtN4XMA80L0bWaiN3wnQO6+jbG4deLA6LLxzQ+0UeyVIJYAMPLlLyIj1
+	5Gotya9aDxmDjH1lENOPw8Io6jlsVEvXqPxpIFJ8UQfp35mcaDklinwFuiW1Kpc2R/YTZsIOGqMck
+	RCHIzHfJm6bWh1HKyeQ9s+ZMscF9r6ug0r2UkWdzrggOd8/0p8ENC40csZ4JTRbmRJsb7U2eN6j9f
+	EjAuPf1cKC/lGVdUMU7Bhht5vApFNjacZWz7dMRAmrP6gj3EZOp3+hnRccG/KsZUCLIkPA8pfepGM
+	5fwgwzsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyN8r-0000000Eez2-2JGU;
-	Sat, 29 Mar 2025 03:45:53 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1tyNAZ-0000000Ef4l-0n8q;
+	Sat, 29 Mar 2025 03:47:39 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyN76-0000000Eeuv-3SqS
+	id 1tyN78-0000000Eeut-2tlL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 03:44:06 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4ZPjmw5W58z1jBWW;
-	Sat, 29 Mar 2025 11:39:12 +0800 (CST)
+	Sat, 29 Mar 2025 03:44:08 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4ZPjpX3TPJzHrJb;
+	Sat, 29 Mar 2025 11:40:36 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7528A14013B;
-	Sat, 29 Mar 2025 11:43:55 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id E42E91800B4;
+	Sat, 29 Mar 2025 11:43:54 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
@@ -45,12 +45,10 @@ CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
 	<shameerali.kolothum.thodi@huawei.com>, <jonathan.cameron@huawei.com>,
 	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
 	<linuxarm@huawei.com>
-Subject: [PATCH 1/3] arm64/cpufeature: Add missing id_aa64mmfr4 feature reg update
-Date: Sat, 29 Mar 2025 11:44:07 +0800
-Message-ID: <20250329034409.21354-2-yangyicong@huawei.com>
+Subject: [PATCH 0/3] Two minor fixups around FEAT_E2H0
+Date: Sat, 29 Mar 2025 11:44:06 +0800
+Message-ID: <20250329034409.21354-1-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
-In-Reply-To: <20250329034409.21354-1-yangyicong@huawei.com>
-References: <20250329034409.21354-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -58,8 +56,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_204405_046617_6D1C77A0 
-X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-CacheID: sfid-20250328_204406_895365_F770F2FB 
+X-CRM114-Status: UNSURE (   6.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,27 +75,24 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Add missing id_aa64mmfr4 feature register check and update in
-update_cpu_features(). Update the taint status as well.
+Two minor fixups for the FEAT_E2H0:
+1) add missing feature register update
+2) fix boot warning with kvm-arm.mode=nvhe if !FEAT_E2H0
 
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- arch/arm64/kernel/cpufeature.c | 2 ++
- 1 file changed, 2 insertions(+)
+Add a cpucap identify the HCR_EL2.E2H RES1 (!FEAT_E2H0) support.
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9c4d6d552b25..75ef319c1ef8 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1403,6 +1403,8 @@ void update_cpu_features(int cpu,
- 				      info->reg_id_aa64mmfr2, boot->reg_id_aa64mmfr2);
- 	taint |= check_update_ftr_reg(SYS_ID_AA64MMFR3_EL1, cpu,
- 				      info->reg_id_aa64mmfr3, boot->reg_id_aa64mmfr3);
-+	taint |= check_update_ftr_reg(SYS_ID_AA64MMFR4_EL1, cpu,
-+				      info->reg_id_aa64mmfr4, boot->reg_id_aa64mmfr4);
- 
- 	taint |= check_update_ftr_reg(SYS_ID_AA64PFR0_EL1, cpu,
- 				      info->reg_id_aa64pfr0, boot->reg_id_aa64pfr0);
+Yicong Yang (3):
+  arm64/cpufeature: Add missing id_aa64mmfr4 feature reg update
+  arm64/cpufeature: Add cpucap for HCR_EL2.E2H RES1 (!FEAT_E2H0)
+  KVM: arm64: Fix boot warning with kvm-arm.mode=nvhe on !FEAT_E2H0
+    platforms
+
+ arch/arm64/include/asm/cpufeature.h | 23 +++++++++++++++++++++++
+ arch/arm64/kernel/cpufeature.c      | 14 ++++++++++++++
+ arch/arm64/kvm/arm.c                | 14 +++++++++++---
+ arch/arm64/tools/cpucaps            |  1 +
+ 4 files changed, 49 insertions(+), 3 deletions(-)
+
 -- 
 2.24.0
 
