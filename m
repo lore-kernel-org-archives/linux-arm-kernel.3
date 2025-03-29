@@ -4,85 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB63FC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 19:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD60C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 19:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=U59vr0zBBqMHwQ7X8QxznFMvqw1Fg+vz+3lxSO/2TPc=; b=wUKafGd1Ref/gu9Bpvem85N/PK
-	4wHFNtfaeFHOYQ+3DxTlEZdHAMjZ6GyAiNc3EABt+0lKC6WQYbGPNkv+rc4BlsynsbRJFs8HgnK5Q
-	1IDkS338M0B10BKBpRmgAyUkfA3eyQrFYvjUOYrfukoB6Gwu5dRedEnA9XxKTo6aAmQJ0FfR5XxuO
-	Ai5/jhSka1KyHvDYq1MqCiyLy4KRozkNFvvw0tcQa7cqGg5v/QfUodsESo3dvdFHA8e3tD2FJWxKE
-	VXi3J7NFCViJpfQ//zAJIDcR2KVkFmeC/+NA83i3N5v6v7LqkUTK3ZpEWE5j7qRMZmuwK7zU/PvBF
-	qlJv2dig==;
+	bh=JFz+j+lYMYpEFRAVVmF7Pa4RWjE2uLL9dKkNgmgdtZY=; b=0MJ4YCsjAbepIN0aPpS/G8Dzf7
+	SRjrwLP0P7mJFPIjHHJH3T12qYz4eMkPYWQALYBZy8bNrDRKxISFEFSzVgtHVAtxLmsh0pkqaen9z
+	tmGOiy0jpxVMNk4Y9W1lSgglRRLqKjiYT2ZDbzrqIKZRVt2G/bNK11aG/qg7uWctwNtWrFkuQ8oLv
+	8ji0zfAFK6Q5ige0AJF9bGd9ysKwvEv+SIYngjCjna5etGcETI9a4UK/cLFBPP3hbG9+yJBgLRjce
+	U8YyLRQl403yoDHl93zA1IOADpBn4Xv0iI5G+T/pwOzte6Q1WWHnP7LC+B07Ek4cDhlbgyXg9k9uc
+	SSJTxMVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tybeD-0000000FRpt-2ywY;
-	Sat, 29 Mar 2025 19:15:13 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1tybfv-0000000FRxh-03Nn;
+	Sat, 29 Mar 2025 19:16:59 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tybR9-0000000FQZP-0OSO;
-	Sat, 29 Mar 2025 19:01:44 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aaecf50578eso561631766b.2;
-        Sat, 29 Mar 2025 12:01:42 -0700 (PDT)
+	id 1tybWe-0000000FR6s-0m7S;
+	Sat, 29 Mar 2025 19:07:25 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e535e6739bso5365156a12.1;
+        Sat, 29 Mar 2025 12:07:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1743274901; x=1743879701; darn=lists.infradead.org;
+        d=googlemail.com; s=20230601; t=1743275242; x=1743880042; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=U59vr0zBBqMHwQ7X8QxznFMvqw1Fg+vz+3lxSO/2TPc=;
-        b=cy0mW6z6dtlQpeC7XwVPczoYqr/nIEgKZi5eikZOvAd5XRQdI9EL/CwgrUW973cN+n
-         n4HFbiF4zEJhqzs0Ycuxdvvcuv2F25jF+zn87LfDkE93DofrTMEdpa9Cf0qms+O27kek
-         bl7pSb9YxSFI3j6dnmHFAmq+PT2M9TO2gzHCUiWvoXFk3M8wPIsdDrqvI1vTkmgUnWzP
-         yRagsE7fzs2XYwsTk3GLI7N7GMaxU1+TKjhGavePKCb1vnH5OSDj3H2rkdxvZ95qROD5
-         Yipj8ymcEuhTV/5LVl56sGfwR7P+P1odJ8ShsLgy3emvrY/8cUjybYiBOCgU/5yITlnx
-         Q0dA==
+        bh=JFz+j+lYMYpEFRAVVmF7Pa4RWjE2uLL9dKkNgmgdtZY=;
+        b=UN+Vh2tJhYkLoeYqcWSFu+CyHLn6kKOohg8D/2i8pQjmwMAH1lg3WiLINmkZjEYp5p
+         aDArbtYL9k2HtmynZgkP5+lZyiFzBQeR3EZSPZNgFYPDCQ3f8hhLfxQQzDbmZwQ6bcBP
+         TdK6ZMjRGBoKxjyeGRV0cQkjSzZEKcerJXlBb0IYg41LeT9HnfvVq2SvYO1/QeyZzBza
+         Fw1wIsGoI+KWZNk0FmpSu4tVC9AQx2MnATvQV+pmD6KOJkuC+ujvsYJQRtKq8MrD7nLo
+         hyz7MDtrC3FLrRvEkcq/ZzK7OI4YlgNI3UP5sNBsCbcmem2fE098ogqGVytR/SvjqTcU
+         WNsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743274901; x=1743879701;
+        d=1e100.net; s=20230601; t=1743275242; x=1743880042;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=U59vr0zBBqMHwQ7X8QxznFMvqw1Fg+vz+3lxSO/2TPc=;
-        b=vhhticUT5wULbOVhXraSGxqVPwTNtOPvG1adl0YzwBt0+rD2fwnk1dKtpYrLfSp7uT
-         E4WtZxGnOA4nGxCzCeln8kq1kUs1SFkWbglqg6b3iQwmx8bjPLN3VkXFho21Ftf4xE5j
-         KqDO9XPigLjuX4e3eZHtnDVG9L4YvWCyvnpZ5tpSYuDZisYbDo4WS2tZugevuqQDU3Hv
-         xx+fGyycTakkKy3O0/FVoege9pmi9IjrbP4eCjY9N4yuzfhtW76p/1i7Vc2HAETB8L5B
-         4f4D2Bno+SK09znhxe3yy2nY2YKsG4KTE7Xc3EceKE0okrSWfrLdcuCjDUyCvJoWJt8G
-         RKEg==
-X-Forwarded-Encrypted: i=1; AJvYcCW1PmXALzwywzxIJXtbbZsWONjk1ifUnt32qtWte8EAIaQotvpUFphG2Q1PdHQ7NF1OCkuS810kQhjVqtZWBFqr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKdpz9vquRneq7PdbD38KxuYr5+NeAVfwWqirqWUlVTlrDkkju
-	UCWtvcKXQDCqPWfhb49QLMBeJ+kWsafjMshCq6HuD2fjTNuFDNi0uC9nMA==
-X-Gm-Gg: ASbGncsZ63a/vSPQ6psfMTbEO2PWE4+T+xv83UZd0L/ykVRfTDRV7/0uOvh+n6m71/4
-	KAjS0I2dkm9FUgmjkgiRFZN3Er5FHHgL6Cx2Ar2RJ/TUELfwi8eJ5sWfrm5XJBiE/nqG/qTVSDd
-	e0VC40z+RnHK7Sr1gtcICx2rTv1tm+xAmimDtVS043/fS6qFLO6pbV1kftVdgYRvnz0UPyDFzHV
-	Te6abAqZyOTVS2pNn1qqBm86E0+vwIgibBgp3cgvqoRwsVqXNvf53mer01dVucVvVQr57negcw9
-	YvopgkkTMiB8g48VhsvICzZpBsTx2aaYdc322AqmT8yoJQuvPp7Lcl5T7nssKcrNfv7iJ2JO+IM
-	CWh0rLGfL0yGX/ql0F60hjdGUpa2TgQk59gNf9Ip6zPlO37aFD9pwNLN7AwAdpZ1nTKt/zA==
-X-Google-Smtp-Source: AGHT+IFCZmQvxgAXplrXyIIkWZNZdRoKac8B36FAtmzTprgUIMSkQz7UFb/RGY0oFoPv2TH62Ye4jg==
-X-Received: by 2002:a17:907:6095:b0:ac7:358f:1b11 with SMTP id a640c23a62f3a-ac738a49b90mr357126166b.23.1743274900941;
-        Sat, 29 Mar 2025 12:01:40 -0700 (PDT)
+        bh=JFz+j+lYMYpEFRAVVmF7Pa4RWjE2uLL9dKkNgmgdtZY=;
+        b=A9difR7SOpmimzo+NO7FnYkqtmVxLZfuEfBXdyKenN48+PlXO+LS4/c1jKs7BiaZSZ
+         tBAD7D0hp7Bm4TakjX8LRLYErmQMl9KA7sDjL7CBFgSAdcBg7AYFLw1d5Y0oWlZC3zo0
+         MY0OQFQQTvBYXYR15xcw6rPfDVpXC21Ldpo7/MKzDofKCDqeea7bnwhTzKq+8GH/mYQ8
+         cuBfoqcV15/FqfHqsBtrrAGYRI8pqeJ7I+wlAoI7g/HZNpRbLutAYbhPsb0awurTqPBk
+         +FkGbnuiWLd2FQJzDvmN7aXwpxj3sZs/Uhnl1GF0FyRyViBu+HkB0oSVHbzOus2WgvCD
+         Vw3g==
+X-Forwarded-Encrypted: i=1; AJvYcCWZxTsiTlafSrWtDW+n04tMe5+V8GC+n9szusCVtMX1DnOa4L175nupouDunyP1uQxPlvL6Rlcbt3Sr@lists.infradead.org, AJvYcCXaO1pLpOI1rl41Trra8LAJyHy091t+j0WkBvrwFZYnQb6nqcTouc9CL8jabah8wy8RaZmYHA9RSLNEK6XbfkLD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMeKo1zIgsCYXwQoy5nJ+4oYfd85Fv8Q0Z8ZQduQ1UUlqbu3de
+	zC1mgJp3a2iklXsydV7cHtsoRnkmnCtf9wPPRqIxt1IVhwnasBZmC5t4jw==
+X-Gm-Gg: ASbGnctvE0eK9Y7A+eBt7xxNy/HCznK6XLePcSaRDzBNcVn+VuBlLUW+hvfpcquKmuc
+	yI4L0o4aBDNOvf6a7C6uzd6RssHu9h5KWloRJXJYAZ1U/DhDhLXU36oUnMlUTaayxcwXACn42m/
+	RU1mxThIdj0En7Sd2ad7ohI2eHSjr1e50iXhOvzK1KiAfjAraKHOc/IJzUwWjtAOfqFJaaGgxZ/
+	qvE/DdajEZT/ivwkkh7XXUjrLGM306u4aN1bTV7pIkL+jC6FjXJKQn9NPDX3OYcVQTDW4zJELg/
+	d+RgSCAk6xSfCaidoQmUSpNt8sbZNpIA6m3/GYgaiRsDCkXhR+hrv162wWWx9r4x3TtYgSF1yXQ
+	EJE8oj+phnUA53zxFxixwHYdr65GYPbLtMbZoGtA+YW2JaCmmyXvnN9fd3psJYSxYuNtEmFxjQc
+	x5TWUe
+X-Google-Smtp-Source: AGHT+IEQ+QO1md8dITwHEJCHRkLxJT4UkzUndN8TnSWkTxa743bZesp6vBpeCuGkIGe8sK7LVrQqww==
+X-Received: by 2002:a05:6402:35c6:b0:5e7:b02b:6430 with SMTP id 4fb4d7f45d1cf-5edfdafb282mr2585993a12.23.1743275242058;
+        Sat, 29 Mar 2025 12:07:22 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-ad73-6800-0000-0000-0000-0e63.310.pool.telefonica.de. [2a02:3100:ad73:6800::e63])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ac719621718sm375998066b.102.2025.03.29.12.01.37
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5edc16aac05sm3275271a12.3.2025.03.29.12.07.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Mar 2025 12:01:38 -0700 (PDT)
+        Sat, 29 Mar 2025 12:07:20 -0700 (PDT)
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 To: linux-amlogic@lists.infradead.org,
-	linux-gpio@vger.kernel.org
+	linux-phy@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linus.walleij@linaro.org,
+	kishon@kernel.org,
+	vkoul@kernel.org,
 	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Subject: [PATCH] pinctrl: meson: define the pull up/down resistor value as 60 kOhm
-Date: Sat, 29 Mar 2025 20:01:32 +0100
-Message-ID: <20250329190132.855196-1-martin.blumenstingl@googlemail.com>
+Subject: [PATCH v2 0/2] phy: amlogic: meson8b-usb2: two small cleanup patches
+Date: Sat, 29 Mar 2025 20:07:10 +0100
+Message-ID: <20250329190712.858349-1-martin.blumenstingl@googlemail.com>
 X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_120143_133622_0EAF09E7 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20250329_120724_222035_C8CF0F59 
+X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,43 +100,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The public datasheets of the following Amlogic SoCs describe a typical
-resistor value for the built-in pull up/down resistor:
-- Meson8/8b/8m2: not documented
-- GXBB (S905): 60 kOhm
-- GXL (S905X): 60 kOhm
-- GXM (S912): 60 kOhm
-- G12B (S922X): 60 kOhm
-- SM1 (S905D3): 60 kOhm
+Hello,
 
-The public G12B and SM1 datasheets additionally state min and max
-values:
-- min value: 50 kOhm for both, pull-up and pull-down
-- max value for the pull-up: 70 kOhm
-- max value for the pull-down: 130 kOhm
+this series includes two small cleanups for the phy-meson8b-usb2
+driver. There are no functional changes.
 
-Use 60 kOhm in the pinctrl-meson driver as well so it's shown in the
-debugfs output. It may not be accurate for Meson8/8b/8m2 but in reality
-60 kOhm is closer to the actual value than 1 Ohm.
+Changes since v1 at [0]:
+- added Neil's Reviewed-by (thank you!)
 
-Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
----
- drivers/pinctrl/meson/pinctrl-meson.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pinctrl/meson/pinctrl-meson.c b/drivers/pinctrl/meson/pinctrl-meson.c
-index 253a0cc57e39..e5a32a0532ee 100644
---- a/drivers/pinctrl/meson/pinctrl-meson.c
-+++ b/drivers/pinctrl/meson/pinctrl-meson.c
-@@ -487,7 +487,7 @@ static int meson_pinconf_get(struct pinctrl_dev *pcdev, unsigned int pin,
- 	case PIN_CONFIG_BIAS_PULL_DOWN:
- 	case PIN_CONFIG_BIAS_PULL_UP:
- 		if (meson_pinconf_get_pull(pc, pin) == param)
--			arg = 1;
-+			arg = 60000;
- 		else
- 			return -EINVAL;
- 		break;
+[0] https://lore.kernel.org/linux-amlogic/20241231191718.2764065-1-martin.blumenstingl@googlemail.com/
+
+
+Martin Blumenstingl (2):
+  phy: amlogic: meson8b-usb2: Use FIELD_PREP instead of _SHIFT macros
+  phy: amlogic: meson8b-usb2: Use the regmap_{clear,set}_bits helpers
+
+ drivers/phy/amlogic/phy-meson8b-usb2.c | 35 +++++++++++---------------
+ 1 file changed, 14 insertions(+), 21 deletions(-)
+
 -- 
 2.49.0
 
