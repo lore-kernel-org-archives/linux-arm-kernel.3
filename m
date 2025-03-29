@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB468C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 19:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28ECDC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 21:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5zCE82IEEUW3OgJQOexggjw77Krndyt+WM9SEFSCbzs=; b=kAhlqhmpEnlVPdMYXZ5NDshMcF
-	K6jRa25nnXbyD/KAhrsXBmaseMzGBtJVor4zH96nh4NB3Xys9sks76usWHgUwNo61FX/TyHKWHFii
-	WfkTZyvDnnV6hYvJDbDoiiGh9sCAx8mpCw+gL9nnDwJBmlDg/NJM9173no/qaD81cXH1TMQED7t0I
-	NyYVechfmkDfhwFm1pJTYAcP5BuEpgo1C8RCdYRe0vO6Bj7kAfFHNi4VCBeFpsoQr2r863DmZ/FKf
-	eUxw+oN6ErUXMdsDcCFITe4b3DBN/8n3UNf10Jjb5kQiqaFf7N1R38+SW8t2uPvazS7c0y5EeMpuZ
-	Twb/wbaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E+Q42HuBJVYjxIr4gMUzVEJL9DLxf8H/aqvsj5v31NM=; b=tiswnsQfCiejw0Qa40iLDdyB0W
+	yvyihnIr72U0HIW8GHBXUwRzYj0EDPwiisWTEz5r6GE/Cxl+PKDiheUTccRC/8OAL4+C0bcT7ION6
+	PAq3Vn9ZZNregeyg4Lhsmk9+RX8HvCqcQy+dJWh1LAeU95tCTQLa1ot+MRk1fpVrkTaJl1YN97KRd
+	vwuGDehbSDKcAfqDoBpoOBTCx5l84/bpc1l003q1wNkACuzWdJ0s3IhQY5MnPTBSIVvxBFfVKeh6K
+	QZMhdgaSbeBUSIJq4a/8VhyJ13KurLZEV4Hyfe6/i4QTFnp1YZ9qZrik2wNKWiDy7FWKS8vaHX8Vn
+	mpYQTSlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tybjK-0000000FSDF-2Tqd;
-	Sat, 29 Mar 2025 19:20:30 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1tydZ7-0000000FWpo-0Z7R;
+	Sat, 29 Mar 2025 21:18:05 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tybWj-0000000FR8q-0ECm;
-	Sat, 29 Mar 2025 19:07:30 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5e673822f76so5389410a12.2;
-        Sat, 29 Mar 2025 12:07:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1743275247; x=1743880047; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5zCE82IEEUW3OgJQOexggjw77Krndyt+WM9SEFSCbzs=;
-        b=LV+P9S8rX5q5/j5izDyK/09/b2NfudSPngUwqBRtbCR7lTR3rXhzTxe4j1Y3ZBeq8V
-         tS9Fe01Z0sBzfBhJgkewyvWpkW3N9wBiAEApUgAipvQgI/E8NNbjRxpJmDGv6ebDYV3t
-         jjwRwxO0V5lKlf6itHnYT8dyFUUxsnOGaJ0FNhBioVnZq0TCgfwvT+N3+LupVwu5opCM
-         hxcOxz5FQr2st1vsu4SdJlleiHIXrB/EBGlTnyhcuz02se8rKwWAoT7KpvGOlzfmrOsE
-         gwqmQXhL7JhyFL3Yvcjh6jSlyjzAMoQXgFonoJ+/tqUwk2EGT7BhjW7xFS8tMpuwSqWx
-         nOGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743275247; x=1743880047;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5zCE82IEEUW3OgJQOexggjw77Krndyt+WM9SEFSCbzs=;
-        b=THwli4fzSwjWYQZ46DOvLmBJiNkHjVy0BVtupNNt6Pes7e+sVHcmba5VyqlKWtBc3E
-         jF0qBajlhMplNHkraFUKq59Z17YS75nmfASnLFxVVzWux/qVhhfUsWLm324T2/3712Au
-         gfY3C3NUKDBOGIWirHEft6hyhusMZvEaqSO1klb8Waqc7bE3zgVhbeIysbcFyGnR8FBT
-         iB74CHzMWHc1wi1f2XEsTQrARF2fuyeK486hmTjGNbPHGF9rFmck55JD3n0YkeEWf4kp
-         MNDo0yYhYUQfqPdKyhqr4ZG3XCI4kGPEHpD08h8nQdrWI7Wfvj8r5swgT84OxZQi18Va
-         g9TA==
-X-Forwarded-Encrypted: i=1; AJvYcCUd3OWtwZd5Z7CMf+cCY0uA27XvBJQh7vK8IJaS56fUZlAjM1Wn29XjdDvgLryEqkaArNPuDDuDwB1tXUI269Ms@lists.infradead.org, AJvYcCXo7yMNJBZXNJvp8+HXL1mlzVjZRvw+NfcpwCZQ7aOsC0ODIyuBNIF+Qbfqf1H+TpjfAYzo0OaURX7Y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzq7iUKmP6l0vzhpb6CpR9OWvJ/Fq7UMtopbKE7HR2x5Nmx/H8d
-	XO1A5pdR0PCdGX1SvfW5AVDPiyXUZRLC+m0ML5/5qCZcs6TjMtUup1lDuA==
-X-Gm-Gg: ASbGncuGU/bCgHGJGEG0nEaqZ8YaA72B3QOvvnGHbUE8xVcFqzbYrJWPKCw973WDiY7
-	AfyhPWZ746DEFV1LjvLHRa1wHFixfs2syibxC4CGVSng2MB4qdGBxIrbwqsNjd8sTCIjGdTxvfQ
-	UO3+xtFenNN7Jhht8zsDPpB4u88iZfCjYbenh/8xuHCo5zFc10EhhqxxiSFMi3yIhztCPHsRSen
-	R/cR0cg1BEkpo5l+6pOjGG9YidHf9t3MUGFqQPxFG6skKj7RXGd2RlENON4EFmR7ljtpyB4tVS9
-	RQYI2Y6sZ897u6kH9zQkiJCck+oN8fAmNfXw+pv7CsnwrOaV8D85tSLhYqSoH9bSbelHQOIKnJ5
-	Pj6nihgBXI3GGFqx08/YUfTpfF/4pw9gJK5nMK2zphnXqb4tLcDNQaEBhDZHVGHx+tKvmtg==
-X-Google-Smtp-Source: AGHT+IEWt7Qj737jJHCaN2ZyByecAgGhDvAAdbgZl/B8p5LpJrELRizAUQQWktSqw+FFBr/8ZteT5g==
-X-Received: by 2002:a05:6402:2689:b0:5dc:c531:e5c0 with SMTP id 4fb4d7f45d1cf-5edfde2067bmr3759805a12.27.1743275246879;
-        Sat, 29 Mar 2025 12:07:26 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-ad73-6800-0000-0000-0000-0e63.310.pool.telefonica.de. [2a02:3100:ad73:6800::e63])
-        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5edc16aac05sm3275271a12.3.2025.03.29.12.07.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Mar 2025 12:07:25 -0700 (PDT)
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-To: linux-amlogic@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kishon@kernel.org,
-	vkoul@kernel.org,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>
-Subject: [PATCH v2 2/2] phy: amlogic: meson8b-usb2: Use the regmap_{clear,set}_bits helpers
-Date: Sat, 29 Mar 2025 20:07:12 +0100
-Message-ID: <20250329190712.858349-3-martin.blumenstingl@googlemail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250329190712.858349-1-martin.blumenstingl@googlemail.com>
-References: <20250329190712.858349-1-martin.blumenstingl@googlemail.com>
+	id 1tydXM-0000000FWjv-1ME9
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 29 Mar 2025 21:16:17 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A819E10290279;
+	Sat, 29 Mar 2025 22:16:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1743282971; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=E+Q42HuBJVYjxIr4gMUzVEJL9DLxf8H/aqvsj5v31NM=;
+	b=dwKw+b6qh5jtAWhPOdTJyhdDYqJyD+e/0NF81irefap/jm1/yZ3Hldf8JrB/Lh+lwrSfAo
+	EPZTRXjZfC+Wt9Kazgrh+3CIIclSLyiDdAbtAyr4HUFdNEXHpoyGW+0TaX0zXMXzz58EcF
+	77yk0yPRlhkY5S/CRFESl5Jwq3388FDeHBosoQugGXeaSZYKAJCuA3kvCe5zTr4gXVLytG
+	CiJr/3Vp5MEXXwPA4UiRXl6N7z5wY+GWug8naGXqOZN1N9Yh52GtPJ+6rJZp71/2+N5FPV
+	Y462Zn1yuWF9PQDEst1GxzMGtb1ok0Fdg0EXvPYOE9KdEW1hP8zGQE+F8hojOw==
+Date: Sat, 29 Mar 2025 22:16:03 +0100
+From: Lukasz Majewski <lukma@denx.de>
+To: Rob Herring <robh@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: net: Add MTIP L2 switch description
+Message-ID: <20250329221603.1567e82c@wsk>
+In-Reply-To: <20250329170936.GA2246988-robh@kernel.org>
+References: <20250328133544.4149716-1-lukma@denx.de>
+	<20250328133544.4149716-2-lukma@denx.de>
+	<20250329170936.GA2246988-robh@kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="Sig_/=NAIwEwO9lbdwvsUnTeQSey";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_120729_090712_EAD211E8 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20250329_141616_666585_B03BC37D 
+X-CRM114-Status: GOOD (  34.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,82 +78,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These require less code, reduce the chance of typos and overall make the
-intent clearer. No functional changes.
+--Sig_/=NAIwEwO9lbdwvsUnTeQSey
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
----
- drivers/phy/amlogic/phy-meson8b-usb2.c | 28 ++++++++++----------------
- 1 file changed, 11 insertions(+), 17 deletions(-)
+Hi Rob,
 
-diff --git a/drivers/phy/amlogic/phy-meson8b-usb2.c b/drivers/phy/amlogic/phy-meson8b-usb2.c
-index d9c761b7c15c..a553231a9f7c 100644
---- a/drivers/phy/amlogic/phy-meson8b-usb2.c
-+++ b/drivers/phy/amlogic/phy-meson8b-usb2.c
-@@ -165,8 +165,7 @@ static int phy_meson8b_usb2_power_on(struct phy *phy)
- 		return ret;
- 	}
- 
--	regmap_update_bits(priv->regmap, REG_CONFIG, REG_CONFIG_CLK_32k_ALTSEL,
--			   REG_CONFIG_CLK_32k_ALTSEL);
-+	regmap_set_bits(priv->regmap, REG_CONFIG, REG_CONFIG_CLK_32k_ALTSEL);
- 
- 	regmap_update_bits(priv->regmap, REG_CTRL, REG_CTRL_REF_CLK_SEL_MASK,
- 			   FIELD_PREP(REG_CTRL_REF_CLK_SEL_MASK, 0x2));
-@@ -175,23 +174,20 @@ static int phy_meson8b_usb2_power_on(struct phy *phy)
- 			   FIELD_PREP(REG_CTRL_FSEL_MASK, 0x5));
- 
- 	/* reset the PHY */
--	regmap_update_bits(priv->regmap, REG_CTRL, REG_CTRL_POWER_ON_RESET,
--			   REG_CTRL_POWER_ON_RESET);
-+	regmap_set_bits(priv->regmap, REG_CTRL, REG_CTRL_POWER_ON_RESET);
- 	udelay(RESET_COMPLETE_TIME);
--	regmap_update_bits(priv->regmap, REG_CTRL, REG_CTRL_POWER_ON_RESET, 0);
-+	regmap_clear_bits(priv->regmap, REG_CTRL, REG_CTRL_POWER_ON_RESET);
- 	udelay(RESET_COMPLETE_TIME);
- 
--	regmap_update_bits(priv->regmap, REG_CTRL, REG_CTRL_SOF_TOGGLE_OUT,
--			   REG_CTRL_SOF_TOGGLE_OUT);
-+	regmap_set_bits(priv->regmap, REG_CTRL, REG_CTRL_SOF_TOGGLE_OUT);
- 
- 	if (priv->dr_mode == USB_DR_MODE_HOST) {
--		regmap_update_bits(priv->regmap, REG_DBG_UART,
--				   REG_DBG_UART_SET_IDDQ, 0);
-+		regmap_clear_bits(priv->regmap, REG_DBG_UART,
-+				  REG_DBG_UART_SET_IDDQ);
- 
- 		if (priv->match->host_enable_aca) {
--			regmap_update_bits(priv->regmap, REG_ADP_BC,
--					   REG_ADP_BC_ACA_ENABLE,
--					   REG_ADP_BC_ACA_ENABLE);
-+			regmap_set_bits(priv->regmap, REG_ADP_BC,
-+					REG_ADP_BC_ACA_ENABLE);
- 
- 			udelay(ACA_ENABLE_COMPLETE_TIME);
- 
-@@ -214,17 +210,15 @@ static int phy_meson8b_usb2_power_off(struct phy *phy)
- 	struct phy_meson8b_usb2_priv *priv = phy_get_drvdata(phy);
- 
- 	if (priv->dr_mode == USB_DR_MODE_HOST)
--		regmap_update_bits(priv->regmap, REG_DBG_UART,
--				   REG_DBG_UART_SET_IDDQ,
--				   REG_DBG_UART_SET_IDDQ);
-+		regmap_set_bits(priv->regmap, REG_DBG_UART,
-+				REG_DBG_UART_SET_IDDQ);
- 
- 	clk_disable_unprepare(priv->clk_usb);
- 	clk_disable_unprepare(priv->clk_usb_general);
- 	reset_control_rearm(priv->reset);
- 
- 	/* power off the PHY by putting it into reset mode */
--	regmap_update_bits(priv->regmap, REG_CTRL, REG_CTRL_POWER_ON_RESET,
--			   REG_CTRL_POWER_ON_RESET);
-+	regmap_set_bits(priv->regmap, REG_CTRL, REG_CTRL_POWER_ON_RESET);
- 
- 	return 0;
- }
--- 
-2.49.0
+> On Fri, Mar 28, 2025 at 02:35:41PM +0100, Lukasz Majewski wrote:
+> > This patch provides description of the MTIP L2 switch available in
+> > some NXP's SOCs - e.g. imx287.
+> >=20
+> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> > ---
+> > Changes for v2:
+> > - Rename the file to match exactly the compatible
+> >   (nxp,imx287-mtip-switch)
+> > ---
+> >  .../bindings/net/nxp,imx287-mtip-switch.yaml  | 165
+> > ++++++++++++++++++ 1 file changed, 165 insertions(+)
+> >  create mode 100644
+> > Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> >=20
+> > diff --git
+> > a/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> > b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> > new file mode 100644 index 000000000000..a3e0fe7783ec --- /dev/null
+> > +++
+> > b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> > @@ -0,0 +1,165 @@ +# SPDX-License-Identifier: (GPL-2.0-only OR
+> > BSD-2-Clause) +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/net/nxp,imx287-mtip-switch.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
+> > +
+> > +maintainers:
+> > +  - Lukasz Majewski <lukma@denx.de>
+> > +
+> > +description:
+> > +  The 2-port switch ethernet subsystem provides ethernet packet
+> > (L2)
+> > +  communication and can be configured as an ethernet switch. It
+> > provides the
+> > +  reduced media independent interface (RMII), the management data
+> > input
+> > +  output (MDIO) for physical layer device (PHY) management.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: nxp,imx287-mtip--switch
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +    description:
+> > +      The physical base address and size of the MTIP L2 SW module
+> > IO range +
+> > +  phy-supply:
+> > +    description:
+> > +      Regulator that powers Ethernet PHYs.
+> > +
+> > +  clocks:
+> > +    items:
+> > +      - description: Register accessing clock
+> > +      - description: Bus access clock
+> > +      - description: Output clock for external device - e.g. PHY
+> > source clock
+> > +      - description: IEEE1588 timer clock
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: ipg
+> > +      - const: ahb
+> > +      - const: enet_out
+> > +      - const: ptp
+> > +
+> > +  interrupts:
+> > +    items:
+> > +      - description: Switch interrupt
+> > +      - description: ENET0 interrupt
+> > +      - description: ENET1 interrupt
+> > +
+> > +  pinctrl-names: true
+> > +
+> > +  ethernet-ports:
+> > +    type: object
+> > +    additionalProperties: false
+> > +
+> > +    properties:
+> > +      '#address-cells':
+> > +        const: 1
+> > +      '#size-cells':
+> > +        const: 0
+> > +
+> > +    patternProperties:
+> > +      "^port@[0-9]+$":
+> > +        type: object
+> > +        description: MTIP L2 switch external ports
+> > +
+> > +        $ref: ethernet-controller.yaml#
+> > +        unevaluatedProperties: false
+> > +
+> > +        properties:
+> > +          reg:
+> > +            items:
+> > +              - enum: [1, 2]
+> > +            description: MTIP L2 switch port number
+> > +
+> > +          label:
+> > +            description: Label associated with this port
+> > +
+> > +        required:
+> > +          - reg
+> > +          - label
+> > +          - phy-mode
+> > +          - phy-handle
+> > +
+> > +  mdio:
+> > +    type: object
+> > +    $ref: mdio.yaml#
+> > +    unevaluatedProperties: false
+> > +    description:
+> > +      Specifies the mdio bus in the switch, used as a container
+> > for phy nodes. +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - clocks
+> > +  - clock-names
+> > +  - interrupts
+> > +  - mdio
+> > +  - ethernet-ports
+> > +  - '#address-cells'
+> > +  - '#size-cells'
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include<dt-bindings/interrupt-controller/irq.h>
+> > +    switch@800f0000 {
+> > +        compatible =3D "nxp,imx287-mtip-switch";
+> > +        reg =3D <0x800f0000 0x20000>;
+> > +        pinctrl-names =3D "default";
+> > +        pinctrl-0 =3D <&mac0_pins_a>, <&mac1_pins_a>;
+> > +        phy-supply =3D <&reg_fec_3v3>;
+> > +        interrupts =3D <100>, <101>, <102>;
+> > +        clocks =3D <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
+> > +        clock-names =3D "ipg", "ahb", "enet_out", "ptp";
+> > +        status =3D "okay";
+> > +
+> > +        ethernet-ports {
+> > +                #address-cells =3D <1>;
+> > +                #size-cells =3D <0>;
+> > +
+> > +                mtip_port1: port@1 {
+> > +                        reg =3D <1>;
+> > +                        label =3D "lan0";
+> > +                        local-mac-address =3D [ 00 00 00 00 00 00 ];
+> > +                        phy-mode =3D "rmii";
+> > +                        phy-handle =3D <&ethphy0>;
+> > +                };
+> > +
+> > +                mtip_port2: port@2 {
+> > +                        reg =3D <2>;
+> > +                        label =3D "lan1";
+> > +                        local-mac-address =3D [ 00 00 00 00 00 00 ];
+> > +                        phy-mode =3D "rmii";
+> > +                        phy-handle =3D <&ethphy1>;
+> > +                };
+> > +        };
+> > +
+> > +        mdio_sw: mdio {
+> > +                #address-cells =3D <1>;
+> > +                #size-cells =3D <0>;
+> > +
+> > +                reset-gpios =3D <&gpio2 13 0>;
+> > +                reset-delay-us =3D <25000>;
+> > +                reset-post-delay-us =3D <10000>;
+> > +
+> > +                ethphy0: ethernet-phy@0 {
+> > +                        reg =3D <0>;
+> > +                        smsc,disable-energy-detect; =20
+>=20
+> With a custom property, you should have a specific compatible.
 
+I could add:
+compatible =3D "ethernet-phy-id0007.c0f0","ethernet-phy-ieee802.3-c22";
+
+but it would not make things either clearer nor simpler.
+
+I will just remove this property.
+
+>=20
+> > +                        /* Both PHYs (i.e. 0,1) have the same,
+> > single GPIO, */
+> > +                        /* line to handle both, their interrupts
+> > (AND'ed) */
+> > +                        interrupt-parent =3D <&gpio4>;
+> > +                        interrupts =3D <13 IRQ_TYPE_EDGE_FALLING>; =20
+>=20
+> The error report is because the examples have to guess the number of=20
+> provider interrupt cells and only 1 guess is supported. It guessed 1=20
+> from above.
+>=20
+> In any case, unless the phys are built-in and fixed, they are out of=20
+> scope of this binding. So perhaps drop the interrupts and smsc
+> property.
+
+Ok, I will remove them.
+
+>=20
+> Rob
+
+
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/=NAIwEwO9lbdwvsUnTeQSey
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfoYxQACgkQAR8vZIA0
+zr0/EwgAx/s1HQ3OV9LuT1M2dDnFpa7Ck55tkTu6Id5VMV6ygsaFR4D7/UpS++xQ
+g+YhbzhnrVE1ri5GYyfwYhCCT8XFesFyhbpqJydqNbAGHNnY7if9if3lxni0/Pz2
+wNeZOcdAGmem3uhT1yK7pWxHgIIYcCJ0Roq5iu9Urdjr0VpuAhhlXOexcKqfyzXk
+MMnBPBo3XGqk6DUh3ncY02wE6hDh8y5DZZRk5PgzvyCdUVvnX8ekpnklIk3VKKVh
+te7QIf3ECkgKqzQYFUq4mGnOzcH7ODz0kf0rt/DCdKDyIJXqqMzM+1cT7TZLcTE5
+TU5jL4DS18I0ufbg1ZbAb2xrlbk1WQ==
+=u478
+-----END PGP SIGNATURE-----
+
+--Sig_/=NAIwEwO9lbdwvsUnTeQSey--
 
