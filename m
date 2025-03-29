@@ -4,98 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E2CDC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 08:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BACDC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 08:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PZDM3yqR6PQJ3jypH09/FREHkmdeMte4b8P6U/n+/KU=; b=k0GESRlPJMWg48sUU/ckoWzAMZ
-	UDTOxEJ77w96kJxsCZr3rr5/xI8GTes06TlIHmlwAsSKCTe2YxvUv+wIuLmySikL3F9mhLk48ELyS
-	H8FW41X4IJsxnql9WibEPjvUD5yQLVfBs/cWUARTJtZEu8t0ogYaWSRTVBV9Do5iyOJB4jmxrDGw9
-	tnr4mk8Y8glHGjGiZcnLMWeJzXVGQ/5xEkuqPIUnKwQPdivOc4yG0PXzf+yvG1fqmg+OHNk1dag+M
-	FYr46ciwXNQLNB5qvTDEgC0R2pIns5nQ3gG7zobQOB2/ZJuDtuIUxEiltjOg5IboomEPoai4HC6Xl
-	kae3kf2A==;
+	bh=BNCXttZkFi/2vw4OPxGWgkdGoNb94Ke4+IKLga20ZsU=; b=IW8REd5nWmFMxd12eN7056h9Si
+	YBoWMYmR29rIsNEmzlO1wCVTcT2kqtWo0BpGv8wGcJ5/ZzRIgsfDaPlArb4Y4uYd/TqZEkMkhlUtm
+	HDluczn//mjgP53FVmuw+umoUlktoBZsueCz433j0RPgedQdo6MEo9kQlDVoMUS/Ahlh2IjB4tUaY
+	WM6f8zNMs9ZWPs+yKlScWkkguowfLtAg5Rz2Gk8LQ1bpCWBgFhW+3d/8yLV62B3rC9NGDOhbgbCkz
+	3EMs4MLQVWwZ0aF4dgLxIbQmSFLoZbNX6y2EJEEAdw2iSplo5bfQRO0fhHZJJPzpxN72JDjfGSi35
+	hbEZFBpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyRJA-0000000EuV5-3wC7;
-	Sat, 29 Mar 2025 08:12:48 +0000
-Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	id 1tyRKt-0000000Euim-1QBm;
+	Sat, 29 Mar 2025 08:14:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyRAu-0000000EtIA-0l1b
+	id 1tyRJ9-0000000EuUl-09Vp
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 08:04:17 +0000
-Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-6e1b11859a7so12735736d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Mar 2025 01:04:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743235455; x=1743840255; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=PZDM3yqR6PQJ3jypH09/FREHkmdeMte4b8P6U/n+/KU=;
-        b=H68Fs6Y+gCi8QsYmpJBMOvOEK6DR9rO02jYZmRdvp4wixNWClBUrNlIXGm4i6DA8aq
-         7khXUQZE3V8cTOQx6gEV1la1eg2tWOjNb7W7m+DHgPOoZbzQIfE8ZODWjLb8fhN7/dTV
-         xYsg0D5WwXgge40TtlUCqchFPgfywidgAaCJ9hugVJSj8gVyHaK4B5rXolpcLPV6IK8y
-         YcSRbZdhTVF4GF88rEiNodm12eahFbPhujDXB5SUyIDeRtctYaLitNgKl0eyvd9OdomX
-         gKzDH7c9lKJlG5Hm4TcWbRCjw1aT3jk5zx82RxtIaIyIu8nTuCaN9jv2/hpjOSWHFoIt
-         vUwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743235455; x=1743840255;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PZDM3yqR6PQJ3jypH09/FREHkmdeMte4b8P6U/n+/KU=;
-        b=s4eCXzUduM6Hn9uXy7PjPBlb3rATTw7F468D9UeClthR5dC2ShMs8rnVjedj64OFPm
-         8bawb89RMl+w6aCCbfwexKA5cmt5jn9eYoz9vYZ22W6t+oaO3k7zST6xymJZUeEuMvwp
-         E18EAe8mab/TXAn0HsEyns6bWlRNFXpbDcmY723HyKEaxbZQajVwg7PFwddMJwnLtSqt
-         83mZyM8gpy0jCeKnd13LS64BVmnHdsZEDVHtjr82/9MsjLUwm8sMXirnb+/DouLKWRbv
-         No5nsOe4j7dDaVQTOdou9eWxVHTiS5JCSnfkiUjyK5YVipotvvky3aQOLQSGV0pDl47b
-         bvkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWtmvs7ZSKhOcKlPOkr4yB0ohSufgmY4XqZjlVX62/5yJMTKEaIVm791gaus1i8poAGB/qgCqT9WVdY0sR0pt+e@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUV+leNtrN8wczgPQrnG3AAl0EBqZXAFeoBzsqfrDpRQZu+pfe
-	8pNzjHmnyaw6A4RmRhm8WrvBCSItQoWCylpIm97xF3xkp7oZpqUMuYVnVFQJKqgeYmAGRIqFPTC
-	+SJNetr53dpuDodaitohyzRGDQtJvhf/0zMcN
-X-Gm-Gg: ASbGnctObcQL1Aa1tMSQ2JX89RizNucml8anpiV9rNiHvZ4M/pPh6Pmwg+6kPIQfwjX
-	8eAZp3VjtcPDnNMN/LjiSCIBe8t4Q2yA2LBP4N4PmXDHdaNN5JiQlZBuP+EyQEUuUfUK8M7QTKh
-	Pw8slGFPEfeYotklk+ofJXR36gKTs=
-X-Google-Smtp-Source: AGHT+IEc78D847LUde3+5bswzdf1ixUrsSY5twv855UuX9+/F9K0OsF+VDrVmnty/ImwqqAtDRcJZXHHN5I0PSHwDjI=
-X-Received: by 2002:ad4:5c42:0:b0:6eb:1e80:19fa with SMTP id
- 6a1803df08f44-6eed5f6164cmr22680736d6.1.1743235454901; Sat, 29 Mar 2025
- 01:04:14 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250313114329.284104-1-acarmina@redhat.com> <20250313114329.284104-7-acarmina@redhat.com>
-In-Reply-To: <20250313114329.284104-7-acarmina@redhat.com>
-From: David Gow <davidgow@google.com>
-Date: Sat, 29 Mar 2025 16:04:01 +0800
-X-Gm-Features: AQ5f1JpT-aX1aghV5CTNaG4UuLzzr7X5SV4zHe81kzrsiyK5QNGcvsu-jzq-6nI
-Message-ID: <CABVgOSmofN-jw9AWpOTAvhE-d-oLW_MBnPx8QQ1GVLZb-sMEhg@mail.gmail.com>
-Subject: Re: [PATCH v4 06/14] x86: Add support for suppressing warning backtraces
-To: Alessandro Carminati <acarmina@redhat.com>
-Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>, 
-	Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Kees Cook <keescook@chromium.org>, 
-	Daniel Diaz <daniel.diaz@linaro.org>, Arthur Grillo <arthurgrillo@riseup.net>, 
-	Brendan Higgins <brendan.higgins@linux.dev>, Naresh Kamboju <naresh.kamboju@linaro.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Maxime Ripard <mripard@kernel.org>, 
-	=?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, 
-	Daniel Vetter <daniel@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Guenter Roeck <linux@roeck-us.net>, Alessandro Carminati <alessandro.carminati@gmail.com>, 
-	Jani Nikula <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org, 
-	kunit-dev@googlegroups.com, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	loongarch@lists.linux.dev, x86@kernel.org, 
-	Linux Kernel Functional Testing <lkft@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000185cab063176a207"
+	Sat, 29 Mar 2025 08:12:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CDEF45C40B8;
+	Sat, 29 Mar 2025 08:10:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D9C8C4CEE2;
+	Sat, 29 Mar 2025 08:12:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743235965;
+	bh=XuazfIfZCqDpih+40jG7nHo0OUbNVwTOaEOW4d/Jsiw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=sg323B6tLia20VWLJcu/jMlGVGQpGho+W3vrrmiZFp3JFpbcvAbYB+SvNFyZOJWDf
+	 TlrFDnTw15xdLwIEMfXcu92TYR68GF3hsg15mHV0HzsqBw/AM3XK0xkhFUlqlloLb/
+	 04dSWfVdmQH2MmBZgU/joq4AuoA38Rn47EZBOWaT3h9+iWU9uOwel56nQ79im8Rz/f
+	 OaKs5HnvdD0yyzr4zIvvxaEh9oHb0sE3FHQ9Nividprw6bGK87wHUOkl71dhDau91S
+	 oUZJu8m81UzQ25Mfg81leievKH1qH4hOzgkNkI/cXoNlAMhIfa+buvU61wrYBM9TM6
+	 GDnV0u2yg+YYA==
+Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tyRJ4-000X6N-CX;
+	Sat, 29 Mar 2025 08:12:42 +0000
+Date: Sat, 29 Mar 2025 08:12:38 +0000
+Message-ID: <87semwz24p.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: <catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<oliver.upton@linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>,
+	<shameerali.kolothum.thodi@huawei.com>,
+	<jonathan.cameron@huawei.com>,
+	<prime.zeng@hisilicon.com>,
+	<xuwei5@huawei.com>,
+	<yangyicong@hisilicon.com>,
+	<linuxarm@huawei.com>
+Subject: Re: [PATCH 2/3] arm64/cpufeature: Add cpucap for HCR_EL2.E2H RES1 (!FEAT_E2H0)
+In-Reply-To: <20250329034409.21354-3-yangyicong@huawei.com>
+References: <20250329034409.21354-1-yangyicong@huawei.com>
+	<20250329034409.21354-3-yangyicong@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 91.161.240.24
+X-SA-Exim-Rcpt-To: yangyicong@huawei.com, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shameerali.kolothum.thodi@huawei.com, jonathan.cameron@huawei.com, prime.zeng@hisilicon.com, xuwei5@huawei.com, yangyicong@hisilicon.com, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_010416_257689_465625E8 
-X-CRM114-Status: GOOD (  21.75  )
+X-CRM114-CacheID: sfid-20250329_011247_188169_E2AA7B3A 
+X-CRM114-Status: GOOD (  27.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,191 +95,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---000000000000185cab063176a207
-Content-Type: text/plain; charset="UTF-8"
-
-On Thu, 13 Mar 2025 at 19:44, Alessandro Carminati <acarmina@redhat.com> wrote:
->
-> From: Guenter Roeck <linux@roeck-us.net>
->
-> Add name of functions triggering warning backtraces to the __bug_table
-> object section to enable support for suppressing WARNING backtraces.
->
-> To limit image size impact, the pointer to the function name is only added
-> to the __bug_table section if both CONFIG_KUNIT_SUPPRESS_BACKTRACE and
-> CONFIG_DEBUG_BUGVERBOSE are enabled. Otherwise, the __func__ assembly
-> parameter is replaced with a (dummy) NULL parameter to avoid an image size
-> increase due to unused __func__ entries (this is necessary because __func__
-> is not a define but a virtual variable).
->
-> Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-> Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
+On Sat, 29 Mar 2025 03:44:08 +0000,
+Yicong Yang <yangyicong@huawei.com> wrote:
+> 
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> Arm introduced a "new" feature FEAT_E2H0 indicates that HCR_EL2.E2H can
+> be programmed to the value 0 for legacy hardwares supported VHE. The
+> feature is indicated by ID_AA64MMFR4_EL1.E2H0 == 0. It is needed to
+> detect this feature for KVM mode initialization. Instead of bothering
+> the existed hardwares, introduce a new cpucap HAS_E2H_RES1 to indicate
+> FEAT_E2H0 is not supported. Make this a ARM64_CPUCAP_SYSTEM_FEATURE
+> just like VHE.
+> 
+> Introduce cpu_has_e2h_res1() for checking the feature's support
+> which can be used in the early boot stage where CPU capabilities
+> are not initialized.
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 > ---
-
-Reviewed-by: David Gow <davidgow@google.com>
-
-Cheers,
--- David
-
-
->  arch/x86/include/asm/bug.h | 21 ++++++++++++++++-----
->  1 file changed, 16 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/x86/include/asm/bug.h b/arch/x86/include/asm/bug.h
-> index e85ac0c7c039..f6e13fc675ab 100644
-> --- a/arch/x86/include/asm/bug.h
-> +++ b/arch/x86/include/asm/bug.h
-> @@ -35,18 +35,28 @@
->
->  #ifdef CONFIG_DEBUG_BUGVERBOSE
->
-> +#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
-> +# define HAVE_BUG_FUNCTION
-> +# define __BUG_FUNC_PTR        __BUG_REL(%c1)
-> +# define __BUG_FUNC    __func__
-> +#else
-> +# define __BUG_FUNC_PTR
-> +# define __BUG_FUNC    NULL
-> +#endif /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
+>  arch/arm64/include/asm/cpufeature.h | 23 +++++++++++++++++++++++
+>  arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
+>  arch/arm64/tools/cpucaps            |  1 +
+>  3 files changed, 36 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index c4326f1cb917..b35d393da28d 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -889,6 +889,29 @@ static inline bool cpu_has_hw_af(void)
+>  						ID_AA64MMFR1_EL1_HAFDBS_SHIFT);
+>  }
+>  
+> +/*
+> + * Check whether FEAT_E2H0 is not supported, in which case HCR_EL2.E2H
+> + * is implemented as RES1.
+> + */
+> +static __always_inline bool cpu_has_e2h_res1(void)
+> +{
+> +	u64 mmfr4;
+> +	u32 val;
 > +
->  #define _BUG_FLAGS(ins, flags, extra)                                  \
->  do {                                                                   \
->         asm_inline volatile("1:\t" ins "\n"                             \
->                      ".pushsection __bug_table,\"aw\"\n"                \
->                      "2:\t" __BUG_REL(1b) "\t# bug_entry::bug_addr\n"   \
->                      "\t"  __BUG_REL(%c0) "\t# bug_entry::file\n"       \
-> -                    "\t.word %c1"        "\t# bug_entry::line\n"       \
-> -                    "\t.word %c2"        "\t# bug_entry::flags\n"      \
-> -                    "\t.org 2b+%c3\n"                                  \
-> +                    "\t"  __BUG_FUNC_PTR "\t# bug_entry::function\n"   \
-> +                    "\t.word %c2"        "\t# bug_entry::line\n"       \
-> +                    "\t.word %c3"        "\t# bug_entry::flags\n"      \
-> +                    "\t.org 2b+%c4\n"                                  \
->                      ".popsection\n"                                    \
->                      extra                                              \
-> -                    : : "i" (__FILE__), "i" (__LINE__),                \
-> +                    : : "i" (__FILE__), "i" (__BUG_FUNC), "i" (__LINE__),\
->                          "i" (flags),                                   \
->                          "i" (sizeof(struct bug_entry)));               \
->  } while (0)
-> @@ -92,7 +102,8 @@ do {                                                         \
->  do {                                                           \
->         __auto_type __flags = BUGFLAG_WARNING|(flags);          \
->         instrumentation_begin();                                \
-> -       _BUG_FLAGS(ASM_UD2, __flags, ANNOTATE_REACHABLE(1b));   \
-> +       if (!KUNIT_IS_SUPPRESSED_WARNING(__func__))                     \
-> +               _BUG_FLAGS(ASM_UD2, __flags, ANNOTATE_REACHABLE(1b));   \
->         instrumentation_end();                                  \
->  } while (0)
->
-> --
-> 2.34.1
->
+> +	/*
+> +	 * It's also used for checking the kvm mode cfg in early_param()
+> +	 * where boot capabilities is not initialized. In such case read
+> +	 * mmfr4 directly. This works same after boot stage since
+> +	 * ARM64_HAS_E2H_RES1 is a system feature, the cached sanitised
+> +	 * value keeps same with every single CPU.
+> +	 */
+> +	mmfr4 = read_sysreg_s(SYS_ID_AA64MMFR4_EL1);
 
---000000000000185cab063176a207
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
+This will result in traps to EL2 with nested. Are you expecting this
+to be used on any form of hot paths?
 
-MIIUnQYJKoZIhvcNAQcCoIIUjjCCFIoCAQExDzANBglghkgBZQMEAgEFADALBgkqhkiG9w0BBwGg
-ghIEMIIGkTCCBHmgAwIBAgIQfofDAVIq0iZG5Ok+mZCT2TANBgkqhkiG9w0BAQwFADBMMSAwHgYD
-VQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSNjETMBEGA1UEChMKR2xvYmFsU2lnbjETMBEGA1UE
-AxMKR2xvYmFsU2lnbjAeFw0yMzA0MTkwMzUzNDdaFw0zMjA0MTkwMDAwMDBaMFQxCzAJBgNVBAYT
-AkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMSowKAYDVQQDEyFHbG9iYWxTaWduIEF0bGFz
-IFI2IFNNSU1FIENBIDIwMjMwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDYydcdmKyg
-4IBqVjT4XMf6SR2Ix+1ChW2efX6LpapgGIl63csmTdJQw8EcbwU9C691spkltzTASK2Ayi4aeosB
-mk63SPrdVjJNNTkSbTowej3xVVGnYwAjZ6/qcrIgRUNtd/mbtG7j9W80JoP6o2Szu6/mdjb/yxRM
-KaCDlloE9vID2jSNB5qOGkKKvN0x6I5e/B1Y6tidYDHemkW4Qv9mfE3xtDAoe5ygUvKA4KHQTOIy
-VQEFpd/ZAu1yvrEeA/egkcmdJs6o47sxfo9p/fGNsLm/TOOZg5aj5RHJbZlc0zQ3yZt1wh+NEe3x
-ewU5ZoFnETCjjTKz16eJ5RE21EmnCtLb3kU1s+t/L0RUU3XUAzMeBVYBEsEmNnbo1UiiuwUZBWiJ
-vMBxd9LeIodDzz3ULIN5Q84oYBOeWGI2ILvplRe9Fx/WBjHhl9rJgAXs2h9dAMVeEYIYkvW+9mpt
-BIU9cXUiO0bky1lumSRRg11fOgRzIJQsphStaOq5OPTb3pBiNpwWvYpvv5kCG2X58GfdR8SWA+fm
-OLXHcb5lRljrS4rT9MROG/QkZgNtoFLBo/r7qANrtlyAwPx5zPsQSwG9r8SFdgMTHnA2eWCZPOmN
-1Tt4xU4v9mQIHNqQBuNJLjlxvalUOdTRgw21OJAFt6Ncx5j/20Qw9FECnP+B3EPVmQIDAQABo4IB
-ZTCCAWEwDgYDVR0PAQH/BAQDAgGGMDMGA1UdJQQsMCoGCCsGAQUFBwMCBggrBgEFBQcDBAYJKwYB
-BAGCNxUGBgkrBgEEAYI3FQUwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUM7q+o9Q5TSoZ
-18hmkmiB/cHGycYwHwYDVR0jBBgwFoAUrmwFo5MT4qLn4tcc1sfwf8hnU6AwewYIKwYBBQUHAQEE
-bzBtMC4GCCsGAQUFBzABhiJodHRwOi8vb2NzcDIuZ2xvYmFsc2lnbi5jb20vcm9vdHI2MDsGCCsG
-AQUFBzAChi9odHRwOi8vc2VjdXJlLmdsb2JhbHNpZ24uY29tL2NhY2VydC9yb290LXI2LmNydDA2
-BgNVHR8ELzAtMCugKaAnhiVodHRwOi8vY3JsLmdsb2JhbHNpZ24uY29tL3Jvb3QtcjYuY3JsMBEG
-A1UdIAQKMAgwBgYEVR0gADANBgkqhkiG9w0BAQwFAAOCAgEAVc4mpSLg9A6QpSq1JNO6tURZ4rBI
-MkwhqdLrEsKs8z40RyxMURo+B2ZljZmFLcEVxyNt7zwpZ2IDfk4URESmfDTiy95jf856Hcwzdxfy
-jdwx0k7n4/0WK9ElybN4J95sgeGRcqd4pji6171bREVt0UlHrIRkftIMFK1bzU0dgpgLMu+ykJSE
-0Bog41D9T6Swl2RTuKYYO4UAl9nSjWN6CVP8rZQotJv8Kl2llpe83n6ULzNfe2QT67IB5sJdsrNk
-jIxSwaWjOUNddWvCk/b5qsVUROOuctPyYnAFTU5KY5qhyuiFTvvVlOMArFkStNlVKIufop5EQh6p
-jqDGT6rp4ANDoEWbHKd4mwrMtvrh51/8UzaJrLzj3GjdkJ/sPWkDbn+AIt6lrO8hbYSD8L7RQDqK
-C28FheVr4ynpkrWkT7Rl6npWhyumaCbjR+8bo9gs7rto9SPDhWhgPSR9R1//WF3mdHt8SKERhvtd
-NFkE3zf36V9Vnu0EO1ay2n5imrOfLkOVF3vtAjleJnesM/R7v5tMS0tWoIr39KaQNURwI//WVuR+
-zjqIQVx5s7Ta1GgEL56z0C5GJoNE1LvGXnQDyvDO6QeJVThFNgwkossyvmMAaPOJYnYCrYXiXXle
-A6TpL63Gu8foNftUO0T83JbV/e6J8iCOnGZwZDrubOtYn1QwggWDMIIDa6ADAgECAg5F5rsDgzPD
-hWVI5v9FUTANBgkqhkiG9w0BAQwFADBMMSAwHgYDVQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBS
-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
-YE9NAgMBAAGjggHgMIIB3DAeBgNVHREEFzAVgRNkYXZpZGdvd0Bnb29nbGUuY29tMA4GA1UdDwEB
-/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIwHQYDVR0OBBYEFHgsCGkO2Hex
-N6ybc+GeQEb6790qMFgGA1UdIARRME8wCQYHZ4EMAQUBAjBCBgorBgEEAaAyCgMDMDQwMgYIKwYB
-BQUHAgEWJmh0dHBzOi8vd3d3Lmdsb2JhbHNpZ24uY29tL3JlcG9zaXRvcnkvMAwGA1UdEwEB/wQC
-MAAwgZoGCCsGAQUFBwEBBIGNMIGKMD4GCCsGAQUFBzABhjJodHRwOi8vb2NzcC5nbG9iYWxzaWdu
-LmNvbS9jYS9nc2F0bGFzcjZzbWltZWNhMjAyMzBIBggrBgEFBQcwAoY8aHR0cDovL3NlY3VyZS5n
-bG9iYWxzaWduLmNvbS9jYWNlcnQvZ3NhdGxhc3I2c21pbWVjYTIwMjMuY3J0MB8GA1UdIwQYMBaA
-FDO6vqPUOU0qGdfIZpJogf3BxsnGMEYGA1UdHwQ/MD0wO6A5oDeGNWh0dHA6Ly9jcmwuZ2xvYmFs
-c2lnbi5jb20vY2EvZ3NhdGxhc3I2c21pbWVjYTIwMjMuY3JsMA0GCSqGSIb3DQEBCwUAA4ICAQAs
-exV05yVDmPhHRqOq9lAbfWOUvEf8zydxabZUHna6bayb83jD2eb9nMGGEprfuNBRmFg35sgF1TyN
-+ieuQakvQYmY8tzK49hhHa2Y3qhGCTqYTHO3ypHvhHsZiGbL0gmdgB9P8ssVIws//34ae99GUOxo
-XKTxPwwsQ5Arq42besv3/HXAW+4nRAT8d3ht5ZWCHc5rjL/vdGzu7PaYo3u0da69AZ8Sh4Gf5yoc
-QANr2ZkMrxXbLmSmnRvbkQrzlZp2YbTFnczx46429D6q75/FNFOL1vAjxtRAPzkyACvW0eKvchza
-TMvvD3IWERLlcBL5yXpENc3rI8/wVjqgAWYxlFg1b/4b/TCgYe2MZC0rx4Uh3zTIbmPNiHdN6QZ9
-oDiYzWUcqWZ5jCO4bMKNlVJXeCvdANLHuhcC8FONj5VzNgYXs6gWkp9/Wt6XnQPX4dF4JBa8JdL/
-cT46RJIzoiJHEx/8syO5FparZHIKbkunoq6niPsRaQUGeqWc56H4Z1sQXuBJN9fhqkIkG0Ywfrwt
-uFrCoYIRlx4rSVHpBIKgnsgdm0SFQK72MPmIkfhfq9Fh0h8AjhF73sLO7K5BfwWkx1gwMySyNY0e
-PCRYr6WEVOkUJS0a0fui693ymMPFLQAimmz8EpyFok4Ju066StkYO1dIgUIla4x61auxkWHwnzGC
-Al0wggJZAgEBMGgwVDELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExKjAo
-BgNVBAMTIUdsb2JhbFNpZ24gQXRsYXMgUjYgU01JTUUgQ0EgMjAyMwIQAcDMKctW1GQKDKqEUSh4
-pjANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQg2//D/Xyyvi5/ruv5pLyZ3Rv3y1HE
-7fNAKkTKrh5hWNEwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjUw
-MzI5MDgwNDE1WjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJ
-YIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzALBglghkgBZQMEAgEwDQYJKoZIhvcN
-AQEBBQAEggEASVlVFQXw4S3LvkoUEZJTR42uF61UnTKRZ1Lgt9fykLsQjDZijEnIOpMeJYkmZXyu
-7QcD+Ra2/VA+DA4I4QWkaSB0j7LwcrPn8LNP2wU66CUhrecq0speJgnRJyIkA0otoc+ER83dnzmH
-6bfJg20kfVB0h9LCjFXs5lKkV+4t6KuuqOcY/8NPt06C9aYf5Dwk2T1WxpNaORrGAEFflYWarP00
-r9guI0DFa/bKju/HEwOR1Tlhvz0kGdXggqfTm9F16r49EBBwyZO1aWjJ0/0ErT9jrLwUMOJmY1Xd
-W4bgW3fB7adVI0LPodpz2ViCEEios5AmV+rb2cKlmUfMzI3gCQ==
---000000000000185cab063176a207--
+> +	val = cpuid_feature_extract_signed_field(mmfr4,
+> +						 ID_AA64MMFR4_EL1_E2H0_SHIFT);
+> +
+> +	return val != ID_AA64MMFR4_EL1_E2H0_IMP;
+
+This is going to break badly on Apple HW, which predate the
+"!FEAT_E2H0" relaxation and yet have HCR_EL2.E2H RAO/WI and
+ID_AA64MMFR4_EL1.E2H0==0.
+
+The curent code was carefully designed to *avoid* doing this, because
+the kernel doesn't really need to know anything about FEAT_E2H0 apart
+from the very early boot.
+
+What do we gain with this?
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
