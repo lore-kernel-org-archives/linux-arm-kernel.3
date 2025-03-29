@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6AEC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 00:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDBAC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 00:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tGMonBDCtHbGxccj+//vlpjOsUsbEFJEDLrw6ctd8aw=; b=ESPEVn7c5NYzxZWy5PCD3RxJJQ
-	nxsI4ojCUtQBfYoP1T5Du6DeMWrAN5MUE7U477j7Ie32R7OEJ8sdznP7BL3yNQX7tbwaDLNnhHNuY
-	qETJR15UhrrEFrlKAIMblJGILhFECrAJCx5fyOiDoa2awU+TbNMM5Q6sJEYWZPHk4xWVoED2TrpMF
-	DCo3LALFQ+MWUhVKOxEiXKOd7yt1UGhFgGjl5K19U0WAzoaV+FwTTYW73wugemYUl4UmzzRtoOEH1
-	0azlNjJgO5i7tH192drEZqOSTZClxJsKtkHMBcIE7a7AhxP7NhqzrrvaPSJJ1NKHGRIrDBHBQaR6f
-	A/e7oh9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WYXL/IJoE9Di2fp4ccVQCgQpgTyRfUoS3TC43hdzJJQ=; b=PSaDeJ/qdRd1L3QxuzD0gON6Tr
+	44oI2ZV4VwbSkkn9YGfg979N1HgkjVfqm7XPkFJgpXwkXiCHbhoT6gyPsoGjJ/BxZzMEClTlD8OEt
+	V1YT2J6R3M6ejTRahO88s48wcSwo2ZSEwrwiswygj/YCqjdv/QGYhOI4gaQv9RRYqStwqFYCq+S8Z
+	Vz/pdfL3qMaaNNX0yhPgugfbmBn6yiF6iAZDPOBtX9FxQq8ova+QP4sG6JA3ed6wXJDaxueEHPxZj
+	MZdsxCv4ydoZCBpJL8Nr1jwJ7pEdNANrBiIs0GXnRHOcnL+ZzB4cxHuihGRvFmZZdPgQBvnHHINf8
+	+iiMrY1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyJlA-0000000EX2P-3ZWA;
-	Sat, 29 Mar 2025 00:09:12 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1tyK6O-0000000EYC6-0k8Q;
+	Sat, 29 Mar 2025 00:31:08 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyJg2-0000000EWWM-3ucE
+	id 1tyK4e-0000000EY86-3D0x
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 00:03:56 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2240a96112fso79188165ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 17:03:53 -0700 (PDT)
+	Sat, 29 Mar 2025 00:29:21 +0000
+Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-224341bbc1dso54069885ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Mar 2025 17:29:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743206633; x=1743811433; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tGMonBDCtHbGxccj+//vlpjOsUsbEFJEDLrw6ctd8aw=;
-        b=vZSgZkXgV6h4Zor1ZYcGHe75+3AJeiaUG/mjWsfGwcitQyQWuSisVhFMYiwcbsNaD/
-         VJPZ/mQXXbtHQerv9vQprHk+bRWYsPTISSJi7LLyU11mFvwLvVtodESKUaSJL163Hc7E
-         D+2bq4nZNC5o+Irtqt7SMZznn+QJ4W1FItHu9lfv/WqvFxZGGYxDQtbiUG4J0LMw0Bjy
-         fKr8KVo6an0bobA6aJPcb8Vw6HV/zyJbNxLTfSfk1DvHn+0ppkcfmSkWcvFlK5eOS6xI
-         yzTk8EQhzR+g/2/GfPa0EuUtb7n2+oqmZXkqRsKDpatIEj3IKj2OStssI8ScbQL7KWlU
-         QCzA==
+        d=gmail.com; s=20230601; t=1743208159; x=1743812959; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=WYXL/IJoE9Di2fp4ccVQCgQpgTyRfUoS3TC43hdzJJQ=;
+        b=Tpbyeyxj28UduVzMsUqA2Jd+UoMdPwU1QwzwLqFc/wUtaSqTbYuuu6x90aeIJvPIxD
+         G8GJHPmr9KZ5t4YLJnk1qkaM26ftDoP5IAhp1G8uR014G0ZuAqXw7B8r0yte83ojiZw3
+         2YcCJPXiSdvvItWanmo0Vslf962OCIOPoFxCl+TJHPanp+8kocfOl1V8AMjhuksVj0ZS
+         wW3c0cqagkGQ5HNRwB9ELnE6i4u+Trv7bjL1U44FKFE/mxqgkE1B0+3QMgOq/Coqoj8q
+         Whj4gtTdj8KiCMOkx67rNss6vZtuwQS41wh1Xjv+R+Y7qMjN8zrTJSROdFQV7/nlJSRG
+         wJ7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743206633; x=1743811433;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tGMonBDCtHbGxccj+//vlpjOsUsbEFJEDLrw6ctd8aw=;
-        b=ekYOa5IChITNXRDV7jZk9RgqbAtzL9H9fivptd/YxIwKmzJzDfH4MGrRZAjK3z/UMn
-         m6/dUl/Ol85/QuuaPL6GlDbvtKuEZ604rQVxTWGdNqUWal/sC4m1GUDBKyrxXqck2tZy
-         Rzy4/IaC1wzx7XOMC43fcq3Gg4vseUtY+tfryJI6iUC/Vv0ja3ifE5YQ/q7CSN/CZCaF
-         6EXqdbfSNglHBWMsygPDuz1xh0pl2Fm2QHi27Xqhs15paJfJo08TIZBkypklfoZCVY+w
-         LLR+FtNrBSyMwC0fLAQRlQZ/ayNnsjnkRGzHfv3IOPk1383mWX4UhpnIA+Mkta2q8hgA
-         XxSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVpVdsEexCLDUCwq+Gb1dTVCZ1kAPxn/X/Pf3eCI+RztiydYJ+jZj7rKnr8ix3aVpAmr6313Pmaa72o+kYUQvQt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxS6M+hGP2sbtMXwSPgP5EKb6L8QPqOWVaK3vwQWPtVAs+tz44n
-	sD3yt4riPUY+bT9+l2/qW5fAU1y5I52juFhODeaZb8XW9uIMkiJyBVtRc92oJMRt/Q==
-X-Google-Smtp-Source: AGHT+IG1OCkWK6ACc2gjb+axSi3OGauLJByZEq2XzaKVmUmtuGmaBnSVPaf+lB7MT0QcfgqXjpACp1o=
-X-Received: from plrc9.prod.google.com ([2002:a17:902:aa49:b0:229:2f8a:aac5])
- (user=pcc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:eb8d:b0:21f:564:80a4
- with SMTP id d9443c01a7336-2292f9e5139mr16353845ad.33.1743206633220; Fri, 28
- Mar 2025 17:03:53 -0700 (PDT)
-Date: Fri, 28 Mar 2025 17:03:37 -0700
-In-Reply-To: <20250329000338.1031289-1-pcc@google.com>
-Mime-Version: 1.0
-References: <20250329000338.1031289-1-pcc@google.com>
-X-Mailer: git-send-email 2.49.0.472.ge94155a9ec-goog
-Message-ID: <20250329000338.1031289-3-pcc@google.com>
-Subject: [PATCH v4 2/2] kasan: Add strscpy() test to trigger tag fault on arm64
-From: Peter Collingbourne <pcc@google.com>
-To: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Andrew Morton <akpm@linux-foundation.org>, Kees Cook <kees@kernel.org>, 
-	Andy Shevchenko <andy@kernel.org>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>, 
-	Peter Collingbourne <pcc@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1743208159; x=1743812959;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WYXL/IJoE9Di2fp4ccVQCgQpgTyRfUoS3TC43hdzJJQ=;
+        b=jafGR/F3SDSIAKZ37aS1Kd6bDFZIH4VpzJlFfjz5IzVKC5y3VwUlserc5oITOxvypd
+         pOvsS7EFmzH7oV8sepJMQH3cC1C8DU7howSWMaenI9IgNh9EpHzah5+yhkVwByrCFOvd
+         gU5m0qBBSw+Xbn8hWB5qLPx6Go7jmEYyDSkJdOA4DokWjneapbCglqg26e6oTYqzpUJV
+         pZ96MuNp374UU/0UDKiJov3qasBp9yXSOD6PaYdP8i3vJzbUhs8fxvley0HYMdqJvOJG
+         qUKjKtNPkT+HtR13cwwOBzfRaUxyTDUNUIkrbj/EBo58Nn3CRVn1Mkd+zkJW78ajxoGM
+         D1zA==
+X-Forwarded-Encrypted: i=1; AJvYcCVvi0NMNPNQXMx4Jerhr3IfEnoo4y4mH5yrTwfbo35Hu5M6av5W4QvXxlOM0znGVETVZeO6gzewprSqQHl7GSSk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTMkh+vY97/2H5w5BYBEdlgTCRpXZMCfRJT3nr6MTHq/jZDjQM
+	DddZ1ziLdQvO43APKOeUiMWofmH5BKfG2VI7CVYCuq+wpBboeaKM
+X-Gm-Gg: ASbGncuz52yLYLfjU0dhb9A5xYs26f5Z//Y9Nr4UzxF3aFZRNHpsQ9oTF+yUIm641n0
+	v+TkW8Yk4W9MRREe8JUvSG4ZrJlBCX31ame4c6FoWXxH46O1B0tPJ4Hvr1aMbuSy62B2fnWZ0Mp
+	NgzJkGJuI9/nt3b2ikSFP68NBpabpzHShHsac0XDhnIfVrGFhgdyUkz7Y7AUwi7GyUuemW8wbr3
+	Xb3lKkl1BrN4F94hZK7bdy3pZ8xZSQIs0/o1zeAvCKPZYpuC2kcUJHVtU85nZMnXcyAxLlW6251
+	mBMKa+zanNd0F4DNogksZqO4AFGNamoDOQ/vUuGHKH0ClDj7xWnubGcqypnZXj5rOd3euA==
+X-Google-Smtp-Source: AGHT+IFA2z+X2uC61UN1KJifyXv9jI8e3ROzSjHTCWF6TbJpXqQnAeo9E5gok3I3WbstaxxTgqoAHg==
+X-Received: by 2002:a17:90b:134d:b0:2fa:e9b:33b8 with SMTP id 98e67ed59e1d1-305320afaadmr1854600a91.18.1743208159280;
+        Fri, 28 Mar 2025 17:29:19 -0700 (PDT)
+Received: from henry.localdomain ([36.112.187.254])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30516d3e535sm2541627a91.1.2025.03.28.17.29.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Mar 2025 17:29:18 -0700 (PDT)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: linux-usb@vger.kernel.org,
+	linux-aspeed@lists.ozlabs.org
+Cc: gregkh@linuxfoundation.org,
+	linux-arm-kernel@lists.infradead.org,
+	Henry Martin <bsdhenrymartin@gmail.com>
+Subject: [PATCH] Subject: [PATCH] usb: gadget: aspeed: Add NULL check in the ast_vhub_init_dev
+Date: Sat, 29 Mar 2025 08:29:11 +0800
+Message-Id: <20250329002911.132826-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_170354_973436_74C6E403 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20250328_172920_806425_B2BD20E3 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,76 +96,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vincenzo Frascino <vincenzo.frascino@arm.com>
+When devm_kasprintf() fails, it returns a NULL pointer. However, this return value is not properly checked in the function ast_vhub_init_dev.
 
-When we invoke strscpy() with a maximum size of N bytes, it assumes
-that:
-- It can always read N bytes from the source.
-- It always write N bytes (zero-padded) to the destination.
+A NULL check should be added after the devm_kasprintf call to prevent potential NULL pointer dereference error.
 
-On aarch64 with Memory Tagging Extension enabled if we pass an N that is
-bigger then the source buffer, it would previously trigger an MTE fault.
-
-Implement a KASAN KUnit test that triggers the issue with the previous
-implementation of read_word_at_a_time() on aarch64 with MTE enabled.
-
-Cc: Will Deacon <will@kernel.org>
-Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Co-developed-by: Peter Collingbourne <pcc@google.com>
-Signed-off-by: Peter Collingbourne <pcc@google.com>
-Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
-Link: https://linux-review.googlesource.com/id/If88e396b9e7c058c1a4b5a252274120e77b1898a
+Fixes: 7ecca2a4080cb ("usb/gadget: Add driver for Aspeed SoC virtual hub")
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
 ---
-v4:
-- clarify commit message
-- improve comment
+ drivers/usb/gadget/udc/aspeed-vhub/dev.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-v3:
-- simplify test case
-
-v2:
-- rebased
-- fixed test failure
-
- mm/kasan/kasan_test_c.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/mm/kasan/kasan_test_c.c b/mm/kasan/kasan_test_c.c
-index 59d673400085f..655356df71fe6 100644
---- a/mm/kasan/kasan_test_c.c
-+++ b/mm/kasan/kasan_test_c.c
-@@ -1570,6 +1570,7 @@ static void kasan_memcmp(struct kunit *test)
- static void kasan_strings(struct kunit *test)
- {
- 	char *ptr;
-+	char *src;
- 	size_t size = 24;
+diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
+index 573109ca5b79..1709a58299a5 100644
+--- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
++++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
+@@ -545,9 +545,11 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx)
+ 	struct device *parent = &vhub->pdev->dev;
+ 	int rc;
  
- 	/*
-@@ -1581,6 +1582,21 @@ static void kasan_strings(struct kunit *test)
- 	ptr = kmalloc(size, GFP_KERNEL | __GFP_ZERO);
- 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, ptr);
++	d->name = devm_kasprintf(parent, GFP_KERNEL, "port%d", idx + 1);
++	if (!d->name)
++		return -ENOMEM;
+ 	d->vhub = vhub;
+ 	d->index = idx;
+-	d->name = devm_kasprintf(parent, GFP_KERNEL, "port%d", idx+1);
+ 	d->regs = vhub->regs + 0x100 + 0x10 * idx;
  
-+	src = kmalloc(KASAN_GRANULE_SIZE, GFP_KERNEL | __GFP_ZERO);
-+	strscpy(src, "f0cacc1a0000000", KASAN_GRANULE_SIZE);
-+
-+	/*
-+	 * Make sure that strscpy() does not trigger KASAN if it overreads into
-+	 * poisoned memory.
-+	 *
-+	 * The expected size does not include the terminator '\0'
-+	 * so it is (KASAN_GRANULE_SIZE - 2) ==
-+	 * KASAN_GRANULE_SIZE - ("initial removed character" + "\0").
-+	 */
-+	KUNIT_EXPECT_EQ(test, KASAN_GRANULE_SIZE - 2,
-+			strscpy(ptr, src + 1, KASAN_GRANULE_SIZE));
-+
-+	kfree(src);
- 	kfree(ptr);
- 
- 	/*
+ 	ast_vhub_init_ep0(vhub, &d->ep0, d);
 -- 
-2.49.0.472.ge94155a9ec-goog
+2.34.1
 
 
