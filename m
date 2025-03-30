@@ -4,82 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F153EC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 16:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B0F0C36013
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 17:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rpi1OjdRYgdKpndRS7RuacYxnnilyLSrRz20yGAWxus=; b=TdWAHQVWpsmVrbOdFwuDjjiHyd
-	D6g+9nU6BoTVPVXhMc4RhGw0YSkoRTOgKjI/QE+KpmWER6k3Fq9nH7YCfO17wC5BZ7aBzQSWUeKsH
-	/IVV8naX/p904nSErdLoqHgDUNp3Ml3PRL0egPyvpQZ3qgpdgTHXY0dk22piUPfMajGM1g4Ns8bqJ
-	5RUyqxpvDU20v7bhpXUybMdbKyO4pF355yOecoC6eBatRryiSrMnQJYnb9Er2EUw+L9KTh1GPI7LG
-	WgBAhzf1GEjOQEzFL8wZ0iJM2OZsh9qxy8ctNbwAWfZyDfnvj00/g61jTvGilLJZO4ETuPtJZmdw3
-	raZ45lRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yfNrr9IWXB5j/RFLxcg5ak0n+LLaTpY+LShrMT5MZf0=; b=uNZe6ZsZ0yWZ/zM17bTfBRaXN/
+	M+BGC1aADSqoZSZ08IHKkPwgIDuKbZqKv2n1EogDwP886N4GkxssaZUVM0s9AG78O7F0mSUMdiFDP
+	+69/toBNvcTQcW1bcDP0fah+AItCfPF94qw0jv/3HOJ2/sEEC3Q4EYPbqubXrba0hBWIdlvi+Tizr
+	YCQYHO91f6gEdeaJ4ehJEsoyZbiZYLn7gcARI3rSC6mAXywoMclmg8WTtAMPSbZErl3LskvGxQ/uU
+	HVIXLqCKye8i6Yf71LNhfStIueesOhpm8PB2WrsZc8WbpjEJpqHJrgOEqhhPritDYU071o9tHIYr9
+	+nkNzRhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyvk6-0000000GOi9-1NLn;
-	Sun, 30 Mar 2025 16:42:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tywrX-0000000GT3B-2Epj;
+	Sun, 30 Mar 2025 17:54:23 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyvhI-0000000GOW5-1hu9
+	id 1tywpn-0000000GSve-3bXX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 16:39:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 77E4AA40E79;
-	Sun, 30 Mar 2025 16:34:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07588C4CEDD;
-	Sun, 30 Mar 2025 16:39:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743352783;
-	bh=V5j1W1nJpZdHJRcysq7Oe534M79h+6sw32lCrhO5bko=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DSlP+kHKxiKQhEBGuOxQvTYGW2bothqLP6dIcRecKrLJBpk2FAQQ1Sd6hhBeuzeRq
-	 uzc+n5Lat8DYzJqEunPmSYRE3SWpFes1lhxdokXGw03tLAp23GJKKluvvimOCXPXzr
-	 9UmTF60kHO92zccmwnCHVjfMlIklx5i4nr51Nr805xZSQQTjGsz6cSApKud+Fzabh+
-	 eHNWEZR4K7lM2YOA8ejB3M+0umjyLGGLRxj71D4WjHFXKgtGlKse1d6MhXjelM7wwm
-	 Rjrd49yz8AqS0I3NW6FBkjhGZOMp4ePleRmbdgPmKCS5dcaBzjQB7IfZSR5Jn1sy6G
-	 sB4EyXezgVr5Q==
-Date: Sun, 30 Mar 2025 17:39:29 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>, Lars-Peter Clausen
- <lars@metafoo.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus
- <sakari.ailus@linux.intel.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Danilo Krummrich <dakr@kernel.org>, Lad Prabhakar
- <prabhakar.mahadev-lad.rj@bp.renesas.com>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>, David Lechner
- <dlechner@baylibre.com>, Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Guillaume Stols <gstols@baylibre.com>, Olivier Moysan
- <olivier.moysan@foss.st.com>, Dumitru Ceclan <mitrutzceclan@gmail.com>,
- Trevor Gamblin <tgamblin@baylibre.com>, Matteo Martelli
- <matteomartelli3@gmail.com>, Alisa-Dariana Roman <alisadariana@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- =?UTF-8?B?Sm/Do28=?= Paulo =?UTF-8?B?R29uw6dhbHZlcw==?=
- <joao.goncalves@toradex.com>, Ramona Alexandra Nechita
- <ramona.nechita@analog.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-acpi@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v10 2/8] property: Add functions to iterate named child
-Message-ID: <20250330173929.155477d1@jic23-huawei>
-In-Reply-To: <2767173b7b18e974c0bac244688214bd3863ff06.1742560649.git.mazziesaccount@gmail.com>
-References: <cover.1742560649.git.mazziesaccount@gmail.com>
-	<2767173b7b18e974c0bac244688214bd3863ff06.1742560649.git.mazziesaccount@gmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	Sun, 30 Mar 2025 17:52:37 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52UEK2lx032338
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 17:52:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=yfNrr9IWXB5j/RFLxcg5ak0n
+	+LLaTpY+LShrMT5MZf0=; b=aFUec8+YWE1jnyv0nk/UwcyIDxhVVm/YbGUA+jt1
+	kB1+g/9hulsP7Th5jWEjH4OsgzywWxhXU2h9XSZCxl0pdUCwiey4JcpYzLXajBlf
+	JqcWj9i+knFv6i+zvuoUJApQ8X04Gd5XxAYMlyESWeLU1v1lH0xYDOHneldKer7h
+	lCjIm5oza06P6dRV1pUFXEWCtzhnBaZhyyS/azLyZahyIBZULLBcju3jKyJTxOSz
+	Mrm5om78MEYR5cIp+DBoZKMuwp8EIZQE+o4RGVjzXoM56bFC9/PuQGSJIUiL6NjA
+	C++vGODQhgxbE0WaScqwObvkDfm39Uo2V4r6HjYc64HDuQ==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45p9892jp8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 17:52:32 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7c549ea7166so598839685a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 10:52:32 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743357151; x=1743961951;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yfNrr9IWXB5j/RFLxcg5ak0n+LLaTpY+LShrMT5MZf0=;
+        b=vBfJmJzSTZbZtZtR+MxyySHdJBhhntvxS9BRdudRabF9kpTs7/gJqHf4g/a7HW2Ur6
+         Xj+jyDZH8Ro9lJT98Rwcr2SAUYBx1fWIhA3+ENISmGaPLbAQAJ/dx7AaXcgQpzN4IR03
+         WlL/lJTn6Plkwhlth1L3foAmxdnko8OvxBJ/ENTDMLrHXx5koJ1429EjHIZwHGKclsSX
+         2CdNyTxRRy6F9SbpyN5F6AwUP7plPT5ATKQCItYutyBIY9wT6rmjleQbwCYTJDFmsR8X
+         9HGhSAuCuaWujxIJLDiQwJNxK5tR0C3HGJdpjh/JJT9gNzgkYfpa/HqhKiVSb7COnKxQ
+         9yng==
+X-Forwarded-Encrypted: i=1; AJvYcCWIpDpiQRabj46qwHO8oR3Pk9NutseBDKZ08/GohFr8ArRUFsg+i0LlA/onGAtas3+TBx8xrMIxjJ9PQYOGabDU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKwmcapXnAxO+iEOBD7Sxe2MajImifsQ3T4FEfeIFhiO3FBr09
+	oB1dqu1H/vNrQLFgAmq0hfSDESmw47BdDmpTxvACFbCiqRUFKIuP19Ew1wdMO0THklxDdZngZCF
+	4/VA2CCQ/GFQ9HKio93RUFHXc9LoZcf4azsfPkQY5yOxtaQUqXZVJYXM4zs7IhqsVSPsX2XvDqA
+	==
+X-Gm-Gg: ASbGncsUhVR9Lx4h9pLha0XE3G/anwRTeYx3PTNPuUwtvFJNL9cZZV1Ni8MWeFLLwve
+	I0AovPMbMSgm0TI+om5tZ3/1knv7Mp+fwAXxIQFnxq11QM/NB2LBmutxp16AQywvDrGQNpcUF4X
+	ck1kZwNzAONpbo8aePLbMqRS+CknqK9T9IOuNIK93AjOSWsP9vdRhuUOVnkV20/X9/Df02Gk86Z
+	cjMziBPi5oY7my8lXYEN2UG4igTxMPeV/rlKcXIO4niLRK6HHuEL5VPKiurYTD2LyaWhbrKM9Cv
+	97bbUL/5qVRORp5bemkpp50WMPcqA9mgVJAhQi1bBfSWHhZGFomIV3cChedigAHZ/sY/krbNbVc
+	7zyc=
+X-Received: by 2002:a05:620a:462b:b0:7c5:e370:5c3 with SMTP id af79cd13be357-7c6862ebacamr786300585a.7.1743357151445;
+        Sun, 30 Mar 2025 10:52:31 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFy5zLBvgqZ9PHFag3iQjcsiuGTjpjVXIsJR4FiwTqbGCjzxceuXoViknNhd3e/sRnunh8apA==
+X-Received: by 2002:a05:620a:462b:b0:7c5:e370:5c3 with SMTP id af79cd13be357-7c6862ebacamr786299585a.7.1743357151150;
+        Sun, 30 Mar 2025 10:52:31 -0700 (PDT)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30dd2b4cd28sm11640941fa.70.2025.03.30.10.52.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 30 Mar 2025 10:52:29 -0700 (PDT)
+Date: Sun, 30 Mar 2025 20:52:26 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Charles Han <hanchunchao@inspur.com>
+Cc: victor.liu@nxp.com, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
+        rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+        jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+        mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+        simona@ffwll.ch, shawnguo@kernel.org, s.hauer@pengutronix.de,
+        kernel@pengutronix.de, festevam@gmail.com,
+        dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/imx: legacy-bridge: fix inconsistent indenting
+ warning
+Message-ID: <444lkvxa7iuymc6wx2gmcsjm5zv5wa4nq7dyhf4nkxmtfaxrhv@tm4hpcsoxo73>
+References: <20250325075503.3852-1-hanchunchao@inspur.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250325075503.3852-1-hanchunchao@inspur.com>
+X-Authority-Analysis: v=2.4 cv=fIk53Yae c=1 sm=1 tr=0 ts=67e984e0 cx=c_pps a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Vs1iUdzkB0EA:10 a=F_93P0QhAAAA:8 a=EUspDBNiAAAA:8 a=hZwuMZaz95D9sbrnA4gA:9 a=CjuIK1q_8ugA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22 a=v2fne3mUlQEKA94IZ0Od:22
+X-Proofpoint-GUID: WhGftBw6cb1Do7i1A7kuyoy_tR91zIK7
+X-Proofpoint-ORIG-GUID: WhGftBw6cb1Do7i1A7kuyoy_tR91zIK7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-30_08,2025-03-27_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
+ impostorscore=0 mlxscore=0 adultscore=0 phishscore=0 suspectscore=0
+ mlxlogscore=728 clxscore=1015 lowpriorityscore=0 spamscore=0
+ priorityscore=1501 bulkscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502280000 definitions=main-2503300125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_093944_584062_C847FCB9 
-X-CRM114-Status: GOOD (  32.87  )
+X-CRM114-CacheID: sfid-20250330_105236_018132_2C2D999C 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,154 +126,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Mar 2025 09:12:50 +0200
-Matti Vaittinen <mazziesaccount@gmail.com> wrote:
-
-> There are a few use-cases where child nodes with a specific name need to
-> be parsed. Code like:
+On Tue, Mar 25, 2025 at 03:55:03PM +0800, Charles Han wrote:
+> Fix below inconsistent indenting smatch warning.
+> smatch warnings:
+> drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c:79 devm_imx_drm_legacy_bridge() warn: inconsistent indenting
 > 
-> fwnode_for_each_child_node()
-> 	if (fwnode_name_eq())
-> 		...
-> 
-> can be found from a various drivers/subsystems. Adding a macro for this
-> can simplify things a bit.
-> 
-> In a few cases the data from the found nodes is later added to an array,
-> which is allocated based on the number of found nodes. One example of
-> such use is the IIO subsystem's ADC channel nodes, where the relevant
-> nodes are named as channel[@N].
-> 
-> Add helpers for iterating and counting device's sub-nodes with certain
-> name instead of open-coding this in every user.
-> 
-> Suggested-by: Jonathan Cameron <jic23@kernel.org>
-> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Reviewed-by: Marcelo Schmitt <marcelo.schmitt1@gmail.com>
-Whilst I've queued up the series, I'll be rebasing on rc1 anyway
-so if Sakari or anyone else still wants to comment on this patch
-or offer tags, go ahead!
-
-Jonathan
+> Signed-off-by: Charles Han <hanchunchao@inspur.com>
 > ---
-> Revision history:
-> v9 =>
->  - No changes
-> v8 => v9:
->  - Drop the fwnode_for_each_available_named_child_node() as suggested
->    by Sakari during v8 review:
->    https://lore.kernel.org/all/Z9mQPJwnKAkPHriT@kekkonen.localdomain/
-> v7 => v8:
->  - Fix the example in fwnode_get_named_child_node_count() documentation
->    to use the fwnode_get_named_child_node_count() and not the
->    device_get_named_child_node_count()
->  - Fix the rest of the new macro's indentiations
-> v6 => v7:
->  - Improve kerneldoc
->  - Inline device_get_named_child_node_count() and change it to call
->    fwnode_get_named_child_node_count() inside
->  - Fix indentiation of the new macros
-> v5 => v6:
->  - Add helpers to also iterate through the nodes.
-> v4 => v5:
->  - Use given name instead of string 'channel' when counting the nodes
->  - Add also fwnode_get_child_node_count_named() as suggested by Rob.
-> v3 => v4:
->  - New patch as suggested by Jonathan, see discussion in:
-> https://lore.kernel.org/lkml/20250223161338.5c896280@jic23-huawei/
-> ---
->  drivers/base/property.c  | 27 +++++++++++++++++++++++++++
->  include/linux/property.h | 20 ++++++++++++++++++++
->  2 files changed, 47 insertions(+)
+>  drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 > 
-> diff --git a/drivers/base/property.c b/drivers/base/property.c
-> index c1392743df9c..f42f32ff45fc 100644
-> --- a/drivers/base/property.c
-> +++ b/drivers/base/property.c
-> @@ -945,6 +945,33 @@ unsigned int device_get_child_node_count(const struct device *dev)
->  }
->  EXPORT_SYMBOL_GPL(device_get_child_node_count);
->  
-> +/**
-> + * fwnode_get_named_child_node_count - number of child nodes with given name
-> + * @fwnode: Node which child nodes are counted.
-> + * @name: String to match child node name against.
-> + *
-> + * Scan child nodes and count all the nodes with a specific name. Potential
-> + * 'number' -ending after the 'at sign' for scanned names is ignored.
-> + * E.g.::
-> + *   fwnode_get_named_child_node_count(fwnode, "channel");
-> + * would match all the nodes::
-> + *   channel { }, channel@0 {}, channel@0xabba {}...
-> + *
-> + * Return: the number of child nodes with a matching name for a given device.
-> + */
-> +unsigned int fwnode_get_named_child_node_count(const struct fwnode_handle *fwnode,
-> +					       const char *name)
-> +{
-> +	struct fwnode_handle *child;
-> +	unsigned int count = 0;
-> +
-> +	fwnode_for_each_named_child_node(fwnode, child, name)
-> +		count++;
-> +
-> +	return count;
-> +}
-> +EXPORT_SYMBOL_GPL(fwnode_get_named_child_node_count);
-> +
->  bool device_dma_supported(const struct device *dev)
->  {
->  	return fwnode_call_bool_op(dev_fwnode(dev), device_dma_supported);
-> diff --git a/include/linux/property.h b/include/linux/property.h
-> index e214ecd241eb..3e83babac0b0 100644
-> --- a/include/linux/property.h
-> +++ b/include/linux/property.h
-> @@ -167,6 +167,10 @@ struct fwnode_handle *fwnode_get_next_available_child_node(
->  	for (child = fwnode_get_next_child_node(fwnode, NULL); child;	\
->  	     child = fwnode_get_next_child_node(fwnode, child))
->  
-> +#define fwnode_for_each_named_child_node(fwnode, child, name)		\
-> +	fwnode_for_each_child_node(fwnode, child)			\
-> +		if (!fwnode_name_eq(child, name)) { } else
-> +
->  #define fwnode_for_each_available_child_node(fwnode, child)		       \
->  	for (child = fwnode_get_next_available_child_node(fwnode, NULL); child;\
->  	     child = fwnode_get_next_available_child_node(fwnode, child))
-> @@ -178,11 +182,19 @@ struct fwnode_handle *device_get_next_child_node(const struct device *dev,
->  	for (child = device_get_next_child_node(dev, NULL); child;	\
->  	     child = device_get_next_child_node(dev, child))
->  
-> +#define device_for_each_named_child_node(dev, child, name)		\
-> +	device_for_each_child_node(dev, child)				\
-> +		if (!fwnode_name_eq(child, name)) { } else
-> +
->  #define device_for_each_child_node_scoped(dev, child)			\
->  	for (struct fwnode_handle *child __free(fwnode_handle) =	\
->  		device_get_next_child_node(dev, NULL);			\
->  	     child; child = device_get_next_child_node(dev, child))
->  
-> +#define device_for_each_named_child_node_scoped(dev, child, name)	\
-> +	device_for_each_child_node_scoped(dev, child)			\
-> +		if (!fwnode_name_eq(child, name)) { } else
-> +
->  struct fwnode_handle *fwnode_get_named_child_node(const struct fwnode_handle *fwnode,
->  						  const char *childname);
->  struct fwnode_handle *device_get_named_child_node(const struct device *dev,
-> @@ -210,6 +222,14 @@ int fwnode_irq_get_byname(const struct fwnode_handle *fwnode, const char *name);
->  
->  unsigned int device_get_child_node_count(const struct device *dev);
->  
-> +unsigned int fwnode_get_named_child_node_count(const struct fwnode_handle *fwnode,
-> +					       const char *name);
-> +static inline unsigned int device_get_named_child_node_count(const struct device *dev,
-> +							     const char *name)
-> +{
-> +	return fwnode_get_named_child_node_count(dev_fwnode(dev), name);
-> +}
-> +
->  static inline int device_property_read_u8(const struct device *dev,
->  					  const char *propname, u8 *val)
->  {
 
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+
+-- 
+With best wishes
+Dmitry
 
