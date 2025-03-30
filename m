@@ -4,78 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0BCBC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 08:48:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB78C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 08:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OtYLXG90eJ5bXrADp8w285Rs0wrLbQJIKJ4ztNMCQR8=; b=RfyAJy3nHf52V4VgaiDcMnz3zB
-	KxZba2GTDbLV8tnHtkPeE7feE+J6ZrtrikNzNw4KDD11mtyvPjnb7Y0XayVaCSleseqiNmq8SxKHL
-	fRW6aVbCwKQHdaUjehLx7YKcJT+Ft1e0mX++A63i9Ry7nbKGENDK705vLRz/jZwJPlwq7UVnrRA/y
-	6XnVnkvtaP3Vie0TwjQ018OrlJHU4X7HAuLPDPVRAnrNlr2QuE71+IFLzNDEO6fY9BhqTpM/L9QMV
-	8OB5CgPyabiq617yS57LwdJ2/QDgsqkd6jcl5JCMDmbIAgAkLDZFGAu5u1zlt7a/eTfOqPiHBj1HJ
-	j7hX5jmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dTqWupLjl7cdoWEq+RC/Hw7jFYiUJzqNImVvEUcMouk=; b=J7zYxT2FukXw/N/szIVBkpypoJ
+	5ppPIDAkAicfHhpgmvMVO7CxNKd6PNdeaCfbHkqLSSN17qrE8H6ZxPsBTV7fFPGrzKVkfD+yWXfGY
+	6nspEB3pJamBdqWVFVPW6f8tCIKNFmPf79LrB5A6ICmut5SL8Ob6lbVwtM4rRP+IKN6tJ/rDKY262
+	Q/KvCDdGwd+oCIFcHW3fvYt5aH8ZjCkt+X5T9ndV5+81NlY5Ag0kUiE4jeHWh4QOywReu0CI4OYrt
+	Sx80DYCb8TLk7/lKU/t4i6ZMlcr3wjeRrDShauReqK8yncmTx6MXLDgKaG4XjatjgfmUbE/VK6rrf
+	hMRPqzpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyoLN-0000000Fyc1-1zQE;
-	Sun, 30 Mar 2025 08:48:37 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tyoQH-0000000Fzgr-1sOP;
+	Sun, 30 Mar 2025 08:53:41 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyoHv-0000000FyEF-371W
+	id 1tyoOV-0000000FzA9-4BFJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 08:45:05 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52U8dUuG2447366
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 30 Mar 2025 03:39:30 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1743323970;
-	bh=OtYLXG90eJ5bXrADp8w285Rs0wrLbQJIKJ4ztNMCQR8=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=nou3TA3qQASygvb6AaTTblhQAJ9aKFIDwkR/V7F3gEI6RNLKI4BkW4G9GC+y7cecS
-	 eyYAKBL0Ye5yx04p0EdWmpxfMHefUzg5YxsVBoU3zjxY4CIMnjDaqB+y4UHqoWF+s6
-	 Uoen4NWYzTshU98rT2RGJUCfKEceYpTmLoiBnFa4=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52U8dUfG020420
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sun, 30 Mar 2025 03:39:30 -0500
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 30
- Mar 2025 03:39:29 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sun, 30 Mar 2025 03:39:29 -0500
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52U8dE4i015769;
-	Sun, 30 Mar 2025 03:39:25 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <lpieralisi@kernel.org>, <kw@linux.com>,
-        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <vigneshr@ti.com>, <kishon@kernel.org>,
-        <18255117159@163.com>, <cassel@kernel.org>,
-        <wojciech.jasko-EXT@continental-corporation.com>,
-        <thomas.richard@bootlin.com>, <bwawrzyn@cisco.com>
-CC: <linux-pci@vger.kernel.org>, <linux-omap@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH v2 2/4] PCI: cadence-host: Introduce cdns_pcie_host_disable helper for cleanup
-Date: Sun, 30 Mar 2025 14:09:12 +0530
-Message-ID: <20250330083914.529222-3-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250330083914.529222-1-s-vadapalli@ti.com>
-References: <20250330083914.529222-1-s-vadapalli@ti.com>
+	Sun, 30 Mar 2025 08:51:53 +0000
+Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
+	by mailfout.stl.internal (Postfix) with ESMTP id 42846114011B;
+	Sun, 30 Mar 2025 04:51:48 -0400 (EDT)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-12.internal (MEProxy); Sun, 30 Mar 2025 04:51:48 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm3;
+	 t=1743324708; x=1743411108; bh=dTqWupLjl7cdoWEq+RC/Hw7jFYiUJzqN
+	ImVvEUcMouk=; b=DJnJtTkx4FtwTGs+MCsrm43hFIkfqw4YaAN/iAf6TgpR0LbC
+	o+1eLQsYmMCqFU1GY8C+JR/xcq53SyuUQywH6k3f+PP1xqqCMv9G5aU89r5KCy7E
+	esU9ANb6BbU6oi4EDQAzKVSib3TPZUA7xmK25k/ZZsKjfKtCF6MoRwSqR4WaoGe8
+	O5OzmT+DbH6fhcpx1/IDh8wahLKCbFydU1W83a2yls0+1pkAqVzGrWsoPFPE5XyJ
+	Y/XUuouU25KflRa/Z0Ls1fDdWHp1E198ihXjdvNIjSRzMTLSmO6B00nsLqG++heE
+	fHBafwieQnBMeyIkmNAQbORXHzaf3WjS83JPyg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1743324708; x=
+	1743411108; bh=dTqWupLjl7cdoWEq+RC/Hw7jFYiUJzqNImVvEUcMouk=; b=E
+	1rLm3UZ5lxXQ2IfWIxo+qXUsKga+l/AU8skmGxFy4QX4/GQMa7NMcwYOkgewM8MM
+	Ck2QOI5duUsk+T0zZ73+5fRGnrHWUJpLxQfmTBxKHvLxZ37Bzst3f4/D9Aet4zPK
+	vOgJMbpaqGbLUZxVKfusy3ZI1dT+e+3LN1NpU4mmUtL35tL+byFt99Z6c/pV4ZSN
+	uUeqpQfeoHqKB5nu19xAOrAniDep7IG7sgoWkpNOmIRjPokDdFYgVM+pSzZrLWEv
+	GnTOHRPwGChr0agwfrfbJJy/ClTXEAOTmVJpcLQ8GfyQO2s3598YjeYrrFFrG+l/
+	rFhIHueaTk3zZB6vnEPsg==
+X-ME-Sender: <xms:IQbpZzmp2KoRE1ljRh7hr-SHuOTQ2BaiFqboNbdzG_3Q0dfu64n51w>
+    <xme:IQbpZ21fyxznLm7bF4IiUP9f_YTDHzitZJ2fyRbK0EmkF6a6No9IdIhjWcm98H6T1
+    A2xYMiPn647jbr-MX4>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddujeeiieduucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedfufhvvghnucfrvghtvghrfdcuoehsvhgvnhesshhvvghnphgvth
+    gvrhdruggvvheqnecuggftrfgrthhtvghrnhepleefteeugeduudeuudeuhfefheegveek
+    ueefffdvffektdffffelveffvddvueffnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
+    hrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggp
+    rhgtphhtthhopeduhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptghhrhhish
+    htohhphhgvrdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopehmphgvsegv
+    lhhlvghrmhgrnhdrihgurdgruhdprhgtphhtthhopegrnhguhidrshhhvghvtghhvghnkh
+    hosehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhhpihhgghhinhesghhmrghilhdrtgho
+    mhdprhgtphhtthhopehjsehjrghnnhgruhdrnhgvthdprhgtphhtthhopegrnhguihdrsh
+    hhhihtiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgrvhgvvghnsehkvghrnhgv
+    lhdrohhrghdprhgtphhtthhopehmrgguugihsehlihhnuhigrdhisghmrdgtohhmpdhrtg
+    hpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggv
+    rggurdhorhhg
+X-ME-Proxy: <xmx:IQbpZ5rnL3CUphbOwpi10Itieqzl_zNrcEz9pXzntZMIsAR_r15lcA>
+    <xmx:IQbpZ7lkVSFcsxeK4r1GNWXI3qP-UoeTeih7LDrpKSLezZoXZ4wdPg>
+    <xmx:IQbpZx3dqW678wETZPJesy7jhheRYZyXtPWyvLhjpFCIv-K2IQuvLA>
+    <xmx:IQbpZ6vPnTiLL8VLuFuGSM6VQQv3--z4cZRdI-xpQHE9Lvz7z9kgOg>
+    <xmx:JAbpZ7MTq30YCxSfV2OaJOKEeOCcrUXIfDBhrimcqMIKp5boESOGqfpz>
+Feedback-ID: i51094778:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id B0DB1BA006F; Sun, 30 Mar 2025 04:51:45 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: T14a5dff03e1db70d
+Date: Sun, 30 Mar 2025 10:50:53 +0200
+From: "Sven Peter" <sven@svenpeter.dev>
+To: "Andy Shevchenko" <andy.shevchenko@gmail.com>,
+ "Andi Shyti" <andi.shyti@kernel.org>
+Cc: "Janne Grunau" <j@jannau.net>, "Alyssa Rosenzweig" <alyssa@rosenzweig.io>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Naveen N Rao" <naveen@kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, "Hector Martin" <marcan@marcan.st>
+Message-Id: <b647d45f-32e3-4864-8a94-2e0b819fba18@app.fastmail.com>
+In-Reply-To: <Z965tVhC5jxy1kqZ@surfacebook.localdomain>
+References: <20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev>
+ <20250222-pasemi-fixes-v1-1-d7ea33d50c5e@svenpeter.dev>
+ <rjvak3c2k5a64jw4ef23i5uptg4zzl3u7lqszqbg56l4hqms77@hrkn5eydxwiy>
+ <Z965tVhC5jxy1kqZ@surfacebook.localdomain>
+Subject: Re: [PATCH 1/4] i2c: pasemi: Add registers bits and switch to BIT()
 Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_014503_889962_0C2B69F4 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250330_015152_277610_4EF95CB8 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,209 +126,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the helper function cdns_pcie_host_disable() which will undo
-the configuration performed by cdns_pcie_host_setup(). Also, export it
-for use by existing callers of cdns_pcie_host_setup(), thereby allowing
-them to cleanup on their exit path.
+On Sat, Mar 22, 2025, at 14:23, Andy Shevchenko wrote:
+> Thu, Mar 20, 2025 at 01:23:25AM +0100, Andi Shyti kirjoitti:
+>> Hi Sven,
+>> 
+>> On Sat, Feb 22, 2025 at 01:38:33PM +0000, Sven Peter via B4 Relay wrote:
+>> > From: Sven Peter <sven@svenpeter.dev>
+>> > 
+>> > Add the missing register bits to the defines and also switch
+>> > those to use the BIT macro which is much more readable than
+>> > using hardcoded masks
+>> > 
+>> > Co-developed-by: Hector Martin <marcan@marcan.st>
+>> > Signed-off-by: Hector Martin <marcan@marcan.st>
+>> > Signed-off-by: Sven Peter <sven@svenpeter.dev>
+>> 
+>> Just this patch merged to i2c/i2c-host.
+>
+> This needs an update as well. The proper header for BIT() et al. is bits.h.
+> bitfield.h is for FIELD_*() et al.
 
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
----
+Ugh, good catch. Since this commit is already on the way upstream I'll send a fix
+(and another one to sort the headers alphabetically while I'm at it anyway).
 
-v1:
-https://lore.kernel.org/r/20250307103128.3287497-3-s-vadapalli@ti.com/
-Changes since v1:
-- Collected "Reviewed-by" tag from:
-  Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-Regards,
-Siddharth.
+Thanks,
 
- .../controller/cadence/pcie-cadence-host.c    | 104 ++++++++++++++++++
- drivers/pci/controller/cadence/pcie-cadence.h |   5 +
- 2 files changed, 109 insertions(+)
 
-diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
-index 96055edeb099..741508738f88 100644
---- a/drivers/pci/controller/cadence/pcie-cadence-host.c
-+++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
-@@ -152,6 +152,14 @@ static int cdns_pcie_retrain(struct cdns_pcie *pcie)
- 	return ret;
- }
- 
-+static void cdns_pcie_host_disable_ptm_response(struct cdns_pcie *pcie)
-+{
-+	u32 val;
-+
-+	val = cdns_pcie_readl(pcie, CDNS_PCIE_LM_PTM_CTRL);
-+	cdns_pcie_writel(pcie, CDNS_PCIE_LM_PTM_CTRL, val & ~CDNS_PCIE_LM_TPM_CTRL_PTMRSEN);
-+}
-+
- static void cdns_pcie_host_enable_ptm_response(struct cdns_pcie *pcie)
- {
- 	u32 val;
-@@ -177,6 +185,26 @@ static int cdns_pcie_host_start_link(struct cdns_pcie_rc *rc)
- 	return ret;
- }
- 
-+static void cdns_pcie_host_deinit_root_port(struct cdns_pcie_rc *rc)
-+{
-+	struct cdns_pcie *pcie = &rc->pcie;
-+	u32 value, ctrl;
-+
-+	cdns_pcie_rp_writew(pcie, PCI_CLASS_DEVICE, 0xffff);
-+	cdns_pcie_rp_writeb(pcie, PCI_CLASS_PROG, 0xff);
-+	cdns_pcie_rp_writeb(pcie, PCI_CLASS_REVISION, 0xff);
-+	cdns_pcie_writel(pcie, CDNS_PCIE_LM_ID, 0xffffffff);
-+	cdns_pcie_rp_writew(pcie, PCI_DEVICE_ID, 0xffff);
-+	ctrl = CDNS_PCIE_LM_BAR_CFG_CTRL_DISABLED;
-+	value = ~(CDNS_PCIE_LM_RC_BAR_CFG_BAR0_CTRL(ctrl) |
-+		CDNS_PCIE_LM_RC_BAR_CFG_BAR1_CTRL(ctrl) |
-+		CDNS_PCIE_LM_RC_BAR_CFG_PREFETCH_MEM_ENABLE |
-+		CDNS_PCIE_LM_RC_BAR_CFG_PREFETCH_MEM_64BITS |
-+		CDNS_PCIE_LM_RC_BAR_CFG_IO_ENABLE |
-+		CDNS_PCIE_LM_RC_BAR_CFG_IO_32BITS);
-+	cdns_pcie_writel(pcie, CDNS_PCIE_LM_RC_BAR_CFG, value);
-+}
-+
- static int cdns_pcie_host_init_root_port(struct cdns_pcie_rc *rc)
- {
- 	struct cdns_pcie *pcie = &rc->pcie;
-@@ -393,6 +421,32 @@ static int cdns_pcie_host_dma_ranges_cmp(void *priv, const struct list_head *a,
-         return resource_size(entry2->res) - resource_size(entry1->res);
- }
- 
-+static void cdns_pcie_host_unmap_dma_ranges(struct cdns_pcie_rc *rc)
-+{
-+	struct cdns_pcie *pcie = &rc->pcie;
-+	enum cdns_pcie_rp_bar bar;
-+	u32 value;
-+
-+	/* Reset inbound configuration for all BARs which were being used */
-+	for (bar = RP_BAR0; bar <= RP_NO_BAR; bar++) {
-+		if (rc->avail_ib_bar[bar])
-+			continue;
-+
-+		cdns_pcie_writel(pcie, CDNS_PCIE_AT_IB_RP_BAR_ADDR0(bar), 0);
-+		cdns_pcie_writel(pcie, CDNS_PCIE_AT_IB_RP_BAR_ADDR1(bar), 0);
-+
-+		if (bar == RP_NO_BAR)
-+			continue;
-+
-+		value = ~(LM_RC_BAR_CFG_CTRL_MEM_64BITS(bar) |
-+			  LM_RC_BAR_CFG_CTRL_PREF_MEM_64BITS(bar) |
-+			  LM_RC_BAR_CFG_CTRL_MEM_32BITS(bar) |
-+			  LM_RC_BAR_CFG_CTRL_PREF_MEM_32BITS(bar) |
-+			  LM_RC_BAR_CFG_APERTURE(bar, bar_aperture_mask[bar] + 2));
-+		cdns_pcie_writel(pcie, CDNS_PCIE_LM_RC_BAR_CFG, value);
-+	}
-+}
-+
- static int cdns_pcie_host_map_dma_ranges(struct cdns_pcie_rc *rc)
- {
- 	struct cdns_pcie *pcie = &rc->pcie;
-@@ -430,6 +484,29 @@ static int cdns_pcie_host_map_dma_ranges(struct cdns_pcie_rc *rc)
- 	return 0;
- }
- 
-+static void cdns_pcie_host_deinit_address_translation(struct cdns_pcie_rc *rc)
-+{
-+	struct cdns_pcie *pcie = &rc->pcie;
-+	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(rc);
-+	struct resource_entry *entry;
-+	int r;
-+
-+	cdns_pcie_host_unmap_dma_ranges(rc);
-+
-+	/*
-+	 * Reset outbound region 0 which was reserved for configuration space
-+	 * accesses.
-+	 */
-+	cdns_pcie_reset_outbound_region(pcie, 0);
-+
-+	/* Reset rest of the outbound regions */
-+	r = 1;
-+	resource_list_for_each_entry(entry, &bridge->windows) {
-+		cdns_pcie_reset_outbound_region(pcie, r);
-+		r++;
-+	}
-+}
-+
- static int cdns_pcie_host_init_address_translation(struct cdns_pcie_rc *rc)
- {
- 	struct cdns_pcie *pcie = &rc->pcie;
-@@ -487,6 +564,12 @@ static int cdns_pcie_host_init_address_translation(struct cdns_pcie_rc *rc)
- 	return cdns_pcie_host_map_dma_ranges(rc);
- }
- 
-+static void cdns_pcie_host_deinit(struct cdns_pcie_rc *rc)
-+{
-+	cdns_pcie_host_deinit_address_translation(rc);
-+	cdns_pcie_host_deinit_root_port(rc);
-+}
-+
- int cdns_pcie_host_init(struct cdns_pcie_rc *rc)
- {
- 	int err;
-@@ -499,6 +582,14 @@ int cdns_pcie_host_init(struct cdns_pcie_rc *rc)
- }
- EXPORT_SYMBOL_GPL(cdns_pcie_host_init);
- 
-+static void cdns_pcie_host_link_disable(struct cdns_pcie_rc *rc)
-+{
-+	struct cdns_pcie *pcie = &rc->pcie;
-+
-+	cdns_pcie_stop_link(pcie);
-+	cdns_pcie_host_disable_ptm_response(pcie);
-+}
-+
- int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc)
- {
- 	struct cdns_pcie *pcie = &rc->pcie;
-@@ -524,6 +615,19 @@ int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc)
- }
- EXPORT_SYMBOL_GPL(cdns_pcie_host_link_setup);
- 
-+void cdns_pcie_host_disable(struct cdns_pcie_rc *rc)
-+{
-+	struct pci_host_bridge *bridge;
-+
-+	bridge = pci_host_bridge_from_priv(rc);
-+	pci_stop_root_bus(bridge->bus);
-+	pci_remove_root_bus(bridge->bus);
-+
-+	cdns_pcie_host_deinit(rc);
-+	cdns_pcie_host_link_disable(rc);
-+}
-+EXPORT_SYMBOL_GPL(cdns_pcie_host_disable);
-+
- int cdns_pcie_host_setup(struct cdns_pcie_rc *rc)
- {
- 	struct device *dev = rc->pcie.dev;
-diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
-index 4b7f295e24e7..0b6bed1ac146 100644
---- a/drivers/pci/controller/cadence/pcie-cadence.h
-+++ b/drivers/pci/controller/cadence/pcie-cadence.h
-@@ -523,6 +523,7 @@ static inline bool cdns_pcie_link_up(struct cdns_pcie *pcie)
- int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc);
- int cdns_pcie_host_init(struct cdns_pcie_rc *rc);
- int cdns_pcie_host_setup(struct cdns_pcie_rc *rc);
-+void cdns_pcie_host_disable(struct cdns_pcie_rc *rc);
- void __iomem *cdns_pci_map_bus(struct pci_bus *bus, unsigned int devfn,
- 			       int where);
- #else
-@@ -541,6 +542,10 @@ static inline int cdns_pcie_host_setup(struct cdns_pcie_rc *rc)
- 	return 0;
- }
- 
-+static inline void cdns_pcie_host_disable(struct cdns_pcie_rc *rc)
-+{
-+}
-+
- static inline void __iomem *cdns_pci_map_bus(struct pci_bus *bus, unsigned int devfn,
- 					     int where)
- {
--- 
-2.34.1
-
+Sven
 
