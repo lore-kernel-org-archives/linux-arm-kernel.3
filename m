@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D732BC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 20:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B12C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 20:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yFYNJp1q91kxPG/H+VOGMsvd3pVp9apafCx8eaD2V3Q=; b=it+0EFMMcfZp6mxZhMJBkj+W/S
-	FbeUjeI7DvFnoRjWY8a5ZduOSTjUx9Q1+VnervvQNakuK/v/lGRcMU0TR816/dfDaj1bFDDACVc2P
-	UEPC2cpOmCEBUNejpfpUupsQ2KNyQDvdv3ZmX+FhRe+Nac6GRKltuGuNE/dQvpbS/2lFjuKAjc3X3
-	1WvpnwIjsxOsCg9aciuQ05BGYuiCtCAz84g2qFUlbkOMQOJfn3sXNlvrWcHkgDs2UNZ97xl6jMJZf
-	XpKW+IS2Tw12d1wFCYsL9ZyVVKtFKJMP/OAdhjTofsxmJg8Oy/rMHlEOPG+5JNjXzsp+VQsoCKhR4
-	iH5+B9SA==;
+	bh=p5zvtELYdfg78Sbj3ph4wBdcMnC22AQDDB19emjW67I=; b=Gn/U9dh+oMsAuXpV2CMze4KT6z
+	jABtKFbLOyzD/o0RhkTABfZ6XDTcqvav07LyApQi/0iGBcOzkN1KawbQ4aoKBF5vrb4PB2XY5toN4
+	czno2kuvQb+WdlXrYPZqmf4cD0YGpFWtRnJRppod0Eic/91Qnuowp/gBvhH2Yt5ZsOGw+TdcCGvg9
+	Eech2CuNXoD79y3BOH6bhQUxgRggU+TOw4IuB4mguvWmDNUMYeUmvdKnsh3N1DdhVdDw203Wvspdz
+	ARMZa46UsykiXU9M0PajA3jhKOVvW8lWr84zeBV4lqdNLv5NtQAUHjYfW8cfazcJ8DyBNbWdmID4U
+	Uq6XEbbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyyrF-0000000Gd0Y-3EJ4;
-	Sun, 30 Mar 2025 20:02:13 +0000
-Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
+	id 1tyysz-0000000Gd7B-25Cb;
+	Sun, 30 Mar 2025 20:04:01 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyynk-0000000GcTW-3a9H
+	id 1tyynm-0000000GcU1-3z6N
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 19:58:38 +0000
+	Sun, 30 Mar 2025 19:58:40 +0000
 Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4ZQlSS5x0Mz9tMt;
-	Sun, 30 Mar 2025 21:58:32 +0200 (CEST)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4ZQlSX0yn0z9vKS;
+	Sun, 30 Mar 2025 21:58:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1743364712;
+	t=1743364716;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=yFYNJp1q91kxPG/H+VOGMsvd3pVp9apafCx8eaD2V3Q=;
-	b=vxch+Ql90wwi2KwUc+3O1anRnVoHEhcEBabr6VOPgxsWbtPt8cr0cLTR6i5gxh15mXmqlY
-	NBYVMANACNKeYKLgJ2bLaH/tCg/e8Q9MRMmNcOWIPW9KKjynqhf8jIE5j0onMTFwYZPHuu
-	RyzXhEOr/yoyDaWnSQEJ8PHxM55RgGjlI4G80oSE6yUBLW3QvNdEKInUKM+NVlqVv6kZxQ
-	qaVaJRYHJkg1hQQnYoFCUDuwWNWU/lUUONb3IWlcLrLNOGeG/LYbWojeoX4hC7TzS1Vm3Y
-	yyZAd435A3ufqKH8r+KjDDyvI61NTSQZs2IeVTaSGZBZPnXJ+F0N3Mujsmkbtw==
+	bh=p5zvtELYdfg78Sbj3ph4wBdcMnC22AQDDB19emjW67I=;
+	b=xtEjQVcLyX+MDGVldXa/kbkIOOuMrjBjBezsfhWTSlfKy/+nTbA8sw2QFQNHv6ZCRYheKS
+	VGhsCXor3b1cSuHwTKS1o5nZs7Qd3gAVzDmAedhQIAuKW0KYwwJSEcOZLLqX58AZ+mg+dQ
+	zuDPqCviNDNewVpMCg3vRTiwgtcBwA7jTnHrHQ2KgmsiAIUumByv9I2PMqfilg8djXQND+
+	JF+cXiZHiOrYC3Sp2Vu2qrcQnXkSB6kLVCDdZ49aSrFh73HHnyFpR8Nr2NOj4vTga4LhEl
+	5G0VyXW6VwQvxp8pKPJh/pdAVgu8xvpGP8LRDsUn9tr8OX+YephyGIYrHfLm0A==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1743364710;
+	t=1743364713;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=yFYNJp1q91kxPG/H+VOGMsvd3pVp9apafCx8eaD2V3Q=;
-	b=H1BpsCWVtiHOp7/LzfWsgrBCWkUEZlQfXHArFOx0zWI0n0VLK5XB43NArNE+2jqAYxrGAK
-	pKcna13LpqHs8J4IpUm2xq9bndH61nOTmlHBcNebkPnroxkjSeMLlt0L80c7esvYS+W5jH
-	7sftrJ/J/2yjDdbdv13F/niWXoNlaI6+qfKRjRLKbLWCrE4Yz2ifFTtdC6KpjH4HTOTuzl
-	TEo1yCVUzKm5gTdbR6KDs6mS6SuSuDV70pqk3EJmRMOVNlkxqWFLoJNcm7Ur6II0hN8lDp
-	BSR/cR91bBgBYEkjEWro1lUCx6c+01mHFUeUQTJHxgVaZAXwtOBF7MExogrcdg==
+	bh=p5zvtELYdfg78Sbj3ph4wBdcMnC22AQDDB19emjW67I=;
+	b=AJAD76cwfcL1cADI3rx7/pIl5rjH53YlSC9uqGKTTvb00YK7VgoRGo3IM4lb8hQpHngjpZ
+	gijY6wCpeXdEiR2EhVmrlAd5gArCquroty02GeSCWvZhwgOielC2wK5FVq+cxoiVgbquif
+	whqdQEE8d7AuXdMBXFhZAI0oh1p14qfPqD/ei2rXqXUjNlitqaLK+XmZl84ZsyFECii5jb
+	xDITMe4zoyeuoSVCTqcUmz/kFSrlAeKpJfHsu79YvGN10O9hYjQi4nWFVSuOFXwRXIeMTK
+	xiNcikJiHN3gEl+kEM7nolkJ9q9jb/L/r92v6FBE8s07L+bqfQIdaKXvEQsm2g==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
@@ -81,20 +81,21 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	linux-kernel@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 1/4] dt-bindings: PCI: rcar-gen4-pci-host: Document optional aux clock
-Date: Sun, 30 Mar 2025 21:56:09 +0200
-Message-ID: <20250330195715.332106-2-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 2/4] dt-bindings: vendor-prefixes: Add Retronix Technology Inc.
+Date: Sun, 30 Mar 2025 21:56:10 +0200
+Message-ID: <20250330195715.332106-3-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20250330195715.332106-1-marek.vasut+renesas@mailbox.org>
 References: <20250330195715.332106-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: ftkny4rcrcptq5mm8d8hrq8nw5ziwthm
-X-MBO-RS-ID: 55d868de086f88903b8
-X-Rspamd-Queue-Id: 4ZQlSS5x0Mz9tMt
+X-MBO-RS-ID: b8661ee7c2dfdccacdf
+X-MBO-RS-META: qixsr7raqyt3ypir5g31bn5b5xg8inia
+X-Rspamd-Queue-Id: 4ZQlSX0yn0z9vKS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_125837_039555_B0C60DFD 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20250330_125839_131913_A15DC332 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +110,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document 'aux' clock which are used to supply the PCIe bus. This
-is useful in case of a hardware setup, where the PCIe controller
-input clock and the PCIe bus clock are supplied from the same
-clock synthesiser, but from different differential clock outputs:
-
- ____________                    _____________
-| R-Car PCIe |                  | PCIe device |
-|            |                  |             |
-|    PCIe RX<|==================|>PCIe TX     |
-|    PCIe TX<|==================|>PCIe RX     |
-|            |                  |             |
-|   PCIe CLK<|======..  ..======|>PCIe CLK    |
-'------------'      ||  ||      '-------------'
-                    ||  ||
- ____________       ||  ||
-|  9FGV0441  |      ||  ||
-|            |      ||  ||
-|   CLK DIF0<|======''  ||
-|   CLK DIF1<|==========''
-|   CLK DIF2<|
-|   CLK DIF3<|
-'------------'
-
-The clock are named 'aux' because those are one of the clock listed in
-Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml which
-fit closest to the PCIe bus clock. According to that binding document,
-the 'aux' clock describe clock which supply the PMC domain, which is
-likely PCIe Mezzanine Card domain.
+Add vendor prefix for Retronix Technology Inc.
+https://www.retronix.com.tw/en/about.html
 
 Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-NOTE: Shall we patch Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
-      instead and add 'bus' clock outright ?
 ---
 Cc: "Krzysztof Wilczyński" <kw@linux.com>
 Cc: "Rafał Miłecki" <rafal@milecki.pl>
@@ -165,40 +137,22 @@ Cc: linux-kernel@vger.kernel.org
 Cc: linux-pci@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- .../devicetree/bindings/pci/rcar-gen4-pci-host.yaml       | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pci/rcar-gen4-pci-host.yaml b/Documentation/devicetree/bindings/pci/rcar-gen4-pci-host.yaml
-index bb3f843c59d91..5e2624d4c62c7 100644
---- a/Documentation/devicetree/bindings/pci/rcar-gen4-pci-host.yaml
-+++ b/Documentation/devicetree/bindings/pci/rcar-gen4-pci-host.yaml
-@@ -46,12 +46,14 @@ properties:
-       - const: app
- 
-   clocks:
--    maxItems: 2
-+    minItems: 2
-+    maxItems: 3
- 
-   clock-names:
-     items:
-       - const: core
-       - const: ref
-+      - const: aux
- 
-   power-domains:
-     maxItems: 1
-@@ -105,8 +107,8 @@ examples:
-                          <GIC_SPI 418 IRQ_TYPE_LEVEL_HIGH>,
-                          <GIC_SPI 422 IRQ_TYPE_LEVEL_HIGH>;
-             interrupt-names = "msi", "dma", "sft_ce", "app";
--            clocks = <&cpg CPG_MOD 624>, <&pcie0_clkref>;
--            clock-names = "core", "ref";
-+            clocks = <&cpg CPG_MOD 624>, <&pcie0_clkref>, <&pcie0_clkgen>;
-+            clock-names = "core", "ref", "aux";
-             power-domains = <&sysc R8A779F0_PD_ALWAYS_ON>;
-             resets = <&cpg 624>;
-             reset-names = "pwr";
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 86f6a19b28ae2..2b1bf6709aac7 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1262,6 +1262,8 @@ patternProperties:
+     description: Renesas Electronics Corporation
+   "^rervision,.*":
+     description: Shenzhen Rervision Technology Co., Ltd.
++  "^retronix,.*":
++    description: Retronix Technology Inc.
+   "^revotics,.*":
+     description: Revolution Robotics, Inc. (Revotics)
+   "^rex,.*":
 -- 
 2.47.2
 
