@@ -4,93 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F8AC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 20:10:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4A1C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 20:20:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FQdIPIBIFPsMXzbqA6bIdMRDw0puL1K2JM/M9dMbXWQ=; b=hrpCKi0vCB+UfAajwhzBfmJa2c
-	WM/OCzeA8ZFrs5zo4pXCGMqBpgQddIFX8fs6T64gq79+JReoKq4zgAPFRrEU03S8gdbGKEkfZlPkd
-	mAinOecay07PUoTmT8GXaMr/034GCtLudUVwyVdl7Se/8pqEYHmYJCFXnEg5PS5NjxBqioWsB3xVf
-	ME+B/YZigxQex0GHytjkmpesqTK3ZxP8xXkVnAY8lOoC0Vz2V8xK6HnlOcc3IEnH+oiMO7vUCV+EC
-	5jUbM18r2vTaDf+6nsjtQ5QUatxCuyU6qxUVObtJGBovh5oKv+JBYYcu4fMequIKvnzqMNI7+kCCo
-	lBaN7SWg==;
+	bh=d5coYYRPMmYyk90hyfQos6Hfk3JtJvsesMjWEHhnPPg=; b=A3flb+n+k7e/e4QhuAcO4DFVol
+	rxBpvMMYt/LPIEIdkSAwH/TG3kQdPteinbSJauLv9buQCusv5RMsyxwGayXdWhUHlvhdmRxJ8xeqJ
+	nO2DQWJDucH6Y8QZI4EK6T1CR+51iDQb/odNFJEiGWPXoNRtlq7ak/9MfRekbFZ+4muujM52rT+9O
+	qvhfrssjRwggDoxSmLUiuLfIppCHMgv+AkoLG/bk3DLONEzhfAGGoe8WdC5Okj4BO5hNbcWwlXT9x
+	poTWNLxPoxUpaSKgItKeWRA53v6lK2JqUnyjILXB15I78AwmWJSS5MGp0l6Bc71jqVw67B+xvasN7
+	OxtA7Biw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyyzY-0000000GddN-3AM5;
-	Sun, 30 Mar 2025 20:10:48 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1tyz8L-0000000GefB-034w;
+	Sun, 30 Mar 2025 20:19:53 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyyxo-0000000GdVg-0e89
+	id 1tyz6Z-0000000GeHH-2gC4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 20:09:01 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e8be1c6ff8so7244071a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 13:08:59 -0700 (PDT)
+	Sun, 30 Mar 2025 20:18:04 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-22423adf751so70058545ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 13:18:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1743365338; x=1743970138; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=FQdIPIBIFPsMXzbqA6bIdMRDw0puL1K2JM/M9dMbXWQ=;
-        b=Z2c42Qab+bvMd6RlVDgpa8JjPF/ndEPDdoe438cqMM7AdGeVyfFCRb339czyB88hbm
-         U1aPZEkL8vH5Bosz8TrL6kqWqkr4MBhG2MpNcZDSW0D7i7NAGIEhfcCWnRa0yye3r/YO
-         seiOqXhHVd9WNxkokuEitzJuHOZNQ5A0CgLsQ=
+        d=gmail.com; s=20230601; t=1743365882; x=1743970682; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=d5coYYRPMmYyk90hyfQos6Hfk3JtJvsesMjWEHhnPPg=;
+        b=d+BI09nMlUKCT2iMSTSQpR3Ec+SSFielFOsWwvK9Q0I0DlJeRlVxsIkJPhp8yo5gxN
+         rGw4N7aK2Vet85rMhMEX9lLb2y+Vrfj5zjenQkK/4EKo90kjPMzI2XjFj3ToxcmOcaPy
+         oW/e7EjMTuZqXwVz9bD6N0oJuh0MxN/90Qs2vNocXWZPS6ope3Y7DyoZAHX18WIaW3Yu
+         8OI1BmEjrK32d6hWEJWeOxJZVrxyJQ8msFs5W0Z9Ce1wa5fBpDOQ8U0m9PKUPsxI6XEm
+         qnVt7WQOTijqJW0gyYyFpmil587F8Z6MngsqymdXbJW7DykT4M49YY6FUSOpcDGLh3+y
+         0pJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743365338; x=1743970138;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FQdIPIBIFPsMXzbqA6bIdMRDw0puL1K2JM/M9dMbXWQ=;
-        b=Xyg4sC8LJg0aC8XWFYtgCbt8XhbTpeKNckxJQLByNKy0xTGOC5gQncRVEADNpkP7s8
-         zpE+MoSlKP92QT0sBDjxRsjmMqP8CM+zB2YEVvT0wUUs8cBwPgFjmejDfz2iJ+kPYy+Z
-         aWMM58JvJbHLrGD1fsIABfD2mv/aZegTMMXYQdEfvLMQ1k0FzG6FSLbrI6vxzlkBxBGi
-         shLBDLdt71FbZgBu6k2QzSILEtDk41chj9O2aDEFxCmYg+Kf+VLv2fnAzUVYq17DuFm2
-         c1rm9amRtzNIQPkB2HkZ9SHJVJOuCSTlRvG6IoknbiE1azhdkw9P2oRZtaIxjMmDnG9S
-         F+8g==
-X-Forwarded-Encrypted: i=1; AJvYcCVEKH7QyWjhreDRGgwQsYCNLZ9yrVXV7oBi1epATx2s9SFKY0f+SDjMZ5ue6RnjWGixcYtFun3Gc21M0rcJ1Ece@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4sqDOn85XxaalbZkNOre7Ur3Y6xZlKVJ3CISi2xJTGqW1RPdK
-	rd0mp/N5tfU/HOgPgmkW6nEIxxgmQ0GLyf7pMAzmVSC8ueHuRLtNwtq+o9NKL5jAcALtDnlVnDH
-	leAo=
-X-Gm-Gg: ASbGncuEyGTTfyiIjmk2VkFRVgzS35xxrS+V1BSsPqiff09Iqk10Hs5bCmldmpIsgi+
-	u/r1/vTKMrLnzVIAd+RZkW+UFnxy6duIHuLDsxM0npjOYZY1HtGVvUC5VJPB/GITNlTLDer/SHA
-	ZsQA1bT1f2r9Qy9WXzNfajRK6Hr8LbzX7YhENa0R+2aDDhSi7WMYOiKz44QqsMVhBPC2YdmlfdX
-	djzsgYsXCD2rtQ/dNH1H2VtErDad07MDQxtkP63leeFiCSOKSFm0chQEPALpJ2rRNRO4TfsL68j
-	jJrfrWCzbeT60WFz/2H3KCKfY8qPKbYvwZhHff5B5fc7jkulW1Aeiqjutt057/EMd7fay+IlqVg
-	WPKndUWCo1AvWFskFx7bppMh7xSaozg==
-X-Google-Smtp-Source: AGHT+IFUOrdmPU4iJvyAw4Z1ZOkgntfEHfCeG5n4H3+g2skLUSt38337gR9230J7elyAeUiyJTDU6A==
-X-Received: by 2002:a05:6402:3584:b0:5db:f423:19c5 with SMTP id 4fb4d7f45d1cf-5edfcbe92d2mr5882838a12.5.1743365337939;
-        Sun, 30 Mar 2025 13:08:57 -0700 (PDT)
-Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com. [209.85.218.54])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5edc16d38e3sm4653616a12.24.2025.03.30.13.08.57
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 30 Mar 2025 13:08:57 -0700 (PDT)
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-aaf0f1adef8so524408566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 13:08:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX1NzGE0yos5ylZjQnXpD+KTqIQMG1VKsqPU4zlLdjcnLvOyfvfI0nduaOfEZCUfax2Bxmu9UH2UX7ZkgU9+xaD@lists.infradead.org
-X-Received: by 2002:a17:907:3da3:b0:ac3:4227:139c with SMTP id
- a640c23a62f3a-ac738a5064dmr549397666b.24.1743365336889; Sun, 30 Mar 2025
- 13:08:56 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1743365882; x=1743970682;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d5coYYRPMmYyk90hyfQos6Hfk3JtJvsesMjWEHhnPPg=;
+        b=t8yaQuHrkqLSuB6FvFdtbcGCHFVv10e79xXe+EUSVwhoDz73f7aA5BbDpgRb21rV4n
+         0Xrbv5X9R9wYtOMicobYkM1nN8hIFCvFudoUgjnambxEbOEejTL0FMZe9gIeRHqmXRsg
+         t0spkS5/27FZcinW815B2YRoiizwu9ngRh8yWknClrVltsOcUyzabmONWgos6NClozI7
+         lGE/pVky4geHmTbCEfol+lmRkOIq4CY0bBBwmxoXumfQQYeNJucNsVLRXwOfnTJGyTm1
+         PuK+RxbkwmcryiNwMTK0dCHXhwMu6mNpIKHvi9nnPn8xqH9Yz8JWQZ5TzJYmOEnHBbuH
+         TgMA==
+X-Forwarded-Encrypted: i=1; AJvYcCXs+BEsAWXIBjGXALqGhpdz2okdaMSfpDXZNuFQIsXz9OXfh6bwIo1njyxVUtf44bBXWua/yS4lMk1neU65yqyA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW88dwpBvbSMcbsSQ7rIWSm17nD1GXVGARe8vdJ2KEHvfjosec
+	LGex+8jiuQZ9MO1SV+k1YJH6k1HY+Vbny2oe9uNWe3APLO5nkQ8x
+X-Gm-Gg: ASbGncv9outcjnzyZlbSt4N5niGDL3giBaNA0SIkEhDoKcXlNGF6lQDuad3lGjPx6wj
+	ts/f1IwqPsflW4AndII0wAYHKFOgeqXjpR4UZAPl9aJVh6gGfSMDRHTSgjXcrMlScN+pRgaXLC4
+	MNcYslr6nKcHgPbigTs4NbnZcGBD26moJjoI1B/7Oy3ZDVplAyf8GO9NhVGhfCigo4zPRDT/s0T
+	TNoZgEaIeVBjTSIJoI7dLqKYHroJsqRL7x5MRWYxTm48pV7I2lH8jq841k8/VuN5JtITGxxQZvx
+	xFjwwoND2tDsQES1N6YGubS/ERY472Cn4SAOQUyUlfrfEU9rEQx7Ug==
+X-Google-Smtp-Source: AGHT+IGdRb8RSEY/uMCLsBXs2PCUKzrfAlPuylZyCRqePE4ThlWVOzd97jd96fvdyjccpN5hsZkrrA==
+X-Received: by 2002:a17:902:f644:b0:224:1af1:87f4 with SMTP id d9443c01a7336-2292f974b63mr133802185ad.22.1743365882249;
+        Sun, 30 Mar 2025 13:18:02 -0700 (PDT)
+Received: from localhost ([2804:30c:b03:ee00:e0b8:a8b8:44aa:8d0b])
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3039e1139fasm9042555a91.25.2025.03.30.13.18.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 30 Mar 2025 13:18:01 -0700 (PDT)
+Date: Sun, 30 Mar 2025 17:19:02 -0300
+From: Marcelo Schmitt <marcelo.schmitt1@gmail.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v10 3/8] iio: adc: add helpers for parsing ADC nodes
+Message-ID: <Z-mnNtYLkwsTYjMh@debian-BULLSEYE-live-builder-AMD64>
+References: <cover.1742560649.git.mazziesaccount@gmail.com>
+ <f1d8b3e15237947738912c0d297b3e1e21d8b03e.1742560649.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
-References: <20250327144823.99186-1-alexei.starovoitov@gmail.com>
-In-Reply-To: <20250327144823.99186-1-alexei.starovoitov@gmail.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Sun, 30 Mar 2025 13:08:40 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wg+nyd6Cqnw-vVxvVTTW31zOyBOHO0ak1xPFX5C0qut=w@mail.gmail.com>
-X-Gm-Features: AQ5f1JqZpY881qm9M5vJvGClsN_VOWkQMfOTIJY-M64XcTRU-qfDU4LkUOiqPUg
-Message-ID: <CAHk-=wg+nyd6Cqnw-vVxvVTTW31zOyBOHO0ak1xPFX5C0qut=w@mail.gmail.com>
-Subject: Re: [GIT PULL] BPF resilient spin_lock for 6.15
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: bpf@vger.kernel.org, daniel@iogearbox.net, andrii@kernel.org, 
-	martin.lau@kernel.org, peterz@infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f1d8b3e15237947738912c0d297b3e1e21d8b03e.1742560649.git.mazziesaccount@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_130900_206487_D69D6B8F 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250330_131803_701642_03D965A2 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,17 +116,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Mar 2025 at 07:48, Alexei Starovoitov
-<alexei.starovoitov@gmail.com> wrote:
->
-> This patch set introduces Resilient Queued Spin Lock (or rqspinlock with
-> res_spin_lock() and res_spin_unlock() APIs).
+Hi Matti,
 
-I would have loved to have seen explicit acks from the locking people,
-but the code looks fine to me.
+The new helpers for ADC drivers look good to me.
+I am now very late to complain about anything but am leaving some minor comments
+below that can be completely ignored.
 
-And I saw the discussions and I didn't get the feeling that anybody
-hated it. Merged.
+Reviewed-by: Marcelo Schmitt <marcelo.schmitt1@gmail.com>
 
-             Linus
+Thanks,
+Marcelo
+
+On 03/24, Matti Vaittinen wrote:
+> There are ADC ICs which may have some of the AIN pins usable for other
+> functions. These ICs may have some of the AIN pins wired so that they
+> should not be used for ADC.
+> 
+> (Preferred?) way for marking pins which can be used as ADC inputs is to
+> add corresponding channels@N nodes in the device tree as described in
+> the ADC binding yaml.
+Not sure it's preferred to have ADC channels always declared in dt. That
+question was somewhat also raised during ADC doc review [1]. In short, ADC
+channel may and may not be declared under ADC dt node. ADC bindings often don't
+enforce channels to be declared. On IIO side of things, many ADC drivers just
+populate channels even if they are not declared in dt.
+The ADCs you are supporting in the other patches of this series seem to require 
+dt declared channels though.
+
+[1]: https://lore.kernel.org/linux-iio/20250118155153.2574dbe5@jic23-huawei/
+
+Would something like
+
+A common way of marking pins that can be used as ADC inputs is to add
+corresponding channel@N nodes in the device tree as described in the ADC
+binding yaml.
+
+be a good rephrasing of the above paragraph?
+
+> 
+> Add couple of helper functions which can be used to retrieve the channel
+> information from the device node.
+> 
+> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> 
+...
+> +static inline int iio_adc_device_num_channels(struct device *dev)
+> +{
+> +	return device_get_named_child_node_count(dev, "channel");
+> +}
+I wonder if this function name can eventually become misleading.
+
+In Documentation/devicetree/bindings/iio/temperature/adi,ltc2983.yaml we have
+temperature sensor with channel nodes named after external hardware connected to
+the sensor, leading to channels having different node names. Can anything like
+that ever be accepted for ADC bindings?
 
