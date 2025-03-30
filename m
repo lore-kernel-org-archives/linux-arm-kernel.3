@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D65C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Mar 2025 23:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03294C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 00:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nmdLuCAm1CAJ4jEnyOVq/bYPb1GgUEH4akc+65VyZ94=; b=NJXPH8CYJ6fBgFbIrrnFePoGNU
-	B1xpMLGTQGGl1nutubZeZyh0nAmDTubv30RYyGe/AE7pAcGNg7X1hXGZ/mM5kaQwRUOssti4QHrsL
-	INOTcE+RPyokW2cxWnuPbVi5eUype84r6Xn+i25cqsKtx6X7R+z8yPnvxVNLYandrIEPQSk4qITkb
-	Rf3UHh3ZXqRwZMq3SwOiPnYEdGAclR8wyccq8ROdFdwxEOYOQl6p1UsM9wTEAWRzntnHYzuOe6j0U
-	RXWm8HuIuqiy38CIyLB2wV8aHZ0iyD63ZXTRIHF+GTvEXanM59nqxGkxMgxxkzOMQEhZ8A1CJHVGh
-	+W2Z75CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5pgxu/C3HO0atJOCJMZznUfULA/oXZuznV1UshXGNHM=; b=j7FKAQDWM07fxz4gfbiIvKNJ9x
+	PZXEnb0CQ6p8uZ8Pr79WZWqyMUMh9VTbEYVmzPS5G5J8atmzmm//kavhfDvBNUzrsilw6TyKGQbAZ
+	oSrrjAaMb33pHmJHvnMBIhDYpY6yx2BIO857t3mvuY4hiKpKAoJO6jousnE2/68MhQj+PcC0wl0am
+	PKUsJm/ZRfrQiINP1IpEwuJ1ks2GJrd3a6wP7x5pp7p4IjNgyNFBwPWOYwE6hlHWZFDCsI+vslmab
+	n+aLt/GBlJ5OhzAq4AiFQMVHlVIv9i3JENbTV+tqLSDblukW57OKIckSIT3GR7c3N5eNCPMxVRSKn
+	5wG6WAJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyg5O-0000000FegL-0n0g;
-	Sat, 29 Mar 2025 23:59:34 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1tygXm-0000000FfYd-2wD9;
+	Sun, 30 Mar 2025 00:28:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyg3e-0000000FeaQ-47hL
+	id 1tygW2-0000000FfRL-2t41
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Mar 2025 23:57:48 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-602224af11bso1825230eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Mar 2025 16:57:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743292665; x=1743897465; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=nmdLuCAm1CAJ4jEnyOVq/bYPb1GgUEH4akc+65VyZ94=;
-        b=Gb8UTVPoADmBj4yIPLALSnXPOT7DOrwDVsr29HdHxge1qRP6Z4hXjarLCIBQ2Wdh42
-         hW9W9dLT0eGu8o5eYqALXBg48P6NHFM2VRlr/2TFOvBRQ1uOsNSxYHkplBIHb3U8KtJi
-         nLAqng9dRTRMPhuXRDLMuwi0gizkgC+j9JrrsUq+Ut+kq2O1QztA3U7Y3d2hNMr2deA5
-         pa4VQ7dSQIb+oJ48LeOfTV8EX1Y89KBc56TgBQ6HcT+gLoNY9jmmduyCBFaXTeeEUBWx
-         PQFGmwrpDgR/0/vBlNdFfH6FNEroysqRIELgSI0RkYyzErkDNW/8w/CvBhzp6Bl+h6tN
-         uJ9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743292665; x=1743897465;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nmdLuCAm1CAJ4jEnyOVq/bYPb1GgUEH4akc+65VyZ94=;
-        b=tM363scwwDPjrSJ75jc1dwu5vCO4p1OAGb59mwqav0qJqONnIm6XAEjH5Yv5p+no14
-         tD9tCHoJPN2kMbfR1AVcrbqnmVdHf5pTGzsSl6wrgEeSheIrOiUynlAo7U/tt5rxRZtH
-         J+8tf0aAkTA00z2IveRkVwy3df8waVIEZlzzqcb1d2+fPu9Jl4FsQETyZcPHwPWOnyi7
-         DxrIBYVUq0fSqTyPFFu1PO+sm4IngiPgRUp8mYhrPFhtArcjxPL6SzW/DV01mHaswClP
-         rJZvHCNnx5EKFvvmfyn/NyXVWWdFpz0tU1aUsinSwRxR13e4yFCotFKjC0Vo1SUdf2Su
-         PoVw==
-X-Forwarded-Encrypted: i=1; AJvYcCVsZ3/F8m9pXfo/r6Oxnb0c5bF7iiI01nxFlHBMs/k4GMMId3dG3la0r186EzdeimUkvJvwqJAzGix0LVudNgEc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXkETfOfyM5pGSa0gthoIwIJ22upAAM8NFo3fY0AFjlWmYKOKV
-	ioJKsGbLJ0ppckLdJoHTr4vPQTZJTGG0gIebrB98qdczWb6Fmk+4JVEngQ7sl2IGeptn5g8FB13
-	sHgtl/0Ek+OQEuZX3ibDEqoqnDNE=
-X-Gm-Gg: ASbGncvgv0w1omaaBUgOqMt3HCxIUqeSBxZUaZsSY+5RcPz6y7TC57wlo04g4jGHI/p
-	wD3z9I9tc8B5853iACIvTOJ5nCkrleem+N0NDBrq3JPHZasD25LXHsmJ+Tr8dNUPgW2csJwMddm
-	PdWOz9yHOpCrQh5cVIK2KITCmzUmg=
-X-Google-Smtp-Source: AGHT+IHun+H7WFPlKCwkbZmr48Ry4kBTHVoSBceNootkXSTXeWa/xWKLJ9WlUHvRVxHSm9sMcNguBCc9GExdVj5PNQE=
-X-Received: by 2002:a05:6820:2710:b0:600:29ec:7619 with SMTP id
- 006d021491bc7-60290e5821cmr2130089eaf.2.1743292665379; Sat, 29 Mar 2025
- 16:57:45 -0700 (PDT)
+	Sun, 30 Mar 2025 00:27:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 004B24448F;
+	Sun, 30 Mar 2025 00:27:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01651C4CEEA;
+	Sun, 30 Mar 2025 00:27:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743294425;
+	bh=aiiKdFDmCS0U9MUvBKmwJ6wtLAwgtVEXAZWbVJ4delE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=YdWoEnL7t3+G1eeikHnkF20YlYkfES7CxO/Bpxz0+RX6+FLucVZqHc97etVGahclJ
+	 eJ+W+Jp+4QdjpGCfWCZdXf3yUeZqhZIGppdp0x7S3eqKVs+NASYHeoSgfOjLDY3FmK
+	 5F3AYTFi3pF5aBRlHUUcJI+Qlbaf9f8+HPa+XRIqaj7RPJPt13+oRoDeaBPplp09WI
+	 Dg4FsXV/9d0Euzy4vKTH+xz2hiKWu2g1zVKGSYYQwszyk5OrmkWFwlsYIjiC2whRbY
+	 NBYRMGWh+cIWrmkGZ306mabVDmnSlu0mSHOrfxh4tOVLYGNtdH36Zo9wCP9wFIJ/If
+	 YQCFHairp9IOg==
+Date: Sat, 29 Mar 2025 19:27:04 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sat, 29 Mar 2025 18:57:34 -0500
-X-Gm-Features: AQ5f1JoYZOgXhh_ZakSNYcgqU00butGrTYEuoZM0qK0JvlcozMWOWi-dvPiJAnU
-Message-ID: <CABb+yY3nL=VjLZq_pDxQfr3m2-B78hiuJyEWhSNRU_zcjaQdKg@mail.gmail.com>
-Subject: [GIT PULL] Mailbox changes for v6.15
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Benjamin Hahn <b.hahn@phytec.de>, 
+ linux-kernel@vger.kernel.org, Teresa Remmet <t.remmet@phytec.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, upstream@lists.phytec.de, 
+ Yashwanth Varakala <y.varakala@phytec.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Jan Remmet <j.remmet@phytec.de>
+To: Yannic Moog <y.moog@phytec.de>
+In-Reply-To: <20250328-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v1-0-28324c7f81fa@phytec.de>
+References: <20250328-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v1-0-28324c7f81fa@phytec.de>
+Message-Id: <174329418273.2439899.17086234453417036380.robh@kernel.org>
+Subject: Re: [PATCH 0/3] Add new imx imx8mp-libra-rdk-fpsc SBC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_165747_024382_7B17B914 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250329_172706_769064_8A90403E 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,95 +77,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
 
-The following changes since commit 4701f33a10702d5fc577c32434eb62adde0a1ae1:
+On Fri, 28 Mar 2025 14:04:36 +0100, Yannic Moog wrote:
+> The Libra i.MX 8M Plus is a SBC that consists of the Libra base board
+> and the phyCORE i.MX 8M Plus FPSC SoM.
+> This series adds its binding and device trees.
+> In addition add an overlay for an LVDS display that may optionally be
+> connected to the Libra board.
+> 
+> ---
+> Yannic Moog (3):
+>       dt-bindings: add imx8mp-libra-rdk-fpsc
+>       arm64: dts: add imx8mp-libra-rdk-fpsc board
+>       arm64: dts: add imx8mp-libra-rdk-fpsc LVDS panel overlay
+> 
+>  Documentation/devicetree/bindings/arm/fsl.yaml     |   7 +
+>  arch/arm64/boot/dts/freescale/Makefile             |   3 +
+>  .../imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso  |  44 ++
+>  .../boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts   | 291 ++++++++
+>  .../boot/dts/freescale/imx8mp-phycore-fpsc.dtsi    | 796 +++++++++++++++++++++
+>  5 files changed, 1141 insertions(+)
+> ---
+> base-commit: 90453dc4dee29b96b9162895f45776bc25526e07
+> change-id: 20241210-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-c273025682f2
+> 
+> Best regards,
+> --
+> Yannic Moog <y.moog@phytec.de>
+> 
+> 
+> 
 
-  Linux 6.14-rc7 (2025-03-16 12:55:17 -1000)
 
-are available in the Git repository at:
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
-tags/mailbox-v6.15
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-for you to fetch changes up to 1ec12fd31ecc38e2a81a137be7eec5df51894bcc:
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-  mailbox: Remove unneeded semicolon (2025-03-26 20:58:26 -0500)
+  pip3 install dtschema --upgrade
 
-----------------------------------------------------------------
-misc: Constify amba_id table
-pcc: cleanup and refactoring of shmem and irq handling
-qcom: add MSM8226 compatible
-fsl,mu: add i.MX94 compatible
-core: misc rejig of header includes
-  minor const fixes
-mediatek: remove cl in struct cmdq_pkt
-tegra: define dimensioning masks in SoC data
 
-----------------------------------------------------------------
-Chen Ni (1):
-      mailbox: Remove unneeded semicolon
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit 90453dc4dee29b96b9162895f45776bc25526e07
 
-Chun-Kuang Hu (1):
-      mailbox: mtk-cmdq: remove cl in struct cmdq_pkt
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
 
-Frank Li (1):
-      dt-bindings: mailbox: fsl,mu: Add i.MX94 compatible
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250328-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v1-0-28324c7f81fa@phytec.de:
 
-Huisong Li (1):
-      mailbox: pcc: Fix the possible race in updation of chan_in_use flag
+arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dtb: clock-controller@30e20000: clocks: [[2, 284], [2, 123], [2, 124], [2, 125], [2, 127], [2, 128], [2, 182], [2, 321]] is too long
+	from schema $id: http://devicetree.org/schemas/clock/imx8mp-audiomix.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dtb: clock-controller@30e20000: clock-names: ['ahb', 'sai1', 'sai2', 'sai3', 'sai5', 'sai6', 'sai7', 'axi'] is too long
+	from schema $id: http://devicetree.org/schemas/clock/imx8mp-audiomix.yaml#
 
-Jason-JH Lin (1):
-      dt-bindings: mailbox: mediatek: Add support for MT8196 GCE mailbox
 
-Kartik Rajput (1):
-      mailbox: tegra-hsp: Define dimensioning masks in SoC data
 
-Krzysztof Kozlowski (5):
-      mailbox: pl320-ipc: Drop unused xxx_destination functions
-      mailbox: pl320-ipc: Constify amba_id table
-      mailbox: arm_mhu: Constify amba_id table
-      mailbox: arm_mhu_db: Constify amba_id table
-      mailbox: arm_mhuv2: Constify amba_id table
 
-Luca Weiss (1):
-      dt-bindings: mailbox: qcom: add compatible for MSM8226 SoC
 
-Sudeep Holla (7):
-      mailbox: pcc: Always clear the platform ack interrupt first
-      mailbox: pcc: Drop unnecessary endianness conversion of pcc_hdr.flags
-      mailbox: pcc: Return early if no GAS register from
-pcc_mbox_cmd_complete_check
-      mailbox: pcc: Use acpi_os_ioremap() instead of ioremap()
-      mailbox: pcc: Refactor error handling in irq handler into
-separate function
-      mailbox: pcc: Always map the shared memory communication address
-      mailbox: pcc: Refactor and simplify check_and_ack()
-
-Tudor Ambarus (6):
-      mailbox: use error ret code of of_parse_phandle_with_args()
-      mailbox: don't protect of_parse_phandle_with_args with con_mutex
-      mailbox: sort headers alphabetically
-      mailbox: explicitly include <linux/bits.h>
-      mailbox: remove unused header files
-      MAINTAINERS: add mailbox API's tree type and location
-
- .../devicetree/bindings/mailbox/fsl,mu.yaml        |   7 +-
- .../bindings/mailbox/mediatek,gce-mailbox.yaml     |   4 +
- .../bindings/mailbox/qcom,apcs-kpss-global.yaml    |   1 +
- MAINTAINERS                                        |   1 +
- drivers/mailbox/arm_mhu.c                          |   2 +-
- drivers/mailbox/arm_mhu_db.c                       |   2 +-
- drivers/mailbox/arm_mhuv2.c                        |   2 +-
- drivers/mailbox/exynos-mailbox.c                   |   2 +-
- drivers/mailbox/mailbox.c                          |  23 ++---
- drivers/mailbox/mailbox.h                          |   2 +
- drivers/mailbox/pcc.c                              | 113 ++++++++++-----------
- drivers/mailbox/pl320-ipc.c                        |  14 +--
- drivers/mailbox/tegra-hsp.c                        |  72 ++++++++++---
- include/acpi/pcc.h                                 |   6 --
- include/linux/mailbox/mtk-cmdq-mailbox.h           |   1 -
- include/linux/mailbox_client.h                     |   2 +-
- include/linux/mailbox_controller.h                 |   6 +-
- 17 files changed, 149 insertions(+), 111 deletions(-)
 
