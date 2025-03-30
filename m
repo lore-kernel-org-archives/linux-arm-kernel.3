@@ -4,114 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB78C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 08:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 056F4C36011
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 09:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTqWupLjl7cdoWEq+RC/Hw7jFYiUJzqNImVvEUcMouk=; b=J7zYxT2FukXw/N/szIVBkpypoJ
-	5ppPIDAkAicfHhpgmvMVO7CxNKd6PNdeaCfbHkqLSSN17qrE8H6ZxPsBTV7fFPGrzKVkfD+yWXfGY
-	6nspEB3pJamBdqWVFVPW6f8tCIKNFmPf79LrB5A6ICmut5SL8Ob6lbVwtM4rRP+IKN6tJ/rDKY262
-	Q/KvCDdGwd+oCIFcHW3fvYt5aH8ZjCkt+X5T9ndV5+81NlY5Ag0kUiE4jeHWh4QOywReu0CI4OYrt
-	Sx80DYCb8TLk7/lKU/t4i6ZMlcr3wjeRrDShauReqK8yncmTx6MXLDgKaG4XjatjgfmUbE/VK6rrf
-	hMRPqzpQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=u6EyuDgU5nrgjs6np3Q+Arkgxw1FSBvSpF/CHI128gA=; b=2gWezvl1ueDbgE9osGIqwwL0EB
+	Uonucd+qPV9Q2LcaOGEL8Bv5Xrh2b3jSHmNpBuACWALiYzXLxiei56nZOBP81myivNZW17XCJihd2
+	36ViClqNyTZJNoPqtyzkQVC4pwuvX8zpLEu5uyg5rUZKFmiWQ01shE98YV8L/KnAsi+LZ2WAKyKkw
+	LVbZgFs+9paX9jr/+DyiRxERlEGsMaXbE1S0HDNyHG+WIz898RcOFvObHMUERS2fy0ox/v40iD156
+	Xaw12O2tArx0jfT1hSenQSoFfWhLgZawqrelZhmV4a+Ti6FasUhOKKOw7QbPMhqpVwMzqLEt4d5OX
+	K3FlV+Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyoQH-0000000Fzgr-1sOP;
-	Sun, 30 Mar 2025 08:53:41 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1typ5S-0000000G1zj-3sCj;
+	Sun, 30 Mar 2025 09:36:14 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyoOV-0000000FzA9-4BFJ
+	id 1typ3h-0000000G1rX-4AJx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 08:51:53 +0000
-Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
-	by mailfout.stl.internal (Postfix) with ESMTP id 42846114011B;
-	Sun, 30 Mar 2025 04:51:48 -0400 (EDT)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-12.internal (MEProxy); Sun, 30 Mar 2025 04:51:48 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm3;
-	 t=1743324708; x=1743411108; bh=dTqWupLjl7cdoWEq+RC/Hw7jFYiUJzqN
-	ImVvEUcMouk=; b=DJnJtTkx4FtwTGs+MCsrm43hFIkfqw4YaAN/iAf6TgpR0LbC
-	o+1eLQsYmMCqFU1GY8C+JR/xcq53SyuUQywH6k3f+PP1xqqCMv9G5aU89r5KCy7E
-	esU9ANb6BbU6oi4EDQAzKVSib3TPZUA7xmK25k/ZZsKjfKtCF6MoRwSqR4WaoGe8
-	O5OzmT+DbH6fhcpx1/IDh8wahLKCbFydU1W83a2yls0+1pkAqVzGrWsoPFPE5XyJ
-	Y/XUuouU25KflRa/Z0Ls1fDdWHp1E198ihXjdvNIjSRzMTLSmO6B00nsLqG++heE
-	fHBafwieQnBMeyIkmNAQbORXHzaf3WjS83JPyg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1743324708; x=
-	1743411108; bh=dTqWupLjl7cdoWEq+RC/Hw7jFYiUJzqNImVvEUcMouk=; b=E
-	1rLm3UZ5lxXQ2IfWIxo+qXUsKga+l/AU8skmGxFy4QX4/GQMa7NMcwYOkgewM8MM
-	Ck2QOI5duUsk+T0zZ73+5fRGnrHWUJpLxQfmTBxKHvLxZ37Bzst3f4/D9Aet4zPK
-	vOgJMbpaqGbLUZxVKfusy3ZI1dT+e+3LN1NpU4mmUtL35tL+byFt99Z6c/pV4ZSN
-	uUeqpQfeoHqKB5nu19xAOrAniDep7IG7sgoWkpNOmIRjPokDdFYgVM+pSzZrLWEv
-	GnTOHRPwGChr0agwfrfbJJy/ClTXEAOTmVJpcLQ8GfyQO2s3598YjeYrrFFrG+l/
-	rFhIHueaTk3zZB6vnEPsg==
-X-ME-Sender: <xms:IQbpZzmp2KoRE1ljRh7hr-SHuOTQ2BaiFqboNbdzG_3Q0dfu64n51w>
-    <xme:IQbpZ21fyxznLm7bF4IiUP9f_YTDHzitZJ2fyRbK0EmkF6a6No9IdIhjWcm98H6T1
-    A2xYMiPn647jbr-MX4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddujeeiieduucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedfufhvvghnucfrvghtvghrfdcuoehsvhgvnhesshhvvghnphgvth
-    gvrhdruggvvheqnecuggftrfgrthhtvghrnhepleefteeugeduudeuudeuhfefheegveek
-    ueefffdvffektdffffelveffvddvueffnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
-    hrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggp
-    rhgtphhtthhopeduhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptghhrhhish
-    htohhphhgvrdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopehmphgvsegv
-    lhhlvghrmhgrnhdrihgurdgruhdprhgtphhtthhopegrnhguhidrshhhvghvtghhvghnkh
-    hosehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhhpihhgghhinhesghhmrghilhdrtgho
-    mhdprhgtphhtthhopehjsehjrghnnhgruhdrnhgvthdprhgtphhtthhopegrnhguihdrsh
-    hhhihtiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgrvhgvvghnsehkvghrnhgv
-    lhdrohhrghdprhgtphhtthhopehmrgguugihsehlihhnuhigrdhisghmrdgtohhmpdhrtg
-    hpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggv
-    rggurdhorhhg
-X-ME-Proxy: <xmx:IQbpZ5rnL3CUphbOwpi10Itieqzl_zNrcEz9pXzntZMIsAR_r15lcA>
-    <xmx:IQbpZ7lkVSFcsxeK4r1GNWXI3qP-UoeTeih7LDrpKSLezZoXZ4wdPg>
-    <xmx:IQbpZx3dqW678wETZPJesy7jhheRYZyXtPWyvLhjpFCIv-K2IQuvLA>
-    <xmx:IQbpZ6vPnTiLL8VLuFuGSM6VQQv3--z4cZRdI-xpQHE9Lvz7z9kgOg>
-    <xmx:JAbpZ7MTq30YCxSfV2OaJOKEeOCcrUXIfDBhrimcqMIKp5boESOGqfpz>
-Feedback-ID: i51094778:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id B0DB1BA006F; Sun, 30 Mar 2025 04:51:45 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sun, 30 Mar 2025 09:34:27 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-301302a328bso6160963a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 02:34:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743327265; x=1743932065; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=u6EyuDgU5nrgjs6np3Q+Arkgxw1FSBvSpF/CHI128gA=;
+        b=mduDl0D2qZMch7n2yPAQn1LsSG5EL+cfZgAB2nfSNqMjdPE8k2NYq1W5CqkjM6SHxw
+         3xfEp4VbAO1UXTWfdEHOQkkGKyHE5Ycslu9aM3peFwbNaiGI36Cw7lefPbfaETR+kNta
+         PB9xwV9rmUQo0e1MsccNInr8NTTyXwWZHm4jpRJUHHpxUPrhw52BNoQ/lukPYfSh7avA
+         M+GX6PGk0OuJLDSnnnaFKSQFxDKVyf2gkWKLoz4GEUrGV/NenAXO5YPsjeGI+FwbpISj
+         ivjLnsbsUdSjYonh75AWEjK+W5m8LUWeGg1ztSq3nOpcci0xNacXnrLOqaqDA0FbcBsb
+         JpTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743327265; x=1743932065;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=u6EyuDgU5nrgjs6np3Q+Arkgxw1FSBvSpF/CHI128gA=;
+        b=pKnwly+0tsC0c/lGy0NSyfrlmx8qiQzFa75JWbfFu80ZvBEnWm0nNA3zYhW8YtfGlu
+         REQIwU3IhnMbjNUOv0K84h8gIJuTBDgkAjAqUWStpEm8kJrmpRLlrIubcXEv/658dSev
+         XaVjLRUoEI8rZQA9/RbXJB/PYQFvL0x/zUV/GMJEYhH6RRKH1KaRcA19flSTcUC6crMm
+         aoss2omlNarY7jFdEMhzlLxniolW5IZYq+ETApQO72PxTREY19G1gvhNB9Ib/HJ0hUMU
+         F9XJSXllb2Wosc6kkS7RHPDfwaAOwcQTl8Eodfdw05zo9VAGmJIHFzrTDpkaL67FwHI2
+         RvWA==
+X-Forwarded-Encrypted: i=1; AJvYcCXNZTbTW3nnSWbOOy80yPa2ys0qA0AvAKWhGd1Z6Zd8w2imkU46hNPC97zg8coz3NR/fnymyxVhlacVRmhTLXt8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSYj5T2nP+GBTvVBj4YRoy5pcyhTrTZTZm5sREeriIYh0VS7b9
+	U+5Ip1iJ6ABjrgDLh2K8okyhUE6rOX99q/3Db6QX5O2UPIO3icvz
+X-Gm-Gg: ASbGnctYL9xm6xp7Xf3eOg6NB2OIsP7HAeKkup7z8xtlxlnvIxBlA5awvGaW10DBpDn
+	6nCupvQ0BJ2u4DagyEJc/oXRdRNYmlAa9oCMr1vmb4JAq32qi7nuXxgxhpG2lOGEPBXdZVs0QZ3
+	gplcFDLxEFWNjrp31R0ryJvLGNXE2jUNq4X7N8wHGmve0Ll4ecNPqCIOtxbe9m2RH3wdD4BaIBM
+	+6R8CwSf/HQSAUsl+hYWhjELQAJp/5TuHpXiI5mCsyAFNDTwsgFLMUFo8ice8qDuIE/ODDLkpBO
+	Vk7dvYaT5l9aapMICPFo6ECdw0QMegWdOJVfOrRJ0trmN+04RtHYWVwJVFF1
+X-Google-Smtp-Source: AGHT+IFyL1pjZCQp4GL7b6jIJcPDa4HAki2IAGE1aOItt9UReNJfeQH1Ua6anvfuTfjFTOIxtDZphA==
+X-Received: by 2002:a17:90b:134d:b0:2ff:69d4:6fe2 with SMTP id 98e67ed59e1d1-305320af42fmr7635668a91.16.1743327264644;
+        Sun, 30 Mar 2025 02:34:24 -0700 (PDT)
+Received: from localhost.localdomain ([49.37.217.226])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2291eec6fbdsm49065855ad.16.2025.03.30.02.34.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 30 Mar 2025 02:34:24 -0700 (PDT)
+From: Abdun Nihaal <abdun.nihaal@gmail.com>
+To: johannes@sipsolutions.net
+Cc: nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	erick.archer@outlook.com,
+	kvalo@kernel.org,
+	abdun.nihaal@gmail.com,
+	miriam.rachel.korenblit@intel.com,
+	emmanuel.grumbach@intel.com,
+	linville@tuxdriver.com,
+	khoroshilov@ispras.ru,
+	linux-wireless@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] Fix use after free access in at76_disconnect
+Date: Sun, 30 Mar 2025 15:03:20 +0530
+Message-ID: <20250330093320.22293-1-abdun.nihaal@gmail.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-X-ThreadId: T14a5dff03e1db70d
-Date: Sun, 30 Mar 2025 10:50:53 +0200
-From: "Sven Peter" <sven@svenpeter.dev>
-To: "Andy Shevchenko" <andy.shevchenko@gmail.com>,
- "Andi Shyti" <andi.shyti@kernel.org>
-Cc: "Janne Grunau" <j@jannau.net>, "Alyssa Rosenzweig" <alyssa@rosenzweig.io>,
- "Madhavan Srinivasan" <maddy@linux.ibm.com>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Naveen N Rao" <naveen@kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, "Hector Martin" <marcan@marcan.st>
-Message-Id: <b647d45f-32e3-4864-8a94-2e0b819fba18@app.fastmail.com>
-In-Reply-To: <Z965tVhC5jxy1kqZ@surfacebook.localdomain>
-References: <20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev>
- <20250222-pasemi-fixes-v1-1-d7ea33d50c5e@svenpeter.dev>
- <rjvak3c2k5a64jw4ef23i5uptg4zzl3u7lqszqbg56l4hqms77@hrkn5eydxwiy>
- <Z965tVhC5jxy1kqZ@surfacebook.localdomain>
-Subject: Re: [PATCH 1/4] i2c: pasemi: Add registers bits and switch to BIT()
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_015152_277610_4EF95CB8 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250330_023426_033560_2ED13974 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,32 +105,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 22, 2025, at 14:23, Andy Shevchenko wrote:
-> Thu, Mar 20, 2025 at 01:23:25AM +0100, Andi Shyti kirjoitti:
->> Hi Sven,
->> 
->> On Sat, Feb 22, 2025 at 01:38:33PM +0000, Sven Peter via B4 Relay wrote:
->> > From: Sven Peter <sven@svenpeter.dev>
->> > 
->> > Add the missing register bits to the defines and also switch
->> > those to use the BIT macro which is much more readable than
->> > using hardcoded masks
->> > 
->> > Co-developed-by: Hector Martin <marcan@marcan.st>
->> > Signed-off-by: Hector Martin <marcan@marcan.st>
->> > Signed-off-by: Sven Peter <sven@svenpeter.dev>
->> 
->> Just this patch merged to i2c/i2c-host.
->
-> This needs an update as well. The proper header for BIT() et al. is bits.h.
-> bitfield.h is for FIELD_*() et al.
+The memory pointed to by priv is freed at the end of at76_delete_device
+function (using ieee80211_free_hw). But the code then accesses the udev
+field of the freed object to put the USB device. This may also lead to a
+memory leak of the usb device. Fix this by using udev from interface.
 
-Ugh, good catch. Since this commit is already on the way upstream I'll send a fix
-(and another one to sort the headers alphabetically while I'm at it anyway).
+Fixes: 29e20aa6c6af ("at76c50x-usb: fix use after free on failure path in at76_probe()")
+Signed-off-by: Abdun Nihaal <abdun.nihaal@gmail.com>
+---
+ drivers/net/wireless/atmel/at76c50x-usb.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/net/wireless/atmel/at76c50x-usb.c b/drivers/net/wireless/atmel/at76c50x-usb.c
+index 504e05ea30f2..97ea7ab0f491 100644
+--- a/drivers/net/wireless/atmel/at76c50x-usb.c
++++ b/drivers/net/wireless/atmel/at76c50x-usb.c
+@@ -2552,7 +2552,7 @@ static void at76_disconnect(struct usb_interface *interface)
+ 
+ 	wiphy_info(priv->hw->wiphy, "disconnecting\n");
+ 	at76_delete_device(priv);
+-	usb_put_dev(priv->udev);
++	usb_put_dev(interface_to_usbdev(interface));
+ 	dev_info(&interface->dev, "disconnected\n");
+ }
+ 
+-- 
+2.47.2
 
-Thanks,
-
-
-Sven
 
