@@ -4,93 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 544B5C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 10:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED2CC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 11:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nC8MTZbIQ3cw2rW7vnWZ7qJLnzWQzFuLM6bwSWKD7+s=; b=ofkKpwc4S2GQ6WxAeW2BS/7xwo
-	EsqP1NpyiE5C6NuvpUGjkfEnzFZazKPMjjeRPfN6j9mlCNofT8thgoMdPzO3Fxb9JhyWC89Zsa0M0
-	6LVEEU0i6F6KhY93376oOAOB5KJhaHzA1/ztVNkQLmZo+pgKrtW3JITbE26mArch71AnzwnuAC1bT
-	5ao/l8OzvehThirViOoq/P0KbHYtrrGWppyxps/jPArWUcSJ0/ojk9tPX8FDmKVWgCgXSmqQ654Zj
-	5jTyiWEEXg/d8kgGe938WbP3mqjwEcRXE3c9vUUD30OvO2vIlrmq6g/AakvFUVWDLmJ7VEfqksdkt
-	qfLV4d1g==;
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rIm1c9NF10GeWVSkFfVIVpsAHzV9Llg7tHlH6co2Zek=; b=oyIfy3uBDUuUU5CR+NAmMdFNYX
+	+VavrhjobIKaFfJRdMWsNQahNuLxwNRHMq734HwOTV2/akivGjQj81CX4x387aFRQNpeP9Kz1w0Ok
+	74tNGihaMl0TbvxnLH5lPyyFpWzbUwGqOLyiESbJQ2dFYR80hJc5S61VvveQFzOpOmDWLu29R5I2+
+	qXfTp1XuPRxAFfTKdD7DiAnqdhxT01+pB4NO1WxyHdhy9KwV+atY/FT9b+W6+W5GUqrXILQSfJiif
+	3kVhkjbQBWqaNWYNAX3Y0gs6jF4Kjb/Nm8TzCDcGzfQqUyO1x7QNs2mOd4lJYSPq8VUxn6ME16fxt
+	slVp8OXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1typzJ-0000000G62G-3bUm;
-	Sun, 30 Mar 2025 10:33:57 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tyrFz-0000000GA6g-01yx;
+	Sun, 30 Mar 2025 11:55:15 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1typxa-0000000G5xe-1t1j
+	id 1tyrEE-0000000G9wK-35ud
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 10:32:11 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-224100e9a5cso67672745ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 03:32:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743330729; x=1743935529; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=nC8MTZbIQ3cw2rW7vnWZ7qJLnzWQzFuLM6bwSWKD7+s=;
-        b=a2Is8WwBfEIPBU7foX0XBS1/Itt+o/jPOH5cnj65niKuYbFqlm2Y/YRhbUrlEz4nMh
-         r9KCt99pA0mRcokwbQnpCtZtP8HxyDtQjTaCyWtJJoQEE3u3oI54boB8jVgaMYtF/ocn
-         2ILCXOgKsYg55LKqcM66x9TyjDK4911VWVMSgCRyZe+OJ3hNA4yr9GHRx3R6/JTODZnd
-         ydd7TxM8Rk/iblgC28aMc2ChxKMbqX35FOxDABkcgDu5DtJiC/pZX0vT/NqFhJX0igx2
-         ZqkrG7rl8iVq0s3J0S2xpjqDdgoUbGmmjTk0MT6G6OMDK1sKP9YEIBPMT0jdAxzwO11n
-         k5tQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743330729; x=1743935529;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nC8MTZbIQ3cw2rW7vnWZ7qJLnzWQzFuLM6bwSWKD7+s=;
-        b=ZdjOWV1hp8kTYKC8S5kn7SicnrB2eDThHvEhi9R3Wmmrr/xdKBMD4Y+3oZe7xZfFlr
-         ToR+IAYqMlXZf+PurazVeDL5r9DZO/hifNBYzA83qdMwH4xroB1ZLg99mA+eg69uPERS
-         8hkvP1UgZ9wP8C2hAI5+o1nYbh+K3QdtdkwvgPgR2YrXOd1YEMgCF0lrKspzrlHz1R/K
-         kr9r+ABg6F4tDkgIe4uwLHqoaVTy7pEtvbgf9I+JIK+i9L0oiN5FdJAS2Wa5nYg31LgS
-         rkYKr7Z7EmNtSNMlIRqxt5NPlShTvF33YmlqYzf9+kX/TL8dnIgRBsTpx+YJr2iNpimj
-         u8pQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWzLaKzyBlehBnX0Hr8Q935wNe3L3u+4IlLeF9upwphz/CVqqxirbinZSQihbDXEKSd7+8lIF6lNeyxQ5zi3g2Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYMRqNGsRrrYAcrK2r7btigum0fHIxGpIhFOGqWpjeP9LbJkUL
-	LmNBXocyrUJWbGtxbhtRb3ToaWGfJYkZDDG3ibGQDG5ezZqtU7LfybAGSQHH
-X-Gm-Gg: ASbGncseg+RZiON8EUHzAMW69OGK4XzzNos/Ww1szzE9dgcA/Ya7LQPXuOqIWpUSb2Q
-	OwyNJC3jQs7+fiwAl4T44OD/eSzp5AqEhZhTcduEPngMs0mrGGrb/wSYCXvL7yeC+XqKfIZRNBb
-	fOOXxNciJ16PlC/y5BCDhucRmkJ24EZMdW11upYiMoX75zPewtuCpmf+6csjCvtfIoYNMDAj7DK
-	cOkH+j66ZFRViT6xdw+27MOiZ6cI8FqXdF5D/McE7MytnO6Q2fny5o7GeUwJccqBOAyLBXz28pA
-	2SXZWD+lGDftFkOLTzSUfACNdtWcsRrH5QJomQLC9in151Yvw1goi1ov5C2bDLodR7EOclc=
-X-Google-Smtp-Source: AGHT+IF2U0LzXGyGzaSSSOSuiBfH1sRfywjZs24Sy+5pYInOUAquWdNQ3Ifee87/AniJGorJuPkWbw==
-X-Received: by 2002:a05:6a00:174b:b0:736:4d44:8b77 with SMTP id d2e1a72fcca58-7398035e5a0mr9197373b3a.8.1743330729403;
-        Sun, 30 Mar 2025 03:32:09 -0700 (PDT)
-Received: from localhost.localdomain ([49.37.217.226])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-73970e29377sm5111720b3a.66.2025.03.30.03.32.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Mar 2025 03:32:08 -0700 (PDT)
-From: Abdun Nihaal <abdun.nihaal@gmail.com>
-To: johannes@sipsolutions.net
-Cc: nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	erick.archer@outlook.com,
-	kvalo@kernel.org,
-	miriam.rachel.korenblit@intel.com,
-	emmanuel.grumbach@intel.com,
-	abdun.nihaal@gmail.com,
-	linville@tuxdriver.com,
-	khoroshilov@ispras.ru,
-	linux-wireless@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] wifi: at76c50x: fix use after free access in at76_disconnect
-Date: Sun, 30 Mar 2025 16:01:10 +0530
-Message-ID: <20250330103110.44080-1-abdun.nihaal@gmail.com>
-X-Mailer: git-send-email 2.47.2
+	Sun, 30 Mar 2025 11:53:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1743335595; x=1743940395; i=markus.elfring@web.de;
+	bh=rIm1c9NF10GeWVSkFfVIVpsAHzV9Llg7tHlH6co2Zek=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=IiyoRS7/t6nvp9KDitTU8YPBgcS2KHTDjgRWIKpZ6zFDfOZAmDC7GZlCKE/ljZJs
+	 4n0M1AC2dz31HNFuoCkl0w5ERf8co9tL87sADX3pk74DRptch9sHHAmdLae6VxdcH
+	 HrOPQcMV3iOJO5VBzzYwWOppDc8+XBX0bHngCZ46kQtoBtdKmR3jUEVn5zptZdiLK
+	 NMXZ1a63QrWzk1EBc5M8qCCCcZONorPuLDWPfBEvKtUFrdc9qca0qbfQgaB84o0jU
+	 S0HfYimkCJRms6R2Os/UeR0AGEf3JOWROV6JUDqqbpCZ2ZRLOqRO/+AtmhnsOZGm7
+	 JB8gJav0vN1uWA4c1Q==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.93.13]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MZSBQ-1teX5J03tO-00Lw7q; Sun, 30
+ Mar 2025 13:53:15 +0200
+Message-ID: <c9185d57-0c01-4f8b-80a9-dbdf5062586a@web.de>
+Date: Sun, 30 Mar 2025 13:53:11 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+To: Abdun Nihaal <abdun.nihaal@gmail.com>, linux-wireless@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Johannes Berg <johannes@sipsolutions.net>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Alexey Khoroshilov <khoroshilov@ispras.ru>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Emmanuel Grumbach <emmanuel.grumbach@intel.com>,
+ Erick Archer <erick.archer@outlook.com>,
+ "John W. Linville" <linville@tuxdriver.com>, Kalle Valo <kvalo@kernel.org>,
+ Miri Korenblit <miriam.rachel.korenblit@intel.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>
+References: <20250330093320.22293-1-abdun.nihaal@gmail.com>
+Subject: Re: [PATCH] Fix use after free access in at76_disconnect
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250330093320.22293-1-abdun.nihaal@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:rwOVgU3D4C7MNdwpCTnZQF6oa1WOs5sfVQvAiOWuLvll5THd0Tl
+ CZNcCjzK6mMP4LdB0k6cmYu9nfDWSL1ZQwJ1TcHJ7UFTycNhB8CDLk+5ItEEe0BZJhGElL8
+ JKP/WtPGEOjsv8X1/RDXth7L0n4HawHrsyEJqKoVciuHXTricG8rax9aq+cbbSCGH/ZqtYL
+ ErJc9FcBuXx58XLkryDgA==
+UI-OutboundReport: notjunk:1;M01:P0:ljiPSMIkKl8=;/Nbour1tvGmoG9VVBjzVX5xf6ym
+ 9m5KipU6c5dSSREqaZ4veuOue4ozkKeYz3IeNyaezFW+7riZOKhiwWRRiHFSzhz0jdQVA8zz9
+ b532tsgSZ/g8VDE4nkHkr2vf1jcqZblOKn6E/t49wXQYPdweRmhn52ZiKEk6I8Pnrep9YXPN1
+ +yQuk1TVtZZEN3T+zXWx0cvYgwXTXt5cnGeAC/JLthT5Ri+RYqMz6LMjCLjkt3BjBmdxlS76i
+ yON3lS0lGiRMWxK18PyWFt6a24Q+0A4HmZ3Gsmx8BcXbq7BD83tFjbUyuZvyrrrpZx2zkOfgm
+ 0njUBcT+XOY1OidTnp7H69KYjvteu3irro5nw6EMlPjBgTNcGLf7MZxUb1dGVQnqDgP/A6FjP
+ PD9aUFXZeN2gIcPV9DTpljZTpgCQougPP0ltnw1p6bYrKhM6UT3Syot4Jm3jYIpgHkBthGCkr
+ Op7Ed7VS8GybC6Orodte8pq/9f+hDx+sbz/1MAFtk3qsqsbeQPiyUn+E+TuJmEGxiFso5+x+q
+ vAXtDSmu1eEx19CJpSaziuSA8saqVUSPnf9r+NrBHQbQ5rVJKLUdcnB6Ooj1IYza+hyIZqF21
+ 1EJ8Lmxqq49Otjmp4Y/9VBT2bg2KsosaD00nktNLf4pAovw0X5Bu97Cpv2u1B+U3Sdf7sYQHh
+ K/RpAwWlS16pEUjhNKkyagWBjCCV6ld93ywosjO3KIpp+rh+8iTFH2a4Td8YUbEAQ8B6SyPM5
+ 91RMUjYhcIaVHzRmJtB5cofounC6P4P/Qq5g/Av3jR9K0UAL4py1eCCd0K6zADwme+gVYr6Hd
+ spWtSEHkDkWnAt+KuO4KbSUo9yfOkwuA7sO85VTmi5nJB32m+kI1WlJHgoNDayuxLa2gvFVd2
+ Kze6YupR1Rx9gr/pOvo5paUY2RbpfD/IFeEtaX4DIDZ/ymbQuz1qP2KvlHC/60ayMOTLNe2rO
+ TPsbvV3joiw+UPT54SLwhQ5ZP06roVfHEXRSxZISXa68rD770fkUGJosqwOL1/nTKX67nketa
+ QKfqNYhYcUQ0AZI9uuJz6d3btGIRRM9kVQg5q4SNfVZUPku28BE1cDIrH45FIqRBPETEsqra2
+ iIO711VyPMTa1LcMKaUE4nu0Lq/EmiXCMBEimUTkL4HIFizfnYfAetk1koXNpe5ip6cPdhFS4
+ xHyYdFU+skkDCGq+oZDDnj3XRoGXDEl2y5XMwpKY/o2g6kNON/+c5Kh7L7oX94noiYDXL3AGQ
+ m7p0WbPZAAm3KdTwAVVqHFUlbCmvJu+auV251Z4HEGBC4enwMTAxCRv0gPvi4aQ96E0AzGATO
+ RcPYt1+Jg5cQ7Z0VG1mO5rLtWLhh4n9egooHY+tZmx2/Y8gh5bRDMlF66NbG/9MFXtVPyPpsL
+ JMfUjduqNnd71Nai2y07UU26aKuL6urJJN334FuVzerHQfv1RgxyZmPbGG3N+ofN/lwrMI7d1
+ 0aauhp1FfOw3EmqpFUkCSLvLxmAtlnXN0u1iVQPCS7F13qNAY45QJIqPMjorbJt4Yev6kVQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_033210_490453_82BC0E83 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20250330_045327_078060_7914D8E7 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +111,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The memory pointed to by priv is freed at the end of at76_delete_device
-function (using ieee80211_free_hw). But the code then accesses the udev
-field of the freed object to put the USB device. This may also lead to a
-memory leak of the usb device. Fix this by using udev from interface.
+> The memory pointed to by priv is freed at the end of at76_delete_device
+> function (using ieee80211_free_hw). But the code then accesses the udev
+> field of the freed object to put the USB device. This may also lead to a
+> memory leak of the usb device. Fix this by using udev from interface.
 
-Fixes: 29e20aa6c6af ("at76c50x-usb: fix use after free on failure path in at76_probe()")
-Signed-off-by: Abdun Nihaal <abdun.nihaal@gmail.com>
----
-V1 -> V2 : Add subsystem name in commit header message
+* A corresponding subsystem specification can usually be helpful here.
+  https://web.git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/drivers/net/wireless/atmel/at76c50x-usb.c?h=next-20250328
 
- drivers/net/wireless/atmel/at76c50x-usb.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+* Would you like to append parentheses to any function names?
 
-diff --git a/drivers/net/wireless/atmel/at76c50x-usb.c b/drivers/net/wireless/atmel/at76c50x-usb.c
-index 504e05ea30f2..97ea7ab0f491 100644
---- a/drivers/net/wireless/atmel/at76c50x-usb.c
-+++ b/drivers/net/wireless/atmel/at76c50x-usb.c
-@@ -2552,7 +2552,7 @@ static void at76_disconnect(struct usb_interface *interface)
- 
- 	wiphy_info(priv->hw->wiphy, "disconnecting\n");
- 	at76_delete_device(priv);
--	usb_put_dev(priv->udev);
-+	usb_put_dev(interface_to_usbdev(interface));
- 	dev_info(&interface->dev, "disconnected\n");
- }
- 
--- 
-2.47.2
 
+Regards,
+Markus
 
