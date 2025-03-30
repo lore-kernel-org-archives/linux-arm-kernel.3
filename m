@@ -4,66 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C63AC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 06:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5463C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 07:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9k+Y5ReIOa8H47u79tGR1AW/2+R+LuYfBtErRCizLOk=; b=VIVbWjokN+K8gILfBz89gTaS9E
-	gxdkDj5uPWLxPvcnB/Ets7iPuS1k79Kb2HmTbweulD+/yjWhYZZ98e12oWPY8bcuV4qh72e6SGVk5
-	qXr+NfApuT0Phwno5Ar5uwXhKxYpigBVHsfGavbA8B8EJ1CLpC2rp2MEZTY65c5E05x0JUuMD84kx
-	+GpVAnfcXzmK0LAaQW///wdXxl82pp3s++AUop94jJTX3KECyHEImufm0miEpD1Nv+uG5D+KDZGjc
-	u1I1JAdjY1paYFAYTHITrhPCzoeizIdlbRBL9NAcCXnooe4n9FbTBAVYUSJinY86miPMK6aOthtxE
-	a+URFhPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t4lOldF7TykHp/8cmNIRUHhcPEC+GP0fAVGu0S6A0mk=; b=ND8zUveJd8oSUry1ppmAM0TsTM
+	co2FwL+oeduKofmCR26eJ1hTeJmSuz9oLLpN/t25Vjn4MZVyrsi+9T4qIQVEvv/Tajair2TYcYoeH
+	gI3Gmhc3Rkrc/Mfq+WD8lhYEeLw7YyFjAqELm1uKRgyLgim6l3wak45b240wmyCZsCVyPVEmPMWJh
+	X5NB9BhgrLTuF48jbj0tOjwOyB4opSIOfzpsJlzWLH6LzhX9/uHkv4b9LUhfAywBsr/93RJ8V95R3
+	6TN2tXHCNsRSw9QgF9/bRhCvjDq5qqJZf8LPu69jz0HnmKR8EdC4Lj1lVJAbGM9ApF6XXJXBeKQqO
+	frYLR2rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tymLZ-0000000FrJL-3P5o;
-	Sun, 30 Mar 2025 06:40:41 +0000
-Received: from mx.denx.de ([89.58.32.78])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tymJ6-0000000Fr6s-0mNz
+	id 1tymru-0000000FtST-2j06;
+	Sun, 30 Mar 2025 07:14:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tymqA-0000000FtLH-1n4g
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 06:38:09 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B283010290279;
-	Sun, 30 Mar 2025 08:38:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1743316686; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=9k+Y5ReIOa8H47u79tGR1AW/2+R+LuYfBtErRCizLOk=;
-	b=HuDg6KNZrF0KM1dFLTYi0XMA4mnXwPf214AlrNGhJ8eDezOa7d+fSBnrRE/g5yBfefQvvG
-	Ox1n3XV+3vRLJwlsuninZZnf0YeEnxKvE2ryuljHLCnRnxXgIOZwLyFdL2kLfnQ+dg1zvg
-	A+kFdr9e0qLTYc7vl1GWnZIcwmDPZdqFIqFmekrO7rehjJUCtgiUHDFBjCywRnw5a9IEXX
-	mpSNCC33/y+Me9DX66o0hU6CfrypvtDjycEm8IfFuvbHsakGYLWNIwNhmdapNccePS884e
-	qMWSjrSYRoVq5mkMTXFyz8aSDLhYlKZympEMFxH2ztikYpxIPKvxNUAkUFx+Ew==
-Date: Sun, 30 Mar 2025 08:38:03 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: net: Add MTIP L2 switch description
-Message-ID: <20250330083803.75a8b53e@wsk>
-In-Reply-To: <b187dd05-2d9d-45d0-81d4-fc619dbba1d9@lunn.ch>
-References: <20250328133544.4149716-1-lukma@denx.de>
-	<20250328133544.4149716-2-lukma@denx.de>
-	<b187dd05-2d9d-45d0-81d4-fc619dbba1d9@lunn.ch>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Sun, 30 Mar 2025 07:12:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 514C51007;
+	Sun, 30 Mar 2025 00:12:19 -0700 (PDT)
+Received: from [10.163.43.124] (unknown [10.163.43.124])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E8293F694;
+	Sun, 30 Mar 2025 00:12:09 -0700 (PDT)
+Message-ID: <a1d70c0a-b792-4029-86ae-fec7fa76ce2e@arm.com>
+Date: Sun, 30 Mar 2025 12:42:05 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/fBDXOrwfi.DnGuoT/zlieFq";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: pageattr: Explicitly bail out when changing
+ permissions for vmalloc_huge mappings
+To: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: gshan@redhat.com, rppt@kernel.org, steven.price@arm.com,
+ suzuki.poulose@arm.com, tianyaxiong@kylinos.cn, ardb@kernel.org,
+ david@redhat.com, urezki@gmail.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250328062103.79462-1-dev.jain@arm.com>
+ <54db9fe1-7115-476e-b838-80aa68aabe7e@arm.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <54db9fe1-7115-476e-b838-80aa68aabe7e@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_233808_365893_FE8BD572 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20250330_001218_515005_C9FAF130 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +69,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/fBDXOrwfi.DnGuoT/zlieFq
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
 
-Hi Andrew,
 
-> > +                        /* Both PHYs (i.e. 0,1) have the same,
-> > single GPIO, */
-> > +                        /* line to handle both, their interrupts
-> > (AND'ed) */ =20
->=20
-> ORed, not ANDed.
->=20
+On 28/03/25 8:09 pm, Ryan Roberts wrote:
+> On 28/03/2025 02:21, Dev Jain wrote:
+>> arm64 uses apply_to_page_range to change permissions for kernel VA mappings,
+>> which does not support changing permissions for leaf mappings. This function
+> 
+> I think you mean "block" mappings here? A leaf mapping refers to a page table
+> entry that maps a piece of memory at any level in the pgtable (i.e. a present
+> entry that does not map a table).
+> 
+> A block mapping is an Arm ARM term used to mean a leaf mapping at a level other
+> than the last level (e.g. pmd, pud). A page mapping is an Arm ARM term used to
+> mean a leaf mapping at the last level (e.g. pte).
+> 
+>> will change permissions until it encounters a leaf mapping, and will bail
+> 
+> block mapping
+> 
+>> out. To avoid this partial change, explicitly disallow changing permissions
+>> for VM_ALLOW_HUGE_VMAP mappings.
+> 
+> It will also emit a warning. Since there are no reports of this triggering, it
+> implies that there are currently no cases of code doing a vmalloc_huge()
+> followed by partial permission change, at least on arm64 (I'm told BPF does do
+> this on x86 though). But this is a footgun waiting to go off, so let's detect it
+> early and avoid the possibility of permissions in an intermediate state. (It
+> might be worth wordsmithing this into the commit log).
 
-Yes, correct.
+Thanks, I will add this.
 
-> Often, the interrupt line has a weak pullup resistor, so by default it
-> is high. Either PHY can then pull it low, using an open collector,
-> which is HI-Z when not driving.
+> 
+>>
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> 
+> With the commit log fixed up:
+> 
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Yes, correct - this is how it works.
+Thanks!
 
->=20
-> 	Andrew
+> 
+>> ---
+>>   arch/arm64/mm/pageattr.c | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>> index 39fd1f7ff02a..8337c88eec69 100644
+>> --- a/arch/arm64/mm/pageattr.c
+>> +++ b/arch/arm64/mm/pageattr.c
+>> @@ -96,7 +96,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>>   	 * we are operating on does not result in such splitting.
+>>   	 *
+>>   	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
+>> -	 * Those are guaranteed to consist entirely of page mappings, and
+>> +	 * Disallow VM_ALLOW_HUGE_VMAP vmalloc mappings so that
+>>   	 * splitting is never needed.
+>>   	 *
+>>   	 * So check whether the [addr, addr + size) interval is entirely
+>> @@ -105,7 +105,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>>   	area = find_vm_area((void *)addr);
+>>   	if (!area ||
+>>   	    end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
+>> -	    !(area->flags & VM_ALLOC))
+>> +	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
+>>   		return -EINVAL;
+>>   
+>>   	if (!numpages)
+> 
 
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/fBDXOrwfi.DnGuoT/zlieFq
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfo5ssACgkQAR8vZIA0
-zr3WEQf9GrsZedlkoBqYc0+xKBgj8WPrMwiNSBqHy0trL7PSVtE9pN7ZQrFpRfdi
-c2HPrZPNA8+zH5vnWWhdRzMBqywa7rtDLbBDaudDut+lqrwG8I5wRQAHfxZ++DH3
-0dvq29opUYpQ6tJeZtack8i9RwdMEQ3jzvrQ9aEmao+PXfhsyqnUy4+7z1KcdCkc
-1CvGBuNdbluE99D+ZO2/HC/aKnWAq+ugj4blbCsvuRTSKGoczBdOoZYLfcbkrfwf
-BXoE140i5YytrVmWUEl8st58W1PFKTICFz+gSwS8L1JLHhBupi/Lbjzuy6GXHGql
-q+llzRrl4kd2MdIr2q4LP+JbQ9/+mQ==
-=NIIL
------END PGP SIGNATURE-----
-
---Sig_/fBDXOrwfi.DnGuoT/zlieFq--
 
