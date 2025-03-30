@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8D6C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 08:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0BCBC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 08:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ftTUVa3F4ZhHp3yFPdSL/78GBPKqpz6M5cNECbhzEeo=; b=Et83ZKT5seX1144hzr4w/MnJQ/
-	wyaqLV3ka8jRsH5ZbpoBaLREDHhUrguq/eE6H8zr1aVTj0SARme7i9TtHY3rdPnQ8hQiw8U9MvlNP
-	fbuVTTrOcQaejyN7iG62eRdRL/kSPIwpuKdJlY/M1v5/Chd8cc7UOdTbXskObl5ImQIzzkHrr1lTH
-	HvqdJnTywzH/1lhAQVhZmoUXYL0f19ZODSkX+aR/lC3VUU4eYM4kssLgNpEEOZWNsjRLYN/zzTz1W
-	M7eq8Ie5oCtfXz2mirGvam/uqUCCAbsOF+RJz1y2dRWMkMSJRe/NKOCYKXIcGMqTLtNiuwOGkdzos
-	texeJoeQ==;
+	bh=OtYLXG90eJ5bXrADp8w285Rs0wrLbQJIKJ4ztNMCQR8=; b=RfyAJy3nHf52V4VgaiDcMnz3zB
+	KxZba2GTDbLV8tnHtkPeE7feE+J6ZrtrikNzNw4KDD11mtyvPjnb7Y0XayVaCSleseqiNmq8SxKHL
+	fRW6aVbCwKQHdaUjehLx7YKcJT+Ft1e0mX++A63i9Ry7nbKGENDK705vLRz/jZwJPlwq7UVnrRA/y
+	6XnVnkvtaP3Vie0TwjQ018OrlJHU4X7HAuLPDPVRAnrNlr2QuE71+IFLzNDEO6fY9BhqTpM/L9QMV
+	8OB5CgPyabiq617yS57LwdJ2/QDgsqkd6jcl5JCMDmbIAgAkLDZFGAu5u1zlt7a/eTfOqPiHBj1HJ
+	j7hX5jmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyoJf-0000000FyRS-3GVl;
-	Sun, 30 Mar 2025 08:46:51 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tyoLN-0000000Fyc1-1zQE;
+	Sun, 30 Mar 2025 08:48:37 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyoD2-0000000FxiG-1zVn
+	id 1tyoHv-0000000FyEF-371W
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 08:40:01 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52U8deG43063355
+	Sun, 30 Mar 2025 08:45:05 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52U8dUuG2447366
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 30 Mar 2025 03:39:40 -0500
+	Sun, 30 Mar 2025 03:39:30 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1743323980;
-	bh=ftTUVa3F4ZhHp3yFPdSL/78GBPKqpz6M5cNECbhzEeo=;
+	s=ti-com-17Q1; t=1743323970;
+	bh=OtYLXG90eJ5bXrADp8w285Rs0wrLbQJIKJ4ztNMCQR8=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=roeoz/cLOJ0bVio9++8zpLY9v2qWnRHCzsZj6FRkvB0UQeZ5DeA1mY7bcJPIFbSjz
-	 jKxlyTKHLLhJK+xEVHcDfq2tfVOlBKt0FzQPPsUFUSc/i1ILLiv8iFFqZdCoINDwTJ
-	 m9wxQQ+ppmOmXzcfXrdHtbS0TQERxk5ym9DmbiIE=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52U8deaL122957
+	b=nou3TA3qQASygvb6AaTTblhQAJ9aKFIDwkR/V7F3gEI6RNLKI4BkW4G9GC+y7cecS
+	 eyYAKBL0Ye5yx04p0EdWmpxfMHefUzg5YxsVBoU3zjxY4CIMnjDaqB+y4UHqoWF+s6
+	 Uoen4NWYzTshU98rT2RGJUCfKEceYpTmLoiBnFa4=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52U8dUfG020420
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sun, 30 Mar 2025 03:39:40 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+	Sun, 30 Mar 2025 03:39:30 -0500
+Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 30
- Mar 2025 03:39:40 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ Mar 2025 03:39:29 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sun, 30 Mar 2025 03:39:39 -0500
+ Frontend Transport; Sun, 30 Mar 2025 03:39:29 -0500
 Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52U8dE4k015769;
-	Sun, 30 Mar 2025 03:39:35 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52U8dE4i015769;
+	Sun, 30 Mar 2025 03:39:25 -0500
 From: Siddharth Vadapalli <s-vadapalli@ti.com>
 To: <lpieralisi@kernel.org>, <kw@linux.com>,
         <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
@@ -63,9 +63,9 @@ To: <lpieralisi@kernel.org>, <kw@linux.com>,
 CC: <linux-pci@vger.kernel.org>, <linux-omap@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH v2 4/4] PCI: j721e: Add support to build as a loadable module
-Date: Sun, 30 Mar 2025 14:09:14 +0530
-Message-ID: <20250330083914.529222-5-s-vadapalli@ti.com>
+Subject: [PATCH v2 2/4] PCI: cadence-host: Introduce cdns_pcie_host_disable helper for cleanup
+Date: Sun, 30 Mar 2025 14:09:12 +0530
+Message-ID: <20250330083914.529222-3-s-vadapalli@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250330083914.529222-1-s-vadapalli@ti.com>
 References: <20250330083914.529222-1-s-vadapalli@ti.com>
@@ -74,8 +74,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_014000_606908_0A4F0CBA 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20250330_014503_889962_0C2B69F4 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,126 +90,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'pci-j721e.c' driver is the application/glue/wrapper driver for the
-Cadence PCIe Controllers on TI SoCs. Implement support for building it as a
-loadable module.
+Introduce the helper function cdns_pcie_host_disable() which will undo
+the configuration performed by cdns_pcie_host_setup(). Also, export it
+for use by existing callers of cdns_pcie_host_setup(), thereby allowing
+them to cleanup on their exit path.
 
 Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 ---
 
 v1:
-https://lore.kernel.org/r/20250307103128.3287497-5-s-vadapalli@ti.com/
+https://lore.kernel.org/r/20250307103128.3287497-3-s-vadapalli@ti.com/
 Changes since v1:
-- Based on feedback from Thomas at:
-  https://lore.kernel.org/r/88b3ecbe-32b6-4310-afb9-da19a2d0506a@bootlin.com/
-  the "check" for a non-NULL "pcie-refclk" in j721e_pcie_remove() has been
-  dropped.
+- Collected "Reviewed-by" tag from:
+  Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
 Regards,
 Siddharth.
 
- drivers/pci/controller/cadence/Kconfig     |  6 ++--
- drivers/pci/controller/cadence/pci-j721e.c | 33 +++++++++++++++++++++-
- 2 files changed, 35 insertions(+), 4 deletions(-)
+ .../controller/cadence/pcie-cadence-host.c    | 104 ++++++++++++++++++
+ drivers/pci/controller/cadence/pcie-cadence.h |   5 +
+ 2 files changed, 109 insertions(+)
 
-diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
-index 82b58096eea0..72d7d264d6c3 100644
---- a/drivers/pci/controller/cadence/Kconfig
-+++ b/drivers/pci/controller/cadence/Kconfig
-@@ -43,10 +43,10 @@ config PCIE_CADENCE_PLAT_EP
- 	  different vendors SoCs.
- 
- config PCI_J721E
--	bool
-+	tristate
- 
- config PCI_J721E_HOST
--	bool "TI J721E PCIe controller (host mode)"
-+	tristate "TI J721E PCIe controller (host mode)"
- 	depends on ARCH_K3 || COMPILE_TEST
- 	depends on OF
- 	select PCIE_CADENCE_HOST
-@@ -57,7 +57,7 @@ config PCI_J721E_HOST
- 	  core.
- 
- config PCI_J721E_EP
--	bool "TI J721E PCIe controller (endpoint mode)"
-+	tristate "TI J721E PCIe controller (endpoint mode)"
- 	depends on ARCH_K3 || COMPILE_TEST
- 	depends on OF
- 	depends on PCI_ENDPOINT
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index ef1cfdae33bb..8bffcd31729c 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -15,6 +15,7 @@
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqdomain.h>
- #include <linux/mfd/syscon.h>
-+#include <linux/module.h>
- #include <linux/of.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
-@@ -27,6 +28,7 @@
- #define cdns_pcie_to_rc(p) container_of(p, struct cdns_pcie_rc, pcie)
- 
- #define ENABLE_REG_SYS_2	0x108
-+#define ENABLE_CLR_REG_SYS_2	0x308
- #define STATUS_REG_SYS_2	0x508
- #define STATUS_CLR_REG_SYS_2	0x708
- #define LINK_DOWN		BIT(1)
-@@ -116,6 +118,15 @@ static irqreturn_t j721e_pcie_link_irq_handler(int irq, void *priv)
- 	return IRQ_HANDLED;
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
+index 96055edeb099..741508738f88 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-host.c
++++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
+@@ -152,6 +152,14 @@ static int cdns_pcie_retrain(struct cdns_pcie *pcie)
+ 	return ret;
  }
  
-+static void j721e_pcie_disable_link_irq(struct j721e_pcie *pcie)
++static void cdns_pcie_host_disable_ptm_response(struct cdns_pcie *pcie)
 +{
-+	u32 reg;
++	u32 val;
 +
-+	reg = j721e_pcie_intd_readl(pcie, ENABLE_CLR_REG_SYS_2);
-+	reg |= pcie->linkdown_irq_regfield;
-+	j721e_pcie_intd_writel(pcie, ENABLE_CLR_REG_SYS_2, reg);
++	val = cdns_pcie_readl(pcie, CDNS_PCIE_LM_PTM_CTRL);
++	cdns_pcie_writel(pcie, CDNS_PCIE_LM_PTM_CTRL, val & ~CDNS_PCIE_LM_TPM_CTRL_PTMRSEN);
 +}
 +
- static void j721e_pcie_config_link_irq(struct j721e_pcie *pcie)
+ static void cdns_pcie_host_enable_ptm_response(struct cdns_pcie *pcie)
  {
- 	u32 reg;
-@@ -633,9 +644,25 @@ static void j721e_pcie_remove(struct platform_device *pdev)
- 	struct j721e_pcie *pcie = platform_get_drvdata(pdev);
- 	struct cdns_pcie *cdns_pcie = pcie->cdns_pcie;
- 	struct device *dev = &pdev->dev;
-+	struct cdns_pcie_ep *ep;
-+	struct cdns_pcie_rc *rc;
-+
-+	if (pcie->mode == PCI_MODE_RC) {
-+		rc = container_of(cdns_pcie, struct cdns_pcie_rc, pcie);
-+		cdns_pcie_host_disable(rc);
-+	} else {
-+		ep = container_of(cdns_pcie, struct cdns_pcie_ep, pcie);
-+		cdns_pcie_ep_disable(ep);
-+	}
-+
-+	if (pcie->reset_gpio) {
-+		msleep(PCIE_T_PVPERL_MS);
-+		gpiod_set_value_cansleep(pcie->reset_gpio, 1);
-+	}
- 
- 	clk_disable_unprepare(pcie->refclk);
- 	cdns_pcie_disable_phy(cdns_pcie);
-+	j721e_pcie_disable_link_irq(pcie);
- 	pm_runtime_put(dev);
- 	pm_runtime_disable(dev);
+ 	u32 val;
+@@ -177,6 +185,26 @@ static int cdns_pcie_host_start_link(struct cdns_pcie_rc *rc)
+ 	return ret;
  }
-@@ -730,4 +757,8 @@ static struct platform_driver j721e_pcie_driver = {
- 		.pm	= pm_sleep_ptr(&j721e_pcie_pm_ops),
- 	},
- };
--builtin_platform_driver(j721e_pcie_driver);
-+module_platform_driver(j721e_pcie_driver);
+ 
++static void cdns_pcie_host_deinit_root_port(struct cdns_pcie_rc *rc)
++{
++	struct cdns_pcie *pcie = &rc->pcie;
++	u32 value, ctrl;
 +
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("PCIe controller driver for TI's J721E and related SoCs");
-+MODULE_AUTHOR("Kishon Vijay Abraham I <kishon@ti.com>");
++	cdns_pcie_rp_writew(pcie, PCI_CLASS_DEVICE, 0xffff);
++	cdns_pcie_rp_writeb(pcie, PCI_CLASS_PROG, 0xff);
++	cdns_pcie_rp_writeb(pcie, PCI_CLASS_REVISION, 0xff);
++	cdns_pcie_writel(pcie, CDNS_PCIE_LM_ID, 0xffffffff);
++	cdns_pcie_rp_writew(pcie, PCI_DEVICE_ID, 0xffff);
++	ctrl = CDNS_PCIE_LM_BAR_CFG_CTRL_DISABLED;
++	value = ~(CDNS_PCIE_LM_RC_BAR_CFG_BAR0_CTRL(ctrl) |
++		CDNS_PCIE_LM_RC_BAR_CFG_BAR1_CTRL(ctrl) |
++		CDNS_PCIE_LM_RC_BAR_CFG_PREFETCH_MEM_ENABLE |
++		CDNS_PCIE_LM_RC_BAR_CFG_PREFETCH_MEM_64BITS |
++		CDNS_PCIE_LM_RC_BAR_CFG_IO_ENABLE |
++		CDNS_PCIE_LM_RC_BAR_CFG_IO_32BITS);
++	cdns_pcie_writel(pcie, CDNS_PCIE_LM_RC_BAR_CFG, value);
++}
++
+ static int cdns_pcie_host_init_root_port(struct cdns_pcie_rc *rc)
+ {
+ 	struct cdns_pcie *pcie = &rc->pcie;
+@@ -393,6 +421,32 @@ static int cdns_pcie_host_dma_ranges_cmp(void *priv, const struct list_head *a,
+         return resource_size(entry2->res) - resource_size(entry1->res);
+ }
+ 
++static void cdns_pcie_host_unmap_dma_ranges(struct cdns_pcie_rc *rc)
++{
++	struct cdns_pcie *pcie = &rc->pcie;
++	enum cdns_pcie_rp_bar bar;
++	u32 value;
++
++	/* Reset inbound configuration for all BARs which were being used */
++	for (bar = RP_BAR0; bar <= RP_NO_BAR; bar++) {
++		if (rc->avail_ib_bar[bar])
++			continue;
++
++		cdns_pcie_writel(pcie, CDNS_PCIE_AT_IB_RP_BAR_ADDR0(bar), 0);
++		cdns_pcie_writel(pcie, CDNS_PCIE_AT_IB_RP_BAR_ADDR1(bar), 0);
++
++		if (bar == RP_NO_BAR)
++			continue;
++
++		value = ~(LM_RC_BAR_CFG_CTRL_MEM_64BITS(bar) |
++			  LM_RC_BAR_CFG_CTRL_PREF_MEM_64BITS(bar) |
++			  LM_RC_BAR_CFG_CTRL_MEM_32BITS(bar) |
++			  LM_RC_BAR_CFG_CTRL_PREF_MEM_32BITS(bar) |
++			  LM_RC_BAR_CFG_APERTURE(bar, bar_aperture_mask[bar] + 2));
++		cdns_pcie_writel(pcie, CDNS_PCIE_LM_RC_BAR_CFG, value);
++	}
++}
++
+ static int cdns_pcie_host_map_dma_ranges(struct cdns_pcie_rc *rc)
+ {
+ 	struct cdns_pcie *pcie = &rc->pcie;
+@@ -430,6 +484,29 @@ static int cdns_pcie_host_map_dma_ranges(struct cdns_pcie_rc *rc)
+ 	return 0;
+ }
+ 
++static void cdns_pcie_host_deinit_address_translation(struct cdns_pcie_rc *rc)
++{
++	struct cdns_pcie *pcie = &rc->pcie;
++	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(rc);
++	struct resource_entry *entry;
++	int r;
++
++	cdns_pcie_host_unmap_dma_ranges(rc);
++
++	/*
++	 * Reset outbound region 0 which was reserved for configuration space
++	 * accesses.
++	 */
++	cdns_pcie_reset_outbound_region(pcie, 0);
++
++	/* Reset rest of the outbound regions */
++	r = 1;
++	resource_list_for_each_entry(entry, &bridge->windows) {
++		cdns_pcie_reset_outbound_region(pcie, r);
++		r++;
++	}
++}
++
+ static int cdns_pcie_host_init_address_translation(struct cdns_pcie_rc *rc)
+ {
+ 	struct cdns_pcie *pcie = &rc->pcie;
+@@ -487,6 +564,12 @@ static int cdns_pcie_host_init_address_translation(struct cdns_pcie_rc *rc)
+ 	return cdns_pcie_host_map_dma_ranges(rc);
+ }
+ 
++static void cdns_pcie_host_deinit(struct cdns_pcie_rc *rc)
++{
++	cdns_pcie_host_deinit_address_translation(rc);
++	cdns_pcie_host_deinit_root_port(rc);
++}
++
+ int cdns_pcie_host_init(struct cdns_pcie_rc *rc)
+ {
+ 	int err;
+@@ -499,6 +582,14 @@ int cdns_pcie_host_init(struct cdns_pcie_rc *rc)
+ }
+ EXPORT_SYMBOL_GPL(cdns_pcie_host_init);
+ 
++static void cdns_pcie_host_link_disable(struct cdns_pcie_rc *rc)
++{
++	struct cdns_pcie *pcie = &rc->pcie;
++
++	cdns_pcie_stop_link(pcie);
++	cdns_pcie_host_disable_ptm_response(pcie);
++}
++
+ int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc)
+ {
+ 	struct cdns_pcie *pcie = &rc->pcie;
+@@ -524,6 +615,19 @@ int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc)
+ }
+ EXPORT_SYMBOL_GPL(cdns_pcie_host_link_setup);
+ 
++void cdns_pcie_host_disable(struct cdns_pcie_rc *rc)
++{
++	struct pci_host_bridge *bridge;
++
++	bridge = pci_host_bridge_from_priv(rc);
++	pci_stop_root_bus(bridge->bus);
++	pci_remove_root_bus(bridge->bus);
++
++	cdns_pcie_host_deinit(rc);
++	cdns_pcie_host_link_disable(rc);
++}
++EXPORT_SYMBOL_GPL(cdns_pcie_host_disable);
++
+ int cdns_pcie_host_setup(struct cdns_pcie_rc *rc)
+ {
+ 	struct device *dev = rc->pcie.dev;
+diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
+index 4b7f295e24e7..0b6bed1ac146 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence.h
++++ b/drivers/pci/controller/cadence/pcie-cadence.h
+@@ -523,6 +523,7 @@ static inline bool cdns_pcie_link_up(struct cdns_pcie *pcie)
+ int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc);
+ int cdns_pcie_host_init(struct cdns_pcie_rc *rc);
+ int cdns_pcie_host_setup(struct cdns_pcie_rc *rc);
++void cdns_pcie_host_disable(struct cdns_pcie_rc *rc);
+ void __iomem *cdns_pci_map_bus(struct pci_bus *bus, unsigned int devfn,
+ 			       int where);
+ #else
+@@ -541,6 +542,10 @@ static inline int cdns_pcie_host_setup(struct cdns_pcie_rc *rc)
+ 	return 0;
+ }
+ 
++static inline void cdns_pcie_host_disable(struct cdns_pcie_rc *rc)
++{
++}
++
+ static inline void __iomem *cdns_pci_map_bus(struct pci_bus *bus, unsigned int devfn,
+ 					     int where)
+ {
 -- 
 2.34.1
 
