@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F53C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 12:26:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F21BAC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 14:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WwJhni5/5Bwr5fJgMYHBreJV2sFccs1GFIX3R6qhvEw=; b=lLS/NW1bpI5tU7wUer0yjnTFgB
-	ZnoDFNEFMhjTink8FeW3NdV0Dl7RqJnfaP2oFzrxEvJCR07mo38Gx50+1gce7oPfqzUzT/6P64aJ5
-	bzXxcUp7GEgtSEM3XoNfifpIQBP8jnQbNJK4Uqa+2sXaiMTlwFx7Pec1ADQVwJx9P6lYdSHDKEtWV
-	NiKMqmFkbvKA7g2fVaGewtYy/XFCVjFa+SivTUjcUDAMkDg1jWHQgeQUcymftJKUVb3MHzs8wf8bA
-	8SsovTxdMlCir0r705DrA5LEUm5/xF3SG6tblvGH8Wb/+/Umy8wu5tLi/T1C96S+bWWnRz35eCDsu
-	z8xJe9oQ==;
+	bh=XGklHi61N/LEZEI8qs4YV4jxd3vv2PGv2qFgYePLr+w=; b=VRN0i4eTnZsQI9gKalyqGX+EzX
+	8vnsnKgIevMWZlFzF8JCZhFlRWFQ+zlDM6q2Qc5Tuhq0NHgAWGHrs3vcEWiN8JDo+CWNefnuNOkLb
+	WF3PmuvDw/Knku2SqILjPU2iq5Fvk1UIDO4cTH9HHhwmffMKEzTtHd/IS6+pjy0VubT5GR6qKnkeQ
+	dzrliD3MKQOJkKJZHQ6zyPqaJF9U8FWM0ZGYMKH2pGygIc4HJdkx/RUNqT+nOkR9jwQuUmw93uT7y
+	MKfomUL5+mgV3IvYeGN/046Z6qZ/1CG44E7TU6FC3r+3nBhq4Xg5mM+b1Z9nTn+8bsjGe0Y3jcR0I
+	q97kppHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyrk8-0000000GCPm-1JT6;
-	Sun, 30 Mar 2025 12:26:24 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1tytN3-0000000GH29-1tCs;
+	Sun, 30 Mar 2025 14:10:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyrYY-0000000GBDZ-0er2
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 12:14:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=WwJhni5/5Bwr5fJgMYHBreJV2sFccs1GFIX3R6qhvEw=; b=FA6g00
-	eW0oW5XhVpYFDk3DaLerrM1NuDMRoUdNvMJQS0EHbscumIPDsjfBkshE3SYIncfm
-	CiltdblvvlqgB8CYZjxBao7Zw9ghF2/EPizCV+PIA6irjGsi+gFbk0c9LnHMW+B0
-	RudyMP3WHYb0LMW0ole/SqroAT/AzDfW89JWykLDMvdD8w1rsyIihIUfnzde9Qie
-	EzWC+pMvKt8M/MY+P6pq8maJTqr9F/h6NdhIvS/3HZlzOlDtjlg6kUJC5aomD6CX
-	XgvNMnacaa4lQvEwVZSSibRnBMxCkbuMLZCX1scf5vAAg/uik0rFDRKaHPmZfG7p
-	Mk8VhSDk+EI7n2Fw==
-Received: (qmail 855931 invoked from network); 30 Mar 2025 14:14:24 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 30 Mar 2025 14:14:24 +0200
-X-UD-Smtp-Session: l3s3148p1@cmCAPo4xgExtKjBa
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org
-Subject: [PATCH 5/5] ARM: dts: vt8500: fix faulty ohci/ehci node names
-Date: Sun, 30 Mar 2025 14:13:28 +0200
-Message-ID: <20250330121326.9069-12-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250330121326.9069-7-wsa+renesas@sang-engineering.com>
-References: <20250330121326.9069-7-wsa+renesas@sang-engineering.com>
+	id 1tytLB-0000000GGs0-34v6;
+	Sun, 30 Mar 2025 14:08:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 819D643741;
+	Sun, 30 Mar 2025 14:08:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A021C4CEDD;
+	Sun, 30 Mar 2025 14:08:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743343722;
+	bh=LUNlOYjoJtR6+clEBUbrqDLTYdqMe7/XahYp2tVYzz8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OzX+btqPnXdQnxDdtC+MgH0y2su0B3Q9rb4mjPFUuMbBR6fveId99VkuFVJDF5RDy
+	 xpxizkQzir8PMcCcppTfz0Ewl76E76tA73MLL7edbZdk6J7vQg84YUhmVx8C5al+9S
+	 ou7zmYaCMMVbyUPANs03OYmcurr0DnCUwNoZktNCCf0qw/nwDTkQBud6aV43Url0xk
+	 xE+qPnxQV3Sq/leew3rkyw48lLTzFlpm82n1e3CpPI0hj8zpAJaNXsjI+jksar7ctP
+	 T54sH2e5/hjRMtw9ALVsYtLrdfe7IzRXoWlEul8kwZYtl0G7xikuCl73gjQMae73Ub
+	 Z7AJRSZaFES6g==
+Date: Sun, 30 Mar 2025 15:08:34 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, gnstark@salutedevices.com, lars@metafoo.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ christianshewitt@gmail.com
+Subject: Re: [PATCH v2 0/2] iio: adc: meson: add MPLL clock workaround for
+ GXLX
+Message-ID: <20250330150834.2171d106@jic23-huawei>
+In-Reply-To: <20250330101922.1942169-1-martin.blumenstingl@googlemail.com>
+References: <20250330101922.1942169-1-martin.blumenstingl@googlemail.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_051426_468298_FE2770DB 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250330_070845_796196_9E760262 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,83 +75,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-They should be named "usb@".
+On Sun, 30 Mar 2025 12:19:20 +0200
+Martin Blumenstingl <martin.blumenstingl@googlemail.com> wrote:
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
- arch/arm/boot/dts/vt8500/vt8500.dtsi | 2 +-
- arch/arm/boot/dts/vt8500/wm8505.dtsi | 2 +-
- arch/arm/boot/dts/vt8500/wm8650.dtsi | 2 +-
- arch/arm/boot/dts/vt8500/wm8750.dtsi | 2 +-
- arch/arm/boot/dts/vt8500/wm8850.dtsi | 2 +-
- 5 files changed, 5 insertions(+), 5 deletions(-)
+> Hello,
+> 
+> Amlogic GXLX SoCs seem to be mostly the same silicon as GXL. The only
+> known differences are:
+> - one less Mali-450 GPU core
+> - no VP9 codec
+> - and an odd one: the three MPLL clocks need a bit toggled in the SAR
+>   ADC register space
+> 
+> This series attempt to fix audio output (which relies on the MPLL
+> clocks) on the GXLX boards. Unfortunately all we have is a downstream
+> commit [0] without any further explanation (or anyone who wants to
+> provide details on this). Since it's not clear if this is a gate, a
+> reset or some other hardware fix: the driver side includes a warning
+> for users to update their .dtb along with kernel images in case we
+> ever figure out what these bits do and how to model them properly.
+Applied to the togreg branch of iio.git. Initially pushed out as testing
+to get some early testing before I rebase on rc1 next weekend.
 
-diff --git a/arch/arm/boot/dts/vt8500/vt8500.dtsi b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-index f23cb5ee11ae..09f5ed3e6821 100644
---- a/arch/arm/boot/dts/vt8500/vt8500.dtsi
-+++ b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-@@ -109,7 +109,7 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
--		ehci@d8007900 {
-+		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
- 			interrupts = <43>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8505.dtsi b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-index d9e1280372c5..c81810b967bb 100644
---- a/arch/arm/boot/dts/vt8500/wm8505.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-@@ -207,7 +207,7 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
--		ehci@d8007100 {
-+		usb@d8007100 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007100 0x200>;
- 			interrupts = <1>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8650.dtsi b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-index 35d12d77efc0..555008120a3e 100644
---- a/arch/arm/boot/dts/vt8500/wm8650.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-@@ -179,7 +179,7 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
--		ehci@d8007900 {
-+		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
- 			interrupts = <43>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8750.dtsi b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-index b292f85d4e69..309f6e5129fb 100644
---- a/arch/arm/boot/dts/vt8500/wm8750.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-@@ -251,7 +251,7 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
--		ehci@d8007900 {
-+		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
- 			interrupts = <26>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8850.dtsi b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-index c61717ebb4f1..3f4a514d65e2 100644
---- a/arch/arm/boot/dts/vt8500/wm8850.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-@@ -238,7 +238,7 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
--		ehci@d8007900 {
-+		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
- 			interrupts = <26>;
--- 
-2.47.2
+Thanks,
+
+Jonathan
+
+> 
+> 
+> Changes since v1 at [1]:
+> - added Krzysztof's Acked-by to the dt-bindings patch (thank you)
+> - added Neil's Reviewed-by (thank you!)
+> - fixed meson_sar_adc_gxlx_param to be independent of future
+>   to-be-upstreamed patches (fixes a build error)
+> 
+> 
+> [0] https://github.com/khadas/linux/commit/d1d98f2ed8c83eb42af8880ed8e206aa402dd70a#diff-c5aaf54323ef93777c5083de37f933058ea8d0af79a1941e0b5a0667dc0f89b3
+> [1] https://lore.kernel.org/linux-amlogic/20241231194207.2772750-1-martin.blumenstingl@googlemail.com/
+> 
+> 
+> Martin Blumenstingl (2):
+>   dt-bindings: iio: adc: amlogic,meson-saradc: Add GXLX SoC compatible
+>   iio: adc: meson: add support for the GXLX SoC
+> 
+>  .../iio/adc/amlogic,meson-saradc.yaml         |  1 +
+>  drivers/iio/adc/meson_saradc.c                | 34 +++++++++++++++++++
+>  2 files changed, 35 insertions(+)
+> 
 
 
