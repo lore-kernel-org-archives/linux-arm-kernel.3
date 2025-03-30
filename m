@@ -4,97 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E56EEC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 20:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F8AC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 20:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NIpGKmPTwmgH6kt4Z9N97KhuCd1YIaNH+No8Gveimbg=; b=PBIYgQF0qKp0/QN2dZiY9R/gzZ
-	aW2S3WNi4Asl3NrSwW9LADdRMmm5m+mHNXhNeWfn+enNjAxVEhCrdCiPAdlEf2NEsjoARDM3L53r6
-	0d+fthgIQ719V7ZiMWzeuih7N7w4dCf351+Eiymb6OwjbGzso67y3dJu/nropw4sA+uNqsA8M/BIk
-	duq/Bylmh5epas9UiDjSkcqii6v2AwchLs8azSWgG/RcKIEspOYG0BYfxWZmAaALZKSGu6aiCJlwB
-	YH9noES9FgH2eulFCLfJPDBZs+k4oDpaQWwdH+28TZoQERTl3Ot4VYgliB2o93WxMEEnIDdgRotjK
-	YB69h8XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FQdIPIBIFPsMXzbqA6bIdMRDw0puL1K2JM/M9dMbXWQ=; b=hrpCKi0vCB+UfAajwhzBfmJa2c
+	WM/OCzeA8ZFrs5zo4pXCGMqBpgQddIFX8fs6T64gq79+JReoKq4zgAPFRrEU03S8gdbGKEkfZlPkd
+	mAinOecay07PUoTmT8GXaMr/034GCtLudUVwyVdl7Se/8pqEYHmYJCFXnEg5PS5NjxBqioWsB3xVf
+	ME+B/YZigxQex0GHytjkmpesqTK3ZxP8xXkVnAY8lOoC0Vz2V8xK6HnlOcc3IEnH+oiMO7vUCV+EC
+	5jUbM18r2vTaDf+6nsjtQ5QUatxCuyU6qxUVObtJGBovh5oKv+JBYYcu4fMequIKvnzqMNI7+kCCo
+	lBaN7SWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyywR-0000000GdL4-42ZT;
-	Sun, 30 Mar 2025 20:07:35 +0000
-Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
+	id 1tyyzY-0000000GddN-3AM5;
+	Sun, 30 Mar 2025 20:10:48 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyynq-0000000GcUp-3F0N
+	id 1tyyxo-0000000GdVg-0e89
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 19:58:44 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4ZQlSd1FBGz9sX2;
-	Sun, 30 Mar 2025 21:58:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1743364721;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NIpGKmPTwmgH6kt4Z9N97KhuCd1YIaNH+No8Gveimbg=;
-	b=tt0WZRFwe+srhexlY8zen025H0dcFS9RHFT6pviYef6DLtISO9250Qz8D3K0nGGP9JaWyb
-	ta1wDhwGbOWOAsE8m9Di4pk8tRMJFiqOl3w/BUjVN72ysVs8Z+OOf3WZVieprEqkCznMYv
-	Mm9FH1/kenMmUFp1jGjR+ZU9WZuXckt2xgaL7GQ8PbXhJCkFZzOlO3jppSmqEgRpjOkrQu
-	plqx2UiXa8L2bQamUXUYe0HYWEk0j4R36Tal1pNC03qtz06307LYWWxnPw5qJwSJvofInH
-	mY3GWoZaDqC6Vz+mjJwktbL1HS2RasR2grweDfHMq7wCuin5bfrrBrGbu9MxEw==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1743364719;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NIpGKmPTwmgH6kt4Z9N97KhuCd1YIaNH+No8Gveimbg=;
-	b=lFvK0FK36+szTOwFt5+hDxXIEd60xGwcTfNSanK8PM24MBDr1b+6iwWyP4NOtKeYwGLISm
-	alQ9YzOUYuiO/a276p6vuLXkOiG3HLy6AITy0WLMF/3P56zpFvoEeWL4o7PMUe47d76o6l
-	k9zYBbocqkSWZTa+KuHlV+TcbI6U6cX0eLe9AI4WnMB6kQI8BFPt1Jxm18NxA5uMGkbW5t
-	TIV+wWDJfc/SAKDsOZBV3lEt22b3jgWsqCDpRM8EgzyoTonO63nBYqnxhRMnFwvpnoraRE
-	IQs+8EnYlU56FKJyBkB3Y6GQw71x6ash2IeRELizK3W3mOSko/X/NW+HgUCbnA==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	Aradhya Bhatia <a-bhatia1@ti.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Junhao Xie <bigfoot@classfun.cn>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 4/4] arm64: dts: renesas: r8a779g3: Add Renesas R-Car V4H Sparrow Hawk board support
-Date: Sun, 30 Mar 2025 21:56:12 +0200
-Message-ID: <20250330195715.332106-5-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20250330195715.332106-1-marek.vasut+renesas@mailbox.org>
-References: <20250330195715.332106-1-marek.vasut+renesas@mailbox.org>
+	Sun, 30 Mar 2025 20:09:01 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e8be1c6ff8so7244071a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 13:08:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1743365338; x=1743970138; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FQdIPIBIFPsMXzbqA6bIdMRDw0puL1K2JM/M9dMbXWQ=;
+        b=Z2c42Qab+bvMd6RlVDgpa8JjPF/ndEPDdoe438cqMM7AdGeVyfFCRb339czyB88hbm
+         U1aPZEkL8vH5Bosz8TrL6kqWqkr4MBhG2MpNcZDSW0D7i7NAGIEhfcCWnRa0yye3r/YO
+         seiOqXhHVd9WNxkokuEitzJuHOZNQ5A0CgLsQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743365338; x=1743970138;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FQdIPIBIFPsMXzbqA6bIdMRDw0puL1K2JM/M9dMbXWQ=;
+        b=Xyg4sC8LJg0aC8XWFYtgCbt8XhbTpeKNckxJQLByNKy0xTGOC5gQncRVEADNpkP7s8
+         zpE+MoSlKP92QT0sBDjxRsjmMqP8CM+zB2YEVvT0wUUs8cBwPgFjmejDfz2iJ+kPYy+Z
+         aWMM58JvJbHLrGD1fsIABfD2mv/aZegTMMXYQdEfvLMQ1k0FzG6FSLbrI6vxzlkBxBGi
+         shLBDLdt71FbZgBu6k2QzSILEtDk41chj9O2aDEFxCmYg+Kf+VLv2fnAzUVYq17DuFm2
+         c1rm9amRtzNIQPkB2HkZ9SHJVJOuCSTlRvG6IoknbiE1azhdkw9P2oRZtaIxjMmDnG9S
+         F+8g==
+X-Forwarded-Encrypted: i=1; AJvYcCVEKH7QyWjhreDRGgwQsYCNLZ9yrVXV7oBi1epATx2s9SFKY0f+SDjMZ5ue6RnjWGixcYtFun3Gc21M0rcJ1Ece@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4sqDOn85XxaalbZkNOre7Ur3Y6xZlKVJ3CISi2xJTGqW1RPdK
+	rd0mp/N5tfU/HOgPgmkW6nEIxxgmQ0GLyf7pMAzmVSC8ueHuRLtNwtq+o9NKL5jAcALtDnlVnDH
+	leAo=
+X-Gm-Gg: ASbGncuEyGTTfyiIjmk2VkFRVgzS35xxrS+V1BSsPqiff09Iqk10Hs5bCmldmpIsgi+
+	u/r1/vTKMrLnzVIAd+RZkW+UFnxy6duIHuLDsxM0npjOYZY1HtGVvUC5VJPB/GITNlTLDer/SHA
+	ZsQA1bT1f2r9Qy9WXzNfajRK6Hr8LbzX7YhENa0R+2aDDhSi7WMYOiKz44QqsMVhBPC2YdmlfdX
+	djzsgYsXCD2rtQ/dNH1H2VtErDad07MDQxtkP63leeFiCSOKSFm0chQEPALpJ2rRNRO4TfsL68j
+	jJrfrWCzbeT60WFz/2H3KCKfY8qPKbYvwZhHff5B5fc7jkulW1Aeiqjutt057/EMd7fay+IlqVg
+	WPKndUWCo1AvWFskFx7bppMh7xSaozg==
+X-Google-Smtp-Source: AGHT+IFUOrdmPU4iJvyAw4Z1ZOkgntfEHfCeG5n4H3+g2skLUSt38337gR9230J7elyAeUiyJTDU6A==
+X-Received: by 2002:a05:6402:3584:b0:5db:f423:19c5 with SMTP id 4fb4d7f45d1cf-5edfcbe92d2mr5882838a12.5.1743365337939;
+        Sun, 30 Mar 2025 13:08:57 -0700 (PDT)
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com. [209.85.218.54])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5edc16d38e3sm4653616a12.24.2025.03.30.13.08.57
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 30 Mar 2025 13:08:57 -0700 (PDT)
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-aaf0f1adef8so524408566b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 13:08:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX1NzGE0yos5ylZjQnXpD+KTqIQMG1VKsqPU4zlLdjcnLvOyfvfI0nduaOfEZCUfax2Bxmu9UH2UX7ZkgU9+xaD@lists.infradead.org
+X-Received: by 2002:a17:907:3da3:b0:ac3:4227:139c with SMTP id
+ a640c23a62f3a-ac738a5064dmr549397666b.24.1743365336889; Sun, 30 Mar 2025
+ 13:08:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: s4icedicx617txbbw6skdtyr6i5c3aa4
-X-MBO-RS-ID: 2614ce2625e770c9a22
-X-Rspamd-Queue-Id: 4ZQlSd1FBGz9sX2
+References: <20250327144823.99186-1-alexei.starovoitov@gmail.com>
+In-Reply-To: <20250327144823.99186-1-alexei.starovoitov@gmail.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Sun, 30 Mar 2025 13:08:40 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wg+nyd6Cqnw-vVxvVTTW31zOyBOHO0ak1xPFX5C0qut=w@mail.gmail.com>
+X-Gm-Features: AQ5f1JqZpY881qm9M5vJvGClsN_VOWkQMfOTIJY-M64XcTRU-qfDU4LkUOiqPUg
+Message-ID: <CAHk-=wg+nyd6Cqnw-vVxvVTTW31zOyBOHO0ak1xPFX5C0qut=w@mail.gmail.com>
+Subject: Re: [GIT PULL] BPF resilient spin_lock for 6.15
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: bpf@vger.kernel.org, daniel@iogearbox.net, andrii@kernel.org, 
+	martin.lau@kernel.org, peterz@infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_125843_109284_4B26AC41 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20250330_130900_206487_D69D6B8F 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,732 +105,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Renesas R-Car V4H Sparrow Hawk board based on R-Car V4H ES3.0 (R8A779G3)
-SoC. This is a single-board computer with single gigabit ethernet, DSI-to-eDP
-bridge, DSI and two CSI2 interfaces, audio codec, two CANFD ports, micro SD
-card slot, USB PD supply, USB 3.0 ports, M.2 Key-M slot for NVMe SSD, debug
-UART and JTAG.
+On Thu, 27 Mar 2025 at 07:48, Alexei Starovoitov
+<alexei.starovoitov@gmail.com> wrote:
+>
+> This patch set introduces Resilient Queued Spin Lock (or rqspinlock with
+> res_spin_lock() and res_spin_unlock() APIs).
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: "Krzysztof Wilczyński" <kw@linux.com>
-Cc: "Rafał Miłecki" <rafal@milecki.pl>
-Cc: Aradhya Bhatia <a-bhatia1@ti.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Heiko Stuebner <heiko@sntech.de>
-Cc: Junhao Xie <bigfoot@classfun.cn>
-Cc: Kever Yang <kever.yang@rock-chips.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-pci@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- arch/arm64/boot/dts/renesas/Makefile          |   2 +
- .../dts/renesas/r8a779g3-sparrow-hawk.dts     | 671 ++++++++++++++++++
- 2 files changed, 673 insertions(+)
- create mode 100644 arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+I would have loved to have seen explicit acks from the locking people,
+but the code looks fine to me.
 
-diff --git a/arch/arm64/boot/dts/renesas/Makefile b/arch/arm64/boot/dts/renesas/Makefile
-index d25e665ee4bfb..8bed8069a007e 100644
---- a/arch/arm64/boot/dts/renesas/Makefile
-+++ b/arch/arm64/boot/dts/renesas/Makefile
-@@ -94,6 +94,8 @@ dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g2-white-hawk-single.dtb
- r8a779g2-white-hawk-single-ard-audio-da7212-dtbs := r8a779g2-white-hawk-single.dtb white-hawk-ard-audio-da7212.dtbo
- dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g2-white-hawk-single-ard-audio-da7212.dtb
- 
-+dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-sparrow-hawk.dtb
-+
- dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-white-hawk-single.dtb
- r8a779g3-white-hawk-single-ard-audio-da7212-dtbs := r8a779g3-white-hawk-single.dtb white-hawk-ard-audio-da7212.dtbo
- dtb-$(CONFIG_ARCH_R8A779G0) += r8a779g3-white-hawk-single-ard-audio-da7212.dtb
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-new file mode 100644
-index 0000000000000..33df5af85f551
---- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-@@ -0,0 +1,671 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Device Tree Source for the R-Car V4H ES3.0 Sparrow Hawk board
-+ *
-+ * Copyright (C) 2025 Marek Vasut <marek.vasut+renesas@mailbox.org>
-+ */
-+
-+/dts-v1/;
-+#include <dt-bindings/gpio/gpio.h>
-+
-+#include "r8a779g3.dtsi"
-+
-+/ {
-+	model = "Retronix Sparrow Hawk board based on r8a779g3";
-+	compatible = "retronix,sparrow-hawk", "renesas,r8a779g3",
-+		     "renesas,r8a779g0";
-+
-+	aliases {
-+		ethernet0 = &avb0;
-+		i2c0 = &i2c0;
-+		i2c1 = &i2c1;
-+		i2c2 = &i2c2;
-+		i2c3 = &i2c3;
-+		i2c4 = &i2c4;
-+		i2c5 = &i2c5;
-+		serial0 = &hscif0;
-+		spi0 = &rpc;
-+	};
-+
-+	chosen {
-+		bootargs = "ignore_loglevel rw root=/dev/nfs ip=on";
-+		stdout-path = "serial0:921600n8";
-+	};
-+
-+	/* Page 31 / FAN */
-+	fan: pwm-fan {
-+		pinctrl-0 = <&irq4_pins>;
-+		pinctrl-names = "default";
-+		compatible = "pwm-fan";
-+		#cooling-cells = <2>;
-+		cooling-levels = <0 50 100 150 200 255>;
-+		pwms = <&pwm0 0 50000>;
-+		pulses-per-revolution = <2>;
-+		interrupts-extended = <&intc_ex 4 IRQ_TYPE_EDGE_FALLING>;
-+		/* No FAN connected by default. */
-+		status = "disabled";
-+	};
-+
-+	/*
-+	 * Page 15 / LPDDR5
-+	 *
-+	 * This configuration listed below is for the 8 GiB board variant
-+	 * with MT62F1G64D8EK-023 WT:C LPDDR5 part populated on the board.
-+	 *
-+	 * A variant with 16 GiB MT62F2G64D8EK-023 WT:C part populated on
-+	 * the board is automatically handled by the bootloader, which
-+	 * adjusts the correct DRAM size into the memory nodes below.
-+	 */
-+	memory@48000000 {
-+		device_type = "memory";
-+		/* first 128MB is reserved for secure area. */
-+		reg = <0x0 0x48000000 0x0 0x78000000>;
-+	};
-+
-+	memory@480000000 {
-+		device_type = "memory";
-+		reg = <0x4 0x80000000 0x0 0x80000000>;
-+	};
-+
-+	memory@600000000 {
-+		device_type = "memory";
-+		reg = <0x6 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	/* Page 27 / DSI to Display */
-+	mini-dp-con {
-+		compatible = "dp-connector";
-+		label = "CN6";
-+		type = "full-size";
-+
-+		port {
-+			mini_dp_con_in: endpoint {
-+				remote-endpoint = <&sn65dsi86_out>;
-+			};
-+		};
-+	};
-+
-+	reg_1p2v: regulator-1p2v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-1.2V";
-+		regulator-min-microvolt = <1200000>;
-+		regulator-max-microvolt = <1200000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-1.8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_3p3v: regulator-3p3v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "fixed-3.3V";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	/* Page 27 / DSI to Display */
-+	sn65dsi86_refclk: clk-x9 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <38400000>;
-+	};
-+
-+	/* Page 26 / PCIe.0/1 CLK */
-+	pcie_refclk: clk-x8 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <25000000>;
-+	};
-+
-+	/* Page 17 uSD-Slot */
-+	vcc_sdhi: regulator-vcc-sdhi {
-+		compatible = "regulator-gpio";
-+		regulator-name = "SDHI VccQ";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpios = <&gpio8 13 GPIO_ACTIVE_HIGH>;
-+		gpios-states = <1>;
-+		states = <3300000 0>, <1800000 1>;
-+	};
-+};
-+
-+/* Page 22 / Ether_AVB0 */
-+&avb0 {
-+	pinctrl-0 = <&avb0_pins>;
-+	pinctrl-names = "default";
-+	phy-handle = <&avb0_phy>;
-+	tx-internal-delay-ps = <2000>;
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		avb0_phy: ethernet-phy@0 {	/* KSZ9031RNXVB */
-+			compatible = "ethernet-phy-id0022.1622",
-+				     "ethernet-phy-ieee802.3-c22";
-+			rxc-skew-ps = <1500>;
-+			reg = <0>;
-+			/* AVB0_PHY_INT_V */
-+			interrupts-extended = <&gpio7 5 IRQ_TYPE_LEVEL_LOW>;
-+			/* GP7_10/AVB0_RESETN_V */
-+			reset-gpios = <&gpio7 10 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <300>;
-+		};
-+	};
-+};
-+
-+/* Page 28 / CANFD_IF */
-+&can_clk {
-+	clock-frequency = <40000000>;
-+};
-+
-+/* Page 28 / CANFD_IF */
-+&canfd {
-+	pinctrl-0 = <&canfd3_pins>, <&canfd4_pins>, <&can_clk_pins>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+
-+	channel3 {
-+		status = "okay";
-+	};
-+
-+	channel4 {
-+		status = "okay";
-+	};
-+};
-+
-+/* Page 27 / DSI to Display */
-+&dsi1 {
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			dsi1_out: endpoint {
-+				remote-endpoint = <&sn65dsi86_in>;
-+				data-lanes = <1 2 3 4>;
-+			};
-+		};
-+	};
-+};
-+
-+/* Page 27 / DSI to Display */
-+&du {
-+	status = "okay";
-+};
-+
-+/* Page 5 / R-Car V4H_INT_I2C */
-+&extal_clk {	/* X3 */
-+	clock-frequency = <16666666>;
-+};
-+
-+/* Page 5 / R-Car V4H_INT_I2C */
-+&extalr_clk {	/* X2 */
-+	clock-frequency = <32768>;
-+};
-+
-+/* Page 26 / 2230 Key M M.2 */
-+&gpio4 {
-+	/* 9FGV0441 nOE inputs 0 and 1 */
-+	pcie-m2-oe-hog {
-+		gpio-hog;
-+		gpios = <21 GPIO_ACTIVE_HIGH>;
-+		output-low;
-+		line-name = "PCIe-CLK-nOE-M2";
-+	};
-+
-+	/* 9FGV0441 nOE inputs 2 and 3 */
-+	pcie-usb-oe-hog {
-+		gpio-hog;
-+		gpios = <22 GPIO_ACTIVE_HIGH>;
-+		output-low;
-+		line-name = "PCIe-CLK-nOE-USB";
-+	};
-+};
-+
-+/* Page 23 / DEBUG */
-+&hscif0 {	/* FTDI ADBUS[3:0] */
-+	pinctrl-0 = <&hscif0_pins>;
-+	pinctrl-names = "default";
-+	uart-has-rtscts;
-+	bootph-all;
-+
-+	status = "okay";
-+};
-+
-+/* Page 23 / DEBUG */
-+&hscif1 {	/* FTDI BDBUS[3:0] */
-+	pinctrl-0 = <&hscif1_pins>;
-+	pinctrl-names = "default";
-+	uart-has-rtscts;
-+
-+	status = "okay";
-+};
-+
-+/* Page 24 / UART */
-+&hscif3 {	/* CN7 pins 8 (TX) and 10 (RX) */
-+	pinctrl-0 = <&hscif3_pins>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+/* Page 24 / I2C SWITCH */
-+&i2c0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&i2c0_pins>;
-+	pinctrl-names = "default";
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	mux@71 {
-+		compatible = "nxp,pca9544";	/* TCA9544 */
-+		reg = <0x71>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		vdd-supply = <&reg_3p3v>;
-+
-+		i2c0_mux0: i2c@0 {
-+			reg = <0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/* Page 27 / DSI to Display */
-+			bridge@2c {
-+				pinctrl-0 = <&irq0_pins>;
-+				pinctrl-names = "default";
-+
-+				compatible = "ti,sn65dsi86";
-+				reg = <0x2c>;
-+
-+				clocks = <&sn65dsi86_refclk>;
-+				clock-names = "refclk";
-+
-+				interrupts-extended = <&intc_ex 0 IRQ_TYPE_LEVEL_HIGH>;
-+
-+				enable-gpios = <&gpio2 1 GPIO_ACTIVE_HIGH>;
-+
-+				vccio-supply = <&reg_1p8v>;
-+				vpll-supply = <&reg_1p8v>;
-+				vcca-supply = <&reg_1p2v>;
-+				vcc-supply = <&reg_1p2v>;
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+						sn65dsi86_in: endpoint {
-+							remote-endpoint = <&dsi1_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+						sn65dsi86_out: endpoint {
-+							remote-endpoint = <&mini_dp_con_in>;
-+						};
-+					};
-+				};
-+			};
-+		};
-+
-+		i2c0_mux1: i2c@1 {
-+			reg = <1>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c0_mux2: i2c@2 {
-+			reg = <2>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/* Page 26 / PCIe.0/1 CLK */
-+			pcie_clk: clk@68 {
-+				compatible = "renesas,9fgv0441";
-+				reg = <0x68>;
-+				clocks = <&pcie_refclk>;
-+				#clock-cells = <1>;
-+			};
-+		};
-+
-+		i2c0_mux3: i2c@3 {
-+			reg = <3>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+	};
-+};
-+
-+/* Page 29 / CSI_IF_CN / CAM_CN0 */
-+&i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&i2c1_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+/* Page 29 / CSI_IF_CN / CAM_CN1 */
-+&i2c2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&i2c2_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+/* Page 31 / IO_CN */
-+&i2c3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&i2c3_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+/* Page 31 / IO_CN */
-+&i2c4 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&i2c4_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+/* Page 18 / POWER_CORE and Page 19 / POWER_PMIC */
-+&i2c5 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&i2c5_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+/* Page 17 uSD-Slot */
-+&mmc0 {
-+	pinctrl-0 = <&sd_pins>;
-+	pinctrl-1 = <&sd_uhs_pins>;
-+	pinctrl-names = "default", "state_uhs";
-+	bus-width = <4>;
-+	cd-gpios = <&gpio3 11 GPIO_ACTIVE_LOW>;	/* SD_CD */
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&reg_3p3v>;
-+	vqmmc-supply = <&vcc_sdhi>;
-+	status = "okay";
-+};
-+
-+/* Page 26 / 2230 Key M M.2 */
-+&pcie0_clkref {
-+	status = "disabled";
-+};
-+
-+&pciec0 {
-+	clocks = <&cpg CPG_MOD 624>, <&pcie_clk 0>, <&pcie_clk 1>;
-+	clock-names = "core", "ref", "aux";
-+	reset-gpios = <&gpio2 2 GPIO_ACTIVE_LOW>;
-+	status = "okay";
-+};
-+
-+/* Page 25 / PCIe to USB */
-+&pcie1_clkref {
-+	status = "disabled";
-+};
-+
-+&pciec1 {
-+	clocks = <&cpg CPG_MOD 625>, <&pcie_clk 2>, <&pcie_clk 3>;
-+	clock-names = "core", "ref", "aux";
-+	/* uPD720201 is PCIe Gen2 x1 device */
-+	num-lanes = <1>;
-+	reset-gpios = <&gpio2 0 GPIO_ACTIVE_LOW>;
-+	status = "okay";
-+};
-+
-+&pfc {
-+	pinctrl-0 = <&scif_clk_pins>;
-+	pinctrl-names = "default";
-+
-+	/* Page 22 / Ether_AVB0 */
-+	avb0_pins: avb0 {
-+		mux {
-+			groups = "avb0_link", "avb0_mdio", "avb0_rgmii",
-+				 "avb0_txcrefclk";
-+			function = "avb0";
-+		};
-+
-+		pins_mdio {
-+			groups = "avb0_mdio";
-+			drive-strength = <21>;
-+		};
-+
-+		pins_mii {
-+			groups = "avb0_rgmii";
-+			drive-strength = <21>;
-+		};
-+
-+	};
-+
-+	/* Page 28 / CANFD_IF */
-+	can_clk_pins: can-clk {
-+		groups = "can_clk";
-+		function = "can_clk";
-+	};
-+
-+	/* Page 28 / CANFD_IF */
-+	canfd3_pins: canfd3 {
-+		groups = "canfd3_data";
-+		function = "canfd3";
-+	};
-+
-+	/* Page 28 / CANFD_IF */
-+	canfd4_pins: canfd4 {
-+		groups = "canfd4_data";
-+		function = "canfd4";
-+	};
-+
-+	/* Page 23 / DEBUG */
-+	hscif0_pins: hscif0 {
-+		groups = "hscif0_data", "hscif0_ctrl";
-+		function = "hscif0";
-+	};
-+
-+	/* Page 23 / DEBUG */
-+	hscif1_pins: hscif1 {
-+		groups = "hscif1_data_a", "hscif1_ctrl_a";
-+		function = "hscif1";
-+	};
-+
-+	/* Page 24 / UART */
-+	hscif3_pins: hscif3 {
-+		groups = "hscif3_data_a";
-+		function = "hscif3";
-+	};
-+
-+	/* Page 24 / I2C SWITCH */
-+	i2c0_pins: i2c0 {
-+		groups = "i2c0";
-+		function = "i2c0";
-+	};
-+
-+	/* Page 29 / CSI_IF_CN / CAM_CN0 */
-+	i2c1_pins: i2c1 {
-+		groups = "i2c1";
-+		function = "i2c1";
-+	};
-+
-+	/* Page 29 / CSI_IF_CN / CAM_CN1 */
-+	i2c2_pins: i2c2 {
-+		groups = "i2c2";
-+		function = "i2c2";
-+	};
-+
-+	/* Page 31 / IO_CN */
-+	i2c3_pins: i2c3 {
-+		groups = "i2c3";
-+		function = "i2c3";
-+	};
-+
-+	/* Page 31 / IO_CN */
-+	i2c4_pins: i2c4 {
-+		groups = "i2c4";
-+		function = "i2c4";
-+	};
-+
-+	/* Page 18 / POWER_CORE */
-+	i2c5_pins: i2c5 {
-+		groups = "i2c5";
-+		function = "i2c5";
-+	};
-+
-+	/* Page 27 / DSI to Display */
-+	irq0_pins: irq0 {
-+		groups = "intc_ex_irq0_a";
-+		function = "intc_ex";
-+	};
-+
-+	/* Page 31 / FAN */
-+	irq4_pins: irq4 {
-+		groups = "intc_ex_irq4_b";
-+		function = "intc_ex";
-+	};
-+
-+	/* Page 31 / FAN */
-+	pwm0_pins: pwm0 {
-+		groups = "pwm0";
-+		function = "pwm0";
-+	};
-+
-+	/* Page 31 / CN7 pin 12 */
-+	pwm1_pins: pwm1 {
-+		groups = "pwm1_b";
-+		function = "pwm1";
-+	};
-+
-+	/* Page 31 / CN7 pin 32 */
-+	pwm6_pins: pwm6 {
-+		groups = "pwm6";
-+		function = "pwm6";
-+	};
-+
-+	/* Page 31 / CN7 pin 33 */
-+	pwm7_pins: pwm7 {
-+		groups = "pwm7";
-+		function = "pwm7";
-+	};
-+
-+	/* Page 16 / QSPI_FLASH */
-+	qspi0_pins: qspi0 {
-+		groups = "qspi0_ctrl", "qspi0_data4";
-+		function = "qspi0";
-+		bootph-all;
-+	};
-+
-+	/* Page 6 / SCIF_CLK_SOC_V */
-+	scif_clk_pins: scif_clk {
-+		groups = "scif_clk";
-+		function = "scif_clk";
-+	};
-+
-+	/* Page 17 uSD-Slot */
-+	sd_pins: sd {
-+		groups = "mmc_data4", "mmc_ctrl";
-+		function = "mmc";
-+		power-source = <3300>;
-+	};
-+
-+	/* Page 17 uSD-Slot */
-+	sd_uhs_pins: sd_uhs {
-+		groups = "mmc_data4", "mmc_ctrl";
-+		function = "mmc";
-+		power-source = <1800>;
-+	};
-+};
-+
-+/* Page 31 / FAN */
-+&pwm0 {
-+	pinctrl-0 = <&pwm0_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Page 31 / CN7 pin 12 */
-+&pwm1 {
-+	pinctrl-0 = <&pwm1_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Page 31 / CN7 pin 32 */
-+&pwm6 {
-+	pinctrl-0 = <&pwm6_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Page 31 / CN7 pin 33 */
-+&pwm7 {
-+	pinctrl-0 = <&pwm7_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+/* Page 16 / QSPI_FLASH */
-+&rpc {
-+	pinctrl-0 = <&qspi0_pins>;
-+	pinctrl-names = "default";
-+	bootph-all;
-+
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "spansion,s25fs512s", "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <40000000>;
-+		spi-rx-bus-width = <4>;
-+		spi-tx-bus-width = <4>;
-+		bootph-all;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			boot@0 {
-+				reg = <0x0 0x1000000>;
-+				read-only;
-+			};
-+
-+			user@1000000 {
-+				reg = <0x1000000 0x2f80000>;
-+			};
-+
-+			env1@3f80000 {
-+				reg = <0x3f80000 0x40000>;
-+			};
-+
-+			env2@3fc0000 {
-+				reg = <0x3fc0000 0x40000>;
-+			};
-+		};
-+	};
-+};
-+
-+&rwdt {
-+	timeout-sec = <60>;
-+	status = "okay";
-+};
-+
-+/* Page 6 / SCIF_CLK_SOC_V */
-+&scif_clk {	/* X12 */
-+	clock-frequency = <24000000>;
-+};
--- 
-2.47.2
+And I saw the discussions and I didn't get the feeling that anybody
+hated it. Merged.
 
+             Linus
 
