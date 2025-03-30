@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 435DCC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 02:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CBEC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 06:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=70KKqH65WG/HSXVk0W7gMB8zoEiUwE39WwjHtnlrNW8=; b=MCku4++kUK3VPiO3JP0r5DFiax
-	riXTW6ikYhFdensha3GZzBV3xqS8Z359/ahKhJh86xHOTVqBacHkBFeC4ca6hiQvNa5LwsHsT3k2c
-	82SLU/n2SHMAtMeuhFxJe+zXGRBCjXPZYKh44mDLdBbiHAzUygPraoAj3oj8RBl6tXuua8a/V/PDF
-	AkWNZqKttLrCnt8hioT575zTmuC6MEW1OjaDRSzVM0kWX8ZCzdBn4xxZnt6t6ZUR4nqIznSgf009k
-	1Jva5uOw160Ms+J97+oTnEFLH+zcDp/DCdp84cFKQu/bgHLWCxlW+kr4fi6+CfOND8kjoc/mOdJt9
-	MRcZW3RQ==;
+	bh=BRteZqX1GzZD63e0WZQkOLe8JTjQebQr5YPHcAOXdOk=; b=PG4vSZDrvIU/pAt6u3CnkmPjqF
+	Vb98WTuHiuMQNHwIl2CvL0LuX7IrFH5W01gB5YYQnBWDY1OroXjcct3e3EKwj1JOGkuBCtU+tDgEf
+	Iy+Ae4eEg9F57FTHS3/coXZhcE+2adTU0OLC6iGqepfbpawDvhr/g5iln6scPno3Nzo9axzEh9pKc
+	SbjhpWYSuQ47sWbWomu0WoRIGL98P5/dGXER7Wg9arA73356UNIO5xo/Nn6vAHoZjs7gBqg7nZ6NF
+	xTCqgRTpxHoZngp1PcaNftMNCPUY2BoCnryqFdO38LzwoIxCrvzLAKjGN9EFo7iI38U5rMT3VVQXF
+	2DKWeu1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyiat-0000000Fk5h-2sSG;
-	Sun, 30 Mar 2025 02:40:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tymJs-0000000FrBs-0fdA;
+	Sun, 30 Mar 2025 06:38:56 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyiZ8-0000000FjrK-3k8F
+	id 1tymI7-0000000Fr1c-3qr5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 02:38:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 81C1D5C4030;
-	Sun, 30 Mar 2025 02:36:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EB41C4CEE2;
-	Sun, 30 Mar 2025 02:38:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743302305;
-	bh=OW1YpnBCQCPAWDhMDpl72owiE6DO66K++nIHB2UMsck=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=UXPZACc68HCbl/xz5XVA8BGPPjIcsfRmKqV1PbD43xm7wNMOZ8KlKdOYMk8iOSPMk
-	 D0/N9hoYQP0uJQeGluWNPT94q30YqxAEqm9kkTFJ0YUItPz3AOalExcXQFkSKHEUBH
-	 u6FHpcRWWbVd4S9bTL/CpK7YyK53b6s7Mp35vMMQXaYQeqtsD+iHFeBJfQCURDKXQa
-	 yKbnOOILSOc3IHscLS8molPdVlDMsnFOMxgsN4NrFEeJo/zR1M4R2IRKhVK/HWkd1S
-	 hK1VtTSQ/lGT5A8blptYBj0nN30CdTAEN0bN+irxr7FwWXCQMiDwikI6pnMFni/E1x
-	 N/7bQQJLFXOvw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAF0E380AA7A;
-	Sun, 30 Mar 2025 02:39:02 +0000 (UTC)
-Subject: Re: [GIT PULL] Mailbox changes for v6.15
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <CABb+yY3nL=VjLZq_pDxQfr3m2-B78hiuJyEWhSNRU_zcjaQdKg@mail.gmail.com>
-References: <CABb+yY3nL=VjLZq_pDxQfr3m2-B78hiuJyEWhSNRU_zcjaQdKg@mail.gmail.com>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <CABb+yY3nL=VjLZq_pDxQfr3m2-B78hiuJyEWhSNRU_zcjaQdKg@mail.gmail.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git tags/mailbox-v6.15
-X-PR-Tracked-Commit-Id: 1ec12fd31ecc38e2a81a137be7eec5df51894bcc
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 7f2ff7b6261742ed52aa973ccdf99151b7cc3a50
-Message-Id: <174330234151.3338213.16025891843762658050.pr-tracker-bot@kernel.org>
-Date: Sun, 30 Mar 2025 02:39:01 +0000
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+	Sun, 30 Mar 2025 06:37:09 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B28F510290279;
+	Sun, 30 Mar 2025 08:37:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1743316625; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=BRteZqX1GzZD63e0WZQkOLe8JTjQebQr5YPHcAOXdOk=;
+	b=FQKJ8Z2kGAokT6ywehaNtgo4kL74MSKFurMp3SWangcCUjXmAxle3cHYj0S2LnQdb2cCSJ
+	hj0+HhGzOwvUKc1/AgP+oaeYhfa8e8CdeLsWGDLn11HEBfrpZMcCeEcx11qQ4qCscVaow4
+	vBVMNsuLE0QblJKPng56DgnRAjIqSyNW7hPQTBX78IAMTDOBhcL11Qkq1ekIYjt+uS+zpo
+	A/NU6/GHm07q9QmQUBWeX1xZ02itODBK8heUFv1pJi2OSmB2gC0B9hVk7FdS9cNMlhx2F5
+	n6/+ykOhOLJED1PAOQLyZxfD4wrWhPFQLRYXRrqk0bgOMqMq0QGuueWmi3zbGQ==
+Date: Sun, 30 Mar 2025 08:36:59 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: net: Add MTIP L2 switch description
+Message-ID: <20250330083659.61c52d2b@wsk>
+In-Reply-To: <45c6cb9d-b329-4b4c-a480-08110a546fb6@lunn.ch>
+References: <20250328133544.4149716-1-lukma@denx.de>
+	<20250328133544.4149716-2-lukma@denx.de>
+	<45c6cb9d-b329-4b4c-a480-08110a546fb6@lunn.ch>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: multipart/signed; boundary="Sig_/7c2ovTtNXoWn5CzXtf1gA5K";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_193826_984093_3BBB3C9B 
-X-CRM114-Status: UNSURE (   5.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250329_233708_110908_01899140 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +78,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sat, 29 Mar 2025 18:57:34 -0500:
+--Sig_/7c2ovTtNXoWn5CzXtf1gA5K
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git tags/mailbox-v6.15
+Hi Andrew,
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/7f2ff7b6261742ed52aa973ccdf99151b7cc3a50
+> > +                ethphy0: ethernet-phy@0 {
+> > +                        reg =3D <0>;
+> > +                        smsc,disable-energy-detect;
+> > +                        /* Both PHYs (i.e. 0,1) have the same,
+> > single GPIO, */
+> > +                        /* line to handle both, their interrupts
+> > (AND'ed) */
+> > +                        interrupt-parent =3D <&gpio4>;
+> > +                        interrupts =3D <13 IRQ_TYPE_EDGE_FALLING>; =20
+>=20
+> Shared interrupts cannot be edge. They are level, so that either can
+> hold the interrupt active until it is cleared.
+>=20
+> Also, PHY interrupts in general are level, because there are multiple
+> interrupt sources within the PHY, and you need to clear them all
+> before the interrupt is released.
 
-Thank you!
+Good point, I will update it accordingly. Thanks.
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+>=20
+> 	Andrew
+
+
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/7c2ovTtNXoWn5CzXtf1gA5K
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfo5osACgkQAR8vZIA0
+zr3SIwf9EV3MvkqdhVVWSD+ZO9I/1J4aB76//m6svQ5c9dxHZqk0fkXCLWGOilBb
+sm8la7oyGMGoI83LQHg8dPcxjBdxDGA31xCHjuuFFd2DTCfNl4tCvJkarLjsrMmE
+Inug1rJoApfOioU5j1tcNnzcoAmERGpfqOhKhVbPRs9izt6m5WvkuD053JjqK5sg
+0XRWIlMl1WkVwZ37ju/Tb28U8MeUzDiTPMw06IW6HYP0bplP9lxDaV5RZ+2xaMAx
+YQoxlMDe3+kvntv6UrlxGKMUwPwXaV6j3K+NBi9uU0zpIIf/DBa2sJ62LddytSv5
+X0P5l5sMgq7Q5iYO1nCW/1AUuuLYBw==
+=Epnz
+-----END PGP SIGNATURE-----
+
+--Sig_/7c2ovTtNXoWn5CzXtf1gA5K--
 
