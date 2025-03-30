@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E32C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 08:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B7B2C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 08:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9encVq/hWhozGLul6bese47ogF/3MJbX2d/5fRGcC9c=; b=f0r8bKP1aD+hTxjgvxsAhKznES
-	ZGw9qT+3MrxQp3OQong1WLrHkCZmtehs1zRT1K10nxBMibe1lwllAQ+OuhWbaG9YaK4EFarm1rwsw
-	C572LcUe0wXhZl70Gmhxitx6aCeWV1IM29boRrvffoT4yB6albAIDK3jzmuAe0zViIK+U/KNn3QtQ
-	UTDh00tH42iGR5hyaiAnknm6StP7VyqFv9HDvqMwyYQP9SgyCj+aN2LPQjFkUO0cXz7YZjCWhqb1i
-	kmGQSFFFlZ5+wxnsatmk7ZTj5iEYAhtUGqXTCTxG3qHA52iNyzIkuPpPoqzD7/CWNLc6bye5mjhMi
-	lkZrE+yA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zVyzdrsq8rwcKEYT3slz18YJ/cFCFrZ4CWV2JbLOQZg=; b=jnrOQ88RmZTzLwq1ErVBelp+cJ
+	SquiT2+bBKb2FNza5HzNQBDuT+jPqcYPL0dfROTVraF+4n4UM7SPFimQGZmdBDo3uf4aq0iij/276
+	zFKU9VSwejPNQzS0DU58XyIc7a+NxOYNxf2U2cv3KOKzire4/RQ3Q2osTBQn1mck0oEn1zf4BhLJr
+	hX0D8CPnotpyQ17gMu5KbIfEiKmbX0b6xfYmUg2CXg8oMt0dqQB70SRP7qJU6j8yxtNfaRH+cOt0l
+	xlq3joLL79ac1ITQ4o6O+csB/BL241gEEkQH2tr4UjJsdF+KcC0lLdhH9YX4KkhCNj3PjTCAIvodQ
+	uDFEMsog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyoBZ-0000000FxaA-3iRV;
-	Sun, 30 Mar 2025 08:38:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tyoEW-0000000Fy04-2eJd;
+	Sun, 30 Mar 2025 08:41:32 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyo9r-0000000FxUU-1cGg
+	id 1tyoCm-0000000FxgH-0jkN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 08:36:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7014B61127;
-	Sun, 30 Mar 2025 08:36:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18A1FC4CEDD;
-	Sun, 30 Mar 2025 08:36:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743323802;
-	bh=kOFOJm39FkXH+rwD+36WlO5jTjLl36ZB3AYPctsbP88=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B1H9fmPwgNZ8nM0tHdayf7Ir9hlQgGnpZPiRWgV94jiu7g8SP3pgHLHY5s2MlRYul
-	 9pCKDTNJbGboAItH7ZuQFjJpvWyOfAjJFQMyK7Q+dDywXIPuuQpPGlmIyq0Jz/bRMi
-	 HxjYlDNgLXzIC8oES4Hs60N78eVn31UrlDlV1/MmR3PHPZhowZZvCcTrBFQF2CHVlZ
-	 fbMzHmERVLTUq8jiXHMuZwBLcj0TkUo6Ce/mGkgxaMd1VSI+Wq9yryJ5edJLQKO20C
-	 AeiNKSwhMwJYx8NprmqCf/ti597kztA2EAtgtXv8JZtDAwKNywIXtJD1IqIkEfEE1Q
-	 R4r1jzkSN5xPA==
-Date: Sun, 30 Mar 2025 11:36:34 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Dev Jain <dev.jain@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
-	will@kernel.org, gshan@redhat.com, steven.price@arm.com,
-	suzuki.poulose@arm.com, tianyaxiong@kylinos.cn, ardb@kernel.org,
-	david@redhat.com, urezki@gmail.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: pageattr: Explicitly bail out when changing
- permissions for vmalloc_huge mappings
-Message-ID: <Z-kCkh1XWX8Rwjwz@kernel.org>
-References: <20250328062103.79462-1-dev.jain@arm.com>
- <Z-cnmklGUojMzsUF@kernel.org>
- <deedf5e2-4a25-4c1f-a5d8-a661a2eb16d2@arm.com>
- <Z-jzouwNZwk8Ft-j@kernel.org>
- <b7be0b9c-89fa-470d-8f6d-7db6282b3c68@arm.com>
+	Sun, 30 Mar 2025 08:39:45 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52U8dKo53063341
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Sun, 30 Mar 2025 03:39:20 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1743323960;
+	bh=zVyzdrsq8rwcKEYT3slz18YJ/cFCFrZ4CWV2JbLOQZg=;
+	h=From:To:CC:Subject:Date;
+	b=CR6AnNXxBE8XeAGt6nNrC2LOTQwIlN7yitDmLdEDpYT3rVcHLm8OfbVxDMLNPVtTK
+	 ia1Fp6Jx7t9dFfDjNOQKRHiKYHaP4KM8FJQPdN0JSpi94znarBoF+CqZ82eZkGCCYI
+	 qm/hyf4JSBQjIAlLbWmElYreWFpu2mr/RwR5gg+g=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52U8dKrW118394;
+	Sun, 30 Mar 2025 03:39:20 -0500
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 30
+ Mar 2025 03:39:19 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Sun, 30 Mar 2025 03:39:19 -0500
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52U8dE4g015769;
+	Sun, 30 Mar 2025 03:39:15 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <vigneshr@ti.com>, <kishon@kernel.org>,
+        <18255117159@163.com>, <cassel@kernel.org>,
+        <wojciech.jasko-EXT@continental-corporation.com>,
+        <thomas.richard@bootlin.com>, <bwawrzyn@cisco.com>
+CC: <linux-pci@vger.kernel.org>, <linux-omap@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH v2 0/4] Loadable Module support for PCIe Cadence and J721E
+Date: Sun, 30 Mar 2025 14:09:10 +0530
+Message-ID: <20250330083914.529222-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b7be0b9c-89fa-470d-8f6d-7db6282b3c68@arm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250330_013944_377124_1A8B2B35 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,85 +87,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 30, 2025 at 01:53:57PM +0530, Dev Jain wrote:
-> 
-> 
-> On 30/03/25 1:02 pm, Mike Rapoport wrote:
-> > On Sat, Mar 29, 2025 at 09:46:56AM +0000, Ryan Roberts wrote:
-> > > On 28/03/2025 18:50, Mike Rapoport wrote:
-> > > > On Fri, Mar 28, 2025 at 11:51:03AM +0530, Dev Jain wrote:
-> > > > > arm64 uses apply_to_page_range to change permissions for kernel VA mappings,
-> > > > 
-> > > >                                                       for vmalloc mappings ^
-> > > > 
-> > > > arm64 does not allow changing permissions to any VA address right now.
-> > > > 
-> > > > > which does not support changing permissions for leaf mappings. This function
-> > > > > will change permissions until it encounters a leaf mapping, and will bail
-> > > > > out. To avoid this partial change, explicitly disallow changing permissions
-> > > > > for VM_ALLOW_HUGE_VMAP mappings.
-> > > > > 
-> > > > > Signed-off-by: Dev Jain <dev.jain@arm.com>
-> > > 
-> > > I wonder if we want a Fixes: tag here? It's certainly a *latent* bug.
-> > 
-> > We have only a few places that use vmalloc_huge() or VM_ALLOW_HUGE_VMAP and
-> > if there was a code that plays permission games on these allocations, x86
-> > set_memory would blow up immediately, so I don't think Fixes: is needed
-> > here.
-> 
-> But I think x86 can handle this (split_large_page() in __change_page_attr())
-> ?
+Hello,
 
-Yes, but it also updates corresponding direct map entries when vmalloc
-permissions change and the direct map update presumes physical contiguity
-of the range. 
+This series enables support to build the PCIe Cadence Controller drivers
+and the PCI J721E Application/Wrapper/Glue driver as Loadable Kernel
+Modules. The motivation for this series is that PCIe is not a necessity
+for booting the SoC, due to which it doesn't have to be a built-in
+module. Additionally, the defconfig doesn't enable the PCIe Cadence
+Controller drivers and the PCI J721E driver, due to which PCIe is not
+supported by default. Enabling the configs as of now (i.e. without this
+series) will result in built-in drivers i.e. a bloated Linux Image for
+everyone who doesn't have the PCIe Controller. Therefore, with this
+series, after enabling support for building the drivers as loadable
+modules, the driver configs can be enabled in the defconfig to build
+the drivers as loadable modules, thereby enabling PCIe.
 
-> > > > > ---
-> > > > >   arch/arm64/mm/pageattr.c | 4 ++--
-> > > > >   1 file changed, 2 insertions(+), 2 deletions(-)
-> > > > > 
-> > > > > diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> > > > > index 39fd1f7ff02a..8337c88eec69 100644
-> > > > > --- a/arch/arm64/mm/pageattr.c
-> > > > > +++ b/arch/arm64/mm/pageattr.c
-> > > > > @@ -96,7 +96,7 @@ static int change_memory_common(unsigned long addr, int numpages,
-> > > > >   	 * we are operating on does not result in such splitting.
-> > > > >   	 *
-> > > > >   	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
-> > > > > -	 * Those are guaranteed to consist entirely of page mappings, and
-> > > > > +	 * Disallow VM_ALLOW_HUGE_VMAP vmalloc mappings so that
-> > > > 
-> > > > I'd keep mention of page mappings in the comment, e.g
-> > > > 
-> > > > 	* Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
-> > > > 	* mappings are updated and splitting is never needed.
-> > > > 
-> > > > With this and changelog updates Ryan asked for
-> > > > 
-> > > > Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > > > 
-> > > > 
-> > > > >   	 * splitting is never needed.
-> > > > >   	 *
-> > > > >   	 * So check whether the [addr, addr + size) interval is entirely
-> > > > > @@ -105,7 +105,7 @@ static int change_memory_common(unsigned long addr, int numpages,
-> > > > >   	area = find_vm_area((void *)addr);
-> > > > >   	if (!area ||
-> > > > >   	    end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
-> > > > > -	    !(area->flags & VM_ALLOC))
-> > > > > +	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
-> > > > >   		return -EINVAL;
-> > > > >   	if (!numpages)
-> > > > > -- 
-> > > > > 2.30.2
-> > > > > 
-> > > > 
-> > > 
-> > 
-> 
+Series is based on linux-next tagged next-20250328.
+
+Series has been tested by loading and unloading the PCI J721E driver
+when operating in the Root-Complex mode on J700-EVM with an NVMe SSD
+connected to the PCIe Connector. "hdparm" based reads of the NVMe SSD
+have been performed to validate functionality before and after a module
+unload-load sequence using modprobe. Additionally, the module unload
+was performed while running "hdparm" in the background. No crash was
+seen and reloading the module enumerated the NVMe SSD and "hdparm" could
+be re-run successfully.
+
+v1 of this series is at:
+https://lore.kernel.org/r/20250307103128.3287497-1-s-vadapalli@ti.com/
+Changes since v1:
+- Collected "Reviewed-by" tags from:
+  Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+  for the first two patches in this series.
+- Based on feedback from Mani on the third patch of the v1 series at:
+  https://lore.kernel.org/r/20250318080304.jsmrxqil6pn74nzh@thinkpad/
+  pci_epc_deinit_notify() has been included in cdns_pcie_ep_disable().
+- Based on feedback from Thomas on the fourth patch of the v1 series at:
+  https://lore.kernel.org/r/88b3ecbe-32b6-4310-afb9-da19a2d0506a@bootlin.com/
+  the "check" for a non-NULL "pcie-refclk" in j721e_pcie_remove() has been
+  dropped.
+
+Regards,
+Siddharth.
+
+Kishon Vijay Abraham I (1):
+  PCI: cadence: Add support to build pcie-cadence library as a kernel
+    module
+
+Siddharth Vadapalli (3):
+  PCI: cadence-host: Introduce cdns_pcie_host_disable helper for cleanup
+  PCI: cadence-ep: Introduce cdns_pcie_ep_disable helper for cleanup
+  PCI: j721e: Add support to build as a loadable module
+
+ drivers/pci/controller/cadence/Kconfig        |  12 +-
+ drivers/pci/controller/cadence/pci-j721e.c    |  33 ++++-
+ .../pci/controller/cadence/pcie-cadence-ep.c  |  17 +++
+ .../controller/cadence/pcie-cadence-host.c    | 113 ++++++++++++++++++
+ drivers/pci/controller/cadence/pcie-cadence.c |  12 ++
+ drivers/pci/controller/cadence/pcie-cadence.h |  14 ++-
+ 6 files changed, 192 insertions(+), 9 deletions(-)
 
 -- 
-Sincerely yours,
-Mike.
+2.34.1
+
 
