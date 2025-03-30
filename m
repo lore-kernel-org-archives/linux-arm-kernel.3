@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DA2C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 15:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F592C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 16:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qllzSUq0Sn//p6TsvaXxXE8wUUj5v0jB5W1wwY4JHzw=; b=IhhARIoQnGeOpsOdmr62Vx06Y9
-	lkAP5wwK9J5jFLPjDZXB7BYjexwOJq8r3oGnh/W2FNXlFQMBMBYFRV5obi/vpg+hcHJ+KS969CRtK
-	D1MAfdN/yp1PEDp3nged2Exy2V5s4RG/J5W2RiXDFf3aK7Uxa+Vxs0f8CVjQnvUGCKL9SVSI6Bkuc
-	zRY4O6uNDT/iw5JE6z6Qkwbdhlv7xStT/ayr35EWs49Tdc06R5IMFIwgAqSocKMnWcq/YgaIKuFQZ
-	QaxckBpBntk+gSz+wBDq8oBD6/Va7mVXuaLyyHnpySeWOlli1Vw7bHrwCWWw8FMLw3oK51+UyPHIG
-	I9O5zj8w==;
+	bh=eyiuBelYO9/L+eEbbhWeGrpZ8a9GvUI+JUhopT9pRGY=; b=gy0P8USGs6c7Z8F9MW9HvVoulB
+	QiVMuztlB1Z7RgbhzEarXnoOH05CmLYkrjUR038UgePWBwTsYyA1iQ93D9nTYOGuf/b8a9EpK14UV
+	96w/3k8uYByuuCx+AZCQB9JNwVC+EK6qhfiN+6fCvlijVU4dBr0cSE5krW/i2iMWEGNxS8uRA7EFp
+	KLDwQens1ixOnGUqFmDkAN2zUWRmTx0KzwYfmAguTLVC89kYTYzXF89wVi3F78cxaPJJtE9xIOLPW
+	z84Vfw9hhIA9PlKQAMU6bwlC3PKCoR04AHbOsN5IegAGUUpjce3t/fKOZ4m/i0+LVUZvgaiZiVBpi
+	5q6Xm7Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyv4D-0000000GMkO-2cp2;
-	Sun, 30 Mar 2025 15:59:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tyv6P-0000000GMxF-1J29;
+	Sun, 30 Mar 2025 16:01:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyv2T-0000000GMeI-2SiH
+	id 1tyv4e-0000000GMnE-1QSd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 15:57:34 +0000
+	Sun, 30 Mar 2025 15:59:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 33DBEA40E99;
-	Sun, 30 Mar 2025 15:52:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FF39C4CEDD;
-	Sun, 30 Mar 2025 15:57:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6F1A25C58F9;
+	Sun, 30 Mar 2025 15:57:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B2F7C4CEDD;
+	Sun, 30 Mar 2025 15:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743350250;
-	bh=Qz3ZW7jTGwc4+Gke2BBUjYiiNeyI/5IFC3GJNo0RbUA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rvA707m0DfZeDFLeFidge2igqNYOXK57DryhR8o0B/H2wprw1JS1e08THJhLFub7P
-	 wqQx7phln5sv9ysOU4jkYraut8Oi6s/f6mms1HzRWWtCXBn3k665CJW1faBXMVX1nY
-	 BBrmI6SNSZIidQ+YByeFsHuZmxXkuP1npfoABCfn+xpqesiV+8Jwu19WMvjJxwo67y
-	 bXehi8zrnWNYN0nptvTzt0c/pDOdFhiz90v5pJISA5lvyMb2KkoTmiFC/d1miksrMX
-	 baWRT1v82GzpY9WbvEPZ0SmwvGlByU/yFKiuX7pxSkg6diPTVAxxj18oOm3+1TRxBV
-	 BtnT+5mmopypA==
-Message-ID: <2d2307d9-6a5a-400c-b209-ae2b31ef87b6@kernel.org>
-Date: Sun, 30 Mar 2025 17:57:21 +0200
+	s=k20201202; t=1743350386;
+	bh=+hc6ZmQs69KjkaXKZpdn1lHsTJoFpsZN+4tkqBaD7A0=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=iRRUJk5A8aMnU/zhz6g0o2HwULK1FWZUZ8ro03HEAIfoUnfbtQHsBQ0oX4rk58Vof
+	 FiY0g5Z8O+OfizNAtO4d0vfZcFdtOdKORuoGeHRytvnDlrY9LUDRnljc4XpJWixYYM
+	 kBdVy6V72RSzwiexyrjs2YPShhPT9NKis+cu2UKF/fcg/aPu9ws1nos118AlcJgnnE
+	 YSI4sENWYj1wTlDCxyP9Nbyd4pkJJutWTW7vkXHaq5dOXEBbPFGUdAXAOxjU5q26d2
+	 m9ka9SkthNKLDK29+usiY3WIhbnhW3g5JosTaOTBvbieLHM2tpNkTpmf4SJY+AQc8p
+	 FXjZVSCNJp25Q==
+Message-ID: <c0fedf8e-1d2a-4dbe-b92d-9efb686807f5@kernel.org>
+Date: Sun, 30 Mar 2025 17:59:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 0/5] ARM: dts: fix faulty ohci/ehci node names
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: Alexey Charkov <alchark@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
@@ -60,7 +61,7 @@ Cc: Alexey Charkov <alchark@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
  Tony Lindgren <tony@atomide.com>, Viresh Kumar <vireshk@kernel.org>,
  Vladimir Zapolskiy <vz@mleia.com>
 References: <20250330121326.9069-7-wsa+renesas@sang-engineering.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <2d2307d9-6a5a-400c-b209-ae2b31ef87b6@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -105,13 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250330121326.9069-7-wsa+renesas@sang-engineering.com>
+In-Reply-To: <2d2307d9-6a5a-400c-b209-ae2b31ef87b6@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_085733_759788_B265175B 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250330_085948_495849_6B7B980A 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,22 +126,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/03/2025 14:13, Wolfram Sang wrote:
-> After I fixed this for the at91-boards I was interested in, I let the
-> scripts run for the other boards, too, of course. Here is the outcome.
-> 49 less dtbs_check errors. Build bots were happy. No dependencies, I
-> suggest sub-trees apply them on their own. Thanks!
+On 30/03/2025 17:57, Krzysztof Kozlowski wrote:
+> On 30/03/2025 14:13, Wolfram Sang wrote:
+>> After I fixed this for the at91-boards I was interested in, I let the
+>> scripts run for the other boards, too, of course. Here is the outcome.
+>> 49 less dtbs_check errors. Build bots were happy. No dependencies, I
+>> suggest sub-trees apply them on their own. Thanks!
+>>
+> 
+> For this and the rest patches, I would not call it "fix" in the subject
+> because there is no bug to fix here and you just might confuse AUTOSEL.
+> What's more backporting this might actually cause regressions, because
+> in rare cases node name is an ABI. Therefore avoid calling anything here
+> fix.
+> 
+> You just adjust or align them with coding style or what
+> bindings/dtschema expect (but it expects due to generic naming
+> convention which is still just convention).
 > 
 
-For this and the rest patches, I would not call it "fix" in the subject
-because there is no bug to fix here and you just might confuse AUTOSEL.
-What's more backporting this might actually cause regressions, because
-in rare cases node name is an ABI. Therefore avoid calling anything here
-fix.
+And I forgot:
 
-You just adjust or align them with coding style or what
-bindings/dtschema expect (but it expects due to generic naming
-convention which is still just convention).
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
