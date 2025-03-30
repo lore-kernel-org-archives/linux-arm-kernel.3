@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A506C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 20:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF1BC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 20:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qJ/Rut3ZHfnX40lpR7WWvNRDKHga3tSKw8W4V695Yg=; b=KNC+PyoINrb/I3+SPHE2nZhRUh
-	1DXmapFBaWJikUX+VTiF1flttp9V98MVu83YuX0FmBhr4SBaZhh0RRWLP8MxiNRdpjk1lEMinkDgJ
-	Ud9qtTx42ybE7hwM/0pNK5aaT3D17ruIL1UR2+6WiHFG+gDBpvKOcphpRMlU7wB9XdgIdCBAnnM/F
-	Ty9oiwzlbEHNGh5CZPEKn2o7lYkMLhn3MGRgv5X2GypH5SLduicNYu7LM1+c9WnUjx/kx6KCWwPh7
-	wC1ybVTeKJh705ByizKouSg8C2ie4iW71e+ql583TGAoxjIL3agEPSixVKc6xwXmdBNnmqG8FWvFO
-	eyiE/Jvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dJwLIFJszXYQ7ADlOOhxydXwlK9mYBVF/IXABoKgtHQ=; b=FD5UQAXk5LvXwF/xlfXL1krrx6
+	Rkd9E0K8Bf2/EjgNStgv/QQDN06E22vl4X0z679N+FF6VbAkLitbz+t3JV6oD2oI/IlvHHq7z+eFi
+	LB1WpxwSOepErjgvagOn/3xFL+VRNrHOhM1MWjeFW21K0DmjjHXwZtNEXyDkLOcCgebLcDZhOonxP
+	5MpWmRfAwq5dHKg2Jyj2Yf2ckZlXBIb3sBaqHdotSeLkzh+AMxGzubbrSuRxCc06g//8Y0bqfLDFO
+	GPRDfLE8lsSqSCJpBGUe2FLS0CIuLDz4tXscgTZMWJx6fp0a0JaWjdZysuauJLNVp8A2Vb03nXOS6
+	lyMmrebw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyzB0-0000000Gf4k-3ClR;
-	Sun, 30 Mar 2025 20:22:38 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tyzg6-0000000Gfuq-0Qdc;
+	Sun, 30 Mar 2025 20:54:46 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyz9G-0000000GetC-2D8E
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 20:20:52 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E15C8102F66E1;
-	Sun, 30 Mar 2025 22:20:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1743366048; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=8qJ/Rut3ZHfnX40lpR7WWvNRDKHga3tSKw8W4V695Yg=;
-	b=Slbl9iyVxOXJxEcoUX1qkrsvorT7y2qFt6c07mfIaD2XN3hYXacXuixYXxRjAF+/IyE7Sj
-	pQtxCpZWkMyysL2BTrQZR2Gy/z/nMIECfg7RKor0fQ6Qfec1q3zRLbQJx67jbg773HEsqX
-	kHWmEY50/j3o03lxFlBESTiUXRIA1EzP9cIW6kF/AbRzZtJ43DYTxWNlgXDccoiBprG+5d
-	arYWA2UTQgpXbnrtKvWQuOyhc2WhXU3tz6hej9BP1cxZgCafGw6hZ6PU9Auhuk6WYcKFAQ
-	vdgrN+c0/Gu7aVEfdzL1cjDuI3Fcbkz8p3nvwmKPtU8GDNzzdup0dVBk1//65A==
-Date: Sun, 30 Mar 2025 22:20:41 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 4/4] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250330222041.10fb8d3d@wsk>
-In-Reply-To: <3648e94f-93e6-4fb0-a432-f834fe755ee3@lunn.ch>
-References: <20250328133544.4149716-1-lukma@denx.de>
-	<20250328133544.4149716-5-lukma@denx.de>
-	<3648e94f-93e6-4fb0-a432-f834fe755ee3@lunn.ch>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1tyzeL-0000000GfqR-0vdB;
+	Sun, 30 Mar 2025 20:52:58 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22548a28d0cso105630205ad.3;
+        Sun, 30 Mar 2025 13:52:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1743367976; x=1743972776; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dJwLIFJszXYQ7ADlOOhxydXwlK9mYBVF/IXABoKgtHQ=;
+        b=NMje6EEz/AMVoTSY/AiUNhqGsHvZL07YC00GIfvk+wOPZwAf4OyDN4Gart4RJeH+Em
+         dO478pkioNBtwLmpFsGKVR2qV7Q7lIcVGtmRQitjYXuf5ioJVJG/Q/TNZsByAWscDXb7
+         h/7YKxDviBKaTeeMVGyYB6NdBI2tr/RjrZ/wby9GcHXIuZsrd/UyJqHLhQk0w7MFbvy1
+         iktuKO8Ub7iepqSuDRLRwOen8NgEwRT/alvV0/9TZNdE2QO0KaFRsAcRDulAToWfYZbE
+         FEHbaptJ8Iu7b+aq1/oSvO60rYl0rEgI/J86BWGvt14pLjRK11QD1ZGhymJBuMh68IOE
+         NMQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743367976; x=1743972776;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dJwLIFJszXYQ7ADlOOhxydXwlK9mYBVF/IXABoKgtHQ=;
+        b=ah64rFta8Mr1RjCHQEE9u1MTiJG7G+K7gyUlSOV3fuLg3jfEcCKFHCyvQOUTvplcLl
+         maosY++X3HYlw50x7r4/cttp4dcCkgRPehKgjoRqfxeES+1pC2akDYwK5C0nShA+sbTG
+         UogzP4cPUdXvtO6Uy4K2DAvGkiF3R7B4CRTdOhpri5XZShvsGdshk0Tr7v9XgcUs+H9v
+         x7+XDYoe4xJdNm/qLm07Csg4qL73WrTV9XGJTC0BeJRGNxpKyspg2OVp+N+6DD5EY8Vz
+         eMWdJ8mWfKJWo/Nxm8onuuthdMPolfwZevZ1xAha+xLq9fuqAMQ9GOqWJN7LHtJQ4Z1O
+         c64g==
+X-Forwarded-Encrypted: i=1; AJvYcCVPdtfNEST+Bk5xCmhtc1nGksfqKcD38l9EDjWEB1c21pwkoiseldXjMZbclQq4cVo/ca7Y5YvyM3Rvib/A@lists.infradead.org, AJvYcCXh/gYGGq5JIk3FdLKAMYoQpQw9YWUcwtY+5UDEjC63t5+qG4mHU/y8w6dHxFQYzZfmdeJzJQpxB5iMJkYbzzvOxQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeeKr8AfLyurNSCKE+pVfCEn3pkrZIo984CZtPAegVw5h2gUQM
+	e6yFd+FiYYZNsG4bRxzJ4Ugj11nilKk69NxPbG0kjstY7i4S74GkedeVtgWn9hhazmwUjCYX28l
+	uhzGy9y3GQZ/s9ecqe/uoi6c+5B8=
+X-Gm-Gg: ASbGncveW5gc7JMT60tn0xb1HEa/VHIS2AOInqPjs6PKZW0p7NtagMFCOT/vvHaJaGC
+	erDfK1GddVKG3Gt7xQqiW+4QImXo+PZMU+YB6ptynlVJk6u4+EFEqK6olxsRhlD4ssdS+13bsrS
+	NoI/lczxkaBaCbgsOeUOo3iqaEupDM6IOLB2SNwj61aiMI8g1/63FslTo7hQQ=
+X-Google-Smtp-Source: AGHT+IGlpG9xeO7YabfvvWdcL4rWdf0vZ+QCfsjk6aFSH+Qe92WIllUZklTnZqtfCCxYvcoObf2vFCcEInm2m2e86xU=
+X-Received: by 2002:a17:903:2303:b0:223:5ace:eccf with SMTP id
+ d9443c01a7336-22935084a88mr74482475ad.25.1743367975896; Sun, 30 Mar 2025
+ 13:52:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/vWAwGI9Y0xok4baHReqdjuN";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20250323-fernsehfee-v1-0-2621341cd37a@posteo.net> <20250323-fernsehfee-v1-2-2621341cd37a@posteo.net>
+In-Reply-To: <20250323-fernsehfee-v1-2-2621341cd37a@posteo.net>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Sun, 30 Mar 2025 22:52:44 +0200
+X-Gm-Features: AQ5f1JqiXYa2Fy3B0Ec_8DxGmkHROyPsojXcUZGTqJUnNHSoBI9B-XlVAsRTV_U
+Message-ID: <CAFBinCAvCvqbv367_rn_Rbvn7p8q5kCLuSE7m+gnxaDo9FvaeQ@mail.gmail.com>
+Subject: Re: [PATCH 2/3] dt-bindings: arm: amlogic: Add TCU Fernsehfee 3.0 board
+To: j.ne@posteo.net
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_132050_868815_A3E039E4 
-X-CRM114-Status: GOOD (  58.23  )
+X-CRM114-CacheID: sfid-20250330_135257_301681_EBDC1904 
+X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,463 +97,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/vWAwGI9Y0xok4baHReqdjuN
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-
-Hi Andrew,
-
-> > +static bool bridge_offload;
-> > +module_param(bridge_offload, bool, 0644); /* Allow setting by root
-> > on boot */ +MODULE_PARM_DESC(bridge_offload, "L2 switch offload
-> > mode enable:1, disable:0"); =20
->=20
-> Please drop. module parameters are not liked.
->=20
-
-Ok.
-
-> In Linux, ports of a switch always starting in isolated mode, and
-> userspace needs to add them to the same bridge.
-
-Ok.
-
->=20
-> > +
-> > +static netdev_tx_t mtip_start_xmit(struct sk_buff *skb,
-> > +				   struct net_device *dev);
-> > +static void mtip_switch_tx(struct net_device *dev);
-> > +static int mtip_switch_rx(struct net_device *dev, int budget, int
-> > *port); +static void mtip_set_multicast_list(struct net_device
-> > *dev); +static void mtip_switch_restart(struct net_device *dev, int
-> > duplex0,
-> > +				int duplex1); =20
->=20
-> Forwards references are not like. Put the functions in the correct
-> order so they are not needed.
-
-Ok.
-
->=20
-> > +/* Calculate Galois Field Arithmetic CRC for Polynom x^8+x^2+x+1.
-> > + * It omits the final shift in of 8 zeroes a "normal" CRC would do
-> > + * (getting the remainder).
-> > + *
-> > + *  Examples (hexadecimal values):<br>
-> > + *   10-11-12-13-14-15  =3D> CRC=3D0xc2
-> > + *   10-11-cc-dd-ee-00  =3D> CRC=3D0xe6
-> > + *
-> > + *   param: pmacaddress
-> > + *          A 6-byte array with the MAC address.
-> > + *          The first byte is the first byte transmitted
-> > + *   return The 8-bit CRC in bits 7:0
-> > + */
-> > +static int crc8_calc(unsigned char *pmacaddress)
-> > +{
-> > +	/* byte index */
-> > +	int byt;
-> > +	/* bit index */
-> > +	int bit;
-> > +	int inval;
-> > +	int crc; =20
->=20
-> Reverse Christmas tree. Please look through the whole driver and fix
-> it up.
-
-Ok.
-
->=20
-> > +/* updates MAC address lookup table with a static entry
-> > + * Searches if the MAC address is already there in the block and
-> > replaces
-> > + * the older entry with new one. If MAC address is not there then
-> > puts a
-> > + * new entry in the first empty slot available in the block
-> > + *
-> > + * mac_addr Pointer to the array containing MAC address to
-> > + *          be put as static entry
-> > + * port     Port bitmask numbers to be added in static entry,
-> > + *          valid values are 1-7
-> > + * priority The priority for the static entry in table
-> > + *
-> > + * return 0 for a successful update else -1  when no slot
-> > available =20
->=20
-> It would be nice to turn this into proper kerneldoc. It is not too far
-> away at the moment.
->=20
-> Also, return a proper error code not -1. ENOSPC?
-
-Ok.
-
->=20
-> > +static int mtip_update_atable_dynamic1(unsigned long write_lo,
-> > +				       unsigned long write_hi, int
-> > block_index,
-> > +				       unsigned int port,
-> > +				       unsigned int curr_time,
-> > +				       struct switch_enet_private
-> > *fep) =20
->=20
-> It would be good to document the return value, because it is not the
-> usual 0 success or negative error code.
-
-Ok.
-
->=20
-> > +static const struct net_device_ops mtip_netdev_ops; =20
->=20
-> more forward declarations.
-
-Ok, fixed.
-
->=20
-> > +struct switch_enet_private *mtip_netdev_get_priv(const struct
-> > net_device *ndev) +{
-> > +	if (ndev->netdev_ops =3D=3D &mtip_netdev_ops)
-> > +		return netdev_priv(ndev);
-> > +
-> > +	return NULL;
-> > +} =20
->=20
-> I _think_ the return value is not actually used. So maybe 0 or
-> -ENODEV?
-
-It is used at:
-drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c in
-mtip_port_dev_check()
-
-to assess if network interfaces eligible for bridging are using the
-same (i.e. mtipl2sw) driver.
-
-Only when they match - bridging is performed.
-
->=20
-> > +static int esw_mac_addr_static(struct switch_enet_private *fep)
-> > +{
-> > +	int i;
-> > +
-> > +	for (i =3D 0; i < SWITCH_EPORT_NUMBER; i++) {
-> > +		if (is_valid_ether_addr(fep->ndev[i]->dev_addr)) {
-> > =20
->=20
-> Is that possible? This is the interfaces own MAC address? If it is not
-> valid, the probe should of failed.
-
-I've double checked it - this cannot happen (i.e. that
-is_valid_ether_addr(fep->ndev[i]->dev_addr) is NOT valid at this point
-of execution.
-
-I will remove this check
-
->=20
-> > +			mtip_update_atable_static((unsigned char *)
-> > +
-> > fep->ndev[i]->dev_addr,
-> > +						  7, 7, fep);
-> > +		} else {
-> > +			dev_err(&fep->pdev->dev,
-> > +				"Can not add mac address %pM to
-> > switch!\n",
-> > +				fep->ndev[i]->dev_addr);
-> > +			return -EFAULT;
-> > +		}
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void mtip_print_link_status(struct phy_device *phydev)
-> > +{
-> > +	if (phydev->link)
-> > +		netdev_info(phydev->attached_dev,
-> > +			    "Link is Up - %s/%s - flow control
-> > %s\n",
-> > +			    phy_speed_to_str(phydev->speed),
-> > +			    phy_duplex_to_str(phydev->duplex),
-> > +			    phydev->pause ? "rx/tx" : "off");
-> > +	else
-> > +		netdev_info(phydev->attached_dev, "Link is
-> > Down\n"); +} =20
->=20
-> phy_print_status()
-
-Yes, I will remove mtip_print_link_status() and replace it with
-phy_print_status()
-
->=20
-> > +static void mtip_adjust_link(struct net_device *dev)
-> > +{
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > +	struct switch_enet_private *fep =3D priv->fep;
-> > +	struct phy_device *phy_dev;
-> > +	int status_change =3D 0, idx;
-> > +	unsigned long flags;
-> > +
-> > +	spin_lock_irqsave(&fep->hw_lock, flags);
-> > +
-> > +	idx =3D priv->portnum - 1;
-> > +	phy_dev =3D fep->phy_dev[idx];
-> > +
-> > +	/* Prevent a state halted on mii error */
-> > +	if (fep->mii_timeout && phy_dev->state =3D=3D PHY_HALTED) {
-> > +		phy_dev->state =3D PHY_UP;
-> > +		goto spin_unlock;
-> > +	} =20
->=20
-> A MAC driver should not be playing around with the internal state of
-> phylib.
-
-Ok, I've replaced it with PHY API calls (phy_start() and
-phy_is_started()).
-
->=20
-> > +static int mtip_mii_probe(struct net_device *dev)
-> > +{
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > +	struct switch_enet_private *fep =3D priv->fep;
-> > +	int port_idx =3D priv->portnum - 1;
-> > +	struct phy_device *phy_dev =3D NULL;
-> > +
-> > +	if (fep->phy_np[port_idx]) {
-> > +		phy_dev =3D of_phy_connect(dev,
-> > fep->phy_np[port_idx],
-> > +					 &mtip_adjust_link, 0,
-> > +
-> > fep->phy_interface[port_idx]);
-> > +		if (!phy_dev) {
-> > +			netdev_err(dev, "Unable to connect to
-> > phy\n");
-> > +			return -ENODEV;
-> > +		}
-> > +	}
-> > +
-> > +	phy_set_max_speed(phy_dev, 100);
-> > +	fep->phy_dev[port_idx] =3D phy_dev;
-> > +	fep->link[port_idx] =3D 0;
-> > +	fep->full_duplex[port_idx] =3D 0;
-> > +
-> > +	dev_info(&dev->dev,
-> > +		 "MTIP PHY driver [%s] (mii_bus:phy_addr=3D%s,
-> > irq=3D%d)\n",
-> > +		 fep->phy_dev[port_idx]->drv->name,
-> > +		 phydev_name(fep->phy_dev[port_idx]),
-> > +		 fep->phy_dev[port_idx]->irq); =20
->=20
-> phylib already prints something like that.
-
-Yes, the=20
-"net lan0: lan0: MTIP eth L2 switch <mac addr>"=20
-
-is printed.
-
-For the original call - I've used dev_dbg().
-
->=20
-> > +static int mtip_mdiobus_reset(struct mii_bus *bus)
-> > +{
-> > +	if (!bus || !bus->reset_gpiod) {
-> > +		dev_err(&bus->dev, "Reset GPIO pin not
-> > provided!\n");
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	gpiod_set_value_cansleep(bus->reset_gpiod, 1);
-> > +
-> > +	/* Extra time to allow:
-> > +	 * 1. GPIO RESET pin go high to prevent situation where
-> > its value is
-> > +	 *    "LOW" as it is NOT configured.
-> > +	 * 2. The ENET CLK to stabilize before GPIO RESET is
-> > asserted
-> > +	 */
-> > +	usleep_range(200, 300);
-> > +
-> > +	gpiod_set_value_cansleep(bus->reset_gpiod, 0);
-> > +	usleep_range(bus->reset_delay_us, bus->reset_delay_us +
-> > 1000);
-> > +	gpiod_set_value_cansleep(bus->reset_gpiod, 1);
-> > +
-> > +	if (bus->reset_post_delay_us > 0)
-> > +		usleep_range(bus->reset_post_delay_us,
-> > +			     bus->reset_post_delay_us + 1000);
-> > +
-> > +	return 0;
-> > +} =20
->=20
-> What is wrong with the core code __mdiobus_register() which does the
-> bus reset.
-
-The main problem is that the "default" mdio reset is just asserting and
-deasserting the reset line.
-
-It doesn't take into account the state of the reset gpio before
-assertion (if it was high for enough time) and if clocks already
-were stabilized.
-
->=20
-> > +static void mtip_get_drvinfo(struct net_device *dev,
-> > +			     struct ethtool_drvinfo *info)
-> > +{
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > +	struct switch_enet_private *fep =3D priv->fep;
-> > +
-> > +	strscpy(info->driver, fep->pdev->dev.driver->name,
-> > +		sizeof(info->driver));
-> > +	strscpy(info->version, VERSION, sizeof(info->version)); =20
->=20
-> Leave this empty, so you get the git hash of the kernel.
-
-Ok.
-
->=20
-> > +static void mtip_ndev_setup(struct net_device *dev)
-> > +{
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > +
-> > +	ether_setup(dev); =20
->=20
-> That is pretty unusual
-
-Yes - how it has been used is described below.
-
->=20
-> > +	dev->ethtool_ops =3D &mtip_ethtool_ops;
-> > +	dev->netdev_ops =3D &mtip_netdev_ops;
-> > +
-> > +	memset(priv, 0, sizeof(struct mtip_ndev_priv)); =20
->=20
-> priv should already be zero....
-
-Ok, I will remove
-
->=20
-> > +static int mtip_ndev_init(struct switch_enet_private *fep)
-> > +{
-> > +	struct mtip_ndev_priv *priv;
-> > +	int i, ret =3D 0;
-> > +
-> > +	for (i =3D 0; i < SWITCH_EPORT_NUMBER; i++) {
-> > +		fep->ndev[i] =3D alloc_netdev(sizeof(struct
-> > mtip_ndev_priv),
-> > +					    fep->ndev_name[i],
-> > NET_NAME_USER,
-> > +					    mtip_ndev_setup); =20
->=20
-> This explains the ether_setup(). It would be more normal to pass
-> ether_setup() here, and set dev->ethtool_ops and dev->netdev_ops here.
->=20
-
-Yes. I will do that.
-
-> > +		if (!fep->ndev[i]) {
-> > +			ret =3D -1; =20
->=20
-> -ENOMEM?
-
-Ok.
-
->=20
-> > +			break;
-> > +		}
-> > +
-> > +		priv =3D netdev_priv(fep->ndev[i]);
-> > +		priv->fep =3D fep;
-> > +		priv->portnum =3D i + 1;
-> > +		fep->ndev[i]->irq =3D fep->irq;
-> > +
-> > +		ret =3D mtip_setup_mac(fep->ndev[i]);
-> > +		if (ret) {
-> > +			dev_err(&fep->ndev[i]->dev,
-> > +				"%s: ndev %s MAC setup err: %d\n",
-> > +				__func__, fep->ndev[i]->name, ret);
-> > +			break;
-> > +		}
-> > +
-> > +		ret =3D register_netdev(fep->ndev[i]);
-> > +		if (ret) {
-> > +			dev_err(&fep->ndev[i]->dev,
-> > +				"%s: ndev %s register err: %d\n",
-> > __func__,
-> > +				fep->ndev[i]->name, ret);
-> > +			break;
-> > +		}
-> > +		dev_info(&fep->ndev[i]->dev, "%s: MTIP eth L2
-> > switch %pM\n",
-> > +			 fep->ndev[i]->name,
-> > fep->ndev[i]->dev_addr); =20
->=20
-> I would drop this. A driver is normally silent unless things go wrong.
-
-I've replaced dev_info() with dev_dbg() as this information may be
-relevant during development.
-
->=20
-> > +	}
-> > +
-> > +	if (ret)
-> > +		mtip_ndev_cleanup(fep);
-> > +
-> > +	return 0; =20
->=20
-> return ret?
-
-Ok.
-
->=20
-> > +static int mtip_ndev_port_link(struct net_device *ndev,
-> > +			       struct net_device *br_ndev)
-> > +{
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(ndev);
-> > +	struct switch_enet_private *fep =3D priv->fep;
-> > +
-> > +	dev_dbg(&ndev->dev, "%s: ndev: %s br: %s fep: 0x%x\n",
-> > +		__func__, ndev->name,  br_ndev->name, (unsigned
-> > int)fep); +
-> > +	/* Check if MTIP switch is already enabled */
-> > +	if (!fep->br_offload) {
-> > +		if (!priv->master_dev)
-> > +			priv->master_dev =3D br_ndev; =20
->=20
-> It needs to be a little bit more complex than that, because the two
-> ports could be assigned to two different bridges. You should only
-> enable hardware bridging if they are a member of the same bridge.
-
-This has been explained earlier.
-The mtip_port_dev_check() checks in mtip_netdevice_event() if we use
-ports from the mtipl2sw driver.
-
-Only for them we start the bridge.
-
->=20
-> 	Andrew
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/vWAwGI9Y0xok4baHReqdjuN
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfpp5kACgkQAR8vZIA0
-zr3Y8wgAtt7ywyWSLp1k/aqspwIG10tmdL5JUHvlWWJfzZxAmyphVsYNrnfSy5gA
-VrcWKFXvhPiaxG2ZLsK59cNFLiFSa2SWi0fHE0DU7NyBWHfoaFITx9W9/z7Icmbe
-3Jn8LtQl122bPIAkfTcMFgpyC9GZeN51PkiKNCsd88jC82IQzb04qViyB2y/tSFW
-qLJK4K2Qi0vCVPsSZL0TUCm4Wm4gdOAaBDPARge7roRYXVqlzK+7ALHFcTCx0Etk
-Mg8lWRizQe9IvR1vN/PrkJGDfNgI3GSfs4vIr4FG0EXFMkfm8nZ/slY0lkQvDVdK
-Hh7IDp4Kf24dy1ycK+R2+5weZ/rLVA==
-=w4+p
------END PGP SIGNATURE-----
-
---Sig_/vWAwGI9Y0xok4baHReqdjuN--
+On Sun, Mar 23, 2025 at 1:38=E2=80=AFPM J. Neusch=C3=A4fer via B4 Relay
+<devnull+j.ne.posteo.net@kernel.org> wrote:
+>
+> From: "J. Neusch=C3=A4fer" <j.ne@posteo.net>
+>
+> Fernsehfee ("TV fairy") 3.0 is a set-top box with HDMI input and output
+> ports. It originally ran Android 4.4 and a Linux 3.10 kernel.
+>
+>   https://fernsehfee.de/  (German)
+>   https://telefairy.com/  (English)
+>
+> Signed-off-by: J. Neusch=C3=A4fer <j.ne@posteo.net>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
