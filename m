@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A848C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 10:03:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78747C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 10:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y1CqlSnYs7zLHrq2e6r5+ILdILZ7qVSQA3Q9lo9YBOQ=; b=kDrSr6rvV2FuHh2hbYLddw0q3m
-	eqTO6sTMtQcpkcyVyVI7V0WvEXN73meBh9ofpaKpyG3DAkQrejwVTHNd7vuKgz3lSXey+lrYqcs7N
-	ZDNqZcSEyyADAypeyST3x4jY4lYA7JHQ2JMvUNXBy0OVI0gL764yT7cSO7Xjf3jj/gWpCClgHlqRy
-	OL30vb+8K3ZmEMTnED/Ol1EGx2VVEgW73Q95y1ptS0F7X74KoP/5/G4D27DcBm84I8DaVDwipasyQ
-	6qE9BbTKr/KqEfQo8GOQKMlgxGVfMWA2/xsEx9YL869zEgOcEbPrO6RNv9jr3mb15voq47wZWDOC0
-	J43S4bWA==;
+	bh=+TMUDbVXMpZst/K0cRMlOCuT8LszvhXXgq+LFWo0Qbk=; b=0FvqXhCPSu0gTITsQ4LO9v5OVY
+	9swaYYcOkDN4IMPbO5GTKmfybnKQ1PNrw5gzNsx3RzmHN2M3aJkqk9WHe15DFtyXLIXFXCQZ9K9cr
+	ic1MXUaF2o0Xpei1NAMltX+xRIRGM8NLMr1Q7sAQWxAIMScWGhO/N6r+iAwriWHmcnEIFBL0mRBdq
+	7lqmXrzya3sO6MtARLtGrIOgvFp46r3leFaJ28xZf6u8iN5f1uXsSwy5Ah4MZ7WCcdboso/+iqlLP
+	UXqe6EcqIShexvzme7+9N8WksN7jXgTPPKxxApDZLHDqTSSKlS12OW3ekICXvOzRs1Cpc09Bb9Qix
+	DrLOWzpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1typVt-0000000G3uo-0NTX;
-	Sun, 30 Mar 2025 10:03:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1typXa-0000000G4UE-3ARJ;
+	Sun, 30 Mar 2025 10:05:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1typU9-0000000G3jy-01aK
+	id 1typUb-0000000G3mw-0HAO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 10:01:46 +0000
+	Sun, 30 Mar 2025 10:02:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 27C1E40C1C;
-	Sun, 30 Mar 2025 10:01:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C70FC4CEDD;
-	Sun, 30 Mar 2025 10:01:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4D65C40C1C;
+	Sun, 30 Mar 2025 10:02:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4245C4CEDD;
+	Sun, 30 Mar 2025 10:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743328904;
-	bh=EjDNBXG2DmcUlUVr68/7qpmOcnGVYmdLRlTwYvvTG8o=;
+	s=k20201202; t=1743328932;
+	bh=mBqjySh/X58SN5mLlMcc4wfYIVF4f09YpfipxT9DpnQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RLVpTqdYbGIVwatoEMnaI9UMoMnnLqVGRecScnwUHK/5jnBy7/7dd3D9icOV67aCR
-	 bzu8vbOgAd+5X76lT6kvhTyUK4tpugKP0qLd7pSNpHKapFAABJ15Mz+X2qoH6GN0fd
-	 GjymOmzzK1zK5zL59tsopvKyWGj12pAGiHi186FeicEjVWsH/xtygs6nEtPXiTGKlN
-	 k392bq7LaiSr/rgi5aiU2fw1U9SKvkk1W1m15z9GabsDwPYEHd+FfZGpHE3z/VVcGu
-	 fEzg7akoQDKky7bi0UTtRvJzoeyDf0WsqJvyXP2SjcjF5HoTK0qPa2G+VT/jspeHzT
-	 FMMYW1i00zJ5A==
-Message-ID: <9ab41f16-c672-4352-a296-0ff1765a8656@kernel.org>
-Date: Sun, 30 Mar 2025 12:01:37 +0200
+	b=fjshFVSbkgFzLfwiMDt2Oizpc1ImUTsafj/gygfAFatncqFbpWu63hMFxmn6AcQTi
+	 vIh+y0euMVofmRHx1h/nTFVYYs8WnvzfJ4Qz6yUUDjikPOj7/JL1CrtlrxRwm4jtIH
+	 soCkD+PgGThobex1ztgxN0aKYYal8u2qoQieSWZc6as1+aYG5ZAEIIBLwae2uYmkpm
+	 Tq9obEIZbFlZtu1A9R4m5Cs7NW2KFY9loEdo0CdIvJJamCwHF4Cw9o9MvEVGhXQnB8
+	 wEB9B1+sH+tUVQSvBJTVp+dV0enAL1IwHAW74fRN6BdgIZSfV3ZxWjcFL7L3YV/S+o
+	 vniPrdkDf6iHw==
+Message-ID: <3d7c8b46-1193-44bb-b58b-841e358cdd12@kernel.org>
+Date: Sun, 30 Mar 2025 12:02:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] mfd: exynos-lpass: Fix an error handling path in
- exynos_lpass_probe()
+Subject: Re: [PATCH 2/4] mfd: exynos-lpass: Avoid calling
+ exynos_lpass_disable() twice in exynos_lpass_remove()
 To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>, lee@kernel.org,
  alim.akhtar@samsung.com, s.nawrocki@samsung.com, beomho.seo@samsung.com,
  ideal.song@samsung.com
 Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
 References: <cover.1743231856.git.christophe.jaillet@wanadoo.fr>
- <d125cbc479f1fa838ed0ff25f0e11d25f382e9d4.1743231856.git.christophe.jaillet@wanadoo.fr>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <ee6241d024c4cb68622dde9d65d8712016f4205e.1743231856.git.christophe.jaillet@wanadoo.fr>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -100,12 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <d125cbc479f1fa838ed0ff25f0e11d25f382e9d4.1743231856.git.christophe.jaillet@wanadoo.fr>
+In-Reply-To: <ee6241d024c4cb68622dde9d65d8712016f4205e.1743231856.git.christophe.jaillet@wanadoo.fr>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_030145_091247_CED4AB84 
-X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-CacheID: sfid-20250330_030213_148084_E5A9189E 
+X-CRM114-Status: UNSURE (   5.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,20 +122,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 29/03/2025 08:45, Christophe JAILLET wrote:
-> If an error occurs after a successful regmap_init_mmio(), regmap_exit()
-> should be called as already done in the .remove() function.
+> exynos_lpass_disable() is called twice in the remove function. Remove
+> one of these calls.
 > 
-> Switch to devm_regmap_init_mmio() to avoid the leak and simplify the
-> .remove() function.
-> 
-> Fixes: c695abab2429 ("mfd: Add Samsung Exynos Low Power Audio Subsystem driver")
-
-c414df12bdf7 should be fixed instead, I think.
-
+> Fixes: 90f447170c6f ("mfd: exynos-lpass: Add runtime PM support")
 > Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 > ---
-> The .remove function was added in commit c414df12bdf7 ("mfd: exynos-lpass:
-> Add missing remove() function")
+> Compile tested only.
+> ---
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
