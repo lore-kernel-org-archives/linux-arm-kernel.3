@@ -4,104 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4A1C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 20:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A506C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 20:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5coYYRPMmYyk90hyfQos6Hfk3JtJvsesMjWEHhnPPg=; b=A3flb+n+k7e/e4QhuAcO4DFVol
-	rxBpvMMYt/LPIEIdkSAwH/TG3kQdPteinbSJauLv9buQCusv5RMsyxwGayXdWhUHlvhdmRxJ8xeqJ
-	nO2DQWJDucH6Y8QZI4EK6T1CR+51iDQb/odNFJEiGWPXoNRtlq7ak/9MfRekbFZ+4muujM52rT+9O
-	qvhfrssjRwggDoxSmLUiuLfIppCHMgv+AkoLG/bk3DLONEzhfAGGoe8WdC5Okj4BO5hNbcWwlXT9x
-	poTWNLxPoxUpaSKgItKeWRA53v6lK2JqUnyjILXB15I78AwmWJSS5MGp0l6Bc71jqVw67B+xvasN7
-	OxtA7Biw==;
+	bh=8qJ/Rut3ZHfnX40lpR7WWvNRDKHga3tSKw8W4V695Yg=; b=KNC+PyoINrb/I3+SPHE2nZhRUh
+	1DXmapFBaWJikUX+VTiF1flttp9V98MVu83YuX0FmBhr4SBaZhh0RRWLP8MxiNRdpjk1lEMinkDgJ
+	Ud9qtTx42ybE7hwM/0pNK5aaT3D17ruIL1UR2+6WiHFG+gDBpvKOcphpRMlU7wB9XdgIdCBAnnM/F
+	Ty9oiwzlbEHNGh5CZPEKn2o7lYkMLhn3MGRgv5X2GypH5SLduicNYu7LM1+c9WnUjx/kx6KCWwPh7
+	wC1ybVTeKJh705ByizKouSg8C2ie4iW71e+ql583TGAoxjIL3agEPSixVKc6xwXmdBNnmqG8FWvFO
+	eyiE/Jvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyz8L-0000000GefB-034w;
-	Sun, 30 Mar 2025 20:19:53 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tyzB0-0000000Gf4k-3ClR;
+	Sun, 30 Mar 2025 20:22:38 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyz6Z-0000000GeHH-2gC4
+	id 1tyz9G-0000000GetC-2D8E
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 20:18:04 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-22423adf751so70058545ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 13:18:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743365882; x=1743970682; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=d5coYYRPMmYyk90hyfQos6Hfk3JtJvsesMjWEHhnPPg=;
-        b=d+BI09nMlUKCT2iMSTSQpR3Ec+SSFielFOsWwvK9Q0I0DlJeRlVxsIkJPhp8yo5gxN
-         rGw4N7aK2Vet85rMhMEX9lLb2y+Vrfj5zjenQkK/4EKo90kjPMzI2XjFj3ToxcmOcaPy
-         oW/e7EjMTuZqXwVz9bD6N0oJuh0MxN/90Qs2vNocXWZPS6ope3Y7DyoZAHX18WIaW3Yu
-         8OI1BmEjrK32d6hWEJWeOxJZVrxyJQ8msFs5W0Z9Ce1wa5fBpDOQ8U0m9PKUPsxI6XEm
-         qnVt7WQOTijqJW0gyYyFpmil587F8Z6MngsqymdXbJW7DykT4M49YY6FUSOpcDGLh3+y
-         0pJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743365882; x=1743970682;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d5coYYRPMmYyk90hyfQos6Hfk3JtJvsesMjWEHhnPPg=;
-        b=t8yaQuHrkqLSuB6FvFdtbcGCHFVv10e79xXe+EUSVwhoDz73f7aA5BbDpgRb21rV4n
-         0Xrbv5X9R9wYtOMicobYkM1nN8hIFCvFudoUgjnambxEbOEejTL0FMZe9gIeRHqmXRsg
-         t0spkS5/27FZcinW815B2YRoiizwu9ngRh8yWknClrVltsOcUyzabmONWgos6NClozI7
-         lGE/pVky4geHmTbCEfol+lmRkOIq4CY0bBBwmxoXumfQQYeNJucNsVLRXwOfnTJGyTm1
-         PuK+RxbkwmcryiNwMTK0dCHXhwMu6mNpIKHvi9nnPn8xqH9Yz8JWQZ5TzJYmOEnHBbuH
-         TgMA==
-X-Forwarded-Encrypted: i=1; AJvYcCXs+BEsAWXIBjGXALqGhpdz2okdaMSfpDXZNuFQIsXz9OXfh6bwIo1njyxVUtf44bBXWua/yS4lMk1neU65yqyA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyW88dwpBvbSMcbsSQ7rIWSm17nD1GXVGARe8vdJ2KEHvfjosec
-	LGex+8jiuQZ9MO1SV+k1YJH6k1HY+Vbny2oe9uNWe3APLO5nkQ8x
-X-Gm-Gg: ASbGncv9outcjnzyZlbSt4N5niGDL3giBaNA0SIkEhDoKcXlNGF6lQDuad3lGjPx6wj
-	ts/f1IwqPsflW4AndII0wAYHKFOgeqXjpR4UZAPl9aJVh6gGfSMDRHTSgjXcrMlScN+pRgaXLC4
-	MNcYslr6nKcHgPbigTs4NbnZcGBD26moJjoI1B/7Oy3ZDVplAyf8GO9NhVGhfCigo4zPRDT/s0T
-	TNoZgEaIeVBjTSIJoI7dLqKYHroJsqRL7x5MRWYxTm48pV7I2lH8jq841k8/VuN5JtITGxxQZvx
-	xFjwwoND2tDsQES1N6YGubS/ERY472Cn4SAOQUyUlfrfEU9rEQx7Ug==
-X-Google-Smtp-Source: AGHT+IGdRb8RSEY/uMCLsBXs2PCUKzrfAlPuylZyCRqePE4ThlWVOzd97jd96fvdyjccpN5hsZkrrA==
-X-Received: by 2002:a17:902:f644:b0:224:1af1:87f4 with SMTP id d9443c01a7336-2292f974b63mr133802185ad.22.1743365882249;
-        Sun, 30 Mar 2025 13:18:02 -0700 (PDT)
-Received: from localhost ([2804:30c:b03:ee00:e0b8:a8b8:44aa:8d0b])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3039e1139fasm9042555a91.25.2025.03.30.13.18.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Mar 2025 13:18:01 -0700 (PDT)
-Date: Sun, 30 Mar 2025 17:19:02 -0300
-From: Marcelo Schmitt <marcelo.schmitt1@gmail.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v10 3/8] iio: adc: add helpers for parsing ADC nodes
-Message-ID: <Z-mnNtYLkwsTYjMh@debian-BULLSEYE-live-builder-AMD64>
-References: <cover.1742560649.git.mazziesaccount@gmail.com>
- <f1d8b3e15237947738912c0d297b3e1e21d8b03e.1742560649.git.mazziesaccount@gmail.com>
+	Sun, 30 Mar 2025 20:20:52 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E15C8102F66E1;
+	Sun, 30 Mar 2025 22:20:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1743366048; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=8qJ/Rut3ZHfnX40lpR7WWvNRDKHga3tSKw8W4V695Yg=;
+	b=Slbl9iyVxOXJxEcoUX1qkrsvorT7y2qFt6c07mfIaD2XN3hYXacXuixYXxRjAF+/IyE7Sj
+	pQtxCpZWkMyysL2BTrQZR2Gy/z/nMIECfg7RKor0fQ6Qfec1q3zRLbQJx67jbg773HEsqX
+	kHWmEY50/j3o03lxFlBESTiUXRIA1EzP9cIW6kF/AbRzZtJ43DYTxWNlgXDccoiBprG+5d
+	arYWA2UTQgpXbnrtKvWQuOyhc2WhXU3tz6hej9BP1cxZgCafGw6hZ6PU9Auhuk6WYcKFAQ
+	vdgrN+c0/Gu7aVEfdzL1cjDuI3Fcbkz8p3nvwmKPtU8GDNzzdup0dVBk1//65A==
+Date: Sun, 30 Mar 2025 22:20:41 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/4] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250330222041.10fb8d3d@wsk>
+In-Reply-To: <3648e94f-93e6-4fb0-a432-f834fe755ee3@lunn.ch>
+References: <20250328133544.4149716-1-lukma@denx.de>
+	<20250328133544.4149716-5-lukma@denx.de>
+	<3648e94f-93e6-4fb0-a432-f834fe755ee3@lunn.ch>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f1d8b3e15237947738912c0d297b3e1e21d8b03e.1742560649.git.mazziesaccount@gmail.com>
+Content-Type: multipart/signed; boundary="Sig_/vWAwGI9Y0xok4baHReqdjuN";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_131803_701642_03D965A2 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20250330_132050_868815_A3E039E4 
+X-CRM114-Status: GOOD (  58.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,59 +78,463 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Matti,
+--Sig_/vWAwGI9Y0xok4baHReqdjuN
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-The new helpers for ADC drivers look good to me.
-I am now very late to complain about anything but am leaving some minor comments
-below that can be completely ignored.
+Hi Andrew,
 
-Reviewed-by: Marcelo Schmitt <marcelo.schmitt1@gmail.com>
+> > +static bool bridge_offload;
+> > +module_param(bridge_offload, bool, 0644); /* Allow setting by root
+> > on boot */ +MODULE_PARM_DESC(bridge_offload, "L2 switch offload
+> > mode enable:1, disable:0"); =20
+>=20
+> Please drop. module parameters are not liked.
+>=20
 
-Thanks,
-Marcelo
+Ok.
 
-On 03/24, Matti Vaittinen wrote:
-> There are ADC ICs which may have some of the AIN pins usable for other
-> functions. These ICs may have some of the AIN pins wired so that they
-> should not be used for ADC.
-> 
-> (Preferred?) way for marking pins which can be used as ADC inputs is to
-> add corresponding channels@N nodes in the device tree as described in
-> the ADC binding yaml.
-Not sure it's preferred to have ADC channels always declared in dt. That
-question was somewhat also raised during ADC doc review [1]. In short, ADC
-channel may and may not be declared under ADC dt node. ADC bindings often don't
-enforce channels to be declared. On IIO side of things, many ADC drivers just
-populate channels even if they are not declared in dt.
-The ADCs you are supporting in the other patches of this series seem to require 
-dt declared channels though.
+> In Linux, ports of a switch always starting in isolated mode, and
+> userspace needs to add them to the same bridge.
 
-[1]: https://lore.kernel.org/linux-iio/20250118155153.2574dbe5@jic23-huawei/
+Ok.
 
-Would something like
+>=20
+> > +
+> > +static netdev_tx_t mtip_start_xmit(struct sk_buff *skb,
+> > +				   struct net_device *dev);
+> > +static void mtip_switch_tx(struct net_device *dev);
+> > +static int mtip_switch_rx(struct net_device *dev, int budget, int
+> > *port); +static void mtip_set_multicast_list(struct net_device
+> > *dev); +static void mtip_switch_restart(struct net_device *dev, int
+> > duplex0,
+> > +				int duplex1); =20
+>=20
+> Forwards references are not like. Put the functions in the correct
+> order so they are not needed.
 
-A common way of marking pins that can be used as ADC inputs is to add
-corresponding channel@N nodes in the device tree as described in the ADC
-binding yaml.
+Ok.
 
-be a good rephrasing of the above paragraph?
+>=20
+> > +/* Calculate Galois Field Arithmetic CRC for Polynom x^8+x^2+x+1.
+> > + * It omits the final shift in of 8 zeroes a "normal" CRC would do
+> > + * (getting the remainder).
+> > + *
+> > + *  Examples (hexadecimal values):<br>
+> > + *   10-11-12-13-14-15  =3D> CRC=3D0xc2
+> > + *   10-11-cc-dd-ee-00  =3D> CRC=3D0xe6
+> > + *
+> > + *   param: pmacaddress
+> > + *          A 6-byte array with the MAC address.
+> > + *          The first byte is the first byte transmitted
+> > + *   return The 8-bit CRC in bits 7:0
+> > + */
+> > +static int crc8_calc(unsigned char *pmacaddress)
+> > +{
+> > +	/* byte index */
+> > +	int byt;
+> > +	/* bit index */
+> > +	int bit;
+> > +	int inval;
+> > +	int crc; =20
+>=20
+> Reverse Christmas tree. Please look through the whole driver and fix
+> it up.
 
-> 
-> Add couple of helper functions which can be used to retrieve the channel
-> information from the device node.
-> 
-> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> 
-...
-> +static inline int iio_adc_device_num_channels(struct device *dev)
-> +{
-> +	return device_get_named_child_node_count(dev, "channel");
-> +}
-I wonder if this function name can eventually become misleading.
+Ok.
 
-In Documentation/devicetree/bindings/iio/temperature/adi,ltc2983.yaml we have
-temperature sensor with channel nodes named after external hardware connected to
-the sensor, leading to channels having different node names. Can anything like
-that ever be accepted for ADC bindings?
+>=20
+> > +/* updates MAC address lookup table with a static entry
+> > + * Searches if the MAC address is already there in the block and
+> > replaces
+> > + * the older entry with new one. If MAC address is not there then
+> > puts a
+> > + * new entry in the first empty slot available in the block
+> > + *
+> > + * mac_addr Pointer to the array containing MAC address to
+> > + *          be put as static entry
+> > + * port     Port bitmask numbers to be added in static entry,
+> > + *          valid values are 1-7
+> > + * priority The priority for the static entry in table
+> > + *
+> > + * return 0 for a successful update else -1  when no slot
+> > available =20
+>=20
+> It would be nice to turn this into proper kerneldoc. It is not too far
+> away at the moment.
+>=20
+> Also, return a proper error code not -1. ENOSPC?
+
+Ok.
+
+>=20
+> > +static int mtip_update_atable_dynamic1(unsigned long write_lo,
+> > +				       unsigned long write_hi, int
+> > block_index,
+> > +				       unsigned int port,
+> > +				       unsigned int curr_time,
+> > +				       struct switch_enet_private
+> > *fep) =20
+>=20
+> It would be good to document the return value, because it is not the
+> usual 0 success or negative error code.
+
+Ok.
+
+>=20
+> > +static const struct net_device_ops mtip_netdev_ops; =20
+>=20
+> more forward declarations.
+
+Ok, fixed.
+
+>=20
+> > +struct switch_enet_private *mtip_netdev_get_priv(const struct
+> > net_device *ndev) +{
+> > +	if (ndev->netdev_ops =3D=3D &mtip_netdev_ops)
+> > +		return netdev_priv(ndev);
+> > +
+> > +	return NULL;
+> > +} =20
+>=20
+> I _think_ the return value is not actually used. So maybe 0 or
+> -ENODEV?
+
+It is used at:
+drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c in
+mtip_port_dev_check()
+
+to assess if network interfaces eligible for bridging are using the
+same (i.e. mtipl2sw) driver.
+
+Only when they match - bridging is performed.
+
+>=20
+> > +static int esw_mac_addr_static(struct switch_enet_private *fep)
+> > +{
+> > +	int i;
+> > +
+> > +	for (i =3D 0; i < SWITCH_EPORT_NUMBER; i++) {
+> > +		if (is_valid_ether_addr(fep->ndev[i]->dev_addr)) {
+> > =20
+>=20
+> Is that possible? This is the interfaces own MAC address? If it is not
+> valid, the probe should of failed.
+
+I've double checked it - this cannot happen (i.e. that
+is_valid_ether_addr(fep->ndev[i]->dev_addr) is NOT valid at this point
+of execution.
+
+I will remove this check
+
+>=20
+> > +			mtip_update_atable_static((unsigned char *)
+> > +
+> > fep->ndev[i]->dev_addr,
+> > +						  7, 7, fep);
+> > +		} else {
+> > +			dev_err(&fep->pdev->dev,
+> > +				"Can not add mac address %pM to
+> > switch!\n",
+> > +				fep->ndev[i]->dev_addr);
+> > +			return -EFAULT;
+> > +		}
+> > +	}
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static void mtip_print_link_status(struct phy_device *phydev)
+> > +{
+> > +	if (phydev->link)
+> > +		netdev_info(phydev->attached_dev,
+> > +			    "Link is Up - %s/%s - flow control
+> > %s\n",
+> > +			    phy_speed_to_str(phydev->speed),
+> > +			    phy_duplex_to_str(phydev->duplex),
+> > +			    phydev->pause ? "rx/tx" : "off");
+> > +	else
+> > +		netdev_info(phydev->attached_dev, "Link is
+> > Down\n"); +} =20
+>=20
+> phy_print_status()
+
+Yes, I will remove mtip_print_link_status() and replace it with
+phy_print_status()
+
+>=20
+> > +static void mtip_adjust_link(struct net_device *dev)
+> > +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	struct phy_device *phy_dev;
+> > +	int status_change =3D 0, idx;
+> > +	unsigned long flags;
+> > +
+> > +	spin_lock_irqsave(&fep->hw_lock, flags);
+> > +
+> > +	idx =3D priv->portnum - 1;
+> > +	phy_dev =3D fep->phy_dev[idx];
+> > +
+> > +	/* Prevent a state halted on mii error */
+> > +	if (fep->mii_timeout && phy_dev->state =3D=3D PHY_HALTED) {
+> > +		phy_dev->state =3D PHY_UP;
+> > +		goto spin_unlock;
+> > +	} =20
+>=20
+> A MAC driver should not be playing around with the internal state of
+> phylib.
+
+Ok, I've replaced it with PHY API calls (phy_start() and
+phy_is_started()).
+
+>=20
+> > +static int mtip_mii_probe(struct net_device *dev)
+> > +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	int port_idx =3D priv->portnum - 1;
+> > +	struct phy_device *phy_dev =3D NULL;
+> > +
+> > +	if (fep->phy_np[port_idx]) {
+> > +		phy_dev =3D of_phy_connect(dev,
+> > fep->phy_np[port_idx],
+> > +					 &mtip_adjust_link, 0,
+> > +
+> > fep->phy_interface[port_idx]);
+> > +		if (!phy_dev) {
+> > +			netdev_err(dev, "Unable to connect to
+> > phy\n");
+> > +			return -ENODEV;
+> > +		}
+> > +	}
+> > +
+> > +	phy_set_max_speed(phy_dev, 100);
+> > +	fep->phy_dev[port_idx] =3D phy_dev;
+> > +	fep->link[port_idx] =3D 0;
+> > +	fep->full_duplex[port_idx] =3D 0;
+> > +
+> > +	dev_info(&dev->dev,
+> > +		 "MTIP PHY driver [%s] (mii_bus:phy_addr=3D%s,
+> > irq=3D%d)\n",
+> > +		 fep->phy_dev[port_idx]->drv->name,
+> > +		 phydev_name(fep->phy_dev[port_idx]),
+> > +		 fep->phy_dev[port_idx]->irq); =20
+>=20
+> phylib already prints something like that.
+
+Yes, the=20
+"net lan0: lan0: MTIP eth L2 switch <mac addr>"=20
+
+is printed.
+
+For the original call - I've used dev_dbg().
+
+>=20
+> > +static int mtip_mdiobus_reset(struct mii_bus *bus)
+> > +{
+> > +	if (!bus || !bus->reset_gpiod) {
+> > +		dev_err(&bus->dev, "Reset GPIO pin not
+> > provided!\n");
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	gpiod_set_value_cansleep(bus->reset_gpiod, 1);
+> > +
+> > +	/* Extra time to allow:
+> > +	 * 1. GPIO RESET pin go high to prevent situation where
+> > its value is
+> > +	 *    "LOW" as it is NOT configured.
+> > +	 * 2. The ENET CLK to stabilize before GPIO RESET is
+> > asserted
+> > +	 */
+> > +	usleep_range(200, 300);
+> > +
+> > +	gpiod_set_value_cansleep(bus->reset_gpiod, 0);
+> > +	usleep_range(bus->reset_delay_us, bus->reset_delay_us +
+> > 1000);
+> > +	gpiod_set_value_cansleep(bus->reset_gpiod, 1);
+> > +
+> > +	if (bus->reset_post_delay_us > 0)
+> > +		usleep_range(bus->reset_post_delay_us,
+> > +			     bus->reset_post_delay_us + 1000);
+> > +
+> > +	return 0;
+> > +} =20
+>=20
+> What is wrong with the core code __mdiobus_register() which does the
+> bus reset.
+
+The main problem is that the "default" mdio reset is just asserting and
+deasserting the reset line.
+
+It doesn't take into account the state of the reset gpio before
+assertion (if it was high for enough time) and if clocks already
+were stabilized.
+
+>=20
+> > +static void mtip_get_drvinfo(struct net_device *dev,
+> > +			     struct ethtool_drvinfo *info)
+> > +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +
+> > +	strscpy(info->driver, fep->pdev->dev.driver->name,
+> > +		sizeof(info->driver));
+> > +	strscpy(info->version, VERSION, sizeof(info->version)); =20
+>=20
+> Leave this empty, so you get the git hash of the kernel.
+
+Ok.
+
+>=20
+> > +static void mtip_ndev_setup(struct net_device *dev)
+> > +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +
+> > +	ether_setup(dev); =20
+>=20
+> That is pretty unusual
+
+Yes - how it has been used is described below.
+
+>=20
+> > +	dev->ethtool_ops =3D &mtip_ethtool_ops;
+> > +	dev->netdev_ops =3D &mtip_netdev_ops;
+> > +
+> > +	memset(priv, 0, sizeof(struct mtip_ndev_priv)); =20
+>=20
+> priv should already be zero....
+
+Ok, I will remove
+
+>=20
+> > +static int mtip_ndev_init(struct switch_enet_private *fep)
+> > +{
+> > +	struct mtip_ndev_priv *priv;
+> > +	int i, ret =3D 0;
+> > +
+> > +	for (i =3D 0; i < SWITCH_EPORT_NUMBER; i++) {
+> > +		fep->ndev[i] =3D alloc_netdev(sizeof(struct
+> > mtip_ndev_priv),
+> > +					    fep->ndev_name[i],
+> > NET_NAME_USER,
+> > +					    mtip_ndev_setup); =20
+>=20
+> This explains the ether_setup(). It would be more normal to pass
+> ether_setup() here, and set dev->ethtool_ops and dev->netdev_ops here.
+>=20
+
+Yes. I will do that.
+
+> > +		if (!fep->ndev[i]) {
+> > +			ret =3D -1; =20
+>=20
+> -ENOMEM?
+
+Ok.
+
+>=20
+> > +			break;
+> > +		}
+> > +
+> > +		priv =3D netdev_priv(fep->ndev[i]);
+> > +		priv->fep =3D fep;
+> > +		priv->portnum =3D i + 1;
+> > +		fep->ndev[i]->irq =3D fep->irq;
+> > +
+> > +		ret =3D mtip_setup_mac(fep->ndev[i]);
+> > +		if (ret) {
+> > +			dev_err(&fep->ndev[i]->dev,
+> > +				"%s: ndev %s MAC setup err: %d\n",
+> > +				__func__, fep->ndev[i]->name, ret);
+> > +			break;
+> > +		}
+> > +
+> > +		ret =3D register_netdev(fep->ndev[i]);
+> > +		if (ret) {
+> > +			dev_err(&fep->ndev[i]->dev,
+> > +				"%s: ndev %s register err: %d\n",
+> > __func__,
+> > +				fep->ndev[i]->name, ret);
+> > +			break;
+> > +		}
+> > +		dev_info(&fep->ndev[i]->dev, "%s: MTIP eth L2
+> > switch %pM\n",
+> > +			 fep->ndev[i]->name,
+> > fep->ndev[i]->dev_addr); =20
+>=20
+> I would drop this. A driver is normally silent unless things go wrong.
+
+I've replaced dev_info() with dev_dbg() as this information may be
+relevant during development.
+
+>=20
+> > +	}
+> > +
+> > +	if (ret)
+> > +		mtip_ndev_cleanup(fep);
+> > +
+> > +	return 0; =20
+>=20
+> return ret?
+
+Ok.
+
+>=20
+> > +static int mtip_ndev_port_link(struct net_device *ndev,
+> > +			       struct net_device *br_ndev)
+> > +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(ndev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +
+> > +	dev_dbg(&ndev->dev, "%s: ndev: %s br: %s fep: 0x%x\n",
+> > +		__func__, ndev->name,  br_ndev->name, (unsigned
+> > int)fep); +
+> > +	/* Check if MTIP switch is already enabled */
+> > +	if (!fep->br_offload) {
+> > +		if (!priv->master_dev)
+> > +			priv->master_dev =3D br_ndev; =20
+>=20
+> It needs to be a little bit more complex than that, because the two
+> ports could be assigned to two different bridges. You should only
+> enable hardware bridging if they are a member of the same bridge.
+
+This has been explained earlier.
+The mtip_port_dev_check() checks in mtip_netdevice_event() if we use
+ports from the mtipl2sw driver.
+
+Only for them we start the bridge.
+
+>=20
+> 	Andrew
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/vWAwGI9Y0xok4baHReqdjuN
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfpp5kACgkQAR8vZIA0
+zr3Y8wgAtt7ywyWSLp1k/aqspwIG10tmdL5JUHvlWWJfzZxAmyphVsYNrnfSy5gA
+VrcWKFXvhPiaxG2ZLsK59cNFLiFSa2SWi0fHE0DU7NyBWHfoaFITx9W9/z7Icmbe
+3Jn8LtQl122bPIAkfTcMFgpyC9GZeN51PkiKNCsd88jC82IQzb04qViyB2y/tSFW
+qLJK4K2Qi0vCVPsSZL0TUCm4Wm4gdOAaBDPARge7roRYXVqlzK+7ALHFcTCx0Etk
+Mg8lWRizQe9IvR1vN/PrkJGDfNgI3GSfs4vIr4FG0EXFMkfm8nZ/slY0lkQvDVdK
+Hh7IDp4Kf24dy1ycK+R2+5weZ/rLVA==
+=w4+p
+-----END PGP SIGNATURE-----
+
+--Sig_/vWAwGI9Y0xok4baHReqdjuN--
 
