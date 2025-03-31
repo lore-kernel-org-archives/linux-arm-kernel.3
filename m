@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5302C36011
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 08:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95C8C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 08:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rw5ohSoBs7ihq12VPqJvT1/P3g+JZLa+BPqoZgrIT6Q=; b=wSVhh/HNJnh3iFopuF/hM7uizM
-	VmBf67ZNpeGfMNU2itDZkRbgKmk5v5CbPqTAh83+w1VrymBU1u8Utr+70/Inwv8l9BE7hJo47oVet
-	Cz1mmI1hxWhl50GPQEtQplyZGDR6C4H8LxajIT8w2MPjqE5RbQghEsS00JrsrTfq8XfSJhKq9WBCK
-	QzzQqNEYtHqTtEe/mz0+rzpCtmGg05PIRTuwNd519gSnGIRqp4HwbBmsM3wRVv5EHxsBW4IPa1hH8
-	7//bmgX/3cBHvH3um363oILCgDFb3iZ+w3OAmzw9M7Stb9b3ylB3VF8q8qaFh43WLFr9GQyy066vx
-	Hv+efpvA==;
+	bh=VKP/7CeXLRMCUmW+0j2wMhdOOqp3jMDskSqTIZJkTKo=; b=aRwga+OHdpFTvF0jdt0k+2y77F
+	GZbv926REfgXbOaYyBES/h+AQb4vS1tcinYyGpO8MP2p57sJoxTaMZ5Nb6FFW1pNaJT7XefnJEPdO
+	6DnClna9gSzNHkR+xyGalu4MI+YiS4fkIYPvS1o6H7GcEyU3tC0sfPbMXKDvDkgB/qP25iQRkdoIi
+	XdaCRJrhzfqlP88hp0FyGo2QkMMk/RnIQXSCKn+984hr2pqcHJCwzMbjChPxVfXwZzpLNvn0Z0Yhz
+	0KnSZ+r+mzW4poJeQlDhd6f8PkeWIUDa8FvNjKF+SLl3KZGGSXb73OJ6p7xR1c72YkmM+rtnJhFs6
+	QiVgDpYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzA9V-0000000HIPc-2sF3;
-	Mon, 31 Mar 2025 08:05:49 +0000
-Received: from mail.actia.se ([212.181.117.226])
+	id 1tzAC6-0000000HJ4f-2WBA;
+	Mon, 31 Mar 2025 08:08:30 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzA6H-0000000HHng-17VM
+	id 1tzAAJ-0000000HIh1-3HFZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 08:02:31 +0000
-Received: from S036ANL.actianordic.se (10.12.31.117) by S036ANL.actianordic.se
- (10.12.31.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 31 Mar
- 2025 10:02:21 +0200
-Received: from S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69]) by
- S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69%3]) with mapi id
- 15.01.2507.039; Mon, 31 Mar 2025 10:02:20 +0200
-From: John Ernberg <john.ernberg@actia.se>
-To: Frank Li <Frank.li@nxp.com>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Peter Chen
-	<peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>, Roger Quadros
-	<rogerq@kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-usb@vger.kernel.org"
-	<linux-usb@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	Jonas Blixt <jonas.blixt@actia.se>
-Subject: Re: [PATCH v7 00/17] mm, dma, arm64: Reduce ARCH_KMALLOC_MINALIGN to
- 8
-Thread-Topic: [PATCH v7 00/17] mm, dma, arm64: Reduce ARCH_KMALLOC_MINALIGN to
- 8
-Thread-Index: AQHboAAzgh/yl+5aq0iI+AsHqQOMo7OI4SUAgAPjxwA=
-Date: Mon, 31 Mar 2025 08:02:20 +0000
-Message-ID: <6f5877cb-e6b7-4420-9a92-d2f44f931e8f@actia.se>
-References: <20230612153201.554742-1-catalin.marinas@arm.com>
- <ab2776f0-b838-4cf6-a12a-c208eb6aad59@actia.se>
- <Z+b6qrgXz/NTOs5r@lizhi-Precision-Tower-5810>
-In-Reply-To: <Z+b6qrgXz/NTOs5r@lizhi-Precision-Tower-5810>
-Accept-Language: en-US, sv-SE
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.12.12.35]
-x-esetresult: clean, is OK
-x-esetid: 37303A2955B144526C7360
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <6285582D07366E4D8EF7B74993B8B916@actia.se>
-Content-Transfer-Encoding: base64
+	Mon, 31 Mar 2025 08:06:41 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5DF39102F66E4;
+	Mon, 31 Mar 2025 10:06:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1743408397; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=VKP/7CeXLRMCUmW+0j2wMhdOOqp3jMDskSqTIZJkTKo=;
+	b=NVNNuIwBc/++8ozhXTQxwrXwtUOOT1Gq63sVKchTTVzvl/tdClnAACl1yJRsJGEnDpDcUP
+	xYEgBTPiD37Oj/QekN/7d89HIfkyv6ndLnB1+x/au5+NZyQYr/38MJNkEPYfBXYcZ5tVHA
+	ZS19Ph2NClvLpcpPsfvDEgCzL/Ot+pCjJNveU11m24KwJOzoz7gSz0LhIBXz+nqU5Yi/Vh
+	39OdOTCIWPPU4iYxIVyTG1teNbqGnZLxO+L9JrU1j+tb+3awTJV8VySpNq5L4ewka3Rav1
+	4jbxASRzhgEGOwyd2aMIyh8RiuAEk5FQBCAX9i83ce1GTvPi1jYElwTvEVhGiw==
+Date: Mon, 31 Mar 2025 10:06:32 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/4] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250331100632.68626360@wsk>
+In-Reply-To: <060f8fb2-bade-4d80-93bc-effb3657d5a3@kernel.org>
+References: <20250328133544.4149716-1-lukma@denx.de>
+	<20250328133544.4149716-5-lukma@denx.de>
+	<060f8fb2-bade-4d80-93bc-effb3657d5a3@kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
+Content-Type: multipart/signed; boundary="Sig_/IGyI34+k55Z2ium1X9WZv58";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_010229_306524_8D71FA30 
-X-CRM114-Status: GOOD (  24.78  )
+X-CRM114-CacheID: sfid-20250331_010640_118495_C9E2486B 
+X-CRM114-Status: GOOD (  36.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +78,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgRnJhbmssDQoNCk9uIDMvMjgvMjUgODozOCBQTSwgRnJhbmsgTGkgd3JvdGU6DQo+IE9uIEZy
-aSwgTWFyIDI4LCAyMDI1IGF0IDA0OjQxOjA1UE0gKzAwMDAsIEpvaG4gRXJuYmVyZyB3cm90ZToN
-Cj4+IE9uIDYvMTIvMjMgNTozMSBQTSwgQ2F0YWxpbiBNYXJpbmFzIHdyb3RlOg0KPj4+IEhpLA0K
-Pj4+DQo+Pj4gVGhhdCdzIHY3IG9mIHRoZSBzZXJpZXMgcmVkdWNpbmcgdGhlIGttYWxsb2MoKSBt
-aW5pbXVtIGFsaWdubWVudCBvbg0KPj4+IGFybTY0IHRvIDggKGZyb20gMTI4KS4gVGhlcmUncyBu
-byBuZXcvZGlmZmVyZW50IGZ1bmN0aW9uYWxpdHksIG1vc3RseQ0KPj4+IGNvc21ldGljIGNoYW5n
-ZXMgYW5kIGFja3MvdGVzdGVkLWJ5cy4NCj4+Pg0KPj4+IEFuZHJldywgaWYgdGhlcmUgYXJlIG5v
-IGZ1cnRoZXIgY29tbWVudHMgb3Igb2JqZWN0aW9ucyB0byB0aGlzIHZlcnNpb24sDQo+Pj4gYXJl
-IHlvdSBvayB0byB0YWtlIHRoZSBzZXJpZXMgdGhyb3VnaCB0aGUgbW0gdHJlZT8gVGhlIGFybTY0
-IGNoYW5nZXMgYXJlDQo+Pj4gZmFpcmx5IHNtYWxsLiBBbHRlcm5hdGl2ZWx5LCBJIGNhbiBwdXNo
-IGl0IGludG8gbGludXgtbmV4dCBub3cgdG8gZ2l2ZQ0KPj4+IGl0IHNvbWUgd2lkZXIgZXhwb3N1
-cmUgYW5kIGRlY2lkZSB3aGV0aGVyIHRvIHVwc3RyZWFtIGl0IHdoZW4gdGhlDQo+Pj4gbWVyZ2lu
-ZyB3aW5kb3cgb3BlbnMuIFRoYW5rcy4NCj4+Pg0KPj4+IFRoZSB1cGRhdGVkIHBhdGNoZXMgYXJl
-IGFsc28gYXZhaWxhYmxlIG9uIHRoaXMgYnJhbmNoOg0KPj4+DQo+Pj4gZ2l0Oi8vZ2l0Lmtlcm5l
-bC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2FybTY0L2xpbnV4IGRldmVsL2ttYWxsb2Mt
-bWluYWxpZ24NCj4+Pg0KPj4NCj4+IChJIHRyaW1tZWQgdGhlIHJlY2lwaWVudHMgYW5kIGFkZGVk
-IGxpbnV4LXVzYiBhbmQgaW14IG1haWxpbmcgbGlzdCwgKw0KPj4gY2RuczMgbWFpbnRhaW5lcnMp
-DQo+Pg0KPj4gSGkgQ2F0YWxpbiwgbGlzdHMsDQo+Pg0KPj4gU2VlbiBvbiBMaW51eCA2LjEyLjIw
-LCBpdCBpcyBub3QgdHJpdmlhbCBmb3IgdXMgdG8gdGVzdCBsYXRlciBrZXJuZWxzIHNvDQo+PiBp
-ZiB0aGUgaXNzdWUgaXMgcG90ZW50aWFsbHkgZml4ZWQgd2UgYXJlIG1vcmUgdGhhbiBoYXBweSB0
-byBjaGVycnktcGljaw0KPj4gdGhlIHBvdGVudGlhbCBmaXhlcyBhbmQgZ2l2ZSB0aGVtIGEgZ28u
-DQo+Pg0KPj4gSGF2aW5nIGFuIFNNU0M5NTEyIChzbXNjOTV4eCkgVVNCIEV0aGVybmV0L0h1YiBj
-aGlwIGF0dGFjaGVkIHRvIHRoZSBhcm12OA0KPj4gU29DIGlNWDhRWFAgb3ZlciB0aGUgQ2FkZW5j
-ZSBVU0IzIFVTQjIgaW50ZXJmYWNlIChjZG5zMy1pbXgpIHdpbGwgc2luY2UNCj4+IHRoZSBwYXRj
-aCBzZXQgYXQgWzBdIGNhdXNlIHJhbmRvbSBpbnRlcnJ1cHQgc3Rvcm1zIG92ZXIgdGhlIFNNU0M5
-NTEyIElOVA0KPj4gRVAuDQo+IA0KPiBEbyB5b3Uga25vdyB3aGVyZSBidXkgU01TQzk1MTIgVVNC
-IEV0aGVybmV0L0h1Yj8NCg0KQSBxdWljayBnb29nbGUgc2VhcmNoIGRpZG4ndCBmaW5kIG15IGFu
-eSBkb25nbGVzIHRoYXQgYXJlIHN0aWxsIA0KYXZhaWxhYmxlLCBob3dldmVyIHRoZSBTTVNDIDk1
-eHggc2VyaWVzIG9mIGNoaXBzIHVzZWQgdG8gYmUgcG9wdWxhciBpbiANClVTQiB0byBFdGhlcm5l
-dCBkb25nbGVzLg0KDQpPdGhlcndpc2UgdGhleSBhcmUgbWFkZSBieSBNaWNyb2NoaXAgdG9kYXks
-IGFueSB2YXJpYW50IG9mIHRoZSBTTVNDIDk1eHggDQpzaG91bGQgYmUgYWJsZSB0byB0cmlnZ2Vy
-IHRoZSBwcm9ibGVtLg0KDQo+IA0KPj4NCj4+IFRoZSByZWFzb24gZm9yIHRoZSBzdG9ybSBpcyB0
-aGF0IHRoZSBhc3luYyBVUkJzIHF1ZXVlZCBhdCBbMV0gcmlnaHQgYmVmb3JlDQo+PiB0aGUgaW50
-ZXJydXB0IGNvbmZpZ3VyYXRpb24gWzJdIGluIHRoZSBkcml2ZXIuDQo+PiBXaXRoIFswXSBhcHBs
-aWVkLCB0aG9zZSBhc3luYyBVUkJzIGFyZSBsaWtlbHkgY2xvYmJlcmluZyBhbnkgVVJCIGxvY2F0
-ZWQNCj4+IGFmdGVyIHRoZW0gaW4gbWVtb3J5IHNvbWV3aGVyZSBpbiB0aGUgeGhjaSBtZW1vcnkg
-c3BhY2UuDQo+PiBUaGUgbWVtb3J5IGNvcnJ1cHRpb24gb25seSBoYXBwZW5zIGlmIHRoZXJlIGlz
-IG1vcmUgdGhhbiBvbmUgVVJCIGluIHRoZQ0KPj4gcXVldWUgYXQgdGhlIHNhbWUgdGltZSwgbWFr
-aW5nIHRoZXNlIGFzeW5jIFVSQnMgYSBnb29kIHRyaWdnZXIgb2YgdGhlDQo+PiBwcm9ibGVtLg0K
-Pj4gSWYgd2UgZm9yY2UgdGhvc2UgVVJCcyB0byBiZSBzeW5jIG9yIHVzZSB0aGUgaGFjayBpbmxp
-bmVkIGJlbG93LCB0aGUNCj4+IHByb2JsZW0gZ29lcyBhd2F5Lg0KPj4NCj4+IFRoZSBjb250ZW50
-IG9mIHJlYWRfYnVmIGluIHRoZSBpbnRlcnJ1cHQgY29uZmlndXJhdGlvbiByZWFkIGF0IFsyXSBs
-b29rcw0KPj4gdG8gYmUgdGhlIGxvLXBhcnQgb2YgYSBwb2ludGVyICstMjAgYnl0ZXMgZGlzdGFu
-Y2UgZnJvbSB0aGUgcG9pbnRlcnMNCj4+IHByZXNlbnQgaW4gdGhlIGFzeW5jIFVSQnMgcXVldWVk
-IGZyb20gWzFdIHdoZW4gd2UgZHVtcGVkIHRoZSBVUkIgc3RydWN0dXJlcw0KPj4gaW5zdGVhZCBv
-ZiB0aGUgZXhwZWN0ZWQgcmVnaXN0ZXIgY29udGVudHMuDQo+Pg0KPj4gQXR0YWNoZWQgYXJlIDMg
-dXNibW9uIGNhcHR1cmVzLCB3aXRoIHNvbWUgYW5ub3RhdGlvbnMsIHdoaWNoIHdlIHRob3VnaHQN
-Cj4+IG1pZ2h0IGNvbnRhaW4gdXNlZnVsIGhpbnRzLg0KPj4NCj4+ICogdXNiLWFubm90YXRlZC1i
-YWQucGNhcG5nIHNob3dzIHRoZSBVUkIgdGhhdCB3aWxsIGdldCBjbG9iYmVyZWQgaXMgcXVldWVk
-DQo+PiAgICAgYXQgcG9zaXRpb24gMjgwLCBhbmQgY29tcGxldGVzIGF0IDI4Mi4NCj4+DQo+PiAq
-IHVzYi1hbm5vdGF0ZWQtZ29vZC5wY2Fwbmcgc2hvd3MgdGhlIFVSQiB0aGF0IGdldHMgY2xvYmJl
-cmVkIGluIHRoZSBiYWQNCj4+ICAgICBjYXNlIGlzIHF1ZXVlZCBhdCBwb3NpdGlvbiAyODIgYW5k
-IGNvbXBsZXRlcyBhdCAyODMuDQo+Pg0KPj4gVGhlIGFib3ZlIGNhcHR1cmVzIGFyZSBmcm9tIGEg
-a2VybmVsIHdoZXJlIHRoZSBoYWNrIGhhcyBub3QgYmVlbiBhcHBsaWVkLg0KPj4NCj4+ICogdXNi
-LWFubm90YXRlZC1oYWNrZml4LnBjYXBuZyBzaG93cyB0aGUgVVJCIHRoYXQgZ2V0cyBjbG9iYmVy
-ZWQgaW4gdGhlDQo+PiAgICAgYmFkIGNhc2UgaXMgcXVldWVkIGF0IHBvc2l0aW9uIDIzOCBhbmQg
-Y29tcGxldGVzIGF0IDI0MC4NCj4gDQo+IE1haWxsaXN0IGhhdmUgbm90IGF0dGFjaG1lbnQuIENh
-biB5b3Ugc2VuZCBpdCB0byBtZSBkaXJlY3RseT8NCg0KDQpUaGUgbGludXgtdXNiIG1haWxpbmcg
-bGlzdCBwaWNrZWQgdXAgdGhlIGF0dGFjaG1lbnRzLg0KDQpodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9saW51eC11c2IvWitiNnFyZ1h6JTJGTlRPczVyQGxpemhpLVByZWNpc2lvbi1Ub3dlci01ODEw
-L1QvI3QNCg0KQmVzdCByZWdhcmRzIC8vIEpvaG4gRXJuYmVyZw==
+--Sig_/IGyI34+k55Z2ium1X9WZv58
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+
+Hi Krzysztof,
+
+> On 28/03/2025 14:35, Lukasz Majewski wrote:
+> > +
+> > +static void mtip_mii_unregister(struct switch_enet_private *fep)
+> > +{
+> > +	mdiobus_unregister(fep->mii_bus);
+> > +	mdiobus_free(fep->mii_bus);
+> > +}
+> > +
+> > +static const struct fec_devinfo fec_imx28_l2switch_info =3D {
+> > +	.quirks =3D FEC_QUIRK_BUG_CAPTURE | FEC_QUIRK_SINGLE_MDIO,
+> > +};
+> > +
+> > +static struct platform_device_id pdev_id =3D { =20
+>=20
+> That's const.
+>=20
+> > +	.name =3D "imx28-l2switch",
+> > +	.driver_data =3D (kernel_ulong_t)&fec_imx28_l2switch_info,
+> > +};
+> > +
+> > +static int __init mtip_sw_probe(struct platform_device *pdev)
+> > +{
+> > +	struct device_node *np =3D pdev->dev.of_node;
+> > +	struct switch_enet_private *fep;
+> > +	struct fec_devinfo *dev_info;
+> > +	struct switch_t *fecp;
+> > +	int ret;
+> > +
+> > +	fep =3D devm_kzalloc(&pdev->dev, sizeof(*fep), GFP_KERNEL);
+> > +	if (!fep)
+> > +		return -ENOMEM;
+> > +
+> > +	pdev->id_entry =3D &pdev_id; =20
+>=20
+> Hm? This is some odd pattern. You are supposed to use OF table and get
+> matched by it, not populate some custom/odd handling of platform
+> tables.
+
+I've removed it and fully utilized struct of_device_id. I will just use
+the OF approach without utilizing platform device.
+
+I think that it is better to just switch to OF.
+
+>=20
+> > +
+> > +	dev_info =3D (struct fec_devinfo
+> > *)pdev->id_entry->driver_data; =20
+>=20
+> I did not notice it before, but that's a no - you cannot drop the
+> cast. Driver data is always const.
+
+The platform device ID approach has been dropped and completely
+replaced with OF.
+
+>=20
+> > +	if (dev_info)
+> > +		fep->quirks =3D dev_info->quirks;
+> > +
+> > +	fep->pdev =3D pdev;
+> > +	platform_set_drvdata(pdev, fep);
+> > +
+> > +	fep->enet_addr =3D devm_platform_ioremap_resource(pdev, 0);
+> > +	if (IS_ERR(fep->enet_addr))
+> > +		return PTR_ERR(fep->enet_addr);
+> > +
+> > +	fep->irq =3D platform_get_irq(pdev, 0);
+> > +	if (fep->irq < 0)
+> > +		return fep->irq;
+> > +
+> > +	ret =3D mtip_parse_of(fep, np);
+> > +	if (ret < 0) {
+> > +		dev_err(&pdev->dev, "%s: OF parse error (%d)!\n",
+> > __func__,
+> > +			ret);
+> > +		return ret;
+> > +	}
+> > +
+> > +	/* Create an Ethernet device instance.
+> > +	 * The switch lookup address memory starts at 0x800FC000
+> > +	 */
+> > +	fep->hwp_enet =3D fep->enet_addr;
+> > +	fecp =3D (struct switch_t *)(fep->enet_addr +
+> > ENET_SWI_PHYS_ADDR_OFFSET); +
+> > +	fep->hwp =3D fecp;
+> > +	fep->hwentry =3D (struct mtip_addr_table_t *)
+> > +		((unsigned long)fecp + MCF_ESW_LOOKUP_MEM_OFFSET);
+> > +
+> > +	ret =3D devm_regulator_get_enable_optional(&pdev->dev,
+> > "phy");
+> > +	if (ret)
+> > +		return dev_err_probe(&pdev->dev, ret,
+> > +				     "Unable to get and enable
+> > 'phy'\n"); +
+> > +	fep->clk_ipg =3D devm_clk_get_enabled(&pdev->dev, "ipg");
+> > +	if (IS_ERR(fep->clk_ipg))
+> > +		return dev_err_probe(&pdev->dev,
+> > PTR_ERR(fep->clk_ipg),
+> > +				     "Unable to acquire 'ipg'
+> > clock\n"); +
+> > +	fep->clk_ahb =3D devm_clk_get_enabled(&pdev->dev, "ahb");
+> > +	if (IS_ERR(fep->clk_ahb))
+> > +		return dev_err_probe(&pdev->dev,
+> > PTR_ERR(fep->clk_ahb),
+> > +				     "Unable to acquire 'ahb'
+> > clock\n"); +
+> > +	fep->clk_enet_out =3D
+> > devm_clk_get_optional_enabled(&pdev->dev,
+> > +
+> > "enet_out");
+> > +	if (IS_ERR(fep->clk_enet_out))
+> > +		return dev_err_probe(&pdev->dev,
+> > PTR_ERR(fep->clk_enet_out),
+> > +				     "Unable to acquire 'enet_out'
+> > clock\n"); +
+> > +	spin_lock_init(&fep->learn_lock);
+> > +	spin_lock_init(&fep->hw_lock);
+> > +	spin_lock_init(&fep->mii_lock);
+> > +
+> > +	ret =3D devm_request_irq(&pdev->dev, fep->irq,
+> > mtip_interrupt, 0,
+> > +			       "mtip_l2sw", fep);
+> > +	if (ret)
+> > +		return dev_err_probe(&pdev->dev, fep->irq,
+> > +				     "Could not alloc IRQ\n");
+> > +
+> > +	ret =3D mtip_register_notifiers(fep);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret =3D mtip_ndev_init(fep);
+> > +	if (ret) {
+> > +		dev_err(&pdev->dev, "%s: Failed to create virtual
+> > ndev (%d)\n",
+> > +			__func__, ret);
+> > +		goto ndev_init_err;
+> > +	}
+> > +
+> > +	ret =3D mtip_switch_dma_init(fep);
+> > +	if (ret) {
+> > +		dev_err(&pdev->dev, "%s: ethernet switch init fail
+> > (%d)!\n",
+> > +			__func__, ret);
+> > +		goto dma_init_err;
+> > +	}
+> > +
+> > +	ret =3D mtip_mii_init(fep, pdev);
+> > +	if (ret) {
+> > +		dev_err(&pdev->dev, "%s: Cannot init phy bus
+> > (%d)!\n", __func__,
+> > +			ret);
+> > +		goto mii_init_err;
+> > +	}
+> > +	/* setup timer for learning aging function */
+> > +	timer_setup(&fep->timer_aging, mtip_aging_timer, 0);
+> > +	mod_timer(&fep->timer_aging,
+> > +		  jiffies +
+> > msecs_to_jiffies(LEARNING_AGING_INTERVAL)); +
+> > +	fep->task =3D kthread_run(mtip_sw_learning, fep,
+> > "mtip_l2sw_learning");
+> > +	if (IS_ERR(fep->task)) {
+> > +		ret =3D PTR_ERR(fep->task);
+> > +		dev_err(&pdev->dev, "%s: learning kthread_run
+> > error (%d)!\n",
+> > +			__func__, ret);
+> > +		goto task_learning_err;
+> > +	}
+> > +
+> > +	/* setup MII interface for external switch ports*/
+> > +	mtip_enet_init(fep, 1);
+> > +	mtip_enet_init(fep, 2);
+> > +
+> > +	return 0;
+> > +
+> > + task_learning_err:
+> > +	del_timer(&fep->timer_aging);
+> > +	mtip_mii_unregister(fep);
+> > + mii_init_err:
+> > + dma_init_err:
+> > +	mtip_ndev_cleanup(fep);
+> > + ndev_init_err:
+> > +	mtip_unregister_notifiers(fep);
+> > +
+> > +	return ret;
+> > +}
+> > +
+> > +static void mtip_sw_remove(struct platform_device *pdev)
+> > +{
+> > +	struct switch_enet_private *fep =3D
+> > platform_get_drvdata(pdev); +
+> > +	mtip_unregister_notifiers(fep);
+> > +	mtip_ndev_cleanup(fep);
+> > +
+> > +	mtip_mii_remove(fep);
+> > +
+> > +	kthread_stop(fep->task);
+> > +	del_timer(&fep->timer_aging);
+> > +	platform_set_drvdata(pdev, NULL);
+> > +
+> > +	kfree(fep);
+> > +}
+> > +
+> > +static const struct of_device_id mtipl2_of_match[] =3D {
+> > +	{ .compatible =3D "nxp,imx287-mtip-switch", },
+> > +	{ /* sentinel */ }
+> > +}; =20
+>=20
+> Missing module device table.
+
+Ok. I will add it.
+
+>=20
+> > +
+> > +static struct platform_driver mtipl2plat_driver =3D {
+> > +	.driver         =3D {
+> > +		.name   =3D "mtipl2sw",
+> > +		.of_match_table =3D mtipl2_of_match,
+> > +		.suppress_bind_attrs =3D true,
+> > +	},
+> > +	.probe          =3D mtip_sw_probe,
+> > +	.remove_new     =3D mtip_sw_remove,
+> > +};
+> > +
+> > +module_platform_driver(mtipl2plat_driver);
+> > +MODULE_AUTHOR("Lukasz Majewski <lukma@denx.de>");
+> > +MODULE_DESCRIPTION("Driver for MTIP L2 on SOC switch");
+> > +MODULE_VERSION(VERSION); =20
+>=20
+> What is the point of paralell versioning with the kernel? Are you
+> going to keep this updated or - just like in other cases - it will
+> stay always theh same. Look for example at net/bridge/br.c or some
+> other files - they are always the same even if driver changed
+> significantly.
+>=20
+> BTW, this would be 1.0, not 1.4. Your out of tree versioning does not
+> matter.
+
+I'm going to drop it totally. The "versioning" was only required when
+switching between major LTS kernels.
+
+I'd be more than happy to just use kernel SHA1, when this driver is
+pulled.
+
+
+>=20
+> > +MODULE_LICENSE("GPL");
+> > +MODULE_ALIAS("platform:mtipl2sw"); =20
+>=20
+> You should not need MODULE_ALIAS() in normal cases. If you need it,
+> usually it means your device ID table is wrong (e.g. misses either
+> entries or MODULE_DEVICE_TABLE()). MODULE_ALIAS() is not a substitute
+> for incomplete ID table.
+>=20
+
+I will remove it.
+
+>=20
+> Best regards,
+> Krzysztof
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/IGyI34+k55Z2ium1X9WZv58
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfqTQgACgkQAR8vZIA0
+zr0P4wgAqeuR1TJvv0OA0PlghS9c+/mjpfCrtGgdqfe+VjVHrxHtPlyanr9JHc0u
+czdrMwXZ/Byv/HOBlM91evBIaKwJqUXjMownhbaSGqmEJc/3eVfuCJa3Q6GYZQX5
+Xb3uFM45m4JrYM4UMgVmT7pe41s8aLQv5anyWOTkXhvY+HGFXCP9CXuuAwhqGCcC
+dLuL4W6Rr7CiKnNvm2Urd+kcno6PJisyQACiTqUbo1lEu+B0Dl5pVBse0lzKeOP8
+5ve4ZUVGTtz0waOFYq19jmHv/JUzwuTQ61ClxtINHpZpu/CHZkX3EcBxLzTrkMKa
+LiHvQmLcE7fmnrcIbN2M7iaPuAeVlA==
+=vMBn
+-----END PGP SIGNATURE-----
+
+--Sig_/IGyI34+k55Z2ium1X9WZv58--
 
