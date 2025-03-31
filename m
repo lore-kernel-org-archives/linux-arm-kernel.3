@@ -4,89 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E9DC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 10:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B03EC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 11:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Cc:Subject:To:Message-Id:Date:Content-Type:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L21ZPvClAKBSWzXxoiTFE/aDea7REiHELOeHQGD5ojQ=; b=3JxawP0vZE2EaMxh7P+CrdzUks
-	0GEyDJoXIhvEGxeaopu2dLDWRQNZffJJhNzr5o+0l4K7Mee4sJig+DLF+zq7sZtMlHpRJ8UTuhVjY
-	sa3CflW/i+CuRjVTRYnNUOi4Gl9mK/vlodnhA6q95+/xa9ysdsSL5Yre3GAQpyau9n9I9fUt+dsrq
-	7sAjlfEMiMkf01f5WwxQ6/reBAlZBC1/CJhYAFnGm2Wre4+vn5dmHKIEIQqh9zu/VZpohQL8o0ooW
-	bedvqUzN5CETSOtf7LVv7rRYjMDn1avDWMmEQp1RHm8i0wJnFfZarKJF7wBIz5FFfjpOG1wNyxt/B
-	LjEqfKWA==;
+	bh=9WWbDoAe5Uj+6IIcnlHQgVQJ8kmdW8I+husCAEqDy08=; b=j2zJ/3fBXq9XeGIu7aiGj6uaqV
+	JWl2ymUjgQAEow+8gBcBkULRb3h+RgWV/xIn7h2zqPQGsmZ0at+kDKUw4w1QhCpZhls4A8HgHlt94
+	CcDYbplNbvuHZa2ge/mdyLRgVtHVn0kJ4C//vA0G0kXEchxb7ELbMGO9+sd3IpxIEDQZqZ2SUDoYf
+	STzYWcf44Hiq604Phlm5DYWVMwbJJjE1f+PhME0Xp3ESDeSCsARmmruuZs2KoD2Rw5/8ZrBa+Z3Hv
+	o9Qrrr8F6kC3FhGGJQYPLwnZ3TxSwGQ/SbKakVc1J6luqi+Y3OWcqp8eZpRhRYB9SzJQRL8MJ5icH
+	j5ddcNGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzCnz-000000007X7-3Mu8;
-	Mon, 31 Mar 2025 10:55:47 +0000
-Received: from whm50.louhi.net ([77.240.19.51])
+	id 1tzCsL-0000000088y-1HRv;
+	Mon, 31 Mar 2025 11:00:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzCmG-000000007Pb-2PZP
+	id 1tzCqd-000000007uY-2r5I
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 10:54:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=haloniitty.fi; s=default; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=L21ZPvClAKBSWzXxoiTFE/aDea7REiHELOeHQGD5ojQ=; b=rpnUb+VW0mW2eHSba98bwzbLwj
-	pmKEqDjh8YSrv9nBxHWTnq0YrWzbCbNjZTjdCaIze2spH38rO9wK8COW0DTVU8cAS6irDxUmZ+XH3
-	+unm7gQw6cCBtDt0HDaPlQxn1EK+2gXnCkqrs9+taGL031T6lMGQP0SaY7HKW/95xTrd6f8A5gQ1v
-	CPs23Dc2IlVaZHtNoN/RKOEN+kAkb4G3dgo+i1lcTMmbS4dOOVAwT3+5JrkvjiugOtTIXQbwKnR/w
-	prqKg7f7I4/e1AACvItXUPLSgcppd5WgAWQEhEVK/A32DOKB2QVfTix/WDRpdUbfQFqOuh1lWx5uv
-	yMbBgbhQ==;
-Received: from [194.136.85.206] (port=53836 helo=eldfell)
-	by whm50.louhi.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <pekka.paalanen@haloniitty.fi>)
-	id 1tzCm7-000000005Yd-2daZ;
-	Mon, 31 Mar 2025 13:53:51 +0300
-Date: Mon, 31 Mar 2025 13:53:37 +0300
-From: Pekka Paalanen <pekka.paalanen@haloniitty.fi>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Tomi Valkeinen
- <tomi.valkeinen@ideasonboard.com>, Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Michal Simek <michal.simek@amd.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Dmitry Baryshkov
- <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
-Message-ID: <20250331135337.61934003@eldfell>
-In-Reply-To: <20250331082135.GB13690@pendragon.ideasonboard.com>
-References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
-	<20250326-xilinx-formats-v4-3-322a300c6d72@ideasonboard.com>
-	<CAMuHMdXM1B1c=62EpcuUdpdpaBRZSJLXb1GBB0egzp7Fyeo5-w@mail.gmail.com>
-	<b195971c-52e6-463e-a440-83dde4346e65@ideasonboard.com>
-	<20250327112009.6b4dc430@eldfell>
-	<b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
-	<20250327175842.130c0386@eldfell>
-	<CAMuHMdVEpTVWmwrYt+G-QSWucT91goUcFor9qbo5rZ+X2jnRog@mail.gmail.com>
-	<20250331105446.098f0fbe@eldfell>
-	<20250331082135.GB13690@pendragon.ideasonboard.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/5nGe2EBr+ualrmveP2x_xsA";
- protocol="application/pgp-signature"; micalg=pgp-sha256
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - whm50.louhi.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - haloniitty.fi
-X-Get-Message-Sender-Via: whm50.louhi.net: authenticated_id: pekka.paalanen@haloniitty.fi
-X-Authenticated-Sender: whm50.louhi.net: pekka.paalanen@haloniitty.fi
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+	Mon, 31 Mar 2025 10:58:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9991244071;
+	Mon, 31 Mar 2025 10:58:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D4A2C4CEE5;
+	Mon, 31 Mar 2025 10:58:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743418710;
+	bh=CTlH+g2+HuA9vbv12bz+ImaQjIZbbactsMh++cN1GI4=;
+	h=Date:To:Subject:Cc:From:References:In-Reply-To:From;
+	b=PkSqrkpIkH/7OzaaxJ6wbsMQMmgWRl5eEdFES3St71VRm5H+dk1F6VyKWslwo4JA7
+	 4pyTCcYTZii9Gm1D7Yeb1W2RiTTY4rNAiNSmZd7BMZdjc42yt1Sd9XKrwFewVPLafF
+	 uY1C814Uf0ZsL5omntg7q91K3n9syNGDOM0CuU/JqgTJhE2XkkEnFnglqlsEkBiu6k
+	 SI3qSKP/WdNpJW2GX93YXisUK+bLsVBRJTKup30Jz23M9G16AiIlA0biCTp3t5R1W8
+	 E/YlpNGGQ/2Lpbucy7Vlgs0UyxiTLM7L61FOiOcXZRWVtBl1XC8IuT164xCx7PL4Oh
+	 16bhAg71L6VfA==
+Content-Type: multipart/signed;
+ boundary=afa0541fe8431cb3d37f46b7af78c11e8bfa2698ff6820e4842879430dbc;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Mon, 31 Mar 2025 12:58:25 +0200
+Message-Id: <D8UECOJ2NMCU.3ALYIKSODJ479@kernel.org>
+To: "Kumar, Udit" <u-kumar1@ti.com>, "Nishanth Menon" <nm@ti.com>, "Vignesh
+ Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s: add rng node
+Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+X-Mailer: aerc 0.16.0
+References: <20250313144155.2382316-1-mwalle@kernel.org>
+ <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
+In-Reply-To: <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_035401_126722_8EE682F3 
-X-CRM114-Status: GOOD (  45.14  )
+X-CRM114-CacheID: sfid-20250331_035831_757989_15CEB242 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,171 +76,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/5nGe2EBr+ualrmveP2x_xsA
-Content-Type: text/plain; charset=US-ASCII
+--afa0541fe8431cb3d37f46b7af78c11e8bfa2698ff6820e4842879430dbc
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On Mon, 31 Mar 2025 11:21:35 +0300
-Laurent Pinchart <laurent.pinchart@ideasonboard.com> wrote:
+Hi Udit,
 
-> On Mon, Mar 31, 2025 at 10:54:46AM +0300, Pekka Paalanen wrote:
-> > On Thu, 27 Mar 2025 17:35:39 +0100
-> > Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> >  =20
-> > > Hi Pekka,
-> > >=20
-> > > On Thu, 27 Mar 2025 at 16:59, Pekka Paalanen
-> > > <pekka.paalanen@haloniitty.fi> wrote: =20
-> > > > On Thu, 27 Mar 2025 16:21:16 +0200
-> > > > Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:   =20
-> > > > > On 27/03/2025 11:20, Pekka Paalanen wrote:   =20
-> > > > > > On Wed, 26 Mar 2025 15:55:18 +0200
-> > > > > > Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:   =20
-> > > > > >> On 26/03/2025 15:52, Geert Uytterhoeven wrote:   =20
-> > > > > >>> On Wed, 26 Mar 2025 at 14:23, Tomi Valkeinen
-> > > > > >>> <tomi.valkeinen@ideasonboard.com> wrote:   =20
-> > > > > >>>> Add greyscale Y8 format.
-> > > > > >>>>
-> > > > > >>>> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > > > > >>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.c=
-om>   =20
-> > > > > >>>
-> > > > > >>> Thanks for your patch!
-> > > > > >>>   =20
-> > > > > >>>> --- a/include/uapi/drm/drm_fourcc.h
-> > > > > >>>> +++ b/include/uapi/drm/drm_fourcc.h
-> > > > > >>>> @@ -405,6 +405,9 @@ extern "C" {
-> > > > > >>>>    #define DRM_FORMAT_YUV444      fourcc_code('Y', 'U', '2',=
- '4') /* non-subsampled Cb (1) and Cr (2) planes */
-> > > > > >>>>    #define DRM_FORMAT_YVU444      fourcc_code('Y', 'V', '2',=
- '4') /* non-subsampled Cr (1) and Cb (2) planes */
-> > > > > >>>>
-> > > > > >>>> +/* Greyscale formats */
-> > > > > >>>> +
-> > > > > >>>> +#define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', '=
-Y')  /* 8-bit Y-only */   =20
-> > > > > >>>
-> > > > > >>> This format differs from e.g. DRM_FORMAT_R8, which encodes
-> > > > > >>> the number of bits in the FOURCC format. What do you envision
-> > > > > >>> for e.g. DRM_FORMAT_Y16? fourcc_code('G', 'R', '1', '6')?   =
-=20
-> > > > > >>
-> > > > > >> I wanted to use the same fourcc as on V4L2 side. Strictly spea=
-king it's
-> > > > > >> not required, but different fourccs for the same formats do co=
-nfuse.
-> > > > > >>
-> > > > > >> So, generally speaking, I'd pick an existing fourcc from v4l2 =
-side if
-> > > > > >> possible, and if not, invent a new one.   =20
-> > > > > >
-> > > > > > what's the actual difference between DRM_FORMAT_R8 and DRM_FORM=
-AT_Y8?
-> > > > > >
-> > > > > > Is the difference that when R8 gets expanded to RGB, it becomes=
- (R, 0,
-> > > > > > 0), but Y8 gets expanded to (c1 * Y, c2 * Y, c3 * Y) where c1..=
-c3 are
-> > > > > > defined by MatrixCoefficients (H.273 terminology)?
-> > > > > >
-> > > > > > That would be my intuitive assumption following how YCbCr is ha=
-ndled.
-> > > > > > Is it obvious enough, or should there be a comment to that effe=
-ct?   =20
-> > > > >
-> > > > > You raise an interesting point. Is it defined how a display drive=
-r, that
-> > > > > supports R8 as a format, shows R8 on screen? I came into this in =
-the
-> > > > > context of grayscale formats, so I thought R8 would be handled as=
- (R, R,
-> > > > > R) in RGB. But you say (R, 0, 0), which... also makes sense.   =20
-> > > >
-> > > > That is a good question too. I based my assumption on OpenGL behavi=
-or
-> > > > of R8.
-> > > >
-> > > > Single channel displays do exist I believe, but being single-channe=
-l,
-> > > > expansion on the other channels is likely meaningless. Hm, but for =
-the
-> > > > KMS color pipeline, it would be meaningful, like with a CTM.
-> > > > Interesting.
-> > > >
-> > > > I don't know. Maybe Geert does?   =20
-> > >=20
-> > > I did some digging, and was a bit surprised that it was you who told
-> > > me to use R8 instead of Y8?
-> > > https://lore.kernel.org/all/20220202111954.6ee9a10c@eldfell =20
-> >=20
-> > Hi Geert,
-> >=20
-> > indeed I did. I never thought of the question of expansion to R,G,B
-> > before. Maybe that expansion is what spells R8 and Y8 apart?
-> >=20
-> > I do think that expansion needs to be specified, so that the KMS color
-> > pipeline computations are defined. There is a big difference between
-> > multiplying these with an arbitrary 3x3 matrix (e.g. CTM):
-> >=20
-> > - (R, 0, 0)
-> > - (R, R, R)
-> > - (c1 * Y, c2 * Y, c3 * Y) =20
->=20
-> I'd be very surprised by an YUV to RGB conversion matrix where the first
-> column would contain different values. What we need to take into account
-> though is quantization (full vs. limited range).
+> > Add the node for the random number generator inside the crypto module.
+> >
+> > Signed-off-by: Michael Walle <mwalle@kernel.org>
+> > ---
+> > This was tested on a J722S/AM67A. Also, according to the TRM this is th=
+e
+>
+> Could you re-confirm please , after adding this node.=C2=A0 you selected =
+trng=20
+> offered by Linux
 
-A good point, are the Y coefficients always 1.0 after quantization
-range has been accounted for?
+# cat /sys/devices/virtual/misc/hw_random/rng_current
+40910000.rng
+# cat /sys/devices/virtual/misc/hw_random/rng_available
+40910000.rng
+# dd if=3D/dev/hwrng bs=3D16 count=3D1 | hexdump -C
+1+0 records in
+1+0 records out
+00000000  92 f5 44 09 fd 86 6b a2  39 d6 ad f3 e6 ec 03 4a  |..D...k.9.....=
+.J|
+00000010
+# dd if=3D/dev/hwrng bs=3D16 count=3D1 | hexdump -C
+1+0 records in
+1+0 records out
+00000000  a3 73 da d2 5b 94 83 2a  75 11 ca b3 99 d3 87 88  |.s..[..*u.....=
+..|
+00000010
 
-That makes Y8 produce (Y, Y, Y), and we have our answer: R8 should be
-(R, 0, 0), so we have both variants. Or do we need Y-formats at all?
+> > MCU instance of the SA3UL. But it's defined in -main.dtsi. Is this
+> > correct?
+>
+> Yes this is correct,
+>
+> please refer
+>
+> https://www.ti.com/lit/zip/sprujb3=C2=A0 SPRUJB3A.pdf
+>
+> table 2.1 Main Memory map, this node falls under main domain
 
-Can we specify Y, R, G and B be nominal values in the range 0.0 - 1.0
-in the KMS color processing?
+Ok. Not sure, how I came to the conclusion that this is an MCU
+instance.
 
+> > ---
+> >   arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 8 ++++++++
+> >   1 file changed, 8 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/a=
+rch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> > index 6e3beb5c2e01..e868e006318e 100644
+> > --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> > +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> > @@ -227,9 +227,17 @@ crypto: crypto@40900000 {
+> >   		reg =3D <0x00 0x40900000 0x00 0x1200>;
+> >   		#address-cells =3D <2>;
+> >   		#size-cells =3D <2>;
+> > +		ranges =3D <0x00 0x40900000 0x00 0x40900000 0x00 0x30000>;
+> > +
+> >   		dmas =3D <&main_pktdma 0xf501 0>, <&main_pktdma 0x7506 0>,
+> >   		       <&main_pktdma 0x7507 0>;
+> >   		dma-names =3D "tx", "rx1", "rx2";
+> > +
+> > +		rng: rng@40910000 {
+> > +			compatible =3D "inside-secure,safexcel-eip76";
+> > +			reg =3D <0x00 0x40910000 0x0 0x7d>;
+> > +			interrupts =3D <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>;
+>
+> For completeness , this is ok to add this node but should be kept disable=
+d
 
-Thanks,
-pq
+Shouldn't it be "reserved" then, see [1].
 
-> > I forgot to consider that in the discussion of single-channel displays,
-> > because the displays obviously do not consider any other channel than
-> > the one.
-> >=20
-> > Using DRM_FORMAT_Y8 FB with a single-channel display might even be
-> > surprising, because the proposed Y8 definition would result in c1 * Y,
-> > and not Y. The default c1 comes from the BT.601 matrix IIRC?
-> >=20
-> > Therefore I think the difference between R8 and Y8 has been found. Now
-> > we just need to determine whether R8 means (R, 0, 0) or (R, R, R) to
-> > nail down the color operations as well. There are questions like what
-> > is the outcome at the video signal level when we have one KMS plane
-> > with an R8 FB and another KMS plane with an RGBA8888 FB on the same
-> > CRTC? What about Y8 or NV12 in the mix? What if the video signal is
-> > single-channel, RGB, or YCbCr? =20
->=20
+> similar to
+>
+> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j=
+7200-mcu-wakeup.dtsi#L662=20
 
+j784s4, j721e and j721s2 have them enabled. What is the rule here?
 
---Sig_/5nGe2EBr+ualrmveP2x_xsA
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
+You also disable the hwrng in optee in your evm according to [2]:
+CFG_WITH_SOFTWARE_PRNG=3Dy
+
+-michael
+
+[1] https://devicetree-specification.readthedocs.io/en/latest/chapter2-devi=
+cetree-basics.html?highlight=3Dreservered#status
+[2] https://docs.u-boot.org/en/latest/board/ti/j722s_evm.html
+
+--afa0541fe8431cb3d37f46b7af78c11e8bfa2698ff6820e4842879430dbc
+Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCAAdFiEEJQjwWQChkWOYOIONI1/ltBGqqqcFAmfqdDEACgkQI1/ltBGq
-qqdtmg/7BJP/M2woCFDbkAFSqAVNKzEjMXOmSEcgMcfxQddTCcjdcH7tuQOhQxbo
-fwKO1vHo+dDlenz3cW5QcrWzXH5BKmuAYGjziq+ak7m3VtOYyBsSMgnICPxj7CYK
-RmAuE3bBYGKiQRP4ZLcwwKGlaIb1EYHeaodsRtUCaU1uV6Ly/VA5s5IAn5JT1r5M
-aDCD+/YloWRV6G3hlm+LQch05lshBn+VjC82fh+Kq/pGIqZyG9hJ3T8c9k6f/pr+
-gBaQMOQVws8UZ0lPdxmpRpIhjlXa5hU8sZAWuEx2gT2lw0CbXzW/VKOffaEMY4fV
-EDEqAWiYlH72I6YqCMTnZQ/QyRigN1UXt23U0Y3x75iTv5PhL2JyzTCT++xXewMc
-gLYhDy8OKcxZW9Q1A6TEcVuB7BYI8H82ME8/VQcvprKnd2s1yydxR9bsxxddPZPp
-DYzBQsF5LNePd5cKFygErRc+yfeGR3myBosf1dDgyQla5vftMxZ6gGG2hdq3ETaZ
-L/VfL73xHbQyCEax/OYMjVpKsuChaS19MAhPj4W5xDhj3hW1evlWyQ+Q5X7iCYx/
-T5gTBQrTzLsC8p9q8DL8x74/A1nWvwKxw9nutXHTUYPPgxD2BehF6a4tmRphOK/k
-rY/5/QMyH7dJpdJqGP8+p7upz4f7KPKpf7tVO0wxTLw9pHMe5nQ=
-=Voos
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCZ+p1UhIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/j8pwGA48YnnE9XmW12Xb9i0N07RIC3iMPccKhd
+cjprpG75JZaQmW/v8ZcZZd/K8uJSE+VgAYDPVCPTWLrtYn9/oDmr+W4bVK9RMMvx
+4f0ciSTzQAxeV2R2AEjz1GcqFgnzpW68JgE=
+=t5tD
 -----END PGP SIGNATURE-----
 
---Sig_/5nGe2EBr+ualrmveP2x_xsA--
+--afa0541fe8431cb3d37f46b7af78c11e8bfa2698ff6820e4842879430dbc--
 
