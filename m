@@ -4,154 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDD4C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 11:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FDDC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 11:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Wpl+zOtvHfhSrvLnU9vwpxlHNgY7HPO5Rwqdt0urMGo=; b=lLzxmVNRF9jb90bNJrK+/gyxVt
-	H+TKIM28GshZiKzbIqivnKLLbpcQUJ3B0OXQlJbRQdTLIrwsK+hjkGIv9AOaZwU2Z86P+Xpz51YdE
-	sHHPrUK3aZAgcB8fiUPO2y58Er1E2M+eU1ijo4jta8DHEx1Hwr56xXROYrVsTtcOSTOHR0p9Uesxn
-	0Rv1ZP/SnjT49B9Vjy+ozD8frtgGrkcIZzAseZ3keuzkc6IF08SVY3zrv8C9+PA2vHH2x0k+Tbvan
-	7abBCkVsKa381BPU0/NT1hoxS2Da1BBINOfrAJ5ZwJz0evkARWQNsYrM6D0zaMXBuVvewXaQJbqK2
-	u7rimwqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R1fvNUJM+107giQNxDtASFpEZ6IxMM9QfRNpZfhOjos=; b=ftmNCZnmKeZE3hJqoVP6Rdet41
+	2unUkBeP37YbKSmqS2VYD/gYakV0m96LkVX58Udpi2uaZcWEcufDbO+G2bcU03v50gFM1eQAD01nF
+	UlqjUOMQmHNz3uA0Ggm3WYo2PLnwQFNvOmNMOCl9LVsYkCzMNf2dmSD4BKqGwDQ9ZvdYM8GaBLord
+	GuE95tSdbjX22b8VV6RK7HH3CjSRw7a/iuquGM1tLvkwzQXOaoznq+PvCnTbk6Nl6adLSFq7BSdbN
+	vMsLumMtTHkVQxuZ37X6pJ+RVznwgkZxrIos6YmYokd7SGlkYTHQwmZfbdqKsT1WbPXf4l2kzYjDZ
+	w8NoHhEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzDH8-00000000CfG-463A;
-	Mon, 31 Mar 2025 11:25:54 +0000
-Received: from mail-am6eur05on20620.outbound.protection.outlook.com ([2a01:111:f403:2612::620] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tzDLd-00000000D74-3UN9;
+	Mon, 31 Mar 2025 11:30:34 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzDFR-00000000CYc-0iSs
+	id 1tzDJu-00000000D0m-3Sz7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 11:24:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PEDWlxAJrvxWAHXDZiINMAbgsxQhHEzPSWj3jPNEwhGdzKjN455uDNqTnH6AvsmQX83DCnvCMALIlU8DZjpSZKdXz7wDeE6ZQlCUpO1hzMTg/K8yzAGLdKw2G2j1dSOKuutR/S440eHBGSJ6OV/Laz05j7Gk6OWkVxRYGPlbhPXtHWeBu4bEh0EsbrI7hThdvy/kZG5XJfjs86AZjEDerATDS1ukpJ6ijL9Bg9sgrrV6FaM7kRblcQjUJMHGv4VAV3aFHYEISPVDMgktZbzZzJ1lfG2vSJHEfBjr5oBPxqrrBL02+yV8u4cKlKdWWhNZVqsA8FPUebRMwT9P6+pBlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Wpl+zOtvHfhSrvLnU9vwpxlHNgY7HPO5Rwqdt0urMGo=;
- b=dAVkWx8r38GFWijB+NFt+4CCZn/p4saREMRA/DBiRASy/8hkYtGEYoyzfiHgDVNyiZl//lRiDB4Xfnw2DmcUlaTFz+IszGP8DX/vFX2oqTSGGZ0I7ze9N4eXh2J/n/jJCINqjKZKX+kcPL17ugwZFxIt0vK5hPOWZAhLj1rW69IgBMF2/DLlvlgxt9QvwxHDpGt1E2orSOYof4rhyb9xpMkyS6VlAi1YjNXqPHCc+tpQYDQI/nuXHGNKg0tth9GVxzc/A+P4DVsIbEc294OEr/uBHdmA6BIM6F86c7TeUPfCXLg/l8lpzuo3zcsLeuHHcar/vo9YnTkYq9TYjekWcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Wpl+zOtvHfhSrvLnU9vwpxlHNgY7HPO5Rwqdt0urMGo=;
- b=JRbf4NGuO/ZOaKj1mKPSkvCNV/KLH7CgXo3xOi7jRA3MdW+R561DNZte4iDbmKOa06UirBLMd11xKyQ8olkoXpx91RA7+Rv0sEi7UVT2kF1POH//y/2rYeOg+5LscCSX2vyasqR/0R465/X41WWhZf7jiZ3VYca+o97ukpcx+ziOIpxqXj6upaH+0odo0bOQLoL8knpmMtJhrtG2hRjuPZHBx9mut+pflNjcdkGPAJPUK4lFCaveyf5MOOpvumz3NRa06JyatixIU8LKKD7+R7tvOOY3yrnaDkhKIgbwugJUobUKy53CgBmYuK8Np0C6lpkrHTWS07NnnBifodbM/Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by GVXPR04MB10476.eurprd04.prod.outlook.com (2603:10a6:150:1e2::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.50; Mon, 31 Mar
- 2025 11:24:00 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8534.048; Mon, 31 Mar 2025
- 11:24:00 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-remoteproc@vger.kernel.org (open list:REMOTE PROCESSOR (REMOTEPROC) SUBSYSTEM),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH] remoteproc: imx_rproc: Add mutex protection for workqueue
-Date: Mon, 31 Mar 2025 19:22:45 +0800
-Message-Id: <20250331112246.2407276-1-peng.fan@oss.nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR01CA0110.apcprd01.prod.exchangelabs.com
- (2603:1096:4:40::14) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Mon, 31 Mar 2025 11:28:49 +0000
+Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
+	by mailfout.phl.internal (Postfix) with ESMTP id A226D138441D;
+	Mon, 31 Mar 2025 07:28:43 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-11.internal (MEProxy); Mon, 31 Mar 2025 07:28:43 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1743420523; x=1743506923; bh=R1fvNUJM+1
+	07giQNxDtASFpEZ6IxMM9QfRNpZfhOjos=; b=yg4B3urwknbAULMsaA5bZ4IPUf
+	gAjFsQe/RePHsI7+kgiJUQT6MdAmvc7iRMQY6ERi0rKkpd3cAUxByDOrq/bSFP2T
+	qTHeBro9f4HsdZ1XtyGNOHxP2D5DA1cRrSPgktTj48J/8ojuitjY6k7MHKezq36X
+	eH5bqg4le7WaCIyxCj5dvwbOpM1wfQlRGvMz8bWk3gk8X0MV2TEb+n4BXlyEBB8t
+	jY8FqCzoRBph37/VRAHMdDM40wl4SWHPbnWdIRih6kvMDFl9t7GBmFkuUSStTrde
+	snAHjwIG9FAZVAiwA1xcx1zZlbL2fscmubnCucJXH7QOVKg2uL7Lx86CXaoA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1743420523; x=1743506923; bh=R1fvNUJM+107giQNxDtASFpEZ6IxMM9QfRN
+	pZfhOjos=; b=OWIRKvXTZ2yKPtYThutu5NLArnMgCvUKSuevNZ4JJqmmJpwG9jO
+	cPo3Adu78HTleVeiMMSbsdsg7JZ98fSYO6BAGkBjdWfHnMjKjiR5tVlQssgLK5Ff
+	VqumalrBGOpw+9y6dBGrt2+PjhcRGptLitimuNX1d+N9qoNQ0qtWtMFrw2u76oHs
+	A0Mu1Lcdjotob5NOOH4p11eU0b8hgNJXO1wbITfmjU66sbtg0frsO4rNbI8zdNl9
+	t9lwlTM5RhCIC9Y+9jsoMlfNsXUApoDy0Ahuw39nyOpa7w9gQQ0vRCXGSnZgj8Ot
+	We9+m34LkwDxB77dLWGvlbf67ovPS7GkbKQ==
+X-ME-Sender: <xms:anzqZzd-qCZE0w9Wy64ClmOY0eIN4MMvmGg2rtzv45Hiw20HROJ5Kw>
+    <xme:anzqZ5NDzSt9jFp-tb2xWDX47cNngT_7fbJj2yrvHqc9U-uZTPxWjjEShhAqJxtin
+    9lazJj-qVJeDyaWHWA>
+X-ME-Received: <xmr:anzqZ8gvAM76vioAaZTQamMO-hWgbuk6PKDD-5uQZ64yt9pqqx0Fk9Nq2a0SaC2O0u9mcofh2cUQ71E3zEJFK7QYaGtuohWP3w>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddujeelkedtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddt
+    jeenucfhrhhomheplfgrnhhnvgcuifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqe
+    enucggtffrrghtthgvrhhnpefgudeuffelfeekgeeukedtheekjeettdfftddujefhvdeh
+    tefgiefgledtueefjeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsth
+    gvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurdhn
+    vghtpdhnsggprhgtphhtthhopeduhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoh
+    epmhgriieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgv
+    rhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinh
+    hugidqphgtihesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopeguvghvihgt
+    vghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqd
+    hkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhi
+    sehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheprghlhihsshgrsehrohhsvg
+    hniiifvghighdrihhopdhrtghpthhtohepmhgrrhgtrghnsehmrghrtggrnhdrshhtpdhr
+    tghpthhtohepshhvvghnsehsvhgvnhhpvghtvghrrdguvghv
+X-ME-Proxy: <xmx:anzqZ090RaJB0KMMXF6aBKMES2LBwgMbJdMsY1dWT5npQOfjTCZ1tg>
+    <xmx:anzqZ_tDKXVnKqYlOPo1yb0tDMevULx8eeul9ci0UDMw6ecVEcCMoA>
+    <xmx:anzqZzEQ8MtXMAAAsJ16bqb7kD2mN6Z7El9ch70--5pDorzPx6LlMA>
+    <xmx:anzqZ2N8jGFQqhwox4Bsl57H3wd7xqdYwnqYWcUR_ow1a1qrrBpaWA>
+    <xmx:a3zqZ3PHDwJ0q8FmW-ovuhKONEvhW69bqgxEgulDoTgHzPkkRHGcfgJZ>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 31 Mar 2025 07:28:41 -0400 (EDT)
+Date: Mon, 31 Mar 2025 13:28:38 +0200
+From: Janne Grunau <j@jannau.net>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [PATCH v2 00/13] PCI: apple: Add support for t6020
+Message-ID: <20250331112838.GA246397@robin.jannau.net>
+References: <20250325102610.2073863-1-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GVXPR04MB10476:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9cc590e-6e46-451b-940b-08dd70468892
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?51zhq02UmDVpVbQ3RghY3VASp2o4oG/6Ix57f4LS2SWJv1OsmriSO1J7+fgU?=
- =?us-ascii?Q?2itlK7ZhVhZ1Ub/78O0VTqELivFPOFjZzAHhIp3t0rKuH4J6zBMqGpslTVCo?=
- =?us-ascii?Q?DS734ubdBpCwCQrg192rC1qycOiNvfBD1uxK6uwcQHXuMj3qn/r2GPJ7YT1r?=
- =?us-ascii?Q?4fQQ2VgFgrg3yNiVIELtW0TRAt+q/qkUpdmOjv6IHRKdIW7GaYtU9C+snv//?=
- =?us-ascii?Q?trPSYDM94DiQcid+RyDZRMkZluVI3ku/RoivEnuRHxrwxyXdRkDkSQ1zZ7SQ?=
- =?us-ascii?Q?aEvaR9ax+1dL9Q3A9jZj7nXitEcw/ysCfEE7C3U8DwL7OIyAk3aHVlVtARSS?=
- =?us-ascii?Q?u6tVgTvRZXPzKGx2ImNhQspo0hn/TQZqF2blr7D7YAk2OPlhw9P364ZfX5c2?=
- =?us-ascii?Q?ezB761xhXMAAa8z9HJs0CLTUr0xoVILTwhigRwO/lRrP4j9en13ByAWe0Leu?=
- =?us-ascii?Q?mYaUwVZRKLYHGzE19bgrz46C9QDkO698QHwp8VEzT+Si2xN0Rebxfx0t9hbF?=
- =?us-ascii?Q?o271Qz4Diqo5zAeM/4nmRrEC67AQdfxzWmp2iIiBVGYdw54fxp4NuqdxqBQV?=
- =?us-ascii?Q?mIQP9pz8+NEKJtmGBzIBjeCrqBRnNtxO4gakC9T8pBXMUCMIxZdgtW2swzec?=
- =?us-ascii?Q?cqedb7JzAIbRnU21o3DHJuHrNG+bRQCuJxEU1Xzs/WZBT/tkxNHnyVm9uQNk?=
- =?us-ascii?Q?0jHprIg4q0WrD6vFY6OfEqj79FChCzPf2N1c4rz+wNDtl68kVASFDDDdOWlN?=
- =?us-ascii?Q?tMZKA084l3kE0A6TIdYIFh59SpWzW39sfFtK0JfdBnNTiQjNwQeHENbHS3Kt?=
- =?us-ascii?Q?2RwH6QUqXyLdhV2gvARRGe2tgCJUiZS3Kae70SLgyM9rlMRmCTpJndA1D5aA?=
- =?us-ascii?Q?d1PAIqaypKG/81hc7yPVhV+ujylwA6XYtCK3bGsXDlGivJdygUHWTjST9FUd?=
- =?us-ascii?Q?lCqqO3Uxb7XZTYWkZF5CiMlM8CLa6502tjiIFJ2ldDxnseaKQsEtsgmPBinm?=
- =?us-ascii?Q?mapcADaOTJS2eXKL4xGs/81WTahM1JXKGJ+dAjOudt4QHPmJHooGR+KiHphH?=
- =?us-ascii?Q?5US045lKs6otjx0EeyiQccgbsTbhIIyS4n5naKbMKb57OTXt+izjTOnjI1m4?=
- =?us-ascii?Q?M1m4usZjmXkHd1EbN9WS57xf4f2IwWYDT34+wdAh3ma2doKFTw+dSfdNrWp7?=
- =?us-ascii?Q?3Wlrk11ZMTlrbWAlhL/J9nVUMfiv2SeTXNVo1jRn4LpYc+R+k98L7W48L2gA?=
- =?us-ascii?Q?7MTReFnix85hrUSpRVucgN03ifgx+GV9ppdMnxdPZETXFbNrK8QAon2bHjyt?=
- =?us-ascii?Q?GkakyGneAHVE5jWIgw+ZIQRi4lakdfHSqcTlndevHu53GS14tV/Ju+DkPJqi?=
- =?us-ascii?Q?CbKEcaLpY+9y8L0A4g82ien/x6tvDpKDHXsBr1LiuaHICOQjz7EJUrj7Tw+u?=
- =?us-ascii?Q?vrrIJESLzpMOVddTgLsZDdN8zTfoSVcv1/ylun628NIHwVrT0yG7Sg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?a/bwNfDJCNz40fzxWLvy6TRs4OtdSlbdGMeS+tBrmElkZSc/FHgkA9a15ilm?=
- =?us-ascii?Q?rVLXCfKthvC/H3KxVl+RiXuF+pSvsG2ozcubOlwwuelqNtQHYMAMaLenP7o+?=
- =?us-ascii?Q?et8QxcEbxN7z+oGrBskBME5h3zSFi7TRGBnVqCSyhH6Ui1m7ipNwrE6Twj8E?=
- =?us-ascii?Q?WHu79MRsYCagDLZVQ+T5Yj/TLY5OJioPbTaac+jDuNQoLNNMRCNzJ4+vUvth?=
- =?us-ascii?Q?qWeTGqoXr8vftGAaGRWU22ISsP9pGQxCbYcMyziGv0XjinoglqCvYyGOVsci?=
- =?us-ascii?Q?7dQQCHhgupRUzctBM/EYPAndApK2pv8+S5NAtfNdnDTyXHied0zzciqUFJbq?=
- =?us-ascii?Q?42lcdYxTQa38QwnuuOi0pSCrhrpLSWuAT4FVWyvAmn89mlFjg5gNgCmSt4na?=
- =?us-ascii?Q?hHzBGlSB5fzW3oj8WtD9dNpg1bIo3bFaoW12IMnTuOeRTOadRL29NBL5dhZ/?=
- =?us-ascii?Q?kWvjWDU2w/GzKGR8E9MvH7Iy5QSNomlpKEXyy2Wn27LlTjNhkfUKV3az18en?=
- =?us-ascii?Q?phV3UF9qeDX0ZYeih3n8x1e/Q6en40H9yj4AORd5pjMFTASjUgLFu69hdTaL?=
- =?us-ascii?Q?PYysjqYQVb0KYmZb1lenA07qCZMq3p4klI9KZOlgZe9R1+3dXyxHHAMWIVj5?=
- =?us-ascii?Q?jx9EeTFwiNQ+K3GpKbMl/jkpmiprOjKcDp6uXyLvnvBAIeyR1lCIemwVSThG?=
- =?us-ascii?Q?3/X9eMvVUj8goazxbB0bubdlx9aQMp7fK3c3kAMpNDwPGuYgVelNou+jORbc?=
- =?us-ascii?Q?fHCtK0VT+k0e5lPM353oBblqWnsOxnZk2FP0eWWjHgpLp72vmfDuOAPZuIo/?=
- =?us-ascii?Q?bvLJK4av8OoGQL2THtX8cOu0w/ty4haBAUqHYKbVgrEPAXCfzGJMP/+a8GmQ?=
- =?us-ascii?Q?4SRMvSG41WxJ4Fn1DXlF2xPPaGekwSivm4Z+f8GpzGuz7uG8ov9StSjaKJzO?=
- =?us-ascii?Q?cTu2ibnaIh5MmgMxQuSliH1QkZu7YacYptnl7H5rEiBojb106evphSuhLEnK?=
- =?us-ascii?Q?sw3+jQsbrLVdXhjeP8dfi5XUBmhqwQBZKSx+s/N3eWzRf7ug8vWUfFpQ2ES2?=
- =?us-ascii?Q?kSckQxhxYoDakUnGyfaB+xhyaVJ9g9rg1AuGaZgZNq8ziNaDN308CrnAAIgo?=
- =?us-ascii?Q?cpWeuwsuaLL7fkSbZx85cUA2KQqoJPy/+e63Ma2/q2glZ9u9zNf9nKlSkAyY?=
- =?us-ascii?Q?LS9/PxAwBHEb9JXreiUMbLKi97MheCnoI0LKecEBEOuu+wRlh7pAjADUVGPt?=
- =?us-ascii?Q?Qo1jrkfmU2Mlub7osQHKLhXAW8Tq2DZtqa6aSLcfCxyUtWKYc2NfJIqADNa9?=
- =?us-ascii?Q?eb03uyAvHENE3CxgeEwIg1zcjls+1AauPN1dsGmSwujY0PJQ/OTklX7qdFOn?=
- =?us-ascii?Q?wmDKMsgT4MDXvUNO/uhaK8B2HM9dw3+hghvBo4LRdRVWzrNYOV5N5dVVGfx+?=
- =?us-ascii?Q?VVZ3pSxoW+EVg8A7x2u9tDQLWL8A3F38LlkAG/0fwqoZXFWS/FqE+davKcn+?=
- =?us-ascii?Q?on7lffRVGWIA4OZKceIEHJvsnAetRrOkO0wv6gozQW/r8lo2+SuYCDLDwDRQ?=
- =?us-ascii?Q?3aWptQsCA3uAxrs0MWSwbPvEQcwNX3hhFeNABtmd?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9cc590e-6e46-451b-940b-08dd70468892
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2025 11:24:00.2123
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pNlo/pwITRVTkV+kMgvfgkqBVEohr6TMRUp6unCDOHWlJtd0BzvNDI2QnpCCtO+SvTBm2+jXTnU7P0O7idiJeg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10476
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250325102610.2073863-1-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_042409_225430_2EFEE157 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250331_042847_682449_19F28DF4 
+X-CRM114-Status: GOOD (  23.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,63 +120,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+On Tue, Mar 25, 2025 at 10:25:57AM +0000, Marc Zyngier wrote:
+> As Alyssa didn't have the bandwidth to deal with this series, I have
+> taken it over. All bugs are therefore mine.
+> 
+> The initial series [1] stated:
+> 
+> "This series adds T6020 support to the Apple PCIe controller. Mostly
+>  Apple shuffled registers around (presumably to accommodate the larger
+>  configurations on those machines). So there's a bit of churn here but
+>  not too much in the way of functional changes."
+> 
+> The biggest change is affecting the ECAM layer, allowing an ECAM
+> driver to provide its own probe function instead of relying on the
+> .init() callback to do the work. The ECAM layer can therefore be used
+> as a library instead of a convoluted driver.
+> 
+> The rest is a mix of bug fixes, cleanups, and required abstraction.
+> 
+> This has been tested on T6020 (M2-Pro mini) and T8102 (M1 mini).
+> 
+> * From v1[1]:
+> 
+>   - Described the PHY registers in the DT binding
+> 
+>   - Extracted a ecam bridge creation helper from the host-common layer
+> 
+>   - Moved probing into its own function instead of pci_host_common_probe()
+>     
+>   - Moved host-specific data to the of_device_id[] table
+> 
+>   - Added dynamic allocation of the RID/SID bitmap
+> 
+>   - Fixed latent bug in RC-generated interrupts
+> 
+>   - Renamed reg_info to hw_info
+> 
+>   - Dropped useless max_msimap
+> 
+>   - Dropped code being moved around without justification
+> 
+>   - Re-split some of the patches to follow a more logical progression
+> 
+>   - General cleanup to fit my own taste
+> 
+> [1] https://lore.kernel.org/r/20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io
+> 
+> Alyssa Rosenzweig (1):
+>   dt-bindings: pci: apple,pcie: Add t6020 compatible string
+> 
+> Hector Martin (6):
+>   PCI: apple: Fix missing OF node reference in apple_pcie_setup_port
+>   PCI: apple: Move port PHY registers to their own reg items
+>   PCI: apple: Drop poll for CORE_RC_PHYIF_STAT_REFCLK
+>   PCI: apple: Use gpiod_set_value_cansleep in probe flow
+>   PCI: apple: Abstract register offsets via a SoC-specific structure
+>   PCI: apple: Add T602x PCIe support
+> 
+> Janne Grunau (1):
+>   PCI: apple: Set only available ports up
+> 
+> Marc Zyngier (5):
+>   PCI: host-generic: Extract an ecam bridge creation helper from
+>     pci_host_common_probe()
+>   PCI: ecam: Allow cfg->priv to be pre-populated from the root port
+>     device
+>   PCI: apple: Move over to standalone probing
+>   PCI: apple: Dynamically allocate RID-to_SID bitmap
+>   PCI: apple: Move away from INTMSK{SET,CLR} for INTx and private
+>     interrupts
+> 
+>  .../devicetree/bindings/pci/apple,pcie.yaml   |  11 +-
+>  drivers/pci/controller/pci-host-common.c      |  24 +-
+>  drivers/pci/controller/pcie-apple.c           | 241 +++++++++++++-----
+>  drivers/pci/ecam.c                            |   2 +
+>  include/linux/pci-ecam.h                      |   2 +
+>  5 files changed, 204 insertions(+), 76 deletions(-)
 
-Same as
-commit 47e6ab07018e ("remoteproc: imx_dsp_rproc: Add mutex
-protection for workqueue") and commit 35bdafda40cc ("remoteproc:
-stm32_rproc: Add mutex protection for workqueue"), imx_rproc driver
-also has similar issue, although no issue reported until now.
+Whole series is
+Tested-by: Janne Grunau <j@jannau.net>
+on t6020 and t8103 based Apple silicon devices.
 
-Reuse the commit log from the fix to imx_dsp_rproc:
-
-The workqueue may execute late even after remoteproc is stopped or
-stopping, some resources (rpmsg device and endpoint) have been
-released in rproc_stop_subdevices(), then rproc_vq_interrupt()
-accessing these resources will cause kennel dump.
-
-Call trace:
- virtqueue_add_split
- virtqueue_add_inbuf
- rpmsg_recv_done
- vring_interrupt
- rproc_vq_interrupt
- imx_rproc_vq_work
- process_one_work
- worker_thread
- kthread
- ret_from_fork
-
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/remoteproc/imx_rproc.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 74299af1d7f1..f933c8f4fc8b 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -5,6 +5,7 @@
- 
- #include <dt-bindings/firmware/imx/rsrc.h>
- #include <linux/arm-smccc.h>
-+#include <linux/cleanup.h>
- #include <linux/clk.h>
- #include <linux/err.h>
- #include <linux/firmware/imx/sci.h>
-@@ -785,6 +786,11 @@ static void imx_rproc_vq_work(struct work_struct *work)
- 					      rproc_work);
- 	struct rproc *rproc = priv->rproc;
- 
-+	guard(mutex)(&rproc->lock);
-+
-+	if (rproc->state != RPROC_RUNNING)
-+		return;
-+
- 	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
- }
- 
--- 
-2.37.1
-
+ciao
+Janne
 
