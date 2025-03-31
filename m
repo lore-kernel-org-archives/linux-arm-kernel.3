@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC64DC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 14:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC46C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 14:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yu8fJe2WNuBX+ctrrA7lNyDdKoDutGRMMQ7KFfQHghs=; b=0kf+PfbqjQ2Q7DmiAmBpVOqjAj
-	1FAv7GZUGkG7niWr1DhL3ODT/UZZz+1P0lgDMS8lQj6T0681+GFaGDRK19jA03ta2fbUwLFAO59zY
-	bdhVLdGxY+D9If175JilV7KpHayKkAeOcamepJzmQvOLnUNKfU5fl43AIkyzM8/Eb7Yzl3fUL/BBK
-	E2hPKuLePRqkHyVsWnLonpUeWxlb90qQsdAgYjeKIS4xQ4c/TuPP2WkBynQ2DU02uzhqQHH2n1hRR
-	6/Iti5v7paaTAGGdz9CgAF1CQDs5gW5mOohSqCl6MhGJtEt1aa8W2+2lmkg0+AIJLc7sIixoNXZxp
-	RWUQGJ2A==;
+	bh=k7HAqjeWwLVnuthJm9T0TyotQsYdYi4nXf0ltHZaJaY=; b=xKsCCrEQkFTLfETgmT26nYFUmw
+	HxWDxzLpPEIzoKwmJR1gay3gpo6XzSqyt4CcJF1+ANm9X7J+M865oQnCSw3d7ORst7PqDKoF8uaDl
+	2RKf1me3jK8KdZi4X1j9Me8Tu+qYL/E1eBbUJay0XEflidUsCeQEkmIjVyZDh4QwKGktUl6LhjFVv
+	Lpto7nVwtMFd9GsA0UTgXR5G/tuPqwmUfG7QChRa1XSqV/zGqQY7RnIIHaiZ3Mh1RFL6k46n1b02L
+	gY+3cTL8hLCabKlX3GpEjD7vSXjAWPZmfDD1LxiSmZn1evGr7sgajlCV0XyaQkJkFHMeANVIfR921
+	YwhwvBKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzGHF-00000000ahH-28xD;
-	Mon, 31 Mar 2025 14:38:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tzGIw-00000000b3J-0lF7;
+	Mon, 31 Mar 2025 14:39:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzGDS-00000000ZMz-3ClK
+	id 1tzGDg-00000000ZTA-1AHl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 14:34:20 +0000
+	Mon, 31 Mar 2025 14:34:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2B22CA42E97;
-	Mon, 31 Mar 2025 14:28:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75CEAC4CEE3;
-	Mon, 31 Mar 2025 14:34:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 27DF761126;
+	Mon, 31 Mar 2025 14:34:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47538C4CEE4;
+	Mon, 31 Mar 2025 14:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743431657;
-	bh=Sod3UEvmQzflWu9AcZV6qGlMGbbHJP/efdLxBV3kV2A=;
+	s=k20201202; t=1743431671;
+	bh=RxXN5ImDkHlxqQmfInHiKTyFOrz987IzeR6333NbSJ8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cY6wyoAY/YuBNrCCZB5nd49C+wp4blJL4InIVCIERZ41E3OBMYfrCBd779xNj/9m+
-	 nCsFrDmJLbWvdYYi+F8fES2CJCoXU7Ys0zwAhWYWVJ5rEUHJIGBvagICItcgGZ/AKw
-	 Act/DKNaZU+lQDu2AteBCfT9NTFBYTlw/qCOcoyXk5O5jjPSgjkK+pkPLlit+NCKAh
-	 Q6an+BXybMm+IyvgdjYymWE3A/3M6hiuuyWnj44rWzssZJBCFvLnEIDR65RfruXHf+
-	 SMBjIaH7dBmBiko9mgXzOBq5AnkKraewiSAmjdZB9Mk1GovGLPiOdJHejhLwBwZf0s
-	 MPW3hPBs58ZFg==
+	b=UJzFj0Fb9JehsWcz7uSbYD3tnPXbjTintoKWN9Jb44fNCWgRm/Jl9Ym+tNrx2BqDH
+	 medr5Es0YT05yng3VHeBg5vtfcTOcx+g6f2jp3a4dJgIMinDXDRCqa687RQcK8U+y0
+	 0e16qgimqzEnxPk7r0W58IK5KF20wMWzAk5bAvU4OFUeUAW10yA2rkCgBVEqvOgK0H
+	 UdRLL/GMIcooyU6qKQ2jtfvXpN6stJX2U+VcOB7t1h4kA9GzPPn1ZmoinaIhqnwZKs
+	 Z64XpqFRBkjYbcGGpFEGNWgsj2DwoYNK4fM10l2NQNscMrFWn6s30ax0jqeIhGLH/1
+	 QpltbptrgswnQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Dmitry Osipenko <dmitry.osipenko@collabora.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
 	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.14 03/18] irqchip/gic-v3: Add Rockchip 3568002 erratum workaround
-Date: Mon, 31 Mar 2025 10:33:53 -0400
-Message-Id: <20250331143409.1682789-3-sashal@kernel.org>
+	linux-perf-users@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.14 08/18] perf: arm_pmu: Don't disable counter in armpmu_add()
+Date: Mon, 31 Mar 2025 10:33:58 -0400
+Message-Id: <20250331143409.1682789-8-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250331143409.1682789-1-sashal@kernel.org>
 References: <20250331143409.1682789-1-sashal@kernel.org>
@@ -65,9 +64,6 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_073418_934460_7F4EA4C9 
-X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,117 +78,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+From: Mark Rutland <mark.rutland@arm.com>
 
-[ Upstream commit 2d81e1bb625238d40a686ed909ff3e1abab7556a ]
+[ Upstream commit dcca27bc1eccb9abc2552aab950b18a9742fb8e7 ]
 
-Rockchip RK3566/RK3568 GIC600 integration has DDR addressing
-limited to the first 32bit of physical address space. Rockchip
-assigned Erratum ID #3568002 for this issue. Add driver quirk for
-this Rockchip GIC Erratum.
+Currently armpmu_add() tries to handle a newly-allocated counter having
+a stale associated event, but this should not be possible, and if this
+were to happen the current mitigation is insufficient and potentially
+expensive. It would be better to warn if we encounter the impossible
+case.
 
-Note, that the 0x0201743b GIC600 ID is not Rockchip-specific and is
-common for many ARM GICv3 implementations. Hence, there is an extra
-of_machine_is_compatible() check.
+Calls to pmu::add() and pmu::del() are serialized by the core perf code,
+and armpmu_del() clears the relevant slot in pmu_hw_events::events[]
+before clearing the bit in pmu_hw_events::used_mask such that the
+counter can be reallocated. Thus when armpmu_add() allocates a counter
+index from pmu_hw_events::used_mask, it should not be possible to observe
+a stale even in pmu_hw_events::events[] unless either
+pmu_hw_events::used_mask or pmu_hw_events::events[] have been corrupted.
 
-Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Acked-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/all/20250216221634.364158-2-dmitry.osipenko@collabora.com
+If this were to happen, we'd end up with two events with the same
+event->hw.idx, which would clash with each other during reprogramming,
+deletion, etc, and produce bogus results. Add a WARN_ON_ONCE() for this
+case so that we can detect if this ever occurs in practice.
+
+That possiblity aside, there's no need to call arm_pmu::disable(event)
+for the new event. The PMU reset code initialises the counter in a
+disabled state, and armpmu_del() will disable the counter before it can
+be reused. Remove the redundant disable.
+
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Tested-by: James Clark <james.clark@linaro.org>
+Link: https://lore.kernel.org/r/20250218-arm-brbe-v19-v20-2-4e9922fc2e8e@kernel.org
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- Documentation/arch/arm64/silicon-errata.rst |  2 ++
- arch/arm64/Kconfig                          |  9 ++++++++
- drivers/irqchip/irq-gic-v3-its.c            | 23 ++++++++++++++++++++-
- 3 files changed, 33 insertions(+), 1 deletion(-)
+ drivers/perf/arm_pmu.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index f074f6219f5c3..f968c13b46a78 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -284,6 +284,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | Rockchip       | RK3588          | #3588001        | ROCKCHIP_ERRATUM_3588001    |
- +----------------+-----------------+-----------------+-----------------------------+
-+| Rockchip       | RK3568          | #3568002        | ROCKCHIP_ERRATUM_3568002    |
-++----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
- | Fujitsu        | A64FX           | E#010001        | FUJITSU_ERRATUM_010001      |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 940343beb3d4c..3e7483ad5276c 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1302,6 +1302,15 @@ config NVIDIA_CARMEL_CNP_ERRATUM
+diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
+index 398cce3d76fc4..2f33e69a8caf2 100644
+--- a/drivers/perf/arm_pmu.c
++++ b/drivers/perf/arm_pmu.c
+@@ -342,12 +342,10 @@ armpmu_add(struct perf_event *event, int flags)
+ 	if (idx < 0)
+ 		return idx;
  
- 	  If unsure, say Y.
+-	/*
+-	 * If there is an event in the counter we are going to use then make
+-	 * sure it is disabled.
+-	 */
++	/* The newly-allocated counter should be empty */
++	WARN_ON_ONCE(hw_events->events[idx]);
++
+ 	event->hw.idx = idx;
+-	armpmu->disable(event);
+ 	hw_events->events[idx] = event;
  
-+config ROCKCHIP_ERRATUM_3568002
-+	bool "Rockchip 3568002: GIC600 can not access physical addresses higher than 4GB"
-+	default y
-+	help
-+	  The Rockchip RK3566 and RK3568 GIC600 SoC integrations have AXI
-+	  addressing limited to the first 32bit of physical address space.
-+
-+	  If unsure, say Y.
-+
- config ROCKCHIP_ERRATUM_3588001
- 	bool "Rockchip 3588001: GIC600 can not support shareability attributes"
- 	default y
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 8c3ec5734f1ef..f30ed281882ff 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -205,13 +205,15 @@ static DEFINE_IDA(its_vpeid_ida);
- #define gic_data_rdist_rd_base()	(gic_data_rdist()->rd_base)
- #define gic_data_rdist_vlpi_base()	(gic_data_rdist_rd_base() + SZ_128K)
- 
-+static gfp_t gfp_flags_quirk;
-+
- static struct page *its_alloc_pages_node(int node, gfp_t gfp,
- 					 unsigned int order)
- {
- 	struct page *page;
- 	int ret = 0;
- 
--	page = alloc_pages_node(node, gfp, order);
-+	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
- 
- 	if (!page)
- 		return NULL;
-@@ -4887,6 +4889,17 @@ static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
- 	return true;
- }
- 
-+static bool __maybe_unused its_enable_rk3568002(void *data)
-+{
-+	if (!of_machine_is_compatible("rockchip,rk3566") &&
-+	    !of_machine_is_compatible("rockchip,rk3568"))
-+		return false;
-+
-+	gfp_flags_quirk |= GFP_DMA32;
-+
-+	return true;
-+}
-+
- static const struct gic_quirk its_quirks[] = {
- #ifdef CONFIG_CAVIUM_ERRATUM_22375
- 	{
-@@ -4954,6 +4967,14 @@ static const struct gic_quirk its_quirks[] = {
- 		.property = "dma-noncoherent",
- 		.init   = its_set_non_coherent,
- 	},
-+#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
-+	{
-+		.desc   = "ITS: Rockchip erratum RK3568002",
-+		.iidr   = 0x0201743b,
-+		.mask   = 0xffffffff,
-+		.init   = its_enable_rk3568002,
-+	},
-+#endif
- 	{
- 	}
- };
+ 	hwc->state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
 -- 
 2.39.5
 
