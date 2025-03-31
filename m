@@ -4,56 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF9CBC36011
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 19:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CBEAC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 19:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/UtZagbG3T/uK5TqNzNdEuqBMJsjG+CKy+jLJwbOUaU=; b=L1KMKKudIMoXusflxdkatQqIay
-	depyUkPYqDZW/+a3C4Tj+X1jAFVoPfm8DW6N0wbbJKnU3AuRZoKYndShyrrdPYInzT+XrEsWE+DGq
-	J2erycXKnEl6cSyifQtnMqFCS+Jak1JlL7H/dWvY40d4aCgp/8mXFiKOLWFsMu29vZ9f6fH7zpPSt
-	UOlFQJHC+ZkbP0OgqI17UBRyqR3QY8MyT0IAEd208ivOWV9vJyngYaqtu504Z9yqwJLQshU13JnDl
-	BfPUO429NNvniQH4a6NEvdVrlIS0TXwgmYdxpAG4dhUeCdLI7VOrndCVIDy0y8kj1B/bg1oRMYeWN
-	eRQTspNg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=weaeyc6Iq5KCbkTdB71O6escmnn+pUPOzFfZbmsaj8Q=; b=XHGAeEBeBoNW3v7L18eenvEoZ4
+	OUJ1K9cN+L9GOeIC0TyLSjArlmTM2kMoGCWxV3pM7KSnbqNjHTc3jVnejxxMWN8PWTZzsQd1t/Fs9
+	/xuAcOgIkVLiX5cQYxSQWuRjTLk6iXcwYaYIQ+zkdOewPEFCWr416qJZxb3tRSNVHbcQhQ3k7mBIe
+	EZDwInL3BJpXZx60xPIgpHoLg/F0pOfBer+RRDCWRKljTtPq1tXlmmH8FGRzE767XIndDua+SrAWj
+	O2yhPRQ5pf42QpgeCCv4587SbAUvisUkwc5hXlrXABfUjIsAzHOXwBmcwFiJKSM8KMe+6So8BtOCg
+	zi7JiRiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzKhf-00000001Dpr-2LII;
-	Mon, 31 Mar 2025 19:21:47 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1tzKjP-00000001E0c-3TNS;
+	Mon, 31 Mar 2025 19:23:35 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzKUB-00000001CAh-2zXT
+	id 1tzKVT-00000001CLJ-2euF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 19:07:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:mime-version:content-transfer-encoding; s=k1; bh=/UtZagbG3T/uK5
-	TqNzNdEuqBMJsjG+CKy+jLJwbOUaU=; b=UWPYzrW/TKlfbpcAeo26FYIndGtsXb
-	IzefAXRRC8INxMwHItZzCa4KcvkBOy8zLLXeQ9h9qYsXFcmCw45Mi9FmPlpDJYTF
-	1k9RtnKoz/MyWEYvoSlaCxBqRLYXUAGXQkzONKd6kTWELCL2DDWLxiylCoriGIzi
-	uZ2VFH6YMyfiIU7OidruuNBWnK2R5LSe/Bw+tJ6RGQ0FD6T5rmJsnBWlEmbHpPKE
-	7miOahJqFQlbucqgGgG3wR5seTMs7tZcFtiuGNnS7kOY3SFhFqCb1D+M1HzscZnp
-	W6Sa9Oh4APqImTHY9kl0/MeOd1QBqyNN+k/mVwxfglFYiVpyKLcEe1Jw==
-Received: (qmail 1349266 invoked from network); 31 Mar 2025 21:07:43 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 31 Mar 2025 21:07:43 +0200
-X-UD-Smtp-Session: l3s3148p1@3Kl2IqgxROEgAQnoAEJMAK1XZKOIHRkS
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-kernel@vger.kernel.org
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	linux-arm-kernel@lists.infradead.org,
-	soc@lists.linux.dev
-Subject: [PATCH] MAINTAINERS: delete email for Shiraz Hashim
-Date: Mon, 31 Mar 2025 21:06:42 +0200
-Message-ID: <20250331190731.5094-2-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.47.2
+	Mon, 31 Mar 2025 19:09:12 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-223a7065ff8so73162095ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 12:09:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lessconfused.com; s=lessconfused; t=1743448150; x=1744052950; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=weaeyc6Iq5KCbkTdB71O6escmnn+pUPOzFfZbmsaj8Q=;
+        b=N1i+nDbhCResZyBgGdIVYgNktr/lcCMLWsyOBInT25ITYEFiaKZFIZXBtKT5wFp8oy
+         TwZH45STg9iToy6Z3HrRBIEBfkaGkCMM5RJ73DSQKUF74+sqTsiWpLF2ujBmcuIq4wXS
+         nMMRTniI8oW2MxPE5O6OvPD4wiCWWAV22VCFE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743448150; x=1744052950;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=weaeyc6Iq5KCbkTdB71O6escmnn+pUPOzFfZbmsaj8Q=;
+        b=MwbTEg5p2Gr0+gYrBOE63oN/1tK0FQwfSol/7IHpylVaf+HgtDT9/PH16ceGCmnQD3
+         ckt5UQglNp7kWz7DoTzQckG75Lvtn203rRPFsX0B6a0+E0LXc+2N7zC4x/6Mxli7+l0W
+         mQGhEpmxnUpVTBC2ugzTVHP/8dVUtQdQEg9ORouIkg4HB8ww3M73KKH2SS7d3/hs7gCk
+         EN+5mTWXuUlwmT3OMlh1l7j45zLxtIYlEDVktI15ICcl1XWW0urXLs9jzm9asARzfW8K
+         o/Yb5w6HWwA9P+5sBl3u1EjefaOMYxvOLxAP/hRolrCjKjFotWqPAQ8kuU3ZE1vRdtMJ
+         anMA==
+X-Forwarded-Encrypted: i=1; AJvYcCWEzEE7My0Azt5MLdgfLw/VFfkKtAUJI5Kg1PpVHrSKOX+D0GoYErHVuGb3taumZnGeJYUDb3LLXQvan1woJMCk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwiymHthTJvv1ujFkh0w9TekJfmPJ+GTUQCaNQasZGHjxY42/G
+	UwHia7NFYaKIAJFyQKuZrwuns3pgLfCYjarVv2S2LcQKhvz2ZLtyZJXxVJIimkzz8KtOV2G10yk
+	64huL9tM4MEAYJkQ0D1slIXSaeP45JSvhb7U/aQ==
+X-Gm-Gg: ASbGnctNw7MZ71W0Y6KKd283ip0ILikzdi3GCX+NoTiAciECFyMhExyPjeUmVlSRttH
+	9jqv4oXECXbTaxzRL5StryATqsOCNd/gEJMHpFVAZObJ+dzy9t0KoWnk4Nl5rCK+rH+Lw3+B4yI
+	Z6tXBADficZEDgwr3AU51E7+g=
+X-Google-Smtp-Source: AGHT+IHI9tcVsJv+l9FCmeVZ2DxgRcZQhSRLltSRHjgXul/dSDhc9edkYByshaEyeXpvopZ8spvequ357SvBvqUtWE8=
+X-Received: by 2002:a17:90b:5450:b0:2ee:8ea0:6b9c with SMTP id
+ 98e67ed59e1d1-30531fa13bbmr20311472a91.12.1743448150396; Mon, 31 Mar 2025
+ 12:09:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250331074420.3443748-1-christianshewitt@gmail.com>
+ <17cfc9e2-5920-42e9-b934-036351c5d8d2@lunn.ch> <Z-qeXK2BlCAR1M0F@shell.armlinux.org.uk>
+In-Reply-To: <Z-qeXK2BlCAR1M0F@shell.armlinux.org.uk>
+From: Da Xue <da@lessconfused.com>
+Date: Mon, 31 Mar 2025 15:09:00 -0400
+X-Gm-Features: AQ5f1JocGacIomP9QycHriI_2lADeFj1Us7oWxzEiuO6mpCv_sUeGwQrjba2Abg
+Message-ID: <CACdvmAijY=ovZBgwBFDBne5dJPHrReLTV6+1rJZRxxGm42fcMA@mail.gmail.com>
+Subject: Re: [PATCH v2] net: mdio: mux-meson-gxl: set 28th bit in eth_reg2
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Kevin Hilman <khilman@baylibre.com>, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Da Xue <da@libre.computer>, Eric Dumazet <edumazet@google.com>, netdev@vger.kernel.org, 
+	Jerome Brunet <jbrunet@baylibre.com>, Jakub Kicinski <kuba@kernel.org>, 
+	linux-amlogic@lists.infradead.org, Paolo Abeni <pabeni@redhat.com>, 
+	"David S . Miller" <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org, 
+	Heiner Kallweit <hkallweit1@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_120752_654705_4AF276D5 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250331_120911_679525_A42A7C61 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,27 +98,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The email address bounced. I couldn't find a newer one in recent git
-history (last activity 9 years ago), so delete this email entry.
+On Mon, Mar 31, 2025 at 9:55=E2=80=AFAM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+>
+> On Mon, Mar 31, 2025 at 03:43:26PM +0200, Andrew Lunn wrote:
+> > On Mon, Mar 31, 2025 at 07:44:20AM +0000, Christian Hewitt wrote:
+> > > From: Da Xue <da@libre.computer>
+> > >
+> > > This bit is necessary to enable packets on the interface. Without thi=
+s
+> > > bit set, ethernet behaves as if it is working, but no activity occurs=
+.
+> > >
+> > > The vendor SDK sets this bit along with the PHY_ID bits. U-boot also
+> > > sets this bit, but if u-boot is not compiled with networking support
+> > > the interface will not work.
+> > >
+> > > Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support");
+> > > Signed-off-by: Da Xue <da@libre.computer>
+> > > Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+> > > ---
+> > > Resending on behalf of Da Xue who has email sending issues.
+> > > Changes since v1 [0]:
+> > > - Remove blank line between Fixes and SoB tags
+> > > - Submit without mail server mangling the patch
+> > > - Minor tweaks to subject line and commit message
+> > > - CC to stable@vger.kernel.org
+> > >
+> > > [0] https://patchwork.kernel.org/project/linux-amlogic/patch/CACqvRUb=
+x-KsrMwCHYQS6eGXBohynD8Q1CQx=3D8=3D9VhqZi13BCQQ@mail.gmail.com/
+> > >
+> > >  drivers/net/mdio/mdio-mux-meson-gxl.c | 3 ++-
+> > >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/net/mdio/mdio-mux-meson-gxl.c b/drivers/net/mdio=
+/mdio-mux-meson-gxl.c
+> > > index 00c66240136b..fc5883387718 100644
+> > > --- a/drivers/net/mdio/mdio-mux-meson-gxl.c
+> > > +++ b/drivers/net/mdio/mdio-mux-meson-gxl.c
+> > > @@ -17,6 +17,7 @@
+> > >  #define  REG2_LEDACT               GENMASK(23, 22)
+> > >  #define  REG2_LEDLINK              GENMASK(25, 24)
+> > >  #define  REG2_DIV4SEL              BIT(27)
+> > > +#define  REG2_RESERVED_28  BIT(28)
+> >
+> > It must have some meaning, it cannot be reserved. So lets try to find
+> > a better name.
+>
+> Indeed, that was my thoughts as well, but Andrew got his reply in
+> before I got around to replying!
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
- MAINTAINERS | 1 -
- 1 file changed, 1 deletion(-)
+The datasheets don't have much in the way of information about this
+register bit. The Amlogic GXL datasheet is notoriously inaccurate.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 9bb1db9979f1..32f15c2ce531 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22627,7 +22627,6 @@ F:	drivers/accessibility/speakup/
- 
- SPEAR PLATFORM/CLOCK/PINCTRL SUPPORT
- M:	Viresh Kumar <vireshk@kernel.org>
--M:	Shiraz Hashim <shiraz.linux.kernel@gmail.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- L:	soc@lists.linux.dev
- S:	Maintained
--- 
-2.47.2
+ETH_REG2 0XC8834558
+29:28 R 0x1 reserved
 
+It claims the bit is read only while the BSP hard codes the setting of
+this register. I am open to any name for this register bit.
+This is the only thing holding up distro netbooting for these very
+popular chip family.
+
+>
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
