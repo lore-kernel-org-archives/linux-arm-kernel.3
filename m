@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AD8C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 11:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E209FC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 11:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Apx9Ww9vqYDQpf5i7k0aXZGv5/FTp1oGdeHsLgCtlz0=; b=fldZSCLpYMusOEmPwyG0OS8Ea4
-	U8WBko0ie3/jcEHo0kVxCSnyUbLEbB7MQjGdhDNNMFJsD8NqlmYXJRh1nmHu1xMHE6RZoKuq9jwfT
-	9Qns3hBcyc/Ch5ShUy38yZuEmyTPLrglP/Zn1a9U9Z0C50Tvod15z/ufepa6e+b4skp3GYodaUsNv
-	SPJIBp13hdn9RMLa4mJUUl2QxqGg8WIqcYOmVx+X/84e8hMJqTatPehivxsLk5SooBqf2C60VUBTW
-	+Rk19EeN2K8miHIrEmKLeABqudn57iyUPoHzsmyaI+y5CkoZZfewwjK240Nh+u0Vf44wBCGqD4gdJ
-	ZYaKoAKA==;
+	bh=15WX4R9RpVh4Ah1XP5Y/JVjXVmdlp2d4FZCbDaUWJFo=; b=wIxtQVJO2vw7t3dYxXkY/AcjUH
+	X+cTe8GLSOy/WCNc22EFDwkIU6sixMmhQM5W3C8xsmAh59obDx5Vjh4HD4nZEkZ53vvyhnH7oexzS
+	/yCWUvyvBVr9CMcxdEiBk+0Xwbxw2Ppxi5XByptEeBG/F6Ui0SOpt1Hz8y30Nh88cK6Oo0E8O0Umq
+	of/hBO2OImxdHLBhxmXUdgoijjAIji78k779lJJM498VYU1eUvIdcBP5nxd23ykCMvImo2ks4prNX
+	GOdJ9ZcW8R/NVeuhEWQK8MikCNjN7WIO4UeYQWsEVtGMstF2f3UgGauTKJvq6TOFQXt4kfFLEa+W1
+	Yk0DHh1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzDPM-00000000DOB-0WcK;
-	Mon, 31 Mar 2025 11:34:24 +0000
+	id 1tzDR1-00000000DcN-3Fj2;
+	Mon, 31 Mar 2025 11:36:07 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzDNe-00000000DEF-0dLK
+	id 1tzDP8-00000000DKJ-1C6v
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 11:32:39 +0000
+	Mon, 31 Mar 2025 11:34:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 755595C5361;
-	Mon, 31 Mar 2025 11:30:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89EC7C4CEE3;
-	Mon, 31 Mar 2025 11:32:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C84B75C5361;
+	Mon, 31 Mar 2025 11:31:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCD12C4CEE3;
+	Mon, 31 Mar 2025 11:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743420757;
-	bh=05Ub8boU60E8Z7QxJ+cd0L+rxka8vuLP3vAU+K959fw=;
+	s=k20201202; t=1743420848;
+	bh=AdhodZymALRnjBVB1cvDW3VKR+3nCqlWPtZ+Sr/4LME=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oHeVbEJxjnGLhNtejItA+2MzVyYN2C+rL8HlhaxNaxeWLIF4N9MMDMGs/vR7s+wsR
-	 kmAFXpc0XcrWImNAWhwb1uSCctUWkoUWue1QeeGj8WlEeRhVe5K6BZGTZgQqLBGxCM
-	 OtJDJgDHr15868zJztTZNpvCH1kX+/E2A1Sda/pCRKeDk2AMZQXx3qn72lZJ3SYPtq
-	 bnMUYtlYtVo4NVH+/9SaT4C7o0dqmmFlNuPnRYw5ofj46LY5rNn6kEDlBsgYmQqMug
-	 s/mNQI45pZ7lkHd0M8uoqqSs9N8Z9Zhipfnb4aBpf9w0UWtoWHN9sZd6rrg9Knm+G2
-	 P92hQvhpJ/9vg==
-Message-ID: <7f8a3f75-f66f-4380-ae60-b84f6752da0b@kernel.org>
-Date: Mon, 31 Mar 2025 13:32:30 +0200
+	b=PmxyTS814D6kpdfDTbIgcvdbFyJLvt3GBnP4tKDteq0n1OOhAQN7KOMO6JmIdykcb
+	 fF7c3sNBi7iuco70yT7nt5phvxrBfasgi4bAVNfSXIWSpB856plooVK3U+VVQyZf9F
+	 wGTypz5PgjJC8QJKpXJjPiKuj9BiYk2OikxjsoiwGNdymOKyMy4TXiiPjFwL+lHd6p
+	 M41rQ99TOxK7LAgoKhOvk40CWojYfxd5gF2Wi4hcki8RS1g/odo1D0dR5hupZ+6MVD
+	 q1hJJghQmUPifXDR6wo1Ouw9+0MJsKehoahVCJEU+5Jmde1kOc1EcOzX3eJvZIKUF8
+	 ioRKY8CHZTWHA==
+Message-ID: <2a3754ac-a4f2-4074-bb3e-18c973e04da2@kernel.org>
+Date: Mon, 31 Mar 2025 13:34:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] interconnect: Add NULL check in exynos_generic_icc_probe
@@ -101,8 +101,8 @@ In-Reply-To: <20250331110802.9658-1-bsdhenrymartin@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_043238_309580_BBA35CB1 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20250331_043410_440558_744FC0EA 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,29 +118,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 31/03/2025 13:08, Henry Martin wrote:
-> When devm_kasprintf() fails, it returns a NULL pointer. However, this return value is not properly checked in the function exynos_generic_icc_probe.
-
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
-
-Please run scripts/checkpatch.pl on the patches and fix reported
-warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-patches and (probably) fix more warnings. Some warnings can be ignored,
-especially from --strict run, but the code here looks like it needs a
-fix. Feel free to get in touch if the warning is not clear.
-
-
+> ---
+>  drivers/interconnect/samsung/exynos.c | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> A NULL check should be added after the devm_kasprintf() to prevent potential NULL pointer dereference error. 
+> diff --git a/drivers/interconnect/samsung/exynos.c b/drivers/interconnect/samsung/exynos.c
+> index 9e041365d909..3dccc84f72cf 100644
+> --- a/drivers/interconnect/samsung/exynos.c
+> +++ b/drivers/interconnect/samsung/exynos.c
+> @@ -134,6 +134,8 @@ static int exynos_generic_icc_probe(struct platform_device *pdev)
+>  	priv->node = icc_node;
+>  	icc_node->name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%pOFn",
+>  					bus_dev->of_node);
+> +	if (!icc_node->name)
+> +		return -ENOMEM;
 
+Ah, and this also leaks ICC node.
 
-
-> This is similar to the commit 050b23d081da.
-
-Not related. These are different drivers, so drop.
-
-These apply to all your patches.
+Don't create such patches in automated way, but really analyze the
+entire code. You just looked at other persons' commit and decided to do
+the same, but this is not correct.
 
 
 Best regards,
