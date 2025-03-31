@@ -4,117 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B219C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 06:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F566C36013
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 06:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pSZWvc98awNxNS7sUp2CK9I3oZgb0IYq+6Zaom/DnwM=; b=kzGOzZkzXUjkbQJfBfCrhXNnA7
-	g4sM0ZwnSJ3aBEnYBz87dWfCL1WrjSPsGXk18UHJZqySP+Gh9hhh05/a0BVpkCl//HWqZrwIUQ3/K
-	Qe1NCW1MHEb275s98kG83Ih++5qpABcGfTkiSI4YOvf2I2aMSbZdYv02Brqh3vP705piYFDyt/m7A
-	Ct6HDTKLNuHalX1w5f5pLAUixHXdhAMGSPVGDj8xfjVUx5TqY1NUUi42TwMYq5Klo9pazKh6ofovn
-	uP6QGt3FW4vB/qZL6Vysl+0D2tMcE657QQ/WxPqKW9ldqO3ARiH9cb+kofOVSOuNWqOuaGMyV4A4D
-	84YRWYlQ==;
+	bh=lNtmmAniBqxCrIq36woB5mCFoFf3U2KEP8kksYhrpLY=; b=2Mmb8ip5qBkkxCNAaU+/FgM3VB
+	isAhVpmysdUILgpxPDoNpadLhKpd2rZg96fMMTYSuy+mqng3mcCuYxKPiP9QIEr55Dkk3ekzTi1Xz
+	JXprOgIXW1TzC/YpEDYA4sjPl8mhpG08ElyDV1FkTg+hMaGHmhNHcrFfru2bka5NQLb3ueOaFTwWZ
+	T+o6LfFTHWLzDPKO7LabaWkox8N1k6sZ48FHv/Ds5kUNox5DZZHr9Dli5ARIrnyPwFKqGAPQAXmCs
+	p63eh1NpbcCpCvOpHx6P1aHGG3CUWt6Zjx4i+XcWPdTIcvE8PclfcdTdZpZlUpJMUmcgMhUR6c/lr
+	UM5LmZug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz8sr-0000000H7rx-3itv;
-	Mon, 31 Mar 2025 06:44:33 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1tz8uW-0000000H80Q-48SM;
+	Mon, 31 Mar 2025 06:46:16 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz8qV-0000000H7WD-13bn
+	id 1tz8qf-0000000H7Z9-1Lb6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 06:42:08 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3912c09be7dso2666936f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 23:42:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743403325; x=1744008125; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pSZWvc98awNxNS7sUp2CK9I3oZgb0IYq+6Zaom/DnwM=;
-        b=CsuatGshyUHFg6CPczwYepKIatcSJgd5PBKzWoH4N+ZGyZ9b4bicjlhXIe+D5jF4S/
-         AnRM4KbNTQxFNIfel2eCfL4kX5itxZSSBkg/ZTmHgAMdtW84FSKvd1jkeW78Kz6KOPSm
-         H8oQWhLADeuinUiFqqnNaEztU5OKjugH58AiHcDtLiPGYyGzOWzHPYLNxzT9X+SS9fIW
-         Q2NtcPjLmMvknUv5BiNEe8b+7RaoOgBZVP9ruCwsGV5pa8IhkAOTPmEvfMqJNrnESiLY
-         5KPK0FOUHenbH2g/SIZcNS6zwJ/frhk6X+MufmM7HqR9ES4id/ZPDtgPgZg/M2EkkpwL
-         PdZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743403325; x=1744008125;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=pSZWvc98awNxNS7sUp2CK9I3oZgb0IYq+6Zaom/DnwM=;
-        b=bgH344RpioiCjKTyJxQETWFR7beRcFoLpZ3JcHPstdMRPJSPlfJdcX4/IHdRBKhu1k
-         SfMKFcIUOpQ5Ddcneeh6pI5AlR8IKCG6pDwPe+TjaPFGUF4y2N5B/QO2igVPQh326NAE
-         VETJ8IMJurRppVwDqHKzvQ4dmNb07Ev1kruX8Xn7l8j1mMy02Nlmha2yuoMcvNPocCqB
-         pka6tiXvEFHwz6hirwTro9B/AknPclC2zY7BWmTjBu+bacaQhLJR2i9keUAEUOiviUMf
-         f5ZBj7EHciHfxZFMY2DiIrsDpH365XSaFh23vmKJmFc8lCWTsdCdftfLDm+Lk1Mq2dD0
-         HaaQ==
-X-Gm-Message-State: AOJu0YyWlW562VLW+ixRVaE3zk+9B1OUNLigx6YPvmrMKQRRPIV6eP6C
-	Q613aWHYvbwXxPwcL3wztsI6Tw8Rc9KfbGPBlBK3ScXto1O9MdwX2MigzcsWjsE=
-X-Gm-Gg: ASbGncu+9IDcba2F9of7SaJs1HiV3aFvXmKMW20kGiZSdd1WKHvgu2is4RXQUvbvQwR
-	uEG94oRcA//H+SGAxQkcrTYlPEUxUqsxZ3yo2IHP3whqAtgygKOwWavIcoCJoKbbV8iu/XrXlBp
-	au2ruCxFwweHkn5Er8f/AduG33RK8j7KvVeSGb2xz9y8Q5xkCcxdeeEdhUmgPwM+uwAt00GJfes
-	8BjvnVUXgw6p1vn38YLrV6cKqIhA8N8+g8hyShJF4LlkoNSHN7PK4T07LBG5/BmRgVdnu9QoXKN
-	TM8m9GBaYubuAhk+APlvYfWFzv2AmwnXTvhe657oIGCzUSmXR4K0iI2ujoCpCSTRhf+0Kg5xMt7
-	bgUrLb1lLbbFSLYztxv2IX8sHCes=
-X-Google-Smtp-Source: AGHT+IFaaiFJvSkuFgpzRjmFl4ky713HsFznh//e5XklchpgjCOz6VUhATdj7MkI4kwAKPb/DPGB1g==
-X-Received: by 2002:a05:6000:178c:b0:391:29f:4f87 with SMTP id ffacd0b85a97d-39c1211c8f4mr5516473f8f.49.1743403325590;
-        Sun, 30 Mar 2025 23:42:05 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:143:2e3d:45f1:fd2? ([2a01:e0a:3d9:2080:143:2e3d:45f1:fd2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d8fccf0a9sm111590335e9.17.2025.03.30.23.42.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 30 Mar 2025 23:42:05 -0700 (PDT)
-Message-ID: <04c47466-b1a3-4eb2-8f28-95faa29ff45f@linaro.org>
-Date: Mon, 31 Mar 2025 08:42:04 +0200
+	Mon, 31 Mar 2025 06:42:18 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tz8qH-0007t0-Bo; Mon, 31 Mar 2025 08:41:53 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tz8qG-002Y6D-0Y;
+	Mon, 31 Mar 2025 08:41:52 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tz8qG-00996M-06;
+	Mon, 31 Mar 2025 08:41:52 +0200
+Date: Mon, 31 Mar 2025 08:41:52 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Mihalcea Laurentiu <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <Frank.li@nxp.com>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/5] dt-bindings: bus: add documentation for the IMX
+ AIPSTZ bridge
+Message-ID: <20250331064152.g4hlw6pbpzbnlsmp@pengutronix.de>
+References: <20250324162556.30972-1-laurentiumihalcea111@gmail.com>
+ <20250324162556.30972-2-laurentiumihalcea111@gmail.com>
+ <20250325032303.GA1624882-robh@kernel.org>
+ <2301b0f7-1a76-4823-8d3f-d346f8f8e865@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH 0/7] dts: amlogic: enable UART RX and TX pull up by
- default
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, jbrunet@baylibre.com, khilman@baylibre.com,
- christianshewitt@gmail.com
-References: <20250329185855.854186-1-martin.blumenstingl@googlemail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250329185855.854186-1-martin.blumenstingl@googlemail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <2301b0f7-1a76-4823-8d3f-d346f8f8e865@gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_234207_306460_D8008A7B 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20250330_234217_514050_036607BA 
+X-CRM114-Status: GOOD (  41.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,63 +85,220 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/03/2025 19:58, Martin Blumenstingl wrote:
-> On the LibreELEC forum there have been reports that Odroid-C2 does not
-> boot when UART is left disconnected [0]. It turns out that this can be
-> solved by enabling the SoCs pull-up resistor on the UART RX and TX
-> pads [1].
-> It's not clear whether that specific Odroid-C2 board has a broken
-> resistor, the resistor is not populated (either by accident or on
-> purpose) or if there's another reason.
+On 25-03-28, Mihalcea Laurentiu wrote:
 > 
-> Testing on an SM1 X96-Air shows that pull-ups being enabled on UART
-> RX and TX is actually the default (either set in vendor u-boot or an
-> actual hardware default).
+> On 25.03.2025 05:23, Rob Herring wrote:
+> > On Mon, Mar 24, 2025 at 12:25:52PM -0400, Laurentiu Mihalcea wrote:
+> >> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> >>
+> >> Add documentation for IMX AIPSTZ bridge.
+> >>
+> >> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> >> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> >> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> >> ---
+> >>  .../bindings/bus/fsl,imx8mp-aipstz.yaml       | 107 ++++++++++++++++++
+> >>  1 file changed, 107 insertions(+)
+> >>  create mode 100644 Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml b/Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
+> >> new file mode 100644
+> >> index 000000000000..c0427dfcdaca
+> >> --- /dev/null
+> >> +++ b/Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
+> >> @@ -0,0 +1,107 @@
+> >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> >> +%YAML 1.2
+> >> +---
+> >> +$id: http://devicetree.org/schemas/bus/fsl,imx8mp-aipstz.yaml#
+> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >> +
+> >> +title: Secure AHB to IP Slave bus (AIPSTZ) bridge
+> >> +
+> >> +description:
+> >> +  The secure AIPS bridge (AIPSTZ) acts as a bridge for AHB masters
+> >> +  issuing transactions to IP Slave peripherals. Additionally, this module
+> >> +  offers access control configurations meant to restrict which peripherals
+> >> +  a master can access.
+> > Wrap at 80 chars.
 > 
-> This series enables the UART RX and TX pull up resistors in the
-> default pin configuration on all supported SoCs.
 > 
-> Testing has been done on:
-> - GXBB Odroid-C1 on u-boot by a user in the LibreELEC forums [2]
-> - Meson8b Odroid-C1 on Linux (with vendor u-boot)
-> - SM1 X96-Air on Linux (with vendor u-boot)
+> fix in v4, thx
 > 
-> Please include this early so the various CI systems can test these
-> patches.
+> >> +maintainers:
+> >> +  - Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> >> +
+> >> +properties:
+> >> +  compatible:
+> >> +    const: fsl,imx8mp-aipstz
+> >> +
+> >> +  reg:
+> >> +    maxItems: 2
+> >> +
+> >> +  reg-names:
+> >> +    items:
+> >> +      - const: bus
+> >> +      - const: ac
+> >> +
+> >> +  power-domains:
+> >> +    maxItems: 1
+> >> +
+> >> +  "#address-cells":
+> >> +    const: 1
+> >> +
+> >> +  "#size-cells":
+> >> +    const: 1
+> >> +
+> >> +  "#access-controller-cells":
+> >> +    const: 0
+> > With 0 cells, how do you identify which device it is?
 > 
-> 
-> [0] https://forum.libreelec.tv/thread/28586-odroid-c2-gxbb-s905-and-le-11-06-or-12-does-not-boot/?postID=195481#post195481
-> [1] https://forum.libreelec.tv/thread/28586-odroid-c2-gxbb-s905-and-le-11-06-or-12-does-not-boot/?postID=195667#post195667
-> [2] https://forum.libreelec.tv/thread/28586-odroid-c2-gxbb-s905-and-le-11-06-or-12-does-not-boot/?postID=195674#post195674
-> 
-> 
-> Martin Blumenstingl (7):
->    ARM: dts: amlogic: meson8: enable UART RX and TX pull up by default
->    ARM: dts: amlogic: meson8b: enable UART RX and TX pull up by default
->    arm64: dts: amlogic: gxbb: enable UART RX and TX pull up by default
->    arm64: dts: amlogic: gxl: enable UART RX and TX pull up by default
->    arm64: dts: amlogic: g12: enable UART RX and TX pull up by default
->    arm64: dts: amlogic: axg: enable UART RX and TX pull up by default
->    arm64: dts: amlogic: a1: enable UART RX and TX pull up by default
-> 
->   arch/arm/boot/dts/amlogic/meson8.dtsi             |  4 ++--
->   arch/arm/boot/dts/amlogic/meson8b.dtsi            |  4 ++--
->   arch/arm64/boot/dts/amlogic/meson-a1.dtsi         |  1 +
->   arch/arm64/boot/dts/amlogic/meson-axg.dtsi        | 12 ++++++------
->   arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi | 10 +++++-----
->   arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi       | 10 +++++-----
->   arch/arm64/boot/dts/amlogic/meson-gxl.dtsi        | 12 ++++++------
->   7 files changed, 27 insertions(+), 26 deletions(-)
-> 
+> we don't atm. We're relying on the default configuration.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+I think Rob is speaking from DT API pov. What the driver is doing with
+additional information is up to the driver.
 
-I'll apply them now so they can be tested on -next for this whole cycle.
+> we don't have any APIs for AC configuration so I left the
+> cell number to 0 thinking that the cell number might depend
+> on the API.
+> 
+> if need be, I can set it to the value I was initially thinking of in
+> v4.
 
-Thanks,
-Neil
+Which is?
+
+According the TRM it's a bit tricky to define the API since you need to
+describe two different types:
+ - master configuration
+ - peripheral configuration
+
+One which came up in my mind is:
+
+  <&phandle TYPE ID VALUE>;
+
+e.g.
+
+  <&aipstz AIPSTZ_MASTER 0 0xf>;
+  <&aipstz AIPSTZ_PERI 0 0xf>;
+
+One could use a defien for the magic value of 0xf of course.
+
+> >> +  ranges: true
+> >> +
+> >> +# borrowed from simple-bus.yaml, no additional requirements for children
+> >> +patternProperties:
+> >> +  "@(0|[1-9a-f][0-9a-f]*)$":
+> >> +    type: object
+> >> +    additionalProperties: true
+> >> +    properties:
+> >> +      reg:
+> >> +        items:
+> >> +          minItems: 2
+> >> +          maxItems: 4
+> >> +        minItems: 1
+> >> +        maxItems: 1024
+> >> +      ranges:
+> >> +        oneOf:
+> >> +          - items:
+> >> +              minItems: 3
+> >> +              maxItems: 7
+> >> +            minItems: 1
+> >> +            maxItems: 1024
+> >> +          - $ref: /schemas/types.yaml#/definitions/flag
+> >> +    anyOf:
+> >> +      - required:
+> >> +          - reg
+> >> +      - required:
+> >> +          - ranges
+> >> +
+> >> +required:
+> >> +  - compatible
+> >> +  - reg
+> >> +  - reg-names
+> >> +  - power-domains
+> >> +  - "#address-cells"
+> >> +  - "#size-cells"
+> >> +  - "#access-controller-cells"
+> >> +  - ranges
+> >> +
+> >> +additionalProperties: false
+> >> +
+> >> +examples:
+> >> +  - |
+> >> +    #include <dt-bindings/clock/imx8mp-clock.h>
+> >> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> >> +
+> >> +    bus@30c00000 {
+> >> +        compatible = "fsl,imx8mp-aipstz";
+> >> +        reg = <0x30c00000 0x400000>, <0x30df0000 0x10000>;
+> > It doesn't look like you have any registers in the 1st entry, but they 
+> > are child devices? Then you should use ranges and drop it here:
+> >
+> > ranges = <0x0 0x30c00000 0x400000>;
+> 
+> 
+> I guess this would mean switching from global addresses (current way) to
+> bus-relative addresses for the child devices. This wasn't my intent.
+> 
+> I wonder if we could just switch to V2 in which we just use the bridge's AC
+> configuration space and an empty 'ranges':
+> 
+> aips5: bus@30df0000 {
+>     compatible = "fsl,imx8mp-aipstz";
+>     reg = <0x30df0000 0x10000>;
+>     /* some more properties here */
+>     ranges;
+> };
+> 
+> or as Marco just suggested use
+> 
+> ranges = <0x30c00000 0x30c00000 0x400000>;
+> 
+> instead of an empty 'ranges' to restrict the bus size.
+> 
+> Personally, I'm fine with both approaches but what's your opinion on
+> this?
+
+Switching from a global addressing to a local one is not favourable IMHO
+since NXP i.MX8M SoC TRMs are mention documenting all IPs with the
+global addressing scheme. So yes either your v2 scheme or the one with
+the limiting site but keeping the 1:1 mapping. Sorry again for the
+ping-pong, wasn't that clear to me until now.
+
+Regards,
+  Marco
+
+> >> +        reg-names = "bus", "ac";
+> >> +        power-domains = <&pgc_audio>;
+> >> +        #address-cells = <1>;
+> >> +        #size-cells = <1>;
+> >> +        #access-controller-cells = <0>;
+> >> +        ranges;
+> >> +
+> >> +        dma-controller@30e00000 {
+> >> +            compatible = "fsl,imx8mp-sdma", "fsl,imx8mq-sdma";
+> >> +            reg = <0x30e00000 0x10000>;
+> >> +            #dma-cells = <3>;
+> >> +            clocks = <&audio_blk_ctrl IMX8MP_CLK_AUDIOMIX_SDMA3_ROOT>,
+> >> +                     <&clk IMX8MP_CLK_AUDIO_ROOT>;
+> >> +            clock-names = "ipg", "ahb";
+> >> +            interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
+> >> +            fsl,sdma-ram-script-name = "imx/sdma/sdma-imx7d.bin";
+> > No 'access-controllers' here?
+> 
+> 
+> no need for that unless the child wants to request a specific AC
+> configuration for itself.
+> 
+> 
+> >
+> >> +        };
+> >> +    };
+> >> -- 
+> >> 2.34.1
+> >>
+> 
 
