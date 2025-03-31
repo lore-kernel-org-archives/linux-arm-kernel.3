@@ -4,122 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1020C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 13:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABC2C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 13:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/rYByIuq0b2PjmjfZxltk1e0AePkOWa/aML/nirCPWw=; b=gBpuTpZdSXXHKZkvaFpV49Wl97
-	k9fL7seblUjS6nRMaWIqpUjLi1xCwIt8E1L4sUydiEsZ52M0KHcLokOsCzHa+yDAmg4DjdAhDgZI5
-	ggMLn+Ht64/ej/H50iftKOcuK/w17+2dGJRMKm8BX1H0IDKzgZPfVJmH/WdrB4TRYfFgD6rsBE/7u
-	E9E5/fd60GeJz0rzTje2Pexr3cLLpgynMA58xZmgxPa2SLnk4lLnk1GsOR/cV2Aczo9+fLZEEaQBf
-	aGB9pHmU3uUJtDgm/eir07QmPUhkewlYGHxLzuGhjUpzFIsSYHYGYdzzE3oGNmlL60nOMRu0ReaHH
-	ddTmgLHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HWooIc3os8p0nMskc5BNvunTe8NZcWqXI8Mkie2yYgw=; b=oS6/WE2Pv/fOZH3g3Ep9xuJjlM
+	Gos1xZEhQ7fr5vFOkczBgD/Vg4LOKFz1lv1ujpKcNNPtpbnhTIUFGuoT9ETY1TUFNtr0V/k1omKtK
+	8BW21aldE8Jh1MGeSJrmLLYE4MPN75n0bMFeN0WCXkBh8GuHmBLQ6TsJvNkUHwwQQqCC3Mr8Jow83
+	LOwc4TufY4hk6yGV3mVMq+g8WVx9xK1NVa9/obdvLKX4JL4kaYU5jvrVVk2BX4DxXNtj2bcIso3kU
+	d3mF8epw45XIrsI5A5k9paZMDLIcQADNs8MMORKyyvxGUCxmxC/j6o/rSxOJDVzOxzwWL3HKDrm/7
+	iZeQZ8eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzF7H-00000000RDQ-1sTG;
-	Mon, 31 Mar 2025 13:23:51 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tzFBR-00000000Rnk-41cx;
+	Mon, 31 Mar 2025 13:28:09 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzF5Y-00000000R2n-31K4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 13:22:06 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43d2d952eb1so30316945e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 06:22:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743427323; x=1744032123; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/rYByIuq0b2PjmjfZxltk1e0AePkOWa/aML/nirCPWw=;
-        b=oOUTVP2xpMYxkrEmQzms/6bgEyCs5j8tFuAfuyol8AMwkPp44/dEbp185UXZaHsvGd
-         Lll5hds0y/VFJ3Nz/zI7kh1K+5a6bsDaY0SReD0lZ3WIvHz3kU4dToB4X2pqQn3yfd/s
-         IIJ3yEBRj8s8VwrIUXI7HoVwtVD30iWkOF7vNPj0edcBiRT5H6MYAaooxza7YOW/fuhC
-         8A6eiCwYqFL2Zxofp1nW97x+/wzhe+xw02VsEvmrcI2MpzgMyepn1GiettHh7fmUWuFK
-         jxrTD5In+izDBGHxS/xK+twbqeGxrUlCo/d6o/TJg6V4qfWJ+69ABcCHZJm4Nv9Ks+rQ
-         5ZTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743427323; x=1744032123;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=/rYByIuq0b2PjmjfZxltk1e0AePkOWa/aML/nirCPWw=;
-        b=gccTQuwM2GmhLUfPQ0cXgZygTVFPJ42+1lcoXsdBf/6d+fxEWIlkOIPpXVHRBQckbP
-         pDF+ai00iL8cpxsmzjUS4qo/iYjpdXzzHmgbeqYvpcd4BJbryNYRuCSIK6wY8KoRsldz
-         NJpT/E0MD+Z9vNgCBlxbmbUJ1sJKQVsJBbx3t2UJ440yngBfymUJYQo+M+D6VxruKI3s
-         EtgsUS2IVMT+GjJ+wjBPsFHuJeXAqhOI46/LtGfArpugeUWS00JRgEn0Ge9aPoxZ3Vjz
-         8xfntvazg5c8gJ9IQgO+kelFnjVPQ7LQdUlb0FpSTiA0ZuymG2QGstvSwFscrSez8V0B
-         9ipA==
-X-Forwarded-Encrypted: i=1; AJvYcCVEGcCPKbDoEV9vB4UvJG+6YyoA23IPTL9iNdYvnJ1aLNVfM9zCEPxR4kd5gYOvlAEb0/l0gZcQGAkzsm6AdIRm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0UJoXzReWDW97aIt3Kx4gAnwmITapt5KSTKBkAJJAyVggUAb6
-	hvLRm9ZIrHv6Rm/tilWya/FwQ/UYVz/PFiz6bHjTIu9Bip16i/MiNCeDG34An9Y=
-X-Gm-Gg: ASbGncvuQwqqJTuV0z4035SXgt1MjPqAIB8LgwjIJsGSvSdSfWbHkqEMcFkr8J5eA5U
-	QBuTHYznPlTAaAwJydV+dpXSyqPpTfUCPMLJRvRwoYk2UeonTr3bKVeCK3WxLHEEKUrFZWtgUSm
-	HBEeoxcxWNQgItZHWhMC7JheEYLX/mqO6iaDrm9lQZ+fc9qAQLh/l/UMRMyS6YFGcSZgIIIpBX7
-	+HMuNGyoRSreHm/kCGNGLvDyNcF3wZThyhMGVtBF/WBE8oV+kUov7yRX4p2aCuMzR5rGLfQZYve
-	EAU8kLhDUQkHlcFQdD3CW5t0MWZmHOFrX3CF4+9tTi0rdoy3awyqLBxTtRZ4JtZj1i5MNf3qySr
-	GsO4ZLY7fG7LeVTvw
-X-Google-Smtp-Source: AGHT+IHUVZ074JKaAb9ncND8Uu7WRhh2YlGnAcHVleffCEEVTpj1+nUfZQDJb2JS+yVkEbfZ4DlSNw==
-X-Received: by 2002:a05:6000:240a:b0:39c:142c:e889 with SMTP id ffacd0b85a97d-39c142ce891mr6232553f8f.27.1743427322771;
-        Mon, 31 Mar 2025 06:22:02 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:143:2e3d:45f1:fd2? ([2a01:e0a:3d9:2080:143:2e3d:45f1:fd2])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b7a4346sm11469954f8f.95.2025.03.31.06.22.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 31 Mar 2025 06:22:02 -0700 (PDT)
-Message-ID: <7c986d1f-315d-4cb0-b160-ee1f564c26c4@linaro.org>
-Date: Mon, 31 Mar 2025 15:22:01 +0200
+	id 1tzF9j-00000000RWj-2LHV;
+	Mon, 31 Mar 2025 13:26:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1743427559; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lFpzyWNT0USwVhZo90t1H8YsKmXjkTiA40JVXFnWo4QCPAIk2thx7TRBlAU1K8dPThDc1FIFEYAX4FIom3w23pokpTh/x1Mg4e6yP3fzKqbgKWLkiz6TFLxuYaiHAXXHS1mctV24fS+qH0cfeKzobVyKDJR8eZNUgAT0or9iiF4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1743427559; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=HWooIc3os8p0nMskc5BNvunTe8NZcWqXI8Mkie2yYgw=; 
+	b=FyJqWhpbofJ3JePl7TCwFDAJ1r9kM5DiBswVCtsyEncz5aO++A94Lv8x+2b07Y9how9mN2ZYTEzuIXH7sWOFWYsErvYs5Tlozrd39DA4FXoO0K3wrZeyw5MY3OKlUnpeFyi1Rl1LyqK8YwL7wqgRhF+B7m8ykeFtEUCss6ggIWo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1743427559;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=HWooIc3os8p0nMskc5BNvunTe8NZcWqXI8Mkie2yYgw=;
+	b=k492Rhoxz+7diXbMUgv1Ut3B3mjToaQHx37PzVyEGSmze1bsEZQIfeJ4NgBDdA2M
+	NL0HbA23ybIE+SErXhBegGTPl66oS60Ti0OBi5XFh9YJ5aK85GWX/ReGY9ALX10OBi5
+	U/1UtHTusAnM4Mt5ZDDLjk2AT4H/jHxGWhZDasK0=
+Received: by mx.zohomail.com with SMTPS id 1743427556313451.45814764603153;
+	Mon, 31 Mar 2025 06:25:56 -0700 (PDT)
+Message-ID: <114525a6-950e-4894-92de-fa7655bb9156@collabora.com>
+Date: Mon, 31 Mar 2025 10:25:48 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2] net: mdio: mux-meson-gxl: set 28th bit in eth_reg2
-To: Christian Hewitt <christianshewitt@gmail.com>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org, Da Xue <da@libre.computer>
-References: <20250331074420.3443748-1-christianshewitt@gmail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250331074420.3443748-1-christianshewitt@gmail.com>
+Subject: Re: [PATCH v5 4/6] drm/panfrost: Add support for AARCH64_4K page
+ table format
+To: Steven Price <steven.price@arm.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+Cc: boris.brezillon@collabora.com, robh@kernel.org,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, kernel@collabora.com,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ sjoerd@collabora.com, angelogioacchino.delregno@collabora.com,
+ =?UTF-8?Q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>
+References: <20250324185801.168664-1-ariel.dalessandro@collabora.com>
+ <20250324185801.168664-5-ariel.dalessandro@collabora.com>
+ <2aa3bf07-924b-4359-b566-0db57d53cdf5@arm.com>
+Content-Language: en-US
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+In-Reply-To: <2aa3bf07-924b-4359-b566-0db57d53cdf5@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_062204_779464_365EDCDB 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20250331_062623_646094_6953464F 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,57 +83,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/03/2025 09:44, Christian Hewitt wrote:
-> From: Da Xue <da@libre.computer>
-> 
-> This bit is necessary to enable packets on the interface. Without this
-> bit set, ethernet behaves as if it is working, but no activity occurs.
-> 
-> The vendor SDK sets this bit along with the PHY_ID bits. U-boot also
-> sets this bit, but if u-boot is not compiled with networking support
-> the interface will not work.
-> 
-> Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support");
-> Signed-off-by: Da Xue <da@libre.computer>
-> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
-> ---
-> Resending on behalf of Da Xue who has email sending issues.
-> Changes since v1 [0]:
-> - Remove blank line between Fixes and SoB tags
-> - Submit without mail server mangling the patch
-> - Minor tweaks to subject line and commit message
-> - CC to stable@vger.kernel.org
-> 
-> [0] https://patchwork.kernel.org/project/linux-amlogic/patch/CACqvRUbx-KsrMwCHYQS6eGXBohynD8Q1CQx=8=9VhqZi13BCQQ@mail.gmail.com/
-> 
->   drivers/net/mdio/mdio-mux-meson-gxl.c | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/mdio/mdio-mux-meson-gxl.c b/drivers/net/mdio/mdio-mux-meson-gxl.c
-> index 00c66240136b..fc5883387718 100644
-> --- a/drivers/net/mdio/mdio-mux-meson-gxl.c
-> +++ b/drivers/net/mdio/mdio-mux-meson-gxl.c
-> @@ -17,6 +17,7 @@
->   #define  REG2_LEDACT		GENMASK(23, 22)
->   #define  REG2_LEDLINK		GENMASK(25, 24)
->   #define  REG2_DIV4SEL		BIT(27)
-> +#define  REG2_RESERVED_28	BIT(28)
->   #define  REG2_ADCBYPASS		BIT(30)
->   #define  REG2_CLKINSEL		BIT(31)
->   #define ETH_REG3		0x4
-> @@ -65,7 +66,7 @@ static void gxl_enable_internal_mdio(struct gxl_mdio_mux *priv)
->   	 * The only constraint is that it must match the one in
->   	 * drivers/net/phy/meson-gxl.c to properly match the PHY.
->   	 */
-> -	writel(FIELD_PREP(REG2_PHYID, EPHY_GXL_ID),
-> +	writel(REG2_RESERVED_28 | FIELD_PREP(REG2_PHYID, EPHY_GXL_ID),
->   	       priv->regs + ETH_REG2);
->   
->   	/* Enable the internal phy */
+Hi Steven,
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+On 3/31/25 8:15 AM, Steven Price wrote:
+> On 24/03/2025 18:57, Ariel D'Alessandro wrote:
+>> Currently, Panfrost only supports MMU configuration in "LEGACY" (as
+>> Bifrost calls it) mode, a (modified) version of LPAE "Large Physical
+>> Address Extension", which in Linux we've called "mali_lpae".
+>>
+>> This commit adds support for conditionally enabling AARCH64_4K page
+>> table format. To achieve that, a "GPU optional quirks" field was added
+>> to `struct panfrost_features` with the related flag.
+>>
+>> Note that, in order to enable AARCH64_4K mode, the GPU variant must have
+>> the HW_FEATURE_AARCH64_MMU feature flag present.
+>>
+>> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+>> Reviewed-by: Adrián Larumbe <adrian.larumbe@collabora.com>
+> 
+> Reviewed-by: Steven Price <steven.price@arm.com>
+> 
+> (one very minor nit below)
+> 
+>> ---
+>>   drivers/gpu/drm/panfrost/panfrost_device.h |  16 +++
+>>   drivers/gpu/drm/panfrost/panfrost_mmu.c    | 140 +++++++++++++++++++--
+>>   drivers/gpu/drm/panfrost/panfrost_regs.h   |  34 +++++
+>>   3 files changed, 183 insertions(+), 7 deletions(-)
+>>
+> 
+> [...]
+> 
+>> diff --git a/drivers/gpu/drm/panfrost/panfrost_mmu.c b/drivers/gpu/drm/panfrost/panfrost_mmu.c
+>> index 294f86b3c25e..ccf51fd5f9c0 100644
+>> --- a/drivers/gpu/drm/panfrost/panfrost_mmu.c
+>> +++ b/drivers/gpu/drm/panfrost/panfrost_mmu.c
+> [...]
+>> +
+>> +static int panfrost_mmu_cfg_init(struct panfrost_mmu *mmu,
+>> +				  enum io_pgtable_fmt fmt)
+> 
+> NIT: It's always hard to see in the diff, but the alignment of the
+> second line is wrong. But I'll fix this up when merging.
+
+Indeed, you're right. Thanks for the nitpick!
+
+Happy to see this hitting drm-misc-next soon :)
+
+-- 
+Ariel D'Alessandro
+Software Engineer
+
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
+Registered in England & Wales, no. 5513718
+
 
