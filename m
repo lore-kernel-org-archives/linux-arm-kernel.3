@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A617C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 10:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C544C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 10:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qrz2Jjzo6wrUZ14eaGmNUqzQPnqra+wcv/JiWOhUbxM=; b=fHSSLlpgtGV+qFzbdlWIl/8mlL
-	HLvwIn3XGWguvnSuh4VTNwTzFeZqb+7S//QBFy6lZAreI2eamsvaOAT9SGtSImvW8Y6e8xC7GGoIg
-	FiUaCN79Z+4cD+BkkTixrQyiqmCOlkBCz6QDdXoBkX/8pOx8nxOVP6zMFbmCjeaL+09qg9B9N8tv6
-	25Ns6SDa+aWvLIhUwUt7mxsITwVB0Nku+92AzUT+fOAHA84iU/7tYbOhdyGMs/F7gGx6AqZQBveAi
-	BNtc+VP2ZqygrVCAZ85a1zY/IKE+s5/knraaSKwI0F7jo89gpS9dVLIe8KuZ/S8OWU7TWlDy3o10Q
-	v/nTQZCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qV7xKYxy0jYGd0Qm2mj0JBA759UToJ3LiAjKa48PaqQ=; b=RbQGGEfwbS2DL91oMrjTH4kemZ
+	/r8h3jsylQC3YjgVUkrLH0MjYCeCH2rsRUhtbxs80eVuoOMhkcyyBUpEQBFCNrlUqlLw5DxJ8+sB6
+	w0tTTunJjlCnZXxBMH5SEaDwmKoPSOLv58uDsxLrX8B/F1SLfAgpvVTmSBTo5nyhVlukv51ca0xH5
+	8vWwv74JZh6Otr9H+XDCfUlP1oh0hlnfbybjE73dNyYlo1Pa0xsgA3jrQ+qhvqVdeKSz2UN6nm9Di
+	pzGgNRe6AJQ2EzpehZa1737W9PTZa0B1B94nY/klX2pBLCfGr4T1jM6Js9vnU3Z0AJDI6YwDf2kJs
+	tTkIKk5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzCBc-000000002QH-2hv5;
-	Mon, 31 Mar 2025 10:16:08 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tzCKx-000000003J9-10Zk;
+	Mon, 31 Mar 2025 10:25:47 +0000
+Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzC9t-000000002CR-3xZ1;
-	Mon, 31 Mar 2025 10:14:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 43FBCA430A4;
-	Mon, 31 Mar 2025 10:08:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DDE1C4CEE5;
-	Mon, 31 Mar 2025 10:14:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743416060;
-	bh=56IfTRauGxaQRKelmBbZK/tQWYp/lbJMPy7TjK50Wqc=;
-	h=From:Date:Subject:To:Cc:From;
-	b=UM5PkaxQaot4GJoJ+pHs9qPNmy+XoOLrc2NZ7l9Mikjh9Q6ro0mj/NEQyD+mWDF4n
-	 A2JEbK/A0Lud86zCoJEVtjBNiIYh7t0+Fouw68z1hC+mmAsYvLLoDSt1oNk5Op3uxz
-	 MKUmfoHUs5SPE/B3B8SjuvCD7Kj79NMRAaGk83yjA97UYFcHG1RINlUoNUPvn80iV3
-	 uIPvHC4IFUNLWtAEE3W19QGnUhQp2ZHn2KZjnUAq31SIezXVpEtg7gr4I9aR38Dnx3
-	 UMmAJu5whsDInYk/XgHgfCx09hFossNbly/7CZn/M4ZHB/+fq/us1yReLb6zI2taWu
-	 FCBZQs+lAJjNg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 31 Mar 2025 12:14:09 +0200
-Subject: [PATCH net v3] net: airoha: Validate egress gdm port in
- airoha_ppe_foe_entry_prepare()
+	id 1tzCJE-000000003AQ-18bc
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Mar 2025 10:24:01 +0000
+Received: by mail-pj1-x1044.google.com with SMTP id 98e67ed59e1d1-301e05b90caso7512561a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 03:24:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743416639; x=1744021439; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qV7xKYxy0jYGd0Qm2mj0JBA759UToJ3LiAjKa48PaqQ=;
+        b=aAvQF5gcV+RTMTA1GVG/wiLmaVA6zJwNG1HSYGj0kJSmJ1Qd11o70O2jVD00IK72lU
+         v0EEMH4yFD7NJP4fu7b3cUBEVRHsqelTlwZry14J8S/Y48uK6D981IBXcwpHEym/9BQM
+         82x5tfepLWdJMqPOzTRaKeMsIKok1Fd+E3nlqRKHytHBbbYWusKS1Z5PnhV1CTWu6/f0
+         o1Hd36do3QsY+gWa5581GcxdilQwcIGMV+NeA/9nUC9qupntYRcoIxuPIDDfRrZ2MGps
+         HRvRBhdxCxT54zQFQBLFsTEq+7H907A2bNz7JXC0I5cunT+Na34CKYCXQSKmyFww/vDs
+         aHjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743416639; x=1744021439;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qV7xKYxy0jYGd0Qm2mj0JBA759UToJ3LiAjKa48PaqQ=;
+        b=tU7jKN5t/qo1DqtBujlBZrMwWIz3ycxjWB503OuBhTTGSr1TlGs79u9P55dGNyQ9te
+         +pl0IsxMqJ/U5yuqIfwFaO8QwX7H2i5snur7G2N9N+QmcmzrfKUOavcy/I9v20FfdBUQ
+         9ojhb8B39DnBNwfj0M1MBcR3ns3BSGq/UXanUoEtje4jgsKTh+tDMY7OyMtXvWTz0rRu
+         0yCLg+GjH3/SFJka1hNLEaEdlB88Y83vEFxEs/1m4WNISUQP5p3+Bt0ptmJzXKzdUtXs
+         1ygtzrgUIkUYIMOeHZ5MVPJMErq0eBECpKRnzcbAcxqbcFzNCPJO4uREwfAPwgzAsEbC
+         1DtQ==
+X-Gm-Message-State: AOJu0YyBURfZyHeCiMobgFM07Z2AQOCCfHUvm9wTBNgx90aEx6aTuOy7
+	RKNGfgy0AhIzdcURpLd1IFFRdOqy3nxEThu7c3+FKpCE0kUfDfLe
+X-Gm-Gg: ASbGncvhf5kqVHyAWDV+fSG3jU2/98JqTkZVcX8ZZMWR2kDcJqgnYhOhizoKVdO1Y77
+	KFyNuyJ0rAyFF/Fy+AucYNTaPZv1l6YyI8I0auMprruKWWD6m10RcT2CQ9Gc66o3tTSkKK+4DOT
+	MEk1WxMKTtEv44Nb8KBjPA3pnq/OC036k7emQWfcXxet+aFZ5WcKpjEMF/SHVDlK+X++RYHLRlJ
+	482gUk9bb9hRk3GRNHvvG3WQ5gq8WaJPvDm8vLdgnb4HQfodHJDlYFaP0x6+DFIzEIFKq6Rms91
+	BBHCWBOwOoWktgBO6gLdGRqTNVGVKm+QsGG8tGNBFlAHaOPOhxR6nDT5L+SKR3UZO4UDOGk=
+X-Google-Smtp-Source: AGHT+IGp4CoHfPPUsld+NS1s2r/2vq7ZsLc+k42RNLjPQwX//XT+3GZe04D3h7pNubLVfwGnIeLbPg==
+X-Received: by 2002:a17:90b:544b:b0:2ff:4f04:4261 with SMTP id 98e67ed59e1d1-30532178e8dmr11706279a91.34.1743416639470;
+        Mon, 31 Mar 2025 03:23:59 -0700 (PDT)
+Received: from henry.localdomain ([111.202.148.167])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291eeca203sm65873385ad.30.2025.03.31.03.23.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Mar 2025 03:23:58 -0700 (PDT)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: will@kernel.org,
+	mark.rutland@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Henry Martin <bsdhenrymartin@gmail.com>
+Subject: [PATCH] drivers/perf: Add NULL check in tx2_uncore_pmu_register
+Date: Mon, 31 Mar 2025 18:23:46 +0800
+Message-Id: <20250331102346.8772-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250331-airoha-validate-egress-gdm-port-v3-1-c14e6ba9733a@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAPBq6mcC/x3NQQqDQAxA0atI1gZGQ231KtJFmEnHQOtIIlIQ7
- 96hy7f5/wQXU3GYmhNMDnUtawW1DcSF1yyoqRr60N8CUYesVhbGg9+aeBeUbOKOOX1wK7Yj0RA
- f93EcQmSolc3kpd//YX5e1w9fdG6DcQAAAA==
-X-Change-ID: 20250331-airoha-validate-egress-gdm-port-336c879960ca
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_031422_145653_1D80E692 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20250331_032400_312276_B81FC37A 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,122 +96,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Device pointer in airoha_ppe_foe_entry_prepare routine is not strictly
-necessary a device allocated by airoha_eth driver since it is an egress
-device and the flowtable can contain even wlan, pppoe or vlan devices.
-E.g:
+When devm_kasprintf() fails, it returns a NULL pointer. However, this return value is not properly checked in the function tx2_uncore_pmu_register.
 
-flowtable ft {
-        hook ingress priority filter
-        devices = { eth1, lan1, lan2, lan3, lan4, wlan0 }
-        flags offload                               ^
-                                                    |
-                     "not allocated by airoha_eth" --
-}
+A NULL check should be added after the devm_kasprintf() to prevent potential NULL pointer dereference error.
 
-In this case airoha_get_dsa_port() will just return the original device
-pointer and we can't assume netdev priv pointer points to an
-airoha_gdm_port struct.
-Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
-routine before accessing net_device priv pointer.
+Fixes: 69c32972d5938 ("Add Cavium ThunderX2 SoC UNCORE PMU driver")
 
-Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
 ---
-Changes in v3:
-- Rebase on top of net tree
-- Fix commit log
-- Link to v2: https://lore.kernel.org/r/20250315-airoha-flowtable-null-ptr-fix-v2-1-94b923d30234@kernel.org
+ drivers/perf/thunderx2_pmu.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Changes in v2:
-- Avoid checking netdev_priv pointer since it is always not NULL
-- Link to v1: https://lore.kernel.org/r/20250312-airoha-flowtable-null-ptr-fix-v1-1-6363fab884d0@kernel.org
----
- drivers/net/ethernet/airoha/airoha_eth.c | 13 +++++++++++++
- drivers/net/ethernet/airoha/airoha_eth.h |  3 +++
- drivers/net/ethernet/airoha/airoha_ppe.c | 10 ++++++++--
- 3 files changed, 24 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index c0a642568ac115ea9df6fbaf7133627a4405a36c..bf9c882e9c8b087dbf5e907636547a0117d1b96a 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2454,6 +2454,19 @@ static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
- 	}
+diff --git a/drivers/perf/thunderx2_pmu.c b/drivers/perf/thunderx2_pmu.c
+index 6ed4707bd6bb..ea36a82c3577 100644
+--- a/drivers/perf/thunderx2_pmu.c
++++ b/drivers/perf/thunderx2_pmu.c
+@@ -738,7 +738,8 @@ static int tx2_uncore_pmu_register(
+ 
+ 	tx2_pmu->pmu.name = devm_kasprintf(dev, GFP_KERNEL,
+ 			"%s", name);
+-
++	if (!tx2_pmu->pmu.name)
++		return -ENOMEM
+ 	return perf_pmu_register(&tx2_pmu->pmu, tx2_pmu->pmu.name, -1);
  }
  
-+int airoha_is_valid_gdm_port(struct airoha_eth *eth,
-+			     struct airoha_gdm_port *port)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+		if (eth->ports[i] == port)
-+			return 0;
-+	}
-+
-+	return -EINVAL;
-+}
-+
- static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 				 struct device_node *np, int index)
- {
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 60690b685710c72a2e15c6c6c94240108dafa1c1..d199b8adffc0b25c369dc19cdc074c50af40e3bf 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -532,6 +532,9 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val);
- #define airoha_qdma_clear(qdma, offset, val)			\
- 	airoha_rmw((qdma)->regs, (offset), (val), 0)
- 
-+int airoha_is_valid_gdm_port(struct airoha_eth *eth,
-+			     struct airoha_gdm_port *port);
-+
- void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash);
- int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
- 				 void *cb_priv);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 8b55e871352d359fa692c253d3f3315c619472b3..65833e2058194a64569eafec08b80df8190bba6c 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -197,7 +197,8 @@ static int airoha_get_dsa_port(struct net_device **dev)
- #endif
- }
- 
--static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
-+static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
-+					struct airoha_foe_entry *hwe,
- 					struct net_device *dev, int type,
- 					struct airoha_flow_data *data,
- 					int l4proto)
-@@ -224,6 +225,11 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
- 	if (dev) {
- 		struct airoha_gdm_port *port = netdev_priv(dev);
- 		u8 pse_port;
-+		int err;
-+
-+		err = airoha_is_valid_gdm_port(eth, port);
-+		if (err)
-+			return err;
- 
- 		if (dsa_port >= 0)
- 			pse_port = port->id == 4 ? FE_PSE_PORT_GDM4 : port->id;
-@@ -633,7 +639,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
- 	    !is_valid_ether_addr(data.eth.h_dest))
- 		return -EINVAL;
- 
--	err = airoha_ppe_foe_entry_prepare(&hwe, odev, offload_type,
-+	err = airoha_ppe_foe_entry_prepare(eth, &hwe, odev, offload_type,
- 					   &data, l4proto);
- 	if (err)
- 		return err;
-
----
-base-commit: 2ea396448f26d0d7d66224cb56500a6789c7ed07
-change-id: 20250331-airoha-validate-egress-gdm-port-336c879960ca
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.34.1
 
 
