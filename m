@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C544C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 10:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E784DC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 10:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qV7xKYxy0jYGd0Qm2mj0JBA759UToJ3LiAjKa48PaqQ=; b=RbQGGEfwbS2DL91oMrjTH4kemZ
-	/r8h3jsylQC3YjgVUkrLH0MjYCeCH2rsRUhtbxs80eVuoOMhkcyyBUpEQBFCNrlUqlLw5DxJ8+sB6
-	w0tTTunJjlCnZXxBMH5SEaDwmKoPSOLv58uDsxLrX8B/F1SLfAgpvVTmSBTo5nyhVlukv51ca0xH5
-	8vWwv74JZh6Otr9H+XDCfUlP1oh0hlnfbybjE73dNyYlo1Pa0xsgA3jrQ+qhvqVdeKSz2UN6nm9Di
-	pzGgNRe6AJQ2EzpehZa1737W9PTZa0B1B94nY/klX2pBLCfGr4T1jM6Js9vnU3Z0AJDI6YwDf2kJs
-	tTkIKk5w==;
+	bh=6OR5ZX6gnhmwXhcE50/jYL+u26UqK30a7zFCArx/L1g=; b=kVAG0WixBZyQqzax4Ou6GKoW6O
+	Y0XOfLYf0xfCa1a34s9qiJe0Hur7RsNogagvCFXFZODLt/4++chYZw1jq13/h6hRSPmWghEkCxsAV
+	wZrnMF91+8KWAd7321AnmwTQ50Mu4OBi0T+ybWp0tKkhcU7WroMtF/K+1fdtgNhcGe2Qf4JXtsqMI
+	7LRh4No5qoffr46xbKnTI2IBVKgsitOdx9tZhmVvGpWBAwUKYK30DeFhJ/E587b54weoQjPAqXDc1
+	zXM6k6r3CvsrL3xYgxj/7zmaolZvQL0509JmYMoLLpYvmfhmFYaOz0/LSBrP5MNGXN/6ZC5vbJzVt
+	miqMRLZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzCKx-000000003J9-10Zk;
-	Mon, 31 Mar 2025 10:25:47 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
+	id 1tzCSW-000000004hk-21Ug;
+	Mon, 31 Mar 2025 10:33:36 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzCJE-000000003AQ-18bc
+	id 1tzCQo-000000004KO-36sV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 10:24:01 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id 98e67ed59e1d1-301e05b90caso7512561a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 03:24:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743416639; x=1744021439; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qV7xKYxy0jYGd0Qm2mj0JBA759UToJ3LiAjKa48PaqQ=;
-        b=aAvQF5gcV+RTMTA1GVG/wiLmaVA6zJwNG1HSYGj0kJSmJ1Qd11o70O2jVD00IK72lU
-         v0EEMH4yFD7NJP4fu7b3cUBEVRHsqelTlwZry14J8S/Y48uK6D981IBXcwpHEym/9BQM
-         82x5tfepLWdJMqPOzTRaKeMsIKok1Fd+E3nlqRKHytHBbbYWusKS1Z5PnhV1CTWu6/f0
-         o1Hd36do3QsY+gWa5581GcxdilQwcIGMV+NeA/9nUC9qupntYRcoIxuPIDDfRrZ2MGps
-         HRvRBhdxCxT54zQFQBLFsTEq+7H907A2bNz7JXC0I5cunT+Na34CKYCXQSKmyFww/vDs
-         aHjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743416639; x=1744021439;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qV7xKYxy0jYGd0Qm2mj0JBA759UToJ3LiAjKa48PaqQ=;
-        b=tU7jKN5t/qo1DqtBujlBZrMwWIz3ycxjWB503OuBhTTGSr1TlGs79u9P55dGNyQ9te
-         +pl0IsxMqJ/U5yuqIfwFaO8QwX7H2i5snur7G2N9N+QmcmzrfKUOavcy/I9v20FfdBUQ
-         9ojhb8B39DnBNwfj0M1MBcR3ns3BSGq/UXanUoEtje4jgsKTh+tDMY7OyMtXvWTz0rRu
-         0yCLg+GjH3/SFJka1hNLEaEdlB88Y83vEFxEs/1m4WNISUQP5p3+Bt0ptmJzXKzdUtXs
-         1ygtzrgUIkUYIMOeHZ5MVPJMErq0eBECpKRnzcbAcxqbcFzNCPJO4uREwfAPwgzAsEbC
-         1DtQ==
-X-Gm-Message-State: AOJu0YyBURfZyHeCiMobgFM07Z2AQOCCfHUvm9wTBNgx90aEx6aTuOy7
-	RKNGfgy0AhIzdcURpLd1IFFRdOqy3nxEThu7c3+FKpCE0kUfDfLe
-X-Gm-Gg: ASbGncvhf5kqVHyAWDV+fSG3jU2/98JqTkZVcX8ZZMWR2kDcJqgnYhOhizoKVdO1Y77
-	KFyNuyJ0rAyFF/Fy+AucYNTaPZv1l6YyI8I0auMprruKWWD6m10RcT2CQ9Gc66o3tTSkKK+4DOT
-	MEk1WxMKTtEv44Nb8KBjPA3pnq/OC036k7emQWfcXxet+aFZ5WcKpjEMF/SHVDlK+X++RYHLRlJ
-	482gUk9bb9hRk3GRNHvvG3WQ5gq8WaJPvDm8vLdgnb4HQfodHJDlYFaP0x6+DFIzEIFKq6Rms91
-	BBHCWBOwOoWktgBO6gLdGRqTNVGVKm+QsGG8tGNBFlAHaOPOhxR6nDT5L+SKR3UZO4UDOGk=
-X-Google-Smtp-Source: AGHT+IGp4CoHfPPUsld+NS1s2r/2vq7ZsLc+k42RNLjPQwX//XT+3GZe04D3h7pNubLVfwGnIeLbPg==
-X-Received: by 2002:a17:90b:544b:b0:2ff:4f04:4261 with SMTP id 98e67ed59e1d1-30532178e8dmr11706279a91.34.1743416639470;
-        Mon, 31 Mar 2025 03:23:59 -0700 (PDT)
-Received: from henry.localdomain ([111.202.148.167])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291eeca203sm65873385ad.30.2025.03.31.03.23.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Mar 2025 03:23:58 -0700 (PDT)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: will@kernel.org,
-	mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
+	Mon, 31 Mar 2025 10:31:52 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4CC291026C8AE;
+	Mon, 31 Mar 2025 12:31:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1743417107; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=6OR5ZX6gnhmwXhcE50/jYL+u26UqK30a7zFCArx/L1g=;
+	b=DyrrMMLH87OXRxD/qEfdtU327Jed9RoYP40D9mxVBA3SxepNbu8oMu4P56o1i+RGmgoQUo
+	O16LrlpZJDgSTe1WyJi++xSKZATz6iHOCFSlRDqcXqFQ8ee6Mdfn1moIr66fS0jGcerBQd
+	3YB1H2PBNd9UF2TqAJ21o6aq2KrPR8tGMK91SBqVS++ezHeSwHqNKXkBd3OOXxDCvAt2li
+	MvNvGozlyQKf9EarKirjEiE16YXlSM0c91JbZ1BDRwGAN4YtvK9PdGDC5Fipv9lJ6U/8rb
+	hdjGFuQHOH4hMqgDuOln95lRF1CKaByzi+qNwNQkON999iTLURc7Lgc5b13i2g==
+From: Lukasz Majewski <lukma@denx.de>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>
-Subject: [PATCH] drivers/perf: Add NULL check in tx2_uncore_pmu_register
-Date: Mon, 31 Mar 2025 18:23:46 +0800
-Message-Id: <20250331102346.8772-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Lukasz Majewski <lukma@denx.de>
+Subject: [PATCH v3 0/4] net: mtip: Add support for MTIP imx287 L2 switch driver
+Date: Mon, 31 Mar 2025 12:31:12 +0200
+Message-Id: <20250331103116.2223899-1-lukma@denx.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_032400_312276_B81FC37A 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20250331_033151_075261_5AFDAD4B 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,32 +81,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When devm_kasprintf() fails, it returns a NULL pointer. However, this return value is not properly checked in the function tx2_uncore_pmu_register.
+This patch series adds support for More Than IP's L2 switch driver embedded
+in some NXP's SoCs. This one has been tested on imx287, but is also available
+in the vf610.
 
-A NULL check should be added after the devm_kasprintf() to prevent potential NULL pointer dereference error.
+In the past there has been performed some attempts to upstream this driver:
+1. The 4.19-cip based one [1]
+2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
+   with NO tag appended.
+3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
+   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
+   the driver uses already configured MAC and PHY to also configure PHY.
 
-Fixes: 69c32972d5938 ("Add Cavium ThunderX2 SoC UNCORE PMU driver")
+All three approaches were not accepted as eligible for upstreaming.
 
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
- drivers/perf/thunderx2_pmu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+The driver from this series has floowing features:
 
-diff --git a/drivers/perf/thunderx2_pmu.c b/drivers/perf/thunderx2_pmu.c
-index 6ed4707bd6bb..ea36a82c3577 100644
---- a/drivers/perf/thunderx2_pmu.c
-+++ b/drivers/perf/thunderx2_pmu.c
-@@ -738,7 +738,8 @@ static int tx2_uncore_pmu_register(
- 
- 	tx2_pmu->pmu.name = devm_kasprintf(dev, GFP_KERNEL,
- 			"%s", name);
--
-+	if (!tx2_pmu->pmu.name)
-+		return -ENOMEM
- 	return perf_pmu_register(&tx2_pmu->pmu, tx2_pmu->pmu.name, -1);
- }
- 
+1. It is fully separated from fec_main - i.e. can be used interchangeable
+   with it. To be more specific - one can build them as modules and
+   if required switch between them when e.g. bridge offloading is required.
+
+   To be more specific:
+        - Use FEC_MAIN: When one needs support for two ETH ports with separate
+          uDMAs used for both and bridging can be realized in SW.
+
+        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
+          attached to switch and bridging shall be offloaded to HW. 
+
+2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
+   separation at boot time. Port separation is disabled when bridging is
+   required.
+
+3. Example usage:
+        Configuration:
+        ip link set lan0 up; sleep 1;
+        ip link set lan1 up; sleep 1;
+        ip link add name br0 type bridge;
+        ip link set br0 up; sleep 1;
+        ip link set lan0 master br0;
+        ip link set lan1 master br0;
+        bridge link;
+        ip addr add 192.168.2.17/24 dev br0;
+        ping -c 5 192.168.2.222
+
+        Removal:
+        ip link set br0 down;
+        ip link delete br0 type bridge;
+        ip link set dev lan1 down
+        ip link set dev lan0 down
+
+4. Limitations:
+        - Driver enables and disables switch operation with learning and ageing.
+        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
+          on purpose, as up till now we didn't had consensus about how the driver
+          shall be added to Linux.
+
+Links:
+[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
+[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
+[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
+
+Lukasz Majewski (4):
+  dt-bindings: net: Add MTIP L2 switch description
+  ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2 switch description
+  ARM: dts: nxp: mxs: Adjust XEA board's DTS to support L2 switch
+  net: mtip: The L2 switch driver for imx287
+
+ .../bindings/net/nxp,imx287-mtip-switch.yaml  |  154 ++
+ MAINTAINERS                                   |    7 +
+ arch/arm/boot/dts/nxp/mxs/imx28-xea.dts       |   54 +
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |    8 +-
+ drivers/net/ethernet/freescale/Kconfig        |    1 +
+ drivers/net/ethernet/freescale/Makefile       |    1 +
+ drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
+ .../net/ethernet/freescale/mtipsw/Makefile    |    3 +
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1964 +++++++++++++++++
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  780 +++++++
+ .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  113 +
+ .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  449 ++++
+ 12 files changed, 3545 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
+
 -- 
-2.34.1
+2.39.5
 
 
