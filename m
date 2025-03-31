@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9541EC36017
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 21:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65E2C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 21:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IqFv7p5NcVMXzdeHBPjYikjLO1JUbU/VCURUs/xfOEs=; b=oOlFAuJ0GxkDhY3s99HUSbbY25
-	YW5XWKov0++djiZ+1G7k1po2GqhLUjc2lBuwUVUb4gGMf0E7p714mVoeXl/t1loTY4OropkMfVFHt
-	XcbvsnUYWwkX0qQoCtpX69ceAUblojMIClX8ScsyLRSJz6UZMiQpa4AZvica3BMrHaLzIqek00DbH
-	2Zj8Nz1oJEMBJOd860nHHciPZ/bwWhyoadLBeJurp+yOIMYmDwclGZoIHD4gYY4ABRSkjO/70ygpc
-	W917DudqzyXVECunFz2cZsmfwp7AXfpkDbIZfP5Boz27A4oE9PkQ3cztXKcVsnoGYLx/xzYiFwVSu
-	82w+m5Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UCntAeEomuMLgqZmqZj4SrvGP+3DLTO8xxLbbymA6n8=; b=B2ZSLNXRDbslAwMbOkfosltWbR
+	EgEOHhyc803CIGF0YTG+bFG9y356AFVd+lSZsgce5yUCKo2E/okjrb+ycIv8UveErGl8v3zUIjeAR
+	R/6A1xatnIf6fmglHjsl1NxfPia0HrcsXFxsFgm7jBZxjg+7qkQUmyHKg6FWfR38X0rjdAhMlWL4U
+	fcyVIzC/5UUSJS7NxJHkXmCAeEjO2F3pIKIy1oSHXAod1t7DZKfRhEn3hEacjRGDJzyCbDraGCiJH
+	/87NjRPIXDlbalNF3GRy3CDi/VIPskUNUUh3gI6OL+MJ3XRSgXvoFWBq+7U6A9z2dIMLhtFr8OFAT
+	N/Nar3dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzMb8-00000001PCa-1PmM;
-	Mon, 31 Mar 2025 21:23:10 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1tzMvi-00000001RWO-3xNd;
+	Mon, 31 Mar 2025 21:44:26 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzMZN-00000001Oxr-2eGs
+	id 1tzMtv-00000001RKe-3MYx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 21:21:23 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-300fefb8e06so7843329a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 14:21:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lessconfused.com; s=lessconfused; t=1743456081; x=1744060881; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IqFv7p5NcVMXzdeHBPjYikjLO1JUbU/VCURUs/xfOEs=;
-        b=ZxMha13qu7vfqD1uPJ3YAzR7VszeB8BnX7L+87BJGL3zO6Ua9+0WlGPPh1S5fkFKjC
-         AoA8/QJC9Pqe87c51lMzbiqDcKG38q5uDjac8EAHQyO2VuEPZCCV6SAcg1LsN+TeqJsF
-         ssfsNnI4Zg5bZc3nm0HC97By+rUNzWkRhx+qA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743456081; x=1744060881;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IqFv7p5NcVMXzdeHBPjYikjLO1JUbU/VCURUs/xfOEs=;
-        b=METdjiEAk4xj495+G1z/01krPfTYIZwuxXfUxTjT9DEsAYDdztaFJmBJtGjwRMwY/F
-         u21Zc5MxQZrA8RiMkUGtG35UP88AqX3NO3iqIvQeCaoyrtfoO3Csx5wyTZTq8pNZZEV4
-         Ofw1EPdDNPYSVBN+ifJ+Jw3pkYOQgZ/uDbIGeXtA3KZU26GsDU9Zm7YfcPQxxGSS9VJr
-         af7zlZqKuN/ii9QdS2XIdtEG5rlrICjY4M2EPidm/iRCg205DwE9V22JEwlFfes2NSIU
-         i8GAIhTB7WvvzGchJa7JlgpkYU+aPrkUmFeWufrs46vCkQyGBHVA2WJu1EwfwDPSyh78
-         2mLA==
-X-Forwarded-Encrypted: i=1; AJvYcCU+VsOLqQkWkXc55evCmZybLYVWqteSj0DWVJWNIeC+qbpvAIa1xTl2B2zh+8dzwLP9BxHem4jsSyPtkKPtrJ6L@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+8XySACYwti4zxtNZk4diTmdCTxA9KUu4KLhSyZ6oMNWp4ZeC
-	kSaOmxW3bP1Qc59vu0gsqqdes+xHcY5egr/3I3Cbqpb7TRxW0sVB1oS+Vvc2vkH1S4+FjcLRB8Q
-	wEcsxTNy0twNKwewRi4DHrzL5FCCmCeiAXdHGpg==
-X-Gm-Gg: ASbGncvrJunpRxpM7VoyIRvFMsw0DndjeX0EqplUiMHdCDGoTznzhAovy2DLP8qgESP
-	uYPpKNb0bbb21/vzUsbU9UJam8VW41L7AYfvWkIU43i4JOS86cD04tfwFnlZlSVlJvZAn4irv0a
-	0sk2eZiT1yLlvAPCmGPWSVTjI=
-X-Google-Smtp-Source: AGHT+IHwfY9YDI7gAxVEnaSnjkABdZZOKgGT0o+XpttcOyVXA2GQq0jvYVFLH9NQlhONNF8RbNEGEwVheCtAyPLI7IM=
-X-Received: by 2002:a17:90b:570d:b0:2fe:85f0:e115 with SMTP id
- 98e67ed59e1d1-30560949feemr889884a91.26.1743456080750; Mon, 31 Mar 2025
- 14:21:20 -0700 (PDT)
+	Mon, 31 Mar 2025 21:42:37 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1C99410252BE4;
+	Mon, 31 Mar 2025 23:42:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1743457353; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=UCntAeEomuMLgqZmqZj4SrvGP+3DLTO8xxLbbymA6n8=;
+	b=FuSaIXewAfF7+H7TSOGHjWpA+pkSIOEwwXyr4uTcTv25w23zJORlyoZajX3yHZ9cxSFd/h
+	TRg/I1Bum6UAfwWPzsTmbQOGMTvdldauacrYXlWWyzysy+LqoPAPa7OIYAdLbM2AHvM1mn
+	esi3dRDPCrS8TE9Pyt7YGBWySxHpfaZGRotIdeC8zCK/dQULXeiQLU5XvTIJd+aUgufKQd
+	6Oxyft17aC5rtHT6vRBlmSLWXkHX6SHTy/FiVzQN6atxZtlgnfbcHIsMVWxPnC82lrnq6/
+	pvh23yqBTVlI1/pgsIYjelfif3LZod1cKxlnUJgSpoybxWWyRdz0dbfJEFOCdQ==
+Date: Mon, 31 Mar 2025 23:42:28 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 0/4] net: mtip: Add support for MTIP imx287 L2 switch
+ driver
+Message-ID: <20250331234228.5d8249ac@wsk>
+In-Reply-To: <ec703b87-91a4-4ed0-a604-aceb90769ab0@gmx.net>
+References: <20250331103116.2223899-1-lukma@denx.de>
+	<20250331101036.68afd26a@kernel.org>
+	<20250331211125.79badeaf@wsk>
+	<ec703b87-91a4-4ed0-a604-aceb90769ab0@gmx.net>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20250331074420.3443748-1-christianshewitt@gmail.com>
- <17cfc9e2-5920-42e9-b934-036351c5d8d2@lunn.ch> <Z-qeXK2BlCAR1M0F@shell.armlinux.org.uk>
- <CACdvmAijY=ovZBgwBFDBne5dJPHrReLTV6+1rJZRxxGm42fcMA@mail.gmail.com> <Z-r7c1bAHJK48xhD@shell.armlinux.org.uk>
-In-Reply-To: <Z-r7c1bAHJK48xhD@shell.armlinux.org.uk>
-From: Da Xue <da@lessconfused.com>
-Date: Mon, 31 Mar 2025 17:21:08 -0400
-X-Gm-Features: AQ5f1JogYqSKmDgBJP4R985J7fldNhdkXea2BS9P9NlvEC_qQFM2qGPLO_OsWfE
-Message-ID: <CACdvmAhvh-+-yiATTqnzJCLthtr8uNpJqUrXQGs5MFJSHafkSQ@mail.gmail.com>
-Subject: Re: [PATCH v2] net: mdio: mux-meson-gxl: set 28th bit in eth_reg2
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Kevin Hilman <khilman@baylibre.com>, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	Da Xue <da@libre.computer>, Eric Dumazet <edumazet@google.com>, netdev@vger.kernel.org, 
-	Jerome Brunet <jbrunet@baylibre.com>, Jakub Kicinski <kuba@kernel.org>, 
-	linux-amlogic@lists.infradead.org, Paolo Abeni <pabeni@redhat.com>, 
-	"David S . Miller" <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org, 
-	Heiner Kallweit <hkallweit1@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; boundary="Sig_/okte2gjYXUvf+jGnOR83L_j";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_142121_686210_C4B57915 
-X-CRM114-Status: GOOD (  31.62  )
+X-CRM114-CacheID: sfid-20250331_144235_994590_B1B7B900 
+X-CRM114-Status: GOOD (  24.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,96 +80,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 31, 2025 at 4:30=E2=80=AFPM Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
->
-> On Mon, Mar 31, 2025 at 03:09:00PM -0400, Da Xue wrote:
-> > On Mon, Mar 31, 2025 at 9:55=E2=80=AFAM Russell King (Oracle)
-> > <linux@armlinux.org.uk> wrote:
-> > >
-> > > On Mon, Mar 31, 2025 at 03:43:26PM +0200, Andrew Lunn wrote:
-> > > > On Mon, Mar 31, 2025 at 07:44:20AM +0000, Christian Hewitt wrote:
-> > > > > From: Da Xue <da@libre.computer>
-> > > > >
-> > > > > This bit is necessary to enable packets on the interface. Without=
- this
-> > > > > bit set, ethernet behaves as if it is working, but no activity oc=
-curs.
-> > > > >
-> > > > > The vendor SDK sets this bit along with the PHY_ID bits. U-boot a=
-lso
-> > > > > sets this bit, but if u-boot is not compiled with networking supp=
-ort
-> > > > > the interface will not work.
-> > > > >
-> > > > > Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support=
-");
-> > > > > Signed-off-by: Da Xue <da@libre.computer>
-> > > > > Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
-> > > > > ---
-> > > > > Resending on behalf of Da Xue who has email sending issues.
-> > > > > Changes since v1 [0]:
-> > > > > - Remove blank line between Fixes and SoB tags
-> > > > > - Submit without mail server mangling the patch
-> > > > > - Minor tweaks to subject line and commit message
-> > > > > - CC to stable@vger.kernel.org
-> > > > >
-> > > > > [0] https://patchwork.kernel.org/project/linux-amlogic/patch/CACq=
-vRUbx-KsrMwCHYQS6eGXBohynD8Q1CQx=3D8=3D9VhqZi13BCQQ@mail.gmail.com/
-> > > > >
-> > > > >  drivers/net/mdio/mdio-mux-meson-gxl.c | 3 ++-
-> > > > >  1 file changed, 2 insertions(+), 1 deletion(-)
-> > > > >
-> > > > > diff --git a/drivers/net/mdio/mdio-mux-meson-gxl.c b/drivers/net/=
-mdio/mdio-mux-meson-gxl.c
-> > > > > index 00c66240136b..fc5883387718 100644
-> > > > > --- a/drivers/net/mdio/mdio-mux-meson-gxl.c
-> > > > > +++ b/drivers/net/mdio/mdio-mux-meson-gxl.c
-> > > > > @@ -17,6 +17,7 @@
-> > > > >  #define  REG2_LEDACT               GENMASK(23, 22)
-> > > > >  #define  REG2_LEDLINK              GENMASK(25, 24)
-> > > > >  #define  REG2_DIV4SEL              BIT(27)
-> > > > > +#define  REG2_RESERVED_28  BIT(28)
-> > > >
-> > > > It must have some meaning, it cannot be reserved. So lets try to fi=
-nd
-> > > > a better name.
-> > >
-> > > Indeed, that was my thoughts as well, but Andrew got his reply in
-> > > before I got around to replying!
+--Sig_/okte2gjYXUvf+jGnOR83L_j
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+
+Hi Stefan,
+
+> Hi Lukasz,
+>=20
+> Am 31.03.25 um 21:11 schrieb Lukasz Majewski:
+> > Hi Jakub,
+> > =20
+> >> On Mon, 31 Mar 2025 12:31:12 +0200 Lukasz Majewski wrote: =20
+> >>> This patch series adds support for More Than IP's L2 switch driver
+> >>> embedded in some NXP's SoCs. This one has been tested on imx287,
+> >>> but is also available in the vf610. =20
+> >> Lukasz, please post with RFC in the subject tags during the merge
+> >> window. As I already said net-next is closed. =20
+> > Ach, Ok.
 > >
-> > The datasheets don't have much in the way of information about this
-> > register bit. The Amlogic GXL datasheet is notoriously inaccurate.
-> >
-> > ETH_REG2 0XC8834558
-> > 29:28 R 0x1 reserved
-> >
-> > It claims the bit is read only while the BSP hard codes the setting of
-> > this register. I am open to any name for this register bit.
-> > This is the only thing holding up distro netbooting for these very
-> > popular chip family.
->
-> Which interface mode do we think this affects?
->
-> As a suggestion, maybe call it:
->
-> REG2_<interfacemode>_EN
->
-> and possibly add a comment "This bit is documented as reserved, but
-> needs to be set so that <interfacemode> can pass traffic. This is
-> an unofficial name."
+> > I hope, that we will finish all reviews till 07.04, so v4 would be
+> > the final version. =20
+> well i appreciate your work on this driver,
 
-I found this on the zircon kernel:
+Do you maintain some vf610 or imx28 devices, which would like to use L2
+switch?
 
-#define REG2_ETH_REG2_REVERSED (1 << 28)
+> but this is not how it's
+> going to work. No version of this patch series had a review time of a
+> week.
 
-pregs->Write32(REG2_ETH_REG2_REVERSED | REG2_INTERNAL_PHY_ID, PER_ETH_REG2)=
-;
+I just pointed out that patches would not be pulled (or anything else
+would be done with them) until the merge window is re-opened.
 
-I can respin and call it that.
+> It's about quality not about deadlines.
+>=20
 
->
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+:-D
+
+> Regards
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/okte2gjYXUvf+jGnOR83L_j
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfrDEQACgkQAR8vZIA0
+zr3zwggAgZ8Wu0bOaQkLLopJTM9SIopbyU4MrpYpKkdbWhImV32dIF9o6jegDmy0
+e/o+Pm2UHCf5eoGg5BuqSjiGZ0tPXSHPMWn6j82p6AtMWaHLq8taHYdJcLBXM/uW
+Gyrg1W9Vedntq/vh2vigjnBod/vvmFbSEZgPX4tPMckPvaATJy7BwD04HnvdR5aU
+TfXVgDB4KeS13WGXI0wfSadRBUS6AjhAtj93SeQcbbhWOG8hRLvzFaVPKvF5pRzF
+UDK1yojMqgDgpAfvCuz2EUH+r8olSz8EAui3nhyMhyI/nqp6HY6VQtkFZOdY9vYu
+xUNZIw4qn2L3rsFBbxsdxrDzj3MLuw==
+=7djP
+-----END PGP SIGNATURE-----
+
+--Sig_/okte2gjYXUvf+jGnOR83L_j--
 
