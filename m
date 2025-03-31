@@ -4,108 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FDDC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 11:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AD8C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 11:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R1fvNUJM+107giQNxDtASFpEZ6IxMM9QfRNpZfhOjos=; b=ftmNCZnmKeZE3hJqoVP6Rdet41
-	2unUkBeP37YbKSmqS2VYD/gYakV0m96LkVX58Udpi2uaZcWEcufDbO+G2bcU03v50gFM1eQAD01nF
-	UlqjUOMQmHNz3uA0Ggm3WYo2PLnwQFNvOmNMOCl9LVsYkCzMNf2dmSD4BKqGwDQ9ZvdYM8GaBLord
-	GuE95tSdbjX22b8VV6RK7HH3CjSRw7a/iuquGM1tLvkwzQXOaoznq+PvCnTbk6Nl6adLSFq7BSdbN
-	vMsLumMtTHkVQxuZ37X6pJ+RVznwgkZxrIos6YmYokd7SGlkYTHQwmZfbdqKsT1WbPXf4l2kzYjDZ
-	w8NoHhEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Apx9Ww9vqYDQpf5i7k0aXZGv5/FTp1oGdeHsLgCtlz0=; b=fldZSCLpYMusOEmPwyG0OS8Ea4
+	U8WBko0ie3/jcEHo0kVxCSnyUbLEbB7MQjGdhDNNMFJsD8NqlmYXJRh1nmHu1xMHE6RZoKuq9jwfT
+	9Qns3hBcyc/Ch5ShUy38yZuEmyTPLrglP/Zn1a9U9Z0C50Tvod15z/ufepa6e+b4skp3GYodaUsNv
+	SPJIBp13hdn9RMLa4mJUUl2QxqGg8WIqcYOmVx+X/84e8hMJqTatPehivxsLk5SooBqf2C60VUBTW
+	+Rk19EeN2K8miHIrEmKLeABqudn57iyUPoHzsmyaI+y5CkoZZfewwjK240Nh+u0Vf44wBCGqD4gdJ
+	ZYaKoAKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzDLd-00000000D74-3UN9;
-	Mon, 31 Mar 2025 11:30:34 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1tzDPM-00000000DOB-0WcK;
+	Mon, 31 Mar 2025 11:34:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzDJu-00000000D0m-3Sz7
+	id 1tzDNe-00000000DEF-0dLK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 11:28:49 +0000
-Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
-	by mailfout.phl.internal (Postfix) with ESMTP id A226D138441D;
-	Mon, 31 Mar 2025 07:28:43 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-11.internal (MEProxy); Mon, 31 Mar 2025 07:28:43 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm3; t=1743420523; x=1743506923; bh=R1fvNUJM+1
-	07giQNxDtASFpEZ6IxMM9QfRNpZfhOjos=; b=yg4B3urwknbAULMsaA5bZ4IPUf
-	gAjFsQe/RePHsI7+kgiJUQT6MdAmvc7iRMQY6ERi0rKkpd3cAUxByDOrq/bSFP2T
-	qTHeBro9f4HsdZ1XtyGNOHxP2D5DA1cRrSPgktTj48J/8ojuitjY6k7MHKezq36X
-	eH5bqg4le7WaCIyxCj5dvwbOpM1wfQlRGvMz8bWk3gk8X0MV2TEb+n4BXlyEBB8t
-	jY8FqCzoRBph37/VRAHMdDM40wl4SWHPbnWdIRih6kvMDFl9t7GBmFkuUSStTrde
-	snAHjwIG9FAZVAiwA1xcx1zZlbL2fscmubnCucJXH7QOVKg2uL7Lx86CXaoA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1743420523; x=1743506923; bh=R1fvNUJM+107giQNxDtASFpEZ6IxMM9QfRN
-	pZfhOjos=; b=OWIRKvXTZ2yKPtYThutu5NLArnMgCvUKSuevNZ4JJqmmJpwG9jO
-	cPo3Adu78HTleVeiMMSbsdsg7JZ98fSYO6BAGkBjdWfHnMjKjiR5tVlQssgLK5Ff
-	VqumalrBGOpw+9y6dBGrt2+PjhcRGptLitimuNX1d+N9qoNQ0qtWtMFrw2u76oHs
-	A0Mu1Lcdjotob5NOOH4p11eU0b8hgNJXO1wbITfmjU66sbtg0frsO4rNbI8zdNl9
-	t9lwlTM5RhCIC9Y+9jsoMlfNsXUApoDy0Ahuw39nyOpa7w9gQQ0vRCXGSnZgj8Ot
-	We9+m34LkwDxB77dLWGvlbf67ovPS7GkbKQ==
-X-ME-Sender: <xms:anzqZzd-qCZE0w9Wy64ClmOY0eIN4MMvmGg2rtzv45Hiw20HROJ5Kw>
-    <xme:anzqZ5NDzSt9jFp-tb2xWDX47cNngT_7fbJj2yrvHqc9U-uZTPxWjjEShhAqJxtin
-    9lazJj-qVJeDyaWHWA>
-X-ME-Received: <xmr:anzqZ8gvAM76vioAaZTQamMO-hWgbuk6PKDD-5uQZ64yt9pqqx0Fk9Nq2a0SaC2O0u9mcofh2cUQ71E3zEJFK7QYaGtuohWP3w>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddujeelkedtucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddt
-    jeenucfhrhhomheplfgrnhhnvgcuifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqe
-    enucggtffrrghtthgvrhhnpefgudeuffelfeekgeeukedtheekjeettdfftddujefhvdeh
-    tefgiefgledtueefjeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsth
-    gvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurdhn
-    vghtpdhnsggprhgtphhtthhopeduhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoh
-    epmhgriieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgv
-    rhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinh
-    hugidqphgtihesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopeguvghvihgt
-    vghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqd
-    hkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhi
-    sehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheprghlhihsshgrsehrohhsvg
-    hniiifvghighdrihhopdhrtghpthhtohepmhgrrhgtrghnsehmrghrtggrnhdrshhtpdhr
-    tghpthhtohepshhvvghnsehsvhgvnhhpvghtvghrrdguvghv
-X-ME-Proxy: <xmx:anzqZ090RaJB0KMMXF6aBKMES2LBwgMbJdMsY1dWT5npQOfjTCZ1tg>
-    <xmx:anzqZ_tDKXVnKqYlOPo1yb0tDMevULx8eeul9ci0UDMw6ecVEcCMoA>
-    <xmx:anzqZzEQ8MtXMAAAsJ16bqb7kD2mN6Z7El9ch70--5pDorzPx6LlMA>
-    <xmx:anzqZ2N8jGFQqhwox4Bsl57H3wd7xqdYwnqYWcUR_ow1a1qrrBpaWA>
-    <xmx:a3zqZ3PHDwJ0q8FmW-ovuhKONEvhW69bqgxEgulDoTgHzPkkRHGcfgJZ>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 31 Mar 2025 07:28:41 -0400 (EDT)
-Date: Mon, 31 Mar 2025 13:28:38 +0200
-From: Janne Grunau <j@jannau.net>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v2 00/13] PCI: apple: Add support for t6020
-Message-ID: <20250331112838.GA246397@robin.jannau.net>
-References: <20250325102610.2073863-1-maz@kernel.org>
+	Mon, 31 Mar 2025 11:32:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 755595C5361;
+	Mon, 31 Mar 2025 11:30:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89EC7C4CEE3;
+	Mon, 31 Mar 2025 11:32:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743420757;
+	bh=05Ub8boU60E8Z7QxJ+cd0L+rxka8vuLP3vAU+K959fw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oHeVbEJxjnGLhNtejItA+2MzVyYN2C+rL8HlhaxNaxeWLIF4N9MMDMGs/vR7s+wsR
+	 kmAFXpc0XcrWImNAWhwb1uSCctUWkoUWue1QeeGj8WlEeRhVe5K6BZGTZgQqLBGxCM
+	 OtJDJgDHr15868zJztTZNpvCH1kX+/E2A1Sda/pCRKeDk2AMZQXx3qn72lZJ3SYPtq
+	 bnMUYtlYtVo4NVH+/9SaT4C7o0dqmmFlNuPnRYw5ofj46LY5rNn6kEDlBsgYmQqMug
+	 s/mNQI45pZ7lkHd0M8uoqqSs9N8Z9Zhipfnb4aBpf9w0UWtoWHN9sZd6rrg9Knm+G2
+	 P92hQvhpJ/9vg==
+Message-ID: <7f8a3f75-f66f-4380-ae60-b84f6752da0b@kernel.org>
+Date: Mon, 31 Mar 2025 13:32:30 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250325102610.2073863-1-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] interconnect: Add NULL check in exynos_generic_icc_probe
+To: Henry Martin <bsdhenrymartin@gmail.com>, djakov@kernel.org
+Cc: s.nawrocki@samsung.com, a.swigon@samsung.com, alim.akhtar@samsung.com,
+ linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250331110802.9658-1-bsdhenrymartin@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250331110802.9658-1-bsdhenrymartin@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_042847_682449_19F28DF4 
-X-CRM114-Status: GOOD (  23.44  )
+X-CRM114-CacheID: sfid-20250331_043238_309580_BBA35CB1 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,87 +117,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 25, 2025 at 10:25:57AM +0000, Marc Zyngier wrote:
-> As Alyssa didn't have the bandwidth to deal with this series, I have
-> taken it over. All bugs are therefore mine.
-> 
-> The initial series [1] stated:
-> 
-> "This series adds T6020 support to the Apple PCIe controller. Mostly
->  Apple shuffled registers around (presumably to accommodate the larger
->  configurations on those machines). So there's a bit of churn here but
->  not too much in the way of functional changes."
-> 
-> The biggest change is affecting the ECAM layer, allowing an ECAM
-> driver to provide its own probe function instead of relying on the
-> .init() callback to do the work. The ECAM layer can therefore be used
-> as a library instead of a convoluted driver.
-> 
-> The rest is a mix of bug fixes, cleanups, and required abstraction.
-> 
-> This has been tested on T6020 (M2-Pro mini) and T8102 (M1 mini).
-> 
-> * From v1[1]:
-> 
->   - Described the PHY registers in the DT binding
-> 
->   - Extracted a ecam bridge creation helper from the host-common layer
-> 
->   - Moved probing into its own function instead of pci_host_common_probe()
->     
->   - Moved host-specific data to the of_device_id[] table
-> 
->   - Added dynamic allocation of the RID/SID bitmap
-> 
->   - Fixed latent bug in RC-generated interrupts
-> 
->   - Renamed reg_info to hw_info
-> 
->   - Dropped useless max_msimap
-> 
->   - Dropped code being moved around without justification
-> 
->   - Re-split some of the patches to follow a more logical progression
-> 
->   - General cleanup to fit my own taste
-> 
-> [1] https://lore.kernel.org/r/20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io
-> 
-> Alyssa Rosenzweig (1):
->   dt-bindings: pci: apple,pcie: Add t6020 compatible string
-> 
-> Hector Martin (6):
->   PCI: apple: Fix missing OF node reference in apple_pcie_setup_port
->   PCI: apple: Move port PHY registers to their own reg items
->   PCI: apple: Drop poll for CORE_RC_PHYIF_STAT_REFCLK
->   PCI: apple: Use gpiod_set_value_cansleep in probe flow
->   PCI: apple: Abstract register offsets via a SoC-specific structure
->   PCI: apple: Add T602x PCIe support
-> 
-> Janne Grunau (1):
->   PCI: apple: Set only available ports up
-> 
-> Marc Zyngier (5):
->   PCI: host-generic: Extract an ecam bridge creation helper from
->     pci_host_common_probe()
->   PCI: ecam: Allow cfg->priv to be pre-populated from the root port
->     device
->   PCI: apple: Move over to standalone probing
->   PCI: apple: Dynamically allocate RID-to_SID bitmap
->   PCI: apple: Move away from INTMSK{SET,CLR} for INTx and private
->     interrupts
-> 
->  .../devicetree/bindings/pci/apple,pcie.yaml   |  11 +-
->  drivers/pci/controller/pci-host-common.c      |  24 +-
->  drivers/pci/controller/pcie-apple.c           | 241 +++++++++++++-----
->  drivers/pci/ecam.c                            |   2 +
->  include/linux/pci-ecam.h                      |   2 +
->  5 files changed, 204 insertions(+), 76 deletions(-)
+On 31/03/2025 13:08, Henry Martin wrote:
+> When devm_kasprintf() fails, it returns a NULL pointer. However, this return value is not properly checked in the function exynos_generic_icc_probe.
 
-Whole series is
-Tested-by: Janne Grunau <j@jannau.net>
-on t6020 and t8103 based Apple silicon devices.
+Please wrap commit message according to Linux coding style / submission
+process (neither too early nor over the limit):
+https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
 
-ciao
-Janne
+Please run scripts/checkpatch.pl on the patches and fix reported
+warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+patches and (probably) fix more warnings. Some warnings can be ignored,
+especially from --strict run, but the code here looks like it needs a
+fix. Feel free to get in touch if the warning is not clear.
+
+
+> 
+> A NULL check should be added after the devm_kasprintf() to prevent potential NULL pointer dereference error. 
+
+
+
+> This is similar to the commit 050b23d081da.
+
+Not related. These are different drivers, so drop.
+
+These apply to all your patches.
+
+
+Best regards,
+Krzysztof
 
