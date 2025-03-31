@@ -4,64 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B03EC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 11:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 498BDC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 11:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Cc:Subject:To:Message-Id:Date:Content-Type:Reply-To:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9WWbDoAe5Uj+6IIcnlHQgVQJ8kmdW8I+husCAEqDy08=; b=j2zJ/3fBXq9XeGIu7aiGj6uaqV
-	JWl2ymUjgQAEow+8gBcBkULRb3h+RgWV/xIn7h2zqPQGsmZ0at+kDKUw4w1QhCpZhls4A8HgHlt94
-	CcDYbplNbvuHZa2ge/mdyLRgVtHVn0kJ4C//vA0G0kXEchxb7ELbMGO9+sd3IpxIEDQZqZ2SUDoYf
-	STzYWcf44Hiq604Phlm5DYWVMwbJJjE1f+PhME0Xp3ESDeSCsARmmruuZs2KoD2Rw5/8ZrBa+Z3Hv
-	o9Qrrr8F6kC3FhGGJQYPLwnZ3TxSwGQ/SbKakVc1J6luqi+Y3OWcqp8eZpRhRYB9SzJQRL8MJ5icH
-	j5ddcNGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NQQM3Yu8f39BKq2Mg/PjZ0Uv+SRmBe59/r9UjuQMsco=; b=AmpDq5SzM8BMWCt5s1TEVVg/Aj
+	lSk/WHKvHeFsdN/YmE3DrZus5aO4tk4m/VbZUjsSGoHtVUj/fksuAGSyX3RlI0jwg7ugGMtOvDWtG
+	at1m/PC8RbH4xH07x27x291CWHSm9TWYEQI0rvO/OAdvpbwRD3A+5d9xCGph+LOKUJas2rqYeMN1z
+	EmJ72PYUgbwkuR0DyhdvsyJ8V4BHYANU8EJKKezny9wRlUgL975n/d7/fKY8m5a6vsxfD5/PmiNUO
+	RYJ3aUYrftq6dfmbOl+8aPYFqThGWctugTvX8OJtfnb177cgb/de2kMEFR5/z8RYgT6mgPBOOPUMK
+	8F8x7o6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzCsL-0000000088y-1HRv;
-	Mon, 31 Mar 2025 11:00:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1tzD1j-00000000BDT-32hI;
+	Mon, 31 Mar 2025 11:09:59 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzCqd-000000007uY-2r5I
+	id 1tzCzz-00000000AT8-3rSq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 10:58:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9991244071;
-	Mon, 31 Mar 2025 10:58:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D4A2C4CEE5;
-	Mon, 31 Mar 2025 10:58:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743418710;
-	bh=CTlH+g2+HuA9vbv12bz+ImaQjIZbbactsMh++cN1GI4=;
-	h=Date:To:Subject:Cc:From:References:In-Reply-To:From;
-	b=PkSqrkpIkH/7OzaaxJ6wbsMQMmgWRl5eEdFES3St71VRm5H+dk1F6VyKWslwo4JA7
-	 4pyTCcYTZii9Gm1D7Yeb1W2RiTTY4rNAiNSmZd7BMZdjc42yt1Sd9XKrwFewVPLafF
-	 uY1C814Uf0ZsL5omntg7q91K3n9syNGDOM0CuU/JqgTJhE2XkkEnFnglqlsEkBiu6k
-	 SI3qSKP/WdNpJW2GX93YXisUK+bLsVBRJTKup30Jz23M9G16AiIlA0biCTp3t5R1W8
-	 E/YlpNGGQ/2Lpbucy7Vlgs0UyxiTLM7L61FOiOcXZRWVtBl1XC8IuT164xCx7PL4Oh
-	 16bhAg71L6VfA==
-Content-Type: multipart/signed;
- boundary=afa0541fe8431cb3d37f46b7af78c11e8bfa2698ff6820e4842879430dbc;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Mon, 31 Mar 2025 12:58:25 +0200
-Message-Id: <D8UECOJ2NMCU.3ALYIKSODJ479@kernel.org>
-To: "Kumar, Udit" <u-kumar1@ti.com>, "Nishanth Menon" <nm@ti.com>, "Vignesh
- Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s: add rng node
-Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-From: "Michael Walle" <mwalle@kernel.org>
-X-Mailer: aerc 0.16.0
-References: <20250313144155.2382316-1-mwalle@kernel.org>
- <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
-In-Reply-To: <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
+	Mon, 31 Mar 2025 11:08:13 +0000
+Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-224171d6826so52618865ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 04:08:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743419291; x=1744024091; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NQQM3Yu8f39BKq2Mg/PjZ0Uv+SRmBe59/r9UjuQMsco=;
+        b=GStaADdSgmJc/JXcL/2tgiIW/iyMT38KYzajrcNPu538ffccEzeWQaVgiBrjd98wey
+         fE6XUtyaX5Azejf+CVyZaUGqMx3KuBvv10DT6LTP7loXcq9mf9dwxfcbtlJD6orXVonL
+         HZ5Rk0M+ZXf1VNLz8akrRT1FNZrYTTJ6Ss4kDkDdULFYetP/UV5kpT923eMEuqj5scRq
+         UXEU7z2MoRef9Tton8I4LXa5p3kgGnu2EOvw+W5Ye6pamNihWTeqy/wBzkyM0I3HFeZp
+         XQIpHYlrREVMZHrauIQMWfa7xb2hvpXMkysGlJhef89WdLdeo9Ujnm32jH40WxUYgvWO
+         Ve+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743419291; x=1744024091;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NQQM3Yu8f39BKq2Mg/PjZ0Uv+SRmBe59/r9UjuQMsco=;
+        b=gk/tv2VtuqrzNOP+Mp7oUoTwGSNhdMnYDl1ajEEQoOwfDfdpcC7raLInTBhyUzUFQf
+         XBmxqaBOpo0bDuzzdi3TzgCQuaXNx4snB0/qnFszmaCREY7DOeIMVDfltgc2o+p67uMu
+         Nel0MFsxvlpV4jGRMjY5FPCQoIj3r4cRPF/YAGtqcaAPTtLwRPVMWjdGVCCmiMINblRJ
+         UJ33LrA6JRqbIb7kBw8iYLh1MptVGWFbslt/Ya+qsO7QygRQfea2Y/a5BKl8IBsKCfYD
+         hzbXxYVEfn8Oe+mnhbaP/h5syyCoC3jXfQf/EhC/jo21CI9nwGD6EwboJ1Bp9G2pb8PZ
+         cwYw==
+X-Forwarded-Encrypted: i=1; AJvYcCXcb2ZwlOESGNIeV21l0cBXB6oHcjk4xWqhVDXC61wgnmtpeRu4teAHdsg1RGJT1VD4JmkVbQzfRDM7Qw8ETVG7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGYcbs5cl+MnROhjfTgQGWeGWEdA2BqE1cy3KmTYAkZC0BH0jy
+	MrZPg0JTH7c/b9gA+YCPs9bxyFTHmmka8FNFpEoOgv1UAmwIuX1X
+X-Gm-Gg: ASbGncvrN+vOrCA9Izs1h5Cw5jkYRhjKVYsMKVRqSJQowDTx9gtJ3mWjhtAMjUPqi9e
+	IF2rrcneWLqqvg4sJeo0PYoGiH3f2TmTKoDsigJkvx5BfeaPIb7DB0wqjcHDeK/HbQOdAZkMlSs
+	gZ6wB5E/UnW/0f9STMGoAzBZycsNmy/ZgE5yP6bHUbOocIOL/DDzHvps7HP2yz1epRH7k9XF5dD
+	qzoh3j5KMHGbwrF+/D14p5/WXCggUP3Vm9AaPrHSFooWejXpAV3TBmOTl2FxFkvo0lZOjjWyM2u
+	zrjKmU6EPKC+NyhmKH/ySgRnRqLUo7Qo2vouqAGrRGQhGelBCqdt57Sg/FAQE66tGGJgPOg=
+X-Google-Smtp-Source: AGHT+IEfDTgHboSZ6iP2dwOP4vEW2XdDO0sbdpyybIi/mimcrNizy0gR6Y/LkkD3gFM65fgc+CAQ5Q==
+X-Received: by 2002:a17:902:c408:b0:220:cb6c:2e30 with SMTP id d9443c01a7336-2292fa010cemr150564165ad.49.1743419290986;
+        Mon, 31 Mar 2025 04:08:10 -0700 (PDT)
+Received: from henry.localdomain ([111.202.148.167])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291f1dfbb4sm66890615ad.198.2025.03.31.04.08.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Mar 2025 04:08:10 -0700 (PDT)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: djakov@kernel.org,
+	krzk@kernel.org
+Cc: s.nawrocki@samsung.com,
+	a.swigon@samsung.com,
+	alim.akhtar@samsung.com,
+	linux-pm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Henry Martin <bsdhenrymartin@gmail.com>
+Subject: [PATCH] interconnect: Add NULL check in exynos_generic_icc_probe
+Date: Mon, 31 Mar 2025 19:08:02 +0800
+Message-Id: <20250331110802.9658-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_035831_757989_15CEB242 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250331_040811_979676_4317D514 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,111 +101,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---afa0541fe8431cb3d37f46b7af78c11e8bfa2698ff6820e4842879430dbc
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+When devm_kasprintf() fails, it returns a NULL pointer. However, this return value is not properly checked in the function exynos_generic_icc_probe.
 
-Hi Udit,
+A NULL check should be added after the devm_kasprintf() to prevent potential NULL pointer dereference error. This is similar to the commit 050b23d081da.
 
-> > Add the node for the random number generator inside the crypto module.
-> >
-> > Signed-off-by: Michael Walle <mwalle@kernel.org>
-> > ---
-> > This was tested on a J722S/AM67A. Also, according to the TRM this is th=
-e
->
-> Could you re-confirm please , after adding this node.=C2=A0 you selected =
-trng=20
-> offered by Linux
+Fixes: 2f95b9d5cf0b3 ("interconnect: Add generic interconnect driver for Exynos SoCs")
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+---
+ drivers/interconnect/samsung/exynos.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-# cat /sys/devices/virtual/misc/hw_random/rng_current
-40910000.rng
-# cat /sys/devices/virtual/misc/hw_random/rng_available
-40910000.rng
-# dd if=3D/dev/hwrng bs=3D16 count=3D1 | hexdump -C
-1+0 records in
-1+0 records out
-00000000  92 f5 44 09 fd 86 6b a2  39 d6 ad f3 e6 ec 03 4a  |..D...k.9.....=
-.J|
-00000010
-# dd if=3D/dev/hwrng bs=3D16 count=3D1 | hexdump -C
-1+0 records in
-1+0 records out
-00000000  a3 73 da d2 5b 94 83 2a  75 11 ca b3 99 d3 87 88  |.s..[..*u.....=
-..|
-00000010
+diff --git a/drivers/interconnect/samsung/exynos.c b/drivers/interconnect/samsung/exynos.c
+index 9e041365d909..3dccc84f72cf 100644
+--- a/drivers/interconnect/samsung/exynos.c
++++ b/drivers/interconnect/samsung/exynos.c
+@@ -134,6 +134,8 @@ static int exynos_generic_icc_probe(struct platform_device *pdev)
+ 	priv->node = icc_node;
+ 	icc_node->name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%pOFn",
+ 					bus_dev->of_node);
++	if (!icc_node->name)
++		return -ENOMEM;
+ 	if (of_property_read_u32(bus_dev->of_node, "samsung,data-clock-ratio",
+ 				 &priv->bus_clk_ratio))
+ 		priv->bus_clk_ratio = EXYNOS_ICC_DEFAULT_BUS_CLK_RATIO;
+-- 
+2.34.1
 
-> > MCU instance of the SA3UL. But it's defined in -main.dtsi. Is this
-> > correct?
->
-> Yes this is correct,
->
-> please refer
->
-> https://www.ti.com/lit/zip/sprujb3=C2=A0 SPRUJB3A.pdf
->
-> table 2.1 Main Memory map, this node falls under main domain
-
-Ok. Not sure, how I came to the conclusion that this is an MCU
-instance.
-
-> > ---
-> >   arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 8 ++++++++
-> >   1 file changed, 8 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/a=
-rch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> > index 6e3beb5c2e01..e868e006318e 100644
-> > --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> > +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> > @@ -227,9 +227,17 @@ crypto: crypto@40900000 {
-> >   		reg =3D <0x00 0x40900000 0x00 0x1200>;
-> >   		#address-cells =3D <2>;
-> >   		#size-cells =3D <2>;
-> > +		ranges =3D <0x00 0x40900000 0x00 0x40900000 0x00 0x30000>;
-> > +
-> >   		dmas =3D <&main_pktdma 0xf501 0>, <&main_pktdma 0x7506 0>,
-> >   		       <&main_pktdma 0x7507 0>;
-> >   		dma-names =3D "tx", "rx1", "rx2";
-> > +
-> > +		rng: rng@40910000 {
-> > +			compatible =3D "inside-secure,safexcel-eip76";
-> > +			reg =3D <0x00 0x40910000 0x0 0x7d>;
-> > +			interrupts =3D <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>;
->
-> For completeness , this is ok to add this node but should be kept disable=
-d
-
-Shouldn't it be "reserved" then, see [1].
-
-> similar to
->
-> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j=
-7200-mcu-wakeup.dtsi#L662=20
-
-j784s4, j721e and j721s2 have them enabled. What is the rule here?
-
-You also disable the hwrng in optee in your evm according to [2]:
-CFG_WITH_SOFTWARE_PRNG=3Dy
-
--michael
-
-[1] https://devicetree-specification.readthedocs.io/en/latest/chapter2-devi=
-cetree-basics.html?highlight=3Dreservered#status
-[2] https://docs.u-boot.org/en/latest/board/ti/j722s_evm.html
-
---afa0541fe8431cb3d37f46b7af78c11e8bfa2698ff6820e4842879430dbc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCZ+p1UhIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/j8pwGA48YnnE9XmW12Xb9i0N07RIC3iMPccKhd
-cjprpG75JZaQmW/v8ZcZZd/K8uJSE+VgAYDPVCPTWLrtYn9/oDmr+W4bVK9RMMvx
-4f0ciSTzQAxeV2R2AEjz1GcqFgnzpW68JgE=
-=t5tD
------END PGP SIGNATURE-----
-
---afa0541fe8431cb3d37f46b7af78c11e8bfa2698ff6820e4842879430dbc--
 
