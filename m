@@ -4,81 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11621C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 17:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31C6C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 17:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O7HJ7f+PG7orm6PUuCg998Qmjvc4fQBqZVlF/u5gGlM=; b=IKRjJyAiHxgw3ucBZWBqelNnJl
-	OQoQZ7Rt2XW0+0m0UzAJyTZG31ME/DQBDRTLb4TjsHBxa3xlGiJFvid3s6aNNfAR2SS2QsIagecpp
-	2KHqLylsh85OEsgCpmlYQZ+NWe2xoFBxC1h4OHuZVKfMH3uIkGffQoie5vbk7bsKrrKv1I3c4dP/A
-	DwN6HQuX1gOEl/psYfZIFRAxcIInKe60Qa1bjU37IveboIrNJ1SL6WPzRuqvQN9LP5EANPIpYs1za
-	tW95XfHsVlN+yl6g3sVo1aBw+2OyjvVApJ0K+25nK0YOUjwqh6CAh/wo3zusyUIP9uV+1+kfcTqF0
-	iCicDcgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=msdUo3wzjzr8XFwzKi5515/1w+Y5mSvWR+VVIcgmn0c=; b=4jETuBr6CbozwNsKuPI8apcF9Y
+	TL+5JNDBtnE2DZxd490zwp4SI1W+uIN11efx6BQ+3mqLDOyY5BK2aAENDvFpF+G5r4sayUrBRzPcX
+	Bhw+p1mdKTKl/QIB65c476FqvFWjH+SRleM62nXdeajlgEAeDCxQq6lY7BKHHxTE6dJ03RpZTnd27
+	br5nZnsghui81KUg2QrDAYiZzoMLomINSedGodAPCCXZAginmbx9LKtmCFx6i4OjVoJ2fyc87W6TE
+	MQZwfo9sx5qYGnyYfs521cLSo4VidiNwdY2ViGLuVFOxMwC/dYSaWyjP8YFTltQYc8Z/hSyYCUYvM
+	0qGRbx+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzIiu-000000013cQ-2MHP;
-	Mon, 31 Mar 2025 17:14:56 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tzIom-000000013zk-2Z5s;
+	Mon, 31 Mar 2025 17:21:00 +0000
+Received: from mail-co1nam11on2062e.outbound.protection.outlook.com ([2a01:111:f403:2416::62e] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzIhB-000000013Vb-15Ih
+	id 1tzIn4-000000013tm-2YVF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 17:13:10 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52VHCvqt3453330
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 31 Mar 2025 12:12:57 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1743441177;
-	bh=O7HJ7f+PG7orm6PUuCg998Qmjvc4fQBqZVlF/u5gGlM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=bAmm4YXq0hs6RVOaZD7z+0GzcoqhHnKs9SM7y3CGSDe7RMPQdy8ltm5N1vuCQvRwv
-	 p0leKkbwMWYK+87zKs5+WXXEj7Rr2qfsdBKhfh5Hg5ngPvUrvte98TeQxjHLigeLCz
-	 Fdk2apTuvfzLwqCAFf4DpTrct4RmnZ5fgk9dAJLw=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52VHCvWg046850;
-	Mon, 31 Mar 2025 12:12:57 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 31
- Mar 2025 12:12:57 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 31 Mar 2025 12:12:57 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52VHCrxj034716;
-	Mon, 31 Mar 2025 12:12:54 -0500
-Message-ID: <1ad2d8c2-6a0d-419d-984d-4974adb0e1f0@ti.com>
-Date: Mon, 31 Mar 2025 22:42:52 +0530
+	Mon, 31 Mar 2025 17:19:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oC6rujEphLfkWjWp5stVloInzCPDtNthiqkRbI0FjWSb9xX1iW5hZGT62gtzBv1INfFYfZHk4LyzmxxyUlG/ldHOPFSUwIhzCQ9a6EcPS1wDFecoY/g3rVorp6VDKKgBD8d+qEnkpslZYJP8xckf5EZ0DwfR5m+usU2xcb3GxmGqSvVKm1JVpI1DrqgWvp2s4w5lErQxZaMEAO2i9SYDRoKND5+bo9htanW/ux1dn8GmIXIl+6RQcxnGeeTIgKN01aLqNez8Fs3/7s36SuhL0kp7yZQC+V+25elx3qWqL2rJ9qne9lvO2BGRkn5TnLm0AU3jHtt+Qx6y6pLJyVteBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=msdUo3wzjzr8XFwzKi5515/1w+Y5mSvWR+VVIcgmn0c=;
+ b=s4G5KRdUh2LGGhO131M9xhln4H5FFnFQrzRtDbxkM1JVFf8nA5S8Mb28J4f3Phw9TK1BkysGcbiu2ZfdonyESX2ktPRA/LhMRl7KNFXtF65YmSsjz5n/nh3YMI3D/+Sq4yUbmXt+MSypPxmY93p5HFg1Id3cGlbvLhnwhugmYJ5ZXPU9A+Vl58uiByNtZbrenO4tzN3FaJxBZWktfR7e43JiIHsBd0E2YhbzgE0EM2MofXvPa4pd7v8vJWmGgxJJSHhjlOmeU+eXCsYM2zSE5zFpMV/wMw8aelQqTZ9lFoPO0Uqu+0Av0GmT1mYy/idetJyQBnrEQ8vnEPA/tcRNzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=codeconstruct.com.au
+ smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=msdUo3wzjzr8XFwzKi5515/1w+Y5mSvWR+VVIcgmn0c=;
+ b=RIw6FQJn1u2Fs7E1lIvDYyFu9xwVDJE0/gYyQr2uc+9sbph0yfUH7ygsnDPVx4sW82lKsZWFXRtCjN0Z/CWOwn25qJm44iJM6ncIXRAPCuz9Llbwq+UjTOQiUAOzV/oZ62p2TFMxKbXaVuMiX96yzuTmpjcshd/AQNf+72wRTqG0tux2daL1JYfSnO0VyC5j7cKErYbpVzesaaiwKX5SbD9PfSx76ig/kraceH08Pw9Fz4l9s2Y/rH7xRjYEB0EhKsPouEVjSG/C21PGm/XXAdie6YRmj1u/WWaF2apyoZCjdMByhJapr1pFc+RuXwHlrUoVZy6ZHJahXXjzm/7FIQ==
+Received: from CH0PR13CA0046.namprd13.prod.outlook.com (2603:10b6:610:b2::21)
+ by SJ2PR12MB8036.namprd12.prod.outlook.com (2603:10b6:a03:4c1::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.52; Mon, 31 Mar
+ 2025 17:19:07 +0000
+Received: from CH1PEPF0000AD74.namprd04.prod.outlook.com
+ (2603:10b6:610:b2:cafe::81) by CH0PR13CA0046.outlook.office365.com
+ (2603:10b6:610:b2::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8583.26 via Frontend Transport; Mon,
+ 31 Mar 2025 17:19:06 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CH1PEPF0000AD74.mail.protection.outlook.com (10.167.244.52) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8606.22 via Frontend Transport; Mon, 31 Mar 2025 17:19:05 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 31 Mar
+ 2025 10:18:58 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 31 Mar
+ 2025 10:18:58 -0700
+Received: from willie-obmc-builder.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Mon, 31 Mar 2025 10:18:57 -0700
+From: Willie Thai <wthai@nvidia.com>
+To: <andrew@codeconstruct.com.au>
+CC: <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
+	<dkodihalli@nvidia.com>, <gpiccoli@igalia.com>, <joel@jms.id.au>,
+	<kees@kernel.org>, <krzk+dt@kernel.org>, <leohu@nvidia.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-hardening@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<openbmc@lists.ozlabs.org>, <robh@kernel.org>, <tingkaic@nvidia.com>,
+	<tony.luck@intel.com>, <wthai@nvidia.com>, <harrys@nvidia.com>
+Subject: Re: Re: [PATCH v4 2/3] dt-bindings: pinctrl: aspeed,ast2600-pinctrl
+Date: Mon, 31 Mar 2025 17:18:57 +0000
+Message-ID: <20250331171857.262649-1-wthai@nvidia.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <d0f7003c22e19c8fc7617610043edc7be925a180.camel@codeconstruct.com.au>
+References: <d0f7003c22e19c8fc7617610043edc7be925a180.camel@codeconstruct.com.au>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s: add rng node
-To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-References: <20250313144155.2382316-1-mwalle@kernel.org>
- <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
- <D8UECOJ2NMCU.3ALYIKSODJ479@kernel.org>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <D8UECOJ2NMCU.3ALYIKSODJ479@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD74:EE_|SJ2PR12MB8036:EE_
+X-MS-Office365-Filtering-Correlation-Id: d2824fea-25dd-4a5b-ca71-08dd707823e7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|36860700013|82310400026|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?69GcHvvXw0bhH6IMfhhzrtqSF/fk50FFXR9doWMGF9yDG3qnM5uK742E5GUQ?=
+ =?us-ascii?Q?ZGV65vcOBU/gXLEb3OAdNrBj6QF1zPmiCE5Uok9Q/2UB8OKZyH+10qqaJxNd?=
+ =?us-ascii?Q?jMKSlnk/qEipOh/Nw7Edfi8AeBnyz4bFtqqYDeTA49oJAH79X/ZF9XELIkte?=
+ =?us-ascii?Q?pHFllSv10b/f3S1xfQ23MDji7z6vjRL3HLey++q4m6bY5dbYM0SpesRvG6vD?=
+ =?us-ascii?Q?StD0jvRO/pmtVDphF+rqiy/ISuIoE0e2ylKiyUs+sa7HnHg4saDYOm+OD38Z?=
+ =?us-ascii?Q?jidakGUmUer96BXEwzjam/KV38gW3Jep8dFcZiv3toq1HXv9zYCB8AMiovXa?=
+ =?us-ascii?Q?3rsn8qTM5CArjBFE7nzPvixIrCrOOz1Vr+1+9j16WuTfh6lpAxzbUc46Fkuj?=
+ =?us-ascii?Q?6EQiiiF4YlYV0KkbDczmw+NKmvVWRwtJHqB4QGf0bEchqe+c1D2waLPvErm+?=
+ =?us-ascii?Q?A+WIh+96RvjqdebJEWehzxaj6KTqC5nAGqBK02mbTdYuttEM9MgloPt4U4uf?=
+ =?us-ascii?Q?8UXtVjabFigpg4pFv1nmBQC3kTPq7Uw+Jey8lLHTht93XTiTzUidw559KYNV?=
+ =?us-ascii?Q?VXnzMjZCMpCWS5q5Z5iGBsfPSsK3sC0K4OmVYqkKjuYVDvjcEWfPDlpgWoGv?=
+ =?us-ascii?Q?l69xQI7C6fDpCkiza0xixJxVpDfL62RA1Hlf+KFBIZJELMwmQi7Kzeh8pA+d?=
+ =?us-ascii?Q?0WFaRjsjiEsJl4drbLgvbVffhrmq+7f3WYbruZrjskkC6Xan3ShO9lJIdpCm?=
+ =?us-ascii?Q?Y4hEVaVtf73dQM6Ibbpo3lf+SoBCEZhrmT0sZKJ8B6ydMhqgx1GN9xt1bHAA?=
+ =?us-ascii?Q?QasiZ3D+zXYcUolc5p7LSlgiZxq/Ko+jzQGGhbnhkZ8OReAJ7ytfEwnMXLdS?=
+ =?us-ascii?Q?iTPI1aCXZ7sSRf0kF4KTjmOELok9LWI8yGqxlqhU0/O/EFV+iEPfLNuBGX72?=
+ =?us-ascii?Q?jC5p29lEJf1vdl7F4qsurwdWMw0kZMFP8IfhayQiJjtcHZdiyan9/JgGWkGh?=
+ =?us-ascii?Q?iOc/8/0gKKnOhmbve75c+cxPm4HZsF0ZFvLJfkBDqJDPRUXaxXuAfU5bomZG?=
+ =?us-ascii?Q?gIs34tkS+EUhGmPGIJbCODf0RR6Rm9WSp7J/F+P2ZExQH3uCIaC+l4rV2ccc?=
+ =?us-ascii?Q?V7QGjGQ/Ypnn+A2H4TQl9/t5sneLY8VGk31E5B3O9Jvo+SuFBUXOcJIATeDA?=
+ =?us-ascii?Q?xzbivS58fCAfShaF/9KoBfr42+SrHFaDWNZfZrP1jda7ApTWVaUFsHhFdr30?=
+ =?us-ascii?Q?qTZSb3xX/SQSvIKLVLcoXvsqfHt99Y+qqsSTs9LmZQuZLrtFQ8gyz7H9vHED?=
+ =?us-ascii?Q?zOWf7POx9rQO6a2gxINUCPuKg+RH38jpDYrcvkuQQEuD0H2ratzD2txSeEJK?=
+ =?us-ascii?Q?1JzCHdyV8SENYPSXXaOtr4PwlbLzC8/iINhJaqwxp+5qlNA9P5waSREUwxnN?=
+ =?us-ascii?Q?pt1NEeezXfwmQddel4G2d1fTPskRj0ONhoWdq8ppgot1YQAXjEFYdMUK0gS7?=
+ =?us-ascii?Q?RTTfetdPMPAMe//iab58wFdywqgwQUI5aGOB?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(36860700013)(82310400026)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2025 17:19:05.5226
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d2824fea-25dd-4a5b-ca71-08dd707823e7
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD74.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8036
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_101309_476921_4AC62C1F 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20250331_101914_654436_09FAA882 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,99 +154,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks Michael,
+>> Add EMMCG5 enum to compatible list of pinctrl binding for emmc
+>> enabling.
+>> 
+>> Cc: Andrew Jeffery <andrew@codeconstruct.com.au>
+>> Signed-off-by: Willie Thai <wthai@nvidia.com>
+>> ---
+>>  .../devicetree/bindings/pinctrl/aspeed,ast2600-pinctrl.yaml      | 1
+>> +
+>>  1 file changed, 1 insertion(+)
+>> 
+>> diff --git
+>> a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-
+>> pinctrl.yaml
+>> b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-
+>> pinctrl.yaml
+>> index 80974c46f3ef..cb75e979f5e0 100644
+>> --- a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-
+>> pinctrl.yaml
+>> +++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2600-
+>> pinctrl.yaml
+>> @@ -276,6 +276,7 @@ additionalProperties:
+>>          - BMCINT
+>>          - EMMCG1
+>>          - EMMCG4
+>> +        - EMMCG5
+> 
+> What pin configuration does this correspond to for the eMMC controller?
+> These groups aren't arbitrary, they correspond to the 1, 4 and 8-bit
+> bus modes.
+> 
+> You may have added this squash a warning, but I suspect the pinctrl
+> configuration in your devicetree is incorrect.
+> 
+> Andrew
+> 
 
-On 3/31/2025 4:28 PM, Michael Walle wrote:
-> Hi Udit,
->
->>> Add the node for the random number generator inside the crypto module.
->>>
->>> Signed-off-by: Michael Walle <mwalle@kernel.org>
->>> ---
->>> This was tested on a J722S/AM67A. Also, according to the TRM this is the
->> Could you re-confirm please , after adding this node.  you selected trng
->> offered by Linux
-> # cat /sys/devices/virtual/misc/hw_random/rng_current
-> 40910000.rng
-> # cat /sys/devices/virtual/misc/hw_random/rng_available
-> 40910000.rng
-> # dd if=/dev/hwrng bs=16 count=1 | hexdump -C
-> 1+0 records in
-> 1+0 records out
-> 00000000  92 f5 44 09 fd 86 6b a2  39 d6 ad f3 e6 ec 03 4a  |..D...k.9......J|
-> 00000010
-> # dd if=/dev/hwrng bs=16 count=1 | hexdump -C
-> 1+0 records in
-> 1+0 records out
-> 00000000  a3 73 da d2 5b 94 83 2a  75 11 ca b3 99 d3 87 88  |.s..[..*u.......|
-> 00000010
+Thanks for your feedback !
+We want to exclude AC5 pin in the default EMMCG4 pin group, because that pin is used for other purpose.
+We define a new group called EMMCG5 as:
+GROUP_DECL(EMMCG5, AB4, AA4, AC4, AA5, Y5, AB5, AB6)
+The bus mode is still 4-bit mode.
+Could you please advise if we can use the name "EMMCG5" ?
 
-Thanks for checking this
-
-
->
->>> MCU instance of the SA3UL. But it's defined in -main.dtsi. Is this
->>> correct?
->> Yes this is correct,
->>
->> please refer
->>
->> https://www.ti.com/lit/zip/sprujb3  SPRUJB3A.pdf
->>
->> table 2.1 Main Memory map, this node falls under main domain
-> Ok. Not sure, how I came to the conclusion that this is an MCU
-> instance.
->
->>> ---
->>>    arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 8 ++++++++
->>>    1 file changed, 8 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->>> index 6e3beb5c2e01..e868e006318e 100644
->>> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->>> [..]
->> For completeness , this is ok to add this node but should be kept disabled
-> Shouldn't it be "reserved" then, see [1].
-
-yes, should be reserved.
-
-With marking status as reserved.
-
-Please use Reviewed-by: Udit Kumar <u-kumar1@ti.com>
-
-
->
->> similar to
->>
->> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi#L662
-> j784s4, j721e and j721s2 have them enabled. What is the rule here?
-
-J784s4, j721e and j721s2 SOCs has two TRNG blocks,
-
-example for j721e, one is used by kernel [0] and another by optee [1].
-
-
->
-> You also disable the hwrng in optee in your evm according to [2]:
-> CFG_WITH_SOFTWARE_PRNG=y
-
-We are planning to use this hardware block by secure firmware.
-
-Therefore request not to use by optee as well
-
-
->
-> -michael
-
-[0] 
-https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi#L531 
-
-
-[1] 
-https://github.com/OP-TEE/optee_os/blob/master/core/arch/arm/plat-k3/platform_config.h#L67 
-
-
-
-> [1] https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html?highlight=reservered#status
-> [2] https://docs.u-boot.org/en/latest/board/ti/j722s_evm.html
+>>          - EMMCG8
+>>          - ESPI
 
