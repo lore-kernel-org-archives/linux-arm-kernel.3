@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B4BC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 15:08:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F76AC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 15:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MUuc808teZsJBc+fQu9nve2qB54rYl6hEqQTbVRI3gs=; b=mT4hkwmwsRXxhLmhoOY4VTKzHw
-	l7QbTt2QOYE+8yb38U9I3xlwjtt7IBqrQh8hHHCGx8GeTQKya6HOWF+7Yv3i2Q37mq8taTP8wL2nj
-	MLZ9xmL4e4nPqDaylnpa4zqDKryPswfd6RT8z1HzL/CmE+sXdDERjg11KTYzsRaEy6+7CwoIFOSKl
-	l3v+gEqaU04AE+rAY68bqwFaLR53DKuei2JPdi5kvIkZH2Kw4+c30tFkL5r1d50hawNEz24F8mWJo
-	KLH4rVP+vd0YioGIzqX9mTeVgeeSlyqamL999pkghG4Kq7odw6p4pqpHcnsM559gQ1OSQbTsPBSJz
-	KDCi0RgA==;
+	bh=UcfdqlyqSrlyhuBixFRBvMQCpsR1lJTbhF0oiWw6xZk=; b=fXUlZqsdtQNPqL76ZzmfOLUOV8
+	KRO6N8Km3b+FlX+DaxEDC7MVlDjcAY+5vGmCuTD9DwTrfS0NP6Sb82fLut4vPrtRkSIgusZSNvlIr
+	WAeqKiq9Z0vEHIeNEeeNLPjxGU9Qq6lQhSpTipuvtd+0sDz1yN/WaPtOyJTNHJdUOgL4oFFrNNf2x
+	iOr5ZaPqcKJJDKwqfsFKv2IA+Pv8Y+XW8wbC4LQjjoQGCrBS/Cv0cSCTOdMVikskxz5QYWZ9ROitR
+	CNLgc9UpfClmUyX2B4SxXCReq/5fZtY7tY/qC9zF3a/l6yuSYMfRkc5NGInxj46h/rYrkO8YlG7PC
+	RlYNthWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzGjw-00000000hra-0fVA;
-	Mon, 31 Mar 2025 15:07:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tzGld-00000000iCd-42ii;
+	Mon, 31 Mar 2025 15:09:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzGG8-00000000aK3-2iFO
+	id 1tzGGN-00000000aPL-11T4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 14:37:04 +0000
+	Mon, 31 Mar 2025 14:37:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 63D296116E;
-	Mon, 31 Mar 2025 14:36:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291C9C4CEE3;
-	Mon, 31 Mar 2025 14:37:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9FC6E5C138C;
+	Mon, 31 Mar 2025 14:35:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 259CCC4CEE3;
+	Mon, 31 Mar 2025 14:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743431823;
-	bh=PyXYivHPTRgqifzVqcZTLi4bHziQq4FS8J5aLCVCnDE=;
+	s=k20201202; t=1743431838;
+	bh=IuLcwwMnZGN5MMVdh7Q0PJgH1DPG1m96WLRvufdNuHY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PZVQVmrgMQKiu33+fcP3XefF8IzZikyivEvfSJNjXtwN7hNafqV3ZQSGG6w4Z39i+
-	 rKklL58BkHdPmDLYEtdiKoYp9PBNOaNZbWiSiFiSZDErFtt0MOpB2+y0BxcWCR58zd
-	 2ZwYSZqjXzjju4/b57hrSog4Go/J6mPazlpqmVASgPbZfBEQI2e/vR3vt0SHfKCu1O
-	 o1biuA2odCV9g+YPl16p00q+8bjGExTtLT9thOPmQpxNs/0naPIXGVkyzjyQcfEiJh
-	 ALcWann3wo+yrq2Ks5m23PMLoSgp0ZSk4Hliim9eSYHAH4Q8ThTVDTkod2hNs6vegs
-	 KaNhIretgrGzg==
+	b=WGlUO7A/R3JHbrJw6toIsQHUXHDU2bozxvl0TDZKQdfLLu/ZyHEknlLPfPiIqLdRJ
+	 0+j+21NrnEsxRaN7zEPmyuuanu39+lEHUCS31GSTjIWQS+JfZ+z0WUbM1jTCFJCQ2S
+	 w2kjbTFd4/H6xGHSxkaG9q14kwcWatrFrTVE6aUKVGwNMCYhN4xYEbbcg1TKGL0s0W
+	 kpMZSKoFnY89O7q1E5pYjJ0NKwUsTyHk5lbJQEhuyno/j2zrlisyN6ZK0baUe9I+9H
+	 0tLU5kW+z3r47LI30wV/eI1GYcHI2hwBSc1z9/sesG1bHhLB0p2Djc7NkGH8XLwE5B
+	 jBY0ueVbLEM0Q==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Douglas Anderson <dianders@chromium.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Trilok Soni <quic_tsoni@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	oliver.upton@linux.dev,
-	shameerali.kolothum.thodi@huawei.com,
-	maz@kernel.org,
-	scott@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.15 4/6] arm64: cputype: Add QCOM_CPU_PART_KRYO_3XX_GOLD
-Date: Mon, 31 Mar 2025 10:36:49 -0400
-Message-Id: <20250331143652.1686503-4-sashal@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: [PATCH AUTOSEL 5.10 3/6] perf: arm_pmu: Don't disable counter in armpmu_add()
+Date: Mon, 31 Mar 2025 10:37:05 -0400
+Message-Id: <20250331143710.1686600-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250331143652.1686503-1-sashal@kernel.org>
-References: <20250331143652.1686503-1-sashal@kernel.org>
+In-Reply-To: <20250331143710.1686600-1-sashal@kernel.org>
+References: <20250331143710.1686600-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.15.179
+X-stable-base: Linux 5.10.235
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250331_073719_365520_EB76885D 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +81,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Douglas Anderson <dianders@chromium.org>
+From: Mark Rutland <mark.rutland@arm.com>
 
-[ Upstream commit 401c3333bb2396aa52e4121887a6f6a6e2f040bc ]
+[ Upstream commit dcca27bc1eccb9abc2552aab950b18a9742fb8e7 ]
 
-Add a definition for the Qualcomm Kryo 300-series Gold cores.
+Currently armpmu_add() tries to handle a newly-allocated counter having
+a stale associated event, but this should not be possible, and if this
+were to happen the current mitigation is insufficient and potentially
+expensive. It would be better to warn if we encounter the impossible
+case.
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Signed-off-by: Douglas Anderson <dianders@chromium.org>
-Acked-by: Trilok Soni <quic_tsoni@quicinc.com>
-Link: https://lore.kernel.org/r/20241219131107.v3.1.I18e0288742871393228249a768e5d56ea65d93dc@changeid
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Calls to pmu::add() and pmu::del() are serialized by the core perf code,
+and armpmu_del() clears the relevant slot in pmu_hw_events::events[]
+before clearing the bit in pmu_hw_events::used_mask such that the
+counter can be reallocated. Thus when armpmu_add() allocates a counter
+index from pmu_hw_events::used_mask, it should not be possible to observe
+a stale even in pmu_hw_events::events[] unless either
+pmu_hw_events::used_mask or pmu_hw_events::events[] have been corrupted.
+
+If this were to happen, we'd end up with two events with the same
+event->hw.idx, which would clash with each other during reprogramming,
+deletion, etc, and produce bogus results. Add a WARN_ON_ONCE() for this
+case so that we can detect if this ever occurs in practice.
+
+That possiblity aside, there's no need to call arm_pmu::disable(event)
+for the new event. The PMU reset code initialises the counter in a
+disabled state, and armpmu_del() will disable the counter before it can
+be reused. Remove the redundant disable.
+
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Tested-by: James Clark <james.clark@linaro.org>
+Link: https://lore.kernel.org/r/20250218-arm-brbe-v19-v20-2-4e9922fc2e8e@kernel.org
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm64/include/asm/cputype.h | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/perf/arm_pmu.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 7dfaad0fa17b7..f3729ef92e570 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -111,6 +111,7 @@
- #define QCOM_CPU_PART_KRYO		0x200
- #define QCOM_CPU_PART_KRYO_2XX_GOLD	0x800
- #define QCOM_CPU_PART_KRYO_2XX_SILVER	0x801
-+#define QCOM_CPU_PART_KRYO_3XX_GOLD	0x802
- #define QCOM_CPU_PART_KRYO_3XX_SILVER	0x803
- #define QCOM_CPU_PART_KRYO_4XX_GOLD	0x804
- #define QCOM_CPU_PART_KRYO_4XX_SILVER	0x805
-@@ -170,6 +171,7 @@
- #define MIDR_QCOM_KRYO MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO)
- #define MIDR_QCOM_KRYO_2XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_2XX_GOLD)
- #define MIDR_QCOM_KRYO_2XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_2XX_SILVER)
-+#define MIDR_QCOM_KRYO_3XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_3XX_GOLD)
- #define MIDR_QCOM_KRYO_3XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_3XX_SILVER)
- #define MIDR_QCOM_KRYO_4XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_4XX_GOLD)
- #define MIDR_QCOM_KRYO_4XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_4XX_SILVER)
+diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
+index 7fd11ef5cb8a2..8568b5a78c45b 100644
+--- a/drivers/perf/arm_pmu.c
++++ b/drivers/perf/arm_pmu.c
+@@ -338,12 +338,10 @@ armpmu_add(struct perf_event *event, int flags)
+ 	if (idx < 0)
+ 		return idx;
+ 
+-	/*
+-	 * If there is an event in the counter we are going to use then make
+-	 * sure it is disabled.
+-	 */
++	/* The newly-allocated counter should be empty */
++	WARN_ON_ONCE(hw_events->events[idx]);
++
+ 	event->hw.idx = idx;
+-	armpmu->disable(event);
+ 	hw_events->events[idx] = event;
+ 
+ 	hwc->state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
 -- 
 2.39.5
 
