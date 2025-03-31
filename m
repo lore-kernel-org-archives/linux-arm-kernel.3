@@ -4,62 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07260C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 08:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 709B2C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 09:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=arHVJn2tq0pISdDGhQ9lW+/SSkCbwPoa2E5hcd62Z0M=; b=inXhV5bvyjNEJH3rjV3f5YJPSU
-	T3/AVlqMMZJIUcCIthswpXS4vXwAmKiKv7YxdSszu/YaY73iQgzA7eKRSoxBH9M2euImzsYAd5680
-	ElXg+NuTJWTiFDu33CSAgR3o17sH37E1yFCVS7JGXxLnLyu8yRgjvCfBv5yR4aCjoxpVlFXRdohtA
-	U8PpXCoE4ibXXFCzGvZw+hJ00jfRwHJjlSlYGWdmdc2hCUFPdXRghxXpLEfbtwWcPNMxqb1bQTY1+
-	HUzZ1NU6BkUWc2ET1HEW+Je34hE/0R1YRs3vtmw2uPawFyDgcyHyM3eUy35bgWqJ842wUlO9+bMnJ
-	AA12E7jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/02MeeTgr+edfUre6+XCDI7lrRPKBNs5wpBz5Bd11FQ=; b=XIC/abojo2hCeNXRyp2QqBXWxT
+	6h77mkM1WBqQ8Z5ENti0Unr8XunQqdp454HynNN/bDz/BghBcNbB/9XwDQXB+dYbOTDI3m9h80v05
+	CP6s9YyEs0c1v5taiBkJH3yPAivr7KPh+/CYT5KjPuYA+I04kNy5h4UCz31bkVAuNTSTNq7eDmCjU
+	X14QoH1akU+q8dPHW2Wqq6SkOSBSFCbm0tIU7tEWQinwc2b0Govf7kntae9XCtCtovTDIWf07Iatl
+	LZRKUC2jkU6uNmwAQ4czKIbTvkBkBNMOw2GhxHHg8qCw4NsUE4H09Iz6gYAFQ5Wy31FfxcMbzDd5h
+	wZbj5Yzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzAwE-0000000HQys-2qDo;
-	Mon, 31 Mar 2025 08:56:10 +0000
-Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
+	id 1tzB1S-0000000HRbb-0lBR;
+	Mon, 31 Mar 2025 09:01:34 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzAuV-0000000HQet-2ZVl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 08:54:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=arHVJn2tq0pISdDGhQ9lW+/SSkCbwPoa2E5hcd62Z0M=; b=kohPfrwPEec576hyCbBc+RdrFv
-	0i6lgCR+Zao4kVxQ3twr61kw0uHdberku14BCwF6arFdfrQFl9RLyiD4tJ+PkMdHbJMEyE28moqyK
-	ZoOUj1arpvCLtHdUFsz6mDmyKs94U8YZjbi0ITH0EONzXYEQJ1vGvgmvL6jufPp5BPDTRjrV2qir2
-	BQigfuzYNqyxJESah/FP2Tb1xYAEdV3Gwg6qfVcckdTWIsOWHEMAKXitdUbkjoyrX4bb3UbbBtanP
-	UimXLy8MCCrrGxh7A6GN1phVvaQb9gBu/khHfNQDWLZPB/BcLdsPJkNOiemnL83wucWJCgmzBI7GZ
-	0fz7EXIw==;
-Received: from i59f7adb6.versanet.de ([89.247.173.182] helo=localhost.localdomain)
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1tzAuT-0097Ke-Ku; Mon, 31 Mar 2025 10:54:21 +0200
-From: Angelos Oikonomopoulos <angelos@igalia.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-kernel@vger.kernel.org,
-	kernel-dev@igalia.com,
-	Angelos Oikonomopoulos <angelos@igalia.com>
-Subject: [PATCH] arm64: Don't call NULL in do_compat_alignment_fixup
-Date: Mon, 31 Mar 2025 10:54:01 +0200
-Message-ID: <20250331085415.122409-1-angelos@igalia.com>
-X-Mailer: git-send-email 2.49.0
+	id 1tzAzk-0000000HRHc-30GP;
+	Mon, 31 Mar 2025 08:59:49 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52UKauVs020777;
+	Mon, 31 Mar 2025 08:59:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=/02MeeTgr+edfUre6+XCDI7lrRPKBN
+	s5wpBz5Bd11FQ=; b=P63v/gXsRF4hDLy7ssEBBwh/kzsyGiOtp0mumcM5+A/LNj
+	gdY0eBuzdPTmuXOhURZupJ1YyCReKhjV+btHVIxdh6bjRaJyvFsMnji9ym0MycpW
+	FQ/tEiPUhIT3tmZjgUk0k8RfDGEkMM5umV5et3jPN0aBemzHNEpTH7otsAqg2D2s
+	IgiQKjGXwzD3QmqVQYFZ00JQ3UFfmml/HrvUYzWU2spcPKwRznX4azB8E9B4uB+1
+	1QpX2jha71AOh/TNdKabH257Nmy0qCW899l9HxKC4fFcsNGdaAqFdrftLmaLGGiG
+	2KPUxEHGLnOeqqSwgqWBfYVrpnKHZUpIb/RQpJew==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45qd4q286v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Mar 2025 08:59:20 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 52V8pdhP010589;
+	Mon, 31 Mar 2025 08:59:19 GMT
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45qd4q286t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Mar 2025 08:59:19 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 52V5GId8014560;
+	Mon, 31 Mar 2025 08:59:18 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 45pvpkw19g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Mar 2025 08:59:18 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 52V8xEMj54460792
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 31 Mar 2025 08:59:14 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B244A20067;
+	Mon, 31 Mar 2025 08:59:14 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7D62920065;
+	Mon, 31 Mar 2025 08:59:13 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.171.74.246])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 31 Mar 2025 08:59:13 +0000 (GMT)
+Date: Mon, 31 Mar 2025 10:59:11 +0200
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-mm@kvack.org, Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org
+Subject: Re: [PATCH 1/2] mm/ptdump: Split note_page() into level specific
+ callbacks
+Message-ID: <Z+pZX2QmFnNnnjZ5@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250317061818.16244-1-anshuman.khandual@arm.com>
+ <20250317061818.16244-2-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250317061818.16244-2-anshuman.khandual@arm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: FB8uw0hSchlofFmG1jPA1lzwCpmzLf0-
+X-Proofpoint-ORIG-GUID: 3iKHP7Q1z45fUexTKfPdZicsNHs_J4-s
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-31_04,2025-03-27_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 suspectscore=0
+ bulkscore=0 clxscore=1011 mlxscore=0 adultscore=0 mlxlogscore=741
+ malwarescore=0 lowpriorityscore=0 impostorscore=0 priorityscore=1501
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502280000 definitions=main-2503310063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_015423_649220_EB186F48 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250331_015948_874361_7A9C7E80 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +124,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-do_alignment_t32_to_handler only fixes up alignment faults for specific
-instructions; it returns NULL otherwise. When that's the case, signal to
-the caller that it needs to proceed with the regular alignment fault
-handling (i.e. SIGBUS).
+On Mon, Mar 17, 2025 at 11:48:17AM +0530, Anshuman Khandual wrote:
 
-Signed-off-by: Angelos Oikonomopoulos <angelos@igalia.com>
----
- arch/arm64/kernel/compat_alignment.c | 2 ++
- 1 file changed, 2 insertions(+)
+Hi Anshuman,
 
-diff --git a/arch/arm64/kernel/compat_alignment.c b/arch/arm64/kernel/compat_alignment.c
-index deff21bfa680..b68e1d328d4c 100644
---- a/arch/arm64/kernel/compat_alignment.c
-+++ b/arch/arm64/kernel/compat_alignment.c
-@@ -368,6 +368,8 @@ int do_compat_alignment_fixup(unsigned long addr, struct pt_regs *regs)
- 		return 1;
- 	}
- 
-+	if (!handler)
-+		return 1;
- 	type = handler(addr, instr, regs);
- 
- 	if (type == TYPE_ERROR || type == TYPE_FAULT)
--- 
-2.49.0
+...
+> --- a/include/linux/ptdump.h
+> +++ b/include/linux/ptdump.h
+> @@ -11,9 +11,12 @@ struct ptdump_range {
+>  };
+>  
+>  struct ptdump_state {
+> -	/* level is 0:PGD to 4:PTE, or -1 if unknown */
+> -	void (*note_page)(struct ptdump_state *st, unsigned long addr,
+> -			  int level, u64 val);
+> +	void (*note_page_pte)(struct ptdump_state *st, unsigned long addr, pte_t pte);
+> +	void (*note_page_pmd)(struct ptdump_state *st, unsigned long addr, pmd_t pmd);
+> +	void (*note_page_pud)(struct ptdump_state *st, unsigned long addr, pud_t pud);
+> +	void (*note_page_p4d)(struct ptdump_state *st, unsigned long addr, p4d_t p4d);
+> +	void (*note_page_pgd)(struct ptdump_state *st, unsigned long addr, pgd_t pgd);
+> +	void (*note_page_flush)(struct ptdump_state *st);
+>  	void (*effective_prot)(struct ptdump_state *st, int level, u64 val);
 
+Should you treat effective_prot() similarly?
+
+>  	const struct ptdump_range *range;
+>  };
 
