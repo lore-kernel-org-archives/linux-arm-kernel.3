@@ -4,118 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A8DC36017
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 06:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E369C36017
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 06:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NbN+9NicJaqBYpnbUpskptOvuE/gmvrd1yfb4glWd04=; b=s2j+O3Fx1j5/LvvzpG8xLBYS89
-	zyRcil7/fp0wuYCKHXcvb4ncUQlm5Aml59p6G5IDMsJGVSv8izy0RNJwBTMv7a72aO1W8kvExfvOS
-	RRxEx7/0wyTyGbuLDiJmnKuMasYS9J0ik4kRIndY+7rxxp22JY5/xaIJWYZE297REpGAmceyBQAmo
-	qKgXWSqaJA5Ejw6sHe8QA0fBSf5xpNiZoW3gmpW7tYco+NO8TfU33a94o4v6QSTtpfgC/eaxaaIdp
-	+48yyCTDu2hSWiELhQeK5MPoayEuLroT3mhFP2QLl4/YyO0guoOoR5Gr+BaxDP5nDcL375L8RYYDr
-	54mrhLFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sGnhJIC759yJZtlti/ONE6+GpsFrfUcaeYqXQAyKOzg=; b=4aLkNXNJeB7NEAmrvR4IXOS5qd
+	brgToB4tzv+cXGP0SknzqqGWCzDOifvBsqszicHxtZpVOnmsEOE+ZuDvmcluKDQ4f+zGDimKWZsDF
+	FyVJnCd8N0LzIybE/0XRb+sd+36RB0Hx4K0/eyg4qVEw1y+FctgY8X8/St4RJ8xhoM96vcN+bPop1
+	jZ6vNytZioLohwf4xOc8ay3lS94RLUgb4ReykDMmCNLoaRy/dKk/OUDsAdsLtWxWAMtH4Y5E5LqHK
+	NC7VBu4DX9H8rEIo16spAqqV2HnjL0J5N2jol4NGYetnA0lKGMMvFCS+kcWj/zD287DqTV0wPUg1p
+	IH4AaYAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz8hW-0000000H6Uq-3v9T;
-	Mon, 31 Mar 2025 06:32:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tz8rB-0000000H7gV-3HyV;
+	Mon, 31 Mar 2025 06:42:49 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz8fp-0000000H6OA-2KkJ
+	id 1tz8pT-0000000H7J8-3dR3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 06:31:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AA097A4102F;
-	Mon, 31 Mar 2025 06:25:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C12EAC4CEEA;
-	Mon, 31 Mar 2025 06:30:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743402664;
-	bh=siK06ks11gqfEFK2GobMJ/GTm/D1N9rEwSRy7MoIxXI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oc4ls696St+M4bBAIOvxzG5W8Q0ZYmsFyFe/CN7d+CODeRjyiFKDpkcpOEs+W7lE3
-	 GH0RSnY/DkIL0YvkvrAb9L4w5lSkQidBf8gwJuPCblWXw3ma4w64/P4wGlA9oFu7NA
-	 Dkf4zrfJQIaZqqw1X8lst5V/TjPZzJ6ncHZzsOnpa2Qdw+H0Td23S5BA5rLai0TOO9
-	 xOdgY+MZRKs1sJVKEge8azcERhlePmoP0fRtP5I2loaWygUwGn4gVbgzlcPv307F5p
-	 wtHGhbc5StB4uVxO1yemkqAi54/OddQiGNLAQVwYL9/J1maW2rE5EuXfhs3sKSXpbO
-	 p+5lOREZrF6aQ==
-Message-ID: <d4c8de9b-e52c-480b-a3bf-e82979602477@kernel.org>
-Date: Mon, 31 Mar 2025 08:30:54 +0200
+	Mon, 31 Mar 2025 06:41:05 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43bb6b0b898so35605385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 23:41:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743403262; x=1744008062; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sGnhJIC759yJZtlti/ONE6+GpsFrfUcaeYqXQAyKOzg=;
+        b=IyvzEsk9WoiZuVlP7wJWZpKPjqJ7REIDV6+nxkip4jtzAA7+XIebf7EXLSUtnIBtpj
+         nVl6j7qLd5upTBEzeLSIv7QLJZuixeFudIxZPXIWulzaRv/XsaI31KVAc0iODPAJW6gH
+         EUiMpwqdzsJhIe4Uit9b0/Gta1L07fwy8+WPjKkI0Yti77Wg7XGYCCTAXjbLUxZpeheG
+         JUuTHZZ2JY17TBmwIrwGAI8et2KUwT4QXrm8HR5fyYaQhvATCDG2iQdyyY5IILommcV2
+         6tFJRjs7JKw0Mo9uqFhEZJkJKKaX3/Py7fZy685IsPNIiIbKKdaEpXiOrhqinA1ddTcn
+         pGig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743403262; x=1744008062;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=sGnhJIC759yJZtlti/ONE6+GpsFrfUcaeYqXQAyKOzg=;
+        b=n/5igyJvIJan1RB12EWKJln1pNVGfQOCrH55KebS0zGI+Qi9opcsTFC2iaq11oCHvK
+         /rmdcX0xud4HFzcPnGAmraZQ1Y2H8vM3Hu3saSlSuoe5u1l98Kz4TbW6RUbX+ld+tb3S
+         5o2icp+sL2nDfJ/5H6ibYFLqmlt8Pn0YykHivr90D7oBw5Q931g5nb+nwUIzT8ouaf8U
+         84StgU5iJ0moUka9ZPmYSu+jwhkUcinCG6AZ1/913opLrPP0bq+0BVvd+ZLYyeKpTm6l
+         QmnOqy3ulhjXBpXvdGOlCbNzT3XSHyC4uTxzIhI3xzxUYJThKuLiaitr0I/Gr+mPBEml
+         l3vg==
+X-Forwarded-Encrypted: i=1; AJvYcCXlPIO8FgthyvPCA2US83OKC2vnvM/KdB0npQrQTQ63Mj1oTpJz1PnfmA9g65e/Q5K5vAltuNp/ze6Z226Wh9sI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr4K97EPPLy2FiLGVPIUcSHeWsnGp0SqZ99JQYYTJW5cT6EVdw
+	zyXgjKlfTX4Hyap0MfME99LhAE7B9x3mgx3pPme0xoWGsjKxjp0fDf0fB3Wwyvk=
+X-Gm-Gg: ASbGncvasVGfKh2fa3w+f4EUj0J6OX63+Rfk+hp67uqOyEr3ux9ItgjHtfO1FkqLIlM
+	FHvGQd23pen6MlB24/iYeA7C5a/HPLkr5kAQJsRxW0N0wDnXH7t22FUQ4Oe5dW+BgHr1UYvs/1I
+	70HjBdDW7eyMyI54mfNyjuiE4AmUHH0Ow69Ylt4Hvtm6IDl2jtwmrrIyNkW5aZM2+Hu/uBKE+0u
+	bSDEXXu0yLHcltp2wDT5lbFMDrhIG4qSLXaDYf+E3hiQRAEhWF0j96jvD9fFQJO2Rl8jOi960ub
+	EEc406f1W+UwxOQHa2QmDTfh2ksxFNAtJqduB1Fu4mCxmV5atj/35Crnc5klJezQh2St6C4xTHs
+	2r9KQeevwg3fjs7M4
+X-Google-Smtp-Source: AGHT+IH5cRzNfuzcbg+vhCUwchxeuNmDNhE01WF7XDQIelmYWUn5sRs+QoiQmqXdq3AIDEZNp4hpcg==
+X-Received: by 2002:a05:600c:5494:b0:43d:7a:471f with SMTP id 5b1f17b1804b1-43db6252fa8mr75261725e9.18.1743403261690;
+        Sun, 30 Mar 2025 23:41:01 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:143:2e3d:45f1:fd2? ([2a01:e0a:3d9:2080:143:2e3d:45f1:fd2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82dede5csm159075245e9.8.2025.03.30.23.41.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 30 Mar 2025 23:41:01 -0700 (PDT)
+Message-ID: <769e7524-c1fc-4364-a6e8-e0d0315f9514@linaro.org>
+Date: Mon, 31 Mar 2025 08:41:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: net: Add MTIP L2 switch description
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250328133544.4149716-1-lukma@denx.de>
- <20250328133544.4149716-2-lukma@denx.de>
- <e6f3e50f-8d97-4dbc-9de3-1d9a137ae09c@kernel.org>
- <20250329231004.4432831b@wsk>
- <564768c3-56f0-4236-86e6-00cacb7b6e7d@kernel.org>
- <20250330223630.4a0b23cc@wsk>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250330223630.4a0b23cc@wsk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH] pinctrl: meson: define the pull up/down resistor value as
+ 60 kOhm
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linus.walleij@linaro.org
+References: <20250329190132.855196-1-martin.blumenstingl@googlemail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250329190132.855196-1-martin.blumenstingl@googlemail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_233105_733950_C2EDA70B 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20250330_234103_922676_F305EE6B 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,44 +126,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/03/2025 23:04, Lukasz Majewski wrote:
-> Hi Krzysztof,
+On 29/03/2025 20:01, Martin Blumenstingl wrote:
+> The public datasheets of the following Amlogic SoCs describe a typical
+> resistor value for the built-in pull up/down resistor:
+> - Meson8/8b/8m2: not documented
+> - GXBB (S905): 60 kOhm
+> - GXL (S905X): 60 kOhm
+> - GXM (S912): 60 kOhm
+> - G12B (S922X): 60 kOhm
+> - SM1 (S905D3): 60 kOhm
 > 
->> On 29/03/2025 23:10, Lukasz Majewski wrote:
->>>>> +    
->>>>
->>>> If this is ethernet switch, why it does not reference
->>>> ethernet-switch schema? or dsa.yaml or dsa/ethernet-ports? I am
->>>> not sure which one should go here, but surprising to see none.  
->>>
->>> It uses:
->>> $ref:·ethernet-controller.yaml#
->>>
->>> for "ports".
->>>
->>> Other crucial node is "mdio", which references $ref: mdio.yaml#  
->>
->> These are children, I am speaking about this device node.
+> The public G12B and SM1 datasheets additionally state min and max
+> values:
+> - min value: 50 kOhm for both, pull-up and pull-down
+> - max value for the pull-up: 70 kOhm
+> - max value for the pull-down: 130 kOhm
 > 
-> It looks like there is no such reference.
+> Use 60 kOhm in the pinctrl-meson driver as well so it's shown in the
+> debugfs output. It may not be accurate for Meson8/8b/8m2 but in reality
+> 60 kOhm is closer to the actual value than 1 Ohm.
 > 
-> I've checked the aforementioned ti,cpsw-switch.yaml,
-> microchip,lan966x-switch.yaml and renesas,r8a779f0-ether-switch.yaml.
+> Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+> ---
+>   drivers/pinctrl/meson/pinctrl-meson.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> Those only have $ref: for ethernet-port children node.
-> 
-> The "outer" one doesn't have it.
-> 
-> 
-> Or am I missing something?
+> diff --git a/drivers/pinctrl/meson/pinctrl-meson.c b/drivers/pinctrl/meson/pinctrl-meson.c
+> index 253a0cc57e39..e5a32a0532ee 100644
+> --- a/drivers/pinctrl/meson/pinctrl-meson.c
+> +++ b/drivers/pinctrl/meson/pinctrl-meson.c
+> @@ -487,7 +487,7 @@ static int meson_pinconf_get(struct pinctrl_dev *pcdev, unsigned int pin,
+>   	case PIN_CONFIG_BIAS_PULL_DOWN:
+>   	case PIN_CONFIG_BIAS_PULL_UP:
+>   		if (meson_pinconf_get_pull(pc, pin) == param)
+> -			arg = 1;
+> +			arg = 60000;
+>   		else
+>   			return -EINVAL;
+>   		break;
 
-There is ethernet-switch.yaml for non-DSA switches and there is DSA
-(using ethernet switch, btw). I don't know why these devices do not use
-it, I guess no one converted them after we split ethernet-switch out of DSA.
+Nice finding !
 
-Best regards,
-Krzysztof
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
