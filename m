@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8ACC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 07:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BDEC36013
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 07:04:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tuk9xLLGOA3p2uSHVjgEZqViacVfaAPTNHEavU4XDWs=; b=PKfOfYOtdwH597t2YAIfbh1/A6
-	QFxMngSPdl0uzRI2sAmq+0qmSZokkgdr9N1fPDJY7vLDbbAPE+J3hz4LKDEw0xAfAmLN9Icdx7VyW
-	UxCLN3asyK2tXoFGC0vSNdzlhv5Tt7pAByc/aDc4yi1qbuFo4xuIsQOE50BygcKnGt6okNLy/MSiH
-	0sUItglrsWT9JUUj4+UDHekueQlNweCy50AzeMjFAsQdPWOpqfSc6o6ZRLIRLrqI1yQ/bX5SKK0LC
-	TZ0JFfEfSI1REwQD4iD7rGMA8a5kDgrqu892en4jTQnalWcz6ZQaJWJ1f+EmRpg9HH+411llqyLFi
-	USN9hrDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U0EIRXaMi7x8XYwlCWwiW2XCs1AbE7FrNvdFZNLIYyY=; b=M5VGS78pjPu2Mfqshh6ePM2jwp
+	sOJDgQdvi06AgE4JIQeuHzVfmIE0Cx1qzqq52A5g0bJs3SnFz7ClBNrJ9ZX4zGOn0dadLru6DEVMS
+	2c/SkjxbJ0NVVixePrZKCVBAF9HEacFPpq276RKq/qUAdpdEYAQZJ/0A7mlBiWdX4WK1YRMx058K+
+	HR/YV5wE//pHqL8mJNjN7WCLzJhuhh7dR1u2VcVX3n5fDh7eON3+lMZ+AXhZaq1m0qdQz2d/8Xcpm
+	winZR+5tQmtCify+EIjmpyKFgNBsyesz9+rUdF+j07+aQGzObDGMvNioDliaUzWtTA+zOM8g9rqk8
+	idDLIHBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz9AF-0000000H9f7-148U;
-	Mon, 31 Mar 2025 07:02:31 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tz9Bu-0000000H9qw-1f5a;
+	Mon, 31 Mar 2025 07:04:14 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz98V-0000000H9NQ-2TG3
+	id 1tz99S-0000000H9Uw-2ZZO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 07:00:45 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 07FFA102F66E1;
-	Mon, 31 Mar 2025 09:00:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1743404439; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=Tuk9xLLGOA3p2uSHVjgEZqViacVfaAPTNHEavU4XDWs=;
-	b=NnnXc3jbq7tgb9NvNsc9O9FQmE+niADmjpA5rKPOCm1kMZVJGVlMDhqRZeGk8x5hTsguYq
-	pvGzvAwYbMQeIaXFyfvOCg8JFIkR1j6JinU2OEH+7nQiniop+N4eEQOPkZbgW57u/Jlw62
-	Lgurh2V2yvOKoaFccfxzeseieCKCbVYDcKh6NX/1vrCfORggFLr5GE1YIWnX1dxcaF/fBb
-	vCkCijMHFcCZW7rxNFWZpap+LszDiTYnSNwq8nuF8IvsBmxEYJUCqQ9iq/KL5qfYdIKIqo
-	fsZ0OiFr2imsRSjTGUSExQBccEI/TXhceVDp4zQpSVtLNOUUjjPKIcEirUQKUw==
-Date: Mon, 31 Mar 2025 09:00:33 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 4/4] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250331090033.281807b2@wsk>
-In-Reply-To: <022e19f5-9a9c-42eb-9358-a6fe832e8f5f@lunn.ch>
-References: <20250328133544.4149716-1-lukma@denx.de>
-	<20250328133544.4149716-5-lukma@denx.de>
-	<3648e94f-93e6-4fb0-a432-f834fe755ee3@lunn.ch>
-	<20250330222041.10fb8d3d@wsk>
-	<022e19f5-9a9c-42eb-9358-a6fe832e8f5f@lunn.ch>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Mon, 31 Mar 2025 07:01:43 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-39c0dfad22aso1478789f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 00:01:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743404501; x=1744009301; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U0EIRXaMi7x8XYwlCWwiW2XCs1AbE7FrNvdFZNLIYyY=;
+        b=b2QttzZ4K6HC7SlpUnt1JEcvoMZRirwU27B8HGRWvfoFkbUmAKNayCZ+ilEr21cb8s
+         0om2VlnSWRjts+sUHq29zGJDrZqb0998O+7EP0Ly7IYU25qxPNO//SYhQcxvZBqbbxMo
+         5XTFG2tKtmK3Krm+hsANjIvBza2JPcMCapu/NYmaqPKFJd3wIGXmpnnjeNlMKSJDnlfx
+         35OlUI19+9kAy7C2/3Xb8q0CDlOjXVyq/6kgppnqGxVsJkeeKWnZZHIkDjikQXaqNJ+C
+         zWfEeJj8hl3mXbucBM7GOZWNmX05qiumRBpAjqMKMsmZq35puZWjCLmrjtfuofHKeejf
+         Q2eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743404501; x=1744009301;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=U0EIRXaMi7x8XYwlCWwiW2XCs1AbE7FrNvdFZNLIYyY=;
+        b=bLMakcl4P3cr1VaezwTyOtXORBoMTCgacW7aGZ0JfT5TlTow7YeVWP+b9KHrSAsVva
+         Aim05TYm/YnQAhbRSrRpc3qdzAnE7oH9EOHFu8e5soXMlS2aK+CvRG613zj+Rf7CIOT+
+         SPCY48wswc73gOKITKZgKz9BllLKyDSNuDS/9lZJxB8SPid+Lc0Pnk/332u7cKrHvdnl
+         bzYqZCIiSCY0loYTwrVsK/GzVaiQ0MtrO/A2cTz1WFIMjkTIC9B2r7NAvrRTaibdrNXa
+         oNZh5ujmUv3EsKEnoo/+7+9ziJCoU2wupN4X6c/eSONop96JOPyecag5nc2Dayf0cpJ8
+         yE7A==
+X-Gm-Message-State: AOJu0YyXTYdJXQPj2RmqhcKkoVjv40yfFwf/NiS0NLuvSAwsVoAy6YvT
+	CXW//7BPTLPkiyUOIAek7p1c92p/jdwAGxyAveDO9Bw32BNsE2GDlH8IdOcoGp4=
+X-Gm-Gg: ASbGnctDokwKkVXEgpn9tZnDKgp6gbcCS+y+9kTt/YhU8rHig/iLI9piFqb79gph/dQ
+	to3pUDqN020z5jUIRsdUCN+kccsWJrrt3T0AL2vrZdH2W3N9TR58l5f7VG1YpqLqyusINY4bDQt
+	aPzvYLwEpiS4QNVAvlTEYpFJ/CMSHb96/Bn/ZYsOSlazjExI+nfFKXQsqlyXhMgct3F0nCPW50f
+	Ti/55DLaXl++n3cx9QPSRPkLRqz2Vq4nJ6+s1NITClY7YltX69nUrjrAljf4UrWTHQ3enDlw2a4
+	x2UvrlV1kwCDwo1+h5lODQRtwx2kSLuroLeRIcZpfNVLiN4SFv/b92UbgDIgQxQlcQ==
+X-Google-Smtp-Source: AGHT+IEeWSQJLYKN04bNEh+7lHsUNrdL5zsVbpE6bLIsWK5/LcK1CEV9vqu2gqFuUvmhYfQrRpRW/g==
+X-Received: by 2002:a05:6000:2183:b0:39c:1257:febb with SMTP id ffacd0b85a97d-39c1257ff09mr4622649f8f.59.1743404500748;
+        Mon, 31 Mar 2025 00:01:40 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82e6ab48sm158442325e9.10.2025.03.31.00.01.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Mar 2025 00:01:40 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: linux-amlogic@lists.infradead.org, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, jbrunet@baylibre.com, khilman@baylibre.com, 
+ christianshewitt@gmail.com
+In-Reply-To: <20250329185855.854186-1-martin.blumenstingl@googlemail.com>
+References: <20250329185855.854186-1-martin.blumenstingl@googlemail.com>
+Subject: Re: [PATCH 0/7] dts: amlogic: enable UART RX and TX pull up by
+ default
+Message-Id: <174340449998.221709.10827817044945834716.b4-ty@linaro.org>
+Date: Mon, 31 Mar 2025 09:01:39 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/O3v+DOu0N.qQTG3HhCy4w.0";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_000043_788549_A2A8EB40 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20250331_000142_667294_F77E565F 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,62 +100,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/O3v+DOu0N.qQTG3HhCy4w.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Hi,
 
-Hi Andrew.
+On Sat, 29 Mar 2025 19:58:48 +0100, Martin Blumenstingl wrote:
+> On the LibreELEC forum there have been reports that Odroid-C2 does not
+> boot when UART is left disconnected [0]. It turns out that this can be
+> solved by enabling the SoCs pull-up resistor on the UART RX and TX
+> pads [1].
+> It's not clear whether that specific Odroid-C2 board has a broken
+> resistor, the resistor is not populated (either by accident or on
+> purpose) or if there's another reason.
+> 
+> [...]
 
-> > > > +	/* Prevent a state halted on mii error */
-> > > > +	if (fep->mii_timeout && phy_dev->state =3D=3D PHY_HALTED) {
-> > > > +		phy_dev->state =3D PHY_UP;
-> > > > +		goto spin_unlock;
-> > > > +	}   =20
-> > >=20
-> > > A MAC driver should not be playing around with the internal state
-> > > of phylib. =20
-> >=20
-> > Ok, I've replaced it with PHY API calls (phy_start() and
-> > phy_is_started()). =20
->=20
-> phy_start() and phy_stop() should be used in pairs. It is not good to
-> call start more often than stop.
->=20
-> What exactly is going on here? Why would there be MII errors?
->=20
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.16/arm64-dt)
 
-Exactly.
+[1/7] ARM: dts: amlogic: meson8: enable UART RX and TX pull up by default
+      https://git.kernel.org/amlogic/c/cfd9d2466ed2891bacb6319bcf9af55f21d0263e
+[2/7] ARM: dts: amlogic: meson8b: enable UART RX and TX pull up by default
+      https://git.kernel.org/amlogic/c/7374b06e8099ce7345ff3afd4bb756dde25971c1
+[3/7] arm64: dts: amlogic: gxbb: enable UART RX and TX pull up by default
+      https://git.kernel.org/amlogic/c/b00fe005612080772fe4f00c61e2fcdd2dea18f0
+[4/7] arm64: dts: amlogic: gxl: enable UART RX and TX pull up by default
+      https://git.kernel.org/amlogic/c/bbeb3017f1596a0551ba0ee40866f8b4e0ca2d3e
+[5/7] arm64: dts: amlogic: g12: enable UART RX and TX pull up by default
+      https://git.kernel.org/amlogic/c/867c3760da4ebd760115f17eca0b4bd3b668941c
+[6/7] arm64: dts: amlogic: axg: enable UART RX and TX pull up by default
+      https://git.kernel.org/amlogic/c/48d5da715331f2fd5e17e64f9e75e74248223b66
+[7/7] arm64: dts: amlogic: a1: enable UART RX and TX pull up by default
+      https://git.kernel.org/amlogic/c/b85aae3714e65d7b92a6c2c28f62cf66393dfcac
 
-I've double check it - this can be safely dropped.
+These changes has been applied on the intermediate git tree [1].
 
-> 	Andrew
+The v6.16/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
 
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
 
-Best regards,
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
 
-Lukasz Majewski
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
 
---
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
 
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+-- 
+Neil
 
---Sig_/O3v+DOu0N.qQTG3HhCy4w.0
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfqPZEACgkQAR8vZIA0
-zr2uZAf/X9cFX5/KF/UwjOOG5zujQrAPZ8w1dyFZMuxUtk8kuXMPb15aOYHrHNru
-75mZmO+XEFjn8ZH1zo8gNFkcIZtXXRl9ySXNdv3qKnlRBNdMddQR5lMI+l1OixPr
-SEH8lCzHgIi3s+RHFNsFrOrRnkKYkQwNHjiciDsgOFfn2Pzn7/oysfr0N/0guAsf
-o4IQTXOe6HKQk/xiKYSiYSxbxZEYkEhVaRiizQwFF/lPbInPSJYN4/QMPkoaldcT
-qcRyDKlHIAcvHnts/1lsTgrlugfSqAIdXgnUYKwi0GCmpkX7U6DA15uN7+kfhKSq
-wm1rAr67gqNHiUvqXB6WyIQRFbZPNg==
-=ACUc
------END PGP SIGNATURE-----
-
---Sig_/O3v+DOu0N.qQTG3HhCy4w.0--
 
