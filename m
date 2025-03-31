@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC56AC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 09:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C132FC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 10:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JGUJHSEu1hIQgWU0nYHBosEKyRVcYuqWM0xfY1Ki/Rw=; b=vdBrNMycW4xJsp1GFH/raHZGqs
-	qhYFUd3jIWHqsu00Y2QjM9v8r9X9Wft2h4em1ctlihu9QmfNbiL/EcbqVJYnogLWGk62fRPH4eVsW
-	ZZqntf2p1aYSlSWDq2GaaqaszxCpxEjWDaCmdvLTm8tIeAnpud2bhnI055hLBWKgFEUsXjAmp8i0a
-	zKxdNORZ6/UXbwtZuFixQPoi6j9ZmMO7V9WiIe5VOE5AJKrpAmwCmL7s0XB4KZt1+Td89DGk5XLFO
-	IR0mSqgOwVuNv8gOGT5WN5L80RZGLUWgQCNTaXUz/3upbONBhLR6TWuUoAtEeWuG0bWwPTEvtr6OH
-	+BnyjGtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K0uyCRqysqwlz/M3gpeFQYnYDt/B6q6kuJ3jCKU26Zw=; b=NaJvx1xLGRoLGcpyxl0TszUFln
+	N60z09VarufLlC+SvHEPKRE0VT8d9t55WYVITC8OgYve8CDKqL8lRNABZpJIZq8Lqb/qEcqFw6+4R
+	8AFLZqbk/r7vk2K8lE7lUeuHZA0WwCT7cYICfazQNJF/5zo0LKXVFWqDQ8O8MBGxWwN5QyN7WnjbQ
+	afbtI6mU3T/zkBb/KB+iGX+U+zSALA3ducPY9nbqRIJwLh5DPlPBtE5akkj6NIMwhUHVtBp2AGosN
+	lyLf0ki1Q5lqpaQeK55bPeuCVkjXs7BlKAHI3Oo/IxSSuSpra61+vQJiF9H2Zil6elNn/f0yBqGdJ
+	NZXwX1LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzBh8-0000000HY6r-1CUa;
-	Mon, 31 Mar 2025 09:44:38 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1tzC0G-0000000Hb57-2cZo;
+	Mon, 31 Mar 2025 10:04:24 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzBfP-0000000HXm3-3lP5
+	id 1tzBfp-0000000HXqu-1fdI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 09:42:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0D9E74322D;
-	Mon, 31 Mar 2025 09:42:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1743414167;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JGUJHSEu1hIQgWU0nYHBosEKyRVcYuqWM0xfY1Ki/Rw=;
-	b=Zj4lLPhKAt6zS5h9ISrWTFiLmzINzzkKyLaBzjodr6cS3OltZ3ExxB91azsxxAZH6RoPCX
-	q5RIDyazeuZMT3xRWu07vJtvEkFyIM6IyLckbpz8ZbpfAo2ZQikqiWBEukjD2E/nzLzwbX
-	wcVBhJWibinhK4kxKik8uVuPRZagQtoF4LTNOAuICQRG0voJ2kc0po7fpJ50hnZtK2/BBz
-	eitfsUVrNAoHfly4I4REfInyRdMpixfnp06HTb55mYD2POFngYrFrXsM0hYBk56GHbLw/0
-	hzY60JDIQkFkJLICg51Xr1JC/pyXZWHMjLtJdOuAVv2SA/QcWvLKycOt9M7jjw==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, Krzysztof Kozlowski
- <krzysztof.kozlowski@linaro.org>, Andrew Lunn <andrew@lunn.ch>, Sebastian
- Hesselbarth <sebastian.hesselbarth@gmail.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] ARM: dts: marvell: use correct ohci/ehci node names
-In-Reply-To: <20250330193833.21970-8-wsa+renesas@sang-engineering.com>
-References: <20250330193833.21970-7-wsa+renesas@sang-engineering.com>
- <20250330193833.21970-8-wsa+renesas@sang-engineering.com>
-Date: Mon, 31 Mar 2025 11:42:45 +0200
-Message-ID: <87a591bkoa.fsf@BLaptop.bootlin.com>
+	Mon, 31 Mar 2025 09:43:19 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4ZR5lR0hwTz13Kd0;
+	Mon, 31 Mar 2025 17:42:43 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 44BA61400DC;
+	Mon, 31 Mar 2025 17:43:12 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Mon, 31 Mar 2025 17:43:11 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <corbet@lwn.net>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>
+CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<shuah@kernel.org>, <jonathan.cameron@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
+	<tangchengchang@huawei.com>
+Subject: [PATCH v2 5/6] arm64: Add ESR.DFSC definition of unsupported exclusive or atomic access
+Date: Mon, 31 Mar 2025 17:43:19 +0800
+Message-ID: <20250331094320.35226-6-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250331094320.35226-1-yangyicong@huawei.com>
+References: <20250331094320.35226-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddujeelheelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhffkfggtgfgsehtqhertddttdejnecuhfhrohhmpefirhgvghhorhihucevnffgoffgpffvuceoghhrvghgohhrhidrtghlvghmvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgffhgedvhefgtdejvdethfdvieekgfetuefhueekteetgfdvueeutedttdekgeevnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemjeelgegsmegshegttgemvdekfegvmegutdekleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemjeelgegsmegshegttgemvdekfegvmegutdekledphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepghhrvghgohhrhidrtghlvghmvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepledprhgtphhtthhopeifshgrodhrvghnvghsrghssehsrghnghdqvghnghhinhgvvghrihhnghdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrr
- gguvggrugdrohhrghdprhgtphhtthhopehkrhiihihsiihtohhfrdhkohiilhhofihskhhisehlihhnrghrohdrohhrghdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehsvggsrghsthhirghnrdhhvghsshgvlhgsrghrthhhsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: gregory.clement@bootlin.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_024252_088616_12EF8AE2 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250331_024317_623070_DBFE3573 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,112 +76,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Wolfram
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-> They should be named "usb@".
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+0x35 indicates IMPLEMENTATION DEFINED fault for Unsupported Exclusive or
+Atomic access. Add ESR_ELx_FSC definition and corresponding wrapper.
 
-Applied on mvebu/dt
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ arch/arm64/include/asm/esr.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Thanks,
+diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+index d1b1a33f9a8b..2f357442f646 100644
+--- a/arch/arm64/include/asm/esr.h
++++ b/arch/arm64/include/asm/esr.h
+@@ -121,6 +121,7 @@
+ #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
+ #define ESR_ELx_FSC_SECC	(0x18)
+ #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
++#define ESR_ELx_FSC_EXCL_ATOMIC	(0x35)
+ 
+ /* Status codes for individual page table levels */
+ #define ESR_ELx_FSC_ACCESS_L(n)	(ESR_ELx_FSC_ACCESS + (n))
+@@ -464,6 +465,13 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
+ 	       (esr == ESR_ELx_FSC_ACCESS_L(0));
+ }
+ 
++static inline bool esr_fsc_is_excl_atomic_fault(unsigned long esr)
++{
++	esr = esr & ESR_ELx_FSC;
++
++	return esr == ESR_ELx_FSC_EXCL_ATOMIC;
++}
++
+ /* Indicate whether ESR.EC==0x1A is for an ERETAx instruction */
+ static inline bool esr_iss_is_eretax(unsigned long esr)
+ {
+-- 
+2.24.0
 
-Gregory
-
-> ---
->  arch/arm/boot/dts/marvell/kirkwood-db.dtsi             | 2 +-
->  arch/arm/boot/dts/marvell/kirkwood-dir665.dts          | 2 +-
->  arch/arm/boot/dts/marvell/kirkwood-mv88f6281gtw-ge.dts | 2 +-
->  arch/arm/boot/dts/marvell/kirkwood.dtsi                | 2 +-
->  arch/arm/boot/dts/marvell/orion5x.dtsi                 | 4 ++--
->  5 files changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/marvell/kirkwood-db.dtsi b/arch/arm/boot/d=
-ts/marvell/kirkwood-db.dtsi
-> index 6fe2e31534af..8bacaeb4f4bd 100644
-> --- a/arch/arm/boot/dts/marvell/kirkwood-db.dtsi
-> +++ b/arch/arm/boot/dts/marvell/kirkwood-db.dtsi
-> @@ -39,7 +39,7 @@ sata@80000 {
->  			status =3D "okay";
->  		};
->=20=20
-> -		ehci@50000 {
-> +		usb@50000 {
->  			status =3D "okay";
->  		};
->=20=20
-> diff --git a/arch/arm/boot/dts/marvell/kirkwood-dir665.dts b/arch/arm/boo=
-t/dts/marvell/kirkwood-dir665.dts
-> index 2f6793f794cd..36394d1ab3e2 100644
-> --- a/arch/arm/boot/dts/marvell/kirkwood-dir665.dts
-> +++ b/arch/arm/boot/dts/marvell/kirkwood-dir665.dts
-> @@ -129,7 +129,7 @@ i2c@11000 {
->  			status =3D "okay";
->  		};
->=20=20
-> -		ehci@50000 {
-> +		usb@50000 {
->  			status =3D "okay";
->  		};
->  	};
-> diff --git a/arch/arm/boot/dts/marvell/kirkwood-mv88f6281gtw-ge.dts b/arc=
-h/arm/boot/dts/marvell/kirkwood-mv88f6281gtw-ge.dts
-> index e3b41784c876..051579fc36b8 100644
-> --- a/arch/arm/boot/dts/marvell/kirkwood-mv88f6281gtw-ge.dts
-> +++ b/arch/arm/boot/dts/marvell/kirkwood-mv88f6281gtw-ge.dts
-> @@ -63,7 +63,7 @@ serial@12000 {
->  			status =3D "okay";
->  		};
->=20=20
-> -		ehci@50000 {
-> +		usb@50000 {
->  			status =3D "okay";
->  		};
->  	};
-> diff --git a/arch/arm/boot/dts/marvell/kirkwood.dtsi b/arch/arm/boot/dts/=
-marvell/kirkwood.dtsi
-> index 815ef7719d13..8a1338e672b3 100644
-> --- a/arch/arm/boot/dts/marvell/kirkwood.dtsi
-> +++ b/arch/arm/boot/dts/marvell/kirkwood.dtsi
-> @@ -263,7 +263,7 @@ cesa: crypto@30000 {
->  			status =3D "okay";
->  		};
->=20=20
-> -		usb0: ehci@50000 {
-> +		usb0: usb@50000 {
->  			compatible =3D "marvell,orion-ehci";
->  			reg =3D <0x50000 0x1000>;
->  			interrupts =3D <19>;
-> diff --git a/arch/arm/boot/dts/marvell/orion5x.dtsi b/arch/arm/boot/dts/m=
-arvell/orion5x.dtsi
-> index 2d41f5c166ee..939259c57e05 100644
-> --- a/arch/arm/boot/dts/marvell/orion5x.dtsi
-> +++ b/arch/arm/boot/dts/marvell/orion5x.dtsi
-> @@ -146,7 +146,7 @@ wdt: wdt@20300 {
->  				status =3D "okay";
->  			};
->=20=20
-> -			ehci0: ehci@50000 {
-> +			ehci0: usb@50000 {
->  				compatible =3D "marvell,orion-ehci";
->  				reg =3D <0x50000 0x1000>;
->  				interrupts =3D <17>;
-> @@ -218,7 +218,7 @@ cesa: crypto@90000 {
->  				status =3D "okay";
->  			};
->=20=20
-> -			ehci1: ehci@a0000 {
-> +			ehci1: usb@a0000 {
->  				compatible =3D "marvell,orion-ehci";
->  				reg =3D <0xa0000 0x1000>;
->  				interrupts =3D <12>;
-> --=20
-> 2.47.2
->
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
