@@ -4,93 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B7DC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 09:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFE8C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 09:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Llm9pma7GB9kBl93sCNj/g39MW9hKI2/XXZsXMDyXJU=; b=ARWSjphEA8MrHrtIKOtjY2LZuj
-	+xpvPs8xKhKv8ZYI54x5Z4+J8wk2p7a3H9lKYtD4FRxgaJZQiPQc//gD9stH3O8spLcOv2vN41YOz
-	ok/P1R9DlL11m2zvHLKH0zJJDgTyk7Tl8zMy6n/maxFOKzsJVRswX2d3g0O43MuhFPKrCXbpK5nhF
-	P7IT1shxhMJt3R0yRlT7sGj+rZqJimntJQ4Sr+6UHq8Uk4Wpl/+9PUZ9p/TQ8RFGue9AE3LZ+h7eX
-	Xl0z4LrAaMSYgca83kLm8YafKmb4f1D1B005pWXrhDYYL0NFC/2YZl6hxFJoTg3fOKN5fndKwMNw0
-	/XLVWHbQ==;
+	bh=cJpsG0NuVPyTrNtoLgQWDGGd++w5Px7qO6TwmxaM6KA=; b=2GN4pfjdDtywnh/wFNQT5I6kb4
+	ZcODEHcAUb2DD8jr4KygVFaqGrdZb8A8VRl0Pn2wIQiWLSbnO9fTx9qUxuSAEnqBLDGIwD5dE3ta5
+	0llUbdPG/BrePy+YIHcYCMt/NlfVzswPgPSUGpOYx5QRkEfasNFSTGCEN7KVY2NhDTQetYSLp2Zua
+	yu/vffASNN1Sf6ix9dxbLj4Y53tq36PNs2GVa7ylFfYfc0M+mCKsQTHyqnob7b9/89nO9Idn4JhoA
+	5kS79fBWAIisd8HE7knT03nL7XuZ3NVF90dqxBn8XDN/OWRgNIEeDWqZZ2/PpXnR/678kWl69jW7d
+	zkhIHpOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzB8j-0000000HSLm-2aVX;
-	Mon, 31 Mar 2025 09:09:05 +0000
-Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
+	id 1tzBAQ-0000000HSUy-18RH;
+	Mon, 31 Mar 2025 09:10:50 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzB5h-0000000HS1M-13x3
+	id 1tzB7g-0000000HSCO-2SQK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 09:05:58 +0000
-Received: by mail-ed1-x544.google.com with SMTP id 4fb4d7f45d1cf-5ed1ac116e3so7146593a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 02:05:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1743411955; x=1744016755; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Llm9pma7GB9kBl93sCNj/g39MW9hKI2/XXZsXMDyXJU=;
-        b=RN9E20/JX/s0fyCkdlju3ym9Luo++M6pUXHH62yqQXOb2+ME5pfVlkk5nJ+LaqdIrm
-         5v00fI249SEj5ymmbDB48pyE/CYeGIJX5/yxcMGDNHoW8l3ODEySs3ax6p87tByrcone
-         1wLyUQCBJqw3kAfXFL8Cbdbj2g3b9+tRmh0nm5cs8WW2lNS3mdBHlp+B6RoLRJ5mEqb0
-         CNBJB92jflRXiDyUxYwYULU59EBTM+louB+FGb0pkvqgesViS9rWMyxBmpecoQIeVTC4
-         34Z2SpbYXme91S4vmz0GlFynJbV9Z0kmHfy6edOh29kAzTmG5RP3GulQ7FBmnsBkLLJE
-         +C2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743411955; x=1744016755;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Llm9pma7GB9kBl93sCNj/g39MW9hKI2/XXZsXMDyXJU=;
-        b=sEvUBQBotkH2jErERFnBdIKoMUXhKPXrWxiYvewmqV9ZLY7Aui6BsTbx7YveeQHJ8d
-         kpD9ECdOlAgh5SbnKlFrq4UJf9bxKR3TfaC+X3u+OkOY3rWB0NvuGMHPlWLNPyWrYJCN
-         mbv/STT0FHCnpzP1L+va9co23ioMhwuAwqD67bG5ZUDR0n4DPjedtzjAPlT575mZoAWX
-         299q1wh6e4cOr01flY2MKc7lDBcREN73qyfIb0eWO8UVHnN8Pp1IqYXlI9KXFjeVvGNh
-         wMC/1BKmCSYQ+j2aWWLuIASvt6jtdo/aoHHb40p7Lo4SoHRDFxGSdsPEA7vdyTbZZGYz
-         9pXA==
-X-Gm-Message-State: AOJu0YxEaTG0UnBjcvih3TkHelI560WdXkyxwJFNlO0emE4hivkflgYM
-	00FNTehECf4MZxp/rJyVPbZvaH58kBI/OG2fUWOnICfYqCEg9OxWw+kxReQiNNk=
-X-Gm-Gg: ASbGncs8hkrQkot/Z5AWRMou2ZVRR5bDu5ZTLXG1lTC3Lluu0B/w0Lk5/1PoQV/Yymq
-	J0q8ked3wPUgdwKZYo24ns/ZgG3NAg4Uhlq6sMHw72DS9ypzb6B0lkqzoFHuZfDi3pDCGypd4c6
-	NqZ1tLiOulllYgjAvyq36GE8bYfIkkX2OZSMdL2LBP2Un4lK6OAM9uWwWeD/2xXAHRRtbILcj/H
-	MyOUA/NB6QYBFyuQCKFdQ4uDMiiZ56pbWOp14wMQdnwM1ssrkpdg3o15UEKLm0LU+8gouHTIG0h
-	82ahqSYy75Xp303TtZzLrzag4+G8zLiYc8UpCbBdC/yrfNXgUgWLLi7NmJmJuiCyoBgGqaP41Zm
-	bNEnUGYRZUqkl
-X-Google-Smtp-Source: AGHT+IGHsMCAoVAwG4CE1fni04ClvtPYfCFVP4V9SvKvPyt4K6GKejVrsoR2ClYLTTrY2bxgzG9t7g==
-X-Received: by 2002:a05:6402:2793:b0:5ec:939e:a60e with SMTP id 4fb4d7f45d1cf-5edfb36bf62mr6145611a12.0.1743411954999;
-        Mon, 31 Mar 2025 02:05:54 -0700 (PDT)
-Received: from localhost (host-87-5-222-245.retail.telecomitalia.it. [87.5.222.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5edc16d41f6sm5579663a12.25.2025.03.31.02.05.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Mar 2025 02:05:54 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Mon, 31 Mar 2025 11:07:12 +0200
-To: Song Liu <song@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org,
-	indu.bhagat@oracle.com, puranjay@kernel.org, wnliu@google.com,
-	irogers@google.com, joe.lawrence@redhat.com, jpoimboe@kernel.org,
-	mark.rutland@arm.com, peterz@infradead.org,
-	roman.gushchin@linux.dev, rostedt@goodmis.org, will@kernel.org,
-	kernel-team@meta.com, Suraj Jitindar Singh <surajjs@amazon.com>,
-	Torsten Duwe <duwe@suse.de>, Miroslav Benes <mbenes@suse.cz>,
-	Breno Leitao <leitao@debian.org>
-Subject: Re: [PATCH v3 2/2] arm64: Implement HAVE_LIVEPATCH
-Message-ID: <Z-pbQJtwdAxyR0Fg@apocalypse>
-References: <20250320171559.3423224-1-song@kernel.org>
- <20250320171559.3423224-3-song@kernel.org>
+	Mon, 31 Mar 2025 09:08:02 +0000
+Date: Mon, 31 Mar 2025 11:07:56 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1743412077;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cJpsG0NuVPyTrNtoLgQWDGGd++w5Px7qO6TwmxaM6KA=;
+	b=ljapDT1U59tqFPqTNSUBYDGOV93YFhboQJkTd95+tbNoESkCXOr+YiUuFn/HZRdQ+7GZeg
+	HapYHJNVe9jzE2X5qk9aUdQAB2X1im997mh73gLD+XelCoPFM35X/WsbzfSK8K6JzkQtwX
+	IRiT9Ks+43+UXItNNPFdbvMp8l8od3ikZI0p8+9vkrgt5AyjsUxcSu6SnOYwHIO92wITeC
+	x9SI+r5n4EHS4/O6qmXbem1GgMXoZmpMvWgUMOfFkGCed5jnAcf25yN2QOeYC8SvPdguw1
+	r3HbnhdPv4GLMkRygqm7XSGKOsP9f1XPm4UI6lD4vR1Kqm8uKffUfriEgIORvQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1743412077;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cJpsG0NuVPyTrNtoLgQWDGGd++w5Px7qO6TwmxaM6KA=;
+	b=Q66gDQxoAFrIFRlfBtupn6o7SJo99Hdz2bxCh9rlU+qsBsGft9E9GEVtc1hjd8p3pXzf+T
+	M/ISyYGZwoFeOQAA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Valentin Schneider <vschneid@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-rt-users@vger.kernel.org,
+	Mike Galbraith <efault@gmx.de>,
+	Peter Collingbourne <pcc@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Mark Brown <broonie@kernel.org>,
+	Kristina Martsenko <kristina.martsenko@arm.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Juri Lelli <juri.lelli@redhat.com>, Phil Auld <pauld@redhat.com>
+Subject: Re: [PATCH 1/1] arm64: enable PREEMPT_LAZY
+Message-ID: <20250331090756.L7iXi1Ee@linutronix.de>
+References: <20250305104925.189198-1-vschneid@redhat.com>
+ <20250305104925.189198-2-vschneid@redhat.com>
+ <Z8hAZ09Q40fxLJSk@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250320171559.3423224-3-song@kernel.org>
+In-Reply-To: <Z8hAZ09Q40fxLJSk@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_020557_294278_63A45622 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20250331_020801_409793_89060C26 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,106 +89,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10:15 Thu 20 Mar     , Song Liu wrote:
-> This is largely based on [1] by Suraj Jitindar Singh.
-> 
-> Test coverage:
-> 
-> - Passed manual tests with samples/livepatch.
-> - Passed all but test-kprobe.sh in selftests/livepatch.
->   test-kprobe.sh is expected to fail, because arm64 doesn't have
->   KPROBES_ON_FTRACE.
-> - Passed tests with kpatch-build [2]. (This version includes commits that
->   are not merged to upstream kpatch yet).
-> 
-> [1] https://lore.kernel.org/all/20210604235930.603-1-surajjs@amazon.com/
-> [2] https://github.com/liu-song-6/kpatch/tree/fb-6.13
-> Cc: Suraj Jitindar Singh <surajjs@amazon.com>
-> Cc: Torsten Duwe <duwe@suse.de>
-> Signed-off-by: Song Liu <song@kernel.org>
-> Acked-by: Miroslav Benes <mbenes@suse.cz>
-> Tested-by: Breno Leitao <leitao@debian.org>
-> ---
->  arch/arm64/Kconfig                   | 3 +++
->  arch/arm64/include/asm/thread_info.h | 4 +++-
->  arch/arm64/kernel/entry-common.c     | 4 ++++
->  3 files changed, 10 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 31d5e1ee6089..dbd237b13b21 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -277,6 +277,7 @@ config ARM64
->  	select USER_STACKTRACE_SUPPORT
->  	select VDSO_GETRANDOM
->  	select HAVE_RELIABLE_STACKTRACE
-> +	select HAVE_LIVEPATCH
->  	help
->  	  ARM 64-bit (AArch64) Linux support.
->  
-> @@ -2501,3 +2502,5 @@ endmenu # "CPU Power Management"
->  source "drivers/acpi/Kconfig"
->  
->  source "arch/arm64/kvm/Kconfig"
-> +
-> +source "kernel/livepatch/Kconfig"
-> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-> index 1114c1c3300a..4ac42e13032b 100644
-> --- a/arch/arm64/include/asm/thread_info.h
-> +++ b/arch/arm64/include/asm/thread_info.h
-> @@ -64,6 +64,7 @@ void arch_setup_new_exec(void);
->  #define TIF_UPROBE		4	/* uprobe breakpoint or singlestep */
->  #define TIF_MTE_ASYNC_FAULT	5	/* MTE Asynchronous Tag Check Fault */
->  #define TIF_NOTIFY_SIGNAL	6	/* signal notifications exist */
-> +#define TIF_PATCH_PENDING	7	/* pending live patching update */
->  #define TIF_SYSCALL_TRACE	8	/* syscall trace active */
->  #define TIF_SYSCALL_AUDIT	9	/* syscall auditing */
->  #define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
-> @@ -92,6 +93,7 @@ void arch_setup_new_exec(void);
->  #define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
->  #define _TIF_SECCOMP		(1 << TIF_SECCOMP)
->  #define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
-> +#define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
->  #define _TIF_UPROBE		(1 << TIF_UPROBE)
->  #define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
->  #define _TIF_32BIT		(1 << TIF_32BIT)
-> @@ -103,7 +105,7 @@ void arch_setup_new_exec(void);
->  #define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_SIGPENDING | \
->  				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
->  				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
-> -				 _TIF_NOTIFY_SIGNAL)
-> +				 _TIF_NOTIFY_SIGNAL | _TIF_PATCH_PENDING)
->  
->  #define _TIF_SYSCALL_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
->  				 _TIF_SYSCALL_TRACEPOINT | _TIF_SECCOMP | \
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index b260ddc4d3e9..b537af333b42 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -8,6 +8,7 @@
->  #include <linux/context_tracking.h>
->  #include <linux/kasan.h>
->  #include <linux/linkage.h>
-> +#include <linux/livepatch.h>
->  #include <linux/lockdep.h>
->  #include <linux/ptrace.h>
->  #include <linux/resume_user_mode.h>
-> @@ -144,6 +145,9 @@ static void do_notify_resume(struct pt_regs *regs, unsigned long thread_flags)
->  				       (void __user *)NULL, current);
->  		}
->  
-> +		if (thread_flags & _TIF_PATCH_PENDING)
-> +			klp_update_patch_state(current);
-> +
->  		if (thread_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
->  			do_signal(regs);
->  
-> -- 
-> 2.47.1
-> 
+On 2025-03-05 12:15:35 [+0000], Mark Rutland wrote:
+> Catalin, Will, given this is small and self-contained, I reckon it makes
+> sense to pick this up ahead of Jinjie's series to move arm64 over to the
+> generic entry library (which is on my queue of things to review). Even
+> if we pick up both, it'll be easier to bisect and debug issues caused by
+> this patch alone.
 
-Tested-by: Andrea della Porta <andrea.porta@suse.com>
+Any updates here? I know it is the merge window but I don't know if
+upstream considers this or wants to sit on it until the generic entry
+gets in.
+In the meantime I stuff it into my RT tree so it does not get lost.
 
-Thanks,
-Andrea
+> Mark.
+
+Sebastian
 
