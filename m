@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46DEAC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 13:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7E9C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 13:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JcvIS8eeddlDCHMQUC+mFz0BhHofMLV7E7SV2Sxv+AM=; b=pIpZEt8ZEM8NKdrV8UVdY08tdP
-	DJNybG/z1xusq4hFS/EC88bzpChlHVZkksoDMWEL7C9OZckDmqIx8jTkKa1IwVEBe8SfOBWFCxI4y
-	16vXI8db1dx7Yvh5dTH/3jRpV+X7Xzulb1bXJy+zIp80gcED+f1gd4uloY2gKpELP5yUz7ADxJsml
-	2SGYINNVAkszycyccbLih09DyIuHGS76dHgkObCFAYjQ+Unui2yk9Su9RXz+JClRt28vc4bQ+nobA
-	CMggHaFVvTAKb5TlPB9OInIqB6dXZRFfeCP5QmIs+WnsUsOcHA45GHXjOjKF8iLtKhNv6uIkIP5Uq
-	saN6wl/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zAr+PsQ5oZEISZvL8CyPCWlvx2E0ZRGXrPFMppbVz7U=; b=FuDbJ0rSKSf5CTqTVFwR7OPLMU
+	Rw8JEO/RhZyUcnws12EXVqhoPBPSCJE9Jl/psD6V+npVFtg9tpaQpDyq8xla+9uo9yYIC2xmvB8nI
+	q/Qc8gxSWoLczT88+VGDXeQA5g2RMFc/J0GFB2WY/K/BMeTAnFv3w1JXj7te9kwAbqUgz5mEhhDp4
+	3LEsPKd2bNAE6bnfTAtQKIJcWH2vBdY86Hd0+ZrGTbEOEajOwne+RgHHMeDTIMDhWToK7GKy+MsBs
+	Iuj63hr1I5zxLghPU/EySszjo1pHzIS4ZHi3ZHCTrZImNq9AXajplEwVvWkSGPA6I9dEWqONxWfrQ
+	ki3ox4Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzFPV-00000000TLW-3y8q;
-	Mon, 31 Mar 2025 13:42:41 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tzFSC-00000000TaT-2rZ4;
+	Mon, 31 Mar 2025 13:45:28 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzFNn-00000000THC-1mCa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 13:40:56 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cfe574976so30789425e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 06:40:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743428453; x=1744033253; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=JcvIS8eeddlDCHMQUC+mFz0BhHofMLV7E7SV2Sxv+AM=;
-        b=RZeXS+kqL9ATqZvzi8JJ8weaA6bOWUvyllAch1zCbE1O7c5ZkpYZMlA1wNhxdWfCyH
-         sIMEnF/yRoAffoRu5Bg3iYjibQU+qKTaG6TRY9Bj92BPFA5fdEZif6j1aU67gqLO23sa
-         Q5IGUinURCkabyWSY21o8a7EvKCSaNY/BpLFzg/INPlm7NOFEIsplCRbsDNcSzhtryOG
-         NmTilW2inWI9zxJzcXbbKMCjPBctxjv6AyvjOFgu1bTqbgxsAqbFYNWIn2O9Wlm3DucV
-         F3SbYZRyd12v5DuE9PneJ0f81n1yjE6Y/LNfkL4+PkRJE0AfIQop1k5Dx43WvRK1JFyO
-         GNew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743428453; x=1744033253;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JcvIS8eeddlDCHMQUC+mFz0BhHofMLV7E7SV2Sxv+AM=;
-        b=XNU8yybr1Nz7Hom7m3TnWnw9+Z7BVB+lVPbXwGA5W7O0cB7Pwasz27nVHMZN1NeO4i
-         bYsXWWq9ZvSICurRtY6INqvBmqsoF+x99Viu420gYaITJebtbA6UV+PtsyYhPstajXbn
-         mN6opMr6f6AfUGV/o819jDgH381ZOuLdpFXdaeuFACrof+EGykkfUPyu3mXAKjedK+Ef
-         Sk/YvU2FQHMghK07bASJDIpfHBdaVrQHzIH07181OvL6Gs3c39i0YhVcVOEyydO8yEBD
-         kBK1jgnnqu9pQWztGG/j5LgnVhyQNc9VIH2Fyd+ejwyYw3MM0DQYUzJLMjfDsyVMcPA3
-         T0qA==
-X-Forwarded-Encrypted: i=1; AJvYcCXZDW/IGqdbuK80JATd2Av91Rlgsl/8oOTisas5xZRDmKEJWZ1q8i9NymXRTWJRyCPnBiD4DLFTu+nkQOcZAz3G@lists.infradead.org
-X-Gm-Message-State: AOJu0YwN8ToTmDQIowgubvfwyc9veslZ52kRmCjX9pXDgYVoKgPyItJW
-	nNAntGm04t+yOppoFMtILYS0wZgsGkNdbTG+T8fk3vE4bgyP5mGC6kyoIzLv1Sw=
-X-Gm-Gg: ASbGnctlBPM15Fpzx96i1Fa9uZa4HufAhwfwyyTxuO4IkNP0CD+9bVlRQ8Q1B3tIAEQ
-	JonQ+mfLGnPrCevlMRywtNppmjEjUXLP74zSbSTayX6QRvC2oUFyItE9eJgTw8Ve9KdXZJY8blF
-	sceD4xkBbPrapsl1Ne+eQmWs7TJocxKBdScNYnC4XLmZwydN5lCwdCUwXQEYLUWDJg/jWI2iAkK
-	sLnIiGb9Ov7lovQr04EUiJPXcIRLKN5nbPNLlItvdIWzroTebbACD3jXf5Y1KYy11HIsJxyDkDY
-	QF9kGVAqRUjaS+SLKmicVlKrPFNauwIHCjHNqGEeqsS/k/Ob9w==
-X-Google-Smtp-Source: AGHT+IGh3YEVtbE+1fjKhYwzjJfyAVJuJJfdjvfuRwAaPfMFF0DAxUF0d09/qUn91/N/4A/L9IqzrQ==
-X-Received: by 2002:a05:600c:ccb:b0:43c:f8fc:f687 with SMTP id 5b1f17b1804b1-43e9dea008bmr28889355e9.27.1743428453321;
-        Mon, 31 Mar 2025 06:40:53 -0700 (PDT)
-Received: from [192.168.1.247] ([77.81.75.81])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d8fbc1716sm120986445e9.15.2025.03.31.06.40.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 31 Mar 2025 06:40:52 -0700 (PDT)
-Message-ID: <28dd049e-65b1-4111-8a24-ba9765bbb1f6@linaro.org>
-Date: Mon, 31 Mar 2025 14:40:51 +0100
+	id 1tzFQU-00000000TRe-2s6P;
+	Mon, 31 Mar 2025 13:43:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=zAr+PsQ5oZEISZvL8CyPCWlvx2E0ZRGXrPFMppbVz7U=; b=WiFvSyC7/ScDVRJ6zoDc9cDal6
+	136PUf+tWUGT11nU5oDrivLxmYukJvwijogZoCf3NhGt3fAhMVripY33CcaZvnqjBwx3a2DaljT+g
+	WcXPwFOc9lISrR9zSDSeyIHKBt1LATOY+Kp3ddT1BK6epTdRrinN4EWCtyPvK+W8SudY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tzFQE-007a4C-Ux; Mon, 31 Mar 2025 15:43:26 +0200
+Date: Mon, 31 Mar 2025 15:43:26 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Hewitt <christianshewitt@gmail.com>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Da Xue <da@libre.computer>
+Subject: Re: [PATCH v2] net: mdio: mux-meson-gxl: set 28th bit in eth_reg2
+Message-ID: <17cfc9e2-5920-42e9-b934-036351c5d8d2@lunn.ch>
+References: <20250331074420.3443748-1-christianshewitt@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/1] coresight: cti: Replace inclusion by struct
- fwnode_handle forward declaration
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250331071453.3987013-1-andriy.shevchenko@linux.intel.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250331071453.3987013-1-andriy.shevchenko@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250331074420.3443748-1-christianshewitt@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_064055_475916_DF71697E 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20250331_064342_722761_9603FB66 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,43 +76,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 31/03/2025 8:14 am, Andy Shevchenko wrote:
-> The fwnode.h is not supposed to be used by the drivers as it
-> has the definitions for the core parts for different device
-> property provider implementations. Drop it.
+On Mon, Mar 31, 2025 at 07:44:20AM +0000, Christian Hewitt wrote:
+> From: Da Xue <da@libre.computer>
 > 
-> Since the code wants to use the pointer to the struct fwnode_handle
-> the forward declaration is provided.
+> This bit is necessary to enable packets on the interface. Without this
+> bit set, ethernet behaves as if it is working, but no activity occurs.
 > 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> The vendor SDK sets this bit along with the PHY_ID bits. U-boot also
+> sets this bit, but if u-boot is not compiled with networking support
+> the interface will not work.
+> 
+> Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support");
+> Signed-off-by: Da Xue <da@libre.computer>
+> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
 > ---
->   drivers/hwtracing/coresight/coresight-cti.h | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
+> Resending on behalf of Da Xue who has email sending issues.
+> Changes since v1 [0]:
+> - Remove blank line between Fixes and SoB tags
+> - Submit without mail server mangling the patch
+> - Minor tweaks to subject line and commit message
+> - CC to stable@vger.kernel.org
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
-> index 16e310e7e9d4..8362a47c939c 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti.h
-> +++ b/drivers/hwtracing/coresight/coresight-cti.h
-> @@ -9,7 +9,6 @@
->   
->   #include <linux/coresight.h>
->   #include <linux/device.h>
-> -#include <linux/fwnode.h>
->   #include <linux/list.h>
->   #include <linux/spinlock.h>
->   #include <linux/sysfs.h>
-> @@ -17,6 +16,8 @@
->   
->   #include "coresight-priv.h"
->   
-> +struct fwnode_handle;
-> +
->   /*
->    * Device registers
->    * 0x000 - 0x144: CTI programming and status
+> [0] https://patchwork.kernel.org/project/linux-amlogic/patch/CACqvRUbx-KsrMwCHYQS6eGXBohynD8Q1CQx=8=9VhqZi13BCQQ@mail.gmail.com/
+> 
+>  drivers/net/mdio/mdio-mux-meson-gxl.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/mdio/mdio-mux-meson-gxl.c b/drivers/net/mdio/mdio-mux-meson-gxl.c
+> index 00c66240136b..fc5883387718 100644
+> --- a/drivers/net/mdio/mdio-mux-meson-gxl.c
+> +++ b/drivers/net/mdio/mdio-mux-meson-gxl.c
+> @@ -17,6 +17,7 @@
+>  #define  REG2_LEDACT		GENMASK(23, 22)
+>  #define  REG2_LEDLINK		GENMASK(25, 24)
+>  #define  REG2_DIV4SEL		BIT(27)
+> +#define  REG2_RESERVED_28	BIT(28)
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+It must have some meaning, it cannot be reserved. So lets try to find
+a better name.
 
+	Andrew
 
