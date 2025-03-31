@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893E2C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 08:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CB9C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 08:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yB9ZE2uM2E3zaVUY0G9fqbGuxu7VfghymVr1lrjlmMs=; b=sGqCXN1xiqjCLB0kZtTg3XnQVV
-	gtaKMk7g7Qsfgt6dzDPyj6yymUOeD/7i8uPTZEIfoJtR9uyNDmvAxVuB2lN8TOxuFMoO+a/4/rdWc
-	ccUduDQbdnCnpCCMV+fPvDr3Js26VOf23btLWJU05fSXJUkQlWqJds5YvVsiA3Ec8gYK88m0/Szla
-	N5eP+xnb7zE5QEZ0VKa1a+9cjY+53UqdEwGEj4Q8RbwUpN7h28A51lYgyjQBsJB91NTx4Jbk/kuUW
-	nMtX7vfpDCWnCrQuzvKQhlfhAUVptiLFTFfpdp1OlKuH28W181SEFXuN3aVNY0/4TD65+13IjVmiN
-	x3dMOUEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Rb5MbgBhl/LXYKGwpqa+Xon91y55iJLtR9YQGBjHd4=; b=reVDZKXQMljXuO+u+rVdEUzsY6
+	rOXF3VN5Q6FGUp4xoWN8Ns3BEyoQSsd68GxKNUyHJRBY0qLo31zuPA3cqCXlyUQLtVmAC3s1fL3ti
+	9QhLiLEaPlCppHHeWSnPz+kbSjeRNdj/dI+CXCQEJoaT2ebzhW1AoZweDTC4giUafvAAh59yJcsYh
+	Pr6y6JfzuSiw3dHrUg+3pEm4oGZxgAXVGCbb5qRE6dQTnncow4Jq60gJmW64GG8jnyolYd2mb9O2R
+	hXuw6f/Xmyjegcs1AualQdjOR12KRS3gV5Sxjm1CosJVHxKETG6wQSiSJx83zCjqHLAbsJDSDmFQI
+	vMj3EhYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzATv-0000000HMbx-3Xnv;
-	Mon, 31 Mar 2025 08:26:55 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tzAbT-0000000HOkr-2tiY;
+	Mon, 31 Mar 2025 08:34:43 +0000
+Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzAPE-0000000HLEE-3M1k
+	id 1tzAZj-0000000HOJO-23YZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 08:22:06 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C8154250;
-	Mon, 31 Mar 2025 10:20:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1743409209;
-	bh=tUrrndyetcQdf+fJlK/WuPN0EMaUdeLYo6Dod9/nY6E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sox2lVNCEUZ1fv2QDPfZ8SNuu1x+9s4JVyz55uRTltFx/HfltKgOyoJm43X89aism
-	 mPPWstyuYlXvBtatqUZUU2Z+bGs8PSyL+LjCNh73J3Xhp311XBx+HI+Y56w/IUdURc
-	 7NIjXgksgogiFrLzHDgrcmdsEBxcDBfNuyhKYIHY=
-Date: Mon, 31 Mar 2025 11:21:35 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Pekka Paalanen <pekka.paalanen@haloniitty.fi>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Vishal Sagar <vishal.sagar@amd.com>,
-	Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Michal Simek <michal.simek@amd.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	Mon, 31 Mar 2025 08:32:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1743409966; bh=2Rb5MbgBhl/LXYKGwpqa+Xon91y55iJLtR9YQGBjHd4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=rgQM1/oQ0lA6x6FoJGWHF0SSMYOf7Dkw8qV45caWweHwFmdNUQc6Mr+lgCBZ0gqJ5
+	 osWOfqZg+Pw7lI+RlJ1bS52jjg8uKPkjmt6vPO+F5stm9Lnd/Zyybx6sQE0IF3D5FO
+	 kKZvsQ2mCjPY29/0hbUbW0OjImlCjdhp6IxId9vo=
+Received: from mail.red54.com ([139.99.8.57])
+	by newxmesmtplogicsvrszc16-0.qq.com (NewEsmtp) with SMTP
+	id 7FA17EC8; Mon, 31 Mar 2025 16:31:58 +0800
+X-QQ-mid: xmsmtpt1743409918t6ehpvlig
+Message-ID: <tencent_5D89C06E5AA49E40EB8FBFAA6796F6891F07@qq.com>
+X-QQ-XMAILINFO: MB5+LsFw85NoCWsrF4NZy6wGXVRiNjjTZ7AdzGQKAKdUU27Vh+8v4n1OqnfDdE
+	 KK4uy5K/V3dc5LbAvtD3geMvhRosrX1VzhLp8/oxZX0vOBhKJgGu3ayqeRkk9X7NdQOKOf61A8LJ
+	 EViV9mSi9cN6JVIzUeljxFdAcb2ta4ZlG5lBf+0zP410v/a3xmd6auxybeBAwCQpQytUpMoTxOYo
+	 8r/oCwQmwT+WtcAmBN1PNYG0kD0mrl8GuZnKY+xTqs9Y+qBnUDK93FDstbtXteMAF+SKk+LQmgJ5
+	 YALvAI3nqYEhC5drR6aZL5rqfJaqPdozYfR+Y3PCrqV0RLDebIDeYsx+8MZB6R/eym8M5YZs05Nx
+	 enSAN3mAQZhIpk+0rtukDpKQKAW26cXVoV4HARLzFWL4/0eZY82gcHGa+ztB2NCeLAudCp20npPg
+	 ++ZpMi55c8N3TQ+JfHzK06XAHgA2uvnbGma5UBgq0mjGHdRb/2oe5gsSv9xIMW3UGJyL4oS1PWPV
+	 3pvrt3GOA41dJ4PJNIUf7JmpXneeVQaZvPN296du8hOgOJ9FJ/r6I0JW2IuwESyEepVG5GUfuf69
+	 AP7RpxQdFxQPI9wmH9x3j+5njp2RjbLUf4LGim90XCchleDb8UEFWRa0kjO8C+drK4RzqaLykPZV
+	 JoHyx49djdQ7yH+jSv986bFI/QLRoT9Nqxl+Ul7zZ14mErPJfwe9G/kKVZ90ho8Cv3cIpGsiB07L
+	 zDvM53bp5CZgyfz0b0ukKjIjh0g5dBXji5yjxUd0NTM9nQBY/UhCT94KJfyDsyuH6Bsysevdcvxb
+	 yiNl10XMHEj9o0meY+V6Badun17+4202nUtxcdpQxNc+DG/LcHuweVvjA5lapHhOsHo6rUiYQcpH
+	 HndSC2YrN9LgLQtoXPpUpZKlGlKQspDcE8xT3+okeOUCdgTt029PHP7UqyFmxIQ5R3zVlc0Pcsn9
+	 KKtzpVOAzUMCeeNWO0ro36Qi2w82Iv35MXo2/pdkJ4/eKq7yWCO4PO96TcRcow
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+From: =?UTF-8?q?=E8=B0=A2=E8=87=B4=E9=82=A6=20=28XIE=20Zhibang=29?= <Yeking@Red54.com>
+To: linux@armlinux.org.uk
+Cc: Yeking@red54.com,
+	andrea.porta@suse.com,
+	ardb@kernel.org,
+	broonie@kernel.org,
+	catalin.marinas@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
-Message-ID: <20250331082135.GB13690@pendragon.ideasonboard.com>
-References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
- <20250326-xilinx-formats-v4-3-322a300c6d72@ideasonboard.com>
- <CAMuHMdXM1B1c=62EpcuUdpdpaBRZSJLXb1GBB0egzp7Fyeo5-w@mail.gmail.com>
- <b195971c-52e6-463e-a440-83dde4346e65@ideasonboard.com>
- <20250327112009.6b4dc430@eldfell>
- <b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
- <20250327175842.130c0386@eldfell>
- <CAMuHMdVEpTVWmwrYt+G-QSWucT91goUcFor9qbo5rZ+X2jnRog@mail.gmail.com>
- <20250331105446.098f0fbe@eldfell>
+	linux-kernel@vger.kernel.org,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	will@kernel.org
+Subject: Re: Re: [PATCH] ARM64: Add back and fix support for CMDLINE_EXTEND
+Date: Mon, 31 Mar 2025 08:31:55 +0000
+X-OQ-MSGID: <20250331083155.120735-1-Yeking@Red54.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <Z-aWdil-GWFC3c-y@shell.armlinux.org.uk>
+References: <Z-aWdil-GWFC3c-y@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250331105446.098f0fbe@eldfell>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_012204_977784_A9E6DF4E 
-X-CRM114-Status: GOOD (  43.36  )
+X-CRM114-CacheID: sfid-20250331_013256_090623_1504B103 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,112 +91,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 31, 2025 at 10:54:46AM +0300, Pekka Paalanen wrote:
-> On Thu, 27 Mar 2025 17:35:39 +0100
-> Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> 
-> > Hi Pekka,
-> > 
-> > On Thu, 27 Mar 2025 at 16:59, Pekka Paalanen
-> > <pekka.paalanen@haloniitty.fi> wrote:
-> > > On Thu, 27 Mar 2025 16:21:16 +0200
-> > > Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:  
-> > > > On 27/03/2025 11:20, Pekka Paalanen wrote:  
-> > > > > On Wed, 26 Mar 2025 15:55:18 +0200
-> > > > > Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:  
-> > > > >> On 26/03/2025 15:52, Geert Uytterhoeven wrote:  
-> > > > >>> On Wed, 26 Mar 2025 at 14:23, Tomi Valkeinen
-> > > > >>> <tomi.valkeinen@ideasonboard.com> wrote:  
-> > > > >>>> Add greyscale Y8 format.
-> > > > >>>>
-> > > > >>>> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > > > >>>> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>  
-> > > > >>>
-> > > > >>> Thanks for your patch!
-> > > > >>>  
-> > > > >>>> --- a/include/uapi/drm/drm_fourcc.h
-> > > > >>>> +++ b/include/uapi/drm/drm_fourcc.h
-> > > > >>>> @@ -405,6 +405,9 @@ extern "C" {
-> > > > >>>>    #define DRM_FORMAT_YUV444      fourcc_code('Y', 'U', '2', '4') /* non-subsampled Cb (1) and Cr (2) planes */
-> > > > >>>>    #define DRM_FORMAT_YVU444      fourcc_code('Y', 'V', '2', '4') /* non-subsampled Cr (1) and Cb (2) planes */
-> > > > >>>>
-> > > > >>>> +/* Greyscale formats */
-> > > > >>>> +
-> > > > >>>> +#define DRM_FORMAT_Y8          fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */  
-> > > > >>>
-> > > > >>> This format differs from e.g. DRM_FORMAT_R8, which encodes
-> > > > >>> the number of bits in the FOURCC format. What do you envision
-> > > > >>> for e.g. DRM_FORMAT_Y16? fourcc_code('G', 'R', '1', '6')?  
-> > > > >>
-> > > > >> I wanted to use the same fourcc as on V4L2 side. Strictly speaking it's
-> > > > >> not required, but different fourccs for the same formats do confuse.
-> > > > >>
-> > > > >> So, generally speaking, I'd pick an existing fourcc from v4l2 side if
-> > > > >> possible, and if not, invent a new one.  
-> > > > >
-> > > > > what's the actual difference between DRM_FORMAT_R8 and DRM_FORMAT_Y8?
-> > > > >
-> > > > > Is the difference that when R8 gets expanded to RGB, it becomes (R, 0,
-> > > > > 0), but Y8 gets expanded to (c1 * Y, c2 * Y, c3 * Y) where c1..c3 are
-> > > > > defined by MatrixCoefficients (H.273 terminology)?
-> > > > >
-> > > > > That would be my intuitive assumption following how YCbCr is handled.
-> > > > > Is it obvious enough, or should there be a comment to that effect?  
-> > > >
-> > > > You raise an interesting point. Is it defined how a display driver, that
-> > > > supports R8 as a format, shows R8 on screen? I came into this in the
-> > > > context of grayscale formats, so I thought R8 would be handled as (R, R,
-> > > > R) in RGB. But you say (R, 0, 0), which... also makes sense.  
-> > >
-> > > That is a good question too. I based my assumption on OpenGL behavior
-> > > of R8.
-> > >
-> > > Single channel displays do exist I believe, but being single-channel,
-> > > expansion on the other channels is likely meaningless. Hm, but for the
-> > > KMS color pipeline, it would be meaningful, like with a CTM.
-> > > Interesting.
-> > >
-> > > I don't know. Maybe Geert does?  
-> > 
-> > I did some digging, and was a bit surprised that it was you who told
-> > me to use R8 instead of Y8?
-> > https://lore.kernel.org/all/20220202111954.6ee9a10c@eldfell
-> 
-> Hi Geert,
-> 
-> indeed I did. I never thought of the question of expansion to R,G,B
-> before. Maybe that expansion is what spells R8 and Y8 apart?
-> 
-> I do think that expansion needs to be specified, so that the KMS color
-> pipeline computations are defined. There is a big difference between
-> multiplying these with an arbitrary 3x3 matrix (e.g. CTM):
-> 
-> - (R, 0, 0)
-> - (R, R, R)
-> - (c1 * Y, c2 * Y, c3 * Y)
+> This breaks the ability for the user (via the boot loader) to override
+> built-in arguments.
 
-I'd be very surprised by an YUV to RGB conversion matrix where the first
-column would contain different values. What we need to take into account
-though is quantization (full vs. limited range).
+How does a non-default configuration break the ability you're talking about? If
+you insist, why not remove the non-default CMDLINE_FORCE as well?
 
-> I forgot to consider that in the discussion of single-channel displays,
-> because the displays obviously do not consider any other channel than
-> the one.
-> 
-> Using DRM_FORMAT_Y8 FB with a single-channel display might even be
-> surprising, because the proposed Y8 definition would result in c1 * Y,
-> and not Y. The default c1 comes from the BT.601 matrix IIRC?
-> 
-> Therefore I think the difference between R8 and Y8 has been found. Now
-> we just need to determine whether R8 means (R, 0, 0) or (R, R, R) to
-> nail down the color operations as well. There are questions like what
-> is the outcome at the video signal level when we have one KMS plane
-> with an R8 FB and another KMS plane with an RGBA8888 FB on the same
-> CRTC? What about Y8 or NV12 in the mix? What if the video signal is
-> single-channel, RGB, or YCbCr?
-
--- 
-Regards,
-
-Laurent Pinchart
 
