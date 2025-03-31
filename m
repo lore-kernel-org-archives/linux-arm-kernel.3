@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9BFC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 14:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9E9C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 14:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Zr610G1lujbKEPCWGGsMdKO0GmGZfz3XXntypFH2+4=; b=MIVldV94eZCoGB7qOJRLoYu6+U
-	PRGb0JNGHuoepVVlKhq8MPn0J4ln0oCbGj/M1Joudrmo4bXJqc3oSyrBs/JLcAWLqPtgI2KztzQ8A
-	LCl4x2t9trBTK1mesjyOBiRxISF4WaSB0/g6VqPLKBR2S7JJwCNv3dIwzp+qQvSyaUv0aMOTPE0RS
-	iXWhk5nyrV58d+7uzVmIrU1FmL8UfIFSoQrlPYl1oI8Lz1tH0eD8iYi1Z5tMewl22CIFzuvGxpqcW
-	Z8G0s/ukEhtPM2AaF6RSSUee402kBmUi2wjgZaP+uzDLEP9zRm6sEFwfbKGdfnAJoR5aMg7Kqu5c6
-	AnyDtCwQ==;
+	bh=7CHcWnCaT/HrhQCSvfb43sx5cf+SkS6cdWRij5qxDiY=; b=Nib/yvHu610G8OhVWQ6t62FF6y
+	eqP6op7KgVPtOPKrSQ/1Fl1fLCvZw8j+LMQhmbWkL6+9NhyJvvs9PXPYplYCMDhn4IFmxS33f1ViP
+	Z2wMx+KaZjMEk21qdBKCf6Br4ZcdJi5E8P+TPCEpJm5uEIGssgAj+3yCib7iRAG1qWeU6Mor+u7+e
+	XO7luFIBb/N1Z3jkKUN3b30/nb+PJqKf04xFQ0ldjXsV2UhcLSQB3qp2C++it5RTBrq2ot+v8W9+w
+	ya4F3M7UlHhjPXPed1Y6dkYBy4ZLQYX+YIeY2kkWHNiOtAA6vy/jnxFT4RSTqMAHa6ziXQ9JQlWs1
+	JU/9723A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzG7s-00000000YP4-1uKS;
-	Mon, 31 Mar 2025 14:28:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tzG9Z-00000000YgS-0mx3;
+	Mon, 31 Mar 2025 14:30:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzG1h-00000000XeZ-329J
+	id 1tzG2f-00000000Xm2-3bfG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 14:22:09 +0000
+	Mon, 31 Mar 2025 14:23:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7700961155;
-	Mon, 31 Mar 2025 14:22:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AE1AC4CEE3;
-	Mon, 31 Mar 2025 14:22:08 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4175EA414A8;
+	Mon, 31 Mar 2025 14:17:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E376C4CEE3;
+	Mon, 31 Mar 2025 14:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743430928;
-	bh=U9hWi4Wcm+e5yEwX/JwrER+hs6BFslHlhI3vcKnyY1Y=;
+	s=k20201202; t=1743430988;
+	bh=09cF1DDuW9O5QO9g7DxuD6Lrf2Qs3ubzxujS8A/3Rho=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ObKmAjXytu57SfeL5ZeJdHC7hYqPQQhVOSE58amfPgX3A4NQ5F3hH9oqamChH/jYy
-	 fPtQS66+YwpD3kOt4yjxSydo1AfNTloZabzlawbJiCVNie5ymIwKcG1KRZX2hmf04t
-	 bErJdcJDKujI+ueXs5bi4d4gIW8bwla1uPwZ3kq4Qn6bpnBRLK0tiG1qlQEpLDoAs5
-	 5dEBqTC6EjchWt2O4l7BKTv7n8bQ60AqmFVrTt4XjTQvAGYcys1OiJP7sT130UzLaS
-	 LW1N7Pj9eBs13L/o0KsTqes+wNcfXlziXsHaOyue4ti9wOHitCH3EJU41+Ue/+3Nlu
-	 PdUf3JUBs/OPA==
-Date: Mon, 31 Mar 2025 09:22:07 -0500
+	b=dcEBVVtrXNVyIuBDQsTheOM4Xd3dziRMcK5I8XsO2poo+r1C5pIvRN8yUdTU+DxDe
+	 WVcGhg6IHdrACDrXUvFb27qiwe8x95oLJuehpxDjI/cON8U5vjGARPLBzeDEWuHK1m
+	 +F/xyMnBAacXdH5yRg16xoxLmcEGY2AVTCDywYiIqBl0xG9ukDzylYdeslWFCOcnvC
+	 NAgluqK9YH9X6C3JCz4NI5r85CjJPnvFdnLsaVcWj8PDAoKQ3i1rHJ6grKSfDd9j8/
+	 TAxa5EIMtAejT+R1Cg9yHZdCRP81v2rX+44JA27zaC6miRvybCWThk5UO6TrLIT0wA
+	 Ldd++XibU6H2A==
+Date: Mon, 31 Mar 2025 09:23:07 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>, linux-serial@vger.kernel.org,
-	Stephen Boyd <sboyd@kernel.org>, linux-mmc@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	linux-clk@vger.kernel.org,
+Cc: Michael Turquette <mturquette@baylibre.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	devicetree@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mmc@vger.kernel.org,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-serial@vger.kernel.org,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH 07/15] dt-bindings: mmc: renesas,sdhi: Document RZ/V2N
- support
-Message-ID: <174343092707.2719758.2548566419731901168.robh@kernel.org>
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	linux-renesas-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 08/15] dt-bindings: clock: renesas: Document RZ/V2N SoC
+ CPG
+Message-ID: <174343098722.2720962.4671608983688904024.robh@kernel.org>
 References: <20250326143945.82142-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250326143945.82142-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250326143945.82142-9-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250326143945.82142-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20250326143945.82142-9-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250331_072309_961250_547E9919 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,18 +90,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 26 Mar 2025 14:39:37 +0000, Prabhakar wrote:
+On Wed, 26 Mar 2025 14:39:38 +0000, Prabhakar wrote:
 > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > 
-> Add SDHI bindings for the Renesas RZ/V2N (a.k.a R9A09G056) SoC. Use
-> `renesas,sdhi-r9a09g057` as a fallback since the SD/MMC block on
-> RZ/V2N is identical to the one on RZ/V2H(P), allowing reuse of the
-> existing driver without modifications.
+> Document the device tree bindings for the Renesas RZ/V2N (R9A09G056)
+> SoC Clock Pulse Generator (CPG).
+> 
+> Update `renesas,rzv2h-cpg.yaml` to include the compatible string for
+> RZ/V2N SoC and adjust the title and description accordingly.
+> 
+> Additionally, introduce `renesas,r9a09g056-cpg.h` to define core clock
+> constants for the RZ/V2N SoC. Note the existing RZ/V2H(P) family-specific
+> clock driver will be reused for this SoC.
 > 
 > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > ---
->  Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+>  .../bindings/clock/renesas,rzv2h-cpg.yaml     |  5 ++--
+>  .../dt-bindings/clock/renesas,r9a09g056-cpg.h | 24 +++++++++++++++++++
+>  2 files changed, 27 insertions(+), 2 deletions(-)
+>  create mode 100644 include/dt-bindings/clock/renesas,r9a09g056-cpg.h
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
