@@ -4,95 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 498A4C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 13:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FE0C3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 13:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RqYvmo1+63hE4DUnTOfQUG6qgRimzlpGgLI65lJ95Q=; b=1vCobaDvET7ULv50iQq+/VDVBj
-	wIZcTXMoozgnYjMKdgDDWsA49obeGwDID9idybO1j+ZEYe1j705lNOi1sAH54+lRb6ZcAw5wJSjTX
-	fjRajYkBphuEuBqFK2FKrSGzJadNdm5OsysW4glVGbo1sMfSWedL67nrOWVecxqCJ8alAN3wkVzco
-	0+kz0c6kyaGnJaXg3zOX32OoUjqGvYgrBaXadJh2gCdVZlTC0L0Q/B13I13Ta20IomXlQYYQeFrjr
-	4KU90OsPcXI1+giyPapMmG1yOv+Tuj3fD1KCpshUD80Lixu+313g0kU25O6QrZPlfuo+yuzGZzLKu
-	GSTxxfOQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PInnCdBKi8aM4fbhPrQJn45/zC9pgXXJe6ZpEybvC+M=; b=PPUaRXGjmdc8E8aB1s2QIOWRcM
+	51r3QNpRWpS68KuBt1pRqqMq1kf42L6Rp5Db9lGohZx+98D+vb/xW+Yuo/4lvYiY05cWeq6SIO/xg
+	hwg2wUAE80HK/rHZyYf/knxIICaedAwkPw01fZd9xr3b0k67RLXLyPomCwda2X8+55m/IxVSuMChU
+	Rr6Egh1zpPxCLBIeXTEWjnUD/RLUCbwqlk+EzKuKNtS0xXTgAlVrT1apGduddYfixDF7I02S87WzP
+	prdNbWrX3vd0pEPI3C0P0yeoSifnjvJVLjXzGMTcCwvRWKD2moWy+Q8IQyV5hzhMoag05iHg7gXk+
+	Tcr6bBpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzFWa-00000000U5P-12BB;
-	Mon, 31 Mar 2025 13:50:00 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1tzFZx-00000000UKi-0GHI;
+	Mon, 31 Mar 2025 13:53:29 +0000
+Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzFUr-00000000Txn-3Yjs
+	id 1tzFYE-00000000UEh-2d6F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 13:48:15 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4ZRCBh03Zpz9sbC;
-	Mon, 31 Mar 2025 15:48:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1743428892;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9RqYvmo1+63hE4DUnTOfQUG6qgRimzlpGgLI65lJ95Q=;
-	b=u2Txhu/pFD+mb7d5yvwNb99Axh74qUezDKL4vtc1Q5s+TVMQ1Z1UDvF0UHRp9ubC9Q7J84
-	SghQtkFciAjeCQDE4DFFVGEvU4taVNyjCkOta/FM4VdIB13a6H7Rh1MPIeiHzuZv74wYtC
-	IpW68WP3P8Tj668HnQpwAsvtc+udLouWLpSqPXmKpxVqdGRT906dB83ajzNy/N0aNgx0fx
-	QgwkXjDYrt5vULK0n2kcuEBTd8vU7Q0fyZdDnS4AH4BYJFzWntT3unGIhA5dtwBICN7HJT
-	muq214yZd32J1vW3YgOrnzyapyv6StNJqF7i96asDmZQEqTyVbrbUf6owOGLSQ==
-Message-ID: <daed453d-5b52-4bb6-810d-9195491e04c0@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1743428889;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9RqYvmo1+63hE4DUnTOfQUG6qgRimzlpGgLI65lJ95Q=;
-	b=lc/nK/HGdnYy1zFMmImCHE0GuW93KXWyGIwHwRKiNopDIwcV9lkCL3azV9QutivFu25zKM
-	clU1gVg0vXBzuHDBOBEK/vi7DVXBN1pfxccqN8T8P/IaA8l63tYg4fmJanyRWihi6ASwRn
-	ZNqpgUO0EM+stOy2jJJE0B3237qSC1qQrCrCAwVQf1R5t/wcJfj122/PaY1OBnX5awfKF7
-	4ypNczXQHG3b44NNN5Iy78OjPQt9calfabsOOoB04Y7ZhY6ttCVoZruNX6VJdn9AbOasS1
-	vrVP27Y8id7goZGEfpGcMTjcfNLjdJNiJt2KfQV2kGtpNXStAc9PEha0TRhS+A==
-Date: Mon, 31 Mar 2025 15:48:04 +0200
+	Mon, 31 Mar 2025 13:51:43 +0000
+Received: by mail-pj1-x1042.google.com with SMTP id 98e67ed59e1d1-30362ee1312so7905629a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 06:51:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743429102; x=1744033902; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PInnCdBKi8aM4fbhPrQJn45/zC9pgXXJe6ZpEybvC+M=;
+        b=VECPiGEPqwQHTojV0gnUtAYwVbobOB+a66GlxEFEV/Nao59JtwJUFht0x1Og2aCaK4
+         WTOabjkESLKOmOARl4xkMEIPfBiEjOO+neLFvXQhHa80wU+0p8904XD5/nJ/TG9E/tY+
+         Kr+0Krxhh6qV872H1W7iaGQkr6xhMYkCMncPsy1L2e371Pbj05LuBP9qAcFsSU65G0F7
+         YabIPBZjs/Avkae4dBA33rOCiSMC32lZTadQ+AqvOzXlaZxjvjpZNWuUQQJ1R9cibSo9
+         X0P5Tl36kHYuFnnOp3SLoCIkItHzrDKebRxu/IeWywycuNp1yp8Url/3NPmuuuyj/EJj
+         9ZtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743429102; x=1744033902;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PInnCdBKi8aM4fbhPrQJn45/zC9pgXXJe6ZpEybvC+M=;
+        b=uvYw1v+9A+jqYqu9hL4nAzCIYvTtBCgQhocpsGv619bWdxWQ8fZkwLU+yVkdyhEqPp
+         PgmG/Ni4ytkkmgF/xzp0y8j4bqoek/sc+C9rU9P4IbX75OqXbm+wgvQp1oMHcPclnsgo
+         Kw1k/TpMV5ePHJqTuOyLXf4GbfjhL9d25OD/PIOHxUeLzwKQITTVSSXzNW9Yqm4BvYtX
+         ssFzhSlBBJrGGwjSfmmvAJyTQZZMZQOCCCSL9yBGLwTXpf3gnriR/RyEgfbXZrJ9Xlo8
+         XjeHv9TWek4Xx0X9HcQS14Z3NVeRQezHaV7Jbex72VpbhKBWTEAiDcQ+/cm+aWDLdsJp
+         d5aw==
+X-Gm-Message-State: AOJu0YyXB/PDp0nhCcY+HRIPIn5oYLU4hi5W+4bw64WOlbYgciZt4VQm
+	kWBKvcJkQdkQ1xg/kks780RQpCztRrLL0szHocm3mWO4gciRpyGXslWcWsWuhEEFUg==
+X-Gm-Gg: ASbGnctkHMq48X+LMqScHR2E70W81aeVvcR9kMLgwJnR1kKJatue8CLxx2My+/6mm6K
+	j1wpEchst9MW5NDajE4kbSJ7IqB1943PafOIqLNQD5qIt/14hEVu0CDhO/G/kwuQj47iVhBPfls
+	IMphk9YSSunKY09wNq5YtH43OhepqtdpVFj6R+UCLX6RNQ+3Hx/uDt8v+39wdNQktE5tYdpNi0F
+	LvjnBgtYGawd2ZmHDAExIZ3l76/SGBHf09FPt4R8Fp9bPnFFDtNPJIcBLJDiq43n7b8+fj97gX3
+	ovsag5h65Jfcf0dIlRiAPJGf2vo8oB2OMxvMp0E4V4mpANwuIt2F/D0FCluvaniBpprnAEs=
+X-Google-Smtp-Source: AGHT+IHa8yleu6Tesplwr+MK7f1aRyjHejZjDckNp6dbjCL/LDmj1X0vASxGTqF38/Sw39ZjVBBpbQ==
+X-Received: by 2002:a17:90b:2dc2:b0:2ee:5958:828 with SMTP id 98e67ed59e1d1-30531f9fb9dmr14645807a91.9.1743429101645;
+        Mon, 31 Mar 2025 06:51:41 -0700 (PDT)
+Received: from henry.localdomain ([111.202.148.167])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b70b4sm9513637a91.48.2025.03.31.06.51.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Mar 2025 06:51:41 -0700 (PDT)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: will@kernel.org,
+	mark.rutland@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Henry Martin <bsdhenrymartin@gmail.com>
+Subject: [PATCH v2] driver: tx2: Add NULL check in tx2_uncore_pmu_register
+Date: Mon, 31 Mar 2025 21:51:28 +0800
+Message-Id: <20250331135128.11881-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/4] arm64: dts: renesas: r8a779g3: Add Renesas R-Car V4H
- Sparrow Hawk board support
-To: "Rob Herring (Arm)" <robh@kernel.org>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Bjorn Helgaas <bhelgaas@google.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kever Yang <kever.yang@rock-chips.com>, Aradhya Bhatia <a-bhatia1@ti.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
- <rafal@milecki.pl>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- linux-renesas-soc@vger.kernel.org,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- linux-kernel@vger.kernel.org, Junhao Xie <bigfoot@classfun.cn>
-References: <20250330195715.332106-1-marek.vasut+renesas@mailbox.org>
- <174342765546.2641812.18254954916877172569.robh@kernel.org>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <174342765546.2641812.18254954916877172569.robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 307f491e7583be5091d
-X-MBO-RS-META: 3a3a1xx19f3anshqfe6z94mdr4ak1cfq
-X-Rspamd-Queue-Id: 4ZRCBh03Zpz9sbC
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_064814_030876_49BA0AE6 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20250331_065142_670984_DB86CC0E 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,35 +96,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/31/25 3:32 PM, Rob Herring (Arm) wrote:
+devm_kasprintf() return NULL if memory allocation fails. Currently,
+tx2_uncore_pmu_register() does not check for this case, leading to a
+possible NULL pointer dereference.
 
-Hi,
+Add NULL check after devm_kasprintf() to prevent this issue.
 
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
-> 
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
-> 
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
-> 
->    pip3 install dtschema --upgrade
-> 
-> 
-> This patch series was applied (using b4) to base:
->   Base: attempting to guess base-commit...
->   Base: tags/next-20250328 (exact match)
-> 
-> If this is not the correct base, please add 'base-commit' tag
-> (or use b4 which does this automatically)
-> 
-> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/renesas/' for 20250330195715.332106-1-marek.vasut+renesas@mailbox.org:
-> 
-> arch/arm64/boot/dts/renesas/r8a779g0-white-hawk.dtb: pcie@e65d0000: clock-names: ['core', 'ref'] is too short
-> 	from schema $id: http://devicetree.org/schemas/pci/rcar-gen4-pci-host.yaml#
-I believe this will be fixed by input from Krzysztof on 1/4 which I 
-already added to V2 , thanks !
+Fixes: 69c32972d593 ("drivers/perf: Add Cavium ThunderX2 SoC UNCORE PMU driver")
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+---
+V1 -> V2: Fix commit message to use imperative mood and wrap lines to 75
+characters.
+
+ drivers/perf/thunderx2_pmu.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/perf/thunderx2_pmu.c b/drivers/perf/thunderx2_pmu.c
+index 6ed4707bd6bb..24443ab5d998 100644
+--- a/drivers/perf/thunderx2_pmu.c
++++ b/drivers/perf/thunderx2_pmu.c
+@@ -738,7 +738,8 @@ static int tx2_uncore_pmu_register(
+ 
+ 	tx2_pmu->pmu.name = devm_kasprintf(dev, GFP_KERNEL,
+ 			"%s", name);
+-
++	if (!tx2_pmu->pmu.name)
++		return -ENOMEM;
+ 	return perf_pmu_register(&tx2_pmu->pmu, tx2_pmu->pmu.name, -1);
+ }
+ 
+-- 
+2.34.1
+
 
