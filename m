@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 933C3C36013
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 06:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8ACC36018
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 07:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D7lblEgjGmVku0WDIJm+ceZUSHznhd5T5FJv/9s0u8g=; b=jLuGdGdzmAF8qCM5ZZvnX1qrBQ
-	R7NdeqBAUAAIjfUmbFiJC5PWq2PHanGlMjSZ/WByA2mUPgwpsoMkAdtF8292dCpL0Uf/yPup14t3h
-	1azf+GvyBWJnoqcXj7yoaU6a7/dKg3uTyuBK4F/O80BBYrUIDwg4oCXP836CTPGj6gEQcQF7z172f
-	OwkEpujGLt4f4efZM/nbI0RqkSnlnUS/ZH110XKCw6RfJgVjmCXmmsFkKYi/Qo781w71m4k1cgWaA
-	3zgC3zLHw+rv5s2Oq1KAAxBOL+epqqkGZXYLij3VUXP3SkvPJsK7okCNUQ+c3wmK0SY5Lz8Ah2aE8
-	en2x4awQ==;
+	bh=Tuk9xLLGOA3p2uSHVjgEZqViacVfaAPTNHEavU4XDWs=; b=PKfOfYOtdwH597t2YAIfbh1/A6
+	QFxMngSPdl0uzRI2sAmq+0qmSZokkgdr9N1fPDJY7vLDbbAPE+J3hz4LKDEw0xAfAmLN9Icdx7VyW
+	UxCLN3asyK2tXoFGC0vSNdzlhv5Tt7pAByc/aDc4yi1qbuFo4xuIsQOE50BygcKnGt6okNLy/MSiH
+	0sUItglrsWT9JUUj4+UDHekueQlNweCy50AzeMjFAsQdPWOpqfSc6o6ZRLIRLrqI1yQ/bX5SKK0LC
+	TZ0JFfEfSI1REwQD4iD7rGMA8a5kDgrqu892en4jTQnalWcz6ZQaJWJ1f+EmRpg9HH+411llqyLFi
+	USN9hrDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz94b-0000000H91n-0cOs;
-	Mon, 31 Mar 2025 06:56:41 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tz9AF-0000000H9f7-148U;
+	Mon, 31 Mar 2025 07:02:31 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz92a-0000000H8qf-0cTB
+	id 1tz98V-0000000H9NQ-2TG3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 06:54:38 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZR1x40ZN5z6M4hZ;
-	Mon, 31 Mar 2025 14:50:48 +0800 (CST)
-Received: from frapeml100007.china.huawei.com (unknown [7.182.85.133])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8FD01140257;
-	Mon, 31 Mar 2025 14:54:23 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (7.182.85.71) by
- frapeml100007.china.huawei.com (7.182.85.133) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Mon, 31 Mar 2025 08:54:23 +0200
-Received: from frapeml500008.china.huawei.com ([7.182.85.71]) by
- frapeml500008.china.huawei.com ([7.182.85.71]) with mapi id 15.01.2507.039;
- Mon, 31 Mar 2025 08:54:23 +0200
-From: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
-To: Oliver Upton <oliver.upton@linux.dev>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Mark Rutland <mark.rutland@arm.com>, "Lorenzo
- Pieralisi" <lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>
-Subject: RE: [PATCH] smccc: kvm_guest: Align with DISCOVER_IMPL_CPUS ABI
-Thread-Topic: [PATCH] smccc: kvm_guest: Align with DISCOVER_IMPL_CPUS ABI
-Thread-Index: AQHbnzaiWLoM4Pr1N0ylxjrv88F9hLOM1NNw
-Date: Mon, 31 Mar 2025 06:54:23 +0000
-Message-ID: <e670c3778d794d82878d0b4cdd3d11d5@huawei.com>
-References: <20250327163613.2516073-1-oliver.upton@linux.dev>
-In-Reply-To: <20250327163613.2516073-1-oliver.upton@linux.dev>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.48.153.182]
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 31 Mar 2025 07:00:45 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 07FFA102F66E1;
+	Mon, 31 Mar 2025 09:00:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1743404439; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=Tuk9xLLGOA3p2uSHVjgEZqViacVfaAPTNHEavU4XDWs=;
+	b=NnnXc3jbq7tgb9NvNsc9O9FQmE+niADmjpA5rKPOCm1kMZVJGVlMDhqRZeGk8x5hTsguYq
+	pvGzvAwYbMQeIaXFyfvOCg8JFIkR1j6JinU2OEH+7nQiniop+N4eEQOPkZbgW57u/Jlw62
+	Lgurh2V2yvOKoaFccfxzeseieCKCbVYDcKh6NX/1vrCfORggFLr5GE1YIWnX1dxcaF/fBb
+	vCkCijMHFcCZW7rxNFWZpap+LszDiTYnSNwq8nuF8IvsBmxEYJUCqQ9iq/KL5qfYdIKIqo
+	fsZ0OiFr2imsRSjTGUSExQBccEI/TXhceVDp4zQpSVtLNOUUjjPKIcEirUQKUw==
+Date: Mon, 31 Mar 2025 09:00:33 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/4] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250331090033.281807b2@wsk>
+In-Reply-To: <022e19f5-9a9c-42eb-9358-a6fe832e8f5f@lunn.ch>
+References: <20250328133544.4149716-1-lukma@denx.de>
+	<20250328133544.4149716-5-lukma@denx.de>
+	<3648e94f-93e6-4fb0-a432-f834fe755ee3@lunn.ch>
+	<20250330222041.10fb8d3d@wsk>
+	<022e19f5-9a9c-42eb-9358-a6fe832e8f5f@lunn.ch>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
+Content-Type: multipart/signed; boundary="Sig_/O3v+DOu0N.qQTG3HhCy4w.0";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_235436_325905_808FB598 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250331_000043_788549_A2A8EB40 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,57 +80,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--Sig_/O3v+DOu0N.qQTG3HhCy4w.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+
+Hi Andrew.
+
+> > > > +	/* Prevent a state halted on mii error */
+> > > > +	if (fep->mii_timeout && phy_dev->state =3D=3D PHY_HALTED) {
+> > > > +		phy_dev->state =3D PHY_UP;
+> > > > +		goto spin_unlock;
+> > > > +	}   =20
+> > >=20
+> > > A MAC driver should not be playing around with the internal state
+> > > of phylib. =20
+> >=20
+> > Ok, I've replaced it with PHY API calls (phy_start() and
+> > phy_is_started()). =20
+>=20
+> phy_start() and phy_stop() should be used in pairs. It is not good to
+> call start more often than stop.
+>=20
+> What exactly is going on here? Why would there be MII errors?
+>=20
+
+Exactly.
+
+I've double check it - this can be safely dropped.
+
+> 	Andrew
 
 
-> -----Original Message-----
-> From: Oliver Upton <oliver.upton@linux.dev>
-> Sent: Thursday, March 27, 2025 4:36 PM
-> To: kvmarm@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
-> Mark Rutland <mark.rutland@arm.com>; Lorenzo Pieralisi
-> <lpieralisi@kernel.org>; Sudeep Holla <sudeep.holla@arm.com>; Catalin
-> Marinas <catalin.marinas@arm.com>; Marc Zyngier <maz@kernel.org>;
-> Oliver Upton <oliver.upton@linux.dev>; Shameerali Kolothum Thodi
-> <shameerali.kolothum.thodi@huawei.com>
-> Subject: [PATCH] smccc: kvm_guest: Align with DISCOVER_IMPL_CPUS ABI
->=20
-> The ABI of the hypercall requires that R2 and R3 are 0. Explicitly pass
-> 0 for these parameters.
->=20
-> Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-> Fixes: 86edf6bdcf05 ("smccc/kvm_guest: Enable errata based on
-> implementation CPUs")
-> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+Best regards,
 
-Reviewed-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Lukasz Majewski
 
-Thanks,
-Shameer
+--
 
-> ---
->  drivers/firmware/smccc/kvm_guest.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/firmware/smccc/kvm_guest.c
-> b/drivers/firmware/smccc/kvm_guest.c
-> index 5767aed25cdc..ac2d3cf8a776 100644
-> --- a/drivers/firmware/smccc/kvm_guest.c
-> +++ b/drivers/firmware/smccc/kvm_guest.c
-> @@ -95,7 +95,7 @@ void  __init kvm_arm_target_impl_cpu_init(void)
->=20
->  	for (i =3D 0; i < max_cpus; i++) {
->=20
-> 	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_DISCOVE
-> R_IMPL_CPUS_FUNC_ID,
-> -				     i, &res);
-> +				     i, 0, 0, &res);
->  		if (res.a0 !=3D SMCCC_RET_SUCCESS) {
->  			pr_warn("Discovering target implementation CPUs
-> failed\n");
->  			goto mem_free;
->=20
-> base-commit: 369c0122682c4468a69f2454614eded71c5348f3
-> --
-> 2.39.5
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
 
+--Sig_/O3v+DOu0N.qQTG3HhCy4w.0
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfqPZEACgkQAR8vZIA0
+zr2uZAf/X9cFX5/KF/UwjOOG5zujQrAPZ8w1dyFZMuxUtk8kuXMPb15aOYHrHNru
+75mZmO+XEFjn8ZH1zo8gNFkcIZtXXRl9ySXNdv3qKnlRBNdMddQR5lMI+l1OixPr
+SEH8lCzHgIi3s+RHFNsFrOrRnkKYkQwNHjiciDsgOFfn2Pzn7/oysfr0N/0guAsf
+o4IQTXOe6HKQk/xiKYSiYSxbxZEYkEhVaRiizQwFF/lPbInPSJYN4/QMPkoaldcT
+qcRyDKlHIAcvHnts/1lsTgrlugfSqAIdXgnUYKwi0GCmpkX7U6DA15uN7+kfhKSq
+wm1rAr67gqNHiUvqXB6WyIQRFbZPNg==
+=ACUc
+-----END PGP SIGNATURE-----
+
+--Sig_/O3v+DOu0N.qQTG3HhCy4w.0--
 
