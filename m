@@ -4,81 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C09C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 10:04:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3BFC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 10:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vdfZf6Qf3Rc2A3D8YxoEXa1CISDhOTToLVsDJBTF8Kk=; b=y3ZgRxuPwyO13CGxHBmxnu3XdG
-	2zBFhAq5WpNq7T/MlSMDqpgT6pGv5cOU12ikOF0lsfAXz5MwGHHPefFVdw9lQEnDtelRSGdqhggQS
-	c9NfhUcK1PXvs/N7S9lNlyXjNJkeqeOKzpoamvMBVLRBbubjssaHEeRJzTa5D2Zq7jOBe3zMn8BDW
-	gxArvFCbHrUAM5YmeNVb36Ur+PlST/qrjGFV3zOEweSAe7XFxprQFKW52EY2B63dqeS5PgzhhmtIT
-	IDLWn7nOmutFv1AFcrR8Be/R49/Zqc18czoOkoL0UNAqE5vKVNjkY8iLazqdOMY54TCG13K/noK64
-	3PTNt6Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WfQTWTf6PwJHc84otuP/3Oag7lcNdI1Qagn5HFWHEVA=; b=xDzY7HU9VHSI9DxC7PVNh4/QL9
+	C9f0CnO2l6HVlKAmYGPiHNopMOiGYi/Y8rtsPatPSVC5lS0402cPEO2iMFJG3i5EKM2r5axizaANJ
+	w497EKIWjE89FH7o4p32vPDk67oWCP4qozX9RmunNp1wyQtIHpx/JFF/THMcjDt+QGdpdBdmEKZ0T
+	AHHCrsTjdTmUIXneLExLm/4crdMQSXa5Ta1tl5aO1sGFu49n3l+ksjOOqx2fALwyhH+HrjjMicPjD
+	uhjHngBMKZ3M50fDIKO9X29toMavC0hZ8Z/R+gvgr9wiqrzrmoigYReW4aAEkACgNgoAztwE4PBqH
+	bGvyNbaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzC0K-00000000068-3xi6;
-	Mon, 31 Mar 2025 10:04:28 +0000
+	id 1tzC0M-0000000008Q-3W2f;
+	Mon, 31 Mar 2025 10:04:30 +0000
 Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzBiY-0000000HYNS-0qAW
+	id 1tzBmh-0000000HZPg-1Tp6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 09:46:07 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43cf628cb14so35255825e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 02:46:05 -0700 (PDT)
+	Mon, 31 Mar 2025 09:50:24 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43cf034d4abso47961625e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 02:50:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743414364; x=1744019164; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vdfZf6Qf3Rc2A3D8YxoEXa1CISDhOTToLVsDJBTF8Kk=;
-        b=rpT0qXYsCV6zle2Uj9EjuUMnIK57vuR68ZKocQDuPJcKtCSjf3lpSexuwOdj78p3ZG
-         HrNKMCgTMEu49BjjBsSJKOFgFU9wLh5GxnFd0oM1M7hlCmRydVDYJDp+gQsgD4vLyO5C
-         VOVVXTNmeG01da535xDFMFQERVGA/y+MUVcDhgwzEhwBJvxZQnea17I+13QHyi1WYjn2
-         jSBvEIBnld14nmeG/M8nftWZnLgCtan9pTMGCzGJN+UQ/CDHH4eP7ZQTbe10rlgo5HMu
-         vJCEb2gQ84xzPGJBdgt94VHyacFVnfo/XOPQLSh3UcdAfGcK57GOXLpNu+nozQcZzCOU
-         04ZQ==
+        d=linaro.org; s=google; t=1743414621; x=1744019421; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WfQTWTf6PwJHc84otuP/3Oag7lcNdI1Qagn5HFWHEVA=;
+        b=oFfWJx4qHiJ1218WMhDQN4F0k09MtfYr3OdLNxbcOQGCZvPH3Sp86lluGPWEpoxE+Z
+         F/Rp0zzFw1yF987kcagEOG5aGmRZSVNUqgWcumjgpjBnXYHXaZYdVxdRmJilUggnkVoD
+         ejdbfrXlDrxAdJY+1WNq59QYzisZKGvLLRz3DO+jYoWacPeyS9NF2ny825YDicnmeMHS
+         wvY9HN+YPCCuJI8+fkNSa8Z5KcjPs/+4YN150HNuMB3PRh2TcDyGKC0CvD1M9syrmvFB
+         4Owc3Pi/JxL4ViDkdDwSD9pz7mhCv5MpPP6SJ1XwJz/rKFExMhBSksZQDzWIoU/cIUVq
+         2MRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743414364; x=1744019164;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vdfZf6Qf3Rc2A3D8YxoEXa1CISDhOTToLVsDJBTF8Kk=;
-        b=gLHfloUN0RQTXZtqOfcMiwg0vrOB47KYASysiOAHFDFrVYCyMnQNIFb7jYy1837ml+
-         jjnE4OMyGqT15cwo/6PRuMv6b1HFZh5qUOVIL/hrvRbAJc9bmzC5ajuHdcJeM/IZ20CZ
-         yOCfebWPTsqtl9f8nCWumMCKI75GtOIKPo9bVjBq+MzEXr8p3GDh0YAkHo9pMojUQPiq
-         6G6fxnebf3nZvCHfT/2TabxSeba15IKWG3hWD9Dd0p1cxlA8U0Xn87qwABs5AhrIBKGG
-         TnDtom3kCN00QINnKv3UofXFdfo8L12I2xJ51eigF2Dw+cRcaGPTGVJp8+5lRt8V5l/u
-         n4+A==
-X-Forwarded-Encrypted: i=1; AJvYcCU1Ja9ip5A2KpBoKveNxvEdATmoc5EwS5rTgNpH1Fv8bN9VN20c4yQZ50Gzgri8qKnYioKuXW7TgjWPLaTOhR5Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdaS3VCUz3EnT4iiOyiGSxq+RD1uTafOmk6Bv3yN4PjOVt3IdT
-	mRC3vgmYpCbTURAeJO9uFaAzktI5UUEv02QBN0zAXYtGQDL8R5Fmb+sXv/cfDtM=
-X-Gm-Gg: ASbGncuRIiR65GV+m8ct1lEZgCrT7qUzV8PZgphEIrKdW4Bko3TcT0pKss9u6V52Sli
-	sY8MjDWH2JCOmCDbQf8tas7dX7e8n/yk2MByxNj9kfoSRQT8yh5BAmb7F4235Gu4YKT2fqvpXDJ
-	sg9yc1rmC2SB5hFSHw12yxvCtGVy1ZV6Pf97GF0NA7nmbiDCwd8dmMa4apIBL3E8YAV38TjVGwk
-	rmY+U7BIQFcVU2CJa/eVAsupXqLGgRM+M4nydnH0atPNgeYPGjA2wkhs4D5+y9nvlqgZs8+AD/9
-	T/9dyvvHumHaumWbzzhuIFtuSgaVAsQfVmsVKrV0S6v4GYOsow==
-X-Google-Smtp-Source: AGHT+IGwVTWwoc2dmQj/y3w2I60/EBThtOQJYUV6tW7X7RY5Of9dMyc5g6yuGtRo0dcUomun/LluaQ==
-X-Received: by 2002:a05:600c:310c:b0:43b:c7f0:6173 with SMTP id 5b1f17b1804b1-43db6224034mr54503175e9.4.1743414364456;
-        Mon, 31 Mar 2025 02:46:04 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43d8314b6dbsm161982895e9.36.2025.03.31.02.46.03
+        d=1e100.net; s=20230601; t=1743414621; x=1744019421;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WfQTWTf6PwJHc84otuP/3Oag7lcNdI1Qagn5HFWHEVA=;
+        b=EH/yfOoTEzooO43crFs2OjaoVwWpwArlliwkJRTE3cpHY4Oi2/BHAaQ8Gi+2EHUpwm
+         0V/kscayq4Dt4HLGhYvM7bwzioCBkCVK+ZLmX+CjBC+HouC0xZ5zOlksdpwJKHZzfvGz
+         ijWMxqkLqyuwBw6LGjWfFfcpxuV5FmDs+xeXB2S/r03Sj/HFhtyP0Rhhl1Bf1eNliED5
+         Ionb8sQ/JG9mUdPf5CHWru0gQ0xCQr0Yj8z5PPc2cUzPBjSyEcj2nmgMhXpAznmRWcpP
+         +HxJatMu9MqekSuJQ2WojwQexUcYDpTR6aFViSv25aGQmI2b6ciHHtzhKfxiCVQ+Y9NL
+         VckA==
+X-Forwarded-Encrypted: i=1; AJvYcCXg4lJ4rBxBJYVc6qc5GJW3fgWcdFpB2SLQZoLZtKxwmMMFVqFsOSbJamEsclFxKaWq0YsaZHCy2uMLg9m4Lr5u@lists.infradead.org
+X-Gm-Message-State: AOJu0YwD0rjH0HxtO9YmeWMnU23DD4glAOjpfBbY/q86xBScv/rDlmSQ
+	RPMD6Zu5PPk6QQx0F84m0zzjfA5IUbOzWfRFfqas2Isnl2waEEkr25uywjmFcXw=
+X-Gm-Gg: ASbGncsFB8mI/5fYGEhccsbE9ysixM2y/RR4/r+Oofhl18V5igiIr31YPGsKTP5pJPv
+	nC2tGyGWvvv1PyLjrZz7tr2dZ+vUJy4r2Ml3Y0ycfp5x66ecyYtyIi+NjwFboM199JyH7Pmsuso
+	fV1pHHYuxTswLUjp/kP+xBzanmK1hCZSgVPAOV+kyCBzX9tPeQtzueETY83W3/KAHkjOw/mA1BQ
+	8TntzdISJGmrD1Ku4Yd93QoKJYmXcPNJRGNC5hQe200tOG0qeW9z0fGX424oVGOArSuU5nZF4/+
+	EzaqoyPGUiW7ywgeUg2gLU08LYana2Oy7rkAqEmc38rQmtb4
+X-Google-Smtp-Source: AGHT+IF3CJoa5gLjBiJodD+/fcAKbJi9kK8EPGZgsz0yOn8C5Pq2tbjitNJRw36ftrGGInm9OE4Ezw==
+X-Received: by 2002:a5d:47c5:0:b0:38f:4d20:4a17 with SMTP id ffacd0b85a97d-39c120dec24mr6778714f8f.13.1743414621425;
+        Mon, 31 Mar 2025 02:50:21 -0700 (PDT)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d8ff03715sm117091365e9.31.2025.03.31.02.50.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Mar 2025 02:46:03 -0700 (PDT)
-Date: Mon, 31 Mar 2025 12:46:01 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Hector Martin <marcan@marcan.st>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [bug report] soc: apple: rtkit: Port to the internal mailbox driver
-Message-ID: <dfc20338-680e-4ae5-a569-f54eecefa0c4@stanley.mountain>
+        Mon, 31 Mar 2025 02:50:21 -0700 (PDT)
+Message-ID: <4d8d0d479a1ff19bc3e3a8f5832d924ab822f13a.camel@linaro.org>
+Subject: Re: [PATCH v2 01/32] dt-bindings: mfd: samsung,s2mps11: add s2mpg10
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo
+ Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette	 <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Russell King	 <linux@armlinux.org.uk>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon	 <will@kernel.org>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Will
+ McVicker	 <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+Date: Mon, 31 Mar 2025 10:50:19 +0100
+In-Reply-To: <20250331-prophetic-convivial-dinosaur-efb1af@krzk-bin>
+References: <20250328-s2mpg10-v2-0-b54dee33fb6b@linaro.org>
+	 <20250328-s2mpg10-v2-1-b54dee33fb6b@linaro.org>
+	 <20250331-prophetic-convivial-dinosaur-efb1af@krzk-bin>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2-1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_024606_235967_40BE8AF2 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250331_025023_407227_14381416 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +110,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Hector Martin,
+Hi Krzysztof,
 
-Commit bb538effdc71 ("soc: apple: rtkit: Port to the internal mailbox
-driver") from Mar 14, 2023 (linux-next), leads to the following
-Smatch static checker warning:
+On Mon, 2025-03-31 at 09:34 +0200, Krzysztof Kozlowski wrote:
+> On Fri, Mar 28, 2025 at 01:28:47PM +0000, Andr=C3=A9 Draszik wrote:
+> > =C2=A0allOf:
+> > +=C2=A0 - if:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 con=
+st: samsung,s2mpg10-pmic
+> > +=C2=A0=C2=A0=C2=A0 then:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reg: false
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 samsung,s2mps11-acokb-groun=
+d: false
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 samsung,s2mps11-wrstbi-grou=
+nd: false
+> > +
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 oneOf:
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - required: [interrupts]
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - required: [interrupts-ext=
+ended]
+>=20
+> Drop, you should require only interrupts.
 
-	drivers/soc/apple/rtkit.c:696 apple_rtkit_init()
-	warn: 'rtk->mbox' can also be NULL
+As mentioned in the commit message comments, it doesn't work with
+just interrupts. It appears that dtschema's fixups.py doesn't
+handle this case. With just interrupts, DT validation will fail
+if the DT uses interrupts-extended. There was at least one other
+binding that specified interrupts in the same way, so I went with
+the same approach.
 
-drivers/soc/apple/rtkit.c
-    686         if (mbox_name)
-    687                 rtk->mbox = apple_mbox_get_byname(dev, mbox_name);
-    688         else
-    689                 rtk->mbox = apple_mbox_get(dev, mbox_idx);
-    690 
-    691         if (IS_ERR(rtk->mbox)) {
-    692                 ret = PTR_ERR(rtk->mbox);
-    693                 goto free_rtk;
-    694         }
-    695 
---> 696         rtk->mbox->rx = apple_rtkit_rx;
-    697         rtk->mbox->cookie = rtk;
-    698 
+> OTOH, why regulators subnode is not needed? Commit msg mentions they
+> exist, so they should be required. Binding does not change because you
+> added or did not add yet some driver support.
 
-The issue is in apple_mbox_get()
+I wanted to avoid DT validation errors, because we haven't started
+working on regulators yet, and it might take a little while until
+everything is in place.
 
-drivers/soc/apple/rtkit.c
-   283  struct apple_mbox *apple_mbox_get(struct device *dev, int index)
-   284  {
-   285          struct of_phandle_args args;
-   286          struct platform_device *pdev;
-   287          struct apple_mbox *mbox;
-   288          int ret;
-   289  
-   290          ret = of_parse_phandle_with_args(dev->of_node, "mboxes", "#mbox-cells",
-   291                                           index, &args);
-   292          if (ret || !args.np)
-                           ^^^^^^^^
-Should we return an error pointer if args.np is NULL?
+I'll make it required in the next version.
 
-   293                  return ERR_PTR(ret);
-   294  
-   295          pdev = of_find_device_by_node(args.np);
-   296          of_node_put(args.np);
-   297  
-   298          if (!pdev)
-   299                  return ERR_PTR(-EPROBE_DEFER);
-   300  
-   301          mbox = platform_get_drvdata(pdev);
-   302          if (!mbox)
-   303                  return ERR_PTR(-EPROBE_DEFER);
-   304  
-   305          if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_CONSUMER))
-   306                  return ERR_PTR(-ENODEV);
-   307  
-   308          return mbox;
-   309  }
+Thanks!
 
-regards,
-dan carpenter
+Andre'
+
 
