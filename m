@@ -4,62 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF04FC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 16:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505C0C36011
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 16:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=74X5vC3hjxFSLXi5Yoy1ibDp5gCwkjqcm1KGeR03tKU=; b=XkAEQnCzxuK1a2gOUNqxca4KU3
-	EJkjFQZqUkk+ZvvWdddoc4yj/XRq2/AGO8esE/CiJ86Vh6JcspYdg3f8jwqSFkry7g73MYASlWb74
-	6/46eTx8rR0a2UnhkzTkTJLdPc/KaWd+Xc6PBY5KBFiMWQgbYg3SAelJ9Q27Wo5JqXsY6ePayXumr
-	DVMt9e3RaLHKMEjc1J4Zu7dDHAZmzEhDg4EyBSazPa9GdfZDdOJLq51baquFPOlbVuUcTGbwgyXXn
-	PLGvgfwUOu11uxYne63rfeL31rBg9srl1ttsf2H1h/UHRThaHaWhHwg7lUEU4dF4AcOObN4+CsVOv
-	mY21VKqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ax2M9a/XgoXAPcO3sZ17+WnZpkQpX1cgkPlcAGReZKM=; b=DPkfdMt/sNygghRbIY+9vZD5ML
+	6ES7XQkmESNHNA/pgwhpd4h68ikYTM8ZbOpTORP1FkcRVKFGf2ilWWZSwYwJa/ovLdFY1+RjQvbQM
+	zpN0EzsA+QnMp2jdiKiUn0qvuOVpQlL7OeKKDhuqxAmnZVLnfTOPs05hvmwToIYzQLGeHhA8mHOFx
+	Vq7wRBwIrQtBtHstd1nKf/rwUx+voLiBvB3UtSSo+u99Df7JuipBOyGKZ529fDJ7cAxDOQKkYqWWT
+	z8B/B2fzvEhL6doajD1+xNeRKS9trAtkepLZ3rutve4qcT7jx00wnhtOmzUkmjSQ5MrIuB83ZRnUD
+	D/MboRjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzISa-0000000120N-0wTm;
-	Mon, 31 Mar 2025 16:58:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tzIUH-000000012Ee-0dR5;
+	Mon, 31 Mar 2025 16:59:49 +0000
+Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzIQt-000000011pL-0RE0;
-	Mon, 31 Mar 2025 16:56:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D71856112F;
-	Mon, 31 Mar 2025 16:56:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CADC5C4CEE3;
-	Mon, 31 Mar 2025 16:56:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743440178;
-	bh=RZ7ydlQ9XRAWxzYa5+iA1hQqe+NZFUE7I2l0BCYJgCE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=terbX22XrdWsmwWJcCJsBDj96OmRLwPQatsCyXk1qHgBE6Txepzq0rO1Lx89VgXEm
-	 TRMu4Zqw9868jJB2dCSfP5UC4T43DuAqaBq0TwPnLapSe4yWAWi98f/OBWb+6moLQm
-	 7quxX76j24MJeVyz0LYs1jQM+9l91Hch+GXORhc9BhLUq2PyF7uAz68ttWqZka/SAU
-	 iFSyH4YAZwOh7wdvamYbmTDG1XqQASi2nDwB3vy12pGunM72DKNC70qLtoTbb/Pg/k
-	 tosUcwA+DlGb7uAqLmoDqaQbnmEdizGatyP8nM2H/NxITRLtuAtxEYmeqfDD2zG5HS
-	 Z2r/nlam5hehQ==
-Date: Mon, 31 Mar 2025 18:56:15 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net v3] net: airoha: Validate egress gdm port in
- airoha_ppe_foe_entry_prepare()
-Message-ID: <Z-rJL6oFZa5jpjlo@lore-desk>
-References: <20250331-airoha-validate-egress-gdm-port-v3-1-c14e6ba9733a@kernel.org>
- <20250331162841.GD185681@horms.kernel.org>
+	id 1tzIRB-000000011ru-14lV
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Mar 2025 16:56:38 +0000
+Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-72c16e658f4so1309282a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 09:56:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1743440196; x=1744044996; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=ax2M9a/XgoXAPcO3sZ17+WnZpkQpX1cgkPlcAGReZKM=;
+        b=DZFJbHZm0Kh4ChVw94N+Wf52JbAzIKdCV0yVZOCzCD6iZV31LrMyY/9PUEyOnb8OJf
+         rtilOJ2awWlA4Ps0xaOarKg8oj7j/L3PkqpI6mMSwQM3c8d41VukiveMBL/aDqzE/xkU
+         wlmZhIWh+AVHdZaP1aC2WiS+gsq4V4EzEpELE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743440196; x=1744044996;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ax2M9a/XgoXAPcO3sZ17+WnZpkQpX1cgkPlcAGReZKM=;
+        b=sbtrU4ocWc7s4pdRfWYszztDipJIXxRxafkwRBszR/qGMI22rNYQerrNqli9uYt0TT
+         pHaPPdvhSrF1NIwfKCXFBigjUeCnlCGt6iuf8+/VN/gCXi2F7bi6uSQh610PSm2PNI5S
+         pFyOd4VoqmT99jFRU8ttcZZn9iNVIcCbk5TEpzV9IrAsPkub0uOspGhn+igRyUVrlK2Q
+         67xMSDRrZMn0cAQ4COiYnMSqzIQgltUj3fiFPlEBitkKrKG5mikYouapCT9sKkzzACDX
+         zfhYdn1oe8rOSf928fxdOGDRZ7qn0emTEsTWRVx1p45CnZpf6f2V2dYX6SNzEJEJU7uo
+         CSiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUiMHj3z7fhATxjJOiWocTn6ffH841GuFGNcf6DbGytWJYe0cCcgof9y4VDzvIWYjisgm7knZFL0SNrzEoF+QeE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5higRdVbjvp5V+aywF7suDYlW+Ii8Kx0GXNEkU3QgOxXso3ff
+	5tyFL0V8ssTWLj73Wocdfo9s4bb+iVp9/Z2AQZG6kHfKMJA9V5YjVIyHjiGN9A==
+X-Gm-Gg: ASbGncsYWOjunIkgr0nhl0i+vp7CX1cdTZdFZH1heOpCJE7/r2hPDZCEc06EuWboMDI
+	jIj982xJNWgibl3u0e81QZJQy4hbpPhmxEK5/6Ilf0yIIwlc8W3jXZLCa7fuprfH4TFbx14rgtC
+	LVj7QLnN1puLoZoIqWZUkDwU9qJRD3iF0v6ISMLxXkKWPlqORfEUXMoCLers3wyKvZyV8cISKk2
+	RcTs+/cIFXtx4KnF0fdmVhAG1A7x3kgW8yUxP/vpu930jj7PJVMG/ynj1jpi75abdgPASiCDrN+
+	oKgunS7T1ybEx2+x+sjqTrMSGXnp4JSVGLMxpjqjjLKZQXqZ1CXsBdV66amZC6jo6WvRXnnQz7J
+	7K0YUaxfR
+X-Google-Smtp-Source: AGHT+IFAXomCN+VvRG68JDNdUluvh2lXj3AcWbjX/p6QC4V6FBCZPeEeCGZxgPSF1rNpZnEYJMMlow==
+X-Received: by 2002:a05:6830:6f0e:b0:72b:a6a9:8465 with SMTP id 46e09a7af769-72c6383aa8dmr6039333a34.23.1743440195881;
+        Mon, 31 Mar 2025 09:56:35 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-72c5828b3a4sm1535795a34.66.2025.03.31.09.56.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 31 Mar 2025 09:56:35 -0700 (PDT)
+Message-ID: <b07f19f2-be84-4d72-9d3f-d7828ec48e9a@broadcom.com>
+Date: Mon, 31 Mar 2025 09:56:33 -0700
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WLQ37arbkRhRFFOB"
-Content-Disposition: inline
-In-Reply-To: <20250331162841.GD185681@horms.kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] phy: usb: add support for bcm74110
+To: justin.chen@broadcom.com, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-phy@lists.infradead.org
+Cc: rafal@milecki.pl, alcooperx@gmail.com,
+ bcm-kernel-feedback-list@broadcom.com, conor+dt@kernel.org,
+ krzk+dt@kernel.org, robh@kernel.org, kishon@kernel.org, vkoul@kernel.org
+References: <20250327185623.3047893-1-justin.chen@broadcom.com>
+ <20250327185623.3047893-2-justin.chen@broadcom.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250327185623.3047893-2-justin.chen@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250331_095637_286375_065258D0 
+X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,105 +134,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 3/27/25 11:56, justin.chen@broadcom.com wrote:
+> From: Justin Chen <justin.chen@broadcom.com>
+> 
+> bcm74110 adds a freerun utmi/ref clock that saves further power during
+> suspend states. A tune is also necessary to pass USB compliance test.
+> 
+> Signed-off-by: Justin Chen <justin.chen@broadcom.com>
 
---WLQ37arbkRhRFFOB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> On Mon, Mar 31, 2025 at 12:14:09PM +0200, Lorenzo Bianconi wrote:
-> > Device pointer in airoha_ppe_foe_entry_prepare routine is not strictly
-> > necessary a device allocated by airoha_eth driver since it is an egress
->=20
-> nit: I think it would be clearer if "necessary" was dropped from the line
->      above.
-
-ack, I will fix it in v4.
-
->=20
-> > device and the flowtable can contain even wlan, pppoe or vlan devices.
-> > E.g:
-> >=20
-> > flowtable ft {
-> >         hook ingress priority filter
-> >         devices =3D { eth1, lan1, lan2, lan3, lan4, wlan0 }
-> >         flags offload                               ^
-> >                                                     |
-> >                      "not allocated by airoha_eth" --
-> > }
-> >=20
-> > In this case airoha_get_dsa_port() will just return the original device
-> > pointer and we can't assume netdev priv pointer points to an
-> > airoha_gdm_port struct.
-> > Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
-> > routine before accessing net_device priv pointer.
-> >=20
-> > Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> > Changes in v3:
-> > - Rebase on top of net tree
-> > - Fix commit log
-> > - Link to v2: https://lore.kernel.org/r/20250315-airoha-flowtable-null-=
-ptr-fix-v2-1-94b923d30234@kernel.org
-> >=20
-> > Changes in v2:
-> > - Avoid checking netdev_priv pointer since it is always not NULL
-> > - Link to v1: https://lore.kernel.org/r/20250312-airoha-flowtable-null-=
-ptr-fix-v1-1-6363fab884d0@kernel.org
-> > ---
-> >  drivers/net/ethernet/airoha/airoha_eth.c | 13 +++++++++++++
-> >  drivers/net/ethernet/airoha/airoha_eth.h |  3 +++
-> >  drivers/net/ethernet/airoha/airoha_ppe.c | 10 ++++++++--
-> >  3 files changed, 24 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index c0a642568ac115ea9df6fbaf7133627a4405a36c..bf9c882e9c8b087dbf5e907=
-636547a0117d1b96a 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -2454,6 +2454,19 @@ static void airoha_metadata_dst_free(struct airo=
-ha_gdm_port *port)
-> >  	}
-> >  }
-> > =20
-> > +int airoha_is_valid_gdm_port(struct airoha_eth *eth,
-> > +			     struct airoha_gdm_port *port)
->=20
-> nit: given the name of the function, perhaps returning a bool is more
->      appropriate.
-
-ack, I will fix it in v4.
-
-Regards,
-Lorenzo
-
->=20
-> > +{
-> > +	int i;
-> > +
-> > +	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
-> > +		if (eth->ports[i] =3D=3D port)
-> > +			return 0;
-> > +	}
-> > +
-> > +	return -EINVAL;
-> > +}
-> > +
->=20
-> ...
-
---WLQ37arbkRhRFFOB
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ+rJLwAKCRA6cBh0uS2t
-rBLSAP9UEa4AlC0xp38CK2U7eV98AhByHX1GfKqwttBsg5mJQAEAvkLibzEGjviY
-QH1WrF5Qi0JosMaranAOU2y7FBUcGwc=
-=51Xz
------END PGP SIGNATURE-----
-
---WLQ37arbkRhRFFOB--
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
