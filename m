@@ -4,151 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78548C3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 14:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC64DC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 14:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qcta9tAjSztKIIducP7tOljskea0zsu3PgRDSXrIqbU=; b=U1DqkDsRusOjOmAXtSydKWd2ES
-	nwHvSISKRKwg8dajUT5+RR1JYAEU3Eex01keePMSi8sHPJDzqyqobPsSpVYMg/nDFmH3B+8GZhiS/
-	EKktkq+sLOFJE7xMf6hGrY9CRIRUD7VNzLMjX5GBEg+xdkz5ZsIV/bY30YxCt0xw/IJ9nxSWzQPus
-	Bv14bSS+DK7xXEV0cUMGDyasFqMtgdj0PzRWyhLWNHferbNNp6rpSP1hOzhZ6iHwvD3lQwnB97R0y
-	sk5KO3tjumub9furgxBKwGzZmo6EYQTN74OB7sJnVzyh063SW27PWlwHyvvff0Of+4/Ylgz34lyDs
-	RaPDVZhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yu8fJe2WNuBX+ctrrA7lNyDdKoDutGRMMQ7KFfQHghs=; b=0kf+PfbqjQ2Q7DmiAmBpVOqjAj
+	1FAv7GZUGkG7niWr1DhL3ODT/UZZz+1P0lgDMS8lQj6T0681+GFaGDRK19jA03ta2fbUwLFAO59zY
+	bdhVLdGxY+D9If175JilV7KpHayKkAeOcamepJzmQvOLnUNKfU5fl43AIkyzM8/Eb7Yzl3fUL/BBK
+	E2hPKuLePRqkHyVsWnLonpUeWxlb90qQsdAgYjeKIS4xQ4c/TuPP2WkBynQ2DU02uzhqQHH2n1hRR
+	6/Iti5v7paaTAGGdz9CgAF1CQDs5gW5mOohSqCl6MhGJtEt1aa8W2+2lmkg0+AIJLc7sIixoNXZxp
+	RWUQGJ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzGFY-00000000a5i-0cUQ;
-	Mon, 31 Mar 2025 14:36:28 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1tzGHF-00000000ahH-28xD;
+	Mon, 31 Mar 2025 14:38:13 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzGCH-00000000Z6U-17zz
+	id 1tzGDS-00000000ZMz-3ClK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 14:33:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qG1OpeUq0ycEtZGswNVtGH/C7HDnx91x2YkG3t9Ierpnn4a76bSpeMBLXgxknWX0kgUjzFaj1fVRJDB1J2L8jVITGa5LMa45tw3x5mkjhKMHYi7c0pIPw/rF23MlQ6TQ6GxJ9zAze51E7EApo6vYfC7tBLDbZYf95zT9K+oZci+VnBrkDmX8ih7z1R13YiKSZ3vXfuIvLSh6eHCsuNEcKUIVG2YC173xyCWTj+yz5amCC9Q7me+pH3We67XSwQeJcMki/7TCusZuzVKbT5BYOryCIsaZyK1udJoHYKMMoX7nEwJsHmc1kLFJ+c9hTT28lx+Ge9OT+HwFC/tDwWcwUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qcta9tAjSztKIIducP7tOljskea0zsu3PgRDSXrIqbU=;
- b=sU3Gy5jAjQUhFkhCG90iDECkh8n2aYrwDU9K1iXHLVKe1oD4izK+hFchZNVug0fXQSQo4w+X+llr1yqDHeXLUtYYXPLMcU3pQDcLnHD19PjZQhwU2/r5Lo9snnRWxOkZ8U3aqn9qvheae4tWW7hVnXoapc857tnsPkMKvwIDzMj2ztzx0M2K0iBtvKwKM4H+IS8COo2vMrv2UD2KsMQYDWYdovsVBtGdThr4gJNFEgn/kehaUlXWREnys2Swc2FNxdRadt74x8KStoQ0uVDLQmql+nYECPqa/AdBZyfVQfgRRbwEmSQbeJGlgsfRtvn0pTlZTAiyB2AtWImA7t2ukA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qcta9tAjSztKIIducP7tOljskea0zsu3PgRDSXrIqbU=;
- b=e8R2MuK7HYLb5zM90C+Vb8HFHcqzsmNjMpr5FH+Xd425FadYTe4OsXyyjBSGt9YdCLK+jGA7i6CUbWeeHYQrvzweM5/fEU1SZF9Ang8am2kzP5sDBWf029PnO1fkZnOHLriiLncuX3uhwatVULfs+m/5pBJcyK2iO4vY1NmzO+TGxwkrN3DWwGUQ1hqvpiX8zc+OyMH0MG1r17kD0bK3IlJnPQS3nXdO+WosSzLfpFkO1Ts+8pk3ik8QnsVQLqEM00j/XAVt9mxinGrEMYgHUVKZyQ4KYIIU8oW3fN9XKWGRvpQ1nmO9qzyDBU5zagk0sKH7rNz8hHMxNyom/7HwZQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU4PR04MB10597.eurprd04.prod.outlook.com (2603:10a6:10:581::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Mon, 31 Mar
- 2025 14:33:02 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8534.048; Mon, 31 Mar 2025
- 14:33:01 +0000
-Date: Mon, 31 Mar 2025 10:32:54 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
-	mirela.rabulea@oss.nxp.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	xiahong.bao@nxp.com, eagle.zhou@nxp.com, linux-imx@nxp.com,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] media: imx-jpeg: Check decoding is ongoing for
- motion-jpeg
-Message-ID: <Z+qnln8qbHCYVH+e@lizhi-Precision-Tower-5810>
-References: <20250328063056.762-1-ming.qian@oss.nxp.com>
- <20250328063056.762-4-ming.qian@oss.nxp.com>
- <Z+a2G5We38cQw3UD@lizhi-Precision-Tower-5810>
- <99aa5db6-eb75-4fcf-ada7-cc6d519a40cc@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <99aa5db6-eb75-4fcf-ada7-cc6d519a40cc@oss.nxp.com>
-X-ClientProxiedBy: PH0PR07CA0089.namprd07.prod.outlook.com
- (2603:10b6:510:f::34) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 31 Mar 2025 14:34:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2B22CA42E97;
+	Mon, 31 Mar 2025 14:28:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75CEAC4CEE3;
+	Mon, 31 Mar 2025 14:34:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743431657;
+	bh=Sod3UEvmQzflWu9AcZV6qGlMGbbHJP/efdLxBV3kV2A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=cY6wyoAY/YuBNrCCZB5nd49C+wp4blJL4InIVCIERZ41E3OBMYfrCBd779xNj/9m+
+	 nCsFrDmJLbWvdYYi+F8fES2CJCoXU7Ys0zwAhWYWVJ5rEUHJIGBvagICItcgGZ/AKw
+	 Act/DKNaZU+lQDu2AteBCfT9NTFBYTlw/qCOcoyXk5O5jjPSgjkK+pkPLlit+NCKAh
+	 Q6an+BXybMm+IyvgdjYymWE3A/3M6hiuuyWnj44rWzssZJBCFvLnEIDR65RfruXHf+
+	 SMBjIaH7dBmBiko9mgXzOBq5AnkKraewiSAmjdZB9Mk1GovGLPiOdJHejhLwBwZf0s
+	 MPW3hPBs58ZFg==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Dmitry Osipenko <dmitry.osipenko@collabora.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.14 03/18] irqchip/gic-v3: Add Rockchip 3568002 erratum workaround
+Date: Mon, 31 Mar 2025 10:33:53 -0400
+Message-Id: <20250331143409.1682789-3-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250331143409.1682789-1-sashal@kernel.org>
+References: <20250331143409.1682789-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10597:EE_
-X-MS-Office365-Filtering-Correlation-Id: 951ae4cd-64de-42e3-da88-08dd7060f0ac
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zpXr3EVxQZGXlyoCuxhHOZ5epJMSYKIpM12OBHrc0ZGmqPCPan9S4tsIyLHi?=
- =?us-ascii?Q?tfcSEo0pAXEpbCFg+EcM//6x6kgNaFZTRnMBoxVGj/Wj7I9p7K05/7vyufQ/?=
- =?us-ascii?Q?8gymBk4lvYAqZZNAIsl7gSTAixLJE66cIR+5gWHE/UZ9gxICQU65wW4DXqdF?=
- =?us-ascii?Q?k0H8P/x/CmmOXsApSyGrEtLbduqUOqqLjv8/7UnFi4nkOyqgzwk7LsDwdZDX?=
- =?us-ascii?Q?TierYCf5STyF0vKoC2cs1b5l6x70eNg5WpattEFxlSdF5xsR4PlL6VaADTiM?=
- =?us-ascii?Q?tfKbsmkuPkG9ifD+0RqaVYVZpFKpNjfeWjpc4+PVnaN/JdvYoTAuru/qNP86?=
- =?us-ascii?Q?uquDQMl8iqvAETKhFonfL3vuPE8538dAwCH5tZae+yvL2UEJeBaaKfJdMHcP?=
- =?us-ascii?Q?TnTZrO3a2cCYMesQFB7ODf/awWvosN+H3RmtmmNJTB9Xfy97e3V6vSKvQzhv?=
- =?us-ascii?Q?rXrf6NM0+rv4qc5ZWaaL378DuuEtKHZLlrqy0qL1+r0U6SDgb9im/S4D1MEP?=
- =?us-ascii?Q?FaFjT1nwy/lnSyMtfKiZjEP3tOwuwSXc5qFyZRUDX+pG4YZWZtYIPmA66Rjd?=
- =?us-ascii?Q?JikErmuMe8Ta+JRlJZI4fCkutUKmOmk55vpeAzs9r4l1PmYPAfKef511RKkP?=
- =?us-ascii?Q?+22tuejojJtrOdXvFzPkMLelAvofdbXw8esMRmWdJtRgR7aelBxK4NPQfx8T?=
- =?us-ascii?Q?I6if8Oskwh0CCNWvMbmK0f6DzGtV0al+pzgpP1p5Cfx/lb9WU2SYRsCH76G3?=
- =?us-ascii?Q?v1lDnU1J638qbR5HWZuyWLIsYKxXbJsr6ath7DvJyyUBXs03w2EABleJNLFy?=
- =?us-ascii?Q?Q1uwjstaUE/8VUwR1PC/Bry204yROxDaRW0U1H6+Cvgkqg1ILy62MzJmO51J?=
- =?us-ascii?Q?LqwR4WfGPHIDrdDPiw/K8k+hp7Q/E9VhfuhJdxz/x+gxMFLnf3P5UCQF1dir?=
- =?us-ascii?Q?Fo86pFC9qeHiPhDqIBQvxFirHTS6cWpoR8phvMhoikpeJtLCbM/Mehu/nz57?=
- =?us-ascii?Q?5RW+O9RVw/7i01R52RjPt8lDiZyIm0L64GZjeA7t0aIgUrkw6iqSXb5qbH+1?=
- =?us-ascii?Q?18ToSAh6SWQK3IKCaxqXF3hP+nsJdk6Pm+OgBAijhCXeM7xTm9MKvqYj5GgT?=
- =?us-ascii?Q?RxbKwFk1i89JcE7H6L3Z+3E1TOi2Y4V6XZepg/geID+JNAze1eBr3YeT4VUM?=
- =?us-ascii?Q?SaK1UELDXLLa0KAXoCblJKRKaupnheRiX0H+d7zlC8B7bmwZmnSBMdHskFc7?=
- =?us-ascii?Q?NRr+E+qDFJxznD5CBRsnQcIhSxGYe+eoFa8iJ8dWjOPVn8I6qknIbgBY4dm7?=
- =?us-ascii?Q?VgnKmqxenv3kkZQhceQsMRQAfsKlATR1Kn967bESyv3SHv4i7MtdGWi1Nh73?=
- =?us-ascii?Q?/B+QK7OvFgpFo5KYmZOyyfC05LoTA7VQfPp9GaLXc9xGXm4J6go5DN13iGi7?=
- =?us-ascii?Q?AKhMJQdf2YPNOCY8WrEWixwTWWLMDlH7?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?w4hI3cx4+D28/cwcX9C7LqFfz5IK02FwxgqkYP/Hzb4+MB03SReXRoIydbhs?=
- =?us-ascii?Q?D/8R/Hy9hdyeDb+K9laJ7+bBd7FJ1rlPCLQr8NXOUjD3K6BbBU6/3nXYkBcZ?=
- =?us-ascii?Q?g5NQ/GsbvOjY2LwrdX5c8NMncgSQnKHJ/gdthkRxH5+vTwXGbSdvFYsQegGP?=
- =?us-ascii?Q?whbtfS/ZNpCFLOSkCOc50T/YjF1laM/EdOAqNjUjICWUe4KzmcByuP23oYvN?=
- =?us-ascii?Q?47Lh8URPngOSy/bs12ABIMxzMZJBIglM4z41zeAmoI2WyNRiwLDGSjFjHfgQ?=
- =?us-ascii?Q?5yTudeq/cpRFCb3PauiDI/Ax8j68XFHlkglLJ8KxqssDcQHwS7MHSufTrz50?=
- =?us-ascii?Q?l7g4LvooSCZZoBBWxs/oxSGpi7kcgLZLpHRsnvhUmoLCqxicEbiOtDrmQK0w?=
- =?us-ascii?Q?7u8pDeQRyaR5PcmIUTgnsFn4q5EYWR4T8UbYkuknee6I2QPRacYYiLAXuWIl?=
- =?us-ascii?Q?T5OPTXjHh8bHCpwTCrFwgCcguPMR8FvpJ/Hsr1uKDxdDONFrE2IDKT7iaPOm?=
- =?us-ascii?Q?Ip8loJpplEr21uDW6MDVyEJxK5PF74eYusGR7ORg3JupeVbGkXxStE7qCiJN?=
- =?us-ascii?Q?C72YAQxnwyf5+HwHEw+k3IAC+fvTqPCGqDbRv+SdROjayVB/CRL6rWLBa0Vw?=
- =?us-ascii?Q?sY4nZpVkZYV3/705OEZnG7WwGm4IxSeTJECtrasvNjB+MT1pYBrJ6Sdt8U/y?=
- =?us-ascii?Q?Er371N4OeTXZz0Ma7DgP95OABhOIKOOoJwmsjYfgax9T7PR/4GkqKtrKLYZq?=
- =?us-ascii?Q?dMpMKRM9Z2qoBNsbvNdjmDPwtV7xFA/f+BRVLahKi5r6ToTewSQyJbWU5zzO?=
- =?us-ascii?Q?ePnSj/5pmw5ge8FF8lqs9mhwKS//1uapKjbJFAgjjgop+GyEHWYjyWZxA9cv?=
- =?us-ascii?Q?faR85jc7mROrIKIFytfuqRw0hqu4HeQYqCcSefqmavJwj3Z0N2m4rpz2O9/E?=
- =?us-ascii?Q?RUM1w0A64Qddb6gBbpoKIYl++6oQ3UaR4mpUh5y6/mmF6FozOif/nJL1QCsL?=
- =?us-ascii?Q?2XtZucFnBRQtKZhaHaXDw/a9ueP4BKn9qMmvXRSaN3ZlDuTzrZnmPgYCtWe0?=
- =?us-ascii?Q?Q5gjHI5zT+B4yqZ21J+fUbdVYByes6XcNwWu66SLipaYPvxOT1azKGbfbixQ?=
- =?us-ascii?Q?9FTUdQqXpmFLDMF1JZKSsRn0nlhO6u7ZPtU/eUY2K9uDlppJvxMV77t63HLH?=
- =?us-ascii?Q?CGiOMc9dzcXelbjQV99JRaGtelYnPgy2TjXbe5L+6t4T/aJHWdVy7GR/Ckce?=
- =?us-ascii?Q?pjzqcAFCg0WCOgvO/x1lJj1jblx6L86QBTAt9BNbXLTqc4lChcxYGpufXZ3q?=
- =?us-ascii?Q?nwelOHO16uAxhab9lhrwr+i8N3qkmvJdwA6H3JFnNoz5zqPolKGAavOwWXEJ?=
- =?us-ascii?Q?3LSkcUk8sRsKuAyTCr2PQ2xMM4/3v86AoI4UrMxHHa6fqGZaiYRkQUa141eL?=
- =?us-ascii?Q?zbovEy917/5Fuv49GS2pHuhKFMRbebCvH67PF3k+qzZe87F0EunmkUjmhMIy?=
- =?us-ascii?Q?j/r4ngOL0UqEgOisKWutFe+ETkV31injwFwSSFV1T3g9ao30Y/5xN0/gZm+X?=
- =?us-ascii?Q?/7NAlbvJov8hdidDlNg=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 951ae4cd-64de-42e3-da88-08dd7060f0ac
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2025 14:33:01.5742
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JnsvLKxc+rtJ+ZD/ALaTbphTuqvdwxMJWB2DyLaoEsHdmAIB0Zpon7wDsrnch6G2jbgYLCV4ZTztDOQd5B3uEw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10597
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.14
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_073305_312497_03E4102F 
-X-CRM114-Status: GOOD (  41.99  )
+X-CRM114-CacheID: sfid-20250331_073418_934460_7F4EA4C9 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,148 +82,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 31, 2025 at 11:10:20AM +0800, Ming Qian(OSS) wrote:
->
-> Hi Frank,
->
-> On 2025/3/28 22:45, Frank Li wrote:
-> > On Fri, Mar 28, 2025 at 02:30:52PM +0800, ming.qian@oss.nxp.com wrote:
-> > > From: Ming Qian <ming.qian@oss.nxp.com>
-> > >
-> > > To support decoding motion-jpeg without DHT, driver will try to decode a
-> > > pattern jpeg before actual jpeg frame by use of linked descriptors
-> > > (This is called "repeat mode"), then the DHT in the pattern jpeg can be
-> > > used for decoding the motion-jpeg.
-> > >
-> > > In other words, 2 frame done interrupts will be triggered, driver will
-> > > ignore the first interrupt,
-> >
-> > Does any field in linked descriptors to control if issue irq? Generally
-> > you needn't enable first descriptors's irq and only enable second one.
-> >
->
-> Unfortunately, we cannot configure interrupts for each descriptor.
-> So we can't only enable the second irq.
->
->
-> > > and wait for the second interrupt.
-> > > If the resolution is small, and the 2 interrupts may be too close,
-> >
-> > It also possible two irqs combine to 1 irqs. If I understand correct, your
-> > irq handle only handle one descriptors per irq.
-> >
-> > Another words,
-> >
-> > If second irq already happen just before 1,
-> >
-> > 1. dec_ret = readl(reg + MXC_SLOT_OFFSET(slot, SLOT_STATUS));
-> > 2. writel(dec_ret, reg + MXC_SLOT_OFFSET(slot, SLOT_STATUS)); /* w1c */
-> >
-> > Does your driver wait forever because no second irq happen?
-> >
-> > Frank
->
-> Before this patch, the answer is yes, the driver will wait 2 seconds
-> until timeout.
-> In fact, this is the problem that this patch wants to avoid.
-> Now I think there are 3 cases for motion-jpeg decoding:
-> 1. The second irq happens before the first irq status check, the on-going
-> check
-> help to hanle this case.
-> 2. The second irq happens after the first irq status check, but before
-> on-going check, this on-going check can help handle it, fisnish the
-> current decoding and reset the jpeg decoder.
-> 3. The second irq happens after the on-going check, this is the normal
-> process before. No additional processing required.
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 
-Okay, not sure if hardware provide current_descript position. Generally
-descriptor queue irq handle is like
+[ Upstream commit 2d81e1bb625238d40a686ed909ff3e1abab7556a ]
 
-cur = queue_header;
-while(cur != read_hardware_currunt_pos())
-{
-	handle(cur);
-	cur = cur->next;
-	queue_header = cur;
-}
+Rockchip RK3566/RK3568 GIC600 integration has DDR addressing
+limited to the first 32bit of physical address space. Rockchip
+assigned Erratum ID #3568002 for this issue. Add driver quirk for
+this Rockchip GIC Erratum.
 
-with above logic, even you queue new request during irq handler, it should
-work correctly.
+Note, that the 0x0201743b GIC600 ID is not Rockchip-specific and is
+common for many ARM GICv3 implementations. Hence, there is an extra
+of_machine_is_compatible() check.
 
-But it is depend on if hardware can indicate current working queue
-position, some time, hardware stop last queue posistion when handle last
-one.
+Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Acked-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/all/20250216221634.364158-2-dmitry.osipenko@collabora.com
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ Documentation/arch/arm64/silicon-errata.rst |  2 ++
+ arch/arm64/Kconfig                          |  9 ++++++++
+ drivers/irqchip/irq-gic-v3-its.c            | 23 ++++++++++++++++++++-
+ 3 files changed, 33 insertions(+), 1 deletion(-)
 
-Frank
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index f074f6219f5c3..f968c13b46a78 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -284,6 +284,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Rockchip       | RK3588          | #3588001        | ROCKCHIP_ERRATUM_3588001    |
+ +----------------+-----------------+-----------------+-----------------------------+
++| Rockchip       | RK3568          | #3568002        | ROCKCHIP_ERRATUM_3568002    |
+++----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Fujitsu        | A64FX           | E#010001        | FUJITSU_ERRATUM_010001      |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 940343beb3d4c..3e7483ad5276c 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1302,6 +1302,15 @@ config NVIDIA_CARMEL_CNP_ERRATUM
+ 
+ 	  If unsure, say Y.
+ 
++config ROCKCHIP_ERRATUM_3568002
++	bool "Rockchip 3568002: GIC600 can not access physical addresses higher than 4GB"
++	default y
++	help
++	  The Rockchip RK3566 and RK3568 GIC600 SoC integrations have AXI
++	  addressing limited to the first 32bit of physical address space.
++
++	  If unsure, say Y.
++
+ config ROCKCHIP_ERRATUM_3588001
+ 	bool "Rockchip 3588001: GIC600 can not support shareability attributes"
+ 	default y
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index 8c3ec5734f1ef..f30ed281882ff 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -205,13 +205,15 @@ static DEFINE_IDA(its_vpeid_ida);
+ #define gic_data_rdist_rd_base()	(gic_data_rdist()->rd_base)
+ #define gic_data_rdist_vlpi_base()	(gic_data_rdist_rd_base() + SZ_128K)
+ 
++static gfp_t gfp_flags_quirk;
++
+ static struct page *its_alloc_pages_node(int node, gfp_t gfp,
+ 					 unsigned int order)
+ {
+ 	struct page *page;
+ 	int ret = 0;
+ 
+-	page = alloc_pages_node(node, gfp, order);
++	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
+ 
+ 	if (!page)
+ 		return NULL;
+@@ -4887,6 +4889,17 @@ static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
+ 	return true;
+ }
+ 
++static bool __maybe_unused its_enable_rk3568002(void *data)
++{
++	if (!of_machine_is_compatible("rockchip,rk3566") &&
++	    !of_machine_is_compatible("rockchip,rk3568"))
++		return false;
++
++	gfp_flags_quirk |= GFP_DMA32;
++
++	return true;
++}
++
+ static const struct gic_quirk its_quirks[] = {
+ #ifdef CONFIG_CAVIUM_ERRATUM_22375
+ 	{
+@@ -4954,6 +4967,14 @@ static const struct gic_quirk its_quirks[] = {
+ 		.property = "dma-noncoherent",
+ 		.init   = its_set_non_coherent,
+ 	},
++#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
++	{
++		.desc   = "ITS: Rockchip erratum RK3568002",
++		.iidr   = 0x0201743b,
++		.mask   = 0xffffffff,
++		.init   = its_enable_rk3568002,
++	},
++#endif
+ 	{
+ 	}
+ };
+-- 
+2.39.5
 
->
-> Thanks,
-> Ming
->
-> > >
-> > > when driver is handling the first interrupt, two frames are done, then
-> > > driver will fail to wait for the second interrupt.
-> > >
-> > > In such case, driver can check whether the decoding is still ongoing,
-> > > if not, just done the current decoding.
-> > >
-> > > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> > > ---
-> > >   .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |  1 +
-> > >   .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 20 ++++++++++++++++++-
-> > >   2 files changed, 20 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-> > > index d579c804b047..adb93e977be9 100644
-> > > --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-> > > +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-> > > @@ -89,6 +89,7 @@
-> > >   /* SLOT_STATUS fields for slots 0..3 */
-> > >   #define SLOT_STATUS_FRMDONE			(0x1 << 3)
-> > >   #define SLOT_STATUS_ENC_CONFIG_ERR		(0x1 << 8)
-> > > +#define SLOT_STATUS_ONGOING			(0x1 << 31)
-> > >
-> > >   /* SLOT_IRQ_EN fields TBD */
-> > >
-> > > diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> > > index 45705c606769..e6bb45633a19 100644
-> > > --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> > > +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> > > @@ -910,6 +910,23 @@ static u32 mxc_jpeg_get_plane_size(struct mxc_jpeg_q_data *q_data, u32 plane_no)
-> > >   	return size;
-> > >   }
-> > >
-> > > +static bool mxc_dec_is_ongoing(struct mxc_jpeg_ctx *ctx)
-> > > +{
-> > > +	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
-> > > +	u32 curr_desc;
-> > > +	u32 slot_status;
-> > > +
-> > > +	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
-> > > +	curr_desc = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_CUR_DESCPT_PTR));
-> > > +
-> > > +	if (curr_desc == jpeg->slot_data.cfg_desc_handle)
-> > > +		return true;
-> > > +	if (slot_status & SLOT_STATUS_ONGOING)
-> > > +		return true;
-> > > +
-> > > +	return false;
-> > > +}
-> > > +
-> > >   static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
-> > >   {
-> > >   	struct mxc_jpeg_dev *jpeg = priv;
-> > > @@ -979,7 +996,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
-> > >   		mxc_jpeg_enc_mode_go(dev, reg, mxc_jpeg_is_extended_sequential(q_data->fmt));
-> > >   		goto job_unlock;
-> > >   	}
-> > > -	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed) {
-> > > +	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed &&
-> > > +	    mxc_dec_is_ongoing(ctx)) {
-> > >   		jpeg_src_buf->dht_needed = false;
-> > >   		dev_dbg(dev, "Decoder DHT cfg finished. Start decoding...\n");
-> > >   		goto job_unlock;
-> > > --
-> > > 2.43.0-rc1
-> > >
 
