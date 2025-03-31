@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BAE1C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 08:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0E6C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 08:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t/staWcuBmIKOnQPhCnhZGdwMlRtO9oRntyaaFo5+20=; b=GvYke62HQpz2wlIs5o4Q4z3WpP
-	IS2Y3MM6hs3SLd9Gx0d2ykIin7QUQbfWEVFbnZnFIHI6S3w/EnipM/YcqyaZgjN2frN2FqB9dMA8X
-	LOjnyNqM0bfcoP1IRyaPMiY/JSuIPlj84pbL5z7kZNnbrUcWABCdTlkt2pqmPfSFIqgwcpIMdQumZ
-	UL0NPTT9MMC/AaItEchymwmGXTRjOtpHBZMtGjfotuE2W/KoHVWdiJkgGIKBJYUGmge5cJV8Bw9XM
-	D/fJPzFRArTGd56CpLFhN0x+xphFH5ESmFhI1gjvDF2X2X8mRZVrIsXRP/VdEE3LWQbT3c+Mhuo6s
-	qnmUn27g==;
+	bh=dhFKhdhw70mHE3BI3aqm1vnK7u3Z06BG0FGoHsvyfEY=; b=zMkKIrlOkSo98KT4OVq+yWTOoW
+	1fef1W4Vid7hzSznKDTfmLvExkaghE+6iysk2wotK20U9QmPdVAcd2noN7QWMiDk/IavXrY3duu2k
+	PLbTvZYF5uzqmjhMP1YfQcleHl7C/1ql+HP5foUhLsWnbDX7j+6hDTWPowiIM3h3qV7S7Wq86A0ER
+	1D9Xf9k8CIlrRiqltPNps225GNVYmDOC2dglCbi4oDhDTfhA71qsgQx6QCdI+yhjX+SOaCGsfE5KR
+	NbarNKCo48KW+pPD89S/cqg5Kxd9x755d6yKsBjDe7bIinE+vVQY18aoF4ETSUT6OFTEhCecFsJ+j
+	rxGVoZRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzAMn-0000000HKnC-39Nx;
-	Mon, 31 Mar 2025 08:19:33 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tzAOr-0000000HL7T-3BHl;
+	Mon, 31 Mar 2025 08:21:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzAJu-0000000HKT3-3xyO;
-	Mon, 31 Mar 2025 08:16:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1743408995; x=1774944995;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=QGqKdfPSBPoe0ePQ6nTPzXqBmsVZuUhxOCBg+SqfvXg=;
-  b=GKgEViQOUtdX+lDaI6n1i0DJRFU/e9Nd6xfhwLIcuHWHkgnloR9iVaOY
-   yWDey4A/G9VTFGVtEvhcpLAsLbLoO+7SnstyO/EeV7pq+1eB36dxGivXx
-   zBI5gLUWYnLJUXhNrXny16G1wY0DTe+6zE00SIXCXN9t99yPaY83sn2Y0
-   3O0XC1tjgbpy8wgiODVu9fZdPIsdhH5oQzH38AYgnrkJAUhWuZea0hnwP
-   RCZYaEzt57PDwImBWB5GSCBmGW0zHhBPJ+XdXcneuJpdoat6tHEbddG4f
-   Ls0wvSJ/ilKLMVzMoSi7j3BuvY+tJYC6OoegmPG3hhd+upHjzgkTFpoUP
-   g==;
-X-CSE-ConnectionGUID: gKrwg4mfSmuaTLDzt6HEyA==
-X-CSE-MsgGUID: IEJOzwUuQze6QV6L82yqDQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11389"; a="48350878"
-X-IronPort-AV: E=Sophos;i="6.14,290,1736841600"; 
-   d="scan'208";a="48350878"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2025 01:16:30 -0700
-X-CSE-ConnectionGUID: 9FkABt1SRSqJZ+qcfb5pog==
-X-CSE-MsgGUID: tY7RLoEiRtijHRLb6HPV3w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,290,1736841600"; 
-   d="scan'208";a="126932615"
-Received: from lkp-server02.sh.intel.com (HELO e98e3655d6d2) ([10.239.97.151])
-  by orviesa008.jf.intel.com with ESMTP; 31 Mar 2025 01:16:27 -0700
-Received: from kbuild by e98e3655d6d2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tzAJk-00098A-0h;
-	Mon, 31 Mar 2025 08:16:24 +0000
-Date: Mon, 31 Mar 2025 16:15:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sebastian Fricke <sebastian.fricke@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Tiffany Lin <tiffany.lin@mediatek.com>,
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-	Yunfei Dong <yunfei.dong@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel@collabora.com,
-	Sebastian Fricke <sebastian.fricke@collabora.com>
-Subject: Re: [PATCH 4/5] media: vcodec: Implement manual request completion
-Message-ID: <202503311620.hhbFrG8T-lkp@intel.com>
-References: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b@collabora.com>
+	id 1tzAN9-0000000HKt6-3LZb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Mar 2025 08:19:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 42DF75C4BEC;
+	Mon, 31 Mar 2025 08:17:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AD33C4CEEA;
+	Mon, 31 Mar 2025 08:19:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743409194;
+	bh=k7k2/pOIGDeCvNTJE50TOMWYK9qKx/YV3St05Kv63+s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rYO4k9nl6kCuo8SfsJnxldb3o7ezS9EXsXYjzd6R6CRm6jcHAZxImU+QpOBbehMA4
+	 isxoEzsCa3wEGkacepZzACOq/aJHwzhbtp1gIhT8UkU+/TgB90ZCy9TBiJ99oavGAZ
+	 o72V3uNSP7BVSKmmzrv4PxXCYiK65kjmbh8xqBqfkPuokbGnYs3Bm5R+ubOyy5Xh00
+	 1x6bLWCjFBZHN3JppQunNl5kVBttaPS/9Dy/uc6UHncor+a+HdFrx56C4x9RmBvqRZ
+	 F/jWucXhyBgfSfQOT5ryNylz5NSVdLXgajOz9pDC1SQEMyvZcmRns0K16hT7o7oXR2
+	 DInck3dgP766g==
+Date: Mon, 31 Mar 2025 10:19:51 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, =?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Aradhya Bhatia <a-bhatia1@ti.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Heiko Stuebner <heiko@sntech.de>, Junhao Xie <bigfoot@classfun.cn>, 
+	Kever Yang <kever.yang@rock-chips.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: PCI: rcar-gen4-pci-host: Document
+ optional aux clock
+Message-ID: <20250331-excellent-nautilus-of-apotheosis-fbd30a@krzk-bin>
+References: <20250330195715.332106-1-marek.vasut+renesas@mailbox.org>
+ <20250330195715.332106-2-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b@collabora.com>
+In-Reply-To: <20250330195715.332106-2-marek.vasut+renesas@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_011635_033555_204EBB68 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250331_011955_880090_538D70C7 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,31 +82,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On Sun, Mar 30, 2025 at 09:56:09PM +0200, Marek Vasut wrote:
+> diff --git a/Documentation/devicetree/bindings/pci/rcar-gen4-pci-host.yaml b/Documentation/devicetree/bindings/pci/rcar-gen4-pci-host.yaml
+> index bb3f843c59d91..5e2624d4c62c7 100644
+> --- a/Documentation/devicetree/bindings/pci/rcar-gen4-pci-host.yaml
+> +++ b/Documentation/devicetree/bindings/pci/rcar-gen4-pci-host.yaml
+> @@ -46,12 +46,14 @@ properties:
+>        - const: app
+>  
+>    clocks:
+> -    maxItems: 2
+> +    minItems: 2
+> +    maxItems: 3
+>  
+>    clock-names:
 
-kernel test robot noticed the following build errors:
+missing minItems: 2
 
-[auto build test ERROR on f2151613e040973c868d28c8b00885dfab69eb75]
+(xxx and xxx-names are always synced in dimensions)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sebastian-Fricke/media-mc-add-manual-request-completion/20250314-213005
-base:   f2151613e040973c868d28c8b00885dfab69eb75
-patch link:    https://lore.kernel.org/r/20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b%40collabora.com
-patch subject: [PATCH 4/5] media: vcodec: Implement manual request completion
-config: mips-allyesconfig (https://download.01.org/0day-ci/archive/20250331/202503311620.hhbFrG8T-lkp@intel.com/config)
-compiler: mips-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250331/202503311620.hhbFrG8T-lkp@intel.com/reproduce)
+I understand that clock is optional? Your diagram in commit msg suggests
+that clock is there always.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503311620.hhbFrG8T-lkp@intel.com/
+Best regards,
+Krzysztof
 
-All errors (new ones prefixed by >>):
-
-   mips-linux-ld: drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.o: in function `state_to_str':
->> mtk_vcodec_dec_drv.c:(.text.state_to_str+0x0): multiple definition of `state_to_str'; drivers/media/platform/chips-media/wave5/wave5-helper.o:wave5-helper.c:(.text.state_to_str+0x0): first defined here
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
