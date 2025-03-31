@@ -4,67 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B72EC36014
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 21:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50101C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 21:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M1kAHr/2LuQvRfK4BWV3MaCLSiNlbrzzetn6/mOgDms=; b=bDjgBd4AigxpYppn1ykD5Nxx9y
-	LaJDzvKhWoq56TxC/Odp6y4xka9lfgmFZQA1b9UmKsHccnSt+Z+myLlw/uH6Kv7VG5cjGo7Kg3F7G
-	xGfZuYi/Nnx3+BLQqyUN18QVfij+fHMRBcODgQPUTqu78wxyGaTIi9NoqINoDbiOkDgi2VVKAoveh
-	a4CL4jUFOwZ67C6Z4j/oSzWK9AUL6468IBEP1j+6fFuMzDmUsotDHH0mqX0G+1MWMyjraMveVt7AZ
-	8b6ZRljyVkQ3uK7CvPfWPl5jtgwZBfJJoAl1396MV3ah58K6pcLGYoJogcN2gfX8Aszyr7UIM7cX+
-	JKDq4/Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UYmC+MB3Ga1Qxmw+SnW2boDawQrt63Z6297wM2q9/LA=; b=deD08YnR0OAg2v+Cu5cLb9EBSj
+	qHTsriSIUQvw4quhelP2faqQOpNpVkVf9w0AT11HulScBEsuIayoMF9aCfKkTcRNciELZ3NFJGG5A
+	htUnGe4aS7DtmK7Bt5iZa9OfYbBM/L8E9WJWaUmulopNoh/xkN/MkX2cF3jmjgWQKCmEzhII1Y9vK
+	2+VQh4GbaUcEAB/NpZYQ2XQmJ42x9O1qRKEoRShC30Jmylv7ZpwOoQq9qUICKmKtxfdCePf1kN5XY
+	mkVqLb+IIzmrv8g6nLllEhhaGC4wFcEbW8SxPEfifRXDdqH4yMx+7lbZMCWOKQHMsdCxYzn0Jv6mm
+	kGsnoeQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzMxT-00000001Ro4-2hfj;
-	Mon, 31 Mar 2025 21:46:15 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tzN1p-00000001SKx-0H1q;
+	Mon, 31 Mar 2025 21:50:45 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzMvK-00000001RSC-0WMG
+	id 1tzN01-00000001S6q-0NKH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 21:44:03 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E6F7110252BE4;
-	Mon, 31 Mar 2025 23:43:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1743457439; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=M1kAHr/2LuQvRfK4BWV3MaCLSiNlbrzzetn6/mOgDms=;
-	b=FpFIRWS0in2BDlOktoENOy68ru7VF3ykJs8txMirTePb7Q4K1Gtr6XHTCoOSn41RdnWWuy
-	K47+YU03mchrcMLsKbJvGKCy6MqTjCBje0bv0udcUuZ5ZBRLTXp/zWEWMM8NtrAz2R6V9Z
-	lapLT7i6oUKfGgoQVsV1XVwrfg3o3iZYNJbVsXCeqUKvrkAa8kQ68z05RYashS/aQXcTcK
-	QQ3BLhqSfl5wkK1DzU2/V4DL5IvhfRFezk76P5OhPvTJT5Jxr8SivBhXjjo9UtonWtMk7K
-	D1Zh72wHWCOjUSuPrUTWTMbmGj+emsVXuoem0/kFEOj9VFmuJaPqZj9wIbfRRA==
-Date: Mon, 31 Mar 2025 23:43:54 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/4] ARM: dts: nxp: mxs: Adjust XEA board's DTS to
- support L2 switch
-Message-ID: <20250331234354.6032a4c0@wsk>
-In-Reply-To: <7fa1b5c7-d5c5-45be-af6d-ae97a76eccae@gmx.net>
-References: <20250331103116.2223899-1-lukma@denx.de>
-	<20250331103116.2223899-4-lukma@denx.de>
-	<7fa1b5c7-d5c5-45be-af6d-ae97a76eccae@gmx.net>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Mon, 31 Mar 2025 21:48:54 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-54b10594812so3209638e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 14:48:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743457731; x=1744062531; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UYmC+MB3Ga1Qxmw+SnW2boDawQrt63Z6297wM2q9/LA=;
+        b=C4R1SnCIu+3t2DH7j/tbYH137iWVAsxFFMrXhU9E8Jho67i4NeHDS+2/QwbT3Vj+sd
+         U2uItN7PmGN1yOwrOTnJLeM6xAMWkFs7iKZEf9NEKFVKajNssTMkiU/BFN/iK1ZVrLTC
+         ABFsuDBzfaa+BmgXuF0q71o2QgdgvY8XASIht5NL8rx3rPC9hDY/PDjNY7xcmTcq6dnF
+         MYFQcS03usjPMSRWqajIdB2+KTVoeoI8vKppm6dihvVJKZt91Phliw9uYmKEe5j9y5Wy
+         CNf1j4AsjodjzZDq+9i0pG5WsVr3Tyrs/dRBfE9BTFDCcNtM7Gnf+vgHHxym0gA6bFq3
+         WuIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743457731; x=1744062531;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UYmC+MB3Ga1Qxmw+SnW2boDawQrt63Z6297wM2q9/LA=;
+        b=ZTqPWuHK/SoarwHV+6TMLdoAkWxPG0XU5UfWVi3Fjo6yqvXaDobzzvJHABFF7oohis
+         Sz1PdjC44hiSa7fwFjlLIemxLzNMXIERmGpgymML5iF3aQbDiaEHuiAn6OnEATR+UU9R
+         NkX3SeicR1BixBK126K6zs/s+3asmArgzfk84XJY6JFQYBRht1DU2poO/Yu/W40HQl85
+         UmCGNqDt6YDx+Vjg2Ppjv3xz9FLwR1Sdp9jfAnj1RbxB08eMUuWcAwB7Qb52wyrJwnoV
+         1fR+QpR/8UzE0nivbMezQ4w+TpFL8IOJCBJlVMiJWkK/6lI1xq3dOUMt6d/kbPbOHXvE
+         Ca9g==
+X-Forwarded-Encrypted: i=1; AJvYcCVKLdxJagL+AmE65i4JADhFOlJJxYTfwNp+OMmYqLtgokwbVcvpi52cAeY4WPhC3vMKQD99BMZqybSD2BsURiVO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1yVfV7HKEvVXNItLs3rrXQCns8ow1hsm0O5cHrGuwUQ+jUutg
+	BQFXjQJ3m5SrUxEPLuZv11Lx0sKMvmdTZkPLRFXp1ucw6KRFqGbsXsQ93+ezIO6CJ50Crkk6suc
+	0DGb4monAUQ7KcfU2pmRLN98ilzfVi0KaZzASrw==
+X-Gm-Gg: ASbGncvjR24NsNzdChKVPPrGcLMN5dX0907u/jrNfSxTzgTgb5RBoNIJB96R0W77QnE
+	GIjbVgpf7M5Eys/HkVfDQTEpEiA/+BUUnQ+Uot2s0hR60HCCdViRk4kaDFKEBLZWBl95hQhK8T2
+	TClsfJE9QH8f3SG3w2wKe0L30=
+X-Google-Smtp-Source: AGHT+IFKrtOpiukzpK/NrtKRXlopAJBo1cfKVww6Xl2T8BzgUQUIQAgouqHZgZnMK2jF9lW8egUD6eakV7yGdbX7O68=
+X-Received: by 2002:a2e:87d8:0:b0:30d:e104:9ad1 with SMTP id
+ 38308e7fff4ca-30de1049debmr24835581fa.38.1743457731171; Mon, 31 Mar 2025
+ 14:48:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/N4y+i2Yc7WjNKxm/ab1iCGE";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+References: <CACRpkdZCiiMTwf7eGJJ9aCKFOC3_xTGv1JKQUijjyp+_++cZ_A@mail.gmail.com>
+ <1277cefd-b080-42a5-bfe5-57296e7ccc3e@paulmck-laptop>
+In-Reply-To: <1277cefd-b080-42a5-bfe5-57296e7ccc3e@paulmck-laptop>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 31 Mar 2025 23:48:40 +0200
+X-Gm-Features: AQ5f1JrgtZIoLPjqTsdbCrOeKTMwv3zR0VqKQ_FWWHTP-zQunZfEAsmN_dnyhxE
+Message-ID: <CACRpkdaYQx8gBnkjW0zy=-FNS-P+TtjXoNBsBR2D4FTWo28R1Q@mail.gmail.com>
+Subject: Re: [GIT PULL] Generic entry for ARM
+To: paulmck@kernel.org
+Cc: Russell King <rmk+kernel@armlinux.org.uk>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Thomas Gleixner <tglx@linutronix.de>, linux-kernel <linux-kernel@vger.kernel.org>, frederic@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_144402_448114_3C1572D2 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20250331_144853_132028_B153CBB5 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,146 +96,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/N4y+i2Yc7WjNKxm/ab1iCGE
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Wed, Mar 12, 2025 at 7:00=E2=80=AFPM Paul E. McKenney <paulmck@kernel.or=
+g> wrote:
 
-Hi Stefan,
+> Once you are confident that you have all the needed "noinstr"
+> and "__always_inline" instances in place, could you please add
+> ARCH_WANTS_NO_INSTR to the list of "select" clauses for "config ARM"
+> in arch/arm/Kconfig?
 
-> Hi,
->=20
-> Am 31.03.25 um 12:31 schrieb Lukasz Majewski:
-> > The description is similar to the one used with the new CPSW driver.
-> >
-> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> > ---
-> > Changes for v2:
-> > - Remove properties which are common for the imx28(7) SoC
-> > - Use mdio properties to perform L2 switch reset (avoid using
-> >    deprecated properties)
-> >
-> > Changes for v3:
-> > - Replace IRQ_TYPE_EDGE_FALLING with IRQ_TYPE_LEVEL_LOW
-> > - Update comment regarding PHY interrupts s/AND/OR/g
-> > ---
-> >   arch/arm/boot/dts/nxp/mxs/imx28-xea.dts | 54
-> > +++++++++++++++++++++++++ 1 file changed, 54 insertions(+)
-> >
-> > diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
-> > b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts index
-> > 6c5e6856648a..8642578fddf3 100644 ---
-> > a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts +++
-> > b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts @@ -5,6 +5,7 @@
-> >    */
-> >
-> >   /dts-v1/;
-> > +#include<dt-bindings/interrupt-controller/irq.h>
-> >   #include "imx28-lwe.dtsi"
-> >
-> >   / {
-> > @@ -90,6 +91,59 @@ &reg_usb_5v {
-> >   	gpio =3D <&gpio0 2 0>;
-> >   };
-> >
-> > +&eth_switch {
-> > +	pinctrl-names =3D "default";
-> > +	pinctrl-0 =3D <&mac0_pins_a>, <&mac1_pins_a>;
-> > +	phy-supply =3D <&reg_fec_3v3>;
-> > +	status =3D "okay";
-> > +
-> > +	ethernet-ports {
-> > +		#address-cells =3D <1>;
-> > +		#size-cells =3D <0>;
-> > +
-> > +		mtip_port1: port@1 {
-> > +			reg =3D <1>;
-> > +			label =3D "lan0";
-> > +			local-mac-address =3D [ 00 00 00 00 00 00 ];
-> > +			phy-mode =3D "rmii";
-> > +			phy-handle =3D <&ethphy0>;
-> > +		};
-> > +
-> > +		mtip_port2: port@2 {
-> > +			reg =3D <2>;
-> > +			label =3D "lan1";
-> > +			local-mac-address =3D [ 00 00 00 00 00 00 ];
-> > +			phy-mode =3D "rmii";
-> > +			phy-handle =3D <&ethphy1>;
-> > +		};
-> > +	};
-> > +
-> > +	mdio_sw: mdio {
-> > +		#address-cells =3D <1>;
-> > +		#size-cells =3D <0>;
-> > +
-> > +		reset-gpios =3D <&gpio3 21 0>; =20
-> i'm a huge fan of the polarity defines, which makes it easier to
-> understand.
->=20
+I would love to do that, I'm just not sure what this really entails.
 
-Ok.
+Surely this patchset tags a noinstr on every entry point from
+exceptions and syscall software interrupts.
+Documentation/core-api/entry.rst is pretty good at explaining this.
 
-> Btw since you introduced the compatible in the DTS of a i.MX28 board,
-> it would be nice to also enable the driver in mxs_defconfig.
+But what makes me uncertain are things that are tagged
+"notrace", such as void notrace cpu_init(void) - surely we
+don't trace, but should that be "noinstr"? It's even marked
+"notrace" but not "noinstr" in arm64.
 
-Yes, thanks for the tip.
+cpu_init() is called from e.g.:
+asmlinkage void secondary_start_kernel(struct task_struct *task)
+OK should this also be noinstr? Or is that just implied because
+of asmlinkage?
 
->=20
-> Regards
-> > +		reset-delay-us =3D <25000>;
-> > +		reset-post-delay-us =3D <10000>;
-> > +
-> > +		ethphy0: ethernet-phy@0 {
-> > +			reg =3D <0>;
-> > +			smsc,disable-energy-detect;
-> > +			/* Both PHYs (i.e. 0,1) have the same,
-> > single GPIO, */
-> > +			/* line to handle both, their interrupts
-> > (OR'ed) */
-> > +			interrupt-parent =3D <&gpio4>;
-> > +			interrupts =3D <13 IRQ_TYPE_LEVEL_LOW>;
-> > +		};
-> > +
-> > +		ethphy1: ethernet-phy@1 {
-> > +			reg =3D <1>;
-> > +			smsc,disable-energy-detect;
-> > +			interrupt-parent =3D <&gpio4>;
-> > +			interrupts =3D <13 IRQ_TYPE_LEVEL_LOW>;
-> > +		};
-> > +	};
-> > +};
-> > +
-> >   &spi2_pins_a {
-> >   	fsl,pinmux-ids =3D <
-> >   		MX28_PAD_SSP2_SCK__SSP2_SCK =20
->=20
+<linux/compiler_types.h> will resolve to:
 
+#if defined(CC_USING_HOTPATCH)
+#define notrace                 __attribute__((hotpatch(0, 0)))
+#elif defined(CC_USING_PATCHABLE_FUNCTION_ENTRY)
+#define notrace                 __attribute__((patchable_function_entry(0, =
+0)))
+#else
+#define notrace                 __attribute__((__no_instrument_function__))
+#endif
 
-Best regards,
+which I read as three different ways of saying "don't patch here".
 
-Lukasz Majewski
+Which is confusingly similar or identical to what noinstr does, I do see th=
+at
+noinstr pushes the code to separate section but that in turn might
+be what __attribute__((__no_instrument_function__)) and
+friends does?
 
---
+Are they equivalent?
 
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+sched_clock_noinstr() is tagged noinstr and sched_clock() is
+tagged notrace, so there must be a difference here.
 
---Sig_/N4y+i2Yc7WjNKxm/ab1iCGE
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
+secondary_start_kernel() is tagged "notrace" on arm64 but
+not on arm, should it be tagged "noinstr" or "notrace"?
 
------BEGIN PGP SIGNATURE-----
+This kind of stuff makes me uncertain about how this is to be
+done. A "noinstr vs notrace" section in Documentation/core-api/entry.rst
+would help a lot I think!
 
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfrDJoACgkQAR8vZIA0
-zr3UJQgA0HyhfyDsLGObOeUIL/btg74vBxnJ2OTGDfIniD4pupQW+Cn0MwjEK6GX
-Fp9QA2fyp0ExoXwOcECHPiTRz5uVeYyQ/mw7rvtTJ+P3mYFhGkyyjiAK2wSJCZ3L
-WJZhqR4APlr1nIBc3j8ROlplZ+oOMwXKO4TCHApE+JGHXFWhMnGc8T0asmKV3sx6
-exPXHFhNNFqmiBj/ZfIKR3zwGj+8zgZYQaDyU4vTuy69iOMPiq0IN0+rsrFSf2B7
-75p2+JhOken4DV/6MK1DhpBqs7eGz0JCC4A2pRAcjCMWLTfE2kD6pf21l+IrmLdD
-TKlO2eLMKaTfXEp7FJ8oNwJqUSmfZw==
-=X/u9
------END PGP SIGNATURE-----
-
---Sig_/N4y+i2Yc7WjNKxm/ab1iCGE--
+Yours,
+Linus Walleij
 
