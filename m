@@ -4,59 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A13C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 09:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2F9FC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 09:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mq9z6MEPwJiw5IKNgN6ZaAL02fSpOCDudcw7yHycl9g=; b=cfX+Q66woLoYhT6Jv6a3zG5vxh
-	xuXiKH7UC1c+oNbQHNzyOw/cGnKmpkeXQ8Ow4wckDNjYE/Kfwi9XFv7t7+ehbRjyEec+xoeAVTrth
-	Al9zXI96fRMwRtQyHCM89FklywB3Rb/XNry9yQzb++JJHhlqIjI1vyla/XFgqI348wbyBWI0WpXdC
-	zvOHSCcD4MxVfWhLFPmgkM1uzErKBfkTVZKG2qOwrhLYiWQNGvqhmv7Ao68MDCcimsgJeIzHxBc7l
-	5hNAOdBre2DA5lrld9m3KTLVQGb1n6WOU4O09ctguusfiKoPJgQMuiZl9W1JMb18gyaaaWt6ETAFV
-	CvMRXwww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vkzLnbFVOYDObQyUvRiCdFcMVyW9LHfEzzCWp7sSsRM=; b=aNOwZU7oH/lPabz/7v9tUWRhaZ
+	0GLEV6KukY8n4RU+/se0QKO9yn1URdC5+BeXqxnzw6S3npbPV/7jk3eKLXsVP8ubQXKWtpO+lXmmj
+	0uBr3h8nMEIE8XrEgSzdWX3NOnxC2r8KPfX5eg8Bq0OplaLlEZIc4funm8otBBx49u9XovI0T+lST
+	3tXNR0gu4fHBaR8QHm2F9Z5e35pfKlWeVHvqW4HgWqLxkYvIP2ML4NMxjWHMY3Lfv3wY/kgMd7iHu
+	lFcIpDOJ1DPmXX/5kl5kNfxFpX/IZlDlkp7N6N47A/tNNbKm/Egfvc0KFc1TUvaBSv+BFpVOEwfxE
+	k6HiJGKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzBCZ-0000000HShZ-03VD;
-	Mon, 31 Mar 2025 09:13:03 +0000
-Received: from mail-m1973197.qiye.163.com ([220.197.31.97])
+	id 1tzBLV-0000000HVIa-31qz;
+	Mon, 31 Mar 2025 09:22:17 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzBAW-0000000HSTL-3SE6
+	id 1tzBJm-0000000HUqP-1lNX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 09:10:58 +0000
-Received: from localhost.localdomain (unknown [122.224.147.158])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 102a45154;
-	Mon, 31 Mar 2025 17:10:39 +0800 (GMT+08:00)
-From: HongBo Yao <andy.xu@hj-micro.com>
-To: will@kernel.org
-Cc: robin.murphy@arm.com,
-	mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	andy.xu@hj-micro.com,
-	allen.wang@hj-micro.com,
-	peter.du@hj-micro.com
-Subject: [PATCH] perf: arm-ni: Fix list_add() corruption in arm_ni_probe()
-Date: Mon, 31 Mar 2025 17:10:37 +0800
-Message-ID: <20250331091037.2358296-1-andy.xu@hj-micro.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 31 Mar 2025 09:20:31 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5ed1ac116e3so7170025a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 02:20:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1743412829; x=1744017629; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vkzLnbFVOYDObQyUvRiCdFcMVyW9LHfEzzCWp7sSsRM=;
+        b=QHDfP+G6/sztNoh7nv42ce9RQiONZRQIRc8FOOPOSCJsfn65pVVhHR4JkCWeB/iuOn
+         kal7ZjUJ9Ww79A0N1oIKzljPfbkBs0JVbzpr5dpRz2LqJOLS8pVQY2kctz9UYXsut9lC
+         Z891EVAHkk1jd+Frdbv0kkQSYUc2cOl6B3TU1s1t7iozgcnEVXxGsobo76EaZ/EiqZ83
+         2dz96aOQOW1WVWMPCyHIqCsXcFHoQZzoeZbVrvuO5qJNi90qbr8L/9GKMJyxrWMiVFM2
+         kV8xhs6mGp2hY0NaJ7WAusUG7bVk/H/z+AhkzGFiDTGSfm68D7HEt+tt3QG5+u9HDzQk
+         o6+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743412829; x=1744017629;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vkzLnbFVOYDObQyUvRiCdFcMVyW9LHfEzzCWp7sSsRM=;
+        b=mUFhcn07UxfXKzyUt4mthskkOS3FjwHHcZJmnNbhkcSmyUyj0NAJAVnNE+Uydfl4es
+         bQGDEiY4BZPuHIaUprOlsag2HtBqG+UipWF6DvNsigUTvu4Re4klS/i8HAyL3Kro8Sa5
+         BmX0/8lnToIkGHk96IGFkSVKDelmWAUu7Oe77Q1x2teS8sDqC3WnAWQUKJ7txnw2M1MZ
+         TRBICFNVDG2H+ONGVgAYkLRPiF+dV7DvF2HFFxByyJRQPgQBxTDEREBVCAor65+1T5Ga
+         g/LwKJwqc1l85Pr6W1jTJYH5aHjlWg7XShb5NnMaULVbS4GVXSRTKzbAbePwt6YbhTh3
+         lHJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4dnrYIg4bdex7jogUEt7J9Fy/Zbl676pCBJwhORc5C7HAKQmCUkwu8PrqpNXkShiVApIrdzLcSgRlhbs3v6YC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIdwXqSQ6Jju+ogZMEdnfM5TQQXKWyyOliQwCw7guUTXz53F9f
+	X4LLfHEa7JCzgP1BEXCiiSIcp2Hu/+Z5BMMgThl5TCPyitJCRnvV7Y9U5bi/Op4=
+X-Gm-Gg: ASbGncuGEOlVciw20femrSNvS0Qbyv1MGXAdJy/sPAfTDbWo/ka0StddfO51AaryUYx
+	3gSebwwedjHCKck49crechVTt3WcgKM+hr1TFzFcjknQ51IZfgHXJL7YwKnKdwV+74LUNq4V7Un
+	e87gAWekZYTYTinuT330sQhaizQONReSLxh5HAYt78PrIghLftWNxPpYa0I+G4BTZF0QJg0Uo6O
+	I5PoldcuARXqimT+fJlKtyVCfovnffLO8S2ITdmwwa5EZOmAtHviCMPeQIuiy3+g/TibADAyb2S
+	zxFxG500CihYlKZ7irblOEGzQqEs8l1/h0vEM5BcQhq2QrrsAyWOC2Fi+OcghDWGaxWsEqgnRVQ
+	ir8uu5bsY/m9wGVAbEbx1dRo=
+X-Google-Smtp-Source: AGHT+IFw4ZQBM4RCOBDHsaOKEO0WJ/K/tqyXI3QtId7X55gIJKhmKgjgqUxtnj7DaAzH7tFUE8PTlQ==
+X-Received: by 2002:a17:907:8686:b0:ac3:ef11:8787 with SMTP id a640c23a62f3a-ac738b910e3mr830432866b.54.1743412828665;
+        Mon, 31 Mar 2025 02:20:28 -0700 (PDT)
+Received: from localhost (host-87-5-222-245.retail.telecomitalia.it. [87.5.222.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac7192f0c66sm591000666b.78.2025.03.31.02.20.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Mar 2025 02:20:28 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Mon, 31 Mar 2025 11:21:45 +0200
+To: Krzysztof Wilczynski <kw@linux.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	kernel-list@raspberrypi.com
+Subject: Re: [PATCH v8 08/13] misc: rp1: RaspberryPi RP1 misc driver
+Message-ID: <Z-peqcNpvIbKa1MT@apocalypse>
+References: <cover.1742418429.git.andrea.porta@suse.com>
+ <3fbc487bc0e4b855ffbee8ed62cfb6bf3b0592e8.1742418429.git.andrea.porta@suse.com>
+ <20250323114945.GD1902347@rocinante>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDTkJCVhkfGBhLQ0NPHRlNGFYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSUlVSUlPVUpPTFVKTkNZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
-	tLVUpCS0tZBg++
-X-HM-Tid: 0a95eb779e1a03afkunm102a45154
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pzo6Dzo5KDJMNRcpFCwiP0M2
-	TzoKCg9VSlVKTE9IT0pJSU9LTUJPVTMWGhIXVRoVHwJVAw47ExFWFhIYCRRVGBQWRVlXWRILWUFZ
-	SklJVUlJT1VKT0xVSk5DWVdZCAFZQUhNTEs3Bg++
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250323114945.GD1902347@rocinante>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_021057_019238_B83B10DF 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20250331_022030_458039_7E7909E8 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,109 +126,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hongbo Yao <andy.xu@hj-micro.com>
+Hi Krzysztof,
 
-When a resource allocation fails in one clock domain of an NI device,
-we need to properly roll back all previously registered perf PMUs in
-other clock domains of the same device.
+On 20:49 Sun 23 Mar     , Krzysztof Wilczynski wrote:
+> Hello,
+> 
+> Thank you for sending new version.  Appreciated.
+> 
+> > +	case IRQ_TYPE_LEVEL_HIGH:
+> > +		dev_dbg(&rp1->pdev->dev, "MSIX IACK EN for irq %u\n", hwirq);
+> > +		msix_cfg_set(rp1, hwirq, MSIX_CFG_IACK_EN);
+> > +		rp1->level_triggered_irq[hwirq] = true;
+> 
+> [...]
+> > +		if (!irq) {
+> > +			dev_err(&pdev->dev, "Failed to create irq mapping\n");
+> > +			err = -EINVAL;
+> > +			goto err_unregister_interrupts;
+> > +		}
+> 
+> A small nitpick: "IRQ" in both of the above.  Not a blocker, though, so
+> feel free to ignore this feedback.
 
-Otherwise, it can lead to kernel panics.
+Ack.
 
-Calling arm_ni_init+0x0/0xff8 [arm_ni] @ 2374
-arm-ni ARMHCB70:00: Failed to request PMU region 0x1f3c13000
-arm-ni ARMHCB70:00: probe with driver arm-ni failed with error -16
-list_add corruption: next->prev should be prev (fffffd01e9698a18),
-but was 0000000000000000. (next=ffff10001a0decc8).
-pstate: 6340009 (nZCv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
-pc : list_add_valid_or_report+0x7c/0xb8
-lr : list_add_valid_or_report+0x7c/0xb8
-Call trace:
- __list_add_valid_or_report+0x7c/0xb8
- perf_pmu_register+0x22c/0x3a0
- arm_ni_probe+0x554/0x70c [arm_ni]
- platform_probe+0x70/0xe8
- really_probe+0xc6/0x4d8
- driver_probe_device+0x48/0x170
- __driver_attach+0x8e/0x1c0
- bus_for_each_dev+0x64/0xf0
- driver_add+0x138/0x260
- bus_add_driver+0x68/0x138
- __platform_driver_register+0x2c/0x40
- arm_ni_init+0x14/0x2a [arm_ni]
- do_init_module+0x36/0x298
----[ end trace 0000000000000000 ]---
-Kernel panic - not syncing: Oops - BUG: Fatal exception
-SMP: stopping secondary CPUs
+Many thanks,
+Andrea
 
-Fixes: 4d5a7680f2b4 ("perf: Add driver for Arm NI-700 interconnect PMU")
-Signed-off-by: Hongbo Yao <andy.xu@hj-micro.com>
----
- drivers/perf/arm-ni.c | 21 ++++++++++++++++++---
- 1 file changed, 18 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-index fd7a5e60e963..c501d31bde68 100644
---- a/drivers/perf/arm-ni.c
-+++ b/drivers/perf/arm-ni.c
-@@ -102,6 +102,7 @@ struct arm_ni_unit {
- struct arm_ni_cd {
- 	void __iomem *pmu_base;
- 	u16 id;
-+	bool pmu_registered;
- 	int num_units;
- 	int irq;
- 	int cpu;
-@@ -571,6 +572,8 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
- 	err = perf_pmu_register(&cd->pmu, name, -1);
- 	if (err)
- 		cpuhp_state_remove_instance_nocalls(arm_ni_hp_state, &cd->cpuhp_node);
-+	else
-+		cd->pmu_registered = true;
- 
- 	return err;
- }
-@@ -593,6 +596,7 @@ static int arm_ni_probe(struct platform_device *pdev)
- 	void __iomem *base;
- 	static atomic_t id;
- 	int num_cds;
-+	int ret;
- 	u32 reg, part;
- 
- 	/*
-@@ -651,18 +655,29 @@ static int arm_ni_probe(struct platform_device *pdev)
- 			reg = readl_relaxed(vd.base + NI_CHILD_PTR(p));
- 			arm_ni_probe_domain(base + reg, &pd);
- 			for (int c = 0; c < pd.num_components; c++) {
--				int ret;
--
- 				reg = readl_relaxed(pd.base + NI_CHILD_PTR(c));
- 				arm_ni_probe_domain(base + reg, &cd);
- 				ret = arm_ni_init_cd(ni, &cd, res->start);
- 				if (ret)
--					return ret;
-+					goto init_cd_cleanup;
- 			}
- 		}
- 	}
- 
- 	return 0;
-+
-+init_cd_cleanup:
-+	for (int i = 0; i < ni->num_cds; i++) {
-+		struct arm_ni_cd *cd = ni->cds + i;
-+
-+		if (!cd->pmu_base)
-+			continue;
-+
-+		if (cd->pmu_registered)
-+			perf_pmu_unregister(&cd->pmu);
-+	}
-+
-+	return ret;
- }
- 
- static void arm_ni_remove(struct platform_device *pdev)
--- 
-2.43.0
-
+> 
+> 	Krzysztof
 
