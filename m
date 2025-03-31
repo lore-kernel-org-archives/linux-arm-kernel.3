@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E369C36017
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 06:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B219C36018
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 06:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGnhJIC759yJZtlti/ONE6+GpsFrfUcaeYqXQAyKOzg=; b=4aLkNXNJeB7NEAmrvR4IXOS5qd
-	brgToB4tzv+cXGP0SknzqqGWCzDOifvBsqszicHxtZpVOnmsEOE+ZuDvmcluKDQ4f+zGDimKWZsDF
-	FyVJnCd8N0LzIybE/0XRb+sd+36RB0Hx4K0/eyg4qVEw1y+FctgY8X8/St4RJ8xhoM96vcN+bPop1
-	jZ6vNytZioLohwf4xOc8ay3lS94RLUgb4ReykDMmCNLoaRy/dKk/OUDsAdsLtWxWAMtH4Y5E5LqHK
-	NC7VBu4DX9H8rEIo16spAqqV2HnjL0J5N2jol4NGYetnA0lKGMMvFCS+kcWj/zD287DqTV0wPUg1p
-	IH4AaYAQ==;
+	bh=pSZWvc98awNxNS7sUp2CK9I3oZgb0IYq+6Zaom/DnwM=; b=kzGOzZkzXUjkbQJfBfCrhXNnA7
+	g4sM0ZwnSJ3aBEnYBz87dWfCL1WrjSPsGXk18UHJZqySP+Gh9hhh05/a0BVpkCl//HWqZrwIUQ3/K
+	Qe1NCW1MHEb275s98kG83Ih++5qpABcGfTkiSI4YOvf2I2aMSbZdYv02Brqh3vP705piYFDyt/m7A
+	Ct6HDTKLNuHalX1w5f5pLAUixHXdhAMGSPVGDj8xfjVUx5TqY1NUUi42TwMYq5Klo9pazKh6ofovn
+	uP6QGt3FW4vB/qZL6Vysl+0D2tMcE657QQ/WxPqKW9ldqO3ARiH9cb+kofOVSOuNWqOuaGMyV4A4D
+	84YRWYlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz8rB-0000000H7gV-3HyV;
-	Mon, 31 Mar 2025 06:42:49 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tz8sr-0000000H7rx-3itv;
+	Mon, 31 Mar 2025 06:44:33 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz8pT-0000000H7J8-3dR3
+	id 1tz8qV-0000000H7WD-13bn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 06:41:05 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43bb6b0b898so35605385e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 23:41:02 -0700 (PDT)
+	Mon, 31 Mar 2025 06:42:08 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3912c09be7dso2666936f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Mar 2025 23:42:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743403262; x=1744008062; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1743403325; x=1744008125; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=sGnhJIC759yJZtlti/ONE6+GpsFrfUcaeYqXQAyKOzg=;
-        b=IyvzEsk9WoiZuVlP7wJWZpKPjqJ7REIDV6+nxkip4jtzAA7+XIebf7EXLSUtnIBtpj
-         nVl6j7qLd5upTBEzeLSIv7QLJZuixeFudIxZPXIWulzaRv/XsaI31KVAc0iODPAJW6gH
-         EUiMpwqdzsJhIe4Uit9b0/Gta1L07fwy8+WPjKkI0Yti77Wg7XGYCCTAXjbLUxZpeheG
-         JUuTHZZ2JY17TBmwIrwGAI8et2KUwT4QXrm8HR5fyYaQhvATCDG2iQdyyY5IILommcV2
-         6tFJRjs7JKw0Mo9uqFhEZJkJKKaX3/Py7fZy685IsPNIiIbKKdaEpXiOrhqinA1ddTcn
-         pGig==
+        bh=pSZWvc98awNxNS7sUp2CK9I3oZgb0IYq+6Zaom/DnwM=;
+        b=CsuatGshyUHFg6CPczwYepKIatcSJgd5PBKzWoH4N+ZGyZ9b4bicjlhXIe+D5jF4S/
+         AnRM4KbNTQxFNIfel2eCfL4kX5itxZSSBkg/ZTmHgAMdtW84FSKvd1jkeW78Kz6KOPSm
+         H8oQWhLADeuinUiFqqnNaEztU5OKjugH58AiHcDtLiPGYyGzOWzHPYLNxzT9X+SS9fIW
+         Q2NtcPjLmMvknUv5BiNEe8b+7RaoOgBZVP9ruCwsGV5pa8IhkAOTPmEvfMqJNrnESiLY
+         5KPK0FOUHenbH2g/SIZcNS6zwJ/frhk6X+MufmM7HqR9ES4id/ZPDtgPgZg/M2EkkpwL
+         PdZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743403262; x=1744008062;
+        d=1e100.net; s=20230601; t=1743403325; x=1744008125;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=sGnhJIC759yJZtlti/ONE6+GpsFrfUcaeYqXQAyKOzg=;
-        b=n/5igyJvIJan1RB12EWKJln1pNVGfQOCrH55KebS0zGI+Qi9opcsTFC2iaq11oCHvK
-         /rmdcX0xud4HFzcPnGAmraZQ1Y2H8vM3Hu3saSlSuoe5u1l98Kz4TbW6RUbX+ld+tb3S
-         5o2icp+sL2nDfJ/5H6ibYFLqmlt8Pn0YykHivr90D7oBw5Q931g5nb+nwUIzT8ouaf8U
-         84StgU5iJ0moUka9ZPmYSu+jwhkUcinCG6AZ1/913opLrPP0bq+0BVvd+ZLYyeKpTm6l
-         QmnOqy3ulhjXBpXvdGOlCbNzT3XSHyC4uTxzIhI3xzxUYJThKuLiaitr0I/Gr+mPBEml
-         l3vg==
-X-Forwarded-Encrypted: i=1; AJvYcCXlPIO8FgthyvPCA2US83OKC2vnvM/KdB0npQrQTQ63Mj1oTpJz1PnfmA9g65e/Q5K5vAltuNp/ze6Z226Wh9sI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr4K97EPPLy2FiLGVPIUcSHeWsnGp0SqZ99JQYYTJW5cT6EVdw
-	zyXgjKlfTX4Hyap0MfME99LhAE7B9x3mgx3pPme0xoWGsjKxjp0fDf0fB3Wwyvk=
-X-Gm-Gg: ASbGncvasVGfKh2fa3w+f4EUj0J6OX63+Rfk+hp67uqOyEr3ux9ItgjHtfO1FkqLIlM
-	FHvGQd23pen6MlB24/iYeA7C5a/HPLkr5kAQJsRxW0N0wDnXH7t22FUQ4Oe5dW+BgHr1UYvs/1I
-	70HjBdDW7eyMyI54mfNyjuiE4AmUHH0Ow69Ylt4Hvtm6IDl2jtwmrrIyNkW5aZM2+Hu/uBKE+0u
-	bSDEXXu0yLHcltp2wDT5lbFMDrhIG4qSLXaDYf+E3hiQRAEhWF0j96jvD9fFQJO2Rl8jOi960ub
-	EEc406f1W+UwxOQHa2QmDTfh2ksxFNAtJqduB1Fu4mCxmV5atj/35Crnc5klJezQh2St6C4xTHs
-	2r9KQeevwg3fjs7M4
-X-Google-Smtp-Source: AGHT+IH5cRzNfuzcbg+vhCUwchxeuNmDNhE01WF7XDQIelmYWUn5sRs+QoiQmqXdq3AIDEZNp4hpcg==
-X-Received: by 2002:a05:600c:5494:b0:43d:7a:471f with SMTP id 5b1f17b1804b1-43db6252fa8mr75261725e9.18.1743403261690;
-        Sun, 30 Mar 2025 23:41:01 -0700 (PDT)
+        bh=pSZWvc98awNxNS7sUp2CK9I3oZgb0IYq+6Zaom/DnwM=;
+        b=bgH344RpioiCjKTyJxQETWFR7beRcFoLpZ3JcHPstdMRPJSPlfJdcX4/IHdRBKhu1k
+         SfMKFcIUOpQ5Ddcneeh6pI5AlR8IKCG6pDwPe+TjaPFGUF4y2N5B/QO2igVPQh326NAE
+         VETJ8IMJurRppVwDqHKzvQ4dmNb07Ev1kruX8Xn7l8j1mMy02Nlmha2yuoMcvNPocCqB
+         pka6tiXvEFHwz6hirwTro9B/AknPclC2zY7BWmTjBu+bacaQhLJR2i9keUAEUOiviUMf
+         f5ZBj7EHciHfxZFMY2DiIrsDpH365XSaFh23vmKJmFc8lCWTsdCdftfLDm+Lk1Mq2dD0
+         HaaQ==
+X-Gm-Message-State: AOJu0YyWlW562VLW+ixRVaE3zk+9B1OUNLigx6YPvmrMKQRRPIV6eP6C
+	Q613aWHYvbwXxPwcL3wztsI6Tw8Rc9KfbGPBlBK3ScXto1O9MdwX2MigzcsWjsE=
+X-Gm-Gg: ASbGncu+9IDcba2F9of7SaJs1HiV3aFvXmKMW20kGiZSdd1WKHvgu2is4RXQUvbvQwR
+	uEG94oRcA//H+SGAxQkcrTYlPEUxUqsxZ3yo2IHP3whqAtgygKOwWavIcoCJoKbbV8iu/XrXlBp
+	au2ruCxFwweHkn5Er8f/AduG33RK8j7KvVeSGb2xz9y8Q5xkCcxdeeEdhUmgPwM+uwAt00GJfes
+	8BjvnVUXgw6p1vn38YLrV6cKqIhA8N8+g8hyShJF4LlkoNSHN7PK4T07LBG5/BmRgVdnu9QoXKN
+	TM8m9GBaYubuAhk+APlvYfWFzv2AmwnXTvhe657oIGCzUSmXR4K0iI2ujoCpCSTRhf+0Kg5xMt7
+	bgUrLb1lLbbFSLYztxv2IX8sHCes=
+X-Google-Smtp-Source: AGHT+IFaaiFJvSkuFgpzRjmFl4ky713HsFznh//e5XklchpgjCOz6VUhATdj7MkI4kwAKPb/DPGB1g==
+X-Received: by 2002:a05:6000:178c:b0:391:29f:4f87 with SMTP id ffacd0b85a97d-39c1211c8f4mr5516473f8f.49.1743403325590;
+        Sun, 30 Mar 2025 23:42:05 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:3d9:2080:143:2e3d:45f1:fd2? ([2a01:e0a:3d9:2080:143:2e3d:45f1:fd2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82dede5csm159075245e9.8.2025.03.30.23.41.01
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d8fccf0a9sm111590335e9.17.2025.03.30.23.42.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 30 Mar 2025 23:41:01 -0700 (PDT)
-Message-ID: <769e7524-c1fc-4364-a6e8-e0d0315f9514@linaro.org>
-Date: Mon, 31 Mar 2025 08:41:00 +0200
+        Sun, 30 Mar 2025 23:42:05 -0700 (PDT)
+Message-ID: <04c47466-b1a3-4eb2-8f28-95faa29ff45f@linaro.org>
+Date: Mon, 31 Mar 2025 08:42:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: neil.armstrong@linaro.org
-Subject: Re: [PATCH] pinctrl: meson: define the pull up/down resistor value as
- 60 kOhm
+Subject: Re: [PATCH 0/7] dts: amlogic: enable UART RX and TX pull up by
+ default
 To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linus.walleij@linaro.org
-References: <20250329190132.855196-1-martin.blumenstingl@googlemail.com>
+ linux-amlogic@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, jbrunet@baylibre.com, khilman@baylibre.com,
+ christianshewitt@gmail.com
+References: <20250329185855.854186-1-martin.blumenstingl@googlemail.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -109,12 +109,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20250329190132.855196-1-martin.blumenstingl@googlemail.com>
+In-Reply-To: <20250329185855.854186-1-martin.blumenstingl@googlemail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_234103_922676_F305EE6B 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20250330_234207_306460_D8008A7B 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,46 +130,59 @@ Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/03/2025 20:01, Martin Blumenstingl wrote:
-> The public datasheets of the following Amlogic SoCs describe a typical
-> resistor value for the built-in pull up/down resistor:
-> - Meson8/8b/8m2: not documented
-> - GXBB (S905): 60 kOhm
-> - GXL (S905X): 60 kOhm
-> - GXM (S912): 60 kOhm
-> - G12B (S922X): 60 kOhm
-> - SM1 (S905D3): 60 kOhm
+On 29/03/2025 19:58, Martin Blumenstingl wrote:
+> On the LibreELEC forum there have been reports that Odroid-C2 does not
+> boot when UART is left disconnected [0]. It turns out that this can be
+> solved by enabling the SoCs pull-up resistor on the UART RX and TX
+> pads [1].
+> It's not clear whether that specific Odroid-C2 board has a broken
+> resistor, the resistor is not populated (either by accident or on
+> purpose) or if there's another reason.
 > 
-> The public G12B and SM1 datasheets additionally state min and max
-> values:
-> - min value: 50 kOhm for both, pull-up and pull-down
-> - max value for the pull-up: 70 kOhm
-> - max value for the pull-down: 130 kOhm
+> Testing on an SM1 X96-Air shows that pull-ups being enabled on UART
+> RX and TX is actually the default (either set in vendor u-boot or an
+> actual hardware default).
 > 
-> Use 60 kOhm in the pinctrl-meson driver as well so it's shown in the
-> debugfs output. It may not be accurate for Meson8/8b/8m2 but in reality
-> 60 kOhm is closer to the actual value than 1 Ohm.
+> This series enables the UART RX and TX pull up resistors in the
+> default pin configuration on all supported SoCs.
 > 
-> Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-> ---
->   drivers/pinctrl/meson/pinctrl-meson.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> Testing has been done on:
+> - GXBB Odroid-C1 on u-boot by a user in the LibreELEC forums [2]
+> - Meson8b Odroid-C1 on Linux (with vendor u-boot)
+> - SM1 X96-Air on Linux (with vendor u-boot)
 > 
-> diff --git a/drivers/pinctrl/meson/pinctrl-meson.c b/drivers/pinctrl/meson/pinctrl-meson.c
-> index 253a0cc57e39..e5a32a0532ee 100644
-> --- a/drivers/pinctrl/meson/pinctrl-meson.c
-> +++ b/drivers/pinctrl/meson/pinctrl-meson.c
-> @@ -487,7 +487,7 @@ static int meson_pinconf_get(struct pinctrl_dev *pcdev, unsigned int pin,
->   	case PIN_CONFIG_BIAS_PULL_DOWN:
->   	case PIN_CONFIG_BIAS_PULL_UP:
->   		if (meson_pinconf_get_pull(pc, pin) == param)
-> -			arg = 1;
-> +			arg = 60000;
->   		else
->   			return -EINVAL;
->   		break;
-
-Nice finding !
+> Please include this early so the various CI systems can test these
+> patches.
+> 
+> 
+> [0] https://forum.libreelec.tv/thread/28586-odroid-c2-gxbb-s905-and-le-11-06-or-12-does-not-boot/?postID=195481#post195481
+> [1] https://forum.libreelec.tv/thread/28586-odroid-c2-gxbb-s905-and-le-11-06-or-12-does-not-boot/?postID=195667#post195667
+> [2] https://forum.libreelec.tv/thread/28586-odroid-c2-gxbb-s905-and-le-11-06-or-12-does-not-boot/?postID=195674#post195674
+> 
+> 
+> Martin Blumenstingl (7):
+>    ARM: dts: amlogic: meson8: enable UART RX and TX pull up by default
+>    ARM: dts: amlogic: meson8b: enable UART RX and TX pull up by default
+>    arm64: dts: amlogic: gxbb: enable UART RX and TX pull up by default
+>    arm64: dts: amlogic: gxl: enable UART RX and TX pull up by default
+>    arm64: dts: amlogic: g12: enable UART RX and TX pull up by default
+>    arm64: dts: amlogic: axg: enable UART RX and TX pull up by default
+>    arm64: dts: amlogic: a1: enable UART RX and TX pull up by default
+> 
+>   arch/arm/boot/dts/amlogic/meson8.dtsi             |  4 ++--
+>   arch/arm/boot/dts/amlogic/meson8b.dtsi            |  4 ++--
+>   arch/arm64/boot/dts/amlogic/meson-a1.dtsi         |  1 +
+>   arch/arm64/boot/dts/amlogic/meson-axg.dtsi        | 12 ++++++------
+>   arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi | 10 +++++-----
+>   arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi       | 10 +++++-----
+>   arch/arm64/boot/dts/amlogic/meson-gxl.dtsi        | 12 ++++++------
+>   7 files changed, 27 insertions(+), 26 deletions(-)
+> 
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+
+I'll apply them now so they can be tested on -next for this whole cycle.
+
+Thanks,
+Neil
 
