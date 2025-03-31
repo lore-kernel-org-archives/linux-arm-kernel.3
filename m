@@ -4,84 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52077C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 16:22:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B2DC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 16:24:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ytyW6Ib7JG7PXGq9nIWUTfnzofsAb7FeQ+Sz3N7/aBA=; b=kU84irhWe7lZ1jRTeO+bzGaCan
-	JcAKawA6xIXYxKULs8+X+QRliflq7dJpdrCQIl/RNTfYm7vko7xlY/d6RRaVJz2+eCnfE42ZPvyQb
-	ktFibAF47hXKk/dcRz/28+bNdRYcCUi21MA3l9Ea8TDsKSSX8khYvv6CIcnDO3OL3u0u4CJnMgQo8
-	NvEl8Vawleisx/xNojEYj7+tMNpyzWEWWjrxsqIA1X9a3zA1aneBlszW5XjmikVLypWSs7MRIzodr
-	1lCzN4bp3rfRZpFXF+IPePzrGVGjcAr0PqdbhSH5xSLAYT/m/2icVV4hWl8JRQE+nNzv8CcdhogZ+
-	fmDdkSng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+gGcJekJ5R9tYQBFbbSujrevcRTZLJV4N1W34ta+63Y=; b=L5yHmrM0AYYSli+mL5Ewq52yTz
+	mq/VTArTfV2zls6t46nAAdk796Wkqu34bmPN8BPWPcvCZcEa2KoPYgH+sFS9ljbmAqANaoxZO4a6y
+	0tuMIYqgwMDZse2aK97haZAdesDGfG3VIFJ5L7gncOSDqDVJ+hS2urL2uxzj8uTZxGWzE/WyhbhnN
+	L8KEfUZy6hs0KoT42LWmnJfQW/k8dGT4OyQ0cd7wt1tW+3PRgs8nSyFMYU1aCHgi+gDDNYfeFq9nP
+	dTLL+/PTmXBLiqWpoyqwrX/Khm8X2XhAlfEaNPnTgIurww9rzGrAiKJc/2Cb/SdfYcnSERA8nNoy4
+	E51fhcaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzHtb-00000000xvp-344I;
-	Mon, 31 Mar 2025 16:21:55 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1tzHvW-00000000yDD-26HR;
+	Mon, 31 Mar 2025 16:23:54 +0000
+Received: from mail-am7eur03on20617.outbound.protection.outlook.com ([2a01:111:f403:260e::617] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzHrs-00000000xkV-2dU1
+	id 1tzHtn-00000000xxZ-2KqL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 16:20:09 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3EAAF444FD;
-	Mon, 31 Mar 2025 16:20:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1743438006;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ytyW6Ib7JG7PXGq9nIWUTfnzofsAb7FeQ+Sz3N7/aBA=;
-	b=BSO6MxqpZban1/3AGE86T0zuVdxHLOfZ8zSYuybSVfZ/B2G7lXHXGU8dw3v0WCRgEY4RPa
-	KuMZOc3PUYOt/9G5xWKgXq7bZVZvg0P+hTuI8PAoKT5ykkTSII+UB2onkDcyPcuZR+F4qt
-	rzcLGexPwJbsTpcnZQ/GrYVPSwJH1RNwo1PvfTYfvsm7UxXddNvuXX3a14S5j/MWXi4kJq
-	6+GvMGVZf8zRo8Xz8zxuWo1za1p+xeoP6r9JbPwpVSKGjTo5mCslu5afiPzBmAuU4haEoi
-	fcmztvXOZ3zfodOCmYrl4KU06KOhXAxBffuyN0zQNavonYVu0PvMg9EVCgJMaw==
-Date: Mon, 31 Mar 2025 18:20:00 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Alexander Duyck
- <alexander.duyck@gmail.com>, davem@davemloft.net, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
- <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
- Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next v5 09/13] net: phylink: Use phy_caps_lookup for
- fixed-link configuration
-Message-ID: <20250331182000.0d94902a@fedora.home>
-In-Reply-To: <Z-qsnN4umaz0QrG0@shell.armlinux.org.uk>
-References: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
-	<20250307173611.129125-10-maxime.chevallier@bootlin.com>
-	<8d3a9c9bb76b1c6bc27d2bd01f4831b2cac83f7f.camel@gmail.com>
-	<20250328090621.2d0b3665@fedora-2.home>
-	<CAKgT0Ue_JzmJAPKBhe6XaMkDCy+YNNg5_5VvzOR6CCbqcaQg3Q@mail.gmail.com>
-	<12e3b86d-27aa-420b-8676-97b603abb760@lunn.ch>
-	<CAKgT0UcZRi1Eg2PbBnx0pDG_pCSV8tfELinNoJ-WH4g3CJOh2A@mail.gmail.com>
-	<02c401a4-d255-4f1b-beaf-51a43cc087c5@lunn.ch>
-	<Z-qsnN4umaz0QrG0@shell.armlinux.org.uk>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Mon, 31 Mar 2025 16:22:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ND45tcQJx3iOOdKw2qs3tWxvebedV6Z7WN3TygcD+ja1b2EeJdJ1wwPuMR5+umJKyUXJDMHRAtKnaDPOmC7HxxXT/zb0C5/kd1hUJ3OPYu7iKxDWMH5E1rKseTvb5mcRym3R6bmjMjas9ITa5impKZuWphzmJG1Cr23ETT1G0gjnzUj9RgTmFAJcvcGQ7KCngBiE8v7hxQzaAy487pAWJ2SwvaI8VTF1+cAPQiiW61K4Y8mGbXwyawrNGtVCaapfrQ7zLEWiNVkbwXS7YxI9D/aZrQUp5yjFv9lfHiAFtDHbs/k4riwuEUEVs62YvSgl09Vrzbb7DZpbffMZFh6cQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+gGcJekJ5R9tYQBFbbSujrevcRTZLJV4N1W34ta+63Y=;
+ b=K9x0L8m214QNXJx4DzqZuy6RZdtCEzdTOaFDQJE2F03dSdHkAf0XKGvsk7HJwpz6Dfsv73Hmknb+OI82OTZhnVTtXrYJNsnZxDSLu7gbraMpt7156wv5RFtFUIE/iUwQtObYyVFNjFSZUeKC+QO6EMxN8YUW7rYWETiVBK9Dcl68HAGSXEVUZe36E0fzS7ZG4XXnshopRGOf4zFQJFGmEwdCvY1ow+Sn09S5gAh2y+nB9KUcNeV6ic9sXMzBYz6VgKOL/+16PWPfoY/ZYlYeLAA8haKK0pmJUBh1Ew3S/ViLuTm963HhUy5yyZksgmN+0FA9xsDo5FkpeMJtQdzBug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+gGcJekJ5R9tYQBFbbSujrevcRTZLJV4N1W34ta+63Y=;
+ b=M62I0uTjuKYnCvWC2vTrERU+rmQk6EsokXa68yPZMwFCo3SNkHnMQTtl6nGDRJRXcE8eLt0IohqD6PCbfa2t0hwVvR78P2wmrjHavHVTYNFUdMOC25X7W6eWTep4NSUzs0XvF9OEYNTOBGrmaxyoeXA4q6hdzaRQGBFVN4ml/vzo7wWH/m5g7azzSAm/t/sSLK160cTF2ItW/R+cVCvtc0IcQCGlenl9U1ZC7Ob9Q5v1qPjvR3UcxmsJhFC1Hu7gb1yOhygPDVEXjaFxwoBnbArgTiqJdSgRn85o70F6qq6kolrXL2Hx+STnIc6OytT4kXZNJyB5hF8jtBpN/93Hfw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS8PR04MB8932.eurprd04.prod.outlook.com (2603:10a6:20b:42f::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.48; Mon, 31 Mar
+ 2025 16:21:59 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8534.048; Mon, 31 Mar 2025
+ 16:21:59 +0000
+Date: Mon, 31 Mar 2025 12:21:53 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: John Ernberg <john.ernberg@actia.se>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Peter Chen <peter.chen@kernel.org>,
+	Pawel Laszczak <pawell@cadence.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	Jonas Blixt <jonas.blixt@actia.se>
+Subject: Re: [PATCH v7 00/17] mm, dma, arm64: Reduce ARCH_KMALLOC_MINALIGN to
+ 8
+Message-ID: <Z+rBIZQYYa7DVG+r@lizhi-Precision-Tower-5810>
+References: <20230612153201.554742-1-catalin.marinas@arm.com>
+ <ab2776f0-b838-4cf6-a12a-c208eb6aad59@actia.se>
+ <Z+b6qrgXz/NTOs5r@lizhi-Precision-Tower-5810>
+ <6f5877cb-e6b7-4420-9a92-d2f44f931e8f@actia.se>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6f5877cb-e6b7-4420-9a92-d2f44f931e8f@actia.se>
+X-ClientProxiedBy: PH8PR02CA0033.namprd02.prod.outlook.com
+ (2603:10b6:510:2da::6) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddukedtfeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddtpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopegrlhgvgigrnhguvghrrdguuhihtghksehgmhgrihhlrdgto
- hhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhm
-X-GND-Sasl: maxime.chevallier@bootlin.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB8932:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8db855ab-94f2-46f5-c67f-08dd707029ae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|366016|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JOeqtpVmiQUG7vjEXus579dDLK7OOSOoYtDtxFOBOVW5uc0Ebt87GF15hHpl?=
+ =?us-ascii?Q?2khOLkKpghUcKrxfF26pGQiBJaWNEtRd7mk8EMBrECkL03kgAwxlmOqQcTX3?=
+ =?us-ascii?Q?B3w4CKQc8V31KhtaRV5wyaAzsV3foMIFi3e0S/Ty0mkN1lrzSqFPhj6Cm0Sd?=
+ =?us-ascii?Q?eSgp+0eR2Xy5+ZevIwJV6ECBXc5ih1n7G1vjRx1/igzOtN7grC1zi7Cg9pp2?=
+ =?us-ascii?Q?jaG+AEzs7JmTdQ5Ajah5rj3MnzmuotRDVolAYMwNkGVZjpRJAFdpdolK1Hwn?=
+ =?us-ascii?Q?YkEzh7LFEB0jk4Vb6hLBLWCdcRDYCFA83onJ+Lbnira9wyWZAypUUiI0eJ53?=
+ =?us-ascii?Q?iDuPe8FB/ecsbpfXXT1nfLgfQLnw7QN8pgPa7eh5QIzFZ8LsetP2+3SkSxiQ?=
+ =?us-ascii?Q?6ZUjwNwA5Lbq6/XJGB+c+0PnblmFqU9tRIwQEOgbEesi1Zs2V2Hu5Hky9UUF?=
+ =?us-ascii?Q?g/oyLgUwrFOVLGtgGuSMgzZzjJdCmL1dGJRpIesdN92svdTPABrcT1ImOHAH?=
+ =?us-ascii?Q?8iaTzMdlcBUhmURsk4XAYFQ6NieAHWzdPbuddLCIcaVaPNe+V3GkWlg6AS4b?=
+ =?us-ascii?Q?n935FRwE2uihuBlOxjApRDnJcVLc/Cxp17edGvKapTfS9WJPXNqPt5qr0PPU?=
+ =?us-ascii?Q?Ro4wpyhz+P9z0Yvq1DhW1ZVD9kAg2Sepp98MgYSR/XMK1ThmRiIMxby5PgFZ?=
+ =?us-ascii?Q?G3Ca+ZxJwxO6prEHl0z5QkQ7nJsWG1HgTgrNQ6QS8uCWbEjhXc6diP3JiElH?=
+ =?us-ascii?Q?/QqkO8ga75u3BfI8ykR9CZVJzNU4D6UwftoJ4qSuBEUgXw2MyLcKm1cyJlWI?=
+ =?us-ascii?Q?FI+YShHeLCxgc23lk6vROQwilMXtjC2OW4cPdCyKY0n9zsG3yQLs5l4anVDM?=
+ =?us-ascii?Q?JiTd8G7KX9dcDnZwbW1i2VypCja3XI6awM37j4fPoLecxelUC408u0aRY+Bv?=
+ =?us-ascii?Q?Kv5w84p1HjMcpeYLG3RxmteF3gsUumWzJGme9Hcn7Y2pfA1zPVonc+1W+QD2?=
+ =?us-ascii?Q?JV/s7PUmwxd831MOixTu2iX09N3ypDVJxIgsJeD/Rf8X5kdbNGdBJ3X+CTe0?=
+ =?us-ascii?Q?TdnrBsqXDhdSbQLmh/g/Fc+orwE8jcOPU0xGswRjc/v3pGM3MJNahLT5TtyD?=
+ =?us-ascii?Q?7/clfRiaJyGPPy6TmeM7kVq+RXLJdSWGtgOX6KOj+nImLCrpOOlwYSJyD8W7?=
+ =?us-ascii?Q?Ul3+IxztHzJW7bXxmm/F+ZphzCSDuDVp0y/p1RJps60NVoXDhz1eRKc4GRXf?=
+ =?us-ascii?Q?nOx0CuOmyxZlEGtC+tEZP8JG+gbu0BRC5ldI3HBuZlyq1fVWvBiUFpDduYKp?=
+ =?us-ascii?Q?Ds1Ka0IhKESmWoHmumd7iC9nxw2IBbiQ88Mgs2MGWqT3t++l5LW9hnlRFTXG?=
+ =?us-ascii?Q?18siZWfao9HLdI5ZpmFArO5JsRR3ovJiqhT2XkhZILtk6VoCqGF+2ywl01aM?=
+ =?us-ascii?Q?zkg9Sj7Zvas=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(366016)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NNwSbZqAvv7GL/QxZdOVyDBYK/G0Fhl0z7Bf/aIze6aW/FfP+MKi6N48gEEx?=
+ =?us-ascii?Q?SNr8LMQx097/f/oXxlcjlOruerdHpW5fNM7+GS1f3oEUDDBq6Hx8JcvZsGf3?=
+ =?us-ascii?Q?9Z0GZyQEHwlWv1EQ5yswVwG7jmBSeG+/TixjpGDIHVe7/ya5/rozyTuCZBlP?=
+ =?us-ascii?Q?uoA1g9sf/A73vdrKGTyZ7v3NCk5ga9dsJT7vpGpkukc84bSuaJP1u8n3lR8h?=
+ =?us-ascii?Q?kOO7oPGVp8gcfUa5v5Wuqf3vheTHuWC1fiWbJBcXU71DaLxVnoK4oJ8jEsAp?=
+ =?us-ascii?Q?QhTLZ4WjYBXs9ipJc8rLbF+FYMhbT7cAmiSo6wNUCJ4AIVeoZqB62r+FIrZd?=
+ =?us-ascii?Q?WvGle5Pbp4JP1MjxGPGUIhkqr8uUe006pwNpaIB5VplVXs4YxAVk4/5Vn3OH?=
+ =?us-ascii?Q?J46TAinzhy5CnKNMDDSiaCKAprgh2GhAo5SuVoJN+S1PQBYzrI/8jXpiQFW3?=
+ =?us-ascii?Q?rCEZ+Y09bvW35RMhPdp/4CKhqL63rgL9cSIr6xxT/5G3PqCoIinbb6isIPyJ?=
+ =?us-ascii?Q?9ZP8x0e1IP7J+vd0pTHA9XfzWAYbVwyPVbR5PPq4VW1/X48XOrcIgsHkrhon?=
+ =?us-ascii?Q?xkA/hhHdQwjJCkYdrY6Ki5ez/HM4YB+oVcl13F5QqqDvbRSNrMntFWb7A34w?=
+ =?us-ascii?Q?vDPhj+CGkXAJq75guacpbifP/L/pbvkEerT47eR7b17nmyr1re43vT0wYwFI?=
+ =?us-ascii?Q?u8RIcxx67GodagDAHQnMFc87rfZ4juVBOfsPDIz1c/k2SNS4GTzKyAmXmZ23?=
+ =?us-ascii?Q?QWcei/WF/uCs2hPBTUVU6Kb5MfWHYFj3UN96EIWCvpObbTdWaqflPLQXJEde?=
+ =?us-ascii?Q?ij/CvxcvVpuTLpWHgceoeas/LdRLXO2NkZUcEz4PjWra2DwXP2jTsIMFa/r8?=
+ =?us-ascii?Q?oi/T0988+bD6KmjLeRwuGifeOB2J+J0HFe4kBva8dus+es7U60KNLLlEnzdP?=
+ =?us-ascii?Q?Uu2JiMDgSfKF4e7Ang2ezo5kU6HoqEQCYPZDzSd50hVSLYre7qE+8yZCXctL?=
+ =?us-ascii?Q?19+9PSMUHpgZ8WjvGmk/ukEmisM9QItv5joVu7UrCHTuQVT1Q9Q5V+NZ8Ipu?=
+ =?us-ascii?Q?+hOfR0HY0VwQSXAaYBfvjRS8NZBURZ4PlX7huU7dS79GHlHf+hECwlC52a5Y?=
+ =?us-ascii?Q?D8YWmGPw1o4inXENC3tfp+YAEKWdwRkVWr/dgCJwjM61pHewxwScYnjKcBxd?=
+ =?us-ascii?Q?qB8DnSwwL86wgspzKX8pERNGl16sX9Hjk0FsS7hLVD6GmrvdeQOW6RUTDkSp?=
+ =?us-ascii?Q?8XcJmDLfG8Wvg53SVH7jM7xwJ55za44K826UrxccO4mf1U+L3W/PUdLvEdxw?=
+ =?us-ascii?Q?Eov/1H64TJivGc9MNj/yWBc2OTh5pa8B4902rA2uD86slV52nFTuH85Qixkz?=
+ =?us-ascii?Q?n1JpptC4BaSv4OWc9JVmnvJysDyWT6P3wu5HqwXI7CP4LHu895ZWcMJkNpL4?=
+ =?us-ascii?Q?83o97EErb17PnyHqwxhomNo6BFbd24jMCU3KandfEoQqd5DjMz/UmcNT8Zzg?=
+ =?us-ascii?Q?QT2XfhlKk6h7cq19IJlRam4K9m8oXnE+cnNjNQ6rwJ4nRVitgDnLyfK/CeQh?=
+ =?us-ascii?Q?cHqWuALGrr+1OtvL3K5VimvuJw9D5Pf04PM9/4xz?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8db855ab-94f2-46f5-c67f-08dd707029ae
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2025 16:21:59.5949
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LUFIXxVNZ9SYUCYfWwCrmbBrU2c+Bhu/lkRAtpofzr7U9H0IXl8d/jGivYSl/4HqxFPy84jw/mAzgFyGVgQZOg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8932
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_092008_821591_C5ACE80B 
-X-CRM114-Status: GOOD (  37.44  )
+X-CRM114-CacheID: sfid-20250331_092207_597913_15170855 
+X-CRM114-Status: GOOD (  40.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,76 +166,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Mar 2025 15:54:20 +0100
-"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
+On Mon, Mar 31, 2025 at 08:02:20AM +0000, John Ernberg wrote:
+> Hi Frank,
+>
+> On 3/28/25 8:38 PM, Frank Li wrote:
+> > On Fri, Mar 28, 2025 at 04:41:05PM +0000, John Ernberg wrote:
+> >> On 6/12/23 5:31 PM, Catalin Marinas wrote:
+> >>> Hi,
+> >>>
+> >>> That's v7 of the series reducing the kmalloc() minimum alignment on
+> >>> arm64 to 8 (from 128). There's no new/different functionality, mostly
+> >>> cosmetic changes and acks/tested-bys.
+> >>>
+> >>> Andrew, if there are no further comments or objections to this version,
+> >>> are you ok to take the series through the mm tree? The arm64 changes are
+> >>> fairly small. Alternatively, I can push it into linux-next now to give
+> >>> it some wider exposure and decide whether to upstream it when the
+> >>> merging window opens. Thanks.
+> >>>
+> >>> The updated patches are also available on this branch:
+> >>>
+> >>> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux devel/kmalloc-minalign
+> >>>
+> >>
+> >> (I trimmed the recipients and added linux-usb and imx mailing list, +
+> >> cdns3 maintainers)
+> >>
+> >> Hi Catalin, lists,
+> >>
+> >> Seen on Linux 6.12.20, it is not trivial for us to test later kernels so
+> >> if the issue is potentially fixed we are more than happy to cherry-pick
+> >> the potential fixes and give them a go.
+> >>
+> >> Having an SMSC9512 (smsc95xx) USB Ethernet/Hub chip attached to the armv8
+> >> SoC iMX8QXP over the Cadence USB3 USB2 interface (cdns3-imx) will since
+> >> the patch set at [0] cause random interrupt storms over the SMSC9512 INT
+> >> EP.
+> >
+> > Do you know where buy SMSC9512 USB Ethernet/Hub?
+>
+> A quick google search didn't find my any dongles that are still
+> available, however the SMSC 95xx series of chips used to be popular in
+> USB to Ethernet dongles.
+>
+> Otherwise they are made by Microchip today, any variant of the SMSC 95xx
+> should be able to trigger the problem.
 
-> On Mon, Mar 31, 2025 at 04:17:02PM +0200, Andrew Lunn wrote:
-> > On Fri, Mar 28, 2025 at 04:26:04PM -0700, Alexander Duyck wrote:  
-> > > A serdes PHY is part of it, but not a traditional twisted pair PHY as
-> > > we are talking about 25R, 50R(50GAUI & LAUI), and 100P interfaces. I
-> > > agree it is a different beast, but are we saying that the fixed-link
-> > > is supposed to be a twisted pair PHY only?  
-> > 
-> > With phylink, the PCS enumerates its capabilities, the PHY enumerates
-> > its capabilities, and the MAC enumerates it capabilities. phylink then
-> > finds the subset which all support.
-> > 
-> > As i said, historically, fixed_link was used in place of a PHY, since
-> > it emulated a PHY. phylinks implementation of fixed_link is however
-> > different. Can it be used in place of both a PCS and a PHY? I don't
-> > know.  
-> 
-> In fixed-link mode, phylink will use a PCS if the MAC driver says there
-> is one, but it will not look for a PHY.
-> 
-> > You are pushing the envelope here, and maybe we need to take a step
-> > back and consider what is a fixed link, how does it fit into the MAC,
-> > PCS, PHY model of enumeration? Maybe fixed link should only represent
-> > the PHY and we need a second sort of fixed_link object to represent
-> > the PCS? I don't know?  
-> 
-> As I previously wrote today in response to an earlier email, the
-> link modes that phylink used were the first-match from the old
-> settings[] array in phylib which is now gone. This would only ever
-> return _one_ link mode, which invariably was a baseT link mode for
-> the slower speeds.
-> 
-> Maxime's first approach at adapting this to his new system was to
-> set every single link mode that corresponded with the speed. I
-> objected to that, because it quickly gets rediculous when we end
-> up with lots of link modes being indicated for e.g. 10, 100M, 1G
-> but the emulated PHY for these speeds only indicates baseT. That's
-> just back-compatibility but... in principle changing the link modes
-> that are reported to userspace for a fixed link is something we
-> should not be doing - we don't know if userspace tooling has come
-> to rely on that.
-> 
-> Yes, it's a bit weird to be reporting 1000baseT for a 1000BASE-X
-> interface mode, but that's what we've always done in the past and
-> phylink was coded to maintain that (following the principle that
-> we shouldn't do gratuitous changes to the information exposed to
-> userspace.)
-> 
-> Maxime's replacement approach is to just expose baseT, which
-> means that for the speeds which do not have a baseT mode, we go
-> from supporting it but with a weird link mode (mostly baseCR*)
-> based on first-match in the settings[] table, to not supporting the
-> speed.
+I worry about that xhci have similar issue with gadget dma.
 
-I very wrongfully considered that there was no >10G fixed-link users, I
-plan to fix that with something like the proposed patch in the
-discussion, that reports all linkmodes for speeds above 10G (looks less
-like a randomly selected mode, you can kind-of see what's going on as
-you get all the linkmodes) but is a change in what we expose to
-userspace.
+	/*
+         * In versions preceding DEV_VER_V2, for example, iMX8QM, there exit the bugs
+         * in the DMA. These bugs occur when the trb_burst_size exceeds 16 and the
+         * address is not aligned to 128 Bytes (which is a product of the 64-bit AXI
+         * and AXI maximum burst length of 16 or 0xF+1, dma_axi_ctrl0[3:0]). This
+         * results in data corruption when it crosses the 4K border. The corruption
+         * specifically occurs from the position (4K - (address & 0x7F)) to 4K.
+         *
+         * So force trb_burst_size to 16 at such platform.
+         */
 
-Or maybe simpler, I could extend the list of compat fixed-link linkmodes
-to all speeds with the previous arbitrary values that Russell listed in
-the other mail (that way, no user-visible changes :) )
+Let try reduce AXI burst len to help your case.
 
-I was hoping Alexander could give option 1 a try, but let me know if
-you think we should instead adopt option 2, which is probably the safer
-on.
+diff --git a/drivers/usb/cdns3/host.c b/drivers/usb/cdns3/host.c
+index f0df114c2b53b..200166395c09d 100644
+--- a/drivers/usb/cdns3/host.c
++++ b/drivers/usb/cdns3/host.c
+@@ -24,6 +24,7 @@
+  * with Cadence CDNSP dual-role controller.
+  */
+ #define XECP_PORT_CAP_REG      0x8000
++#define XECP_AXI_CTRL0         0x8034
+ #define XECP_AUX_CTRL_REG1     0x8120
 
-Maxime
+ #define CFG_RXDET_P3_EN                BIT(15)
+@@ -121,7 +122,9 @@ static int __cdns_host_init(struct cdns *cdns)
+        if (hcd)
+                cdns->xhci_regs = hcd->regs;
+
+-       return 0;
++       writel(0x1, cdns->xhci_regs + XECP_AXI_CTRL0);
++
++       return 0;
+
+Frank
+
+>
+> >
+> >>
+> >> The reason for the storm is that the async URBs queued at [1] right before
+> >> the interrupt configuration [2] in the driver.
+> >> With [0] applied, those async URBs are likely clobbering any URB located
+> >> after them in memory somewhere in the xhci memory space.
+> >> The memory corruption only happens if there is more than one URB in the
+> >> queue at the same time, making these async URBs a good trigger of the
+> >> problem.
+> >> If we force those URBs to be sync or use the hack inlined below, the
+> >> problem goes away.
+> >>
+> >> The content of read_buf in the interrupt configuration read at [2] looks
+> >> to be the lo-part of a pointer +-20 bytes distance from the pointers
+> >> present in the async URBs queued from [1] when we dumped the URB structures
+> >> instead of the expected register contents.
+> >>
+> >> Attached are 3 usbmon captures, with some annotations, which we thought
+> >> might contain useful hints.
+> >>
+> >> * usb-annotated-bad.pcapng shows the URB that will get clobbered is queued
+> >>     at position 280, and completes at 282.
+> >>
+> >> * usb-annotated-good.pcapng shows the URB that gets clobbered in the bad
+> >>     case is queued at position 282 and completes at 283.
+> >>
+> >> The above captures are from a kernel where the hack has not been applied.
+> >>
+> >> * usb-annotated-hackfix.pcapng shows the URB that gets clobbered in the
+> >>     bad case is queued at position 238 and completes at 240.
+> >
+> > Maillist have not attachment. Can you send it to me directly?
+>
+>
+> The linux-usb mailing list picked up the attachments.
+>
+> https://lore.kernel.org/linux-usb/Z+b6qrgXz%2FNTOs5r@lizhi-Precision-Tower-5810/T/#t
+>
+> Best regards // John Ernberg
 
