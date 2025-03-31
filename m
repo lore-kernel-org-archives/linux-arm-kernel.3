@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E5CC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 12:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B260CC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 13:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dp6/ZhxCBVGkVXKOH8cc/tdyF4DuQ/89efi02sHN7io=; b=U1R/t7n8arquR+BaBpI+7QWhfQ
-	fTqZDGG7LAJt/zpJhqSVFkDSBVVaIbG4dJ0VFky0bFCep0jRFaScXymii40h0sS0rRryBveNA+x/L
-	2qdh3cU6bgquLPt/HuSarM8K3BobqNlrQf7rOzBUk0UoZ6a++4ZB/b+GFhlpgt7TSD4b0opU9O3Mn
-	KahX95Iu2Wx9axHBAh18JkZkp5sZBYch+fq+yuRSXzI5l5KYLwe5C7OMivlTwxGf2PAPE64y8mEcL
-	QNzWQNu1k9NNHER5XsbfyKPNLgIw5GTWeRW2G9AbfGWqo8LiQ/FHGDa1Lz8foEzdUsJ1QDauYjpFM
-	BS1O8vHA==;
+	bh=RKoiWxyUvyLGJfr4mew6KbJ5CrqW82Ve+pQxyYePV7I=; b=ZlPFeVh5jwxWaGPkroZOznNXhn
+	F/KhFD3lEm+ti2/0GSAHpZDQ4/NouILRNg3uDSlapUX8+UKp046YE8Gqa9Sb+VBpz2x25sjypDywA
+	TDS2H5ODO/F/cOVK4onZujFZQwf3CC/JE2IhElhE2QzZk5UPN4KRA5Z/EToqEOfUbF/MlyIs0nn/E
+	78Tbrz9bE1YrsAF63vjnUT8wZxgxRGH3eWdq3MkK+CnwAlc9xDdJ8tag84DWgTB8c7XXGQu5V9+TI
+	yo02efM8ElglOpUKG6BzGCGGjeKmmpfXdkJftAnTlg21irEwzsmpU4F0k95nfB6+Z8FUWNpsX6StE
+	/gGtMyvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzEhh-00000000PEl-1tyi;
-	Mon, 31 Mar 2025 12:57:25 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tzEt0-00000000QFN-3Zs0;
+	Mon, 31 Mar 2025 13:09:06 +0000
+Received: from out-16.pe-a.jellyfish.systems ([198.54.127.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzEfz-00000000P5s-2Xjj
+	id 1tzErJ-00000000Q2f-0HRW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 12:55:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=dp6/ZhxCBVGkVXKOH8cc/tdyF4DuQ/89efi02sHN7io=; b=jGw3wIGTchIihlce0544VoMdve
-	2QcylGK9Zh7Q/cMQeeS+r+XdkJZWbF2aRN3LqePd/gnDa/LSuuEub6Vs5mOtam8cSYAq+gI/qdPJH
-	ijc1moomOwdi2D8Cu+uZONlzlDGsSVLXfK5bOMTd/dpiNdMz/wtmYbn6kbDMtcwJyIuLZiM1Eq0as
-	Dxlmn47QbeYH9Fqu+TsMS2IycK3P5dptJbx2zOEI2Wk86vdvgxPpndB1NdOB+hoaeXuntbi6DcXLA
-	DptihaCqogaRsQAAWvSQgTLhBLrdT/r7UnwrJU7RGZFfQXDSzpUK/PavpWrAS6/uGGgv4V4y0fTe3
-	wEpT3O3w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40534)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tzEfp-00040G-29;
-	Mon, 31 Mar 2025 13:55:29 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tzEfj-0001gX-2Y;
-	Mon, 31 Mar 2025 13:55:23 +0100
-Date: Mon, 31 Mar 2025 13:55:23 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: =?utf-8?B?6LCi6Ie06YKmIChYSUUgWmhpYmFuZyk=?= <Yeking@red54.com>
-Cc: ardb@kernel.org, bjorn.andersson@sonyericsson.com, dave@vasilevsky.ca,
-	ebiggers@google.com, linus.walleij@linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	liuyuntao12@huawei.com, lumag@kernel.org, masahiroy@kernel.org,
-	nathan@kernel.org, nico@fluxnic.net, oskar.andero@sonyericsson.com,
-	ruanjinjie@huawei.com, victor.boivie@sonyericsson.com
-Subject: Re: Re: [PATCH] ARM: Fix support for CMDLINE_EXTEND
-Message-ID: <Z-qQuyG7rDeSF_oX@shell.armlinux.org.uk>
-References: <Z-aWPqAUOIDEzzpZ@shell.armlinux.org.uk>
- <tencent_F967B6C3FF5405F2D17EF660590BFD213C0A@qq.com>
+	Mon, 31 Mar 2025 13:07:22 +0000
+Received: from prod-lbout-phx.jellyfish.systems (new-01-3.privateemail.com [66.29.159.56])
+	by pe-a.jellyfish.systems (Postfix) with ESMTPA id 4ZRBHT1fDlz4wJq;
+	Mon, 31 Mar 2025 13:07:17 +0000 (UTC)
+Received: from MTA-09.privateemail.com (unknown [10.50.14.19])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by NEW-01-3.privateemail.com (Postfix) with ESMTPS id 4ZRBHT0j32z2Sd0Q;
+	Mon, 31 Mar 2025 09:07:17 -0400 (EDT)
+Received: from mta-09.privateemail.com (localhost [127.0.0.1])
+	by mta-09.privateemail.com (Postfix) with ESMTP id 4ZRBHS6LlKz3hhV8;
+	Mon, 31 Mar 2025 09:07:16 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=framepointer.org;
+	s=default; t=1743426436;
+	bh=XAf34DaNZayKTZMezBU2SOnWNVi58X5xnCWEMzzxUdk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TKLOJmITEmXEBpX+lbpAlM2Dji1iMpPnX5u0rMJHfTPPpDFn28v0BGAY1er+GG1Ve
+	 xT5NvcH+J5ce9CjXHsHmYaVHEEjf4eC9+VirK/idvZB7JE4UpxVPa10Vap/BdkkNNs
+	 yg/Swd77PKX+cweoz85KxjuA5N5j2B/qNPAhMZq/XEHxS/QSF9f6gIAl2f8301b3kq
+	 rVLOVDuaRy0c0PrSXY4g/b2AdWwCfCIYWKTO1RnoUlBa7qAS47tTR3ekii4BRco8kM
+	 2OJlk8OB74RcJt8G8WqZ/U8psvrfNjGzPiuqUaaVwNMoxG/QA98yTGVookS6cu0fYa
+	 B3pYk+p061smA==
+Received: from 65YTFL3.secure.tethers.com (unknown [152.44.190.141])
+	by mta-09.privateemail.com (Postfix) with ESMTPA;
+	Mon, 31 Mar 2025 09:07:00 -0400 (EDT)
+Date: Mon, 31 Mar 2025 09:07:03 -0400
+From: Sam Winchenbach <sam.winchenbach@framepointer.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, mdf@kernel.org, hao.wu@intel.com, 
+	yilun.xu@intel.com, trix@redhat.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, michal.simek@amd.com, linux-fpga@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Sam Winchenbach <swinchenbach@arka.org>
+Subject: Re: [PATCH 1/2] dt-bindings: fpga: zynq: Document ICAP on boot
+Message-ID: <2ccsnpv67gsu354uo7xe7syrxs265ncj6hl26v3cwf2dfm7hyu@ihkemyajuiag>
+References: <20250328141944.119504-1-sam.winchenbach@framepointer.org>
+ <02496a88-3d9c-49ee-93ab-8f1400fc0c6b@kernel.org>
+ <p4bujnmgkcvsu4qipmgh2j2loedepmwgp7zlaxrurhaveb6tbc@ibqtbjnbzdzj>
+ <14b12882-119d-4c24-9634-e4cc37a39212@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <tencent_F967B6C3FF5405F2D17EF660590BFD213C0A@qq.com>
+In-Reply-To: <14b12882-119d-4c24-9634-e4cc37a39212@kernel.org>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_055539_649603_3E4FE87C 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20250331_060721_127119_500B3A22 
+X-CRM114-Status: GOOD (  29.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,42 +88,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 31, 2025 at 08:29:21AM +0000, 谢致邦 (XIE Zhibang) wrote:
-> > Later arguments override earlier arguments. Any compiled-in command line
-> > needs to be overridable by user supplied input from the boot loader. The
-> > current behaviour is correct.
-> 
-> CMDLINE_EXTEND is for the built-in command line to "Extend bootloader kernel
-> arguments", not for the bootloader command line to extend/override built-in
-> command line.
-> 
-> Don't forget that the default empty CMDLINE already gives the bootloader the
-> ability to override everything. Not to mention that even if CMDLINE is not
-> empty, the default CMDLINE_FROM_BOOTLOADER continues to give the bootloader the
-> ability to override all.
+On Mon, Mar 31, 2025 at 02:43:59PM +0200, Krzysztof Kozlowski wrote:
+> On 31/03/2025 14:30, Sam Winchenbach wrote:
+> >>
+> >>> +    type: boolean
+> >>> +    description: If present, the ICAP controller will be enabled when
+> >>> +      the driver probes. This is useful if the fabric is loaded
+> >>> +      during the boot process and contains a core, such as the SEM,
+> >>
+> >> I don't get how this is suitable for DT. If you decide to load the
+> >> fabric from driver, that's driver decision so not DT.
+> > 
+> > Before writing the fabric to the FPGA the driver disables the ICAP, enabling
+> > the PCAP. Once writing is complete it unconditionally disables the PCAP,
+> > enabling the ICAP. This patch just makes it so, depending on the use case,
+> > the ICAP can be enabled at boot. This will not prevent the system from being
+> > able to load a fabric through the driver. I added in this boolean so existing
+> > behavior would be maintained.
+> > 
+> > Do you recommend another approach such as writing to a sysfs attribute to
+> > switch from PCAP to ICAP?
+> Not sure yet. Can't you check the status of ICAP before programming and
+> then enable it only if was enabled before?
 
-The help text:
+I am having a bit of difficulty understanding this so let's talk about cases
+where the ICAP is enabled/disabled -
 
-+         The command-line arguments provided by the boot loader will be
-+         appended to the default kernel command string.
+1. When writing the fabric from the driver
+   In this situation it might make sense to read the state of the ICAP
+   interface when preparing the fabric, before enabling PCAP. When the write
+   completes you could re-enable the ICAP if it was previously enabled.
 
-so, you end up with default kernel command string _followed by_ the
-boot loader arguments. This allows the boot loader arguments to
-override anything that is in the default kernel command string.
-That's why it is a _default_ - it can be overrided.
+   This might be outside the scope of this change - and I am not comfortable
+   enough with this use-case to understand potential side effects from doing
+   this. Logically it makes sense, but there may be a very specific reason that
+   the ICAP must be enabled after doing a fabric load or partial
+   reconfiguration.
 
-If the boot loader command string is extended by the default kernel
-command string, then that doesn't happen.
+2. When the FPGA driver loads and is probed by the DTS
+   In this situation, which is covered by this patch, the FPGA is loaded by
+   BootROM/FSBL but contains functionality that requires the ICAP. Unless the
+   user has made modifications to the FSBL or 3rd stage bootloader there is no
+   clear way to enable the ICAP interface. Checking to see if it had been
+   enabled prior to loading this driver does not (in my opinion) make a lot of
+   sense here.
 
-CMDLINE_EXTEND is default _followed by_ boot loader.
+   Perhaps the name of the DTS is confusing? The suffix '-on-load' was meant to
+   indicate when the driver was loaded, not the fabric. Would the suffix
+   '-on-probe' be more clear?
 
-You're wanting it to be the other way around. That's broken.
+Let me know your thoughts,
+-Sam
 
-No.
-
-Sorry.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>
+> Best regards,
+> Krzysztof
 
