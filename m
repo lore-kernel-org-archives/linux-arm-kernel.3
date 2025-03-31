@@ -4,154 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B2DC3600B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 16:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 209ECC3600B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 16:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+gGcJekJ5R9tYQBFbbSujrevcRTZLJV4N1W34ta+63Y=; b=L5yHmrM0AYYSli+mL5Ewq52yTz
-	mq/VTArTfV2zls6t46nAAdk796Wkqu34bmPN8BPWPcvCZcEa2KoPYgH+sFS9ljbmAqANaoxZO4a6y
-	0tuMIYqgwMDZse2aK97haZAdesDGfG3VIFJ5L7gncOSDqDVJ+hS2urL2uxzj8uTZxGWzE/WyhbhnN
-	L8KEfUZy6hs0KoT42LWmnJfQW/k8dGT4OyQ0cd7wt1tW+3PRgs8nSyFMYU1aCHgi+gDDNYfeFq9nP
-	dTLL+/PTmXBLiqWpoyqwrX/Khm8X2XhAlfEaNPnTgIurww9rzGrAiKJc/2Cb/SdfYcnSERA8nNoy4
-	E51fhcaQ==;
+	bh=xYBI5G7dnFgeNU8t5oolA0YvlhaF0Hy1jKHaYVc6xMI=; b=mUGiTXpkni1vk28NJ7T4vbXkS3
+	1A7A467vGOvEvW/xgeoONdhUQ8tITzeb0d2Rtq0RiO5KH0bSW3tZqtR59LbSCpd/0HXLRaNoQYDZO
+	J0QCcxke9/fPDk1+mQ5B5GH8MyjnUgPSAvpp6YZ/tNsRv0640/ZZF7GOqQw26/+XN5/oAQCoN03/c
+	VmlVhcjkZ3ay0NKulbdQkNfwmcy5fvYQ/yTzJ69JtKKWbR5uY4Zj4ExS7g4leUKX2GC32ODnhFa/X
+	dTcAWDsHdHkvha8WgaPPwQ7qsV4GhVUFnDZQHbSoRHFc8eALx0o/YUQEVBYoRzDrc6XzVhU/iKFBg
+	7oc4n/yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzHvW-00000000yDD-26HR;
-	Mon, 31 Mar 2025 16:23:54 +0000
-Received: from mail-am7eur03on20617.outbound.protection.outlook.com ([2a01:111:f403:260e::617] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1tzI1x-00000000yrs-2OKH;
+	Mon, 31 Mar 2025 16:30:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzHtn-00000000xxZ-2KqL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Mar 2025 16:22:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ND45tcQJx3iOOdKw2qs3tWxvebedV6Z7WN3TygcD+ja1b2EeJdJ1wwPuMR5+umJKyUXJDMHRAtKnaDPOmC7HxxXT/zb0C5/kd1hUJ3OPYu7iKxDWMH5E1rKseTvb5mcRym3R6bmjMjas9ITa5impKZuWphzmJG1Cr23ETT1G0gjnzUj9RgTmFAJcvcGQ7KCngBiE8v7hxQzaAy487pAWJ2SwvaI8VTF1+cAPQiiW61K4Y8mGbXwyawrNGtVCaapfrQ7zLEWiNVkbwXS7YxI9D/aZrQUp5yjFv9lfHiAFtDHbs/k4riwuEUEVs62YvSgl09Vrzbb7DZpbffMZFh6cQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+gGcJekJ5R9tYQBFbbSujrevcRTZLJV4N1W34ta+63Y=;
- b=K9x0L8m214QNXJx4DzqZuy6RZdtCEzdTOaFDQJE2F03dSdHkAf0XKGvsk7HJwpz6Dfsv73Hmknb+OI82OTZhnVTtXrYJNsnZxDSLu7gbraMpt7156wv5RFtFUIE/iUwQtObYyVFNjFSZUeKC+QO6EMxN8YUW7rYWETiVBK9Dcl68HAGSXEVUZe36E0fzS7ZG4XXnshopRGOf4zFQJFGmEwdCvY1ow+Sn09S5gAh2y+nB9KUcNeV6ic9sXMzBYz6VgKOL/+16PWPfoY/ZYlYeLAA8haKK0pmJUBh1Ew3S/ViLuTm963HhUy5yyZksgmN+0FA9xsDo5FkpeMJtQdzBug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+gGcJekJ5R9tYQBFbbSujrevcRTZLJV4N1W34ta+63Y=;
- b=M62I0uTjuKYnCvWC2vTrERU+rmQk6EsokXa68yPZMwFCo3SNkHnMQTtl6nGDRJRXcE8eLt0IohqD6PCbfa2t0hwVvR78P2wmrjHavHVTYNFUdMOC25X7W6eWTep4NSUzs0XvF9OEYNTOBGrmaxyoeXA4q6hdzaRQGBFVN4ml/vzo7wWH/m5g7azzSAm/t/sSLK160cTF2ItW/R+cVCvtc0IcQCGlenl9U1ZC7Ob9Q5v1qPjvR3UcxmsJhFC1Hu7gb1yOhygPDVEXjaFxwoBnbArgTiqJdSgRn85o70F6qq6kolrXL2Hx+STnIc6OytT4kXZNJyB5hF8jtBpN/93Hfw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB8932.eurprd04.prod.outlook.com (2603:10a6:20b:42f::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.48; Mon, 31 Mar
- 2025 16:21:59 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8534.048; Mon, 31 Mar 2025
- 16:21:59 +0000
-Date: Mon, 31 Mar 2025 12:21:53 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: John Ernberg <john.ernberg@actia.se>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Peter Chen <peter.chen@kernel.org>,
-	Pawel Laszczak <pawell@cadence.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	Jonas Blixt <jonas.blixt@actia.se>
-Subject: Re: [PATCH v7 00/17] mm, dma, arm64: Reduce ARCH_KMALLOC_MINALIGN to
- 8
-Message-ID: <Z+rBIZQYYa7DVG+r@lizhi-Precision-Tower-5810>
-References: <20230612153201.554742-1-catalin.marinas@arm.com>
- <ab2776f0-b838-4cf6-a12a-c208eb6aad59@actia.se>
- <Z+b6qrgXz/NTOs5r@lizhi-Precision-Tower-5810>
- <6f5877cb-e6b7-4420-9a92-d2f44f931e8f@actia.se>
+	id 1tzI0E-00000000yf7-3Qto;
+	Mon, 31 Mar 2025 16:28:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CCB795C5890;
+	Mon, 31 Mar 2025 16:26:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F1DAC4CEE3;
+	Mon, 31 Mar 2025 16:28:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743438525;
+	bh=1i742vZv2sx1qDfIbzIYvJDqm4EeP2nZrnt0i1dtyJo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BCTXOpW41tk5+HQg9zM/GOJ4MRzAwOUbGjv7gAuvkEWiF2F8+r0WQ/8fuxImUu76q
+	 mJ0ZbVGvyQ9L9lvsXCIluqu+mBVb2UnG1d6hMbIKDJLkckGAc8NpuIPv/RpiViW7Bn
+	 frBVBb1T74XS5WOLBJlvYThNk5HcU8yNyevmnwk1ZdxwqF9NGuWrQ1edN4BnKY+Kuy
+	 bBwqF2Sa6K7+0esyTbw3OOIacNTrxsz34DaCbCZSuUOeoUmKYUjpQtAJBItAym2hx1
+	 vFnwf6uF2YLXiHJUn2KFPa7CdyRESV7vTMjxFkS/fHu055h1njA8/NFny6cR6kgwC/
+	 tuGSK4MIe7m2g==
+Date: Mon, 31 Mar 2025 17:28:41 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net v3] net: airoha: Validate egress gdm port in
+ airoha_ppe_foe_entry_prepare()
+Message-ID: <20250331162841.GD185681@horms.kernel.org>
+References: <20250331-airoha-validate-egress-gdm-port-v3-1-c14e6ba9733a@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6f5877cb-e6b7-4420-9a92-d2f44f931e8f@actia.se>
-X-ClientProxiedBy: PH8PR02CA0033.namprd02.prod.outlook.com
- (2603:10b6:510:2da::6) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB8932:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8db855ab-94f2-46f5-c67f-08dd707029ae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|366016|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JOeqtpVmiQUG7vjEXus579dDLK7OOSOoYtDtxFOBOVW5uc0Ebt87GF15hHpl?=
- =?us-ascii?Q?2khOLkKpghUcKrxfF26pGQiBJaWNEtRd7mk8EMBrECkL03kgAwxlmOqQcTX3?=
- =?us-ascii?Q?B3w4CKQc8V31KhtaRV5wyaAzsV3foMIFi3e0S/Ty0mkN1lrzSqFPhj6Cm0Sd?=
- =?us-ascii?Q?eSgp+0eR2Xy5+ZevIwJV6ECBXc5ih1n7G1vjRx1/igzOtN7grC1zi7Cg9pp2?=
- =?us-ascii?Q?jaG+AEzs7JmTdQ5Ajah5rj3MnzmuotRDVolAYMwNkGVZjpRJAFdpdolK1Hwn?=
- =?us-ascii?Q?YkEzh7LFEB0jk4Vb6hLBLWCdcRDYCFA83onJ+Lbnira9wyWZAypUUiI0eJ53?=
- =?us-ascii?Q?iDuPe8FB/ecsbpfXXT1nfLgfQLnw7QN8pgPa7eh5QIzFZ8LsetP2+3SkSxiQ?=
- =?us-ascii?Q?6ZUjwNwA5Lbq6/XJGB+c+0PnblmFqU9tRIwQEOgbEesi1Zs2V2Hu5Hky9UUF?=
- =?us-ascii?Q?g/oyLgUwrFOVLGtgGuSMgzZzjJdCmL1dGJRpIesdN92svdTPABrcT1ImOHAH?=
- =?us-ascii?Q?8iaTzMdlcBUhmURsk4XAYFQ6NieAHWzdPbuddLCIcaVaPNe+V3GkWlg6AS4b?=
- =?us-ascii?Q?n935FRwE2uihuBlOxjApRDnJcVLc/Cxp17edGvKapTfS9WJPXNqPt5qr0PPU?=
- =?us-ascii?Q?Ro4wpyhz+P9z0Yvq1DhW1ZVD9kAg2Sepp98MgYSR/XMK1ThmRiIMxby5PgFZ?=
- =?us-ascii?Q?G3Ca+ZxJwxO6prEHl0z5QkQ7nJsWG1HgTgrNQ6QS8uCWbEjhXc6diP3JiElH?=
- =?us-ascii?Q?/QqkO8ga75u3BfI8ykR9CZVJzNU4D6UwftoJ4qSuBEUgXw2MyLcKm1cyJlWI?=
- =?us-ascii?Q?FI+YShHeLCxgc23lk6vROQwilMXtjC2OW4cPdCyKY0n9zsG3yQLs5l4anVDM?=
- =?us-ascii?Q?JiTd8G7KX9dcDnZwbW1i2VypCja3XI6awM37j4fPoLecxelUC408u0aRY+Bv?=
- =?us-ascii?Q?Kv5w84p1HjMcpeYLG3RxmteF3gsUumWzJGme9Hcn7Y2pfA1zPVonc+1W+QD2?=
- =?us-ascii?Q?JV/s7PUmwxd831MOixTu2iX09N3ypDVJxIgsJeD/Rf8X5kdbNGdBJ3X+CTe0?=
- =?us-ascii?Q?TdnrBsqXDhdSbQLmh/g/Fc+orwE8jcOPU0xGswRjc/v3pGM3MJNahLT5TtyD?=
- =?us-ascii?Q?7/clfRiaJyGPPy6TmeM7kVq+RXLJdSWGtgOX6KOj+nImLCrpOOlwYSJyD8W7?=
- =?us-ascii?Q?Ul3+IxztHzJW7bXxmm/F+ZphzCSDuDVp0y/p1RJps60NVoXDhz1eRKc4GRXf?=
- =?us-ascii?Q?nOx0CuOmyxZlEGtC+tEZP8JG+gbu0BRC5ldI3HBuZlyq1fVWvBiUFpDduYKp?=
- =?us-ascii?Q?Ds1Ka0IhKESmWoHmumd7iC9nxw2IBbiQ88Mgs2MGWqT3t++l5LW9hnlRFTXG?=
- =?us-ascii?Q?18siZWfao9HLdI5ZpmFArO5JsRR3ovJiqhT2XkhZILtk6VoCqGF+2ywl01aM?=
- =?us-ascii?Q?zkg9Sj7Zvas=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(366016)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NNwSbZqAvv7GL/QxZdOVyDBYK/G0Fhl0z7Bf/aIze6aW/FfP+MKi6N48gEEx?=
- =?us-ascii?Q?SNr8LMQx097/f/oXxlcjlOruerdHpW5fNM7+GS1f3oEUDDBq6Hx8JcvZsGf3?=
- =?us-ascii?Q?9Z0GZyQEHwlWv1EQ5yswVwG7jmBSeG+/TixjpGDIHVe7/ya5/rozyTuCZBlP?=
- =?us-ascii?Q?uoA1g9sf/A73vdrKGTyZ7v3NCk5ga9dsJT7vpGpkukc84bSuaJP1u8n3lR8h?=
- =?us-ascii?Q?kOO7oPGVp8gcfUa5v5Wuqf3vheTHuWC1fiWbJBcXU71DaLxVnoK4oJ8jEsAp?=
- =?us-ascii?Q?QhTLZ4WjYBXs9ipJc8rLbF+FYMhbT7cAmiSo6wNUCJ4AIVeoZqB62r+FIrZd?=
- =?us-ascii?Q?WvGle5Pbp4JP1MjxGPGUIhkqr8uUe006pwNpaIB5VplVXs4YxAVk4/5Vn3OH?=
- =?us-ascii?Q?J46TAinzhy5CnKNMDDSiaCKAprgh2GhAo5SuVoJN+S1PQBYzrI/8jXpiQFW3?=
- =?us-ascii?Q?rCEZ+Y09bvW35RMhPdp/4CKhqL63rgL9cSIr6xxT/5G3PqCoIinbb6isIPyJ?=
- =?us-ascii?Q?9ZP8x0e1IP7J+vd0pTHA9XfzWAYbVwyPVbR5PPq4VW1/X48XOrcIgsHkrhon?=
- =?us-ascii?Q?xkA/hhHdQwjJCkYdrY6Ki5ez/HM4YB+oVcl13F5QqqDvbRSNrMntFWb7A34w?=
- =?us-ascii?Q?vDPhj+CGkXAJq75guacpbifP/L/pbvkEerT47eR7b17nmyr1re43vT0wYwFI?=
- =?us-ascii?Q?u8RIcxx67GodagDAHQnMFc87rfZ4juVBOfsPDIz1c/k2SNS4GTzKyAmXmZ23?=
- =?us-ascii?Q?QWcei/WF/uCs2hPBTUVU6Kb5MfWHYFj3UN96EIWCvpObbTdWaqflPLQXJEde?=
- =?us-ascii?Q?ij/CvxcvVpuTLpWHgceoeas/LdRLXO2NkZUcEz4PjWra2DwXP2jTsIMFa/r8?=
- =?us-ascii?Q?oi/T0988+bD6KmjLeRwuGifeOB2J+J0HFe4kBva8dus+es7U60KNLLlEnzdP?=
- =?us-ascii?Q?Uu2JiMDgSfKF4e7Ang2ezo5kU6HoqEQCYPZDzSd50hVSLYre7qE+8yZCXctL?=
- =?us-ascii?Q?19+9PSMUHpgZ8WjvGmk/ukEmisM9QItv5joVu7UrCHTuQVT1Q9Q5V+NZ8Ipu?=
- =?us-ascii?Q?+hOfR0HY0VwQSXAaYBfvjRS8NZBURZ4PlX7huU7dS79GHlHf+hECwlC52a5Y?=
- =?us-ascii?Q?D8YWmGPw1o4inXENC3tfp+YAEKWdwRkVWr/dgCJwjM61pHewxwScYnjKcBxd?=
- =?us-ascii?Q?qB8DnSwwL86wgspzKX8pERNGl16sX9Hjk0FsS7hLVD6GmrvdeQOW6RUTDkSp?=
- =?us-ascii?Q?8XcJmDLfG8Wvg53SVH7jM7xwJ55za44K826UrxccO4mf1U+L3W/PUdLvEdxw?=
- =?us-ascii?Q?Eov/1H64TJivGc9MNj/yWBc2OTh5pa8B4902rA2uD86slV52nFTuH85Qixkz?=
- =?us-ascii?Q?n1JpptC4BaSv4OWc9JVmnvJysDyWT6P3wu5HqwXI7CP4LHu895ZWcMJkNpL4?=
- =?us-ascii?Q?83o97EErb17PnyHqwxhomNo6BFbd24jMCU3KandfEoQqd5DjMz/UmcNT8Zzg?=
- =?us-ascii?Q?QT2XfhlKk6h7cq19IJlRam4K9m8oXnE+cnNjNQ6rwJ4nRVitgDnLyfK/CeQh?=
- =?us-ascii?Q?cHqWuALGrr+1OtvL3K5VimvuJw9D5Pf04PM9/4xz?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8db855ab-94f2-46f5-c67f-08dd707029ae
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2025 16:21:59.5949
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LUFIXxVNZ9SYUCYfWwCrmbBrU2c+Bhu/lkRAtpofzr7U9H0IXl8d/jGivYSl/4HqxFPy84jw/mAzgFyGVgQZOg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8932
+In-Reply-To: <20250331-airoha-validate-egress-gdm-port-v3-1-c14e6ba9733a@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_092207_597913_15170855 
-X-CRM114-Status: GOOD (  40.69  )
+X-CRM114-CacheID: sfid-20250331_092846_938226_58945D65 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,128 +75,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 31, 2025 at 08:02:20AM +0000, John Ernberg wrote:
-> Hi Frank,
->
-> On 3/28/25 8:38 PM, Frank Li wrote:
-> > On Fri, Mar 28, 2025 at 04:41:05PM +0000, John Ernberg wrote:
-> >> On 6/12/23 5:31 PM, Catalin Marinas wrote:
-> >>> Hi,
-> >>>
-> >>> That's v7 of the series reducing the kmalloc() minimum alignment on
-> >>> arm64 to 8 (from 128). There's no new/different functionality, mostly
-> >>> cosmetic changes and acks/tested-bys.
-> >>>
-> >>> Andrew, if there are no further comments or objections to this version,
-> >>> are you ok to take the series through the mm tree? The arm64 changes are
-> >>> fairly small. Alternatively, I can push it into linux-next now to give
-> >>> it some wider exposure and decide whether to upstream it when the
-> >>> merging window opens. Thanks.
-> >>>
-> >>> The updated patches are also available on this branch:
-> >>>
-> >>> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux devel/kmalloc-minalign
-> >>>
-> >>
-> >> (I trimmed the recipients and added linux-usb and imx mailing list, +
-> >> cdns3 maintainers)
-> >>
-> >> Hi Catalin, lists,
-> >>
-> >> Seen on Linux 6.12.20, it is not trivial for us to test later kernels so
-> >> if the issue is potentially fixed we are more than happy to cherry-pick
-> >> the potential fixes and give them a go.
-> >>
-> >> Having an SMSC9512 (smsc95xx) USB Ethernet/Hub chip attached to the armv8
-> >> SoC iMX8QXP over the Cadence USB3 USB2 interface (cdns3-imx) will since
-> >> the patch set at [0] cause random interrupt storms over the SMSC9512 INT
-> >> EP.
-> >
-> > Do you know where buy SMSC9512 USB Ethernet/Hub?
->
-> A quick google search didn't find my any dongles that are still
-> available, however the SMSC 95xx series of chips used to be popular in
-> USB to Ethernet dongles.
->
-> Otherwise they are made by Microchip today, any variant of the SMSC 95xx
-> should be able to trigger the problem.
+On Mon, Mar 31, 2025 at 12:14:09PM +0200, Lorenzo Bianconi wrote:
+> Device pointer in airoha_ppe_foe_entry_prepare routine is not strictly
+> necessary a device allocated by airoha_eth driver since it is an egress
 
-I worry about that xhci have similar issue with gadget dma.
+nit: I think it would be clearer if "necessary" was dropped from the line
+     above.
 
-	/*
-         * In versions preceding DEV_VER_V2, for example, iMX8QM, there exit the bugs
-         * in the DMA. These bugs occur when the trb_burst_size exceeds 16 and the
-         * address is not aligned to 128 Bytes (which is a product of the 64-bit AXI
-         * and AXI maximum burst length of 16 or 0xF+1, dma_axi_ctrl0[3:0]). This
-         * results in data corruption when it crosses the 4K border. The corruption
-         * specifically occurs from the position (4K - (address & 0x7F)) to 4K.
-         *
-         * So force trb_burst_size to 16 at such platform.
-         */
+> device and the flowtable can contain even wlan, pppoe or vlan devices.
+> E.g:
+> 
+> flowtable ft {
+>         hook ingress priority filter
+>         devices = { eth1, lan1, lan2, lan3, lan4, wlan0 }
+>         flags offload                               ^
+>                                                     |
+>                      "not allocated by airoha_eth" --
+> }
+> 
+> In this case airoha_get_dsa_port() will just return the original device
+> pointer and we can't assume netdev priv pointer points to an
+> airoha_gdm_port struct.
+> Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
+> routine before accessing net_device priv pointer.
+> 
+> Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+> Changes in v3:
+> - Rebase on top of net tree
+> - Fix commit log
+> - Link to v2: https://lore.kernel.org/r/20250315-airoha-flowtable-null-ptr-fix-v2-1-94b923d30234@kernel.org
+> 
+> Changes in v2:
+> - Avoid checking netdev_priv pointer since it is always not NULL
+> - Link to v1: https://lore.kernel.org/r/20250312-airoha-flowtable-null-ptr-fix-v1-1-6363fab884d0@kernel.org
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 13 +++++++++++++
+>  drivers/net/ethernet/airoha/airoha_eth.h |  3 +++
+>  drivers/net/ethernet/airoha/airoha_ppe.c | 10 ++++++++--
+>  3 files changed, 24 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index c0a642568ac115ea9df6fbaf7133627a4405a36c..bf9c882e9c8b087dbf5e907636547a0117d1b96a 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -2454,6 +2454,19 @@ static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
+>  	}
+>  }
+>  
+> +int airoha_is_valid_gdm_port(struct airoha_eth *eth,
+> +			     struct airoha_gdm_port *port)
 
-Let try reduce AXI burst len to help your case.
+nit: given the name of the function, perhaps returning a bool is more
+     appropriate.
 
-diff --git a/drivers/usb/cdns3/host.c b/drivers/usb/cdns3/host.c
-index f0df114c2b53b..200166395c09d 100644
---- a/drivers/usb/cdns3/host.c
-+++ b/drivers/usb/cdns3/host.c
-@@ -24,6 +24,7 @@
-  * with Cadence CDNSP dual-role controller.
-  */
- #define XECP_PORT_CAP_REG      0x8000
-+#define XECP_AXI_CTRL0         0x8034
- #define XECP_AUX_CTRL_REG1     0x8120
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+> +		if (eth->ports[i] == port)
+> +			return 0;
+> +	}
+> +
+> +	return -EINVAL;
+> +}
+> +
 
- #define CFG_RXDET_P3_EN                BIT(15)
-@@ -121,7 +122,9 @@ static int __cdns_host_init(struct cdns *cdns)
-        if (hcd)
-                cdns->xhci_regs = hcd->regs;
-
--       return 0;
-+       writel(0x1, cdns->xhci_regs + XECP_AXI_CTRL0);
-+
-+       return 0;
-
-Frank
-
->
-> >
-> >>
-> >> The reason for the storm is that the async URBs queued at [1] right before
-> >> the interrupt configuration [2] in the driver.
-> >> With [0] applied, those async URBs are likely clobbering any URB located
-> >> after them in memory somewhere in the xhci memory space.
-> >> The memory corruption only happens if there is more than one URB in the
-> >> queue at the same time, making these async URBs a good trigger of the
-> >> problem.
-> >> If we force those URBs to be sync or use the hack inlined below, the
-> >> problem goes away.
-> >>
-> >> The content of read_buf in the interrupt configuration read at [2] looks
-> >> to be the lo-part of a pointer +-20 bytes distance from the pointers
-> >> present in the async URBs queued from [1] when we dumped the URB structures
-> >> instead of the expected register contents.
-> >>
-> >> Attached are 3 usbmon captures, with some annotations, which we thought
-> >> might contain useful hints.
-> >>
-> >> * usb-annotated-bad.pcapng shows the URB that will get clobbered is queued
-> >>     at position 280, and completes at 282.
-> >>
-> >> * usb-annotated-good.pcapng shows the URB that gets clobbered in the bad
-> >>     case is queued at position 282 and completes at 283.
-> >>
-> >> The above captures are from a kernel where the hack has not been applied.
-> >>
-> >> * usb-annotated-hackfix.pcapng shows the URB that gets clobbered in the
-> >>     bad case is queued at position 238 and completes at 240.
-> >
-> > Maillist have not attachment. Can you send it to me directly?
->
->
-> The linux-usb mailing list picked up the attachments.
->
-> https://lore.kernel.org/linux-usb/Z+b6qrgXz%2FNTOs5r@lizhi-Precision-Tower-5810/T/#t
->
-> Best regards // John Ernberg
+...
 
