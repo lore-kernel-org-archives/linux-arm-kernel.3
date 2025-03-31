@@ -4,75 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5438C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 20:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC1E6C36016
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Mar 2025 20:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9XcWWOjwTWx+dFyKcS/Axtzqwu1aqI3lz+g6+tOHQQc=; b=14CXbTaqbCxUf0ZdHvnDcgz1U+
-	xGl22mEbN8Tf02Do47wW9WeDGc0r7qjGlEAZrtNd+ebPQUHrJCRqG64S1DHV2X2DCuW03avcIYUXE
-	v+v1Y6Xmwx3KgJZ0FO5sFli74Fu3EkkjbxmjPaA9phNmwkSG7vJ0tYNWHWUzTtLnWeN8rWee+i6I5
-	tEZ1VQaG+igT2GOBk+vurhmsbkBuQpXtNmmqcqMAvrH37ZWwUuwfbQL6XWLWKjSsT5QfXny0JIXkH
-	0p0ZR4hZlQLAEuNuMmY9ZvUBJySbhrHdat2NqPUZ+9eeARhKGnZf8RtFoMFEx7nYrPER+3zbKuB6+
-	GEW/f/HA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=faEQpI/kUgavcUfM/vKfrbWIaIoBZu+s1HOkg+FvUJ4=; b=E5VVn7o+2aLnoCeCfTFbQ1CnBT
+	EDdN4krvG6rEr3wK5GuOeSSOcN4PmjU/jfkCM97d7Z9uyFHRuCg/kehbXiOBPKwgr2lthTlC0uA68
+	348dK99nGfSukyaXIR9xbqLeM+cA2M/0zaoqNp2Nhy24k1acw2IHseWcyJiiwc1fdlZbFKlWlyV0N
+	Zy3xVe40IrN5lRDvasn9mMBaewQQtWIRRp+JAn2S/ty7g/isXwPO/x6mmkBUDsP1UOFN06ncRNXKY
+	EO4YKCNDSJ+bisXfFEF7an4xfccuooTWhZd3mmP+YPhO88ZfMxTnmB0zgUwM14Sben8/+dVxWTjeT
+	DUXsvyIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzLq8-00000001Kgi-0LAB;
-	Mon, 31 Mar 2025 20:34:36 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tzLvd-00000001LKE-39F5;
+	Mon, 31 Mar 2025 20:40:17 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzLmw-00000001K9X-0FDT;
-	Mon, 31 Mar 2025 20:31:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1743453045; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=MSLaKXxjKKtON9fuDG4zOsSKcnNFNMLGsBM6kco91FZVNCF5lGm2icBtJly6AmJhGrKhCTjgeEqnxhG5waGIQWbyKN+4pzsoKprd0uyzz6z3EoseE7x6YGC256XuLQDJxg7tmrr1XoQ2yCmiUV/HjYvw9QXpLE00dnJL4G76lnU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1743453045; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=9XcWWOjwTWx+dFyKcS/Axtzqwu1aqI3lz+g6+tOHQQc=; 
-	b=jGpKKAJbYyFAL/iAA4hTHo2pGHLOwjrfgzQ6Z46OuvuMjYP4aSQOsAuy5ts12VUrG21SvK/NTSkD34ZYpFJUshBvPn77xz+P2x/I3rWonNSLg7xhZp2eiDlOdbyL1+CW/75ZuJ2NPCl+URI7ccnFhxKwAaOmE0BJT4RIid5KYb0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1743453045;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=9XcWWOjwTWx+dFyKcS/Axtzqwu1aqI3lz+g6+tOHQQc=;
-	b=gXVfDhV9eQ12VNtE6AYu4yUqt8nB7Yz+Exsfo5OlQ4wDwkiVkFuzeEb4tpb6cM/w
-	5VzV+h/6HJmKPGq6M3/t1eP2CsnWNutxoN5VRu7xmAGXvbAaj2cJN8et5Q+Lz7Aiucy
-	dMoVKOMHgf10oH+zto4TAfbrCBo983FhxBp/omx4=
-Received: by mx.zohomail.com with SMTPS id 1743453043292322.9326378894983;
-	Mon, 31 Mar 2025 13:30:43 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id EBBC4180D0E; Mon, 31 Mar 2025 22:30:36 +0200 (CEST)
-Date: Mon, 31 Mar 2025 22:30:36 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
-	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alexandre ARNOUD <aarnoud@me.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v2 4/4] arm64: dts: rockchip: Enable HDMI1 on rock-5b
-Message-ID: <jmb6f6beax3rmyutbkyl2hthlzzaguh2qlfdeibrbjdu44y6ea@rbuf6yjoo4v4>
-References: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com>
- <20241211-rk3588-hdmi1-v2-4-02cdca22ff68@collabora.com>
- <6d168284-01c7-4da4-8fc9-1b12e38b554f@sirena.org.uk>
+	id 1tzLtr-00000001L3F-1znC
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Mar 2025 20:38:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1743453483; x=1744058283; i=wahrenst@gmx.net;
+	bh=faEQpI/kUgavcUfM/vKfrbWIaIoBZu+s1HOkg+FvUJ4=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=EpCA6Ff/wlIu7BGOO2MmF1hoJQSuZYVogRNJzT03srpJnYSjPVyXMFfcUSLjuTx9
+	 fYfMXe1N4mZIkeTKUS5wZiinm/WuPw6LfTfGPEbKs9SjDrSPvwF1UJpUIcmgPQAEU
+	 ZLive1qn3BaceoPtfMLJbvJsUZKWgG3m3sHwBjNb3p6Izcyx2Di6u1YpzncBQLmcw
+	 /S0OGs8N9qB0qfgRMj557BV3k2yKMTkd/QpBf4gOp8EHFyrYS7FW8mlZQPCSVeBVb
+	 CCtHxi6JZJyhINYVS9ZUKegJ5+yCYsdOIiiiLvA2kRZu2z+sxdz4tfJGXd4A7zUJx
+	 eRRfcu9gC59r8O85GA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MKKZ3-1tgIXU0Dfj-00VL4h; Mon, 31
+ Mar 2025 22:38:03 +0200
+Message-ID: <ec703b87-91a4-4ed0-a604-aceb90769ab0@gmx.net>
+Date: Mon, 31 Mar 2025 22:38:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6d168284-01c7-4da4-8fc9-1b12e38b554f@sirena.org.uk>
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/4] net: mtip: Add support for MTIP imx287 L2 switch
+ driver
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250331103116.2223899-1-lukma@denx.de>
+ <20250331101036.68afd26a@kernel.org> <20250331211125.79badeaf@wsk>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250331211125.79badeaf@wsk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:dgI0WJcveiwL0III6/r1XIyx88Q8VvQ7iW8NB+tR/kmiMduWoRb
+ Ji0LlikLFSVasL7m71EUk16KPv4HwLoc2Eu6Adof+IkHGzekSDUAssU6Sx9XglUElKz+N+u
+ d3r7l8lbxpS77l9yvcOPfUhkoShGvemK4EL3fi2GpG46aYxBjIORiG7bCXELzse9TiHgC3X
+ CRrFIKUudSQeRBPhzxQJA==
+UI-OutboundReport: notjunk:1;M01:P0:1vEJLmMJw3c=;RJVu6l0Wh7H4BJnIy1BRNgz2DcO
+ L/e4Jo6mETB1+kVRE2JuwiJ5xYmblTOdufsKu6QxTGI4GKr1iC0TKwmlL2kVyRDzRc9I/7M8B
+ Sj0aTA0765rxRER9Fden/jY50Dy8tCY0hYRIFz7pmIzXWWKoQYYDjIbXy1uUMJr0JcNZQqs0b
+ C38LwIXhEgg2BMSXSNFp6TfABsiw66zVYQoMboxoCmzSak1G5kLIsW8k2sFAP4bGUJmb76arF
+ 6UlLO6g7J18mFcdIF5ZFsVZlmN9HysB0f6YEoLb7HZwQOovGbNncLnItzTegon5Jnkm5ekzQd
+ t2Eaer/OO6A3oVe8zWLMUsbIChI0Ym8WIrByfc+h0MYe+ajab/HmNoD/TPPRN/BquiRW9zlxG
+ Rjmd0c/2ewP2/9N4o/Y1J/z7wTvkNRTglA82EbS+sBJGiROqsysGdpQ8nXSag7pCMGVthIEed
+ 1ZOAgvFgEQi8YG2qdSZmWKQA8dF5lZRJc/NT3Xqgq7KL7t4rnQ6xE8pqzEw/TFiV/S40Jl3z7
+ rWCmPMJPJIVmnvKThY67lT50cBFGTgXseFy2/a1OtEXRXWh7uHwtx8elDmrLGmnRGeC96utjx
+ 8nxHL7v2S4cQs/MUqfoP+USHJgsmaih7srDH/A6VtsxADW2tCZWq4ewurNeA9bNuNCziH1cTT
+ fC9Yuv/4HMbEn1Tr+CEmWgDZ/Cdf8sRgnXkl9A5ABfxl3D3h52UIrCCz4DEO3zi1k5I/f4ge0
+ WlvPIiHeX9E+wURPmu0pZaClrX0dF3sPUQFopeKbu0QTzdOXQyA8jVz/GJIlxbvMOESwyS+Ti
+ CNFv/AImWUewgKk+SHXmGeiHk7bLM9DatIaPL7t5rGQZIdIvv5FhnufkgOLEMkZJ8YJ+NyG9c
+ 9/M2B7iL9og41dSo1PUvHYwcQZOPwZf2AZ8MgTpbDH5MqUPLbXpSZ7+LvpgjT3oxE1eXkPR6S
+ gcWVU+didxq7p8S/zh26v1Qg1AVo8gy8v2To1HeJ2DrDUzT2UT84ZtvwTGbzzk3q0aKV+VlAn
+ tYFRrfPHh0ut8B0+xUJRxBTgjoZ6TchgeJfUu8ICMkqJ3sUVI0E56cmPHM5xeD2QdLur5l1nT
+ 5c2kd2FcHbwBkm71g2/yAGgT18WIY3o1HLoxz7B9Y6EGvpLr/LYby7aZ9CCaZJwKpVY9+DW1A
+ Tr3s8n+lt6zyMd6sBVDGT04IAi9jkd/Yzc4Jkv/k8a++SSSAiKrMasQr2nY/b6v9IlvbhwoY6
+ waOF0HmIJNkQfaZdzzZtKHEMG5t+M3YHYEM2ryuzUzEmt3CuRdtzgPXM2BeLgP1aHl/VG8oyL
+ XeqWX2GNVPBtjPBQ2UqKaSjFMuXPMyA0Y7jR5EA44/PvJxGcgK348HExOtnVSGVY2MLv2paNs
+ yFcgxhRuFy+p8QcPb3yBAZ9nSaD9TLW6Fy34ps5taVLMCJ7aAnryTRqdJ0Ptjet8f+iVzBpuY
+ gHSLuVnn054jRFfNgxmrcOhctpzQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_133118_168916_DEF2C1A9 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20250331_133827_816611_267B9B03 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,36 +122,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Lukasz,
 
-On Mon, Mar 31, 2025 at 08:01:34PM +0100, Mark Brown wrote:
-> On Wed, Dec 11, 2024 at 01:06:17AM +0200, Cristian Ciocaltea wrote:
-> > Add the necessary DT changes to enable the second HDMI output port on
-> > Radxa ROCK 5B.
-> > 
-> > While at it, switch the position of &vop_mmu and @vop to maintain the
-> > alphabetical order.
-> 
-> We're seeing failures in the Arm lab the IGT tests on this board in
-> Linus' tree which bisect to 77cea7ca1368 which is this patch.
-> core_getversion fails:
+Am 31.03.25 um 21:11 schrieb Lukasz Majewski:
+> Hi Jakub,
 >
->[...]
+>> On Mon, 31 Mar 2025 12:31:12 +0200 Lukasz Majewski wrote:
+>>> This patch series adds support for More Than IP's L2 switch driver
+>>> embedded in some NXP's SoCs. This one has been tested on imx287,
+>>> but is also available in the vf610.
+>> Lukasz, please post with RFC in the subject tags during the merge
+>> window. As I already said net-next is closed.
+> Ach, Ok.
 >
-> The board is running fine in -next so hopefully there's a fix already
-> there which will make it's way to Linus' tree during the merge window.
-> We're also seeing something broken with the HDMI audio devices, but I
-> didn't look into that.
+> I hope, that we will finish all reviews till 07.04, so v4 would be the
+> final version.
+well i appreciate your work on this driver, but this is not how it's
+going to work. No version of this patch series had a review time of a
+week. It's about quality not about deadlines.
 
-I guess the root cause for the problem is, that the pull request for
-the PHY subsystem [0] has not yet been merged. It contains [1]
-("phy: phy-rockchip-samsung-hdptx: Don't use dt aliases to determine phy-id"),
-a fix for properly handling the second RK3588 HDMI PHY instance.
-
-[0] https://lore.kernel.org/all/Z+pFou7KOQZJ1iy4@vaman/
-[1] https://web.git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/commit/?h=next&id=f08d1c08563846f9be79a4859e912c8795d690fd
-
-Greetings,
-
--- Sebastian
+Regards
 
