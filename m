@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B5EC36017
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F2FC36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2jDJ/qOSkVLpyxjdNlHyfwyDjsQbJOs58lUquUo8cbM=; b=rRNYXU7Z5JxAzENZZE9yCUjuUO
-	9cf6GTOxXCSrSr8rWphKRfm6ZVFo0IwgvFPg3s2c1M8xlJMy1h9OPxtsVatmWJrdzeGYxNIcrK7ad
-	AgIHzjkqcN5LTOcEOnRfwM4mrAoF61caJCeM3QBzY/gyeuksnttAzHXMjt/c0nW4Hspaue5FVbd6P
-	sxH93PvopJzQDvW8rdesozxcOsEKlEAag5SGj0Dc5OgrkYLPuAcG3gt84A8AAZRYuOKJui7m95Dmh
-	i4RfzJBD8SW9WNbfSGsit3HBBvnmLTWxL9z5c/dR1djwOKLEF/ivooXB4eZ17/B6Vjuw4udImMF4u
-	zev1Q5BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ytMW1JEd/USOIly1Q63V1abRpzV1AGB7DrsNSLqwano=; b=lgu3nWPMDZBelk4aDWRQiHz5G6
+	7iFzMIfbDIJMr6OWRceUuVP6myOKfcth+HZ3hx68rtzGMX9Da0OBIYVllbOTb3FRA5l15T/DgQ6he
+	c2BWMB+J0dOA1SKWrnEnIFWfUdHPMMQLZjRBf0RhqHRSehvKpawLx0ms+uY1SMZM+Gf9Fcm4AMf1M
+	RSfnJxuoLW4YxWfIrtoJW3oozZrSPAH9cERLEItHQgvQ3hIjDArXCF5Yk4X61UUQqPtQ8lOl+Mlz9
+	VQPyF2zeVK1glA1qd8TRGRfPAL2WyREwU3tA0JHNECoXVaXR02mHDag1/2+H03vMf8rKVVswErKAT
+	R5ZLtmsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYxy-00000002dyc-0xC9;
-	Tue, 01 Apr 2025 10:35:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tzYzj-00000002eJ7-0iAx;
+	Tue, 01 Apr 2025 10:37:23 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYbi-00000002apd-2elJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 10:12:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1825B61138;
-	Tue,  1 Apr 2025 10:12:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EFCFC4CEE4;
-	Tue,  1 Apr 2025 10:12:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743502353;
-	bh=xAL++FE93adr27VON8GPMhrsRR7Iv7WswJqOqriBV4k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uq2D60Pquq75DNTPmBUzl9Z6jk0WPoeHehqBemxUhzoWGEi06gLXQ9bhsONLjzpqB
-	 inffZewEWMlf4GFNfJiGoGjxhdHXW11fKYUI8ZvN9ZDsATUM3CYcef7qWX8KsFnqfL
-	 2mF/hs0YkqJ1Lzvddbt6MtnUg4Hnsf3HIu89tnmYCS/q7jFmgFNGGMOM0PtpCmXX1v
-	 RWlfIHRPGUyYlRlJsiJSEYSTTEsGRt6nn1OI7TEIJ9fP2y5815f0naaUTAUoBGMfqv
-	 hpoWTYQwQ7WTfB6BFAE8FSJtBiQ+lmFiHIwpGLHM3nX1yJVgC1kPcFGQitiizyI7y4
-	 RsLJuufRUFzTA==
-Date: Tue, 1 Apr 2025 13:12:25 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org,
-	gshan@redhat.com, steven.price@arm.com, suzuki.poulose@arm.com,
-	tianyaxiong@kylinos.cn, ardb@kernel.org, david@redhat.com,
-	urezki@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: pageattr: Explicitly bail out when changing
- permissions for vmalloc_huge mappings
-Message-ID: <Z-u8Cc7i_l0xM5TT@kernel.org>
-References: <20250328062103.79462-1-dev.jain@arm.com>
- <Z-cnmklGUojMzsUF@kernel.org>
- <deedf5e2-4a25-4c1f-a5d8-a661a2eb16d2@arm.com>
- <Z-jzouwNZwk8Ft-j@kernel.org>
- <0aac96b5-b3ac-47ee-97af-7ca5d927bdd0@arm.com>
+	id 1tzYbi-00000002apV-12vD;
+	Tue, 01 Apr 2025 10:12:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1743502352;
+	bh=8HXAKgifZyDMFvEFL2UG2RrXMWLxhgR2W5amAACOcGw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=m4zNDmD/FgliKcANYqD0WMniKWGYG8uGdM78bd4lloUQqEpPTP+i8YoSEQfgU+xw7
+	 P2ZXknDCGMQLlS2sI4ss+z8g7P/RhIYCO6zPzk4Pi0ZqzIDLLDjL6RoAkPmD3zxqpR
+	 yg++vJd/7VBeqhaGCFEp9kLc8CLH6+Np+QzMEZQ4fxIENzxsyVTGA1KR4tI2q/DQ3W
+	 CipZdK3dFvfDwTqYJ2JAeptX1/kVrATWLcoxudNoc8j2wND5WrZ+NbWwJG12Rldey5
+	 dB27ZWqVupcEJUm9ifFCa8qHrk3A24CxdNAy23xwklXwmQj555r8BneLTlp+z1SHR/
+	 k8qiM1TJU+DrA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6E7CB17E07F3;
+	Tue,  1 Apr 2025 12:12:31 +0200 (CEST)
+Message-ID: <2de0cc68-f3d7-4b9c-86d3-105666963fb7@collabora.com>
+Date: Tue, 1 Apr 2025 12:12:30 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0aac96b5-b3ac-47ee-97af-7ca5d927bdd0@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ASoC: mediatek: re-enable buffer pre-allocation on some
+ platforms
+To: Chen-Yu Tsai <wenst@chromium.org>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-sound@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ treapking@chromium.org, yuanhsinte@chromium.org
+References: <20250401085659.1222008-1-wenst@chromium.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250401085659.1222008-1-wenst@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250401_031234_453670_0FC38388 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,57 +78,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
-
-On Tue, Apr 01, 2025 at 10:43:01AM +0100, Ryan Roberts wrote:
-> On 30/03/2025 03:32, Mike Rapoport wrote:
-> > On Sat, Mar 29, 2025 at 09:46:56AM +0000, Ryan Roberts wrote:
-> >> On 28/03/2025 18:50, Mike Rapoport wrote:
-> >>> On Fri, Mar 28, 2025 at 11:51:03AM +0530, Dev Jain wrote:
-> >>>> arm64 uses apply_to_page_range to change permissions for kernel VA mappings,
-> >>>
-> >>>                                                      for vmalloc mappings ^
-> >>>
-> >>> arm64 does not allow changing permissions to any VA address right now.
-> >>>
-> >>>> which does not support changing permissions for leaf mappings. This function
-> >>>> will change permissions until it encounters a leaf mapping, and will bail
-> >>>> out. To avoid this partial change, explicitly disallow changing permissions
-> >>>> for VM_ALLOW_HUGE_VMAP mappings.
-> >>>>
-> >>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> >>
-> >> I wonder if we want a Fixes: tag here? It's certainly a *latent* bug.
-> > 
-> > We have only a few places that use vmalloc_huge() or VM_ALLOW_HUGE_VMAP and
-> > if there was a code that plays permission games on these allocations, x86
-> > set_memory would blow up immediately, so I don't think Fixes: is needed
-> > here.
+Il 01/04/25 10:56, Chen-Yu Tsai ha scritto:
+> In commit 32c9c06adb5b ("ASoC: mediatek: disable buffer pre-allocation")
+> buffer pre-allocation was disabled to accommodate newer platforms that
+> have a limited reserved memory region for the audio frontend.
 > 
-> Hi Mike,
+> Turns out disabling pre-allocation across the board impacts platforms
+> that don't have this reserved memory region. Buffer allocation failures
+> have been observed on MT8173 and MT8183 based Chromebooks under low
+> memory conditions, which results in no audio playback for the user.
 > 
-> I think I may have misunderstood your comments when we spoke at LSF/MM the other
-> day, as this statement seems to contradict. I thought you said that on x86 BPF
-> allocates memory using vmalloc_huge()/VM_ALLOW_HUGE_VMAP and then it's
-> sub-allocator will set_memory_*() on a sub-region of that allocation? (And we
-> then agreed that it would be good for arm64 to eventually support this with BBML2).
-
-I misremembered :)
-They do allocate several PMD_SIZE chunks at once, but they don't use
-vmalloc_huge(), so everything there is mapped with base pages.
-
-And now they are using execmem rather than vmalloc directly, and execmem
-doesn't use VM_ALLOW_HUGE_VMAP anywhere except modules on x86.
- 
-> Anyway, regardless, I think this change is useful first step to improving
-> vmalloc as it makes us more defensive against any future attempt to change
-> permissions on a huge allocation. In the long term I'd like to get to the point
-> where arm64 (with BBML2) can map with VM_ALLOW_HUGE_VMAP by default.
+> Reinstate the original policy of pre-allocating audio buffers at probe
+> time on MT8173, MT8183, and MT8186 platforms. These platforms do not
+> have reserved memory for the audio frontend.
 > 
-> Thanks,
-> Ryan
+> Fixes: 32c9c06adb5b ("ASoC: mediatek: disable buffer pre-allocation")
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
--- 
-Sincerely yours,
-Mike.
+Have you tried to add the reserved memory regions to the MT8173/83/86 AFE?
+
+This means not only devicetree but also the driver - that should be simple
+enough, and would allow to eventually add a layer of further commonization
+between the AFE PCM drivers of all those MediaTek SoCs.
+
+Cheers,
+Angelo
+
+> ---
+>   sound/soc/mediatek/common/mtk-afe-platform-driver.c | 4 +++-
+>   sound/soc/mediatek/common/mtk-base-afe.h            | 1 +
+>   sound/soc/mediatek/mt8173/mt8173-afe-pcm.c          | 1 +
+>   sound/soc/mediatek/mt8183/mt8183-afe-pcm.c          | 1 +
+>   sound/soc/mediatek/mt8186/mt8186-afe-pcm.c          | 1 +
+>   5 files changed, 7 insertions(+), 1 deletion(-)
+> 
+> diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+> index 6b6330583941..70fd05d5ff48 100644
+> --- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+> +++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+> @@ -120,7 +120,9 @@ int mtk_afe_pcm_new(struct snd_soc_component *component,
+>   	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
+>   
+>   	size = afe->mtk_afe_hardware->buffer_bytes_max;
+> -	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV, afe->dev, 0, size);
+> +	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV, afe->dev,
+> +				       afe->preallocate_buffers ? size : 0,
+> +				       size);
+>   
+>   	return 0;
+>   }
+> diff --git a/sound/soc/mediatek/common/mtk-base-afe.h b/sound/soc/mediatek/common/mtk-base-afe.h
+> index f51578b6c50a..a406f2e3e7a8 100644
+> --- a/sound/soc/mediatek/common/mtk-base-afe.h
+> +++ b/sound/soc/mediatek/common/mtk-base-afe.h
+> @@ -117,6 +117,7 @@ struct mtk_base_afe {
+>   	struct mtk_base_afe_irq *irqs;
+>   	int irqs_size;
+>   	int memif_32bit_supported;
+> +	bool preallocate_buffers;
+>   
+>   	struct list_head sub_dais;
+>   	struct snd_soc_dai_driver *dai_drivers;
+> diff --git a/sound/soc/mediatek/mt8173/mt8173-afe-pcm.c b/sound/soc/mediatek/mt8173/mt8173-afe-pcm.c
+> index 04ed0cfec174..37b20ec80829 100644
+> --- a/sound/soc/mediatek/mt8173/mt8173-afe-pcm.c
+> +++ b/sound/soc/mediatek/mt8173/mt8173-afe-pcm.c
+> @@ -1114,6 +1114,7 @@ static int mt8173_afe_pcm_dev_probe(struct platform_device *pdev)
+>   	afe->mtk_afe_hardware = &mt8173_afe_hardware;
+>   	afe->memif_fs = mt8173_memif_fs;
+>   	afe->irq_fs = mt8173_irq_fs;
+> +	afe->preallocate_buffers = true;
+>   
+>   	platform_set_drvdata(pdev, afe);
+>   
+> diff --git a/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c b/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c
+> index d083b4bf0f95..0ef07fb2898d 100644
+> --- a/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c
+> +++ b/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c
+> @@ -1214,6 +1214,7 @@ static int mt8183_afe_pcm_dev_probe(struct platform_device *pdev)
+>   	afe->mtk_afe_hardware = &mt8183_afe_hardware;
+>   	afe->memif_fs = mt8183_memif_fs;
+>   	afe->irq_fs = mt8183_irq_fs;
+> +	afe->preallocate_buffers = true;
+>   
+>   	afe->runtime_resume = mt8183_afe_runtime_resume;
+>   	afe->runtime_suspend = mt8183_afe_runtime_suspend;
+> diff --git a/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c b/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c
+> index db7c93401bee..c588a68d672d 100644
+> --- a/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c
+> +++ b/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c
+> @@ -2935,6 +2935,7 @@ static int mt8186_afe_pcm_dev_probe(struct platform_device *pdev)
+>   	afe->irq_fs = mt8186_irq_fs;
+>   	afe->get_dai_fs = mt8186_get_dai_fs;
+>   	afe->get_memif_pbuf_size = mt8186_get_memif_pbuf_size;
+> +	afe->preallocate_buffers = true;
+>   
+>   	afe->runtime_resume = mt8186_afe_runtime_resume;
+>   	afe->runtime_suspend = mt8186_afe_runtime_suspend;
+
+
 
