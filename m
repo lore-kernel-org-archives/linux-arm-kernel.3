@@ -4,82 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF14C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D69C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bdu1GymYGk23uvATKjkOqthpfEU/FO+XWbjGjjdLCmg=; b=YF/PaMeIZuGy8wLvG6EnaX+aGU
-	4UXQ0uE8M6U0y2n/tQ74SmbEJLW6iWEKGDBrd0ItfqiiljyRd1C/VD6GEQ3cyOsOSGmf4en5l9fZE
-	6Gus834i4WhdSq2sLVuNbxbOFevY2BJKX14o7ufQC+3GdRkgdZf6AMozHhKhcPC57Jhnc0upuGs/w
-	vFtF5y2UztgFSK6XnDMnUTUJ10/fiqI+4M2vkBZSYJYkaosMDC73VeUd/y5GzRlH49mWbVzRuKqNQ
-	oqCupF+pj0pWheGdMYqBGou+h8XTjrUWU2Im/xMCclE3udfbDmHZqudFnKjdaI6KUpdglA7ifS5d+
-	cFe8/FDA==;
+	bh=s7Poqe3mZVIgpU2JGC2x8jHFSjWgHlNoBHPst74G6xY=; b=QQCpJdLCHNC8EPrXffbHi2NoA6
+	dIcHfq+cUE/wkfTQ8pazbjzEvyghv1bQVtPxUEuAYstOV2sKTkUheaPpCPFSTY+QmJVc15w7k1Nt4
+	sBeQVSD5DtGbfAU+g/S59/k+iAONzpTpReAN/Tz0imlyKR0rfJszmhzaJaJnArlCkv8p6yGfsiGw/
+	QdXWucu+3HqS5GM0Y/iXjgGxNBShsiBmSDuxL6HsX88uXm8z5AXRlWFHSvkobuB2/A+u/7BTTRyM/
+	x8KqCYXRGNztMAsqsMpG1VnL1mr6yaWhjX/ps7CygES54rtBi5CnYYKLBOlNARSk4sT2ZwVcFeMGc
+	4MnjQYeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzZC0-00000002g77-3mQF;
-	Tue, 01 Apr 2025 10:50:04 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tzZDm-00000002gJh-2nXI;
+	Tue, 01 Apr 2025 10:51:54 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYtf-00000002dJh-23qS
+	id 1tzYxh-00000002dtg-1Ceg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 10:31:09 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-227a8cdd241so16248735ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 03:31:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743503467; x=1744108267; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bdu1GymYGk23uvATKjkOqthpfEU/FO+XWbjGjjdLCmg=;
-        b=ls4th2fuYnGK/Xjzy3nnmcCeQHjEZFAkzZdi2o0gWdcpJ0LowFhci5FqXQt0W4406j
-         P/8Xd28YjgZ9NPMcTKvoOynODWJM6m9t6cF1iZmpfLxaI0kPxQMpIYLoGA4EFb6lku9v
-         qZBlMhw8u4sqHwPL31UIs0w1swea16+jefZL8UyGrA4Z5e3OpU+1ibA0nBYQjPCWz1Yw
-         JQKHzBTHMyBmW+voZuUNwwMg41M3uldpjAWWIWaffxj6R8mebgnAlZkP2YoVsx0OZ6v+
-         SaAjdt0Mc70774dkzCJSUFnHaZ69nVbEwSEEXfJ1TokMtHhKGmJMaUoyb/IkBgkqYxhY
-         C96g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743503467; x=1744108267;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bdu1GymYGk23uvATKjkOqthpfEU/FO+XWbjGjjdLCmg=;
-        b=VbuWkQJnKBb6vnr4zDbtyhV/b2awArZxBFeAwyW2ecXsxAH3tNMFJ+FgxsZa+s+dGw
-         BGpySMycZ2pCvcky6gkti8EHt2sChKmlxqzEdGkua0oarjAAGv+x8hrOcf9WGA7lGuDL
-         lC/EV2hI+3pV7UZnNIc59uB86X7LIjt1JWHURRt+Az84OY+WNUUE/Vz2ILNEwRfQuZbj
-         5JYXRhQZZsB3jF9sX6fRkWjympOSbLQBePpTQfYZhJ5jyuYzClEr1E5058hu1R3eGOH6
-         MkUohr8/w6owX7v6ws91AUG4pIEohl+feiw+PKoQZwbFiI06mvqmeeH9BwYpRourio6u
-         laHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWwBKL1IhHLdbU0mKDjfqYNUckEtBw97A4fitw5oAV5Nm9zPc/WNbDT0AvTo2Bwzitbqjdp1IUDTl++s3OaC7qN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzo5cAb87vgN/mCUtbvRFSx7+1CTgdw91frrSLsHcZSFiL2ki8X
-	HFH5nFHDhImmPlynqFM0IDndaCTSD/oACaMW6E4lq/P3lV8yvpAMA7taSodVDQs8lBFivao2x3c
-	xi1tuwWMgoVedf0KzDWtT68Yh/AP1bFYmabgolw==
-X-Gm-Gg: ASbGncvgr2p27OHkzF4t9KGSlf9ZWoiX0508Z/Q/xHX7Hsaf6k8U94IQcahHdM/QIcX
-	tkFmFtDoZZCXNmBMMIgBv/DpD/ddIXaKB+lz4p09xiP/WlRwXQP3uJ/Bw0fRYTOJE7t8g1pkn80
-	gAbbi43X/EDphnvNVsIgYGPEPp1c/pAWKD+QF0lg==
-X-Google-Smtp-Source: AGHT+IHTkvNe0ilh/P95MoDbxvfJtDi6TR93LnesNUxLFdWsIE/Px5Q1l9yNZZvD2lf1p5NcKRG1U03AkQgQjCO8L1s=
-X-Received: by 2002:a05:6a00:218d:b0:736:fff2:99b with SMTP id
- d2e1a72fcca58-7398045dfecmr21978181b3a.23.1743503462715; Tue, 01 Apr 2025
- 03:31:02 -0700 (PDT)
+	Tue, 01 Apr 2025 10:35:19 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0C57C101CA6E8;
+	Tue,  1 Apr 2025 12:35:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1743503712; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=s7Poqe3mZVIgpU2JGC2x8jHFSjWgHlNoBHPst74G6xY=;
+	b=Tprvait7ezlgUnAVteDKrKb1PEx6byXSrNXb/HiG066infjz5H+UTJvCI6zLh9XeLH6MKU
+	MxkqTmCR6QkesCm39uIpLj4kXiXIH56ZhgtIsLMfHMDmI+28XrcmloOb9g2XzhJqnPNB66
+	WtXO/aqYSH8geX9cjsFOO1M6bbUn2lQYwNNWVud73LoU4hDW071gPsXenQRGv00jDZ6Kxl
+	eS/K1EqL162DFt++crqpY+cKc+lxs3ZB13GzUXpqlw/sMHEBMMWUwMq3m/uT2ZnYXlRkfL
+	WcmLG0/LhqHwh3iY7bgZr6pSCQWXGCctRUcx0i2Am6uMrzLULMijb5gL0lYoUA==
+Date: Tue, 1 Apr 2025 12:35:07 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Rob Herring <robh@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/4] dt-bindings: net: Add MTIP L2 switch description
+Message-ID: <20250401123507.2e3bf0a6@wsk>
+In-Reply-To: <20250331235518.GA2823373-robh@kernel.org>
+References: <20250331103116.2223899-1-lukma@denx.de>
+	<20250331103116.2223899-2-lukma@denx.de>
+	<20250331235518.GA2823373-robh@kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20250311170451.611389-1-leo.yan@arm.com> <20250311170451.611389-4-leo.yan@arm.com>
-In-Reply-To: <20250311170451.611389-4-leo.yan@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Tue, 1 Apr 2025 11:30:51 +0100
-X-Gm-Features: AQ5f1JrhoMjcpCkzXCXq-qk91PQYs0xMOO4GtS2OMtCAe1f01A9RYiWD2k0hQzw
-Message-ID: <CAJ9a7VjbCTzycnYUMyCJbVhFpwqhTA6b7LSxtyiELqBii8iW4w@mail.gmail.com>
-Subject: Re: [PATCH v3 3/6] coresight: etm4x: Hook pause and resume callbacks
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; boundary="Sig_/RWGAJJQc9ifwwn2SMI2BeSX";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_033107_596098_77E5D788 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20250401_033517_645378_2ADA6055 
+X-CRM114-Status: GOOD (  34.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,126 +78,281 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Mar 2025 at 17:05, Leo Yan <leo.yan@arm.com> wrote:
->
-> Add callbacks for pausing and resuming the tracer.
->
-> A "paused" flag in the driver data indicates whether the tracer is
-> paused.  If the flag is set, the driver will skip starting the hardware
-> trace.  The flag is always set to false for the sysfs mode, meaning the
-> tracer will never be paused in the case.
->
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  .../coresight/coresight-etm4x-core.c          | 42 ++++++++++++++++++-
->  drivers/hwtracing/coresight/coresight-etm4x.h |  2 +
->  2 files changed, 43 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 53cb0569dbbf..5b69446db947 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -577,7 +577,8 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->                 etm4x_relaxed_write32(csa, trcpdcr | TRCPDCR_PU, TRCPDCR);
->         }
->
-> -       rc = etm4_enable_trace_unit(drvdata);
-> +       if (!drvdata->paused)
-> +               rc = etm4_enable_trace_unit(drvdata);
->  done:
->         etm4_cs_lock(drvdata, csa);
->
-> @@ -820,6 +821,9 @@ static int etm4_enable_perf(struct coresight_device *csdev,
->
->         drvdata->trcid = path->trace_id;
->
-> +       /* Populate pause state */
-> +       drvdata->paused = !!READ_ONCE(event->hw.aux_paused);
-> +
->         /* And enable it */
->         ret = etm4_enable_hw(drvdata);
->
-> @@ -846,6 +850,9 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
->
->         drvdata->trcid = path->trace_id;
->
-> +       /* Tracer will never be paused in sysfs mode */
-> +       drvdata->paused = false;
-> +
->         /*
->          * Executing etm4_enable_hw on the cpu whose ETM is being enabled
->          * ensures that register writes occur when cpu is powered.
-> @@ -1080,10 +1087,43 @@ static void etm4_disable(struct coresight_device *csdev,
->                 coresight_set_mode(csdev, CS_MODE_DISABLED);
->  }
->
-> +static int etm4_resume_perf(struct coresight_device *csdev)
-> +{
-> +       struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +       struct csdev_access *csa = &csdev->access;
-> +
-> +       if (coresight_get_mode(csdev) != CS_MODE_PERF)
-> +               return -EINVAL;
-> +
-> +       etm4_cs_unlock(drvdata, csa);
-> +       etm4_enable_trace_unit(drvdata);
-> +       etm4_cs_lock(drvdata, csa);
-> +
-> +       drvdata->paused = false;
-> +       return 0;
-> +}
-> +
-> +static void etm4_pause_perf(struct coresight_device *csdev)
-> +{
-> +       struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +       struct csdev_access *csa = &csdev->access;
-> +
-> +       if (coresight_get_mode(csdev) != CS_MODE_PERF)
-> +               return;
-> +
-> +       etm4_cs_unlock(drvdata, csa);
-> +       etm4_disable_trace_unit(drvdata);
-> +       etm4_cs_lock(drvdata, csa);
-> +
-> +       drvdata->paused = true;
-> +}
-> +
->  static const struct coresight_ops_source etm4_source_ops = {
->         .cpu_id         = etm4_cpu_id,
->         .enable         = etm4_enable,
->         .disable        = etm4_disable,
-> +       .resume_perf    = etm4_resume_perf,
-> +       .pause_perf     = etm4_pause_perf,
->  };
->
->  static const struct coresight_ops etm4_cs_ops = {
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> index bd7db36ba197..ac649515054d 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> @@ -983,6 +983,7 @@ struct etmv4_save_state {
->   * @state_needs_restore: True when there is context to restore after PM exit
->   * @skip_power_up: Indicates if an implementation can skip powering up
->   *                the trace unit.
-> + * @paused:    Indicates if the trace unit is paused.
->   * @arch_features: Bitmap of arch features of etmv4 devices.
->   */
->  struct etmv4_drvdata {
-> @@ -1036,6 +1037,7 @@ struct etmv4_drvdata {
->         struct etmv4_save_state         *save_state;
->         bool                            state_needs_restore;
->         bool                            skip_power_up;
-> +       bool                            paused;
->         DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
->  };
->
-> --
-> 2.34.1
->
+--Sig_/RWGAJJQc9ifwwn2SMI2BeSX
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Hi Rob,
+
+> On Mon, Mar 31, 2025 at 12:31:13PM +0200, Lukasz Majewski wrote:
+> > This patch provides description of the MTIP L2 switch available in
+> > some NXP's SOCs - e.g. imx287.
+> >=20
+> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> > ---
+> > Changes for v2:
+> > - Rename the file to match exactly the compatible
+> >   (nxp,imx287-mtip-switch)
+> >=20
+> > Changes for v3:
+> > - Remove '-' from const:'nxp,imx287-mtip-switch'
+> > - Use '^port@[12]+$' for port patternProperties
+> > - Drop status =3D "okay";
+> > - Provide proper indentation for 'example' binding (replace 8
+> >   spaces with 4 spaces)
+> > - Remove smsc,disable-energy-detect; property
+> > - Remove interrupt-parent and interrupts properties as not required
+> > - Remove #address-cells and #size-cells from required properties
+> > check
+> > - remove description from reg:
+> > - Add $ref: ethernet-switch.yaml#
+> > ---
+> >  .../bindings/net/nxp,imx287-mtip-switch.yaml  | 154
+> > ++++++++++++++++++ 1 file changed, 154 insertions(+)
+> >  create mode 100644
+> > Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> >=20
+> > diff --git
+> > a/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> > b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> > new file mode 100644 index 000000000000..98eba3665f32 --- /dev/null
+> > +++
+> > b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
+> > @@ -0,0 +1,154 @@ +# SPDX-License-Identifier: (GPL-2.0-only OR
+> > BSD-2-Clause) +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/net/nxp,imx287-mtip-switch.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
+> > +
+> > +maintainers:
+> > +  - Lukasz Majewski <lukma@denx.de>
+> > +
+> > +description:
+> > +  The 2-port switch ethernet subsystem provides ethernet packet
+> > (L2)
+> > +  communication and can be configured as an ethernet switch. It
+> > provides the
+> > +  reduced media independent interface (RMII), the management data
+> > input
+> > +  output (MDIO) for physical layer device (PHY) management.
+> > +
+> > +$ref: ethernet-switch.yaml# =20
+>=20
+> This needs to be: ethernet-switch.yaml#/$defs/ethernet-ports
+>=20
+> With that, you can drop much of the below part. More below...
+>=20
+> > +
+> > +properties:
+
+So it shall be after the "properties:"
+
+$ref: ethernet-switch.yaml#/$defs/ethernet-ports   [*]
+
+
+> > +  compatible:
+> > +    const: nxp,imx287-mtip-switch
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  phy-supply:
+> > +    description:
+> > +      Regulator that powers Ethernet PHYs.
+> > +
+> > +  clocks:
+> > +    items:
+> > +      - description: Register accessing clock
+> > +      - description: Bus access clock
+> > +      - description: Output clock for external device - e.g. PHY
+> > source clock
+> > +      - description: IEEE1588 timer clock
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: ipg
+> > +      - const: ahb
+> > +      - const: enet_out
+> > +      - const: ptp
+> > +
+> > +  interrupts:
+> > +    items:
+> > +      - description: Switch interrupt
+> > +      - description: ENET0 interrupt
+> > +      - description: ENET1 interrupt
+> > +
+> > +  pinctrl-names: true
+> > + =20
+>=20
+> > +  ethernet-ports:
+
+And then this "node" can be removed as it has been referenced above [*]?
+
+(I shall only keep the properties, which are not standard to [*] if
+any).
+
+> > +    type: object
+> > +    additionalProperties: false
+> > +
+> > +    properties:
+> > +      '#address-cells':
+> > +        const: 1
+> > +      '#size-cells':
+> > +        const: 0
+> > +
+> > +    patternProperties:
+> > +      '^port@[12]+$': =20
+>=20
+> Note that 'ethernet-port' is the preferred node name though 'port' is=20
+> allowed.
+
+Ok. That would be the correct define:
+
+ethernet-ports {
+     mtip_port1: ethernet-port@1 {
+               reg =3D <1>;
+               label =3D "lan0";
+               local-mac-address =3D [ 00 00 00 00 00 00 ];
+               phy-mode =3D "rmii";
+               phy-handle =3D <&ethphy0>;
+	       };
+
+               mtip_port2: port@2 {
+		....
+	       };
+
+>=20
+> > +        type: object
+> > +        description: MTIP L2 switch external ports
+> > +
+> > +        $ref: ethernet-controller.yaml#
+> > +        unevaluatedProperties: false
+> > +
+> > +        properties:
+> > +          reg:
+> > +            items:
+> > +              - enum: [1, 2]
+> > +            description: MTIP L2 switch port number
+> > +
+> > +          label:
+> > +            description: Label associated with this port
+> > +
+> > +        required:
+> > +          - reg
+> > +          - label
+> > +          - phy-mode
+> > +          - phy-handle =20
+>=20
+> All the above under 'ethernet-ports' can be dropped though you might=20
+> want to keep 'required' part.
+
+Ok, I will keep it.
+
+>=20
+> > +
+> > +  mdio:
+> > +    type: object
+> > +    $ref: mdio.yaml#
+> > +    unevaluatedProperties: false
+> > +    description:
+> > +      Specifies the mdio bus in the switch, used as a container
+> > for phy nodes. +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - clocks
+> > +  - clock-names
+> > +  - interrupts
+> > +  - mdio
+> > +  - ethernet-ports
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include<dt-bindings/interrupt-controller/irq.h>
+> > +    switch@800f0000 {
+> > +        compatible =3D "nxp,imx287-mtip-switch";
+> > +        reg =3D <0x800f0000 0x20000>;
+> > +        pinctrl-names =3D "default";
+> > +        pinctrl-0 =3D <&mac0_pins_a>, <&mac1_pins_a>;
+> > +        phy-supply =3D <&reg_fec_3v3>;
+> > +        interrupts =3D <100>, <101>, <102>;
+> > +        clocks =3D <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
+> > +        clock-names =3D "ipg", "ahb", "enet_out", "ptp";
+> > +
+> > +        ethernet-ports {
+> > +            #address-cells =3D <1>;
+> > +            #size-cells =3D <0>;
+> > +
+> > +            mtip_port1: port@1 {
+> > +                reg =3D <1>;
+> > +                label =3D "lan0";
+> > +                local-mac-address =3D [ 00 00 00 00 00 00 ];
+> > +                phy-mode =3D "rmii";
+> > +                phy-handle =3D <&ethphy0>;
+> > +            };
+> > +
+> > +            mtip_port2: port@2 {
+> > +                reg =3D <2>;
+> > +                label =3D "lan1";
+> > +                local-mac-address =3D [ 00 00 00 00 00 00 ];
+> > +                phy-mode =3D "rmii";
+> > +                phy-handle =3D <&ethphy1>;
+> > +            };
+> > +        };
+> > +
+> > +        mdio_sw: mdio {
+> > +            #address-cells =3D <1>;
+> > +            #size-cells =3D <0>;
+> > +
+> > +            reset-gpios =3D <&gpio2 13 0>;
+> > +            reset-delay-us =3D <25000>;
+> > +            reset-post-delay-us =3D <10000>;
+> > +
+> > +            ethphy0: ethernet-phy@0 {
+> > +                reg =3D <0>;
+> > +            };
+> > +
+> > +            ethphy1: ethernet-phy@1 {
+> > +                reg =3D <1>;
+> > +            };
+> > +        };
+> > +    };
+> > --=20
+> > 2.39.5
+> >  =20
+
+Thanks for the hint.
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/RWGAJJQc9ifwwn2SMI2BeSX
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfrwVsACgkQAR8vZIA0
+zr24oQf/anBJOGl0tWgnq6LRJxzQ6T2tFRMS9KaTl/Yl6SF0MpjdSH1Wjw4HV+oV
+gfTYtA1SQiOTdgGUq4oM8BTfLLxjLpD12kjIOAEY4ObVyfkYCtTFjyA5S+NA80Zs
+tcAyZZa9TVHculFJliwKPe6/XuAPXLwdPMb63tQrokVOi4XmKBO/PC1i6mpRONei
+y+aBVCE3+j+CiqVkK9ZEwKpI3FWfcODNbAQQ+tXQoKSvrsFLlr9xUMqUZnR2vr0V
++qdkD74tQDFVoEOd9BQCUP0sacxP9+pS4sIjRgq8t4gJv0W59RxNKssq8RgWN10t
+GEICbrn8XIbQCF2SyxmkwxbNAym54g==
+=siSa
+-----END PGP SIGNATURE-----
+
+--Sig_/RWGAJJQc9ifwwn2SMI2BeSX--
 
