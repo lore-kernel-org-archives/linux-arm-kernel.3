@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B047C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 09:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB53AC36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 09:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PoLjLgBo/+t1xIM50ThbgAsOpo6TKUrifoT0Lb2LauM=; b=IoodNGc5R5nhKngGOpVd4JUp0a
-	+NSav/5iyzkwZsoZ4EOivS+iMONm/fqzQ0cgxXY86UO01SUeWvEV8Jxi7xMfZRY2E0FAd6YEYAkUn
-	zHguL3mdr9HTOPHvodgU6eW4sjCs0xjLVuY6Wykg0pe3/Vrk4IWlbX3lniwfx4JaHQp/qkaS+qFVG
-	bu92isK/MDCLQLKgrfdoAbdTrnslxdRur6+5z5iPjQHeO20iRsutEnqxxYCLvUNLEGpA+uvD5MNdI
-	UulDYzJCGjE7k+QPZkmdO+tYu5joxY0IJbSxs5PYCN/czcGeoNXI4z4Lnv1oD7qbHJO21j02GrDqJ
-	RljUA45Q==;
+	bh=y4IwXgKnHWG7YNQrSiO+qk2LKJM5fg/EOFJ1xKEmDbs=; b=R3yi2XkwA0/JwjKvmaPMkXFLqc
+	H4UOtJXEu+4VPquyxSKvX2WPlcTXn8fD3fr1oOEIf0SycsCNRtExF4S2+pR6dIOYNbLlFI3JMQ8Ed
+	M3sYMoamdFfqERDQC8XsaxLXMGy5RAhBUSTZdDlw5UwmHQM0+6t5aZuRs2tnbL/b3OT+PEdUc0Atn
+	dCnuUwA/RAyQ1rZrFgivzrIX7Fn1wbMfgRV+gVO8RbGolclSA+D8U55eL4Y9MXt4SDOhzDqMnzq0Z
+	gL8+wLmLnsy8nmN6WWzgYJNtIe0TrQqA3/iuGjVgWoJGZYwXTG+rO8bNnqMv9GoQHVD4TYDLpJ4hh
+	GRYvOIhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYAU-00000002VvT-1Il9;
-	Tue, 01 Apr 2025 09:44:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tzYCF-00000002WHj-0faf;
+	Tue, 01 Apr 2025 09:46:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzXkZ-00000002ReR-22zC
+	id 1tzXka-00000002RfB-105f
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 01 Apr 2025 09:17:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC99344E0B;
-	Tue,  1 Apr 2025 09:17:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB926C4AF0F;
-	Tue,  1 Apr 2025 09:17:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 98B1A44DFE;
+	Tue,  1 Apr 2025 09:17:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8028C4AF12;
+	Tue,  1 Apr 2025 09:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743499058;
-	bh=N1nHX41VAbTth+my1DnLmQ+I/I1nrU0WjhF/thdk4u0=;
+	s=k20201202; t=1743499059;
+	bh=U0ysh0TLWp+CLpUidcyzO51hkifl4bGUq07snvSw+w4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O00QXRY8MVm0JZtF5V6kXJXMMRx/23J4IuUzVJZQbK6AYebjCFP2zDqMMAFCK4XtP
-	 M9YLj8XlQLsryVUY9a5vPqbNFO7CI0/1UD7vUFsba76mOstdeyjGdcGatsyDGeYOgD
-	 8fZWPZAO9WoB+SitnFNWtOSP/tIA2va+/mjCfzkDgG/QdckIJekCzFbDFbHZO8735W
-	 XTYMXUBFvOPKegHcjA1EC5caMKum+EZcEknVOcoGmdUD+zolB9bQioGjHK4ns/mB1Y
-	 qRetlUpdMcJu3faZ1TJLtNe8TqAtqLub2O7DGtzxWnnLSt8ViHXBQNId4AyxxiyE3j
-	 pDjSDLNK8xdlw==
+	b=cLuIph2jPhPcO3cYdVQtZQtkVXG+tgLp/4t4smob/abxmh2OmnA/+5ZU6hUuX8wxV
+	 KBkK5kWx9h9FJIG7bi6lirw5sVbHustH0pvTEVRV9SNFKdn8eNcbJqHblU4E+MRCO/
+	 nwnkA0JbxNQOYkQVdfO/q9dIfBEiyvQ8hK3WyrtgriNyefrmbk+clmDjrJHqAb77BK
+	 brNHVNMm9wl+hXoiSLJv/gthJUak6a2tLQloDPoz6cN6L90JjSX3EkdR3kVb0S5v1f
+	 Uw7iWOekWcOeztD1MfwY7HhE32vtavMCCm4RThkevAiGrtbub7fCxsWY2skM6E6x+r
+	 2fkkFisZQ5lWA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tzXkV-001GqU-Uf;
-	Tue, 01 Apr 2025 10:17:36 +0100
+	id 1tzXkX-001GqU-4E;
+	Tue, 01 Apr 2025 10:17:37 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-pci@vger.kernel.org,
@@ -65,9 +65,9 @@ Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Mark Kettenis <mark.kettenis@xs4all.nl>
-Subject: [PATCH v3 05/13] PCI: apple: Move over to standalone probing
-Date: Tue,  1 Apr 2025 10:17:05 +0100
-Message-Id: <20250401091713.2765724-6-maz@kernel.org>
+Subject: [PATCH v3 10/13] PCI: apple: Drop poll for CORE_RC_PHYIF_STAT_REFCLK
+Date: Tue,  1 Apr 2025 10:17:10 +0100
+Message-Id: <20250401091713.2765724-11-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250401091713.2765724-1-maz@kernel.org>
 References: <20250401091713.2765724-1-maz@kernel.org>
@@ -78,8 +78,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.o
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_021739_592016_F584925C 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20250401_021740_310742_A65519A9 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,110 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have the required infrastructure, split the Apple PCIe
-setup into two categories:
+From: Hector Martin <marcan@marcan.st>
 
-- stuff that has to do with PCI setup stays in the .init() callback
+This is checking a core refclk in per-port setup which doesn't make a
+lot of sense, and the bootloader needs to have gone through this anyway.
 
-- stuff that is just driver gunk (such as MSI setup) goes into a
-  probe routine, which will eventually call into the host-common
-  code
-
-The result is a far more logical setup process.
+It doesn't work on T602x, so just drop it across the board.
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Acked-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 Tested-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/pci/controller/pcie-apple.c | 54 ++++++++++++++++-------------
- 1 file changed, 30 insertions(+), 24 deletions(-)
+ drivers/pci/controller/pcie-apple.c | 6 ------
+ 1 file changed, 6 deletions(-)
 
 diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index 842f8cee7c868..d07e488051290 100644
+index 94c49611b74df..c00ec0781fabc 100644
 --- a/drivers/pci/controller/pcie-apple.c
 +++ b/drivers/pci/controller/pcie-apple.c
-@@ -730,35 +730,15 @@ static void apple_pcie_disable_device(struct pci_host_bridge *bridge, struct pci
+@@ -475,12 +475,6 @@ static int apple_pcie_setup_refclk(struct apple_pcie *pcie,
+ 	u32 stat;
+ 	int res;
  
- static int apple_pcie_init(struct pci_config_window *cfg)
- {
-+	struct apple_pcie *pcie = cfg->priv;
- 	struct device *dev = cfg->parent;
--	struct platform_device *platform = to_platform_device(dev);
- 	struct device_node *of_port;
--	struct apple_pcie *pcie;
- 	int ret;
+-	res = readl_relaxed_poll_timeout(pcie->base + CORE_RC_PHYIF_STAT, stat,
+-					 stat & CORE_RC_PHYIF_STAT_REFCLK,
+-					 100, 50000);
+-	if (res < 0)
+-		return res;
+-
+ 	rmw_set(PHY_LANE_CTL_CFGACC, port->phy + PHY_LANE_CTL);
+ 	rmw_set(PHY_LANE_CFG_REFCLK0REQ, port->phy + PHY_LANE_CFG);
  
--	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
--	if (!pcie)
--		return -ENOMEM;
--
--	pcie->dev = dev;
--
--	mutex_init(&pcie->lock);
--
--	pcie->base = devm_platform_ioremap_resource(platform, 1);
--	if (IS_ERR(pcie->base))
--		return PTR_ERR(pcie->base);
--
--	cfg->priv = pcie;
--	INIT_LIST_HEAD(&pcie->ports);
--
--	ret = apple_msi_init(pcie);
--	if (ret)
--		return ret;
--
- 	for_each_available_child_of_node(dev->of_node, of_port) {
- 		ret = apple_pcie_setup_port(pcie, of_port);
- 		if (ret) {
--			dev_err(pcie->dev, "Port %pOF setup fail: %d\n", of_port, ret);
-+			dev_err(dev, "Port %pOF setup fail: %d\n", of_port, ret);
- 			of_node_put(of_port);
- 			return ret;
- 		}
-@@ -778,14 +758,40 @@ static const struct pci_ecam_ops apple_pcie_cfg_ecam_ops = {
- 	}
- };
- 
-+static int apple_pcie_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct apple_pcie *pcie;
-+	int ret;
-+
-+	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
-+	if (!pcie)
-+		return -ENOMEM;
-+
-+	pcie->dev = dev;
-+	pcie->base = devm_platform_ioremap_resource(pdev, 1);
-+	if (IS_ERR(pcie->base))
-+		return PTR_ERR(pcie->base);
-+
-+	mutex_init(&pcie->lock);
-+	INIT_LIST_HEAD(&pcie->ports);
-+	dev_set_drvdata(dev, pcie);
-+
-+	ret = apple_msi_init(pcie);
-+	if (ret)
-+		return ret;
-+
-+	return pci_host_common_init(pdev, &apple_pcie_cfg_ecam_ops);
-+}
-+
- static const struct of_device_id apple_pcie_of_match[] = {
--	{ .compatible = "apple,pcie", .data = &apple_pcie_cfg_ecam_ops },
-+	{ .compatible = "apple,pcie" },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, apple_pcie_of_match);
- 
- static struct platform_driver apple_pcie_driver = {
--	.probe	= pci_host_common_probe,
-+	.probe	= apple_pcie_probe,
- 	.driver	= {
- 		.name			= "pcie-apple",
- 		.of_match_table		= apple_pcie_of_match,
 -- 
 2.39.2
 
