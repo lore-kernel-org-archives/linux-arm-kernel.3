@@ -4,93 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9B2C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 08:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514C5C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 08:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/CPeJtNEQsuzyZj1LWzpLz2qGETWIvRqRfnm4VRDQlo=; b=DgpWM24kPpkweg1Jcu6mDQytdT
-	RghFSEtWfUe18sLybtYL88jTYY6HH6qNMy8IULkZXqx40z5aeo1eh3DgB1siZH72gBInb9bapV36m
-	sA3Wqp6ZyrnFdB4G+63X8Ac2YadyWvPy2yVLw2iCoUsAZFFjcbpMykokHGlWJCUrfPbXjhI+WK3Bp
-	X12Pytw6bWaegAsHMWbLDxmMIP/exOtcfQo8EUnXoJiXegBPqgckbidlUfKJ6zy5dQgjQJ19tMXgC
-	c9vmG7NlIFpDqEZdELYc3TFgIPsIojWxyx4tIvWPLidpm+lbLE/0dG6gTEITtcyh2p1dySHV2O3RQ
-	HLPlZdig==;
+	bh=AJDvWRqiKkcgB0kMKWyCUi7DBbqUbwOCXbFkkoxLk7o=; b=Xgw6SGpPtRFGlVRWrhGC10lxdc
+	AeCKf24tthfTdUh4mKqZouS6lwuXZLNEPYdzOYRB07Uo/uKP3imXGqLSK/Zelblv6TtZemAVmjkPp
+	9J7UIg6KTkNcjwwLl1WgzlmQpIohV33jPlUaoBg2a0dP9V70pIM5iOtpJleVvq8kxVrGFSg4teQr+
+	U9Ey0dPgTgptaifws0RcqY+zjeVxkF3lw+ZVyYgMjOqckirhJrgT84XB57/OL9f9voA7DJ11AsyVi
+	W3hnk8zdcYxv3jWHOwhGtKuVbOnq5K7i3ud1v7MTTb0vETI1nxitXC4SxdtkproZhyZKiwDzpL09t
+	A2ZPllGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzX6s-00000002LTM-3fyP;
-	Tue, 01 Apr 2025 08:36:38 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1tzX8d-00000002LZO-2R1t;
+	Tue, 01 Apr 2025 08:38:27 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzX3d-00000002Kz1-2SeR
+	id 1tzX4G-00000002L53-1oQI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 08:33:19 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-2c7e5f7f0e3so1518676fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 01:33:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743496396; x=1744101196; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/CPeJtNEQsuzyZj1LWzpLz2qGETWIvRqRfnm4VRDQlo=;
-        b=zTLj2TkUc5oJADATBxTckhsKUb54j2KYJK/l/xZPM/QG4tG5va4c6lRCs0ZxQnTeQZ
-         6SSWvuk3ZqNl/n8f4EBifyXqCSs/2K+4ooBtyfe9bN52WzFU0MG5k3MDDa/vlJkvl4JA
-         zuPWJPR0kuy5L2wDIWlhEFG0f5R/lUsW5ZttK5G/F7ytANMrJoJ4G1/w0p75kFEk73yq
-         0Ie5rV67qiAWgM9qBrlS28cJsuKQCcRKOeLMZbSLitqFl/zYoTVZ2zYZZat/X+rB87dY
-         e5fA968QeQTu0yCCc9+xbJIWmUx2Slo2ey0pW4HKRVqtHXZiamL1tuQqlxfbl8JYcbGh
-         FkMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743496396; x=1744101196;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/CPeJtNEQsuzyZj1LWzpLz2qGETWIvRqRfnm4VRDQlo=;
-        b=aJcCzXjz+FtCySnxIscEXltWfD6jy6b4c91RRXmMcCySJQjQXyoU1mPwR4sLLdpmdj
-         KzDk8GS8KBzu6YOPQ9puxTghKrGlm0P7Ddh0UHeiS6T4vHQ02Y92M3pz/nq1tvz29su6
-         owv7IFyCTb0sWzdFq2DiTRp+cWS1DmaEfUaxk3pBerVdoi+oTewyOutXC/t2lovT0LIV
-         SxaHs+IXNzWF9NC2jqOOOtc+qQa36bOZNp5KF3mcXreqClEgo07NNzo2rBT40VkGShVD
-         Dn+RLqta3i/Ga+N6BHnErgi9fBcR9IC+mdsTt/ymUUV5LcFzIGarOrNQkGCURTKlecrt
-         X1jg==
-X-Forwarded-Encrypted: i=1; AJvYcCVqZW8JK/X1cWkiAGv/00k6e0zMU5vqo5+ndBUpvelRxS99TGhhq6KKoc3K0rTW7nHk8z00/OXV8KkHJb8vCrTw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5q39dUz650Et5OsfF6LeYkVn0C2bIDmW82GeJxUFG3/G5EXtD
-	P1R3sOemsp+MSpkhAu2D/1qEf4xRYfLEQDL6JGlVAo8u5t7a+eePDJ4EdK7Mo14rA8fCgq4ga/q
-	NSKDjdtFgOtc0z0Hoj5iFNHHHTeDrGnCqAa+1TvHYLeFd7sYR6eehPA==
-X-Gm-Gg: ASbGncsGVoRCtB8LMgFkTZIzcerPo0KHIv8StqDJEqNhATcRTNBxL7U2kl+Aj6FoS5D
-	PDKKjWLF2M4Hkkugvc6t+2xC/3ohgJ4yl4YxRWV4y6Z8bhle+rWlKMSiSMGNO45Xxq0WpLH2a6E
-	4LXdKlSJROIXkWLjxezjFvYAaO5jo=
-X-Google-Smtp-Source: AGHT+IH9KoU4vUjjPFFl/HpklAnLrv8QnpnI/vnq7QrGKUOSlwBJn74UzBQjYlMDiU71pl/whujtfshDhL1bJanCT0o=
-X-Received: by 2002:a05:6870:7815:b0:2c1:9a53:83c4 with SMTP id
- 586e51a60fabf-2cbcf755a40mr7187474fac.26.1743496396402; Tue, 01 Apr 2025
- 01:33:16 -0700 (PDT)
+	Tue, 01 Apr 2025 08:33:58 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C25EE432F5;
+	Tue,  1 Apr 2025 08:33:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1743496431;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AJDvWRqiKkcgB0kMKWyCUi7DBbqUbwOCXbFkkoxLk7o=;
+	b=DqUdA8PPlAAoXI7Ct3xzJfyqwDeHWWZWjnOwFLV0h6nm8ViInZdwRl49YcfzDQfO0HH71B
+	dnJTv+k3itmzkaRutuLUr5Jv2rN9gAkwRihA3C9fNGe553Vw5jwh2FwTwdB0xjF/5whbwP
+	+7gpo8w7rq6rOjp4Ge/+c5rwI3tqWgUzT8HJ6Gjcf+VK7UtzRsyeh2Efgi1ms2tZp0omxo
+	9tXfYZEwQuQM86qUawV2a9bqq0Iwlh7iN6ESsQoqwSWaHOz9pfndVFMtTVZztvSEZD/5rc
+	qjGX6dZjT+fsUTttEadLoexIqjkb04kpnRMa9sI/AXNrdp1Xovaht2IbKyFuqA==
+Date: Tue, 1 Apr 2025 10:33:49 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Alexander H Duyck <alexander.duyck@gmail.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn
+ <andrew@lunn.ch>, davem@davemloft.net, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner
+ Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
+ <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next v5 09/13] net: phylink: Use phy_caps_lookup for
+ fixed-link configuration
+Message-ID: <20250401103349.102e8092@fedora.home>
+In-Reply-To: <44f5c55e5fac60c118cb4d4e99b49e6bf6561295.camel@gmail.com>
+References: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
+	<20250307173611.129125-10-maxime.chevallier@bootlin.com>
+	<8d3a9c9bb76b1c6bc27d2bd01f4831b2cac83f7f.camel@gmail.com>
+	<20250328090621.2d0b3665@fedora-2.home>
+	<CAKgT0Ue_JzmJAPKBhe6XaMkDCy+YNNg5_5VvzOR6CCbqcaQg3Q@mail.gmail.com>
+	<12e3b86d-27aa-420b-8676-97b603abb760@lunn.ch>
+	<CAKgT0UcZRi1Eg2PbBnx0pDG_pCSV8tfELinNoJ-WH4g3CJOh2A@mail.gmail.com>
+	<02c401a4-d255-4f1b-beaf-51a43cc087c5@lunn.ch>
+	<Z-qsnN4umaz0QrG0@shell.armlinux.org.uk>
+	<20250331182000.0d94902a@fedora.home>
+	<44f5c55e5fac60c118cb4d4e99b49e6bf6561295.camel@gmail.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
- <20250305130634.1850178-6-jens.wiklander@linaro.org> <Z-JOPgcWlpTlskgd@sumit-X1>
- <CAHUa44GjpHT5Nqo+Ar5jNYNPV-YJQYpLTCf=7oJ1o0VjP-t0nA@mail.gmail.com> <Z-ucuPzwz4IqVTgb@sumit-X1>
-In-Reply-To: <Z-ucuPzwz4IqVTgb@sumit-X1>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Tue, 1 Apr 2025 10:33:04 +0200
-X-Gm-Features: AQ5f1JrwSW9AJKXv4JPdCzTC-p9MDUHywS1_JUmGEaiaPvfsks0gIEo3VJPjUog
-Message-ID: <CAHUa44FpsCVrbwj1=nsJVJFVJSF1kzKdWAkAMXRu6EdLrLvh8g@mail.gmail.com>
-Subject: Re: [PATCH v6 05/10] tee: implement restricted DMA-heap
-To: Sumit Garg <sumit.garg@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddukedvfeefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddtpdhrtghpthhtoheprghlvgigrghnuggvrhdrughuhigtkhesghhmrghilhdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrt
+ ghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhm
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_013317_631678_F2D2C99D 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20250401_013356_637926_369D38FA 
+X-CRM114-Status: GOOD (  25.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,76 +98,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 1, 2025 at 9:58=E2=80=AFAM Sumit Garg <sumit.garg@kernel.org> w=
-rote:
->
-> On Tue, Mar 25, 2025 at 11:55:46AM +0100, Jens Wiklander wrote:
-> > Hi Sumit,
-> >
->
-> <snip>
->
-> >
-> > >
-> > > > +
-> > > > +#include "tee_private.h"
-> > > > +
-> > > > +struct tee_dma_heap {
-> > > > +     struct dma_heap *heap;
-> > > > +     enum tee_dma_heap_id id;
-> > > > +     struct tee_rstmem_pool *pool;
-> > > > +     struct tee_device *teedev;
-> > > > +     /* Protects pool and teedev above */
-> > > > +     struct mutex mu;
-> > > > +};
-> > > > +
-> > > > +struct tee_heap_buffer {
-> > > > +     struct tee_rstmem_pool *pool;
-> > > > +     struct tee_device *teedev;
-> > > > +     size_t size;
-> > > > +     size_t offs;
-> > > > +     struct sg_table table;
-> > > > +};
-> > > > +
-> > > > +struct tee_heap_attachment {
-> > > > +     struct sg_table table;
-> > > > +     struct device *dev;
-> > > > +};
-> > > > +
-> > > > +struct tee_rstmem_static_pool {
-> > > > +     struct tee_rstmem_pool pool;
-> > > > +     struct gen_pool *gen_pool;
-> > > > +     phys_addr_t pa_base;
-> > > > +};
-> > > > +
-> > > > +#if !IS_MODULE(CONFIG_TEE) && IS_ENABLED(CONFIG_DMABUF_HEAPS)
-> > >
-> > > Can this dependency rather be better managed via Kconfig?
-> >
-> > This was the easiest yet somewhat flexible solution I could find. If
-> > you have something better, let's use that instead.
-> >
->
-> --- a/drivers/tee/optee/Kconfig
-> +++ b/drivers/tee/optee/Kconfig
-> @@ -5,6 +5,7 @@ config OPTEE
->         depends on HAVE_ARM_SMCCC
->         depends on MMU
->         depends on RPMB || !RPMB
-> +       select DMABUF_HEAPS
->         help
->           This implements the OP-TEE Trusted Execution Environment (TEE)
->           driver.
+Hi Alexander,
 
-I wanted to avoid that since there are plenty of use cases where
-DMABUF_HEAPS aren't needed. This seems to do the job:
-+config TEE_DMABUF_HEAP
-+ bool
-+ depends on TEE =3D y && DMABUF_HEAPS
+On Mon, 31 Mar 2025 15:31:23 -0700
+Alexander H Duyck <alexander.duyck@gmail.com> wrote:
 
-We can only use DMABUF_HEAPS if the TEE subsystem is compiled into the kern=
-el.
+> On Mon, 2025-03-31 at 18:20 +0200, Maxime Chevallier wrote:
+> > On Mon, 31 Mar 2025 15:54:20 +0100
+> > "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:  
+> 
+> ...
+> 
+> > I was hoping Alexander could give option 1 a try, but let me know if
+> > you think we should instead adopt option 2, which is probably the safer
+> > on.
+> > 
+> > Maxime  
+> 
+> So I gave it a try, but the results weren't promising. I ended up
+> getting the lp_advertised spammed with all the modes:
+> 
+>     Link partner advertised link modes:  100000baseKR4/Full
+>                                          100000baseSR4/Full
+>                                          100000baseCR4/Full
+>                                          100000baseLR4_ER4/Full
+>                                          100000baseKR2/Full
+>                                          100000baseSR2/Full
+>                                          100000baseCR2/Full
+>                                          100000baseLR2_ER2_FR2/Full
+>                                          100000baseDR2/Full
+>                                          100000baseKR/Full
+>                                          100000baseSR/Full
+>                                          100000baseLR_ER_FR/Full
+>                                          100000baseCR/Full
+>                                          100000baseDR/Full
 
-Cheers,
-Jens
+Thanks for testing, that's the expected outcome for the patch though. Is
+that really an issue ? For fixed links, what report is bogus
+anyways :/ I guess here as you mentioned, the problem is that you don't
+actually have a real fixed link :)
+
+> 
+> In order to resolve it I just made the following change:
+> @@ -713,9 +700,7 @@ static int phylink_parse_fixedlink(struct phylink
+> *pl,
+>                 phylink_warn(pl, "fixed link specifies half duplex for
+> %dMbps link?\n",
+>                              pl->link_config.speed);
+>  
+> -       linkmode_zero(pl->supported);
+> -       phylink_fill_fixedlink_supported(pl->supported);
+> -
+> +       linkmode_fill(pl->supported);
+>         linkmode_copy(pl->link_config.advertising, pl->supported);
+>         phylink_validate(pl, pl->supported, &pl->link_config);
+> 
+
+So this goes back to the <10G modes reporting multiple modes then ?
+
+> 
+> Basically the issue is that I am using the pcs_validate to cleanup my
+> link modes. So the code below this point worked correctly for me. The
+> only issue was the dropping of the other bits.
+> 
+> That is why I mentioned the possibility of maybe adding some sort of
+> follow-on filter function that would go through the upper bits and or
+> them into the filter being run after the original one.
+> 
+> For example there is mask which is used to filter out everything but
+> the pause and autoneg bits. Perhaps we should assemble bits there
+> depending on the TP, FIBER, and BACKPLANE bits to clean out everything
+> but CR, KR, and TP types if those bits are set.
+
+Yeah but where do we get these TP / Fiber / Backplane bits from ? We
+build that list of linkmodes from scratch in that function, only based
+on speed/duplex, we don't know anything about the physical medium at
+that point.
+
+What you are suggesting is something I'm adding in the phy_port work
+actually. You'll be able to say : "This port is a BaseK port" or
+"BaseT" or "it may be baseC or baseL or baseS" and there'll be some
+filtering based on that, although only in what we report to userspace,
+at least for now :)
+
+Maxime
 
