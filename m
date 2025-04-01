@@ -4,158 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53688C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 09:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D4AC36018
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 09:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JChxjhOJDpk/L7xMKEA8swf7OFz4nQt6GYKlE0r1AbI=; b=v0C4JBDJqxyz+7ccgrGrCVYllm
-	CeCShP1hBzStjZH9+qxOhfIgd+SCutOcq3xWiwVhXHl0mOGnoZXTPQiHAK1IC4DFdER4fy9tfOdsa
-	1xC5qWVfYDQeJTsJDwXNa1vjv0slo9BDfWvm9FxYmd2QUgDOEVlA/9ucryRC+vPcXEl3Ftgg1EmVD
-	AiGUxLj7B8X9c9d+R6rUnN1RoV2Zc2sCqpWKPAlKvzxQEuvWstwMYy2YPid89D31XFjFefNABlgYu
-	1rwo6M9GRVwwECfzCALByuydEJAs/Cursom7JJDH6hfY4kNKm6e3cTdxdsMdfzx1bGCWXH/RM8WMP
-	VH3pffjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d1pWGqHR6cFV/on6hr9zUAK2+vRz2SnFBPCDWKehJX8=; b=hq+lO1PrJyFQ8fWyVKfWfJp5Tk
+	tJ+Cq95G/9AvLgJC0Db8s8v7mkNjIrTdq63Zbaje/sJLHHW7nRe6tpaf7sfEOHkyKbS5PXVb4SvP4
+	5NRkWywRMgkQxfAU/w1jonUnYvODKCa31FTIY4ZELgPuCvuEikRe3HfvStKeWJpTNFjBdj4j9kd+r
+	cJA53RyOWHpZS16ZhsQI5S6PHBZcEw1djMvSHp8udezc68n2DmdgZLTjTUaBLcStTmPwlSped/0LS
+	pIgKhlNSO/ZI88DtqN3DrZ3XCT8L97IFZ61LVU1g5HZ9K6LiJg9iCJgRuc57xagrdeAHZo1GSbyE0
+	sTNZGzhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzXnc-00000002SVy-1KIK;
-	Tue, 01 Apr 2025 09:20:48 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1tzXpN-00000002Sr6-2Nvx;
+	Tue, 01 Apr 2025 09:22:37 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzXbK-00000002Ptj-0Smw
+	id 1tzXfn-00000002Qy9-3ZvD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 09:08:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mBnMLTw9wAPMzbRH1Xmyufa9lCRNRwb0XRKB1xs7hcMQJZyVszkFDEPOt0QIcYi6YZHpAwc+d7YZeXqhPp3w8Ntn3B2XmLiNfWOtkyrgNFpevTZR9HdjI/MhDGu8RcsVLvE/cLcaxwUIJOfNqA6TuV4Jx8xzJve3eRo9hVFpBValb4voZV26fFSl+DbdYcptOjBpLjO1AlNi0hs1ZtZaxyCHOSIIKNgoOM48mTQclVb9Pw0iKCFo4TwEUO9LQn4gw3r7tMXDrehaULAj5zIybUuzW/LVFFIeOsll9Jbz+8gfaKPHurTcR7Oho8ls/vB6zHc48Bdly83AMpLwEGxMhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JChxjhOJDpk/L7xMKEA8swf7OFz4nQt6GYKlE0r1AbI=;
- b=BwR3KQ2xcjd65ncJ7nDG+qaLSHfXsTgFUT7k45LQfODVMaFFVj6ap2trFY2/fz0CFV6DPbmYnvZpEUPRGipFB0L8T2Rpw0sgGHJhEiv+Ew+TyJT5M/L+T4mFucm3Xj/NgNqEPQjIpK976BF9Bb1y7jN19718iFyYWe4g752J63dMSIEyXpSo480oMzZk+TCGff5wzkVBs1N2TUP4b4rAbrGYrNsdRGssO044Fy5bbYUg2i6WjhrtV4z4Frsr49ElRK7RZyQ8FJa/LzFeXl59oN3EAC5lEInQIlzsKyH6RjoQCzdZx5ai77ea5uzMfUlT9WeGqWNrTALzUc2s1w5uzA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JChxjhOJDpk/L7xMKEA8swf7OFz4nQt6GYKlE0r1AbI=;
- b=NJsRO3QmarEe+yVwhOxXrMxwhZ3Ldau7yNtTKLEcP2Z/z+ZHdTrwcZoH9wAzwY78ZiSEoVusQqNwBBNb0mYhqSkYeZlc+EtK7BtzZu1W3wPkYYhQFVH7QnKsJRPCeyQ0AihVLZlJ97u3OwYx8AjpK6ckdCi/wWj0158vOa1b7Up4mdlKRxQapBkB2OvASyClMFidzCZbQkVYeJlPUe5/ZafsiATKmq8Knljtouhbrv+MuxDX9O05uJR8QehaVIlrZc6HerEF1SyYE4Pyg427F0Rl2FdlSruZQYag/YXfhrBLOPFm1jLEkJtK6XbRk66SUJO4dN9v/QCxJYlgRo+MRw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by AM9PR04MB7491.eurprd04.prod.outlook.com (2603:10a6:20b:283::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Tue, 1 Apr
- 2025 09:08:03 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8534.052; Tue, 1 Apr 2025
- 09:08:03 +0000
-From: ming.qian@oss.nxp.com
-To: mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl
-Cc: nicolas@ndufresne.ca,
-	sebastian.fricke@collabora.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-imx@nxp.com,
-	xiahong.bao@nxp.com,
-	eagle.zhou@nxp.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v6 2/2] media: amphion: Add a frame flush mode for decoder
-Date: Tue,  1 Apr 2025 17:06:57 +0800
-Message-ID: <20250401090659.1702-2-ming.qian@oss.nxp.com>
-X-Mailer: git-send-email 2.48.1.windows.1
-In-Reply-To: <20250401090659.1702-1-ming.qian@oss.nxp.com>
-References: <20250401090659.1702-1-ming.qian@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR04CA0153.apcprd04.prod.outlook.com (2603:1096:4::15)
- To PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+	Tue, 01 Apr 2025 09:12:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 30C60A444B2;
+	Tue,  1 Apr 2025 09:07:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57C56C4CEE4;
+	Tue,  1 Apr 2025 09:12:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1743498762;
+	bh=0r41yPIFVcQ1Li20z/GWw5daVS0zXqY7Zawex0eTObY=;
+	h=Subject:To:Cc:From:Date:From;
+	b=uZXcZ78idbwCaw/3u5Z8AiDRjUBlR58boNNhMy3rhl9l8JAN6sxvTEE9Q3gVXq/id
+	 58pDH59FRTTh6Dw8FWK/UL6TsdhixlwbsayQzxc1eb21cCmBvlsSDOSNiiSPtBjfGz
+	 juQ92O2Qehf0Ny9/R6moCBXihjSNScQZxu8PtKTI=
+Subject: Patch "ARM: 9350/1: fault: Implement copy_from_kernel_nofault_allowed()" has been added to the 5.10-stable tree
+To: akpm@linux-foundation.org,ardb@kernel.org,ben@decadent.org.uk,broonie@kernel.org,gregkh@linuxfoundation.org,keescook@chromium.org,linux-arm-kernel@lists.infradead.org,rmk+kernel@armlinux.org.uk,wangkefeng.wang@huawei.com
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Tue, 01 Apr 2025 10:11:05 +0100
+Message-ID: <2025040105-rehab-quintuple-4e3d@gregkh>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|AM9PR04MB7491:EE_
-X-MS-Office365-Filtering-Correlation-Id: 12a5a69e-ddb2-4a16-baa4-08dd70fcb4ea
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8nfDEs+m5dhc3PUC8NM6H3LIxXZgM/rbriYe38DEfLkekhgUHc8J24uoBK90?=
- =?us-ascii?Q?R70QWggd1OdtJuKiuV5O2w/yfVyPk52iLgWnZ84McYPiKn/mzWFVjMZHwlRV?=
- =?us-ascii?Q?ZAKelpgZ149NfM4ErvYZ/dl+8IGVMrSWXarvnhEdcVK0b7Ed2UD8fP4/XKsk?=
- =?us-ascii?Q?blXPZ8suDcT52wEkeRgK2oh41kZJka1rpWdbRgYSBruWKeeRXpa+r7AvYux4?=
- =?us-ascii?Q?fSP4KniqaqdUN1g8zx6tvhZuo8c5yShvD/NcvvLfALlS5IbECW9V7rHByowc?=
- =?us-ascii?Q?1ymwql+upAiqW13KcCgVO+/hv9csq3eD5Ldw0ZHl8cfOptfuJ6QJnVkV54Di?=
- =?us-ascii?Q?TRhJNxELlvJ4YNaQt+cxGI9DXxocRjxqSZBe16qQz+WP5CL4gbTl+uRUJ38O?=
- =?us-ascii?Q?x0UQFvcdc5G+tve55sPFDxi0AA9Fce+zvl5iC4PRa53blBtbulzP0tPY6Jpm?=
- =?us-ascii?Q?SeKxjaBJXoPR+S731JiiCbmXnsKwVl0Qmo0Nm5meo9WxrR35NvYC47VzMpDH?=
- =?us-ascii?Q?eqxf7a/eDRQaX8zRl+lkyNOC+btd6sdDfo6mF9X/BUeK7QNIPtcUwQq3cBJ2?=
- =?us-ascii?Q?yQ0PlOETvSrxsTVWRKRzT1OFDM7FA4Sh9CjQiVn1DBwodSZ5jpfBlPPQFJJS?=
- =?us-ascii?Q?rDzGEr+HI4lMTD7hEKCcJ+5KArg84jR50ucOuHYV5lUCthZglucjTXeuscy+?=
- =?us-ascii?Q?M0+tIIru0WSZajELyppukz43yQ9l+bcA/0WxbhDbk4ex6qbaixO+Ar5i1mDY?=
- =?us-ascii?Q?HspOeiBZyvrX1RGesKNWshgiglORvqGJUDUdqMSX+ZYm9GungZ8RYC7F3fdY?=
- =?us-ascii?Q?WVd6PCJpA+xl1OQKB3kjJN9GKheGpkpqKc/wHlcmwuMEyM/sAoxnuchHYzcr?=
- =?us-ascii?Q?g9hwDzQi/rLffaJ8ENQ4OjtbGI4Qh2PzEg204f4+HH7J2d9X5WDCStskOMNA?=
- =?us-ascii?Q?TGzxdCEohTdjN558CtkLru66PCNM6vUoeepefnC323RoyvakBFVQ7qSapnLL?=
- =?us-ascii?Q?BCSb/dOIsfAKPkpb42o/+RiiQebBWrsV4D2rKmwOcqVk+S0NhIygBER7LqRy?=
- =?us-ascii?Q?VG+KWKjAY1dBB4SyINX2C/ahAGXU0oOeGPpFqhiqzgjlVX332bT9SZyF0HGl?=
- =?us-ascii?Q?8J/rk1iyaMAm+Ad71VKaGDRN0cMPQA9/9ZQnTNIrKRGPk3/fAi05mWk4yC13?=
- =?us-ascii?Q?jY53YaKVgOEcTNpQQ9Ad2cupOqGIZsm4yK07pn7hibv5+2a8A9mEhjxxljR3?=
- =?us-ascii?Q?iDFJqP1RHNxR0+W0jPcMD0563MpDcYrgNFm8LERPxV9ZqR5sr13n1/jGoDzs?=
- =?us-ascii?Q?oViF8e+3rTS9jIs9CemJc51nfAecy8MY4ZUgc2fDvm6P75C5jtem0h7regQ4?=
- =?us-ascii?Q?IZzYT0imuPF6GaOUR9vVR3ZQ7EidByOOAftMNJc6dActX7ov6jgFzgaOfIgV?=
- =?us-ascii?Q?ZhukwNikzmMc9gJjA5YztQQsh61DMwD2?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bwa8MpPgDEE++xO1fO1KpChdRNBe7/juUG+TjPkpOWlLvxhuztqhtc7dL14Y?=
- =?us-ascii?Q?MtJDtXzl4zM4As1tc9GfWB98xp4LQV7e2fmvjRfd4nwGTUZxoxueO19EOBeR?=
- =?us-ascii?Q?RlIcgZ6+xxeryCLIzxQVFxc2JKjJEArWvv1J2skwkFX4OFGiYM954A83LTl+?=
- =?us-ascii?Q?IGek+CnthmioMAo7d96QAWxpK6QA2LZRzgdmIRUIoUKBAE+L4G7pjefqQM2Q?=
- =?us-ascii?Q?xqtR2iJcpfmUOm/UTLokTKLTEYo/WgAhuf29aJe5/u15TOnjxmJdM2PHNWkc?=
- =?us-ascii?Q?dJrP7fy7dcEPHFoEiIZV0ONLQY0U06/CBvjJXvQbGfNYkx6F9chcaJfE2FfE?=
- =?us-ascii?Q?QDspUS74HIRfFKrM8ZMgwJEICxW76SIB0PIjMPpGhzMQbWUoPFGZvTRHsDw+?=
- =?us-ascii?Q?CIQL5NKdwfCXZdAdZAWB1pPR0oq1ZjJvlFFJMa8z9SHxshLIGsV1TDeam+xa?=
- =?us-ascii?Q?VvLDgPj0bCICYNAYrat/3BEugC8MKLXy6FwmRB4dAc79lN6nk1ZuSAuN+3xM?=
- =?us-ascii?Q?8R51prVwH1SVW1Xa1UOejjZWaapkELKBTDZOK80Oa837AaQC6aZgI8WMNTsF?=
- =?us-ascii?Q?QquB4jiWZy71R2aEKW+dDu0GQ8x70kgzOYHsqrmtnw9nGRDJZPsrtrXImXfd?=
- =?us-ascii?Q?C/AlUufKLQL3kTc9iLUk8v7zlGYZ/oq003594PmgmYPUihMF35QxRMGqv15Y?=
- =?us-ascii?Q?CJdX3QuMwpGqfQoEar41/KboXW94SD0+8v++ycnMaaUe7HhnC3Ij1D23Y2gn?=
- =?us-ascii?Q?xEJQYr9WdR5NIxT6ZkQGXrchoMcJanBwXowBqbKNM6uDobNO9TC75hlIAxiO?=
- =?us-ascii?Q?RXXUKf7z2ae8KUqSf3Gcznjb20Tb0Q1uICDovZWjvA+oDiDTH3HNfcJ5LgKy?=
- =?us-ascii?Q?pY4nxPeGf9WEB3xUDhSGNLFFF2OmBMyZ9E8cXGw3BCqocLZznGLiVu3Y2Qq5?=
- =?us-ascii?Q?NPNWwT9O85vj8ksJ3PAjU5rybQJS41IpTbtDutJJKiQtlo2+QNbjkxSxLZpY?=
- =?us-ascii?Q?SV6qRfsFnNUeYSSGQu1dWqhuo90k6CB6066ZBHpX+GOhASWzX3z9zG0QYkeo?=
- =?us-ascii?Q?z1oQ5l+qVGMuCKpJrlnzHaP3rs/kU27dOLyYgDryyCO/DDt0gskVMkTFuq1K?=
- =?us-ascii?Q?M8FINKmaaTdw8IUsOmsFGhnYmhps8rKVEa3xZplnMknGM1wy0DT0r3uuDfUN?=
- =?us-ascii?Q?03VBaEvXw4cGuvJ1sLxK1qhZRLnksClkoyRHvJELvEjMuie2Bt7Q3670ump9?=
- =?us-ascii?Q?DuKnmSAguOr8iMZKdU4sJvxZo5dcc3tgn30oz4sJcbzznq9TkhlGAP8/YOLc?=
- =?us-ascii?Q?zWVFURR7CCKq5nwChaLgjxO2hZfqxmuyXnouAen+ZxWyXELdbtA5OIV30S1q?=
- =?us-ascii?Q?0pb7I6BVaYIF/K44nYBLEZdZQA2EGBbbprAY4lzTbcjC+tP5L22w6lwlK5c0?=
- =?us-ascii?Q?wK+vMM5BhORX15VpIAtPJc0isEBvPOBZMbKJ8Jrk6llBhFRJ8snsLpcBYkrD?=
- =?us-ascii?Q?Y0EvMYIe8uoEl2tPahFlsiMpNSvyn3MrzVwe3lemqGUs6OjcpnUoaOgWjeDD?=
- =?us-ascii?Q?QXmZc5xlGHLf9grKM6RfBapo3E0nJg0BZHTIo0UA?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 12a5a69e-ddb2-4a16-baa4-08dd70fcb4ea
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2025 09:08:03.0067
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: welGMze4BvCXZdtPy2BmBiHc7rJEhU2RvFttqmMpp2Mq+PhdFQ3T84JDZDfpT8rpjnfitinRvGDJAxNO46bkeA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7491
+Content-Type: text/plain; charset=ANSI_X3.4-1968
+Content-Transfer-Encoding: 8bit
+X-stable: commit
+X-Patchwork-Hint: ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_020806_167575_977A5AE9 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20250401_021244_031058_30A90A33 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,64 +67,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@oss.nxp.com>
 
-By default the amphion decoder will pre-parse 3 frames before starting
-to decode the first frame. Alternatively, a block of flush padding data
-can be appended to the frame, which will ensure that the decoder can
-start decoding immediately after parsing the flush padding data, thus
-potentially reducing decoding latency.
+This is a note to let you know that I've just added the patch titled
 
-This mode was previously only enabled, when the display delay was set to
-0. Allow the user to manually toggle the use of that mode via a module
-parameter called low_latency, which enables the mode without
-changing the display order.
+    ARM: 9350/1: fault: Implement copy_from_kernel_nofault_allowed()
 
-Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+to the 5.10-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+
+The filename of the patch is:
+     arm-9350-1-fault-implement-copy_from_kernel_nofault_allowed.patch
+and it can be found in the queue-5.10 subdirectory.
+
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From 169f9102f9198b04afffa6164372a4ba4070f412 Mon Sep 17 00:00:00 2001
+From: Kees Cook <keescook@chromium.org>
+Date: Thu, 1 Feb 2024 18:32:58 +0100
+Subject: ARM: 9350/1: fault: Implement copy_from_kernel_nofault_allowed()
+
+From: Kees Cook <keescook@chromium.org>
+
+commit 169f9102f9198b04afffa6164372a4ba4070f412 upstream.
+
+Under PAN emulation when dumping backtraces from things like the
+LKDTM EXEC_USERSPACE test[1], a double fault (which would hang a CPU)
+would happen because of dump_instr() attempting to read a userspace
+address. Make sure copy_from_kernel_nofault() does not attempt this
+any more.
+
+Closes: https://lava.sirena.org.uk/scheduler/job/497571
+Link: https://lore.kernel.org/all/202401181125.D48DCB4C@keescook/ [1]
+
+Reported-by: Mark Brown <broonie@kernel.org>
+Suggested-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Tested-by: Mark Brown <broonie@kernel.org>
+Cc: Wang Kefeng <wangkefeng.wang@huawei.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Ben Hutchings <ben@decadent.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org
+Signed-off-by: Kees Cook <keescook@chromium.org>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
-v4
-- Improve the comment expressing
-v3
-- Improve commit message as recommended
-- Add some comments to avoid code looks cryptic
+ arch/arm/mm/fault.c |    7 +++++++
+ 1 file changed, 7 insertions(+)
 
- drivers/media/platform/amphion/vpu_malone.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/media/platform/amphion/vpu_malone.c
-index 112645b30e15..1b59c77a84db 100644
---- a/drivers/media/platform/amphion/vpu_malone.c
-+++ b/drivers/media/platform/amphion/vpu_malone.c
-@@ -26,6 +26,10 @@
- #include "vpu_imx8q.h"
- #include "vpu_malone.h"
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -24,6 +24,13 @@
  
-+static bool low_latency;
-+module_param(low_latency, bool, 0644);
-+MODULE_PARM_DESC(low_latency, "Set low latency frame flush mode: 0 (disable) or 1 (enable)");
+ #include "fault.h"
+ 
++bool copy_from_kernel_nofault_allowed(const void *unsafe_src, size_t size)
++{
++	unsigned long addr = (unsigned long)unsafe_src;
 +
- #define CMD_SIZE			25600
- #define MSG_SIZE			25600
- #define CODEC_SIZE			0x1000
-@@ -1582,7 +1586,15 @@ static int vpu_malone_input_frame_data(struct vpu_malone_str_buffer __iomem *str
++	return addr >= TASK_SIZE && ULONG_MAX - addr >= size;
++}
++
+ #ifdef CONFIG_MMU
  
- 	vpu_malone_update_wptr(str_buf, wptr);
- 
--	if (disp_imm && !vpu_vb_is_codecconfig(vbuf)) {
-+	/*
-+	 * Enable the low latency flush mode if display delay is set to 0
-+	 * or the low latency frame flush mode if it is set to 1.
-+	 * The low latency flush mode requires some padding data to be appended to each frame,
-+	 * but there must not be any padding data between the sequence header and the frame.
-+	 * This module is currently only supported for the H264 and HEVC formats,
-+	 * for other formats, vpu_malone_add_scode() will return 0.
-+	 */
-+	if ((disp_imm || low_latency) && !vpu_vb_is_codecconfig(vbuf)) {
- 		ret = vpu_malone_add_scode(inst->core->iface,
- 					   inst->id,
- 					   &inst->stream_buffer,
--- 
-2.43.0-rc1
+ /*
 
+
+Patches currently in stable-queue which might be from keescook@chromium.org are
+
+queue-5.10/arm-9350-1-fault-implement-copy_from_kernel_nofault_allowed.patch
+queue-5.10/arm-9351-1-fault-add-cut-here-line-for-prefetch-aborts.patch
 
