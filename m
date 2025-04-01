@@ -4,55 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758F7C3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D6FC36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T/caelYZHfrPt5GIAkUy/0++3k6rFdT+YLbsInDvrY8=; b=gim+NXmAhQKYL5i9++K59WuUpK
-	SB/3szktGb4hRhcNX0RPz76CefE+qoESrqKpSLLy4VyQDdb9FjuqaW1mts5AgxZkVbYwWoETLtyhF
-	UTqMmU17sOo8PffVoUqKhZ3nMhJ8KvYR/4qYSsyvuL+dnNGWduiA3uqj09s6PRFBH5dECNLDLFcjN
-	+VxwBqA97quciHKihlcnXXwjzviSj497Dw30RerurYs+FQ9w9gDVnukn03XvL+4X3qbyQIPNVQDmI
-	x66pSckM+uNg8jF2rCmp73+O/BYscLB9MNYx08/zhqPdqhau8Xvv6sPpsNiXp5dhNbIxDKjQswdW3
-	lQOPidaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xLEx9ag6rRyJwsDWi2eXFnNE5uDiHwvjqDeRRFzSv8M=; b=u59dfoL2Fk56o5Vdom5AbNs7be
+	dXZUZQy4o8eoBsnb1jkX8MOW2mRLoPP+2R1rj6cKJGObL929uJgnFJXZa1HmcGzRfn7sEtzsP/MGo
+	o1a3io9ItcApIJdv3Mf+oAbxt6XXQqZVqd6ymwP19ssOysD2oq8puHdLP2bL4pGj0elK3bze21I0O
+	tQDC12i6xT1afgurFC8ee6ZgqFliiTptfU+c1gPNKRVEpepjJqI2eLW4T1YsBJRtCYFa/lYr7EzD0
+	zss1yF52r1BaKxSckx7L3ZZLuh1YnamaEnnc3Y9JwhSTmU0xA3gf7mWaskNfla8ubllaeTrt2/7xb
+	SjjJcynA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYTm-00000002YmE-2M23;
-	Tue, 01 Apr 2025 10:04:22 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tzYVj-00000002Zgd-2VJm;
+	Tue, 01 Apr 2025 10:06:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzXoN-00000002Sle-2DO5
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 09:21:37 +0000
+	id 1tzY0u-00000002UaD-3FJN;
+	Tue, 01 Apr 2025 09:34:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F3575A4440E;
-	Tue,  1 Apr 2025 09:16:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08251C4CEE4;
-	Tue,  1 Apr 2025 09:21:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1743499294;
-	bh=3XJcyP9cSWdPUJWcEzJ6e1l3veGQ/axLQOZFS0EQXsQ=;
-	h=Subject:To:Cc:From:Date:From;
-	b=sAl5UaIpdXM0+0ofcsdNM0gYVcmnFXgB7wFWiyNucZOLMbqx7vHBHbYv6J14n1vzr
-	 u6j9ymuAud9YG6aqjPD2pSEjy0REVrJjS0pU9T8ShmnrKzzd3Q8ps/cYYYxpYr7iNv
-	 +S3GOaxs0iYqtJi2BxkrggvDdU5t3YzQDAvcpcQM=
-Subject: Patch "ARM: 9351/1: fault: Add "cut here" line for prefetch aborts" has been added to the 6.6-stable tree
-To: ardb@kernel.org,ben@decadent.org.uk,gregkh@linuxfoundation.org,keescook@chromium.org,linux-arm-kernel@lists.infradead.org,rmk+kernel@armlinux.org.uk,wangkefeng.wang@huawei.com
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Tue, 01 Apr 2025 10:19:51 +0100
-Message-ID: <2025040151-eternity-profane-c1d2@gregkh>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 23CDAA435FF;
+	Tue,  1 Apr 2025 09:29:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACD2EC4CEE4;
+	Tue,  1 Apr 2025 09:34:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743500071;
+	bh=7lkAOLmurMCkLel+JEnAt0AfvmrS0keXEItR7INNDXI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tCeV6Q+/pvkhcx91PG1MjGJj26MDQSAzN5cUN18jYSX31tCdizbhkOdQUVKLQZeE7
+	 Qocao8Czzn8TGft7RucqfYzeauAZx18r/0btTdO98PlUhxaVVfyPEXM0DskQPbNMml
+	 EB/eo5sUh/OyMzJi0q3VPqBAlBm+lGndPYI4WUb6SgSmKUILXpAnCl11ryLNZDsJqG
+	 wloIFVT+Vec7yd7goYUcENJGEy7PhnWECr2QEa0PtN3w+I9jWedofCq7OmjkZ81xbx
+	 TWd6No/Ar0t5xZVx050FFRAaCWxjBK8dKFSLbho/6S7BQF7PblesHx41OWKrtv9N4y
+	 wjPVPJ7sB00Hg==
+Date: Tue, 1 Apr 2025 10:34:27 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Davide Caratti <dcaratti@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Fix ETS priomap validation
+Message-ID: <20250401093427.GA214849@horms.kernel.org>
+References: <20250331-airoha-ets-validate-priomap-v1-1-60a524488672@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
-Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250331-airoha-ets-validate-priomap-v1-1-60a524488672@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_022135_654736_6C2F8E5B 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20250401_023432_893155_3A72D818 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,59 +76,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Mar 31, 2025 at 06:17:31PM +0200, Lorenzo Bianconi wrote:
+> ETS Qdisc schedules SP bands in a priority order assigning band-0 the
+> highest priority (band-0 > band-1 > .. > band-n) while EN7581 arranges
+> SP bands in a priority order assigning band-7 the highest priority
+> (band-7 > band-6, .. > band-n).
+> Fix priomap check in airoha_qdma_set_tx_ets_sched routine in order to
+> align ETS Qdisc and airoha_eth driver SP priority ordering.
+> 
+> Fixes: b56e4d660a96 ("net: airoha: Enforce ETS Qdisc priomap")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-This is a note to let you know that I've just added the patch titled
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-    ARM: 9351/1: fault: Add "cut here" line for prefetch aborts
-
-to the 6.6-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
-
-The filename of the patch is:
-     arm-9351-1-fault-add-cut-here-line-for-prefetch-aborts.patch
-and it can be found in the queue-6.6 subdirectory.
-
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
-
-
-From 8f09b8b4fa58e99cbfd9a650b31d65cdbd8e4276 Mon Sep 17 00:00:00 2001
-From: Kees Cook <keescook@chromium.org>
-Date: Thu, 1 Feb 2024 18:32:23 +0100
-Subject: ARM: 9351/1: fault: Add "cut here" line for prefetch aborts
-
-From: Kees Cook <keescook@chromium.org>
-
-commit 8f09b8b4fa58e99cbfd9a650b31d65cdbd8e4276 upstream.
-
-The common pattern in arm is to emit a "8<--- cut here ---" line for
-faults, but it was missing for do_PrefetchAbort(). Add it.
-
-Cc: Wang Kefeng <wangkefeng.wang@huawei.com>
-Cc: Ben Hutchings <ben@decadent.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Kees Cook <keescook@chromium.org>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/arm/mm/fault.c |    1 +
- 1 file changed, 1 insertion(+)
-
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -563,6 +563,7 @@ do_PrefetchAbort(unsigned long addr, uns
- 	if (!inf->fn(addr, ifsr | FSR_LNX_PF, regs))
- 		return;
- 
-+	pr_alert("8<--- cut here ---\n");
- 	pr_alert("Unhandled prefetch abort: %s (0x%03x) at 0x%08lx\n",
- 		inf->name, ifsr, addr);
- 
-
-
-Patches currently in stable-queue which might be from keescook@chromium.org are
-
-queue-6.6/arm-9350-1-fault-implement-copy_from_kernel_nofault_allowed.patch
-queue-6.6/arm-9351-1-fault-add-cut-here-line-for-prefetch-aborts.patch
 
