@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD00C3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 22:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AB21C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 22:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5qKsANY9N47hjadaMZNM56aBAj0f8nczwxZTz9+A9lg=; b=GmzXNfSsLh20bDH00BUpM1M2aX
-	1TLIKNuNgK8Ti9eRMsk3iUdhLH1XwAYmuM3NJ+KaJfxrSfMupAoGFRzrjqkDVI/uhx59LDpjP6ceV
-	d8AB5ffUKBh/xsLEIRJGmVOdsfs4Vo9EauO6bpFaMGABHDxiJ6vFmu66iKo434NMGDdp2POwNxfqU
-	04ZJd65gIW6Uj5NwXim/gbfUGrjBdL/+2VQQYLrIokt+vFF3CpMkxP3C599K80qeG+l/mzcANX1eg
-	a0nCiPIl/Ptn1lzOTq0Fndj+xRihzsQHIwZTU8nMpFtmI+B4JRrvIcqJbRvjXw9Z+xtPFmFAaELT1
-	gt3Br0NQ==;
+	bh=WE2RYtAuL6XafyetA4i4rGhi+kTRRjcAg7H9X1fXSxw=; b=2flApWlL0kiiIdH9pfvS0qD5YD
+	QxmBieMXjT24j5B3ozmV+LjjIaK37FL/zb18/KWSUgumV/K/cghZKUsI1BLiZyKLy0wIU2DzV6iKG
+	JBdBMTaisRj9v9uBWvr41Af6vmlxPJSn6nKrgUGg9Iw+fs0kN1qmIPzCjfb93w1WFWwoKBzDJITzJ
+	+h5kuoKBdUDVYPXRO3NYQTjFZdQSxTt2fb6FwWKqv13lJ8zor4k9q/b5ui0Is5vzackrMlxPP3HxK
+	5LaQ1NymC2L9zjkaYlmcFptK10l6J9PwecFg03EjHAmOBmIdbX2C05ani0L9rLoNgXIM6+OTVf4HQ
+	w9wPcj9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzjvQ-00000004W6N-1kqa;
-	Tue, 01 Apr 2025 22:17:40 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1tzjzj-00000004Wq6-3W7o;
+	Tue, 01 Apr 2025 22:22:07 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tziVl-00000004LIF-491a
+	id 1tzjxy-00000004Wh8-334O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 20:47:07 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-229668c8659so6678795ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 13:47:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743540425; x=1744145225; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=5qKsANY9N47hjadaMZNM56aBAj0f8nczwxZTz9+A9lg=;
-        b=j1lNkFG+qge8sZRlywaW/GQPPfM8It3trFuOd7MvTUpHPuv0QnC84CwlLRusISxcym
-         Ea4TmqlVxGPIWQ43jlXaCKPM4YoI1Oq40016Y9uctbH9zWmAJSQw08dDWtiTCkUYVuua
-         zxvbs5yecAESI16c7Bt6yBDieXznVYaAznumXw4XHM6+X5nbzd9TUcGBF2oAXIXLKiL4
-         mN7rw3mLdHPJNQtSdtHPlUsmmhVjoX6UmbahSQej/gIfcQuc98Q5GyaTaCHlEmrhA9DI
-         ACUPnbqsT4acG7pXIIp9lfGWmM9mUMbjRZgIThIe4cBLkkaJqcGLzAAl5g0zpIOK5qw+
-         6vOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743540425; x=1744145225;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5qKsANY9N47hjadaMZNM56aBAj0f8nczwxZTz9+A9lg=;
-        b=H+DhsvGsL39D5O0ZlsMDNOpY4IdWylVNF36mh0XZv/Gh2bnfvdvpZ2iUhnvLdgMdel
-         yjzfqKavryW/Qc/j7IdhDXznowimPiGRPGh8in0G+yfxKrL6R5Bg0q70B6oXd8f3eIYn
-         ErKR5zqTvxZgivVQ6rjKsZFB2X709Z3JkJkOloU1ve9/4KRUX9Ickd2rYJRZXPgfc4Kv
-         G95ei5yxZLfYCzif6V2F/tD+C/PXoMATdbgRboj/PMfyTrUWtF1/UdVFkfCFEIFuyKkW
-         CugT1yr7AwTuGWK+yWKfxLeo/ApA76GSNtDk848C0M9vcAu9J58BMINDCJ0vlGYwsO9H
-         hzKg==
-X-Forwarded-Encrypted: i=1; AJvYcCV71Dk2a7eo26xvmJroxLwPZ/ojjwwJfdGRazmBth/hLaKqubydtEYC72mlN5KxWAo3LWBVSXtrha5IjFiGeE6Q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6exwY5IWuI9Ap5NTzQvVwQfecGkT30V0CuGY2e4R5i12klr5N
-	+Fat2gRVB5TbNAN09wd1tSaXT3KprS261Z88p9TTjYmx2pscdEOXdQE5xxIMUrb80P6djVOFt4S
-	rJg==
-X-Google-Smtp-Source: AGHT+IFGVv11dt7rUK+obI9Bx4C62kJ/MvcG+5bk3TDAhhA7vlmUxcL80d04RZFegq2L9eKJhwQmELWuf+4=
-X-Received: from pfnz20.prod.google.com ([2002:aa7:85d4:0:b0:730:9951:c9ea])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:84b:b0:736:6279:ca25
- with SMTP id d2e1a72fcca58-73980463170mr23448772b3a.24.1743540425095; Tue, 01
- Apr 2025 13:47:05 -0700 (PDT)
-Date: Tue,  1 Apr 2025 13:44:22 -0700
-In-Reply-To: <20250401204425.904001-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250401204425.904001-1-seanjc@google.com>
-X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
-Message-ID: <20250401204425.904001-11-seanjc@google.com>
-Subject: [PATCH 10/12] KVM: selftests: Assert that eventfd() succeeds in Xen
- shinfo test
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, David Matlack <dmatlack@google.com>, 
-	Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 01 Apr 2025 22:20:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D6DE4A41179;
+	Tue,  1 Apr 2025 22:14:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA6A3C4CEE4;
+	Tue,  1 Apr 2025 22:20:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743546017;
+	bh=PCe4XJj1618IPiPDCpzKGLt3nFoVFS3rRpXBluX4gWY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oeT8KluBovLtL9LKQKukpkY6vRCKRuNBCDXFtrGnD3zYPHmD/NmDqezNOa+tNZfB7
+	 vuBEy6y4lXK7NdyZmG/nTgrmX3sOVJUy+pyASbOxWMYi7kHqLRP804r0q+fYNTFfBx
+	 XvFWshkGNd/q1lZNnZc6/jdXdunYQHX6Ry50cdwTmoXdsrZJjFgxDXiLpJGhByE/cH
+	 POZAE1ZodOHMPK1Kv8tsxqOs2YOHJmtNXToH3qghUagoEmKVYQJuWdTMdK11uX1TDj
+	 mMHiMGLNWLXu8cM0tSoxpKyF2svEJ7SOGnGiQMn6AgaVinm+nbsRCOd74n0aKepW7D
+	 HfTWwQx6scfrA==
+Date: Tue, 1 Apr 2025 17:20:15 -0500
+From: Rob Herring <robh@kernel.org>
+To: Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, christophe.kerello@foss.st.com,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 2/7] dt-bindings: memory-controllers: Add STM32 Octo
+ Memory Manager controller
+Message-ID: <20250401222015.GA4071342-robh@kernel.org>
+References: <20250401-upstream_ospi_v6-v7-0-0ef28513ed81@foss.st.com>
+ <20250401-upstream_ospi_v6-v7-2-0ef28513ed81@foss.st.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250401-upstream_ospi_v6-v7-2-0ef28513ed81@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_134706_052132_B246945D 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250401_152018_902669_D3F989DE 
+X-CRM114-Status: GOOD (  25.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +79,293 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Assert that eventfd() succeeds in the Xen shinfo test instead of skipping
-the associated testcase.  While eventfd() is outside the scope of KVM, KVM
-unconditionally selects EVENTFD, i.e. the syscall should always succeed.
+On Tue, Apr 01, 2025 at 02:21:46PM +0200, Patrice Chotard wrote:
+> Add bindings for STM32 Octo Memory Manager (OMM) controller.
+> 
+> OMM manages:
+>   - the muxing between 2 OSPI busses and 2 output ports.
+>     There are 4 possible muxing configurations:
+>       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
+>         output is on port 2
+>       - OSPI1 and OSPI2 are multiplexed over the same output port 1
+>       - swapped mode (no multiplexing), OSPI1 output is on port 2,
+>         OSPI2 output is on port 1
+>       - OSPI1 and OSPI2 are multiplexed over the same output port 2
+>   - the split of the memory area shared between the 2 OSPI instances.
+>   - chip select selection override.
+>   - the time between 2 transactions in multiplexed mode.
+> 
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> ---
+>  .../memory-controllers/st,stm32mp25-omm.yaml       | 227 +++++++++++++++++++++
+>  1 file changed, 227 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml b/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..c028bc5341f5072afbed1e435b43245952e50300
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
+> @@ -0,0 +1,227 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/memory-controllers/st,stm32mp25-omm.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: STM32 Octo Memory Manager (OMM)
+> +
+> +maintainers:
+> +  - Patrice Chotard <patrice.chotard@foss.st.com>
+> +
+> +description: |
+> +  The STM32 Octo Memory Manager is a low-level interface that enables an
+> +  efficient OCTOSPI pin assignment with a full I/O matrix (before alternate
+> +  function map) and multiplex of single/dual/quad/octal SPI interfaces over
+> +  the same bus. It Supports up to:
+> +    - Two single/dual/quad/octal SPI interfaces
+> +    - Two ports for pin assignment
+> +
+> +properties:
+> +  compatible:
+> +    const: st,stm32mp25-omm
+> +
+> +  "#address-cells":
+> +    const: 2
+> +
+> +  "#size-cells":
+> +    const: 1
+> +
+> +  ranges:
+> +    description: |
+> +      Reflects the memory layout per OSPI instance.
+> +      Format:
+> +      <chip-select> 0 <registers base address> <size>
+> +    minItems: 2
+> +    maxItems: 2
+> +
+> +  reg:
+> +    items:
+> +      - description: OMM registers
+> +      - description: OMM memory map area
+> +
+> +  reg-names:
+> +    items:
+> +      - const: regs
+> +      - const: memory_map
+> +
+> +  memory-region:
+> +    description:
+> +      Memory region shared between the 2 OCTOSPI instance.
+> +      One or two phandle to a node describing a memory mapped region
+> +      depending of child number.
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  memory-region-names:
+> +    description:
+> +      Identify to which OSPI instance the memory region belongs to.
+> +    items:
+> +      enum: [ospi1, ospi2]
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  clocks:
+> +    minItems: 3
+> +    maxItems: 3
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- tools/testing/selftests/kvm/x86/xen_shinfo_test.c | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+Just maxItems is enough.
 
-diff --git a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-index 287829f850f7..34d180cf4eed 100644
---- a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-+++ b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-@@ -548,14 +548,11 @@ int main(int argc, char *argv[])
- 
- 	if (do_eventfd_tests) {
- 		irq_fd[0] = eventfd(0, 0);
-+		TEST_ASSERT(irq_fd[0] >= 0, __KVM_SYSCALL_ERROR("eventfd()", irq_fd[0]));
-+
- 		irq_fd[1] = eventfd(0, 0);
-+		TEST_ASSERT(irq_fd[1] >= 0, __KVM_SYSCALL_ERROR("eventfd()", irq_fd[1]));
- 
--		/* Unexpected, but not a KVM failure */
--		if (irq_fd[0] == -1 || irq_fd[1] == -1)
--			do_evtchn_tests = do_eventfd_tests = false;
--	}
--
--	if (do_eventfd_tests) {
- 		irq_routes.info.nr = 2;
- 
- 		irq_routes.entries[0].gsi = 32;
--- 
-2.49.0.504.g3bcea36a83-goog
+> +
+> +  clock-names:
+> +    items:
+> +      - const: omm
+> +      - const: ospi1
+> +      - const: ospi2
+> +
+> +  resets:
+> +    minItems: 3
+> +    maxItems: 3
 
+Same here.
+
+> +
+> +  reset-names:
+> +    items:
+> +      - const: omm
+> +      - const: ospi1
+> +      - const: ospi2
+> +
+> +  access-controllers:
+> +    maxItems: 1
+> +
+> +  st,syscfg-amcr:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description: |
+> +      The Address Mapping Control Register (AMCR) is used to split the 256MB
+> +      memory map area shared between the 2 OSPI instance. The Octo Memory
+> +      Manager sets the AMCR depending of the memory-region configuration.
+> +      The memory split bitmask description is:
+> +        - 000: OCTOSPI1 (256 Mbytes), OCTOSPI2 unmapped
+> +        - 001: OCTOSPI1 (192 Mbytes), OCTOSPI2 (64 Mbytes)
+> +        - 010: OCTOSPI1 (128 Mbytes), OCTOSPI2 (128 Mbytes)
+> +        - 011: OCTOSPI1 (64 Mbytes), OCTOSPI2 (192 Mbytes)
+> +        - 1xx: OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
+> +    items:
+> +      - description: phandle to syscfg
+> +      - description: register offset within syscfg
+> +      - description: register bitmask for memory split
+
+This needs to be:
+
+items:
+  - items:
+      - description: ...
+      - description: ...
+      - description: ...
+
+'phandle-array' name was poorly chosen and is really a matrix of 
+phandle plus arg cell entries.
+
+> +
+> +  st,omm-req2ack-ns:
+> +    description:
+> +      In multiplexed mode (MUXEN = 1), this field defines the time in
+> +      nanoseconds between two transactions.
+> +    default: 0
+> +
+> +  st,omm-cssel-ovr:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: |
+> +      Configure the chip select selector override for the 2 OCTOSPIs.
+> +      - 0: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS1
+> +      - 1: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS1
+> +      - 2: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS2
+> +      - 3: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS2
+> +    minimum: 0
+> +    maximum: 3
+> +    default: 0
+> +
+> +  st,omm-mux:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: |
+> +      Configure the muxing between the 2 OCTOSPIs busses and the 2 output ports.
+> +      - 0: direct mode
+> +      - 1: mux OCTOSPI1 and OCTOSPI2 to port 1
+> +      - 2: swapped mode
+> +      - 3: mux OCTOSPI1 and OCTOSPI2 to port 2
+> +    minimum: 0
+> +    maximum: 3
+> +    default: 0
+> +
+> +  power-domains:
+> +    maxItems: 1
+
+Standard properties go before vendor specific properties.
+
+> +
+> +patternProperties:
+> +  ^spi@[0-9]:
+> +    type: object
+> +    $ref: /schemas/spi/st,stm32mp25-ospi.yaml#
+> +    description: Required spi child node
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +  - st,syscfg-amcr
+> +  - ranges
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
+> +    ommanager@40500000 {
+> +      compatible = "st,stm32mp25-omm";
+> +      reg = <0x40500000 0x400>, <0x60000000 0x10000000>;
+> +      reg-names = "regs", "memory_map";
+> +      ranges = <0 0 0x40430000 0x400>,
+> +               <1 0 0x40440000 0x400>;
+> +      memory-region = <&mm_ospi1>, <&mm_ospi2>;
+> +      memory-region-names = "ospi1", "ospi2";
+> +      pinctrl-0 = <&ospi_port1_clk_pins_a
+> +                   &ospi_port1_io03_pins_a
+> +                   &ospi_port1_cs0_pins_a>;
+> +      pinctrl-1 = <&ospi_port1_clk_sleep_pins_a
+> +                   &ospi_port1_io03_sleep_pins_a
+> +                   &ospi_port1_cs0_sleep_pins_a>;
+> +      pinctrl-names = "default", "sleep";
+> +      clocks = <&rcc CK_BUS_OSPIIOM>,
+> +               <&scmi_clk CK_SCMI_OSPI1>,
+> +               <&scmi_clk CK_SCMI_OSPI2>;
+> +      clock-names = "omm", "ospi1", "ospi2";
+> +      resets = <&rcc OSPIIOM_R>,
+> +               <&scmi_reset RST_SCMI_OSPI1>,
+> +               <&scmi_reset RST_SCMI_OSPI2>;
+> +      reset-names = "omm", "ospi1", "ospi2";
+> +      access-controllers = <&rifsc 111>;
+> +      power-domains = <&CLUSTER_PD>;
+> +      #address-cells = <2>;
+> +      #size-cells = <1>;
+> +      st,syscfg-amcr = <&syscfg 0x2c00 0x7>;
+> +      st,omm-req2ack-ns = <0>;
+> +      st,omm-mux = <0>;
+> +      st,omm-cssel-ovr = <0>;
+> +
+> +      spi@0 {
+> +        compatible = "st,stm32mp25-ospi";
+> +        reg = <0 0 0x400>;
+> +        memory-region = <&mm_ospi1>;
+> +        interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
+> +        dmas = <&hpdma 2 0x62 0x00003121 0x0>,
+> +               <&hpdma 2 0x42 0x00003112 0x0>;
+> +        dma-names = "tx", "rx";
+> +        clocks = <&scmi_clk CK_SCMI_OSPI1>;
+> +        resets = <&scmi_reset RST_SCMI_OSPI1>, <&scmi_reset RST_SCMI_OSPI1DLL>;
+
+Looks like you are duplicating properties in the parent and child nodes. 
+Maybe that accurately models the h/w, but if it is just so the drivers 
+can get the resources from "the driver's node", you can always just look 
+in the child nodes for the resources (as probably you want to drop the 
+per instance resources from the parent).
+
+> +        access-controllers = <&rifsc 74>;
+> +        power-domains = <&CLUSTER_PD>;
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +        st,syscfg-dlyb = <&syscfg 0x1000>;
+> +      };
+> +
+> +      spi@1 {
+> +        compatible = "st,stm32mp25-ospi";
+> +        reg = <1 0 0x400>;
+> +        memory-region = <&mm_ospi1>;
+> +        interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
+> +        dmas = <&hpdma 3 0x62 0x00003121 0x0>,
+> +               <&hpdma 3 0x42 0x00003112 0x0>;
+> +        dma-names = "tx", "rx";
+> +        clocks = <&scmi_clk CK_KER_OSPI2>;
+> +        resets = <&scmi_reset RST_SCMI_OSPI2>, <&scmi_reset RST_SCMI_OSPI1DLL>;
+> +        access-controllers = <&rifsc 75>;
+> +        power-domains = <&CLUSTER_PD>;
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +        st,syscfg-dlyb = <&syscfg 0x1000>;
+> +      };
+> +    };
+> 
+> -- 
+> 2.25.1
+> 
 
