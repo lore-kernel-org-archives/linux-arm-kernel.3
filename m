@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AEFCC36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 13:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FFE6C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 13:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3u5KPB8g1UKvvqA8vB6epeTkayE9kNOIoRw4sBjIkk=; b=1G2SD/3g99JC9yQ7O4K/3ws4qc
-	slQiUzTgbTdmp/PFxRhTTTME18kuAuo94jMK0eMrA2cVzmIrbaYMYrG5qkM93mtjEn951GfeJFHi1
-	dY+73lL29JT7I3ii+Veis8JNxwKJfxPmY3Tjrx6kgz8yZZKD09ppyf52+X9kXQDFtNV7mTsTK/cKI
-	qrFy3VBzffYbuxHV6Lan+Qmq18gOc9aXIFihp54W266imRWvEqVl9TPKTcMIVLacacw2d/a/rIEaG
-	KUJo7HAvjh57AhhYBmE3fXQ6zCvUmZQRKKpEJhNts6oEngRku06G7xmmVwyt4Bb+ZG4RiWQKj3NN3
-	URPNNkuA==;
+	bh=rQWW+6GJT6SMKoyIQM+lsAzbcfqDVW6okh5ggmHwFxw=; b=yezJh7LELNE7R3OQkQu9Ja8Fu/
+	6eYQL9RJgOod0mdfVZ+WpepqWd/nECoB8d4ICwzBoAWF9UMJIcsOANztgmWwCwvIl33qRBVB2D/Gc
+	IWOB7IV6FOK1Hlvwp6jlwX0VqCAei5jngL6TOkoH4Bb6fddNexQtxWJWreBv9MgnfO6rrhh0zTPOk
+	ZLdGwGky4vu8UUE12+m3hTnkmWFZJsoMW6sysdWQh+M4i8L7Y5P58xOJJPXy7H2xG0dqIhdB5wgSY
+	0vqeYPC/tUwiMpRrRc+TPLAGGEv6Ezavl6TRCpCtPaP1LDrClF3ziOcWqZNPD0H3BGdAw2bIobsM1
+	BqEIyElQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzbG4-00000003NkK-3kCV;
-	Tue, 01 Apr 2025 13:02:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzb9l-00000003Mbj-3ldZ
+	id 1tzbHq-00000003O6F-2ofU;
+	Tue, 01 Apr 2025 13:04:14 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzbDy-00000003NMk-1zOU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 12:55:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B52AD150C;
-	Tue,  1 Apr 2025 05:55:54 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 409373F694;
-	Tue,  1 Apr 2025 05:55:48 -0700 (PDT)
-Date: Tue, 1 Apr 2025 13:55:45 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Quentin Perret <qperret@google.com>
-Cc: Sebastian Ene <sebastianene@google.com>, catalin.marinas@arm.com,
-	joey.gouly@arm.com, maz@kernel.org, oliver.upton@linux.dev,
-	Sudeep Holla <sudeep.holla@arm.com>, snehalreddy@google.com,
-	suzuki.poulose@arm.com, vdonnefort@google.com, will@kernel.org,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com, Andrei Homescu <ahomescu@google.com>
-Subject: Re: [PATCH v4 3/3] KVM: arm64: Release the ownership of the hyp rx
- buffer to Trustzone
-Message-ID: <20250401-innocent-outrageous-deer-0946c5@sudeepholla>
-References: <20250326113901.3308804-1-sebastianene@google.com>
- <20250326113901.3308804-4-sebastianene@google.com>
- <Z-Qv4b0vgVql2yOb@google.com>
- <Z-UcW32Hk6f_cuxc@google.com>
- <Z-aKgXVjp4nNJcLd@google.com>
- <Z-avzxyyOiaIk3-C@google.com>
- <Z-vVZt6RTNX90uEw@google.com>
+	Tue, 01 Apr 2025 13:00:16 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 1F677240027
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Apr 2025 15:00:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=posteo.net; s=2017;
+	t=1743512411; bh=DzC9bukHy47TjGfwcug8gM7evmzmuBLiRPZ4FYnSoOU=;
+	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:From;
+	b=KcC27z+1Skglm25OKuxiO3aOVwBu6LWCxDrTfL+KZIo8jba2WPpMRawGb9xp64Dln
+	 qR9PDCvt+D+n3cl4DtMMdMVJOrm4rsKsiKEbwMdahVXMWUQwzX7M6oE7cbUf7e8iYh
+	 q4iiLzaGNEEdU/D3UjDqEnFJaLYg7BszvhgTpr+/xSPm9wBuWo2jWbQkwCEnSQwBy6
+	 iucE2U9GlxFByRzTiiE3PS1pIIpLMP7nzb5kwLkctiehJz8QWGb3xRvQwxh+Q7oh7K
+	 KArnw9Vs7jEF9PhLby0MEcGoVnw7Kij4BF6Ck+dLRwsIxSLYOg6/d0/xBnwX5dKiYM
+	 zVWbhBGaKMwoA==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4ZRp4m3h9Mz9rxQ;
+	Tue,  1 Apr 2025 15:00:08 +0200 (CEST)
+Date: Tue,  1 Apr 2025 13:00:08 +0000
+From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: j.ne@posteo.net, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH 3/3] ARM: dts: amlogic: Add TCU Fernsehfee 3.0
+Message-ID: <Z-vjWFFWvo1gesCe@probook>
+References: <20250323-fernsehfee-v1-0-2621341cd37a@posteo.net>
+ <20250323-fernsehfee-v1-3-2621341cd37a@posteo.net>
+ <CAFBinCD13CNuxRkrSoPXUMNQ9AJH7UV0gsOfdgeRKhkXsANgnw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <Z-vVZt6RTNX90uEw@google.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAFBinCD13CNuxRkrSoPXUMNQ9AJH7UV0gsOfdgeRKhkXsANgnw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_055553_986036_65AD8F35 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20250401_060014_784962_9446F698 
+X-CRM114-Status: GOOD (  26.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +81,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 12:00:38PM +0000, Quentin Perret wrote:
-> On Friday 28 Mar 2025 at 14:18:55 (+0000), Sebastian Ene wrote:
-> > 
-> > If we apply what I suggested earlier we won't have an issue with the
-> > semantic for this call but it would make the code a mess. I don't think
-> > for this particular call keeping semantics really makes a difference.
+On Sun, Mar 30, 2025 at 11:10:28PM +0200, Martin Blumenstingl wrote:
+> Thanks for your patch!
 > 
-> Right, if we implemented the release call properly in pKVM I'd be happy
-> with this patch, but I just don't think we should only do one half. We
-> either do it properly in pKVM or leave it with to the host -- the latter
-> feels simpler to me, but no strong opinions.
+> On Sun, Mar 23, 2025 at 1:38 PM J. Neuschäfer via B4 Relay
+> <devnull+j.ne.posteo.net@kernel.org> wrote:
+> [...]
+> > +               eth_phy0: ethernet-phy@0 {
+> > +                       /* IC Plus IP101A (0x02430c54) */
+> > +                       reg = <0>;
+> Does reg = <1> also work on your board?
+> 0 is the broadcast address. It's unfortunately something that we still
+> have incorrect in a lot of .dts files.
+
+Unfortunately not. I tried addresses 1 to 31 without success, which
+seems strange; my guess was that the PHY should respond to one of them.
+I get this error:
+
+# ip l set eth0 up
+[    6.806847] meson6-dwmac c9410000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
+[    6.810609] meson6-dwmac c9410000.ethernet eth0: __stmmac_open: Cannot attach to PHY (error: -19)
+
+
 > 
+> [...]
+> > +&i2c_AO {
+> > +       status = "okay";
+> > +       pinctrl-0 = <&i2c_ao_pins>;
+> > +       pinctrl-names = "default";
+> > +
+> > +       pmic@32 {
+> > +               compatible = "ricoh,rn5t618";
+> > +               reg = <0x32>;
+> > +               system-power-controller;
+> Here I'm a bit surprised:
+> Aren't some of the outputs used to drive VCCK (CPU power rail) and
+> VDDEE (everything else power rail, which also powers the GPU)?
 
-FYI:
+Unfortunately I don't have schematics and I wasn't able to trace the
+connections on the board because they're so tiny. So it's quite possible that
+you're right, but I can't be sure.
 
-As part of the earlier discussion with respect to clarification on this
-from the FF-A spec, I found even the driver was not handling this correctly.
-I have posted the fix since and plan to get it merged as fix for v6.15
+Are there voltage sensors in the Meson8 SoC that I could use to establishs the
+relation between PMIC outputs and SoC supplies?
 
--- 
-Regards,
-Sudeep
+> 
+> [...]
+> > +&usb1 {
+> > +       status = "okay";
+> > +       dr_mode = "host";
+> > +       /*
+> > +        * This bus features a Realtek RTL8188 2.4GHz WiFi module, with a
+> > +        * 3.3V supply voltage that must be enabled before use.
+> > +        */
+> > +       vbus-supply = <&wifi_3v3>;
+> If you want to go for perfection then you can use
+> Documentation/devicetree/bindings/sound/xmos,xvf3500.yaml as
+> reference.
+> It's also an "onboard" USB device which requires toggling a GPIO and regulators.
+> The driver side is super easy to manage as it's generic (meaning: it
+> parses any GPIO and regulator as long as the USB ID is registered):
+> drivers/usb/misc/onboard_usb_dev.c
 
-[1] https://lore.kernel.org/r/20250321115700.3525197-1-sudeep.holla@arm.com
+I considered using onboard_usb_dev, but then came to the conclusion that
+I don't need it because I don't need reset sequencing, only power.
+
+> That way you can just describe the RTL8188 on the USB bus and assign
+> it's vd33-supply without having to (ab)use vbus-supply of the USB
+> controller.
+
+This does sound reasonable. I'll reconsider the onboard_usb_dev
+approach.
+
+> 
+> [...]
+> > +               sdxc_c_pins: sdxc-c {
+> > +                       mux {
+> > +                               groups = "sdxc_d0_c", "sdxc_d13_c",
+> > +                                       "sdxc_clk_c", "sdxc_cmd_c",
+> > +                                       "sdxc_d47_c";
+> > +                               function = "sdxc_c";
+> > +                               bias_pull_up;
+> This has to be bias-pull-up (dashes instead of underscores).
+
+Oh, good catch, I'll fix it.
+
+
+Thanks for your review,
+J. Neuschäfer
 
