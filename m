@@ -4,56 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2DC9C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 13:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2684C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 13:36:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w/t0u/k0CKWbf2W5kcdUnS1+dutbWIEp+uQEitaYN9g=; b=d7f3LbrNvdBwFA/66hnWB2xfH9
-	qfwQLIZXxNI+9L0nZnnrhNa5j1DLO5569UkuRSJV2e9t4WBEhw6aUAwnMmD60U6WRcFWLpaIaFSnP
-	7BYQGWt96sFkTjTVpOcmJuVZwAwcy58MxIFqxmpE0c7YiKwfNqN4yq0ac5REG5SIT6MvvsV/7ZFFo
-	fRRk9e3/mwgUdsg94xCcXhSaIrJkMwZQtEVYWngH6TFj6Aksf3fqpTfFCHqAzZyLiEgrfS2ziTyDn
-	cbZqjBkOZoQGVSIL2j2Qmy24LtkVM2LegdlLiK0q0UrX1H4HdA6Q2XTLniKuJSO7nb3ivy/w0uU0V
-	xtbm1phw==;
+	bh=OBSmAf96K9K37XWBnmUNvBRxxbqCThNLvDtTH19N198=; b=ix9w10M7NT5XRWhKPdiuwIPy5q
+	Kk2MTHsMo7F2evNOqS6cGPflB/TcWmryhZJl2eNugqeERRGJ6Op2f0s4UVCSY25Bsa9wTsOg75Zsv
+	PuJrLZxDMjRzbjxyuWmH9fAUQRW405KKzT04+3613Eu2j8epImqBE3yeUa2vIRzepEDjWeEopqEGa
+	633NRWCuYMcSb+Iny9CMH1n6uyKp+5nrc547OJptu9ib0cXvqB4XkXRIPU1kfiONI9u1BiLaH5AfW
+	/+ZTGtCKvxFVVq+uHV4RLB6HHPdBlCTakxNn5XJl8sgz3uTdMdEvPTozaDeS89JYVe8nyiJfN9EOI
+	f6jdIDEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzblB-00000003Rzp-3LVT;
-	Tue, 01 Apr 2025 13:34:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzbia-00000003Rbr-19CG
+	id 1tzbmx-00000003SaY-0o2U;
+	Tue, 01 Apr 2025 13:36:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzbl1-00000003Rxz-0O2s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 13:31:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF3D61424;
-	Tue,  1 Apr 2025 06:31:54 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E1723F694;
-	Tue,  1 Apr 2025 06:31:50 -0700 (PDT)
-Message-ID: <cf88ccd7-a95e-455e-a194-895dcc393c5b@arm.com>
-Date: Tue, 1 Apr 2025 14:31:49 +0100
+	Tue, 01 Apr 2025 13:34:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 860606112D;
+	Tue,  1 Apr 2025 13:34:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77EB7C4CEE4;
+	Tue,  1 Apr 2025 13:34:20 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Angelos Oikonomopoulos <angelos@igalia.com>
+Cc: Will Deacon <will@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	kernel-dev@igalia.com,
+	anshuman.khandual@arm.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3] arm64: Don't call NULL in do_compat_alignment_fixup
+Date: Tue,  1 Apr 2025 14:34:18 +0100
+Message-Id: <174351444424.198539.17675821891390639702.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250401085150.148313-1-angelos@igalia.com>
+References: <20250401085150.148313-1-angelos@igalia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: catu: Introduce refcount and spinlock for
- enabling/disabling
-To: James Clark <james.clark@linaro.org>, Yabin Cui <yabinc@google.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Leo Yan <leo.yan@arm.com>
-References: <20250328223837.2314277-1-yabinc@google.com>
- <ea366793-4c27-44af-9b6b-8964c4151416@linaro.org>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <ea366793-4c27-44af-9b6b-8964c4151416@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_063152_405037_C82D0122 
-X-CRM114-Status: GOOD (  34.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,178 +63,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/03/2025 15:24, James Clark wrote:
+On Tue, 01 Apr 2025 10:51:50 +0200, Angelos Oikonomopoulos wrote:
+> do_alignment_t32_to_handler only fixes up alignment faults for specific
+> instructions; it returns NULL otherwise. When that's the case, signal to
+> the caller that it needs to proceed with the regular alignment fault
+> handling (i.e. SIGBUS). Without this patch, we get:
 > 
+>   Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+>   Mem abort info:
+>     ESR = 0x0000000086000006
+>     EC = 0x21: IABT (current EL), IL = 32 bits
+>     SET = 0, FnV = 0
+>     EA = 0, S1PTW = 0
+>     FSC = 0x06: level 2 translation fault
+>   user pgtable: 4k pages, 48-bit VAs, pgdp=00000800164aa000
+>   [0000000000000000] pgd=0800081fdbd22003, p4d=0800081fdbd22003, pud=08000815d51c6003, pmd=0000000000000000
+>   Internal error: Oops: 0000000086000006 [#1] SMP
+>   Modules linked in: cfg80211 rfkill xt_nat xt_tcpudp xt_conntrack nft_chain_nat xt_MASQUERADE nf_nat nf_conntrack_netlink nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 xfrm_user xfrm_algo xt_addrtype nft_compat br_netfilter veth nvme_fa>
+>    libcrc32c crc32c_generic raid0 multipath linear dm_mod dax raid1 md_mod xhci_pci nvme xhci_hcd nvme_core t10_pi usbcore igb crc64_rocksoft crc64 crc_t10dif crct10dif_generic crct10dif_ce crct10dif_common usb_common i2c_algo_bit i2c>
+>   CPU: 2 PID: 3932954 Comm: WPEWebProcess Not tainted 6.1.0-31-arm64 #1  Debian 6.1.128-1
+>   Hardware name: GIGABYTE MP32-AR1-00/MP32-AR1-00, BIOS F18v (SCP: 1.08.20211002) 12/01/2021
+>   pstate: 80400009 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>   pc : 0x0
+>   lr : do_compat_alignment_fixup+0xd8/0x3dc
+>   sp : ffff80000f973dd0
+>   x29: ffff80000f973dd0 x28: ffff081b42526180 x27: 0000000000000000
+>   x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
+>   x23: 0000000000000004 x22: 0000000000000000 x21: 0000000000000001
+>   x20: 00000000e8551f00 x19: ffff80000f973eb0 x18: 0000000000000000
+>   x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+>   x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+>   x11: 0000000000000000 x10: 0000000000000000 x9 : ffffaebc949bc488
+>   x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
+>   x5 : 0000000000400000 x4 : 0000fffffffffffe x3 : 0000000000000000
+>   x2 : ffff80000f973eb0 x1 : 00000000e8551f00 x0 : 0000000000000001
+>   Call trace:
+>    0x0
+>    do_alignment_fault+0x40/0x50
+>    do_mem_abort+0x4c/0xa0
+>    el0_da+0x48/0xf0
+>    el0t_32_sync_handler+0x110/0x140
+>    el0t_32_sync+0x190/0x194
+>   Code: bad PC value
+>   ---[ end trace 0000000000000000 ]---
 > 
-> On 28/03/2025 10:38 pm, Yabin Cui wrote:
->> When tracing ETM data on multiple CPUs concurrently via the
->> perf interface, the CATU device is shared across different CPU
->> paths. This can lead to race conditions when multiple CPUs attempt
->> to enable or disable the CATU device simultaneously.
->>
->> To address these race conditions, this patch introduces the
->> following changes:
->>
->> 1. The enable and disable operations for the CATU device are not
->>     reentrant. Therefore, a spinlock is added to ensure that only
->>     one CPU can enable or disable a given CATU device at any point
->>     in time.
->>
->> 2. A reference counter is used to manage the enable/disable state
->>     of the CATU device. The device is enabled when the first CPU
->>     requires it and is only disabled when the last CPU finishes
->>     using it. This ensures the device remains active as long as at
->>     least one CPU needs it.
->>
->> Signed-off-by: Yabin Cui <yabinc@google.com>
->> ---
->>   drivers/hwtracing/coresight/coresight-catu.c | 29 ++++++++++++++------
->>   drivers/hwtracing/coresight/coresight-catu.h |  1 +
->>   2 files changed, 22 insertions(+), 8 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/ 
->> hwtracing/coresight/coresight-catu.c
->> index 275cc0d9f505..834a7ffbbdbc 100644
->> --- a/drivers/hwtracing/coresight/coresight-catu.c
->> +++ b/drivers/hwtracing/coresight/coresight-catu.c
->> @@ -458,12 +458,19 @@ static int catu_enable_hw(struct catu_drvdata 
->> *drvdata, enum cs_mode cs_mode,
->>   static int catu_enable(struct coresight_device *csdev, enum cs_mode 
->> mode,
->>                  void *data)
->>   {
->> -    int rc;
->> +    int rc = 0;
->> +    unsigned long flags;
->>       struct catu_drvdata *catu_drvdata = csdev_to_catu_drvdata(csdev);
->> -    CS_UNLOCK(catu_drvdata->base);
->> -    rc = catu_enable_hw(catu_drvdata, mode, data);
->> -    CS_LOCK(catu_drvdata->base);
->> +    spin_lock_irqsave(&catu_drvdata->spinlock, flags);
-> 
-> Hi Yabin,
-> 
-> This needs to be a raw_spinlock since [1]. Also you might as well use 
-> the new guard() thing to save someone find-and-replacing it later.
-> 
-> But I'm wondering if this is accurate. The ETR's refcount is dependent 
-> on the pid of the owner of the trace session:
-> 
->    /* Do not proceed if this device is associated with another session */
->    if (drvdata->pid != -1 && drvdata->pid != pid) {
->      rc = -EBUSY;
->      goto unlock_out;
->    }
-> 
->    /*
->     * No HW configuration is needed if the sink is already in
->     * use for this session.
->     */
->    if (drvdata->pid == pid) {
->      csdev->refcnt++;
->      goto unlock_out;
->    }
-> 
-> If the helpers get enabled first, could this mean that CATU gets 
-> associated with a different session than the ETR? 
+> [...]
 
-Thats a good point, I looked at the code and :
+Applied to arm64 (for-next/core), thanks!
 
-I think we have a bug here, w.r.t helpers and Sinks. We enable the
-helpers (e.g. CATU) and then we try the actual sink (e.g. ETR). And
-if we fail to enable ETR, we don't disable the helpers.
+[1/1] arm64: Don't call NULL in do_compat_alignment_fixup
+      https://git.kernel.org/arm64/c/c28f31deeacd
 
-
-We have this today :
-
-	case CORESIGHT_DEV_TYPE_SINK:
-		ret = coresight_enable_sink(csdev, mode, sink_data);
-		/*
-		 * Sink is the first component turned on. If we
-		 * failed to enable the sink, there are no components
-		 * that need disabling. Disabling the path here
-		 * would mean we could disrupt an existing session.
-		 */
-		if (ret)
-			goto out;
-
-...
-
-out: 
-
-         return ret; 
-
-err: 
-
-         coresight_disable_path_from(path, nd); 
-
-         goto out; 
-
-}
-
-Suzuki
-
-
-Maybe not, but it
-> would be easier to understand if the core code handled the refcounting 
-> and locking for linked devices.
-> 
-> [1]: https://lore.kernel.org/all/20250306121110.1647948-3- 
-> yeoreum.yun@arm.com/
-> 
-> Thanks
-> James
-> 
->> +    if (csdev->refcnt == 0) {
->> +        CS_UNLOCK(catu_drvdata->base);
->> +        rc = catu_enable_hw(catu_drvdata, mode, data);
->> +        CS_LOCK(catu_drvdata->base);
->> +    }
->> +    if (!rc)
->> +        csdev->refcnt++;
->> +    spin_unlock_irqrestore(&catu_drvdata->spinlock, flags);
->>       return rc;
->>   }
->> @@ -486,12 +493,17 @@ static int catu_disable_hw(struct catu_drvdata 
->> *drvdata)
->>   static int catu_disable(struct coresight_device *csdev, void *__unused)
->>   {
->> -    int rc;
->> +    int rc = 0;
->> +    unsigned long flags;
->>       struct catu_drvdata *catu_drvdata = csdev_to_catu_drvdata(csdev);
->> -    CS_UNLOCK(catu_drvdata->base);
->> -    rc = catu_disable_hw(catu_drvdata);
->> -    CS_LOCK(catu_drvdata->base);
->> +    spin_lock_irqsave(&catu_drvdata->spinlock, flags);
->> +    if (--csdev->refcnt == 0) {
->> +        CS_UNLOCK(catu_drvdata->base);
->> +        rc = catu_disable_hw(catu_drvdata);
->> +        CS_LOCK(catu_drvdata->base);
->> +    }
->> +    spin_unlock_irqrestore(&catu_drvdata->spinlock, flags);
->>       return rc;
->>   }
->> @@ -550,6 +562,7 @@ static int __catu_probe(struct device *dev, struct 
->> resource *res)
->>       dev->platform_data = pdata;
->>       drvdata->base = base;
->> +    spin_lock_init(&drvdata->spinlock);
->>       catu_desc.access = CSDEV_ACCESS_IOMEM(base);
->>       catu_desc.pdata = pdata;
->>       catu_desc.dev = dev;
->> diff --git a/drivers/hwtracing/coresight/coresight-catu.h b/drivers/ 
->> hwtracing/coresight/coresight-catu.h
->> index 141feac1c14b..663282ec6381 100644
->> --- a/drivers/hwtracing/coresight/coresight-catu.h
->> +++ b/drivers/hwtracing/coresight/coresight-catu.h
->> @@ -65,6 +65,7 @@ struct catu_drvdata {
->>       void __iomem *base;
->>       struct coresight_device *csdev;
->>       int irq;
->> +    spinlock_t spinlock;
->>   };
->>   #define CATU_REG32(name, offset)                    \
-> 
+-- 
+Catalin
 
 
