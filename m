@@ -4,99 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A02BC36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 405FFC36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uz7X0saZ07cJoMgjZepVgox7FPN1JF4+WKasDO8EH1c=; b=fI6inAxbQFQrMk/I0ITAGHKEXi
-	8vGQjBJUjUD211tGIiIBXKZr9qUfjUtxgw/BUMsNHTr/+/TcVmSjgqX8tU2RK0N0LhNmet/PG4MM3
-	RArqe6yZwwiCnvYeyUQT4KA+Vv0UmvuJsdpQZoEUDlxpBlVgC6bKLdrzmU4cGfsvxm45oIEAEQKLf
-	n8bM+oBYMqmOy1Wm/5H9dxDvlC8OusoT9ZF5ui/WKVDwCQUyjq/J58hACb1933cehodUBpV/mydTV
-	iYC83QfToSyQatzWX/H7qug7NYVglhywN7f5bVKSkKkvesIZohwhpEc8l/bTypWCuyswrO/tDWQfS
-	/apcpmhA==;
+	bh=aocl7KwbvNUkzCO2WrWHJhkuKprouF8zjARuTRimIwc=; b=1Xi830LwpEEbDcgKLJwoOK4Cdi
+	qUxdjtT5lmwZ4zBAq3rh7qQ4Nal4CxYMGthe6x72/q54rPW8ZopY4cgz22d0fKG8wVG2CXZIw5UYu
+	6XqmvfIm5rO5HZbVGoTxBuu6/1LSVSbHC8IdUcNY7bOovRVFNzn7EC4mrHYbK+6uN1YsTOF2Gqzc9
+	MZytLZ2LCglUKh4dZO8EPvmfM1IYQJaF9OcwB/2g4NOt3K+9LNdrqUChTND9Lws6T7lCTlxSsVEZK
+	9gGqtvXQLAYwbLF7sf+NLJPEcS/kXnIp3/yrwKkX8YCRWrCOhYnEcbN9IknBmXSb2oQ8/kvskYY9d
+	b8kKXfiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYea-00000002bIP-3lt0;
-	Tue, 01 Apr 2025 10:15:32 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tzYgN-00000002beg-0e51;
+	Tue, 01 Apr 2025 10:17:23 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYH4-00000002WwZ-1WAD
+	id 1tzYMM-00000002XYw-1BYq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 09:51:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1743501072;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uz7X0saZ07cJoMgjZepVgox7FPN1JF4+WKasDO8EH1c=;
-	b=cC02/npY3r3Rp0e8vz3bUlzIE3jIQVWjjxZpj19sOJgGocJlJPbYuvqMmSJNha4Q6ymTKF
-	vjnfo2lfolUEM56KPHaQYQ3oMW98zFMGh5SICB8rRiIug7Znz8+EkFHVfQb4eIXODEl7Yi
-	r5xOzrMBjZuGMbzQUIJvmGpgj5r3BrY=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-653-NNTn7ZiLO6KfjXqBzMXJWQ-1; Tue, 01 Apr 2025 05:49:41 -0400
-X-MC-Unique: NNTn7ZiLO6KfjXqBzMXJWQ-1
-X-Mimecast-MFC-AGG-ID: NNTn7ZiLO6KfjXqBzMXJWQ_1743500981
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43ceeaf1524so27866625e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 02:49:41 -0700 (PDT)
+	Tue, 01 Apr 2025 09:56:43 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2240b4de12bso81264915ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 02:56:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743501401; x=1744106201; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=aocl7KwbvNUkzCO2WrWHJhkuKprouF8zjARuTRimIwc=;
+        b=hbbt/2lKRecgwSBwj/cm8GanRI6a/9jQdPs4rrEbIhrShSZxZ9MYenWLEyOYj2NBmG
+         mtydBeot9679uuzhEdLZzJk7Aqb1b9Ev/5YFpda64OyatLgyiDBDHmn3atZrFfk39x5r
+         p97WahD7ZahSedGAFAluh3mYf2Vcplaumz1G1Uxi2pknZI3zFcESPjKSF/xJzcGKPfQr
+         AHHxTun9IoYDR2K/J2j0WTI16+G2u50wz22+RS1BmX7t+l9Ixy/PkvQyy1N/pBgZ4tWa
+         1g800dQWd6AVWWHhNwFzeFHFsBbeb49AAAABEfjXgqTQbh6AQ4Mio9cOWMhfgpcB1V71
+         M/dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743500980; x=1744105780;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uz7X0saZ07cJoMgjZepVgox7FPN1JF4+WKasDO8EH1c=;
-        b=HEdGtWW2DP9MOpHDEnIgqbdl+gtOmK+yl5pUJprF+We07uPkmjDOlFKwZxQZoPY6b4
-         K2nxT+Q3j4uXCmK58edTt/gZoiq+zUICUZutFVm1D8s8/HQ5vkkzuKkbBAFcsv0+v5nV
-         Db0zAndLNslGfinHnhvYarEghjX35D8ob85KiSVX2Oo+vSuh1qxYgQNHKsdk7TC0klpd
-         Edwy5gZkIfuMbLJRzTv0Kgl6aizNvqA08SROIiuZH6s9WN8OpK1JtTsUnd2naQ8qtoxl
-         bzDFtnOBUpsbh7H8Ji1dlw8VQckbHLZMM8LQEir/ryCV6Z7SsHL8gKlX7j9WXg+2409t
-         oWMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXgk2QKhLTDF6bSsUtQKDSevbpg+NeT8iwaospjIhpFEMR5ZyncWj8QOkgjjAHUa0TN8+vEbeyeKpYBPUYUKG9e@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPQHR6mVAXup+u+Bsgs6y0UinLmuCxPyMiUezlJTLXRl8xdn62
-	7r5wDk1mrgTWuv86TSLWhfTu1W8O1Wl1TPPDk3NzrmFltZh9urdO7g12KCriV3wmNiSAmAvFd23
-	Qq3U5+T2kT38wHxwetgd/KWze0E+NFVxbWMlF5RFAxxm6PDhZd4BXgTR+Avo6aZ2JwlTUqeKw2K
-	HrDg6boiQ=
-X-Gm-Gg: ASbGncsSb2xdIGQv+jx0Dy4qqYxjJ+MzZsXJFzaYBpWXlg332+v9m+LBgtrzUqEzhaS
-	M2oHvYe63HU0yVOQhy6GbC696mcIl83NCvuWVMxGbrJg7Zo1RZ/r9TY+zwu3QTu1MFvn6Pd/yre
-	NJWZR0/QStiYrdFfQDtpbDvEnJPciDC2dCvT8KLYfOBTZrnrWuLQWbjXKYKLMWKwI83KuchA7zp
-	YyDHX45I1Z6WyKWd8DH+WArGnuIPd6uY2TGdmSE0tLmcj9mXuss8TOD9vmMo/4iooUe/9noece0
-	EG7uSlXArVFeog==
-X-Received: by 2002:a05:600c:310c:b0:43b:c7f0:6173 with SMTP id 5b1f17b1804b1-43db6224034mr86356875e9.4.1743500980217;
-        Tue, 01 Apr 2025 02:49:40 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGq6P/LONQIdq2pleoYEuzzxgyj99hAud3WvWbJHB5zZUAUKpRXcJTP2ISiVIGMBWKtclaTMA==
-X-Received: by 2002:a05:600c:310c:b0:43b:c7f0:6173 with SMTP id 5b1f17b1804b1-43db6224034mr86356785e9.4.1743500979880;
-        Tue, 01 Apr 2025 02:49:39 -0700 (PDT)
-Received: from localhost ([2a01:e11:1007:ea0:8374:5c74:dd98:a7b2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82efe389sm192609015e9.19.2025.04.01.02.49.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 02:49:39 -0700 (PDT)
-Date: Tue, 1 Apr 2025 11:49:38 +0200
-From: Davide Caratti <dcaratti@redhat.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: Fix ETS priomap validation
-Message-ID: <Z-u2svZqo4NC0JGm@dcaratti.users.ipa.redhat.com>
-References: <20250331-airoha-ets-validate-priomap-v1-1-60a524488672@kernel.org>
+        d=1e100.net; s=20230601; t=1743501401; x=1744106201;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aocl7KwbvNUkzCO2WrWHJhkuKprouF8zjARuTRimIwc=;
+        b=sBqvoUkY0nUciurXWQQgHFNxfCCFg4IcpT/Uq7v78HMKfrdn46iCFU99T0JxQ+xkW1
+         SMxvIswiRYh0RYe92FHtFX4zsZSWW/b2ORSkJ7SqVnzYZm0CLX/qy/sybZNWLTd3Syn2
+         aOUNi1ETx/1skZxOrb0ZZiwKvm4y/EweKj+9FurgQYoI9JMnlumpc8vJv2jV4llB5GEN
+         +b00blho5hcvoJfBN/v2AKSDcid/n5Q16hL57aCYbfQ4Kggp5+KkKTGEzNZ+BhxS5wzr
+         3kjaM9RnNoeBgOChlebGrvyR8+4MK4SV4CQLs24AwpOJ0Rq+IHi+Cyn39eVd2c6/g6nZ
+         OI2A==
+X-Forwarded-Encrypted: i=1; AJvYcCUb3ndRTx1krkvwXQImA99aGFO60Zh8bLZq1HgNpHii6TZb0+RUTo7qzHI2SdsNe50vi7jyk2xXlJeKOPRSIdAt@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJfYr5h1rOtDv6ggE0H+j3WmI0f/K/oTzt16IcUZtEFhooLQp7
+	86lIS9cNMD20pv/zIG/N/2bS/GLifE6xD9kuvC8ViP5tzuRX8Wpim4TShlpUJ2lyEML7b6DAkdA
+	nAriwMKJRMDklEho1bIICZllcFU923ePor6YQ+g==
+X-Gm-Gg: ASbGncv4taU/IIgGbm2mTnQ+JqA09bbBI+w2s7V3igGvhSlGeNxN/1tLt2j+r1YGrW4
+	PhP8rmmP3qhVwZMdLkR+wyH4SMZBRqdOrv6bn6TA47rC2mZant0ToAEelW8T91WFUYmdIZEtuWW
+	YpWk0Huc+d5DmzamR5lpg2fkVPztWRc5tP9h3+nw==
+X-Google-Smtp-Source: AGHT+IHEMnnnmcPGt6SPwgUcHIAgu4byClDUyMF2Ro6APnhVIeAiXBrYYkjDBhhJ0hxiN2KwSVdg1cBseMLltQ3nC1A=
+X-Received: by 2002:a05:6a00:b49:b0:737:e73:f64b with SMTP id
+ d2e1a72fcca58-73980339eb8mr15251487b3a.1.1743501401272; Tue, 01 Apr 2025
+ 02:56:41 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20250331-airoha-ets-validate-priomap-v1-1-60a524488672@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZsO7zgP58pcYKRJSJ4oTA7upgvok1tJ8NVrQVxphCFY_1743500981
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20250401014210.2576993-1-jie.gan@oss.qualcomm.com> <470e4a90-41c3-4974-a4d7-3073a7fcc737@arm.com>
+In-Reply-To: <470e4a90-41c3-4974-a4d7-3073a7fcc737@arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Tue, 1 Apr 2025 10:56:30 +0100
+X-Gm-Features: AQ5f1Jou6RuMhYg-mjMPT8QE1MQ92d3liRY4RQMc92_C5x1ac1ut41GmRyDV0w0
+Message-ID: <CAJ9a7VinQSx9FYvw4ww0KQgMqapLhWTaU9D2qcc-120YywUu2Q@mail.gmail.com>
+Subject: Re: [PATCH] coresight: fix the wrong type of the trace_id in coresight_path
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Jie Gan <jie.gan@oss.qualcomm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	James Clark <james.clark@linaro.org>, Jie Gan <quic_jiegan@quicinc.com>, 
+	Tingwei Zhang <quic_tingweiz@quicinc.com>, Jinlong Mao <quic_jinlmao@quicinc.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Dan Carpenter <dan.carpenter@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_025114_532027_A545037D 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20250401_025642_345859_88474948 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,19 +96,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 31, 2025 at 06:17:31PM +0200, Lorenzo Bianconi wrote:
-> ETS Qdisc schedules SP bands in a priority order assigning band-0 the
-> highest priority (band-0 > band-1 > .. > band-n) while EN7581 arranges
-> SP bands in a priority order assigning band-7 the highest priority
-> (band-7 > band-6, .. > band-n).
-> Fix priomap check in airoha_qdma_set_tx_ets_sched routine in order to
-> align ETS Qdisc and airoha_eth driver SP priority ordering.
-> 
-> Fixes: b56e4d660a96 ("net: airoha: Enforce ETS Qdisc priomap")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Hi,
 
-LGTM!
+On Tue, 1 Apr 2025 at 07:11, Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
+>
+> On 4/1/25 07:12, Jie Gan wrote:
+> > The trace_id in coresight_path may contain an error number which means a
+> > negative integer, but the current type of the trace_id is u8. Change the
+> > type to int to fix it.
+> >
+> > Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+> > Fixes: 3c03c49b2fa5 ("Coresight: Introduce a new struct coresight_path")
+> > Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>
+> LGTM
+>
+> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>
+> > ---
+> >  include/linux/coresight.h | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> > index d79a242b271d..c2bf10c43e7c 100644
+> > --- a/include/linux/coresight.h
+> > +++ b/include/linux/coresight.h
+> > @@ -337,7 +337,7 @@ static struct coresight_dev_list (var) = {                                \
+> >   */
+> >  struct coresight_path {
+> >       struct list_head        path_list;
+> > -     u8                      trace_id;
+> > +     int                     trace_id;
+> >  };
+> >
+> >  enum cs_mode {
 
-Reviewed-by: Davide Caratti <dcaratti@redhat.com>
+There are many places in the Coresight drivers that assign a u8
+traceid from the path trace ID.
 
+e.g.
+In coresight-etm4x-core.c : etm4_enable_perf()
+
+drvdata->trcid = path->trace_id;
+
+drvdata->trcid is defined as a u8  - the reason being trace IDs are
+128 bits wide with some reserved values.
+
+Will this not just trigger the same issue if path->trace_id is changed
+to an int? Even if not it is inconsistent handling of the trace ID
+values.
+
+Trace ID errors should be handled by returning an invalid trace ID
+value - were the trace ID value will fail the macro
+IS_VALID_CS_TRACE_ID(), or separate the return of a trace ID from an
+error return in a function.
+
+Regards
+
+Mike
+
+
+
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
