@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3257C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 11:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D634C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 11:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6uqfSFeeqNM9FLdSr3kIbabq1uZrBy9nvy9Lt/cD6No=; b=VG8WwNTdrj4fmdodAZR14Tkzrr
-	NBI0YjYtekyOz3jHs4GYFeg0e1qDAwQdHYxaGW3E0hRrn+0eG+hcq0YKJqRcahrfGQMxNFcv8cwWV
-	XDPU5KEU0BQgKgs25XbbN45uPlOjXS/eh5e9O82/joK7cnpIlON/usKvxLyD3cuVQD4lOOvpOisPK
-	X78LA7bLpYF/8SfDYYJKjPzYhPc/NWTnFcSn0vsOxP310y+ZBfv4ws6w/s/1TDSHoXT+QpZMfZ64V
-	zRxcLcz/1oHuIqOxpSO9fqSzhQiWT+QLV8OMp9zR47NhZ+flMrfLJNtaD6ijM6fbrbv1CwlEOd2E/
-	bRr4d7lA==;
+	bh=wbVch+zHYOCndBgA1cY7MQ4Zoe58gTWuQcTyIG25cIk=; b=ow3K4KcinnR1ky6lQT2/MzUbog
+	LsuOXpB+RSAD6q9t3k0wLJmj1hJFWpoIuqW9XYVrYeA6xSs99oOSbliJVWn/FlgivwTFLyGhjWxN+
+	yEAlhKofd7aSsI4ZXRhq6DEvDKqN0n1PuyfvlRpKYk+y3zdaoxUtN6ZAkERZtm9e823HBy2Lq93WP
+	cE69daKVdXpvm1ewZUUbWyZ71zqXKwTds72+wCiSL4EpG5fqQjKVkZw7sbaO5VQYHpEjKspyzghYX
+	5LAtrDOColmzpL84V79FDxL6QVofHc047HDw7r4UM9l9i0GzY6OaT/PrQcv9GDDqLQtxopQ4Ma/ai
+	lHC08/ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzZpR-00000002mXS-2X0Z;
-	Tue, 01 Apr 2025 11:30:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tzZtx-00000002nIZ-0Mmx;
+	Tue, 01 Apr 2025 11:35:29 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzZnf-00000002mMl-0JvH
+	id 1tzZs7-00000002mtd-3rJz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 11:28:59 +0000
+	Tue, 01 Apr 2025 11:33:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C161861132;
-	Tue,  1 Apr 2025 11:28:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C312DC4CEE4;
-	Tue,  1 Apr 2025 11:28:53 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 20CD8A44665;
+	Tue,  1 Apr 2025 11:28:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1D89C4CEE4;
+	Tue,  1 Apr 2025 11:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743506937;
-	bh=DaYueR7dUNDwVsECkuaNXT3p5/kpPUyydXjCO2RALyE=;
+	s=k20201202; t=1743507214;
+	bh=MSiUoVdDeD/owNol8s9zGlBrDOxClJLf4FDx5m/hEsU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kOLLDg30OXhbK+MphiB+Vy7bXzP49h1ihSXmPB+if7qbiGShHOuINIHjb9tM4eYzU
-	 DcyX3Kz63c0TfWGqlLbmunZBbr8cfomlCkx+8wS/HNOrbQmNs5CQcw/43hjjQQA/+n
-	 HevMxNXzIU3r1qADvSUNDuc0QHoT2lBql2cK/PH2HG2386R+jQ6kk0SsGKCdD2mJ76
-	 sRk8NYdSX3YjtQy1xdyEyUpfT/V/3wYjs1Zz+IaGLtRQauKhHPRqYAvbjZxacMBJXn
-	 NtUQlDRjrDhMIfQ8nd3j88d9gp0/ysHZnFVt1bfjSsiCx+/ASu0+QdU8oe2vfKOCFx
-	 yRksKLjmWRFaA==
-Date: Tue, 1 Apr 2025 13:28:51 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, lpieralisi@kernel.org,
-	kw@linux.com, robh@kernel.org, bhelgaas@google.com, vigneshr@ti.com,
-	kishon@kernel.org, wojciech.jasko-EXT@continental-corporation.com,
-	thomas.richard@bootlin.com, bwawrzyn@cisco.com,
-	linux-pci@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	srk@ti.com, dlemoal@kernel.org
-Subject: Re: [PATCH 3/4] PCI: cadence-ep: Introduce cdns_pcie_ep_disable
- helper for cleanup
-Message-ID: <Z-vN8_-HJ0K1-1mH@ryzen>
-References: <20250307103128.3287497-1-s-vadapalli@ti.com>
- <20250307103128.3287497-4-s-vadapalli@ti.com>
- <20250318080304.jsmrxqil6pn74nzh@thinkpad>
- <20250318081239.rvbk3rqud7wcj5pj@uda0492258>
- <20250319103217.aaoxpzk2baqna5vc@thinkpad>
+	b=kQ7+TlbZFGday6F66wCc6Mj8FCsVOgzRf3x/EBAEeFRwGpJMFImo4y+kbZrIow662
+	 ta53p8FR4siSwV0A+kRdo9nX82WVlFPI/6QS5KPCe7b8wrCiVlhpZAsKX95vqxrS1I
+	 O6QuwcWWBQ9je8KrhEJNr268w2jvLZgKO/ASMrsjB0FSMA957/ULchEGwkawZwGKzJ
+	 JQbPLAmiGEPDKTF2NwWVGuXvoKl0OudXGBO0QH6TyB59bmMLAcHd7DJT69km6gnaQK
+	 LLSkabpmai4IP0/hzPWvudn4o9K+ZHbx6+OEnKlP4v3ITB3Y1F7a74aydHecpONRus
+	 6qlDxiICUnX+Q==
+Date: Tue, 1 Apr 2025 14:33:26 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	"Sauerwein, David" <dssauerw@amazon.de>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	David Hildenbrand <david@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH v4 2/4] memblock: update initialization of reserved pages
+Message-ID: <Z-vPBu5vAvFhYDzP@kernel.org>
+References: <20210511100550.28178-1-rppt@kernel.org>
+ <20210511100550.28178-3-rppt@kernel.org>
+ <9f33c0b4517eaf5f36c515b92bdcb6170a4a576a.camel@infradead.org>
+ <Z-qrtJ6cs-kXpepR@kernel.org>
+ <b47d5f5602573bd082be3729ceddb3d1dc374ef1.camel@infradead.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250319103217.aaoxpzk2baqna5vc@thinkpad>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <b47d5f5602573bd082be3729ceddb3d1dc374ef1.camel@infradead.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250401_043336_567822_8794964D 
+X-CRM114-Status: GOOD (  37.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +84,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mani,
-
-On Wed, Mar 19, 2025 at 04:02:17PM +0530, Manivannan Sadhasivam wrote:
+On Mon, Mar 31, 2025 at 04:13:56PM +0100, David Woodhouse wrote:
+> On Mon, 2025-03-31 at 17:50 +0300, Mike Rapoport wrote:
+> > On Mon, Mar 31, 2025 at 01:50:33PM +0100, David Woodhouse wrote:
+> > > On Tue, 2021-05-11 at 13:05 +0300, Mike Rapoport wrote:
+> > > 
+> > > On platforms with large NOMAP regions (e.g. which are actually reserved
+> > > for guest memory to keep it out of the Linux address map and allow for
+> > > kexec-based live update of the hypervisor), this pointless loop ends up
+> > > taking a significant amount of time which is visible as guest steal
+> > > time during the live update.
+> > > 
+> > > Can reserve_bootmem_region() skip the loop *completely* if no PFN in
+> > > the range from start to end is valid? Or tweak the loop itself to have
+> > > an 'else' case which skips to the next valid PFN? Something like
+> > > 
+> > >  for(...) {
+> > >     if (pfn_valid(start_pfn)) {
+> > >        ...
+> > >     } else {
+> > >        start_pfn = next_valid_pfn(start_pfn);
+> > >     }
+> > >  }
 > > 
-> > While I don't intend to justify dropping pci_epc_deinit_notify() in the
-> > cleanup path, I wanted to check if this should be added to
-> > dw_pcie_ep_deinit() as well. Or is it the case that dw_pcie_ep_deinit()
-> > is different from cdns_pcie_ep_disable()? Please let me know.
+> > My understanding is that you have large reserved NOMAP ranges that don't
+> > appear as memory at all, so no memory map for them is created and so
+> > pfn_valid() is false for pfns in those ranges.
 > > 
+> > If this is the case one way indeed would be to make
+> > reserve_bootmem_region() skip ranges with no valid pfns.
+> > 
+> > Another way could be to memblock_reserved_mark_noinit() such ranges and
+> > then reserve_bootmem_region() won't even get called, but that would require
+> > firmware to pass that information somehow.
 > 
-> Reason why it was not added to dw_pcie_ep_deinit() because, deinit_notify() is
-> supposed to be called while performing the resource cleanup with active refclk.
+> I was thinking along these lines (not even build tested)...
 > 
-> Some plaforms (Tegra, Qcom) depend on refclk from host. So if deinit_notify() is
-> called when there is no refclk, it will crash the endpoint SoC. But since
-> cadence endpoint platforms seem to generate their own refclk, you can call
-> deinit_notify() during deinit phase.
+> I don't much like the (unsigned long)-1 part. I might make the helper
+> 'static inline bool first_valid_pfn (unsigned long *pfn)' and return
+> success or failure. But that's an implementation detail.
 > 
-> That said, I noticed some issues in the DWC cleanup path while checking the code
-> now. Will submit fixes for them.
+> index 6d1fb6162ac1..edd27ba3e908 100644
+> --- a/include/asm-generic/memory_model.h
+> +++ b/include/asm-generic/memory_model.h
+> @@ -29,8 +29,43 @@ static inline int pfn_valid(unsigned long pfn)
+>         return pfn >= pfn_offset && (pfn - pfn_offset) < max_mapnr;
+>  }
+>  #define pfn_valid pfn_valid
+> +
+> +static inline unsigned long first_valid_pfn(unsigned long pfn)
+> +{
+> +       /* avoid <linux/mm.h> include hell */
+> +       extern unsigned long max_mapnr;
+> +       unsigned long pfn_offset = ARCH_PFN_OFFSET;
+> +
+> +       if (pfn < pfn_offset)
+> +               return pfn_offset;
+> +
+> +       if ((pfn - pfn_offset) < max_mapnr)
+> +               return pfn;
+> +
+> +       return (unsigned long)(-1);
+> +}
 
-Could you please elaborate quickly what issues you found?
+This seems about right for FLATMEM. For SPARSEMEM it would be something
+along these lines (I kept dubious -1):
 
+static inline unsigned long first_valid_pfn(unsigned long pfn)
+{
+	unsigned long nr = pfn_to_section_nr(pfn);
 
-Kind regards,
-Niklas
+	do {
+		if (pfn_valid(pfn))
+			return pfn;
+		pfn = section_nr_to_pfn(nr++);
+	} while (nr < NR_MEM_SECTIONS);
+
+	return (unsigned long)-1;
+}
+
+-- 
+Sincerely yours,
+Mike.
 
