@@ -4,54 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B9EC36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 08:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24926C3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 08:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=733lB0D/rMaXBHMRNF4FDXMon6HG6NOGYaL8aHyTfSw=; b=jaY1AmZQRTtSe6uhstBhrTo1ne
-	SKLnSU6qx5sSJt/gIST5tbH+OypLvVJeno7nb77s7hrgjgvD/tQrbStQg+n5Tejwj5RbymmZ7sk8A
-	5sC5uikc5FORA1wjkemLirqXpMqgxgeOFpGPIRh4Etx1pIIvwywnuOqGdgYZyelmE+Zx6rW7o65Px
-	eC5lvxqxPB/WpTvA9NctzicyVwU0TmdOjwKtMQVKJw1N4ZiJWakM3WItK500GTmBSNimuShknW6Mo
-	BPtAFwRpRQvPW97YagXJSMnrBuT1BiSy+ttmyDpb9Wojse2WvK9+kUgT+71wLHgZo/onlwodpgFd4
-	H+jHyD2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rpBKSzRuGxORWzLEil3B4+zHVM3drlL16o7EoQvX1YE=; b=WmjgtkdanhAXeyreiv9mZ0WALb
+	+U4QmD2ghpIUZ+Z+sBuJQjeiIs9gAUfONmSrvS68gbotw+Nk8qjyX7V9gANTvLWIuERXW/mx5tsoy
+	ZKtxDOrVc33kBxpR6XmOqDnTjOqbqfvZGAzNbB0L+lQBPfnViasqI5C3tpFNY+1piBNgyZOJQYdw5
+	w3i0x8OqhDh858/OM0ZgDAHsNfxMNWNt0FtSPWwDyrrH0CkvyAMcnNa0ceeqdAyeZd1PbGQui3daV
+	dZ/XDHCWR0hbJKr8plN9LyWWP6cEQGvtvyl528D5vdq/bliNmAXHCwtbWqhE1+k24ocg3Bt1g7oYx
+	WpaZc/jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzXAP-00000002Lpl-1kv4;
-	Tue, 01 Apr 2025 08:40:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzX54-00000002LCE-3yhs
+	id 1tzXCB-00000002M3O-3iIs;
+	Tue, 01 Apr 2025 08:42:07 +0000
+Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzX8j-00000002Lac-2r9y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 08:34:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D0BC614BF;
-	Tue,  1 Apr 2025 01:34:49 -0700 (PDT)
-Received: from [10.162.16.153] (unknown [10.162.16.153])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F2993F63F;
-	Tue,  1 Apr 2025 01:34:43 -0700 (PDT)
-Message-ID: <409f6d27-3efe-4c45-8319-d360ded80f16@arm.com>
-Date: Tue, 1 Apr 2025 14:04:40 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Add overrride for MPAM
-To: Xi Ruoyao <xry111@xry111.site>, James Morse <james.morse@arm.com>,
- Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
- Mingcong Bai <jeffbai@aosc.io>
-References: <20250401055650.22542-1-xry111@xry111.site>
+	Tue, 01 Apr 2025 08:38:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uZ/OUxckt175ApP1/YUVd0DjJc5qRyk6uCF+dO8XJ3uAyIAaavTgnEhIlBHwN++uxBQz7cFBTsVIEssDPRMN66vww/Ul8LD1L+YCfDHASvZjA0UkLDS9mz4sP/rosswvgipAPuCJhy0Sfa3kbzSMwkoP9jsZavZAKZx79ojPfuY5Au/v1yftaQdO+aqYemjLOW5z7J5+f+CVR54AlzTquv36xfZMmsWxEDc9Ax5h1hS47ueVD6tg8d252BTaPHiRqegbKw/dATAuY68O9o0ycftHrXgkBCbsMl/qxaUfbuNybyY/odqNRzHHU2Q7iyZnsGG7G3W6JgBfD75ynAvrlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rpBKSzRuGxORWzLEil3B4+zHVM3drlL16o7EoQvX1YE=;
+ b=vNv3q3fRu/h4Qe6Xa16g2GTZOEiHxsqM3zQ6ywmrNnI2mSHuH3h+9I04JleGdLJHygRVumHD5pWCxwyiWcit+uP2/qmuerihA8teaZwLIDOjdjDhqa34Gtsx8wxaxNVISqYU44LBQEpPq85zSnY+bmbUJjncUJaIXuieuT+J7l2OsW8c0y6KpzzuNz5zlrLOEFXhnJUvR4gQsRD/GR7IDAePREG/ozqYxAwZLYobNpuz0ACaVPpy0jIgImdjs5MVjZHcl+zUrS4eEySs3HV0mjTz2TUbSQwmoEXb7TlbZeyIDBjcl9X5TRg4A4rpmAm2N4KhOtM2ijTPf2B1fHpxbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rpBKSzRuGxORWzLEil3B4+zHVM3drlL16o7EoQvX1YE=;
+ b=l1vT2F5rFj1p3tGS5UTd2SMjVPcq2O3/xpw/WPGslYiXCGG9hj467NxddAVvpbJTAyrMXi+tJernGuE10BY/PXElqtPC50q1j2AImEVgbMvFyeRfDJy/ewyVvGBcHU09ZkXz18UafnUn7T9sLGsJPFQquvwErXZ4/sDzp+4k6P3k4uZJ/QxYZgiPuc+P9+Yrk40kK4wOeZxZ8QB+Avbo1UVztnOg4yfBCuUSO2YSjszmhVOMvuSSCxl81sX3xnfx9Fj8Vd4qifsqR6IXFiZPCt7xN6BHlLpWBZHCrucPH5GLnkq0QJ2Afxseg6nWrqJtqB0eVFmrL7G381KgU9tzvw==
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
+ by PAWPR04MB9862.eurprd04.prod.outlook.com (2603:10a6:102:391::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.46; Tue, 1 Apr
+ 2025 08:38:25 +0000
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8534.045; Tue, 1 Apr 2025
+ 08:38:25 +0000
+From: Jacky Bai <ping.bai@nxp.com>
+To: Carlos Song <carlos.song@nxp.com>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>
+CC: "kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Aisheng Dong <aisheng.dong@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>, Frank Li <frank.li@nxp.com>
+Subject: RE: [PATCH v4 2/3] arm64: dts: freescale: Add basic dtsi for imx943
+Thread-Topic: [PATCH v4 2/3] arm64: dts: freescale: Add basic dtsi for imx943
+Thread-Index: AQHbouFv5HbzsA+lsEu0Hze0QDq44g==
+Date: Tue, 1 Apr 2025 08:38:25 +0000
+Message-ID: <AS8PR04MB864236BC6C7DF6A262032E0F87AC2@AS8PR04MB8642.eurprd04.prod.outlook.com>
+References: <20250401071709.1138872-1-ping.bai@nxp.com>
+ <20250401071709.1138872-3-ping.bai@nxp.com>
+ <VI2PR04MB11147341873DC39C504EB9910E8AC2@VI2PR04MB11147.eurprd04.prod.outlook.com>
+In-Reply-To: <VI2PR04MB11147341873DC39C504EB9910E8AC2@VI2PR04MB11147.eurprd04.prod.outlook.com>
+Accept-Language: zh-CN, en-US
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250401055650.22542-1-xry111@xry111.site>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8642:EE_|PAWPR04MB9862:EE_
+x-ms-office365-filtering-correlation-id: 81c63664-ea63-4021-5ff6-08dd70f891a4
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?K9B2m19jnbRJGngAdSTBDq0yBb4NCVcTIqFkU7GlF9LeZneSPmkrkw2xDsuI?=
+ =?us-ascii?Q?2WkuYdNtaVJH6GmxsXn3tfq7s3RwIuLudOXa7bh6AsHZ9UwlAUqGW6E/lLzI?=
+ =?us-ascii?Q?sfyo7OtLP0Tlk55X3Bghwzu/42n1OBfbBixwOiSgLmf7d+xBCci1ZuJDFv7u?=
+ =?us-ascii?Q?iN2WVuMKuBPVXodELLmx95CAlGiRg7vBYliWRGTfedIgzRfIIBYppW/CllGY?=
+ =?us-ascii?Q?CSzbQMRswGigDEdvJmTylwsrT5PL0e99u63QIhb0QG0XyujImbeIc3SzjX86?=
+ =?us-ascii?Q?1AmJpMUC954vZLHNRsaoh7ZLxLlH9iTYdb+k+YLb3JdIPdG1OPUuCC2rJzeN?=
+ =?us-ascii?Q?hbvDIc0esWxu64FHSCcJyQQ4K42ILQhAiSxGIyVlhGsqoVDLI44EQ/PK2a2/?=
+ =?us-ascii?Q?F2iqht09xLZ3BxOovyUpqevY1AnPSoal+zyxYIhp7dfU7j2wkiWxt3uXdhCy?=
+ =?us-ascii?Q?FzWNCvHZ6JwJqg2qIOIe/iW6/5/bmOcGMxecZL0dbUS9olq9sCCC3kxMWYPi?=
+ =?us-ascii?Q?ALTes7/3wUrzQ94RahZH4vRYR3aq7y/jVbAS0PDaGAszjA2TKBCOmg7AwzuG?=
+ =?us-ascii?Q?Rk+adlJaUvp6QiZeS82bDZbM/2c1RApBrk2w6oJCfzSp4sHIr7auiDhRIwsm?=
+ =?us-ascii?Q?+1bk2zckzT0hXWQ8LFviDIPA77hHYKWLua7jNnnEKn0XTXhpjtirBBEBQGMy?=
+ =?us-ascii?Q?RRNyq5W86nVmGNFqo/JiHjNb0wrd+F/Ox+OoE43DQ0Z6qSamzxEz81CSNJNq?=
+ =?us-ascii?Q?zoK3Tx28K1mtSQenveFdftmSx5Pc68Uhj9ZPbFHMupibuQcy3bTkhvIGhe61?=
+ =?us-ascii?Q?VRx4FXiJs/Mhm1bFLtQxm+Cv60nB3u6Sk5RlhO19iDuabXt/7AouMhIInCwZ?=
+ =?us-ascii?Q?v4vQmnxfWLZ6Q3zufvvKTapMevSv9NmsyQjVcZE552Nv1NjAX1ff+Cb61BiD?=
+ =?us-ascii?Q?W4+JkjgmEApEaICE5rjVY+xRE4VGImL9WmAcIiNJC+LZhF2NIRggM+WcH7qV?=
+ =?us-ascii?Q?kjNFNgFgsBZhZ6zUvcEXaOIqnmTpYItBSxBPDERCr8FyEh9y+Lm1PXItB+3g?=
+ =?us-ascii?Q?4wEjoMKFUr802uPdHr4x2Ay8Jgp37BlUD3ReAx2eIc6rixVIee0CgDhXXkKS?=
+ =?us-ascii?Q?k7AJcycLsHy02uNlyPq3+8yYJNrAzQ/M3U5PBi3a6prP5mlhZNtKl2Eaw+lr?=
+ =?us-ascii?Q?jqMWAHyiB+Dvb5qVEeEobR2hEiIYgHh7CFhrZrSe2fhDk/Xh9PfioAK9Z+96?=
+ =?us-ascii?Q?V8cOGbQ+MyNGKQMAQRn85IHs+d2MAyTKkwIQ3dxxQfgMpvaPK2ujTg1Dumz9?=
+ =?us-ascii?Q?xjydWdEzBMSLW1TaV/G7R/BmIWtlkav1j/aB9fNS6BCLy0mvQYD6LVz8Gkby?=
+ =?us-ascii?Q?CkkURtUWNfUB8hz1K2mNfLAc2ERTYH3vHLziPb+aqLeU9WF0dGpAXqe6wLKF?=
+ =?us-ascii?Q?MvtI8d6PUOz6OYQPO6YPkEjlzM0pKf7s?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?P2If7o/umim9ZGHJKiSKZ8z8f+WMPU9R21LbAFZ9X3HdWngQl9+Rb4YytjFc?=
+ =?us-ascii?Q?qDKJCFaxa2+DDhyE0Hf4M4cO0VraV/6qDXMg9ZEBUMblyU+DNMftJPycOGw/?=
+ =?us-ascii?Q?Ej40qOlKRuRvCxgE2Ui6Nu/geWTcRfrij36a1bvPDHf+52ZqtS/2PuuxQX9O?=
+ =?us-ascii?Q?AsMKouLBF211VJsgaHXaE8xwX/H74ezJOcjqMfI7RO4RV7izkvfDxIARkVee?=
+ =?us-ascii?Q?moemyK12VUOGYelrAcUX5Ksl1/1GL4QS1DaddAxr/yRVlFNipRT9Asb2XHzY?=
+ =?us-ascii?Q?LhCQ0zrmQA3+8U5ajqbFgLA/YFCVCXKTWiF7LDAPVeYOJT6ANYgAPLWRn3PE?=
+ =?us-ascii?Q?521NxN6n8Fo9Q9rSOmYXVnNq+TR63lynZJdCuIVTLZ6AY3EakBvFAIlZxKLN?=
+ =?us-ascii?Q?D6vpfkZ6/FtqVu4/J0Y6LmeSLgCw84UPtQOBWmWUUSdSeYb9GiqoSBgsMgIO?=
+ =?us-ascii?Q?6uSDH3a8gRhn/o6HK2l7g6/4l4uEQSxVRJG/28gCtihwIIOm2A2L4vyFbqOF?=
+ =?us-ascii?Q?E/Cvim1/vbGmr/EcOMJrIDEof/48JoEmud+fiO1RuXNTZWmCrnfIT0XTJ7Xd?=
+ =?us-ascii?Q?L7pC82vjSfmXcNIET6U0H+pfGiSUYVV4I95bWsOsGGqb/m9n//Xhrx6mbJxo?=
+ =?us-ascii?Q?Kf9/xKQ+HmX/BjzzpVwPbdPpacnN5fXf7ruf6OlVtmfbFh2l+IZZZvAbYVlS?=
+ =?us-ascii?Q?DkUt0qDCx4+aacDGF/3mELH2yBXsVIU10Q9/7LINeBeBHmKTNZdB2WS3ExBu?=
+ =?us-ascii?Q?6ED9iCwvyP/up2ykE+IEGpkEqV4Zal7YYKpSvuNgt4pouLStLHCmDd//ydFu?=
+ =?us-ascii?Q?VO+lik+ddNxJOnKDFh5UCkTxsWu+T2lELs4fUOPTN1/tYWjsv4YqSKm6UxPV?=
+ =?us-ascii?Q?99m/gkm8NnEIptrzz8+cipFYPb4ZyDiGNWYdLZTld6Ivsti9EKuRzcoYG9FP?=
+ =?us-ascii?Q?XL50yARke8emBvM5x4plJVk47lGlx2Fdf40Ww0w9oM/RCA7+MvqmdWVDB/lJ?=
+ =?us-ascii?Q?AUE9cPC3x14Q86nxyCQEO3icFjahSDMTbXmdNysiISU1DVpklNE6T3yM5Urz?=
+ =?us-ascii?Q?SJyoI3PtazXX3+mQFXH7MpoqYuj+iUg2jFub+YeHNP/ShypxEQ4EglvT55wa?=
+ =?us-ascii?Q?x2oikE/f57gL5uQSvgu/QSV6X83UaxppNXckxsNHyH7ShqRejieO+GmzVRxB?=
+ =?us-ascii?Q?Mc9/guYZw7H3Biv3S9iCBA//wM+58I0hRcWvabxwzBhjEaBrIhb2N4zxknNV?=
+ =?us-ascii?Q?+PJd0jVR77QQN2cr0Hp7Kmj5e5bV0BDquh3TqtkeptMl9Uvg9iBC4JmOVUSp?=
+ =?us-ascii?Q?COmAXvoaUyc8IabM7IJLv3hw5kvNgyOSfH/bKPFjJRLzZytjDLuhO4t1+37P?=
+ =?us-ascii?Q?LRT7R2YhmVndbuGjPO0yAQwithUnSa61uSoBtUSFnefP9pYTdnTrdiSosPoN?=
+ =?us-ascii?Q?2NW0B81aO1HkV7hnJqM7L/09ctmUrzb1sS6VqjcS2xb6VR/GYfxcuTiIjk+i?=
+ =?us-ascii?Q?lfdjs5hZ/7yQI37rqCUgVnuKMZ27Hdxrbz+dlct1iO0R1CeUBxhXK0eMpeoV?=
+ =?us-ascii?Q?6zPlt4rr84lvKLHjSmY=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81c63664-ea63-4021-5ff6-08dd70f891a4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2025 08:38:25.3650
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: T0fuWjrumekNHVou9cl6MoT6J0rb9gKHjBkekXR4r2yWEN+pmgMGKbqhw6a3RFlUx+AZhEacmQAdjg7qNmR49A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9862
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_013447_086919_3295E01B 
-X-CRM114-Status: GOOD (  31.85  )
+X-CRM114-CacheID: sfid-20250401_013833_741033_E6606B08 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,215 +167,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/1/25 11:26, Xi Ruoyao wrote:
-> As the message of the commit 09e6b306f3ba ("arm64: cpufeature: discover
-> CPU support for MPAM") already states, if a buggy firmware fails to
-> either enable MPAM or emulate the trap as if it were disabled, the
-> kernel will just fail to boot.  While upgrading the firmware should be
-> the best solution, we have some hardware of which the vender have made
-> no response 2 months after we requested a firmware update.  Allow
-> overriding it so our devices don't become some e-waste.
+> > Add the minimal dtsi support for i.MX943. i.MX943 is the first SoC of
+> > i.MX94 Family, create a common dtsi for the whole i.MX94 family, and
+> > the specific dtsi part for i.MX943.
+> >
+> > The clock, power domain and perf index need to be used by the device
+> > nodes for resource reference, add them along with the dtsi support.
+> >
+> > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> > ---
+> >  - v4 changes:
+> >   - reorder the cpu node compatible string property as suggested by
+> > Frank
+> >
+> >  - v3 changes:
+> >   - remove the blank line
+> >   - add PAD config macro define as suggested by Frank Li
+> >   - update the device nodes compatible strings for imx94 as suggested
+> > by Krzysztof
+> >
+> >  - v2 changes:
+> >   - remove the unnecessary macro define in clock header as suggested
+> > by Krzysztof
+> >   - split the dtsi into imx94.dtsi and imx943.dtsi
+> >   - use low case in the pinfunc header as Frank suggested
+> >   - reorder the device nodes and properties
+> > ---
+> >  arch/arm64/boot/dts/freescale/imx94-clock.h   |  195 ++
+> >  arch/arm64/boot/dts/freescale/imx94-pinfunc.h | 1570
+> +++++++++++++++++
+> >  arch/arm64/boot/dts/freescale/imx94-power.h   |   41 +
+> >  arch/arm64/boot/dts/freescale/imx94.dtsi      | 1140 ++++++++++++
+> >  arch/arm64/boot/dts/freescale/imx943.dtsi     |  148 ++
+> >  5 files changed, 3094 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/freescale/imx94-clock.h
+> >  create mode 100644 arch/arm64/boot/dts/freescale/imx94-pinfunc.h
+> >  create mode 100644 arch/arm64/boot/dts/freescale/imx94-power.h
+> >  create mode 100644 arch/arm64/boot/dts/freescale/imx94.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/freescale/imx943.dtsi
+> >
+>=20
+> ...
+> > diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi
+> > b/arch/arm64/boot/dts/freescale/imx94.dtsi
+> > new file mode 100644
+> > index 000000000000..26e08ac51c36
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+> > @@ -0,0 +1,1140 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +/*
+> > + * Copyright 2024-2025 NXP
+> > + */
+> > +
+> > +#include <dt-bindings/dma/fsl-edma.h> #include
+> > +<dt-bindings/gpio/gpio.h> #include <dt-bindings/input/input.h>
+> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +
+> > +#include "imx94-clock.h"
+> > +#include "imx94-pinfunc.h"
+> > +#include "imx94-power.h"
+>=20
+> > +
+> > +                       i3c1: i3c@44330000 {
+> > +                               compatible =3D "silvaco,i3c-master-v1";
+> > +                               reg =3D <0x44330000 0x10000>;
+> > +                               interrupts =3D <GIC_SPI 14
+> IRQ_TYPE_LEVEL_HIGH>;
+> > +                               #address-cells =3D <3>;
+> > +                               #size-cells =3D <0>;
+> > +                               clocks =3D <&scmi_clk
+> IMX94_CLK_I3C1SLOW>,
+> > +                                        <&scmi_clk
+> IMX94_CLK_BUSAON>,
+> > +                                        <&dummy>;
+> Hi, Jacky
+>=20
+> Please change this clock order to this like i3c2. pclk is system clock an=
+d fclk is bus
+> clock.
 
-There could be similar problems, where firmware might not enable arch
-features as required. Just wondering if there is a platform policy in
-place for enabling id-reg overrides for working around such scenarios
-to prevent a kernel crash etc ?
+Thanks, will fix it.
 
-> 
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-> Cc: Mingcong Bai <jeffbai@aosc.io>
-> Signed-off-by: Xi Ruoyao <xry111@xry111.site>
-> ---
->  .../admin-guide/kernel-parameters.txt         |  3 +++
->  arch/arm64/include/asm/cpufeature.h           | 12 ++++++++++
->  arch/arm64/include/asm/el2_setup.h            | 14 -----------
->  arch/arm64/kernel/cpufeature.c                | 23 +++++++++++++++++--
->  arch/arm64/kernel/cpuinfo.c                   |  2 +-
->  arch/arm64/kernel/pi/idreg-override.c         |  2 ++
->  arch/arm64/kernel/setup.c                     |  2 ++
->  arch/arm64/kernel/smp.c                       |  2 ++
->  8 files changed, 43 insertions(+), 17 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 3435a062a208..4f2caa706268 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -458,6 +458,9 @@
->  	arm64.nomops	[ARM64] Unconditionally disable Memory Copy and Memory
->  			Set instructions support
->  
-> +	arm64.nompam	[ARM64] Unconditionally disable Memory Partitioning And
-> +			Monitoring support
-> +
->  	arm64.nomte	[ARM64] Unconditionally disable Memory Tagging Extension
->  			support
->  
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index c4326f1cb917..1dfc03a6e65c 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -1048,6 +1048,18 @@ static inline bool cpu_has_lpa2(void)
->  #endif
->  }
->  
-> +static inline bool cpu_has_mpam(void)
-> +{
-> +	u64 pfr0 = read_sysreg_s(SYS_ID_AA64PFR0_EL1);
-> +
-> +	pfr0 &= ~id_aa64pfr0_override.mask;
-> +	pfr0 |= id_aa64pfr0_override.val;
-> +	return cpuid_feature_extract_unsigned_field(pfr0,
-> +						    ID_AA64PFR0_EL1_MPAM_SHIFT);
-> +}
-> +
-> +void cpu_init_el2_mpam(void);
-> +
->  #endif /* __ASSEMBLY__ */
->  
->  #endif
-> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-> index ebceaae3c749..8db261d42ad8 100644
-> --- a/arch/arm64/include/asm/el2_setup.h
-> +++ b/arch/arm64/include/asm/el2_setup.h
-> @@ -294,19 +294,6 @@
->  .Lskip_gcs_\@:
->  .endm
->  
-> -.macro __init_el2_mpam
-> -	/* Memory Partitioning And Monitoring: disable EL2 traps */
-> -	mrs	x1, id_aa64pfr0_el1
-> -	ubfx	x0, x1, #ID_AA64PFR0_EL1_MPAM_SHIFT, #4
-> -	cbz	x0, .Lskip_mpam_\@		// skip if no MPAM
-> -	msr_s	SYS_MPAM2_EL2, xzr		// use the default partition
-> -						// and disable lower traps
-> -	mrs_s	x0, SYS_MPAMIDR_EL1
-> -	tbz	x0, #MPAMIDR_EL1_HAS_HCR_SHIFT, .Lskip_mpam_\@	// skip if no MPAMHCR reg
-> -	msr_s	SYS_MPAMHCR_EL2, xzr		// clear TRAP_MPAMIDR_EL1 -> EL2
-> -.Lskip_mpam_\@:
-> -.endm
-> -
->  /**
->   * Initialize EL2 registers to sane values. This should be called early on all
->   * cores that were booted in EL2. Note that everything gets initialised as
-> @@ -324,7 +311,6 @@
->  	__init_el2_stage2
->  	__init_el2_gicv3
->  	__init_el2_hstr
-> -	__init_el2_mpam
->  	__init_el2_nvhe_idregs
->  	__init_el2_cptr
->  	__init_el2_fgt
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 9c4d6d552b25..64579fecf4c9 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -88,6 +88,7 @@
->  #include <asm/mte.h>
->  #include <asm/hypervisor.h>
->  #include <asm/processor.h>
-> +#include <asm/ptrace.h>
->  #include <asm/smp.h>
->  #include <asm/sysreg.h>
->  #include <asm/traps.h>
-> @@ -1191,7 +1192,7 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
->  		cpacr_restore(cpacr);
->  	}
->  
-> -	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
-> +	if (id_aa64pfr0_mpam(read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1)))
->  		init_cpu_ftr_reg(SYS_MPAMIDR_EL1, info->reg_mpamidr);
->  
->  	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
-> @@ -1443,7 +1444,7 @@ void update_cpu_features(int cpu,
->  		cpacr_restore(cpacr);
->  	}
->  
-> -	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0)) {
-> +	if (id_aa64pfr0_mpam(read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1))) {
->  		taint |= check_update_ftr_reg(SYS_MPAMIDR_EL1, cpu,
->  					info->reg_mpamidr, boot->reg_mpamidr);
->  	}
-> @@ -3992,3 +3993,21 @@ ssize_t cpu_show_meltdown(struct device *dev, struct device_attribute *attr,
->  		return sprintf(buf, "Vulnerable\n");
->  	}
->  }
-> +
-> +/* This is not done by the early el2 setup because we want to allow
-> + * id_aa64pfr0.mpam=0 to disable MPAM initialization for buggy firmware
-> + * which failed enable MPAM or emulate the trap as if it were disabled.
-> + */
-> +void cpu_init_el2_mpam(void)
-> +{
-> +	u64 idr;
-> +
-> +	if (read_sysreg(CurrentEL) != CurrentEL_EL2 || !cpu_has_mpam())
-> +		return;
-> +
-> +	write_sysreg_s(0, SYS_MPAM2_EL2);
-> +
-> +	idr = read_sysreg_s(SYS_MPAMIDR_EL1);
-> +	if (idr & MPAMIDR_EL1_HAS_HCR)
-> +		write_sysreg_s(0, SYS_MPAMHCR_EL2);
-> +}
-> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-> index 285d7d538342..51f346044672 100644
-> --- a/arch/arm64/kernel/cpuinfo.c
-> +++ b/arch/arm64/kernel/cpuinfo.c
-> @@ -494,7 +494,7 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
->  	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
->  		__cpuinfo_store_cpu_32bit(&info->aarch32);
->  
-> -	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
-> +	if (cpu_has_mpam())
->  		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
->  
->  	if (IS_ENABLED(CONFIG_ARM64_SME) &&
-> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-> index c6b185b885f7..836e5a9b98d0 100644
-> --- a/arch/arm64/kernel/pi/idreg-override.c
-> +++ b/arch/arm64/kernel/pi/idreg-override.c
-> @@ -127,6 +127,7 @@ static const struct ftr_set_desc pfr0 __prel64_initconst = {
->  	.fields		= {
->  	        FIELD("sve", ID_AA64PFR0_EL1_SVE_SHIFT, pfr0_sve_filter),
->  		FIELD("el0", ID_AA64PFR0_EL1_EL0_SHIFT, NULL),
-> +		FIELD("mpam", ID_AA64PFR0_EL1_MPAM_SHIFT, NULL),
->  		{}
->  	},
->  };
-> @@ -246,6 +247,7 @@ static const struct {
->  	{ "rodata=off",			"arm64_sw.rodataoff=1" },
->  	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
->  	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
-> +	{ "arm64.nompam",		"id_aa64pfr0.mpam=0" },
->  };
->  
->  static int __init parse_hexdigit(const char *p, u64 *v)
-> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> index 85104587f849..9ab6db5968d9 100644
-> --- a/arch/arm64/kernel/setup.c
-> +++ b/arch/arm64/kernel/setup.c
-> @@ -313,6 +313,8 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
->  	 */
->  	local_daif_restore(DAIF_PROCCTX_NOIRQ);
->  
-> +	cpu_init_el2_mpam();
-> +
->  	/*
->  	 * TTBR0 is only used for the identity mapping at this stage. Make it
->  	 * point to zero page to avoid speculatively fetching new entries.
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 3b3f6b56e733..75009284aafa 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -214,6 +214,8 @@ asmlinkage notrace void secondary_start_kernel(void)
->  	mmgrab(mm);
->  	current->active_mm = mm;
->  
-> +	cpu_init_el2_mpam();
-> +
->  	/*
->  	 * TTBR0 is only used for the identity mapping at this stage. Make it
->  	 * point to zero page to avoid speculatively fetching new entries.
+BR
+>=20
+>                                  clocks =3D <&scmi_clk
+> IMX94_CLK_BUSAON>,
+>                                           <&scmi_clk
+> IMX94_CLK_I3C1SLOW >,
+>                                           <&dummy>;
+>=20
+> BR
+> Carlos
+> > +                               clock-names =3D "pclk",
+> "fast_clk","slow_clk";
+> > +                               status =3D "disabled";
+> > +                       };
+> > +
+>=20
+>=20
+
 
