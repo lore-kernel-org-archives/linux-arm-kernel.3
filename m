@@ -4,107 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE3B9C36017
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 21:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D4C6C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 21:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lVQoemYUlfCPwZiQBfRAg9BVnj4fMqGZfUkpdiHtqKg=; b=E1cl58HiZHTWFe6oSeSAHTXFrk
-	7Ro/E3eon/mUjH8ER9WhSWF+A2E0npPl+4oLZtIbbhiNFbxInJoYmlPfVV9GDuPdkc1WwWO48T/dz
-	AAidLrYHyglGPVrYbvo2IshKrDE7GqfyUmzpmz41WSYnzfDABpAbzkXLFNx+SPQXf0i7PkEihU8oI
-	BW/H9SR3IbxC+vfhSxITxYIBjAaWLjJ2UTIU1I8DXAIJ3qsilDZSQMS6/9147CCErud8UUoARpLDL
-	r9DA6blJX85s8M+CzAz/RJXtzfyEFyaB7HwNIet6t8WbANjFj8IRZK3/zGD/TqeAk2IU3xeFNITBA
-	l50uFzbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YYCk+klL64EFjv81up9yZqqKCbdbZ2pRh5gnlDzkmv8=; b=PfCTuwoeQGXq82G9g4wEaV6L3I
+	et2OcPklqsJtwQANg1dFINBLgVudzDGA9Hz5vV860FXAMZTh5X+mmB3mY8wM58Ldr+S7bU1WaCwkh
+	ctPnVY1XVP9pYRQqYTb5c9UZx5PV26tD3R8pl4nyd52rU7siyXejRRung/0/84QV2wRBpyyjhM8nI
+	GM3xt3tsneHaYSMlzAbFC5E03zlPUK41cbhQXeHcYQd1OsBt80vxhR0qstk8sgTXL1MxC/pzzDrI4
+	tF8FaawNYS3FSQvM2WcI03Sb0gV4UdmB4tv3taGrzsLOd1TWggBpG2l6FCdaREAxhpQV+gsG9TVsU
+	gB1pYraQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzizf-00000004R2C-3yzz;
-	Tue, 01 Apr 2025 21:17:59 +0000
+	id 1tzj1R-00000004RDh-2crr;
+	Tue, 01 Apr 2025 21:19:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzipp-00000004P3w-3E5x
+	id 1tzitj-00000004Pz5-1arQ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 01 Apr 2025 21:07:49 +0000
+	Tue, 01 Apr 2025 21:11:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=lVQoemYUlfCPwZiQBfRAg9BVnj4fMqGZfUkpdiHtqKg=; b=JkAlIfGS2pxc80iARZmB+k5JB6
-	QZDbCB1i00+IzmgQKTXEUESKL4KWtD3SLotEwXn6d7fIKUVGJl/LZl9igudcN/8HVyVjoywsnbJfN
-	8049KbR3UJK1URafVl2vI+CCpZqi5OonntkRGng0otAqAp3dUR3Uamfgl6ebSNkyhpgoXmWn/xWi/
-	lYaF8Ab4PAzjKRNgZaBTkgWC253gi8SUAVl6Pix5OxW7KfoR5XdXjRLT5rip2A41f2aAQJxqGv7lf
-	wlqB/sguEz+CME6eVNyIffgCEIyQjH3VayI5pdYP8R96zvhyFLNjLiVHhJwabhZkG2RaKoXyV+PHe
-	qlSCA8ag==;
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzipl-00000006sXd-176S
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=YYCk+klL64EFjv81up9yZqqKCbdbZ2pRh5gnlDzkmv8=; b=hZZocwWs+QoBp2LR3cT7lAYx8a
+	7XD6ndC1j3bLrjWoVGAtkfRr8qpWPHp7ULw2XCwPXScrsiatRLKUoLN3nyYtVm+sIZSc1GNPQgEpL
+	GP1SNWAE+bNJRf5NtyTI/CnFCxACMwgXbegEPecLGoPOa5IQxtLrYb+UDufbAuQRc4kO1EtmrE6Rb
+	fXpXpC9LbQfsy6PExEWglFj6JkZeDuPbLTkbG4cm0/VzRJ0TEFK44YKLjQ8SBABsuGQsWmfZT1+5O
+	FemecHTD/dMOVn9c8KXuBgQ2KvxDQGxeOWf9ym2XcfNO+Kt21/VGpnu2Miz0CwmNpq73Ltm/IjXn5
+	hD/G05Eg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzitf-00000006sc7-1Ufw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 21:07:48 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-224191d92e4so114249325ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 14:07:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1743541660; x=1744146460; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lVQoemYUlfCPwZiQBfRAg9BVnj4fMqGZfUkpdiHtqKg=;
-        b=QFvy9sFY6Q8rJ8tZOuaNifcrtLqeRmAuSjA/rCINziSbWskJggITf+JEV/Rrr55d5v
-         Y1VaOCU1t0ZGNQ1qPkgKubQmp0QAZnh6aLq/s1lAGA/gLo2+yqi0FX/8YNav1yMk/kXe
-         UD/RvGJgFaJNd7WM9g2ftCts/ekbWUIrQH/C8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743541660; x=1744146460;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lVQoemYUlfCPwZiQBfRAg9BVnj4fMqGZfUkpdiHtqKg=;
-        b=raQ/5ICBnFxzjG7IhrVn6nD421KIGAAdChpg+0Wo2H1uSeylUKGfcQ47cyxE5MfRno
-         gK5wxP7X/auPCBVIFaEiNrLb7ndAcPHvUiZHqohq+V7uVzlwCLUSjEJd7tWUlrxgMwgu
-         Ah96IcavtngRH6abt+jJsXZssU5qjs0XgTlalnuSc1DLmVk10tn7f16Ni5SXVGraBzXP
-         8mJ0jd8OtB2hFrzARVP8gGpI9PKBo8PjCil9XZNP3XYEyFTXAK2w4GCVQY00acLcgy+0
-         jMe2R4Dpj9zCHh35ZYczVkEHKYi5tns/RP7b+Kp6CIRLjcQyD8pdkZXHjIrHhO84Jzhz
-         3Hgg==
-X-Gm-Message-State: AOJu0Yw/2isHAz8rM+e8y9BcomMNb19FJcg6hx8gq4BOgHYem7CvIjfR
-	Muqjgf0XprJ9tmlfct1Qgik8Cc8K21JisDbiTswm3CXsEPYuXxiZs4zcSINDUCjrs5mJVMqCa61
-	L05eNhUVedN4OUNqeUtyNS0xHoMfs7vmanNoAwaEfMt1FiM+Mnznj1PthrRzhtw48WsfW9d8bXe
-	jaosdYSe4DMx/zbYGF8r0JrUmiSugiuh8bhTlZ4WOfZSQnV1a9ImU9GZ+R3w==
-X-Gm-Gg: ASbGncvFJMWgFCPYYu3/BNiv/VPFrRJpgj7bF/v8ddh80z5/Y7XPMOjVDrbkzjsJZE4
-	gRPs6DheRcesWbeapmgsfFW1PPf2XUY61Jz0Bir50hNrkHPtoJTmEPtB5NmbSifRfLBSnT4CZ2z
-	5CAPIi9O+CrdcqceA1M61WIxyCNeovB41fSRqp/GAvsACt1MRm/zSt+xuyYeXSMhRVwXOiHHo5a
-	Ech8TkEx12HAyauuTWnd0bcvdBjG/IWwQMaYYoYLT+RnRjJD8C0jSX7YYmPs5gRUiuyNfvP5sRr
-	lgqzSPA3XXqpqy9isBOUXpT+0pc2sJSEOGtlHq+jYxGFerNKmxxQCyGS6AKuou7M/WlTvJYfTD6
-	Hc5BgYoMdVWkF3rUwwPwy3w==
-X-Google-Smtp-Source: AGHT+IH0PQ7taRoykgUfWzcSREeHMofrh9rV4j0LFTSx412vSYptiSojp7iGvTEFiYHXeqxqmv5rHw==
-X-Received: by 2002:a05:6a21:3a4a:b0:1f5:7710:fd18 with SMTP id adf61e73a8af0-2009f609379mr21130355637.17.1743541660157;
-        Tue, 01 Apr 2025 14:07:40 -0700 (PDT)
-Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73970deef7fsm9414995b3a.9.2025.04.01.14.07.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 14:07:39 -0700 (PDT)
-From: Justin Chen <justin.chen@broadcom.com>
-To: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-phy@lists.infradead.org
-Cc: rafal@milecki.pl,
-	alcooperx@gmail.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	florian.fainelli@broadcom.com,
-	conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	kishon@kernel.org,
-	vkoul@kernel.org,
-	Justin Chen <justin.chen@broadcom.com>
-Subject: [PATCH v2 0/2] phy: usb: add support for bcm74110
-Date: Tue,  1 Apr 2025 14:07:34 -0700
-Message-Id: <20250401210736.2613748-1-justin.chen@broadcom.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 01 Apr 2025 21:11:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B79B4106F
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Apr 2025 14:11:46 -0700 (PDT)
+Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4151F3F694
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Apr 2025 14:11:43 -0700 (PDT)
+Date: Tue, 1 Apr 2025 22:11:23 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: shao.mingyin@zte.com.cn
+Cc: j@jannau.net, chunkuang.hu@kernel.org, fnkl.kernel@gmail.com,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, p.zabel@pengutronix.de,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, yang.yang29@zte.com.cn,
+	xu.xin16@zte.com.cn, ye.xingchen@zte.com.cn,
+	tang.dongxing@zte.com.cn
+Subject: Re: [PATCH 2/4] drm: arm: =?utf-8?Q?hdlcd?=
+ =?utf-8?Q?=3A_Replace_custom_compare=5Fdev_with=C2=A0component=5Fcompare?=
+ =?utf-8?B?X29m?=
+Message-ID: <Z-xWe6nHEvKHdvsd@e110455-lin.cambridge.arm.com>
+References: <20250331172534353mkMR1nv-dsjFTZTXCPY0a@zte.com.cn>
+ <20250331173018043nQB6z_xgZxuYx0AkGeixh@zte.com.cn>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250331173018043nQB6z_xgZxuYx0AkGeixh@zte.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_220745_674913_1F0E59EB 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250401_221147_679618_4E8794D6 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,20 +89,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-bcm74110 adds a freerun utmi/ref clock that saves furether power during
-suspend states. A tune is also necessary to pass USB compliance test.
+On Mon, Mar 31, 2025 at 05:30:18PM +0800, shao.mingyin@zte.com.cn wrote:
+> From: Tang Dongxing <tang.dongxing@zte.com.cn>
+> 
+> Remove the custom device comparison function compare_dev and replace it
+> with the existing kernel helper component_compare_of
+> 
+> Signed-off-by: Tang Dongxing <tang.dongxing@zte.com.cn>
+> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
 
-Justin Chen (2):
-  dt-bindings: phy: brcmstb-usb-phy: Add support for bcm74110
-  phy: usb: add support for bcm74110
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 
- .../bindings/phy/brcm,brcmstb-usb-phy.yaml    |  7 ++-
- .../phy/broadcom/phy-brcm-usb-init-synopsys.c | 61 +++++++++++++++++++
- drivers/phy/broadcom/phy-brcm-usb-init.h      |  1 +
- drivers/phy/broadcom/phy-brcm-usb.c           | 14 +++++
- 4 files changed, 81 insertions(+), 2 deletions(-)
+Best regards,
+Liviu Dudau
+
+> ---
+>  drivers/gpu/drm/arm/hdlcd_drv.c | 7 +------
+>  1 file changed, 1 insertion(+), 6 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/arm/hdlcd_drv.c b/drivers/gpu/drm/arm/hdlcd_drv.c
+> index c3179d74f3f5..45b1dc5613bf 100644
+> --- a/drivers/gpu/drm/arm/hdlcd_drv.c
+> +++ b/drivers/gpu/drm/arm/hdlcd_drv.c
+> @@ -346,11 +346,6 @@ static const struct component_master_ops hdlcd_master_ops = {
+>  	.unbind		= hdlcd_drm_unbind,
+>  };
+> 
+> -static int compare_dev(struct device *dev, void *data)
+> -{
+> -	return dev->of_node == data;
+> -}
+> -
+>  static int hdlcd_probe(struct platform_device *pdev)
+>  {
+>  	struct device_node *port;
+> @@ -361,7 +356,7 @@ static int hdlcd_probe(struct platform_device *pdev)
+>  	if (!port)
+>  		return -ENODEV;
+> 
+> -	drm_of_component_match_add(&pdev->dev, &match, compare_dev, port);
+> +	drm_of_component_match_add(&pdev->dev, &match, component_compare_of, port);
+>  	of_node_put(port);
+> 
+>  	return component_master_add_with_match(&pdev->dev, &hdlcd_master_ops,
+> -- 
+> 2.25.1
 
 -- 
-2.34.1
-
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
