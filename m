@@ -4,63 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 553D4C36016
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 06:23:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D1DC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 06:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Reply-To:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTB1LkdaHYhKeBp8RW+H8cwXDQYd31I062iUErSVSVY=; b=eJ5wnnN2H4UklYgfGAz44boaoy
-	yLYOmoEhk6pJkZBrUH0RZV5gSL8G5L5tMDkaiYgeBM1cmBiEk1R3lg3WlVOhEqnpQkUXMJ05EII1W
-	jECDJDYtdKKi3+SxoZkijpqTg7eiSRi57PJUqaWhPBwqmWY0nbMH+O3y+6ckqPkXAdoDpOtsZiphe
-	3OlZzHnrAWaLYfXsygijuGZPtmc4uSDr8ChFr6ZMFG+aGVJVtTah7dtf0izG2ropfZtTZBeIpCb0x
-	TXi4yYnT+jB/3y9P6LjFWVXEOsHBs/fN65G3K4xNfGBSpJWNNrO+ql3TGdjypHGqQbCEkqhQ7v44l
-	W4WZpq4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LNPjBQRxKBNLtR/2RNKAESOunSV6/IkHRZgN6ba4/Jg=; b=kYW6UuDrGTl9kj70Jo4yi3u32F
+	sIqYppV5tfgdgaPnAisQ/9KBN5JP4xFl/ruEcHED0z3c0Sp45UDgpfL7BePX3A34CU2Kt14dkqW+D
+	y497waFikwZ9VnirB9czmTZ5q0faaj7fFMBsILHwAGEclJ5cUExOuTxdUQE0LgfHM+wjkLWPbZKAb
+	nl7P9ULysgyI59MZXpyoo4wFectaH7NwA045EKaYfkTlPtQ0zYLVoSl9jpfV2/a8fzdcE/tVkJV/A
+	yf8LaU1gpFxOdUCQW3pwgf6nTrHlBdSjIZFETUfxykEGkg+7c8G4wpWII/IlfTx2STqRsyM5qwLJ0
+	eVhvyVKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzV1W-000000025HT-2xdg;
-	Tue, 01 Apr 2025 06:22:58 +0000
+	id 1tzVGL-0000000274Q-1kNU;
+	Tue, 01 Apr 2025 06:38:17 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUyn-000000024zi-2d0W
+	id 1tzVEZ-000000026vk-0Rwp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 06:20:09 +0000
+	Tue, 01 Apr 2025 06:36:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A5056115D;
-	Tue,  1 Apr 2025 06:20:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68046C4CEE8;
-	Tue,  1 Apr 2025 06:20:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7155961132;
+	Tue,  1 Apr 2025 06:36:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2408C4CEE8;
+	Tue,  1 Apr 2025 06:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743488408;
-	bh=dTB1LkdaHYhKeBp8RW+H8cwXDQYd31I062iUErSVSVY=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
-	b=Gz7wAA6USP8ewDFFeflTH5OPGhu3BdQrL61rJoUMluPZ6qAdN0fTn72GgyLQjLUuy
-	 wTHyz2n/xWJHxjkWVrZLNmV/3YpZNKH3uDcPeJ/4vN6oRJCzQyJ8EYmp2WvZBR1DRf
-	 qdnwR00ZR6UU00NotYdO0BPr0SHC87MFdbIl7PMhmfmzR+O+pvqq/tLBouD+BDTnga
-	 8DGRgMWOWL6LGz1OnO7kq7W3Smto1Ko7do+93L9aMHOlskb/trMKRt7eoSTZvZFWbc
-	 +QPoMwa5Q2HtTK4ZnaYiMrzDzAveXnZsTCAoRIRZZ2nOJnRLXt64wT79ZeBdwqt5Wl
-	 yNhb7sAVj7L6A==
-Content-Type: multipart/signed;
- boundary=469ce2c5ee7b2eb876e9826f3995ee5ce86afad1f0f363e3357fd49a768e;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Tue, 01 Apr 2025 08:20:04 +0200
-Message-Id: <D8V323NBB32P.3P8H103L83HZK@kernel.org>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s: add rng node
-Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Kumar, Udit" <u-kumar1@ti.com>, "Nishanth Menon" <nm@ti.com>, "Vignesh
- Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>
-X-Mailer: aerc 0.16.0
-References: <20250313144155.2382316-1-mwalle@kernel.org>
- <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
- <D8UECOJ2NMCU.3ALYIKSODJ479@kernel.org>
- <1ad2d8c2-6a0d-419d-984d-4974adb0e1f0@ti.com>
-In-Reply-To: <1ad2d8c2-6a0d-419d-984d-4974adb0e1f0@ti.com>
+	s=k20201202; t=1743489385;
+	bh=WYpyWJNeUBLOqNA55BH53Pze9aOMHUZP6VdS+SkkF5g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jIGpWEZcZZReUL1uqLuzGUyrWXlfivL0DEOZZvRPSnes6JNPfg0YLRbsECrXlXgP1
+	 BFHJOcKFrFIqo/Jt2GUwX4KS/KJiPyv+0RiQzuMf/8hu3/VM3B8YW7owbyUMjV8j4k
+	 9hLCdt1k3S/tpdw4WEeipAQt9XTHp6ZMI2vNrtjs9b1Ig9Zwz7+snJ4NyFgjT0IlDF
+	 +zpRoZlrB9P2XPph+EuFifPi0QXNOvPu5FTnCdPLx7zwPRyVlXy57f6gWusWi6aBsM
+	 jDIj65oFVivk0GsU427g+RPKvzhrhxgIrWH04T4JfLO/z3zXC72gpFaU7xKXyYDFuO
+	 fXlasJIrWijvA==
+Message-ID: <9f594cf1-f1c3-45fc-8d1f-a5abe6c84699@kernel.org>
+Date: Tue, 1 Apr 2025 08:36:15 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 5/6] clocksource/drivers/exynos_mct: Add module support
+To: Will McVicker <willmcvicker@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Saravana Kannan <saravanak@google.com>
+Cc: kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, Donghoon Yu <hoony.yu@samsung.com>,
+ Youngmin Nam <youngmin.nam@samsung.com>
+References: <20250331230034.806124-1-willmcvicker@google.com>
+ <20250331230034.806124-6-willmcvicker@google.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250331230034.806124-6-willmcvicker@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,63 +124,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---469ce2c5ee7b2eb876e9826f3995ee5ce86afad1f0f363e3357fd49a768e
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On 01/04/2025 01:00, Will McVicker wrote:
+> From: Donghoon Yu <hoony.yu@samsung.com>
+> 
+> On Arm64 platforms the Exynos MCT driver can be built as a module. On
+> boot (and even after boot) the arch_timer is used as the clocksource and
+> tick timer. Once the MCT driver is loaded, it can be used as the wakeup
+> source for the arch_timer.
+> 
+> Signed-off-by: Donghoon Yu <hoony.yu@samsung.com>
+> Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
+> [Original commit from https://android.googlesource.com/kernel/gs/+/8a52a8288ec7d88ff78f0b37480dbb0e9c65bbfd]
+> Signed-off-by: Will McVicker <willmcvicker@google.com>
+> ---
+>  drivers/clocksource/Kconfig      |  3 +-
+>  drivers/clocksource/exynos_mct.c | 47 +++++++++++++++++++++++++++-----
+>  2 files changed, 42 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+> index 487c85259967..e5d9d8383607 100644
+> --- a/drivers/clocksource/Kconfig
+> +++ b/drivers/clocksource/Kconfig
+> @@ -443,7 +443,8 @@ config ATMEL_TCB_CLKSRC
+>  	  Support for Timer Counter Blocks on Atmel SoCs.
+>  
+>  config CLKSRC_EXYNOS_MCT
+> -	bool "Exynos multi core timer driver" if COMPILE_TEST
+> +	tristate "Exynos multi core timer driver"
+> +	default y if ARCH_EXYNOS
+>  	depends on ARM || ARM64
+>  	depends on ARCH_ARTPEC || ARCH_EXYNOS || COMPILE_TEST
+I am not sure if you actually tested it as module. On arm I cannot build
+it even:
 
-Hi Udit,
+ERROR: modpost: "register_current_timer_delay"
+[drivers/clocksource/exynos_mct.ko] undefined!
+ERROR: modpost: "sched_clock_register"
+[drivers/clocksource/exynos_mct.ko] undefined!
 
-> >>> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> >>> [..]
-> >> For completeness , this is ok to add this node but should be kept disa=
-bled
-> > Shouldn't it be "reserved" then, see [1].
->
-> yes, should be reserved.
->
-> With marking status as reserved.
->
-> Please use Reviewed-by: Udit Kumar <u-kumar1@ti.com>
-
-Thanks.
-
-> >> similar to
-> >>
-> >> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k=
-3-j7200-mcu-wakeup.dtsi#L662
-> > j784s4, j721e and j721s2 have them enabled. What is the rule here?
->
-> J784s4, j721e and j721s2 SOCs has two TRNG blocks,
->
-> example for j721e, one is used by kernel [0] and another by optee [1].
->
->
-> >
-> > You also disable the hwrng in optee in your evm according to [2]:
-> > CFG_WITH_SOFTWARE_PRNG=3Dy
->
-> We are planning to use this hardware block by secure firmware.
->
-> Therefore request not to use by optee as well
-
-How will you be able to access the RNG from linux and u-boot? I'm
-asking because I'll need it in u-boot for the lwip stack and the
-HTTPS protocol.
-
--michael
-
---469ce2c5ee7b2eb876e9826f3995ee5ce86afad1f0f363e3357fd49a768e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCZ+uFlBIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/huuAGA6VxJSqcfwEyp/l9Eacmq8DPaOSDcw5jB
-HiLqus4Fg9DFl1wj0Zb6OF3HAbHYx/b/AYDCesqMKY8du6brSiVP+2172bjOgXHc
-VLGr5Zn13LMKzakCwP54O+nZSy0OjYhrx2o=
-=MziH
------END PGP SIGNATURE-----
-
---469ce2c5ee7b2eb876e9826f3995ee5ce86afad1f0f363e3357fd49a768e--
+Best regards,
+Krzysztof
 
