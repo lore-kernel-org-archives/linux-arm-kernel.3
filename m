@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7303C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 11:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3257C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 11:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:Cc:To:
-	From:Mime-Version:Message-ID:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9yE51MTO1wGbtpFHeDVZ3hHLhbhq0aaeAvNWmsU08Oc=; b=k6V5FqTA58SxvCKZcaSaOa0712
-	ooA11gVgAsAxwntK/e++fv8j8nKWb1rfOPA4bUoYu/63io1AHOpR6BdSeUjAMUxKA7K2/H4YH2KgC
-	U2aXO2ic3CsBZBOFoLLkujCfJMpHaOFqnUEpXrde3RzUPMRGt3C/TpsI0kG9GWmb9BeLSGyaEUu0C
-	mTWvgmm6XFt/H9HTOhyrit/nOX5Nk/G5wrC5SVgv2hHB5FFOQ2o6rZ59Fc0fblbYpHadY6++dfeGZ
-	osGVdMYOpZFSLWk8b7YoA/A6CKKwhj+IA6n6mZU6Cj73mAFnLKOn6MOD2pUEl/3+6JVsPHMLLzM7l
-	U8k7oMWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6uqfSFeeqNM9FLdSr3kIbabq1uZrBy9nvy9Lt/cD6No=; b=VG8WwNTdrj4fmdodAZR14Tkzrr
+	NBI0YjYtekyOz3jHs4GYFeg0e1qDAwQdHYxaGW3E0hRrn+0eG+hcq0YKJqRcahrfGQMxNFcv8cwWV
+	XDPU5KEU0BQgKgs25XbbN45uPlOjXS/eh5e9O82/joK7cnpIlON/usKvxLyD3cuVQD4lOOvpOisPK
+	X78LA7bLpYF/8SfDYYJKjPzYhPc/NWTnFcSn0vsOxP310y+ZBfv4ws6w/s/1TDSHoXT+QpZMfZ64V
+	zRxcLcz/1oHuIqOxpSO9fqSzhQiWT+QLV8OMp9zR47NhZ+flMrfLJNtaD6ijM6fbrbv1CwlEOd2E/
+	bRr4d7lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzZl5-00000002m27-0sPT;
-	Tue, 01 Apr 2025 11:26:19 +0000
-Received: from mxhk.zte.com.cn ([63.216.63.40])
+	id 1tzZpR-00000002mXS-2X0Z;
+	Tue, 01 Apr 2025 11:30:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzZjG-00000002lt9-3JXg
+	id 1tzZnf-00000002mMl-0JvH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 11:24:28 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4ZRlyC1683z8R040;
-	Tue,  1 Apr 2025 19:24:19 +0800 (CST)
-Received: from xaxapp01.zte.com.cn ([10.88.99.176])
-	by mse-fl1.zte.com.cn with SMTP id 531BOGUt076517;
-	Tue, 1 Apr 2025 19:24:16 +0800 (+08)
-	(envelope-from shao.mingyin@zte.com.cn)
-Received: from mapi (xaxapp01[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Tue, 1 Apr 2025 19:24:20 +0800 (CST)
-Date: Tue, 1 Apr 2025 19:24:20 +0800 (CST)
-X-Zmail-TransId: 2af967ebcce402b-8dfac
-X-Mailer: Zmail v1.0
-Message-ID: <20250401192420169tLRsDis5R0RrVmdFnFuS9@zte.com.cn>
-Mime-Version: 1.0
-From: <shao.mingyin@zte.com.cn>
-To: <alim.akhtar@samsung.com>
-Cc: <yang.yang29@zte.com.cn>, <xu.xin16@zte.com.cn>, <ye.xingchen@zte.com.cn>,
-        <krzk@kernel.org>, <gregkh@linuxfoundation.org>,
-        <jirislaby@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-serial@vger.kernel.org>, <jiang.peng9@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIXSB0dHk6IHNlcmlhbDogc2Ftc3VuZzogRml4IHBvdGVudGlhbCBidWZmZXIgb3ZlcmZsb3cgaW7CoGNsa25hbWU=?=
-Content-Type: text/plain;
-	charset="UTF-8"
-X-MAIL: mse-fl1.zte.com.cn 531BOGUt076517
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 67EBCCE3.000/4ZRlyC1683z8R040
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_042427_136447_DB6832F8 
-X-CRM114-Status: GOOD (  12.71  )
+	Tue, 01 Apr 2025 11:28:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C161861132;
+	Tue,  1 Apr 2025 11:28:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C312DC4CEE4;
+	Tue,  1 Apr 2025 11:28:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743506937;
+	bh=DaYueR7dUNDwVsECkuaNXT3p5/kpPUyydXjCO2RALyE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kOLLDg30OXhbK+MphiB+Vy7bXzP49h1ihSXmPB+if7qbiGShHOuINIHjb9tM4eYzU
+	 DcyX3Kz63c0TfWGqlLbmunZBbr8cfomlCkx+8wS/HNOrbQmNs5CQcw/43hjjQQA/+n
+	 HevMxNXzIU3r1qADvSUNDuc0QHoT2lBql2cK/PH2HG2386R+jQ6kk0SsGKCdD2mJ76
+	 sRk8NYdSX3YjtQy1xdyEyUpfT/V/3wYjs1Zz+IaGLtRQauKhHPRqYAvbjZxacMBJXn
+	 NtUQlDRjrDhMIfQ8nd3j88d9gp0/ysHZnFVt1bfjSsiCx+/ASu0+QdU8oe2vfKOCFx
+	 yRksKLjmWRFaA==
+Date: Tue, 1 Apr 2025 13:28:51 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, lpieralisi@kernel.org,
+	kw@linux.com, robh@kernel.org, bhelgaas@google.com, vigneshr@ti.com,
+	kishon@kernel.org, wojciech.jasko-EXT@continental-corporation.com,
+	thomas.richard@bootlin.com, bwawrzyn@cisco.com,
+	linux-pci@vger.kernel.org, linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com, dlemoal@kernel.org
+Subject: Re: [PATCH 3/4] PCI: cadence-ep: Introduce cdns_pcie_ep_disable
+ helper for cleanup
+Message-ID: <Z-vN8_-HJ0K1-1mH@ryzen>
+References: <20250307103128.3287497-1-s-vadapalli@ti.com>
+ <20250307103128.3287497-4-s-vadapalli@ti.com>
+ <20250318080304.jsmrxqil6pn74nzh@thinkpad>
+ <20250318081239.rvbk3rqud7wcj5pj@uda0492258>
+ <20250319103217.aaoxpzk2baqna5vc@thinkpad>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250319103217.aaoxpzk2baqna5vc@thinkpad>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,95 +78,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Jiang <jiang.peng9@zte.com.cn>
+Hello Mani,
 
-Compiling the kernel with gcc12.3 W=1 produces a warning:
-/drivers/tty/serial/samsung_tty.c: In function
-'s3c24xx_serial_set_termios':
+On Wed, Mar 19, 2025 at 04:02:17PM +0530, Manivannan Sadhasivam wrote:
+> > 
+> > While I don't intend to justify dropping pci_epc_deinit_notify() in the
+> > cleanup path, I wanted to check if this should be added to
+> > dw_pcie_ep_deinit() as well. Or is it the case that dw_pcie_ep_deinit()
+> > is different from cdns_pcie_ep_disable()? Please let me know.
+> > 
+> 
+> Reason why it was not added to dw_pcie_ep_deinit() because, deinit_notify() is
+> supposed to be called while performing the resource cleanup with active refclk.
+> 
+> Some plaforms (Tegra, Qcom) depend on refclk from host. So if deinit_notify() is
+> called when there is no refclk, it will crash the endpoint SoC. But since
+> cadence endpoint platforms seem to generate their own refclk, you can call
+> deinit_notify() during deinit phase.
+> 
+> That said, I noticed some issues in the DWC cleanup path while checking the code
+> now. Will submit fixes for them.
 
-/drivers/tty/serial/samsung_tty.c:1392:48:
-warning: '%d' directive writing between 1 and 3 bytes
-into a region of size 2 [-Wformat-overflow=]
- 1392 |  sprintf(clkname, "clk_uart_baud%d", cnt);
-      |                    ^~
+Could you please elaborate quickly what issues you found?
 
-In function 's3c24xx_serial_getclk',
-    inlined from 's3c24xx_serial_set_termios'
-at ./drivers/tty/serial/samsung_tty.c:1493:9:
 
-/drivers/tty/serial/samsung_tty.c:1392:34:
-note: directive argument in the range [0, 254]
- 1392 |  sprintf(clkname, "clk_uart_baud%d", cnt);
-      |                    ^~~~~~~~~~~~~~~~~
-
-/drivers/tty/serial/samsung_tty.c:1392:17:
-note: 'sprintf' output between 15 and 17 bytes
-into a destination of size 15
-
- 1392 |  sprintf(clkname, "clk_uart_baud%d", cnt);
-      |                   ^~~~~~~~~~~~~~~~~
-
-The compiler warned about a potential buffer overflow in the
-`s3c24xx_serial_set_termios` function due to the use of `sprintf` which
-could write more bytes than the allocated size of the `clkname` buffer.
-This could lead to undefined behavior and potential security risks.
-
-To reproduce the issue before applying the patch:
-CONFIG_SERIAL_SAMSUNG=y
-make vmlinux ARCH=arm64 CROSS_COMPILE=aarch64-linux- W=1
-
-To resolve this issue, we have increased the buffer size for `clkname`
-to ensure it can accommodate the longest possible string generated by
-the formatting operation. Additionally, we have replaced `sprintf` with
-`snprintf` to ensure that the function does not write beyond the end of
-the buffer, thus preventing any potential overflow.
-
-Signed-off-by: Peng Jiang <jiang.peng9@zte.com.cn>
-Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
----
- drivers/tty/serial/samsung_tty.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
-index 210fff7164c1..5a0005033afa 100644
---- a/drivers/tty/serial/samsung_tty.c
-+++ b/drivers/tty/serial/samsung_tty.c
-@@ -1339,7 +1339,7 @@ static void s3c24xx_serial_pm(struct uart_port *port, unsigned int level,
-  *
-  */
-
--#define MAX_CLK_NAME_LENGTH 15
-+#define MAX_CLK_NAME_LENGTH 18
-
- static inline u8 s3c24xx_serial_getsource(struct uart_port *port)
- {
-@@ -1389,7 +1389,7 @@ static unsigned int s3c24xx_serial_getclk(struct s3c24xx_uart_port *ourport,
- 			!(ourport->cfg->clk_sel & (1 << cnt)))
- 			continue;
-
--		sprintf(clkname, "clk_uart_baud%d", cnt);
-+		snprintf(clkname, sizeof(clkname), "clk_uart_baud%d", cnt);
- 		clk = clk_get(ourport->port.dev, clkname);
- 		if (IS_ERR(clk))
- 			continue;
-@@ -1787,7 +1787,7 @@ static int s3c24xx_serial_enable_baudclk(struct s3c24xx_uart_port *ourport)
- 		if (!(clk_sel & (1 << clk_num)))
- 			continue;
-
--		sprintf(clk_name, "clk_uart_baud%d", clk_num);
-+		snprintf(clk_name, sizeof(clk_name), "clk_uart_baud%d", clk_num);
- 		clk = clk_get(dev, clk_name);
- 		if (IS_ERR(clk))
- 			continue;
-@@ -2335,7 +2335,7 @@ s3c24xx_serial_get_options(struct uart_port *port, int *baud,
- 		/* now calculate the baud rate */
-
- 		clk_sel = s3c24xx_serial_getsource(port);
--		sprintf(clk_name, "clk_uart_baud%d", clk_sel);
-+		snprintf(clk_name, sizeof(clk_name), "clk_uart_baud%d", clk_sel);
-
- 		clk = clk_get(port->dev, clk_name);
- 		if (!IS_ERR(clk))
--- 
-2.25.1
+Kind regards,
+Niklas
 
