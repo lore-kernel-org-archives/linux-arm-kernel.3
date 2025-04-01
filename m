@@ -4,153 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7198C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 21:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E7AC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 22:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLyk3UzaLGvBhsHU8wI4wALNc+oNV8Vwedg8RKLIl2E=; b=WmCu9JyJQM8Hxwwu3fL5nPFJlH
-	+kLqUDlRCUVe49Qs1l9Qz2SYNa01ZyV/KNBYyNMHiohE1eBsF9kusxZJaEJrPNGDcN1aLklHt+Kfr
-	GQ9H6otfnPRvYuzOrNuV+y3xAUHPXpIc15ArAEjOxL44Awil3l3l7pphanPYTu7d+xHbBBEga0GpS
-	GS4DwC/Rh2UDntEOZ0VymGr2yY+J3jf9dzM1d7ubMuZ24tLgoH5/kez9bBtYoW5quXPJKcLAXVYNA
-	8ujD5psbwE8gwxTjELG6RDlWCaVB434StA9NLa1Od6ufl78K/Nc1xVlPclHgiohQVPX2TLUi8C/4Z
-	nHa+gslQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7WhTcpnDfS966b8qcjFRKYTbiz5sb4vgFd+KNycoqKw=; b=1XGQtG06thvINlSrVknnDu3WzC
+	lRE5cIosWrixVUxDrHgnbIjGp7U6/WH1grjLuFYeimNv/56GvjYGJ5XEZm+tV0Z37HZdJHt5T8veq
+	06ywgeT2mSl67tZZXObLDYTgJhvSbn0bEVp5tj7T7n0KzgLNeoo6QSQQUGiqmloxxwqZKK8A4ojZU
+	t75jY8v8DzM+uCvDZfj/LS2/xYcJCX4mFNE24N9h3dWr0lrQGSn9DMqNXWDPDztH36+vy1QNU+fsO
+	0Q5ZER6GRdzb6nARHHtIkeGINZXqkYzh8FuOLkqNYDAIl+3Uy9et+FY6AWo5j/nxufirlUpdIPd4k
+	Fyr4L4Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzjbo-00000004UAY-2SqF;
-	Tue, 01 Apr 2025 21:57:24 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1tzjvR-00000004W6a-21P0;
+	Tue, 01 Apr 2025 22:17:41 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzja1-00000004U2K-0r3Q;
-	Tue, 01 Apr 2025 21:55:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bCETVRyykK1Gqm7Yjr0WCaZ35no/61ivJVrxtuMcdyob5XgDFCMcnq1hsRzd/vKe9zJtXtGnqFGvE5lbH8FQciNTgJuso7iz+9SiXiipfG7FKvPVovIwGXKmyZl2e+CrCYRhg2WjgHoaFPiUt2JEeDnLHjJBRKjWW0OSXEzF6W4FfjWzeJ1jVJq2xNYD47nAnYM710ci/MFiZn6faA9xH2LIsbu7hX+xTOgH0Qab6q6Jaq+/gl/qOVKJRK0KOHTJU9tj4/eq5+gJ6Mn+gQH8JwUqYuq2Fy93WhdG3CCfNISd7AEU+XypuykFR3R1DGa/lnDoGu2PqvawcsZbG5lDSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QLyk3UzaLGvBhsHU8wI4wALNc+oNV8Vwedg8RKLIl2E=;
- b=oQNVLCHIe0ZPB7P3n6CW3DwlNQngHLwE4dQenDjYmt33gbP34gyiFPW9hEEm6nYGYDinItwHLDfRjvrKERzALVuxataCe8bOoKesJ9Dbdz0UK20TUAz72/IPYXGZRD5/DHXNHgbwWHgHbWo9CGHv7UvsZDLEHIS70S6Tu/OexRE1A0LfPcvNePa2ExqMznMP7ZDoaWCYE957aorhmTbLF/omiD5lSyABCOHcqMs5j5eD2U8UqyBdNh4NU2Iodhq+aw31W9Xoi5TYIHB7iIHdLcwyXIFU3OnhC17dcAj3Hq+HnZjJ32/SkJjVXv/iceC7Qpk5iWHXHKfjxwCys6mnkw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QLyk3UzaLGvBhsHU8wI4wALNc+oNV8Vwedg8RKLIl2E=;
- b=yQXQUDmOKA3ypiYrWK3+OVkQOiqUW7XaNSvw0LGHryhPGX6c38rGp8detmDworzBge3FqLUILi9TdzgkgRGcU29IbnbzZj+DorUeqUKAirqSj2FS7PDi4ukylSjib47EGi57vSxaycwWEykRy9lKhCGiMjefC6ac+kcNqyfLI6MVex+sZFxkDsEgu6t7+JIauqceIonBwc65K4BRwFhNkzJxfrcIaB1SRYXNfSemhswb6v3pfB5CStZ6IPCi/SmyjuLiNMTDoRmp8g/eBb2Z2VVpUQ3ORP8aS/x/6h2+mZy1z7ZO1FwNwgqwXaiwxKwGVOB52chl/emLhdi4hsBVCA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by AS8PR08MB9979.eurprd08.prod.outlook.com (2603:10a6:20b:633::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.41; Tue, 1 Apr
- 2025 21:55:22 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.8534.052; Tue, 1 Apr 2025
- 21:55:22 +0000
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
-	Frank Wunderlich <frank-w@public-files.de>
-Subject: [RESEND PATCH v2] arm64: dts: mediatek: mt7986-bpi-r3: Change fan PWM value for mid speed
-Date: Wed,  2 Apr 2025 00:55:14 +0300
-Message-ID: <20250401215514.1944552-1-mikhail.kshevetskiy@iopsys.eu>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <trinity-2fa9ed21-07af-4fbf-a20e-32684dabdd82-1743507920209@trinity-msg-rest-gmx-gmx-live-5779db864f-xlr59>
-References: <trinity-2fa9ed21-07af-4fbf-a20e-32684dabdd82-1743507920209@trinity-msg-rest-gmx-gmx-live-5779db864f-xlr59>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: FR3P281CA0058.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:4b::19) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AS8PR08MB9979:EE_
-X-MS-Office365-Filtering-Correlation-Id: daa27a51-1e9f-44ad-5b56-08dd7167e6a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rMIQYwoWi3axQWGQXGpOlA8T0cT76H8wSUnJ9cTr7q5jpRwWcm0XoixzyVPM?=
- =?us-ascii?Q?M69Bcv8YAmWIRunoXt/bhrrd3JI92/Iqxni5KGThr1hL9XkQVS9Nb0skTdaj?=
- =?us-ascii?Q?myT0CQ6QN7qjH3BqfPBF9T/S+MvdiiFWF8DQ43E1UaG+KipiKENNDWZlqCDN?=
- =?us-ascii?Q?Y5Otp0BUW4g2JSLCkE7Y/hBOdW18lDviQTaFSYAEZeINYcEHfKXPAsBmOagD?=
- =?us-ascii?Q?MGOND7gQNBU5eOpDV7KUJwDlFWlOSymjyfUZHpgSbUcdxjDoqb4MNxBAflnm?=
- =?us-ascii?Q?JzZo26qYMe8cKaoUfol8Zutasx+J4ugGw6y/rc0jtUMIezyP+aqgtrSXKbfc?=
- =?us-ascii?Q?shIkMi3ERbVIad1iwzmZSAKPoCRgUWy+VIOpkaVv9EJfmTlBHmKimR4LSQny?=
- =?us-ascii?Q?GJmvQim1JtMQeYdWQ8ArUrTZCf02IbId1RI8ZR2qbPIXXNfxf5Ri4bSUjYrd?=
- =?us-ascii?Q?ym0DH8uE/UAtE0dSNSHaYhEna4wDJYpnzEhnJRDPNo5FF/+bwNJPaZOX4Ypx?=
- =?us-ascii?Q?7INL0TjQsLirD71z8BpfHevpTRXvAE+7jKqT9Wm5+hrIRK1WIV/ZyhlFopMz?=
- =?us-ascii?Q?++3pXUged+OaWDY2HuzT1eOOYC8PSltPz3AzrkXSqt0rpAu4ZW4L/rHoVzQp?=
- =?us-ascii?Q?wRn+qGeCKECxLSURwM2fpg9pVFsr3Yx7wBhP0pmd/wRIToLkEiTCtR51bN3v?=
- =?us-ascii?Q?Fmn9Zc+2UjJDhdxba2eqcyHZgy11MgMyeYeYXIkbC+HrlSZPKCikvJrx7Wlf?=
- =?us-ascii?Q?WK92CBT5Li+IYweA3I8rJklXF0NBfx3WSocr6VY1jim1Wk2IfZz1IdpFHKHn?=
- =?us-ascii?Q?txdJ/SDsEct7jX3AEyxTwTVDjeNojDdxrctajriAOpzQqIXaRmTcNwvXSNFQ?=
- =?us-ascii?Q?sHyOG/xGOmHscufbA5G6WS+5AXt+vS5vJJQAKD0LgEeUtx2DbvR2lFuK63Hn?=
- =?us-ascii?Q?/xI7tB6hhc5cqZUeKCWIXbE63lYuxzjRC190Ta62PRchYpAqk1XRS7yoLA8d?=
- =?us-ascii?Q?8gIodZzzEj/87Q9Iu617/MhFRJNWtx3edrVKitWevXeWI9J10vzewDSZRUoZ?=
- =?us-ascii?Q?R+/5jdaiEU04W8/0GanMA7sFy1AqmzMkt1WAFwPtUq1kvm3aCfeVMkG4+NEh?=
- =?us-ascii?Q?480T3VN5xeZzzqYdtxBFUA3vqfJulGN2TkRdFmioHclaQIchZkjV6LI+gux6?=
- =?us-ascii?Q?g2JmaVTJxo63aQtL5KNa1ryR9O4KTwwB0SCz7gwCWF3vhGq7NGY+P9cRQ+hx?=
- =?us-ascii?Q?L/iOBC4uCbqeryJB/dz8LsT8uTJDgObHQ+2cWNYt57JdhSUNLoP+mgU+cp3o?=
- =?us-ascii?Q?VHF3go0+d5G0MGWlL4UWavAFXLNxVIhAFTdt39j58QQmGdOhUY1fPy6yftaq?=
- =?us-ascii?Q?vSDbTzIKN3PASS0Uc4CjrICSw6uqSwsbMLOCBWbM/twLUFpzz0zig7bv96zj?=
- =?us-ascii?Q?+amVIOh369dyo7b9Y0UEPIUUzyP+JMhHDUwqLpxfoWWdWsNj9k4euQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SnBFLbpm/GUkvj9ZQ0HHxfwVn+VasA9CRRfgFZJbP+NrzKeThKNLrv+vJ9eU?=
- =?us-ascii?Q?jOrlGOskLNpnpnqbjPD8P5YmPxfJG15J/B8qgbsNi4HrqwEYIg25BpT6MyxP?=
- =?us-ascii?Q?OZHi1O63lw4vvFF4/GEORKKKj7dEXDYioC3NdlX3zXE9510PJ/EoyCrLJ47l?=
- =?us-ascii?Q?ccAd5AUSDZqJQ1oAuQtN58q2MDbPJcbvovFdQFtdNcpMBIfkSw/e5PyPsv9c?=
- =?us-ascii?Q?lkk/nRj7xE13hnnvXFKd/Qbrp3oSdh4qBFFHcbvhA2XircYwlxN75btN4y0K?=
- =?us-ascii?Q?W6LcSwEJCF5iZ6a7wPnN1WdpC0OVGPPcmehCJV11zZGhE5CorSsaaT/HAKJy?=
- =?us-ascii?Q?lmjKtEWnjRX8qoBTnL9hsq8ox8QtSN8WROLUvzbK3ZoFqeoa5dbuQSH44+o0?=
- =?us-ascii?Q?t/vobEI8b8ESlaRcxr8qFB9ZYyBScTp18FBu5ikIbZHW5F+b6h1OFFAIHInT?=
- =?us-ascii?Q?IJsnaLAm4jrxYNkPRJwxs4xSyh2ZdFpMTrb1L2YUmdql07jPKvmz3qYxqFXx?=
- =?us-ascii?Q?Xa6pMWclceJRGAWaimQpEQxbPdBcliMYKRjOyiWV/qimKPoHeBTKwtGGaCgX?=
- =?us-ascii?Q?qb9tdgTB7L0jrokecB0Txx7zxOpXUL/58NaZR6jSPMVBFr7eDWTZKgfVrf/9?=
- =?us-ascii?Q?ZGoxgIl53Q/LstkKhxU+YwdvVqf9B2wZkh97vTpXjx7fvpfI80SIVanJpLFv?=
- =?us-ascii?Q?AkdqPD/+8zE46rG0WAj6tDkvIswVCJbTdDIjeOd40Le1B51RohRjEufODKTT?=
- =?us-ascii?Q?g8vR0Ih5/5zKA6nonlb3zspS95GhU5LwAZr5m1PQYWxSSEWv4HdjxEcLiSEK?=
- =?us-ascii?Q?irI51DubMnNRllO6Ya5Xx7UFUPDN8WOr/6bCuPxEtNGvCYrl0x/tJ4TjZKVI?=
- =?us-ascii?Q?b/TRqTiOTeqmQYrY5y1bOqIlnN0FQFJhfmeJVEKIdE6Ho8gzPUtXT2tfOK0p?=
- =?us-ascii?Q?f0DB/mc4L5A9adRaDOxAUrKODKHMbv5VGYO8uSddbMngdGNGK+bA/bq+6yLj?=
- =?us-ascii?Q?SrofCq8i5UWN3gJZypb/rZh/gueYbv3/ZM+IOmlzJFe+Sb+RhIqahwKwnv2b?=
- =?us-ascii?Q?gBVg1xRVOM8hZK954qvf3KXcDfSq6uqGnNrLDkacFtrNH4SoX9nFyk6fhUxf?=
- =?us-ascii?Q?xqcUwuclA63jswR+bGtRKVkDzxq1Bh2g+vcqqlannx9cjqTln+YtzQDVhVUS?=
- =?us-ascii?Q?4lzPB3SaWACxQPnXIkqZiroQsGXgWEJKbcIjFDrim/87qLYCvlD1ua8xpqjE?=
- =?us-ascii?Q?pORwWGLum5/YhZqdJPliJmdzDr01y+zZlTg5PAi2K8O7+9z5yfijSf9kyRNA?=
- =?us-ascii?Q?yrXiyXmHFtmsnvH9J9zlnBI9UyqjRt7jKheuQ9VOdEvTvXJJOmNV54+a3QiH?=
- =?us-ascii?Q?3V1WKFeCDK1cU4A2yfocMJ1QSC+B3yHGLDi+EVOfhGu9ssd5nsqw8WM2ae4G?=
- =?us-ascii?Q?C2it5cbLpjZbsPD2G5gEtE+vwPDPcZHx48Lpkmeqflx/CzFzqAz0zhGhV7nQ?=
- =?us-ascii?Q?ghdY+4fTB0DdZ7opbJonOfj5J3kDFRgATkWD2LEFZDxsHUZYol8TgCciAYdq?=
- =?us-ascii?Q?1hTli5Zo+5x1p+b/OP7alo1Ay67nKvR3miIu8f5662JUAQSRBzhQpem/pfoz?=
- =?us-ascii?Q?4fHpUdghnMJPMdM2UHAr494=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: daa27a51-1e9f-44ad-5b56-08dd7167e6a1
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2025 21:55:22.3996
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SZXCQBUc9XmNMicOpBcy4XFnG8xjl18nFJ78Q72ZCaHqMmsupjXePHBTQ1VOvbsdZhHkBRREudlRzBQAGV+8Xs4JIP9utckvI1Hn2XaQQB8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9979
+	id 1tziVn-00000004LK0-3X2x
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Apr 2025 20:47:09 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-224364f2492so103003375ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 13:47:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1743540427; x=1744145227; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=7WhTcpnDfS966b8qcjFRKYTbiz5sb4vgFd+KNycoqKw=;
+        b=iH919S+JF9lSrHCOi/NT7fLlJe7UkUlTQL4frZGVjyofH0IfcubEXF1mOK4lQbHIAv
+         NA9IWmORX8kcHz0q+ojTUVclUrLahMLb4FCVNXGy8WB9JrdhtaufM+MDmeXGFQQMpYGh
+         F0wRKQIPMm1c/W4R5NLzHGrekY/JMT99hMVjU6LJGCLZA5rYcfTFEZGufcrQGL6J5mAz
+         ZdPUhE8F+OubB4kb9AH7Cgd9X9EdPuh9hhrh4hmaBZdd3iEDqnGmut1m2PJkOnsLklso
+         /3xDFvEQeOpgAC9LOFytyqKp8pLCyGNyIrZF0CSIeFHdxq6yYtSxUyNsrXehz83wUiOH
+         RXKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743540427; x=1744145227;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7WhTcpnDfS966b8qcjFRKYTbiz5sb4vgFd+KNycoqKw=;
+        b=Yefr4UZW++dDOVrumsdO9FCtR4AgwArjS49/u1hO7oAqAtwvtnF6AnigpqX6SCK8RA
+         LwAU8cvu1hiq7RMlUVOJAX+gp0B1pnRIIKzKcNPqkazJHyeaKw10Bjen+COpl08L7Urc
+         JyGRA5Nj5WPLEIPHViD24w5LJ8v/2vjza3q8WaIh0wH1wlWWMOwSkJkBREl0zQ+HupVK
+         nd4t4fCU+r0fqNI5QoFaE+AWhAIit7rpUuNdok4j+Vl3SNLVAs/lNxRvq9+sxOURFD0b
+         fs1GSH+1u9oRu14N2gToxlQoDrQuTraQ9FEnbAeQxkuva/9K3y3hVh6YVVdW6vZmniyj
+         Laug==
+X-Forwarded-Encrypted: i=1; AJvYcCW8RuHQ8pqxAWThFzLFTdsdmReuyK5B+wlZJSuFhAInDZNCajhNkyT65gEA5e1f1rkQGG1eocibIGbWehyX2G+h@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzj4jZ/JionqFDedy7KYQzhrU19BmHJFAp5KiWP1MqS8SlL0bq5
+	T8hmQ5ZSKuFPU5hjNRGImQRdPkiBTMTC6vw6g2AAfSKG7FffXALmuzof6sXu6bl2hetZMWHKz7n
+	F9A==
+X-Google-Smtp-Source: AGHT+IE69F+P2diWss4q1R2RCvqjJn9bih0SHo0zrhhUPWnYhjvt54Ev63/iq2FBMJOXU3F4HgV2IVY99W4=
+X-Received: from pfef19.prod.google.com ([2002:a05:6a00:2293:b0:736:5b36:db8f])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:853:b0:736:9fa2:bcbb
+ with SMTP id d2e1a72fcca58-73980436cbamr22550678b3a.24.1743540426869; Tue, 01
+ Apr 2025 13:47:06 -0700 (PDT)
+Date: Tue,  1 Apr 2025 13:44:23 -0700
+In-Reply-To: <20250401204425.904001-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20250401204425.904001-1-seanjc@google.com>
+X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
+Message-ID: <20250401204425.904001-12-seanjc@google.com>
+Subject: [PATCH 11/12] KVM: selftests: Add utilities to create eventfds and do KVM_IRQFD
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, David Matlack <dmatlack@google.com>, 
+	Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_145533_258851_76C765CB 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20250401_134707_900392_C1568501 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,70 +95,140 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Popular cheap PWM fans for this machine, like the ones coming in
-heatsink+fan combos will not work properly at the currently defined
-medium speed. Trying different pwm setting using a command
+Add helpers to create eventfds and to (de)assign eventfds via KVM_IRQFD.
 
-  echo $value > /sys/devices/platform/pwm-fan/hwmon/hwmon1/pwm1
-
-I found:
-
-  pwm1 value     fan rotation speed   cpu temperature     notes
-  -----------------------------------------------------------------
-    0            maximal              31.5 Celsius        too noisy
-   40            optimal              35.2 Celsius        no noise hearable
-   95            minimal
-   above 95      does not rotate      55.5 Celsius
-  -----------------------------------------------------------------
-
-Thus only cpu-active-high and cpu-active-low modes are usable.
-I think this is wrong.
-
-This patch fixes cpu-active-medium settings for bpi-r3 board.
-
-I know, the patch is not ideal as it can break pwm fan for some users.
-Likely this is the only official mt7986-bpi-r3 heatsink+fan solution
-available on the market.
-
-This patch may not be enough. Users may wants to tweak their thermal_zone0
-trip points, thus tuning fan rotation speed depending on cpu temperature.
-That can be done on the base of the following example:
-
-  === example =========
-  # cpu temperature below 25 Celsius degrees, no rotation
-  echo 25000 > /sys/class/thermal/thermal_zone0/trip_point_4_temp
-  # cpu temperature in [25..32] Celsius degrees, normal rotation speed
-  echo 32000 > /sys/class/thermal/thermal_zone0/trip_point_3_temp
-  # cpu temperature above 50 Celsius degrees, max rotation speed
-  echo 50000 > /sys/class/thermal/thermal_zone0/trip_point_2_temp
-  =====================
-
-Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-
+Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
-Changes from v1 to v2:
- * improve patch description
----
- arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/testing/selftests/kvm/arm64/vgic_irq.c  | 12 ++----
+ .../testing/selftests/kvm/include/kvm_util.h  | 40 +++++++++++++++++++
+ .../selftests/kvm/x86/xen_shinfo_test.c       | 18 ++-------
+ 3 files changed, 47 insertions(+), 23 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-index ed79ad1ae871..b0cc0cbdff0f 100644
---- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-@@ -42,7 +42,7 @@ fan: pwm-fan {
- 		compatible = "pwm-fan";
- 		#cooling-cells = <2>;
- 		/* cooling level (0, 1, 2) - pwm inverted */
--		cooling-levels = <255 96 0>;
-+		cooling-levels = <255 40 0>;
- 		pwms = <&pwm 0 10000>;
- 		status = "okay";
- 	};
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+index f4ac28d53747..a09dd423c2d7 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+@@ -620,18 +620,12 @@ static void kvm_routing_and_irqfd_check(struct kvm_vm *vm,
+ 	 * that no actual interrupt was injected for those cases.
+ 	 */
+ 
+-	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++) {
+-		fd[f] = eventfd(0, 0);
+-		TEST_ASSERT(fd[f] != -1, __KVM_SYSCALL_ERROR("eventfd()", fd[f]));
+-	}
++	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++)
++		fd[f] = kvm_new_eventfd();
+ 
+ 	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++) {
+-		struct kvm_irqfd irqfd = {
+-			.fd  = fd[f],
+-			.gsi = i - MIN_SPI,
+-		};
+ 		assert(i <= (uint64_t)UINT_MAX);
+-		vm_ioctl(vm, KVM_IRQFD, &irqfd);
++		kvm_assign_irqfd(vm, i - MIN_SPI, fd[f]);
+ 	}
+ 
+ 	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++) {
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+index 373912464fb4..4f7bf8f000bb 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util.h
++++ b/tools/testing/selftests/kvm/include/kvm_util.h
+@@ -18,6 +18,7 @@
+ #include <asm/atomic.h>
+ #include <asm/kvm.h>
+ 
++#include <sys/eventfd.h>
+ #include <sys/ioctl.h>
+ 
+ #include "kvm_util_arch.h"
+@@ -496,6 +497,45 @@ static inline int vm_get_stats_fd(struct kvm_vm *vm)
+ 	return fd;
+ }
+ 
++static inline int __kvm_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd,
++			      uint32_t flags)
++{
++	struct kvm_irqfd irqfd = {
++		.fd = eventfd,
++		.gsi = gsi,
++		.flags = flags,
++		.resamplefd = -1,
++	};
++
++	return __vm_ioctl(vm, KVM_IRQFD, &irqfd);
++}
++
++static inline void kvm_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd,
++			      uint32_t flags)
++{
++	int ret = __kvm_irqfd(vm, gsi, eventfd, flags);
++
++	TEST_ASSERT_VM_VCPU_IOCTL(!ret, KVM_IRQFD, ret, vm);
++}
++
++static inline void kvm_assign_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd)
++{
++	kvm_irqfd(vm, gsi, eventfd, 0);
++}
++
++static inline void kvm_deassign_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd)
++{
++	kvm_irqfd(vm, gsi, eventfd, KVM_IRQFD_FLAG_DEASSIGN);
++}
++
++static inline int kvm_new_eventfd(void)
++{
++	int fd = eventfd(0, 0);
++
++	TEST_ASSERT(fd >= 0, __KVM_SYSCALL_ERROR("eventfd()", fd));
++	return fd;
++}
++
+ static inline void read_stats_header(int stats_fd, struct kvm_stats_header *header)
+ {
+ 	ssize_t ret;
+diff --git a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
+index 34d180cf4eed..23909b501ac2 100644
+--- a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
++++ b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
+@@ -547,11 +547,8 @@ int main(int argc, char *argv[])
+ 	int irq_fd[2] = { -1, -1 };
+ 
+ 	if (do_eventfd_tests) {
+-		irq_fd[0] = eventfd(0, 0);
+-		TEST_ASSERT(irq_fd[0] >= 0, __KVM_SYSCALL_ERROR("eventfd()", irq_fd[0]));
+-
+-		irq_fd[1] = eventfd(0, 0);
+-		TEST_ASSERT(irq_fd[1] >= 0, __KVM_SYSCALL_ERROR("eventfd()", irq_fd[1]));
++		irq_fd[0] = kvm_new_eventfd();
++		irq_fd[1] = kvm_new_eventfd();
+ 
+ 		irq_routes.info.nr = 2;
+ 
+@@ -569,15 +566,8 @@ int main(int argc, char *argv[])
+ 
+ 		vm_ioctl(vm, KVM_SET_GSI_ROUTING, &irq_routes.info);
+ 
+-		struct kvm_irqfd ifd = { };
+-
+-		ifd.fd = irq_fd[0];
+-		ifd.gsi = 32;
+-		vm_ioctl(vm, KVM_IRQFD, &ifd);
+-
+-		ifd.fd = irq_fd[1];
+-		ifd.gsi = 33;
+-		vm_ioctl(vm, KVM_IRQFD, &ifd);
++		kvm_assign_irqfd(vm, 32, irq_fd[0]);
++		kvm_assign_irqfd(vm, 33, irq_fd[1]);
+ 
+ 		struct sigaction sa = { };
+ 		sa.sa_handler = handle_alrm;
 -- 
-2.47.2
+2.49.0.504.g3bcea36a83-goog
 
 
