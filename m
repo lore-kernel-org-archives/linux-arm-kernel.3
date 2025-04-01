@@ -4,55 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7538AC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 13:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD07C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 13:27:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hvE0ayg26qHXBI3m2ksDOLJ5eptF51yr0jVxN0egFe0=; b=RnNNRKo769Nq+xtuKhAZA6jeOV
-	BZdiLGFAulDmrVe8qktkfwtRiIRYoXs6d0YgL8DsBstdNIeLV39ij/OHAztIyDSehgHJJ+6wRWVyt
-	7hmWYkW4tbnL83yLdV1x5tKMLsH6Okq4Ihn9srcd4xFhbXTLJQdbRVSN0eQScKsHqG106GsqUmSEJ
-	5OeJH9R+TdGGZmMQVDFcEfUzRbvmpYt8YlmbdsVQIVxc+sCKaSfQPlnhaTW8bWKDTLGXMB6deewAm
-	GOKK/xb6BtC9YDtajZ85s7tWdqfmynw44J8jHbEuh8NtH1hf6VLQ+CENCbRhIlue7FtIroR0ZjjbE
-	UEEUhWiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EyDNMW9IBuY8jRB69DY3fJHCsQyLv/GHW0iXNqQGDTc=; b=yVOBn6riu0NaEA+N7Yg2gc19eF
+	uNcQX7gOzS7LfMpM8mCnB/gwERrNvI/TC5rxzlVvpsFcx+yBV3B7AffPxC3lW/FcICRXtVHNz1wOX
+	G+TXlh4HQy7sUYlJsOK1kpstoWHSVSJyybWun31+WiGD7/xF0fg6TpR8Mw4x27pbDjXGzbfeX2r58
+	4LBSVC5TQsJjwyNa8Mc8pILvVq1GLQlK5vYtXS6P8ZrP5erTPZ+APHa3F6sVJOQ/JGLJl+cdVaV8d
+	xDISDJiVogrwg730xViO3Mb7NuAiNL3xLw3z2Y9HVeAYansI1LTWwbFylvzO7QnMeEO/6NAjRKIko
+	gHXVqZjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzbc3-00000003QoW-12qo;
-	Tue, 01 Apr 2025 13:25:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzbaF-00000003QbN-40NT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 13:23:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B20CA1424;
-	Tue,  1 Apr 2025 06:23:16 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD73D3F694;
-	Tue,  1 Apr 2025 06:23:12 -0700 (PDT)
-Date: Tue, 1 Apr 2025 14:23:08 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Yabin Cui <yabinc@google.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Subject: Re: [PATCH] coresight: catu: Introduce refcount and spinlock for
- enabling/disabling
-Message-ID: <20250401132308.GB115840@e132581.arm.com>
-References: <20250328223837.2314277-1-yabinc@google.com>
- <ea366793-4c27-44af-9b6b-8964c4151416@linaro.org>
+	id 1tzbdo-00000003Qys-2smx;
+	Tue, 01 Apr 2025 13:26:56 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzbah-00000003Qgt-055S;
+	Tue, 01 Apr 2025 13:23:44 +0000
+Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-223fd89d036so116943005ad.1;
+        Tue, 01 Apr 2025 06:23:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743513822; x=1744118622; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EyDNMW9IBuY8jRB69DY3fJHCsQyLv/GHW0iXNqQGDTc=;
+        b=UTvot4iMOdpU8d4qo9w4hRP1zi+TmLf2Re5bqK+7ZTMCsE+HwWAb0KwKOoGmmkgyAz
+         zns0/FvJmR0B2pBUYa/7dOwgaLNewHKjJAiPzVZWZDkDfilva25fewoc/mNIxLSfAJNu
+         V1MFBX7H9bzReR9TRj4xZxPCWGDqDnoU/P3FqKIhiym4RaI0RmdWkR8Yawicv64uerY6
+         Z5BH+kYoQjjh/8VXZBMFjvOyr+xyvUt0Ml5LRgRLnKZrW9PzRa/VfSvhdoJOD+nioGEv
+         GWu1/lW2FjhMD8VwFMobVcmmE164OzFsBfmems+YVDXppJ7OnaYxN5CGBnpFYMbLxIzf
+         Y6sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743513822; x=1744118622;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EyDNMW9IBuY8jRB69DY3fJHCsQyLv/GHW0iXNqQGDTc=;
+        b=anhINZue2GO6+/qxe64la1YIztYSu7GntqoxnwBleuP2T6S/bv+xybxqfhqtlDD+FP
+         gYNLmfNqW/b/PRQFT0x9Wo6S91AiRuZ3044/srjsR83A9FfPAsGPo/XtgNVNoActr/Qm
+         9DIOuPzvyZCBZ2vahK0SSjXdeYAQnxmaKzjtKcFbGpALsF2xOYaDkHbousprFxlCBm/B
+         Igu5qWOtxpYwxHF5EiAQojsyY6RHZPSEkX5pBJypYKtDOzVpK3Pyu60xjda8OqxokEfh
+         RnhjNQZrbnTU+u7Zci1oyx2ziPTNKTKIYwocL5mYxywuNHP/swMoZr/sEJiRcwBhOsxD
+         CN0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUuajrnO/OB6jBEFwFGSxcKmPHa+wg4wEUlPemgsnYPzw/GSG20XVOu1igFKxtENITJg24ytXXFhnW34D5qLb96+g==@lists.infradead.org, AJvYcCVfpOpSWmD8Kz5rM2/c5EGbDtrBTQ+20xB+V1gSVETVpQm6OgOLQbLLLC7fFEv65Tp7rOZXqDYOonEc8Bl8jN//@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSmO6I+SR34Blz/ar2BxcOJbEmMQ4LE+K8LCoECDBlAvIfnUe3
+	Jd6uq52YPcppnV0sJlUEMaAVjL5akMR/6vwPArOXQN4Ryd5q4uvh
+X-Gm-Gg: ASbGncuCR7ZIJesB+WIhtIlqxZlhG/n3QAGl+wCpm5X4lPb8JRkCx0o61DmKPLExkWK
+	zSYJ9JuwOyXEEeVT9T6H2uizBiNmaL0A+kTxJSKYnCJs74JDRc6uqxUZgYVBGzlSR2qWDF/vev3
+	2ZR4nAQbO2mPJes8m0GAY8Y3EU8jrm3P3BPasCaXmshJEH6w3+nohRo65G94KwNiVJcvp3w6LWG
+	I1n1ba+Cg4jhoDm5f76EV/q3FYhc3DNaRAuSOcRANaYBkZW7gmDAQbiIxUCwwVqU6VMNy82FIAi
+	67kGGEEadEI/ft0QRe1ardyu6o1hZQtrb8Z3wYPXOKMH0zVdPhmPDIzNP9+sV5APXzak8tU=
+X-Google-Smtp-Source: AGHT+IEd9GQsC4GBsA6T7gbOkBVQnrLNIkIyEnQBb/RXdcexhSvAxnX9gO7Xk2mjUWmPOHqdw1MCaw==
+X-Received: by 2002:a17:902:db01:b0:215:8809:b3b7 with SMTP id d9443c01a7336-2292f946440mr203250275ad.7.1743513822231;
+        Tue, 01 Apr 2025 06:23:42 -0700 (PDT)
+Received: from henry.localdomain ([111.202.148.167])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291eeca1e1sm87901995ad.2.2025.04.01.06.23.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Apr 2025 06:23:41 -0700 (PDT)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	florian.fainelli@broadcom.com
+Cc: bcm-kernel-feedback-list@broadcom.com,
+	dave.stevenson@raspberrypi.com,
+	popcornmix@gmail.com,
+	mripard@kernel.org,
+	u.kleine-koenig@baylibre.com,
+	nathan@kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Henry Martin <bsdhenrymartin@gmail.com>
+Subject: [PATCH v1] clk: bcm: Add NULL check in raspberrypi_clk_register()
+Date: Tue,  1 Apr 2025 21:23:24 +0800
+Message-Id: <20250401132324.27312-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ea366793-4c27-44af-9b6b-8964c4151416@linaro.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_062316_081096_03846D8D 
-X-CRM114-Status: GOOD (  29.23  )
+X-CRM114-CacheID: sfid-20250401_062343_055972_74600DB0 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,120 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+devm_kasprintf() returns NULL when memory allocation fails. Currently,
+raspberrypi_clk_register() does not check for this case, which results
+in a NULL pointer dereference.
 
-On Mon, Mar 31, 2025 at 03:24:46PM +0100, James Clark wrote:
-> On 28/03/2025 10:38 pm, Yabin Cui wrote:
+Add NULL check after devm_kasprintf() to prevent this issue.
 
-[...]
+Fixes: 7dad8a613185 ("clk: bcm: rpi: Give firmware clocks a name")
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+---
+ drivers/clk/bcm/clk-raspberrypi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> > diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-> > index 275cc0d9f505..834a7ffbbdbc 100644
-> > --- a/drivers/hwtracing/coresight/coresight-catu.c
-> > +++ b/drivers/hwtracing/coresight/coresight-catu.c
-> > @@ -458,12 +458,19 @@ static int catu_enable_hw(struct catu_drvdata *drvdata, enum cs_mode cs_mode,
-> >   static int catu_enable(struct coresight_device *csdev, enum cs_mode mode,
-> >   		       void *data)
-> >   {
-> > -	int rc;
-> > +	int rc = 0;
-> > +	unsigned long flags;
-> >   	struct catu_drvdata *catu_drvdata = csdev_to_catu_drvdata(csdev);
-> > -	CS_UNLOCK(catu_drvdata->base);
-> > -	rc = catu_enable_hw(catu_drvdata, mode, data);
-> > -	CS_LOCK(catu_drvdata->base);
-> > +	spin_lock_irqsave(&catu_drvdata->spinlock, flags);
+diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
+index 0e1fe3759530..720acc10f8aa 100644
+--- a/drivers/clk/bcm/clk-raspberrypi.c
++++ b/drivers/clk/bcm/clk-raspberrypi.c
+@@ -286,6 +286,8 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+ 	init.name = devm_kasprintf(rpi->dev, GFP_KERNEL,
+ 				   "fw-clk-%s",
+ 				   rpi_firmware_clk_names[id]);
++	if (!init.name)
++		return ERR_PTR(-ENOMEM);
+ 	init.ops = &raspberrypi_firmware_clk_ops;
+ 	init.flags = CLK_GET_RATE_NOCACHE;
+ 
+-- 
+2.34.1
 
-> Hi Yabin,
-> 
-> This needs to be a raw_spinlock since [1]. Also you might as well use the
-> new guard() thing to save someone find-and-replacing it later.
-> 
-> But I'm wondering if this is accurate. The ETR's refcount is dependent on
-> the pid of the owner of the trace session:
-> 
->   /* Do not proceed if this device is associated with another session */
->   if (drvdata->pid != -1 && drvdata->pid != pid) {
-> 	rc = -EBUSY;
-> 	goto unlock_out;
->   }
-> 
->   /*
->    * No HW configuration is needed if the sink is already in
->    * use for this session.
->    */
->   if (drvdata->pid == pid) {
-> 	csdev->refcnt++;
-> 	goto unlock_out;
->   }
-> 
-> If the helpers get enabled first, could this mean that CATU gets associated
-> with a different session than the ETR? Maybe not, but it would be easier to
-> understand if the core code handled the refcounting and locking for linked
-> devices.
-
-Yes, CATU can be enabled in a different session or even is disturbed
-by another mode (E.g., CATU is enabled in a perf session, then it
-might be wrongly enabled for Sysfs mode).
-
-But anyway, I think this patch is needed to protect the low level's
-operations with a raw spin lock.
-
-Thanks,
-Leo
-
-> [1]:
-> https://lore.kernel.org/all/20250306121110.1647948-3-yeoreum.yun@arm.com/
-> 
-> Thanks
-> James
-> 
-> > +	if (csdev->refcnt == 0) {
-> > +		CS_UNLOCK(catu_drvdata->base);
-> > +		rc = catu_enable_hw(catu_drvdata, mode, data);
-> > +		CS_LOCK(catu_drvdata->base);
-> > +	}
-> > +	if (!rc)
-> > +		csdev->refcnt++;
-> > +	spin_unlock_irqrestore(&catu_drvdata->spinlock, flags);
-> >   	return rc;
-> >   }
-> > @@ -486,12 +493,17 @@ static int catu_disable_hw(struct catu_drvdata *drvdata)
-> >   static int catu_disable(struct coresight_device *csdev, void *__unused)
-> >   {
-> > -	int rc;
-> > +	int rc = 0;
-> > +	unsigned long flags;
-> >   	struct catu_drvdata *catu_drvdata = csdev_to_catu_drvdata(csdev);
-> > -	CS_UNLOCK(catu_drvdata->base);
-> > -	rc = catu_disable_hw(catu_drvdata);
-> > -	CS_LOCK(catu_drvdata->base);
-> > +	spin_lock_irqsave(&catu_drvdata->spinlock, flags);
-> > +	if (--csdev->refcnt == 0) {
-> > +		CS_UNLOCK(catu_drvdata->base);
-> > +		rc = catu_disable_hw(catu_drvdata);
-> > +		CS_LOCK(catu_drvdata->base);
-> > +	}
-> > +	spin_unlock_irqrestore(&catu_drvdata->spinlock, flags);
-> >   	return rc;
-> >   }
-> > @@ -550,6 +562,7 @@ static int __catu_probe(struct device *dev, struct resource *res)
-> >   	dev->platform_data = pdata;
-> >   	drvdata->base = base;
-> > +	spin_lock_init(&drvdata->spinlock);
-> >   	catu_desc.access = CSDEV_ACCESS_IOMEM(base);
-> >   	catu_desc.pdata = pdata;
-> >   	catu_desc.dev = dev;
-> > diff --git a/drivers/hwtracing/coresight/coresight-catu.h b/drivers/hwtracing/coresight/coresight-catu.h
-> > index 141feac1c14b..663282ec6381 100644
-> > --- a/drivers/hwtracing/coresight/coresight-catu.h
-> > +++ b/drivers/hwtracing/coresight/coresight-catu.h
-> > @@ -65,6 +65,7 @@ struct catu_drvdata {
-> >   	void __iomem *base;
-> >   	struct coresight_device *csdev;
-> >   	int irq;
-> > +	spinlock_t spinlock;
-> >   };
-> >   #define CATU_REG32(name, offset)					\
-> 
 
