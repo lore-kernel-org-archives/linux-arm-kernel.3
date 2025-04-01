@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58AA5C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 13:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5C08C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 13:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CyWpiRvN0POi/1TulCaB9srdQFEHIu/XMwIF9eHHINM=; b=syZ5dD00JZh1WdZmsUSrI7rVB4
-	UDTEOSbuWpGAYe6IBgZhumVvBTaeXmc/02UDHCeExIxqGHg6S6Bluhu+n3dwGAyiNsqIvG32rbj73
-	xCXttuU+/VfA302lbDPj6lPdh3Qg5EF4No1aGyTnPClIkTN4HssURNqTqV8nww3gDjj3L9pr/qkfS
-	3UPxx0WC1I9rk6o5GfD5vRLG5UUE0i5isX+xtDqUslqsnl6QXPTbgxnaZUz8joCOOtv/XwVCHzVlh
-	0PZlVGA7/6BYJ+VInjd+vOvpXrxAW/Hc/ylzbEBMoHDctgPkXoSGpBqtwbzodqZmSAuB0ZIcKfMp4
-	b2fCN3Kg==;
+	bh=aLA++7QbgSutvFaC1htYkrD41KHYBranyoZiDvoDoCE=; b=anOHvkDoEexPlVwFDg9f/rSjLI
+	uxZvyAP8jsowU+0FLxRQ28TI3dIbZ0hGrw76MX/w1MXF6qCghvN974OIDiXkRMAmEXB6aNWiVDtRG
+	lnVEUlDtIWzI3Xh4zWcer0osUvTpoMSObloNHZlzujIhwJLbF1/D4C0T3mq9eQ0JGdr5XhcVKEpLS
+	Quh/4vs+coENXuDsMmLXOyRVUKz8x19euwruoEXwcCqbhNetwcZ6wfWIoQwGg5EMGUfZkShRHJdkc
+	4PAPURAbsObbjIxFlBmo1cjmP4m9lhCe1Rj1UhxHlE9wcBuOQ7+RkINFcUWTAKYzUzfMKYboL0Mqa
+	CsX0hwgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzbQO-00000003PN9-0Ip5;
-	Tue, 01 Apr 2025 13:13:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tzbYx-00000003QMl-1k4x;
+	Tue, 01 Apr 2025 13:21:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzbOb-00000003PAF-1two
+	id 1tzbX9-00000003Q2M-1iWv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 13:11:13 +0000
+	Tue, 01 Apr 2025 13:20:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2ADE461132;
-	Tue,  1 Apr 2025 13:11:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86B57C4CEE4;
-	Tue,  1 Apr 2025 13:11:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9E3045C4A91;
+	Tue,  1 Apr 2025 13:17:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDE0CC4CEE4;
+	Tue,  1 Apr 2025 13:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743513072;
-	bh=eFj1UtKjWSXUv/IED2cgaAtIRcrA4Zbbbpt7I7dajA0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=R8s4/DS4YxcOEWSzlM3EE8vMNdgInvDagqB0HhLPdwt0aoPX7rxBf0I6Kpc64GT8C
-	 UUTWbxd+xYJhVopEXrXBgG8HTMB7uZTES/sW5bKL9BwW2rs4GSHajMsPPlDBZF4Aqf
-	 qNuhLIasqKX5evNv6IFIdMNHVe92B290frTpNumgISwIcHvDISWflIPzzrpKZO1sAk
-	 t1W4COqnyH9xXfZj7MTfNJSckuianb+sMptS2E0oXYGr2pS8XIl+LmhVKTsmJHrC9I
-	 yOGKbUNPH6el2Kq6/CMN5PJnPNjtH1TF/00cUlSrQpUtGrj1/PxDUm+vj0v7jIiFTK
-	 XXan03RgCy69A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tzbOY-001L1O-Bf;
-	Tue, 01 Apr 2025 14:11:10 +0100
-Date: Tue, 01 Apr 2025 14:11:11 +0100
-Message-ID: <87o6xgyqkw.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Youngmin Nam <youngmin.nam@samsung.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel-team@android.com,
-	hajun.sung@samsung.com,
-	d7271.choe@samsung.com,
-	joonki.min@samsung.com
-Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in GICv3 ITS driver
-In-Reply-To: <CAPDyKFrxK3Mx055hx+a4SP3CWDpWP+CEHxz+WJfT+RficK0_Ag@mail.gmail.com>
-References: <CGME20250326030527epcas2p33aa30e62cc8a00c9e151c35bee71dac5@epcas2p3.samsung.com>
-	<Z+Nv8U/4P3taDpUq@perf>
-	<8634f0mall.wl-maz@kernel.org>
-	<Z+TEa8CVAYnbD/Tu@perf>
-	<86v7rulw2d.wl-maz@kernel.org>
-	<CAPDyKFrxK3Mx055hx+a4SP3CWDpWP+CEHxz+WJfT+RficK0_Ag@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ulf.hansson@linaro.org, youngmin.nam@samsung.com, tglx@linutronix.de, saravanak@google.com, vincent.guittot@linaro.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com, hajun.sung@samsung.com, d7271.choe@samsung.com, joonki.min@samsung.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1743513602;
+	bh=9wSJvejkq5NxPrQKr0Jhsiek8qkHChwl57pzJsxs7qo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YIaDl7MvazjElWMG6+MRQRAKFy4pTiPH2Y5kKB+bwOeQGRBx28iNTxNhm+kBGiDtp
+	 4YKO8ZQVxGwwSlju1t7NgbfrcAPwjIo8gvofNVbWgUvO0GBU0+rwWFjhkT3apkAmJ4
+	 uY6pQqwyoDvqNlDYRZ6RCPga2q3TC6ojEw3OP+LuTxjk5AxZLRDTvJDoDvb6gOWS6h
+	 jWngKU0OhKMznLLv+XUMAgOMR4RZ/zSX670RxahSYlQ+eSNB6tA5K2+nNlGWzX4fN9
+	 HG0WNS17ib8DRY6FK3ZVY7oTA0kM7Eb5cnhK7WDEDKBVJRdkqT7xn73igeNcfTzWSk
+	 KgnRbPM3oyH6A==
+Date: Tue, 1 Apr 2025 16:19:54 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	"Sauerwein, David" <dssauerw@amazon.de>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	David Hildenbrand <david@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH v4 2/4] memblock: update initialization of reserved pages
+Message-ID: <Z-vn-sMtNfwyJ9VW@kernel.org>
+References: <20210511100550.28178-1-rppt@kernel.org>
+ <20210511100550.28178-3-rppt@kernel.org>
+ <9f33c0b4517eaf5f36c515b92bdcb6170a4a576a.camel@infradead.org>
+ <Z-qrtJ6cs-kXpepR@kernel.org>
+ <b47d5f5602573bd082be3729ceddb3d1dc374ef1.camel@infradead.org>
+ <Z-vPBu5vAvFhYDzP@kernel.org>
+ <1787b97c267b53127c60a61419d99751f8a66b1a.camel@infradead.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1787b97c267b53127c60a61419d99751f8a66b1a.camel@infradead.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250401_062003_557852_F53DDFFD 
+X-CRM114-Status: GOOD (  48.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,126 +86,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Apr 2025 13:45:43 +0100,
-Ulf Hansson <ulf.hansson@linaro.org> wrote:
->=20
-> On Thu, 27 Mar 2025 at 09:25, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Thu, 27 Mar 2025 03:22:19 +0000,
-> > Youngmin Nam <youngmin.nam@samsung.com> wrote:
-> > >
-> > > [1  <text/plain; utf-8 (8bit)>]
-> > > On Wed, Mar 26, 2025 at 08:59:02AM +0000, Marc Zyngier wrote:
-> > > > On Wed, 26 Mar 2025 03:09:37 +0000,
-> > > > Youngmin Nam <youngmin.nam@samsung.com> wrote:
-> > > > >
-> > > > > Hi.
-> > > > >
-> > > > > On our SoC, we are using S2IDLE instead of S2R as a system suspen=
-d mode.
-> > > > > However, when I try to enable ARM GICv3 ITS driver (drivers/irqch=
-ip/irq-gic-v3-its.c),
-> > > > > I noticed that there is no proper way to invoke suspend/resume ca=
-llback,
-> > > > > because it only uses syscore_ops, which is not called in an s2idl=
-e scenario.
-> > > >
-> > > > This is *by design*.
-> >
-> > [...]
-> >
-> > > > > How should we handle this situation ?
-> > > >
-> > > > By implementing anything related to GIC power-management in your EL3
-> > > > firmware. Only your firmware knows whether you are going into a sta=
-te
-> > > > where the GIC (and the ITS) is going to lose its state (because pow=
-er
-> > > > is going to be removed) or if the sleep period is short enough that
-> > > > you can come back from idle without loss of context.
-> > > >
-> > > > Furthermore, there is a lot of things that non-secure cannot do when
-> > > > it comes to GIC power management (most the controls are secure only=
-),
-> > > > so it is pretty clear that the kernel is the wrong place for this.
-> > > >
-> > > > I'd suggest you look at what TF-A provides, because this is not
-> > > > exactly a new problem (it has been solved several years ago).
-> > > >
-> > > >     M.
-> > > >
-> > > > --
-> > > > Without deviation from the norm, progress is not possible.
-> > > >
-> > >
-> > > Hi Marc,
-> > >
-> > > First of all, I=E2=80=99d like to distinguish between the GICv3 drive=
-r (irq-gic-v3.c)
-> > > and the ITS driver (irq-gic-v3-its.c).
-> > >
-> > > I now understand why the GICv3 driver doesn=E2=80=99t implement suspe=
-nd and resume functions.
-> > > However, unlike the GICv3 driver, the ITS driver currently provides
-> > > suspend and resume functions via syscore_ops in the kernel.
-> >
-> > For *suspend*. The real suspend. Not a glorified WFI. And that's only
-> > for situations where we know for sure that we are going to suspend.
-> >
-> > > And AFAIK, LPIs are always treated as non-secure. (Please correct me =
-If I'm wrong).
-> > >
-> > > The problem is that syscore_ops is not invoked during the S2IDLE scen=
-ario,
-> > > so we cannot rely on it in that context.
-> > > We would like to use these suspend/resume functions during S2IDLE as =
-well.
-> >
-> > Again, this is *by design*. There is no semantic difference between
-> > s2idle and normal idle. They are the same thing. Do you really want to
-> > save/restore the whole ITS state on each and every call into idle?
-> > Absolutely not.
->=20
-> I agree that we don't want to save/restore for every call to idle,
-> that would simply be unnecessary and add latencies.
->=20
-> Instead, I think the save/restore could depend on what idlestate we
-> enter and whether it's a system-wide state (s2idle/s2ram) or just
-> regular cpuidle-state.
->=20
-> Today, we are pointing the callbacks for cpuidle and s2idle to the
-> same functions (at least for PSCI PC mode), but it's easy to change
-> that *if* we need some differentiation between s2idle and cpuidle.
->=20
-> >
-> > Only your firmware knows how deep you will be suspended, and how long
-> > you will be suspended for, and this is the right place for to perform
-> > save/restore of the ITS state. Not in generic code that runs on every
-> > arm64 platform on the planet.
->=20
-> Assuming we can make the code for saving/restoring generic (not in FW)
-> and that we are able to make sure the code is only executed for those
-> platforms and states that really need it. Do you think there would
-> there be any other drawback for doing this?
+On Tue, Apr 01, 2025 at 12:50:33PM +0100, David Woodhouse wrote:
+> On Tue, 2025-04-01 at 14:33 +0300, Mike Rapoport wrote:
+> > On Mon, Mar 31, 2025 at 04:13:56PM +0100, David Woodhouse wrote:
+> > > On Mon, 2025-03-31 at 17:50 +0300, Mike Rapoport wrote:
+> > > > On Mon, Mar 31, 2025 at 01:50:33PM +0100, David Woodhouse wrote:
+> > > > > On Tue, 2021-05-11 at 13:05 +0300, Mike Rapoport wrote:
+> > > > > 
+> > > > > On platforms with large NOMAP regions (e.g. which are actually reserved
+> > > > > for guest memory to keep it out of the Linux address map and allow for
+> > > > > kexec-based live update of the hypervisor), this pointless loop ends up
+> > > > > taking a significant amount of time which is visible as guest steal
+> > > > > time during the live update.
+> > > > > 
+> > > > > Can reserve_bootmem_region() skip the loop *completely* if no PFN in
+> > > > > the range from start to end is valid? Or tweak the loop itself to have
+> > > > > an 'else' case which skips to the next valid PFN? Something like
+> > > > > 
+> > > > >  for(...) {
+> > > > >     if (pfn_valid(start_pfn)) {
+> > > > >        ...
+> > > > >     } else {
+> > > > >        start_pfn = next_valid_pfn(start_pfn);
+> > > > >     }
+> > > > >  }
+> > > > 
+> > > > My understanding is that you have large reserved NOMAP ranges that don't
+> > > > appear as memory at all, so no memory map for them is created and so
+> > > > pfn_valid() is false for pfns in those ranges.
+> > > > 
+> > > > If this is the case one way indeed would be to make
+> > > > reserve_bootmem_region() skip ranges with no valid pfns.
+> > > > 
+> > > > Another way could be to memblock_reserved_mark_noinit() such ranges and
+> > > > then reserve_bootmem_region() won't even get called, but that would require
+> > > > firmware to pass that information somehow.
+> > > 
+> > > I was thinking along these lines (not even build tested)...
+> > > 
+> > > I don't much like the (unsigned long)-1 part. I might make the helper
+> > > 'static inline bool first_valid_pfn (unsigned long *pfn)' and return
+> > > success or failure. But that's an implementation detail.
+> > > 
+> > > index 6d1fb6162ac1..edd27ba3e908 100644
+> > > --- a/include/asm-generic/memory_model.h
+> > > +++ b/include/asm-generic/memory_model.h
+> > > @@ -29,8 +29,43 @@ static inline int pfn_valid(unsigned long pfn)
+> > >         return pfn >= pfn_offset && (pfn - pfn_offset) < max_mapnr;
+> > >  }
+> > >  #define pfn_valid pfn_valid
+> > > +
+> > > +static inline unsigned long first_valid_pfn(unsigned long pfn)
+> > > +{
+> > > +       /* avoid <linux/mm.h> include hell */
+> > > +       extern unsigned long max_mapnr;
+> > > +       unsigned long pfn_offset = ARCH_PFN_OFFSET;
+> > > +
+> > > +       if (pfn < pfn_offset)
+> > > +               return pfn_offset;
+> > > +
+> > > +       if ((pfn - pfn_offset) < max_mapnr)
+> > > +               return pfn;
+> > > +
+> > > +       return (unsigned long)(-1);
+> > > +}
+> > 
+> > This seems about right for FLATMEM. For SPARSEMEM it would be something
+> > along these lines (I kept dubious -1):
+> 
+> Thanks. Is that right even with CONFIG_SPARSEMEM_VMEMMAP? It seems that
+> it's possible for pfn_valid() to be false for a given *page*, but there
+> may still be valid pages in the remainder of the same section in that
+> case? 
 
-Yes. We'd end-up having to implement all sort of split PM schemes
-depending on the GIC implementation, what the firmware does, the
-various braindead assumptions that the integration makes, and other
-parameters I don't even want to consider.
+Right, it might after memory hot-remove. At boot the entire section either
+valid or not.
+ 
+> I think it should only skip to the next section if the current section
+> doesn't exist at all, not just when pfn_section_valid() return false?
 
-The GIC power management is, for better or worse, *outside* of the
-scope of the architecture. Most of it is implementation defined,
-because each and every implementer/vendor sees it as added value to
-invent their own particular flavour of crap. For example, there is no
-provision for wake-up interrupts, because nobody can agree on how
-that's supposed to work.
+Yeah, when pfn_section_valid() returns false it should itereate pfns until
+the end of the section and check if they are valid. 
+ 
+> I also wasn't sure how to cope with the rcu_read_lock_sched() that
+> happens in pfn_valid(). What's that protecting against? Does it mean
+> that by the time pfn_valid() returns true, that might not be the
+> correct answer any more?
+ 
+That's protecting against kfree_rcu() in section_deactivate() so even if
+the answer is still correct, later access to apparently valid struct page
+may blow up :/ 
 
-Do we want to deal with this in the various GIC drivers? No. It is the
-job of firmware to manage this mess, because this clearly delineates
-where the responsibilities lie.
+> > static inline unsigned long first_valid_pfn(unsigned long pfn)
+> > {
+> > 	unsigned long nr = pfn_to_section_nr(pfn);
+> > 
+> > 	do {
+> > 		if (pfn_valid(pfn))
+> > 			return pfn;
+> > 		pfn = section_nr_to_pfn(nr++);
+> > 	} while (nr < NR_MEM_SECTIONS);
+> > 
+> > 	return (unsigned long)-1;
+> > }
 
-	M.
-
---=20
-Jazz isn't dead. It just smells funny.
+-- 
+Sincerely yours,
+Mike.
 
