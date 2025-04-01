@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D69C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:52:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E9E1C36017
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s7Poqe3mZVIgpU2JGC2x8jHFSjWgHlNoBHPst74G6xY=; b=QQCpJdLCHNC8EPrXffbHi2NoA6
-	dIcHfq+cUE/wkfTQ8pazbjzEvyghv1bQVtPxUEuAYstOV2sKTkUheaPpCPFSTY+QmJVc15w7k1Nt4
-	sBeQVSD5DtGbfAU+g/S59/k+iAONzpTpReAN/Tz0imlyKR0rfJszmhzaJaJnArlCkv8p6yGfsiGw/
-	QdXWucu+3HqS5GM0Y/iXjgGxNBShsiBmSDuxL6HsX88uXm8z5AXRlWFHSvkobuB2/A+u/7BTTRyM/
-	x8KqCYXRGNztMAsqsMpG1VnL1mr6yaWhjX/ps7CygES54rtBi5CnYYKLBOlNARSk4sT2ZwVcFeMGc
-	4MnjQYeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W8bdYlVi2iOGNPjvXvzfLrSEQ29VkT69sQg/OM0grbs=; b=WzrYmw5FvBKgfiPROx+5ULVevf
+	L0R57+gsKNf3WyQGfOWBP83I/PmM0sH7qjgO2ixpipGKbPMwzOkt8dCtq5dvu6mvEb/efDnjl2xUm
+	HfE+l0zcaZ3LijK3snOZ4c3jz7/8NC8xapEoxSAJUZgsgqu2ML7rMdrD9Gwxfiq8ATyt9ZzmoW7KU
+	Pb9Lw/jU08o4Z1X0IfSQ5DVesZ8MIQQHyQIJzupHudPYSxeFChw91Rwh5sKFE0i1s/sxj5ProzHuA
+	4gZ4EJGUoqPKlTEVXhccGvacRMANUYJJqUr7G1lWnXnXIzyZWMT9fs4jgUzS6kyo9Y8k8i9VcsFmi
+	54VDHfqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzZDm-00000002gJh-2nXI;
-	Tue, 01 Apr 2025 10:51:54 +0000
-Received: from mx.denx.de ([89.58.32.78])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYxh-00000002dtg-1Ceg
+	id 1tzZFY-00000002ga0-0JKL;
+	Tue, 01 Apr 2025 10:53:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzYyD-00000002e3M-3gKk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 10:35:19 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0C57C101CA6E8;
-	Tue,  1 Apr 2025 12:35:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1743503712; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=s7Poqe3mZVIgpU2JGC2x8jHFSjWgHlNoBHPst74G6xY=;
-	b=Tprvait7ezlgUnAVteDKrKb1PEx6byXSrNXb/HiG066infjz5H+UTJvCI6zLh9XeLH6MKU
-	MxkqTmCR6QkesCm39uIpLj4kXiXIH56ZhgtIsLMfHMDmI+28XrcmloOb9g2XzhJqnPNB66
-	WtXO/aqYSH8geX9cjsFOO1M6bbUn2lQYwNNWVud73LoU4hDW071gPsXenQRGv00jDZ6Kxl
-	eS/K1EqL162DFt++crqpY+cKc+lxs3ZB13GzUXpqlw/sMHEBMMWUwMq3m/uT2ZnYXlRkfL
-	WcmLG0/LhqHwh3iY7bgZr6pSCQWXGCctRUcx0i2Am6uMrzLULMijb5gL0lYoUA==
-Date: Tue, 1 Apr 2025 12:35:07 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Rob Herring <robh@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: net: Add MTIP L2 switch description
-Message-ID: <20250401123507.2e3bf0a6@wsk>
-In-Reply-To: <20250331235518.GA2823373-robh@kernel.org>
-References: <20250331103116.2223899-1-lukma@denx.de>
-	<20250331103116.2223899-2-lukma@denx.de>
-	<20250331235518.GA2823373-robh@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 01 Apr 2025 10:35:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D32B14BF;
+	Tue,  1 Apr 2025 03:35:52 -0700 (PDT)
+Received: from [10.1.28.189] (XHFQ2J9959.cambridge.arm.com [10.1.28.189])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 75B433F63F;
+	Tue,  1 Apr 2025 03:35:47 -0700 (PDT)
+Message-ID: <76f5ba9b-1a8c-4973-89ce-14f504819da1@arm.com>
+Date: Tue, 1 Apr 2025 11:35:45 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/RWGAJJQc9ifwwn2SMI2BeSX";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] mm/filemap: Allow arch to request folio size for exec
+ memory
+Content-Language: en-GB
+To: Kalesh Singh <kaleshsingh@google.com>
+Cc: Matthew Wilcox <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
+References: <20250327160700.1147155-1-ryan.roberts@arm.com>
+ <Z-WAbWfZzG1GA-4n@casper.infradead.org>
+ <5131c7ad-cc37-44fc-8672-5866ecbef65b@arm.com>
+ <Z-b1FmZ5nHzh5huL@casper.infradead.org>
+ <ee11907a-5bd7-44ec-844c-8f10ff406b46@arm.com>
+ <CAC_TJveU2v+EcokLKJVVZ8Xje2nYmmUg8bvCD8KO1oC5MgmWCA@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAC_TJveU2v+EcokLKJVVZ8Xje2nYmmUg8bvCD8KO1oC5MgmWCA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_033517_645378_2ADA6055 
-X-CRM114-Status: GOOD (  34.18  )
+X-CRM114-CacheID: sfid-20250401_033550_014055_7FA21158 
+X-CRM114-Status: GOOD (  52.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,281 +74,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/RWGAJJQc9ifwwn2SMI2BeSX
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On 01/04/2025 03:19, Kalesh Singh wrote:
+> On Sat, Mar 29, 2025 at 3:08 AM Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>> On 28/03/2025 15:14, Matthew Wilcox wrote:
+>>> On Thu, Mar 27, 2025 at 04:23:14PM -0400, Ryan Roberts wrote:
+>>>> + Kalesh
+>>>>
+>>>> On 27/03/2025 12:44, Matthew Wilcox wrote:
+>>>>> On Thu, Mar 27, 2025 at 04:06:58PM +0000, Ryan Roberts wrote:
+>>>>>> So let's special-case the read(ahead) logic for executable mappings. The
+>>>>>> trade-off is performance improvement (due to more efficient storage of
+>>>>>> the translations in iTLB) vs potential read amplification (due to
+>>>>>> reading too much data around the fault which won't be used), and the
+>>>>>> latter is independent of base page size. I've chosen 64K folio size for
+>>>>>> arm64 which benefits both the 4K and 16K base page size configs and
+>>>>>> shouldn't lead to any read amplification in practice since the old
+>>>>>> read-around path was (usually) reading blocks of 128K. I don't
+>>>>>> anticipate any write amplification because text is always RO.
+>>>>>
+>>>>> Is there not also the potential for wasted memory due to ELF alignment?
+>>>>
+>>>> I think this is an orthogonal issue? My change isn't making that any worse.
+>>>
+>>> To a certain extent, it is.  If readahead was doing order-2 allocations
+>>> before and is now doing order-4, you're tying up 0-12 extra pages which
+>>> happen to be filled with zeroes due to being used to cache the contents
+>>> of a hole.
+>>
+>> Well we would still have read them in before, nothing has changed there. But I
+>> guess your point is more about reclaim? Because those pages are now contained in
+>> a larger folio, if part of the folio is in use then all of it remains active.
+>> Whereas before, if the folio was fully contained in the pad area and never
+>> accessed, it would fall down the LRU quickly and get reclaimed.
+>>
+> 
+> 
+> Hi Ryan,
+> 
+> I agree this was happening before and we don't need to completely
+> address it here. Though with the patch it's more likely that the holes
+> will be cached. I'd like to minimize it if possible. Since this is for
+> EXEC mappings, a simple check we could use is to limit this to the
+> VM_EXEC vma.
+> 
+> + if (vm_flags & VM_EXEC) {
+> + int order = arch_exec_folio_order();
+> +
+> + if (order >= 0 && ((end-address)*2) >= 1<<order) { /* Fault around case */
 
-Hi Rob,
+I think the intent of this extra check is to ensure the folio will be fully
+contained within the exec vma? Assuming end is the VA of the end of the vma and
+address is the VA of the fault, I don't think the maths are quite right? What's
+the "*2" for? And you probably mean PAGE_SIZE<<order ? But this also doesn't
+account for alignment; the folio will be aligned down to a natural boundary in
+the file.
 
-> On Mon, Mar 31, 2025 at 12:31:13PM +0200, Lukasz Majewski wrote:
-> > This patch provides description of the MTIP L2 switch available in
-> > some NXP's SOCs - e.g. imx287.
-> >=20
-> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> > ---
-> > Changes for v2:
-> > - Rename the file to match exactly the compatible
-> >   (nxp,imx287-mtip-switch)
-> >=20
-> > Changes for v3:
-> > - Remove '-' from const:'nxp,imx287-mtip-switch'
-> > - Use '^port@[12]+$' for port patternProperties
-> > - Drop status =3D "okay";
-> > - Provide proper indentation for 'example' binding (replace 8
-> >   spaces with 4 spaces)
-> > - Remove smsc,disable-energy-detect; property
-> > - Remove interrupt-parent and interrupts properties as not required
-> > - Remove #address-cells and #size-cells from required properties
-> > check
-> > - remove description from reg:
-> > - Add $ref: ethernet-switch.yaml#
-> > ---
-> >  .../bindings/net/nxp,imx287-mtip-switch.yaml  | 154
-> > ++++++++++++++++++ 1 file changed, 154 insertions(+)
-> >  create mode 100644
-> > Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> >=20
-> > diff --git
-> > a/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> > b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> > new file mode 100644 index 000000000000..98eba3665f32 --- /dev/null
-> > +++
-> > b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> > @@ -0,0 +1,154 @@ +# SPDX-License-Identifier: (GPL-2.0-only OR
-> > BSD-2-Clause) +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/net/nxp,imx287-mtip-switch.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
-> > +
-> > +maintainers:
-> > +  - Lukasz Majewski <lukma@denx.de>
-> > +
-> > +description:
-> > +  The 2-port switch ethernet subsystem provides ethernet packet
-> > (L2)
-> > +  communication and can be configured as an ethernet switch. It
-> > provides the
-> > +  reduced media independent interface (RMII), the management data
-> > input
-> > +  output (MDIO) for physical layer device (PHY) management.
-> > +
-> > +$ref: ethernet-switch.yaml# =20
->=20
-> This needs to be: ethernet-switch.yaml#/$defs/ethernet-ports
->=20
-> With that, you can drop much of the below part. More below...
->=20
-> > +
-> > +properties:
+But more fundamentally, I thought I suggested reducing the VMA bounds to exclude
+padding pages the other day at LSF/MM and you said you didn't want to do that
+because you didn't want to end up with something else mapped in the gap? So
+doesn't that mean the padding pages are part of the VMA and this check won't help?
 
-So it shall be after the "properties:"
+> 
+> For reference I found below (coincidentally? similar) distributions on
+> my devices
+> 
+> == x86 Workstation ==
+> 
+> Total unique exec segments:   906
+> 
+> Exec segments >= 16 KB:   663 ( 73.18%)
+> Exec segments >= 64 KB:   414 ( 45.70%)
 
-$ref: ethernet-switch.yaml#/$defs/ethernet-ports   [*]
+What are those percentages? They don't add up to more than 100...
 
+The numbers I included with the patch are caclulated based on actual mappings so
+if we end up with a partially mapped 64K folio (because it runs off the end of
+the VMA) it wouldn't have been counted as a 64K contiguous mapping. So I don't
+think this type of change would change my numbers at all.
 
-> > +  compatible:
-> > +    const: nxp,imx287-mtip-switch
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  phy-supply:
-> > +    description:
-> > +      Regulator that powers Ethernet PHYs.
-> > +
-> > +  clocks:
-> > +    items:
-> > +      - description: Register accessing clock
-> > +      - description: Bus access clock
-> > +      - description: Output clock for external device - e.g. PHY
-> > source clock
-> > +      - description: IEEE1588 timer clock
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: ipg
-> > +      - const: ahb
-> > +      - const: enet_out
-> > +      - const: ptp
-> > +
-> > +  interrupts:
-> > +    items:
-> > +      - description: Switch interrupt
-> > +      - description: ENET0 interrupt
-> > +      - description: ENET1 interrupt
-> > +
-> > +  pinctrl-names: true
-> > + =20
->=20
-> > +  ethernet-ports:
+> 
+> == arm64 Android Device ==
+> 
+> Total unique exec segments:   2171
+> 
+> Exec segments >= 16 KB:  1602 ( 73.79%)
+> Exec segments >= 64 KB:   988 ( 45.51%)
+> 
+> Result were using the below script:
+> 
+> cat /proc/*/maps | grep 'r-xp' | \
+> awk '
+> BEGIN { OFS = "\t" }
+> $NF ~ /^\// {
+> path = $NF;
+> split($1, addr, "-");
+> size = strtonum("0x" addr[2]) - strtonum("0x" addr[1]);
+> print size, path;
+> }' | \
+> sort -u | \
+> awk '
+> BEGIN {
+> FS = "\t";
+> total_segments = 0;
+> segs_ge_16k = 0;
+> segs_ge_64k = 0;
+> }
+> {
+> total_segments++;
+> size = $1;
+> if (size >= 16384) segs_ge_16k++;
+> if (size >= 65536) segs_ge_64k++;
+> }
+> END {
+> if (total_segments > 0) {
+> percent_gt_16k = (segs_ge_16k / total_segments) * 100;
+> percent_gt_64k = (segs_ge_64k / total_segments) * 100;
+> 
+> printf "Total unique exec segments: %d\n", total_segments;
+> printf "\n";
+> printf "Exec segments >= 16 KB: %5d (%6.2f%%)\n", segs_ge_16k, percent_gt_16k;
+> printf "Exec segments >= 64 KB: %5d (%6.2f%%)\n", segs_ge_64k, percent_gt_64k;
+> } else {
+> print "No executable segments found.";
+> }
+> }'
+> 
+>>>
+>>>>> Kalesh talked about it in the MM BOF at the same time that Ted and I
+>>>>> were discussing it in the FS BOF.  Some coordination required (like
+>>>>> maybe Kalesh could have mentioned it to me rathere than assuming I'd be
+>>>>> there?)
+>>>>
+>>>> I was at Kalesh's talk. David H suggested that a potential solution might be for
+>>>> readahead to ask the fs where the next hole is and then truncate readahead to
+>>>> avoid reading the hole. Given it's padding, nothing should directly fault it in
+>>>> so it never ends up in the page cache. Not sure if you discussed anything like
+>>>> that if you were talking in parallel?
+>>>
+>>> Ted said that he and Kalesh had talked about that solution.  I have a
+>>> more bold solution in mind which lifts the ext4 extent cache to the
+>>> VFS inode so that the readahead code can interrogate it.
+>>>
+> 
+> Sorry about the hiccup in coordination, Matthew. It was my bad for not
+> letting you know I planned to discuss it in the MM BoF. I'd like to
+> hear Ted and your ideas on this when possible.
+> 
+> Thanks,
+> Kalesh
+> 
+>>>> Anyway, I'm not sure if you're suggesting these changes need to be considered as
+>>>> one somehow or if you're just mentioning it given it is loosely related? My view
+>>>> is that this change is an improvement indepently and could go in much sooner.
+>>>
+>>> This is not a reason to delay this patch.  It's just a downside which
+>>> should be mentioned in the commit message.
+>>
+>> Fair point; I'll add a paragraph about the potential reclaim issue.
+>>
+>>>
+>>>>>> +static inline int arch_exec_folio_order(void)
+>>>>>> +{
+>>>>>> +  return -1;
+>>>>>> +}
+>>>>>
+>>>>> This feels a bit fragile.  I often expect to be able to store an order
+>>>>> in an unsigned int.  Why not return 0 instead?
+>>>>
+>>>> Well 0 is a valid order, no? I think we have had the "is order signed or
+>>>> unsigned" argument before. get_order() returns a signed int :)
+>>>
+>>> But why not always return a valid order?  I don't think we need a
+>>> sentinel.  The default value can be 0 to do what we do today.
+>>>
+>>
+>> But a single order-0 folio is not what we do today. Note that my change as
+>> currently implemented requests to read a *single* folio of the specified order.
+>> And note that we only get the order we request to page_cache_ra_order() because
+>> the size is limited to a single folio. If the size were bigger, that function
+>> would actually expand the requested order by 2. (although the parameter is
+>> called "new_order", it's actually interpretted as "old_order").
+>>
+>> The current behavior is effectively to read 128K in order-2 folios (with smaller
+>> folios for boundary alignment).
+>>
+>> So I see a few options:
 
-And then this "node" can be removed as it has been referenced above [*]?
+Matthew,
 
-(I shall only keep the properties, which are not standard to [*] if
-any).
+Did you have any thoughts on these options?
 
-> > +    type: object
-> > +    additionalProperties: false
-> > +
-> > +    properties:
-> > +      '#address-cells':
-> > +        const: 1
-> > +      '#size-cells':
-> > +        const: 0
-> > +
-> > +    patternProperties:
-> > +      '^port@[12]+$': =20
->=20
-> Note that 'ethernet-port' is the preferred node name though 'port' is=20
-> allowed.
+Thanks,
+Ryan
 
-Ok. That would be the correct define:
+>>
+>>   - Continue to allow non-opted in arches to use the existing behaviour; in this
+>> case we need a sentinel. This could be -1, UINT_MAX or 0. But in the latter case
+>> you are preventing an opted-in arch from specifying that they want order-0 -
+>> it's meaning is overridden.
+>>
+>>   - Force all arches to use the new approach with a default folio order (and
+>> readahead size) of order-0. (The default can be overridden per-arch). Personally
+>> I'd be nervous about making this change.
+>>
+>>   - Decouple the read size from the folio order size; continue to use the 128K
+>> read size and only allow opting-in to a specific folio order. The default order
+>> would be 2 (or 0). We would need to fix page_cache_async_ra() to call
+>> page_cache_ra_order() with "order + 2" (the new order) and fix
+>> page_cache_ra_order() to treat its order parameter as the *new* order.
+>>
+>> Perhaps we should do those fixes anyway (and then actually start with a folio
+>> order of 0 - which I think you said in the past was your original intention?).
+>>
+>> Thanks,
+>> Ryan
+>>
 
-ethernet-ports {
-     mtip_port1: ethernet-port@1 {
-               reg =3D <1>;
-               label =3D "lan0";
-               local-mac-address =3D [ 00 00 00 00 00 00 ];
-               phy-mode =3D "rmii";
-               phy-handle =3D <&ethphy0>;
-	       };
-
-               mtip_port2: port@2 {
-		....
-	       };
-
->=20
-> > +        type: object
-> > +        description: MTIP L2 switch external ports
-> > +
-> > +        $ref: ethernet-controller.yaml#
-> > +        unevaluatedProperties: false
-> > +
-> > +        properties:
-> > +          reg:
-> > +            items:
-> > +              - enum: [1, 2]
-> > +            description: MTIP L2 switch port number
-> > +
-> > +          label:
-> > +            description: Label associated with this port
-> > +
-> > +        required:
-> > +          - reg
-> > +          - label
-> > +          - phy-mode
-> > +          - phy-handle =20
->=20
-> All the above under 'ethernet-ports' can be dropped though you might=20
-> want to keep 'required' part.
-
-Ok, I will keep it.
-
->=20
-> > +
-> > +  mdio:
-> > +    type: object
-> > +    $ref: mdio.yaml#
-> > +    unevaluatedProperties: false
-> > +    description:
-> > +      Specifies the mdio bus in the switch, used as a container
-> > for phy nodes. +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - clock-names
-> > +  - interrupts
-> > +  - mdio
-> > +  - ethernet-ports
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include<dt-bindings/interrupt-controller/irq.h>
-> > +    switch@800f0000 {
-> > +        compatible =3D "nxp,imx287-mtip-switch";
-> > +        reg =3D <0x800f0000 0x20000>;
-> > +        pinctrl-names =3D "default";
-> > +        pinctrl-0 =3D <&mac0_pins_a>, <&mac1_pins_a>;
-> > +        phy-supply =3D <&reg_fec_3v3>;
-> > +        interrupts =3D <100>, <101>, <102>;
-> > +        clocks =3D <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
-> > +        clock-names =3D "ipg", "ahb", "enet_out", "ptp";
-> > +
-> > +        ethernet-ports {
-> > +            #address-cells =3D <1>;
-> > +            #size-cells =3D <0>;
-> > +
-> > +            mtip_port1: port@1 {
-> > +                reg =3D <1>;
-> > +                label =3D "lan0";
-> > +                local-mac-address =3D [ 00 00 00 00 00 00 ];
-> > +                phy-mode =3D "rmii";
-> > +                phy-handle =3D <&ethphy0>;
-> > +            };
-> > +
-> > +            mtip_port2: port@2 {
-> > +                reg =3D <2>;
-> > +                label =3D "lan1";
-> > +                local-mac-address =3D [ 00 00 00 00 00 00 ];
-> > +                phy-mode =3D "rmii";
-> > +                phy-handle =3D <&ethphy1>;
-> > +            };
-> > +        };
-> > +
-> > +        mdio_sw: mdio {
-> > +            #address-cells =3D <1>;
-> > +            #size-cells =3D <0>;
-> > +
-> > +            reset-gpios =3D <&gpio2 13 0>;
-> > +            reset-delay-us =3D <25000>;
-> > +            reset-post-delay-us =3D <10000>;
-> > +
-> > +            ethphy0: ethernet-phy@0 {
-> > +                reg =3D <0>;
-> > +            };
-> > +
-> > +            ethphy1: ethernet-phy@1 {
-> > +                reg =3D <1>;
-> > +            };
-> > +        };
-> > +    };
-> > --=20
-> > 2.39.5
-> >  =20
-
-Thanks for the hint.
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/RWGAJJQc9ifwwn2SMI2BeSX
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfrwVsACgkQAR8vZIA0
-zr24oQf/anBJOGl0tWgnq6LRJxzQ6T2tFRMS9KaTl/Yl6SF0MpjdSH1Wjw4HV+oV
-gfTYtA1SQiOTdgGUq4oM8BTfLLxjLpD12kjIOAEY4ObVyfkYCtTFjyA5S+NA80Zs
-tcAyZZa9TVHculFJliwKPe6/XuAPXLwdPMb63tQrokVOi4XmKBO/PC1i6mpRONei
-y+aBVCE3+j+CiqVkK9ZEwKpI3FWfcODNbAQQ+tXQoKSvrsFLlr9xUMqUZnR2vr0V
-+qdkD74tQDFVoEOd9BQCUP0sacxP9+pS4sIjRgq8t4gJv0W59RxNKssq8RgWN10t
-GEICbrn8XIbQCF2SyxmkwxbNAym54g==
-=siSa
------END PGP SIGNATURE-----
-
---Sig_/RWGAJJQc9ifwwn2SMI2BeSX--
 
