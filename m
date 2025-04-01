@@ -4,147 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C607C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 14:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB472C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 15:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jahQ3DtBaPXca5egBHCWthHkQzQJDZIvDycBzFCHbrE=; b=QjmUcNTZII6NRd4dCNU3JqK7AV
-	ES92+gcghYxg1sO1h6hfuBsiyWSVY7PRJD5RAl1/zPHYLQk7lgWpupGbIFvyKSG01dB85T8+C90+p
-	Rn0sFDJcuwVssIKPvWCwcCo5zBWSIxF3xpl7ChLuIAFKO2gFdaUXsOGSHwCvi34baK5ZVwYo2/BQc
-	kNADVABYdvX1f715a6YOFKEYJ1YV/34MzmJPMFLdJexNMhPPkueXxA9PcdU0X1otm/hpNim3JpbMK
-	FY6Yyf/BiCFoznkUsX7A4Z5b1VkIj1jo5cEgfDAbsFaKK28rcEIlCK6P9m+r1D50OsU1oUx7WuIul
-	37GiRWxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+jl7X3iQxImIxVd58oOGBnN/Rmp3bj8jAHM40t4xGMY=; b=nej0XYqvMJ30OKDCMSoIgj56dw
+	+/tQk6pnEjlUWEVDluGSob4htHZgT+aQ2Le4leOuS8+z5b5TS8a4Q4ICM+D4YQbgJVeSfRYBPR2JA
+	cm2QASvegKH+IaUvm0ttnUev2+v2go+6sw4vkNMBD9dXuVnrRPjC5mVZk8sqKQXELgE5qTR7EKq0z
+	uREA95x50xNG/hjUV5WcUOw/ajQ/AKvgozJWnGsw9sdaTq3b7x1TOKuA80Pk2WOWB1MN5BRpunJCt
+	BNEhMR7Y0WUduYxAdIAtYo+Hh8e7tpSmdjjoZl5AsnFN9Zy+TAWprpnDtLOuT7/5uLEjvnONcSXhY
+	9ecMlTGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzd1z-00000003dyt-3H4U;
-	Tue, 01 Apr 2025 14:55:59 +0000
-Received: from mail-vi1eur02on2061e.outbound.protection.outlook.com ([2a01:111:f403:2607::61e] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1tzd6U-00000003ejV-1IHM;
+	Tue, 01 Apr 2025 15:00:38 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzcys-00000003daH-00nV
+	id 1tzd4g-00000003eMb-0k8l
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 14:52:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AtrwQaBLQZ2eUKUeTyb+3rVV4rAkW+UABB63UMo9FreKavV3prq9PbA4x1Y5umu6/Q/trWnv+AUlPafkFbyIwx5T/1pithsUlRURV3C6kzZ02QKPuvY5o/cqBnJ3NyWWhi7AiVcoIX795BHN7fcqQxjTlZqhOG7I4zq/9hu7/7u+/FjDiKsI2+/r/xPWgB/8ny9rb1CtvSs0TGtzMWig/CPY5qbtTieprcJJl1lfJip939KxTELN9s1vNPhIiywrcHpQufqNsVcrxOBMMbfKbvDFkVxhy0/FSs3p8RMoBdwwDoRcefv5cyqd+3ISfUdX0bDrFEzsCwU3JAhsPE6dJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jahQ3DtBaPXca5egBHCWthHkQzQJDZIvDycBzFCHbrE=;
- b=Sbuk9k+yzCwzlsDsGwpGVrbOsOIojNI6S4M5Z1lcuyG6pv7aUrQQTPBgHKxbZzgAb7FzSCX9a2nIeTru1vqbn9YluEAMatnedb/dEJPYAtKqg6ncjdnmI5mxYpsbvdOi9N95NmA598R3WrcLK04Lfs5fdFhdXWIGDnmFWXYlPM1sHnryU8FOKUwn4SUFPIh2CJgBuFQeJYDYRo2+y/t0xw1usmkofA+wCNo95V7w4lJT6XELYd1nQ+u4pKucXeAAYEex85NBk6jouqTdkoVaWJn3jtItvzazk79bu1LR3hwfrT7l2M9JtPke5loDzA+xroZ/auVZPmHXY16Ask9ONQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jahQ3DtBaPXca5egBHCWthHkQzQJDZIvDycBzFCHbrE=;
- b=nzBDmEUFNaYRK178nrBqFsrQ2vPvy2oOmvawBeTh/0ImfFceVhBMzM8by5At9/PoPZ3HWtURsUjF4/da0rqwfQ63/cMIM5P7IyagFUYOgYlhX7fD8FRDDmeYBOJJM+CgBXmImqj/NohvL8W2i3yW2w8v7+wMNMlib1RIu9y59/28xCfCZe6T6cKKR2AlgTxx2zOjaXxhg8PL+BBuO7vlt2n5l2qI5dQlwOfj3Xxr30aBfIJ53Yf+nrpZlQ7uOB5bfTmYsoPrbIraV3SDnJxUq7mIZQnG3zri/OwLtMh7yAMgEAFxEMyYBBGEOIwaylegG8cyzeMxKGH4tZDP/UnLtA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU2PR04MB9524.eurprd04.prod.outlook.com (2603:10a6:10:2f7::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.50; Tue, 1 Apr
- 2025 14:52:35 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8534.048; Tue, 1 Apr 2025
- 14:52:35 +0000
-Date: Tue, 1 Apr 2025 10:52:25 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: shengjiu.wang@gmail.com, xiubo.lee@gmail.com, festevam@gmail.com,
-	nicoleotsuka@gmail.com, lgirdwood@gmail.com, broonie@kernel.org,
-	perex@perex.cz, tiwai@suse.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de,
-	linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] ASoC: imx-card: Add NULL check in imx_card_probe()
-Message-ID: <Z+v9qbFjSNpDcHW1@lizhi-Precision-Tower-5810>
-References: <20250401142510.29900-1-bsdhenrymartin@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250401142510.29900-1-bsdhenrymartin@gmail.com>
-X-ClientProxiedBy: BYAPR01CA0034.prod.exchangelabs.com (2603:10b6:a02:80::47)
- To PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+	Tue, 01 Apr 2025 14:58:47 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-39ac8e7688aso4430083f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 07:58:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743519524; x=1744124324; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+jl7X3iQxImIxVd58oOGBnN/Rmp3bj8jAHM40t4xGMY=;
+        b=enN8VAtZKpd+j3xGvbfp+agAWRgpL0+IKjqnz2Q/QQ2TvLLq4Y7LC58NG6jwdldcwl
+         0jlmpMknvuqh+cjkXqrlpAiwNskr+7hvMhFWuIwTWY7lwhNY3Eqzf41+u0OxwhMkok2j
+         0rC9vmg4wW7T6Sf/8bvWx7gqH2zOJ2i9F9TOpYsIDiElVF4D7QC8uUy5N5K0mUPYrTqx
+         KUxF3to5kOsU9tTTWARGrpVAngoeCG1bYewg0Jp+FtjEw9SSMVyp93gNildJNLcrxjfV
+         EF2Dnof3Q822STD1uTDkn+ktsOV70m71IQcdcR4XCBWeQ6kDMb1ba32JeRBb41tOA1B6
+         jHrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743519524; x=1744124324;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+jl7X3iQxImIxVd58oOGBnN/Rmp3bj8jAHM40t4xGMY=;
+        b=vfUv935uXmzl7uKpbcohgMUicpDCV1ZAmcpzYgf/UP1IAyrsY/YkdxHJPn4NUup+sX
+         E8WGdJTsBP8vRdUMBEuqRJnCmEEnwTm/4xgyBLoT9fdqShoDhZLPX2k4Unul5TTxaErL
+         bExZ2NXqbV7StJxTnf0q9g2gI9yI/aoIIqNgCzEt3vHiiOQSDulMLbpStAFSpeE4paEn
+         xJa2A2X4KLmGfueIJPgkNTlp2oJEFQ+3NJy94hWlBqE+HIQ34MO5UoZqZx0CBifC+S1t
+         oyRWGx6gMHkZ9YBp8UBxE5FUJ9Ja4D8tP3ytclhBYv8DmLvBXOg3K0lJ7vYSHpSkGXXR
+         FW+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVwz3qopanrSznqbX4wWhij/lYYuSEbQn/IsfLUJwVfOjr2vW+ydlE9d4LuP4O7Jc1DSeraCOIItnhMd+bRP7Ee@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzo9SdhYN0d6FVhuJUl+mooVUJDCwy1V/D2GulXr46ixvDmjlAT
+	oEh66hs3jlMqkby/GI1IxZh9/TcSrxqaxBJIMXlxDTPiNzLLDTDuc39KFOPeLP0=
+X-Gm-Gg: ASbGnctbxdYsT0B9IxQvNKsPh88Hdaz0Os4z+dO7THFHG1SEkQEtJhMetgCdMNqMz1a
+	N1jHRWTlDQnvJoBWPg6+sRrYyjyL07HbLecnqc8gfjz1j1JIhIBwgDTsnF36PRCpqudbIspfBL6
+	YrtR+iXUNnm/06rn+OZECQFukTN1/LnTVmTl5zMMwxaV4XdCkXtkYugd5+4LWsTSeokL2m16rSD
+	4BCjIhMrusKX2u/Oklh7wUMkL1T6XN9CNfU9b69Hrr0KlfqYEu6sFmcw8CkOVM6HfJuMM3GJGDZ
+	cgF55SxbD9U6faEDmXKhWHNMX2DEltNWDtQLN60l0tNTUvs=
+X-Google-Smtp-Source: AGHT+IHmaBSITLZ/nWSNzRwiZLgYFNFiImcV/f5eO9VLZjha2iCbgxMcIRSjTXFGC5eZY6835gq0pA==
+X-Received: by 2002:a5d:64c9:0:b0:39c:119f:27c4 with SMTP id ffacd0b85a97d-39c120e3b98mr9530355f8f.30.1743519524130;
+        Tue, 01 Apr 2025 07:58:44 -0700 (PDT)
+Received: from [192.168.1.3] ([77.81.75.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b66a991sm14273812f8f.49.2025.04.01.07.58.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 01 Apr 2025 07:58:43 -0700 (PDT)
+Message-ID: <b9046586-c884-484f-a308-9f256d3d99f5@linaro.org>
+Date: Tue, 1 Apr 2025 15:58:42 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU2PR04MB9524:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd336ecf-a78e-4043-a02d-08dd712cd68f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|366016|376014|7416014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xrapDI0y1R/W9V7Ww6BEh24WxOTQWKy3CsjrnZBKkksprmE9qTyJCVSqopNw?=
- =?us-ascii?Q?bz9AqI2nInt7WSp0J9My1Diz12Ll4tizocFvl3CQhVHKZlJIO1WQ/F9Skfaa?=
- =?us-ascii?Q?z0gVkAeczT4fSibMsxhTKBZh+K2GjqJPedxz3seFgmHNjNjFNMOVzfFuanGO?=
- =?us-ascii?Q?E/oZjL/6LVDm6exM/bB2KlvI+fB/5fOBoYABWOBDIvvohsb2nYeAdtrAzqDC?=
- =?us-ascii?Q?YPZTul4s/B5h6bDJc5Fas4dcJ6KTSSY90cV4HDzJmINGoSCsFs4++KLxQrq+?=
- =?us-ascii?Q?2Sh6obMG1CZ3kwLtgHhslH2dh15gtpojKiMYHP8pYySbzyV88CMY2DMnV1LM?=
- =?us-ascii?Q?WjSyODP9J8qOrMlqb1oV4DwhnJDA3XoeYVD5PhK22b9yqHbw9k3S1JLdG6Mc?=
- =?us-ascii?Q?j13C6EHsfEx/zeEpenNouaMPOeW4Sh0WobtczT8WNwB6JOhLMeK110URmfX2?=
- =?us-ascii?Q?I2gVNZEMGMJHIFDcio/n/pXaHTTPtMmYw3LKnvzhWK+w4KRCF3tp5gWI0sUT?=
- =?us-ascii?Q?U0Tbfbtkvd/HxxGUBmTLdNfGcASkErjH+qobXsD7vm6VWBbjfb4rPrGU9jY+?=
- =?us-ascii?Q?3IAGGpFnC+DDd6vQC5/D95JCnnGkSRPFDdSWgdJiH1UgkTHDX8XRWDOYZGdi?=
- =?us-ascii?Q?BGrOYoJedzj30W/FDsrUUHWrompZlUoz1v7qbNe/tmnysk8Xts8YceVhXqN/?=
- =?us-ascii?Q?45uZSL1A4ytyXQBc8n9IQscas4FCWgdMLVh9w2oAGhr9FlOs74fcU0duxaKa?=
- =?us-ascii?Q?m3iO5pymJlhjqi3YYDZawTJCH+ASG3MPl0rk/HfdDeMY+RliTWlmVbw3l9TX?=
- =?us-ascii?Q?+CAI9uh0gio0CxvLodmt5hh8SpuVfM7rYLrSiHfD0uUuj6+kwUvWA4S1DYNz?=
- =?us-ascii?Q?kVkFduXXlcChP6N6asQ1z2AtuPCyzAoq0dWVuEOV/MtMDbg68dBiMdvi/q1B?=
- =?us-ascii?Q?nN5xiW/ZY7qCqK0X8w8Lvee+Rw7uC8DrEjebHhJKUvRfaotQ+J1zfEJxAkoA?=
- =?us-ascii?Q?dwNaRVBF8OQ6iZ+f7it3pg/rU87GRGHZr3ly59bz7nB1dAD+eCCPpmg2ik6s?=
- =?us-ascii?Q?vpyqQtlZ5lbscO6rScFVabVq+q3iFc7ESSUACvj/N7B6ToTg/auRiVJB3xfN?=
- =?us-ascii?Q?SQrfL4aEMwnIDeRvmLh/EIdeORt8+g6PZ2dSW56h8zvwFpJUwvIu/dCBdv7c?=
- =?us-ascii?Q?Exp61YIoFXfiVkTcRcoXHaCkDxD/XxSPexyYMfq/VPCoutRvKJZVooAVQ0sY?=
- =?us-ascii?Q?tLJGgc9tB4P2BftdBnHznhK6O3AGeCbYvOjy5tmTXLqa7AbM7bB99/y1exjv?=
- =?us-ascii?Q?CynJiUKe8OcgpFXfMkzQbQ9tvMgv99A0AP2UdCMXdSnG7txVX0m23wjX+lP/?=
- =?us-ascii?Q?hcRkmaPhrRPM+bji4F9BZ7GNSNF8Iq6mQwCh/B0dz9fm6U1OTE9m1lvpBZ1C?=
- =?us-ascii?Q?dtyKUYQTPIieM0mgn8GcKinCc7xHM6oE?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(366016)(376014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?n3E9PQhYtxnn9vbJYQoprs4T9QSBY1+cxJJZ99vslP/0JNx1fvCqeUFYTyJR?=
- =?us-ascii?Q?fZcb71474eSc2p2Fa99b8ajRQsYlRxA6yxWc5I9KDSW4JyVL6VsyM7CEdz4C?=
- =?us-ascii?Q?OIAzgzJ9g29TImur/NeYAv6yNAQX1v9Ef8mYQ465dcQH4YTIARw3OnqkOmH2?=
- =?us-ascii?Q?mKYXJMeCdRPYfjvJN9X/7Q7Fj/sLjGKNGcD+K0IE605DQ7cFUGXU6FfKy+mq?=
- =?us-ascii?Q?Dl4mh+K4QjqmjuBW2SAzHEFPMV/9/NioTWzMdjZnmoEztyaHKR+Xyefko5kn?=
- =?us-ascii?Q?5oMSRzgHWVlFduVk+t11RvtaU0d1lTvnXwMcnRJzrjZgsGSAnDnD1BEwboha?=
- =?us-ascii?Q?zJUhd+kTlsdF+yIxRBtsO8j7+R3gh6IEDzMYLdN+EvdkaOU7OIF6PDMKKxg6?=
- =?us-ascii?Q?xSSRhT7YJR1GkGa6UNQH2f5vUJZhytfqtJ5qqd7hUrn+VrtPkXBiALOPNYCm?=
- =?us-ascii?Q?LFd/vIL3SGNBD4VYEmYPELG3J023XKk5zGsW8LMqoGAE47AQtDsPCk1uTiKK?=
- =?us-ascii?Q?03y80m4wu4EhvFce9ssuSWGf/LrDgP05N4mQIo9zvtRdf9sKmgdKP+ITB2PC?=
- =?us-ascii?Q?KcBnmaBhm3BUjVMSKgmrMl5t7MrrVaPmXiJcsJqVgXG+wkoLWceVPY/5yr+p?=
- =?us-ascii?Q?URIhktNQuWQUhmHuKjE4TG8McB27OF/EmYfCqqAH8KzLQcNixd4JJYDg/Lok?=
- =?us-ascii?Q?2MNUWFdOn04us1HZDK7lZ9exePMZm7qqPf+qUKVHExpoKcu76dgpp41ubORs?=
- =?us-ascii?Q?ZQAEUHZ+tPIlTPZqPnOQ4nhqQcWT6ITZYAaYcK/5uLgreJnDl2GASzaBvi6X?=
- =?us-ascii?Q?Gdl7UuI8xFnIgRV9ZL5uq61VXIVOGdxSLMhjRxsZH+lAoOgzdpGB8xIFGJHd?=
- =?us-ascii?Q?WryC856BjHJmtlY+3s5ahxrjVcel4UR2QV8eg2MZuWF2pXCJSBkN7zQkb7BU?=
- =?us-ascii?Q?yRKMsm9gX43M00J7DN+jz11FSpEaxL+73nmgk72qPz6PVCEKcMklJQUSNWnF?=
- =?us-ascii?Q?aHkHt8wg1fAuJRkY8KKfnFJNkvDqnUfddByJ6fm+m3w0DYeAInQeiWNqioIE?=
- =?us-ascii?Q?PgHbj9zI4QE2hnwMUQdNeadRV2fAatP2WzpcUiAoDNCCFQWosXw08AHlKWaK?=
- =?us-ascii?Q?w2Y3yQQjUo+tLAk2jBDNO+825RA4Yl9CrCOZZ0xuzHJscyke2wp/Jt6vU1Gj?=
- =?us-ascii?Q?Yx+CzUz3hedPgLiwKbW8X5fZe0xjnXklurV7gCz9A/lxuMPuAP1qnNU0mIhv?=
- =?us-ascii?Q?J2qGUbRRbRsB8LtgjSNBgSDhHBgnkwTjffcN6nxJdYVfZdxQmeaU8LPuW1r3?=
- =?us-ascii?Q?/x4c01w32t5Z6PsVy5Vpryoq7Sh1+8b5c3Uq9hNg0pa2956r87fOLMm4UUAq?=
- =?us-ascii?Q?LVefdnKraR5nfgiDiHG3EfjllfWjX2EFnUbVBDjSKopCNLtMcuHjHVLE0XZZ?=
- =?us-ascii?Q?P4sNgMf6dOLlmMJXseRyGFPd2XZ7tCmd6BrwFcmCJIEwfb0AWod0VMH0wVJC?=
- =?us-ascii?Q?th9DBEDTSGuU3z5R3lUUxyEMnBYl3kMAIXOV72mOnBHmFRiQ6ikNcgjSTNTz?=
- =?us-ascii?Q?xXGlfJF9gPbjqfszp2Kz5ksnVDGRV7yUevyW7UMy?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd336ecf-a78e-4043-a02d-08dd712cd68f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2025 14:52:35.1586
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sId6UeOeDyl4OiF5Qf00N+W1FqOJWoHg9GjbgkzjWfoQLA0irJQSBkteqP9MdIl+1AVMjMFncE/tqXFQlaGY5Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9524
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 9/9] coresight: Consolidate clock enabling
+To: Leo Yan <leo.yan@arm.com>, Jie Gan <quic_jiegan@quicinc.com>
+References: <20250327113803.1452108-1-leo.yan@arm.com>
+ <20250327113803.1452108-10-leo.yan@arm.com>
+Content-Language: en-US
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250327113803.1452108-10-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_075246_046879_AFC74F56 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20250401_075846_225627_9F459A0E 
+X-CRM114-Status: GOOD (  36.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,45 +107,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 10:25:10PM +0800, Henry Martin wrote:
-> devm_kasprintf() returns NULL when memory allocation fails. Currently,
-> imx_card_probe() does not check for this case, which results in a NULL
-> pointer dereference.
->
-> Add NULL check after devm_kasprintf() to prevent this issue.
->
-> Fixes: aa736700f42f ("ASoC: imx-card: Add imx-card machine driver")
-> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+
+
+On 27/03/2025 11:38 am, Leo Yan wrote:
+> CoreSight drivers enable pclk and atclk conditionally.  For example,
+> pclk is only enabled in the static probe, while atclk is an optional
+> clock that it is enabled for both dynamic and static probes, if it is
+> present.  In the current CoreSight drivers, these two clocks are
+> initialized separately.  This causes complex and duplicate codes.
+> 
+> This patch consolidates clock enabling into a central place.  It renames
+> coresight_get_enable_apb_pclk() to coresight_get_enable_clocks() and
+> encapsulates clock initialization logic:
+> 
+>   - If a clock is initialized successfully, its clock pointer is assigned
+>     to the double pointer passed as an argument.
+>   - If pclk is skipped for an AMBA device, or if atclk is not found, the
+>     corresponding double pointer is set to NULL.  The function returns
+>     Success (0) to guide callers can proceed with no error.
+>   - Otherwise, an error number is returned for failures.
+> 
+> CoreSight drivers are refined so that clocks are initialized in one go.
+> As a result, driver data no longer needs to be allocated separately in
+> the static and dynamic probes.  Moved the allocation into a low-level
+> function to avoid code duplication.
+> 
+> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
+>   drivers/hwtracing/coresight/coresight-catu.c       | 30 ++++++++++--------------------
+>   drivers/hwtracing/coresight/coresight-cpu-debug.c  | 29 +++++++++++------------------
+>   drivers/hwtracing/coresight/coresight-ctcu-core.c  |  8 ++++----
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 11 ++++-------
+>   drivers/hwtracing/coresight/coresight-funnel.c     | 11 ++++-------
+>   drivers/hwtracing/coresight/coresight-replicator.c | 11 ++++-------
+>   drivers/hwtracing/coresight/coresight-stm.c        |  9 +++------
+>   drivers/hwtracing/coresight/coresight-tmc-core.c   | 30 ++++++++++--------------------
+>   drivers/hwtracing/coresight/coresight-tpiu.c       | 10 ++++------
+>   include/linux/coresight.h                          | 38 +++++++++++++++++++++++++++-----------
+>   10 files changed, 81 insertions(+), 106 deletions(-)
+> 
+[...]
+> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> index 26eb4a61b992..cf3fbbc0076a 100644
+> --- a/include/linux/coresight.h
+> +++ b/include/linux/coresight.h
+> @@ -471,25 +471,41 @@ static inline bool is_coresight_device(void __iomem *base)
+>   }
+>   
+>   /*
+> - * Attempt to find and enable "APB clock" for the given device
+> + * Attempt to find and enable programming clock (pclk) and trace clock (atclk)
+> + * for the given device.
+>    *
+> - * Returns:
+> + * The AMBA bus driver will cover the pclk, to avoid duplicate operations,
+> + * skip to get and enable the pclk for an AMBA device.
+>    *
+> - * clk   - Clock is found and enabled
+> - * NULL  - Clock is not needed as it is managed by the AMBA bus driver
+> - * ERROR - Clock is found but failed to enable
+> + * atclk is an optional clock, it will be only enabled when it is existed.
+> + * Otherwise, a NULL pointer will be returned to caller.
+> + *
+> + * Returns: '0' on Success; Error code otherwise.
+>    */
+> -static inline struct clk *coresight_get_enable_apb_pclk(struct device *dev)
+> +static inline int coresight_get_enable_clocks(struct device *dev,
+> +					      struct clk **pclk,
+> +					      struct clk **atclk)
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+This function has grown a bit now, probably best to remove it from the 
+header and export it instead.
 
->  sound/soc/fsl/imx-card.c | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/sound/soc/fsl/imx-card.c b/sound/soc/fsl/imx-card.c
-> index 905294682996..3686d468506b 100644
-> --- a/sound/soc/fsl/imx-card.c
-> +++ b/sound/soc/fsl/imx-card.c
-> @@ -772,6 +772,8 @@ static int imx_card_probe(struct platform_device *pdev)
->  				data->dapm_routes[i].sink =
->  					devm_kasprintf(&pdev->dev, GFP_KERNEL, "%d %s",
->  						       i + 1, "Playback");
-> +				if (!data->dapm_routes[i].sink)
-> +					return -ENOMEM;
->  				data->dapm_routes[i].source = "CPU-Playback";
->  			}
->  		}
-> @@ -789,6 +791,8 @@ static int imx_card_probe(struct platform_device *pdev)
->  				data->dapm_routes[i].source =
->  					devm_kasprintf(&pdev->dev, GFP_KERNEL, "%d %s",
->  						       i + 1, "Capture");
-> +				if (!data->dapm_routes[i].source)
-> +					return -ENOMEM;
->  				data->dapm_routes[i].sink = "CPU-Capture";
->  			}
->  		}
-> --
-> 2.34.1
->
+>   {
+> -	struct clk *pclk = NULL;
+> +	WARN_ON(!pclk);
+>   
+>   	if (!dev_is_amba(dev)) {
+> -		pclk = devm_clk_get_enabled(dev, "apb_pclk");
+> -		if (IS_ERR(pclk))
+> -			pclk = devm_clk_get_enabled(dev, "apb");
+> +		*pclk = devm_clk_get_enabled(dev, "apb_pclk");
+> +		if (IS_ERR(*pclk))
+> +			*pclk = devm_clk_get_enabled(dev, "apb");
+> +		if (IS_ERR(*pclk))
+> +			return PTR_ERR(*pclk);
+> +	} else {
+> +		/* Don't enable pclk for an AMBA device */
+> +		*pclk = NULL;
+
+Now the "apb" clock won't be enabled for amba devices. I'm assuming 
+that's fine if the clock was always called "apb_pclk" for them, but the 
+commit that added the new clock name didn't specify any special casing 
+either.
+
+Can we have a comment that says it's deliberate? But the more I think 
+about it the more I'm confused why CTCU needed a different clock name to 
+be defined, when all the other Coresight devices use "apb_pclk".
+
+>   	}
+>   
+> -	return pclk;
+> +	if (atclk) {
+> +		*atclk = devm_clk_get_optional_enabled(dev, "atclk");
+> +		if (IS_ERR(*atclk))
+> +			return PTR_ERR(*atclk);
+> +	}
+> +
+> +	return 0;
+>   }
+>   
+>   #define CORESIGHT_PIDRn(i)	(0xFE0 + ((i) * 4))
+
 
