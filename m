@@ -4,154 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3591FC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 21:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7198C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 21:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZMd0+6TQ0HAounDFKWwpeTpPzDShxdLl2+NwJri+XiQ=; b=Efj3iVBLQzGUXXOtXz0SyuLrmW
-	28KAYIcoSTKOnVKY5ps5EFbF2uBkOSB6TGkSF/svYGEhhZFChQ2GPEqs/YNLas24oRgsft0599mH+
-	NuwLQJ0PKEowcMWf/hzQyB7xcMuuQk3fl0EHURLKMvPLH5/UOarR6ZF2G8LsuhYYFvuNX5L+DklfW
-	NVaT3toV8hjRoCOYQDDQhAFbAAIldlHPhb93gaaCi9TLIrYX4wCNvO3+lO1v10DesAtHKHG+pUqHQ
-	vzLlaweJtJWBoZ7bEHP6tD7rEpQJdfStM55RQX4WXkXxpqZyXwQBc0DjbHnupL/Kpow48HaWGRc8m
-	DiSG6pgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLyk3UzaLGvBhsHU8wI4wALNc+oNV8Vwedg8RKLIl2E=; b=WmCu9JyJQM8Hxwwu3fL5nPFJlH
+	+kLqUDlRCUVe49Qs1l9Qz2SYNa01ZyV/KNBYyNMHiohE1eBsF9kusxZJaEJrPNGDcN1aLklHt+Kfr
+	GQ9H6otfnPRvYuzOrNuV+y3xAUHPXpIc15ArAEjOxL44Awil3l3l7pphanPYTu7d+xHbBBEga0GpS
+	GS4DwC/Rh2UDntEOZ0VymGr2yY+J3jf9dzM1d7ubMuZ24tLgoH5/kez9bBtYoW5quXPJKcLAXVYNA
+	8ujD5psbwE8gwxTjELG6RDlWCaVB434StA9NLa1Od6ufl78K/Nc1xVlPclHgiohQVPX2TLUi8C/4Z
+	nHa+gslQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzjII-00000004SmZ-3hGt;
-	Tue, 01 Apr 2025 21:37:14 +0000
-Received: from mail-db8eur05on2060f.outbound.protection.outlook.com ([2a01:111:f403:2614::60f] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tzjbo-00000004UAY-2SqF;
+	Tue, 01 Apr 2025 21:57:24 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzjGW-00000004Sj7-1Rmt
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 21:35:25 +0000
+	id 1tzja1-00000004U2K-0r3Q;
+	Tue, 01 Apr 2025 21:55:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wECTGH12y8m6ZbApyUjQP0GWrTYYgX+U9joMRjGlOdfXRxBTVZTeJhQg9NlCzFQRqZUfRgJBZT3lwNpywJVDtkb0uf0+I8xI4xQ7Ngf0m5ePU3hBWMMGRIPGcz4skMZAwGq1b7rrmk2gWDVudBcfWnX8mJaq3FUt1lj+msrvpU/f3uBhFxvC+iylappvRN+ojMqqvP6XxcJ/copIPtqkshNEn2HQFOnYL4iNv2fMsV1+bTsCm6WYUgQtpB2czByOIoQ+Fq6mQdb4daLIMFWZX9gSYs7Senp0q7Hudy7QS9DnxRpy7mVanACvYkqzgppUaWuJfJ89nNB3e17EfnprVg==
+ b=bCETVRyykK1Gqm7Yjr0WCaZ35no/61ivJVrxtuMcdyob5XgDFCMcnq1hsRzd/vKe9zJtXtGnqFGvE5lbH8FQciNTgJuso7iz+9SiXiipfG7FKvPVovIwGXKmyZl2e+CrCYRhg2WjgHoaFPiUt2JEeDnLHjJBRKjWW0OSXEzF6W4FfjWzeJ1jVJq2xNYD47nAnYM710ci/MFiZn6faA9xH2LIsbu7hX+xTOgH0Qab6q6Jaq+/gl/qOVKJRK0KOHTJU9tj4/eq5+gJ6Mn+gQH8JwUqYuq2Fy93WhdG3CCfNISd7AEU+XypuykFR3R1DGa/lnDoGu2PqvawcsZbG5lDSA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZMd0+6TQ0HAounDFKWwpeTpPzDShxdLl2+NwJri+XiQ=;
- b=ZWP3ydMPaJVvFjdUg6ClgUvg7xNzPTqxMoWGziPDZd1z1uEWwJIvQKrX4bE0iUEjEukwRdtgbKE9QRuzYL+Lebz+yRJ30vW0zSxOkQtzG5ZdwmK+ndZoB6bwle5w6ZhkrR5B/Ouo9V8+QkIwnUP1TY+eSKHy0vC9AB9YkN3Spj/4b8pg1w9N7XVJjpENRsOdelrTWt57kzyuiiCiAAPqbgfXpd1Qlo6G3hblNFwGfAX5VJBYTjTsLQFEJcDbTlaKWPpBRTO9Z/Nj7svUbjZ7Ou0o5jW02UWEQXjJPL30fMFKeT5i6UmVZzzNASjuES9PkGRvg224CMDOijfutjHhEQ==
+ bh=QLyk3UzaLGvBhsHU8wI4wALNc+oNV8Vwedg8RKLIl2E=;
+ b=oQNVLCHIe0ZPB7P3n6CW3DwlNQngHLwE4dQenDjYmt33gbP34gyiFPW9hEEm6nYGYDinItwHLDfRjvrKERzALVuxataCe8bOoKesJ9Dbdz0UK20TUAz72/IPYXGZRD5/DHXNHgbwWHgHbWo9CGHv7UvsZDLEHIS70S6Tu/OexRE1A0LfPcvNePa2ExqMznMP7ZDoaWCYE957aorhmTbLF/omiD5lSyABCOHcqMs5j5eD2U8UqyBdNh4NU2Iodhq+aw31W9Xoi5TYIHB7iIHdLcwyXIFU3OnhC17dcAj3Hq+HnZjJ32/SkJjVXv/iceC7Qpk5iWHXHKfjxwCys6mnkw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZMd0+6TQ0HAounDFKWwpeTpPzDShxdLl2+NwJri+XiQ=;
- b=JGVDkgamGdKtMikfqotNKsPnVMcI2Db1ukq24el61OxmE7qRRSesSA72wgqIZDl5vH7mwQ+G9lMfSp9V33zxjYwcKlGI5ZONNPBYrfXlZLHKgeX9F1cSjSPjgKkb/x/5JvrtKfIdO8A4oKyuYlxXP3bcADn037Jhd9herbyxopHk+PNMZrTS9KnbSszslhQpudNJWP5TiRIBqf5kl7rU8JBNQaRNNiB0hiusXBT+cuN5hqLyCqUQbtLulb2ZrAacwlng+gT5Jl1QWN59NAaSgdT4PbCkyG8vxIWRYDSH9Lyi5EF1biWp/4lBHLhn1g5sB/uFz2OfjIDmQFjru0Sosg==
+ bh=QLyk3UzaLGvBhsHU8wI4wALNc+oNV8Vwedg8RKLIl2E=;
+ b=yQXQUDmOKA3ypiYrWK3+OVkQOiqUW7XaNSvw0LGHryhPGX6c38rGp8detmDworzBge3FqLUILi9TdzgkgRGcU29IbnbzZj+DorUeqUKAirqSj2FS7PDi4ukylSjib47EGi57vSxaycwWEykRy9lKhCGiMjefC6ac+kcNqyfLI6MVex+sZFxkDsEgu6t7+JIauqceIonBwc65K4BRwFhNkzJxfrcIaB1SRYXNfSemhswb6v3pfB5CStZ6IPCi/SmyjuLiNMTDoRmp8g/eBb2Z2VVpUQ3ORP8aS/x/6h2+mZy1z7ZO1FwNwgqwXaiwxKwGVOB52chl/emLhdi4hsBVCA==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VI1PR04MB9908.eurprd04.prod.outlook.com (2603:10a6:800:1d0::12) with
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by AS8PR08MB9979.eurprd08.prod.outlook.com (2603:10a6:20b:633::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Tue, 1 Apr
- 2025 21:20:17 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8534.048; Tue, 1 Apr 2025
- 21:20:16 +0000
-Date: Tue, 1 Apr 2025 17:20:11 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 5/6] arm64: dts: imx8mp: add aipstz master ID
- definitions
-Message-ID: <Z+xYix1gbvP1HSNG@lizhi-Precision-Tower-5810>
-References: <20250401154404.45932-1-laurentiumihalcea111@gmail.com>
- <20250401154404.45932-6-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250401154404.45932-6-laurentiumihalcea111@gmail.com>
-X-ClientProxiedBy: FR4P281CA0202.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e5::12) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.41; Tue, 1 Apr
+ 2025 21:55:22 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.8534.052; Tue, 1 Apr 2025
+ 21:55:22 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+	Frank Wunderlich <frank-w@public-files.de>
+Subject: [RESEND PATCH v2] arm64: dts: mediatek: mt7986-bpi-r3: Change fan PWM value for mid speed
+Date: Wed,  2 Apr 2025 00:55:14 +0300
+Message-ID: <20250401215514.1944552-1-mikhail.kshevetskiy@iopsys.eu>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <trinity-2fa9ed21-07af-4fbf-a20e-32684dabdd82-1743507920209@trinity-msg-rest-gmx-gmx-live-5779db864f-xlr59>
+References: <trinity-2fa9ed21-07af-4fbf-a20e-32684dabdd82-1743507920209@trinity-msg-rest-gmx-gmx-live-5779db864f-xlr59>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR3P281CA0058.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:4b::19) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI1PR04MB9908:EE_
-X-MS-Office365-Filtering-Correlation-Id: 246e9f10-e5bd-4372-a7bf-08dd7162ff71
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AS8PR08MB9979:EE_
+X-MS-Office365-Filtering-Correlation-Id: daa27a51-1e9f-44ad-5b56-08dd7167e6a1
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Ufc4EYPvotxQcsszfMpRe7VeCj9kpYPUxYvFRicakkuMhDRZhWVYOale3VnL?=
- =?us-ascii?Q?gwTlmu1xL3IWfrn6BcKW0bL7jqGHVhihlojrf8jiAHXN05seRK4BpNfi1C2E?=
- =?us-ascii?Q?vkiNX/7GcT44Vd7CNaVuyyhxofmjXcjqcrdHIlHRBVyeTHcZ5fnhDX6krORm?=
- =?us-ascii?Q?Urbq8asbxufbUnU9Ngi69Hn6zP0e96secYYzZ4SxpkRWg8MT9nZvnhwTxdyN?=
- =?us-ascii?Q?mIU61BCFtbdsJ3QTSV2P1DaiURYrKYKoSVjXrod6ZGSH71czLKvoAU/GoqfD?=
- =?us-ascii?Q?CVvGYcn5VY92K4Z/ZAYQDsY7JmH9lNrgZWFIrZY/Rl/v1vq2iOTuxDuKScav?=
- =?us-ascii?Q?A9eU4aAr9x+qiV3JxoZN4Brnpsq5Ysjh/k5o8N9NhB8CJSovc7h6l52FRKgw?=
- =?us-ascii?Q?54CFPb+tj7cJuDLuwCCr2uaOSmZ9r/GQPmswobHOTJIejw0/F3NqT9a05WUR?=
- =?us-ascii?Q?Fqv+lf22gB3VEmVOZUzsQqZwLOBfWnugQS96m+HB0zLY7DvVtJvuC+gGQZk/?=
- =?us-ascii?Q?qVZTHihGSyiWxDuhk3w8F4kb+IdHff7ntOBtC5MCrr+O9GvwXIQqZDBwLDrj?=
- =?us-ascii?Q?OVh+nFrkQvMD4MgmMpElKHrSy5rfRk9zkd/gTyCxsPs2H0H37Xb0gfhSrhkp?=
- =?us-ascii?Q?RU2cEK5/10coyiNIHk4aA+50YFLhv8nXVY4QQ6Mlw5wN91upYPROV+rJkTpC?=
- =?us-ascii?Q?RAk7O9KHuoH3QXyDYnJKg2FrJ+TS4YjOF5uuFTC8HVjKS9wDhhymkKh2+WA5?=
- =?us-ascii?Q?mUDOaK/lPxU519fRjrLFQW8eVXnCaTdLlJt+1MI5nkbKHz87R2VL+IQVxKWP?=
- =?us-ascii?Q?LOvYmVR/pszJFt58WHdJK+SVv9blk3Mncm4JJwEMmjGE4HyEspLoj1mBL1gZ?=
- =?us-ascii?Q?fLzdTb3aAtVBWZMVHhA+S6tzCO6VoiHTNFPlidogrdZMXMloPCMxjCRzoMjb?=
- =?us-ascii?Q?HcyFVT4Lz1C0E56qcuYM/IRMZ/T+Lqph8+aeR62US1lFscrbTt0bibkkXTFn?=
- =?us-ascii?Q?AD5mNnH5UAdctzjH1X3FDpp732AUTuxYkqz51gZ6Pn3OcslOIT+PqCz3H4Jr?=
- =?us-ascii?Q?QZbcMQT3UL2M+vYlxpK05kOCvZQzMZsiwlo6wjAclKVqSt6boImmd0d5UAKZ?=
- =?us-ascii?Q?lFcTQ6FQk8pRnHBzZLwZZrf+QfFjijxwVDDuymJViXqcy5SWdUoP/scyTBHd?=
- =?us-ascii?Q?pSsFbHNA97kPYz1ihYoblMI42lSiUP/sKbP2yETZ3mmOf9zToJIduIb20sB9?=
- =?us-ascii?Q?xwgeinFQIGaGmbyuBzeAKutVlC1ycjxYCRw3IljnnDsJyiFFHhQjdjcm8ALm?=
- =?us-ascii?Q?+Iqjkz5hjj5E81097dtfcXhNUuwVJW2ZKegBVVGPkSUiW5MXgEi5rVMGemdt?=
- =?us-ascii?Q?g2gIw0HX9rp9M25acV796xUn9HetR/Rh7zMOaYrzhiNrYed3oXTCUm06fvn0?=
- =?us-ascii?Q?OGCxt2aFTei/PkXGKOpfIH5dl5uooNRn?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rMIQYwoWi3axQWGQXGpOlA8T0cT76H8wSUnJ9cTr7q5jpRwWcm0XoixzyVPM?=
+ =?us-ascii?Q?M69Bcv8YAmWIRunoXt/bhrrd3JI92/Iqxni5KGThr1hL9XkQVS9Nb0skTdaj?=
+ =?us-ascii?Q?myT0CQ6QN7qjH3BqfPBF9T/S+MvdiiFWF8DQ43E1UaG+KipiKENNDWZlqCDN?=
+ =?us-ascii?Q?Y5Otp0BUW4g2JSLCkE7Y/hBOdW18lDviQTaFSYAEZeINYcEHfKXPAsBmOagD?=
+ =?us-ascii?Q?MGOND7gQNBU5eOpDV7KUJwDlFWlOSymjyfUZHpgSbUcdxjDoqb4MNxBAflnm?=
+ =?us-ascii?Q?JzZo26qYMe8cKaoUfol8Zutasx+J4ugGw6y/rc0jtUMIezyP+aqgtrSXKbfc?=
+ =?us-ascii?Q?shIkMi3ERbVIad1iwzmZSAKPoCRgUWy+VIOpkaVv9EJfmTlBHmKimR4LSQny?=
+ =?us-ascii?Q?GJmvQim1JtMQeYdWQ8ArUrTZCf02IbId1RI8ZR2qbPIXXNfxf5Ri4bSUjYrd?=
+ =?us-ascii?Q?ym0DH8uE/UAtE0dSNSHaYhEna4wDJYpnzEhnJRDPNo5FF/+bwNJPaZOX4Ypx?=
+ =?us-ascii?Q?7INL0TjQsLirD71z8BpfHevpTRXvAE+7jKqT9Wm5+hrIRK1WIV/ZyhlFopMz?=
+ =?us-ascii?Q?++3pXUged+OaWDY2HuzT1eOOYC8PSltPz3AzrkXSqt0rpAu4ZW4L/rHoVzQp?=
+ =?us-ascii?Q?wRn+qGeCKECxLSURwM2fpg9pVFsr3Yx7wBhP0pmd/wRIToLkEiTCtR51bN3v?=
+ =?us-ascii?Q?Fmn9Zc+2UjJDhdxba2eqcyHZgy11MgMyeYeYXIkbC+HrlSZPKCikvJrx7Wlf?=
+ =?us-ascii?Q?WK92CBT5Li+IYweA3I8rJklXF0NBfx3WSocr6VY1jim1Wk2IfZz1IdpFHKHn?=
+ =?us-ascii?Q?txdJ/SDsEct7jX3AEyxTwTVDjeNojDdxrctajriAOpzQqIXaRmTcNwvXSNFQ?=
+ =?us-ascii?Q?sHyOG/xGOmHscufbA5G6WS+5AXt+vS5vJJQAKD0LgEeUtx2DbvR2lFuK63Hn?=
+ =?us-ascii?Q?/xI7tB6hhc5cqZUeKCWIXbE63lYuxzjRC190Ta62PRchYpAqk1XRS7yoLA8d?=
+ =?us-ascii?Q?8gIodZzzEj/87Q9Iu617/MhFRJNWtx3edrVKitWevXeWI9J10vzewDSZRUoZ?=
+ =?us-ascii?Q?R+/5jdaiEU04W8/0GanMA7sFy1AqmzMkt1WAFwPtUq1kvm3aCfeVMkG4+NEh?=
+ =?us-ascii?Q?480T3VN5xeZzzqYdtxBFUA3vqfJulGN2TkRdFmioHclaQIchZkjV6LI+gux6?=
+ =?us-ascii?Q?g2JmaVTJxo63aQtL5KNa1ryR9O4KTwwB0SCz7gwCWF3vhGq7NGY+P9cRQ+hx?=
+ =?us-ascii?Q?L/iOBC4uCbqeryJB/dz8LsT8uTJDgObHQ+2cWNYt57JdhSUNLoP+mgU+cp3o?=
+ =?us-ascii?Q?VHF3go0+d5G0MGWlL4UWavAFXLNxVIhAFTdt39j58QQmGdOhUY1fPy6yftaq?=
+ =?us-ascii?Q?vSDbTzIKN3PASS0Uc4CjrICSw6uqSwsbMLOCBWbM/twLUFpzz0zig7bv96zj?=
+ =?us-ascii?Q?+amVIOh369dyo7b9Y0UEPIUUzyP+JMhHDUwqLpxfoWWdWsNj9k4euQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?I3jwJD56b+X0XYUernABKjUr3AWB0wPg2iVUH8Mo/XnpjBCLCSvqnfS/kj9w?=
- =?us-ascii?Q?LowksFb14pKBSiM/rwCbRWvGT7ZqCo/5hAHifTeQmGCjVhrWlUMpbsXUvQBf?=
- =?us-ascii?Q?waBabYmKG3QGHkmz+QGgZKsfhVkYd8SUKgHHaMbVxeyZe1O4KYhcvY0Q+Qiv?=
- =?us-ascii?Q?UYNI4IijGAkjt/QCb0QEwF1OaENDhziArIXsVqMMCv4Eik/GJ3WdJllAyUob?=
- =?us-ascii?Q?bqBRKVLgHuLsSztedLXy3yVw2i8dc3FjPMiRTyK2mTWXKGs0MIZ+2PzCQOkt?=
- =?us-ascii?Q?JuGnbHwFyQlPaOIeoDaTP91GSCgoyOaFHeWAJW/QIZTnO+a0za4kTDnBDolg?=
- =?us-ascii?Q?p5kml6Hl/nioTew3m5LjkLXMwyuHWxNesRz3QnOooLst9JKNnPF9e3nY5jLZ?=
- =?us-ascii?Q?OUhBgymSXA7WeWKQdF31a6FdBsfxi1MTlPh/tUOFSEhfsnLu1TFwGwtFqHiv?=
- =?us-ascii?Q?tGi4PE++vIaNvpgH9o/2BRxY1f8AAFzQVs/YtOr1ooIpRDsDN4B2Tk6HiOVi?=
- =?us-ascii?Q?iDvnjy7PQt+smZTHAVL2nwfebg6e9WUO7ewOoCCGo6sWUZThqLsLejOA5chH?=
- =?us-ascii?Q?11fPyM/aKO/HC+hL+JpZg6FkEZZ605g5DRU1uOb9N2ho3aT7wEwXZDAnEWC6?=
- =?us-ascii?Q?Em+EvRSR1ZDOGtKpTAiCJcLcvQmIKm6QzO3Ablo6/d9O33vDZLSDdfR0+TiU?=
- =?us-ascii?Q?8rnBtI+BOapnA9NIwnBzox9AsA/qCTsymoDbLvYkJX0A/Hs8ZCLtN2yw9eLZ?=
- =?us-ascii?Q?yjEn9EZZR4oZPImJS+qlwATIQyAyfSkDYB1UNG9dzs09Hh0caKM+TEsQEARP?=
- =?us-ascii?Q?1S2Iq/ZBvgDTgAF+rsVQP+qcmWqghG1o7b1NkpkMWTlGf+B9fPDq/irF7XZc?=
- =?us-ascii?Q?ecSphPbEM+vyAkzlA2GTGIvZnyPQMMOpYTJcCeR6+S8tUK0LiTsKdZvaVeQC?=
- =?us-ascii?Q?aEkkTpeuk8jMaSsPcyk+ffApjzj0Pj77+zJWC3Mm2FR9NGJmtRLu3FICG8PB?=
- =?us-ascii?Q?ZaJvGkbQVkvCi9CmXgXdDMl0Nzkn24HfInk5LVVRW6bdcC9feE8WTZIpANov?=
- =?us-ascii?Q?sTkNUZnWR//hRHx2co6eEkCncu1OxwnfNWgK+KlNLpqXNOUXzDMB4eiapAJl?=
- =?us-ascii?Q?evc0u03E58x1OI5/lXnr8uwei38PHqeh3NYot+s1aJgE4QJdM2gUoI5ceUbW?=
- =?us-ascii?Q?aM7HZmpX9uqycftexSX9PQfZ9IIx9YOuMcHATqZpJvUEXte4pZ/iD4VLtXAs?=
- =?us-ascii?Q?k1aYSPek9wtBhyTMyfnjzDrhRB8Tdf2hs/T49sVylqy2QcjpbmUEvy++X/BN?=
- =?us-ascii?Q?ET807L9bqHrq8RiJ72yGv6baM8uQY2P2QfWpzZPI/j+eNu1MzhkmA5XnJRH7?=
- =?us-ascii?Q?V64A1Dz6K/16nyLxd+A7Pu7U9faTGUsF/CmUZPmhrbqwAcDlhu+aYTJnYuGt?=
- =?us-ascii?Q?e4aD8gupTYZEFgzpIDeuKInHAneaQNFcaXq8kqWSNnElJNNGNV9R7k5RGkol?=
- =?us-ascii?Q?B+FrGH7pYdfYqC6M+UiS949e/zmBUX7aegvMaH7IxdNPQ3+hVxl63t6t/9EH?=
- =?us-ascii?Q?w1z2kg+lDB8pAnWl8b4=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 246e9f10-e5bd-4372-a7bf-08dd7162ff71
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SnBFLbpm/GUkvj9ZQ0HHxfwVn+VasA9CRRfgFZJbP+NrzKeThKNLrv+vJ9eU?=
+ =?us-ascii?Q?jOrlGOskLNpnpnqbjPD8P5YmPxfJG15J/B8qgbsNi4HrqwEYIg25BpT6MyxP?=
+ =?us-ascii?Q?OZHi1O63lw4vvFF4/GEORKKKj7dEXDYioC3NdlX3zXE9510PJ/EoyCrLJ47l?=
+ =?us-ascii?Q?ccAd5AUSDZqJQ1oAuQtN58q2MDbPJcbvovFdQFtdNcpMBIfkSw/e5PyPsv9c?=
+ =?us-ascii?Q?lkk/nRj7xE13hnnvXFKd/Qbrp3oSdh4qBFFHcbvhA2XircYwlxN75btN4y0K?=
+ =?us-ascii?Q?W6LcSwEJCF5iZ6a7wPnN1WdpC0OVGPPcmehCJV11zZGhE5CorSsaaT/HAKJy?=
+ =?us-ascii?Q?lmjKtEWnjRX8qoBTnL9hsq8ox8QtSN8WROLUvzbK3ZoFqeoa5dbuQSH44+o0?=
+ =?us-ascii?Q?t/vobEI8b8ESlaRcxr8qFB9ZYyBScTp18FBu5ikIbZHW5F+b6h1OFFAIHInT?=
+ =?us-ascii?Q?IJsnaLAm4jrxYNkPRJwxs4xSyh2ZdFpMTrb1L2YUmdql07jPKvmz3qYxqFXx?=
+ =?us-ascii?Q?Xa6pMWclceJRGAWaimQpEQxbPdBcliMYKRjOyiWV/qimKPoHeBTKwtGGaCgX?=
+ =?us-ascii?Q?qb9tdgTB7L0jrokecB0Txx7zxOpXUL/58NaZR6jSPMVBFr7eDWTZKgfVrf/9?=
+ =?us-ascii?Q?ZGoxgIl53Q/LstkKhxU+YwdvVqf9B2wZkh97vTpXjx7fvpfI80SIVanJpLFv?=
+ =?us-ascii?Q?AkdqPD/+8zE46rG0WAj6tDkvIswVCJbTdDIjeOd40Le1B51RohRjEufODKTT?=
+ =?us-ascii?Q?g8vR0Ih5/5zKA6nonlb3zspS95GhU5LwAZr5m1PQYWxSSEWv4HdjxEcLiSEK?=
+ =?us-ascii?Q?irI51DubMnNRllO6Ya5Xx7UFUPDN8WOr/6bCuPxEtNGvCYrl0x/tJ4TjZKVI?=
+ =?us-ascii?Q?b/TRqTiOTeqmQYrY5y1bOqIlnN0FQFJhfmeJVEKIdE6Ho8gzPUtXT2tfOK0p?=
+ =?us-ascii?Q?f0DB/mc4L5A9adRaDOxAUrKODKHMbv5VGYO8uSddbMngdGNGK+bA/bq+6yLj?=
+ =?us-ascii?Q?SrofCq8i5UWN3gJZypb/rZh/gueYbv3/ZM+IOmlzJFe+Sb+RhIqahwKwnv2b?=
+ =?us-ascii?Q?gBVg1xRVOM8hZK954qvf3KXcDfSq6uqGnNrLDkacFtrNH4SoX9nFyk6fhUxf?=
+ =?us-ascii?Q?xqcUwuclA63jswR+bGtRKVkDzxq1Bh2g+vcqqlannx9cjqTln+YtzQDVhVUS?=
+ =?us-ascii?Q?4lzPB3SaWACxQPnXIkqZiroQsGXgWEJKbcIjFDrim/87qLYCvlD1ua8xpqjE?=
+ =?us-ascii?Q?pORwWGLum5/YhZqdJPliJmdzDr01y+zZlTg5PAi2K8O7+9z5yfijSf9kyRNA?=
+ =?us-ascii?Q?yrXiyXmHFtmsnvH9J9zlnBI9UyqjRt7jKheuQ9VOdEvTvXJJOmNV54+a3QiH?=
+ =?us-ascii?Q?3V1WKFeCDK1cU4A2yfocMJ1QSC+B3yHGLDi+EVOfhGu9ssd5nsqw8WM2ae4G?=
+ =?us-ascii?Q?C2it5cbLpjZbsPD2G5gEtE+vwPDPcZHx48Lpkmeqflx/CzFzqAz0zhGhV7nQ?=
+ =?us-ascii?Q?ghdY+4fTB0DdZ7opbJonOfj5J3kDFRgATkWD2LEFZDxsHUZYol8TgCciAYdq?=
+ =?us-ascii?Q?1hTli5Zo+5x1p+b/OP7alo1Ay67nKvR3miIu8f5662JUAQSRBzhQpem/pfoz?=
+ =?us-ascii?Q?4fHpUdghnMJPMdM2UHAr494=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: daa27a51-1e9f-44ad-5b56-08dd7167e6a1
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2025 21:20:16.4309
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2025 21:55:22.3996
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PmR2/GPijYR385BmJCzAg4NIfd6/ZlWokUB0u+eCVks9fktj02eXpvNVw892OeW0thEVemAKnpDS/OVWSvRvPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9908
+X-MS-Exchange-CrossTenant-UserPrincipalName: SZXCQBUc9XmNMicOpBcy4XFnG8xjl18nFJ78Q72ZCaHqMmsupjXePHBTQ1VOvbsdZhHkBRREudlRzBQAGV+8Xs4JIP9utckvI1Hn2XaQQB8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9979
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_143524_390694_957D077E 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20250401_145533_258851_76C765CB 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,65 +165,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 11:44:03AM -0400, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
-> Add header file with master ID definitions for i.MX8MP's AIPSTZ.
->
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Popular cheap PWM fans for this machine, like the ones coming in
+heatsink+fan combos will not work properly at the currently defined
+medium speed. Trying different pwm setting using a command
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+  echo $value > /sys/devices/platform/pwm-fan/hwmon/hwmon1/pwm1
 
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp-aipstz.h | 25 +++++++++++++++++++
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  1 +
->  2 files changed, 26 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-aipstz.h b/arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
-> new file mode 100644
-> index 000000000000..23725cdef23b
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
-> @@ -0,0 +1,25 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> +/*
-> + * Copyright 2025 NXP
-> + */
-> +
-> +#ifndef __IMX8MP_AIPSTZ_H
-> +#define __IMX8MP_AIPSTZ_H
-> +
-> +#include <dt-bindings/bus/imx-aipstz.h>
-> +
-> +/* master ID definitions */
-> +#define IMX8MP_AIPSTZ_EDMA 0 /* AUDIOMIX EDMA */
-> +#define IMX8MP_AIPSTZ_CA53 1 /* Cortex-A53 cluster */
-> +#define IMX8MP_AIPSTZ_SDMA2 3 /* AUDIOMIX SDMA2 */
-> +#define IMX8MP_AIPSTZ_SDMA3 3 /* AUDIOMIX SDMA3 */
-> +#define IMX8MP_AIPSTZ_HIFI4 5 /* HIFI4 DSP */
-> +#define IMX8MP_AIPSTZ_CM7 6 /* Cortex-M7 */
-> +
-> +/* helper macros */
-> +#define IMX8MP_AIPSTZ_HIFI4_T_RW_PL				\
-> +	IMX_AIPSTZ_MASTER					\
-> +	IMX8MP_AIPSTZ_HIFI4					\
-> +	(IMX_AIPSTZ_MPL | IMX_AIPSTZ_MTW | IMX_AIPSTZ_MTR)
-> +
-> +#endif /* __IMX8MP_AIPSTZ_H */
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> index aa7940c65f2d..ebbc99f9ceba 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> @@ -12,6 +12,7 @@
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
->  #include <dt-bindings/thermal/thermal.h>
->
-> +#include "imx8mp-aipstz.h"
->  #include "imx8mp-pinfunc.h"
->
->  / {
-> --
-> 2.34.1
->
+I found:
+
+  pwm1 value     fan rotation speed   cpu temperature     notes
+  -----------------------------------------------------------------
+    0            maximal              31.5 Celsius        too noisy
+   40            optimal              35.2 Celsius        no noise hearable
+   95            minimal
+   above 95      does not rotate      55.5 Celsius
+  -----------------------------------------------------------------
+
+Thus only cpu-active-high and cpu-active-low modes are usable.
+I think this is wrong.
+
+This patch fixes cpu-active-medium settings for bpi-r3 board.
+
+I know, the patch is not ideal as it can break pwm fan for some users.
+Likely this is the only official mt7986-bpi-r3 heatsink+fan solution
+available on the market.
+
+This patch may not be enough. Users may wants to tweak their thermal_zone0
+trip points, thus tuning fan rotation speed depending on cpu temperature.
+That can be done on the base of the following example:
+
+  === example =========
+  # cpu temperature below 25 Celsius degrees, no rotation
+  echo 25000 > /sys/class/thermal/thermal_zone0/trip_point_4_temp
+  # cpu temperature in [25..32] Celsius degrees, normal rotation speed
+  echo 32000 > /sys/class/thermal/thermal_zone0/trip_point_3_temp
+  # cpu temperature above 50 Celsius degrees, max rotation speed
+  echo 50000 > /sys/class/thermal/thermal_zone0/trip_point_2_temp
+  =====================
+
+Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+
+---
+Changes from v1 to v2:
+ * improve patch description
+---
+ arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+index ed79ad1ae871..b0cc0cbdff0f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+@@ -42,7 +42,7 @@ fan: pwm-fan {
+ 		compatible = "pwm-fan";
+ 		#cooling-cells = <2>;
+ 		/* cooling level (0, 1, 2) - pwm inverted */
+-		cooling-levels = <255 96 0>;
++		cooling-levels = <255 40 0>;
+ 		pwms = <&pwm 0 10000>;
+ 		status = "okay";
+ 	};
+-- 
+2.47.2
+
 
