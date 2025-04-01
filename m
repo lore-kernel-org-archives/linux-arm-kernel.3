@@ -4,53 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B8EC36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 06:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 706D4C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 06:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=liWnxMlF++i2oJGjba63IYvdxxtE2E3WnHD6Hl725hY=; b=4bRrr44y7KAH4fyzbAZpC4MvJ+
-	i52Fk1TS8G4C+bRpX9TjWCxe83zYeVVs/E11X51AGA8zqxQ8EPb122IC45HdNlh1PgMOvgooo6ryl
-	HN2XJfLUJCw1/btfZZSojCJ1mBgWBBJCy8GwRJdH6aVxlbyvvKRxKSDkXVC+33+GMmUlIstGWtubk
-	ApHY1Xbi7i4SgaCPvAL+wxd5LZGKsx8pfNYDh+sJ8bH3SGzJTth4yAOT8X5G1bqkJNgojsyvZbybx
-	NNTsuvIfn4Q9QJvvMGK18dsfOYUcuI6M4TaYlHi5UYhbiEtx1eJC/J9IkMQAfrBAK0GBn0KCGS2YH
-	ywEO/Rwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LDR2B5puagAyALQuBVKlAP8434ptqrrDvtmt4+7IkqI=; b=IclhhNDjlQiE8RsxmDkBp4u8TH
+	gSYkOHQFVIELMSjl5C8Y1rxvuw/yk33+C6yRr4cTf3xtgkyzICL8hVwypiUQkfOI/8yenVplqemUN
+	qRVpvjwCEMpy2BBSOYaaJQAmLXJlU5WCZ4P7sqAeUv0gfAVH537oWHZg11sG/c41VDljLVD+I4iQ7
+	X24PBf2Lzx7C8j674DUaNRHFmKmCT5ewSMSGUkMChrz4UZKdlHiudnQFBxWV54n/opRQInZoJ+9h8
+	eefnv0BIfLSIU7d3hyiTwHPSZiXsR1I9FADL8AiY2oYkQ0j8EzviQnBf5VWvKOE1G7wUfzZKqGIpQ
+	zfhXouRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUmA-000000022iG-0BCD;
-	Tue, 01 Apr 2025 06:07:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUkJ-000000022X7-2JtT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 06:05:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECA1E150C;
-	Mon, 31 Mar 2025 23:05:11 -0700 (PDT)
-Received: from [10.162.16.153] (unknown [10.162.16.153])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A14F3F63F;
-	Mon, 31 Mar 2025 23:05:06 -0700 (PDT)
-Message-ID: <17de4426-8263-4ccb-8420-f6913d478ae9@arm.com>
-Date: Tue, 1 Apr 2025 11:35:03 +0530
+	id 1tzUnw-0000000230t-2TOG;
+	Tue, 01 Apr 2025 06:08:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzUlo-000000022dX-3DGM;
+	Tue, 01 Apr 2025 06:06:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 66D825C56F0;
+	Tue,  1 Apr 2025 06:04:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ECC0C4CEE8;
+	Tue,  1 Apr 2025 06:06:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743487602;
+	bh=oLzH5RkSicuMVNftyvLlNjjRZ70ibDG36k7ChxEokbQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YlbyM+reilMLWDp1hOkToL15MKp3RlG7mm7J+8Y/Z5KNotQYHe6yrnielSmpmknQM
+	 QxigIlTn9FKn0e46cZIiVtB5VNgMRPXZQzeWS7jYj12kEkGa8YMIHYVAS+WFbayUYR
+	 PzRlVHCmrVUz3Cs564m7WAQpWm+PSaZkZvEcSACVrwMUbfQUe8usjUqC3+/rDj//bi
+	 Cd8WixEmJqDtAHMbN69h0i6qQF2BKUuAAwD6YYo2b3bh706TzRgTUeWqxsVz+/gQEh
+	 Ya8bsQZ2Efn6+a9jYQexhwrkDch+tKsHfjEHTkpS3fCW5sn043fa1XbizeaO30HRTW
+	 PdjVz8I4fQ9pQ==
+Date: Tue, 1 Apr 2025 08:06:38 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Cathy Xu <ot_cathy.xu@mediatek.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>, Lei Xue <lei.xue@mediatek.com>, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, yong.mao@mediatek.com, 
+	Axe.Yang@mediatek.com, Jimin.Wang@mediatek.com, Wenbin.Mei@mediatek.com, 
+	Andy-ld.Lu@mediatek.com, Guodong Liu <guodong.liu@mediatek.com>
+Subject: Re: [PATCH v6 1/3] dt-bindings: pinctrl: mediatek: Add support for
+ mt8196
+Message-ID: <20250401-glittering-bouncy-yak-7e63ee@krzk-bin>
+References: <20250401054837.1551-1-ot_cathy.xu@mediatek.com>
+ <20250401054837.1551-2-ot_cathy.xu@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Don't call NULL in do_compat_alignment_fixup
-To: Angelos Oikonomopoulos <angelos@igalia.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com, will@kernel.org, linux-kernel@vger.kernel.org,
- kernel-dev@igalia.com
-References: <20250331085415.122409-1-angelos@igalia.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250331085415.122409-1-angelos@igalia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250401054837.1551-2-ot_cathy.xu@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_230511_642923_08BFE93C 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20250331_230644_862243_518FF3B7 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,33 +78,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/31/25 14:24, Angelos Oikonomopoulos wrote:
-> do_alignment_t32_to_handler only fixes up alignment faults for specific
-> instructions; it returns NULL otherwise. When that's the case, signal to
-> the caller that it needs to proceed with the regular alignment fault
-> handling (i.e. SIGBUS).
+On Tue, Apr 01, 2025 at 01:48:10PM +0800, Cathy Xu wrote:
+> Add the new binding document for pinctrl on MediaTek mt8196.
 > 
-> Signed-off-by: Angelos Oikonomopoulos <angelos@igalia.com>
+> Signed-off-by: Guodong Liu <guodong.liu@mediatek.com>
+> Signed-off-by: Cathy Xu <ot_cathy.xu@mediatek.com>
 > ---
->  arch/arm64/kernel/compat_alignment.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/compat_alignment.c b/arch/arm64/kernel/compat_alignment.c
-> index deff21bfa680..b68e1d328d4c 100644
-> --- a/arch/arm64/kernel/compat_alignment.c
-> +++ b/arch/arm64/kernel/compat_alignment.c
-> @@ -368,6 +368,8 @@ int do_compat_alignment_fixup(unsigned long addr, struct pt_regs *regs)
->  		return 1;
->  	}
->  
-> +	if (!handler)
-> +		return 1;
+>  .../pinctrl/mediatek,mt8196-pinctrl.yaml      | 220 ++++++++++++++++++
+>  1 file changed, 220 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
 
-do_alignment_t32_to_handler() could return NULL, returning 1 seems to be
-the right thing to do here and consistent. Otherwise does this cause a
-kernel crash during subsequent call into handler() ?
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
->  	type = handler(addr, instr, regs);
->  
->  	if (type == TYPE_ERROR || type == TYPE_FAULT)
+Best regards,
+Krzysztof
+
 
