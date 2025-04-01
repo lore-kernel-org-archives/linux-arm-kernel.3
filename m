@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78089C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 09:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC416C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 09:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=moBimpCCAizLqeadHYqQ/QDr0Ay6xXtSDeb549OE/UY=; b=1LGFz+qVNBV3LpWkQ2Z8oCKIE7
-	eLwPP/m5lWD8wU1xG2DOOwJ3dFaAKfuqYaDmowIEhhgBZ1yK9taOsFGViOCbTTI0swom20kSNC/ay
-	XZk7/alzDqaHiiWyF78C4Tg30vxRuHOVUd3A33nTsNep7939vad0Q7c2FcRpUQeLh1T7DqjpybboL
-	C5taYNfHLQU/YkZD1yBfG0tudl3EOpCWwLAoADrLDbC0VeifEBk/+U50UwJH+rkKsMDsyRQG/nBzt
-	TebXb7Kgew58CyjS7XVz2o4jreMxuhxoLPzkILbLuR+mZV4tZ3rl2dBcq8J/wgtmjg0oCp5J/jSfD
-	I5Cjxftg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dHW22eCdo2pNR/pgYLghzdxqm5ADG0ieP//MIrKy+YI=; b=D+EhPHvj4wgTxH8Mb5E18oFEf4
+	9Qax7iXBPw5k5uYvVh5LK/8FxpJA0OQsx/2r+4PbU5q6mJwTA1LmmIec7Ys0nS+F5peDvMG0hF0F3
+	w5LxJB6Mn86plNeZQMqs5hpwSBnYAP6TBNvm1S/UnWxHX065tUkcSUvOdrF7vG3EpY8M0aAPvCyjZ
+	9WhE2ktHc/L1EDYVUV2mXBatykfu31RV2Nwm3GHROy2BixKwiAI6zFjCUIBeLwV6dj8CwKJYuxgeW
+	yXS3jCQEQtWMqu72VmcbSCh8TaVJ18jSHXeVg/OMJYIQXFGBqBmlCX6CIVlK+VUNCe3nAFcWiiXvz
+	u5EJVukw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzXzv-00000002URh-2tmO;
-	Tue, 01 Apr 2025 09:33:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tzY1h-00000002Ujz-2WdS;
+	Tue, 01 Apr 2025 09:35:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzXkX-00000002Rcc-3U2v
+	id 1tzXkY-00000002RdF-1zxx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 09:17:39 +0000
+	Tue, 01 Apr 2025 09:17:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A364F4455C;
-	Tue,  1 Apr 2025 09:17:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB891C4CEE5;
-	Tue,  1 Apr 2025 09:17:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ABA4744DF8;
+	Tue,  1 Apr 2025 09:17:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D40C4C4CEEF;
+	Tue,  1 Apr 2025 09:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1743499057;
-	bh=J0L3Um0GRQp3OOt5WA3u+E6KwaB9/4HhItKzHfizai8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=PSL72YDSphuHVNiRVQPhKnAlDu25lss3jTft7Ftm6/j3r4+h5NlPPNNnmZLcLOcDW
-	 KZn4m4M2jNsleaMzuAx56MzaG599Rk6H04X/FlGq+EVjtvCepELZ9mMDjbwEUKATsF
-	 q3oraUMaj+fEZlmcOmxPMGu9wDdRyy/l+m/cK06B77bqFZBD1NJoAuHMdPrY+Z3cv7
-	 eAWYzJsjUi+qZkI2uXBo/rWmFy65fVCsatgi71ti1JJZKaVhNEMQIZBe+D5o8hL74X
-	 X7AWDBnILkEURZjXsxXQw7B0YrU9jetOuYPp3EdsLxleBuneELlqEelkIWlxaj2WrY
-	 8no/VKQhDwXIQ==
+	bh=hY7d5l/jzCYASueLws6Rz29Q9HtgzeMl7jBFbrlIdNA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ORx/WcXpgEBwhh0nSpDDQpENeE+uxDM7FwEXObBLzzjGDpc6GdlwD2j6Kkk3ayZml
+	 7o4JCFr2t713RmSFpGFBTjzVYPRVEtO/9N0N1RceRQZHylYs1V8MK5dAkd20vE8MQW
+	 6OYidH92Vuv3QLr7NJthrMdgDlgnF2FZBfrwEBa/BRzSlxcgUloRt3GxDHhbbjbOoo
+	 UQdQSvSHWXHxZ4ISfYdE0GlN/iI1/D9wVIHtwjhwBN4ybw6y+qZvMvTwIlDftZaB5U
+	 9qPhcUdvFcD0Zkn1TY1qmuxxbiGJVXCRZ6UtxqjD4LFPnE+yNSNxFCuIcD2f7p3mE4
+	 6ud/22QNq8dQw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tzXkU-001GqU-JG;
-	Tue, 01 Apr 2025 10:17:34 +0100
+	id 1tzXkV-001GqU-Mt;
+	Tue, 01 Apr 2025 10:17:35 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-pci@vger.kernel.org,
@@ -65,10 +65,12 @@ Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Mark Kettenis <mark.kettenis@xs4all.nl>
-Subject: [PATCH v3 00/13] PCI: apple: Add support for t6020
-Date: Tue,  1 Apr 2025 10:17:00 +0100
-Message-Id: <20250401091713.2765724-1-maz@kernel.org>
+Subject: [PATCH v3 04/13] PCI: ecam: Allow cfg->priv to be pre-populated from the root port device
+Date: Tue,  1 Apr 2025 10:17:04 +0100
+Message-Id: <20250401091713.2765724-5-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250401091713.2765724-1-maz@kernel.org>
+References: <20250401091713.2765724-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -76,8 +78,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.o
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_021737_911985_955D623C 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20250401_021738_537939_AB0EC049 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,91 +94,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As Alyssa didn't have the bandwidth to deal with this series, I have
-taken it over. All bugs are therefore mine.
+In order to decouple ecam config space creation from probing via
+pci_host_common_probe(), allow the private pointer to be populated
+via the device drvdata pointer.
 
-The initial series [1] stated:
+Crucially, this is set before calling ops->init(), allowing that
+particular callback to have access to probe data.
 
-"This series adds T6020 support to the Apple PCIe controller. Mostly
- Apple shuffled registers around (presumably to accommodate the larger
- configurations on those machines). So there's a bit of churn here but
- not too much in the way of functional changes."
+This should have no impact on existing code which ignores the
+current value of cfg->priv.
 
-The biggest change is affecting the ECAM layer, allowing an ECAM
-driver to provide its own probe function instead of relying on the
-.init() callback to do the work. The ECAM layer can therefore be used
-as a library instead of a convoluted driver.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Tested-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/pci/ecam.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-The rest is a mix of bug fixes, cleanups, and required abstraction.
-
-This has been tested on T6020 (M2-Pro mini) and T8103 (M1 mini).
-
-* From v2[2]:
-
-  - Fixed the DT binding with new constraints specific to t6020
-
-  - Moved the "for_each_available_node()" fix to the head of the series
-
-  - Collected, RBs, TBs, ABs (thanks!)
-
-* From v1[1]:
-
-  - Described the PHY registers in the DT binding
-
-  - Extracted a ecam bridge creation helper from the host-common layer
-
-  - Moved probing into its own function instead of pci_host_common_probe()
-    
-  - Moved host-specific data to the of_device_id[] table
-
-  - Added dynamic allocation of the RID/SID bitmap
-
-  - Fixed latent bug in RC-generated interrupts
-
-  - Renamed reg_info to hw_info
-
-  - Dropped useless max_msimap
-
-  - Dropped code being moved around without justification
-
-  - Re-split some of the patches to follow a more logical progression
-
-  - General cleanup to fit my own taste
-
-[1] https://lore.kernel.org/r/20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io
-[2] https://lore.kernel.org/r/20250325102610.2073863-1-maz@kernel.org
-
-Alyssa Rosenzweig (1):
-  dt-bindings: pci: apple,pcie: Add t6020 compatible string
-
-Hector Martin (6):
-  PCI: apple: Fix missing OF node reference in apple_pcie_setup_port
-  PCI: apple: Move port PHY registers to their own reg items
-  PCI: apple: Drop poll for CORE_RC_PHYIF_STAT_REFCLK
-  PCI: apple: Use gpiod_set_value_cansleep in probe flow
-  PCI: apple: Abstract register offsets via a SoC-specific structure
-  PCI: apple: Add T602x PCIe support
-
-Janne Grunau (1):
-  PCI: apple: Set only available ports up
-
-Marc Zyngier (5):
-  PCI: host-generic: Extract an ecam bridge creation helper from
-    pci_host_common_probe()
-  PCI: ecam: Allow cfg->priv to be pre-populated from the root port
-    device
-  PCI: apple: Move over to standalone probing
-  PCI: apple: Dynamically allocate RID-to_SID bitmap
-  PCI: apple: Move away from INTMSK{SET,CLR} for INTx and private
-    interrupts
-
- .../devicetree/bindings/pci/apple,pcie.yaml   |  33 ++-
- drivers/pci/controller/pci-host-common.c      |  24 +-
- drivers/pci/controller/pcie-apple.c           | 241 +++++++++++++-----
- drivers/pci/ecam.c                            |   2 +
- include/linux/pci-ecam.h                      |   2 +
- 5 files changed, 220 insertions(+), 82 deletions(-)
-
+diff --git a/drivers/pci/ecam.c b/drivers/pci/ecam.c
+index 260b7de2dbd57..2c5e6446e00ee 100644
+--- a/drivers/pci/ecam.c
++++ b/drivers/pci/ecam.c
+@@ -84,6 +84,8 @@ struct pci_config_window *pci_ecam_create(struct device *dev,
+ 			goto err_exit_iomap;
+ 	}
+ 
++	cfg->priv = dev_get_drvdata(dev);
++
+ 	if (ops->init) {
+ 		err = ops->init(cfg);
+ 		if (err)
 -- 
 2.39.2
 
