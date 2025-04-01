@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD59C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 06:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF618C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 06:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HYlVV8Q5lEJIgVokNo0O/6mivk/abAx99Clb8lZINfQ=; b=2xV6AhbYF7d6LwqhldHLjVyrP9
-	9GLNj/NEQibhsJOcS+tEj3TWD8qSRsb1aPcQq6EYVK7Ul+dgY0Kx/jQMx0GOMY6PNIWUY/W8057Jf
-	VCkpGjOCw6JMHoyftA37aDA643X9hTwY521QcC1hfShK04VU5SvCjmwSsrEgQ50oSbPf7EPlrQrYt
-	CcW/QDIAtVDrCp4EYTM8u2GODPjyS6sb+aT/R+3kpQo1x41J42cuFUIOfCqC+4ywdOrUeWgpTAYHZ
-	LizbJGrPrwDWGLx4r8lhZkSe/0P8YlwqtwH2sEd1yb9BILQxQtiLTwttYObxvF/206RhyMbq0lBRY
-	RfaHGN8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tfd5gJAdJrjQTh2OrhCGL/kruiS2MjDxWifTbmJbfLs=; b=fWZ2+p74vPfBZqVWmfYnUY5TFd
+	kJEGkBAY07yBXw1Q6as6qhg/X9rAz06r88LbxwGigsznmW7tmfxesvV8X1uh1/Bsw6KfANV3oTuUV
+	aZHcvuZLVpNzOwc9aNuuoMMy0VkYVoOA4ol3+nPNcwYAMtG8s0u8Ge0jurzhU5EqSVb9RwB0+1Bm/
+	VLtl4tMZ7TEfkAN8yxxOLnemUYsqGNZ0M7XMaiOcUchE0RdvIJJPwV89rp2H189M3WiIADWbvGvxg
+	upQYDcpwALCaq9TqG5yeGt4t6ftqHAttBVY73gt9/cF1Wft4LHB4J3fjzc/kBPpfert5+CL+3H3ad
+	zDGDFlQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUrx-00000002437-0ron;
-	Tue, 01 Apr 2025 06:13:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUq9-000000023l1-02Ye
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 06:11:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 385DC150C;
-	Mon, 31 Mar 2025 23:11:15 -0700 (PDT)
-Received: from [10.162.16.153] (unknown [10.162.16.153])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 07B893F63F;
-	Mon, 31 Mar 2025 23:11:07 -0700 (PDT)
-Message-ID: <470e4a90-41c3-4974-a4d7-3073a7fcc737@arm.com>
-Date: Tue, 1 Apr 2025 11:41:04 +0530
+	id 1tzUuY-000000024Pi-2MjW;
+	Tue, 01 Apr 2025 06:15:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzUsj-000000024Dd-2k3T;
+	Tue, 01 Apr 2025 06:13:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CE90944044;
+	Tue,  1 Apr 2025 06:13:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42742C4CEE8;
+	Tue,  1 Apr 2025 06:13:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743488033;
+	bh=a/WBWaI1GRijiNVhX5FXEpnwkrIb9sOyftFgp32l9+0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jNymlsUa/smbZNP5cRJtDeGbNZjsIVNja4x7dB9r+sVZdWnd5hWwiKB9CRvQsFeJe
+	 Zp2BVuP5TDBpX+8K4PJ6IlnjXD23NVrptNeVecJQtqHl8LIwNdlF4feRJHDEjq3G4J
+	 4/fSDq6auzVqB8pY1se8oupuPSaxBsDNH6RT87HikgM9BDj+IqWlb21+hYu9KOh3sK
+	 aIw+G163YeCtXjUrdu1LmKGBOQPOzNd7B5yxhmrM5zMnxgyiWorK7NYeR9a1D/XGcW
+	 8djMi/ZIcjD3UPkdjNV+6dVMi3F4GPqjvzUYfcQD8lJIOZtC9PAn1r87ZIyrgtthxO
+	 0pFvcrsHWlSUg==
+Date: Tue, 1 Apr 2025 08:13:49 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add
+ compatible string for A5
+Message-ID: <20250401-meteoric-perfect-cuttlefish-abd62d@krzk-bin>
+References: <20250401-a5-pinctrl-v2-0-a136c1058379@amlogic.com>
+ <20250401-a5-pinctrl-v2-1-a136c1058379@amlogic.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: fix the wrong type of the trace_id in
- coresight_path
-To: Jie Gan <jie.gan@oss.qualcomm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Jie Gan <quic_jiegan@quicinc.com>
-Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
- Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, Dan Carpenter <dan.carpenter@linaro.org>
-References: <20250401014210.2576993-1-jie.gan@oss.qualcomm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250401014210.2576993-1-jie.gan@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250401-a5-pinctrl-v2-1-a136c1058379@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_231113_107106_DC1AB710 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20250331_231353_712684_74146007 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,34 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/1/25 07:12, Jie Gan wrote:
-> The trace_id in coresight_path may contain an error number which means a
-> negative integer, but the current type of the trace_id is u8. Change the
-> type to int to fix it.
+On Tue, Apr 01, 2025 at 10:06:21AM +0800, Xianwei Zhao wrote:
+> Amlogic A5 SoCs uses the same pintrl controller as A4 SoCs. There is
+> no need for an extra compatible line in the driver, but add A5
+> compatible line for documentation.
 > 
-> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Fixes: 3c03c49b2fa5 ("Coresight: Introduce a new struct coresight_path")
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-
-LGTM
-
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > ---
->  include/linux/coresight.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
 > 
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index d79a242b271d..c2bf10c43e7c 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -337,7 +337,7 @@ static struct coresight_dev_list (var) = {				\
->   */
->  struct coresight_path {
->  	struct list_head	path_list;
-> -	u8			trace_id;
-> +	int			trace_id;
->  };
+> diff --git a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+> index 8eb50cad61d5..3bebccaf0c9f 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+> @@ -14,8 +14,12 @@ allOf:
 >  
->  enum cs_mode {
+>  properties:
+>    compatible:
+> -    const: amlogic,pinctrl-a4
+> -
+
+Do not remove blank line.
+
+Best regards,
+Krzysztof
+
 
