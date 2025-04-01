@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F41C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 14:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B69CC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 14:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sLE8a8alpIDJ7gZjEf1ncsn9XQFG6U/H174ZboIvNzM=; b=ej3Bbq7qF0JCCBrY4nriWXRm06
-	8l68x5qPMiWFFeePrYDPlguT4LPFy0cCkejhJyWMHiQr6wmgB7BJpxuCi9LdhSifNYdbKe2ZpahTD
-	7Ec4zEy3Hg5PoPcKaQAOy/yAGmXgukE/Ui4Zkb6ZNK8Spj5mDyXPNs6Aa0qGX9DFsGfuLGxszsagQ
-	YPlCRdjlzPtE9B7YDNuNb+1hC2Km+eBSaHO4BTFjGsf+TCIJzjUofIaN8VPz1juD6tCT+zLRH5MtP
-	TYrysr3HDK4PRQbY+Q5I5JBK+NOJBW4cJMDZURHrfBf1p5nA+zXPbbpCaiOJ/ktZHUhvkFhSxYepW
-	0khPP2ow==;
+	bh=uuyRcYZWOvFmlm/tWH+jeZcqwZFSqSznsATB1OtkAws=; b=udfr6F1DKsEZqX5ldVuhdzg0qo
+	mrAh5jQksDo/hnDAUcT3HjO7fvIq/WPK8WuscxYjx1SQUdlvw2dW+DcDB/CT1XPnCuvZBRKf3Qa3+
+	3AA95XK1K4xjHD5SzjMdODG3//NmlespmUtWtbRg+faK0lzq43cODW+KbC+SDIGaACtPZBti68g4J
+	AI88/C67nXOsF7xIktwH+UJAzLc6kz5rJp+Qst8RO4/VXDjrLAG9VzyTDedN5fRSrgFtkdkcPoXi0
+	zYS5805o6P2olhowNybHFddXNP9rtdcm9TRCdLp+gU1ulKh+2AE1M8A9dwLC+si5smS5A5yuLPbiz
+	ZmJCv2UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzcwX-00000003dDR-0m6r;
-	Tue, 01 Apr 2025 14:50:21 +0000
+	id 1tzd0F-00000003dhi-020I;
+	Tue, 01 Apr 2025 14:54:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzcuj-00000003d3O-34ot
+	id 1tzcyP-00000003dWG-48OT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 14:48:31 +0000
+	Tue, 01 Apr 2025 14:52:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECA6A14BF;
-	Tue,  1 Apr 2025 07:48:31 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 083323F63F;
-	Tue,  1 Apr 2025 07:48:25 -0700 (PDT)
-Date: Tue, 1 Apr 2025 15:48:23 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B211C14BF;
+	Tue,  1 Apr 2025 07:52:20 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF6BA3F694;
+	Tue,  1 Apr 2025 07:52:14 -0700 (PDT)
+Date: Tue, 1 Apr 2025 15:51:40 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
@@ -44,22 +45,21 @@ Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Dan Carpenter <dan.carpenter@linaro.org>,
-	<linux-kernel@vger.kernel.org>, <arm-scmi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
-	<devicetree@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v3 3/7] firmware: arm_scmi: imx: Add i.MX95 LMM protocol
-Message-ID: <20250401-accurate-quixotic-coua-86aed0@sudeepholla>
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v3 1/7] firmware: arm_scmi: imx: Add LMM and CPU
+ documentation
+Message-ID: <Z-v9fLBztfeerCqw@pluto>
 References: <20250303-imx-lmm-cpu-v3-0-7695f6f61cfc@nxp.com>
- <20250303-imx-lmm-cpu-v3-3-7695f6f61cfc@nxp.com>
- <20250401-magnetic-spaniel-of-influence-f3ee90@sudeepholla>
- <Z-v579n5wuAqTuUW@pluto>
+ <20250303-imx-lmm-cpu-v3-1-7695f6f61cfc@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z-v579n5wuAqTuUW@pluto>
+In-Reply-To: <20250303-imx-lmm-cpu-v3-1-7695f6f61cfc@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_074829_818342_24D7F979 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20250401_075218_117593_C5BDC7E2 
+X-CRM114-Status: GOOD (  37.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,31 +74,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 03:36:31PM +0100, Cristian Marussi wrote:
-> On Tue, Apr 01, 2025 at 03:21:51PM +0100, Sudeep Holla wrote:
-> > On Mon, Mar 03, 2025 at 10:53:24AM +0800, Peng Fan (OSS) wrote:
-> > > From: Peng Fan <peng.fan@nxp.com>
-> > > 
-> > > Add Logical Machine Management(LMM) protocol which is intended for boot,
-> > > shutdown, and reset of other logical machines (LM). It is usually used to
-> > > allow one LM to manager another used as an offload or accelerator engine.
-> > >
-> > 
-> > This and next patch LGTM. Just curious as why Cristian has given tags only
-> > for the drivers using these but not these changes.
-> > 
-> > Cristian, any specific concerns you had that had to be addressed or addressed
-> > in this version ?
+On Mon, Mar 03, 2025 at 10:53:22AM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> I think I had some review comments on the previous version of this
-> series for Documentation and protocol....let me see wth I said about
-> this :D and if they have been addressed...
+> Add i.MX95 Logical Machine Management and CPU Protocol documentation.
 > 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/firmware/arm_scmi/vendors/imx/imx95.rst | 801 ++++++++++++++++++++++++
+>  1 file changed, 801 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst b/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
+> index b2dfd6c46ca2f5f12f0475c24cb54c060e9fa421..74326bf2ea8586282a735713e0ab7eb90ccce8ff 100644
+> --- a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
+> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
+> @@ -32,6 +32,501 @@ port, and deploy the SM on supported processors.
+>  The SM implements an interface compliant with the Arm SCMI Specification
+>  with additional vendor specific extensions.
+>  
+> +SCMI_LMM: System Control and Management Logical Machine Management Vendor Protocol
+> +==================================================================================
+> +
+> +This protocol is intended for boot, shutdown, and reset of other logical
+> +machines (LM). It is usually used to allow one LM(e.g. OSPM) to manage
+> +another LM which is usually an offload or accelerator engine.. Notifications
+> +from this protocol can also be used to manage a communication link to another
+> +LM. The LMM protocol provides functions to:
+> +
+> +- Describe the protocol version.
+> +- Discover implementation attributes.
+> +- Discover the LMs defined in the system.
+> +- Boot an LM.
+> +- Shutdown an LM (gracefully or forcibly).
+> +- Reset an LM (gracefully or forcibly).
+> +- Wake an LM from suspend.
+> +- Suspend an LM (gracefully).
+> +- Read boot/shutdown/reset information for an LM.
+> +- Get notifications when an LM boots or shuts down (e.g. LM[X] requested
+> +  notification of LM[Y] boots or shuts down, when LM[Y] boots or shuts down,
+> +  SCMI firmware will send notification to LM[X]).
+> +
+> +'Graceful' means asking LM itself to shutdown/reset/etc (e.g. sending
+> +notification to Linux, Then Linux reboots or powers down itself). It is async
+> +command that the SUCCESS of the command just means the command successfully
+> +return, not means reboot/reset successfully finished.
+> +'Forceful' means the SM will force shutdown/reset/etc the LM. It is sync
+> +command that the SUCCESS of the command means the LM has been successfully
+> +shutdown/reset/etc.
+> +If the commands not have Graceful/Forceful flag settings, such as WAKE, SUSEND,
+> +it is async command.
+> +
 
-Thanks that would be great. I can't recall which version I had a look,
-hence thought of asking.
+Hi,
 
--- 
-Regards,
-Sudeep
+> +Commands:
+> +_________
+> +
+> +PROTOCOL_VERSION
+> +~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x0
+> +protocol_id: 0x80
+> +This command is mandatory.
+> +
+
+Good that you added the mandatory/optional description..
+
+> ++---------------+--------------------------------------------------------------+
+> +|Return values                                                                 |
+> ++---------------+--------------------------------------------------------------+
+> +|Name           |Description                                                   |
+> ++---------------+--------------------------------------------------------------+
+> +|int32 status   | See ARM SCMI Specification for status code definitions.      |
+> ++---------------+--------------------------------------------------------------+
+> +|uint32 version | For this revision of the specification, this value must be   |
+> +|               | 0x10000.                                                     |
+> ++---------------+--------------------------------------------------------------+
+> +
+> +PROTOCOL_ATTRIBUTES
+> +~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x1
+> +protocol_id: 0x80
+> +This command is mandatory.
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      | See ARM SCMI Specification for status code definitions.   |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 attributes |Protocol attributes:                                       |
+> +|                  |Bits[31:8] Reserved, must be zero.                         |
+> +|                  |Bits[7:0] Number of Logical Machines                       |
+> ++------------------+-----------------------------------------------------------+
+> +
+> +PROTOCOL_MESSAGE_ATTRIBUTES
+> +~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +message_id: 0x2
+> +protocol_id: 0x80
+> +This command is mandatory.
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |SUCCESS: in case the message is implemented and available  |
+> +|                  |to use.                                                    |
+> +|                  |NOT_FOUND: if the message identified by message_id is      |
+> +|                  |invalid or not implemented                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 attributes |Flags that are associated with a specific function in the  |
+> +|                  |protocol. For all functions in this protocol, this         |
+> +|                  |parameter has a value of 0                                 |
+> ++------------------+-----------------------------------------------------------+
+> +
+> +LMM_ATTRIBUTES
+> +~~~~~~~~~~~~~~
+> +
+> +message_id: 0x3
+> +protocol_id: 0x80
+> +This command is mandatory.
+> +
+> ++------------------+-----------------------------------------------------------+
+> +|Parameters                                                                    |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 lmid       |ID of the Logical Machine                                  |
+> ++------------------+-----------------------------------------------------------+
+> +|Return values                                                                 |
+> ++------------------+-----------------------------------------------------------+
+> +|Name              |Description                                                |
+> ++------------------+-----------------------------------------------------------+
+> +|int32 status      |SUCCESS: if valid attributes are returned.                 |
+> +|                  |NOT_FOUND: if lmId not points to a valid logical machine.  |
+> +|                  |DENIED: if the agent does not have permission to get info  |
+> +|                  |for the LM specified by lmid.                              |
+
+..mmmmm... regardig this next field...
+
+> ++------------------+-----------------------------------------------------------+
+> +|uint32 lmid       |Identifier of the LM whose identification is requested.    |
+> +|                  |This field is: Populated with the lmId of the calling      |
+> +|                  |agent, when the lmId parameter passed via the function is  |
+> +|                  |0xFFFFFFFF. Identical to the lmId field passed via the     |
+> +|                  |calling parameters, in all other cases                     |
+
+In V2 there was an issue with the description and you told me
+
+ >> ++------------------+-----------------------------------------------------------+
+ > >> +|Parameters                                                                    |
+ > >> ++------------------+-----------------------------------------------------------+
+ > >> +|Name              |Description                                                |
+ > >> ++------------------+-----------------------------------------------------------+
+ > >> +|uint32 lmid       |ID of the Logical Machine                                  |
+ > >> ++------------------+-----------------------------------------------------------+
+ > >> +|Return values                                                                 |
+ > >> ++------------------+-----------------------------------------------------------+
+ > >> +|Name              |Description                                                |
+ > >> ++------------------+-----------------------------------------------------------+
+ > >> +|int32 status      |SUCCESS: if valid attributes are returned.                 |
+ > >> +|                  |NOT_FOUND: if lmId not points to a valid logical machine.  |
+ > >> +|                  |DENIED: if the agent does not have permission to get info  |
+ > >> +|                  |for the LM specified by lmid.                              |
+ > >> ++------------------+-----------------------------------------------------------+
+ > >> +|uint32 attributes | Bits[31:8] reserved.                                      |
+ > >> +|                  | Bits[7:0] Number of Logical Machines.                     |
+ > >
+ > >...BUT this returns again the number of LMs while asking the attributes
+ > >of a specific LM ? .... is it a typo or what ? ...if it is just as a
+ > >sort of placeholder for when you'll have really LM's attributes to show,
+ > >consider that once this is documented and supported in this version of
+ > >your vendor protocol it will be needed to be kept and maintained...maybe
+ > >better just to declare this as zero in this version of the protocol if
+ > >you dont really have anything for this command in this version...(like
+ > >many times are defined the attributes fields in PROTOCOL_MESSAGE_ATTRIBUTES
+ > >above, if you really know you could want/need this command in the
+ > >future...is it used now ?
+ > 
+ > My bad. This should be updated with below
+ > +------------------+-----------------------------------------------------------+
+ > |uint32 attributes | Bits[31:0] reserved. must be zero                         |
+ > +------------------+-----------------------------------------------------------+
+ > |uint32 state      | Current state of the LM                                   |
+ > +------------------+-----------------------------------------------------------+
+ > |uint32 errStatus  | Last error status recorded                                |
+ > +------------------+-----------------------------------------------------------+
+ > |char name[16]     | A NULL terminated ASCII string with the LM name, of up    |
+ > |                  | to 16 bytes                                               |
+ > +------------------+-----------------------------------------------------------+
+
+...so it seems to me that the above lmid is a new addition that was not
+mentioned ... bad cut&paste ? it does NOT seem to make so much
+sense...or I am missing something
+
+Other than this, LGTM.
+
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+
+Thanks,
+Cristian
+
 
