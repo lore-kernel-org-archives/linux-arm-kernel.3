@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 600F9C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 18:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE019C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 18:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LO3iohV36DYFg7usGPEv0S6YVaOWjuOuF1A88kg+PpE=; b=1XgwanZSNWvgly9RbVSlUGbUxl
-	/AYXl4u9cnQgOsYXW83oUEW9tp25T16xYKLKub+0IhQGA3jrTp2K59VUHbRiYna6upot4W+VhwFzT
-	7oHXc9NN4K4EKsK54zxylk3bZJWMS5wDn4PCWzIuCU7Ho1fE/gxiEPS2JPeLRovQSQ63QLo7qyA8K
-	10sIvo4j3WtnFl4Y5R8ooc3rhV/3Fxkm6iYeCfPgT2tQsZb7yiArb5AE1pFF25Vq0bbNfrUDZZlDX
-	rYD7Csi2+KA8FZcfiWjdmOwPKocGRxe0c7HkwSm7kRvwdJTaByksY+Y5NZvp3DjRTjCCmRcRuiz7r
-	/4kuk0qA==;
+	bh=mJEXaqD8G9zjn2PJP7C9S+22rgpr2OpVjI6VVMHgAaI=; b=CfNLwKbGWD0sEn9yaR8FWisWpZ
+	Dr5FzI+ZUpA7mT+75mpjzj24TYPIs1oTeee/Rhp2StiMIjWK7GcJpoDvAxjvmIanZ4rTGr1yE0K2I
+	NqRllg3qhpZVfd2/68mB6P/Ni5uHTnPFAqVR2A4xj2QFTYUyBXDb6jJR8fb9qvWdahPZE5itkzQRc
+	Q1Uqub8CnNoBnIf8n2CtbYmsUbQrhoTlbVhSg5fFjZ9y4vQlsVh2X82SX7tJx/c1cwoEM36sJv6EC
+	v2iv8TIZE935TbnnRSprP89H2lUiDd0C6ABHGFNhrGyaN2b8dbZZIOOs3n0XKw3WgKL3EWZTpQBlr
+	MXHPJk0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzg5u-000000045RD-2QU5;
-	Tue, 01 Apr 2025 18:12:14 +0000
+	id 1tzg7f-000000045cv-1aBg;
+	Tue, 01 Apr 2025 18:14:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzg19-000000044aq-2iqp
+	id 1tzg1B-000000044bL-2p8A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 18:07:20 +0000
+	Tue, 01 Apr 2025 18:07:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64CCF14BF;
-	Tue,  1 Apr 2025 11:07:22 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FB3E1655;
+	Tue,  1 Apr 2025 11:07:24 -0700 (PDT)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9AACA3F59E;
-	Tue,  1 Apr 2025 11:07:17 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 653BC3F59E;
+	Tue,  1 Apr 2025 11:07:19 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Mike Leach <mike.leach@linaro.org>,
@@ -44,17 +44,17 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v4 1/7] coresight: etm4x: Extract the trace unit controlling
-Date: Tue,  1 Apr 2025 19:07:02 +0100
-Message-Id: <20250401180708.385396-2-leo.yan@arm.com>
+Subject: [PATCH v4 2/7] coresight: Introduce pause and resume APIs for source
+Date: Tue,  1 Apr 2025 19:07:03 +0100
+Message-Id: <20250401180708.385396-3-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250401180708.385396-1-leo.yan@arm.com>
 References: <20250401180708.385396-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_110719_783643_D3C8DB9D 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20250401_110721_840724_1102DD22 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,160 +69,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The trace unit is controlled in the ETM hardware enabling and disabling.
-The sequential changes for support AUX pause and resume will reuse the
-same operations.
-
-Extract the operations in the etm4_{enable|disable}_trace_unit()
-functions.  A minor improvement in etm4_enable_trace_unit() is for
-returning the timeout error to callers.
+Introduce APIs for pausing and resuming trace source and export as GPL
+symbols.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 Reviewed-by: Mike Leach <mike.leach@linaro.org>
 ---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 103 +++++++++++++++++++++++++----------------
- 1 file changed, 62 insertions(+), 41 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 22 ++++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-priv.h |  2 ++
+ include/linux/coresight.h                    |  4 ++++
+ 3 files changed, 28 insertions(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index e5972f16abff..53cb0569dbbf 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -431,6 +431,44 @@ static int etm4x_wait_status(struct csdev_access *csa, int pos, int val)
- 	return coresight_timeout(csa, TRCSTATR, pos, val);
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index fb43ef6a3b1f..d4c3000608f2 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -367,6 +367,28 @@ void coresight_disable_source(struct coresight_device *csdev, void *data)
  }
+ EXPORT_SYMBOL_GPL(coresight_disable_source);
  
-+static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
++void coresight_pause_source(struct coresight_device *csdev)
 +{
-+	struct coresight_device *csdev = drvdata->csdev;
-+	struct device *etm_dev = &csdev->dev;
-+	struct csdev_access *csa = &csdev->access;
++	if (!coresight_is_percpu_source(csdev))
++		return;
 +
-+	/*
-+	 * ETE mandates that the TRCRSR is written to before
-+	 * enabling it.
-+	 */
-+	if (etm4x_is_ete(drvdata))
-+		etm4x_relaxed_write32(csa, TRCRSR_TA, TRCRSR);
-+
-+	etm4x_allow_trace(drvdata);
-+	/* Enable the trace unit */
-+	etm4x_relaxed_write32(csa, 1, TRCPRGCTLR);
-+
-+	/* Synchronize the register updates for sysreg access */
-+	if (!csa->io_mem)
-+		isb();
-+
-+	/* wait for TRCSTATR.IDLE to go back down to '0' */
-+	if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 0)) {
-+		dev_err(etm_dev,
-+			"timeout while waiting for Idle Trace Status\n");
-+		return -ETIME;
-+	}
-+
-+	/*
-+	 * As recommended by section 4.3.7 ("Synchronization when using the
-+	 * memory-mapped interface") of ARM IHI 0064D
-+	 */
-+	dsb(sy);
-+	isb();
-+
-+	return 0;
++	if (source_ops(csdev)->pause_perf)
++		source_ops(csdev)->pause_perf(csdev);
 +}
++EXPORT_SYMBOL_GPL(coresight_pause_source);
 +
- static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
- {
- 	int i, rc;
-@@ -539,33 +577,7 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
- 		etm4x_relaxed_write32(csa, trcpdcr | TRCPDCR_PU, TRCPDCR);
- 	}
- 
--	/*
--	 * ETE mandates that the TRCRSR is written to before
--	 * enabling it.
--	 */
--	if (etm4x_is_ete(drvdata))
--		etm4x_relaxed_write32(csa, TRCRSR_TA, TRCRSR);
--
--	etm4x_allow_trace(drvdata);
--	/* Enable the trace unit */
--	etm4x_relaxed_write32(csa, 1, TRCPRGCTLR);
--
--	/* Synchronize the register updates for sysreg access */
--	if (!csa->io_mem)
--		isb();
--
--	/* wait for TRCSTATR.IDLE to go back down to '0' */
--	if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 0))
--		dev_err(etm_dev,
--			"timeout while waiting for Idle Trace Status\n");
--
--	/*
--	 * As recommended by section 4.3.7 ("Synchronization when using the
--	 * memory-mapped interface") of ARM IHI 0064D
--	 */
--	dsb(sy);
--	isb();
--
-+	rc = etm4_enable_trace_unit(drvdata);
- done:
- 	etm4_cs_lock(drvdata, csa);
- 
-@@ -884,25 +896,12 @@ static int etm4_enable(struct coresight_device *csdev, struct perf_event *event,
- 	return ret;
- }
- 
--static void etm4_disable_hw(void *info)
-+static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
- {
- 	u32 control;
--	struct etmv4_drvdata *drvdata = info;
--	struct etmv4_config *config = &drvdata->config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 	struct device *etm_dev = &csdev->dev;
- 	struct csdev_access *csa = &csdev->access;
--	int i;
--
--	etm4_cs_unlock(drvdata, csa);
--	etm4_disable_arch_specific(drvdata);
--
--	if (!drvdata->skip_power_up) {
--		/* power can be removed from the trace unit now */
--		control = etm4x_relaxed_read32(csa, TRCPDCR);
--		control &= ~TRCPDCR_PU;
--		etm4x_relaxed_write32(csa, control, TRCPDCR);
--	}
- 
- 	control = etm4x_relaxed_read32(csa, TRCPRGCTLR);
- 
-@@ -943,6 +942,28 @@ static void etm4_disable_hw(void *info)
- 	 * of ARM IHI 0064H.b.
- 	 */
- 	isb();
-+}
-+
-+static void etm4_disable_hw(void *info)
++int coresight_resume_source(struct coresight_device *csdev)
 +{
-+	u32 control;
-+	struct etmv4_drvdata *drvdata = info;
-+	struct etmv4_config *config = &drvdata->config;
-+	struct coresight_device *csdev = drvdata->csdev;
-+	struct csdev_access *csa = &csdev->access;
-+	int i;
++	if (!coresight_is_percpu_source(csdev))
++		return -EOPNOTSUPP;
 +
-+	etm4_cs_unlock(drvdata, csa);
-+	etm4_disable_arch_specific(drvdata);
++	if (!source_ops(csdev)->resume_perf)
++		return -EOPNOTSUPP;
 +
-+	if (!drvdata->skip_power_up) {
-+		/* power can be removed from the trace unit now */
-+		control = etm4x_relaxed_read32(csa, TRCPDCR);
-+		control &= ~TRCPDCR_PU;
-+		etm4x_relaxed_write32(csa, control, TRCPDCR);
-+	}
++	return source_ops(csdev)->resume_perf(csdev);
++}
++EXPORT_SYMBOL_GPL(coresight_resume_source);
 +
-+	etm4_disable_trace_unit(drvdata);
+ /*
+  * coresight_disable_path_from : Disable components in the given path beyond
+  * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
+diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+index 82644aff8d2b..2d9baa9d8228 100644
+--- a/drivers/hwtracing/coresight/coresight-priv.h
++++ b/drivers/hwtracing/coresight/coresight-priv.h
+@@ -249,5 +249,7 @@ void coresight_add_helper(struct coresight_device *csdev,
+ void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
+ struct coresight_device *coresight_get_percpu_sink(int cpu);
+ void coresight_disable_source(struct coresight_device *csdev, void *data);
++void coresight_pause_source(struct coresight_device *csdev);
++int coresight_resume_source(struct coresight_device *csdev);
  
- 	/* read the status of the single shot comparators */
- 	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
+ #endif
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index d79a242b271d..c95c72e07e02 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -398,6 +398,8 @@ struct coresight_ops_link {
+  *		is associated to.
+  * @enable:	enables tracing for a source.
+  * @disable:	disables tracing for a source.
++ * @resume_perf: resumes tracing for a source in perf session.
++ * @pause_perf:	pauses tracing for a source in perf session.
+  */
+ struct coresight_ops_source {
+ 	int (*cpu_id)(struct coresight_device *csdev);
+@@ -405,6 +407,8 @@ struct coresight_ops_source {
+ 		      enum cs_mode mode, struct coresight_path *path);
+ 	void (*disable)(struct coresight_device *csdev,
+ 			struct perf_event *event);
++	int (*resume_perf)(struct coresight_device *csdev);
++	void (*pause_perf)(struct coresight_device *csdev);
+ };
+ 
+ /**
 -- 
 2.34.1
 
