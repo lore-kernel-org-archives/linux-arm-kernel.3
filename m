@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6C6C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 12:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 912E7C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 12:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VEaRDqyDtJkimhCoGryHOz5n52bnkCWw+iDYB3KM1rE=; b=h4xKrXwlpeMKpziPBVffxNqcX4
-	xGVnnmHEasE5InlRF8YlmNd70moItevQGbLF0P/PtYAAgpHU9w5bcQyo2F5K1fzBwcCEzVq01dHK4
-	Kwx0Afzi+yVuCCzOMAej+OEnjjbh5cQZQEJodxS24fUgaVA+Ssmiis3w1OMKs5XR+i7r8jQwmlHuv
-	jANTl/cB8hd9gSVmfjyMKWHCuEEi8/RThubLriqBb5CzvDvhermwTD6OsOzwhujlV0f6BsU04D63f
-	hNH6BWjKwE/J417XqFtm8dX6o8E+nSa3u8qZLBUsKjsUb+yJxDcTEe5xsDIRA7RnXoNl8LY9vdXQQ
-	GA3wKv7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XMDDeez6kOoe0VuKaV7cMdRjNY74xD4dUkO4O1Q2miQ=; b=00BcRKr5ylkyQtmkBCoSpB0a4/
+	j8mNrctvZg3NpQEAtG/6LBIpkNGWt9ThYO1LPsQI5OlbKrm4SiCnpRvPcUhO5UJ3xk7Kpq3hrjk85
+	AIr+XMrSFBZFEh1i+z7+bOWyRjRyILE9YeHchR2ANNrvnfTX9sRzM39twdNcueGbIdwPZHGnxth0j
+	ZAL7QWsi7EEH9pxySADSZd98dtfP0cOYCAs9Qmcn61J3bUTxjvnKdQbf6zxlR8MFscxDpbbKHAPjy
+	1v24se97FHdubMp4MzkswIR+gdzteBb5LjDpRgRUc2aQzPFDE1dlFDL9Kojw3XX2ZQt2pIfwAdw5J
+	Wxm5IqZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzb5T-00000003M3h-3vgM;
-	Tue, 01 Apr 2025 12:51:27 +0000
-Received: from xry111.site ([89.208.246.23])
+	id 1tzb7G-00000003MMk-2yxM;
+	Tue, 01 Apr 2025 12:53:18 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzapN-00000003Idu-2wAo
+	id 1tzb0Z-00000003L3Q-0eE3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 12:34:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
-	s=default; t=1743510888;
-	bh=VEaRDqyDtJkimhCoGryHOz5n52bnkCWw+iDYB3KM1rE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=T+3/vF3BMizRLMfkXws9EWGyu1uSGndtShkJotqFGA6cRlavaZepCLMk+YVZiZ8Cr
-	 mztTE9WPmFG0P8Kyk8Y8ivj6y72nTvb4OpcnqLvlIK9oVCAsNIZtz8yI9wPXkFeu8M
-	 v8kPjJ3sEZXLk3ZZ51nZ65k2aM+IgfgDEzZJEWMI=
-Received: from [127.0.0.1] (unknown [IPv6:2001:470:683e::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (secp384r1) server-digest SHA384)
-	(Client did not present a certificate)
-	(Authenticated sender: xry111@xry111.site)
-	by xry111.site (Postfix) with ESMTPSA id 7F247659C8;
-	Tue,  1 Apr 2025 08:34:47 -0400 (EDT)
-Message-ID: <92d0a120d3303243d7bd72188c4f5974f525975a.camel@xry111.site>
-Subject: Re: [PATCH] arm64: Add overrride for MPAM
-From: Xi Ruoyao <xry111@xry111.site>
+	Tue, 01 Apr 2025 12:46:24 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-6f7031ea11cso58001897b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 05:46:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743511581; x=1744116381; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XMDDeez6kOoe0VuKaV7cMdRjNY74xD4dUkO4O1Q2miQ=;
+        b=ZvCsfguhaiqLRxArpB6jTJXW3dBIDjcLYO0nO68TYhc3GKAoS7zcLzwWiLs0HgSfRM
+         m1h5cCZJR9luVSBB/+m4KN9JWqcgHDLbmHa2wt6iQQZs+XWJnqfWBwTq+Cxh1ljWWUst
+         m/TCosEc9gEugS5a1CCanQMqjMw4xpWkwcIWjcuJpNeUpXSSnTWl/pibfU2hdFA0BCjp
+         y81KroAjzth4ntjxfsdbZEXd/1dNwiQAjHBwst+3JqUAg3Z6BcUPxXhK9FKlU+v2y1OH
+         R4LnP9EV92nUrE1CgdKitdpyT/tn9xZsyXVOHF9Xm2pFMVOnevBrUB9K4aYGsyL58csi
+         IwxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743511581; x=1744116381;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XMDDeez6kOoe0VuKaV7cMdRjNY74xD4dUkO4O1Q2miQ=;
+        b=wp0gLP4QkvEYKE86HteioMzf3RGd1x/N14V4OUS9Ui2Fyy2d3ROBl9x4FV2zGvbU44
+         dY11NNlFJ+3SBd6NL5FGc7XCIrATUFQbiXxAbpIsxZ47+7Sdsybv8Jake9sy29X8L8pJ
+         X7sv8sdOGX6+SAaLKXTD8wr6BoYieOgtmXkTsGUj1YAnQQMJtZG+rWkDlG+M0rCm7ZXp
+         fp6IqB2SuTT/jMFLA5Yl1O13/658myVq5rWeL5//YDSfTBOLhsqxCptexbSZvw06O88C
+         d0NO/5vgqu5DqPQKR9NB47NeQWrlq6Fj08Vu1LeRy6Ai+qqAkmtP7oNwgxd16SvNOtUG
+         Ct5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU0wdP2XA3a5vFqpib4ENh4a6zoa9bx5nI86Z58M5EEkmW7PL3De2dV0EbayOE3xT0/eQ1FRzyYm0h/1pt9yX2u@lists.infradead.org
+X-Gm-Message-State: AOJu0YwY++LDkNsw05+W/I/hdbvZ0Hp0e006sWPCFct/QBjs04ZGrfuQ
+	Jp75ZtNiMtQNdjY1XlSNGoh2vXlrDvGMdLruvyrBVf3q/4O6SHLT80Iegkgv4pjeQzRaDoM/ajS
+	/A+ILg5hdgtU5PuqoUqlS0XgQiIOK5NWPF/8PGw==
+X-Gm-Gg: ASbGncvjWT5cYAauMywWtxvjtJo8VuMV4dQ4kKQGR6zhH8rGcTxU3sxd4jW2AClDD/C
+	mD3UNr+BS+YIwCuFL/EDuel0iJ+FIA9z9K2RAqnLQSpX4wx2D0/5C2rTHw0NMaGp4pTY0lxp+Pr
+	fYo3Us4MhiKf8PCIxO1Rh7CCUAywk=
+X-Google-Smtp-Source: AGHT+IGL9OSbja9iYeFzPJ+/gKIFplL+CL1DbY+6y+Uot/089lr6RvlMMypn+5FN141zeahQuPTrIh4o8rhbTIo5V3E=
+X-Received: by 2002:a05:690c:20a5:b0:702:627c:94ec with SMTP id
+ 00721157ae682-702627c9619mr129434977b3.35.1743511581556; Tue, 01 Apr 2025
+ 05:46:21 -0700 (PDT)
+MIME-Version: 1.0
+References: <CGME20250326030527epcas2p33aa30e62cc8a00c9e151c35bee71dac5@epcas2p3.samsung.com>
+ <Z+Nv8U/4P3taDpUq@perf> <8634f0mall.wl-maz@kernel.org> <Z+TEa8CVAYnbD/Tu@perf>
+ <86v7rulw2d.wl-maz@kernel.org>
+In-Reply-To: <86v7rulw2d.wl-maz@kernel.org>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 1 Apr 2025 14:45:43 +0200
+X-Gm-Features: AQ5f1JrXJtw8P-nNnlXkQzxE9Mof1YPkOE61sbdFVclhwvmQdRUQ4pvlCvXHd8U
+Message-ID: <CAPDyKFrxK3Mx055hx+a4SP3CWDpWP+CEHxz+WJfT+RficK0_Ag@mail.gmail.com>
+Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in GICv3
+ ITS driver
 To: Marc Zyngier <maz@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>, James Morse
-	 <james.morse@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Shameer Kolothum
-	 <shameerali.kolothum.thodi@huawei.com>, Mingcong Bai <jeffbai@aosc.io>
-Date: Tue, 01 Apr 2025 20:34:43 +0800
-In-Reply-To: <87plhwytgf.wl-maz@kernel.org>
-References: <20250401055650.22542-1-xry111@xry111.site>
-		<409f6d27-3efe-4c45-8319-d360ded80f16@arm.com>
-		<46ed31b37b4b92720b26be66f3e6366a714024cf.camel@xry111.site>
-	 <87plhwytgf.wl-maz@kernel.org>
+Cc: Youngmin Nam <youngmin.nam@samsung.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Saravana Kannan <saravanak@google.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kernel-team@android.com, hajun.sung@samsung.com, d7271.choe@samsung.com, 
+	joonki.min@samsung.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.0 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_053449_784796_41FBD0E9 
-X-CRM114-Status: GOOD (  30.86  )
+X-CRM114-CacheID: sfid-20250401_054623_200341_CD4982B0 
+X-CRM114-Status: GOOD (  42.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,82 +100,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-04-01 at 13:09 +0100, Marc Zyngier wrote:
-> On Tue, 01 Apr 2025 12:47:03 +0100,
-> Xi Ruoyao <xry111@xry111.site> wrote:
-> >=20
-> > On Tue, 2025-04-01 at 14:04 +0530, Anshuman Khandual wrote:
-> > > On 4/1/25 11:26, Xi Ruoyao wrote:
-> > > > As the message of the commit 09e6b306f3ba ("arm64: cpufeature: disc=
-over
-> > > > CPU support for MPAM") already states, if a buggy firmware fails to
-> > > > either enable MPAM or emulate the trap as if it were disabled, the
-> > > > kernel will just fail to boot.=C2=A0 While upgrading the firmware s=
-hould be
-> > > > the best solution, we have some hardware of which the vender have m=
-ade
-> > > > no response 2 months after we requested a firmware update.=C2=A0 Al=
-low
-> > > > overriding it so our devices don't become some e-waste.
-> > >=20
-> > > There could be similar problems, where firmware might not enable arch
-> > > features as required. Just wondering if there is a platform policy in
-> > > place for enabling id-reg overrides for working around such scenarios
-> > > to prevent a kernel crash etc ?
-> >=20
-> > In https://lore.kernel.org/all/87jzcfsuep.wl-maz@kernel.org/:
-> >=20
-> > =C2=A0=C2=A0 > For such cases, when MPAM is incorrectly advertised, can=
- we have kernel
-> > =C2=A0=C2=A0 > command line parameter like mpam=3D0 to override it's de=
-tection?
-> > =C2=A0=C2=A0=20
-> > =C2=A0=C2=A0 We could, but only when we can confirm what the problem is=
-.
-> >=20
-> > And there was prior arts like:
-> >=20
-> > commit 892f7237b3ffb090f1b1f1e55fe7c50664405aed
-> > Author: Marc Zyngier <maz@kernel.org>
-> > Date:=C2=A0=C2=A0 Wed Jul 20 11:52:19 2022 +0100
-> >=20
-> > =C2=A0=C2=A0=C2=A0 arm64: Delay initialisation of cpuinfo_arm64::reg_{z=
-cr,smcr}
-> > =C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0 Even if we are now able to tell the kernel to avoid =
-exposing SVE/SME
-> > =C2=A0=C2=A0=C2=A0 from the command line, we still have a couple of pla=
-ces where we
-> > =C2=A0=C2=A0=C2=A0 unconditionally access the ZCR_EL1 (resp. SMCR_EL1) =
-registers.
-> > =C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0 On systems with broken firmwares, this results in a =
-crash even if
-> > =C2=A0=C2=A0=C2=A0 arm64.nosve (resp. arm64.nosme) was passed on the co=
-mmand-line.
-> > =C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0 To avoid this, only update cpuinfo_arm64::reg_{zcr,s=
-mcr} once
-> > =C2=A0=C2=A0=C2=A0 we have computed the sanitised version for the corre=
-sponding
-> > =C2=A0=C2=A0=C2=A0 feature registers (ID_AA64PFR0 for SVE, and ID_AA64P=
-FR1 for
-> > =C2=A0=C2=A0=C2=A0 SME). This results in some minor refactoring.
->=20
-> That particular patch has caused quite a few issues, see d3c7c48d004f.
-> So don't use it as a reference.
->=20
-> Now, while I think an option is probably acceptable in the face of an
-> unresponsive vendor, I don't think the way you implement it is the
-> correct approach.
->=20
-> It should be possible to handle the override in the assembly code,
-> like we do for other bits and pieces, and deal with MPAMIDR_EL1 later
-> down the line, once the sanitised ID registers are known to be valid.
+On Thu, 27 Mar 2025 at 09:25, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Thu, 27 Mar 2025 03:22:19 +0000,
+> Youngmin Nam <youngmin.nam@samsung.com> wrote:
+> >
+> > [1  <text/plain; utf-8 (8bit)>]
+> > On Wed, Mar 26, 2025 at 08:59:02AM +0000, Marc Zyngier wrote:
+> > > On Wed, 26 Mar 2025 03:09:37 +0000,
+> > > Youngmin Nam <youngmin.nam@samsung.com> wrote:
+> > > >
+> > > > Hi.
+> > > >
+> > > > On our SoC, we are using S2IDLE instead of S2R as a system suspend =
+mode.
+> > > > However, when I try to enable ARM GICv3 ITS driver (drivers/irqchip=
+/irq-gic-v3-its.c),
+> > > > I noticed that there is no proper way to invoke suspend/resume call=
+back,
+> > > > because it only uses syscore_ops, which is not called in an s2idle =
+scenario.
+> > >
+> > > This is *by design*.
+>
+> [...]
+>
+> > > > How should we handle this situation ?
+> > >
+> > > By implementing anything related to GIC power-management in your EL3
+> > > firmware. Only your firmware knows whether you are going into a state
+> > > where the GIC (and the ITS) is going to lose its state (because power
+> > > is going to be removed) or if the sleep period is short enough that
+> > > you can come back from idle without loss of context.
+> > >
+> > > Furthermore, there is a lot of things that non-secure cannot do when
+> > > it comes to GIC power management (most the controls are secure only),
+> > > so it is pretty clear that the kernel is the wrong place for this.
+> > >
+> > > I'd suggest you look at what TF-A provides, because this is not
+> > > exactly a new problem (it has been solved several years ago).
+> > >
+> > >     M.
+> > >
+> > > --
+> > > Without deviation from the norm, progress is not possible.
+> > >
+> >
+> > Hi Marc,
+> >
+> > First of all, I=E2=80=99d like to distinguish between the GICv3 driver =
+(irq-gic-v3.c)
+> > and the ITS driver (irq-gic-v3-its.c).
+> >
+> > I now understand why the GICv3 driver doesn=E2=80=99t implement suspend=
+ and resume functions.
+> > However, unlike the GICv3 driver, the ITS driver currently provides
+> > suspend and resume functions via syscore_ops in the kernel.
+>
+> For *suspend*. The real suspend. Not a glorified WFI. And that's only
+> for situations where we know for sure that we are going to suspend.
+>
+> > And AFAIK, LPIs are always treated as non-secure. (Please correct me If=
+ I'm wrong).
+> >
+> > The problem is that syscore_ops is not invoked during the S2IDLE scenar=
+io,
+> > so we cannot rely on it in that context.
+> > We would like to use these suspend/resume functions during S2IDLE as we=
+ll.
+>
+> Again, this is *by design*. There is no semantic difference between
+> s2idle and normal idle. They are the same thing. Do you really want to
+> save/restore the whole ITS state on each and every call into idle?
+> Absolutely not.
 
-Ok I'll try it.
+I agree that we don't want to save/restore for every call to idle,
+that would simply be unnecessary and add latencies.
 
---=20
-Xi Ruoyao <xry111@xry111.site>
-School of Aerospace Science and Technology, Xidian University
+Instead, I think the save/restore could depend on what idlestate we
+enter and whether it's a system-wide state (s2idle/s2ram) or just
+regular cpuidle-state.
+
+Today, we are pointing the callbacks for cpuidle and s2idle to the
+same functions (at least for PSCI PC mode), but it's easy to change
+that *if* we need some differentiation between s2idle and cpuidle.
+
+>
+> Only your firmware knows how deep you will be suspended, and how long
+> you will be suspended for, and this is the right place for to perform
+> save/restore of the ITS state. Not in generic code that runs on every
+> arm64 platform on the planet.
+
+Assuming we can make the code for saving/restoring generic (not in FW)
+and that we are able to make sure the code is only executed for those
+platforms and states that really need it. Do you think there would
+there be any other drawback for doing this?
+
+Kind regards
+Uffe
 
