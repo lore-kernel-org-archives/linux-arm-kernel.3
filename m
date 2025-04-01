@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00CA0C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 06:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 553D4C36016
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 06:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SonI6xAcMBhpkgEQeBJTusRUx+HcxMVTBLajODqHgvk=; b=4wPym+Y/+PtqoFGqYRzRKfn4ux
-	wnWmaxG3sFZ+pk8veRxQRYiCy8XU2YXZkv4RO7/p3RoLVYdhGERyyBfcmWnHV4CnDQaJ7GvnW0d5l
-	x95v6xN+53MWcnYDeIV5BsXj9zT0g0MP7del0FNTg52zX3aIFMiVdk53NY3Kl1Bxgs3T+hOXk5eHb
-	94FG8y0Gmq5RcyqSkZaWXc6akg7u0932HeZlvZp5ntJhn0khImr7ZE5yUEffz12S6hEfl51rkqBlZ
-	b6mQN324LO0P6fPjTh0exyDoRNiZCGMoWbs4m0HKhheVtrrkaPmUwhiPkmuSJYxiul/IrJDoAQUkI
-	pffSw4ow==;
+	bh=dTB1LkdaHYhKeBp8RW+H8cwXDQYd31I062iUErSVSVY=; b=eJ5wnnN2H4UklYgfGAz44boaoy
+	yLYOmoEhk6pJkZBrUH0RZV5gSL8G5L5tMDkaiYgeBM1cmBiEk1R3lg3WlVOhEqnpQkUXMJ05EII1W
+	jECDJDYtdKKi3+SxoZkijpqTg7eiSRi57PJUqaWhPBwqmWY0nbMH+O3y+6ckqPkXAdoDpOtsZiphe
+	3OlZzHnrAWaLYfXsygijuGZPtmc4uSDr8ChFr6ZMFG+aGVJVtTah7dtf0izG2ropfZtTZBeIpCb0x
+	TXi4yYnT+jB/3y9P6LjFWVXEOsHBs/fN65G3K4xNfGBSpJWNNrO+ql3TGdjypHGqQbCEkqhQ7v44l
+	W4WZpq4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUzk-00000002578-4986;
-	Tue, 01 Apr 2025 06:21:08 +0000
+	id 1tzV1W-000000025HT-2xdg;
+	Tue, 01 Apr 2025 06:22:58 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUwi-000000024j6-1Qnh
+	id 1tzUyn-000000024zi-2d0W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 06:18:00 +0000
+	Tue, 01 Apr 2025 06:20:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C6F6C6115D;
-	Tue,  1 Apr 2025 06:17:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EA6BC4CEE8;
-	Tue,  1 Apr 2025 06:17:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6A5056115D;
+	Tue,  1 Apr 2025 06:20:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68046C4CEE8;
+	Tue,  1 Apr 2025 06:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743488279;
-	bh=KnEDjwzU7f+yS42V6ce7fa3bnnh/T4X0uQ0vYcQujSU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qqsPBV6ZDjA4JXFCcrEZ63438y/20vB2mvHM3E8CAfefaN/roeihqcnBpj4gL6fHt
-	 9/T50ZfHic0p24x1YYnVJa663OpTSmjaHIHVvXiOG5tv/Z4dTOqC0zeFQ6ZNA0+iPe
-	 7FWOerDBjRrtbWN9DbBZ79Bco+tjFDaYU0nJvmtwZAvmKCsUCd33QelYSFp3YDvgs7
-	 1ew6Ye5Q9HFLThkniDCATefPUbhcE7ZL5m5/pUFrBmJ3XU0UFZ75F+j9IzrZcqbYDl
-	 p4vhmBOM+SRRGSWXMfdL/391h1gCMGdZs977xO0b9bABOUcT4WVbaWzyjjUS8nk7Vl
-	 WHhhcegmHDJ3w==
-Date: Tue, 1 Apr 2025 08:17:55 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Sam Winchenbach <sam.winchenbach@framepointer.org>
-Cc: linux-kernel@vger.kernel.org, mdf@kernel.org, hao.wu@intel.com, 
-	yilun.xu@intel.com, trix@redhat.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, michal.simek@amd.com, linux-fpga@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Sam Winchenbach <swinchenbach@arka.org>
-Subject: Re: [PATCH 1/2] dt-bindings: fpga: zynq: Document ICAP on boot
-Message-ID: <20250401-helpful-bronze-gazelle-4d8e25@krzk-bin>
-References: <20250328141944.119504-1-sam.winchenbach@framepointer.org>
- <02496a88-3d9c-49ee-93ab-8f1400fc0c6b@kernel.org>
- <p4bujnmgkcvsu4qipmgh2j2loedepmwgp7zlaxrurhaveb6tbc@ibqtbjnbzdzj>
- <14b12882-119d-4c24-9634-e4cc37a39212@kernel.org>
- <2ccsnpv67gsu354uo7xe7syrxs265ncj6hl26v3cwf2dfm7hyu@ihkemyajuiag>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <2ccsnpv67gsu354uo7xe7syrxs265ncj6hl26v3cwf2dfm7hyu@ihkemyajuiag>
+	s=k20201202; t=1743488408;
+	bh=dTB1LkdaHYhKeBp8RW+H8cwXDQYd31I062iUErSVSVY=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
+	b=Gz7wAA6USP8ewDFFeflTH5OPGhu3BdQrL61rJoUMluPZ6qAdN0fTn72GgyLQjLUuy
+	 wTHyz2n/xWJHxjkWVrZLNmV/3YpZNKH3uDcPeJ/4vN6oRJCzQyJ8EYmp2WvZBR1DRf
+	 qdnwR00ZR6UU00NotYdO0BPr0SHC87MFdbIl7PMhmfmzR+O+pvqq/tLBouD+BDTnga
+	 8DGRgMWOWL6LGz1OnO7kq7W3Smto1Ko7do+93L9aMHOlskb/trMKRt7eoSTZvZFWbc
+	 +QPoMwa5Q2HtTK4ZnaYiMrzDzAveXnZsTCAoRIRZZ2nOJnRLXt64wT79ZeBdwqt5Wl
+	 yNhb7sAVj7L6A==
+Content-Type: multipart/signed;
+ boundary=469ce2c5ee7b2eb876e9826f3995ee5ce86afad1f0f363e3357fd49a768e;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Tue, 01 Apr 2025 08:20:04 +0200
+Message-Id: <D8V323NBB32P.3P8H103L83HZK@kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s: add rng node
+Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Kumar, Udit" <u-kumar1@ti.com>, "Nishanth Menon" <nm@ti.com>, "Vignesh
+ Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>
+X-Mailer: aerc 0.16.0
+References: <20250313144155.2382316-1-mwalle@kernel.org>
+ <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
+ <D8UECOJ2NMCU.3ALYIKSODJ479@kernel.org>
+ <1ad2d8c2-6a0d-419d-984d-4974adb0e1f0@ti.com>
+In-Reply-To: <1ad2d8c2-6a0d-419d-984d-4974adb0e1f0@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +75,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 31, 2025 at 09:07:03AM -0400, Sam Winchenbach wrote:
-> On Mon, Mar 31, 2025 at 02:43:59PM +0200, Krzysztof Kozlowski wrote:
-> > Not sure yet. Can't you check the status of ICAP before programming and
-> > then enable it only if was enabled before?
-> 
-> I am having a bit of difficulty understanding this so let's talk about cases
-> where the ICAP is enabled/disabled -
-> 
-> 1. When writing the fabric from the driver
->    In this situation it might make sense to read the state of the ICAP
->    interface when preparing the fabric, before enabling PCAP. When the write
->    completes you could re-enable the ICAP if it was previously enabled.
-> 
->    This might be outside the scope of this change - and I am not comfortable
->    enough with this use-case to understand potential side effects from doing
->    this. Logically it makes sense, but there may be a very specific reason that
->    the ICAP must be enabled after doing a fabric load or partial
->    reconfiguration.
-> 
-> 2. When the FPGA driver loads and is probed by the DTS
->    In this situation, which is covered by this patch, the FPGA is loaded by
->    BootROM/FSBL but contains functionality that requires the ICAP. Unless the
->    user has made modifications to the FSBL or 3rd stage bootloader there is no
->    clear way to enable the ICAP interface. Checking to see if it had been
->    enabled prior to loading this driver does not (in my opinion) make a lot of
->    sense here.
-> 
->    Perhaps the name of the DTS is confusing? The suffix '-on-load' was meant to
->    indicate when the driver was loaded, not the fabric. Would the suffix
->    '-on-probe' be more clear?
+--469ce2c5ee7b2eb876e9826f3995ee5ce86afad1f0f363e3357fd49a768e
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Neither on-load nor on-probe, because again you instruct the OS what it
-should do. You should instead describe the hardware (or other parts of
-software stack). Describe the condition, the hardware feature, the
-characteristic observed. With proper phrasing the property should be
-fine, but I still do not see that its name and description match actual
-hardware.
+Hi Udit,
 
-Best regards,
-Krzysztof
+> >>> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> >>> [..]
+> >> For completeness , this is ok to add this node but should be kept disa=
+bled
+> > Shouldn't it be "reserved" then, see [1].
+>
+> yes, should be reserved.
+>
+> With marking status as reserved.
+>
+> Please use Reviewed-by: Udit Kumar <u-kumar1@ti.com>
 
+Thanks.
+
+> >> similar to
+> >>
+> >> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k=
+3-j7200-mcu-wakeup.dtsi#L662
+> > j784s4, j721e and j721s2 have them enabled. What is the rule here?
+>
+> J784s4, j721e and j721s2 SOCs has two TRNG blocks,
+>
+> example for j721e, one is used by kernel [0] and another by optee [1].
+>
+>
+> >
+> > You also disable the hwrng in optee in your evm according to [2]:
+> > CFG_WITH_SOFTWARE_PRNG=3Dy
+>
+> We are planning to use this hardware block by secure firmware.
+>
+> Therefore request not to use by optee as well
+
+How will you be able to access the RNG from linux and u-boot? I'm
+asking because I'll need it in u-boot for the lwip stack and the
+HTTPS protocol.
+
+-michael
+
+--469ce2c5ee7b2eb876e9826f3995ee5ce86afad1f0f363e3357fd49a768e
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCZ+uFlBIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/huuAGA6VxJSqcfwEyp/l9Eacmq8DPaOSDcw5jB
+HiLqus4Fg9DFl1wj0Zb6OF3HAbHYx/b/AYDCesqMKY8du6brSiVP+2172bjOgXHc
+VLGr5Zn13LMKzakCwP54O+nZSy0OjYhrx2o=
+=MziH
+-----END PGP SIGNATURE-----
+
+--469ce2c5ee7b2eb876e9826f3995ee5ce86afad1f0f363e3357fd49a768e--
 
