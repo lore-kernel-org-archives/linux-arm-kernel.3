@@ -4,94 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F890C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 12:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6C6C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 12:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Date:References:In-Reply-To:Content-Type:Subject:Cc:To:From:Message-ID:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=314azYR/JbbY2hCBpsgvAz5tUM2tZbL82gkKcYRBAe8=; b=TzpK4TLdWPdsnUgaCFw7DoPDYg
-	UWjOMFxUuTfx7QQoFZH3TxCGCJkph5HjS+8I0sCATDfo+gHXzUv/SkdtHdmUeTTuscJMQpozlZVuq
-	DX81uK1erhzcxk4noVCA6aTMCJofXo5PD0QUrpDZ+EWbcYe7guDmmEwsdQqYZGAkS/kqlzQiOY7NI
-	inlm62mpd6ffRNnVrzYg53aO1LCwHINaiZpcR61OHi5sqyzlxrKmpLZzwodbvJLucrnbf9+c39xgQ
-	e0easfp2hPQaMR/tFEOuz4e9Ayl4iR+4+GYqIN8zacV3a4Oh286EyEmyQ/8NY8KAVVsXM2atam6yN
-	YEZ+kJ6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VEaRDqyDtJkimhCoGryHOz5n52bnkCWw+iDYB3KM1rE=; b=h4xKrXwlpeMKpziPBVffxNqcX4
+	xGVnnmHEasE5InlRF8YlmNd70moItevQGbLF0P/PtYAAgpHU9w5bcQyo2F5K1fzBwcCEzVq01dHK4
+	Kwx0Afzi+yVuCCzOMAej+OEnjjbh5cQZQEJodxS24fUgaVA+Ssmiis3w1OMKs5XR+i7r8jQwmlHuv
+	jANTl/cB8hd9gSVmfjyMKWHCuEEi8/RThubLriqBb5CzvDvhermwTD6OsOzwhujlV0f6BsU04D63f
+	hNH6BWjKwE/J417XqFtm8dX6o8E+nSa3u8qZLBUsKjsUb+yJxDcTEe5xsDIRA7RnXoNl8LY9vdXQQ
+	GA3wKv7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzb3i-00000003LZE-1HFf;
-	Tue, 01 Apr 2025 12:49:38 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1tzb5T-00000003M3h-3vgM;
+	Tue, 01 Apr 2025 12:51:27 +0000
+Received: from xry111.site ([89.208.246.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzaks-00000003Eih-2h6h;
-	Tue, 01 Apr 2025 12:30:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1743510596; x=1744115396; i=frank-w@public-files.de;
-	bh=314azYR/JbbY2hCBpsgvAz5tUM2tZbL82gkKcYRBAe8=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:In-Reply-To:References:Date:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=WRD1dDH1Z5dm1F0PHXxxw2Sv8yzCCwknwAKTtAxE8pVrkW/9qDO3EJZ8uMY6XEbw
-	 vnEmXFcevDyKkl5aPAV0KVqrZVT/XlPA8JVAK5TceaD2whZ7JMeMS0m1SZ14xeO4r
-	 479h5zikQWkimMt2wXPNjRdqoMI4aWFxaIhYKAGuBKGPw8sld03DPNndC5zykcpcD
-	 9CasdZhmqzgB2t4MKeNve9FHpFylPEs8GHlYI5gfc1HE00oJkxYMdaybmU3awNdOB
-	 DJm7nrNup4VfFesbvr4aYjQVKc7qLiX3Vz5NJ1IrjqqrTB0wS9xu3crS8D3UnnjYB
-	 q1fnUsI3FBE8BBkxfQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [217.61.145.244] ([217.61.145.244]) by
- trinity-msg-rest-gmx-gmx-live-5779db864f-w2xpz (via HTTP); Tue, 1 Apr 2025
- 12:29:56 +0000
-MIME-Version: 1.0
-Message-ID: <trinity-c9848e65-6104-4ea3-b983-1fccabff02f0-1743510596556@trinity-msg-rest-gmx-gmx-live-5779db864f-w2xpz>
-From: Frank Wunderlich <frank-w@public-files.de>
-To: frank-w@public-files.de, angelogioacchino.delregno@collabora.com,
- linux@fw-web.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Aw: Re: [PATCH] arm64: dts: mediatek: mt7988a-bpi-r4: allow hw
- variants of bpi-r4
-Content-Type: text/plain; charset=UTF-8
-In-Reply-To: <EADAC3BA-3D8C-4E04-B8E3-629CAFF0194F@public-files.de>
-Importance: normal
-References: <20250207135501.30741-1-linux@fw-web.de>
- <b56a7597-fa39-4e02-b601-db05bfa48472@collabora.com>
- <EADAC3BA-3D8C-4E04-B8E3-629CAFF0194F@public-files.de>
-Date: Tue, 1 Apr 2025 12:29:56 +0000
-Sensitivity: Normal
-X-Priority: 3
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:4VRM3IN2xqwyiroQzv9ZBTrpMY4KOsQ9V3DWJyXUoYyOPpn9RII3pOpQ8u85uf/7D0WBp
- sdDz1c/6lXm0Mt8etJHZXjUgKXPv4qRTwdRqB6W7lJFHbTbhRE8xJQcr/IQiUCPpjyBQDFfc9CqF
- qRUq/4FEnc+5wYuZKR26lrzcs1eyQR+Res7lNP/+o304WX/7tWauwIfnn9s/du8Ry3WkOhAeQJfA
- m3UaOZagAt3DxMwc0VaU2cl6dTjqrJPlc3hNfbi2j23lWAdMmXpXkBy6yKylqEhSNMLAWJE8C+8/
- HseFKlWGaE1mOQesXmzErCcmDZiqEe91vihLKmidEEbjOazuVGA3mRwvmx17YVVh14=
-UI-OutboundReport: notjunk:1;M01:P0:rlhv7Yp+WeU=;xTZDCLa+ksK3z2B9knBYio9c8Pq
- 07sobUwTamYzYIFwAJ3iPyYjcxyPf5Zi7BBgyO8L8mRmDq5U28oXLufMXfEpSMlU+URjUJnCY
- x4FImp7+HIwQIiMMGDR1/oGk5k2nIMtqQiEuqBUo8VYM02qAdp8JRSmdFNwtM+qLEOM+6g5be
- HAFM27yJVvnPc5LBr88irXUhMRT1EpTfW8L+YswIGuAj32r2LT+DZB6znweAVRCtovyN5qwEW
- tJo1HjhX3RB6VEpc//B53W52yQJEH8vQMQY/NspwWorcobDM6GJOp9cs5Ot0Sgg0i5ErSV4d9
- SIfvEGpXYq8gVAHNBshuqo0TA0bHSq4AFUZLYyoCBEzO4dyWHLPCHyZdCmlAQnMR8LDXNQtqm
- KbjFIGzvYSDr8kpUol3TzlSO+fry3n+TPesUtduIpFZa2s1mXrKDykZwjWJJ4L8/JWz5Yhcbi
- Gp2dZ90ard2h0CCcRRCni6yPqXQQALvnD1AUI4aL0ZcuZMyrOoRMBLr5xyYDH4m2zckh5yoZn
- tB3trSWBVOE4pluRhmdvAVMWVe/Sh2j/v2/FN4F2obPCPHkIhK2jx5m8ea7E0XveXECxBV//c
- qBnUWF2ykKnWt1bYFLHsD3VsN1HZePXjSxL5//xf4+vGFL/ufjACPlFDHoKqdwfCcf2E2Tl3H
- lb//03NSqSllY8UlHsn4NflztrEuoDQGqabIZfNiJ+7LXzkel+yzWMmUD+eY4haRiYCFJk0f+
- BobBWeUTNw1cFz3z8sapWrzw8dNg3eZApKhQOw3owdNlYIjkA9pFaw6t0vEIIqe5dPu6UyPSy
- oOxhVmWJAZV6QtRc0Du6qlbqfQb0hxdVDByRa1/2Xpdm5Be+kNAwBVEv4sAo0HZU3tiDuyPaT
- e8mYIXIVta0hkz45tMotFvkf1V7m67tnrtiCdPDg1NQ3Y8BtbD9DAPDUTDqDMRCbfO5PFajv4
- 9+6Z+oYZCmJ1HqEnmcM7qJwTkLIYU1eoD5XTWdwMdzieWm4Y905k7nAEtahlTXyjmthZG0K0c
- 95gS0Z4XNoxZxSRse2pUcCib1nbl7X2anuhRtx9CXWmpo/vIJI4gr+DQZKad6bHkFUrF7qmRl
- 8Zyj6dni5mwxTooWo1RRLUUF8d6y1EtP7Lk+kJ7GNLNYPURcfOpX7HpZVxhP5ITFYT3ZQmF3j
- wsVFi6rJeuIoyb0IW0R6AdOQhQgG+tNZe9DO10FeZRgDez3EYQua8oPN8Xmenb60AETce+MNn
- nbGlmMoLizsTsZDDstRIJacXZuIgbJQNlZw5N4Dmw5tIbpdpjjoX6TU=
+	id 1tzapN-00000003Idu-2wAo
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Apr 2025 12:34:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
+	s=default; t=1743510888;
+	bh=VEaRDqyDtJkimhCoGryHOz5n52bnkCWw+iDYB3KM1rE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=T+3/vF3BMizRLMfkXws9EWGyu1uSGndtShkJotqFGA6cRlavaZepCLMk+YVZiZ8Cr
+	 mztTE9WPmFG0P8Kyk8Y8ivj6y72nTvb4OpcnqLvlIK9oVCAsNIZtz8yI9wPXkFeu8M
+	 v8kPjJ3sEZXLk3ZZ51nZ65k2aM+IgfgDEzZJEWMI=
+Received: from [127.0.0.1] (unknown [IPv6:2001:470:683e::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (secp384r1) server-digest SHA384)
+	(Client did not present a certificate)
+	(Authenticated sender: xry111@xry111.site)
+	by xry111.site (Postfix) with ESMTPSA id 7F247659C8;
+	Tue,  1 Apr 2025 08:34:47 -0400 (EDT)
+Message-ID: <92d0a120d3303243d7bd72188c4f5974f525975a.camel@xry111.site>
+Subject: Re: [PATCH] arm64: Add overrride for MPAM
+From: Xi Ruoyao <xry111@xry111.site>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, James Morse
+	 <james.morse@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Shameer Kolothum
+	 <shameerali.kolothum.thodi@huawei.com>, Mingcong Bai <jeffbai@aosc.io>
+Date: Tue, 01 Apr 2025 20:34:43 +0800
+In-Reply-To: <87plhwytgf.wl-maz@kernel.org>
+References: <20250401055650.22542-1-xry111@xry111.site>
+		<409f6d27-3efe-4c45-8319-d360ded80f16@arm.com>
+		<46ed31b37b4b92720b26be66f3e6366a714024cf.camel@xry111.site>
+	 <87plhwytgf.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.0 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_053010_998078_3873B53E 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20250401_053449_784796_41FBD0E9 
+X-CRM114-Status: GOOD (  30.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,59 +76,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+On Tue, 2025-04-01 at 13:09 +0100, Marc Zyngier wrote:
+> On Tue, 01 Apr 2025 12:47:03 +0100,
+> Xi Ruoyao <xry111@xry111.site> wrote:
+> >=20
+> > On Tue, 2025-04-01 at 14:04 +0530, Anshuman Khandual wrote:
+> > > On 4/1/25 11:26, Xi Ruoyao wrote:
+> > > > As the message of the commit 09e6b306f3ba ("arm64: cpufeature: disc=
+over
+> > > > CPU support for MPAM") already states, if a buggy firmware fails to
+> > > > either enable MPAM or emulate the trap as if it were disabled, the
+> > > > kernel will just fail to boot.=C2=A0 While upgrading the firmware s=
+hould be
+> > > > the best solution, we have some hardware of which the vender have m=
+ade
+> > > > no response 2 months after we requested a firmware update.=C2=A0 Al=
+low
+> > > > overriding it so our devices don't become some e-waste.
+> > >=20
+> > > There could be similar problems, where firmware might not enable arch
+> > > features as required. Just wondering if there is a platform policy in
+> > > place for enabling id-reg overrides for working around such scenarios
+> > > to prevent a kernel crash etc ?
+> >=20
+> > In https://lore.kernel.org/all/87jzcfsuep.wl-maz@kernel.org/:
+> >=20
+> > =C2=A0=C2=A0 > For such cases, when MPAM is incorrectly advertised, can=
+ we have kernel
+> > =C2=A0=C2=A0 > command line parameter like mpam=3D0 to override it's de=
+tection?
+> > =C2=A0=C2=A0=20
+> > =C2=A0=C2=A0 We could, but only when we can confirm what the problem is=
+.
+> >=20
+> > And there was prior arts like:
+> >=20
+> > commit 892f7237b3ffb090f1b1f1e55fe7c50664405aed
+> > Author: Marc Zyngier <maz@kernel.org>
+> > Date:=C2=A0=C2=A0 Wed Jul 20 11:52:19 2022 +0100
+> >=20
+> > =C2=A0=C2=A0=C2=A0 arm64: Delay initialisation of cpuinfo_arm64::reg_{z=
+cr,smcr}
+> > =C2=A0=C2=A0=C2=A0=20
+> > =C2=A0=C2=A0=C2=A0 Even if we are now able to tell the kernel to avoid =
+exposing SVE/SME
+> > =C2=A0=C2=A0=C2=A0 from the command line, we still have a couple of pla=
+ces where we
+> > =C2=A0=C2=A0=C2=A0 unconditionally access the ZCR_EL1 (resp. SMCR_EL1) =
+registers.
+> > =C2=A0=C2=A0=C2=A0=20
+> > =C2=A0=C2=A0=C2=A0 On systems with broken firmwares, this results in a =
+crash even if
+> > =C2=A0=C2=A0=C2=A0 arm64.nosve (resp. arm64.nosme) was passed on the co=
+mmand-line.
+> > =C2=A0=C2=A0=C2=A0=20
+> > =C2=A0=C2=A0=C2=A0 To avoid this, only update cpuinfo_arm64::reg_{zcr,s=
+mcr} once
+> > =C2=A0=C2=A0=C2=A0 we have computed the sanitised version for the corre=
+sponding
+> > =C2=A0=C2=A0=C2=A0 feature registers (ID_AA64PFR0 for SVE, and ID_AA64P=
+FR1 for
+> > =C2=A0=C2=A0=C2=A0 SME). This results in some minor refactoring.
+>=20
+> That particular patch has caused quite a few issues, see d3c7c48d004f.
+> So don't use it as a reference.
+>=20
+> Now, while I think an option is probably acceptable in the face of an
+> unresponsive vendor, I don't think the way you implement it is the
+> correct approach.
+>=20
+> It should be possible to handle the override in the assembly code,
+> like we do for other bits and pieces, and deal with MPAMIDR_EL1 later
+> down the line, once the sanitised ID registers are known to be valid.
 
-how to proceed here?
+Ok I'll try it.
 
-> Gesendet: Montag, 10. Februar 2025 um 12:18
-> Von: "Frank Wunderlich" <frank-w@public-files.de>
->
-> Am 10. Februar 2025 11:56:40 MEZ schrieb AngeloGioacchino Del Regno <ang=
-elogioacchino.delregno@collabora.com>:
-> >Il 07/02/25 14:54, Frank Wunderlich ha scritto:
-> >> From: Frank Wunderlich <frank-w@public-files.de>
-> >>
-> >> Sinovoip has released other variants of Bananapi-R4 board.
-> >> The known changes affecting only the LAN SFP+ slot which is replaced
-> >> by a 2.5G phy with optional PoE.
-> >>
-> >> As the SFP-Ports are not upstreamed yet this patch simply renames the
-> >> current board dts to dtsi, creating new dts for the board including
-> >> the new dtsi and move i2c-mux channel for sfp lan to board dts.
-> >>
-> >> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> >
-> >I understand what's going on, and I agree, but this change alone doesn'=
-t make a lot
-> >of sense, does it?
-> >
-> >If I were to see a commit that moves everything in a dtsi, and justifie=
-s that by
-> >adding two dts for the two variants, though, things would be different.=
-... :-)
-
-what is the difference to this commit (imho it does basicly the same for o=
-ther SoC)?
-
-73955991b8fb 2025-02-06 arm64: dts: mediatek: mt8390-genio-700-evk: Move c=
-ommon parts to dtsi
-arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts
-arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-
-> >> ---
-> >>   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 404 +--------------=
----
-> >>   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi | 403 +++++++++++++++=
-++
-> >>   2 files changed, 407 insertions(+), 400 deletions(-)
-> >>   create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bp=
-i-r4.dtsi
-> >>
->
-> It is preparation for adding additional nodes like sfp cages. I only hav=
-e the dual-sfp board so i can only add these based on schematic. The one (=
-wan-sfp) would go into dtsi and lan-sfp go into dts because other variants=
- using a phy here as described.
-
-regards Frank
+--=20
+Xi Ruoyao <xry111@xry111.site>
+School of Aerospace Science and Technology, Xidian University
 
