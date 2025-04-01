@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D4EC36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 09:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042B2C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 09:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J/xeHEkCPMt0uQpCBTIzx3IUeQGct66kufD5Mgh/U+U=; b=JfujvI+7j7ItXpwDoiuyGkfeEW
-	yR10P7qpz2KxjVn6PJml8rvM7XdX3MHZ0EzzC1r/d3wzqDeL7ii3s4Lu75cEFOnCzHnTdcsoxq8UM
-	VLRg2k7RS50uJHwAweN39uIyTfS5JDzR7lKM10AvzaSzybwYJMZS4X6cObVM5n5bHP0QvZsz1LNfH
-	okUZyQeg/gdV+i7a+m8OV4RZDXeKO9JHOLOV7mOrcI2ljTdb4XbSvtM/3t1rqQJrFP7mVYcIvSRE3
-	T4MizZJVTo6aNRAgviXzEyXtygrwX0+Ushh6+XVHrv8sp8au5ui34Rll9mJD6QXr8mL7hJiyaGASJ
-	Ly+wJjvA==;
+	bh=hkRkPGKPs5BQWgDZOt64EsiTNrn7ZQGJ0OVxGCg9rDw=; b=STdko6nEFAoC/6TPHNVeRhsnCq
+	jAQXM2zJ5zplREgknL0CwEerS7KOktd7rb9bN3Mk/UhduuIRtWodzvY/R5R9mIfUvaNPOtOAd1Pjw
+	CiqypsJ5tcAaH0JfOeAoViYjZV/1B7toICllOUDVRPg74PoV7HSmS8pNv++ZzByQOhewXgfPxuqMw
+	AF36l6sFZHG7h/MUs60klzxr0TJQq6aZaEKDF8qUFxOvxGpvVtd3CTf7vAFS6fj+qsKqEAKFE4J4B
+	3w3uR3NKZAdfU/X95pVa7bUJjyQ+ZCRNi8p7zy7+uUWUmN9tdufubbMvh43zFKqMQWgFVe2SoHU9/
+	5xRjMiTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzY3T-00000002V2U-0Ium;
-	Tue, 01 Apr 2025 09:37:11 +0000
+	id 1tzY5D-00000002VF4-3klQ;
+	Tue, 01 Apr 2025 09:38:59 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzXkY-00000002RdW-2nwp
+	id 1tzXkY-00000002Rch-12kf
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 01 Apr 2025 09:17:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA09044E04;
-	Tue,  1 Apr 2025 09:17:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB218C4CEF3;
+	by sea.source.kernel.org (Postfix) with ESMTP id CB78944DE5;
+	Tue,  1 Apr 2025 09:17:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D5AFC4CEEE;
 	Tue,  1 Apr 2025 09:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743499058;
-	bh=1hPsF6LzL9OEaMMQAXlo5EkJ4jLQYjnYIgkfLxP1je8=;
+	s=k20201202; t=1743499057;
+	bh=xS1nUNg7xfA1crBoOsh68GgY9HijVyxfaNBF6+vlanQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oaGNuz7NTJx6hyndjZ4CWsw8+8TdZTvmkBjHvLWw0Ib7qWY/svdRIYeIRIJBvh2L4
-	 LwMmDxudUB7Nj3jrnsiVjbcs+cB/lTrzyUEdNOGi6jk8Aw3T8XIOkNEVPYDneiPk0b
-	 OdQib5VUFflGWPDjBqam2YLyG9Z1aA/SsX2qB9WWB6m17dMzIZemvidm0moxKIyFHF
-	 /KbO2vBTd30GtMsCwMa6K7HjG9aHkop6rliP1obg00b9M4OT/3p6ut02vSqn6NAA1z
-	 iquc8bxGgW9RHmTaLQukV7u8qXoEoQuF3E7KOQnHLIB9ZFzcQRa/dMm6sIPVUAoAZN
-	 qB4Q7v9h76/CQ==
+	b=c7uIOk1uxTmqkd1LZXt6QvkK6njwrR6Dq9BFcm0MnVDIe+i2Ka2BAvumdXOdUWky+
+	 tBvuId4px10UBbXUN58IYBgjY6sQPjfZiSaAyVeIYn+vTM/ZhhvOoQerRCCeCeIG2l
+	 H8BhS3y0UwRdy+CqVQmF3IPQ9os4pBRQTxEqik7nVptnLwyPgELfbnw32vnheKExD6
+	 a1UyAHCsFQvAYNddfhhx04/J+qH26zq4YQxrWfpmNt0nVp2ZOE/EADSxiopzL+NJw/
+	 J+KlTeEYOn4jBsuhb3KaSgWfdjsIfZow8/pNSxyTEryzPhMQfQKszMXwdqxYRxGZ10
+	 /Lpc/L0lgsGcQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tzXkW-001GqU-5w;
-	Tue, 01 Apr 2025 10:17:36 +0100
+	id 1tzXkU-001GqU-Vi;
+	Tue, 01 Apr 2025 10:17:35 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-pci@vger.kernel.org,
@@ -65,9 +65,9 @@ Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Mark Kettenis <mark.kettenis@xs4all.nl>
-Subject: [PATCH v3 06/13] PCI: apple: Dynamically allocate RID-to_SID bitmap
-Date: Tue,  1 Apr 2025 10:17:06 +0100
-Message-Id: <20250401091713.2765724-7-maz@kernel.org>
+Subject: [PATCH v3 01/13] PCI: apple: Set only available ports up
+Date: Tue,  1 Apr 2025 10:17:01 +0100
+Message-Id: <20250401091713.2765724-2-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250401091713.2765724-1-maz@kernel.org>
 References: <20250401091713.2765724-1-maz@kernel.org>
@@ -78,8 +78,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.o
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_021738_730075_821C96B0 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20250401_021738_331674_A1E5AA57 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,43 +94,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As we move towards supporting SoCs with varying RID-to-SID mapping
-capabilities, turn the static SID tracking bitmap into a dynamically
-allocated one. The current allocation size is still the same, but
-that's about to change.
+From: Janne Grunau <j@jannau.net>
 
+Iterating over disabled ports results in of_irq_parse_raw() parsing
+the wrong "interrupt-map" entries, as it takes the status of the node
+into account.
+
+This became apparent after disabling unused PCIe ports in the Apple
+Silicon device trees instead of deleting them.
+
+Switching from for_each_child_of_node() to for_each_available_child_of_node()
+solves this issue.
+
+Link: https://lore.kernel.org/asahi/20230214-apple_dts_pcie_disable_unused-v1-0-5ea0d3ddcde3@jannau.net/
+Link: https://lore.kernel.org/asahi/1ea2107a-bb86-8c22-0bbc-82c453ab08ce@linaro.org/
+Fixes: 1e33888fbe44 ("PCI: apple: Add initial hardware bring-up")
+Fixes: a0189fdfb73d ("arm64: dts: apple: t8103: Disable unused PCIe ports")
+Cc: stable@vger.kernel.org
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Acked-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 Tested-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/pci/controller/pcie-apple.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/pci/controller/pcie-apple.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index d07e488051290..6d3aa186d9c5f 100644
+index a7e51bc1c2fe8..842f8cee7c868 100644
 --- a/drivers/pci/controller/pcie-apple.c
 +++ b/drivers/pci/controller/pcie-apple.c
-@@ -147,7 +147,7 @@ struct apple_pcie_port {
- 	void __iomem		*base;
- 	struct irq_domain	*domain;
- 	struct list_head	entry;
--	DECLARE_BITMAP(sid_map, MAX_RID2SID);
-+	unsigned long		*sid_map;
- 	int			sid_map_sz;
- 	int			idx;
- };
-@@ -524,6 +524,10 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
- 	if (!port)
- 		return -ENOMEM;
- 
-+	port->sid_map = devm_bitmap_zalloc(pcie->dev, MAX_RID2SID, GFP_KERNEL);
-+	if (!port->sid_map)
-+		return -ENOMEM;
-+
- 	ret = of_property_read_u32_index(np, "reg", 0, &idx);
+@@ -755,7 +755,7 @@ static int apple_pcie_init(struct pci_config_window *cfg)
  	if (ret)
  		return ret;
+ 
+-	for_each_child_of_node(dev->of_node, of_port) {
++	for_each_available_child_of_node(dev->of_node, of_port) {
+ 		ret = apple_pcie_setup_port(pcie, of_port);
+ 		if (ret) {
+ 			dev_err(pcie->dev, "Port %pOF setup fail: %d\n", of_port, ret);
 -- 
 2.39.2
 
