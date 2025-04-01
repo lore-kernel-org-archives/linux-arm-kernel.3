@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C672C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 20:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB29C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 20:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HjN0v0W9m0IvqgYola2hOx5XLKml5O0udJOiHGE/eik=; b=LzxB1TpGMZzaF5hwRIswS6hq/r
-	SHhB5FnbtPJinhGJ8svwz/o2Sqh62IrqbrrGDLJ1kedjnOQemPNgaHQ/KAp1buSs3T7e2DNzCF8fX
-	MkwbrM2Kf/DcSiYUeXg0Hk0AGv8hifOTeRJ/3FHbc//XpifVfv3PHScqNjYZvFoke963OCVtCxA5T
-	wOfAIrM3Uou47FGUKawmPfYWqcRN+172PVaIkGROrE3CUOvtLRabA6s2DVtyM9zefaFipeLNlNfQC
-	j0HCwpekKOaeODWWG1E8TSc4uNcVdBQoQXnbhprXybH6q7tpDpKhwBgB+577m2dG+lbuTlOxZL2qm
-	u7jOJo4g==;
+	bh=Lx4LCcdlopyvqbPN/IhBMgG93mXqJFxiV3H6RMakbuM=; b=wkuDkHpxCtYPOgs/62fYQRWIsv
+	9e3wawibEpjTdHR7xURSunlF52iYEKO96aHJy8WlAIZuq4o9JQSd/wktAXIh2W5jPuBI0EDPFl3ps
+	irUEx9UI2OagZViR7j8zv0GfmBwcNVF0N4G0r78Q5nQm/DSh/s2uRz5dH6w/TTfE1Pq/Q0vNE817N
+	8AsPb7bf/yytdBPvD6Sq0e/iDGP0MHVa9ybEvV/5XzBrA2gdvhKPvehA0jLpXECFjQoINpZL+Lwxs
+	grbKr9vRE+495GzU89DjVhIjg60eZNMaNJVDK6mdkVHzthEiGF7Ag+7ges0KQKM411WyXOGVNeVI5
+	Ox9TJekA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzicg-00000004NAm-1gVE;
-	Tue, 01 Apr 2025 20:54:14 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tzieS-00000004NRw-1Lwx;
+	Tue, 01 Apr 2025 20:56:04 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tziVa-00000004L7L-0eMM
+	id 1tziVb-00000004L8z-3fB5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 20:46:56 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ff7cf599beso11104528a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 13:46:53 -0700 (PDT)
+	Tue, 01 Apr 2025 20:46:57 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-22406ee0243so86284345ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 13:46:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743540413; x=1744145213; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1743540415; x=1744145215; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=HjN0v0W9m0IvqgYola2hOx5XLKml5O0udJOiHGE/eik=;
-        b=B3/IF0NZJ9VcdtdfeswZukDj/OJatRxfHDMoiKn2ViMxHRb1QkVhyllZpPnj/T9SMQ
-         uZQzlQXuPpvy7t+l9UMlnLh/ca/ohGLB3dC3nrbQ6HAewjWY2h/+IczFcg24tCw8lWxV
-         Wxk1CnxXTwtOwC5ff8YJKy8TEpOC3xMBafeP9Jss/pg17mO6bJFanTNjC+LzfjEbYy7I
-         LIBLPwjR32IMyG3qloDiPTMx1OGIKSYPfWpFmLbGBprKQBEtkFMKtTNd/jxDUQBguL6y
-         v9xiV5uzcR386GU0twzxAzegQo4qp8K8ZIKD83rhCUcLLhQipbiNIV89iRZygjaY7vLT
-         7jTA==
+        bh=Lx4LCcdlopyvqbPN/IhBMgG93mXqJFxiV3H6RMakbuM=;
+        b=NvM+xqQMk6xCDm+GlSOqwugiah5+Zr58nvJYrfbwX4hk9OPDZa8ALLepoEY1dglKJI
+         sgn2AqRvRGArnTHtwmV8/HNqZdEYB9z657mFkt/LqsvtqWoWbJzE6ciDctYT+Sivo/sg
+         0Mmg8cp5k9US79cI4ixv0EssU4fznQoM52PBIwBdP7rFX2FttCRGTImrVMlW7Qj3DACx
+         8m1EaSD+ua7idFqNMXgMKMnzFMIcIkz3fbexqJwvxAelZNDl0S5FYGhL75w1eEI1MoT0
+         2lu4q5Hwwk1DxXfgcrbPi/4s+vjncSpCF3ykDEz1qUrn6soK+E0CSL0U//7ppxmuGbtC
+         Gf4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743540413; x=1744145213;
+        d=1e100.net; s=20230601; t=1743540415; x=1744145215;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HjN0v0W9m0IvqgYola2hOx5XLKml5O0udJOiHGE/eik=;
-        b=TRAFWCMjuhsVWcO7U9mqdUvYFEyR1BGmTJ36psIeW61BWgdGsSlOdSjqC3Sisqb79x
-         pnmMYcyBKSJuBrYonW9+R2m2j2WuIekndFEVzrtatV63PYTXivRNA+H9sNBJGhwj2N3r
-         oedPqNpZQaRYbKvZ5twI8GUb2wLG3dQuYeenZKKZq2xrzmsatFcbQmWKXlXfRpM5X0+5
-         QlBg856l42RW6UWDW5KHdsvnOibCfV2ifIs20qUAEGbqOfwhPDG75QjgMgNiVEeafhCQ
-         hwD8QKDefsLermfDnkizY3H39EIGg4liGyvwto5s7r2mHW6U/wIJh/eIElyltgozc55u
-         j+cg==
-X-Forwarded-Encrypted: i=1; AJvYcCWYLzh0kyWzyreiMGd/l1UtunAKwQIkBl0zhSrIuaRosT5N8nW4dkpgCcSf4jtGx0EhkSGIhGjVGqpdgjD7Rn0C@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxWqdh10lyOKCT/ok1vInsxW4UAp7h4uhSqOe/AWPzCQ17/8ZU
-	MBtJegkhgy99xQwBKyGbs8hn9Aobc59cZSu+vaXa4JA+xQU1n5eR3zXOWONLiyundhIm9HaE8wL
-	Zpw==
-X-Google-Smtp-Source: AGHT+IHcYPdS+ntkX0QFkx6mSIlTj1AO51n1TbjklGmZnx1XnyN+enbKGYXER1TOaq4aVQk11+wCSyWBHf8=
-X-Received: from pjbsw3.prod.google.com ([2002:a17:90b:2c83:b0:2f9:c349:2f84])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2dcc:b0:2fa:157e:c790
- with SMTP id 98e67ed59e1d1-3056ee181a6mr177513a91.5.1743540413076; Tue, 01
- Apr 2025 13:46:53 -0700 (PDT)
-Date: Tue,  1 Apr 2025 13:44:15 -0700
+        bh=Lx4LCcdlopyvqbPN/IhBMgG93mXqJFxiV3H6RMakbuM=;
+        b=jg7USIgxpNP7HppuWm/dOrfmpCWhdbvVnnMRxwkmA/RFzgUC0mzfsyPbnTYTAG1RZ1
+         rmgZ965Lmwns/yuBUsmx+jPrO7+q0FrIzOiGdMig9Gmr+shrjbo8DDDpJdsml0CQEIB+
+         NLswOku81GE6kRmO3ZwXK4N7Ko2jl5DC0ZS2+mfkM/eCvo9xxctJ9mWhPaYE0pdRAwtt
+         q3MjHspK8iWz2FdCnAGyI1F355sX5FWoS+9S+6hlg2x86gh+X+yzYk4/Y27Bb1q2dlGR
+         2qQW4wHMHaqcEeYJZELshMDKNBEMwPpoxxIj+aW5t3gjwI87RTY2rhWNtuQn6iOmgrQE
+         4SJg==
+X-Forwarded-Encrypted: i=1; AJvYcCU8u4CdhTbmDidzEIzykPYSbOnmwmS/YYE/3rRL6M2P8erxxSXQtMQtARxPdCfaGOjX+25s6J9m/zsP/pwvE3k9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8rFPuiPeP6h6XQQzHhRQDZh9GtLPE5T+a8xz0wvIk5X4UK6dY
+	xCgf+O62YmmVJq69qQ8gtU0WA2sF0idMyP6qBZHMf8zpOo/awPzrbEhgj4dNf+GNgDckSsdepkJ
+	kRw==
+X-Google-Smtp-Source: AGHT+IHW0sXHX4wMGJ15kvjoFqaPE9awBB7bIk66pU6GUBUvNZBfoLxZ3yipmWjxsb6XuZDLmoik4bMgDVc=
+X-Received: from pjbsi11.prod.google.com ([2002:a17:90b:528b:b0:301:1bf5:2efc])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2bcc:b0:224:912:153
+ with SMTP id d9443c01a7336-2292f942acbmr235734395ad.5.1743540414753; Tue, 01
+ Apr 2025 13:46:54 -0700 (PDT)
+Date: Tue,  1 Apr 2025 13:44:16 -0700
 In-Reply-To: <20250401204425.904001-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250401204425.904001-1-seanjc@google.com>
 X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
-Message-ID: <20250401204425.904001-4-seanjc@google.com>
-Subject: [PATCH 03/12] KVM: Initialize irqfd waitqueue callback when adding to
- the queue
+Message-ID: <20250401204425.904001-5-seanjc@google.com>
+Subject: [PATCH 04/12] KVM: Add irqfd to KVM's list via the vfs_poll() callback
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
 	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
@@ -83,8 +82,8 @@ Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_134654_308952_9E5AF5E5 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20250401_134655_920067_251AA754 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +99,95 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Initialize the irqfd waitqueue callback immediately prior to inserting the
-irqfd into the eventfd's waitqueue.  Pre-initializing the state in a
-completely different context is all kinds of confusing, and incorrectly
-suggests that the waitqueue function needs to be initialize prior to
-vfs_poll().
+Add the irqfd structure to KVM's list of irqfds in kvm_irqfd_register(),
+i.e. via the vfs_poll() callback.  This will allow taking irqfds.lock
+across the entire registration sequence (add to waitqueue, add to list),
+and more importantly will allow inserting into KVM's list if and only if
+adding to the waitqueue succeeds (spoiler alert), without needing to
+juggle return codes in weird ways.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/eventfd.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+ virt/kvm/eventfd.c | 102 +++++++++++++++++++++++++--------------------
+ 1 file changed, 57 insertions(+), 45 deletions(-)
 
 diff --git a/virt/kvm/eventfd.c b/virt/kvm/eventfd.c
-index e47b7b6df94f..69bf2881635e 100644
+index 69bf2881635e..01ae5835c8ba 100644
 --- a/virt/kvm/eventfd.c
 +++ b/virt/kvm/eventfd.c
-@@ -256,6 +256,13 @@ static void kvm_irqfd_register(struct file *file, wait_queue_head_t *wqh,
- 	struct kvm_irqfd_pt *p = container_of(pt, struct kvm_irqfd_pt, pt);
- 	struct kvm_kernel_irqfd *irqfd = p->irqfd;
+@@ -245,34 +245,14 @@ irqfd_wakeup(wait_queue_entry_t *wait, unsigned mode, int sync, void *key)
+ 	return ret;
+ }
  
+-struct kvm_irqfd_pt {
+-	struct kvm_kernel_irqfd *irqfd;
+-	poll_table pt;
+-};
+-
+-static void kvm_irqfd_register(struct file *file, wait_queue_head_t *wqh,
+-			       poll_table *pt)
+-{
+-	struct kvm_irqfd_pt *p = container_of(pt, struct kvm_irqfd_pt, pt);
+-	struct kvm_kernel_irqfd *irqfd = p->irqfd;
+-
+-	/*
+-	 * Add the irqfd as a priority waiter on the eventfd, with a custom
+-	 * wake-up handler, so that KVM *and only KVM* is notified whenever the
+-	 * underlying eventfd is signaled.
+-	 */
+-	init_waitqueue_func_entry(&irqfd->wait, irqfd_wakeup);
+-
+-	add_wait_queue_priority(wqh, &irqfd->wait);
+-}
+-
+-/* Must be called under irqfds.lock */
+ static void irqfd_update(struct kvm *kvm, struct kvm_kernel_irqfd *irqfd)
+ {
+ 	struct kvm_kernel_irq_routing_entry *e;
+ 	struct kvm_kernel_irq_routing_entry entries[KVM_NR_IRQCHIPS];
+ 	int n_entries;
+ 
++	lockdep_assert_held(&kvm->irqfds.lock);
++
+ 	n_entries = kvm_irq_map_gsi(kvm, entries, irqfd->gsi);
+ 
+ 	write_seqcount_begin(&irqfd->irq_entry_sc);
+@@ -286,6 +266,49 @@ static void irqfd_update(struct kvm *kvm, struct kvm_kernel_irqfd *irqfd)
+ 	write_seqcount_end(&irqfd->irq_entry_sc);
+ }
+ 
++struct kvm_irqfd_pt {
++	struct kvm_kernel_irqfd *irqfd;
++	struct kvm *kvm;
++	poll_table pt;
++	int ret;
++};
++
++static void kvm_irqfd_register(struct file *file, wait_queue_head_t *wqh,
++			       poll_table *pt)
++{
++	struct kvm_irqfd_pt *p = container_of(pt, struct kvm_irqfd_pt, pt);
++	struct kvm_kernel_irqfd *irqfd = p->irqfd;
++	struct kvm_kernel_irqfd *tmp;
++	struct kvm *kvm = p->kvm;
++
++	spin_lock_irq(&kvm->irqfds.lock);
++
++	list_for_each_entry(tmp, &kvm->irqfds.items, list) {
++		if (irqfd->eventfd != tmp->eventfd)
++			continue;
++		/* This fd is used for another irq already. */
++		p->ret = -EBUSY;
++		spin_unlock_irq(&kvm->irqfds.lock);
++		return;
++	}
++
++	irqfd_update(kvm, irqfd);
++
++	list_add_tail(&irqfd->list, &kvm->irqfds.items);
++
++	spin_unlock_irq(&kvm->irqfds.lock);
++
 +	/*
 +	 * Add the irqfd as a priority waiter on the eventfd, with a custom
 +	 * wake-up handler, so that KVM *and only KVM* is notified whenever the
@@ -126,22 +195,75 @@ index e47b7b6df94f..69bf2881635e 100644
 +	 */
 +	init_waitqueue_func_entry(&irqfd->wait, irqfd_wakeup);
 +
- 	add_wait_queue_priority(wqh, &irqfd->wait);
- }
++	add_wait_queue_priority(wqh, &irqfd->wait);
++	p->ret = 0;
++}
++
+ #ifdef CONFIG_HAVE_KVM_IRQ_BYPASS
+ void __attribute__((weak)) kvm_arch_irq_bypass_stop(
+ 				struct irq_bypass_consumer *cons)
+@@ -315,7 +338,7 @@ bool __attribute__((weak)) kvm_arch_irqfd_route_changed(
+ static int
+ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+ {
+-	struct kvm_kernel_irqfd *irqfd, *tmp;
++	struct kvm_kernel_irqfd *irqfd;
+ 	struct eventfd_ctx *eventfd = NULL, *resamplefd = NULL;
+ 	struct kvm_irqfd_pt irqfd_pt;
+ 	int ret;
+@@ -414,32 +437,22 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+ 	 */
+ 	idx = srcu_read_lock(&kvm->irq_srcu);
  
-@@ -395,12 +402,6 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
- 		mutex_unlock(&kvm->irqfds.resampler_lock);
- 	}
- 
--	/*
--	 * Install our own custom wake-up handling so we are notified via
--	 * a callback whenever someone signals the underlying eventfd
--	 */
--	init_waitqueue_func_entry(&irqfd->wait, irqfd_wakeup);
+-	spin_lock_irq(&kvm->irqfds.lock);
+-
+-	ret = 0;
+-	list_for_each_entry(tmp, &kvm->irqfds.items, list) {
+-		if (irqfd->eventfd != tmp->eventfd)
+-			continue;
+-		/* This fd is used for another irq already. */
+-		ret = -EBUSY;
+-		goto fail_duplicate;
+-	}
+-
+-	irqfd_update(kvm, irqfd);
+-
+-	list_add_tail(&irqfd->list, &kvm->irqfds.items);
+-
+-	spin_unlock_irq(&kvm->irqfds.lock);
 -
  	/*
- 	 * Set the irqfd routing and add it to KVM's list before registering
- 	 * the irqfd with the eventfd, so that the routing information is valid
+-	 * Register the irqfd with the eventfd by polling on the eventfd.  If
+-	 * there was en event pending on the eventfd prior to registering,
+-	 * manually trigger IRQ injection.
++	 * Register the irqfd with the eventfd by polling on the eventfd, and
++	 * simultaneously and the irqfd to KVM's list.  If there was en event
++	 * pending on the eventfd prior to registering, manually trigger IRQ
++	 * injection.
+ 	 */
+ 	irqfd_pt.irqfd = irqfd;
++	irqfd_pt.kvm = kvm;
+ 	init_poll_funcptr(&irqfd_pt.pt, kvm_irqfd_register);
+ 
+ 	events = vfs_poll(fd_file(f), &irqfd_pt.pt);
++
++	ret = irqfd_pt.ret;
++	if (ret)
++		goto fail_poll;
++
+ 	if (events & EPOLLIN)
+ 		schedule_work(&irqfd->inject);
+ 
+@@ -460,8 +473,7 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+ 	srcu_read_unlock(&kvm->irq_srcu, idx);
+ 	return 0;
+ 
+-fail_duplicate:
+-	spin_unlock_irq(&kvm->irqfds.lock);
++fail_poll:
+ 	srcu_read_unlock(&kvm->irq_srcu, idx);
+ fail:
+ 	if (irqfd->resampler)
 -- 
 2.49.0.504.g3bcea36a83-goog
 
