@@ -4,53 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3057CC3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 16:45:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA9BC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 16:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=shn0tnN+wBrIjE3dOep3eH6eMsEq/Sb0KIGYTxFfN5A=; b=XeczZq0eIvpiuKv59iXq+NU4dZ
-	VDdNE4+oJTB1Cac7PAweagVwIRWgj1QS07mjjE67z4N7HQ8SUnDNeEWZBBkLxpg0PXNT65OoOPL7S
-	T3ky9GBCpVBlIWGQIaIs7yggdCwjrh4VpZ1DdpMGqH+30zrl5g6cG6yV8JTwicjAZzMFR49rupUGa
-	w96xXPP2SOJpIwGryUoijBlOwGY/HTH4Y7ygHHtlh6jMzPZn+1x1crBoPNUTKgBkPwRRV4kjiCr79
-	D6Es8QoNG2Rexaqjq8SwvybE/PcZKw5wR4duLBXZ5D1qiaa7xj6A02KsXlJOAhTAQNlpl87gFEgiu
-	QnGuEWUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Du8cCR/sSoRf9rcgO+pEyuLkob3npJUMn2Zdq/2m35Y=; b=l+NC2Pj0t/J7Y7akQA5peq+DOA
+	rxRFZ1g66XVNlbyKUpC9ybJCy4m2safd9Ob+zwAtpAx+7n0BUdKS7X3EnfQjjxXRfTDY4nDDmJNij
+	k2SaBUkA+dlFHfBzq7ND+dp/ClO5NJTw8ExRsSq2+fyXn2bFrZ9x3pj+PfXdiwIZJ3STA4ZIXL8KF
+	QQmn7APzEiXQzT6trcHDGVBnU6+2UA8HOLA40fzb7eZst+YunCGaWJgOM/L5twd0++GHXFcRHnOIC
+	npriCA3874tmO10O4thRTworbNAFh4g8CoL9BCACWfqRqDZchNuqc/IkvJQ/cN/Naq2CpchEhky04
+	kj7f39Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzek0-00000003vIg-1hkJ;
-	Tue, 01 Apr 2025 16:45:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tzelw-00000003vmr-0Olw;
+	Tue, 01 Apr 2025 16:47:32 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzeiE-00000003v0Q-28pN
+	id 1tzek7-00000003vJj-2w1n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 16:43:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 226EB6112E;
-	Tue,  1 Apr 2025 16:43:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D942CC4CEE4;
-	Tue,  1 Apr 2025 16:43:39 +0000 (UTC)
-Date: Tue, 1 Apr 2025 17:43:37 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: John Ernberg <john.ernberg@actia.se>
-Cc: Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	Jonas Blixt <jonas.blixt@actia.se>
-Subject: Re: [PATCH v7 00/17] mm, dma, arm64: Reduce ARCH_KMALLOC_MINALIGN to
- 8
-Message-ID: <Z-wXuTaTpWOLzTS_@arm.com>
-References: <20230612153201.554742-1-catalin.marinas@arm.com>
- <ab2776f0-b838-4cf6-a12a-c208eb6aad59@actia.se>
+	Tue, 01 Apr 2025 16:45:42 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250401164534euoutp01708a4669b750e3e58670142b358e825e~yP5lzpSX31698616986euoutp01L
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Apr 2025 16:45:34 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250401164534euoutp01708a4669b750e3e58670142b358e825e~yP5lzpSX31698616986euoutp01L
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1743525934;
+	bh=Du8cCR/sSoRf9rcgO+pEyuLkob3npJUMn2Zdq/2m35Y=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=eDI49ygtc4ET/2jwW0/2sPXZM0iaB6W4wILNPTLDkg8WbgxVk7h6t/O9OumvfzYqM
+	 C26tYbnG/Ki25PGCMClThCdiZ+jpWVZAphVWUsGfoNyKP7UpKahoGZ6k4MHRLlvZ1l
+	 wLmGIc6Z5lNmnYQZg8bkgR/Ji2FmGdNuriql/4yY=
+Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20250401164533eucas1p2e13c79cd7be796d91c5ac2dbd00652ec~yP5lbJE652058120581eucas1p2Z;
+	Tue,  1 Apr 2025 16:45:33 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id D6.4D.20397.D281CE76; Tue,  1
+	Apr 2025 17:45:33 +0100 (BST)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250401164532eucas1p12733b49f77201419ad208931bd8bbaee~yP5kuU7FM0420604206eucas1p1r;
+	Tue,  1 Apr 2025 16:45:32 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250401164532eusmtrp2c5b611f960b39ac9ed7d3470861d6235~yP5ktimqz2743327433eusmtrp2q;
+	Tue,  1 Apr 2025 16:45:32 +0000 (GMT)
+X-AuditID: cbfec7f5-ed1d670000004fad-17-67ec182dd26d
+Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id CF.2D.19654.C281CE76; Tue,  1
+	Apr 2025 17:45:32 +0100 (BST)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250401164531eusmtip189b291997140378de0a617b6bf7a559f~yP5jwXRGe2785927859eusmtip1G;
+	Tue,  1 Apr 2025 16:45:31 +0000 (GMT)
+Message-ID: <a9716af2-2403-44a4-b1a7-c3ab832c3c1c@samsung.com>
+Date: Tue, 1 Apr 2025 18:45:31 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ab2776f0-b838-4cf6-a12a-c208eb6aad59@actia.se>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/18] dt-bindings: gpu: img: Future-proofing
+ enhancements
+To: Matt Coster <matt.coster@imgtec.com>, Frank Binns
+	<frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, Vignesh
+	Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Randolph
+	Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>, Alessio Belle
+	<alessio.belle@imgtec.com>, Alexandru Dadu <alexandru.dadu@imgtec.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20250326-sets-bxs-4-64-patch-v1-v5-1-e4c46e8280a9@imgtec.com>
+Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrOKsWRmVeSWpSXmKPExsWy7djP87q6Em/SDU5NV7Q4cX0Rk8WBV2uY
+	Lb4/bWO2WLP3HJPFxBVeFvOPnGO1uPL1PZvFuqcX2C2Wf57NbvFy1j02i02Pr7FaXN41h81i
+	4cetLBZLduxitGjrXMZq8ebHWSaL/3t2sFt09Nxks5j9bj+7xZY3E1kt/p/9wO4g6rH32wIW
+	j52z7rJ79Ow8w+ixaVUnm8e8k4Ee97uPM3lsXlLvsfl0tcfxG9uZPD5vkgvgiuKySUnNySxL
+	LdK3S+DKuH/pDWNBu2XF/Nb1LA2M+3S6GDk5JARMJFb+/8rWxcjFISSwglFi0cqbUM4XRonW
+	Be9YIJzPjBIvr25jgml59u8NI4gtJLCcUeLMrTCIoreMErfuz2YFSfAK2Ek0fd8O1MDBwSKg
+	InH/XTVEWFDi5MwnLCC2qIC8xP1bM9hBbGGBYIlL+16zgswREfjELLF11z4wh1lgAZNE48d7
+	YJuZBcQlbj2ZD2azCRhJPFg+H2wZp4C3xPUXLSwQNfISzVtnM4M0Swi845Q4t/gtM8gVEgIu
+	EnsmJUJ8ICzx6vgWdghbRuL/zvlQn+VLPNj6iRnCrpHY2XMcyraWuHPuFxvIGGYBTYn1u/Qh
+	wo4S93e+ZIeYzidx460gxAV8EpO2TYdayivR0SYEUa0mMbWnF27puRXbmCYwKs1CCpVZSH6c
+	heSXWQh7FzCyrGIUTy0tzk1PLTbOSy3XK07MLS7NS9dLzs/dxAhMm6f/Hf+6g3HFq496hxiZ
+	OBgPMUpwMCuJ8EZ8fZkuxJuSWFmVWpQfX1Sak1p8iFGag0VJnHfR/tZ0IYH0xJLU7NTUgtQi
+	mCwTB6dUA5P3369vFD59tyldnOL8YdERsYvqm3dvuPrakv3DQtMTHYsmVaWtKZ4r8awo3Urw
+	edmV2S05XUfZuN/c/ishaTL3Hl+uwcn6l9MZbRNX3WpTmvBUoKJgbayO7BTXx+mXkmOMupZO
+	KmpPyXP8q1uk4FzckX7G2Nkjf5XmKrHZVbvF21OOW9zmkn/+9OqM0Gb+lDnJWTUTdjJZBDvo
+	6j8pnFq08/emhmvJGukHtObl9F9qs525caW5hj4P2wyuJFl/vSe3bv51DNdXvR+39fiVGcun
+	vOUO2CIv7cKxiuP4lbawlEWB/zwcbutIzd3C63p/l8mX6poynZN8eU9nM9QFODZGCulO2Gy8
+	RGCVt87y+UosxRmJhlrMRcWJAAPCYCIKBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupmleLIzCtJLcpLzFFi42I5/e/4XV0diTfpBvt/6lucuL6IyeLAqzXM
+	Ft+ftjFbrNl7jsli4govi/lHzrFaXPn6ns1i3dML7BbLP89mt3g56x6bxabH11gtLu+aw2ax
+	8ONWFoslO3YxWrR1LmO1ePPjLJPF/z072C06em6yWcx+t5/dYsubiawW/89+YHcQ9dj7bQGL
+	x85Zd9k9enaeYfTYtKqTzWPeyUCP+93HmTw2L6n32Hy62uP4je1MHp83yQVwRenZFOWXlqQq
+	ZOQXl9gqRRtaGOkZWlroGZlY6hkam8daGZkq6dvZpKTmZJalFunbJehl3L/0hrGg3bJifut6
+	lgbGfTpdjJwcEgImEs/+vWHsYuTiEBJYyijx6/MDRoiEjMS17pcsELawxJ9rXWwQRa8ZJX68
+	mQCW4BWwk2j6vp2pi5GDg0VAReL+u2qIsKDEyZlPwEpEBeQl7t+awQ5iCwsES1za95oVZI6I
+	wBdmiY3r5jOBOMwCi5gkjt2bzwqx4T6jROeX1WBnMAuIS9x6AlLFycEmYCTxYDlIEScHp4C3
+	xPUXLSwgm5kF1CXWzxOCKJeXaN46m3kCo9AsJIfMQjJpFkLHLCQdCxhZVjGKpJYW56bnFhvp
+	FSfmFpfmpesl5+duYgSmim3Hfm7Zwbjy1Ue9Q4xMHIyHGCU4mJVEeCO+vkwX4k1JrKxKLcqP
+	LyrNSS0+xGgKDIuJzFKiyfnAZJVXEm9oZmBqaGJmaWBqaWasJM7LduV8mpBAemJJanZqakFq
+	EUwfEwenVAOTztyHpw8wf/yc4BG9JHzGJf590tvS287x5+bpGTXnRYu9O2QZWNws2s1jM4vh
+	YqbXNHn75fPm+uxeYX5uVmqaTnKJtH7D2k/Tc6esfNP7tfLHUa6/on9WzPvMPqf925br/5/V
+	Oi0NYKy5fWlC6xPhybz53iERuiXvzyf5s/sWvuF/unXlnZSEz79nbRDeKDzpRrzg4/wtjA8+
+	LIjoMHib8ivM++E6FZmO6CbpS/t8BIzyLa5fEUi+Mb2pd9aWj+s+f7sdX6p5QXDmDhGtjb7b
+	5xh/6hUwXn498Z6O1Jnyurn3n4dfX/TEIjyl9kzK89/m0zc9svVtznCNvfgpx2NRFJ9K6sZa
+	o+RfNwKtTa9kK7EUZyQaajEXFScCAKm3/u6eAwAA
+X-CMS-MailID: 20250401164532eucas1p12733b49f77201419ad208931bd8bbaee
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250326164909eucas1p1525faf017c81554f0d3739123edc1298
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250326164909eucas1p1525faf017c81554f0d3739123edc1298
+References: <20250326-sets-bxs-4-64-patch-v1-v5-0-e4c46e8280a9@imgtec.com>
+	<CGME20250326164909eucas1p1525faf017c81554f0d3739123edc1298@eucas1p1.samsung.com>
+	<20250326-sets-bxs-4-64-patch-v1-v5-1-e4c46e8280a9@imgtec.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250401_094540_321000_F378627D 
+X-CRM114-Status: GOOD (  41.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,120 +144,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 04:41:05PM +0000, John Ernberg wrote:
-> On 6/12/23 5:31 PM, Catalin Marinas wrote:
-> > That's v7 of the series reducing the kmalloc() minimum alignment on
-> > arm64 to 8 (from 128). There's no new/different functionality, mostly
-> > cosmetic changes and acks/tested-bys.
-> > 
-> > Andrew, if there are no further comments or objections to this version,
-> > are you ok to take the series through the mm tree? The arm64 changes are
-> > fairly small. Alternatively, I can push it into linux-next now to give
-> > it some wider exposure and decide whether to upstream it when the
-> > merging window opens. Thanks.
-> > 
-> > The updated patches are also available on this branch:
-> > 
-> > git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux devel/kmalloc-minalign
-> > 
-[...]
-> Seen on Linux 6.12.20, it is not trivial for us to test later kernels so
-> if the issue is potentially fixed we are more than happy to cherry-pick
-> the potential fixes and give them a go.
 
-I'm not aware of any recent fix for this, so I doubt testing a newer
-kernel would make a difference.
 
-> Having an SMSC9512 (smsc95xx) USB Ethernet/Hub chip attached to the armv8
-> SoC iMX8QXP over the Cadence USB3 USB2 interface (cdns3-imx) will since
-> the patch set at [0] cause random interrupt storms over the SMSC9512 INT
-> EP.
+On 3/26/25 17:48, Matt Coster wrote:
+> The first compatible strings added for the AXE-1-16M are not sufficient to
+> accurately describe all the IMG Rogue GPUs. The current "img,img-axe"
+> string refers to the entire family of Series AXE GPUs, but this is
+> primarily a marketing term and does not denote a level of hardware
+> similarity any greater than just "Rogue".
 > 
-> The reason for the storm is that the async URBs queued at [1] right before
-> the interrupt configuration [2] in the driver.
-> With [0] applied, those async URBs are likely clobbering any URB located
-> after them in memory somewhere in the xhci memory space.
-> The memory corruption only happens if there is more than one URB in the
-> queue at the same time, making these async URBs a good trigger of the
-> problem.
-> If we force those URBs to be sync or use the hack inlined below, the
-> problem goes away.
+> The more specific "img,img-axe-1-16m" string refers to individual AXE-1-16M
+> GPU. For example, unlike the rest of the Series AXE GPUs, the AXE-1-16M
+> only uses a single power domain.
+> 
+> The situation is actually slightly worse than described in the first
+> paragraph, since many "series" (such as Series BXS found in the TI AM68
+> among others and added later in this series) contain cores with both Rogue
+> and Volcanic architectures.
+> 
+> Besides attempting to move away from vague groupings defined only
+> by marketing terms, we want to draw a line between properties inherent to
+> the IP core and choices made by the silicon vendor at integration time.
+> For instance, the number of power domains is a property of the IP core,
+> whereas the decision to use one or multiple clocks is a vendor one.
 
-I'm not really familiar with this area. My only drivers/usb/ change
-related to ARCH_KMALLOC_MINALIGN was commit 075efe7c1656 ("drivers/usb:
-use ARCH_DMA_MINALIGN instead of ARCH_KMALLOC_MINALIGN"). I wouldn't be
-surprised if I missed other things that rely on the kmalloc() alignment
-rather than explicit macros.
+Hi,
+We’ve had an interesting discussion on how to synchronize clock and
+reset management for the T-HEAD SoC [1] with regard to the Imagination
+GPU. Long story short, there is a preference to place SoC-specific
+elements in the generic PM driver - however since drm/imagination driver
+currently attempts to manage clocks itself, we would need to provide
+some empty stubs, which does seem like an ugly solution.
 
-> The content of read_buf in the interrupt configuration read at [2] looks
-> to be the lo-part of a pointer +-20 bytes distance from the pointers
-> present in the async URBs queued from [1] when we dumped the URB structures
-> instead of the expected register contents.
+I agree that a number of clocks is a vendor decision, but the clocks
+doesn't have to necessarily be managed from the consumer driver. Would
+you be open to a patch which makes the clock management from the
+drm/imagination driver optional ? Same way I've proposed an optional
+reset [2] previously.
 
-It might be worth enabling CONFIG_DMA_API_DEBUG to see if it complains.
-I lost myself in the call paths on how read_buf gets populated. In
-principle, the DMA API should handle bouncing (swiotlb) even if you pass
-it a buffer smaller than the required alignment
+This way if the clocks/reset are not provided, it would be assumed that
+there is something SoC specific to how they're mangaged and they would
+be implemented in the generic PM driver.	
 
-Random shot, untested and not an actual fix but some ideas for
-debugging:
+Regards,
+Michał
 
-------------------8<-------------------------------
-diff --git a/drivers/net/usb/usbnet.c b/drivers/net/usb/usbnet.c
-index 44179f4e807f..06d5f9bfef75 100644
---- a/drivers/net/usb/usbnet.c
-+++ b/drivers/net/usb/usbnet.c
-@@ -2024,7 +2024,7 @@ static int __usbnet_read_cmd(struct usbnet *dev, u8 cmd, u8 reqtype,
- 		   cmd, reqtype, value, index, size);
+[1] - https://lore.kernel.org/all/ef17e5d1-b364-41e1-ab8b-86140cbe69b2@samsung.com/
+[2] - https://lore.kernel.org/all/20250219140239.1378758-14-m.wilczynski@samsung.com/
 
- 	if (size) {
--		buf = kmalloc(size, GFP_NOIO);
-+		buf = kmalloc(ALIGN(size, dma_get_cache_alignment()), GFP_NOIO);
- 		if (!buf)
- 			goto out;
- 	}
-@@ -2171,12 +2171,13 @@ int usbnet_write_cmd_async(struct usbnet *dev, u8 cmd, u8 reqtype,
- 		goto fail;
-
- 	if (data) {
--		buf = kmemdup(data, size, GFP_ATOMIC);
-+		buf = kmalloc(ALIGN(size, dma_get_cache_alignment()), GFP_ATOMIC);
- 		if (!buf) {
- 			netdev_err(dev->net, "Error allocating buffer"
- 				   " in %s!\n", __func__);
- 			goto fail_free_urb;
- 		}
-+		memcpy(buf, data, size);
- 	}
-
- 	req = kmalloc(sizeof(struct usb_ctrlrequest), GFP_ATOMIC);
-diff --git a/drivers/usb/cdns3/cdnsp-mem.c b/drivers/usb/cdns3/cdnsp-mem.c
-index 97866bfb2da9..226ac7af6511 100644
---- a/drivers/usb/cdns3/cdnsp-mem.c
-+++ b/drivers/usb/cdns3/cdnsp-mem.c
-@@ -45,6 +45,7 @@ static struct cdnsp_segment *cdnsp_segment_alloc(struct cdnsp_device *pdev,
- 		return NULL;
- 	}
-
-+	max_packet = ALIGN(max_packet, dma_get_cache_alignment());
- 	if (max_packet) {
- 		seg->bounce_buf = kzalloc(max_packet, flags | GFP_DMA);
- 		if (!seg->bounce_buf)
-------------------8<-------------------------------
-
-Even without the above, my reading of the code is that it is safe since
-the buffers eventually end up in dma_map_single() which would do
-bouncing via an aligned buffer.
-
-Try to track down call paths from smsc95xx_read_reg() and
-smsc95xx_write_reg_async() to usbnet_{read,wrote}_cmd* etc. and see how
-the DMA transfers happen, whether it's missing some dma_map_* call. The
-dma_map_* bouncing logic relies on the size, see
-dma_kmalloc_needs_bounce().
-
-Is there an iommu between the usb host controller and memory? The iommu
-code should do similar bouncing but it's had minimal testing.
-
--- 
-Catalin
+> 
+> In the original compatible strings, we must use "ti,am62-gpu" to constrain
+> both of these properties since the number of power domains cannot be fixed
+> for "img,img-axe".
+> 
+> Work is currently underway to add support for volcanic-based Imagination
+> GPUs, for which bindings will be added in "img,powervr-volcanic.yaml".
+> As alluded to previously, the split between rogue and volcanic cores is
+> non-obvious at times, so add a generic top-level "img,img-rogue" compatible
+> string here to allow for simpler differentiation in devicetrees without
+> referring back to the bindings.
+> 
+> The currently supported GPU (AXE-1-16M) only requires a single power
+> domain. Subsequent patches will add support for BXS-4-64 MC1, which has
+> two power domains. Add infrastructure now to allow for this.
+> 
+> Also allow the dma-coherent property to be added to IMG Rogue GPUs, which
+> are DMA devices. The decision for coherency is made at integration time and
+> this property should be applied wherever it accurately describes the
+> vendor integration.
+> 
+> Note that the new required properties for power domains are conditional on
+> the new base compatible string to avoid an ABI break.
+> 
+> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+> ---
+> Changes in v5:
+> - Remove extraneous (and error-causing) power-domains minItems constraint
+> - Link to v4: https://lore.kernel.org/r/20250320-sets-bxs-4-64-patch-v1-v4-1-d987cf4ca439@imgtec.com
+> Changes in v4:
+> - Add img,img-rogue back to ti,am62-gpu compatible strings to allow
+>   compatibility with older kernels
+> - Revert change to power-domains property and add proper constraint
+> - Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-1-143b3dbef02f@imgtec.com
+> Changes in v3:
+> - Remove unnecessary example
+> - Remove second power domain details, add these where they're used instead
+> - Avoid ABI breaks by limiting new required properties to new compatible
+>   strings and making all binding changes in a single patch.
+> - Links to v2:
+>   https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-1-3fd45d9fb0cf@imgtec.com
+>   https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-3-3fd45d9fb0cf@imgtec.com
+>   https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-4-3fd45d9fb0cf@imgtec.com
+> ---
+>  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 43 +++++++++++++++++++---
+>  1 file changed, 38 insertions(+), 5 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> index 256e252f8087fa0d6081f771a01601d34b66fe19..e1056bf2af84c3eb43733bdc91124a66aaf51d35 100644
+> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> @@ -12,10 +12,23 @@ maintainers:
+>  
+>  properties:
+>    compatible:
+> -    items:
+> -      - enum:
+> -          - ti,am62-gpu
+> -      - const: img,img-axe # IMG AXE GPU model/revision is fully discoverable
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - ti,am62-gpu
+> +          - const: img,img-axe-1-16m
+> +          # This deprecated element must be kept around to allow old kernels to
+> +          # work with newer dts.
+> +          - const: img,img-axe
+> +          - const: img,img-rogue
+> +
+> +      # This legacy combination of compatible strings was introduced early on
+> +      # before the more specific GPU identifiers were used.
+> +      - items:
+> +          - enum:
+> +              - ti,am62-gpu
+> +          - const: img,img-axe
+> +        deprecated: true
+>  
+>    reg:
+>      maxItems: 1
+> @@ -37,6 +50,12 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>  
+> +  power-domain-names:
+> +    items:
+> +      - const: a
+> +
+> +  dma-coherent: true
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -47,6 +66,18 @@ required:
+>  additionalProperties: false
+>  
+>  allOf:
+> +  # Constraints added alongside the new compatible strings that would otherwise
+> +  # create an ABI break.
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: img,img-rogue
+> +    then:
+> +      required:
+> +        - power-domains
+> +        - power-domain-names
+> +
+>    - if:
+>        properties:
+>          compatible:
+> @@ -64,10 +95,12 @@ examples:
+>      #include <dt-bindings/soc/ti,sci_pm_domain.h>
+>  
+>      gpu@fd00000 {
+> -        compatible = "ti,am62-gpu", "img,img-axe";
+> +        compatible = "ti,am62-gpu", "img,img-axe-1-16m", "img,img-axe",
+> +                     "img,img-rogue";
+>          reg = <0x0fd00000 0x20000>;
+>          clocks = <&k3_clks 187 0>;
+>          clock-names = "core";
+>          interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
+>          power-domains = <&k3_pds 187 TI_SCI_PD_EXCLUSIVE>;
+> +        power-domain-names = "a";
+>      };
+> 
 
