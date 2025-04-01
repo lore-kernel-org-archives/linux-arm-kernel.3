@@ -4,87 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB12C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 07:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62560C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 07:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4nNzjFLlX0hgN8AxePGDE9S1lJ4kGFRD5jIQ7N2ASbw=; b=KxIOiLMbOOGNC2A4QGOoQD/05N
-	6YImIEY7wTcl+jip2VMMTtt2qnBnrhRBl87oBT5PyEAz1BSjkuIv6zBbjeLlpp1TJyz5TKboI+mSj
-	evOeHhVF6ogcu6FOdMzCkG8QL9TLFupk4XVGJEr1LjghyTaDnBVd6WhMU4vN/BfYk2SzYG16aGRp+
-	IdSpkClD1X8BuPT1Cfm9aGECiX129zlaaJdkDO0159HMQFhHhQ4qG8x5ZcA/IQxAXvVgrxHRX1Yc6
-	rub7Wupi2OVJBLl+422tX2HkO+/YlJBdB4LE5YBm1iODHVOU2QeEvuRxN8mewpSvk3xIqS8fy12Dg
-	izwlElLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o/RWBxXdJN1vknmo3Kkyl/3QyB/UHIAIM1uC6oUszog=; b=hSVsePUc9+V1Osbs55Jh1WZqbk
+	AK+yDpN1+xOhbCQqt9ajsEHPIgJytDgteNNk1ykP4frU4kK45A5wuRKNZbMtO1DmPbxOvupW4OUSd
+	jKmlqPmOE/iP7c9QPCIphpTuPZ5Wq/xBXTNukLbd7swHyNtZ3pT1mG7sIdps2uw9Qu31/sCEiVcuZ
+	/+FGV8cxvGbmiGRk8kNPS4l6oDP5ITdMk5vKnsGTkRi3Z71/rDT3QR2zLTZYcZJL27Qk2ninv7rFN
+	lOfIhy/D6tj+9f/XyHtWmYjeFEJgQMcLlIEQhPW7pJrX+QZaJofxW1K8tuP9/BinwFJi2Kw+qd1mj
+	mPaFt/dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzVy1-00000002BEH-2YEA;
-	Tue, 01 Apr 2025 07:23:25 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tzW2I-00000002CB7-2U0D;
+	Tue, 01 Apr 2025 07:27:50 +0000
+Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzVuk-00000002Aod-0OxL
+	id 1tzW0V-00000002C05-03D6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 07:20:03 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2240aad70f2so149935ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 00:20:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743492000; x=1744096800; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4nNzjFLlX0hgN8AxePGDE9S1lJ4kGFRD5jIQ7N2ASbw=;
-        b=of2dj3db3H/n9Cg5n4O1W3dRZYphMIO5zs05z5myzz0LALBn0LU/3TWti9Nld1hvlB
-         uEs9mY7JhovNEIWQLNcFcIUBLTItVWDpnUGVS7cBxl6n0uC2aRus84beMeo2ImO8sq4b
-         y1FjQ6vDWI9rJoJfa2hafu/xW8Y6G9XnkabelTyau2zZaNzHsMP3lacz4pbNKZXQiYh2
-         NBXk3fVuDV2BeVjq5cpcbXNrVEppaQz7i6IEOeetd/hSO+KCREU0gC2Fm2/X5pd84RS+
-         1BWTDpI3QQ3rxaFQKoDf9Xnz/fc/DaPYMWtiXnLQmtN0yBm6olXrgxwSdhVJ6D/kqLcz
-         VJkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743492000; x=1744096800;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4nNzjFLlX0hgN8AxePGDE9S1lJ4kGFRD5jIQ7N2ASbw=;
-        b=pRcRmefPXGcuHn2tBnzCyvBpVN5JQrlZ9B7k2FmtZLaPYl0Zm3gQdy3jORfmA7RZQQ
-         WZhqJLo+aIQNttSXX7jPODWGmc8WDDixQ0qrJg6+QyWg+hvzRMCA5w/vd+/txrbDNl4S
-         +UALmEuUG5NnE/aqN/7UOu5Cs5Up+gXkzzvt+NwUVoPdBwa5fM6w6eiJGdnrWualn9RE
-         BEtBH90HfX9TSVeedHPsJQZaw9GI1hWiReyuKufQOdOTdv8tpOX7s9/HQhx80FZG3Nsg
-         PAu3d/yYBqBeTgJvJaaKrNllXLBMGWBREhZxzQCINSmD1iOefO+0V8rqqdHzYi9bADC3
-         rQ3g==
-X-Forwarded-Encrypted: i=1; AJvYcCVTr3oxnyP42GfcA0MS9DjsclZx79cTF1i/oFOVjAK93ZqVtyu2CGKvPsH6APAlvAH6u3K1B4rhma/5Dqc0l/8d@lists.infradead.org
-X-Gm-Message-State: AOJu0YxusF7A9QJmPYBtLao0f6KQj6Eyhg+ej2fDpTPX+vzOSgKs2Csd
-	Dv99fzI/TzLYPBkaonlvXbrN7CaQMQvorijHhHHXn2fXmv7IZ82xrGC9krqKfiyNuC2HIHnKWRF
-	n7o4awvJRGcQ9IgEUhhhmkkmjBcgtt6SZ7Byk
-X-Gm-Gg: ASbGncuf3FMJXKi+7WjBdlALajPH6UIs5Z3yZJf3EVzHH+hA73G2lxaEp4cvdhZBKb2
-	keL2dOToKCDRBW+DsoF4P2zECTy1KB5wPQlvXQ3NqCwYNIs/2uAZIQ9Xye4ITS4riFR3lWD5AxO
-	/AvdObF4jSI1iG05d8lG/IbkEwpdNtGK4cuRx6LUFmf+hyjFVbLSz+ogi3Yg==
-X-Google-Smtp-Source: AGHT+IEnyvd6es/zpWvt015PkcGKvZjgaAm/HA1x1p4f9qCEGneOY3x1NVAjuNd8D9r0AfQw3N5WD9kqvto64BkWnIM=
-X-Received: by 2002:a17:902:d2c6:b0:21f:3e29:9cd1 with SMTP id
- d9443c01a7336-2295cfe6b1bmr1720245ad.1.1743492000201; Tue, 01 Apr 2025
- 00:20:00 -0700 (PDT)
+	Tue, 01 Apr 2025 07:26:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ju8CCZPlILWf1dCQjMroNGtMvoab++MfM0tMRTJM5U0Ab8RzTN2vFpdPrPE4HdgKkkDNmCm7LdaH23pqyfogt52QYEFkJPZad1Qb+qz72FW50g+2v8ER3nYzRR+0SVLn6Ng/aa6v9UIwMlEE5JP3oXeKe15LAFgepzUo7rCT/+VhdsMlQNYCdRTLIchBNM4u3lGH19KP3i2TD2N09eGxIiacqYjiNiyXiL4cQx8X7BDtakAzEtkAf2Nw5B+w5IZ7xVXr6iJiSKd/6hj4HWcUfwc09Rx8xkW+iwzcBcdwIRuURJsuZYCqNDRBeD5ZbwDFzpq3aC+St9ZUaeOjZSkZhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=o/RWBxXdJN1vknmo3Kkyl/3QyB/UHIAIM1uC6oUszog=;
+ b=TDh6oLc45lhykQeGSPCIKu01L1nkCC8cQOI06+ZxHCTux5YRK2xN7pbvCfYKUgP7E5KdM9GtOKz+hP0kqohy+E9mIzea197izxk751cBUO6FkDD0bamd6Hk6Rfq1K/Nm+0l8qHwH5gTVU1salYe3kqUImE4KFdCLbLkjkN2N9ktxjCob4lXaUEOEwknvvXUn5tpgonYChOku81GYW2ex9z/nYeIWCePC5/PtxjbaF8clH+PJcWo6FfmYeNAv+qdiB02yrTxnDSH2LVwvXaPp/K+61lipqT3AoN6wGUHB9pkX7XmrP5/Kwt71jLEXh90YXy/m/yVEF1rbpHg2ReoS3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=o/RWBxXdJN1vknmo3Kkyl/3QyB/UHIAIM1uC6oUszog=;
+ b=R6ySs/FVSwYnXzaMUQIVow3bByNxSMTIiFtq5bc8prVMTP3e9Xd0Zqe7snJGygWkYtrOqqoRI8VkshllI8ymvkFvFHIrnjHZUcci+8FWny708Pq2bCl9OS58KQvTXV4u/0ZQyLtWrN+qxmaYbymRPnhCehOUXUNc0LekZsI71X03F3etpE6jIIcvNCHTbpemOFsJEGTmyx/cVQC20wjAGjheN4KYkG4NPAKlE93YpiOs2HOvKCBl6syHw+z8G/g9DjiYFZKWnXspHLztvhoVtkjSxJdFyA3X61j+PMnjoLVHCDFM30TzO4yfw5MTL29gC7xWcumx9hUxjNoJZi8q+g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
+ by GVXPR04MB9735.eurprd04.prod.outlook.com (2603:10a6:150:118::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Tue, 1 Apr
+ 2025 07:25:55 +0000
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8534.045; Tue, 1 Apr 2025
+ 07:25:55 +0000
+From: Jacky Bai <ping.bai@nxp.com>
+To: sudeep.holla@arm.com,
+	linus.walleij@linaro.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	cristian.marussi@arm.com
+Cc: aisheng.dong@nxp.com,
+	festevam@gmail.com,
+	kernel@pengutronix.de,
+	linux-gpio@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org
+Subject: [PATCH RFC] pinctrl: freescale: Add support for imx943 pinctrl
+Date: Tue,  1 Apr 2025 15:27:25 +0800
+Message-Id: <20250401072725.1141083-1-ping.bai@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR04CA0004.apcprd04.prod.outlook.com
+ (2603:1096:4:197::22) To AS8PR04MB8642.eurprd04.prod.outlook.com
+ (2603:10a6:20b:429::24)
 MIME-Version: 1.0
-References: <20250327160700.1147155-1-ryan.roberts@arm.com>
- <Z-WAbWfZzG1GA-4n@casper.infradead.org> <5131c7ad-cc37-44fc-8672-5866ecbef65b@arm.com>
- <Z-b1FmZ5nHzh5huL@casper.infradead.org> <ee11907a-5bd7-44ec-844c-8f10ff406b46@arm.com>
-In-Reply-To: <ee11907a-5bd7-44ec-844c-8f10ff406b46@arm.com>
-From: Kalesh Singh <kaleshsingh@google.com>
-Date: Tue, 1 Apr 2025 00:19:48 -0700
-X-Gm-Features: AQ5f1JrGGiC_D0IIoE2ouih3ARQNGmoqFS-gJpqf2fABIUInDzCxtOi5p0Pa9A4
-Message-ID: <CAC_TJveU2v+EcokLKJVVZ8Xje2nYmmUg8bvCD8KO1oC5MgmWCA@mail.gmail.com>
-Subject: Re: [PATCH v3] mm/filemap: Allow arch to request folio size for exec memory
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Matthew Wilcox <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|GVXPR04MB9735:EE_
+X-MS-Office365-Filtering-Correlation-Id: e1792f10-d1f6-42a6-a7e0-08dd70ee70f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|52116014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tOMC6fmSZ9w4p5DpjF3RtEqk6As01JUxcB6m+l/Y4O0Dr8o9maR+2FQW0kuZ?=
+ =?us-ascii?Q?dkaZu2+yGxVLNRR6SqVH2iz9csc8hPiynGaTRmnCQogWDhqQRlgZddrnhmoA?=
+ =?us-ascii?Q?W6bgd9S+7V9wQCCpH9IhWCwnDxRM+JOfKW9euYWpmW2yF8PX2tT0mgjKuz6O?=
+ =?us-ascii?Q?eXXC9iV56ErdtI49nsdpXKx+9mv7zDOaXCZTeAzG+N1cKZHM/ipYC8/YsRq+?=
+ =?us-ascii?Q?S0yIZbQc2rBrjQgunzwIft7n8Wn9BPaR2UZ28pz3TFs8Ru8zBtEa9HgQ4Zi3?=
+ =?us-ascii?Q?YasrzHrSmUOET522OvlG+JM+25OTv9F2dEr/VOyBv5a/y2T7SRQAlE84u8yV?=
+ =?us-ascii?Q?3OZm2N/dO+WJniP9weN+doeW5Ks7MDK3tos4D4Po+xdcS+4m/5m3WS2HfLvn?=
+ =?us-ascii?Q?XVIA3AT9ymSSxOKMau770yLOmd9EfCKMNF1LxzI6dmE0NZ39F0oBiyVbSZdQ?=
+ =?us-ascii?Q?h2tx3Cv9xMJwm1b556LtW3XiY+uBhNVzhiYhXlbQApvUK7EaeYM6mejWAjcV?=
+ =?us-ascii?Q?RKqxPTJWt+G4lAJmCZMvxVBzXuXkQDZbSR5jqPaxqN9f2fzHTdevvc2qgl40?=
+ =?us-ascii?Q?sQTIdjRSMKkk0cFAhELWDjCl/fHbPGos8h3+2QTpsWnqJxGmjDR5lUl4pXea?=
+ =?us-ascii?Q?HLhLJi9j88JdcjxmylP/ZPAfDfxCayNGupZgtX2LVU3lpKZ2gIpuCBUMM0F+?=
+ =?us-ascii?Q?HSRPilB6OI/En6b26vbTCgH2JlK/fWOakclsEXYXwCtyqq4/sZjCBHZ+R6bS?=
+ =?us-ascii?Q?i+X1yprjZPeX1pkuFD75YSh5MsDGHItCsDmfSoyGQqnPZSlY6LJpqn4XLnha?=
+ =?us-ascii?Q?gmAys6wC1XcKHslSaG3kunzRr9vlSwS0Y19uuUGJSY5bqsohwmHwefG4BhVW?=
+ =?us-ascii?Q?JLxm2FhQRgB1uOp2g9taH2vWWBBY1w2NG8t8pfgKpfDHcZeY4PiWywFeX2Md?=
+ =?us-ascii?Q?WCLbTIy58Yn7IWVyyev5kfsJI2CLwNN/kQ747oCqiNFMCxvrekQL/9b47H6S?=
+ =?us-ascii?Q?YBHE5AlBmOlEbMO+DRoYTbpOVr3kjX6iPtey8a2QZutIS+u6FnbwZVYlhIqk?=
+ =?us-ascii?Q?5qhgA7Z3grOA4/Fyr0GZ7x7rL8zAYAI0MzPGNtLELo+npcgSMgl8IkcgqA83?=
+ =?us-ascii?Q?6wvdu14FdWuWOByDB83PVBdKR5MfPjZxS7liiilttlKYyRFAuoPW7jVe5sSw?=
+ =?us-ascii?Q?oXu+X02/mkN4F6m1deTJOc5nJp6J1+6x6Urm8E53HFGxYaTsEuBPD4AkWFIU?=
+ =?us-ascii?Q?6/XJFLuIAbhNNdaV6jJGeDwb0fzbNa2rzUldI8RSblHopzNnKi+P4kuSlY27?=
+ =?us-ascii?Q?QmT4a1Yp2FpKGmIu/D2tGwsMGTtAXfyArNcW3FR5mvEDekKfqsJ4QAL9dbhc?=
+ =?us-ascii?Q?YLGFF40+p2V3/WKhzFfUpiC7dSJyan5dE7X6fF4SHz1mX+q9pgjTq0/qs6Vb?=
+ =?us-ascii?Q?s2vytiVgrkNyQkHcdJLwxwzq6VZQIMYg?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(52116014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8bR8kZi4es6ipySaaVQoub8lGCbXhqQuq+z9AigqLk54Gzm1or1D5lNJ6nCk?=
+ =?us-ascii?Q?NSr5svvVcDvdOyan3kR684V8OUqwzqiVkb3ZNFfzNhtaaAJTnu8gyrlotwm6?=
+ =?us-ascii?Q?9vYeUAH4pBOagd/DgyMGO4lsyCrGzPb1oaVxYnq/6zgkLjdA6fK5gQOvoF5r?=
+ =?us-ascii?Q?q3azADSC860gy+tXHGZ9wQREYtgERvyDEaQeXs4W6XxJVQh5a16oytXd0nlr?=
+ =?us-ascii?Q?40Ccl518Qlwi77lndRPMRwg0xlGgxZfcxd/VD+aykl5ieLO3OTMLECGYPoxv?=
+ =?us-ascii?Q?TDUCHsvr4+ExUOCa5uBh0RX3n66PlkFbW4OFflRWVmCysGWL8EPRWVSDXoMI?=
+ =?us-ascii?Q?bMGRUGDUMnLowRmOO7Wv3EUeVh+a9vgV2TYW5mW/awT9SSLW4FgAG6yIxSCg?=
+ =?us-ascii?Q?39tGeeB1q27ofmu3CwlOOaoRZfbS01u0UyC/0idi3MhD652nMJ5DTxniMDTo?=
+ =?us-ascii?Q?YpLxgHOtd1ALxRUmoCgFm5LX+qZjAqUumSU7+FVPQJXigDoCTHcmNmFKWVGW?=
+ =?us-ascii?Q?Js3N3OyXawlsA4mCO31ax9pTDy9t0W4RH9HOm97bl9nRZDASWIxgdz18VbmD?=
+ =?us-ascii?Q?x1+9hP7VaABxGENHbsxLOcpOKo5x5s0saHPaquYV34mdv4IfFNfy+vRG9LEV?=
+ =?us-ascii?Q?Pqm3foiq+smoQz80/JNJdS9so4166anHz7arbARPTWcPPVN3e1Pkve2d6aOH?=
+ =?us-ascii?Q?c461ahEPiVl+gt9SuggAlCP6v8+DG5SgU/7nCslVUAK91FbpU6KPBLIKaFt/?=
+ =?us-ascii?Q?KIOhQzWUu/eez1wEs7CGi7Mr2bVBacgEY10zM+a/FPkAUvlpFHv6MywU8Llk?=
+ =?us-ascii?Q?p7D7r/t9eiGlmJg2uTE3EkeezGxhYDF6hwoOo305uw/xx6R72nIWeVXEZdtM?=
+ =?us-ascii?Q?9XwWAMvecI250A4TY8cAfCjnjfTHCu6ayN24nbtOmxTHg7/1UWzBo7tYo6h/?=
+ =?us-ascii?Q?Af0OFXrDniLW476dhT2MLYZiS4cVQRVNFii6bY8O7g10yU1lIa3Utx6CYCWu?=
+ =?us-ascii?Q?V5qUY8h/l//K6SraNyaG1P7m0B8f2VHwxZtdgevXt0CBHS098irC+62WoM2k?=
+ =?us-ascii?Q?dNxf9QO8Tot0YqjRnWS8mjfqQ8Q/alfE8cTd1mIIjZ6J+79P+uVciHDbtZiF?=
+ =?us-ascii?Q?cu223U6vyBSh55QnFJwfsznaw6ksdsF3BG/bW3JD5u4tWFHLbYY48Y1Ui891?=
+ =?us-ascii?Q?yNGfe3c9pxSXO3oo1+m0N2GKnq/D6f3OSga2mnW+AvA2FUhknM3q1PSEQODh?=
+ =?us-ascii?Q?Dfl+VrJZpwjDPoqQoybe32ozXD/AJz+BOBWvz33AP+Sav2arnV2L7E8YL2xc?=
+ =?us-ascii?Q?efHT4EC6lWwEW5Jyh/E68XDVjGw/VPNuJDt8TcK9IhBKYjP/Ctigd+cVaVyC?=
+ =?us-ascii?Q?sT4lY/FCVhpcl5Rn9e2XDhm2sf9X8B1Gxlkm0CtpUuL2F1Al0qbwz0P6igOV?=
+ =?us-ascii?Q?7xaWqbnQz3RyWR43z4Be8kPwCCgdyE1mwGkPVTvP5L1dH9r/cMWVbIS/Nkyx?=
+ =?us-ascii?Q?UPX4btx1dmkf4nidsYZ/zMUeAMIuh8PEyhrmDiQa8rXTttBXDR5QlYW0sKSY?=
+ =?us-ascii?Q?G+CbVRnsepGfrZuF/PjMJ57VMRGyFh0TvsjQ+7sV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e1792f10-d1f6-42a6-a7e0-08dd70ee70f0
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2025 07:25:55.8128
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: feHp+n76KglqEaPbjGp4xLu6qI1rcxWqi5004Sq7olMPsJV7/bG1ihD+qr001GngK/5RaJF69ZzV6FK6KHGIbw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9735
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_002002_142393_2D9D1A90 
-X-CRM114-Status: GOOD (  56.85  )
+X-CRM114-CacheID: sfid-20250401_002559_052770_52983B78 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,228 +163,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 29, 2025 at 3:08=E2=80=AFAM Ryan Roberts <ryan.roberts@arm.com>=
- wrote:
->
-> On 28/03/2025 15:14, Matthew Wilcox wrote:
-> > On Thu, Mar 27, 2025 at 04:23:14PM -0400, Ryan Roberts wrote:
-> >> + Kalesh
-> >>
-> >> On 27/03/2025 12:44, Matthew Wilcox wrote:
-> >>> On Thu, Mar 27, 2025 at 04:06:58PM +0000, Ryan Roberts wrote:
-> >>>> So let's special-case the read(ahead) logic for executable mappings.=
- The
-> >>>> trade-off is performance improvement (due to more efficient storage =
-of
-> >>>> the translations in iTLB) vs potential read amplification (due to
-> >>>> reading too much data around the fault which won't be used), and the
-> >>>> latter is independent of base page size. I've chosen 64K folio size =
-for
-> >>>> arm64 which benefits both the 4K and 16K base page size configs and
-> >>>> shouldn't lead to any read amplification in practice since the old
-> >>>> read-around path was (usually) reading blocks of 128K. I don't
-> >>>> anticipate any write amplification because text is always RO.
-> >>>
-> >>> Is there not also the potential for wasted memory due to ELF alignmen=
-t?
-> >>
-> >> I think this is an orthogonal issue? My change isn't making that any w=
-orse.
-> >
-> > To a certain extent, it is.  If readahead was doing order-2 allocations
-> > before and is now doing order-4, you're tying up 0-12 extra pages which
-> > happen to be filled with zeroes due to being used to cache the contents
-> > of a hole.
->
-> Well we would still have read them in before, nothing has changed there. =
-But I
-> guess your point is more about reclaim? Because those pages are now conta=
-ined in
-> a larger folio, if part of the folio is in use then all of it remains act=
-ive.
-> Whereas before, if the folio was fully contained in the pad area and neve=
-r
-> accessed, it would fall down the LRU quickly and get reclaimed.
->
+Add support for i.MX943 pinctrl.
 
+Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+---
+ drivers/pinctrl/freescale/pinctrl-imx-scmi.c | 4 ++++
+ drivers/pinctrl/pinctrl-scmi.c               | 1 +
+ 2 files changed, 5 insertions(+)
 
-Hi Ryan,
+diff --git a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+index 8f15c4c4dc44..4e8ab919b334 100644
+--- a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
++++ b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+@@ -51,6 +51,7 @@ struct scmi_pinctrl_imx {
+ #define IMX_SCMI_PIN_SIZE	24
+ 
+ #define IMX95_DAISY_OFF		0x408
++#define IMX94_DAISY_OFF		0x608
+ 
+ static int pinctrl_scmi_imx_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 					   struct device_node *np,
+@@ -70,6 +71,8 @@ static int pinctrl_scmi_imx_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 	if (!daisy_off) {
+ 		if (of_machine_is_compatible("fsl,imx95")) {
+ 			daisy_off = IMX95_DAISY_OFF;
++		} else if (of_machine_is_compatible("fsl,imx94")) {
++			daisy_off = IMX94_DAISY_OFF;
+ 		} else {
+ 			dev_err(pctldev->dev, "platform not support scmi pinctrl\n");
+ 			return -EINVAL;
+@@ -289,6 +292,7 @@ scmi_pinctrl_imx_get_pins(struct scmi_pinctrl_imx *pmx, struct pinctrl_desc *des
+ 
+ static const char * const scmi_pinctrl_imx_allowlist[] = {
+ 	"fsl,imx95",
++	"fsl,imx94",
+ 	NULL
+ };
+ 
+diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
+index df4bbcd7d1d5..383681041e4c 100644
+--- a/drivers/pinctrl/pinctrl-scmi.c
++++ b/drivers/pinctrl/pinctrl-scmi.c
+@@ -507,6 +507,7 @@ static int pinctrl_scmi_get_pins(struct scmi_pinctrl *pmx,
+ 
+ static const char * const scmi_pinctrl_blocklist[] = {
+ 	"fsl,imx95",
++	"fsl,imx94",
+ 	NULL
+ };
+ 
+-- 
+2.34.1
 
-I agree this was happening before and we don't need to completely
-address it here. Though with the patch it's more likely that the holes
-will be cached. I'd like to minimize it if possible. Since this is for
-EXEC mappings, a simple check we could use is to limit this to the
-VM_EXEC vma.
-
-+ if (vm_flags & VM_EXEC) {
-+ int order =3D arch_exec_folio_order();
-+
-+ if (order >=3D 0 && ((end-address)*2) >=3D 1<<order) { /* Fault around ca=
-se */
-
-For reference I found below (coincidentally? similar) distributions on
-my devices
-
-=3D=3D x86 Workstation =3D=3D
-
-Total unique exec segments:   906
-
-Exec segments >=3D 16 KB:   663 ( 73.18%)
-Exec segments >=3D 64 KB:   414 ( 45.70%)
-
-=3D=3D arm64 Android Device =3D=3D
-
-Total unique exec segments:   2171
-
-Exec segments >=3D 16 KB:  1602 ( 73.79%)
-Exec segments >=3D 64 KB:   988 ( 45.51%)
-
-Result were using the below script:
-
-cat /proc/*/maps | grep 'r-xp' | \
-awk '
-BEGIN { OFS =3D "\t" }
-$NF ~ /^\// {
-path =3D $NF;
-split($1, addr, "-");
-size =3D strtonum("0x" addr[2]) - strtonum("0x" addr[1]);
-print size, path;
-}' | \
-sort -u | \
-awk '
-BEGIN {
-FS =3D "\t";
-total_segments =3D 0;
-segs_ge_16k =3D 0;
-segs_ge_64k =3D 0;
-}
-{
-total_segments++;
-size =3D $1;
-if (size >=3D 16384) segs_ge_16k++;
-if (size >=3D 65536) segs_ge_64k++;
-}
-END {
-if (total_segments > 0) {
-percent_gt_16k =3D (segs_ge_16k / total_segments) * 100;
-percent_gt_64k =3D (segs_ge_64k / total_segments) * 100;
-
-printf "Total unique exec segments: %d\n", total_segments;
-printf "\n";
-printf "Exec segments >=3D 16 KB: %5d (%6.2f%%)\n", segs_ge_16k, percent_gt=
-_16k;
-printf "Exec segments >=3D 64 KB: %5d (%6.2f%%)\n", segs_ge_64k, percent_gt=
-_64k;
-} else {
-print "No executable segments found.";
-}
-}'
-
-> >
-> >>> Kalesh talked about it in the MM BOF at the same time that Ted and I
-> >>> were discussing it in the FS BOF.  Some coordination required (like
-> >>> maybe Kalesh could have mentioned it to me rathere than assuming I'd =
-be
-> >>> there?)
-> >>
-> >> I was at Kalesh's talk. David H suggested that a potential solution mi=
-ght be for
-> >> readahead to ask the fs where the next hole is and then truncate reada=
-head to
-> >> avoid reading the hole. Given it's padding, nothing should directly fa=
-ult it in
-> >> so it never ends up in the page cache. Not sure if you discussed anyth=
-ing like
-> >> that if you were talking in parallel?
-> >
-> > Ted said that he and Kalesh had talked about that solution.  I have a
-> > more bold solution in mind which lifts the ext4 extent cache to the
-> > VFS inode so that the readahead code can interrogate it.
-> >
-
-Sorry about the hiccup in coordination, Matthew. It was my bad for not
-letting you know I planned to discuss it in the MM BoF. I'd like to
-hear Ted and your ideas on this when possible.
-
-Thanks,
-Kalesh
-
-> >> Anyway, I'm not sure if you're suggesting these changes need to be con=
-sidered as
-> >> one somehow or if you're just mentioning it given it is loosely relate=
-d? My view
-> >> is that this change is an improvement indepently and could go in much =
-sooner.
-> >
-> > This is not a reason to delay this patch.  It's just a downside which
-> > should be mentioned in the commit message.
->
-> Fair point; I'll add a paragraph about the potential reclaim issue.
->
-> >
-> >>>> +static inline int arch_exec_folio_order(void)
-> >>>> +{
-> >>>> +  return -1;
-> >>>> +}
-> >>>
-> >>> This feels a bit fragile.  I often expect to be able to store an orde=
-r
-> >>> in an unsigned int.  Why not return 0 instead?
-> >>
-> >> Well 0 is a valid order, no? I think we have had the "is order signed =
-or
-> >> unsigned" argument before. get_order() returns a signed int :)
-> >
-> > But why not always return a valid order?  I don't think we need a
-> > sentinel.  The default value can be 0 to do what we do today.
-> >
->
-> But a single order-0 folio is not what we do today. Note that my change a=
-s
-> currently implemented requests to read a *single* folio of the specified =
-order.
-> And note that we only get the order we request to page_cache_ra_order() b=
-ecause
-> the size is limited to a single folio. If the size were bigger, that func=
-tion
-> would actually expand the requested order by 2. (although the parameter i=
-s
-> called "new_order", it's actually interpretted as "old_order").
->
-> The current behavior is effectively to read 128K in order-2 folios (with =
-smaller
-> folios for boundary alignment).
->
-> So I see a few options:
->
->   - Continue to allow non-opted in arches to use the existing behaviour; =
-in this
-> case we need a sentinel. This could be -1, UINT_MAX or 0. But in the latt=
-er case
-> you are preventing an opted-in arch from specifying that they want order-=
-0 -
-> it's meaning is overridden.
->
->   - Force all arches to use the new approach with a default folio order (=
-and
-> readahead size) of order-0. (The default can be overridden per-arch). Per=
-sonally
-> I'd be nervous about making this change.
->
->   - Decouple the read size from the folio order size; continue to use the=
- 128K
-> read size and only allow opting-in to a specific folio order. The default=
- order
-> would be 2 (or 0). We would need to fix page_cache_async_ra() to call
-> page_cache_ra_order() with "order + 2" (the new order) and fix
-> page_cache_ra_order() to treat its order parameter as the *new* order.
->
-> Perhaps we should do those fixes anyway (and then actually start with a f=
-olio
-> order of 0 - which I think you said in the past was your original intenti=
-on?).
->
-> Thanks,
-> Ryan
->
 
