@@ -4,99 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6572C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 16:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA703C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 16:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ESjB9FswjsXqDkh+hAstUPSbEKWZtoMzCjv/1OB1iXM=; b=NTEfSzlVC4bH0oa7y4CH0OrigJ
-	ISxqHBmXi1idYGMaUUGZMU741BsK53g2+RWdVediYFT2G8VDCfArj8kueJ0u38xr/nkCvSw/BrLvH
-	wFsRDnniXwwQY/j29f7BOETt13jUD1IeIkArlE88X4XlnZqHGxHUyXmXoWdU/zAQ/N2V5fDoGfpgQ
-	4rCnuWHwBpibdfVj2WFtaQcaQy/MAleToM6wALVPJ/R9XHjy6olrFPXhQ8uawqOIvwTduhqrcT+Xj
-	njKdWBre9m2aZlEwsGLe5KyOXqFP88xrK5d3X/cIUpCDHKwFJGib3Zq9KDYPu1PxMj02KFrHEvXED
-	pExXwGQw==;
+	bh=6F2KQ4OR3ZHgS35jWuGRRIRhAOPr/hoDIO54PRiAcTc=; b=JP++d8OxDx3XIG+pSP4RbhMwqP
+	+Ry+VM/5NtpuwPmvZ1obUTbLIXUxYfXxoRk4bAQypIT3vImlPjGGPKCUpHHjVIHk2ZiNL28fPsM5v
+	mWmPPDbd77yxmUwzUULn4guXD2GoHJsfTkRBJSx27vBlv6XqxbhJXSPftJAMa/TAenKYxS3kE7pmS
+	nuRmlP8KXTrMU7AsF/qbjD4Cq7FZEsMGOcTtqW7/WYfqBcHFVgHpfQIM3RzirCAflwlCZC+N5RASJ
+	GcJ8aoIwJTwg/aiRoVTbyw0FhiMGr/snVeuzdgABtqU0vYdvn8tjk45+UTUnCw40ayxM8mq2X1H3J
+	MInCEF7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tze4C-00000003o4Y-1VyQ;
-	Tue, 01 Apr 2025 16:02:20 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tze5x-00000003oHN-1Pqo;
+	Tue, 01 Apr 2025 16:04:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzdoP-00000003kz9-0nAy
+	id 1tzduK-00000003mO0-0wiH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 15:46:02 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cef035a3bso41902875e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 08:46:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743522359; x=1744127159; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ESjB9FswjsXqDkh+hAstUPSbEKWZtoMzCjv/1OB1iXM=;
-        b=WTnrPK9plhnJtIvVJWojnbVzmFSVEGK1pXkCgfxtVAZjOg6pLStBuTqF34+fWGF+J6
-         17rWVDsz+VthYeHag4Z87VMp2URzwkYfCYX2kj76bI/BPdto0/i+4XS4sY3Vj79H3CO8
-         JCUv+w0KWIfnXZZo4Dey6IPoMbIEcO4FNZQI5u6RQVP8M/u1LAD3eAfnLKI+E7FA/j5s
-         T6yM9Uf4NPZoHXqseMnC0isgost9ONiJc+pD+ckXssGDXDZZAw1mNrNLiZuw/kTCKlVR
-         PpPrNhZikKoBoEX1dEUaiRLgpDfYrY8pDdxWDQx5+j8gmP8RJ1FXtA1ZRdE0QH0IQsae
-         CsuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743522359; x=1744127159;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ESjB9FswjsXqDkh+hAstUPSbEKWZtoMzCjv/1OB1iXM=;
-        b=DVfJAJ0yVU2aT2Mm6lrORk1nG5WnvOkpXhd2NVu/Te/DR9h71xjW4A38rCMOMWOOwZ
-         jVwX+0d4ptJWBRIoke1qOLNMNYbnKwIGEnGIrlMLPa9LKRTls7RM2IDGKoybrXxHZGWU
-         noIBeAtpHTRThtafS6MDrFk7S7L0IiQMrDT2t3dlip0EvNdLBUJ3D+i+JIeDBTTv7Vgg
-         YClsDReYxuztG4+VnrrSFHBo4UL3ByQZV9UTHHVTbP7/44o9Z84tZmUSiqjzsRSV9Dgv
-         Mo7ZrFTD6DZL9v6D8ftc3g7Rk/RGn4oZTaC6jtfLFasUlp5joRhJxTQzVYpFk1sTZWcf
-         ULuA==
-X-Forwarded-Encrypted: i=1; AJvYcCWrnowxW2xX4sM00tH/JGd1oRzfhiAn+Z8NFWeb3/xtQptMgoUQ/xuFy+GnEG/YpT6tzAKpIjIeFl+sV1jNJgVk@lists.infradead.org
-X-Gm-Message-State: AOJu0YysPCsVn2qclPdkHGZwcx0WkJ5LB8kh0Gj17d7sZRSy9QIBPnRg
-	wZ8Z7MFPxh4TGwvdCFpSHpDGPQ8uEddjz1EBWBtKY1TDYZaR76QZ
-X-Gm-Gg: ASbGnctX7n4+0WMwVth2iHh+7ml/wj4Rmsuf5CyHG1YjMB1v7O/uDBVgX9Kdx2Q3rzI
-	zSuqPhQNHJVbrWJmi/LnPVPyt/ANdWxUgOeFTUsAUa+PIXxMCsnszA9A53QF9eARVnFCj4Js6uV
-	W6ZVAvciwYzHg9unw6FevhXT2pPYpA3ijsqMr/Spk8UfF3qO4YsjHdgsBJCUSc+jFjwTVlM0JZ3
-	N1zRXnNVjGT91uxDZdDPHKc8+ywefH+vkd7pfE0x2sAHiVLsNRGBrfM7ODQcbEQuev1NNPbPzp9
-	8FQMgPVtOrdnUeuhAYlGClxHTVfI+h+qJqGlqGFttsCPuWR9g5yJPeLQ219S2BBD2hgYQfHIbi1
-	xWMIIpOmp5gY3VWNWCw==
-X-Google-Smtp-Source: AGHT+IGKhtb6fsJZMzdARBi+gb1FIGOla8Dmwwf9ptz7h3kdFPWq1TAOfA22Dh/s0xKKlSvTPmHHiQ==
-X-Received: by 2002:a05:6000:381:b0:39c:1f0a:ee0 with SMTP id ffacd0b85a97d-39c1f0a0f69mr5198566f8f.2.1743522359440;
-        Tue, 01 Apr 2025 08:45:59 -0700 (PDT)
-Received: from playground.localdomain ([82.79.237.110])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d8ff042bcsm158795735e9.28.2025.04.01.08.45.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 08:45:59 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Frank Li <Frank.li@nxp.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 6/6] arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
-Date: Tue,  1 Apr 2025 11:44:04 -0400
-Message-Id: <20250401154404.45932-7-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250401154404.45932-1-laurentiumihalcea111@gmail.com>
-References: <20250401154404.45932-1-laurentiumihalcea111@gmail.com>
+	Tue, 01 Apr 2025 15:52:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CBF1F6112E;
+	Tue,  1 Apr 2025 15:52:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3965C4CEE4;
+	Tue,  1 Apr 2025 15:52:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743522727;
+	bh=dGdVrU0vQ/iJKO4SPhS3jZxBLEB2L878Pi8/iR94+8Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JpkptaY4Q9CbeHdEW3RfRTFT/2r2uySXJWtQOnQMS+1fpr0S37lAmQNFSyefwyGtV
+	 HDOlx2Iw/ldbWc1wGp9NIbEZ2NHI9tSUoxx+YcUxogAYkhcoLVXc+Y8g91TGPfSQ4z
+	 07jl2NRVsNFHlkPyBwXsP49lMffCZnzxXQVkqP6EExk+tzBLkflxNnTLv3zIo+/4rs
+	 1JYQkJLWMcQongXivrTq9XHsLxltP0IMpkFpwXwCWhgP2UWXW5QX9p8J2DfTwe4SIY
+	 qCiQRqezD43pVUldjNnd5Ay+m8+bKHjMgzpMdqqKe8a5DCXf1Zac3qu/ruhuTTuxWZ
+	 b+P/aTndkBUjA==
+Message-ID: <f563b33e-f552-4a3c-bb45-6b7add876fdd@kernel.org>
+Date: Tue, 1 Apr 2025 17:51:58 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_084601_245627_4A270C3B 
-X-CRM114-Status: GOOD (  12.96  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] dt-bindings: arm: aspeed: add Nvidia's GB200NVL
+ BMC
+To: Willie Thai <wthai@nvidia.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
+ kees@kernel.org, tony.luck@intel.com, gpiccoli@igalia.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org, openbmc@lists.ozlabs.org
+Cc: leohu@nvidia.com, tingkaic@nvidia.com, dkodihalli@nvidia.com,
+ Mars Yang <maryang@nvidia.com>
+References: <20250401153955.314860-1-wthai@nvidia.com>
+ <20250401153955.314860-2-wthai@nvidia.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250401153955.314860-2-wthai@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,32 +120,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On 01/04/2025 17:39, Willie Thai wrote:
+> Add Nvidia's  GB200NVL BMC board compatible.
+> 
+> Co-developed-by: Mars Yang <maryang@nvidia.com>
+> Signed-off-by: Mars Yang <maryang@nvidia.com>
+> Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
 
-The DSP needs to access peripherals on AIPSTZ5 (to communicate with
-the AP using AUDIOMIX MU, for instance). To do so, the security-related
-registers of the bridge have to be configured before the DSP is started.
-Enforce a dependency on AIPSTZ5 by adding the 'access-controllers'
-property to the 'dsp' node.
+Why are you faking tags/email addresses? Read carefully submitting
+patches. I really suggest using b4 instead of manually editing things.
+And if you decide for manual way, you must never, *never* edit people's
+tag. You can only copy and paste it.
 
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index ebbc99f9ceba..f0f0ff5edea6 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -2425,6 +2425,7 @@ dsp: dsp@3b6e8000 {
- 			mboxes = <&mu2 2 0>, <&mu2 2 1>,
- 				<&mu2 3 0>, <&mu2 3 1>;
- 			memory-region = <&dsp_reserved>;
-+			access-controllers = <&aips5 IMX8MP_AIPSTZ_HIFI4_T_RW_PL>;
- 			status = "disabled";
- 		};
- 	};
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
