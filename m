@@ -4,96 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 331DDC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 14:27:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEA8C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 14:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1phRyZ5KcBrEb/h+2IGgPuNtDNLntogG8i/AIBPIi5g=; b=A/3NPKaPwle1ylplNK0EG27Yeq
-	7EK/p0NfOxNUUpJPCF+HTYyD70geWWJNgAKwyg2AbbNJVZPqqF2Nm8rbWanplb8Ho2a0FSPxQPAM6
-	jW52haA/Qzkd7NBmzW2WzRRWqyOzR6nObVojb9Y3HI8kbNP6tDjq63Axf2P0pOfOHNB0do5YZpAMN
-	7rkJa9iBj80zRy6qWSe5OCHdukH3sJszLh8NqWLUeC+J2IdLBQhKcHBtOBQyMCKoLlLHg5y9XyHp0
-	gqwLlvg31yWJVV95SV2plQpNgbSMe0XDvUOgNaFVpsEUBLSSQalw0kAEIUwUCnICFCto6+1Jxgji/
-	H6aBOI1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LoMDKExd/0DHBDdQYNCjd1xpr7uBzJ6GzizlZJKTOo8=; b=mPbs1FhV8NYMDyFrERJ2fy0P5c
+	TPGbh8Auy42eyvKf339XlroWIFELqcAddPydby9SgVlF1KbpLVARjFnngznvor+QWUrX6e9/IlgkP
+	jGkK8rFsNMHi1sYCK7TflJG+1UK/wkFng4RMlZEfQiCSl+qIIvMIf5kYUN1Q0LhI+84MQd3x7eKCO
+	Ok9xPI8SYkftsmTW2Efs18eWemSrfuJZEyQi18P1jAF7QOe8iTTfTguPgGbLC36AdGHnV4rB3qpjC
+	ZXEsBr6Ax/aFCegjKkkQTW+j8gCQWf/cnTx2mxnPxETjruZ4/nXiFTSQejrO4Mkagxux6H/mqM+rK
+	5sT4bS8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzcaF-00000003aRH-3L1M;
-	Tue, 01 Apr 2025 14:27:19 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1tzckQ-00000003bjD-0Vg6;
+	Tue, 01 Apr 2025 14:37:50 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzcYS-00000003aAd-2pCp
+	id 1tzcic-00000003bRj-2sKw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 14:25:29 +0000
-Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-22622ddcc35so34095355ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 07:25:28 -0700 (PDT)
+	Tue, 01 Apr 2025 14:36:00 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-225df540edcso121984345ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 07:35:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743517528; x=1744122328; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1phRyZ5KcBrEb/h+2IGgPuNtDNLntogG8i/AIBPIi5g=;
-        b=ksacQnl/xX+jeaxVXQmBsTpD8JuLFJBQCFkWpxUHH7/N94b+MiSPLhebR0ZPSfUy8u
-         UDsoUsHSplrqFuH+H6rz0VsgjjUDWYWmMNcglidVFfyScUmenniRD5h7sEJAzSzqxNAK
-         03+AScjWmETwcnwwAU+bluU7vEn471q2okdG6F0gqgGdipHu1ydualGLCRC027wDnI4x
-         jNf0Ra97yku/U7Nn3qFXsmTc3hxDYyLJaoF8XGbIIYl/mQdES5QvsztDy6v9rTB71/Jk
-         gSlm1ne993YaRwntfxdxy749vrB2OLlXAHHhH21CdFnEYmR0OfLF2dULVEPL5UnKYAIa
-         4OTQ==
+        d=linaro.org; s=google; t=1743518158; x=1744122958; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=LoMDKExd/0DHBDdQYNCjd1xpr7uBzJ6GzizlZJKTOo8=;
+        b=dQjUb4A/AWxhrSKL/pbuod6RHlclRc3yiigrJHnuJxeDTblA8SA+KfjMK2tYaredz8
+         uW0lSlEJ0Ej0de5Y7R9VJ0m9wa050xpFapcBrwaEC6WMh2Cthz99anjSw4hwVJFquNIA
+         A0xqFhfrXJZ1Zdq0wcDCsmria6C8+kVAGQxHUnsf1W4oYWFB5dUCe/IIX7O3bYcFgwLs
+         0quwpIV/94dQy5N+9wcyFoJbo1Kg+wwn9UlzBKSNbhwCbDeKv8vYulSB7AL79/9nbZzH
+         8uKNSY6VDWm18JNdWRjpVx/U9YX2fOTdeED/NaUL4Ep6gWraKDIPOijIz/aaU55kf+CZ
+         4QUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743517528; x=1744122328;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1743518158; x=1744122958;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1phRyZ5KcBrEb/h+2IGgPuNtDNLntogG8i/AIBPIi5g=;
-        b=f1eKeFoWw+Q7+w55/HqsmBGyg7GcaAwens6I2Uns5fYXV1Tt0iKCn8Gzf4xWhxoF0C
-         YY5PeNiaOLrtww9JW4EJH+4m7DKP2ie+dt1toyIN+9GhNF3/uRebpqFSjeNsIhV93qJd
-         fEzF/g2vom8P2D7L9V5gWdpy9f1Gu+c/+5wXBchS3btKOv4q4hztvzTM5UfaXGSMBmc5
-         TbUs3rfx+KBb5L1FKUL0IW7JcC6FAkHTAbnV/MnSH35ZxgASbEOqEqSr7VMtveKqwJKo
-         PYsreEnqGM3cHGcsQH7mV4dAxCYqfgghZf67j92LQPAzxhqhYAm2xk3w+psZ0D6SdTAr
-         mZqA==
-X-Forwarded-Encrypted: i=1; AJvYcCUhciFk8VXUYles8sdfavmCH0KtUrIUN+KqcKsK2Cz9C1nVejq5TBPtIryQBo8Q/R3bM8Tf0XEMocqRfAuFTeK5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKkqNp1AziekwpB2YH9bjEDkLcjshJzVEgj9iojNNR184CWb61
-	z6Bd24Y+ihC+VcZhFGptIQN8wcs1qJm2Nf7TFnHBBSsaR3yBNqPd
-X-Gm-Gg: ASbGnctEQXJnTz64E2P9gtZqjNyMTNan9/EKwyQDad+sgRRDaHArKY8Bl6AfLcl/FWa
-	SFJwDHS7B7XrYj9RYZ3JjOtYdT7jUkC5cYqC57hJuDMM+DUFSyLhzlIyxfgr7Io667CWquAaZND
-	ZmbLPDfejohgMZ0iisYUq440ordmQcnWXmpexzf6eyGphfmNMzi7cLTY1O6+tsYQpj6VNEYpXUf
-	Q0R5CJLgt4pVxWDSjQ2f5VmAyl1btpeWldO4ROKicio9d5FxCQhafIrBGup+u9JClVT7So0hvLr
-	myU3Bv6aiV1rJcYhfr0UX0saOtnLxACn3dVG6xPH3fm9oAl7dn3ht5TUYlHCLDtExH2isYw=
-X-Google-Smtp-Source: AGHT+IFV9dBzNcxDUHEuxWuZhPi/1saRFkCoRQug1IzAs4LF+0tMPIs9Zk7YIgX5WGynxkjRbFRZFw==
-X-Received: by 2002:a17:902:c408:b0:224:1609:a747 with SMTP id d9443c01a7336-2292f97ba73mr186070825ad.31.1743517527938;
-        Tue, 01 Apr 2025 07:25:27 -0700 (PDT)
-Received: from henry.localdomain ([111.202.148.167])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291eee22a2sm88704425ad.81.2025.04.01.07.25.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 07:25:27 -0700 (PDT)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: shengjiu.wang@gmail.com,
-	xiubo.lee@gmail.com,
-	festevam@gmail.com,
-	nicoleotsuka@gmail.com,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	linux-sound@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>
-Subject: [PATCH v1] ASoC: imx-card: Add NULL check in imx_card_probe()
-Date: Tue,  1 Apr 2025 22:25:10 +0800
-Message-Id: <20250401142510.29900-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        bh=LoMDKExd/0DHBDdQYNCjd1xpr7uBzJ6GzizlZJKTOo8=;
+        b=AueiQLrJuJ+HMPmVC7v6xNpjqPc3jwLqxSBN76SuSZd1wx+ASZ6/6Ld0REVojhFAVs
+         r0Oj92JnouDBHfl6BqT6wrqc/1FwNyy1y+6JMCBUupmAy+baZCw9+eHxfGE0SHcAqMzk
+         oBDtsTj9B1TxDKIq41SmCYXgx4oROgrMVPS/qPpqkRJeLCo3+qlQn0jgzv5q+hUi43pU
+         IBPN1xeZZVTSstiUo/n6hnejke4nGrJavR2wB7EWgwzr/TOz9neg16ZSPONgelzGHUzj
+         ZyDa/7/pieDPvECpDk532X8bQk1TyJbdY+4QS/VczIrNmJx+1XtVitxTpstdetil0UZl
+         Mx/g==
+X-Forwarded-Encrypted: i=1; AJvYcCXVpkkgiRM241SQVbh97zH+DjYP7L1xn4+YzFR8f96xknHSjinTLkuyxXxPqdmYi8wYZgfRPuRYFSmtVFW3YN+E@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5gn98aPRM+p8T8mLqbKh2/xY6qf2+9rbk2aYp80Tcbk4BW9Os
+	8QmLVCquyCSoyZOWb4QHtD8A/QI8w+Flr4RM7PFpE4C5EB33w6muKp5dnFa2nIocY8N2zXH5AuR
+	mlH6D58ydRYHeYCagRdkBKLmaGhwiQB2PbxfFYg==
+X-Gm-Gg: ASbGncv9VTtdn6rKY0agERLXw9XiV0wGfFtQ8C3Ny4ZubdOqp2eiZXEH0gdr/kxph9n
+	WH63DVpviyklHPueuWpmSETJTlk2a+qk0T5lmkejlBPor31MayXyxen32egEel+t7TX0TFrBV55
+	2/kwEwroofW+PZB3FBSt2Angn78iE=
+X-Google-Smtp-Source: AGHT+IElYmfVb2yc9aONM2WA1fcc0/ZsfWcagvHUfiuxnFsCoq1ML/YcfpJWjED2Sr70PTdeBFSXfVPfj6mWtcfTrTQ=
+X-Received: by 2002:a05:6a00:391f:b0:736:9f2e:1357 with SMTP id
+ d2e1a72fcca58-739c43b578cmr278533b3a.12.1743518157532; Tue, 01 Apr 2025
+ 07:35:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250311170451.611389-1-leo.yan@arm.com> <20250311170451.611389-6-leo.yan@arm.com>
+ <8d9ad64b-a5f7-4a44-a557-7edb83322fdf@arm.com>
+In-Reply-To: <8d9ad64b-a5f7-4a44-a557-7edb83322fdf@arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Tue, 1 Apr 2025 15:35:44 +0100
+X-Gm-Features: AQ5f1Jq5eJSb33lj_lNuU5GhQT-ygaUHLr5aCzHY0xeQqpsFwQFKMr8XTLIXVPw
+Message-ID: <CAJ9a7ViUOZEyvqe-KGc-UdhmkqXpPdSeBWjk-=u1tAjFKu5Y+A@mail.gmail.com>
+Subject: Re: [PATCH v3 5/6] coresight: perf: Update buffer on AUX pause
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Leo Yan <leo.yan@arm.com>, James Clark <james.clark@linaro.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_072528_713586_09B2292B 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20250401_073558_734157_61B52C27 
+X-CRM114-Status: GOOD (  31.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,41 +95,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_kasprintf() returns NULL when memory allocation fails. Currently,
-imx_card_probe() does not check for this case, which results in a NULL
-pointer dereference.
+On Tue, 1 Apr 2025 at 13:52, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>
+> On 11/03/2025 17:04, Leo Yan wrote:
+> > Due to sinks like ETR and ETB don't support interrupt handling, the
+> > hardware trace data might be lost for continuous running tasks.
+> >
+> > This commit takes advantage of the AUX pause for updating trace buffer
+> > to mitigate the trace data losing issue.
+> >
+> > The per CPU sink has its own interrupt handling.  Thus, there will be a
+> > race condition between the updating buffer in NMI and sink's interrupt
+> > handler.  To avoid the race condition, this commit disallows updating
+> > buffer on AUX pause for the per CPU sink.  Currently, this is only
+> > applied for TRBE.
+> >
+> > Signed-off-by: Leo Yan <leo.yan@arm.com>
+> > ---
+> >   .../hwtracing/coresight/coresight-etm-perf.c  | 43 ++++++++++++++++++-
+> >   1 file changed, 41 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> > index 2dcf1809cb7f..f1551c08ecb2 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> > @@ -574,14 +574,53 @@ static void etm_event_start(struct perf_event *event, int flags)
+> >       return;
+> >   }
+> >
+> > -static void etm_event_pause(struct coresight_device *csdev,
+> > +static void etm_event_pause(struct perf_event *event,
+> > +                         struct coresight_device *csdev,
+> >                           struct etm_ctxt *ctxt)
+> >   {
+> > +     int cpu = smp_processor_id();
+> > +     struct coresight_device *sink;
+> > +     struct perf_output_handle *handle = &ctxt->handle;
+> > +     struct coresight_path *path;
+> > +     unsigned long size;
+> > +
+> >       if (!ctxt->event_data)
+> >               return;
+> >
+> >       /* Stop tracer */
+> >       coresight_pause_source(csdev);
+> > +
+> > +     path = etm_event_cpu_path(ctxt->event_data, cpu);
+> > +     sink = coresight_get_sink(path);
+> > +     if (WARN_ON_ONCE(!sink))
+> > +             return;
+> > +
+> > +     /*
+> > +      * The per CPU sink has own interrupt handling, it might have
+> > +      * race condition with updating buffer on AUX trace pause if
+> > +      * it is invoked from NMI.  To avoid the race condition,
+> > +      * disallows updating buffer for the per CPU sink case.
+> > +      */
+> > +     if (coresight_is_percpu_sink(sink))
+> > +             return;
+> > +
+> > +     if (WARN_ON_ONCE(handle->event != event))
+> > +             return;
+> > +
+> > +     if (!sink_ops(sink)->update_buffer)
+> > +             return;
+> > +
+> > +     size = sink_ops(sink)->update_buffer(sink, handle,
+> > +                                          ctxt->event_data->snk_config);
+>
+> I believe we keep the sink disabled/stopped in update_buffer. We need to
+> turn it back ON after the "buffer update". May be we could use a flag
+> to update_buffer() to indicate this is "pause" triggered update.
+>
+> Cheers
+> Suzuki
+>
 
-Add NULL check after devm_kasprintf() to prevent this issue.
+The sink is stopped to read data, but also important is the
+enable/disable refcount. The only time that "update_buffer" will read
+is if the sink has a refcount == 1. These are ultimately controlled by
+enable/disable path - which will not occur during pause/resume
+operations.
 
-Fixes: aa736700f42f ("ASoC: imx-card: Add imx-card machine driver")
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
- sound/soc/fsl/imx-card.c | 4 ++++
- 1 file changed, 4 insertions(+)
 
-diff --git a/sound/soc/fsl/imx-card.c b/sound/soc/fsl/imx-card.c
-index 905294682996..3686d468506b 100644
---- a/sound/soc/fsl/imx-card.c
-+++ b/sound/soc/fsl/imx-card.c
-@@ -772,6 +772,8 @@ static int imx_card_probe(struct platform_device *pdev)
- 				data->dapm_routes[i].sink =
- 					devm_kasprintf(&pdev->dev, GFP_KERNEL, "%d %s",
- 						       i + 1, "Playback");
-+				if (!data->dapm_routes[i].sink)
-+					return -ENOMEM;
- 				data->dapm_routes[i].source = "CPU-Playback";
- 			}
- 		}
-@@ -789,6 +791,8 @@ static int imx_card_probe(struct platform_device *pdev)
- 				data->dapm_routes[i].source =
- 					devm_kasprintf(&pdev->dev, GFP_KERNEL, "%d %s",
- 						       i + 1, "Capture");
-+				if (!data->dapm_routes[i].source)
-+					return -ENOMEM;
- 				data->dapm_routes[i].sink = "CPU-Capture";
- 			}
- 		}
+Regards
+
+Mike
+
+>
+> > +     if (READ_ONCE(handle->event)) {
+> > +             if (!size)
+> > +                     return;
+> > +
+> > +             perf_aux_output_end(handle, size);
+> > +             perf_aux_output_begin(handle, event);
+> > +     } else {
+> > +             WARN_ON_ONCE(size);
+> > +     }
+> >   }
+> >
+> >   static void etm_event_stop(struct perf_event *event, int mode)
+> > @@ -595,7 +634,7 @@ static void etm_event_stop(struct perf_event *event, int mode)
+> >       struct coresight_path *path;
+> >
+> >       if (mode & PERF_EF_PAUSE)
+> > -             return etm_event_pause(csdev, ctxt);
+> > +             return etm_event_pause(event, csdev, ctxt);
+> >
+> >       /*
+> >        * If we still have access to the event_data via handle,
+>
+
+
 -- 
-2.34.1
-
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
