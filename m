@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4664DC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 17:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC91CC3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 17:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k15Qz97sCZyxPGijF6bG8eZXzNEdvC6VQVKLILEpSFI=; b=eYyaZYqkdR6YQDZiEwlotcqmWz
-	/XSP15AJprKOID+LxGu4IVNR1o1x3mIrF/LbX/lhnLK80laE+p1lJ/C1U7u/gqsW+VRa4KO+NVHzT
-	xbmADfTJKrFWQa6+mAINv+9DWStfr2HkZ6k7bk7NsiUJ39f4FkW5rgHMFzW8ZNMfpHakN7kyxTIM/
-	z3NLit36xspKIRBJIWk041BMQtYcHOY7iPtxwDK7fur0ly4zcrlSmWafg+IxLuZdSxBXblCZCslXr
-	frSPdXhN3lP72hIh7+Z96ZFSfWCsEOA88q7G83B69UosqZrU1hEB1PkXDs1AhYwiC9Kjvi7tppvJJ
-	mbyqYmIw==;
+	bh=QwFzB9rgmSr+DDy/b0Hd/aaJjyUrXEHFSgwJ+5QTAZE=; b=lWpAkRMPWuUTV8PeNsAunmiQbh
+	41FNniEWTRctupSObxohCEn1CiZFFulE6gGycKw9Bj9iTFBVsp41v6xdly79w5MIut6T4Wg9BKzPd
+	C9gC6pcmBR8gKXZUXI9FckMT0UjKYbnLP19Yi5SAY4eAqNHWGWIO24HqxKiCQQEtHuSRrw69ja2/T
+	pkE720tsEdZgfPsQebdX4sugz5gEzdRNIdEprfyKEecKRfySzAiapnfQI11v7LqKMfgJZ5x3aNXpA
+	7blFzZHch0SmF2siemVddUa/Bgf/GSDXAPstVX7UjiQlNvgVec2qzoBFhRXLSjD6/kCQvtV6HzCRi
+	L98pPv9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzeze-00000003xGH-1COi;
-	Tue, 01 Apr 2025 17:01:42 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
+	id 1tzf8A-00000003yab-21F1;
+	Tue, 01 Apr 2025 17:10:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzexq-00000003wyf-0Jfu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 16:59:51 +0000
-Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 531A4Xqa025275;
-	Tue, 1 Apr 2025 09:59:07 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pfpt0220; bh=k
-	15Qz97sCZyxPGijF6bG8eZXzNEdvC6VQVKLILEpSFI=; b=MoXjQ7PP9I1YKS4z3
-	E7qlN+ghXTh6+7nVN9KRHcWIXh1SuHCDfPja9LvSvca76KRNH84A3ehRXFkHywDC
-	8cvpOJuQ85lLbRSrKOzYgYip9p9fhzRZjdqmKd4gTL8Vd4jyVBiSYt7BkiUNHOiL
-	Lo/lk6AwLQ6FPd+Fq2yUZ1VZ46W+Ed8M7plZJGrQXyzUJsljwecaEkn6VAl8+gPz
-	VOiSQM1szi1ePWR/s0sjKeluTC7clVpC62NREL/yHLvEyPX+CZ+SbLfciXiKXw4Q
-	4AtJ5IGxrF5m5jIs01MCMgHCAbDKJ8AEVEZTaFhCdD5xsnnxK8M1T9A8QZlT4YvC
-	4LCzw==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 45re27106d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 01 Apr 2025 09:59:06 -0700 (PDT)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Tue, 1 Apr 2025 09:59:06 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Tue, 1 Apr 2025 09:59:06 -0700
-Received: from BG-LT92791.marvell.com (BG-LT92791.marvell.com [10.28.160.93])
-	by maili.marvell.com (Postfix) with ESMTP id 823E25C68EB;
-	Tue,  1 Apr 2025 09:59:01 -0700 (PDT)
-From: Tanmay Jagdale <tanmay@marvell.com>
-To: <leo.yan@arm.com>, Tanmay Jagdale <tanmay@marvell.com>
-CC: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>,
-        <james.clark@linaro.org>, <john.g.garry@oracle.com>,
-        <leo.yan@linux.dev>, <will@kernel.org>, <acme@kernel.org>,
-        <adrian.hunter@intel.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-perf-users@vger.kernel.org>, <coresight@lists.linaro.org>,
-        <linux-kernel@vger.kernel.org>, <sgoutham@marvell.com>,
-        <gcherian@marvell.com>
-Subject: Re: [PATCH V3 1/2] perf: cs-etm: Fixes in instruction sample synthesis
-Date: Tue, 1 Apr 2025 22:28:45 +0530
-Message-ID: <20250327153530.GF604566@e132581.arm.com>
-X-Mailer: git-send-email 2.48.1.windows.1
-In-Reply-To: <20250327111149.461012-2-tanmay@marvell.com>
-References: <20250327111149.461012-1-tanmay@marvell.com> <20250327111149.461012-2-tanmay@marvell.com>
+	id 1tzf6N-00000003yDG-1pKy;
+	Tue, 01 Apr 2025 17:08:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=QwFzB9rgmSr+DDy/b0Hd/aaJjyUrXEHFSgwJ+5QTAZE=; b=SkQff7ui2dNykAT/PDqf0vlSCq
+	JvsCdACSYe6T3hSLfM3FS6XnoTUAWaC8QlDsGfSHAfpe3/1xMVYJjq+Ehpkz9GRAJZCdFb8EvtwBF
+	iljWyv4a77vp98tDoDmbknBxwJr/Ku7C441orgCjgmX5MTGO1jD0vg5GjeLbUkjz7kfmLhYFNDD1Q
+	XlvxjXhT4fRnPenmqAN0T7HKdRn6O7ymBiNQB6qVgVVnoc6IYGnALtk9chuv+O9zRJ3YCbXis/703
+	u/jnLw1FwOHLiS4NfA9/hp64nCVZZHYbIfpxDLawE14K4BvpIe4Kdf2BHTdR3CHh1eLXfeo3Dtz1N
+	pbzxgLSw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzf6D-00000006qiQ-3phb;
+	Tue, 01 Apr 2025 17:08:30 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 1849630049D; Tue,  1 Apr 2025 19:08:29 +0200 (CEST)
+Date: Tue, 1 Apr 2025 19:08:29 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Alessandro Carminati <acarmina@redhat.com>
+Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Kees Cook <keescook@chromium.org>,
+	Daniel Diaz <daniel.diaz@linaro.org>,
+	David Gow <davidgow@google.com>,
+	Arthur Grillo <arthurgrillo@riseup.net>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	Naresh Kamboju <naresh.kamboju@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Alessandro Carminati <alessandro.carminati@gmail.com>,
+	Jani Nikula <jani.nikula@intel.com>,
+	dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, loongarch@lists.linux.dev, x86@kernel.org,
+	Linux Kernel Functional Testing <lkft@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [PATCH v4 06/14] x86: Add support for suppressing warning
+ backtraces
+Message-ID: <20250401170829.GO5880@noisy.programming.kicks-ass.net>
+References: <20250313114329.284104-1-acarmina@redhat.com>
+ <20250313114329.284104-7-acarmina@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Authority-Analysis: v=2.4 cv=crybk04i c=1 sm=1 tr=0 ts=67ec1b5a cx=c_pps a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17 a=XR8D0OoHHMoA:10 a=7CQSdrXTAAAA:8 a=M5GUcnROAAAA:8 a=Z4zB58jBWo-q_rlER6QA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
- a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-GUID: o7gZDp58OvZQYShkfzDARx0NziC33BKb
-X-Proofpoint-ORIG-GUID: o7gZDp58OvZQYShkfzDARx0NziC33BKb
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-01_06,2025-04-01_01,2024-11-22_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_095950_123611_B9A28D66 
-X-CRM114-Status: GOOD (  45.11  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250313114329.284104-7-acarmina@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,200 +96,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-Message-ID: <20250401165845.FSFZOeApFpD3i5d47cIieM2-5QRNtNSGk5FIJMUC7Y8@z>
 
-From: Leo Yan <leo.yan@arm.com>
+On Thu, Mar 13, 2025 at 11:43:21AM +0000, Alessandro Carminati wrote:
+> From: Guenter Roeck <linux@roeck-us.net>
+> 
+> Add name of functions triggering warning backtraces to the __bug_table
+> object section to enable support for suppressing WARNING backtraces.
+> 
+> To limit image size impact, the pointer to the function name is only added
+> to the __bug_table section if both CONFIG_KUNIT_SUPPRESS_BACKTRACE and
+> CONFIG_DEBUG_BUGVERBOSE are enabled. Otherwise, the __func__ assembly
+> parameter is replaced with a (dummy) NULL parameter to avoid an image size
+> increase due to unused __func__ entries (this is necessary because __func__
+> is not a define but a virtual variable).
+> 
+> Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+> Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
+> ---
+>  arch/x86/include/asm/bug.h | 21 ++++++++++++++++-----
+>  1 file changed, 16 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/x86/include/asm/bug.h b/arch/x86/include/asm/bug.h
+> index e85ac0c7c039..f6e13fc675ab 100644
+> --- a/arch/x86/include/asm/bug.h
+> +++ b/arch/x86/include/asm/bug.h
+> @@ -35,18 +35,28 @@
+>  
+>  #ifdef CONFIG_DEBUG_BUGVERBOSE
+>  
+> +#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
+> +# define HAVE_BUG_FUNCTION
+> +# define __BUG_FUNC_PTR	__BUG_REL(%c1)
+> +# define __BUG_FUNC	__func__
+> +#else
+> +# define __BUG_FUNC_PTR
+> +# define __BUG_FUNC	NULL
+> +#endif /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
+> +
+>  #define _BUG_FLAGS(ins, flags, extra)					\
+>  do {									\
+>  	asm_inline volatile("1:\t" ins "\n"				\
+>  		     ".pushsection __bug_table,\"aw\"\n"		\
+>  		     "2:\t" __BUG_REL(1b) "\t# bug_entry::bug_addr\n"	\
+>  		     "\t"  __BUG_REL(%c0) "\t# bug_entry::file\n"	\
+> -		     "\t.word %c1"        "\t# bug_entry::line\n"	\
+> -		     "\t.word %c2"        "\t# bug_entry::flags\n"	\
+> -		     "\t.org 2b+%c3\n"					\
+> +		     "\t"  __BUG_FUNC_PTR "\t# bug_entry::function\n"	\
+> +		     "\t.word %c2"        "\t# bug_entry::line\n"	\
+> +		     "\t.word %c3"        "\t# bug_entry::flags\n"	\
+> +		     "\t.org 2b+%c4\n"					\
+>  		     ".popsection\n"					\
+>  		     extra						\
+> -		     : : "i" (__FILE__), "i" (__LINE__),		\
+> +		     : : "i" (__FILE__), "i" (__BUG_FUNC), "i" (__LINE__),\
+>  			 "i" (flags),					\
+>  			 "i" (sizeof(struct bug_entry)));		\
+>  } while (0)
+> @@ -92,7 +102,8 @@ do {								\
+>  do {								\
+>  	__auto_type __flags = BUGFLAG_WARNING|(flags);		\
+>  	instrumentation_begin();				\
+> -	_BUG_FLAGS(ASM_UD2, __flags, ANNOTATE_REACHABLE(1b));	\
+> +	if (!KUNIT_IS_SUPPRESSED_WARNING(__func__))			\
+> +		_BUG_FLAGS(ASM_UD2, __flags, ANNOTATE_REACHABLE(1b));	\
+>  	instrumentation_end();					\
+>  } while (0)
 
-Hi Leo,
-
-I was on vacation so could not get back earlier.
-> 
-> > Hi Tanmay,
-> > 
-> > On Thu, Mar 27, 2025 at 04:41:48PM +0530, Tanmay Jagdale wrote:
->>> The existing method to synthesize instruction samples has the
->>> following issues:
->>> 1. Branch instruction mnemonics were being added to non-branch
->>>    instructions too.
->>> 2. Branch target address was missing
->>> 
->>> To fix the issues, start synthesizing the instructions from the
->>> previous packet (tidq->prev_packet) instead of current packet
->>> (tidq->packet). This way it's easy to figure out the target
->>> address of the branch instruction in tidq->prev_packet which
->>> is the current packet's (tidq->packet) first executed instruction.
->>> 
->>> Since we have now switched to processing the previous packet
->>> first, we need not swap the packets during cs_etm__flush().
->>> 
->>> Signed-off-by: Tanmay Jagdale <tanmay@marvell.com>
->>> Reviewed-by: James Clark <james.clark@arm.com>
->>
->> I saw James's reviewed tag.  However, I have several comments.
->> 
->> Sorry I jumped in too late.
-No problem, thanks for the review.
-
-> 
->>> ---
->>>  tools/perf/util/cs-etm.c | 32 +++++++++++++++++++++++++-------
->>>  1 file changed, 25 insertions(+), 7 deletions(-)
->>> 
->>> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
->>> index 0bf9e5c27b59..ebed5b98860e 100644
->>> --- a/tools/perf/util/cs-etm.c
->>> +++ b/tools/perf/util/cs-etm.c
->>> @@ -1576,10 +1576,26 @@ static int cs_etm__synth_instruction_sample(struct cs_etm_queue *etmq,
-> 
-> Seems to me, the problem is cs_etm__synth_instruction_sample() is
-> invoked from multiple callers.
-> 
-> Both the previous packet and packet are valid fo the flow:
->   cs_etm__sample()
->     `> cs_etm__synth_instruction_sample()
-> 
-> Only the previous packet is valid and the current packet stores stale
-> data for the flows:
-> 
->   cs_etm__flush()
->     `> cs_etm__synth_instruction_sample()
-> 
->  cs_etm__end_block()
->    `> cs_etm__synth_instruction_sample()
-> 
-> First, as a prerequisite, I think we should resolve the stale data in
-> the packet.  So we need a fix like:
-Agree.
-
-> 
-> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c                
-> index 0bf9e5c27b59..b7b17c0e4806 100644                                         
-> --- a/tools/perf/util/cs-etm.c                                                  
-> +++ b/tools/perf/util/cs-etm.c                                                  
-> @@ -741,6 +741,9 @@ static void cs_etm__packet_swap(struct cs_etm_auxtrace *etm,
->                                                                                 
->         if (etm->synth_opts.branches || etm->synth_opts.last_branch ||          
->             etm->synth_opts.instructions) {                                     
-> +               /* The previous packet will not be used, cleanup it */          
-> +               memset(tidq->prev_packet, 0x0, sizeof(*tidq->packet));          
-> +                                                                               
->                 /*                                                              
->                  * Swap PACKET with PREV_PACKET: PACKET becomes PREV_PACKET for 
->                  * the next incoming packet.                                    
-> 
-Thanks for pointing out, I'll include this fix.
-
->>>  	sample.stream_id = etmq->etm->instructions_id;
->>>  	sample.period = period;
->>>  	sample.cpu = tidq->packet->cpu;
-> 
-> Should we use "prev_packet->cpu" at here?
-> 
-> Even for a branch instruction, as its IP address is from the previous
-> packet, we should use "prev_packet->cpu" for CPU ID as well.
-ACK.
-
-> 
->>> -	sample.flags = tidq->prev_packet->flags;
->>>  	sample.cpumode = event->sample.header.misc;
->>>  
->>> -	cs_etm__copy_insn(etmq, tidq->trace_chan_id, tidq->packet, &sample);
->>> +	cs_etm__copy_insn(etmq, tidq->trace_chan_id, tidq->prev_packet, &sample);
->>> +
->>> +	/* Populate branch target information only when we encounter
->>> +	 * branch instruction, which is at the end of tidq->prev_packet.
->>> +	 */
->>> +	if (addr == (tidq->prev_packet->end_addr - 4)) {
-> 
->   if (!addr && addr == cs_etm__last_executed_instr(tidq->prev_packet))
-> 
->>> +		/* Update the perf_sample flags using the prev_packet
->>> +		 * since that is the queue we are synthesizing.
->>> +		 */
->>> +		sample.flags = tidq->prev_packet->flags;
->>> +
->>> +		/* The last instruction of the previous queue would be a
->>> +		 * branch operation. Get the target of that branch by looking
->>> +		 * into the first executed instruction of the current packet
->>> +		 * queue.
->>> +		 */
->>> +		sample.addr = cs_etm__first_executed_instr(tidq->packet);
-> 
-> If connected to the change suggested for cleaning up packet in
-> cs_etm__packet_swap(), when run at here, if "tidq->packet" is a valid
-> packet, then it will return a branch target address, otherwise, it
-> will return 0.
-> 
->>> +	}
->>>  
->>>  	if (etm->synth_opts.last_branch)
->>>  		sample.branch_stack = tidq->last_branch;
->>> @@ -1771,7 +1787,7 @@ static int cs_etm__sample(struct cs_etm_queue *etmq,
->>>  	/* Get instructions remainder from previous packet */
->>>  	instrs_prev = tidq->period_instructions;
->>>  
->>> -	tidq->period_instructions += tidq->packet->instr_count;
->>> +	tidq->period_instructions += tidq->prev_packet->instr_count;
-> 
-> A side effect for this change is we will defer to synthesize instruction
-> samples for _current_ packet, either the packet will be handled after
-> a new packet incoming, or at the end of a trace chunk.
-> 
-> The problem is for the later one, we can see cs_etm__end_block() and
-> cs_etm__flush() both only handle the previous packet. As a result, the
-> last packet will be ignored.
-Yes I agree, this is a side effect of the patch. The last packet's instructions
-are not handled.
-
-> 
-> I would suggest we need to firstly fix this issue in
-> cs_etm__end_block() and cs_etm__flush() (maybe we need to consider to
-> consolidate the code with cs_etm__sample()).
-Okay sure. I will take a look at consolidating the code and post them in
-the next version.
-
-> 
->>>  	/*
->>>  	 * Record a branch when the last instruction in
->>> @@ -1851,8 +1867,11 @@ static int cs_etm__sample(struct cs_etm_queue *etmq,
->>>  			 * been executed, but PC has not advanced to next
->>>  			 * instruction)
->>>  			 */
->>> +			/* Get address from prev_packet since we are synthesizing
->>> +			 * that in cs_etm__synth_instruction_sample()
->>> +			 */
->>>  			addr = cs_etm__instr_addr(etmq, trace_chan_id,
->>> -						  tidq->packet, offset - 1);
->>> +						  tidq->prev_packet, offset - 1);
->>>  			ret = cs_etm__synth_instruction_sample(
->>>  				etmq, tidq, addr,
->>>  				etm->instructions_sample_period);
->>> @@ -1916,7 +1935,7 @@ static int cs_etm__flush(struct cs_etm_queue *etmq,
->>>  
->>>  	/* Handle start tracing packet */
->>>  	if (tidq->prev_packet->sample_type == CS_ETM_EMPTY)
->>> -		goto swap_packet;
->>> +		goto reset_last_br;
->>>  
->>>  	if (etmq->etm->synth_opts.last_branch &&
->>>  	    etmq->etm->synth_opts.instructions &&
->>> @@ -1952,8 +1971,7 @@ static int cs_etm__flush(struct cs_etm_queue *etmq,
->>>  			return err;
->>>  	}
->>>  
->>> -swap_packet:
->>> -	cs_etm__packet_swap(etm, tidq);
->>> +reset_last_br:
-> 
-> As said, if we consolidate cs_etm__flush() for processing both
-> previous packet and current packet, then we don't need to remove
-> cs_etm__packet_swap() at here, right?
-Yes I think so too.
-
-Thanks,
-Tanmay
-> 
-> Thanks,
-> Leo
-> 
+NAK, this grows the BUG site for now appreciable reason.
 
