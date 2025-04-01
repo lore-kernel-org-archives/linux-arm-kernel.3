@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E14AC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 23:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9739C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 23:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UYcrMfOkfAuJcdbWies4fjt6T3H1rjBduYB2teOKMHU=; b=UmB3/APJeCxsppWDvXw0StIKFK
-	7k8v85UsCiTbNsU07XoiHOhnISWYBZyDXBBjXTBUIiuFzP0hoAIglyQIDS7yLBXtlBLTyEAzGNBqg
-	wfM0mrpYN2SgGxIGvj08BxtIo+WgGGL1Zp+r4wIstF0Ev7b0FRdoLqPpPVPmlCD/MAjE5FEGROqE4
-	xdrpABbzO2KVf9Le0UEUpwBCLV1LhaAIEEiVyjcdFr57iPwjGYM8FlTnKySzzZQ6pSpNKW2HAs3Hw
-	Cqt4bIQfOf1DC/NX/kgJRU/RMBM8Lv56JJKeky7leRZ6OhIT3gspiZ4wjt267mLuuXGJycsYYUDAN
-	w5v9byxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Cu6V6NEmkSty3UhsLZdMo8N/PEmpQ1XSn1YsQWDDSUQ=; b=iCSQp+lmOKUecN3qhlSfbmjmjN
+	qRltlvRYylKH7Hai3VjyMqhTQonXYI9imkdbGzd4feAzygc8Hd80TY9oEA2h/z6rnyjbxf8w4+znK
+	oMJgRQ9EFlvpx8zymXZ7NPNEeIzkqjHVGi+/e5mYnrz0WXJiN0DY32ImLaJK/XcAZQvVyLFLArYKL
+	Rhta162kRrbuj30UghNTgsdwUE19EwA8R/+AwYn5X5OIWJ7qgTI44jdFP5RTDWbgo6+n/hH3yrZuK
+	IjURl1UYOAdjFHYoWme9/24uFIvUxoZY+7f3XVEEqVF6Wqt5jA3F0yPLmNd5ySmwqOk1/KF69tOFK
+	gx5fILfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzkfl-00000004b9L-2XBd;
-	Tue, 01 Apr 2025 23:05:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tzlB9-00000004cpU-47e2;
+	Tue, 01 Apr 2025 23:37:59 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzke4-00000004b28-2ecB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 23:03:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DDB3C61126;
-	Tue,  1 Apr 2025 23:03:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17DCFC4CEE4;
-	Tue,  1 Apr 2025 23:03:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743548627;
-	bh=BYOXmSOsaPKAshZKAzxa/WceoPbno44r7z7Qhx1eioY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SLJf2v8hEejssbPR01Tj2/A/wIryXbN0voAiZ6/Lm087eksrq31aOcBsL/0S71klr
-	 b1Gb5Zw/RmCftZB36g8EGidgctqXwMTypk96G0moqwOGcWOIb+W//XTJwxBdwGBPDf
-	 StRRNSnx1yuCQV3K+1NeppyDOrjdkIur0MEI23GQ78JsQXAXLji9Dr9am2NdHjv2D4
-	 7paYtgQxa3jlQICY82f5hCO6JKjvWmSAUMY59vLN6g0Y6Zx1SQCTmofOUtf2UkrAbT
-	 lAfqHGGO/u6Ki9dk5wUX1mvfx82cXWk/FXWgZC5XoClRbTJ3m2RYtUtjjb3OjwTCQV
-	 3ONLn9gsrLxnQ==
-Date: Tue, 1 Apr 2025 18:03:46 -0500
-From: Rob Herring <robh@kernel.org>
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: net: Add MTIP L2 switch description
-Message-ID: <20250401230346.GA28557-robh@kernel.org>
-References: <20250331103116.2223899-1-lukma@denx.de>
- <20250331103116.2223899-2-lukma@denx.de>
- <20250331235518.GA2823373-robh@kernel.org>
- <20250401123507.2e3bf0a6@wsk>
+	id 1tzl9Q-00000004cca-2Rs1;
+	Tue, 01 Apr 2025 23:36:14 +0000
+Received: from mail-acc-it-01.broadcom.com (mail-acc-it-01.acc.broadcom.net [10.35.36.83])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 7CD26C0025A2;
+	Tue,  1 Apr 2025 16:36:10 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 7CD26C0025A2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1743550570;
+	bh=mAjA0JnWOIbx2Fv6Om83zFHlYcQyGvwfkcmAcNYO5Lk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=S1a/Ccmd4KJy/A1kCM1cUD9k2tPpQYur3/oCQJlDeQLeh8q6UrtJbBZUE3cGc5YPG
+	 79qMq0NFieuhe/iZGSNj35jknX1H45zb4ayyLpjzeHU+ePsDctdC+kuRKQMNREaT4x
+	 P5e9HsfDKaFhnHbgaz2koP4Kg69yiCaHnqiLpvNc=
+Received: from stbirv-lnx-1.igp.broadcom.net (stbirv-lnx-1.igp.broadcom.net [10.67.48.32])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-acc-it-01.broadcom.com (Postfix) with ESMTPSA id 8AB524002F44;
+	Tue,  1 Apr 2025 19:36:09 -0400 (EDT)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: linux-kernel@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Mark Brown <broonie@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	linux-spi@vger.kernel.org (open list:SPI SUBSYSTEM),
+	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE)
+Subject: [PATCH] spi: bcm2835: Restore native CS probing when pinctrl-bcm2835 is absent
+Date: Tue,  1 Apr 2025 16:36:03 -0700
+Message-Id: <20250401233603.2938955-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250401123507.2e3bf0a6@wsk>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250401_163612_725007_5DC7ECAA 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,195 +78,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 12:35:07PM +0200, Lukasz Majewski wrote:
-> Hi Rob,
-> 
-> > On Mon, Mar 31, 2025 at 12:31:13PM +0200, Lukasz Majewski wrote:
-> > > This patch provides description of the MTIP L2 switch available in
-> > > some NXP's SOCs - e.g. imx287.
-> > > 
-> > > Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> > > ---
-> > > Changes for v2:
-> > > - Rename the file to match exactly the compatible
-> > >   (nxp,imx287-mtip-switch)
-> > > 
-> > > Changes for v3:
-> > > - Remove '-' from const:'nxp,imx287-mtip-switch'
-> > > - Use '^port@[12]+$' for port patternProperties
-> > > - Drop status = "okay";
-> > > - Provide proper indentation for 'example' binding (replace 8
-> > >   spaces with 4 spaces)
-> > > - Remove smsc,disable-energy-detect; property
-> > > - Remove interrupt-parent and interrupts properties as not required
-> > > - Remove #address-cells and #size-cells from required properties
-> > > check
-> > > - remove description from reg:
-> > > - Add $ref: ethernet-switch.yaml#
-> > > ---
-> > >  .../bindings/net/nxp,imx287-mtip-switch.yaml  | 154
-> > > ++++++++++++++++++ 1 file changed, 154 insertions(+)
-> > >  create mode 100644
-> > > Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> > > 
-> > > diff --git
-> > > a/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> > > b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> > > new file mode 100644 index 000000000000..98eba3665f32 --- /dev/null
-> > > +++
-> > > b/Documentation/devicetree/bindings/net/nxp,imx287-mtip-switch.yaml
-> > > @@ -0,0 +1,154 @@ +# SPDX-License-Identifier: (GPL-2.0-only OR
-> > > BSD-2-Clause) +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/net/nxp,imx287-mtip-switch.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
-> > > +
-> > > +maintainers:
-> > > +  - Lukasz Majewski <lukma@denx.de>
-> > > +
-> > > +description:
-> > > +  The 2-port switch ethernet subsystem provides ethernet packet
-> > > (L2)
-> > > +  communication and can be configured as an ethernet switch. It
-> > > provides the
-> > > +  reduced media independent interface (RMII), the management data
-> > > input
-> > > +  output (MDIO) for physical layer device (PHY) management.
-> > > +
-> > > +$ref: ethernet-switch.yaml#  
-> > 
-> > This needs to be: ethernet-switch.yaml#/$defs/ethernet-ports
-> > 
-> > With that, you can drop much of the below part. More below...
-> > 
-> > > +
-> > > +properties:
-> 
-> So it shall be after the "properties:"
-> 
-> $ref: ethernet-switch.yaml#/$defs/ethernet-ports   [*]
+The lookup table forces the use of the "pinctrl-bcm2835" GPIO chip
+provider and essentially assumes that there is going to be such a
+provider, and if not, we will fail to set-up the SPI device.
 
-It can stay where it is, just add "/$defs/ethernet-ports"
+While this is true on Raspberry Pi based systems (2835/36/37, 2711,
+2712), this is not true on 7712/77122 Broadcom STB systems which use the
+SPI driver, but not the GPIO driver.
 
+There used to be an early check:
 
-> > > +  compatible:
-> > > +    const: nxp,imx287-mtip-switch
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  phy-supply:
-> > > +    description:
-> > > +      Regulator that powers Ethernet PHYs.
-> > > +
-> > > +  clocks:
-> > > +    items:
-> > > +      - description: Register accessing clock
-> > > +      - description: Bus access clock
-> > > +      - description: Output clock for external device - e.g. PHY
-> > > source clock
-> > > +      - description: IEEE1588 timer clock
-> > > +
-> > > +  clock-names:
-> > > +    items:
-> > > +      - const: ipg
-> > > +      - const: ahb
-> > > +      - const: enet_out
-> > > +      - const: ptp
-> > > +
-> > > +  interrupts:
-> > > +    items:
-> > > +      - description: Switch interrupt
-> > > +      - description: ENET0 interrupt
-> > > +      - description: ENET1 interrupt
-> > > +
-> > > +  pinctrl-names: true
-> > > +  
-> > 
-> > > +  ethernet-ports:
-> 
-> And then this "node" can be removed as it has been referenced above [*]?
+       chip = gpiochip_find("pinctrl-bcm2835", chip_match_name);
+       if (!chip)
+               return 0;
 
-Well, you have to keep it to have 'required' in the child nodes.
+which would accomplish that nicely, bring something similar back by
+checking for the compatible strings matched by the pinctrl-bcm2835.c
+driver, if there is no Device Tree node matching those compatible
+strings, then we won't find any GPIO provider registered by the
+"pinctrl-bcm2835" driver.
 
-> 
-> (I shall only keep the properties, which are not standard to [*] if
-> any).
-> 
-> > > +    type: object
-> > > +    additionalProperties: false
-> > > +
-> > > +    properties:
-> > > +      '#address-cells':
-> > > +        const: 1
-> > > +      '#size-cells':
-> > > +        const: 0
-> > > +
-> > > +    patternProperties:
-> > > +      '^port@[12]+$':  
-> > 
-> > Note that 'ethernet-port' is the preferred node name though 'port' is 
-> > allowed.
-> 
-> Ok. That would be the correct define:
-> 
-> ethernet-ports {
->      mtip_port1: ethernet-port@1 {
->                reg = <1>;
->                label = "lan0";
->                local-mac-address = [ 00 00 00 00 00 00 ];
->                phy-mode = "rmii";
->                phy-handle = <&ethphy0>;
-> 	       };
-> 
->                mtip_port2: port@2 {
+Fixes: 21f252cd29f0 ("spi: bcm2835: reduce the abuse of the GPIO API")
+Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+---
+ drivers/spi/spi-bcm2835.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
-And here...
+diff --git a/drivers/spi/spi-bcm2835.c b/drivers/spi/spi-bcm2835.c
+index a5d621b94d5e..5926e004d9a6 100644
+--- a/drivers/spi/spi-bcm2835.c
++++ b/drivers/spi/spi-bcm2835.c
+@@ -1226,7 +1226,12 @@ static int bcm2835_spi_setup(struct spi_device *spi)
+ 	struct bcm2835_spi *bs = spi_controller_get_devdata(ctlr);
+ 	struct bcm2835_spidev *target = spi_get_ctldata(spi);
+ 	struct gpiod_lookup_table *lookup __free(kfree) = NULL;
+-	int ret;
++	const char *pinctrl_compats[] = {
++		"brcm,bcm2835-gpio",
++		"brcm,bcm2711-gpio",
++		"brcm,bcm7211-gpio",
++	};
++	int ret, i;
+ 	u32 cs;
+ 
+ 	if (!target) {
+@@ -1291,6 +1296,14 @@ static int bcm2835_spi_setup(struct spi_device *spi)
+ 		goto err_cleanup;
+ 	}
+ 
++	for (i = 0; i < ARRAY_SIZE(pinctrl_compats); i++) {
++		if (of_find_compatible_node(NULL, NULL, pinctrl_compats[i]))
++			break;
++	}
++
++	if (i == ARRAY_SIZE(pinctrl_compats))
++		return 0;
++
+ 	/*
+ 	 * TODO: The code below is a slightly better alternative to the utter
+ 	 * abuse of the GPIO API that I found here before. It creates a
+-- 
+2.34.1
 
-> 		....
-> 	       };
-> 
-> > 
-> > > +        type: object
-> > > +        description: MTIP L2 switch external ports
-> > > +
-> > > +        $ref: ethernet-controller.yaml#
-> > > +        unevaluatedProperties: false
-> > > +
-> > > +        properties:
-> > > +          reg:
-> > > +            items:
-> > > +              - enum: [1, 2]
-> > > +            description: MTIP L2 switch port number
-> > > +
-> > > +          label:
-> > > +            description: Label associated with this port
-> > > +
-> > > +        required:
-> > > +          - reg
-> > > +          - label
-> > > +          - phy-mode
-> > > +          - phy-handle  
-> > 
-> > All the above under 'ethernet-ports' can be dropped though you might 
-> > want to keep 'required' part.
-> 
-> Ok, I will keep it.
-
-So I think you just want this:
-
-ethernet-ports:
-  type: object
-  additionalProperties: true  # Check if you need this
-
-  patternProperties:
-    '^ethernet-port@[12]$':
-      required:
-        - label
-        - phy-mode
-        - phy-handle
-
-Rob
 
