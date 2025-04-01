@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A18D7C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 18:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFCFC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 18:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5bM0Dirk+HpcWUmVwQCJHkMbEEUWakyX6XknzYiBCC8=; b=a4DB4FuF1MQ1Ioj8nnc2qZI6JY
-	DOsSLL30yAVn1k1/g3SZ8HVJtuBrv4Pwwnrk4+czbPG9H1ud8MaENxnF0KKt37a0xp5jubzL9ONLd
-	wQOhzR/U/8/Pkrx8Lm1QfOXJnoni+hZmbKunkKRQWuG5UG4XVNjsEb9LarVzC3wF2y7GxQY47xV8T
-	TTdHGVpVAavbFm75fJaD9D6yNCIuhoW9lBKXCG1PFU5Jzy9KXlqDRgJJ4ajQNHnXOxTjSRz/5YuUv
-	WWtfkDsFosT7whIny8AMMsD19E0frOndhm7XWYLO5Q5fGvey0zL6oXJtwiWNPwR0INDRi2ELmXYRT
-	CLjeGz1Q==;
+	bh=8/jQ/r6dnutlEmVFqH2bRmtXSNKYe9zB5KKF+nVzjYs=; b=RoNfzIZz50JcylNhH7G2k3qvgf
+	Qc2x0st2Tx3LhHy/eIFpUJqgIq8W2jKcjd3jErV2adk5q6l+HB7BMpCHsbDpYbDMbwK1RES5ygUMQ
+	L86KL77OIqUFZBENSxmXnAOFll65wy1pHl62wLQljrYnvA3kjzQXxFD8OepO+Ow1iZfeCDWzp7Tf4
+	8d1eaBOdFNBw88vfDI95tJW4VNwPuE0QG6Z8A1ibVaLNzgTEejOAVBkMil/UY4RI3LzJHTZ+GVK+w
+	+w2pAjacAUteURus6ZeO2+uGWEzJubLlNgjQB7sW8HwM6uwxLSy5zCcwOhVM0jhTds47pv0V39pTD
+	C1Imerqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzgBC-000000045tW-3F4k;
-	Tue, 01 Apr 2025 18:17:42 +0000
+	id 1tzgCx-0000000462C-2Fbl;
+	Tue, 01 Apr 2025 18:19:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzg1E-000000044cF-3Eup
+	id 1tzg1G-000000044cg-2T5N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 18:07:26 +0000
+	Tue, 01 Apr 2025 18:07:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8A7014BF;
-	Tue,  1 Apr 2025 11:07:27 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 886BA12FC;
+	Tue,  1 Apr 2025 11:07:29 -0700 (PDT)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EE5E33F59E;
-	Tue,  1 Apr 2025 11:07:22 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B92E93F59E;
+	Tue,  1 Apr 2025 11:07:24 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Mike Leach <mike.leach@linaro.org>,
@@ -44,17 +44,17 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v4 4/7] coresight: perf: Support AUX trace pause and resume
-Date: Tue,  1 Apr 2025 19:07:05 +0100
-Message-Id: <20250401180708.385396-5-leo.yan@arm.com>
+Subject: [PATCH v4 5/7] coresight: tmc: Re-enable sink after buffer update
+Date: Tue,  1 Apr 2025 19:07:06 +0100
+Message-Id: <20250401180708.385396-6-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250401180708.385396-1-leo.yan@arm.com>
 References: <20250401180708.385396-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_110724_937358_67D5DF9C 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20250401_110726_754747_A8EE0C8B 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,120 +69,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit supports AUX trace pause and resume in a perf session for
-Arm CoreSight.
+The buffer update callbacks disable the sink before syncing data but
+misses to re-enable it afterward.  This is fine in the general flow,
+because the sink will be re-enabled the next time the PMU event is
+activated.
 
-First, we need to decide which flag can indicate the CoreSight PMU event
-has started.  The 'event->hw.state' cannot be used for this purpose
-because its initial value and the value after hardware trace enabling
-are both 0.
+However, during AUX pause and resume, if the sink is disabled in the
+buffer update callback, there is no chance to re-enable it when AUX
+resumes.
 
-On the other hand, the context value 'ctxt->event_data' stores the ETM
-private info.  This pointer is valid only when the PMU event has been
-enabled. It is safe to permit AUX trace pause and resume operations only
-when it is not a NULL pointer.
+To address this, the callbacks now check the event state
+'event->hw.state'.  If the event is an active state (0), the sink is
+re-enabled.
 
-To achieve fine-grained control of the pause and resume, only the tracer
-is disabled and enabled.  This avoids the unnecessary complexity and
-latency caused by manipulating the entire link path.
+For the TMC ETR driver, buffer updates are not fully protected by
+the driver's spinlock.  In this case, the sink is not re-enabled if its
+reference counter is 0, in order to avoid race conditions where the sink
+may have been completely disabled.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
 ---
- drivers/hwtracing/coresight/coresight-etm-perf.c | 45 +++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 44 insertions(+), 1 deletion(-)
+ drivers/hwtracing/coresight/coresight-tmc-etf.c |  9 +++++++++
+ drivers/hwtracing/coresight/coresight-tmc-etr.c | 10 ++++++++++
+ 2 files changed, 19 insertions(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index f4cccd68e625..2dcf1809cb7f 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -365,6 +365,18 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
- 			continue;
- 		}
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+index d858740001c2..7584cc03d8e6 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+@@ -482,6 +482,7 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
+ 	unsigned long offset, to_read = 0, flags;
+ 	struct cs_buffers *buf = sink_config;
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
++	struct perf_event *event = handle->event;
  
-+		/*
-+		 * If AUX pause feature is enabled but the ETM driver does not
-+		 * support the operations, clear this CPU from the mask and
-+		 * continue to next one.
-+		 */
-+		if (event->attr.aux_start_paused &&
-+		    (!source_ops(csdev)->pause_perf || !source_ops(csdev)->resume_perf)) {
-+			dev_err_once(&csdev->dev, "AUX pause is not supported.\n");
-+			cpumask_clear_cpu(cpu, mask);
-+			continue;
-+		}
+ 	if (!buf)
+ 		return 0;
+@@ -586,6 +587,14 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
+ 	 * is expected by the perf ring buffer.
+ 	 */
+ 	CS_LOCK(drvdata->base);
 +
- 		/*
- 		 * No sink provided - look for a default sink for all the ETMs,
- 		 * where this event can be scheduled.
-@@ -450,6 +462,15 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
- 	goto out;
- }
++	/*
++	 * If the event is active, it is triggered during an AUX pause.
++	 * Re-enable the sink so that it is ready when AUX resume is invoked.
++	 */
++	if (!event->hw.state)
++		__tmc_etb_enable_hw(drvdata);
++
+ out:
+ 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
  
-+static int etm_event_resume(struct coresight_device *csdev,
-+			     struct etm_ctxt *ctxt)
-+{
-+	if (!ctxt->event_data)
-+		return 0;
-+
-+	return coresight_resume_source(csdev);
-+}
-+
- static void etm_event_start(struct perf_event *event, int flags)
- {
- 	int cpu = smp_processor_id();
-@@ -463,6 +484,14 @@ static void etm_event_start(struct perf_event *event, int flags)
- 	if (!csdev)
- 		goto fail;
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+index 76a8cb29b68a..8923fbc6e1a0 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+@@ -1636,6 +1636,7 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct etr_perf_buffer *etr_perf = config;
+ 	struct etr_buf *etr_buf = etr_perf->etr_buf;
++	struct perf_event *event = handle->event;
  
-+	if (flags & PERF_EF_RESUME) {
-+		if (etm_event_resume(csdev, ctxt) < 0) {
-+			dev_err(&csdev->dev, "Failed to resume ETM event.\n");
-+			goto fail;
-+		}
-+		return;
-+	}
-+
- 	/* Have we messed up our tracking ? */
- 	if (WARN_ON(ctxt->event_data))
- 		goto fail;
-@@ -545,6 +574,16 @@ static void etm_event_start(struct perf_event *event, int flags)
- 	return;
- }
+ 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
  
-+static void etm_event_pause(struct coresight_device *csdev,
-+			    struct etm_ctxt *ctxt)
-+{
-+	if (!ctxt->event_data)
-+		return;
-+
-+	/* Stop tracer */
-+	coresight_pause_source(csdev);
-+}
-+
- static void etm_event_stop(struct perf_event *event, int mode)
- {
- 	int cpu = smp_processor_id();
-@@ -555,6 +594,9 @@ static void etm_event_stop(struct perf_event *event, int mode)
- 	struct etm_event_data *event_data;
- 	struct coresight_path *path;
+@@ -1705,6 +1706,15 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
+ 	 */
+ 	smp_wmb();
  
-+	if (mode & PERF_EF_PAUSE)
-+		return etm_event_pause(csdev, ctxt);
++	/*
++	 * If the event is active, it is triggered during an AUX pause.
++	 * Re-enable the sink so that it is ready when AUX resume is invoked.
++	 */
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
++	if (csdev->refcnt && !event->hw.state)
++		__tmc_etr_enable_hw(drvdata);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
 +
+ out:
  	/*
- 	 * If we still have access to the event_data via handle,
- 	 * confirm that we haven't messed up the tracking.
-@@ -899,7 +941,8 @@ int __init etm_perf_init(void)
- 	int ret;
- 
- 	etm_pmu.capabilities		= (PERF_PMU_CAP_EXCLUSIVE |
--					   PERF_PMU_CAP_ITRACE);
-+					   PERF_PMU_CAP_ITRACE |
-+					   PERF_PMU_CAP_AUX_PAUSE);
- 
- 	etm_pmu.attr_groups		= etm_pmu_attr_groups;
- 	etm_pmu.task_ctx_nr		= perf_sw_context;
+ 	 * Don't set the TRUNCATED flag in snapshot mode because 1) the
 -- 
 2.34.1
 
