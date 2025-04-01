@@ -4,88 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF14C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 06:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00CA0C36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 06:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N5amiGWhYVQiNjDf80v1j76SUYJp6QIkQ0jjdsqkwu8=; b=ZsMAsXlPBbbhL1yIUtvpBKDwAI
-	6P1DqFXRAHsTw+GZR3QXHd+GrgKaCwAGqKTGwtVb7xrkv+b+Nc06QMy9XOiyP5RCWVRmMU+RoTAQt
-	JLh7f7gWqiJb8KI/9YymtmG466lvFSrbnNClUowB9wemc7w5A6APZz3xqxhjDgTyWSBE7ic+HUWEB
-	Kgc76cI5Sxk3wlxj9tYdqW7clp3rx4O7RTiACmnDJDWxyuIwFsdHG2/slR4oWp7E+mM17PuSruvt0
-	CmZikqhLp0CM2awveFjQbo1aBV1FHmMA8mh1nVB3jZ9IUFF90WpYULY09QQ+Y+Lll3laIE2Q+eiCa
-	MvwTLP9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SonI6xAcMBhpkgEQeBJTusRUx+HcxMVTBLajODqHgvk=; b=4wPym+Y/+PtqoFGqYRzRKfn4ux
+	wnWmaxG3sFZ+pk8veRxQRYiCy8XU2YXZkv4RO7/p3RoLVYdhGERyyBfcmWnHV4CnDQaJ7GvnW0d5l
+	x95v6xN+53MWcnYDeIV5BsXj9zT0g0MP7del0FNTg52zX3aIFMiVdk53NY3Kl1Bxgs3T+hOXk5eHb
+	94FG8y0Gmq5RcyqSkZaWXc6akg7u0932HeZlvZp5ntJhn0khImr7ZE5yUEffz12S6hEfl51rkqBlZ
+	b6mQN324LO0P6fPjTh0exyDoRNiZCGMoWbs4m0HKhheVtrrkaPmUwhiPkmuSJYxiul/IrJDoAQUkI
+	pffSw4ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUxz-000000024t9-0Oxf;
-	Tue, 01 Apr 2025 06:19:19 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1tzUzk-00000002578-4986;
+	Tue, 01 Apr 2025 06:21:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUwB-000000024e5-1vrD
+	id 1tzUwi-000000024j6-1Qnh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 06:17:29 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-05 (Coremail) with SMTP id zQCowACn3wfchOtn05WcBA--.19358S2;
-	Tue, 01 Apr 2025 14:17:02 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: andrii@kernel.org,
-	eddyz87@gmail.com,
-	mykolal@fb.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	john.fastabend@gmail.com,
-	kpsingh@kernel.org,
-	sdf@fomichev.me,
-	haoluo@google.com,
-	jolsa@kernel.org,
-	shuah@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	peterz@infradead.org,
-	ameryhung@gmail.com,
-	juntong.deng@outlook.com,
-	oleg@redhat.com
-Cc: bpf@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] selftests/bpf: Convert comma to semicolon
-Date: Tue,  1 Apr 2025 14:15:46 +0800
-Message-Id: <20250401061546.1990156-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Tue, 01 Apr 2025 06:18:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C6F6C6115D;
+	Tue,  1 Apr 2025 06:17:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EA6BC4CEE8;
+	Tue,  1 Apr 2025 06:17:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743488279;
+	bh=KnEDjwzU7f+yS42V6ce7fa3bnnh/T4X0uQ0vYcQujSU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qqsPBV6ZDjA4JXFCcrEZ63438y/20vB2mvHM3E8CAfefaN/roeihqcnBpj4gL6fHt
+	 9/T50ZfHic0p24x1YYnVJa663OpTSmjaHIHVvXiOG5tv/Z4dTOqC0zeFQ6ZNA0+iPe
+	 7FWOerDBjRrtbWN9DbBZ79Bco+tjFDaYU0nJvmtwZAvmKCsUCd33QelYSFp3YDvgs7
+	 1ew6Ye5Q9HFLThkniDCATefPUbhcE7ZL5m5/pUFrBmJ3XU0UFZ75F+j9IzrZcqbYDl
+	 p4vhmBOM+SRRGSWXMfdL/391h1gCMGdZs977xO0b9bABOUcT4WVbaWzyjjUS8nk7Vl
+	 WHhhcegmHDJ3w==
+Date: Tue, 1 Apr 2025 08:17:55 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sam Winchenbach <sam.winchenbach@framepointer.org>
+Cc: linux-kernel@vger.kernel.org, mdf@kernel.org, hao.wu@intel.com, 
+	yilun.xu@intel.com, trix@redhat.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, michal.simek@amd.com, linux-fpga@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Sam Winchenbach <swinchenbach@arka.org>
+Subject: Re: [PATCH 1/2] dt-bindings: fpga: zynq: Document ICAP on boot
+Message-ID: <20250401-helpful-bronze-gazelle-4d8e25@krzk-bin>
+References: <20250328141944.119504-1-sam.winchenbach@framepointer.org>
+ <02496a88-3d9c-49ee-93ab-8f1400fc0c6b@kernel.org>
+ <p4bujnmgkcvsu4qipmgh2j2loedepmwgp7zlaxrurhaveb6tbc@ibqtbjnbzdzj>
+ <14b12882-119d-4c24-9634-e4cc37a39212@kernel.org>
+ <2ccsnpv67gsu354uo7xe7syrxs265ncj6hl26v3cwf2dfm7hyu@ihkemyajuiag>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowACn3wfchOtn05WcBA--.19358S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KF17ur4DKrWUZF4kWFyrtFb_yoW8Cr47pa
-	4fXw1DAr1xJa1UJa1xKa9Fqr1S9rsIq3y7Jas3Kr93Xa13t3W3XryUtr18twnxXF4rXa15
-	uw1YvFyv9an7ZrDanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBj14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVAFwVW8AwCF04k20xvY0x0EwI
-	xGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480
-	Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7
-	IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k2
-	6cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxV
-	AFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRzMKAUUUUU=
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_231727_883506_96F74C4E 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <2ccsnpv67gsu354uo7xe7syrxs265ncj6hl26v3cwf2dfm7hyu@ihkemyajuiag>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,44 +75,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace comma between expressions with semicolons.
+On Mon, Mar 31, 2025 at 09:07:03AM -0400, Sam Winchenbach wrote:
+> On Mon, Mar 31, 2025 at 02:43:59PM +0200, Krzysztof Kozlowski wrote:
+> > Not sure yet. Can't you check the status of ICAP before programming and
+> > then enable it only if was enabled before?
+> 
+> I am having a bit of difficulty understanding this so let's talk about cases
+> where the ICAP is enabled/disabled -
+> 
+> 1. When writing the fabric from the driver
+>    In this situation it might make sense to read the state of the ICAP
+>    interface when preparing the fabric, before enabling PCAP. When the write
+>    completes you could re-enable the ICAP if it was previously enabled.
+> 
+>    This might be outside the scope of this change - and I am not comfortable
+>    enough with this use-case to understand potential side effects from doing
+>    this. Logically it makes sense, but there may be a very specific reason that
+>    the ICAP must be enabled after doing a fabric load or partial
+>    reconfiguration.
+> 
+> 2. When the FPGA driver loads and is probed by the DTS
+>    In this situation, which is covered by this patch, the FPGA is loaded by
+>    BootROM/FSBL but contains functionality that requires the ICAP. Unless the
+>    user has made modifications to the FSBL or 3rd stage bootloader there is no
+>    clear way to enable the ICAP interface. Checking to see if it had been
+>    enabled prior to loading this driver does not (in my opinion) make a lot of
+>    sense here.
+> 
+>    Perhaps the name of the DTS is confusing? The suffix '-on-load' was meant to
+>    indicate when the driver was loaded, not the fabric. Would the suffix
+>    '-on-probe' be more clear?
 
-Using a ',' in place of a ';' can have unintended side effects.
-Although that is not the case here, it is seems best to use ';'
-unless ',' is intended.
+Neither on-load nor on-probe, because again you instruct the OS what it
+should do. You should instead describe the hardware (or other parts of
+software stack). Describe the condition, the hardware feature, the
+characteristic observed. With proper phrasing the property should be
+fine, but I still do not see that its name and description match actual
+hardware.
 
-Found by inspection.
-No functional change intended.
-Compile tested only.
-
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- tools/testing/selftests/bpf/test_kmods/bpf_testmod.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-index 3220f1d28697..f38eaf0d35ef 100644
---- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-+++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-@@ -1340,7 +1340,7 @@ static int st_ops_gen_prologue_with_kfunc(struct bpf_insn *insn_buf, bool direct
- 	*insn++ = BPF_STX_MEM(BPF_DW, BPF_REG_6, BPF_REG_7, offsetof(struct st_ops_args, a));
- 	*insn++ = BPF_JMP_IMM(BPF_JA, 0, 0, 2);
- 	*insn++ = BPF_MOV64_REG(BPF_REG_1, BPF_REG_0);
--	*insn++ = BPF_CALL_KFUNC(0, bpf_cgroup_release_id),
-+	*insn++ = BPF_CALL_KFUNC(0, bpf_cgroup_release_id);
- 	*insn++ = BPF_MOV64_REG(BPF_REG_1, BPF_REG_8);
- 	*insn++ = prog->insnsi[0];
- 
-@@ -1379,7 +1379,7 @@ static int st_ops_gen_epilogue_with_kfunc(struct bpf_insn *insn_buf, const struc
- 	*insn++ = BPF_STX_MEM(BPF_DW, BPF_REG_1, BPF_REG_6, offsetof(struct st_ops_args, a));
- 	*insn++ = BPF_JMP_IMM(BPF_JA, 0, 0, 2);
- 	*insn++ = BPF_MOV64_REG(BPF_REG_1, BPF_REG_0);
--	*insn++ = BPF_CALL_KFUNC(0, bpf_cgroup_release_id),
-+	*insn++ = BPF_CALL_KFUNC(0, bpf_cgroup_release_id);
- 	*insn++ = BPF_MOV64_REG(BPF_REG_0, BPF_REG_6);
- 	*insn++ = BPF_ALU64_IMM(BPF_MUL, BPF_REG_0, 2);
- 	*insn++ = BPF_EXIT_INSN();
--- 
-2.25.1
+Best regards,
+Krzysztof
 
 
