@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08460C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 08:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B73F1C36018
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 08:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJVSPyBhQxEfciOdsPKbzkgk92klshtv/TeQm26hACA=; b=zu7GxCwISsGnnszJEFB3ceTefA
-	n2ZjkivLX5XuBJoy9uYhjGKk/EaQiRHhabY/S60de/ZcK9wXhoml8HTIPYsMY2o0fYfTJOji8ksF9
-	brftSzEbczx340/FHlY93GwYJxbPirqjkHSkC3Xc7A7tNYxW+eLrNwXIKjwBSaxPxPVT/wLCwTj6y
-	FiVpX3nkE809WLe7MnrPZnLfoo6j/e7RkPcQKjIJ8J53ixyyoLE4ll0okP5sC7tktDRymlCn+bme2
-	bWDeACCMWT5+mK/ryKokkHVGLbpGk9wWUIy8w+UwmDndPnBdnvdd3hwjrDz27b204Hw+4XvY/u2Tn
-	Rv/zsKAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HMRcZ/ULlBeIw6/Nu88nHJ/H2X1N046PBmfM1JyXits=; b=gIwXbx7pvpcaEw9Ji04QuKBAKD
+	T/cN0MCr7ChRuEgtKFp6CL1jXpanL4FwZ2B41qnFSzRa8ZkUtf+hDvKOR7ROfhgvoPmc4vp+em1Ct
+	nzZHz5sAaKsQees/rlYPEGuTqGp0eBMMpB5d51q7dcJeX5A1iX4+7DzMog4v9d/Za2pbvgaI4i/wJ
+	A3khl+XhQc3J1KKirGJ4MibauKzuTgBCCTTm/qj3gd/0CyPm8ai5eXcuIYWP3mY/s+294leHGE8kx
+	XmMXYQXpeeQ1oXM1LDhUlJYLFCHuTILQp+AG5BsNQ8ZfoZCXNa5xJHRxquguvPlrL+CeTDJXTCIhN
+	dA7CjDAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzWYE-00000002Gj8-32J7;
-	Tue, 01 Apr 2025 08:00:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tzWj1-00000002I34-2kuT;
+	Tue, 01 Apr 2025 08:11:59 +0000
+Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzWWR-00000002GYU-0MAQ
+	id 1tzWhD-00000002He7-2AC8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 07:59:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 571FDA440BF;
-	Tue,  1 Apr 2025 07:53:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFF80C4CEE4;
-	Tue,  1 Apr 2025 07:58:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743494337;
-	bh=N0aOQujaXvl0WI/8gV+qMIDU5kNcN5JuX3zlJZZiu3Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C8+R1PlSU58+Xkj6v72qEazJhScUDulxNjdpNdBObwRkmx1nQQVyx5DoIXo0oDXb3
-	 DUbsHsJPJ04TvJZlceBAPqq9QkTPIMKh6IXC6qu4nocokujzVQjpexdRqGk7SN3xtW
-	 81U6DERoHeJJEis3pWXYwt6uB1lewwO0wBKmsch+n+GAlvVVPsYOZibwbkME2snpHp
-	 B+tAAUbmMcabcKha4jynjvRH7/YzHnGvLZOrRTF1F/DAybYREdxkPiQavIgTOSuWhi
-	 lzNTh+JMThlogM3oqTMYcy0mWZAlLmTlyTKBEX4y1GI9wd5LeqfCghwPaN/wN8SIeB
-	 KutfL59NdHQ6g==
-Date: Tue, 1 Apr 2025 13:28:48 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>
-Subject: Re: [PATCH v6 05/10] tee: implement restricted DMA-heap
-Message-ID: <Z-ucuPzwz4IqVTgb@sumit-X1>
-References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
- <20250305130634.1850178-6-jens.wiklander@linaro.org>
- <Z-JOPgcWlpTlskgd@sumit-X1>
- <CAHUa44GjpHT5Nqo+Ar5jNYNPV-YJQYpLTCf=7oJ1o0VjP-t0nA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAHUa44GjpHT5Nqo+Ar5jNYNPV-YJQYpLTCf=7oJ1o0VjP-t0nA@mail.gmail.com>
+	Tue, 01 Apr 2025 08:10:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:
+	Content-Type:Content-Transfer-Encoding:Mime-Version:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=HMRcZ/ULlBeIw6/Nu88nHJ/H2X1N046PBmfM1JyXits=; b=G0e9nYvryYD/wJt29ZfplPB2Bs
+	kVPadTWva/KmyhbGhDMNTzn8it+Hddo1dV+7+mQaKQ9/vMWq38qmUH8lh0yJtoMZbSVpYJfFrZTko
+	U1W1DWj59hY8TDts7qck+W6lbouBuxgyZa4rqICB4uD+QDppYaYWTSpnrGHDFN8cSvI+0oaOytMPS
+	DQJFzI++uaBR/KUz2ETFaSxHQzK2o5oWaQV+b68b/xjimfZ1m2d2nIj6EXYS84+R8RIf9Zur5sbYf
+	G10zdjHba62tdASOd8OWljAOEVdugY2uTmWYDacmEqGBuh0NOkidxTHIWWUVvbRcClenNso9M9D16
+	F5Ykir+A==;
+Received: from i59f7adb8.versanet.de ([89.247.173.184] helo=localhost)
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1tzWh1-009Z2d-OF; Tue, 01 Apr 2025 10:09:55 +0200
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 01 Apr 2025 10:09:54 +0200
+Message-Id: <D8V5E7FT19GH.3EUO3I50GYF8J@igalia.com>
+Cc: <catalin.marinas@arm.com>, <will@kernel.org>,
+ <linux-kernel@vger.kernel.org>, <kernel-dev@igalia.com>
+Subject: Re: [PATCH] arm64: Don't call NULL in do_compat_alignment_fixup
+From: "Angelos Oikonomopoulos" <angelos@igalia.com>
+To: "Anshuman Khandual" <anshuman.khandual@arm.com>,
+ <linux-arm-kernel@lists.infradead.org>
+X-Mailer: aerc 0.20.1
+References: <20250331085415.122409-1-angelos@igalia.com>
+ <17de4426-8263-4ccb-8420-f6913d478ae9@arm.com>
+ <D8V3VKNJJI1Z.27C32MUQ1OLYF@igalia.com>
+ <c1dc28a9-7a36-4303-a8eb-0e227d866c37@arm.com>
+In-Reply-To: <c1dc28a9-7a36-4303-a8eb-0e227d866c37@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_005859_188116_48972C41 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250401_011007_850899_F78A8303 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,63 +77,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 25, 2025 at 11:55:46AM +0100, Jens Wiklander wrote:
-> Hi Sumit,
-> 
-
-<snip>
-
-> 
-> >
-> > > +
-> > > +#include "tee_private.h"
-> > > +
-> > > +struct tee_dma_heap {
-> > > +     struct dma_heap *heap;
-> > > +     enum tee_dma_heap_id id;
-> > > +     struct tee_rstmem_pool *pool;
-> > > +     struct tee_device *teedev;
-> > > +     /* Protects pool and teedev above */
-> > > +     struct mutex mu;
-> > > +};
-> > > +
-> > > +struct tee_heap_buffer {
-> > > +     struct tee_rstmem_pool *pool;
-> > > +     struct tee_device *teedev;
-> > > +     size_t size;
-> > > +     size_t offs;
-> > > +     struct sg_table table;
-> > > +};
-> > > +
-> > > +struct tee_heap_attachment {
-> > > +     struct sg_table table;
-> > > +     struct device *dev;
-> > > +};
-> > > +
-> > > +struct tee_rstmem_static_pool {
-> > > +     struct tee_rstmem_pool pool;
-> > > +     struct gen_pool *gen_pool;
-> > > +     phys_addr_t pa_base;
-> > > +};
-> > > +
-> > > +#if !IS_MODULE(CONFIG_TEE) && IS_ENABLED(CONFIG_DMABUF_HEAPS)
-> >
-> > Can this dependency rather be better managed via Kconfig?
-> 
-> This was the easiest yet somewhat flexible solution I could find. If
-> you have something better, let's use that instead.
+On Tue Apr 1, 2025 at 9:47 AM CEST, Anshuman Khandual wrote:
 >
+>
+> On 4/1/25 12:28, Angelos Oikonomopoulos wrote:
+>> On Tue Apr 1, 2025 at 8:05 AM CEST, Anshuman Khandual wrote:
+>>> On 3/31/25 14:24, Angelos Oikonomopoulos wrote:
+[...]
+>>>>  arch/arm64/kernel/compat_alignment.c | 2 ++
+>>>>  1 file changed, 2 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/kernel/compat_alignment.c b/arch/arm64/kernel/=
+compat_alignment.c
+>>>> index deff21bfa680..b68e1d328d4c 100644
+>>>> --- a/arch/arm64/kernel/compat_alignment.c
+>>>> +++ b/arch/arm64/kernel/compat_alignment.c
+>>>> @@ -368,6 +368,8 @@ int do_compat_alignment_fixup(unsigned long addr, =
+struct pt_regs *regs)
+>>>>  		return 1;
+>>>>  	}
+>>>> =20
+>>>> +	if (!handler)
+>>>> +		return 1;
+>>>
+>>> do_alignment_t32_to_handler() could return NULL, returning 1 seems to b=
+e
+>>> the right thing to do here and consistent. Otherwise does this cause a
+>>> kernel crash during subsequent call into handler() ?
+>>=20
+>> Yes. We call a NULL pointer so we Oops.
+>
+> Then the commit message should have the kernel Oops splash dump and also
+> might need to have Fixes: and CC: stable tags etc ?
 
---- a/drivers/tee/optee/Kconfig
-+++ b/drivers/tee/optee/Kconfig
-@@ -5,6 +5,7 @@ config OPTEE
-        depends on HAVE_ARM_SMCCC
-        depends on MMU
-        depends on RPMB || !RPMB
-+       select DMABUF_HEAPS
-        help
-          This implements the OP-TEE Trusted Execution Environment (TEE)
-          driver.
+Sure, I can add those. Thanks for the suggestions!
 
--Sumit
+> Also wondering if handler return value should be checked inside the switc=
+h
+> block just after do_alignment_t32_to_handler() assignment.
+>
+> 	handler =3D do_alignment_t32_to_handler()
+> 	if (!handler)
+> 		return 1
+
+I can see the appeal of that, but I think placing the check right before
+the single dereference is a more future-proof fix, in that it reduce the
+chances that a later patch will re-introduce a potential NULL pointer
+dereference.
+
+Angelos
+
 
