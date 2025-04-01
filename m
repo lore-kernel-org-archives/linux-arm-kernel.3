@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5510AC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C79C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hvhK/NxFAtUOi2+7WK4QJ2mVgKDHK9XifDnJ7Z+flcY=; b=JUnRo4DdpNkZ4yUS3lo8O2esPD
-	MWhR/ZQ07I5BfyxvX/AugP2RoTPlwvp70q+rWSl2VbdWbhpjSJsIEhQg5TX308jiqJMDp85mNzKa4
-	P5WcGKmkvqkzeQU6C71BZt8OeE9tndr3QWOmVcU1yl35Dv5yAvirxT7uRi//chJZ4PSieksbBSBx+
-	Ny+JlHdbqIPjaG6WFjWjgx0dYCdCEWjp25INNx716i5vzIC6ztYOqdXlFbKo/ca5uY8LtK8Y4Z96l
-	JYTeKe+R86f5GNYdrseIUiTjgipXv1WoBcmiuxWmjdYgg+ch8wVJ3x+PbgDtgtnyFzWWY9K97qz6p
-	0X1y8mTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3X4+XB6iYD5Jd3iTF+Mo2Vcdn3kDXVz/zUbti1Mdh+I=; b=EwR4GZHsAb9PinTZV0CX5PVO/s
+	sZSEiU2gBN0nU1yun03wRyP1ebPIIiXaHKHQcaIZSY2sdkIdSnq1RdpDEvz9maKoAY04An+bJ5Ymb
+	dBAIqLwyNCMaJDDP9N0Q5CbqxKGf+d20BAFHI27rdqb69ReogxpiIiDz8UuAodf1uSyetX3OQhlII
+	EhIw9zQnVpWkYuXAgKOHmhZksmEkSWihQBtt7yZ4S+HeFNNR7+NCmOvVPE+Vu7/zymfmT4dPWQYI8
+	5HUzRMfeYhkFnLZxXXuHfoHXQhguTXTBxxEA31eSeHCtulXJvQhyMaNUYfb+4HiCTHMSet/VxmD5H
+	wcnS2/SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYZG-00000002aPd-3kY6;
-	Tue, 01 Apr 2025 10:10:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzY8v-00000002Vlt-11xy;
-	Tue, 01 Apr 2025 09:42:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1D7D61132;
-	Tue,  1 Apr 2025 09:42:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 069CFC4CEE4;
-	Tue,  1 Apr 2025 09:42:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743500568;
-	bh=Tg3tXMHJf2C+qh4933Cv7caaqlu4tWE4+ox/5ISh5pA=;
-	h=From:Date:Subject:To:Cc:From;
-	b=UriSNX2wpuXYZx7VT/c9Z8eibqdIg6QdUTcwrJJu7clqwp16r6uArXVZWx5Cg7yWT
-	 2OtbHnRPB2qbUyZx/4R0HbOf6CYB8eHJyQuh07YbbdZtRjc634oKwgotGKMbSWwG0a
-	 84tcm4s0aegCOe3UtfBqJslPloIHbGK10v0ZxZA475MuapMku8EWWKsobjFNHY0hHZ
-	 gCvEgud8mKPu80H+xEO76p+ICRYwIHmLunzF5Fs8gR3tXCT81BYRr3UQ8U/GD0Fznb
-	 wgsB49XeRm9ArhapHZXO71VsAFlOPOG4VIYLmj2+nIEZLOkVdmwSthalkbc3L3VsA+
-	 UMHMEqohUW0VA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 01 Apr 2025 11:42:30 +0200
-Subject: [PATCH net v4] net: airoha: Validate egress gdm port in
- airoha_ppe_foe_entry_prepare()
+	id 1tzYb2-00000002ahx-2IsV;
+	Tue, 01 Apr 2025 10:11:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzY9E-00000002VpZ-0LJr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Apr 2025 09:43:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17D5A14BF;
+	Tue,  1 Apr 2025 02:43:08 -0700 (PDT)
+Received: from [10.1.28.189] (XHFQ2J9959.cambridge.arm.com [10.1.28.189])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A9F923F694;
+	Tue,  1 Apr 2025 02:43:02 -0700 (PDT)
+Message-ID: <0aac96b5-b3ac-47ee-97af-7ca5d927bdd0@arm.com>
+Date: Tue, 1 Apr 2025 10:43:01 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: pageattr: Explicitly bail out when changing
+ permissions for vmalloc_huge mappings
+Content-Language: en-GB
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org,
+ gshan@redhat.com, steven.price@arm.com, suzuki.poulose@arm.com,
+ tianyaxiong@kylinos.cn, ardb@kernel.org, david@redhat.com, urezki@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250328062103.79462-1-dev.jain@arm.com>
+ <Z-cnmklGUojMzsUF@kernel.org> <deedf5e2-4a25-4c1f-a5d8-a661a2eb16d2@arm.com>
+ <Z-jzouwNZwk8Ft-j@kernel.org>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <Z-jzouwNZwk8Ft-j@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250401-airoha-validate-egress-gdm-port-v4-1-c7315d33ce10@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAW162cC/42NQQ6CMBAAv0J6dg2wCOLJfxgOa1nLRqRkSxoN4
- e9WXuBx5jCzmsAqHMwlW41ylCB+SlAdMmMHmhyD9IlNmZenHLEAEvUDQaRReloY2CmHAK5/wex
- 1AcTanpu2rXNLJlVm5Ye898OtSzxIWLx+9mHEn/2/HREKsEXF9Z3aBpGuT9aJx6NXZ7pt276DG
- 7UnzwAAAA==
-X-Change-ID: 20250331-airoha-validate-egress-gdm-port-336c879960ca
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250401_024308_365162_9E959B05 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,123 +69,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dev pointer in airoha_ppe_foe_entry_prepare routine is not strictly
-a device allocated by airoha_eth driver since it is an egress device
-and the flowtable can contain even wlan, pppoe or vlan devices. E.g:
+On 30/03/2025 03:32, Mike Rapoport wrote:
+> On Sat, Mar 29, 2025 at 09:46:56AM +0000, Ryan Roberts wrote:
+>> On 28/03/2025 18:50, Mike Rapoport wrote:
+>>> On Fri, Mar 28, 2025 at 11:51:03AM +0530, Dev Jain wrote:
+>>>> arm64 uses apply_to_page_range to change permissions for kernel VA mappings,
+>>>
+>>>                                                      for vmalloc mappings ^
+>>>
+>>> arm64 does not allow changing permissions to any VA address right now.
+>>>
+>>>> which does not support changing permissions for leaf mappings. This function
+>>>> will change permissions until it encounters a leaf mapping, and will bail
+>>>> out. To avoid this partial change, explicitly disallow changing permissions
+>>>> for VM_ALLOW_HUGE_VMAP mappings.
+>>>>
+>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>
+>> I wonder if we want a Fixes: tag here? It's certainly a *latent* bug.
+> 
+> We have only a few places that use vmalloc_huge() or VM_ALLOW_HUGE_VMAP and
+> if there was a code that plays permission games on these allocations, x86
+> set_memory would blow up immediately, so I don't think Fixes: is needed
+> here.
 
-flowtable ft {
-        hook ingress priority filter
-        devices = { eth1, lan1, lan2, lan3, lan4, wlan0 }
-        flags offload                               ^
-                                                    |
-                     "not allocated by airoha_eth" --
-}
+Hi Mike,
 
-In this case airoha_get_dsa_port() will just return the original device
-pointer and we can't assume netdev priv pointer points to an
-airoha_gdm_port struct.
-Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
-routine before accessing net_device priv pointer.
+I think I may have misunderstood your comments when we spoke at LSF/MM the other
+day, as this statement seems to contradict. I thought you said that on x86 BPF
+allocates memory using vmalloc_huge()/VM_ALLOW_HUGE_VMAP and then it's
+sub-allocator will set_memory_*() on a sub-region of that allocation? (And we
+then agreed that it would be good for arm64 to eventually support this with BBML2).
 
-Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v4:
-- Return bool in airoha_is_valid_gdm_port() instead of int
-- Link to v3: https://lore.kernel.org/r/20250331-airoha-validate-egress-gdm-port-v3-1-c14e6ba9733a@kernel.org
+Anyway, regardless, I think this change is useful first step to improving
+vmalloc as it makes us more defensive against any future attempt to change
+permissions on a huge allocation. In the long term I'd like to get to the point
+where arm64 (with BBML2) can map with VM_ALLOW_HUGE_VMAP by default.
 
-Changes in v3:
-- Rebase on top of net tree
-- Fix commit log
-- Link to v2: https://lore.kernel.org/r/20250315-airoha-flowtable-null-ptr-fix-v2-1-94b923d30234@kernel.org
+Thanks,
+Ryan
 
-Changes in v2:
-- Avoid checking netdev_priv pointer since it is always not NULL
-- Link to v1: https://lore.kernel.org/r/20250312-airoha-flowtable-null-ptr-fix-v1-1-6363fab884d0@kernel.org
----
- drivers/net/ethernet/airoha/airoha_eth.c | 13 +++++++++++++
- drivers/net/ethernet/airoha/airoha_eth.h |  3 +++
- drivers/net/ethernet/airoha/airoha_ppe.c |  8 ++++++--
- 3 files changed, 22 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index c0a642568ac115ea9df6fbaf7133627a4405a36c..743f85a1ee380a92d22ba91f3ee42e5fcb59aec7 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2454,6 +2454,19 @@ static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
- 	}
- }
- 
-+bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
-+			      struct airoha_gdm_port *port)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+		if (eth->ports[i] == port)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
- static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 				 struct device_node *np, int index)
- {
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 60690b685710c72a2e15c6c6c94240108dafa1c1..ec8908f904c61988c3dc973e187596c49af139fb 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -532,6 +532,9 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val);
- #define airoha_qdma_clear(qdma, offset, val)			\
- 	airoha_rmw((qdma)->regs, (offset), (val), 0)
- 
-+bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
-+			      struct airoha_gdm_port *port);
-+
- void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash);
- int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
- 				 void *cb_priv);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 8b55e871352d359fa692c253d3f3315c619472b3..f10dab935cab6fad747fdfaa70b67903904c1703 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -197,7 +197,8 @@ static int airoha_get_dsa_port(struct net_device **dev)
- #endif
- }
- 
--static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
-+static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
-+					struct airoha_foe_entry *hwe,
- 					struct net_device *dev, int type,
- 					struct airoha_flow_data *data,
- 					int l4proto)
-@@ -225,6 +226,9 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
- 		struct airoha_gdm_port *port = netdev_priv(dev);
- 		u8 pse_port;
- 
-+		if (!airoha_is_valid_gdm_port(eth, port))
-+			return -EINVAL;
-+
- 		if (dsa_port >= 0)
- 			pse_port = port->id == 4 ? FE_PSE_PORT_GDM4 : port->id;
- 		else
-@@ -633,7 +637,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
- 	    !is_valid_ether_addr(data.eth.h_dest))
- 		return -EINVAL;
- 
--	err = airoha_ppe_foe_entry_prepare(&hwe, odev, offload_type,
-+	err = airoha_ppe_foe_entry_prepare(eth, &hwe, odev, offload_type,
- 					   &data, l4proto);
- 	if (err)
- 		return err;
-
----
-base-commit: f278b6d5bb465c7fd66f3d103812947e55b376ed
-change-id: 20250331-airoha-validate-egress-gdm-port-336c879960ca
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+>  
+>>>> ---
+>>>>  arch/arm64/mm/pageattr.c | 4 ++--
+>>>>  1 file changed, 2 insertions(+), 2 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>>>> index 39fd1f7ff02a..8337c88eec69 100644
+>>>> --- a/arch/arm64/mm/pageattr.c
+>>>> +++ b/arch/arm64/mm/pageattr.c
+>>>> @@ -96,7 +96,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>>>>  	 * we are operating on does not result in such splitting.
+>>>>  	 *
+>>>>  	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
+>>>> -	 * Those are guaranteed to consist entirely of page mappings, and
+>>>> +	 * Disallow VM_ALLOW_HUGE_VMAP vmalloc mappings so that
+>>>
+>>> I'd keep mention of page mappings in the comment, e.g
+>>>
+>>> 	* Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
+>>> 	* mappings are updated and splitting is never needed.
+>>>
+>>> With this and changelog updates Ryan asked for
+>>>
+>>> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>>>
+>>>
+>>>>  	 * splitting is never needed.
+>>>>  	 *
+>>>>  	 * So check whether the [addr, addr + size) interval is entirely
+>>>> @@ -105,7 +105,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>>>>  	area = find_vm_area((void *)addr);
+>>>>  	if (!area ||
+>>>>  	    end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
+>>>> -	    !(area->flags & VM_ALLOC))
+>>>> +	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
+>>>>  		return -EINVAL;
+>>>>  
+>>>>  	if (!numpages)
+>>>> -- 
+>>>> 2.30.2
+>>>>
+>>>
+>>
+> 
 
 
