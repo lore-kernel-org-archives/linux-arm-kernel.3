@@ -4,108 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA703C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 16:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7192C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 16:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6F2KQ4OR3ZHgS35jWuGRRIRhAOPr/hoDIO54PRiAcTc=; b=JP++d8OxDx3XIG+pSP4RbhMwqP
-	+Ry+VM/5NtpuwPmvZ1obUTbLIXUxYfXxoRk4bAQypIT3vImlPjGGPKCUpHHjVIHk2ZiNL28fPsM5v
-	mWmPPDbd77yxmUwzUULn4guXD2GoHJsfTkRBJSx27vBlv6XqxbhJXSPftJAMa/TAenKYxS3kE7pmS
-	nuRmlP8KXTrMU7AsF/qbjD4Cq7FZEsMGOcTtqW7/WYfqBcHFVgHpfQIM3RzirCAflwlCZC+N5RASJ
-	GcJ8aoIwJTwg/aiRoVTbyw0FhiMGr/snVeuzdgABtqU0vYdvn8tjk45+UTUnCw40ayxM8mq2X1H3J
-	MInCEF7Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kITiRQQrnD33DOiE+C+JBAjD6rrVk5TPx/ro5x/mJl0=; b=hoKKyFCb01atHdspfBEjXyUmmU
+	zCqSyN/uDtLIhGmnf5uTCBabQr5Bjj33m3JFn0MtZjNxJggsm2Zk0cm4sczUzULKCKp9p/8FWu3x1
+	DI8tFOojpwQw4O9bvY6LxqLmwF5aOdNb0NnnwUBpNSaNifVt67MQwnXkMYviJmeBkmEZCNVFZcEiv
+	d76dVo1OxhKnyNACsAAO31Zn9KAmiS4Tgmwp6fi3nTovVwizaTBJQXk1Gpi7ub6bdKx+xuQmj0BPW
+	cmWWmrnF/osQSgYYUYCK83pmjA5WyALl3LNLyEkNpRaj0F6QE9LRf88HtmP6RQZSlcIGOwWtPoX48
+	aHlaX61g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tze5x-00000003oHN-1Pqo;
-	Tue, 01 Apr 2025 16:04:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tze7i-00000003oX5-05Un;
+	Tue, 01 Apr 2025 16:05:58 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzduK-00000003mO0-0wiH
+	id 1tzdvE-00000003mYf-20VZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 15:52:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CBF1F6112E;
-	Tue,  1 Apr 2025 15:52:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3965C4CEE4;
-	Tue,  1 Apr 2025 15:52:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743522727;
-	bh=dGdVrU0vQ/iJKO4SPhS3jZxBLEB2L878Pi8/iR94+8Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JpkptaY4Q9CbeHdEW3RfRTFT/2r2uySXJWtQOnQMS+1fpr0S37lAmQNFSyefwyGtV
-	 HDOlx2Iw/ldbWc1wGp9NIbEZ2NHI9tSUoxx+YcUxogAYkhcoLVXc+Y8g91TGPfSQ4z
-	 07jl2NRVsNFHlkPyBwXsP49lMffCZnzxXQVkqP6EExk+tzBLkflxNnTLv3zIo+/4rs
-	 1JYQkJLWMcQongXivrTq9XHsLxltP0IMpkFpwXwCWhgP2UWXW5QX9p8J2DfTwe4SIY
-	 qCiQRqezD43pVUldjNnd5Ay+m8+bKHjMgzpMdqqKe8a5DCXf1Zac3qu/ruhuTTuxWZ
-	 b+P/aTndkBUjA==
-Message-ID: <f563b33e-f552-4a3c-bb45-6b7add876fdd@kernel.org>
-Date: Tue, 1 Apr 2025 17:51:58 +0200
+	Tue, 01 Apr 2025 15:53:05 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43ce71582e9so41410035e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 08:53:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743522783; x=1744127583; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kITiRQQrnD33DOiE+C+JBAjD6rrVk5TPx/ro5x/mJl0=;
+        b=hucdSA1cWWn1dHCG/Tr4J0rxwUKd++Tx9Py+tIjY/Nd5HCL4ju1tMfeyW1R6H/QQ/m
+         khvYXMUZOYziSy7sbGelTUtbwoYZYv0WgKX9tIJOA/9DarT1qdy88wQ7TN300Ecvp3uk
+         q47Ys853vSUydq7kIIJKyx03MnrxMacORuQK0QaK7aBB01vp1yx44fEpnl39HYznAQbO
+         vNCmOPBrCp+bPsGzL8kCRaaehUdWWr/h0gd0CzA+0uDzgEaSIIaQUb1o6adhr9+35Nq7
+         sNKtHoVBqk/S8152TtKTaFH6Rq1JBF6PsuFfJzfmtvixOrZSK/7UVEWuNLKEROyI7peF
+         /jSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743522783; x=1744127583;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kITiRQQrnD33DOiE+C+JBAjD6rrVk5TPx/ro5x/mJl0=;
+        b=Ydlu8bvIsXFilCNtzJ6bvkKopUm1uBA0mwJrG86cMhdyr8c7nr8W3ASgU074EEWb14
+         BQkyU4SCChW6JoqqGPPb8YM5+sah8A7CXdMRlafPKXxpL2gqO76fgw2+VgoZFwdlfeMp
+         YuWqyTTdLs7S7J2FSPqri8N5F+eBmlQn7LOSGmwy6G4WL54Ngh1ZeGl10AnXfymKsH26
+         IDBQvmOfqfP2A1E99u167KpH2nOFY6k5n3NXkTp+qVd2TzVNkgp1usOksSw6hbEHanFo
+         X0eTY13fbVoHvnDUYiJwzssUBfawdzMiaRkqGaM5Np1cw3ECNOH3YhDmltQ2LY6k2F/T
+         Teww==
+X-Forwarded-Encrypted: i=1; AJvYcCUYTZHPOdqR5wREDS2eGug02yyuarVsMPjCu6vSI7R2kqv6v4J0DxslXYN28fb7rxYrP9Q+KfDmVTGwcX3GiX3g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2d0R8v8O8OSiGHFxih3PhFnPlb6kKWi5miA5pcPiJD84xl0oP
+	N7Ugs8zmu4MvUzg/weEUyKuPbuIuk35rjZPv0d9tpxNz7ziux+k6
+X-Gm-Gg: ASbGncvFPB4QbFlYiHs14WlLD2lSPpHfEQeHpvcaMXUmQiTlxYfYmtmTzjE3ARzXVxe
+	J6+PJzbpvj+UvOmHGlWsUF/1Ac4xkY2FLlMYWc8hlvHHnytwOGzlXSTRENy78gLBBmY2pmTtZe+
+	LYqWYNDA5WAh1HuV4vrWhnjs4qR2044jgQFvUghdC51Iln47lDTHyg4uS9wYt2LzA+6OHzT9RvM
+	ci3+WSjgZPhunWtjzfSjymoyTXf+NFecAdw9PJePpqc2+L9gQTB06wh8xJWFcFKwo9iRclxu74H
+	Qj8L+WWB9gr6hy8uxaoLiMk74IfXgdG8OK8AWHzBaupVYcm/u9yJUnziCtd9qAm9ngpWshgCIpV
+	SqmMo6dY=
+X-Google-Smtp-Source: AGHT+IE+beBF8OgJ1mJr6OkCFfzKqGsQqpmFHMqJYTzDl+77IV2PROx2yo8oGc/N6za9BEbNxq9Krw==
+X-Received: by 2002:a05:600c:4e12:b0:43d:db5:7af8 with SMTP id 5b1f17b1804b1-43db628c48bmr110750555e9.21.1743522782395;
+        Tue, 01 Apr 2025 08:53:02 -0700 (PDT)
+Received: from playground.localdomain ([82.79.237.110])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b66363fsm14938762f8f.36.2025.04.01.08.53.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Apr 2025 08:53:02 -0700 (PDT)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: imx8qxp: shrink dsp reserved memory
+Date: Tue,  1 Apr 2025 11:52:44 -0400
+Message-Id: <20250401155244.46239-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] dt-bindings: arm: aspeed: add Nvidia's GB200NVL
- BMC
-To: Willie Thai <wthai@nvidia.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
- kees@kernel.org, tony.luck@intel.com, gpiccoli@igalia.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org, openbmc@lists.ozlabs.org
-Cc: leohu@nvidia.com, tingkaic@nvidia.com, dkodihalli@nvidia.com,
- Mars Yang <maryang@nvidia.com>
-References: <20250401153955.314860-1-wthai@nvidia.com>
- <20250401153955.314860-2-wthai@nvidia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250401153955.314860-2-wthai@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250401_085304_515827_BF8F6305 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,18 +105,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/04/2025 17:39, Willie Thai wrote:
-> Add Nvidia's  GB200NVL BMC board compatible.
-> 
-> Co-developed-by: Mars Yang <maryang@nvidia.com>
-> Signed-off-by: Mars Yang <maryang@nvidia.com>
-> Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Why are you faking tags/email addresses? Read carefully submitting
-patches. I really suggest using b4 instead of manually editing things.
-And if you decide for manual way, you must never, *never* edit people's
-tag. You can only copy and paste it.
+Shrink the size of the memory reserved for the dsp to half of its original
+size to avoid an overlap with the 'dsp_vdev0vring0' memory region. 16MB of
+reserved memory should be enough anyways.
 
-Best regards,
-Krzysztof
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx8qxp.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+index 05138326f0a5..a65c5a2c4a81 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+@@ -185,7 +185,7 @@ decoder_rpc: decoder-rpc@92000000 {
+ 		};
+ 
+ 		dsp_reserved: dsp@92400000 {
+-			reg = <0 0x92400000 0 0x2000000>;
++			reg = <0 0x92400000 0 0x1000000>;
+ 			no-map;
+ 			status = "disabled";
+ 		};
+-- 
+2.34.1
+
 
