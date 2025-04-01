@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D634C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 11:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD7B9C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 11:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wbVch+zHYOCndBgA1cY7MQ4Zoe58gTWuQcTyIG25cIk=; b=ow3K4KcinnR1ky6lQT2/MzUbog
-	LsuOXpB+RSAD6q9t3k0wLJmj1hJFWpoIuqW9XYVrYeA6xSs99oOSbliJVWn/FlgivwTFLyGhjWxN+
-	yEAlhKofd7aSsI4ZXRhq6DEvDKqN0n1PuyfvlRpKYk+y3zdaoxUtN6ZAkERZtm9e823HBy2Lq93WP
-	cE69daKVdXpvm1ewZUUbWyZ71zqXKwTds72+wCiSL4EpG5fqQjKVkZw7sbaO5VQYHpEjKspyzghYX
-	5LAtrDOColmzpL84V79FDxL6QVofHc047HDw7r4UM9l9i0GzY6OaT/PrQcv9GDDqLQtxopQ4Ma/ai
-	lHC08/ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P69NXiJFBn0YyMxukcSeHdHcWpvgS8s4dKJpRN1Hd40=; b=JlH+TEvX8a0FypNIaTH2QFyXi5
+	44grCTdAUillNlrpeK9pT4K5YCYjrtjWuiuBshyZzUHbK/vx1eY3aAi3KPmB4l7PIP++v09Y5DraA
+	cxk1UBIck34JbmzPDpxAwAHrs4J9n2fsAanSERcXcNcpAdFJjdqQuhCqpgm+NCoBBrZjYmVTQ0sGw
+	8VHxH1XbYx8gnw1eb+IJ3KNzPvCKFIPqm3HkuhmScxWi13p/KyIHH+Prc+IdgP4KJQ1OIRdv160qV
+	EgQHmiPg6hzB6GcVEQs1nneJnp6z9fIYRXiYpfD+85dHS4Qt874YlNGQvoq5z4guFrGzNtmHE+e6a
+	hF7kUpYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzZtx-00000002nIZ-0Mmx;
-	Tue, 01 Apr 2025 11:35:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tza1R-00000002p9P-1fH9;
+	Tue, 01 Apr 2025 11:43:13 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzZs7-00000002mtd-3rJz
+	id 1tzZzb-00000002oha-4AqL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 11:33:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 20CD8A44665;
-	Tue,  1 Apr 2025 11:28:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1D89C4CEE4;
-	Tue,  1 Apr 2025 11:33:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743507214;
-	bh=MSiUoVdDeD/owNol8s9zGlBrDOxClJLf4FDx5m/hEsU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kQ7+TlbZFGday6F66wCc6Mj8FCsVOgzRf3x/EBAEeFRwGpJMFImo4y+kbZrIow662
-	 ta53p8FR4siSwV0A+kRdo9nX82WVlFPI/6QS5KPCe7b8wrCiVlhpZAsKX95vqxrS1I
-	 O6QuwcWWBQ9je8KrhEJNr268w2jvLZgKO/ASMrsjB0FSMA957/ULchEGwkawZwGKzJ
-	 JQbPLAmiGEPDKTF2NwWVGuXvoKl0OudXGBO0QH6TyB59bmMLAcHd7DJT69km6gnaQK
-	 LLSkabpmai4IP0/hzPWvudn4o9K+ZHbx6+OEnKlP4v3ITB3Y1F7a74aydHecpONRus
-	 6qlDxiICUnX+Q==
-Date: Tue, 1 Apr 2025 14:33:26 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	"Sauerwein, David" <dssauerw@amazon.de>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Hildenbrand <david@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH v4 2/4] memblock: update initialization of reserved pages
-Message-ID: <Z-vPBu5vAvFhYDzP@kernel.org>
-References: <20210511100550.28178-1-rppt@kernel.org>
- <20210511100550.28178-3-rppt@kernel.org>
- <9f33c0b4517eaf5f36c515b92bdcb6170a4a576a.camel@infradead.org>
- <Z-qrtJ6cs-kXpepR@kernel.org>
- <b47d5f5602573bd082be3729ceddb3d1dc374ef1.camel@infradead.org>
+	Tue, 01 Apr 2025 11:41:22 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 531Bf2Jd3651996
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 1 Apr 2025 06:41:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1743507662;
+	bh=P69NXiJFBn0YyMxukcSeHdHcWpvgS8s4dKJpRN1Hd40=;
+	h=From:To:CC:Subject:Date;
+	b=YZkRXg9H+2TBuV5NppnDcqm/Rs7LbgNxi4FdwzWdkETCwThaDI7Ht+IOJ3Pr1rf1b
+	 vGIqgldD3VSKoSxW5slX3TzUFodx9HkTw3OJjamsMYjdvF9DTDocylNgpjbaYjeyOo
+	 Wj0PpwgCDwXm0E/yc5PrKtcrh+toaEAAlUHDxfvE=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 531Bf2ZM065228
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 1 Apr 2025 06:41:02 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 1
+ Apr 2025 06:41:02 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 1 Apr 2025 06:41:02 -0500
+Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 531Bevm0099961;
+	Tue, 1 Apr 2025 06:40:58 -0500
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <u-kumar1@ti.com>, <y-abhilashchandra@ti.com>
+Subject: [PATCH 0/5] Fix dtbs_check warnings in CSI overlays
+Date: Tue, 1 Apr 2025 17:10:48 +0530
+Message-ID: <20250401114053.229534-1-y-abhilashchandra@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <b47d5f5602573bd082be3729ceddb3d1dc374ef1.camel@infradead.org>
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_043336_567822_8794964D 
-X-CRM114-Status: GOOD (  37.27  )
+X-CRM114-CacheID: sfid-20250401_044120_231342_0BCCA52B 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,86 +86,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 31, 2025 at 04:13:56PM +0100, David Woodhouse wrote:
-> On Mon, 2025-03-31 at 17:50 +0300, Mike Rapoport wrote:
-> > On Mon, Mar 31, 2025 at 01:50:33PM +0100, David Woodhouse wrote:
-> > > On Tue, 2021-05-11 at 13:05 +0300, Mike Rapoport wrote:
-> > > 
-> > > On platforms with large NOMAP regions (e.g. which are actually reserved
-> > > for guest memory to keep it out of the Linux address map and allow for
-> > > kexec-based live update of the hypervisor), this pointless loop ends up
-> > > taking a significant amount of time which is visible as guest steal
-> > > time during the live update.
-> > > 
-> > > Can reserve_bootmem_region() skip the loop *completely* if no PFN in
-> > > the range from start to end is valid? Or tweak the loop itself to have
-> > > an 'else' case which skips to the next valid PFN? Something like
-> > > 
-> > >  for(...) {
-> > >     if (pfn_valid(start_pfn)) {
-> > >        ...
-> > >     } else {
-> > >        start_pfn = next_valid_pfn(start_pfn);
-> > >     }
-> > >  }
-> > 
-> > My understanding is that you have large reserved NOMAP ranges that don't
-> > appear as memory at all, so no memory map for them is created and so
-> > pfn_valid() is false for pfns in those ranges.
-> > 
-> > If this is the case one way indeed would be to make
-> > reserve_bootmem_region() skip ranges with no valid pfns.
-> > 
-> > Another way could be to memblock_reserved_mark_noinit() such ranges and
-> > then reserve_bootmem_region() won't even get called, but that would require
-> > firmware to pass that information somehow.
-> 
-> I was thinking along these lines (not even build tested)...
-> 
-> I don't much like the (unsigned long)-1 part. I might make the helper
-> 'static inline bool first_valid_pfn (unsigned long *pfn)' and return
-> success or failure. But that's an implementation detail.
-> 
-> index 6d1fb6162ac1..edd27ba3e908 100644
-> --- a/include/asm-generic/memory_model.h
-> +++ b/include/asm-generic/memory_model.h
-> @@ -29,8 +29,43 @@ static inline int pfn_valid(unsigned long pfn)
->         return pfn >= pfn_offset && (pfn - pfn_offset) < max_mapnr;
->  }
->  #define pfn_valid pfn_valid
-> +
-> +static inline unsigned long first_valid_pfn(unsigned long pfn)
-> +{
-> +       /* avoid <linux/mm.h> include hell */
-> +       extern unsigned long max_mapnr;
-> +       unsigned long pfn_offset = ARCH_PFN_OFFSET;
-> +
-> +       if (pfn < pfn_offset)
-> +               return pfn_offset;
-> +
-> +       if ((pfn - pfn_offset) < max_mapnr)
-> +               return pfn;
-> +
-> +       return (unsigned long)(-1);
-> +}
+There are a bunch of new warnings generated using CONFIG_OF_ALL_DTBS.
+This configuration applies DTB and overlay together to generate test DTBs,
+which are then validated using dtbs_check.
 
-This seems about right for FLATMEM. For SPARSEMEM it would be something
-along these lines (I kept dubious -1):
+This patch series fixes all warnings related to sensor overlays on
+jacinto platforms and a few minor warnings on sitara as well.
 
-static inline unsigned long first_valid_pfn(unsigned long pfn)
-{
-	unsigned long nr = pfn_to_section_nr(pfn);
+To fix some of the warnings, missing power regulator nodes are added on
+the J721E-SK and the regulator hierarchy on the AM68-SK is corrected.
 
-	do {
-		if (pfn_valid(pfn))
-			return pfn;
-		pfn = section_nr_to_pfn(nr++);
-	} while (nr < NR_MEM_SECTIONS);
+IMX219 Logs: https://gist.github.com/Yemike-Abhilash-Chandra/b13caae87c0c148b5643df5baba0d90c
+OV5640 Logs: https://gist.github.com/Yemike-Abhilash-Chandra/7801f74d28ed5895a15049ce9f0fbe60
 
-	return (unsigned long)-1;
-}
+Yemike Abhilash Chandra (5):
+  arm64: dts: ti: j721e-sk: Add DT nodes for power regulators
+  arm64: dts: ti: am68-sk: Fix power regulator hierarchy
+  arm64: dts: ti: k3-j721e-sk: Fix dtbs_check warnings in IMX219 overlay
+  arm64: dts: ti: k3-am62x: Fix a few minor dtbs_check warnings in
+    IMX219 overlay
+  arm64: dts: ti: k3-am62x: Rename I2C switch to I2C mux in OV5640
+    overlay
+
+ .../boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso  |  3 +-
+ .../boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso  |  2 +-
+ .../dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso  |  2 +-
+ .../boot/dts/ti/k3-am68-sk-base-board.dts     | 13 ++++++-
+ .../dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso  | 35 +++++++++++++++++--
+ arch/arm64/boot/dts/ti/k3-j721e-sk.dts        | 31 ++++++++++++++++
+ 6 files changed, 79 insertions(+), 7 deletions(-)
 
 -- 
-Sincerely yours,
-Mike.
+2.34.1
+
 
