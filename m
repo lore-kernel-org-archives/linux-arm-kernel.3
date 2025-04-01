@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7192C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 16:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E047C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 16:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kITiRQQrnD33DOiE+C+JBAjD6rrVk5TPx/ro5x/mJl0=; b=hoKKyFCb01atHdspfBEjXyUmmU
-	zCqSyN/uDtLIhGmnf5uTCBabQr5Bjj33m3JFn0MtZjNxJggsm2Zk0cm4sczUzULKCKp9p/8FWu3x1
-	DI8tFOojpwQw4O9bvY6LxqLmwF5aOdNb0NnnwUBpNSaNifVt67MQwnXkMYviJmeBkmEZCNVFZcEiv
-	d76dVo1OxhKnyNACsAAO31Zn9KAmiS4Tgmwp6fi3nTovVwizaTBJQXk1Gpi7ub6bdKx+xuQmj0BPW
-	cmWWmrnF/osQSgYYUYCK83pmjA5WyALl3LNLyEkNpRaj0F6QE9LRf88HtmP6RQZSlcIGOwWtPoX48
-	aHlaX61g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AuO3JoiBaWEWl3zVvnUtjCtMgfiv8CYDUp0HTVXRARo=; b=VruHozc5c8jMlvleSaJxbLSXs7
+	1ICa2kLW3nzyhIIdxpzakgnUSgLM9AzG/8MR9PovxZbLvStDP6Qv6YTb4Z2oPPcdmbDXLKxSfzSns
+	MlXx4zOMJk2z8z53mkOaY4MFjtoBn+yCFOcL8CJ1IH8asAfHPJAI4n9RgHobPMD6YZQR22ejd3eBj
+	KmNO0oixwSKIHciW1mQ5POvGo66Wyl+xJBc1qOu88I0yOiTuInui3y2tFzx4sAJRzoJ5SAa/4hQpm
+	Pzys2sLUIpu0HU/f7NDmwpwxmEnOT6BUSUGn6F+p0LSZ+sLZMCSlC+S1i06V9S5cvL4+TpreAC07e
+	hSp/o1cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tze7i-00000003oX5-05Un;
-	Tue, 01 Apr 2025 16:05:58 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tze9Z-00000003oji-1jEw;
+	Tue, 01 Apr 2025 16:07:53 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzdvE-00000003mYf-20VZ
+	id 1tze7l-00000003oXm-3d3S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 15:53:05 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43ce71582e9so41410035e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 08:53:04 -0700 (PDT)
+	Tue, 01 Apr 2025 16:06:03 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22580c9ee0aso117234155ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 09:06:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743522783; x=1744127583; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kITiRQQrnD33DOiE+C+JBAjD6rrVk5TPx/ro5x/mJl0=;
-        b=hucdSA1cWWn1dHCG/Tr4J0rxwUKd++Tx9Py+tIjY/Nd5HCL4ju1tMfeyW1R6H/QQ/m
-         khvYXMUZOYziSy7sbGelTUtbwoYZYv0WgKX9tIJOA/9DarT1qdy88wQ7TN300Ecvp3uk
-         q47Ys853vSUydq7kIIJKyx03MnrxMacORuQK0QaK7aBB01vp1yx44fEpnl39HYznAQbO
-         vNCmOPBrCp+bPsGzL8kCRaaehUdWWr/h0gd0CzA+0uDzgEaSIIaQUb1o6adhr9+35Nq7
-         sNKtHoVBqk/S8152TtKTaFH6Rq1JBF6PsuFfJzfmtvixOrZSK/7UVEWuNLKEROyI7peF
-         /jSQ==
+        d=linaro.org; s=google; t=1743523560; x=1744128360; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AuO3JoiBaWEWl3zVvnUtjCtMgfiv8CYDUp0HTVXRARo=;
+        b=oroMFEyB2eR2NX/fAp+J8966B3A1LubpxLGqgQZ0S06gO1Qh/7CyTs7cP66MrrYGza
+         pCP5VJdewAN90a6ME8UlrEqYIVp3tN0RGgCRihjdsGtZ3ju3AH+3RsNs35aeYv5GRnCh
+         V5+L0fRgWTqmMFrcCuF2yc7K7MCKguuednAeOyDShvFhmHGFClGLFegeAHDcuEbVTTnC
+         ac/7Um5+0DQ5c8KWs5DUerrnMtc4Xmui1Pjcu4BVrGYe3oIE1NkYHULoSgmZdhgUopr/
+         kHrjdWk332AtouiWBFAQSvHLV33FzZuYBQ49mXGd0tCvkS4cBdAXujBv+RksNGZQSmVo
+         md8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743522783; x=1744127583;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kITiRQQrnD33DOiE+C+JBAjD6rrVk5TPx/ro5x/mJl0=;
-        b=Ydlu8bvIsXFilCNtzJ6bvkKopUm1uBA0mwJrG86cMhdyr8c7nr8W3ASgU074EEWb14
-         BQkyU4SCChW6JoqqGPPb8YM5+sah8A7CXdMRlafPKXxpL2gqO76fgw2+VgoZFwdlfeMp
-         YuWqyTTdLs7S7J2FSPqri8N5F+eBmlQn7LOSGmwy6G4WL54Ngh1ZeGl10AnXfymKsH26
-         IDBQvmOfqfP2A1E99u167KpH2nOFY6k5n3NXkTp+qVd2TzVNkgp1usOksSw6hbEHanFo
-         X0eTY13fbVoHvnDUYiJwzssUBfawdzMiaRkqGaM5Np1cw3ECNOH3YhDmltQ2LY6k2F/T
-         Teww==
-X-Forwarded-Encrypted: i=1; AJvYcCUYTZHPOdqR5wREDS2eGug02yyuarVsMPjCu6vSI7R2kqv6v4J0DxslXYN28fb7rxYrP9Q+KfDmVTGwcX3GiX3g@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2d0R8v8O8OSiGHFxih3PhFnPlb6kKWi5miA5pcPiJD84xl0oP
-	N7Ugs8zmu4MvUzg/weEUyKuPbuIuk35rjZPv0d9tpxNz7ziux+k6
-X-Gm-Gg: ASbGncvFPB4QbFlYiHs14WlLD2lSPpHfEQeHpvcaMXUmQiTlxYfYmtmTzjE3ARzXVxe
-	J6+PJzbpvj+UvOmHGlWsUF/1Ac4xkY2FLlMYWc8hlvHHnytwOGzlXSTRENy78gLBBmY2pmTtZe+
-	LYqWYNDA5WAh1HuV4vrWhnjs4qR2044jgQFvUghdC51Iln47lDTHyg4uS9wYt2LzA+6OHzT9RvM
-	ci3+WSjgZPhunWtjzfSjymoyTXf+NFecAdw9PJePpqc2+L9gQTB06wh8xJWFcFKwo9iRclxu74H
-	Qj8L+WWB9gr6hy8uxaoLiMk74IfXgdG8OK8AWHzBaupVYcm/u9yJUnziCtd9qAm9ngpWshgCIpV
-	SqmMo6dY=
-X-Google-Smtp-Source: AGHT+IE+beBF8OgJ1mJr6OkCFfzKqGsQqpmFHMqJYTzDl+77IV2PROx2yo8oGc/N6za9BEbNxq9Krw==
-X-Received: by 2002:a05:600c:4e12:b0:43d:db5:7af8 with SMTP id 5b1f17b1804b1-43db628c48bmr110750555e9.21.1743522782395;
-        Tue, 01 Apr 2025 08:53:02 -0700 (PDT)
-Received: from playground.localdomain ([82.79.237.110])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b66363fsm14938762f8f.36.2025.04.01.08.53.01
+        d=1e100.net; s=20230601; t=1743523560; x=1744128360;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AuO3JoiBaWEWl3zVvnUtjCtMgfiv8CYDUp0HTVXRARo=;
+        b=om7VAFhxFlCFNPAc1ymNOxXX2qok0MakrT1/3S9QOEfxwXkiRj7rBMBUAX2EAsVNMu
+         L+YDHhbGN+SGmyCgoxVak4RC93MOsUFyr1tdle9IVuxJpXvBvVmKU2df6aaDIc8Le94I
+         L4w0vIM2sDKz128N5Gg587X9MrpwSt2THKAxraFIG2M8FLrh9UOutDVcFi2fwUMTi6Ou
+         Fl8YnBoAIPbUe5Ba7MymfrdAYMkIJgbChj7738mWMsXdaBBp4PWP9h0gt5bJ6/VpmT1q
+         t498DAIUN5DUHA4mUAiOUx9JVsII0zI0P10cAtQLo0crlUXmH0FNJYpeiURy2lNBklVq
+         ud7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWaOXO9OjP8An/yF7eT0VRptlF5Lmr9greNzyOHmXqOjal/DgW8EXn7NO/DwV9TEkxdbaS64R9EjYslR2AvfMoY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLIAWZFOTje8aTcFCrxf4bAi+TlqTYWP697NYYW1O7Siqfi3Y8
+	+EcJS0PBANKigGj8n8v2A/ej6ohPBELLdj7j6hq2cqDswf+ARYxDKd+ZYNqmC38=
+X-Gm-Gg: ASbGncshPe8c9GXlmMiA120XjakVSvWzIg5Ydy/QkxnPjzethJGS6zC61x5tDxQ1PfK
+	VG5U82xO/dMRgy2l7F8Y8Cl7CwkRufIhOV1NF1v2ZyUmPqg6C0JkABcC/WO+xeU+CTtIbZvkslT
+	T1tGAJ/tHC5LHnBsLcaghCvwgIOBLNC/dlD+eLM+V1IlxoMjTkjNhgCOrx6lSG48DG9iKqBR1Is
+	0LPhGiodHs2Szp3aae+khQIZwf/UDKNmSfDoUbjxbOPoSkf8cSwEXIiiy4cJQwbDVfdDZpsNDI2
+	0QxEJjqNg+nV+R+oApzMdmo/X6uX6XkA8STNy3LCHlxDHwhs
+X-Google-Smtp-Source: AGHT+IHS665q9tq8I4Rn8gAFViO1Vbyxy5C1fhneAWy0pBzjbtNJpFCpmq60Cuhz94aODSClJDgSTA==
+X-Received: by 2002:a05:6a20:2d0c:b0:1f5:a577:dd24 with SMTP id adf61e73a8af0-2009f645311mr20981139637.25.1743523560465;
+        Tue, 01 Apr 2025 09:06:00 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:62bf:3c83:f3df:dc76])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af95d59a786sm5788320a12.53.2025.04.01.09.05.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 08:53:02 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
+        Tue, 01 Apr 2025 09:05:59 -0700 (PDT)
+Date: Tue, 1 Apr 2025 10:05:56 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: imx8qxp: shrink dsp reserved memory
-Date: Tue,  1 Apr 2025 11:52:44 -0400
-Message-Id: <20250401155244.46239-1-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	"open list:REMOTE PROCESSOR (REMOTEPROC) SUBSYSTEM" <linux-remoteproc@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH V2] remoteproc: imx_rproc: Add mutex protection for
+ workqueue
+Message-ID: <Z-wO5PLU01Nd3QDU@p14s>
+References: <20250401140402.3676049-1-peng.fan@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250401140402.3676049-1-peng.fan@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_085304_515827_BF8F6305 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20250401_090601_907631_92C41C76 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,31 +104,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Tue, Apr 01, 2025 at 10:04:02PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> Same as commit 47e6ab07018e ("remoteproc: imx_dsp_rproc: Add mutex
+> protection for workqueue") and commit 35bdafda40cc ("remoteproc:
+> stm32_rproc: Add mutex protection for workqueue"), imx_rproc driver
+> also has similar issue, although no issue reported until now.
+> 
+> The workqueue may execute late even after remoteproc is stopped or
+> stopping, some resources (rpmsg device and endpoint) have been
+> released in rproc_stop_subdevices(), then rproc_vq_interrupt()
+> accessing these resources will cause kennel dump.
+> 
+> Call trace:
+>  virtqueue_add_split
+>  virtqueue_add_inbuf
+>  rpmsg_recv_done
+>  vring_interrupt
+>  rproc_vq_interrupt
+>  imx_rproc_vq_work
+>  process_one_work
+>  worker_thread
+>  kthread
+>  ret_from_fork
+> 
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> 
+> V2:
+>  Add RPROC_ATTACHED check, because i.MX supports remote cores started by
+>  bootloader.
+>  Update commit and add R-b from Frank
+> 
+>  drivers/remoteproc/imx_rproc.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
 
-Shrink the size of the memory reserved for the dsp to half of its original
-size to avoid an overlap with the 'dsp_vdev0vring0' memory region. 16MB of
-reserved memory should be enough anyways.
+NACK - for the reasons I have explained in "[PATCH V2] remoteproc: core: Clear table_sz when rproc_shutdown"
 
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8qxp.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
-index 05138326f0a5..a65c5a2c4a81 100644
---- a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
-@@ -185,7 +185,7 @@ decoder_rpc: decoder-rpc@92000000 {
- 		};
- 
- 		dsp_reserved: dsp@92400000 {
--			reg = <0 0x92400000 0 0x2000000>;
-+			reg = <0 0x92400000 0 0x1000000>;
- 			no-map;
- 			status = "disabled";
- 		};
--- 
-2.34.1
-
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 74299af1d7f1..4819a9e57543 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -5,6 +5,7 @@
+>  
+>  #include <dt-bindings/firmware/imx/rsrc.h>
+>  #include <linux/arm-smccc.h>
+> +#include <linux/cleanup.h>
+>  #include <linux/clk.h>
+>  #include <linux/err.h>
+>  #include <linux/firmware/imx/sci.h>
+> @@ -785,6 +786,11 @@ static void imx_rproc_vq_work(struct work_struct *work)
+>  					      rproc_work);
+>  	struct rproc *rproc = priv->rproc;
+>  
+> +	guard(mutex)(&rproc->lock);
+> +
+> +	if (rproc->state != RPROC_RUNNING && rproc->state != RPROC_ATTACHED)
+> +		return;
+> +
+>  	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
+>  }
+>  
+> -- 
+> 2.37.1
+> 
 
