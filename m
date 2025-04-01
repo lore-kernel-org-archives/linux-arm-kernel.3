@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48AF4C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 19:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F056C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 19:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bH5VLtP+seSAMs8ZXZEEtVjeNgw0O+SRzuS1o+Cett4=; b=PM21qUB744xub1WROA521/pb0p
-	rAKBhi/xgI1PGlXVj8OeJ8GqYVAnX/xMOY+a0d4VRHlIeS6kBvHJPNaRQtQjw0ZoSAyVxaDJl3Rvg
-	zdKCg27PHJrVMC/bzk5UPka2mhLduCO2YV3UMiRN3KaGJRTcHIpSdYiWmy/gGag7hqTs80uMB0buR
-	ndXC4AVKe72MidtQr5ulX/Wph95m2zVi3vyfs7lV632q4dKyU2iEJYTeJ4jGvoSb5g+jB2W3qG6xv
-	iMUCFpw1Xhq7IVtoesV5jlxvVv/GrRG+sc5LBFoSYJ0cZyyb4s7sxb0I2FWfFMnWsglwG3GvQqFqx
-	v4g+R+tw==;
+	bh=ZzBkugdw4gdptdF8hF2WvHzloU2qygLTygvgXH5F5js=; b=esbq5p+uRTNclj/4eYK7E+w2s4
+	85mj5ZZzBCwCutIBrYfmFW3wc8oOclG1NOtCj1nPiGHaB/Mu0Hyes34C9ck6Ox18XzTbenAedPTy3
+	b+o2gm95ksre2Hmkln6T/uUu06tpsmO1tdnExnnKs3sEMe7zJbKbTH8xqmK95/Axakc4/1yVh6tyt
+	1r2/Hnoi3CKjf1vwkt9prpisYCecHRmAoEhz8F+hV6lyZK/y7kALZKCImk0MOM0QGt+rXk2RtIOha
+	U8vb2BMraBiAfLbHZ6iCJmQvL08wtBCWjezzI4x3yhnmRdOh/CfqDDceTIwKuozpsn0CYHQkF/MW4
+	9vAVEr0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzhGu-00000004Daq-29v2;
-	Tue, 01 Apr 2025 19:27:40 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tzhIf-00000004Dp5-0y7U;
+	Tue, 01 Apr 2025 19:29:29 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzhDL-00000004D4T-2FmL
+	id 1tzhDM-00000004D4l-1Alc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 19:24:00 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-39c1efc457bso1193318f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 12:23:59 -0700 (PDT)
+	Tue, 01 Apr 2025 19:24:01 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3913b539aabso3487541f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 12:24:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743535438; x=1744140238; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1743535439; x=1744140239; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bH5VLtP+seSAMs8ZXZEEtVjeNgw0O+SRzuS1o+Cett4=;
-        b=dMJyUafzA8Y5aVivfRtvYQjotfRcqiix0gyM5KvQdbG28dzIm1Xrd60KJbVhiW7Aot
-         047kuaXsujuzLxuwxdE7DalSBOPQi1lHqJc7rhPYx+rBOQOn+/GmBNik5tjq/TGM8X5t
-         SA4/cslyBIMlTG8ClhC0mFqP4pELoDVujsinua6oLEBpmOT1GMZ3f+EbRWkJi1jp7uiz
-         mjBOqSQM2Ld8NWd/5/+KknLxpdBAG66JvHHoAHBYenGhc693oZ3OHK3izXN4gcjEH7TA
-         3RUWJvPAwhD6Vvgt6bQy7a4EU8/GyE5RuUrQpwNJgnNLpeKnsffteZrAUEy+mL+5nov8
-         NRrQ==
+        bh=ZzBkugdw4gdptdF8hF2WvHzloU2qygLTygvgXH5F5js=;
+        b=ZRKnKO0/ZEocPTZ/UX5JVTyDou9oafc1VoI2DGSNn2po57CsOT8vDe5rZJ/U1QatUz
+         +efcPIj13dQeLBpo4Y4y32qIh5yQvOAbIScfmiBVlPcIXrFQxIPmrtnzShPYVYu25atR
+         y0kQL4jjMPMimJfPOXXD34BHdgbFBQPypx9nLrUBQBMY6iZeQV7wdi73QFCHmItcArYG
+         8/R1Y4efSpnmJAi6kQ4T2EeQF7Hl516+BphJYnt8jITHr0B0fk9iCP7q7RRlBrIfAnm8
+         EpjTbOej9a+DoiObWFxYL7jQH87SiFTv2oI+ydelDrMzqVFS6Sr6b2YE6pK9q9vwglhr
+         S3Kw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743535438; x=1744140238;
+        d=1e100.net; s=20230601; t=1743535439; x=1744140239;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bH5VLtP+seSAMs8ZXZEEtVjeNgw0O+SRzuS1o+Cett4=;
-        b=dGAaR9ktztI6y90HasNCKKcJ/rPDSWctJJWIatI8plCE6qzV1b2vGwND2PG3mX1c87
-         Pm/P0hEewlbHL2rps635qOkkb6eKpqwY586uc01+7v8wQnv8Sh0MEFvpEp2eDQCStYAO
-         IOmVbcZY00D05WlViMXRwUJn9JmRCTYj191vUl9640QZiWqanwuGe86nYyRBE6BaejVr
-         9DYDsQV+SoS9nT2Dd2HzznfVu2Bf7SrEXtiyddaK976xKeOaYilGm+JvYX00jUmmIz/C
-         zzZ9fn74gju2bs9mF0F14J/E/MKjo0MItCDySasv/GzPiqRu+wMceT66RezT/6yGnBdB
-         S29A==
-X-Forwarded-Encrypted: i=1; AJvYcCXRLcdwLCvLG0qjEFyF9dvi38loMx8HNkq0jlEBwLQW9WIFogKTruaJPBOaBZhUhwm3zRrhkiGMLjlSwbVInvsq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXph6pfzAksAdr6ltza5pTxVqCRxRIGSRAwKFn4/bN2zTgBzy2
-	C+eBtT75oWQ6UqBowi/di8j6KirBIYSvZ7xOIN32F3bBHqoKDyq7
-X-Gm-Gg: ASbGncu+RfWBFI5MXGlvEonKR5Oxh9UN82xUikCpOU2zTuoxZpw0C76VbQa72dU/1Wc
-	EsgQL3JwNIPABO4zbSRD6I7nQ96LHqG8nf70/HSWAa/fpHrcegJ9tk9W6x+B6kZpJ635LsNroY9
-	skP/HfI7A42Lg3lCNuq7nN+jRzRfkhP7ffIPMqlAAV2bV92okqJLcKFmZWmmnAtW6BXITz3OeK9
-	14/0gBZcGn7KnP+1w9TFDyTnb9eAxulSidvIw4jmJN1glT3UEK6O/R048vPRPDGMjJyHlfYzV3k
-	boQo5T4fs4MGWL9bZSqikxvtbmwEMG1YsD6RuoVeE7oLwV4/Poy/yUei1krtUJTfkrt8/LLbLWx
-	6haA1Zns=
-X-Google-Smtp-Source: AGHT+IEeNatuio+GXvnz6jtis2Ifu8CXZWb0U2xpbF/9zUj/YkR/FHukm5fxlTJZb1XZQEdPrISlBQ==
-X-Received: by 2002:a05:6000:40cf:b0:391:2e6a:30fe with SMTP id ffacd0b85a97d-39c121188b9mr9767506f8f.39.1743535437739;
-        Tue, 01 Apr 2025 12:23:57 -0700 (PDT)
+        bh=ZzBkugdw4gdptdF8hF2WvHzloU2qygLTygvgXH5F5js=;
+        b=ca2zuXwBDzgsDLT5Dj2qBQmif7dRPVX6Fi9wuT40xY/cj6P+3SvNdKAayJxiWmi/rm
+         6mNB2WYvp9x1c1BJPDfTUnb+LNwMMmyvvMA/h6yszqULhpHlHtggncFptLmKTpGuV+MM
+         VHsj1roFxqsHu/JYGiEB2sCdtW5SHiH5aTY19PqqlZoCJJzG2Xwfq1lpg/65libLfraB
+         9fsYGuaH78EmU8yDWXsjWk/4TKi7LqG9Ozwh7gxPI9MOHw0R59Lucvec2dj5UG0Dn2vu
+         kZYg9JzuShjQQ+F+qtLn/Q/vYHM5yUbXcOYHLXDwOK4T/bt4ojRSfHwSQDMPJW7UhAA9
+         fwFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVrTQUStY39Qq6+Xmd448JTSTKQSGK2q7lwPNmC532ufBMHXV9x+htAZdmTgKFVrOLKH04oA+owUS2Rsrt+UtLU@lists.infradead.org
+X-Gm-Message-State: AOJu0YybUH5NLQv/JJFyoRJWv+Fg2C7Xww/Zxf/ivo9uN4SehkhP/UhI
+	LgmRIR15VZZmaPW3i/l0vvsfF1q7VCWbznpwnZmjUrFwM9Mg3vbh
+X-Gm-Gg: ASbGncuyj2fWfr0g6liuFeAPIxbUuWE9oivPi3ANLfiYfeIKUiYHL74u2dhVOXXc0A5
+	5ESaGPgruTwK2CdJS/qw/aZlgoJkUiJBDnInIQK7TsWBNAxa3zgQSrptXhq2J1bp7+AcU09x64a
+	sKcBcbtTin6OCeTwG+4rRP7Uv5jILO6fA4PzqN55Yxnnt/+fQubmALPt8GSPuHMC0IPwkLT4XaG
+	PMUCWwz0KlWVXQx8SByVB2zssZoabb8bH1vRerJt3ynwVZAy4GLKR51Xbwbx1lWoUSReBbNR1yZ
+	dzpAwpWf5fBfg8pNuciM5MS+9BfoV97Oe7asaDqL1wP9XtLnqChr6FuMLGrIAMjR+zoQUigs
+X-Google-Smtp-Source: AGHT+IHdVEsoyIGdrpYCryCmSoxbMMM8oYYvuj+OQEED1lz5k318eW2R/hcBuIk9AkMR8eZjNXUkHQ==
+X-Received: by 2002:a05:6000:381:b0:39c:1f0a:ee0 with SMTP id ffacd0b85a97d-39c1f0a0f69mr5763858f8f.2.1743535438907;
+        Tue, 01 Apr 2025 12:23:58 -0700 (PDT)
 Received: from localhost.localdomain ([2a02:2f0e:c50a:8800:cf9e:ee0b:4a01:37f6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b66aa32sm15353438f8f.50.2025.04.01.12.23.56
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b66aa32sm15353438f8f.50.2025.04.01.12.23.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 12:23:57 -0700 (PDT)
+        Tue, 01 Apr 2025 12:23:58 -0700 (PDT)
 From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
 To: clabbe.montjoie@gmail.com,
 	herbert@gondor.apana.org.au,
@@ -81,17 +80,17 @@ Cc: wens@csie.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Subject: [PATCH 2/6] crypto: sun8i-ce-hash - remove duplicated fallback checks
-Date: Tue,  1 Apr 2025 22:23:17 +0300
-Message-ID: <20250401192321.3370188-2-ovidiu.panait.oss@gmail.com>
+Subject: [PATCH 3/6] crypto: sun8i-ce-hash - factor out debugfs fallback statistics
+Date: Tue,  1 Apr 2025 22:23:18 +0300
+Message-ID: <20250401192321.3370188-3-ovidiu.panait.oss@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250401192321.3370188-1-ovidiu.panait.oss@gmail.com>
 References: <20250401192321.3370188-1-ovidiu.panait.oss@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_122359_575195_AEA168AC 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250401_122400_329528_D4863D1E 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,40 +105,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove duplicated fallback checks in sun8i_ce_hash_digest(). The same
-checks are already done previously in sun8i_ce_hash_need_fallback().
+In order to reduce code duplication, factor out to a separate function
+the codepath that increments debugfs fallback stats.
 
 Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
 ---
- drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 12 +-----------
- 1 file changed, 1 insertion(+), 11 deletions(-)
+ .../crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 53 +++++++------------
+ 1 file changed, 20 insertions(+), 33 deletions(-)
 
 diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-index 3f9d79ea01aa..2c2d285de154 100644
+index 2c2d285de154..b0959d8218cb 100644
 --- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
 +++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-@@ -244,21 +244,11 @@ int sun8i_ce_hash_digest(struct ahash_request *areq)
- 	struct sun8i_ce_alg_template *algt;
- 	struct sun8i_ce_dev *ce;
- 	struct crypto_engine *engine;
--	struct scatterlist *sg;
--	int nr_sgs, e, i;
-+	int e;
+@@ -23,6 +23,20 @@
+ #include <linux/string.h>
+ #include "sun8i-ce.h"
  
- 	if (sun8i_ce_hash_need_fallback(areq))
- 		return sun8i_ce_hash_digest_fb(areq);
++static void sun8i_ce_hash_stat_fb_inc(struct crypto_ahash *tfm)
++{
++	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG)) {
++		struct sun8i_ce_alg_template *algt __maybe_unused;
++		struct ahash_alg *alg = crypto_ahash_alg(tfm);
++
++		algt = container_of(alg, struct sun8i_ce_alg_template,
++				    alg.hash.base);
++#ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
++		algt->stat_fb++;
++#endif
++	}
++}
++
+ int sun8i_ce_hash_init_tfm(struct crypto_ahash *tfm)
+ {
+ 	struct sun8i_ce_hash_tfm_ctx *op = crypto_ahash_ctx(tfm);
+@@ -113,22 +127,13 @@ int sun8i_ce_hash_final(struct ahash_request *areq)
+ 	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
+ 	struct sun8i_ce_hash_tfm_ctx *tfmctx = crypto_ahash_ctx(tfm);
  
--	nr_sgs = sg_nents_for_len(areq->src, areq->nbytes);
--	if (nr_sgs > MAX_SG - 1)
--		return sun8i_ce_hash_digest_fb(areq);
++	sun8i_ce_hash_stat_fb_inc(tfm);
++
+ 	ahash_request_set_tfm(&rctx->fallback_req, tfmctx->fallback_tfm);
+ 	rctx->fallback_req.base.flags = areq->base.flags &
+ 					CRYPTO_TFM_REQ_MAY_SLEEP;
+ 	rctx->fallback_req.result = areq->result;
+ 
+-	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG)) {
+-		struct sun8i_ce_alg_template *algt __maybe_unused;
+-		struct ahash_alg *alg = crypto_ahash_alg(tfm);
 -
--	for_each_sg(areq->src, sg, nr_sgs, i) {
--		if (sg->length % 4 || !IS_ALIGNED(sg->offset, sizeof(u32)))
--			return sun8i_ce_hash_digest_fb(areq);
+-		algt = container_of(alg, struct sun8i_ce_alg_template,
+-				    alg.hash.base);
+-#ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
+-		algt->stat_fb++;
+-#endif
 -	}
 -
- 	algt = container_of(alg, struct sun8i_ce_alg_template, alg.hash.base);
- 	ce = algt->ce;
+ 	return crypto_ahash_final(&rctx->fallback_req);
+ }
+ 
+@@ -153,6 +158,8 @@ int sun8i_ce_hash_finup(struct ahash_request *areq)
+ 	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
+ 	struct sun8i_ce_hash_tfm_ctx *tfmctx = crypto_ahash_ctx(tfm);
+ 
++	sun8i_ce_hash_stat_fb_inc(tfm);
++
+ 	ahash_request_set_tfm(&rctx->fallback_req, tfmctx->fallback_tfm);
+ 	rctx->fallback_req.base.flags = areq->base.flags &
+ 					CRYPTO_TFM_REQ_MAY_SLEEP;
+@@ -161,17 +168,6 @@ int sun8i_ce_hash_finup(struct ahash_request *areq)
+ 	rctx->fallback_req.src = areq->src;
+ 	rctx->fallback_req.result = areq->result;
+ 
+-	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG)) {
+-		struct sun8i_ce_alg_template *algt __maybe_unused;
+-		struct ahash_alg *alg = crypto_ahash_alg(tfm);
+-
+-		algt = container_of(alg, struct sun8i_ce_alg_template,
+-				    alg.hash.base);
+-#ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
+-		algt->stat_fb++;
+-#endif
+-	}
+-
+ 	return crypto_ahash_finup(&rctx->fallback_req);
+ }
+ 
+@@ -181,6 +177,8 @@ static int sun8i_ce_hash_digest_fb(struct ahash_request *areq)
+ 	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
+ 	struct sun8i_ce_hash_tfm_ctx *tfmctx = crypto_ahash_ctx(tfm);
+ 
++	sun8i_ce_hash_stat_fb_inc(tfm);
++
+ 	ahash_request_set_tfm(&rctx->fallback_req, tfmctx->fallback_tfm);
+ 	rctx->fallback_req.base.flags = areq->base.flags &
+ 					CRYPTO_TFM_REQ_MAY_SLEEP;
+@@ -189,17 +187,6 @@ static int sun8i_ce_hash_digest_fb(struct ahash_request *areq)
+ 	rctx->fallback_req.src = areq->src;
+ 	rctx->fallback_req.result = areq->result;
+ 
+-	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG)) {
+-		struct sun8i_ce_alg_template *algt __maybe_unused;
+-		struct ahash_alg *alg = crypto_ahash_alg(tfm);
+-
+-		algt = container_of(alg, struct sun8i_ce_alg_template,
+-				    alg.hash.base);
+-#ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
+-		algt->stat_fb++;
+-#endif
+-	}
+-
+ 	return crypto_ahash_digest(&rctx->fallback_req);
+ }
  
 -- 
 2.48.1
