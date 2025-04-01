@@ -4,170 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC684C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 03:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E543C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 03:41:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EK2s9d27Zy+MVaYXzLPHRm4WVyM90ncObNRFogDz+Ho=; b=rU4EAmKYq8shafA6UN7mgu7BUO
-	ks9ox87WfEigRp05JeA13D+pub2gIj0yUT7RS5mn2YIxWCPwWcu/zjE6+79AJJGgfY8cwseb+lklx
-	Io5e7MXyuHfVn8m/cTjCsgIP6kK4Zi6hH3nOrEoii8+pg+fQ1q4OgqdVBcFDQRlhv5piift6QtZEj
-	0ROLdT4ZFaeJhL8UsjkIS2Rl6wrL5T9bpth5rxyDxdkWWUHVEN5R3W3BtOuoAJ7jnvHD6GT0jGFqB
-	ouoa1tsrcmUwhBKOP3+cBzyR8WuYs/F4nnxjtGO7ge1FAAqNBcNnnVhk6L+4adIaP8ZS727QJSHYt
-	Dn44otcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IFYh5M0fsDdvGMhmL2V0U6mTiiJF12cIZfzIb8uL/7Y=; b=joIHY1cBj3K6593muByklTz52t
+	QwwqP6g8QbMXeoTFmEfkxUhmENM+HmHvAn5dDUZNg2gI7LwgbqLN1xUg3iQog+OFNnpL/VpELSekJ
+	yIaj4OE0PDL2ctiJ7C8coJypVQaW4yRnmlrow9qjkwc1up9hPSoBu5hQcbxGP1MhJqJ1jcBSaPzZx
+	GE0kQ8Ae/JkbcSAQZxT8FY08h1FW4EAHq9/TRoWZvzbCig+J/0VZ4L+xwA/LpU3edn8McxuTfgC7F
+	7z23kEdGAQvanpGGxkdTmjU4ciX8pmluNfmS6+qyi42TVYL0KvOVrAKYcHDwflHWkFMXeVSxuPB2T
+	dh+sPVGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzSAE-00000001qGg-2hiS;
-	Tue, 01 Apr 2025 03:19:46 +0000
-Received: from mail-am0eur02on2061a.outbound.protection.outlook.com ([2a01:111:f403:2606::61a] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tzSVM-00000001rOX-3Tw9;
+	Tue, 01 Apr 2025 03:41:36 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzS8S-00000001qBc-3er1
+	id 1tzSTe-00000001rFu-2GYU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 03:18:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gBrxZH21bJR4kbfufzKmQaeKYXIZyohr+T1Fqtkwp+0X+nCXBJfmIRkRnHcCAElUEZj+WSTffQEGb5ibQ5lcDouyJawog52lVM1XV6s42hS0fdSNN0h5EopL/HxhGrq0sKgvfnknivXsPaz0ZmI7IyD6qDJL+TcLYSb8leWiiZFZrDxrFWfUQsdXqqxWcY1dAgbYwBoijMvmERhM629nqPlcrt5+AT59XSQDaaeH4doitDmqKJQ0DPEo2r89Yy4xZkBC9cmlGgqN2Lgv3TdAegO5cV9+pUh1AANwYopgfiYXYjWOFk2D5AAsdomxnijd/mHh7LG4RLqOkBkSddrX9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EK2s9d27Zy+MVaYXzLPHRm4WVyM90ncObNRFogDz+Ho=;
- b=BX+idPvn3RtxobRq6xAaj1wnl0/A85BdanFpJxSkhaVu83apyIpfTHDYH9zZj5KR9lWzsWq3QpeuRp6jiswuFiYPekyUh4xib6TJ3HxD8L9fGp3aixmv+keou2gP6Szx784rUu7L5Es8Dd85pfMoJY6qbwWJoychmlRCh61wyaYENWYAl0R72OL35LUsE4nYxQivmUJ0bo78AgovDO6gI3bWL59tNsaGQVOP0HYPu03jATOpcY8jWrtCpuh4C8hfk1RgIBEiuM6VXD1/4YScAs9ncJ+t9kmwt3Gsn5IsePFcBXMlrK/1cg6PAOp0Cm5TvyR1P2YKRKfsAD6vZzXQDQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EK2s9d27Zy+MVaYXzLPHRm4WVyM90ncObNRFogDz+Ho=;
- b=CbjpizLHHaThxzorTuvuWfxqXuxrk7ueLPwIM+PZDDUNdldjONR5u/PEkAwGMCH+H27KJNW8SK13OJvLr4l9UceMl/sYPGPibT2/GvbBYsLVQ3ntuZz/eiGGJ8Lw7KuSg1+tlQ6Y0zobFm1ooE7mnSwbxWXj9reInfTNwOv/hccqNvWPHm/7bp1VNhIvMKSHbXs8tCMpihfDUkMo9XGQeQGGn9Jo7iEsmZG7FFBxXYly2ms3uaXo6jgfOkHecsXb/c9otZuJWGuch5PPGm6lIttvT/NQP0gaCPQ9d/TsyUBflXevq+/3X87DzeXj6sUmVBxxVD+j7IgagV/Wdl4Ptw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by PA4PR04MB7951.eurprd04.prod.outlook.com (2603:10a6:102:ca::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Tue, 1 Apr
- 2025 03:17:45 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8534.052; Tue, 1 Apr 2025
- 03:17:45 +0000
-Message-ID: <22fd3087-6832-4b61-8c78-bc8dd3ac808b@oss.nxp.com>
-Date: Tue, 1 Apr 2025 11:17:36 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] media: imx-jpeg: Check decoding is ongoing for
- motion-jpeg
-To: Frank Li <Frank.li@nxp.com>
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, mirela.rabulea@oss.nxp.com,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, xiahong.bao@nxp.com, eagle.zhou@nxp.com,
- linux-imx@nxp.com, imx@lists.linux.dev, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250328063056.762-1-ming.qian@oss.nxp.com>
- <20250328063056.762-4-ming.qian@oss.nxp.com>
- <Z+a2G5We38cQw3UD@lizhi-Precision-Tower-5810>
- <99aa5db6-eb75-4fcf-ada7-cc6d519a40cc@oss.nxp.com>
- <Z+qnln8qbHCYVH+e@lizhi-Precision-Tower-5810>
-From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-In-Reply-To: <Z+qnln8qbHCYVH+e@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SGAP274CA0010.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b6::22)
- To PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+	Tue, 01 Apr 2025 03:39:52 +0000
+Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-226185948ffso98718455ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 20:39:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743478790; x=1744083590; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IFYh5M0fsDdvGMhmL2V0U6mTiiJF12cIZfzIb8uL/7Y=;
+        b=TpU9207vPQoJYpvUshjS3ocz1Eo5U+klX5ufQOzirpqmqSJ9FlG3oUe30KS19trLK+
+         HOeoMf9dzeZdConEzVfrmCNJ1aUSO05QetABrdEhuL8VqX+z9/a0x8gqDfaeOCO2T/Q0
+         N8Rd1RUYvsg+7nicLOl1Yu2gYXBsl0X8SUolKOR04F/EsUbWrrJuxRPjDcUtF90PWuwp
+         GpCqCgsqf6TS8YEiqUhb+v56EspY+9dBt1i1ZPQ0cCxgp4nnHhV8hjk75PpfEzFP6v5m
+         1Nr3wDa/8UGpF/P8K0L0CbOYju8BvnxKyJNt1RBq7ngKx32tJ2ZUn4L7j4mV9sarY9HH
+         qywA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743478790; x=1744083590;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IFYh5M0fsDdvGMhmL2V0U6mTiiJF12cIZfzIb8uL/7Y=;
+        b=IdIH+h5n8O8JFCIDdgf5SRSIyIGIiiqUS+37sGkH9Bmwoq6DU70jJmcTxDW02MA2Vd
+         IDY3Thz3fhl2HqD0l6Z8t2jVbk2WTbKwDLRTB5XicR2lT1CXwF7FdJMEXbK+SS3/xFKD
+         GxFIltsRmIVm0AxMMahBmVTg+lRDIbYiwf0x8U6+MFPNm8QdNDn1YbfulWh6qumZnNDC
+         yEvJNDzmIU45wJywuEZDFxk60xDiMyWYid7b47qlYrZYE85DtzXfh8etfkAkDJe7vPbJ
+         jJjR8Xf54fbkhRrL7COoLBodlUoRf1VNyP5UsBSyClEuGCIlXLz8VykldU5BLbGjE5iH
+         yFqg==
+X-Gm-Message-State: AOJu0Yyjb7k1UCj3/9qD+EpiLrW+iBVObNRcHiwf/Au8NjorHVNaWmzG
+	c0iTVT6AlRbZ20cdzOfzVa9c9iETGRlZ3g1FlCv8TbE8FKCoTJB1
+X-Gm-Gg: ASbGncvCSlnEUc+8nH7kG3XFGVR/iBVyJL81EArVXRFyZisSgWPS5iPN7CjD+eIxZzK
+	N8muj3Zh6UK5/kYzljMo4HZeEeJ4U0htkQrnsIQxMw84b4peAqTVVBPe4m8khrXDc0rc6HDjebX
+	iUO6V7yg3Z15C0wMpYRQzpMjVZTxV5yMrElm7Et/fMF9t0KnL24VX80ySE/siGrS8Tdx0V/4H4g
+	1Idq5wpsb9L/w1NLOPRyhyhQS27HYDxFqn+lQOjv7lcA6up76sYhRQ9wi6Jx3djhFUK2WWS+/da
+	hPMw6fHkaewp02x17X+Jdct2DabrO03syBo+IqKCE6oTPTN3vCRMbx7aBsOpXOCXVzf7QK0=
+X-Google-Smtp-Source: AGHT+IGT8jkNO5+IfXQCLnbfYUK9R0hC9L7cWhycJGTtXws06galosA23s3dNcxmybY3RaYeogb7zw==
+X-Received: by 2002:a17:902:eb83:b0:220:c4e8:3b9f with SMTP id d9443c01a7336-2292f8968e9mr195477775ad.0.1743478789870;
+        Mon, 31 Mar 2025 20:39:49 -0700 (PDT)
+Received: from henry.localdomain ([111.202.148.167])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291eedcedesm77958805ad.67.2025.03.31.20.39.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Mar 2025 20:39:49 -0700 (PDT)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	u.kleine-koenig@baylibre.com,
+	andersson@kernel.org,
+	arnd@arndb.de,
+	herve.codina@bootlin.com,
+	bsdhenrymartin@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] drivers/misc: Add NULL check in aspeed_lpc_enable_snoop
+Date: Tue,  1 Apr 2025 11:39:35 +0800
+Message-Id: <20250401033935.17617-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PA4PR04MB7951:EE_
-X-MS-Office365-Filtering-Correlation-Id: 54b3e78d-7b35-4aed-8fca-08dd70cbc572
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bjZPUWN5dmZJcDdORjZ5QkxROTFUNGV0end6Nys4bDBLMWdiYUFteitwY0ZO?=
- =?utf-8?B?WkJvSjQ1bGFTV3lYNXRDVUFLTWxRVUhBM2RIbG5wdis1WVErcHFDOUh4Tmh5?=
- =?utf-8?B?emZLM1RiaVNPU1RKOXVxbSthOWhRcS9reVIzNmQvRXpyL0NINFVuNkZQeWtz?=
- =?utf-8?B?bXFXdVA1SUsweDRsR0RSVXZUSVB1SDljdXp3czhZVWNVVzZ1UmNWL09WbWRR?=
- =?utf-8?B?SldWeWU1ek9OeWtERmtXV0FpdzBaYkF4b1d1d0R6YnZjR255anhORTc0SkM0?=
- =?utf-8?B?ZE1WUjhMbnRGelB6NXd5WDNQQnZhbUp0U0FuV0tqbXlBSzRmcTQ2dFhDU0lo?=
- =?utf-8?B?ZHV6M0owMVZ2M3F5QzZDZDhWVXlsUHNyYmIrMGloSjJUUVlVSFVpNEExOTZR?=
- =?utf-8?B?T21aZ3I4OUs5QmtieGtoMTRsdmNkTkw3a05iVkthU3d1WWZtMHZ4ZVFyZDdo?=
- =?utf-8?B?SjZ4cldhSzZDOCtudnpXRStSYXNmNGFIeXBDQ2puczBobFo3V3g2YlhLd3ZZ?=
- =?utf-8?B?Skt3STJRaFlHQ2xaaVNNclBvVTBxRlJCZ21hVStpUnQ1aDh5dGVIaVdSdE5a?=
- =?utf-8?B?ZWlkQnhwQVVDVlF4Zk5LS1U1aEh3RE40WUY2U3VsRDliY3AxOEVKb2hTS09J?=
- =?utf-8?B?aUNmT3htcEhMVG1xcnY5U0JKMlRMSm1ienRFa1dLQU0yaU5EWEpMeWhvRFNH?=
- =?utf-8?B?UnA3ZjV0UGlCU0VMdnlKRDFWMXdXMWNUT1hUcWM2c2lGWDBjZEpNblFrU3Fy?=
- =?utf-8?B?SGNBdUtMcTJQTkJPUnVmVmNJZmNaNWVNTmZEekk5cGVSRnFpb0VyV20vVmd1?=
- =?utf-8?B?UDFKT0RRMTJMUXloMXFud2s2b0prWkRiSmZxNDQyajV0VThJZGhDMUFRRkU0?=
- =?utf-8?B?Nm5IcSswVlpJa3oyMXhqZUtLbCtUUElJVWhLSWlXTFdEcE9zbHFMUTRDbzIy?=
- =?utf-8?B?am03WGNRdXJSUGd6d2hBRnNEeW9GemFHbUh2ZWF0eVdsdGVjZkowVzVkYm0z?=
- =?utf-8?B?bUVidmtMZCt1ekZrb1EyeFZoMVJsUFg2bHFoNUt2QzRZVXJDdTlaWERnakdG?=
- =?utf-8?B?TXFTNEVpNmc4OTltbzVCbkF1VkZyOHp4YnFucWhwdk9tZnhLMmZBNER4K0hm?=
- =?utf-8?B?b0lBenh5WU9CajBYZHJOQnQ2QWlXb3hhMzZPQnpqYzZpMkV1ZG82dnBybC9W?=
- =?utf-8?B?d3hydlhYM2JGTFMxd3g4YiszZUk5VmYwRUhBcE8wM1N4Qkt6WDN4TG5jeDhm?=
- =?utf-8?B?Qi9hdDNCbFMrZkdnUGVnbEYxSTUwSXd4R1BQd1c1STdtMGdDSm1WWmUyeElh?=
- =?utf-8?B?UDF2VkZjeSs5Vmt2ZjNoV3Bnc1grdHRqSlhRNmZXengzOUxtRUNaTms5d2Rx?=
- =?utf-8?B?bTZ4MDEwaldCNmNLNUZNWE1CeWhUemdJMGlGcW5WWWtDUlVrQjVrTFFkQWQ4?=
- =?utf-8?B?UjZnRnBETHVzV1NDZDcxWkdpMzJ3U2dZbVhkYjM5QjRTbFlBZTU1bE9wM3BR?=
- =?utf-8?B?WHRteHZvdjBMNHRMRVdiaGRHT25zZHdFamQrdWNUWmp0a3VSK1BKTkxKdnZF?=
- =?utf-8?B?Z0JLcXVaREsrU05CVWp1alZLbks4RmxFVTlVWkFVWU93R3gwUldFY1ZQNGlv?=
- =?utf-8?B?Tys3WXFNRnc0MlY5d0prakVoVzhldUwrTGpvVE1CT1RQZ29nVmtvOFNsTHp3?=
- =?utf-8?B?TENMbHZobEFWdUdiL21vUzN6Wkt2dXdBZ3ZYVjc2MFErWnN2b0ZUcGNadGov?=
- =?utf-8?B?QytUdk0zTVF0QzZqWHhycC8zNGVaM3EwVjhNb2dTQ0VpRW1JT2NSaVR6MGdY?=
- =?utf-8?B?T2xoK094M1dleEdIeGthWWJKSTFienNmZlpNYkJheE9TNnNEMytidXp1ZzlZ?=
- =?utf-8?Q?dE/XTS31XR/3a?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b0IxUk5GR2duaEZxS2tMdTBlS0Z1Zk1tUkJvdzliRmFETkRJeHZTR3lTNVJQ?=
- =?utf-8?B?RkZFY2FuZjgzTXJ6THV0OHR5QWovZHE5b21mUE4yVDhQWVd4cUZEeVo2b1pR?=
- =?utf-8?B?U3l4TFdISEh6ZEJKN2loMDhBbzNVdFNmV2dyZlFhbm95SkhjYnhUQTRnbllv?=
- =?utf-8?B?bm40WjdLeUFqRkt2Yk42NnBKek9mYS9Bc2huQWFLWkJBVHhoUmg4Z2FIZnJE?=
- =?utf-8?B?N0h6RkFRN3FMMy8vY3VTN2VBZXVyVTkzQmlQd0tEalpnUFBydDdZdGxNcTY0?=
- =?utf-8?B?bXZWTVNVd2hjZVlZUTlvaXo3c2hEbWFoTSttNnFqd1YrZ0QrZEpYN3B5Q1Bx?=
- =?utf-8?B?Y1A2RzhUNTAwMmtRWXFGZ1BnR0xKRWh3bEpLWTVidjdnbnpVczNLbE9MckNQ?=
- =?utf-8?B?TWhydEVlRUMyQVVLbWZjMVJhRlN4MS82b3lDR1BLV2NQdGV6aklNZkxBZEJX?=
- =?utf-8?B?TnRWa2ord1FyYXBvTDB3UDI0M2trREc0dHBkTE5LUU15ejhQMjNicXlRSVJx?=
- =?utf-8?B?b0xmcGNablRkV3pwOEplZGtrWk1uK0NaOXdwOUxRWUxrYXJ6RGl6WHAvc21V?=
- =?utf-8?B?d0I2ckgyblpLSXFUbEk2dmczYUlmOWZpNXdRc1E2YW9tWHJ5djZRM2d3dzlS?=
- =?utf-8?B?emtxT3VYMWtkaW9xTWxLL2o0RVJrV2VzZGJ6REVsdk0vVlFFTWQ5VHRkcUlq?=
- =?utf-8?B?ZFhZbndwYnRXamMzTFJCTk9zN3hpUnh2alFQSmhJU0J1dW1zZTVUTWpjdGdr?=
- =?utf-8?B?NWxxM0xCNm85QlBVWVlhQnhUYmFuZ3FWTUVERVZEQklrWWMzbnhDZHV4ZWVV?=
- =?utf-8?B?SW5zVEZ0aTlKaFFFNnJjbmFremMvTEN3dmVnbUNaanlkVHQ2U3Zxd3Jlc1Zy?=
- =?utf-8?B?eTNoZi94Ry90SnNHYjBHdDBGMW1kTmgzT3ZUaTNaTTE0YWNqU2N3TFF5QlVz?=
- =?utf-8?B?RkJPSkl5ZHQ4RHVGbUMxMllrc2hDWGQxRnVKdjFYdlZQR3ljdHF3VVJnLzZo?=
- =?utf-8?B?OVZ4TU9SQmE5Wko4aHhjY3gwTVF6dFBUbUxvbnFtVnoxR2dJUjZFMkhMOEFY?=
- =?utf-8?B?ZDdSKzFTTnR0V2JUUTdOeXAzeXNCNk41NTI0N2JVTW5vdDlsSXZVcUR6Y21O?=
- =?utf-8?B?VFhEYldXSE1oVndFeHF1em4yYXgzSWhHQVp0a01ydFRZRGEzZDhlQjVCZlN2?=
- =?utf-8?B?YzJkSHV5OGVOdXV1Uko2dzRnS0ttSEdRekk5Z0ltdnNaZnFpeGM1QjVMR3c0?=
- =?utf-8?B?d0lOL081cXcveEFDYkU2NnpoZmJ2bXRhQmFXb0FybHlwNkR1UTJ6b2d2RVJy?=
- =?utf-8?B?V0JPbjRzTGRKMUVadENDQWVOMXJWVzNoT0EwRm1uZUpvYlAvSVI3T2g0b0I0?=
- =?utf-8?B?VGkxNnhtWEpET2pqeGxhNUJxZStVZzB0VDMwMTRkTGNaMDBpMUIrL3Q0a0Fl?=
- =?utf-8?B?UXM0VWJYejBjTEFBNzdMcUpOeFZRdjg2cVFQRWNybVp6dDhoV3dFSkJKdDN6?=
- =?utf-8?B?NlhML3hYQW9yT1FDaitBUGR0cFFxTGVzcmNLVXo4RnZ5NmovcXpYWU1WSkdi?=
- =?utf-8?B?ZWlNZGc1YUU1SU5URU9kMW5CcFhORUJwbW9UbGs0QnVBcmtQVXRrdStmV2s2?=
- =?utf-8?B?QTI4Rm4rZzd3N3BzWURSdTBQVlAvQkY4SEZPQUhXM28xdnNOZ0dPRlIxaThx?=
- =?utf-8?B?SVEwZWFGV2xlRnZ0WjY2enhORVdrWklPdkhUQ2x0WjhWcUNJenFFalBkRUtO?=
- =?utf-8?B?TXpBYUpGTDlKcWs0bXZDazlWME83cG9MYUdWdGVVdUhwRWVhLzF6Z01QcXl3?=
- =?utf-8?B?R2czRkVLMkx3aE1PdHhsd21QeVBXYmc2UmtnVGtOZTVRUU9HSHlIUHlLY3cx?=
- =?utf-8?B?UEt1akliZjdLcWFQdURkQ3ZrUDN4bHF4aTd5cmFDcDdTNFJVNVBaYzZWUGRp?=
- =?utf-8?B?Yks3OXVyeWd0MXU4bG84czZXcFJ4dGNEN1VPdXlCZW1COWNHM0R0cU9TVy9L?=
- =?utf-8?B?MzlTTEtHWXh1dHFLbGIxY1R3dXFPYUlnelg0N0c4WGxDSnJRNTBrZFVoaHpQ?=
- =?utf-8?B?aGJkQjBMa3BadSswY1Y1a0s0dHh6RGMwVldjdVp3a2dwU2YwNUExL1hKMzdq?=
- =?utf-8?Q?nLM75xF3Y9oiJ55ywLdHkRLhn?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 54b3e78d-7b35-4aed-8fca-08dd70cbc572
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2025 03:17:45.4392
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ve4PoV0waGcIEDgavqIsnm9YnZYFGO3A6T621Rn31t10V6NC8jRRDm15W+I/lLWdF1DMNRgY16463YbKoA6hcg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7951
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_201758_549838_C5E9457A 
-X-CRM114-Status: GOOD (  26.17  )
+X-CRM114-CacheID: sfid-20250331_203950_595743_B62F60EF 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,170 +100,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+devm_kasprintf() returns NULL when memory allocation fails. Currently,
+aspeed_lpc_enable_snoop() does not check for this case, which results in a
+NULL pointer dereference.
 
-Hi Frank,
+Add NULL check after devm_kasprintf() to prevent this issue.
 
-On 2025/3/31 22:32, Frank Li wrote:
-> On Mon, Mar 31, 2025 at 11:10:20AM +0800, Ming Qian(OSS) wrote:
->>
->> Hi Frank,
->>
->> On 2025/3/28 22:45, Frank Li wrote:
->>> On Fri, Mar 28, 2025 at 02:30:52PM +0800, ming.qian@oss.nxp.com wrote:
->>>> From: Ming Qian <ming.qian@oss.nxp.com>
->>>>
->>>> To support decoding motion-jpeg without DHT, driver will try to decode a
->>>> pattern jpeg before actual jpeg frame by use of linked descriptors
->>>> (This is called "repeat mode"), then the DHT in the pattern jpeg can be
->>>> used for decoding the motion-jpeg.
->>>>
->>>> In other words, 2 frame done interrupts will be triggered, driver will
->>>> ignore the first interrupt,
->>>
->>> Does any field in linked descriptors to control if issue irq? Generally
->>> you needn't enable first descriptors's irq and only enable second one.
->>>
->>
->> Unfortunately, we cannot configure interrupts for each descriptor.
->> So we can't only enable the second irq.
->>
->>
->>>> and wait for the second interrupt.
->>>> If the resolution is small, and the 2 interrupts may be too close,
->>>
->>> It also possible two irqs combine to 1 irqs. If I understand correct, your
->>> irq handle only handle one descriptors per irq.
->>>
->>> Another words,
->>>
->>> If second irq already happen just before 1,
->>>
->>> 1. dec_ret = readl(reg + MXC_SLOT_OFFSET(slot, SLOT_STATUS));
->>> 2. writel(dec_ret, reg + MXC_SLOT_OFFSET(slot, SLOT_STATUS)); /* w1c */
->>>
->>> Does your driver wait forever because no second irq happen?
->>>
->>> Frank
->>
->> Before this patch, the answer is yes, the driver will wait 2 seconds
->> until timeout.
->> In fact, this is the problem that this patch wants to avoid.
->> Now I think there are 3 cases for motion-jpeg decoding:
->> 1. The second irq happens before the first irq status check, the on-going
->> check
->> help to hanle this case.
->> 2. The second irq happens after the first irq status check, but before
->> on-going check, this on-going check can help handle it, fisnish the
->> current decoding and reset the jpeg decoder.
->> 3. The second irq happens after the on-going check, this is the normal
->> process before. No additional processing required.
-> 
-> Okay, not sure if hardware provide current_descript position. Generally
-> descriptor queue irq handle is like
-> 
-> cur = queue_header;
-> while(cur != read_hardware_currunt_pos())
-> {
-> 	handle(cur);
-> 	cur = cur->next;
-> 	queue_header = cur;
-> }
-> 
-> with above logic, even you queue new request during irq handler, it should
-> work correctly.
-> 
-> But it is depend on if hardware can indicate current working queue
-> position, some time, hardware stop last queue posistion when handle last
-> one.
-> 
-> Frank
-> 
+Fixes: 3772e5da4454 ("drivers/misc: Aspeed LPC snoop output using misc chardev")
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+---
+V2 -> V3: Simplify the arrary access and correct commit message.
+V1 -> V2: Removed blank line between tags.
 
-I think it doesn't matter, the 2 descriptors are the cfg descriptor and
-then the image descriptor.
-If the current descriptor register remains the last image descriptor,
-the ongoing check works.
+ drivers/soc/aspeed/aspeed-lpc-snoop.c | 35 ++++++++++++++++++---------
+ 1 file changed, 24 insertions(+), 11 deletions(-)
 
-And I guess your concern is as below.
-If the current descriptor register is still the cfg descriptor, but the
-hardware has finished decoding the next image descriptor.
+diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+index 9ab5ba9cf1d6..25ebecd14103 100644
+--- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
++++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+@@ -189,22 +189,28 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+ 	u32 hicr5_en, snpwadr_mask, snpwadr_shift, hicrb_en;
+ 	const struct aspeed_lpc_snoop_model_data *model_data =
+ 		of_device_get_match_data(dev);
++	struct aspeed_lpc_snoop_channel *snoop_chan = &lpc_snoop->chan[channel];
++	struct miscdevice *mdev = &snoop_chan->miscdev;
++
++	init_waitqueue_head(&snoop_chan->wq);
+ 
+-	init_waitqueue_head(&lpc_snoop->chan[channel].wq);
+ 	/* Create FIFO datastructure */
+-	rc = kfifo_alloc(&lpc_snoop->chan[channel].fifo,
+-			 SNOOP_FIFO_SIZE, GFP_KERNEL);
++	rc = kfifo_alloc(&snoop_chan->fifo, SNOOP_FIFO_SIZE, GFP_KERNEL);
+ 	if (rc)
+ 		return rc;
+ 
+-	lpc_snoop->chan[channel].miscdev.minor = MISC_DYNAMIC_MINOR;
+-	lpc_snoop->chan[channel].miscdev.name =
+-		devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, channel);
+-	lpc_snoop->chan[channel].miscdev.fops = &snoop_fops;
+-	lpc_snoop->chan[channel].miscdev.parent = dev;
+-	rc = misc_register(&lpc_snoop->chan[channel].miscdev);
++	mdev->minor = MISC_DYNAMIC_MINOR;
++	mdev->name = devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, channel);
++	if (!mdev->name) {
++		rc = -ENOMEM;
++		goto err_free_fifo;
++	}
++
++	mdev->fops = &snoop_fops;
++	mdev->parent = dev;
++	rc = misc_register(mdev);
+ 	if (rc)
+-		return rc;
++		goto err_free_fifo;
+ 
+ 	/* Enable LPC snoop channel at requested port */
+ 	switch (channel) {
+@@ -221,7 +227,8 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+ 		hicrb_en = HICRB_ENSNP1D;
+ 		break;
+ 	default:
+-		return -EINVAL;
++		rc = -EINVAL;
++		goto err_misc_deregister;
+ 	}
+ 
+ 	regmap_update_bits(lpc_snoop->regmap, HICR5, hicr5_en, hicr5_en);
+@@ -232,6 +239,12 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+ 				hicrb_en, hicrb_en);
+ 
+ 	return rc;
++
++err_misc_deregister:
++	misc_deregister(mdev);
++err_free_fifo:
++	kfifo_free(&snoop_chan->fifo);
++	return rc;
+ }
+ 
+ static void aspeed_lpc_disable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+-- 
+2.34.1
 
-I confirmed with our hardware engineer. This can't happen.
-The first cfg decriptor has a next_descpt_ptr that is pointing to the
-image descriptor, when the hardware read tne next_descpt_ptr, the
-current descriptor register is updated, before the actual decoding.
-
-Thanks,
-Ming
-
->>
->> Thanks,
->> Ming
->>
->>>>
->>>> when driver is handling the first interrupt, two frames are done, then
->>>> driver will fail to wait for the second interrupt.
->>>>
->>>> In such case, driver can check whether the decoding is still ongoing,
->>>> if not, just done the current decoding.
->>>>
->>>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
->>>> ---
->>>>    .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |  1 +
->>>>    .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 20 ++++++++++++++++++-
->>>>    2 files changed, 20 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
->>>> index d579c804b047..adb93e977be9 100644
->>>> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
->>>> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
->>>> @@ -89,6 +89,7 @@
->>>>    /* SLOT_STATUS fields for slots 0..3 */
->>>>    #define SLOT_STATUS_FRMDONE			(0x1 << 3)
->>>>    #define SLOT_STATUS_ENC_CONFIG_ERR		(0x1 << 8)
->>>> +#define SLOT_STATUS_ONGOING			(0x1 << 31)
->>>>
->>>>    /* SLOT_IRQ_EN fields TBD */
->>>>
->>>> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
->>>> index 45705c606769..e6bb45633a19 100644
->>>> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
->>>> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
->>>> @@ -910,6 +910,23 @@ static u32 mxc_jpeg_get_plane_size(struct mxc_jpeg_q_data *q_data, u32 plane_no)
->>>>    	return size;
->>>>    }
->>>>
->>>> +static bool mxc_dec_is_ongoing(struct mxc_jpeg_ctx *ctx)
->>>> +{
->>>> +	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
->>>> +	u32 curr_desc;
->>>> +	u32 slot_status;
->>>> +
->>>> +	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
->>>> +	curr_desc = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_CUR_DESCPT_PTR));
->>>> +
->>>> +	if (curr_desc == jpeg->slot_data.cfg_desc_handle)
->>>> +		return true;
->>>> +	if (slot_status & SLOT_STATUS_ONGOING)
->>>> +		return true;
->>>> +
->>>> +	return false;
->>>> +}
->>>> +
->>>>    static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
->>>>    {
->>>>    	struct mxc_jpeg_dev *jpeg = priv;
->>>> @@ -979,7 +996,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
->>>>    		mxc_jpeg_enc_mode_go(dev, reg, mxc_jpeg_is_extended_sequential(q_data->fmt));
->>>>    		goto job_unlock;
->>>>    	}
->>>> -	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed) {
->>>> +	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed &&
->>>> +	    mxc_dec_is_ongoing(ctx)) {
->>>>    		jpeg_src_buf->dht_needed = false;
->>>>    		dev_dbg(dev, "Decoder DHT cfg finished. Start decoding...\n");
->>>>    		goto job_unlock;
->>>> --
->>>> 2.43.0-rc1
->>>>
 
