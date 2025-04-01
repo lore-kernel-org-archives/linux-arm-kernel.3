@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D6FC36014
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11F4C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Subject:
+	In-Reply-To:Cc:To:From:Message-Id:Date:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xLEx9ag6rRyJwsDWi2eXFnNE5uDiHwvjqDeRRFzSv8M=; b=u59dfoL2Fk56o5Vdom5AbNs7be
-	dXZUZQy4o8eoBsnb1jkX8MOW2mRLoPP+2R1rj6cKJGObL929uJgnFJXZa1HmcGzRfn7sEtzsP/MGo
-	o1a3io9ItcApIJdv3Mf+oAbxt6XXQqZVqd6ymwP19ssOysD2oq8puHdLP2bL4pGj0elK3bze21I0O
-	tQDC12i6xT1afgurFC8ee6ZgqFliiTptfU+c1gPNKRVEpepjJqI2eLW4T1YsBJRtCYFa/lYr7EzD0
-	zss1yF52r1BaKxSckx7L3ZZLuh1YnamaEnnc3Y9JwhSTmU0xA3gf7mWaskNfla8ubllaeTrt2/7xb
-	SjjJcynA==;
+	bh=ey7yoOjV/lc5KcZj4q45sCx1nDoy4AmcmcNqfQe/iX8=; b=gFcoS3D3vqxjNNphcLVZOHvKjO
+	TkkNXa0ZnKejj0x3YFFoltUChGHp90UxdTXItwr2GTitmerOPBZqTpSmrIWds6JeLGdzy1H2clcQS
+	cb+OVj3W/ljhyCAQfLypoNzEbuaA8O3Co+mN5P03cxQBg7KzF6PIy0b9nQWA2a+jnYqm4IzKXOLOG
+	pOPTw1WFRk1/riQ0AqqtEAzPxAglXQ4Je1WWslaIw43TsanhBYW+ipA7+3lJBW5AsMDQBPiWnVJkC
+	kobw10M4WfKogsA0l2JGVZa14TtHzZWtzH1LhbAepjQ0QrEI1J+jyRUSOl+jMdRtYEeo6cCHfTiSW
+	U61avQpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYVj-00000002Zgd-2VJm;
-	Tue, 01 Apr 2025 10:06:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tzYXX-00000002a9A-0BE6;
+	Tue, 01 Apr 2025 10:08:15 +0000
+Received: from ewsoutbound.kpnmail.nl ([195.121.94.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzY0u-00000002UaD-3FJN;
-	Tue, 01 Apr 2025 09:34:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 23CDAA435FF;
-	Tue,  1 Apr 2025 09:29:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACD2EC4CEE4;
-	Tue,  1 Apr 2025 09:34:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743500071;
-	bh=7lkAOLmurMCkLel+JEnAt0AfvmrS0keXEItR7INNDXI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tCeV6Q+/pvkhcx91PG1MjGJj26MDQSAzN5cUN18jYSX31tCdizbhkOdQUVKLQZeE7
-	 Qocao8Czzn8TGft7RucqfYzeauAZx18r/0btTdO98PlUhxaVVfyPEXM0DskQPbNMml
-	 EB/eo5sUh/OyMzJi0q3VPqBAlBm+lGndPYI4WUb6SgSmKUILXpAnCl11ryLNZDsJqG
-	 wloIFVT+Vec7yd7goYUcENJGEy7PhnWECr2QEa0PtN3w+I9jWedofCq7OmjkZ81xbx
-	 TWd6No/Ar0t5xZVx050FFRAaCWxjBK8dKFSLbho/6S7BQF7PblesHx41OWKrtv9N4y
-	 wjPVPJ7sB00Hg==
-Date: Tue, 1 Apr 2025 10:34:27 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Davide Caratti <dcaratti@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: Fix ETS priomap validation
-Message-ID: <20250401093427.GA214849@horms.kernel.org>
-References: <20250331-airoha-ets-validate-priomap-v1-1-60a524488672@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250331-airoha-ets-validate-priomap-v1-1-60a524488672@kernel.org>
+	id 1tzY6y-00000002VVA-47fw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Apr 2025 09:40:51 +0000
+X-KPN-MessageId: 645a4459-0edd-11f0-b8e6-005056999439
+Received: from smtp.kpnmail.nl (unknown [10.31.155.8])
+	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
+	id 645a4459-0edd-11f0-b8e6-005056999439;
+	Tue, 01 Apr 2025 11:40:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xs4all.nl; s=xs4all01;
+	h=subject:to:from:message-id:date;
+	bh=ey7yoOjV/lc5KcZj4q45sCx1nDoy4AmcmcNqfQe/iX8=;
+	b=FqAE2REkFgpO5l2/SNwlAFSrFOx/nu6RzHt2R1+ZsCDtBV69NLrvIrhuJGvE4fTGoK1ZmzxSNirSG
+	 ZwHLUY0PHF1CINuzACJAO/SfbfazgI03XZ+WhebvUE+J8i2x+VGt66VoqcEVIgDgnAgtFNOFzKujzs
+	 e3XICGWRWyabId09ZjxjE4SXaAKy/UrjoWYCmlGVs8xpAYan/LZSKBXRTbt/aSHuCqD6BmyFx4Yn4N
+	 J13gtkyWN7M3vcaqKuYGngCJFovRXrHFS8bvLvcN7tgXgQivboaPq3m4gxtTZaT2Zkx6DSE90Ljgd8
+	 rJkmMa+qi1t1I374U1YP5Y5vrb1gUxQ==
+X-KPN-MID: 33|Q3Biel+nTqoBd3E8Ejl4/blQ1eotWFPRsXPh84eyXyVG8o/qGN/zkB/xVlQuHaH
+ VetITMcREbJ3DnFIWK3u0glWOq0lwEsC5oKzxzT1vxGk=
+X-KPN-VerifiedSender: Yes
+X-CMASSUN: 33|W0d/KH2Hq4f/I/JXtohD/yi6JDISu5nftVLzXJnFRULuKq3Rc3Vn2VnYtkRYUy+
+ oTF6eiBDYAmLq8KY2ELmrXA==
+X-Originating-IP: 80.61.163.207
+Received: from bloch.sibelius.xs4all.nl (80-61-163-207.fixed.kpn.net [80.61.163.207])
+	by smtp.xs4all.nl (Halon) with ESMTPSA
+	id 617e7e6a-0edd-11f0-97bf-00505699d6e5;
+	Tue, 01 Apr 2025 11:40:44 +0200 (CEST)
+Date: Tue, 01 Apr 2025 11:40:43 +0200
+Message-Id: <87cydwxlr8.fsf@bloch.sibelius.xs4all.nl>
+From: Mark Kettenis <mark.kettenis@xs4all.nl>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, alyssa@rosenzweig.io, j@jannau.net,
+	marcan@marcan.st, sven@svenpeter.dev, bhelgaas@google.com,
+	lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org
+In-Reply-To: <20250401091713.2765724-3-maz@kernel.org> (message from Marc
+	Zyngier on Tue, 1 Apr 2025 10:17:02 +0100)
+Subject: Re: [PATCH v3 02/13] dt-bindings: pci: apple,pcie: Add t6020 compatible string
+References: <20250401091713.2765724-1-maz@kernel.org> <20250401091713.2765724-3-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_023432_893155_3A72D818 
-X-CRM114-Status: UNSURE (   8.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250401_024049_303181_218A9200 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,17 +83,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 31, 2025 at 06:17:31PM +0200, Lorenzo Bianconi wrote:
-> ETS Qdisc schedules SP bands in a priority order assigning band-0 the
-> highest priority (band-0 > band-1 > .. > band-n) while EN7581 arranges
-> SP bands in a priority order assigning band-7 the highest priority
-> (band-7 > band-6, .. > band-n).
-> Fix priomap check in airoha_qdma_set_tx_ets_sched routine in order to
-> align ETS Qdisc and airoha_eth driver SP priority ordering.
+> From: Marc Zyngier <maz@kernel.org>
+> Date: Tue,  1 Apr 2025 10:17:02 +0100
 > 
-> Fixes: b56e4d660a96 ("net: airoha: Enforce ETS Qdisc priomap")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+> 
+> t6020 adds some register ranges compared to t8103, so requires
+> a new compatible as well as the new PHY registers.
+> 
+> Thanks to Mark and Rob for their helpful suggestions in updating
+> the binding.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Ah, that's how you do it!  Thanks Rob.
 
+This matches the binding already in use for U-Boot and OpenBSD, so:
+
+Reviewed-by: Mark Kettenis <mark.kettenis@xs4all.nl>
+
+> Suggested-by: Mark Kettenis <mark.kettenis@xs4all.nl>
+> Suggested-by: Rob Herring <robh@kernel.org>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Acked-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+> Tested-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+> [maz: added PHY registers, constraints]
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  .../devicetree/bindings/pci/apple,pcie.yaml   | 33 +++++++++++++++----
+>  1 file changed, 26 insertions(+), 7 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/apple,pcie.yaml b/Documentation/devicetree/bindings/pci/apple,pcie.yaml
+> index c8775f9cb0713..c0852be04f6de 100644
+> --- a/Documentation/devicetree/bindings/pci/apple,pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/apple,pcie.yaml
+> @@ -17,6 +17,10 @@ description: |
+>    implements its root ports.  But the ATU found on most DesignWare
+>    PCIe host bridges is absent.
+>  
+> +  On systems derived from T602x, the PHY registers are in a region
+> +  separate from the port registers. In that case, there is one PHY
+> +  register range per port register range.
+> +
+>    All root ports share a single ECAM space, but separate GPIOs are
+>    used to take the PCI devices on those ports out of reset.  Therefore
+>    the standard "reset-gpios" and "max-link-speed" properties appear on
+> @@ -30,16 +34,18 @@ description: |
+>  
+>  properties:
+>    compatible:
+> -    items:
+> -      - enum:
+> -          - apple,t8103-pcie
+> -          - apple,t8112-pcie
+> -          - apple,t6000-pcie
+> -      - const: apple,pcie
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - apple,t8103-pcie
+> +              - apple,t8112-pcie
+> +              - apple,t6000-pcie
+> +          - const: apple,pcie
+> +      - const: apple,t6020-pcie
+>  
+>    reg:
+>      minItems: 3
+> -    maxItems: 6
+> +    maxItems: 10
+>  
+>    reg-names:
+>      minItems: 3
+> @@ -50,6 +56,10 @@ properties:
+>        - const: port1
+>        - const: port2
+>        - const: port3
+> +      - const: phy0
+> +      - const: phy1
+> +      - const: phy2
+> +      - const: phy3
+>  
+>    ranges:
+>      minItems: 2
+> @@ -98,6 +108,15 @@ allOf:
+>            maxItems: 5
+>          interrupts:
+>            maxItems: 3
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: apple,t6020-pcie
+> +    then:
+> +      properties:
+> +        reg-names:
+> +          minItems: 10
+>  
+>  examples:
+>    - |
+> -- 
+> 2.39.2
+> 
+> 
+> 
 
