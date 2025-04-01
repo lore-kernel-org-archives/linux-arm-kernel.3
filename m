@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B45BAC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 17:34:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D4FFC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 17:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V8RVUmA+m1kGChPMpcQ+PaepE65DTzRvMV0W66iG5TU=; b=jWkb5E9jZXnHFP6wBeK7QPQFZs
-	iQcOfECTClHsNa49ckkLG4O21tNHbsHmuqdOPoKQLGPe6B7dhgpaPMStdVA58PF06Lxjnqr5R/I4S
-	E6i+lxFsHenQtIAEbvw54qYOl0eXGyDSAMII1wGO8Oe1Wl508lDUhUROAfYIuDMfgn2nsCKZyp1VW
-	gZoFLpnXFxQ7pdFdD56KOsJgKmqTKnOSEhA/faPKfQ3iv/mHlQwn+hPOLFRcrMAMbIlMxvyRLMTHM
-	VmDSLRt800Nq9LbvezN7WLv8lyK0ZTDvbhoznXLX1qurI67HMBZ9SsyEZqDvxxnQtoJ+/xbehwbwb
-	NeU7hMbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wdCzpoXHiUwgiGgzxN8YWp/CXgwezVLW2dCbmruGf2k=; b=ycRmOPe0ioYZQQLBo1eOfRzCNu
+	rwV8FBFwzQFRQcIq1k/WLbHgoc7F4Uf0Fj/DskIuKZuZ9yHhmeocfP5DUMvAms27C6fHkFbpHCHnX
+	7Z8Iii+wHsOMopKDKsXq8m2HkkD/BjEDEiWgXPDfudny7DElEBLQ04bC0yYkqab7JU2KIgyVzoSzp
+	2AEI143iVbZl/gIPkg/X7NwXHrjBlYEqa7leijC/cBB7lW+tsiMjNUgWS0XU8xmxKQpHYEiBHGlSr
+	pjUHTe2/dnomsiA1LzR8JgoEEVe+vqXYMhBoWaI36abshJIskBPT2o1mKHFSmEbvn+Q0mQcfcFpqg
+	f86gFr4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzfVZ-000000041d5-2Pzt;
-	Tue, 01 Apr 2025 17:34:41 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tzfZ4-000000041vY-1dq7;
+	Tue, 01 Apr 2025 17:38:18 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzfTl-000000041VO-3sJC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 17:32:51 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-22423adf751so109108255ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 10:32:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743528769; x=1744133569; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=V8RVUmA+m1kGChPMpcQ+PaepE65DTzRvMV0W66iG5TU=;
-        b=XeLvRe97xm/RYveG2IAcz1b0s9FaSIyzXrrdbvHPMeh9Vq7YO8YKyA5dkW5d1fFiBG
-         /2V8Ihmq7Zt5y4EG1IXJafMdw3wCLCyi9Y5zgf4xZfchmWjEcuuw/9hmmfL7Y5RDgy1O
-         fGitMY02NxrJL7S9TNv5t4HcsOArA/s7NRRo/kg7VWSlPLfFr8Enm0IRnZ1lc9AJ0jR3
-         VBiJ+vroeiwHRxAwYGfxdCTuCO/RZ6TrsnsqcuK/2dQYD5HhLVZRYVVSo0rvjx5cTVXB
-         6ZQd5XvtUxdMd5XdwaLgCA1EBWvuT0rV7afQdpVObziOsdUkosuglnkIb0SlDH9dlCi/
-         g4bQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743528769; x=1744133569;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=V8RVUmA+m1kGChPMpcQ+PaepE65DTzRvMV0W66iG5TU=;
-        b=a8cXDFufY4erKLo+k13H4owTt5Vj0xVCt5FO5Y/LA8CdULdFKPKiep1YR9yp1LepSW
-         zDATVpXCU9lWkwyLfLnAoOb8mQYYVy59CbEM/TETq70xtoFTHg03xbBU4nnwfLyKhtUM
-         TUQdfeomrJxnKeW2rJtEAe/Mw6Mmo50IdSAxi17gPE6EkAlKenYMY1jwtWn0OX/NlbCP
-         5c2wmIu8fH4c2XGV02yT5sLLyQy3Nobev/BPygFHPeu3c5NMog53ZsKSj92Oj7sJ7U3S
-         trunCZ+nnsB/vIh8hP/HPJp0pIB+UkZkwePnvE3lxf+hzuKByAlD6w5wVZFOsQx1OqWd
-         ElKA==
-X-Forwarded-Encrypted: i=1; AJvYcCU1iectAcAXGXbjJLkrEbXltkVNB27Nm3vocBhLEKjf+kVPL7sMABWtf92vqmaOz9IZTVcmOH5oNOaC4YZfi4Q2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJhaCqFAKxhXjn4cMBN6QY3HtruQpiCrCA51xbwKVxKMqTIxPE
-	ysDoWEiLucnYH8Hpil4t9Bfb1WUkVe7Hrfds3O0YF+qsrkA992Xx
-X-Gm-Gg: ASbGncunQzSlFReJ64YY3XSKrd3Teo9e8MoOXHyL5Mn9mQYIOnCR/91TOlYKiN+x5Ye
-	ER5nwU67D5RPdXmhkBZW4ASx30NiWeqSn/bUjXkzJ+MjWFBeZzd8WWbr7kTu0nkkIvXX3DVcx4C
-	j8KEAXJ0FsObA1bDsjFDDEmvrvPjDRF1ulWbEPJMhzjWlbA05jHGn9P3SVlRLv7QZ1Azhn2ElzB
-	7q6ZTqgEpH14S7bZke9OjfTV6N8ZuSvqjydNnp+lFerjW5lPchUhunR1u3ufd8D6kmPXsNmOnxx
-	l1qcytMwzjaVyr6+cfwY+NtnlvfndQCuyzydtehSPg+fSfAJPeBgprHsDtt0tFesSK6CCgJb1Rw
-	Lg4zJ7jWuAD/ZU8Le9lZVpPfsZ/M7awPeeTY=
-X-Google-Smtp-Source: AGHT+IH95w/LAWi9XB3yjcdglXPFnSGj8XWtvL857JlmhI7fKhJECGlgQFhZrN0iisUbnhGnnnDRUg==
-X-Received: by 2002:a17:903:11c8:b0:224:24d3:60f4 with SMTP id d9443c01a7336-2295be6601bmr58932595ad.15.1743528768618;
-        Tue, 01 Apr 2025 10:32:48 -0700 (PDT)
-Received: from ?IPV6:2409:4080:109b:c762:5821:556c:83c9:d1d7? ([2409:4080:109b:c762:5821:556c:83c9:d1d7])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73971068576sm9187137b3a.119.2025.04.01.10.32.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Apr 2025 10:32:48 -0700 (PDT)
-Message-ID: <61b1e302-98ad-4dda-8c03-18315d432512@gmail.com>
-Date: Tue, 1 Apr 2025 23:02:41 +0530
+	id 1tzfXH-000000041mI-1mzw;
+	Tue, 01 Apr 2025 17:36:29 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id D079F25C5F;
+	Tue,  1 Apr 2025 19:36:18 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id 85kTxoqsDQpS; Tue,  1 Apr 2025 19:36:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1743528978; bh=fzp725Jl1448wIARjxbrq/kaOVZ0/ZOHyXPogF42rQI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QpY78WWREkPzmaMORR2X6BiBkCKQuye4HPfTvVRwUrtJhRs4tqPWlwgxKFrCn9U7o
+	 lPWhnePhuVl6Xqqgat624FuEjs5yDqvygTGz7/Sw2Ayw+0Pp6D8iP3yhJkjYzmvCOW
+	 zX6pw2x0m+QSkF03FIySiLfSvjLHdLOhlUETjbeDzZ481j0ou4R1XR07S5DRvPic5U
+	 Kz2EeHVkmpLz5V8Cjsig5wO2vP4WXz/+6b1EDMy1/AAdkaL/yOxxu8rIy0PvXA2UCX
+	 cmdYhClZfafwGoSw+v8hO9Dh4ReYSu0wSGPm2RGebnr6UJehd5dA5pXsc4Zd09J0Am
+	 V93pf7RabQ7LA==
+Date: Tue, 1 Apr 2025 17:35:57 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Rob Herring <robh@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Add DMA controller for
+ RK3528
+Message-ID: <Z-wj_eO6FGcwsEh6@pie.lan>
+References: <20250401100020.944658-1-amadeus@jmu.edu.cn>
+ <20250401100020.944658-3-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML
-To: Krzysztof Kozlowski <krzk@kernel.org>, ukleinek@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, vz@mleia.com,
- piotr.wojtaszczyk@timesys.com
-Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250312122750.6391-1-purvayeshi550@gmail.com>
- <b2f6a357-a468-4526-a1b6-69ab2c643b2c@kernel.org>
-Content-Language: en-US
-From: Purva Yeshi <purvayeshi550@gmail.com>
-In-Reply-To: <b2f6a357-a468-4526-a1b6-69ab2c643b2c@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250401100020.944658-3-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_103249_968102_DA61174B 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20250401_103627_873893_B733BAFC 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,49 +78,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/03/25 16:34, Krzysztof Kozlowski wrote:
-> On 12/03/2025 13:27, Purva Yeshi wrote:
->> Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
->> YAML schema (`nxp,lpc3220-pwm.yaml`).
->>
->> Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
->>
->> Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
->> ---
+On Tue, Apr 01, 2025 at 06:00:19PM +0800, Chukun Pan wrote:
+> Add DMA controller dt node for RK3528 SoC.
 > 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> 
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
 > ---
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
 > 
-> <form letter>
-> This is an automated instruction, just in case, because many review tags
-> are being ignored. If you know the process, you can skip it (please do
-> not feel offended by me posting it here - no bad intentions intended).
-> If you do not know the process, here is a short explanation:
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index 7f1ffd6003f5..c366766ee3f5 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -493,6 +493,24 @@ sdhci: mmc@ffbf0000 {
+>  			status = "disabled";
+>  		};
+>  
+> +		dmac: dma-controller@ffd60000 {
+> +			compatible = "arm,pl330", "arm,primecell";
+> +			reg = <0x0 0xffd60000 0x0 0x4000>;
+> +			clocks = <&cru ACLK_DMAC>;
+> +			clock-names = "apb_pclk";
+> +			interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
+> +			arm,pl330-periph-burst;
+
+Should this be moved above "clocks" line to sort the properties?
+
+Thanks,
+Yao Zi
+
+> +			#dma-cells = <1>;
+> +		};
+> +
+>  		pinctrl: pinctrl {
+>  			compatible = "rockchip,rk3528-pinctrl";
+>  			rockchip,grf = <&ioc_grf>;
+> -- 
+> 2.25.1
 > 
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-> of patchset, under or above your Signed-off-by tag, unless patch changed
-> significantly (e.g. new properties added to the DT bindings). Tag is
-> "received", when provided in a message replied to you on the mailing
-> list. Tools like b4 can help here. However, there's no need to repost
-> patches *only* to add the tags. The upstream maintainer will do that for
-> tags received on the version they apply.
-> 
-> Full context and explanation:
-> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-> </form letter>
-> 
-> Best regards,
-> Krzysztof
-
-Hello!
-
-I wanted to follow up on the patch I submitted. I was wondering if you
-had a chance to review it and if there are any comments or feedback.
-
-Thank you for your time and consideration. I look forward to your response.
-
-Best regards,
-Purva Yeshi
 
