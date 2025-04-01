@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7EA8C36017
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 19:31:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3FDFC3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 19:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I/+iZ7oXBPhE3cNOeJn0BX2fJsfTTe1JAGSbvb0XfLY=; b=s1z0anw2cfklVcbd40hUkrWUFL
-	dQJWJ7uBjpUYu2ltoVAabl//vMRB/kzUpg1pE5Rc8yglUqv/RwoaGuKMQj1Pu7HcfmMBxuRTF5cK+
-	9rS6pAdeRfLuH6CJeTfiLvL5lNTsHoA3WYpF+Y9aFtzhsN60GHodSO8VEYQatPYIoVT5fT6XTmYP9
-	8HZCy5ESnkOhjEux5VWwHpr0fD8VdOb9nDkO+83h9TC8OHjKLPxO7yCUFi+xSrOzbPr8/cMFI1jUf
-	XOpwxTs11i3MLcyWw9yu3gjtGBv1uB/lz+OMFBK+h7mBM0/LvF17rKTf+ssZKnCRDUgk/MCEUvrvo
-	Da1uwobQ==;
+	bh=i8z+fSx5TSn2FrXLNFfU/1u/JP6JDm+uKA06s523rtI=; b=ytqQwDL81Izn8DZiBAXQzxoNF8
+	7dbL8vSZAWnGZhgg03Sy5j2wI+WuxAr1G6GKBKVYQeMvwrXnrhqbTwSAIVZhEIbr1LI1CBP0Cwpfz
+	47VqIaba6PAuVnlR5VWlo5sLuCkrr2yK7S45ZI/fu/cxI1QJBBOzsJnLsY4i47EiCQ04l7DoGkc1R
+	MYkvJHCxu9L6Eg8o2kdpkOXGj5oAwpL3Lk1uNaib0EYo0etVqM31L8ePS8hsOCT6f96G7AB5rKHC6
+	Jhd03IF23PSHM1omZ2S61A32Zy+r+bO8jX9llXpiC5d9+I46Ty1UJuPGOCjjj5dbx/oeLmcXqAhyr
+	u8KzBVLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzhKR-00000004E31-0USE;
-	Tue, 01 Apr 2025 19:31:19 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1tzhMD-00000004EK7-3ZOs;
+	Tue, 01 Apr 2025 19:33:09 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzhDN-00000004D5K-3Ed1
+	id 1tzhDP-00000004D66-0tlZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 19:24:02 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-39141ffa9fcso5689342f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 12:24:01 -0700 (PDT)
+	Tue, 01 Apr 2025 19:24:04 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43d2d952eb1so41716835e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 12:24:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743535440; x=1744140240; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1743535441; x=1744140241; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=I/+iZ7oXBPhE3cNOeJn0BX2fJsfTTe1JAGSbvb0XfLY=;
-        b=l4OW6zk8Z+RO+6IbX6WsJ20pIPoRMiZetlEuc5BATBdJcXVLt5tA/HkSveRYOTlOZv
-         NENQFoeUFgVzu2PPFLOM9DGaB9eXmtasr1Y7RKxWpUGyXZGYGJCW9p2vsUQVgHXR929g
-         tkJk8KnTrXdM38JdEAPh5YB2wVWZQUzxbX1APfay4+HMlWOJHgZmyqhSi96/XWytPqSR
-         /Mn8MkV3TZgkYk5s0sZGDWEBLaRr7t9rcNtLBIDGaQoGCIxvUxZxWWezRojh6kuLeoff
-         ANrKm8SU1+nKf2unsB08b4npdP0WtZyI2dXGZgB16QeigJkbBFfxzJ82H5utxhqu45tX
-         GoiQ==
+        bh=i8z+fSx5TSn2FrXLNFfU/1u/JP6JDm+uKA06s523rtI=;
+        b=F+AzR05c5Juy87wbUFLdR1CgK95GgTUuUhc0Iu+usTaQLZsIqsHFBvW6GbhgBttxOL
+         elK4Q8JM+LWPnz/y2Is2Rb4QgFhKyRCEi4E4s6DKh6p/RF0sNYcE2vIsXWw6+YHJ32d1
+         /I7yi45/Qq6X4R8AHMC4hNXG7U9ffb/YnjZLPG6YmG+Nudq8LAN8FVf94euuMJQoQm7O
+         wDTbot18Uuo98hKgP2cX2199G3n8ybSfO/8S+VZapWs46J6WmYbdq96pFKq1Qs7pfsEV
+         KUGAIG9ku6RX4g2+GFn38HAZzk9eIpuElYOIp0ztn0sY9CqTMf5ha50NDxFsvKZTWOie
+         v7zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743535440; x=1744140240;
+        d=1e100.net; s=20230601; t=1743535441; x=1744140241;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=I/+iZ7oXBPhE3cNOeJn0BX2fJsfTTe1JAGSbvb0XfLY=;
-        b=qyOVWbUjAlIgOnmy4XmQo4hRVutPwrUrph9sga7mPEm1/BCy1mc4YrykZcRy6kHWYN
-         FTz7pBOyidvSLtD7ISZR6MCpvGgbQphTz1s8XLavkI+WDx9Lcvz3KCnn4cw9n11pnAwK
-         pf0OWXXQu4N4o1FOw+u+XujN3HpP8TRsLu0X6V/p+w8/Oy7RxLJvUENTraQtOnFDAbEz
-         ijgjabVGzfj/qhPeVWOGMaJi8XE2xLBZYquWed7STyEbDTJc5ZOXpVPoadFbl2qsza5R
-         bRqQCd1rGqLL5J0cWeuD4L+pm+HS7TtUXGqtWnC/oQd20ZV9VwwbTc9u4GabjkJWY58+
-         zPxg==
-X-Forwarded-Encrypted: i=1; AJvYcCWxLcRG2dL6ZfIzqRxk1MrTo6w0R7WcNCVR1Sc2WpSe1sG1W0cS1ZIE6Vx8d1DXT7uPlI/CirK0zrFirDXR7lN1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxihlI1VC1eK/e9j9HWH1lKsx2SUrRJ2TApVu1SB2u2X15siQT
-	zDHwILx+NABxjfUS8XTkdQfs4KZmqggEMTGxsy3x/Uj4AH7K5D4/
-X-Gm-Gg: ASbGncsFz8U3jS/CtDzEcRX0VRCkike3mInNTR62PPJ/AkV2UwdCT7v8XjZrwieyY61
-	I3kOS+fucivMLKVt5SRtehx4Hj+crK+JVGTQLzzdYJHSZl35UqpE3dSW+GKLTZK/WHTnPNGgrSw
-	vG+Eo8Ia9KmFEoxgKvxvCqSFjfZLxfKeUvmpVbxfWu+PYIbFGcO7C/wAeL0DXE6ayF/KRrZvORH
-	R10ox5inLL4UauBrj1hh4K1ZS4sVHYp1tdWlhb2MLhX2MyUxVj3/YV9f4CqtPK2SiMpQYRWe3aH
-	DUkzpzhTk9MEMy3fTqfEyBSTrw5z0ivHwFzK5W/SE3ij7QGS727aMH2AuVNnGwyuwKN4TUcf
-X-Google-Smtp-Source: AGHT+IEroLhlH55Nn0a2Cu0BMYw27BSdC4OLp0dlkWXs82H+dhWwczs/WCChC+qm41GDorZgNFvJwA==
-X-Received: by 2002:a05:6000:40ce:b0:399:6ad6:34 with SMTP id ffacd0b85a97d-39c12118e33mr11160301f8f.35.1743535440077;
-        Tue, 01 Apr 2025 12:24:00 -0700 (PDT)
+        bh=i8z+fSx5TSn2FrXLNFfU/1u/JP6JDm+uKA06s523rtI=;
+        b=rIDIJRMN6R0weim2lxgkqb4y5VYKKogrbTkFgnN6V1A+fHK3C2gQw7lpUOUk/KHst3
+         qigyaAUunGu13JNFfXA3ic7EMrJeKeP2K5DrBstFXsD6jqYIzuvME8nrAACtlFTG0l8j
+         huIiM7ATpI8EtSRvnLZzDSTd4NNRmKei6/6+mvXbV+hNYjoKh99ytIK/OhVUf0Dt8jAK
+         jivzdbwmpibTMJkOyEF0euWdP1hOImIesKOE8wplHwEa4EM+JkLQSd6nfKFxG1Dm6lPh
+         2OrJkY0UymiYvzs1ghX6AvO5pAuO5E++GI6YxBlqatxVXwJ90sSSob+XxX33QuBD1Meh
+         2BAg==
+X-Forwarded-Encrypted: i=1; AJvYcCVARtNa6RQ9JxaEBCwpSYSmEG7SK1e0jMoe0zf4PTsfxBqIuadDCHon2bOM/3QWpgo83R8cCUCZzqhzYN9T8eBe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhTYg+UJd+3Tu77c96QEFXy9mVQSsNy5XpSoUTNOrpf1PYmG1W
+	594QqqfEv7wANQGLf7j5Zb7AbX4dql0yv9J85yJw3HhJLzCiRpvw
+X-Gm-Gg: ASbGncucJQQ4EKIZZZfTkhU4ZATbZRK2jITNonbetpJfqJN3eP8Ba0j/znMTB0mhqYM
+	VUNdrBt+rey00IZTJ+UzY13G1W7b/F9ZgXd8gtMX/u3Ii+1PJVoaAQXgQBOgpxRGjfw4ypAYBjI
+	vmuXoQk8jolKovcf0zeBPi8FBOO+71dyf1e/dwyryUfiscC5n8JVkN/wnu2huVz+7F+95DP0w5d
+	BfYjDc+8g8J/8YEl2341HnGTYaM/8gSiRXPgBfjuLrCtrmI1BS1Ck86c5yuYJLH2rPLo9N8b2BW
+	Y+3a4AWPLr+h1B4gYSJiNXHdq6Mc2d4lydFRb7BKjipZZce4pGkHBpU1SfKcJVYU++rnAiGK
+X-Google-Smtp-Source: AGHT+IHEh+OGGdBfpbw9Ezhf9HsQaZImvcYBc/BECi3M6V/8EKmHii6CQkGoC7DxQblK6JTqZon8Ig==
+X-Received: by 2002:a05:6000:418a:b0:391:22e2:cd21 with SMTP id ffacd0b85a97d-39c12117df4mr9452334f8f.36.1743535441394;
+        Tue, 01 Apr 2025 12:24:01 -0700 (PDT)
 Received: from localhost.localdomain ([2a02:2f0e:c50a:8800:cf9e:ee0b:4a01:37f6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b66aa32sm15353438f8f.50.2025.04.01.12.23.59
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b66aa32sm15353438f8f.50.2025.04.01.12.24.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 12:23:59 -0700 (PDT)
+        Tue, 01 Apr 2025 12:24:00 -0700 (PDT)
 From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
 To: clabbe.montjoie@gmail.com,
 	herbert@gondor.apana.org.au,
@@ -80,17 +80,17 @@ Cc: wens@csie.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Subject: [PATCH 4/6] crypto: sun8i-ce-hash - drop CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG ifdefs
-Date: Tue,  1 Apr 2025 22:23:19 +0300
-Message-ID: <20250401192321.3370188-4-ovidiu.panait.oss@gmail.com>
+Subject: [PATCH 5/6] crypto: sun8i-ce-hash - add IS_ENABLED() checks to debugfs stats
+Date: Tue,  1 Apr 2025 22:23:20 +0300
+Message-ID: <20250401192321.3370188-5-ovidiu.panait.oss@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250401192321.3370188-1-ovidiu.panait.oss@gmail.com>
 References: <20250401192321.3370188-1-ovidiu.panait.oss@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_122401_808937_17244733 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20250401_122403_250964_211C7A35 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,44 +105,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-'struct sun8i_ce_alg_template' is always defined, even with
-CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG disabled, so the ifdef guards
-are not needed.
-
-Make sure the statistics have IS_ENABLED() checks instead.
+Add IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG) checks before the
+fallback counter updates to make sure the code is not included when
+debugfs statistics support is not enabled.
 
 Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
 ---
- drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+ .../crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 22 ++++++++++++++-----
+ 1 file changed, 16 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-index b0959d8218cb..530c5181d73c 100644
+index 530c5181d73c..f2481e1585ba 100644
 --- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
 +++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-@@ -31,9 +31,7 @@ static void sun8i_ce_hash_stat_fb_inc(struct crypto_ahash *tfm)
+@@ -60,8 +60,10 @@ int sun8i_ce_hash_init_tfm(struct crypto_ahash *tfm)
+ 				 sizeof(struct sun8i_ce_hash_reqctx) +
+ 				 crypto_ahash_reqsize(op->fallback_tfm));
  
- 		algt = container_of(alg, struct sun8i_ce_alg_template,
- 				    alg.hash.base);
--#ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
- 		algt->stat_fb++;
--#endif
- 	}
- }
- 
-@@ -354,9 +352,9 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
- 	flow = rctx->flow;
- 	chan = &ce->chanlist[flow];
- 
--#ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
--	algt->stat_req++;
--#endif
+-	memcpy(algt->fbname, crypto_ahash_driver_name(op->fallback_tfm),
+-	       CRYPTO_MAX_ALG_NAME);
 +	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
-+		algt->stat_req++;
-+
- 	dev_dbg(ce->dev, "%s %s len=%d\n", __func__, crypto_tfm_alg_name(areq->base.tfm), areq->nbytes);
++		memcpy(algt->fbname,
++		       crypto_ahash_driver_name(op->fallback_tfm),
++		       CRYPTO_MAX_ALG_NAME);
  
- 	cet = chan->tl;
+ 	err = pm_runtime_get_sync(op->ce->dev);
+ 	if (err < 0)
+@@ -198,22 +200,30 @@ static bool sun8i_ce_hash_need_fallback(struct ahash_request *areq)
+ 	algt = container_of(alg, struct sun8i_ce_alg_template, alg.hash.base);
+ 
+ 	if (areq->nbytes == 0) {
+-		algt->stat_fb_len0++;
++		if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
++			algt->stat_fb_len0++;
++
+ 		return true;
+ 	}
+ 	/* we need to reserve one SG for padding one */
+ 	if (sg_nents_for_len(areq->src, areq->nbytes) > MAX_SG - 1) {
+-		algt->stat_fb_maxsg++;
++		if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
++			algt->stat_fb_maxsg++;
++
+ 		return true;
+ 	}
+ 	sg = areq->src;
+ 	while (sg) {
+ 		if (sg->length % 4) {
+-			algt->stat_fb_srclen++;
++			if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
++				algt->stat_fb_srclen++;
++
+ 			return true;
+ 		}
+ 		if (!IS_ALIGNED(sg->offset, sizeof(u32))) {
+-			algt->stat_fb_srcali++;
++			if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
++				algt->stat_fb_srcali++;
++
+ 			return true;
+ 		}
+ 		sg = sg_next(sg);
 -- 
 2.48.1
 
