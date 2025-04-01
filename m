@@ -4,111 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01108C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 01:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF66C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 02:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tQNRCYHU/5P2PfWYw9DTAN2O1KOVrz4anhz8ncma5w0=; b=dDibNiRr95HJ/VFypONV6tTN7L
-	KI/Xfk246o2J9PwVQA0WPISfhKBe0EU5hOatOJFWwnSO+y+WQPCUQvbmaQPv/2flJAzyqE1U5sVnH
-	/gHb+AdZGWIRKG6dXA1vVxG5ZPQoOo4cBlhpjnvcHXkgBZpSuR2+XQw0ElHBX+fetxGFNOaZ8kw/x
-	gT06Dt+k1j3iEMaDMR5io8wavtFAOe0Kf1B0PKO3HZOEd9xswPbmgd022+brs9Q11dFJXJAxhx+Tj
-	KKSoAg7/ojRYtHubaXbuskzzi+r9Aytav5tShAw/pyEAWPAbOdOWrRm40uLVKlx+FgFH+2ij06pwb
-	oLUlCaXw==;
+	bh=OkGq4ZwSZQzULNjG2FdMbVmQnjhhPk184Fk+OBDYSsE=; b=PqUH1K7MYSRRwrksOdGrgxB9nI
+	fEdcQHXDknsFLR9QiCBmXyt7B/3Gto72MeTHKDwfrxDupuIxX2N0Mo2rrWQpR76+wtpL06e77lsTN
+	7sLHdzY7i66dFRNoohi2oMA8oESc+MDTE09S1UBHeQhcTH11ozMx4BMxZdU3yGS66jL9uAnJTM8x4
+	gct6Z11ZfWmvd76uOnebHkPJGBVk5zpr1Q5vtgeA6YNhcLJBwds06sNOvMYkFzJbExONqPVN+n08T
+	Egjj+cM+3LCfZTfPY4W8AgXL5i7SOHrOXZDW+U4nDkSNhDa7KTCiz4LVrD0nj2oNs67NA9K17BRgf
+	FN6JUxhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzQfj-00000001jgf-12LN;
-	Tue, 01 Apr 2025 01:44:11 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tzR30-00000001lUD-0U9p;
+	Tue, 01 Apr 2025 02:08:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzQdw-00000001jaj-1s5T
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 01:42:22 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52VFCrW9014402
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 1 Apr 2025 01:42:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=tQNRCYHU/5P2PfWYw9DTAN2O1KOVrz4anhz
-	8ncma5w0=; b=YX4Cet3JYUf2Ih40V3PneXIZvWvQlf6S7Bc7u2hJHvH0GWzp7xV
-	u+qwDYCphHhDa++A+YDuzntCM8hIVncD0Lq9At3XrYcaKVKgiq1T0CuT8pmy8SES
-	e/54+r8KQiXqLH+itC44KnS/kCtUwrh/ZKOwrx4dVtb3AZJVYu6XAANvfmXiDklU
-	nnwuVRUlj04LgX1cV6Soa6IrJByJ//atKvpTdxouUe3nQd7HuYiaiBYiYSeU/9IO
-	S1xZoKFoeYPpW2+GKrCq86e2E0+02fPHHDbbb5cvHqYOiLJk3svdBBwZr1JHp6D0
-	1ZoyprqR1omSE0TdK8lVtvnezVb6vo1TZTA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45p7tve5ek-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 01:42:19 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-22410053005so152761145ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Mar 2025 18:42:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743471738; x=1744076538;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tQNRCYHU/5P2PfWYw9DTAN2O1KOVrz4anhz8ncma5w0=;
-        b=I3jQkukymTIvABkctPAjLrEeEngWpsPTeUnPVXDvbpLuKScdxyKlEV2fPikhuYyM+3
-         eYyfj07vWpAtsb8ZqIxwN3POi/aqjBI7Z4wDq+yPthamiU/pcx4xZFsdhFVRVKJEruab
-         sLKR6bJF0WThV4HaRB5ghT6JYlDd6zRhUKwk1TPFd38B6iA2/+9HCAuF4aDHQinXjUTo
-         OzuyrL0JTvwTfkvkHLr8dvmN8J2ULU3/FRMAKuRssWTTUN7x4dP/T7Iqed+fkEBwJmAT
-         +098hO6SajilRSlP5YmMUx1MaAjcV2Ek+G93mQKT1+6SYcI9s14+8vDUO+GXEHFs2+i+
-         yATg==
-X-Forwarded-Encrypted: i=1; AJvYcCU6nYZCgUf55BxnoeCaepsBWzeK5v1r0lukovydKtPD1H/V0qtij24t468FYi692XZZyleixI79V6r3d5dzCxXj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxekjMex9Ga3FV/sBkK1nytSsl9CYCwjnD6P2OIXEp8UiN/685s
-	WxbEEVvPNEaU+3O4Vju0j6NFFZ3jN6AVaZ2A1/x8Z51FfpQU/KQ9+A163s2G/DK1ns81+O1F9k2
-	TUsM7oVvFaUr4I7ryn/F421NCRpq+2513KBnsE+9AvzEdv4rPxb4p6WtZbof68g6X/OyPv31BZw
-	==
-X-Gm-Gg: ASbGncuaGXJOnwoETH964SL9fB1yIPRKj9vdwEwRcpyhT+8QRJZTjg6rBNhz8B9P5R0
-	WA2C6w6jvbIYNDkaiIsK9RJ/h2Oa2riMOYwmu11xdbLmIp2LOx0yPbIISQCvOxjTY9bmT7hg+Nh
-	4+tkmsfDw7RtbI3LvHwaWCAJsfXLWjKG1ePqyYz9EqvgettY6T1Q/cjlF3yDyewiol3dRD/uKyv
-	Xzw9XKlIwNz+qJWbkTkrdxfA/paOo+CzPl9nbJagqwGo+qWKdocujAUBsHglNVxRzf6KlcuTV9f
-	Mpj6ojbUpn3UoHLcJkNZVg+jYrTMxeonL1Z7TYOx4f5vAISt4QhlfEFLenWdDwfmWAIwqElbsQE
-	=
-X-Received: by 2002:a17:902:e74e:b0:224:376:7a21 with SMTP id d9443c01a7336-2292f9fa2d8mr186446215ad.42.1743471738156;
-        Mon, 31 Mar 2025 18:42:18 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEdZ08l4j9k8M+jkJjNmYyxstuXHNySWWgvJXMz8WalhCiWroBe3xTuvINkOu/d9tKSD1zceg==
-X-Received: by 2002:a17:902:e74e:b0:224:376:7a21 with SMTP id d9443c01a7336-2292f9fa2d8mr186446005ad.42.1743471737836;
-        Mon, 31 Mar 2025 18:42:17 -0700 (PDT)
-Received: from jiegan-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291eee03f5sm76911435ad.99.2025.03.31.18.42.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Mar 2025 18:42:17 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Jie Gan <quic_jiegan@quicinc.com>
-Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org,
-        Dan Carpenter <dan.carpenter@linaro.org>
-Subject: [PATCH] coresight: fix the wrong type of the trace_id in coresight_path
-Date: Tue,  1 Apr 2025 09:42:10 +0800
-Message-Id: <20250401014210.2576993-1-jie.gan@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tzR1E-00000001lE4-1Wdc;
+	Tue, 01 Apr 2025 02:06:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B23C961145;
+	Tue,  1 Apr 2025 02:06:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E948DC4CEE3;
+	Tue,  1 Apr 2025 02:06:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743473183;
+	bh=N7COEdohT/p/ERmnPBTo3f+/HD3+Lg9hkfh8iPLCO6s=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=fMIHModYqcEylVKxLJ6SmmPyvchKUR3hqtbEWgvctIhyHENySUPfe0qFRFHT+Z8n6
+	 oVCp5pUIpuwWlRzt9Yvp/bN4QaMOah3SZ+4BUV9QgNCHn3CKkZgmpSolzm5Qiu7ASZ
+	 f+8suDjEk67RyO6k0GZF1YIDE9p7zpBtIVQ2IcgVTdbHTngIffp+hRn8plgpl/55Fr
+	 Yj2ScPhyb+F2lV+dujfvsELIYC5U6dD8c5xW7s5dTUfsRVU6WwIiVAEH6w9bKy8c72
+	 b/0OC2psWgGqQ0c4YcM42vQ9j7rmbqZaCiderJH4zsHpRqc1MVdQalFwth5iciHmpo
+	 Cwv3Q3QnNyrbw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D3A7AC3600C;
+	Tue,  1 Apr 2025 02:06:22 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Subject: [PATCH v2 0/2] Pinctrl: add amlogic a5 pinctrl node
+Date: Tue, 01 Apr 2025 10:06:20 +0800
+Message-Id: <20250401-a5-pinctrl-v2-0-a136c1058379@amlogic.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=OIon3TaB c=1 sm=1 tr=0 ts=67eb447b cx=c_pps a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=h-QhH5eI3XViKx3wfOsA:9 a=324X-CrmTo6CU4MGRt3R:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: A3jaHdWFMm0YgXSd5-NBSA8nUIsm5XXi
-X-Proofpoint-GUID: A3jaHdWFMm0YgXSd5-NBSA8nUIsm5XXi
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-01_01,2025-03-27_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- mlxlogscore=999 lowpriorityscore=0 malwarescore=0 mlxscore=0 clxscore=1015
- adultscore=0 bulkscore=0 phishscore=0 suspectscore=0 impostorscore=0
- spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504010010
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_184220_493208_C5668300 
-X-CRM114-Status: GOOD (  16.48  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABxK62cC/03MQQqDMBCF4avIrDslJhqrq96juAjTqANqJJHQI
+ rl7U+miy//B+w4I1rMN0BUHeBs5sFtzyEsBNJl1tMjP3CCFrIUqb2hq3Hil3c84KNKkjRG2GSA
+ fNm8Hfp3Yo889cdidf592LL/rj5HNPxNLFFi1SgpVtVRpdTfL7EamK7kF+pTSB97BAKWmAAAA
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1743473181; l=788;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=N7COEdohT/p/ERmnPBTo3f+/HD3+Lg9hkfh8iPLCO6s=;
+ b=/Y71x73Ay7L8h/1pL9RFzAr9jHHiKfMAvm5TBYQ+ExyBsiJw/DB6NQztZwR2sv6rXORs5CGwt
+ OubXuc7SDE5CuePXh35gvVlaSnQmYqT1UZVqhwBFS5QKKzPURSETDhr
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,34 +87,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The trace_id in coresight_path may contain an error number which means a
-negative integer, but the current type of the trace_id is u8. Change the
-type to int to fix it.
+Add A5 pinctrl compatible string and device node.
 
-Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-Fixes: 3c03c49b2fa5 ("Coresight: Introduce a new struct coresight_path")
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- include/linux/coresight.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v2:
+- Modify bindings according to Conor's suggestion.
+- Link to v1: https://lore.kernel.org/r/20250327-a5-pinctrl-v1-0-49320349c463@amlogic.com
 
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index d79a242b271d..c2bf10c43e7c 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -337,7 +337,7 @@ static struct coresight_dev_list (var) = {				\
-  */
- struct coresight_path {
- 	struct list_head	path_list;
--	u8			trace_id;
-+	int			trace_id;
- };
- 
- enum cs_mode {
+---
+Xianwei Zhao (2):
+      dt-bindings: pinctl: amlogic,pinctrl-a4: Add compatible string for A5
+      dts: arm64: amlogic: add a5 pinctrl node
+
+ .../bindings/pinctrl/amlogic,pinctrl-a4.yaml       |  8 +-
+ arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        | 90 ++++++++++++++++++++++
+ 2 files changed, 96 insertions(+), 2 deletions(-)
+---
+base-commit: 79e0ecfc780aaf8c0b6658607f75a661a5f00736
+change-id: 20250318-a5-pinctrl-f3c6c6aa0e7f
+
+Best regards,
 -- 
-2.34.1
+Xianwei Zhao <xianwei.zhao@amlogic.com>
+
 
 
