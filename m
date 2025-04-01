@@ -4,93 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60AAC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A02BC36014
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 10:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y1zyMwtR40qQQhixsawu3/3AN+ghiZjIje47Qoy6I1M=; b=PhgwK14+BlHbZOiXT97HghxqlN
-	v/tOSt0awfCkD+1/Mj74AYy4782xp7q5NAUpLx0bDb81DLgLI76kkJRrPD490w2f97arnMM0AWnSp
-	0OsI9dQtKKjzKt0dk0c0/unAeR3aX6M9Refa0C5XblL1b5dTfq35VX9NaQsq6wIOZYj38ogxUoV8Y
-	CSvWlrpjTAPPyG9zPs/VMKOAvJmnhkLCGXZy3P+X96M3P1hgJc2VYDHildGzqsYbHxhMEUVS8edk9
-	XLMMOl2MEE2xzraKcHe1CnKQB/zi0TO3E1eqj9va4+/RTvfYcNiplcP04tEZb7XK7O1ofJAZ59MiA
-	588xrH4w==;
+	bh=uz7X0saZ07cJoMgjZepVgox7FPN1JF4+WKasDO8EH1c=; b=fI6inAxbQFQrMk/I0ITAGHKEXi
+	8vGQjBJUjUD211tGIiIBXKZr9qUfjUtxgw/BUMsNHTr/+/TcVmSjgqX8tU2RK0N0LhNmet/PG4MM3
+	RArqe6yZwwiCnvYeyUQT4KA+Vv0UmvuJsdpQZoEUDlxpBlVgC6bKLdrzmU4cGfsvxm45oIEAEQKLf
+	n8bM+oBYMqmOy1Wm/5H9dxDvlC8OusoT9ZF5ui/WKVDwCQUyjq/J58hACb1933cehodUBpV/mydTV
+	iYC83QfToSyQatzWX/H7qug7NYVglhywN7f5bVKSkKkvesIZohwhpEc8l/bTypWCuyswrO/tDWQfS
+	/apcpmhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYcn-00000002azP-3wpD;
-	Tue, 01 Apr 2025 10:13:41 +0000
-Received: from mail-vk1-f181.google.com ([209.85.221.181])
+	id 1tzYea-00000002bIP-3lt0;
+	Tue, 01 Apr 2025 10:15:32 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzYFe-00000002Wir-3HRI
+	id 1tzYH4-00000002WwZ-1WAD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 09:49:48 +0000
-Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-523dc366e42so2296423e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 02:49:46 -0700 (PDT)
+	Tue, 01 Apr 2025 09:51:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1743501072;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uz7X0saZ07cJoMgjZepVgox7FPN1JF4+WKasDO8EH1c=;
+	b=cC02/npY3r3Rp0e8vz3bUlzIE3jIQVWjjxZpj19sOJgGocJlJPbYuvqMmSJNha4Q6ymTKF
+	vjnfo2lfolUEM56KPHaQYQ3oMW98zFMGh5SICB8rRiIug7Znz8+EkFHVfQb4eIXODEl7Yi
+	r5xOzrMBjZuGMbzQUIJvmGpgj5r3BrY=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-653-NNTn7ZiLO6KfjXqBzMXJWQ-1; Tue, 01 Apr 2025 05:49:41 -0400
+X-MC-Unique: NNTn7ZiLO6KfjXqBzMXJWQ-1
+X-Mimecast-MFC-AGG-ID: NNTn7ZiLO6KfjXqBzMXJWQ_1743500981
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43ceeaf1524so27866625e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 02:49:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743500985; x=1744105785;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=y1zyMwtR40qQQhixsawu3/3AN+ghiZjIje47Qoy6I1M=;
-        b=aplw/jxqwCj9EBI4Ur0kfl/sA4YjuCPNp/LWA4mmGs6WZRq5uG0xiHRqkeo5vxhLqt
-         sfwtBlTM0hhoyJ+4IgLcbdr1bEqgJvjdx1a9O6C3hc7+XQd/kOWBGDwEYI98kmHi3yJ+
-         Uiftolcy1BdOwIu5mUSeTnKkYtpRKKriBxtFlsT60SDGOR9medFBA8nrkSRrxJowW33P
-         EokQGYYXr+1/wP8i+mGsdNIvIKZzZyYHLwKHsr126582AjIPxBB0lXudtxiB7QPiG/ek
-         GokBfRTqV9jIum3gVaRdlS0jMa68JWVli9B9miVJ57SyQaQH7H86n+gi4u473xIBkLAv
-         avqQ==
-X-Gm-Message-State: AOJu0YzCXOxFWolLCiciB1ro/1pCvevuT6i2qJazuX14Y2fwDS7Cj/Ux
-	ZtyDuv4v7MnfNch/UegpTZy9nd5M9NYipmkHO8XsZpMupm9VIBgsKfERrsaG
-X-Gm-Gg: ASbGncu/+kU4d95NnzKk/uyPFVRNfcxDjJ6dIU/Ue1pzvVckY6UiRl8w7Q473Bb9R2y
-	dEGn93cR6geSH9NOmLSAWJMzqogRTFYb3FtWVZnTp/G8cXWR5YOgKVvl1SakLJ4ANnIvbpkLJLY
-	FguV1ZMzJ9dTdbOgeHXzXrpck3HdrYaTSnj9CUe4jalIVvCxGPoyHkvg0XaZQTQajcHWF0StPFS
-	T/BSxmQiNVYVOWOqCw/d8ugqHJXcUVm2Frwo18oq7MS9uwXCxzBEKhXlSmqPcsDGr6kfoaI7z7x
-	oL6makdOWV/iQ+28TTiDhHmk3CSlyaS6ooe9GyNWgFeiPtMKMW287qM1QwolKMa/MtDV+nQZ1MH
-	T95rfNog=
-X-Google-Smtp-Source: AGHT+IGGkT2P3NdGrChGPvB4OodJAIHWHlo4OPBQc/JX1MV+1LOKqXm7dLxN9BLcsBWwGk7W2aoz9w==
-X-Received: by 2002:a05:6122:1796:b0:523:e175:4af1 with SMTP id 71dfb90a1353d-5261d44c087mr6225400e0c.6.1743500984645;
-        Tue, 01 Apr 2025 02:49:44 -0700 (PDT)
-Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com. [209.85.222.46])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5260eab2aaesm1938098e0c.32.2025.04.01.02.49.44
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Apr 2025 02:49:44 -0700 (PDT)
-Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-86d36e41070so2410412241.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 02:49:44 -0700 (PDT)
-X-Received: by 2002:a05:6102:14a8:b0:4c5:1bea:1c29 with SMTP id
- ada2fe7eead31-4c6d39af686mr8115053137.19.1743500983709; Tue, 01 Apr 2025
- 02:49:43 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1743500980; x=1744105780;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uz7X0saZ07cJoMgjZepVgox7FPN1JF4+WKasDO8EH1c=;
+        b=HEdGtWW2DP9MOpHDEnIgqbdl+gtOmK+yl5pUJprF+We07uPkmjDOlFKwZxQZoPY6b4
+         K2nxT+Q3j4uXCmK58edTt/gZoiq+zUICUZutFVm1D8s8/HQ5vkkzuKkbBAFcsv0+v5nV
+         Db0zAndLNslGfinHnhvYarEghjX35D8ob85KiSVX2Oo+vSuh1qxYgQNHKsdk7TC0klpd
+         Edwy5gZkIfuMbLJRzTv0Kgl6aizNvqA08SROIiuZH6s9WN8OpK1JtTsUnd2naQ8qtoxl
+         bzDFtnOBUpsbh7H8Ji1dlw8VQckbHLZMM8LQEir/ryCV6Z7SsHL8gKlX7j9WXg+2409t
+         oWMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXgk2QKhLTDF6bSsUtQKDSevbpg+NeT8iwaospjIhpFEMR5ZyncWj8QOkgjjAHUa0TN8+vEbeyeKpYBPUYUKG9e@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPQHR6mVAXup+u+Bsgs6y0UinLmuCxPyMiUezlJTLXRl8xdn62
+	7r5wDk1mrgTWuv86TSLWhfTu1W8O1Wl1TPPDk3NzrmFltZh9urdO7g12KCriV3wmNiSAmAvFd23
+	Qq3U5+T2kT38wHxwetgd/KWze0E+NFVxbWMlF5RFAxxm6PDhZd4BXgTR+Avo6aZ2JwlTUqeKw2K
+	HrDg6boiQ=
+X-Gm-Gg: ASbGncsSb2xdIGQv+jx0Dy4qqYxjJ+MzZsXJFzaYBpWXlg332+v9m+LBgtrzUqEzhaS
+	M2oHvYe63HU0yVOQhy6GbC696mcIl83NCvuWVMxGbrJg7Zo1RZ/r9TY+zwu3QTu1MFvn6Pd/yre
+	NJWZR0/QStiYrdFfQDtpbDvEnJPciDC2dCvT8KLYfOBTZrnrWuLQWbjXKYKLMWKwI83KuchA7zp
+	YyDHX45I1Z6WyKWd8DH+WArGnuIPd6uY2TGdmSE0tLmcj9mXuss8TOD9vmMo/4iooUe/9noece0
+	EG7uSlXArVFeog==
+X-Received: by 2002:a05:600c:310c:b0:43b:c7f0:6173 with SMTP id 5b1f17b1804b1-43db6224034mr86356875e9.4.1743500980217;
+        Tue, 01 Apr 2025 02:49:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGq6P/LONQIdq2pleoYEuzzxgyj99hAud3WvWbJHB5zZUAUKpRXcJTP2ISiVIGMBWKtclaTMA==
+X-Received: by 2002:a05:600c:310c:b0:43b:c7f0:6173 with SMTP id 5b1f17b1804b1-43db6224034mr86356785e9.4.1743500979880;
+        Tue, 01 Apr 2025 02:49:39 -0700 (PDT)
+Received: from localhost ([2a01:e11:1007:ea0:8374:5c74:dd98:a7b2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82efe389sm192609015e9.19.2025.04.01.02.49.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Apr 2025 02:49:39 -0700 (PDT)
+Date: Tue, 1 Apr 2025 11:49:38 +0200
+From: Davide Caratti <dcaratti@redhat.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Fix ETS priomap validation
+Message-ID: <Z-u2svZqo4NC0JGm@dcaratti.users.ipa.redhat.com>
+References: <20250331-airoha-ets-validate-priomap-v1-1-60a524488672@kernel.org>
 MIME-Version: 1.0
-References: <20250330195715.332106-1-marek.vasut+renesas@mailbox.org> <20250330195715.332106-5-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20250330195715.332106-5-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 1 Apr 2025 11:49:32 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUx31WHW+fUP0Qbfs-Si2+cLmxC=YRUKWvSudn7CBZ4Fg@mail.gmail.com>
-X-Gm-Features: AQ5f1JoeIvYp6dxZPMkSZCvf_rs3MuLZLQfoBSTfTx3w9rvwfJ19pgmFQ3EdrXU
-Message-ID: <CAMuHMdUx31WHW+fUP0Qbfs-Si2+cLmxC=YRUKWvSudn7CBZ4Fg@mail.gmail.com>
-Subject: Re: [PATCH 4/4] arm64: dts: renesas: r8a779g3: Add Renesas R-Car V4H
- Sparrow Hawk board support
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Aradhya Bhatia <a-bhatia1@ti.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Heiko Stuebner <heiko@sntech.de>, Junhao Xie <bigfoot@classfun.cn>, 
-	Kever Yang <kever.yang@rock-chips.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20250331-airoha-ets-validate-priomap-v1-1-60a524488672@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ZsO7zgP58pcYKRJSJ4oTA7upgvok1tJ8NVrQVxphCFY_1743500981
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_024946_843731_08CF8E87 
-X-CRM114-Status: GOOD (  23.63  )
+X-CRM114-CacheID: sfid-20250401_025114_532027_A545037D 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,93 +111,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+On Mon, Mar 31, 2025 at 06:17:31PM +0200, Lorenzo Bianconi wrote:
+> ETS Qdisc schedules SP bands in a priority order assigning band-0 the
+> highest priority (band-0 > band-1 > .. > band-n) while EN7581 arranges
+> SP bands in a priority order assigning band-7 the highest priority
+> (band-7 > band-6, .. > band-n).
+> Fix priomap check in airoha_qdma_set_tx_ets_sched routine in order to
+> align ETS Qdisc and airoha_eth driver SP priority ordering.
+> 
+> Fixes: b56e4d660a96 ("net: airoha: Enforce ETS Qdisc priomap")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Thanks for your patch!
+LGTM!
 
-On Sun, 30 Mar 2025 at 21:58, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Add Renesas R-Car V4H Sparrow Hawk board based on R-Car V4H ES3.0 (R8A779G3)
+Reviewed-by: Davide Caratti <dcaratti@redhat.com>
 
-Retronix
-
-> SoC. This is a single-board computer with single gigabit ethernet, DSI-to-eDP
-> bridge, DSI and two CSI2 interfaces, audio codec, two CANFD ports, micro SD
-> card slot, USB PD supply, USB 3.0 ports, M.2 Key-M slot for NVMe SSD, debug
-> UART and JTAG.
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-> @@ -0,0 +1,671 @@
-> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +/*
-> + * Device Tree Source for the R-Car V4H ES3.0 Sparrow Hawk board
-> + *
-> + * Copyright (C) 2025 Marek Vasut <marek.vasut+renesas@mailbox.org>
-> + */
-> +
-> +/dts-v1/;
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +#include "r8a779g3.dtsi"
-> +
-> +/ {
-> +       model = "Retronix Sparrow Hawk board based on r8a779g3";
-> +       compatible = "retronix,sparrow-hawk", "renesas,r8a779g3",
-> +                    "renesas,r8a779g0";
-> +
-> +       aliases {
-> +               ethernet0 = &avb0;
-> +               i2c0 = &i2c0;
-> +               i2c1 = &i2c1;
-> +               i2c2 = &i2c2;
-> +               i2c3 = &i2c3;
-> +               i2c4 = &i2c4;
-> +               i2c5 = &i2c5;
-> +               serial0 = &hscif0;
-
-This assumes HSCIF0 is the main console.
-
-As you also have a second debug console on USB:
-
-    serial1 = &hscif1;
-
-And the serial port on the RPI I/O connector:
-
-    serial2 = &hscif3;
-
-> +               spi0 = &rpc;
-
-Do you need the spi0 alias?
-
-> +&pfc {
-> +       pinctrl-0 = <&scif_clk_pins>;
-> +       pinctrl-names = "default";
-> +
-> +       /* Page 22 / Ether_AVB0 */
-> +       avb0_pins: avb0 {
-> +               mux {
-> +                       groups = "avb0_link", "avb0_mdio", "avb0_rgmii",
-> +                                "avb0_txcrefclk";
-> +                       function = "avb0";
-> +               };
-> +
-> +               pins_mdio {
-
-Please no underscores in node names (everywhere).
-
-The rest LGTM.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
