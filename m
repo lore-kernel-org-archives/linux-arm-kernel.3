@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDE5C36008
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 05:54:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB84BC36008
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 05:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UArewHpW++Ja8wHQ4rXErRsdg7BmGgcBoY0TuBj078Y=; b=CMz7WknglqWk7xixdjt9bn5kNx
-	QmrmxqA1oy71d1pQVhQZ/nHH2yL97SolpkEqQKNW8CfiGdDTYvUqI+m6xj8YZtZa/NL++UMljUTN2
-	ybsuTZMZumMjXPFdfZ7CEbvcWGAgiDc5eyYeUB8v6Rn8BueYS17xUkw3uiDyFgz4x67X6xwJUfITy
-	EKplbErGAMxJT8QBPYd959+jspXqckBaz7buBzdPruIxTtnY+q2CvOJDuNTX3uwYv9dPTiqiFle7K
-	VqVcoJsRKoaeOhCh/pByCdJtlMh5N6qKQPAZ8DwApEusSoD7Sb0dp4eynFx2johm3rWszeOwVg/O0
-	P6yemBRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gZ2K2yRuX3n2XC0+3N29SwonLnVP9QZfOmPOM4hsvSc=; b=2HyIi+z0xX3bV6vR2LE6W1TXVL
+	pQkRcz3tbSSQepchMoMu+VcQx1pCttLt1xRmRn/IOIPFcz45uMhB4pyErzlBrokTJgET4o0QuZofq
+	HQBegNS3p4KoVkLiJqUOk1UhQY3ExB4zQAgkll81r8KXsMrq9kd7ewEZ5MT+nBOD2uBQ9wHR1UdIc
+	4rmAYLZ81pxdN92q7CW4XamFybHGH6uyPqBQWkJpKuJgTIoUc/zvJxSG2THZpRcoxXMCIZMdGG3BO
+	B9B8q1ubzaaDplI0sK88u++QedbgBsu+MXxBPHGG+vp2v9lp4P7N6TP6fyXyOzrmfYmi4UKDVTRWY
+	4+eNSSYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUaD-000000021kd-3Q4p;
-	Tue, 01 Apr 2025 05:54:45 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tzUeM-0000000227T-46w6;
+	Tue, 01 Apr 2025 05:59:02 +0000
+Received: from xry111.site ([89.208.246.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzUUk-000000021BE-2qZt;
-	Tue, 01 Apr 2025 05:49:09 +0000
-X-UUID: 016cbfa60ebd11f083f2a1c9db70dae0-20250331
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=UArewHpW++Ja8wHQ4rXErRsdg7BmGgcBoY0TuBj078Y=;
-	b=L1V0QSBTscRSQqQ+FTGkEYKeN8Y7PCLut5Bjg/PG0FTWybaDpLJRalGeqIOlCrwtoGwnIqRDs3ourstctwBcfaQvPVXKDgy4renfynBhfaar9KT6p8IV0BlM00x5NMD/FWFn7H06K50tCY1SEBh1BefvPBEnQoDhSj54x2fKXu8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:21c29921-fb6d-4f53-b9e7-971495e929fe,IP:0,UR
-	L:25,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:7d66cf4a-a527-43d8-8af6-bc8b32d9f5e9,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 016cbfa60ebd11f083f2a1c9db70dae0-20250331
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
-	(envelope-from <ot_cathy.xu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1342852487; Mon, 31 Mar 2025 22:48:58 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 1 Apr 2025 13:48:55 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 1 Apr 2025 13:48:54 +0800
-From: Cathy Xu <ot_cathy.xu@mediatek.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>,
-	Lei Xue <lei.xue@mediatek.com>
-CC: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <yong.mao@mediatek.com>,
-	<Axe.Yang@mediatek.com>, <Jimin.Wang@mediatek.com>,
-	<Wenbin.Mei@mediatek.com>, <Andy-ld.Lu@mediatek.com>, Cathy Xu
-	<ot_cathy.xu@mediatek.com>, Guodong Liu <guodong.liu@mediatek.com>
-Subject: [PATCH v6 1/3] dt-bindings: pinctrl: mediatek: Add support for mt8196
-Date: Tue, 1 Apr 2025 13:48:10 +0800
-Message-ID: <20250401054837.1551-2-ot_cathy.xu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250401054837.1551-1-ot_cathy.xu@mediatek.com>
-References: <20250401054837.1551-1-ot_cathy.xu@mediatek.com>
+	id 1tzUcY-0000000222Q-1YMW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Apr 2025 05:57:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
+	s=default; t=1743487029;
+	bh=gZ2K2yRuX3n2XC0+3N29SwonLnVP9QZfOmPOM4hsvSc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=TZ7Y9k9S2HNQ7CSRuLTQ0hjRngisXb0wYsW9lSIr5HyUiiJ4WpVP+g3qv9WQ5TrjA
+	 8+f+C7xZzmkgCg6BKqfiVQP3dquFL5h27wUefmCDqgZLHdd5aSPQvCgk+f1zblbCTf
+	 wNt4uVRl5dTBijl88oeEJhEiBge8VyC2Bm+mTtKs=
+Received: from stargazer.. (unknown [IPv6:240e:454:4110:bc5d:d62b:3688:1f37:16aa])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (secp384r1) server-digest SHA384)
+	(Client did not present a certificate)
+	(Authenticated sender: xry111@xry111.site)
+	by xry111.site (Postfix) with ESMTPSA id 80E32659C8;
+	Tue,  1 Apr 2025 01:57:03 -0400 (EDT)
+From: Xi Ruoyao <xry111@xry111.site>
+To: James Morse <james.morse@arm.com>,
+	Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xi Ruoyao <xry111@xry111.site>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Mingcong Bai <jeffbai@aosc.io>
+Subject: [PATCH] arm64: Add overrride for MPAM
+Date: Tue,  1 Apr 2025 13:56:50 +0800
+Message-ID: <20250401055650.22542-1-xry111@xry111.site>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_224906_741697_4AA03ED7 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20250331_225710_423663_2BCACEAB 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,242 +72,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the new binding document for pinctrl on MediaTek mt8196.
+As the message of the commit 09e6b306f3ba ("arm64: cpufeature: discover
+CPU support for MPAM") already states, if a buggy firmware fails to
+either enable MPAM or emulate the trap as if it were disabled, the
+kernel will just fail to boot.  While upgrading the firmware should be
+the best solution, we have some hardware of which the vender have made
+no response 2 months after we requested a firmware update.  Allow
+overriding it so our devices don't become some e-waste.
 
-Signed-off-by: Guodong Liu <guodong.liu@mediatek.com>
-Signed-off-by: Cathy Xu <ot_cathy.xu@mediatek.com>
+Cc: James Morse <james.morse@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Cc: Mingcong Bai <jeffbai@aosc.io>
+Signed-off-by: Xi Ruoyao <xry111@xry111.site>
 ---
- .../pinctrl/mediatek,mt8196-pinctrl.yaml      | 220 ++++++++++++++++++
- 1 file changed, 220 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
+ .../admin-guide/kernel-parameters.txt         |  3 +++
+ arch/arm64/include/asm/cpufeature.h           | 12 ++++++++++
+ arch/arm64/include/asm/el2_setup.h            | 14 -----------
+ arch/arm64/kernel/cpufeature.c                | 23 +++++++++++++++++--
+ arch/arm64/kernel/cpuinfo.c                   |  2 +-
+ arch/arm64/kernel/pi/idreg-override.c         |  2 ++
+ arch/arm64/kernel/setup.c                     |  2 ++
+ arch/arm64/kernel/smp.c                       |  2 ++
+ 8 files changed, 43 insertions(+), 17 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
-new file mode 100644
-index 000000000000..cef7e0321722
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
-@@ -0,0 +1,220 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/mediatek,mt8196-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 3435a062a208..4f2caa706268 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -458,6 +458,9 @@
+ 	arm64.nomops	[ARM64] Unconditionally disable Memory Copy and Memory
+ 			Set instructions support
+ 
++	arm64.nompam	[ARM64] Unconditionally disable Memory Partitioning And
++			Monitoring support
 +
-+title: MediaTek MT8196 Pin Controller
+ 	arm64.nomte	[ARM64] Unconditionally disable Memory Tagging Extension
+ 			support
+ 
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index c4326f1cb917..1dfc03a6e65c 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -1048,6 +1048,18 @@ static inline bool cpu_has_lpa2(void)
+ #endif
+ }
+ 
++static inline bool cpu_has_mpam(void)
++{
++	u64 pfr0 = read_sysreg_s(SYS_ID_AA64PFR0_EL1);
 +
-+maintainers:
-+  - Lei Xue <lei.xue@mediatek.com>
-+  - Cathy Xu <ot_cathy.xu@mediatek.com>
++	pfr0 &= ~id_aa64pfr0_override.mask;
++	pfr0 |= id_aa64pfr0_override.val;
++	return cpuid_feature_extract_unsigned_field(pfr0,
++						    ID_AA64PFR0_EL1_MPAM_SHIFT);
++}
 +
-+description:
-+  The MediaTek's MT8196 Pin controller is used to control SoC pins.
++void cpu_init_el2_mpam(void);
 +
-+properties:
-+  compatible:
-+    const: mediatek,mt8196-pinctrl
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index ebceaae3c749..8db261d42ad8 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -294,19 +294,6 @@
+ .Lskip_gcs_\@:
+ .endm
+ 
+-.macro __init_el2_mpam
+-	/* Memory Partitioning And Monitoring: disable EL2 traps */
+-	mrs	x1, id_aa64pfr0_el1
+-	ubfx	x0, x1, #ID_AA64PFR0_EL1_MPAM_SHIFT, #4
+-	cbz	x0, .Lskip_mpam_\@		// skip if no MPAM
+-	msr_s	SYS_MPAM2_EL2, xzr		// use the default partition
+-						// and disable lower traps
+-	mrs_s	x0, SYS_MPAMIDR_EL1
+-	tbz	x0, #MPAMIDR_EL1_HAS_HCR_SHIFT, .Lskip_mpam_\@	// skip if no MPAMHCR reg
+-	msr_s	SYS_MPAMHCR_EL2, xzr		// clear TRAP_MPAMIDR_EL1 -> EL2
+-.Lskip_mpam_\@:
+-.endm
+-
+ /**
+  * Initialize EL2 registers to sane values. This should be called early on all
+  * cores that were booted in EL2. Note that everything gets initialised as
+@@ -324,7 +311,6 @@
+ 	__init_el2_stage2
+ 	__init_el2_gicv3
+ 	__init_el2_hstr
+-	__init_el2_mpam
+ 	__init_el2_nvhe_idregs
+ 	__init_el2_cptr
+ 	__init_el2_fgt
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 9c4d6d552b25..64579fecf4c9 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -88,6 +88,7 @@
+ #include <asm/mte.h>
+ #include <asm/hypervisor.h>
+ #include <asm/processor.h>
++#include <asm/ptrace.h>
+ #include <asm/smp.h>
+ #include <asm/sysreg.h>
+ #include <asm/traps.h>
+@@ -1191,7 +1192,7 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
+ 		cpacr_restore(cpacr);
+ 	}
+ 
+-	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
++	if (id_aa64pfr0_mpam(read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1)))
+ 		init_cpu_ftr_reg(SYS_MPAMIDR_EL1, info->reg_mpamidr);
+ 
+ 	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
+@@ -1443,7 +1444,7 @@ void update_cpu_features(int cpu,
+ 		cpacr_restore(cpacr);
+ 	}
+ 
+-	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0)) {
++	if (id_aa64pfr0_mpam(read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1))) {
+ 		taint |= check_update_ftr_reg(SYS_MPAMIDR_EL1, cpu,
+ 					info->reg_mpamidr, boot->reg_mpamidr);
+ 	}
+@@ -3992,3 +3993,21 @@ ssize_t cpu_show_meltdown(struct device *dev, struct device_attribute *attr,
+ 		return sprintf(buf, "Vulnerable\n");
+ 	}
+ }
 +
-+  reg:
-+    items:
-+      - description: gpio base
-+      - description: rt group IO
-+      - description: rm1 group IO
-+      - description: rm2 group IO
-+      - description: rb group IO
-+      - description: bm1 group IO
-+      - description: bm2 group IO
-+      - description: bm3 group IO
-+      - description: lt group IO
-+      - description: lm1 group IO
-+      - description: lm2 group IO
-+      - description: lb1 group IO
-+      - description: lb2 group IO
-+      - description: tm1 group IO
-+      - description: tm2 group IO
-+      - description: tm3 group IO
++/* This is not done by the early el2 setup because we want to allow
++ * id_aa64pfr0.mpam=0 to disable MPAM initialization for buggy firmware
++ * which failed enable MPAM or emulate the trap as if it were disabled.
++ */
++void cpu_init_el2_mpam(void)
++{
++	u64 idr;
 +
-+  reg-names:
-+    items:
-+      - const: base
-+      - const: rt
-+      - const: rm1
-+      - const: rm2
-+      - const: rb
-+      - const: bm1
-+      - const: bm2
-+      - const: bm3
-+      - const: lt
-+      - const: lm1
-+      - const: lm2
-+      - const: lb1
-+      - const: lb2
-+      - const: tm1
-+      - const: tm2
-+      - const: tm3
++	if (read_sysreg(CurrentEL) != CurrentEL_EL2 || !cpu_has_mpam())
++		return;
 +
-+  interrupts:
-+    description: The interrupt outputs to sysirq.
-+    maxItems: 1
++	write_sysreg_s(0, SYS_MPAM2_EL2);
 +
-+  interrupt-controller: true
++	idr = read_sysreg_s(SYS_MPAMIDR_EL1);
++	if (idr & MPAMIDR_EL1_HAS_HCR)
++		write_sysreg_s(0, SYS_MPAMHCR_EL2);
++}
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index 285d7d538342..51f346044672 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -494,7 +494,7 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+ 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
+ 		__cpuinfo_store_cpu_32bit(&info->aarch32);
+ 
+-	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
++	if (cpu_has_mpam())
+ 		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
+ 
+ 	if (IS_ENABLED(CONFIG_ARM64_SME) &&
+diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+index c6b185b885f7..836e5a9b98d0 100644
+--- a/arch/arm64/kernel/pi/idreg-override.c
++++ b/arch/arm64/kernel/pi/idreg-override.c
+@@ -127,6 +127,7 @@ static const struct ftr_set_desc pfr0 __prel64_initconst = {
+ 	.fields		= {
+ 	        FIELD("sve", ID_AA64PFR0_EL1_SVE_SHIFT, pfr0_sve_filter),
+ 		FIELD("el0", ID_AA64PFR0_EL1_EL0_SHIFT, NULL),
++		FIELD("mpam", ID_AA64PFR0_EL1_MPAM_SHIFT, NULL),
+ 		{}
+ 	},
+ };
+@@ -246,6 +247,7 @@ static const struct {
+ 	{ "rodata=off",			"arm64_sw.rodataoff=1" },
+ 	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
+ 	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
++	{ "arm64.nompam",		"id_aa64pfr0.mpam=0" },
+ };
+ 
+ static int __init parse_hexdigit(const char *p, u64 *v)
+diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+index 85104587f849..9ab6db5968d9 100644
+--- a/arch/arm64/kernel/setup.c
++++ b/arch/arm64/kernel/setup.c
+@@ -313,6 +313,8 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
+ 	 */
+ 	local_daif_restore(DAIF_PROCCTX_NOIRQ);
+ 
++	cpu_init_el2_mpam();
 +
-+  '#interrupt-cells':
-+    const: 2
+ 	/*
+ 	 * TTBR0 is only used for the identity mapping at this stage. Make it
+ 	 * point to zero page to avoid speculatively fetching new entries.
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 3b3f6b56e733..75009284aafa 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -214,6 +214,8 @@ asmlinkage notrace void secondary_start_kernel(void)
+ 	mmgrab(mm);
+ 	current->active_mm = mm;
+ 
++	cpu_init_el2_mpam();
 +
-+  gpio-controller: true
-+
-+  '#gpio-cells':
-+    description:
-+      Number of cells in GPIO specifier, should be two. The first cell is the
-+      pin number, the second cell is used to specify optional parameters which
-+      are defined in <dt-bindings/gpio/gpio.h>.
-+    const: 2
-+
-+  gpio-ranges:
-+    maxItems: 1
-+
-+  gpio-line-names: true
-+
-+# PIN CONFIGURATION NODES
-+patternProperties:
-+  '-pins$':
-+    type: object
-+    additionalProperties: false
-+
-+    patternProperties:
-+      '^pins':
-+        type: object
-+        $ref: /schemas/pinctrl/pincfg-node.yaml
-+        additionalProperties: false
-+        description:
-+          A pinctrl node should contain at least one subnode representing the
-+          pinctrl groups available on the machine. Each subnode will list the
-+          pins it needs, and how they should be configured, with regard to muxer
-+          configuration, pullups, drive strength, input enable/disable and input
-+          schmitt.
-+
-+        properties:
-+          pinmux:
-+            description:
-+              Integer array, represents gpio pin number and mux setting.
-+              Supported pin number and mux varies for different SoCs, and are
-+              defined as macros in arch/arm64/boot/dts/mediatek/mt8196-pinfunc.h
-+              directly, for this SoC.
-+
-+          drive-strength:
-+            enum: [2, 4, 6, 8, 10, 12, 14, 16]
-+
-+          bias-pull-down:
-+            oneOf:
-+              - type: boolean
-+              - enum: [100, 101, 102, 103]
-+                description: mt8196 pull down PUPD/R0/R1 type define value.
-+              - enum: [75000, 5000]
-+                description: mt8196 pull down RSEL type si unit value(ohm).
-+            description: |
-+              For pull down type is normal, it doesn't need add R1R0 define
-+              and resistance value.
-+              For pull down type is PUPD/R0/R1 type, it can add R1R0 define to
-+              set different resistance. It can support "MTK_PUPD_SET_R1R0_00" &
-+              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10" &
-+              "MTK_PUPD_SET_R1R0_11" define in mt8196.
-+              For pull down type is PD/RSEL, it can add resistance value(ohm)
-+              to set different resistance by identifying property
-+              "mediatek,rsel-resistance-in-si-unit". It can support resistance
-+              value(ohm) "75000" & "5000" in mt8196.
-+
-+          bias-pull-up:
-+            oneOf:
-+              - type: boolean
-+              - enum: [100, 101, 102, 103]
-+                description: mt8196 pull up PUPD/R0/R1 type define value.
-+              - enum: [1000, 1500, 2000, 3000, 4000, 5000, 75000]
-+                description: mt8196 pull up RSEL type si unit value(ohm).
-+            description: |
-+              For pull up type is normal, it don't need add R1R0 define
-+              and resistance value.
-+              For pull up type is PUPD/R0/R1 type, it can add R1R0 define to
-+              set different resistance. It can support "MTK_PUPD_SET_R1R0_00" &
-+              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10" &
-+              "MTK_PUPD_SET_R1R0_11" define in mt8196.
-+              For pull up type is PU/RSEL, it can add resistance value(ohm)
-+              to set different resistance by identifying property
-+              "mediatek,rsel-resistance-in-si-unit". It can support resistance
-+              value(ohm) "1000" & "1500" & "2000" & "3000" & "4000" & "5000" &
-+              "75000" in mt8196.
-+
-+          bias-disable: true
-+
-+          output-high: true
-+
-+          output-low: true
-+
-+          input-enable: true
-+
-+          input-disable: true
-+
-+          input-schmitt-enable: true
-+
-+          input-schmitt-disable: true
-+
-+        required:
-+          - pinmux
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - interrupt-controller
-+  - '#interrupt-cells'
-+  - gpio-controller
-+  - '#gpio-cells'
-+  - gpio-ranges
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/pinctrl/mt65xx.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #define PINMUX_GPIO99__FUNC_SCL0 (MTK_PIN_NO(99) | 1)
-+    #define PINMUX_GPIO100__FUNC_SDA0 (MTK_PIN_NO(100) | 1)
-+
-+    pio: pinctrl@1002d000 {
-+        compatible = "mediatek,mt8196-pinctrl";
-+        reg = <0x1002d000 0x1000>,
-+              <0x12000000 0x1000>,
-+              <0x12020000 0x1000>,
-+              <0x12040000 0x1000>,
-+              <0x12060000 0x1000>,
-+              <0x12820000 0x1000>,
-+              <0x12840000 0x1000>,
-+              <0x12860000 0x1000>,
-+              <0x13000000 0x1000>,
-+              <0x13020000 0x1000>,
-+              <0x13040000 0x1000>,
-+              <0x130f0000 0x1000>,
-+              <0x13110000 0x1000>,
-+              <0x13800000 0x1000>,
-+              <0x13820000 0x1000>,
-+              <0x13860000 0x1000>;
-+        reg-names = "base", "rt","rm1", "rm2", "rb",
-+                    "bm1", "bm2", "bm3","lt", "lm1",
-+                    "lm2","lb1", "lb2", "tm1","tm2", "tm3";
-+        gpio-controller;
-+        #gpio-cells = <2>;
-+        gpio-ranges = <&pio 0 0 271>;
-+        interrupt-controller;
-+        interrupts = <GIC_SPI 396 IRQ_TYPE_LEVEL_HIGH 0>;
-+        #interrupt-cells = <2>;
-+
-+        i2c0-pins {
-+            pins {
-+                pinmux = <PINMUX_GPIO99__FUNC_SCL0>,
-+                         <PINMUX_GPIO100__FUNC_SDA0>;
-+                bias-disable;
-+            };
-+        };
-+    };
+ 	/*
+ 	 * TTBR0 is only used for the identity mapping at this stage. Make it
+ 	 * point to zero page to avoid speculatively fetching new entries.
 -- 
-2.45.2
+2.48.1
+
 
 
