@@ -4,101 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E95DC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 16:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E869C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 16:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sEr9LMvpLbHE893cIqhG/JU8h0Dt2xG4p+araqhsX+g=; b=BAVw8DdlDJ71hs1UZ2GHggEtvc
-	9zrXCeQMp/TAs+lw3+P9A9uaXLU9d/qdJ2OSPgC7704MHWxTffG0ZdLUQ9Vq9Vb5WUB2JoAObos8O
-	FP9walNF4lJ/n4f/bb/QU7zcs+PXqvZlp20O+E0TWDxIbyH70C4ORsu/AwHqK1pFhz+10Xype34ZC
-	4qWZgzSEge0ww0mPiJFANkvMN4CTRfLWzlMhxWA6VIP7cllU5NDVywpnkr0TIjEnZMV1sYFpd+ubD
-	fUkboEP0b95YT4xR3FEmg3X90wC/S+KpCNNVSTm3GIxZd6gYk2mHK/3KVOJ+eLVIpazXEvFPqFviC
-	8qUtbQ5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HBV3OATyBLffFwvC9GNpwqJ+RXlCjrFh9WfrEBF2cPU=; b=OZH2WttQZ8FZ9jPWr85xwWeUxS
+	O12i67OZSy9ddvd4Alo8YdhWURv4XutP3QIt6vvT0yVuzP9uHJVEojAO8M9VVrzv2NUFBrW7komCc
+	xTmKfDOedp7sVKCPzU5LjV5nF429MaNcvasIdmGAv52imYREe7cFjqVTaT0gdZ1IrGDZqGdLgw/GB
+	/mEo+wTFU8EkEQvPhmNYZh2N3ICepQWR6r6bZJlWixktZQGzYn10fMQ9D76m9dSj8sUG/MDGW9B9y
+	w3CvOjx3xtYUJGO2Z+ckxcTqT9e18Ij+ydbFM1fzZI73Xk9gpx5C7uhBPQLQjIcIWI6ZxcxrHiL5A
+	EH7J4/Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzea9-00000003teT-1IZF;
-	Tue, 01 Apr 2025 16:35:21 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tzebu-00000003tvx-0Otb;
+	Tue, 01 Apr 2025 16:37:10 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzeT6-00000003sRg-49mO
+	id 1tzeYB-00000003tMV-0DWE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 16:28:06 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-227b828de00so101471905ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 09:28:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743524884; x=1744129684; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=sEr9LMvpLbHE893cIqhG/JU8h0Dt2xG4p+araqhsX+g=;
-        b=kCmrZK1fL9MOhKwfLDPmt/bN9kOkJ+t07ZMkM7kz3eZb8hZ6/6D9xeYawFpSUBudtY
-         KBdjG6CKCFG7WdZowmby1UYuVawlFxvksTuBsZcmKDmzOCnlM4vFbLyf7+myZgeAJ9V/
-         hiQkLs5tB4AWZdrFndy9TTDOWthAfk8qACncFTzoiG1FiyRNOd+sK7SRBjPQb2R9AIA2
-         7XIdSl/wnlj9s1QbxRX/DUER+CkdTduZVmNe/EOStEIvZUI3xELM12u6uZN34xPt8Wvn
-         oAXI+/alln+2BnkiPNeQ4+m0LSY4v+abfR4HYUpZ3fUIup5AKxhqOfc/ZKTho9wG6Dma
-         kodg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743524884; x=1744129684;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sEr9LMvpLbHE893cIqhG/JU8h0Dt2xG4p+araqhsX+g=;
-        b=kLG/ndHSi5i+4dTznVw6QtBp1frblpm/u7ETSC3f2F4K5NS2bC1dirbe2slxZDo/Jy
-         CRhjUEeuNXSrDR2kCQrhrzrUkyiId21ohjliYwVa4g0Q1m/3HzvEIwI5egyHkmooIX5E
-         5zyJB4kU/at/1dRbMdKTQ0xC5uTBDNaC7x0r/qUjqYw+5Tv8saq0E7TN7qPVk8frwveh
-         qOzsLMUKREjVzD1gFTkx0c4YewSwVe+7IAQ4KtoPyfR0jvUPMXqX69oF30KXzqHYcDCp
-         F4v+ZBqALLOiBvmS8GXQxPY/19/Jg5KE9o1R624p5epwCZktD4EodwnEuZnNQfYShdpe
-         BHwA==
-X-Forwarded-Encrypted: i=1; AJvYcCXFwPrPckHg/B7790diKTiyuvFiM1C0J1YYCWZ+mjpYejz/oSsB7AuM4kUM/N5jE4j0OFhEnfDcbNgOJJfjQHrv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyF9LjHWXq43IROKZW+QnrgDJSIDA2rq1vKR9L884nQbWKk2lWM
-	RuaaJszoVOl5LJpPaWOHdC+Gmj2ekwx084kMnpNKdviUs+/G9hQnxrsJrgz0nw==
-X-Gm-Gg: ASbGnctnl28nWv2lIVfQx+FhxXSkxf0nPIxTSHc63BNGo6RGaJ+j0OcM5HDpzo9Y4Dk
-	zL7VqaholICP/mWEnj55PyFpISQRXc5/opBHm5FbI/siQFH5Bx0rgV0Lwn5zfAJ7y5yH/+YBnTT
-	LoaAdRsLYP4U8iVltYP5ojKlAY/byfM1xV1mO+fpFY8ZzHakLy50Mr3Fe/NBSXAkVAEww8B9flM
-	sYS4exTD8X5DTGAEV5v9s+pLUVqoNtdSX52EPlzYNHD3W5hNDn19XwcyaWbB7cESSHk1yONzLvk
-	2lqNi/eLKjFIWWuq3uTAOvVYrzdoe++sCxhrgoxNXQeawZv3gXnO1ZAyLRG5181RQ1jqAc1WMVa
-	VupWusXD7bpPPE6k=
-X-Google-Smtp-Source: AGHT+IEyaXPv9oHXzdX7kp5aOc8Pw45evlmKNFGJN69UA0/YokAg60Q/XphIOEUon7k6t8bnNWSYvA==
-X-Received: by 2002:a17:902:ea02:b0:224:216e:332f with SMTP id d9443c01a7336-2292f9fc054mr220540675ad.48.1743524883898;
-        Tue, 01 Apr 2025 09:28:03 -0700 (PDT)
-Received: from google.com (198.103.247.35.bc.googleusercontent.com. [35.247.103.198])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291f1f7376sm89939395ad.245.2025.04.01.09.28.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 09:28:03 -0700 (PDT)
-Date: Tue, 1 Apr 2025 09:27:59 -0700
-From: William McVicker <willmcvicker@google.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	Donghoon Yu <hoony.yu@samsung.com>,
-	Youngmin Nam <youngmin.nam@samsung.com>
-Subject: Re: [PATCH v1 5/6] clocksource/drivers/exynos_mct: Add module support
-Message-ID: <Z-wUD2GGMRfJwhSu@google.com>
-References: <20250331230034.806124-1-willmcvicker@google.com>
- <20250331230034.806124-6-willmcvicker@google.com>
- <20250401023001.GA3186122-robh@kernel.org>
+	Tue, 01 Apr 2025 16:33:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1743525185; x=1744129985; i=wahrenst@gmx.net;
+	bh=HBV3OATyBLffFwvC9GNpwqJ+RXlCjrFh9WfrEBF2cPU=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=KgHXM3g3wvKkus+hNzDX4KqqdHvpya2UPFML7PmBqacNzT+gp90UKidMdhQpqice
+	 41kWym4I6DRCuXDGEBDgMeJR0qroOq16ROVzr0xgtX/65dLRblNT3hfYSjD8VBXIq
+	 S76KUVz9uuWqisaKiqX7aaGOs2RKzBG0WpOh5a0lMXp0KpN4h7RpRHurXUjB4AOUs
+	 ZbvJzZYjcS0NIe0d8hjAdM80FFwutYZu4bju+4M2GfmFhzQCAb/2GErcZ6CwA3zD9
+	 yCCaJeStIY3yZdOL7Gd60h4YmFEYJyk/e5eVuKxEfkvWl5ha5N9KvxHntyrxbtmy5
+	 crLEEtpZs2vXZc+fhA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MdvmO-1tQ2cB2W0M-00ljrU; Tue, 01
+ Apr 2025 18:33:05 +0200
+Message-ID: <3321314e-7a7f-4d7f-9a9e-6325515dc54c@gmx.net>
+Date: Tue, 1 Apr 2025 18:33:04 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250401023001.GA3186122-robh@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/4] net: mtip: Add support for MTIP imx287 L2 switch
+ driver
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250331103116.2223899-1-lukma@denx.de>
+ <20250331101036.68afd26a@kernel.org> <20250331211125.79badeaf@wsk>
+ <ec703b87-91a4-4ed0-a604-aceb90769ab0@gmx.net> <20250331234228.5d8249ac@wsk>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250331234228.5d8249ac@wsk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:68p8hz1F08ZmKCxbkhgcqwkIdROGb+6sGIkTANYH8O7UQdh0Oua
+ eeiOaVLGDtFm9vAyJ/dCjGDI3wReTJlo4Gl0jw24kaN+nedqhpWmi9Q8Y4xrCma/cDAOWoC
+ N+inzLFLNuUNjkOTteQ9kcCA97oiH+1alEEIarJU4maY/l8XQL9vWvhEW5kTe93Qxe9P63b
+ VJfeWo+HiKpA5OZkgEEGw==
+UI-OutboundReport: notjunk:1;M01:P0:VqfWaRwx+Hg=;Fvssj492yIuTEIYQDlpSfvdmJhp
+ xQA5iGGsE+WReEIKKpJcXwTZzPa0DHxxWkKg5gq2m40q4cHtuC0qzbER57LiN7X7IFXYdHCir
+ 8qxY5rxON4iixQk+tiBdcA3O5OZLOhbhipuzyIwT3MszLrXTF7ITHEIpJD0UzW3JApTgYSRcY
+ Qq6009tKfOt7Hl/7PwgExj1wpkjXrM8s3X/HhsbVC96ojFuf79DZYopr2MoW/rZY6UonIuVGt
+ eE6PFuyOKEICa77x4FWqFzKIglddP4PT56KWMJta27OK/zs3aRk9OXwHf2DTy8DYxZ8p1e19D
+ 23q2XMImtyGXCE16K50hmif+4pKccgcQqIFBFhTN327qhNXNIItamBdR1t7vmUbYFQYReiy3z
+ zFp89QT0QYyZhkMIWz4RshFKOiUMsVj8QJJjlloqZLlm5jE0E3EPu5CP+hE+CurV7Ji7qvo1z
+ D06poD78NGOJTyQZ17uyfPKH0dXkpn2wx3+bMmpqbTAbV16/SAway+2vMuw/X3G51ZHd6F/xd
+ 4SlTZaIOGLA/aLT0XAtRDV6zHzWM3jfu1AaiUtBe7qE4R7a03oWtvKHCk4MRn3tOG/MEZ4IbT
+ TEcXQpS018dRGOYMbTGmXWJy7Gd7jesqpQ5jlrRlgZhQoWF0nZ06P4IbSxbrsIHe2o8KlLDeQ
+ nyGiidWAsIrA+xz7vBYjv2S1PMEPUZ8QPAMZMKqpTYpru7BvIByyw/m+LnjI0lyomWR4F1ckU
+ uAYBUDz55LmAKiI0D4ua1WcUasK/YHOAP4WAjmmJocI0KfCiIbHFlnR9/ZmgC1EWiM7y8KmoD
+ lfYFfAJxDKW0dWjcJaBpFhI28oqLAHjfPQ4d511Jd2H5zwLZwuR4BCjwxKrB9kdvZk8P8GtpK
+ vmP5A3OkwQevU36VG8jgICrWna/E/Xt+SEuFsMjLJ7SrTxc/AMxsNOsVUg6Zei1RHxEVCBMin
+ 9NDE0njXBOTXO+MBDJODz4KQRs+BirwdpaZeTzgXDjeYniQnDg+ElhTsq6p5K2nSyl8iuXO3B
+ N5ET6Fp5zZ29UA+/H1l9xXsl/cPyHkXvEXi75NvBLgMbK8gJOH0NpyZJtZadbKI5JnwVw15xg
+ fk6BUhb6UCCYZLG25uclTxYVwDGRY//Ybvp9i04zJpSzz6XmfdR6oSiGJa63a5th3/Pn4JlMu
+ VnwIv1EkHrAQH+cboqGgLF6XzAmmjQSSOtyJEgLrjcy32f58bBchSW+a+zIx9aG0yMQwcgHv8
+ j5+m8vMw+gCASBEwAsz6bYQna7E2B8vG8RY6vmoE6TcJ1TW3ndhAEVNRRgprdqOUi5T7gj2lR
+ wotcO2Rissl2nnqE5f+05BB2gWJX42s/mL4ukq4dZiYHLzRy5L1onRwkqE+tNtgfEjXhyyNaz
+ FnQHb2NgfzfwSHsQ0rDDQnxVjVPTDb/2okqk1jivJiindjnELeRGnN9LW9dZ9mVaVbLI1+XMj
+ 9J7X8PUUqEI2xybQK3wnJ8tmOINpqs4xNSPOKyvB9sP32rNfbCXYJ0of7wKMz+cGKm8b32Fyj
+ r3oFErA43f2H51SeVD0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_092805_046868_BAB82A62 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20250401_093319_404100_39A1858E 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,42 +124,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/31/2025, Rob Herring wrote:
-> On Mon, Mar 31, 2025 at 04:00:27PM -0700, Will McVicker wrote:
-> > From: Donghoon Yu <hoony.yu@samsung.com>
-> > 
-> > On Arm64 platforms the Exynos MCT driver can be built as a module. On
-> > boot (and even after boot) the arch_timer is used as the clocksource and
-> > tick timer. Once the MCT driver is loaded, it can be used as the wakeup
-> > source for the arch_timer.
-> > 
-> > Signed-off-by: Donghoon Yu <hoony.yu@samsung.com>
-> > Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
-> > [Original commit from https://android.googlesource.com/kernel/gs/+/8a52a8288ec7d88ff78f0b37480dbb0e9c65bbfd]
-> > Signed-off-by: Will McVicker <willmcvicker@google.com>
-> > ---
-> >  drivers/clocksource/Kconfig      |  3 +-
-> >  drivers/clocksource/exynos_mct.c | 47 +++++++++++++++++++++++++++-----
-> >  2 files changed, 42 insertions(+), 8 deletions(-)
-> 
-> [...]
-> 
-> > +#ifdef MODULE
-> > +static int exynos4_mct_probe(struct platform_device *pdev)
-> > +{
-> > +	struct device_node *np = pdev->dev.of_node;
-> > +
-> > +	if (of_machine_is_compatible("samsung,exynos4412-mct"))
-> 
-> Your root node compatible has "samsung,exynos4412-mct"!?
-> 
-> In any case, add a data ptr to of_device_id table and then use the match 
-> data rather than comparing compatible strings again.
+Am 31.03.25 um 23:42 schrieb Lukasz Majewski:
+> Hi Stefan,
+>
+>> Hi Lukasz,
+>>
+>> Am 31.03.25 um 21:11 schrieb Lukasz Majewski:
+>>> Hi Jakub,
+>>>
+>>>> On Mon, 31 Mar 2025 12:31:12 +0200 Lukasz Majewski wrote:
+>>>>> This patch series adds support for More Than IP's L2 switch driver
+>>>>> embedded in some NXP's SoCs. This one has been tested on imx287,
+>>>>> but is also available in the vf610.
+>>>> Lukasz, please post with RFC in the subject tags during the merge
+>>>> window. As I already said net-next is closed.
+>>> Ach, Ok.
+>>>
+>>> I hope, that we will finish all reviews till 07.04, so v4 would be
+>>> the final version.
+>> well i appreciate your work on this driver,
+> Do you maintain some vf610 or imx28 devices, which would like to use L2
+> switch?
+I've have been working with some i.MX28 devices and still "maintain" one
+i.MX28 platform of my employer. But it doesn't have a L2 switch.
 
-Ah yes, you're right. Thanks for the suggestion! I'll update on v2.
+Many years again, I tried to mainline a driver for the on-chip regulator
+of i.MX28 SoC with cpufreq support at the end.
 
-Regards,
-Will
+https://github.com/lategoodbye/linux-mxs-power
 
-[...]
+Regards
 
