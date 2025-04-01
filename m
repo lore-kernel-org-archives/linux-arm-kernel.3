@@ -4,53 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3497AC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 11:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7303C36018
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 11:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=juWxCuCjj6cge7H4LhO70RuqvvFPQ1of6Nuy3q3eG6c=; b=tt7V97uJ9q6tmYgUoZJLGEOI9i
-	F2YaIK1h/1jzeg3A+s7bWuJLum1LX0LgTXKtDvEkiEnWtFEO6n4WoXwi54cPKeq54EGbnwznM5vt4
-	u7+X2esP6Z2escFRnzVsdDG25lXWkZTKNpBquhRQ8sjOPR6NUzRuAFmn7WUMVe2KcKIBFRqSpAfkb
-	ou71S5ihuUhqvqcxoRGB77PRjjF4uZsRmId9h1kFWWhOA9wJku7m2CoAF+rrFPS+QXsMvZZ4wK5z4
-	4M/Zvh60d4nOUl9P1oTlR0ctqne3hoGiG8sc1PfA1qrxYCqL+EL9EE7IWTKLGpbCBiCCUE6FMSy5v
-	cV6MKqPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:Cc:To:
+	From:Mime-Version:Message-ID:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9yE51MTO1wGbtpFHeDVZ3hHLhbhq0aaeAvNWmsU08Oc=; b=k6V5FqTA58SxvCKZcaSaOa0712
+	ooA11gVgAsAxwntK/e++fv8j8nKWb1rfOPA4bUoYu/63io1AHOpR6BdSeUjAMUxKA7K2/H4YH2KgC
+	U2aXO2ic3CsBZBOFoLLkujCfJMpHaOFqnUEpXrde3RzUPMRGt3C/TpsI0kG9GWmb9BeLSGyaEUu0C
+	mTWvgmm6XFt/H9HTOhyrit/nOX5Nk/G5wrC5SVgv2hHB5FFOQ2o6rZ59Fc0fblbYpHadY6++dfeGZ
+	osGVdMYOpZFSLWk8b7YoA/A6CKKwhj+IA6n6mZU6Cj73mAFnLKOn6MOD2pUEl/3+6JVsPHMLLzM7l
+	U8k7oMWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzZdA-00000002lCp-462G;
-	Tue, 01 Apr 2025 11:18:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzZbN-00000002l6c-42ng
+	id 1tzZl5-00000002m27-0sPT;
+	Tue, 01 Apr 2025 11:26:19 +0000
+Received: from mxhk.zte.com.cn ([63.216.63.40])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzZjG-00000002lt9-3JXg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 11:16:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8742A14BF;
-	Tue,  1 Apr 2025 04:16:20 -0700 (PDT)
-Received: from [10.163.46.196] (unknown [10.163.46.196])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A15103F694;
-	Tue,  1 Apr 2025 04:16:14 -0700 (PDT)
-Message-ID: <03b4456f-de06-42c6-91e0-4ea21de665ad@arm.com>
-Date: Tue, 1 Apr 2025 16:46:09 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: Don't call NULL in do_compat_alignment_fixup
-To: Angelos Oikonomopoulos <angelos@igalia.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com, will@kernel.org, linux-kernel@vger.kernel.org,
- kernel-dev@igalia.com, stable@vger.kernel.org
-References: <20250401085150.148313-1-angelos@igalia.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250401085150.148313-1-angelos@igalia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Tue, 01 Apr 2025 11:24:28 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4ZRlyC1683z8R040;
+	Tue,  1 Apr 2025 19:24:19 +0800 (CST)
+Received: from xaxapp01.zte.com.cn ([10.88.99.176])
+	by mse-fl1.zte.com.cn with SMTP id 531BOGUt076517;
+	Tue, 1 Apr 2025 19:24:16 +0800 (+08)
+	(envelope-from shao.mingyin@zte.com.cn)
+Received: from mapi (xaxapp01[null])
+	by mapi (Zmail) with MAPI id mid32;
+	Tue, 1 Apr 2025 19:24:20 +0800 (CST)
+Date: Tue, 1 Apr 2025 19:24:20 +0800 (CST)
+X-Zmail-TransId: 2af967ebcce402b-8dfac
+X-Mailer: Zmail v1.0
+Message-ID: <20250401192420169tLRsDis5R0RrVmdFnFuS9@zte.com.cn>
+Mime-Version: 1.0
+From: <shao.mingyin@zte.com.cn>
+To: <alim.akhtar@samsung.com>
+Cc: <yang.yang29@zte.com.cn>, <xu.xin16@zte.com.cn>, <ye.xingchen@zte.com.cn>,
+        <krzk@kernel.org>, <gregkh@linuxfoundation.org>,
+        <jirislaby@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-serial@vger.kernel.org>, <jiang.peng9@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIXSB0dHk6IHNlcmlhbDogc2Ftc3VuZzogRml4IHBvdGVudGlhbCBidWZmZXIgb3ZlcmZsb3cgaW7CoGNsa25hbWU=?=
+Content-Type: text/plain;
+	charset="UTF-8"
+X-MAIL: mse-fl1.zte.com.cn 531BOGUt076517
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 67EBCCE3.000/4ZRlyC1683z8R040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_041618_091083_4E211917 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20250401_042427_136447_DB6832F8 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,76 +74,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Peng Jiang <jiang.peng9@zte.com.cn>
 
+Compiling the kernel with gcc12.3 W=1 produces a warning:
+/drivers/tty/serial/samsung_tty.c: In function
+'s3c24xx_serial_set_termios':
 
-On 4/1/25 14:21, Angelos Oikonomopoulos wrote:
-> do_alignment_t32_to_handler only fixes up alignment faults for specific
-> instructions; it returns NULL otherwise. When that's the case, signal to
-> the caller that it needs to proceed with the regular alignment fault
-> handling (i.e. SIGBUS). Without this patch, we get:
-> 
->   Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
->   Mem abort info:
->     ESR = 0x0000000086000006
->     EC = 0x21: IABT (current EL), IL = 32 bits
->     SET = 0, FnV = 0
->     EA = 0, S1PTW = 0
->     FSC = 0x06: level 2 translation fault
->   user pgtable: 4k pages, 48-bit VAs, pgdp=00000800164aa000
->   [0000000000000000] pgd=0800081fdbd22003, p4d=0800081fdbd22003, pud=08000815d51c6003, pmd=0000000000000000
->   Internal error: Oops: 0000000086000006 [#1] SMP
->   Modules linked in: cfg80211 rfkill xt_nat xt_tcpudp xt_conntrack nft_chain_nat xt_MASQUERADE nf_nat nf_conntrack_netlink nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 xfrm_user xfrm_algo xt_addrtype nft_compat br_netfilter veth nvme_fa>
->    libcrc32c crc32c_generic raid0 multipath linear dm_mod dax raid1 md_mod xhci_pci nvme xhci_hcd nvme_core t10_pi usbcore igb crc64_rocksoft crc64 crc_t10dif crct10dif_generic crct10dif_ce crct10dif_common usb_common i2c_algo_bit i2c>
->   CPU: 2 PID: 3932954 Comm: WPEWebProcess Not tainted 6.1.0-31-arm64 #1  Debian 6.1.128-1
->   Hardware name: GIGABYTE MP32-AR1-00/MP32-AR1-00, BIOS F18v (SCP: 1.08.20211002) 12/01/2021
->   pstate: 80400009 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->   pc : 0x0
->   lr : do_compat_alignment_fixup+0xd8/0x3dc
->   sp : ffff80000f973dd0
->   x29: ffff80000f973dd0 x28: ffff081b42526180 x27: 0000000000000000
->   x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
->   x23: 0000000000000004 x22: 0000000000000000 x21: 0000000000000001
->   x20: 00000000e8551f00 x19: ffff80000f973eb0 x18: 0000000000000000
->   x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
->   x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
->   x11: 0000000000000000 x10: 0000000000000000 x9 : ffffaebc949bc488
->   x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
->   x5 : 0000000000400000 x4 : 0000fffffffffffe x3 : 0000000000000000
->   x2 : ffff80000f973eb0 x1 : 00000000e8551f00 x0 : 0000000000000001
->   Call trace:
->    0x0
->    do_alignment_fault+0x40/0x50
->    do_mem_abort+0x4c/0xa0
->    el0_da+0x48/0xf0
->    el0t_32_sync_handler+0x110/0x140
->    el0t_32_sync+0x190/0x194
->   Code: bad PC value
->   ---[ end trace 0000000000000000 ]---
-> 
-> Signed-off-by: Angelos Oikonomopoulos <angelos@igalia.com>
-> Fixes: 3fc24ef32d3b93 ("arm64: compat: Implement misalignment fixups for multiword loads")
-> Cc: stable@vger.kernel.org
+/drivers/tty/serial/samsung_tty.c:1392:48:
+warning: '%d' directive writing between 1 and 3 bytes
+into a region of size 2 [-Wformat-overflow=]
+ 1392 |  sprintf(clkname, "clk_uart_baud%d", cnt);
+      |                    ^~
 
-Commit message looks good and attributed commit ID in "Fixes: "
-tag also checks out.
+In function 's3c24xx_serial_getclk',
+    inlined from 's3c24xx_serial_set_termios'
+at ./drivers/tty/serial/samsung_tty.c:1493:9:
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+/drivers/tty/serial/samsung_tty.c:1392:34:
+note: directive argument in the range [0, 254]
+ 1392 |  sprintf(clkname, "clk_uart_baud%d", cnt);
+      |                    ^~~~~~~~~~~~~~~~~
 
-> ---
->  arch/arm64/kernel/compat_alignment.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/compat_alignment.c b/arch/arm64/kernel/compat_alignment.c
-> index deff21bfa680..b68e1d328d4c 100644
-> --- a/arch/arm64/kernel/compat_alignment.c
-> +++ b/arch/arm64/kernel/compat_alignment.c
-> @@ -368,6 +368,8 @@ int do_compat_alignment_fixup(unsigned long addr, struct pt_regs *regs)
->  		return 1;
->  	}
->  
-> +	if (!handler)
-> +		return 1;
->  	type = handler(addr, instr, regs);
->  
->  	if (type == TYPE_ERROR || type == TYPE_FAULT)
+/drivers/tty/serial/samsung_tty.c:1392:17:
+note: 'sprintf' output between 15 and 17 bytes
+into a destination of size 15
+
+ 1392 |  sprintf(clkname, "clk_uart_baud%d", cnt);
+      |                   ^~~~~~~~~~~~~~~~~
+
+The compiler warned about a potential buffer overflow in the
+`s3c24xx_serial_set_termios` function due to the use of `sprintf` which
+could write more bytes than the allocated size of the `clkname` buffer.
+This could lead to undefined behavior and potential security risks.
+
+To reproduce the issue before applying the patch:
+CONFIG_SERIAL_SAMSUNG=y
+make vmlinux ARCH=arm64 CROSS_COMPILE=aarch64-linux- W=1
+
+To resolve this issue, we have increased the buffer size for `clkname`
+to ensure it can accommodate the longest possible string generated by
+the formatting operation. Additionally, we have replaced `sprintf` with
+`snprintf` to ensure that the function does not write beyond the end of
+the buffer, thus preventing any potential overflow.
+
+Signed-off-by: Peng Jiang <jiang.peng9@zte.com.cn>
+Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+---
+ drivers/tty/serial/samsung_tty.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
+index 210fff7164c1..5a0005033afa 100644
+--- a/drivers/tty/serial/samsung_tty.c
++++ b/drivers/tty/serial/samsung_tty.c
+@@ -1339,7 +1339,7 @@ static void s3c24xx_serial_pm(struct uart_port *port, unsigned int level,
+  *
+  */
+
+-#define MAX_CLK_NAME_LENGTH 15
++#define MAX_CLK_NAME_LENGTH 18
+
+ static inline u8 s3c24xx_serial_getsource(struct uart_port *port)
+ {
+@@ -1389,7 +1389,7 @@ static unsigned int s3c24xx_serial_getclk(struct s3c24xx_uart_port *ourport,
+ 			!(ourport->cfg->clk_sel & (1 << cnt)))
+ 			continue;
+
+-		sprintf(clkname, "clk_uart_baud%d", cnt);
++		snprintf(clkname, sizeof(clkname), "clk_uart_baud%d", cnt);
+ 		clk = clk_get(ourport->port.dev, clkname);
+ 		if (IS_ERR(clk))
+ 			continue;
+@@ -1787,7 +1787,7 @@ static int s3c24xx_serial_enable_baudclk(struct s3c24xx_uart_port *ourport)
+ 		if (!(clk_sel & (1 << clk_num)))
+ 			continue;
+
+-		sprintf(clk_name, "clk_uart_baud%d", clk_num);
++		snprintf(clk_name, sizeof(clk_name), "clk_uart_baud%d", clk_num);
+ 		clk = clk_get(dev, clk_name);
+ 		if (IS_ERR(clk))
+ 			continue;
+@@ -2335,7 +2335,7 @@ s3c24xx_serial_get_options(struct uart_port *port, int *baud,
+ 		/* now calculate the baud rate */
+
+ 		clk_sel = s3c24xx_serial_getsource(port);
+-		sprintf(clk_name, "clk_uart_baud%d", clk_sel);
++		snprintf(clk_name, sizeof(clk_name), "clk_uart_baud%d", clk_sel);
+
+ 		clk = clk_get(port->dev, clk_name);
+ 		if (!IS_ERR(clk))
+-- 
+2.25.1
 
