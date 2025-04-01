@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E7AC36010
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD00C3601A
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Apr 2025 22:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,62 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7WhTcpnDfS966b8qcjFRKYTbiz5sb4vgFd+KNycoqKw=; b=1XGQtG06thvINlSrVknnDu3WzC
-	lRE5cIosWrixVUxDrHgnbIjGp7U6/WH1grjLuFYeimNv/56GvjYGJ5XEZm+tV0Z37HZdJHt5T8veq
-	06ywgeT2mSl67tZZXObLDYTgJhvSbn0bEVp5tj7T7n0KzgLNeoo6QSQQUGiqmloxxwqZKK8A4ojZU
-	t75jY8v8DzM+uCvDZfj/LS2/xYcJCX4mFNE24N9h3dWr0lrQGSn9DMqNXWDPDztH36+vy1QNU+fsO
-	0Q5ZER6GRdzb6nARHHtIkeGINZXqkYzh8FuOLkqNYDAIl+3Uy9et+FY6AWo5j/nxufirlUpdIPd4k
-	Fyr4L4Ig==;
+	bh=5qKsANY9N47hjadaMZNM56aBAj0f8nczwxZTz9+A9lg=; b=GmzXNfSsLh20bDH00BUpM1M2aX
+	1TLIKNuNgK8Ti9eRMsk3iUdhLH1XwAYmuM3NJ+KaJfxrSfMupAoGFRzrjqkDVI/uhx59LDpjP6ceV
+	d8AB5ffUKBh/xsLEIRJGmVOdsfs4Vo9EauO6bpFaMGABHDxiJ6vFmu66iKo434NMGDdp2POwNxfqU
+	04ZJd65gIW6Uj5NwXim/gbfUGrjBdL/+2VQQYLrIokt+vFF3CpMkxP3C599K80qeG+l/mzcANX1eg
+	a0nCiPIl/Ptn1lzOTq0Fndj+xRihzsQHIwZTU8nMpFtmI+B4JRrvIcqJbRvjXw9Z+xtPFmFAaELT1
+	gt3Br0NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzjvR-00000004W6a-21P0;
-	Tue, 01 Apr 2025 22:17:41 +0000
+	id 1tzjvQ-00000004W6N-1kqa;
+	Tue, 01 Apr 2025 22:17:40 +0000
 Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tziVn-00000004LK0-3X2x
+	id 1tziVl-00000004LIF-491a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Apr 2025 20:47:09 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-224364f2492so103003375ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 13:47:07 -0700 (PDT)
+	Tue, 01 Apr 2025 20:47:07 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-229668c8659so6678795ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 13:47:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743540427; x=1744145227; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1743540425; x=1744145225; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=7WhTcpnDfS966b8qcjFRKYTbiz5sb4vgFd+KNycoqKw=;
-        b=iH919S+JF9lSrHCOi/NT7fLlJe7UkUlTQL4frZGVjyofH0IfcubEXF1mOK4lQbHIAv
-         NA9IWmORX8kcHz0q+ojTUVclUrLahMLb4FCVNXGy8WB9JrdhtaufM+MDmeXGFQQMpYGh
-         F0wRKQIPMm1c/W4R5NLzHGrekY/JMT99hMVjU6LJGCLZA5rYcfTFEZGufcrQGL6J5mAz
-         ZdPUhE8F+OubB4kb9AH7Cgd9X9EdPuh9hhrh4hmaBZdd3iEDqnGmut1m2PJkOnsLklso
-         /3xDFvEQeOpgAC9LOFytyqKp8pLCyGNyIrZF0CSIeFHdxq6yYtSxUyNsrXehz83wUiOH
-         RXKA==
+        bh=5qKsANY9N47hjadaMZNM56aBAj0f8nczwxZTz9+A9lg=;
+        b=j1lNkFG+qge8sZRlywaW/GQPPfM8It3trFuOd7MvTUpHPuv0QnC84CwlLRusISxcym
+         Ea4TmqlVxGPIWQ43jlXaCKPM4YoI1Oq40016Y9uctbH9zWmAJSQw08dDWtiTCkUYVuua
+         zxvbs5yecAESI16c7Bt6yBDieXznVYaAznumXw4XHM6+X5nbzd9TUcGBF2oAXIXLKiL4
+         mN7rw3mLdHPJNQtSdtHPlUsmmhVjoX6UmbahSQej/gIfcQuc98Q5GyaTaCHlEmrhA9DI
+         ACUPnbqsT4acG7pXIIp9lfGWmM9mUMbjRZgIThIe4cBLkkaJqcGLzAAl5g0zpIOK5qw+
+         6vOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743540427; x=1744145227;
+        d=1e100.net; s=20230601; t=1743540425; x=1744145225;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7WhTcpnDfS966b8qcjFRKYTbiz5sb4vgFd+KNycoqKw=;
-        b=Yefr4UZW++dDOVrumsdO9FCtR4AgwArjS49/u1hO7oAqAtwvtnF6AnigpqX6SCK8RA
-         LwAU8cvu1hiq7RMlUVOJAX+gp0B1pnRIIKzKcNPqkazJHyeaKw10Bjen+COpl08L7Urc
-         JyGRA5Nj5WPLEIPHViD24w5LJ8v/2vjza3q8WaIh0wH1wlWWMOwSkJkBREl0zQ+HupVK
-         nd4t4fCU+r0fqNI5QoFaE+AWhAIit7rpUuNdok4j+Vl3SNLVAs/lNxRvq9+sxOURFD0b
-         fs1GSH+1u9oRu14N2gToxlQoDrQuTraQ9FEnbAeQxkuva/9K3y3hVh6YVVdW6vZmniyj
-         Laug==
-X-Forwarded-Encrypted: i=1; AJvYcCW8RuHQ8pqxAWThFzLFTdsdmReuyK5B+wlZJSuFhAInDZNCajhNkyT65gEA5e1f1rkQGG1eocibIGbWehyX2G+h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzj4jZ/JionqFDedy7KYQzhrU19BmHJFAp5KiWP1MqS8SlL0bq5
-	T8hmQ5ZSKuFPU5hjNRGImQRdPkiBTMTC6vw6g2AAfSKG7FffXALmuzof6sXu6bl2hetZMWHKz7n
-	F9A==
-X-Google-Smtp-Source: AGHT+IE69F+P2diWss4q1R2RCvqjJn9bih0SHo0zrhhUPWnYhjvt54Ev63/iq2FBMJOXU3F4HgV2IVY99W4=
-X-Received: from pfef19.prod.google.com ([2002:a05:6a00:2293:b0:736:5b36:db8f])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:853:b0:736:9fa2:bcbb
- with SMTP id d2e1a72fcca58-73980436cbamr22550678b3a.24.1743540426869; Tue, 01
- Apr 2025 13:47:06 -0700 (PDT)
-Date: Tue,  1 Apr 2025 13:44:23 -0700
+        bh=5qKsANY9N47hjadaMZNM56aBAj0f8nczwxZTz9+A9lg=;
+        b=H+DhsvGsL39D5O0ZlsMDNOpY4IdWylVNF36mh0XZv/Gh2bnfvdvpZ2iUhnvLdgMdel
+         yjzfqKavryW/Qc/j7IdhDXznowimPiGRPGh8in0G+yfxKrL6R5Bg0q70B6oXd8f3eIYn
+         ErKR5zqTvxZgivVQ6rjKsZFB2X709Z3JkJkOloU1ve9/4KRUX9Ickd2rYJRZXPgfc4Kv
+         G95ei5yxZLfYCzif6V2F/tD+C/PXoMATdbgRboj/PMfyTrUWtF1/UdVFkfCFEIFuyKkW
+         CugT1yr7AwTuGWK+yWKfxLeo/ApA76GSNtDk848C0M9vcAu9J58BMINDCJ0vlGYwsO9H
+         hzKg==
+X-Forwarded-Encrypted: i=1; AJvYcCV71Dk2a7eo26xvmJroxLwPZ/ojjwwJfdGRazmBth/hLaKqubydtEYC72mlN5KxWAo3LWBVSXtrha5IjFiGeE6Q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6exwY5IWuI9Ap5NTzQvVwQfecGkT30V0CuGY2e4R5i12klr5N
+	+Fat2gRVB5TbNAN09wd1tSaXT3KprS261Z88p9TTjYmx2pscdEOXdQE5xxIMUrb80P6djVOFt4S
+	rJg==
+X-Google-Smtp-Source: AGHT+IFGVv11dt7rUK+obI9Bx4C62kJ/MvcG+5bk3TDAhhA7vlmUxcL80d04RZFegq2L9eKJhwQmELWuf+4=
+X-Received: from pfnz20.prod.google.com ([2002:aa7:85d4:0:b0:730:9951:c9ea])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:84b:b0:736:6279:ca25
+ with SMTP id d2e1a72fcca58-73980463170mr23448772b3a.24.1743540425095; Tue, 01
+ Apr 2025 13:47:05 -0700 (PDT)
+Date: Tue,  1 Apr 2025 13:44:22 -0700
 In-Reply-To: <20250401204425.904001-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250401204425.904001-1-seanjc@google.com>
 X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
-Message-ID: <20250401204425.904001-12-seanjc@google.com>
-Subject: [PATCH 11/12] KVM: selftests: Add utilities to create eventfds and do KVM_IRQFD
+Message-ID: <20250401204425.904001-11-seanjc@google.com>
+Subject: [PATCH 10/12] KVM: selftests: Assert that eventfd() succeeds in Xen
+ shinfo test
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
 	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
@@ -82,8 +83,8 @@ Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_134707_900392_C1568501 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20250401_134706_052132_B246945D 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,135 +100,37 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add helpers to create eventfds and to (de)assign eventfds via KVM_IRQFD.
+Assert that eventfd() succeeds in the Xen shinfo test instead of skipping
+the associated testcase.  While eventfd() is outside the scope of KVM, KVM
+unconditionally selects EVENTFD, i.e. the syscall should always succeed.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/arm64/vgic_irq.c  | 12 ++----
- .../testing/selftests/kvm/include/kvm_util.h  | 40 +++++++++++++++++++
- .../selftests/kvm/x86/xen_shinfo_test.c       | 18 ++-------
- 3 files changed, 47 insertions(+), 23 deletions(-)
+ tools/testing/selftests/kvm/x86/xen_shinfo_test.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-index f4ac28d53747..a09dd423c2d7 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-@@ -620,18 +620,12 @@ static void kvm_routing_and_irqfd_check(struct kvm_vm *vm,
- 	 * that no actual interrupt was injected for those cases.
- 	 */
- 
--	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++) {
--		fd[f] = eventfd(0, 0);
--		TEST_ASSERT(fd[f] != -1, __KVM_SYSCALL_ERROR("eventfd()", fd[f]));
--	}
-+	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++)
-+		fd[f] = kvm_new_eventfd();
- 
- 	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++) {
--		struct kvm_irqfd irqfd = {
--			.fd  = fd[f],
--			.gsi = i - MIN_SPI,
--		};
- 		assert(i <= (uint64_t)UINT_MAX);
--		vm_ioctl(vm, KVM_IRQFD, &irqfd);
-+		kvm_assign_irqfd(vm, i - MIN_SPI, fd[f]);
- 	}
- 
- 	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++) {
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 373912464fb4..4f7bf8f000bb 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -18,6 +18,7 @@
- #include <asm/atomic.h>
- #include <asm/kvm.h>
- 
-+#include <sys/eventfd.h>
- #include <sys/ioctl.h>
- 
- #include "kvm_util_arch.h"
-@@ -496,6 +497,45 @@ static inline int vm_get_stats_fd(struct kvm_vm *vm)
- 	return fd;
- }
- 
-+static inline int __kvm_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd,
-+			      uint32_t flags)
-+{
-+	struct kvm_irqfd irqfd = {
-+		.fd = eventfd,
-+		.gsi = gsi,
-+		.flags = flags,
-+		.resamplefd = -1,
-+	};
-+
-+	return __vm_ioctl(vm, KVM_IRQFD, &irqfd);
-+}
-+
-+static inline void kvm_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd,
-+			      uint32_t flags)
-+{
-+	int ret = __kvm_irqfd(vm, gsi, eventfd, flags);
-+
-+	TEST_ASSERT_VM_VCPU_IOCTL(!ret, KVM_IRQFD, ret, vm);
-+}
-+
-+static inline void kvm_assign_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd)
-+{
-+	kvm_irqfd(vm, gsi, eventfd, 0);
-+}
-+
-+static inline void kvm_deassign_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd)
-+{
-+	kvm_irqfd(vm, gsi, eventfd, KVM_IRQFD_FLAG_DEASSIGN);
-+}
-+
-+static inline int kvm_new_eventfd(void)
-+{
-+	int fd = eventfd(0, 0);
-+
-+	TEST_ASSERT(fd >= 0, __KVM_SYSCALL_ERROR("eventfd()", fd));
-+	return fd;
-+}
-+
- static inline void read_stats_header(int stats_fd, struct kvm_stats_header *header)
- {
- 	ssize_t ret;
 diff --git a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-index 34d180cf4eed..23909b501ac2 100644
+index 287829f850f7..34d180cf4eed 100644
 --- a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
 +++ b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-@@ -547,11 +547,8 @@ int main(int argc, char *argv[])
- 	int irq_fd[2] = { -1, -1 };
+@@ -548,14 +548,11 @@ int main(int argc, char *argv[])
  
  	if (do_eventfd_tests) {
--		irq_fd[0] = eventfd(0, 0);
--		TEST_ASSERT(irq_fd[0] >= 0, __KVM_SYSCALL_ERROR("eventfd()", irq_fd[0]));
--
--		irq_fd[1] = eventfd(0, 0);
--		TEST_ASSERT(irq_fd[1] >= 0, __KVM_SYSCALL_ERROR("eventfd()", irq_fd[1]));
-+		irq_fd[0] = kvm_new_eventfd();
-+		irq_fd[1] = kvm_new_eventfd();
+ 		irq_fd[0] = eventfd(0, 0);
++		TEST_ASSERT(irq_fd[0] >= 0, __KVM_SYSCALL_ERROR("eventfd()", irq_fd[0]));
++
+ 		irq_fd[1] = eventfd(0, 0);
++		TEST_ASSERT(irq_fd[1] >= 0, __KVM_SYSCALL_ERROR("eventfd()", irq_fd[1]));
  
+-		/* Unexpected, but not a KVM failure */
+-		if (irq_fd[0] == -1 || irq_fd[1] == -1)
+-			do_evtchn_tests = do_eventfd_tests = false;
+-	}
+-
+-	if (do_eventfd_tests) {
  		irq_routes.info.nr = 2;
  
-@@ -569,15 +566,8 @@ int main(int argc, char *argv[])
- 
- 		vm_ioctl(vm, KVM_SET_GSI_ROUTING, &irq_routes.info);
- 
--		struct kvm_irqfd ifd = { };
--
--		ifd.fd = irq_fd[0];
--		ifd.gsi = 32;
--		vm_ioctl(vm, KVM_IRQFD, &ifd);
--
--		ifd.fd = irq_fd[1];
--		ifd.gsi = 33;
--		vm_ioctl(vm, KVM_IRQFD, &ifd);
-+		kvm_assign_irqfd(vm, 32, irq_fd[0]);
-+		kvm_assign_irqfd(vm, 33, irq_fd[1]);
- 
- 		struct sigaction sa = { };
- 		sa.sa_handler = handle_alrm;
+ 		irq_routes.entries[0].gsi = 32;
 -- 
 2.49.0.504.g3bcea36a83-goog
 
