@@ -4,115 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36885C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 08:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359DCC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 08:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6w5HRFUf+LcSJteCloePKLoJ284sY8GSi1j+G+i75PU=; b=WNlFP+yvXZTxNED+J3zBgV/svr
-	U9dTryo5W3QPv7LvrfbCMLbhpKMM+RF/ZI4ry9drnTlHgLNrQAc+OcSJn0mqyfjyUQZgQXxfbXkUG
-	zuRqiP3xKDx83Eay5E40Y0InuctrxnzwtvdjjzzHcgfZ9WoZhVqqrfRyg3Gvk8g4qbw3pjWOTUy20
-	4YX5S2de2bGMrKSPz/+3wx9ZupFFm7YUzCKM+WXki2Ef0pKMXafqjEQddp7ZJcHIL2Z14avAp+j8F
-	u9VXV9B4SQ9blYN1JVxhQT788FV94KusGjJ9rKqkd4GMF00kzk038DmGF9rbJiqBsGquRrNoV2cz2
-	5M4A4TKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zJsLeD6lgFKMBvtHYkyhM89bgWS3aRtj9tm/3qhx9hI=; b=WwUAog2hsu4zi7GHGeIW5/BiqF
+	D2xOTnttKKasY3yo1dEMVel2y+RZUoh5/apDtdkQd+cbSu5IwvkK2Lt2Zf4GQeVeZso1/k1GCILDE
+	f9XSbD+G2aTdEjEA6cfvrMhlXg5fZLczJsOIsIN1ythxP045uYZqEQsPPJbv/rvqAAtJR6zOgEea4
+	cjG0OewZyjqHRz/XVidyrwb8WwhdPwUBBVpaxOQz2zMI/xxRST4hTF4mIOC/gVfRDBcr/7FbSajef
+	dNXd5DqwTgURpXbj2E5DI89pK2fjU6hhRAEwYNWmieQFpwSK/wPat9l7WO73LzaziVIF1w6MtQT/z
+	OSbudVsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tztrh-00000005av7-0U35;
-	Wed, 02 Apr 2025 08:54:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tzttO-00000005b5u-3IYx;
+	Wed, 02 Apr 2025 08:56:14 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tztin-00000005Zna-1f2e
+	id 1tztj4-00000005ZrF-3REj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 08:45:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AEE305C623E;
-	Wed,  2 Apr 2025 08:42:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ECDAC4CEDD;
-	Wed,  2 Apr 2025 08:45:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743583516;
-	bh=W1SiKtPVp8xrFYw4pATHh1Zdo/MG/rAURuLF/VmYRC0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ki9/m1OUpBNXZt2lOL2R1ddzvKZulxTMyO8XoBNsUC6Dl0Hn8RvRUWO3hzM9RvYg6
-	 O2YddD2vYBX+2xM3Or5lvM9191ij2YSKIFPu3NseI3bpju2jOZ5zqnYYi2xQr2O+Ku
-	 mMNfhRSeTaTvoc5xRhUXx7gWjXMhhbxxbJu69dx6CzywT9eX/vKISqBnADfahmIykE
-	 3gKakt2kB9+nsFwZdsezckhzC4s52LE1xTFczJwGMJ76t7teBZ2Bb7BDox/vaBvUuU
-	 H5pkrqKN2VGs6PPdaL/8877dKB+myaHghVj7Tvh5uK795i4XsiOlYv3MMX4aeLYy2j
-	 Qq2/d80YAZSIg==
-Message-ID: <71c301ea-0be7-4349-92d6-93b3ffc9c593@kernel.org>
-Date: Wed, 2 Apr 2025 10:45:08 +0200
+	Wed, 02 Apr 2025 08:45:36 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2260c91576aso102207175ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 01:45:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743583534; x=1744188334; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=zJsLeD6lgFKMBvtHYkyhM89bgWS3aRtj9tm/3qhx9hI=;
+        b=wWABDaq1pZ23GUPpdcQ5EeU2I9UA5XU+vnuQz9CWUXR59bqoIf+K9r7AKeVYbRrnYZ
+         oRk8LZQcQV/mfKR54SOs4cYTuFmdrB1b8M+GR97YB60ouaAv/Yg6zeBtNJ+G1O7qixu6
+         8PWQ6kw5aqLrudOrKf7RHsTxeCCVBEjIc4g1HukxwaLUySVtwE1JTe6jDg7Ikb9cNUl/
+         blcohppIu7a89RQJS7w6KJrFZe1Heq7vqN70fioTs5284HYLrhuMHR+4ZkEb1LT5uev7
+         MIjxgzfCWtYXvQNbl7iUJjm7Hs/i988iduXRtf1oHx1/HjwSGiCuTKNCkLs8MD8AlskC
+         lCDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743583534; x=1744188334;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zJsLeD6lgFKMBvtHYkyhM89bgWS3aRtj9tm/3qhx9hI=;
+        b=wetLKRIVXdOmulXAyqMg5nUYnCIko9fq65B3qGiHzCTW3Ko85Vl1AKSodYsD7v4Cyy
+         SG2idpo+jqC/n9dMo7XbCs7rhqkvMfK3zmgZRNVr6pz59Y+fHPUI7qd3ZVTKIaOY356D
+         qDHHvBdENlLedb51iod8hfcKo4s9wcYAReleQ6kxbHeqebafnis2qiZhsJC80v/fw2Dx
+         3d0Ma3ePs4gpiop2kNgSH/1Cu5O2Ky8WZoGpEkHEt8BmjncYwM/1Fsx5/TtKkI4z4pq5
+         kHwVj5rxL7Js0HvXbIwAgBfVgdqdxsQ3WfyLS/xCsnIdXQ8cry6sHzXgqQ4JR0V5KgBd
+         29bw==
+X-Forwarded-Encrypted: i=1; AJvYcCXhR8AvdBLRZFK7AdDKZhqn2DymIIhkvVaE3bH/3ZOZ4DybljAxn/ct4CCsN+EBINixvFgg+vqC06HRnCzfKLg2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yym3hApxiuN0hT4LAZjCR7O8+a2X5HcerIB9kThKZAfsTXWOWwC
+	2asMclnCi99zuldwB+N9Fw2ZJlF9PbErB1+OtzEB7AdDyiDx20y2bRYS8dOxmqrPTRLiKTf2pK5
+	5Ff3aZwp4qPbJitLPQ0jWmqZBpXQZdQehztBOGw==
+X-Gm-Gg: ASbGncsodmOQnaowdkEiAzI/DRgAu4dIOJVoQrAlthAfUo1/yaC/xtvk3wgBQAfbs6F
+	OtFD61PtgMh+O3YUb4IXctkjCGt0QednVpKI0Uwz7A25tOhJLexOSYjKGS1nVa2EmEVEDH3bGwm
+	Tu7bt3svKEcHGDebxc+INS/4a5L5I=
+X-Google-Smtp-Source: AGHT+IHI6Yu/hcdMXCreLSpHVh+HBTcQtrbpLe5Yl5Ua0D4HJd6y3JEpPE+J4Y6K6IQOUqDHmajJ8A4Nn/gDke9iJXk=
+X-Received: by 2002:a05:6a00:3288:b0:736:57cb:f2b6 with SMTP id
+ d2e1a72fcca58-739803aa740mr26454210b3a.12.1743583533738; Wed, 02 Apr 2025
+ 01:45:33 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/7] dt-bindings: memory-controllers: Add STM32 Octo
- Memory Manager controller
-To: Rob Herring <robh@kernel.org>,
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- christophe.kerello@foss.st.com, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250401-upstream_ospi_v6-v7-0-0ef28513ed81@foss.st.com>
- <20250401-upstream_ospi_v6-v7-2-0ef28513ed81@foss.st.com>
- <20250401222015.GA4071342-robh@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250401222015.GA4071342-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250311170451.611389-1-leo.yan@arm.com> <20250311170451.611389-5-leo.yan@arm.com>
+ <CAJ9a7VjqGbpPPeR3-PH5vYHNMwqnPLJ+Ouik017Qh717wFOJ0g@mail.gmail.com> <20250401150019.GC115840@e132581.arm.com>
+In-Reply-To: <20250401150019.GC115840@e132581.arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Wed, 2 Apr 2025 09:45:20 +0100
+X-Gm-Features: AQ5f1JpVKguSRw3Soam_GH8e7qCPQbsLVx7D2P5cFerAhYuRpuHvAGuo7V2FHvg
+Message-ID: <CAJ9a7ViKeqNp_c0+w2mkdujLvzs0UA=Xbm5bG7K-kA86AjJ=eA@mail.gmail.com>
+Subject: Re: [PATCH v3 4/6] coresight: perf: Support AUX trace pause and resume
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_014517_557385_F5861914 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20250402_014534_872112_36768C9C 
+X-CRM114-Status: GOOD (  30.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,62 +95,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/04/2025 00:20, Rob Herring wrote:
->> +      clocks = <&rcc CK_BUS_OSPIIOM>,
->> +               <&scmi_clk CK_SCMI_OSPI1>,
->> +               <&scmi_clk CK_SCMI_OSPI2>;
->> +      clock-names = "omm", "ospi1", "ospi2";
->> +      resets = <&rcc OSPIIOM_R>,
->> +               <&scmi_reset RST_SCMI_OSPI1>,
->> +               <&scmi_reset RST_SCMI_OSPI2>;
->> +      reset-names = "omm", "ospi1", "ospi2";
->> +      access-controllers = <&rifsc 111>;
->> +      power-domains = <&CLUSTER_PD>;
->> +      #address-cells = <2>;
->> +      #size-cells = <1>;
->> +      st,syscfg-amcr = <&syscfg 0x2c00 0x7>;
->> +      st,omm-req2ack-ns = <0>;
->> +      st,omm-mux = <0>;
->> +      st,omm-cssel-ovr = <0>;
->> +
->> +      spi@0 {
->> +        compatible = "st,stm32mp25-ospi";
->> +        reg = <0 0 0x400>;
->> +        memory-region = <&mm_ospi1>;
->> +        interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
->> +        dmas = <&hpdma 2 0x62 0x00003121 0x0>,
->> +               <&hpdma 2 0x42 0x00003112 0x0>;
->> +        dma-names = "tx", "rx";
->> +        clocks = <&scmi_clk CK_SCMI_OSPI1>;
->> +        resets = <&scmi_reset RST_SCMI_OSPI1>, <&scmi_reset RST_SCMI_OSPI1DLL>;
-> 
-> Looks like you are duplicating properties in the parent and child nodes. 
-> Maybe that accurately models the h/w, but if it is just so the drivers 
-> can get the resources from "the driver's node", you can always just look 
-> in the child nodes for the resources (as probably you want to drop the 
-> per instance resources from the parent).
+Hi Leo
+
+On Tue, 1 Apr 2025 at 16:00, Leo Yan <leo.yan@arm.com> wrote:
+>
+> Hi Mike,
+>
+> On Tue, Apr 01, 2025 at 01:50:52PM +0100, Mike Leach wrote:
+>
+> [...]
+>
+> > >  static void etm_event_start(struct perf_event *event, int flags)
+> > >  {
+> > >         int cpu = smp_processor_id();
+> > > @@ -463,6 +484,14 @@ static void etm_event_start(struct perf_event *event, int flags)
+> > >         if (!csdev)
+> > >                 goto fail;
+> > >
+> >
+> > Is it possible here that the first call to etm_event_start() also has
+> > the PERF_EF_RESUME flag set?
+>
+> The first call has a flow below, using flag 0 but not PERF_EF_RESUME.
+>
+>   etm_event_add()
+>     `>  etm_event_start(event, 0);
+>
+
+When I looked at the vague comments in the perf source - it seemed to
+imply that ->start() calls could overlap - so the associated event
+that resumes trace could occur at the same time as the initialising
+start from paused for the trace operations.
+
+If we are guaranteed this cannot happen then we are good to go!
+
+> Note: for the first call, the tracer should be disabled if
+> 'event->hw.aux_paused' is 1.  This is ensured by patch 03.
+>
+
+Yes - I saw that.
+
+Mike
+
+> Thanks,
+> Leo
+>
+> > If so it looks like we need to fall through and do a "normal" start to
+> > get all the ctxt->event_data set up.
+> >
+> > > +       if (flags & PERF_EF_RESUME) {
+> > > +               if (etm_event_resume(csdev, ctxt) < 0) {
+> > > +                       dev_err(&csdev->dev, "Failed to resume ETM event.\n");
+> > > +                       goto fail;
+> > > +               }
+> > > +               return;
+> > > +       }
+> > > +
+> > >         /* Have we messed up our tracking ? */
+> > >         if (WARN_ON(ctxt->event_data))
+> > >                 goto fail;
+> > > @@ -545,6 +574,16 @@ static void etm_event_start(struct perf_event *event, int flags)
+> > >         return;
+> > >  }
+> > >
+> > > +static void etm_event_pause(struct coresight_device *csdev,
+> > > +                           struct etm_ctxt *ctxt)
+> > > +{
+> > > +       if (!ctxt->event_data)
+> > > +               return;
+> > > +
+> > > +       /* Stop tracer */
+> > > +       coresight_pause_source(csdev);
+> > > +}
+> > > +
+> > >  static void etm_event_stop(struct perf_event *event, int mode)
+> > >  {
+> > >         int cpu = smp_processor_id();
+> > > @@ -555,6 +594,9 @@ static void etm_event_stop(struct perf_event *event, int mode)
+> > >         struct etm_event_data *event_data;
+> > >         struct coresight_path *path;
+> > >
+> > > +       if (mode & PERF_EF_PAUSE)
+> > > +               return etm_event_pause(csdev, ctxt);
+> > > +
+> > >         /*
+> > >          * If we still have access to the event_data via handle,
+> > >          * confirm that we haven't messed up the tracking.
+> > > @@ -899,7 +941,8 @@ int __init etm_perf_init(void)
+> > >         int ret;
+> > >
+> > >         etm_pmu.capabilities            = (PERF_PMU_CAP_EXCLUSIVE |
+> > > -                                          PERF_PMU_CAP_ITRACE);
+> > > +                                          PERF_PMU_CAP_ITRACE |
+> > > +                                          PERF_PMU_CAP_AUX_PAUSE);
+> > >
+> > >         etm_pmu.attr_groups             = etm_pmu_attr_groups;
+> > >         etm_pmu.task_ctx_nr             = perf_sw_context;
+> > > --
+> > > 2.34.1
+> > >
+> >
+> > If the possible issue above is prevented by perf internals
+> >
+> > Reviewed-by: Mike Leach <mike.leach@linaro.org>
+> >
+> >
+> > --
+> > Mike Leach
+> > Principal Engineer, ARM Ltd.
+> > Manchester Design Centre. UK
 
 
-The current solution was actually my suggestion because if a parent
-device has to toggle child's reset, it means it actually is the consumer
-of that reset one way or another. IOW, it is one of its resources.
 
-This also might matter for some of the implementations because we might
-need to setup device links or do some probe-ordering (in the future)
-between parent and the reset provider.
-
-Without reset resource in the parent, I could imagine probe order:
-1. parent (pokes into the child for reset)
-2. reset and clock providers
-3. child
-which would defer between 1 and 2.
-
-With parent having the resource it would be re-ordered into:
-1. reset and clock providers
-2. parent
-3. child
-
-
-Best regards,
-Krzysztof
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
