@@ -4,95 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCA5C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 02:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46317C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 02:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o9gVv0/lFUKCYB76B/uhhr7mW5D0FE05CDx8S7RsfxM=; b=YNz98MmCs0oR6gEsU6qMj18Jos
-	qDHmmqWrlqDvMTImJt0IH18Ow+i4iA2iA10PCO4jTnr0jGTxZnHkmzw5AZTCk2l2z+AgxYJfyOTJC
-	1LhQjcBc+DIjR0Uk5M7nI/VFgrVSbaIxuYI7WgDLgJUPRuig36m1w63Uza1gqPUE/h/gaT1esCXod
-	JZBotXa48tWsXNBPJIBvVFxarDZrGSxvvtmi9WWaVM06EAZtfG7fD1FJ13/FuBXU1o1Wy/CKVUCcy
-	c2F6PegofKlE2YFDb12PTvrsLAkN4EhZynXFtshcDQN0HYkk1a4u7dRjBCMNb3KWLcfau6NwA61qA
-	IwcqG05w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/8oxjPS8tIOPkMuy0QEnU6ypDz8yfhs22Fv/dtcibj4=; b=HKQawN5RWTxTzcLvLIHZGvFJbR
+	66EGd0C/bycsGMF96WKe5x4tOskxHBusoeqzjEuDDFXuQFmMwudBjs5xQsclmPy00ORiUBI2XYUoP
+	gnwMrqfI2wELxDomX02/E+j/9OJyWKScFU6tZgYqsnUoLHM+9cQeAvuwzmX6vDhEHdFb/U4XF5+la
+	O3MYMZIPW/rvTqJo6N4j8ew/DQpDfGLi+stg1Auw0gCghJWoMeUeHjq4r/CykqDPXeaiAS+9lfKxg
+	0UCcGtQJ2+jAf63S3D4lFnhJuALpQSHAsEijmwpoqiBthBnV/24mWhFBRfu4p7nKXNi2eVnZT8iJg
+	1+i3TqLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tznVY-00000004uCL-0V9E;
-	Wed, 02 Apr 2025 02:07:12 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1tznsG-00000004wJ1-2zNu;
+	Wed, 02 Apr 2025 02:30:40 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tznTn-00000004tze-1g7m;
-	Wed, 02 Apr 2025 02:05:24 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id 98e67ed59e1d1-2ff6cf448b8so13452965a91.3;
-        Tue, 01 Apr 2025 19:05:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743559522; x=1744164322; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=o9gVv0/lFUKCYB76B/uhhr7mW5D0FE05CDx8S7RsfxM=;
-        b=aQHBwerDJ7uK5MyUfXX6fNG+WGwkfNErKIoSPaB6eyUTNsbcqaZ07J4pMmr7nhVGO2
-         2VkuGb5Vfq5vfkpu4BYKUDT3NmAueAji3LwkXfYJwXEPU20Dwv4k2aJ7eo3WMQ03mwh5
-         3ZXW1QmWSVhZBNS1KUCR3ImpSwwSSXz9oITIE6TBDyPo9u+DeKQoZIr2DPLpZ4bXR6Ag
-         eqOPaivJqN4Tgs3ul6EhkJl1EbDfiKakp4pqwBs1udY4RBgmi1GGxuucs9GwyTS4V4Hq
-         AO/KFbzD+/Y9T5iOEULcj887iPA0qC8e/8x+7hLyUw5U8Y/rIdMI5RKnBE/f3DYmpvCF
-         tFuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743559522; x=1744164322;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=o9gVv0/lFUKCYB76B/uhhr7mW5D0FE05CDx8S7RsfxM=;
-        b=ASmJfb7PTphzbIu2f8EU8WSbld25Dpgs0UXu8/gm2LYVWWuGVffQtS2Y58dxKoq03H
-         6LpICKVtZiKxPeOSvTvDIL1nI9klh8FfMtvmPa7d1gW3+D5PTh5ii2X25UwGIPi7uBzd
-         JcdDXnR4eSnJ6a+slPGnluaHPma6/jQRkFmGlA9TLpqOrc7JGmjms9Ho5Pwa0CRh6dca
-         xUR6+97KLVrucdNTFhf8lvCojI5QZPcs3irpiMGA3nVp7u/zzwL4sMb37KGN2U0b9254
-         zkb5x+1JhywJYFTF0tMwHECF64yhZYrchYb2kPoKEtiFDnBjFYiipsBHlHufDhuT7Bu8
-         JV/g==
-X-Forwarded-Encrypted: i=1; AJvYcCUJfmt5p2rdB4QsPFVykTYKlR34mSOAvgaD8uPJGidPiBqVu/P5in6312m+1Jl0tol4U8rkBEpkPQPyl2LJqnvp@lists.infradead.org, AJvYcCUdcKrjW2vkHykpGL2uV8YPxascMQPct19Mp+sZvH+hutzhIBFBdVKymRokjD0UT263wcVDfDyfo+8d5cD73EVZBQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXCfupmyFn34sF+rJjMgBS77srjNVFek7Y5Hv+2lm1j+FWEITN
-	WUIE2hObfmH8R2xl86BFdl3AMJQoQBhDmtp6sCa7oavBVdHyzm14yAZMG2GvPGobSw==
-X-Gm-Gg: ASbGnculhlajL2MlmoqTTnqWKul8+Q1lQb+FeWg6U/ryhCQ8jnsOYkQ7JjBC0FnABWK
-	U758+Gz99wJcCUjmr3lhVuHZm9S37GKHMBZ1JU0GBGGIH633pgRAhmwDRVFT3qNjw7oxqSJ37pz
-	WwDblpL5wF4P0pcg8hMBEt3kfucsEy6pk+gJ83dXyvfi1L4DKokG0CHzpumZUjNfSFeFDMXaC3o
-	I15MQzD860c8PBWoE/GO0P/V3B54+LamyleLjSXWkxod62l1UKMBPEDsYbojl9MAUj8ucJerCZm
-	WJh76K+b0gWR3q9QC9Yr/2txnHgB2aOycqqBrVj4YdazFNVnOhHTnwQtSbuhwfBrTpZ9ucw=
-X-Google-Smtp-Source: AGHT+IGYOTfs8itG/9LV0cKs2C451I86DIdU7xhHpNkIKc6/RhBynUFKMtIV+3x5zV3ZEehIEE3Ehw==
-X-Received: by 2002:a17:90b:518d:b0:2ee:e945:5355 with SMTP id 98e67ed59e1d1-3056ee5bb27mr1165789a91.19.1743559522249;
-        Tue, 01 Apr 2025 19:05:22 -0700 (PDT)
-Received: from henry.localdomain ([111.202.148.167])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291f1cf51asm96808645ad.151.2025.04.01.19.05.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 19:05:21 -0700 (PDT)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: dave.stevenson@raspberrypi.com
-Cc: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	popcornmix@gmail.com,
-	mripard@kernel.org,
-	u.kleine-koenig@baylibre.com,
-	linux-clk@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	nathan@kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>
-Subject: [PATCH v2] clk: bcm: rpi: Add NULL check in raspberrypi_clk_register()
-Date: Wed,  2 Apr 2025 10:05:13 +0800
-Message-Id: <20250402020513.42628-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <CAPY8ntAFHW3kiqCnXjFtzL9FnRoQ69v8+3yJ+jR8_W8Bb+6d8A@mail.gmail.com>
-References: <CAPY8ntAFHW3kiqCnXjFtzL9FnRoQ69v8+3yJ+jR8_W8Bb+6d8A@mail.gmail.com>
+	id 1tznqW-00000004w2x-44Mv
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Apr 2025 02:28:55 +0000
+Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250402022841epoutp01f27b29b280d0151d9ec3aa53361c2f7d~yX2uUQRjm2434724347epoutp016
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  2 Apr 2025 02:28:41 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250402022841epoutp01f27b29b280d0151d9ec3aa53361c2f7d~yX2uUQRjm2434724347epoutp016
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1743560921;
+	bh=/8oxjPS8tIOPkMuy0QEnU6ypDz8yfhs22Fv/dtcibj4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RrTiGCazqXXGnb00v9VBfymeqRov+Ym1dHvM0GZ6vpqnYalg8kOlIHAhV+kU76asI
+	 o4MUMRUFNjHvS65pwkEVE9gL4KQ2lOZeFZ4G0h7oFJGDzdVG0qJrds1wnVbSmTgxpO
+	 YvX5n0PKLzjy15YRbNW1Ssn9vsDZB4/FIbPk8Djk=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250402022840epcas2p287e4e041182a3af00852cadacbcf30ef~yX2tu_Zg12874028740epcas2p24;
+	Wed,  2 Apr 2025 02:28:40 +0000 (GMT)
+Received: from epsmges2p4.samsung.com (unknown [182.195.36.68]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4ZS81h1T4Dz2SSKd; Wed,  2 Apr
+	2025 02:28:40 +0000 (GMT)
+Received: from epcas2p3.samsung.com ( [182.195.41.55]) by
+	epsmges2p4.samsung.com (Symantec Messaging Gateway) with SMTP id
+	0E.AC.09871.8D0ACE76; Wed,  2 Apr 2025 11:28:40 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250402022839epcas2p418dd591006fe8a00ecba240a3b60baaf~yX2sxd8oz1178711787epcas2p4d;
+	Wed,  2 Apr 2025 02:28:39 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250402022839epsmtrp207b0765e1a3566a3b11851eb31b81dd6~yX2swXerG2617026170epsmtrp24;
+	Wed,  2 Apr 2025 02:28:39 +0000 (GMT)
+X-AuditID: b6c32a48-b95f07000000268f-87-67eca0d8adcf
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	11.D6.08805.7D0ACE76; Wed,  2 Apr 2025 11:28:39 +0900 (KST)
+Received: from perf (unknown [10.229.95.91]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250402022839epsmtip12afaf422178eadf15f85237be9f86c93~yX2sc-fs01452614526epsmtip1X;
+	Wed,  2 Apr 2025 02:28:39 +0000 (GMT)
+Date: Wed, 2 Apr 2025 11:32:57 +0900
+From: Youngmin Nam <youngmin.nam@samsung.com>
+To: William McVicker <willmcvicker@google.com>
+Cc: John Stultz <jstultz@google.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Peter Griffin
+	<peter.griffin@linaro.org>, =?iso-8859-1?Q?Andr=E9?= Draszik
+	<andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Rob
+	Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+	Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Daniel
+	Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Saravana Kannan <saravanak@google.com>, Krzysztof Kozlowski
+	<krzk@kernel.org>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	tigersoundkim@gmail.com
+Subject: Re: [PATCH v1 3/6] clocksource/drivers/exynos_mct: Set local timer
+ interrupts as percpu
+Message-ID: <Z+yh2UUwxUz/vRbK@perf>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z-wWA-46L08V89qK@google.com>
+X-Brightmail-Tracker: H4sIAAAAAAAAA01Tf1DTZRzm3b77bqNbfp2YL4S0ptFJAhtt7KUDrxrVt/KC6rg4PIUBXzdk
+	bGs/PPrhSYFKwxM0uYOpyK9iNyfgGHOohE5FggTvCjFC0CMISEBYmdcha2Oz47/nfT7P836e
+	z33el0XnzuNhrDyVntKqZEo+How5rm6RRN+pfSAX1DQz0b0aB47sM20Ymv/+MEDWzn4aqnFv
+	RKev9TPQUs85HDnPh6Bp0yiOBgZamcg2fpuBfr5wEkdVAz/QUGvVMoY8l5xMZHQ9wVGbrZKO
+	bg0OYGhxeBcqGREjy6IHvL6edFx0MEhrjRWQHaa7TLLWZiBtlm9wcuT2JZyc6+9nkm2N+8kj
+	dgsg3baI1OCM/EQFJcultDxKlaPOzVPJk/jvf5wpzRTHC4TRwgQk4fNUsgIqiZ+8PTX67Tyl
+	dz4+b69MafBSqTKdjh+7LVGrNugpnkKt0yfxKU2uUiPRxOhkBTqDSh6jovSvCQWCOLFXmJWv
+	OH7ATNO4OYUtvWfoRaD2GSNgsyAhgo1//YoZQTCLSzgBNM1OMfyHRQDtp44FKo8AnByqpz21
+	VFw5RfMXOgHs7h4LWO4DaCl3rqgwYjPstfQxfRgnoqGjZxkYAYsVQsTApQOFPj2d8DDgnXPn
+	gU+zjsiGV+a/xXwaDrEJXq9L8dEcYi38sfp3zIfZRBScnhun+7yQKGdD55+/4P5EybDiURnm
+	x+vgzA0704/DoHuuM6DRwaKx4YC5BMDeoSm6v/AqNE0eWglBJxTQaL7O9IWA3hDXhjE//Sws
+	vfokQHNg6UGu3xkJ/z3eCvw4HF5sMAduJGFXU8NKWy5hpcFb9Z9WgAjTqnFMq5qZvLfSiS2w
+	5UKsn34BFrefoPvp52HTMmuVohbgFvAcpdEVyCldnEb0/65z1AU2sPLyo0gnODH7MMYFaCzg
+	ApBF54dw0v+elnM5ubLPPqe06kytQUnpXEDs3dJRetj6HLX366j0mUJRgkAUHy+UxIkFEv4G
+	jmthQs4l5DI9lU9RGkr71EdjscOKaGl9utGsobMkDTAdh3jlD7s+it8XldLeHbljh3F/NR9t
+	tGYnz7Ijij958x2HcU2kvSp3oblsJ2PkpULzH7acmamUF5stxBvSlP57c/u23uzq7itFOYku
+	xC9pcXTsnuC8NZV+84MKjH1m3BOy6eBOj2jhw4LLoscll4Pd6UGisLSMiL1BipfjMnavDXe3
+	72EebYs/6dlqHpQSE4xjEvGGSiohXfGu5r0vJtuzZkbrouzmbdt5PdIvg3/qG9QW1wiCbpzt
+	qD/dwLkv/vofw+Dj+iawJjzu8FfSPaHGlPQy6YNY5dgrgwONprvfLVRWLw1N9iWHTrQcmRaF
+	/pZtTdtVt7nDw8d0Cpkwiq7Vyf4DmLJZ64IEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrEIsWRmVeSWpSXmKPExsWy7bCSnO71BW/SDT7+V7J4MG8bm8WWV5tZ
+	LN4v62G0WLP3HJPFvM+yFvOPnGO1+HNiI5vFju0iFi9n3WOzOH9+A7vFpsfXWC0u75rDZjHj
+	/D4miw0z/rFY/N+zg92i69BfNovNm6YyW1y4ep7F4tOtOIuWO6YWqz79Z3QQ9di2exurx5p5
+	axg9ds66y+6xYFOpx6ZVnWwed67tYfN4d+4cu8fmJfUefVtWMXp83iQXwBXFZZOSmpNZllqk
+	b5fAlXF1yQbmgqncFd/39DA3MN7j6GLk5JAQMJGYcHAuUxcjF4eQwG5Gic+fLzFCJGQkbq+8
+	zAphC0vcbznCClF0n1Fi1sEZzCAJFgEViVOrTrOD2GwCuhLbTvwDaubgEBHQk/jTWgFSzyzQ
+	ySbR/fwuE0iNsECSxMH3k1lAangFlCWOLvSHmLmGSeL43l1gc3gFBCVOznzCAmIzC6hL/Jl3
+	iRmknllAWmL5Pw6IsLxE89bZYCdwCmhJvHz3mHkCo+AsJN2zkHTPQuiehaR7ASPLKkbJ1ILi
+	3PTcYsMCo7zUcr3ixNzi0rx0veT83E2M4GjW0trBuGfVB71DjEwcjIcYJTiYlUR4I76+TBfi
+	TUmsrEotyo8vKs1JLT7EKM3BoiTO++11b4qQQHpiSWp2ampBahFMlomDU6qBSczw6vq2L1p/
+	/ixS9eRevH2BekX4NHPhm6vi92S7L3FymLIiS/WZxIpiiVbfbVY2QVKyvzgmKx56J756mhOT
+	TUnf0fO8fIf809n/lGsWJS/bttz1peNhmeCVO7dWSj/fmyvwmNM5pFLwmh3zx9AJs7fab/jP
+	P9/yy26fLbWNnA9yz9a8bylb2xa86sqmi9vDj7m+Notmufri6fSAI/c2zf2x6OkWa4WHivXi
+	10u2TljKaqK8SHC1mGHQAasVs/X4NH6y7XXqsHufvetgzoOShWsTFaVOZ8zR27EqzOxX56//
+	i69ELuXj4TuWt4LRweBuT8ymj/u368zuf61V/jVPgzPljMVFFrbFSsaK+zncdiqxFGckGmox
+	FxUnAgBuIFEVVQMAAA==
+X-CMS-MailID: 20250402022839epcas2p418dd591006fe8a00ecba240a3b60baaf
+X-Msg-Generator: CA
+Content-Type: multipart/mixed;
+	boundary="-----xErIy8MFyp5znNcbVfGOYxfVuB8z5fzEV-ls754GuccR_q1=_74052_"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250401163914epcas2p1a16e2b7a6ecac9f010ef6eb4c8efc6fb
+References: <20250331230034.806124-1-willmcvicker@google.com>
+	<20250331230034.806124-4-willmcvicker@google.com>
+	<CANDhNCqNqXfGgvo8vNof1qi3E3jejk5KBD=oedZp2_p8RKZdjw@mail.gmail.com>
+	<CGME20250401163914epcas2p1a16e2b7a6ecac9f010ef6eb4c8efc6fb@epcas2p1.samsung.com>
+	<Z-wWA-46L08V89qK@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_190523_593103_217A807A 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20250401_192853_740287_B6BE2939 
+X-CRM114-Status: GOOD (  29.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,35 +151,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_kasprintf() returns NULL when memory allocation fails. Currently,
-raspberrypi_clk_register() does not check for this case, which results
-in a NULL pointer dereference.
+-------xErIy8MFyp5znNcbVfGOYxfVuB8z5fzEV-ls754GuccR_q1=_74052_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
 
-Add NULL check after devm_kasprintf() to prevent this issue.
+On Tue, Apr 01, 2025 at 09:36:19AM -0700, William McVicker wrote:
+> On 03/31/2025, John Stultz wrote:
+> > On Mon, Mar 31, 2025 at 4:00 PM 'Will McVicker' via kernel-team
+> > <kernel-team@android.com> wrote:
+> > >
+> > > From: Hosung Kim <hosung0.kim@samsung.com>
+> > >
+> > > The MCT local timers can be used as a per-cpu event timer. To prevent
+> > 
+> > Can be used, or are used?  If it's an option, is this change important
+> > in both cases?
+> > 
+> > > the timer interrupts from migrating to other CPUs, set the flag
+> > > IRQF_PERCPU.
+> > 
+> > Might be work expanding this a bit to clarify why the interrupts
+> > migrating to other cpus is undesired.
+> 
+> Let me dig into this further to figure out if the IP has a limitation where the
+> interrupts need to be handled by the CPU the timer was triggered on or if this
+> is just an optimization.
+> 
+> Any chance you know this @Youngmin?
+> 
+> Thanks,
+> Will
+> 
 
-Fixes: 93d2725affd6 ("clk: bcm: rpi: Discover the firmware clocks")
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-Reviewed-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
----
-V1 -> V2: Correct the commit hash in the Fixes: tag.
+Hi Will.
 
- drivers/clk/bcm/clk-raspberrypi.c | 2 ++
- 1 file changed, 2 insertions(+)
+Yes. In downstream, we’ve been using MCT as the clock event timer instead of the ARM timer.
+Setting this flag allows each CPU to handle its own clock events, such as scheduling interrupts.
 
-diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
-index 0e1fe3759530..720acc10f8aa 100644
---- a/drivers/clk/bcm/clk-raspberrypi.c
-+++ b/drivers/clk/bcm/clk-raspberrypi.c
-@@ -286,6 +286,8 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
- 	init.name = devm_kasprintf(rpi->dev, GFP_KERNEL,
- 				   "fw-clk-%s",
- 				   rpi_firmware_clk_names[id]);
-+	if (!init.name)
-+		return ERR_PTR(-ENOMEM);
- 	init.ops = &raspberrypi_firmware_clk_ops;
- 	init.flags = CLK_GET_RATE_NOCACHE;
- 
--- 
-2.34.1
+> > 
+> > > Signed-off-by: Hosung Kim <hosung0.kim@samsung.com>
+> > > [Original commit from https://android.googlesource.com/kernel/gs/+/03267fad19f093bac979ca78309483e9eb3a8d16]
+> > > Signed-off-by: Will McVicker <willmcvicker@google.com>
+> > 
+> > thanks!
+> > -john
+> 
+> 
 
+-------xErIy8MFyp5znNcbVfGOYxfVuB8z5fzEV-ls754GuccR_q1=_74052_
+Content-Type: text/plain; charset="utf-8"
+
+
+-------xErIy8MFyp5znNcbVfGOYxfVuB8z5fzEV-ls754GuccR_q1=_74052_--
 
