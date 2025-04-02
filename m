@@ -4,80 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5A6C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 11:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF90C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 11:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i/UulBYdiAs8NI+343jqG2cZsxfHqvbNkSfv0T3pGDg=; b=sAIIEVL+gVyg2nFJgR0ZmgFgnp
-	DJWvqeVxd0jdehybq5oVvaW2akvJE9hUf7fEpSh6I+X9ttj7teYhXjtY+PxXYTozqWFCgly9LmcSp
-	OAKNognYG3I65P1796ACqkFJThMLKIt6+pIdwVUH0/Q+Nk3GPZVV256NC8Wy1yBXrhrqpl6nbSQZG
-	U3hYnQic0cE6wp7xAef1X7Fho2qo+SSmJDp425ueH9JILeRdSOb+ycOy/Ihn3nwj5kkRQOnu2v/QQ
-	6aC1BC/FqcOveg/KV3KN1u4bJN3eg6M22yDfbTbeab8Td0ER3KgYX6pzcVrKSEUOqYGkbNDfAXgKv
-	Dyfy9n1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pyUSuNL69M6kmh09zKLoG/A/RhPHSQoEpCqx+VUsHvs=; b=E3TPTiNEFGBKKqd8It7I/nz9yO
+	+eGFu+E9SS8kvpUs7X18uT9k3P6t4mdVZOBkE5tY4R0B52GWUmdM2omnA2dyiE+nXrLLWS9o1XOo/
+	i3/ADFOcoqGKK8mt+JX1ZWSj4BwwpbSY3DdcCVyyd9I03vMWcC+Jwb/Wgvl+DsqV8YGS2rDKlc0Z5
+	HYDTUFXZM9PhZVHM/+wWnoZZa+dsWlFWNkzQJhScjYRoTuIYWQXR85fmBK6rDP71GcS7P0tae1FvE
+	hp+SCs94wgE2CkDsTK3YB8on9P7qPX2xJw3lYkEyBn0Dlk2Y4gFyfCiolLPgQ24yuaTo38LwNgYOX
+	4NlPe1cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzvsZ-00000005s3I-2WSJ;
-	Wed, 02 Apr 2025 11:03:31 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tzw2O-00000005sm9-2IyK;
+	Wed, 02 Apr 2025 11:13:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzvpv-00000005rJi-1z17
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 11:00:48 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43cfa7e7f54so4390535e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 04:00:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743591645; x=1744196445; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=i/UulBYdiAs8NI+343jqG2cZsxfHqvbNkSfv0T3pGDg=;
-        b=JeulsJ6y47/XoqptQq9UZF39LtK3oL8GXhGfuQ457uXtVA7xdCxn6Cjho8liCZstBW
-         fgja2BFshq3jyT9CK9R7Gl6L7CihPAv77JiZgMcthWdQFXxpIUG8dSkPQu1OK/Hmo9Q0
-         lIpnwU6JAZ1lV8tADSiORckUoTVIGE02yv6dT1I8vN4SIVZyebF+giPdTavqL6UCpR3f
-         J3nEOO2w/eceKblSS3kY75M9umnnKUojz37MDNiA51yotB9iQZbd191b8bNV00bDge3c
-         3f1cCNN03v3QXEumd7c8SUCA6UpVyBK4Sj8EyoqR8YTZQjzrEQCGKDxFtQx2VVX1Cj4V
-         geiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743591645; x=1744196445;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=i/UulBYdiAs8NI+343jqG2cZsxfHqvbNkSfv0T3pGDg=;
-        b=jj4XyVauEuaPA77JUHFlZ2AF3PW/JJruhw7I6h2Gio3Q+7StBWeyJDfcyslYNabQ9N
-         JWRFi+pAtNew9hXlujVTUbqlcuUKAz/ZEol3NJN2YnZqUK+wSwJDnIQM0l8qXeoEMiux
-         qon9ExbxVwUl0g1pP4rDz3sVPlQZQW9Mhjv7zKnkLCp48K04za7K+qofmBPjX5iQh6yi
-         lffrt+VTqVEFEexJ0K+bMgcGOfIdSC/siBRVKMtaK+rsWfHzmJK1fem0HiDmNH78iE/i
-         jlu6yT439G8821ongximvxH3xL+lI8GUREUQA3+gQfU/Dx6mTmD/5Ce5tXYC9h7kMaK2
-         aapQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXjvouD0T2SrK/pUbAx7QSv8Bn6fIjIXXjTRWJz1jaAGr1fva4OL3uXS94/h5/ox8ZSP91bj2qL3mfnG2NCBj++@lists.infradead.org
-X-Gm-Message-State: AOJu0YykqQxcBao2DgR/1pFP/UbQXeQiDrMvdGyAJj7fdvHZ4Pv12Jop
-	EWxyzaVBcF9OIOn7SYf5U+v/Hm0ril6dl/ul881ghrjRPtM7haoCTTDVpn0qj7E=
-X-Gm-Gg: ASbGncsowycTPRUIU02/JGl186MXXSIK8Rs/ta8Mo7QW+edhIyaFijMwWo4JYFMpeaK
-	87HIDN/ZiPeJfpnCqdcNaHASMNSUnleVZgn022w9FyNNQsIY/ACSRvdq2XT1hDs3mDN2Y/opfTI
-	mrlOMYbcgvO9oZqqaLKHYW/+e+sNAXk1WwQ6l1cCCYXw61OGwYtbcgIR0NLQYQOLEgRG4GSrbc2
-	705b/GBCZd+XzGEEYc3IO5ZUB20RVfNRuufzw4Vv8iROhddG0PVwOMJukqg68XNFfrb8eHNIXOc
-	uNrMSOKQL8efM73hegsBJeZ8m51qOb0+iu3JtjdbVU3A4IDo180bthLiChoZ
-X-Google-Smtp-Source: AGHT+IGchfl0mYwka5BXBX1Sq5jgUke7KKqVrFSNCmqNY4h64bS2XE4ANLfavmmVnoTJXtdTPmUBmQ==
-X-Received: by 2002:a05:600c:a015:b0:43d:fa5f:7d30 with SMTP id 5b1f17b1804b1-43eb71e27bdmr17037115e9.16.1743591645316;
-        Wed, 02 Apr 2025 04:00:45 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43eb6110989sm16877945e9.31.2025.04.02.04.00.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Apr 2025 04:00:44 -0700 (PDT)
-Date: Wed, 2 Apr 2025 14:00:42 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: James Clark <james.clark@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: [bug report] coresight: Dynamically add connections
-Message-ID: <3b026b3f-2cb2-49ef-aa20-8b14220f5324@stanley.mountain>
+	id 1tzw0e-00000005sgP-2sqE;
+	Wed, 02 Apr 2025 11:11:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E44261145;
+	Wed,  2 Apr 2025 11:11:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00991C4CEDD;
+	Wed,  2 Apr 2025 11:11:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743592311;
+	bh=UqhKSL65Dxgk2dVyb4tCArOqKN+10TQqPqttHJ0QJO8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Js1F89MZ7mNqy+1Rx8WRbvLFGAnn2kyc2xk0D+jRJgnpYglHNNXsre5BwSajoXQfx
+	 z/7Xu4ofH+VNbrxEI5IbjrJOkoE0xTlmrWLfz4E9roXufyg/9MaSMoMpV4JdsYxzw6
+	 dLR1Li/2S8SAU5llwUTxs7P38xefN0Rr1OGrSAblHNcJzpFfeb3J3QV/TCKO7LEqs0
+	 X9wkOlEipCmvqyd+482RTngII0StYMWDcxMWTO5EYbqYXMCSPFjbu6UKAhc0RTmnee
+	 k2nqn36OmTL57W9u9X8XDLieQAs/ax7pDXmDmjp1pa6gW9jG9JlXDd4Erraijhkr28
+	 dC985VtQWHccA==
+Message-ID: <860ae623-f33f-4cfe-be08-6bb6524ecf94@kernel.org>
+Date: Wed, 2 Apr 2025 13:11:43 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_040047_512187_FE4C7135 
-X-CRM114-Status: GOOD (  11.30  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: Add VCP support for mt8196
+To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com, jjian.zhou@mediatek.com,
+ hailong.fan@mediatek.com
+References: <20250402092134.12293-1-xiangzhi.tang@mediatek.com>
+ <20250402092134.12293-2-xiangzhi.tang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250402092134.12293-2-xiangzhi.tang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,105 +121,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello James Clark,
+On 02/04/2025 11:19, Xiangzhi Tang wrote:
+> +
+> +description:
+> +  The MediaTek VCP enables the SoC control the MediaTek Video Companion Risc-V coprocessor.
 
-Commit 3d4ff657e454 ("coresight: Dynamically add connections") from
-Apr 25, 2023 (linux-next), leads to the following Smatch static
-checker warning:
+Wrap at coding style.
 
-	drivers/hwtracing/coresight/coresight-platform.c:279 of_coresight_parse_endpoint()
-	warn: inconsistent refcounting 'rep->kobj.kref.refcount.refs.counter':
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - mediatek,mt8196-vcp
+> +
+> +  reg:
+> +    items:
+> +      - description: sram base
+> +      - description: cfg group IO
+> +      - description: cfg core group IO
+> +      - description: cfg sec group IO
+> +      - description: vcp rdy group IO
+> +
+> +  reg-names:
+> +    items:
+> +      - const: sram
+> +      - const: cfg
+> +      - const: cfg_core
+> +      - const: cfg_sec
+> +      - const: vcp_vlp_ao_rsvd7
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  mboxes:
+> +    description:
+> +      Using mailbox to communicate with VCP, it should have this
+> +      property and list of phandle, mailbox specifiers. See
+> +      Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+> +      for details.
 
-drivers/hwtracing/coresight/coresight-platform.c
-    196 static int of_coresight_parse_endpoint(struct device *dev,
-    197                                        struct device_node *ep,
-    198                                        struct coresight_platform_data *pdata)
-    199 {
-    200         int ret = 0;
-    201         struct of_endpoint endpoint, rendpoint;
-    202         struct device_node *rparent = NULL;
-    203         struct device_node *rep = NULL;
-    204         struct device *rdev = NULL;
-    205         struct fwnode_handle *rdev_fwnode;
-    206         struct coresight_connection conn = {};
-    207         struct coresight_connection *new_conn;
-    208 
-    209         do {
-    210                 /* Parse the local port details */
-    211                 if (of_graph_parse_endpoint(ep, &endpoint))
-    212                         break;
-    213                 /*
-    214                  * Get a handle on the remote endpoint and the device it is
-    215                  * attached to.
-    216                  */
-    217                 rep = of_graph_get_remote_endpoint(ep);
-    218                 if (!rep)
-    219                         break;
-    220                 rparent = of_coresight_get_port_parent(rep);
-    221                 if (!rparent)
-    222                         break;
-    223                 if (of_graph_parse_endpoint(rep, &rendpoint))
-    224                         break;
-    225 
-    226                 rdev_fwnode = of_fwnode_handle(rparent);
-    227                 /* If the remote device is not available, defer probing */
-    228                 rdev = coresight_find_device_by_fwnode(rdev_fwnode);
-    229                 if (!rdev) {
-    230                         ret = -EPROBE_DEFER;
-    231                         break;
-    232                 }
-    233 
-    234                 conn.src_port = endpoint.port;
-    235                 /*
-    236                  * Hold the refcount to the target device. This could be
-    237                  * released via:
-    238                  * 1) coresight_release_platform_data() if the probe fails or
-    239                  *    this device is unregistered.
-    240                  * 2) While removing the target device via
-    241                  *    coresight_remove_match()
-    242                  */
-    243                 conn.dest_fwnode = fwnode_handle_get(rdev_fwnode);
-    244                 conn.dest_port = rendpoint.port;
-    245 
-    246                 /*
-    247                  * Get the firmware node of the filter source through the
-    248                  * reference. This could be used to filter the source in
-    249                  * building path.
-    250                  */
-    251                 conn.filter_src_fwnode =
-    252                         fwnode_find_reference(&ep->fwnode, "filter-source", 0);
-    253                 if (IS_ERR(conn.filter_src_fwnode)) {
-    254                         conn.filter_src_fwnode = NULL;
-    255                 } else {
-    256                         conn.filter_src_dev =
-    257                          coresight_find_csdev_by_fwnode(conn.filter_src_fwnode);
-    258                         if (conn.filter_src_dev &&
-    259                             !coresight_is_device_source(conn.filter_src_dev)) {
-    260                                 dev_warn(dev, "port %d: Filter handle is not a trace source : %s\n",
-    261                                          conn.src_port, dev_name(&conn.filter_src_dev->dev));
-    262                                 conn.filter_src_dev = NULL;
-    263                                 conn.filter_src_fwnode = NULL;
-    264                         }
-    265                 }
-    266 
-    267                 new_conn = coresight_add_out_conn(dev, pdata, &conn);
-    268                 if (IS_ERR_VALUE(new_conn)) {
-    269                         fwnode_handle_put(conn.dest_fwnode);
-    270                         return PTR_ERR(new_conn);
+Drop entire description, redundant.
 
-Should this be a break statement instead of return statement?
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +
 
-    271                 }
-    272                 /* Connection record updated */
-    273         } while (0);
-    274 
-    275         of_node_put(rparent);
-    276         of_node_put(rep);
-    277         put_device(rdev);
-    278 
---> 279         return ret;
-    280 }
+No, you do not get your own type. Instead list items or just maxItems.
 
-regards,
-dan carpenter
+
+> +  mbox-names:
+> +    maxItems: 5
+
+No, you must list the items.
+
+> +
+> +  power-domains:
+> +    description:
+> +      A phandle and PM domain specifier as defined by bindings
+> +      of the power controller specified by phandle. See
+> +      Documentation/devicetree/bindings/power/power-domain.yaml for details.
+
+Look how other bindings do it. Do not repeat obvious stuff, do not
+develop bindings entirely different than all others.
+
+> +    maxItems: 1
+> +
+> +  iommus:
+> +    description:
+> +      Using MediaTek iommu to apply larb ports for Multimedia Memory
+> +      Management Unit and address translation
+> +      Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+
+Really, look at other code first.
+
+> +
+> +  memory-region:
+> +    maxItems: 1
+> +
+> +  vcp-mem-tbl:
+> +    description:
+> +      Manage reserved memory for VCP RTOS FW and various features.
+
+No, reserved memory is in memory-region. Drop property.
+
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 2
+> +    maxItems: 12
+> +
+> +patternProperties:
+> +  "^vcp_[a-f0-9]+$":
+
+Follow DTS coding style.
+
+Heh, nothing here was really tested and you have obvious bugs pointed
+out by simple testing of DTS.
+
+Why these children are needed in the first place? Offsets are implied by
+parent compatible.
+
+> +    type: object
+> +    description:
+> +      The MediaTek VCP integrated to SoC might be a multi-core version.
+> +      The other cores are represented as child nodes of the boot core.
+> +      There are some integration differences for the IP like the usage of
+> +      address translator for translating SoC bus addresses into address
+> +      space for the processor.
+> +
+> +      The SRAM are shared by all cores, each VCP core only using a piece
+> +      SRAM memory. The power of SRAM should be enabled before booting VCP cores.
+> +      The size of SRAM are varied on differnt SoCs.
+> +
+> +      The VCP cores has differences on different SoCs to support for
+> +      Hart.
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - mediatek,vcp-core
+> +          - mediatek,mmup-core
+> +
+> +      twohart:
+
+Missing vendor prefix, look at writing bindings and other examples.
+
+> +        enum: [0, 1]
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +      sram-offset:
+> +        description:
+> +          Allocated SRAM memory for each VCP core used.
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +    required:
+> +      - compatible
+> +      - twohart
+> +      - sram-offset
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - mboxes
+> +  - mbox-names
+> +  - power-domains
+> +  - iommus
+> +  - memory-region
+> +  - vcp-mem-tbl
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/power/mt8196-power.h>
+> +
+> +    vcp: vcp@31800000 {
+> +        compatible = "mediatek,mt8196-vcp";
+> +        reg = <0x31800000 0x60000>,
+> +              <0x31a04000 0xa000>,
+> +              <0x31bd0000 0x1000>,
+> +              <0x31a70020 0x100>,
+> +              <0x1c00091c 0x4>;
+
+Quite different address,  are you sure this is still part of this
+device? Looks like on register.
+
+
+Best regards,
+Krzysztof
 
