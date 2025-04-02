@@ -4,53 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F430C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 14:00:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F754C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 14:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Ah+dfF8nmrM1KE0GiEdzpn3bLNRowCcPmaEEpkFEgU=; b=sb7KwjvgHtXhKyHgYZn7PLk3fO
-	PKKz+CPhyA5noewZQr/XtLXrcDXRUjofOX8PfAVSc6ZQ9HS8ujAXlXaPT/286aIZh+Mr58gjkCEl9
-	eZ5qbOS/LRf86vgBzny/n5dO5YBC/CpM+A0kYpGbtKaG9XL/QR2h/ooS2puUEzIUHTtuOEgdiAcvD
-	cbts5K0d9wjYVsSdj5wQe7sdgESOv6cLZ8hnjxjyBWatcImTyIihLi+YuuP0c/7KjEDlRYIq1p9AQ
-	AhO4VSlHDJ8phGqszpqil4qeg7NR0DkdS7arKKFzdCjEC2L+oUFwxem1dfcOJFHGk1Ngfu5+YJvDb
-	yr6Je2gA==;
+	bh=CwAlC5wT0bTBCsRyRSkhWOBavzqOW8OG3UQalrflpXA=; b=pUcpbZGicbknf828VaoPzDnAh6
+	u+CaRZxYjoNv5FUgi8KLiQyu8cNzqFZQ3fNPmicREhOzsSOa7S9WlZU60chnqlB2aiYOJ2h0ipYNq
+	amclu8nbNGqyIbBNh9FFgUoaI4xns8mBmK++jqLdgRvwleexaEL30TV6l0Yo28a/hDgy0ZkX3VlJ8
+	VbnSUh8bI3vECZiwJX628pkAJAr2CrZ0vjVdPgMBTaePh2/ULWBLwpLsggjs/qP5zmj3+4Dj+zFqn
+	dPV6lBrfquaU2rCBvV5pYyWI5UY4RdoL0fgv3CWJENFtIDFs4PXGi3KfV7j1I1JD98/QERTVoKU/u
+	fsKXqTqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzydM-00000006KU7-35Uk;
-	Wed, 02 Apr 2025 14:00:00 +0000
+	id 1tzyrG-00000006MdL-2dIv;
+	Wed, 02 Apr 2025 14:14:22 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzybb-00000006KDN-0xdV
+	id 1tzypV-00000006MO6-2yIG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 13:58:12 +0000
+	Wed, 02 Apr 2025 14:12:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A7401007;
-	Wed,  2 Apr 2025 06:58:13 -0700 (PDT)
-Received: from bogus (unknown [10.57.41.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E55B13F63F;
-	Wed,  2 Apr 2025 06:58:08 -0700 (PDT)
-Date: Wed, 2 Apr 2025 14:58:06 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev, maz@kernel.org, mark.rutland@arm.com,
-	lpieralisi@kernel.org, catalin.marinas@arm.com,
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DC3F1007;
+	Wed,  2 Apr 2025 07:12:36 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C61B23F63F;
+	Wed,  2 Apr 2025 07:12:32 -0700 (PDT)
+Date: Wed, 2 Apr 2025 15:12:28 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Yabin Cui <yabinc@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] smccc/kvm_guest: Remove the accidental semicolon
-Message-ID: <20250402-independent-hyrax-of-honor-4515fb@sudeepholla>
-References: <20250402134401.146156-1-shameerali.kolothum.thodi@huawei.com>
+Subject: Re: [PATCH v2 3/3] coresight: core: Disable helpers for devices that
+ fail to enable
+Message-ID: <20250402141228.GL115840@e132581.arm.com>
+References: <20250402011832.2970072-1-yabinc@google.com>
+ <20250402011832.2970072-4-yabinc@google.com>
+ <CALJ9ZPOvcxswvfbpWkXgJ=WL+HLa33nm0ZzHogYNZ9keXfi1MA@mail.gmail.com>
+ <20250402133232.GJ115840@e132581.arm.com>
+ <CAJ9a7Vg4DGzPhnSBh2taTgUTORMY3GUPpJY2bHjkMdFB1=wP=Q@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250402134401.146156-1-shameerali.kolothum.thodi@huawei.com>
+In-Reply-To: <CAJ9a7Vg4DGzPhnSBh2taTgUTORMY3GUPpJY2bHjkMdFB1=wP=Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_065811_329549_CC00C7BD 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250402_071233_815754_A1A28E3C 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,22 +71,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 02:44:01PM +0100, Shameer Kolothum wrote:
-> Fixes cocci reported warning:Unneeded semicolon
+On Wed, Apr 02, 2025 at 02:50:22PM +0100, Mike Leach wrote:
+
+[...]
+
+> > > > @@ -465,7 +465,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+> > > >                 /* Enable all helpers adjacent to the path first */
+> > > >                 ret = coresight_enable_helpers(csdev, mode, path);
+> > > >                 if (ret)
+> > > > -                       goto err;
+> > > > +                       goto err_helper;
+> > > >                 /*
+> > > >                  * ETF devices are tricky... They can be a link or a sink,
+> > > >                  * depending on how they are configured.  If an ETF has been
+> > > > @@ -480,14 +480,8 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+> > > >                 switch (type) {
+> > > >                 case CORESIGHT_DEV_TYPE_SINK:
+> > > >                         ret = coresight_enable_sink(csdev, mode, sink_data);
+> > > > -                       /*
+> > > > -                        * Sink is the first component turned on. If we
+> > > > -                        * failed to enable the sink, there are no components
+> > > > -                        * that need disabling. Disabling the path here
+> > > > -                        * would mean we could disrupt an existing session.
+> > > > -                        */
+> > > >                         if (ret)
+> > > > -                               goto out;
+> > > > +                               goto err;
 > 
+> Going to err here is wrong. The comment above specifically states that
+> we do _not_ want to disable the path, yet the new code flow disables
+> helpers.
 
-There was similar patch on the list [1] few days ago.
+Okay, now I understand here avoids to disable source and links for a
+sink error.
 
-> Fixes: 86edf6bdcf05 ("smccc/kvm_guest: Enable errata based on implementation CPUs")
+> then falls through to coresight_disable_path_from() - which
+> the original code avoided and which also disables helpers a second
+> time.
 
-^^^ Is this really necessary as they get backported as well ?
+Seems to me, the conclusion for "disables helpers a second time" is
+incorrect.
 
-Since, KVM maintainers are in cc-ed, let me know if you guys want to pick
-this ? Else I can send it as part of my firmware (ffa/scmi) fixes.
+I checked the coresight_disable_path_from() function, when the current
+'nd' is passed to it, it will iterate from the _next_ node after 'nd'.
 
--- 
-Regards,
-Sudeep
+   /* Here 'nd' will be skipped and start from the next node */
+   list_for_each_entry_continue(nd, &path->path_list, link) {
+       ...
 
-[1] https://lore.kernel.org/all/20250326040659.1190696-1-nichen@iscas.ac.cn
+       coresight_disable_helpers(csdev, path);
+   }
+
+This means the _current_ coresight device (here is sink device) will
+not disable its helpers.  Could you confirm for this?
+
+Thanks,
+Leo
 
