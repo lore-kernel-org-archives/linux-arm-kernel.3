@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F2ECC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 20:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC014C36018
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 20:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FBnAFdxWx0BAktV4ZqJguBsjZizAzyvP0/mFoBjOOso=; b=4ENZjXtL2l1W7sEk9inHa2tzs4
-	+PRuxZLhxr5HwdIGK7rPwlza82ttl7SDUdLcQkIOBms2l0+UM5+oDkiObQi8VUZ8pRP9r/I2ZvUKs
-	u7iKe6RCY2SJDcmZfDeJr7AZoYen78YpSVJzQeEFB85wQ1Z/kYukuMcqy5Dftx2KxoEiFzzkDpbLy
-	fXoKDGiVU9m0iAoLjt3Z3iuZU5ytCWGBw+5O+z8ORzoUeNgC6piUz4BweMMcujO1ZW7xhmiVYrZFN
-	AQSyKTSsACRlJ24USdhZ9cCziOQP3v4vYfi8FBp3JdW3O4zETTqUk7cVtZgle11N69YpRYji9p1HV
-	iUJOuVPg==;
+	bh=Uzga02gahQxraS2M+4bHTPzRSV1Qy0HHYmWPiH16T9o=; b=XsJgE8C0C4e1Om14XCRq69mhlr
+	Kt7knY5fBMO0G1H1CF+DWqPx6JGq7nY0azBAF7Mf2Q0WEpNKLo2FeTJgTslYXy2W4HT06igLVdVci
+	P9LLL8dlaxQm8YC/CosepreuSECtLlp+nUJDkUA5QUUY2B/BHpdyYndedDSYHBvR1j1Ts/uQs0d43
+	xUC1HxyOne4ATKJnxj34M0GW6kEGd8kmxaYAtWgv+Gf6dzEzuG0743YYySdB0rxUvGIQ97Hxg6QEf
+	eHbt9UQHssgAHNuEJs88HDeMRSKrE9IE/djoJ0KzphgLrxJSTRfsoOICRoTDQK4qHVwp17Aq/I30y
+	Y8hSSD1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u04d8-000000078S4-04oS;
-	Wed, 02 Apr 2025 20:24:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u0533-00000007B3G-3jKV;
+	Wed, 02 Apr 2025 20:50:57 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u04Xv-000000077pg-1lzn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 02 Apr 2025 20:18:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description;
-	bh=FBnAFdxWx0BAktV4ZqJguBsjZizAzyvP0/mFoBjOOso=; b=gtFyQjWRzw0RQoEIZ/eyYEm3uN
-	GjONx8SwV6r+jxzwlr2NKI/vfHrTv3UTFeYMbcN7UJszuGE+oPUFapQDyf/WBNSv5Jgo6OUkXoMD8
-	5JkbvROq4TNwqh8IcUpqW/IkdSTQP+VYW44V3dz6q+F3gK0jtySUlCsoFS/n6C+DagNTn8PM0BPx+
-	4oTiaiJP9QiVRwRe5h6Cy9JAqJoFK5XqWkK+Bx5RAvRjzrt/A/gklDZe9OTZ+WY/GjcBlz5iVMeO8
-	cLptprHxCVTOjPMFKnCHOPGFPWzsjXwHVSbk4URxlJKdxfR6luVVw3hM8TFvPEqLdjKawD/D9BVTT
-	ZxOHhw5g==;
-Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u04Xr-0000000759m-0Rof;
-	Wed, 02 Apr 2025 20:18:43 +0000
-Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u04Xp-0000000DcH1-2TfR;
-	Wed, 02 Apr 2025 21:18:41 +0100
-From: David Woodhouse <dwmw2@infradead.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	"Sauerwein, David" <dssauerw@amazon.de>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Hildenbrand <david@redhat.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Rapoport <rppt@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	kvmarm@lists.cs.columbia.edu,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [RFC PATCH 1/3] mm: Introduce for_each_valid_pfn() and use it from reserve_bootmem_region()
-Date: Wed,  2 Apr 2025 21:18:39 +0100
-Message-ID: <20250402201841.3245371-1-dwmw2@infradead.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <Z-vn-sMtNfwyJ9VW@kernel.org>
-References: <Z-vn-sMtNfwyJ9VW@kernel.org>
+	id 1u051H-00000007Aq8-2CPF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Apr 2025 20:49:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:in-reply-to:references:mime-version:content-transfer-encoding;
+	 s=k1; bh=Uzga02gahQxraS2M+4bHTPzRSV1Qy0HHYmWPiH16T9o=; b=cSH2Pf
+	cJ4Ib1+KODs94a6JqGeqS1ALQq1MDEU7tYDZxXO3l3Ty5AhxwRclQrXgyJMNn/+V
+	Lx/U/GaXJqLSjpPHQgUFd+4h5JiYgc+LIng/cmlbWW21X854lFTPu3lpHb/lFBZs
+	Akq1nxUSw0omIOMLQsiMSvWVCTBUkMNSAgs4I7PrjFdOlqMkhW1/OIQhhQovpoW9
+	55rQeCicHZpJXzQUWZaJNIMdMO2RlxuOgzKLnpkC9Lcfb9/TP+Di8Bj0los2P72t
+	/lFUsiBfKsRIhnnHt27NwEU5OdTE+gPpstdAt/jcFVwRSH60dd9ksbOqM4jBRpJ/
+	0VUjjyeq70nTopOw==
+Received: (qmail 2132837 invoked from network); 2 Apr 2025 22:49:00 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 2 Apr 2025 22:49:00 +0200
+X-UD-Smtp-Session: l3s3148p1@bJ5lyNExoLwujnsv
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org
+Subject: [PATCH 1/4] ARM: dts: at91: calao_usb: simplify memory node
+Date: Wed,  2 Apr 2025 22:48:51 +0200
+Message-ID: <20250402204856.5197-2-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250402204856.5197-1-wsa+renesas@sang-engineering.com>
+References: <20250402204856.5197-1-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250402_134908_412223_E7C859D6 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,89 +75,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Woodhouse <dwmw@amazon.co.uk>
+All devices have 64MB RAM. So, the memory node can bet put into the
+most generic DTSI.
 
-Especially since commit 9092d4f7a1f8 ("memblock: update initialization
-of reserved pages"), the reserve_bootmem_region() function can spend a
-significant amount of time iterating over every 4KiB PFN in a range,
-calling pfn_valid() on each one, and ultimately doing absolutely nothing.
-
-On a platform used for virtualization, with large NOMAP regions that
-eventually get used for guest RAM, this leads to a significant increase
-in steal time experienced during kexec for a live update.
-
-Introduce for_each_valid_pfn() and use it from reserve_bootmem_region().
-This implementation is precisely the same naïve loop that the function
-used to have, but subsequent commits will provide optimised versions
-for FLATMEM and SPARSEMEM, and this version will remain for those
-architectures which provide their own pfn_valid() implementation,
-until/unless they also provide a matching for_each_valid_pfn().
-
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 ---
- include/linux/mmzone.h | 10 ++++++++++
- mm/mm_init.c           | 23 ++++++++++-------------
- 2 files changed, 20 insertions(+), 13 deletions(-)
+ arch/arm/boot/dts/microchip/usb_a9260.dts         | 4 ----
+ arch/arm/boot/dts/microchip/usb_a9260_common.dtsi | 4 ++++
+ arch/arm/boot/dts/microchip/usb_a9g20_common.dtsi | 4 ----
+ 3 files changed, 4 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-index 25e80b2ca7f4..32ecb5cadbaf 100644
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -2176,6 +2176,16 @@ void sparse_init(void);
- #define subsection_map_init(_pfn, _nr_pages) do {} while (0)
- #endif /* CONFIG_SPARSEMEM */
+diff --git a/arch/arm/boot/dts/microchip/usb_a9260.dts b/arch/arm/boot/dts/microchip/usb_a9260.dts
+index e7f7b259ccf3..de19904e9e91 100644
+--- a/arch/arm/boot/dts/microchip/usb_a9260.dts
++++ b/arch/arm/boot/dts/microchip/usb_a9260.dts
+@@ -16,10 +16,6 @@ chosen {
+ 		bootargs = "mem=64M console=ttyS0,115200 root=/dev/mtdblock5 rw rootfstype=ubifs";
+ 	};
  
-+/*
-+ * Fallback case for when the architecture provides its own pfn_valid() but
-+ * not a corresponding for_each_valid_pfn().
-+ */
-+#ifndef for_each_valid_pfn
-+#define for_each_valid_pfn(_pfn, _start_pfn, _end_pfn)			\
-+	for ((_pfn) = (_start_pfn); (_pfn) < (_end_pfn); (_pfn)++)	\
-+		if (pfn_valid(_pfn))
-+#endif
+-	memory@20000000 {
+-		reg = <0x20000000 0x4000000>;
+-	};
+-
+ 	ahb {
+ 		apb {
+ 			shdwc: poweroff@fffffd10 {
+diff --git a/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi b/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi
+index 8c3530638c6d..b094c31033b5 100644
+--- a/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi
++++ b/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi
+@@ -16,6 +16,10 @@ main_xtal {
+ 		};
+ 	};
+ 
++	memory@20000000 {
++		reg = <0x20000000 0x4000000>;
++	};
 +
- #endif /* !__GENERATING_BOUNDS.H */
- #endif /* !__ASSEMBLY__ */
- #endif /* _LINUX_MMZONE_H */
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index a38a1909b407..7c699bad42ad 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -777,22 +777,19 @@ static inline void init_deferred_page(unsigned long pfn, int nid)
- void __meminit reserve_bootmem_region(phys_addr_t start,
- 				      phys_addr_t end, int nid)
- {
--	unsigned long start_pfn = PFN_DOWN(start);
--	unsigned long end_pfn = PFN_UP(end);
-+	unsigned long pfn;
+ 	ahb {
+ 		apb {
+ 			dbgu: serial@fffff200 {
+diff --git a/arch/arm/boot/dts/microchip/usb_a9g20_common.dtsi b/arch/arm/boot/dts/microchip/usb_a9g20_common.dtsi
+index f1946e0996b7..b11ad0b29026 100644
+--- a/arch/arm/boot/dts/microchip/usb_a9g20_common.dtsi
++++ b/arch/arm/boot/dts/microchip/usb_a9g20_common.dtsi
+@@ -14,10 +14,6 @@ chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
  
--	for (; start_pfn < end_pfn; start_pfn++) {
--		if (pfn_valid(start_pfn)) {
--			struct page *page = pfn_to_page(start_pfn);
-+	for_each_valid_pfn (pfn, PFN_DOWN(start), PFN_UP(end)) {
-+		struct page *page = pfn_to_page(pfn);
- 
--			init_deferred_page(start_pfn, nid);
-+		init_deferred_page(pfn, nid);
- 
--			/*
--			 * no need for atomic set_bit because the struct
--			 * page is not visible yet so nobody should
--			 * access it yet.
--			 */
--			__SetPageReserved(page);
--		}
-+		/*
-+		 * no need for atomic set_bit because the struct
-+		 * page is not visible yet so nobody should
-+		 * access it yet.
-+		 */
-+		__SetPageReserved(page);
- 	}
- }
- 
+-	memory@20000000 {
+-		reg = <0x20000000 0x4000000>;
+-	};
+-
+ 	i2c-gpio-0 {
+ 		rtc@56 {
+ 			compatible = "microcrystal,rv3029";
 -- 
-2.49.0
+2.47.2
 
 
