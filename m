@@ -4,122 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BB7C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 18:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F4BC36017
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 18:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rLRltPAW2VT+osyndq8xbNTAaaTzvicU6XEHnaTvyEQ=; b=HbR+yRZF+sYTxp98/kPpUV+oMQ
-	RZUNkFdxOJJJuYjlPlXJjpezsA3kSG8253lA53el4SI8SA8PcNXWw1YyDbfIlD85riLw3wZgFh/d1
-	imwr3Kn0LtU3Jxqin6cEnJQjTIxL7ASAHhYiC4W52nI6EPpi7KldfXEHltI5MD9YsTRT193Wh9xHK
-	o6cWzuztNHmHdFMjucyw/JELAXSSwg76x7VSPZR5iQXnXTHxXsOqcLvIN5JgsXOaNj1mcNy2Gxx5F
-	foOBUSlcZiJWjXSMD7EfRQRH8Fkta4uwvElBm9g41RUOUtTU1CVorWUHIPoyg7LBPQsttOrOiH+PZ
-	TuVcFQNw==;
+	bh=ZR40h/AG03DKumgJ8iw1gSdyiRK+YlTO9SZkKRwrUyM=; b=cjFQJXhb5oVctJ8BjR6pvwf6I8
+	FVTRSSW5ZpTUDFO1i/yxmrCjbJ6tI699CIHgufDVO+zzK5kOAx0sTog0p3FrNYF/y+Y4U6r7Ukp0g
+	cHx0g+ZRSJwzWQ66nfbX/J4U35itG930XfJ7/VzgIT/nYpWIQ/ooroJJ9JMwHTOMlfpOdjaVPvkJ4
+	wCL0tZ4DZhKdWvpcilsJrW2qqo4pD3zvBzgKKV0wHT0+f0VNS+DREnymvPjBuMfX3nPbmq7YruIfE
+	55Sz4mQPRvD/qQMi64hk/Ix4ukSScyQAQqwu0B0jA5aqmAoc0J2l6knXUAFY+YpTPGL0il0EdXP5q
+	UliF/TSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u031k-00000006wsj-0Hh9;
-	Wed, 02 Apr 2025 18:41:28 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u033S-00000006x4r-3KTI;
+	Wed, 02 Apr 2025 18:43:14 +0000
+Received: from mail-dm6nam04on20611.outbound.protection.outlook.com ([2a01:111:f403:2409::611] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u02zq-00000006wWE-0y0n
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 18:39:31 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 532Cs4EC012992
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Apr 2025 18:39:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	rLRltPAW2VT+osyndq8xbNTAaaTzvicU6XEHnaTvyEQ=; b=ESY+6x7scCrYx+nG
-	BrnUXYp5lICXjecsq2AXoO/uQpGAP95loBcQcLxRTeLSEwb2eidswYei2oMEoyc5
-	aoP4uSPj80Df2j0dk3523XVXObrAM93Z6SXWy620jysZlLFSd3FZCd2+qQxXf/D3
-	DWkGujXDcuc6+i9wt2WXm21X2NHrL+l12ECJqSNiOp/rWmtXLCZOyldDsOX/QxVc
-	wk8NJbM0ZOGS9IfoSh+8pnnA42eLn42rAhN0A+fpDwgAsQtThrrGbucwVb6nSKZl
-	/8NGadeGi4anVSQRK9IB5TkEoOEncnCdTqZufa2lHJ6sfkJfH6mhJ+nSkQHypFm8
-	42xKiA==
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45rxbf2acn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 18:39:27 +0000 (GMT)
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-3fdf9b1f191so141956b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 11:39:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743619166; x=1744223966;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rLRltPAW2VT+osyndq8xbNTAaaTzvicU6XEHnaTvyEQ=;
-        b=eP1TOE5e8pGpbP3KNqVcjOaxnO4k5/eNfWqzm5VIuIQkIUyFdVwHfGVh56AHpwB9jJ
-         7rr5L4XbqgpqXI0nEr6QsH+/z1x8rKCQOBy34QCGXCw8/etMxMOlSIiDWElY4Fj5fxuG
-         0Izsto6DKlZdXuLjNzKGCBT10+Hhfml8HzfEMFwTP6R96XzWqHJTaHismHuL6IzDK2gy
-         YX3l59zEmeGURWWQda0V/MIGDRUTPhLfifhWKvlb3yNYXfTSjNeHPegqes7iIg5/n6g/
-         LNp2JHktQsuTvOnvqz07ModNrnNxOdA/ze3uVU4XKNlx0Xymm0rXZpjhtSFmGK5jSYSD
-         aKkg==
-X-Forwarded-Encrypted: i=1; AJvYcCUiQzMtKo7WJo9n6Rx+L68Lv1RZtqbWcnZDZtz6RhdGgCFe2x2aP1EixI4wv2YdfJZU4W+ynH48bQk6frbeHY6a@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvuGmEQjuWfrBUFEme+BPVn79XeUoNk6SWeokOl18azLAgq1/y
-	W19WsdqjYEk6Kl5DWPEJ55dNH1DKhd6ZtD8nFNHlgzlbUvvFWKmyAOMROqqY7HaE7Qi2T+tLwbQ
-	82v0mGDgMKXMhz2V6L43oNu60a0Q+F3wH9YnHCTG4Gwxs1m8uj2L0Q5eRZVHoIPq+ESRJPA2UlG
-	J8hSqsvnF4fXmuw+fAR11Q64ac4TXQy44IXHtMC777oGN9c/GVvREAj4wW
-X-Gm-Gg: ASbGncuyI4V40XRP7drIhKEvk/xwOEk54ayuCpv4Szhjeskm6N/7gVFbfXEefV4vOE/
-	pehNsJYzc03FKKNwMHOizYIwQv3W9xPipqmEWgc8mrk/n6RMVTjWqXNcGAjA/6Ld/hQgeBxpRSQ
-	==
-X-Received: by 2002:a05:6808:6c82:b0:3fb:2e8f:4de5 with SMTP id 5614622812f47-3ff0f52ef55mr12164462b6e.17.1743619166134;
-        Wed, 02 Apr 2025 11:39:26 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEa8ubrSd45uaaFhCFxG8RPmNf74FF0t82olgtZy7cR4JA2o8Zjllf8U6MoEnTSrTKOqq9YmFW/PnuOLXRUna8=
-X-Received: by 2002:a05:6808:6c82:b0:3fb:2e8f:4de5 with SMTP id
- 5614622812f47-3ff0f52ef55mr12164445b6e.17.1743619165788; Wed, 02 Apr 2025
- 11:39:25 -0700 (PDT)
+	id 1u030s-00000006whM-0Nux;
+	Wed, 02 Apr 2025 18:40:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Vyd4Ibd1XlKDxUtFqmW6iLY1ikolfQ0p1rF7p+8JH4jMPPkBD7D4pBkOxAjPPbiyJBJ6UCDHE2/PHjW4yY3aZevnmksNkL6CcQ/YyCU8oAwXRJ7bBK0d9CQG1yrlLfvpfpcBt9rZNF0Z71guOnl9tDx46VZTAM7oPsz0CeVHcIVQSp15jzK1fMAh3ibvXm8zt1naai5VJdFu0ARCJYfwGmLrlR1NUV5hSuXTFj+Pms3wWauDTui0wyVyf1wATiS6BXajgX793QgMbt7FpNTSi1s6DZNZ8IxEc43a60lkA7Msp3RB0HAsH69RdUrYGjRFfk3KzreSSCWrl6Ha8RDdSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZR40h/AG03DKumgJ8iw1gSdyiRK+YlTO9SZkKRwrUyM=;
+ b=VzrLkuG+dU1c/+MXBnKU9QlK98Ku0gkJbhjAA4Ss358o4w5ZJqJ7gC5bTf4NUZhF5N6xmx0A0KvrsQYA5Y9NKYLwH1vBlUP4+K7PhFppiAzAXrrDvaL4Jq1OwQnaumBZMsaSpfhqPVCGdpbza8kYn/DOroL7Oc4anXKc9fn7ym2C7DXQzxWgedHlYKJkRLKy/B6o2R2fV3mGKOUB+hQqlw0jUbRP5jTWQAdc0V+SUgE/36SDsEdoZfNnBqS5kw1iCvnLxCDIrXoZ8eZ1J832sND6FISN/iJlq8jujaNh5TsYO77sI/fQWv+K3Ef2a6VAmlG7vfCH6asHV3kOK2mCIA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZR40h/AG03DKumgJ8iw1gSdyiRK+YlTO9SZkKRwrUyM=;
+ b=DPZQkoa/5PtFuVhO1Htnh3euI3CB1Pmjl2wtCykCm7AyTsBfbb9BSVzKYeVlgxWUPrPZ8d1CJ53qY6q3fmLcCnHddkCnD7xXSYpEnUJIHGpYcTvEqeTy9CGMmLIxxwzeph7DA8yj/q2MAJ7ryYjlDnbaAvUjKRMs/whRkEuHGcM=
+Received: from CH2PR14CA0008.namprd14.prod.outlook.com (2603:10b6:610:60::18)
+ by DM3PR12MB9436.namprd12.prod.outlook.com (2603:10b6:8:1af::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.47; Wed, 2 Apr
+ 2025 18:40:29 +0000
+Received: from CH2PEPF00000142.namprd02.prod.outlook.com
+ (2603:10b6:610:60:cafe::2) by CH2PR14CA0008.outlook.office365.com
+ (2603:10b6:610:60::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8583.41 via Frontend Transport; Wed,
+ 2 Apr 2025 18:40:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ CH2PEPF00000142.mail.protection.outlook.com (10.167.244.75) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8606.22 via Frontend Transport; Wed, 2 Apr 2025 18:40:29 +0000
+Received: from [172.31.188.187] (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 2 Apr
+ 2025 13:40:23 -0500
+Message-ID: <145ddb99-025b-4ed0-bee6-e1e2c70ff0bf@amd.com>
+Date: Thu, 3 Apr 2025 00:10:16 +0530
 MIME-Version: 1.0
-References: <20250303-arm-psci-system_reset2-vendor-reboots-v9-0-b2cf4a20feda@oss.qualcomm.com>
- <20250303-arm-psci-system_reset2-vendor-reboots-v9-2-b2cf4a20feda@oss.qualcomm.com>
- <Z9QQw6BcE7IXzu+r@lpieralisi> <Z+K3uNjTNbq3pUis@hu-mojha-hyd.qualcomm.com>
-In-Reply-To: <Z+K3uNjTNbq3pUis@hu-mojha-hyd.qualcomm.com>
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Date: Thu, 3 Apr 2025 00:09:14 +0530
-X-Gm-Features: AQ5f1JoIGcawwwxAneye4VDKyUquub00SsUJlDPk9-P3wh_983NTysTlWsL0c0s
-Message-ID: <CAN3W6UUgacP0JZc7yGJ2Q3HYGFZ3mMHh0okyHTMiuxDSwmABHA@mail.gmail.com>
-Subject: Re: [PATCH v9 2/5] firmware: psci: Read and use vendor reset types
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>,
-        Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-        Vinod Koul <vkoul@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-        Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
-        Melody Olvera <quic_molvera@quicinc.com>,
-        Shivendra Pratap <quic_spratap@quicinc.com>,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, Elliot Berman <elliotb317@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: YUwh__sP9O800yFol-V5UsLdyyfrR2lw
-X-Proofpoint-ORIG-GUID: YUwh__sP9O800yFol-V5UsLdyyfrR2lw
-X-Authority-Analysis: v=2.4 cv=F/5XdrhN c=1 sm=1 tr=0 ts=67ed845f cx=c_pps a=AKZTfHrQPB8q3CcvmcIuDA==:117 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=GcyzOjIWAAAA:8 a=EUspDBNiAAAA:8 a=ZS3UFk-b-OyYpVL8qdMA:9 a=QEXdDO2ut3YA:10 a=dtxw0mqMjrQA:10
- a=pF_qn-MSjDawc0seGVz6:22 a=hQL3dl6oAZ8NdCsdz28n:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-02_08,2025-04-02_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
- lowpriorityscore=0 mlxlogscore=999 phishscore=0 priorityscore=1501
- mlxscore=0 spamscore=0 bulkscore=0 clxscore=1015 adultscore=0
- impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504020119
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/12] sched/wait: Add a waitqueue helper for fully
+ exclusive priority waiters
+To: Sean Christopherson <seanjc@google.com>
+CC: <kvm@vger.kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Oliver Upton <oliver.upton@linux.dev>, Marc
+ Zyngier <maz@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Peter Zijlstra
+	<peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <linux-riscv@lists.infradead.org>, David Matlack
+	<dmatlack@google.com>, Juergen Gross <jgross@suse.com>, Stefano Stabellini
+	<sstabellini@kernel.org>, Oleksandr Tyshchenko
+	<oleksandr_tyshchenko@epam.com>, Vincent Guittot <vincent.guittot@linaro.org>
+References: <20250401204425.904001-1-seanjc@google.com>
+ <20250401204425.904001-7-seanjc@google.com>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <20250401204425.904001-7-seanjc@google.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
+ (10.181.40.145)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000142:EE_|DM3PR12MB9436:EE_
+X-MS-Office365-Filtering-Correlation-Id: 68190e15-3f13-4718-c0c6-08dd7215d777
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YTk5SjR1YWtFUzRMZ0NSb1pyNWRUUG56QlZPT3c4Qkk3T0xSRS9BR2NuRElG?=
+ =?utf-8?B?ejZvNlVRR3ZWblBoNExrNGJ1OGh5K2pWbG40Yy9KR3RuRW1weGNRamp2dUxH?=
+ =?utf-8?B?c3J1UWZPaHNvdms4M0YwRWp4anE4bnNPMFZ3YzFEZnRYOC9vbGpScVVabGFU?=
+ =?utf-8?B?ejVSZ21jTTdhMHEwcDVxeTJkQ1BNejNXTi85bFNwQWExc3VWV0tzZENReUdP?=
+ =?utf-8?B?LzRtOWNPZ1c1dEdMWmJCWUlyOUZSUk1nTjFDekQ3U1NGdjlMR2tjbTZjZ2pP?=
+ =?utf-8?B?ZTZzUXcvNWIvTnVEd2hMSG1BeU96MENHb3crRWFERE11OUdaUDZ1SEt4dFhD?=
+ =?utf-8?B?RXh3dGcyeFVxZnh5d1ZGUlVXaTQ1M2syUGF2ZkZSdnNVbUJlSmwrSnpON04y?=
+ =?utf-8?B?blNEektHWWZjZ3FCQXNNYWRVb1doR2hLYU5zVzh3cmdxbzNRaWt0S2VHZTl1?=
+ =?utf-8?B?T3cyZ1h1ODlCemhaUno2VWhhb1ZXVWpMaEhTWVNIUldYTEYxMWtiSTk3T2tq?=
+ =?utf-8?B?aGhpTlFHZ0tNaGZ0cllMZC9SK3IwQ3dKbU5wNThYSzVpcU5VOUVTdVRtNG05?=
+ =?utf-8?B?Z0tQWDB2MnMvNjMyYVRSSVFPWEIvejB2aDhCblRsVGhhUUV6Mkk3WVFhYk44?=
+ =?utf-8?B?UDVGVU9YYThhR3hIYTdid21ZeFV5QzZXc0RZZVZESy83SUFlMjFmVmZHTlhx?=
+ =?utf-8?B?Rndza0xmam5pTDJDbS9XNnlUWDIvK2JyYUVTbnVZdzdOSEFBZ3Jsc1JEamRC?=
+ =?utf-8?B?cUhNN3JuSGMvNENyYTM5WXhWNWIva3UrbVhYODBteEdSYTdsazFmK1hzQnZx?=
+ =?utf-8?B?U285WXZVT3hHTC9RUUtCRm15a3hpbDNjRFBSd1BXckVTYm9aS01ibDVVcEht?=
+ =?utf-8?B?RXZZeFVFK3BrdlovMG8vOEh4d1VrZ3V4YkFiUXA2ZHhpVlc0TWJvd2ZoOUdz?=
+ =?utf-8?B?dWV5bWNMb0NzZ0NQQU9NOTZ6L1ZLZi9EaHhwL0dnNkl0RGd6RzVIdVkydVRW?=
+ =?utf-8?B?NGN3eEYwbFFRY1JXOEpXZFhiaUxqN1FHekxHeVJORU83V2JmRUs5M1pIQmJm?=
+ =?utf-8?B?dVFDOG9GS0tKRm1KcDY2YjdHbmx5ektzMHEvK0JsR0VFTHJObExkWjkzTjZQ?=
+ =?utf-8?B?VndKRG56THUzaThZclgxMmgrOWczZG1qSGIxK1NSOGIxeWl2eThabk4zVnZW?=
+ =?utf-8?B?NS9kbnBJdmxIUjUyWGVpaGpiRzJLNExEWXNXTkZKTCtZK3g0NW1IUmoydi81?=
+ =?utf-8?B?Y2NOcnFkVC9qUDk3dVBZRDV5ejRDSFg2VXFNR2hRM3djalNKYkwvdHRCazNz?=
+ =?utf-8?B?SVBSaHhiWG1CTTdoZlVhNTAvaGVLc1BwYmN5ZDd0ejlJOER6ZDc5d0FLMm5G?=
+ =?utf-8?B?QlBBdGVqeHBFMzJpSmIxc2Jmc3pHZzRnYnZvRDZYSVNvSnJuWnlYVTc5VHBC?=
+ =?utf-8?B?aG9HZFlUa0J0RXVRQ1NqNUpzbzF0cU90SmdVRXkvVGU0RjBpZkVXZnVlNVlV?=
+ =?utf-8?B?MHpRcTRaZUg1TW11ZUNpUUUzcVdoUmpLdWRUUW5wQzZud1ZNekNGUkVnZHRB?=
+ =?utf-8?B?ZTc4K2x6aXF4ck9OaDdSUkFTVHV5YmxHVlJtNU5KbytwcWFqejZmcTNTSzZI?=
+ =?utf-8?B?dGVXNEJvZjJvMThuUDAyQTZiK0lBTGxiT1RxVmRGK3l4Q1NxZXlLSmZvNVhC?=
+ =?utf-8?B?aWpxcHlHaEtVcW53WXhJUWpxZm1ReHBxV3B2WGUyeE9iYnpJSDVFVW04VGlu?=
+ =?utf-8?B?Z1lkQ1pOcnJ0VjVHTElqRHNHZkgyNEZSaUErN3hMQ2tDN1pRMkQvQVBLS0pW?=
+ =?utf-8?B?ak9hRzFIeUtlZjNVZnZMMjZKUkFmZXpqYlFsNkZXaThJNDA2RDFvU3NMc0pJ?=
+ =?utf-8?B?Mm9ZNHJrSURFbGtLb0ZlOEtXc2hCOFJZTENwc3ZXaWpTamhpVVlKZ3M5L1hP?=
+ =?utf-8?B?ZmJmNnYvdjF6TkRJWXl1T0plb0VlUzJDZ0wwT1RqVkJYWlQ0Wk1USEREVGRE?=
+ =?utf-8?B?TVZZc0krV0NBOVU2ZFJJNjJTWWd4aFRUU09XcXdyYWZEUHBlWWF4REEvRlgz?=
+ =?utf-8?Q?gPRRki?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2025 18:40:29.0526
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 68190e15-3f13-4718-c0c6-08dd7215d777
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000142.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9436
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_113930_404543_5C4DB726 
-X-CRM114-Status: GOOD (  45.49  )
+X-CRM114-CacheID: sfid-20250402_114034_135179_FB04A903 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,101 +162,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 25, 2025 at 7:33=E2=80=AFPM Mukesh Ojha
-<mukesh.ojha@oss.qualcomm.com> wrote:
->
-> On Fri, Mar 14, 2025 at 12:19:31PM +0100, Lorenzo Pieralisi wrote:
-> > On Mon, Mar 03, 2025 at 01:08:31PM -0800, Elliot Berman wrote:
-> > > From: Elliot Berman <elliot.berman@oss.qualcomm.com>
-> > >
-> > > SoC vendors have different types of resets and are controlled through
-> > > various registers. For instance, Qualcomm chipsets can reboot to a
-> > > "download mode" that allows a RAM dump to be collected. Another examp=
-le
-> > > is they also support writing a cookie that can be read by bootloader
-> > > during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
-> > > vendor reset types to be implemented without requiring drivers for ev=
-ery
-> > > register/cookie.
-> > >
-> > > Add support in PSCI to statically map reboot mode commands from
-> > > userspace to a vendor reset and cookie value using the device tree.
-> >
-> > I have managed to discuss a little bit this patchset over the last
-> > few days and I think we have defined a plan going forward.
-> >
-> > A point that was raised is:
-> >
-> > https://man7.org/linux/man-pages/man2/reboot.2.html
-> >
-> > LINUX_REBOOT_CMD_RESTART2 *arg command, what is it supposed to
-> > represent ?
-> >
-> > Is it the mode the system should reboot into OR it is the
-> > actual command to be issued (which is what this patchset
-> > implements) ?
-> >
-> > LINUX_REBOOT_CMD_RESTART "..a default restart..."
-> >
-> > It is unclear what "default" means. We wonder whether the
-> > reboot_mode variable was introduced to _define_ that "default".
-> >
-> > So, in short, my aim is trying to decouple reboot_mode from the
-> > LINUX_REBOOT_CMD_RESTART2 *arg command.
-> >
-> > I believe that adding a sysfs interface to reboot-mode driver
-> > infrastructure would be useful, so that the commands would
-> > be exposed to userspace and userspace can set the *arg command
-> > specifically to issue a given reset/mode.
-> >
-> > I wonder why this is not already in place for eg syscon-reboot-mode
-> > resets, how does user space issue a command in those systems if the
-> > available commands aren't exposed to userspace ?
-> >
-> > Is there a kernel entity exposing those "modes" to userspace, somehow ?
-> >
-> > > A separate initcall is needed to parse the devicetree, instead of usi=
-ng
-> > > psci_dt_init because mm isn't sufficiently set up to allocate memory.
-> > >
-> > > Reboot mode framework is close but doesn't quite fit with the
-> > > design and requirements for PSCI SYSTEM_RESET2. Some of these issues =
-can
-> > > be solved but doesn't seem reasonable in sum:
-> > >  1. reboot mode registers against the reboot_notifier_list, which is =
-too
-> > >     early to call SYSTEM_RESET2. PSCI would need to remember the rese=
-t
-> > >     type from the reboot-mode framework callback and use it
-> > >     psci_sys_reset.
-> > >  2. reboot mode assumes only one cookie/parameter is described in the
-> > >     device tree. SYSTEM_RESET2 uses 2: one for the type and one for
-> > >     cookie.
-> >
-> > This can be changed and I think it should, so that the reboot modes
-> > are exposed to user space and PSCI can use that.
-> >
-> In the case of a regular reboot or panic, the reboot/panic notifiers run
-> first, followed by the restart notifiers. The PSCI reset/reset2 should
-> be the last call from Linux, and ideally, this call should not fail.
->
-> Reboot mode notifiers =3D> restart notifiers or Panic notifiers =3D> rest=
-art
-> notifiers
->
-> So, if I understand correctly, you mean that we can change the reboot
-> mode framework to expose the arguments available to user space. We can
-> extend it to accept magic and cookies, save them in the reboot
-> framework, and retrieve them via a call from PSCI during a regular
-> reboot or panic based on the current arguments. Is this leading towards
-> writing an ARM-specific PSCI-reboot-mode driver, which in its reboot
-> notifier callback saves the magic and cookies, and these magic and
-> cookies will be used during psci_sys_reset2()? Or is there something
-> wrong with my understanding?
+Hello Sean,
 
-In case this mail got lost in your inbox, I wanted to float this up
-again as this is a very important ARM feature and
-its future course of action depends on the common understanding.
+On 4/2/2025 2:14 AM, Sean Christopherson wrote:
+[..snip..]
+> diff --git a/kernel/sched/wait.c b/kernel/sched/wait.c
+> index 51e38f5f4701..80d90d1dc24d 100644
+> --- a/kernel/sched/wait.c
+> +++ b/kernel/sched/wait.c
+> @@ -47,6 +47,26 @@ void add_wait_queue_priority(struct wait_queue_head *wq_head, struct wait_queue_
+>   }
+>   EXPORT_SYMBOL_GPL(add_wait_queue_priority);
+>   
+> +int add_wait_queue_priority_exclusive(struct wait_queue_head *wq_head,
+> +				      struct wait_queue_entry *wq_entry)
+> +{
+> +	struct list_head *head = &wq_head->head;
+> +	unsigned long flags;
+> +	int r = 0;
+> +
+> +	wq_entry->flags |= WQ_FLAG_EXCLUSIVE | WQ_FLAG_PRIORITY;
+> +	spin_lock_irqsave(&wq_head->lock, flags);
 
--Mukesh
+nit.
+
+Using "guard(spinlock_irqsave)(&wq_head->lock)" can help you get rid of
+both "flags" and "r".
+
+> +	if (!list_empty(head) &&
+> +	    (list_first_entry(head, typeof(*wq_entry), entry)->flags & WQ_FLAG_PRIORITY))
+> +		r = -EBUSY;
+> +	else
+> +		list_add(&wq_entry->entry, head);
+> +	spin_unlock_irqrestore(&wq_head->lock, flags);
+> +
+> +	return r;
+> +}
+> +EXPORT_SYMBOL(add_wait_queue_priority_exclusive);
+> +
+>   void remove_wait_queue(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry)
+>   {
+>   	unsigned long flags;
+
+-- 
+Thanks and Regards,
+Prateek
+
 
