@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C5DC36014
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 10:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C88EC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 10:22:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0D56V4bGfpX/TU9e5gmFluYXKUdNZrEsrQeh3MS0+Bo=; b=ZWiVSbpM94/+VQdfohulncyTgq
-	XBDusQ14ZXGkTtcK/K0vxxbMzDSjtTbkGo2v/qNuj9NRdOR2h/48kBaIHMyU15avtsKkoAweyRIhx
-	maHIQ6le2Rqg8fPGOk/NNf5o4uNj6WYF5zY/W/apNOoxdINKFVy6OQP2z97e+by+CgYKejYDRDJIw
-	Ef8h6P9/YDcSwp2+R7rRFFn2mAODmJegWiPcE4riatrIcZqP6oOlE4YFBytxeSG0aj19RVhshSMBD
-	rrdRZPWAQPxf5eUqX1VHzuyt6+4EwpDdRbZJS8rQq6BWVvnGB5s3g/O2CQmjMhpV1LwADRisv5erz
-	94WWo8GA==;
+	bh=XTVP9DTsW3vnY5FLKNjx74F5/L54TED0U9Vc1dT3Vbk=; b=e6YKwDPG0y6gxO31IoLPiVOuIg
+	HChkKSw8QCKVqNA4DFQSazcYhFRroC+GoHi3WpBAJMyVZsGrUEQe2tSeahKPl/kVKLGwp6n0/+lbO
+	zFCoxznVjqIkUYzS4GNWE42FvqK5wsEQ5PDNOUqZCkYX82HGb/nhySuqmeBTXC5p7yXuHkDdGk0pc
+	JFIn6GEfQXAb1scBu9AnUmqgeHsYFSidwjMl5ylphJOf4BLx/2pqfYB4EuDiSvhYpf8Q3fwgGD3We
+	TrnI42IcGb3rJYrzDI2txohejWN7nsrold2UdTkenlaK7zq4DwKSaIcbAOnenYCfXhlQr8iUVIrLL
+	J5SgY94Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzvDB-00000005meA-0k3k;
-	Wed, 02 Apr 2025 10:20:45 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1tzvEz-00000005n0m-1Tr8;
+	Wed, 02 Apr 2025 10:22:37 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzvBP-00000005mFY-1np4
+	id 1tzvC7-00000005mMI-2u9X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 10:18:57 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-30332dfc820so11472911a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 03:18:55 -0700 (PDT)
+	Wed, 02 Apr 2025 10:19:40 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2ff799d99dcso11457087a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 03:19:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1743589135; x=1744193935; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1743589179; x=1744193979; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0D56V4bGfpX/TU9e5gmFluYXKUdNZrEsrQeh3MS0+Bo=;
-        b=Tzm+KDXj/3/Oq57fbby9HWzTdGybfxZHCnkE89CaFYTUFFAaI/ecIv59bJEX+Yl6FU
-         2Nt689i+zpCbNLhiD/+HI5mt+lAcGHCzh2POmQn7NXpR3wM8Yem63BAwAhv4cRLRH9He
-         LtL6R2aBxmmywohr/KxcVuGroNxq67/ffN4DI=
+        bh=XTVP9DTsW3vnY5FLKNjx74F5/L54TED0U9Vc1dT3Vbk=;
+        b=JZiB/afUjeL65J4X1qi3B2yEy0ycN3JeUWQGJ7joDzVsDy9HBLPmpp4G84GmUJVNC9
+         s6OjPilNArnBIbMnx3Zeo7kPq+PLqK44JdC9clo8Z0PMPH8rHmFe5i7YPfrTreoXsgjD
+         yeDgCZmZsjHBnjEVQAH0RuwdbfJjw0EDdo7R4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743589135; x=1744193935;
+        d=1e100.net; s=20230601; t=1743589179; x=1744193979;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0D56V4bGfpX/TU9e5gmFluYXKUdNZrEsrQeh3MS0+Bo=;
-        b=d39NYIQoXQzXc+T8H/VlulfFPuTofT8l7qvwZwrUOgxtwcnaI35xpd2AnNGhML0bTp
-         vMkiNkpoOBt21ZFDv6cEsJ8PqMC25Cv/REOBuCURPWTG5TmgvoxNsH4eG9FrfXBhgHmW
-         JcWZnEPoGyO1gHv9vNRhS91NJq5v6n0vD0lEBXJBJ4Z3AmhotC99gvgVfvqQZWbs68vu
-         /FU4xzV2wNaUDUIO9HPQ7gEv4UwYsBSZ9LtDeDXv0XCVDc9WPceQY0+DzbmGot83+ROY
-         dhLiFfg/+HQk+3SUGL9YHcTA1nnODMkDSNbK6ZhMjTfqb7PWnpXfZ4InS0X+Q1ZEtOsB
-         iaCw==
-X-Forwarded-Encrypted: i=1; AJvYcCWhE7Q0Dz64TPTaj2PJuKL93n2YIoayXjgjiiRJsnT7mSU8ACkpgzPklb/Dpgsh+AFSBn7pHuWC2ElLyd2azl3Z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8tp1Cevr0JnZg//H/VdJs4/qG00Dw+1dVcMf1UFbhP0foyGTx
-	7pqFXTAJYfF1oUl8mVXzOFsKuPyOj1bboGkU/aUcuHYnxxJ0jg4SD8TCUI94ZGh3YwM3T/3lMW/
-	IzhvSubHrszO91TbHm7EJKWUIkY/UlIdB0F4s
-X-Gm-Gg: ASbGncsWOj4XtjQvfqdFKq2KecFfmsgp7hxZXgzSkcX0aDf2m2kTlaQnr7aadGy0bfc
-	Ul+zAHoQ8/8auPR2/opmgB5wrhjrMaQ+PmQ8pK5Kch8xJwi3k+g4hn7YGXIBsoLmciSUpE/ZY6F
-	c/Ebe27vcQuzhiLcD/6DzLVTFDlPsTPbcw1f6YeRZVZ4XMDW7LMCwQ
-X-Google-Smtp-Source: AGHT+IGQrnkGyKn8dVTSUjKIJxy2/wcmbcJv3W5smbWJ2t/E7cpQH6SMGOxQZ5dG0vuNvno9IYMLbv3UhEax8FtatNA=
-X-Received: by 2002:a17:90a:c88b:b0:2ff:7c2d:6ff3 with SMTP id
- 98e67ed59e1d1-3056ef48b43mr2719742a91.35.1743589134726; Wed, 02 Apr 2025
- 03:18:54 -0700 (PDT)
+        bh=XTVP9DTsW3vnY5FLKNjx74F5/L54TED0U9Vc1dT3Vbk=;
+        b=kvB1gqc4gcWNmfhEO6hRS2FGi9WhDxM4v6psu+S06axNEp/qINO8lQKiwPG5zowJ/5
+         AO3nb2nX3PH9lmHPyKFU2+Qy2WG1snjuhqowcx2ebWj6fFizCWkQuC5i2Emt8IXLT3Jd
+         4xUwypc9eaTsNYo5hyvp7V3RCsqKgWdwBBD94z3tA18udd377AA004iVN6Wn4kjKF1NG
+         EBB1PyNJJVdNspbdlQR6VqcOLUFj9Znkh1iyTfKez3Ek6Ap+FFcXzytb3XDTKoqMStMw
+         USB8eu7nEeJ87xezbe3mWrMwLnNvWZyVlOE50A2aj8/7ksmUC1tK9csXZeMymfL3eWdm
+         8ocw==
+X-Forwarded-Encrypted: i=1; AJvYcCUCgFboinGtE+r3+3kMpolBCwpL4jwng3tac25IR2I8IYMUUPmFITJoww+W7iBIzjlIzdIhVW0HPdwmV4lRffYx@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXHEZSC3T1Hprx8gITqLdrVSFMd7ZJggVhcR92ugX9C0jlvC7w
+	cHN5Qj2Tjhky1vZwna29fNJX4bGn4PKD1nwVLYIb8tMJEOyTl9kL72qxzgFhAUecBonm8UgBpiW
+	THX2N1LKoQcktTv9oURsNfv4+WiIthFjiSqxH
+X-Gm-Gg: ASbGnctb5qdZpr3YvKk5r0lHytDyxfmKCVA16Bmc0R+L36pjfwWNla39uBa8RCrIn6i
+	UJY1jGkTcDw6JxlJAaczs+V/HcJjXyyzGhRcFUl3vXTRPsq6OLpbdQS9o2OuQFkXnXZgC5PCbl/
+	GcXYXeXCMXL2S1SrKes5quw8+5W30krHZURNRuLx8I5OqN+UMP1Nux
+X-Google-Smtp-Source: AGHT+IFc/gdat5Dr87A+81uJRFZWgnUw8FjScnpjhEXBVgVwotYa3CxXqBYBb5s66JTrRULG7QmLlhlnerHeo7QspTI=
+X-Received: by 2002:a17:90b:3b50:b0:301:1bce:c258 with SMTP id
+ 98e67ed59e1d1-3053215e7femr19031005a91.22.1743589179070; Wed, 02 Apr 2025
+ 03:19:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250402083628.20111-1-angelogioacchino.delregno@collabora.com> <20250402083628.20111-3-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250402083628.20111-3-angelogioacchino.delregno@collabora.com>
+References: <20250402083628.20111-1-angelogioacchino.delregno@collabora.com> <20250402083628.20111-4-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250402083628.20111-4-angelogioacchino.delregno@collabora.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 2 Apr 2025 18:18:41 +0800
-X-Gm-Features: AQ5f1Jr3BoD2em-LznhL9zgkOSxDEEueTpI7DlFY2HYoRHnyStO_tGh8xaXUAvA
-Message-ID: <CAGXv+5GsoHN5mVe_kEP+oAzxa9HqgfhoiDqvO3xiQurFrvQ3qA@mail.gmail.com>
-Subject: Re: [PATCH v1 2/5] drm/mediatek: Fix kobject put for component sub-drivers
+Date: Wed, 2 Apr 2025 18:19:24 +0800
+X-Gm-Features: AQ5f1Jr24z9TQrfYXn99ssRwXfkIHJUxBLD8IHIrUHUVmb0Bwvezsgoy_EISkMk
+Message-ID: <CAGXv+5H1aww6Adf=EKCkpC8oCkdRLEHP5_fwtfU1BzEsnyi7NA@mail.gmail.com>
+Subject: Re: [PATCH v1 3/5] drm/mediatek: mtk_drm_drv: Unbind secondary mmsys
+ components on err
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
 	simona@ffwll.ch, matthias.bgg@gmail.com, nancy.lin@mediatek.com, 
@@ -79,8 +80,8 @@ Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_031855_471832_6705E773 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20250402_031939_728665_C8875F65 
+X-CRM114-Status: GOOD (  25.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,75 +99,58 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Wed, Apr 2, 2025 at 4:36=E2=80=AFPM AngeloGioacchino Del Regno
 <angelogioacchino.delregno@collabora.com> wrote:
 >
-> In function mtk_drm_get_all_priv(), this driver is incrementing
-
-              ^ mtk_drm_get_all_drm_priv()
-
-> the refcount for the sub-drivers of mediatek-drm with a call to
-> device_find_child() when taking a reference to all of those child
-> devices.
-
-Looking closer, that function is also missing a platform_device_put()
-to match of_find_device_by_node().
-
-> When the component bind fails multiple times this results in a
-> refcount_t overflow, as the reference count is never decremented:
-> fix that by adding a call to put_device() for all of the mmsys
-> devices in a loop, in error cases of mtk_drm_bind() and in the
-> mtk_drm_unbind() callback.
+> When calling component_bind_all(), if a component that is included
+> in the list fails, all of those that have been successfully bound
+> will be unbound, but this driver has two components lists for two
+> actual devices, as in, each mmsys instance has its own components
+> list.
+>
+> In case mmsys0 (or actually vdosys0) is able to bind all of its
+> components, but the secondary one fails, all of the components of
+> the first are kept bound, while the ones of mmsys1/vdosys1 are
+> correctly cleaned up.
+>
+> This is not right because, in case of a failure, the components
+> are re-bound for all of the mmsys/vdosys instances without caring
+> about the ones that were previously left in a bound state.
+>
+> Fix that by calling component_unbind_all() on all of the previous
+> component masters that succeeded binding all subdevices when any
+> of the other masters errors out.
 >
 > Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 multi =
 mmsys support")
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
 abora.com>
 
+Makes sense.
+
 Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 
 > ---
->  drivers/gpu/drm/mediatek/mtk_drm_drv.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
+>  drivers/gpu/drm/mediatek/mtk_drm_drv.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 >
 > diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/med=
 iatek/mtk_drm_drv.c
-> index a8fbccb50c74..6b31df587507 100644
+> index 6b31df587507..2d6562b29755 100644
 > --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
 > +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> @@ -676,6 +676,10 @@ static int mtk_drm_bind(struct device *dev)
->         for (i =3D 0; i < private->data->mmsys_dev_num; i++)
->                 private->all_drm_private[i]->drm =3D NULL;
->  err_put_dev:
-> +       for (i =3D 0; i < private->data->mmsys_dev_num; i++) {
-> +               /* For device_find_child in mtk_drm_get_all_priv() */
-> +               put_device(private->all_drm_private[i]->dev);
-> +       }
->         put_device(private->mutex_dev);
->         return ret;
->  }
-> @@ -683,6 +687,7 @@ static int mtk_drm_bind(struct device *dev)
->  static void mtk_drm_unbind(struct device *dev)
->  {
->         struct mtk_drm_private *private =3D dev_get_drvdata(dev);
-> +       int i;
->
->         /* for multi mmsys dev, unregister drm dev in mmsys master */
->         if (private->drm_master) {
-> @@ -690,6 +695,10 @@ static void mtk_drm_unbind(struct device *dev)
->                 mtk_drm_kms_deinit(private->drm);
->                 drm_dev_put(private->drm);
->
-> +               for (i =3D 0; i < private->data->mmsys_dev_num; i++) {
-
-Just FYI you can also declare the int within the for statement.
-
-ChenYu
-
-> +                       /* For device_find_child in mtk_drm_get_all_priv(=
-) */
-> +                       put_device(private->all_drm_private[i]->dev);
+> @@ -482,8 +482,11 @@ static int mtk_drm_kms_init(struct drm_device *drm)
+>         for (i =3D 0; i < private->data->mmsys_dev_num; i++) {
+>                 drm->dev_private =3D private->all_drm_private[i];
+>                 ret =3D component_bind_all(private->all_drm_private[i]->d=
+ev, drm);
+> -               if (ret)
+> +               if (ret) {
+> +                       while (--i >=3D 0)
+> +                               component_unbind_all(private->all_drm_pri=
+vate[i]->dev, drm);
+>                         return ret;
 > +               }
->                 put_device(private->mutex_dev);
 >         }
->         private->mtk_drm_bound =3D false;
+>
+>         /*
 > --
 > 2.48.1
 >
