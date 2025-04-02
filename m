@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C89B5C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 12:33:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A92C3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 12:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=naxnhgiEmtMHzZrZpCu70t6iSq9lmIgiS4+IzBnK+fA=; b=QTTJ3kljPw6RUQ4al+B0O/nwwQ
-	2/A3wCjmUbOGI5r8Jh2gF1JTGkHl+mpj2sB/SIYkEr3sTUUj9rErxp4efkr7m/2o5G5BYS0N98ESX
-	e1sw5GuFkB7MDdigHgVvb29oq7cZ9pfMBUsYOaYJ27W/nlxP2PSQ8K9ph7vVghDMgyzh4UNLUOdGW
-	R1qLBXeU4RMDH/dTm+ngTEI63r5hRTmIFZJOza4vnlR7c6fwUVriCSdFqXP/uqyFOsuj40E/W2RoA
-	gIBxntawyVaGJVI8ETgf5eNuqW+iUHMNqEFWfXdbragNuI2dpn1pyBaW64/+fXPtsD3eMVwK9LOr7
-	mFi07NSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jvJrCJlXKu0zyBhFzDwypCRXXkJB5PHy1URiAxDBM28=; b=eMalprYzRBbjkNKTS03YBwZbFf
+	hYHbgQKTSShKXUTbvlWw//J9gtJIM8BR9eU8kLN+xckMFMfMOyVag5ph9alEIbf9ukRtGJnthx33e
+	/cEL3vjAXDe3rJXTHev/0ukS5pZQgdLrtc7zPFuI/V2pPjabtbSlrGTy7A4wz65eXyVK/TdoXE8n4
+	lHlKvvL4bm+CG1vyytHN2CEOkktC+NQ3CE3f0uWp3254BIDZHnTGkgm2gBjlAId6o6ikpTmT8Sas+
+	q1V3ccnJkakiLNEg7LolOrA5/DN93E21hEtdcCUJz7czsWS/N2Wx7PbmW2Z4ihjyYdWQw56NV2Rpz
+	MPGGGB9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzxHv-000000065dJ-3ybu;
-	Wed, 02 Apr 2025 12:33:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1tzxJe-000000065wS-2ogO;
+	Wed, 02 Apr 2025 12:35:34 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzxG8-000000065GX-3nFU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 12:31:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B56D106F;
-	Wed,  2 Apr 2025 05:31:59 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD12A3F63F;
-	Wed,  2 Apr 2025 05:31:55 -0700 (PDT)
-Date: Wed, 2 Apr 2025 13:31:51 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Mike Leach <mike.leach@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/6] coresight: perf: Support AUX trace pause and
- resume
-Message-ID: <20250402123151.GH115840@e132581.arm.com>
-References: <20250311170451.611389-1-leo.yan@arm.com>
- <20250311170451.611389-5-leo.yan@arm.com>
- <CAJ9a7VjqGbpPPeR3-PH5vYHNMwqnPLJ+Ouik017Qh717wFOJ0g@mail.gmail.com>
- <20250401150019.GC115840@e132581.arm.com>
- <CAJ9a7ViKeqNp_c0+w2mkdujLvzs0UA=Xbm5bG7K-kA86AjJ=eA@mail.gmail.com>
+	id 1tzxGY-000000065Jn-2VCf;
+	Wed, 02 Apr 2025 12:32:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=jvJrC
+	JlXKu0zyBhFzDwypCRXXkJB5PHy1URiAxDBM28=; b=jz30fZ3v9aBAfxkd5mqMl
+	jkHWm5hKKsL+mYZErNFNeJjOJ6oSukaEG2MpzVhhWIKpfAKDC/Cudfjd1bAKvxZn
+	PdfRkYOd93NPhfUyzRIWUKyJYHb+IemVxCndB7vnGWlTII2TNkZX0HsStTg/3MA9
+	TB+PKwuMm3mk2Uc1xOPz+w=
+Received: from ProDesk.. (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgDnd405Lu1nJwOJBA--.36321S4;
+	Wed, 02 Apr 2025 20:31:59 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	hjc@rock-chips.com,
+	mripard@kernel.org,
+	neil.armstrong@linaro.org,
+	dmitry.baryshkov@oss.qualcomm.com,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v3 2/7] dt-bindings: display: rockchip,inno-hdmi: Document GRF for RK3036 HDMI
+Date: Wed,  2 Apr 2025 20:31:36 +0800
+Message-ID: <20250402123150.238234-3-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250402123150.238234-1-andyshrk@163.com>
+References: <20250402123150.238234-1-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAJ9a7ViKeqNp_c0+w2mkdujLvzs0UA=Xbm5bG7K-kA86AjJ=eA@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PygvCgDnd405Lu1nJwOJBA--.36321S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ZryxWw47XF1UAFyxtFyrZwb_yoW8Gw15pa
+	sxC3srWFyxGFy7X34ktr1kCrWYgF97Aa15GFW2qr17tr12gan5Ka1agwn8ZF4UAFs7ZFyS
+	9ay7GFy5Aw1Ivr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jrjjgUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkA0jXmftKOaFiAABso
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_053157_025877_D1B756B2 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20250402_053222_942124_DB809341 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,69 +83,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
+From: Andy Yan <andy.yan@rock-chips.com>
 
-On Wed, Apr 02, 2025 at 09:45:20AM +0100, Mike Leach wrote:
+HDMI on RK3036 use GRF control the HSYNC/VSYNC polarity, but this part
+is missing when it first landing upstream.
 
-[...]
+Document that it is mandatory for RK3036 HDMI.
 
-> > > >  static void etm_event_start(struct perf_event *event, int flags)
-> > > >  {
-> > > >         int cpu = smp_processor_id();
-> > > > @@ -463,6 +484,14 @@ static void etm_event_start(struct perf_event *event, int flags)
-> > > >         if (!csdev)
-> > > >                 goto fail;
-> > > >
-> > >
-> > > Is it possible here that the first call to etm_event_start() also has
-> > > the PERF_EF_RESUME flag set?
-> >
-> > The first call has a flow below, using flag 0 but not PERF_EF_RESUME.
-> >
-> >   etm_event_add()
-> >     `>  etm_event_start(event, 0);
-> >
-> 
-> When I looked at the vague comments in the perf source - it seemed to
-> imply that ->start() calls could overlap - so the associated event
-> that resumes trace could occur at the same time as the initialising
-> start from paused for the trace operations.
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 
-Good point.  A subtle but important thing is the 'cs_etm' event must be
-an event group leader, otherwise, the tool reports error:
+---
 
-  # perf record -m,64M -e cycles/aux-action=pause,period=10000000/ \
-      -e cycles/aux-action=resume,period=10/ \
-      -e cs_etm/aux-action=start-paused/u -- /mnt/sort
-  Events with aux-action must have AUX area event group leader
+(no changes since v2)
 
-If the 'cs_etm' event is the event group leader, it will be always
-enabled ahead other PMU events.  So etm_event_start(event, 0) is
-invoked prior to PMU events enabling.  As a result, this can avoid the
-race condition you mentioned.
+Changes in v2:
+- First included in v2
 
-I confirmed with ftrace log:
+ .../bindings/display/rockchip/rockchip,inno-hdmi.yaml    | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-  sort-901     [005] d..3.  1033.827186: etm_event_add <-event_sched_in
-  sort-901     [005] d..3.  1033.827187: etm_event_start <-etm_event_add
-  sort-901     [005] d..3.  1033.827283: armpmu_add <-event_sched_in
-  sort-901     [005] d..3.  1033.827287: armpmu_start <-armpmu_add
-  sort-901     [005] d..3.  1033.827288: armpmu_event_set_period <-armpmu_start
-  sort-901     [005] d..3.  1033.827292: armpmu_add <-event_sched_in
-  sort-901     [005] d..3.  1033.827293: armpmu_start <-armpmu_add
-  sort-901     [005] d..3.  1033.827294: armpmu_event_set_period <-armpmu_start
-  sort-901     [005] d..3.  1033.827298: armpmu_filter <-visit_groups_merge.constprop.0.isra.0
-  sort-901     [005] d..3.  1033.827298: armpmu_enable <-perf_pmu_enable
-  sort-901     [005] d..3.  1033.827301: armpmu_enable <-perf_pmu_enable
-  sort-901     [005] d.h1.  1033.827304: armpmu_dispatch_irq <-__handle_irq_event_percpu
-  sort-901     [005] d.h1.  1033.827306: armpmu_event_update <-armv8pmu_handle_irq
-  sort-901     [005] d.h1.  1033.827308: armpmu_event_set_period <-armv8pmu_handle_irq
-  sort-901     [005] d.h..  1033.827322: perf_event_aux_pause: event=ffff000207503e40 pause=0
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
+index 9d1e7f894ea54..290376bec079a 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,inno-hdmi.yaml
+@@ -56,6 +56,12 @@ properties:
+       - port@0
+       - port@1
+ 
++  rockchip,grf:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to GRF used for control the polarity of hsync/vsync of rk3036
++      HDMI.
++
+ required:
+   - compatible
+   - reg
+@@ -75,6 +81,8 @@ allOf:
+             const: rockchip,rk3036-inno-hdmi
+ 
+     then:
++      required:
++        - rockchip,grf
+       properties:
+         power-domains: false
+ 
+@@ -103,6 +111,7 @@ examples:
+       clock-names = "pclk", "ref";
+       pinctrl-names = "default";
+       pinctrl-0 = <&hdmi_ctl>;
++      rockchip,grf = <&grf>;
+       #sound-dai-cells = <0>;
+ 
+       ports {
+-- 
+2.43.0
 
-> If we are guaranteed this cannot happen then we are good to go!
-
-Now I think we are safe, right?  ;)
-
-Thanks,
-Leo
 
