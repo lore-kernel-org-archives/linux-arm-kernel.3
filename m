@@ -4,139 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46317C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 02:30:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B97C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 03:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/8oxjPS8tIOPkMuy0QEnU6ypDz8yfhs22Fv/dtcibj4=; b=HKQawN5RWTxTzcLvLIHZGvFJbR
-	66EGd0C/bycsGMF96WKe5x4tOskxHBusoeqzjEuDDFXuQFmMwudBjs5xQsclmPy00ORiUBI2XYUoP
-	gnwMrqfI2wELxDomX02/E+j/9OJyWKScFU6tZgYqsnUoLHM+9cQeAvuwzmX6vDhEHdFb/U4XF5+la
-	O3MYMZIPW/rvTqJo6N4j8ew/DQpDfGLi+stg1Auw0gCghJWoMeUeHjq4r/CykqDPXeaiAS+9lfKxg
-	0UCcGtQJ2+jAf63S3D4lFnhJuALpQSHAsEijmwpoqiBthBnV/24mWhFBRfu4p7nKXNi2eVnZT8iJg
-	1+i3TqLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O57Qrc19UF6iIm7z5KQb1u7Bv8xzz9ipVz0Nk7dWFRY=; b=wnHzU16rR/XkEzaxIVE1ihfPaD
+	Jx7HSVokhlr/BGa5S1u3m0bxLMHQgjkhEJC4patfIZq6UxOxgqCr1AiY5m7jReejx35tKrXutL/2R
+	XJlE8bBzVe+JFGCDtCY/jtMgVemx9GCg60m0BjLh3cKD5+ksdMvrunsZ+WVIIyuKVvMCEbHyqkdTt
+	FD3SsHEK6BnKtj8fVUk3eV+wdVccw81a5/nXRUPpiFePpLVfc2Oh7vlQZtXmXYjDLglz+QvZZXCRK
+	+712idnNtgPsHT5do3+GN+6qD7PRdRwShERDaQhPbRmoBzr0GigiPNN2LYdpYtVlIDmaiteldObmF
+	+X6sdUng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tznsG-00000004wJ1-2zNu;
-	Wed, 02 Apr 2025 02:30:40 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1tzoc7-000000051VT-1kGg;
+	Wed, 02 Apr 2025 03:18:03 +0000
+Received: from xry111.site ([89.208.246.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tznqW-00000004w2x-44Mv
+	id 1tzoaO-000000051Jd-10MH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 02:28:55 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250402022841epoutp01f27b29b280d0151d9ec3aa53361c2f7d~yX2uUQRjm2434724347epoutp016
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  2 Apr 2025 02:28:41 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250402022841epoutp01f27b29b280d0151d9ec3aa53361c2f7d~yX2uUQRjm2434724347epoutp016
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1743560921;
-	bh=/8oxjPS8tIOPkMuy0QEnU6ypDz8yfhs22Fv/dtcibj4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RrTiGCazqXXGnb00v9VBfymeqRov+Ym1dHvM0GZ6vpqnYalg8kOlIHAhV+kU76asI
-	 o4MUMRUFNjHvS65pwkEVE9gL4KQ2lOZeFZ4G0h7oFJGDzdVG0qJrds1wnVbSmTgxpO
-	 YvX5n0PKLzjy15YRbNW1Ssn9vsDZB4/FIbPk8Djk=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250402022840epcas2p287e4e041182a3af00852cadacbcf30ef~yX2tu_Zg12874028740epcas2p24;
-	Wed,  2 Apr 2025 02:28:40 +0000 (GMT)
-Received: from epsmges2p4.samsung.com (unknown [182.195.36.68]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4ZS81h1T4Dz2SSKd; Wed,  2 Apr
-	2025 02:28:40 +0000 (GMT)
-Received: from epcas2p3.samsung.com ( [182.195.41.55]) by
-	epsmges2p4.samsung.com (Symantec Messaging Gateway) with SMTP id
-	0E.AC.09871.8D0ACE76; Wed,  2 Apr 2025 11:28:40 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250402022839epcas2p418dd591006fe8a00ecba240a3b60baaf~yX2sxd8oz1178711787epcas2p4d;
-	Wed,  2 Apr 2025 02:28:39 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250402022839epsmtrp207b0765e1a3566a3b11851eb31b81dd6~yX2swXerG2617026170epsmtrp24;
-	Wed,  2 Apr 2025 02:28:39 +0000 (GMT)
-X-AuditID: b6c32a48-b95f07000000268f-87-67eca0d8adcf
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	11.D6.08805.7D0ACE76; Wed,  2 Apr 2025 11:28:39 +0900 (KST)
-Received: from perf (unknown [10.229.95.91]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250402022839epsmtip12afaf422178eadf15f85237be9f86c93~yX2sc-fs01452614526epsmtip1X;
-	Wed,  2 Apr 2025 02:28:39 +0000 (GMT)
-Date: Wed, 2 Apr 2025 11:32:57 +0900
-From: Youngmin Nam <youngmin.nam@samsung.com>
-To: William McVicker <willmcvicker@google.com>
-Cc: John Stultz <jstultz@google.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Peter Griffin
-	<peter.griffin@linaro.org>, =?iso-8859-1?Q?Andr=E9?= Draszik
-	<andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Rob
-	Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
-	Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Daniel
-	Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Saravana Kannan <saravanak@google.com>, Krzysztof Kozlowski
-	<krzk@kernel.org>, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	tigersoundkim@gmail.com
-Subject: Re: [PATCH v1 3/6] clocksource/drivers/exynos_mct: Set local timer
- interrupts as percpu
-Message-ID: <Z+yh2UUwxUz/vRbK@perf>
+	Wed, 02 Apr 2025 03:16:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
+	s=default; t=1743563772;
+	bh=O57Qrc19UF6iIm7z5KQb1u7Bv8xzz9ipVz0Nk7dWFRY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ZPTNwww0fwhhddu0CtU7AWfoaZ/J2KQAkyXCsrWHK5v8pFQoz8XzGGUvQrzeC6no6
+	 C0SjyXEx/6ji9CiH7XTqG7DxK84peZt7UFukjVGXgPzxREYR5+UobdC7B0LvyqjdBv
+	 L3yUxrGLLgwH1bDwLe38VgwO/Mnp6hY2jUV9DIrw=
+Received: from stargazer.. (unknown [113.200.174.127])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (secp384r1) server-digest SHA384)
+	(Client did not present a certificate)
+	(Authenticated sender: xry111@xry111.site)
+	by xry111.site (Postfix) with ESMTPSA id F2E58659C8;
+	Tue,  1 Apr 2025 23:16:10 -0400 (EDT)
+From: Xi Ruoyao <xry111@xry111.site>
+To: James Morse <james.morse@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xi Ruoyao <xry111@xry111.site>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Mingcong Bai <jeffbai@aosc.io>
+Subject: [PATCH v2] arm64: Add overrride for MPAM
+Date: Wed,  2 Apr 2025 11:12:51 +0800
+Message-ID: <20250402031603.35411-1-xry111@xry111.site>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-In-Reply-To: <Z-wWA-46L08V89qK@google.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA01Tf1DTZRzm3b77bqNbfp2YL4S0ptFJAhtt7KUDrxrVt/KC6rg4PIUBXzdk
-	bGs/PPrhSYFKwxM0uYOpyK9iNyfgGHOohE5FggTvCjFC0CMISEBYmdcha2Oz47/nfT7P836e
-	z33el0XnzuNhrDyVntKqZEo+How5rm6RRN+pfSAX1DQz0b0aB47sM20Ymv/+MEDWzn4aqnFv
-	RKev9TPQUs85HDnPh6Bp0yiOBgZamcg2fpuBfr5wEkdVAz/QUGvVMoY8l5xMZHQ9wVGbrZKO
-	bg0OYGhxeBcqGREjy6IHvL6edFx0MEhrjRWQHaa7TLLWZiBtlm9wcuT2JZyc6+9nkm2N+8kj
-	dgsg3baI1OCM/EQFJcultDxKlaPOzVPJk/jvf5wpzRTHC4TRwgQk4fNUsgIqiZ+8PTX67Tyl
-	dz4+b69MafBSqTKdjh+7LVGrNugpnkKt0yfxKU2uUiPRxOhkBTqDSh6jovSvCQWCOLFXmJWv
-	OH7ATNO4OYUtvWfoRaD2GSNgsyAhgo1//YoZQTCLSzgBNM1OMfyHRQDtp44FKo8AnByqpz21
-	VFw5RfMXOgHs7h4LWO4DaCl3rqgwYjPstfQxfRgnoqGjZxkYAYsVQsTApQOFPj2d8DDgnXPn
-	gU+zjsiGV+a/xXwaDrEJXq9L8dEcYi38sfp3zIfZRBScnhun+7yQKGdD55+/4P5EybDiURnm
-	x+vgzA0704/DoHuuM6DRwaKx4YC5BMDeoSm6v/AqNE0eWglBJxTQaL7O9IWA3hDXhjE//Sws
-	vfokQHNg6UGu3xkJ/z3eCvw4HF5sMAduJGFXU8NKWy5hpcFb9Z9WgAjTqnFMq5qZvLfSiS2w
-	5UKsn34BFrefoPvp52HTMmuVohbgFvAcpdEVyCldnEb0/65z1AU2sPLyo0gnODH7MMYFaCzg
-	ApBF54dw0v+elnM5ubLPPqe06kytQUnpXEDs3dJRetj6HLX366j0mUJRgkAUHy+UxIkFEv4G
-	jmthQs4l5DI9lU9RGkr71EdjscOKaGl9utGsobMkDTAdh3jlD7s+it8XldLeHbljh3F/NR9t
-	tGYnz7Ijij958x2HcU2kvSp3oblsJ2PkpULzH7acmamUF5stxBvSlP57c/u23uzq7itFOYku
-	xC9pcXTsnuC8NZV+84MKjH1m3BOy6eBOj2jhw4LLoscll4Pd6UGisLSMiL1BipfjMnavDXe3
-	72EebYs/6dlqHpQSE4xjEvGGSiohXfGu5r0vJtuzZkbrouzmbdt5PdIvg3/qG9QW1wiCbpzt
-	qD/dwLkv/vofw+Dj+iawJjzu8FfSPaHGlPQy6YNY5dgrgwONprvfLVRWLw1N9iWHTrQcmRaF
-	/pZtTdtVt7nDw8d0Cpkwiq7Vyf4DmLJZ64IEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrEIsWRmVeSWpSXmKPExsWy7bCSnO71BW/SDT7+V7J4MG8bm8WWV5tZ
-	LN4v62G0WLP3HJPFvM+yFvOPnGO1+HNiI5vFju0iFi9n3WOzOH9+A7vFpsfXWC0u75rDZjHj
-	/D4miw0z/rFY/N+zg92i69BfNovNm6YyW1y4ep7F4tOtOIuWO6YWqz79Z3QQ9di2exurx5p5
-	axg9ds66y+6xYFOpx6ZVnWwed67tYfN4d+4cu8fmJfUefVtWMXp83iQXwBXFZZOSmpNZllqk
-	b5fAlXF1yQbmgqncFd/39DA3MN7j6GLk5JAQMJGYcHAuUxcjF4eQwG5Gic+fLzFCJGQkbq+8
-	zAphC0vcbznCClF0n1Fi1sEZzCAJFgEViVOrTrOD2GwCuhLbTvwDaubgEBHQk/jTWgFSzyzQ
-	ySbR/fwuE0iNsECSxMH3k1lAangFlCWOLvSHmLmGSeL43l1gc3gFBCVOznzCAmIzC6hL/Jl3
-	iRmknllAWmL5Pw6IsLxE89bZYCdwCmhJvHz3mHkCo+AsJN2zkHTPQuiehaR7ASPLKkbJ1ILi
-	3PTcYsMCo7zUcr3ixNzi0rx0veT83E2M4GjW0trBuGfVB71DjEwcjIcYJTiYlUR4I76+TBfi
-	TUmsrEotyo8vKs1JLT7EKM3BoiTO++11b4qQQHpiSWp2ampBahFMlomDU6qBSczw6vq2L1p/
-	/ixS9eRevH2BekX4NHPhm6vi92S7L3FymLIiS/WZxIpiiVbfbVY2QVKyvzgmKx56J756mhOT
-	TUnf0fO8fIf809n/lGsWJS/bttz1peNhmeCVO7dWSj/fmyvwmNM5pFLwmh3zx9AJs7fab/jP
-	P9/yy26fLbWNnA9yz9a8bylb2xa86sqmi9vDj7m+Notmufri6fSAI/c2zf2x6OkWa4WHivXi
-	10u2TljKaqK8SHC1mGHQAasVs/X4NH6y7XXqsHufvetgzoOShWsTFaVOZ8zR27EqzOxX56//
-	i69ELuXj4TuWt4LRweBuT8ymj/u368zuf61V/jVPgzPljMVFFrbFSsaK+zncdiqxFGckGmox
-	FxUnAgBuIFEVVQMAAA==
-X-CMS-MailID: 20250402022839epcas2p418dd591006fe8a00ecba240a3b60baaf
-X-Msg-Generator: CA
-Content-Type: multipart/mixed;
-	boundary="-----xErIy8MFyp5znNcbVfGOYxfVuB8z5fzEV-ls754GuccR_q1=_74052_"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250401163914epcas2p1a16e2b7a6ecac9f010ef6eb4c8efc6fb
-References: <20250331230034.806124-1-willmcvicker@google.com>
-	<20250331230034.806124-4-willmcvicker@google.com>
-	<CANDhNCqNqXfGgvo8vNof1qi3E3jejk5KBD=oedZp2_p8RKZdjw@mail.gmail.com>
-	<CGME20250401163914epcas2p1a16e2b7a6ecac9f010ef6eb4c8efc6fb@epcas2p1.samsung.com>
-	<Z-wWA-46L08V89qK@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_192853_740287_B6BE2939 
-X-CRM114-Status: GOOD (  29.48  )
+X-CRM114-CacheID: sfid-20250401_201616_342513_139A67C1 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,57 +73,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
--------xErIy8MFyp5znNcbVfGOYxfVuB8z5fzEV-ls754GuccR_q1=_74052_
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Content-Disposition: inline
+As the message of the commit 09e6b306f3ba ("arm64: cpufeature: discover
+CPU support for MPAM") already states, if a buggy firmware fails to
+either enable MPAM or emulate the trap as if it were disabled, the
+kernel will just fail to boot.  While upgrading the firmware should be
+the best solution, we have some hardware of which the vendor have made
+no response 2 months after we requested a firmware update.  Allow
+overriding it so our devices don't become some e-waste.
 
-On Tue, Apr 01, 2025 at 09:36:19AM -0700, William McVicker wrote:
-> On 03/31/2025, John Stultz wrote:
-> > On Mon, Mar 31, 2025 at 4:00 PM 'Will McVicker' via kernel-team
-> > <kernel-team@android.com> wrote:
-> > >
-> > > From: Hosung Kim <hosung0.kim@samsung.com>
-> > >
-> > > The MCT local timers can be used as a per-cpu event timer. To prevent
-> > 
-> > Can be used, or are used?  If it's an option, is this change important
-> > in both cases?
-> > 
-> > > the timer interrupts from migrating to other CPUs, set the flag
-> > > IRQF_PERCPU.
-> > 
-> > Might be work expanding this a bit to clarify why the interrupts
-> > migrating to other cpus is undesired.
-> 
-> Let me dig into this further to figure out if the IP has a limitation where the
-> interrupts need to be handled by the CPU the timer was triggered on or if this
-> is just an optimization.
-> 
-> Any chance you know this @Youngmin?
-> 
-> Thanks,
-> Will
-> 
+Cc: James Morse <james.morse@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Cc: Mingcong Bai <jeffbai@aosc.io>
+Signed-off-by: Xi Ruoyao <xry111@xry111.site>
+---
 
-Hi Will.
+[v1]->v2:
+- Handle the override and initialize EL2 mpam in finalise_el2_state
+- Move info->mpamidr assignment to {init,update}_cpu_features
 
-Yes. In downstream, we’ve been using MCT as the clock event timer instead of the ARM timer.
-Setting this flag allows each CPU to handle its own clock events, such as scheduling interrupts.
+[v1]: https://lore.kernel.org/linux-arm-kernel/20250401055650.22542-1-xry111@xry111.site/
 
-> > 
-> > > Signed-off-by: Hosung Kim <hosung0.kim@samsung.com>
-> > > [Original commit from https://android.googlesource.com/kernel/gs/+/03267fad19f093bac979ca78309483e9eb3a8d16]
-> > > Signed-off-by: Will McVicker <willmcvicker@google.com>
-> > 
-> > thanks!
-> > -john
-> 
-> 
+ .../admin-guide/kernel-parameters.txt         |  3 +++
+ arch/arm64/include/asm/el2_setup.h            | 24 ++++++++-----------
+ arch/arm64/kernel/cpufeature.c                |  8 +++++--
+ arch/arm64/kernel/cpuinfo.c                   |  7 ++++--
+ arch/arm64/kernel/pi/idreg-override.c         |  2 ++
+ 5 files changed, 26 insertions(+), 18 deletions(-)
 
--------xErIy8MFyp5znNcbVfGOYxfVuB8z5fzEV-ls754GuccR_q1=_74052_
-Content-Type: text/plain; charset="utf-8"
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 3435a062a208..4f2caa706268 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -458,6 +458,9 @@
+ 	arm64.nomops	[ARM64] Unconditionally disable Memory Copy and Memory
+ 			Set instructions support
+ 
++	arm64.nompam	[ARM64] Unconditionally disable Memory Partitioning And
++			Monitoring support
++
+ 	arm64.nomte	[ARM64] Unconditionally disable Memory Tagging Extension
+ 			support
+ 
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index ebceaae3c749..777190ec2b5e 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -294,19 +294,6 @@
+ .Lskip_gcs_\@:
+ .endm
+ 
+-.macro __init_el2_mpam
+-	/* Memory Partitioning And Monitoring: disable EL2 traps */
+-	mrs	x1, id_aa64pfr0_el1
+-	ubfx	x0, x1, #ID_AA64PFR0_EL1_MPAM_SHIFT, #4
+-	cbz	x0, .Lskip_mpam_\@		// skip if no MPAM
+-	msr_s	SYS_MPAM2_EL2, xzr		// use the default partition
+-						// and disable lower traps
+-	mrs_s	x0, SYS_MPAMIDR_EL1
+-	tbz	x0, #MPAMIDR_EL1_HAS_HCR_SHIFT, .Lskip_mpam_\@	// skip if no MPAMHCR reg
+-	msr_s	SYS_MPAMHCR_EL2, xzr		// clear TRAP_MPAMIDR_EL1 -> EL2
+-.Lskip_mpam_\@:
+-.endm
+-
+ /**
+  * Initialize EL2 registers to sane values. This should be called early on all
+  * cores that were booted in EL2. Note that everything gets initialised as
+@@ -324,7 +311,6 @@
+ 	__init_el2_stage2
+ 	__init_el2_gicv3
+ 	__init_el2_hstr
+-	__init_el2_mpam
+ 	__init_el2_nvhe_idregs
+ 	__init_el2_cptr
+ 	__init_el2_fgt
+@@ -371,6 +357,16 @@
+ #endif
+ 
+ .macro finalise_el2_state
++	check_override id_aa64pfr0, ID_AA64PFR0_EL1_MPAM_SHIFT, .Linit_mpam_\@, .Lskip_mpam_\@, x1, x2
++
++.Linit_mpam_\@:
++	msr_s	SYS_MPAM2_EL2, xzr		// use the default partition
++						// and disable lower traps
++	mrs_s	x0, SYS_MPAMIDR_EL1
++	tbz	x0, #MPAMIDR_EL1_HAS_HCR_SHIFT, .Lskip_mpam_\@  // skip if no MPAMHCR reg
++	msr_s   SYS_MPAMHCR_EL2, xzr		// clear TRAP_MPAMIDR_EL1 -> EL2
++
++.Lskip_mpam_\@:
+ 	check_override id_aa64pfr0, ID_AA64PFR0_EL1_SVE_SHIFT, .Linit_sve_\@, .Lskip_sve_\@, x1, x2
+ 
+ .Linit_sve_\@:	/* SVE register access */
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 9c4d6d552b25..44dcc0037ec2 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -88,6 +88,7 @@
+ #include <asm/mte.h>
+ #include <asm/hypervisor.h>
+ #include <asm/processor.h>
++#include <asm/ptrace.h>
+ #include <asm/smp.h>
+ #include <asm/sysreg.h>
+ #include <asm/traps.h>
+@@ -1191,8 +1192,10 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
+ 		cpacr_restore(cpacr);
+ 	}
+ 
+-	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
++	if (id_aa64pfr0_mpam(read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1))) {
++		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
+ 		init_cpu_ftr_reg(SYS_MPAMIDR_EL1, info->reg_mpamidr);
++	}
+ 
+ 	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
+ 		init_cpu_ftr_reg(SYS_GMID_EL1, info->reg_gmid);
+@@ -1443,7 +1446,8 @@ void update_cpu_features(int cpu,
+ 		cpacr_restore(cpacr);
+ 	}
+ 
+-	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0)) {
++	if (id_aa64pfr0_mpam(read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1))) {
++		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
+ 		taint |= check_update_ftr_reg(SYS_MPAMIDR_EL1, cpu,
+ 					info->reg_mpamidr, boot->reg_mpamidr);
+ 	}
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index 285d7d538342..1c114f97bf1e 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -494,8 +494,11 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+ 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
+ 		__cpuinfo_store_cpu_32bit(&info->aarch32);
+ 
+-	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
+-		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
++	/*
++	 * info->mpamidr deferred to {init,update}_cpu_features because we
++	 * don't want to read it (and trigger a trap on buggy firmware) if
++	 * using an aa64pfr0_el1 override to unconditionally disable MPAM.
++	 */
+ 
+ 	if (IS_ENABLED(CONFIG_ARM64_SME) &&
+ 	    id_aa64pfr1_sme(info->reg_id_aa64pfr1)) {
+diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+index c6b185b885f7..836e5a9b98d0 100644
+--- a/arch/arm64/kernel/pi/idreg-override.c
++++ b/arch/arm64/kernel/pi/idreg-override.c
+@@ -127,6 +127,7 @@ static const struct ftr_set_desc pfr0 __prel64_initconst = {
+ 	.fields		= {
+ 	        FIELD("sve", ID_AA64PFR0_EL1_SVE_SHIFT, pfr0_sve_filter),
+ 		FIELD("el0", ID_AA64PFR0_EL1_EL0_SHIFT, NULL),
++		FIELD("mpam", ID_AA64PFR0_EL1_MPAM_SHIFT, NULL),
+ 		{}
+ 	},
+ };
+@@ -246,6 +247,7 @@ static const struct {
+ 	{ "rodata=off",			"arm64_sw.rodataoff=1" },
+ 	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
+ 	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
++	{ "arm64.nompam",		"id_aa64pfr0.mpam=0" },
+ };
+ 
+ static int __init parse_hexdigit(const char *p, u64 *v)
+-- 
+2.49.0
 
-
--------xErIy8MFyp5znNcbVfGOYxfVuB8z5fzEV-ls754GuccR_q1=_74052_--
 
