@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 429FCC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 20:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2722DC36018
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 20:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hFW3v//IajFZdnewSaOSlrzgqURblC3b+kl5GYS3Y3o=; b=TLz80q/WtMnSxLiXlO2YvO/JCY
-	er3V3bMW4Dp8jrHesEcSlziv6ia85rBZYTMosHEeJCvYHwJJ5DzzEIc4XX1Sv5nSzcnmQvDPvz1aR
-	W2aGTq3oiISSzZKmQHO+/WEiIbbtXav4z0iUGDJtFta7aOq2ygGW5CiyDmYGq1EPsHFI34+RuRaXX
-	4OlRz5IoML5P1BBzMk2YKr5NLmJPoccAYZ4tvAnA74wd6AHriBv3+9+4zxLxnX8Oj4TtLa9A8KHE0
-	FBcd4cWknPIqx9lJOMSJMDVYAkivvZSIJJ7sSXHyxmgqVOF3NuSWTPcycskMMIdOq6pkRt22CYnM/
-	tBa5Gm2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLbPJRlyqVSx0cIJ3mGyFLKANvzzRuV5I+YYDBn/Qb0=; b=A3EvtoY/UeKh96uJhxV421zAE7
+	W1JV3I9IoJJns5AOzddBf7IXJKcM7eELunJEQdue25WsGjZL5HOAWGjC5PDladHIVIHebx4dCM+B+
+	Uo27Bqk67bm6A8RjpFqP33sZeH/ngngQewEUdFO14TuTRnkwhDKd32+QAIyuckTIdZb5jypQ7VBpG
+	gC4dWQpNmgMQaQuard1xVSAWGrCPHmBGj428LPOocd/jzUQiKtl/Srx9J7dOPE8M543jR+qHya+D0
+	N1tZ5OcaHSEoHrsRhgJ5oBQyeAsyaW5GdJhE+N99wiCAYE4ZoT41uO2SqTKhVNvbOMoirUSD921GQ
+	H92YTqkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u04Rw-000000077M4-3zLq;
-	Wed, 02 Apr 2025 20:12:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u04Zf-0000000788S-27qi;
+	Wed, 02 Apr 2025 20:20:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u04QB-00000007767-1LdT
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 20:10:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EFCFA44069;
-	Wed,  2 Apr 2025 20:10:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC11FC4CEDD;
-	Wed,  2 Apr 2025 20:10:43 +0000 (UTC)
-Date: Wed, 2 Apr 2025 21:10:41 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Peter Collingbourne <pcc@google.com>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Kees Cook <kees@kernel.org>, Andy Shevchenko <andy@kernel.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] string: Add load_unaligned_zeropad() code path to
- sized_strscpy()
-Message-ID: <Z-2ZwThH-7rkQW86@arm.com>
-References: <20250329000338.1031289-1-pcc@google.com>
- <20250329000338.1031289-2-pcc@google.com>
+	id 1u04Xv-000000077ph-1m08
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 02 Apr 2025 20:18:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description;
+	bh=QLbPJRlyqVSx0cIJ3mGyFLKANvzzRuV5I+YYDBn/Qb0=; b=Nfrz3ROGXN0O80DToFCDxfu6XG
+	yoyUyBkZqiwBQIjSx0CUpkS7l7FsHD3njuvDumbfUaGa2zSt7S3oisW9uQx3hTFhvpXaN/ObTk1Ow
+	gQYkewg0TLVGgufwQ78yCM45XNjHzaEJAtcCOXjNSF0I0vubrHOQdr9/G43iAC1nHsMByQhY9dP3w
+	XKK0ICk6AId5UHnCNKEAMKtzPshdkmLVAE4G9El40B82ioTzorcncoc3p8Uq/idZY3MdIIQxeeCtd
+	HbfA5xi6ZzxM42IQRE/iQIBKVE7I+/KmNBg30BWFZRouqfIlIM7+NAQU01c3e+5geZbpIasnFrSaN
+	nfD3oIvw==;
+Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u04Xr-0000000759n-0W23;
+	Wed, 02 Apr 2025 20:18:43 +0000
+Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u04Xp-0000000DcH8-2kho;
+	Wed, 02 Apr 2025 21:18:41 +0100
+From: David Woodhouse <dwmw2@infradead.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	"Sauerwein, David" <dssauerw@amazon.de>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	David Hildenbrand <david@redhat.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Rapoport <rppt@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	kvmarm@lists.cs.columbia.edu,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: [RFC PATCH 2/3] mm: Implement for_each_valid_pfn() for CONFIG_FLATMEM
+Date: Wed,  2 Apr 2025 21:18:40 +0100
+Message-ID: <20250402201841.3245371-2-dwmw2@infradead.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250402201841.3245371-1-dwmw2@infradead.org>
+References: <Z-vn-sMtNfwyJ9VW@kernel.org>
+ <20250402201841.3245371-1-dwmw2@infradead.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250329000338.1031289-2-pcc@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_131047_398613_698E8CF4 
-X-CRM114-Status: GOOD (  20.45  )
+Content-Transfer-Encoding: 8bit
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,71 +84,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 05:03:36PM -0700, Peter Collingbourne wrote:
-> diff --git a/lib/string.c b/lib/string.c
-> index eb4486ed40d25..b632c71df1a50 100644
-> --- a/lib/string.c
-> +++ b/lib/string.c
-> @@ -119,6 +119,7 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
->  	if (count == 0 || WARN_ON_ONCE(count > INT_MAX))
->  		return -E2BIG;
->  
-> +#ifndef CONFIG_DCACHE_WORD_ACCESS
->  #ifdef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
->  	/*
->  	 * If src is unaligned, don't cross a page boundary,
-> @@ -133,12 +134,14 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
->  	/* If src or dest is unaligned, don't do word-at-a-time. */
->  	if (((long) dest | (long) src) & (sizeof(long) - 1))
->  		max = 0;
-> +#endif
->  #endif
->  
->  	/*
-> -	 * read_word_at_a_time() below may read uninitialized bytes after the
-> -	 * trailing zero and use them in comparisons. Disable this optimization
-> -	 * under KMSAN to prevent false positive reports.
-> +	 * load_unaligned_zeropad() or read_word_at_a_time() below may read
-> +	 * uninitialized bytes after the trailing zero and use them in
-> +	 * comparisons. Disable this optimization under KMSAN to prevent
-> +	 * false positive reports.
->  	 */
->  	if (IS_ENABLED(CONFIG_KMSAN))
->  		max = 0;
-> @@ -146,7 +149,11 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
->  	while (max >= sizeof(unsigned long)) {
->  		unsigned long c, data;
->  
-> +#ifdef CONFIG_DCACHE_WORD_ACCESS
-> +		c = load_unaligned_zeropad(src+res);
-> +#else
->  		c = read_word_at_a_time(src+res);
-> +#endif
->  		if (has_zero(c, &data, &constants)) {
->  			data = prep_zero_mask(c, data, &constants);
->  			data = create_zero_mask(data);
+From: David Woodhouse <dwmw@amazon.co.uk>
 
-Kees mentioned the scenario where this crosses the page boundary and we
-pad the source with zeros. It's probably fine but there are 70+ cases
-where the strscpy() return value is checked, I only looked at a couple.
+In the FLATMEM case, the default pfn_valid() just checks that the PFN is
+within the range [ ARCH_PFN_OFFSET .. ARCH_PFN_OFFSET + max_mapnr ).
 
-Could we at least preserve the behaviour with regards to page boundaries
-and keep the existing 'max' limiting logic? If I read the code
-correctly, a fall back to reading one byte at a time from an unmapped
-page would panic. We also get this behaviour if src[0] is reading from
-an invalid address, though for arm64 the panic would be in
-ex_handler_load_unaligned_zeropad() when count >= 8.
+The for_each_valid_pfn() function can therefore be a simple for() loop
+using those as min/max respectively.
 
-Reading across tag granule (but not across page boundary) and causing a
-tag check fault would result in padding but we can live with this and
-only architectures that do MTE-style tag checking would get the new
-behaviour.
+Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+---
+ include/asm-generic/memory_model.h | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
 
-What I haven't checked is whether a tag check fault in
-ex_handler_load_unaligned_zeropad() would confuse the KASAN logic for
-MTE (it would be a second tag check fault while processing the first).
-At a quick look, it seems ok but it might be worth checking.
-
+diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
+index a3b5029aebbd..4fe7dd3bc09c 100644
+--- a/include/asm-generic/memory_model.h
++++ b/include/asm-generic/memory_model.h
+@@ -30,7 +30,31 @@ static inline int pfn_valid(unsigned long pfn)
+ 	return pfn >= pfn_offset && (pfn - pfn_offset) < max_mapnr;
+ }
+ #define pfn_valid pfn_valid
+-#endif
++
++static inline bool first_valid_pfn(unsigned long *pfn)
++{
++	/* avoid <linux/mm.h> include hell */
++	extern unsigned long max_mapnr;
++	unsigned long pfn_offset = ARCH_PFN_OFFSET;
++
++	if (*pfn < pfn_offset) {
++		*pfn = pfn_offset;
++		return true;
++	}
++
++	if ((*pfn - pfn_offset) < max_mapnr)
++		return true;
++
++	return false;
++}
++
++#ifndef for_each_valid_pfn
++#define for_each_valid_pfn(pfn, start_pfn, end_pfn)			       \
++	for (pfn = max_t(unsigned long  start_pfn, ARCH_PFN_OFFSET);	       \
++	     pfn < min_t(unsigned long, end_pfn, ARCH_PFN_OFFSET + max_mapnr); \
++			 pfn++)
++#endif /* for_each_valid_pfn */
++#endif /* valid_pfn */
+ 
+ #elif defined(CONFIG_SPARSEMEM_VMEMMAP)
+ 
 -- 
-Catalin
+2.49.0
+
 
