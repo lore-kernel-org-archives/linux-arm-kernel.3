@@ -4,109 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D78C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 22:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AB1C36018
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 23:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RCUdSZJKo+DfCb7L1u9uIyzdzgr+hzjdGkAPqeN8dwI=; b=NvNq5nCJxXI8qkxg303AAl5dRl
-	FW2wRsIcKpWSKeLMCps/3aqldoyp+mir+nXfRg7yJwUBm7+PQQp1cOaGKRWonnJotHm7YMPb/uuUi
-	NGGudHtX4fWHbHJr7JLEUMj9k2riCU2nWyuog78z0VeNr097yWux/YyE6b4bB12B8M6NggsgQvHMA
-	sf0tILhcu2iVLxp7AbJFLRt2hhBSSCIEsuWz/INGIlntdh7IWhV3w6Z/cULewSqHhAzhZ5c0RanD8
-	6u3r9MGvm7qipeUJbBMZXoMscXwATt2kWstoSywyjko0CLmXgqas2bhxIAan2+OkWg0AeAH1M+aw3
-	hYVXO67A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j7YQrHygwgkPoJf/MfgSb7sVcYw33GA+KxOxJM2BSjo=; b=OtlELaAZI8o08yITp2ZL012tf8
+	IvzjGHE75oAagL1Yrda70aeoXU+fBC01TaLtXURUHiDBel2AmHLkWlLFiLLNUW7IfYAxb9WRvgxcm
+	cqHKm6ttowp0df/ivWIpVLrZWyXJdmWk26YYimjsk0Z/d8eu+EB67D15Vn75Xi6U7FFIA80Hc3V9J
+	FPDtwpzGGmu2YUx40+Zun/CrO5wkFPIXYRhoJbLDPwYptJD6nG+L/shUCN3f3UBfZxJnraa5fZWqn
+	FyoeLRJ3A91aNym7VBfotXs+1l7bZi5nh3sj41OSiN2gCE4+8gxvnNM1id0d00kIL0QqnquPxSrpe
+	SuvmgJ4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u06mD-00000007Lh1-0bHa;
-	Wed, 02 Apr 2025 22:41:41 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1u07IP-00000007NcB-2yxB;
+	Wed, 02 Apr 2025 23:14:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u06kR-00000007LZz-0EFo
+	id 1u07Ge-00000007NKy-24Il
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 22:39:52 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2240b4de12bso4545235ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 15:39:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743633590; x=1744238390; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=RCUdSZJKo+DfCb7L1u9uIyzdzgr+hzjdGkAPqeN8dwI=;
-        b=XVlyGic3Za7e8PpMJPms5N50YgSurmgWWfGvoANNqXGXpKXqDe77OWyakpa9u0GBdM
-         X+V2lrosL4yQUFB3aQkPoA+xCqBgvJnB0RvXbc/Xv6Py+/PXa4J3MHA+ZF4HSk4EOMcE
-         nEeZvK784BCxIxmp3AqLm+dzTsMHiVzNUvzel7x/ziFk9aO1SztcYDKc9ab+GpNMQQqy
-         2RsfzFERcC4KSBs+1pQa2rF/ALHBJC5GHka83KFS84Ua9idsvEmg5KCUbNgjq3Yhq+yv
-         RuyNJ1JFO5GBZnY8WmCRUY6n6YhxVf2LpAqCnS1ubb9eNClhO8B/wrXNci5Fz6qegcrq
-         QPuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743633590; x=1744238390;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RCUdSZJKo+DfCb7L1u9uIyzdzgr+hzjdGkAPqeN8dwI=;
-        b=AWFQnZr1R2bF5TL1YelJeyoezM4BxQjLtBYm9ZFUi/tZThm5RM8Nu33BW81fk75quR
-         WQYQB4g6Q6hYW7ZsgHBBjeCmBXnV+6YF4R9PlBuAMk/L5ChsRBAk9WwidMA7pBi+Kuvd
-         uu1ceqeHgQS0eUz0dugLVKY768lnxrzmo8xZIN/lHifhIE16WQLA4PjQYkrwV+BJtLKE
-         X8pZzilD6fqRjgSE+0hvvL6uvWiteqjlLsnXknJRHXqB2cPAcKshirMi2uSL+qvtIc2p
-         FOVYzv4kRRwsyMjVQdFFUB+Cb8K12GSeTbtyUrQLk1AzcK0uMyCfus5Z1XE7/VMpueD0
-         wf/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWnwdiP6ajX6FZpXuHe/ZV4+xOgIdxuM59fBt2yBdd+HaBGDq5qPovWaZVjFlAMP8BMudGEpZo3tZU5AG0wYyGQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyDjZ/i8evlJ8I9v0WjWkLRMLQhavmUmsBC3b4GCqQ4jvSK45c
-	c9Ppw02zGcAtnTsDfJYxWahv7Uz0JHgo774e6wmUNzuUrhAafhlUXS9A0MOkvkTsvFQWLueNjdv
-	QzA==
-X-Gm-Gg: ASbGncsExMz9arqEj2/BJWx54fn9TIlempM4/VSap/qtnFMbgRWp6CRt19AKPV5m812
-	9dIAmn5M8Ry8tdzmtQNpkLzkrG3iRX7iYaCAnsI+fShqwtAZiMge6s+wNe9E2C7NkvrqCf6Gv3R
-	PGekLEgiO4WWJGJOBbsWTrkf+YlNsj8ArzehyM3sZA123u274ljz3c7MwfTyh5+0A4GfM0oJYoZ
-	FevDo6B2U+nOwIi+lmTw0BxbAIuTNwgbj6fktEg43pI+DRmqdMOCG5nq5y0TM4cTXkttZZjCYuq
-	NxjJyaA/eD8bveciZVQXoB3Ktl+lBOPyP/gOru2lkIYEXA+JNUgmDU/MT4OjDd7FqFhMGQtnCjV
-	RSC4SpK0u0hnmcWc=
-X-Google-Smtp-Source: AGHT+IF4gwMOCkgD1NLc9h9zDKSDNadcDgyOK8y59bXpjfWPpkP3E5OcoZpIKL40ijcRHOF0nPIbcQ==
-X-Received: by 2002:a17:902:b683:b0:224:1609:a74a with SMTP id d9443c01a7336-22977deaf3cmr4975415ad.34.1743633589886;
-        Wed, 02 Apr 2025 15:39:49 -0700 (PDT)
-Received: from google.com (198.103.247.35.bc.googleusercontent.com. [35.247.103.198])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2297866efb5sm921995ad.201.2025.04.02.15.39.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Apr 2025 15:39:49 -0700 (PDT)
-Date: Wed, 2 Apr 2025 15:39:45 -0700
-From: William McVicker <willmcvicker@google.com>
-To: Youngmin Nam <youngmin.nam@samsung.com>
-Cc: John Stultz <jstultz@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	tigersoundkim@gmail.com
-Subject: Re: [PATCH v1 3/6] clocksource/drivers/exynos_mct: Set local timer
- interrupts as percpu
-Message-ID: <Z-28sR02GhsNMnlg@google.com>
-References: <20250331230034.806124-1-willmcvicker@google.com>
- <20250331230034.806124-4-willmcvicker@google.com>
- <CANDhNCqNqXfGgvo8vNof1qi3E3jejk5KBD=oedZp2_p8RKZdjw@mail.gmail.com>
- <CGME20250401163914epcas2p1a16e2b7a6ecac9f010ef6eb4c8efc6fb@epcas2p1.samsung.com>
- <Z-wWA-46L08V89qK@google.com>
- <Z+yh2UUwxUz/vRbK@perf>
+	Wed, 02 Apr 2025 23:13:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D93BB443FF;
+	Wed,  2 Apr 2025 23:13:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C532C4CEDD;
+	Wed,  2 Apr 2025 23:13:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743635587;
+	bh=m/dwRDdQP4Th7ONfZTRuvj+AHHMjMEezB28FzQTPJTg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Enx5KPfqjEw9c6twn1LSKyRusNqhN2HWBCEjE1aEFNWcugcZtq/ZB6Qddd9vK62fS
+	 ftCJhao4bx9nj6l3rFsBRTFXXkTjNvDaIu971avDD3EKZ/zXbj2hZGZ08tO1Hbi/HY
+	 +I/QiHSka7vLGl1/nyicdLh7JHJOpwtHizyef4t7KwGlY4hePyurLFlWrUNAYM+kLl
+	 ps9nll/5+mh55v73MuWXCcYGSvZ22L4pKYpayKLja6NvWdWpnv7C5XmYrtXphBD5II
+	 1X57uFpi6pEfLs/ssgl/PacFa7rN7BRcX/l/gxCWvijEsqWUtnRwwISxD21XoEHVzJ
+	 kxmp474f94//w==
+From: Mark Brown <broonie@kernel.org>
+Date: Wed, 02 Apr 2025 23:59:33 +0100
+Subject: [PATCH 01/10] KVM: arm64: Get rid of host SVE tracking/saving
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z+yh2UUwxUz/vRbK@perf>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250402-stable-sve-5-15-v1-1-84d0e5ff1102@kernel.org>
+References: <20250402-stable-sve-5-15-v1-0-84d0e5ff1102@kernel.org>
+In-Reply-To: <20250402-stable-sve-5-15-v1-0-84d0e5ff1102@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Oleg Nesterov <oleg@redhat.com>, Oliver Upton <oliver.upton@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-c25d1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6329; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=O3k+gOgTUGiM5t6hYHLkd+5jlCwRM5xVq/AQhFHUOBY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn7cR16K3yyoxbtpnEmJgvaT/Abx5dC02kYH1c5sSk
+ EDHFygOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ+3EdQAKCRAk1otyXVSH0H15B/
+ 0c6cWUx5MCPf1+CMLSAa7YevP8vsXQYJPn60ZQM97f9lWDfmVFT8r1HMW9TKSD1NIOfuQF5pZnNOzb
+ 1QOdHbIPIhQyyJ9UM7yZHRB6ziLYuCMo8Ix0yZ32/oWGGgXFabrwQn6GWmB5JeB1ZcYssKxD+UE2vJ
+ w/9rVkdrUOq3za35Ai2HIuiit/ymmCTWu/8vDkUZxdMf8zT5UcaUHjdfF47b68E2cXZqw3U7yvxVwQ
+ BJNujftVbaMw1YxbR/s2QC3o/mRLCR5Qupgnwp0kcpSUY0dra/lch0X3Jbh6hvcg+YGIicQ+hXKfSh
+ /YpbFOCC4gCt1GwP0kPFsD+hs1P07j
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_153951_092829_747D0C06 
-X-CRM114-Status: GOOD (  26.33  )
+X-CRM114-CacheID: sfid-20250402_161308_576630_0239C4CE 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,55 +86,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/02/2025, Youngmin Nam wrote:
-> On Tue, Apr 01, 2025 at 09:36:19AM -0700, William McVicker wrote:
-> > On 03/31/2025, John Stultz wrote:
-> > > On Mon, Mar 31, 2025 at 4:00 PM 'Will McVicker' via kernel-team
-> > > <kernel-team@android.com> wrote:
-> > > >
-> > > > From: Hosung Kim <hosung0.kim@samsung.com>
-> > > >
-> > > > The MCT local timers can be used as a per-cpu event timer. To prevent
-> > > 
-> > > Can be used, or are used?  If it's an option, is this change important
-> > > in both cases?
-> > > 
-> > > > the timer interrupts from migrating to other CPUs, set the flag
-> > > > IRQF_PERCPU.
-> > > 
-> > > Might be work expanding this a bit to clarify why the interrupts
-> > > migrating to other cpus is undesired.
-> > 
-> > Let me dig into this further to figure out if the IP has a limitation where the
-> > interrupts need to be handled by the CPU the timer was triggered on or if this
-> > is just an optimization.
-> > 
-> > Any chance you know this @Youngmin?
-> > 
-> > Thanks,
-> > Will
-> > 
-> 
-> Hi Will.
-> 
-> Yes. In downstream, we’ve been using MCT as the clock event timer instead of the ARM timer.
-> Setting this flag allows each CPU to handle its own clock events, such as scheduling interrupts.
+From: Marc Zyngier <maz@kernel.org>
 
-Thanks for the explanation! I'll integrate this into the commit text.
+[ Upstream commit 8383741ab2e773a992f1f0f8acdca5e7a4687c49 ]
 
-Regards,
-Will
+The SVE host tracking in KVM is pretty involved. It relies on a
+set of flags tracking the ownership of the SVE register, as well
+as that of the EL0 access.
 
-> 
-> > > 
-> > > > Signed-off-by: Hosung Kim <hosung0.kim@samsung.com>
-> > > > [Original commit from https://android.googlesource.com/kernel/gs/+/03267fad19f093bac979ca78309483e9eb3a8d16]
-> > > > Signed-off-by: Will McVicker <willmcvicker@google.com>
-> > > 
-> > > thanks!
-> > > -john
-> > 
-> > 
+It is also pretty scary: __hyp_sve_save_host() computes
+a thread_struct pointer and obtains a sve_state which gets directly
+accessed without further ado, even on nVHE. How can this even work?
 
+The answer to that is that it doesn't, and that this is mostly dead
+code. Closer examination shows that on executing a syscall, userspace
+loses its SVE state entirely. This is part of the ABI. Another
+thing to notice is that although the kernel provides helpers such as
+kernel_neon_begin()/end(), they only deal with the FP/NEON state,
+and not SVE.
+
+Given that you can only execute a guest as the result of a syscall,
+and that the kernel cannot use SVE by itself, it becomes pretty
+obvious that there is never any host SVE state to save, and that
+this code is only there to increase confusion.
+
+Get rid of the TIF_SVE tracking and host save infrastructure altogether.
+
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/include/asm/kvm_host.h       |  1 -
+ arch/arm64/kvm/fpsimd.c                 | 20 +++++---------------
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 27 +++------------------------
+ 3 files changed, 8 insertions(+), 40 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 91038fa2e5e0..4e84d75ae91c 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -410,7 +410,6 @@ struct kvm_vcpu_arch {
+ #define KVM_ARM64_DEBUG_DIRTY		(1 << 0)
+ #define KVM_ARM64_FP_ENABLED		(1 << 1) /* guest FP regs loaded */
+ #define KVM_ARM64_FP_HOST		(1 << 2) /* host FP regs loaded */
+-#define KVM_ARM64_HOST_SVE_IN_USE	(1 << 3) /* backup for host TIF_SVE */
+ #define KVM_ARM64_HOST_SVE_ENABLED	(1 << 4) /* SVE enabled for EL0 */
+ #define KVM_ARM64_GUEST_HAS_SVE		(1 << 5) /* SVE exposed to guest */
+ #define KVM_ARM64_VCPU_SVE_FINALIZED	(1 << 6) /* SVE config completed */
+diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+index 5621020b28de..2d15e1d6e214 100644
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -66,22 +66,15 @@ int kvm_arch_vcpu_run_map_fp(struct kvm_vcpu *vcpu)
+  *
+  * Here, we just set the correct metadata to indicate that the FPSIMD
+  * state in the cpu regs (if any) belongs to current on the host.
+- *
+- * TIF_SVE is backed up here, since it may get clobbered with guest state.
+- * This flag is restored by kvm_arch_vcpu_put_fp(vcpu).
+  */
+ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+ {
+ 	BUG_ON(!current->mm);
++	BUG_ON(test_thread_flag(TIF_SVE));
+ 
+-	vcpu->arch.flags &= ~(KVM_ARM64_FP_ENABLED |
+-			      KVM_ARM64_HOST_SVE_IN_USE |
+-			      KVM_ARM64_HOST_SVE_ENABLED);
++	vcpu->arch.flags &= ~KVM_ARM64_FP_ENABLED;
+ 	vcpu->arch.flags |= KVM_ARM64_FP_HOST;
+ 
+-	if (test_thread_flag(TIF_SVE))
+-		vcpu->arch.flags |= KVM_ARM64_HOST_SVE_IN_USE;
+-
+ 	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
+ 		vcpu->arch.flags |= KVM_ARM64_HOST_SVE_ENABLED;
+ }
+@@ -115,13 +108,11 @@ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu)
+ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+ {
+ 	unsigned long flags;
+-	bool host_has_sve = system_supports_sve();
+-	bool guest_has_sve = vcpu_has_sve(vcpu);
+ 
+ 	local_irq_save(flags);
+ 
+ 	if (vcpu->arch.flags & KVM_ARM64_FP_ENABLED) {
+-		if (guest_has_sve) {
++		if (vcpu_has_sve(vcpu)) {
+ 			__vcpu_sys_reg(vcpu, ZCR_EL1) = read_sysreg_el1(SYS_ZCR);
+ 
+ 			/* Restore the VL that was saved when bound to the CPU */
+@@ -131,7 +122,7 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+ 		}
+ 
+ 		fpsimd_save_and_flush_cpu_state();
+-	} else if (has_vhe() && host_has_sve) {
++	} else if (has_vhe() && system_supports_sve()) {
+ 		/*
+ 		 * The FPSIMD/SVE state in the CPU has not been touched, and we
+ 		 * have SVE (and VHE): CPACR_EL1 (alias CPTR_EL2) has been
+@@ -145,8 +136,7 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+ 			sysreg_clear_set(CPACR_EL1, CPACR_EL1_ZEN_EL0EN, 0);
+ 	}
+ 
+-	update_thread_flag(TIF_SVE,
+-			   vcpu->arch.flags & KVM_ARM64_HOST_SVE_IN_USE);
++	update_thread_flag(TIF_SVE, 0);
+ 
+ 	local_irq_restore(flags);
+ }
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index ecd41844eda0..269ec3587210 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -207,16 +207,6 @@ static inline bool __populate_fault_info(struct kvm_vcpu *vcpu)
+ 	return __get_fault_info(esr, &vcpu->arch.fault);
+ }
+ 
+-static inline void __hyp_sve_save_host(struct kvm_vcpu *vcpu)
+-{
+-	struct thread_struct *thread;
+-
+-	thread = container_of(vcpu->arch.host_fpsimd_state, struct thread_struct,
+-			      uw.fpsimd_state);
+-
+-	__sve_save_state(sve_pffr(thread), &vcpu->arch.host_fpsimd_state->fpsr);
+-}
+-
+ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
+ {
+ 	sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1, SYS_ZCR_EL2);
+@@ -228,21 +218,14 @@ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
+ /* Check for an FPSIMD/SVE trap and handle as appropriate */
+ static inline bool __hyp_handle_fpsimd(struct kvm_vcpu *vcpu)
+ {
+-	bool sve_guest, sve_host;
++	bool sve_guest;
+ 	u8 esr_ec;
+ 	u64 reg;
+ 
+ 	if (!system_supports_fpsimd())
+ 		return false;
+ 
+-	if (system_supports_sve()) {
+-		sve_guest = vcpu_has_sve(vcpu);
+-		sve_host = vcpu->arch.flags & KVM_ARM64_HOST_SVE_IN_USE;
+-	} else {
+-		sve_guest = false;
+-		sve_host = false;
+-	}
+-
++	sve_guest = vcpu_has_sve(vcpu);
+ 	esr_ec = kvm_vcpu_trap_get_class(vcpu);
+ 	if (esr_ec != ESR_ELx_EC_FP_ASIMD &&
+ 	    esr_ec != ESR_ELx_EC_SVE)
+@@ -269,11 +252,7 @@ static inline bool __hyp_handle_fpsimd(struct kvm_vcpu *vcpu)
+ 	isb();
+ 
+ 	if (vcpu->arch.flags & KVM_ARM64_FP_HOST) {
+-		if (sve_host)
+-			__hyp_sve_save_host(vcpu);
+-		else
+-			__fpsimd_save_state(vcpu->arch.host_fpsimd_state);
+-
++		__fpsimd_save_state(vcpu->arch.host_fpsimd_state);
+ 		vcpu->arch.flags &= ~KVM_ARM64_FP_HOST;
+ 	}
+ 
+
+-- 
+2.39.5
 
 
