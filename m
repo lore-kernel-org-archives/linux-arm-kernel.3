@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D5FC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 07:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F79C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 07:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjR4lEGGyx3HdyMesa5h6gRayUig9bsMGHv5vZfbr1E=; b=bSvwl9bMUL9NbfbFtW+42p6YAp
-	7gjpETg4xRaDFQi4DUAOYVdvB3wevVMu0IroEOaz4EMgguvMXUFhTDtxOv5IKM2Lc0HR/TOSnuCI2
-	CB6IiJKRukiM/DHwFWzhY9T20mo3TKFicLvQToCytWdMT7oBp5JbxgAcyIxzWkJzhvyStfIlpyiSN
-	TpWJ3zMA5u6Aqx8FwfdhxhhAJ6BY9TQDQnODTTTa1CzIgAT3NMEzaEw8cewwbTjwSdpshObHhmf43
-	QhLJUsFUh5I7s3eU7MlIglXYamuRbzzrxvAABCbRc+9WswWm6MbiBYB7FPZ7MYHFitzuDEfDJ5OBc
-	Hridxo2g==;
+	bh=wrj4V9MRgCpu2LtNWMLFim5E/d/HPPAOJpXxZxDZGfU=; b=FhXOd2e6xM22eP2qa1yHXLR46O
+	JMLXq/MKMSNhU252Cna6C8c4C7hNTYpMbMteAkP50B3n2HgpPxB71+DEZqfBiw3N5THHUgpJ3Fr8l
+	aPsMHBvNWKI1rO8kTvFp1QZPr2VSAu6OUqad7xmJ8RwMf8125neKUEIGiYo5L9QbHI7m/zJaA6E/I
+	B478fgbcG5SnQ/v2JPGYX+LtMAaOKihXLW2DTBWO4fUchsNf3gVcqQKII2j4KJPqY/Pmn/+NQyh9r
+	vAkxNs7xIRmNpdJrSaB42COAX2mSCif6Ygob1siTXUuOfW7b4KgKN3RkcEmlqmSKcjKBzPFhEaAKl
+	qjOORnHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzsap-00000005OLa-1528;
-	Wed, 02 Apr 2025 07:32:59 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tzscY-00000005OWp-1v5i;
+	Wed, 02 Apr 2025 07:34:46 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzsF4-00000005KE2-14X6
+	id 1tzsH1-00000005KpO-42E4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 07:10:31 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-225df540edcso11130245ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 00:10:29 -0700 (PDT)
+	Wed, 02 Apr 2025 07:12:33 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-227d6b530d8so116422745ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 00:12:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743577829; x=1744182629; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1743577951; x=1744182751; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=zjR4lEGGyx3HdyMesa5h6gRayUig9bsMGHv5vZfbr1E=;
-        b=iglDu6fTXmf/85vnI2sx/p6OERWxeSgnXdgBj+0b1Z9NYfaJs1hCpxDPHaRX80Grtb
-         ekjBDfaEeZLbJpjWEgHCdZmgm1/VSwNNY5WZF2IGI4HvotwX0O9QNe64ECdGC4pS+tFc
-         IbUtjvp0MlzYJZHsIZIOoUJ3kJczzTVIIHhHs2X9Y+PPU0JpP9bSGDsz+8OOiZJ5Qt61
-         KHFXdzXUFgdzLzUxPwxL8vVCeyKPP5g3dDk9H8s+IdUd4pLhaKfFred5hYBzWJpHYU5A
-         AkUnL/qxKsO6coEn0tAaJqvvs2O64drl6WHdli7Zvgi7Xrzf9nQ7Sc094pLDy2kIvi0t
-         2DJg==
+        bh=wrj4V9MRgCpu2LtNWMLFim5E/d/HPPAOJpXxZxDZGfU=;
+        b=QhsP6EYEOdQg4gXsC9ylOHiisXu6RgbW81/YQnRcZW9/63ecVLDvpHPLRm9O4dMzuI
+         5yBADpaMr6YaGe/UsHv4Fcyf5g46tFCzEMzfBAH5FcC5jfuFU+VFbuTAmNyEohG4sRve
+         tdZE+/i41oJgUiXImJZUoGEnuQ1YhCIxtHT43uUXJZN7mAo9/VufVORj3+AOfwRuE2wj
+         19fzWM5MmB84TjEDo1N5lgx/MTP+mfWW5vtaplDsXcz7zHiupN8l3PkrNBDKzFl+o5TO
+         oDSdAuGzg6fAbaET+vfYSQGvudDemrvUfjX67vQsH9x5DzfkidBKuUNHvWlBeZxCRL65
+         OQ4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743577829; x=1744182629;
+        d=1e100.net; s=20230601; t=1743577951; x=1744182751;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zjR4lEGGyx3HdyMesa5h6gRayUig9bsMGHv5vZfbr1E=;
-        b=epwCrfD3I5XgipgTzbHKNUE0Yx1mh76Xzf3lAa5kUIccrokn7aEKHPbmw/MAJEUP31
-         jUQgO0gaxjnzN5QxfL9oXEfa6sFfqWaoG8KAasQbA9d3QokAtOVTpKupnkN/3nyNH/mI
-         ajslkVScqabA1za3W1OGAgD0w8Wi7cYtqgpMP1irMKGCBVFllg7/fIUE1jv94YeJ7uI2
-         +WFdeVH2K1HucQzpnlKyqgD474bJn7t5e6T3KnXN4qc/csewlzv9Clti+t5W+UN7UNXE
-         6Pl7UuRIAhvu6H5a51MKFn2CmfqCABjvU9l6edHyiK1y0iQzUBeuRm+i70PD6uVA5tk3
-         LXpA==
-X-Forwarded-Encrypted: i=1; AJvYcCW1o/8QOmdPUJxu428yurgmpEYM9gMf3Q7kSjePHRvO6Y/3AdSVSAF76TMN6Yq4sB7zqfsGTbFQJ0sGLdc+5tLx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhYOOhcjKpiycUJsBsd9g9fGdo1MYvujBa3IW5liYCFqxwAkNO
-	5REE08eEDmPEUnEZp1edZAc+3q0rCL98IIQPFsromI9ZzoO3aWer6gKjXP2W3A==
-X-Gm-Gg: ASbGnctsru4NDiAxQwyG9TBkgngr0akJWuIKDE+vLN/pTPzSwK2m4TJ6UZ5zOhX3j+h
-	YkGmVpixUIajZyCV8fBAVG8gF5Brh7rExEOfynaXTrbHfI0N9VrqS9hz7JAkmgXL0LrgDi+ri4I
-	Y6DQd4WJO+Iy+f9zKjjmXztMVVi/iKUQHGTckjR0BFC28XIyVyQsTEutBCR1JDnsTcycKOyNs2D
-	iJtJsARzEYCMJKVuHBWFk6kEUUC1vHaQNSVFx3HB65EGBdCSxab1dZqXelKq/Y1tLSX+/t4zSoR
-	r9qNXk+nQKObXGxTOGybu9L57rTxqY4dnJiEjlFpY40t/8g2Ydx/BXZN
-X-Google-Smtp-Source: AGHT+IF2PkfJ6gvdatC+Ohrdk2DCIs4bJ4gvM262TiahqchaDp4ihwwIJoGbKxCJkUgJQO2cM8XLTw==
-X-Received: by 2002:a05:6a00:130d:b0:737:cd8:2484 with SMTP id d2e1a72fcca58-739cac57712mr1314725b3a.6.1743577829272;
-        Wed, 02 Apr 2025 00:10:29 -0700 (PDT)
+        bh=wrj4V9MRgCpu2LtNWMLFim5E/d/HPPAOJpXxZxDZGfU=;
+        b=Y+/KAvMlHeWsHdLnHo2kM+JcmOOaXMBzE1wbpx/fpd9SuEKq814p1bAXVw8G19jksZ
+         +lttbMFoeLus2VVHwUY0nIS5+eWZ/beWQw3lde5FpzRGBvZ6FAdKmp3Z9nL3gj3UR4L4
+         GyaxGEdA17ROSToRZu3IqPYZnZCavFlWNUaP9DpM5SKQ7zc1ixKBpPAtyTfBeFQLNXGH
+         P6L1iPaANeDTERYEeqC0bQ40mm0FfNu8B4O9rcHuvJx4V4WPq1oKV+2aqaR33eE5TvJW
+         0hR9v2tT8IkuOWXNULhPkr64q/yZmsa/EypiwGbs5gslE14rzDF50jKlDReXYctFrVNn
+         HwYg==
+X-Forwarded-Encrypted: i=1; AJvYcCXr4NJQWz+hPoTz6nWWjDKyiebqA5BlfcPR6ldAAkWLsJU+wKKXdMZvEWwMoEghcI/HqXwLsv47hFuI2rV/2fjw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnPYb47CO3vUF12gkg3VsMaQ7H1eMMoFUvusetyCRDml0jn2c8
+	TMZv2Kbsa2UTUKF62MQD+iQ+m/Jkmcx3/Foa+ovQ1WxT5pTp4IZBjoT/l1sxHA==
+X-Gm-Gg: ASbGnct52uRiTjuU55Pi8xNlacnMHwf8MCMKrO3l2OAEKAVIbIwvmYatLMkSv7qflmj
+	z/JXowFaAz65Tdq1f2+arSA5W6MPccKbpm7UFyCgGoXlhHFZgRQy6AxT/kmOg/07GCmgq8i1OIj
+	nfIjU4Vv696q6sFazreSGKpfR6PkFb2H9c4oPEwGJUYNvKYURRyHHNUdzw8YhKlIKGOWc7bYesm
+	Ac4/bK5fglzcUHNHsf+PO9P9wBZcyK/Bz0GgTTDI0MQegfqbVVYojjRpxsNJl2j5DhIY5LfB4/x
+	/HZrJWf1m0yc1oah5Kh2LoyQIOjlKWhherjLro9aunP3THsiU6iskB7r
+X-Google-Smtp-Source: AGHT+IH7HVyfhbJgscLZlWHcx6unjJnhNHPt1Oe80QN8jshmi6OTB4pxtx/6rlu6wrrrxDY+b7sOkw==
+X-Received: by 2002:a17:903:228e:b0:224:fa0:36d2 with SMTP id d9443c01a7336-2295bea09cbmr81844005ad.26.1743577950936;
+        Wed, 02 Apr 2025 00:12:30 -0700 (PDT)
 Received: from thinkpad ([120.56.205.103])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739710cbd88sm10117652b3a.157.2025.04.02.00.10.25
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291eec6f91sm101088425ad.17.2025.04.02.00.12.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Apr 2025 00:10:28 -0700 (PDT)
-Date: Wed, 2 Apr 2025 12:40:23 +0530
+        Wed, 02 Apr 2025 00:12:30 -0700 (PDT)
+Date: Wed, 2 Apr 2025 12:42:23 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 To: Richard Zhu <hongxing.zhu@nxp.com>
 Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
@@ -76,19 +76,19 @@ Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
 	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
 	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 5/6] PCI: imx6: Add PLL clock lock check for i.MX95
- PCIe
-Message-ID: <y3ys5ojt3cryklqibg4shznkjqije7bturs5ljkjyzbri5dhgu@jeo2mmyv7sci>
+Subject: Re: [PATCH v3 6/6] PCI: imx6: Save and restore the LUT setting for
+ i.MX95 PCIe
+Message-ID: <ifq673ok4bel3qe2rsaiblmhnsfbevogrvgnuceewkq6vi6625@7ug7d64bvizc>
 References: <20250328030213.1650990-1-hongxing.zhu@nxp.com>
- <20250328030213.1650990-6-hongxing.zhu@nxp.com>
+ <20250328030213.1650990-7-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250328030213.1650990-6-hongxing.zhu@nxp.com>
+In-Reply-To: <20250328030213.1650990-7-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_001030_355726_CCB27109 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20250402_001231_998149_E7E6A7F1 
+X-CRM114-Status: GOOD (  26.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,53 +103,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 11:02:12AM +0800, Richard Zhu wrote:
-> Add PLL clock lock check for i.MX95 PCIe.
+On Fri, Mar 28, 2025 at 11:02:13AM +0800, Richard Zhu wrote:
+> The look up table(LUT) setting would be lost during PCIe suspend on i.MX95.
+> 
+> To ensure proper functionality after resume, save and restore the LUT
+> setting in suspend and resume operations.
 > 
 
-What are the implications of not waiting for PLL lock? I guess clock
-instability.
+There should be a fixes tag pointing to the commit added suspend/resume support.
 
 > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 28 +++++++++++++++++++++++++--
->  1 file changed, 26 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 35194b543551..40eeb02ffb5d 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -45,6 +45,9 @@
->  #define IMX95_PCIE_PHY_GEN_CTRL			0x0
->  #define IMX95_PCIE_REF_USE_PAD			BIT(17)
->  
-> +#define IMX95_PCIE_PHY_MPLLA_CTRL		0x10
-> +#define IMX95_PCIE_PHY_MPLL_STATE		BIT(30)
-> +
->  #define IMX95_PCIE_SS_RW_REG_0			0xf0
->  #define IMX95_PCIE_REF_CLKEN			BIT(23)
->  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
-> @@ -479,6 +482,23 @@ static void imx7d_pcie_wait_for_phy_pll_lock(struct imx_pcie *imx_pcie)
->  		dev_err(dev, "PCIe PLL lock timeout\n");
->  }
->  
-> +static int imx95_pcie_wait_for_phy_pll_lock(struct imx_pcie *imx_pcie)
-> +{
-> +	u32 val;
-> +	struct device *dev = imx_pcie->pci->dev;
-> +
-> +	if (regmap_read_poll_timeout(imx_pcie->iomuxc_gpr,
-> +				     IMX95_PCIE_PHY_MPLLA_CTRL, val,
-> +				     val & IMX95_PCIE_PHY_MPLL_STATE,
-> +				     PHY_PLL_LOCK_WAIT_USLEEP_MAX,
-> +				     PHY_PLL_LOCK_WAIT_TIMEOUT)) {
-> +		dev_err(dev, "PCIe PLL lock timeout\n");
-> +		return -ENODEV;
 
--ETIMEDOUT
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
 - Mani
+
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 47 +++++++++++++++++++++++++++
+>  1 file changed, 47 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 40eeb02ffb5d..d8f4608eb7da 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -138,6 +138,11 @@ struct imx_pcie_drvdata {
+>  	const struct dw_pcie_host_ops *ops;
+>  };
+>  
+> +struct imx_lut_data {
+> +	u32 data1;
+> +	u32 data2;
+> +};
+> +
+>  struct imx_pcie {
+>  	struct dw_pcie		*pci;
+>  	struct gpio_desc	*reset_gpiod;
+> @@ -157,6 +162,8 @@ struct imx_pcie {
+>  	struct regulator	*vph;
+>  	void __iomem		*phy_base;
+>  
+> +	/* LUT data for pcie */
+> +	struct imx_lut_data	luts[IMX95_MAX_LUT];
+>  	/* power domain for pcie */
+>  	struct device		*pd_pcie;
+>  	/* power domain for pcie phy */
+> @@ -1505,6 +1512,42 @@ static void imx_pcie_msi_save_restore(struct imx_pcie *imx_pcie, bool save)
+>  	}
+>  }
+>  
+> +static void imx_pcie_lut_save(struct imx_pcie *imx_pcie)
+> +{
+> +	u32 data1, data2;
+> +	int i;
+> +
+> +	for (i = 0; i < IMX95_MAX_LUT; i++) {
+> +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL,
+> +			     IMX95_PEO_LUT_RWA | i);
+> +		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1, &data1);
+> +		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, &data2);
+> +		if (data1 & IMX95_PE0_LUT_VLD) {
+> +			imx_pcie->luts[i].data1 = data1;
+> +			imx_pcie->luts[i].data2 = data2;
+> +		} else {
+> +			imx_pcie->luts[i].data1 = 0;
+> +			imx_pcie->luts[i].data2 = 0;
+> +		}
+> +	}
+> +}
+> +
+> +static void imx_pcie_lut_restore(struct imx_pcie *imx_pcie)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < IMX95_MAX_LUT; i++) {
+> +		if ((imx_pcie->luts[i].data1 & IMX95_PE0_LUT_VLD) == 0)
+> +			continue;
+> +
+> +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1,
+> +			     imx_pcie->luts[i].data1);
+> +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2,
+> +			     imx_pcie->luts[i].data2);
+> +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, i);
+> +	}
+> +}
+> +
+>  static int imx_pcie_suspend_noirq(struct device *dev)
+>  {
+>  	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
+> @@ -1513,6 +1556,8 @@ static int imx_pcie_suspend_noirq(struct device *dev)
+>  		return 0;
+>  
+>  	imx_pcie_msi_save_restore(imx_pcie, true);
+> +	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT))
+> +		imx_pcie_lut_save(imx_pcie);
+>  	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_BROKEN_SUSPEND)) {
+>  		/*
+>  		 * The minimum for a workaround would be to set PERST# and to
+> @@ -1557,6 +1602,8 @@ static int imx_pcie_resume_noirq(struct device *dev)
+>  		if (ret)
+>  			return ret;
+>  	}
+> +	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT))
+> +		imx_pcie_lut_restore(imx_pcie);
+>  	imx_pcie_msi_save_restore(imx_pcie, false);
+>  
+>  	return 0;
+> -- 
+> 2.37.1
+> 
 
 -- 
 மணிவண்ணன் சதாசிவம்
