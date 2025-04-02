@@ -4,154 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E5EC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 06:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D85C5C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 06:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r3XGTKSe3xYx1rA0yGDMdiCfM+I4pINvQWbfIsyRqbE=; b=b5iA3tBAM2eyz343/6xUUavMV6
-	y8JTqH8DjNQkCGRYMZo2r7ZbOi29rzIkDqo3ZL/5UOFRqL2C16dOAwJ7OcroH6vb26WhvjmbqwoD+
-	PUbke8xiMZug6yodYzXT8ppdnJDNkdAavgD4AqvCGAYvXN9Yf2sBITCOlgfp9coMkxI0A3xQyMJs2
-	Vv1DGc/d0qf9RWeC1vMM9MNGaZuZ8w6WCU78r7X6sop61HAvT1qs+aMiqawm+vX1Zmsik5Uelcrwj
-	MZgsROU8TZU6Z7NMplIMTulbcXnIkE++fTFBY1K0SH1L3BodQQz89mcz+dY7OaT8MHORCPYDxBrxF
-	EwvtUw+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=91QabIyHUeDDbVbgDDW38HeCEEGmj7YCmJ79O7+U7QQ=; b=CQ24psMmFjkLwydtTRtQ7NR2Z1
+	V6U/rBcdxxUCLcXg4jFnwqi75bNaIR5QiCagcRgfmzDDlJIGsOtM3L+g0Z3yUWraAosnNxdmiHTqT
+	WwH8tnPJrg+bz+dDjzOYzd0Hm2fU1AG4KDyEpwXeCnzyJ9394znq+TUBW8gUWr9cVnmOcqwv4WNc2
+	CtcOEEESK9PB4wsWh6Mja1gTCr4e2Ztnqhg81lepfHYOtCNXZbdeMkdzmcGBQ9T6CwIN1rPcdFRQL
+	Rn6cz+i6BI/c0Y28rEZZiTfleu7Rl9JcrHhN9tQLEFD3rwqKgAbvk6tIaLh5hsV3GIHVBY8sVIBio
+	VlAOVGQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzrtL-00000005HRU-2ic4;
-	Wed, 02 Apr 2025 06:48:03 +0000
-Received: from mail-dbaeur03on20616.outbound.protection.outlook.com ([2a01:111:f403:260d::616] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tzrv5-00000005HjY-1Xai;
+	Wed, 02 Apr 2025 06:49:51 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzrrX-00000005H55-0zez
+	id 1tzrsj-00000005HJ4-2yOy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 06:46:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xLZceiLEWAcFCfMHGS1RsfdGhG5Rg7gQsLi7nLxNJ2wTNEBcwA4ssYjmMURXuTO7EwrrP8Vhq+lW0Y3rPKlz/rIB+ov8sqGQuFMiSRBQ8WdYkUop3JSoKQerYVe60euLx5E+n+Yf88svuZEGxwCcr7f6Aj4Y3L4QRoSyL49kn/odW3pHm+cdg87BiDULPZM8/px+EOwcTFZtQn4E11pKer/IaCrBGRGJrM1AEVre3uwohtgfw9+R+MHDtnVoVKWroC8258nlRLBM1SXH/ESKRu5k1gOBFsuSp7PMQtOPBEibDWJmFPSavuYEngrK1U0u0SBxXxFoYBwXBbsNE5h3pg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r3XGTKSe3xYx1rA0yGDMdiCfM+I4pINvQWbfIsyRqbE=;
- b=AAUnL5lVeyzaxzISw/1fGqS1J7K0Lly6MC+NNKa8ooDz79FHdjLaaumGKivU7w5MjTUb7nD8Wkaad9FahG5rkX5g+/7H1gUQIhaT1AN96nENhsbEYo8yYn+xlgsmfbZ9urqpO5HTwHCPvBDDR+S+z6qKiN8TrBarAgN7/sYMdZgQtTMxeh15BOZfgzMubUwqgJdhmWj8UXvucEPSk5UxeMjpFtGdPqri4QJahpPFmZek1eWlj0+mrpUGUJY4wB1aQnluuIBNr5cOLJ16sZjR03XeZz5D0fcn2Im5eaVLndaNwPir2bXRscnonGoXoZcurwJ0LYSK8qMxpZkIu7mbYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r3XGTKSe3xYx1rA0yGDMdiCfM+I4pINvQWbfIsyRqbE=;
- b=Dylzw60NsEgHdpE8H84K7EFe2RHqtt6Cv97RXDw0Bl1ukWPz2u8BXjenMKiG1KPcUzmjz2kNjSLzyHgNLVsuk1iIFjXZv4G4A2C4vdfu4xGUrJgV7Sl2RF5uiLruNVSGYRw+Q3Ng1O8HFkWnWytoIMHGzDYy4DZ2Kmk2qEx5thVMu4Xlf3Q/P1nuDl24XuxC26NuEomlzwEIhFtpGieRz3BwoLwB6jhtWaGJBbr/i3GXrIbcSEcNGV5P2cUY3II7I6m0VhN/FWnxPf6+dAyVTOifqnTPqwAPYJC2ns/JyU5Q3GBlVSQdTcN3NJwsmvIBque/5IqHbcIhfWYGDlBq1w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS4PR04MB9576.eurprd04.prod.outlook.com (2603:10a6:20b:4fe::12)
- by AS8PR04MB9048.eurprd04.prod.outlook.com (2603:10a6:20b:443::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Wed, 2 Apr
- 2025 06:46:02 +0000
-Received: from AS4PR04MB9576.eurprd04.prod.outlook.com
- ([fe80::9cf2:8eae:c3d1:2f30]) by AS4PR04MB9576.eurprd04.prod.outlook.com
- ([fe80::9cf2:8eae:c3d1:2f30%5]) with mapi id 15.20.8534.043; Wed, 2 Apr 2025
- 06:46:02 +0000
-Date: Wed, 2 Apr 2025 09:45:57 +0300
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacopo Mondi <jacopo@jmondi.org>, 
-	Christian Hemp <c.hemp@phytec.de>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
-	Stefan Riedmueller <s.riedmueller@phytec.de>, linux-media@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] media: nxp: imx8-isi: better handle the m2m
- usage_count
-Message-ID: <uie4tvosmzq63qpi4fgengjfuodkzoy3th5zhurt4j4yt772ml@rpplzhmbiky5>
-References: <20241023085643.978729-1-laurentiu.palcu@oss.nxp.com>
- <20250206203749.GD7524@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206203749.GD7524@pendragon.ideasonboard.com>
-X-ClientProxiedBy: AM0P190CA0004.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:208:190::14) To AS4PR04MB9576.eurprd04.prod.outlook.com
- (2603:10a6:20b:4fe::12)
+	Wed, 02 Apr 2025 06:47:27 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 15CDB4432F;
+	Wed,  2 Apr 2025 06:47:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1743576442;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=91QabIyHUeDDbVbgDDW38HeCEEGmj7YCmJ79O7+U7QQ=;
+	b=QXUCBHUNUfi1vLcXOftm6Wj0p9c/FfloQ6SezD61YmMYPA3m8FcDc9A7A5C1VBwS1/4VM6
+	el1ik/ux7jYuCcCMUNnyQXiJ1dpobRl4Q+mplDZUuUb5l/lFJ35wI3/xc6t13vfxS/XvcL
+	gaWvZboR58uI/7CTkylFBvl+TjfefxRTIVXb9/5JPwRkMlyJ6/018NQEPmlC8ejjDqoXJN
+	Y7+VOnTBpK6R9nPdbIMiAnMmWbYvpQeCaL87vxT7YXxGpu8MUaQmyEMlDjHPChxdcGyeAt
+	vKzDxmEZuGFSYrz4LMt2oOqqLl8wi0juYqNTrCXir501yVdHNqWTB4hlUPrajg==
+Date: Wed, 2 Apr 2025 08:47:15 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Alexander H Duyck <alexander.duyck@gmail.com>, davem@davemloft.net,
+ Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner
+ Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
+ <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next v5 09/13] net: phylink: Use phy_caps_lookup for
+ fixed-link configuration
+Message-ID: <20250402084715.3090c6c2@fedora.home>
+In-Reply-To: <Z-wQ1Ml_9xNz0XtV@shell.armlinux.org.uk>
+References: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
+	<20250307173611.129125-10-maxime.chevallier@bootlin.com>
+	<8d3a9c9bb76b1c6bc27d2bd01f4831b2cac83f7f.camel@gmail.com>
+	<20250328090621.2d0b3665@fedora-2.home>
+	<CAKgT0Ue_JzmJAPKBhe6XaMkDCy+YNNg5_5VvzOR6CCbqcaQg3Q@mail.gmail.com>
+	<20250331091449.155e14a4@fedora-2.home>
+	<3517cb7b3b10c29a6bf407f2e35fdebaf7a271e3.camel@gmail.com>
+	<Z-wQ1Ml_9xNz0XtV@shell.armlinux.org.uk>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9576:EE_|AS8PR04MB9048:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3e632009-1bea-492e-a285-08dd71b2087f
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WeVAzOy+W1YrSpSze8ElT0szsZD15mPZIvxw3ZzdxLVdaHASyHWeokamwpLE?=
- =?us-ascii?Q?2AvFlfZamloMBU7oACtHDyJCFJP2xogiIBhEzXuoijExe70r62XVLc610Hhn?=
- =?us-ascii?Q?X7RJcSGLapUjHzC/Ejukcn4VHWggaCvirZDxdaxThmYtmaoKU1p7JthDrvW3?=
- =?us-ascii?Q?0RJBlZn1Jp2vjZkwmzG7UeeLQsi1EO/kv8k/kJedWxrTQNlPbgPaewIr1KCM?=
- =?us-ascii?Q?NL9RiTd7K9/miZdxa8Qgp6+JAmN9Um171iZqdXgbG9/67ztWoPh/z211Ld9X?=
- =?us-ascii?Q?fj4Et1JJGGbLXwFxzjs9SULVZe3Ygy/BToQBXq5vBuuga27+18w9cbB2TWyg?=
- =?us-ascii?Q?uJbkdDquPHwupvmb5QhuA1fEt0mgw6AO4ECz+T2yz5Z1u1vD4dlCuWOI/0xp?=
- =?us-ascii?Q?5HUyBobUr8eQHEdArpeck3BhfrGkTYdAwB22WVjoF99nQcPKhfDq9vYxsUzM?=
- =?us-ascii?Q?pN/uEIsZhagemA04QoZE1DFOAHvquprQEu5HP8Ksec/tvCiWE717TOGe2so0?=
- =?us-ascii?Q?D8pHdHOF7fQQl7SwoujaxaEyhFT/o4qfjdjbEhapUyumecV6PC24ojaSZm/T?=
- =?us-ascii?Q?Hp6Z/fMhuKa6f36OFJqVNL1dNXy24T2dlDsHVNfk1lIMTZXt1JPjvREL2VlH?=
- =?us-ascii?Q?aIReTCy6P/Z/y2UrQvKa7QtUQ1uY7V2ycBSCGLh1nahFNvNREmLAABMSAHjP?=
- =?us-ascii?Q?ZlNlTU5yLH448Mne3JCgSXbcHopM1hSJWtO7a8NLSQEAVEBfPHjM3OoPdYEk?=
- =?us-ascii?Q?no9+v72a+voAFhoZFiSt0G5GzMw0Dn79dSKdV28Ljq0jGZzEmWLqTyL/IkPC?=
- =?us-ascii?Q?etrxB1VTkh5s/mvmkgUnZ2+WTvicDZONF0Qt+BtoDQvjoRaz2EM81K24n+va?=
- =?us-ascii?Q?D8gfjyHFvWQEWhVS+hzMZlc9i4q3s0J1TBf+oLqxPUTvgcFUeF4H7ltslfqu?=
- =?us-ascii?Q?k9QN+BfiMjp1Xv4UOO/88vn2/V8hmSaKn3lkTiSwcTq9ARCi27C59q9JFcDm?=
- =?us-ascii?Q?nz5K1HL1eoERkKskTzOYqGWAgaJurcRLx7wCrnyX2Lj8rXOIQ8/WrWS3W0Ax?=
- =?us-ascii?Q?mFbjcpQALs65T67IUBMhWDztSojcQpOJ/8U5Jdunupqwsd16cWw6nEGnHQmr?=
- =?us-ascii?Q?tdHTPAbTejnDz45psTMjWreU2ml/sbyahhMiYPOid0YzVnOXvwfgDdHE+I+w?=
- =?us-ascii?Q?k+V4vXyAvcnDEY4+uF1NvxytNVyTTXyONrUgsPwr/2BbtSdsXMVmjlL27AM2?=
- =?us-ascii?Q?sudS8gdsNdv8MzcDmGv3/IKOKWCR+AfPC4mby9RauApoEPei9s0ALR9QjRxx?=
- =?us-ascii?Q?mJFL8PjXR9dR/bubdEO5itkbJCZ2UTJowwGf/jrlcjcO8EfK5whAro4bJGkw?=
- =?us-ascii?Q?57vxmAJhV2CIGQ8St3/+RsajsYQY?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9576.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cskkePzMBOKkxvxV9s6cVokZce+3DLjfqjFvINPZ7bjBYgYtqqaPgVfn6sKj?=
- =?us-ascii?Q?lolA63KbVQdDGGYmU9yj65W0f4YoSF3qug/WIj7uX45WhkwFF8tiyPEgK4W6?=
- =?us-ascii?Q?I2tqsUFIL0e1fbNeanyYb5z3hn/ax49sOxYKl+TE4g1zS3IpG/xBhrz9+Ubf?=
- =?us-ascii?Q?JL/8nwztsG7HAD88wmMVtGJ3GYlaU4ESv+nvZvriU4S4F0izsw55QkMRhlsB?=
- =?us-ascii?Q?jHptM8xsAFVDAGZLtFB4Pgd37vi2YfTAVVRxYa/ZtCL2jM+4+21neGgNc6rQ?=
- =?us-ascii?Q?nYCB0YWdxNlFKe+KPHYTjK39saOGSqrQmwfvyJ9ARaWy/R5XhlhNP58ep2QO?=
- =?us-ascii?Q?IMz6WwwBJJCzaSXa9U4s4vv7laA4veizOKqNElUA/v+RcTFX+u9wwWgl1AYB?=
- =?us-ascii?Q?SmBmlMAGuXCckmO0XLzJRjl+5vT+O3uA3GD62AGZYDtflm+u6ugvbMaSvwQA?=
- =?us-ascii?Q?5Rcdret8g2SzM4ia7puXiKB8PLTiwKXcajKNEl4KeDF0F9Yb1fQH9+Dfk3zy?=
- =?us-ascii?Q?3ZtsKH6Orz1Exn58YFFbsf9Czww0M+37IgxAJAXxecC/pFxmPLRiXobXzHh6?=
- =?us-ascii?Q?6dzTjVaseRRdQwTUlGlixmp44kIjE1qA0QREl2TqB/XIIBiPywTpB9XzpOnb?=
- =?us-ascii?Q?Qd3YdCS3PA13XMKf9s/xenVlq/QXPWyqR9ifMHToh1LVAx8g03O4PO4NVFlp?=
- =?us-ascii?Q?QvKTID9YbcopbWhIzx3ge8743k/LQnt+rkj68nrNnJMwLl93V5qbZzb0IWjE?=
- =?us-ascii?Q?55cg40jsyHoUp9OnHMJJ095H5ejPxADFbsc9949gQS8mPiO9G2nfG7fGn2L5?=
- =?us-ascii?Q?LRwMe++IblBDyIgo1WXB5tCzkw50RjEFklDSINul8ln7wAOKHgs/K6IO/GXS?=
- =?us-ascii?Q?kY0hHf9adr5T1inV6CsQa9orM6HruAKUf+XzPd6q5bMzLtFC/YgsN2qGdHDi?=
- =?us-ascii?Q?1fpCxltobRxvGlIjWSHrJL56qHjytu63AXrL1v8TXxYCxjsu5wojtJBjDM5j?=
- =?us-ascii?Q?NJ7zYucTtAIBL1zM+56DetCC13qPErdpm0ToZ+5z45/ogpjcvea64eXxQWSq?=
- =?us-ascii?Q?LESnpwVOneyYIML01KvGmVbxHnPm6Kle71PECuA5kg98NTvwg6tftL3LyxnQ?=
- =?us-ascii?Q?1zdZIig7L1BJiJsKOhG93/YhvghNHBRT1tRmucMqvvALBtsKDWXoRvSLe3nU?=
- =?us-ascii?Q?ijE/Vas6eoY4ad2uarBa5JAs47VT5dSppR/omnNoc3e69Xh9a740f9FfiRCS?=
- =?us-ascii?Q?dXvv4dxBx98C2Y4fwzKPIxgI9SjO/3C7M7P8DQElcMpvdv49gdhMVskRQy0M?=
- =?us-ascii?Q?Y2i4hNVNYA1WxG7ajT0AA/QTyGa4Sr3WCqJpyDP0gaDrphWxN12PRHdv/mhY?=
- =?us-ascii?Q?bqgDd+e28ie/T96rPWgQzHIQmYVO4D3w7dEkZ+57HyDkMqSHoqugtL7B8JMa?=
- =?us-ascii?Q?ckeUp2J/+otRmkA1a8YxplDa0iATf4UxfeEs6IDq8xyGj26upcZu6rq1tAJ/?=
- =?us-ascii?Q?gTLzgFdDzcp/gYZLaP2NYUpP5DvF3L7Y44CN1FqSUhnO1AW8h0bEajjp5Owv?=
- =?us-ascii?Q?rVr1X2HtVrG1ZAAxP3fI6PZaeOYXIPaBaVsq0u4DOHz9mDIhazamKMj4ILz/?=
- =?us-ascii?Q?bw=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3e632009-1bea-492e-a285-08dd71b2087f
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9576.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2025 06:46:02.0698
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: K4Uz7Cwa3bOr6YWuIkERuDZcbYtc6WdFTA/wDXBkciXchXre7KsaMKlApQ2Bc41DPAzg/JITFrjIpTd9cFxxdg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9048
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddukeegleelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddtpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegrlhgvgigrnhguvghrrdguuhihtghksehgmhgrihhlrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlo
+ hhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhm
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_234611_584058_32C81AE7 
-X-CRM114-Status: GOOD (  31.85  )
+X-CRM114-CacheID: sfid-20250401_234726_387048_ACF19AAB 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,118 +95,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
 
-I'm really sorry to keep bugging you about this patch but it looks like
-this one fell through the cracks again... :/
+> > Basically we still need the value to be screened by the pl->supported.
+> > The one change is that we have to run the extra screening on the
+> > intersect instead of skipping the screening, or doing it before we even
+> > start providing bits.
+> > 
+> > With this approach we will even allow people to use non twisted pair
+> > setups regardless of speed as long as they don't provide any twisted
+> > pair modes in the standard set.
+> > 
+> > I will try to get this tested today and if it works out I will submit
+> > it for net. I just need to test this and an SFP ksettings_set issue I
+> > found when we aren't using autoneg.  
+> 
+> This code used to be so simple... and that makes me wonder whether
+> Maxime's work is really the best approach. It seems that the old way
+> was better precisely because it was more simple.
 
-Thanks,
-Laurentiu
+Sorry to hear you say that. Fixed-link was the main pain point with
+this work, I've stressed it out. I agree that for fixed-link, it
+ends-up not looking too good, hopefully the rest of the series
+compensate for that.
 
-On Thu, Feb 06, 2025 at 10:37:49PM +0200, Laurent Pinchart wrote:
-> Hi Laurentiu,
-> 
-> Thank you for the patch.
-> 
-> On Wed, Oct 23, 2024 at 11:56:43AM +0300, Laurentiu Palcu wrote:
-> > Currently, if streamon/streamoff calls are imbalanced we can either end up
-> > with a negative ISI m2m usage_count (if streamoff() is called more times
-> > than streamon()) in which case we'll not be able to restart the ISI pipe
-> > next time, or the usage_count never gets to 0 and the pipe is never
-> > switched off.
-> > 
-> > To avoid that, add a 'streaming' flag to mxc_isi_m2m_ctx_queue_data and use it
-> > in the streamon/streamoff to avoid incrementing/decrementing the usage_count
-> > uselessly, if called multiple times from the same context.
-> > 
-> > Fixes: cf21f328fcafac ("media: nxp: Add i.MX8 ISI driver")
-> > Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> > ---
-> > v3:
-> >  * Changed the implementation as suggested by Laurent and add a Suggested-by
-> >    tag to reflect that;
-> > 
-> > v2:
-> >  * Changed the way 'usage_count' is incremented/decremented by taking
-> >    into account the context the streamon/streamoff functions are called
-> >    from;
-> >  * Changed the commit message and subject to reflect the changes;
-> > 
-> >  drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c | 13 +++++++++++++
-> >  1 file changed, 13 insertions(+)
-> > 
-> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> > index 9745d6219a166..dc10e1a9f27c1 100644
-> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> > @@ -43,6 +43,7 @@ struct mxc_isi_m2m_ctx_queue_data {
-> >  	struct v4l2_pix_format_mplane format;
-> >  	const struct mxc_isi_format_info *info;
-> >  	u32 sequence;
-> > +	bool streaming;
-> >  };
-> >  
-> >  struct mxc_isi_m2m_ctx {
-> > @@ -486,6 +487,7 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
-> >  				enum v4l2_buf_type type)
-> >  {
-> >  	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
-> > +	struct mxc_isi_m2m_ctx_queue_data *q = mxc_isi_m2m_ctx_qdata(ctx, type);
-> >  	const struct v4l2_pix_format_mplane *out_pix = &ctx->queues.out.format;
-> >  	const struct v4l2_pix_format_mplane *cap_pix = &ctx->queues.cap.format;
-> >  	const struct mxc_isi_format_info *cap_info = ctx->queues.cap.info;
-> > @@ -495,6 +497,9 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
-> >  
-> 
-> While at it I'll drop the blank line here when applying the patch.
-> 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> 
-> >  	int ret;
-> >  
-> > +	if (q->streaming)
-> > +		return 0;
-> > +
-> >  	mutex_lock(&m2m->lock);
-> >  
-> >  	if (m2m->usage_count == INT_MAX) {
-> > @@ -547,6 +552,8 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
-> >  		goto unchain;
-> >  	}
-> >  
-> > +	q->streaming = true;
-> > +
-> >  	return 0;
-> >  
-> >  unchain:
-> > @@ -569,10 +576,14 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
-> >  				 enum v4l2_buf_type type)
-> >  {
-> >  	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
-> > +	struct mxc_isi_m2m_ctx_queue_data *q = mxc_isi_m2m_ctx_qdata(ctx, type);
-> >  	struct mxc_isi_m2m *m2m = ctx->m2m;
-> >  
-> >  	v4l2_m2m_ioctl_streamoff(file, fh, type);
-> >  
-> > +	if (!q->streaming)
-> > +		return 0;
-> > +
-> >  	mutex_lock(&m2m->lock);
-> >  
-> >  	/*
-> > @@ -598,6 +609,8 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
-> >  
-> >  	mutex_unlock(&m2m->lock);
-> >  
-> > +	q->streaming = false;
-> > +
-> >  	return 0;
-> >  }
-> >  
-> 
-> -- 
-> Regards,
-> 
-> Laurent Pinchart
+Maxime
 
