@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE44C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 13:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5970C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 13:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qtBzVLJt9ba2eMUdxHYg6o+c/dI61rPu9DUygzGT5Kc=; b=avd2cWbiVg0pomJHLnjOD6WY/J
-	6OtsfExuoyJzpOM8C36gPDCLBYG9FD6BrOKs1LKywjxaY/mz66Q9ZSrIU7Yyr6MKs3Nej5rjAcZtk
-	ObLROXS+NM3HUuc/xhdoqJ0hrbwRaq1CbqOmd8mTQ+9c7RzeOsRwu6VF6WcAqTXbGR83uoG3quZJ5
-	CVYMowlg15dMuiQCg7Is3akTx7pZ5A6AI3sdDWKdMFEwkRyc63FfDrBiH2B9/qBOUL6Fyfa5ou7ux
-	pRcssLwrOmpSYJT2unE8xQYCEfSjQv2fO4PBfk+ef4RvPYXwB6kvBykDkD5TBd8dRN2wM+Dmafl4v
-	ngI6uCdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AMPTy/5MVoIix/c6WOcXRuIWfWO6spXjl5op+599L5g=; b=QA8sjCBRdUbLTNswv/mP501Ob/
+	c8Y6ppcCpGLF5j2XNoIhyafbprP8zew7y1RL05j9nEEXeYxa8Q+7CQKwWNfLRNJO6EPJYeGv+v2YL
+	7GLxqRH0Fgj0EKpMDKNyvI+EJw/GK/ldMLHwxPeIOiLAKkW8u1bwsFFv399QfWOizAieHtGItDzZ9
+	BSQ70q1Ra06ck4P8l9PCuCngkuLo6JfNQ5ln9SeFEvXHqMlyT+3OlIKUtYM6rbBgw3JeiK3GvTGN+
+	3fiHFqZoTwIJ0apOTgbgqScC+bJKWVP8jjJd2zvC6Zs1tXPTtfYuzVtY9CBYc7+97kz3MTn08UuC9
+	msjCBq3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzyLO-00000006HUr-025A;
-	Wed, 02 Apr 2025 13:41:26 +0000
+	id 1tzyN7-00000006Hie-0Tqt;
+	Wed, 02 Apr 2025 13:43:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzyCu-00000006Fcq-1gY1
+	id 1tzyKe-00000006HJ1-12tr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 13:32:42 +0000
+	Wed, 02 Apr 2025 13:40:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A05DFEC;
-	Wed,  2 Apr 2025 06:32:40 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B9793F694;
-	Wed,  2 Apr 2025 06:32:37 -0700 (PDT)
-Date: Wed, 2 Apr 2025 14:32:32 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yabin Cui <yabinc@google.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] coresight: core: Disable helpers for devices that
- fail to enable
-Message-ID: <20250402133232.GJ115840@e132581.arm.com>
-References: <20250402011832.2970072-1-yabinc@google.com>
- <20250402011832.2970072-4-yabinc@google.com>
- <CALJ9ZPOvcxswvfbpWkXgJ=WL+HLa33nm0ZzHogYNZ9keXfi1MA@mail.gmail.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FF67FEC;
+	Wed,  2 Apr 2025 06:40:40 -0700 (PDT)
+Received: from [10.57.88.195] (unknown [10.57.88.195])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E601F3F694;
+	Wed,  2 Apr 2025 06:40:35 -0700 (PDT)
+Message-ID: <e809c355-7f3c-4c7b-acee-852d5b64d1c7@arm.com>
+Date: Wed, 2 Apr 2025 14:40:34 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] mm/filemap: Allow arch to request folio size for exec
+ memory
+Content-Language: en-GB
+To: Kalesh Singh <kaleshsingh@google.com>
+Cc: Matthew Wilcox <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>, Dave Chinner <david@fromorbit.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
+References: <20250327160700.1147155-1-ryan.roberts@arm.com>
+ <Z-WAbWfZzG1GA-4n@casper.infradead.org>
+ <5131c7ad-cc37-44fc-8672-5866ecbef65b@arm.com>
+ <Z-b1FmZ5nHzh5huL@casper.infradead.org>
+ <ee11907a-5bd7-44ec-844c-8f10ff406b46@arm.com>
+ <CAC_TJveU2v+EcokLKJVVZ8Xje2nYmmUg8bvCD8KO1oC5MgmWCA@mail.gmail.com>
+ <76f5ba9b-1a8c-4973-89ce-14f504819da1@arm.com>
+ <CAC_TJvemG2XDky1HtA8g=SG0nv-sONOS-ssEchdymh-_xjBecw@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAC_TJvemG2XDky1HtA8g=SG0nv-sONOS-ssEchdymh-_xjBecw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CALJ9ZPOvcxswvfbpWkXgJ=WL+HLa33nm0ZzHogYNZ9keXfi1MA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_063240_533666_A34D487D 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20250402_064040_382991_AFC09C58 
+X-CRM114-Status: GOOD (  57.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,67 +76,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 06:22:46PM -0700, Yabin Cui wrote:
-> On Tue, Apr 1, 2025 at 6:19 PM Yabin Cui <yabinc@google.com> wrote:
-> >
-> > When enabling a SINK or LINK type coresight device fails, the
-> > associated helpers should be disabled.
-> >
-> > Signed-off-by: Yabin Cui <yabinc@google.com>
-> > Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > ---
-> >  drivers/hwtracing/coresight/coresight-core.c | 12 ++++--------
-> >  1 file changed, 4 insertions(+), 8 deletions(-)
-> >
-> > diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> > index fb43ef6a3b1f..e3270d9b46c9 100644
-> > --- a/drivers/hwtracing/coresight/coresight-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-core.c
-> > @@ -465,7 +465,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
-> >                 /* Enable all helpers adjacent to the path first */
-> >                 ret = coresight_enable_helpers(csdev, mode, path);
-> >                 if (ret)
-> > -                       goto err;
-> > +                       goto err_helper;
-> >                 /*
-> >                  * ETF devices are tricky... They can be a link or a sink,
-> >                  * depending on how they are configured.  If an ETF has been
-> > @@ -480,14 +480,8 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
-> >                 switch (type) {
-> >                 case CORESIGHT_DEV_TYPE_SINK:
-> >                         ret = coresight_enable_sink(csdev, mode, sink_data);
-> > -                       /*
-> > -                        * Sink is the first component turned on. If we
-> > -                        * failed to enable the sink, there are no components
-> > -                        * that need disabling. Disabling the path here
-> > -                        * would mean we could disrupt an existing session.
-> > -                        */
-> >                         if (ret)
-> > -                               goto out;
-> > +                               goto err;
-> >                         break;
-> >                 case CORESIGHT_DEV_TYPE_SOURCE:
-> >                         /* sources are enabled from either sysFS or Perf */
-> > @@ -507,6 +501,8 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
-> >  out:
-> >         return ret;
-> >  err:
-> > +       coresight_disable_helpers(csdev);
+On 01/04/2025 13:55, Kalesh Singh wrote:
+> On Tue, Apr 1, 2025 at 3:35 AM Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>> On 01/04/2025 03:19, Kalesh Singh wrote:
+>>> On Sat, Mar 29, 2025 at 3:08 AM Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>
+>>>> On 28/03/2025 15:14, Matthew Wilcox wrote:
+>>>>> On Thu, Mar 27, 2025 at 04:23:14PM -0400, Ryan Roberts wrote:
+>>>>>> + Kalesh
+>>>>>>
+>>>>>> On 27/03/2025 12:44, Matthew Wilcox wrote:
+>>>>>>> On Thu, Mar 27, 2025 at 04:06:58PM +0000, Ryan Roberts wrote:
+>>>>>>>> So let's special-case the read(ahead) logic for executable mappings. The
+>>>>>>>> trade-off is performance improvement (due to more efficient storage of
+>>>>>>>> the translations in iTLB) vs potential read amplification (due to
+>>>>>>>> reading too much data around the fault which won't be used), and the
+>>>>>>>> latter is independent of base page size. I've chosen 64K folio size for
+>>>>>>>> arm64 which benefits both the 4K and 16K base page size configs and
+>>>>>>>> shouldn't lead to any read amplification in practice since the old
+>>>>>>>> read-around path was (usually) reading blocks of 128K. I don't
+>>>>>>>> anticipate any write amplification because text is always RO.
+>>>>>>>
+>>>>>>> Is there not also the potential for wasted memory due to ELF alignment?
+>>>>>>
+>>>>>> I think this is an orthogonal issue? My change isn't making that any worse.
+>>>>>
+>>>>> To a certain extent, it is.  If readahead was doing order-2 allocations
+>>>>> before and is now doing order-4, you're tying up 0-12 extra pages which
+>>>>> happen to be filled with zeroes due to being used to cache the contents
+>>>>> of a hole.
+>>>>
+>>>> Well we would still have read them in before, nothing has changed there. But I
+>>>> guess your point is more about reclaim? Because those pages are now contained in
+>>>> a larger folio, if part of the folio is in use then all of it remains active.
+>>>> Whereas before, if the folio was fully contained in the pad area and never
+>>>> accessed, it would fall down the LRU quickly and get reclaimed.
+>>>>
+>>>
+>>>
+>>> Hi Ryan,
+>>>
+>>> I agree this was happening before and we don't need to completely
+>>> address it here. Though with the patch it's more likely that the holes
+>>> will be cached. I'd like to minimize it if possible. Since this is for
+>>> EXEC mappings, a simple check we could use is to limit this to the
+>>> VM_EXEC vma.
+>>>
+>>> + if (vm_flags & VM_EXEC) {
+>>> + int order = arch_exec_folio_order();
+>>> +
+>>> + if (order >= 0 && ((end-address)*2) >= 1<<order) { /* Fault around case */
+>>
+>> I think the intent of this extra check is to ensure the folio will be fully
+>> contained within the exec vma? Assuming end is the VA of the end of the vma and
+>> address is the VA of the fault, I don't think the maths are quite right? What's
+>> the "*2" for? And you probably mean PAGE_SIZE<<order ? But this also doesn't
+>> account for alignment; the folio will be aligned down to a natural boundary in
+>> the file.
+> 
+> Hi Ryan,
+> 
+> Sorry for the pseudocode. You are right it should be PAGE_SIZE. *2 is
+> because I missed that this isn't centered around the faulting address
+> as the usual fault around logic.
+> 
+>>
+>> But more fundamentally, I thought I suggested reducing the VMA bounds to exclude
+>> padding pages the other day at LSF/MM and you said you didn't want to do that
+>> because you didn't want to end up with something else mapped in the gap? So
+>> doesn't that mean the padding pages are part of the VMA and this check won't help?
+> 
+> The intention was to check that we aren't reading past (more than we
+> do today) into other subsequent segments (and holes) if the exec
+> segment is small relative to 64K, in which case we fall back to the
+> conventional readahead heuristics.
 
-Given it is unconditionally to enable helpers, I would suggest we
-disable helper unconditionally.  Thus, we don't need to add a new
-'err_helper' tag, simply reuse the 'err' tag would be fine.
+Gottya. I think this is probably a reasonable thing to do.
 
-I would like to know if mainatiners have different opinions.
+> 
+>>
+>>>
+>>> For reference I found below (coincidentally? similar) distributions on
+>>> my devices
+>>>
+>>> == x86 Workstation ==
+>>>
+>>> Total unique exec segments:   906
+>>>
+>>> Exec segments >= 16 KB:   663 ( 73.18%)
+>>> Exec segments >= 64 KB:   414 ( 45.70%)
+>>
+>> What are those percentages? They don't add up to more than 100...
+> 
+> The percent of segments with size >=16KB/64KB of the total number of
+> exec mappings. "Exec segments >= 64 KB" is also a subset of "Exec
+> segments >= 16 KB" it's why they don't add up to 100.
+
+Ahh got it.
+
+> 
+>>
+>> The numbers I included with the patch are caclulated based on actual mappings so
+>> if we end up with a partially mapped 64K folio (because it runs off the end of
+>> the VMA) it wouldn't have been counted as a 64K contiguous mapping. So I don't
+>> think this type of change would change my numbers at all.
+> 
+> I don't think it should affect the results much (probably only a small
+> benefit from the extra preread of other segments if we aren't under
+> much memory pressure).
+
+I was referring to the my numbers that show the percentage of text mapped by
+contpte, not to the performance numbers. But I agree I wouldn't expect either to
+change.
+
+> 
+> Anyways I don't have a strong opinion, given that this shouldn't be an
+> issue once we work out Matthew and Ted's idea for the holes. So we can
+> keep it simple for now.
+
+I'll add it in and verify it doesn't affect the numbers. I think there is a
+wider decision that needs to be made below first though, so will wait for
+opinions on that.
 
 Thanks,
-Leo
+Ryan
 
-> > +err_helper:
-> >         coresight_disable_path_from(path, nd);
-> >         goto out;
-> >  }
-> > --
-> > 2.49.0.472.ge94155a9ec-goog
-> >
+> 
+> Thanks,
+> Kalesh
+> 
+>>
+>>>
+>>> == arm64 Android Device ==
+>>>
+>>> Total unique exec segments:   2171
+>>>
+>>> Exec segments >= 16 KB:  1602 ( 73.79%)
+>>> Exec segments >= 64 KB:   988 ( 45.51%)
+>>>
+>>> Result were using the below script:
+>>>
+>>> cat /proc/*/maps | grep 'r-xp' | \
+>>> awk '
+>>> BEGIN { OFS = "\t" }
+>>> $NF ~ /^\// {
+>>> path = $NF;
+>>> split($1, addr, "-");
+>>> size = strtonum("0x" addr[2]) - strtonum("0x" addr[1]);
+>>> print size, path;
+>>> }' | \
+>>> sort -u | \
+>>> awk '
+>>> BEGIN {
+>>> FS = "\t";
+>>> total_segments = 0;
+>>> segs_ge_16k = 0;
+>>> segs_ge_64k = 0;
+>>> }
+>>> {
+>>> total_segments++;
+>>> size = $1;
+>>> if (size >= 16384) segs_ge_16k++;
+>>> if (size >= 65536) segs_ge_64k++;
+>>> }
+>>> END {
+>>> if (total_segments > 0) {
+>>> percent_gt_16k = (segs_ge_16k / total_segments) * 100;
+>>> percent_gt_64k = (segs_ge_64k / total_segments) * 100;
+>>>
+>>> printf "Total unique exec segments: %d\n", total_segments;
+>>> printf "\n";
+>>> printf "Exec segments >= 16 KB: %5d (%6.2f%%)\n", segs_ge_16k, percent_gt_16k;
+>>> printf "Exec segments >= 64 KB: %5d (%6.2f%%)\n", segs_ge_64k, percent_gt_64k;
+>>> } else {
+>>> print "No executable segments found.";
+>>> }
+>>> }'
+>>>
+>>>>>
+>>>>>>> Kalesh talked about it in the MM BOF at the same time that Ted and I
+>>>>>>> were discussing it in the FS BOF.  Some coordination required (like
+>>>>>>> maybe Kalesh could have mentioned it to me rathere than assuming I'd be
+>>>>>>> there?)
+>>>>>>
+>>>>>> I was at Kalesh's talk. David H suggested that a potential solution might be for
+>>>>>> readahead to ask the fs where the next hole is and then truncate readahead to
+>>>>>> avoid reading the hole. Given it's padding, nothing should directly fault it in
+>>>>>> so it never ends up in the page cache. Not sure if you discussed anything like
+>>>>>> that if you were talking in parallel?
+>>>>>
+>>>>> Ted said that he and Kalesh had talked about that solution.  I have a
+>>>>> more bold solution in mind which lifts the ext4 extent cache to the
+>>>>> VFS inode so that the readahead code can interrogate it.
+>>>>>
+>>>
+>>> Sorry about the hiccup in coordination, Matthew. It was my bad for not
+>>> letting you know I planned to discuss it in the MM BoF. I'd like to
+>>> hear Ted and your ideas on this when possible.
+>>>
+>>> Thanks,
+>>> Kalesh
+>>>
+>>>>>> Anyway, I'm not sure if you're suggesting these changes need to be considered as
+>>>>>> one somehow or if you're just mentioning it given it is loosely related? My view
+>>>>>> is that this change is an improvement indepently and could go in much sooner.
+>>>>>
+>>>>> This is not a reason to delay this patch.  It's just a downside which
+>>>>> should be mentioned in the commit message.
+>>>>
+>>>> Fair point; I'll add a paragraph about the potential reclaim issue.
+>>>>
+>>>>>
+>>>>>>>> +static inline int arch_exec_folio_order(void)
+>>>>>>>> +{
+>>>>>>>> +  return -1;
+>>>>>>>> +}
+>>>>>>>
+>>>>>>> This feels a bit fragile.  I often expect to be able to store an order
+>>>>>>> in an unsigned int.  Why not return 0 instead?
+>>>>>>
+>>>>>> Well 0 is a valid order, no? I think we have had the "is order signed or
+>>>>>> unsigned" argument before. get_order() returns a signed int :)
+>>>>>
+>>>>> But why not always return a valid order?  I don't think we need a
+>>>>> sentinel.  The default value can be 0 to do what we do today.
+>>>>>
+>>>>
+>>>> But a single order-0 folio is not what we do today. Note that my change as
+>>>> currently implemented requests to read a *single* folio of the specified order.
+>>>> And note that we only get the order we request to page_cache_ra_order() because
+>>>> the size is limited to a single folio. If the size were bigger, that function
+>>>> would actually expand the requested order by 2. (although the parameter is
+>>>> called "new_order", it's actually interpretted as "old_order").
+>>>>
+>>>> The current behavior is effectively to read 128K in order-2 folios (with smaller
+>>>> folios for boundary alignment).
+>>>>
+>>>> So I see a few options:
+>>
+>> Matthew,
+>>
+>> Did you have any thoughts on these options?
+>>
+>> Thanks,
+>> Ryan
+>>
+>>>>
+>>>>   - Continue to allow non-opted in arches to use the existing behaviour; in this
+>>>> case we need a sentinel. This could be -1, UINT_MAX or 0. But in the latter case
+>>>> you are preventing an opted-in arch from specifying that they want order-0 -
+>>>> it's meaning is overridden.
+>>>>
+>>>>   - Force all arches to use the new approach with a default folio order (and
+>>>> readahead size) of order-0. (The default can be overridden per-arch). Personally
+>>>> I'd be nervous about making this change.
+>>>>
+>>>>   - Decouple the read size from the folio order size; continue to use the 128K
+>>>> read size and only allow opting-in to a specific folio order. The default order
+>>>> would be 2 (or 0). We would need to fix page_cache_async_ra() to call
+>>>> page_cache_ra_order() with "order + 2" (the new order) and fix
+>>>> page_cache_ra_order() to treat its order parameter as the *new* order.
+>>>>
+>>>> Perhaps we should do those fixes anyway (and then actually start with a folio
+>>>> order of 0 - which I think you said in the past was your original intention?).
+>>>>
+>>>> Thanks,
+>>>> Ryan
+>>>>
+>>
+
 
