@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF90C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 11:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C544C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 11:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pyUSuNL69M6kmh09zKLoG/A/RhPHSQoEpCqx+VUsHvs=; b=E3TPTiNEFGBKKqd8It7I/nz9yO
-	+eGFu+E9SS8kvpUs7X18uT9k3P6t4mdVZOBkE5tY4R0B52GWUmdM2omnA2dyiE+nXrLLWS9o1XOo/
-	i3/ADFOcoqGKK8mt+JX1ZWSj4BwwpbSY3DdcCVyyd9I03vMWcC+Jwb/Wgvl+DsqV8YGS2rDKlc0Z5
-	HYDTUFXZM9PhZVHM/+wWnoZZa+dsWlFWNkzQJhScjYRoTuIYWQXR85fmBK6rDP71GcS7P0tae1FvE
-	hp+SCs94wgE2CkDsTK3YB8on9P7qPX2xJw3lYkEyBn0Dlk2Y4gFyfCiolLPgQ24yuaTo38LwNgYOX
-	4NlPe1cA==;
+	bh=yjbqN+aa1J04XW2GAXp8Afwfv4KgFFuunCLpaMHoF9g=; b=abQZYgDb1g83kasfmLMSZF2i5M
+	E6ensCNfnoDBxslFuKYPCZfb3weqFI5G6PmFXP4QcggfJL/N1zng9SydHfH1Z3Gz1e3oNrI3vbf/H
+	VzYtIH292ygQVLw0rFq3/Ba9b/XHUNXnFlB+KQ4fx+QS5AT1dtLr+NQGT5fj2GHuXCeXlukK7jj2i
+	PWGuh7VMiXA7PXBRvmtB+Xq2wpnq4d2sHYqozDBo4I9zx0ZpcDm3WU7ZE71+Ebmn8FVmGJJd7dj/x
+	y89QpxbelSRgC/BVJDbYf82/JupbGASIk0SQzIhZJuspBMzfZ8X/hglu5osq//fUq/VDgQKiVJXW8
+	Nk0nJbPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzw2O-00000005sm9-2IyK;
-	Wed, 02 Apr 2025 11:13:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tzw6u-00000005tBZ-1eOh;
+	Wed, 02 Apr 2025 11:18:20 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzw0e-00000005sgP-2sqE;
-	Wed, 02 Apr 2025 11:11:52 +0000
+	id 1tzw5A-00000005t4r-0Bav;
+	Wed, 02 Apr 2025 11:16:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E44261145;
-	Wed,  2 Apr 2025 11:11:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00991C4CEDD;
-	Wed,  2 Apr 2025 11:11:45 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 23F60A43A45;
+	Wed,  2 Apr 2025 11:11:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F380C4CEDD;
+	Wed,  2 Apr 2025 11:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743592311;
-	bh=UqhKSL65Dxgk2dVyb4tCArOqKN+10TQqPqttHJ0QJO8=;
+	s=k20201202; t=1743592590;
+	bh=aa/nGXeKGBrTAJuSQvZsuZn5qbkOIP4xJbyuZwTXaho=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Js1F89MZ7mNqy+1Rx8WRbvLFGAnn2kyc2xk0D+jRJgnpYglHNNXsre5BwSajoXQfx
-	 z/7Xu4ofH+VNbrxEI5IbjrJOkoE0xTlmrWLfz4E9roXufyg/9MaSMoMpV4JdsYxzw6
-	 dLR1Li/2S8SAU5llwUTxs7P38xefN0Rr1OGrSAblHNcJzpFfeb3J3QV/TCKO7LEqs0
-	 X9wkOlEipCmvqyd+482RTngII0StYMWDcxMWTO5EYbqYXMCSPFjbu6UKAhc0RTmnee
-	 k2nqn36OmTL57W9u9X8XDLieQAs/ax7pDXmDmjp1pa6gW9jG9JlXDd4Erraijhkr28
-	 dC985VtQWHccA==
-Message-ID: <860ae623-f33f-4cfe-be08-6bb6524ecf94@kernel.org>
-Date: Wed, 2 Apr 2025 13:11:43 +0200
+	b=iiuJe+pI82+1UWJnEI7sIfPlrH67k0Bq5CU0kYZUKFrM32OTNaaoHhx0uB52T3xOx
+	 OeH58EraILXDvWttZrsyUiSjTJA5pB2sp4+9f2CAo5RFzk2Sw/tbLxQuwTenembbpG
+	 DYjuo0f0TmudV4q3QSQO7tSAyrno7xwsf6M327A6SJYp3RSvaNiGLAdsCMaWMxEcMR
+	 2/jSshy+r7JERV+KFgrtZ2Vs6XPS/r1sra4QN8VYv5FZ0I7eFQd7zn49sQR20Oqdjr
+	 yJe6QTP9l7AbuwdkVvnwgxf7H+QZMxNLFmErE3f8hNXlNeg37hHDOHXLjYEUEfX6fD
+	 UBoROEuObUX9g==
+Message-ID: <aa757d1f-4c5a-4a66-aa96-9d611a8e6bae@kernel.org>
+Date: Wed, 2 Apr 2025 13:16:22 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: Add VCP support for mt8196
+Subject: Re: [PATCH 2/2] remoterpoc: mediatek: vcp: Add vcp remoteproc driver
 To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>,
  Bjorn Andersson <andersson@kernel.org>,
  Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
@@ -58,7 +58,7 @@ Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
  Project_Global_Chrome_Upstream_Group@mediatek.com, jjian.zhou@mediatek.com,
  hailong.fan@mediatek.com
 References: <20250402092134.12293-1-xiangzhi.tang@mediatek.com>
- <20250402092134.12293-2-xiangzhi.tang@mediatek.com>
+ <20250402092134.12293-3-xiangzhi.tang@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,9 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250402092134.12293-2-xiangzhi.tang@mediatek.com>
+In-Reply-To: <20250402092134.12293-3-xiangzhi.tang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250402_041632_354537_B5357E1C 
+X-CRM114-Status: GOOD (  26.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,172 +125,372 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 02/04/2025 11:19, Xiangzhi Tang wrote:
+> Add host driver to control the mediatek Risc-V coprocessor
+> 
+> 1.Support rproc mechanism to load vcm firmware from filesystem
+> 2.Support SMC services to request ATF to setting vcp boot sequence
+> 3.Host communicated with VCP depends on VCP IPC interfaces
+> 
+> Signed-off-by: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
+> ---
+>  drivers/remoteproc/Kconfig                |  12 +
+>  drivers/remoteproc/Makefile               |   4 +
+>  drivers/remoteproc/mtk_vcp_common.c       | 982 ++++++++++++++++++++++
+>  drivers/remoteproc/mtk_vcp_common.h       | 251 ++++++
+>  drivers/remoteproc/mtk_vcp_rproc.c        | 724 ++++++++++++++++
+>  drivers/remoteproc/mtk_vcp_rproc.h        | 107 +++
+>  include/linux/remoteproc/mtk_vcp_public.h | 138 +++
+>  include/linux/soc/mediatek/mtk_sip_svc.h  |   3 +
+>  8 files changed, 2221 insertions(+)
+>  create mode 100644 drivers/remoteproc/mtk_vcp_common.c
+>  create mode 100644 drivers/remoteproc/mtk_vcp_common.h
+>  create mode 100644 drivers/remoteproc/mtk_vcp_rproc.c
+>  create mode 100644 drivers/remoteproc/mtk_vcp_rproc.h
+>  create mode 100644 include/linux/remoteproc/mtk_vcp_public.h
+> 
+> diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
+> index 83962a114dc9..28e71c6c6dd3 100644
+> --- a/drivers/remoteproc/Kconfig
+> +++ b/drivers/remoteproc/Kconfig
+> @@ -64,6 +64,18 @@ config MTK_SCP
+>  
+>  	  It's safe to say N here.
+>  
+> +config MTK_VCP_RPROC
+> +	tristate "MediaTek VCP support"
+> +	depends on ARCH_MEDIATEK || COMPILE_TEST
+> +	depends on ARCH_DMA_ADDR_T_64BIT
+> +	select MTK_VCP_IPC
+> +	select MTK_VCP_MBOX
+> +	help
+> +	  Say y here to support MediaTek's Video Companion Processor (VCP) via
+> +	  the remote processor framework.
 > +
-> +description:
-> +  The MediaTek VCP enables the SoC control the MediaTek Video Companion Risc-V coprocessor.
+> +	  It's safe to say N here.
+> +
+>  config OMAP_REMOTEPROC
+>  	tristate "OMAP remoteproc support"
+>  	depends on ARCH_OMAP4 || SOC_OMAP5 || SOC_DRA7XX
+> diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
+> index 5ff4e2fee4ab..327043b31b37 100644
+> --- a/drivers/remoteproc/Makefile
+> +++ b/drivers/remoteproc/Makefile
+> @@ -15,6 +15,10 @@ obj-$(CONFIG_IMX_REMOTEPROC)		+= imx_rproc.o
+>  obj-$(CONFIG_IMX_DSP_REMOTEPROC)	+= imx_dsp_rproc.o
+>  obj-$(CONFIG_INGENIC_VPU_RPROC)		+= ingenic_rproc.o
+>  obj-$(CONFIG_MTK_SCP)			+= mtk_scp.o mtk_scp_ipi.o
+> +obj-$(CONFIG_MTK_VCP_RPROC)		+= mtk_vcp.o
+> +mtk_vcp-$(CONFIG_MTK_VCP_RPROC)		+= mtk_vcp_rproc.o
+> +mtk_vcp-$(CONFIG_MTK_VCP_RPROC)		+= mtk_vcp_irq.o
+> +mtk_vcp-$(CONFIG_MTK_VCP_RPROC)		+= mtk_vcp_loader.o
+>  obj-$(CONFIG_OMAP_REMOTEPROC)		+= omap_remoteproc.o
+>  obj-$(CONFIG_WKUP_M3_RPROC)		+= wkup_m3_rproc.o
+>  obj-$(CONFIG_DA8XX_REMOTEPROC)		+= da8xx_remoteproc.o
+> diff --git a/drivers/remoteproc/mtk_vcp_common.c b/drivers/remoteproc/mtk_vcp_common.c
+> new file mode 100644
+> index 000000000000..e02c6e61b990
+> --- /dev/null
+> +++ b/drivers/remoteproc/mtk_vcp_common.c
+> @@ -0,0 +1,982 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2025 MediaTek Corporation. All rights reserved.
+> + */
+> +
+> +#include <linux/device.h>
+> +#include <linux/delay.h>
+> +#include <linux/dma-buf.h>
+> +#include <linux/dma-heap.h>
+> +#include <linux/dma-mapping.h>
+> +#include <linux/fs.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/iommu.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/kernel.h>
+> +#include <linux/mutex.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_fdt.h>
+> +#include <linux/of_reserved_mem.h>
+> +#include <linux/poll.h>
+> +#include <linux/sched.h>
+> +#include <linux/slab.h>
+> +#include <linux/timer.h>
+> +#include <uapi/linux/dma-heap.h>
+> +
+> +#include "mtk_vcp_common.h"
+> +#include "mtk_vcp_rproc.h"
+> +
+> +static bool vcp_ready[VCP_CORE_TOTAL];
+> +/* vcp ready status for notify */
+> +static DEFINE_MUTEX(vcp_ready_mutex);
+> +static DEFINE_MUTEX(vcp_pw_clk_mutex);
+> +static DEFINE_MUTEX(vcp_A_notify_mutex);
+> +static DEFINE_MUTEX(vcp_feature_mutex);
 
-Wrap at coding style.
-
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt8196-vcp
-> +
-> +  reg:
-> +    items:
-> +      - description: sram base
-> +      - description: cfg group IO
-> +      - description: cfg core group IO
-> +      - description: cfg sec group IO
-> +      - description: vcp rdy group IO
-> +
-> +  reg-names:
-> +    items:
-> +      - const: sram
-> +      - const: cfg
-> +      - const: cfg_core
-> +      - const: cfg_sec
-> +      - const: vcp_vlp_ao_rsvd7
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  mboxes:
-> +    description:
-> +      Using mailbox to communicate with VCP, it should have this
-> +      property and list of phandle, mailbox specifiers. See
-> +      Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
-> +      for details.
-
-Drop entire description, redundant.
-
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +
-
-No, you do not get your own type. Instead list items or just maxItems.
+Way too many global variables and mutexes.  Why is all this designed as
+singleton?
 
 
-> +  mbox-names:
-> +    maxItems: 5
+...
 
-No, you must list the items.
+> +int vcp_wdt_irq_init(struct mtk_vcp_device *vcp)
+> +{
+> +	int ret;
+> +
+> +	ret = devm_request_irq(vcp->dev, platform_get_irq(vcp->pdev, 0),
+> +			       vcp_irq_handler, IRQF_ONESHOT,
+> +			       vcp->pdev->name, vcp);
+> +	if (ret)
+> +		dev_err(vcp->dev, "failed to request wdt irq\n");
+> +
+> +	return ret;
+> +}
+> +
+> +MODULE_AUTHOR("Xiangzhi Tang <xiangzhi.tang@mediatek.com>");
+> +MODULE_DESCRIPTION("MTK VCP Controller");
+> +MODULE_LICENSE("GPL");
+
+How many drivers do you have? I think I saw only one in Makefile.
+
+
+...
+
+> +static const struct rproc_ops mtk_vcp_ops = {
+> +	.load		= mtk_vcp_load,
+> +	.start		= mtk_vcp_start,
+> +	.stop		= mtk_vcp_stop,
+> +};
+> +
+> +
+> +struct mtk_mbox_send_table send_data[] = {
+
+Why not static? Not const?
+
+> +	{ .msg_size = 18, .ipi_id =  0, .mbox_id = 0 },
+> +
+> +	{ .msg_size =  8, .ipi_id = 15, .mbox_id = 1 },
+> +	{ .msg_size = 18, .ipi_id = 16, .mbox_id = 1 },
+> +	{ .msg_size =  2, .ipi_id =  9, .mbox_id = 1 },
+> +
+> +	{ .msg_size = 18, .ipi_id = 11, .mbox_id = 2 },
+> +	{ .msg_size =  2, .ipi_id =  2, .mbox_id = 2 },
+> +	{ .msg_size =  3, .ipi_id =  3, .mbox_id = 2 },
+> +	{ .msg_size =  2, .ipi_id = 32, .mbox_id = 2 },
+> +
+> +	{ .msg_size =  2, .ipi_id = 33, .mbox_id = 3 },
+> +	{ .msg_size =  2, .ipi_id = 13, .mbox_id = 3 },
+> +	{ .msg_size =  2, .ipi_id = 35, .mbox_id = 3 },
+> +
+> +	{ .msg_size =  2, .ipi_id = 20, .mbox_id = 4 },
+> +	{ .msg_size =  3, .ipi_id = 21, .mbox_id = 4 },
+> +	{ .msg_size =  2, .ipi_id = 23, .mbox_id = 4 }
+> +};
+> +
+> +struct mtk_mbox_recv_table recv_data[] = {
+> +	{ .recv_opt = 0, .msg_size = 18, .ipi_id =  1, .mbox_id = 0 },
+> +
+> +	{ .recv_opt = 1, .msg_size =  8, .ipi_id = 15, .mbox_id = 1 },
+> +	{ .recv_opt = 0, .msg_size = 18, .ipi_id = 17, .mbox_id = 1 },
+> +	{ .recv_opt = 0, .msg_size =  2, .ipi_id = 10, .mbox_id = 1 },
+> +
+> +	{ .recv_opt = 0, .msg_size = 18, .ipi_id = 12, .mbox_id = 2 },
+> +	{ .recv_opt = 0, .msg_size =  1, .ipi_id =  5, .mbox_id = 2 },
+> +	{ .recv_opt = 1, .msg_size =  1, .ipi_id =  2, .mbox_id = 2 },
+> +
+> +	{ .recv_opt = 0, .msg_size =  2, .ipi_id = 34, .mbox_id = 3 },
+> +	{ .recv_opt = 0, .msg_size =  2, .ipi_id = 14, .mbox_id = 3 },
+> +
+> +	{ .recv_opt = 0, .msg_size =  1, .ipi_id = 26, .mbox_id = 4 },
+> +	{ .recv_opt = 1, .msg_size =  1, .ipi_id = 20, .mbox_id = 4 }
+> +};
+> +
+> +struct mtk_mbox_table ipc_table = {
+> +	.send_table = {
+> +		{ .msg_size = 18, .ipi_id =  0, .mbox_id = 0 },
+> +
+> +		{ .msg_size =  8, .ipi_id = 15, .mbox_id = 1 },
+> +		{ .msg_size = 18, .ipi_id = 16, .mbox_id = 1 },
+> +		{ .msg_size =  2, .ipi_id =  9, .mbox_id = 1 },
+> +
+> +		{ .msg_size = 18, .ipi_id = 11, .mbox_id = 2 },
+> +		{ .msg_size =  2, .ipi_id =  2, .mbox_id = 2 },
+> +		{ .msg_size =  3, .ipi_id =  3, .mbox_id = 2 },
+> +		{ .msg_size =  2, .ipi_id = 32, .mbox_id = 2 },
+> +
+> +		{ .msg_size =  2, .ipi_id = 33, .mbox_id = 3 },
+> +		{ .msg_size =  2, .ipi_id = 13, .mbox_id = 3 },
+> +		{ .msg_size =  2, .ipi_id = 35, .mbox_id = 3 },
+> +
+> +		{ .msg_size =  2, .ipi_id = 20, .mbox_id = 4 },
+> +		{ .msg_size =  3, .ipi_id = 21, .mbox_id = 4 },
+> +		{ .msg_size =  2, .ipi_id = 23, .mbox_id = 4 }
+> +	},
+> +	.recv_table = {
+> +		{ .recv_opt = 0, .msg_size = 18, .ipi_id =  1, .mbox_id = 0 },
+> +
+> +		{ .recv_opt = 1, .msg_size =  8, .ipi_id = 15, .mbox_id = 1 },
+> +		{ .recv_opt = 0, .msg_size = 18, .ipi_id = 17, .mbox_id = 1 },
+> +		{ .recv_opt = 0, .msg_size =  2, .ipi_id = 10, .mbox_id = 1 },
+> +
+> +		{ .recv_opt = 0, .msg_size = 18, .ipi_id = 12, .mbox_id = 2 },
+> +		{ .recv_opt = 0, .msg_size =  1, .ipi_id =  5, .mbox_id = 2 },
+> +		{ .recv_opt = 1, .msg_size =  1, .ipi_id =  2, .mbox_id = 2 },
+> +
+> +		{ .recv_opt = 0, .msg_size =  2, .ipi_id = 34, .mbox_id = 3 },
+> +		{ .recv_opt = 0, .msg_size =  2, .ipi_id = 14, .mbox_id = 3 },
+> +
+> +		{ .recv_opt = 0, .msg_size =  1, .ipi_id = 26, .mbox_id = 4 },
+> +		{ .recv_opt = 1, .msg_size =  1, .ipi_id = 20, .mbox_id = 4 }
+> +	},
+> +	.recv_count = ARRAY_SIZE(recv_data),
+> +	.send_count = ARRAY_SIZE(send_data),
+> +};
+> +
+> +static int vcp_ipi_mbox_init(struct mtk_vcp_device *vcp)
+> +{
+> +	struct mtk_vcp_ipc *vcp_ipc;
+> +	struct platform_device *pdev;
+> +	int ret;
+> +
+> +	pdev = platform_device_register_data(vcp->dev, "mtk-vcp-ipc",
+> +					     PLATFORM_DEVID_NONE, &ipc_table,
+> +					     sizeof(ipc_table));
+> +	if (IS_ERR(pdev)) {
+> +		ret = PTR_ERR(pdev);
+> +		dev_err(vcp->dev, "failed to create mtk-vcp-ipc device\n");
+> +		return ret;
+> +	}
+> +
+> +	vcp_ipc = dev_get_drvdata(&pdev->dev);
+> +	if (!vcp_ipc) {
+> +		ret = -EPROBE_DEFER;
+> +		dev_err(vcp->dev, "failed to get drvdata\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = mtk_vcp_ipc_device_register(vcp->ipi_dev, VCP_IPI_COUNT, vcp_ipc);
+> +	if (ret) {
+> +		dev_err(vcp->dev, "ipi_dev_register failed, ret %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int vcp_multi_core_init(struct platform_device *pdev,
+> +			       struct mtk_vcp_of_cluster *vcp_cluster,
+> +			       enum vcp_core_id core_id)
+> +{
+> +	int ret;
+> +
+> +	ret = of_property_read_u32(pdev->dev.of_node, "twohart",
+> +				   &vcp_cluster->twohart[core_id]);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to twohart property\n");
+> +		return ret;
+> +	}
+> +	ret = of_property_read_u32(pdev->dev.of_node, "sram-offset",
+> +				   &vcp_cluster->sram_offset[core_id]);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to sram-offset property\n");
+> +		return ret;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static bool vcp_is_single_core(struct platform_device *pdev,
+> +			       struct mtk_vcp_of_cluster *vcp_cluster)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev_of_node(dev);
+> +	struct device_node *child;
+> +	u32 num_cores = 0;
+> +
+> +	for_each_available_child_of_node(np, child)
+> +		num_cores++;
+> +	vcp_cluster->core_nums = num_cores;
+> +
+> +	return num_cores < VCP_CORE_TOTAL ? true : false;
+> +}
+> +
+> +static int vcp_add_single_core(struct platform_device *pdev,
+> +			       struct mtk_vcp_of_cluster *vcp_cluster)
+> +{
+> +	return 0;
+> +}
+> +
+> +static int vcp_add_multi_core(struct platform_device *pdev,
+> +			      struct mtk_vcp_of_cluster *vcp_cluster)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev_of_node(dev);
+> +	struct device_node *child;
+> +	struct platform_device *cpdev;
+> +	struct mtk_vcp_device *vcp;
+> +	struct rproc *rproc;
+> +	const struct mtk_vcp_of_data *vcp_of_data;
+> +	int ret = 0;
+> +
+> +	vcp_of_data = of_device_get_match_data(dev);
+> +	rproc = devm_rproc_alloc(dev, np->name, &mtk_vcp_ops,
+> +				 vcp_of_data->platdata.fw_name,
+> +				 sizeof(struct mtk_vcp_device));
+> +	if (!rproc)
+> +		return dev_err_probe(dev, -ENOMEM, "unable to allocate remoteproc\n");
+
+This does not look right. Allocation failures should not result in printks.
+
+
+...
 
 > +
-> +  power-domains:
-> +    description:
-> +      A phandle and PM domain specifier as defined by bindings
-> +      of the power controller specified by phandle. See
-> +      Documentation/devicetree/bindings/power/power-domain.yaml for details.
+> +	for_each_available_child_of_node(np, child) {
+> +		if (of_device_is_compatible(child, "mediatek,vcp-core")) {
+> +			cpdev = of_find_device_by_node(child);
+> +			if (!cpdev) {
+> +				ret = -ENODEV;
+> +				dev_err(dev, "Not found platform device for core\n");
 
-Look how other bindings do it. Do not repeat obvious stuff, do not
-develop bindings entirely different than all others.
+You leak np, use scoped.
 
-> +    maxItems: 1
-> +
-> +  iommus:
-> +    description:
-> +      Using MediaTek iommu to apply larb ports for Multimedia Memory
-> +      Management Unit and address translation
-> +      Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+> +				return ret;
+> +			}
+> +			ret = vcp_multi_core_init(cpdev, vcp_cluster, VCP_ID);
+> +		} else if (of_device_is_compatible(child, "mediatek,mmup-core")) {
+> +			cpdev = of_find_device_by_node(child);
+> +			if (!cpdev) {
+> +				ret = -ENODEV;
+> +				dev_err(dev, "Not found platform device for core\n");
+> +				return ret;
 
-Really, look at other code first.
+Same problems.
 
-> +
-> +  memory-region:
-> +    maxItems: 1
-> +
-> +  vcp-mem-tbl:
-> +    description:
-> +      Manage reserved memory for VCP RTOS FW and various features.
+> +			}
+> +			ret = vcp_multi_core_init(cpdev, vcp_cluster, MMUP_ID);
+> +		}
+> +	}
 
-No, reserved memory is in memory-region. Drop property.
 
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    minItems: 2
-> +    maxItems: 12
-> +
-> +patternProperties:
-> +  "^vcp_[a-f0-9]+$":
+..
 
-Follow DTS coding style.
 
-Heh, nothing here was really tested and you have obvious bugs pointed
-out by simple testing of DTS.
+> +static struct platform_driver mtk_vcp_device = {
+> +	.probe = vcp_device_probe,
+> +	.remove = vcp_device_remove,
+> +	.shutdown = vcp_device_shutdown,
+> +	.driver = {
+> +		.name = "mtk-vcp",
+> +		.owner = THIS_MODULE,
 
-Why these children are needed in the first place? Offsets are implied by
-parent compatible.
+Clean your driver from all 10-yo code, before you upstream... Or just
+start from recent driver so you won't repeat the same mistakes/issues we
+already fixed.
 
-> +    type: object
-> +    description:
-> +      The MediaTek VCP integrated to SoC might be a multi-core version.
-> +      The other cores are represented as child nodes of the boot core.
-> +      There are some integration differences for the IP like the usage of
-> +      address translator for translating SoC bus addresses into address
-> +      space for the processor.
-> +
-> +      The SRAM are shared by all cores, each VCP core only using a piece
-> +      SRAM memory. The power of SRAM should be enabled before booting VCP cores.
-> +      The size of SRAM are varied on differnt SoCs.
-> +
-> +      The VCP cores has differences on different SoCs to support for
-> +      Hart.
-> +
-> +    properties:
-> +      compatible:
-> +        enum:
-> +          - mediatek,vcp-core
-> +          - mediatek,mmup-core
-> +
-> +      twohart:
+> +		.of_match_table = of_match_ptr(vcp_of_ids),
 
-Missing vendor prefix, look at writing bindings and other examples.
-
-> +        enum: [0, 1]
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +      sram-offset:
-> +        description:
-> +          Allocated SRAM memory for each VCP core used.
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +    required:
-> +      - compatible
-> +      - twohart
-> +      - sram-offset
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - interrupts
-> +  - mboxes
-> +  - mbox-names
-> +  - power-domains
-> +  - iommus
-> +  - memory-region
-> +  - vcp-mem-tbl
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/power/mt8196-power.h>
-> +
-> +    vcp: vcp@31800000 {
-> +        compatible = "mediatek,mt8196-vcp";
-> +        reg = <0x31800000 0x60000>,
-> +              <0x31a04000 0xa000>,
-> +              <0x31bd0000 0x1000>,
-> +              <0x31a70020 0x100>,
-> +              <0x1c00091c 0x4>;
-
-Quite different address,  are you sure this is still part of this
-device? Looks like on register.
+Same, drop of_match_ptr.
 
 
 Best regards,
