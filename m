@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5677CC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 11:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76A0C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 11:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FWL+71/1RKcCS0jbjJipjD66F33E97rGzkRTSMyfvpU=; b=1ZpWvIZWUV+hXe+wFW4ZeGVWJT
-	RBKIEfJCjLAvwU2t7DOJwBqYC8P2NcBRbOcIDwxTSrIUW7/CM3wuV57tVdHrIrb07nMUaGwNNkBxZ
-	40DdS4i+ua73PChYklRvVUB2y0Oov/6PpTpmKGM7oSx22mz5w20I+5Sh7G2cV+ELic3idlv31OWLW
-	W+s0DhOE3huHaoJUFPMPPWxGro/j3FccRpLn+65q23pS3p3i7CylRa/sVbQv2BcWXx/3qNBT8m+Zm
-	CzGdW+t/9lrN/GOrurU7cweIeh++VRQG1V4E+aOZCuVQu1HD2hhGOz9Y+uVB+l2KKnjdOpVWN7T0H
-	Ex5vVuaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NHSR5BStKwi1555Ad2VJ4FWLFRVBPtFtaXf27EPrHpo=; b=DcHtQEqnmiByJdlJvyBbF/9ysk
+	YX4n0v4IvhY26wc3k3yDQc83Dp0E2XZZVAVC3O6QouXkWaUgHIF9xuZlrqbX704MgAuY6SSrdfM33
+	CvZpzd+dNXCbxWR5pBe+PTGBvBfleK/keXHDSEophviO2eXz0TCllZbyTxio/eCs3gnBrEhJy7e4Y
+	hNRRUajrytbq9BTAlap6f5xKc90jnnMj9MkLIymDLUjiEfASfLrLYbbp/ZbeNdJKMo4Ia5sOueLzy
+	YwuzgpV8NDS4ZhO4shyAt4jK4Det0L5Hfy+AreEIRoFCUXhgxvV1TEYF9pHNbnDClgIl0aY07w3gN
+	JBtRmDgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzwgz-00000005z8l-1eR4;
-	Wed, 02 Apr 2025 11:55:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzwY1-00000005xZu-2X91
+	id 1tzwil-00000005za5-14Zy;
+	Wed, 02 Apr 2025 11:57:27 +0000
+Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzwbh-00000005y8A-14Ks
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 11:46:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B6526106F;
-	Wed,  2 Apr 2025 04:46:23 -0700 (PDT)
-Received: from bogus (unknown [10.57.41.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CBB53F694;
-	Wed,  2 Apr 2025 04:46:17 -0700 (PDT)
-Date: Wed, 2 Apr 2025 12:46:14 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v3 1/7] firmware: arm_scmi: imx: Add LMM and CPU
- documentation
-Message-ID: <20250402-acoustic-analytic-guan-d3cda5@sudeepholla>
-References: <20250303-imx-lmm-cpu-v3-0-7695f6f61cfc@nxp.com>
- <20250303-imx-lmm-cpu-v3-1-7695f6f61cfc@nxp.com>
- <20250401-quantum-coyote-of-admiration-bf1b68@sudeepholla>
- <20250402123503.GA23033@nxa18884-linux>
+	Wed, 02 Apr 2025 11:50:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=NHSR5BStKwi1555Ad2VJ4FWLFRVBPtFtaXf27EPrHpo=; b=Qow0NEHvhROtmsdaPYA3K9Nhdi
+	iItGrN3VPudWnDfBIfeQwZfZsP414JRduZQb9hCagbv+ilAo2eHvsCpE5W8HcHGUjufwhuTHdno4j
+	um0wvtBTcXt4jowdu3KbCr7hrW/2DbSsAEKBYn8tPqiyLh2YH7EXjWjB6Haa5+EUgxEdUEr0ZwaD1
+	DxTbH8CDbnnI7sOQ2dS7FhN2UYVNZF6i4lX3taWIXEMLZKaUitpYxncJTvS2KEz7PjV/dRTiJe3oA
+	IwiZYfubaCmjRd2q/GsgWRwanlEcfiMPKM7oIj3KYtSpFwAtZpjf7F8PeNsowyoxTiGEtWORwyViF
+	n8dZ3erw==;
+Received: from [122.175.9.182] (port=29799 helo=zimbra.couthit.local)
+	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1tzwaz-000000002g4-2ckb;
+	Wed, 02 Apr 2025 17:19:25 +0530
+Received: from zimbra.couthit.local (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTPS id E40B017821E7;
+	Wed,  2 Apr 2025 17:19:19 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id CEDCE1783FDC;
+	Wed,  2 Apr 2025 17:19:19 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id KkYWWDFBf6_1; Wed,  2 Apr 2025 17:19:19 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id A534E17821E7;
+	Wed,  2 Apr 2025 17:19:19 +0530 (IST)
+Date: Wed, 2 Apr 2025 17:19:19 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: nm <nm@ti.com>, Kevin Hilman <khilman@baylibre.com>
+Cc: basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	pratheesh <pratheesh@ti.com>, Prajith Jayarajan <prajith@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, 
+	danishanwar <danishanwar@ti.com>, praneeth <praneeth@ti.com>, 
+	srk <srk@ti.com>, rogerq <rogerq@ti.com>, afd <afd@ti.com>, 
+	krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, 
+	mohan <mohan@couthit.com>, parvathi <parvathi@couthit.com>
+Message-ID: <706306271.973226.1743594559548.JavaMail.zimbra@couthit.local>
+In-Reply-To: <1365068627.843903.1742210370862.JavaMail.zimbra@couthit.local>
+References: <20250108125937.10604-1-basharath@couthit.com> <20250108125937.10604-2-basharath@couthit.com> <20250307210517.5xjfc6wntcbj3s4k@precision> <1365068627.843903.1742210370862.JavaMail.zimbra@couthit.local>
+Subject: Re: [PATCH v2 1/1] soc: ti: PRUSS OCP configuration
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250402123503.GA23033@nxa18884-linux>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.103]
+X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
+Thread-Topic: PRUSS OCP configuration
+Thread-Index: DvRQZaXzAimB/uZVNUsWawvfCP38JsM+ekCT
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_044621_727247_0414EF4A 
-X-CRM114-Status: GOOD (  36.14  )
+X-CRM114-CacheID: sfid-20250402_045009_378317_3F6CAEEA 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,118 +108,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 08:35:03PM +0800, Peng Fan wrote:
-> Hi Sudeep,
+Hi Nishanth,
+ 
+>> On 18:29-20250108, Basharath Hussain Khaja wrote:
+>>> From: Roger Quadros <rogerq@ti.com>
+>>> 
+>>> Updates OCP master port configuration to enable memory access outside
+>>> of the PRU-ICSS subsystem.
+>>> 
+>>> This set of changes configures PRUSS_SYSCFG.STANDBY_INIT bit either
+>>> to enable or disable the OCP master ports (applicable only on SoCs
+>>> using OCP interconnect like the OMAP family).
+>>> 
+>>> Signed-off-by: Roger Quadros <rogerq@ti.com>
+>>> Signed-off-by: Andrew F. Davis <afd@ti.com>
+>>> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+>>> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+>> 
+>> On the verge of applying this patch, looking deeper, I noticed
+>> drivers/bus/ti-sysc.c managing the sysc controls. infact, I wonder if
+>> b2745d92bb015cc4454d4195c4ce6e2852db397e ("bus: ti-sysc: Add support
+>> for PRUSS SYSC type") could be merged with this?
+>> 
+>> 
+>> Could you say why drivers/bus/ti-sysc.c would'nt be the right solution?
+>> 
+>> Ccying Kevin if he has any ideas about this.
+>> 
 > 
-> Thanks for reviewing the patch.
+> Thank you for the feedback.
 > 
-> For comments that I am not very clear, I marked with [TODO] for easily
-> jump to.
+> We will analyze ti-sysc and revert back with an update shortly.
 > 
-> On Tue, Apr 01, 2025 at 03:15:46PM +0100, Sudeep Holla wrote:
-> >On Mon, Mar 03, 2025 at 10:53:22AM +0800, Peng Fan (OSS) wrote:
-> >> From: Peng Fan <peng.fan@nxp.com>
-> >> 
-> >> Add i.MX95 Logical Machine Management and CPU Protocol documentation.
-> >> 
-> >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> >> ---
-> >>  drivers/firmware/arm_scmi/vendors/imx/imx95.rst | 801 ++++++++++++++++++++++++
-> >>  1 file changed, 801 insertions(+)
-> >> 
-> >> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst b/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
-> >> index b2dfd6c46ca2f5f12f0475c24cb54c060e9fa421..74326bf2ea8586282a735713e0ab7eb90ccce8ff 100644
-> >> --- a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
-> >> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
 
-> >> +
-> >> +PROTOCOL_MESSAGE_ATTRIBUTES
-> >> +~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> >> +
-> >> +message_id: 0x2
-> >> +protocol_id: 0x80
-> >> +This command is mandatory.
-> >> +
-> >
-> >For completeness add parameters here for message_id as in the spec as it is
-> >referred in the returned value and seems incomplete without it.
-> 
-> [TODO]
-> Sorry, I may not get your point here. You mean below format?
-> 
-> +------------------+-----------------------------------------------------------+
-> |message_id: 0x2
-> |protocol_id: 0x80
-> |This command is mandatory.
-> +------------------+-----------------------------------------------------------+
-> |Return values                                                                 |
-> +------------------+-----------------------------------------------------------+
-> |Name              |Description                                                |
-> +------------------+-----------------------------------------------------------+
-> |int32 status      |SUCCESS: in case the message is implemented and available  |
-> |                  |to use.                                                    |
-> |                  |NOT_FOUND: if the message identified by message_id is      |
-> |                  |invalid or not implemented                                 |
-> +------------------+-----------------------------------------------------------+
-> |uint32 attributes |Flags that are associated with a specific function in the  |
-> |                  |protocol. For all functions in this protocol, this         |
-> 
-> message_id is not put in the table, but it is list above just below
-> the protocol name. I would prefer to keep current layout and align with
-> the MISC and BBM protocol.
->
+We've reviewed the code and decided to bypass the SOC patch posted here.
+Instead, we have implemented the required changes in the "drivers/bus/ti-sysc.c"
+file to enable OCMC access to the PRU-ICSS and verified the Ethernet
+functionality over PRUETH on AM335x, AM437x and AM57x platforms.
 
-I meant why is the input parameter message_id not described in the table,
-but is referred in the return values. For completeness, just add it even
-though it may match the SCMI spec in terms of input parameter.
+This patch will be abandoned and a new patch will be posted with
+"drivers/bus/ti-sysc.c" changes shortly.
 
 
-[...]
-
-> >> +|                     |Bit[23] Valid err ID:                                   |
-> >> +|                     |Set to 1 if the error ID field is valid.                |
-> >> +|                     |Set to 0 if the error ID field is not valid.            |
-> >> +|                     |Bits[22:8] Error ID(Agent ID of the system).            |
-> >> +|                     |Bit[7:0] Reason(WDOG, POR, FCCU and etc)                |
-> >
-> >Is there a mapping for this ?
-> 
-> I will add a note in V4:
-> See the SRESR register description in the System Reset Controller (SRC) section
-> in SoC reference mannual.
->
-
-A reference would be good here then. I would be hard to imagine what it means
-otherwise.
-
-> >> +
-> >> +LMM_RESET_VECTOR_SET
-> >> +~~~~~~~~~~~~~~~~~~~~
-> >> +
-> >> +message_id: 0xC
-> >> +protocol_id: 0x80
-> >> +This command is mandatory.
-> >> +
-> >
-> >I can't recall if I had asked this before. How is this different from
-> >CPU_RESET_VECTOR_SET ? Why do you need this ? Why can't you use
-> >CPU_RESET_VECTOR_SET with an additional LMM_* command.
-> >
-> >I am sure there is a valid reason. If so please document the same.
-> 
-> CPU_RESET_VECTOR_SET is for cases that M7 and A55 in the same LM.
-> LMM_RESET_VECTOR_SET is for cases that M7 and A55 in different LM.
-> M7 LM is under control of A55 LM
->
-
-That still doesn't answer my question. I was asking why do you need this
-extra interface ? If LMM_RESET_VECTOR_SET can take both cpu id and LM id,
-it can be used even for cpus within same LM with current LM ID. Why the
-need for separate interface ?
-
-Other than these 2, I am fine with your response on all other comments.
-
--- 
-Regards,
-Sudeep
+Thanks and Regards,
+Parvathi.
 
