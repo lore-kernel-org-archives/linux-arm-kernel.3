@@ -4,91 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15CB7C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 06:29:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E94FC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 06:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0vxtuFvSbsxOaM1zbzEuh2qcT0p6czX42zd3rEEDXyw=; b=zsplWel+CczL6d0hg8yr9JNzac
-	6VENxPrdG7RkESqz4ETLslFe9ByVrnZWAtcUDrEt0YaKuQZeS9o09iV1ziUM8AxtBD+TRhyLzy5lp
-	iZNkNJcXdoqaQT83iMnkjCGGPpi2/6gzmV34gos/J9kUqPf6gZkxKeihkRKvt/FLEwfkuE/NqK3FI
-	j4UxFjeSC9PvvEkmy1aTCu8ZAEVvzwMNM9TSULo/eUKqBbGMu/RAjCRAru5zh0xF6DDceX8gCdQh2
-	RBgXXsHXXR5+Nlnw4z+fJnPSyRsBnr8u1f4kZYUxyWKT9L7TQ/bSMhm6owEE/K9NG2IAFAjo+365e
-	UvOfLcaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6MaKwOHUQD/pyzV3ZqXhIdfQLOmuaY8deKHlM0d69kU=; b=0qkE7bu5LzQe049UQkM8p+5nGu
+	tF9BVLwc4Prgrf3soWIRx53zwHgf7GReX+m4JtlHtkdBfPYYJLzSqdxNr591Edi5OhZdDcnR4NKws
+	QdL2yALbEprYg0vHR8wpTEvo+IkuSKHh8OUTVKicluYXsbBWLl0eWgKSUIVAz4S802+uFY3swUqKY
+	oW3yyi3ftbYBCThIg3+Y0HgG5ItUPjGGZkb4E13VqoSFgqEfgTFgvh7bM3DqNSPF1fk65BA7I1mlq
+	+dp8RK+s3JJUeNrP/zU5QuPb5XTIVnefEgGEC2FWQj8h+b2Lq9meaNjtS1gpGacn+mm8PXY6cHG8+
+	McC6HTYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzrb9-00000005FXK-08B5;
-	Wed, 02 Apr 2025 06:29:15 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tzrcr-00000005FhN-338d;
+	Wed, 02 Apr 2025 06:31:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzrZN-00000005FIa-087w
+	id 1tzrZW-00000005FJv-05lT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 06:27:26 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-225477548e1so114166935ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 23:27:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743575244; x=1744180044; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=0vxtuFvSbsxOaM1zbzEuh2qcT0p6czX42zd3rEEDXyw=;
-        b=V6LpIfFJEy8Xeba4aoN0qMnc0HEBV8lny5LZS2mLSTUkaPFzVJYr89w+4ZcvRLe3+B
-         v/Fs+EJWN8rmdbhLuvYJN8PX+QECPDgh91nvVZYjNhm6LGLxp7rEb5m2Gxx71VEh9RiL
-         Y7etAmmutmnDa9j3mhu3TlNhVzrbNsyM5ZBIL9fP01L4lv4Afr9y19IhehLr6l5USkxu
-         nI4JrH6IQd+2GoMjwokQHK1crTNbLm+v1lsDr7Bad9E/uT4LZ73EkEPG9PwIwQ9RxlxL
-         nVuSrVOKSJkEmh+fQz9zQ0bMO8k2Ikn3grd8qNJHRF28FI1EK1PhcoNVD1ypIRFHJKTB
-         XnBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743575244; x=1744180044;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0vxtuFvSbsxOaM1zbzEuh2qcT0p6czX42zd3rEEDXyw=;
-        b=BTp7pg2fAR3rr1Vwzwz0dygrl76WAqZ2gJYFvVVWKJur0LbDYphvnedb7pQ/J5qTAU
-         cUQDQhFhD2OoR67QxshgXHuwHsfSbcLPywaaHjJVNWSDC6TqoD1kA3DFkdIgXSgzDAOv
-         JDxxrXA7po52nZsLQN6VmietXFhkPPcHMrI7PRuIVmscktCMQAw++BjR4AXqVEIUiMdU
-         ZwoiG22YhA3c4DvoSdzFoC3KNuNA/Dnh36kU6+ss8FhHOa7ZVOs79UaaONt9/r/NJcM4
-         FHAjEXx9sypgooE8sB4rH9VsDXEQA/CYPIaUNE5NDNBHdxtYumzCeqDdFE5dbUgjLWQS
-         QCwg==
-X-Forwarded-Encrypted: i=1; AJvYcCXAERK1t5sbk62RprC+/wxFclk8cXLK74YPHsL1w2W44HPeVn6UrjxoifHD3dOVz93Z7V/EuldZkXEg1Rji4Hli@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL7cWdiXyuOfA5BfwkOk812+XL21CQuibG3N42rfUadB6BdUOk
-	HspXxJ4Nd7AeEg6H6pihpQ4V9aHLCg9R7GQBjBa3YWslhrdx8phvuNGOE9T+TA==
-X-Gm-Gg: ASbGncvxHfEVvD6pUzi5F8xFm4b1NlSK5Tr9uJ8J/SquP95G0pvuE1sHPvpP/6FKDlK
-	Kii/DcTG6OJx0lpTfbl+IXi9K5lnkfZoUjpzM+LSt3TyDrsZbQRu5WeSmGKK8O1tslEK20doYZs
-	C7XQi9K3cclh9jqsXE1fNCp3XhZaHHGTVX1OB8dVu8Z6fdnp8YRgwotrZGDAjIOQAkLUHjrPtPZ
-	DxlACHJ8fqp8bN53JeTRq9nemVhiYGuqCZKBUW22UH+8AkRfgW6A8YUe0qv94LkqCpvJKa3vttY
-	JJUh3cGfsGE42JTreU3h4zngn7vZuJ1+1QVm/eKBbigFn+9b0V1e3nkb
-X-Google-Smtp-Source: AGHT+IEftqywmuVKm2jxf0hoVI8+XFFEcICMDydA0YNIWpJc2sWztLxMbLmbc7T+583swHeEhH9wPw==
-X-Received: by 2002:a17:903:11c7:b0:224:1ec0:8a16 with SMTP id d9443c01a7336-2292f9622b5mr229392235ad.21.1743575243714;
-        Tue, 01 Apr 2025 23:27:23 -0700 (PDT)
-Received: from thinkpad ([120.56.205.103])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291eee1b3fsm99908325ad.74.2025.04.01.23.27.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 23:27:23 -0700 (PDT)
-Date: Wed, 2 Apr 2025 11:57:17 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
-	kw@linux.com, robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/6] PCI: imx6: Start link directly when workaround is
- not required
-Message-ID: <kskqytb67s6qpt2jfn6sry4oj3zq46y5hizyzxxvehtjtqtj6r@qmtfepjzjrpk>
-References: <20250328030213.1650990-1-hongxing.zhu@nxp.com>
- <20250328030213.1650990-2-hongxing.zhu@nxp.com>
+	Wed, 02 Apr 2025 06:27:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 87FF46116C;
+	Wed,  2 Apr 2025 06:27:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AD71C4CEDD;
+	Wed,  2 Apr 2025 06:27:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743575253;
+	bh=mlIeyKQGi9xiF15QG8+se9U+3f0soQPlemjHILzdzS0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AUP4zcs/qfijK1FJSj8FNaLPt4gxsg0T4Ay2x06M3Uy0kVegwx03NavKe/Y+L8dVc
+	 P8oVPyJzishv/lfIBaYfAzeSitPOPRG+ulWZ1FFxcuAb6p/C5oomnyrloeezbe/CBp
+	 D575AuPMbY67THZjhPqHVeAhEA6L37UYfEGIXdXkhmLIkt6NyhImCjeKHWINVzY1gf
+	 lqj/YyeVb8FAHo7ubutW9wfwKvrFp4Ksu3pfFjGAq8ihpo87Kk9WQJNov/4n7M/qOk
+	 p78icWA7bAiDgkmLLKVse7HNYgyedm7EQWhIb6QC0Y9obwOQyGctXepFwT2R6V8c26
+	 tfc6dTYAjGxTA==
+Message-ID: <fe6ec03b-c1c5-417f-9aec-1b81731b3018@kernel.org>
+Date: Wed, 2 Apr 2025 08:27:26 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250328030213.1650990-2-hongxing.zhu@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_232725_080379_F263A7DD 
-X-CRM114-Status: GOOD (  24.83  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] tty: serial: samsung: Fix potential buffer overflow in
+ clkname
+To: jiang.peng9@zte.com.cn
+Cc: shao.mingyin@zte.com.cn, alim.akhtar@samsung.com, yang.yang29@zte.com.cn,
+ xu.xin16@zte.com.cn, ye.xingchen@zte.com.cn, gregkh@linuxfoundation.org,
+ jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org
+References: <202504020933293306VVVuy_8HVKbwBOL2PFjW@zte.com.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <202504020933293306VVVuy_8HVKbwBOL2PFjW@zte.com.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,96 +117,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 11:02:08AM +0800, Richard Zhu wrote:
-> The current link setup procedure is one workaround to detect the device
-> behind PCIe switches on some i.MX6 platforms.
+On 02/04/2025 03:33, jiang.peng9@zte.com.cn wrote:
+>> Same comments as with other patches, not possible, IMO. Plus this patch
+>> looks actually worse - commit msg is hardly readable.
+>>
+>> Best regards,
+>> Krzysztof
 > 
-> To describe more accurately, change the flag name from
-> IMX_PCIE_FLAG_IMX_SPEED_CHANGE to IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND.
-> 
-> Start PCIe link directly when this flag is not set on i.MX7 or later
-> platforms to simple and speed up link training.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Hi Krzysztof,
+> Thank you for your feedback. Let me briefly re-explain the change:
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+No need, it was already on the lists many times.
 
-One observation below (not related to this change).
+> The issue:
+> When building with W=1, we get a format-overflow warning because "clk_uart_baud%d" could write 15-17 bytes (14 chars + 1-3 digits) into a 15-byte buffer.
+> The fix:
+> Increased clkname buffer size from 15 to 18 chars
+> (original 14 chars + 3 digits + null = 18)
+> Replaced sprintf() with snprintf() for safety
+> This keeps the pattern consistent while eliminating the warning. Tested with CONFIG_SERIAL_SAMSUNG=y builds.
 
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 34 +++++++++++----------------
->  1 file changed, 14 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index c1f7904e3600..57aa777231ae 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -91,7 +91,7 @@ enum imx_pcie_variants {
->  };
->  
->  #define IMX_PCIE_FLAG_IMX_PHY			BIT(0)
-> -#define IMX_PCIE_FLAG_IMX_SPEED_CHANGE		BIT(1)
-> +#define IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND	BIT(1)
->  #define IMX_PCIE_FLAG_SUPPORTS_SUSPEND		BIT(2)
->  #define IMX_PCIE_FLAG_HAS_PHYDRV		BIT(3)
->  #define IMX_PCIE_FLAG_HAS_APP_RESET		BIT(4)
-> @@ -860,6 +860,12 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
->  	u32 tmp;
->  	int ret;
->  
-> +	if (!(imx_pcie->drvdata->flags &
-> +	    IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND)) {
-> +		imx_pcie_ltssm_enable(dev);
-> +		return 0;
+That's not a test. Test is running on a device. Compiling is not a test.
 
-While looking into the code, I realized that we could skip waiting for link
-during the workaround in atleast one instance:
+> Would you prefer any adjustments to this approach?
+Same comments as for previous cases. Go search other discussions.
 
-```
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 5f267dd261b5..9dbfbd9de2da 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -875,11 +875,11 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
-        /* Start LTSSM. */
-        imx_pcie_ltssm_enable(dev);
- 
--       ret = dw_pcie_wait_for_link(pci);
--       if (ret)
--               goto err_reset_phy;
--
-        if (pci->max_link_speed > 1) {
-+               ret = dw_pcie_wait_for_link(pci);
-+               if (ret)
-+                       goto err_reset_phy;
-+
-                /* Allow faster modes after the link is up */
-                dw_pcie_dbi_ro_wr_en(pci);
-                tmp = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
-@@ -913,17 +913,10 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
-                                goto err_reset_phy;
-                        }
-                }
--
--               /* Make sure link training is finished as well! */
--               ret = dw_pcie_wait_for_link(pci);
--               if (ret)
--                       goto err_reset_phy;
-        } else {
-                dev_info(dev, "Link: Only Gen1 is enabled\n");
-        }
- 
--       tmp = dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKSTA);
--       dev_info(dev, "Link up, Gen%i\n", tmp & PCI_EXP_LNKSTA_CLS);
-        return 0;
- 
- err_reset_phy:
-```
-
-dw_pcie_wait_for_link() in DWC core should serve the purpose.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Best regards,
+Krzysztof
 
