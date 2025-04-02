@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6687C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 08:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B3BC36014
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 08:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ctkJhtxKsp7SbmROJ/NcWvcFC2gk/L3/qKRnLMhq/34=; b=EKVzIkvnvCioeUrZnTvt1g27bk
-	uxSQG8WU7paLHhQ2itqO2kSCf8Dr0kNIEpkdcB/zVoCcs+7sfK+/GiIM2GVjnkbu/k0Dj/cqQ+IIv
-	qi5mCivaprI3A3Oze1OroEmdZSuXRGS+ylLD+YdFfv1o9MbGC1VJJBREegDaFVYStW6NwpxIOvoRz
-	HZ0tGfVP0MuGFHIor7pzYPYo6y0uz2Qxr+/6GH+GDlMo4AI6JbAt84vxomzRGWZJVUln/fd0lsBJN
-	qhAOGYoB0vkoFEeZFjw3uAGPa+1Eetp4jC5VSYW699xKh/C4kQjvt8ytUd0qA3xfg1v1I8VL/S2jp
-	i1s2j8xg==;
+	bh=iCTBp+z1Xk6PsFHPnKvylP2KEVih7XebeKzwXRXFL9Y=; b=nTIzJ9WJifsesi3ZqCuJ/igowt
+	h7B1H3s2rZNp/QfwvXbkGtUBmGi5x3DL3kOJ6yT/qHNqDJngbxeqZu+cuubhF2oqa9B5CYXsoMURm
+	+PbDxVTt5ctWKjauFlO4FE8lTm1w6qcgjAFwjTBfNZbij0lXeRCGRj9l6zJ8XdnQmXj1qXC2Zdjui
+	hYrqO9j1JTQqGgIai8sZlq3sPu3OJa7jlX0dIP8r+MtoJ67bw7rl4tLsHHbAlmZmrzYxRp/4oocol
+	0xeqxLXB+7yc7fyJQd5EvmWhAEUvXhvnyLMcasfzb1APGVdBmxqPfWX6C+Xg8tsFFHGxUkozGFuD4
+	0uxm6CfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzt3y-00000005T6O-0gxv;
-	Wed, 02 Apr 2025 08:03:06 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1tzt5h-00000005Td6-1JKv;
+	Wed, 02 Apr 2025 08:04:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzt1d-00000005SpK-1W2b
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 08:00:42 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2ff64550991so8298612a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 01:00:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743580840; x=1744185640; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ctkJhtxKsp7SbmROJ/NcWvcFC2gk/L3/qKRnLMhq/34=;
-        b=msf7Req0zJ1Uw8g2qPEq1JtuTe+xPVnAzCG27Bjqe5ejY8Byz+9k4ZcB2f4BIMVdM9
-         8upe+TkDEufZXRJZH9NqU3I1UvuA3blZCvviIV5eC5tnXQ/tvwEcEe9i5PrrgYOgYUo/
-         IfFOB0dlKHjXImE9begSFxvJwpUuhf0UylXUOqaoF4cQEXNGsMs8BJUnft9A4BT20e98
-         hpd/LDB/0NyVCU1f4ivPzSl8WmlSxPPMOlju3BeF025I/qreiY8eyou7lZjZVBbkK07f
-         3JwfQ1sKb12tYboI2vtNlNfyC+2eZdCLQfGO5SBxtMwklMptwsY+R08Dpo+3vN17CzE+
-         qEaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743580840; x=1744185640;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ctkJhtxKsp7SbmROJ/NcWvcFC2gk/L3/qKRnLMhq/34=;
-        b=N0wrSb26dIMo0jnyshA/00GUipj+1X4GAx84Tb7sbK2DuIESRxFh17XhfGM9smHd1w
-         HyBZZFjl/w2QQJeeWnUdWKF8hBlio5Dz1+i0fN+moUYspn0P2qXQwP3uw1pGSW0yIPbG
-         uqYjJpaKYdy+3wTSopkXWlXYW6X+p40oqYZ7a4iNJUb28aM0W/7wAXd+AC45HbXpZULU
-         BoloOH4YzK/nXeINlszY3IgLPS0gE0WXSRRNNWiS9S2AQvuzSfMmcKvxNGz5hp6vZlvp
-         pydH0cqcHBI864urB1kppp9J22wjCksPNeq7GR7nS80Rfv8FDB7oqBnfF4ZZNqvv7uBe
-         zt2w==
-X-Forwarded-Encrypted: i=1; AJvYcCU21QrahztJXZlXrnZLMa5LkxiG9y0WCtNUxdJ8IRFXjbC7mEaB45wGM0uIG9fD20ig4N1CJ3VFe5eiUzJ5wtuA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8Vy8skcDmsRu5rqpbXdNM61Mv8hVs3SCLtBJOyJqjwPaY4Rl3
-	zeZDilpApgIt4t9WuAUqSRipa5O4Zw5k0mBYCZM3Dsa96SgZ4nmnW53zL/DtaUqrjLvaMq19gM8
-	=
-X-Gm-Gg: ASbGncuayHonJVPRy8TtPdpLCVjyylQoHfxw72nWktGfO+AvYdo9fMCXQT8zsi7ocdo
-	1JvUTpkGkfXfOGxMrF/p1elPfY9UiXszaoriiVfDVsKIJ2Un4qhTCV+Vh6fE5KGpSWbRwSjUEMK
-	1QDhZBLu7+44aYlpycaaG/SWwKxhQMpCIwVR8Oo8E6hg3ADpFDlZ+jsq8xksrzNbuf/zdNH5uj6
-	dHACSj5MXWjaupB4C8Jjh84/qGDS9yGj40gXViIbd7r7Oo3755wsZ6+ndKW0TviNMszPKW5suv0
-	kBnsQ0lgLFU3tgVM7AJuDSSo9wJaalG6hX/1F0MTvr7UPQRPfqdfIpYk
-X-Google-Smtp-Source: AGHT+IGTopCX2yplsS8GSpqfdGC18AVuR2urMTzElNFnwCLQ4BxN3uKkDEM1puu2xMXe8rc89mguVQ==
-X-Received: by 2002:a17:90b:1f92:b0:2fa:15ab:4dff with SMTP id 98e67ed59e1d1-3053215b176mr5797036a91.31.1743580840354;
-        Wed, 02 Apr 2025 01:00:40 -0700 (PDT)
-Received: from thinkpad ([120.56.205.103])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3056f979d6fsm1010122a91.45.2025.04.02.01.00.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Apr 2025 01:00:39 -0700 (PDT)
-Date: Wed, 2 Apr 2025 13:30:34 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Johan Hovold <johan+linaro@kernel.org>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Jeff Johnson <jjohnson@kernel.org>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, ath11k@lists.infradead.org, ath12k@lists.infradead.org, 
-	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/4] PCI/arm64/ath11k/ath12k: Rename pwrctrl Kconfig
- symbols
-Message-ID: <bsk4s5tlbpnvds73uxeasqxydcxolxpxvmtladtejhbi65yxob@4h5gy5srxlrr>
-References: <20250328143646.27678-1-johan+linaro@kernel.org>
+	id 1tzt1q-00000005SsA-2p8g;
+	Wed, 02 Apr 2025 08:00:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 14E315C6338;
+	Wed,  2 Apr 2025 07:58:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE45FC4CEDD;
+	Wed,  2 Apr 2025 08:00:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743580853;
+	bh=lK4gVLi61oFm0LfV8A1u08bUdk3LlugSuZjn+dMmtP0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u9NWRA6YFufa0TAjI/fbbYJXG+6QWPyzpAzkZRFVeh5qWOLHpkbwKb0GVzCs5uquQ
+	 CqjgWhkvHT6Cs0Fpu3pSvoHyNrV5adYf5AL2qb/1qHomJDB9JADWKVnV0kon4bB3eQ
+	 Ci5qZy3N7B/d2MKFghh4QSgfQas3Pfvts6AQvwfRTSJfPtNgkECWeDERpEaYlydP5I
+	 ba7fKzxn9p2ikD/CEhXDGyvqLA4wKLnNob8faMErcEIMhPhDPJG7NsWZoHVyA+74wk
+	 P4tYlv/ZzTya3n/ttssjBCDjo0nEo768zDmT2/D+GQdMqDPgl8LLWxUMmnVAPGQmqu
+	 9Y2ISgGkhHpRQ==
+Date: Wed, 2 Apr 2025 10:00:49 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Justin Chen <justin.chen@broadcom.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-phy@lists.infradead.org, rafal@milecki.pl, alcooperx@gmail.com, 
+	bcm-kernel-feedback-list@broadcom.com, florian.fainelli@broadcom.com, conor+dt@kernel.org, 
+	krzk+dt@kernel.org, robh@kernel.org, kishon@kernel.org, vkoul@kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: phy: brcmstb-usb-phy: Add support
+ for bcm74110
+Message-ID: <20250402-clever-judicious-bull-7e7caf@krzk-bin>
+References: <20250401210736.2613748-1-justin.chen@broadcom.com>
+ <20250401210736.2613748-2-justin.chen@broadcom.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250328143646.27678-1-johan+linaro@kernel.org>
+In-Reply-To: <20250401210736.2613748-2-justin.chen@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_010041_394901_FF594CE9 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20250402_010054_753890_B0D701AF 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +74,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 03:36:42PM +0100, Johan Hovold wrote:
-> The PCI pwrctrl framework was renamed after being merged, but the
-> Kconfig symbols still reflect the old name ("pwrctl" without an "r").
+On Tue, Apr 01, 2025 at 02:07:35PM -0700, Justin Chen wrote:
+> bcm74110 brcmstb usb phy adds further power savings during suspend
+> states.
 > 
-> This leads to people not knowing how to refer to the framework in
-> writing, inconsistencies in module naming, etc.
+> Signed-off-by: Justin Chen <justin.chen@broadcom.com>
+> ---
+> v2:
+> 	Sorted compat string odering
+> 	Add new compat string to constraints
 > 
-> Let's rename also the Kconfig symbols before this gets any worse.
+>  .../devicetree/bindings/phy/brcm,brcmstb-usb-phy.yaml      | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
 > 
-> The arm64, ath11k and ath12k changes could go through the corresponding
-> subsystem trees once they have the new symbols (e.g. in the next cycle)
-> or they could all go in via the PCI tree with an ack from their
-> maintainers.
-> 
-> There are some new pwrctrl drivers and an arm64 defconfig change on the
-> lists so we may need to keep deprecated symbols for a release or two.
-> 
+> diff --git a/Documentation/devicetree/bindings/phy/brcm,brcmstb-usb-phy.yaml b/Documentation/devicetree/bindings/phy/brcm,brcmstb-usb-phy.yaml
+> index 580fbe37b37f..28906bb664f4 100644
+> --- a/Documentation/devicetree/bindings/phy/brcm,brcmstb-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/brcm,brcmstb-usb-phy.yaml
+> @@ -15,9 +15,10 @@ maintainers:
+>  properties:
+>    compatible:
+>      enum:
+> -      - brcm,bcm4908-usb-phy
+> +      - brcm,bcm74110-usb-phy
+>        - brcm,bcm7211-usb-phy
 
-Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Does not look sorted.
 
-- Mani
+>        - brcm,bcm7216-usb-phy
+> +      - brcm,bcm4908-usb-phy
 
-> Johan
-> 
-> 
-> Johan Hovold (4):
->   PCI/pwrctrl: Rename pwrctrl Kconfig symbols and slot module
->   arm64: Kconfig: switch to HAVE_PWRCTRL
->   wifi: ath11k: switch to PCI_PWRCTRL_PWRSEQ
->   wifi: ath12k: switch to PCI_PWRCTRL_PWRSEQ
-> 
->  arch/arm64/Kconfig.platforms            |  2 +-
->  drivers/net/wireless/ath/ath11k/Kconfig |  2 +-
->  drivers/net/wireless/ath/ath12k/Kconfig |  2 +-
->  drivers/pci/pwrctrl/Kconfig             | 27 +++++++++++++++++++------
->  drivers/pci/pwrctrl/Makefile            |  8 ++++----
->  5 files changed, 28 insertions(+), 13 deletions(-)
-> 
-> -- 
-> 2.48.1
-> 
+The list was sorted before but now it is not.
 
--- 
-மணிவண்ணன் சதாசிவம்
+>        - brcm,brcmstb-usb-phy
+>  
+>    reg:
+> @@ -139,7 +140,9 @@ allOf:
+>        properties:
+>          compatible:
+>            contains:
+> -            const: brcm,bcm7216-usb-phy
+> +            enum:
+> +              - brcm,bcm74110-usb-phy
+> +              - brcm,bcm7216-usb-phy
+
+Keep the sorting, don't add items in random spots.
+
+Best regards,
+Krzysztof
+
 
