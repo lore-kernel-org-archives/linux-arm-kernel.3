@@ -4,103 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7395BC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 08:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D516C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 08:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cV/25+M3mVCF1xGJGR6r9EgMoCqdCNdpGsojXDr1yEU=; b=c0sDWbw6z8SC1TsgJJOEVIJAT5
-	QJKGDiGZUdTSh2axCuRkPEvWGk/ZJelcBUF6g8YiKjQmlpSdTDpTlrl3itFRNfRT243XWINe6cCkX
-	+xms0/Oeq8bIN8SuPhMI+OftkDT0KCi+yrGyFhc0FYXOOR2AKjS/0wJoeUe+65ylZy8lqAjcqzoSz
-	ueOlD5KcFhp0lm1gVADsv9PMxe9GKpOMO+VX7E9oSuFJDhPkW5+vjpFjWjUn6M+gr946Cua89yFPG
-	H1qv0h9jGy7ohKGElfqCXUsij/YZe+exeEBAWnzPuNvxoionG8iTndd2mH5/QTk/lkr9oFvJYQr4T
-	EKs+0VYQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s1BBBxSWqFLhM9rjpBTtLASKD1ESrFjmLlDUTnjzs2E=; b=IJUiPhULaMI4/f91FdsQ99eWpM
+	kgjmnJ9pKoUAX5y6okWAF7l2K+fCSJNJfEyBU9y2ajfpm7qAS2Sgs+Aex3MCppexF0el8EXOJjZpt
+	fhVuB1pSt+gD66K7g/weJkJgb4EKOYFPos2Iwbdx7sgA3L3rHyMIGuSIfsawi7tVqxbtmAGZnF6r5
+	+TJexq/2wLC3Q+gc7EV2hCKmhE1361QOz9bIreBpV+pl/1vO12U1y6HY+sJB1a5XaK8V1MLLhfh1X
+	tDGO2Tm+LcdVJ4MaNLWpcPxpnihnqE7OQu4FXBelbX8OMcemqZGy6Vb/O7GSDrTUvKVNiPDe6bfHP
+	z0lNSMnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tztmW-00000005aJG-2I0O;
-	Wed, 02 Apr 2025 08:49:08 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tztoE-00000005aSM-14op;
+	Wed, 02 Apr 2025 08:50:54 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tztaW-00000005YJC-3qz7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 08:36:46 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5324ZaRC012757;
-	Wed, 2 Apr 2025 08:36:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	cV/25+M3mVCF1xGJGR6r9EgMoCqdCNdpGsojXDr1yEU=; b=hIUC9uBYbE+K/2hx
-	EiCV5R48bOepeVoediCtYby0kgElzgVOYY9ALXhlK7GmuMyxwjvCr9yF1ZayiuEO
-	uHyG9vtkqcZ+OIv9GEGj/VLpo46olBgMFZd15V8BOatQN1DBU7UQkGpxD4iNpc0D
-	lKvwNrUDi3l20xp/G7+OXD2LaRIg4Hz3LoJjdGU15zzB4PNIww2oXUBScD6mGd9M
-	l5t0b4Y/r1PfdHnJn2ofl0RRyrEkkFLsOqKyHTvI63IloYBGbrnhGSMMW+J5wFZ8
-	49uOPz2M7zNrlL7fLrQTrsktqEkK6uwraaTLTNG0CVWH3E/cX343l9hl8ZSwbEls
-	eJezSg==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45rxbf0ma9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 02 Apr 2025 08:36:39 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5328acRO028342
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 2 Apr 2025 08:36:38 GMT
-Received: from [10.133.33.107] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 2 Apr 2025
- 01:36:33 -0700
-Message-ID: <731bacf0-a0b6-4dfd-aff0-01723a879a7c@quicinc.com>
-Date: Wed, 2 Apr 2025 16:36:31 +0800
+	id 1tztcy-00000005YsX-2yet;
+	Wed, 02 Apr 2025 08:39:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1743583155;
+	bh=cQTnye/bMR3a4CIhuNYW2H7HVeU4bIvhzbyjX6kKvvA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KmhvrdUCWCt5GLrm0X0nDnXCINis0c3PO83VB3eTPmQOPZWd3Amw0zkdr97Coo3pi
+	 tmsDGwV1FOlfZFQSbDW8Y+KuUvcH4HFBqhSl3FtA0saib8j6f5EQDopBNjxzxKkyHM
+	 QkuuXW7nm87Itz8z/KjEJ4tJ5TkSJru8IcrhK0ESpa9mrIV78pHNKWSzVL6oplw+vV
+	 Rguxt+IErwfc2b0UpvWoAJUxam/Baoy6l53GfqVYbUpuPn1sapymsts8a0y0Ruti8Z
+	 2+nADxb4FjWoBku1Y4fQJKM3MWUkiz95h4ulbmiGA44tv4/ufZrQAlWbyMYJYZ2GXy
+	 S5n3tqwAyYN7w==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3FBE617E0B0B;
+	Wed,  2 Apr 2025 10:39:14 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: rafael@kernel.org
+Cc: daniel.lezcano@linaro.org,
+	rui.zhang@intel.com,
+	lukasz.luba@arm.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	npitre@baylibre.com,
+	jpanis@baylibre.com,
+	nfraprado@collabora.com,
+	wenst@chromium.org,
+	bchihi@baylibre.com,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH] thermal/drivers/mediatek/lvts: Fix debugfs unregister on failure
+Date: Wed,  2 Apr 2025 10:38:52 +0200
+Message-ID: <20250402083852.20624-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: fix the wrong type of the trace_id in
- coresight_path
-To: Mike Leach <mike.leach@linaro.org>
-CC: Anshuman Khandual <anshuman.khandual@arm.com>,
-        Jie Gan
-	<jie.gan@oss.qualcomm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        "James
- Clark" <james.clark@linaro.org>,
-        Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Jinlong Mao <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>,
-        Dan Carpenter <dan.carpenter@linaro.org>
-References: <20250401014210.2576993-1-jie.gan@oss.qualcomm.com>
- <470e4a90-41c3-4974-a4d7-3073a7fcc737@arm.com>
- <CAJ9a7VinQSx9FYvw4ww0KQgMqapLhWTaU9D2qcc-120YywUu2Q@mail.gmail.com>
- <92dc9b50-5e58-4cfd-a78c-e32a4bec8e26@quicinc.com>
- <CAJ9a7Vjhm5B=3mDHQpuRj2JSE1hfYzOx5wq-yQcC3k+QqEcvAQ@mail.gmail.com>
-Content-Language: en-US
-From: Jie Gan <quic_jiegan@quicinc.com>
-In-Reply-To: <CAJ9a7Vjhm5B=3mDHQpuRj2JSE1hfYzOx5wq-yQcC3k+QqEcvAQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: h9cPj4DcIr7JbeRIHrqO8skenXZKCKkZ
-X-Proofpoint-ORIG-GUID: h9cPj4DcIr7JbeRIHrqO8skenXZKCKkZ
-X-Authority-Analysis: v=2.4 cv=F/5XdrhN c=1 sm=1 tr=0 ts=67ecf717 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=7CQSdrXTAAAA:8 a=KKAkSRfTAAAA:8
- a=EUspDBNiAAAA:8 a=rk3Ip3wbNkCNmIt9PQkA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-02_03,2025-04-01_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
- lowpriorityscore=0 mlxlogscore=999 phishscore=0 priorityscore=1501
- mlxscore=0 spamscore=0 bulkscore=0 clxscore=1015 adultscore=0
- impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504020054
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_013645_101638_C9CF1477 
-X-CRM114-Status: GOOD (  26.19  )
+X-CRM114-CacheID: sfid-20250402_013916_890082_5E5C0193 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,121 +83,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When running the probe function for this driver, the function
+lvts_debugfs_init() gets called in lvts_domain_init() which, in
+turn, gets called in lvts_probe() before registering threaded
+interrupt handlers.
 
+Even though it's unlikely, the last call may fail and, if it does,
+there's nothing removing the already created debugfs folder and
+files.
 
-On 4/2/2025 4:17 PM, Mike Leach wrote:
-> Hi,
-> 
-> On Wed, 2 Apr 2025 at 01:50, Jie Gan <quic_jiegan@quicinc.com> wrote:
->>
->>
->>
->> On 4/1/2025 5:56 PM, Mike Leach wrote:
->>> Hi,
->>>
->>> On Tue, 1 Apr 2025 at 07:11, Anshuman Khandual
->>> <anshuman.khandual@arm.com> wrote:
->>>>
->>>> On 4/1/25 07:12, Jie Gan wrote:
->>>>> The trace_id in coresight_path may contain an error number which means a
->>>>> negative integer, but the current type of the trace_id is u8. Change the
->>>>> type to int to fix it.
->>>>>
->>>>> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
->>>>> Fixes: 3c03c49b2fa5 ("Coresight: Introduce a new struct coresight_path")
->>>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>>>
->>>> LGTM
->>>>
->>>> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
->>>>
->>>>> ---
->>>>>    include/linux/coresight.h | 2 +-
->>>>>    1 file changed, 1 insertion(+), 1 deletion(-)
->>>>>
->>>>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
->>>>> index d79a242b271d..c2bf10c43e7c 100644
->>>>> --- a/include/linux/coresight.h
->>>>> +++ b/include/linux/coresight.h
->>>>> @@ -337,7 +337,7 @@ static struct coresight_dev_list (var) = {                                \
->>>>>     */
->>>>>    struct coresight_path {
->>>>>         struct list_head        path_list;
->>>>> -     u8                      trace_id;
->>>>> +     int                     trace_id;
->>>>>    };
->>>>>
->>>>>    enum cs_mode {
->>>
->>> There are many places in the Coresight drivers that assign a u8
->>> traceid from the path trace ID.
->>>
->>> e.g.
->>> In coresight-etm4x-core.c : etm4_enable_perf()
->>>
->>> drvdata->trcid = path->trace_id;
->>>
->>> drvdata->trcid is defined as a u8  - the reason being trace IDs are
->>> 128 bits wide with some reserved values.
->>>
->>> Will this not just trigger the same issue if path->trace_id is changed
->>> to an int? Even if not it is inconsistent handling of the trace ID
->>> values.
->>>
->>> Trace ID errors should be handled by returning an invalid trace ID
->>> value - were the trace ID value will fail the macro
->>> IS_VALID_CS_TRACE_ID(), or separate the return of a trace ID from an
->>> error return in a function.
->>>
->>
->> Hi Mike,
->>
->> The path->trace_id is verified after it has been assigned with the logic
->> you mentioned:
->>
->> if (!IS_VALID_CS_TRACE_ID(path->trace_id))
->>          goto err_path;
->>
->> So it should be safe to assign to another u8 parameter, like you mentioned:
->>
->> In coresight-etm4x-core.c : etm4_enable_perf()
->>
->> drvdata->trcid = path->trace_id;
->>
-> 
-> It is safe but will it not trigger a warning just like the one you are
-> trying to fix as the types are mismatched?
+In order to fix that, instead of calling the lvts debugfs cleanup
+function upon failure, register a devm action that will take care
+of calling that upon failure or driver removal.
 
-Hi Mike,
+Since devm was used, also delete the call to lvts_debugfs_exit()
+in the lvts_remove() callback, as now that's done automatically.
 
-It should trigger another type mismatch warning.
+Fixes: f5f633b18234 ("thermal/drivers/mediatek: Add the Low Voltage Thermal Sensor driver")
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/thermal/mediatek/lvts_thermal.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-This patch aims to fix the situation like assign a negative value to u8 
-will cause a integer toggle(it may happen and I think I should fix it), 
-e.g. -22 for 234.
-
-Thanks,
-Jie
-
-> 
-> Mike
-> 
->> Thanks,
->> Jie
->>
->>
->>> Regards
->>>
->>> Mike
->>>
->>>
->>>
->>> --
->>> Mike Leach
->>> Principal Engineer, ARM Ltd.
->>> Manchester Design Centre. UK
->>
-> 
-> 
+diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+index 088481d91e6e..c0be4ca55c7b 100644
+--- a/drivers/thermal/mediatek/lvts_thermal.c
++++ b/drivers/thermal/mediatek/lvts_thermal.c
+@@ -213,6 +213,13 @@ static const struct debugfs_reg32 lvts_regs[] = {
+ 	LVTS_DEBUG_FS_REGS(LVTS_CLKEN),
+ };
+ 
++static void lvts_debugfs_exit(void *data)
++{
++	struct lvts_domain *lvts_td = data;
++
++	debugfs_remove_recursive(lvts_td->dom_dentry);
++}
++
+ static int lvts_debugfs_init(struct device *dev, struct lvts_domain *lvts_td)
+ {
+ 	struct debugfs_regset32 *regset;
+@@ -245,12 +252,7 @@ static int lvts_debugfs_init(struct device *dev, struct lvts_domain *lvts_td)
+ 		debugfs_create_regset32("registers", 0400, dentry, regset);
+ 	}
+ 
+-	return 0;
+-}
+-
+-static void lvts_debugfs_exit(struct lvts_domain *lvts_td)
+-{
+-	debugfs_remove_recursive(lvts_td->dom_dentry);
++	return devm_add_action_or_reset(dev, lvts_debugfs_exit, lvts_td);
+ }
+ 
+ #else
+@@ -1374,8 +1376,6 @@ static void lvts_remove(struct platform_device *pdev)
+ 
+ 	for (i = 0; i < lvts_td->num_lvts_ctrl; i++)
+ 		lvts_ctrl_set_enable(&lvts_td->lvts_ctrl[i], false);
+-
+-	lvts_debugfs_exit(lvts_td);
+ }
+ 
+ static const struct lvts_ctrl_data mt7988_lvts_ap_data_ctrl[] = {
+-- 
+2.48.1
 
 
