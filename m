@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C043C3601B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 07:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D5FC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 07:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sBLznZWhA5X82bZqkVVLBxnwT0YwdGpBuJ1F1bT4V+o=; b=SQ97uhnmpnMoOGEHS/53EFp12z
-	cX/DnjVEXVKylIhp1GADb2tK7ejJrbJPkCNNw540yu70ByhS9VsozXuLyshN2XeCCgLILtI88nXzh
-	DFDhpE2aDuAtgmp2kR/7/hu0FYRTDv7sn31riKchQbNGiT1PV0r/jBJUUm9QDfYDEkKnxqTeFXsTP
-	uGGnW7bBD+lNhiRLejHek4aR64OnPVkch3IDOyTcPcQbkWO6vBrwPDmi2wjI7oAjT/0847IBX3jms
-	vsEFd/afego79DMaNb4Sv/tz0cg6gWAvNX92sbjYiMZ6CA+06urRXultVV8XWWgYSeO80925yigCw
-	aAq/9Ugw==;
+	bh=zjR4lEGGyx3HdyMesa5h6gRayUig9bsMGHv5vZfbr1E=; b=bSvwl9bMUL9NbfbFtW+42p6YAp
+	7gjpETg4xRaDFQi4DUAOYVdvB3wevVMu0IroEOaz4EMgguvMXUFhTDtxOv5IKM2Lc0HR/TOSnuCI2
+	CB6IiJKRukiM/DHwFWzhY9T20mo3TKFicLvQToCytWdMT7oBp5JbxgAcyIxzWkJzhvyStfIlpyiSN
+	TpWJ3zMA5u6Aqx8FwfdhxhhAJ6BY9TQDQnODTTTa1CzIgAT3NMEzaEw8cewwbTjwSdpshObHhmf43
+	QhLJUsFUh5I7s3eU7MlIglXYamuRbzzrxvAABCbRc+9WswWm6MbiBYB7FPZ7MYHFitzuDEfDJ5OBc
+	Hridxo2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzsYu-00000005NAs-0rTd;
-	Wed, 02 Apr 2025 07:31:00 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tzsap-00000005OLa-1528;
+	Wed, 02 Apr 2025 07:32:59 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzsDL-00000005JmN-1mRh
+	id 1tzsF4-00000005KE2-14X6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 07:08:44 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-227b828de00so111641595ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 00:08:43 -0700 (PDT)
+	Wed, 02 Apr 2025 07:10:31 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-225df540edcso11130245ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 00:10:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743577722; x=1744182522; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1743577829; x=1744182629; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=sBLznZWhA5X82bZqkVVLBxnwT0YwdGpBuJ1F1bT4V+o=;
-        b=TZs78L29hc+HsNPd+lqpbb6e/7Rf1yziIijQPtwQb8lNks7dH45/JthVc8uo1BLDjG
-         CUcgXyT6RNSV7Ew28Wh4FRDS3UR3mfqKmGjj5JWD9OhaSPD7H9Our9s6pSxLLTfdu9Ug
-         lvE7+fDNzCiLrnXG10xeQHizuO6/fHcKZuZQV3tSTE7mMv8Uh/rnttPHoLww+fu1cU8E
-         xBDMtjE5I42nItaGISPkfnw+KRyDTzN7f47/etZ1jPA7Z4Nm75WO/Wl/wkcsJNKn07Qr
-         yB3Kc2kHDwjtI+5TN6T4Z2UHfG01vGNriKLqx4OZmVl4J+9xh7wMeEOfw4loOdGJvSXc
-         E05Q==
+        bh=zjR4lEGGyx3HdyMesa5h6gRayUig9bsMGHv5vZfbr1E=;
+        b=iglDu6fTXmf/85vnI2sx/p6OERWxeSgnXdgBj+0b1Z9NYfaJs1hCpxDPHaRX80Grtb
+         ekjBDfaEeZLbJpjWEgHCdZmgm1/VSwNNY5WZF2IGI4HvotwX0O9QNe64ECdGC4pS+tFc
+         IbUtjvp0MlzYJZHsIZIOoUJ3kJczzTVIIHhHs2X9Y+PPU0JpP9bSGDsz+8OOiZJ5Qt61
+         KHFXdzXUFgdzLzUxPwxL8vVCeyKPP5g3dDk9H8s+IdUd4pLhaKfFred5hYBzWJpHYU5A
+         AkUnL/qxKsO6coEn0tAaJqvvs2O64drl6WHdli7Zvgi7Xrzf9nQ7Sc094pLDy2kIvi0t
+         2DJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743577722; x=1744182522;
+        d=1e100.net; s=20230601; t=1743577829; x=1744182629;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sBLznZWhA5X82bZqkVVLBxnwT0YwdGpBuJ1F1bT4V+o=;
-        b=aDv/v8VmL3DA5ZwwZCzq37X2JlUXMwmiO/H9FMvjgwJfpy1L/ZFPlaWhXz8jjHtGLh
-         ICYv0jrDkxAkvD4uMuxVfRjTDdaXLpUxhV7OWDYobWA8F5+rM7mcBFQYm6NGJWYtnxE7
-         PZFiDS+dqFkvNSD1emlWuPdyZFXy6xzSAQigR5UR+x0sji0/gY5Xtwol8jMHf2K8xNJT
-         jQr/V6Vf38GQagvQFOO8BrR4w7/Ghdf0spTGyHSlMqfSkNyfn5+itkWCzcfz54XLYB0Q
-         zYTU2wlqJ1/vtqmX62fku93wShhRrTyHh0Ht+BtpDDzBzsthVErDCBhxRdggOGFl9/ef
-         3nDA==
-X-Forwarded-Encrypted: i=1; AJvYcCWSbFhUV1PZREoSduZoOboFHnatctedVVTzNtQVb6yaXicWLs5OqxYFcaC6AGqr1sognWyJFoSbZ3qSz2DIDOyu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzc7lcefyd0KSgiarnTB9p6fPsDdei1JJHd0zEye1E4ZUqi1Btd
-	r814X24s9fzL+oEbJRay+LiegT+da4osUDvqOdeZweuS3YyK5lS5F8ZzMgVfRA==
-X-Gm-Gg: ASbGnctHxjTpB/7jGxsOSiGc3MI5EkZH4nCNyFWZaMoMrsol9+2wi1vXXmdROxdUrqM
-	wsuPxQGycMBpQvsQ2xokH+Z3c1ExcA46djD2IVqkdXEOMazjpVT70Ii+TwJT9dJp1IGpPlucAX1
-	VAt84o5irqihqSiysoTx3irRYiRyWoZAyBoWs0ICyWxgDA6YoYqsLot64eyQ2NmH0G2RAWMagbL
-	uAEn1+wZBdfMcBNJt2KO8r4W5IpEosIgTC6HJdHfC9UX3WetA036bhMfv8nlZK6pZkLhL84zXCM
-	KFs9oS5TuLyRakOYq+EVLLVVbvjIiH6P9SW7FTXeTPDLQdTCeb9C9RVM
-X-Google-Smtp-Source: AGHT+IESAdavvdZhZEPYi8YmhJREn3GzNckInuKrjE2kz7qwPxEfQH3XTifLJZjh/3yYARxtAKubSg==
-X-Received: by 2002:a05:6a00:398f:b0:736:ab48:5b0 with SMTP id d2e1a72fcca58-739c78430demr1761550b3a.2.1743577722481;
-        Wed, 02 Apr 2025 00:08:42 -0700 (PDT)
+        bh=zjR4lEGGyx3HdyMesa5h6gRayUig9bsMGHv5vZfbr1E=;
+        b=epwCrfD3I5XgipgTzbHKNUE0Yx1mh76Xzf3lAa5kUIccrokn7aEKHPbmw/MAJEUP31
+         jUQgO0gaxjnzN5QxfL9oXEfa6sFfqWaoG8KAasQbA9d3QokAtOVTpKupnkN/3nyNH/mI
+         ajslkVScqabA1za3W1OGAgD0w8Wi7cYtqgpMP1irMKGCBVFllg7/fIUE1jv94YeJ7uI2
+         +WFdeVH2K1HucQzpnlKyqgD474bJn7t5e6T3KnXN4qc/csewlzv9Clti+t5W+UN7UNXE
+         6Pl7UuRIAhvu6H5a51MKFn2CmfqCABjvU9l6edHyiK1y0iQzUBeuRm+i70PD6uVA5tk3
+         LXpA==
+X-Forwarded-Encrypted: i=1; AJvYcCW1o/8QOmdPUJxu428yurgmpEYM9gMf3Q7kSjePHRvO6Y/3AdSVSAF76TMN6Yq4sB7zqfsGTbFQJ0sGLdc+5tLx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhYOOhcjKpiycUJsBsd9g9fGdo1MYvujBa3IW5liYCFqxwAkNO
+	5REE08eEDmPEUnEZp1edZAc+3q0rCL98IIQPFsromI9ZzoO3aWer6gKjXP2W3A==
+X-Gm-Gg: ASbGnctsru4NDiAxQwyG9TBkgngr0akJWuIKDE+vLN/pTPzSwK2m4TJ6UZ5zOhX3j+h
+	YkGmVpixUIajZyCV8fBAVG8gF5Brh7rExEOfynaXTrbHfI0N9VrqS9hz7JAkmgXL0LrgDi+ri4I
+	Y6DQd4WJO+Iy+f9zKjjmXztMVVi/iKUQHGTckjR0BFC28XIyVyQsTEutBCR1JDnsTcycKOyNs2D
+	iJtJsARzEYCMJKVuHBWFk6kEUUC1vHaQNSVFx3HB65EGBdCSxab1dZqXelKq/Y1tLSX+/t4zSoR
+	r9qNXk+nQKObXGxTOGybu9L57rTxqY4dnJiEjlFpY40t/8g2Ydx/BXZN
+X-Google-Smtp-Source: AGHT+IF2PkfJ6gvdatC+Ohrdk2DCIs4bJ4gvM262TiahqchaDp4ihwwIJoGbKxCJkUgJQO2cM8XLTw==
+X-Received: by 2002:a05:6a00:130d:b0:737:cd8:2484 with SMTP id d2e1a72fcca58-739cac57712mr1314725b3a.6.1743577829272;
+        Wed, 02 Apr 2025 00:10:29 -0700 (PDT)
 Received: from thinkpad ([120.56.205.103])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73970def428sm10236829b3a.32.2025.04.02.00.08.37
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739710cbd88sm10117652b3a.157.2025.04.02.00.10.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Apr 2025 00:08:42 -0700 (PDT)
-Date: Wed, 2 Apr 2025 12:38:35 +0530
+        Wed, 02 Apr 2025 00:10:28 -0700 (PDT)
+Date: Wed, 2 Apr 2025 12:40:23 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 To: Richard Zhu <hongxing.zhu@nxp.com>
 Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
@@ -76,19 +76,19 @@ Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
 	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
 	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/6] PCI: imx6: Let i.MX95 PCIe compliance with 8GT/s
- Receiver Impedance ECN
-Message-ID: <u2doi5nksovsxf75ahwdr3c3uixjk555mbwouvtblf5rruoicv@uvsdytcwoish>
+Subject: Re: [PATCH v3 5/6] PCI: imx6: Add PLL clock lock check for i.MX95
+ PCIe
+Message-ID: <y3ys5ojt3cryklqibg4shznkjqije7bturs5ljkjyzbri5dhgu@jeo2mmyv7sci>
 References: <20250328030213.1650990-1-hongxing.zhu@nxp.com>
- <20250328030213.1650990-5-hongxing.zhu@nxp.com>
+ <20250328030213.1650990-6-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250328030213.1650990-5-hongxing.zhu@nxp.com>
+In-Reply-To: <20250328030213.1650990-6-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_000843_503390_9A4EB534 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20250402_001030_355726_CCB27109 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,105 +103,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 11:02:11AM +0800, Richard Zhu wrote:
-> ERR051586: Compliance with 8GT/s Receiver Impedance ECN.
+On Fri, Mar 28, 2025 at 11:02:12AM +0800, Richard Zhu wrote:
+> Add PLL clock lock check for i.MX95 PCIe.
 > 
-> The default value of GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL] is 1 which
-> makes receiver non-compliant with the ZRX-DC parameter for 2.5 GT/s when
-> operating at 8 GT/s or higher. It causes unnecessary timeout in L1.
-> 
-> Workaround: Program GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL] to 0.
-> 
+
+What are the implications of not waiting for PLL lock? I guess clock
+instability.
+
 > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-
-- Mani
-
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  drivers/pci/controller/dwc/pci-imx6.c | 31 +++++++++++++++++++++++++++
->  1 file changed, 31 insertions(+)
+>  drivers/pci/controller/dwc/pci-imx6.c | 28 +++++++++++++++++++++++++--
+>  1 file changed, 26 insertions(+), 2 deletions(-)
 > 
 > diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 82402e52eff2..35194b543551 100644
+> index 35194b543551..40eeb02ffb5d 100644
 > --- a/drivers/pci/controller/dwc/pci-imx6.c
 > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -110,6 +110,7 @@ enum imx_pcie_variants {
->   */
->  #define IMX_PCIE_FLAG_BROKEN_SUSPEND		BIT(9)
->  #define IMX_PCIE_FLAG_HAS_LUT			BIT(10)
-> +#define IMX_PCIE_FLAG_8GT_ECN_ERR051586		BIT(11)
+> @@ -45,6 +45,9 @@
+>  #define IMX95_PCIE_PHY_GEN_CTRL			0x0
+>  #define IMX95_PCIE_REF_USE_PAD			BIT(17)
 >  
->  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
->  
-> @@ -1263,6 +1264,32 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
->  		regulator_disable(imx_pcie->vpcie);
+> +#define IMX95_PCIE_PHY_MPLLA_CTRL		0x10
+> +#define IMX95_PCIE_PHY_MPLL_STATE		BIT(30)
+> +
+>  #define IMX95_PCIE_SS_RW_REG_0			0xf0
+>  #define IMX95_PCIE_REF_CLKEN			BIT(23)
+>  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
+> @@ -479,6 +482,23 @@ static void imx7d_pcie_wait_for_phy_pll_lock(struct imx_pcie *imx_pcie)
+>  		dev_err(dev, "PCIe PLL lock timeout\n");
 >  }
 >  
-> +static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
+> +static int imx95_pcie_wait_for_phy_pll_lock(struct imx_pcie *imx_pcie)
 > +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
 > +	u32 val;
+> +	struct device *dev = imx_pcie->pci->dev;
 > +
-> +	if (imx_pcie->drvdata->flags & IMX_PCIE_FLAG_8GT_ECN_ERR051586) {
-> +		/*
-> +		 * ERR051586: Compliance with 8GT/s Receiver Impedance ECN
-> +		 *
-> +		 * The default value of GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL]
-> +		 * is 1 which makes receiver non-compliant with the ZRX-DC
-> +		 * parameter for 2.5 GT/s when operating at 8 GT/s or higher.
-> +		 * It causes unnecessary timeout in L1.
-> +		 *
-> +		 * Workaround: Program GEN3_RELATED_OFF[GEN3_ZRXDC_NONCOMPL]
-> +		 * to 0.
-> +		 */
-> +		dw_pcie_dbi_ro_wr_en(pci);
-> +		val = dw_pcie_readl_dbi(pci, GEN3_RELATED_OFF);
-> +		val &= ~GEN3_RELATED_OFF_GEN3_ZRXDC_NONCOMPL;
-> +		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
-> +		dw_pcie_dbi_ro_wr_dis(pci);
-> +	}
-> +}
-> +
->  static u64 imx_pcie_cpu_addr_fixup(struct dw_pcie *pcie, u64 cpu_addr)
->  {
->  	struct imx_pcie *imx_pcie = to_imx_pcie(pcie);
-> @@ -1304,6 +1331,7 @@ static const struct dw_pcie_host_ops imx_pcie_host_ops = {
->  static const struct dw_pcie_host_ops imx_pcie_host_dw_pme_ops = {
->  	.init = imx_pcie_host_init,
->  	.deinit = imx_pcie_host_exit,
-> +	.post_init = imx_pcie_host_post_init,
->  };
->  
->  static const struct dw_pcie_ops dw_pcie_ops = {
-> @@ -1403,6 +1431,7 @@ static int imx_add_pcie_ep(struct imx_pcie *imx_pcie,
->  	struct device *dev = pci->dev;
->  
->  	imx_pcie_host_init(pp);
-> +	imx_pcie_host_post_init(pp);
->  	ep = &pci->ep;
->  	ep->ops = &pcie_ep_ops;
->  
-> @@ -1812,6 +1841,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.variant = IMX95,
->  		.flags = IMX_PCIE_FLAG_HAS_SERDES |
->  			 IMX_PCIE_FLAG_HAS_LUT |
-> +			 IMX_PCIE_FLAG_8GT_ECN_ERR051586 |
->  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
->  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
-> @@ -1865,6 +1895,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX95_EP] = {
->  		.variant = IMX95_EP,
->  		.flags = IMX_PCIE_FLAG_HAS_SERDES |
-> +			 IMX_PCIE_FLAG_8GT_ECN_ERR051586 |
->  			 IMX_PCIE_FLAG_SUPPORT_64BIT,
->  		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
->  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
-> -- 
-> 2.37.1
-> 
+> +	if (regmap_read_poll_timeout(imx_pcie->iomuxc_gpr,
+> +				     IMX95_PCIE_PHY_MPLLA_CTRL, val,
+> +				     val & IMX95_PCIE_PHY_MPLL_STATE,
+> +				     PHY_PLL_LOCK_WAIT_USLEEP_MAX,
+> +				     PHY_PLL_LOCK_WAIT_TIMEOUT)) {
+> +		dev_err(dev, "PCIe PLL lock timeout\n");
+> +		return -ENODEV;
+
+-ETIMEDOUT
+
+- Mani
 
 -- 
 மணிவண்ணன் சதாசிவம்
