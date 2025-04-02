@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59EF8C36017
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 12:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA99C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 12:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2LOF3+LYeMmYgLFlCiTFCTpyMKPry7lsHUqtLJGG81c=; b=3BXvE61iKGVE2A/nRjFziUUQ2y
-	AQfjTfxInaR5xByz/KZG6RYAQDtmLoTs3Aetb13A1qnEsxnpa+ma8HzlUyf21c4iQEfHqvkPSgN9X
-	yrFEUZKrtHp5YYCOKJ6lTXvFnTqeKvGEhw1WXzXXIkryyw4JnRZ5yFl7Ex4PfPtsCQPZaxWZi8KyL
-	XuiumhPddVSUmE87nhoyrYUlyTxnPRc0rO6bcpsVtejadGn8EpRiJTJSjRyaeaYg1Claa5hCN1eIC
-	CZV3bLVR9GWPJ7cNDzTG/S4vwNZV6NXa9BBoEB2GcfmMVgqMmcVR5pzFUECiYrHL4uWrF/zZJegsn
-	8cnDdUEA==;
+	bh=A2Chr44f9vlOMc7f4E8oimX2NcpgIX6xoXL220imPLo=; b=ywnh8Y0W+daTuO/+70I8mtiUdH
+	hmQOvwDUtUyZyu3+9BPeD8HQnsuLWAEwW5U64/hJhOhwOMhxLF4+RLAvhZHUEBHVmiXk3hEZ+Z8tM
+	qfXKeUvkUkmQNNMViAXwRVp6zZo15fJEc3G1sfOpW16EVt+nUVJuveWsEGCZo75SwMmseDsR6JBbH
+	tm/a8xykJ8F2AZZN1JiNdpdQs8IoRot1Dz+6wgVGCqiTbG5yRFa+Kw0lUjg/0gQCOBRTZXdvuEy2P
+	LMCzKnXEEzdIWSyBKvGLOqiMmU6Seper4EK7p278DReEso0O4S3n7lEXwlMKHhIr0+Eq7QUp1cbyR
+	yeAsvOiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzxeP-00000006ADK-1cBh;
-	Wed, 02 Apr 2025 12:57:01 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tzxg8-00000006ATg-0xHB;
+	Wed, 02 Apr 2025 12:58:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzxXv-000000068i8-3rYZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 12:50:21 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7FA8163B;
-	Wed,  2 Apr 2025 14:48:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1743598102;
-	bh=seEcfsTx/2axYLwPT5YXHyXv+dAslO1ezGacxvR5VHI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p+NQD2PD8PiA3RJhi7tyR7HaK5qJrm5RVlw6DEqp4nPt/pn08/DJEkLOqExnzuto+
-	 RUQSRPX6PgKd+D/v1ASa1EVrzqEn7FWNPxNG3tMPIIqWhkqmRSkJkw6Mnj62Hzl+H5
-	 n3SZJFRMETsYmMR2QNreddDMFnLLwc3ypynaMvOk=
-Date: Wed, 2 Apr 2025 15:49:51 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: shao.mingyin@zte.com.cn
-Cc: thierry.reding@gmail.com, mperttunen@nvidia.com, airlied@gmail.com,
-	simona@ffwll.ch, jonathanh@nvidia.com,
-	dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org, tomi.valkeinen@ideasonboard.com,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, michal.simek@amd.com,
-	linux-arm-kernel@lists.infradead.org, yang.yang29@zte.com.cn,
-	xu.xin16@zte.com.cn, ye.xingchen@zte.com.cn, zhang.enpei@zte.com.cn
-Subject: Re: [PATCH linux-next 2/2] gpu: drm: xlnx: zynqmp_dp: Use
- dev_err_probe()
-Message-ID: <20250402124951.GA13762@pendragon.ideasonboard.com>
-References: <20250402193656279azy9TKahAE5TQ5-i4XCQT@zte.com.cn>
- <20250402193852834atJ7eho66TlnKOIMSvpfr@zte.com.cn>
+	id 1tzxcu-000000069uF-1zA3;
+	Wed, 02 Apr 2025 12:55:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D504661162;
+	Wed,  2 Apr 2025 12:55:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2860C4CEDD;
+	Wed,  2 Apr 2025 12:55:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743598527;
+	bh=KLUcO4PETxRtJ7bSzZDcl4QzL3KsG5+5Tq3fAEUTpLQ=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=IXkHxxk41GO44tK70RVcRfKfgdhBtcyxVbaLKM7n4Z3jxTjVgb3zuO0Sb3Dzzu+22
+	 wdHoqCt+9NhCXNfexVLwZU1cheoCxr6z97bLZF5ZMoGy/p3Kg0kGcKtU0mcka0FdhB
+	 LRJGQD+ODZNaI6ID56uO1l9rR7hjfxaD5is34slsc3l+sRBEt05yah6cGDXNSSr1+o
+	 vVAXjen+z1rwrHTUvB1Rzg+wQ0F9Gs6+O2Fy6nbLmVtfQ2dc03MGPh2pCCddjauqNR
+	 d9rBiHU91AUWGHp2Y3l86l3+Jly/zOTeMBsW7/Fbp7FMRR+g2jWIkcW/QhwNQ+frK7
+	 zlCYyYqqzbigA==
+Date: Wed, 02 Apr 2025 07:55:26 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250402193852834atJ7eho66TlnKOIMSvpfr@zte.com.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_055020_088994_116EDFE9 
-X-CRM114-Status: GOOD (  14.71  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-remoteproc@vger.kernel.org, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, hailong.fan@mediatek.com, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Xiangzhi Tang <Xiangzhi.Tang@mediatek.com>, 
+ linux-mediatek@lists.infradead.org, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com, jjian.zhou@mediatek.com, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>
+To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
+In-Reply-To: <20250402092134.12293-2-xiangzhi.tang@mediatek.com>
+References: <20250402092134.12293-1-xiangzhi.tang@mediatek.com>
+ <20250402092134.12293-2-xiangzhi.tang@mediatek.com>
+Message-Id: <174359852621.53914.11998352307162389918.robh@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: Add VCP support for
+ mt8196
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +79,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 07:38:52PM +0800, shao.mingyin@zte.com.cn wrote:
-> From: Zhang Enpei <zhang.enpei@zte.com.cn>
-> 
-> Replace the open-code with dev_err_probe() to simplify the code.
-> 
-> Signed-off-by: Zhang Enpei <zhang.enpei@zte.com.cn>
-> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
+On Wed, 02 Apr 2025 17:19:24 +0800, Xiangzhi Tang wrote:
+> Add the new binding document for MediaTek Video Companion
+> Processor(VCP) on MediaTek mt8196.
+> 
+> Signed-off-by: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
 > ---
->  drivers/gpu/drm/xlnx/zynqmp_dp.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> index a6a4a871f197..28efa4c7ec8e 100644
-> --- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> +++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> @@ -2466,10 +2466,8 @@ int zynqmp_dp_probe(struct zynqmp_dpsub *dpsub)
-> 
->  	dp->reset = devm_reset_control_get(dp->dev, NULL);
->  	if (IS_ERR(dp->reset)) {
-> -		if (PTR_ERR(dp->reset) != -EPROBE_DEFER)
-> -			dev_err(dp->dev, "failed to get reset: %ld\n",
-> -				PTR_ERR(dp->reset));
-> -		ret = PTR_ERR(dp->reset);
-> +		ret = dev_err_probe(dp->dev, PTR_ERR(dp->reset),
-> +				    "failed to get reset\n");
->  		goto err_free;
->  	}
+>  .../remoteproc/mediatek,mt8196-vcp.yaml       | 174 ++++++++++++++++++
+>  1 file changed, 174 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
 > 
 
--- 
-Regards,
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Laurent Pinchart
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.example.dts:26:18: fatal error: dt-bindings/power/mt8196-power.h: No such file or directory
+   26 |         #include <dt-bindings/power/mt8196-power.h>
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1522: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+
+doc reference errors (make refcheckdocs):
+Warning: Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml references a file that doesn't exist: Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml: Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250402092134.12293-2-xiangzhi.tang@mediatek.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
