@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD118C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 10:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C5DC36014
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 10:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lw7No9CatrhunZQ4Ziy751N/t8utTcZj0hKQTdSN9jk=; b=DQC148SxOQI9GXYu2tkBoRBMOE
-	pq0cKy51c88OCi1FRLrxfY+0qtql2MyG8Qx4gHquE1bwYrRacBXrZkzwZR0LhW7Gz/nAhGgSGRCl1
-	1ecpE6N6ieVlIbozfF8pw/MFgPcd1jVo3juMy5cV4Ga/qiPk44HXbJLepO+weHqxzaVa4fXtL+Rx9
-	+eBHxTBcyZlB/f1Yhzhe3XIRqhHGAXOrLqpcDMhY092ne3wFROFTbWIfa0kL0vAhB/qqPPPlotrMH
-	qjJ9ZkodGvEcgksnshL7EysqGqEZ5v4E7RUITm8zl6iqWr+kQgn27VO33ADeUfwM4SQ33dbg75Srr
-	UZw7eVUA==;
+	bh=0D56V4bGfpX/TU9e5gmFluYXKUdNZrEsrQeh3MS0+Bo=; b=ZWiVSbpM94/+VQdfohulncyTgq
+	XBDusQ14ZXGkTtcK/K0vxxbMzDSjtTbkGo2v/qNuj9NRdOR2h/48kBaIHMyU15avtsKkoAweyRIhx
+	maHIQ6le2Rqg8fPGOk/NNf5o4uNj6WYF5zY/W/apNOoxdINKFVy6OQP2z97e+by+CgYKejYDRDJIw
+	Ef8h6P9/YDcSwp2+R7rRFFn2mAODmJegWiPcE4riatrIcZqP6oOlE4YFBytxeSG0aj19RVhshSMBD
+	rrdRZPWAQPxf5eUqX1VHzuyt6+4EwpDdRbZJS8rQq6BWVvnGB5s3g/O2CQmjMhpV1LwADRisv5erz
+	94WWo8GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzv9E-00000005lxM-0DP5;
-	Wed, 02 Apr 2025 10:16:40 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1tzvDB-00000005meA-0k3k;
+	Wed, 02 Apr 2025 10:20:45 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzv7S-00000005lTt-189u
+	id 1tzvBP-00000005mFY-1np4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 10:14:51 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2ff694d2d4dso10809949a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 03:14:50 -0700 (PDT)
+	Wed, 02 Apr 2025 10:18:57 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-30332dfc820so11472911a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 03:18:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1743588889; x=1744193689; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1743589135; x=1744193935; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lw7No9CatrhunZQ4Ziy751N/t8utTcZj0hKQTdSN9jk=;
-        b=P0OL6oUX21X5S99/ssKAy3VaplHKvkjxaxbXuhGWUgmGWqmjDWJTMTC41BCbx2YYLa
-         +BD35JvfF9uowLtQNM6enFQvZ/AZ7EHJVgUaqzbMtmhtmqeqE5iu+R927CbPXcWczu6A
-         9+23Is6WQ6JeQsX5pHvTUv17v3yH3/jJo19mk=
+        bh=0D56V4bGfpX/TU9e5gmFluYXKUdNZrEsrQeh3MS0+Bo=;
+        b=Tzm+KDXj/3/Oq57fbby9HWzTdGybfxZHCnkE89CaFYTUFFAaI/ecIv59bJEX+Yl6FU
+         2Nt689i+zpCbNLhiD/+HI5mt+lAcGHCzh2POmQn7NXpR3wM8Yem63BAwAhv4cRLRH9He
+         LtL6R2aBxmmywohr/KxcVuGroNxq67/ffN4DI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743588889; x=1744193689;
+        d=1e100.net; s=20230601; t=1743589135; x=1744193935;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lw7No9CatrhunZQ4Ziy751N/t8utTcZj0hKQTdSN9jk=;
-        b=xJ8VhtMT/0zOlzF4fFWRDtuqaDUrE8XkVUhBF61FEKHhG3HfS1WCNkQ3k66vEumGU2
-         O+LjT+EKkD9UTtO33jYHEyUx9lhmxDnHbSXigvqLJwyQ6zaDBscd+WLn3Q/jU2SZVDTy
-         5cFcj7t/H7gmAprGGVAK6A6vvsYnRQ5gg92EzEVwRtrqjQfPTBVFrePKdxAMyCqQ/x/1
-         CGyMGqdI2P4eEk+YxkPM6WPwvwi71M3hXIjU7OJwaxbfEj1FZuMYG88g0mkzpqvKhF+N
-         BqXF5ajm6rfpEzycmHd13i7iSSl8BHTdXgY5CFSmqQOsjo8L8C9IA8YODBMTP9Tbi49N
-         cpJg==
-X-Forwarded-Encrypted: i=1; AJvYcCXSlnjVTNZBtePhErATWIMsfc83cjIwF1VEF0/jhKeAyrdc5rPmh6ZkiVfFgPvCo1izmcAEbhZdsAW9uwNnbqyL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlwYI13OssSHbKkhWxsGD3JuJpo+AVZgoNUY0XI5ANLPVE0Lx8
-	dNPRAuXmY6XcaOOuGO5DzV141TMqcbWn3nHAJARxYk5B4x19yWHSo29jUkVFa5iBawP2irWf8Gv
-	cu/DaPUrWkx1AvQXYWiGbEKTk4zs6iC8Vp9Wy
-X-Gm-Gg: ASbGnctQxbLOWSoG3z6L4aelm80UaeIsbr2FjIaO5Fionn/XtvbYUo+tfCx6HLiyYDB
-	z44C17QnvUf3Pmbv5+7qVFwJdfurJ90mmSs5Te6zO1gMttkxcd3d/AlGPonCbr7FNVng9d2Xa5w
-	t2pwYJ/3eamebABrytTLP49ibdwXPJCxfA7qM5q1PH2QqkEX51Ra1G
-X-Google-Smtp-Source: AGHT+IH4KbDIAmz8gZLfVjOiL+nuNvvi6uk1SQsIGj72ELmQEPT6v+Qk+JdsGhfa3B8h399dfK9zguZ+jHJ7xZMou58=
-X-Received: by 2002:a17:90a:d2ce:b0:2ff:5a9d:9390 with SMTP id
- 98e67ed59e1d1-30531f957a3mr24885869a91.8.1743588889523; Wed, 02 Apr 2025
- 03:14:49 -0700 (PDT)
+        bh=0D56V4bGfpX/TU9e5gmFluYXKUdNZrEsrQeh3MS0+Bo=;
+        b=d39NYIQoXQzXc+T8H/VlulfFPuTofT8l7qvwZwrUOgxtwcnaI35xpd2AnNGhML0bTp
+         vMkiNkpoOBt21ZFDv6cEsJ8PqMC25Cv/REOBuCURPWTG5TmgvoxNsH4eG9FrfXBhgHmW
+         JcWZnEPoGyO1gHv9vNRhS91NJq5v6n0vD0lEBXJBJ4Z3AmhotC99gvgVfvqQZWbs68vu
+         /FU4xzV2wNaUDUIO9HPQ7gEv4UwYsBSZ9LtDeDXv0XCVDc9WPceQY0+DzbmGot83+ROY
+         dhLiFfg/+HQk+3SUGL9YHcTA1nnODMkDSNbK6ZhMjTfqb7PWnpXfZ4InS0X+Q1ZEtOsB
+         iaCw==
+X-Forwarded-Encrypted: i=1; AJvYcCWhE7Q0Dz64TPTaj2PJuKL93n2YIoayXjgjiiRJsnT7mSU8ACkpgzPklb/Dpgsh+AFSBn7pHuWC2ElLyd2azl3Z@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8tp1Cevr0JnZg//H/VdJs4/qG00Dw+1dVcMf1UFbhP0foyGTx
+	7pqFXTAJYfF1oUl8mVXzOFsKuPyOj1bboGkU/aUcuHYnxxJ0jg4SD8TCUI94ZGh3YwM3T/3lMW/
+	IzhvSubHrszO91TbHm7EJKWUIkY/UlIdB0F4s
+X-Gm-Gg: ASbGncsWOj4XtjQvfqdFKq2KecFfmsgp7hxZXgzSkcX0aDf2m2kTlaQnr7aadGy0bfc
+	Ul+zAHoQ8/8auPR2/opmgB5wrhjrMaQ+PmQ8pK5Kch8xJwi3k+g4hn7YGXIBsoLmciSUpE/ZY6F
+	c/Ebe27vcQuzhiLcD/6DzLVTFDlPsTPbcw1f6YeRZVZ4XMDW7LMCwQ
+X-Google-Smtp-Source: AGHT+IGQrnkGyKn8dVTSUjKIJxy2/wcmbcJv3W5smbWJ2t/E7cpQH6SMGOxQZ5dG0vuNvno9IYMLbv3UhEax8FtatNA=
+X-Received: by 2002:a17:90a:c88b:b0:2ff:7c2d:6ff3 with SMTP id
+ 98e67ed59e1d1-3056ef48b43mr2719742a91.35.1743589134726; Wed, 02 Apr 2025
+ 03:18:54 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250402083628.20111-1-angelogioacchino.delregno@collabora.com> <20250402083628.20111-2-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250402083628.20111-2-angelogioacchino.delregno@collabora.com>
+References: <20250402083628.20111-1-angelogioacchino.delregno@collabora.com> <20250402083628.20111-3-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250402083628.20111-3-angelogioacchino.delregno@collabora.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 2 Apr 2025 18:14:36 +0800
-X-Gm-Features: AQ5f1Jooc0a6tL_Gl6htqIUeZsyBaGUQis_xndlOKQ_9u_xfpEMy_zMefycOXDw
-Message-ID: <CAGXv+5HUJUL342uMA7wjmm8TsBUveVa0i8k+BfB2aZXd--AoKg@mail.gmail.com>
-Subject: Re: [PATCH v1 1/5] drm/mediatek: mtk_drm_drv: Fix kobject put for
- mtk_mutex device ptr
+Date: Wed, 2 Apr 2025 18:18:41 +0800
+X-Gm-Features: AQ5f1Jr3BoD2em-LznhL9zgkOSxDEEueTpI7DlFY2HYoRHnyStO_tGh8xaXUAvA
+Message-ID: <CAGXv+5GsoHN5mVe_kEP+oAzxa9HqgfhoiDqvO3xiQurFrvQ3qA@mail.gmail.com>
+Subject: Re: [PATCH v1 2/5] drm/mediatek: Fix kobject put for component sub-drivers
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
 	simona@ffwll.ch, matthias.bgg@gmail.com, nancy.lin@mediatek.com, 
@@ -80,8 +79,8 @@ Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_031450_330008_8367FD75 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20250402_031855_471832_6705E773 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,27 +98,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Wed, Apr 2, 2025 at 4:36=E2=80=AFPM AngeloGioacchino Del Regno
 <angelogioacchino.delregno@collabora.com> wrote:
 >
-> This driver is taking a kobject for mtk_mutex only once per mmsys
-> device for each drm-mediatek driver instance, differently from the
-> behavior with other components, but it is decrementing the kobj's
-> refcount in a loop and once per mmsys: this is not right and will
-> result in a refcount_t underflow warning when mediatek-drm returns
-> multiple probe deferrals in one boot (or when manually bound and
-> unbound).
->
-> Besides that, the refcount for mutex_dev was not decremented for
-> error cases in mtk_drm_bind(), causing another refcount_t warning
-> but this time for overflow, when the failure happens not during
-> driver bind but during component bind.
->
-> In order to fix one of the reasons why this is happening, remove
-> the put_device(xx->mutex_dev) loop from the mtk_drm_kms_init()'s
-> put_mutex_dev label (and drop the label) and add a single call to
-> correctly free the single incremented refcount of mutex_dev to
-> the mtk_drm_unbind() function to fix the refcount_t underflow.
->
-> Moreover, add the same call to the error cases in mtk_drm_bind()
-> to fix the refcount_t overflow.
+> In function mtk_drm_get_all_priv(), this driver is incrementing
+
+              ^ mtk_drm_get_all_drm_priv()
+
+> the refcount for the sub-drivers of mediatek-drm with a call to
+> device_find_child() when taking a reference to all of those child
+> devices.
+
+Looking closer, that function is also missing a platform_device_put()
+to match of_find_device_by_node().
+
+> When the component bind fails multiple times this results in a
+> refcount_t overflow, as the reference count is never decremented:
+> fix that by adding a call to put_device() for all of the mmsys
+> devices in a loop, in error cases of mtk_drm_bind() and in the
+> mtk_drm_unbind() callback.
 >
 > Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 multi =
 mmsys support")
@@ -129,75 +123,50 @@ abora.com>
 Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 
 > ---
->  drivers/gpu/drm/mediatek/mtk_drm_drv.c | 17 ++++++++++-------
->  1 file changed, 10 insertions(+), 7 deletions(-)
+>  drivers/gpu/drm/mediatek/mtk_drm_drv.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 >
 > diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/med=
 iatek/mtk_drm_drv.c
-> index e09578756de0..a8fbccb50c74 100644
+> index a8fbccb50c74..6b31df587507 100644
 > --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
 > +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> @@ -464,7 +464,7 @@ static int mtk_drm_kms_init(struct drm_device *drm)
->
->         ret =3D drmm_mode_config_init(drm);
->         if (ret)
-> -               goto put_mutex_dev;
-> +               return ret;
->
->         drm->mode_config.min_width =3D 64;
->         drm->mode_config.min_height =3D 64;
-> @@ -483,7 +483,7 @@ static int mtk_drm_kms_init(struct drm_device *drm)
->                 drm->dev_private =3D private->all_drm_private[i];
->                 ret =3D component_bind_all(private->all_drm_private[i]->d=
-ev, drm);
->                 if (ret)
-> -                       goto put_mutex_dev;
-> +                       return ret;
->         }
->
->         /*
-> @@ -576,9 +576,6 @@ static int mtk_drm_kms_init(struct drm_device *drm)
->  err_component_unbind:
->         for (i =3D 0; i < private->data->mmsys_dev_num; i++)
->                 component_unbind_all(private->all_drm_private[i]->dev, dr=
-m);
-> -put_mutex_dev:
-> -       for (i =3D 0; i < private->data->mmsys_dev_num; i++)
-> -               put_device(private->all_drm_private[i]->mutex_dev);
->
->         return ret;
->  }
-> @@ -649,8 +646,10 @@ static int mtk_drm_bind(struct device *dev)
->                 return 0;
->
->         drm =3D drm_dev_alloc(&mtk_drm_driver, dev);
-> -       if (IS_ERR(drm))
-> -               return PTR_ERR(drm);
-> +       if (IS_ERR(drm)) {
-> +               ret =3D PTR_ERR(drm);
-> +               goto err_put_dev;
-> +       }
->
->         private->drm_master =3D true;
->         drm->dev_private =3D private;
-> @@ -676,6 +675,8 @@ static int mtk_drm_bind(struct device *dev)
->         drm_dev_put(drm);
+> @@ -676,6 +676,10 @@ static int mtk_drm_bind(struct device *dev)
 >         for (i =3D 0; i < private->data->mmsys_dev_num; i++)
 >                 private->all_drm_private[i]->drm =3D NULL;
-> +err_put_dev:
-> +       put_device(private->mutex_dev);
+>  err_put_dev:
+> +       for (i =3D 0; i < private->data->mmsys_dev_num; i++) {
+> +               /* For device_find_child in mtk_drm_get_all_priv() */
+> +               put_device(private->all_drm_private[i]->dev);
+> +       }
+>         put_device(private->mutex_dev);
 >         return ret;
 >  }
+> @@ -683,6 +687,7 @@ static int mtk_drm_bind(struct device *dev)
+>  static void mtk_drm_unbind(struct device *dev)
+>  {
+>         struct mtk_drm_private *private =3D dev_get_drvdata(dev);
+> +       int i;
 >
-> @@ -688,6 +689,8 @@ static void mtk_drm_unbind(struct device *dev)
->                 drm_dev_unregister(private->drm);
+>         /* for multi mmsys dev, unregister drm dev in mmsys master */
+>         if (private->drm_master) {
+> @@ -690,6 +695,10 @@ static void mtk_drm_unbind(struct device *dev)
 >                 mtk_drm_kms_deinit(private->drm);
 >                 drm_dev_put(private->drm);
-> +
-> +               put_device(private->mutex_dev);
+>
+> +               for (i =3D 0; i < private->data->mmsys_dev_num; i++) {
+
+Just FYI you can also declare the int within the for statement.
+
+ChenYu
+
+> +                       /* For device_find_child in mtk_drm_get_all_priv(=
+) */
+> +                       put_device(private->all_drm_private[i]->dev);
+> +               }
+>                 put_device(private->mutex_dev);
 >         }
 >         private->mtk_drm_bound =3D false;
->         private->drm_master =3D false;
 > --
 > 2.48.1
 >
