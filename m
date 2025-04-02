@@ -4,150 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0155C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 19:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 429FCC36018
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 20:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s5o6AbIbvZVy/nQSqqFuCabYebHyuX3Kth3SY8r7+8c=; b=iCNxdgJB7aE85VNL6S0DkpaCBy
-	f2LmYvhc2N7v0mQJrdbNRf9u1Hcwgxy1VirB6gFPZJRXTxJ1p+xFNdDKJWu3hd1YoPwKSTx/C+DVI
-	L7HCzTwK5YfJHISqza7ZY6wFzaDoxrCrHafXEnsGAja7zde7F9uk1Xc0xdOMgabPBt6b/AMNIdJIi
-	BT+jppaVKE5Z+ayCAVqWHmAI12jgGekLC4g3Y21Fye0Fyajh55A+yf8Pxq4XR9mlVLnheJo5dBPG8
-	6Pz2k4uWVF3Fw5Su0puywKSuyVxn8TNj1dDQDi3q1m6icck5f1hUcp1wgDGK/7oWctT+8chKMrE7S
-	Q98x6J/g==;
+	bh=hFW3v//IajFZdnewSaOSlrzgqURblC3b+kl5GYS3Y3o=; b=TLz80q/WtMnSxLiXlO2YvO/JCY
+	er3V3bMW4Dp8jrHesEcSlziv6ia85rBZYTMosHEeJCvYHwJJ5DzzEIc4XX1Sv5nSzcnmQvDPvz1aR
+	W2aGTq3oiISSzZKmQHO+/WEiIbbtXav4z0iUGDJtFta7aOq2ygGW5CiyDmYGq1EPsHFI34+RuRaXX
+	4OlRz5IoML5P1BBzMk2YKr5NLmJPoccAYZ4tvAnA74wd6AHriBv3+9+4zxLxnX8Oj4TtLa9A8KHE0
+	FBcd4cWknPIqx9lJOMSJMDVYAkivvZSIJJ7sSXHyxmgqVOF3NuSWTPcycskMMIdOq6pkRt22CYnM/
+	tBa5Gm2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u03x8-000000074pg-13o3;
-	Wed, 02 Apr 2025 19:40:46 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1u04Rw-000000077M4-3zLq;
+	Wed, 02 Apr 2025 20:12:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u03uo-000000074Xm-0kN7
+	id 1u04QB-00000007767-1LdT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 19:38:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sN8e+uadKjgqdw5EGg+sVW/wD0aQsLPDPjWc9ZK0VKItZc/1klBBslI9wX7jlHEUcL6cc5RXhR6slNFNVpRC5Vo8zE8icQOQZi+DVqlngGb4+Bc7+BivZadWWaBbbIFR0CD8LU2p78sqEtHFtPSlpDnnEbidzeb7oQbYdAuf1Nh3Bqyi3EsEJ5wC3pojmd9brfDfhEQNM566dwAPp64HM9t9QJjXto4/bq11yjAeJv3vsfsrTGDHVWuZNrL0biO3uHQplANAjS1c66i/IgDytfIYkQDHi/Y1LZCleuq6q12T0N/nMIgwMUsN77GJhrafGjHKEIT7PaoypR5FvJ+Qug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=s5o6AbIbvZVy/nQSqqFuCabYebHyuX3Kth3SY8r7+8c=;
- b=E+B+WzjSXVmqbItEMFah814ozYETUfZr4HQ3kqUVug/3XIEkL/0OaTizs94yayrod5Mo1uODWwf8CtHLvBYAV6BJoNnQ3whkaHR5hogn3Qxv9lkYUlr68MdeqX97T9b3D9GcV397SbHxa3DfUyqHTsTH826XnWgmUscY9e+JnNp62OThx7AsiX0vTZeinYqV37jm4soUNJlyaoZtBR4OVpa2OmCBToZxyHZN7IHx9Gf8I99sg1rWCDxQ+lRx/xZ03iwJ+xgO/+u5ZlMGQwpBiG+8oxKMYMLgOSFwawsoEg+z6h7PzetPA5KnTtSi7d5I5ybbN0DjYKf5Xm1iChKcsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=s5o6AbIbvZVy/nQSqqFuCabYebHyuX3Kth3SY8r7+8c=;
- b=jiCbqWPkjvH8HfwvPRaOBG+dl12tGFI/AZuShjSZ2ac1aOPPZ6/WR5J3JTfnOeFf7VvT99NJS5uOnqvf2Uc4uk8xx4xc1/YBQhJPFtgoOc4F2yLO/qKc3mPWcdvUJKkusIiu/3M8QQmiBkegfphxh+L9xDDbUCRJYbSdf+KZSZQAgQYL4r0gyB7Iq1o841bGBMz+TJalhbnJzk+fzdo2YTZaE8vIJtYfYswxe5WGNbm8w02vf6ezqlcjWVNsBC82GGlbRPD76Ff8GmGNo2Koe6yx1hEnd8OSMqhK+MYkTDMq3t1JmVcy5Oso1Es4e6eLP1AlV5+aWACYjhWxALko6w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by FRWPR04MB11223.eurprd04.prod.outlook.com (2603:10a6:d10:170::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.54; Wed, 2 Apr
- 2025 19:38:19 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8534.048; Wed, 2 Apr 2025
- 19:38:19 +0000
-Date: Wed, 2 Apr 2025 15:38:11 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: maudspierings@gocontroll.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 9/9] arm64: dts: Add Moduline Display boards to
- Makefiley
-Message-ID: <Z+2SIxFFTuf5Iy40@lizhi-Precision-Tower-5810>
-References: <20250402-initial_display-v4-0-9f898838a864@gocontroll.com>
- <20250402-initial_display-v4-9-9f898838a864@gocontroll.com>
+	Wed, 02 Apr 2025 20:10:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EFCFA44069;
+	Wed,  2 Apr 2025 20:10:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC11FC4CEDD;
+	Wed,  2 Apr 2025 20:10:43 +0000 (UTC)
+Date: Wed, 2 Apr 2025 21:10:41 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Peter Collingbourne <pcc@google.com>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kees Cook <kees@kernel.org>, Andy Shevchenko <andy@kernel.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] string: Add load_unaligned_zeropad() code path to
+ sized_strscpy()
+Message-ID: <Z-2ZwThH-7rkQW86@arm.com>
+References: <20250329000338.1031289-1-pcc@google.com>
+ <20250329000338.1031289-2-pcc@google.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250402-initial_display-v4-9-9f898838a864@gocontroll.com>
-X-ClientProxiedBy: SJ0PR03CA0007.namprd03.prod.outlook.com
- (2603:10b6:a03:33a::12) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|FRWPR04MB11223:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5fa2d2a4-c88e-4653-c250-08dd721debae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|366016|376014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/ZhGs7cn9B3uA68WqmhoErtXWCR3nrx+RGAwCyskGfm/t+Z3q2FPgvqeKIAx?=
- =?us-ascii?Q?jiskf9SJEPMVhDOmnVFzQfADjbAu33dZxfDTltLfOtPEZblfwYYQySIXkdnA?=
- =?us-ascii?Q?Dwt0zGSHuNO04ACqxS2uBfK6kHB27utbg0RlpyINsDWuIx3D3qPaT6Dtj5GA?=
- =?us-ascii?Q?e+oKNPtz3Oo+4AHnVr1UTkc1yA7pOWUA4fp7zdtZFvZ+gxigM0pV8V8K5Y2T?=
- =?us-ascii?Q?G6nehyt0LiB0BMwMoxz6WUBx4/DVurR9BtKM6ys7/MRpamF0A6dRm8KQB+M0?=
- =?us-ascii?Q?pyydlAFhER88f7AIq/kx66RQfa+/F93Gmf4+1hSfOdReTr4Ug9jwh0B/Ighs?=
- =?us-ascii?Q?dAvnzVp8jMXxr4urjIiU1cNx41nQA4LwilcEEhq9aLPjwbS4rWm6b+5Jnajr?=
- =?us-ascii?Q?6Y8h1I+gyEJpwN4gxmMGNQgbZrTpio79hFlaArftAeoen3mCSuukH43heHQG?=
- =?us-ascii?Q?eePzzAtx9+rs4SJNWcbEeIhMyx4znCDB5elmerGWp9bwwD8N/MmrXKJd/mLl?=
- =?us-ascii?Q?wuA2ZrQ+8hU4hLmSWyjimUkwxb3vjMfCoDnYJZENUvm+4Vi/TgV9Gizh6HlF?=
- =?us-ascii?Q?GGuFU+hWheeDOvv6w0z5KTCBG1e2DgTrWle5NEAo/yyDrTm8HhU8bWXdD1pB?=
- =?us-ascii?Q?s1ffrBidds+HOqBUkBw7fTDlWDR9JR1k5lEeAZK7ui51AM8XLqV0CGXqDkYu?=
- =?us-ascii?Q?gLTNtgv5VqCHpTBTlCMnugDXnrdS968EjBj/7qIVCj1wOVrYGtrsG8/wVPXd?=
- =?us-ascii?Q?bMrVKC/lPuWMYWjxoVUn/4C8XedGohxDZh+ch/fLFsRAqNvCrFf4OIyulfYp?=
- =?us-ascii?Q?rz0VeUvLIswRWgo519d03sHsy3h6ILkcTTaTpInBuWXWQIXRkEewUqdYtqBC?=
- =?us-ascii?Q?gnBwxkrPcjkuvIu6NBb3bPYA3iq4tOF/iuqeVRiktqfy2aw1dD4EWnJVAukI?=
- =?us-ascii?Q?lqy2u3SP1dQDFaCwjBd7p2YFJZPuopr2LXc06T8eBAWzdpen4JwGSL02Jv1y?=
- =?us-ascii?Q?PleivBno7HPMQkQDYrdLKIoXhk4Q3yzjxCRWt8I+BNP+kryKKdMrG/s0/7f2?=
- =?us-ascii?Q?iR85ZDtF5/GjwI8upmDMoNVZSMrRo/y5tgEkeT5zFeA0m6b78I+bswTIt25j?=
- =?us-ascii?Q?DU+3gvFFW9vnkCb0rJlvorPUw5ZvXKHtDU6wlh4ED6OXt3eHGX5HNNJCzzpp?=
- =?us-ascii?Q?C5Sg5ytupS+poq7sgzWpbNH01CMx9smDnKSpYopKjMS8Y8njaR0IdrwZQsJc?=
- =?us-ascii?Q?KXpViguiLnkrc0yrA7C/jY0wmCKu5b8dTQi/0PoWrspz0QXkcQJlXdApVCvz?=
- =?us-ascii?Q?ZINT0jhIli5Lzt6N2nDqS9oSC+rrenc+HX+ALZuAMi3tJ1cspvySovmuO9op?=
- =?us-ascii?Q?UwKeyP4GG90Soel9N3aZhE54J5/oscIxfa1vDeIyVSsSnIxTtjRfHcAYRjyj?=
- =?us-ascii?Q?MN1vxPasP1PS3H5oPfJ3XVtp4Zot6eTe?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(366016)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?TDHApxmJY2H+/Bm5R7GX/DNuJOfGtMR5WhSt6O2BTBiyWuwpJNUFtGaYhCPa?=
- =?us-ascii?Q?lRI5mA3A6QzlgnL+C7ooE0j4E68q3d4damB4oVT1TJApgUm5nVRxKk64IfBi?=
- =?us-ascii?Q?XWIXUwxXd9cKjb+XQebVdYhRAvCfAHPxsmUM0Cau6ReQdSlkrCOMHx8FMiuO?=
- =?us-ascii?Q?33iU5BWhHGMIUuBTcniKVdANzZzA0rx9u9ILoD/LOelFv8Z1XXqZPbYK70oR?=
- =?us-ascii?Q?IBsVIwB5KARx51D+QtFlvMOuPlut4pHj3Sk3qHxTalKIc+CJ8t4MldBbR6Dr?=
- =?us-ascii?Q?KNsqKotLSXYSFq5kJ2rJ8veScOIPu3dh7W++2wjauFHmPol4PrBw7xre3/80?=
- =?us-ascii?Q?beKQ0omKOio/Kd+Z+dq93xRtEqf0F3zYfZkjBALKep6uFwiVQZW3gfcDWoGu?=
- =?us-ascii?Q?unN/r2VF2vYHxHx18tIG3ep0U4+VLgf1ZXlX5uKRLXZ09cqQVvTkAmYhqEx8?=
- =?us-ascii?Q?UF1p4phhHw0ENdXVsKFDUXM6Q5ltVlYF6zW2xbVG1HKUEKoNEKGI4vvbLruJ?=
- =?us-ascii?Q?pdFygN0Oyhov9wgcGprB9Hj/WXT4ELiEkqRgXBT2rfMXLRzV1sdMIPaj3P7f?=
- =?us-ascii?Q?gtcmu2IzLbn86E19g2IhO+0D4XnRhYO6i3aeKklxuZpXWQ0bXi9CjYGHdC+d?=
- =?us-ascii?Q?w/0w5qf2UEoeRacTylDu3KeJAhvyyRqhsDFOBkMWtLgXJepyQ0KVn1/DzJel?=
- =?us-ascii?Q?cN0lhxRUUN6p6Cqv9mpMer2NTX+sT5PhlE9Oji9Ckj43lCHMpe7l67zj/bNB?=
- =?us-ascii?Q?XhDsv2nj+FozDUSFz5RC7zdJuMpcy/T0Lj/w5ttRWJfwTQG2DtfSp6tsvZls?=
- =?us-ascii?Q?B/wd95DoBznCJ+im9ZxcrCKjHO9POXbGDMdkgpxdDRu1fqYRIo7J+0/HiQZ8?=
- =?us-ascii?Q?MrgZl2hHCtuKpk4dJb2r2FMB8KD6Ds1caFph4asmvFb3c9at+vD0EllRfxO6?=
- =?us-ascii?Q?w7KDUBfn5wCl35wrEz/mCg8sPdFdXfzniX8a8k6/olc9QBbjGvbKBUH87DY0?=
- =?us-ascii?Q?a+zR07eJb4glRmR0yZ6E48CZTTiBjRqZbk6C/PweLpWV+tliVAr1UxqcMc+m?=
- =?us-ascii?Q?XdQNrVyAM4e8okHVHeEcQVAOaHtE2/TweOb/Ae89G/zXQUgZQH2XiD4VOY4Y?=
- =?us-ascii?Q?SjLD8gN4mfK3Is22TaOAdMXBf4Yvkc8P1bdE8FBmXUdZCYaBh9eAJtzoWjhb?=
- =?us-ascii?Q?oftrsp+GoCvfLw1h0MSSACzdaEedEkPGEm4f4pQ4vZDEoVSwxrAtNOFTeZID?=
- =?us-ascii?Q?ABzGxTLli6c8JQye1bc6lFcM+VYLfoA5J54mKcZ3e++wgkCxcAVoKyiD+1kF?=
- =?us-ascii?Q?azddwpHBbM0L8zUFtBsEeDVaXjEGnmtRavs9axrnMyuKgqEzem0knccFMOUE?=
- =?us-ascii?Q?pd8jYC9oc20UY5loXfJ20Ho5I720us0RfviJwP8GCu/JnCXtD/M53hbWDL3V?=
- =?us-ascii?Q?KeAgYDbcKJtOhhW+JbtaFSTXQA2V3aY+vHi3amYKim84Lt8/CcIM2/qk5TBV?=
- =?us-ascii?Q?WZ2SH2T/v+YeeL/zSimAGCr5LjX1EqU0xdw1MV+Lv/kPzgDm38+3S00+ydzH?=
- =?us-ascii?Q?n3XlPN3FObUvzTDS3vGHZYH/UoG23uTyRrGIvJuV?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5fa2d2a4-c88e-4653-c250-08dd721debae
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2025 19:38:19.1318
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CprmNMdrXDMl53O39JbzYAGsmOGYg7mNeN4BWsrqKntga5SPu5HnWkJ86xRZ28vlHjzQjX7DuH5YaZrM1dA9wA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11223
+In-Reply-To: <20250329000338.1031289-2-pcc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_123822_216566_6DBCD0D1 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20250402_131047_398613_698E8CF4 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,42 +69,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 09:07:12AM +0200, Maud Spierings via B4 Relay wrote:
-> From: Maud Spierings <maudspierings@gocontroll.com>
->
-> Add the new Moduline Display boards to the Makefile to allow building
-> them.
->
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> ---
+On Fri, Mar 28, 2025 at 05:03:36PM -0700, Peter Collingbourne wrote:
+> diff --git a/lib/string.c b/lib/string.c
+> index eb4486ed40d25..b632c71df1a50 100644
+> --- a/lib/string.c
+> +++ b/lib/string.c
+> @@ -119,6 +119,7 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+>  	if (count == 0 || WARN_ON_ONCE(count > INT_MAX))
+>  		return -E2BIG;
+>  
+> +#ifndef CONFIG_DCACHE_WORD_ACCESS
+>  #ifdef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
+>  	/*
+>  	 * If src is unaligned, don't cross a page boundary,
+> @@ -133,12 +134,14 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+>  	/* If src or dest is unaligned, don't do word-at-a-time. */
+>  	if (((long) dest | (long) src) & (sizeof(long) - 1))
+>  		max = 0;
+> +#endif
+>  #endif
+>  
+>  	/*
+> -	 * read_word_at_a_time() below may read uninitialized bytes after the
+> -	 * trailing zero and use them in comparisons. Disable this optimization
+> -	 * under KMSAN to prevent false positive reports.
+> +	 * load_unaligned_zeropad() or read_word_at_a_time() below may read
+> +	 * uninitialized bytes after the trailing zero and use them in
+> +	 * comparisons. Disable this optimization under KMSAN to prevent
+> +	 * false positive reports.
+>  	 */
+>  	if (IS_ENABLED(CONFIG_KMSAN))
+>  		max = 0;
+> @@ -146,7 +149,11 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+>  	while (max >= sizeof(unsigned long)) {
+>  		unsigned long c, data;
+>  
+> +#ifdef CONFIG_DCACHE_WORD_ACCESS
+> +		c = load_unaligned_zeropad(src+res);
+> +#else
+>  		c = read_word_at_a_time(src+res);
+> +#endif
+>  		if (has_zero(c, &data, &constants)) {
+>  			data = prep_zero_mask(c, data, &constants);
+>  			data = create_zero_mask(data);
 
-This patch should belong into pervious patch, which add dtso file.
+Kees mentioned the scenario where this crosses the page boundary and we
+pad the source with zeros. It's probably fine but there are 70+ cases
+where the strscpy() return value is checked, I only looked at a couple.
 
-Frank
+Could we at least preserve the behaviour with regards to page boundaries
+and keep the existing 'max' limiting logic? If I read the code
+correctly, a fall back to reading one byte at a time from an unmapped
+page would panic. We also get this behaviour if src[0] is reading from
+an invalid address, though for arm64 the panic would be in
+ex_handler_load_unaligned_zeropad() when count >= 8.
 
->  arch/arm64/boot/dts/freescale/Makefile | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index b6d3fe26d621234ab84353165d20af9d2536f839..fea25c7f997cda9aef73cd643f0f0279ee0bfffe 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -214,6 +214,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
-> +imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10-dtbs += imx8mp-tx8p-ml81-moduline-display-106.dtb \
-> +	imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtbo
-> +imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17-dtbs += imx8mp-tx8p-ml81-moduline-display-106.dtb \
-> +	imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtbo
-> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtb
-> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-som-symphony.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-venice-gw71xx-2x.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-venice-gw72xx-2x.dtb
->
-> --
-> 2.49.0
->
->
+Reading across tag granule (but not across page boundary) and causing a
+tag check fault would result in padding but we can live with this and
+only architectures that do MTE-style tag checking would get the new
+behaviour.
+
+What I haven't checked is whether a tag check fault in
+ex_handler_load_unaligned_zeropad() would confuse the KASAN logic for
+MTE (it would be a second tag check fault while processing the first).
+At a quick look, it seems ok but it might be worth checking.
+
+-- 
+Catalin
 
