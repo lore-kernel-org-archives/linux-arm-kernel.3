@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E94FC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 06:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2874C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 06:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6MaKwOHUQD/pyzV3ZqXhIdfQLOmuaY8deKHlM0d69kU=; b=0qkE7bu5LzQe049UQkM8p+5nGu
-	tF9BVLwc4Prgrf3soWIRx53zwHgf7GReX+m4JtlHtkdBfPYYJLzSqdxNr591Edi5OhZdDcnR4NKws
-	QdL2yALbEprYg0vHR8wpTEvo+IkuSKHh8OUTVKicluYXsbBWLl0eWgKSUIVAz4S802+uFY3swUqKY
-	oW3yyi3ftbYBCThIg3+Y0HgG5ItUPjGGZkb4E13VqoSFgqEfgTFgvh7bM3DqNSPF1fk65BA7I1mlq
-	+dp8RK+s3JJUeNrP/zU5QuPb5XTIVnefEgGEC2FWQj8h+b2Lq9meaNjtS1gpGacn+mm8PXY6cHG8+
-	McC6HTYg==;
+	bh=XIZQLRkmuKFGcKuEhqU59C57aml99N/LW+ff4etZO2E=; b=KEnTk7SYTlfqMxVqwei1PQPK5p
+	7CYdvngnsQ01e5g8GlCy9GBOOarypeP7XdskpyKnjwtjVIOt8dNJ1JWSldZey1lWcJvPzpqqCtc99
+	Q0sI4qr2rOHbg265LEIUp3DJ4alm1cgfvUOTLCmbazSMZcqVN1MSDXURZ265+Tmuv7o5udKfmhzTH
+	OZ84h//gVNkwlVDRp7xFhCBrd9uOWHe+48Lrw/77QZKcw9QZc1wo3KpMF98Vb6Ytda01lKrGiLcDu
+	J6Qb/g6EaqenmIfN2JX2QOvYxbD0N2p84JM2Sec2PU/Lzm48RcxO6xXpx2T2ivWT3tg6uLVeUZ6y2
+	hfRvwInA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzrcr-00000005FhN-338d;
-	Wed, 02 Apr 2025 06:31:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tzrgz-00000005G1z-1BLg;
+	Wed, 02 Apr 2025 06:35:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzrZW-00000005FJv-05lT
+	id 1tzrfE-00000005FuO-1Ilv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 06:27:34 +0000
+	Wed, 02 Apr 2025 06:33:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 87FF46116C;
-	Wed,  2 Apr 2025 06:27:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AD71C4CEDD;
-	Wed,  2 Apr 2025 06:27:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5FF155C5C9B;
+	Wed,  2 Apr 2025 06:31:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7973C4CEDD;
+	Wed,  2 Apr 2025 06:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743575253;
-	bh=mlIeyKQGi9xiF15QG8+se9U+3f0soQPlemjHILzdzS0=;
+	s=k20201202; t=1743575607;
+	bh=w3SQw3BJy18mxt0qmYQYLJKYPzATzH2nToVDQfCVmCo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AUP4zcs/qfijK1FJSj8FNaLPt4gxsg0T4Ay2x06M3Uy0kVegwx03NavKe/Y+L8dVc
-	 P8oVPyJzishv/lfIBaYfAzeSitPOPRG+ulWZ1FFxcuAb6p/C5oomnyrloeezbe/CBp
-	 D575AuPMbY67THZjhPqHVeAhEA6L37UYfEGIXdXkhmLIkt6NyhImCjeKHWINVzY1gf
-	 lqj/YyeVb8FAHo7ubutW9wfwKvrFp4Ksu3pfFjGAq8ihpo87Kk9WQJNov/4n7M/qOk
-	 p78icWA7bAiDgkmLLKVse7HNYgyedm7EQWhIb6QC0Y9obwOQyGctXepFwT2R6V8c26
-	 tfc6dTYAjGxTA==
-Message-ID: <fe6ec03b-c1c5-417f-9aec-1b81731b3018@kernel.org>
-Date: Wed, 2 Apr 2025 08:27:26 +0200
+	b=LZ+j+Zs/ZEZJjHmfYuT9bzcyXuLMY+2fHMU79+H81sZRq+Jt96psBwNwu6oZWrVM2
+	 jF8mk6L8KtcF1Kfw/TSmUeTe9hiCo5EbGCgMx5pUtZHo5YBodtUqtpHBTRosn+cJGH
+	 t2ll712S5nIFNGLapOfp9pb2CcTmoHZz+62kpLDatz8VyfFAqegeg5PrnB5x0P+iyr
+	 mToO8EvCiCd8JD+yZWrOdxza+7r8CqTkeSxnDtRjgDUYgkOLFZ2qk6kg9ORjh/r3//
+	 6XGUil9MiJ0PymvT475ttbPVOknylyDahn8ueQpCQx6NHL12YxFK60mnDGQQWeDUH1
+	 LRV9rFJoKxQrQ==
+Message-ID: <023b7e98-58ef-4752-9ef4-6fe699188b2f@kernel.org>
+Date: Wed, 2 Apr 2025 08:33:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] tty: serial: samsung: Fix potential buffer overflow in
- clkname
-To: jiang.peng9@zte.com.cn
-Cc: shao.mingyin@zte.com.cn, alim.akhtar@samsung.com, yang.yang29@zte.com.cn,
- xu.xin16@zte.com.cn, ye.xingchen@zte.com.cn, gregkh@linuxfoundation.org,
- jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org
-References: <202504020933293306VVVuy_8HVKbwBOL2PFjW@zte.com.cn>
+Subject: Re: [PATCH v2] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML
+To: Purva Yeshi <purvayeshi550@gmail.com>, ukleinek@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, vz@mleia.com,
+ piotr.wojtaszczyk@timesys.com
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250312122750.6391-1-purvayeshi550@gmail.com>
+ <b2f6a357-a468-4526-a1b6-69ab2c643b2c@kernel.org>
+ <61b1e302-98ad-4dda-8c03-18315d432512@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,9 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <202504020933293306VVVuy_8HVKbwBOL2PFjW@zte.com.cn>
+In-Reply-To: <61b1e302-98ad-4dda-8c03-18315d432512@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250401_233328_485870_AC8D29FD 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,30 +120,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/04/2025 03:33, jiang.peng9@zte.com.cn wrote:
->> Same comments as with other patches, not possible, IMO. Plus this patch
->> looks actually worse - commit msg is hardly readable.
+On 01/04/2025 19:32, Purva Yeshi wrote:
+> On 13/03/25 16:34, Krzysztof Kozlowski wrote:
+>> On 12/03/2025 13:27, Purva Yeshi wrote:
+>>> Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
+>>> YAML schema (`nxp,lpc3220-pwm.yaml`).
+>>>
+>>> Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
+>>>
+>>> Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
+>>> ---
+>>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>
+>>
+>> ---
+>>
+>> <form letter>
+>> This is an automated instruction, just in case, because many review tags
+>> are being ignored. If you know the process, you can skip it (please do
+>> not feel offended by me posting it here - no bad intentions intended).
+>> If you do not know the process, here is a short explanation:
+>>
+>> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+>> of patchset, under or above your Signed-off-by tag, unless patch changed
+>> significantly (e.g. new properties added to the DT bindings). Tag is
+>> "received", when provided in a message replied to you on the mailing
+>> list. Tools like b4 can help here. However, there's no need to repost
+>> patches *only* to add the tags. The upstream maintainer will do that for
+>> tags received on the version they apply.
+>>
+>> Full context and explanation:
+>> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+>> </form letter>
 >>
 >> Best regards,
 >> Krzysztof
 > 
-> Hi Krzysztof,
-> Thank you for your feedback. Let me briefly re-explain the change:
+> Hello!
+> 
+> I wanted to follow up on the patch I submitted. I was wondering if you
+> had a chance to review it and if there are any comments or feedback.
 
-No need, it was already on the lists many times.
+And what did you quote? What's there? Did you read it before replying?
 
-> The issue:
-> When building with W=1, we get a format-overflow warning because "clk_uart_baud%d" could write 15-17 bytes (14 chars + 1-3 digits) into a 15-byte buffer.
-> The fix:
-> Increased clkname buffer size from 15 to 18 chars
-> (original 14 chars + 3 digits + null = 18)
-> Replaced sprintf() with snprintf() for safety
-> This keeps the pattern consistent while eliminating the warning. Tested with CONFIG_SERIAL_SAMSUNG=y builds.
+Please avoid pinging during the merge window.
 
-That's not a test. Test is running on a device. Compiling is not a test.
-
-> Would you prefer any adjustments to this approach?
-Same comments as for previous cases. Go search other discussions.
 
 Best regards,
 Krzysztof
