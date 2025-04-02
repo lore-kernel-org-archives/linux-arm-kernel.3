@@ -4,102 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 881EBC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 22:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78317C36018
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 22:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WqllMbVSzlYmSg4e9MsN3Hg5U+KXq66OHOKXxPOPhW8=; b=Quef/iwVok46qHZwD/v0jdOHxm
-	SK0fPQlbUyPHQywh4rLv6TTpnbLkwAX+NN/Mdv0Hp2HiBVk9oPzKmsuAQr3u+sxaSX2Wi46x19OIL
-	pqmkWh7ppx9Rx30+81HOnMLM9a3ecWHXHa4pBje2W5IsqfJ8wDwHh7muQQmm2d0gmpuzncwzP148E
-	tL5Cyn5m3fPN8cSBxA+89g1uvXn0UbIfmidSiQQg776mtx0eTrF1D01iIXJvo37TiZ8E3QMQCn1RO
-	hyKnskd7qjEqaR3lOuItaIMbhJWkR5+WV34ZeNv67SjGaCHn0xIAclimMDdVnWIK4wdbZlQdl8J8V
-	WSjw3h5g==;
+	bh=0S1cGLN1Z76dMWQcz/YV5gMvENx6lZ0FL8p55kqjgMY=; b=GdMdWNV1qzunfw4sGdbo6j1vT2
+	FQD9MOqt234qwy75mVML5LmPk8pqk/FH1/lyl4CaEWPLQaI0QBXm/+WggaaGlmbqRt57iUaPQP329
+	INSXQiysB9LjltGniGiabB7M0mQGtggOpTtjB03qdxKZ/C58NbAVdhmo+8UfL6CGpl8P/P6J4BuAB
+	EJ/FPuYnIr2Akubc8IFX1zgPnl4rWFrf69P8N2vqVFr51/pYvRsdh+CgpIk9BwDvM8zHoNlkmaxAK
+	QoPlnX/h50YH9A5ZWyUEEQGOZkDuuGcU5Z/KwzM7AZNdA+jJoLOYOSU5adjb6nE8zp+CTWa9txKTt
+	ydjyCBaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u069J-00000007IZJ-062s;
-	Wed, 02 Apr 2025 22:01:29 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1u06EE-00000007JDZ-3SvF;
+	Wed, 02 Apr 2025 22:06:34 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u067W-00000007I7F-08Xn
+	id 1u06CS-00000007J2E-1dTu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 21:59:39 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2254e0b4b79so3332595ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 14:59:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743631176; x=1744235976; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WqllMbVSzlYmSg4e9MsN3Hg5U+KXq66OHOKXxPOPhW8=;
-        b=Zv+2aDfkclqLT7aavrU+tA5WUn5fw9bvoh98mDvMVOCiuOFJsOAcv6a2EyAMvoxTn4
-         tCmfkIlrlpwFWTkA4aFCZHAW/NSS1A6WYjUN0mB2FAscWBX64qSsoCgNmvMGBkcDo5Jl
-         Aq3tvNtju/kdl1K6tFCFqwemoAdbbadQ47tk9vs2lwxfWkyvdtkZr4B4nf/3An/O56wx
-         QgsiJslo1A9SUARw1nkfe/8+60E9pmDhfXLrtXwK5oXZbRR+/imYPT5+nwnmwlzYn8d1
-         ZvDHDLxXroARklADRbATlQ5hrbxn9LNrZJKCb6KBaBimQCpu+glXQgUo4lXKxnV6khC8
-         gUuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743631176; x=1744235976;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WqllMbVSzlYmSg4e9MsN3Hg5U+KXq66OHOKXxPOPhW8=;
-        b=HjFXIr17YmXY6GWcruWGzN7APbFA+MymHGFup3lmTuHzAtCKIWHWBaknhuBaTqK5vt
-         9mBLpsjTSrB0FFnJXJXqFElRZRwUrbv4Vn0STi9dGUWTdg9C4/A+lR9IUNhXw80tinFA
-         cuh05yv9CDi2laxt4meoXdz+wG+lebDjHN0pAsUVsOyRFb7pp+7kHGhJ/H/Ph9uQxOZY
-         B2/CQK4FDmBe1GLHJ/AldocHOTAPRFtHmuXAVfQHNsnIQ9h++klSConq5kpUIY+LtKs2
-         xOPN4B2+DJ6YZCNmVtfhHAMcyd1yy4nN8oQuHlbzcIa4sUXk3jnkEG4Pw2Iww6wY5aAK
-         btFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXVKnh+QnROvm/hW1UyEFH1GPC1qU1RdZsPV/CJTdjk4JWwKbF6HkaYZcWebrK6J3QCb7rKd1O7KewwDNWIQwrS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yycpo29tYDDHL7TOZPzcghpaa3iBl2fLTvcT/+vedTNoeS2uroU
-	NM87J7VbbiE4hvCvmWe2pQ0cymK1u9KhQW+z0PSbxjR/nUcog8UFhD/Vz8WzEA==
-X-Gm-Gg: ASbGncvnOTKOlPJ2gAKZxGr4QXIYZtuZrfZ4S/UdY9lAP7Lr18MSMFLDqYhmHX1cS/D
-	3ZplP/YCjd9NDuxUggjzQWhXrS/tVZ4YR7oShXcLCXzSl9Dj549UlIXGJBUmAgKpYCsCYb/Xkca
-	mHZLIKmbMJ/bu8Ap89IbAH9pqqIsjUpUZsFsmdfnESsfZv0obZkfEtmrBcvg23OiVUMMfGI0nGA
-	JhhzWBQaklS70U+qiCCEhHAK9I1+7FmyHsMgWebIk4UhUDrI+fCRbKulbp1YbDg0ABz0JmJDbLW
-	rGm8hTAlXM8XDWsjFaVMxhgw2PTH3CkuDPF6XruVMZMj5c+Y+bxJgfpOwtd5oo04HNfUpSBTUXn
-	joVQcjzVpxN7/i30=
-X-Google-Smtp-Source: AGHT+IHteXxFO7jbKx3k3Jy9PnUQzjVaQtKgEm+NOfEcxdPjDfCVTFwPG/5wPWOnq7Eh2M3nBNvUdw==
-X-Received: by 2002:a17:902:ea03:b0:223:536d:f67b with SMTP id d9443c01a7336-2292f9f607fmr329229995ad.38.1743631176289;
-        Wed, 02 Apr 2025 14:59:36 -0700 (PDT)
-Received: from google.com (198.103.247.35.bc.googleusercontent.com. [35.247.103.198])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-229785c2791sm636175ad.80.2025.04.02.14.59.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Apr 2025 14:59:35 -0700 (PDT)
-Date: Wed, 2 Apr 2025 14:59:31 -0700
-From: William McVicker <willmcvicker@google.com>
-To: Youngmin Nam <youngmin.nam@samsung.com>
+	Wed, 02 Apr 2025 22:04:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7D8C6A45EAA;
+	Wed,  2 Apr 2025 21:59:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 033EAC4CEDD;
+	Wed,  2 Apr 2025 22:04:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743631482;
+	bh=kU7IBFQFjyFEhwSQwmwTIAIwV7Rkf7439jPSNOzP+BI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OIsZY+wZLwltxMq7Z6jFA17WE/pD9x0cnvdW8GHMbZdLRl9jtbA7uTWspfjZHAJTt
+	 ZwDQx9mnLjaOYzUvmqSErTAPugBz87i2eKzkjDecMhhqGZEp2RF5bUwvotEJIQTwm/
+	 W4OFx6ecWwIWsB3vr+hr6Cs20/BkgKfjpeu+8qp7RhjNjvjL9FUQ2613adZ7/4ozgh
+	 ZG52rR2tdWlPclFO0LgEk0D2TiT5g35H1/xyoDcETz2nKL5lEsy6RGKoKdt+FrqkBB
+	 CdWR2NnAe5aeno+eQs7zoZiuvLsjCtDuQi7VAx0WJog6ngSJ3+nKhBSzbkwiuXZwqY
+	 uGU+9gWN/kwIw==
+Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u06CN-001nKm-Iy;
+	Wed, 02 Apr 2025 23:04:39 +0100
+Date: Wed, 02 Apr 2025 23:04:41 +0100
+Message-ID: <87a58yz0cm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Breno Leitao <leitao@debian.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Saravana Kannan <saravanak@google.com>, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	Will Deacon <willdeacon@google.com>
-Subject: Re: [PATCH v1 4/6] arm64: dts: exynos: gs101: Add 'local-timer-stop'
- to cpuidle nodes
-Message-ID: <Z-2zQ-PcvxFTBc6M@google.com>
-References: <20250331230034.806124-1-willmcvicker@google.com>
- <CGME20250331230151epcas2p486a7c6d7153737f4168cfef74249742f@epcas2p4.samsung.com>
- <20250331230034.806124-5-willmcvicker@google.com>
- <Z+y4zxfifkQqLxKF@perf>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z+y4zxfifkQqLxKF@perf>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	arnd@arndb.de,
+	kernel-team@meta.com,
+	vincenzo.frascino@arm.com,
+	anders.roxell@linaro.org
+Subject: Re: [PATCH RFC] arm64: vdso: Use __arch_counter_get_cntvct()
+In-Reply-To: <20250402-arm-vdso-v1-1-2e7a12d75107@debian.org>
+References: <20250402-arm-vdso-v1-1-2e7a12d75107@debian.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.104.136.29
+X-SA-Exim-Rcpt-To: leitao@debian.org, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, arnd@arndb.de, kernel-team@meta.com, vincenzo.frascino@arm.com, anders.roxell@linaro.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_145938_075076_A892AB71 
-X-CRM114-Status: GOOD (  24.01  )
+X-CRM114-CacheID: sfid-20250402_150444_559441_F977B0A8 
+X-CRM114-Status: GOOD (  29.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,74 +89,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Youngmin,
-
-On 04/02/2025, Youngmin Nam wrote:
-> On Mon, Mar 31, 2025 at 04:00:26PM -0700, Will McVicker wrote:
-> > From: Will Deacon <willdeacon@google.com>
-> > 
-> > In preparation for switching to the architected timer as the primary
-> > clockevents device, mark the cpuidle nodes with the 'local-timer-stop'
-> > property to indicate that an alternative clockevents device must be
-> > used for waking up from the "c2" idle state.
-> > 
-> > Signed-off-by: Will Deacon <willdeacon@google.com>
-> > [Original commit from https://android.googlesource.com/kernel/gs/+/a896fd98638047989513d05556faebd28a62b27c]
-> > Signed-off-by: Will McVicker <willmcvicker@google.com>
-> > ---
-> >  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 3 +++
-> >  1 file changed, 3 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> > index 3de3a758f113..fd0badf24e6f 100644
-> > --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> > +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> > @@ -155,6 +155,7 @@ ananke_cpu_sleep: cpu-ananke-sleep {
-> >  				idle-state-name = "c2";
-> >  				compatible = "arm,idle-state";
-> >  				arm,psci-suspend-param = <0x0010000>;
-> > +				local-timer-stop;
-> >  				entry-latency-us = <70>;
-> >  				exit-latency-us = <160>;
-> >  				min-residency-us = <2000>;
-> > @@ -164,6 +165,7 @@ enyo_cpu_sleep: cpu-enyo-sleep {
-> >  				idle-state-name = "c2";
-> >  				compatible = "arm,idle-state";
-> >  				arm,psci-suspend-param = <0x0010000>;
-> > +				local-timer-stop;
-> >  				entry-latency-us = <150>;
-> >  				exit-latency-us = <190>;
-> >  				min-residency-us = <2500>;
-> > @@ -173,6 +175,7 @@ hera_cpu_sleep: cpu-hera-sleep {
-> >  				idle-state-name = "c2";
-> >  				compatible = "arm,idle-state";
-> >  				arm,psci-suspend-param = <0x0010000>;
-> > +				local-timer-stop;
-> >  				entry-latency-us = <235>;
-> >  				exit-latency-us = <220>;
-> >  				min-residency-us = <3500>;
-> > -- 
-> > 2.49.0.472.ge94155a9ec-goog
-> > 
-> Hi Will.
+On Wed, 02 Apr 2025 20:22:47 +0100,
+Breno Leitao <leitao@debian.org> wrote:
 > 
-> Are you using this property in production?
-> If so, have you noticed any performance improvements?
+> While reading how `cntvct_el0` was read in the kernel, I found that
+> __arch_get_hw_counter() is doing something very similar to what
+> __arch_counter_get_cntvct() is already doing.
+> 
+> Use the existing __arch_counter_get_cntvct() function instead of
+> duplicating similar inline assembly code in __arch_get_hw_counter().
+> 
+> Both functions were performing nearly identical operations to read the
+> cntvct_el0 register. The only difference was that
+> __arch_get_hw_counter() included a memory clobber in its inline
+> assembly, which appears unnecessary in this context.
+> 
+> This change simplifies the code by eliminating duplicate functionality
+> and improves maintainability by centralizing the counter access logic in
+> a single implementation.
+> 
+> Signed-off-by: Breno Leitao <leitao@debian.org>
+> ---
+> I'm sharing this code as an RFC since I'm not intimately familiar with
+> different arm platforms, and I want to double-check that I haven't
+> missed anything subtle.
+> ---
+>  arch/arm64/include/asm/vdso/gettimeofday.h | 22 ++--------------------
+>  1 file changed, 2 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
+> index 92a2b59a9f3df..417b5b41b877d 100644
+> --- a/arch/arm64/include/asm/vdso/gettimeofday.h
+> +++ b/arch/arm64/include/asm/vdso/gettimeofday.h
+> @@ -11,6 +11,7 @@
+>  #include <asm/barrier.h>
+>  #include <asm/unistd.h>
+>  #include <asm/sysreg.h>
+> +#include <asm/arch_timer.h>
+>  
+>  #define VDSO_HAS_CLOCK_GETRES		1
+>  
+> @@ -69,8 +70,6 @@ int clock_getres_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
+>  static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+>  						 const struct vdso_time_data *vd)
+>  {
+> -	u64 res;
+> -
+>  	/*
+>  	 * Core checks for mode already, so this raced against a concurrent
+>  	 * update. Return something. Core will do another round and then
+> @@ -79,24 +78,7 @@ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+>  	if (clock_mode == VDSO_CLOCKMODE_NONE)
+>  		return 0;
+>  
+> -	/*
+> -	 * If FEAT_ECV is available, use the self-synchronizing counter.
+> -	 * Otherwise the isb is required to prevent that the counter value
+> -	 * is speculated.
+> -	*/
+> -	asm volatile(
+> -	ALTERNATIVE("isb\n"
+> -		    "mrs %0, cntvct_el0",
+> -		    "nop\n"
+> -		    __mrs_s("%0", SYS_CNTVCTSS_EL0),
+> -		    ARM64_HAS_ECV)
+> -	: "=r" (res)
+> -	:
+> -	: "memory");
+> -
+> -	arch_counter_enforce_ordering(res);
+> -
+> -	return res;
+> +	return __arch_counter_get_cntvct();
 
-On Pixel 6, I have only recently switched to using the arch_timer as the
-default clocksource. I haven't noticed any major perf improvements to the main
-benchmarks, but also haven't seen any regressions. Based on the ChromeOS perf
-analysis in [1,2], there was a significant perf difference found.
+I won't pretend I understand it all, but you really want to have a
+look at the link just above the arch_counter_enforce_ordering()
+definition, pasted below for your convenience:
 
-[1] https://lore.kernel.org/linux-samsung-soc/CAJFHJrrgWGc4XGQB0ysLufAg3Wouz-aYXu97Sy2Kp=HzK+akVQ@mail.gmail.com/
-[2] https://lore.kernel.org/linux-samsung-soc/CAASgrz2Nr69tpfC8ka9gbs2OvjLEGsvgAj4vBCFxhsamuFum7w@mail.gmail.com/
+https://lore.kernel.org/r/alpine.DEB.2.21.1902081950260.1662@nanos.tec.linutronix.de/
 
-If it helps, I found that Pixel 8 and 9 devices (didn't check Pixel 7)
-are already using the arch_timer with this 'local-timer-stop' as the default
-clocksource in the production kernel.
+Dropping this ordering enforcement seems pretty adventurous unless you
+have very strong guarantees about the context this executes in.
 
-Thanks,
-Will
+	M.
 
-[...]
+-- 
+Jazz isn't dead. It just smells funny.
 
