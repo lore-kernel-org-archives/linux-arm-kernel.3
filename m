@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04989C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 17:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE1AC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 17:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kh1X3A2xd34PD+lt5dj4bh/JB7f/CkRHbxL8lur8Lu8=; b=l81aNZIQ/jDfqTNigVa+7BfQpP
-	AeOsW4oCzBY664TTmWkj3I/+0w+51zdoAjckn84fF456qP5GI+Ho2xl0AVN3AGIhko9PodqaAlozf
-	K8xL8ieK4HmMZf+unjKsSvW0rjrFmCIM8GVUunWL5NDopOSkFxjNAcAHgRWgwozv/2GfdvUA2yk3m
-	1MKPDFeX0icDXnm2utYvk3PdCCVe3psPF21pi7nOUHTj4jL0tJvUlOL1YVbzZT3iFKmpNpQbXoSFH
-	BsXJvc1TmlZb3idk2B3phFNMwJSrLyyjCY6+S6mwd0CC7/6Jd1IN8Z2fx6KsSC25L1I04RytPbchU
-	I3oT6BKw==;
+	bh=rfkQzBgv7pcenc9mewatkcnQtFmXIIhFzjr6uRVtUJg=; b=csqctex49W4H7Fj+2vEFkJFNPI
+	aFr8Axn6sos2WJ3DH3O/UgIBo3BMQ11xvO3xBp+AeQiHumyNoLUy2+DP7gyGBNe90f9KRPPmjdOrg
+	TbO+RRv5N22lEf6nKqOqefY0f/f+xDHzM0i/FL89FHjA08O1zcjogUtz8PKk4etSSZY6eWfMPfujc
+	K0tMlNUXihSn0qZ4EUrALNBVYoX8HjFKzL/xKp88NOTTmenv/hHNa17Q9P4AtjIQhfHYiZpjLoG1A
+	g64rPnVn7joCDUSeo3jkqTppO+V2IKlLursz0SFLz4U1Bi98gCFgmnFyWfF0S76gwbAVtJTC+JsjD
+	e5lMnB1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u01wm-00000006luG-2oag;
-	Wed, 02 Apr 2025 17:32:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u01zF-00000006mRI-1oKN;
+	Wed, 02 Apr 2025 17:34:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u01v1-00000006lTP-2fdg
+	id 1u01xU-00000006m4E-1JoA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 17:30:28 +0000
+	Wed, 02 Apr 2025 17:33:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B51E643635;
-	Wed,  2 Apr 2025 17:30:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3923C4CEDD;
-	Wed,  2 Apr 2025 17:30:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A46075C693E;
+	Wed,  2 Apr 2025 17:30:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 257B8C4CEDD;
+	Wed,  2 Apr 2025 17:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743615027;
-	bh=E+fPsADjzWGHXU7LsqGEmS5ToStoyx9zhJyWoJ9AdO4=;
+	s=k20201202; t=1743615177;
+	bh=PDBx9Mwlt0VuTbkCTuvBag9RIYTLpzY//Vox7KarUw4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=or6p85ZFbq9MCmpsAI4BNWvFZkM1bkvThZhRcNOXLEvOMlkKa5oSzGGhiyiiv3ZYL
-	 tNihs3ZVlh4K1mEfiZ27uoBkH7Fab9qcyWFHZ5K/L42WJnE/W42KbEJW2ykKUhW/xW
-	 vDlOioFWkWrLMUC4u/EEMEumujuBmm/f9Yxcca7dZCm97eyK4IeNWswNKLmxE7Lwm8
-	 N43JFQpdFei0FqpJFtKIw9LA71pTWNIlMjIAJ9jkmAY7Jonwn/hQxTbYkNe3hGcEDx
-	 jhkVvEzH6fhU52Z+EvcYjtm+zyWsAzQrozqDRvJOHR+WH842CraO8S11sjnNe4AGhq
-	 y6+FxxzZ5qh7g==
-Date: Wed, 2 Apr 2025 10:30:25 -0700
+	b=DB0fJMwpTUWTW1iCebVH6P0kAvwOA2No1jlc/2TFO+dCOoIp05YHe/raiBCYb0RgZ
+	 kvmQ3YQHXfLlDj1TQ8KPtIuDEKTurkjTOoB3JMm9TB9U+hDIfTF2CWvwcmOFfFOwOI
+	 rhUmUP5SFYqNwmXX/aKWZ8/laVB5U9sPAQH0A0/T7hCwpgFXUd961rGjWhAPDbzTQb
+	 2T/eqNrEh1fJxi5Y5BELHOwdlroSpdupxfBd99VEfC/ons0lzKJQNdrBHcF/vocsFf
+	 CcKALAhS+vIbvPb2gfJGxRjVOCYzjJUla9PA7o5oc0SE1j8NDLm+Uq7G32eTxxXyvX
+	 +I1eK7jHyO6mw==
+Date: Wed, 2 Apr 2025 10:32:55 -0700
 From: Eric Biggers <ebiggers@kernel.org>
 To: Ard Biesheuvel <ardb+git@google.com>
 Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	herbert@gondor.apana.org.au, Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH 2/2] crypto: arm/aes-neonbs - stop using the SIMD helper
-Message-ID: <20250402173025.GE1235@sol.localdomain>
+Subject: Re: [PATCH 1/2] crypto: arm/aes-ce - stop using the SIMD helper
+Message-ID: <20250402173255.GF1235@sol.localdomain>
 References: <20250402070251.1762692-3-ardb+git@google.com>
- <20250402070251.1762692-4-ardb+git@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250402070251.1762692-4-ardb+git@google.com>
+In-Reply-To: <20250402070251.1762692-3-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_103027_694309_867A20A4 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20250402_103300_396376_D5DFE3D0 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,7 +71,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 09:02:53AM +0200, Ard Biesheuvel wrote:
+On Wed, Apr 02, 2025 at 09:02:52AM +0200, Ard Biesheuvel wrote:
 > From: Ard Biesheuvel <ardb@kernel.org>
 > 
 > Now that ARM permits use of the NEON unit in softirq context as well as
@@ -86,26 +85,26 @@ On Wed, Apr 02, 2025 at 09:02:53AM +0200, Ard Biesheuvel wrote:
 > 
 > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 > ---
->  arch/arm/crypto/Kconfig           |   1 -
->  arch/arm/crypto/aes-neonbs-glue.c | 114 +++---------------------------
->  2 files changed, 9 insertions(+), 106 deletions(-)
+>  arch/arm/crypto/Kconfig       |   1 -
+>  arch/arm/crypto/aes-ce-glue.c | 102 ++++------------------------------
+>  2 files changed, 11 insertions(+), 92 deletions(-)
 > 
 > diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
-> index 2fa8aba8dc12..ba1d1b67c727 100644
+> index 32650c8431d9..2fa8aba8dc12 100644
 > --- a/arch/arm/crypto/Kconfig
 > +++ b/arch/arm/crypto/Kconfig
-> @@ -169,7 +169,6 @@ config CRYPTO_AES_ARM_BS
->  	select CRYPTO_AES_ARM
+> @@ -197,7 +197,6 @@ config CRYPTO_AES_ARM_CE
+>  	depends on KERNEL_MODE_NEON
 >  	select CRYPTO_SKCIPHER
 >  	select CRYPTO_LIB_AES
 > -	select CRYPTO_SIMD
 >  	help
 >  	  Length-preserving ciphers: AES cipher algorithms (FIPS-197)
->  	  with block cipher modes:
-> diff --git a/arch/arm/crypto/aes-neonbs-glue.c b/arch/arm/crypto/aes-neonbs-glue.c
-> index f6be80b5938b..63800257a7ea 100644
-> --- a/arch/arm/crypto/aes-neonbs-glue.c
-> +++ b/arch/arm/crypto/aes-neonbs-glue.c
+>  	   with block cipher modes:
+> diff --git a/arch/arm/crypto/aes-ce-glue.c b/arch/arm/crypto/aes-ce-glue.c
+> index 21df5e7f51f9..c17d9e4ad8e6 100644
+> --- a/arch/arm/crypto/aes-ce-glue.c
+> +++ b/arch/arm/crypto/aes-ce-glue.c
 
 The following includes can now be removed from this file:
 
