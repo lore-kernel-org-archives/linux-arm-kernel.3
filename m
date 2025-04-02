@@ -4,62 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA49C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 00:56:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F23D0C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 00:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5wtHyNdN9y5JnnetPBoOCyUNOyX7UvzCKhyCrZZ1gI=; b=jAzo2vy0hTc6kq/llGNEUPvmJn
-	wmzxVljipw+sr7YEhaxvathc31FSPmJEj3emdpvWXjDKUPg5qOddtTZzNT1Q7WOEogOIJJmI60kNu
-	7SHW9azTzMAt7U8zW/8lgE0AjgP0gtpITnRaD+GW+fP3drgMRTmzkfdpepewPJeQtvcmsB3AG56cj
-	jkZekGTV5IZP0c+GOzjCYGmPagAPdbiF6kA2/A47jhr+uYSS6egKA2WUfL28J+pbiyNqFCc7jL/1P
-	kXMuNxtt5lXDNgMgmpGQ5sd1Qz7mswctexadwV9iHLz8KSEnISFc93D24NWzbuTB7sCVrSDBReCVV
-	DCPCgE1A==;
+	bh=JQPdJka26Zt3f5JYNWnVHi8ewypPJUPCEoqjarXgSWc=; b=rsaOPnfugpMNX7bE28hD8121qk
+	nJeN5mP12zq04snaQWTdYEkxulCM2ctcwUvJpDh/ZA7jWuSnMFpvRNpssOllhlOnnaV2rhsR7Ewyl
+	qx5BARV52xGPgBCMXnGnclR6wKu2HHIPVTCxJNYhtXH8mfHQukqzP6NJoTpHjOzB7xPpDvg+meCCI
+	910jmoJijw/wUK6BEJvn2HX10psNVh6u3g5WBOW6DX8tTyUKbKUlDTdX9W66moBD5Lk5LCfHSIoOM
+	2RFOCWXhq2hc/NTHqGWbeMsRCSsFIS5pFaswIL1kG4duDtELtd0AGiSBLquDJpbOS+ljjizg5/b5v
+	gbBxqyFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzmOk-00000004mQy-1Box;
-	Wed, 02 Apr 2025 00:56:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1tzmQY-00000004mfm-0dcH;
+	Wed, 02 Apr 2025 00:57:58 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzmN1-00000004m9H-1ZNZ
+	id 1tzmOo-00000004mRo-11ID
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 00:54:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DF25861126;
-	Wed,  2 Apr 2025 00:54:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A460DC4CEE4;
-	Wed,  2 Apr 2025 00:54:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743555258;
-	bh=/0zz4PKfcfSmXN/45Xp1mSPvrRuJjBxRJOJ/lyfE7UQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RCsLNG9aVi3V82xZ/6oEZSNsQF3BjRuXv1neERksnDPnGCtMulh/64xNESG3RWsLl
-	 yf30ngBuNOZsW+CbTIph1qQZBntJlB18XYzKzp5dyS1/AB7kBXnukbZviRs7IAECxw
-	 ZNx6Y8FUXHYOd5lx3/UHBVueom3RJ8c4bKNyUCHJUXhbqQsIUmU6hgrCIaBvIMW9nk
-	 jTENZXw45YJD8S3MXD7LQTYNs4QNntCXh61n7h0tI+qrlM3PAiQ5tujo51WezBgp5l
-	 sc+mIgxrTiyPa6Jp9gXUUniAF6io3Au2Smjys6blKdV/JkBfCdwuI0cSoOVbDMjx8M
-	 9ZUuwkPdBbcuA==
-Date: Tue, 1 Apr 2025 17:54:16 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: <Ryan.Wanner@microchip.com>
-Cc: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
- <pabeni@redhat.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
- <conor+dt@kernel.org>, <alexandre.belloni@bootlin.com>,
- <claudiu.beznea@tuxon.dev>, <nicolas.ferre@microchip.com>,
- <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/6] dt-bindings: net: cdns,macb: add sama7d65 ethernet
- interface
-Message-ID: <20250401175326.1b0ae7d5@kernel.org>
-In-Reply-To: <392b078b38d15f6adf88771113043044f31e8cd6.1743523114.git.Ryan.Wanner@microchip.com>
-References: <cover.1743523114.git.Ryan.Wanner@microchip.com>
-	<392b078b38d15f6adf88771113043044f31e8cd6.1743523114.git.Ryan.Wanner@microchip.com>
+	Wed, 02 Apr 2025 00:56:11 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 531C4eBX001410;
+	Wed, 2 Apr 2025 00:56:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	JQPdJka26Zt3f5JYNWnVHi8ewypPJUPCEoqjarXgSWc=; b=Z0OHfjDqasIQgEJP
+	mVfMJYZxi7mwcE/g5i/J7Rb4GMWggUY5TAwJ+WiKnDenJY3kBMEJOigHtpdJ8gA7
+	gK75On2CxZVc+zEvIXhWm/xlCW7a5+MdzZzcQJts52owp4t5xVyzPBkMf/SI2xBK
+	J7e+Ox3hiImS9/bgthgkCu7samyyI6+84atIUx0Jo8PDlXgEmGB2DhT/iyjjSi4a
+	Q+97vGhbrPIfMmskrCCkk3fOVs4fCw7E65Rbz9KBNvUR5KdCu8c06QKpFnB/WIQ2
+	o0V5ZNt3SLvUozBCVU1lHASb0f3cM+ut/ryL0lTh83iq8G7dRcixAxk+AkFyEKsh
+	uE2yEQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45p67qhxtm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 02 Apr 2025 00:55:59 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5320twOu007562
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 2 Apr 2025 00:55:58 GMT
+Received: from [10.133.33.107] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 1 Apr 2025
+ 17:55:54 -0700
+Message-ID: <8a34b1ac-5681-4cd8-b960-a154d8678fa2@quicinc.com>
+Date: Wed, 2 Apr 2025 08:55:51 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 9/9] coresight: Consolidate clock enabling
+To: James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        Anshuman Khandual <anshuman.khandual@arm.com>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+References: <20250327113803.1452108-1-leo.yan@arm.com>
+ <20250327113803.1452108-10-leo.yan@arm.com>
+ <b9046586-c884-484f-a308-9f256d3d99f5@linaro.org>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <b9046586-c884-484f-a308-9f256d3d99f5@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=fMI53Yae c=1 sm=1 tr=0 ts=67ec8b1f cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=7CQSdrXTAAAA:8 a=Jy6px9J2CyRB1KJ-eCEA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: DzYqgaASLaIqlX-980ncbcyes28NL15m
+X-Proofpoint-GUID: DzYqgaASLaIqlX-980ncbcyes28NL15m
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-01_10,2025-04-01_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 mlxscore=0
+ priorityscore=1501 phishscore=0 spamscore=0 impostorscore=0 clxscore=1011
+ mlxlogscore=999 bulkscore=0 malwarescore=0 suspectscore=0
+ lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504020004
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250401_175610_453789_612813D4 
+X-CRM114-Status: GOOD (  33.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,24 +113,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 1 Apr 2025 09:13:17 -0700 Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+
+
+On 4/1/2025 10:58 PM, James Clark wrote:
 > 
-> Add documentation for sama7d65 ethernet interface.
+> 
+> On 27/03/2025 11:38 am, Leo Yan wrote:
+>> CoreSight drivers enable pclk and atclk conditionally.  For example,
+>> pclk is only enabled in the static probe, while atclk is an optional
+>> clock that it is enabled for both dynamic and static probes, if it is
+>> present.  In the current CoreSight drivers, these two clocks are
+>> initialized separately.  This causes complex and duplicate codes.
+>>
+>> This patch consolidates clock enabling into a central place.  It renames
+>> coresight_get_enable_apb_pclk() to coresight_get_enable_clocks() and
+>> encapsulates clock initialization logic:
+>>
+>>   - If a clock is initialized successfully, its clock pointer is assigned
+>>     to the double pointer passed as an argument.
+>>   - If pclk is skipped for an AMBA device, or if atclk is not found, the
+>>     corresponding double pointer is set to NULL.  The function returns
+>>     Success (0) to guide callers can proceed with no error.
+>>   - Otherwise, an error number is returned for failures.
+>>
+>> CoreSight drivers are refined so that clocks are initialized in one go.
+>> As a result, driver data no longer needs to be allocated separately in
+>> the static and dynamic probes.  Moved the allocation into a low-level
+>> function to avoid code duplication.
+>>
+>> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Leo Yan <leo.yan@arm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-catu.c       | 30 +++++++++ 
+>> +--------------------
+>>   drivers/hwtracing/coresight/coresight-cpu-debug.c  | 29 ++++++++++ 
+>> +------------------
+>>   drivers/hwtracing/coresight/coresight-ctcu-core.c  |  8 ++++----
+>>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 11 ++++-------
+>>   drivers/hwtracing/coresight/coresight-funnel.c     | 11 ++++-------
+>>   drivers/hwtracing/coresight/coresight-replicator.c | 11 ++++-------
+>>   drivers/hwtracing/coresight/coresight-stm.c        |  9 +++------
+>>   drivers/hwtracing/coresight/coresight-tmc-core.c   | 30 +++++++++ 
+>> +--------------------
+>>   drivers/hwtracing/coresight/coresight-tpiu.c       | 10 ++++------
+>>   include/linux/coresight.h                          | 38 ++++++++++++ 
+>> +++++++++++++++-----------
+>>   10 files changed, 81 insertions(+), 106 deletions(-)
+>>
+> [...]
+>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+>> index 26eb4a61b992..cf3fbbc0076a 100644
+>> --- a/include/linux/coresight.h
+>> +++ b/include/linux/coresight.h
+>> @@ -471,25 +471,41 @@ static inline bool is_coresight_device(void 
+>> __iomem *base)
+>>   }
+>>   /*
+>> - * Attempt to find and enable "APB clock" for the given device
+>> + * Attempt to find and enable programming clock (pclk) and trace 
+>> clock (atclk)
+>> + * for the given device.
+>>    *
+>> - * Returns:
+>> + * The AMBA bus driver will cover the pclk, to avoid duplicate 
+>> operations,
+>> + * skip to get and enable the pclk for an AMBA device.
+>>    *
+>> - * clk   - Clock is found and enabled
+>> - * NULL  - Clock is not needed as it is managed by the AMBA bus driver
+>> - * ERROR - Clock is found but failed to enable
+>> + * atclk is an optional clock, it will be only enabled when it is 
+>> existed.
+>> + * Otherwise, a NULL pointer will be returned to caller.
+>> + *
+>> + * Returns: '0' on Success; Error code otherwise.
+>>    */
+>> -static inline struct clk *coresight_get_enable_apb_pclk(struct device 
+>> *dev)
+>> +static inline int coresight_get_enable_clocks(struct device *dev,
+>> +                          struct clk **pclk,
+>> +                          struct clk **atclk)
+> 
+> This function has grown a bit now, probably best to remove it from the 
+> header and export it instead.
+> 
+>>   {
+>> -    struct clk *pclk = NULL;
+>> +    WARN_ON(!pclk);
+>>       if (!dev_is_amba(dev)) {
+>> -        pclk = devm_clk_get_enabled(dev, "apb_pclk");
+>> -        if (IS_ERR(pclk))
+>> -            pclk = devm_clk_get_enabled(dev, "apb");
+>> +        *pclk = devm_clk_get_enabled(dev, "apb_pclk");
+>> +        if (IS_ERR(*pclk))
+>> +            *pclk = devm_clk_get_enabled(dev, "apb");
+>> +        if (IS_ERR(*pclk))
+>> +            return PTR_ERR(*pclk);
+>> +    } else {
+>> +        /* Don't enable pclk for an AMBA device */
+>> +        *pclk = NULL;
+> 
+> Now the "apb" clock won't be enabled for amba devices. I'm assuming 
+> that's fine if the clock was always called "apb_pclk" for them, but the 
+> commit that added the new clock name didn't specify any special casing 
+> either.
+> 
+> Can we have a comment that says it's deliberate? But the more I think 
+> about it the more I'm confused why CTCU needed a different clock name to 
+> be defined, when all the other Coresight devices use "apb_pclk".
 
-## Form letter - net-next-closed
+Hi James,
 
-Linus already pulled net-next material v6.15 and therefore net-next is closed
-for new drivers, features, code refactoring and optimizations. We are currently
-accepting bug fixes only.
+The original clock-name for CTCU is apb_pclk, but the dt-binding 
+maintainer request me to change it to apb, that's why the clock name is 
+different from others.
 
-Please repost when net-next reopens after Apr 7th.
+I am not why we need apb instead of apb_pclk in dt-binding. Maybe some 
+rules have changed for dt-binding requirement.
 
-RFC patches sent for review only are obviously welcome at any time.
+Thanks,
+Jie
 
-See: https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#development-cycle
--- 
-pw-bot: defer
-pv-bot: closed
+> 
+>>       }
+>> -    return pclk;
+>> +    if (atclk) {
+>> +        *atclk = devm_clk_get_optional_enabled(dev, "atclk");
+>> +        if (IS_ERR(*atclk))
+>> +            return PTR_ERR(*atclk);
+>> +    }
+>> +
+>> +    return 0;
+>>   }
+>>   #define CORESIGHT_PIDRn(i)    (0xFE0 + ((i) * 4))
+> 
 
 
