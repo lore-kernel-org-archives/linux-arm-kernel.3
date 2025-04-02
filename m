@@ -4,66 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965AEC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 15:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FF4C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 15:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9+sgrKUixJfScmblE4/RYiP0Z7a8pyQDBnyIip9mUWU=; b=O7nJCvkw/t/qYb17jxjSKvKmit
-	rlMlQbzInMJ8L90/V4oQbox2VrnqV9YwNEDl6cswWQscgzJcDs3k3aYG2gCVQ/kKIHLk5Pgg4FABn
-	aL54jMUg7RArdtPtE8Cw6tpqd5qg5OiE0LMNs9iIJArWJjiEUfcgdS4ehTy5uRX2liC+VBf7qkX+B
-	sHH3kq6MeKzKcA+IckCscN6dDnU1i0rfPJGLRG9GnpLbEWxoX/Y5VSRlPzkYDRB5nSpccrIfQjekb
-	6eFXweaC9pMsVDQwrbUylAoLt7n/jbsJY9P2jIwaOa0t+qiCmwVA8eN551euirUhgzYD1+iKu/a3v
-	imWQ4O7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xoveRt7IX9A9Mgeq+r74/NuLmHzS60lGbTWv36SboFI=; b=1fPWL1QLG67OPNl5JecOhlSobu
+	tmNvLexfNzSsZ8XMADz4KiQsvu2EytezdNbZKa0rre4jnrf3GXBb1SxkO5HNuRaL6J/wNrI7/J07D
+	6iIVMuKYfXVnf3S9H/4CrT1e+GqdlTih6wjTvDEAbLhLj58Ky7ZFCzur5x2dWBFG4GvHQmjBaUHb/
+	NlEpv5ManrsPvpTYP3OfbU/DBlQbCKupk5c/yajvOWu9sIOCRqvUrLHrtUGbCFS8uxPUPK70EXgfa
+	bnoyiVOaiBFonctZPWyCQkW4hCKy4YMiZ145WIvICL8j0iTBS0I+ggfSAt+kQ0wrg0ceG9vOT+u2j
+	RAyFSnvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u004n-00000006Wr9-3Jc0;
-	Wed, 02 Apr 2025 15:32:25 +0000
+	id 1u008P-00000006XKe-2nhS;
+	Wed, 02 Apr 2025 15:36:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0031-00000006WY1-3kQT
+	id 1u006d-00000006X7Y-36rA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 15:30:37 +0000
+	Wed, 02 Apr 2025 15:34:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27D3A106F;
-	Wed,  2 Apr 2025 08:30:38 -0700 (PDT)
-Received: from bogus (unknown [10.57.41.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E9943F694;
-	Wed,  2 Apr 2025 08:30:32 -0700 (PDT)
-Date: Wed, 2 Apr 2025 16:30:29 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v3 1/7] firmware: arm_scmi: imx: Add LMM and CPU
- documentation
-Message-ID: <20250402-pastoral-screeching-panda-da4a45@sudeepholla>
-References: <20250303-imx-lmm-cpu-v3-0-7695f6f61cfc@nxp.com>
- <20250303-imx-lmm-cpu-v3-1-7695f6f61cfc@nxp.com>
- <20250401-quantum-coyote-of-admiration-bf1b68@sudeepholla>
- <20250402123503.GA23033@nxa18884-linux>
- <20250402-acoustic-analytic-guan-d3cda5@sudeepholla>
- <20250402161037.GC23033@nxa18884-linux>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E066106F;
+	Wed,  2 Apr 2025 08:34:20 -0700 (PDT)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A24133F694;
+	Wed,  2 Apr 2025 08:34:15 -0700 (PDT)
+Message-ID: <6e0ef5cc-b692-4d39-bec4-a75c1af3f0aa@arm.com>
+Date: Wed, 2 Apr 2025 16:34:08 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250402161037.GC23033@nxa18884-linux>
+User-Agent: Mozilla Thunderbird
+Subject: Re: arm64: juno-r2: SSD detect failed on mainline and next
+To: Naresh Kamboju <naresh.kamboju@linaro.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, iommu@lists.linux.dev,
+ open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org,
+ Linux Regressions <regressions@lists.linux.dev>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Rob Herring <robh@kernel.org>,
+ Dan Carpenter <dan.carpenter@linaro.org>, Arnd Bergmann <arnd@arndb.de>,
+ Anders Roxell <anders.roxell@linaro.org>
+References: <CA+G9fYt0F_vR-zOV4P8m4HTv6AecT-eEnrL+t5wgAaKPodi0mQ@mail.gmail.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CA+G9fYt0F_vR-zOV4P8m4HTv6AecT-eEnrL+t5wgAaKPodi0mQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_083036_015999_C5B2230D 
-X-CRM114-Status: GOOD (  29.54  )
+X-CRM114-CacheID: sfid-20250402_083419_873282_922AED7B 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,84 +69,245 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 12:10:37AM +0800, Peng Fan wrote:
-> Hi Sudeep,
+On 31/03/2025 5:03 am, Naresh Kamboju wrote:
+> Regressions on arm64 Juno-r2 devices detect SSD tests failed on the
+> Linux next and Linux mainline.
 > 
-> On Wed, Apr 02, 2025 at 12:46:14PM +0100, Sudeep Holla wrote:
-> >On Wed, Apr 02, 2025 at 08:35:03PM +0800, Peng Fan wrote:
-> >> Hi Sudeep,
-> >> 
-> >> Thanks for reviewing the patch.
-> >> 
-> >> For comments that I am not very clear, I marked with [TODO] for easily
-> >> jump to.
-> >> 
-> >> On Tue, Apr 01, 2025 at 03:15:46PM +0100, Sudeep Holla wrote:
-> >> >On Mon, Mar 03, 2025 at 10:53:22AM +0800, Peng Fan (OSS) wrote:
-> >> >> From: Peng Fan <peng.fan@nxp.com>
-> >> >> 
-> >> >> Add i.MX95 Logical Machine Management and CPU Protocol documentation.
-> >> >> 
-> >> >> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> >> >> ---
-> >> >>  drivers/firmware/arm_scmi/vendors/imx/imx95.rst | 801 ++++++++++++++++++++++++
-> >> >>  1 file changed, 801 insertions(+)
-> >> >> 
-> >> >> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst b/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
-> >> >> index b2dfd6c46ca2f5f12f0475c24cb54c060e9fa421..74326bf2ea8586282a735713e0ab7eb90ccce8ff 100644
-> >> >> --- a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
-> >> >> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx95.rst
-> >
-> >> >> +
-> >> >> +PROTOCOL_MESSAGE_ATTRIBUTES
-> >> >> +~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> >> >> +
-> >> >> +message_id: 0x2
-> >> >> +protocol_id: 0x80
-> >> >> +This command is mandatory.
-> >> >> +
-> >> >
-> >> >For completeness add parameters here for message_id as in the spec as it is
-> >> >referred in the returned value and seems incomplete without it.
-> >> 
-> >> [TODO]
-> >> Sorry, I may not get your point here. You mean below format?
-> >> 
-> >> +------------------+-----------------------------------------------------------+
-> >> |message_id: 0x2
-> >> |protocol_id: 0x80
-> >> |This command is mandatory.
-> >> +------------------+-----------------------------------------------------------+
-> >> |Return values                                                                 |
-> >> +------------------+-----------------------------------------------------------+
-> >> |Name              |Description                                                |
-> >> +------------------+-----------------------------------------------------------+
-> >> |int32 status      |SUCCESS: in case the message is implemented and available  |
-> >> |                  |to use.                                                    |
-> >> |                  |NOT_FOUND: if the message identified by message_id is      |
-> >> |                  |invalid or not implemented                                 |
-> >> +------------------+-----------------------------------------------------------+
-> >> |uint32 attributes |Flags that are associated with a specific function in the  |
-> >> |                  |protocol. For all functions in this protocol, this         |
-> >> 
-> >> message_id is not put in the table, but it is list above just below
-> >> the protocol name. I would prefer to keep current layout and align with
-> >> the MISC and BBM protocol.
-> >>
-> >
-> >I meant why is the input parameter message_id not described in the table,
-> >but is referred in the return values. For completeness, just add it even
-> >though it may match the SCMI spec in terms of input parameter.
-> 
-> I will add below only for PROTOCOL_MESSAGE_ATTRIBUTES which refer message_id
-> in the return values. Please raise if you have concern.
-> 
+> First seen on the v6.14-7245-g5c2a430e8599
+>   Good: v6.14
+>   Bad: v6.14-7422-gacb4f33713b9
 
-Ignore this. I see even existing BBM and MISC follow the same pattern for
-standard protocol commands(0x0-0x2). We can fix them all at once if it
-needs to be in the future. For now, it should be fine as is.
+Sorry, I can't seem to reproduce this on my end, both today's mainline 
+and acb4f33713b9 with my config, and even acb4f33713b9 with the linked 
+LKFT config, all work OK on my Juno r2 (using a SATA SSD and PCIe 
+networking). The only thing which stands out in your log is that PCI 
+seems to give up probing and assigning resources beyond the switch 
+downstream ports (so SATA and ethernet are never discovered), whereas on 
+mine it does[2]. However that all happens before the first IOMMU 
+instance probes (which conveniently is the PCIe one), so it's hard to 
+imagine how that could have an effect anyway...
 
--- 
-Regards,
-Sudeep
+The only obvious difference is that I'm using EDK2 rather than U-Boot, 
+so that's done all the PCIe configuration once already, but it doesn't 
+seem like that's significant - looking back at a random older log[1], 
+the on-board endpoints were still being picked up right after 
+reconfiguring the switch, well before the IOMMU comes into the picture.
+
+Thanks,
+Robin.
+
+
+[1] https://lkft.validation.linaro.org/scheduler/job/8143082#L1283
+[2]:
+
+[    1.741362] pci-host-generic 40000000.pcie: host bridge 
+/pcie@40000000 ranges:
+[    1.748682] pci-host-generic 40000000.pcie:       IO 
+0x005f800000..0x005fffffff -> 0x0000000000
+[    1.757465] pci-host-generic 40000000.pcie:      MEM 
+0x0050000000..0x0057ffffff -> 0x0050000000
+[    1.766224] pci-host-generic 40000000.pcie:      MEM 
+0x4000000000..0x40ffffffff -> 0x4000000000
+[    1.775019] pci-host-generic 40000000.pcie:   IB MEM 
+0x0080000000..0x00ffffffff -> 0x0080000000
+[    1.783781] pci-host-generic 40000000.pcie:   IB MEM 
+0x0800000000..0x09ffffffff -> 0x0800000000
+[    1.792615] pci-host-generic 40000000.pcie: ECAM at [mem 
+0x40000000-0x4fffffff] for [bus 00-ff]
+[    1.801559] pci-host-generic 40000000.pcie: PCI host bridge to bus 
+0000:00
+[    1.808485] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    1.814022] pci_bus 0000:00: root bus resource [io  0x0000-0x7fffff]
+[    1.820408] pci_bus 0000:00: root bus resource [mem 
+0x50000000-0x57ffffff]
+[    1.827314] pci_bus 0000:00: root bus resource [mem 
+0x4000000000-0x40ffffffff pref]
+[    1.835050] pci 0000:00:00.0: [1556:1100] type 01 class 0x060400 PCIe 
+Root Port
+[    1.842444] pci 0000:00:00.0: BAR 0 [mem 0x4000000000-0x4000003fff 
+64bit pref]
+[    1.849717] pci 0000:00:00.0: PCI bridge to [bus 01-08]
+[    1.854990] pci 0000:00:00.0:   bridge window [io  0x0000-0x1fff]
+[    1.861125] pci 0000:00:00.0:   bridge window [mem 0x50000000-0x501fffff]
+[    1.868099] pci 0000:00:00.0: supports D1 D2
+[    1.872393] pci 0000:00:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    1.881014] pci 0000:01:00.0: [111d:8090] type 01 class 0x060400 PCIe 
+Switch Upstream Port
+[    1.889407] pci 0000:01:00.0: PCI bridge to [bus 02-08]
+[    1.894675] pci 0000:01:00.0:   bridge window [io  0x0000-0x1fff]
+[    1.900812] pci 0000:01:00.0:   bridge window [mem 0x50000000-0x501fffff]
+[    1.907690] pci 0000:01:00.0: enabling Extended Tags
+[    1.912876] pci 0000:01:00.0: PME# supported from D0 D3hot D3cold
+[    1.924459] pci 0000:02:01.0: [111d:8090] type 01 class 0x060400 PCIe 
+Switch Downstream Port
+[    1.933037] pci 0000:02:01.0: PCI bridge to [bus 03]
+[    1.938045] pci 0000:02:01.0:   bridge window [io  0x1000-0x1fff]
+[    1.944179] pci 0000:02:01.0:   bridge window [mem 0x50100000-0x501fffff]
+[    1.951060] pci 0000:02:01.0: enabling Extended Tags
+[    1.956298] pci 0000:02:01.0: PME# supported from D0 D3hot D3cold
+[    1.963053] pci 0000:02:02.0: [111d:8090] type 01 class 0x060400 PCIe 
+Switch Downstream Port
+[    1.971621] pci 0000:02:02.0: PCI bridge to [bus 04]
+[    1.976698] pci 0000:02:02.0: enabling Extended Tags
+[    1.981924] pci 0000:02:02.0: PME# supported from D0 D3hot D3cold
+[    1.988682] pci 0000:02:03.0: [111d:8090] type 01 class 0x060400 PCIe 
+Switch Downstream Port
+[    1.997272] pci 0000:02:03.0: PCI bridge to [bus 05]
+[    2.002352] pci 0000:02:03.0: enabling Extended Tags
+[    2.007578] pci 0000:02:03.0: PME# supported from D0 D3hot D3cold
+[    2.014713] pci 0000:02:0c.0: [111d:8090] type 01 class 0x060400 PCIe 
+Switch Downstream Port
+[    2.023303] pci 0000:02:0c.0: PCI bridge to [bus 06]
+[    2.028396] pci 0000:02:0c.0: enabling Extended Tags
+[    2.033643] pci 0000:02:0c.0: PME# supported from D0 D3hot D3cold
+[    2.040569] pci 0000:02:10.0: [111d:8090] type 01 class 0x060400 PCIe 
+Switch Downstream Port
+[    2.049131] pci 0000:02:10.0: PCI bridge to [bus 07]
+[    2.054220] pci 0000:02:10.0: enabling Extended Tags
+[    2.059439] pci 0000:02:10.0: PME# supported from D0 D3hot D3cold
+[    2.066798] pci 0000:02:1f.0: [111d:8090] type 01 class 0x060400 PCIe 
+Switch Downstream Port
+[    2.075368] pci 0000:02:1f.0: PCI bridge to [bus 08]
+[    2.080377] pci 0000:02:1f.0:   bridge window [io  0x0000-0x0fff]
+[    2.086507] pci 0000:02:1f.0:   bridge window [mem 0x50000000-0x500fffff]
+[    2.093397] pci 0000:02:1f.0: enabling Extended Tags
+[    2.098625] pci 0000:02:1f.0: PME# supported from D0 D3hot D3cold
+[    2.105519] pci 0000:03:00.0: [1095:3132] type 00 class 0x018000 PCIe 
+Legacy Endpoint
+[    2.113532] pci 0000:03:00.0: BAR 0 [mem 0x50104000-0x5010407f 64bit]
+[    2.120020] pci 0000:03:00.0: BAR 2 [mem 0x50100000-0x50103fff 64bit]
+[    2.126520] pci 0000:03:00.0: BAR 4 [io  0x1000-0x107f]
+[    2.131794] pci 0000:03:00.0: ROM [mem 0xfff80000-0xffffffff pref]
+[    2.138189] pci 0000:03:00.0: supports D1 D2
+[    2.142965] pci 0000:03:00.0: disabling ASPM on pre-1.1 PCIe device. 
+You can enable it with 'pcie_aspm=force'
+[    2.154011] pci 0000:08:00.0: [11ab:4380] type 00 class 0x020000 PCIe 
+Legacy Endpoint
+[    2.162015] pci 0000:08:00.0: BAR 0 [mem 0x50000000-0x50003fff 64bit]
+[    2.168492] pci 0000:08:00.0: BAR 2 [io  0x0000-0x00ff]
+[    2.173941] pci 0000:08:00.0: supports D1 D2
+[    2.178260] pci 0000:08:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    2.185740] pci 0000:00:00.0: bridge window [mem 
+0x50000000-0x501fffff]: assigned
+[    2.193266] pci 0000:00:00.0: BAR 0 [mem 0x4000000000-0x4000003fff 
+64bit pref]: assigned
+[    2.201411] pci 0000:00:00.0: bridge window [io  0x1000-0x2fff]: assigned
+[    2.208235] pci 0000:01:00.0: bridge window [mem 
+0x50000000-0x501fffff]: assigned
+[    2.215754] pci 0000:01:00.0: bridge window [io  0x1000-0x2fff]: assigned
+[    2.222580] pci 0000:02:01.0: bridge window [mem 
+0x50000000-0x500fffff]: assigned
+[    2.230120] pci 0000:02:1f.0: bridge window [mem 
+0x50100000-0x501fffff]: assigned
+[    2.237648] pci 0000:02:01.0: bridge window [io  0x1000-0x1fff]: assigned
+[    2.244470] pci 0000:02:1f.0: bridge window [io  0x2000-0x2fff]: assigned
+[    2.251313] pci 0000:03:00.0: ROM [mem 0x50000000-0x5007ffff pref]: 
+assigned
+[    2.258399] pci 0000:03:00.0: BAR 2 [mem 0x50080000-0x50083fff 
+64bit]: assigned
+[    2.265769] pci 0000:03:00.0: BAR 0 [mem 0x50084000-0x5008407f 
+64bit]: assigned
+[    2.273141] pci 0000:03:00.0: BAR 4 [io  0x1000-0x107f]: assigned
+[    2.279286] pci 0000:02:01.0: PCI bridge to [bus 03]
+[    2.284289] pci 0000:02:01.0:   bridge window [io  0x1000-0x1fff]
+[    2.290425] pci 0000:02:01.0:   bridge window [mem 0x50000000-0x500fffff]
+[    2.297275] pci 0000:02:02.0: PCI bridge to [bus 04]
+[    2.302302] pci 0000:02:03.0: PCI bridge to [bus 05]
+[    2.307327] pci 0000:02:0c.0: PCI bridge to [bus 06]
+[    2.312353] pci 0000:02:10.0: PCI bridge to [bus 07]
+[    2.317382] pci 0000:08:00.0: BAR 0 [mem 0x50100000-0x50103fff 
+64bit]: assigned
+[    2.324751] pci 0000:08:00.0: BAR 2 [io  0x2000-0x20ff]: assigned
+[    2.330881] pci 0000:02:1f.0: PCI bridge to [bus 08]
+[    2.335895] pci 0000:02:1f.0:   bridge window [io  0x2000-0x2fff]
+[    2.342030] pci 0000:02:1f.0:   bridge window [mem 0x50100000-0x501fffff]
+[    2.348874] pci 0000:01:00.0: PCI bridge to [bus 02-08]
+[    2.354129] pci 0000:01:00.0:   bridge window [io  0x1000-0x2fff]
+[    2.360270] pci 0000:01:00.0:   bridge window [mem 0x50000000-0x501fffff]
+[    2.367113] pci 0000:00:00.0: PCI bridge to [bus 01-08]
+[    2.372366] pci 0000:00:00.0:   bridge window [io  0x1000-0x2fff]
+[    2.378494] pci 0000:00:00.0:   bridge window [mem 0x50000000-0x501fffff]
+[    2.385325] pci_bus 0000:00: resource 4 [io  0x0000-0x7fffff]
+[    2.391101] pci_bus 0000:00: resource 5 [mem 0x50000000-0x57ffffff]
+[    2.397398] pci_bus 0000:00: resource 6 [mem 
+0x4000000000-0x40ffffffff pref]
+[    2.404478] pci_bus 0000:01: resource 0 [io  0x1000-0x2fff]
+[    2.410078] pci_bus 0000:01: resource 1 [mem 0x50000000-0x501fffff]
+[    2.416374] pci_bus 0000:02: resource 0 [io  0x1000-0x2fff]
+[    2.421980] pci_bus 0000:02: resource 1 [mem 0x50000000-0x501fffff]
+[    2.428277] pci_bus 0000:03: resource 0 [io  0x1000-0x1fff]
+[    2.433877] pci_bus 0000:03: resource 1 [mem 0x50000000-0x500fffff]
+[    2.440195] pci_bus 0000:08: resource 0 [io  0x2000-0x2fff]
+[    2.445799] pci_bus 0000:08: resource 1 [mem 0x50100000-0x501fffff]
+[    2.519972] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    2.532646] msm_serial: driver initialized
+[    2.537422] SuperH (H)SCI(F) driver initialized
+[    2.542220] STM32 USART driver initialized
+[    2.551250] arm-smmu 2b500000.iommu: probing hardware configuration...
+[    2.557832] arm-smmu 2b500000.iommu: SMMUv1 with:
+[    2.562564] arm-smmu 2b500000.iommu: 	stage 2 translation
+[    2.568006] arm-smmu 2b500000.iommu: 	coherent table walk
+[    2.573449] arm-smmu 2b500000.iommu: 	stream matching with 32 
+register groups
+[    2.580643] arm-smmu 2b500000.iommu: 	4 context banks (4 stage-2 only)
+[    2.587205] arm-smmu 2b500000.iommu: 	Supported page sizes: 0x60211000
+[    2.593778] arm-smmu 2b500000.iommu: 	Stage-2: 40-bit IPA -> 40-bit PA
+[    2.600471] arm-smmu 2b500000.iommu: 	preserved 0 boot mappings
+[    2.607710] pci 0000:00:00.0: Adding to iommu group 0
+[    2.613204] pci 0000:01:00.0: Adding to iommu group 0
+[    2.618588] pci 0000:02:01.0: Adding to iommu group 0
+[    2.623975] pci 0000:02:02.0: Adding to iommu group 0
+[    2.629373] pci 0000:02:03.0: Adding to iommu group 0
+[    2.634742] pci 0000:02:0c.0: Adding to iommu group 0
+[    2.640127] pci 0000:02:10.0: Adding to iommu group 0
+[    2.645531] pci 0000:02:1f.0: Adding to iommu group 0
+[    2.650952] pci 0000:03:00.0: Adding to iommu group 0
+[    2.656349] pci 0000:08:00.0: Adding to iommu group 0
+
+
+> 
+> * Juno-r2,
+>   - detect-ssd
+>   - mkfs.ext4-ssd
+> 
+> Regression Analysis:
+>   - New regression? yes
+>   - Reproducibility? Yes
+> 
+> Test regression: arm64 Juno-r2 SSD detect failed
+> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> 
+> Anders bisected this to,
+> # first bad commit:
+>    [bcb81ac6ae3c2ef95b44e7b54c3c9522364a245c]
+>    iommu: Get DT/ACPI parsing into the proper probe path
+> 
+> ## Test log
+>    mkfs.ext4 /dev/disk/by-id/ata-SanDisk_SSD_PLUS_240GB_223004A01292
+>    mke2fs 1.47.2 (1-Jan-2025)
+>    The file /dev/disk/by-id/ata-SanDisk_SSD_PLUS_240GB_223004A01292
+> does not exist and no size was specified.
+> 
+> ## Source
+> * Kernel version: 6.14.0
+> * Git tree: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> * Git sha: acb4f33713b9f6cadb6143f211714c343465411c
+> * Git describe: v6.14-7422-gacb4f33713b9
+> * Project details:
+> https://qa-reports.linaro.org/lkft/linux-mainline-master/build/v6.14-7422-gacb4f33713b9/
+> 
+> ## Test
+> * Test log: https://lkft.validation.linaro.org/scheduler/job/8188382#L1538
+> * Test history:
+> https://qa-reports.linaro.org/lkft/linux-mainline-master/build/v6.14/testrun/27742015/suite/ltp-cve/test/cve-2017-2671/history/
+> * Test details:
+> https://lkft.validation.linaro.org/scheduler/job/8188382/definition
+> * Test link: https://storage.tuxsuite.com/public/linaro/lkft/builds/2uwduIsT14Pz3XEoUQQIS6ndlQK/
+> * Kernel config:
+> https://storage.tuxsuite.com/public/linaro/lkft/builds/2uwduIsT14Pz3XEoUQQIS6ndlQK/config
+> 
+> 
+> --
+> Linaro LKFT
+> https://lkft.linaro.org
 
