@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F6DC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 07:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA3B5C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 07:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uVPa/Mq55TU532D1KZ7GBrznPDtMYp5lXvGro3KW/gU=; b=jBhyeGuu4B6sqsicbdTZcfZaIu
-	Li6TsBB1Ql8DG284QNqCjVc+97b3y1ChM3OsFT1s3fuVCxqZdpDbwyzhNPiFPm88tsoDWikw/56im
-	ym4H2PR4SeugHwuhFaKKIRsprmsOz2OFywX5G6loLzcERU1cTMq55MK+PbeRVyXTcffg11u2FCXP/
-	d+hZCjgcqLz2+Fx2a9T60shosuBsmetCF/pLN8CNaJ438Gbg0eB7IeWBhhNMFw0F+qFSkDe1QY0ON
-	mubU/UNj8OfdTkMkMVDNlvtrUsA6qgpcPFGzU+7clbeNnjxuGPOTJHUg/p6oYdg8MIjjiClwVdozg
-	4aVPTDvQ==;
+	bh=PKMXzpnv1lIq4fFbiBP2CWxq/VgdeA3T7yPqW95u3ls=; b=tzbGxM319sFphhInU/qJKFbRdQ
+	zOYRlrgjtjA+qSU/LgRjZ91R1V6aBfruYsPpM1bbXR7MpEn9a6KZTcy8bt2IN0G+8ortFIqUB4MwG
+	MBkwQEnRn6eTCTgCjtAAZOR+QGl2tE1cIj7L3Tp04rlyfo5sSe4Qbd4Jxvyf9DLr6dW8G4zmF9lHA
+	kD8lK/B/R516HAMORuaEqJSqKf1zkLdva4dt4IhM/eJQxu+CCatF/uZPopKcqvCg/UzsVTlfW5xCE
+	6fliyb26HM3rxRyFJTHgj2Ev5HpAPqJxEItR5j2b64P2iFz7z3UuNG4XwkFyNwQeho+Ahr7OvtWrK
+	mKCxX8dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzsHg-00000005KxK-2E9N;
-	Wed, 02 Apr 2025 07:13:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tzsJP-00000005LFD-1NK9;
+	Wed, 02 Apr 2025 07:14:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzsC3-00000005JUM-0S9f
+	id 1tzsC3-00000005JUT-1ps3
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 02 Apr 2025 07:07:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 960F961163;
-	Wed,  2 Apr 2025 07:07:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 03012C4CEE5;
-	Wed,  2 Apr 2025 07:07:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1601A61364;
+	Wed,  2 Apr 2025 07:07:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6CEB6C4CEF8;
+	Wed,  2 Apr 2025 07:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1743577642;
-	bh=xj1/d4nkyU14Uz0z2ygXiCJS8S9VEH7Pg1iUVkAGGlY=;
+	bh=KQPS6VWIqoxUGIKzjCtZEAGsIFKddMASPAKvXmPDqkc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=gG9B1CfVFllvDuBJWe8V1nJOgdTIR/tsbizq7MFPIho7I+7xEY1ytXgpeNPL4aLue
-	 M2h27z2W+F5tBmFL9xVkfRyfXG+D+bE6m2J8apSYW6xb0FYZ7hgYzYnw9x7khvD6Z4
-	 IyUxVpjxz597sgLO5NlEBvYXhpBxCy5SrbvZHbGiqDUXSQ0gyN5pHjqBr0uDDtRlnG
-	 EJCUa7lL7EtwhB03CSPQvQRkVxQDRrblqYJmSfak9J6PX9eYjLML1dNWsi4PrDzusf
-	 2YYKoXIDVb5G9WOU3PHoatGnBgxuiS3TNkaa/nb46Nc3PpNOvSCy11HQtXytuSJM0O
-	 hTt8ziRiatjkg==
+	b=gPIu8fRCdKGZ4SCQXSx0nNK4SaEP8/kXlrnUsGiLxlbSPNWU6xYrClQ+gnXS955i9
+	 H8/HbUWnLFWjI7KE9avYlT+F0mUtkCsVQfjKWkPWJBwL5435qWdXack2DFMAK+fhNX
+	 S6FUI7mk/QECJPsd3g3KXRH1cpjl+TSz/iDhsRlBQluM7T5EFx0ZmyQCpn566rQdP/
+	 EUzbh7LsSO9PFE5k2ovs6gCJrvmiYfu5r3uNkeKK0g/2vtd49VagznwT3tXMtktPdU
+	 d9ENL1JpWoT2j3jvRRfz6rrr6KXto+YdRlDYWrCNEpaj/+1hyYu6VLG80h6+7o4umd
+	 aSkNpKHD5WXVg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E27A5C36014;
-	Wed,  2 Apr 2025 07:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6138CC3601A;
+	Wed,  2 Apr 2025 07:07:22 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Wed, 02 Apr 2025 09:07:04 +0200
-Subject: [PATCH v4 1/9] dt-bindings: arm: fsl: Add GOcontroll Moduline
- Display
+Date: Wed, 02 Apr 2025 09:07:10 +0200
+Subject: [PATCH v4 7/9] arm64: dts: freescale: Add the BOE av101hdt-a10
+ variant of the Moduline Display
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250402-initial_display-v4-1-9f898838a864@gocontroll.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250402-initial_display-v4-7-9f898838a864@gocontroll.com>
 References: <20250402-initial_display-v4-0-9f898838a864@gocontroll.com>
 In-Reply-To: <20250402-initial_display-v4-0-9f898838a864@gocontroll.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -64,11 +64,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1743577640; l=1206;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1743577640; l=3168;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=7LK5io9tXyJrf5fT7pNPykcX/YAUSsMUIEqjia8Pbmw=;
- b=gune+2JEcYkR1VqNaOFoyYIz2P6K+I3j+1CGd3MWq3dAhDzOEm+MUvrWVL9TrJi7wd+fIJPFq
- /OWWSw4VBY/CB2iKDmR7zlq7IPSJ834t0EKzAnLjveyzwgC+/LUsHdT
+ bh=yMRGcv4NDxS5f4RsDG3jcavLTc/4v1Vp9+gfvWITjSE=;
+ b=z4V7FjLBhfDWvAK/MPeeswhO81HB045jAmWcR+8c6a2MVouD2w2CViqc93BqeR+zHQkWgrggA
+ 7OZrXST1CVIC3ObQ+viIuz8r0VqgOEi3VQPBwWr7d1JCsZB+S0OA1Ji
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
@@ -91,26 +91,131 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maud Spierings <maudspierings@gocontroll.com>
 
-Document the compatible strings for the Moduline Display controller.
+Add the BOE av101hdt-a10 variant of the Moduline Display, this variant
+comes with a 10.1 1280x720 display with a touchscreen (not working in
+mainline).
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
- Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 1b90870958a22e49355dd1f932bf3d84cd864b5f..ecde2123ea0fae38ef233929c7ad343812851a58 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1095,6 +1095,7 @@ properties:
-               - gateworks,imx8mp-gw74xx   # i.MX8MP Gateworks Board
-               - gateworks,imx8mp-gw75xx-2x # i.MX8MP Gateworks Board
-               - gateworks,imx8mp-gw82xx-2x # i.MX8MP Gateworks Board
-+              - gocontroll,moduline-display # GOcontroll Moduline Display controller
-               - skov,imx8mp-skov-basic # SKOV i.MX8MP baseboard without frontplate
-               - skov,imx8mp-skov-revb-hdmi # SKOV i.MX8MP climate control without panel
-               - skov,imx8mp-skov-revb-lt6 # SKOV i.MX8MP climate control with 7” panel
+---
+Currently the backlight driver is not available, this will be upstreamed
+in a future patch series. It is a Maxim max25014atg.
+
+The touchscreen has a Cypress CYAT81658-64AS48 controller which as far as
+I know is not supported upstream, the driver we currently use for this is
+a mess and I doubt we will be able to get it in an upstreamable state.
+---
+ ...x8p-ml81-moduline-display-106-av101hdt-a10.dtso | 102 +++++++++++++++++++++
+ 1 file changed, 102 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
+new file mode 100644
+index 0000000000000000000000000000000000000000..2855d7090988380ca0d4df8459cd1a67049f1080
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
+@@ -0,0 +1,102 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright 2025 GOcontroll B.V.
++ * Author: Maud Spierings <maudspierings@gocontroll.com>
++ */
++
++#include <dt-bindings/clock/imx8mp-clock.h>
++#include <dt-bindings/gpio/gpio.h>
++
++#include "imx8mp-pinfunc.h"
++
++/dts-v1/;
++/plugin/;
++
++/ {
++	model = "GOcontroll Moduline Display with BOE av101hdt-a10 display";
++
++	panel {
++		compatible = "boe,av101hdt-a10";
++		enable-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
++		pinctrl-0 = <&pinctrl_panel>;
++		pinctrl-names = "default";
++		power-supply = <&reg_3v3_per>;
++		reset-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
++
++		port {
++			panel_lvds_in: endpoint {
++				remote-endpoint = <&ldb_lvds_ch0>;
++			};
++		};
++	};
++
++	reg_vbus: regulator-vbus {
++		compatible = "regulator-fixed";
++		power-supply = <&reg_6v4>;
++		regulator-always-on;
++		regulator-max-microvolt = <5000000>;
++		regulator-min-microvolt = <5000000>;
++		regulator-name = "usb-c-vbus";
++	};
++};
++
++&iomuxc {
++	pinctrl_panel: panelgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07
++			MX8MP_DSE_X1
++			MX8MP_IOMUXC_GPIO1_IO09__GPIO1_IO09
++			MX8MP_DSE_X1
++		>;
++	};
++};
++
++&lcdif2 {
++	status = "okay";
++};
++
++&lvds_bridge {
++	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>, <&clk IMX8MP_VIDEO_PLL1>;
++	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
++	assigned-clock-rates = <0>, <1054620000>;
++	status = "okay";
++
++	ports {
++		port@1 {
++			ldb_lvds_ch0: endpoint {
++				remote-endpoint = <&panel_lvds_in>;
++			};
++		};
++	};
++};
++
++&usb3_1 {
++	status = "okay";
++};
++
++&usb3_phy1 {
++	status = "okay";
++};
++
++&usb_dwc3_1 {
++	dr_mode = "host";
++
++	connector {
++		compatible = "usb-c-connector";
++		data-role = "host";
++		pd-disable;
++		vbus-supply = <&reg_vbus>;
++
++		port {
++			high_speed_ep: endpoint {
++				remote-endpoint = <&usb1_hs_ep>;
++			};
++		};
++	};
++
++	port {
++		usb1_hs_ep: endpoint {
++			remote-endpoint = <&high_speed_ep>;
++		};
++	};
++};
 
 -- 
 2.49.0
