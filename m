@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78317C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 22:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A69C36018
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 22:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0S1cGLN1Z76dMWQcz/YV5gMvENx6lZ0FL8p55kqjgMY=; b=GdMdWNV1qzunfw4sGdbo6j1vT2
-	FQD9MOqt234qwy75mVML5LmPk8pqk/FH1/lyl4CaEWPLQaI0QBXm/+WggaaGlmbqRt57iUaPQP329
-	INSXQiysB9LjltGniGiabB7M0mQGtggOpTtjB03qdxKZ/C58NbAVdhmo+8UfL6CGpl8P/P6J4BuAB
-	EJ/FPuYnIr2Akubc8IFX1zgPnl4rWFrf69P8N2vqVFr51/pYvRsdh+CgpIk9BwDvM8zHoNlkmaxAK
-	QoPlnX/h50YH9A5ZWyUEEQGOZkDuuGcU5Z/KwzM7AZNdA+jJoLOYOSU5adjb6nE8zp+CTWa9txKTt
-	ydjyCBaQ==;
+	bh=9uLeCid18ZNLp08gkQl5s/fiXxv/1YlzQS+TpxnPMOI=; b=UY+U59EfuEhHa5AKo5FNgJlJME
+	RHCTtk6V49p0CBiU3/k22slgRyDcKeDtTopqRBm1q5xPK1B73VFaL1iRt2Db28V66CutK/rleIca2
+	VyF9hkt+MG146Dn0lBJVDs5IWMdmJg6990TCXrWlX7u8MsJGs3z47BzpD2GbzcolOPtdig3/q9ZFa
+	JzzSKB/xoU//kQRLLJpgIXcxwATCbJdijhWww6JUIuayU3Hma4DQiWxk4SoEmy88iQ1PiHIH2mDlx
+	/1F27WfDvpUpmqHor6FEr5ferKfjpVTCYu65/NKPD7AtR80NZegAtG7qxIJ350yKbNFxsYR6FZlb8
+	EqJ+1/Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u06EE-00000007JDZ-3SvF;
-	Wed, 02 Apr 2025 22:06:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u06Vn-00000007KPQ-0F0S;
+	Wed, 02 Apr 2025 22:24:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u06CS-00000007J2E-1dTu
+	id 1u06U1-00000007KJg-1TUq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 22:04:45 +0000
+	Wed, 02 Apr 2025 22:22:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7D8C6A45EAA;
-	Wed,  2 Apr 2025 21:59:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 033EAC4CEDD;
-	Wed,  2 Apr 2025 22:04:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A5821A41718;
+	Wed,  2 Apr 2025 22:17:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C482C4CEDD;
+	Wed,  2 Apr 2025 22:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743631482;
-	bh=kU7IBFQFjyFEhwSQwmwTIAIwV7Rkf7439jPSNOzP+BI=;
+	s=k20201202; t=1743632572;
+	bh=wp1wdBawXEYaoVvIG0zTvsPZwslUtgd90Up9ylLoJKE=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=OIsZY+wZLwltxMq7Z6jFA17WE/pD9x0cnvdW8GHMbZdLRl9jtbA7uTWspfjZHAJTt
-	 ZwDQx9mnLjaOYzUvmqSErTAPugBz87i2eKzkjDecMhhqGZEp2RF5bUwvotEJIQTwm/
-	 W4OFx6ecWwIWsB3vr+hr6Cs20/BkgKfjpeu+8qp7RhjNjvjL9FUQ2613adZ7/4ozgh
-	 ZG52rR2tdWlPclFO0LgEk0D2TiT5g35H1/xyoDcETz2nKL5lEsy6RGKoKdt+FrqkBB
-	 CdWR2NnAe5aeno+eQs7zoZiuvLsjCtDuQi7VAx0WJog6ngSJ3+nKhBSzbkwiuXZwqY
-	 uGU+9gWN/kwIw==
+	b=MxSktIkDHPtbNWJiFubM0d15o/9scY5bN5feGpcHkpsXS6YUuBS4GHhWSne4tb6Dq
+	 pA78BMJrMKcKwSuCuouwDzXeJIpw8rSyBG41B/mYWjdRNeodQgQmr6BBO5id4rhWcS
+	 AFi0RYgzmVVvqOpQ4s0WCKtP3KfLxOWc7g5PxIS2ol+5qzMiycNp5FeF6bFS/4frzN
+	 tGbNlxxzmvjwMjcaEJ35CsKwQS6WQoHsgL/aaAKSjoOPZjrhw/rH4mGjgu6xKcUaDx
+	 chs9kxh41RUXglUBHDwa1OOJz9wqf9CI/R1/gq8F0rG+ubG0UakxHuRZ/+ppGbc1u6
+	 8zxPHxR2Kf/GA==
 Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u06CN-001nKm-Iy;
-	Wed, 02 Apr 2025 23:04:39 +0100
-Date: Wed, 02 Apr 2025 23:04:41 +0100
-Message-ID: <87a58yz0cm.wl-maz@kernel.org>
+	id 1u06Tx-001nWm-M6;
+	Wed, 02 Apr 2025 23:22:49 +0100
+Date: Wed, 02 Apr 2025 23:22:51 +0100
+Message-ID: <878qoiyzic.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Breno Leitao <leitao@debian.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -61,8 +61,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	vincenzo.frascino@arm.com,
 	anders.roxell@linaro.org
 Subject: Re: [PATCH RFC] arm64: vdso: Use __arch_counter_get_cntvct()
-In-Reply-To: <20250402-arm-vdso-v1-1-2e7a12d75107@debian.org>
+In-Reply-To: <87a58yz0cm.wl-maz@kernel.org>
 References: <20250402-arm-vdso-v1-1-2e7a12d75107@debian.org>
+	<87a58yz0cm.wl-maz@kernel.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -73,8 +74,8 @@ X-SA-Exim-Rcpt-To: leitao@debian.org, catalin.marinas@arm.com, will@kernel.org, 
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_150444_559441_F977B0A8 
-X-CRM114-Status: GOOD (  29.62  )
+X-CRM114-CacheID: sfid-20250402_152253_516479_54D171B6 
+X-CRM114-Status: GOOD (  35.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,87 +90,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 02 Apr 2025 20:22:47 +0100,
-Breno Leitao <leitao@debian.org> wrote:
+On Wed, 02 Apr 2025 23:04:41 +0100,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> While reading how `cntvct_el0` was read in the kernel, I found that
-> __arch_get_hw_counter() is doing something very similar to what
-> __arch_counter_get_cntvct() is already doing.
+> On Wed, 02 Apr 2025 20:22:47 +0100,
+> Breno Leitao <leitao@debian.org> wrote:
+> > 
+> > While reading how `cntvct_el0` was read in the kernel, I found that
+> > __arch_get_hw_counter() is doing something very similar to what
+> > __arch_counter_get_cntvct() is already doing.
+> > 
+> > Use the existing __arch_counter_get_cntvct() function instead of
+> > duplicating similar inline assembly code in __arch_get_hw_counter().
+> > 
+> > Both functions were performing nearly identical operations to read the
+> > cntvct_el0 register. The only difference was that
+> > __arch_get_hw_counter() included a memory clobber in its inline
+> > assembly, which appears unnecessary in this context.
+> > 
+> > This change simplifies the code by eliminating duplicate functionality
+> > and improves maintainability by centralizing the counter access logic in
+> > a single implementation.
+> > 
+> > Signed-off-by: Breno Leitao <leitao@debian.org>
+> > ---
+> > I'm sharing this code as an RFC since I'm not intimately familiar with
+> > different arm platforms, and I want to double-check that I haven't
+> > missed anything subtle.
+> > ---
+> >  arch/arm64/include/asm/vdso/gettimeofday.h | 22 ++--------------------
+> >  1 file changed, 2 insertions(+), 20 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
+> > index 92a2b59a9f3df..417b5b41b877d 100644
+> > --- a/arch/arm64/include/asm/vdso/gettimeofday.h
+> > +++ b/arch/arm64/include/asm/vdso/gettimeofday.h
+> > @@ -11,6 +11,7 @@
+> >  #include <asm/barrier.h>
+> >  #include <asm/unistd.h>
+> >  #include <asm/sysreg.h>
+> > +#include <asm/arch_timer.h>
+> >  
+> >  #define VDSO_HAS_CLOCK_GETRES		1
+> >  
+> > @@ -69,8 +70,6 @@ int clock_getres_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
+> >  static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+> >  						 const struct vdso_time_data *vd)
+> >  {
+> > -	u64 res;
+> > -
+> >  	/*
+> >  	 * Core checks for mode already, so this raced against a concurrent
+> >  	 * update. Return something. Core will do another round and then
+> > @@ -79,24 +78,7 @@ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+> >  	if (clock_mode == VDSO_CLOCKMODE_NONE)
+> >  		return 0;
+> >  
+> > -	/*
+> > -	 * If FEAT_ECV is available, use the self-synchronizing counter.
+> > -	 * Otherwise the isb is required to prevent that the counter value
+> > -	 * is speculated.
+> > -	*/
+> > -	asm volatile(
+> > -	ALTERNATIVE("isb\n"
+> > -		    "mrs %0, cntvct_el0",
+> > -		    "nop\n"
+> > -		    __mrs_s("%0", SYS_CNTVCTSS_EL0),
+> > -		    ARM64_HAS_ECV)
+> > -	: "=r" (res)
+> > -	:
+> > -	: "memory");
+> > -
+> > -	arch_counter_enforce_ordering(res);
+> > -
+> > -	return res;
+> > +	return __arch_counter_get_cntvct();
 > 
-> Use the existing __arch_counter_get_cntvct() function instead of
-> duplicating similar inline assembly code in __arch_get_hw_counter().
+> I won't pretend I understand it all, but you really want to have a
+> look at the link just above the arch_counter_enforce_ordering()
+> definition, pasted below for your convenience:
 > 
-> Both functions were performing nearly identical operations to read the
-> cntvct_el0 register. The only difference was that
-> __arch_get_hw_counter() included a memory clobber in its inline
-> assembly, which appears unnecessary in this context.
+> https://lore.kernel.org/r/alpine.DEB.2.21.1902081950260.1662@nanos.tec.linutronix.de/
 > 
-> This change simplifies the code by eliminating duplicate functionality
-> and improves maintainability by centralizing the counter access logic in
-> a single implementation.
-> 
-> Signed-off-by: Breno Leitao <leitao@debian.org>
-> ---
-> I'm sharing this code as an RFC since I'm not intimately familiar with
-> different arm platforms, and I want to double-check that I haven't
-> missed anything subtle.
-> ---
->  arch/arm64/include/asm/vdso/gettimeofday.h | 22 ++--------------------
->  1 file changed, 2 insertions(+), 20 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
-> index 92a2b59a9f3df..417b5b41b877d 100644
-> --- a/arch/arm64/include/asm/vdso/gettimeofday.h
-> +++ b/arch/arm64/include/asm/vdso/gettimeofday.h
-> @@ -11,6 +11,7 @@
->  #include <asm/barrier.h>
->  #include <asm/unistd.h>
->  #include <asm/sysreg.h>
-> +#include <asm/arch_timer.h>
->  
->  #define VDSO_HAS_CLOCK_GETRES		1
->  
-> @@ -69,8 +70,6 @@ int clock_getres_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
->  static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
->  						 const struct vdso_time_data *vd)
->  {
-> -	u64 res;
-> -
->  	/*
->  	 * Core checks for mode already, so this raced against a concurrent
->  	 * update. Return something. Core will do another round and then
-> @@ -79,24 +78,7 @@ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
->  	if (clock_mode == VDSO_CLOCKMODE_NONE)
->  		return 0;
->  
-> -	/*
-> -	 * If FEAT_ECV is available, use the self-synchronizing counter.
-> -	 * Otherwise the isb is required to prevent that the counter value
-> -	 * is speculated.
-> -	*/
-> -	asm volatile(
-> -	ALTERNATIVE("isb\n"
-> -		    "mrs %0, cntvct_el0",
-> -		    "nop\n"
-> -		    __mrs_s("%0", SYS_CNTVCTSS_EL0),
-> -		    ARM64_HAS_ECV)
-> -	: "=r" (res)
-> -	:
-> -	: "memory");
-> -
-> -	arch_counter_enforce_ordering(res);
-> -
-> -	return res;
-> +	return __arch_counter_get_cntvct();
+> Dropping this ordering enforcement seems pretty adventurous unless you
+> have very strong guarantees about the context this executes in.
 
-I won't pretend I understand it all, but you really want to have a
-look at the link just above the arch_counter_enforce_ordering()
-definition, pasted below for your convenience:
+Ah, I appear to have misread this patch, and
+__arch_counter_get_cntvct() does have the same ordering requirements.
 
-https://lore.kernel.org/r/alpine.DEB.2.21.1902081950260.1662@nanos.tec.linutronix.de/
-
-Dropping this ordering enforcement seems pretty adventurous unless you
-have very strong guarantees about the context this executes in.
+Apologies for the noise.
 
 	M.
 
