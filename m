@@ -4,132 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21AD4C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 19:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D84C36018
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 19:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ij6oVdOz4GhS0vGrhbityqjcv93TkR0sIrqUodkZMFk=; b=iCuGLqcuFwLhu/8LfO2Jz/1luc
-	sJuxhuFwswDAVvGhHSaTDz5qP7MfxxwUL2vvwLSUgKD/pBezCQHRAomHXHhvbNs5u+oR0RqYNsVgT
-	Q/vSkpwFL6MlfR9WHLSmz3yPnbV32VMU7wdnfz00toj7TB9kL3stTNWTIYi0+y0WWPeJWKq8dp2fH
-	gXwJ2yV8+s3F5z5HxctFnx9dBsesVmOZRdusmtYM/N7iQhFmKidLYgxFhI/8C2bQZdKyrFXqiZo5R
-	qDCmF8emCnD8EmzxBH9TjP5a4bNZRmPMjb8LpTyZDxAJL2dAPOHiw4V3EGcXPcv3ZRd+iaJOwsAwB
-	0iFZF8ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8umj+ndDF/ipCfwtuKdMZkQWmOijnGXaazU2k4hwCNY=; b=l4W1wAvP3b0/hY2npNQxOC6t2f
+	fqq+0Of4WETyPhFmbc1E1LaCPTD0ZfLST1a1bKj2uStKwFOB1dtLG/fCk2SPrh8ozRZgomkr6juVC
+	P4osfWMlSMzHTCxwunCS+OiIVyoNLL78ESVUjO04pTOqC+wTFOqhqzIEBOxR/TgF9FATCPYfzqO5B
+	kzqsR3EdUXJtr3Xj5OmRWyQQltpKnO+8+9OziiZrsoXxrDdIixHAYr5pVpitYBMeESLKxtS6EBHF2
+	cJ+5BMD0iLL6rakWPj4G7y5itfcLoSb+yenk1vpjSw3NnPgZmuQ/7DR13r9q88h6pxebvNeUCvS17
+	c4HqKbjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u03NC-000000070Dp-3rn3;
-	Wed, 02 Apr 2025 19:03:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u03bW-0000000728J-19Wz;
+	Wed, 02 Apr 2025 19:18:26 +0000
+Received: from smtp-fw-80006.amazon.com ([99.78.197.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u03KT-00000006zjP-1B4G;
-	Wed, 02 Apr 2025 19:00:50 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 532C1hZx024534;
-	Wed, 2 Apr 2025 19:00:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ij6oVdOz4GhS0vGrhbityqjcv93TkR0sIrqUodkZMFk=; b=hYhD7pVNIeDwDBrW
-	RdO5PrMwS8sO1ippIQSGUyIYQ2aHb7qJuvA8S/CTVfe+wl3fGVcBkK+tVHJeC/Fq
-	hL0quAhjsZgdxh4KYOc6r2i6Gy0K17YxXYIvcN3aAPcOVgVQfvxnN1L1QRwh3B/f
-	iNw133fc//aUQBjMULW74HoUe6hVoYaUgy9HMacMC7MaMwE5l9UNz5swOuqq8Os5
-	wu3dTwbUcX100OEvJokqUmtO2Ui7Bihi+ChA5Cq0uSXw6qzZZsLnr5JqmT6CIlBj
-	jsmAF8BSmVLuxw7LwpPsMxs6waa4SBRHV0VIQ6IaNJwJBe63uNd47fsw3lzvLxqP
-	V7jENg==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45rbpywh5x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 02 Apr 2025 19:00:28 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 532J0RBJ002057
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 2 Apr 2025 19:00:27 GMT
-Received: from [10.46.162.103] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 2 Apr 2025
- 12:00:26 -0700
-Message-ID: <1b87152e-ff0f-9c45-020d-4927ff3dbef8@quicinc.com>
-Date: Wed, 2 Apr 2025 12:00:26 -0700
+	id 1u03Zk-000000071rh-2jel;
+	Wed, 02 Apr 2025 19:16:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
+  t=1743621397; x=1775157397;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=8umj+ndDF/ipCfwtuKdMZkQWmOijnGXaazU2k4hwCNY=;
+  b=iRHE1DobpITxvIKwFSr7VZ3/+YI7EtW6fBkoKLP9AVJoEHINPrYiYYIf
+   TCn4mwAQ/2r0kxyeg9XIcaWoMT8XCXQ9N/RqnyvgyO2gZKAyXJORopRBJ
+   D052Je+b6KT8dTDxXUnQGOcV9Gvqx2MhUe9fRpXp9i2nshqSlw3S5cJzP
+   I=;
+X-IronPort-AV: E=Sophos;i="6.15,183,1739836800"; 
+   d="scan'208";a="37530635"
+Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
+  by smtp-border-fw-80006.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2025 19:16:34 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [10.0.7.35:8453]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.61.148:2525] with esmtp (Farcaster)
+ id 3d208980-fd57-4d9c-b742-ec30a98b0997; Wed, 2 Apr 2025 19:16:33 +0000 (UTC)
+X-Farcaster-Flow-ID: 3d208980-fd57-4d9c-b742-ec30a98b0997
+Received: from EX19D020UWC002.ant.amazon.com (10.13.138.147) by
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Wed, 2 Apr 2025 19:16:29 +0000
+Received: from EX19MTAUEC001.ant.amazon.com (10.252.135.222) by
+ EX19D020UWC002.ant.amazon.com (10.13.138.147) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Wed, 2 Apr 2025 19:16:28 +0000
+Received: from email-imr-corp-prod-pdx-all-2c-785684ef.us-west-2.amazon.com
+ (10.43.8.6) by mail-relay.amazon.com (10.252.135.200) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1544.14 via Frontend Transport; Wed, 2 Apr 2025 19:16:28 +0000
+Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
+	by email-imr-corp-prod-pdx-all-2c-785684ef.us-west-2.amazon.com (Postfix) with ESMTP id 88B30A046F;
+	Wed,  2 Apr 2025 19:16:27 +0000 (UTC)
+Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
+	id 1CF466148; Wed,  2 Apr 2025 19:16:27 +0000 (UTC)
+From: Pratyush Yadav <ptyadav@amazon.de>
+To: Changyuan Lyu <changyuanl@google.com>
+CC: <linux-kernel@vger.kernel.org>, <graf@amazon.com>,
+	<akpm@linux-foundation.org>, <luto@kernel.org>, <anthony.yznaga@oracle.com>,
+	<arnd@arndb.de>, <ashish.kalra@amd.com>, <benh@kernel.crashing.org>,
+	<bp@alien8.de>, <catalin.marinas@arm.com>, <dave.hansen@linux.intel.com>,
+	<dwmw2@infradead.org>, <ebiederm@xmission.com>, <mingo@redhat.com>,
+	<jgowans@amazon.com>, <corbet@lwn.net>, <krzk@kernel.org>, <rppt@kernel.org>,
+	<mark.rutland@arm.com>, <pbonzini@redhat.com>, <pasha.tatashin@soleen.com>,
+	<hpa@zytor.com>, <peterz@infradead.org>, <robh+dt@kernel.org>,
+	<robh@kernel.org>, <saravanak@google.com>,
+	<skinsburskii@linux.microsoft.com>, <rostedt@goodmis.org>,
+	<tglx@linutronix.de>, <thomas.lendacky@amd.com>, <usama.arif@bytedance.com>,
+	<will@kernel.org>, <devicetree@vger.kernel.org>, <kexec@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-mm@kvack.org>, <x86@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>
+Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory preservation
+In-Reply-To: <20250320015551.2157511-10-changyuanl@google.com>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+	<20250320015551.2157511-10-changyuanl@google.com>
+Date: Wed, 2 Apr 2025 19:16:27 +0000
+Message-ID: <mafs05xjmqsqc.fsf@amazon.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v4 1/1] scsi: ufs: core: add device level exception
- support
-Content-Language: en-US
-To: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-        Bart Van Assche <bvanassche@acm.org>
-CC: Arthur Simchaev <Arthur.Simchaev@sandisk.com>,
-        "quic_cang@quicinc.com"
-	<quic_cang@quicinc.com>,
-        "quic_nitirawa@quicinc.com"
-	<quic_nitirawa@quicinc.com>,
-        "avri.altman@wdc.com" <avri.altman@wdc.com>,
-        "peter.wang@mediatek.com" <peter.wang@mediatek.com>,
-        "minwoo.im@samsung.com"
-	<minwoo.im@samsung.com>,
-        "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
-        "martin.petersen@oracle.com" <martin.petersen@oracle.com>,
-        "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
-        Alim Akhtar
-	<alim.akhtar@samsung.com>,
-        "James E.J. Bottomley"
-	<James.Bottomley@hansenpartnership.com>,
-        Matthias Brugger
-	<matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-        Bean Huo <beanhuo@micron.com>,
-        Keoseong Park <keosung.park@samsung.com>,
-        Ziqi Chen
-	<quic_ziqichen@quicinc.com>,
-        Al Viro <viro@zeniv.linux.org.uk>,
-        "Gwendal
- Grignou" <gwendal@chromium.org>,
-        Eric Biggers <ebiggers@google.com>,
-        open
- list <linux-kernel@vger.kernel.org>,
-        "moderated list:ARM/Mediatek SoC
- support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>,
-        "moderated
- list:ARM/Mediatek SoC support:Keyword:mediatek"
-	<linux-mediatek@lists.infradead.org>
-References: <4370b3a3b5a5675bb3e75aaa48a273674c159339.1742526978.git.quic_nguyenb@quicinc.com>
- <SA2PR16MB4251229744D717821D3D8353F4A72@SA2PR16MB4251.namprd16.prod.outlook.com>
- <c5ab13ec-f650-ea10-5cb8-d6a2ddf1e825@quicinc.com>
- <0a68d437-5d6a-42aa-ae4e-6f5d89cfcaf3@acm.org>
- <ad246ef4-7429-63bb-0279-90738736f6e3@quicinc.com>
- <3d7b543c-1165-42e0-8471-25b04c7572ac@acm.org>
- <4cb20c80-9bb0-e147-e3c0-467f4c8828ba@quicinc.com>
- <989e695e-e6a4-4427-9041-e39ecf5b5674@acm.org>
- <yzy7oad77h744vf2bdylkm4fronemjwvrmlstnj6x5lzjxg672@zya6toqv4aeg>
-From: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>
-In-Reply-To: <yzy7oad77h744vf2bdylkm4fronemjwvrmlstnj6x5lzjxg672@zya6toqv4aeg>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: nuJyCFbkUJbHjGlJ8RMkEV0OQHadcz5I
-X-Proofpoint-ORIG-GUID: nuJyCFbkUJbHjGlJ8RMkEV0OQHadcz5I
-X-Authority-Analysis: v=2.4 cv=ZNLXmW7b c=1 sm=1 tr=0 ts=67ed894c cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=Si26H9tSdrSrRDVtBSgA:9 a=QEXdDO2ut3YA:10
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-02_08,2025-04-02_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0
- lowpriorityscore=0 clxscore=1015 mlxscore=0 adultscore=0 mlxlogscore=999
- priorityscore=1501 bulkscore=0 suspectscore=0 malwarescore=0 phishscore=0
- impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504020121
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_120049_339817_BC0077AB 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20250402_121636_741665_9063EF92 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,25 +103,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/2/2025 12:49 AM, manivannan.sadhasivam@linaro.org wrote:
-> Yeah, we should be cautious in changing the uAPI header as it can break the
-> userspace applications. Annotating the members that need packed attribute seems
-> like the way forward to me.
+Hi Changyuan,
 
-Yes, I realized potential issue when Bart raised a concern.
+On Wed, Mar 19 2025, Changyuan Lyu wrote:
 
-> 
-> Though, I'd like to understand which architecture has the alignment constraint
-> in this structure. Only if an architecture requires 8 byte alignment for __be32
-> would be a problem. That too only for osf7 and reserved. But I'm not aware of
-> such architectures in use.
-When using "__u64 value;" in place of osf3-6, I saw the compiler padded 
-4 bytes, so __packed was needed for me to get correct __u64 value. I 
-thought even the existing structure utp_upiu_query_v4_0 may need 
-__packed on some fields where the driver reads the returned data in 
-order to be safe across all architectures. However, without evidence of 
-an actual failure, I didn't touch the existing structure. Only raised 
-potential issue for discussion.
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+>
+> Introduce APIs allowing KHO users to preserve memory across kexec and
+> get access to that memory after boot of the kexeced kernel
+>
+> kho_preserve_folio() - record a folio to be preserved over kexec
+> kho_restore_folio() - recreates the folio from the preserved memory
+> kho_preserve_phys() - record physically contiguous range to be
+> preserved over kexec.
+> kho_restore_phys() - recreates order-0 pages corresponding to the
+> preserved physical range
+>
+> The memory preservations are tracked by two levels of xarrays to manage
+> chunks of per-order 512 byte bitmaps. For instance the entire 1G order
+> of a 1TB x86 system would fit inside a single 512 byte bitmap. For
+> order 0 allocations each bitmap will cover 16M of address space. Thus,
+> for 16G of memory at most 512K of bitmap memory will be needed for order 0.
+>
+> At serialization time all bitmaps are recorded in a linked list of pages
+> for the next kernel to process and the physical address of the list is
+> recorded in KHO FDT.
+>
+> The next kernel then processes that list, reserves the memory ranges and
+> later, when a user requests a folio or a physical range, KHO restores
+> corresponding memory map entries.
+>
+> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Co-developed-by: Changyuan Lyu <changyuanl@google.com>
+> Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+> ---
+>  include/linux/kexec_handover.h |  38 +++
+>  kernel/kexec_handover.c        | 486 ++++++++++++++++++++++++++++++++-
+>  2 files changed, 522 insertions(+), 2 deletions(-)
+[...]
+> +int kho_preserve_phys(phys_addr_t phys, size_t size)
+> +{
+> +	unsigned long pfn = PHYS_PFN(phys), end_pfn = PHYS_PFN(phys + size);
+> +	unsigned int order = ilog2(end_pfn - pfn);
 
-Thanks, Bao
+This caught my eye when playing around with the code. It does not put
+any limit on the order, so it can exceed NR_PAGE_ORDERS. Also, when
+initializing the page after KHO, we pass the order directly to
+prep_compound_page() without sanity checking it. The next kernel might
+not support all the orders the current one supports. Perhaps something
+to fix?
+
+> +	unsigned long failed_pfn;
+> +	int err = 0;
+> +
+> +	if (!kho_enable)
+> +		return -EOPNOTSUPP;
+> +
+> +	down_read(&kho_out.tree_lock);
+> +	if (kho_out.fdt) {
+> +		err = -EBUSY;
+> +		goto unlock;
+> +	}
+> +
+> +	for (; pfn < end_pfn;
+> +	     pfn += (1 << order), order = ilog2(end_pfn - pfn)) {
+> +		err = __kho_preserve(&kho_mem_track, pfn, order);
+> +		if (err) {
+> +			failed_pfn = pfn;
+> +			break;
+> +		}
+> +	}
+[...
+> +struct folio *kho_restore_folio(phys_addr_t phys)
+> +{
+> +	struct page *page = pfn_to_online_page(PHYS_PFN(phys));
+> +	unsigned long order = page->private;
+> +
+> +	if (!page)
+> +		return NULL;
+> +
+> +	order = page->private;
+> +	if (order)
+> +		prep_compound_page(page, order);
+> +	else
+> +		kho_restore_page(page);
+> +
+> +	return page_folio(page);
+> +}
+[...]
+
+-- 
+Regards,
+Pratyush Yadav
 
