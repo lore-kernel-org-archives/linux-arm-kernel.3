@@ -4,82 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507EEC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 15:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D93DC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 15:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+wfDbDw7PZnoCnsPrhm6swez/hsddVhdthnzc2lFnm0=; b=glyLOku3W6PETK/f2U95Es2/yf
-	fdDzU2HxpQwI3rmtnbjZ/176zebPKd30wNdyoCTuRL9dZjBrmqHBeFRKq8uTrjpDOSHJ/iGhMOumZ
-	GmSIztjeuvEnS0foXGMUksrGHPf8mbqhPZyifEDg5sKEId9yJVf7ygpL40E+ZQHFk818uiIRJM2/a
-	p8o5cvQqXHhMsV/ZKT/7+Dyv47HSpEHVzLpAa8Jib8x4yv53Q2bi2m9AOCU0at0Yh6nz1Et693Sxv
-	GU1yPY9wVpmDS058Y/TznEMh+cS3wL+84AtwZFnz5uDL+vsXjCVNA8QxYxGCY4a93M1H19lQuxhLF
-	cPTobuaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Yx2R8pO0Ra3Nc8Y0LIAf122qHZ5vDc7iiej3dPjF8G4=; b=X6RtpFsU4GD/PI
+	Cpca4BUDMZxXYSvuga7dFKQ6B/L3pXTvFun0iiDzqdYFnYPqDx3T3jeDdJe2GLw0fa3hSnzYefZKP
+	4FrroctDVb2FHbFf/W1e5OeYajIyR9URpUxs26/vtPvarzyIfj/tQCKsEg3OIyNcDTOiO51JI9iWa
+	Iv8tpoDZm02kSGq0PPi0UbeucgZHygiuv7fbIhw0Zokmaaj4XoWqt7YpcF2Iq8e/j4zTnZEF9jGr5
+	NO1YXpACnek56qvG7MreB4E/2ilsGOGat1m94xGj/rCLkydAWGpSYYZmg314P9AVmNcbNZJZ+3n2Q
+	l1Qi6ogd82bfsIejN29A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzzgO-00000006Skz-2SYe;
-	Wed, 02 Apr 2025 15:07:12 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tzzsI-00000006Umh-2wnG;
+	Wed, 02 Apr 2025 15:19:30 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzzec-00000006SXl-3fYb
+	id 1tzzqW-00000006URZ-0x6r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 15:05:24 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2295d78b433so37914745ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 08:05:22 -0700 (PDT)
+	Wed, 02 Apr 2025 15:17:41 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-39c0dfba946so3084617f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 08:17:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743606322; x=1744211122; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=+wfDbDw7PZnoCnsPrhm6swez/hsddVhdthnzc2lFnm0=;
-        b=F6lbAWPKnCnPsayfLXgKajbI2Vi2DSDnWAsz8pdOuaIQrB+xTbGghNJV2GewXQlyQ9
-         h4dlzUPW6t3jymU1Aj/qwV+bRZmXg5xC57bE5k9BYWB6suJklb9wm+FPDN8V1dQP09fF
-         Qt1mzTnormlYwpJiKwHUOvacI2Dpbb/PI3TCciQ3mgo9KRSyYa3Kf4ctXu7yshG965Y7
-         9lf91mWHoLfdQnxKOiZEi10qu+8FR4s1lSn593L65UdPm8Snp4jgF3y6JZSuAZ/aQ20P
-         bHYnkH5AKYHGRwS9QzvedYl1nvt4KnoPSBBEe53qbAjnNiNVulupwRefBKLp3hu9lSIP
-         ksSA==
+        d=linaro.org; s=google; t=1743607058; x=1744211858; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yx2R8pO0Ra3Nc8Y0LIAf122qHZ5vDc7iiej3dPjF8G4=;
+        b=HLDbPQbsyn2FtU9kAuTYWZyoaT3vCfgI21UT859KuGr8qUuclFWHW1Z0OwaHZZ54Zj
+         KkjCqKaJxXJLBWNAdBy42xLzvqm5FU1ljL9ZHYMsr33FGOuT/uvYCFcmhInGcf45TNQp
+         L5Eo6VO5OadU6C4jV6nsbRE1wL5VT1OhThZpTjhRlMYen7wdq5oEDn+P4erY+sUo4RvH
+         pu16mzMZbdWiNfCMcjTL7JU0TijKvbhtEYHpQpE3+4KwOgttcDJ6ZokTZ7gR7fZcPn03
+         3nmEibmIkZMRY8gUqJObyD4BCsyRUNvmCH2LMj9QoiFbwc/HhgAxItXu6jeliExTxn7x
+         vP4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743606322; x=1744211122;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1743607058; x=1744211858;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=+wfDbDw7PZnoCnsPrhm6swez/hsddVhdthnzc2lFnm0=;
-        b=igxGfCEs5NdM4aIJH92hA2LbRcFuN2vhvFc8VWwKpbxfraSMhk0wnelOo2tytVIjzM
-         oazWuqpR1I/UWFuQ7hBUmRldn1uz8m+c339ImVkzQ6Y7SklRDTQrKtvmX13U9TGl9Mvt
-         gAzMY9FBNDxIeCPqKUwJEWlzfq3EqyTDU27YzAE3/6xWhfjmp3NAq1Ku50eCDChFZ60o
-         Nd1i1ea2RwCtEIEo8PgQ6EX14xOraK1Va6Ub/jrbDPwwx9n4/FOEfuiAZeaUQBD4OjE1
-         aJIcnDSiuIHXkyU5fGkeLqqVXMGkI3W0oj48I7e7pLUKS+TpSPhxbSj6oK8hGZhrhkeN
-         wP0w==
-X-Forwarded-Encrypted: i=1; AJvYcCWxQXUh1/fKUxvSwNNqp1BZm6ipQMeZONMAPAvsKDVbc/HbwrdNBoxTWgTP0qc/6IqRYwl5s2/Xh+o8lPJDiWio@lists.infradead.org
-X-Gm-Message-State: AOJu0YycGGRyNTox5N60f/b7fC0vXo3Y6shWJoeFxOn6Dr5DGDEtCNTi
-	jWRLgXMJZopE9sv6KRwHF6oz0Cul79V0YwXY4ZhgCUNMqP3Sfi3QKYw6KMjr+9DMNcTzGmcc4eB
-	1XjcqSYJsHNL//NFdC0YvSWxSYy9jwgY725NKdA==
-X-Gm-Gg: ASbGnctvdOqvheSn2H5UtUA/EHOi9t3J7qow0A/px89uT6zyoooHdco6FnT+K30QC2+
-	CNDw2BfWl//GQHws711FYg08JRwn0NBOyyCmfkzSYz9gDeIaPlLTX1SnyzauXCRmela5YeNZ6nN
-	RHuYRxHgM9Ir0tJLJkolR20Z7JAHU=
-X-Google-Smtp-Source: AGHT+IH1ueFnde/tdjqCikl2BWv6iv6T4BIHQaMPIq1f5OwqX63kwGuOYor9s4hDW+z5LXETkM7PQnIIwqfbkXlFKdo=
-X-Received: by 2002:a17:902:f608:b0:224:160d:3f5b with SMTP id
- d9443c01a7336-2292fa0cd43mr300305445ad.49.1743606322178; Wed, 02 Apr 2025
- 08:05:22 -0700 (PDT)
+        bh=Yx2R8pO0Ra3Nc8Y0LIAf122qHZ5vDc7iiej3dPjF8G4=;
+        b=VxOptUKXRTSdGtYp4mZo0qboBCJWJwvhQEDXZczPZc+RjQuGoSebEllx1yBoXUCOip
+         6FaJtJ0PD4n+hHNdzon3Q4VYTwJIMXYmAjVV7Ia7qZ7WfvMF0BCavtLT3HA8T/McNmtd
+         XPUu8uMTALmnUXdSa/RgRpoIeRByh3qjdNFVBRt6Fw3yeH2Axj5cdHcGQrl2k2ZKDDRu
+         xA1WBwQ+uN6Snw58fwVbo64aUopAtwdHY1eDOKgvD1K1K74AUXZm+TGRIU5fXzVkbidZ
+         eGk9836MUATMI58w8t3wPCphCJBj+flRQ+/gKTJ6pafzUMwAJ++Q9Wv0bFhUh8HvxboZ
+         R4UA==
+X-Gm-Message-State: AOJu0YzCXRhCPdSWhSrVcY4FLiy2ZKCdn2raO5qhEyvSZ6VkBv3+A3jM
+	vfB0wCj/sxi0CkCp3iOiT6E9M3nRhy86Bs52IpARgEhgnhCqLp14wxyVDZS/1gk=
+X-Gm-Gg: ASbGncv066+j3/9cK36gNIoPT0qnjFknJZY8989pc23rtYLxit0Z/JxeRgjD9EUUeSa
+	xrFavi54zbz7Zu4Qa6zWAM7MAdZwfyur05LO9rzgwEg60tmWNeq1fNBpT3AjahqaIA6Yv2uFS2j
+	JgP/ykrAmXyhbdwdrG4tJ0dC/aPAKkly4OQ+1hoswhrDN3jfJPivK9rk+VTms9K21O1O+hnsJcA
+	Y9w5zr/1hBC6yX3IWDw90e2gfHpANW00BtZ2ChejPHBprUTrJRCg6I94bSjE59joesKXzuvNwUy
+	xQSlc989e7gNZt0kd0rMmLSlA5qQx9hzR6JxvWUPlMRarlOL7gxWWhNkIo9qGgDAoWD1QIHZAQ=
+	=
+X-Google-Smtp-Source: AGHT+IGtw/YaMynhE0C3M4qaV2783kGrZos1104coVh6+inJZg+GE5x2GivvB2wyhudpC0AEWiHjvQ==
+X-Received: by 2002:a5d:6d8d:0:b0:39a:ca04:3dff with SMTP id ffacd0b85a97d-39c1211805dmr13821255f8f.40.1743607057958;
+        Wed, 02 Apr 2025 08:17:37 -0700 (PDT)
+Received: from gpeter-l.roam.corp.google.com ([145.224.66.90])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b663860sm17469190f8f.39.2025.04.02.08.17.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Apr 2025 08:17:37 -0700 (PDT)
+From: Peter Griffin <peter.griffin@linaro.org>
+Subject: [PATCH v6 0/4] samsung: pinctrl: Add support for
+ eint_fltcon_offset and filter selection on gs101
+Date: Wed, 02 Apr 2025 16:17:29 +0100
+Message-Id: <20250402-pinctrl-fltcon-suspend-v6-0-78ce0d4eb30c@linaro.org>
 MIME-Version: 1.0
-References: <20250401180708.385396-1-leo.yan@arm.com> <20250401180708.385396-6-leo.yan@arm.com>
-In-Reply-To: <20250401180708.385396-6-leo.yan@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 2 Apr 2025 16:05:10 +0100
-X-Gm-Features: AQ5f1JqPXimSTtAyjfj7SHk-fZPinJru6XpT0nsdzLE3awgdovNvQGTOPPystmk
-Message-ID: <CAJ9a7VgTyKfebbYhEG5cGH4HyzU+4FavDXsAxGncXLsDtHSUHA@mail.gmail.com>
-Subject: Re: [PATCH v4 5/7] coresight: tmc: Re-enable sink after buffer update
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAlV7WcC/4XNQW7DIBCF4atErEsFM2OIs+o9qi7AHhIkCyxwr
+ VaR716STVNFVpf/k+abq6hcIldxOlxF4TXWmFML83IQw8WlM8s4thagoFMalJxjGpYyyTAtQ06
+ yftaZ0ygBEZ1GO9BIoh3PhUP8usPvH60vsS65fN//rPq2/kuuWirJ1vZKeXDHjt6mmFzJr7mcx
+ c1c4ddBpXcdaI6zzKH3ngj9k4OPjtl1sDmhd55CMA6Inxx6dOyuQ82B0dqO6WgUmj/Otm0/Ix/
+ uwJUBAAA=
+X-Change-ID: 20250120-pinctrl-fltcon-suspend-2333a137c4d4
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ andre.draszik@linaro.org, tudor.ambarus@linaro.org, willmcvicker@google.com, 
+ semen.protsenko@linaro.org, kernel-team@android.com, 
+ jaewon02.kim@samsung.com, Peter Griffin <peter.griffin@linaro.org>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3882;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=NyHdU17b3BYKcxSflMYDwmeiHSv8J8KHGYTpcsjLvEc=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBn7VUOIpQvmKF+MMYf64vqTmU0WTMgiEeFEpShA
+ AynK1joXv+JAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCZ+1VDgAKCRDO6LjWAjRy
+ uoeJD/4+BiSfIgPVMI5fRAx6Coxh8/ggZfvF1RkO524nX45fsdiIaMPS1QR+Y7a9CdVb6L4Q3HX
+ V+NY7G4o32bDe69CQ20fjklp3fu/QwxXMMENII1Zebp3Mkwt0wAlkTGNwQ/cjsVvRZSlywJUehF
+ r5cdRDOGh94HHVuyQST+GQ9u4oMxyoiBardHYbuCLytcuXeieBnVg96fbn/ETxeMdWAkeiBQCd2
+ 1AX8VGBu00u9VUf3OB4e4X6fVkrp/7wC3MZ3Ty45olPqDf6NOCnLesQp9An9aqKnDkB1i72Gg/X
+ U/WsJcAmOLe+Rzw12qSgWtBRGLhCKv/pzfUKsVGzfPRnafo4WJc5fK74OKQg/gN2qzNAbdQ4hQI
+ bv5+mDP+IkAigc1yjYm31kZuUnt0kk8iLq6jzznvbaUWBhbI9ir/Tl++qA2iM5+hf1OBzyfEvGd
+ XVLwHGmbavNBjHtKWVUVOwVAyx6XPgr2koESdSNiArZ0hGZNiv9mu5HCZkJoxhbu2zlsTcPp2uJ
+ DfvD6979BXD2CWh5UBwUz2o/5jJuzeFUYUZLcVO8l3Zcd2wa54LrTiS15RZoR59InWWGEMnH0sl
+ +CMBzDDa2i7TdzdRkTWVqqmNTxoqJBRW+5MFzd3+NP0ZHremI3HWNzMsByood+77Rhz+Yz3R64V
+ syq/O8iBenmJoaA==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_080522_913711_AFA63CBB 
-X-CRM114-Status: GOOD (  26.07  )
+X-CRM114-CacheID: sfid-20250402_081740_279310_D2086D51 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,108 +126,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
+Hi folks,
 
+This series fixes support for correctly saving and restoring fltcon0
+and fltcon1 registers on gs101 for non-alive banks where the fltcon
+register offset is not at a fixed offset (unlike previous SoCs).
+This is done by adding a eint_fltcon_offset and providing GS101
+specific pin macros that take an additional parameter (similar to
+how exynosautov920 handles it's eint_con_offset).
 
-On Tue, 1 Apr 2025 at 19:07, Leo Yan <leo.yan@arm.com> wrote:
->
-> The buffer update callbacks disable the sink before syncing data but
-> misses to re-enable it afterward.  This is fine in the general flow,
-> because the sink will be re-enabled the next time the PMU event is
-> activated.
->
-> However, during AUX pause and resume, if the sink is disabled in the
-> buffer update callback, there is no chance to re-enable it when AUX
-> resumes.
->
-> To address this, the callbacks now check the event state
-> 'event->hw.state'.  If the event is an active state (0), the sink is
-> re-enabled.
->
-> For the TMC ETR driver, buffer updates are not fully protected by
-> the driver's spinlock.  In this case, the sink is not re-enabled if its
-> reference counter is 0, in order to avoid race conditions where the sink
-> may have been completely disabled.
->
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-tmc-etf.c |  9 +++++++++
->  drivers/hwtracing/coresight/coresight-tmc-etr.c | 10 ++++++++++
->  2 files changed, 19 insertions(+)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> index d858740001c2..7584cc03d8e6 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-> @@ -482,6 +482,7 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
->         unsigned long offset, to_read = 0, flags;
->         struct cs_buffers *buf = sink_config;
->         struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +       struct perf_event *event = handle->event;
->
->         if (!buf)
->                 return 0;
-> @@ -586,6 +587,14 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
->          * is expected by the perf ring buffer.
->          */
->         CS_LOCK(drvdata->base);
-> +
-> +       /*
-> +        * If the event is active, it is triggered during an AUX pause.
-> +        * Re-enable the sink so that it is ready when AUX resume is invoked.
-> +        */
-> +       if (!event->hw.state)
-> +               __tmc_etb_enable_hw(drvdata);
-> +
+Additionally the SoC specific suspend and resume callbacks are
+re-factored so that each SoC variant has it's own callback containing
+the peculiarities for that SoC.
 
-Think that the  refcnt should be checked here too.
+Finally support for filter selection on alive banks is added, this is
+currently only enabled for gs101. The code path can be excercised using
+`echo mem > /sys/power/state`
 
-Does the  ETB case need to be handled? - somewhat confusingly the
-coresight-tmc-etf.c file handles both ETF and ETB.
+regards,
 
-Regards
+Peter
 
-Mike
+To: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>
+To: Alim Akhtar <alim.akhtar@samsung.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-samsung-soc@vger.kernel.org
+Cc: linux-gpio@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: andre.draszik@linaro.org
+Cc: tudor.ambarus@linaro.org
+Cc: willmcvicker@google.com
+Cc: semen.protsenko@linaro.org
+Cc: kernel-team@android.com
+Cc: jaewon02.kim@samsung.com
 
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+Changes in v6:
+- Make drvdata->suspend/resume symmetrically reversed (Krzysztof)
+- rebase on linux-next
+- Link to v5: https://lore.kernel.org/r/20250312-pinctrl-fltcon-suspend-v5-0-d98d5b271242@linaro.org/
 
->  out:
->         raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index 76a8cb29b68a..8923fbc6e1a0 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -1636,6 +1636,7 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
->         struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->         struct etr_perf_buffer *etr_perf = config;
->         struct etr_buf *etr_buf = etr_perf->etr_buf;
-> +       struct perf_event *event = handle->event;
->
->         raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->
-> @@ -1705,6 +1706,15 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
->          */
->         smp_wmb();
->
-> +       /*
-> +        * If the event is active, it is triggered during an AUX pause.
-> +        * Re-enable the sink so that it is ready when AUX resume is invoked.
-> +        */
-> +       raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> +       if (csdev->refcnt && !event->hw.state)
-> +               __tmc_etr_enable_hw(drvdata);
-> +       raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +
->  out:
->         /*
->          * Don't set the TRUNCATED flag in snapshot mode because 1) the
-> --
-> 2.34.1
->
+Changes in v5:
+- Split drvdata suspend & resume callbacks into a dedicated patch (Krzysztof)
+- Add comment about stable dependency (Krzysztof)
+- Add back in {} braces (Krzysztof)
+- Link to v4: https://lore.kernel.org/r/20250307-pinctrl-fltcon-suspend-v4-0-2d775e486036@linaro.org
 
+Changes in v4:
+- save->eint_fltcon1 is an argument to pr_debug(), not readl() change alignment accordingly (Andre)
+- Link to v3: https://lore.kernel.org/r/20250306-pinctrl-fltcon-suspend-v3-0-f9ab4ff6a24e@linaro.org
 
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Changes in v3:
+- Ensure EXYNOS_FLTCON_DIGITAL bit is cleared (Andre)
+- Make it obvious that exynos_eint_set_filter() is conditional on bank type (Andre)
+- Make it obvious exynos_set_wakeup() is conditional on bank type (Andre)
+- Align style where the '+' is placed first (Andre)
+- Remove unnecessary braces (Andre)
+- Link to v2: https://lore.kernel.org/r/20250301-pinctrl-fltcon-suspend-v2-0-a7eef9bb443b@linaro.org
+
+Changes in v2:
+- Remove eint_flt_selectable bool as it can be deduced from EINT_TYPE_WKUP (Peter)
+- Move filter config register comment to header file (Andre)
+- Rename EXYNOS_FLTCON_DELAY to EXYNOS_FLTCON_ANALOG (Andre)
+- Remove misleading old comment (Andre)
+- Refactor exynos_eint_update_flt_reg() into a loop (Andre)
+- Split refactor of suspend/resume callbacks & gs101 parts into separate patches (Andre)
+- Link to v1: https://lore.kernel.org/r/20250120-pinctrl-fltcon-suspend-v1-0-e77900b2a854@linaro.org
+
+---
+Peter Griffin (4):
+      pinctrl: samsung: refactor drvdata suspend & resume callbacks
+      pinctrl: samsung: add dedicated SoC eint suspend/resume callbacks
+      pinctrl: samsung: add gs101 specific eint suspend/resume callbacks
+      pinctrl: samsung: Add filter selection support for alive bank on gs101
+
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c |  52 ++---
+ drivers/pinctrl/samsung/pinctrl-exynos.c       | 294 +++++++++++++++----------
+ drivers/pinctrl/samsung/pinctrl-exynos.h       |  28 ++-
+ drivers/pinctrl/samsung/pinctrl-samsung.c      |  21 +-
+ drivers/pinctrl/samsung/pinctrl-samsung.h      |   8 +-
+ 5 files changed, 252 insertions(+), 151 deletions(-)
+---
+base-commit: cd37a617b4bfb43f84dbbf8058317b487f5203ae
+change-id: 20250120-pinctrl-fltcon-suspend-2333a137c4d4
+
+Best regards,
+-- 
+Peter Griffin <peter.griffin@linaro.org>
+
 
