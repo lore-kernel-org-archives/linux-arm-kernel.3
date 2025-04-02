@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A47B6C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 16:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A243C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 17:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OOFyG8Kd6+HeZN8MQhF4S2SXZyJjo0p9QJnhgx3PboY=; b=EuIzEl78zAhxl3QX9rCkbQkdzw
-	diKwW+/KSEG6hKIDeo3J4R3cGdgGEhqwlElhsZD70qsPldip30djLECYhH4Zhi1Drp1vkVZM4vROC
-	IAz9MSpPL3KTm90htnxCHJINgbSaKLvJurYSBzixtjftZnF5ljJhrZmnuGlF+y52I+vopI/vH9JIT
-	v4LXDS9yE491+5LuRDhY4tAVaIm2u+6VzuK73NNmtY6bg9LZMptj3UCoBPbUQiK4MhdTNizUO5eOk
-	ioAP0oxKdAqgSmnwY/hyVEr+miIiOeVhMrKXHRgpIwgzRRraf127ILlJKh+05pG96CRsMVpouiVMM
-	y6TiNsPg==;
+	bh=eJZNDnvZYJl/v6wAtqRZA40hAuj1eQcDN3vqs62UpXc=; b=vFMVBCB5B7ZSKhvahH6Xn2YBQp
+	gmEwMj5QGsRH6fFyx+Rc0FHnPivb6Vu9Ge/r4hsX1/RxgDS5A0ufw3T1OUXcmXhY0l99DnvTojppo
+	qYQZWsisy50ziBWWd5QliJS2VzWUqnW2WjNpVBx2JSQUo7TnjE+xOr3wC5Rnk16n47FyZAXRPkp+t
+	aZfBfk617kz2mW8nVPkUP7I8MH/PsCYvmmGJiZqi0QcVLRSe57UAqPUsrT9EKPnHsbfcifKRng6Ch
+	Zaw0d3z+SmOoEYpl7SkqN40ItU7jRUO5kG/h0iakS7wohZGvmad/pZg51zreY2Pbnea4Bx8j5UEjg
+	fdsrHFQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u01HY-00000006gbr-15TD;
-	Wed, 02 Apr 2025 16:49:40 +0000
-Received: from smtp-fw-80006.amazon.com ([99.78.197.217])
+	id 1u01a6-00000006iKU-1UtZ;
+	Wed, 02 Apr 2025 17:08:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u01Fk-00000006gJi-0nVB;
-	Wed, 02 Apr 2025 16:47:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
-  t=1743612469; x=1775148469;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=OOFyG8Kd6+HeZN8MQhF4S2SXZyJjo0p9QJnhgx3PboY=;
-  b=SOtL+glAt/3U0AWGefA+KcmsRmf8ihUbIzlSrp7AgJeY2jA5a01hgDg0
-   r3594ylFDr/Nsy+YA8vaOyTjxu/8mYNZuSYyR+iUywxW7sc+aoEKV4f4m
-   f81icTLXQfVtbnl8iQL9QSeZCa0+ttQi3C6rge8z+QfUSZ4gBWkGpuU+y
-   c=;
-X-IronPort-AV: E=Sophos;i="6.15,182,1739836800"; 
-   d="scan'208";a="37483382"
-Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
-  by smtp-border-fw-80006.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2025 16:47:43 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [10.0.38.20:63428]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.57.231:2525] with esmtp (Farcaster)
- id fb8b30c2-4f1e-48a1-bd68-83c73817fafa; Wed, 2 Apr 2025 16:47:42 +0000 (UTC)
-X-Farcaster-Flow-ID: fb8b30c2-4f1e-48a1-bd68-83c73817fafa
-Received: from EX19D020UWA002.ant.amazon.com (10.13.138.222) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Wed, 2 Apr 2025 16:47:39 +0000
-Received: from EX19MTAUEA001.ant.amazon.com (10.252.134.203) by
- EX19D020UWA002.ant.amazon.com (10.13.138.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Wed, 2 Apr 2025 16:47:39 +0000
-Received: from email-imr-corp-prod-pdx-all-2c-785684ef.us-west-2.amazon.com
- (10.43.8.2) by mail-relay.amazon.com (10.252.134.102) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1544.14 via Frontend Transport; Wed, 2 Apr 2025 16:47:39 +0000
-Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
-	by email-imr-corp-prod-pdx-all-2c-785684ef.us-west-2.amazon.com (Postfix) with ESMTP id A4539A03AB;
-	Wed,  2 Apr 2025 16:47:38 +0000 (UTC)
-Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
-	id 3863F4F35; Wed,  2 Apr 2025 16:47:38 +0000 (UTC)
-From: Pratyush Yadav <ptyadav@amazon.de>
-To: Changyuan Lyu <changyuanl@google.com>
-CC: <akpm@linux-foundation.org>, <anthony.yznaga@oracle.com>, <arnd@arndb.de>,
-	<ashish.kalra@amd.com>, <benh@kernel.crashing.org>, <bp@alien8.de>,
-	<catalin.marinas@arm.com>, <corbet@lwn.net>, <dave.hansen@linux.intel.com>,
-	<devicetree@vger.kernel.org>, <dwmw2@infradead.org>, <ebiederm@xmission.com>,
-	<graf@amazon.com>, <hpa@zytor.com>, <jgg@nvidia.com>, <jgowans@amazon.com>,
-	<kexec@lists.infradead.org>, <krzk@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <luto@kernel.org>,
-	<mark.rutland@arm.com>, <mingo@redhat.com>, <pasha.tatashin@soleen.com>,
-	<pbonzini@redhat.com>, <peterz@infradead.org>, <robh+dt@kernel.org>,
-	<robh@kernel.org>, <rostedt@goodmis.org>, <rppt@kernel.org>,
-	<saravanak@google.com>, <skinsburskii@linux.microsoft.com>,
-	<tglx@linutronix.de>, <thomas.lendacky@amd.com>, <will@kernel.org>,
-	<x86@kernel.org>
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory preservation
-In-Reply-To: <20250402164453.2470750-1-changyuanl@google.com>
-References: <mafs0tt7eqt6f.fsf@amazon.de>
-	<20250402164453.2470750-1-changyuanl@google.com>
-Date: Wed, 2 Apr 2025 16:47:38 +0000
-Message-ID: <mafs0ecyaqzmd.fsf_-_@amazon.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1u01YK-00000006i4a-0oFk
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Apr 2025 17:07:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=eJZNDnvZYJl/v6wAtqRZA40hAuj1eQcDN3vqs62UpXc=; b=2IkIe0/xrkxwiAKy4t0LpTq6k5
+	/rCRyLMMFZZDCwhjeoqr+d+2FBTLgaAXztM7V6t4daPdS3TQHKSxpth3gVcFOELJBkTcTSwwWQmTW
+	T04yRrj1rJRB0Tc+AmMqPSfCtTzbbeYq6UXHNYnBaAq/EijIRKJZvG0sJ7nRsNJGU9cs=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u01Xx-007pEN-4K; Wed, 02 Apr 2025 19:06:37 +0200
+Date: Wed, 2 Apr 2025 19:06:37 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 4/4] net: mtip: The L2 switch driver for imx287
+Message-ID: <d48796b3-636b-46d4-8e3b-74913d4f77ab@lunn.ch>
+References: <20250331103116.2223899-1-lukma@denx.de>
+ <20250331103116.2223899-5-lukma@denx.de>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250331103116.2223899-5-lukma@denx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_094748_285940_31E558F0 
-X-CRM114-Status: GOOD (  30.36  )
+X-CRM114-CacheID: sfid-20250402_100700_229744_7478FEE0 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,55 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+> +struct switch_enet_private *mtip_netdev_get_priv(const struct net_device *ndev)
+> +{
+> +	if (ndev->netdev_ops == &mtip_netdev_ops)
+> +		return netdev_priv(ndev);
+> +
+> +	return NULL;
+> +}
 
-On Wed, Apr 02 2025, Changyuan Lyu wrote:
+> +static bool mtip_port_dev_check(const struct net_device *ndev)
+> +{
+> +	if (!mtip_netdev_get_priv(ndev))
+> +		return false;
+> +
+> +	return true;
+> +}
 
-> Hi Pratyush, Thanks for suggestions!
->
-> On Thu, Mar 27, 2025 at 17:28:40 +0000, Pratyush Yadav <ptyadav@amazon.de> wrote:
->> On Thu, Mar 27 2025, Jason Gunthorpe wrote:
->>
->> > On Thu, Mar 27, 2025 at 10:03:17AM +0000, Pratyush Yadav wrote:
->> >
->> >> Of course, with the current linked list structure, this cannot work. But
->> >> I don't see why we need to have it. I think having a page-table like
->> >> structure would be better -- only instead of having PTEs at the lowest
->> >> levels, you have the bitmap.
->> >
->> > Yes, but there is a trade off here of what I could write in 30 mins
->> > and what is maximally possible :) The xarray is providing a page table
->> > implementation in a library form.
->> >
->> > I think this whole thing can be optimized, especially the
->> > memblock_reserve side, but the idea here is to get started and once we
->> > have some data on what the actual preservation workload is then
->> > someone can optimize this.
->> >
->> > Otherwise we are going to be spending months just polishing this one
->> > patch without any actual data on where the performance issues and hot
->> > spots actually are.
->>
->> The memblock_reserve side we can optimize later, I agree. But the memory
->> preservation format is ABI and I think that is worth spending a little
->> more time on. And I don't think it should be that much more complex than
->> the current format.
->>
->> I want to hack around with it, so I'll give it a try over the next few
->> days and see what I can come up with.
->
-> I agree with Jason that "nothing is ABI at this
-> point" and it will take some time for KHO to stabilize.
->
-> On the other hand if you have already came up with something working and
-> simple, we can include it in the next version.
+This appears to be the only use of mtip_netdev_get_priv(). It does not
+care what priv actually is. In my previous review i said i think you
+can simply this. I still think that is true.
 
-I already have something that works with zero-order pages. I am
-currently implementing support for other orders. It is almost done, but
-I need to test it and do a performance comparison with the current
-patch. Will post something soon!
-
--- 
-Regards,
-Pratyush Yadav
+    Andrew
 
