@@ -4,150 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C3E9C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 19:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BAFDC36018
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 19:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DQZDuQ8ovDPrzdi0Sx2Z9qfifqHWJuFNSJ2cRgOFhpo=; b=zPI6IbC7FxVd0GCimLwxv2ZGzF
-	DFUIC+H73b6O1aw/Xum8rPBGUGEPoR60s8sbmijpLjfaE3YdLPCdeNoJaU16dRFMQcFuxNdcIPlo3
-	blDoNb9ZbMh3lxmbSokCDo/SM4bGd2Zkq2t8RKrED8bYC1qDAmYp400RQBHY4EGlQMXGsbMH2lv6l
-	W+WpKCnw7/hLQB4mcfUpevnSHFtR2OCJHKnWU4YjR2SHh0NhsgSO7Cj6IuMHhRxiVx/4vrllsX+32
-	vDnqL8y8f+vE+FILnJhMOwbjC8V+MbAQ9bydpg9AzSLDMQBMgaQKvwVIvpkZGBUmQN4l0uwnx4U6x
-	nuovskPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p6EhU/9t2oF0mJIZOkkWFSnPLwKyGMReGziz75LxHrE=; b=Q+eM9SuefEbnfgYD1oLtlncfNN
+	kki6Uf6GxQotGnh3JW/8rSd+LURHy41SzgYE3VuhV8KbFH0JjWpOjAANKDluA9flqn7FJpdLZ6z88
+	+hHnzBglYvqEVyIN6l2LTR+JLXDi13Pn4I59oN+BWwOphpU7WUbzIELXdoQprw3caTJnybYDbV4Nc
+	rH16mF4l1KZsbUEH56HSl8cZTJhY+qPsPaT6ut2glERnOvyX/ch1UBwFFRR+7KhFwAhMsH3OJ1nqu
+	3CMpO7rKJ6nRJKOwOnU20jqkL6Oc6R7mKFyqxmPJRdoJQJ2NUuJPUdEf+eQgCFKTpg8oRoIUirZgn
+	K+UDUvbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u03dG-000000072Rr-0gme;
-	Wed, 02 Apr 2025 19:20:14 +0000
-Received: from mail-db5eur02on2062a.outbound.protection.outlook.com ([2a01:111:f403:2608::62a] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1u03hi-0000000730p-0vHi;
+	Wed, 02 Apr 2025 19:24:50 +0000
+Received: from mail-ed1-f50.google.com ([209.85.208.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u03aU-000000071z4-1YXN
+	id 1u03fx-000000072mE-1932
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 19:17:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XcRtTwuhETWsCSOLVwWX4qazYSWoo6BWAtAhMqiPwDmqSvheXIohkC5iUIKx2UwJGLVPNYKR9P1LnDAKriAsS/ZrhVVqhGo/bhLol9soH9KCbuejvfwurRQQc20P7UZzGELAGQGVVXnyJtYfyfZF8ZkVy6XMivW1V7do1R7YhN5A8OL5O/y58Dwx4S2Bkkm16LuInq2U5fyAYbo5v4yLQ9Fh/AETCXAiM4FTHLd1Sio3q2qB/FsfQfMpPgrrVSbIkwFzesjIgFt2FS03sooiVUQSQ67Q+m/3CNahlPqWeAVVBA6w7auuQ3aevPxOnTgws8u9pyOiD3MgvPGo+C1fcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DQZDuQ8ovDPrzdi0Sx2Z9qfifqHWJuFNSJ2cRgOFhpo=;
- b=vsNPlv0OMMlCyIehYdwS1a2nwV757h9iPA2q4saRMIDeb2X1yDBxsmuAjVg+KTHxlQ1EkRAbscGCRaIlOk2pDdYHOUBTRFPYEDLQGoGwuxekQSqdzf8i5//BZcGGicjp/60NDpluviuFXBKAWXwLUryJr4btAnyLY9j64Xo/Itk5wtQ5mzEKvpZx4BnahD2vlr5jZE1Bcl+ALBgC5GGLzMWZ1ksO8/uwNXUGsk+pnGQQrbXZUlB+VhdA6zgQ+UBzVeoRkPO3HFkJTGFHQeZa+Im7+0SDlrJ/HcGAaeoqAUcssSuqWVGCGe+paE3jwTeLDaqbckyjCrFudDVN+EOFIQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DQZDuQ8ovDPrzdi0Sx2Z9qfifqHWJuFNSJ2cRgOFhpo=;
- b=kCJAg9nVr5ac71fUgjZq1J/AqQKFVpC8Wx7y7GJrm8H5NDPVhWMw8WFTg5jUGiyorlVai1BliDtVA0LCncajAURkDGScpT5xAetNtWIYZTyjwlHYc06KBZO2FjrnlS3I88C45J51fy78Qppnh3pB91tAZKQ9ug2GBhtw1LwfBjjQOwXJzDxbagZJv8DwbiuC7Nh4dn+bj1E8evEphGjRIrQOGsrYDweMe6DZym9UAenCW/92Hthn78eVIEm01GU8yM2Wu9reDczr9fltJg4dQlpByK1/lBd3T6BBTZwI2MHfUQWT/xKQbp6z77njsBshqDaCc7uPBMncESPSvkYEpw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA2PR04MB10345.eurprd04.prod.outlook.com (2603:10a6:102:425::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.54; Wed, 2 Apr
- 2025 19:17:18 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8534.048; Wed, 2 Apr 2025
- 19:17:18 +0000
-Date: Wed, 2 Apr 2025 15:17:08 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: maudspierings@gocontroll.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 4/9] MAINTAINERS: add maintainer for the GOcontroll
- Moduline controllersy
-Message-ID: <Z+2NNFyd3NmfeMSr@lizhi-Precision-Tower-5810>
-References: <20250402-initial_display-v4-0-9f898838a864@gocontroll.com>
- <20250402-initial_display-v4-4-9f898838a864@gocontroll.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250402-initial_display-v4-4-9f898838a864@gocontroll.com>
-X-ClientProxiedBy: PH7PR17CA0010.namprd17.prod.outlook.com
- (2603:10b6:510:324::10) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 02 Apr 2025 19:23:02 +0000
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-5e535e6739bso260646a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 12:23:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743621779; x=1744226579;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=p6EhU/9t2oF0mJIZOkkWFSnPLwKyGMReGziz75LxHrE=;
+        b=LkqitClX4AwFHf+X+/6l4A2k9wAH9xzqai2u90ua5eMBSB5w6LAqNt+H7qBHPrmO4r
+         MK2Ir18Jr4/ED7vclH/e7d/Wn8T1lGTvUTCdWKdQbI59PQBEfVWgENHfIUJ/PmD402cS
+         l+biHaGfJXndwwqa2m0ochxYXuZcUR3ID3SREWsFjT5tt05cPHNBlvTj3m30TqHTB+Gf
+         B2h7SIyhteJ/u9zo5NtRp/ehiQaUHoUlGfgx+GNAd0LVtxFzAimPK4h8UnjThgRTVng+
+         KgOH4i0rvg3QWXs0Gzz4yg7189M21tCNbgKF+wI2nux0lMBYmNtI71vTewaplufcPzP7
+         Z7kw==
+X-Gm-Message-State: AOJu0Yy4DPmF773VK6564Ne/p1ey/oWUIdVAOSpM93Yayogw5f39wRNK
+	BwTQJajQCv5ZIdragE1s2DPhbpVUjQH6bat9exmkV/stljqi/sJE
+X-Gm-Gg: ASbGncu5r6spAEkmoSbwBdWPwrIYlWWezUi2WkUomYYfWqWhWIgM+BvrpfPXS5Ua7UA
+	kwmB8+eCKVMISzPZ2PxKt1i1pbCxTiOwswvoJgy4N6y2ITSTFIHWWxuAonxW3hbvV2y9I4Edfxw
+	3Zp1CgsLuyqjrFMErv48Ns2prLLKXMLxlqRWtV/WXSxwTB1nkQ7gW0t3YkkPO7jnyeM8PMPVxsv
+	x8tGr6rQSPfArwObLGZLPcXj2oWLHsLe7OfJ40YVPidx2kIlj9eOEUVYYfeW+FVmqQyWbSLBEND
+	8I3gqRRjYnvSfqAcrZ2OXPSmvmeaZwoh1jEd
+X-Google-Smtp-Source: AGHT+IEXs3QvvTarAPqvu5hZjvcXf2QeKhj0SNg+fmdUNOq6Y4HUDyeEp9v+k2i3CObdo6T+vIXudQ==
+X-Received: by 2002:a05:6402:26cb:b0:5de:4b81:d3fd with SMTP id 4fb4d7f45d1cf-5edfceaa4b4mr15696652a12.13.1743621778206;
+        Wed, 02 Apr 2025 12:22:58 -0700 (PDT)
+Received: from localhost ([2a03:2880:30ff:71::])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5edc16f213dsm8949262a12.44.2025.04.02.12.22.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Apr 2025 12:22:57 -0700 (PDT)
+From: Breno Leitao <leitao@debian.org>
+Date: Wed, 02 Apr 2025 12:22:47 -0700
+Subject: [PATCH RFC] arm64: vdso: Use __arch_counter_get_cntvct()
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA2PR04MB10345:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6a2949fb-d603-434a-a8d1-08dd721afc24
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|52116014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9F0pqLbjmER256oBn5f1NvfYHdSPN4MJwS7iPgIMUSkAPIeuam8i7RZD/bdq?=
- =?us-ascii?Q?on/QVgCSwu8S17UOqIjkgEjXtuHb+Rwp+asAs/HWoxboOM8KgtWbxIot+tyv?=
- =?us-ascii?Q?SnGMJVAI2Nuk7ar90D92Q+tP45Q56SPr3oGm+c/hX2xLmFiyDW03WkiamHtw?=
- =?us-ascii?Q?JKRnxyHoIGVBbkxCXt7h+FIZRROsgVQiibLM1CdVunL2kvEg/dr9YIquKyKL?=
- =?us-ascii?Q?pu4yE8FujsxoBBz8Kci8FysJzVALt/FJdJWNq3t4hRTz400P6z3dRLcJCqQA?=
- =?us-ascii?Q?X+OFBPQ9bzhg2SBIJJT/wJoBXlVIX19qtNMVcVLmMY29X7wcAdTyydRIEcD+?=
- =?us-ascii?Q?UReougKGPwqoZjhXgayUb3atQXIaiMxjIWXooCw2JP9fx0upAeu+RYDsFgDw?=
- =?us-ascii?Q?hU8CtGwf7xjylw+PPIf6bD9L4dVkO3iIovhvoLwc9NHGyq1IMnnOHabdWhxL?=
- =?us-ascii?Q?LEHXIxwGmfQgzxH5zzk/Lw1WjXbAWA6vT4gQN2rhcSmPz9MU/3zOoV65ild8?=
- =?us-ascii?Q?IP9i3tZga1T+x58UWoRg0aLk1MkIMR0siRKePzdheigQvwIHvLX+H28VnLA3?=
- =?us-ascii?Q?LzWxu+cMUwqtkOdZ3tamn2VGNEsuhOyfeBI+Krv7Eb6EbJb944OUw60ZQ6Xu?=
- =?us-ascii?Q?pNdXHmuajkCghe1HxhXMVbM6TuUG8k173F7CH39o5BzmWdlvBAlRE1vJQGND?=
- =?us-ascii?Q?fbFBAII9WpSfQzKV0ffjfJxYRo5HhgD4WWdiVfiQGUjcMMVaK4v6S1JvpS4d?=
- =?us-ascii?Q?4MzdJoYCk0u0LIf1MO6hVjrjuWviPfNUQoEyy4fy40OlLnfHHokeCOg4H0RX?=
- =?us-ascii?Q?YycQehp2U+f5UY5H/1FFqKhz0BxoDKI42bQeVTR0OTjXAN9PG8BsWHhCu9NY?=
- =?us-ascii?Q?wWhGM1d1fAKR6Njhj8vBH5aoNt9Nzl+Pq6MUvFqZKTA0EZDMhAn0SaJGUdba?=
- =?us-ascii?Q?gHwBhWYu8vimqLyxGkBVcNZf2ZAyQzi3HK/EJr7OQpOCtiqTEd7AKPoeRSDM?=
- =?us-ascii?Q?OXrZLeDCh9yavTOUVJahYUVd1mI7tAKjWwNvOCYfRmWQZXuwM9AQpdeP9GlX?=
- =?us-ascii?Q?/Fd5e8iQ07K4psfy8aYt8va7Zt7JJB5GOR4JAnzaPmaW8gl8BWR6j9m9KCGY?=
- =?us-ascii?Q?T8rfoUHqN7hBcf4d6GhHEWyWHgrfgHE0S60KbBp4TvLXXoGKcIAD6waftQqU?=
- =?us-ascii?Q?OBGtoCHB6kYtVjAMQ621kRgLM29LKAVgQPE+oTxyZJxCFrI4NLJD6xxI+DHT?=
- =?us-ascii?Q?oAISgU0AIjpTcqBvWVo1GcIiWuM/t7QE3pmpS/FPq7wlKMowwAte5/glD/Uw?=
- =?us-ascii?Q?Zx8HpSbDq6/JHLFgjQCdn4YF76RcfCFrKgLwTnkB5dVRugLjq4tqlklj+UEJ?=
- =?us-ascii?Q?fmHYvCxZpM4KNkv/BUfekty5TFiW00yFci/DZ4g+xuWEYY2XJidQYinO9uOX?=
- =?us-ascii?Q?bpva6V/UqzjWjHIHHseOUL1cp7TvKh1A?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nm+lJdIoDFVOIhoAa+ygOms93Jedps7ir+vF/yXtMSy56XrlGKaT54egUNoI?=
- =?us-ascii?Q?qKzQyBPy9UsyErrbCZQoPqoFXR8+sDfJGrgwE6HvuMMcGnmOczaCEM4EgK5P?=
- =?us-ascii?Q?Bp/i3NRVGYe0BrZhzMoLP67R71ESp8EJYYgU+kKTk3B6aWzn8C5tnRENn7jc?=
- =?us-ascii?Q?Fq4Xry3rqYc9XDpdzs2CKLB8t5SCB7Wig+q6gX7Dg9qhR/1akvKJIUcao3wh?=
- =?us-ascii?Q?5vRPKTcojT4+n+BwuNtpr/ZyjyxuaBt2eZh8Jhf70zClcnZ6jejEgZgzu1VV?=
- =?us-ascii?Q?AQ4Py0V7zY5BmASw3Az513ohx4WhllNWliXi1d/udsPiXr0uRvyzMICTR9FZ?=
- =?us-ascii?Q?ZBwIiJJvv4dvhOg+Yl6XmOHbgUlK0tmE4GVIXH1N0FiRhpnRjGXaOtLvt1rf?=
- =?us-ascii?Q?EAFa5BBl9ZdiqdXLz8/SWs6tfjlH+iParxyoCxibZNFVKURzNU1nK4ypDpjl?=
- =?us-ascii?Q?INmTcYdnwn1BDsDe70nvjjkhadc1N86p8ghXZXIIck3y+JQUey69wWgk7SUp?=
- =?us-ascii?Q?B7HWtCfH3ifIjMXRSpqiUQ7wCleXFvUcLXMPLGlzLf//ahcMD7nd1ZyBCiHq?=
- =?us-ascii?Q?WUuWhHolYuBDQ5un6rxhAOYuTuz8eEVfc4NlPa5WVZjfHzZyytbc9Gn0CIfm?=
- =?us-ascii?Q?th67rzqYQYBUzDnkS+RLKhMrsSgsSvL/Y46+4YeZOCMmC/YjRRmsRFZ55U2d?=
- =?us-ascii?Q?eLb8nuTo4Dg7kMQruxE3J0s7fPUtBywwJ1lAfttWXZYGKDJqspUpVUuJ9son?=
- =?us-ascii?Q?ms5T9JVAG9duNthWBQGOf/Mv7FTo8DfNlMUyca0Notfc0jSYO9oLltdY0gS5?=
- =?us-ascii?Q?Fzf/66KKa2Vzgx4I0Vb+P6vHi47BKfGudiRlC8dqDt3T92SUx119ZrGxt34F?=
- =?us-ascii?Q?NqlAaVLr0SFRHYjhtI2SlB5R0yO72X+QLQKMVBUakJescgkXR2/IXK9Q4399?=
- =?us-ascii?Q?OkgV/rPeesXzeChgQzKA3tFCiJt9fLtYn6YwlKKc8w6AwAS72ZzBSRZv1MU7?=
- =?us-ascii?Q?GuGKH0V0GUPV+9KafbRKFhdOVdQj84X14yQWeCCiK6us/vwk3OQxWgWDPlo2?=
- =?us-ascii?Q?O1Fo/Sg04HfQ16snkrjk4cJhOKAARN+1Aq5nSaZ5djsl0MXrIEbwS0sMnJRU?=
- =?us-ascii?Q?VIRiR4InXcU3+zWDs5ZSB+K9w3HEij6DSZ50BeHeKf02r0xCotazBEcAe5i7?=
- =?us-ascii?Q?03iokH6xm5GpGqEaehbuUZ5Hi9MGSu6tsrLojax01fGzx3HpiBk5JBf397nM?=
- =?us-ascii?Q?1PYdqSqukOa5fo70BNtB8ACQUPQxUJiCN8oGMg/OnXoAomGtUHoNhtMJvoDk?=
- =?us-ascii?Q?4N4OVvJyzJk3I2TYLlX/IG87QtrfZacRgIHQ5q8Cy26C4nQM0aENgvA5TMVJ?=
- =?us-ascii?Q?Tp3EkEmGuNS0PJpIV4Ep8z//3Pgz0duWe63a3fFFYFargnincgPhdiilCrLr?=
- =?us-ascii?Q?raFMeJ9eNiL7M1nxMI2Fc8yfB+iNWYu473X0pDhCZs3YOBJ5whoI0rjywcA/?=
- =?us-ascii?Q?zJkHKOdMC7xCWRFVogK5QiCO8AntlSJQg/oF/uCnNI9EAWUY792ER6SlE54K?=
- =?us-ascii?Q?QMAMviQI0sSF5R6h4rc=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a2949fb-d603-434a-a8d1-08dd721afc24
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2025 19:17:18.3157
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7ujhsBU/etdzwFVZEi7bD0ypOR1tjXpMS8e6447glwJObUlsE98Yl2vUZ06HDBQ4IzIVw4Hg2lxIdVAZpHzIFg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10345
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250402-arm-vdso-v1-1-2e7a12d75107@debian.org>
+X-B4-Tracking: v=1; b=H4sIAIaO7WcC/x3MOwqAMBAFwKssrzawRi1MK3gAW7HQuOoWfkggC
+ OLdBecA8yBKUIlw9CBI0qjnAUd5RvDbeKxidIYjWLYVl2zNGHaT5ngaX07s66WoCmZkhCvIovd
+ f9ejaBsP7ftQLfo1fAAAA
+X-Change-ID: 20250402-arm-vdso-c4b0c9f35300
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ arnd@arndb.de, kernel-team@meta.com, vincenzo.frascino@arm.com, 
+ maz@kernel.org, anders.roxell@linaro.org, Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.15-dev-42535
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2668; i=leitao@debian.org;
+ h=from:subject:message-id; bh=ljKOGDNIoGIYXjjrmExu3/2eCFL5hJ0e/kaT7Y/A0lc=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBn7Y6QmPWVYqn8sXqLtXJY6ddJzmHk5lG7gS9qQ
+ 25fb0TT+eKJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCZ+2OkAAKCRA1o5Of/Hh3
+ bdN8D/90tSUXwFJX/AQtgyjEV3xiUwShqy9MVfqcdiPe1zBo9wMj6mRZvZZzMmgBhtblBUuCg7R
+ tf7oy8x6jIR5AN5rSVbi4/DFu8swmXKw+23KBdpDSsyqdQ74VC7qMjErh4P0fykSXs8H4zfTAjo
+ BU60s/JAuQrHLK0cGVxDG0zDIY3OfCz4DM901rWHUzbMLT+nfyM4EpdwNjEcZAv/x4YBsEMdjE7
+ lwAmYmnN940wov9Do2+8AuSbsvASMq/c860JiE9U6n0tqzI6hcdwIPjgIclnHQplM6Wt9WaSO45
+ 2g9g3Cw2nSsuN/kUaiKvfewKcOWh+QDN/3FyNr/l9lpbWbRedYLQCO+jC9sWIYa9sM1fSiEUzTz
+ TU4DVgMPVRGvB57SHK3o4RO7gcS5yR41JIsMLIwbkBuzRtbXrrw4j1ohQUoFYFQ7D8Z6rCCpES5
+ 5DizLWUUgtoLRliodczaZUnFxt+wj9DiBAOAUeImpdW3Ytfsz3jNaOPqAS6Elz3SFdy7gWcXmS6
+ RLqUU+5HMu04IbVno0mRBO/mNvs98ZoyrR+JN1nCd1CPFesQyOoKdTcUEWcOe6efBZqc0se/DSl
+ 70u2VCfxtGsWZNJk7KM6KoSv9bmR7tlmR4KBVNtbimgx+q6qZRefyqDCSVQBdKkwVjchJr8Kmn5
+ pfI+oVMonLe+UcQ==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_121722_440071_19D99516 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250402_122301_315571_A2F6374B 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,42 +105,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 09:07:07AM +0200, Maud Spierings via B4 Relay wrote:
-> From: Maud Spierings <maudspierings@gocontroll.com>
->
-> Add a maintainer for the GOcontroll Moduline series of controllers.
->
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> ---
->  MAINTAINERS | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 4b3864a9852f9fca2be48987d383c0671e668336..7d4fbfdaaac1776fc7c4a569f7ab667f0a485eab 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -10043,6 +10043,12 @@ L:	linux-media@vger.kernel.org
->  S:	Maintained
->  F:	drivers/media/usb/go7007/
->
-> +GOCONTROLL MODULINE CONTROLLERS
-> +M:	Maud Spierings <maudspierings@gocontroll.com>
-> +L:	devicetree@vger.kernel.org
-> +S:	Maintained
+While reading how `cntvct_el0` was read in the kernel, I found that
+__arch_get_hw_counter() is doing something very similar to what
+__arch_counter_get_cntvct() is already doing.
 
-this one sill need
- L: imx@lists.linux.dev
+Use the existing __arch_counter_get_cntvct() function instead of
+duplicating similar inline assembly code in __arch_get_hw_counter().
 
-Frank
+Both functions were performing nearly identical operations to read the
+cntvct_el0 register. The only difference was that
+__arch_get_hw_counter() included a memory clobber in its inline
+assembly, which appears unnecessary in this context.
 
-> +F:	arch/arm64/boot/dts/freescale/*moduline*.dts*
-> +
->  GOCONTROLL MODULINE MODULE SLOT
->  M:	Maud Spierings <maudspierings@gocontroll.com>
->  S:	Maintained
->
-> --
-> 2.49.0
->
->
+This change simplifies the code by eliminating duplicate functionality
+and improves maintainability by centralizing the counter access logic in
+a single implementation.
+
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+I'm sharing this code as an RFC since I'm not intimately familiar with
+different arm platforms, and I want to double-check that I haven't
+missed anything subtle.
+---
+ arch/arm64/include/asm/vdso/gettimeofday.h | 22 ++--------------------
+ 1 file changed, 2 insertions(+), 20 deletions(-)
+
+diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
+index 92a2b59a9f3df..417b5b41b877d 100644
+--- a/arch/arm64/include/asm/vdso/gettimeofday.h
++++ b/arch/arm64/include/asm/vdso/gettimeofday.h
+@@ -11,6 +11,7 @@
+ #include <asm/barrier.h>
+ #include <asm/unistd.h>
+ #include <asm/sysreg.h>
++#include <asm/arch_timer.h>
+ 
+ #define VDSO_HAS_CLOCK_GETRES		1
+ 
+@@ -69,8 +70,6 @@ int clock_getres_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
+ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+ 						 const struct vdso_time_data *vd)
+ {
+-	u64 res;
+-
+ 	/*
+ 	 * Core checks for mode already, so this raced against a concurrent
+ 	 * update. Return something. Core will do another round and then
+@@ -79,24 +78,7 @@ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+ 	if (clock_mode == VDSO_CLOCKMODE_NONE)
+ 		return 0;
+ 
+-	/*
+-	 * If FEAT_ECV is available, use the self-synchronizing counter.
+-	 * Otherwise the isb is required to prevent that the counter value
+-	 * is speculated.
+-	*/
+-	asm volatile(
+-	ALTERNATIVE("isb\n"
+-		    "mrs %0, cntvct_el0",
+-		    "nop\n"
+-		    __mrs_s("%0", SYS_CNTVCTSS_EL0),
+-		    ARM64_HAS_ECV)
+-	: "=r" (res)
+-	:
+-	: "memory");
+-
+-	arch_counter_enforce_ordering(res);
+-
+-	return res;
++	return __arch_counter_get_cntvct();
+ }
+ 
+ #endif /* !__ASSEMBLY__ */
+
+---
+base-commit: acc4d5ff0b61eb1715c498b6536c38c1feb7f3c1
+change-id: 20250402-arm-vdso-c4b0c9f35300
+
+Best regards,
+-- 
+Breno Leitao <leitao@debian.org>
+
 
