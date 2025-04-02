@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D290C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 12:51:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CAD7C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 12:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MAxFexgQmB2TfK1mr+GQq7cgXCt/uMUFHyjb1c4s5Hk=; b=ByrkftvBnCYhO++YdqKD2PT1tm
-	IC6DH02FEfsgl7MDAj4B+56LGOGNvTvnM+gjQfzRPoKzvZRbFNfEYVqMjdKtHDrT4sm4kHmxV/nsa
-	BRokRUMNDzvhjsi4vHPyJHs8bWBIFft0ETrqTAwqCPg7nM4aG8kGP+QlB3y+PYLHJfICOK8RW1g4B
-	9La4WG9qxbyAO9Uwy0gW/rU8+ShoWcZMpl0jFG89KgUaFykOL9mB+bLyjM6Q5UpSI5WOQWQ2rVhvF
-	tcsJCQxKVWh0AxVYQ2PuD6OIVvIL3mrSwLd5awkpHO0GY1iJQJHPjsPVlu3WGfW8/jbCiKABAJWdN
-	h3tn6XdQ==;
+	bh=yibjlCzMj7db36Ncl+n+k08WtHR8TCTohVRGWqYmZg0=; b=oK1sqUHhbyLWAvA9vAKRFU2sIz
+	CxPFAjg73jfH+JaHxwqpyf1+8UQ28VgTdO2oa5kPzGmXWkImmQpIveU5rG+ZesqnLgXIDBP9iACpa
+	r3hfOLXCHHk5xioJitJF/ElrcbgRA2Lc0XH6bvcOz9kN/+gVOYQkcn/asAp8CN3pf2iWMt+TU8Gcc
+	aMi2oIv5ifJ41PIdBrux4Q1CrBREE5JlwfdaSQ3F9h++yKFLvRB5jQcI+4ws/qu4e1to57Alcqcd5
+	9GFrhqlhjvFWGDK8pPgw+oN+a+1ybErKnz6jx/xCagv1OzROWBSBbobO6ccblnXAu78MzouMI1rL4
+	j+o4pJ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzxZC-0000000690F-3MwN;
-	Wed, 02 Apr 2025 12:51:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tzxax-000000069ZF-3vr2;
+	Wed, 02 Apr 2025 12:53:27 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzxMj-000000066XI-3dnN;
-	Wed, 02 Apr 2025 12:38:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42B9261163;
-	Wed,  2 Apr 2025 12:38:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C46D7C4CEE9;
-	Wed,  2 Apr 2025 12:38:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743597524;
-	bh=oEhyNyNMZHsFewfythTjj6m7g/dZV8hw3gXRVCT8pNc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HCdFlrZivFl/UJ2eMNNSfT9+UYFDzF4gq16A9L9FZp24YoZaAz6/fL1v+ZsvmabGx
-	 FfVb5eltNG21n8hvETXN+F8aSCRv1JaELc3N9cZmNMxi2XEdwfhzL3LnpQPBR5S3o5
-	 EJd6NoP/8IUu/pu3A6RrSqgnRoPViqomT5lF8lHTpFwmATgtKJ2wzmrCuQJD9r27XB
-	 UTozMtVBJ2TlCDxA9A7PoIMyAhveFophTU4wtibnMkpMkgStfoKd4vpFNS3aEyLPKX
-	 dOmH3+IJ+CYAoy3dTQF9jrY9MEE/lVwHR6g7QloS9SxqlnyqP8zbsw09we9+fALFcA
-	 fjRsTa0533DYw==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1tzxMn-000000001WI-1voi;
-	Wed, 02 Apr 2025 14:38:49 +0200
-Date: Wed, 2 Apr 2025 14:38:49 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Jonas Gorski <jonas.gorski@gmail.com>
-Cc: Johan Hovold <johan+linaro@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jeff Johnson <jjohnson@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	ath11k@lists.infradead.org, ath12k@lists.infradead.org,
-	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] PCI/pwrctrl: Rename pwrctrl Kconfig symbols and slot
- module
-Message-ID: <Z-0v2RAtDe0bSfWI@hovoldconsulting.com>
-References: <20250328143646.27678-1-johan+linaro@kernel.org>
- <20250328143646.27678-2-johan+linaro@kernel.org>
- <CAOiHx=mo6Qd+7WrO2JvBLhqjGR7oHds14FwFFAVoEkVWLnbhdA@mail.gmail.com>
+	id 1tzxVm-000000068DV-17Nl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Apr 2025 12:48:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=yibjlCzMj7db36Ncl+n+k08WtHR8TCTohVRGWqYmZg0=; b=UFpZgsLjYa47uMUX+kbAWXcqXj
+	EAXRsVbFGjyOEQDht4LLsjdX2i6zX1P/detZLCGKl4B2bZqBP3vuGsDj76g6F2j2Je6VWPDl7nVYP
+	UatDa/505MPVEy3wGGZrB+COxlRk+tMXa/YhSgMarkAYW4y/gXTQkgS/PzfN31YyzEdo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tzxVc-007n1N-8p; Wed, 02 Apr 2025 14:47:56 +0200
+Date: Wed, 2 Apr 2025 14:47:56 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 4/4] net: mtip: The L2 switch driver for imx287
+Message-ID: <8f431197-474e-4cd5-9c3e-d573c3f3e6b5@lunn.ch>
+References: <20250331103116.2223899-1-lukma@denx.de>
+ <20250331103116.2223899-5-lukma@denx.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAOiHx=mo6Qd+7WrO2JvBLhqjGR7oHds14FwFFAVoEkVWLnbhdA@mail.gmail.com>
+In-Reply-To: <20250331103116.2223899-5-lukma@denx.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250402_054806_315984_9BC2257D 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,136 +78,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 01:54:36PM +0200, Jonas Gorski wrote:
+> +static void read_atable(struct switch_enet_private *fep, int index,
+> +			unsigned long *read_lo, unsigned long *read_hi)
+> +{
+> +	unsigned long atable_base = (unsigned long)fep->hwentry;
+> +
+> +	*read_lo = readl((const void *)atable_base + (index << 3));
+> +	*read_hi = readl((const void *)atable_base + (index << 3) + 4);
+> +}
+> +
+> +static void write_atable(struct switch_enet_private *fep, int index,
+> +			 unsigned long write_lo, unsigned long write_hi)
+> +{
+> +	unsigned long atable_base = (unsigned long)fep->hwentry;
+> +
+> +	writel(write_lo, (void *)atable_base + (index << 3));
+> +	writel(write_hi, (void *)atable_base + (index << 3) + 4);
+> +}
 
-> I have some nitpicks ...
+It would be nice to have the mtip_ prefix on all functions.
 
-Thanks for taking a look.
+> +static int mtip_open(struct net_device *dev)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +	int ret, port_idx = priv->portnum - 1;
+> +
+> +	if (fep->usage_count == 0) {
+> +		clk_enable(fep->clk_ipg);
+> +		netif_napi_add(dev, &fep->napi, mtip_rx_napi);
+> +
+> +		ret = mtip_alloc_buffers(dev);
+> +		if (ret)
+> +			return ret;
 
-> On Fri, Mar 28, 2025 at 3:41 PM Johan Hovold <johan+linaro@kernel.org> wrote:
-> >
-> > Commits b88cbaaa6fa1 ("PCI/pwrctrl: Rename pwrctl files to pwrctrl") and
-> > 3f925cd62874 ("PCI/pwrctrl: Rename pwrctrl functions and structures")
-> > renamed the "pwrctl" framework to "pwrctrl" for consistency reasons.
-> >
-> > Rename also the Kconfig symbols so that they reflect the new name while
-> > adding entries for the deprecated ones. The old symbols can be removed
-> > once everything that depends on them has been updated.
-> >
-> > The new slot module is also renamed to reflect the framework name and
-> > match the other pwrctrl modules.
-> >
-> > Signed-off-by: Johan Hovold <johan+linaro@kernel.org>
-> > ---
-> >  drivers/pci/pwrctrl/Kconfig  | 27 +++++++++++++++++++++------
-> >  drivers/pci/pwrctrl/Makefile |  8 ++++----
-> >  2 files changed, 25 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/drivers/pci/pwrctrl/Kconfig b/drivers/pci/pwrctrl/Kconfig
-> > index 990cab67d413..62f176e42e33 100644
-> > --- a/drivers/pci/pwrctrl/Kconfig
-> > +++ b/drivers/pci/pwrctrl/Kconfig
-> > @@ -1,19 +1,19 @@
-> >  # SPDX-License-Identifier: GPL-2.0-only
-> >
-> > -config HAVE_PWRCTL
-> > +config HAVE_PWRCTRL
-> >         bool
-> >
-> > -config PCI_PWRCTL
-> > +config PCI_PWRCTRL
-> >         tristate
-> >
-> > -config PCI_PWRCTL_PWRSEQ
-> > +config PCI_PWRCTRL_PWRSEQ
-> >         tristate
-> >         select POWER_SEQUENCING
-> > -       select PCI_PWRCTL
-> > +       select PCI_PWRCTRL
-> >
-> > -config PCI_PWRCTL_SLOT
-> > +config PCI_PWRCTRL_SLOT
-> >         tristate "PCI Power Control driver for PCI slots"
-> > -       select PCI_PWRCTL
-> > +       select PCI_PWRCTRL
-> >         help
-> >           Say Y here to enable the PCI Power Control driver to control the power
-> >           state of PCI slots.
-> > @@ -21,3 +21,18 @@ config PCI_PWRCTL_SLOT
-> >           This is a generic driver that controls the power state of different
-> >           PCI slots. The voltage regulators powering the rails of the PCI slots
-> >           are expected to be defined in the devicetree node of the PCI bridge.
-> > +
-> > +# deprecated
-> > +config HAVE_PWRCTL
-> > +       bool
-> > +       select HAVE_PWRCTRL
-> 
-> I'm not sure this will work as intended. This symbol can only be != n
-> if anything selects it, but there may also be (outdated) config
-> symbols that depend on its value. E.g. ath1*k has "select
-> PCI_PWRCTL_PWRSEQ if HAVE_PWRCTL", and if there is nothing selecting
-> HAVE_PWRCTL, but HAVE_PWRCTRL directly instead, HAVE_PWRCTL will be =n
-> and the condition will fail.
-> 
-> Since you rename the only one selecting HAVE_PWRCTL in patch 2/4, but
-> update ath1*k in 3/4 and 4/4, their select PCI_PWRCT(R)L_PWRSEQ use is
-> temporarily ineffective. Moving the arm64 patch last would avoid that
-> though, at least for the current state.
+nitpick: You might want to turn the clock off before returning the
+error.
 
-You're right, thanks for catching this.
+> +	}
+> +
+> +	fep->link[port_idx] = 0;
+> +
+> +	/* Probe and connect to PHY when open the interface, if already
+> +	 * NOT done in the switch driver probe (or when the device is
+> +	 * re-opened).
+> +	 */
+> +	ret = mtip_mii_probe(dev);
+> +	if (ret) {
+> +		mtip_free_buffers(dev);
 
-> The alternative would be split this by config symbol instead of per
-> tree, so all users would be atomatically updated as well. These
-> patches need to go through the same tree anyways, so I see no issue
-> doing it that way.
+I've not checked. Does this do the opposite of netif_napi_add()?
 
-Moving the arm64 patch last would take care of the temporary glitch, but
-since it seems we need to take this through one tree (e.g. to avoid
-merging it over three cycles) perhaps we can just squash them.
+> +static void mtip_set_multicast_list(struct net_device *dev)
+> +{
+> +	unsigned int i, bit, data, crc;
+> +
+> +	if (dev->flags & IFF_PROMISC) {
+> +		dev_info(&dev->dev, "%s: IFF_PROMISC\n", __func__);
 
-That said, it seems I would need to reverse the logic for HAVE_PWRCTL so
-that it is selected by HAVE_PWRCTRL if we think we still need to worry
-about new users of HAVE_PWRCTL being adding to other trees.
+You can save one level of indentation with a return here.
 
-If we could get this renamed already in rc1, we probably do no need to
-care about that though.
+> +	} else {
+> +		if (dev->flags & IFF_ALLMULTI) {
+> +			dev_info(&dev->dev, "%s: IFF_ALLMULTI\n", __func__);
 
-> > +
-> > +# deprecated
-> > +config PCI_PWRCTL_PWRSEQ
-> > +       tristate
-> > +       select PCI_PWRCTRL_PWRSEQ
-> 
-> Similar issue, but there are no conditionals based on this, so this may be fine.
+and other level here.
 
-Yeah, this one should be fine.
+> +		} else {
+> +			struct netdev_hw_addr *ha;
+> +			u_char *addrs;
+> +
+> +			netdev_for_each_mc_addr(ha, dev) {
+> +				addrs = ha->addr;
+> +				/* Only support group multicast for now */
+> +				if (!(*addrs & 1))
+> +					continue;
 
-> > +
-> > +# deprecated
-> > +config PCI_PWRCTL_SLOT
-> > +       tristate
-> > +       select PCI_PWRCTRL_SLOT
-> 
-> This one won't work. Its value will be automatically calculated based
-> on other symbols selecting it, and since there is nothing selecting
-> it, it will always be n, regardless what any existing .config says.
-> 
-> So unless you make this a user selectable symbol as well, this will
-> (potentially) break existing .configs since its value will be then
-> automatically calculated as =n, and the new symbol takes the default
-> =n (unless explicitly enabled, or selected by ath1*k).
+You could pull there CRC caluclation out into a helper. You might also
+want to search the tree and see if it exists somewhere else.
 
-Right. Since PCI_PWRCTL_SLOT will be new in rc1 and there is nothing
-selecting it, I think we can just rename this one. At least if we can
-get this into rc1 and make sure that the pending defconfig update is
-respun.
+> +
+> +				/* calculate crc32 value of mac address */
+> +				crc = 0xffffffff;
+> +
+> +				for (i = 0; i < 6; i++) {
 
-Otherwise it would indeed need to be user selectable.
+Is 6 the lengh of a MAC address? There is a #define for that.
 
-Let me respin this. Since this is all quite new, we should be able to
-just rip of the band-aid for rc1 and not need to worry about this going
-forward.
+> +					data = addrs[i];
+> +					for (bit = 0; bit < 8;
+> +					     bit++, data >>= 1) {
+> +						crc = (crc >> 1) ^
+> +						(((crc ^ data) & 1) ?
+> +						CRC32_POLY : 0);
+> +					}
+> +				}
+> +			}
+> +		}
+> +	}
+> +}
+> +
 
-Johan
+> +struct switch_enet_private *mtip_netdev_get_priv(const struct net_device *ndev)
+> +{
+> +	if (ndev->netdev_ops == &mtip_netdev_ops)
+> +		return netdev_priv(ndev);
+> +
+> +	return NULL;
+> +}
+> +
+
+> +static int __init mtip_switch_dma_init(struct switch_enet_private *fep)
+> +{
+> +	struct cbd_t *bdp, *cbd_base;
+> +	int ret, i;
+> +
+> +	/* Check mask of the streaming and coherent API */
+> +	ret = dma_set_mask_and_coherent(&fep->pdev->dev, DMA_BIT_MASK(32));
+> +	if (ret < 0) {
+> +		dev_warn(&fep->pdev->dev, "No suitable DMA available\n");
+
+Can you recover from this? Or should it be dev_err()?
+
+More later...
+
+	Andrew
 
