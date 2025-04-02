@@ -4,85 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F397AC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 01:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4679C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 01:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ApdxesjkOfai71A/PiCUygzYWV7+z0dnwski1nvbrAw=; b=NsSQrcUzwQnAbUFA8IwiQFhWo7
-	MdwcY93aeJ+gAUsnNrK5j/JlOY5j5igaN56RjOZShSZe7m1cMAZA3q/FdZSWbbVq9NMS40rLmdMtz
-	/zYzuzofZ85o7gxu1MSkRJvDz9WT8N7ewAseUSmEBO4YRoQS0t2N5vtChftu9tysj2uLvLpIdiEfB
-	HvKcsMNJSaKYSwRtJTkwQnN6sxatuB4OcSzyAoQMhEVW9aPjl6uBsyG2UXPERxt9o8zRj24UTup1G
-	roS5evosVhmph4rQsdx3chZNsOEg9TLmugERFl4Z8m8ZfFq8pfIK42R1gg8xHq9b2wUVRYDPNxFrb
-	e2p0m4rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eVjNkH/V/fv1Y45uPpNZVysJT11oKFePxebtI4FVQb4=; b=iaq0OUa1nUSjpjyxMOSxVWIpzW
+	3A+KpcaNyt3tOcEqP50IZWi61kQdVq1YYnwW3nt/JZU9ULjba0OuOol15Qtv9mgw9fQ7saEizxFLb
+	S1hAU67SQYQUyeI409Dtei3enD3OxbJ3CjudqvFmMaoQGjh4hfRVU7Eplu9jlydPKKrN4PjICpQcr
+	RG6AsO1YMeLYMYAa58bGxv9K6v5dO/6vg5ODCJSsApA6wiockqimtwn6/U9gLyxoFk53KHlbVOTDf
+	qbnaqbDY4t+4fPmG6NXw5MlWAgGl8IMHHQ+aJ+apYs8GWh0uqCaqUML4XNNa1zK6BRJb52hyaEZbU
+	wtB9oW0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzmvU-00000004qVb-2yMM;
-	Wed, 02 Apr 2025 01:29:56 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1tzn6g-00000004ra2-2Wwb;
+	Wed, 02 Apr 2025 01:41:30 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzmol-00000004pZB-3vjK
+	id 1tzn4w-00000004rNb-3h2u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 01:23:01 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6e8f254b875so57339186d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 18:22:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743556979; x=1744161779; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ApdxesjkOfai71A/PiCUygzYWV7+z0dnwski1nvbrAw=;
-        b=BiYxZESrbEReUnm0eofYNzIKv94WlD+UuTiFdbt4k96+o2VOsAvecFd0SfwWOfz2qh
-         k8HksRQ+4rLByaRaEQGcFgcEf/ImAmRB4mt3bFGfYNhfSwB7BD1cwhWI9NLLtyoYRvdk
-         zv8AcliOICfhSX/IB4/nm3SW9/FSo5olms/v4zPxHnei9F4oAh+eLANt8/WDjzUoOe/B
-         +IqROWkm/IGCHxtCMJJguwBvbBgw95wfAQsG4DyLmLO6SkVsznT4DjNvZLUM7ylZvKsQ
-         gFL7q1/wjTda+/tyj85fvja8nH5843OjsgwOpGosJUBPiuEiOkZje1Eq0lBUdaLZ25u7
-         rnng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743556979; x=1744161779;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ApdxesjkOfai71A/PiCUygzYWV7+z0dnwski1nvbrAw=;
-        b=J9lI4h2OuQ+YM3csTRNJ6qxyRkm5qJ4rH/YlBdLmh++etaC8V9yqItj+k1JItBp9jX
-         wf2Ww9rtihhJtpqkYOnJzzmnxNCqfeI6kPAzQ7rQ6txUbZOU8ytvzLtsPhseE6gmWg78
-         anCgQzuaxUwAqyShl/nCEkTjfSqgEk6loO+NeIkXv0LcQcctySdjY6TS8gypGmn3++2F
-         COQUVi40vJR5DkbguERBrx+emLsXVXKtTudXXOjh66zm9zVpSu/R34wXKp4bTqAw2BM8
-         wLyFP9jU3SJnmBzMmCUtgUXw3yJcwlQHfFax3PgKdIymW0B/9Qt1mQNltmdpwqZGqNFW
-         dVzg==
-X-Forwarded-Encrypted: i=1; AJvYcCUrACzaR4/0u7mDdc8IJD+5uzGY81X6qB7brSKWOZt3AyT4rViJGcSJwFMVpUigWljByI0CVfi2Tx/WJTVOE2vS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnsZ55G/he/wUqohNUW6aA3/CAJeKYV77F3yho3Pv//2LXJaDG
-	uCqKKS9st1XFbe7VYDtYQn8Hmjt+0hhGo7ivLdZJTYtWWNa13JKWaLQKYZMhHmDZqtmEtfVuHNW
-	1WUh0gjyiGcd5bqzaRaQX186uIncPG7iS+jM=
-X-Gm-Gg: ASbGncvbKfbKMZ1j6rSJTCRDsqq6mUnYTJueW7V/E4d91fAJzKtu4P08ySsODHlSkGl
-	hg8wXlldxALBBk8BQITFeCA+zSfbtzRoQYSSiLF4aRsuJThhf+TsRSo57zYo0I3cLjkIZ02pEAj
-	GMYVNCv9nkfyNA2Wl8BSeI2dZDsG98pn61tdN7
-X-Google-Smtp-Source: AGHT+IFT2xaIBFRCTkFePtUG6vwD+8dVcugwyHEGGsvMia3jYcIBJs9VJtiUlqGpwnEiLP2y6qg1U/uTR8BQ8/FRyqA=
-X-Received: by 2002:ad4:5eca:0:b0:6d8:f0ba:ea92 with SMTP id
- 6a1803df08f44-6ef02c7b3aemr14857656d6.21.1743556978473; Tue, 01 Apr 2025
- 18:22:58 -0700 (PDT)
+	Wed, 02 Apr 2025 01:39:45 +0000
+Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250402013933epoutp02edd303ee93a1658c393180c12f0be48d~yXL0oS_l60645706457epoutp02P
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  2 Apr 2025 01:39:33 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250402013933epoutp02edd303ee93a1658c393180c12f0be48d~yXL0oS_l60645706457epoutp02P
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1743557973;
+	bh=eVjNkH/V/fv1Y45uPpNZVysJT11oKFePxebtI4FVQb4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lUSdWcAjH6lkI9zgwx0zmjLt2pwDM5AQDK2n3KOnfDQ1tk+0WnkWb3Bzz3BZlWH2h
+	 kBkMz4jL8b/SSZzHukoyOgYwR+JA85yLfNwlxwGA8CDcGamqeyL9tNt3SJR69hsLiN
+	 /5CXZoxqreq19qxALmHmNkPgfZD41cGJApBi9rcg=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250402013932epcas2p232ccdd795d488406778169393bc21e9c~yXLz87yQg2124221242epcas2p2m;
+	Wed,  2 Apr 2025 01:39:32 +0000 (GMT)
+Received: from epsmges2p2.samsung.com (unknown [182.195.36.89]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4ZS6wz6bdrz6B9mJ; Wed,  2 Apr
+	2025 01:39:31 +0000 (GMT)
+Received: from epcas2p2.samsung.com ( [182.195.41.54]) by
+	epsmges2p2.samsung.com (Symantec Messaging Gateway) with SMTP id
+	BC.94.10159.3559CE76; Wed,  2 Apr 2025 10:39:31 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250402013931epcas2p31d16291742c84025c363b3783b8ac18e~yXLy7VQ151103811038epcas2p3Z;
+	Wed,  2 Apr 2025 01:39:31 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250402013931epsmtrp2131d2f748c2191a3ab6278be721eba4b~yXLy6GJXg3008130081epsmtrp2Q;
+	Wed,  2 Apr 2025 01:39:31 +0000 (GMT)
+X-AuditID: b6c32a46-9fefd700000027af-e9-67ec9553e5d8
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	82.A7.08766.3559CE76; Wed,  2 Apr 2025 10:39:31 +0900 (KST)
+Received: from perf (unknown [10.229.95.91]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250402013931epsmtip2f0edf5faf9a071f540f43c5c9feea055~yXLypyyek1331713317epsmtip2B;
+	Wed,  2 Apr 2025 01:39:30 +0000 (GMT)
+Date: Wed, 2 Apr 2025 10:43:46 +0900
+From: Youngmin Nam <youngmin.nam@samsung.com>
+To: William McVicker <willmcvicker@google.com>
+Cc: John Stultz <jstultz@google.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Peter Griffin
+	<peter.griffin@linaro.org>, =?iso-8859-1?Q?Andr=E9?= Draszik
+	<andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Rob
+	Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+	Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Daniel
+	Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Saravana Kannan <saravanak@google.com>, Krzysztof Kozlowski
+	<krzk@kernel.org>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, Donghoon Yu
+	<hoony.yu@samsung.com>, Youngmin Nam <youngmin.nam@samsung.com>
+Subject: Re: [PATCH v1 2/6] clocksource/drivers/exynos_mct: Don't register
+ as a sched_clock on arm64
+Message-ID: <Z+yWUj5ZLftPrbht@perf>
 MIME-Version: 1.0
-References: <20250402011832.2970072-1-yabinc@google.com> <20250402011832.2970072-4-yabinc@google.com>
-In-Reply-To: <20250402011832.2970072-4-yabinc@google.com>
-From: Yabin Cui <yabinc@google.com>
-Date: Tue, 1 Apr 2025 18:22:46 -0700
-X-Gm-Features: AQ5f1JpEFpn6nSaI8DHriRP1kpO4k9vT001Uil8c_V8-xsDrMAnB4qPjqh6SggA
-Message-ID: <CALJ9ZPOvcxswvfbpWkXgJ=WL+HLa33nm0ZzHogYNZ9keXfi1MA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] coresight: core: Disable helpers for devices that
- fail to enable
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, leo.yan@arm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <Z-wZV3RCXKPzpZGl@google.com>
+X-Brightmail-Tracker: H4sIAAAAAAAAA01TfUxTVxT39rWvLVvN43N3iNDVDcOnLVJ6WcSBMNK4ZWGTRLNlwgt9tIzS
+	Nv1YmJuIyiiCIZBJJoUBA+ekAe0KAuPLURDZspQBhmmnKENQkMEoYJYpsNaHC//9zu+c37m/
+	c8+9HMxrEffnZKn0lFZFKgW4B7OtPyQm4lDFvFx4xb4X3a9pw1HrXAsTLV48C1BTj52BapZ3
+	otoBOwvdaH7MQs+GfsBRR7sPmjVN4Gh42MJG1qlxFhrrrMbR+eFeBrKcX2eije4ONiq2reGo
+	xVqBIafjKCq4I0Zm5wZADT852fF+0rauNpa0qaYJSOusBqnVfAaX3hnvxqULdjtb2nLhhLS0
+	1Qyky9bAFO6H2fsUFCmjtHxKlaGWZankcYJ3DqUlpoljhKIIUSySCPgqMoeKEyS9mxKRnKV0
+	zSfgf0oqDS4qhdTpBHv279OqDXqKr1Dr9HECSiNTaiSaSB2ZozOo5JEqSv+mSCiMErsK07MV
+	1/pm2Zra3bld9iFGPhgIKgZcDiSi4b2xa3gx8OB4ER0A1p+sZtGBE0D7yAaDDp4A2Gw7zX4h
+	aV+9zqYTPQDeGi4BdDAJoOO7MlczDodJvA6rl4RuAU5EwLahdeCmfYhI+OzLXHc5RrTgcHBy
+	nuHmvYlMODEa6C7nEbvg+KKZRWNP+HPlA6Ybc4lQWFjS+NwqJIxcWGTuZNGGkuCpi2c3zXnD
+	uRutm9gfLi/04DTWwfx7DowWFwD4y++PMDqxF5pmjMCNMUIB+8/0st2GoMvFgINJ09thUf/a
+	Js2DRYVetDIY/nvOAmgcALsaLm12lMKZh0ubF9fEgCOOaWYZCDRtmce05TSTqy1GhMArnXto
+	OgievlqF0fQO+P06Z0tFHcDNwI/S6HLklC5KE/X/rjPUOVbw/OWHJneAc3/9HWkDDA6wAcjB
+	BD68I6uzci+ejPzsGKVVp2kNSkpnA2LXlsoxf98MtevrqPRpouhYYXRMjEgSJRZKBK/wbEvT
+	ci9CTuqpbIrSUNoXOgaH65/POG5zpMbxybWZhPG+qQ9mSm6PrH9TnljdfDA2yCPn8mu5VaO7
+	3veDX2xPndaITE9lPYMGf42z7uSP9ZfIE2thxrybJbvj8yqPPWRI+AFvKxIza5s/KRpZlfW/
+	NF/mW+Bd3uBZIbxuGby5GqwokV8d725tP5De3nv3cJ9PzcFXM0uVTwZi3qifDA8/PHY0/StJ
+	ob4Vdh7Z9l7D7ctvHY/fYOdBy8qAfM7XKh695dH4sSTsW+yR56k15dSK7WVjZS3P+NFcQtVO
+	clBv4j4dXKlPTYLBv31NfV46UtX4IF9VsA3yYpN/9cD/YO1Iflwb3vNP+wS0XPjz7kJA6f6m
+	hJCwdCP3voCpU5CiUEyrI/8DjLkHzYIEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrEIsWRmVeSWpSXmKPExsWy7bCSvG7w1DfpBi//Clo8mLeNzWLLq80s
+	Fu+X9TBarNl7jsli3mdZi/lHzrFaHF/7mtXiz4mNbBY7totYvJx1j83i/PkN7BabHl9jtbi8
+	aw6bxYzz+5gsNsz4x2Lxf88OdouuQ3/ZLDZvmsps8elWnEXLHVOLVZ/+M1osPvCJ3UHMY9vu
+	bawea+atYfRYsKnUY9OqTjaPO9f2sHm8O3eO3WPzknqPvi2rGD0+b5IL4IzisklJzcksSy3S
+	t0vgyngw4xpjwUGViiUz/jM2MDbJdjFyckgImEhs/3qUvYuRi0NIYDejxJdF7awQCRmJ2ysv
+	Q9nCEvdbjrBCFN1nlDh84zRbFyMHB4uAisScjwYgNWwCuhLbTvxjBAmLCOhJ/GmtAClnFtjP
+	JtHV18MEUiMskCYxcdoZRhCbV0BZ4tr7VVAz1zBJPF/4lQkiIShxcuYTFhCbWUBd4s+8S8wg
+	Q5kFpCWW/+OACMtLNG+dzQxicwpoSbR1r2SbwCg4C0n3LCTdsxC6ZyHpXsDIsopRMrWgODc9
+	t9iwwDAvtVyvODG3uDQvXS85P3cTIziatTR3MG5f9UHvECMTB+MhRgkOZiUR3oivL9OFeFMS
+	K6tSi/Lji0pzUosPMUpzsCiJ84q/6E0REkhPLEnNTk0tSC2CyTJxcEo1MO2fLckYmt4kzbZR
+	/NN/zwWpAaoMzjHHfutk/T+2zS1pw/env0sfR9t9X27XvfvHjgut/U3FW0Qjwxx71iueLVcJ
+	1WaYKL094MbHo/NzHL7f1Xh3qM+063YBM6PTrJnVcyLuOyzdvUNFqMEp5MEE+9keW1f2dfQ9
+	/fP94Au+yin1omZSlo1JC/dbBq6WvCqyMWYhoxlLqOqBCc/M4mbudNdZn8126vn/8LjHKf8/
+	GKZcZ9UQOKS5vWvvpLmNjfosfBm1zZkuC1qZz91f3blaf4a9YIxnXBXLwQk95b5Niq5TjzRs
+	iF/mM1muUHFBwe26CZPXXTBiVnyRxjP5HFOAwvfiS9x8LP7H/WqVeptTlFiKMxINtZiLihMB
+	zitcEVUDAAA=
+X-CMS-MailID: 20250402013931epcas2p31d16291742c84025c363b3783b8ac18e
+X-Msg-Generator: CA
+Content-Type: multipart/mixed;
+	boundary="----caUwc_dC5aEw_I.xGS0GMYyTEPKysFRHRKa1IoFNAgiy-i3F=_73402_"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250401165039epcas2p16b954647b0c1c79e48450ad91d19f525
+References: <20250331230034.806124-1-willmcvicker@google.com>
+	<20250331230034.806124-3-willmcvicker@google.com>
+	<CANDhNCrxTTkeq3ewos=07jD67s3t6rXOv=u=_qV6d+JEVoXeUA@mail.gmail.com>
+	<CGME20250401165039epcas2p16b954647b0c1c79e48450ad91d19f525@epcas2p1.samsung.com>
+	<Z-wZV3RCXKPzpZGl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_182259_978611_03EC3BB6 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20250401_183943_555932_81E78874 
+X-CRM114-Status: GOOD (  46.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,66 +151,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 1, 2025 at 6:19=E2=80=AFPM Yabin Cui <yabinc@google.com> wrote:
->
-> When enabling a SINK or LINK type coresight device fails, the
-> associated helpers should be disabled.
->
-> Signed-off-by: Yabin Cui <yabinc@google.com>
-> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-core.c | 12 ++++--------
->  1 file changed, 4 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtra=
-cing/coresight/coresight-core.c
-> index fb43ef6a3b1f..e3270d9b46c9 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -465,7 +465,7 @@ int coresight_enable_path(struct coresight_path *path=
-, enum cs_mode mode,
->                 /* Enable all helpers adjacent to the path first */
->                 ret =3D coresight_enable_helpers(csdev, mode, path);
->                 if (ret)
-> -                       goto err;
-> +                       goto err_helper;
->                 /*
->                  * ETF devices are tricky... They can be a link or a sink=
-,
->                  * depending on how they are configured.  If an ETF has b=
-een
-> @@ -480,14 +480,8 @@ int coresight_enable_path(struct coresight_path *pat=
-h, enum cs_mode mode,
->                 switch (type) {
->                 case CORESIGHT_DEV_TYPE_SINK:
->                         ret =3D coresight_enable_sink(csdev, mode, sink_d=
-ata);
-> -                       /*
-> -                        * Sink is the first component turned on. If we
-> -                        * failed to enable the sink, there are no compon=
-ents
-> -                        * that need disabling. Disabling the path here
-> -                        * would mean we could disrupt an existing sessio=
-n.
-> -                        */
->                         if (ret)
-> -                               goto out;
-> +                               goto err;
->                         break;
->                 case CORESIGHT_DEV_TYPE_SOURCE:
->                         /* sources are enabled from either sysFS or Perf =
-*/
-> @@ -507,6 +501,8 @@ int coresight_enable_path(struct coresight_path *path=
-, enum cs_mode mode,
->  out:
->         return ret;
->  err:
-> +       coresight_disable_helpers(csdev);
-> +err_helper:
->         coresight_disable_path_from(path, nd);
->         goto out;
->  }
-> --
-> 2.49.0.472.ge94155a9ec-goog
->
+------caUwc_dC5aEw_I.xGS0GMYyTEPKysFRHRKa1IoFNAgiy-i3F=_73402_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
+
+Hi Will.
+
+I'm really glad to see our work on Pixel being upstreamed.
+
+On Tue, Apr 01, 2025 at 09:50:31AM -0700, William McVicker wrote:
+> On 03/31/2025, John Stultz wrote:
+> > On Mon, Mar 31, 2025 at 4:00 PM 'Will McVicker' via kernel-team
+> > <kernel-team@android.com> wrote:
+> > >
+> > > When using the Exynos MCT as a sched_clock, accessing the timer value
+> > > via the MCT register is extremely slow. To improve performance on Arm64
+> > > SoCs, use the Arm architected timer instead for timekeeping.
+> > 
+> > This probably needs some further expansion to explain why we don't
+> > want to use it for sched_clock but continue to register the MCT as a
+> > clocksource (ie: why not disable MCT entirely?).
+> 
+> Using the MCT as a sched_clock was originally added for Exynos4 SoCs to improve
+> the gettimeofday() syscalls on ChromeOS. For ARM32 this is the best they can do
+> without the Arm architected timer. ChromeOS perf data can be found in [1,2]
+> 
+> [1] https://lore.kernel.org/linux-samsung-soc/CAJFHJrrgWGc4XGQB0ysLufAg3Wouz-aYXu97Sy2Kp=HzK+akVQ@mail.gmail.com/
+> [2] https://lore.kernel.org/linux-samsung-soc/CAASgrz2Nr69tpfC8ka9gbs2OvjLEGsvgAj4vBCFxhsamuFum7w@mail.gmail.com/
+> 
+> I think it's valid to still register the MCT as a clocksource to make it
+> available in case someone decides they want to use it, but by default it
+> doesn't make sense to use it as the default clocksource on Exynos-based ARM64
+> systems with arch_timer support. However, we can't disable the Exynos MCT
+> entirely on ARM64 because we need it as the wakeup source for the arch_timer to
+> support waking up from the "c2" idle state, which is discussed in [3].
+> 
+> [3] https://lore.kernel.org/linux-arm-kernel/20210608154341.10794-1-will@kernel.org/
+> 
+
+Exactly right.
+
+> > 
+> > > Note, ARM32 SoCs don't have an architectured timer and therefore
+> > > will continue to use the MCT timer. Detailed discussion on this topic
+> > > can be found at [1].
+> > >
+> > > [1] https://lore.kernel.org/all/1400188079-21832-1-git-send-email-chirantan@chromium.org/
+> > 
+> > That's a pretty deep thread (more so with the duplicate messages, as
+> > you used the "all" instead of a specific list). It might be good to
+> > have a bit more of a summary here in the commit message, so folks
+> > don't have to dig too deeply themselves.
+> 
+> Ah, sorry about the bad link. The above points should be a good summary of that
+> conversation with regards to this patch.
+> 
+> > 
+> > > Signed-off-by: Donghoon Yu <hoony.yu@samsung.com>
+> > > Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
+> > > [Original commit from https://android.googlesource.com/kernel/gs/+/630817f7080e92c5e0216095ff52f6eb8dd00727
+> > > Signed-off-by: Will McVicker <willmcvicker@google.com>
+> > > ---
+> > >  drivers/clocksource/exynos_mct.c | 5 +++--
+> > >  1 file changed, 3 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
+> > > index da09f467a6bb..05c50f2f7a7e 100644
+> > > --- a/drivers/clocksource/exynos_mct.c
+> > > +++ b/drivers/clocksource/exynos_mct.c
+> > > @@ -219,12 +219,12 @@ static struct clocksource mct_frc = {
+> > >         .resume         = exynos4_frc_resume,
+> > >  };
+> > >
+> > > +#if defined(CONFIG_ARM)
+> > 
+> > I'd probably suggest adding a comment here explaining why this is kept
+> > on ARM and not on AARCH64 as well.
+> 
+> Sure, I can add my comments above here in v2.
+> 
+> > 
+> > >  static u64 notrace exynos4_read_sched_clock(void)
+> > >  {
+> > >         return exynos4_read_count_32();
+> > >  }
+> > >
+> > > -#if defined(CONFIG_ARM)
+> > >  static struct delay_timer exynos4_delay_timer;
+> > >
+> > >  static cycles_t exynos4_read_current_timer(void)
+> > > @@ -250,12 +250,13 @@ static int __init exynos4_clocksource_init(bool frc_shared)
+> > >         exynos4_delay_timer.read_current_timer = &exynos4_read_current_timer;
+> > >         exynos4_delay_timer.freq = clk_rate;
+> > >         register_current_timer_delay(&exynos4_delay_timer);
+> > > +
+> > > +       sched_clock_register(exynos4_read_sched_clock, 32, clk_rate);
+> > >  #endif
+> > >
+> > >         if (clocksource_register_hz(&mct_frc, clk_rate))
+> > >                 panic("%s: can't register clocksource\n", mct_frc.name);
+> > >
+> > > -       sched_clock_register(exynos4_read_sched_clock, 32, clk_rate);
+> > >
+> > >         return 0;
+> > 
+> > Otherwise, this looks ok to me.
+> > 
+> > thanks
+> > -john
+> 
+> Thanks for taking the time to review!
+> 
+> Regards,
+> Will
+> 
+
+Along with John's comment,
+Reviewed-by:: Youngmin Nam <youngmin.nam@samsung.com>
+
+------caUwc_dC5aEw_I.xGS0GMYyTEPKysFRHRKa1IoFNAgiy-i3F=_73402_
+Content-Type: text/plain; charset="utf-8"
+
+
+------caUwc_dC5aEw_I.xGS0GMYyTEPKysFRHRKa1IoFNAgiy-i3F=_73402_--
 
