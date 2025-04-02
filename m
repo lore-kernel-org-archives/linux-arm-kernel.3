@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30EB0C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 13:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E73FFC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 13:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LHttKifARgYyF81ldV6+hu7ZLDM1Lc7yFe3f1HUVnXI=; b=LY43g+QlG1e/NaUPH3jGvnOKYD
-	T2Ncgzs4lMiDZWxNADJ/xwwCg1Gu/V/I6g4GtMxMCRjlp5XUZ3dhhK+SJB1SOVpnih8d/3xQIKUxM
-	8PxdrrXLgsonnPGWWVpYaUZwaKjHOdt4DMkBfP6Ly5NTzOi95l4unoVsJPt4i53H7+4GToxs3pJ+0
-	heLEIG5HMDHOPm3MVI2QuIDx9244+GGboeZXlEoGTAFsYL3Kxl8nUoAqbCPThTxq/JyZs1JssU7aK
-	IzyGrnA+nsRX7HI3CHxJWxmpU2V+ZVfFggcq0MzZn6Q7WhHsHnzx0Vb+6/7g9cWvpQmiw9qsiiQMY
-	j73nzOnQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4g9uAhX6zxcCbKcsW1SycVp/qsfwIU9/zuPGk6yrOf8=; b=NhHGsuo/ieqRCS8XZ5o4t+ovZn
+	WdDMLRTYhm+7PljH5qlRZ7/cfupL/aL82gfoPD3R+bEW/hTlckxMsn8G/J7Y+yul1C3RwQs9Xxm6e
+	Jyn2I2MunEpBwQOF/Jkmj0T3svGsMWQf3+FVOGnT3ukMRObasDhjfTQxFJWeatsOSPUl7ybQ6GvkO
+	h7tk4ikj9oUc0ijmABSXTUPr4NEZ7V2o6knioNM8VFDTyRLwtCzoRDKm+8GyJ1unn/NF1SjelCBlE
+	SrCMPxGN2T13k+MpaHlHi4RHYghf3Q9TsMsfuw9UeNSkyB70rOcaxz06GiH/5evjQw3xJGjJ7Ywze
+	rdFt2Oiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzyCi-00000006FZW-1vtm;
-	Wed, 02 Apr 2025 13:32:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tzyER-00000006FuW-0kFh;
+	Wed, 02 Apr 2025 13:34:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzy7S-00000006EF4-20xw;
+	id 1tzy7S-00000006EF3-3BWg;
 	Wed, 02 Apr 2025 13:27:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 823EA5C6890;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8496C5C68BD;
 	Wed,  2 Apr 2025 13:24:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 255AEC4CEE9;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2263BC4CEDD;
 	Wed,  2 Apr 2025 13:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1743600421;
-	bh=ClNiKdAaagNCBF9poM6ZVmYqqOtAci1UecszB5V3I5c=;
-	h=From:To:Cc:Subject:Date:From;
-	b=UtH73OU/kW3B3D43xBbmfrpfLXDrN7UH9K2u9Xr+YmIyZLa7+A0rlj9pQUMSzrdwN
-	 SqYlJeNcA4LgKBPe6wjPh4bXUrlele19Yx/kkPTWT/ZECaSZw1G75/GnIfjYrEJ3Cv
-	 LSR+eouyTdZF3guzUAiF+buNxaoGIuqDwHIogrSCI3eOOh9j5L66OqPEzIkP0Ev+Nd
-	 Gds33G9CNdXLMMLWGx0Nun1b3tffn848JcPeVxNJiULVykTsTjtX2t0t5GxG8z7wEI
-	 1d1erz0Yb0jZHYFr0fzt9H86qKHoZVgB81RLEJ6ioGrbjJ7dAcbf91NerpywAfaqlz
-	 CSb7puTLyYjEA==
+	bh=q8MlTcMdTxqASv9J/gaoNv8sWTK+B2H8IJ7Qnbtnb1U=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=LVfo+JTYRbWK1cu1fOodOq39dmcomePZ+LktifxPm6ESLTvdMXIHtIXzClQpBgXf1
+	 mpmQAIcLOngU9OSCXKbFHE2c5XGeJiSfdsGStGQi+V8Cmm/dEn20UYWn6QRabWWrtD
+	 frAQEdD25dqgxVy0l8JCvwTyWopF9Lur/0Z7xw9vCqg4MaauQCt70tuRC032WNejVs
+	 nsQd39VEY3cflmGP9VuxUgIOj/+m5O+OQ/E1fiEl9l+JNC2E9j/GAVLIU4o6aij2nX
+	 HFeZ++gE1vT7S/OwMQ9XN0GRyHdWHD7dLW4JyShRHRQPL89q1z+jf2+m0UUUfrbLFQ
+	 B4dZQtnOt9IBQ==
 Received: from johan by xi.lan with local (Exim 4.97.1)
 	(envelope-from <johan+linaro@kernel.org>)
-	id 1tzy7V-000000004iG-2W68;
+	id 1tzy7W-000000004iI-1d0r;
 	Wed, 02 Apr 2025 15:27:06 +0200
 From: Johan Hovold <johan+linaro@kernel.org>
 To: Bartosz Golaszewski <brgl@bgdev.pl>,
@@ -59,16 +59,19 @@ Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
 	ath12k@lists.infradead.org,
 	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Johan Hovold <johan+linaro@kernel.org>
-Subject: [PATCH v2 0/4] PCI/arm64/ath11k/ath12k: Rename pwrctrl Kconfig symbols
-Date: Wed,  2 Apr 2025 15:26:30 +0200
-Message-ID: <20250402132634.18065-1-johan+linaro@kernel.org>
+	Johan Hovold <johan+linaro@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: [PATCH v2 1/4] PCI/pwrctrl: Rename pwrctrl Kconfig symbols and slot module
+Date: Wed,  2 Apr 2025 15:26:31 +0200
+Message-ID: <20250402132634.18065-2-johan+linaro@kernel.org>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250402132634.18065-1-johan+linaro@kernel.org>
+References: <20250402132634.18065-1-johan+linaro@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_062702_572163_10EFE8C0 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20250402_062702_875985_9CB2FE19 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +86,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCI pwrctrl framework was renamed after being merged, but the
-Kconfig symbols still reflect the old name ("pwrctl" without an "r").
+Commits b88cbaaa6fa1 ("PCI/pwrctrl: Rename pwrctl files to pwrctrl") and
+3f925cd62874 ("PCI/pwrctrl: Rename pwrctrl functions and structures")
+renamed the "pwrctl" framework to "pwrctrl" for consistency reasons.
 
-This leads to people not knowing how to refer to the framework in
-writing, inconsistencies in module naming, etc.
+Rename also the Kconfig symbols so that they reflect the new name while
+adding entries for the deprecated ones. The old symbols can be removed
+once everything that depends on them has been updated.
 
-Let's rename also the Kconfig symbols before this gets any worse.
+Note that no deprecated symbol is added for the new slot driver to avoid
+having to add a user visible option.
 
-The ath11k, ath12k and arm64 changes could go theoretically go through
-the corresponding subsystem trees in turn once they have the new
-symbols, but to avoid tracking dependencies over multiple cycles it is
-much preferred to have all of these go in through the PCI tree.
+The new slot module is also renamed to reflect the framework name and
+match the other pwrctrl modules.
 
-The wifi patches have been acked by Jeff and I don't think Will or
-Catalin will mind the single rename in arm64 if they don't see this
-message in time.
+Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Acked-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Signed-off-by: Johan Hovold <johan+linaro@kernel.org>
+---
+ drivers/pci/pwrctrl/Kconfig  | 22 ++++++++++++++++------
+ drivers/pci/pwrctrl/Makefile |  8 ++++----
+ 2 files changed, 20 insertions(+), 10 deletions(-)
 
-Note that the patches could be squashed into one, but keeping them
-separate highlights the changes done to other subsystems. I also find it
-easier to review the changes this way.
-
-There are some new pwrctrl drivers and an arm64 defconfig change on the
-lists, but the former should also go in through PCI anyway while we can
-make sure that the defconfig update matches the new slot symbol.
-
-Note that getting this rename into rc1 would be great as that way it
-would end up in most subsystem trees soon as well.
-
-Johan
-
-
-Changes in v2:
- - drop deprecated symbol for the new slot driver to avoid having to a
-   add a new user visible symbol (e.g. any early adopters will be asked
-   to enable the renamed option again)
-
- - move arm64 patch last two avoid temporarily not having the pwrseq
-   driver selected (Jonas)
-
-Johan Hovold (4):
-  PCI/pwrctrl: Rename pwrctrl Kconfig symbols and slot module
-  wifi: ath11k: switch to PCI_PWRCTRL_PWRSEQ
-  wifi: ath12k: switch to PCI_PWRCTRL_PWRSEQ
-  arm64: Kconfig: switch to HAVE_PWRCTRL
-
- arch/arm64/Kconfig.platforms            |  2 +-
- drivers/net/wireless/ath/ath11k/Kconfig |  2 +-
- drivers/net/wireless/ath/ath12k/Kconfig |  2 +-
- drivers/pci/pwrctrl/Kconfig             | 22 ++++++++++++++++------
- drivers/pci/pwrctrl/Makefile            |  8 ++++----
- 5 files changed, 23 insertions(+), 13 deletions(-)
-
+diff --git a/drivers/pci/pwrctrl/Kconfig b/drivers/pci/pwrctrl/Kconfig
+index 990cab67d413..6956c1854811 100644
+--- a/drivers/pci/pwrctrl/Kconfig
++++ b/drivers/pci/pwrctrl/Kconfig
+@@ -1,19 +1,19 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+-config HAVE_PWRCTL
++config HAVE_PWRCTRL
+ 	bool
+ 
+-config PCI_PWRCTL
++config PCI_PWRCTRL
+ 	tristate
+ 
+-config PCI_PWRCTL_PWRSEQ
++config PCI_PWRCTRL_PWRSEQ
+ 	tristate
+ 	select POWER_SEQUENCING
+-	select PCI_PWRCTL
++	select PCI_PWRCTRL
+ 
+-config PCI_PWRCTL_SLOT
++config PCI_PWRCTRL_SLOT
+ 	tristate "PCI Power Control driver for PCI slots"
+-	select PCI_PWRCTL
++	select PCI_PWRCTRL
+ 	help
+ 	  Say Y here to enable the PCI Power Control driver to control the power
+ 	  state of PCI slots.
+@@ -21,3 +21,13 @@ config PCI_PWRCTL_SLOT
+ 	  This is a generic driver that controls the power state of different
+ 	  PCI slots. The voltage regulators powering the rails of the PCI slots
+ 	  are expected to be defined in the devicetree node of the PCI bridge.
++
++# deprecated
++config HAVE_PWRCTL
++	bool
++	select HAVE_PWRCTRL
++
++# deprecated
++config PCI_PWRCTL_PWRSEQ
++	tristate
++	select PCI_PWRCTRL_PWRSEQ
+diff --git a/drivers/pci/pwrctrl/Makefile b/drivers/pci/pwrctrl/Makefile
+index ddfb12c5aadf..a4e5808d7850 100644
+--- a/drivers/pci/pwrctrl/Makefile
++++ b/drivers/pci/pwrctrl/Makefile
+@@ -1,9 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+-obj-$(CONFIG_PCI_PWRCTL)		+= pci-pwrctrl-core.o
++obj-$(CONFIG_PCI_PWRCTRL)		+= pci-pwrctrl-core.o
+ pci-pwrctrl-core-y			:= core.o
+ 
+-obj-$(CONFIG_PCI_PWRCTL_PWRSEQ)		+= pci-pwrctrl-pwrseq.o
++obj-$(CONFIG_PCI_PWRCTRL_PWRSEQ)	+= pci-pwrctrl-pwrseq.o
+ 
+-obj-$(CONFIG_PCI_PWRCTL_SLOT)		+= pci-pwrctl-slot.o
+-pci-pwrctl-slot-y			:= slot.o
++obj-$(CONFIG_PCI_PWRCTRL_SLOT)		+= pci-pwrctrl-slot.o
++pci-pwrctrl-slot-y			:= slot.o
 -- 
 2.49.0
 
