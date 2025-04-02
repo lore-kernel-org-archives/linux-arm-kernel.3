@@ -4,81 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CA0C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 06:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15CB7C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 06:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OHAwMDUNKa/KS67Igj5f0vS6OHnJzwpFGFxB/aQLDIE=; b=T1M52bKTieH60echZUlBJd8p8y
-	0wWGRBhCBbntkRw8Os3mdiv1J7wTD04A6AsoYYcXprPV8n1zXtaZbPpRK8U0Wdghma3UnPVZV4ueI
-	umzEW9iOSNW/jcAUSsLQwbT6hisNV9BAjj5Gw2nfE47iV7G/SvE2ZLeUBnlPX5GiXEMBBT1Aol711
-	df+q08yXeiOtd56R8nXX13Z1UPSO3LlRKFYiDssnpG1wE8QW0RAGWY/EqcPrDiuq9MiEEXfoVM2kR
-	6TfiRAE0zoW5v4SIIyovXS+6c8OmeE0RV4bHeKfbyXmlvUXP1UIU1roLwMyJE4lHFXtDpE7/20G8U
-	x2RyLfcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0vxtuFvSbsxOaM1zbzEuh2qcT0p6czX42zd3rEEDXyw=; b=zsplWel+CczL6d0hg8yr9JNzac
+	6VENxPrdG7RkESqz4ETLslFe9ByVrnZWAtcUDrEt0YaKuQZeS9o09iV1ziUM8AxtBD+TRhyLzy5lp
+	iZNkNJcXdoqaQT83iMnkjCGGPpi2/6gzmV34gos/J9kUqPf6gZkxKeihkRKvt/FLEwfkuE/NqK3FI
+	j4UxFjeSC9PvvEkmy1aTCu8ZAEVvzwMNM9TSULo/eUKqBbGMu/RAjCRAru5zh0xF6DDceX8gCdQh2
+	RBgXXsHXXR5+Nlnw4z+fJnPSyRsBnr8u1f4kZYUxyWKT9L7TQ/bSMhm6owEE/K9NG2IAFAjo+365e
+	UvOfLcaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzrYM-00000005FAe-255U;
-	Wed, 02 Apr 2025 06:26:22 +0000
-Received: from mail-pj1-f47.google.com ([209.85.216.47])
+	id 1tzrb9-00000005FXK-08B5;
+	Wed, 02 Apr 2025 06:29:15 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzrWZ-00000005F3R-2ApB;
-	Wed, 02 Apr 2025 06:24:34 +0000
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-301493f461eso8142306a91.3;
-        Tue, 01 Apr 2025 23:24:30 -0700 (PDT)
+	id 1tzrZN-00000005FIa-087w
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Apr 2025 06:27:26 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-225477548e1so114166935ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 23:27:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743575244; x=1744180044; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=0vxtuFvSbsxOaM1zbzEuh2qcT0p6czX42zd3rEEDXyw=;
+        b=V6LpIfFJEy8Xeba4aoN0qMnc0HEBV8lny5LZS2mLSTUkaPFzVJYr89w+4ZcvRLe3+B
+         v/Fs+EJWN8rmdbhLuvYJN8PX+QECPDgh91nvVZYjNhm6LGLxp7rEb5m2Gxx71VEh9RiL
+         Y7etAmmutmnDa9j3mhu3TlNhVzrbNsyM5ZBIL9fP01L4lv4Afr9y19IhehLr6l5USkxu
+         nI4JrH6IQd+2GoMjwokQHK1crTNbLm+v1lsDr7Bad9E/uT4LZ73EkEPG9PwIwQ9RxlxL
+         nVuSrVOKSJkEmh+fQz9zQ0bMO8k2Ikn3grd8qNJHRF28FI1EK1PhcoNVD1ypIRFHJKTB
+         XnBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743575070; x=1744179870;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OHAwMDUNKa/KS67Igj5f0vS6OHnJzwpFGFxB/aQLDIE=;
-        b=pbag9QzJ44om9jaxHPFff1xNjts22TVyCsGu8UhLaSLJkde+mXy0QfixtcbF9rSxor
-         vZwSgAvtwypLugml8tOJLdCSDYotsOvfVwd0orIpQUDhGJ3A7C6IXvGVv4Zb/hOaCf1M
-         YIepASkgV5fyu356yqt4wCTXXifZ84U6j++gBv99uPhAKfl6gJYWQ9son7nHB+NOvifa
-         /ADSKG7/jCleIJKLXDV0KyuLhFtEk0ueQv0l/ARoSZIdb40PJudVQr1OHedrCJpxdxuk
-         0MixNyghbCFgQfXdvUswJsOgs89xy9KKD+uWAQDVXkB9iUNFQPn/ZNYiwU3FIGW5nhaZ
-         vIZA==
-X-Forwarded-Encrypted: i=1; AJvYcCVRwXkwCec1oc2z/2F910bE+rM35ymgGP1BcfJ9Ym1lB9BRJnt5fxOR+STYwtT99CV9wKLD9+33CtqjMX9Z1t7Z@lists.infradead.org, AJvYcCWQ4dbH4yeXfih03wwKP/azvT8ovsn8ZncFQ029oWwSrmqzBW2kOhBfyOsyJ3A5bXARHvAbAgQpxBWG/E/Vg0Y=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4GpKsWoTg5IDOGAxxe+4QsPpYwaIycnlB8gFC6X1sWdXjNWLl
-	WFT5ubt+Qkk3av7udu9/stqiTuWsgH0PQuyTKw5Lleik9NB6mk8z
-X-Gm-Gg: ASbGncs9Z1rqjcTIxMnmZpvu6F1/oHpKUHZB2Lp8f5lLvsu3MDSwzFpVrPVH9Q/5olG
-	/pdtMG1AKGOn02MHt97bRa78C20eo1nv+j4U7awZDZyJNd9tM1jnVbLPI1gWtCKvHwls+yV3sNm
-	3YEn42AEKEmnCvdl03HVi5UXmN43b/9h2B42hKCu+A8mgnN60AOREsSYM/xlWcHdW6mg5K1DsRi
-	Kf9lkEbsANDtkBSP4wZcnWY8xAs43U1/03fvhTM4XLk9FNuvPly0m8JEZV6tXOuRe0rG77/M7BL
-	pnkN1alP8HWFaiMB1NvaXxcuVKg3BXXBK/s84EEoHcuvtg39IyzqgEA=
-X-Google-Smtp-Source: AGHT+IGLDw+svnuLeVc9Vw/XXckwgRJWmGdIcd/ktneoz6ILKjyAsGLKhpl8Zd9YXMzbaiKU9bXcRg==
-X-Received: by 2002:a05:6a21:9007:b0:1f3:33bf:6640 with SMTP id adf61e73a8af0-2009f5ff4a8mr26880852637.18.1743575070034;
-        Tue, 01 Apr 2025 23:24:30 -0700 (PDT)
-Received: from localhost.localdomain ([192.9.230.87])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73970def120sm10052479b3a.7.2025.04.01.23.24.25
+        d=1e100.net; s=20230601; t=1743575244; x=1744180044;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=0vxtuFvSbsxOaM1zbzEuh2qcT0p6czX42zd3rEEDXyw=;
+        b=BTp7pg2fAR3rr1Vwzwz0dygrl76WAqZ2gJYFvVVWKJur0LbDYphvnedb7pQ/J5qTAU
+         cUQDQhFhD2OoR67QxshgXHuwHsfSbcLPywaaHjJVNWSDC6TqoD1kA3DFkdIgXSgzDAOv
+         JDxxrXA7po52nZsLQN6VmietXFhkPPcHMrI7PRuIVmscktCMQAw++BjR4AXqVEIUiMdU
+         ZwoiG22YhA3c4DvoSdzFoC3KNuNA/Dnh36kU6+ss8FhHOa7ZVOs79UaaONt9/r/NJcM4
+         FHAjEXx9sypgooE8sB4rH9VsDXEQA/CYPIaUNE5NDNBHdxtYumzCeqDdFE5dbUgjLWQS
+         QCwg==
+X-Forwarded-Encrypted: i=1; AJvYcCXAERK1t5sbk62RprC+/wxFclk8cXLK74YPHsL1w2W44HPeVn6UrjxoifHD3dOVz93Z7V/EuldZkXEg1Rji4Hli@lists.infradead.org
+X-Gm-Message-State: AOJu0YzL7cWdiXyuOfA5BfwkOk812+XL21CQuibG3N42rfUadB6BdUOk
+	HspXxJ4Nd7AeEg6H6pihpQ4V9aHLCg9R7GQBjBa3YWslhrdx8phvuNGOE9T+TA==
+X-Gm-Gg: ASbGncvxHfEVvD6pUzi5F8xFm4b1NlSK5Tr9uJ8J/SquP95G0pvuE1sHPvpP/6FKDlK
+	Kii/DcTG6OJx0lpTfbl+IXi9K5lnkfZoUjpzM+LSt3TyDrsZbQRu5WeSmGKK8O1tslEK20doYZs
+	C7XQi9K3cclh9jqsXE1fNCp3XhZaHHGTVX1OB8dVu8Z6fdnp8YRgwotrZGDAjIOQAkLUHjrPtPZ
+	DxlACHJ8fqp8bN53JeTRq9nemVhiYGuqCZKBUW22UH+8AkRfgW6A8YUe0qv94LkqCpvJKa3vttY
+	JJUh3cGfsGE42JTreU3h4zngn7vZuJ1+1QVm/eKBbigFn+9b0V1e3nkb
+X-Google-Smtp-Source: AGHT+IEftqywmuVKm2jxf0hoVI8+XFFEcICMDydA0YNIWpJc2sWztLxMbLmbc7T+583swHeEhH9wPw==
+X-Received: by 2002:a17:903:11c7:b0:224:1ec0:8a16 with SMTP id d9443c01a7336-2292f9622b5mr229392235ad.21.1743575243714;
+        Tue, 01 Apr 2025 23:27:23 -0700 (PDT)
+Received: from thinkpad ([120.56.205.103])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291eee1b3fsm99908325ad.74.2025.04.01.23.27.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 23:24:29 -0700 (PDT)
-From: jiangfeng@kylinos.cn
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Feng Jiang <jiangfeng@kylinos.cn>,
-	kernel test robot <lkp@intel.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>
-Subject: [PATCH] wifi: mt76: scan: Fix 'mlink' dereferenced before IS_ERR_OR_NULL check
-Date: Wed,  2 Apr 2025 14:24:15 +0800
-Message-Id: <20250402062415.25434-1-jiangfeng@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+        Tue, 01 Apr 2025 23:27:23 -0700 (PDT)
+Date: Wed, 2 Apr 2025 11:57:17 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kw@linux.com, robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/6] PCI: imx6: Start link directly when workaround is
+ not required
+Message-ID: <kskqytb67s6qpt2jfn6sry4oj3zq46y5hizyzxxvehtjtqtj6r@qmtfepjzjrpk>
+References: <20250328030213.1650990-1-hongxing.zhu@nxp.com>
+ <20250328030213.1650990-2-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250328030213.1650990-2-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_232431_586947_04D28153 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250401_232725_080379_F263A7DD 
+X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +103,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Feng Jiang <jiangfeng@kylinos.cn>
+On Fri, Mar 28, 2025 at 11:02:08AM +0800, Richard Zhu wrote:
+> The current link setup procedure is one workaround to detect the device
+> behind PCIe switches on some i.MX6 platforms.
+> 
+> To describe more accurately, change the flag name from
+> IMX_PCIE_FLAG_IMX_SPEED_CHANGE to IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND.
+> 
+> Start PCIe link directly when this flag is not set on i.MX7 or later
+> platforms to simple and speed up link training.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-Closes: https://lore.kernel.org/r/202504011739.HvUKtUUe-lkp@intel.com/
-Fixes: 3ba20af886d1 ("wifi: mt76: scan: set vif offchannel link for scanning/roc")
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
----
- drivers/net/wireless/mediatek/mt76/channel.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-diff --git a/drivers/net/wireless/mediatek/mt76/channel.c b/drivers/net/wireless/mediatek/mt76/channel.c
-index e7b839e74290..cc2d888e3f17 100644
---- a/drivers/net/wireless/mediatek/mt76/channel.c
-+++ b/drivers/net/wireless/mediatek/mt76/channel.c
-@@ -302,11 +302,13 @@ void mt76_put_vif_phy_link(struct mt76_phy *phy, struct ieee80211_vif *vif,
- 			   struct mt76_vif_link *mlink)
- {
- 	struct mt76_dev *dev = phy->dev;
--	struct mt76_vif_data *mvif = mlink->mvif;
-+	struct mt76_vif_data *mvif;
+One observation below (not related to this change).
+
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 34 +++++++++++----------------
+>  1 file changed, 14 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index c1f7904e3600..57aa777231ae 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -91,7 +91,7 @@ enum imx_pcie_variants {
+>  };
+>  
+>  #define IMX_PCIE_FLAG_IMX_PHY			BIT(0)
+> -#define IMX_PCIE_FLAG_IMX_SPEED_CHANGE		BIT(1)
+> +#define IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND	BIT(1)
+>  #define IMX_PCIE_FLAG_SUPPORTS_SUSPEND		BIT(2)
+>  #define IMX_PCIE_FLAG_HAS_PHYDRV		BIT(3)
+>  #define IMX_PCIE_FLAG_HAS_APP_RESET		BIT(4)
+> @@ -860,6 +860,12 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
+>  	u32 tmp;
+>  	int ret;
+>  
+> +	if (!(imx_pcie->drvdata->flags &
+> +	    IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND)) {
+> +		imx_pcie_ltssm_enable(dev);
+> +		return 0;
+
+While looking into the code, I realized that we could skip waiting for link
+during the workaround in atleast one instance:
+
+```
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 5f267dd261b5..9dbfbd9de2da 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -875,11 +875,11 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
+        /* Start LTSSM. */
+        imx_pcie_ltssm_enable(dev);
  
- 	if (IS_ERR_OR_NULL(mlink) || !mlink->offchannel)
- 		return;
- 
-+	mvif = mlink->mvif;
+-       ret = dw_pcie_wait_for_link(pci);
+-       if (ret)
+-               goto err_reset_phy;
+-
+        if (pci->max_link_speed > 1) {
++               ret = dw_pcie_wait_for_link(pci);
++               if (ret)
++                       goto err_reset_phy;
 +
- 	rcu_assign_pointer(mvif->offchannel_link, NULL);
- 	dev->drv->vif_link_remove(phy, vif, &vif->bss_conf, mlink);
- 	kfree(mlink);
--- 
-2.25.1
+                /* Allow faster modes after the link is up */
+                dw_pcie_dbi_ro_wr_en(pci);
+                tmp = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
+@@ -913,17 +913,10 @@ static int imx_pcie_start_link(struct dw_pcie *pci)
+                                goto err_reset_phy;
+                        }
+                }
+-
+-               /* Make sure link training is finished as well! */
+-               ret = dw_pcie_wait_for_link(pci);
+-               if (ret)
+-                       goto err_reset_phy;
+        } else {
+                dev_info(dev, "Link: Only Gen1 is enabled\n");
+        }
+ 
+-       tmp = dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKSTA);
+-       dev_info(dev, "Link up, Gen%i\n", tmp & PCI_EXP_LNKSTA_CLS);
+        return 0;
+ 
+ err_reset_phy:
+```
 
+dw_pcie_wait_for_link() in DWC core should serve the purpose.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
