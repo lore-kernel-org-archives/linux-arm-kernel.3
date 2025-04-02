@@ -4,103 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D836C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 00:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA49C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 00:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Ow9ZRWVKiwiJjLhjvrx7TPn0gkmBPGJACkygHdkD5c=; b=yUIKq2ya0kpoQ2CJqNYwssMIyo
-	h2A/Ma+0ypCG+p4oqI6pjlAY20Em0vAhxdxrJAZMTRNj7LetQPjhdzIKmEJ2lhw+zNAsF3BwoS24X
-	V3WeSBBZE/Qz+Y5PaDktE17GMW/vsbT8yCPMnCeiF4HMaSHXOXgpWtDsX9WkYbA0KIdNle53/1rSg
-	hlZk60is8v4bhYW7y7JS22Y84e9pvVI1DaCtfdvkAG6o1RBGt8nIJXU7RuZtluT+Yr8I0FBT8ytDF
-	AIRYjw+xUBEdswNJUXJguA2gnWjtDoaZqHnBwA331yMpkJnFBOsnwPmOm10PdcAxTDlpcI72MuULb
-	T4QNHQLA==;
+	bh=d5wtHyNdN9y5JnnetPBoOCyUNOyX7UvzCKhyCrZZ1gI=; b=jAzo2vy0hTc6kq/llGNEUPvmJn
+	wmzxVljipw+sr7YEhaxvathc31FSPmJEj3emdpvWXjDKUPg5qOddtTZzNT1Q7WOEogOIJJmI60kNu
+	7SHW9azTzMAt7U8zW/8lgE0AjgP0gtpITnRaD+GW+fP3drgMRTmzkfdpepewPJeQtvcmsB3AG56cj
+	jkZekGTV5IZP0c+GOzjCYGmPagAPdbiF6kA2/A47jhr+uYSS6egKA2WUfL28J+pbiyNqFCc7jL/1P
+	kXMuNxtt5lXDNgMgmpGQ5sd1Qz7mswctexadwV9iHLz8KSEnISFc93D24NWzbuTB7sCVrSDBReCVV
+	DCPCgE1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzmMK-00000004lxx-1fRm;
-	Wed, 02 Apr 2025 00:53:36 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tzmOk-00000004mQy-1Box;
+	Wed, 02 Apr 2025 00:56:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzmJ9-00000004lOh-2Snf
+	id 1tzmN1-00000004m9H-1ZNZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 00:50:21 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5320NoFG025623;
-	Wed, 2 Apr 2025 00:50:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	7Ow9ZRWVKiwiJjLhjvrx7TPn0gkmBPGJACkygHdkD5c=; b=MINsnI0B8Hzydbax
-	+zLpMPWpqam8aZhHeTYbFP/kE/p7CoGyT3avORh1GY7fWKM4sN7ItcEgqIFoZdDV
-	yRsYGRibGxRnI737ltFdq6xg9Fe0QsalfwadalgvUDhZgcc0Hg6r9ornRfR9ljIV
-	cJXQwjtZ+wpT99SuyGnGi9ZjkRkS5rD2ZywCY13k6nWe/xTBpPHABbFwTHKRf12a
-	N+adIt98Xo6KqKIo9Y+v4ue8e8IOfeQIIHBETMY8/0hOEJoNuxMNLYoLwBPwgVFQ
-	sR7x1F98ryapkCwWpJ7WonLoSWLOHsJJ/1nKw9T7FBthii4ffv/w7jP/8z+WtX4h
-	PyIlNQ==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45p6jhsuxx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 02 Apr 2025 00:50:13 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5320oD1u031477
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 2 Apr 2025 00:50:13 GMT
-Received: from [10.133.33.107] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 1 Apr 2025
- 17:50:09 -0700
-Message-ID: <92dc9b50-5e58-4cfd-a78c-e32a4bec8e26@quicinc.com>
-Date: Wed, 2 Apr 2025 08:50:06 +0800
+	Wed, 02 Apr 2025 00:54:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DF25861126;
+	Wed,  2 Apr 2025 00:54:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A460DC4CEE4;
+	Wed,  2 Apr 2025 00:54:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743555258;
+	bh=/0zz4PKfcfSmXN/45Xp1mSPvrRuJjBxRJOJ/lyfE7UQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RCsLNG9aVi3V82xZ/6oEZSNsQF3BjRuXv1neERksnDPnGCtMulh/64xNESG3RWsLl
+	 yf30ngBuNOZsW+CbTIph1qQZBntJlB18XYzKzp5dyS1/AB7kBXnukbZviRs7IAECxw
+	 ZNx6Y8FUXHYOd5lx3/UHBVueom3RJ8c4bKNyUCHJUXhbqQsIUmU6hgrCIaBvIMW9nk
+	 jTENZXw45YJD8S3MXD7LQTYNs4QNntCXh61n7h0tI+qrlM3PAiQ5tujo51WezBgp5l
+	 sc+mIgxrTiyPa6Jp9gXUUniAF6io3Au2Smjys6blKdV/JkBfCdwuI0cSoOVbDMjx8M
+	 9ZUuwkPdBbcuA==
+Date: Tue, 1 Apr 2025 17:54:16 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: <Ryan.Wanner@microchip.com>
+Cc: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+ <pabeni@redhat.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+ <conor+dt@kernel.org>, <alexandre.belloni@bootlin.com>,
+ <claudiu.beznea@tuxon.dev>, <nicolas.ferre@microchip.com>,
+ <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 1/6] dt-bindings: net: cdns,macb: add sama7d65 ethernet
+ interface
+Message-ID: <20250401175326.1b0ae7d5@kernel.org>
+In-Reply-To: <392b078b38d15f6adf88771113043044f31e8cd6.1743523114.git.Ryan.Wanner@microchip.com>
+References: <cover.1743523114.git.Ryan.Wanner@microchip.com>
+	<392b078b38d15f6adf88771113043044f31e8cd6.1743523114.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: fix the wrong type of the trace_id in
- coresight_path
-To: Mike Leach <mike.leach@linaro.org>,
-        Anshuman Khandual
-	<anshuman.khandual@arm.com>
-CC: Jie Gan <jie.gan@oss.qualcomm.com>,
-        Suzuki K Poulose
-	<suzuki.poulose@arm.com>,
-        James Clark <james.clark@linaro.org>,
-        Tingwei Zhang
-	<quic_tingweiz@quicinc.com>,
-        Jinlong Mao <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>,
-        "Dan
- Carpenter" <dan.carpenter@linaro.org>
-References: <20250401014210.2576993-1-jie.gan@oss.qualcomm.com>
- <470e4a90-41c3-4974-a4d7-3073a7fcc737@arm.com>
- <CAJ9a7VinQSx9FYvw4ww0KQgMqapLhWTaU9D2qcc-120YywUu2Q@mail.gmail.com>
-Content-Language: en-US
-From: Jie Gan <quic_jiegan@quicinc.com>
-In-Reply-To: <CAJ9a7VinQSx9FYvw4ww0KQgMqapLhWTaU9D2qcc-120YywUu2Q@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: v84JANZpLEwK0BHsLFrDRdt9Z-X6-PS6
-X-Proofpoint-ORIG-GUID: v84JANZpLEwK0BHsLFrDRdt9Z-X6-PS6
-X-Authority-Analysis: v=2.4 cv=bZZrUPPB c=1 sm=1 tr=0 ts=67ec89c5 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=7CQSdrXTAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
- a=v2YgshKn32HQQJbOv8QA:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-01_10,2025-04-01_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
- priorityscore=1501 clxscore=1011 phishscore=0 adultscore=0
- lowpriorityscore=0 suspectscore=0 spamscore=0 malwarescore=0 mlxscore=0
- impostorscore=0 mlxlogscore=999 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502280000 definitions=main-2504020003
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_175019_653193_F023E974 
-X-CRM114-Status: GOOD (  26.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,93 +74,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 1 Apr 2025 09:13:17 -0700 Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> Add documentation for sama7d65 ethernet interface.
 
+## Form letter - net-next-closed
 
-On 4/1/2025 5:56 PM, Mike Leach wrote:
-> Hi,
-> 
-> On Tue, 1 Apr 2025 at 07:11, Anshuman Khandual
-> <anshuman.khandual@arm.com> wrote:
->>
->> On 4/1/25 07:12, Jie Gan wrote:
->>> The trace_id in coresight_path may contain an error number which means a
->>> negative integer, but the current type of the trace_id is u8. Change the
->>> type to int to fix it.
->>>
->>> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
->>> Fixes: 3c03c49b2fa5 ("Coresight: Introduce a new struct coresight_path")
->>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>
->> LGTM
->>
->> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
->>
->>> ---
->>>   include/linux/coresight.h | 2 +-
->>>   1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
->>> index d79a242b271d..c2bf10c43e7c 100644
->>> --- a/include/linux/coresight.h
->>> +++ b/include/linux/coresight.h
->>> @@ -337,7 +337,7 @@ static struct coresight_dev_list (var) = {                                \
->>>    */
->>>   struct coresight_path {
->>>        struct list_head        path_list;
->>> -     u8                      trace_id;
->>> +     int                     trace_id;
->>>   };
->>>
->>>   enum cs_mode {
-> 
-> There are many places in the Coresight drivers that assign a u8
-> traceid from the path trace ID.
-> 
-> e.g.
-> In coresight-etm4x-core.c : etm4_enable_perf()
-> 
-> drvdata->trcid = path->trace_id;
-> 
-> drvdata->trcid is defined as a u8  - the reason being trace IDs are
-> 128 bits wide with some reserved values.
-> 
-> Will this not just trigger the same issue if path->trace_id is changed
-> to an int? Even if not it is inconsistent handling of the trace ID
-> values.
-> 
-> Trace ID errors should be handled by returning an invalid trace ID
-> value - were the trace ID value will fail the macro
-> IS_VALID_CS_TRACE_ID(), or separate the return of a trace ID from an
-> error return in a function.
-> 
+Linus already pulled net-next material v6.15 and therefore net-next is closed
+for new drivers, features, code refactoring and optimizations. We are currently
+accepting bug fixes only.
 
-Hi Mike,
+Please repost when net-next reopens after Apr 7th.
 
-The path->trace_id is verified after it has been assigned with the logic 
-you mentioned:
+RFC patches sent for review only are obviously welcome at any time.
 
-if (!IS_VALID_CS_TRACE_ID(path->trace_id))
-	goto err_path;
-
-So it should be safe to assign to another u8 parameter, like you mentioned:
-
-In coresight-etm4x-core.c : etm4_enable_perf()
-
-drvdata->trcid = path->trace_id;
-
-Thanks,
-Jie
-
-
-> Regards
-> 
-> Mike
-> 
-> 
-> 
-> --
-> Mike Leach
-> Principal Engineer, ARM Ltd.
-> Manchester Design Centre. UK
+See: https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#development-cycle
+-- 
+pw-bot: defer
+pv-bot: closed
 
 
