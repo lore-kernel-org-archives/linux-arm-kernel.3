@@ -4,96 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76A0C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 11:57:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE249C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 11:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NHSR5BStKwi1555Ad2VJ4FWLFRVBPtFtaXf27EPrHpo=; b=DcHtQEqnmiByJdlJvyBbF/9ysk
-	YX4n0v4IvhY26wc3k3yDQc83Dp0E2XZZVAVC3O6QouXkWaUgHIF9xuZlrqbX704MgAuY6SSrdfM33
-	CvZpzd+dNXCbxWR5pBe+PTGBvBfleK/keXHDSEophviO2eXz0TCllZbyTxio/eCs3gnBrEhJy7e4Y
-	hNRRUajrytbq9BTAlap6f5xKc90jnnMj9MkLIymDLUjiEfASfLrLYbbp/ZbeNdJKMo4Ia5sOueLzy
-	YwuzgpV8NDS4ZhO4shyAt4jK4Det0L5Hfy+AreEIRoFCUXhgxvV1TEYF9pHNbnDClgIl0aY07w3gN
-	JBtRmDgQ==;
+	bh=vy9/NJXhvn4mIwhmDZnkXdRgiPzF0YdRinTdxKRE0Rw=; b=FKTTKeyloeGDlXgI+1u9dmYzaR
+	TREyviJpgAQZkT7MdAaTX6EJN+farL7TlX72PcQmcjyMSSopDU2PwPUjrDZQ0IoXVgLKE2T0pq+g1
+	7wV0fk7Afn39xZ3CRm/MhLBK0uNr3KxMFFPgooTrthZgyjRjFwyvu+LAbggfiBqABkJ1Q4sk0e8g/
+	gorBxP2JqqJIdhOlLgwV5DVm7HEaXu9si/AeO8neQJ1jPOzwSPK1NUorXjwJy8HGlXzV3a6AKwk3C
+	lOc+x7yIVjZPxWyKIxqkfM2PijGR8ClUPRoi+c/ROBBmfTv/pDWjN/Lbku0SZZcP0UOisQzKMiygs
+	N7jFDiyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzwil-00000005za5-14Zy;
-	Wed, 02 Apr 2025 11:57:27 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1tzwkW-00000005zps-0oqG;
+	Wed, 02 Apr 2025 11:59:16 +0000
+Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzwbh-00000005y8A-14Ks
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 11:50:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=NHSR5BStKwi1555Ad2VJ4FWLFRVBPtFtaXf27EPrHpo=; b=Qow0NEHvhROtmsdaPYA3K9Nhdi
-	iItGrN3VPudWnDfBIfeQwZfZsP414JRduZQb9hCagbv+ilAo2eHvsCpE5W8HcHGUjufwhuTHdno4j
-	um0wvtBTcXt4jowdu3KbCr7hrW/2DbSsAEKBYn8tPqiyLh2YH7EXjWjB6Haa5+EUgxEdUEr0ZwaD1
-	DxTbH8CDbnnI7sOQ2dS7FhN2UYVNZF6i4lX3taWIXEMLZKaUitpYxncJTvS2KEz7PjV/dRTiJe3oA
-	IwiZYfubaCmjRd2q/GsgWRwanlEcfiMPKM7oIj3KYtSpFwAtZpjf7F8PeNsowyoxTiGEtWORwyViF
-	n8dZ3erw==;
-Received: from [122.175.9.182] (port=29799 helo=zimbra.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1tzwaz-000000002g4-2ckb;
-	Wed, 02 Apr 2025 17:19:25 +0530
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id E40B017821E7;
-	Wed,  2 Apr 2025 17:19:19 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id CEDCE1783FDC;
-	Wed,  2 Apr 2025 17:19:19 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id KkYWWDFBf6_1; Wed,  2 Apr 2025 17:19:19 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id A534E17821E7;
-	Wed,  2 Apr 2025 17:19:19 +0530 (IST)
-Date: Wed, 2 Apr 2025 17:19:19 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: nm <nm@ti.com>, Kevin Hilman <khilman@baylibre.com>
-Cc: basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	pratheesh <pratheesh@ti.com>, Prajith Jayarajan <prajith@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, 
-	danishanwar <danishanwar@ti.com>, praneeth <praneeth@ti.com>, 
-	srk <srk@ti.com>, rogerq <rogerq@ti.com>, afd <afd@ti.com>, 
-	krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, 
-	mohan <mohan@couthit.com>, parvathi <parvathi@couthit.com>
-Message-ID: <706306271.973226.1743594559548.JavaMail.zimbra@couthit.local>
-In-Reply-To: <1365068627.843903.1742210370862.JavaMail.zimbra@couthit.local>
-References: <20250108125937.10604-1-basharath@couthit.com> <20250108125937.10604-2-basharath@couthit.com> <20250307210517.5xjfc6wntcbj3s4k@precision> <1365068627.843903.1742210370862.JavaMail.zimbra@couthit.local>
-Subject: Re: [PATCH v2 1/1] soc: ti: PRUSS OCP configuration
+	id 1tzwgC-00000005yzM-1m7P;
+	Wed, 02 Apr 2025 11:54:49 +0000
+Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e5dc299deb4so6767222276.1;
+        Wed, 02 Apr 2025 04:54:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743594887; x=1744199687; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vy9/NJXhvn4mIwhmDZnkXdRgiPzF0YdRinTdxKRE0Rw=;
+        b=L8ZIreKfIr/4LWDpO+SW3Yxmz5MQyNfcaUyxpeChOOp7vNXcOj5zkAR2M6798r2UAm
+         ZCpZNW7gdJjLJLAboZo0R8Kw7+kPTSmGU3HZcedrZkkOvxJ/HXsR517e2cSC6Ih0KAmd
+         5TH4mKchwnej3QWAwIJNKBoMuVqtgJiYZf4U23vytHsKHkgxaEmrIST150KmtxiT7SaP
+         f03HT1UP8WRYZlqwM8/uoAkN16COxpUt0Yyc0kHyXiAnXwCX9CYQV7BTe4/7xAxAC988
+         d4uUXc598nxNbkzcmcdJpD73yCYST8s8BGKCwiEEbBN0wuFOM8a7ZU4QZ0dY2VclOgza
+         t32w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743594887; x=1744199687;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vy9/NJXhvn4mIwhmDZnkXdRgiPzF0YdRinTdxKRE0Rw=;
+        b=MAenoZjNerAMZAU+3Ir/lszpwBn3z/QqWXbiT+B77jMktAqsSAPB4J+A9+VQrl/k4D
+         2xYZPT5YNRqhIe4oHCQz9RJ0Re9t7KhscBrjlCfZN4QOvO5BrX4hU1cZ564OZTabpdxt
+         WqZz+8XM30YgEeEaVOvIRVV86FAlF+4YzRb9hDQQulIigGHGg0Gb0IXfNBLBps/yixzi
+         NgiZpyAOuJlEWRUTQLvXOYKj7kMF7nRGWmBog5FvO/8MxVGXyMBbFn9HEou9lEXHyqT6
+         xtqxoU/fmGolgwVrUPj0fnEq9UJJykcAHTbSd8MCQILsswFyr4eW4Nmhh3kJf2WFJ1Dr
+         HSRw==
+X-Forwarded-Encrypted: i=1; AJvYcCUhWG1ajlVO6kWuYSn7++hJ7/iABFBwsI4LlQUXA/92zAe737snuztD3dm01xC2XENYUZe+0Lpz@lists.infradead.org, AJvYcCVVUkXvl/Af11VUqzZJAkzgYPqln6xWGGCMVUoFHV+gk+038zxOf1lbxrJ+B8k3LEBWCojqROc=@lists.infradead.org, AJvYcCWSfgHY78CQI36Gy4IDs76xMbuN4zhHVnRcl1WLx1d+2eCEIEd1ZTbwz2lNrJxBh+cew4/45iVTB5M6p+iDoqJ8Uw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw69DDmr7bcABaKf+6rw/FuT5PAiYFgtUe0VEwpJHl4M+Veh/Cg
+	9yGIc2E/wC6vxprPE7ZfszqcGv9kWCcECrWxe/eE2QufNFb6Tjd9760mpTQJ4CBfb0Jk8EhVA3f
+	ffHh4ErGOvCSvT1KxAvbfLPyH99Q=
+X-Gm-Gg: ASbGncseRky1Hpb6Voy8zU3QrIKUdTwAL6S6yANEys5xoJ4X/rqngfoN8n4+Fsevo9Z
+	8FGdUHEKtc4M/cjqdeEMtKUAWx3+D+48jfmGnXq+F5BQ71nFERKtUqYq6yE+HK+Us52elte9NIy
+	2odyoBEB2jtNPTUAiBhhVjbA58
+X-Google-Smtp-Source: AGHT+IFNDtBcIAQYO7+mpC5YBdxcpT/tGHFxiQO0PB6nI3IzfmthfCbTHs6kmv4TBqJ5DaKFjmvLCaVtnbat1OZZT2c=
+X-Received: by 2002:a05:6902:2289:b0:e69:371d:6861 with SMTP id
+ 3f1490d57ef6-e6b838d5499mr22764455276.8.1743594886959; Wed, 02 Apr 2025
+ 04:54:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
-Thread-Topic: PRUSS OCP configuration
-Thread-Index: DvRQZaXzAimB/uZVNUsWawvfCP38JsM+ekCT
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+References: <20250328143646.27678-1-johan+linaro@kernel.org> <20250328143646.27678-2-johan+linaro@kernel.org>
+In-Reply-To: <20250328143646.27678-2-johan+linaro@kernel.org>
+From: Jonas Gorski <jonas.gorski@gmail.com>
+Date: Wed, 2 Apr 2025 13:54:36 +0200
+X-Gm-Features: AQ5f1Joz82s1WEmRV4TLp7DwBdkZ7lMGLaFCty5_AWjWPHUmCYB4oGRiYB1dCkM
+Message-ID: <CAOiHx=mo6Qd+7WrO2JvBLhqjGR7oHds14FwFFAVoEkVWLnbhdA@mail.gmail.com>
+Subject: Re: [PATCH 1/4] PCI/pwrctrl: Rename pwrctrl Kconfig symbols and slot module
+To: Johan Hovold <johan+linaro@kernel.org>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Jeff Johnson <jjohnson@kernel.org>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, ath11k@lists.infradead.org, 
+	ath12k@lists.infradead.org, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_045009_378317_3F6CAEEA 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250402_045448_466594_83002791 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,48 +98,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nishanth,
- 
->> On 18:29-20250108, Basharath Hussain Khaja wrote:
->>> From: Roger Quadros <rogerq@ti.com>
->>> 
->>> Updates OCP master port configuration to enable memory access outside
->>> of the PRU-ICSS subsystem.
->>> 
->>> This set of changes configures PRUSS_SYSCFG.STANDBY_INIT bit either
->>> to enable or disable the OCP master ports (applicable only on SoCs
->>> using OCP interconnect like the OMAP family).
->>> 
->>> Signed-off-by: Roger Quadros <rogerq@ti.com>
->>> Signed-off-by: Andrew F. Davis <afd@ti.com>
->>> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
->>> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
->> 
->> On the verge of applying this patch, looking deeper, I noticed
->> drivers/bus/ti-sysc.c managing the sysc controls. infact, I wonder if
->> b2745d92bb015cc4454d4195c4ce6e2852db397e ("bus: ti-sysc: Add support
->> for PRUSS SYSC type") could be merged with this?
->> 
->> 
->> Could you say why drivers/bus/ti-sysc.c would'nt be the right solution?
->> 
->> Ccying Kevin if he has any ideas about this.
->> 
-> 
-> Thank you for the feedback.
-> 
-> We will analyze ti-sysc and revert back with an update shortly.
-> 
+Hi,
 
-We've reviewed the code and decided to bypass the SOC patch posted here.
-Instead, we have implemented the required changes in the "drivers/bus/ti-sysc.c"
-file to enable OCMC access to the PRU-ICSS and verified the Ethernet
-functionality over PRUETH on AM335x, AM437x and AM57x platforms.
+I have some nitpicks ...
 
-This patch will be abandoned and a new patch will be posted with
-"drivers/bus/ti-sysc.c" changes shortly.
+On Fri, Mar 28, 2025 at 3:41=E2=80=AFPM Johan Hovold <johan+linaro@kernel.o=
+rg> wrote:
+>
+> Commits b88cbaaa6fa1 ("PCI/pwrctrl: Rename pwrctl files to pwrctrl") and
+> 3f925cd62874 ("PCI/pwrctrl: Rename pwrctrl functions and structures")
+> renamed the "pwrctl" framework to "pwrctrl" for consistency reasons.
+>
+> Rename also the Kconfig symbols so that they reflect the new name while
+> adding entries for the deprecated ones. The old symbols can be removed
+> once everything that depends on them has been updated.
+>
+> The new slot module is also renamed to reflect the framework name and
+> match the other pwrctrl modules.
+>
+> Signed-off-by: Johan Hovold <johan+linaro@kernel.org>
+> ---
+>  drivers/pci/pwrctrl/Kconfig  | 27 +++++++++++++++++++++------
+>  drivers/pci/pwrctrl/Makefile |  8 ++++----
+>  2 files changed, 25 insertions(+), 10 deletions(-)
+>
+> diff --git a/drivers/pci/pwrctrl/Kconfig b/drivers/pci/pwrctrl/Kconfig
+> index 990cab67d413..62f176e42e33 100644
+> --- a/drivers/pci/pwrctrl/Kconfig
+> +++ b/drivers/pci/pwrctrl/Kconfig
+> @@ -1,19 +1,19 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>
+> -config HAVE_PWRCTL
+> +config HAVE_PWRCTRL
+>         bool
+>
+> -config PCI_PWRCTL
+> +config PCI_PWRCTRL
+>         tristate
+>
+> -config PCI_PWRCTL_PWRSEQ
+> +config PCI_PWRCTRL_PWRSEQ
+>         tristate
+>         select POWER_SEQUENCING
+> -       select PCI_PWRCTL
+> +       select PCI_PWRCTRL
+>
+> -config PCI_PWRCTL_SLOT
+> +config PCI_PWRCTRL_SLOT
+>         tristate "PCI Power Control driver for PCI slots"
+> -       select PCI_PWRCTL
+> +       select PCI_PWRCTRL
+>         help
+>           Say Y here to enable the PCI Power Control driver to control th=
+e power
+>           state of PCI slots.
+> @@ -21,3 +21,18 @@ config PCI_PWRCTL_SLOT
+>           This is a generic driver that controls the power state of diffe=
+rent
+>           PCI slots. The voltage regulators powering the rails of the PCI=
+ slots
+>           are expected to be defined in the devicetree node of the PCI br=
+idge.
+> +
+> +# deprecated
+> +config HAVE_PWRCTL
+> +       bool
+> +       select HAVE_PWRCTRL
 
+I'm not sure this will work as intended. This symbol can only be !=3D n
+if anything selects it, but there may also be (outdated) config
+symbols that depend on its value. E.g. ath1*k has "select
+PCI_PWRCTL_PWRSEQ if HAVE_PWRCTL", and if there is nothing selecting
+HAVE_PWRCTL, but HAVE_PWRCTRL directly instead, HAVE_PWRCTL will be =3Dn
+and the condition will fail.
 
-Thanks and Regards,
-Parvathi.
+Since you rename the only one selecting HAVE_PWRCTL in patch 2/4, but
+update ath1*k in 3/4 and 4/4, their select PCI_PWRCT(R)L_PWRSEQ use is
+temporarily ineffective. Moving the arm64 patch last would avoid that
+though, at least for the current state.
+
+The alternative would be split this by config symbol instead of per
+tree, so all users would be atomatically updated as well. These
+patches need to go through the same tree anyways, so I see no issue
+doing it that way.
+
+> +
+> +# deprecated
+> +config PCI_PWRCTL_PWRSEQ
+> +       tristate
+> +       select PCI_PWRCTRL_PWRSEQ
+
+Similar issue, but there are no conditionals based on this, so this may be =
+fine.
+
+> +
+> +# deprecated
+> +config PCI_PWRCTL_SLOT
+> +       tristate
+> +       select PCI_PWRCTRL_SLOT
+
+This one won't work. Its value will be automatically calculated based
+on other symbols selecting it, and since there is nothing selecting
+it, it will always be n, regardless what any existing .config says.
+
+So unless you make this a user selectable symbol as well, this will
+(potentially) break existing .configs since its value will be then
+automatically calculated as =3Dn, and the new symbol takes the default
+=3Dn (unless explicitly enabled, or selected by ath1*k).
+
+Best regards,
+Jonas
 
