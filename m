@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC26C36017
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 12:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B79C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 12:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhHzZoO4ypb+xIbX0IJGxi90nknZJ2h2grwWWFg+BKs=; b=vTBFDlsekZUXTFA84Gz0fKWwPq
-	73dY+qljl1AYH0VsvsBuObTpt9WjIDBXWzQquhbTxnfFWIP/qOQqd2EgG8n8ABvfJc5AbeuC0uYwj
-	jZ7UlC2lxLh/ZK+SELFF85paDKshdSpwrcYAktuxs7lST4m86gWmkR2KcX2jLEm0C566UFg2h5OiS
-	dqfgeZZB6g6jRsduYEu4nhRN2S4Sqa1JkHVvBjAfOyfBMZWvsO5S7ISD2e59fLQo6D07pXWu8NNo8
-	XC+eYa+x+hvlCTZhznTEEwcIdbIEFZxtCwaAatzV3CtDIHPYvWMXskq/aZpkIJCcNUGHSNmHB2z2m
-	L5yml5oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2NToZlzG6/aP07T/JQskDRm708R9DlCdafL/lVEwMQc=; b=tqFBABB4nNpat1HIj7jgIuHm30
+	uhpzax2AqhCJ/n0N7V0+DsDHgL2VdfAPHvXY260AhbfBlJO2ZYM1fe64JW/T2WAfqT8DfC+Vrfv2H
+	fOwd8YzUdkEDoQjnVcYKSjI57krQ+qL2eHO2pMLg1umg7/Pc8kSuxoAx8WCOmi2WXjQGJ9/lgF9oB
+	0EGG+oXZYMr6juaWxR8F1eCUl2eLXQQC6IuCOU4ZsaR4a6Ld5a8LO6s1X+NaelKWXLfDiV2c3P+ck
+	gfBGUd7U8//uBRu/BPX59xPWPuatV22J4B9A3E0ShXTm+RzamIYzfLX5dJJmG6ossLO8TnT9vRLAS
+	BEosbZMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzwur-000000061kO-2CzO;
-	Wed, 02 Apr 2025 12:09:57 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tzx0I-000000062O5-1BAm;
+	Wed, 02 Apr 2025 12:15:34 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzwsT-000000061SS-3w0J
+	id 1tzwyW-000000062DN-41XO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 12:07:31 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 532C5Fhd3949065
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Wed, 2 Apr 2025 07:05:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1743595515;
-	bh=fhHzZoO4ypb+xIbX0IJGxi90nknZJ2h2grwWWFg+BKs=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=OmfX3v5co1zf0X2OD55+bJPHKct6EknSkU9JVvI3GEmQnIWE5jHOsbS1B2eU5BWXr
-	 A9kaNXlqQEtOFYuKX4fKBoLVoCf1LcXk3OlxA/DzVlzgEJhecmyKMPEtoKYaNWrdJm
-	 XwzYESEiWADYzEIVWW4mQBEQ+hOGUxf5e9z0turA=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 532C5FcX024089;
-	Wed, 2 Apr 2025 07:05:15 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 2
- Apr 2025 07:05:14 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 2 Apr 2025 07:05:14 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 532C5EIJ078709;
-	Wed, 2 Apr 2025 07:05:14 -0500
-Date: Wed, 2 Apr 2025 07:05:14 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Parvathi Pudi <parvathi@couthit.com>
-CC: Kevin Hilman <khilman@baylibre.com>, basharath <basharath@couthit.com>,
-        ssantosh <ssantosh@kernel.org>,
-        linux-kernel <linux-kernel@vger.kernel.org>,
-        linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-        pratheesh
-	<pratheesh@ti.com>, Prajith Jayarajan <prajith@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        danishanwar <danishanwar@ti.com>, praneeth
-	<praneeth@ti.com>,
-        srk <srk@ti.com>, rogerq <rogerq@ti.com>, afd
-	<afd@ti.com>,
-        krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>,
-        mohan <mohan@couthit.com>
-Subject: Re: [PATCH v2 1/1] soc: ti: PRUSS OCP configuration
-Message-ID: <20250402120514.qbrwz3tsxnfqskbm@kinfolk>
-References: <20250108125937.10604-1-basharath@couthit.com>
- <20250108125937.10604-2-basharath@couthit.com>
- <20250307210517.5xjfc6wntcbj3s4k@precision>
- <1365068627.843903.1742210370862.JavaMail.zimbra@couthit.local>
- <706306271.973226.1743594559548.JavaMail.zimbra@couthit.local>
+	Wed, 02 Apr 2025 12:13:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 76F05A4461C;
+	Wed,  2 Apr 2025 12:08:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06D08C4CEDD;
+	Wed,  2 Apr 2025 12:13:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743596022;
+	bh=O7oesmgNvnpeMIG+T0CoO9IemBq179dATBp4McwmeYY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Q7Om3u2qOXHzmCKvzl9SNmhsvqIglkLX1PkahL07EHm7zSQpi6dW1zTwhYqk8ZHmM
+	 x6DNred9+HEQYWmXIYOHr57SFmRQtzrdjLXlJc2Y3ZF7XTyZzR9fQ8Qr0nVyjZSudi
+	 fIYtm0cRR3ac/1lGXMvT4+Dshb55UoAuLZCuQMD5IN6CoQhxVkZdoasZNNKrhhVVsB
+	 ZHIGSvVXXRDIeNPo9ID0pIV9QF7ileqKyQh6PgZR+QkfI2Fl0tDeLupw7WGa1hpfs4
+	 vYMgEh7qRm0ABFLDbep4yM9YdaC4sztiHoTMtcO+9omJ9MSyuODqGXQk54fyvoG0BV
+	 m8KO/ji5p/lVA==
+Message-ID: <a6f3b75c-2781-4d77-a5fb-ebf5d4a36c4a@kernel.org>
+Date: Wed, 2 Apr 2025 15:13:35 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <706306271.973226.1743594559548.JavaMail.zimbra@couthit.local>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 1/3] net: ti: icssg-prueth: Fix kernel warning
+ while bringing down network interface
+To: Meghana Malladi <m-malladi@ti.com>, dan.carpenter@linaro.org,
+ pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
+ davem@davemloft.net, andrew+netdev@lunn.ch
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ namcao@linutronix.de, javier.carrasco.cruz@gmail.com, diogo.ivo@siemens.com,
+ horms@kernel.org, jacob.e.keller@intel.com, john.fastabend@gmail.com,
+ hawk@kernel.org, daniel@iogearbox.net, ast@kernel.org, srk@ti.com,
+ Vignesh Raghavendra <vigneshr@ti.com>, danishanwar@ti.com
+References: <20250328102403.2626974-1-m-malladi@ti.com>
+ <20250328102403.2626974-2-m-malladi@ti.com>
+Content-Language: en-US
+From: Roger Quadros <rogerq@kernel.org>
+In-Reply-To: <20250328102403.2626974-2-m-malladi@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_050730_088626_47A51B60 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20250402_051345_069665_DC0C107D 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +82,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17:19-20250402, Parvathi Pudi wrote:
-> Hi Nishanth,
->  
-> >> On 18:29-20250108, Basharath Hussain Khaja wrote:
-> >>> From: Roger Quadros <rogerq@ti.com>
-> >>> 
-> >>> Updates OCP master port configuration to enable memory access outside
-> >>> of the PRU-ICSS subsystem.
-> >>> 
-> >>> This set of changes configures PRUSS_SYSCFG.STANDBY_INIT bit either
-> >>> to enable or disable the OCP master ports (applicable only on SoCs
-> >>> using OCP interconnect like the OMAP family).
-> >>> 
-> >>> Signed-off-by: Roger Quadros <rogerq@ti.com>
-> >>> Signed-off-by: Andrew F. Davis <afd@ti.com>
-> >>> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
-> >>> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-> >> 
-> >> On the verge of applying this patch, looking deeper, I noticed
-> >> drivers/bus/ti-sysc.c managing the sysc controls. infact, I wonder if
-> >> b2745d92bb015cc4454d4195c4ce6e2852db397e ("bus: ti-sysc: Add support
-> >> for PRUSS SYSC type") could be merged with this?
-> >> 
-> >> 
-> >> Could you say why drivers/bus/ti-sysc.c would'nt be the right solution?
-> >> 
-> >> Ccying Kevin if he has any ideas about this.
-> >> 
-> > 
-> > Thank you for the feedback.
-> > 
-> > We will analyze ti-sysc and revert back with an update shortly.
-> > 
-> 
-> We've reviewed the code and decided to bypass the SOC patch posted here.
-> Instead, we have implemented the required changes in the "drivers/bus/ti-sysc.c"
-> file to enable OCMC access to the PRU-ICSS and verified the Ethernet
-> functionality over PRUETH on AM335x, AM437x and AM57x platforms.
-> 
-> This patch will be abandoned and a new patch will be posted with
-> "drivers/bus/ti-sysc.c" changes shortly.
 
-Thank you for your patience and taking in feedback.
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+
+On 28/03/2025 12:24, Meghana Malladi wrote:
+> During network interface initialization, the NIC driver needs to register
+> its Rx queue with the XDP, to ensure the incoming XDP buffer carries a
+> pointer reference to this info and is stored inside xdp_rxq_info.
+> 
+> While this struct isn't tied to XDP prog, if there are any changes in
+> Rx queue, the NIC driver needs to stop the Rx queue by unregistering
+> with XDP before purging and reallocating memory. Drop page_pool destroy
+> during Rx channel reset as this is already handled by XDP during
+> xdp_rxq_info_unreg (Rx queue unregister), failing to do will cause the
+> following warning:
+> 
+> warning logs: https://gist.github.com/MeghanaMalladiTI/eb627e5dc8de24e42d7d46572c13e576
+> 
+> Fixes: 46eeb90f03e0 ("net: ti: icssg-prueth: Use page_pool API for RX buffer allocation")
+> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+> Reviewed-by: Simon Horman <horms@kernel.org>
+
+Reviewed-by: Roger Quadros <rogerq@kernel.org>
+
 
