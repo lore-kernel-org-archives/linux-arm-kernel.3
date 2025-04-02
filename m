@@ -4,90 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C493BC3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 06:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E5EC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 06:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QBpFdjJKRK2wPZJQzSRTw4eJ4hUT7j61gGfvcZ13EGg=; b=ziQmP3eGM58lrR6FerIx1P2eM7
-	RjeKbN2ePKVFdyIZCRAI6NbeDlHyZYOaLT49RMefmyzuWCwRNgFWoINdQWNsmCzhlI0canxhEJix6
-	7R+bWrHC9s7d8/mESxw/fBHT3BgaasiuV9lOfEZuccwJOz9pO9YdMwterU2K4nMhb5CKQjkF3Fuxe
-	QxHxMf/vkp2UJMOrgSyr0b+EJ5eOwaPiEiacswTMgvJ1FiU9Y2ZZh+2A6sphQxF0CMuFP3WxF+vs5
-	wlJuZlo4Wi7JlDnLUTLbIuLcpdNWAoOLLO2QEdbTTE/3X1Wt8fqyDyiMMHXbagWPCVg2+q8pC9VRX
-	nEmcsvqA==;
+	bh=r3XGTKSe3xYx1rA0yGDMdiCfM+I4pINvQWbfIsyRqbE=; b=b5iA3tBAM2eyz343/6xUUavMV6
+	y8JTqH8DjNQkCGRYMZo2r7ZbOi29rzIkDqo3ZL/5UOFRqL2C16dOAwJ7OcroH6vb26WhvjmbqwoD+
+	PUbke8xiMZug6yodYzXT8ppdnJDNkdAavgD4AqvCGAYvXN9Yf2sBITCOlgfp9coMkxI0A3xQyMJs2
+	Vv1DGc/d0qf9RWeC1vMM9MNGaZuZ8w6WCU78r7X6sop61HAvT1qs+aMiqawm+vX1Zmsik5Uelcrwj
+	MZgsROU8TZU6Z7NMplIMTulbcXnIkE++fTFBY1K0SH1L3BodQQz89mcz+dY7OaT8MHORCPYDxBrxF
+	EwvtUw+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzrk2-00000005GDH-0EF2;
-	Wed, 02 Apr 2025 06:38:26 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tzrtL-00000005HRU-2ic4;
+	Wed, 02 Apr 2025 06:48:03 +0000
+Received: from mail-dbaeur03on20616.outbound.protection.outlook.com ([2a01:111:f403:260d::616] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzriH-00000005G7Q-0M0x
+	id 1tzrrX-00000005H55-0zez
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 06:36:38 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-22423adf751so118512205ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Apr 2025 23:36:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743575796; x=1744180596; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=QBpFdjJKRK2wPZJQzSRTw4eJ4hUT7j61gGfvcZ13EGg=;
-        b=POl2yD13y7ZUhjn6k/2n0fZSN/dZLkwGFMZm4KWRyiJt6v/vidtGktSRBuS9q97mJo
-         RW+fORMrFWTf1y0g7XNLu9KAAbha2ecI1yCzd4/6tPVetac9dkRAMhepUfk+2TfveoLb
-         trGF+TQW+Il2pyRjfHQemb/Ftnh8/2mWV0A/Tl8k2pD6pQW4rsXtn8b724y5rk3dLian
-         tno+ef7DIP1fEraCC9px5tIkYyeFP6VEUGFlJxaFOVApUO2BSqaxdQSuy+XKVqmluMDP
-         vq8dKWY3VQQW4Hi2icsZCz6C3+EEJXIGfvYLW5n5eDmFF4+61/jazZMTg2ebIMQBI8EE
-         MYsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743575796; x=1744180596;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QBpFdjJKRK2wPZJQzSRTw4eJ4hUT7j61gGfvcZ13EGg=;
-        b=puAZXbNxnQFGSDHx5eytLqXTg/KZ5RK5JB8pWh1L5EzWWD+9e9M9Xr71O3L47gERsg
-         KEJ034uOGVm9ae49s0vfFerZVW6k1XFeV0uXNBSqY2GoUlmYfNAjz2pzEgfi4JNTOCR/
-         L2GU+lFZasi+kjVhgp7eZ4GME1l2fFpjfzyf6+cJAx/A44ctvMXHdN7kWu/6wl8HQCeh
-         5k0xcRboQUUMih/EzHnzG25wOOMwc0XWwyv3w7tWdz8zDTQeMB3xXYi5iaenXjcRz45Z
-         TJzYHHoj+D5zxZ1Rt1Gr5Nqm0hLLfZSTQWXQW8niPz8C3hxPAWxrC4KqBXpeiUu2WZPh
-         +NDg==
-X-Forwarded-Encrypted: i=1; AJvYcCUoBKv+Yl6fs5Tv5z6tIMWqX5L1dJ3nGBt6gOTMfc+U6FmYVYhsipRGwgN4DmIoAVmZZC692/l0bcS+2oBvi5i0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNGBl3WlSgfS22h/edJ2EVKE/nxm3pHoYQ37jZAisicoYvgM37
-	R4qvliymiL4z1HaW8F5RJqMqml1UWJfdPfs+Z7P+cq3VqUyFnoqprcByKs4S5A==
-X-Gm-Gg: ASbGncsprlf9ctlbL5QoMW81gcN+jlTJYsVactaKlYZRw2OEn2xiQ2I1K74wMqtAG0q
-	Gr8zV2ffTZO5+oJ4Vd5ma6NEPIEXyHH4hwI/9E4XHUBMDqNCCauACZnBQ5qhTx1x3oe0ab90I1A
-	tRW5+VLVnzAhwxpHWma0+251XFqVuopEL6es1sfdKOAVb8nvEqgwpZq5ShbtybyqTdCHVdbe4uR
-	5AmQM5I2j0XBXXX6olqzL0Fpxxc+2BrK743PRfAd4wpqWBK0xw83DG4j6QDeZ+j01qwF6SFwdy+
-	WI0iaDevRNM8wK3nshYxbWaNkt/Na/2wABfQwFmVvfpROmZuDzP3Pjve
-X-Google-Smtp-Source: AGHT+IE6fEQRPpZTuVLgYtn/kGTPJXOscRmOwPKgic6LUNeFQjJDmRybRlM29Dg7FxrNgKq/c8uH3g==
-X-Received: by 2002:a05:6a00:1704:b0:736:51ab:7ae1 with SMTP id d2e1a72fcca58-739b60fb6a5mr7052602b3a.16.1743575796230;
-        Tue, 01 Apr 2025 23:36:36 -0700 (PDT)
-Received: from thinkpad ([120.56.205.103])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73970e22356sm10115837b3a.39.2025.04.01.23.36.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Apr 2025 23:36:35 -0700 (PDT)
-Date: Wed, 2 Apr 2025 12:06:29 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
-	kw@linux.com, robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/6] PCI: imx6: Toggle the cold reset for i.MX95 PCIe
-Message-ID: <fatfobrf53l3ngps3rl67gayhnlsqncgd2tabgcspac3n3o4xt@a4yrmtvaitai>
-References: <20250328030213.1650990-1-hongxing.zhu@nxp.com>
- <20250328030213.1650990-3-hongxing.zhu@nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Wed, 02 Apr 2025 06:46:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xLZceiLEWAcFCfMHGS1RsfdGhG5Rg7gQsLi7nLxNJ2wTNEBcwA4ssYjmMURXuTO7EwrrP8Vhq+lW0Y3rPKlz/rIB+ov8sqGQuFMiSRBQ8WdYkUop3JSoKQerYVe60euLx5E+n+Yf88svuZEGxwCcr7f6Aj4Y3L4QRoSyL49kn/odW3pHm+cdg87BiDULPZM8/px+EOwcTFZtQn4E11pKer/IaCrBGRGJrM1AEVre3uwohtgfw9+R+MHDtnVoVKWroC8258nlRLBM1SXH/ESKRu5k1gOBFsuSp7PMQtOPBEibDWJmFPSavuYEngrK1U0u0SBxXxFoYBwXBbsNE5h3pg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r3XGTKSe3xYx1rA0yGDMdiCfM+I4pINvQWbfIsyRqbE=;
+ b=AAUnL5lVeyzaxzISw/1fGqS1J7K0Lly6MC+NNKa8ooDz79FHdjLaaumGKivU7w5MjTUb7nD8Wkaad9FahG5rkX5g+/7H1gUQIhaT1AN96nENhsbEYo8yYn+xlgsmfbZ9urqpO5HTwHCPvBDDR+S+z6qKiN8TrBarAgN7/sYMdZgQtTMxeh15BOZfgzMubUwqgJdhmWj8UXvucEPSk5UxeMjpFtGdPqri4QJahpPFmZek1eWlj0+mrpUGUJY4wB1aQnluuIBNr5cOLJ16sZjR03XeZz5D0fcn2Im5eaVLndaNwPir2bXRscnonGoXoZcurwJ0LYSK8qMxpZkIu7mbYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r3XGTKSe3xYx1rA0yGDMdiCfM+I4pINvQWbfIsyRqbE=;
+ b=Dylzw60NsEgHdpE8H84K7EFe2RHqtt6Cv97RXDw0Bl1ukWPz2u8BXjenMKiG1KPcUzmjz2kNjSLzyHgNLVsuk1iIFjXZv4G4A2C4vdfu4xGUrJgV7Sl2RF5uiLruNVSGYRw+Q3Ng1O8HFkWnWytoIMHGzDYy4DZ2Kmk2qEx5thVMu4Xlf3Q/P1nuDl24XuxC26NuEomlzwEIhFtpGieRz3BwoLwB6jhtWaGJBbr/i3GXrIbcSEcNGV5P2cUY3II7I6m0VhN/FWnxPf6+dAyVTOifqnTPqwAPYJC2ns/JyU5Q3GBlVSQdTcN3NJwsmvIBque/5IqHbcIhfWYGDlBq1w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS4PR04MB9576.eurprd04.prod.outlook.com (2603:10a6:20b:4fe::12)
+ by AS8PR04MB9048.eurprd04.prod.outlook.com (2603:10a6:20b:443::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Wed, 2 Apr
+ 2025 06:46:02 +0000
+Received: from AS4PR04MB9576.eurprd04.prod.outlook.com
+ ([fe80::9cf2:8eae:c3d1:2f30]) by AS4PR04MB9576.eurprd04.prod.outlook.com
+ ([fe80::9cf2:8eae:c3d1:2f30%5]) with mapi id 15.20.8534.043; Wed, 2 Apr 2025
+ 06:46:02 +0000
+Date: Wed, 2 Apr 2025 09:45:57 +0300
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacopo Mondi <jacopo@jmondi.org>, 
+	Christian Hemp <c.hemp@phytec.de>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
+	Stefan Riedmueller <s.riedmueller@phytec.de>, linux-media@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] media: nxp: imx8-isi: better handle the m2m
+ usage_count
+Message-ID: <uie4tvosmzq63qpi4fgengjfuodkzoy3th5zhurt4j4yt772ml@rpplzhmbiky5>
+References: <20241023085643.978729-1-laurentiu.palcu@oss.nxp.com>
+ <20250206203749.GD7524@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250328030213.1650990-3-hongxing.zhu@nxp.com>
+In-Reply-To: <20250206203749.GD7524@pendragon.ideasonboard.com>
+X-ClientProxiedBy: AM0P190CA0004.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:208:190::14) To AS4PR04MB9576.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4fe::12)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9576:EE_|AS8PR04MB9048:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3e632009-1bea-492e-a285-08dd71b2087f
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WeVAzOy+W1YrSpSze8ElT0szsZD15mPZIvxw3ZzdxLVdaHASyHWeokamwpLE?=
+ =?us-ascii?Q?2AvFlfZamloMBU7oACtHDyJCFJP2xogiIBhEzXuoijExe70r62XVLc610Hhn?=
+ =?us-ascii?Q?X7RJcSGLapUjHzC/Ejukcn4VHWggaCvirZDxdaxThmYtmaoKU1p7JthDrvW3?=
+ =?us-ascii?Q?0RJBlZn1Jp2vjZkwmzG7UeeLQsi1EO/kv8k/kJedWxrTQNlPbgPaewIr1KCM?=
+ =?us-ascii?Q?NL9RiTd7K9/miZdxa8Qgp6+JAmN9Um171iZqdXgbG9/67ztWoPh/z211Ld9X?=
+ =?us-ascii?Q?fj4Et1JJGGbLXwFxzjs9SULVZe3Ygy/BToQBXq5vBuuga27+18w9cbB2TWyg?=
+ =?us-ascii?Q?uJbkdDquPHwupvmb5QhuA1fEt0mgw6AO4ECz+T2yz5Z1u1vD4dlCuWOI/0xp?=
+ =?us-ascii?Q?5HUyBobUr8eQHEdArpeck3BhfrGkTYdAwB22WVjoF99nQcPKhfDq9vYxsUzM?=
+ =?us-ascii?Q?pN/uEIsZhagemA04QoZE1DFOAHvquprQEu5HP8Ksec/tvCiWE717TOGe2so0?=
+ =?us-ascii?Q?D8pHdHOF7fQQl7SwoujaxaEyhFT/o4qfjdjbEhapUyumecV6PC24ojaSZm/T?=
+ =?us-ascii?Q?Hp6Z/fMhuKa6f36OFJqVNL1dNXy24T2dlDsHVNfk1lIMTZXt1JPjvREL2VlH?=
+ =?us-ascii?Q?aIReTCy6P/Z/y2UrQvKa7QtUQ1uY7V2ycBSCGLh1nahFNvNREmLAABMSAHjP?=
+ =?us-ascii?Q?ZlNlTU5yLH448Mne3JCgSXbcHopM1hSJWtO7a8NLSQEAVEBfPHjM3OoPdYEk?=
+ =?us-ascii?Q?no9+v72a+voAFhoZFiSt0G5GzMw0Dn79dSKdV28Ljq0jGZzEmWLqTyL/IkPC?=
+ =?us-ascii?Q?etrxB1VTkh5s/mvmkgUnZ2+WTvicDZONF0Qt+BtoDQvjoRaz2EM81K24n+va?=
+ =?us-ascii?Q?D8gfjyHFvWQEWhVS+hzMZlc9i4q3s0J1TBf+oLqxPUTvgcFUeF4H7ltslfqu?=
+ =?us-ascii?Q?k9QN+BfiMjp1Xv4UOO/88vn2/V8hmSaKn3lkTiSwcTq9ARCi27C59q9JFcDm?=
+ =?us-ascii?Q?nz5K1HL1eoERkKskTzOYqGWAgaJurcRLx7wCrnyX2Lj8rXOIQ8/WrWS3W0Ax?=
+ =?us-ascii?Q?mFbjcpQALs65T67IUBMhWDztSojcQpOJ/8U5Jdunupqwsd16cWw6nEGnHQmr?=
+ =?us-ascii?Q?tdHTPAbTejnDz45psTMjWreU2ml/sbyahhMiYPOid0YzVnOXvwfgDdHE+I+w?=
+ =?us-ascii?Q?k+V4vXyAvcnDEY4+uF1NvxytNVyTTXyONrUgsPwr/2BbtSdsXMVmjlL27AM2?=
+ =?us-ascii?Q?sudS8gdsNdv8MzcDmGv3/IKOKWCR+AfPC4mby9RauApoEPei9s0ALR9QjRxx?=
+ =?us-ascii?Q?mJFL8PjXR9dR/bubdEO5itkbJCZ2UTJowwGf/jrlcjcO8EfK5whAro4bJGkw?=
+ =?us-ascii?Q?57vxmAJhV2CIGQ8St3/+RsajsYQY?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9576.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cskkePzMBOKkxvxV9s6cVokZce+3DLjfqjFvINPZ7bjBYgYtqqaPgVfn6sKj?=
+ =?us-ascii?Q?lolA63KbVQdDGGYmU9yj65W0f4YoSF3qug/WIj7uX45WhkwFF8tiyPEgK4W6?=
+ =?us-ascii?Q?I2tqsUFIL0e1fbNeanyYb5z3hn/ax49sOxYKl+TE4g1zS3IpG/xBhrz9+Ubf?=
+ =?us-ascii?Q?JL/8nwztsG7HAD88wmMVtGJ3GYlaU4ESv+nvZvriU4S4F0izsw55QkMRhlsB?=
+ =?us-ascii?Q?jHptM8xsAFVDAGZLtFB4Pgd37vi2YfTAVVRxYa/ZtCL2jM+4+21neGgNc6rQ?=
+ =?us-ascii?Q?nYCB0YWdxNlFKe+KPHYTjK39saOGSqrQmwfvyJ9ARaWy/R5XhlhNP58ep2QO?=
+ =?us-ascii?Q?IMz6WwwBJJCzaSXa9U4s4vv7laA4veizOKqNElUA/v+RcTFX+u9wwWgl1AYB?=
+ =?us-ascii?Q?SmBmlMAGuXCckmO0XLzJRjl+5vT+O3uA3GD62AGZYDtflm+u6ugvbMaSvwQA?=
+ =?us-ascii?Q?5Rcdret8g2SzM4ia7puXiKB8PLTiwKXcajKNEl4KeDF0F9Yb1fQH9+Dfk3zy?=
+ =?us-ascii?Q?3ZtsKH6Orz1Exn58YFFbsf9Czww0M+37IgxAJAXxecC/pFxmPLRiXobXzHh6?=
+ =?us-ascii?Q?6dzTjVaseRRdQwTUlGlixmp44kIjE1qA0QREl2TqB/XIIBiPywTpB9XzpOnb?=
+ =?us-ascii?Q?Qd3YdCS3PA13XMKf9s/xenVlq/QXPWyqR9ifMHToh1LVAx8g03O4PO4NVFlp?=
+ =?us-ascii?Q?QvKTID9YbcopbWhIzx3ge8743k/LQnt+rkj68nrNnJMwLl93V5qbZzb0IWjE?=
+ =?us-ascii?Q?55cg40jsyHoUp9OnHMJJ095H5ejPxADFbsc9949gQS8mPiO9G2nfG7fGn2L5?=
+ =?us-ascii?Q?LRwMe++IblBDyIgo1WXB5tCzkw50RjEFklDSINul8ln7wAOKHgs/K6IO/GXS?=
+ =?us-ascii?Q?kY0hHf9adr5T1inV6CsQa9orM6HruAKUf+XzPd6q5bMzLtFC/YgsN2qGdHDi?=
+ =?us-ascii?Q?1fpCxltobRxvGlIjWSHrJL56qHjytu63AXrL1v8TXxYCxjsu5wojtJBjDM5j?=
+ =?us-ascii?Q?NJ7zYucTtAIBL1zM+56DetCC13qPErdpm0ToZ+5z45/ogpjcvea64eXxQWSq?=
+ =?us-ascii?Q?LESnpwVOneyYIML01KvGmVbxHnPm6Kle71PECuA5kg98NTvwg6tftL3LyxnQ?=
+ =?us-ascii?Q?1zdZIig7L1BJiJsKOhG93/YhvghNHBRT1tRmucMqvvALBtsKDWXoRvSLe3nU?=
+ =?us-ascii?Q?ijE/Vas6eoY4ad2uarBa5JAs47VT5dSppR/omnNoc3e69Xh9a740f9FfiRCS?=
+ =?us-ascii?Q?dXvv4dxBx98C2Y4fwzKPIxgI9SjO/3C7M7P8DQElcMpvdv49gdhMVskRQy0M?=
+ =?us-ascii?Q?Y2i4hNVNYA1WxG7ajT0AA/QTyGa4Sr3WCqJpyDP0gaDrphWxN12PRHdv/mhY?=
+ =?us-ascii?Q?bqgDd+e28ie/T96rPWgQzHIQmYVO4D3w7dEkZ+57HyDkMqSHoqugtL7B8JMa?=
+ =?us-ascii?Q?ckeUp2J/+otRmkA1a8YxplDa0iATf4UxfeEs6IDq8xyGj26upcZu6rq1tAJ/?=
+ =?us-ascii?Q?gTLzgFdDzcp/gYZLaP2NYUpP5DvF3L7Y44CN1FqSUhnO1AW8h0bEajjp5Owv?=
+ =?us-ascii?Q?rVr1X2HtVrG1ZAAxP3fI6PZaeOYXIPaBaVsq0u4DOHz9mDIhazamKMj4ILz/?=
+ =?us-ascii?Q?bw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e632009-1bea-492e-a285-08dd71b2087f
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9576.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2025 06:46:02.0698
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: K4Uz7Cwa3bOr6YWuIkERuDZcbYtc6WdFTA/wDXBkciXchXre7KsaMKlApQ2Bc41DPAzg/JITFrjIpTd9cFxxdg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9048
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_233637_249222_000932BA 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20250401_234611_584058_32C81AE7 
+X-CRM114-Status: GOOD (  31.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,74 +166,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 11:02:09AM +0800, Richard Zhu wrote:
-> Add the cold reset toggle for i.MX95 PCIe to align PHY's power up sequency.
+Hi Laurent,
 
-What do you mean by 'cold' reset? Is it 'core' reset? I see both terminologies
-used in the code.
+I'm really sorry to keep bugging you about this patch but it looks like
+this one fell through the cracks again... :/
 
+Thanks,
+Laurentiu
+
+On Thu, Feb 06, 2025 at 10:37:49PM +0200, Laurent Pinchart wrote:
+> Hi Laurentiu,
 > 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 42 +++++++++++++++++++++++++++
->  1 file changed, 42 insertions(+)
+> Thank you for the patch.
 > 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 57aa777231ae..6051b3b5928f 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -71,6 +71,9 @@
->  #define IMX95_SID_MASK				GENMASK(5, 0)
->  #define IMX95_MAX_LUT				32
->  
-> +#define IMX95_PCIE_RST_CTRL			0x3010
-> +#define IMX95_PCIE_COLD_RST			BIT(0)
-> +
->  #define to_imx_pcie(x)	dev_get_drvdata((x)->dev)
->  
->  enum imx_pcie_variants {
-> @@ -773,6 +776,43 @@ static int imx7d_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
->  	return 0;
->  }
->  
-> +static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
-> +{
-> +	u32 val;
-> +
-> +	if (assert) {
-> +		/*
-> +		 * From i.MX95 PCIe PHY perspective, the COLD reset toggle
-> +		 * should be complete after power-up by the following sequence.
-> +		 *                 > 10us(at power-up)
-> +		 *                 > 10ns(warm reset)
-> +		 *               |<------------>|
-> +		 *                ______________
-> +		 * phy_reset ____/              \________________
-> +		 *                                   ____________
-> +		 * ref_clk_en_______________________/
-> +		 * Toggle COLD reset aligned with this sequence for i.MX95 PCIe.
-> +		 */
-> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
-> +				IMX95_PCIE_COLD_RST);
-
-Is this really COLD reset? Or CORE reset?
-
-> +		/*
-> +		 * To make sure delay enough time, do regmap_read_bypassed
-> +		 * before udelay(). Since udelay() might not use MMIO, and cause
-> +		 * delay time less than setting value.
-> +		 */
-
-This comment could be rephrased:
-
-		/*
-		 * Make sure the write to IMX95_PCIE_RST_CTRL is flushed to the
-		 * hardware by doing a read. Otherwise, there is no guarantee
-		 * that the write has reached the hardware before udelay().
-		 */
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+> On Wed, Oct 23, 2024 at 11:56:43AM +0300, Laurentiu Palcu wrote:
+> > Currently, if streamon/streamoff calls are imbalanced we can either end up
+> > with a negative ISI m2m usage_count (if streamoff() is called more times
+> > than streamon()) in which case we'll not be able to restart the ISI pipe
+> > next time, or the usage_count never gets to 0 and the pipe is never
+> > switched off.
+> > 
+> > To avoid that, add a 'streaming' flag to mxc_isi_m2m_ctx_queue_data and use it
+> > in the streamon/streamoff to avoid incrementing/decrementing the usage_count
+> > uselessly, if called multiple times from the same context.
+> > 
+> > Fixes: cf21f328fcafac ("media: nxp: Add i.MX8 ISI driver")
+> > Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> > ---
+> > v3:
+> >  * Changed the implementation as suggested by Laurent and add a Suggested-by
+> >    tag to reflect that;
+> > 
+> > v2:
+> >  * Changed the way 'usage_count' is incremented/decremented by taking
+> >    into account the context the streamon/streamoff functions are called
+> >    from;
+> >  * Changed the commit message and subject to reflect the changes;
+> > 
+> >  drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c | 13 +++++++++++++
+> >  1 file changed, 13 insertions(+)
+> > 
+> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> > index 9745d6219a166..dc10e1a9f27c1 100644
+> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> > @@ -43,6 +43,7 @@ struct mxc_isi_m2m_ctx_queue_data {
+> >  	struct v4l2_pix_format_mplane format;
+> >  	const struct mxc_isi_format_info *info;
+> >  	u32 sequence;
+> > +	bool streaming;
+> >  };
+> >  
+> >  struct mxc_isi_m2m_ctx {
+> > @@ -486,6 +487,7 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
+> >  				enum v4l2_buf_type type)
+> >  {
+> >  	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
+> > +	struct mxc_isi_m2m_ctx_queue_data *q = mxc_isi_m2m_ctx_qdata(ctx, type);
+> >  	const struct v4l2_pix_format_mplane *out_pix = &ctx->queues.out.format;
+> >  	const struct v4l2_pix_format_mplane *cap_pix = &ctx->queues.cap.format;
+> >  	const struct mxc_isi_format_info *cap_info = ctx->queues.cap.info;
+> > @@ -495,6 +497,9 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
+> >  
+> 
+> While at it I'll drop the blank line here when applying the patch.
+> 
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> 
+> >  	int ret;
+> >  
+> > +	if (q->streaming)
+> > +		return 0;
+> > +
+> >  	mutex_lock(&m2m->lock);
+> >  
+> >  	if (m2m->usage_count == INT_MAX) {
+> > @@ -547,6 +552,8 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
+> >  		goto unchain;
+> >  	}
+> >  
+> > +	q->streaming = true;
+> > +
+> >  	return 0;
+> >  
+> >  unchain:
+> > @@ -569,10 +576,14 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
+> >  				 enum v4l2_buf_type type)
+> >  {
+> >  	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
+> > +	struct mxc_isi_m2m_ctx_queue_data *q = mxc_isi_m2m_ctx_qdata(ctx, type);
+> >  	struct mxc_isi_m2m *m2m = ctx->m2m;
+> >  
+> >  	v4l2_m2m_ioctl_streamoff(file, fh, type);
+> >  
+> > +	if (!q->streaming)
+> > +		return 0;
+> > +
+> >  	mutex_lock(&m2m->lock);
+> >  
+> >  	/*
+> > @@ -598,6 +609,8 @@ static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
+> >  
+> >  	mutex_unlock(&m2m->lock);
+> >  
+> > +	q->streaming = false;
+> > +
+> >  	return 0;
+> >  }
+> >  
+> 
+> -- 
+> Regards,
+> 
+> Laurent Pinchart
 
