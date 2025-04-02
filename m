@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C8BC28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 16:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A47B6C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 16:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VuzG4R3fGEOVCAcfPoOTUO+6ntcv0bfx+Pvn/LkzyGI=; b=Jdn7URoXgNlM8j3qltj7NCnr7Q
-	NEtaGdtDiXMG0ZkZY7nVbrD8ckiK2Q3C5iQfwR4n95cYvd9SGDpreyV/5Xpy8y9d0a310L1vv3pEf
-	xLQ4GAFXWt38oO4BAbXuMITT8MuMQ7r93+MgUq4s5PlO57tCl2uFfhJIFS7xgsEsSphPASr7WB5c1
-	SQvfIk9QsgHqiHFnm/kYx+8kdepUZTZ81oOyyZkuSRHOL6i2uGqqSXYICQc9hnnY2JNGRIVrqzKiO
-	RklwVrXtXM3vhxj3t9PVDoYE6ZAmAfpibsruO4BujHJWjBnr6FBKWUcTi3qPgenw0e1Gov8itYi65
-	Tbu23PnQ==;
+	bh=OOFyG8Kd6+HeZN8MQhF4S2SXZyJjo0p9QJnhgx3PboY=; b=EuIzEl78zAhxl3QX9rCkbQkdzw
+	diKwW+/KSEG6hKIDeo3J4R3cGdgGEhqwlElhsZD70qsPldip30djLECYhH4Zhi1Drp1vkVZM4vROC
+	IAz9MSpPL3KTm90htnxCHJINgbSaKLvJurYSBzixtjftZnF5ljJhrZmnuGlF+y52I+vopI/vH9JIT
+	v4LXDS9yE491+5LuRDhY4tAVaIm2u+6VzuK73NNmtY6bg9LZMptj3UCoBPbUQiK4MhdTNizUO5eOk
+	ioAP0oxKdAqgSmnwY/hyVEr+miIiOeVhMrKXHRgpIwgzRRraf127ILlJKh+05pG96CRsMVpouiVMM
+	y6TiNsPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u01FU-00000006gDn-0mwL;
-	Wed, 02 Apr 2025 16:47:32 +0000
-Received: from mail-ot1-x349.google.com ([2607:f8b0:4864:20::349])
+	id 1u01HY-00000006gbr-15TD;
+	Wed, 02 Apr 2025 16:49:40 +0000
+Received: from smtp-fw-80006.amazon.com ([99.78.197.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u01D2-00000006fvA-0s9z
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 16:45:01 +0000
-Received: by mail-ot1-x349.google.com with SMTP id 46e09a7af769-72a0de193b2so63094a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 09:44:59 -0700 (PDT)
+	id 1u01Fk-00000006gJi-0nVB;
+	Wed, 02 Apr 2025 16:47:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743612299; x=1744217099; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VuzG4R3fGEOVCAcfPoOTUO+6ntcv0bfx+Pvn/LkzyGI=;
-        b=yo6d+vSYSAaHtrUnHWc6tzDIyY/Jg4nG1gZZfMxqtz9LM082QRWOjBWOcCJX/TUs+T
-         WppemlxEvvRWgQYUVnJQuIF6Vz86kay2NRLzG+FKdUak7xw8QBzEmo1NEH8YT9BMzlfv
-         38XLo1qYMAis/SldY8H3gyxdAqYK+UrzAM75io6nNXmAzJHfn2enVPfjnKgv6J5wR5cy
-         KDitjfkvNgEovElF40VMzK3zHHslXjy93Vzz5YEGj3s5tRdLBD5FrleEvMuux/Vime6j
-         Ewijr7YNmeXEvuU5ywcXm0ZeDj2exe7zrid0klhhewAA0j003ET7QGZJzvLEHnrlTTgJ
-         DDxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743612299; x=1744217099;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VuzG4R3fGEOVCAcfPoOTUO+6ntcv0bfx+Pvn/LkzyGI=;
-        b=Cusmf9n/M0Qw61bpMDr2BL7JTd3/HnRqcqXWQzoACqksD8RUlYozjGLGaCecebgYEo
-         7T1HAeb0zN8lOPAEcxcibXXXHq2E6y1Py2p89LDgtGqhGwKsP1UVNzxCmt4azhqSM4+E
-         oRUFgnKYSm+4pRnghmPWuFl6ETOgzAVywAr5/bha/fUgIh+yDNnUHIEPWJ/L1XVh/6+N
-         d+g8goUDws554S604rRhu/PohsoLy1J8m+mK9Z1pgotX+EJ34ap9U8QBVuW4nBW5RuQi
-         oHve+jy/Ge0WRNCTRYY2lHO02qrH/EbdPUwXsWZfqYIZq40TZHqPk10OefbrMIToBXQS
-         aAJg==
-X-Forwarded-Encrypted: i=1; AJvYcCWPOTLHLyg5CGjUSqm1B8+yFstwgcjjmzin6zao/PAIsuvJBajjbnjeS/bJlXxE728su3o66kFJ0Yf/56GEkiiP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxSBAFEZJBn8IchfJmYNl6WYDOQN/tRs3yKZWNOUOOjoqKyfWV
-	VlwITkHFxb7jOfiRS7IyzaGR70HcxqfR1SNwQyv/cFUzGzuTGNH+1jd4fsv0+Y0NZO0061a1mmQ
-	5NXS60LIH5TXXDTiVyg==
-X-Google-Smtp-Source: AGHT+IEtfiQ81dhFjIlo1nhzzYpS6z7yTo9b5I2hiuFriTAYh9htxtNtSS00ENc+Qm/R9+CszjB93qxoNQJ5CKjh
-X-Received: from oacpy11.prod.google.com ([2002:a05:6871:e40b:b0:2bc:6c19:c219])
- (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6830:2902:b0:72b:9f90:56c5 with SMTP id 46e09a7af769-72c6382cde9mr10771860a34.17.1743612298587;
- Wed, 02 Apr 2025 09:44:58 -0700 (PDT)
-Date: Wed,  2 Apr 2025 09:44:53 -0700
-In-Reply-To: <mafs0tt7eqt6f.fsf@amazon.de>
-Mime-Version: 1.0
-References: <mafs0tt7eqt6f.fsf@amazon.de>
-X-Mailer: git-send-email 2.49.0.472.ge94155a9ec-goog
-Message-ID: <20250402164453.2470750-1-changyuanl@google.com>
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
+  t=1743612469; x=1775148469;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=OOFyG8Kd6+HeZN8MQhF4S2SXZyJjo0p9QJnhgx3PboY=;
+  b=SOtL+glAt/3U0AWGefA+KcmsRmf8ihUbIzlSrp7AgJeY2jA5a01hgDg0
+   r3594ylFDr/Nsy+YA8vaOyTjxu/8mYNZuSYyR+iUywxW7sc+aoEKV4f4m
+   f81icTLXQfVtbnl8iQL9QSeZCa0+ttQi3C6rge8z+QfUSZ4gBWkGpuU+y
+   c=;
+X-IronPort-AV: E=Sophos;i="6.15,182,1739836800"; 
+   d="scan'208";a="37483382"
+Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
+  by smtp-border-fw-80006.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2025 16:47:43 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [10.0.38.20:63428]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.57.231:2525] with esmtp (Farcaster)
+ id fb8b30c2-4f1e-48a1-bd68-83c73817fafa; Wed, 2 Apr 2025 16:47:42 +0000 (UTC)
+X-Farcaster-Flow-ID: fb8b30c2-4f1e-48a1-bd68-83c73817fafa
+Received: from EX19D020UWA002.ant.amazon.com (10.13.138.222) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Wed, 2 Apr 2025 16:47:39 +0000
+Received: from EX19MTAUEA001.ant.amazon.com (10.252.134.203) by
+ EX19D020UWA002.ant.amazon.com (10.13.138.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Wed, 2 Apr 2025 16:47:39 +0000
+Received: from email-imr-corp-prod-pdx-all-2c-785684ef.us-west-2.amazon.com
+ (10.43.8.2) by mail-relay.amazon.com (10.252.134.102) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1544.14 via Frontend Transport; Wed, 2 Apr 2025 16:47:39 +0000
+Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
+	by email-imr-corp-prod-pdx-all-2c-785684ef.us-west-2.amazon.com (Postfix) with ESMTP id A4539A03AB;
+	Wed,  2 Apr 2025 16:47:38 +0000 (UTC)
+Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
+	id 3863F4F35; Wed,  2 Apr 2025 16:47:38 +0000 (UTC)
+From: Pratyush Yadav <ptyadav@amazon.de>
+To: Changyuan Lyu <changyuanl@google.com>
+CC: <akpm@linux-foundation.org>, <anthony.yznaga@oracle.com>, <arnd@arndb.de>,
+	<ashish.kalra@amd.com>, <benh@kernel.crashing.org>, <bp@alien8.de>,
+	<catalin.marinas@arm.com>, <corbet@lwn.net>, <dave.hansen@linux.intel.com>,
+	<devicetree@vger.kernel.org>, <dwmw2@infradead.org>, <ebiederm@xmission.com>,
+	<graf@amazon.com>, <hpa@zytor.com>, <jgg@nvidia.com>, <jgowans@amazon.com>,
+	<kexec@lists.infradead.org>, <krzk@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <luto@kernel.org>,
+	<mark.rutland@arm.com>, <mingo@redhat.com>, <pasha.tatashin@soleen.com>,
+	<pbonzini@redhat.com>, <peterz@infradead.org>, <robh+dt@kernel.org>,
+	<robh@kernel.org>, <rostedt@goodmis.org>, <rppt@kernel.org>,
+	<saravanak@google.com>, <skinsburskii@linux.microsoft.com>,
+	<tglx@linutronix.de>, <thomas.lendacky@amd.com>, <will@kernel.org>,
+	<x86@kernel.org>
 Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory preservation
-From: Changyuan Lyu <changyuanl@google.com>
-To: ptyadav@amazon.de
-Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
-	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
-	catalin.marinas@arm.com, changyuanl@google.com, corbet@lwn.net, 
-	dave.hansen@linux.intel.com, devicetree@vger.kernel.org, dwmw2@infradead.org, 
-	ebiederm@xmission.com, graf@amazon.com, hpa@zytor.com, jgg@nvidia.com, 
-	jgowans@amazon.com, kexec@lists.infradead.org, krzk@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org, 
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com, 
-	pbonzini@redhat.com, peterz@infradead.org, robh+dt@kernel.org, 
-	robh@kernel.org, rostedt@goodmis.org, rppt@kernel.org, saravanak@google.com, 
-	skinsburskii@linux.microsoft.com, tglx@linutronix.de, thomas.lendacky@amd.com, 
-	will@kernel.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20250402164453.2470750-1-changyuanl@google.com>
+References: <mafs0tt7eqt6f.fsf@amazon.de>
+	<20250402164453.2470750-1-changyuanl@google.com>
+Date: Wed, 2 Apr 2025 16:47:38 +0000
+Message-ID: <mafs0ecyaqzmd.fsf_-_@amazon.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
+MIME-Version: 1.0
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_094500_252286_1B9F946B 
-X-CRM114-Status: GOOD (  28.99  )
+X-CRM114-CacheID: sfid-20250402_094748_285940_31E558F0 
+X-CRM114-Status: GOOD (  30.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,47 +103,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pratyush, Thanks for suggestions!
+Hi,
 
-On Thu, Mar 27, 2025 at 17:28:40 +0000, Pratyush Yadav <ptyadav@amazon.de> wrote:
-> On Thu, Mar 27 2025, Jason Gunthorpe wrote:
+On Wed, Apr 02 2025, Changyuan Lyu wrote:
+
+> Hi Pratyush, Thanks for suggestions!
 >
-> > On Thu, Mar 27, 2025 at 10:03:17AM +0000, Pratyush Yadav wrote:
-> >
-> >> Of course, with the current linked list structure, this cannot work. But
-> >> I don't see why we need to have it. I think having a page-table like
-> >> structure would be better -- only instead of having PTEs at the lowest
-> >> levels, you have the bitmap.
-> >
-> > Yes, but there is a trade off here of what I could write in 30 mins
-> > and what is maximally possible :) The xarray is providing a page table
-> > implementation in a library form.
-> >
-> > I think this whole thing can be optimized, especially the
-> > memblock_reserve side, but the idea here is to get started and once we
-> > have some data on what the actual preservation workload is then
-> > someone can optimize this.
-> >
-> > Otherwise we are going to be spending months just polishing this one
-> > patch without any actual data on where the performance issues and hot
-> > spots actually are.
+> On Thu, Mar 27, 2025 at 17:28:40 +0000, Pratyush Yadav <ptyadav@amazon.de> wrote:
+>> On Thu, Mar 27 2025, Jason Gunthorpe wrote:
+>>
+>> > On Thu, Mar 27, 2025 at 10:03:17AM +0000, Pratyush Yadav wrote:
+>> >
+>> >> Of course, with the current linked list structure, this cannot work. But
+>> >> I don't see why we need to have it. I think having a page-table like
+>> >> structure would be better -- only instead of having PTEs at the lowest
+>> >> levels, you have the bitmap.
+>> >
+>> > Yes, but there is a trade off here of what I could write in 30 mins
+>> > and what is maximally possible :) The xarray is providing a page table
+>> > implementation in a library form.
+>> >
+>> > I think this whole thing can be optimized, especially the
+>> > memblock_reserve side, but the idea here is to get started and once we
+>> > have some data on what the actual preservation workload is then
+>> > someone can optimize this.
+>> >
+>> > Otherwise we are going to be spending months just polishing this one
+>> > patch without any actual data on where the performance issues and hot
+>> > spots actually are.
+>>
+>> The memblock_reserve side we can optimize later, I agree. But the memory
+>> preservation format is ABI and I think that is worth spending a little
+>> more time on. And I don't think it should be that much more complex than
+>> the current format.
+>>
+>> I want to hack around with it, so I'll give it a try over the next few
+>> days and see what I can come up with.
 >
-> The memblock_reserve side we can optimize later, I agree. But the memory
-> preservation format is ABI and I think that is worth spending a little
-> more time on. And I don't think it should be that much more complex than
-> the current format.
+> I agree with Jason that "nothing is ABI at this
+> point" and it will take some time for KHO to stabilize.
 >
-> I want to hack around with it, so I'll give it a try over the next few
-> days and see what I can come up with.
+> On the other hand if you have already came up with something working and
+> simple, we can include it in the next version.
 
-I agree with Jason that "nothing is ABI at this
-point" and it will take some time for KHO to stabilize.
+I already have something that works with zero-order pages. I am
+currently implementing support for other orders. It is almost done, but
+I need to test it and do a performance comparison with the current
+patch. Will post something soon!
 
-On the other hand if you have already came up with something working and
-simple, we can include it in the next version.
-
-(Sorry for the late reply, I was traveling.)
-
-Best,
-Changyuan
+-- 
+Regards,
+Pratyush Yadav
 
