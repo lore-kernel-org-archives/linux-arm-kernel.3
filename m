@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A55C28B20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 09:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF202C28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 09:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2t155ZZPUicbg4MlR+X9lg7xDqf28T5G7woIho3Jzqo=; b=cHMU4h7bPSwN21fr9pois03tby
-	4tgTGxqxL04ZxGplf7dzdQoOMs4W6S3ohmWcaRVXns8MTgO4YAKfgbmzs1LV8PywD/XUvrgQidFiE
-	NEn5lOjHt4zAnWnfI1+SoizOcZMhV5FjvEm6OH/3LfLio89m6PDCgRMewLJmZs01CSVxtAKoBFqlk
-	2rNoWsN7V08pUoTWPOjlH+Yd5cEhlzpaMfI+6XKpDRF3gdx7BWQN1Ifb1ZcWsEgrMB3KECKu4QMma
-	gL5Q8JNLRktbQ5iy5OUXbxoQ9LqGX/Sp2E5uBRIuWqDqZb1MNkZE2/RoNyQ22te4nw5zUmAig+KgN
-	NQ5CQILA==;
+	bh=O+qZsUJFapTf8u/JWcd9/gNfb6T4J9fVMDBIGBbhkls=; b=uvUkGj6Xp2gTC7L2RpJIpnoAQN
+	++vBSsgVC4iY36zs5GjWhOp9Y5w1xNqyOhJtNHIp47YiZF5K+XIfgD7P4Kk+C+dFlckcpLX3E1dGH
+	xfl05s+5XVsuT9fQF2VgQKKBy4URYNPA6DirO/CfTEyZVfCezersHI+CVa7mb8wwkq0VjocQ6Vios
+	D19rqsIm+6Yt0RPAI2ow8t19JJ1M7maBfBqb7QkjBtmoSh891Nkpv1xNbymcVs+peZNDi5stIr65M
+	zamFJbZywMTCh3zmSbSus6//08gvDrEKFwL3JsIadgmy1CmzZwdLCzbYMLNbgdA52NyvNnMJWQWqF
+	2aKDaytw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzu6i-00000005dhS-2ohl;
-	Wed, 02 Apr 2025 09:10:01 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tzu8S-00000005e3g-0wtO;
+	Wed, 02 Apr 2025 09:11:48 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzu3B-00000005cw1-3G2d;
+	id 1tzu3C-00000005cw7-2ucG;
 	Wed, 02 Apr 2025 09:06:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1743584780;
-	bh=LrSP6HWCbXK4Bjo8D1kqooNWX+Memzd4hQNwtRsOCSw=;
+	s=mail; t=1743584781;
+	bh=+DtDgRryVbhRcjFy78n1sONheq+Cd0bctWKChaGqmPU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fDwGPBEnIxHePAI0uDznhxI//v/tqK7A7o1tcavd/q7r7aSTfFCj9v7lEpkeQUIv0
-	 K8JRSl3B+G6c7iKM8Aw+ZXFtfxHwe+8WQ/ntKPwb4E33nPDbqXn50Z85b4axxuqF1L
-	 qnbknoph9ntCI9q4CElHkaIl7IHtNPfaUiV11hfkWd3OaGbASSOIU6uYSmuAPh38Ff
-	 sWIMPM7TDaf968ez+3TpqDyaec5ATGdyS2AQLF4zZApiZIlE3EySgALGnIxeClSy8r
-	 9h2x0jMeLDSmYIOTud+RROm7rRu2p0EwYIzmVSQBGQLTsWvSpcC40n5Qiz0jgFy86B
-	 9CBQa4vQ/wg0A==
+	b=glGmzojd9QONIsyYXH+Ac+Qxl5ZQjqRVl+inbow79b4OO9QAtINNlQkWzqloGsL68
+	 AF8tTQh0wctxVRvrjBraar4yDjbyJnBtXZyuXXboidhumzJtZCCb5KKzarlVYQGC9N
+	 WiborEGzI7s9fwk/4uN0+axlNf8Iakas3ECiZJr1dRg98RqY2DN1QHTcAnR9s9kmC+
+	 JXsl63FjWSzJZ89J8QeT6HgJXHxKhFGHZ2SX/QwNfbEexwUknDSkgMwvW/YkscNPSa
+	 rHpyRbbHSRT2WsQSSH9baX5A0e8s3ZtOrP+sb7yH+VAv8dL0/R1UF95vY/95v6bPdM
+	 mb+Y3jVKnwm9A==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B799217E02BE;
-	Wed,  2 Apr 2025 11:06:19 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9195017E0809;
+	Wed,  2 Apr 2025 11:06:20 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: robh@kernel.org,
@@ -56,17 +56,17 @@ Cc: robh@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v1 1/2] arm64: dts: mediatek: mt8195: Add subsys clks for PCIe power domains
-Date: Wed,  2 Apr 2025 11:06:14 +0200
-Message-ID: <20250402090615.25871-2-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v1 2/2] arm64: dts: mediatek: mt8195: Reparent vdec1/2 and venc1 power domains
+Date: Wed,  2 Apr 2025 11:06:15 +0200
+Message-ID: <20250402090615.25871-3-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250402090615.25871-1-angelogioacchino.delregno@collabora.com>
 References: <20250402090615.25871-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_020621_984568_089911D3 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20250402_020622_875080_9F339D29 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,41 +81,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCIe MAC needs the sram to be powered on for internal IP
-access and it has always worked before because the bootloader
-on Chromebooks was leaving the PCIe PERI_AO MEM clocks on
-before booting the kernel.
-Add the SRAM (mem) clock as a subsystem clock on the PCIe MAC
-P0 and P1 to correctly describe the hardware and to avoid any
-issue with bootloaders behaving differently.
+By hardware, the first and second core of the video decoder IP
+need the VDEC_SOC to be powered up in order to be able to be
+accessed (both internally, by firmware, and externally, by the
+kernel).
+Similarly, for the video encoder IP, the second core needs the
+first core to be powered up in order to be accessible.
+
+Fix that by reparenting the VDEC1/2 power domains to be children
+of VDEC0 (VDEC_SOC), and the VENC1 to be a child of VENC0.
 
 Fixes: 2b515194bf0c ("arm64: dts: mt8195: Add power domains controller")
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- arch/arm64/boot/dts/mediatek/mt8195.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/boot/dts/mediatek/mt8195.dtsi | 50 +++++++++++++-----------
+ 1 file changed, 27 insertions(+), 23 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-index b33726da900b..0cb96cba727a 100644
+index 0cb96cba727a..aeca7eeb4067 100644
 --- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-@@ -792,12 +792,16 @@ power-domain@MT8195_POWER_DOMAIN_CAM_MRAW {
+@@ -619,22 +619,6 @@ power-domain@MT8195_POWER_DOMAIN_VPPSYS0 {
+ 					#size-cells = <0>;
+ 					#power-domain-cells = <1>;
  
- 				power-domain@MT8195_POWER_DOMAIN_PCIE_MAC_P0 {
- 					reg = <MT8195_POWER_DOMAIN_PCIE_MAC_P0>;
-+					clocks = <&pericfg_ao CLK_PERI_AO_PCIE_P0_MEM>;
-+					clock-names = "ss-pextp0-mem";
- 					mediatek,infracfg = <&infracfg_ao>;
- 					#power-domain-cells = <0>;
- 				};
+-					power-domain@MT8195_POWER_DOMAIN_VDEC1 {
+-						reg = <MT8195_POWER_DOMAIN_VDEC1>;
+-						clocks = <&vdecsys CLK_VDEC_LARB1>;
+-						clock-names = "vdec1-0";
+-						mediatek,infracfg = <&infracfg_ao>;
+-						#power-domain-cells = <0>;
+-					};
+-
+-					power-domain@MT8195_POWER_DOMAIN_VENC_CORE1 {
+-						reg = <MT8195_POWER_DOMAIN_VENC_CORE1>;
+-						clocks = <&vencsys_core1 CLK_VENC_CORE1_LARB>;
+-						clock-names = "venc1-larb";
+-						mediatek,infracfg = <&infracfg_ao>;
+-						#power-domain-cells = <0>;
+-					};
+-
+ 					power-domain@MT8195_POWER_DOMAIN_VDOSYS0 {
+ 						reg = <MT8195_POWER_DOMAIN_VDOSYS0>;
+ 						clocks = <&topckgen CLK_TOP_CFG_VDO0>,
+@@ -680,15 +664,25 @@ power-domain@MT8195_POWER_DOMAIN_VDEC0 {
+ 							clocks = <&vdecsys_soc CLK_VDEC_SOC_LARB1>;
+ 							clock-names = "vdec0-0";
+ 							mediatek,infracfg = <&infracfg_ao>;
++							#address-cells = <1>;
++							#size-cells = <0>;
+ 							#power-domain-cells = <0>;
+-						};
  
- 				power-domain@MT8195_POWER_DOMAIN_PCIE_MAC_P1 {
- 					reg = <MT8195_POWER_DOMAIN_PCIE_MAC_P1>;
-+					clocks = <&pericfg_ao CLK_PERI_AO_PCIE_P1_MEM>;
-+					clock-names = "ss-pextp1-mem";
- 					mediatek,infracfg = <&infracfg_ao>;
- 					#power-domain-cells = <0>;
- 				};
+-						power-domain@MT8195_POWER_DOMAIN_VDEC2 {
+-							reg = <MT8195_POWER_DOMAIN_VDEC2>;
+-							clocks = <&vdecsys_core1 CLK_VDEC_CORE1_LARB1>;
+-							clock-names = "vdec2-0";
+-							mediatek,infracfg = <&infracfg_ao>;
+-							#power-domain-cells = <0>;
++							power-domain@MT8195_POWER_DOMAIN_VDEC1 {
++								reg = <MT8195_POWER_DOMAIN_VDEC1>;
++								clocks = <&vdecsys CLK_VDEC_LARB1>;
++								clock-names = "vdec1-0";
++								mediatek,infracfg = <&infracfg_ao>;
++								#power-domain-cells = <0>;
++							};
++
++							power-domain@MT8195_POWER_DOMAIN_VDEC2 {
++								reg = <MT8195_POWER_DOMAIN_VDEC2>;
++								clocks = <&vdecsys_core1 CLK_VDEC_CORE1_LARB1>;
++								clock-names = "vdec2-0";
++								mediatek,infracfg = <&infracfg_ao>;
++								#power-domain-cells = <0>;
++							};
+ 						};
+ 
+ 						power-domain@MT8195_POWER_DOMAIN_VENC {
+@@ -696,7 +690,17 @@ power-domain@MT8195_POWER_DOMAIN_VENC {
+ 							clocks = <&vencsys CLK_VENC_LARB>;
+ 							clock-names = "venc0-larb";
+ 							mediatek,infracfg = <&infracfg_ao>;
++							#address-cells = <1>;
++							#size-cells = <0>;
+ 							#power-domain-cells = <0>;
++
++							power-domain@MT8195_POWER_DOMAIN_VENC_CORE1 {
++								reg = <MT8195_POWER_DOMAIN_VENC_CORE1>;
++								clocks = <&vencsys_core1 CLK_VENC_CORE1_LARB>;
++								clock-names = "venc1-larb";
++								mediatek,infracfg = <&infracfg_ao>;
++								#power-domain-cells = <0>;
++							};
+ 						};
+ 
+ 						power-domain@MT8195_POWER_DOMAIN_VDOSYS1 {
 -- 
 2.48.1
 
