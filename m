@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B5EC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 00:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AC6C36018
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 00:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0YyQuuJn0D70Gt3DF9qWOww2Vsvhfea5p77Xv4vYXo=; b=1cqwo6tsPvLg77tTnX4I61uLG0
-	ftuVt1SnyE4WgSDg0Usphe33JrglMJLqcCFF0mtBT1pIVfP5kMDTBM7X80P4RRQNmG5kUmOOpUo/P
-	ZEOquVMkrMux3MA9jzrlYfAeTP7fZOJbzNvRf0hnd6lzdpqqv+dYcYLpnBEgSm0eou3RpXzKNiz/1
-	O0bwai4mKte0Ggzrzyrkn+CokvxQ7K0YifllD8QL2Jug9OBNg9krUmiFhWtqe0ovoMpmKx/M7IZZ2
-	Y+HRHFMHuxFjive6CnYq+scMtvqowTLlvs6HdNfPukSCjsiE4fSUtSvYPL8emoBgX+c0dfKfHaVvt
-	Ncf41WJA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S4nGN0CSQHB2KWPpnR8tVMOWyUfm5YVcNnGHzKT+Zag=; b=KMsUAjiMBMuvh98VRiTszfJej7
+	D/tkQYCHB8c01/ShkkUDGxnqDH3wl3Bu63s6Ys3gnPrb4XRBjaXYNQtVd9l1OUSaAcIV5sjCEe9v5
+	jBOXVGP+tU83hz1Ylbm6Ufe07ZyOj64ImFFkD8GjXnCtreiPoOM4DIaqGWcFh3PYXHok3nSjX6TqX
+	u60gyiXRta4Bx0IuAp1tGFjcI3p5Pd/Jb2b6V9AMkRIdfuR9BsMIscdB0zoG4fXK270txtLroJIMs
+	+2zSO1hyv25jxz4ViqVT4NhQT8didsYgoDPPORDmP6zRpHJe+9QEa0cjSkafNjncrkXW23hyolzc7
+	Ujbb/VHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzmHD-00000004l0D-1yJB;
-	Wed, 02 Apr 2025 00:48:19 +0000
+	id 1tzmIv-00000004lKp-0pAV;
+	Wed, 02 Apr 2025 00:50:05 +0000
 Received: from mailgate01.uberspace.is ([95.143.172.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzmFT-00000004kbo-25PW
+	id 1tzmFT-00000004kbf-26KO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Apr 2025 00:46:33 +0000
+	Wed, 02 Apr 2025 00:46:34 +0000
 Received: from perseus.uberspace.de (perseus.uberspace.de [95.143.172.134])
-	by mailgate01.uberspace.is (Postfix) with ESMTPS id 21DAD60A2D
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  2 Apr 2025 02:46:23 +0200 (CEST)
-Received: (qmail 23180 invoked by uid 988); 2 Apr 2025 00:46:23 -0000
+	by mailgate01.uberspace.is (Postfix) with ESMTPS id 36F66609D6
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  2 Apr 2025 02:46:22 +0200 (CEST)
+Received: (qmail 23164 invoked by uid 988); 2 Apr 2025 00:46:22 -0000
 Authentication-Results: perseus.uberspace.de;
 	auth=pass (plain)
 Received: from unknown (HELO unkown) (::1)
-	by perseus.uberspace.de (Haraka/3.0.1) with ESMTPSA; Wed, 02 Apr 2025 02:46:22 +0200
+	by perseus.uberspace.de (Haraka/3.0.1) with ESMTPSA; Wed, 02 Apr 2025 02:46:21 +0200
 From: David Bauer <mail@david-bauer.net>
 To: Felix Fietkau <nbd@nbd.name>,
 	Lorenzo Bianconi <lorenzo@kernel.org>,
@@ -47,34 +47,32 @@ Cc: linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH 2/3] mt7915: mcu: increase command timeout
-Date: Wed,  2 Apr 2025 02:45:26 +0200
-Message-ID: <20250402004528.1036715-2-mail@david-bauer.net>
+Subject: [PATCH 1/3] mt7915: mcu: lower default timeout
+Date: Wed,  2 Apr 2025 02:45:25 +0200
+Message-ID: <20250402004528.1036715-1-mail@david-bauer.net>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250402004528.1036715-1-mail@david-bauer.net>
-References: <20250402004528.1036715-1-mail@david-bauer.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Rspamd-Bar: /
-X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-3) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
-X-Rspamd-Score: -0.1
+X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-2.999999) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
+X-Rspamd-Score: -0.099999
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
 	d=david-bauer.net; s=uberspace;
 	h=from:to:cc:subject:date;
-	bh=vcbb/N719SqerjnEgmY492MYanRbJNvTR7pgs9UQi2g=;
-	b=xY361tET6zI12Oo5cMJrqCzaecMWF2wZfEmGKrdaOiWA8pN9bBNW+E/WtSlYfWcFnfL0U/Dcjc
-	82GaoEQnAgqrDaheMTPlOfAQDeomqdZ0bOieFeWmb5h0gECxR+XWDZ3j18cq1QaCOhrcBy6mb8O2
-	ZpJ7/7CjAhb8qeuOBB2BJ1Mi5aWmrVJFO/HbIWbBcxbQ3uyAccltFSBBOJoIYcbKeaCTIyR+jRL7
-	YJ8hhVzgmy+BXshHqgTyAYBmU0Er3bniumqQ6aak6TNJWUdmoXncgDdf6ttFr+6wp1h+a/DdI/zT
-	JBtmFU5H2XMEBiqBt03RTZ96XYYOsyOjwxbbe8iXs25Ff9aFeMkote9NxIwSjoCymmx9/27oCJXy
-	dJF6dnRZT3fsEOdVleSI/XR8kyC8I/WBqGk+DOUjesS5lVYrgRhlZ6rw6ASpo9G4JUF2Ha9ZFWIW
-	OtIUFikYak9Q6tj1RL9cfcem+/+Ka0+/NOjdv8t9ekhLZKNaxg9V2Vw8SnZ5cC7lo6NnQXHu2joN
-	Wbe8/Elp/yi4sqTtXiZHhNmovvmSQZ8DJ01p3IPG0oUpItV/hMQ7TY7O6vjmmQWLslkgJ97Sz9v6
-	OM06VRh5E/UhzSR2VO4cwZLF9aj2tML4p70zeb3FbawG41p+rCUO/5ELJWZA7wda9u+SpfyQze1G
-	c=
+	bh=o0+jC5T0IbMLQejhPVGo1EXsWLgoRdQKJfBR4m13l28=;
+	b=OpGqdC4W5ncDvQo4pt/v3IzaB2oV6KRY2hoD8pZXVBtby0ahijnFpy/vpf+yX+YQXjsdm66KtF
+	dHmteresF3/GQVMSquiuhBnL+gPayZMCxXCUtqwb2MKywYZ6YHa9pXaijLjY02tY34WvXpYeM5BT
+	cOP/BOQQAmUsC6WzP6tOdET3NRaMLYeL6HWV7NDWtC5uZtlT54zxEPeiJNq/1xaYRzPuZCaNU/x2
+	MwSk4zeBQn0WVUtVIqG3XzMK52kR7TtehMGfHduYR+7d5wvja812NOkJ+tl48/Y6SoI/TT5zobpw
+	JcR+bebkwbpytcX7Lq0XTrf5ymEs6nVLg+yaxVrTywTpjHBY6FWwn4tSBQNVq+Og+S8cLmRWBSNH
+	GG+VcVQtGYjrSEX2Y8HvN+xVyrLqZ3g2hfnDcKufHcPWBQUqxhXpL+u9BeQ2eeRsfnDaHI2x8Daz
+	dNYHOTxG3pOGx4AjjWxTeQwqk4AVFAPSWF5hqS4wusHoj4fY1ALqbwRq5zSJQgG8ZGcA7Um/mTeS
+	Ah0/4zwnzbAfxyOK9o1fofoJXvI+CMzwRaex/q0ysefMUtY1k7l/fuMvC2bsURfClq88edPq7FYv
+	RrsX4Q33ia9RFapToaXaH3TRUMKhlQH4Q4bwXeG0NCM6OKsjbLtkNySdW/9jimEPMyWcQMQ3EXTt
+	8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_174631_976618_E28E46D9 
-X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-CacheID: sfid-20250401_174631_976831_7CFAA450 
+X-CRM114-Status: UNSURE (   8.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,30 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Increase the timeout for MCU_EXT_CMD_EFUSE_BUFFER_MODE command.
+The default timeout set in mt76_connac2_mcu_fill_message of 20 seconds
+leads to excessive stalling in case messages are lost.
 
-Regular retries upon hardware-recovery have been observed. Increasing
-the timeout slightly remedies this problem.
+Testing showed that a smaller timeout of 5 seconds is sufficient in
+normal operation.
 
 Signed-off-by: David Bauer <mail@david-bauer.net>
 ---
- drivers/net/wireless/mediatek/mt76/mt7915/mcu.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/net/wireless/mediatek/mt76/mt7915/mcu.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
-index c1c5afed571f..d93a72d0a78a 100644
+index 3643c72bb68d..c1c5afed571f 100644
 --- a/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
 +++ b/drivers/net/wireless/mediatek/mt76/mt7915/mcu.c
-@@ -210,6 +210,9 @@ mt7915_mcu_set_timeout(struct mt76_dev *mdev, int cmd)
- 	case MCU_EXT_CMD_BSS_INFO_UPDATE:
- 		mdev->mcu.timeout = 2 * HZ;
+@@ -197,6 +197,8 @@ mt7915_mcu_parse_response(struct mt76_dev *mdev, int cmd,
+ static void
+ mt7915_mcu_set_timeout(struct mt76_dev *mdev, int cmd)
+ {
++	mdev->mcu.timeout = 5 * HZ;
++
+ 	if ((cmd & __MCU_CMD_FIELD_ID) != MCU_CMD_EXT_CID)
  		return;
-+	case MCU_EXT_CMD_EFUSE_BUFFER_MODE:
-+		mdev->mcu.timeout = 10 * HZ;
-+		return;
- 	default:
- 		break;
- 	}
+ 
 -- 
 2.47.2
 
