@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A8EC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 18:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 896FDC36017
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Apr 2025 18:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lzIzGe/A8K0FeDNd49e2UFCleX6gbOBWTXq2lLAmj28=; b=5CpJQNIZyDyA6q1epcjt/3/mU6
-	Qlrw7tnQ5yiZXQp4NxL86mkd3EdaKu73tAhfSIKQB7wv9kILdap0TzhQJ5Yvu4rH72q2p/HxPW+q5
-	yCU+wvVVF/AK1U0DcC+veSz/t/g18101mzBz8Qwu1jAghjPvxhpWNltAzksd/k174qgcFkbO2Q7OH
-	cQzTkaJVRRuV2s3tKUEMqNzeZD7C2kKHcWMvd2uTYuC/Tbyxk2rbLklL/SfE8X9C9j/oryLXrefjA
-	heTnb0OhhL594xrtR09VsR0fBjhiRoVaQ0TjCYzlq+I5CWWL82B4E5WAt4HFX/3pOYs/jBEy1keVa
-	iRSrF4Tw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aMSMxtJGALgtSMPuvM+es6h4Iyyq5oXkRDZi7PrpWMU=; b=2BpXdkRb2KYfZxpHSRKp8eNqNP
+	Xb07BP0CtIuc7y1dvanT9kMTIZwVP3YUF+yQC6DtlxDFGhUT9wEoHrrWTLPlIsJxckp38Td5WXHL2
+	PGmSxqF9M8Jp/Y8y/ZgU8XHd64x5XZfGC0rmIlaEeLC1pWxoHP+8kGDvBrk1ZnDAdYTmJpsBei2BO
+	Hes563ylF7NaldNb+AHmMPlmN/ivcfFwfACO4tIKEQpKR0x/X67QGyCesCyC/nNY7KwG6ksRLpnFR
+	aab8wI3600M1QdmYREuUWM/cF48e6ZVIDBMCNdNk9wfLlqU+snbsmLgr/hZfAI8gdhQskb9d/i/Lu
+	mQi74iAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u03B5-00000006yKX-3nYa;
-	Wed, 02 Apr 2025 18:51:07 +0000
-Received: from smtp-fw-52005.amazon.com ([52.119.213.156])
+	id 1u03Dr-00000006ygQ-3wqi;
+	Wed, 02 Apr 2025 18:53:59 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u039J-00000006y6D-3ZaN;
-	Wed, 02 Apr 2025 18:49:19 +0000
+	id 1u03C6-00000006yW9-2HO5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Apr 2025 18:52:12 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3f6ab1b8fc1so71648b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 11:52:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
-  t=1743619758; x=1775155758;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version:content-transfer-encoding;
-  bh=lzIzGe/A8K0FeDNd49e2UFCleX6gbOBWTXq2lLAmj28=;
-  b=N2tQb1bp3qAv2NusgoPPUnXMweVB3/nS7LdTV9GYHbUntQQwMGCSt5gQ
-   CzOr0x+as3Mg2yZi/OUBXSwDg6A6wInOT0nejWxGQ08Zz6rHBizhQ+FJT
-   KQHBfSBPuaQj3Ubru/FC85qSGD7pTQhVKLgT8j0AREHnkQmra13pouAec
-   Q=;
-X-IronPort-AV: E=Sophos;i="6.15,183,1739836800"; 
-   d="scan'208";a="732319846"
-Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
-  by smtp-border-fw-52005.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2025 18:49:12 +0000
-Received: from EX19MTAUWB001.ant.amazon.com [10.0.21.151:38908]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.37.138:2525] with esmtp (Farcaster)
- id 7d79399a-a36b-4d73-99b6-98948cdf7eea; Wed, 2 Apr 2025 18:49:11 +0000 (UTC)
-X-Farcaster-Flow-ID: 7d79399a-a36b-4d73-99b6-98948cdf7eea
-Received: from EX19D020UWA002.ant.amazon.com (10.13.138.222) by
- EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Wed, 2 Apr 2025 18:49:01 +0000
-Received: from EX19MTAUWA002.ant.amazon.com (10.250.64.202) by
- EX19D020UWA002.ant.amazon.com (10.13.138.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Wed, 2 Apr 2025 18:49:01 +0000
-Received: from email-imr-corp-prod-iad-all-1b-85daddd1.us-east-1.amazon.com
- (10.25.36.210) by mail-relay.amazon.com (10.250.64.203) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1544.14 via Frontend Transport; Wed, 2 Apr 2025 18:49:01 +0000
-Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
-	by email-imr-corp-prod-iad-all-1b-85daddd1.us-east-1.amazon.com (Postfix) with ESMTP id B8E254076F;
-	Wed,  2 Apr 2025 18:49:00 +0000 (UTC)
-Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
-	id 74DA54F1C; Wed,  2 Apr 2025 18:49:00 +0000 (UTC)
-From: Pratyush Yadav <ptyadav@amazon.de>
-To: Pasha Tatashin <pasha.tatashin@soleen.com>
-CC: Changyuan Lyu <changyuanl@google.com>, <akpm@linux-foundation.org>,
-	<anthony.yznaga@oracle.com>, <arnd@arndb.de>, <ashish.kalra@amd.com>,
-	<benh@kernel.crashing.org>, <bp@alien8.de>, <catalin.marinas@arm.com>,
-	<corbet@lwn.net>, <dave.hansen@linux.intel.com>,
-	<devicetree@vger.kernel.org>, <dwmw2@infradead.org>, <ebiederm@xmission.com>,
-	<graf@amazon.com>, <hpa@zytor.com>, <jgg@nvidia.com>, <jgowans@amazon.com>,
-	<kexec@lists.infradead.org>, <krzk@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>, <luto@kernel.org>,
-	<mark.rutland@arm.com>, <mingo@redhat.com>, <pbonzini@redhat.com>,
-	<peterz@infradead.org>, <robh+dt@kernel.org>, <robh@kernel.org>,
-	<rostedt@goodmis.org>, <rppt@kernel.org>, <saravanak@google.com>,
-	<skinsburskii@linux.microsoft.com>, <tglx@linutronix.de>,
-	<thomas.lendacky@amd.com>, <will@kernel.org>, <x86@kernel.org>
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory preservation
-In-Reply-To: <CA+CK2bBnbEtw7jL2fbukJ3aBCjn=-OVT70oEAsZ435vtFe18Vw@mail.gmail.com>
-References: <mafs0tt7eqt6f.fsf@amazon.de>
-	<20250402164453.2470750-1-changyuanl@google.com>
-	<mafs0ecyaqzmd.fsf_-_@amazon.de>
-	<CA+CK2bBnbEtw7jL2fbukJ3aBCjn=-OVT70oEAsZ435vtFe18Vw@mail.gmail.com>
-Date: Wed, 2 Apr 2025 18:49:00 +0000
-Message-ID: <mafs0a58yqu03.fsf_-_@amazon.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+        d=broadcom.com; s=google; t=1743619929; x=1744224729; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=aMSMxtJGALgtSMPuvM+es6h4Iyyq5oXkRDZi7PrpWMU=;
+        b=g9lWniaHfmewvNelI7ZYlqFZ9bovsC1Mq8OqdkZnG2Vga8hoBLVF4Cg9wqg9G83W13
+         IguDiafRNb1mvFXpyHPL4zxtwwjoi1jYJhKsaZGVkgw7OTsdfi0krfP8jLSbKq+7H5KZ
+         njWP3z/8E+Qv27gHpifHXUIB3QCyyqCFx31ro=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743619929; x=1744224729;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aMSMxtJGALgtSMPuvM+es6h4Iyyq5oXkRDZi7PrpWMU=;
+        b=ljmPqkW/nzezXSlrq1HddH1E1TtvXs3Iyeib2lCu01TnGUMKEmploqFsggoWFtzHrD
+         PmxLqB9rje4kOSpQuemB3t3iK1206Opr88cvXgsxHSAhzMPJZ3OQRF2jBbxe6KgIwVVF
+         gLW934vCQ4Ahm5H4FK3VEVecQU2/7Opty8iShA7htlMXAD04u8mU/XI9l8l25QtiMFJh
+         M3fRJlEQhCeVv34D2k19sVdmFTijUlS629MW85Au1MJxT5zEZT2WCN1CTcX/oPxNchw4
+         +lwnNdjzoVSI4WGeUslLxqvQGLaO7hSQy+G5Xej2/V7cAtuoxko6hRylWxxlOqCadWiR
+         RPMg==
+X-Gm-Message-State: AOJu0Yx/GbcjDpQ7YkIilNmWAxprw+UAudLVTupG6K/q+dpwEVnigyDE
+	qcwPhdG+zIPnI53yGCq+7J5q0d5MovQZ+X9OEwzD3ZXu9P/OMx6/OguqkFa6pJx8CIYZsKzqhAS
+	0iIYyC32fmh4FykYhrdlEWPGUbwZLQgymyRjVo+1N52u/A+m3HuV+SqwdYOyaZbw0jTaZdgPJMk
+	dZoF+7MYsSo1edfK/Zo401AFGPCZ9421SJFsm9F99bO591q9rPcF2NNsqAQQ==
+X-Gm-Gg: ASbGncsAZ7vrm0oY3hExv+4TlXwX+CZxuNuwb1qH/LAlD5A1T2ufZF8LeyV3dXMqjBo
+	zZvrukHa542bmGaOWsLax2KYDCEEF9ISEUW7bHK4MpOPe7JJ1FmVyWCbQVVpguVlTgjNTQxM9wQ
+	ULZb1mbBp7bItNRCBsXOB1itjx0F/sSMtX75etqGi3HkxDCSd8EIxqgIcx9goxVvdUpNjwwDfnt
+	rk0cdI3Ht/L4gu/49zLHnR7F2vZT5CJeDKU/Onb7U77X6QOOW3n5H/FWmqM7bFFI4NrygClHcEF
+	gsQ+6wBVDCd8SCAxCqmzNc557JQMg2XQVX75vvaaouTkYGVBNYZKchD/gGi7pBxMYCwaZOAR1v5
+	vXO+p/tOdpk9BHcUGGUi2xA==
+X-Google-Smtp-Source: AGHT+IF2oyF+SZAWZtK8dqvuEYk7hltRuj0cB3ZM/AI20F98RrPPB5PiVuTkMpiL1IWiNu1BJ9n9SQ==
+X-Received: by 2002:a05:6808:191e:b0:3f9:a187:1f5d with SMTP id 5614622812f47-3ff0f64bcf8mr11348947b6e.35.1743619928688;
+        Wed, 02 Apr 2025 11:52:08 -0700 (PDT)
+Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-3ff051aaf60sm2470462b6e.28.2025.04.02.11.52.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Apr 2025 11:52:08 -0700 (PDT)
+From: justin.chen@broadcom.com
+To: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-phy@lists.infradead.org
+Cc: rafal@milecki.pl,
+	alcooperx@gmail.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	florian.fainelli@broadcom.com,
+	conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	kishon@kernel.org,
+	vkoul@kernel.org,
+	Justin Chen <justin.chen@broadcom.com>
+Subject: [PATCH v3 0/2] phy: usb: add support for bcm74110
+Date: Wed,  2 Apr 2025 11:51:57 -0700
+Message-Id: <20250402185159.2976920-1-justin.chen@broadcom.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_114918_038323_42CDE47F 
-X-CRM114-Status: GOOD (  25.11  )
+X-CRM114-CacheID: sfid-20250402_115210_571723_A5B55469 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,52 +104,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02 2025, Pasha Tatashin wrote:
+From: Justin Chen <justin.chen@broadcom.com>
 
-> On Wed, Apr 2, 2025 at 12:47=E2=80=AFPM Pratyush Yadav <ptyadav@amazon.de=
-> wrote:
->>
->> Hi,
->>
->> On Wed, Apr 02 2025, Changyuan Lyu wrote:
->>
->> > Hi Pratyush, Thanks for suggestions!
->> >
->> > On Thu, Mar 27, 2025 at 17:28:40 +0000, Pratyush Yadav <ptyadav@amazon=
-.de> wrote:
-[...]
->> >>
->> >> The memblock_reserve side we can optimize later, I agree. But the mem=
-ory
->> >> preservation format is ABI and I think that is worth spending a little
->> >> more time on. And I don't think it should be that much more complex t=
-han
->> >> the current format.
->> >>
->> >> I want to hack around with it, so I'll give it a try over the next few
->> >> days and see what I can come up with.
->> >
->> > I agree with Jason that "nothing is ABI at this
->> > point" and it will take some time for KHO to stabilize.
->> >
->> > On the other hand if you have already came up with something working a=
-nd
->> > simple, we can include it in the next version.
->>
->> I already have something that works with zero-order pages. I am
->> currently implementing support for other orders. It is almost done, but
->> I need to test it and do a performance comparison with the current
->> patch. Will post something soon!
->
-> Hi Pratyush,
->
-> Just to clarify, how soon? We are about to post v6 for KHO, with all
-> other comments in this thread addressed.
+bcm74110 adds a freerun utmi/ref clock that saves furether power during
+suspend states. A tune is also necessary to pass USB compliance test.
 
-I have it working, but I need to clean up the code a bit and test it
-better. So hopefully end of this week or early next week.
+Justin Chen (2):
+  dt-bindings: phy: brcmstb-usb-phy: Add support for bcm74110
+  phy: usb: add support for bcm74110
 
---=20
-Regards,
-Pratyush Yadav
+ .../bindings/phy/brcm,brcmstb-usb-phy.yaml    |  5 +-
+ .../phy/broadcom/phy-brcm-usb-init-synopsys.c | 61 +++++++++++++++++++
+ drivers/phy/broadcom/phy-brcm-usb-init.h      |  1 +
+ drivers/phy/broadcom/phy-brcm-usb.c           | 14 +++++
+ 4 files changed, 80 insertions(+), 1 deletion(-)
+
+-- 
+2.34.1
+
 
