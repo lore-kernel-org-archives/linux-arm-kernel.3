@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CC0C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 07:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB061C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 07:21:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TA77nlWU6OdUq23duWKqhVPTWN3MXZJHgkH6+CGcEgY=; b=ccOE69EhCwRwCUoQyDE3GabP8c
-	oQvFiK1y9kUrpXadxix5hbVUVLzrcr/svEYfjqw8tboxapueVm1pROVKh8Eo0PwDOez8usQXYgC7T
-	zD5d2UdTPMRphroFxIuf2WBBo1UgygHuQ2nENCJp0vhdzW9DdmIkoP63m1YNoUPJE/NCdtQGpXgb3
-	Qzbo7686URfM+eQQE7ql6wMk3ycOk0P/kZqDNvLYXJONBZXgOpAEnh8J1YL0L23H3arN2ohUCdVk3
-	NTX6aiw9eiO79h159Td4rA7qZFW6U6yfasszP0g+IctrTZDNWSEyB274xb/JXYS79GSzlXp7iRMAg
-	Bhd3pCtA==;
+	bh=tr0omvjdG+oPlQSQU7fM0fqBAv9Xiw6y+w6lg0B7xF8=; b=DlwPEbimDCgfGebhZ7Pf95tvRc
+	eKme33VglFoK/NzSKhhdxqV1W6xD5G7qO6zJtYiOFwZlT95ZxRAI5DKqW8SpkW6pymc5E5WvE3liM
+	Np1pMLy0zU+lzGdazAcAnJy447TOsVHJeTtMQW+vRJ1QGNLBVVkjJmcvoXmI+qvyMMsQjoLbCjwmv
+	fC8xpxUTHK3k0bwIkPCROO+RZQwTrFwbsQ6LBOUy5JM6go+XqzCcJf6i+1k9AU6ipYXpGVy4Lia+C
+	Qxj54tY7lcYcK74shvQ5X7HzoJeowgqwr1jQGxg76Rk9aA1ERq9jBufpYjyGyirb93W/TzW8t4GiL
+	vSxYpaRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Er9-000000084ta-2ZUX;
-	Thu, 03 Apr 2025 07:19:19 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u0EtV-000000085g3-3g8f;
+	Thu, 03 Apr 2025 07:21:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Enx-000000084QW-3vij
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 07:16:05 +0000
+	id 1u0Erj-00000008590-0xzq;
+	Thu, 03 Apr 2025 07:19:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 32981A464D6;
-	Thu,  3 Apr 2025 07:10:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD293C4CEE3;
-	Thu,  3 Apr 2025 07:16:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 578C05C5607;
+	Thu,  3 Apr 2025 07:17:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04CC4C4CEE9;
+	Thu,  3 Apr 2025 07:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743664560;
-	bh=QchUpwZ/JJBhfh4pzg9qTorABVpLqhoUNKrCoo4sRdg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Hrsw8BqWJ13XlDOBW/Njnqa2D94vGyhJoi3kMfOOpi8HZbaJLokVwZLW8TLYg7voa
-	 vYQLv6i1A7ZsTIbwdpMQrem0mFd14GX9AkMS+U7PDCMwzuMCIwooPKGXSN2Et1ubC1
-	 Hu1qYqhWc429pQrZS08hke6lY//VIzba5RKPYVofSrfiA+Tf3f50rr5FJzzKWwhR24
-	 XM0x2stszJ0Bnf5DMWJpcRjylAhDeOwOrcAND/vWHMEUX1ertUX6luHaeckW5HEiym
-	 WwdQS7R1R9u/Q22p1DELAkaVMyYVsp414dmvPETXtxWj5LnHmD0VSkR9rHMFrF1SBF
-	 GscAX11F4A9fw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u0Enu-001ssL-99;
-	Thu, 03 Apr 2025 08:15:58 +0100
-Date: Thu, 03 Apr 2025 08:16:00 +0100
-Message-ID: <875xjlzpe7.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Youngmin Nam <youngmin.nam@samsung.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel-team@android.com,
-	hajun.sung@samsung.com,
-	d7271.choe@samsung.com,
-	joonki.min@samsung.com
-Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in GICv3 ITS driver
-In-Reply-To: <CAPDyKFqs+o1snQL-kwC+4-ENDO=P9MwPnAN6YTkExJgLsosHhA@mail.gmail.com>
-References: <CGME20250326030527epcas2p33aa30e62cc8a00c9e151c35bee71dac5@epcas2p3.samsung.com>
-	<Z+Nv8U/4P3taDpUq@perf>
-	<8634f0mall.wl-maz@kernel.org>
-	<Z+TEa8CVAYnbD/Tu@perf>
-	<86v7rulw2d.wl-maz@kernel.org>
-	<CAPDyKFrxK3Mx055hx+a4SP3CWDpWP+CEHxz+WJfT+RficK0_Ag@mail.gmail.com>
-	<87o6xgyqkw.wl-maz@kernel.org>
-	<CAPDyKFqs+o1snQL-kwC+4-ENDO=P9MwPnAN6YTkExJgLsosHhA@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ulf.hansson@linaro.org, youngmin.nam@samsung.com, tglx@linutronix.de, saravanak@google.com, vincent.guittot@linaro.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com, hajun.sung@samsung.com, d7271.choe@samsung.com, joonki.min@samsung.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1743664794;
+	bh=T0uXIGLNl7BuW49vYLPY28xQSdne7A2PEmLs6GteNXw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NP+sATvXwIKNjNGEG/WhaEmBFBhk07+r1H+YsvHuyhyYRudd+XG903734l4iTSAnS
+	 Nvv3BGxykrOtw/rTPsjEHrfAfCi3QcuUmNSIEVN9Rg962+JrhdmmL4oiX5TDC92R1H
+	 JHUIrSwfe9S5jhhg7i8TIG1ezAUIMebhJifXzvZ0p85NS/3XwEXkIUpUrn0j6h24Uo
+	 VJP8URVZhZwazxNKruuVYJmAc9ck8aN9p87CYXqN9QyYErigQ20s4DYes8j0MI/lFH
+	 3kTILynmNz6SxQdcFYVDLpYX1/w/YLxTyvGHenRloSIm3XcJlwpUilYZcvLg0cdBZz
+	 0GMxb+6cHrQcw==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1u0Erl-000000003yS-3BJw;
+	Thu, 03 Apr 2025 09:19:58 +0200
+Date: Thu, 3 Apr 2025 09:19:57 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Johan Hovold <johan+linaro@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jeff Johnson <jjohnson@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Jonas Gorski <jonas.gorski@gmail.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, ath11k@lists.infradead.org,
+	ath12k@lists.infradead.org, linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] PCI/arm64/ath11k/ath12k: Rename pwrctrl Kconfig
+ symbols
+Message-ID: <Z-42nVkEZeWHdwAm@hovoldconsulting.com>
+References: <20250402132634.18065-1-johan+linaro@kernel.org>
+ <CAMRc=Mfpm8=q1mkfNfjPtogbh1S9PKU+w_2yMP+oE_Gj7-qemQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=Mfpm8=q1mkfNfjPtogbh1S9PKU+w_2yMP+oE_Gj7-qemQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_001602_109992_A622D90A 
-X-CRM114-Status: GOOD (  41.92  )
+X-CRM114-CacheID: sfid-20250403_001955_322012_35F702D5 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,79 +84,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 02 Apr 2025 11:57:31 +0100,
-Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> 
-> On Tue, 1 Apr 2025 at 15:11, Marc Zyngier <maz@kernel.org> wrote:
+On Thu, Apr 03, 2025 at 09:11:07AM +0200, Bartosz Golaszewski wrote:
+> On Wed, Apr 2, 2025 at 3:27 PM Johan Hovold <johan+linaro@kernel.org> wrote:
 > >
-> > On Tue, 01 Apr 2025 13:45:43 +0100,
-> > Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > >
-> > > Assuming we can make the code for saving/restoring generic (not in FW)
-> > > and that we are able to make sure the code is only executed for those
-> > > platforms and states that really need it. Do you think there would
-> > > there be any other drawback for doing this?
+> > The PCI pwrctrl framework was renamed after being merged, but the
+> > Kconfig symbols still reflect the old name ("pwrctl" without an "r").
 > >
-> > Yes. We'd end-up having to implement all sort of split PM schemes
-> > depending on the GIC implementation, what the firmware does, the
-> > various braindead assumptions that the integration makes, and other
-> > parameters I don't even want to consider.
-> 
-> I don't think it needs to be that complicated, at all. But let's not
-> discuss the solution at this point, at least for me, that's too early.
-> 
-> However, I do understand your concerns and share them.
-> 
+> > This leads to people not knowing how to refer to the framework in
+> > writing, inconsistencies in module naming, etc.
 > >
-> > The GIC power management is, for better or worse, *outside* of the
-> > scope of the architecture. Most of it is implementation defined,
-> > because each and every implementer/vendor sees it as added value to
-> > invent their own particular flavour of crap. For example, there is no
-> > provision for wake-up interrupts, because nobody can agree on how
-> > that's supposed to work.
-> 
-> Right. I guess it falls in the SoC specific area and we need to live
-> with it, for now.
->
-> Anyway, the main reason why I joined the discussion is exactly because
-> of this. I have been working on enabling the same deep state for
-> s2idle as the one that corresponds to s2ram for some legacy arm64
-> platforms. To allow the system to wake up properly from this deep
-> state, I needed to save/restore these types of GIC registers.
-
-Or not. I will *NOT* entertain SoC-specific code in the GIC drivers
-for anything that isn't a workaround for a functional erratum.
-
-> 
-> I intend to post a complete series for this soonish. It should show
-> what is needed for a particular SoC in this regard. I will keep you
-> posted.
-> 
+> > Let's rename also the Kconfig symbols before this gets any worse.
 > >
-> > Do we want to deal with this in the various GIC drivers? No. It is the
-> > job of firmware to manage this mess, because this clearly delineates
-> > where the responsibilities lie.
 > 
-> The FW could deal with this, but that would only work for platforms
-> with new or upgrade-able FW, which is not the case for these legacy
-> platforms that I am working on.
+> Acked-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> I'm re-adding the tag here as otherwise b4 will only pick it up for
+> patch 4/4 on v2 of the series.
 
-Then these platforms can die and be pruned from the tree, or live with
-a sub-par power management.
+I had already added it to the first three patches so it was only
+missing on the last one.
 
-> Moreover, we already implement the save/restore for some GIC variants
-> - and in some cases using different ways to do it. In my opinion it
-> would be nice to have a common solution that would only be enabled for
-> the states/platforms that really need it. In the series above I will
-> try to implement this, let's see if I can make it.
-
-The solution is firmware. It's been advertised as such for over 10
-years, and GICv5 doesn't change this. We spent years *removing* that
-crap from the irqchip subsystem so that we could have something
-manageable. I'm not going to go back in time for the sake of shit HW.
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+Johan
 
