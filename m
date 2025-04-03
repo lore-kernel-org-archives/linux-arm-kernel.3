@@ -4,79 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84996C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B8CC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:15:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Message-ID:References:In-Reply-To:
-	Subject:Cc:To:From:Date:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CZ8+R8XT4dcdN/GHerXPS2K4xGlT84hC1felE/LCgYs=; b=Qa6sGrf/NQI9IV
-	g+ESfpcZn2NyUZSC7C0ACtHPR9KuQRvrxq1BTqfT3orrAXH7/VhHepqb7X+26m1UejplbmvopaZEx
-	EjfCKrtW2zB8V+9RmW0G5LRSdGH0co2xolCjFloDPpKqVC/TVKsVWOX+cz5oM3w84Vx9M+ziGLsw0
-	OW5s9S+2k5buCTHtx4+N2qJks7gcEtjhjBedvOXqn+rxHSwKN0qSL6DJRztviKCDn3iKr5XQAf17F
-	bVvmYbC7NLfrFNQsi5wM58iQCajrk8HOBE0Krtya0fknkkUq6teu7HDXnS2IhxU8XjOrBjqk0JO7e
-	pAnpCgT1m+AUhMhfA/BQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DMiALHE9ZtMDlRYnEWbPjR9QkB1WaBzQow07VG3sqRA=; b=KVFtVAhoXu/eiduVCnNJIo/C8d
+	q2vhlxfE4fUYs6BbTMwR+f3TiG977GTw0ANCTzriDCLKjAPMMDoWYqroZQQefh+WVYo8KwCjOVWa8
+	FtnCrfSViGr7PS+blodlDTbrS3bWxWws57GHQGajPOPhVWbV7ofsCbJkA9HI2AnnkGOcuQUw1o5yk
+	FIhQf27TSDSeon/TYTDUQDzW2wTpfU7LqbzHE3DAwwC7cMZKIOSUpsW9+bjeoBL6PNdgQHEyUFj01
+	ENpQYW10LhbLrUVLOt7KbiCXHvFXDHhasbhMy3typMPTw0QQj319tSNkc6uH8atDE7+m3N5uoSU6b
+	Ajx950nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HZN-00000008WFx-2fqO;
-	Thu, 03 Apr 2025 10:13:09 +0000
-Received: from fr2000.dnsiaas.com ([151.106.4.82])
+	id 1u0Hb8-00000008Wwv-1uTy;
+	Thu, 03 Apr 2025 10:14:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0H4e-00000008Qzc-3KSO;
-	Thu, 03 Apr 2025 09:41:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=superkali.me; s=default; h=Content-Transfer-Encoding:Content-Type:
-	Message-ID:References:In-Reply-To:Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=CZ8+R8XT4dcdN/GHerXPS2K4xGlT84hC1felE/LCgYs=; b=B0wBVPV+hgcSEQc4WDIGgIvPB9
-	RBtxye5wu4EsB7p+rWJZgMWtXVa3VYBLb8vW1fE8ApS7/A3hWVAhPVRBvcxFWUJ47Q4SLRwU/fO1V
-	V3bFz4rUJJuio0BjsF2q0+f53CRKA4md5KYLKjkxrDRdxpx+irvTxUt/dVxJ+Lw2jq8sZcjn+2pe0
-	6mEB2G8SaUmJJu/XycKh/PEKUtACf8eZPzpBjDTGMS/dJWGK1b8mwu8v8QzE4t/FBIrB7Ip/pyz3o
-	sVjHWV8vZmYFU353pcU/eAvtof169bhxPva5Cb791sqSI633xv81Miz3GMqQzQG4g2DQskQC/pUnx
-	00OwYYjA==;
-Received: from [127.0.0.1] (port=56532 helo=fr2000.dnsiaas.com)
-	by fr2000.dnsiaas.com with esmtpa (Exim 4.98.1)
-	(envelope-from <hello@superkali.me>)
-	id 1u0H4a-00000000drV-3EUC;
-	Thu, 03 Apr 2025 11:41:19 +0200
+	id 1u0H9y-00000008Rmf-06aJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Apr 2025 09:46:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 69CCA68424;
+	Thu,  3 Apr 2025 09:46:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFC1FC4CEE8;
+	Thu,  3 Apr 2025 09:46:50 +0000 (UTC)
+Date: Thu, 3 Apr 2025 10:46:48 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Peter Collingbourne <pcc@google.com>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kees Cook <kees@kernel.org>, Andy Shevchenko <andy@kernel.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] string: Add load_unaligned_zeropad() code path to
+ sized_strscpy()
+Message-ID: <Z-5ZCP5qw2Lcs9pA@arm.com>
+References: <20250329000338.1031289-1-pcc@google.com>
+ <20250329000338.1031289-2-pcc@google.com>
+ <Z-2ZwThH-7rkQW86@arm.com>
+ <CAMn1gO55tC78BpD+KuFgygg1Of57pr16O4BvKsUsrpo830-jEw@mail.gmail.com>
 MIME-Version: 1.0
-Date: Thu, 03 Apr 2025 11:41:14 +0200
-From: Daniele Briguglio <hello@superkali.me>
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, alchark@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Daniele Briguglio
- <daniele.briguglio@icloud.com>
-Subject: Re: [PATCH] rockchip: dts: rk3588: add missing OPP nodes for lower
- frequencies
-Mail-Reply-To: hello@superkali.me
-In-Reply-To: <2652016.Lt9SDvczpP@diego>
-References: <20250403091840.3349637-1-hello@superkali.me>
- <2652016.Lt9SDvczpP@diego>
-User-Agent: Roundcube Webmail/1.6.9
-Message-ID: <a5bc7892ec9f84793db560b81cdb21bc@superkali.me>
-X-Sender: hello@superkali.me
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - fr2000.dnsiaas.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - superkali.me
-X-Get-Message-Sender-Via: fr2000.dnsiaas.com: authenticated_id: hello@superkali.me
-X-Authenticated-Sender: fr2000.dnsiaas.com: hello@superkali.me
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_024124_984321_DAE86D09 
-X-CRM114-Status: GOOD (  16.67  )
+In-Reply-To: <CAMn1gO55tC78BpD+KuFgygg1Of57pr16O4BvKsUsrpo830-jEw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,149 +66,109 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: hello@superkali.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+On Wed, Apr 02, 2025 at 05:08:51PM -0700, Peter Collingbourne wrote:
+> On Wed, Apr 2, 2025 at 1:10 PM Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > On Fri, Mar 28, 2025 at 05:03:36PM -0700, Peter Collingbourne wrote:
+> > > diff --git a/lib/string.c b/lib/string.c
+> > > index eb4486ed40d25..b632c71df1a50 100644
+> > > --- a/lib/string.c
+> > > +++ b/lib/string.c
+> > > @@ -119,6 +119,7 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+> > >       if (count == 0 || WARN_ON_ONCE(count > INT_MAX))
+> > >               return -E2BIG;
+> > >
+> > > +#ifndef CONFIG_DCACHE_WORD_ACCESS
+> > >  #ifdef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
+> > >       /*
+> > >        * If src is unaligned, don't cross a page boundary,
+> > > @@ -133,12 +134,14 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+> > >       /* If src or dest is unaligned, don't do word-at-a-time. */
+> > >       if (((long) dest | (long) src) & (sizeof(long) - 1))
+> > >               max = 0;
+> > > +#endif
+> > >  #endif
+> > >
+> > >       /*
+> > > -      * read_word_at_a_time() below may read uninitialized bytes after the
+> > > -      * trailing zero and use them in comparisons. Disable this optimization
+> > > -      * under KMSAN to prevent false positive reports.
+> > > +      * load_unaligned_zeropad() or read_word_at_a_time() below may read
+> > > +      * uninitialized bytes after the trailing zero and use them in
+> > > +      * comparisons. Disable this optimization under KMSAN to prevent
+> > > +      * false positive reports.
+> > >        */
+> > >       if (IS_ENABLED(CONFIG_KMSAN))
+> > >               max = 0;
+> > > @@ -146,7 +149,11 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+> > >       while (max >= sizeof(unsigned long)) {
+> > >               unsigned long c, data;
+> > >
+> > > +#ifdef CONFIG_DCACHE_WORD_ACCESS
+> > > +             c = load_unaligned_zeropad(src+res);
+> > > +#else
+> > >               c = read_word_at_a_time(src+res);
+> > > +#endif
+> > >               if (has_zero(c, &data, &constants)) {
+> > >                       data = prep_zero_mask(c, data, &constants);
+> > >                       data = create_zero_mask(data);
+> >
+> > Kees mentioned the scenario where this crosses the page boundary and we
+> > pad the source with zeros. It's probably fine but there are 70+ cases
+> > where the strscpy() return value is checked, I only looked at a couple.
+> 
+> The return value is the same with/without the patch, it's the number
+> of bytes copied before the null terminator (i.e. not including the
+> extra nulls now written).
 
-Thank you for your feedback. I misunderstood how power savings work in 
-CPUs - I incorrectly assumed that simply reducing the frequency would 
-save significant energy, even without reducing voltage. I now understand 
-why that's not the case.
+I was thinking of the -E2BIG return but you are right, the patch
+wouldn't change this. If, for example, you read 8 bytes across a page
+boundary and it faults, load_unaligned_zeropad() returns fewer
+characters copied, implying the source was null-terminated.
+read_word_at_a_time(), OTOH, panics in the next
+byte-at-a-time loop. But it wouldn't return -E2BIG either, so it doesn't
+matter for the caller.
 
-My main purpose in adding these OPP nodes was to allow the system to 
-operate at lower frequencies like 408MHz, 600MHz, and 816MHz, which are 
-currently unavailable. I thought this would improve energy efficiency, 
-but I see now that keeping the same voltage (675mV) while only lowering 
-frequency won't achieve meaningful power savings.
+> > Could we at least preserve the behaviour with regards to page boundaries
+> > and keep the existing 'max' limiting logic? If I read the code
+> > correctly, a fall back to reading one byte at a time from an unmapped
+> > page would panic. We also get this behaviour if src[0] is reading from
+> > an invalid address, though for arm64 the panic would be in
+> > ex_handler_load_unaligned_zeropad() when count >= 8.
+> 
+> So do you think that the code should continue to panic if the source
+> string is unterminated because of a page boundary? I don't have a
+> strong opinion but maybe that's something that we should only do if
+> some error checking option is turned on?
 
-Do you have any guidance on lower voltage values that might be safe and 
-stable for these lower frequencies on the RK3588? I've seen some 
-overlays that maintain 675mV as the minimum even for lower frequencies, 
-but if there are tested lower voltages available, I'd be happy to 
-include those in an updated version of the patch.
+It's mostly about keeping the current behaviour w.r.t. page boundaries.
+Not a strong opinion either. The change would be to not read across page
+boundaries.
 
-Thanks,
-Daniele
+> > Reading across tag granule (but not across page boundary) and causing a
+> > tag check fault would result in padding but we can live with this and
+> > only architectures that do MTE-style tag checking would get the new
+> > behaviour.
+> 
+> By "padding" do you mean the extra (up to sizeof(unsigned long)) nulls
+> now written to the destination?
 
-On 03/04/2025 11:24, Heiko Stübner wrote:
-> Hi,
+No, I meant the padding of the source when a fault occurs. The write to
+the destination would only be a single '\0' byte. It's the destination
+safe termination vs. panic above.
+
+> > What I haven't checked is whether a tag check fault in
+> > ex_handler_load_unaligned_zeropad() would confuse the KASAN logic for
+> > MTE (it would be a second tag check fault while processing the first).
+> > At a quick look, it seems ok but it might be worth checking.
 > 
-> Am Donnerstag, 3. April 2025, 11:18:40 MESZ schrieb Daniele Briguglio:
->> From: Daniele Briguglio <daniele.briguglio@icloud.com>
->> 
->> This Patch adds missing Operating Performance Point (OPP) nodes for 
->> lower
->> frequencies to the RK3588 device tree. These additions improve power
->> management by enabling the CPU clusters to scale down to lower
->> frequencies when under light loads, which should improve energy
->> efficiency and reduce power consumption.
->> 
->> The changes add OPP nodes for 408MHz, 600MHz, 816MHz, and 1008MHz
->> (for cluster1 and cluster2 only, as cluster0 already had 1008MHz)
->> with appropriate voltage settings across all three CPU clusters in
->> the RK3588 SoC.
-> 
-> the general consensus is that you don't save energy when you're not
-> reducing the voltage together with the frequency.
-> 
-> For example cluster0 @1GHz runs at 675mV already, so reducing just the
-> frequency, when you're not allowed to reduce the voltage with it won't
-> save energy, just make things slow.
-> 
-> 
-> Heiko
-> 
->> Signed-off-by: Daniele Briguglio <hello@superkali.me>
->> ---
->>  arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi | 58 
->> ++++++++++++++++++++
->>  1 file changed, 58 insertions(+)
->> 
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi 
->> b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
->> index 0f1a77697351..1b018823d5d3 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
->> +++ b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
->> @@ -5,6 +5,22 @@ cluster0_opp_table: opp-table-cluster0 {
->>  		compatible = "operating-points-v2";
->>  		opp-shared;
->> 
->> +		opp-408000000 {
->> +			opp-hz = /bits/ 64 <408000000>;
->> +			opp-microvolt = <675000 675000 950000>;
->> +			clock-latency-ns = <40000>;
->> +			opp-suspend;
->> +		};
->> +		opp-600000000 {
->> +			opp-hz = /bits/ 64 <600000000>;
->> +			opp-microvolt = <675000 675000 950000>;
->> +			clock-latency-ns = <40000>;
->> +		};
->> +		opp-816000000 {
->> +			opp-hz = /bits/ 64 <816000000>;
->> +			opp-microvolt = <675000 675000 950000>;
->> +			clock-latency-ns = <40000>;
->> +		};
->>  		opp-1008000000 {
->>  			opp-hz = /bits/ 64 <1008000000>;
->>  			opp-microvolt = <675000 675000 950000>;
->> @@ -37,6 +53,27 @@ cluster1_opp_table: opp-table-cluster1 {
->>  		compatible = "operating-points-v2";
->>  		opp-shared;
->> 
->> +		opp-408000000 {
->> +			opp-hz = /bits/ 64 <408000000>;
->> +			opp-microvolt = <675000 675000 1000000>;
->> +			clock-latency-ns = <40000>;
->> +			opp-suspend;
->> +		};
->> +		opp-600000000 {
->> +			opp-hz = /bits/ 64 <600000000>;
->> +			opp-microvolt = <675000 675000 1000000>;
->> +			clock-latency-ns = <40000>;
->> +		};
->> +		opp-816000000 {
->> +			opp-hz = /bits/ 64 <816000000>;
->> +			opp-microvolt = <675000 675000 1000000>;
->> +			clock-latency-ns = <40000>;
->> +		};
->> +		opp-1008000000 {
->> +			opp-hz = /bits/ 64 <1008000000>;
->> +			opp-microvolt = <675000 675000 1000000>;
->> +			clock-latency-ns = <40000>;
->> +		};
->>  		opp-1200000000 {
->>  			opp-hz = /bits/ 64 <1200000000>;
->>  			opp-microvolt = <675000 675000 1000000>;
->> @@ -78,6 +115,27 @@ cluster2_opp_table: opp-table-cluster2 {
->>  		compatible = "operating-points-v2";
->>  		opp-shared;
->> 
->> +		opp-408000000 {
->> +			opp-hz = /bits/ 64 <408000000>;
->> +			opp-microvolt = <675000 675000 1000000>;
->> +			clock-latency-ns = <40000>;
->> +			opp-suspend;
->> +		};
->> +		opp-600000000 {
->> +			opp-hz = /bits/ 64 <600000000>;
->> +			opp-microvolt = <675000 675000 1000000>;
->> +			clock-latency-ns = <40000>;
->> +		};
->> +		opp-816000000 {
->> +			opp-hz = /bits/ 64 <816000000>;
->> +			opp-microvolt = <675000 675000 1000000>;
->> +			clock-latency-ns = <40000>;
->> +		};
->> +		opp-1008000000 {
->> +			opp-hz = /bits/ 64 <1008000000>;
->> +			opp-microvolt = <675000 675000 1000000>;
->> +			clock-latency-ns = <40000>;
->> +		};
->>  		opp-1200000000 {
->>  			opp-hz = /bits/ 64 <1200000000>;
->>  			opp-microvolt = <675000 675000 1000000>;
->> 
+> Yes, that works, and I added a test case for that in v5. The stack
+> trace looks like this:
+
+Thanks for checking.
+
+-- 
+Catalin
 
