@@ -4,68 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C38C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF1E0C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7DFwpqeriIJovXeTA5M0evm4u8gZ+MY9ntOIH6DK7B0=; b=lnVPCmSKMna21acxUuvDgoZX7V
-	BB4ZHDl7wFidCVjmapKU6134h8ss9yCM+kvFinl3RaLO1uyh76ztfVGM/j+2bskeQZpsgZLkfbWa4
-	cc7BPDj5GBR4/A2vHfj2m73XbsO7lPBWrZm9t/z7FzposCFaheKpxmtChRymI+iqidEOvkSNMnCsO
-	IigMMkBEjq81fAucvguXxyvQhjyfb1JrE6CbqB/mKxSQYa2Cnblbq2rGqMdrV7JOlAnJA1Yhvbgnl
-	DChB+JAoxMjw03RZFSQ124jt4GfTVHUHgC/a0uSP3zjGcKQm02C77HLKb+wazeP4AIsKs9oqLrxBo
-	MK/Lo2qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CARrPYNC+39nu2aCcF5f+6rCXN+MipGAP0Rp28eM2S8=; b=ux/EAmbBVAWhPjgFchDq+du+kP
+	r9ODt0PDWyO814vXpt56MGCGCYX63lHSq4swz1idD5t/GjQTHuIURTiCdMAH9SIURXtVjtAKmIDa9
+	aNXlX7iAn9Uhzptu1w+9gTMmnG0Hzd2LmqCwMFeg5cdclBaVpcmAARRS9VmKd9SS/zESiWA11W4TJ
+	kWn/OmzyfvwHkErzQ16zkUMDafmzpB9qFL1MAulwrwqUf3GOJTcUfKQd78LcWs8X0L+0NgVAWn0x/
+	PSlt5kgb3WRkSaN345VcL/RKnw6+P8qy5nuV455vsm9sDCYcX8r9DmdNO7XsrUPuD6kAq+DEkV4LB
+	29tXOA9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Hqj-00000008Zng-1pEc;
-	Thu, 03 Apr 2025 10:31:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u0Hsh-00000008a91-2EqP;
+	Thu, 03 Apr 2025 10:33:07 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HRu-00000008U0C-1rYT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 10:05:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D310F68424;
-	Thu,  3 Apr 2025 10:05:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E361C4CEE3;
-	Thu,  3 Apr 2025 10:05:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743674725;
-	bh=VZJ6WOI/SuQ08FQpls6TmDhOFgJH3ksO9l4DB+vGrAA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fA/pQvnlYR5k7TApr2skxozgAc4nIZwluPOEp9LbXP5aYaORp55ZlrSbC3e4OEHW0
-	 eTTMRGXdOOSJ+vbOAwGjpDLJY628FUmxzWibffIv2OxW9KbW8DNJ8f/j2f6Cqf38H3
-	 FwuP+YMOnNxYdFkDijgH7K4pKKskaigCHwN0evcvLPUFBBzhKRtMvnFYDnjlIbv3/8
-	 8Yu4/tM+6kSeT0D7BjHN1x6it/KqXwdS4nPuVH6pnLWXsKKUCCUVs0nZpHxaz+H/ge
-	 r3YGR0/wVcPo/dQtj1iLanajdYXtJY6nEGwEwZ6O7DyrFekjXSpOu4CqXgPGvNdLLx
-	 /JrjbijUFJzEA==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1u0HRy-000000000iG-1BL8;
-	Thu, 03 Apr 2025 12:05:30 +0200
-Date: Thu, 3 Apr 2025 12:05:30 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org, maz@kernel.org
-Subject: Re: [RFC PATCH 3/3] [NOT FOR UPSTREAM] firmware: arm_scmi: quirk:
- Ignore FC bit in attributes
-Message-ID: <Z-5daoJn22XTprwk@hovoldconsulting.com>
-References: <20250401122545.1941755-1-cristian.marussi@arm.com>
- <20250401122545.1941755-4-cristian.marussi@arm.com>
- <Z-5F8eTaZB2gLTNs@hovoldconsulting.com>
- <Z-5QGXj0wXMvtasf@pluto>
+	id 1u0Ha0-00000008WWw-1UKl;
+	Thu, 03 Apr 2025 10:13:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1743675213; x=1744280013; i=markus.elfring@web.de;
+	bh=CARrPYNC+39nu2aCcF5f+6rCXN+MipGAP0Rp28eM2S8=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=RvXf/cnK4bKjLf+iiCwbERJtPdoEvch2sZiwMwLxp1yaey4Lnbm2xmShYZIXpgRj
+	 SXeDrauR7IyfW4jwpUAGiLERFE1IOYHEn9VhiZJ0Duxt2bV7vUtk1FGV4m0OM/RuU
+	 mWNMtRqMcf3MZAqM5YROzC8hBOOvrEUTqoOWKGEGmwNc1Q2ktRacY/s9cszx42dQz
+	 LOWQVcX6BVRZFw+MFajHK9fnSxZ9+ZlXLbSVtYH3UDQIJwDCw/oLuvOmhyI1WDH1A
+	 yUaOzNI1MvxH8gorkBVlKowACVhzWKuuSVx8gvv0Gbd9BHeGW8cPlAS/6T1reIe0i
+	 Uc/LCL8s0C9ZuRbcFg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.50]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MFaui-1ts2Ff2PrK-009QNs; Thu, 03
+ Apr 2025 12:13:33 +0200
+Message-ID: <db778d8c-0a56-4b01-b5b5-5610a68a4875@web.de>
+Date: Thu, 3 Apr 2025 12:13:30 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z-5QGXj0wXMvtasf@pluto>
+User-Agent: Mozilla Thunderbird
+To: Henry Martin <bsdhenrymartin@gmail.com>, linux-wireless@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Peter Chiu <chui-hao.chiu@mediatek.com>, Felix Fietkau <nbd@nbd.name>,
+ Lorenzo Bianconi <lorenzo@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Rex Lu <rex.lu@mediatek.com>,
+ Ryder Lee <ryder.lee@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Shayne Chen <shayne.chen@mediatek.com>, Shengyu Qu <wiagn233@outlook.com>
+References: <20250403064344.64253-1-bsdhenrymartin@gmail.com>
+Subject: Re: [PATCH] wifi: mt76: mt7996: Fix null-ptr-deref in
+ mt7996_mmio_wed_init()
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250403064344.64253-1-bsdhenrymartin@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:FOtUCR65RPzrUtKtMJyZcNJ7HmqKEyao5W6mjn8SRcQgnfwYEcy
+ Vo9lS/Mm9+uxpZGS1jxjpgrm/Lwx8EDmB6Epp1Y7Da9+NUjuBH+Z+SJ6VV2MadoSvhaZeif
+ 040QMrQ9MFViVVPr/MuinG5f9ckItH7tO/YX3R5jQXIYkaESsA/mNxMIrtZ0dTWhGmyPFiK
+ /p7IWI3WNtszVi0Su5vIg==
+UI-OutboundReport: notjunk:1;M01:P0:uDjs4CvjV+I=;wmRCD8VloVebfGs1/wtaZa1Jy7L
+ 0VFTlya2kWdcaD8Dj8w/1Izj7gU2p5NAt+6lSZwpAXX9c6GiFlqs8Y5oT3C7h/CiVsDql9dgC
+ lC5MmkYneB9E+orqTvaD29PoVqW493rJuft8/RHN49vxnDqKWw/61M081skmmgUbw7mieFh+i
+ St4zsIRVxZBJLLOAkAHeNcSGhNMmPthKuRi7eUsbL/+ekADDqzRcn0gbyVJPBZkHcQ2t3hO6K
+ r/OKZohys6m64AQFRDa4bARf1cR2Mb1G0j6wYJ7Gp6itDKB/eZaxwcRcBlnHZHEZeSChrTg7U
+ QVgcQX/E1IaQS5P94/cJ4AH6iUhy3U58hvQLdPd4Bvh0tAK9deJDHzxAbnAxasC5dnP66FUMS
+ rBYiZh+zlTOm3hkafqSPVk3S+rLM1EsRKW2mthCxB+ufYsOeawCLt6avyXpfPxjrcPmjyWlMO
+ 2wWO8lZ8RTre1+nFr7hXlywiD1ysAIHzL7yXft7cqaby4GhFnLG4JY4JAt8bbeEJMrAo0R8xn
+ 3xQuEaN+ITaoYcMALPFtAL752WQWr+gEKFXAXbHpK6ExpevEvltn2pXtGHt+JrI5lFhX/oBo7
+ g7+Vs6Q4GxbIwsS7+E6/q4CYIM/zJCFsIXoyt223uW0h5XZJVBl0Ad/dLtgT6MKCpkR7bUqmN
+ reAz0sqQXuFeWHCdfz+EUk4synUvwhbppfRPFmeQu+i09fUE9ZX7UYnWZTRqbRIHqDlG4h6Gn
+ 23YKEec49x80SoMQIW7K+WSMgx3qaJhAPph9vW+i1kVkPJbZAurBE3Etk42YUrylWm2lgqFaS
+ 9ceLCntgFQWN4tDZ5xQ/lTHftXNV64H2ZYmzk6IMw/PZHYQ1AOEkyFDdQxiglOjulBXzketsx
+ vdms2/H0fz1QwG8gEKoxmrDSi9jVUrIK0c19K8V7YPUWo0F6Wl49/WSvBb1YxrrFuXdxM18HC
+ f5Xx4Wk6O+HVt/JlbvbEHYck5Vz6cVxBdfOvJAMQvHljfKXu/ONrmXruxMLIRwYrAJESZPXl1
+ aF+zmfty7/riduIL+Ao8QJV8tXatzPeiCsJ+/fYdvhF3UOg9hmDjbTNUUHb2UXPHbsrW12ocj
+ 7Kp0C5huZMPnznzPUUQreQMW7eOanw1F9UlhbjDwGRtOVZJKB6q3K+nbjm2vn2sivkO81O9o8
+ E/Enofk/+b3xjvhq0nSUBP5iW/JX9sjMFMCFZ8EIcF7cFoe64vGCB6aIgPQjCDRNbfa3Q9I43
+ +iaeDaRDorYMbp4z+39bSwVRLpiBElEEAtXnKsZ0HSXtqDNRF38JpuTU7Ei3wd+hBXdyhpxpn
+ zHs0AyGN8jX+m/J06rNbPNcW/4r1wluIMFHGoNl2uhuzvpjh6R0cvyMUbZ4PsIlSLXdMLv1xT
+ 6NgfEKEf6mAFT8DZO8VuqzPkkqLapDW1pClSq9F4UT2wlnaLq19wV+nVbwIkhS401io4qDtqw
+ gdDOIGj9nmTsphSflT1GKud+KzdbTGSgUhqFW/+Dtz4tMdGzSF//xhGuyxnyz1psq8Yh3fA==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250403_031348_707121_BF6445AD 
+X-CRM114-Status: UNSURE (   5.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,111 +108,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 10:08:41AM +0100, Cristian Marussi wrote:
-> On Thu, Apr 03, 2025 at 10:25:21AM +0200, Johan Hovold wrote:
-> > On Tue, Apr 01, 2025 at 01:25:45PM +0100, Cristian Marussi wrote:
- 
-> > > +#define QUIRK_PERF_FC_FORCE						\
-> > > +	({								\
-> > > +		if (pi->proto->id == SCMI_PROTOCOL_PERF ||		\
-> > > +		    message_id == 0x5 /* PERF_LEVEL_GET */)		\
-> > 
-> > This should be logical AND and PERF_LEVEL_GET is 0x8 (currently
-> > fastchannel is enabled for all PERF messages).
-> 
-> ...right...not sure how I botched this condition completely...my bad...
-> (even the comment is wrong :P...)
+=E2=80=A6
+> Add NULL check after devm_ioremap() to prevent this issue.
 
-The PERF_LEVEL_GET comment? That one is correct, right? :)
+Can a summary phrase like =E2=80=9CPrevent null pointer dereference in mt7=
+996_mmio_wed_init()=E2=80=9D
+be a bit nicer?
 
-> > > +			attributes |= BIT(0);				\
-> > > +	})
-> > > +
-> > >  static void
-> > >  scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
-> > >  			     u8 describe_id, u32 message_id, u32 valid_size,
-> > > @@ -1924,6 +1931,7 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
-> > >  
-> > >  	/* Check if the MSG_ID supports fastchannel */
-> > >  	ret = scmi_protocol_msg_check(ph, message_id, &attributes);
-> > > +	SCMI_QUIRK(perf_level_get_fc_force, QUIRK_PERF_FC_FORCE);
-> > 
-> > This is cool and I assume can be used to minimise overhead in hot paths.
-> > Perhaps you can have concerns about readability and remembering to
-> > update the quirk implementation if the code here changes.
-> 
-> My main aim here was to be able to define the quirk code as much as
-> possible in the proximity of where it is used...so that is clear what it
-> does and dont get lost in some general common table....and the macro was
-> a way to uniform the treatment of the static keys...
-> 
-> ...but I am still not sure if all of these macros just degrade visibility
-> and we could get rid of them...would be really cool to somehow break the
-> build if the code "sorrounding" the SCMI_QUIRK changes and you dont update
-> (somehow) the quirk too...so as to be sure that the quirk is taking care of
-> and maintained...but I doubt that is feasible, because, really, how do you
-> even deternine which code changes are in proximity enough to the quirk to
-> justify a break...same block ? same functions ? you cannot really know
-> semantically where some changes can impact this part of the code...
-> ..I supppose reviews and testing is the key and the only possible answer
-> to this..
 
-Yeah, it goes both ways. Getting the quirk implementation out of the way
-makes it easier to follow the normal flow, but also makes it a bit
-harder to review the quirk. Your implementation may be a good trade-off.
+=E2=80=A6
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+> @@ -323,6 +323,8 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, voi=
+d *pdev_ptr,
+>  	wed->wlan.base =3D devm_ioremap(dev->mt76.dev,
+>  				      pci_resource_start(pci_dev, 0),
+>  				      pci_resource_len(pci_dev, 0));
+> +	if (!wed->wlan.base)
+> +		return -ENOMEM;
 
-> > Does it even get compile tested if SCMI_QUIRKS is disabled?
-> 
-> It evaluates to nothing when CONFIG_ARM_SCMI_QUIRKS is disabled...
-> ...so maybe I could add a Kconfig dep on COMPILE_TEST ....if this is what
-> you mean..
+Can a blank line be desirable after such a statement?
 
-Perhaps there's some way to get the quirk code always compiled but
-discarded when CONFIG_ARM_SCMI_QUIRKS is disabled (e.g. by using
-IS_ENABLED() in the macro)?
-
-CONFIG_ARM_SCMI_QUIRKS may also need to be enabled by default as it can
-be hard to track down random crashes to a missing quirk.
-
-> > >  /* Global Quirks Definitions */
-> > > +DEFINE_SCMI_QUIRK(perf_level_get_fc_force,
-> > > +		  "your-bad-compatible", NULL, NULL, 0x0);
-> > 
-> > At first I tried matching on the SoC (fallback) compatible without
-> > success until I noticed you need to put the primary machine compatible
-> > here. For the SoC at hand, that would mean adding 10 or so entries since
-> > all current commercial devices would be affected by this.
-> > 
-> 
-> Ah right...I tested on a number of combinations BUT assumed only one
-> compatible was to be found...you can potentially add dozens of this
-> definitions for a number of platforms associating the same quirk to all
-> of them and let the match logic enabling only the proper on...BUT this
-> clearly does NOT scale indeed and you will have to endlessly add new
-> platform if fw does NOT get fixed ever...
-> 
-> > Matching on vendor and protocol works.
-> > 
-> 
-> That is abosutely the preferred way, BUT the match should be on
-> Vendor/SubVendor/ImplVersion ... if the platform properly uses
-> ImplementationVersion to differentiate between firmware builds...
-
-We don't seem to have a subvendor here and if IIUC the version has not
-been bumped (yet) after fixing the FC issue.
-
-> ...if not you will end up applying the quirk on ANY current and future
-> FW from this Vendor...maybe not an issue in this case...BUT they should
-> seriously thinking about using ImplementationVersion properly in their
-> future FW releases...especially if, as of now, no new fixed FW release
-> has ever been released...
-
-Right, in this case it would probably be OK.
-
-But what if the version is bumped for some other reason (e.g. before a
-bug has been identified)? Then you'd currently need an entry for each
-affected revision or does the implementation assume it applies to
-anything <= ImplVersion? Do we want to add support for version ranges?
-
-Johan
+Regards,
+Markus
 
