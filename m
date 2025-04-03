@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E40C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 20:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA92C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 20:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o1J/xQeuQJQCDdWxejSFAvAdNpDigM6iFULX7XMOzsQ=; b=aSxyQbPQxH1pzfW0LkJTfCXY+o
-	vAcGv5nsVjQEg8CvWch949CwkT404gU7I3mO7jPm5abtKv0EKDxCdA3BW5b9V8fRXMBJJyMiMG/pg
-	biHhSfUBChd9Y1kCnkiU93crfb8CnPBZ7MBsvgpW/Mdvda6bhw53JBnENaorFTlcvtjU6rPqT0idw
-	xn7hDjPKfXnMYO5bKRtYLYYIljcj8FIau+svlZbdv8HN3jAUejoQw02cVbThETy8c6342dZgOQKSR
-	I/VzZl8zWMtYqoouhIwjh8GU0Gwy+hvAoraS9Sznxbv+4id0FGMicjiUaP67Qgza7Yu3aBHmS2n7L
-	sBM4mufg==;
+	bh=pjbNBDysUFqxXezzH/suye8B9bb7z5AQPw19De6Ukjc=; b=W0MoVWpKmv4YgK3MsXvq31Pg3R
+	e4kr4DQmKJJHRyhHzSV8evR5svI2kYeoM31cnmpRFZVO7qlj5CAk60W8W86o2cMKLaUKkmbo0gsG0
+	C+pdOpWSgJPZcTzrlNKdTCBH/9Ljl8uIuZi5pRmtaqxuhhL5DfFWr0wX8VwY2imNT8iR01FRMWSp3
+	7DxjzaAMkctOLedTWKtNeHpQRLyWzkBgLDi/ipI+BDBihMVO3AbjiymOXDJjAr0FFKkcUcYQ9ZGkL
+	bUvQjQnzG9WKSHERFAd1uR/7xd8zTMHhbWJlyUga3NZj2GcgKW6bbgDkmNBwC0NnDE4GRycPfzFu5
+	z3Gf8v+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Rb2-0000000A39f-2fK0;
-	Thu, 03 Apr 2025 20:55:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u0Rco-0000000A3XF-2UMX;
+	Thu, 03 Apr 2025 20:57:22 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0RTM-0000000A1X6-1PWu
+	id 1u0RTb-0000000A1a1-1yS7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 20:47:37 +0000
+	Thu, 03 Apr 2025 20:47:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AF9A85C5A2E;
-	Thu,  3 Apr 2025 20:45:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CFFAC4CEE3;
-	Thu,  3 Apr 2025 20:47:31 +0000 (UTC)
-Date: Thu, 3 Apr 2025 21:47:29 +0100
+	by nyc.source.kernel.org (Postfix) with ESMTP id EC37EA446DC;
+	Thu,  3 Apr 2025 20:42:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55CD7C4CEE3;
+	Thu,  3 Apr 2025 20:47:47 +0000 (UTC)
+Date: Thu, 3 Apr 2025 21:47:44 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Ryan Roberts <ryan.roberts@arm.com>
 Cc: Will Deacon <will@kernel.org>,
@@ -48,18 +48,18 @@ Cc: Will Deacon <will@kernel.org>,
 	Kevin Brodsky <kevin.brodsky@arm.com>,
 	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 05/11] arm64: hugetlb: Use set_ptes_anysz() and
- ptep_get_and_clear_anysz()
-Message-ID: <Z-7z4ZFGIZCrNq6h@arm.com>
+Subject: Re: [PATCH v3 10/11] mm/vmalloc: Enter lazy mmu mode while
+ manipulating vmalloc ptes
+Message-ID: <Z-7z8MXWJDz3kx2j@arm.com>
 References: <20250304150444.3788920-1-ryan.roberts@arm.com>
- <20250304150444.3788920-6-ryan.roberts@arm.com>
+ <20250304150444.3788920-11-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250304150444.3788920-6-ryan.roberts@arm.com>
+In-Reply-To: <20250304150444.3788920-11-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_134736_434385_71DF618A 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20250403_134751_570887_A0083BA6 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +74,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 03:04:35PM +0000, Ryan Roberts wrote:
-> Refactor the huge_pte helpers to use the new common set_ptes_anysz() and
-> ptep_get_and_clear_anysz() APIs.
-
-Nitpick: maybe add underscores to this new API to suggest it's private.
-Up to you.
-
-> This provides 2 benefits; First, when page_table_check=on, hugetlb is
-> now properly/fully checked. Previously only the first page of a hugetlb
-> folio was checked. Second, instead of having to call __set_ptes(nr=1)
-> for each pte in a loop, the whole contiguous batch can now be set in one
-> go, which enables some efficiencies and cleans up the code.
+On Tue, Mar 04, 2025 at 03:04:40PM +0000, Ryan Roberts wrote:
+> Wrap vmalloc's pte table manipulation loops with
+> arch_enter_lazy_mmu_mode() / arch_leave_lazy_mmu_mode(). This provides
+> the arch code with the opportunity to optimize the pte manipulations.
 > 
-> One detail to note is that huge_ptep_clear_flush() was previously
-> calling ptep_clear_flush() for a non-contiguous pte (i.e. a pud or pmd
-> block mapping). This has a couple of disadvantages; first
-> ptep_clear_flush() calls ptep_get_and_clear() which transparently
-> handles contpte. Given we only call for non-contiguous ptes, it would be
-> safe, but a waste of effort. It's preferable to go straight to the layer
-> below. However, more problematic is that ptep_get_and_clear() is for
-> PAGE_SIZE entries so it calls page_table_check_pte_clear() and would not
-> clear the whole hugetlb folio. So let's stop special-casing the non-cont
-> case and just rely on get_clear_contig_flush() to do the right thing for
-> non-cont entries.
+> Note that vmap_pfn() already uses lazy mmu mode since it delegates to
+> apply_to_page_range() which enters lazy mmu mode for both user and
+> kernel mappings.
+> 
+> These hooks will shortly be used by arm64 to improve vmalloc
+> performance.
 > 
 > Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
