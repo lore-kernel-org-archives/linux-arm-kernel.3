@@ -4,61 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0337EC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 11:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DD5FC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 11:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/GdaiwumNl9tjxYsVYIC1X0Y4b04WgRBhlet0G1nlFs=; b=yXhLE6wMpHcf47HJZugoARREak
-	DDm0po2W2TkAE3xSUayP0A+lrmDQQuc8JcYiLZWJCK7mYc0bIOsHNp4hTNWaSOEahEJV17U+UDM+6
-	P9GKrvpzQcMiIKzCx1zLXZs/za6gWxxsW4+xRmbU+p993El4JszjD9hpyqvrSiTHq6LlSenaDqrfO
-	OPBgGrDH8Lox8W5b6rPfL2SfITvclKRH6rsfHlyjGv//XkvoSS2/nNKrLmvCkSo0T2r0ObbTLVtFI
-	NKyQYAhqGnB+Mdxv7ZMG6jj/hKkK5iJSs/DynGUQsWCvf9hWJw9tKt8uRwt3RKsPJrtsBmaElG6uw
-	dErgGmZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wb2PPo9XPAHC2Pfd7LSz/mgWsohhrpaxob1iEv+pfHY=; b=zGzQkOQzA7h5UwT2gYYlZteDqj
+	Z9vvH3nk8wuNTAmqUhOZxguP72amA/YcnKMZ7uyODGPhc5nxMvkfXzs23otbkG6MGY7ZbEKIDofDJ
+	CVcZ+xArbTome28vkm5sotlxSUzUJEybHSPZcFR67GSCyIBvBngILZXYCfXDIPUcmWcfDwCYuN8W5
+	Rxx0aQAUxc7EO7oXCLXLtOk90SxPZ/wtMjcSeS9TMerfox5ZyGMDWNO8/wneJ38hu/EOwNkbYvryj
+	4VXZZwr39wcNbeZkZNtUgQiLhRZ3Fa7GcZneUTFZAwPGzi3KZKJwIjQygJ3Qul8rUr2K/sOPI3QTm
+	9SGS/C2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0IXV-00000008fTr-2Nxa;
-	Thu, 03 Apr 2025 11:15:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u0IXT-00000008fSS-16jC;
+	Thu, 03 Apr 2025 11:15:15 +0000
+Received: from mail-db5eur02on20602.outbound.protection.outlook.com ([2a01:111:f403:2608::602] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0I0x-00000008bNS-1AjM
+	id 1u0Hti-00000008aDw-071A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 10:41:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 29686434B6;
-	Thu,  3 Apr 2025 10:41:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E034C4CEE3;
-	Thu,  3 Apr 2025 10:41:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743676898;
-	bh=ARN7XYpJRXpPUgyngwnAGIRk8k4S5YsMIgbo9WqpgfQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ckurg04xFgrLpfddbO8QPSoQYfrfzaJcxIUOBontZFAP6RGupO0YJBUx/d+JJcEIy
-	 tc1l9Ppp0XmyNnrrbWoGS4+zpsZM95IPZRptSZjHfA+NGCH75ugxh7WWn5DJg/8udh
-	 TcOL/6vLc0NAWHobSEHkDRMNSQJphTrR0eZ41R2SCeP7kBmItxK4YkWb0fmNFfOqV3
-	 ugcOyTVT3RwbUeW9O//xcOz0bpP4He1DxlKFJcR6raDepdmpOfhPjcQSUJoQV/oqEA
-	 UEa9zCfszRIHTu693zOmLW70OVnVQiwLHCg24OXDb8C9zG80R+3Q0NWpYbGzeMR/wp
-	 wVAONWe4keXmw==
-Date: Thu, 3 Apr 2025 12:41:35 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Purva Yeshi <purvayeshi550@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, vz@mleia.com, 
-	piotr.wojtaszczyk@timesys.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML
-Message-ID: <76ovkshf4dr6egh72uiigsugdqsin6zwy3skksldhhh2goer6x@gsp3qkhqdtev>
-References: <20250312122750.6391-1-purvayeshi550@gmail.com>
+	Thu, 03 Apr 2025 10:34:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xQMYdiZtWS2Y3cry6yHs8bQIJbmjkbt9Fn/TY6i9H2KCP4X/3cK8lMnDe3mU4v9MdkfQwYBFWpyridJdVT/Ja0Mb4L/nWpWh3BZfMFlSozO1OwAOorhvvONvt0IjnLnYS/nQ6JyEyZWSPMlzJZK4lZOvqEOCTO2AzUcq2uFxCYFhrmtV1Z9w7JvXkXynT6SZgkYJacDq6jdRpn/h61/HBDfpYJtZgk+wQv2ql3yaxV9aGuQ43A1iRb+iclDkmmZ8272Bv9eIZbiEiVyAfx9LIrXJ0uah0CfAuJbiF1cvF4B1jhacSaPGI1OQlmos7J2zcRYPcH9GfJi4mTXZwEEgUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wb2PPo9XPAHC2Pfd7LSz/mgWsohhrpaxob1iEv+pfHY=;
+ b=CxN7FRMfwpRHrnIsFEqPR3ekJf3O1s7vE0FoleddAC+v5/4QXeaQeN8uXU7m/grjAq6xOFOKQxAlR6ntn58WIjoRVaC4c0aZK9oS0AmlCN0FXuMTVl6bWPx0Ei0QIGDP5l5gAL5kZdhmuFKkt+IwpDYhblRS6qlZQABDoWdCbcz0syEEgZin5P6EpFw+PmbwzJcXyKJKXGBM7DxpUEC0MLTHCuwMS9Fgap79uZnHiPuuGWqyb3OXtaWXcQ+L09EhfnAqll4V4ZMBqQ3TOyzWO6vhh5T/NQw0bRyd+HWzJzHbAnz8V70SEvT0LVtqvNP9mmFMbbuMXywrZARI3ak99g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wb2PPo9XPAHC2Pfd7LSz/mgWsohhrpaxob1iEv+pfHY=;
+ b=tDdShcOK7uEHEPgIq/PuT7zE2XDrAKkobwO1hHnIu4l3BZq2bdToiKMhm/YZTAi6vlF89c6vhyDQJT1ecOiwja0bOmlmR2Lht1aIankIR6nsdkkFAetgWIkBMHolHbS9ncr4e7uGcXMz93WiW2l2DxmltqQMFXFZJ3lM2WDQIj7l1C6NLS2Jm5kB8hhV70e4hTtFwv6011+8dRVOLHE18s/MU7871LSA2FtVRUMBf67SACPYik3zGIsBctizh5dKB5U4EHB4mYpOQERUIh4N2kXAIAyg4b1nWgkO2MfR4AhrCUlD9MsveszW9rwkspwQf6TbbghXxPB4kJUsyjvhxQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
+ by VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.54; Thu, 3 Apr
+ 2025 10:33:56 +0000
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd]) by DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd%4]) with mapi id 15.20.8534.043; Thu, 3 Apr 2025
+ 10:33:50 +0000
+From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	NXP S32 Linux <s32@nxp.com>,
+	imx@lists.linux.dev,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Subject: [PATCH v9 0/4] add NXP RTC driver support for S32G2/S32G3 SoCs
+Date: Thu,  3 Apr 2025 13:33:42 +0300
+Message-ID: <20250403103346.3064895-1-ciprianmarian.costea@oss.nxp.com>
+X-Mailer: git-send-email 2.45.2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AM0P190CA0007.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:208:190::17) To DU0PR04MB9251.eurprd04.prod.outlook.com
+ (2603:10a6:10:352::15)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eprp56w3poiehbc2"
-Content-Disposition: inline
-In-Reply-To: <20250312122750.6391-1-purvayeshi550@gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|VE1PR04MB7216:EE_
+X-MS-Office365-Filtering-Correlation-Id: ba63d7d3-26ba-47d0-0d9f-08dd729b0610
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?a1lWaUF5M2RwOTY2bmpsWVVrQ2o1TFI0ZTBUblMwYTFQbWNuYTBJby9Rd0Uw?=
+ =?utf-8?B?OUhDMXBGZTgzT2xkY2RWOWVlME5ucUhkTEUzYkFpNTN4VTlZMU5DaEp6RE9m?=
+ =?utf-8?B?WTdudk5mK0lpeXZsNWluREEzUXlQV0UxY0d3LzF6TEhWWVVGc3NjZXNFUzV6?=
+ =?utf-8?B?Wllpbk5rY3RYM1JuMkloZkVoL0FueVFNL3p0YlhaTVhHVEdWL0U3Zno1RTBt?=
+ =?utf-8?B?dE5WZUJKWjdDdFB4K0ZqMmduWDZ1bkFjVUNxNEJHWFpaVFdFdUtEeWpoa0U0?=
+ =?utf-8?B?VmoyTW5HMytlaW5OcEhpNTk1V2Qya1ZnVlBTSmxrMStRR280bW94T2xIWS9W?=
+ =?utf-8?B?cE53UDJzVjVJVWFrNGNNbU4vTm9uY09NTGh5OUduU09xZEMxLzkxeml3WUNO?=
+ =?utf-8?B?Q3pEaVhJckl1TDF4TlU0UUx6SUFQVnJLVmpPUVh4Y3o2amc0U0pQenVqZm81?=
+ =?utf-8?B?b3B4MDBFZW5UbWJhdEc1Z2xLdFNsTnZuc2ZoUUNUQXEvMUZwL1NaQUY1a09W?=
+ =?utf-8?B?Y3IvVlhLa0tEUUdyWjNib1gyREV6czhaU3dKNlVmTVpvWGdpR2piOXIwK3Jw?=
+ =?utf-8?B?aHdSeXdudlRVQUZyV0JMUjNDRzFycXJvUk1DZjBlcmg4eVdhMXdPcnNaSFpB?=
+ =?utf-8?B?RE5mRy9yT1FmbjlEY2t2RmhYR1JFMEZabEs0a2plOEpXdnpIMm9OU1lXYW5N?=
+ =?utf-8?B?c0FIblFTK2F4UlV4eWJIMlozcE0xSmw0ekRQbktiYlhBdFJkWUJqaGp2N012?=
+ =?utf-8?B?NW1KRDhXMzZlMWV1YmhSaFdkM2t0YmN3YThJcysrUFR4SUhRSVRLZys1WGtH?=
+ =?utf-8?B?SlB3WVZnWjFEeG42OUYvdXYwbVRleXRJS2dYdm5ac3RaVUxSNWZZM3ZuaHVt?=
+ =?utf-8?B?TC9KU0ZEVzFPeW13YlNzL2JheGNUV0U4L1J4djFBUUtJcVcrem8rUW1ZV0Qx?=
+ =?utf-8?B?RGxTSi8zTGxuU0lhM0RrZjBzRUUrVkkxS3IwVFJReTV1b1N6YVlaL3k1c0pX?=
+ =?utf-8?B?YnlpZjR2U3hXSDhqUU9nUVJpNnBGOStXZ1FxOWJobDYwVUxkMW5mNkxteU4y?=
+ =?utf-8?B?U0JEOWhiVXJrSTc2a3AyS3FielcrZ0VJdktJR3JLTS9lNkxLMHluc1VFN0N2?=
+ =?utf-8?B?dWk1NGNPOE84cHpNUkNHc2QrZEdNZmhIZmdVTk5uN3pKTUxtdGFpM2RwSmpI?=
+ =?utf-8?B?WUFKb1VSSHFWUHBkNi8rUS9kSDBKVThhY3FuTVBreUtZZFBxM0F5MW5iZGFS?=
+ =?utf-8?B?d0dOV3NjcnlCeVpINGRtUnZmUUJJeEUyenUyWWliWDRlaFVoQWlhd3loWUho?=
+ =?utf-8?B?OHJwVFJ1YlBBMXNZbWlwb3Y2enpVTDNXaXJLRC81N2xEN3JiSG9ZMzYwZTZQ?=
+ =?utf-8?B?MXVUNGhsSGkxRUdXNmgyMGhuZDFrLzY5WVJUZVl4czcybkZsVUxncnJrNGNP?=
+ =?utf-8?B?Y1hOZVY3bm1QWENaMDVlbzl5VnNBdmcxcmw4TzkwSThuT1pEa0dNODJYZGdp?=
+ =?utf-8?B?cFVHK3FVVS8zbnhjMXhBNjFzdllGOWFvKzJWZFlxUXVlb0Z3UmxHTEFpWW8r?=
+ =?utf-8?B?ckhWMktPcDF3WVZqbFZSQzF1UXhkbFdiejJEUkZwanlHVHNGZ21QN09pODQ1?=
+ =?utf-8?B?WHpuMXpGMnJaU1JtZEtlUUVSUXpMb3lUaXVrWkVzTlJtR1hjUDlJenlSZ0Ft?=
+ =?utf-8?B?VE03TGFtNmRYQ25YMUdHM3QvUUNYaWh3UkxZTmtXa0pFbG9YNlZOSGhweHdJ?=
+ =?utf-8?B?MGlJQ1IwVTNtNnRUb0VaZEhxdHBGNTlaMGl1am0wclBKL25jV3ArZmJmNVRY?=
+ =?utf-8?B?eEd3WTlNQ1R5amY4QUNUQWNmRkJSVmlaWUJDVDVKaHFQYm5LNWpPai8va1Na?=
+ =?utf-8?B?SkFIR1k0ME0zcEo0TGdwRkZOREwwTVF1ZXM4ZUN1bGY4NjlYLzVGUjNab2Rv?=
+ =?utf-8?Q?PIyW1x1Jymw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dXc3VDJ4TmxuYVE5SDVMc3ZWdEV2ME1IcWZjeU9MNFF4RUE2U1FjdW8wWTha?=
+ =?utf-8?B?NW9tMldYeVl5NUFFR20rVXdoMUtlSXkzeHE5djFrTDlPUy8xME8ranhvUFVY?=
+ =?utf-8?B?Q1c1K2lSSEszbjZOMitLQnhPMmQ5K3ltVDhaMHhjWi9CQVFRRkFDT0o3L29Z?=
+ =?utf-8?B?ZlIzKzJOSGVZcnJFeXErQk1Nb0RDWE5YZ0JUb3crNG1JZHJqNTNwUXd4LzRq?=
+ =?utf-8?B?MEcwNkt2OWJIWmhzSkNsamZVRWQ1MjFiNzlmbzNiY1c3bmNtWUtFZ0hocWtR?=
+ =?utf-8?B?TUFqanpiaktrOUJWbnd3NWE4Q0RmRTk5VjdhOXBHamlFK3FHeDV4YzVSeVIz?=
+ =?utf-8?B?Z2pOa3J5TXBhamtSanRSTmwxUzF1eHczR09taEllcWRwSmxjWU5VS0ptcjRm?=
+ =?utf-8?B?clZQOFo2OXBGOHlFQUw0cUQrSHRhN1Fzb2NUM1NjZGkyNkV3OW8zTlB2eUlh?=
+ =?utf-8?B?ei9DN0NacXZadFdKekpXOFBZSDJoV01xVTNGQ2YvR3JBdXJlT2JXUVk4YS9u?=
+ =?utf-8?B?NjN4VFc0YUVsZHhzNE1rcG41dldnNkI4RmFQL21vaDdxR2ZSWEFRU3VBZTBR?=
+ =?utf-8?B?bFZsaWpEdE90SWJTYlhvUThIVjJQakFzcTRHSnJaZ0RNdVNXajd6OEI2aFI4?=
+ =?utf-8?B?T2hIWk4rdUtXVVBRQ2dSK0ZmL2dPaVJ3WTBwV05KeGdDMnZpMmtSZ2t4cnhv?=
+ =?utf-8?B?d1hTV3czbTdqaStKRlhSWmFFdXNpSkNLN00rcjZTT3ZpaWpudUowSUVLV2hr?=
+ =?utf-8?B?VU5GaFNhRnRrWGxGVGFKallkZFFrRnhRSmJPMGFna0c0Q0xDbkVVVzdIWThq?=
+ =?utf-8?B?c2U3anMwOTFyS3FrWGtLWUJLYWsvN3c2WUZiOVVBYXAyb0k2akZ2ejJSTXAx?=
+ =?utf-8?B?R0sxWWlHMW4yUFA0SkJvYkM3SlU3RmUrUnB2dVZtUXFQNXk1dStEc3dhdVlI?=
+ =?utf-8?B?UjNZSGdoOHhxZ1NHRnZjQXJZRTRlcXRJczJKMnZaMDlCT1lDelBnejNNZWFR?=
+ =?utf-8?B?VE45ZXh1UmlNZnY4NnZCck14bktBVmR0TjRkZlJ3eUJVMFR1OXVIL0dUNU0v?=
+ =?utf-8?B?NW5BUzFBTGE1RGJybG11c0xobU9UcWNYT21VemtHOW1TZ3B0eWlaUXVFYmYr?=
+ =?utf-8?B?YWg2d3B5eEczT056MkNqZUJxSHMvWGpobFZpaXcxbXNqYjk4ek5xMkdXc2tK?=
+ =?utf-8?B?QU1rT0JGL2Y4U3lyMUZicFhwUlR2MDZWWXoyUm9KOUFjb0I0U1RzdjIrNzVh?=
+ =?utf-8?B?OXVVcGNoNUF4cjgyYitEMXdTY0JrT241ditCeVBBeDZDR1ZQVDNLZy9QaHJC?=
+ =?utf-8?B?cVpudkplWnlHaXlsVGEreFNCOW5lN3hQamlsbDFiN0tvOFREOVlyMFE5Tk5I?=
+ =?utf-8?B?U0xrYkJpQmdWUXVZSjFId1Z3UzJnSlFBdmUvS0ErSUhwR1hsaWpvL0tWLytm?=
+ =?utf-8?B?ZjV3TFNTTFM2UVB2ZXhuKzhyUjNOMFY4NmRNaWxqazVyaWRkd3prSG1Cd3gy?=
+ =?utf-8?B?Z1h2NDNsRnQ2ZVRrZnlCWWRrU1BUY2RUUUJKc3k4V1d2TUJCeVoxckFYWFhv?=
+ =?utf-8?B?d0NjL2UvUjR6c2JOVlhCbDJhbDZrYTdia1VJVXc3R203TFBSd0JEZE1xZGxJ?=
+ =?utf-8?B?TzZNK1pGRW54MjhCMGs5TGJmNXBxYWtxSGZ6Rk1YczF1V2FkRHVZSXl3Y0lr?=
+ =?utf-8?B?M21rNXlubU5NcENmdzBLcWJnTzIrcitWWk9NOVZuYVRwc3NLYWNFRytlYXkr?=
+ =?utf-8?B?YlduUTlLM1FnQlZ4MmhkRUZDRko3NFBLalExRlUwaVhVeVFwQ251WjBraUw4?=
+ =?utf-8?B?LzhjZmVhc1BuN1dBbXVyWEREMys3a2dSS0pobE96c0lnV3pGczZncjkzaXpR?=
+ =?utf-8?B?OU04N1FGRVVBOEY1eTdSRzRwb1pUbDRUR0RrdUhrU0QrZGlTNUQ4dDlpMlBP?=
+ =?utf-8?B?WjRTS3lZL0FhdFE3YWkzUHhRVE5mL2YxWHM3bTBsS2ZIcFBSbEdoOE4vYjJu?=
+ =?utf-8?B?VXFQZ24zYnRUZGZnNDk3cWRORUhleUd5Z2loVXAyc1hGLzBabmRycy9zdVVt?=
+ =?utf-8?B?UEFzTlpSRUx0Y1paRFVzMldrcnV3SS8xVHRwSW1OUjJQcE02VHo2Z0RBenRm?=
+ =?utf-8?B?K2FPR1cyTmUxMzJoYkFwQk1lUGV6K2VBQ25JUW9MRW5mUzBsb1RwWCtMczhl?=
+ =?utf-8?B?d3c9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ba63d7d3-26ba-47d0-0d9f-08dd729b0610
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2025 10:33:50.5155
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KD151VyplnUoAYLlzICxlmgPLgifvqIDXZzB3x7y68jhbMwmkGNquuyOlE518zSoueUEfwqXj2amFnN3tv39ey53cTTR/xhWMZD7MlvXXuc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_034139_356185_5AD5BDF9 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20250403_033410_074184_D28B5120 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,101 +189,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
---eprp56w3poiehbc2
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML
-MIME-Version: 1.0
+This patch series add support for the NXP RTC hardware module present on
+S32G2/S32G3 SoCs.
 
-Hello,
+RTC tracks clock time during system suspend. It is used as a time-based
+wakeup source for the S32G2/S32G3 SoCs.
 
-On Wed, Mar 12, 2025 at 05:57:50PM +0530, Purva Yeshi wrote:
-> Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
-> YAML schema (`nxp,lpc3220-pwm.yaml`).
->=20
-> Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
->=20
-> Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
+RTC is not battery-powered and it is not kept alive during system reset.
 
-I suggest the following commit log:
+Following is an example of Suspend to RAM trigger on S32G2/S32G3 SoCs,
+using userspace tools such as rtcwake:
+# rtcwake -s 120 -m mem
+# rtcwake: assuming RTC uses UTC ...
+# rtcwake: wakeup from "mem" using /dev/rtc0 at Wed Feb  6 06:28:36 2036
+#
 
-    dt-bindings: pwm: Convert lpc32xx-pwm.txt to yaml format
+Changes in V9:
+- Added missing 'bitfield.h' include file
+- Moved reserved clk mask check earlier to stop execution in case a
+reserved clk is being used.
+- Used 'DIV_ROUND_UP' macro when determining the rtc clock frequency.
+- Fixed some indentation inconsistencies.
+- Added Frank Li's Reviewed-by tag.
 
-    Convert the existing plain text binding documentation for
-    nxp,lpc3220-pwm devices to a YAML schema.
+Changes in V8:
+- Added description of uncommon S32G RTC hardware behaviour on resume.
 
-    The value #pwm-cells wasn't specified before, set it to 3 to match the
-    usual value for PWMs.
+Changes in V7:
+- Changed 'ioread32/iowrite32' calls to more common 'readl/writel'.
+- Removed calculations performed in 'suspend' and 'resume' routines by
+  using RTC API ('APIVAL') functionality instead of relying on setting
+  'RTCVAL'.
+- Simplified 'set_alarm' and 'read_time/read_alarm' by usage of
+  RTC APIVAL functionality and relying on kernel system time.
+- Added comment about the available RTC hardware frequency divisors in the
+  RTC driver.
+- Used both available frequency divisors to increase the RTC rollover
+  time.
+- Removed a redundant error check on 'priv->irq'.
 
-> diff --git a/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml b=
-/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
-> new file mode 100644
-> index 000000000..432a5e9d4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
-> @@ -0,0 +1,38 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pwm/nxp,lpc3220-pwm.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: LPC32XX PWM controller
-> +
-> +maintainers:
-> +  - Vladimir Zapolskiy <vz@mleia.com>
-> +  - Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
-> +
-> +allOf:
-> +  - $ref: pwm.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: nxp,lpc3220-pwm
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#pwm-cells":
-> +    const: 3
+Changes in V6:
+- Fixed a coding style issue regarding kernel doc reported by kernel test robot
+- Refactored small sections from the S32G RTC driver without impacting
+  functionality
+- Fixed an error probe path issue on S32G RTC driver.
+- Added 'rtc' schema in S32G-RTC bindings
 
-The PWMs defined in arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi also have a
-clocks property and in the driver it's not optional. Can you please add
-it (here, in the list of required properties and the commit log)?
+Changes in V5:
+- Removed rollover support.
+- Removed clock switching support between Runtime and Suspend. A clock source
+  which is always available has been used instead.
+- Enabled 512 value RTC hardware frequency divisor to achieve higher rollover
+  time
+- Removed unneeded 'remove' callback.
+- Decreased driver print verbosity on error paths.
+- Provided 'clock-names' actual names in bindings documentation
+- Remove __maybe_unused notations. Used the DEFINE_SIMPLE_DEV_PM_OPS() and
+  pm_sleep_ptr() macros to handle the .suspend/.resume callbacks.
+- Fixed some alignment issues.
 
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    pwm@4005c000 {
-> +        compatible =3D "nxp,lpc3220-pwm";
-> +        reg =3D <0x4005c000 0x4>;
-> +        #pwm-cells =3D <3>;
-> +    };
+Changes in V4:
+- Dropped 'assigned-*' clock management approach. Simplified RTC Runtime
+  and Suspend/Standby clock configuration.
+- Simplified error paths on probe function
+- Removed node label from bindings example
+- Several cosmetic coding style fixes
 
-Best regards
-Uwe
+Changes in V3:
+- Removed 'nxp,s32g3-rtc' compatible string
+- Change to 'remove' callback from 'remove_new'
+- Used 'dev.parent' from 'struct rtc_device' instead of defining a
+  specific 'struct device' in driver data
+- Fixed several errors reported by kernel test robot
+- Removed 'assigned-clocks', 'assigned-clock-parents' and
+  'assigned-clock-rates' from required properties in the binding
+  documentation.
+- Refactored S32G RTC driver such that a default clock source and
+  divisors configuration will be applied in case 'assigned-clocks' and
+  'assigned-clock-parents' properties are missing.
 
---eprp56w3poiehbc2
-Content-Type: application/pgp-signature; name="signature.asc"
+Changes in V2:
+- Removed 'clksel' support from dts bindings. Used clock parents support
+  from CCF to better illustrate the RTC hardware IP from S32G2/S32G3.
+- Removed frequency dividers support from dts bindings. Used assigned
+  clock frequencies support from CCF instead.
+- Reduced the interval while RTC is voluntarily disabled to a simple
+  register write in order to avoid any race condition between a possbile
+  rollover and 'suspend' callback execution flow.
+- Updated bindings documentation with respect to clocking support.
+- Fixed a potential unused variable warning reported by kernel test robot.
+- Updated to usage of 'devm_rtc_allocate_device' and 'devm_rtc_register_device'
+  instead of deprecated 'devm_rtc_device_register'.
 
------BEGIN PGP SIGNATURE-----
+Ciprian Marian Costea (4):
+  dt-bindings: rtc: add schema for NXP S32G2/S32G3 SoCs
+  rtc: s32g: add NXP S32G2/S32G3 SoC support
+  arm64: defconfig: add S32G RTC module support
+  MAINTAINERS: add NXP S32G RTC driver
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfuZd0ACgkQj4D7WH0S
-/k6jEwgAuuRJwfaakekR1Dqz//WqYnO+LEZGbZQSLnf9kWKg3A6eJQvWxfblNhGK
-BrrDx9siqqccakNGayyBWd9dQG4NVgIUeoB+QtdYwzvhVaAnyVN4Nr5b4Wda/Go4
-d7vsQMK5ge8KwAghxML75LcllDxXs0aDeiexAmKJmEa2folRYG5O2FfAGp/AhzBi
-s39SvbuaWbdLkd7d5NzKStU2BoxUMTu/dk9stu1QIK12150syUUPLpJtyeXWP8tk
-Hmss1Y5ayRyVpgwN8rHHM6N8UOZHmFdf0EahDHesj5gcPrfSH1jTUzds8VlhCjSv
-ECAEuNX2TFAi+9eqc7/tUoPSFkgO1w==
-=0WCU
------END PGP SIGNATURE-----
+ .../devicetree/bindings/rtc/nxp,s32g-rtc.yaml |  72 ++++
+ MAINTAINERS                                   |   2 +
+ arch/arm64/configs/defconfig                  |   1 +
+ drivers/rtc/Kconfig                           |  11 +
+ drivers/rtc/Makefile                          |   1 +
+ drivers/rtc/rtc-s32g.c                        | 385 ++++++++++++++++++
+ 6 files changed, 472 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml
+ create mode 100644 drivers/rtc/rtc-s32g.c
 
---eprp56w3poiehbc2--
+-- 
+2.45.2
+
 
