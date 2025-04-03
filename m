@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CEDCC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 19:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2184EC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 19:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8EbTqGurQ+C2nquCjc54L0lkOz6dcfe6Fw6tCzzhJAg=; b=T/l0cohT6lRx9wf7NU6zPeskcz
-	wKu4F1YR8KS1fYLfNO2jR/KvWhqg7H2hpqfUht1PsgMtxxGrBQcni6zRj/VOLQ5gl0nKYH8PJpoWr
-	ETvXpLfve9qX2UhC+rde5HkWxk2/u/34rVrhI5LKpdii7bgz8eb766Eh3cmbwvkNLjKxLRnGTyoEx
-	NabIscumfmYvWYVzbR4xz/CO1cYSrAGorng29wsOUqFjLNx3S/DtQKnefBX3KDS/myGzfr3G1B28e
-	sly1OiW4J8S0yc7vmS5ftd+Jw23fxU5PPGPRPWniRBLXAB4f5s0/2B8pm9OZtWm1R6CkObyk3o6b6
-	5mk6YClw==;
+	bh=ougpKDT4W0EpalyGx8Lbiw1TrmtNjfxUfEa1IjqTPLU=; b=qIv+tKcqdCzqs//77LQXkqMIBm
+	DgbFBY+jZSJ9lhS4fCXtwPqfRtQB9XqoYU0VbohY6rR0QKwCvTmVMqpFAgrMwBYvSSAC9V+ItHq7G
+	K+IxuNrmBULTHL1hVbZG6yuqYKLOwgPCNaQFqIXsfMwdqDa8ql4/rlWYK1rVEDO0QmP9PJ4Ag8SVv
+	4PCrHgDk8+RWBLGjfOb/YphadE+jkxkeS2EvZgrTQ5516EzL1BoKyMoJdCpetBvUcLLlJOtvUWyig
+	DzJRJc5ongmTuDEqfJciQrCL3NG4sCoaJwoLfWEU0yVLVrdo7oYAB2ifHNn+WkVnPp56YHlrQsjxE
+	UgGIhV0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0QN2-00000009mbQ-1ugK;
-	Thu, 03 Apr 2025 19:37:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u0QOn-00000009n1O-3Zsu;
+	Thu, 03 Apr 2025 19:38:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Q1P-00000009gVq-150k;
-	Thu, 03 Apr 2025 19:14:39 +0000
+	id 1u0Q34-00000009h9R-0JNh;
+	Thu, 03 Apr 2025 19:16:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B1806614BA;
-	Thu,  3 Apr 2025 19:14:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97257C4CEE3;
-	Thu,  3 Apr 2025 19:14:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 474B344BF7;
+	Thu,  3 Apr 2025 19:16:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54A15C4CEE9;
+	Thu,  3 Apr 2025 19:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743707678;
-	bh=71wBi/cNBET7g7tuz2d1oBbbk5rq2cJkkfj8t+08GTU=;
+	s=k20201202; t=1743707781;
+	bh=l0dhYx5/XiNaJAorfCzUdOzlFbxzJF2QTg94iZI4lLY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WBuH+QjAvTrLe3JdD6N32A7iweSTs54Ez/o4QXpclFpUKcDAs/nJNBvIUeyxixi2r
-	 grEE2CGDYyHm5r5JAt3xDGVFqewhlATYyfdbM/YmuLZHEPsU+xoQnjjRuWXLu/Ouan
-	 GYCgPGHAUIKi0gYSCMOP17+r11OtrJ5d3MydbnzX3TUfKoFJEvCXMV5p+alTQlRjZi
-	 mFPJ4+gaLUVLYk2+6HyZj3E382c8THPUXsJikvb34WaO9NHMroJWXmM5p03yM6BLXn
-	 d6dJTXChd1GumN5dCJ3MxQ2+z2YyaIx4Lw1sCMh8/EF6CCgQ/nT4c0c3IWpi/8VXCf
-	 bGaU7LgBsqr5g==
+	b=n/CacsSTRyduMd0SHgoC0P43+09VCJXUV9dznvsr6ezYfJRxJQBkNV7bCIt9zojUt
+	 lp/LNthVatXqPebQaZMh8/dLPlLcIcBNamE0Cg8XIRBUdutCtwJqt+voV7qLwtPRFh
+	 iXO3sC1RGhROZWXdF+IS7JhegGznfq0V28lZO1bCxS1QIhkFYD6QKNM7jo37V8oKiW
+	 RzI81s58x37Ju2ZHkvicoVpQaC6y8pgz455BNn9AtUiciDqKwkpUDJVXPVICGJTbLN
+	 hjwiah5QzETf27bjIm+G//b6LW+aZ3yE2iatTCxXYBDiuYOGi1XfzA8eOhSNxA05wZ
+	 pD3JgK6pSG3cA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	Niklas Cassel <cassel@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	manivannan.sadhasivam@linaro.org,
-	kw@linux.com,
-	gregkh@linuxfoundation.org,
-	lpieralisi@kernel.org,
-	heiko@sntech.de,
-	linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
+	p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	matthias.bgg@gmail.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 30/44] PCI: Add Rockchip Vendor ID
-Date: Thu,  3 Apr 2025 15:12:59 -0400
-Message-Id: <20250403191313.2679091-30-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.13 23/37] drm/mediatek: mtk_dpi: Move the input_2p_en bit to platform data
+Date: Thu,  3 Apr 2025 15:14:59 -0400
+Message-Id: <20250403191513.2680235-23-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250403191313.2679091-1-sashal@kernel.org>
-References: <20250403191313.2679091-1-sashal@kernel.org>
+In-Reply-To: <20250403191513.2680235-1-sashal@kernel.org>
+References: <20250403191513.2680235-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.14
+X-stable-base: Linux 6.13.9
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250403_121622_150415_A1E5774E 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,76 +83,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shawn Lin <shawn.lin@rock-chips.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-[ Upstream commit 20bbb083bbc9d3f8db390f2e35e168f1b23dae8a ]
+[ Upstream commit c90876a695dd83e76680b88b40067275a5982811 ]
 
-Move PCI_VENDOR_ID_ROCKCHIP from pci_endpoint_test.c to pci_ids.h and
-reuse it in pcie-rockchip-host.c.
+In preparation for adding support for MT8195's HDMI reserved DPI
+instance, move the input_2p_en bit for DP_INTF to platform data.
 
-Link: https://lore.kernel.org/r/20250218092120.2322784-2-cassel@kernel.org
-Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
-Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
-Signed-off-by: Krzysztof Wilczyński <kwilczynski@kernel.org>
+While at it, remove the input_2pixel member from platform data as
+having this bit implies that the 2pixel feature must be enabled.
+
+Reviewed-by: CK Hu <ck.hu@mediatek.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Link: https://patchwork.kernel.org/project/dri-devel/patch/20250217154836.108895-7-angelogioacchino.delregno@collabora.com/
+Signed-off-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/misc/pci_endpoint_test.c            | 1 -
- drivers/pci/controller/pcie-rockchip-host.c | 2 +-
- drivers/pci/controller/pcie-rockchip.h      | 1 -
- include/linux/pci_ids.h                     | 2 ++
- 4 files changed, 3 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_dpi.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/misc/pci_endpoint_test.c b/drivers/misc/pci_endpoint_test.c
-index d5ac71a493865..b002740acf8d5 100644
---- a/drivers/misc/pci_endpoint_test.c
-+++ b/drivers/misc/pci_endpoint_test.c
-@@ -88,7 +88,6 @@
- #define PCI_DEVICE_ID_RENESAS_R8A774E1		0x0025
- #define PCI_DEVICE_ID_RENESAS_R8A779F0		0x0031
- 
--#define PCI_VENDOR_ID_ROCKCHIP			0x1d87
- #define PCI_DEVICE_ID_ROCKCHIP_RK3588		0x3588
- 
- static DEFINE_IDA(pci_endpoint_test_ida);
-diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-index 5adac6adc046f..6a46be17aa91b 100644
---- a/drivers/pci/controller/pcie-rockchip-host.c
-+++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -367,7 +367,7 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
- 		}
+diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
+index 1864eb02dbf50..c3fc85764c973 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dpi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
+@@ -127,14 +127,14 @@ struct mtk_dpi_yc_limit {
+  * @is_ck_de_pol: Support CK/DE polarity.
+  * @swap_input_support: Support input swap function.
+  * @support_direct_pin: IP supports direct connection to dpi panels.
+- * @input_2pixel: Input pixel of dp_intf is 2 pixel per round, so enable this
+- *		  config to enable this feature.
+  * @dimension_mask: Mask used for HWIDTH, HPORCH, VSYNC_WIDTH and VSYNC_PORCH
+  *		    (no shift).
+  * @hvsize_mask: Mask of HSIZE and VSIZE mask (no shift).
+  * @channel_swap_shift: Shift value of channel swap.
+  * @yuv422_en_bit: Enable bit of yuv422.
+  * @csc_enable_bit: Enable bit of CSC.
++ * @input_2p_en_bit: Enable bit for input two pixel per round feature.
++ *		     If present, implies that the feature must be enabled.
+  * @pixels_per_iter: Quantity of transferred pixels per iteration.
+  * @edge_cfg_in_mmsys: If the edge configuration for DPI's output needs to be set in MMSYS.
+  */
+@@ -148,12 +148,12 @@ struct mtk_dpi_conf {
+ 	bool is_ck_de_pol;
+ 	bool swap_input_support;
+ 	bool support_direct_pin;
+-	bool input_2pixel;
+ 	u32 dimension_mask;
+ 	u32 hvsize_mask;
+ 	u32 channel_swap_shift;
+ 	u32 yuv422_en_bit;
+ 	u32 csc_enable_bit;
++	u32 input_2p_en_bit;
+ 	u32 pixels_per_iter;
+ 	bool edge_cfg_in_mmsys;
+ };
+@@ -610,9 +610,9 @@ static int mtk_dpi_set_display_mode(struct mtk_dpi *dpi,
+ 		mtk_dpi_dual_edge(dpi);
+ 		mtk_dpi_config_disable_edge(dpi);
  	}
+-	if (dpi->conf->input_2pixel) {
+-		mtk_dpi_mask(dpi, DPI_CON, DPINTF_INPUT_2P_EN,
+-			     DPINTF_INPUT_2P_EN);
++	if (dpi->conf->input_2p_en_bit) {
++		mtk_dpi_mask(dpi, DPI_CON, dpi->conf->input_2p_en_bit,
++			     dpi->conf->input_2p_en_bit);
+ 	}
+ 	mtk_dpi_sw_reset(dpi, false);
  
--	rockchip_pcie_write(rockchip, ROCKCHIP_VENDOR_ID,
-+	rockchip_pcie_write(rockchip, PCI_VENDOR_ID_ROCKCHIP,
- 			    PCIE_CORE_CONFIG_VENDOR);
- 	rockchip_pcie_write(rockchip,
- 			    PCI_CLASS_BRIDGE_PCI_NORMAL << 8,
-diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-index 11def598534b2..14954f43e5e9a 100644
---- a/drivers/pci/controller/pcie-rockchip.h
-+++ b/drivers/pci/controller/pcie-rockchip.h
-@@ -200,7 +200,6 @@
- #define AXI_WRAPPER_NOR_MSG			0xc
+@@ -1006,12 +1006,12 @@ static const struct mtk_dpi_conf mt8195_dpintf_conf = {
+ 	.output_fmts = mt8195_output_fmts,
+ 	.num_output_fmts = ARRAY_SIZE(mt8195_output_fmts),
+ 	.pixels_per_iter = 4,
+-	.input_2pixel = true,
+ 	.dimension_mask = DPINTF_HPW_MASK,
+ 	.hvsize_mask = DPINTF_HSIZE_MASK,
+ 	.channel_swap_shift = DPINTF_CH_SWAP,
+ 	.yuv422_en_bit = DPINTF_YUV422_EN,
+ 	.csc_enable_bit = DPINTF_CSC_ENABLE,
++	.input_2p_en_bit = DPINTF_INPUT_2P_EN,
+ };
  
- #define PCIE_RC_SEND_PME_OFF			0x11960
--#define ROCKCHIP_VENDOR_ID			0x1d87
- #define PCIE_LINK_IS_L2(x) \
- 	(((x) & PCIE_CLIENT_DEBUG_LTSSM_MASK) == PCIE_CLIENT_DEBUG_LTSSM_L2)
- #define PCIE_LINK_TRAINING_DONE(x) \
-diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
-index 1a2594a38199f..2a9ca3dbaa0e9 100644
---- a/include/linux/pci_ids.h
-+++ b/include/linux/pci_ids.h
-@@ -2609,6 +2609,8 @@
- 
- #define PCI_VENDOR_ID_ZHAOXIN		0x1d17
- 
-+#define PCI_VENDOR_ID_ROCKCHIP		0x1d87
-+
- #define PCI_VENDOR_ID_HYGON		0x1d94
- 
- #define PCI_VENDOR_ID_META		0x1d9b
+ static int mtk_dpi_probe(struct platform_device *pdev)
 -- 
 2.39.5
 
