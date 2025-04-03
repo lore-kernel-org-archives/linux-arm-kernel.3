@@ -4,114 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C03EBC3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CC7C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdY6OjfqSopBAmdyNtb0NAH0AQRQta5FfBzF7rPaMbo=; b=LnxelQ+c/zknPFqxDU66J/+EIW
-	RT2VdBa3l1fIkWrBR0/TH6RXXFIsjsH1xHNWn+SEpDcsoKcrjo8lFwDKVSO9OdaRYZFvL/Qf0OdMJ
-	wTZ6QbsXWOTc1Hv5pNzMZ5c4gTRLHRqq8/1+4ycgl3Zr8ykxf/H27zYyJHSFHwJxdMR1vuDumH+Rc
-	gyEYCWJP+xIb2DqdA1XTPBOAaFm1SAT+TZVPmnWeGeDmGU8IR82iX2ElLWA6BpPCUmaxps3ocpoS4
-	Gor7cXfTEUJZov2h9+MX+Q7P7r3F1HGgH7sRYAfWqR7m5crn0JwrdfGhhOx2MUc+Bui+OmMuWnijp
-	FnhGRagQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BdyFL4GeBSGa/19dqYa/jBUg//G09CApfxjPS3UQzQo=; b=qGI+7wuPLVDOd1pcSX/g2Sdl9s
+	NWGBSFPOwcMkRmbPl6NzWYTLaGIxrnk7i8lWL3bqLnu0hLhxRl17yQF5rrmpkdMjcCas5Svpv/pnd
+	WtHaJKgYAQerVIIRlXyezJNe8oyal7reeDp0uBUsLC9ZPzqrkSqn5yBOM+Fk4KeEUrBGEm2C8YF31
+	qQb5nSzdmGg+eGILECWdTPTFI+aSnPAblmGZRi6OSn8FpE+4jtWeoIWAw+PQfK0v7M7bro4Y6qQT3
+	tZRavdqQTJv0PAAvxMbaiATivJbXCF/tcNhlKoR4nIhaLqYQHpB/yuFIh+Qne0uvicrFbfoFEmHl+
+	4Z6yQcsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0LGG-000000091EC-08gR;
-	Thu, 03 Apr 2025 14:09:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u0LIa-000000091ft-2tls;
+	Thu, 03 Apr 2025 14:12:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0LEQ-000000090rF-1V43
+	id 1u0LGn-000000091Pw-1ZkJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 14:07:47 +0000
+	Thu, 03 Apr 2025 14:10:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A4E08A42B28;
-	Thu,  3 Apr 2025 14:02:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79069C4CEE7;
-	Thu,  3 Apr 2025 14:07:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C408168429;
+	Thu,  3 Apr 2025 14:10:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96A22C4CEE3;
+	Thu,  3 Apr 2025 14:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743689265;
-	bh=6LM3n1BfNKrngtTAoV1eAbx7UD9eQNSzYRtdoVv+SiY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=t3/K4AEtMj2o39o9ycRM2jc92+vOnB2jMeHoLJ1BgnfRfngu+Kkvm4V5FhWnC92uz
-	 Zi+K3VpfnzLDYDjr9sxyYALk3Y9b+74/6NFz4+jIav/n0IvVFplMMakBgQJH/5wgMV
-	 NMqcMMq3tRzk6l2PdbxczzhI0ij9DE7xBvCuyNry0P5x4YP9V22yfx+dutt9pQw16C
-	 ljMWbCl4axqzEK5/OEgjiABFMIw1+LYXyvejrv0WeJH2juxnLfv0qmYmxUDeeFOFjH
-	 7LQCtlBMBCrhHQhI43cFY/ApNHQ2+Gs+l7qWmQB8llqWZ6KKxdlHt6O3pr9I/iHms0
-	 nY/7RUNPv0Nfw==
-Message-ID: <4c53be6f-9f5b-4d67-ae10-48fe153c614d@kernel.org>
-Date: Thu, 3 Apr 2025 16:07:37 +0200
+	s=k20201202; t=1743689412;
+	bh=HehmzWN07oImSDzOXjOMFAC9bLomTxZFRkiMNjxI5FQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p4tCPFYYYPGoaZWejEYhyx1y7zD3cp3NTUeFqKkYekF1dCNx8KDC4P0g66yoeO4fj
+	 IwQeRmrNwV+NXJciR0mgdgA6w6dLUogofUeFKcS6brgieJ4VEzsExBZsOaZYHtc5fR
+	 sLRe6uQRvYTJw2G5EZMRtQ8sydPfG4I8GEmaP/Gm2jeQtdppNQCAGEDSHnU9vhK7Hq
+	 SFXipEe7jLpRvLbkwRKX3pJWCXfRBYqfkk9EXc8forpXVlHdDUfdZ3Vo4TcIpD8vk9
+	 ui6dBY5E6bgi5+Ffe916I7e/DwfPLsM9iBqNRXH9PJO1hX3BTGEisqGFtMeFiPRumM
+	 2X0cBdR7DNuXg==
+Date: Thu, 3 Apr 2025 17:10:03 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	"Sauerwein, David" <dssauerw@amazon.de>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	David Hildenbrand <david@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [RFC PATCH 3/3] mm: Implement for_each_valid_pfn() for
+ CONFIG_SPARSEMEM
+Message-ID: <Z-6WuzNDSwPN4Enn@kernel.org>
+References: <Z-vn-sMtNfwyJ9VW@kernel.org>
+ <20250402201841.3245371-1-dwmw2@infradead.org>
+ <20250402201841.3245371-3-dwmw2@infradead.org>
+ <Z-4phOInXZlxFwk9@kernel.org>
+ <e465ba32fb34b31eddb18890587960671b73234f.camel@infradead.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/9] MAINTAINERS: add maintainer for the Ka-Ro
- tx8p-ml81 COM module
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: maudspierings@gocontroll.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20250402-initial_display-v4-0-9f898838a864@gocontroll.com>
- <20250402-initial_display-v4-3-9f898838a864@gocontroll.com>
- <f75fb67a-91ac-4e3d-8ce7-5e0c6c2bb2cb@kernel.org>
- <CAEnQRZC9Exfb5FL+gpMuwU6jLP8vO9hjrxm1+OHQBeLy0J1Wsg@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CAEnQRZC9Exfb5FL+gpMuwU6jLP8vO9hjrxm1+OHQBeLy0J1Wsg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_070746_523720_EF27B7A8 
-X-CRM114-Status: GOOD (  12.42  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e465ba32fb34b31eddb18890587960671b73234f.camel@infradead.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,46 +81,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/04/2025 14:50, Daniel Baluta wrote:
-> On Thu, Apr 3, 2025 at 10:45 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 02/04/2025 09:07, Maud Spierings via B4 Relay wrote:
->>> From: Maud Spierings <maudspierings@gocontroll.com>
->>>
->>> Add GOcontroll as unofficial maintainers of the Ka-Ro tx8p-ml81 COM
->>> module bindings.
->>>
->>> This support is not officially done by Ka-Ro electronics, if they at
->>> some point will supporting mainline, this should be changed to them.
->>>
->>> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
->>> ---
->>>  MAINTAINERS | 7 +++++++
->>>  1 file changed, 7 insertions(+)
->>>
->>> diff --git a/MAINTAINERS b/MAINTAINERS
->>> index 322ee00547f6e494a96d2495092f72148da22bd0..4b3864a9852f9fca2be48987d383c0671e668336 100644
->>> --- a/MAINTAINERS
->>> +++ b/MAINTAINERS
->>> @@ -12752,6 +12752,13 @@ S:   Maintained
->>>  F:   Documentation/hwmon/k8temp.rst
->>>  F:   drivers/hwmon/k8temp.c
->>>
->>> +KA-RO TX8P COM MODULE
->>> +M:   Maud Spierings <maudspierings@gocontroll.com>
->>> +L:   devicetree@vger.kernel.org
->>
->> Drop
->>
->>> +L:   imx@lists.linux.dev
->>
->> I would say this as well, but not my subsystem to worry.
+On Thu, Apr 03, 2025 at 08:07:22AM +0100, David Woodhouse wrote:
+> On Thu, 2025-04-03 at 09:24 +0300, Mike Rapoport wrote:
+> > with a small nit below
+> > 
+> > > +static inline bool first_valid_pfn(unsigned long *p_pfn)
+> > > +{
+> > > +	unsigned long pfn = *p_pfn;
+> > > +	unsigned long nr = pfn_to_section_nr(pfn);
+> > > +	struct mem_section *ms;
+> > > +	bool ret = false;
+> > > +
+> > > +	ms = __pfn_to_section(pfn);
+> > > +
+> > > +	rcu_read_lock_sched();
+> > > +
+> > > +	while (!ret && nr <= __highest_present_section_nr) {
+> > 
+> > This could be just for(;;), we anyway break when ret becomes true or we get
+> > past last present section.
 > 
-> We don't actually mind to gather all i.MX based boards development on
-> this mailinglist.
+> True for the 'ret' part but not *nicely* for the last present section.
+> If the original pfn is higher than the last present section it could
+> trigger that check before entering the loop.
+> 
+> Yes, in that case 'ms' will be NULL, valid_section(NULL) is false and
+> you're right that it'll make it through to the check in the loop
+> without crashing. So it would currently be harmless, but I didn't like
+> it. It's relying on the loop not to do the wrong thing with an input
+> which is arguably invalid.
+> 
+> I'll see if I can make it neater. I may drop the 'ret' variable
+> completely and just turn the match clause into unlock-and-return-true.
+> I *like* having a single unlock site. But I think I like simpler loop
+> code more than that.
+> 
+> FWIW I think the check for (PHYS_PFN(PFN_PHYS(pfn)) != pfn) at the
+> start of pfn_valid() a few lines above is similarly redundant. Because
+> if the high bits are set in the PFN then pfn_to_section_nr(pfn) is
+> surely going to be higher than NR_MEM_SECTIONS and it'll get thrown out
+> at the very next check, won't it?
 
-No one discusses this. They are already gathered there.
+I believe the check for (PHYS_PFN(PFN_PHYS(pfn)) != pfn) got to the generic
+version from arm64::pfn_valid() that historically supported both FLATMEM
+and SPARSEMEM.
 
-Best regards,
-Krzysztof
+I can't think of a configuration in which (PHYS_PFN(PFN_PHYS(pfn)) != pfn)
+and pfn_to_section_nr(pfn) won't be higher than NR_MEM_SECTIONS, but with
+all variants that arm64 has for PAGE_SHIFT and ARM64_PA_BITS I could miss
+something.
+ 
+> I care because I didn't bother to duplicate that 'redundant' check in
+> my first_valid_pfn(), so if there's a reason for it that I'm missing, I
+> should take a closer look.
+> 
+> I'm also missing the reason why the FLATMEM code in memory_model.h does
+> 'unsigned long pfn_offset = ARCH_PFN_OFFSET' and then uses its local
+> pfn_offset variable, instead of just using ARCH_PFN_OFFSET directly as
+> I do in the FLATMEM for_each_valid_pfn() macro.
+
+Don't remember now, but I surely had some $REASON for that :) 
+
+-- 
+Sincerely yours,
+Mike.
 
