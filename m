@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8905FC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 12:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE890C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 12:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=br0qzftHCKz3sbr3SzuiqhOwZoMQzE2LZ4g8CLoOd0Y=; b=oUH3owA51frvF5FE+Qnjwg+GNQ
-	p4G5y1UBWhxs1JjdJJHm4ke2bOU7xtPuu+s/soml4d6h0ahma7CVqq/DOJhLeF3w/ZjDfq0xXVK16
-	NVqXGGYQaSkGcVuPU6yy5SshsP7lVxh4t++er9IQNOi+SpjZ4Eh+J+eQpwt2r3rS4e1+aUTRYug1O
-	nWyr+cjCATZ1LDrYTruGNufJKtCeX/NyVk9h1No+FbX5bmBEWHcD5B32uOIU1haGyzgeRoPkLi+uR
-	EMmNS7cuPEpO6TpqkxNOJj+mqBnikqRlZ5aZJ075lnk7MCBlbZWO20XSezgjHJ6Og8FrwYekP0u9r
-	ROFekjcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3l7zd3jDmkdufdb2A61qhqggszXM2NfwGxFkeh0eBHA=; b=Fk5JWQYW3mBz3fwbuzRnIDt/F9
+	SIDaodkrwfeDejBUnrxtfU/rQbZircikATFeLK/W89dahn3bt5lzTeTvwx97fU9jBaaa8ftuYFq4O
+	3ODdEM9vlQ5Y3CIxoBVf0Vs/0EfTRk9RXmGBROnO34G/7S0HqLCm3/B0wLAgSvlgvIJ53y6VZf4KG
+	a2Y2y4ocBwQ1NWKpKJmN8REb4K4ht5oVEh6+Ji9v5kH0Ro2ac65OS3/2JS19+WV5mL9AJwGbUFbPf
+	Y8TnjVhY/X9WjzROSlaNt7qOl2co3KJkSg/4Dt/1zk+3tjVWk3j0bPt4XjxQuebMDHhGRTNVuksg7
+	kxT3WUew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0K2O-00000008rNu-0qNK;
-	Thu, 03 Apr 2025 12:51:16 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0K0a-00000008rE5-31KO
+	id 1u0K6j-00000008rgf-1S7Y;
+	Thu, 03 Apr 2025 12:55:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0K4u-00000008rYH-23Ly
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 12:49:25 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-30384072398so658205a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 05:49:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743684563; x=1744289363; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=br0qzftHCKz3sbr3SzuiqhOwZoMQzE2LZ4g8CLoOd0Y=;
-        b=MqrJINNbYfJ52nYzjtms/yM9OyfaVvHwLFZ+Jz+0Gd+ZW89szgiF8Ci58LUmhC8bkW
-         GWND5/VCnz/QFph1C1Ap9jNvrEbJbTa52UKLDN1lyaAbs+CNJiIwW59CQp0yqL4h3Dkp
-         Sa1zAraLfBm0HNRwMavH7M7FPUjbRVEc68NDsH+MWmjE2g91Fpmfcf+zCQxyNQDif+1k
-         vnaidn3daOa/Lw76Nf6dzzpEJQXIrwXotW0N1zgVFOV9wsJoKBVMR1QnyqiQfqTwJ5qZ
-         /k8VydwhaBRuNKufkIEgmBPNagPzNQZAxTjpD1D8k58Qhs/Sg3Y95vJGW/1qb7Fo0YW4
-         W5TA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743684563; x=1744289363;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=br0qzftHCKz3sbr3SzuiqhOwZoMQzE2LZ4g8CLoOd0Y=;
-        b=wX1R3kWrWaA2EfukOK/FEuzguOomlkxEk8Bf0dU6bT1E3ezwYAsnRa0IuFsQPG+68r
-         8klc6NG8JqfqZeHCv4LbukRqZRSZngOfjf+ih+qPzYNCSZX2gzSOQbtDuungzLzfvHVy
-         gk/DE0MS24W4t8/ftkwZWWYFjqiTp0MAbfylAZpNzkLUJHsigGGTrjXepU+Ry+NjuyLn
-         PzDb0+9h/2jxcqGlAohBwRPhh4e51cMIkXD92lwORJ6Jq7LoGvDQdNtCnGd/SGAucXF3
-         rUTnPJJ02g0DxUfBv06YIkToYNO6a7NS4YxyY//w6Nx9P0DxikhSGlIJdPpjXhOAb4Rz
-         HNqg==
-X-Forwarded-Encrypted: i=1; AJvYcCWa9gRx4Irn5QVVfUyp3KTJRJfvyDPeCbtb2XoDXZbGzSaEhdSRnk//KKjDUQ2HUQqEdRgL4qQewHJg8ej0o5+N@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhbCcZVQ+L/pOAxZ6DuEMo3VOVcagkRYVg7SMf2N1jTayMh0Tw
-	bZujauqq3m07RsJ+5tXpr9IY5q1VpAyfjOeC5qdsbKLvuMjAtvgxuHjSzDAJ/c68NhwXYLKJYSM
-	hOL6PFrVgawzFPB0877n9qNevpxw=
-X-Gm-Gg: ASbGnct5A3V9+fNNTXFHZHKpTHZfe5jhlkPVtp5SrYc8oTCnTp+CZcnq83oPn7gJhzR
-	1l4DTkkfo4IjpnmPRgLZIg66laygeD/e8Wa4CSvYOch7mcxgsE+yZoW2w3GcluTk3jv5Gz/BPO6
-	QpU1G9zkmLBER3d4XHxsO6ROI=
-X-Google-Smtp-Source: AGHT+IFYW9MnslIX+WD/W4yqFkahfmkMt3j4de0kYP5osy79qxqlNhQHimSlJ+WSDyjW98VqmFgbjK1vYEjgozBE86s=
-X-Received: by 2002:a17:90b:2644:b0:2ea:a9ac:eee1 with SMTP id
- 98e67ed59e1d1-3056ee3148fmr8807692a91.10.1743684563426; Thu, 03 Apr 2025
- 05:49:23 -0700 (PDT)
+	Thu, 03 Apr 2025 12:53:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8EE3315A1
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Apr 2025 05:53:52 -0700 (PDT)
+Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 934113F63F
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Apr 2025 05:53:49 -0700 (PDT)
+Date: Thu, 3 Apr 2025 13:53:47 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Marek Vasut <marex@denx.de>
+Cc: linux-arm-kernel@lists.infradead.org,
+	"Rob Herring (Arm)" <robh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Steven Price <steven.price@arm.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev
+Subject: Re: [PATCH v2 3/9] dt-bindings: gpu: mali-valhall-csf: Document
+ optional reset
+Message-ID: <Z-6E262OIoJC5aC3@e110455-lin.cambridge.arm.com>
+References: <20250321200625.132494-1-marex@denx.de>
+ <20250321200625.132494-4-marex@denx.de>
 MIME-Version: 1.0
-References: <20250402-initial_display-v4-0-9f898838a864@gocontroll.com>
- <20250402-initial_display-v4-3-9f898838a864@gocontroll.com> <f75fb67a-91ac-4e3d-8ce7-5e0c6c2bb2cb@kernel.org>
-In-Reply-To: <f75fb67a-91ac-4e3d-8ce7-5e0c6c2bb2cb@kernel.org>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Thu, 3 Apr 2025 15:50:47 +0300
-X-Gm-Features: AQ5f1JpOn26KtD3CJ794gf42_16EcVqDVeshPu-zxnT2qzP-_yIum74GI60JHY4
-Message-ID: <CAEnQRZC9Exfb5FL+gpMuwU6jLP8vO9hjrxm1+OHQBeLy0J1Wsg@mail.gmail.com>
-Subject: Re: [PATCH v4 3/9] MAINTAINERS: add maintainer for the Ka-Ro
- tx8p-ml81 COM module
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: maudspierings@gocontroll.com, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250321200625.132494-4-marex@denx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_054924_772388_89DDF850 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250403_055352_630682_8FBCA8AF 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,42 +80,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 3, 2025 at 10:45=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 02/04/2025 09:07, Maud Spierings via B4 Relay wrote:
-> > From: Maud Spierings <maudspierings@gocontroll.com>
-> >
-> > Add GOcontroll as unofficial maintainers of the Ka-Ro tx8p-ml81 COM
-> > module bindings.
-> >
-> > This support is not officially done by Ka-Ro electronics, if they at
-> > some point will supporting mainline, this should be changed to them.
-> >
-> > Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> > ---
-> >  MAINTAINERS | 7 +++++++
-> >  1 file changed, 7 insertions(+)
-> >
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 322ee00547f6e494a96d2495092f72148da22bd0..4b3864a9852f9fca2be4898=
-7d383c0671e668336 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -12752,6 +12752,13 @@ S:   Maintained
-> >  F:   Documentation/hwmon/k8temp.rst
-> >  F:   drivers/hwmon/k8temp.c
-> >
-> > +KA-RO TX8P COM MODULE
-> > +M:   Maud Spierings <maudspierings@gocontroll.com>
-> > +L:   devicetree@vger.kernel.org
->
-> Drop
->
-> > +L:   imx@lists.linux.dev
->
-> I would say this as well, but not my subsystem to worry.
+On Fri, Mar 21, 2025 at 09:05:53PM +0100, Marek Vasut wrote:
+> The instance of the GPU populated in Freescale i.MX95 does require
+> release from reset by writing into a single GPUMIX block controller
+> GPURESET register bit 0. Document support for one optional reset.
+> 
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Marek Vasut <marex@denx.de>
 
-We don't actually mind to gather all i.MX based boards development on
-this mailinglist.
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
+
+Best regards,
+Liviu
+
+> ---
+> Cc: Boris Brezillon <boris.brezillon@collabora.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: David Airlie <airlied@gmail.com>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Liviu Dudau <liviu.dudau@arm.com>
+> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Philipp Zabel <p.zabel@pengutronix.de>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Sebastian Reichel <sre@kernel.org>
+> Cc: Shawn Guo <shawnguo@kernel.org>
+> Cc: Simona Vetter <simona@ffwll.ch>
+> Cc: Steven Price <steven.price@arm.com>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: devicetree@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> ---
+> V2: - Add RB from Frank
+>     - Add AB from Rob
+> ---
+>  .../devicetree/bindings/gpu/arm,mali-valhall-csf.yaml          | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> index a5b4e00217587..0efa06822a543 100644
+> --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> @@ -61,6 +61,9 @@ properties:
+>      minItems: 1
+>      maxItems: 5
+>  
+> +  resets:
+> +    maxItems: 1
+> +
+>    sram-supply: true
+>  
+>    "#cooling-cells":
+> -- 
+> 2.47.2
+> 
+
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
