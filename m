@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 566EBC3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 15:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9BC9C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 15:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EHbCePX24dh6KDJ8X+RFQ5xBFtUQ6++YcFww5RU2/aM=; b=a+otJDXRYMBah8C0a86OjPXK/R
-	8EDTRHpVfhX9/znyl8qlgkDgbrtUZ3iKnN9JGasuXg43vPZH2Wo6ccyOs6WmlfO27uEqNnGiizvTd
-	Y9Wg99A+lvr7yqIs50J+VO3ysQlvN0rJOVQTOnAocAAN3IevOYJTgoxrTKHxA7AJnJwFt80np50KN
-	wzf/EwqZUc/rZDsXgJOAGsYS4K0ZclydpQpnK9kYR9HzqjYwC75xbgECV2MliijHNqKazCM3SoUMU
-	wXE2buHtuczqbW9cmXITjNrVE+H0mH+tdb15LCA6iypcmW8k5soKRfeLPWNSZVU56pm7mXJ1ug3LB
-	0avGr1wg==;
+	bh=vLztPsr5eakqOjmON/tFU6V3RL0iAp8KMrGrYsXMR4U=; b=jHVdFbYDZf0greZIkB1by0xg2x
+	/lhvRgivkZvs1GVwkty9Wuq0yCF6SEfLCg83bPU8wIgp00+3yaWaE46YETc7Mdq9afch33PH5ytEJ
+	N7hKhdvJasIMvv7B9fgbNEbPtsxj50uy++/mxgPCMSFh5rkCMfdtNg/0VUm2WPxk7NRmt7IejrQ89
+	jzdYv3+FmG71NeAucRuljABDbj9izCwBJzTP+rSzCPk9Oqu5Sk3nO2SebPnm0YOYiOHVip8hxcdbC
+	7USMrdW7nyVJu2yQM8cP6hRbppu2sHDclVJtSlAu3eTcKSDqnXfLtmFC5uXXb7T3f4qgAOa7X7nSm
+	zN0EctCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0M8U-00000009Are-0bED;
-	Thu, 03 Apr 2025 15:05:42 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1u0MHu-00000009C87-1qJy;
+	Thu, 03 Apr 2025 15:15:28 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0M6h-00000009Aia-0SKv;
-	Thu, 03 Apr 2025 15:03:52 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1743692627;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EHbCePX24dh6KDJ8X+RFQ5xBFtUQ6++YcFww5RU2/aM=;
-	b=cAWc2c6X5BJpIpgjOXnZKqynoDf4CCrEuzivOkx71QQg/6/melJAeT2Y0DX7p/hlhj9uPf
-	7bUp6mjwtjQlKwFOlixaVLeAx9I7JRykqitt+QPbBUWL9I3StpxaotwDB9q30gHnf7i9NA
-	LDhy/Pk3MgTqW6UUar4Eky5xJDAbbYJmE2ijdsz4KBB/jkHPNjncBzn7JE16phj7GPD6+l
-	WrLvwzbPTBqlF2vplEep3bug91J5/tFuP9szoX1LDmvvJpEK9epMer5BBawdO8X1yOPr54
-	WKujMmMS2NAHXP52D2ZQgKt+ppsKgPL9R9PHxynKL2RTQaFBujamNzGVP/Bifw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1743692627;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EHbCePX24dh6KDJ8X+RFQ5xBFtUQ6++YcFww5RU2/aM=;
-	b=aMNLw6BiyQBB/EaqECgC7EhDDvNwWSgmoZfQeRO5JsW6QuiIu5LwonVANOgI6USyH5VMS8
-	d0alF73jquU26hDA==
-To: Frank Scheiner <frank.scheiner@web.de>, apatel@ventanamicro.com
-Cc: ajones@ventanamicro.com, andrew@lunn.ch, anup@brainfault.org,
- atishp@atishpatra.org, bp@alien8.de, dave.hansen@linux.intel.com,
- gregory.clement@bootlin.com, hpa@zytor.com, imx@lists.linux.dev,
- kernel@pengutronix.de, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- maz@kernel.org, mingo@redhat.com, palmer@dabbelt.com,
- paul.walmsley@sifive.com, s.hauer@pengutronix.de,
- sebastian.hesselbarth@gmail.com, shawnguo@kernel.org,
- sunilvl@ventanamicro.com, x86@kernel.org, linux-ia64@vger.kernel.org
-Subject: Re: [PATCH v6 04/10] genirq: Introduce common
- irq_force_complete_move() implementation
-In-Reply-To: <667d272f-2b51-49d6-84ea-1156027e00a7@web.de>
-References: <20250217085657.789309-5-apatel@ventanamicro.com>
- <667d272f-2b51-49d6-84ea-1156027e00a7@web.de>
-Date: Thu, 03 Apr 2025 17:03:47 +0200
-Message-ID: <87plhtuw18.ffs@tglx>
+	id 1u0MG6-00000009Bvs-3Mr6
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Apr 2025 15:13:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D2288A438E5;
+	Thu,  3 Apr 2025 15:08:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA41CC4CEE5;
+	Thu,  3 Apr 2025 15:13:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743693213;
+	bh=nbiBXDXZAlOQvo10+zoofvtVEMUN+xY7qBqGVHhpers=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZJGDlWGIp+23uurxjtN0FzliArNVEFGXTjWhDmwmumYQxf4YwG8X1V/gDTSBeSAng
+	 xK9QCLMq8OR0Z57WW9Y0yMUZsZwKqgJiGlvv6PGmSApSOOMIs7S4wvmE77eFgV3cGD
+	 /5bksFqBt1wfCpxGAxdUdArvKPb0ngAKYR7iGJmbCAovdg6vYjd63rpR0VMfi28dGU
+	 yAxdO3cQNZXt5Og7Q9Gyl/9rQu5o3UiejFQenpS6ZK3Oq1S0CsJTlGH/U6j9KT5Um4
+	 nr8Nkioo6nmpPCC3TkBJ2pO6MrqM9YpRI90fTHJzkA95r3PCrn9O3Cpgb1JD3HXapD
+	 qth2JFVXEfElw==
+Date: Thu, 3 Apr 2025 16:13:27 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, anshuman.khandual@arm.com,
+	joey.gouly@arm.com, yury.khrustalev@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, frederic@kernel.org,
+	shameerali.kolothum.thodi@huawei.com, james.morse@arm.com,
+	mark.rutland@arm.com, huangxiaojia2@huawei.com,
+	akpm@linux-foundation.org, surenb@google.com, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH 1/3] arm64: add FEAT_MTE_TAGGED_FAR feature
+Message-ID: <e397283e-4c53-495f-a699-16c2f556837f@sirena.org.uk>
+References: <20250403141535.23496-1-yeoreum.yun@arm.com>
+ <20250403141535.23496-2-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bl3Aw4IbGSVKLODu"
+Content-Disposition: inline
+In-Reply-To: <20250403141535.23496-2-yeoreum.yun@arm.com>
+X-Cookie: Logic is the chastity belt of the mind!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_080351_285860_C132B956 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250403_081334_911612_90A05303 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,36 +80,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03 2025 at 15:13, Frank Scheiner wrote:
-> this change, specfically the introduction of irq_force_complete_move()
-> to `kernel/irq/migration.c`, strangely breaks our builds for the hp-sim
-> platform (i.e. Linux/ia64 for Ski):
 
-arch/itanic has hit the iceberg and sank with the release of v6.7...
+--bl3Aw4IbGSVKLODu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> So I guess, either the requirement in `linux/include/linux/irq.h` needs
-> to go, or the use of "d->parent_data" or the whole of
-> irq_force_complete_move() and its use needs to be guarded as well.
+On Thu, Apr 03, 2025 at 03:15:33PM +0100, Yeoreum Yun wrote:
+> Add FEAT_MTE_TAGGED_FAR cpucap which makes FAR_ELx report
+> all non-address bits on a synchronous MTE tag check fault since Armv8.9
+>=20
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  arch/arm64/include/asm/hwcap.h      | 1 +
+>  arch/arm64/include/uapi/asm/hwcap.h | 1 +
+>  arch/arm64/kernel/cpufeature.c      | 9 +++++++++
+>  arch/arm64/kernel/cpuinfo.c         | 1 +
+>  arch/arm64/tools/cpucaps            | 1 +
+>  5 files changed, 13 insertions(+)
 
-Guessing is not a really good approach to solve a technical problem :)
+Please also add this to the hwcaps kselftest.
 
-Thanks,
+--bl3Aw4IbGSVKLODu
+Content-Type: application/pgp-signature; name="signature.asc"
 
-        tglx
----
---- a/kernel/irq/migration.c
-+++ b/kernel/irq/migration.c
-@@ -37,7 +37,7 @@ bool irq_fixup_move_pending(struct irq_d
- 
- void irq_force_complete_move(struct irq_desc *desc)
- {
--	for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = d->parent_data) {
-+	for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = irqd_get_parent_data(d)) {
- 		if (d->chip && d->chip->irq_force_complete_move) {
- 			d->chip->irq_force_complete_move(d);
- 			return;
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfupZYACgkQJNaLcl1U
+h9D64wf+Nr2Llm6/mPq6+NvuhzVcdPF1hydswJcaFKW0vvrsQNZ4lVoKSvIjEpQd
+UHlSgRORZ7WqXD/8CYs3nqGOyESHVPG+lASZ+KVOjQgfdA/ASEPCkeJqnzmOODnC
+Y8chXEeiY/mdbjpKYs7VhLrJq/W5GroettA59pxxDW4W04aEp9hNXDFABAUEQDnV
+56fOv3kdPrm56oGB6CAeMtcEfK4VGjnPJj/tQ1aMuWxnKtlmDwIpUpsfH+HX+675
+AFu56782gvNwKp9Fxfgc3SKDtZ3nGoyHHYPxzjoBpHYL/IckhFsjGVDPR6Dzbubl
+SlQlNnf5roMqmEubfwaHKVrFsGi0yA==
+=yyPx
+-----END PGP SIGNATURE-----
 
-
-
+--bl3Aw4IbGSVKLODu--
 
