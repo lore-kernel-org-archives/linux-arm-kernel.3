@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC27C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:05:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B26EDC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:07:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oe2enAhJycZGqY3npam/BdMZDLypvUBnYJHzMcOUVMM=; b=PVT+7KdJ9fMY5Yzp8mpLnV8l10
-	gu1l9vTfx88NBLqdaLVKUxdtLxlKAFKXaWtnJ5++u7Ike4dnuP2AkKOEAg1mgw7xv5TK6Gqlu3lCc
-	E5Oq4tX1yCZlqlmPWbL+d58WJBr8lB/HsVL4KQqMZm7xdt3SmfU1CgPFUlRtIV4ZI/Ho0pwjlStHC
-	Qj/7dQ2xF/h7vbV64RNkseH2/WJmKchviaQ8TkvihGFV7qy+nPGrot8ufCkLHGK6XMsYaKmtTF//t
-	u0Yb8I8Q/7f6sx+1JEU++xISDGMjX5/VsV1gAqiqlV/o39aZH9VTzU9Qz2MQ9X5mo5frrKP11ZbT+
-	8BSEyNkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D9v/lNwzNEiWjD/oNOD7bDsuCy31KhyV0LWVBvp0n6Q=; b=bwn2WfQ4/ln58oEchaGrLPzjHQ
+	dwAYm7qz3T69TibtXb56km/r00b+XqJJ0zAmRpFUhKAPjeS5yaXm1iqROF2kD4n6n5xhRfe5VamMy
+	Rkp/5t/4eAJW7v5KENp6G8LsYdGapIV6aCNyXejn8WpjtsQQ6JrJemnQSn14Mc4x5lvxrrNbdt1VP
+	iaQuu4IcGGnOp25t4kuL1ew1FpjMBnUFl2Sec/z8a4durP3PG0UmMFXIkU9yLH9XnHEoVrIGKY4cq
+	LVPtueyLq4GZsr1gnhFN+ZaqOJ79tcC9MlsCSbEhqJBHLv/slEvVDIG8uj5CD1OFIM6i/r0dgSLmB
+	eaPspp+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HRe-00000008TwY-0ewf;
-	Thu, 03 Apr 2025 10:05:10 +0000
+	id 1u0HTN-00000008U98-3Xgi;
+	Thu, 03 Apr 2025 10:06:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0GVJ-00000008L5U-0Smf
+	id 1u0GZA-00000008LtX-48Y6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 09:04:54 +0000
+	Thu, 03 Apr 2025 09:08:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E1D12106F;
-	Thu,  3 Apr 2025 02:04:52 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF29A3F63F;
-	Thu,  3 Apr 2025 02:04:47 -0700 (PDT)
-Message-ID: <957ccba4-2ae1-4358-b62d-3b5c44d7f1ca@arm.com>
-Date: Thu, 3 Apr 2025 10:04:46 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC059106F;
+	Thu,  3 Apr 2025 02:08:54 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9F7603F63F;
+	Thu,  3 Apr 2025 02:08:49 -0700 (PDT)
+Date: Thu, 3 Apr 2025 10:08:41 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Johan Hovold <johan@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, peng.fan@oss.nxp.com,
+	michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, maz@kernel.org
+Subject: Re: [RFC PATCH 3/3] [NOT FOR UPSTREAM] firmware: arm_scmi: quirk:
+ Ignore FC bit in attributes
+Message-ID: <Z-5QGXj0wXMvtasf@pluto>
+References: <20250401122545.1941755-1-cristian.marussi@arm.com>
+ <20250401122545.1941755-4-cristian.marussi@arm.com>
+ <Z-5F8eTaZB2gLTNs@hovoldconsulting.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/6] arm64: Provide basic EL2 setup for FEAT_{LS64,
- LS64_V} usage at EL0/1
-To: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, corbet@lwn.net,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org
-Cc: joey.gouly@arm.com, yuzenghui@huawei.com, shuah@kernel.org,
- jonathan.cameron@huawei.com, shameerali.kolothum.thodi@huawei.com,
- linuxarm@huawei.com, prime.zeng@hisilicon.com, xuwei5@huawei.com,
- yangyicong@hisilicon.com, tangchengchang@huawei.com
-References: <20250331094320.35226-1-yangyicong@huawei.com>
- <20250331094320.35226-2-yangyicong@huawei.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250331094320.35226-2-yangyicong@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z-5F8eTaZB2gLTNs@hovoldconsulting.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_020453_192744_45996A66 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20250403_020853_110599_0F643173 
+X-CRM114-Status: GOOD (  44.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,51 +70,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/03/2025 10:43, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
-> 
-> Instructions introduced by FEAT_{LS64, LS64_V} is controlled by
-> HCRX_EL2.{EnALS, EnASR}. Configure all of these to allow usage
-> at EL0/1.
-> 
-> This doesn't mean these instructions are always available in
-> EL0/1 if provided. The hypervisor still have the control at
-> runtime.
-> 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> ---
->   arch/arm64/include/asm/el2_setup.h | 12 +++++++++++-
->   1 file changed, 11 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-> index ebceaae3c749..0259941602c4 100644
-> --- a/arch/arm64/include/asm/el2_setup.h
-> +++ b/arch/arm64/include/asm/el2_setup.h
-> @@ -57,9 +57,19 @@
->           /* Enable GCS if supported */
->   	mrs_s	x1, SYS_ID_AA64PFR1_EL1
->   	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
-> -	cbz	x1, .Lset_hcrx_\@
-> +	cbz	x1, .Lskip_gcs_hcrx_\@
->   	orr	x0, x0, #HCRX_EL2_GCSEn
->   
-> +.Lskip_gcs_hcrx_\@:
+On Thu, Apr 03, 2025 at 10:25:21AM +0200, Johan Hovold wrote:
+> On Tue, Apr 01, 2025 at 01:25:45PM +0100, Cristian Marussi wrote:
+> > Some platform misreported the support of FastChannel when queried: ignore
+> > that bit on selected platforms.
+> > 
 
-minor nit: For consistency, could we rename this "set_ls64", similar to 
-"set_hcrx" ?
+Hi Johan,
 
-> +	/* Enable LS64, LS64_V if supported */
-> +	mrs_s	x1, SYS_ID_AA64ISAR1_EL1
-> +	ubfx	x1, x1, #ID_AA64ISAR1_EL1_LS64_SHIFT, #4
-> +	cbz	x1, .Lset_hcrx_\@
-> +	orr	x0, x0, #HCRX_EL2_EnALS
-> +	cmp	x1, #ID_AA64ISAR1_EL1_LS64_LS64_V
-> +	b.lt	.Lset_hcrx_\@
-> +	orr	x0, x0, #HCRX_EL2_EnASR
-> +
->   .Lset_hcrx_\@:
->   	msr_s	SYS_HCRX_EL2, x0
->   .Lskip_hcrx_\@:
+thanks for the review.
 
-Suzuki
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > ---
+> > Match features has to be set-up properly before upstreaming this.
+> > Ideally the out-of-spec firmware should be matched with a quirk matching
+> > pattern based on Vendor/SubVendor/ImplVersion....but it is NOT clear if the
+> > platform at hand will ship with future fixed firmwares where the ImplVersion
+> > field is properly handled.
+> > If we cannot be sure about that, we should fallback to a compatible match.
+> > ---
+> >  drivers/firmware/arm_scmi/driver.c | 8 ++++++++
+> >  drivers/firmware/arm_scmi/quirks.c | 3 +++
+> >  drivers/firmware/arm_scmi/quirks.h | 3 +++
+> >  3 files changed, 14 insertions(+)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> > index 4266ef852c48..212456305bc9 100644
+> > --- a/drivers/firmware/arm_scmi/driver.c
+> > +++ b/drivers/firmware/arm_scmi/driver.c
+> > @@ -1904,6 +1904,13 @@ struct scmi_msg_resp_desc_fc {
+> >  	__le32 db_preserve_hmask;
+> >  };
+> >  
+> > +#define QUIRK_PERF_FC_FORCE						\
+> > +	({								\
+> > +		if (pi->proto->id == SCMI_PROTOCOL_PERF ||		\
+> > +		    message_id == 0x5 /* PERF_LEVEL_GET */)		\
+> 
+> This should be logical AND and PERF_LEVEL_GET is 0x8 (currently
+> fastchannel is enabled for all PERF messages).
+
+...right...not sure how I botched this condition completely...my bad...
+(even the comment is wrong :P...)
+
+...I experimented with multiple version of this...so I suppose this is why...
+...I will post a fixed V1 once I hacve a bit more feedback on the list...
+
+> 
+> > +			attributes |= BIT(0);				\
+> > +	})
+> > +
+> >  static void
+> >  scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
+> >  			     u8 describe_id, u32 message_id, u32 valid_size,
+> > @@ -1924,6 +1931,7 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
+> >  
+> >  	/* Check if the MSG_ID supports fastchannel */
+> >  	ret = scmi_protocol_msg_check(ph, message_id, &attributes);
+> > +	SCMI_QUIRK(perf_level_get_fc_force, QUIRK_PERF_FC_FORCE);
+> 
+> This is cool and I assume can be used to minimise overhead in hot paths.
+> Perhaps you can have concerns about readability and remembering to
+> update the quirk implementation if the code here changes.
+
+My main aim here was to be able to define the quirk code as much as
+possible in the proximity of where it is used...so that is clear what it
+does and dont get lost in some general common table....and the macro was
+a way to uniform the treatment of the static keys...
+
+...but I am still not sure if all of these macros just degrade visibility
+and we could get rid of them...would be really cool to somehow break the
+build if the code "sorrounding" the SCMI_QUIRK changes and you dont update
+(somehow) the quirk too...so as to be sure that the quirk is taking care of
+and maintained...but I doubt that is feasible, because, really, how do you
+even deternine which code changes are in proximity enough to the quirk to
+justify a break...same block ? same functions ? you cannot really know
+semantically where some changes can impact this part of the code...
+..I supppose reviews and testing is the key and the only possible answer
+to this..
+
+> 
+> Does it even get compile tested if SCMI_QUIRKS is disabled?
+
+It evaluates to nothing when CONFIG_ARM_SCMI_QUIRKS is disabled...
+...so maybe I could add a Kconfig dep on COMPILE_TEST ....if this is what
+you mean..
+
+> 
+> >  	if (ret || !MSG_SUPPORTS_FASTCHANNEL(attributes)) {
+> >  		dev_dbg(ph->dev,
+> >  			"Skip FC init for 0x%02X/%d  domain:%d - ret:%d\n",
+> > diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
+> > index 83798bc3b043..78d51bd0e5b5 100644
+> > --- a/drivers/firmware/arm_scmi/quirks.c
+> > +++ b/drivers/firmware/arm_scmi/quirks.c
+> > @@ -70,6 +70,8 @@ struct scmi_quirk {
+> >  	__DEFINE_SCMI_QUIRK_ENTRY(_qn, _comp, _ven, _sub, _impl)
+> >  
+> >  /* Global Quirks Definitions */
+> > +DEFINE_SCMI_QUIRK(perf_level_get_fc_force,
+> > +		  "your-bad-compatible", NULL, NULL, 0x0);
+> 
+> At first I tried matching on the SoC (fallback) compatible without
+> success until I noticed you need to put the primary machine compatible
+> here. For the SoC at hand, that would mean adding 10 or so entries since
+> all current commercial devices would be affected by this.
+> 
+
+Ah right...I tested on a number of combinations BUT assumed only one
+compatible was to be found...you can potentially add dozens of this
+definitions for a number of platforms associating the same quirk to all
+of them and let the match logic enabling only the proper on...BUT this
+clearly does NOT scale indeed and you will have to endlessly add new
+platform if fw does NOT get fixed ever...
+
+> Matching on vendor and protocol works.
+> 
+
+That is abosutely the preferred way, BUT the match should be on
+Vendor/SubVendor/ImplVersion ... if the platform properly uses
+ImplementationVersion to differentiate between firmware builds...
+
+...if not you will end up applying the quirk on ANY current and future
+FW from this Vendor...maybe not an issue in this case...BUT they should
+seriously thinking about using ImplementationVersion properly in their
+future FW releases...especially if, as of now, no new fixed FW release
+has ever been released...
+
+> >  /*
+> >   * Quirks Pointers Array
+> > @@ -78,6 +80,7 @@ struct scmi_quirk {
+> >   * defined quirks descriptors.
+> >   */
+> >  static struct scmi_quirk *scmi_quirks_table[] = {
+> > +	__DECLARE_SCMI_QUIRK_ENTRY(perf_level_get_fc_force),
+> >  	NULL
+> >  };
+> 
+> Johan
+
+Thanks for having had a look !
+Cristian
+
 
