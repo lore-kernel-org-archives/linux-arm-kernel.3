@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1A8C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 09:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A9DC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 09:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kV75c5wurwfdiB4LfjbAT+jBLqgbz3xs0SfJTGIePwA=; b=a4FCes6Z2YhCNn2GLrOXLcSZoq
-	JfBdfXtz7NQOf8kXNeoyouFUKt0b8KjhtgQa1Yfh6Rhjpro6jAsKixNUAJQ7r6j7mUKz2sLMRgXnV
-	aqSOU7y9Q3WKxuwSzXxXQbhhnUiJSJctCkNn6+qvI6TFl+zCMXbY0NeSO5GlBEaJtOTDdDiLYkvBS
-	/PzbVIQoPChnPqN/jrloLONQK046S137yL0yFEkRIFS2BKY/kR7Y/ttpicw4DrUhtaPh7wuV4zPIN
-	klp0b39nEOHt+Ej3iuOBSbdDOJc7m7TppZR53woLLhAfkYCO2JwJsqjdJ1dHrZqPb1JdP0ayhmvtP
-	a0zM6IfQ==;
+	bh=AGZF3iY+lrce/peuoGWoI8dxWV9rSVtCllywJ68wEfI=; b=GFHAddcjQZvL8ppvs8zvKDqAih
+	Mi28kvieTxhZjLCd52OJBypotyXOvvvs8P7VoyOvdaECgTSUBfWjyi57hR0MU2FLXhW18DuJi5t1H
+	nfVvIKD6MSbKFxosJ6EZBFo7JTmKWViauIsYtdlpN17uUzsSZfst0ZVkPxWlg/PDM191cVdOQHd3r
+	H9I2pDB6HD/PSTzHJtwUNEA4dWTAGBAP9OQLkGg82Ll2Vlx/xYz3l+/Sth+2BicaadXi+5oRdXMk1
+	LI8gKTJs63LeH1w5yaN+DQhs90HEFON7Z5CRZzHSMiAsJGEJxoHRc+ffGJWtLW+I3ZwitOMoN/gza
+	QEisGi+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0H01-00000008QOw-2dxL;
-	Thu, 03 Apr 2025 09:36:37 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1u0H1l-00000008Qbh-1l0l;
+	Thu, 03 Apr 2025 09:38:25 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0GPp-00000008Jmr-48XI
+	id 1u0GPq-00000008JnF-3pCT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 08:59:15 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5e6194e9d2cso1179940a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 01:59:13 -0700 (PDT)
+	Thu, 03 Apr 2025 08:59:16 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ac345bd8e13so108742166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 01:59:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google; t=1743670753; x=1744275553; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kV75c5wurwfdiB4LfjbAT+jBLqgbz3xs0SfJTGIePwA=;
-        b=IGjXX2IrLDDLMkIDOWaPFFvRXCKOWY/pPogaWmUCaGSqg8UkYdMTh66Dyf0AL7LMSI
-         15WVpHmW9e5Fo88s+mzSO1yXgTds76NizWB2yCfxAfu2Ui9LbuCzcJEej0MRtklrlSte
-         oo8VCbPSjhtD2Xiuxw0wIWTomiqQeid+cBCF/ew+a9HXMRFhWl/os9sH+KWCs9gcFUOK
-         JWkEUH8HpVhL4hQSgfuHqvqiKONd+z6pr2ruSA4Imrg1F/ZhzMM8M3chLk17GWjFBPd+
-         EFJ7aShdcMMG0CfxH6ABeO7kkJP1b65n3sDc89/4Q9HAIR0wbXYcLxw0SVHkuI6MOMgA
-         SB9w==
+        bh=AGZF3iY+lrce/peuoGWoI8dxWV9rSVtCllywJ68wEfI=;
+        b=Wt2LGHK44qgnVrC+ColX3KF344gKuw+UVc0kjVP0D6nnThT7gS+9AqOIsLZ03lqSRe
+         i4ucEf+CxFcPhWJ71z/xjw02keYaELFNRRRGWAWrMUH9WHOSH0De0n3PnMQZUIO9sVAW
+         1QV+ejNDLai2ylwKjGFjrRw28nY20mEOizJnaeDeHbvSknGkSg0EsWIg+g7lLm+vy2wQ
+         ykHCu5QT/4U7mvqrg0nVV8j6rWHv7ENGIJy1oy1f1xwLtf2FKAEWVR+k2foKZtyPo+GS
+         DMXB1tmzLaSbimuZyUtDRqF4B+c55ZfFYXgPy+pL1hlAaW2DuqRnMx69k498J0wWtBTf
+         kmig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1743670753; x=1744275553;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=kV75c5wurwfdiB4LfjbAT+jBLqgbz3xs0SfJTGIePwA=;
-        b=pyTqV6U3aCV9jyJ9oLGzQPxeyd5oEl4FlivJYjRmjokpYu4k1sm+FSeEXbXZLS0YNL
-         lxxY+OR5SEQMlQr3klQ2x2qjJ+Le8QRvvRoJgq8Jy+UIgucZarH2Xa5b9oYbS9dTXjF3
-         DyAQg6VozV4m4scmr1oMaft5nAJz7uH32g7HnPvObWAPhZ/qrO2h+4es9ivugqQ3gbrP
-         tUU5AsJWvaPTrI9tHPc+8VXInI/216/efPVTRdYZO7HB/nsUzdYtpH4ec6bTkFXXkzDX
-         4OR07EWX/g3dVg/JiqWSczCuzUc4VNGPN8UNXXYOrIm2dHhPHqa6jGmrs+fQga0Qm8F+
-         QKdA==
-X-Forwarded-Encrypted: i=1; AJvYcCVCE3Djun6dzwi92kdrOwzbQS3m5YluGl1MvQ32hE9LE027ML1VtWsNWnoqkMyZr0i1UjM9Mvh2UeMUiWmBquw2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHXEl6jzZRspKNcWYOsH/yB5+z4beCbQHOTvDPuURab5a6A9iA
-	GaYmz9N+5PG04ho032hnVhFJuPCI0/wP1sAg0aVN2tXrujG7qMtNOY4XfdjejTw=
-X-Gm-Gg: ASbGncuTdejly7yi3z3DLhyx5fCxguYmetTIF7+Dv7vGJpfAbds1ONagwgS1WYusGDN
-	be1min8EBzn1wr3YKkmBWEnAJ172f7PkOx1GwUPKZ5IBkN0spglAakWtfBdYQq+TWlYnkpdlyIi
-	Y4v7W0prE1E+b1Amm485+ZhZe4Yy82gFhS4KmxSYNna5DzdOk9bLx0vG003KASbTfOAiFVjTprR
-	oOJ6wVYh83watFbH2YCAlKCKnG+F0mpW65eykYrzmuncRNGPDMkxhEyuAez7zYCCK+48OKSmp6+
-	bEtuD/0p3Ip+jBF+LhHUqUrK8AsZdI4qjWa56rjIe8ZTSKl+0VL082VWrx0oV1ph4K2sySjvUqR
-	9vYySAQgyPvC4AD+LuYg/6JZHkDYK
-X-Google-Smtp-Source: AGHT+IGcX+tYkvLIpCQDt/tVecCK/2rtCpUV2gBjKE/E/xLa7G15uMrlM8X/q+3JmlSAkeK9HlD3fA==
-X-Received: by 2002:a17:907:9692:b0:ac3:49f0:4d10 with SMTP id a640c23a62f3a-ac7bc259458mr148490166b.38.1743670752608;
-        Thu, 03 Apr 2025 01:59:12 -0700 (PDT)
+        bh=AGZF3iY+lrce/peuoGWoI8dxWV9rSVtCllywJ68wEfI=;
+        b=Ia4YykOAeiHBmIPkxcnjAQFMWBA+jqy891ufhMzv9EIv4tKkiH0KKkRUbAp0mSQoi9
+         agBIXgFZ3uaIeJ50X+KHtPmjDAwIInIfRoU7201wDNc4Jy8c0ARCNuuDby/TNdS4pFZz
+         a2GUfqxquzi4MznErP4C49DmoeqNzP5MTQnSKJNuDTyclADyp3etgAriUa0qzI/vDTza
+         aIEhflFq/DMkDNFDhC4uxJpfXEeS2YNFsgIeKsqUfZV6xum4TBvc6UyXih3f6NoQ2gd0
+         dcsgH5LvdGMp2IbILm0pF1reP8aoHC8hYx0pjp2UbhcXduCY5sSiHa0fqVloMUd/g34P
+         eveA==
+X-Forwarded-Encrypted: i=1; AJvYcCXjakXpmsjRyudVU+KLHWANzZg8MF4lOgCYRbc5dQjY9+T5nqqxBSx3UXAUiMclWHdnl7EK3ky1KB7vHR1GVPLK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwY72PPSMzQKAsczeNia3OU67MTtuhDJyddk/yYI0XvmEJKpJSN
+	ZbsoWMlI6YqBxzbox0vaCmitxVG3TVgrRSFgFUCQrfJqyHUDa7ox+Nm7rqUajRQ=
+X-Gm-Gg: ASbGnctjG3D8bF97l7ToE0fM+5tdJj4zskFsZc54/3PQVpUS2NI9jcoMmTKeTclXpyX
+	R6PWnQDMbvgIFRpj7hhOgoLoOapFw3+2GVGhzbl2KG+oYe+4dj/JNpmyKAhkNUg4LkEZ1c9YDnC
+	NAZiiDVOtQ1oLE0Tw5zxiI7ELfq4wZHRx3YT1+nEWvE4meJISYTMGsDMmtNe/wh5dp93hKMAET6
+	n0R+YriTsiCUuwR5FaObx1yaUAOl1U5vnPWrIVrDMvto1hr9ryNVeOSv04i/fhomSSFr8Y/ikMX
+	cHcZ3H/4+TwPYNIYIh4OCJpqlw8rOpmZ53WIa/M0z7R4WbA62x2qAppX8IxsgfTrYW52xCLE6MP
+	LTTjDIx/dYmeG9Dtb3FvR6Ksp2rKw
+X-Google-Smtp-Source: AGHT+IFRyOdwPcEz80NSYeNSO9OIEAqrNZz0SsyzqP2x0gvOEZiZralRMKMAb8SO2ti+oPAesT2BCw==
+X-Received: by 2002:a17:907:cc1a:b0:ac7:c59e:fc3e with SMTP id a640c23a62f3a-ac7c59efdf6mr46064366b.25.1743670753150;
+        Thu, 03 Apr 2025 01:59:13 -0700 (PDT)
 Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
         by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f0880a535fsm637614a12.80.2025.04.03.01.59.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Thu, 03 Apr 2025 01:59:12 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Thu, 03 Apr 2025 09:59:12 +0100
-Subject: [PATCH v3 20/32] mfd: sec: use sizeof(*var), not sizeof(struct
- type_of_var)
+Date: Thu, 03 Apr 2025 09:59:13 +0100
+Subject: [PATCH v3 21/32] mfd: sec: convert to using MFD_CELL macros
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250403-s2mpg10-v3-20-b542b3505e68@linaro.org>
+Message-Id: <20250403-s2mpg10-v3-21-b542b3505e68@linaro.org>
 References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
 In-Reply-To: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, 
@@ -96,8 +95,8 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_015914_090774_564E8441 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20250403_015914_949855_BC0D0D47 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,33 +111,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using sizeof(*var) is generally preferred over using the size of its
-open-coded type when allocating memory.
-
-This helps avoiding bugs when the variable type changes but the memory
-allocation isn't updated, and it simplifies renaming of the struct if
-ever necessary.
-
-No functional change.
+Use MFD_CELL macro helpers instead of open coding. This makes the code
+a bit shorter and more obvious.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/mfd/sec-common.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/mfd/sec-common.c | 57 ++++++++++++++++++------------------------------
+ 1 file changed, 21 insertions(+), 36 deletions(-)
 
 diff --git a/drivers/mfd/sec-common.c b/drivers/mfd/sec-common.c
-index 55edeb0f73ff4643f23b9759b115658d3bf03e9a..e8e35f7d5f06b522a953e8f21603e6904401c983 100644
+index e8e35f7d5f06b522a953e8f21603e6904401c983..448300ab547c10d81f9f2b2798d54c8a03c714d8 100644
 --- a/drivers/mfd/sec-common.c
 +++ b/drivers/mfd/sec-common.c
-@@ -163,7 +163,7 @@ int sec_pmic_probe(struct device *dev, int device_type, unsigned int irq,
- 	struct sec_pmic_dev *sec_pmic;
- 	int ret, num_sec_devs;
+@@ -24,16 +24,13 @@
+ #include "sec-core.h"
  
--	sec_pmic = devm_kzalloc(dev, sizeof(struct sec_pmic_dev), GFP_KERNEL);
-+	sec_pmic = devm_kzalloc(dev, sizeof(*sec_pmic), GFP_KERNEL);
- 	if (!sec_pmic)
- 		return -ENOMEM;
+ static const struct mfd_cell s5m8767_devs[] = {
+-	{ .name = "s5m8767-pmic", },
+-	{ .name = "s5m-rtc", },
+-	{
+-		.name = "s5m8767-clk",
+-		.of_compatible = "samsung,s5m8767-clk",
+-	},
++	MFD_CELL_NAME("s5m8767-pmic"),
++	MFD_CELL_NAME("s5m-rtc"),
++	MFD_CELL_OF("s5m8767-clk", NULL, NULL, 0, 0, "samsung,s5m8767-clk"),
+ };
  
+ static const struct mfd_cell s2dos05_devs[] = {
+-	{ .name = "s2dos05-regulator", },
++	MFD_CELL_NAME("s2dos05-regulator"),
+ };
+ 
+ static const struct mfd_cell s2mpg10_devs[] = {
+@@ -45,53 +42,41 @@ static const struct mfd_cell s2mpg10_devs[] = {
+ };
+ 
+ static const struct mfd_cell s2mps11_devs[] = {
+-	{ .name = "s2mps11-regulator", },
+-	{ .name = "s2mps14-rtc", },
+-	{
+-		.name = "s2mps11-clk",
+-		.of_compatible = "samsung,s2mps11-clk",
+-	},
++	MFD_CELL_NAME("s2mps11-regulator"),
++	MFD_CELL_NAME("s2mps14-rtc"),
++	MFD_CELL_OF("s2mps11-clk", NULL, NULL, 0, 0, "samsung,s2mps11-clk"),
+ };
+ 
+ static const struct mfd_cell s2mps13_devs[] = {
+-	{ .name = "s2mps13-regulator", },
+-	{ .name = "s2mps13-rtc", },
+-	{
+-		.name = "s2mps13-clk",
+-		.of_compatible = "samsung,s2mps13-clk",
+-	},
++	MFD_CELL_NAME("s2mps13-regulator"),
++	MFD_CELL_NAME("s2mps13-rtc"),
++	MFD_CELL_OF("s2mps13-clk", NULL, NULL, 0, 0, "samsung,s2mps13-clk"),
+ };
+ 
+ static const struct mfd_cell s2mps14_devs[] = {
+-	{ .name = "s2mps14-regulator", },
+-	{ .name = "s2mps14-rtc", },
+-	{
+-		.name = "s2mps14-clk",
+-		.of_compatible = "samsung,s2mps14-clk",
+-	},
++	MFD_CELL_NAME("s2mps14-regulator"),
++	MFD_CELL_NAME("s2mps14-rtc"),
++	MFD_CELL_OF("s2mps14-clk", NULL, NULL, 0, 0, "samsung,s2mps14-clk"),
+ };
+ 
+ static const struct mfd_cell s2mps15_devs[] = {
+-	{ .name = "s2mps15-regulator", },
+-	{ .name = "s2mps15-rtc", },
+-	{
+-		.name = "s2mps13-clk",
+-		.of_compatible = "samsung,s2mps13-clk",
+-	},
++	MFD_CELL_NAME("s2mps15-regulator"),
++	MFD_CELL_NAME("s2mps15-rtc"),
++	MFD_CELL_OF("s2mps13-clk", NULL, NULL, 0, 0, "samsung,s2mps13-clk"),
+ };
+ 
+ static const struct mfd_cell s2mpa01_devs[] = {
+-	{ .name = "s2mpa01-pmic", },
+-	{ .name = "s2mps14-rtc", },
++	MFD_CELL_NAME("s2mpa01-pmic"),
++	MFD_CELL_NAME("s2mps14-rtc"),
+ };
+ 
+ static const struct mfd_cell s2mpu02_devs[] = {
+-	{ .name = "s2mpu02-regulator", },
++	MFD_CELL_NAME("s2mpu02-regulator"),
+ };
+ 
+ static const struct mfd_cell s2mpu05_devs[] = {
+-	{ .name = "s2mpu05-regulator", },
+-	{ .name = "s2mps15-rtc", },
++	MFD_CELL_NAME("s2mpu05-regulator"),
++	MFD_CELL_NAME("s2mps15-rtc"),
+ };
+ 
+ static void sec_pmic_dump_rev(struct sec_pmic_dev *sec_pmic)
 
 -- 
 2.49.0.472.ge94155a9ec-goog
