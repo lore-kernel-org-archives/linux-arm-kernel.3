@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65C6C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 19:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DAFC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 20:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HJYCzSR2f+1FVKEGk37rQa/7TtOQBoypzKwu5u1fVVo=; b=lAwxnnstFrX5ms67tI4h3ejumu
-	ZapEYHPnYyS7OtWcdILaOXj/ZiIEp/xo3fAThKgz5I56Mv5jliHonshRZkqZWl3kQ9s8zLjPrf105
-	LhELtsTPnmTjlllXvRPMJKgdTbOaXziioLiDh4lfARJH5+HWMFkzyRzpSgkYDZvu2lHngnTjoR1cf
-	KCNEaqWEv2h7jqEjZHAn+HXSt14FSqcrNm+lnLNnOjGnnk4PbXO9ozHUJCxG6BkH8+nTD2GKwhXEs
-	7qQZRITA+EaBz1PCDpkx9W62uULQT+0yie7mUClJ844kfbu8hi1eM0yxL8iEMsvCZ0WDw0NkXJb+l
-	yniInyiA==;
+	bh=YcAJ6yiJF6tzonsiKIfCywYfLhxCpbJ9F8nlEFxApOs=; b=rJGBe16cpHTXUvzH7J/hj74tMR
+	urRDwVRYfxsR2Hd6tlGDTXAK/ik3UmKOZUbHYoMwtJTGgtueN6MCtxy76W+wCfQSSzxytGyRfrjCG
+	4EtD/hyty4zhaAx78ynh1lEvLxu6RPdGFTxMXE3hXxPf/7MapfN4yivkHlQOowbWJzFoZNxV8bKZ+
+	H2fxxKc4BTNexS8+3zagxfXsAoX05OKE0PwpyDJpwQlDueAaev6VgRwtQ9iy3IoURE/Bd8aOUp0OU
+	pZx9ErfNF0CawWkgr+yFT95F5HlMg8grymll81ZNPmXqPiIffbb1gkky59FWo2H4BL0LYU/pwIp5E
+	kceZJNhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0QiN-00000009rQj-25JR;
-	Thu, 03 Apr 2025 19:59:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u0QkA-00000009rtc-2dmT;
+	Thu, 03 Apr 2025 20:00:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Q7L-00000009isE-1CH0;
-	Thu, 03 Apr 2025 19:20:49 +0000
+	id 1u0Q7f-00000009j1i-1ri9;
+	Thu, 03 Apr 2025 19:21:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 81D7344BFD;
-	Thu,  3 Apr 2025 19:20:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 922CBC4CEE8;
-	Thu,  3 Apr 2025 19:20:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A72154480C;
+	Thu,  3 Apr 2025 19:21:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B945FC4CEE3;
+	Thu,  3 Apr 2025 19:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743708046;
-	bh=0r9a2S807uS7aVlPSz14Tk0Re8F+70pOJozKZmwdsJ4=;
+	s=k20201202; t=1743708067;
+	bh=3QobBbHyYoMQCnDupcZPTHOSh3BH1fDIEJ5P9azUSN0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qE1X1oJTkicsMsvpAmZhOpAWEC+4MKdWwfE2i6pXinCLUQRL438c4vPjESPpQRERn
-	 lx0HfG8B61Pq2eB7nx04UJTncyHMYte0VNpvJCj/JvacdOJxJEAOWsVfhj2QoPhzmX
-	 6+pZj8HQ+Y4VqiYP4cB8JH771PFz2N5s9LA/KRnoIOvWJuU0vlnosUAJiF/Lylzlw9
-	 zHS3cefMYEPQaA5JToSpQwEIb2RmNGKhHKWBNZ/JXNQG2BavQGPSLPuumB3cfY5+e8
-	 Z4X3l6zr2fQarLz0zSKBgaEjOgsA5tOgK/CyG9oA6SErxSA/OhRMfPWkEQc9EVz0bK
-	 iQtcBsu3IKNGw==
+	b=Q9frtNhQ1eYLrisx6Ov+fnnbUyFaMJmAP/dNoKD2oQkzVRzKNtMjP7DxyVMGU0w46
+	 z7uJJvweJckGoyw2WCiaU79TAMUX3zYJV0yF3M6hZRmmLTAZ10M65VG937oTPK5Z6e
+	 /mbJ7rDBR4iTG8kAUHB3jhlp8syam0IzHcZI39OC974bh92dg+8o38YVsLBv7BFOjh
+	 FbNqw/dNVWo6HnCqn+oWXjMtszm8+MQ4W3A6NXsAwfNRaoiCZyimWlZLRIGYVaDtmI
+	 OWHrdV5t4UZQr1t7q2A+GGK0BP9a46R7bXae2PZ4/8625LWFT7YWO78XXsbipDmpkG
+	 MQi5hfrXxbtyg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -55,19 +55,19 @@ Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	dri-devel@lists.freedesktop.org,
 	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 7/8] drm/mediatek: mtk_dpi: Explicitly manage TVD clock in power on/off
-Date: Thu,  3 Apr 2025 15:20:29 -0400
-Message-Id: <20250403192031.2682315-7-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 7/9] drm/mediatek: mtk_dpi: Explicitly manage TVD clock in power on/off
+Date: Thu,  3 Apr 2025 15:20:48 -0400
+Message-Id: <20250403192050.2682427-7-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250403192031.2682315-1-sashal@kernel.org>
-References: <20250403192031.2682315-1-sashal@kernel.org>
+In-Reply-To: <20250403192050.2682427-1-sashal@kernel.org>
+References: <20250403192050.2682427-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.235
+X-stable-base: Linux 5.4.291
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_122047_362475_0C44B3EF 
+X-CRM114-CacheID: sfid-20250403_122107_529749_3B16DA4B 
 X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,10 +111,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 9 insertions(+)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
-index aa3d472c79d77..ac75c10aed2f6 100644
+index 7c68a39339150..191e0cec004b4 100644
 --- a/drivers/gpu/drm/mediatek/mtk_dpi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
-@@ -369,6 +369,7 @@ static void mtk_dpi_power_off(struct mtk_dpi *dpi)
+@@ -366,6 +366,7 @@ static void mtk_dpi_power_off(struct mtk_dpi *dpi)
  
  	mtk_dpi_disable(dpi);
  	clk_disable_unprepare(dpi->pixel_clk);
@@ -122,7 +122,7 @@ index aa3d472c79d77..ac75c10aed2f6 100644
  	clk_disable_unprepare(dpi->engine_clk);
  }
  
-@@ -385,6 +386,12 @@ static int mtk_dpi_power_on(struct mtk_dpi *dpi)
+@@ -382,6 +383,12 @@ static int mtk_dpi_power_on(struct mtk_dpi *dpi)
  		goto err_refcount;
  	}
  
@@ -135,7 +135,7 @@ index aa3d472c79d77..ac75c10aed2f6 100644
  	ret = clk_prepare_enable(dpi->pixel_clk);
  	if (ret) {
  		dev_err(dpi->dev, "Failed to enable pixel clock: %d\n", ret);
-@@ -394,6 +401,8 @@ static int mtk_dpi_power_on(struct mtk_dpi *dpi)
+@@ -391,6 +398,8 @@ static int mtk_dpi_power_on(struct mtk_dpi *dpi)
  	return 0;
  
  err_pixel:
