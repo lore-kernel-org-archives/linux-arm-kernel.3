@@ -4,56 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F3ADC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FD0C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Z6Ozw6a1oopXE3rYf9mhE4KWwQr0zlpACDALsbmoq0=; b=OnlkYrnWRSH8tr0ONPw92Iouch
-	Aas3UAmd8IEeQZBh+PIvhbnVS/pmL/QDOReydmHNwrkEGy/VkvbFw8FfObMd/p5QX0j7Fqml1BQHG
-	lVurwnT8ZOnV9KRUrJBTZkhG1UMoMGlKT1UoNcYzDgocbJcKdbpUQvV019MrcFzTtznoBLGeEFH4t
-	iunid8pp9t1OYrLWlyNV4SbiapPWeoDMr8ii0qVCe7pff5F3MbalEXL16orK8YyFIUgBF7MEot9nb
-	H5M/T9gXLnNRiyajvyqfwumsWw4Pnoi/V7K3YfZ9+yjNC9YX6dYSrZ0uRY3J7sXEOJZkeD4Qds+Mm
-	LIo0YlWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=73c+mDPTV3enfh00xFQH0rkQ3B7hoaOfs79Gig8ynL4=; b=lNL1epR9rG5FV9iGjG6adUbSk6
+	DpDYi6wX3Mjk1IT5Pqezuoiwrbp8W7ch37SCMPIctO135Muu06OSZ/O40XyoTnY4aBBVHr5O42qf+
+	TnGLTnTofacVJQu/W21WBozATZfIois4hGL8va8+XJN0qSG08hPQquR0DfbfEACrgSfIVB7SnPAWH
+	npJ5hPO6BcFUx+TQC9zm9AbwFyBtl6dKX0fcC8CbYniBJt2qilqwUOqaqIrrg1pJzNuK45rMpYhgf
+	BqAen/oO8/I+rrpGLxaRx1pQeRzaJnbX8AjZC1kATaeZILI/7WqlN5UuzR29fST3T7Os+9boPUiVs
+	wRtX/1mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Hea-00000008XqR-49Ax;
-	Thu, 03 Apr 2025 10:18:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u0HgK-00000008Y8t-1rgL;
+	Thu, 03 Apr 2025 10:20:20 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HB3-00000008S0u-2b5A
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 09:48:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 10C4668424;
-	Thu,  3 Apr 2025 09:47:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A589C4CEE3;
-	Thu,  3 Apr 2025 09:47:58 +0000 (UTC)
-Date: Thu, 3 Apr 2025 10:47:56 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Peter Collingbourne <pcc@google.com>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Kees Cook <kees@kernel.org>, Andy Shevchenko <andy@kernel.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v5 2/2] kasan: Add strscpy() test to trigger tag fault on
- arm64
-Message-ID: <Z-5ZTNbc-sl51Rrt@arm.com>
-References: <20250403000703.2584581-1-pcc@google.com>
- <20250403000703.2584581-3-pcc@google.com>
+	id 1u0HFs-00000008Si0-2f0z;
+	Thu, 03 Apr 2025 09:53:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1743673965; x=1744278765; i=markus.elfring@web.de;
+	bh=73c+mDPTV3enfh00xFQH0rkQ3B7hoaOfs79Gig8ynL4=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Gs6IRBSP30nqBoVeW2m1+w37RYHjZS/3Xoi7eLsKGvsNN/bFKsw2/1W30XAJ8NG7
+	 35iYnymvevIJdmOxl9z/QqsiMSX1XM6G8w9ZXvMGZaeKqANUyIR4BYNpaZ9UCSB/t
+	 iHcfV+UpAoQGoCOiAiTZOZudkX1QO3Al3gWZRNxI4EBmSB3GW/B+bHPR33eL7pdrz
+	 4KB2nI4KlqIHemmYmsI1yCPjvSXV8XKLhcyVkv/aPzTBVQFzlp1Yauh1S26j+QD/D
+	 6R9l+iZSiseYo91FGF7OsGx2ckkT4a3gH8qs6PnPGHnk0QkFbOHvmFZKLn/IaJdfV
+	 EvoylHTGYio9O0ZV1A==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.50]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MgzeZ-1tSZWq0xRd-00ZikS; Thu, 03
+ Apr 2025 11:52:45 +0200
+Message-ID: <41f9ad4b-382c-4945-82ac-ec38bee87937@web.de>
+Date: Thu, 3 Apr 2025 11:52:42 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250403000703.2584581-3-pcc@google.com>
+User-Agent: Mozilla Thunderbird
+To: Henry Martin <bsdhenrymartin@gmail.com>, linux-wireless@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chad Monroe <chad@monroe.io>, Felix Fietkau <nbd@nbd.name>,
+ Lorenzo Bianconi <lorenzo@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Peter Chiu <chui-hao.chiu@mediatek.com>, Ryder Lee <ryder.lee@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
+ Shengyu Qu <wiagn233@outlook.com>
+References: <20250403065251.64749-1-bsdhenrymartin@gmail.com>
+Subject: Re: [PATCH] wifi: mt76: mt7915: Fix null-ptr-deref in
+ mt7915_mmio_wed_init()
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250403065251.64749-1-bsdhenrymartin@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:rMLkyUnskGPkc7CWGHQK0eH2zwgXWMQzE9a9IajwH62GgqYqjvN
+ tGX03ua54yJuhNQ3KNuKe4f58fK6oBxHaVa6MKzEKMld2Y1jFlSDVX0epXnx52t3W364gkR
+ gpLuVOGXzmiZqoBK50Wmd7cDVqWfCgXtsb+DzO775fp9ap/PNy9wee3eIPMcOfNMUL2CJ0R
+ 70uZfgZ7z3xr42aY5m8UA==
+UI-OutboundReport: notjunk:1;M01:P0:pD0NSjZ9QWw=;/baeS6cvg/lHM2Kyl7abZ4oanhf
+ o+3hFID+PCwZrrDLY26nD2hdcwEFUmUrq+z7MtMNKtcchbTSfVyJR2SdFujvBcOnBdqJpwItV
+ l6nxkTz3601pODWIPaRYRLAgQRQ1SxietJCd8fRjcNcJXfwrHlh0+xRdfCrXqXK79DMii6rd4
+ JzpK7hEgQW46dqrOAHJrjTmmC177feCJVktrA9t3PRxQbKBBZXlcCeiD+1htQi3NjgBxxXBBd
+ Pl4LYjdbclzx8HRdTXpanLfHWW3EseVrHr2U2q1DQoOXZblH0tApHhdX+J8gQF9olLb8p2DP4
+ qRdD0g3nL3siaQHEz6jWN+sCBjYt/q75VmyJCPDdALV+ZSUZp9J8tI/TNRL5iPauLwcNE9kFB
+ wmTf2ukFtILVy3kcULVLWWIZjq0DCmKrj+bc0v1n2z4pDxIjulbGEDBTtKrHoVxH7HLtg4Z70
+ kgdD2CJmoglxs2pMmkAz50wDy9RabVbUVllKVfM0Wkcb428cNIu+q0vBIe7L2EdSPWXF0FkXI
+ FzGrJbd1chORjvbLAGntd/AEjDsT0J0uQl9Ic+mKxudBP7GVLmBv4+CkpasZIYHDtqYymUTwy
+ qUsfwoKDNmOEzhRRqGiZxVpsMhfgCjdebxXeRnNHKgDSXoX1RKgMClBM9riDjvqGCsGKJXcxj
+ fKLIlKQ7m+QM2UeGuoKLB9GAzQzUktce7+x61fF0jngx6Gm+kGYNzIL6aJfWFdIPFwSzhSG3Y
+ MwRJopsdiBX8JkunzqTyx69jd+hQN9yf5W9xW6hXHX/t9YZvYy2jYzcYYab44bqmFYEwXpbqx
+ /wUH+azhxuYEUtySNf+asyfA9OR2C0dJodcIIPEn4YwLjoow9xQBY0dO5Cfxe4OGL74ZCoTM2
+ H4tfiD2VMZ4Eps7EF+Q2DlAlw/i+T48V5ROTnYkN0XJGoz+DwyJh/sXsDL9EV4M7bII1Hkezo
+ G2WuX04Lkn32+jSzYqHmGhZRgIKiYngquinFFOFSbdxWhOoHJqzdmrS8+0GYtG0sq5UY/2Cjr
+ wWk6Z0PjGQ251rh2eDyiCEc+pmIjDjBKtZkfMdamAhOTM7NW+mqxUCqxmRZNIba8U9rqFx8O0
+ v+JeW3QBNAZiO6KdV4SB8y+Bi7/Vr65aHE8I9HHOKPfA1hYiZRsQWaDXlyTfHGSqYpM4mUMUz
+ CYMj4uZWKKOFzV0ZtQY3VyrhACbVAuKShOO5VYuF9QsfApLxKppxZDRvURE7CZ4GvGwWCjIS0
+ HcqO78XXQ/rLAQJJxI1ahmnbMoNFgnmKCwuPY8idCZ5WMpfwZqJmfUOMqO760x290xE9vhuhf
+ ilVIAg7of4C18GB138dvksDDgZTQxi6K91vC5ZbUMUsVWABdT6PMYOOyqvE03kcWkbW41Ml+o
+ JpDDHeWMZQfcDn44YhkLu6Xe6ZgXS2n7IDkzXo6Yx8tzkE1g4D9dkJqP5uiWPUyRv6ewg2f/I
+ AkmhkbJXtI06dD5n6YQ1tOz0fR6OTIaf3nzgKEAu6xfnQhacf
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250403_025301_063436_D5FE6269 
+X-CRM114-Status: UNSURE (   6.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,27 +109,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 05:07:00PM -0700, Peter Collingbourne wrote:
-> From: Vincenzo Frascino <vincenzo.frascino@arm.com>
-> 
-> When we invoke strscpy() with a maximum size of N bytes, it assumes
-> that:
-> - It can always read N bytes from the source.
-> - It always write N bytes (zero-padded) to the destination.
-> 
-> On aarch64 with Memory Tagging Extension enabled if we pass an N that is
-> bigger then the source buffer, it would previously trigger an MTE fault.
-> 
-> Implement a KASAN KUnit test that triggers the issue with the previous
-> implementation of read_word_at_a_time() on aarch64 with MTE enabled.
-> 
-> Cc: Will Deacon <will@kernel.org>
-> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Co-developed-by: Peter Collingbourne <pcc@google.com>
-> Signed-off-by: Peter Collingbourne <pcc@google.com>
-> Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
-> Link: https://linux-review.googlesource.com/id/If88e396b9e7c058c1a4b5a252274120e77b1898a
+=E2=80=A6
+> Add NULL check after devm_ioremap() to prevent this issue.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Can a summary phrase like =E2=80=9CPrevent null pointer dereference in mt7=
+915_mmio_wed_init()=E2=80=9D
+be a bit nicer?
+
+
+=E2=80=A6
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
+> @@ -651,6 +651,8 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, voi=
+d *pdev_ptr,
+>  		wed->wlan.base =3D devm_ioremap(dev->mt76.dev,
+>  					      pci_resource_start(pci_dev, 0),
+>  					      pci_resource_len(pci_dev, 0));
+> +		if (!wed->wlan.base)
+> +			return -ENOMEM;
+
+Can a blank line be desirable after such a statement?
+
+
+=E2=80=A6
+> @@ -678,6 +680,8 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, voi=
+d *pdev_ptr,
+>  		wed->wlan.bus_type =3D MTK_WED_BUS_AXI;
+>  		wed->wlan.base =3D devm_ioremap(dev->mt76.dev, res->start,
+>  					      resource_size(res));
+> +		if (!wed->wlan.base)
+> +			return -ENOMEM;
+
+Would the function =E2=80=9Cdevm_platform_get_and_ioremap_resource=E2=80=
+=9D be applicable
+in this else branch?
+https://elixir.bootlin.com/linux/v6.14-rc6/source/drivers/base/platform.c#=
+L87
+
+Regards,
+Markus
 
