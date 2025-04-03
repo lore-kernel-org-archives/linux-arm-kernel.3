@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C41CC3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 17:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5C3C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 17:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HVn/YIlN4ltMkotAt08Jf6OJVWnVHDKWgv1lkclEVSQ=; b=wZyk6/kXkS+yVGhSOUY7kxH3zN
-	4Ttc6PwS/59MDZsIBrkl215a6AhitLEyE5GBMnr4p5db6mGGmfiIq7V5NIsDP/rwBbtAvt4xzOWNa
-	C1XJBCmJY6OIsCO+YCljYwvoncFRqsOPNKeP9dIlmVKgxqv1ipcJpK1PH5w1ZEJNc7bMMTop0m9M4
-	wvSYCmGsMJIroQnLDL76IqbH/S8GkhjFdrfIunD21wFoDqh6GfRApojyDXUzveRWbW3beXdU72neN
-	e9VGrHjjzB0kDpuiLlkVFNX0udMgRJAHOwJTOUC6Jj6YXz0X9toAtJdve0Vq0w/5iHJ4juBDXI0+h
-	JHwGAXiA==;
+	bh=gfGUiWu/WWkoLqWMfSWAZkY/KScJB6AY3drJy+x59QY=; b=RYyl0bW+50xG9RBLXUlLfjTUYI
+	+8KvvKmxJrAS1Oms1LRi2hZZhk4V048eoGCie/1jaUMEYgvCI7cRdBi4mEwaO2HelFSZ4598i+wCJ
+	l08zmpJG6KuVQ5q0lQ3MTOa2iac42jm62ItZPR7fqDco2RbV5ICp+xzCcAhxzQAUjmruSIx646m58
+	Jf8eaJvWlO1235+y3pgjyWOrYWKhE+VZbNtBHz1+nmYwcWOxJRW24JHxs1s3dvyk/IgMjjLVwPmP4
+	aP9DBmwPaxueBSPbzqjTAkvlsvfN96zhYm+rLx5QkAg55KDHtjso98E3MgmRa4o8rwPeVQMa98D3v
+	aKpq8YFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Olp-00000009VTh-2nnS;
-	Thu, 03 Apr 2025 17:54:29 +0000
+	id 1u0Onc-00000009VeY-1cad;
+	Thu, 03 Apr 2025 17:56:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Oeu-00000009UcU-2W0t
+	id 1u0Oey-00000009Udf-43RB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 17:47:21 +0000
+	Thu, 03 Apr 2025 17:47:26 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0CB815A1;
-	Thu,  3 Apr 2025 10:47:22 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D923F15A1;
+	Thu,  3 Apr 2025 10:47:26 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 710F53F63F;
-	Thu,  3 Apr 2025 10:47:16 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 813793F63F;
+	Thu,  3 Apr 2025 10:47:20 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -62,17 +62,18 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	nd@arm.com,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v2 3/4] arm64/kernel: support store-only mte tag check
-Date: Thu,  3 Apr 2025 18:47:00 +0100
-Message-Id: <20250403174701.74312-4-yeoreum.yun@arm.com>
+Subject: [PATCH v2 4/4] tools/kselftest: add MTE_STORE_ONLY feature hwcap test
+Date: Thu,  3 Apr 2025 18:47:01 +0100
+Message-Id: <20250403174701.74312-5-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250403174701.74312-1-yeoreum.yun@arm.com>
 References: <20250403174701.74312-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_104720_755132_11765486 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250403_104725_043927_425DECE3 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,93 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce new flag -- MTE_CTRL_STORE_ONLY used to set store-only tag check.
-This flag isn't overrided by prefered tcf flag setting but set together
-with prefered setting of way to report tag check fault.
+add MTE_STORE_ONLY feature hwcap test.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- arch/arm64/include/asm/processor.h |  2 ++
- arch/arm64/kernel/mte.c            | 11 ++++++++++-
- arch/arm64/kernel/process.c        |  6 +++++-
- 3 files changed, 17 insertions(+), 2 deletions(-)
+ tools/testing/selftests/arm64/abi/hwcap.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 1bf1a3b16e88..61d62bfd5a7b 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -23,6 +23,8 @@
- #define MTE_CTRL_TCF_ASYNC		(1UL << 17)
- #define MTE_CTRL_TCF_ASYMM		(1UL << 18)
+diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
+index a539eeb0bfc0..32385f67498e 100644
+--- a/tools/testing/selftests/arm64/abi/hwcap.c
++++ b/tools/testing/selftests/arm64/abi/hwcap.c
+@@ -1104,6 +1104,12 @@ static const struct hwcap_data {
+ 		.hwcap_bit = HWCAP3_MTE_FAR,
+ 		.cpuinfo = "mte_far",
+ 	},
++	{
++		.name = "MTE_STOREONLY",
++		.at_hwcap = AT_HWCAP3,
++		.hwcap_bit = HWCAP3_MTE_STORE_ONLY,
++		.cpuinfo = "mte_store_only",
++	},
+ };
  
-+#define MTE_CTRL_STORE_ONLY		(1UL << 19)
-+
- #ifndef __ASSEMBLY__
- 
- #include <linux/build_bug.h>
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 2fbfd27ff5f2..e5e773844889 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -200,7 +200,7 @@ static void mte_update_sctlr_user(struct task_struct *task)
- 	 * program requested values go with what was requested.
- 	 */
- 	resolved_mte_tcf = (mte_ctrl & pref) ? pref : mte_ctrl;
--	sctlr &= ~SCTLR_EL1_TCF0_MASK;
-+	sctlr &= ~(SCTLR_EL1_TCF0_MASK | SCTLR_EL1_TCSO0_MASK);
- 	/*
- 	 * Pick an actual setting. The order in which we check for
- 	 * set bits and map into register values determines our
-@@ -212,6 +212,10 @@ static void mte_update_sctlr_user(struct task_struct *task)
- 		sctlr |= SYS_FIELD_PREP_ENUM(SCTLR_EL1, TCF0, ASYNC);
- 	else if (resolved_mte_tcf & MTE_CTRL_TCF_SYNC)
- 		sctlr |= SYS_FIELD_PREP_ENUM(SCTLR_EL1, TCF0, SYNC);
-+
-+	if (mte_ctrl & MTE_CTRL_STORE_ONLY)
-+		sctlr |= SYS_FIELD_PREP(SCTLR_EL1, TCSO0, 1);
-+
- 	task->thread.sctlr_user = sctlr;
- }
- 
-@@ -371,6 +375,9 @@ long set_mte_ctrl(struct task_struct *task, unsigned long arg)
- 	    (arg & PR_MTE_TCF_SYNC))
- 		mte_ctrl |= MTE_CTRL_TCF_ASYMM;
- 
-+	if (arg & PR_MTE_STORE_ONLY)
-+		mte_ctrl |= MTE_CTRL_STORE_ONLY;
-+
- 	task->thread.mte_ctrl = mte_ctrl;
- 	if (task == current) {
- 		preempt_disable();
-@@ -398,6 +405,8 @@ long get_mte_ctrl(struct task_struct *task)
- 		ret |= PR_MTE_TCF_ASYNC;
- 	if (mte_ctrl & MTE_CTRL_TCF_SYNC)
- 		ret |= PR_MTE_TCF_SYNC;
-+	if (mte_ctrl & MTE_CTRL_STORE_ONLY)
-+		ret |= PR_MTE_STORE_ONLY;
- 
- 	return ret;
- }
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 42faebb7b712..cea4a23a15de 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -815,10 +815,14 @@ long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
- 	if (is_compat_thread(ti))
- 		return -EINVAL;
- 
--	if (system_supports_mte())
-+	if (system_supports_mte()) {
- 		valid_mask |= PR_MTE_TCF_SYNC | PR_MTE_TCF_ASYNC \
- 			| PR_MTE_TAG_MASK;
- 
-+		if (cpus_have_cap(ARM64_MTE_STORE_ONLY))
-+			valid_mask |= PR_MTE_STORE_ONLY;
-+	}
-+
- 	if (arg & ~valid_mask)
- 		return -EINVAL;
- 
+ typedef void (*sighandler_fn)(int, siginfo_t *, void *);
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
