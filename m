@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91270C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 08:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD99C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 08:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r7olQeFiCm6NAZgNHylwR+2UgCnWkQnhvWRgAXmfMV0=; b=dLGIt9qNKOYviQKAEHPU1ChUSD
-	3l4gz1ZkkPSuG5UzLi4wRGz+9h7149TYY+ibinyMV1EckBHVvSTaDxJ5UMC6C1D3VYfA6otJZPvBE
-	lua0rjUuVzV0q9kOn8LFJ2OK0k6M3ZUgNXdjv3GHvQX7WzLmWaqjqDAPFBxU5V12mkjuW2zz3jWDY
-	jyvOXvszN2CXXjSsxIz/zBdl4aVIJAAqgLzWVeeHQjjmxE4o+NSMR4w68pwkn/TeoH1GtP4zZscpQ
-	BN+8+qkjAyBAPqw0ZVln4sJGS3rDNkm442b4EkiR9U+L0fIJmc4InXTn6Lkjfjh5bFBm3gKGRfOoi
-	QhX9RCCA==;
+	bh=4n2E1nudMOj5W2hUtIeK9GXSO2hwu+5QeeSILSA4s6M=; b=gcrkKvgd9sffeUo7s1Q8Z/zXpG
+	2LXy/qFv7sYcyuQ+3B6wyLToeE1xJ9CoSXP7eoIX3eavF2+trNlDynXc5tLyrGt1P8aee30S8DoHg
+	T8X+OpcFf4H0vikXZk0cAL585tIcJevSyDXB7KE63U+jPYkiEkcbmBLmumsCQXiq/76uQdEZAmK/u
+	H23yU0HRYqGcf902KvDCPVp2qNcGkHka//6hbpTtyU00juK3sddG+/eHrToGu1p80mIDAh8gixsXB
+	QJd9UpV0+t3QdUOkQ191XBcOMUApIivgxOOEEGfGsdDwI1TtJTMRF5/G32RobIy7Ojzc4eE8r21ur
+	90d3Os/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0G2a-00000008HUu-3bJh;
-	Thu, 03 Apr 2025 08:35:12 +0000
+	id 1u0G4J-00000008HlP-3tGa;
+	Thu, 03 Apr 2025 08:36:59 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0G0n-00000008H68-20OL;
-	Thu, 03 Apr 2025 08:33:22 +0000
+	id 1u0G0n-00000008H62-2NVX;
+	Thu, 03 Apr 2025 08:33:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5FAE6A45D8B;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 48F16A46661;
 	Thu,  3 Apr 2025 08:27:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C862BC4CEE9;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B1C6AC4CEE8;
 	Thu,  3 Apr 2025 08:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1743669199;
-	bh=cYPE4hxj2E/+XBZrJpUbI6pIfd/alhO++G3MPN6trQY=;
+	bh=8/FN1zqyHe1w6YEiI4W7vdYpA+b+1N7dG+zmuQASP1o=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=h8Cb4AP4OpYpLjYYj+z1vZ5xN6W9HulpbhR1bg2gJQjnjRCUWJqloCjGebGRqdPSY
-	 qHZkeVaccaQ4sKzOjZ5sy+Jtp046Dgcr2UL9cCee/U7MkUhxwxtxT8LKCcnX/U3Y/D
-	 CsxENjjO2Ly3SMMog+EtQgvaroGjKyOqKBkOkcz7OjQHzR8SYlFBZiLfTCtv/C9Eds
-	 eyTMbPNPm/fD3BFeFoPs2rV9Rgsfy9dZifU1ecORJKIKCKNOyFpeGC6+Cjqybsz9DO
-	 wYWp2rIjYm2l7ZS5PjjJz3JleLYG+cuvVy7dOcTkDNrPFExyncgtF+a4WCg4ImTt8k
-	 gjrnMFsCLo0Fw==
+	b=kqP437Gelc3cAzRDInSrIIfnOLSrjIMy3cL0ZCF3i3he9Tmtt0iNxvMsVCqmWYzWe
+	 TDS1GtGByFfCgsXD8TYaV4850qhxXCtkC354RTYYsmRc8HaiyIhcpIv6xEnell6gKn
+	 csOLJwDLu+h5NZIL1uskUvQx0Akrv/ZFKmShmbpN7vVWcmGinZvBdMx0sAhxNoYJmD
+	 a1woOzMEAZwZCtxr2uzyaeIuLCB+jtOPvCQ2m1cv/EbiG5SDOgtRx6NX0x0PuiFBcc
+	 2gXkXXDF5DwIdY0VEgUMmEq6DNP5P2iUWFXH0QS05h84pmF7GeoRQR8VYFkwHfqBEp
+	 t+4EMwIHM1zSw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AEF06C369A0;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A0432C3601E;
 	Thu,  3 Apr 2025 08:33:19 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Thu, 03 Apr 2025 16:33:15 +0800
-Subject: [PATCH v3 2/2] dts: arm64: amlogic: add a5 pinctrl node
+Date: Thu, 03 Apr 2025 16:33:14 +0800
+Subject: [PATCH v3 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add
+ compatible string for A5
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250403-a5-pinctrl-v3-2-a8c067e22295@amlogic.com>
+Message-Id: <20250403-a5-pinctrl-v3-1-a8c067e22295@amlogic.com>
 References: <20250403-a5-pinctrl-v3-0-a8c067e22295@amlogic.com>
 In-Reply-To: <20250403-a5-pinctrl-v3-0-a8c067e22295@amlogic.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -62,21 +63,22 @@ To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
 Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1743669198; l=3211;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1743669198; l=1062;
  i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=zTXCd3mjrQB2UAQ+DUxS9Et3VYgrEbPO04Lv0RVd3Dc=;
- b=VfTnLhiqD/DvQpUxxaX0qvX6jYrBOat90xLSzkT4YNw6bb7j1G8Vy1HCZ3t+WhBoWOpkxIzSS
- tiQLCDxrljbD0aViwoDiGHA0apIDhoLk3Gmh7OL8e49ubWi8QzzYf/N
+ bh=BWo0VhjwdkuWVuu93AEWJoUlmI8svtytfB8s9yS/fWs=;
+ b=Y8iZKQNrlQXT7t3bfaAv792FEp3deYm8sjOkAjlKZFKSWkoCOfS/em4OtxlGve4hrA4NkVjzK
+ qk8ECFovX8dBtiWuBI1RUFKU5gekhm+5gaSJcJ2vLkNXo30awxePjF8
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
  auth_id=107
 X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_013321_647269_881AFD66 
-X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-CacheID: sfid-20250403_013321_721665_AD8052D5 
+X-CRM114-Status: UNSURE (   9.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,121 +97,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Add pinctrl device to support Amlogic A5.
+Amlogic A5 SoCs uses the same pintrl controller as A4 SoCs. There is
+no need for an extra compatible line in the driver, but add A5
+compatible line for documentation.
 
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi | 90 +++++++++++++++++++++++++++++
- 1 file changed, 90 insertions(+)
+ Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-index 32ed1776891b..844302db2133 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-@@ -4,6 +4,7 @@
-  */
+diff --git a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+index 8eb50cad61d5..c36b6fe377ad 100644
+--- a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+@@ -14,7 +14,12 @@ allOf:
  
- #include "amlogic-a4-common.dtsi"
-+#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
- #include <dt-bindings/power/amlogic,a5-pwrc.h>
- / {
- 	cpus {
-@@ -50,6 +51,95 @@ pwrc: power-controller {
- };
+ properties:
+   compatible:
+-    const: amlogic,pinctrl-a4
++    oneOf:
++      - const: amlogic,pinctrl-a4
++      - items:
++          - enum:
++              - amlogic,pinctrl-a5
++          - const: amlogic,pinctrl-a4
  
- &apb {
-+	periphs_pinctrl: pinctrl@4000 {
-+		compatible = "amlogic,pinctrl-a5",
-+			     "amlogic,pinctrl-a4";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges = <0x0 0x0 0x0 0x4000 0x0 0x300>;
-+
-+		gpioz: gpio@c0 {
-+			reg = <0x0 0xc0 0x0 0x40>,
-+			      <0x0 0x18 0x0 0x8>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_Z<<8) 16>;
-+		};
-+
-+		gpiox: gpio@100 {
-+			reg = <0x0 0x100 0x0 0x40>,
-+			      <0x0 0xc   0x0 0xc>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_X<<8) 20>;
-+		};
-+
-+		gpiot: gpio@140 {
-+			reg = <0x0 0x140 0x0 0x40>,
-+			      <0x0 0x2c  0x0 0x8>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_T<<8) 14>;
-+		};
-+
-+		gpiod: gpio@180 {
-+			reg = <0x0 0x180 0x0 0x40>,
-+			      <0x0 0x40  0x0 0x8>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_D<<8) 16>;
-+		};
-+
-+		gpioe: gpio@1c0 {
-+			reg = <0x0 0x1c0 0x0 0x40>,
-+			      <0x0 0x48  0x0 0x4>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_E<<8) 2>;
-+		};
-+
-+		gpioc: gpio@200 {
-+			reg = <0x0 0x200 0x0 0x40>,
-+			      <0x0 0x24  0x0 0x8>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_C<<8) 11>;
-+		};
-+
-+		gpiob: gpio@240 {
-+			reg = <0x0 0x240 0x0 0x40>,
-+			      <0x0 0x0   0x0 0x8>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_B<<8) 14>;
-+		};
-+
-+		gpioh: gpio@280 {
-+			reg = <0x0 0x280 0x0 0x40>,
-+			      <0x0 0x4c  0x0 0x4>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_H<<8) 5>;
-+		};
-+
-+		gpio_test_n: gpio@2c0 {
-+			reg = <0x0 0x2c0 0x0 0x40>,
-+			      <0x0 0x3c  0x0 0x4>;
-+			reg-names = "gpio", "mux";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
-+		};
-+	};
-+
- 	gpio_intc: interrupt-controller@4080 {
- 		compatible = "amlogic,a5-gpio-intc",
- 			     "amlogic,meson-gpio-intc";
+   "#address-cells":
+     const: 2
 
 -- 
 2.37.1
