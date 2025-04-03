@@ -4,63 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2CAC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05732C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aH+MeY5wxEAwtijunPYNL+y+DpNd6dDfxP3oQyKVdZI=; b=bzkgsOEHcAXoXE8wGH4TkjFFrv
-	So0QevPq6tdfkIsAd7gKV0uqKfnR09hDlrfcQ2gOMeiUZmlvpSCPLGhS4vojv59bKaRuraQeeAfBu
-	mg7g+F9HSzdmNB+2tJjzjOkMAmSLkZwgzE3++Jlcxl2m2ubOUxlz9LGDIBej58YIj5LnPH0SCJHOx
-	wNUduDUIhYEjnMLQHmdhsftoqnjt1rNWFPGA3FV6otQa9NE6cmHaJtryz2dpsIfPQ2lCpgYrwFpdQ
-	Pz6Aw+O5AvQcGGKFn3vPD+XRUJQ4wJRcLbomOWfQ8QkwgL/32gaMZBz2iZEVAT/uqN1EfpTBzecAd
-	wPG9pz7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=toLuGzNnazL5JgsnOyMeJ6mkPFSEnk0kosdyyJ6oHVY=; b=3x7eMhb65sr+c3DTyNPQ8BZmlP
+	gbeRgD1MEtylCusR6DKvvhxzSzfienrczKjm7H6FvY3uGV/7cycFrFvpniIaBMGwxEQoqqKoUXKNZ
+	I760DsR8cE1Mf4YR6PucWpF1e0gQ+8RUEqRLdm4Sl/n81aHKMZ3ilstuLOCUsBfqVPE+Q2XI/2qbF
+	uL1mfLCsruhN+w5wqKDVYHINmOHUnE5Cc26Hek5sJxg6+LHbeI8RJL9xE60ajZmCCUc0lfytKzdET
+	lyk2x/kBtvjTUkfPaniBTRSZkoTN8IVzh7E6+EpMXvaRmN4fJIlXmFfC98deGLpdntifUYs8C2jnG
+	Uniz4IbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HlW-00000008ZCZ-2cuS;
-	Thu, 03 Apr 2025 10:25:42 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0GoK-00000008OiL-1cEJ;
-	Thu, 03 Apr 2025 09:24:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=aH+MeY5wxEAwtijunPYNL+y+DpNd6dDfxP3oQyKVdZI=; b=EZumTnmMfnXjC+fIRGTIzUUpdC
-	xmA4sKsK5GMhS8YKEute0EoJCcEazqvF7+am554iZXBLJ5qRjirO9rlLnKFgZmDv1UQ8J9kiTi0lq
-	RdJgNNi1Djy1QT7PmMZb0aT/DV6ghoVgilR/3/l4NvUdtlqjuni8ugwvCcVO+Q5SIkn1b6H1xlvYu
-	Xi0ca1YIjr3S23xDcgfJwcOYOYxi3Cq4dOiPLluvMr8Xf9RWfhcV13FdtJ41RYYUk/wn/86gUm1Mf
-	RpTxxLLBEOo0tyPHYV8hO1cG3KIhbVs/p3JjiDagwc3N7ViaKg5AS9xNMI/CmVsP8UuyjQV0dEEbF
-	Q298q3TQ==;
-Received: from i53875bf8.versanet.de ([83.135.91.248] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1u0GoE-0003Ky-Fc; Thu, 03 Apr 2025 11:24:26 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: devicetree@vger.kernel.org, Daniele Briguglio <hello@superkali.me>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- alchark@gmail.com, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Daniele Briguglio <daniele.briguglio@icloud.com>,
- Daniele Briguglio <hello@superkali.me>
-Subject: Re: [PATCH] rockchip: dts: rk3588: add missing OPP nodes for lower
- frequencies
-Date: Thu, 03 Apr 2025 11:24:25 +0200
-Message-ID: <2652016.Lt9SDvczpP@diego>
-In-Reply-To: <20250403091840.3349637-1-hello@superkali.me>
-References: <20250403091840.3349637-1-hello@superkali.me>
+	id 1u0HnG-00000008ZNX-2eGC;
+	Thu, 03 Apr 2025 10:27:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0Gup-00000008PY7-3xim
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Apr 2025 09:31:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9718C106F;
+	Thu,  3 Apr 2025 02:31:17 -0700 (PDT)
+Received: from [10.163.48.25] (unknown [10.163.48.25])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F60E3F63F;
+	Thu,  3 Apr 2025 02:31:07 -0700 (PDT)
+Message-ID: <36dcb5e3-4406-4763-87f1-8054c2246264@arm.com>
+Date: Thu, 3 Apr 2025 15:01:03 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: pageattr: Explicitly bail out when changing
+ permissions for vmalloc_huge mappings
+To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
+Cc: gshan@redhat.com, rppt@kernel.org, steven.price@arm.com,
+ suzuki.poulose@arm.com, tianyaxiong@kylinos.cn, ardb@kernel.org,
+ david@redhat.com, ryan.roberts@arm.com, urezki@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250403052844.61818-1-dev.jain@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250403052844.61818-1-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_022434_381373_8D029E0E 
-X-CRM114-Status: GOOD (  19.29  )
+X-CRM114-CacheID: sfid-20250403_023116_028023_37558EBC 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,123 +67,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Am Donnerstag, 3. April 2025, 11:18:40 MESZ schrieb Daniele Briguglio:
-> From: Daniele Briguglio <daniele.briguglio@icloud.com>
+
+On 4/3/25 10:58, Dev Jain wrote:
+> arm64 uses apply_to_page_range to change permissions for kernel vmalloc mappings,
+> which does not support changing permissions for block mappings. This function
+> will change permissions until it encounters a block mapping, and will bail
+> out with a warning. Since there are no reports of this triggering, it
+> implies that there are currently no cases of code doing a vmalloc_huge()
+> followed by partial permission change. But this is a footgun waiting to
+> go off, so let's detect it early and avoid the possibility of permissions
+> in an intermediate state. So,  explicitly disallow changing permissions
+> for VM_ALLOW_HUGE_VMAP mappings.
 > 
-> This Patch adds missing Operating Performance Point (OPP) nodes for lower
-> frequencies to the RK3588 device tree. These additions improve power
-> management by enabling the CPU clusters to scale down to lower
-> frequencies when under light loads, which should improve energy
-> efficiency and reduce power consumption.
-> 
-> The changes add OPP nodes for 408MHz, 600MHz, 816MHz, and 1008MHz
-> (for cluster1 and cluster2 only, as cluster0 already had 1008MHz)
-> with appropriate voltage settings across all three CPU clusters in
-> the RK3588 SoC.
-
-the general consensus is that you don't save energy when you're not
-reducing the voltage together with the frequency.
-
-For example cluster0 @1GHz runs at 675mV already, so reducing just the
-frequency, when you're not allowed to reduce the voltage with it won't
-save energy, just make things slow.
-
-
-Heiko
-
-> Signed-off-by: Daniele Briguglio <hello@superkali.me>
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi | 58 ++++++++++++++++++++
->  1 file changed, 58 insertions(+)
+> v1->v2:
+>  - Improve changelog, keep mention of page mappings in comment
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
-> index 0f1a77697351..1b018823d5d3 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
-> @@ -5,6 +5,22 @@ cluster0_opp_table: opp-table-cluster0 {
->  		compatible = "operating-points-v2";
->  		opp-shared;
->  
-> +		opp-408000000 {
-> +			opp-hz = /bits/ 64 <408000000>;
-> +			opp-microvolt = <675000 675000 950000>;
-> +			clock-latency-ns = <40000>;
-> +			opp-suspend;
-> +		};
-> +		opp-600000000 {
-> +			opp-hz = /bits/ 64 <600000000>;
-> +			opp-microvolt = <675000 675000 950000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +		opp-816000000 {
-> +			opp-hz = /bits/ 64 <816000000>;
-> +			opp-microvolt = <675000 675000 950000>;
-> +			clock-latency-ns = <40000>;
-> +		};
->  		opp-1008000000 {
->  			opp-hz = /bits/ 64 <1008000000>;
->  			opp-microvolt = <675000 675000 950000>;
-> @@ -37,6 +53,27 @@ cluster1_opp_table: opp-table-cluster1 {
->  		compatible = "operating-points-v2";
->  		opp-shared;
->  
-> +		opp-408000000 {
-> +			opp-hz = /bits/ 64 <408000000>;
-> +			opp-microvolt = <675000 675000 1000000>;
-> +			clock-latency-ns = <40000>;
-> +			opp-suspend;
-> +		};
-> +		opp-600000000 {
-> +			opp-hz = /bits/ 64 <600000000>;
-> +			opp-microvolt = <675000 675000 1000000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +		opp-816000000 {
-> +			opp-hz = /bits/ 64 <816000000>;
-> +			opp-microvolt = <675000 675000 1000000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +		opp-1008000000 {
-> +			opp-hz = /bits/ 64 <1008000000>;
-> +			opp-microvolt = <675000 675000 1000000>;
-> +			clock-latency-ns = <40000>;
-> +		};
->  		opp-1200000000 {
->  			opp-hz = /bits/ 64 <1200000000>;
->  			opp-microvolt = <675000 675000 1000000>;
-> @@ -78,6 +115,27 @@ cluster2_opp_table: opp-table-cluster2 {
->  		compatible = "operating-points-v2";
->  		opp-shared;
->  
-> +		opp-408000000 {
-> +			opp-hz = /bits/ 64 <408000000>;
-> +			opp-microvolt = <675000 675000 1000000>;
-> +			clock-latency-ns = <40000>;
-> +			opp-suspend;
-> +		};
-> +		opp-600000000 {
-> +			opp-hz = /bits/ 64 <600000000>;
-> +			opp-microvolt = <675000 675000 1000000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +		opp-816000000 {
-> +			opp-hz = /bits/ 64 <816000000>;
-> +			opp-microvolt = <675000 675000 1000000>;
-> +			clock-latency-ns = <40000>;
-> +		};
-> +		opp-1008000000 {
-> +			opp-hz = /bits/ 64 <1008000000>;
-> +			opp-microvolt = <675000 675000 1000000>;
-> +			clock-latency-ns = <40000>;
-> +		};
->  		opp-1200000000 {
->  			opp-hz = /bits/ 64 <1200000000>;
->  			opp-microvolt = <675000 675000 1000000>;
+>  arch/arm64/mm/pageattr.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 > 
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 39fd1f7ff02a..04d4a8f676db 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -96,8 +96,8 @@ static int change_memory_common(unsigned long addr, int numpages,
+>  	 * we are operating on does not result in such splitting.
+>  	 *
+>  	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
+> -	 * Those are guaranteed to consist entirely of page mappings, and
+> -	 * splitting is never needed.
+> +	 * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
+> +	 * mappings are updated and splitting is never needed.
+>  	 *
+>  	 * So check whether the [addr, addr + size) interval is entirely
+>  	 * covered by precisely one VM area that has the VM_ALLOC flag set.
+> @@ -105,7 +105,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>  	area = find_vm_area((void *)addr);
+>  	if (!area ||
+>  	    end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
+> -	    !(area->flags & VM_ALLOC))
+> +	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
+>  		return -EINVAL;
+>  
+>  	if (!numpages)
 
+LGTM
 
-
-
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
