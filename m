@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05732C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 716D7C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=toLuGzNnazL5JgsnOyMeJ6mkPFSEnk0kosdyyJ6oHVY=; b=3x7eMhb65sr+c3DTyNPQ8BZmlP
-	gbeRgD1MEtylCusR6DKvvhxzSzfienrczKjm7H6FvY3uGV/7cycFrFvpniIaBMGwxEQoqqKoUXKNZ
-	I760DsR8cE1Mf4YR6PucWpF1e0gQ+8RUEqRLdm4Sl/n81aHKMZ3ilstuLOCUsBfqVPE+Q2XI/2qbF
-	uL1mfLCsruhN+w5wqKDVYHINmOHUnE5Cc26Hek5sJxg6+LHbeI8RJL9xE60ajZmCCUc0lfytKzdET
-	lyk2x/kBtvjTUkfPaniBTRSZkoTN8IVzh7E6+EpMXvaRmN4fJIlXmFfC98deGLpdntifUYs8C2jnG
-	Uniz4IbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mMAk9EaPelGbChZLOruFGLRr/eEiVWGNREHpXNJBoTw=; b=AmXDrGcQ17knraWnFT2Uu5cfMe
+	If7e7GiOYTPWK2rpmpquMds3wHXqPIaRJ3Xjg3jC3wQThDcjdGG4Yn6IXVQJIdksUPEJp6fKFXvYp
+	WOF9XSYPVYNh08m3pZGz+WT0feShce6KLe7YuPQ+Sdv6hv7JbyFz5+GTKbPZjOdhodUg7zcS56xXA
+	M1/gNQtZXo2kNLI4dh55optUFkiPYlAsza0MCJCilrCg5w9X5OaU7IKANChbUz/Jl3LKvmebEHwTc
+	nZyPkN0GPfkg+tI6qv8hmKyBI2V09rnasnfjMqvb+gD7Y4FdgeQj3IVHHJXHRcCQKgYe/BQzlo6RS
+	C6oWbVAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HnG-00000008ZNX-2eGC;
-	Thu, 03 Apr 2025 10:27:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Gup-00000008PY7-3xim
+	id 1u0Hp0-00000008ZZE-1WGQ;
+	Thu, 03 Apr 2025 10:29:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0HPz-00000008TkG-03ro
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 09:31:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9718C106F;
-	Thu,  3 Apr 2025 02:31:17 -0700 (PDT)
-Received: from [10.163.48.25] (unknown [10.163.48.25])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F60E3F63F;
-	Thu,  3 Apr 2025 02:31:07 -0700 (PDT)
-Message-ID: <36dcb5e3-4406-4763-87f1-8054c2246264@arm.com>
-Date: Thu, 3 Apr 2025 15:01:03 +0530
+	Thu, 03 Apr 2025 10:03:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 74A2A68424;
+	Thu,  3 Apr 2025 10:03:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4357CC4CEE3;
+	Thu,  3 Apr 2025 10:03:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743674606;
+	bh=o7gzNeABQTu7OlUf8+Hv1cJWigvJUHCi3CLLd/mdR1s=;
+	h=Date:From:To:Cc:Subject:From;
+	b=NQeCrPCtpbjiB4Vq8izbENwfUgsFlt6Mos9L1Gf6iKqkgu70pb05ycku5bB5CjAEZ
+	 9uOSE9dmTQnrVxL6Kbr+hBsvfkearDcQdiEQVGN987ORMBwcRvijCaGE1ebLsLpmUf
+	 vHZm3uYsCh7CtFmYw6/ZtgebBPLN4rPthTyTqePvsj6dLENZ9sdIyb4sKIAPnB3fUJ
+	 KF+QDxCABmnM1eTwKbJ+g1VRoDLUzQtTOG1S/YBD/HozejnR/axaZfpJNEZXP8ygVU
+	 kQwLd5Ktozt/3iJXnx5Rq8kMlgPIkK28xuieskdcOGwsDvWJ90w1oLzIUr5yk7BCfE
+	 KafUpQPPd3Zog==
+Date: Thu, 3 Apr 2025 11:03:22 +0100
+From: Catalin Marinas <cmarinas@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64 fixes for 6.15-rc1
+Message-ID: <Z-5c6hCqQb3s5GxI@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: pageattr: Explicitly bail out when changing
- permissions for vmalloc_huge mappings
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: gshan@redhat.com, rppt@kernel.org, steven.price@arm.com,
- suzuki.poulose@arm.com, tianyaxiong@kylinos.cn, ardb@kernel.org,
- david@redhat.com, ryan.roberts@arm.com, urezki@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250403052844.61818-1-dev.jain@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250403052844.61818-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_023116_028023_37558EBC 
-X-CRM114-Status: GOOD (  19.45  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,55 +66,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Linus,
 
+Please pull the arm64 fixes below that turned up during or shortly
+before the merging window. They are based on top of the previous arm64
+updates pull request (6.14-rc3).
 
-On 4/3/25 10:58, Dev Jain wrote:
-> arm64 uses apply_to_page_range to change permissions for kernel vmalloc mappings,
-> which does not support changing permissions for block mappings. This function
-> will change permissions until it encounters a block mapping, and will bail
-> out with a warning. Since there are no reports of this triggering, it
-> implies that there are currently no cases of code doing a vmalloc_huge()
-> followed by partial permission change. But this is a footgun waiting to
-> go off, so let's detect it early and avoid the possibility of permissions
-> in an intermediate state. So,  explicitly disallow changing permissions
-> for VM_ALLOW_HUGE_VMAP mappings.
-> 
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
-> v1->v2:
->  - Improve changelog, keep mention of page mappings in comment
-> 
->  arch/arm64/mm/pageattr.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 39fd1f7ff02a..04d4a8f676db 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -96,8 +96,8 @@ static int change_memory_common(unsigned long addr, int numpages,
->  	 * we are operating on does not result in such splitting.
->  	 *
->  	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
-> -	 * Those are guaranteed to consist entirely of page mappings, and
-> -	 * splitting is never needed.
-> +	 * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
-> +	 * mappings are updated and splitting is never needed.
->  	 *
->  	 * So check whether the [addr, addr + size) interval is entirely
->  	 * covered by precisely one VM area that has the VM_ALLOC flag set.
-> @@ -105,7 +105,7 @@ static int change_memory_common(unsigned long addr, int numpages,
->  	area = find_vm_area((void *)addr);
->  	if (!area ||
->  	    end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
-> -	    !(area->flags & VM_ALLOC))
-> +	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
->  		return -EINVAL;
->  
->  	if (!numpages)
+(sending with my kernel.org address, hopefully not ending in spam this
+time around)
 
-LGTM
+Thanks.
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+The following changes since commit 64fa6b9322a904198589c0479dca6f2ed7f2eb04:
+
+  Merge branch 'for-next/el2-enable-feat-pmuv3p9' into for-next/core (2025-03-25 19:32:32 +0000)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+
+for you to fetch changes up to c28f31deeacda307acfee2f18c0ad904e5123aac:
+
+  arm64: Don't call NULL in do_compat_alignment_fixup() (2025-04-01 14:13:11 +0100)
+
+----------------------------------------------------------------
+arm64 fixes:
+
+ - Fix max_pfn calculation when hotplugging memory so that it never
+   decreases
+
+ - Fix dereference of unused source register in the MOPS SET operation
+   fault handling
+
+ - Fix NULL calling in do_compat_alignment_fixup() when the 32-bit user
+   space does an unaligned LDREX/STREX
+
+ - Add the HiSilicon HIP09 processor to the Spectre-BHB affected CPUs
+
+ - Drop unused code pud accessors (special/mkspecial)
+
+----------------------------------------------------------------
+Angelos Oikonomopoulos (1):
+      arm64: Don't call NULL in do_compat_alignment_fixup()
+
+Jinqian Yang (1):
+      arm64: Add support for HIP09 Spectre-BHB mitigation
+
+Keir Fraser (1):
+      arm64: mops: Do not dereference src reg for a set operation
+
+Peter Xu (1):
+      arm64: mm: Drop dead code for pud special bit handling
+
+Zhenhua Huang (1):
+      arm64: mm: Correct the update of max_pfn
+
+ arch/arm64/include/asm/cputype.h     | 2 ++
+ arch/arm64/include/asm/pgtable.h     | 5 -----
+ arch/arm64/include/asm/traps.h       | 4 ++--
+ arch/arm64/kernel/compat_alignment.c | 2 ++
+ arch/arm64/kernel/proton-pack.c      | 1 +
+ arch/arm64/mm/mmu.c                  | 3 ++-
+ 6 files changed, 9 insertions(+), 8 deletions(-)
+
+-- 
+Catalin
 
