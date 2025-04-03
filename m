@@ -4,159 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12026C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 12:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0408CC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 13:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xuYqdlGReajF5JkTxwZteY6JDEYRRB41BIgiW6cVvCY=; b=t4r3GAv9GKJ4taEvDzPVzgWI3B
-	Tnn54PXxapXrklA6LlXjYX+ZocgjVmwVkpEdXlKgVhqv2gZXaJZSFeE54u/uLemgVA7cQSMDfP02V
-	AdYzLmc85+Zyq3WtbpSRNMxMADO8ybotaeXOPuM7/WbJxQNL6I3LaHNC4zH8yBe/uSlwXwmdiczCC
-	PGc6OOtzFJZOaDgxxf1Vlf262L21t87qe2NbzW4zrCgCFh/mKYtOkUTmKV+ELXQW4Bc0Q963GIv+7
-	R27tdx0ttWTesuowJj75zj2OKXbocUH5ME1VxL04H2HHc5KY+tn0+ZLdMrdbfk21OWsTEI/y4yi7T
-	7N+bldqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tq7Ewy84FWklJ0DM2lQqRrm1CFpORg7fNcv68fsFdoI=; b=NOjb+jNIo8dS7UPXnpZCOiV/Yd
+	r6NEnDTBw1FMjzJAYz5/JoyMNdh1BObXMTERHe2x0ZKAUPjGG3vEn8LIWqPaBdmIIR8sbEX+HZaEt
+	mUnP2unWAKRbLf8dsWFd7ecB+7iYBKwQy/BmX2VP2VU/iK8nyaKMMoeFQFFJ/63WgVLYHi8Fjb0n8
+	BD2zNpg26HXrDY1xRJlPnTsid8D+da0otdZzRdzO1eWfmJWRwrqp/OyU1gD1d6eHoH9ZY0CaPPT1n
+	pIoEQ0kFsgPBgxItdlcE6zz70eY6L1CZqlDIYycrJ5p/PZ7o/Uz3ZGm5cVzuJP+gRvRzXjfGm6iEr
+	9km2MMbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0K8U-00000008rpj-39ec;
-	Thu, 03 Apr 2025 12:57:34 +0000
-Received: from mail-dm6nam10on2060a.outbound.protection.outlook.com ([2a01:111:f403:2413::60a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1u0KPo-00000008tpl-22dX;
+	Thu, 03 Apr 2025 13:15:29 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0K5G-00000008rYo-0fMX;
-	Thu, 03 Apr 2025 12:54:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sFmVjobhY2kxYokksJ0ucY2P86Wa+e6ZVcFX8Ij1ri0oU0tfjGiOPQQvbKNkXqV7QxYVPe7oEi3ts+LQXOOX7EO0947moF9GurTKPCl/XkrH9a+wa9V0lYGnsNUX/cOgcqRsFzgi4nNfcRG5lxFvSFfy2fErj6AN+iqLvM3hmyAPAScubsxWBRgieKBzM+eB2NBfdXhOq6/FbjMmr+VScg9GbISeNduAvn/M4jKQRQjWuOFaUN14dwToPJznM7ttkpeY2HjNxsusKeOc81HOz1J/5rB5M2thr6fzlGmuWBvORw3kyKI4FWWOS/YrnUK+fUqPlOo9b3twTP7/Eu7rGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xuYqdlGReajF5JkTxwZteY6JDEYRRB41BIgiW6cVvCY=;
- b=ZMvY8c0RX3QSlt2luao1U12q6r31eMLyt4KjVEg4v8XFa6OCCXEd5PWG6PNlfot7wBzzNF3afv9LFZlh6IJnnkYLSBVXYfYOAHVqex0Kddli/K0GUkbenY2p30jILK2yvA43TM8iaWf2NCwEXvNQTyXnLEKqV4uKF8j8XmvkbRKcmYTvugmv4w9gFlYR4rsnZjrIfY8x3g7s0xXHrylMujXXV+OrBTY7LKggv3HSVca3suTsX7QfK6DBqgPpdPlTTfWMWkELgxzWWqZLjVGC9QdF1sZ6Yz+guEt3LPmUHofUhhnpmYurG2vl0O1dJLKBnfSaKUXlaTmfH8mzd4Ghwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xuYqdlGReajF5JkTxwZteY6JDEYRRB41BIgiW6cVvCY=;
- b=Jr31Rxn6JOl1/msczvrR9WD3xfzsCB2rW1WlHC5RUJksU7cS1ti9QH0viAHXfFb+ocXTDEWvakmMl6Gwl7PfG4fRbrVVayl9soi1vGo0W69BF4kxwFmh8oDnsAZH29HsmnSAvAEw02HIJfmnKhXpxU5k5JfTAL2Y4fVGQjmF7S2eh0hJkRWf8RZ+BM7hXAIraI7IxiMRB1xEuTL21RfIhnIwQX43ZPlSigXBKUTH3SwlgAPkAiR2gOrCUdsybKBLrwMz8f8rqmsJTFQu9NYOVchM9PaDacK+PP2ePh2LPDof35syzYSfnK4eXrTmicrHNiVIqA98DlGxIx719tmygA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by PH7PR12MB6719.namprd12.prod.outlook.com (2603:10b6:510:1b2::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.43; Thu, 3 Apr
- 2025 12:54:05 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.043; Thu, 3 Apr 2025
- 12:54:04 +0000
-Date: Thu, 3 Apr 2025 08:42:09 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Pratyush Yadav <ptyadav@amazon.de>
-Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, rppt@kernel.org,
-	mark.rutland@arm.com, pbonzini@redhat.com,
-	pasha.tatashin@soleen.com, hpa@zytor.com, peterz@infradead.org,
-	robh+dt@kernel.org, robh@kernel.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, rostedt@goodmis.org,
-	tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <20250403114209.GE342109@nvidia.com>
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-10-changyuanl@google.com>
- <mafs05xjmqsqc.fsf@amazon.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <mafs05xjmqsqc.fsf@amazon.de>
-X-ClientProxiedBy: BN9PR03CA0571.namprd03.prod.outlook.com
- (2603:10b6:408:10d::6) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u0KO0-00000008thG-3fn8;
+	Thu, 03 Apr 2025 13:13:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1743686000; x=1744290800; i=frank.scheiner@web.de;
+	bh=tq7Ewy84FWklJ0DM2lQqRrm1CFpORg7fNcv68fsFdoI=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=jfpaWPDnqJlnn7d/eeKA+Q2dZ6gal+i27mW+REj0gdj86oe2hrp1rhPGmf7hy4Ps
+	 ucG7L7EDOF3MG/YJSYMNsvXaoeAKKiuPIFKvghBUxWs4T0rF+acXD/NDt/siXGzgj
+	 X8f+hJQZhTuPvqizGbwQAxuDK/ujk+GUPNZiM23PgGRC+xqSE/cfFEUrP53QV4RkI
+	 /N9DJ3bgz0roFD3YAqpyx7Bhmo015EwlCP2gSdoAbC8cJABBh/AsC+r5dxNClp5Tq
+	 L8ZyLbPeuNYG25J7trpGWIC1FtQp75NBD/OGH5SqZaeU8skoKP3ftavD+VnXM6vfa
+	 S+xM5OLloka1ig34xA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.30] ([84.152.250.142]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MZSBG-1tco0U2pmQ-00IJ9N; Thu, 03
+ Apr 2025 15:13:20 +0200
+Message-ID: <667d272f-2b51-49d6-84ea-1156027e00a7@web.de>
+Date: Thu, 3 Apr 2025 15:13:17 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH7PR12MB6719:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f0046fc-1f1c-46f6-c319-08dd72ae9d55
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mRYJAI0D/O9Ti3PZG7xWTBDvv1vEb/cI0KiF0z51y+6BWR6alb/sRKFXEtGm?=
- =?us-ascii?Q?MGU5h+aXpryJVIgmPokW8eemW3VyE3Uo8/Q12NwpWYj40g2iUuTiDNHfVIMt?=
- =?us-ascii?Q?r03MtaODGl5ymKFKXMx7mIX2hxryzdLZZLZSSjbfR1fg7SMoQT6RX0ZvppOR?=
- =?us-ascii?Q?K1YWxhC+ZVoO8u0V4C6ogJfNI9rHMUGiJB9lUrSYuTGCqcbYRmzCUookA9gl?=
- =?us-ascii?Q?C7NwUBLk9oM+giejB/nEo3z3XUYkU7urqS2Yf7lLxVmbp1zd44DboggOwvJy?=
- =?us-ascii?Q?0Yy4CsAkjghtdw/DV89dXb9a37SeuazQv6Jf9Fc2xjSn3bMLOmwCccDmN3T6?=
- =?us-ascii?Q?e46YIWI0fbhPceQ06TZshCM3cJ3BUlOu1SVAXqa/3vAHI5LEzTxk0u5fr70i?=
- =?us-ascii?Q?Iz0KlU+x63ThAehJzK6N5d7shmNPa5w5MDrcGBLXQ9Q9kZdcErYrwm1DtWos?=
- =?us-ascii?Q?mzgawDB33zb8my2UtKVfLdq4szAm0AA9S/fSGB2hOMMogomD6Z3ddWRlJJx+?=
- =?us-ascii?Q?nR8j1gprdoGwareDeFhEiNsU/zlE1SxW7uk7sWYxhMFnUkwBiKvdnBx1BYPw?=
- =?us-ascii?Q?idpNzUWW+gUWiCYFI0le4/+goAOqcSM2fqRJbyJn7nxy2VFQR6xgV+Zhdz+n?=
- =?us-ascii?Q?V1KSk2Ysu8xuJrcXt21kPc6ctwXG9UhgfJ4jWCmOAwrNXAEHzWp9T8hvWO6I?=
- =?us-ascii?Q?XtMEYlMIjVP+rZ5qyCGuc4JBgdmsmFzOLuSnfWic580GqHcn1kiTC6ceT6Af?=
- =?us-ascii?Q?0QEVfdlF14b8QPmbNfRwV2vfcbXSRuIuNno+dCEvlRnkRDvpLzzBk1hgAlTV?=
- =?us-ascii?Q?DI2rNbDurs6NVZu6rpHXsilwGLuf5XWOiLKdVGU1juDhLZBVNE2DF0yHO+aW?=
- =?us-ascii?Q?YNdT5TuXrSneu8TMHImbVWCji7C2rwL9w9PFp3EeBMKays4+L3rHHDx0rlw7?=
- =?us-ascii?Q?RnYQamZOAEpdEETUEYAd3jcL8cU0i2cki8KJo8JfWbEhbAxYwJY+LmIQ4nsJ?=
- =?us-ascii?Q?HQV0NDudUtvYZE2etV0S/FDqhtJHgddry6QOx+5NtLHqxOz35MhOzWKBHGIr?=
- =?us-ascii?Q?eirxPJ0meKjPdHxc8z3yRkB/YuYGz0tJG/NcZLkobJFcHf5EUwZ4GDkB0O3W?=
- =?us-ascii?Q?9j6EgMmG3erwu+8IrUogeDWU1r8A6Qp6Zl31ujboQnmUcahcVXm1oM1baa4n?=
- =?us-ascii?Q?E/gq3Xl021AXMN6/CO+c4luNGxCsxDBZ3GMWK3RPH6ngHMUhM2f/ahK/BaNq?=
- =?us-ascii?Q?CNrYmV2JKjeLAOh7WhlmNctVUQWZBuoCR92WDMXO4HXDrjXu7WUETuqv6+4f?=
- =?us-ascii?Q?fCWIIHV6kbT8vZaA1W9Jw+bgGXTmSzNicPXRgRQqn681cT/FW1YR61gRrV0j?=
- =?us-ascii?Q?yqAshWQEUNh+7TFgKloBYJTgmN0D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Qt4FcpwCgI4MlW8uktLxaZqdMSmuUpQQ00L9smsDNGsykc0VBzspu8HkgcX8?=
- =?us-ascii?Q?wvXYHOm1duOpCTFk8LgEEM+62QtqnXL48EP68DSMLYiP4fWQcJP90Rrd5xt2?=
- =?us-ascii?Q?ygdcMH5eWd7FcnvFSB7xAEdvmOXZ0iIhextMB7nVrIdUgFokjOb5upzpfGiT?=
- =?us-ascii?Q?9poAS+8Acj058n1HegwYjfXsjCJXxxD2Ax5Ugq0s03pLMWP6jXQbxQHOaAWH?=
- =?us-ascii?Q?l0LonwFXpBBb5tsxv2YNwIIjnOXa5XweS3+VpRXzHfxbjwqaVMGzUofQBFxw?=
- =?us-ascii?Q?AfTyGf1hkzJcJ7Z9cCQGQNl0XQ8V7WT9Z+KVm10SgypWn8JtD42XFZ6dsqVL?=
- =?us-ascii?Q?5C9CwDR+qM1oFdEzhlshChqAKcZ7Qp1TxaBI+Xlrwv8rsjlR5uVGUEDpR8RF?=
- =?us-ascii?Q?nxiD5alkKZlHUKNBEiNfU/HEJEc7/YF21Nxc2s1+39DDRkwvazQQb5cGE2ON?=
- =?us-ascii?Q?/nihA1S8y5vg6s0UFl2Dl1gP5yWZezLWI+nmZkZSmVEd9eCc51JkJWSriDfV?=
- =?us-ascii?Q?P8yMcPZHW3t90yj6vHFBeVS0RPBUzY+Ytdgh+D2/0614FyY42wJeldSz5+NN?=
- =?us-ascii?Q?MlFhnIPQyGOx/aYfk3/p2Roz+SiATlXDLyn8xEcSsGhVJMvOv9atr8XnDhQA?=
- =?us-ascii?Q?12xfQy7kHP+NYYBW/1mzJd53qSschx3SkSn3K22jDf4cgja03bf+7F8yYLw6?=
- =?us-ascii?Q?N6wvROJhB3n4JN8t4jg8NSjicntHsLe9/C+sc29Ca8wPX81ZOOx8ggRrSVen?=
- =?us-ascii?Q?BfQ7uY3MgeB8jMrL9Vp6gB4n1RQpWen5wXRXHm7ZrD09V3s+bMgErYazoL6b?=
- =?us-ascii?Q?XM22TPV1IuzAb+zpr0vAXWQHNS6a/h20TSQZmHhDsegxHBO9wFETZMcoRjsB?=
- =?us-ascii?Q?zFXFSSUcPQHjlrfH49kVat6rf2CsWN2qtMnpcybOiVroErpMM+w3J4xQgGDw?=
- =?us-ascii?Q?xciBzDvKgojWIV7CHGhMxnSnUuAEftQe0GtMGhAmtHNGi/87FNJgaCmiHXbB?=
- =?us-ascii?Q?rfKFz/PwhObzlihlUrnmYgz4tTgKpRA2S5WmtrHxOelNoc4mbRaVpWWDQ7Lk?=
- =?us-ascii?Q?2R4WackwduunGsH1KzIG5cpa7+WddgsmqBFifXIQRE2jZywQh+ysdIjYWNM+?=
- =?us-ascii?Q?mTljTR0HA3CSlrh7svjWtE+TR54/l4LkGIDeYs6tOoQ57q8gF+nfQ2Zc+yES?=
- =?us-ascii?Q?ZN1D9WEvnKrF2ROSk7To7I2297QB6YRQzQjQJTRpsSxZAbJtzsfc2wkPDL21?=
- =?us-ascii?Q?fx1OXhnyAW+9/9SC/ICau8QOGcE6O5HjatCaf9roQOBYMiwWsldGVp2bgTZB?=
- =?us-ascii?Q?90/tVDqGkTluqY5Yo6WhIJ+PnpQXv470UkygeG+G/MLMy99qkVNDh6IRwFXa?=
- =?us-ascii?Q?sHzUD/HmeDuD1t/CEywiaW0qFjGMqAeBb2TXyahkmV2vQ+tkubKgTpqGP2zb?=
- =?us-ascii?Q?RFTssulVopKuNMhinTd5/ZfUgtzX2paDWbxVz/QHidBvFLenlL9BI8Z/GLOV?=
- =?us-ascii?Q?F0GqaMpEntAuSh9rlvrzCNc8Teex8IYPudYD6Q/oeUP2gTIJgTi49QPSP0En?=
- =?us-ascii?Q?tzax/o6vIBEw11omS0ffgsT1zrgZkkwMGjyh7IiE?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f0046fc-1f1c-46f6-c319-08dd72ae9d55
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2025 12:54:04.8747
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jBofNxr5wkxJUmrZ8Jj9avhtRVwV/dHn5fAzNaUjM4KVWpWI3dGC8U+SlFmFxX9/
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6719
+User-Agent: Mozilla Thunderbird
+To: apatel@ventanamicro.com
+Cc: ajones@ventanamicro.com, andrew@lunn.ch, anup@brainfault.org,
+ atishp@atishpatra.org, bp@alien8.de, dave.hansen@linux.intel.com,
+ gregory.clement@bootlin.com, hpa@zytor.com, imx@lists.linux.dev,
+ kernel@pengutronix.de, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ maz@kernel.org, mingo@redhat.com, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, s.hauer@pengutronix.de,
+ sebastian.hesselbarth@gmail.com, shawnguo@kernel.org,
+ sunilvl@ventanamicro.com, tglx@linutronix.de, x86@kernel.org,
+ linux-ia64@vger.kernel.org
+References: <20250217085657.789309-5-apatel@ventanamicro.com>
+Subject: Re: [PATCH v6 04/10] genirq: Introduce common
+ irq_force_complete_move() implementation
+Content-Language: en-US
+From: Frank Scheiner <frank.scheiner@web.de>
+In-Reply-To: <20250217085657.789309-5-apatel@ventanamicro.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:XEpgZJH4hjXKrAVtN6WYfb76caRsH3G/1YZh0k6iv/5gAuOD6JZ
+ /5tde3RwkXrkd/Pey4Lz/oZqXIOJwitxEp+fORe/ccUTmOxTdKdt1JHSPo7f6gtuJfxNzDZ
+ CT0pBBS+/1TDZFBQT8c7xRTvQ04Ld/hNbLksOh9snnDnKPRk4pMuFmuPo7JqqG7e0gsfnuM
+ o7r8alGP5hXS3FrAzPIkg==
+UI-OutboundReport: notjunk:1;M01:P0:Of7XFgulvNQ=;OVh5LHzbZMeUCHWhdl2nXotRgit
+ jM6j1jgD5opSeNE7yy/Joxn4dWxgFOVQNAKd/9JrMF5rl1I5wvE1WrzuIA55muGKCafDi+qNf
+ VM/TKsQ5FYBPmRxIMIODE9vSzoN8nXhbs4547OCs/oQraFxSR2fQCUvX+/XD/H2fu07WZxDF5
+ JiKyCXLZkwYuP49khkI1RPsWSuznFlZUD8xkeB8OkRIsOAAn1AmhQGeWaigIF8080IM0X8SJC
+ /Q0MEC4U0PoYB6fVozKBItqDoDSyPT8v2xUPgpM4eqIEUz/mnXKAAbNZqlQhNx7VJQwkdljWy
+ hanRggjC+qcyvNnLv4+wWV361WVPE0XqVtSWkPJVSerVB5ZvzYYDvKDy3rAZSunshNvPPkjjd
+ nF2CDEmIkniaETkOsdfzv/bGnskgZxhNsUDmjt12xjJgtp7/OfqAJ4sV12Ni2o06jYqHCIntJ
+ lAv1rJYy7HWdYf1eu5xtCgIz2GZossoQJvhoC6EMXI4aAS2+xuYfuaoQARne38XIb6Vp4yv7p
+ LJ2UP9ONGwFBoW/2qaBKubFr/6edJ0npfgdLzR0HkovRPwe1Xw1xCOO6OOwvVoklqrUOZ2iQ3
+ EJVg8HRlqql/7e0imy9xYuEaQpU6K7d9u4FYppWQILPTr0N8xW1vJ9P0YUf7Rf4znCKxsoS1F
+ MKPB83tuLCXlQ5bG+q1Q9bxzHNyPNlhWh6AuWdY0+XbRKYXf1JTDJUlxSn3J464O2RPfPmqdH
+ HDVSisM8e0I7C2Fzl9Gi2irOvjG78Pena6EpnNuhC2GbMVwM0HuEH9dVI8ZqtVQp9koggzIzA
+ h126Bu/qYCnPX6wXzAfJAnf4X/8HbAQowX13W7CCxhdd4U+PioOYYWXHPkYx6nO5OiCCvJ6wC
+ t4DcaQPA6IPUC2xmwpZ1iuyUMpNNT/3wbfPwE64sa6/CZXKN9f+9j4UnsQDKfw4okD1iQnwhd
+ Me4LKEO/bYQrmX4ZB7PwRFV4KFK7498IYaO26+frpSRi3Qdo8SKDIS462jGpd0qsELf3rporN
+ VSGoBRFYikvqgrNVjiF9ItOmcRROIjXooW4kWaQj0kEyKbuqUP/QBtx+e553himBLKWRbXQgL
+ 2mT4LxpzgUB8pez1+EeTuoBBpnKPHLs8Lb5+MyIBhjxgyhlQcXmCWF8K/4PyimOqbld6BVBkB
+ b9c897IE7qU4qZr4claegKPHTOt4zT3q3ERrHiC9shhf1l2jKNJAghCAwuQFOgZ2fudl7W8dH
+ KvEZ3v9n2hpNTq6auTCW9guBFFRV8x/yI6TBWhZCNwS1me+uL8jO2BFF7UsXh1k0o21Lr6g01
+ 9aVgDoQ7l/vgmrgyB4Q8U0n33dGHKGuujhqJuFENBBhBe/faxIMPYUI8/pmGoK9/KWTKz1rqf
+ Mtr0mYNyydPx0M/YfvQCBhIITMLSUsU8z8F7zjYKtscMJFtszwQTLMRjqgV9A/k+5dxBAIvcW
+ KOMwjXQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_055414_196767_6A5974AB 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20250403_061337_306650_88BBB5A5 
+X-CRM114-Status: UNSURE (   6.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,20 +110,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 07:16:27PM +0000, Pratyush Yadav wrote:
-> > +int kho_preserve_phys(phys_addr_t phys, size_t size)
-> > +{
-> > +	unsigned long pfn = PHYS_PFN(phys), end_pfn = PHYS_PFN(phys + size);
-> > +	unsigned int order = ilog2(end_pfn - pfn);
-> 
-> This caught my eye when playing around with the code. It does not put
-> any limit on the order, so it can exceed NR_PAGE_ORDERS. Also, when
-> initializing the page after KHO, we pass the order directly to
-> prep_compound_page() without sanity checking it. The next kernel might
-> not support all the orders the current one supports. Perhaps something
-> to fix?
+Hi there,
 
-IMHO we should delete the phys functions until we get a user of them
+this change, specfically the introduction of irq_force_complete_move()
+to `kernel/irq/migration.c`, strangely breaks our builds for the hp-sim
+platform (i.e. Linux/ia64 for Ski):
 
-Jason
+```
+  CC      kernel/irq/affinity.o
+kernel/irq/migration.c: In function 'irq_force_complete_move':
+kernel/irq/migration.c:40:72: error: 'struct irq_data' has no member named 'parent_data'
+   40 |         for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = d->parent_data) {
+      |                                                                        ^~
+make[4]: *** [scripts/Makefile.build:207: kernel/irq/migration.o] Error 1
+```
+
+The reason seems to be that "d->parent_data" (i.e.
+"irq_data.parent_data") is used unguarded in this function:
+
+```
+void irq_force_complete_move(struct irq_desc *desc)
+{
+    for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = d->parent_data) {
+        if (d->chip && d->chip->irq_force_complete_move) {
+            d->chip->irq_force_complete_move(d);
+            return;
+        }
+    }
+}
+```
+
+...but "parent_data" is only present in `include/linux/irq.h` if
+`CONFIG_IRQ_DOMAIN_HIERARCHY` was selected.
+
+```
+struct irq_data {
+    u32            mask;
+    unsigned int        irq;
+    irq_hw_number_t        hwirq;
+    struct irq_common_data    *common;
+    struct irq_chip        *chip;
+    struct irq_domain    *domain;
+#ifdef    CONFIG_IRQ_DOMAIN_HIERARCHY
+    struct irq_data        *parent_data;
+#endif
+    void            *chip_data;
+};
+```
+
+So I guess, either the requirement in `linux/include/linux/irq.h` needs
+to go, or the use of "d->parent_data" or the whole of
+irq_force_complete_move() and its use needs to be guarded as well.
+
+Cheers,
+Frank
+
 
