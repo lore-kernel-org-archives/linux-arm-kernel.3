@@ -4,52 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7B0C3601B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 11:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C14FC369A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 11:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xCv50BhoaxH2lnmlF0iqAIlsGRDtP4xB9i//TT8B0g=; b=GWZVFhNBAutIyvN/VlJTbFkdOr
-	73t3Ed0Cd82smIMCG+xMZgIraBaAKuj9wnDF5nGcgMUgIKmyuIea5W6qOYXaWbsElVTEG50A6RSli
-	AoWVy0sY31twzGxt8oO9giuozumgOD3nBgK/KPR3QTSk+bGOyw0SD2YBI+cnT2bzso6+Ti9kNoxt2
-	2GevgCb6K9HnuhV+Ze0jlSHIv6KaXhxCI6C8HN3zcLKUr80Twu+C0wD7Kd+14xr/0i/WyLEulWr6X
-	pZpy1EhRB4fGRny20m9bQ/9B/OXrqKYhGpTCN/54dm4z5ZMYEg0gxNQ5TtgFQGG8lAGY4Tu25qRL3
-	dT21mfkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QDzHChIZASs/2o8/PGtaK4obI9bnYE+zAI0tToZUQRI=; b=V3GXkqMnYo5eYY38+HROprJYf1
+	Fr9pzI7zwuw3Gb///v8yBo/dW0/V7GbM6NJNUrqb/XNFkscJmXkLi/SlrXC/F6u/2WSYXOMpjg6Z7
+	W+F2WgAH3uXCIkGdjW6EIY2rJcWHtVaWEm8n7eqB9sjQxdwEpDfC7moBFTUxz/Fex/QAceHVK6eQ2
+	sHs+L3ka3H2vvuKbscqKs80ctIpVSoMOPtl780HZZjT15oO+5gRG9P/z5AX20s2vbNlfwm7oL+6pK
+	6six2ijNZq0YyWD0U2ffOMoR0JQ6P8bTYU/JBGLl7LqI7XkcFrfKpoLIZWqXVR1qnPtNmY51PfSqS
+	VYg9OOZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0IXR-00000008fRl-1mns;
-	Thu, 03 Apr 2025 11:15:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HrD-00000008a0Q-32vC
+	id 1u0IXS-00000008fSD-2u4f;
+	Thu, 03 Apr 2025 11:15:14 +0000
+Received: from mail-db5eur02on20602.outbound.protection.outlook.com ([2a01:111:f403:2608::602] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0Htg-00000008aDw-2HYC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 10:31:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59817106F;
-	Thu,  3 Apr 2025 03:31:36 -0700 (PDT)
-Received: from [10.57.71.20] (unknown [10.57.71.20])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2C1E33F59E;
-	Thu,  3 Apr 2025 03:31:30 -0700 (PDT)
-Message-ID: <d3f67b35-d3ad-4c84-88a5-8d6ce1a7b3c4@arm.com>
-Date: Thu, 3 Apr 2025 11:31:27 +0100
+	Thu, 03 Apr 2025 10:34:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DLMSp+q2sM7AKdYTPBoUUGL2PyXxf2X/kTOjqf7cpkzv72T3G3vAoWB0P8y1OrFciqNQcsgE9YntfhwippFY6zaIv99pXGBJtpnLn630K2FVbx8BaehMNRdkLJG8kHDy6EaEc2WpdSrswk1GD61Zq7yH+RF4cXIYsNFsdZfFvw0w4o8TUnvdkY/3BsUjRboSqpGGPcjjtSe67NDiKsHzXU0Cvucx171JHTEUsAcxFcMJbEbldDAU7od1xKW9lxNZnQUixkg9lQyQKucbNZFILQ2JgURzCOdfAR2/uhTlJ2bsypwRVBqZxrkrl/v14iwYR+K41W2Dmu+QAhUmtJDFkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QDzHChIZASs/2o8/PGtaK4obI9bnYE+zAI0tToZUQRI=;
+ b=kRGREfdpL3VxtSEwZZdiDPrEEHiM8s+/3YrQ//b3acOr7Y+CV3jJhGmr1FhR+i4kh7RXGl1RQbwcekhm9GmNfO8Hd6rq7MBejUUEZkvEIzzjR8cJ9sdPDpZONSjv9Ck27uG/AyjKio3yEHipLu+6mECWq39iHZrcAdsrGaChiKqS9jD2OoGSMiSWx44qar0vc0KaYDAczMIwkZxedGc9QgQNTKBk2jr3Ly9bRBSnhumYgjy7RvZo6+eew19ljTrBE4rgGObUz6srFS1TnOekuMGG+esseQhofky0T/0PSr9Y43VJXO3U0AF1pHEmemWeIBohyzybIIYgC1jAxfw3Wg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QDzHChIZASs/2o8/PGtaK4obI9bnYE+zAI0tToZUQRI=;
+ b=mvjT7qGTdAB8EhJsG7J28Ta/7SzTcqNN09NRHumYE6/MAyASUtLcIWHle/vftbaKGs0UoUx/8qLWklvysIvXAiTzGEBDNegytCj+9Q0bbTgXl6X8YMPMDuawBNvpFOotZV3MORGWic+IcIFhmC0v2i9PCr+n/vwJCkd+oKXYPyFuPYEPZsD7p5Y2AXwaF7eQ5vMdkV3cfiAFN8Lh6AqR/JYhNdSKMNmAHJRcn90vL7At4VIsMxbFZtVPvmgjvGUEvRPTQnqv7vMBEcEs8+/qyGF+4k12s8PUR4YdtgurkJReZBXYizYE7aEVjyW8bbuOK1S7Xgd5+mqDpU4REDZ8hQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
+ by VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.54; Thu, 3 Apr
+ 2025 10:33:57 +0000
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd]) by DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd%4]) with mapi id 15.20.8534.043; Thu, 3 Apr 2025
+ 10:33:57 +0000
+From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	NXP S32 Linux <s32@nxp.com>,
+	imx@lists.linux.dev,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Subject: [PATCH v9 3/4] arm64: defconfig: add S32G RTC module support
+Date: Thu,  3 Apr 2025 13:33:45 +0300
+Message-ID: <20250403103346.3064895-4-ciprianmarian.costea@oss.nxp.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250403103346.3064895-1-ciprianmarian.costea@oss.nxp.com>
+References: <20250403103346.3064895-1-ciprianmarian.costea@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AM0P190CA0015.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:208:190::25) To DU0PR04MB9251.eurprd04.prod.outlook.com
+ (2603:10a6:10:352::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] perf: arm-ni: Unregister PMUs on probe failure
-To: Hongbo Yao <andy.xu@hj-micro.com>, will@kernel.org
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, allen.wang@hj-micro.com, peter.du@hj-micro.com
-References: <20250403070918.4153839-1-andy.xu@hj-micro.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250403070918.4153839-1-andy.xu@hj-micro.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|VE1PR04MB7216:EE_
+X-MS-Office365-Filtering-Correlation-Id: df245145-7930-4e43-198e-08dd729b0a4d
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cXArN3FSSEZZUWZRVFJDU0F4VnFiTjZHaU1kdmRCV0RBeEIyOHZvSUREcDRR?=
+ =?utf-8?B?cUVRNWJyelJub1pCSlhnY1dBZmJJT0FJbkpKWlpQbUtlU0lpUTdQa0Z6NFhY?=
+ =?utf-8?B?OFlya2M1cHFEOHZ5b1JWU2s2ZFVMdVZBdmJORTM2VVBPdXprTllhbnYzcThx?=
+ =?utf-8?B?R0xOOXpvTFp2U3dJejNXeVVsQkVxaTV5Y3BaR2RuR3lpOWFpRGZtcHZVWUQ5?=
+ =?utf-8?B?NjE3Wm4yeU1ITDNzUTNmYjBhaDVndmpNc2dkY2ZZdGREVVpRRVhRQW9ubkFJ?=
+ =?utf-8?B?bGJMUTVFSHBEaXVPQWRiVCsrWUtPemFSMUp2RE9SNkcwUkpnOVN5NisyRkY3?=
+ =?utf-8?B?TExEQ1B5biszQ2N2bmFQK1M3MllpaXpyazY5UHJFQU1haEVjelpBUmR4THJH?=
+ =?utf-8?B?M2ZpaEFxbDE4ZjZUNzcyUFJMM0x1SWRQYlJuek1SVWhURjRyK2pPV3EyUjZQ?=
+ =?utf-8?B?dFZiQ1J0TU1xSHlqYlBNei9ZWmpTcVcrK05DaFFwdElCUW10Zmo1MnlGZWtX?=
+ =?utf-8?B?bGJxcU9EZkVtZ2IwbEMxMUxBb3lkeFM2aXd5VjBGQUVXZ1NZY2NYRzZJUmov?=
+ =?utf-8?B?TUFjdUw4MmFLRnI0S1lZYVZuRUZFSEdzWGJCc0l6ZDZ2SS9yTXBJUDZQNFRv?=
+ =?utf-8?B?QU9JeFJ2d2VBUlZpNHBqOGdVQWtTVWFnbHJRL2l6bUE4UER0MzFDZ2pWKzlS?=
+ =?utf-8?B?U2NnUHptWXJmd2dQVFFIb0diOFd3TXNEbVJRcEFvU1NFTzJZenl4elN3ZWYv?=
+ =?utf-8?B?QkxyV2V3d01ORU4xU2czb1JEQ3prQkUzVFUwK0V5dGtPeTNGaFppK3JHcWlz?=
+ =?utf-8?B?UElmeWY0OXBDTDBpakJIYzVZTGF4TUVlMm9vTzgxUTJOdTEvaEw2V1ZHSzZ2?=
+ =?utf-8?B?NTAzZThDUE8vejNSd0lLb2pWV0EyZUt2eHVXTGM4NDB2am1PdjVZRGFVYW5W?=
+ =?utf-8?B?VU9NMjBqU2RBeVpaV3BZOGRUTHlLdDV0QXozMVQ4WjRXRk8veTJuOVc1aXRp?=
+ =?utf-8?B?OG8yMVEzblFid1BWZVRpb1V2RmNEcWl2emE1Tk1xSURCQXBrSGVsTTM0dFIv?=
+ =?utf-8?B?aGRVQytYeCtMSlNHYk1UMHV2QmtzUXhST2taMklwczlGcFo0TVNtNUtFMmFq?=
+ =?utf-8?B?dklmOC9ZUEMxR1RBNXI5Y3d1SkQxRGJ4bWtyOEF4Vkg3SHBaaHNpSmNhR1dX?=
+ =?utf-8?B?SzVXMVUxd2l6ZGxjekRnOFJGd1owek1xdTd2UnNSV3R5UWpwUitPZmhmZ1Q3?=
+ =?utf-8?B?NDUzVllSSmhCcllVNVJpNmwvUEtnY0lkK2IremRWWVAzNXRTd1JqSVhpdy9I?=
+ =?utf-8?B?T3lIRXhIa1JubWlRbm9DeDgyS2dqSlNMZG85cXBFb2Q4MXBnMkxMVHVHTHVi?=
+ =?utf-8?B?S1BZQ0RSVWJ0M2VXVVZIS1pveXA2NUFxSFVJaXI4WHZpTXRwYmMxWjhkVjd2?=
+ =?utf-8?B?eFBBNVVMYW5lUGVCd2gzV1kvRkJkVlNGSWErVGUzclpUQnVwaFFkc1RqU0wv?=
+ =?utf-8?B?QW1KVTlXT1R4TktvY0lkUmpaZGs0cWwxYWNjSlpSN2pYV2dENjZhaXMwUUJ6?=
+ =?utf-8?B?dHZUVldDTzZ0aGNCSVhiYUtyY2FheGRHanAwSGxUTEZOZHFNNWJUbVJmamhQ?=
+ =?utf-8?B?OHRoOXh4S3lzcmNBZ2hPYVlZRVQ4eWk4UTdybHFiUnMvRE9uZ1p3ZG03S1Fn?=
+ =?utf-8?B?ZlpWOVBsRXQzUWZRUDQ3OGNjOE5Fd2J2Y1d5cFVWbTFUbzVETXRyWVQ5QkRB?=
+ =?utf-8?B?aTRqYW9mdStDRGorTFlFeE5uTStCOFFmN3lHdnBGKzRpRnJocDl1L2NUNFl2?=
+ =?utf-8?B?d2l3bkE1dFNwbkMxaTFpOUQzc3J4Um9jRFB4VUVpeXlob0VuWG9aVXgwcWtj?=
+ =?utf-8?B?bnlZVHMrYWlxWk51REVRVDhld2N3UStyWTAraTRGTExPeWNpWGhQcEIxcVJo?=
+ =?utf-8?Q?w+Wtck0mSi0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K2dMeHNYYTFDNGFqWGkzdFVuald0Ukk3cFJhVCt4OFpMc3MrRStIVjI5Vit5?=
+ =?utf-8?B?V3FJRldoSnh0cXIwdTF2V0N3SEFiQmRpQUYwcVFUdVNOb3ZvdE9qNmgvMjUy?=
+ =?utf-8?B?TzEvUVVXdys5WkNEdmcrY3YxeUUybkx2d29mN1JvUTVvUDJJT2Q1bnJpQk1j?=
+ =?utf-8?B?dUZZdWg5ZkhNc3BhOHp0ZTdGT05ScmtrMkF6eHUrcCt3azNJUUxjQnk3VTU2?=
+ =?utf-8?B?M2hTRW9NS2dmYkFzK3dhMmJTNlVwTE5XRlMvVmxwTGlXL1Y5cXFUMWV6RHQv?=
+ =?utf-8?B?cGhsOGZhUkVIdnZMSUpPb0IxdVJlTFo1THlwSkVFM3kvNkE5T1Znb1E2NFRW?=
+ =?utf-8?B?am1DV3UyYmdtM0RTb3pJbitzR3hZbXBSVkwwWXM4b0Z1T1JENTZ2ekJHcW1M?=
+ =?utf-8?B?RjdWdllzUVU4RW5tUVZFVlozWFBUNE45aUlmbDFZTTFqMUdoRnZhZXo3TUhx?=
+ =?utf-8?B?T0xNUVBQUXlGaVZGaVFYUHpRdG04MHA5dUpnUitRRFJEZlczWVVZdVVZdURO?=
+ =?utf-8?B?M0NBcTRyUlZ0cWVVSXdXeUtvZnJocmtRZGhpdXpxcDJOalFYemRHWkhTaTR0?=
+ =?utf-8?B?V0tVUm04TitUWVlzdHRSTmhlZW8rcjhnV3JZdVlMR05yNFFDMHNGMjVXcCtF?=
+ =?utf-8?B?Rzl0MXpFVHF1RGd0WEhvQk05WUc4K0xjbnlpK3ArZUlOWVRwY0RnSGd4dk1R?=
+ =?utf-8?B?RkFkZ0lCME9YK3RCM3ExZGFsSUFldmJnbDZ3OUVockp2MENuc0FxMjFCSnhH?=
+ =?utf-8?B?dFJzdk9NRmRvOUJBRE41UHc0QVdTb0VsMmdDN2Nid2NtNHNuckhySUhTOXBQ?=
+ =?utf-8?B?ME1wdzZjRTl0WW91R2FBMUg5ZEN1QjkwUnQ2YjA0ZVpCeVZRaFY1ZW5aT3hC?=
+ =?utf-8?B?MHBidmxLaTVqaVRqZnRhRk1TSGxQTVFMcmpFamsraTNGYk9xY2tOOTJYaHUr?=
+ =?utf-8?B?cDdBayt3RGlXejBLWWUyWHU4aVFHU1ZQa1VtZFBwNHE2RnduMVRBYUw3UFZt?=
+ =?utf-8?B?YkhBTFhSUHVGSVJoYnNqeVZsazNrbmlXZGNQOTF1MWM1aFZzeE9xL2kyQVVy?=
+ =?utf-8?B?Wlpzazk3RFZVZUZ2L2FyeitXejJMNE5NUjd0ZU9aMERtSVFLRnQ2M29vRU5C?=
+ =?utf-8?B?UytwL3hXbDZ5blhiZGhCQ2VxdmcxRjg0SDY5UytiNmRmOXV3ZEgyQVBuOEhN?=
+ =?utf-8?B?MlQybVg3UUF4ZG03UWFjOHduV3l5MTkrcG5PZUx2MUpaYm5sQnMyeit2UEhl?=
+ =?utf-8?B?RHBWVWxOK2xxeDNSbktpZzkwWmpNMmUySnF5cEhRV1dtdWo5NndKUERlOExk?=
+ =?utf-8?B?L245WTVaZW9xcXVqQ0Yvd0pJU3NHeFBTbHdzeTh5MWZhQWU5UVNmeW1UbnN3?=
+ =?utf-8?B?TmFqRjQ3YkZod2p2dW9ZOFJCaEpTYllqc1JNQy9ibUNYQlYyTkt5cE81M3VV?=
+ =?utf-8?B?QWhENzlHT3ZReVd2eWFrNVM4TzU0Wi8rNXdlejNEZmVGS1pkcmdKdVh0Wm16?=
+ =?utf-8?B?RitxY2NWMk5hdk9IaDFLL0VBbExVdmN4cTZCcTc1NGRMN2g3dzJ3TXM4L0dT?=
+ =?utf-8?B?ZGRWQlQ0ck0vczB5UlNFN3QvK3QrZnp0c05jL0owREZ6MStaSXR2TkQyUHY4?=
+ =?utf-8?B?WmRicVZPa3BlYTlodE1kRDlzY1R0WlZhR3FmY3lkWVV6ak91bzdQYVJqWDlD?=
+ =?utf-8?B?WWtPMEZZRUY3YTNES2hDVGpYR2ZLclc4eUxqQ2l2NXhoazMrZEtOR1ZlSk42?=
+ =?utf-8?B?V0poYkk0d3RhVFIzYlFFN1Nad09kNFdKRzRDd1FDZ0xCQWJOaDk3dXVyN051?=
+ =?utf-8?B?bTJDSFVpb1llZEpPTEJJUVBDaU4wTk5JNlhMWkh2WXhhZHZqTTRITnhJbDBJ?=
+ =?utf-8?B?NjhVWUhRakh5dGlndlJTbEdkUlNpYkpEK1ZEM1ZmbU1ubUVkbDYrRGNEb0N3?=
+ =?utf-8?B?eXFzYnJrQlhvWnJ2YngxSHF4MzJSMGI2bG1UWlB5bnVpNlZrWk5YRU5vNHFm?=
+ =?utf-8?B?UlFVMUlRb2dSQkRRcFk3bUFMN2JIbllZN0pmWEFVVG16Uis1OTdoNG92STN2?=
+ =?utf-8?B?K0RvSUtWUkw5STVGTHdHdWxqV2Y2WXI4dC83SkUzZWswNE9WdXlyd1hjTGJM?=
+ =?utf-8?B?anJIOVdPQUNwcnRQK3ZCSG1vbyt1NGZtVmlob0grVlBHTGEySG83cTRKRWsy?=
+ =?utf-8?B?UHc9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: df245145-7930-4e43-198e-08dd729b0a4d
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2025 10:33:57.6108
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 84IqRBCbXIXKHk8xY7bNPrPlO4mncuGxr1KYgjRm3zu503j5jlL7IH5ab53T22VBcv4tFN14Eq/howSwHjRQmql4RtbG6pUURRdw/IUUhNo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_033135_878193_8B8CF888 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20250403_033408_587522_9D04CD21 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,116 +192,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-04-03 8:09 am, Hongbo Yao wrote:
-> When a resource allocation fails in one clock domain of an NI device,
-> we need to properly roll back all previously registered perf PMUs in
-> other clock domains of the same device.
-> 
-> Otherwise, it can lead to kernel panics.
-> 
-> Calling arm_ni_init+0x0/0xff8 [arm_ni] @ 2374
-> arm-ni ARMHCB70:00: Failed to request PMU region 0x1f3c13000
-> arm-ni ARMHCB70:00: probe with driver arm-ni failed with error -16
-> list_add corruption: next->prev should be prev (fffffd01e9698a18),
-> but was 0000000000000000. (next=ffff10001a0decc8).
-> pstate: 6340009 (nZCv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
-> pc : list_add_valid_or_report+0x7c/0xb8
-> lr : list_add_valid_or_report+0x7c/0xb8
-> Call trace:
->   __list_add_valid_or_report+0x7c/0xb8
->   perf_pmu_register+0x22c/0x3a0
->   arm_ni_probe+0x554/0x70c [arm_ni]
->   platform_probe+0x70/0xe8
->   really_probe+0xc6/0x4d8
->   driver_probe_device+0x48/0x170
->   __driver_attach+0x8e/0x1c0
->   bus_for_each_dev+0x64/0xf0
->   driver_add+0x138/0x260
->   bus_add_driver+0x68/0x138
->   __platform_driver_register+0x2c/0x40
->   arm_ni_init+0x14/0x2a [arm_ni]
->   do_init_module+0x36/0x298
-> ---[ end trace 0000000000000000 ]---
-> Kernel panic - not syncing: Oops - BUG: Fatal exception
-> SMP: stopping secondary CPUs
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+The RTC hardware module present on S32G based SoCs tracks clock time
+during system suspend and it is used as a wakeup source on S32G2/S32G3
+architecture.
 
-> Fixes: 4d5a7680f2b4 ("perf: Add driver for Arm NI-700 interconnect PMU")
-> Signed-off-by: Hongbo Yao <andy.xu@hj-micro.com>
-> ---
-> Changes in v3:
->   - Simplify the fix with the existing pmu_base logic.
->   - v2: https://lore.kernel.org/linux-arm-kernel/a1cf32e8-c711-476d-a827-e3affedba780@hj-micro.com/T/#ma3347cf5dca2c3cedbfd475f76931ca7b2751019
-> 
-> ---
->   drivers/perf/arm-ni.c | 39 +++++++++++++++++++++------------------
->   1 file changed, 21 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-> index bdb9e6af8732..de7b6cce4d68 100644
-> --- a/drivers/perf/arm-ni.c
-> +++ b/drivers/perf/arm-ni.c
-> @@ -575,6 +575,23 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
->   	return err;
->   }
->   
-> +static void arm_ni_remove(struct platform_device *pdev)
-> +{
-> +	struct arm_ni *ni = platform_get_drvdata(pdev);
-> +
-> +	for (int i = 0; i < ni->num_cds; i++) {
-> +		struct arm_ni_cd *cd = ni->cds + i;
-> +
-> +		if (!cd->pmu_base)
-> +			continue;
-> +
-> +		writel_relaxed(0, cd->pmu_base + NI_PMCR);
-> +		writel_relaxed(U32_MAX, cd->pmu_base + NI_PMINTENCLR);
-> +		perf_pmu_unregister(&cd->pmu);
-> +		cpuhp_state_remove_instance_nocalls(arm_ni_hp_state, &cd->cpuhp_node);
-> +	}
-> +}
-> +
->   static void arm_ni_probe_domain(void __iomem *base, struct arm_ni_node *node)
->   {
->   	u32 reg = readl_relaxed(base + NI_NODE_TYPE);
-> @@ -657,8 +674,11 @@ static int arm_ni_probe(struct platform_device *pdev)
->   				reg = readl_relaxed(pd.base + NI_CHILD_PTR(c));
->   				arm_ni_probe_domain(base + reg, &cd);
->   				ret = arm_ni_init_cd(ni, &cd, res->start);
-> -				if (ret)
-> +				if (ret) {
-> +					ni->cds[cd.id].pmu_base = NULL;
-> +					arm_ni_remove(pdev);
->   					return ret;
-> +				}
->   			}
->   		}
->   	}
-> @@ -666,23 +686,6 @@ static int arm_ni_probe(struct platform_device *pdev)
->   	return 0;
->   }
->   
-> -static void arm_ni_remove(struct platform_device *pdev)
-> -{
-> -	struct arm_ni *ni = platform_get_drvdata(pdev);
-> -
-> -	for (int i = 0; i < ni->num_cds; i++) {
-> -		struct arm_ni_cd *cd = ni->cds + i;
-> -
-> -		if (!cd->pmu_base)
-> -			continue;
-> -
-> -		writel_relaxed(0, cd->pmu_base + NI_PMCR);
-> -		writel_relaxed(U32_MAX, cd->pmu_base + NI_PMINTENCLR);
-> -		perf_pmu_unregister(&cd->pmu);
-> -		cpuhp_state_remove_instance_nocalls(arm_ni_hp_state, &cd->cpuhp_node);
-> -	}
-> -}
-> -
->   #ifdef CONFIG_OF
->   static const struct of_device_id arm_ni_of_match[] = {
->   	{ .compatible = "arm,ni-700" },
+Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb7da4415599..c24b88b0206e 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1227,6 +1227,7 @@ CONFIG_RTC_DRV_DA9063=m
+ CONFIG_RTC_DRV_EFI=y
+ CONFIG_RTC_DRV_CROS_EC=y
+ CONFIG_RTC_DRV_FSL_FTM_ALARM=m
++CONFIG_RTC_DRV_S32G=m
+ CONFIG_RTC_DRV_S3C=y
+ CONFIG_RTC_DRV_PL031=y
+ CONFIG_RTC_DRV_SUN6I=y
+-- 
+2.45.2
 
 
