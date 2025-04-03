@@ -4,162 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D4EC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 05:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B7B0C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 05:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hey7o7OUSDaAgrgJKHAtw6KSFwdcnrAWsDTlf4mq91A=; b=TCIV7Ew+GnwRXFfggJl1ho+wia
-	nxQm1GelHPYFHcgqlqE+TdiENcgbvboi6tviYySYjlrpep05VA9h1oeWsf7RS/EFwGPeYkYWX+qlZ
-	xAuADxXuNzPpJsUGWco6O806ZqlyS8jXnvqemN9yNz4sahzIPPO5fYXqwX4QiLC81cqv4/rfIYhVW
-	JqQJLF475gWX2oLQRsgYJ47/G6dCnLD/+WrvjPP9yYK64EfSaWni4f5OFVoRytHAT2AYf3h8he50u
-	UR/Z3BrfZpAWGhXPjZoobE4EzFq+Zoi5GNnnfJCRKIK4PrMrB8G/4tjF0A8ltyK6WbB5KA/fuTTtc
-	oSnFp5BA==;
+	bh=K9pmSLbh6HUvwEm4EQIvz3Gb3OlI6R3w3kI7caEUF60=; b=f7gHWg4YW4T+AV4zi8re7S9Ji3
+	/QDxcNWB+MgxAxg7Y8bHw0rj33D4SyzKUawLTFHCWW353DM04CNihVPfctMVXuI9eKfnWMdWcXMC1
+	6I+LUH47XyoO7iVgB4+zl/QmVsGG1QU9GKlt3u1J6xmFReJtrvUx+YgSdhR8ZUsRzfTiD1WBGrSle
+	uxRV15EE8nzZkboREN/1dBfujxGUaIpLmSi+PuizECNb1Wn8Sh+NjVOvDj5Z0TUHaNZLv7cL5SfmT
+	ZQpGsFAMbhV4W61DNajKUcqLwxN31QyzbylKt/1F3g2aRi/zqFLCg7j3R7rugP+i+IlpIskHdnYJ2
+	YfugklZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0CkI-00000007mku-1BNx;
-	Thu, 03 Apr 2025 05:04:06 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1u0D9H-00000007oAl-03Wx;
+	Thu, 03 Apr 2025 05:29:55 +0000
+Received: from mail-db8eur05on2061a.outbound.protection.outlook.com ([2a01:111:f403:2614::61a] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0CiW-00000007mdi-3c9J
+	id 1u0D7W-00000007o0l-2Ros
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 05:02:18 +0000
+	Thu, 03 Apr 2025 05:28:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t+nIOH8gTwpy67I0JzQ/u3Kuw/BIatd3uudQmnsUqBRV4cMSB9lSQn1NGqbFHjg3UrGH83IefmP3XLQ3gSNznxXs8YBc3il7QO84McLwVFjjIvog5rOqQBcofvwVY6YibD3iIJAQ8jEo48So2QzKFgaLANrKkTnJq9KRHdHpS2+oO/QR9GtST5+R0BuYNI+kOY6g6YhilBMIjIvLLs6lPkzCrkwo9V7qNjWRKC324FR+KaXIPkpOIfTJUepJcpqv9nEmyonufWebot6Irld4svLqdJ5DRzy7tJY4nTkxJJogJY2o5pMpGORuN0iz00K9RWXPYgGaT8g2oJqm+dMo5w==
+ b=NVy4uv1bOVdNtuWUPVU4kLJn7kx1yA7hJzy4eU7KS7P7Db9tobUTZ7Djps8oIphhw6NA1ll0E/STy1kLZh/AUmpRlHsYojrGIY41Q5ubN+TGCHtJ+RTfT9m12Dcz9cULmCbfn/31j1JSpmfTwu8cxB4r+iEcXAExk4tG717DCweAi4onYd3Iz0znVasGcs9HyCULVK/wK10iAfysGOCKvme7oN35yHO8coQ+S42yelMNKs/81+j3FzqGPVUOHpUwSTtX6f4XP4NeGG8rcRzEk3g814u27vBPlZ0KKtQolJguPLz77uKI8GQyuAfFVLSFAnGAG76DpaJKHS81Njep0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hey7o7OUSDaAgrgJKHAtw6KSFwdcnrAWsDTlf4mq91A=;
- b=xeiW0Otdw/CA5NPCa4jOwWqjYC7OkNkTumOsLdP7k86Iz3qyUsxpKx8PlB+2INM6QUjrAa3MVKJsKvMkZf6/PvUchxRXrQ5MLyF1cTL4NP1692HCBXsGWtx9calz5bvnSpBqnCVwkTzrFHIV/3bsGgayHim8e7Z9GxcNGlWaSa/xN9vGQcAWtXYBCI+EPEM9/2UBClVGSyV3Eb3rShgRz+BX2pCfGKhxQPvSTNSWouB3NS1/MAM6fFytXLOUlAQ6yMICtbksc/mOKRxUIMcudNMeDWLQV3//V1gYU3Tw679UhCBrbtFyApae7xnl+Se/WIvc22Zw3ROO1d7wBXWr9Q==
+ bh=K9pmSLbh6HUvwEm4EQIvz3Gb3OlI6R3w3kI7caEUF60=;
+ b=rp9DD5zkQAoQLUUWgXypgGvZaKUzY03PmvkBm+92C301W63NBAjxwSsCKbkouE5TcTfPd6BDe4pohTgi3s2CnM9Wj1Teb4Q5jPfrHSnOMQznpbJOAes3B2OIRIvZPLja5RRuCkBaNwETcbVNtZVBH8xxLye0etpWhn7zjOE+xfL1ebeoQ+xa3nvS/cdt03HYYrJ/QZi90m/f1V6D0gUj2kAQ+rBap1Tvivk0z3ucJElGaXUk/zfsyOnh1y7D4l/rTHG2qLsTqEbSTNs+VAPp8jC4n2raxJ54jObWMnX8pjc2aA9DqZA1+IH8gxVSH/ZuoUPwli3tPzxAgPjMmLneQw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Hey7o7OUSDaAgrgJKHAtw6KSFwdcnrAWsDTlf4mq91A=;
- b=bhGJ7RDdsl7W9Z/b3pF6qTqLOJphf3FOczUoiH0pgSXtal+6HgCEt5HqTq7Ox/zTDJxs3g5K6TbiG8Eqt5vL/qGlcD2Z6k12n/KcgLjW3EGWIftiR0ojTJSQ8XX59JiE6SRd/NANrsiXoxz0TJSwBVtI0ILobJQ43uh8qHe9CN6xVTunaQ42zGVHRPlFsttaTIuHDOTPKNGkKD0lPuCq/PS9e2muw48vOcXoC5vJ8vZiOXw5fIPBq4nJIu2PRJ47MxxzuJrwS11AyjhGkhoP7KAzIRs0wcZNp2Sz30hijoQPPx5f8LyqI37jaHhoH3sJ09c2jdStUeHuBzzFeMN6rA==
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
- by VI0PR04MB10904.eurprd04.prod.outlook.com (2603:10a6:800:269::22) with
+ bh=K9pmSLbh6HUvwEm4EQIvz3Gb3OlI6R3w3kI7caEUF60=;
+ b=K7nCLIJuaadM0mjZnOjI/6wbUGOSANPL6+zbrESY8QuB7V1z0bnI9bFmNF+GVnrzqrgAn4hE2nM5oUk1+PfKXx+RsriCQTeombDjVorpZjrfs6biIphnpk7QCf6N470KcrNZF+Dd69BXa6H4RCZT0dYGhshxw+ll3BDbt80VxDfuwA7shj8u8xRpu6DjHBR21nSi5ZETSsm8iImi/mrnxaOz4PULyYuEiteMK0rM/8Te+4q8k1qpdKDvCXTdEqyGTSX2BtMCG5aLZMRELCa7NHMYYmX60FtZH0aUFgnwLcuIEtohMN3kYy2sFegN4Ezj+buKKmrSQk3mh3f1mXY1Ww==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU2PR04MB8582.eurprd04.prod.outlook.com (2603:10a6:10:2d9::24)
+ by VI2PR04MB10167.eurprd04.prod.outlook.com (2603:10a6:800:22c::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.46; Thu, 3 Apr
- 2025 05:02:09 +0000
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827%5]) with mapi id 15.20.8534.048; Thu, 3 Apr 2025
- 05:02:09 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-To: Frank Li <frank.li@nxp.com>
-CC: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
-	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v14 4/6] firmware: imx: add driver for NXP EdgeLock
- Enclave
-Thread-Topic: [PATCH v14 4/6] firmware: imx: add driver for NXP EdgeLock
- Enclave
-Thread-Index: AQHbnlEZ/rAD+YPIT0yUa1mjl0COqbOFjCkAgAkQwGCAAVJBEIAA/kiAgAB+rhA=
-Date: Thu, 3 Apr 2025 05:02:08 +0000
-Message-ID: <AM9PR04MB8604F5E033F9C0985F29BD5F95AE2@AM9PR04MB8604.eurprd04.prod.outlook.com>
-References: <20250327-imx-se-if-v14-0-2219448932e4@nxp.com>
- <20250327-imx-se-if-v14-4-2219448932e4@nxp.com>
- <Z+QePoixgnheYQTW@lizhi-Precision-Tower-5810>
- <AM9PR04MB8604C02C27C8C43FF89B95DC95AC2@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <AM9PR04MB86046B9A3821D8793877F1D395AF2@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <Z+2qFe/E0dbR+qkQ@lizhi-Precision-Tower-5810>
-In-Reply-To: <Z+2qFe/E0dbR+qkQ@lizhi-Precision-Tower-5810>
-Accept-Language: en-US
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Thu, 3 Apr
+ 2025 05:27:59 +0000
+Received: from DU2PR04MB8582.eurprd04.prod.outlook.com
+ ([fe80::c96e:12f1:67b7:ed74]) by DU2PR04MB8582.eurprd04.prod.outlook.com
+ ([fe80::c96e:12f1:67b7:ed74%5]) with mapi id 15.20.8534.052; Thu, 3 Apr 2025
+ 05:27:58 +0000
+Message-ID: <59c41c52-25f3-5506-a70f-9275425a629f@oss.nxp.com>
+Date: Thu, 3 Apr 2025 08:27:54 +0300
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH v4 2/2] clocksource/drivers/nxp-timer: Add the System
+ Timer Module for the s32gx platforms
 Content-Language: en-US
-X-MS-Has-Attach: yes
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM9PR04MB8604:EE_|VI0PR04MB10904:EE_
-x-ms-office365-filtering-correlation-id: ab2cdf7b-3322-4ff9-77e4-08dd726cb012
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|38070700018|4053099003;
-x-microsoft-antispam-message-info: =?us-ascii?Q?3M1SHQDXSCuyUV8FfEvRDBALyGwkxqVcwgYotrC0UKrv1OMcb/U5knlAhyYZ?=
- =?us-ascii?Q?tO2VLtu0xV5Z4saUHkQYlafNizQDtpoMg+5tOlVQtkGz/pVWoMmIW6O0s0mu?=
- =?us-ascii?Q?zP2buNduUC0Dm/jWHBJWXmb/5qi2YXJmNDzn+GUexG+ST189MZxkH/RdbvFK?=
- =?us-ascii?Q?tn+RuR7ouOpg8ctnfRPlCPBAPLYiXMwk3nZXLX1YFUPfxcIzKYYUEg/e/SMA?=
- =?us-ascii?Q?BWWivyKkUkVMka4L4QtBeZtF9JrfWg1w05YgTD7GHbBZ6L3creBsaUcVwCxG?=
- =?us-ascii?Q?e8FurD5/AELQavnUrCeZMqCHCNJlpgXnBe9TQX4CGAaTPDEZpU3M5eWFkz3F?=
- =?us-ascii?Q?kuLQcXWJd5bmVk4+aas/hGAHZ6W6Ih0leIB6fs/LmWioOprjERtvQg1tBqRK?=
- =?us-ascii?Q?X1fK6lRyy6KAEBIaYeiuPLGftnZBxNWIeT0uOZs+tyWldhLc8Qvcp2AElOGD?=
- =?us-ascii?Q?2H5COIwoh9gNKZfJBmwNhzDSwpZhYA/eyfa/N+rlpDheHwToxkIGgH2SS8zF?=
- =?us-ascii?Q?wWuTo5dMaHZQ0Wy7EyobJJSzv6/wtEc/2hYC5ybjRxQW9x17gTXjR+587JOd?=
- =?us-ascii?Q?eI9YV3BSM0TOVNS1YN8pOZlg6ucYnE0+qah8/TufvisBqa++rTr3mXP035H1?=
- =?us-ascii?Q?vNhnwnUV8E3KOSv1/WVw1mVdZ+WrA2ZIgWzGiMt4bTGXzojT05OqwOtGgxvq?=
- =?us-ascii?Q?zToSM072EmHG/+AErs/qvVtooJzd40WgubNY/xQPlmWS1J+kqCnFEkCBc4OM?=
- =?us-ascii?Q?c7b9sKWm0TCxbA0C81fgUIOv7Q6Gf5AjGsyZrj1Zv/9W8UEAv86lna0XGAeA?=
- =?us-ascii?Q?nAXYDe/LIQnMSKWwL8IUVL6F0xFJXCDqKjazsIijHCJHYaSODOdVj3Jv+CoB?=
- =?us-ascii?Q?z11O+a7pev3HPAaDLuI01Hzo9l3VC2+BfrUL5ZNS/UJf6ofi6BBe9XzPief0?=
- =?us-ascii?Q?eKLLeNQAdhupfjRw9w1tdcwbdrTx7dPgxqi6QMavVfeVqR7wBAJ8KTuk9K8q?=
- =?us-ascii?Q?YrMOy17Kl/JYdfBFF/jBSbN1Ltnn5XXB6d7gHkOURoZuL8V10AtfMQK7nkIu?=
- =?us-ascii?Q?yeGc6JVPaQrSMJmn38TwiG2rZa5RHTpqlutJOHRfOMYIyQeCK7ahwWquc+Zy?=
- =?us-ascii?Q?MxIc2FqyBkewEbsGY74p5xlGDdhuntKBpMEDcy7M/4PboYtBnMx6rJYqqQ1C?=
- =?us-ascii?Q?FzLZYNsnqO0bAHVWG0BdEnXME/DsS0yfcBarriYuF2GTAXfVRZnxOABDYQdz?=
- =?us-ascii?Q?J5FKFmmervhVed6JdgKl8Jef3U3/X/glqVIgUELZrjX1RTq4YB+Btv3DCKvM?=
- =?us-ascii?Q?iYLGpnxUY7fdjEySPLKrkcZP+xtQfGFYpOtmjVwlekonzCQujhdTuf1zjAKd?=
- =?us-ascii?Q?POVv7ouPpuvTZuRQv/3g2XRnZDUHufTKWmcldxzjSkcwms4CIPBygnlV3KlE?=
- =?us-ascii?Q?TrnDVqtUfud1jYi6C5U0trYPkSk0bJJe?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(38070700018)(4053099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?QZhTwyiXIzgZtbbaly9sxHSDSHqBuWRPGTtw+dwe++/PHpZ161k0NLC4YS1A?=
- =?us-ascii?Q?p4z2qT1T7Lp0WjDI+uv3mrteJmPiIVLpG16oKDyJ5E1LKL6Np2y6LzdYyPPA?=
- =?us-ascii?Q?lBmaYYke/1ZmJZRh6a99gcOxFixgqDSZmlRXqfokLHuVTO/uhtdIisG30sAu?=
- =?us-ascii?Q?4BNwP10Z8VRhiSBnD9uaKReD6f+0gePovAr26XrQ4f4Gi4J9KO3TVoisJnY7?=
- =?us-ascii?Q?Oq3cUEzHyAez/zriNncRTkiRjCxHlYM+Kk8Zgr9T/+g/4LCgPdmO34sN7Ocg?=
- =?us-ascii?Q?q/TbrqlHOxDtJlviMM7/nouBpAg6xHY5InHtf+uSccShkBaff3ZuJ1wnNK7E?=
- =?us-ascii?Q?7f/ohh5G3qmoisPBbNW8aUoE/xo0CyC9ZwWPqxJFooLM8ABoU50DGO9FariK?=
- =?us-ascii?Q?wt354pkuyYrb0pSLf1vZCSjHhlW9atiqjCJGB24RxZXWn4ku00XYsbg9rObN?=
- =?us-ascii?Q?hdcbJtd31Eje7LgmPIS39PcmKeiCVtbuYTVAtSHcCTOMtHv535E+FV0s8213?=
- =?us-ascii?Q?FT0d2LYV3ikoKiWMA/Ay1erRZlCPZZ8NZKRY1WZEFzmrdpzlj8jpz7ywYbNi?=
- =?us-ascii?Q?1RTW6bUW9UZXWgbl234AQzGR38zVC0NDoLmxUhrS6y4XLj4uwGAW1JkrBkIS?=
- =?us-ascii?Q?LiOQBvPFKyggkGjJX13BOuBKHycZ1SFNgwH35jq0aTD6D2ePxFC37XTTNHXf?=
- =?us-ascii?Q?TkJ4AxVHMchPY0uBQUqQDQ5HBWUnpYtJM52+OWYshqJUbuv5T6UqtZWtBjKZ?=
- =?us-ascii?Q?BkaO6paQMIxS4DNiNoJYykocjouQ3ZIW50H/5tijD/h2KWny24WdbJpDQK4h?=
- =?us-ascii?Q?W5GXzuMSKhN/6b8XKpEs1g03xtYg6q+fB2oNNSq0uQ9uOrC+zxZq3n0ajR3c?=
- =?us-ascii?Q?1WDExgZxEeFieMFR59hMfItVWruZa5z2pB50yM3stuYsVh/TYYHrXq9YdmxJ?=
- =?us-ascii?Q?pY2ulqdAiqoyxTh7K9qifvtQ/gX9FX2TQn3t+V0uHNMv5faNj1qkmwYIG3qY?=
- =?us-ascii?Q?mh45DQxMz18Ybc1iYBR144YuhTZy0kbZ4xGZf5PsEeciozD6ykf/EYyi4kRJ?=
- =?us-ascii?Q?AfLInF63J/IgxC614NhbVD/pepibJ1Zjqw0kG4oWtRQ726qKV8/PxBhQ9b4X?=
- =?us-ascii?Q?gtEfYVetdEJ2HMzWQRwBf3f+CiKci24kJ+YLPVFDm0oW99xFyuuioctg9Twf?=
- =?us-ascii?Q?p4hyWy1pC+ps48FcKAPY9eG4F54xC6JtEo5KM5S+u071V0V83SysNvBHvPsU?=
- =?us-ascii?Q?9PO9Z8ufkRi0aynWw69/bHueZBnRTDvEPxrb8HXnHJ30/2NatkO0sXP8IYVn?=
- =?us-ascii?Q?xzJ/MuFuZ/TNa+BjUvU2rwJ1TdgxwwRCaOYINutG+ZYuO1BO3/yRF4SMdOYD?=
- =?us-ascii?Q?Yr0u2AtjkIT0BFqAIhs+W5ouGjitJi+KFckSXfMxeM9EbGKynN5XNspDzRSX?=
- =?us-ascii?Q?Vfzr/Z/vOeLk4nZ6N8CcG6vZSqk3ui3lGCzI0T63p7Ql+h97agEFYvSD/1xn?=
- =?us-ascii?Q?7NFccg1fzKeVpIq8+sj1CbSNXP/+WuNcg5RA3V9Po5UrB7YxsA/rZPW4uppy?=
- =?us-ascii?Q?zFwIUQV4asV+QGfZVsMaL11zBpVBdmW3SHnE0kOe?=
-Content-Type: multipart/signed;
-	protocol="application/x-pkcs7-signature";
-	micalg=SHA1;
-	boundary="----=_NextPart_000_0276_01DBA483.A4B4E070"
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, tglx@linutronix.de
+Cc: linux-kernel@vger.kernel.org, thomas.fossati@linaro.org,
+ Larisa.Grigore@nxp.com, ghennadi.procopciuc@nxp.com,
+ krzysztof.kozlowski@linaro.org, S32@nxp.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20250402090714.3548055-1-daniel.lezcano@linaro.org>
+ <20250402090714.3548055-3-daniel.lezcano@linaro.org>
+From: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+In-Reply-To: <20250402090714.3548055-3-daniel.lezcano@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: VI1PR07CA0216.eurprd07.prod.outlook.com
+ (2603:10a6:802:58::19) To DU2PR04MB8582.eurprd04.prod.outlook.com
+ (2603:10a6:10:2d9::24)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8582:EE_|VI2PR04MB10167:EE_
+X-MS-Office365-Filtering-Correlation-Id: 81b05e5e-68b6-4dbb-9b28-08dd72704b71
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cVZNZE1oUTY1ekFkVGI2VEFpR1dUcVZXVkpzWjhIaklxYmVvMHBjTE55R2lW?=
+ =?utf-8?B?TnhrTlpEb3duMDVCNDl1SlgvNjhCQU1tLzBzNmk3YzB2QWFWL0xpa3dNUWli?=
+ =?utf-8?B?aFNzbjlyYjlpalZ3OFZPVmhQMVpiL3AzZEdOZ3JSNHpqV0tnUjVXNGxIRDZS?=
+ =?utf-8?B?ZVBhZUhXVmlLN3REcVd1UlZRY2lFbGFHNGltNlBsMDhoKzBVSStwQW1NUTJs?=
+ =?utf-8?B?dEFsRVNrNDNyOVZSTUNBUnFxaVY5dWVxYTlMenplRy92bnI3b21UbFAxMzB3?=
+ =?utf-8?B?NElhSE5OdldDcGJPR1F5TXF2a0F3VUJ2bzNBbmptc0FscEJTaXJ3N0kwY0kz?=
+ =?utf-8?B?YU5iZ1NmM09pTG1PS0JkVTFoQkQrZVRsR1FKeWNIb1ZaZU5yNDVzMzlxYU9G?=
+ =?utf-8?B?bWZYOHNCNmsvOCs0RENNT1dMcWMvQ0E2d2tJNU5SQzYwZVJycXV6ME9GcEpC?=
+ =?utf-8?B?U3VJdis2WTYwU2ZNQ09TYysyM3VleEg4YVluM2lxc3FIc3BOdUVGWUdIRFBy?=
+ =?utf-8?B?WjlPaG1hZEMyUkJRZnNqMThPQjhFY0dJMFZmS2llNjJjMVhRdGVzT2FOVkVY?=
+ =?utf-8?B?M0hFZ2kzOTZ0VGRqR0xoR1RQVDJPY0RPbWxSN1V6NUFUKzdpQWF1dTFLMTFn?=
+ =?utf-8?B?SmdYbXJ2WGREdGJYZ1hqdHorMXN1V2U1VHBWRHlYTXF2M1N5c3F0NlY0c3Vw?=
+ =?utf-8?B?VDl0cGkwcW9ta1lMVXlwUXJLUWhpOElmNjJQWUFJWEpFTkMvWjVTR2d5bzV6?=
+ =?utf-8?B?OWZHMlNTWkl6alc5dVNERjFBTEF0YVVZMHRTRTBZbkZPSEZXelRyZndpb0Mx?=
+ =?utf-8?B?Tysrc2RJMStWMUJBb0FjT1UxUitMSVltN3pSQzMyT3J3Zy9FOFYvL0NBYi82?=
+ =?utf-8?B?SjhseTZjc1RaRnpVa3hBQmoybVBhcUdSRDNIYWJFbkR5UUNzaGcwWVJMRmZ5?=
+ =?utf-8?B?TTUvalNoTGRsalhTYThRa1J4L1lrVXNKYk9pQlZwZ0s0dGVlUkdNSHhhK0Fa?=
+ =?utf-8?B?c281RVJ0RjhXcm9rOGtWdHFNcklUclY5YTJGWjBZOU1Pc1M3TnBkaUxPUklW?=
+ =?utf-8?B?OVoxdlIydHdEbVJEbHM4WWY2aWpqMURjemlEMERtUm1RQktPWVVSR3VHY2pw?=
+ =?utf-8?B?TmlzYkswSlJ1a3p6c3N0eUEzcXNFalNtZkx5eW5WZWlSS2hQdy9wWmhxNjFS?=
+ =?utf-8?B?UG1sYmVBRVpKMlNYeE90ejl6VHRxMkVsczFlcm5ndy9oQ2I0cW5Zc0c1ZUo4?=
+ =?utf-8?B?UW55Wjg0eXJEN0h4Z213elhRTUMraTZ2VHh6OHFSSU9sQmVVMCt5ZEZ4ek9E?=
+ =?utf-8?B?SVFlbGtlL1h2QmhJUjE0MHcwdEZzLzBHQzQ2TnlRSVJ2ZjRkRG5FWUNrYW9I?=
+ =?utf-8?B?UEoyRnZzU2luQ24zelhuV0tiOUFVRnlsQTk3UmFxZ05wUFg0N0IvOWp4a003?=
+ =?utf-8?B?R1IvSElkSkE1V1oxNG9mMDlOcGIybkZDZnQxODBRdW0zL3FRckF2MXAzT3dH?=
+ =?utf-8?B?NUROeUsxT093djZxVkhHUGlIZGRpU3hhUC9XaXVwMWNIVUdSNEU5TTQxOWdq?=
+ =?utf-8?B?TEUrczZkakNhVmNObFBVaU5VNVVuZUxuNzF6LzU0emp3OHdEdStCN2tlSU5U?=
+ =?utf-8?B?VkZ1VlJBcHFVQVZnNnJWeFgzekF5NkxvR1VFU25MNVBqR1EwK2tLYXNGMmda?=
+ =?utf-8?B?dHlBMTNZOTFzWHFocTk5Qm10RkVIeXVILy9SanJiVDkzS3QzbHI2MjFaeWF4?=
+ =?utf-8?B?NzdraHJ3eGJITnN3dW5nM0E0YlQxMXpXdlJnNDA3QnAxakN3eFN0YjdSMVcz?=
+ =?utf-8?B?aG5zOXF4bHozNUpnZ1hQMHFJMHhrTFBjKytweWpRdDkrNzkzS3ppZGQ0emI2?=
+ =?utf-8?B?VS8vOENZVGR4b1plaWlJNWM5eVNIdDFwZGVDazJjQlVsdWxVUDdLMEhDWGFm?=
+ =?utf-8?Q?QDVtgaMlQpM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8582.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eHR1UlovbWZNZkt4Z0hJYjBTdXhEelFWSzB5VmdTc1o4ZCtyVGo0Q1lySUla?=
+ =?utf-8?B?ZUpYSGtzNzhQVWlRYWZPYlFuZkJPcWE3bTkzVmFuNXBMSzBsUXVXVlZGZHRO?=
+ =?utf-8?B?dW1HbTBGR1RHS2Ixd09VWmc3Snc1WllxZlZFVjhOcUFTT2w3eGxiZTFsR0Rs?=
+ =?utf-8?B?Uitld3pYV05MeW9VdWlrSE91TnhqVGRuVXRyZEJKM1B5SGJuUUc0S3dJQWpH?=
+ =?utf-8?B?OWNpc2lETnZGS0NIK2hrcXl0WnIvRGFEYXJTR1U3Tkl6VkpnbWlJRmhqR3BR?=
+ =?utf-8?B?RzRhTUhtaldObXJWbFNDdFNaaFJqMHYvbnZrdTJBampHa0JBTDlpckh6WGY1?=
+ =?utf-8?B?RGJha1BWamM0c1VKTmptWUJ3a2JSNGh2cGNQWEdlaDhJM0RJVUhZaGt1YWJE?=
+ =?utf-8?B?YXhhdkt1bWF4ai9WVGFDQ05xOTkwRUE0QVZzVHdRUnVmSUJGN1lyd3krT2cv?=
+ =?utf-8?B?N0cvVzZteTRWU1dCZUVnZktpSnU5cDBONFdaTWdVZjRlSElTT2tHRXdwakx2?=
+ =?utf-8?B?ZzB0VUp2WGRXWkk2cFdpODk1Zmg4OVNueHBmZDI5aFRXL2NON1VUaFpYcjNS?=
+ =?utf-8?B?WmZVQzhObklhcEdwL3RteHhxM2ZEYVRnd3ZLc1BBTGJnRVVPcnlWMDMxcFdw?=
+ =?utf-8?B?Y2kyMjJwSHp0YkRaZHcrK2JBcEhzaVNiSGFnZk80bVB4SmlxVHNhQWdwZlBG?=
+ =?utf-8?B?Uk1DS0lXNC9sWW9CU0pyR3BKVVNuZVNOVDRQMnFoek4vTC95N3gyMWkrY3ht?=
+ =?utf-8?B?cWF2R0VJV3BVWVJPbmdGSGd5ekQ4VncvYlVUSitMWVU1bFBKNTh6MlZVa3dL?=
+ =?utf-8?B?RWZqY3E0M2Mzd2lEdUQwL0k5cTRKVUdFSXo5T2ZvdzRxK05GRTJybHJOVEEv?=
+ =?utf-8?B?QXg0MTZjbzhnZ0g3akZuUHpvbjJQTmNpdUN5N2NPSDlyK1lEZlZDSVQ5ZWNJ?=
+ =?utf-8?B?aDRGd0EzTjQ0SWFjZmF1Q0FjZkpyTE9NMDUyWHNsdk1uYWl4Q1FrdHZSd3oy?=
+ =?utf-8?B?RmE1THlBSWhJb3djMUhJcWU2c2RnemtNSWljc1o0enB6elRIQUQwckxyYXRu?=
+ =?utf-8?B?blpZSG5BS0pDZkx3dWJzL3h6WVFDRzhGK0dSb1E5Q2dvdG9xUktoYnN5M3M3?=
+ =?utf-8?B?VEhPaHNYMVlRcXhQaDZCTUJTbXJWclhLQ2JhcUg5dDY1VStIbjlhUWJYNVpq?=
+ =?utf-8?B?QkJ4MzVlc0l5TzlDOXhTa0ZuRFFwRGZxU0hlRWJXQm1QdktqNlR1NWxJdHhO?=
+ =?utf-8?B?Snh6UDJvYlM2RURxaXRNZWtuRjg2UzUrd1Yyb24rRTNvZkFwQnhqQkFDR3Rn?=
+ =?utf-8?B?WktEWFpvMXNTTnF3SmNyLzR1K1BkSnFPU3FUOHNuU3VVbFE0WDBRTlZJd2Iz?=
+ =?utf-8?B?bHNYQ3MzREc5VWRBdFVZcUsrcVRsUkQ2eXBKa0trYWtHVWtyTEdIUEV5azdP?=
+ =?utf-8?B?WXNXeVBHQmdTTXE1bXgrTjh4VHZFWUJCei9GNS9IZkRYQkpOVnZDWkVQM2tF?=
+ =?utf-8?B?UWh0eXlxMWtnMTU4SFpHTlpGd09FV1RUaDl1WjQ5Zjk3RnBrM1BqenhmNXMw?=
+ =?utf-8?B?bUNjVXo0TDR4TFVocDA4UXdFUGc5YmNxd2l0VVAxWlVFMFlMK0htUjBFWUhW?=
+ =?utf-8?B?R1JHWkF0aGluc2crMFVIenJpSmJiVnpWOEprdUEwSmg4azJIN0JMWmxOQno4?=
+ =?utf-8?B?VTIxM3ZOMk5WUkErYlpwWE5TVGtRODRlQVJucEZ6YWVBT3dtckVYUE9aeUk3?=
+ =?utf-8?B?eVpGd2NoWDQreU9zRE53N3VNN3dRNmU1cWozbCtHQWkxVEFSaHlMWXBSQ2Yr?=
+ =?utf-8?B?bUhUS1NDVFJTbXQ5SVJMVVpnc25RNzEzc1NkK3dwU1NqS2kzbk0yZ2NIbUxX?=
+ =?utf-8?B?bWNXZElKbVEraDNicXdJOHE0ZzFBd1p1K1B2U0d0R2tVaU00cVFEdHBqb0Nk?=
+ =?utf-8?B?NjVOK3gxN2V3TitpSXE4RVFNV1Z6Vk9Fc0xQbFFYcXp5N2Y1ZHJ0WW8vamNB?=
+ =?utf-8?B?YndxUWVkRURIV05DSkY0QUk3Q2s3THQ5eDFZQU81cFovY015d0VhZDMrUE9o?=
+ =?utf-8?B?MUk0OXIxN2ZkSnpyaWJRZmYzdDBiK3IvNkJMZkorUzRHS3VYeGFFQis0bHYx?=
+ =?utf-8?B?SzBjNHdZdXltM2NGeEZVN0lLTmhDL0dMV1Bub3RmZUF6S21veThBb2Vhclht?=
+ =?utf-8?B?ZXc9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81b05e5e-68b6-4dbb-9b28-08dd72704b71
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8582.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab2cdf7b-3322-4ff9-77e4-08dd726cb012
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Apr 2025 05:02:09.2472
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2025 05:27:58.8683
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: oJcgZ2HInYUxkElG42YYuM1BEJ8xhR2k2RSVuMFTrOK2Tm5Wrf6crzn6OwoolOdh2IIidGXxnBCihNS4A4P2cw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10904
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QfZ3Nx2Mn4ZcODWnjaMp3vjzdap5Ex5MDuZV8Y9yTzz1Z/Vt23NtjdIARGt/+bchms/zm4693tIEI20vFIFxQG0rzJkX2hcUVtVQceqPFmE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_220217_093381_FF9DDEC8 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250402_222806_778385_BE213699 
+X-CRM114-Status: GOOD (  39.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,275 +188,317 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------=_NextPart_000_0276_01DBA483.A4B4E070
-Content-Type: text/plain;
-	charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+On 4/2/2025 12:07 PM, Daniel Lezcano wrote:
+> STM supports commonly required system and application software timing
+> functions. STM includes a 32-bit count-up timer and four 32-bit
+> compare channels with a separate interrupt source for each
+> channel. The timer is driven by the STM module clock divided by an
+> 8-bit prescale value (1 to 256).
+> 
+> STM has the following features:
+>     • One 32-bit count-up timer with an 8-bit prescaler
+>     • Four 32-bit compare channels
+>     • An independent interrupt source for each channel
+>     • Ability to stop the timer in Debug mode
+> 
+> The s32g platform is declined into two versions, the s32g2 and the
+> s32g3. The former has a STM block with 8 timers and the latter has 12
+> timers.
+> 
+> The platform is designed to have one usable STM instance per core on
+> the system which is composed of 3 x Cortex-M3 + 4 Cortex-A53 for the
+> s32g2 and 3 x Cortex-M3 + 8 Cortex-A53 for the s32g3.
+> 
+> There is a special STM instance called STM_TS which is dedicated to
+> the timestamp. The 7th STM instance STM_07 is directly tied to the
+> STM_TS which means it is not usable as a clockevent.
+> 
+> The driver instantiate each STM described in the device tree as a
 
-On Wed, Apr 02, 2025 at 06:15:12AM +0000, Pankaj Gupta wrote:
->> >> diff --git a/drivers/firmware/imx/se_ctrl.h 
->> >> b/drivers/firmware/imx/se_ctrl.h new file mode 100644 index 
->> >> 000000000000..177623f3890e
->> >> --- /dev/null
->> >> +++ b/drivers/firmware/imx/se_ctrl.h
->> >> @@ -0,0 +1,84 @@
->> >> +/* SPDX-License-Identifier: GPL-2.0+ */
->> >> +/*
->> >> + * Copyright 2025 NXP
->> >> + */
->> >> +
->> >> +#ifndef SE_MU_H
->> >> +#define SE_MU_H
->> >> +
->> >> +#include <linux/miscdevice.h>
->> >> +#include <linux/semaphore.h>
->> >> +#include <linux/mailbox_client.h>
->> >> +
->>
->> ....
->>
->> >> +};
->> >> +
->> >> +struct se_if_defines {
->> >> +	const u8 se_if_type;
->> >> +	const u8 se_instance_id;
->> Getting used at drivers/firmware/imx/se_ctrl.c:320
+nitpick: instantiate -> instantiates
 
->	dev_info(dev, "i.MX secure-enclave: %s%d interface to firmware,
-configured.",
->		 SE_TYPE_STR_HSM,
->		 priv->if_defs->se_instance_id);
+> clocksource and a clockevent conforming to the reference manual even
+> if the Linux system does not use all of the clocksource. Each
+> clockevent will have a cpumask set for a specific CPU.
+> 
+> Given the counter is shared between the clocksource and the
+> clockevent, the STM module can not be disabled by one or another so
+> the refcounting mechanism is used to stop the counter when it reaches
+> zero and to start it when it is one. The suspend and resume relies on
 
-> You only print value, don't actual use it. It should be safe remove it
+nitpick: relies -> rely
 
-> Frank
+> the refcount to stop the module.
+> 
+> As the device tree will have multiple STM entries, the driver can be
+> probed in parallel with the async option but it is not enabled
+> yet. However, the driver code takes care of preventing a race by
+> putting a lock to protect the number of STM instances global variable
+> which means it is ready to support the option when enough testing will
+> be done with the underlying time framework.
+> 
+> Cc: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+> Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Cc: Thomas Fossati <thomas.fossati@linaro.org>
+> Suggested-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+> ---
+>  drivers/clocksource/Kconfig         |   9 +
+>  drivers/clocksource/Makefile        |   2 +
+>  drivers/clocksource/timer-nxp-stm.c | 495 ++++++++++++++++++++++++++++
+>  3 files changed, 506 insertions(+)
+>  create mode 100644 drivers/clocksource/timer-nxp-stm.c
+> 
+> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+> index 487c85259967..e86e327392af 100644
+> --- a/drivers/clocksource/Kconfig
+> +++ b/drivers/clocksource/Kconfig
+> @@ -763,4 +763,13 @@ config RALINK_TIMER
+>  	  Enables support for system tick counter present on
+>  	  Ralink SoCs RT3352 and MT7620.
+>  
+> +config NXP_STM_TIMER
+> +	bool "NXP System Timer Module driver"
+> +	depends on ARCH_S32 || COMPILE_TEST
+> +	select CLKSRC_MMIO
+> +	help
+> +	  Support for NXP System Timer Module. It will create, in this
+> +	  order, a clocksource, a broadcast clockevent and a per cpu
+> +	  clockevent.
 
-No, it is not just used for print.
-This variable is used to construct the device name as well, in 5/6 patch.
+Is this description accurate? Will a broadcast event be created?
 
-Moreover, it is needed for other SoC like i.MX8DXL, i.MX95, i.MX94, there
-are multiple instances of same secure-enclave type.
-It will be used to identify the intended instance later.
+[ ... ]
+> +
+> +static int nxp_stm_clockevent_set_next_event(unsigned long delta, struct clock_event_device *ced)
+> +{
+> +	struct stm_timer *stm_timer = ced_to_stm(ced);
+> +	u32 val;
+> +
+> +	nxp_stm_clockevent_disable(stm_timer);
+> +
+> +	stm_timer->delta = delta;
+> +
+> +	val = nxp_stm_clockevent_read_counter(stm_timer) + delta;
+> +
+> +	writel(val, STM_CMP0(stm_timer->base));
+> +
+> +	/*
+> +	 * The counter is shared across the channels and can not be
+> +	 * stopped while we are setting the next event. If the delta
+> +	 * is very small it is possible the counter increases above
+> +	 * the computed 'val'. The min_delta value specified when
+> +	 * registering the clockevent will prevent that. The second
+> +	 * case is if the counter wraps while we compute the 'val' and
+> +	 * before writing the comparator register. We read the counter,
+> +	 * check if we are back in time and abort the timer with -ETIME.
+> +	 */
+> +	if (val > nxp_stm_clockevent_read_counter(stm_timer) + delta)
+> +		return -ETIME;
 
->>
->> > This is not used actually, you can remove it
->> Getting used at drivers/firmware/imx/se_ctrl.c:347
->>
->> >> +	u8 cmd_tag;
->> >> +	u8 rsp_tag;
->> >> +	u8 success_tag;
->> >> +	u8 base_api_ver;
->> >> +	u8 fw_api_ver;
->> >> +};
->> >> +
->> >> +struct se_if_priv {
->> >> +	struct device *dev;
->> >> +
+In my opinion, there is still a race condition between the running
+counter and the nxp_stm_clockevent_enable function. This means that the
+counter may wrap around between the 'val >
+nxp_stm_clockevent_read_counter(stm_timer) + delta' check and the actual
+instruction part of the nxp_stm_clockevent_enable that enables the
+interrupt. Moreover, this implementation seems to prohibit the case when
+the value of val results after a wrap-around of the counter, which seems
+like an artificial constraint to me.
+
+In my view, the goal here is to identify the cases when the timer fires
+while the comparator interrupt is disabled. There would be too many
+cases to consider if using u32 only to store the current value of the
+counter and the one to be written in the comparator. Therefore, to
+simplify the implementation, I would work with u64. Here is the proposal
+(not tested):
+
+u64 val, ctime;
+
+nxp_stm_clockevent_disable(stm_timer);
+
+ctime = nxp_stm_clockevent_read_counter(stm_timer);
+
+/* Build the targeted time using u64, which is not impacted by wraps
+since both added values are u32 */
+val = ctime + delta;
+
+/* Ensure we have enough time to set up the interrupt without generating
+a false one */
+writel(lower_32_bits(ctime) - 1, STM_CMP0(stm_timer->base));
+
+nxp_stm_clockevent_enable(stm_timer);
+
+ctime = nxp_stm_clockevent_read_counter(stm_timer);
+
+/* The delta has already passed */
+if (ctime > lower_32_bits(val)) {
+    nxp_stm_clockevent_disable(stm_timer);
+    return -ETIME;
+}
+
+/* Keep the 32 LSB bits of the val */
+writel(lower_32_bits(val), STM_CMP0(stm_timer->base));
 
 
+[ ... ]
+> +static irqreturn_t nxp_stm_module_interrupt(int irq, void *dev_id)
+> +{
+> +	struct stm_timer *stm_timer = dev_id;
+> +	struct clock_event_device *ced = &stm_timer->ced;
+> +	u32 val;
+> +
+> +	/*
+> +	 * The interrupt is shared across the channels in the
+> +	 * module. But this one is configured to run only one channel,
+> +	 * consequently it is pointless to test the interrupt flags
+> +	 * before and we can directly reset the channel 0 irq flag
+> +	 * register.
+> +	 */
+> +	writel(STM_CIR_CIF, STM_CIR0(stm_timer->base));
+> +
+> +	/*
+> +	 * Update STM_CMP value using the counter value
+> +	 */
+> +	val = nxp_stm_clockevent_read_counter(stm_timer) + stm_timer->delta;
+> +
+> +	writel(val, STM_CMP0(stm_timer->base));
+> +
+> +	/*
+> +	 * stm hardware doesn't support oneshot, it will generate an
+> +	 * interrupt and start the counter again so software need to
 
-------=_NextPart_000_0276_01DBA483.A4B4E070
-Content-Type: application/pkcs7-signature;
-	name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment;
-	filename="smime.p7s"
+nitpick: software need -> software needs
 
-MIAGCSqGSIb3DQEHAqCAMIACAQExCzAJBgUrDgMCGgUAMIAGCSqGSIb3DQEHAQAAoIImZTCCBaIw
-ggOKoAMCAQICCE4Rpu+H69FRMA0GCSqGSIb3DQEBCwUAMGUxIjAgBgNVBAMMGU5YUCBJbnRlcm5h
-bCBQb2xpY3kgQ0EgRzIxCzAJBgNVBAsMAklUMREwDwYDVQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJ
-RWluZGhvdmVuMQswCQYDVQQGEwJOTDAeFw0yMzA0MjEwNjQzNDVaFw0yODA0MTkwNjQzNDVaMIG2
-MRwwGgYDVQQDDBNOWFAgRW50ZXJwcmlzZSBDQSA1MQswCQYDVQQLDAJJVDERMA8GA1UECgwITlhQ
-IEIuVi4xEjAQBgNVBAcMCUVpbmRob3ZlbjEWMBQGA1UECAwNTm9vcmQtQnJhYmFudDETMBEGCgmS
-JomT8ixkARkWA3diaTETMBEGCgmSJomT8ixkARkWA254cDETMBEGCgmSJomT8ixkARkWA2NvbTEL
-MAkGA1UEBhMCTkwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDAWrnSkYP60A8wj4AO
-kATDjnbdgLv6waFfyXE/hvatdWz2YYtb1YSRi5/wXW+Pz8rsTmSj7iusI+FcLP8WEaMVLn4sEIQY
-NI8KJUCz21tsIArYs0hMKEUFeCq3mxTJfPqzdj9CExJBlZ5vWS4er8eJI8U8kZrt4CoY7De0FdJh
-35Pi5QGzUFmFuaLgXfV1N5yukTzEhqz36kODoSRw+eDHH9YqbzefzEHK9d93TNiLaVlln42O0qaI
-MmxK1aNcZx+nQkFsF/VrV9M9iLGA+Qb/MFmR20MJAU5kRGkJ2/QzgVQM3Nlmp/bF/3HWOJ2j2mpg
-axvzxHNN+5rSNvkG2vSpAgMBAAGjggECMIH/MFIGCCsGAQUFBwEBBEYwRDBCBggrBgEFBQcwAoY2
-aHR0cDovL253dy5wa2kubnhwLmNvbS9jZXJ0cy9OWFBJbnRlcm5hbFBvbGljeUNBRzIuY2VyMB0G
-A1UdDgQWBBRYlWDuTnTvZSKqve0ZqSt6jhedBzASBgNVHRMBAf8ECDAGAQH/AgEAMEUGA1UdHwQ+
-MDwwOqA4oDaGNGh0dHA6Ly9ud3cucGtpLm54cC5jb20vY3JsL05YUEludGVybmFsUG9saWN5Q0FH
-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
-ggEKAoIBAQCsljsxzffby7IAt42e7cJH7K+49RL+7i56h3ORt8dS8WNVSdDlejp6uS6mLk/UX0wn
-sSxDK1S5KquGJQzaT/3gxE8tdgvfFNBVdrgr48DeCVwWDr1o/UF3RmGcMdxqRz1M/oLDJ03C8n6h
-L/0JXiwsNx0KZJoqDrN/48yX5TkoeKJmHFftZ5Op57xV0WkZJ/yLxSC1Om75jOG/UPdqsDzl+wi7
-YVj5egV24hoaXgHBxtCeJzUgsHcJlo9nFtGe11j6H1vqFzkPzN9ydjRmhQATV/WLqpG8uot79u0m
-6n7Mjwsd/HmJf+8xpovMcHPO2a0axppssKso/3APP6mR1FuVAgMBAAGjggORMIIDjTAOBgNVHQ8B
-Af8EBAMCB4AwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMEMAwGA1UdEwEB/wQCMAAwHQYD
-VR0OBBYEFLNr0DCWM1fCXv4ubOt/elkvcoiaMEUGA1UdEQQ+MDygJAYKKwYBBAGCNxQCA6AWDBRw
-YW5rYWouZ3VwdGFAbnhwLmNvbYEUcGFua2FqLmd1cHRhQG54cC5jb20wHwYDVR0jBBgwFoAU5TJ6
-9GbBR5Ykf/wngDlY3ysX4rswggFKBgNVHR8EggFBMIIBPTCCATmgggE1oIIBMYaByGxkYXA6Ly8v
-Q049TlhQJTIwRW50ZXJwcmlzZSUyMENBJTIwNCxDTj1ubGFtc3BraTAwMDQsQ049Q0RQLENOPVB1
-YmxpYyUyMEtleSUyMFNlcnZpY2VzLENOPVNlcnZpY2VzLENOPUNvbmZpZ3VyYXRpb24sREM9d2Jp
-LERDPW54cCxEQz1jb20/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVjdENsYXNz
-PWNSTERpc3RyaWJ1dGlvblBvaW50hjFodHRwOi8vbnd3LnBraS5ueHAuY29tL2NybC9OWFAtRW50
-ZXJwcmlzZS1DQTQuY3JshjFodHRwOi8vd3d3LnBraS5ueHAuY29tL2NybC9OWFAtRW50ZXJwcmlz
-ZS1DQTQuY3JsMIIBEAYIKwYBBQUHAQEEggECMIH/MIG7BggrBgEFBQcwAoaBrmxkYXA6Ly8vQ049
-TlhQJTIwRW50ZXJwcmlzZSUyMENBJTIwNCxDTj1BSUEsQ049UHVibGljJTIwS2V5JTIwU2Vydmlj
-ZXMsQ049U2VydmljZXMsQ049Q29uZmlndXJhdGlvbixEQz13YmksREM9bnhwLERDPWNvbT9jQUNl
-cnRpZmljYXRlP2Jhc2U/b2JqZWN0Q2xhc3M9Y2VydGlmaWNhdGlvbkF1dGhvcml0eTA/BggrBgEF
-BQcwAoYzaHR0cDovL253dy5wa2kubnhwLmNvbS9jZXJ0cy9OWFAtRW50ZXJwcmlzZS1DQTQuY2Vy
-MDwGCSsGAQQBgjcVBwQvMC0GJSsGAQQBgjcVCIWCwH6BjvRVhu2FOILrmUuaklY/hMbNXILljX4C
-AWQCAT8wJwYJKwYBBAGCNxUKBBowGDAKBggrBgEFBQcDAjAKBggrBgEFBQcDBDANBgkqhkiG9w0B
-AQsFAAOCAQEAWS4IrHXWhCGNWk5vn20xV7mlLkM7JPwltVJzB6MRzwUB438upbyUMwNHcEgAmHcs
-xL9hafErN+n9rLL00wEqZsCV732s7YOxSRRjZTE3CmZQ2+TYjXR7A6AzQKo0fv/x43bpSes8ttQ6
-Qtt8nzIbGBkDAcI7wfXsUPF5o0NwLOxre+Z+JCPNH0eaOj2J7EKD2ERLCClmvohrYdlmu85iXfyi
-nJo42eq9g08FtnxTXVQSIZCtiETiGtXA7+t2Aa8429XXunsijRznaYw2SwI/s4sVmvaK3XHaif0D
-QaUYxQp4s2ctzgz3eU6hK68OnNzbhBtF/lx6PHbifqHDzrtUbzCCB+8wggbXoAMCAQICEy0ACwRu
-JYOozH+yQuYAAQALBG4wDQYJKoZIhvcNAQELBQAwgbYxHDAaBgNVBAMME05YUCBFbnRlcnByaXNl
-IENBIDUxCzAJBgNVBAsMAklUMREwDwYDVQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJRWluZGhvdmVu
-MRYwFAYDVQQIDA1Ob29yZC1CcmFiYW50MRMwEQYKCZImiZPyLGQBGRYDd2JpMRMwEQYKCZImiZPy
-LGQBGRYDbnhwMRMwEQYKCZImiZPyLGQBGRYDY29tMQswCQYDVQQGEwJOTDAeFw0yMzEyMjAwOTIw
-NDdaFw0yNTEyMTkwOTIwNDdaMIGaMRMwEQYKCZImiZPyLGQBGRYDY29tMRMwEQYKCZImiZPyLGQB
-GRYDbnhwMRMwEQYKCZImiZPyLGQBGRYDd2JpMQwwCgYDVQQLEwNOWFAxCzAJBgNVBAsTAklOMRYw
-FAYDVQQLEw1NYW5hZ2VkIFVzZXJzMRMwEQYDVQQLEwpEZXZlbG9wZXJzMREwDwYDVQQDEwhueGEx
-ODcxNzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL2JT+kRihW1mBdeZFOoCLGIl4DZ
-VL7FWt3V1iFFJJe/bZDw/SUf5z1HeA8xv9+S8rqMyybjlSRHFLgiMm7qrGpVEDniKe8eiqP8Un4Y
-3fHgK5FKZIVVn0KlaMuD5G30AMk9HyUdc2MkVRL8YSQCewkQDEVjB8gnx/e6xfbWEVHf5+dOWJoR
-aket5+0JKV0l/dPV7cT4hL3BFtiBhq8976Li6rn8gxIi63u0G3qvm9Scqk+EHzemDhw/W+eMmGR4
-nwKVLKzumxko8l6EOnnvqqF4vj2hKTpB+2lsEXH1giireMEsvB2RY40lnRUXVQ0FDklOIQV4Qdgi
-EJfUdq/ZhCUCAwEAAaOCBA4wggQKMDwGCSsGAQQBgjcVBwQvMC0GJSsGAQQBgjcVCIWCwH6BjvRV
-hu2FOILrmUuaklY/gbeCPIPthzICAWQCAT4wEwYDVR0lBAwwCgYIKwYBBQUHAwQwDgYDVR0PAQH/
-BAQDAgUgMAwGA1UdEwEB/wQCMAAwGwYJKwYBBAGCNxUKBA4wDDAKBggrBgEFBQcDBDCBlAYJKoZI
-hvcNAQkPBIGGMIGDMAsGCWCGSAFlAwQBKjALBglghkgBZQMEAS0wCwYJYIZIAWUDBAEWMAsGCWCG
-SAFlAwQBGTALBglghkgBZQMEAQIwCwYJYIZIAWUDBAEFMAoGCCqGSIb3DQMHMAcGBSsOAwIHMA4G
-CCqGSIb3DQMCAgIAgDAOBggqhkiG9w0DBAICAgAwHQYDVR0OBBYEFMJ81PK4p3H8Q7gn7u/5OwWx
-uAwGMEUGA1UdEQQ+MDygJAYKKwYBBAGCNxQCA6AWDBRwYW5rYWouZ3VwdGFAbnhwLmNvbYEUcGFu
-a2FqLmd1cHRhQG54cC5jb20wHwYDVR0jBBgwFoAUWJVg7k5072Uiqr3tGakreo4XnQcwggFGBgNV
-HR8EggE9MIIBOTCCATWgggExoIIBLYaByGxkYXA6Ly8vQ049TlhQJTIwRW50ZXJwcmlzZSUyMENB
-JTIwNSxDTj1ubGFtc3BraTAwMDUsQ049Q0RQLENOPVB1YmxpYyUyMEtleSUyMFNlcnZpY2VzLENO
-PVNlcnZpY2VzLENOPUNvbmZpZ3VyYXRpb24sREM9d2JpLERDPW54cCxEQz1jb20/Y2VydGlmaWNh
-dGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVjdENsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50hi9o
-dHRwOi8vbnd3LnBraS5ueHAuY29tL2NybC9OWFBFbnRlcnByaXNlQ0E1LmNybIYvaHR0cDovL3d3
-dy5wa2kubnhwLmNvbS9jcmwvTlhQRW50ZXJwcmlzZUNBNS5jcmwwggEQBggrBgEFBQcBAQSCAQIw
-gf8wgbsGCCsGAQUFBzAChoGubGRhcDovLy9DTj1OWFAlMjBFbnRlcnByaXNlJTIwQ0ElMjA1LENO
-PUFJQSxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0
-aW9uLERDPXdiaSxEQz1ueHAsREM9Y29tP2NBQ2VydGlmaWNhdGU/YmFzZT9vYmplY3RDbGFzcz1j
-ZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MD8GCCsGAQUFBzAChjNodHRwOi8vbnd3LnBraS5ueHAuY29t
-L2NlcnRzL05YUC1FbnRlcnByaXNlLUNBNS5jZXIwDQYJKoZIhvcNAQELBQADggEBALwIIuww1PaF
-EbpQoy5vgJ/4N3xS+niIpFTKyYNAD0Ar38FcUlSnj0FIHKRj8rUmZP9WTky3U8m5B3LOyhJ14FPh
-iy1EwkhZmds9fJiZyEEFiwQWYDG/uknu6zIKOTlLmtlYPfbzfi58keGcjD3T5H8D8DpCGWI1lAwe
-clR9fJCbcYnQSQnuicSCfrHjjXiDZ2O8h7WbE1CC6Cj/qwo5nmS0lMv7yoG94rTNBvYe8iqOkcav
-7KiZA6SdhXms3ppvFmBukI6pTheMvT39SM0S6E0dgeqZSGSxHrM7dcxUdAL4fnYMv3Sa+GAgyXB6
-rihWC11+goz2eawt5TRU2w45TmcxggSzMIIErwIBATCBzjCBtjEcMBoGA1UEAwwTTlhQIEVudGVy
-cHJpc2UgQ0EgNDELMAkGA1UECwwCSVQxETAPBgNVBAoMCE5YUCBCLlYuMRIwEAYDVQQHDAlFaW5k
-aG92ZW4xFjAUBgNVBAgMDU5vb3JkLUJyYWJhbnQxEzARBgoJkiaJk/IsZAEZFgN3YmkxEzARBgoJ
-kiaJk/IsZAEZFgNueHAxEzARBgoJkiaJk/IsZAEZFgNjb20xCzAJBgNVBAYTAk5MAhM/AAV1goSs
-wyqoLYNbAAUABXWCMAkGBSsOAwIaBQCgggK5MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJ
-KoZIhvcNAQkFMQ8XDTI1MDQwMzA1MDIwNFowIwYJKoZIhvcNAQkEMRYEFEhfMN5REa7EvrFODbZp
-cKWc3cvDMIGTBgkqhkiG9w0BCQ8xgYUwgYIwCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBFjAKBggq
-hkiG9w0DBzALBglghkgBZQMEAQIwDgYIKoZIhvcNAwICAgCAMA0GCCqGSIb3DQMCAgFAMAcGBSsO
-AwIaMAsGCWCGSAFlAwQCAzALBglghkgBZQMEAgIwCwYJYIZIAWUDBAIBMIHfBgkrBgEEAYI3EAQx
-gdEwgc4wgbYxHDAaBgNVBAMME05YUCBFbnRlcnByaXNlIENBIDUxCzAJBgNVBAsMAklUMREwDwYD
-VQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJRWluZGhvdmVuMRYwFAYDVQQIDA1Ob29yZC1CcmFiYW50
-MRMwEQYKCZImiZPyLGQBGRYDd2JpMRMwEQYKCZImiZPyLGQBGRYDbnhwMRMwEQYKCZImiZPyLGQB
-GRYDY29tMQswCQYDVQQGEwJOTAITLQALBG4lg6jMf7JC5gABAAsEbjCB4QYLKoZIhvcNAQkQAgsx
-gdGggc4wgbYxHDAaBgNVBAMME05YUCBFbnRlcnByaXNlIENBIDUxCzAJBgNVBAsMAklUMREwDwYD
-VQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJRWluZGhvdmVuMRYwFAYDVQQIDA1Ob29yZC1CcmFiYW50
-MRMwEQYKCZImiZPyLGQBGRYDd2JpMRMwEQYKCZImiZPyLGQBGRYDbnhwMRMwEQYKCZImiZPyLGQB
-GRYDY29tMQswCQYDVQQGEwJOTAITLQALBG4lg6jMf7JC5gABAAsEbjANBgkqhkiG9w0BAQEFAASC
-AQCV52PJWIzyOSWNOWJjvFtGU/VHXsu1Vmjyi93okXxxkSDm2V6PvxZ6TXgwARQ7fo4VmcePS2iQ
-2KhYwDI0u04yEtfxc9PTN6BlTuJLNqzj4/h/hG0kYeby18Wui145cvRGB83VOzd/TeiWMJwncCnj
-Oca2lcD2J9UgFnhX80ARxQKM4/IxNJ5X5bwXDHrhhvgPU8ULSBXXY74qYI+Z6S1HT6Ll6Df4lZNu
-3Mmy0b/sZtTISX0SRkTVvp9cGHtMt2W7GBqQYEhPj2MRYb8AIInapXgDibWKXKpqzChG6TW8u92Q
-b+q/sRBcS69+XT3wSNkrO5Q+N9UzCx8aKodMReCqAAAAAAAA
+> +	 * disable the timer to stop the counter loop in ONESHOT mode.
+> +	 */
+> +	if (likely(clockevent_state_oneshot(ced)))
+> +		nxp_stm_clockevent_disable(stm_timer);
+> +
+> +	ced->event_handler(ced);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int __init nxp_stm_timer_probe(struct platform_device *pdev)
+> +{
+> +	struct stm_timer *stm_timer;
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev->of_node;
+> +	const char *name = of_node_full_name(np);
+> +	struct clk *clk;
+> +	void __iomem *base;
+> +	int irq, ret;
+> +
+> +	/*
+> +	 * The device tree can have multiple STM nodes described, so
+> +	 * it makes this driver a good candidate for the async probe.
+> +	 * It is still unclear if the time framework does correctly
+> +	 * handle a parallel loading of the timers but at least this
 
-------=_NextPart_000_0276_01DBA483.A4B4E070--
+nitpick: does correctly handle a parallel loading -> correctly handles
+parallel loading
+
+> +	 * driver is ready to support the option.
+> +	 */
+> +	guard(stm_instances)(&stm_instances_lock);
+> +
+> +	/*
+> +	 * The S32Gx are SoCs featuring a diverse set of cores. Linux
+> +	 * is expected to run on Cortex-A53 cores, while other
+> +	 * software stacks will operate on Cortex-M cores. The number
+> +	 * of STM instances has been sized to include at most one
+> +	 * instance per core.
+> +	 *
+> +	 * As we need a clocksource and a clockevent per cpu, we
+> +	 * simply initialize a clocksource per cpu along with the
+> +	 * clockevent which makes the resulting code simpler.
+> +	 *
+> +	 * However if the device tree is describing more STM instances
+> +	 * than the number of cores, then we ignore them.
+> +	 */
+> +	if (stm_instances >= num_possible_cpus())
+> +		return 0;
+> +
+> +	base = devm_of_iomap(dev, np, 0, NULL);
+> +	if (IS_ERR(base))
+> +		return dev_err_probe(dev, PTR_ERR(base), "Failed to iomap %pOFn\n", np);
+> +
+> +	irq = platform_get_irq(pdev, 0);
+> +	if (irq < 0)
+> +		return dev_err_probe(dev, irq, "Failed to get IRQ\n");
+> +
+> +	clk = devm_clk_get_enabled(dev, NULL);
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk), "Clock not found\n");
+> +
+> +	stm_timer = devm_kzalloc(dev, sizeof(*stm_timer), GFP_KERNEL);
+> +	if (!stm_timer)
+> +		return -ENOMEM;
+> +
+> +	ret = devm_request_irq(dev, irq, nxp_stm_module_interrupt,
+> +			       IRQF_TIMER | IRQF_NOBALANCING, name, stm_timer);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Unable to allocate interrupt line\n");
+> +
+> +	ret = nxp_stm_clocksource_init(dev, stm_timer, name, base, clk);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * Next probed STM will be a per CPU clockevent, until
+> +	 * we probe as much as we have CPUs available on the
+
+nitpick: as much -> as many
+
+> +	 * system, we do a partial initialization
+> +	 */
+> +	ret = nxp_stm_clockevent_per_cpu_init(dev, stm_timer, name,
+> +					      base, irq, clk,
+> +					      stm_instances);
+> +	if (ret)
+> +		return ret;
+> +
+> +	stm_instances++;
+> +
+> +	/*
+> +	 * The number of probed STM for per CPU clockevent is
+
+nitpick: STM -> STMs
+
+> +	 * equal to the number of available CPUs on the
+> +	 * system. We install the cpu hotplug to finish the
+> +	 * initialization by registering the clockevents
+> +	 */
+> +	if (stm_instances == num_possible_cpus()) {
+> +		ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "STM timer:starting",
+> +					nxp_stm_clockevent_starting_cpu, NULL);
+> +		if (ret < 0)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id nxp_stm_of_match[] = {
+> +	{ .compatible = "nxp,s32g2-stm" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, nxp_stm_of_match);
+> +
+> +static struct platform_driver nxp_stm_probe = {
+> +	.probe	= nxp_stm_timer_probe,
+> +	.driver	= {
+> +		.name		= "nxp-stm",
+> +		.of_match_table	= nxp_stm_of_match,
+> +	},
+> +};
+> +module_platform_driver(nxp_stm_probe);
+> +
+> +MODULE_DESCRIPTION("NXP System Timer Module driver");
+> +MODULE_LICENSE("GPL");
+
+-- 
+Regards,
+Ghennadi
+
 
