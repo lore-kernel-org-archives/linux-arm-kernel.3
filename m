@@ -4,158 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528A0C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 05:55:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F091C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 05:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7FVqzbUpnJP/6QYALcUHGeZ1JYt194NWiSde1H9Wz1E=; b=OZo5ouCXsFKUb0WJCazvdXgIVE
-	YAtc7SFr+hRkeuAch9JPuTGh0I70bRFVCs3Q+ByHgIhzC94f7z9kvTqK1UhRqEdCxAl3aIZD3EAI8
-	9iJODUwpfDOLOfPLwBUSeyv6c0YaPA9f3TcJnt5dX3eRUzL2P0DH9Cipmg32TW9r6Z6sl3paCJfWJ
-	HvXQSJpkWtD/i5NJt8TeGCxLukX5dt0tU+9ZNSe8JCVrZHeORvKejx4fGUVXUgGP0PzS6mVSq4pJL
-	X80tkHa6Yc3UYzBtykuyHmhIigbiwqIE9+Ka+NApzofWM6QcGSqQ5kf5aCo+uypiM9OPX5ViBllvH
-	2G/gy9UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZZDRZaV0dUDNvDagOgt3AVzF+yGM5ADkTFwnO7hERdY=; b=f09idCB8Er+/cHSbQ77Tdy5Oxu
+	mvshT6lGVLR1PguVnhWe4I3GoTtCF1yqdv4ZJnactHqpZPBeSTZ7UWGYrC5UHQrGVpxYQz1T4rYLp
+	mEt0M+DK72fmybOaNgIjLQn1ky9DjLNT4ZzmcPtw0R4fOPohkcfKr/QPkSpldisjnmaURC5p3wKCx
+	tdHgACsq/MtcXVUkX0/+ob5JpbIKQD6miARMlNhWV9Bs82hE25rn1Rax3VT/empgckhRDrjdsjC6l
+	/+OCLedtXWWvCvRGUC/bbLLuorBDlCO1s+McrWEZ0+jRhR9746/Pi5s2dFV0CI0k9/mqcrHpUamJ9
+	s/hVKGqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0DXx-00000007rA4-0aR1;
-	Thu, 03 Apr 2025 05:55:25 +0000
-Received: from mail-am6eur05on20603.outbound.protection.outlook.com ([2a01:111:f403:2612::603] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0DKb-00000007p9L-0EoW
+	id 1u0DZf-00000007rK9-3nsH;
+	Thu, 03 Apr 2025 05:57:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0DTU-00000007qXw-1EIL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 05:41:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Kpg6tnkyAWGDLdrPs7Gok+cXJfQvO6BVGM6hWU6U97ciCq+w4FJoOCch/Gfak+g1exbGAS/cGOvq5fvCN9+hzJoqQa5Yy+7V+jhogk24yoMbDl2zBmI4Ywo2fWB8E67l8v0+RTk6gAUkJIIRrlMuD0qw39yocgPLFC0chR3Oa5VzXn6dNz3+THj3gQkwiO5sUeeGBPZeDyjjRvhYuhCf2N3GnKC7sL2aOyXnSdXDZ3ygvg6H04VjFf3QTLira+IWby1h/RejEZA0F6Yfd1Dv6HtfWz895+l8kRC53XDJFG+cN1KPWSAbVYMQP1PqkciWbnwU21Cs/5feW2wK4AR9JQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7FVqzbUpnJP/6QYALcUHGeZ1JYt194NWiSde1H9Wz1E=;
- b=J+q4v05PafpMyp0SWvPEIzIaPeeVsnYhQ6O8+0h2Jof0Cs+rfveA1JvP9qzOHTcU56UJFn5aB4tXGNHZ/LElqj0FkB6QkxzY/ZmLG0KQJGgjaVxfn9gAuzZdjksNvYH/ZoLT58yhPgQR5ctJEHieZHN6r+P6Tek/KwMpz9WNsSIWRc8k02Tl8849p1Y6yUIhZ0IZMKkT8xIrvLe83gcPBTp8bbzQoRrVOfD9srM1J0Vp58kjTT65te1xVXf5UbnShwa8t2UaFe3jHNuXq5g+yAN4TOPTo5JCFdPwWn2mYQU2tTGRPhTFSoYCVz5xjCc7PgbArJDlG4/XxIDZVovpBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7FVqzbUpnJP/6QYALcUHGeZ1JYt194NWiSde1H9Wz1E=;
- b=DHEDx1SLL7bEfVcCw09tMWU35ay+il294UB5n9ulMlOTV+WK/IDyc0gcD6O9So8Rp6yHn30YC2PiBzrE1q3tEWGJ6WMqXrCNwSSijjdDTthINpt022pzwbfTIZNXlVJNeH8fVxWHsPZSV+qTenzz+Vlf4PFQpdl/M+h/m2IwkFBV0JUr5eA6utWkKifGYfXj//HK+IRmbpXNLA36VMR06buP1nnEme9IfzAWK2dLiCsWsBI/K0pww5tuRWQ2WkJyQ0gFUKRB9EERa1sfL52A6f+GWur4z1tFbW56CrCkzlEBbZtyN896MjrORoSFH9wBUFNH2kZdasCyHviShCm3dA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
- by AM9PR04MB8145.eurprd04.prod.outlook.com (2603:10a6:20b:3e1::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.46; Thu, 3 Apr
- 2025 05:41:33 +0000
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93%4]) with mapi id 15.20.8583.041; Thu, 3 Apr 2025
- 05:41:33 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	manivannan.sadhasivam@linaro.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v4 7/7] PCI: imx6: Save and restore the LUT setting for i.MX95 PCIe
-Date: Thu,  3 Apr 2025 13:39:37 +0800
-Message-Id: <20250403053937.765849-8-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250403053937.765849-1-hongxing.zhu@nxp.com>
-References: <20250403053937.765849-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA0PR01CA0042.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:81::13) To AS8PR04MB8676.eurprd04.prod.outlook.com
- (2603:10a6:20b:42b::10)
+	Thu, 03 Apr 2025 05:50:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0F93106F;
+	Wed,  2 Apr 2025 22:50:49 -0700 (PDT)
+Received: from [10.163.48.25] (unknown [10.163.48.25])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8AC053F694;
+	Wed,  2 Apr 2025 22:50:41 -0700 (PDT)
+Message-ID: <b409c701-f126-4e07-ba14-75280529689b@arm.com>
+Date: Thu, 3 Apr 2025 11:20:38 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|AM9PR04MB8145:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5b5a03f8-0318-4fdf-4d65-08dd7272310d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t0Edi+GsuIB492pGKN/wQVpeDydDEC2RGsuWs1rrZQJbOiev3xtcMDUYorWT?=
- =?us-ascii?Q?8knxzWodBxLoA6d2xLDpMQv1pAaX5tSG1ukA5mPlU8HzNiEu2SaI145AmEdX?=
- =?us-ascii?Q?WU9y0g3/sJM1/idMpXHNU29E1oW4gxKd5QXoXxeusK4qokHZuaYKo14OFTRe?=
- =?us-ascii?Q?h6ICsA728eC5r5CiEqYDESIj9dUmGAWopajdrQ1T2SN8MNAfFk3XbClyZroz?=
- =?us-ascii?Q?pJHIkagYAQDIAW2RnDnECUoZ7asQDuFQul65bXtedaltbUegT74a6cTwxZse?=
- =?us-ascii?Q?zllAZ8PSmt1g90+A0mkWI4Zsx4XegYsiWGNlEvtQeONwnU4wG2vmBDaCWC16?=
- =?us-ascii?Q?2th1vNagHU9WdwS5B5g2imFol3f/uwODnOR60e5a3B2kwTimNK6lOMXWTm3+?=
- =?us-ascii?Q?tH8gjRVENuwpdel0TZf8FTpCVqrcatjNBqtKAabpIkG5HBvkF6GifzeTk2v6?=
- =?us-ascii?Q?Unm7jSRh/2m1tm7jhufmITp4xpeJBYLKxd0f9ASR/NH5qubp8eb3b8ceNKW2?=
- =?us-ascii?Q?8FQ4emB9hKgVwigYLPWbROtDNSvEUubhISb0XYkY4ENx5q73T5Cid2XqUYwK?=
- =?us-ascii?Q?zO2TpFQlfqcRBvT4NhJcmx7dVWQOgUWyfH1OYDk+hdTfBtFtGdxNoUyG0VoH?=
- =?us-ascii?Q?dMbvnF88Fzxh6OjhIDFNvHBl11pYsIRuIhDl0RaAIDQLxG0bUC8k52qq2qwL?=
- =?us-ascii?Q?XIp6ObipKFkzkPsYEVvlX/vnNRfXDRXOwBegJwodmlYEbV1adwFfereAqdH5?=
- =?us-ascii?Q?PezjLk2uVFbpRs0KshyKA4Sec+r0KT81gR8MUnfJFv0lotdjIq6Ac4LfY2Du?=
- =?us-ascii?Q?OGEYPWvbsyDvpo6SX4b3EBQo5ECkkYtD3QnjBsY6GKBZH39hyDUo4W/TB3+N?=
- =?us-ascii?Q?H+qJyih1SYC3XmQY/k6Vd8ZVXmPwmLHbZ8+LQ7+LJQAofsqcR0BPdhCyjHPs?=
- =?us-ascii?Q?O5d3X+/tgsRJq4OjHT+1LMybOj1xOw7byTUi9+6L9dSCLPlVn5wtTIYRInRO?=
- =?us-ascii?Q?8iw/COJMD6feblJqvVtP4iMRO8OkClsp+rmaHQcfhdbGYgI5S6LKjdEdiMPS?=
- =?us-ascii?Q?tK7StCW11V6cEW2I+zEZh2Wj5zO6+RPLre+iWik82dYG5wOPErhYjrVSCEct?=
- =?us-ascii?Q?IhtP9zVD4yNCWsPtA4FMDlTT1hFXR7xq/uW5urfwqpd+GFgnri/SvBePGU1p?=
- =?us-ascii?Q?k+EPQgbmszE92qy+G5De4HeIyemqn6rp3sQIAdU7MCizjAeRHkV3j9vugQ9p?=
- =?us-ascii?Q?YVHXMEg26WSwoN1T89gu6T32ZLFhmQGO7V0TmwhzBO62Uhji6+b6WGf0Q5ij?=
- =?us-ascii?Q?NEvqtSg5gSoHPla0jKnH8Ai1Lxhk82ODAXuZTXvex71F7PqSHFjPbJ3xaGcj?=
- =?us-ascii?Q?x20W3BBGp5Y8JwExjdookyFaCiYkZwpLiHC3nN3Zugyn6QIlFF/NCoBtPM9q?=
- =?us-ascii?Q?MU0vNCq8sSPBAT5lregvucSXlFWs91PK8RiPUETROWHaGtlf0GI5nw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ozb/NrKIOntZxjKD8Q3/9MN94S0Epl0JW9o5LqpXSmDCMz4PJ/dCqTe2aFwg?=
- =?us-ascii?Q?Ux/v2awO8dD2rlkOihrhy35OjIzKlhcMoJgjrl4iKhHxfPbhpMDZJkdlfuJs?=
- =?us-ascii?Q?cnh4FRYD8RrHge+vWY+XHw3LyU6kb/Fgy7LMIbVkpD6IM3lX0cAETgkS06xD?=
- =?us-ascii?Q?fgmbar5ax1icBzNHsbmoWqVsEWINlItxIMlXYLYgy/3pNlmn62sfgG6ENtoU?=
- =?us-ascii?Q?entmGWx4Crl+jo0vr2KsBZ1ZUPER7Yk+XVY/NY4TwMP3OncuS3Yrq5HMKusO?=
- =?us-ascii?Q?hEZeBZVLZ3Zqlz+6ED9i4U5qkNStqajOyxGDdfr4kphtOqMEsHvfSDHQ2AzX?=
- =?us-ascii?Q?IKJ1x4+MuEP2ljAu+k8Jgh+TlF5prTWT/i7SVWDBrqTKEy/0I4Os4gICbSWc?=
- =?us-ascii?Q?Fgx7ak6sjFQRj7j7qnI5gtZcCD7WsBsR2dVBF840ehHXbImg3CFDfkK0lLCJ?=
- =?us-ascii?Q?26dVwdlTv7uG9WHunQ9T/0+Ey+C9QXS41g+pPRuYGCozRCDnzIzYrmYLk4I/?=
- =?us-ascii?Q?WeR+PqME1FzTkxqUjSBqYxT4xpM/w17WNu7nNv6sI07XNzUsAQMi0kEYXc/Y?=
- =?us-ascii?Q?ssad4jEhWhUXYmFE2ooVZzBqxSd1g9L6Eo4R9LForzSFrCnypxXl8/MqDGZ5?=
- =?us-ascii?Q?ESnYpQKXoTnkuvmd5oisw6Rh/hEJKQ5hhRiMsJdaySE8j/hd5cPwPJZegggJ?=
- =?us-ascii?Q?SoxhCTKREpx2q1JT71EJqM3ko3znJRtPzDcECQ+2hQHzOtb7swbE9NisQ1M0?=
- =?us-ascii?Q?IHsWlnQL4YecvXDFSU9Dk0wSyi9aNIUC9jXmk0+HTHWCxuWV+oq0Qq2DCuwK?=
- =?us-ascii?Q?xXHqyZOkvUAwUw+F0PXbABokw4LfMrMW77b86V+MNQJRlIt6sSERyMcsfoFz?=
- =?us-ascii?Q?J49DsSQ622nwvYV2wll70kb9yPTOb73lS9rBUEahPzTn+lLH7ciYGlWk076R?=
- =?us-ascii?Q?Thd+ObSxlo5RylXA7mVR6AtbA9BEuHeC3+OUg0sKRuLt/zl12Ugd0LuQVtWH?=
- =?us-ascii?Q?zn3YX8SuVRZXzNy0Nh9nsIusWvGwHBAhcrFZxWW7VWgbJebZ3sbO+N3rlEuZ?=
- =?us-ascii?Q?GaJioBWMgQeoq9UlxrDq2LU6290ZSpR1inzS039xzUb2AEZkNG+zwT+YBPz1?=
- =?us-ascii?Q?RSIG7Atb6OEqVW8I3Ga43ezJTBDg7AlEQA45/FYOeORuaTqhjxO4VWMApCnJ?=
- =?us-ascii?Q?lWIWTryd/2aG1ZUIrZPxhov4UvRei/+teh8HrB5cxw+XJux7/aQAxzwVR3uK?=
- =?us-ascii?Q?b+pLfx8aN1CMJnqXDPwEqpiTN5Xctnm0vkvmLSUr4qhWblNGUrH95o3qAoAS?=
- =?us-ascii?Q?SFcPy0Ug+nfC10D/OMzy8vhJUZkbbtn4hgydXhJCpPauMirUGMt94hDEow3j?=
- =?us-ascii?Q?ps9rc+8EcwB0prxErSHqrYbSuJVB4frGFA8HmfrOwqgLJ2/uXfvcTOCJJD1v?=
- =?us-ascii?Q?GuZIUNBvMk2aR8bb9CohWFOnb+BXqyNeup+sqm34ckzFaYX7I0YoMv6jRB1v?=
- =?us-ascii?Q?TQXdZv97WGEecKuct8O27xbihOYJaGjmKa2djTxXv5J4yl+AYz110vGbisrG?=
- =?us-ascii?Q?T2EEM+pXPA4764Ii0DfQeBuoxEPGZ/NVaoFZqEV4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b5a03f8-0318-4fdf-4d65-08dd7272310d
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2025 05:41:33.3456
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sFYqN9whhLz653uRlkdU9rMkWYXqTtyDN/gEdNTNkrInJ0mJHviQY9Lm3d7hrZ1sWCgYB5JqIysYtEHCk2+KkQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8145
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/9] coresight: tmc: Support atclk
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20250327113803.1452108-1-leo.yan@arm.com>
+ <20250327113803.1452108-2-leo.yan@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250327113803.1452108-2-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_224137_103113_71A16E1D 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20250402_225048_421231_4A20E0BF 
+X-CRM114-Status: GOOD (  27.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,106 +70,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The look up table(LUT) setting would be lost during PCIe suspend on i.MX95.
+On 3/27/25 17:07, Leo Yan wrote:
+> The atclk is an optional clock for the CoreSight TMC, but the driver
+> misses to initialize it.  In most cases, the TMC shares the same atclk
 
-To ensure proper functionality after resume, save and restore the LUT
-setting in suspend and resume operations.
+TMC shares the atclk or pclk clock with other coresight components ?
 
-Fixes: 9d6b1bd6b3c8 ("PCI: imx6: Add i.MX8MQ, i.MX8Q and i.MX95 PM support")
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
----
- drivers/pci/controller/dwc/pci-imx6.c | 47 +++++++++++++++++++++++++++
- 1 file changed, 47 insertions(+)
+> with other CoreSight components.  Since these components enable the
+> clock before the TMC device is initialized, the TMC continues properly,
+> which is why we don’t observe any lockup issues.
+> 
+> This change enables atclk in probe of the TMC driver.  Given the clock
+> is optional, it is possible to return NULL if the clock does not exist.
+> IS_ERR() is tolerant for this case.
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 614ec3c79f9c..46864204146e 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -138,6 +138,11 @@ struct imx_pcie_drvdata {
- 	const struct dw_pcie_host_ops *ops;
- };
- 
-+struct imx_lut_data {
-+	u32 data1;
-+	u32 data2;
-+};
-+
- struct imx_pcie {
- 	struct dw_pcie		*pci;
- 	struct gpio_desc	*reset_gpiod;
-@@ -157,6 +162,8 @@ struct imx_pcie {
- 	struct regulator	*vph;
- 	void __iomem		*phy_base;
- 
-+	/* LUT data for pcie */
-+	struct imx_lut_data	luts[IMX95_MAX_LUT];
- 	/* power domain for pcie */
- 	struct device		*pd_pcie;
- 	/* power domain for pcie phy */
-@@ -1498,6 +1505,42 @@ static void imx_pcie_msi_save_restore(struct imx_pcie *imx_pcie, bool save)
- 	}
- }
- 
-+static void imx_pcie_lut_save(struct imx_pcie *imx_pcie)
-+{
-+	u32 data1, data2;
-+	int i;
-+
-+	for (i = 0; i < IMX95_MAX_LUT; i++) {
-+		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL,
-+			     IMX95_PEO_LUT_RWA | i);
-+		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1, &data1);
-+		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, &data2);
-+		if (data1 & IMX95_PE0_LUT_VLD) {
-+			imx_pcie->luts[i].data1 = data1;
-+			imx_pcie->luts[i].data2 = data2;
-+		} else {
-+			imx_pcie->luts[i].data1 = 0;
-+			imx_pcie->luts[i].data2 = 0;
-+		}
-+	}
-+}
-+
-+static void imx_pcie_lut_restore(struct imx_pcie *imx_pcie)
-+{
-+	int i;
-+
-+	for (i = 0; i < IMX95_MAX_LUT; i++) {
-+		if ((imx_pcie->luts[i].data1 & IMX95_PE0_LUT_VLD) == 0)
-+			continue;
-+
-+		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1,
-+			     imx_pcie->luts[i].data1);
-+		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2,
-+			     imx_pcie->luts[i].data2);
-+		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, i);
-+	}
-+}
-+
- static int imx_pcie_suspend_noirq(struct device *dev)
- {
- 	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
-@@ -1506,6 +1549,8 @@ static int imx_pcie_suspend_noirq(struct device *dev)
- 		return 0;
- 
- 	imx_pcie_msi_save_restore(imx_pcie, true);
-+	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT))
-+		imx_pcie_lut_save(imx_pcie);
- 	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_BROKEN_SUSPEND)) {
- 		/*
- 		 * The minimum for a workaround would be to set PERST# and to
-@@ -1550,6 +1595,8 @@ static int imx_pcie_resume_noirq(struct device *dev)
- 		if (ret)
- 			return ret;
- 	}
-+	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT))
-+		imx_pcie_lut_restore(imx_pcie);
- 	imx_pcie_msi_save_restore(imx_pcie, false);
- 
- 	return 0;
--- 
-2.37.1
+Makes sense.
 
+> 
+> Dynamically disable and enable atclk during suspend and resume.  The
+> clock pointers will never be error values if the driver has successfully
+> probed, and the case of a NULL pointer case will be handled by the clock
+> core layer.  The driver data is always valid after probe. Therefore,
+> remove the related checks.  Also in the resume flow adds error handling.
+
+Probably a good clean up.
+
+> 
+> Fixes: bc4bf7fe98da ("coresight-tmc: add CoreSight TMC driver")
+
+Right commit to attribute.
+
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-tmc-core.c | 22 +++++++++++++++++-----
+>  drivers/hwtracing/coresight/coresight-tmc.h      |  2 ++
+>  2 files changed, 19 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> index 5978bcda2556..6aad2acd0378 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> @@ -789,6 +789,10 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+>  	struct coresight_desc desc = { 0 };
+>  	struct coresight_dev_list *dev_list = NULL;
+>  
+> +	drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
+> +	if (IS_ERR(drvdata->atclk))
+> +		return PTR_ERR(drvdata->atclk);
+> +
+
+Adding this check here in __tmc_probe() ensures that it gets called
+both during AMBA and platform probe methods.
+
+>  	ret = -ENOMEM;
+>  
+>  	/* Validity for the resource is already checked by the AMBA core */
+> @@ -1019,18 +1023,26 @@ static int tmc_runtime_suspend(struct device *dev)
+>  {
+>  	struct tmc_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->pclk);
+> +
+>  	return 0;
+>  }
+>  
+>  static int tmc_runtime_resume(struct device *dev)
+>  {
+>  	struct tmc_drvdata *drvdata = dev_get_drvdata(dev);
+> +	int ret;
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> -	return 0;
+> +	ret = clk_prepare_enable(drvdata->pclk);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = clk_prepare_enable(drvdata->atclk);
+> +	if (ret)
+> +		clk_disable_unprepare(drvdata->pclk);
+> +
+> +	return ret;
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> index 6541a27a018e..cbb4ba439158 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> @@ -210,6 +210,7 @@ struct tmc_resrv_buf {
+>  
+>  /**
+>   * struct tmc_drvdata - specifics associated to an TMC component
+> + * @atclk:	optional clock for the core parts of the TMC.
+>   * @pclk:	APB clock if present, otherwise NULL
+>   * @base:	memory mapped base address for this component.
+>   * @csdev:	component vitals needed by the framework.
+> @@ -244,6 +245,7 @@ struct tmc_resrv_buf {
+>   *		 Used by ETR/ETF.
+>   */
+>  struct tmc_drvdata {
+> +	struct clk		*atclk;
+>  	struct clk		*pclk;
+>  	void __iomem		*base;
+>  	struct coresight_device	*csdev;
+
+Otherwise, LGTM.
+
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
