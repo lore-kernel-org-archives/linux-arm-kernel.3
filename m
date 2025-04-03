@@ -4,75 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED03C3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85536C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HVn/YIlN4ltMkotAt08Jf6OJVWnVHDKWgv1lkclEVSQ=; b=wHjblomjD5ASi4SyrF97Lb7ijE
-	6WLJDoqZGumL6Fdwg94D2Y4dLuKBtr3qzqriFR0UhVLcsdpBZ0mXa6C/qx+ROgTUky1NBgjrl9/bV
-	jLqelyD/mB4Bx//eOU4APsOjjAMkFXbj+iahNhUhPokWGpA4pq2gPLEWPMvNVXuVjqUinOSm3y4a1
-	+NOKk4OCnIM294ZMmYYGjynwgzRZF+VtIHi0A6jKyG+gnoxGUZSRrYDPZ/Tq0e67TXX4xvbS03rBd
-	pVTymh6vr2cOcc82hhSXwat5BtZPTJrdzFh5/xGmxPuS+0WLQuYpXpkp2oIlWtu6EppiyIGpQbDGE
-	IwwkIAwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uoLQQzQC+cp7umyd/eMU6viAyp8Vg8rM6rbLiqSk0yw=; b=2uDTjjhLy7U84PybHKJeAHhGiD
+	vz1YGXyvIaoY+PxVLS/OHOX0lXNqSjnKEL5MUedleNUNh6OinzXuB/+lPE+14wmZJ91ezxkWeX4s/
+	xOU1NYc0M9SajQLE9fH02bzwcGEcQWf3Bx8Sjel7XDZs+4EkYbWl5GQ8CgecKkt6u6Vrg8uDH9LqA
+	OC10sfTBrorn1NbKw6ld+myELKAXWrTyy/SCOecp7mES64dhr2Vuv5kt6wWPrLDFOo8vJDvaKgYvt
+	oYP/KwAEEq0aXBeeFvkEK8SjpPGETFb42UsnDYWhozxWNXbA9X2+AXrDliYdZ0PDxQQC7YQ4Uktc9
+	0983bzng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0LkF-000000096Rr-45Ko;
-	Thu, 03 Apr 2025 14:40:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0LXS-000000094Js-0o8y
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 14:27:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D6061C01;
-	Thu,  3 Apr 2025 07:27:28 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B67BB3F59E;
-	Thu,  3 Apr 2025 07:27:21 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	anshuman.khandual@arm.com,
-	joey.gouly@arm.com,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	frederic@kernel.org,
-	james.morse@arm.com,
-	hardevsinh.palaniya@siliconsignals.io,
-	shameerali.kolothum.thodi@huawei.com,
-	huangxiaojia2@huawei.com,
-	mark.rutland@arm.com,
-	samuel.holland@sifive.com,
-	palmer@rivosinc.com,
-	charlie@rivosinc.com,
-	thiago.bauermann@linaro.org,
-	bgray@linux.ibm.com,
-	tglx@linutronix.de,
-	puranjay@kernel.org,
-	david@redhat.com,
-	yang@os.amperecomputing.com,
-	mbenes@suse.cz,
-	joel.granados@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	nd@arm.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 3/3] arm64/kernel: support store-only mte tag check
-Date: Thu,  3 Apr 2025 15:27:07 +0100
-Message-Id: <20250403142707.26397-4-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250403142707.26397-1-yeoreum.yun@arm.com>
-References: <20250403142707.26397-1-yeoreum.yun@arm.com>
-MIME-Version: 1.0
+	id 1u0Lm1-000000096l9-2Ze6;
+	Thu, 03 Apr 2025 14:42:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0LfJ-000000095eQ-4Ai0;
+	Thu, 03 Apr 2025 14:35:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D29668436;
+	Thu,  3 Apr 2025 14:35:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E180BC4CEE7;
+	Thu,  3 Apr 2025 14:35:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743690933;
+	bh=clMVZUg7aCr+NLtc+S3LZyI+5cu7m6OvVqqIogY95n8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=aR2eCKYWqx5ayDSWmvE0vxYepUcrgLBeCnS9cIvGjXbHgppnW4SxtTNIzXiUQan/Q
+	 VTL1hg/RJE9aTF6y5UR/rmznPWGYAc7h0MXPHjaK2yzCU0sxOk5220aGMqE+6VJy0V
+	 ZuM2bSXzWTdE1DRgNymiy9VL5Yf8qB3QA2cmok7vlU88OmoyOKg4VdLE/Qm4jITOAF
+	 odaeVsQMRDt5a7Dk3e6jsE5eGmM/IjSg7/Z/lh2elUV+jJvYA3R07dWz6VsestSlcG
+	 MR4mKg949sC8PniPeFnAc72TiYKyE12tAcL5oPeHQ5AXefSc+ScyD1oIJIhWoKElps
+	 ljIVpTMqORryw==
+Date: Thu, 03 Apr 2025 09:35:31 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_072726_458098_6C4059D7 
-X-CRM114-Status: GOOD (  12.53  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ mtk29348 <Bo.Kong@mediatek.com>, linux-kernel@vger.kernel.org, 
+ linux-media@vger.kernel.org, Teddy.Chen@mediatek.com, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com, 
+ zhaoyuan.chen@mediatek.com, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+To: "bo.kong" <bo.kong@mediatek.com>
+In-Reply-To: <20250403074005.21472-1-bo.kong@mediatek.com>
+References: <20250403074005.21472-1-bo.kong@mediatek.com>
+Message-Id: <174369066367.2789561.14328496849433879876.robh@kernel.org>
+Subject: Re: [PATCH v5 0/4] Add AIE driver support for mt8188
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,94 +72,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce new flag -- MTE_CTRL_STORE_ONLY used to set store-only tag check.
-This flag isn't overrided by prefered tcf flag setting but set together
-with prefered setting of way to report tag check fault.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/include/asm/processor.h |  2 ++
- arch/arm64/kernel/mte.c            | 11 ++++++++++-
- arch/arm64/kernel/process.c        |  6 +++++-
- 3 files changed, 17 insertions(+), 2 deletions(-)
+On Thu, 03 Apr 2025 15:38:32 +0800, bo.kong wrote:
+> From: Bo Kong <Bo.Kong@mediatek.com>
+> 
+> AIE(AI Engine) is one of the units in mt8188 ISP which provides hardware accelerated face detection function, it can detect different sizes of faces in a raw image.
+> 
+> Bo Kong (4):
+>   media: dt-bindings: add MT8188 AIE
+>   arm64: dts: mt8188: add aie node
+>   uapi: linux: add MT8188 AIE
+>   media: mediatek: add MT8188 AIE driver
+> 
+>  .../bindings/media/mediatek,mt8188-aie.yaml   |   78 +
+>  arch/arm64/boot/dts/mediatek/mt8188.dtsi      |   33 +
+>  drivers/media/platform/mediatek/Kconfig       |    1 +
+>  drivers/media/platform/mediatek/Makefile      |    1 +
+>  drivers/media/platform/mediatek/aie/Kconfig   |   12 +
+>  drivers/media/platform/mediatek/aie/Makefile  |    5 +
+>  drivers/media/platform/mediatek/aie/mtk_aie.h |  870 ++++++
+>  .../media/platform/mediatek/aie/mtk_aie_drv.c | 2398 +++++++++++++++++
+>  .../platform/mediatek/aie/mtk_aie_v4l2.c      | 1295 +++++++++
+>  drivers/media/v4l2-core/v4l2-ioctl.c          |    3 +
+>  include/uapi/linux/mtk_aie_v4l2_controls.h    |  308 +++
+>  include/uapi/linux/videodev2.h                |    6 +
+>  12 files changed, 5010 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
+>  create mode 100644 drivers/media/platform/mediatek/aie/Kconfig
+>  create mode 100644 drivers/media/platform/mediatek/aie/Makefile
+>  create mode 100644 drivers/media/platform/mediatek/aie/mtk_aie.h
+>  create mode 100644 drivers/media/platform/mediatek/aie/mtk_aie_drv.c
+>  create mode 100644 drivers/media/platform/mediatek/aie/mtk_aie_v4l2.c
+>  create mode 100644 include/uapi/linux/mtk_aie_v4l2_controls.h
+> 
+> --
+> 2.45.2
+> 
+> 
+> 
 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 1bf1a3b16e88..61d62bfd5a7b 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -23,6 +23,8 @@
- #define MTE_CTRL_TCF_ASYNC		(1UL << 17)
- #define MTE_CTRL_TCF_ASYMM		(1UL << 18)
- 
-+#define MTE_CTRL_STORE_ONLY		(1UL << 19)
-+
- #ifndef __ASSEMBLY__
- 
- #include <linux/build_bug.h>
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 2fbfd27ff5f2..e5e773844889 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -200,7 +200,7 @@ static void mte_update_sctlr_user(struct task_struct *task)
- 	 * program requested values go with what was requested.
- 	 */
- 	resolved_mte_tcf = (mte_ctrl & pref) ? pref : mte_ctrl;
--	sctlr &= ~SCTLR_EL1_TCF0_MASK;
-+	sctlr &= ~(SCTLR_EL1_TCF0_MASK | SCTLR_EL1_TCSO0_MASK);
- 	/*
- 	 * Pick an actual setting. The order in which we check for
- 	 * set bits and map into register values determines our
-@@ -212,6 +212,10 @@ static void mte_update_sctlr_user(struct task_struct *task)
- 		sctlr |= SYS_FIELD_PREP_ENUM(SCTLR_EL1, TCF0, ASYNC);
- 	else if (resolved_mte_tcf & MTE_CTRL_TCF_SYNC)
- 		sctlr |= SYS_FIELD_PREP_ENUM(SCTLR_EL1, TCF0, SYNC);
-+
-+	if (mte_ctrl & MTE_CTRL_STORE_ONLY)
-+		sctlr |= SYS_FIELD_PREP(SCTLR_EL1, TCSO0, 1);
-+
- 	task->thread.sctlr_user = sctlr;
- }
- 
-@@ -371,6 +375,9 @@ long set_mte_ctrl(struct task_struct *task, unsigned long arg)
- 	    (arg & PR_MTE_TCF_SYNC))
- 		mte_ctrl |= MTE_CTRL_TCF_ASYMM;
- 
-+	if (arg & PR_MTE_STORE_ONLY)
-+		mte_ctrl |= MTE_CTRL_STORE_ONLY;
-+
- 	task->thread.mte_ctrl = mte_ctrl;
- 	if (task == current) {
- 		preempt_disable();
-@@ -398,6 +405,8 @@ long get_mte_ctrl(struct task_struct *task)
- 		ret |= PR_MTE_TCF_ASYNC;
- 	if (mte_ctrl & MTE_CTRL_TCF_SYNC)
- 		ret |= PR_MTE_TCF_SYNC;
-+	if (mte_ctrl & MTE_CTRL_STORE_ONLY)
-+		ret |= PR_MTE_STORE_ONLY;
- 
- 	return ret;
- }
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 42faebb7b712..cea4a23a15de 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -815,10 +815,14 @@ long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
- 	if (is_compat_thread(ti))
- 		return -EINVAL;
- 
--	if (system_supports_mte())
-+	if (system_supports_mte()) {
- 		valid_mask |= PR_MTE_TCF_SYNC | PR_MTE_TCF_ASYNC \
- 			| PR_MTE_TAG_MASK;
- 
-+		if (cpus_have_cap(ARM64_MTE_STORE_ONLY))
-+			valid_mask |= PR_MTE_STORE_ONLY;
-+	}
-+
- 	if (arg & ~valid_mask)
- 		return -EINVAL;
- 
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250403 (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250403074005.21472-1-bo.kong@mediatek.com:
+
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8188-geralt-ciri-sku4.dtb] Error 2
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8370-genio-510-evk.dtb] Error 2
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8390-genio-700-evk.dtb] Error 2
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8188-geralt-ciri-sku1.dtb] Error 2
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8188-geralt-ciri-sku7.dtb] Error 2
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8188-geralt-ciri-sku3.dtb] Error 2
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8188-evb.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8188-evb.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8188-evb.dtb] Error 2
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8188-geralt-ciri-sku6.dtb] Error 2
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8188-geralt-ciri-sku0.dtb] Error 2
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8188-geralt-ciri-sku2.dtb] Error 2
+arch/arm64/boot/dts/mediatek/mt8188.dtsi:2359.25-2370.5: ERROR (phandle_references): /soc/larb@15340000: Reference to non-existent node or label "smi_img1"
+ERROR: Input tree has errors, aborting (use -f to force output)
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb] Error 2
+make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/mediatek] Error 2
+make[2]: Target 'arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1475: mediatek/mt8188-geralt-ciri-sku5.dtb] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+make: Target 'mediatek/mt8183-pumpkin.dtb' not remade because of errors.
+make: Target 'mediatek/mt6797-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-kodama-sku16.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-fennel14.dtb' not remade because of errors.
+make: Target 'mediatek/mt8395-genio-1200-evk.dtb' not remade because of errors.
+make: Target 'mediatek/mt7986a-bananapi-bpi-r3.dtb' not remade because of errors.
+make: Target 'mediatek/mt8173-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt7986b-rfb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-willow-sku0.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-tentacruel-sku262144.dtb' not remade because of errors.
+make: Target 'mediatek/mt8195-cherry-tomato-r2.dtb' not remade because of errors.
+make: Target 'mediatek/mt7981b-openwrt-one.dtb' not remade because of errors.
+make: Target 'mediatek/mt8173-elm.dtb' not remade because of errors.
+make: Target 'mediatek/mt7622-rfb1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-damu.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-willow-sku1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-tentacool-sku327681.dtb' not remade because of errors.
+make: Target 'mediatek/mt6779-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8188-geralt-ciri-sku4.dtb' not remade because of errors.
+make: Target 'mediatek/mt8173-elm-hana-rev7.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-starmie-sku1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8370-genio-510-evk.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-kenzo.dtb' not remade because of errors.
+make: Target 'mediatek/mt2712-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-tentacool-sku327683.dtb' not remade because of errors.
+make: Target 'mediatek/mt7981b-cudy-wr3000-v1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8192-asurada-hayato-r1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8390-genio-700-evk.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8395-kontron-3-5-sbc-i1200.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-pico6.dtb' not remade because of errors.
+make: Target 'mediatek/mt8188-geralt-ciri-sku1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8195-demo.dtb' not remade because of errors.
+make: Target 'mediatek/mt8173-elm-hana.dtb' not remade because of errors.
+make: Target 'mediatek/mt6755-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-chinchou-sku16.dtb' not remade because of errors.
+make: Target 'mediatek/mt8192-asurada-spherion-r0.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-chinchou-sku0.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-kodama-sku32.dtb' not remade because of errors.
+make: Target 'mediatek/mt7622-bananapi-bpi-r64.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-chinchou-sku1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-voltorb-sku589825.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-magneton-sku393218.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8188-geralt-ciri-sku7.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-magneton-sku393216.dtb' not remade because of errors.
+make: Target 'mediatek/mt8188-geralt-ciri-sku3.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dtb' not remade because of errors.
+make: Target 'mediatek/mt6797-x20-dev.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-cozmo.dtb' not remade because of errors.
+make: Target 'mediatek/mt8188-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-krane-sku0.dtb' not remade because of errors.
+make: Target 'mediatek/mt8365-evk.dtb' not remade because of errors.
+make: Target 'mediatek/mt8195-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8395-radxa-nio-12l.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-steelix-sku131073.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-voltorb-sku589824.dtb' not remade because of errors.
+make: Target 'mediatek/mt7988a-bananapi-bpi-r4.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-starmie-sku0.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-burnet.dtb' not remade because of errors.
+make: Target 'mediatek/mt8188-geralt-ciri-sku6.dtb' not remade because of errors.
+make: Target 'mediatek/mt7986a-acelink-ew-7886cax.dtb' not remade because of errors.
+make: Target 'mediatek/mt8516-pumpkin.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-kakadu-sku22.dtb' not remade because of errors.
+make: Target 'mediatek/mt7986a-rfb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-kodama-sku288.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-krane-sku176.dtb' not remade because of errors.
+make: Target 'mediatek/mt8188-geralt-ciri-sku0.dtb' not remade because of errors.
+make: Target 'mediatek/mt6795-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-tentacruel-sku262148.dtb' not remade because of errors.
+make: Target 'mediatek/mt8167-pumpkin.dtb' not remade because of errors.
+make: Target 'mediatek/mt7981b-xiaomi-ax3000t.dtb' not remade because of errors.
+make: Target 'mediatek/mt8188-geralt-ciri-sku2.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-steelix-sku131072.dtb' not remade because of errors.
+make: Target 'mediatek/mt8195-cherry-dojo-r1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-kappa.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-kakadu.dtb' not remade because of errors.
+make: Target 'mediatek/mt7986a-bananapi-bpi-r3-mini.dtb' not remade because of errors.
+make: Target 'mediatek/mt6795-sony-xperia-m5.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-magneton-sku393217.dtb' not remade because of errors.
+make: Target 'mediatek/mt8192-evb.dtb' not remade because of errors.
+make: Target 'mediatek/mt8195-cherry-tomato-r3.dtb' not remade because of errors.
+make: Target 'mediatek/mt8195-cherry-tomato-r1.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-juniper-sku16.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-katsu-sku32.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-katsu-sku38.dtb' not remade because of errors.
+make: Target 'mediatek/mt8188-geralt-ciri-sku5.dtb' not remade because of errors.
+make: Target 'mediatek/mt8186-corsola-rusty-sku196608.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-jacuzzi-pico.dtb' not remade because of errors.
+make: Target 'mediatek/mt8183-kukui-kodama-sku272.dtb' not remade because of errors.
+
+
+
+
 
 
