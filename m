@@ -4,111 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A08C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 07:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862F8C3601B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 08:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Y0fhpN7ZcftI4MqUOgLa83LmotaUzWJeeBCNrw39c4=; b=eTvHu1PbdlljnoUyl2m31YSXn6
-	9I89RPPn1dFTwLAr+LHR5z3t7YeYIGTrZGS38ZRi5yFdheBQRUKo4JUQ8KivSCcQN6ijaFP8AIuX3
-	6AmkHqO6Iv0u7Ehps/BVZS/Zsds1xtsvhMZsjXBL5XiOPkN2kjUIrn9mXAPpiQi4vrHBQPKqAardk
-	xgGzjZ0rqz+C+5vR5tEo2mLkgfYr2yRcYhejeqk3DRzxuNOS4aUxRZ/dxVcdK6fu9cUZzzWDdWldG
-	AqnOXuxjTs6JxgZdouG1yjtmrpnIyGGpXQfYgLpdpfWyKG/gypFrPOUFa5IEGwxbsg9arYi80+q2+
-	HmJAMHCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:Cc:To:
+	From:Mime-Version:Message-ID:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5dhN994mK3sV8XyXlVMNu74SvDuu2WdE1WmcbuX0seo=; b=NwAoJcjSK5CQABjGVdFn25iuWl
+	Nfnsa/jz2aX9GqpzXO8nnY37M7eYKD77cY11NOQpB4t/Ofs0M3iyOk0ThP9ygb3DFeYoPe5UutGdg
+	Ni4/pRwYhfX1aJEVoiZFXISGobRA4XCTMew7ucppDit3UItjM84IsOTICOJ7hNnAQKqylFLLnn26+
+	4VcZsuPFFer+9uNAHZc7I9z2/WPxNIPtdcqA3/Xhf0XpielkLu0wy5vcnPfun3EG1hNa2H8yfReJf
+	MghPtrdFXx1qyTROVE3aSb7B1CGO2Q8lpg8foQ8Dl7M3n4yZd0zGcz9+RM91l80fh1Xs23filAduD
+	7GDLrLGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0FTJ-00000008C50-0vSc;
-	Thu, 03 Apr 2025 07:58:45 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u0FV3-00000008CKH-09nG;
+	Thu, 03 Apr 2025 08:00:33 +0000
+Received: from mxhk.zte.com.cn ([63.216.63.40])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0FGX-00000008AAC-01Lu
+	id 1u0FI4-00000008AV4-4A5C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 07:45:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5EBADA44271;
-	Thu,  3 Apr 2025 07:40:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 322F5C4CEE9;
-	Thu,  3 Apr 2025 07:45:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743666331;
-	bh=A03wrDYWnmPYNNfdVZ6NmbPrlqWAhypxVHx4h/4zM9o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gk1jHHo6QVDUUetLKNaQQzcYrrNKt2243VfA07O1kd5OxromHrg+GjL8PWstYB1ez
-	 lYyGq77xenWIrUx+b0s1ei5vb6oTVMnJLVXbBZyCPgf2Sy0Pf+JauSxVAL8L8kfDJg
-	 jDZ6t5jcvcAqB5dXFCP5WCLlPX+5RDK8MVSLNLv7cjlJB1msvgQaDGX1a6N6OjkC7V
-	 D3BuuJDT0rX7SvkKIbDw1xYjpAWKW/41v1w10o8S/olKg5XofMFyiP7cyRjv6p3D5K
-	 OntDybXLahtGon1M+StSjYCBk3ft8q1O+PUE3JWT3gY2ta4SaY8YJIBxMnOp2jjd+C
-	 0uyD8OA2QERMw==
-Message-ID: <f75fb67a-91ac-4e3d-8ce7-5e0c6c2bb2cb@kernel.org>
-Date: Thu, 3 Apr 2025 09:45:24 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/9] MAINTAINERS: add maintainer for the Ka-Ro
- tx8p-ml81 COM module
-To: maudspierings@gocontroll.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250402-initial_display-v4-0-9f898838a864@gocontroll.com>
- <20250402-initial_display-v4-3-9f898838a864@gocontroll.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250402-initial_display-v4-3-9f898838a864@gocontroll.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Thu, 03 Apr 2025 07:47:10 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4ZSv2Y3PJ6z8RTZL;
+	Thu,  3 Apr 2025 15:47:01 +0800 (CST)
+Received: from xaxapp05.zte.com.cn ([10.99.98.109])
+	by mse-fl1.zte.com.cn with SMTP id 5337kpK9082996;
+	Thu, 3 Apr 2025 15:46:51 +0800 (+08)
+	(envelope-from shao.mingyin@zte.com.cn)
+Received: from mapi (xaxapp04[null])
+	by mapi (Zmail) with MAPI id mid32;
+	Thu, 3 Apr 2025 15:46:54 +0800 (CST)
+Date: Thu, 3 Apr 2025 15:46:54 +0800 (CST)
+X-Zmail-TransId: 2afb67ee3ceeffffffff9da-3bdb9
+X-Mailer: Zmail v1.0
+Message-ID: <20250403154654546Uoj1gN_pronbxhSLPEIUn@zte.com.cn>
+Mime-Version: 1.0
+From: <shao.mingyin@zte.com.cn>
+To: <lpieralisi@kernel.org>
+Cc: <kw@linux.com>, <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <michal.simek@amd.com>,
+        <linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <yang.yang29@zte.com.cn>,
+        <xu.xin16@zte.com.cn>, <ye.xingchen@zte.com.cn>,
+        <xie.ludan@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIXSBQQ0k6IHhpbGlueC14ZG1hOiBVc2UgZGV2bV9wbGF0Zm9ybV9pb3JlbWFwX3Jlc291cmNlX2J5bmFtZcKgwqA=?=
+Content-Type: text/plain;
+	charset="UTF-8"
+X-MAIL: mse-fl1.zte.com.cn 5337kpK9082996
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 67EE3CF5.001/4ZSv2Y3PJ6z8RTZL
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_004533_216417_0E894B54 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20250403_004709_185163_8B11B6D2 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,38 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/04/2025 09:07, Maud Spierings via B4 Relay wrote:
-> From: Maud Spierings <maudspierings@gocontroll.com>
-> 
-> Add GOcontroll as unofficial maintainers of the Ka-Ro tx8p-ml81 COM
-> module bindings.
-> 
-> This support is not officially done by Ka-Ro electronics, if they at
-> some point will supporting mainline, this should be changed to them.
-> 
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> ---
->  MAINTAINERS | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 322ee00547f6e494a96d2495092f72148da22bd0..4b3864a9852f9fca2be48987d383c0671e668336 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -12752,6 +12752,13 @@ S:	Maintained
->  F:	Documentation/hwmon/k8temp.rst
->  F:	drivers/hwmon/k8temp.c
->  
-> +KA-RO TX8P COM MODULE
-> +M:	Maud Spierings <maudspierings@gocontroll.com>
-> +L:	devicetree@vger.kernel.org
+From: Xie Ludan <xie.ludan@zte.com.cn>
 
-Drop
+Introduce devm_platform_ioremap_resource_byname() to simplify
+resource retrieval and mapping.This new function consolidates
+platform_get_resource_byname() and devm_ioremap_resource() into a single
+call, improving code readability and reducing API call overhead.
 
-> +L:	imx@lists.linux.dev
+Signed-off-by: Xie Ludan <xie.ludan@zte.com.cn>
+Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+---
+ drivers/pci/controller/pcie-xilinx-dma-pl.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-I would say this as well, but not my subsystem to worry.
+diff --git a/drivers/pci/controller/pcie-xilinx-dma-pl.c b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+index dd117f07fc95..238deec3b948 100644
+--- a/drivers/pci/controller/pcie-xilinx-dma-pl.c
++++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+@@ -753,8 +753,7 @@ static int xilinx_pl_dma_pcie_parse_dt(struct pl_dma_pcie *port,
 
-Best regards,
-Krzysztof
+ 	if (port->variant->version == QDMA) {
+ 		port->cfg_base = port->cfg->win;
+-		res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "breg");
+-		port->reg_base = devm_ioremap_resource(dev, res);
++		port->reg_base = devm_platform_ioremap_resource_byname(pdev, "breg");
+ 		if (IS_ERR(port->reg_base))
+ 			return PTR_ERR(port->reg_base);
+ 		port->phys_reg_base = res->start;
+-- 
+2.25.1
 
