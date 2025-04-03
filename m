@@ -4,159 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD79C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 16:12:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D93C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 16:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dy8Ws2qvwF9s55c8ff5LGR1nvZuXfJj+iEpUvr3iHP8=; b=PlKJDhiKqnO5sc4e9w2LfnAmd6
-	WndJZL42+wdSKFJ40m7RhAFcOzD5EqOcxYPlA8P8uJgehEqCDJCZ2+sgGcrK5CWOh4ZsRcngbtrfZ
-	u4XarvJ9pyRARytdHhMi3TLIlxOkkda+62+h/YCpgF0z9wTXym4pV+8kzK5ZPrQ1NAuvoXHFMh1mu
-	9RsXz6QzqFU63PKe0Xal3y2/HfPQR9wh9lIJZUYPwvB24aeRW9KHpxSQuVNfWDC7Ju5NFA0uy7FT+
-	jZbovSc4O0rdYWlz0cb8KSGGDheBakzcp4zA688eWRmfT90Q6xtfHlCL4ua7qUF7RjqN3ujoTx8YN
-	7hirZdVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ah0TZGtUrsVvEFBC1fVW/YqrrmYj+hZ4lBmeNXKbcZM=; b=gqpfs/tOExZoSU7Xo5e4cOo99L
+	xRM41TH8ROXUu8+f5xq/oNT9yBrqxG8SSFLibxkiU49eZGlG6FLOzIBNd29vYE/S5BcPHtsSmBOJO
+	zL6yPUP5Ddjq2tlMq6cbkHizx+tMOkhtaO6f1gZJ9Fy+EsuN8BzwGEGgP63ShDnLLsuJAvc2HWwRM
+	xZr3N3TGQ+dEegG98NWiJs7dvLPG55NigipTDt0nAO1CAYvTgwXwcBjx4XEKg4/aCwEqqNA7MzEdj
+	9CSHcEyu92HYeDQrfZpVFgUcJIKO5ejxX27QcCidiRwEmKxcfVV8C6X7M3j0/edP0JO2YRSWgUAx7
+	2Rfgh3VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0NAh-00000009KAK-2hv3;
-	Thu, 03 Apr 2025 16:12:03 +0000
-Received: from mail-mw2nam04on2061a.outbound.protection.outlook.com ([2a01:111:f403:240a::61a] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
+	id 1u0NS5-00000009MqJ-0C27;
+	Thu, 03 Apr 2025 16:30:01 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0N8s-00000009Jx3-1Tsn;
-	Thu, 03 Apr 2025 16:10:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BYLIpGboifHlJ4FUIOVaQemr5j/YhWeU8MBsBY7NM9BoXu/N3NCcyJZW4reXLsgc4G9GM8KmgypwF8pgITCySoGl7OsQ4hVDJPmNxdb1/s5/X5b7/wyuLVtVIPMXCYFcvt1AfI3q2LouR2/mRAAask2Je02M1059VJfp543UmdxDCjcI9qqEriES8+16IyxWvLrrliSOXGScW+J8QbGE+VY0xSXPZIGx0Cu+Nmg4NR0OsWkjkajxlyJCDXksATdhLHvL4JfJVLcfEmi7OHI0yYpccgA1xHNz3HFB2k2a42S3RJIZOFM0lh1RcduLhHJUylZ/9KD/JalIryahpEkgkw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dy8Ws2qvwF9s55c8ff5LGR1nvZuXfJj+iEpUvr3iHP8=;
- b=OCMQS+B2YbCDEu6+awANYI0k7MSAiadpqmBAYH8xCLS5y4hZkLSg9D8el18dr2GKDXFGWQFspHwJQmsllXkP+zAjh6BAYJhFSKF8N3kJkrBAXbItilFsf4g88EA9i4uoLloIN5/bXlUUFf+Hs6+RI5Te28V764RdvbBwTCWuzYGn4HEy2cwL553d8Pnb/KdHHbB3W4DDpRFNjNmNzC5n4giWwqsISFkyel3BqXb0EsPX086jceVBKnXQIv2Dy7f2RQHHFUU87x96lOt+XhlwSZi4FGV3aIMvLeYU+1fOAdvPmswTPaIq6OFUOVGX6Pm2nuAgJ73Cr6nYQYzUj3qu3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dy8Ws2qvwF9s55c8ff5LGR1nvZuXfJj+iEpUvr3iHP8=;
- b=K+9U3XOxJQAtXib9UDfN3h9WU6WSBdjRQeu5p+LsPlPdqaKYaqoP1cRZKmChrwIW1Tlwpl5J18pdgL7xevx2FWAz4gZupsME09ey03WXfDRJZOKRHVlKqT1/hfNP1zSLIfBp0VJ1HDUeSVFyMbAJJwm4mCTeX9trhGqyysW7jv2G1D/uFsL0xGPv7A39mWh+2YZz5lrA975FYWvRMS/BS59ljbRfFY1j/UvPPgxWILW6ciqw2YwXCrU4L9zJPEm9TF8T6EmsSj5eZbXaVvJQnawnv8GqMTT5FHEGIk41g2BrhB9LR0jtii0FsZSaiBiPK2r/HW5qgzF8IwKS3kNbNQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by PH7PR12MB9253.namprd12.prod.outlook.com (2603:10b6:510:30d::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.42; Thu, 3 Apr
- 2025 16:10:04 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.043; Thu, 3 Apr 2025
- 16:10:04 +0000
-Date: Thu, 3 Apr 2025 13:10:01 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Pratyush Yadav <ptyadav@amazon.de>
-Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, rppt@kernel.org,
-	mark.rutland@arm.com, pbonzini@redhat.com,
-	pasha.tatashin@soleen.com, hpa@zytor.com, peterz@infradead.org,
-	robh+dt@kernel.org, robh@kernel.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, rostedt@goodmis.org,
-	tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <20250403161001.GG342109@nvidia.com>
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-10-changyuanl@google.com>
- <mafs01pu9qm6r.fsf@amazon.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <mafs01pu9qm6r.fsf@amazon.de>
-X-ClientProxiedBy: MN2PR19CA0022.namprd19.prod.outlook.com
- (2603:10b6:208:178::35) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u0NQG-00000009MdI-3ikx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Apr 2025 16:28:10 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 533BPkd8024168;
+	Thu, 3 Apr 2025 18:28:02 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=Ah0TZGtUrsVvEFBC1fVW/Y
+	qrrmYj+hZ4lBmeNXKbcZM=; b=Bpsuto1naypPj/7FNujwTbvYkxWE3xsuM0Tlva
+	VSxwJwK8qogA12QCLDCIBcxfGabnbXgIo6fwCaLW2AQyFofetj2tS2HiD8AVpCaR
+	5GrG62sYWAUMWtIEWm8xyAJww/Xz+8XoDDcrQPhH8C6WtA7+x/4CAFhReXFFOw4x
+	Wv12FsNGS3XZHazEci1SqACJEYW9JvbWnlawCewOvHVuWgWGOgLtG4nJVgHnhhbZ
+	bBMC6hA86uVTG5B4CaV1k1hZdFI0A8q9HGOkhvW/3OiONEY3Exxu6evAYUpixqe4
+	PEtfCbSDiMaqP2Rz6l6bW3hVWcY1FBlguUJZlZdPRDzCpL1w==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45s2c7fdwx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 03 Apr 2025 18:28:02 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6E4924007E;
+	Thu,  3 Apr 2025 18:26:37 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E01CE8C49E5;
+	Thu,  3 Apr 2025 18:24:31 +0200 (CEST)
+Received: from localhost (10.48.87.151) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 3 Apr
+ 2025 18:24:31 +0200
+From: Olivier Moysan <olivier.moysan@foss.st.com>
+To: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: Olivier Moysan <olivier.moysan@foss.st.com>,
+        Fabrice Gasnier
+	<fabrice.gasnier@foss.st.com>,
+        <linux-iio@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2] iio: adc: stm32: add oversampling support
+Date: Thu, 3 Apr 2025 18:23:57 +0200
+Message-ID: <20250403162358.1257370-1-olivier.moysan@foss.st.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH7PR12MB9253:EE_
-X-MS-Office365-Filtering-Correlation-Id: c45ff6f4-1ee4-405c-40b0-08dd72c9fe05
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6xYbAqi6Aw8/7SB4Og7F26++lyFBodEmTy+7/tGEfbe/i7QTlNUB2LWNBT8o?=
- =?us-ascii?Q?TrK/wFTar7zwoyxAK7vhI1sbae4ib0kq/fPzWd/Cnwx4fdG1XVxxiuEJY5uo?=
- =?us-ascii?Q?N7kLjNPI9rXkWr8WoIqeBQV7OKKTBMtaV8Xr++kRPWfIAk91niaZPY8ky24T?=
- =?us-ascii?Q?3rDPbsZVrjlkbiYtSu/M0W1gwpvrjokTJRw9gVNIS6Huv/M0J8BvenuS4eE0?=
- =?us-ascii?Q?TpYLvOdxV1YnwqxlPpTlw4ItKaeHCWv3VMe/SwkgpNFGG5cfxWw472aFpuJL?=
- =?us-ascii?Q?rvG8UtEPmF30Bx3rV+jmqlWwm0jLIZJohyZay3DObJKYZkSqi8WV7Mv6tviS?=
- =?us-ascii?Q?dXuZKEoWt/giS01sAnUbDMgKn6kNM+vqrz5LH/p5xRZtH/nA4I5C0zDqGuoI?=
- =?us-ascii?Q?ol9HcWNjqKROlfgAz3wbHhUPdsd5GXr3YelKjrTVyJXcJB4/pDrhJChSuYBu?=
- =?us-ascii?Q?DLDZBOi63Vt7BZ6W5jrMIAOAT9/0XUN1Drbl7RtNuBegEurJOmHOzA3txXgR?=
- =?us-ascii?Q?BS4xUGD5C/i12CwB5mYUoYH/SI0lmVZUyzfvWLfXD3aqvYZ/RHy8oVNeddpZ?=
- =?us-ascii?Q?cSLSMgA9ZHz0X7CSWc8k7x8t2Qn2ux/Q3nmE4SOb7QJuIKlLeiYK0pJo7uU/?=
- =?us-ascii?Q?neGeA0gIDedJqyoUvzFhLAbefyNU80qT+KwvH6Ria7TMVY1QwbH9PeCQfmWV?=
- =?us-ascii?Q?g3Z2/BhoMVAI+n1qM1m2DW5kPPd/AC1OYxZZSumQZ8RjL3P/srtyS5N9G5cl?=
- =?us-ascii?Q?Gnx4BjKAqSnbiFZyzmygv+Zt/WB+d8ENf4uJzgodOCGcvf7MqPhSxo2J0y53?=
- =?us-ascii?Q?szHYxyg7P1jkg5uZFdrBHxGE4OQyJVnSAsXcJBXgjF+iFM4GTVIGBlKtdfJn?=
- =?us-ascii?Q?CPhEHo7lbd6NxoolJ3YbBmlDyv9vYTddfBigSBtjls/hmBcUca3p4wziRRaH?=
- =?us-ascii?Q?T8Ciy1yTsezMbYwxL/6cy4r3F19u8bTJPrWnAmuonFSNQ1ZDykZRjL/ZrID5?=
- =?us-ascii?Q?F6uszrNaJrwqALNJEfy5dNfLxOw7aLHzSbj2iONKmmWbW2g7c+6I2eyUmWDe?=
- =?us-ascii?Q?bvJyAVvoR4ejN1zULR9u6mVQ3Xr/TtVN7Zkmmp7x54UfbgZxKa3dcQvcBWvo?=
- =?us-ascii?Q?HPc5H74UIxnFTtxD5VUf2joGXhvls9CnaTyR5LAdyp1SHtgZlI6PakHmitfZ?=
- =?us-ascii?Q?QIsbK7eK/HpRaGh10G18SqBV7HX4Der1UUcsmyebM0tFldYJ/5MyhHHjaj7r?=
- =?us-ascii?Q?Q/l62VqSFHa7O1Uhza0PdKTpaMK5gceSrGOKZpN8WOSP/n497jFTPk3J14kA?=
- =?us-ascii?Q?onR8sfARLArUcGLNqG84gIP/AmwBkYYB5dpAZ+T7LOpvAJiN2cZcYIcTl2aq?=
- =?us-ascii?Q?NhMIo3OZrPn0JETeugZd+I10KHsV?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MhN+ZW5cu9F6EVNfOLuqD3jAKfHNAcEZens0RUrzBdSemNMUBTMryuVFnsoP?=
- =?us-ascii?Q?UDsQb2WvTXQs4HEoMXkJe6ORH/qtv9lr3BUba4FpCU6vKYNykVBORTw6cGS3?=
- =?us-ascii?Q?+DigSrxuLr48VnZdAoybPoBxjAHBfE732QUklL6xlBHAOdLvlphfGdiMQXc2?=
- =?us-ascii?Q?+eC430cgbiPBfxIzEDY0GT9F+rnFoW7qdaGta0UrC9n98sPekQWMBXGhwM0l?=
- =?us-ascii?Q?RLJ5a+2Ek50c/ZO22XmkfrSyLi3f4gQhCW/20ohpIcrcH5KhbRdSpEXhUdja?=
- =?us-ascii?Q?e3LjxUbJoJx8zFEWwUlCzIaox387x9+AwQcLurC+oMkiqrzQmKkmEClsclV1?=
- =?us-ascii?Q?scFiJ177+aLc9XVPTsnySVeCXoMuOEXM6dWC6HV/aXX9c2vlDpv/QmbnhYyi?=
- =?us-ascii?Q?uCwCbctyKNMaYcHkPytoqOeteOOcSV0wb5QXVxjvcRXc4o1ophOM6yNr4QTn?=
- =?us-ascii?Q?TtWEFU8cqaj+bNi707YqeMf0R6rkF84PSzXDV6uWUwfef/H+sd684Lq0QNRz?=
- =?us-ascii?Q?qJEoLgpeU8OpKb4r6X3JBqrDuvceaZowRBxQtshskNL+hyUFaDZHSkR096p/?=
- =?us-ascii?Q?i9S2/Y0/DdW0eezH4DZXbTG1b5wA+2EHnh/DTGmb5Dx/ag5CY4tgTNlKhsg+?=
- =?us-ascii?Q?t8nrS1hG9nAYSpKpuJ7tSxINyQTMVoUAez74rKgKXth+hqvJo55v41+gGj7j?=
- =?us-ascii?Q?hOkS8Os9BVM/7EStzeoqjtZ1nCJl9RXRrO9OvknFmxccnZRNyO5gP7jfVng/?=
- =?us-ascii?Q?xkkrMDZp8yTqOjlYBgnxOzzXXSI9iegVIN0t8lEfnIKBO6Z1NlnOxLKTliY5?=
- =?us-ascii?Q?oiPBPOzI9XaWfR38mwmrDzBFB+rBV6OSOnl/zyK7J+bvl5wvdKZC6ScuBBsn?=
- =?us-ascii?Q?+NHzDT55YP29V7057CBh4c7DCqsKefOM54LgitbrG+Y+0Gtkup8vrY3gLTCO?=
- =?us-ascii?Q?xbGnuOEVNlf+9367yWuCRg7YTSddwMiPav2O0wwG600UTyMkIP5aO/FuPm/C?=
- =?us-ascii?Q?aReb0OM8GTYfGlTM2FfZA5C0YXLgxntSDHzoCKAQlWOh2r6gotmEYvhq4ZKS?=
- =?us-ascii?Q?72h/ECt9o1zu4G5SQ9gqF7qMdfBroOm7H28Mi1kSdu/QTKi+LfKhmuzYqQ0z?=
- =?us-ascii?Q?hbnyTN1tZ39elgzt5wfil8Nh7bBODZlcUkV9cfN4tzFlS8gozTe/CRAgLqk0?=
- =?us-ascii?Q?ZYLNX42kZVh0hxwtB1PtL6IqG1XA6bxmpCLGE+rhffpF5dqjwXhCiW8G021k?=
- =?us-ascii?Q?c7O1vrnWjrZ3ENE3QFe/5+Ss1CCxYxVh1wvB75RE6+YLgXw7+RpKwsQ54JE8?=
- =?us-ascii?Q?plbs2yoeQgV6ymP+M8/QmHi44ERT7XgtZg+g/QKaGUeBTzVA46btHgoUmV+r?=
- =?us-ascii?Q?qNWldBYSeUZtc6s5GJDHAzAnhIgeA/K/mOAsuPXsUc+FTUdi7bb7E60ssi6t?=
- =?us-ascii?Q?LZtGGBLOM3UMaU35PZZBQm+g1OFV3A7YXANdLtOJ7JFdpfjB2y2lPKq+aYrp?=
- =?us-ascii?Q?kT9+nV6j5ihaz8UiC+GKptNnzH4ipWd8strHi8nSxS/XxrqAspfToThX73IB?=
- =?us-ascii?Q?URPxwK9X4TpenK1/zNYtGL3y/+16zKtbccJD6vR3?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c45ff6f4-1ee4-405c-40b0-08dd72c9fe05
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2025 16:10:03.4782
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kF0FzqNwgju18Mi95WatwKVID/UAXTW9yg765RHFZWEEAIvTbVZjMcODIfuHXaPJ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9253
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.87.151]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-03_07,2025-04-03_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_091010_526147_C693EB76 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20250403_092809_222415_CFDAFCB7 
+X-CRM114-Status: GOOD (  24.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,97 +94,368 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 03:50:04PM +0000, Pratyush Yadav wrote:
+Add oversampling support for STM32H7, STM32MP15 & STM32MP13.
+STM32F4 ADC has no oversampling feature.
 
-> The patch currently has a limitation where it does not free any of the
-> empty tables after a unpreserve operation. But Changyuan's patch also
-> doesn't do it so at least it is not any worse off.
+The current support of the oversampling feature aims at increasing
+the data SNR, without changing the data resolution.
+As the oversampling by itself increases data resolution,
+a right shift is applied to keep initial resolution.
+Only the oversampling ratio corresponding to a power of two are
+supported here, to get a direct link between right shift and
+oversampling ratio. (2exp(n) ratio <=> n right shift)
 
-We do we even have unpreserve? Just discard the entire KHO operation
-in a bulk.
+The oversampling ratio is shared by all channels, whatever channel type.
+(e.g. single ended or differential).
 
-> When working on this patch, I realized that kho_mem_deserialize() is
-> currently _very_ slow. It takes over 2 seconds to make memblock
-> reservations for 48 GiB of 0-order pages. I suppose this can later be
-> optimized by teaching memblock_free_all() to skip preserved pages
-> instead of making memblock reservations.
+Oversampling can be configured using IIO ABI:
+- in_voltage_oversampling_ratio_available
+- in_voltage_oversampling_ratio
 
-Yes, this was my prior point of not having actual data to know what
-the actual hot spots are.. This saves a few ms on an operation that
-takes over 2 seconds :)
+Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
 
-> +typedef unsigned long khomem_desc_t;
+---
+Changes in v2:
+- Remove useless header files
+- Use FIELD_PREP macro
+- Reorder stm32_adc_write_raw() function
+---
+ drivers/iio/adc/stm32-adc-core.h |  14 ++++
+ drivers/iio/adc/stm32-adc.c      | 137 +++++++++++++++++++++++++++++++
+ 2 files changed, 151 insertions(+)
 
-This should be more like:
+diff --git a/drivers/iio/adc/stm32-adc-core.h b/drivers/iio/adc/stm32-adc-core.h
+index 73b2c2e91c08..bfd42c5456bf 100644
+--- a/drivers/iio/adc/stm32-adc-core.h
++++ b/drivers/iio/adc/stm32-adc-core.h
+@@ -91,6 +91,7 @@
+ #define STM32H7_ADC_IER			0x04
+ #define STM32H7_ADC_CR			0x08
+ #define STM32H7_ADC_CFGR		0x0C
++#define STM32H7_ADC_CFGR2		0x10
+ #define STM32H7_ADC_SMPR1		0x14
+ #define STM32H7_ADC_SMPR2		0x18
+ #define STM32H7_ADC_PCSEL		0x1C
+@@ -160,6 +161,13 @@
+ #define STM32H7_DMNGT_SHIFT		0
+ #define STM32H7_DMNGT_MASK		GENMASK(1, 0)
+ 
++/* STM32H7_ADC_CFGR2 bit fields */
++#define STM32H7_OVSR_MASK		GENMASK(25, 16) /* Correspond to OSVR field in datasheet */
++#define STM32H7_OVSR(v)			FIELD_PREP(STM32H7_OVSR_MASK, v)
++#define STM32H7_OVSS_MASK		GENMASK(8, 5)
++#define STM32H7_OVSS(v)			FIELD_PREP(STM32H7_OVSS_MASK, v)
++#define STM32H7_ROVSE			BIT(0)
++
+ enum stm32h7_adc_dmngt {
+ 	STM32H7_DMNGT_DR_ONLY,		/* Regular data in DR only */
+ 	STM32H7_DMNGT_DMA_ONESHOT,	/* DMA one shot mode */
+@@ -226,6 +234,12 @@ enum stm32h7_adc_dmngt {
+ #define STM32MP13_RES_SHIFT		3
+ #define STM32MP13_RES_MASK		GENMASK(4, 3)
+ 
++/* STM32MP13_ADC_CFGR2 bit fields */
++#define STM32MP13_OVSR_MASK		GENMASK(4, 2)
++#define STM32MP13_OVSR(v)		FIELD_PREP(STM32MP13_OVSR_MASK, v)
++#define STM32MP13_OVSS_MASK		GENMASK(8, 5)
++#define STM32MP13_OVSS(v)		FIELD_PREP(STM32MP13_OVSS_MASK, v)
++
+ /* STM32MP13_ADC_DIFSEL - bit fields */
+ #define STM32MP13_DIFSEL_MASK		GENMASK(18, 0)
+ 
+diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
+index 5dbf5f136768..0f0910e05de8 100644
+--- a/drivers/iio/adc/stm32-adc.c
++++ b/drivers/iio/adc/stm32-adc.c
+@@ -6,6 +6,7 @@
+  * Author: Fabrice Gasnier <fabrice.gasnier@st.com>.
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/clk.h>
+ #include <linux/debugfs.h>
+ #include <linux/delay.h>
+@@ -202,11 +203,13 @@ struct stm32_adc;
+  * @has_boostmode:	boost mode support flag
+  * @has_linearcal:	linear calibration support flag
+  * @has_presel:		channel preselection support flag
++ * @has_oversampling:	oversampling support flag
+  * @prepare:		optional prepare routine (power-up, enable)
+  * @start_conv:		routine to start conversions
+  * @stop_conv:		routine to stop conversions
+  * @unprepare:		optional unprepare routine (disable, power-down)
+  * @irq_clear:		routine to clear irqs
++ * @set_ovs:		routine to set oversampling configuration
+  * @smp_cycles:		programmable sampling time (ADC clock cycles)
+  * @ts_int_ch:		pointer to array of internal channels minimum sampling time in ns
+  */
+@@ -219,11 +222,13 @@ struct stm32_adc_cfg {
+ 	bool has_boostmode;
+ 	bool has_linearcal;
+ 	bool has_presel;
++	bool has_oversampling;
+ 	int (*prepare)(struct iio_dev *);
+ 	void (*start_conv)(struct iio_dev *, bool dma);
+ 	void (*stop_conv)(struct iio_dev *);
+ 	void (*unprepare)(struct iio_dev *);
+ 	void (*irq_clear)(struct iio_dev *indio_dev, u32 msk);
++	void (*set_ovs)(struct iio_dev *indio_dev, u32 ovs_idx);
+ 	const unsigned int *smp_cycles;
+ 	const unsigned int *ts_int_ch;
+ };
+@@ -255,6 +260,7 @@ struct stm32_adc_cfg {
+  * @num_diff:		number of differential channels
+  * @int_ch:		internal channel indexes array
+  * @nsmps:		number of channels with optional sample time
++ * @ovs_idx:		current oversampling ratio index (in oversampling array)
+  */
+ struct stm32_adc {
+ 	struct stm32_adc_common	*common;
+@@ -282,6 +288,7 @@ struct stm32_adc {
+ 	u32			num_diff;
+ 	int			int_ch[STM32_ADC_INT_CH_NB];
+ 	int			nsmps;
++	int			ovs_idx;
+ };
+ 
+ struct stm32_adc_diff_channel {
+@@ -293,12 +300,24 @@ struct stm32_adc_diff_channel {
+  * struct stm32_adc_info - stm32 ADC, per instance config data
+  * @max_channels:	Number of channels
+  * @resolutions:	available resolutions
++ * @oversampling:	available oversampling ratios
+  * @num_res:		number of available resolutions
++ * @num_ovs:		number of available oversampling ratios
+  */
+ struct stm32_adc_info {
+ 	int max_channels;
+ 	const unsigned int *resolutions;
++	const unsigned int *oversampling;
+ 	const unsigned int num_res;
++	const unsigned int num_ovs;
++};
++
++static const unsigned int stm32h7_adc_oversampling_avail[] = {
++1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
++};
++
++static const unsigned int stm32mp13_adc_oversampling_avail[] = {
++1, 2, 4, 8, 16, 32, 64, 128, 256
+ };
+ 
+ static const unsigned int stm32f4_adc_resolutions[] = {
+@@ -322,14 +341,18 @@ static const unsigned int stm32h7_adc_resolutions[] = {
+ static const struct stm32_adc_info stm32h7_adc_info = {
+ 	.max_channels = STM32_ADC_CH_MAX,
+ 	.resolutions = stm32h7_adc_resolutions,
++	.oversampling = stm32h7_adc_oversampling_avail,
+ 	.num_res = ARRAY_SIZE(stm32h7_adc_resolutions),
++	.num_ovs = ARRAY_SIZE(stm32h7_adc_oversampling_avail),
+ };
+ 
+ /* stm32mp13 can have up to 19 channels */
+ static const struct stm32_adc_info stm32mp13_adc_info = {
+ 	.max_channels = 19,
+ 	.resolutions = stm32f4_adc_resolutions,
++	.oversampling = stm32mp13_adc_oversampling_avail,
+ 	.num_res = ARRAY_SIZE(stm32f4_adc_resolutions),
++	.num_ovs = ARRAY_SIZE(stm32mp13_adc_oversampling_avail),
+ };
+ 
+ /*
+@@ -889,6 +912,41 @@ static void stm32mp13_adc_start_conv(struct iio_dev *indio_dev, bool dma)
+ 	stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADSTART);
+ }
+ 
++static void stm32h7_adc_set_ovs(struct iio_dev *indio_dev, u32 ovs_idx)
++{
++	struct stm32_adc *adc = iio_priv(indio_dev);
++	u32 ovsr_bits, bits, msk;
++
++	msk = STM32H7_ROVSE | STM32H7_OVSR_MASK | STM32H7_OVSS_MASK;
++	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR2, msk);
++
++	if (!ovs_idx)
++		return;
++
++	ovsr_bits = (1 << ovs_idx) - 1;
++	bits = STM32H7_ROVSE | STM32H7_OVSS(ovs_idx) | STM32H7_OVSR(ovsr_bits);
++
++	stm32_adc_set_bits(adc, STM32H7_ADC_CFGR2, bits & msk);
++}
++
++static void stm32mp13_adc_set_ovs(struct iio_dev *indio_dev, u32 ovs_idx)
++{
++	struct stm32_adc *adc = iio_priv(indio_dev);
++	u32 bits, msk;
++
++	msk = STM32H7_ROVSE | STM32MP13_OVSR_MASK | STM32MP13_OVSS_MASK;
++	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR2, msk);
++
++	if (!ovs_idx)
++		return;
++
++	bits = STM32H7_ROVSE | STM32MP13_OVSS(ovs_idx);
++	if (ovs_idx - 1)
++		bits |= STM32MP13_OVSR(ovs_idx - 1);
++
++	stm32_adc_set_bits(adc, STM32H7_ADC_CFGR2, bits & msk);
++}
++
+ static int stm32h7_adc_exit_pwr_down(struct iio_dev *indio_dev)
+ {
+ 	struct stm32_adc *adc = iio_priv(indio_dev);
+@@ -1461,6 +1519,69 @@ static int stm32_adc_single_conv(struct iio_dev *indio_dev,
+ 	return ret;
+ }
+ 
++static int stm32_adc_write_raw(struct iio_dev *indio_dev,
++			       struct iio_chan_spec const *chan,
++			       int val, int val2, long mask)
++{
++	struct stm32_adc *adc = iio_priv(indio_dev);
++	struct device *dev = indio_dev->dev.parent;
++	int nb = adc->cfg->adc_info->num_ovs;
++	u32 idx;
++	int ret;
++
++	switch (mask) {
++	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
++		if (val2)
++			return -EINVAL;
++
++		for (idx = 0; idx < nb; idx++)
++			if (adc->cfg->adc_info->oversampling[idx] == val)
++				break;
++
++		if (idx >= nb)
++			return -EINVAL;
++
++		ret = iio_device_claim_direct_mode(indio_dev);
++		if (ret)
++			return ret;
++
++		ret = pm_runtime_resume_and_get(dev);
++		if (ret < 0)
++			goto err;
++
++		adc->cfg->set_ovs(indio_dev, idx);
++
++		pm_runtime_mark_last_busy(dev);
++		pm_runtime_put_autosuspend(dev);
++
++		adc->ovs_idx = idx;
++
++err:
++		iio_device_release_direct_mode(indio_dev);
++
++		return ret;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int stm32_adc_read_avail(struct iio_dev *indio_dev,
++				struct iio_chan_spec const *chan,
++				const int **vals, int *type, int *length, long m)
++{
++	struct stm32_adc *adc = iio_priv(indio_dev);
++
++	switch (m) {
++	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
++		*type = IIO_VAL_INT;
++		*length = adc->cfg->adc_info->num_ovs;
++		*vals = adc->cfg->adc_info->oversampling;
++		return IIO_AVAIL_LIST;
++	default:
++		return -EINVAL;
++	}
++}
++
+ static int stm32_adc_read_raw(struct iio_dev *indio_dev,
+ 			      struct iio_chan_spec const *chan,
+ 			      int *val, int *val2, long mask)
+@@ -1502,6 +1623,10 @@ static int stm32_adc_read_raw(struct iio_dev *indio_dev,
+ 			*val = 0;
+ 		return IIO_VAL_INT;
+ 
++	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
++		*val = adc->cfg->adc_info->oversampling[adc->ovs_idx];
++		return IIO_VAL_INT;
++
+ 	default:
+ 		return -EINVAL;
+ 	}
+@@ -1678,6 +1803,8 @@ static int stm32_adc_debugfs_reg_access(struct iio_dev *indio_dev,
+ 
+ static const struct iio_info stm32_adc_iio_info = {
+ 	.read_raw = stm32_adc_read_raw,
++	.write_raw = stm32_adc_write_raw,
++	.read_avail = stm32_adc_read_avail,
+ 	.validate_trigger = stm32_adc_validate_trigger,
+ 	.hwfifo_set_watermark = stm32_adc_set_watermark,
+ 	.update_scan_mode = stm32_adc_update_scan_mode,
+@@ -1971,6 +2098,10 @@ static void stm32_adc_chan_init_one(struct iio_dev *indio_dev,
+ 		chan->info_mask_separate = BIT(IIO_CHAN_INFO_RAW);
+ 	chan->info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE) |
+ 					 BIT(IIO_CHAN_INFO_OFFSET);
++	if (adc->cfg->has_oversampling) {
++		chan->info_mask_shared_by_all |= BIT(IIO_CHAN_INFO_OVERSAMPLING_RATIO);
++		chan->info_mask_shared_by_all_available = BIT(IIO_CHAN_INFO_OVERSAMPLING_RATIO);
++	}
+ 	chan->scan_type.sign = 'u';
+ 	chan->scan_type.realbits = adc->cfg->adc_info->resolutions[adc->res];
+ 	chan->scan_type.storagebits = 16;
+@@ -2587,6 +2718,7 @@ static const struct stm32_adc_cfg stm32h7_adc_cfg = {
+ 	.has_boostmode = true,
+ 	.has_linearcal = true,
+ 	.has_presel = true,
++	.has_oversampling = true,
+ 	.start_conv = stm32h7_adc_start_conv,
+ 	.stop_conv = stm32h7_adc_stop_conv,
+ 	.prepare = stm32h7_adc_prepare,
+@@ -2594,6 +2726,7 @@ static const struct stm32_adc_cfg stm32h7_adc_cfg = {
+ 	.smp_cycles = stm32h7_adc_smp_cycles,
+ 	.irq_clear = stm32h7_adc_irq_clear,
+ 	.ts_int_ch = stm32_adc_min_ts_h7,
++	.set_ovs = stm32h7_adc_set_ovs,
+ };
+ 
+ static const unsigned int stm32_adc_min_ts_mp1[] = { 100, 100, 100, 4300, 9800 };
+@@ -2607,6 +2740,7 @@ static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
+ 	.has_boostmode = true,
+ 	.has_linearcal = true,
+ 	.has_presel = true,
++	.has_oversampling = true,
+ 	.start_conv = stm32h7_adc_start_conv,
+ 	.stop_conv = stm32h7_adc_stop_conv,
+ 	.prepare = stm32h7_adc_prepare,
+@@ -2614,6 +2748,7 @@ static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
+ 	.smp_cycles = stm32h7_adc_smp_cycles,
+ 	.irq_clear = stm32h7_adc_irq_clear,
+ 	.ts_int_ch = stm32_adc_min_ts_mp1,
++	.set_ovs = stm32h7_adc_set_ovs,
+ };
+ 
+ static const unsigned int stm32_adc_min_ts_mp13[] = { 100, 0, 0, 4300, 9800 };
+@@ -2623,6 +2758,7 @@ static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
+ 	.regs = &stm32mp13_adc_regspec,
+ 	.adc_info = &stm32mp13_adc_info,
+ 	.trigs = stm32h7_adc_trigs,
++	.has_oversampling = true,
+ 	.start_conv = stm32mp13_adc_start_conv,
+ 	.stop_conv = stm32h7_adc_stop_conv,
+ 	.prepare = stm32h7_adc_prepare,
+@@ -2630,6 +2766,7 @@ static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
+ 	.smp_cycles = stm32mp13_adc_smp_cycles,
+ 	.irq_clear = stm32h7_adc_irq_clear,
+ 	.ts_int_ch = stm32_adc_min_ts_mp13,
++	.set_ovs = stm32mp13_adc_set_ovs,
+ };
+ 
+ static const struct of_device_id stm32_adc_of_match[] = {
+-- 
+2.25.1
 
-union {
-      void *table;
-      phys_addr_t table_phys;
-};
-
-Since we are not using the low bits right now and it is alot cheaper
-to convert from va to phys only once during the final step. __va is
-not exactly fast.
-
-> +#define PTRS_PER_LEVEL		(PAGE_SIZE / sizeof(unsigned long))
-> +#define KHOMEM_L1_BITS		(PAGE_SIZE * BITS_PER_BYTE)
-> +#define KHOMEM_L1_MASK		((1 << ilog2(KHOMEM_L1_BITS)) - 1)
-> +#define KHOMEM_L1_SHIFT		(PAGE_SHIFT)
-> +#define KHOMEM_L2_SHIFT		(KHOMEM_L1_SHIFT + ilog2(KHOMEM_L1_BITS))
-> +#define KHOMEM_L3_SHIFT		(KHOMEM_L2_SHIFT + ilog2(PTRS_PER_LEVEL))
-> +#define KHOMEM_L4_SHIFT		(KHOMEM_L3_SHIFT + ilog2(PTRS_PER_LEVEL))
-> +#define KHOMEM_PFN_MASK		PAGE_MASK
-
-This all works better if you just use GENMASK and FIELD_GET
-
-> +static int __khomem_table_alloc(khomem_desc_t *desc)
-> +{
-> +	if (khomem_desc_none(*desc)) {
-
-Needs READ_ONCE
-
-> +struct kho_mem_track {
-> +	/* Points to L4 KHOMEM descriptor, each order gets its own table. */
-> +	struct xarray orders;
-> +};
-
-I think it would be easy to add a 5th level and just use bits 63:57 as
-a 6 bit order. Then you don't need all this stuff either.
-
-> +int kho_preserve_folio(struct folio *folio)
-> +{
-> +	unsigned long pfn = folio_pfn(folio);
-> +	unsigned int order = folio_order(folio);
-> +	int err;
-> +
-> +	if (!kho_enable)
-> +		return -EOPNOTSUPP;
-> +
-> +	down_read(&kho_out.tree_lock);
-
-This lock still needs to go away
-
-> +static void kho_mem_serialize(void)
-> +{
-> +	struct kho_mem_track *tracker = &kho_mem_track;
-> +	khomem_desc_t *desc;
-> +	unsigned long order;
-> +
-> +	xa_for_each(&tracker->orders, order, desc) {
-> +		if (WARN_ON(order >= NR_PAGE_ORDERS))
-> +			break;
-> +		kho_out.mem_tables[order] = *desc;
-
-Missing the virt_to_phys?
-
-> +	nr_tables = min_t(unsigned int, len / sizeof(*tables), NR_PAGE_ORDERS);
-> +	for (order = 0; order < nr_tables; order++)
-> +		khomem_walk_preserved((khomem_desc_t *)&tables[order], order,
-
-Missing phys_to_virt
-
-Please dont' remove the KHOSER stuff, and do use it with proper
-structs and types. It is part of keeping this stuff understandable.
-
-Jason
 
