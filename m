@@ -4,92 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D683AC3601B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 11:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A1DC3601B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 11:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=e7N6TSglbOMXGrbSWsg3supmWymijubudO7AAYgdgVI=; b=PYIv8afWIz+9WS+dWj/TwTUKgp
-	sppc6SzLQx8/vPzo2+QcPv9xop4XGEGw6yicnAiXBi7HdpLfAp2gh8tgF/Pyc20eMCdZjkFiMUT5H
-	19GBUjGZ259wbRrfUKkZfFXDvNjPZjmeDOx1P3lndfu5NFBlwO7XEFNXKhRqFfn+QNHGB4h2RKE7P
-	kEGG6eEXOk3CZ8WJoNLEojMG6w00AInjVb/1zaOShpegBwM5yb7Qn1dL4tTWrs/WbTXnP15lu2B2H
-	EjoiFx1v/f5hRtCninAyN6BwdHzkSW5g/n2PUFHu/vx2pt5p+0Unv9mKVhvX5SgPcpq0Vj6F+/HEk
-	p1r7d0+g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hV+9b+/x+gelznBEtZ/wkU6VCh9E1FOzg+skZ59VIBg=; b=g+AihO/lY/Yfua5qE5b+8IgJoD
+	jsnkJ+NLVxC1tRMsfaGoS2OCFfeR8QOrGyF9m0GBQPotCmh9s9pzhLfGK9lT6VvyUGjaDBNG8kKLG
+	fcqrcCWWw54RpqAVk4D7/Lw9XYAlH5DWKxYPbHxR58gbGgm0lWk42r88R/U+A/4JwgyzJG8fFNNLG
+	j4864awJESslJrqq2dKGqWGaj57p7iJzvHi7IiyDZYoUicsJsBTAFgwn4ZGwNQUeCGO3jCfi13YrD
+	A8pPnQHjDiUdIxFqnTm10rNxgNpUVl1AQ2F2m0w8bwGI1ZN7Qf9gnlui7AjKkwX+vjvjUsU3bO62D
+	LgqZph6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Ib2-00000008gaZ-1sn3;
-	Thu, 03 Apr 2025 11:18:56 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1u0IjQ-00000008hk5-1ZGO;
+	Thu, 03 Apr 2025 11:27:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0I8V-00000008cak-0mG6
+	id 1u0Ihb-00000008hU5-2IKm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 10:49:29 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43948021a45so6739775e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 03:49:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743677365; x=1744282165; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=e7N6TSglbOMXGrbSWsg3supmWymijubudO7AAYgdgVI=;
-        b=ci1Cov/yvihnBkOjxy+wLdsrXlY7xOWRPWc39x4WKkBPJumbWu5Lm7liGltRgYb+gm
-         xh0u9d9cYzJxxiYs+VbdbeGXR98RcDoctWRymqwlz2VHawwUHcEa+QYAT6ppL1zISnJr
-         WNAEtiqXGxeOvwlrRIPdWBxt2gQO/Ix2piSKy8Ppc517N0IqnjtEV0ZKZ8RGDVfODiVJ
-         6WdLG2dENerZWoNYD/GP+K8wfeM37o8k3HjucY9WeqCyrgTCd21yIBQhfg26hsR1cNIM
-         NvdPP7YmALMX7Zih665PxbS2nFY/HQrQy0X4v9OSuxnQe+sgLIyp2P0YtBq7kgk1MKmq
-         xKkA==
+	Thu, 03 Apr 2025 11:25:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1743679541;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hV+9b+/x+gelznBEtZ/wkU6VCh9E1FOzg+skZ59VIBg=;
+	b=JY1qEhZqJdMw4b50IC/n7FCor5CJplCdWwwNvA/QRekEf2y0cPMYcGE646ffRSpwLnBAWA
+	FC6r3YvxWusY44MLFnmTu06NOR0ByGVTP3e2uIypuScNQmMY713GNTlfKo9dRgceYlqJYo
+	WUKSlvXngeFldcaLtjnVAp+kIQn+pGM=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-528-y9CRyuJzNAKQrc0wmR7Kzw-1; Thu, 03 Apr 2025 07:25:38 -0400
+X-MC-Unique: y9CRyuJzNAKQrc0wmR7Kzw-1
+X-Mimecast-MFC-AGG-ID: y9CRyuJzNAKQrc0wmR7Kzw_1743679537
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-39123912ff0so362193f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 04:25:37 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743677365; x=1744282165;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=e7N6TSglbOMXGrbSWsg3supmWymijubudO7AAYgdgVI=;
-        b=xFuUNVY8uDqiMIbarj28lHotugfJRVQo3MLpRsCqmGUsq38n+niJPKQwG8oJihTN7v
-         ER9On0gGc0IROLnQLM3HsLR2fyGkNbMs3wdmr735+4RWMjl2vo+NFyvRkzFM8iPTQXpB
-         h20/XVap55ySvAbezuhuCYkQ/byU2lxwAU6DH7UZNAvA4iT5yFFIxUoRp0Q3I9ckm6Tf
-         2qqshc6TBtmFkuCWwWpJHeTMaa0itIt0GX1le7gfXdT+6dt9KbA5FjTW9pLP5PInLcWo
-         R3DD+E7T+dYJ4hgC+lZcF8XBazzbXWCxJGdg98FCnAmlxj+BPRIqUt8x+WMVrIejFcTs
-         LXKg==
-X-Forwarded-Encrypted: i=1; AJvYcCV5/pvFnOc2o1erxoNTs7k31EZXU1rmdcWnPXxvARN1MY5BQtxRbznYndKANi+feRoxhzCwwdb9p7WpU2r98u4J@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYGbCRP85zkdWhH0bo9GiC91i5xF9JTiHYYgTjO3l+3HIy2YAc
-	jr06Jlk+CMyPsjOammBu7MPKo8HP6t8f8M1IriyvI4D5NgMegaPVbtjJdlIqXVM=
-X-Gm-Gg: ASbGncuTzNzIGkGqjA3D4VEHJ1nHDuw6dC11vzRurGN4vkS9mT2bBMpidEHg1856SKF
-	PBZtfqWcvt1KYwCjKgOFI8axhwwrnrG/jOOluK3vEllt1V352Ci2sEwrwHcLerC/QnTYxgNYwzU
-	ODnid8VpEfM9JW+VFAjc2GkD0dGki4WvmUIYK/5P1/w0Qe/iieg9B8rqij7sdjIg9yzXnWjEMrW
-	58S6FiT5aOH9YNzDl6IEx4Mg3ddt4LCrGquu0QTY7wnDspQwRNUHAMqg6xhxKqa1YdKVEOEnoIg
-	Hmct2m2XbB7xoOO+974ZnFzkYWN4sz3TFttzVB6XRIKhmiK2zYzUqRGklf7in8NMCJQU0tOKyp1
-	PrCrQxKsGIto=
-X-Google-Smtp-Source: AGHT+IF7ppya2Qe7sDdlJauBrlDdBS0DOhdQY6it8f/OoMt81AYudBQET3IpEmjnLoCxmzeRrLg8Fw==
-X-Received: by 2002:a05:6000:1aca:b0:391:1458:2233 with SMTP id ffacd0b85a97d-39c120cb5b1mr16403178f8f.11.1743677365072;
-        Thu, 03 Apr 2025 03:49:25 -0700 (PDT)
-Received: from localhost (p200300f65f14610400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f14:6104::1b9])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-39c301a732asm1476123f8f.30.2025.04.03.03.49.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Apr 2025 03:49:24 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
-Cc: Purva Yeshi <purvayeshi550@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: dts: lpc32xx: Add #pwm-cells property to the two SoC PWMs
-Date: Thu,  3 Apr 2025 12:49:14 +0200
-Message-ID: <20250403104915.251303-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.2
+        d=1e100.net; s=20230601; t=1743679537; x=1744284337;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hV+9b+/x+gelznBEtZ/wkU6VCh9E1FOzg+skZ59VIBg=;
+        b=GjK60TOuQnjJLGlxXQDEWLLydG/WtzkZeX0o03a2mi/e31W9mfxh947JtvnW9hTfGj
+         7GpzzqEkzeLFP45wWllStffOnf8WGAjYyihr3vbx3i/k6Q4nMevAWGwikJBmp96k8qLf
+         Ev8cvAWybYz/kPdvxrFHhPTAx+vLFIH0qIQ9Q9Qgb+1GHJGp4C3GpcRkh6LmzsZ/76Y+
+         d+hKcG8u4hCnAmS1OVdsWsMcVw4qQRLOKttaqdOaa3QtfqU1YUDB5RGxvy5CLJoNX7pt
+         1410sm3aS5Cm4oHB8PXU7IYHt6IanMNKg2b5ch60u1/0nzERlM2Cm2iItWgF6rFLqoJA
+         DX6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWEYKdNcdSY8u46rPehw+sjhjQX3HGH6dwaqfinSKd8BeYwMS9kHTnIPDNgacXl5SqO+VpZP3XhM8y8cgtgVNB4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXiCDXvkvu6yeQUx1z1ZLrnl46DN+vHculJVTAZWqGSoXA7L24
+	N0t1Lk2aMLfZVVs0qdIu4blKtw40nCmuSfUeEoZliJPZly93ZXne9yg8wnoFDa2kzY7bqEYpeBG
+	pWiIE5QBgg/CAT7jnzk54hcUiAl2xCJnbGOYg3LZkzNKqRrn0JnIUcKPuQDvvOWeinQ3ncKIQ
+X-Gm-Gg: ASbGnctCcjHKcIf9pS2OZv7GUl0ZSNFLLouq+ZAosgg7lWYXATalupQ8UNhGAI9vV7G
+	cgxPIoUBwsHTVqsQnQb3fvlHRPSAQFM9Mfe90/MFlQzVyRn9Cqx2hCeerR2QveahNLB8YhHgTC+
+	/pNSosyledTk5L8ze1X8jnsduXg16yBOIElUTvaQXhkk1CjFV3MfOvJtHmhKLpVVaZ7O+zGxrNV
+	ibm4xqfEIdpblf3rkRsZZmg8kgEn5Shvsg/RnwGQ5zRD22xIbJ35LHmd1NLLBqs/mz3v6B4VJ1C
+	rxMrHNdYQQDWdBOjs6g3N/Wuurqm6JH7FuaAMeeaSqoeeA==
+X-Received: by 2002:a5d:598d:0:b0:391:3b70:2dab with SMTP id ffacd0b85a97d-39c120dc668mr18372140f8f.17.1743679536893;
+        Thu, 03 Apr 2025 04:25:36 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEgUyiwXd0iBaKJMkSQX6B1609ESCGRfex5vbqPGGdlcsOk42Ie119Ej9VIa8cCmWscFQJXiA==
+X-Received: by 2002:a5d:598d:0:b0:391:3b70:2dab with SMTP id ffacd0b85a97d-39c120dc668mr18372105f8f.17.1743679536479;
+        Thu, 03 Apr 2025 04:25:36 -0700 (PDT)
+Received: from [192.168.88.253] (146-241-68-231.dyn.eolo.it. [146.241.68.231])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec17b3572sm18994295e9.39.2025.04.03.04.25.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 03 Apr 2025 04:25:35 -0700 (PDT)
+Message-ID: <469fd8d0-c72e-4ca6-87a9-2f42b180276b@redhat.com>
+Date: Thu, 3 Apr 2025 13:25:34 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 3/3] net: ti: icss-iep: Fix possible NULL pointer
+ dereference for perout request
+To: "Malladi, Meghana" <m-malladi@ti.com>, Roger Quadros <rogerq@kernel.org>,
+ dan.carpenter@linaro.org, kuba@kernel.org, edumazet@google.com,
+ davem@davemloft.net, andrew+netdev@lunn.ch
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ namcao@linutronix.de, javier.carrasco.cruz@gmail.com, diogo.ivo@siemens.com,
+ horms@kernel.org, jacob.e.keller@intel.com, john.fastabend@gmail.com,
+ hawk@kernel.org, daniel@iogearbox.net, ast@kernel.org, srk@ti.com,
+ Vignesh Raghavendra <vigneshr@ti.com>, danishanwar@ti.com
+References: <20250328102403.2626974-1-m-malladi@ti.com>
+ <20250328102403.2626974-4-m-malladi@ti.com>
+ <0fb67fc2-4915-49af-aa20-8bdc9bed4226@kernel.org>
+ <b0a099a6-33b2-49f9-9af7-580c60b98f55@ti.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <b0a099a6-33b2-49f9-9af7-580c60b98f55@ti.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zfGuzTKXFRArNhUnoihdKtp0fm0dJCnH4UCVZJDlAWM_1743679537
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1459; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=PiSeoio2a86WeS2jXJRlVM0CbLy7adADUG+LFiQOMGk=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBn7merikfyXXV0LsL+fQxBuc+nqdH7dQZ/s7ZfQ 8IOL7u4IGSJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ+5nqwAKCRCPgPtYfRL+ TjWwB/0b9e+IY35Xp9g8dPZuyf2cd6XtTWE0FyNuSx1RToEiFcjklGDYgFCtEKABwcKtOBEulek HwZ4A4tHbzhb5jBnciWyaUFZj1wkLoW6qboUr0tx0KMvb5MHhAk9xqlCowUe7338mRaLpij9YLJ ltxRsgek2oj6gC14sGnIONM8I2Bl1SMh0j7RDoCMvS9Kb66HGMe/6t1ixavC5RUxRol2KNwYRRT UOKpKSBkan+bbe2D3N3GMzVsBNO+wJy33UIGVMjyrvyx1bmeuq8AUAgt/PJq1qvLFw/eVy6aKtr j/93vWsR7GlnQJD3O3+rrMGdlerhb/l5KqMU/hSuuIL63uot
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_034927_487137_64E5221D 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20250403_042543_665120_32BBC5BD 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,45 +119,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If these PWMs are to be used, a #pwm-cells property is necessary. The
-right location for that is in the SoC's dtsi file to not make
-machine.dts files repeat the value for each usage. Currently the
-machines based on nxp/lpc/lpc32xx.dtsi don't make use of the PWMs, so
-there are no properties to drop there.
+On 4/2/25 2:37 PM, Malladi, Meghana wrote:
+> On 4/2/2025 5:58 PM, Roger Quadros wrote:
+>> On 28/03/2025 12:24, Meghana Malladi wrote:
+>>> ICSS IEP driver has flags to check if perout or pps has been enabled
+>>> at any given point of time. Whenever there is request to enable or
+>>> disable the signal, the driver first checks its enabled or disabled
+>>> and acts accordingly.
+>>>
+>>> After bringing the interface down and up, calling PPS/perout enable
+>>> doesn't work as the driver believes PPS is already enabled,
+>>
+>> How? aren't we calling icss_iep_pps_enable(iep, false)?
+>> wouldn't this disable the IEP and clear the iep->pps_enabled flag?
+>>
+> 
+> The whole purpose of calling icss_iep_pps_enable(iep, false) is to clear 
+> iep->pps_enabled flag, because if this flag is not cleared it hinders 
+> generating new pps signal (with the newly loaded firmware) once any of 
+> the interfaces are up (check icss_iep_perout_enable()), so instead of 
+> calling icss_iep_pps_enable(iep, false) I am just clearing the 
+> iep->pps_enabled flag.
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
-Hello,
+IDK what Roger thinks, but the above is not clear to me. I read it as
+you are stating that icss_iep_pps_enable() indeed clears the flag, so i
+don't see/follow the reasoning behind this change.
 
-found while reviewing https://lore.kernel.org/linux-pwm/20250312122750.6391-1-purvayeshi550@gmail.com
+Skimmir over the code, icss_iep_pps_enable() could indeed avoid clearing
+the flag under some circumstances is that the reason?
 
-Best regards
-Uwe
+Possibly a more describing commit message would help.
 
- arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+>> And, what if you brought 2 interfaces of the same ICSS instances up
+>> but put only 1 interface down and up?
+>>
+> 
+> Then the flag need not be disabled if only one interface is brought down 
+> because the IEP is still alive and all the IEP configuration (including 
+> pps/perout) is still valid.
 
-diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-index 974410918f35..4460a1960606 100644
---- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-+++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-@@ -481,6 +481,7 @@ pwm1: pwm@4005c000 {
- 				compatible = "nxp,lpc3220-pwm";
- 				reg = <0x4005c000 0x4>;
- 				clocks = <&clk LPC32XX_CLK_PWM1>;
-+				#pwm-cells = <3>;
- 				assigned-clocks = <&clk LPC32XX_CLK_PWM1>;
- 				assigned-clock-parents = <&clk LPC32XX_CLK_PERIPH>;
- 				status = "disabled";
-@@ -490,6 +491,7 @@ pwm2: pwm@4005c004 {
- 				compatible = "nxp,lpc3220-pwm";
- 				reg = <0x4005c004 0x4>;
- 				clocks = <&clk LPC32XX_CLK_PWM2>;
-+				#pwm-cells = <3>;
- 				assigned-clocks = <&clk LPC32XX_CLK_PWM2>;
- 				assigned-clock-parents = <&clk LPC32XX_CLK_PERIPH>;
- 				status = "disabled";
--- 
-2.47.2
+I read the above as stating this fix is not correct in such scenario,
+leading to the wrong final state.
+
+I think it would be better to either give a better reasoning about this
+change in the commit message or refactor it to handle even such scenario,
+
+Thanks,
+
+Paolo
 
 
