@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870A2C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6DF1C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f2YZFCNilGguIS1hpijv+rosYz7c88dHxk8wgSg0tRY=; b=iV5jTf0SJj6nsJ/Lb9R2QLMUXm
-	Su0qIyqetm4YoUpLHIfIbGbDAXAMw5aT36KgxCe9N1MQ/tSsRu8dX2/pDU3e+99qyVWRb4rIbhK4I
-	EO6rrUUFpbqIN8b2HSOTQcn1MlpEOOff9XIsb5bXKCs7Qlmwd7wkItGzKshMSO6f7APZS/eDMBlvP
-	JMxTjJz/xuxX2W2bztMFTfbqqNkl3z84bx/21CddIXEEN3yCVbR9KET4jdAYrEuH1z/ZSiOiNjvZa
-	uOHoirbPncHCQWllHnWAPEN62/9ct8onESypmw/SkN4vicQiTFCNMeGffRsszBMF3gN7VYO77q37f
-	sICNZ4Qg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7M86p45rG8j9kX3FMY3Rz2+zXSfPlSv/ckp3VX8aaIU=; b=GUhZdjROLVVyr9BCG7cwtNgreW
+	VfpubIuGwyyolzAwnsFlyEi1/v11uSKNPzmR/n9QlVRXOleI4f5Qob3pAenwyp+K30fASJjp+OoGT
+	unojFgiKXWUfUT0HNALDqZ3bWryIYRUfKFEd+Q4yeYVO6qqLgV4iAEL2yo1UM0/UuLTrPBYkT7gZs
+	O80fwUVoy4JWmVerqPiAUkD6dWkh4eGs1hoxdYpTm7OVlA7p3qxhv7j5IG+paPM5qtGuSTWAUVrUs
+	QMRM/RuJv4LB5325aG0jvsolip33vPcmturtyGTdp/qbkTAghw/Y7BG/awBgKfsd8m10zUzVO9Q0I
+	AdJJcnCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0LP1-000000092lN-0d0e;
-	Thu, 03 Apr 2025 14:18:43 +0000
+	id 1u0LQl-0000000931a-3XJ3;
+	Thu, 03 Apr 2025 14:20:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0LM8-000000092Hi-07JQ
+	id 1u0LM8-000000092Ic-29tK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 14:15:45 +0000
+	Thu, 03 Apr 2025 14:15:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 415C5106F;
-	Thu,  3 Apr 2025 07:15:43 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4C68115A1;
+	Thu,  3 Apr 2025 07:15:46 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CF4373F59E;
-	Thu,  3 Apr 2025 07:15:37 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E6A393F59E;
+	Thu,  3 Apr 2025 07:15:40 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -54,16 +54,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-doc@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 0/3] support FEAT_MTE_TAGGED_FAR feature
-Date: Thu,  3 Apr 2025 15:15:32 +0100
-Message-Id: <20250403141535.23496-1-yeoreum.yun@arm.com>
+Subject: [PATCH 1/3] arm64: add FEAT_MTE_TAGGED_FAR feature
+Date: Thu,  3 Apr 2025 15:15:33 +0100
+Message-Id: <20250403141535.23496-2-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250403141535.23496-1-yeoreum.yun@arm.com>
+References: <20250403141535.23496-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_071544_113407_C501B64C 
-X-CRM114-Status: UNSURE (   7.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250403_071544_680483_CF927E8C 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +79,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FEAT_MTE_TAGGED_FAR feature provides support for
-reporting all non-address bits during a synchronous MTE tag check fault.
+Add FEAT_MTE_TAGGED_FAR cpucap which makes FAR_ELx report
+all non-address bits on a synchronous MTE tag check fault since Armv8.9
 
-This patchset extends the reporting tag to include
-not only the memory tag (logical tag) but also the address tag via
-si_addr when FEAT_MTE_TAGGED_FAR feature is supported.
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ arch/arm64/include/asm/hwcap.h      | 1 +
+ arch/arm64/include/uapi/asm/hwcap.h | 1 +
+ arch/arm64/kernel/cpufeature.c      | 9 +++++++++
+ arch/arm64/kernel/cpuinfo.c         | 1 +
+ arch/arm64/tools/cpucaps            | 1 +
+ 5 files changed, 13 insertions(+)
 
-Yeoreum Yun (3):
-  arm64: add FEAT_MTE_TAGGED_FAR feature
-  arm64/mm/fault: use original FAR_EL1 value when ARM64_MTE_FAR is
-    supported
-  Documentation/arm64: reflects FEAT_MTE_TAGGED_FAR description
-
- Documentation/arch/arm64/tagged-pointers.rst | 11 ++++++-----
- arch/arm64/include/asm/hwcap.h               |  1 +
- arch/arm64/include/uapi/asm/hwcap.h          |  1 +
- arch/arm64/kernel/cpufeature.c               |  9 +++++++++
- arch/arm64/kernel/cpuinfo.c                  |  1 +
- arch/arm64/mm/fault.c                        |  7 +++++--
- arch/arm64/tools/cpucaps                     |  1 +
- 7 files changed, 24 insertions(+), 7 deletions(-)
-
---
+diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
+index 1c3f9617d54f..28dd1ac29ecc 100644
+--- a/arch/arm64/include/asm/hwcap.h
++++ b/arch/arm64/include/asm/hwcap.h
+@@ -176,6 +176,7 @@
+ #define KERNEL_HWCAP_POE		__khwcap2_feature(POE)
+ 
+ #define __khwcap3_feature(x)		(const_ilog2(HWCAP3_ ## x) + 128)
++#define KERNEL_HWCAP_MTE_FAR		__khwcap3_feature(MTE_FAR)
+ 
+ /*
+  * This yields a mask that user programs can use to figure out what
+diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
+index 705a7afa8e58..7d22527a7975 100644
+--- a/arch/arm64/include/uapi/asm/hwcap.h
++++ b/arch/arm64/include/uapi/asm/hwcap.h
+@@ -143,5 +143,6 @@
+ /*
+  * HWCAP3 flags - for AT_HWCAP3
+  */
++#define HWCAP3_MTE_FAR		(1UL << 0)
+ 
+ #endif /* _UAPI__ASM_HWCAP_H */
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 9c4d6d552b25..183b4b7e3074 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -312,6 +312,7 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64pfr2[] = {
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_FPMR_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTEFAR_SHIFT, 4, ID_AA64PFR2_EL1_MTEFAR_NI),
+ 	ARM64_FTR_END,
+ };
+ 
+@@ -2861,6 +2862,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, MTE, MTE3)
+ 	},
++	{
++		.desc = "FAR on MTE Tag Check Fault",
++		.capability = ARM64_MTE_FAR,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTEFAR, IMP)
++	},
+ #endif /* CONFIG_ARM64_MTE */
+ 	{
+ 		.desc = "RCpc load-acquire (LDAPR)",
+@@ -3191,6 +3199,7 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ #ifdef CONFIG_ARM64_MTE
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, MTE, MTE2, CAP_HWCAP, KERNEL_HWCAP_MTE),
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, MTE, MTE3, CAP_HWCAP, KERNEL_HWCAP_MTE3),
++	HWCAP_CAP(ID_AA64PFR2_EL1, MTEFAR, IMP, CAP_HWCAP, KERNEL_HWCAP_MTE_FAR),
+ #endif /* CONFIG_ARM64_MTE */
+ 	HWCAP_CAP(ID_AA64MMFR0_EL1, ECV, IMP, CAP_HWCAP, KERNEL_HWCAP_ECV),
+ 	HWCAP_CAP(ID_AA64MMFR1_EL1, AFP, IMP, CAP_HWCAP, KERNEL_HWCAP_AFP),
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index 285d7d538342..e2b13454e38a 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -160,6 +160,7 @@ static const char *const hwcap_str[] = {
+ 	[KERNEL_HWCAP_SME_SFEXPA]	= "smesfexpa",
+ 	[KERNEL_HWCAP_SME_STMOP]	= "smestmop",
+ 	[KERNEL_HWCAP_SME_SMOP4]	= "smesmop4",
++	[KERNEL_HWCAP_MTE_FAR]		= "mte_far",
+ };
+ 
+ #ifdef CONFIG_COMPAT
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 772c1b008e43..ef62ea04ba37 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -67,6 +67,7 @@ MPAM
+ MPAM_HCR
+ MTE
+ MTE_ASYMM
++MTE_FAR
+ SME
+ SME_FA64
+ SME2
+-- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
