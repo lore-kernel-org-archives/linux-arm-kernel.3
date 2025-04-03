@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4343C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 06:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C9EC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 06:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PISLU56ZkvMlIZrjFNEHkFMuuADS/mIkd+ouBkO3DKY=; b=R22SVThMwS1UquqwyAnsw9IAZv
-	I6ZIvUxEIDFQpGgjFD8F0I5sU2Mt0SPlw5sjpUMuJ8eg/kyky30fqMVh43G5TreLOnbGARf13BeXO
-	6qaKROsjWNja4y583yW4T9DymoPe5RW4HgAIi44mGwwsK4XCOpQbIWF1zZ8tAASPQ1ydlR+FbpLrN
-	6N+vB0OcUwXPhIHYce8Z7AH1l44fWhkNsPUfqb6WLWYX/CbcBnajcAkDwk7HFtfhUtHcOaYuqx/7L
-	Ghs3HA2csuJbfy9rAq8wTkncpzPoudAh2ybHoIXHm19adFKnrKxTZuWa2E1t994YElTp1y7kndte7
-	oWCR1jHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zv2Eim6EJxK+6ui7lY93m7UU37Cs8RrVaOWKjl9KmMc=; b=xN89QyJsqW/PFJEef9J5axLIam
+	yljm3T10n5mponOJuD1pDazUVtWVY0TLwiZDmd5tzqvJ7fc0yJ8gjNFaFL815srD60/rAlaGErAKw
+	C/DdtwMe29RVullcGkfMX5GrOIwHCjl8WyLKh+7lwaIPIzcgzsOzf/eFdG1G96ZFva4PmDe/zNzKo
+	F34iDd/kZJNL8IlOwNS7RuFw0IXvD1/N7H4pUxIQLBASJcnSk6tmdjnFep+Sk+xmVAptxRstQRH2v
+	7JnWALx/gHErSW5soicwAYFNvcIRw17ozoYDGuwGEsMJ6xsgTxL8nosk1Z84FW6QczCR8rtrpJ8tS
+	u82E0OOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0E4Q-00000007vHs-06MI;
-	Thu, 03 Apr 2025 06:28:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u0E6A-00000007vV8-3ZEy;
+	Thu, 03 Apr 2025 06:30:47 +0000
+Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Dzp-00000007ul4-1SeO
+	id 1u0E3m-00000007vDe-3PaE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 06:24:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B66DCA46466;
-	Thu,  3 Apr 2025 06:18:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8FC1C4CEE3;
-	Thu,  3 Apr 2025 06:24:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743661452;
-	bh=GFvYpsXQvk6dxCYwoiQKJ2z5FTbh5QigoUHrYN255FY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eZTi5DzqiJVNB71Vp/b930nyv5R8JfheUpK2OUGe1zHqos2M5ckAZcuY0uXHL+/jk
-	 DSAAIg82wRixkfZy/2bZhUh+HAAZDTqK0vEmPAmIFDiAjRd96Xtx2ls9KkfsPID+oq
-	 yDy2IYeCxaPpeVO8BgDj9OlUi6pQCcf1/W0Z/BzTxB0WQ2VuG0AoR97Di3EEjiqSao
-	 3UnxDWVvLXaRZ7uIyV+YaV+/A8m8fGzIkYCHF6NIaiQaNstSr2tbbe6ojUUSuralnr
-	 RFoqPo9+1Q3ynv4rcDpmUZeo8pqV2XWrpmPAIQtuFxMggirlmwSUAbODKTzgr4/vbo
-	 WjKfBlqSGs4UA==
-Date: Thu, 3 Apr 2025 09:24:04 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	"Sauerwein, David" <dssauerw@amazon.de>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Hildenbrand <david@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [RFC PATCH 3/3] mm: Implement for_each_valid_pfn() for
- CONFIG_SPARSEMEM
-Message-ID: <Z-4phOInXZlxFwk9@kernel.org>
-References: <Z-vn-sMtNfwyJ9VW@kernel.org>
- <20250402201841.3245371-1-dwmw2@infradead.org>
- <20250402201841.3245371-3-dwmw2@infradead.org>
+	Thu, 03 Apr 2025 06:28:20 +0000
+Received: by mail-pj1-x1043.google.com with SMTP id 98e67ed59e1d1-2ff799d99dcso504611a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 23:28:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743661697; x=1744266497; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zv2Eim6EJxK+6ui7lY93m7UU37Cs8RrVaOWKjl9KmMc=;
+        b=gTP57W52RDl1tTCHPnSV0Qn53l16CoImW9yuav4sGlDJ9P3m68WIhF8WOYmLa3JGY2
+         9xg23V8NvxKm94ZZZSP/Nm33cw/wjek48y0y/6fj/FnOokm5NT3IpSxg/68FZ9m/1hWZ
+         wu5ro/6MoVXgueaIY9HcTFYJnp0o9la+kA9yrjdJl9eJSH9anrtYqSY5VIjcexO2izo8
+         6puBRZAVCbngfl30T1ccCffdzaJLIZEu+BM6QVrm7aoxTAOWLTA6h2ddrGCq4RFqVp/X
+         WNv2sjkAlfRgad/7nBLJXptgx51zr+t6gcX+GL2shtd+F8xayO7gafQ3ezphY7KCXn3Y
+         2AAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743661697; x=1744266497;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zv2Eim6EJxK+6ui7lY93m7UU37Cs8RrVaOWKjl9KmMc=;
+        b=grFFcvyzahKCQMTcXVGg0SdXjK04ClSe7Dsu8oVLTAjZHqbLobYRXfz6NFBlo+uwPs
+         Gy3xlQ0R4qQY0U8Io8d21iUO3tYjl6tFi/6x0D4f4eD4Xxhj0nC2G8S1X7hpXmfwzEMn
+         ap9jOPLXdtjywVWmDsxWemSnMRRAFj9MqbikhYDoffDfDgonTFa7pkU7hHEiD6vruO92
+         fmGx8vJPH3TiERVRi8J6Wi4wPr2NCJqHyLT4EJ6rCfcynfmms2LyNKYAg5XyRpsdCdVH
+         tGAcgW5rT2fsZDI1JjsU9H7MGawJjaCpYtdBHqPvI8Tca5ml1DVFhyobB5SR44TtLgMz
+         VdgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCViDy9zCkeGCb8Ik9Vf9it1Svf2VQCv9S+eB6ffgW71pNKcugkPUbYUQ+TLQxxOGEm9P6c5vpfaDJ8Fmi0BWWjP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMiRUImeVG2/k/tmt1tazFLjVZQ/Y27lPrryuUMYrNWtcMWtBt
+	QVLUPaRfaRAkvDRyP0EKVxQCCXF49UNlgcs1i7uq3mnpsgflWaay
+X-Gm-Gg: ASbGncsVnP9gvyTpTmiuYwh52TV8q0vKdqT1IthA/YMpny++850OLgyrVykVWNLfz3Q
+	CsmChbfu9MqiXfyssL2jP52GZMOmt0Swjd2HiFq0qKoZiMXY8U+m2Xvtby5zX0z/eprr/PEaXK+
+	9oZEQql1r31+/xtGMXPNeckQ5dq59yPNMq8Zv156wL+0E86YIOsGHX3HhkIabTz2asmkDFMiZgl
+	D5CGpf15JVb7BjTjwd8gVUmkTNJ0AE3YM51QrvWG6Qg/wNQiAvFjxWd+VutTa5pBL1vAazM4IAg
+	L8YNHE28OkjCIWGbcNQX2IVr1LlHq1vxurUij0/YZbEd9eSiNCcMYWuq1ehTQZ5jQnYNSWk=
+X-Google-Smtp-Source: AGHT+IH3/7oQDppEuWcYDFvnSNSVp2KWqayWvGz4NpuF6q5e1fxmt66vYC1luZBtdcGvzxbf+Tt5KA==
+X-Received: by 2002:a17:90a:c88f:b0:2ff:5016:7fd2 with SMTP id 98e67ed59e1d1-3053215e085mr32933013a91.24.1743661696860;
+        Wed, 02 Apr 2025 23:28:16 -0700 (PDT)
+Received: from henry.localdomain ([111.202.148.167])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3057ca5163fsm926950a91.19.2025.04.02.23.28.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Apr 2025 23:28:16 -0700 (PDT)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	sugaya.taichi@socionext.com,
+	orito.takao@socionext.com,
+	u.kleine-koenig@baylibre.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Henry Martin <bsdhenrymartin@gmail.com>
+Subject: [PATCH v1] serial: Fix null-ptr-deref in mlb_usio_probe()
+Date: Thu,  3 Apr 2025 14:28:08 +0800
+Message-Id: <20250403062808.63428-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250402201841.3245371-3-dwmw2@infradead.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_232413_448025_02EE51F4 
-X-CRM114-Status: GOOD (  20.69  )
+X-CRM114-CacheID: sfid-20250402_232818_850156_9ED6BC9B 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,73 +100,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 09:18:41PM +0100, David Woodhouse wrote:
-> From: David Woodhouse <dwmw@amazon.co.uk>
-> 
-> Introduce a pfn_first_valid() helper which takes a pointer to the PFN and
-> updates it to point to the first valid PFN starting from that point, and
-> returns true if a valid PFN was found.
-> 
-> This largely mirrors pfn_valid(), calling into a pfn_section_first_valid()
-> helper which is trivial for the !CONFIG_SPARSEMEM_VMEMMAP case, and in
-> the VMEMMAP case will skip to the next subsection as needed.
-> 
-> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+devm_ioremap() returns NULL on error. Currently, mlb_usio_probe() does
+not check for this case, which results in a NULL pointer dereference.
 
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Add NULL check after devm_ioremap() to prevent this issue.
 
-with a small nit below
+Fixes: ba44dc043004 ("serial: Add Milbeaut serial control")
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+---
+ drivers/tty/serial/milbeaut_usio.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-> +static inline bool first_valid_pfn(unsigned long *p_pfn)
-> +{
-> +	unsigned long pfn = *p_pfn;
-> +	unsigned long nr = pfn_to_section_nr(pfn);
-> +	struct mem_section *ms;
-> +	bool ret = false;
-> +
-> +	ms = __pfn_to_section(pfn);
-> +
-> +	rcu_read_lock_sched();
-> +
-> +	while (!ret && nr <= __highest_present_section_nr) {
-
-This could be just for(;;), we anyway break when ret becomes true or we get
-past last present section.
-
-> +		if (valid_section(ms) &&
-> +		    (early_section(ms) || pfn_section_first_valid(ms, &pfn))) {
-> +			ret = true;
-> +			break;
-> +		}
-> +
-> +		nr++;
-> +		if (nr > __highest_present_section_nr)
-> +			break;
-> +
-> +		pfn = section_nr_to_pfn(nr);
-> +		ms = __pfn_to_section(pfn);
-> +	}
-> +
-> +	rcu_read_unlock_sched();
-> +
-> +	*p_pfn = pfn;
-> +
-> +	return ret;
-> +}
-> +
-> +#define for_each_valid_pfn(_pfn, _start_pfn, _end_pfn)	       \
-> +	for ((_pfn) = (_start_pfn);			       \
-> +	     first_valid_pfn(&(_pfn)) && (_pfn) < (_end_pfn);  \
-> +	     (_pfn)++)
-> +
->  #endif
->  
->  static inline int pfn_in_present_section(unsigned long pfn)
-> -- 
-> 2.49.0
-> 
-
+diff --git a/drivers/tty/serial/milbeaut_usio.c b/drivers/tty/serial/milbeaut_usio.c
+index 059bea18dbab..4e47dca2c4ed 100644
+--- a/drivers/tty/serial/milbeaut_usio.c
++++ b/drivers/tty/serial/milbeaut_usio.c
+@@ -523,7 +523,10 @@ static int mlb_usio_probe(struct platform_device *pdev)
+ 	}
+ 	port->membase = devm_ioremap(&pdev->dev, res->start,
+ 				resource_size(res));
+-
++	if (!port->membase) {
++		ret = -ENOMEM;
++		goto failed;
++	}
+ 	ret = platform_get_irq_byname(pdev, "rx");
+ 	mlb_usio_irq[index][RX] = ret;
+ 
 -- 
-Sincerely yours,
-Mike.
+2.34.1
+
 
