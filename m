@@ -4,47 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0673FC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 13:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CABAC3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zez+6p8Y3I5aFWhI6/jit+0uu3QYEFLgq6rmajm/pbc=; b=qjbu2RVBPnnAfmiwqNpJyYCm2H
-	L5ZKR/4MuwEC0JDR4skyCUQDfXJuQohPSnssRKUWXzzSUEINakq6BflOEylHZTiXdyiWbAtDzQe3l
-	Mf/PnsP4u0mqgnilRjmjt7bAsbESGKSBVGdq43CZUeq4mIVtNflACQbUNI8MtdAyA/fChNvs4S/hQ
-	zH/48w/53ya0rEZFWPit/VvKoWHG2dwLAzH89yRP+2YME21Mb9eJ0LZyjJGgb0YWaEFM3SJvVfIjT
-	ALAnJ0aDBhpjawUfNprS+TdDlJdMIxPVm7rE3RXlZhcbXPB4R3BeFZI1PR7A2XC4B8USLg/PFvC++
-	QrJJliJQ==;
+	bh=liPR8OoKzkJaJMnL8kCCcZWI/W4b5B1Ki+ntUn+zDcE=; b=EB9ElM0ZbgJRgRtGn61axcCiPA
+	sdSv3eNrM1+20xPpzNdg9awWiIT+FVTx5KseyUDhLBVeuEv2dwH2X1m3M9/a1e+NquSfyeYGQYwG+
+	0thDy91MgVRah6YIBZ8oCgRCS9WYuBOWiLTJ49u0yNtBi0jYtBU3OJGJzya89hCzbfgo5FQ5JX3gS
+	pcpr6cJh2PFg1QsjGnitdkgVG+UMvqOUE9HQOG2DMFD/Qed/6R00cywEsu17MV8f0CNXgGMshXzRK
+	V85c3p5lsaffA7oAb3kj+MhNYYH6/v5uS3uK7Re1gDQ5Ys4Bud+ahD+UAuTl9MHId5/Kgxk2RIAjy
+	i7ZViVig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0L6V-00000008zAP-3PFg;
-	Thu, 03 Apr 2025 13:59:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u0L8I-00000008zWj-1Wvo;
+	Thu, 03 Apr 2025 14:01:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0L4h-00000008yvI-25dO;
-	Thu, 03 Apr 2025 13:57:44 +0000
+	id 1u0L5g-00000008z0u-1bRs;
+	Thu, 03 Apr 2025 13:58:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 003CA4395F;
-	Thu,  3 Apr 2025 13:57:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A24EC4CEE3;
-	Thu,  3 Apr 2025 13:57:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8AFB24395F;
+	Thu,  3 Apr 2025 13:58:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F347C4CEE5;
+	Thu,  3 Apr 2025 13:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743688661;
-	bh=5SR2KTBI1kKtfOBINvsox0Z0ryfiIm93Ekm8MRv/a4I=;
+	s=k20201202; t=1743688723;
+	bh=BrgR3NVGaMIq0cDdSFPpPKZhtRzYxdIHTZqfFmuVPko=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iW7Kcl6McmBEbJ1JPZ4u0Huxc2f6LpTnxB8SXB6QM6RbBFXxP9bN9E8qyknVSdeu+
-	 l/b+SAQ0QWM3fR8hQqvYA7ZOXApBXeYHLHS2dOtEI4U4eNVuZ996rcgf9L1vOMk1VK
-	 fsR+piAc8w0Tw7dC/yfcWpuGp/3Zm0/Hg6A4cnGFfj20+RRAL0D7bzGlvX7pR+TyEM
-	 MNWnWibgibRxnmAdvGDG7Qxe1hwAugVpYoRsDOYU8Dz9TOIZ3hKlDJrJ32IqaHfWrO
-	 0gY5wz+zFvE4o6h1f3Wor+aFDgX4QJbAEqle0OkXvoDBz/9rl4ykSomefNEMfNRYWa
-	 D3h05S20MooXA==
-Date: Thu, 3 Apr 2025 16:57:25 +0300
+	b=umP7ldLW1m+GF85JZqxyEuuOLUb1h9mCQmDzKwZnrLKraN0WoXYL/1EVjHchIjzNi
+	 0EYgu0oTZkxDRRI0C/+454BgBCgu6Wp1xaBiO1psabHDO+DVSl06T+0+KmSX8LKwrR
+	 jrvg7uZujTiRZGfAtk5Vp16S0TECDoHWQJdL+vdqSuKODi1li1JujZTSCkme3ilZ03
+	 DJQwIa7PPVlTdeESBd9x+fbDtbMZE3vlRUKmeWFWG7cqIjFvPxdpQysNR3RcA1D55z
+	 KBVyUhIHai5T1wt9w9qkpNFzkXFgek1AKaTqZ5Z16Z6W0LmZmj0YT1OK6FXYhjcHrd
+	 tMFW218IYwAWQ==
+Date: Thu, 3 Apr 2025 16:58:27 +0300
 From: Mike Rapoport <rppt@kernel.org>
-To: Pratyush Yadav <ptyadav@amazon.de>
-Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Pratyush Yadav <ptyadav@amazon.de>,
+	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
 	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
 	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
 	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
@@ -58,21 +59,21 @@ Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
 	usama.arif@bytedance.com, will@kernel.org,
 	devicetree@vger.kernel.org, kexec@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>
+	linux-mm@kvack.org, x86@kernel.org
 Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
  preservation
-Message-ID: <Z-6TxZWEWbKSCqfh@kernel.org>
+Message-ID: <Z-6UA3C1TPeH_kGL@kernel.org>
 References: <20250320015551.2157511-1-changyuanl@google.com>
  <20250320015551.2157511-10-changyuanl@google.com>
  <mafs05xjmqsqc.fsf@amazon.de>
+ <20250403114209.GE342109@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <mafs05xjmqsqc.fsf@amazon.de>
+In-Reply-To: <20250403114209.GE342109@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_065743_618171_050DE7EA 
-X-CRM114-Status: GOOD (  31.69  )
+X-CRM114-CacheID: sfid-20250403_065844_455964_67987B8E 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,106 +88,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 07:16:27PM +0000, Pratyush Yadav wrote:
-> Hi Changyuan,
+On Thu, Apr 03, 2025 at 08:42:09AM -0300, Jason Gunthorpe wrote:
+> On Wed, Apr 02, 2025 at 07:16:27PM +0000, Pratyush Yadav wrote:
+> > > +int kho_preserve_phys(phys_addr_t phys, size_t size)
+> > > +{
+> > > +	unsigned long pfn = PHYS_PFN(phys), end_pfn = PHYS_PFN(phys + size);
+> > > +	unsigned int order = ilog2(end_pfn - pfn);
+> > 
+> > This caught my eye when playing around with the code. It does not put
+> > any limit on the order, so it can exceed NR_PAGE_ORDERS. Also, when
+> > initializing the page after KHO, we pass the order directly to
+> > prep_compound_page() without sanity checking it. The next kernel might
+> > not support all the orders the current one supports. Perhaps something
+> > to fix?
 > 
-> On Wed, Mar 19 2025, Changyuan Lyu wrote:
-> 
-> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> >
-> > Introduce APIs allowing KHO users to preserve memory across kexec and
-> > get access to that memory after boot of the kexeced kernel
-> >
-> > kho_preserve_folio() - record a folio to be preserved over kexec
-> > kho_restore_folio() - recreates the folio from the preserved memory
-> > kho_preserve_phys() - record physically contiguous range to be
-> > preserved over kexec.
-> > kho_restore_phys() - recreates order-0 pages corresponding to the
-> > preserved physical range
-> >
-> > The memory preservations are tracked by two levels of xarrays to manage
-> > chunks of per-order 512 byte bitmaps. For instance the entire 1G order
-> > of a 1TB x86 system would fit inside a single 512 byte bitmap. For
-> > order 0 allocations each bitmap will cover 16M of address space. Thus,
-> > for 16G of memory at most 512K of bitmap memory will be needed for order 0.
-> >
-> > At serialization time all bitmaps are recorded in a linked list of pages
-> > for the next kernel to process and the physical address of the list is
-> > recorded in KHO FDT.
-> >
-> > The next kernel then processes that list, reserves the memory ranges and
-> > later, when a user requests a folio or a physical range, KHO restores
-> > corresponding memory map entries.
-> >
-> > Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > Co-developed-by: Changyuan Lyu <changyuanl@google.com>
-> > Signed-off-by: Changyuan Lyu <changyuanl@google.com>
-> > ---
-> >  include/linux/kexec_handover.h |  38 +++
-> >  kernel/kexec_handover.c        | 486 ++++++++++++++++++++++++++++++++-
-> >  2 files changed, 522 insertions(+), 2 deletions(-)
-> [...]
-> > +int kho_preserve_phys(phys_addr_t phys, size_t size)
-> > +{
-> > +	unsigned long pfn = PHYS_PFN(phys), end_pfn = PHYS_PFN(phys + size);
-> > +	unsigned int order = ilog2(end_pfn - pfn);
-> 
-> This caught my eye when playing around with the code. It does not put
-> any limit on the order, so it can exceed NR_PAGE_ORDERS. Also, when
+> IMHO we should delete the phys functions until we get a user of them
 
-I don't see a problem with this
-
-> initializing the page after KHO, we pass the order directly to
-> prep_compound_page() without sanity checking it. The next kernel might
-> not support all the orders the current one supports. Perhaps something
-> to fix?
-
-And this needs to be fixed and we should refuse to create folios larger
-than MAX_ORDER.
+The only user of memory tracker in this series uses kho_preserve_phys()
  
-> > +	unsigned long failed_pfn;
-> > +	int err = 0;
-> > +
-> > +	if (!kho_enable)
-> > +		return -EOPNOTSUPP;
-> > +
-> > +	down_read(&kho_out.tree_lock);
-> > +	if (kho_out.fdt) {
-> > +		err = -EBUSY;
-> > +		goto unlock;
-> > +	}
-> > +
-> > +	for (; pfn < end_pfn;
-> > +	     pfn += (1 << order), order = ilog2(end_pfn - pfn)) {
-> > +		err = __kho_preserve(&kho_mem_track, pfn, order);
-> > +		if (err) {
-> > +			failed_pfn = pfn;
-> > +			break;
-> > +		}
-> > +	}
-> [...
-> > +struct folio *kho_restore_folio(phys_addr_t phys)
-> > +{
-> > +	struct page *page = pfn_to_online_page(PHYS_PFN(phys));
-> > +	unsigned long order = page->private;
-> > +
-> > +	if (!page)
-> > +		return NULL;
-> > +
-> > +	order = page->private;
-> > +	if (order)
-> > +		prep_compound_page(page, order);
-> > +	else
-> > +		kho_restore_page(page);
-> > +
-> > +	return page_folio(page);
-> > +}
-> [...]
-> 
-> -- 
-> Regards,
-> Pratyush Yadav
+> Jason
 
 -- 
 Sincerely yours,
