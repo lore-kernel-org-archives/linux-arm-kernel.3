@@ -4,97 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5ADFC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 21:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486D0C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 21:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fvD1Km7wGFLtWOqgEFNWRLw6eJ4esFFynlnh8JehOFY=; b=Hp+N6HBxZR545ClISxxpyTDQKQ
-	3916jZSH9Yyxl0QLhD/+yojTPysO6Wf/xPg/UjJmRuA3iTjd/estlud6RIlTQe/JFUmMD/C9U5Kk0
-	ynjGGy+eIVtIz7IJPt2O0JFVxlHkxvXBZngsAiXT8/gFqboBlN5b96acvqh33l0dvcTPRs2kW/Okv
-	6i8Awkk5m8XJo0a6Fm1206brtLmCw1n9em4Zx167oMSn4RMs1Rym1oPtXSjjrN6ZO6sBFfV9AUBUg
-	gE96Wd+Bwm9201KTIH3DmYuJGa+5jDg02DiR8LNo9nYoGopDuB1L29FXcPoJ9+HcqG+pAa8iHi/z3
-	UTqgFtEw==;
+	bh=26gO5Z7viuRFbGZwX46BM+M9jsLRziHINHWmMxh9kUw=; b=iZ+Y9n4/TEImT3enaKSBB5cuWe
+	QZ4zu4XJ2EdCFzj5tr07SunEPo9oaVSJgidZi8C514EuwlXzd3PVsnlXHFVWlXX9so7c08DjLFfvO
+	DhKmOPixfY9j7lCeYpyvU4hCKCsOwCrVvqtXhUSSfjYfKE/jfCFHXrtXGgXgVy5q/qIBoi1PmMPrA
+	jNiFz0LmSwJKglL5AyHTt17qdozdod9bEQUR2trbKoz7/BnqErT3RTihG/n/KEt6BoCte01t6ecJh
+	zbEVyq5QdbhY1BcmdlubVg7EBvhhR7tZkPW/wUhjFZKBm0R3Dho1veR1bNwbrxiw8DBoyehZvGzup
+	sU+8ms7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Rw8-0000000A7xd-0MuF;
-	Thu, 03 Apr 2025 21:17:20 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0RuJ-0000000A7ZW-2Cay
+	id 1u0SBT-0000000ABlf-3UwG;
+	Thu, 03 Apr 2025 21:33:11 +0000
+Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0S9d-0000000ABJx-3wVr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 21:15:28 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43d0c18e84eso6718955e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 14:15:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743714925; x=1744319725; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fvD1Km7wGFLtWOqgEFNWRLw6eJ4esFFynlnh8JehOFY=;
-        b=Lgan7tQCVLVCkwztFU8lwfenGo78/LW05p70J/CrFQV5NQ1VVuthbjhEjYyvnxKdST
-         EKNA5TPplZBjBvGRKTUk09td/peZ1tTAm7St0QUlxdVeuilziBGRK1cuXfeQQwRKFmTu
-         E0elOwt8umUhXLtujRPcCqp0Obhd2ushnW0ii3oIP2LevBvw0l27midRwJTj9YV1TyER
-         PSsdUmcMGzvNfB79PKpvQ7l3qJC/Wc9oL0aAiYkg2bIEih0VnNk2oPxX4oqA2jT/ZjaC
-         RyLBHMjI3U3h9SZLm1bO5IGW21fu+RrD9miBWlrRk4IDAZIQN74vj4Fgf/VRRjJcUJHn
-         g6jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743714925; x=1744319725;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fvD1Km7wGFLtWOqgEFNWRLw6eJ4esFFynlnh8JehOFY=;
-        b=gHusJyTOcDknnV9XfJnsHUiAZ63r3aby5yDyt/rzj9HY97/nwcg9qdJBZo+aTs1X52
-         8HzRyxLgeUbkgYdwH73516pD0De2BA6/Y0U4YDqd5OoVVFwDk7XuaOmhIMd99ZV+Im6p
-         jWe8V5DsktTUG7tLKXOJ2X+yp0fDcHUmfzseHiFuEf1Tsy2+zErBQOA/5KcozSps6un2
-         /2LBf/6k+cxptI2gmgQ1wn5FJEnDI4bZeF4v2Nms2ZNsAUWEtU+Nu+TLpLZDSfcrOjip
-         tw8Sp99awEK73wmgofpRGDVq6RcpHw3pRV1BqWzY5TCrmXrWtX+He1n8UhsHkV+Hu5cD
-         6QlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXqjAyVRkX+gxU2rZOOdxxALQsIXZCRXHHOQ/uPuyIz9nr7qrCdgyLOoFg3Js9UTfaY35k51bF3VLZZ7qR9+5v4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSRkeSW561CTP8mASR4uNRbEVwx8s3ubw3DqwvrL8aD5GT7MRN
-	w2pipoZ02Y/eOMcEKn8cu/2HLKlC1yFKZXp+mSZivwjSChmYAPu5
-X-Gm-Gg: ASbGncsapfl+FYx88mWSuoJUcgsl2zAl2+ZisgnYDezn4oGilcwOyI8j2th6HzH1G1d
-	s+WrSEDyDflFQnzXC9TsrFJx+3n2cCL2c00QJY9763hfXQ7eDH9NUP6sMJPzZ/9M8ruqZFdMC/8
-	j4vGesxQSKcUi9EyQoPQjlt5LBKF+kpSorfWYEAzW5sUwBu4FkspHkTxhF4SpFhoJl0FTkUsmCm
-	oKblSbo971qAxtrUXGwzlQlPCaTBCFb+AGh5WXXnLyydlPK7moczRVyd6tCJUYIDtSO7JvwNV4q
-	4Ff07xoXWjqnSghaoQNH1lTXkwWtI+AW0lrhdU+OEyK78uLD7dagOcasAQJoSMOSZFPkkDAALn7
-	EuTrTn6s=
-X-Google-Smtp-Source: AGHT+IGBaHYjceQBSmbH3010b6NTsG3JdQrqaS3chq0W1aRj/OYqtwyl5jYbNbbhjuezGo2AbkFbvg==
-X-Received: by 2002:a05:600c:3494:b0:43c:f8fc:f697 with SMTP id 5b1f17b1804b1-43ed0bc8d96mr2756455e9.9.1743714925141;
-        Thu, 03 Apr 2025 14:15:25 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec17b0a38sm31305665e9.34.2025.04.03.14.15.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Apr 2025 14:15:24 -0700 (PDT)
-Date: Thu, 3 Apr 2025 22:15:22 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Peter Collingbourne <pcc@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara
- <jack@suse.cz>, Andrew Morton <akpm@linux-foundation.org>, Kees Cook
- <kees@kernel.org>, Andy Shevchenko <andy@kernel.org>, Andrey Konovalov
- <andreyknvl@gmail.com>, Mark Rutland <mark.rutland@arm.com>,
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] string: Add load_unaligned_zeropad() code path
- to sized_strscpy()
-Message-ID: <20250403221522.328b174b@pumpkin>
-In-Reply-To: <CAMn1gO55tC78BpD+KuFgygg1Of57pr16O4BvKsUsrpo830-jEw@mail.gmail.com>
-References: <20250329000338.1031289-1-pcc@google.com>
-	<20250329000338.1031289-2-pcc@google.com>
-	<Z-2ZwThH-7rkQW86@arm.com>
-	<CAMn1gO55tC78BpD+KuFgygg1Of57pr16O4BvKsUsrpo830-jEw@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Thu, 03 Apr 2025 21:31:20 +0000
+X-CSE-ConnectionGUID: 6BgU7RT8Qs6mvMmb/aNMhQ==
+X-CSE-MsgGUID: WEPXP2IWRuizs4QHM0kemg==
+Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
+  by relmlie6.idc.renesas.com with ESMTP; 04 Apr 2025 06:31:12 +0900
+Received: from superbuilder.administration.lan (unknown [10.226.92.33])
+	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 6199840B55D9;
+	Fri,  4 Apr 2025 06:31:09 +0900 (JST)
+From: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
+To: thierry.bultel@linatsea.fr
+Cc: linux-renesas-soc@vger.kernel.org,
+	geert@linux-m68k.org,
+	paul.barker.ct@bp.renesas.com,
+	Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v7 13/13] arm64: defconfig: Enable Renesas RZ/T2H serial SCI
+Date: Thu,  3 Apr 2025 23:29:15 +0200
+Message-ID: <20250403212919.1137670-14-thierry.bultel.yh@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250403212919.1137670-1-thierry.bultel.yh@bp.renesas.com>
+References: <20250403212919.1137670-1-thierry.bultel.yh@bp.renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_141527_562680_E6C8E145 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20250403_143118_090438_CBE46518 
+X-CRM114-Status: UNSURE (   6.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,29 +69,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2 Apr 2025 17:08:51 -0700
-Peter Collingbourne <pcc@google.com> wrote:
+Selects RZ/T2H (aka r9a09g077) SCI (serial) specific code.
 
-> On Wed, Apr 2, 2025 at 1:10=E2=80=AFPM Catalin Marinas <catalin.marinas@a=
-rm.com> wrote:
-..
-> > Reading across tag granule (but not across page boundary) and causing a
-> > tag check fault would result in padding but we can live with this and
-> > only architectures that do MTE-style tag checking would get the new
-> > behaviour. =20
->=20
-> By "padding" do you mean the extra (up to sizeof(unsigned long)) nulls
-> now written to the destination? It seems unlikely that code would
-> deliberately depend on the nulls not being written, the number of
-> nulls written is not part of the documented interface contract and
-> will vary right now depending on how close the source string is to a
-> page boundary. If code is accidentally depending on nulls not being
-> written, that's almost certainly a bug anyway (because of the page
-> boundary thing) and we should fix it if discovered by this change.
+Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
+---
+Changes v6->v7: none
+Changes v5->v6:
+   - Renamed CONFIG_SERIAL_RZ_SCI_T2 to CONFIG_SERIAL_RSCI
+Changes v4->v5:
+   - Renamed CONFIG_SERIAL_RZ_SCI to CONFIG_SERIAL_RZ_SCI_T2
+Changes v3->v4:
+   - Remove CONFIG_ARCH_R9A09G077=y
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-There was an issue with one of the copy routines writing beyond
-the expected point in a destination buffer.
-I can't remember the full details, but it would match strscpy().
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 5bb8f09422a2..fcfc7b2e5819 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -494,6 +494,7 @@ CONFIG_SERIAL_TEGRA_TCU=y
+ CONFIG_SERIAL_IMX=y
+ CONFIG_SERIAL_IMX_CONSOLE=y
+ CONFIG_SERIAL_SH_SCI=y
++CONFIG_SERIAL_RSCI=y
+ CONFIG_SERIAL_MSM=y
+ CONFIG_SERIAL_MSM_CONSOLE=y
+ CONFIG_SERIAL_QCOM_GENI=y
+-- 
+2.43.0
 
-	David
 
