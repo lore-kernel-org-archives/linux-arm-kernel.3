@@ -4,58 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D1F4C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 06:54:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F91C3601B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 06:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwmjY7yh6LQsjbd3Qi5xxZ4CxyRSpo/F5EWX8xQ1CEg=; b=EdrjgarsVgtO2YCQJNnoxF4E29
-	EglqdC38D6PiEIg9oKOrCIFrb6/41wcldxZRVQPDmNSKAoKi/N9dfNo19nXzy2tWQOwkseYw+p5/+
-	9abbooTw/rg3QfuHqkufvBZZZHzGT4zF90uQpkWQyaUYnwZYb3sgjN4Ao7BxLExQ/4FqVpXxut1AS
-	NPsjGK71Nh9gcBDpY18y05ruFmj+10mGnEIwwtKe/B3/gauyRVM8uc7EsM2u1r+Rx91jqZhQ/qwNJ
-	0F530Y3YKg21H59BopTfHVAnS2QIRhbqCvBq42geD08lpGt9xj+2ekOdrQBHNkboKV6YyPa2WiWmf
-	Vtikf1Zg==;
+	bh=LTZofUX6Jv/8yJIenVhAoWh1nNKDtqpvFcNBJxTaRao=; b=4bnZAUZPpn4Obb5+NRgM6MWSCI
+	nYG238EsRkWBMimPBCwdHmfhHtdojUuM8gCsbs3uDhCpBqLBRTRhrPnjDxT5H8CY+rXXI7eXkQyg6
+	zSt5if2o9f4J+aa4n9D3Ah0k4/44LZEwVAvymw07to72zI+svnsFRKLQI8Ysexz5zywKFiXSPEF2C
+	CcuJFiwyKvOuRBeI8pIvWV2mRh9pExIz4aE4d5PUo1PQG/dq+dCqU3HVCFyv0NZ4VTaYw5sPZdRdh
+	dut+6QOmMXqhHv9pP1TbvF0yNS3oA/phu84KqXt0wlqUTTZlgVgY8ioeUXAgGwgnR+wGoh/8NMrGw
+	XcbezqfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0ET1-00000007zQG-3Bhu;
-	Thu, 03 Apr 2025 06:54:23 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u0EUl-00000007zfM-3EbI;
+	Thu, 03 Apr 2025 06:56:11 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0EPR-00000007ynq-33we
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 06:50:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B8EBAA44271;
-	Thu,  3 Apr 2025 06:45:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C66E5C4CEE8;
-	Thu,  3 Apr 2025 06:50:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1743663040;
-	bh=Jh/rY+EfIjSo98Z/ve5BziCFk7Rx6+VKfxCcaVbDtEs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fCYukXs5RtwOJrW0aHvACYhB+w3VtDovh0h0XSAhtrAwlJkHFzQeCCHaQraayIh3I
-	 dHdEbfeqNFPw1YeIa6iNSkmi8yws9CsIqRuoBjddeX78VdjQpufEHWDCXbxm0J1WD3
-	 2h82qoGnao1EdRCrUrGeUG54x30CxU0kNJqj5Dxo=
-Date: Thu, 3 Apr 2025 07:49:13 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: jirislaby@kernel.org, sugaya.taichi@socionext.com,
-	orito.takao@socionext.com, u.kleine-koenig@baylibre.com,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1] serial: Fix null-ptr-deref in mlb_usio_probe()
-Message-ID: <2025040301-unmanned-lapdog-5446@gregkh>
-References: <20250403062808.63428-1-bsdhenrymartin@gmail.com>
+	id 1u0EPV-00000007yoT-38bZ;
+	Thu, 03 Apr 2025 06:50:47 +0000
+X-UUID: f2d19ed4105711f0a1e849db4cc18d44-20250402
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=LTZofUX6Jv/8yJIenVhAoWh1nNKDtqpvFcNBJxTaRao=;
+	b=eR+RL3yi5DShQCFKQr80qgSyh3xBnrE0D04BOawx8nuVQS+iq54xn7sMfDKUKbBnRzA778wmeeVyA60YnNY1BahcFXTwXhF9Bbj7GwOZPH4Kj5zWzRC77rxnFZeHIWExMSgQXl/cXz0j32WvmvP8tjGf37hwjtzY+jVPEAuF1UY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:1b908a36-075f-42e0-9715-8c2d11a373e2,IP:0,UR
+	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:25
+X-CID-META: VersionHash:0ef645f,CLOUDID:5e22e94a-a527-43d8-8af6-bc8b32d9f5e9,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:11|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: f2d19ed4105711f0a1e849db4cc18d44-20250402
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <crystal.guo@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 654618536; Wed, 02 Apr 2025 23:50:37 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 3 Apr 2025 14:50:34 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 3 Apr 2025 14:50:33 +0800
+From: Crystal Guo <crystal.guo@mediatek.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Crystal Guo
+	<crystal.guo@mediatek.com>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v4 1/2] dt-bindings: memory-controllers: Add MediaTek DRAM controller interface
+Date: Thu, 3 Apr 2025 14:48:47 +0800
+Message-ID: <20250403065030.22761-2-crystal.guo@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250403065030.22761-1-crystal.guo@mediatek.com>
+References: <20250403065030.22761-1-crystal.guo@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250403062808.63428-1-bsdhenrymartin@gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_235042_182714_362B0685 
-X-CRM114-Status: GOOD (  26.26  )
+X-CRM114-CacheID: sfid-20250402_235045_808735_BC4BF01F 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,66 +89,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 02:28:08PM +0800, Henry Martin wrote:
-> devm_ioremap() returns NULL on error. Currently, mlb_usio_probe() does
-> not check for this case, which results in a NULL pointer dereference.
-> 
-> Add NULL check after devm_ioremap() to prevent this issue.
-> 
-> Fixes: ba44dc043004 ("serial: Add Milbeaut serial control")
-> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-> ---
->  drivers/tty/serial/milbeaut_usio.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/tty/serial/milbeaut_usio.c b/drivers/tty/serial/milbeaut_usio.c
-> index 059bea18dbab..4e47dca2c4ed 100644
-> --- a/drivers/tty/serial/milbeaut_usio.c
-> +++ b/drivers/tty/serial/milbeaut_usio.c
-> @@ -523,7 +523,10 @@ static int mlb_usio_probe(struct platform_device *pdev)
->  	}
->  	port->membase = devm_ioremap(&pdev->dev, res->start,
->  				resource_size(res));
-> -
-> +	if (!port->membase) {
-> +		ret = -ENOMEM;
-> +		goto failed;
-> +	}
->  	ret = platform_get_irq_byname(pdev, "rx");
->  	mlb_usio_irq[index][RX] = ret;
->  
-> -- 
-> 2.34.1
-> 
-> 
+A MediaTek DRAM controller interface to provide the current DDR
+data rate.
 
-Hi,
+Signed-off-by: Crystal Guo <crystal.guo@mediatek.com>
+---
+ .../mediatek,mt8196-dramc.yaml                | 44 +++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/memory-controllers/mediatek,mt8196-dramc.yaml
 
-This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
-a patch that has triggered this response.  He used to manually respond
-to these common problems, but in order to save his sanity (he kept
-writing the same thing over and over, yet to different people), I was
-created.  Hopefully you will not take offence and will fix the problem
-in your patch and resubmit it so that it can be accepted into the Linux
-kernel tree.
+diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,mt8196-dramc.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,mt8196-dramc.yaml
+new file mode 100644
+index 000000000000..c0b3e7166a87
+--- /dev/null
++++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,mt8196-dramc.yaml
+@@ -0,0 +1,44 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright (c) 2025 MediaTek Inc.
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/memory-controllers/mediatek,mt8196-dramc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek DRAM Controller (DRAMC)
++
++maintainers:
++  - Crystal Guo <crystal.guo@mediatek.com>
++
++description:
++  A MediaTek DRAM controller interface to provide the current data rate of DRAM.
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - mediatek,mt8196-dramc
++
++  reg:
++    items:
++      - description: anaphy registers
++      - description: ddrphy registers
++
++additionalProperties: false
++
++required:
++  - compatible
++  - reg
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        memory-controller@10236000 {
++            compatible = "mediatek,mt8196-dramc";
++            reg = <0 0x10236000 0 0x2000>,
++                  <0 0x10238000 0 0x2000>;
++        };
++    };
+-- 
+2.18.0
 
-You are receiving this message because of the following common error(s)
-as indicated below:
-
-- You have marked a patch with a "Fixes:" tag for a commit that is in an
-  older released kernel, yet you do not have a cc: stable line in the
-  signed-off-by area at all, which means that the patch will not be
-  applied to any older kernel releases.  To properly fix this, please
-  follow the documented rules in the
-  Documentation/process/stable-kernel-rules.rst file for how to resolve
-  this.
-
-If you wish to discuss this problem further, or you have questions about
-how to resolve this issue, please feel free to respond to this email and
-Greg will reply once he has dug out from the pending patches received
-from other developers.
-
-thanks,
-
-greg k-h's patch email bot
 
