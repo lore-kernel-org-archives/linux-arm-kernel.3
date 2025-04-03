@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD5A6C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 09:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F1AC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 09:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6KRr6Qm0gpuwraE+pyT1hJyit2ZkidoO0SCeL3UgR+0=; b=qmrXqi3OqV3Gyy1q9ArjYN4QQg
-	G+2seGbecnaHQkVn/8ig/0cp4aCzDw3dbFlnHPRg66ejHb4fzoMZIxaHjczxHD1i8F4DeRL7rGni9
-	usi5REbfzcYiqes3XEV+bwFlYVtwx8+qH7E7nijvtObwejWZrXcRDZzidtGTGHsYDtO7NmLJ38qgJ
-	mZ3fFp5K3qOlzI1fvXr/TqhJmEhV3CBzVMCR7/WFBPx165InssYPZw+PetItl8pwXh4nicEBBhg7L
-	lyosA6SrEgAk8bv6kx5scJPNP2DTstAbIeLcCUwksjhXr4GVLQ+qOCmz7iZ1Nsod6H5ZEg5NSqmou
-	DKNVvCFg==;
+	bh=ZwiQ684ZfeWSIriRYeiGWHceehqqEuabrmdfgVRjbUU=; b=4AybdYBMO5LoLGtv8NZizn9QlS
+	fYR7oMb7KXgPwFrp8anEqSfl6LBY3KWlHFO2B63MhS5rS0px88/oweMUyXj3EjACpQ4F10WV/qyZ8
+	G+52fIRY18T+sSCEIIIorGAKqsRuNsA5pwS9ytH17Cc3+ZHBEV7uVrsofobAF5yjbGBkfdKYQkVBm
+	Vdh2/7hn4cmJ/fGpTK+I/kJp5XUTXmd6SurtEfOoHfnqbmXtuvVyrfofvMoRVo2NONuslphd0dbPI
+	IwoEXDoLsYIfakIlZgQf3ZOiP+tGPL+sqKsLpGVo8FM1NKAb9FMjrQOgCa+EZh5SKh3+Kt41k6Wdb
+	C3+FXUaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0H6v-00000008RBW-3xr4;
-	Thu, 03 Apr 2025 09:43:45 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1u0H8e-00000008RSD-2iOk;
+	Thu, 03 Apr 2025 09:45:32 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0GPs-00000008JoE-0SYQ
+	id 1u0GPt-00000008JpJ-415C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 08:59:17 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e61375c108so924403a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 01:59:16 -0700 (PDT)
+	Thu, 03 Apr 2025 08:59:19 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-abec8b750ebso106540366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 01:59:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743670755; x=1744275555; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1743670756; x=1744275556; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6KRr6Qm0gpuwraE+pyT1hJyit2ZkidoO0SCeL3UgR+0=;
-        b=Xqa4N/uoBtu55wJuTcWc9AiwvFPFtiRnuMZCGGaifyCRALLHOMZsPecQcdZEjG+yiA
-         toQP5XXzcg69KIO0uP5/seXH4hCQDxnh6+SLQ9pPJ3A7kxRXZi8LjLNGI2WD8vAf9B7+
-         AzBLPd2Ze6Ko2lPLf6kK2HAJ3SJwuh0luMM0yIxwfYucXaRiQRvv7uQRl2afVOBNPCjV
-         IJmolkhnuCg52kQm6unya9zaomLtV5b5jf1qqP9wNovAdeP90mwRCYelNHBLS4GiYf7Y
-         ci3mT2ERyX0yo7V62m8Kd5+K6o8gZ6onf6VnQPAOm/YPpj8bHxN09zwWs43YDOUdrZ7y
-         hEOg==
+        bh=ZwiQ684ZfeWSIriRYeiGWHceehqqEuabrmdfgVRjbUU=;
+        b=F2DQjGb8a9jwpbqbSOfNRi1H9u/rhcVpSc0OKQ2Xwvej+EPimKtnbi/NnWmbC+tF54
+         rxEI6r5E6z7LnDUT6fK++Rs8PIY5xAz9vFYYS50WWkSgHOPJfxg9Fymm/2z0PIDxfcvi
+         7XkxFe909MxnbnMxtAJ9FgfIzqwOv5gdJssHFcQpimWpSnv1s61UkSjXRrSIXZFRFieC
+         rD5ywLeM1kEN1pzwuQ0BIi4LwJVLauYVBkLC7EbHMLehwlph6ZvUDocFgTsfaVatOzVB
+         FFBvH+OBgnwCVIlfllbTkAQRS742/JotmPJLfMi5idTr0JUPjY6w7EPCXcSW1aJDY/2z
+         /t+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743670755; x=1744275555;
+        d=1e100.net; s=20230601; t=1743670756; x=1744275556;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6KRr6Qm0gpuwraE+pyT1hJyit2ZkidoO0SCeL3UgR+0=;
-        b=IdF5CUl7qu8etVkyF2gS9PGz0hcLGKL5gvNAiRD+3+jjp6gZuYkgJyaqesy5NUpbKe
-         31BDGPf/YX7A87IEse6a25FEK5pMj04yuqJ2h/zkImSViHB+FWcX8Pfy5GIiGD/4A/9g
-         DUA9GtC2cXhzG+AdBCiOqaZRmMJJa7tTaDrdt/XBaWJ/WKO8AVSeGnpFYHVOegOgwb/o
-         h60peeSTtRa3xyl5rbcQWZbm1ZUaG/cEQrqt2z8JAysD9cTuFs1ZWVCm3Ufja3GAfL0S
-         rQlNuund1kpCd2gwIzlk4397RLBUlPtqyiebuacQaQQqq+BczMQYogDoPA20bW/LSJID
-         xFsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV5N3JLo6keStSn3BZw+GMJfX5hnCIoQMERyw1dqIwX4nuESpAldRTAjVeYRz3VwUb/ylhK7i7A78tfyjrpjNO6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRnyGLqy/3apQEOMlcU9ES5A7g/NhRg5JOlH88yrd7QM3IFttp
-	uv3uXLSufrtgMYOEj0VTM+Yj2FneWbYQMf5C6vuLMEQj10Vv+R+gdCXmWyzt9AM=
-X-Gm-Gg: ASbGncvOTptN2CeGDoRbYG5cWo6QEVmR6c82TM1Ur5TqFwnWMesRtRJcWUxorUGWI7M
-	6eva7qdp+c7iUf/b6O8YeW0ix9lOu+yy2LJAGHNi7EAFjKe5gAaKTCVXUZ+6WlNOtbvDZkxfFy1
-	RI35NX7MY2toMJFazNaB4qjRXEehJrdks8KcMVZhYHcjUPD9RP6cJW7JAlQqTqjIm38SUmf1Bm2
-	cDYydeUPbKodn7eKlgYy5o5ek1OLMnjgfRMN8BHyt3FW0yppp9a04jzzsOvViW7lSgEkAQIXb+w
-	WnFCdfyr6C5Xdmfuv0QvhP9073xHajaeHizyw+aqPGhsJ7ed38ZkS0+pigA7wCNw7fmXUOOu5wF
-	eOYdh+krVna5DY3jUo+HmaKHmf1Mj
-X-Google-Smtp-Source: AGHT+IHEdGFmSr6KJkifyjVrc0xIRhrTNMltNPXKgSl8ywP+14sm3GrLINtRDwSb2RF2kU14UFLFrw==
-X-Received: by 2002:a05:6402:40d3:b0:5e5:437c:1daf with SMTP id 4fb4d7f45d1cf-5edfd156c0amr18247266a12.16.1743670754722;
-        Thu, 03 Apr 2025 01:59:14 -0700 (PDT)
+        bh=ZwiQ684ZfeWSIriRYeiGWHceehqqEuabrmdfgVRjbUU=;
+        b=DBVoocDhslQxDhNZ5Ov9ZW+RpOWeXuJLBjSxvh0KERRm2g4dMgNvIlkR+S7FW1ncxY
+         +6rwVdsyaQwkhnHHqr7o/MBp/o/T+gD2U2fusYmlx6SmJxS7GCXLUqhvpYKMCm1/3iD4
+         8WkOlz/K13bZSd5s7yqRJc4PbdiInF5iV9bK5jfahO7Ctj0kJV8JKUXhTsyfqZn9+jbS
+         aQT8BEvyFCyfvuXGxXFIosBcsDhjMVSHdxnV83DYSRbHaxKrcsng8igg8Hq2rp0ERNAR
+         PGWbV0fNHkfB1tt4iqalgxxku9mRWbIZJKK19HKWWm8gh1MXlPIY6ZE4W4gYyXSOWdGE
+         EqfA==
+X-Forwarded-Encrypted: i=1; AJvYcCVtrp5GQO3qMuliIh4jRjGf8GvGAXo9FI9pP6IpTsj7enpKyyx7sTxlMyAGscNn62x1rGYUX+9VO0jbASSs/cDJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtCP6w/bsI0NUj+aeJ41IBs+ZxhBIFvwCzw6p87R+LdDL6/3Aj
+	FaL7lQQCOJyiTi5WTU8iHGg1hmA6pqHFUd/wQsyfreqTEJ7+PSLJFf0sJnlCNv0=
+X-Gm-Gg: ASbGncucujGA2CexYWVWAJoa7tRFevjeD0AcCXNmgTsF3dMjatLyMuh/kDq0b/LQ1k0
+	lROONLZ7Vg3DgKakVPq2eyhSZF03RnmHQXaa9hIn1BV+creaKehfGFDGs4ECIjBwV8bdb2tjWaB
+	x6mWe4NURG6uhahwBJpyBmDCD54FH7WBnVKgMiDHpk1Z6O2WvasK7fKuNPEwSDweLSNJ6AvwfLq
+	4XEFG0SOqBLueNnwbrPDMzobsjHI8pABkRvfUI3FPp2blbiekMMhRRDKwmYWCJfwfnGYHPcsUvc
+	3JhABg6sCZQeX9oE/CppuuGfrwVhfyxKrY1kOA8qlbKMywAWfWbRHyfRHofn6H2xLL6QSi0XrEq
+	EwMouNjsllXPzQrPuuhVX50KnXEC5
+X-Google-Smtp-Source: AGHT+IGxqvs9WDVLgnZbd0Q1P61p74Sjm20wNP22/EBrrIOH4ecB3274nitjn+0Tvp+BuQBO2JC0vA==
+X-Received: by 2002:a17:907:c23:b0:ac3:8895:8e99 with SMTP id a640c23a62f3a-ac7a165e83fmr473122266b.3.1743670756231;
+        Thu, 03 Apr 2025 01:59:16 -0700 (PDT)
 Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f0880a535fsm637614a12.80.2025.04.03.01.59.14
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f0880a535fsm637614a12.80.2025.04.03.01.59.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Apr 2025 01:59:14 -0700 (PDT)
+        Thu, 03 Apr 2025 01:59:15 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Thu, 03 Apr 2025 09:59:16 +0100
-Subject: [PATCH v3 24/32] clk: s2mps11: add support for S2MPG10 PMIC clock
+Date: Thu, 03 Apr 2025 09:59:18 +0100
+Subject: [PATCH v3 26/32] rtc: s5m: prepare for external regmap
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250403-s2mpg10-v3-24-b542b3505e68@linaro.org>
+Message-Id: <20250403-s2mpg10-v3-26-b542b3505e68@linaro.org>
 References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
 In-Reply-To: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, 
@@ -95,8 +95,8 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_015916_145595_7E402EDA 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20250403_015917_999419_3CEA2F8D 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,57 +111,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Samsung's S2MPG10 PMIC clock, which is similar to the
-existing PMIC clocks supported by this driver.
+The Samsung S2MPG10 PMIC is not connected via I2C as this driver
+assumes, hence this driver's current approach of creating an I2C-based
+regmap doesn't work for it, and this driver should use the regmap
+provided by the parent (core) driver instead for that PMIC.
 
-S2MPG10 has three clock outputs @ 32kHz: AP, peri1 and peri2.
+To prepare this driver for s2mpg support, restructure the code to only
+create a regmap if one isn't provided by the parent.
 
-Acked-by: Stephen Boyd <sboyd@kernel.org>
+No functional changes, since the parent doesn't provide a regmap for
+any of the PMICs currently supported by this driver. Having this change
+separate will simply make the addition of S2MPG10 support more
+self-contained, without additional restructuring.
+
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/clk/clk-s2mps11.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/rtc/rtc-s5m.c | 81 ++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 45 insertions(+), 36 deletions(-)
 
-diff --git a/drivers/clk/clk-s2mps11.c b/drivers/clk/clk-s2mps11.c
-index 8ddf3a9a53dfd5bb52a05a3e02788a357ea77ad3..92c8d36dafcf8a448873567fb3541a1b90cd9837 100644
---- a/drivers/clk/clk-s2mps11.c
-+++ b/drivers/clk/clk-s2mps11.c
-@@ -11,6 +11,7 @@
- #include <linux/regmap.h>
- #include <linux/clk-provider.h>
- #include <linux/platform_device.h>
-+#include <linux/mfd/samsung/s2mpg10.h>
- #include <linux/mfd/samsung/s2mps11.h>
- #include <linux/mfd/samsung/s2mps13.h>
- #include <linux/mfd/samsung/s2mps14.h>
-@@ -140,6 +141,9 @@ static int s2mps11_clk_probe(struct platform_device *pdev)
- 	clk_data->num = S2MPS11_CLKS_NUM;
+diff --git a/drivers/rtc/rtc-s5m.c b/drivers/rtc/rtc-s5m.c
+index 53c76b0e4253a9ba225c3c723d35d9182d071607..86ccf666c68059408907c97f2647716ffaad10c6 100644
+--- a/drivers/rtc/rtc-s5m.c
++++ b/drivers/rtc/rtc-s5m.c
+@@ -640,52 +640,61 @@ static int s5m_rtc_probe(struct platform_device *pdev)
+ 	const struct platform_device_id	* const id =
+ 		platform_get_device_id(pdev);
+ 	struct s5m_rtc_info *info;
+-	struct i2c_client *i2c;
+-	const struct regmap_config *regmap_cfg;
+ 	int ret, alarm_irq;
  
- 	switch (hwid) {
-+	case S2MPG10:
-+		s2mps11_reg = S2MPG10_PMIC_RTCBUF;
-+		break;
- 	case S2MPS11X:
- 		s2mps11_reg = S2MPS11_REG_RTC_CTRL;
- 		break;
-@@ -221,6 +225,7 @@ static void s2mps11_clk_remove(struct platform_device *pdev)
- }
+ 	info = devm_kzalloc(&pdev->dev, sizeof(*info), GFP_KERNEL);
+ 	if (!info)
+ 		return -ENOMEM;
  
- static const struct platform_device_id s2mps11_clk_id[] = {
-+	{ "s2mpg10-clk", S2MPG10},
- 	{ "s2mps11-clk", S2MPS11X},
- 	{ "s2mps13-clk", S2MPS13X},
- 	{ "s2mps14-clk", S2MPS14X},
-@@ -241,6 +246,9 @@ MODULE_DEVICE_TABLE(platform, s2mps11_clk_id);
-  */
- static const struct of_device_id s2mps11_dt_match[] __used = {
- 	{
-+		.compatible = "samsung,s2mpg10-clk",
-+		.data = (void *)S2MPG10,
-+	}, {
- 		.compatible = "samsung,s2mps11-clk",
- 		.data = (void *)S2MPS11X,
- 	}, {
+-	switch (id->driver_data) {
+-	case S2MPS15X:
+-		regmap_cfg = &s2mps14_rtc_regmap_config;
+-		info->regs = &s2mps15_rtc_regs;
+-		alarm_irq = S2MPS14_IRQ_RTCA0;
+-		break;
+-	case S2MPS14X:
+-		regmap_cfg = &s2mps14_rtc_regmap_config;
+-		info->regs = &s2mps14_rtc_regs;
+-		alarm_irq = S2MPS14_IRQ_RTCA0;
+-		break;
+-	case S2MPS13X:
+-		regmap_cfg = &s2mps14_rtc_regmap_config;
+-		info->regs = &s2mps13_rtc_regs;
+-		alarm_irq = S2MPS14_IRQ_RTCA0;
+-		break;
+-	case S5M8767X:
+-		regmap_cfg = &s5m_rtc_regmap_config;
+-		info->regs = &s5m_rtc_regs;
+-		alarm_irq = S5M8767_IRQ_RTCA1;
+-		break;
+-	default:
++	info->regmap = dev_get_regmap(pdev->dev.parent, "rtc");
++	if (!info->regmap) {
++		const struct regmap_config *regmap_cfg;
++		struct i2c_client *i2c;
++
++		switch (id->driver_data) {
++		case S2MPS15X:
++			regmap_cfg = &s2mps14_rtc_regmap_config;
++			info->regs = &s2mps15_rtc_regs;
++			alarm_irq = S2MPS14_IRQ_RTCA0;
++			break;
++		case S2MPS14X:
++			regmap_cfg = &s2mps14_rtc_regmap_config;
++			info->regs = &s2mps14_rtc_regs;
++			alarm_irq = S2MPS14_IRQ_RTCA0;
++			break;
++		case S2MPS13X:
++			regmap_cfg = &s2mps14_rtc_regmap_config;
++			info->regs = &s2mps13_rtc_regs;
++			alarm_irq = S2MPS14_IRQ_RTCA0;
++			break;
++		case S5M8767X:
++			regmap_cfg = &s5m_rtc_regmap_config;
++			info->regs = &s5m_rtc_regs;
++			alarm_irq = S5M8767_IRQ_RTCA1;
++			break;
++		default:
++			return dev_err_probe(&pdev->dev, -ENODEV,
++					     "Unsupported device type %lu\n",
++					     id->driver_data);
++		}
++
++		i2c = devm_i2c_new_dummy_device(&pdev->dev,
++						s5m87xx->i2c->adapter,
++						RTC_I2C_ADDR);
++		if (IS_ERR(i2c))
++			return dev_err_probe(&pdev->dev, PTR_ERR(i2c),
++					     "Failed to allocate I2C\n");
++
++		info->regmap = devm_regmap_init_i2c(i2c, regmap_cfg);
++		if (IS_ERR(info->regmap))
++			return dev_err_probe(&pdev->dev, PTR_ERR(info->regmap),
++					     "Failed to allocate regmap\n");
++	} else {
+ 		return dev_err_probe(&pdev->dev, -ENODEV,
+-				     "Device type %lu is not supported by RTC driver\n",
++				     "Unsupported device type %lu\n",
+ 				     id->driver_data);
+ 	}
+ 
+-	i2c = devm_i2c_new_dummy_device(&pdev->dev, s5m87xx->i2c->adapter,
+-					RTC_I2C_ADDR);
+-	if (IS_ERR(i2c))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(i2c),
+-				     "Failed to allocate I2C for RTC\n");
+-
+-	info->regmap = devm_regmap_init_i2c(i2c, regmap_cfg);
+-	if (IS_ERR(info->regmap))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(info->regmap),
+-				     "Failed to allocate RTC register map\n");
+-
+ 	info->dev = &pdev->dev;
+ 	info->s5m87xx = s5m87xx;
+ 	info->device_type = id->driver_data;
 
 -- 
 2.49.0.472.ge94155a9ec-goog
