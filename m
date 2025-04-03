@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27CBEC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 07:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01076C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 07:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R4FyJgVog8TDKaXo7qMpa3klKFKPWRfLhz1THGGUKxc=; b=fF5LvlJjPJAyBtkGoWQDOAipfW
-	xUWU2UUouEgwxxQgGFZvPg2ckVR5chMBXmuCkuxL4Gs9YyHukjxT+xKAmM7rUKb5W56v/FNc0oSb3
-	URcgKBLHqJEV+26Nwb2G4cfV2JZeqbMBptFZqFAekhhf8hEPVteyRSuTO2iGWkP5KlvwND30M91S9
-	N7fgPHNtHPbl6c6zj1oAISAXntQzT7qmcuaJF8pswngZVcIvCcdTksrYTGByXEb+6QeOmZqSE7gKm
-	LybcP/IsRKEPYYKTmpXUQofDeISN3qz0MRr+e5GGEKxMkd6Ew84hG/Y5TNdYlp9CfHNTZb3vuf2gI
-	jqBUG1tw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yj/8LclNtNwWmJ9CEP9M1/JR4rLCdikDYGSP8pmcUC4=; b=G5ZO1aWoUFQj675L9WFbwg4p3X
+	Q2V0h/rgZLOmoNPHPcw9j8xcMa5dKaHDfPhq86oYLPh0Hc/CsIAy8vhEzVcb1sQ03c1wHfd47LYZW
+	iZ6mtJLqEjIiddPytyK/3U82A/IQkeJ0Vz+9thZaKQfiD3iSTwclO2ZgiyFjcwTwloS1M09sMQ39q
+	2ZybOAI3eBTmsmHvpSS44+gKDOfXhzj2x7jtxQPBWrWH4gyl+/8d/c/yXpIOq6kIqjwmJT/yRRqRe
+	iJwMgwV2uYZfUbpX6uvd0zEGVF3xCAn+J1lgKSfS3i2i8DIjmnQ7rIR6+mirksOKDK8G6PKF01tQt
+	zMIa8VDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0EjV-000000083hj-2fcF;
-	Thu, 03 Apr 2025 07:11:25 +0000
-Received: from mail-m19731104.qiye.163.com ([220.197.31.104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Ehf-000000083Jh-45ss
+	id 1u0ElE-000000083wU-1wx0;
+	Thu, 03 Apr 2025 07:13:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0Ej5-000000083bZ-0XZT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 07:09:37 +0000
-Received: from localhost.localdomain (unknown [122.224.147.158])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 109206eca;
-	Thu, 3 Apr 2025 15:09:24 +0800 (GMT+08:00)
-From: Hongbo Yao <andy.xu@hj-micro.com>
-To: will@kernel.org,
-	robin.murphy@arm.com
-Cc: mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	andy.xu@hj-micro.com,
-	allen.wang@hj-micro.com,
-	peter.du@hj-micro.com
-Subject: [PATCH v3] perf: arm-ni: Unregister PMUs on probe failure
-Date: Thu,  3 Apr 2025 15:09:18 +0800
-Message-ID: <20250403070918.4153839-1-andy.xu@hj-micro.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 03 Apr 2025 07:11:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20879106F;
+	Thu,  3 Apr 2025 00:11:00 -0700 (PDT)
+Received: from [10.163.48.25] (unknown [10.163.48.25])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D029D3F694;
+	Thu,  3 Apr 2025 00:10:49 -0700 (PDT)
+Message-ID: <d94c6f97-4ca8-4a3a-ae8a-8e872eaa8d3b@arm.com>
+Date: Thu, 3 Apr 2025 12:40:39 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZS0pCVhpLHRpDGE0dS01DGVYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSUlVSUlPVUpPTFVKTkNZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
-	tLVUpCS0tZBg++
-X-HM-Tid: 0a95fa7baff103afkunm109206eca
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OBw6Mzo5FzJNKQIXFkkaURk5
-	GgMKCz1VSlVKTE9ITU1PSk1OQkxLVTMWGhIXVRoVHwJVAw47ExFWFhIYCRRVGBQWRVlXWRILWUFZ
-	SklJVUlJT1VKT0xVSk5DWVdZCAFZQU9JS003Bg++
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 7/9] coresight: Make clock sequence consistent
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20250327113803.1452108-1-leo.yan@arm.com>
+ <20250327113803.1452108-8-leo.yan@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250327113803.1452108-8-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_000932_199127_FB6C53C8 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250403_001059_260490_C0803187 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,115 +70,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a resource allocation fails in one clock domain of an NI device,
-we need to properly roll back all previously registered perf PMUs in
-other clock domains of the same device.
+On 3/27/25 17:08, Leo Yan wrote:
+> Since atclk is enabled after pclk during the probe phase, this commit
+> maintains the same sequence for the runtime resume flow.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-funnel.c     | 6 +++---
+>  drivers/hwtracing/coresight/coresight-replicator.c | 6 +++---
+>  drivers/hwtracing/coresight/coresight-stm.c        | 6 +++---
+>  drivers/hwtracing/coresight/coresight-tpiu.c       | 6 +++---
+>  4 files changed, 12 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+> index ec6d3e656548..e378c2fffca9 100644
+> --- a/drivers/hwtracing/coresight/coresight-funnel.c
+> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
+> @@ -299,11 +299,11 @@ static int funnel_runtime_resume(struct device *dev)
+>  {
+>  	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -
+>  	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+>  		clk_prepare_enable(drvdata->pclk);
+> +
+> +	if (drvdata && !IS_ERR(drvdata->atclk))
+> +		clk_prepare_enable(drvdata->atclk);
+>  	return 0;
+>  }
 
-Otherwise, it can lead to kernel panics.
+funnel_probe() enables pclk after atclk though - which needs to be
+reversed as well ?
 
-Calling arm_ni_init+0x0/0xff8 [arm_ni] @ 2374
-arm-ni ARMHCB70:00: Failed to request PMU region 0x1f3c13000
-arm-ni ARMHCB70:00: probe with driver arm-ni failed with error -16
-list_add corruption: next->prev should be prev (fffffd01e9698a18),
-but was 0000000000000000. (next=ffff10001a0decc8).
-pstate: 6340009 (nZCv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
-pc : list_add_valid_or_report+0x7c/0xb8
-lr : list_add_valid_or_report+0x7c/0xb8
-Call trace:
- __list_add_valid_or_report+0x7c/0xb8
- perf_pmu_register+0x22c/0x3a0
- arm_ni_probe+0x554/0x70c [arm_ni]
- platform_probe+0x70/0xe8
- really_probe+0xc6/0x4d8
- driver_probe_device+0x48/0x170
- __driver_attach+0x8e/0x1c0
- bus_for_each_dev+0x64/0xf0
- driver_add+0x138/0x260
- bus_add_driver+0x68/0x138
- __platform_driver_register+0x2c/0x40
- arm_ni_init+0x14/0x2a [arm_ni]
- do_init_module+0x36/0x298
----[ end trace 0000000000000000 ]---
-Kernel panic - not syncing: Oops - BUG: Fatal exception
-SMP: stopping secondary CPUs
+static int funnel_probe(struct device *dev, struct resource *res)
+{
+	..................
+        drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
+        if (IS_ERR(drvdata->atclk))
+                return PTR_ERR(drvdata->atclk);
 
-Fixes: 4d5a7680f2b4 ("perf: Add driver for Arm NI-700 interconnect PMU")
-Signed-off-by: Hongbo Yao <andy.xu@hj-micro.com>
----
-Changes in v3:
- - Simplify the fix with the existing pmu_base logic. 
- - v2: https://lore.kernel.org/linux-arm-kernel/a1cf32e8-c711-476d-a827-e3affedba780@hj-micro.com/T/#ma3347cf5dca2c3cedbfd475f76931ca7b2751019
+        drvdata->pclk = coresight_get_enable_apb_pclk(dev);
+        if (IS_ERR(drvdata->pclk))
+                return PTR_ERR(drvdata->pclk);
 
----
- drivers/perf/arm-ni.c | 39 +++++++++++++++++++++------------------
- 1 file changed, 21 insertions(+), 18 deletions(-)
+>  #endif
+> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
+> index 460af0f7b537..78854f586e89 100644
+> --- a/drivers/hwtracing/coresight/coresight-replicator.c
+> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
+> @@ -337,11 +337,11 @@ static int replicator_runtime_resume(struct device *dev)
+>  {
+>  	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -
+>  	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+>  		clk_prepare_enable(drvdata->pclk);
+> +
+> +	if (drvdata && !IS_ERR(drvdata->atclk))
+> +		clk_prepare_enable(drvdata->atclk);
+>  	return 0;
+>  }
 
-diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-index bdb9e6af8732..de7b6cce4d68 100644
---- a/drivers/perf/arm-ni.c
-+++ b/drivers/perf/arm-ni.c
-@@ -575,6 +575,23 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
- 	return err;
- }
- 
-+static void arm_ni_remove(struct platform_device *pdev)
-+{
-+	struct arm_ni *ni = platform_get_drvdata(pdev);
-+
-+	for (int i = 0; i < ni->num_cds; i++) {
-+		struct arm_ni_cd *cd = ni->cds + i;
-+
-+		if (!cd->pmu_base)
-+			continue;
-+
-+		writel_relaxed(0, cd->pmu_base + NI_PMCR);
-+		writel_relaxed(U32_MAX, cd->pmu_base + NI_PMINTENCLR);
-+		perf_pmu_unregister(&cd->pmu);
-+		cpuhp_state_remove_instance_nocalls(arm_ni_hp_state, &cd->cpuhp_node);
-+	}
-+}
-+
- static void arm_ni_probe_domain(void __iomem *base, struct arm_ni_node *node)
- {
- 	u32 reg = readl_relaxed(base + NI_NODE_TYPE);
-@@ -657,8 +674,11 @@ static int arm_ni_probe(struct platform_device *pdev)
- 				reg = readl_relaxed(pd.base + NI_CHILD_PTR(c));
- 				arm_ni_probe_domain(base + reg, &cd);
- 				ret = arm_ni_init_cd(ni, &cd, res->start);
--				if (ret)
-+				if (ret) {
-+					ni->cds[cd.id].pmu_base = NULL;
-+					arm_ni_remove(pdev);
- 					return ret;
-+				}
- 			}
- 		}
- 	}
-@@ -666,23 +686,6 @@ static int arm_ni_probe(struct platform_device *pdev)
- 	return 0;
- }
- 
--static void arm_ni_remove(struct platform_device *pdev)
--{
--	struct arm_ni *ni = platform_get_drvdata(pdev);
--
--	for (int i = 0; i < ni->num_cds; i++) {
--		struct arm_ni_cd *cd = ni->cds + i;
--
--		if (!cd->pmu_base)
--			continue;
--
--		writel_relaxed(0, cd->pmu_base + NI_PMCR);
--		writel_relaxed(U32_MAX, cd->pmu_base + NI_PMINTENCLR);
--		perf_pmu_unregister(&cd->pmu);
--		cpuhp_state_remove_instance_nocalls(arm_ni_hp_state, &cd->cpuhp_node);
--	}
--}
--
- #ifdef CONFIG_OF
- static const struct of_device_id arm_ni_of_match[] = {
- 	{ .compatible = "arm,ni-700" },
--- 
-2.43.0
+replicator_probe() enables pclk after atclk though - which needs to be
+reversed as well ?
 
+static int replicator_probe(struct device *dev, struct resource *res)
+{
+	..................
+        drvdata->atclk = devm_clk_get_optional_enabled(dev, "atclk");
+        if (IS_ERR(drvdata->atclk))
+                return PTR_ERR(drvdata->atclk);
+
+        drvdata->pclk = coresight_get_enable_apb_pclk(dev);
+        if (IS_ERR(drvdata->pclk))
+                return PTR_ERR(drvdata->pclk);
+
+
+
+>  #endif
+> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
+> index f13fbab4d7a2..ddb4f6678efd 100644
+> --- a/drivers/hwtracing/coresight/coresight-stm.c
+> +++ b/drivers/hwtracing/coresight/coresight-stm.c
+> @@ -972,11 +972,11 @@ static int stm_runtime_resume(struct device *dev)
+>  {
+>  	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -
+>  	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+>  		clk_prepare_enable(drvdata->pclk);
+> +
+> +	if (drvdata && !IS_ERR(drvdata->atclk))
+> +		clk_prepare_enable(drvdata->atclk);
+>  	return 0;
+>  }
+>  #endif
+
+same here as well.
+
+> diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
+> index cac1b5bba086..8212959f60d4 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpiu.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpiu.c
+> @@ -220,11 +220,11 @@ static int tpiu_runtime_resume(struct device *dev)
+>  {
+>  	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -
+>  	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+>  		clk_prepare_enable(drvdata->pclk);
+> +
+> +	if (drvdata && !IS_ERR(drvdata->atclk))
+> +		clk_prepare_enable(drvdata->atclk);
+>  	return 0;
+>  }
+>  #endif
+
+same here as well.
+
+I assume this patch is trying to have the same clock sequence enablement
+during original probe and resume path and then just the reverse sequence
+during suspend path.
 
