@@ -4,71 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D999C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 18:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1E9C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 18:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mXdo8X1aVFus8jE/gRSOm5/KUGBwL/O5S+xQKTEpQaY=; b=1VdaZoT21fnS0hQaL49TMya7jX
-	qLnUSx2EXk5iCFHClTO6+nti3+TCzvYm8DzbAEB27u8OCcSzCC56GWI+lD9fY0USGTJZItvPwE1xf
-	r9KFniwb8QQZu7KMDqKt/fw/oSisY0OaNqKoQIiU6OpAHowFyvw/OKSRpwO1DG0OZ+15JDkDzcw7U
-	whreXx7qBnx9fuQRApmzdEpwSauL/Zt19FUHZuYFMNBP+MuarG8DHtimv80/kLKEOJS5choYSWPSz
-	0xGdEKyOOTKn77AB2H8jIg5tCcMtkGbV0MLSFnFFdg/Ar091ymsffLzoNRrpENOm6omV/2Th9uR16
-	6MEd/9AQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9RPCwbiprTmdP7lQIFyeC35n82z5R0AwVfawSjfe/3s=; b=4fsE0zDfBCLqyUQpeuY0VB+asZ
+	TFmjwpWPfiObzl7PwMykujibp0eoLiDUBhdJTkNgQ+IDD1+68mvYrz+JRb1yJ6twLX0WHLAsw8vOi
+	FQDjqaqtnnNuT4m3esKmhyCa0T7K1FylcOWe1VW9SS6mLc945yQY98EiFwSmQN6bBABuBg0RuiQFF
+	6+coLgl1SXwJoDDGA33fgsn6RRZWat/XT8jHJDoh+KN+V8W+mBjxr9vyLhUsHkhv/ReHNOmN0NtWv
+	AjhIHlvBrg54x7o3TaVsSoEZF4QcQ9YkIihOzCARn6zMTvkiYiUqqxaOo+59LdMwH04YoDQa2/8Ig
+	wX9njt1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0PMs-00000009Zrb-0iWm;
-	Thu, 03 Apr 2025 18:32:46 +0000
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
+	id 1u0POe-00000009aFG-3quc;
+	Thu, 03 Apr 2025 18:34:36 +0000
+Received: from mail-am7eur03on20631.outbound.protection.outlook.com ([2a01:111:f403:260e::631] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0PJN-00000009ZGY-2idX
+	id 1u0PLy-00000009ZgW-3TLa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 18:29:11 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1743704947;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mXdo8X1aVFus8jE/gRSOm5/KUGBwL/O5S+xQKTEpQaY=;
-	b=B8UEX75yftNaMWqMjuzVMQ8ZtlkozjWueZndzzk4X6TgFgpCsRRqZqctcf0qXjOp7XPKGP
-	KH49HUHtCsx1vc6XrFCr02LYJNg/I3gULLOMAsI5HKMquOONmuBp/fNLMisW1XfnwuXBey
-	ZGlpAJQqWZqGlawBSrmO0BGHpBY0+Ic=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: netdev@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>
-Cc: Christian Marangi <ansuelsmth@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	upstream@airoha.com,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [RFC net-next PATCH 12/13] arm64: dts: Add compatible strings for Lynx PCSs
-Date: Thu,  3 Apr 2025 14:28:55 -0400
-Message-Id: <20250403182855.1948615-1-sean.anderson@linux.dev>
-In-Reply-To: <20250403181907.1947517-1-sean.anderson@linux.dev>
-References: <20250403181907.1947517-1-sean.anderson@linux.dev>
+	Thu, 03 Apr 2025 18:31:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BTBHo87aqojrXJqNxeA+XS3B9q8PIHd7SpVXldwDjxQ91uOmdJJEpk0jHqSWWCYwProNqd6fUodiq7wSYU03UUKekJ5l/3Hu3i3KP9thMhgV78Vj8w6itNyqCRrOvrUNxTYazxQHfBJVFLvjagAz9F+ljXg1CC7/8O4NyftQr0VuVbVGgWJFzJMoSdOu6e/mpLLerPfkKl2JHYTS9RFLUTIDHuWTQs9/a5CuoUU5IyGLYjx1kyhPxEHFkRdHfXqAtba9noy1btjqDHbHTOjObcnVcmmRZCe4sTtuOktqPU1sD7wh/usXXYhWBRx7XuOBfqFDVJh9T4AZ2IW4ozDQzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9RPCwbiprTmdP7lQIFyeC35n82z5R0AwVfawSjfe/3s=;
+ b=CXHnXkvlSazLTv0KJcf2l7+tyv4onutjBvK1Qcfdhc7j4pQPLTTnUfalhFN3m/zRfPjeugRyEMYotDZjUaoW3uk0IPRhVLi4dZT37q+hIU9vIKVBkx+uQLIQ2k6Mr/37M5eTsfutPt2LJShncQyM2Ht9+IwR3XxG4WO7S92T1VTgaEQ8l32CBmF/hk5vU/MrzAlrhJW0yYYYr8fWeTcloWffLhYa5WgZrFyDRk2rWQu+mfEfsne64+LMBoU5njoFRm3NizaEcS08nlKOpieVgKFY0fNOKWlI0H69PYlOzDB/aVKhKYYwTYbsLw5b3ucBlM0n6Yt3Bj+CHOe/mwvG7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9RPCwbiprTmdP7lQIFyeC35n82z5R0AwVfawSjfe/3s=;
+ b=WH7zr+BIvLWFFE3RrjD7HT8KD3GAsHc/aEgem0/9zVxidRDWm+xicvfTceUqzcryxODPFuc5FtCfhyeLWvTXVmmfg/si27tNjTCwUwRMdWVaXgSVjgffx/o6bkIYhQj0B9GBPLP8y71EqB5dSA848mkZIy7Sy9I253bDfmvjUr7zUWPoQR4u6DY3hWpz8qvvBRCmYy1XCprWAXtOx3GtIi/LZ+LZUdHwBP7amyBlqIpFswCvmus2eOwmt7azG42bexZjBwPhE38zbFbetrhxVZPvFGADZWN5nomh/sJjObLjC72GSRNPK9ZVwnFEDd+p66PdnvkzA5zeagjt4KnAkA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA1PR04MB10913.eurprd04.prod.outlook.com (2603:10a6:102:484::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Thu, 3 Apr
+ 2025 18:31:40 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8534.048; Thu, 3 Apr 2025
+ 18:31:40 +0000
+Date: Thu, 3 Apr 2025 14:31:31 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Yannic Moog <y.moog@phytec.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, upstream@lists.phytec.de,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Benjamin Hahn <b.hahn@phytec.de>, Jan Remmet <j.remmet@phytec.de>,
+	Teresa Remmet <t.remmet@phytec.de>,
+	Yashwanth Varakala <y.varakala@phytec.de>
+Subject: Re: [PATCH v2 3/3] arm64: dts: add imx8mp-libra-rdk-fpsc LVDS panel
+ overlay
+Message-ID: <Z+7UAzFYCHYij0AA@lizhi-Precision-Tower-5810>
+References: <20250403-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v2-0-c0d2eff683ac@phytec.de>
+ <20250403-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v2-3-c0d2eff683ac@phytec.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250403-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v2-3-c0d2eff683ac@phytec.de>
+X-ClientProxiedBy: PH7P220CA0099.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32d::23) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA1PR04MB10913:EE_
+X-MS-Office365-Filtering-Correlation-Id: 82aec998-f487-4baf-fc2d-08dd72ddc6bf
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mhZaoRb8AtsY1t89IfiPew81il1M2XCtTeVBInSL+73iupq76iRhcnyq45ZO?=
+ =?us-ascii?Q?c33NRWlvq4F4DX3mHcZICBy32iPwCkLCS+O6ktxE0xHzMipqLzBTj6qFdsae?=
+ =?us-ascii?Q?eyv5RIy0H/sKbu0a9/l3Eyd4dmK+a/2LienAccyW8P1IJ8rnPKBI3T3L4Q88?=
+ =?us-ascii?Q?YhnriLFjc29Q/Nk0OFSN+bjEpA0qFbNlkUc3nC+D7LdGIDed/Qf4YfscnmIR?=
+ =?us-ascii?Q?bu/Mku3BxLgRxd8/4D++BaVJSvk22g7OTF0qsdOBDQe1iilYRTVjpex2FZf2?=
+ =?us-ascii?Q?WwETCTUgEpwQYF5Iqjni1lQlu9nTSykq7Rx6mRM3aXdDYM0KHYr51TyCA0G0?=
+ =?us-ascii?Q?8ANZG8GDtfQPEx8ke96gluMc5eNH2SnCVVOPWmqrWZQQqGnsLXHcyyjoCXE7?=
+ =?us-ascii?Q?wJpXKVsRZ6yMJUo8gcdjkfP+oIaxORNYkPjAKobmnJrkEImQ44HzjXSLGF6d?=
+ =?us-ascii?Q?We/4DJwTLwdk7ICtN7ukWzYn+5NYM+iA9lzsI80pBN1+JZaCi/WmijdAbKcu?=
+ =?us-ascii?Q?zo0VRSsYVTG+7RVaV3AIOg5zqvcFiko07yYZX1Bt+dxrOmMIz+myvsqW98Ie?=
+ =?us-ascii?Q?zsB0g1g89VBnquyqAS1xP+OMe4PsvkW8Xj4tEae9FOaTOfAKo8bpO//LyGfs?=
+ =?us-ascii?Q?1m/gisp+tmw9o80TK8+3MhbyEVSwmULDGYKuOXikRkdEyhAGSAw1IoEb12Zp?=
+ =?us-ascii?Q?YhjmQRxOUsIMsajyaDiJ43ltqTxkaptWi+szdPEdsAU4DXeCglJh/gWhYWUj?=
+ =?us-ascii?Q?QKEEiymTT3rDJ6b8KcsiPFOh4qYGjAgFVk9TKAYt6L4V+54sjclP+2o6s7O9?=
+ =?us-ascii?Q?BKW80s3mXw7l52PzkN4YWpagfxr3wTeVhfDPVsEOJP6owhnadX8tAbfq5iO3?=
+ =?us-ascii?Q?W6K+Tr9vAmjRc8cEd2QMIa5bIvqIYj6KvFLNgSKvw/6l+97bl5PWBSQT8Jnf?=
+ =?us-ascii?Q?Mld8dASz0vzxHvSTN52gvxlnEtkb+E3kuhSqkoGBAZXW/gSuOcWmW8qWpTef?=
+ =?us-ascii?Q?/7Yk9B87tDbawpG0+TS87E83G/g5apKuk8xxEtcCNjbTiAjlo0ZZPdCkBcLl?=
+ =?us-ascii?Q?DbvjE5xmxe6+gKcBbim1r5iP+6meFP7cEon+0DKsxL6SeB6LagZb5rJrFKik?=
+ =?us-ascii?Q?RnvkeOo1HyFpRHTFiFTGVgTBCvNsKs5w9Ls9YMaUKq+cTp7zQaqDxwBg2w16?=
+ =?us-ascii?Q?MWFl2XmkEG4x/fyMKvbVGw5XWifRj/hZ+J5RJUtzbDyrsOvVUYhcSj7Qz6pA?=
+ =?us-ascii?Q?xdHQ/Ji38w+ggTzVbZKcRf2vNkTPz+EXBIxbs/4CNU8vi1Qz3qZViZanSTHD?=
+ =?us-ascii?Q?8nOItb/WMW3WT7Xo8bkYNIAiML/dgBHzliMjGbjvdgD2d/sPQCj6GXLrY6Q1?=
+ =?us-ascii?Q?Cm2UKfUFosDK8emz/Egb/D1nhtNbNOTGvbTl0vlUNdRLKnfAJcJiJMjTLSbl?=
+ =?us-ascii?Q?lsReUp1KZB5IQhdgWrUI8c9Am8SegmdRiG/72KnoZ01E6ggF465sXA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JseSkp0KbuM0Q55ChfdLm/MEVBFkkD3cRnvzAIBz6MDXuoAMwvAAfwaaSBOr?=
+ =?us-ascii?Q?Rm9aEYu3NH9Zm8vUgA40xt3x7zx5r09CdEccNCuIHycDnG5v+b1OPwUN7IWL?=
+ =?us-ascii?Q?Ds1ZWFkOPxoLvg5gClMkkvFvhfk95znrkqE7JvFROedC+TGy6cjHkCpge5de?=
+ =?us-ascii?Q?RTwyH8eRCy6cUiFnfoiaaTkx7Zgp/Nymk0UdCNzG9kNHOUERKmMKL65N682T?=
+ =?us-ascii?Q?uD0PGsaTr8XwtRixEk3SvxagzKdUi8zNSGkJegiOaAwjjGpZjwC+lDFBuah+?=
+ =?us-ascii?Q?FyuYIemz7xJc02egu4fD2pgchXEWZTFhzkzDXX5CpFPNPvoraK2Oa9iXkvz3?=
+ =?us-ascii?Q?z17gjlftdnUqK4bDlaFLvH3qa08Q4aKX8ZPw6kCT16SZOaA4yEQ6QTwAkYC5?=
+ =?us-ascii?Q?awYESnmC/taFFXf75xL/ABkw6VpGM5aaK8CYEdrVlBi3kltL+IlqBayqZiX4?=
+ =?us-ascii?Q?bz7TluQlhZnLaW1b5DA+dNF5qkJSr1LcS4Xis6lHp0kVGwPZzQR4AzVL/1bn?=
+ =?us-ascii?Q?xJ7+mYSRcOWKBv/l4Mfdn6icuXOjQaqvt1UVYXnZ0rMlGVMXBn/UZSHmiFQ6?=
+ =?us-ascii?Q?6S6iSovHvcErXB+V1tqfDH6a9DUg4hD9xFQM8rBYIwyGjGpwIS+ryjGhZCGQ?=
+ =?us-ascii?Q?TVuXMw0s9Y3aJWZqDIgFzyeOGi8eTm23iIUdz/UPeCmprvwRXRTXAllJ52jb?=
+ =?us-ascii?Q?71JlfkCJS8lnNQHMW+poWk8X4JqPtznadf5+KGUau5ljKYrCiu7OVzL/DzYm?=
+ =?us-ascii?Q?A8IaCBluHZy5s+B+VU6/mHXTamMyYw88lpufdJw9ACYWgnQBHNFzIgB/v2/r?=
+ =?us-ascii?Q?Fdjph5ziBuvV0UzuTCbBt+F3pUqug2/nFkyRCjv4RI2tPTIIooUMyFafaLO1?=
+ =?us-ascii?Q?XkMxsCeaTOrhoX0xOxT1c0efxDaPGGPYQDzrW2XRPDCvcps7pcJDcwaAuodZ?=
+ =?us-ascii?Q?nCXa6/RNn9D/KwS2LlkOeMlIf3IXhoDVM0JTHgwQUUYtVjk16t7vE19KD3cm?=
+ =?us-ascii?Q?vRVICehY5onG10cTEqlQipoAMBswO7FNkMZ7swmC/ou0FCjkK+lS5ojlmBE8?=
+ =?us-ascii?Q?JCCiRkUS+wc9hxcvLSqQR40wHgPIagaUqsQIneVFdkmZfwtXqXNwjdR9/m2I?=
+ =?us-ascii?Q?z6yb/G70V42n0qbJCaTufN+wefgA5XBsiBbXyRuIWLBi7Cgi3hFJirmvJAY1?=
+ =?us-ascii?Q?N4BKXGQ9KcLYtn41TNuJ6GxwbM/SUe2UWMtAvnpaJzsfL1UehDBpcKCetBj/?=
+ =?us-ascii?Q?9lmXZJIgYHw/v2iB1FRkyLf02QEdaZ/pYYZHVsgfnkdhJx9OJsql2W2Y0ugc?=
+ =?us-ascii?Q?xAKQNjEmrJATpWipNX426YNSUYJmVRpF3OnDh+euyAzL3l3XMYmymPQK0NKP?=
+ =?us-ascii?Q?msvJfB7s8lSRv+X++G9rmtMwDVKggUW/wdlzSOCp66nL2kVO5xwAihpm3nNq?=
+ =?us-ascii?Q?kVJbzUSoklhf0fE9cWMq2NPl1NJsejOT7hU4QpL8yA4KDHXoGJ/AdXPDDn0/?=
+ =?us-ascii?Q?SP4ReVN7lmRMp6+2JwSV8Vl92+7iV6Z+g6iB+K5xJBA+G0OZ6OiNVe5kLuNh?=
+ =?us-ascii?Q?s4Ja46MVLmxNwKcgruU=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 82aec998-f487-4baf-fc2d-08dd72ddc6bf
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2025 18:31:40.5928
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xXzOsLFhTr5FtlCcVM7RAn2SQ06mWfxcfwwhnZTL/4lYgbCZBhvxrOHvZLfYzUJYUucXlHl9hI1bcEnB5qliEw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10913
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_112910_128117_838D9912 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250403_113150_883025_C8BAAC8F 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,486 +166,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds appropriate compatible strings for Lynx PCSs on arm64 QorIQ
-platforms. This also changes the node name to avoid warnings from
-ethernet-phy.yaml.
+On Thu, Apr 03, 2025 at 01:29:29PM +0200, Yannic Moog wrote:
+> The Libra board has an LVDS connector. Add an overlay for an
+> etml1010g3dra LVDS panel supported for the phyCORE-i.MX 8M Plus that may
+> be connected to it.
+>
+> Signed-off-by: Yannic Moog <y.moog@phytec.de>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile             |  2 +
+>  .../imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso  | 44 ++++++++++++++++++++++
+>  2 files changed, 46 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index df792553be479afcb6fa50dcd25a7eb63b67bc44..aa349ee35d5b310512f05c92390d5c2a27df81bb 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -201,6 +201,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-kontron-dl.dtb
+>
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-kontron-smarc-eval-carrier.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-libra-rdk-fpsc.dtb
+> +imx8mp-libra-rdk-fpsc-lvds-dtbs += imx8mp-libra-rdk-fpsc.dtb imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtbo
+> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-libra-rdk-fpsc-lvds.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-msc-sm2s-ep1.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-navqp.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-nitrogen-smarc-universal-board.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso b/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..1dcf249ca90d2b4d9720a55de39e3f8564780dc3
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso
+> @@ -0,0 +1,44 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/clock/imx8mp-clock.h>
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&backlight_lvds0 {
+> +	brightness-levels = <0 8 16 32 64 128 255>;
+> +	default-brightness-level = <8>;
+> +	enable-gpios = <&gpio5 23 GPIO_ACTIVE_LOW>;
+> +	num-interpolated-steps = <2>;
+> +	pwms = <&pwm1 0 66667 0>;
+> +	status = "okay";
+> +};
+> +
+> +&lcdif2 {
+> +	status = "okay";
+> +};
+> +
+> +&lvds_bridge {
+> +	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>, <&clk IMX8MP_VIDEO_PLL1>;
+> +	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
+> +	/*
+> +	 * The LVDS panel uses 72.4 MHz pixel clock, set IMX8MP_VIDEO_PLL1 to
+> +	 * 72.4 * 7 = 506.8 MHz so the LDB serializer and LCDIFv3 scanout
+> +	 * engine can reach accurate pixel clock of exactly 72.4 MHz.
+> +	 */
+> +	assigned-clock-rates = <0>, <506800000>;
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
----
+why assin IMX8MP_CLK_MEDIA_LDB rate to 0?
 
- .../arm64/boot/dts/freescale/fsl-ls208xa.dtsi | 48 +++++++++++------
- .../arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 54 ++++++++++++-------
- .../dts/freescale/qoriq-fman3-0-10g-0.dtsi    |  3 +-
- .../dts/freescale/qoriq-fman3-0-10g-1.dtsi    |  3 +-
- .../dts/freescale/qoriq-fman3-0-1g-0.dtsi     |  3 +-
- .../dts/freescale/qoriq-fman3-0-1g-1.dtsi     |  3 +-
- .../dts/freescale/qoriq-fman3-0-1g-2.dtsi     |  3 +-
- .../dts/freescale/qoriq-fman3-0-1g-3.dtsi     |  3 +-
- .../dts/freescale/qoriq-fman3-0-1g-4.dtsi     |  3 +-
- .../dts/freescale/qoriq-fman3-0-1g-5.dtsi     |  3 +-
- 10 files changed, 84 insertions(+), 42 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls208xa.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls208xa.dtsi
-index 9421fdd7e30e..90c1631c958e 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls208xa.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls208xa.dtsi
-@@ -554,7 +554,8 @@ pcs_mdio1: mdio@8c07000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs1: ethernet-phy@0 {
-+			pcs1: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -567,7 +568,8 @@ pcs_mdio2: mdio@8c0b000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs2: ethernet-phy@0 {
-+			pcs2: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -580,7 +582,8 @@ pcs_mdio3: mdio@8c0f000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs3: ethernet-phy@0 {
-+			pcs3: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -593,7 +596,8 @@ pcs_mdio4: mdio@8c13000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs4: ethernet-phy@0 {
-+			pcs4: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -606,7 +610,8 @@ pcs_mdio5: mdio@8c17000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs5: ethernet-phy@0 {
-+			pcs5: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -619,7 +624,8 @@ pcs_mdio6: mdio@8c1b000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs6: ethernet-phy@0 {
-+			pcs6: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -632,7 +638,8 @@ pcs_mdio7: mdio@8c1f000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs7: ethernet-phy@0 {
-+			pcs7: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -645,7 +652,8 @@ pcs_mdio8: mdio@8c23000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs8: ethernet-phy@0 {
-+			pcs8: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -658,7 +666,8 @@ pcs_mdio9: mdio@8c27000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs9: ethernet-phy@0 {
-+			pcs9: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -671,7 +680,8 @@ pcs_mdio10: mdio@8c2b000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs10: ethernet-phy@0 {
-+			pcs10: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -684,7 +694,8 @@ pcs_mdio11: mdio@8c2f000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs11: ethernet-phy@0 {
-+			pcs11: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -697,7 +708,8 @@ pcs_mdio12: mdio@8c33000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs12: ethernet-phy@0 {
-+			pcs12: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -710,7 +722,8 @@ pcs_mdio13: mdio@8c37000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs13: ethernet-phy@0 {
-+			pcs13: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -723,7 +736,8 @@ pcs_mdio14: mdio@8c3b000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs14: ethernet-phy@0 {
-+			pcs14: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -736,7 +750,8 @@ pcs_mdio15: mdio@8c3f000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs15: ethernet-phy@0 {
-+			pcs15: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -749,7 +764,8 @@ pcs_mdio16: mdio@8c43000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs16: ethernet-phy@0 {
-+			pcs16: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-index c9541403bcd8..f35da67b6e61 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-@@ -1474,7 +1474,8 @@ pcs_mdio1: mdio@8c07000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs1: ethernet-phy@0 {
-+			pcs1: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1487,7 +1488,8 @@ pcs_mdio2: mdio@8c0b000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs2: ethernet-phy@0 {
-+			pcs2: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1500,7 +1502,8 @@ pcs_mdio3: mdio@8c0f000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs3: ethernet-phy@0 {
-+			pcs3: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1513,7 +1516,8 @@ pcs_mdio4: mdio@8c13000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs4: ethernet-phy@0 {
-+			pcs4: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1526,7 +1530,8 @@ pcs_mdio5: mdio@8c17000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs5: ethernet-phy@0 {
-+			pcs5: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1539,7 +1544,8 @@ pcs_mdio6: mdio@8c1b000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs6: ethernet-phy@0 {
-+			pcs6: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1552,7 +1558,8 @@ pcs_mdio7: mdio@8c1f000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs7: ethernet-phy@0 {
-+			pcs7: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1565,7 +1572,8 @@ pcs_mdio8: mdio@8c23000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs8: ethernet-phy@0 {
-+			pcs8: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1578,7 +1586,8 @@ pcs_mdio9: mdio@8c27000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs9: ethernet-phy@0 {
-+			pcs9: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1591,7 +1600,8 @@ pcs_mdio10: mdio@8c2b000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs10: ethernet-phy@0 {
-+			pcs10: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1604,7 +1614,8 @@ pcs_mdio11: mdio@8c2f000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs11: ethernet-phy@0 {
-+			pcs11: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1617,7 +1628,8 @@ pcs_mdio12: mdio@8c33000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs12: ethernet-phy@0 {
-+			pcs12: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1630,7 +1642,8 @@ pcs_mdio13: mdio@8c37000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs13: ethernet-phy@0 {
-+			pcs13: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1643,7 +1656,8 @@ pcs_mdio14: mdio@8c3b000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs14: ethernet-phy@0 {
-+			pcs14: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1656,7 +1670,8 @@ pcs_mdio15: mdio@8c3f000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs15: ethernet-phy@0 {
-+			pcs15: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1669,7 +1684,8 @@ pcs_mdio16: mdio@8c43000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs16: ethernet-phy@0 {
-+			pcs16: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1682,7 +1698,8 @@ pcs_mdio17: mdio@8c47000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs17: ethernet-phy@0 {
-+			pcs17: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-@@ -1695,7 +1712,8 @@ pcs_mdio18: mdio@8c4b000 {
- 			#size-cells = <0>;
- 			status = "disabled";
- 
--			pcs18: ethernet-phy@0 {
-+			pcs18: ethernet-pcs@0 {
-+				compatible = "fsl,lynx-pcs";
- 				reg = <0>;
- 			};
- 		};
-diff --git a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-10g-0.dtsi b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-10g-0.dtsi
-index 1b2b20c6126d..e11c6ddab457 100644
---- a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-10g-0.dtsi
-+++ b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-10g-0.dtsi
-@@ -36,7 +36,8 @@ mdio@f1000 {
- 		compatible = "fsl,fman-memac-mdio";
- 		reg = <0xf1000 0x1000>;
- 
--		pcsphy6: ethernet-phy@0 {
-+		pcsphy6: ethernet-pcs@0 {
-+			compatible = "fsl,lynx-pcs";
- 			reg = <0x0>;
- 		};
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-10g-1.dtsi b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-10g-1.dtsi
-index 55d78f6f7c6c..c8b7f2c61a8f 100644
---- a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-10g-1.dtsi
-+++ b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-10g-1.dtsi
-@@ -36,7 +36,8 @@ mdio@f3000 {
- 		compatible = "fsl,fman-memac-mdio";
- 		reg = <0xf3000 0x1000>;
- 
--		pcsphy7: ethernet-phy@0 {
-+		pcsphy7: ethernet-pcs@0 {
-+			compatible = "fsl,lynx-pcs";
- 			reg = <0x0>;
- 		};
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-0.dtsi b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-0.dtsi
-index 18916a860c2e..1a4bcb38646e 100644
---- a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-0.dtsi
-+++ b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-0.dtsi
-@@ -35,7 +35,8 @@ mdio@e1000 {
- 		compatible = "fsl,fman-memac-mdio";
- 		reg = <0xe1000 0x1000>;
- 
--		pcsphy0: ethernet-phy@0 {
-+		pcsphy0: ethernet-pcs@0 {
-+			compatible = "fsl,lynx-pcs";
- 			reg = <0x0>;
- 		};
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-1.dtsi b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-1.dtsi
-index e90af445a293..6a4d55f9d045 100644
---- a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-1.dtsi
-+++ b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-1.dtsi
-@@ -35,7 +35,8 @@ mdio@e3000 {
- 		compatible = "fsl,fman-memac-mdio";
- 		reg = <0xe3000 0x1000>;
- 
--		pcsphy1: ethernet-phy@0 {
-+		pcsphy1: ethernet-pcs@0 {
-+			compatible = "fsl,lynx-pcs";
- 			reg = <0x0>;
- 		};
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-2.dtsi b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-2.dtsi
-index fec93905bc81..0de30065aa3b 100644
---- a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-2.dtsi
-@@ -35,7 +35,8 @@ mdio@e5000 {
- 		compatible = "fsl,fman-memac-mdio";
- 		reg = <0xe5000 0x1000>;
- 
--		pcsphy2: ethernet-phy@0 {
-+		pcsphy2: ethernet-pcs@0 {
-+			compatible = "fsl,lynx-pcs";
- 			reg = <0x0>;
- 		};
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-3.dtsi b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-3.dtsi
-index 2aa953faa62b..2f8064b1039f 100644
---- a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-3.dtsi
-@@ -35,7 +35,8 @@ mdio@e7000 {
- 		compatible = "fsl,fman-memac-mdio";
- 		reg = <0xe7000 0x1000>;
- 
--		pcsphy3: ethernet-phy@0 {
-+		pcsphy3: ethernet-pcs@0 {
-+			compatible = "fsl,lynx-pcs";
- 			reg = <0x0>;
- 		};
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-4.dtsi b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-4.dtsi
-index 948e39411415..6246f1fdac2d 100644
---- a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-4.dtsi
-+++ b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-4.dtsi
-@@ -35,7 +35,8 @@ mdio@e9000 {
- 		compatible = "fsl,fman-memac-mdio";
- 		reg = <0xe9000 0x1000>;
- 
--		pcsphy4: ethernet-phy@0 {
-+		pcsphy4: ethernet-pcs@0 {
-+			compatible = "fsl,lynx-pcs";
- 			reg = <0x0>;
- 		};
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-5.dtsi b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-5.dtsi
-index 01b78c0463a7..c205e1e8bfc8 100644
---- a/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-5.dtsi
-+++ b/arch/arm64/boot/dts/freescale/qoriq-fman3-0-1g-5.dtsi
-@@ -34,7 +34,8 @@ mdio@eb000 {
- 		compatible = "fsl,fman-memac-mdio";
- 		reg = <0xeb000 0x1000>;
- 
--		pcsphy5: ethernet-phy@0 {
-+		pcsphy5: ethernet-pcs@0 {
-+			compatible = "fsl,lynx-pcs";
- 			reg = <0x0>;
- 		};
- 	};
--- 
-2.35.1.1320.gc452695387.dirty
-
+Frank
+> +	status = "okay";
+> +};
+> +
+> +&panel0_lvds {
+> +	compatible = "edt,etml1010g3dra";
+> +	status = "okay";
+> +};
+> +
+> +&pwm1 {
+> +	status = "okay";
+> +};
+>
+> --
+> 2.49.0
+>
 
