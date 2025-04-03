@@ -4,55 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F192CC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 23:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF8AC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 23:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IqS3NdTst9jPygMvsQyB6MPquwdcmmsi0yUtNVz3Gu0=; b=aZqtJ2M9yMpYBuWmckV7e+smHq
-	JG6CjEM+TfQSX5TLIdpzRAauPUR0d+CVxA8cLKbRrFnlHF9hhw6Bl6EijtWB1znYt3Gcy+aoG0bUg
-	Q9QuWtzHF6OnNuFUO7ODB9J3+t5/tO4XqwsMAIlYd3fmJNRkF/rfY0ECohqFhSG7LpNiGnr7mBM+h
-	nikXNIHaRpoFzOBNUt/kW15kU4RzJGxo7gKBpMqah1WfdTFAnm/9mvCEU+kTmINhz//QPJWdz9KoU
-	+9ngdhYCrmMGptE8WmV+CXxiBn0yR1dLBYEe6IlJE3/n2OFt4gNx+UiWl3RhQyQ2Xf9qjag/D9Aj1
-	Ih8O2n+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0dnmrlpBGeFmqcu0Pq2phWVQb3k+1PXSaVmeXw2bjGQ=; b=HeUj90f9J56uLHTBnbQXHvH4fc
+	Hf3ZkzuJYqkYiLfTZhDM1p1xlL0GyX0eR+B7m9M4WBDRqaw9kflRSBFaXJOyMx4RZwGaae6+IpB9v
+	HB71dno/AHIZL26uilVuC/ahfggcGGJqORfR+il9lYjDyM59awGzCe7G9SzwaAO5VBBYOgnnqb45/
+	7hSGX6D3sBbnKzvoYVvEyrMFWUZAJZXbVg3YSB/GOWKJULIMz9FEVZgLAF4g3t+LXW9DQLXOPajHy
+	rrpTZ1EdKDAaUYfxFx2ERTKTj/vUqrrxV9GMjK1+yceqBHZYFMFR4CucsbGkRKae7RujnS+z94DfG
+	IgbEdHOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0TpU-0000000AJVe-0bY5;
-	Thu, 03 Apr 2025 23:18:36 +0000
-Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
+	id 1u0Tyo-0000000AK3I-068C;
+	Thu, 03 Apr 2025 23:28:14 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Tng-0000000AJJm-0CFr
+	id 1u0Tx0-0000000AJxn-0OoG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 23:16:45 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1743722199;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=IqS3NdTst9jPygMvsQyB6MPquwdcmmsi0yUtNVz3Gu0=;
-	b=pmtunawCbG6a8u2RCEMMHTx10edaX9Cli0uRrxuCMq1apP7mJxVW9KkEXXiWtzGhsSZVnx
-	/yH3pVg/RlCwS3G+bKiYVDVhRdWOfsOgvTd0zui48epnGxpwK1el7zBboLyB29U/SnHQIu
-	CkjFizMSZoSMz9zbjnJ9C90IXaTFhyY=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: linux-arm-kernel@lists.infradead.org
-Cc: kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH] arm64: Expose AIDR_EL1 via sysfs
-Date: Thu,  3 Apr 2025 16:16:26 -0700
-Message-Id: <20250403231626.3181116-1-oliver.upton@linux.dev>
+	Thu, 03 Apr 2025 23:26:23 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-476ae781d21so13775221cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 16:26:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1743722780; x=1744327580; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0dnmrlpBGeFmqcu0Pq2phWVQb3k+1PXSaVmeXw2bjGQ=;
+        b=mDINpTPyvADh0YKJh6jfwNI8rAr6y69Q33BK/JOyaye5+DxOqu+DOA/77j+xhtzm8q
+         7IJuY+jnU6UvN51KXDVHOhGyYjgMH3m8pvU0YFLQR51DjHWQG5mf8MIKj7/f08ik79o4
+         pxoiXKmhqMik0SrvN7LAimHZrC+np3rFka9DIY7KCEKoWhi4PG4PyQCm7x+QOV9JKaJK
+         TSvwp+qmS4kHpEdI9JrlzpHFtu/mDKeb3+ifZH2RARLTl9bJwiUlPNuoLFBjcdE91Fc1
+         hnHcqQSG3bQn/NOrtmwjM3BBvHMipB5upROEbADQFGxmWd/Z8xXNJ6GOSUjN87GBXOaD
+         IQWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743722780; x=1744327580;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0dnmrlpBGeFmqcu0Pq2phWVQb3k+1PXSaVmeXw2bjGQ=;
+        b=e3qFLbq+VfgnOSCtFPXAKy+az+zQDobQHp+25ymIUxQbFKK7lCkoCgFIkckJVsOV7A
+         dUbuF/sxd7oEI4/5nMZAcfPbcpWhNrMLlW95Q7nb8q/x6Bz0Simoh63WhGPh7SmNNIMh
+         N0h/VvWNboJ94qhcIx4ilBn7RV3RS9B8gQQM1RP1Hx8zMNS0E+tssm7Yso915+/wv24c
+         9LAdMWa349uh79lFcVdJlVXSRJAoCAyhzpBW9bPpE5KlIP2vfpqXitzZnrXOnDon3est
+         U3e7zvhOMA6lZQYxVp2n44fSdzF8qqk2CFP8vaCjKpkP3XxCnS9dEq4jWTnuLQ8QmxNq
+         SI8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVkdULqv8EHSA6MdXBNsXM2xn8cOgetSgLJSvRU4/SP6MYjeTka9CaQi1luWuu47tClY7XULNjUbJwSyGHk/4cm@lists.infradead.org
+X-Gm-Message-State: AOJu0YygTg38uOc638X011MBOda5/BxnyijyEA5Mm0OTFotPceTltKbM
+	fBwJL2NHY/sNghgVD9yXDXenqEs3eWfbC0xbHEyH7XK/5LLbld+xKaxDHnY406Y=
+X-Gm-Gg: ASbGncuVvIZ+7Z5vU1nAliFqeia0g3/2Chzs1SXl0YPCE08H8/se6YRFkL6bis091PX
+	71Pow5VbhDKcHSb1dQCx5/FlGwloCa5JVANICHGJuT5md/J0KkhCdcDkMbtzxeZL/G85J1xG578
+	9g1FdnN1NuqyfZVNc0XhvW7cQ6KYiBhRoBZxbJzCOWJ8ybP2pAef3aHWnE4MrtYMEPY/04h8hLr
+	qwPMZsKfQpLLK5MrpUrb9b8zeG/4OyXgJB6naCpR9r1nKzyG3hDveuDO9lQZSF7sM/SDMqxOfL9
+	7ZhImTwP4QMF2YbfYu737CEWII2PZXtdN4B0ZbIeeAYsE8tMAJPQ120aGBG3Daf3iX8D6IgWkpr
+	72P9SBtqxNU6WpCCcaem3UYo=
+X-Google-Smtp-Source: AGHT+IFibU2LV4UUp0WQxSSCxFeutQYAvG/Wra81FTOp1ufuIAX96AWEwxKC9ZZdCWczg5MiXC+AeA==
+X-Received: by 2002:ad4:5e87:0:b0:6e4:2872:45f5 with SMTP id 6a1803df08f44-6f01e76f04fmr21453616d6.25.1743722780451;
+        Thu, 03 Apr 2025 16:26:20 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-167-219-86.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.219.86])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6ef0f1652a3sm13173396d6.119.2025.04.03.16.26.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Apr 2025 16:26:19 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1u0Twx-00000005TkW-0sfD;
+	Thu, 03 Apr 2025 20:26:19 -0300
+Date: Thu, 3 Apr 2025 20:26:19 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Shyam Saini <shyamsaini@linux.microsoft.com>
+Cc: code@tyhicks.com, devicetree@vger.kernel.org,
+	eahariha@linux.microsoft.com, eric.auger@redhat.com,
+	iommu@lists.linux.dev, jacob.pan@linux.microsoft.com,
+	linux-arm-kernel@lists.infradead.org, vijayb@linux.microsoft.com,
+	virtualization@lists.linux.dev, will@kernel.org
+Subject: Re: [PATCH 0/3] make MSI IOVA base address and its length
+ configurable
+Message-ID: <20250403232619.GA681099@ziepe.ca>
+References: <20250131003618.GB2296753@ziepe.ca>
+ <20250403193458.158085-1-shyamsaini@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250403193458.158085-1-shyamsaini@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_161644_455873_7D7E1B47 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20250403_162622_254099_78634B0E 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,104 +106,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The KVM PV ABI recently added a feature that allows the VM to discover
-the set of physical CPU implementations, identified by a tuple of
-{MIDR_EL1, REVIDR_EL1, AIDR_EL1}. Unlike other KVM PV features, the
-expectation is that the VMM implements the hypercall instead of KVM as
-it has the authoritative view of where the VM gets scheduled.
+On Thu, Apr 03, 2025 at 12:34:58PM -0700, Shyam Saini wrote:
+> Hi Jason,
+> 
+> > On Thu, Jan 30, 2025 at 03:21:37PM -0800, Shyam Saini wrote:
+> > 
+> > > Unfortunately, it is an HW issue.
+> > 
+> > Well, that's pretty bad to have built HW that can't DMA to low
+> > addresses at all.. But OK.
+> >  
+> > > Are you okay with this passing custom MSI_IOVA via DTS approach ?
+> > 
+> > It isn't up to me, but I've understood the DT maintainers would reject
+> > this as it isn't is describing HW but just a random Linux software
+> > knob.
+> > 
+> 
+> If i understood correctly MSI window IOVA is hw property, if yes
+> then it should be accepted by DTS folks, did i misundertstand that?
 
-To do this the VMM needs to know the values of these registers on any
-CPU in the system. While MIDR_EL1 and REVIDR_EL1 are already exposed,
-AIDR_EL1 is not. Provide it in sysfs along with the other identification
-registers.
+It is not a HW property. The MSI window in the SMMU is entirely up to
+software.
 
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
----
- Documentation/ABI/testing/sysfs-devices-system-cpu |  1 +
- Documentation/arch/arm64/cpu-feature-registers.rst | 13 +++++++------
- arch/arm64/include/asm/cpu.h                       |  1 +
- arch/arm64/kernel/cpuinfo.c                        |  3 +++
- 4 files changed, 12 insertions(+), 6 deletions(-)
+Yuor HW proprerty is the regions of IOVA that do not function in the
+SMMU.
 
-diff --git a/Documentation/ABI/testing/sysfs-devices-system-cpu b/Documentation/ABI/testing/sysfs-devices-system-cpu
-index 206079d3bd5b..9bbf4c27c237 100644
---- a/Documentation/ABI/testing/sysfs-devices-system-cpu
-+++ b/Documentation/ABI/testing/sysfs-devices-system-cpu
-@@ -485,6 +485,7 @@ What:		/sys/devices/system/cpu/cpuX/regs/
- 		/sys/devices/system/cpu/cpuX/regs/identification/
- 		/sys/devices/system/cpu/cpuX/regs/identification/midr_el1
- 		/sys/devices/system/cpu/cpuX/regs/identification/revidr_el1
-+		/sys/devices/system/cpu/cpuX/regs/identification/aidr_el1
- 		/sys/devices/system/cpu/cpuX/regs/identification/smidr_el1
- Date:		June 2016
- Contact:	Linux ARM Kernel Mailing list <linux-arm-kernel@lists.infradead.org>
-diff --git a/Documentation/arch/arm64/cpu-feature-registers.rst b/Documentation/arch/arm64/cpu-feature-registers.rst
-index 253e9743de2f..add66afc7b03 100644
---- a/Documentation/arch/arm64/cpu-feature-registers.rst
-+++ b/Documentation/arch/arm64/cpu-feature-registers.rst
-@@ -72,14 +72,15 @@ there are some issues with their usage.
-     process could be migrated to another CPU by the time it uses the
-     register value, unless the CPU affinity is set. Hence, there is no
-     guarantee that the value reflects the processor that it is
--    currently executing on. The REVIDR is not exposed due to this
--    constraint, as REVIDR makes sense only in conjunction with the
--    MIDR. Alternately, MIDR_EL1 and REVIDR_EL1 are exposed via sysfs
--    at::
-+    currently executing on. REVIDR and AIDR are not exposed due to this
-+    constraint, as these registers only make sense in conjunction with
-+    the MIDR. Alternately, MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are exposed
-+    via sysfs at::
- 
- 	/sys/devices/system/cpu/cpu$ID/regs/identification/
--	                                              \- midr
--	                                              \- revidr
-+	                                              \- midr_el1
-+	                                              \- revidr_el1
-+	                                              \- aidr_el1
- 
- 3. Implementation
- --------------------
-diff --git a/arch/arm64/include/asm/cpu.h b/arch/arm64/include/asm/cpu.h
-index 81e4157f92b7..71493b760b83 100644
---- a/arch/arm64/include/asm/cpu.h
-+++ b/arch/arm64/include/asm/cpu.h
-@@ -44,6 +44,7 @@ struct cpuinfo_arm64 {
- 	u64		reg_dczid;
- 	u64		reg_midr;
- 	u64		reg_revidr;
-+	u64		reg_aidr;
- 	u64		reg_gmid;
- 	u64		reg_smidr;
- 	u64		reg_mpamidr;
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index 285d7d538342..621218d2a991 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -328,11 +328,13 @@ static const struct kobj_type cpuregs_kobj_type = {
- 
- CPUREGS_ATTR_RO(midr_el1, midr);
- CPUREGS_ATTR_RO(revidr_el1, revidr);
-+CPUREGS_ATTR_RO(aidr_el1, aidr);
- CPUREGS_ATTR_RO(smidr_el1, smidr);
- 
- static struct attribute *cpuregs_id_attrs[] = {
- 	&cpuregs_attr_midr_el1.attr,
- 	&cpuregs_attr_revidr_el1.attr,
-+	&cpuregs_attr_aidr_el1.attr,
- 	NULL
- };
- 
-@@ -469,6 +471,7 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
- 	info->reg_dczid = read_cpuid(DCZID_EL0);
- 	info->reg_midr = read_cpuid_id();
- 	info->reg_revidr = read_cpuid(REVIDR_EL1);
-+	info->reg_aidr = read_cpuid(AIDR_EL1);
- 
- 	info->reg_id_aa64dfr0 = read_cpuid(ID_AA64DFR0_EL1);
- 	info->reg_id_aa64dfr1 = read_cpuid(ID_AA64DFR1_EL1);
+> > I think you should make selecting the sw_msi dynamic in Linux.
+> 
+> My understanding is that if we have to make it dynamic, we have to
+> use iova allocator that would need iova_domain as a member of struct
+> arm_smmu_domain, and allocate iova for MSI window dynamically using
+> alloc_iova() in arm_smmu_get_resv_regions() is that what you meant
+> when you mentioned selecting the sw_msi dynamically?
 
-base-commit: e8b471285262d1561feb2eb266aab6ebe7094124
--- 
-2.39.5
+I would not structure it like that..
 
+The simplest thing would be to have the SMMU driver have a list of
+potential addresses and select the first one that does not intersect
+with the non-working IOVA ranges.
+
+Jason
 
