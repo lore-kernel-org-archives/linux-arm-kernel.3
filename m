@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1254EC3601B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 11:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0337EC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 11:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nhZODBc3yQWuwoe5FdhPLSZkoPupsn7Fy4qR0rl4EDE=; b=wKIXlhzRXIp/IEVVwu+frvyb17
-	i9g6L9mzNwvKm2mkyckJoHaVNYQk/vNswvUpqfzuEwvy3ZkCqYTZdmzXFbpwh6BQqfT4ZVYvxpETT
-	DqcOF2wgqLVtkNE+oz9JeEV9Z7qmXKkDApzhFj9RDU+9eMJ1R1dyfvLmPAXP5k2ov3eFjKCEyQHvi
-	Ii5QYrO4M93u12TZu1pMOjd/js3l1V2qrT73jqGmWvzTPcLGs5W1W+J9ZWJdkVQE8ZjeEQNd/CwT0
-	Yg6nsZO0p8M35EvvaoDRbeqWGQfkudvl4koxI+2peX7mYJHxw9fuM2cZ1uwKKLiYMcXcfwmCchkW5
-	hB7FWilA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/GdaiwumNl9tjxYsVYIC1X0Y4b04WgRBhlet0G1nlFs=; b=yXhLE6wMpHcf47HJZugoARREak
+	DDm0po2W2TkAE3xSUayP0A+lrmDQQuc8JcYiLZWJCK7mYc0bIOsHNp4hTNWaSOEahEJV17U+UDM+6
+	P9GKrvpzQcMiIKzCx1zLXZs/za6gWxxsW4+xRmbU+p993El4JszjD9hpyqvrSiTHq6LlSenaDqrfO
+	OPBgGrDH8Lox8W5b6rPfL2SfITvclKRH6rsfHlyjGv//XkvoSS2/nNKrLmvCkSo0T2r0ObbTLVtFI
+	NKyQYAhqGnB+Mdxv7ZMG6jj/hKkK5iJSs/DynGUQsWCvf9hWJw9tKt8uRwt3RKsPJrtsBmaElG6uw
+	dErgGmZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0IXW-00000008fUG-2DF0;
-	Thu, 03 Apr 2025 11:15:18 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1u0IXV-00000008fTr-2Nxa;
+	Thu, 03 Apr 2025 11:15:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0I6s-00000008cF2-194a;
-	Thu, 03 Apr 2025 10:47:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1743677264;
-	bh=krVSqUMcdIJm0l6D8vCcbNrCt6hb1FXOmk01RVoxGgI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gDiS+LNWako3Yd4OZmxHJpbbQH24gPo3P7AJpjH5rPQQSYCi/aTFkSG5zooc6fazC
-	 2l2sQJ9ByJfzScLHLeHRx48qcuokSKnvopPznQaaoIfx5xewQk+T9spIXHrWeEJkpw
-	 bpKuqH4Ckro4vF9Xv2Zk+nRivlZuzDc0HpiTct15XKroXv4iJrPm5oX6oM/qrEs/QU
-	 MUTOq+FRkRN1PPc8JI0rZ+POhoxRu+N8AK5p51gbmtubkk2QgXKqbs+unl3oRBpV4J
-	 Macve0O4vLxKgaGRsiZILjto1gDlZ2ohY0Fp3n4MzNkKRKfy9ccqmET6shy6f0Pe6P
-	 pY5zacfHULYgA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 828FC17E0702;
-	Thu,  3 Apr 2025 12:47:43 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	nancy.lin@mediatek.com,
-	ck.hu@mediatek.com,
-	djkurtz@chromium.org,
-	littlecvr@chromium.org,
-	bibby.hsieh@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	wenst@chromium.org,
-	kernel@collabora.com
-Subject: [PATCH v2 0/5] drm/mediatek: Cleanups and sanitization
-Date: Thu,  3 Apr 2025 12:47:36 +0200
-Message-ID: <20250403104741.71045-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.48.1
+	id 1u0I0x-00000008bNS-1AjM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Apr 2025 10:41:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 29686434B6;
+	Thu,  3 Apr 2025 10:41:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E034C4CEE3;
+	Thu,  3 Apr 2025 10:41:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743676898;
+	bh=ARN7XYpJRXpPUgyngwnAGIRk8k4S5YsMIgbo9WqpgfQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ckurg04xFgrLpfddbO8QPSoQYfrfzaJcxIUOBontZFAP6RGupO0YJBUx/d+JJcEIy
+	 tc1l9Ppp0XmyNnrrbWoGS4+zpsZM95IPZRptSZjHfA+NGCH75ugxh7WWn5DJg/8udh
+	 TcOL/6vLc0NAWHobSEHkDRMNSQJphTrR0eZ41R2SCeP7kBmItxK4YkWb0fmNFfOqV3
+	 ugcOyTVT3RwbUeW9O//xcOz0bpP4He1DxlKFJcR6raDepdmpOfhPjcQSUJoQV/oqEA
+	 UEa9zCfszRIHTu693zOmLW70OVnVQiwLHCg24OXDb8C9zG80R+3Q0NWpYbGzeMR/wp
+	 wVAONWe4keXmw==
+Date: Thu, 3 Apr 2025 12:41:35 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Purva Yeshi <purvayeshi550@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, vz@mleia.com, 
+	piotr.wojtaszczyk@timesys.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML
+Message-ID: <76ovkshf4dr6egh72uiigsugdqsin6zwy3skksldhhh2goer6x@gsp3qkhqdtev>
+References: <20250312122750.6391-1-purvayeshi550@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="eprp56w3poiehbc2"
+Content-Disposition: inline
+In-Reply-To: <20250312122750.6391-1-purvayeshi550@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_034746_510274_6BE257B2 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250403_034139_356185_5AD5BDF9 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +73,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v2:
- - Fixed typo in description for commit [2/5]
- - Using IRQF_NO_AUTOEN in devm_request_irq() instead of calling
-   irq_set_status_flags() to set flag for the same functionality.
 
-During probe, the mediatek-drm drivers take a bunch of kobject
-references for the various component sub-drivers and for the
-mmsys/mutex handles.
+--eprp56w3poiehbc2
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML
+MIME-Version: 1.0
 
-Unfortunately, the refcount is not correctly decremented in some
-cases, and not correctly incremented in some others, leading to
-refcount_t overflows *or* underflows depending on where the code
-fails during platform driver probe or during component bind.
+Hello,
 
-This means that if mediatek-drm or any component of it returns a
-probe deferral, and if this happens "too many times" (where too
-many equals to around 3-5 times, and that's happening especially
-when outer drivers are compiled as module while mediatek-drm is
-built-in), it creates a whole bunch of badnesses.
+On Wed, Mar 12, 2025 at 05:57:50PM +0530, Purva Yeshi wrote:
+> Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
+> YAML schema (`nxp,lpc3220-pwm.yaml`).
+>=20
+> Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
+>=20
+> Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
 
-This series sanitizes the freeing of the acquired kobjects in
-mediatek-drm - especially in the multi-mmsys (multi-vdo) case.
+I suggest the following commit log:
 
-While at it, this also moves the ISR enablement and disablement
-to the component bind/unbind callbacks respectively, while keeping
-the ISR installation to the probe function: this is done to avoid
-leaks and to avoid entering ISRs for OVL/RDMA after those are
-unbound (as that'd be dangerous, other than useless, because those
-could access memory that doesn't belong to those drivers anymore,
-as pointers may not have been set to NULL...!).
+    dt-bindings: pwm: Convert lpc32xx-pwm.txt to yaml format
 
-As an example, this is the reason (if not one of the reasons) for
-a boot failure seen on the MT8195 Tomato Chromebook, pointed out
-by KernelCI.
+    Convert the existing plain text binding documentation for
+    nxp,lpc3220-pwm devices to a YAML schema.
 
+    The value #pwm-cells wasn't specified before, set it to 3 to match the
+    usual value for PWMs.
 
-AngeloGioacchino Del Regno (5):
-  drm/mediatek: mtk_drm_drv: Fix kobject put for mtk_mutex device ptr
-  drm/mediatek: Fix kobject put for component sub-drivers
-  drm/mediatek: mtk_drm_drv: Unbind secondary mmsys components on err
-  drm/mediatek: mtk_disp_ovl: Enable/disable interrupt on bind/unbind
-  drm/mediatek: mtk_disp_rdma: Enable/disable interrupt on bind/unbind
+> diff --git a/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml b=
+/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
+> new file mode 100644
+> index 000000000..432a5e9d4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
+> @@ -0,0 +1,38 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pwm/nxp,lpc3220-pwm.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: LPC32XX PWM controller
+> +
+> +maintainers:
+> +  - Vladimir Zapolskiy <vz@mleia.com>
+> +  - Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
+> +
+> +allOf:
+> +  - $ref: pwm.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: nxp,lpc3220-pwm
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#pwm-cells":
+> +    const: 3
 
- drivers/gpu/drm/mediatek/mtk_disp_ovl.c  | 20 +++++++++-----
- drivers/gpu/drm/mediatek/mtk_disp_rdma.c | 34 ++++++++++++++----------
- drivers/gpu/drm/mediatek/mtk_drm_drv.c   | 31 +++++++++++++++------
- 3 files changed, 56 insertions(+), 29 deletions(-)
+The PWMs defined in arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi also have a
+clocks property and in the driver it's not optional. Can you please add
+it (here, in the list of required properties and the commit log)?
 
--- 
-2.48.1
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    pwm@4005c000 {
+> +        compatible =3D "nxp,lpc3220-pwm";
+> +        reg =3D <0x4005c000 0x4>;
+> +        #pwm-cells =3D <3>;
+> +    };
 
+Best regards
+Uwe
+
+--eprp56w3poiehbc2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfuZd0ACgkQj4D7WH0S
+/k6jEwgAuuRJwfaakekR1Dqz//WqYnO+LEZGbZQSLnf9kWKg3A6eJQvWxfblNhGK
+BrrDx9siqqccakNGayyBWd9dQG4NVgIUeoB+QtdYwzvhVaAnyVN4Nr5b4Wda/Go4
+d7vsQMK5ge8KwAghxML75LcllDxXs0aDeiexAmKJmEa2folRYG5O2FfAGp/AhzBi
+s39SvbuaWbdLkd7d5NzKStU2BoxUMTu/dk9stu1QIK12150syUUPLpJtyeXWP8tk
+Hmss1Y5ayRyVpgwN8rHHM6N8UOZHmFdf0EahDHesj5gcPrfSH1jTUzds8VlhCjSv
+ECAEuNX2TFAi+9eqc7/tUoPSFkgO1w==
+=0WCU
+-----END PGP SIGNATURE-----
+
+--eprp56w3poiehbc2--
 
