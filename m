@@ -4,74 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06CC1C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 11:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F0D1C3601B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 11:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNzcbrLbSu9IlQAXBLVSfZ0H9gudsTEJ9VcSgRMIuRk=; b=PONWLB0vL3+cPZ079wRGzxfHRG
-	45QFX8JMp5oQSIsNt1j3smbRp0blUQGv08YmjSTO6G0nLCN9N1/oeNAHvRVNUbBpWWezrjV8cWafL
-	Ez9gx+1Aba1mwe9W5u4F3LeeSIZlXWzqNCbF8tJ0wsGcQLSIg0rMLKvhyQyygCkKJJTPHTYWAGP4s
-	lKHv1VjbxzmB1j7T6/Ycq42qLSOASRtXWcad/1P0Z6PMf2Zkf/WcTFYiM+TWaTivYnDKXWdhlFaXc
-	aS+QLBquG78lG1+c0i2lMbuq3ibJDfZqBoCBcK0Z5NKOQxwlgf7j1a7XI9VftJL+Vsuax8EZFhC3h
-	Z50avyUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BzWH9WrgVxmum7Nz1/txw2y3F0EBTurhIelA89/5kWc=; b=CNChas2U5JY6Thj54asDOAuRtN
+	M/fUzZV7isEaEiDTeOTv/iOz43Hqc6ZKboMmi9Ry4eTyKBn9v3o5zeSGS34/vZOg4nUJi5PN4ufX5
+	dIrgk85+sZIyLlgqWxs946s9V0zic2saIXkoU6wG7086h1IeHUHrD/06enosotz+aunkA3U+h/KfN
+	JsdjHUgICpPR9fAce+mySR9agU4fGtGyVe7MtokXKMHVBhX8v9T4F7Qdi5/gPvFUQOyX5F1bsX6s8
+	uNkseJFXouuif+H4gDk48QGyA9eA3l7NCHXHRZZ4cQ0jdi6iVAKP2ziaVyumjw0dlx0/JOC1v4cGU
+	n/CQZVGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0IXm-00000008fiG-2tFa;
-	Thu, 03 Apr 2025 11:15:34 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1u0IXT-00000008fSb-3UEl;
+	Thu, 03 Apr 2025 11:15:15 +0000
+Received: from mail-db5eur02on20602.outbound.protection.outlook.com ([2a01:111:f403:2608::602] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0I6y-00000008cHn-0GH2;
-	Thu, 03 Apr 2025 10:47:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1743677270;
-	bh=x1wtdufQF5A9ff40c172tRf7AZns8UAMMhQfqRaFnN4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nsp7uBpe5gwRIweVut4tJQ7obUSye6hB0kimMKqule2r8ctO9aEO+oMxU/x/nvHIu
-	 wZ/tOU0XABIePTkwo/gbBbUrUpxShlk+odCVU6ictUi4juIhyklynbntc4PmIhHKbG
-	 l9S2Y8NieIaXz8GDa+NkM9hv8EVrYyi6RDteJhOkbfZA24KhvctJO0Euip+K/JqlZc
-	 mH5r8gAeNo+gTO/g/4Oe/kXdjeDpnAn7cFSJP3JBbYCgoGACfKboqZHLXhM9BC9e7/
-	 QDFBcOXynMHmQaFZHcg3r8NqpqmXnKhNFI/BOprB5DFcqsZgDEXDoxUiWSDNdLQmp2
-	 /6eWTvhLoUmyw==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 89D8317E0702;
-	Thu,  3 Apr 2025 12:47:49 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	nancy.lin@mediatek.com,
-	ck.hu@mediatek.com,
-	djkurtz@chromium.org,
-	littlecvr@chromium.org,
-	bibby.hsieh@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
+	id 1u0Htj-00000008aDw-24Nd
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Apr 2025 10:34:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cOjxWdwlctC7pnAF193z9oWFcPqZRn7PttzR02mMQTQPgI/wrr3vmVTS4oiPk0pIlkDz86JH6Q4P1fQPhD2a31yHz6r02HdFgvjgZuKaJ75yKQrpvRwWlHLjNwAUZoL2759RMATRtsXBsvul8dce4Oll+cgnYDMz643C3nmKduRgqDci+dUjHndpnVd4vGiH+7lqqilSBONyKU++5IJ0zJRCI6W0LwsSFAs7w4O6ssn541V6s5JhpPdOZkj8wWQYMrQ5DUsE7FloogzO0aSexfp5wJ2uG3/wHNDpGbN9IjA8cKJFmkuOPw9Fy2ZrOEcBjZn9E1NcECLy/1BQPli3QQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BzWH9WrgVxmum7Nz1/txw2y3F0EBTurhIelA89/5kWc=;
+ b=qUIjxe2ByeqYdFvc23Llyhs9fmhCGzFNE3ircZM98+LHTdm+0QEFOQHs24f5Xh4fMG1y1yCtjInHS0ASlLuzgbF3FLo+t2ZIkYbzzN2+1khKvfQgl7IBOTsBtMmXwxmIYahIQ0KPnr75uoFH0uWCsh0oaxO5oxasMhS9cCkVPM8qLpufvQf0vG4skkf24mERuxXEOL15JfXyUzVBvtKQzFC/WlfS+0/ujV45BcaoQLvzVfQXiT9K6GL5VBFj9DrfZWw8PM5LFIS4KuPzUBV0xOL7VYarkwf/6MDZxbzviXOoHbeg3tCKt2yOzykSk4COsk/aH32ZeMN79X606tk9XA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BzWH9WrgVxmum7Nz1/txw2y3F0EBTurhIelA89/5kWc=;
+ b=k0jCG4Zge3m++T355L/7QQEetnI/GDxYTuUQSLZH1D0LerivgpDoMUCQOsjzH+f8KKpBQjqIJbC4KrWqp0R4U5WOf0AUOxaw2pcX7Pf957I6f80Gtkl3GQITQfwYRhaHs9J8fIpteJ+CnQQpGVGsedhSx8p35k9snRzww+WC6j+NxDh2KtuuaNtz/sJFlNpBnIAWih/oVmsJ+2LdZoJ80gX4NtoN5thFWeJxjOLpApjDrHkZXNLUovuSRjU2tx7aBz2KWqj4tHMp9sTbVt7xrC0XUYoAV7mYGTMQ65/T6cpcg1bLmbUThF8C7ufTfS6rXpxOEHgZmN4OfoBsik7z0A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
+ by VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.54; Thu, 3 Apr
+ 2025 10:33:57 +0000
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd]) by DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd%4]) with mapi id 15.20.8534.043; Thu, 3 Apr 2025
+ 10:33:57 +0000
+From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	wenst@chromium.org,
-	kernel@collabora.com
-Subject: [PATCH v2 5/5] drm/mediatek: mtk_disp_rdma: Enable/disable interrupt on bind/unbind
-Date: Thu,  3 Apr 2025 12:47:41 +0200
-Message-ID: <20250403104741.71045-6-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250403104741.71045-1-angelogioacchino.delregno@collabora.com>
-References: <20250403104741.71045-1-angelogioacchino.delregno@collabora.com>
-MIME-Version: 1.0
+	NXP S32 Linux <s32@nxp.com>,
+	imx@lists.linux.dev,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
+	Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+Subject: [PATCH v9 1/4] dt-bindings: rtc: add schema for NXP S32G2/S32G3 SoCs
+Date: Thu,  3 Apr 2025 13:33:43 +0300
+Message-ID: <20250403103346.3064895-2-ciprianmarian.costea@oss.nxp.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250403103346.3064895-1-ciprianmarian.costea@oss.nxp.com>
+References: <20250403103346.3064895-1-ciprianmarian.costea@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AM0P190CA0008.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:208:190::18) To DU0PR04MB9251.eurprd04.prod.outlook.com
+ (2603:10a6:10:352::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|VE1PR04MB7216:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6a682ea9-0a0b-4d61-d896-08dd729b078a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OGplbXlUT2d5cXo5ODdWUjVSZUhBa2NWNVplNjY5QVdmYmp0SE5mVEVpZFFp?=
+ =?utf-8?B?a1A2bGl5NEs3Z1pQUlF0MXlydlI1dnZyK2V4SXZjYjV4YnBpL3B0YW5YWmMr?=
+ =?utf-8?B?VUs5NnZmN2FKbGkyMkhiQUFIa2tRbnJicDYwVFpqa2pPaUJvdytWNkFrUzZj?=
+ =?utf-8?B?U2UrS1BuVk9abG4xMW5vVlA1QUx4OVNKaXZOakVDTVJPSi9HVGVVOUNWMVFQ?=
+ =?utf-8?B?akd5Q3JTVGlVVExDa3NtbkZNTGtvZStFWVI4czVQZ0hyVjlNWTVHaEgwMVNN?=
+ =?utf-8?B?cG56TTNLTjk2c0xhaWQzYVVSWW5VK0VlLy91QWpnL2F3UUR4c0loK2QyQitU?=
+ =?utf-8?B?NTlJRjBlMzNWeDcwZVNWbXVFYTB1cFZWRVpwS0Y4WExGd0JKbmsxSlBmcVMv?=
+ =?utf-8?B?b1pNS3N0ZnRhT3RueUZzaExscFJYaWxzSjA0dWRWcVIwL3NzMFZPMDgzL1c4?=
+ =?utf-8?B?QnVvbW9rLzRzREZsa1JNRXVLMCs1VlVsMWxiTmwxcndpU1FyK0d2cm1FdUdF?=
+ =?utf-8?B?MUxuUEVSVHNxWWhNY1grWFMxZUt1dDY5bEU4WFRpeVhPQXNPaG5RSi81SG5D?=
+ =?utf-8?B?MVdsaVloSUN6dU5uN0VzdXh1ZXh0MmIxNEYwemZZNkcveXF2UDlSbDlVeHMx?=
+ =?utf-8?B?d1hVWFViNGVmVmN6eXBPR1BuSWlyd2xBemg3MWxtYmlLTG5ZZmZSV0hEUjc5?=
+ =?utf-8?B?MytCQ2hsSzJ1N0dxeWRCZUR6RWdsOVB2QUVGd3ZIVXpqOElqV3BPdzErY3p5?=
+ =?utf-8?B?UWNEVUlYSUV1MDNKOXYyc2c0SFBpdHlxWFR4ZWgwanBrRjRVUDZ6ZnlOSmtL?=
+ =?utf-8?B?UGJkL0JjbHBoU1Q1QjZ3QTE3VE1YL2xWcnNzbjRvc1VXRzFFbDdMK3lQdXJ2?=
+ =?utf-8?B?NWc3cnJaOE1UaUprK25wNnNDak9kVjA3TXBBUkE2VkovVVk5d2duSG9LN3NZ?=
+ =?utf-8?B?TnJwR1l2eGR0WU9tME51Z0JtUVU3bGxIeW50ZmZTelZDTWNHSjhRWWNXWFRn?=
+ =?utf-8?B?eTdyQlQ3d2pldEU4RHZPdHdrVWdHd2thQjBLclpndGxqSGViRlA5QkdkMmxP?=
+ =?utf-8?B?RjNaa0lWTUloMmNvVVZhVllFMklUWmRERkFrd1JwZnNGbnpFUXN0Z2xXVzNP?=
+ =?utf-8?B?R3FKZktYdDloYUlGWjNFbkZucWpPZVdQNmFCdHU4cFJ0Yi8wZmlJUW01RlI2?=
+ =?utf-8?B?YmprS2Eyb1dEUUM4aUh0K1ZxbDUwWFp3RWE4NEcxV09qVm54Q3hCSC9kbXh6?=
+ =?utf-8?B?V1RBVytuRTNWakRvU21DN3RWOUJCNmxsSzMyNVJzY3E5Tjh6VC9qaXlhVm1F?=
+ =?utf-8?B?MEhQNzQ5YU05aElNaTZTaGVRb2h1TTVlUnp6aERqaWNCb0tBMGo0UWNWRFJT?=
+ =?utf-8?B?eHZPYU5hdDJzT0FQdktsczJGR3FlVTJ4SlF0VFAybDdBYjk1UE0vMHNXOVU3?=
+ =?utf-8?B?ZWZNRnZaQVZScUFRVXN1UkhiWVB6UlB4QmdrSCtmbVVEZ0xYbjM5Qzl3R1Bl?=
+ =?utf-8?B?OXpQRTN5VUNLNEU2TXJlVy9uY2NaVjQyQVQ4RytxVXRJUXlCd3NlTXFsOW9w?=
+ =?utf-8?B?ZEYwV0lnejhlSE5FSzNMUk9UTk5tOVNxQ0FYck1QK3hjNGhYVG5uTmFaT1lZ?=
+ =?utf-8?B?Vi9pVHR0eXZhYUE0by9OTWh6ZHk2U0FZMHk5UDRUWkNwU01UMjJCbHdmNFpy?=
+ =?utf-8?B?cDM3NE41anpHblRtY1hiV2xDRWdPTm5HeUsrd0JXS1pJY1kydFNHNHNvcFNR?=
+ =?utf-8?B?ZWZTTTIvODI5RXM1Z1h1bEFDU3RBL1NUWnR3amZzckxQU0xnYUdtY0l5TjA5?=
+ =?utf-8?B?bXhOMURKS2p1ZFl3aU9DblhQSEJCQUpGQ3VLZXNhM0dSekp5ZS9HT0RFNDJ3?=
+ =?utf-8?Q?3VFRQLItQPY3p?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QWtpTktRMmdSbVBoT0Y3MkNuQjVwc3FJTmMzb29jbEZvMDVaUmV5N1VEN3J1?=
+ =?utf-8?B?UFlZZnUvdmlTcTdHeDFlcWlsMDdjYVptOVBPQVQyVmdwS0dtZkQzWWVoeU1r?=
+ =?utf-8?B?OEgrRnNIMmdBbDFBS1NWWS96aThxaWVZclBPTlFrdmlzZXBUWU9BRlk1c0Iy?=
+ =?utf-8?B?cklyQ00xd3ZBeGxwVXdVUlBwT2ZHam41SENwUm15UEZ2VTdSS1BqYm14Y283?=
+ =?utf-8?B?SHpGVjdNWk43bW1qcng1OXFLc2xmZGRPemxjWmg3LzhFU3NZeE5NL1IwZHh5?=
+ =?utf-8?B?MmY4Z3V6aXF0cnR0UnhyUlI0S1JGT2xtT3l5TkhZOVdUMkxkcVRwbkRZazlY?=
+ =?utf-8?B?M0tDN1NJWW5STzIvV2VSZDQ1TGJjOG5iaWMrVVA1NncvMzU1ajJtR2c2bFcx?=
+ =?utf-8?B?alJoRXFYNytOcjF3YndPdDIvR0k0TFNFck8xZXV5R0hpZ0ZiMzl1WVFhbVhR?=
+ =?utf-8?B?R3JWRnhHTFI0alZmSUpGTGtJemxyeUR4YUFTY1U5cVluTCt3VWJmTCtuWXI0?=
+ =?utf-8?B?RFFIVHlVTDEyL2YwOWhqK2xUcnJudjZ4LzE0QXB6ZTloTC9ySW95K28rZE5a?=
+ =?utf-8?B?RTZzM1g0TW83MHVvU1JKc2E1V3RUTFVkUmVHbmZLWVFzUG5BU2lDc3Fzd0pC?=
+ =?utf-8?B?cWFqUlZhSGZYbGIwWTdVS2lBOFlzVUVyd2RpWTNQZXlCQ2t6RFZ6Nm96Wk9s?=
+ =?utf-8?B?S2h4QXBIVXRpYVBzZTZRUHk5bnI3L2ZnQ0dEbzR0VTJTbkRNVHJrY3I3L1FW?=
+ =?utf-8?B?SCtySWYvQy9UcDAyVEE2VmQ5T04ydzE1Y3lpT0RXTWQ4TWZUdGhaLzZTN2x4?=
+ =?utf-8?B?Ui9RcUdQNCtKUys3QkgrcFFLTnRuVnpoTjQvWHg5VTZPQUZyREMyY3VvcjhB?=
+ =?utf-8?B?ZkZlOHVIZ0REcGpGOWFIK3hTa1VTWE9hQ0VpdVpyZTVadFQzc3gyZGFxMDdT?=
+ =?utf-8?B?TFRkK2IzbURCcFhHM0xadFc4SUZybUM4bzFrbDhLbXU4SE1NL0g4NnZjQjlp?=
+ =?utf-8?B?UkpxbUVvaERUbGZnRGNsQXVONk1yck1WTmQ1SjZ3TS80QnJxNlZXUWtWT1lW?=
+ =?utf-8?B?Qi9zRnlaeEE3TzZuR05wL1VBRXMyRS9uNkRnaHpJRUlWQkIwNVMvOU5kT2d1?=
+ =?utf-8?B?QWJNeHdwU2JYeGFRUVkyM21MbGRPR0wxQmE3RU96d3RjWXp0ZWxndDcwenQ1?=
+ =?utf-8?B?R0U4UU5aQW9paDF0ZW5QSjlvSzhoS2FjcDE3elA3OTZLSEREUC9oNEIzdnJ1?=
+ =?utf-8?B?S0ZMQkZqYmpHQXVPZVEzSXRaditCWGxXWElJcmpvN3YwWHBNVVpzbk9CV1hq?=
+ =?utf-8?B?RVNKcXM5MmlXOCtlTGRHeVBYSWR4YkYrcXhRNHI1TDltMHh0VjNVZkVXcFp3?=
+ =?utf-8?B?ZTBZL3hycWtFemp3NUJ2N2pXaVZ2RmhCa01BaGJoMDIxYWxBa2tyS1BreUxF?=
+ =?utf-8?B?cDRnM1o1d3V6WlBNSFVPdDBHWEY4dkhHYURIb3l6ZnFYYkZ0SVZHWmFZeWI3?=
+ =?utf-8?B?NFdvVTRmMkd5dHV6ZzJCOTljd2VEVElNRk43aHEvb25KTWVuS0d4NWNXbHlu?=
+ =?utf-8?B?MFNXVFRzK2liUG1QckZuTUlrSENMVFp1bGtKT0ZNRmQzOWNQN0pyY3hDaGFk?=
+ =?utf-8?B?NUdBUEkrNmhGd3NXYmUzNGJaK2RjekxkZzRETHE4amNnbVp4MnFpZmtsNGV2?=
+ =?utf-8?B?YXMwQWE2Q2VVb2xFRCtocXNremc1Z05pcWVLTDh0YVVMMTdJeVliWWZIZzcw?=
+ =?utf-8?B?U2VqTFBjZExPcjgwNXN1c3BKeTNXZGpvVUNEUzNvNUVEaFdTWmRSVW84K3Nm?=
+ =?utf-8?B?cUdZMmJRaWIwdjNham9RUElzcTI5Yk5SeWNORUZzSGZvUERTZHRKTWI4dXJD?=
+ =?utf-8?B?Q0ZsSlV3cm51bXZOZ2FFRVBaUS9USVNXYjgwcEdKNGdBakNNUFBUc1k5Ykxl?=
+ =?utf-8?B?Wm9WUFNoc0hHZ1oxd3NLNEVLSkRyR2pPM2ZWZEUvTUdOMjNwdnQyTFdmajRo?=
+ =?utf-8?B?bkY0TDRJeW4xdWhabDRzZUppWS9sSUFmR1d2bncrWkpTYndmOEpBQTlhdTFl?=
+ =?utf-8?B?enB5NlA5ek4rZ1JRY1o3K2NYdnIrd2hCc25SVVVLbDJvUTh2N3pnMStHbVVq?=
+ =?utf-8?B?bFNuKytSODJmeENxdlJ2MW1tdE9Beng5NE5zUEdzN25wNUoxRUZHM09POTU2?=
+ =?utf-8?B?M1E9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6a682ea9-0a0b-4d61-d896-08dd729b078a
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2025 10:33:52.9947
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aC23jrkjbufoZCz3vEVnBTlYgEIq2jMtHGPrdB+X2EsaG5G9BppGjWVhfiFK+FeYe60LuOTELGq+fecSiqmnmBcnkley/NulA5UFX3Zlp18=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_034752_411172_0836E31D 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20250403_033411_534355_53AD03C0 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,119 +192,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RDMA driver is installing an ISR in the probe function but, if
-the component is not bound yet, the interrupt handler may call the
-vblank_cb ahead of time (while probing other drivers) or too late
-(while removing other drivers), possibly accessing memory that it
-should not try to access by reusing stale pointers.
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
-In order to fix this, like done in the OVL driver, add a new `irq`
-member to struct mtk_disp_ovl and then add the IRQF_NO_AUTOEN flag
-to the irq while installing the ISR to manually disable and clear
-the hwirqs with register writes, and enable_irq() and disable_irq()
-in the bind and unbind callbacks respectively.
+RTC tracks clock time during system suspend and it is used as a wakeup
+source on S32G2/S32G3 architecture.
 
-Also, the call to devm_request_irq() was moved after the platform
-data and drvdata assignment, but in this specific case it is just
-to make it cosmetically correct, as with this change the ISR will
-not execute until the component is bound, hence no dev_get_drvdata
-happens before that.
+RTC from S32G2/S32G3 is not battery-powered and it is not kept alive
+during system reset.
 
-Note that since IRQF_TRIGGER_NONE is effectively 0 and doing nothing
-this (fake) flag was dropped.
-
-Fixes: 119f5173628a ("drm/mediatek: Add DRM Driver for Mediatek SoC MT8173.")
-Link: https://lore.kernel.org/r/20250402083628.20111-6-angelogioacchino.delregno@collabora.com
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+Co-developed-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/gpu/drm/mediatek/mtk_disp_rdma.c | 34 ++++++++++++++----------
- 1 file changed, 20 insertions(+), 14 deletions(-)
+ .../devicetree/bindings/rtc/nxp,s32g-rtc.yaml | 72 +++++++++++++++++++
+ 1 file changed, 72 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_rdma.c b/drivers/gpu/drm/mediatek/mtk_disp_rdma.c
-index bf47790e4d6b..c1bc1bbad86d 100644
---- a/drivers/gpu/drm/mediatek/mtk_disp_rdma.c
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_rdma.c
-@@ -81,6 +81,7 @@ struct mtk_disp_rdma_data {
- struct mtk_disp_rdma {
- 	struct clk			*clk;
- 	void __iomem			*regs;
-+	int				irq;
- 	struct cmdq_client_reg		cmdq_reg;
- 	const struct mtk_disp_rdma_data	*data;
- 	void				(*vblank_cb)(void *data);
-@@ -295,13 +296,23 @@ void mtk_rdma_layer_config(struct device *dev, unsigned int idx,
- static int mtk_disp_rdma_bind(struct device *dev, struct device *master,
- 			      void *data)
- {
--	return 0;
-+	struct mtk_disp_rdma *priv = dev_get_drvdata(dev);
+diff --git a/Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml b/Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml
+new file mode 100644
+index 000000000000..40fd2fa298fe
+--- /dev/null
++++ b/Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml
+@@ -0,0 +1,72 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/rtc/nxp,s32g-rtc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	/* Disable and clear pending interrupts */
-+	writel(0x0, priv->regs + DISP_REG_RDMA_INT_ENABLE);
-+	writel(0x0, priv->regs + DISP_REG_RDMA_INT_STATUS);
++title: NXP S32G2/S32G3 Real Time Clock (RTC)
 +
-+	enable_irq(priv->irq);
- 
-+	return 0;
- }
- 
- static void mtk_disp_rdma_unbind(struct device *dev, struct device *master,
- 				 void *data)
- {
-+	struct mtk_disp_rdma *priv = dev_get_drvdata(dev);
++maintainers:
++  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
++  - Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
 +
-+	disable_irq(priv->irq);
- }
- 
- static const struct component_ops mtk_disp_rdma_component_ops = {
-@@ -314,16 +325,15 @@ static int mtk_disp_rdma_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct mtk_disp_rdma *priv;
- 	struct resource *res;
--	int irq;
- 	int ret;
- 
- 	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
- 		return -ENOMEM;
- 
--	irq = platform_get_irq(pdev, 0);
--	if (irq < 0)
--		return irq;
-+	priv->irq = platform_get_irq(pdev, 0);
-+	if (priv->irq < 0)
-+		return priv->irq;
- 
- 	priv->clk = devm_clk_get(dev, NULL);
- 	if (IS_ERR(priv->clk))
-@@ -347,21 +357,17 @@ static int mtk_disp_rdma_probe(struct platform_device *pdev)
- 	if (ret && (ret != -EINVAL))
- 		return dev_err_probe(dev, ret, "Failed to get rdma fifo size\n");
- 
--	/* Disable and clear pending interrupts */
--	writel(0x0, priv->regs + DISP_REG_RDMA_INT_ENABLE);
--	writel(0x0, priv->regs + DISP_REG_RDMA_INT_STATUS);
--
--	ret = devm_request_irq(dev, irq, mtk_disp_rdma_irq_handler,
--			       IRQF_TRIGGER_NONE, dev_name(dev), priv);
--	if (ret < 0)
--		return dev_err_probe(dev, ret, "Failed to request irq %d\n", irq);
--
- 	priv->data = of_device_get_match_data(dev);
- 
- 	platform_set_drvdata(pdev, priv);
- 
- 	pm_runtime_enable(dev);
- 
-+	ret = devm_request_irq(dev, priv->irq, mtk_disp_rdma_irq_handler,
-+			       IRQF_NO_AUTOEN, dev_name(dev), priv);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "Failed to request irq %d\n", priv->irq);
++description:
++  RTC hardware module present on S32G2/S32G3 SoCs is used as a wakeup source.
++  It is not kept alive during system reset and it is not battery-powered.
 +
- 	ret = component_add(dev, &mtk_disp_rdma_component_ops);
- 	if (ret) {
- 		pm_runtime_disable(dev);
++allOf:
++  - $ref: rtc.yaml#
++
++properties:
++  compatible:
++    oneOf:
++      - enum:
++          - nxp,s32g2-rtc
++      - items:
++          - const: nxp,s32g3-rtc
++          - const: nxp,s32g2-rtc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: ipg clock drives the access to the RTC iomapped registers
++      - description: Clock source for the RTC module. Can be selected between
++          4 different clock sources using an integrated hardware mux.
++          On S32G2/S32G3 SoCs, 'source0' is the SIRC clock (~32KHz) and it is
++          available during standby and runtime. 'source1' is reserved and cannot
++          be used. 'source2' is the FIRC clock and it is only available during
++          runtime providing a better resolution (~48MHz). 'source3' is an external
++          RTC clock source which can be additionally added in hardware.
++
++  clock-names:
++    items:
++      - const: ipg
++      - enum: [ source0, source1, source2, source3 ]
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    rtc@40060000 {
++        compatible = "nxp,s32g3-rtc",
++                     "nxp,s32g2-rtc";
++        reg = <0x40060000 0x1000>;
++        interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&clks 54>, <&clks 55>;
++        clock-names = "ipg", "source0";
++    };
 -- 
-2.48.1
+2.45.2
 
 
