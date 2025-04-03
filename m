@@ -4,90 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A877DC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 08:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91270C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 08:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z30Hkz7WP91LKSi1mbcYaIhwFiizr5KX8hW+28FpYjM=; b=fvkNYcQYy/QCy08RydfJJNti3H
-	OAu/n4hgYVitdJPKXnatlQcYPoTQeEAN5Fz1fdsorh2Yg8vdV0dmfj9Swob/5E9q/V4GuEbjhq89a
-	I8oozUsNMdDJxq2Mz3dsWTh7JhQ3mao3cc5Nyg/Wl9bqzsKdnbDmLv3bXUODCw1sGfO3bshWRt/+p
-	YQImnw4mYmSeT1HAOeIdIDtLruR14IPueE4ZX7yNdZ80bLgmI26dXJXJzKsIBY2PqmxQgV3Lc9lvF
-	lRMQQLlqZ/hKOG+Z0ub6p31IPKtgn2KQN9jEewYLWfB21m83btdr0p/HZ+vgFI6aUPiEsdbV/BNxe
-	Yq7kETng==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r7olQeFiCm6NAZgNHylwR+2UgCnWkQnhvWRgAXmfMV0=; b=dLGIt9qNKOYviQKAEHPU1ChUSD
+	3l4gz1ZkkPSuG5UzLi4wRGz+9h7149TYY+ibinyMV1EckBHVvSTaDxJ5UMC6C1D3VYfA6otJZPvBE
+	lua0rjUuVzV0q9kOn8LFJ2OK0k6M3ZUgNXdjv3GHvQX7WzLmWaqjqDAPFBxU5V12mkjuW2zz3jWDY
+	jyvOXvszN2CXXjSsxIz/zBdl4aVIJAAqgLzWVeeHQjjmxE4o+NSMR4w68pwkn/TeoH1GtP4zZscpQ
+	BN+8+qkjAyBAPqw0ZVln4sJGS3rDNkm442b4EkiR9U+L0fIJmc4InXTn6Lkjfjh5bFBm3gKGRfOoi
+	QhX9RCCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0G0O-00000008Gxw-10k1;
-	Thu, 03 Apr 2025 08:32:56 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1u0G2a-00000008HUu-3bJh;
+	Thu, 03 Apr 2025 08:35:12 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0FyY-00000008Gjd-3TBW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 08:31:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1743669063; x=1775205063;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=z30Hkz7WP91LKSi1mbcYaIhwFiizr5KX8hW+28FpYjM=;
-  b=nKhpJRQU4zBXj5mPYDrzVwPLPduzfWSHXEuih99VIEbueQZyF5d2FBNd
-   DZE93c5TBhG09vWUhZnZPV39r//FSWr3sV5faSdUFLTGufGYRRBepJajp
-   67ai3CGYPkbejUD2Y/AJYkOADH7XkOyNycssoCfx3peSqrogRsJQKD7Jp
-   ui9JXxu8eJw6x4dKkoMLE8QNB1XSHs1HANZCmqsE7bYWNfORSmuJGzhlG
-   aFuOS8X4Tb/qdNGjVHpzjYpfKbL5grbReicXk43Wujo5iSeOZEvSYEjiL
-   jT9yZh1p/RuLvBfA9bJZ6plPRLI7vCoFrssJ4XAL8NT3frg96c4sfjrCy
-   w==;
-X-CSE-ConnectionGUID: vMhXcl4PRBKz0akpcwaElA==
-X-CSE-MsgGUID: bvHI11ApQxCSbxlZcR24Gg==
-X-IronPort-AV: E=Sophos;i="6.15,184,1739833200"; 
-   d="scan'208";a="43316639"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 03 Apr 2025 10:30:57 +0200
-X-CheckPoint: {67EE4741-18-903EAEAC-E04C76C8}
-X-MAIL-CPID: 08543546ED19CD2066CD1002AB8F1EFC_5
-X-Control-Analysis: str=0001.0A006398.67EE4741.0034,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CB29C160A4C;
-	Thu,  3 Apr 2025 10:30:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1743669052;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z30Hkz7WP91LKSi1mbcYaIhwFiizr5KX8hW+28FpYjM=;
-	b=MFA2khVHsO9qV5hdk9cd0/pcVX682KD0GtS0M6VN3AxVm9+XSFCVn04K24B8iQNljR9cJj
-	G67QnYXLq+84Y7oOpvWOsPipUVPHdp6Z2fjxr5xPpEozOo/8I5Ag81ioDDdizDu2NzZvck
-	QStRpM0Dq9q5sBTSEaWb3rOfX0vqk7o2vSVlF4exzCjmQLiKLeVuSkG9d7hstguUx0XOHt
-	27DIa7zuLPkP2LTN2IP7v77YQ7Z7SgMNoB7bZ3wDaWBoeC0qJBACV+ReT+gfJ6sPuUVIP/
-	8P3cqLxozVoRjdkU/gq8cH8FY/oJ3OZkkXRoxvbeXvkQ9jwSMNSnBhypeVd0zQ==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang <shengjiu.wang@nxp.com>,
- Frank Li <Frank.li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>,
- Marc Kleine-Budde <mkl@pengutronix.de>, linux-arm-kernel@lists.infradead.org
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Subject: Re: [PATCH v4 3/6] bus: add driver for IMX AIPSTZ bridge
-Date: Thu, 03 Apr 2025 10:30:51 +0200
-Message-ID: <12639974.O9o76ZdvQC@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20250401154404.45932-4-laurentiumihalcea111@gmail.com>
-References: <20250401154404.45932-1-laurentiumihalcea111@gmail.com>
- <20250401154404.45932-4-laurentiumihalcea111@gmail.com>
+	id 1u0G0n-00000008H68-20OL;
+	Thu, 03 Apr 2025 08:33:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5FAE6A45D8B;
+	Thu,  3 Apr 2025 08:27:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C862BC4CEE9;
+	Thu,  3 Apr 2025 08:33:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743669199;
+	bh=cYPE4hxj2E/+XBZrJpUbI6pIfd/alhO++G3MPN6trQY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=h8Cb4AP4OpYpLjYYj+z1vZ5xN6W9HulpbhR1bg2gJQjnjRCUWJqloCjGebGRqdPSY
+	 qHZkeVaccaQ4sKzOjZ5sy+Jtp046Dgcr2UL9cCee/U7MkUhxwxtxT8LKCcnX/U3Y/D
+	 CsxENjjO2Ly3SMMog+EtQgvaroGjKyOqKBkOkcz7OjQHzR8SYlFBZiLfTCtv/C9Eds
+	 eyTMbPNPm/fD3BFeFoPs2rV9Rgsfy9dZifU1ecORJKIKCKNOyFpeGC6+Cjqybsz9DO
+	 wYWp2rIjYm2l7ZS5PjjJz3JleLYG+cuvVy7dOcTkDNrPFExyncgtF+a4WCg4ImTt8k
+	 gjrnMFsCLo0Fw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AEF06C369A0;
+	Thu,  3 Apr 2025 08:33:19 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Thu, 03 Apr 2025 16:33:15 +0800
+Subject: [PATCH v3 2/2] dts: arm64: amlogic: add a5 pinctrl node
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250403-a5-pinctrl-v3-2-a8c067e22295@amlogic.com>
+References: <20250403-a5-pinctrl-v3-0-a8c067e22295@amlogic.com>
+In-Reply-To: <20250403-a5-pinctrl-v3-0-a8c067e22295@amlogic.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1743669198; l=3211;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=zTXCd3mjrQB2UAQ+DUxS9Et3VYgrEbPO04Lv0RVd3Dc=;
+ b=VfTnLhiqD/DvQpUxxaX0qvX6jYrBOat90xLSzkT4YNw6bb7j1G8Vy1HCZ3t+WhBoWOpkxIzSS
+ tiQLCDxrljbD0aViwoDiGHA0apIDhoLk3Gmh7OL8e49ubWi8QzzYf/N
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_013103_408963_8BACDD24 
-X-CRM114-Status: GOOD (  31.70  )
+X-CRM114-CacheID: sfid-20250403_013321_647269_881AFD66 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,197 +89,130 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Am Dienstag, 1. April 2025, 17:44:01 CEST schrieb Laurentiu Mihalcea:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->=20
-> The secure AHB to IP Slave (AIPSTZ) bus bridge provides access control
-> configurations meant to restrict access to certain peripherals.
-> Some of the configurations include:
->=20
-> 	1) Marking masters as trusted for R/W. Based on this
-> 	(and the configuration of the accessed peripheral), the bridge
-> 	may choose to abort the R/W transactions issued by certain
-> 	masters.
->=20
-> 	2) Allowing/disallowing write accesses to peripherals.
->=20
-> Add driver for this IP. Since there's currently no framework for
-> access controllers (and since there's currently no need for having
-> flexibility w.r.t the configurations) all this driver does is it
-> applies a relaxed, "default" configuration, in which all masters
-> are trusted for R/W.
->=20
-> Note that some instances of this IP (e.g: AIPSTZ5 on i.MX8MP) may be tied
-> to a power domain and may lose their configuration when the domain is
-> powered off. This is why the configuration has to be restored when the
-> domain is powered on.
->=20
-> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
->  drivers/bus/Kconfig      |  6 +++
->  drivers/bus/Makefile     |  1 +
->  drivers/bus/imx-aipstz.c | 92 ++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 99 insertions(+)
->  create mode 100644 drivers/bus/imx-aipstz.c
->=20
-> diff --git a/drivers/bus/Kconfig b/drivers/bus/Kconfig
-> index ff669a8ccad9..fe7600283e70 100644
-> --- a/drivers/bus/Kconfig
-> +++ b/drivers/bus/Kconfig
-> @@ -87,6 +87,12 @@ config HISILICON_LPC
->  	  Driver to enable I/O access to devices attached to the Low Pin
->  	  Count bus on the HiSilicon Hip06/7 SoC.
-> =20
-> +config IMX_AIPSTZ
-> +	tristate "Support for IMX Secure AHB to IP Slave bus (AIPSTZ) bridge"
-> +	depends on ARCH_MXC
-> +	help
-> +	  Enable support for IMX AIPSTZ bridge.
-> +
->  config IMX_WEIM
->  	bool "Freescale EIM DRIVER"
->  	depends on ARCH_MXC || COMPILE_TEST
-> diff --git a/drivers/bus/Makefile b/drivers/bus/Makefile
-> index cddd4984d6af..8e693fe8a03a 100644
-> --- a/drivers/bus/Makefile
-> +++ b/drivers/bus/Makefile
-> @@ -15,6 +15,7 @@ obj-$(CONFIG_FSL_MC_BUS)	+=3D fsl-mc/
-> =20
->  obj-$(CONFIG_BT1_APB)		+=3D bt1-apb.o
->  obj-$(CONFIG_BT1_AXI)		+=3D bt1-axi.o
-> +obj-$(CONFIG_IMX_AIPSTZ)	+=3D imx-aipstz.o
->  obj-$(CONFIG_IMX_WEIM)		+=3D imx-weim.o
->  obj-$(CONFIG_INTEL_IXP4XX_EB)	+=3D intel-ixp4xx-eb.o
->  obj-$(CONFIG_MIPS_CDMM)		+=3D mips_cdmm.o
-> diff --git a/drivers/bus/imx-aipstz.c b/drivers/bus/imx-aipstz.c
-> new file mode 100644
-> index 000000000000..44db40dae71b
-> --- /dev/null
-> +++ b/drivers/bus/imx-aipstz.c
-> @@ -0,0 +1,92 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright 2025 NXP
-> + */
-> +
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/regmap.h>
-> +
-> +#define IMX_AIPSTZ_MPR0 0x0
-> +
-> +struct imx_aipstz_config {
-> +	u32 mpr0;
-> +};
-> +
-> +static void imx_aipstz_apply_default(void __iomem *base,
-> +				     const struct imx_aipstz_config *default_cfg)
-> +{
-> +	writel(default_cfg->mpr0, base + IMX_AIPSTZ_MPR0);
-> +}
-> +
-> +static int imx_aipstz_probe(struct platform_device *pdev)
-> +{
-> +	const struct imx_aipstz_config *default_cfg;
-> +	void __iomem *base;
-> +
-> +	base =3D devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
-> +	if (IS_ERR(base))
-> +		return dev_err_probe(&pdev->dev, -ENOMEM,
-> +				     "failed to get/ioremap AC memory\n");
-> +
-> +	default_cfg =3D of_device_get_match_data(&pdev->dev);
+Add pinctrl device to support Amlogic A5.
 
-Shouldn't you use the configuration setup by trusted firmware (TF-A)?
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+ arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi | 90 +++++++++++++++++++++++++++++
+ 1 file changed, 90 insertions(+)
 
-> +
-> +	imx_aipstz_apply_default(base, default_cfg);
-> +
-> +	dev_set_drvdata(&pdev->dev, base);
-> +
-> +	pm_runtime_set_active(&pdev->dev);
-> +	devm_pm_runtime_enable(&pdev->dev);
-> +
-> +	return devm_of_platform_populate(&pdev->dev);
-> +}
-> +
-> +static int imx_aipstz_runtime_resume(struct device *dev)
-> +{
-> +	const struct imx_aipstz_config *default_cfg;
-> +	void __iomem *base;
-> +
-> +	base =3D dev_get_drvdata(dev);
-> +	default_cfg =3D of_device_get_match_data(dev);
-> +
-> +	/* restore potentially lost configuration during domain power-off */
-> +	imx_aipstz_apply_default(base, default_cfg);
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
+index 32ed1776891b..844302db2133 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
+@@ -4,6 +4,7 @@
+  */
+ 
+ #include "amlogic-a4-common.dtsi"
++#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
+ #include <dt-bindings/power/amlogic,a5-pwrc.h>
+ / {
+ 	cpus {
+@@ -50,6 +51,95 @@ pwrc: power-controller {
+ };
+ 
+ &apb {
++	periphs_pinctrl: pinctrl@4000 {
++		compatible = "amlogic,pinctrl-a5",
++			     "amlogic,pinctrl-a4";
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges = <0x0 0x0 0x0 0x4000 0x0 0x300>;
++
++		gpioz: gpio@c0 {
++			reg = <0x0 0xc0 0x0 0x40>,
++			      <0x0 0x18 0x0 0x8>;
++			reg-names = "gpio", "mux";
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_Z<<8) 16>;
++		};
++
++		gpiox: gpio@100 {
++			reg = <0x0 0x100 0x0 0x40>,
++			      <0x0 0xc   0x0 0xc>;
++			reg-names = "gpio", "mux";
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_X<<8) 20>;
++		};
++
++		gpiot: gpio@140 {
++			reg = <0x0 0x140 0x0 0x40>,
++			      <0x0 0x2c  0x0 0x8>;
++			reg-names = "gpio", "mux";
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_T<<8) 14>;
++		};
++
++		gpiod: gpio@180 {
++			reg = <0x0 0x180 0x0 0x40>,
++			      <0x0 0x40  0x0 0x8>;
++			reg-names = "gpio", "mux";
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_D<<8) 16>;
++		};
++
++		gpioe: gpio@1c0 {
++			reg = <0x0 0x1c0 0x0 0x40>,
++			      <0x0 0x48  0x0 0x4>;
++			reg-names = "gpio", "mux";
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_E<<8) 2>;
++		};
++
++		gpioc: gpio@200 {
++			reg = <0x0 0x200 0x0 0x40>,
++			      <0x0 0x24  0x0 0x8>;
++			reg-names = "gpio", "mux";
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_C<<8) 11>;
++		};
++
++		gpiob: gpio@240 {
++			reg = <0x0 0x240 0x0 0x40>,
++			      <0x0 0x0   0x0 0x8>;
++			reg-names = "gpio", "mux";
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_B<<8) 14>;
++		};
++
++		gpioh: gpio@280 {
++			reg = <0x0 0x280 0x0 0x40>,
++			      <0x0 0x4c  0x0 0x4>;
++			reg-names = "gpio", "mux";
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_H<<8) 5>;
++		};
++
++		gpio_test_n: gpio@2c0 {
++			reg = <0x0 0x2c0 0x0 0x40>,
++			      <0x0 0x3c  0x0 0x4>;
++			reg-names = "gpio", "mux";
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
++		};
++	};
++
+ 	gpio_intc: interrupt-controller@4080 {
+ 		compatible = "amlogic,a5-gpio-intc",
+ 			     "amlogic,meson-gpio-intc";
 
-Shouldn't you store the configuration at suspend and restore that one
-instead of this fixed one?
-
-What's going to happen if trusted firmware decides that Cortex-A53 domain
-is not allowed to access AIPSTZ?
-
-Best regards
-Alexander
-
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct dev_pm_ops imx_aipstz_pm_ops =3D {
-> +	RUNTIME_PM_OPS(NULL, imx_aipstz_runtime_resume, NULL)
-> +	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
-> +};
-> +
-> +/*
-> + * following configuration is equivalent to:
-> + *	masters 0-7 =3D> trusted for R/W + use AHB's HPROT[1] to det. privile=
-ge
-> + */
-> +static const struct imx_aipstz_config imx8mp_aipstz_default_cfg =3D {
-> +	.mpr0 =3D 0x77777777,
-> +};
-> +
-> +static const struct of_device_id imx_aipstz_of_ids[] =3D {
-> +	{ .compatible =3D "fsl,imx8mp-aipstz", .data =3D &imx8mp_aipstz_default=
-_cfg },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, imx_aipstz_of_ids);
-> +
-> +static struct platform_driver imx_aipstz_of_driver =3D {
-> +	.probe =3D imx_aipstz_probe,
-> +	.driver =3D {
-> +		.name =3D "imx-aipstz",
-> +		.of_match_table =3D imx_aipstz_of_ids,
-> +		.pm =3D pm_ptr(&imx_aipstz_pm_ops),
-> +	},
-> +};
-> +module_platform_driver(imx_aipstz_of_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("IMX secure AHB to IP Slave bus (AIPSTZ) bridge drive=
-r");
-> +MODULE_AUTHOR("Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>");
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+-- 
+2.37.1
 
 
 
