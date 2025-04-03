@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28D9C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 15:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83044C3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 15:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJg1nXP5WH1KbQY/FrFCHWpaeAl6AJoKHRnKylOHvYw=; b=0jOBozwShr8M/YCPkX5aZztTZ5
-	1iYpH8SzW01MKoqnVEsh3dZnpm470Pgz/PE32C9G564Zeuupm3Bu81CvuJEKwxclWHlZo11q7QplT
-	f7isX3YsiBZq5ehptZ5UIGdryvrbndPFZTX2DRNBEBrPr8EWn4MXm0KDQle+1PZKRERQiU2XyW+7v
-	WdYNpThG07ZxptAe28Fe6+5qDOvaZz3xhTeZQ6+m7eYs0aWbk+S4GeMPgsN4S3ND3m2fGBOL50FYM
-	74p7JXBbYu1DlYRZqicJH5qJ8Hdj2aTAGUPXJOWyK8e4bU6x9gmdUcwB36cX0MtvexxFFZ0P6mrZo
-	V3ElSJPQ==;
+	bh=zw2Q8IErZl7b2iE4osU+g+AbXrA3g7lMnn18YWn6OGA=; b=DyZsFrdwmA+VnmpMCh7KCmIZSV
+	3OYXfw0OaZ+szXrqvkww8vB9rQAst9LAKlAUHgxwKK5sqqz/5HWR3Urvw120LY+QTvH1vUUBNez5M
+	TUU8mlsllZguznyLo/XqpvI87xqh4SK+q+2LmFQyHipyzHmNl+p8x5mlBWlv9/nZQayux7amJpgIx
+	3FeuB3D5mdwH8rnlw6T59lHuhPzpIrBrj5hnxGBBrNpSglWaDh7IQxR8cP+NkGXx7Zm7JIKax8Olp
+	6jsOv+yUaxC8sts4Ki8lCM8gnw1lWt4gqS7lRWgw8ySUVFk7lydaygxQc3hm3vGSzkwpsXhS/3GvR
+	Bci/Xy1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Mdq-00000009FgR-3fDN;
-	Thu, 03 Apr 2025 15:38:06 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u0MlH-00000009Gq5-3A1m;
+	Thu, 03 Apr 2025 15:45:48 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0MXX-00000009Eqa-2ZOs
+	id 1u0MjT-00000009GbM-1qiH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 15:31:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BA7CAA43E67;
-	Thu,  3 Apr 2025 15:26:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6767C4CEE3;
-	Thu,  3 Apr 2025 15:31:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743694294;
-	bh=ywX+w2ejjtUoTP/P9MQhvoCasOtZWG+Jw8XsR6yk9go=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lqfZ6V6UNUu3lFHFKlnWCFVf8rHkyRYnqyntQk3cBIEeN9D4/LoxCTSZJgW7yfBFw
-	 miqP/U+jpNlGpizBr3zB6cTiljXWfDLbAYLk+uRYUpf+vZ5Vq6EL0PPf7LHOEBuP6/
-	 vZ6IlzmuWuJ3ExrrU8Z2/cwIhh631e1RU4YiY1+VZUxfvvoAsWFmajL2dyn0AjxSma
-	 oCAMfxcoCySUelgF0jbMD7mQWKiXkECfibQzjHMBpa0Hi4lN8mDa2jZUaweIfFi3MA
-	 PSx5rzUZimG/QHVy+IrlfNtDP+2+y5nTp/2sSL4wqQKtCSLOxrCavn6nlDNngJfQAi
-	 5ofujHMot9g8A==
-Date: Thu, 3 Apr 2025 16:31:27 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, anshuman.khandual@arm.com,
-	joey.gouly@arm.com, yury.khrustalev@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, frederic@kernel.org,
-	shameerali.kolothum.thodi@huawei.com, james.morse@arm.com,
-	mark.rutland@arm.com, huangxiaojia2@huawei.com,
-	akpm@linux-foundation.org, surenb@google.com, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH 3/3] Documentation/arm64: reflects FEAT_MTE_TAGGED_FAR
- description
-Message-ID: <93497fc3-3da9-43f1-8b22-cf0d3f3e7de2@sirena.org.uk>
-References: <20250403141535.23496-1-yeoreum.yun@arm.com>
- <20250403141535.23496-4-yeoreum.yun@arm.com>
+	Thu, 03 Apr 2025 15:43:56 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1743695032;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zw2Q8IErZl7b2iE4osU+g+AbXrA3g7lMnn18YWn6OGA=;
+	b=dFWiJT0FPb501rI4xZxAByeZrueh0d+1tmsohsU10/skaN4SqFYNYnNUBrxpwGfwv6ZgFe
+	sRGiTo7ylfSy8Ansnahrr1ZZ/GGkol94OFKkcdGM6NI6cZg0b3rzO+I8Cx/6v/yUkgQza0
+	lT9KtmHQ61kb1AX+T8hP4C/RMdBbpv+jJFqYMR9t47lLg+ao9k9Gh9sl5n8MaRm3bmf2Jv
+	tqp7J++dTsLFYelx0UX0mA5+w06DJY45qs/FCA6WG1SKALnZZrs7LeN5kJzhbRBFQdHevE
+	HpJIUFwbhOtGkX4c3pD1LyWqRZEy7x/rNBcowLk0kP0k5KGjgmtsQpWuLiF6Zw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1743695032;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zw2Q8IErZl7b2iE4osU+g+AbXrA3g7lMnn18YWn6OGA=;
+	b=v8VAC7w3EX8v79DHy2WTqiCxnEnOI+yD68u3RIJprG8VcGaUoghq9uoYwhGbQp8UrheL3f
+	SKmG2quvzSHdxNBg==
+To: Christian Bruel <christian.bruel@foss.st.com>, maz@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ Christian Bruel <christian.bruel@foss.st.com>
+Subject: Re: [PATCH 2/3] irqchip/gic: Use 0x10000 offset to access GICC_DIR
+ on STM32MP2
+In-Reply-To: <20250403122805.1574086-3-christian.bruel@foss.st.com>
+References: <20250403122805.1574086-1-christian.bruel@foss.st.com>
+ <20250403122805.1574086-3-christian.bruel@foss.st.com>
+Date: Thu, 03 Apr 2025 17:43:52 +0200
+Message-ID: <87mscxuu6f.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="oxRN7uTMagz9u5lh"
-Content-Disposition: inline
-In-Reply-To: <20250403141535.23496-4-yeoreum.yun@arm.com>
-X-Cookie: Logic is the chastity belt of the mind!
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_083135_731033_6A7FFCE3 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20250403_084355_625589_F3EC8534 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +79,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 03 2025 at 14:28, Christian Bruel wrote:
 
---oxRN7uTMagz9u5lh
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> When GIC_4KNOT64K bit in the GIC configuration register is
+> 0 (64KB), address block is modified in such a way than only the
 
-On Thu, Apr 03, 2025 at 03:15:35PM +0100, Yeoreum Yun wrote:
-> When FEAT_MTE_TAGGED_FAR feature is supported, the value of address bits
-> [63:60] is preserved on synchronous tag check fault.
->=20
-> This patch reflects the above feature in the documentation.
->=20
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->  Documentation/arch/arm64/tagged-pointers.rst | 11 ++++++-----
->  1 file changed, 6 insertions(+), 5 deletions(-)
+s/than/that/
 
-I saw the subject line and was looking for the elf_hwcaps.rst update in
-this patch, though really it should be in patch 1.
+> first 4KB of the GIC cpu interface are accessible with default
+> offsets.
+> With this bit mapping GICC_DIR register is accessible at
 
---oxRN7uTMagz9u5lh
-Content-Type: application/pgp-signature; name="signature.asc"
+What's 'this bit mapping' ? This sentence does not parse.
 
------BEGIN PGP SIGNATURE-----
+> offset 0x10000 instead of 0x1000, thus remap accordingly
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfuqc8ACgkQJNaLcl1U
-h9DNfwf+LDTdUjy+phURiCQ64ZN0TgTHnloTqsXKJJLs2WB63AGO04uu9pLprQ8q
-H5VcxoVmgSoFdTh0eRWorj5490VGcxWXOEBKfL3oe6/EC+KH+5uWu1RzUuV0W5Ff
-Rr6NRfix45cj4OaYCiTOxdC7+5Tbb5R76t5R+UFJn3Ap7fIOlT5l8PAnLMmsNzNu
-atAAI9WFGAS7I7Vu9CKjnFEwOhL200RgJNFpzyS+gg6WXlfMc3zaRCEoJQ0K/fgF
-wLhgmuFE2xk+ZoOBykztgNhGy0JtnrW/5csyLC1cGyEYsxz6L3S2bFqjuxiruCcO
-rM8gtkBASbMayS6KsVHTWp8RlbIZIg==
-=BWMY
------END PGP SIGNATURE-----
+...
 
---oxRN7uTMagz9u5lh--
+> +/*
+> + * 8kB GICC range is not accessible with the default 4kB translation
+> + * granule. 0x1000 offset is accessible at 64kB translation.
+> + */
+
+I have a hard time to map this comment to the change log, which suggests
+to me that this is the other way round.
+
+> +static bool gic_8kbaccess(void *data)
+> +{
+> +	struct gic_chip_data *gic = data;
+> +	void __iomem *alt;
+> +
+> +	if (!is_hyp_mode_available())
+> +		return false;
+> +
+> +	alt = ioremap(gic->cpu_phys_base, GIC_STM32MP2_CPU_DEACTIVATE + 4);
+> +	if (!alt) {
+> +		pr_err("Unable to remap GICC_DIR register\n");
+> +		return false;
+
+That's a hack because in case that the remap fails, this leaves the
+thing enabled, but disfunctional.
+
+Thanks,
+
+        tglx
 
