@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2184EC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 19:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C2ADC36014
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 19:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ougpKDT4W0EpalyGx8Lbiw1TrmtNjfxUfEa1IjqTPLU=; b=qIv+tKcqdCzqs//77LQXkqMIBm
-	DgbFBY+jZSJ9lhS4fCXtwPqfRtQB9XqoYU0VbohY6rR0QKwCvTmVMqpFAgrMwBYvSSAC9V+ItHq7G
-	K+IxuNrmBULTHL1hVbZG6yuqYKLOwgPCNaQFqIXsfMwdqDa8ql4/rlWYK1rVEDO0QmP9PJ4Ag8SVv
-	4PCrHgDk8+RWBLGjfOb/YphadE+jkxkeS2EvZgrTQ5516EzL1BoKyMoJdCpetBvUcLLlJOtvUWyig
-	DzJRJc5ongmTuDEqfJciQrCL3NG4sCoaJwoLfWEU0yVLVrdo7oYAB2ifHNn+WkVnPp56YHlrQsjxE
-	UgGIhV0A==;
+	bh=tE5hlRBeQFfk0ddPiX1vKZupkrIvHqrvp7tjh87NC24=; b=JZkjOKcsbPviuwa8AdqNpg2FWQ
+	8wY++Jdd97urO8PgizStWrXI9DSaOzGzxqgxisDzSA3I38h8t/KpCGvr3TvhyV8KqB287Jn1N0pv8
+	iExjOVrfPpi3K1vMkxnLqb/U6JPPbDwdYbpE1T4IXaWjU4uBRnILfYEX8c40OWONSvEno/Wmf0HKb
+	FTzLJcK7fUrHkni9hbBGKiv3JU+XbpqU+ezZSMg4M+oo1/JQ6Y3mffG2Sktiv9P7WoX+uBjdr0GSO
+	oFdh6N5QHRDmwLLKhG9sNU0y1mz+Ogr04tvgr3WkU+IGAlVFy7l6dZM9fXwQdlFmvVM3gBh7h0B03
+	ytvLusWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0QOn-00000009n1O-3Zsu;
-	Thu, 03 Apr 2025 19:38:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u0QQa-00000009nM3-3TgN;
+	Thu, 03 Apr 2025 19:40:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Q34-00000009h9R-0JNh;
-	Thu, 03 Apr 2025 19:16:23 +0000
+	id 1u0Q36-00000009hAz-1ZKJ;
+	Thu, 03 Apr 2025 19:16:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 474B344BF7;
-	Thu,  3 Apr 2025 19:16:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54A15C4CEE9;
-	Thu,  3 Apr 2025 19:16:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CDE22614B5;
+	Thu,  3 Apr 2025 19:16:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A980C4CEEB;
+	Thu,  3 Apr 2025 19:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743707781;
-	bh=l0dhYx5/XiNaJAorfCzUdOzlFbxzJF2QTg94iZI4lLY=;
+	s=k20201202; t=1743707783;
+	bh=ixbCm9Hf47DCdGEe9BFRTR9Y/mFx+TzTcbeK3AAkrO8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=n/CacsSTRyduMd0SHgoC0P43+09VCJXUV9dznvsr6ezYfJRxJQBkNV7bCIt9zojUt
-	 lp/LNthVatXqPebQaZMh8/dLPlLcIcBNamE0Cg8XIRBUdutCtwJqt+voV7qLwtPRFh
-	 iXO3sC1RGhROZWXdF+IS7JhegGznfq0V28lZO1bCxS1QIhkFYD6QKNM7jo37V8oKiW
-	 RzI81s58x37Ju2ZHkvicoVpQaC6y8pgz455BNn9AtUiciDqKwkpUDJVXPVICGJTbLN
-	 hjwiah5QzETf27bjIm+G//b6LW+aZ3yE2iatTCxXYBDiuYOGi1XfzA8eOhSNxA05wZ
-	 pD3JgK6pSG3cA==
+	b=iB4RCEgNLMtrEZLyPLhZLAUMZZa67yJTlnL63/GeS7Y0ySWCCaf2kUNy7cSS9V7FK
+	 nTSw0ZLZlPSKIb0lwXFlMhDFbKaB2UkUs7I2v40QtH+NrZNT4NfKcq4KWcMLCV2wU5
+	 1ACJ3XjRm+l+ZO51yHco51gq2LlAizhSh5ci73CWVotf4YWqY+YZziwHNmpcGNwD9f
+	 jHqVWwdJ0tjs2VTmacb14pFNLUO+3BKUvrPkL3rwgcIlgZ5a9QxOmNJGBmPgTFMMVS
+	 JUIyaQ5BWJJXkrA2w0PEMDaxeH07C23DX5YkEW1ORpRGga0bwkzksqMyMTQKXejRXA
+	 pDPypyO1tRfxg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -55,9 +55,9 @@ Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	dri-devel@lists.freedesktop.org,
 	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.13 23/37] drm/mediatek: mtk_dpi: Move the input_2p_en bit to platform data
-Date: Thu,  3 Apr 2025 15:14:59 -0400
-Message-Id: <20250403191513.2680235-23-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.13 24/37] drm/mediatek: mtk_dpi: Explicitly manage TVD clock in power on/off
+Date: Thu,  3 Apr 2025 15:15:00 -0400
+Message-Id: <20250403191513.2680235-24-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250403191513.2680235-1-sashal@kernel.org>
 References: <20250403191513.2680235-1-sashal@kernel.org>
@@ -66,9 +66,6 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.13.9
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_121622_150415_A1E5774E 
-X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,85 +82,65 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-[ Upstream commit c90876a695dd83e76680b88b40067275a5982811 ]
+[ Upstream commit 473c33f5ce651365468503c76f33158aaa1c7dd2 ]
 
-In preparation for adding support for MT8195's HDMI reserved DPI
-instance, move the input_2p_en bit for DP_INTF to platform data.
+In preparation for adding support for MT8195's HDMI reserved
+DPI, add calls to clk_prepare_enable() / clk_disable_unprepare()
+for the TVD clock: in this particular case, the aforementioned
+clock is not (and cannot be) parented to neither pixel or engine
+clocks hence it won't get enabled automatically by the clock
+framework.
 
-While at it, remove the input_2pixel member from platform data as
-having this bit implies that the 2pixel feature must be enabled.
+Please note that on all of the currently supported MediaTek
+platforms, the TVD clock is always a parent of either pixel or
+engine clocks, and this means that the common clock framework
+is already enabling this clock before the children.
+On such platforms, this commit will only increase the refcount
+of the TVD clock without any functional change.
 
 Reviewed-by: CK Hu <ck.hu@mediatek.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Link: https://patchwork.kernel.org/project/dri-devel/patch/20250217154836.108895-7-angelogioacchino.delregno@collabora.com/
+Link: https://patchwork.kernel.org/project/dri-devel/patch/20250217154836.108895-10-angelogioacchino.delregno@collabora.com/
 Signed-off-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/gpu/drm/mediatek/mtk_dpi.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_dpi.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
-index 1864eb02dbf50..c3fc85764c973 100644
+index c3fc85764c973..a12ef24c77423 100644
 --- a/drivers/gpu/drm/mediatek/mtk_dpi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
-@@ -127,14 +127,14 @@ struct mtk_dpi_yc_limit {
-  * @is_ck_de_pol: Support CK/DE polarity.
-  * @swap_input_support: Support input swap function.
-  * @support_direct_pin: IP supports direct connection to dpi panels.
-- * @input_2pixel: Input pixel of dp_intf is 2 pixel per round, so enable this
-- *		  config to enable this feature.
-  * @dimension_mask: Mask used for HWIDTH, HPORCH, VSYNC_WIDTH and VSYNC_PORCH
-  *		    (no shift).
-  * @hvsize_mask: Mask of HSIZE and VSIZE mask (no shift).
-  * @channel_swap_shift: Shift value of channel swap.
-  * @yuv422_en_bit: Enable bit of yuv422.
-  * @csc_enable_bit: Enable bit of CSC.
-+ * @input_2p_en_bit: Enable bit for input two pixel per round feature.
-+ *		     If present, implies that the feature must be enabled.
-  * @pixels_per_iter: Quantity of transferred pixels per iteration.
-  * @edge_cfg_in_mmsys: If the edge configuration for DPI's output needs to be set in MMSYS.
-  */
-@@ -148,12 +148,12 @@ struct mtk_dpi_conf {
- 	bool is_ck_de_pol;
- 	bool swap_input_support;
- 	bool support_direct_pin;
--	bool input_2pixel;
- 	u32 dimension_mask;
- 	u32 hvsize_mask;
- 	u32 channel_swap_shift;
- 	u32 yuv422_en_bit;
- 	u32 csc_enable_bit;
-+	u32 input_2p_en_bit;
- 	u32 pixels_per_iter;
- 	bool edge_cfg_in_mmsys;
- };
-@@ -610,9 +610,9 @@ static int mtk_dpi_set_display_mode(struct mtk_dpi *dpi,
- 		mtk_dpi_dual_edge(dpi);
- 		mtk_dpi_config_disable_edge(dpi);
- 	}
--	if (dpi->conf->input_2pixel) {
--		mtk_dpi_mask(dpi, DPI_CON, DPINTF_INPUT_2P_EN,
--			     DPINTF_INPUT_2P_EN);
-+	if (dpi->conf->input_2p_en_bit) {
-+		mtk_dpi_mask(dpi, DPI_CON, dpi->conf->input_2p_en_bit,
-+			     dpi->conf->input_2p_en_bit);
- 	}
- 	mtk_dpi_sw_reset(dpi, false);
+@@ -471,6 +471,7 @@ static void mtk_dpi_power_off(struct mtk_dpi *dpi)
  
-@@ -1006,12 +1006,12 @@ static const struct mtk_dpi_conf mt8195_dpintf_conf = {
- 	.output_fmts = mt8195_output_fmts,
- 	.num_output_fmts = ARRAY_SIZE(mt8195_output_fmts),
- 	.pixels_per_iter = 4,
--	.input_2pixel = true,
- 	.dimension_mask = DPINTF_HPW_MASK,
- 	.hvsize_mask = DPINTF_HSIZE_MASK,
- 	.channel_swap_shift = DPINTF_CH_SWAP,
- 	.yuv422_en_bit = DPINTF_YUV422_EN,
- 	.csc_enable_bit = DPINTF_CSC_ENABLE,
-+	.input_2p_en_bit = DPINTF_INPUT_2P_EN,
- };
+ 	mtk_dpi_disable(dpi);
+ 	clk_disable_unprepare(dpi->pixel_clk);
++	clk_disable_unprepare(dpi->tvd_clk);
+ 	clk_disable_unprepare(dpi->engine_clk);
+ }
  
- static int mtk_dpi_probe(struct platform_device *pdev)
+@@ -487,6 +488,12 @@ static int mtk_dpi_power_on(struct mtk_dpi *dpi)
+ 		goto err_refcount;
+ 	}
+ 
++	ret = clk_prepare_enable(dpi->tvd_clk);
++	if (ret) {
++		dev_err(dpi->dev, "Failed to enable tvd pll: %d\n", ret);
++		goto err_engine;
++	}
++
+ 	ret = clk_prepare_enable(dpi->pixel_clk);
+ 	if (ret) {
+ 		dev_err(dpi->dev, "Failed to enable pixel clock: %d\n", ret);
+@@ -496,6 +503,8 @@ static int mtk_dpi_power_on(struct mtk_dpi *dpi)
+ 	return 0;
+ 
+ err_pixel:
++	clk_disable_unprepare(dpi->tvd_clk);
++err_engine:
+ 	clk_disable_unprepare(dpi->engine_clk);
+ err_refcount:
+ 	dpi->refcount--;
 -- 
 2.39.5
 
