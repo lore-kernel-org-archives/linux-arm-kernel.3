@@ -4,82 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D93C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 16:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A04C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 16:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ah0TZGtUrsVvEFBC1fVW/YqrrmYj+hZ4lBmeNXKbcZM=; b=gqpfs/tOExZoSU7Xo5e4cOo99L
-	xRM41TH8ROXUu8+f5xq/oNT9yBrqxG8SSFLibxkiU49eZGlG6FLOzIBNd29vYE/S5BcPHtsSmBOJO
-	zL6yPUP5Ddjq2tlMq6cbkHizx+tMOkhtaO6f1gZJ9Fy+EsuN8BzwGEGgP63ShDnLLsuJAvc2HWwRM
-	xZr3N3TGQ+dEegG98NWiJs7dvLPG55NigipTDt0nAO1CAYvTgwXwcBjx4XEKg4/aCwEqqNA7MzEdj
-	9CSHcEyu92HYeDQrfZpVFgUcJIKO5ejxX27QcCidiRwEmKxcfVV8C6X7M3j0/edP0JO2YRSWgUAx7
-	2Rfgh3VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kvKtgygP6tDLWrHRm/ekROFKDqlYkwaxGfzAiJPsyMA=; b=26zS8vMoVGv71tem39/Oojl4Fs
+	anzCEDcqdnAxvBxSnOETjZioEPGOdmnXrS2nUHmP1ItpMJjCz2gO7CAYJmlOZST08j4opVYBoRtfw
+	gHWb8Z7QFB5k27Qa4HIl2LLXLserlSC8Ju1YgHF0Jae7f+lRbMlm+VlvRvuvZV8vY//eZPKRQAhs7
+	5juCn3R979QXRNBAjvr7WTpzyhrssFl2FqWoAuq5ThBHCHfiRjyKoKO6axfhKWK2tFH8shpts87pr
+	W+JEU8u+xRYtq3nLHiRLupaS1ElEYcUUm9cUVt9xPi5oxn5PBrm50i6dsjaa3+gdOJR+T99bdtI+g
+	VW+9XszQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0NS5-00000009MqJ-0C27;
-	Thu, 03 Apr 2025 16:30:01 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1u0NYf-00000009NQa-2RcF;
+	Thu, 03 Apr 2025 16:36:49 +0000
+Received: from mail-dm6nam12on20724.outbound.protection.outlook.com ([2a01:111:f403:2417::724] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0NQG-00000009MdI-3ikx
+	id 1u0NWs-00000009NGw-0UHq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 16:28:10 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 533BPkd8024168;
-	Thu, 3 Apr 2025 18:28:02 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=Ah0TZGtUrsVvEFBC1fVW/Y
-	qrrmYj+hZ4lBmeNXKbcZM=; b=Bpsuto1naypPj/7FNujwTbvYkxWE3xsuM0Tlva
-	VSxwJwK8qogA12QCLDCIBcxfGabnbXgIo6fwCaLW2AQyFofetj2tS2HiD8AVpCaR
-	5GrG62sYWAUMWtIEWm8xyAJww/Xz+8XoDDcrQPhH8C6WtA7+x/4CAFhReXFFOw4x
-	Wv12FsNGS3XZHazEci1SqACJEYW9JvbWnlawCewOvHVuWgWGOgLtG4nJVgHnhhbZ
-	bBMC6hA86uVTG5B4CaV1k1hZdFI0A8q9HGOkhvW/3OiONEY3Exxu6evAYUpixqe4
-	PEtfCbSDiMaqP2Rz6l6bW3hVWcY1FBlguUJZlZdPRDzCpL1w==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45s2c7fdwx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 03 Apr 2025 18:28:02 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6E4924007E;
-	Thu,  3 Apr 2025 18:26:37 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E01CE8C49E5;
-	Thu,  3 Apr 2025 18:24:31 +0200 (CEST)
-Received: from localhost (10.48.87.151) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 3 Apr
- 2025 18:24:31 +0200
-From: Olivier Moysan <olivier.moysan@foss.st.com>
-To: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>
-CC: Olivier Moysan <olivier.moysan@foss.st.com>,
-        Fabrice Gasnier
-	<fabrice.gasnier@foss.st.com>,
-        <linux-iio@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2] iio: adc: stm32: add oversampling support
-Date: Thu, 3 Apr 2025 18:23:57 +0200
-Message-ID: <20250403162358.1257370-1-olivier.moysan@foss.st.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 03 Apr 2025 16:34:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O+vHy9wRstqS7hxBXrkLppw4GrXSwj2uF4Mc6AxJedcqvezDGLOhEvqHToCVKquJXRiXs3QF94pkkmWcwvSw3Y63eaP219ux0Q2yV1ONz9DeEJMustWspdgwj4ghK9wPcGTV2bdNMgZbCu5J++Ytyd8F18ZigIoaUkRDQfGZPrfDcF45V85y73ecDf6nn7arCz3dy7cJINDqqKq1ZRC+gcIktzMtNzwDs0lX+IdG7sZVbLV68Jag0RdmfzNP9vzGVdMCB5+T5phkY/y5/SSIL8tIZVAZi+BpJrDw+f1teqxjYXS4gNrQDPEI2Oz35uRL3cKnv6HLR0r/NJBf9nenXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kvKtgygP6tDLWrHRm/ekROFKDqlYkwaxGfzAiJPsyMA=;
+ b=V1Gq8w01GDtk1h/5C4qiRQpySxVjrXPCt4ToSxWDlX6GrEHmHAfaQ8yvCj2qRQQMQjndrxTvrJ9GGeecK8VPJOvWftbVllBbJ8ZMhpdM0dXo3TBpVHfqVsh8EwA9Y9ODPMBcVnOR5MfMtz/kaxO4ZcgXTviLuOYwrqgHK2BoW6dS2Bvj9bYwvTF88awr/Fj8RVjX2RHliaPJJR3MM7/0SOSiHrz3I3rd1pTst3O+NNxtOCUOe6HyD88hCkKByOdRv2YwlMCZeNb7/jboLic2VJf4WQjhJ8k7p6++GZz2eEQ0v/WEdJWml/fba3Z4hvuxtEQi5JMfVhH+0zOTyU8nHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=amperemail.onmicrosoft.com; dkim=pass
+ header.d=amperemail.onmicrosoft.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kvKtgygP6tDLWrHRm/ekROFKDqlYkwaxGfzAiJPsyMA=;
+ b=0NXdXBgpRHY/jLC2tYTvsAwhbF9aZP9IefGVuHx5A8Zs4HwXIgPgL6/Gk9/+JaBrMtyjfIXckjeie9rwJ6PQ79pwz7Z4/iT5vcOmsCgu+zDqp60sEjGNzBVlL5z/hSGrmyyHHNtK4/DShD9ycm9/7p/qL3SOugeiVsBnLvpz+D0=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
+Received: from BN3PR01MB9212.prod.exchangelabs.com (2603:10b6:408:2cb::8) by
+ DS1PR01MB8968.prod.exchangelabs.com (2603:10b6:8:21b::15) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8534.44; Thu, 3 Apr 2025 16:34:47 +0000
+Received: from BN3PR01MB9212.prod.exchangelabs.com
+ ([fe80::3513:ad6e:208c:5dbd]) by BN3PR01MB9212.prod.exchangelabs.com
+ ([fe80::3513:ad6e:208c:5dbd%5]) with mapi id 15.20.8583.041; Thu, 3 Apr 2025
+ 16:34:47 +0000
+Message-ID: <39ba304d-4a25-435d-a90b-54447a2a59dd@amperemail.onmicrosoft.com>
+Date: Thu, 3 Apr 2025 12:34:46 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+To: linux-arm-kernel@lists.infradead.org
+References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
+ <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
+ <20250224122507.GE8144@e132581.arm.com>
+ <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
+ <20250224140317.GF8144@e132581.arm.com>
+ <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
+ <20250224180301.GI8144@e132581.arm.com>
+ <CAL_JsqKNad6eEBerUOco=SDWxdp6dgRD3FDrSt5OpGQYwwstSg@mail.gmail.com>
+ <20250225123813.GA1821331@e132581.arm.com>
+ <Z74eLRTcVym4sMqh@J2N7QTR9R3.cambridge.arm.com>
+Content-Language: en-US
+From: Adam Young <admiyo@amperemail.onmicrosoft.com>
+In-Reply-To: <Z74eLRTcVym4sMqh@J2N7QTR9R3.cambridge.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BLAPR03CA0030.namprd03.prod.outlook.com
+ (2603:10b6:208:32b::35) To BN3PR01MB9212.prod.exchangelabs.com
+ (2603:10b6:408:2cb::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.48.87.151]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-03_07,2025-04-03_01,2024-11-22_01
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PR01MB9212:EE_|DS1PR01MB8968:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5f1b28bc-0a6e-42ab-5e69-08dd72cd728a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|10070799003|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cXVKeFgzZnVqTVdLYkFFaUF4NG5zNTE0TlMwNElTR0trNmVsVmxTUTZTK1Aw?=
+ =?utf-8?B?cTFCMzNHRzNGYmVMclFOdm1veDNUa2dDa3lsc2o2SktDQngwNXRvck9rdHNC?=
+ =?utf-8?B?aGZFL05IV0F5MnhaMVZPaUtGR3JQSUZVYXRMc0ZVRmxrRUlZWFZYMUthTlJu?=
+ =?utf-8?B?dHJPS21rbE44dnN5SVdMSyt6amZoamEraWk1YzJBVm1SUFVSV0l2Wjg1ZGFE?=
+ =?utf-8?B?SUFVMEY4MTBQTVdKaEJjNmwyNEV6NWJtUmh2ajN4VGNQZUdTQU50MTVOMDRK?=
+ =?utf-8?B?OExhN3dGSzlxWjF6dktkaW0wTE1YMXhIK01Lait4RHExWGtKaW5IdWJHUjdD?=
+ =?utf-8?B?MXN2WUMwN2hrRFY3VHBRbHB1ZnZNcEYvdm9VV2dCYkpzSjBraGw4MWlqOTh0?=
+ =?utf-8?B?d2piWUkxN3JsOFp4NEU1SzNGcytSN0R0V0g0a3lZdmp2MVIvbzFYMTVCZzlo?=
+ =?utf-8?B?Rk9iV3BpcGJ1Q280YlNEWldNL1BXZWltckZyVnhxcFhOQzY0WTNkQzBTNno5?=
+ =?utf-8?B?Z0VXNHdZZWdkeGRHTXNWK0pCSTBnWmJZNFVIbVczQWVmaXdiTktEZWZxK1JQ?=
+ =?utf-8?B?eHVBbkZVM0hndUNsV1V2N3M2SzJFYUdDZzl2ODlQODhPR3J5MEJ5NWVZbTRC?=
+ =?utf-8?B?azhSVTJjRktIdG0yMWlWR1NzZFUxUndSa0tyZXFQaHNRYmYvUnlWWlpTcHN6?=
+ =?utf-8?B?V3ZlaUZzYUxCODFYQ0xMMFo0clhNVGpMM3JrcUtTUVYybW51dnRxRVYwSGN5?=
+ =?utf-8?B?NFZ4UGJZTDVOZzMwQTNTd1NNem5uK20xUE1Xa2FLeHJsMTVxQ1BUMm9FYUpx?=
+ =?utf-8?B?RFh2ZFJMY2lseHhZbWV5OTJHYngyVGFaNXdQeDJsU2NtL0w0NGkwTm5RTk0w?=
+ =?utf-8?B?K2o0NEM1Y1dBSWV6NG5uZ2I5M3hwcnM5L3crbVRtRzNGb29PL1ZPRDhVa1g2?=
+ =?utf-8?B?MHdDbWw1aGJhVWlrckhsOFFXT2pWZHJhYUQ0a202ajB2MURWVTJFekF5WkZH?=
+ =?utf-8?B?M2dha2Z1dkhIT2RIVmJma3hZTit0eUN6ekljbG9ZcUVwd2Q4ZUZ6QjlHd3M2?=
+ =?utf-8?B?L2N3UTBSVUltZGk4NGZiR1JvV0RQelVMNzFoY1N1Nm04VHhRMFZpSnpqVW45?=
+ =?utf-8?B?QXo2bTRZY2xPaE85YmtzQ2tNNnNVaU5HRGszVDRSMzNvMDZnRnRwdllUTGp6?=
+ =?utf-8?B?V3NnaEliNFA3dVdMQVRlcU9FNmRGL2tIaCtFMjVCMjBwcDdZZWNrc1JFV2NB?=
+ =?utf-8?B?WTQxS1ZHa1VDQmZ5WjhDTDNzK1R2R25helZzeXF3V1F4ZUplR3JqUTBtVGdW?=
+ =?utf-8?B?eUdHRm52VHRnaHltbEZJM3VUeFpWbVlGd01xYkg4dDNnRExWY0pQNXdIZVYz?=
+ =?utf-8?B?d2pWTlBrMmxUOW5nbFUvd2k1ZVRoNHNNZFNwQnlxaU9KQWxZWWN1Vm4raVlz?=
+ =?utf-8?B?L2pPVEdPbk1zQ0xvZFg3UzRmMEVYTmdDdTZ0aGdZckdORkg3alhZUG9MaTVS?=
+ =?utf-8?B?eEtWMDA4Y2cyTHdzbEN1ZHZtUUFndTZMWlowNWVUK3FOdUw3clVOL21ZV2Rh?=
+ =?utf-8?B?NGYyMTZJYWtEVFhJSGpFV0cxSEgzQXRnQzJXU0xPUTNkSjRoanluUXFJRTJX?=
+ =?utf-8?B?Unh2UWt3YUJXQzhFNDl0dzByQWpldEFUVFJ1cHNkcWN6cXdYdmlIYlNGbkJ3?=
+ =?utf-8?B?K3VFa2owSTZCY1RucmZSUEtNTmlLeXNjb01yWnVsaXI1NU1UOTFoSXpGbFd2?=
+ =?utf-8?B?eW5zTmFPOEpaeEdjTHVVT1R5K2FUM21tUkRScUVocWloNTVxcTJ6cFEvRHFX?=
+ =?utf-8?B?ZW9TcnRUU1MyaHdQZWlOL2FxcTNZVEhwNy9hTXhQTlFKa3VjcThhT0RVeExO?=
+ =?utf-8?Q?jeRA7Qn+HqYWT?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN3PR01MB9212.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(10070799003)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eDZJNUVyVmxCV2ZqNWF4YXM1aVM3SmlQWE1VREV5eWc1ZkNpSFo3dE4wTHA3?=
+ =?utf-8?B?RXlrcnBTa3lCUlNmekNYMDFUVjZpb09WVzU0L3hkR3huN2ZhVCttR0dsTnZS?=
+ =?utf-8?B?cklOOEJDRzVkbXZpYW40N0lsaHNrRVNyWWZzallKNnJlSDdpb1VWUGxkSWhy?=
+ =?utf-8?B?MHh3MythR05ja290T3JXOURIS2kvcEFhbG9QM2pnYW55WWI2T2JMeFJMbTBL?=
+ =?utf-8?B?TEExUUhaaGhTTE5XOEZCbm5NZ0g5dU01UCtROU41Y2lnaVZxMTlsS3d5QnVz?=
+ =?utf-8?B?Y1NMNU0xaEJRR3N3Y05aY2JtTC9RRGVzZm5PSFozOWtDOUJYbTcyRGlMZFRW?=
+ =?utf-8?B?N1Qzc2dJWnQvTVJHQjlpMHByRStHcjVDT2tCWmhiNHZhbGdWNmJOeWJ1TUJW?=
+ =?utf-8?B?RUQreWNzLzZYMVlIMTdOZjhGM0toYXN3d3pObjRtK0N1OXRVczBaZGdqWTdv?=
+ =?utf-8?B?RE1YaEE5aUM5YUJOTU5IdXUrMWUya1BMTGhLSi9vMGVzQkZGMmJIc0Q0K3pj?=
+ =?utf-8?B?MjNUNGQ2UVhGWjZIOWMxTGtPTkN3K2taS2cwcGlqdy9PUTZpbFFlYk4ycGc0?=
+ =?utf-8?B?b21lSHR5ZXcxdXNyUE9FU1pBK1hlc09qTFhoM1BPS1RPRnlwS2FkdnFCNjNH?=
+ =?utf-8?B?RGRnS2JydG5tSTlIT0l3QW5MaC8zTS9ndUUvVStOYUxGK003UEhtQ0xDczBT?=
+ =?utf-8?B?WEpzeWNib3c0RXk4THBzY1dKUHNFZk90S2QvanRlOXBEelhiQjJDemc5NnU4?=
+ =?utf-8?B?Sjh0c0JEektHWUZPRHIxeGMrUG9VQ2VSYm50S0o1YTF5ZEphck9IVDBaWjdi?=
+ =?utf-8?B?L2liSGkxSUJIY0xyTklkcHR1K2YwYU8rNmZUTVdnTzRtV3JuTE45c1pFSTdt?=
+ =?utf-8?B?ZTZKRGd1T3ZhY1kybEtsNjZRMlVybjh2VjBWYjRRR3NRRWROOC9mTFJhUlJZ?=
+ =?utf-8?B?Z0pIUHlvNi9mZVpteHZMbW85RDU0bkZBNldKS0gxaWowN1JnSTU3dmNBZDd0?=
+ =?utf-8?B?Vkc3UzFTOTAvUnNKVXhZZmNFV3ZCS1Z2c0QrMnhXTDlxZkRXUHZTUFViUC9Z?=
+ =?utf-8?B?S2xsMzJFQVJmVExrb1QxZVlYRDhOT2UrRDkwMVkrSVI2SStOOXN4WlpnM0Jp?=
+ =?utf-8?B?c3F3R2k3Y3orM3ZVYkpxNjlSdkVnVXU0d3I4S0NVSjF4MFJpY2tmcFlPWU9p?=
+ =?utf-8?B?TmZjM0Qrd1M3R1crcitaN3NFdzVSVnpHNTIweHpkd3JhS0NjUXdLdll6MnhG?=
+ =?utf-8?B?VEVzU09uTnF3U0FQR0RaZjR4ajZLV2x3bDZDdU9IV1RIQk5tenJnd3F2eWZv?=
+ =?utf-8?B?NjFQNFNCcm5EUU1NWmtFRTlxRnJuczM5bm5iUi9QSE9oSTNpZGlIQmNxTHNl?=
+ =?utf-8?B?cGJkNUIvUjY0NlJLQ3VMbzVXRlh3MG9BaGZiY0JuNFZ6eUJsM2ZFbUQyTEJl?=
+ =?utf-8?B?WXY0YU9DR3dlSXV3Z1Z5bFJiQUhnd3NuUk9QRmxwMFF4T3Evc2krazMraTU3?=
+ =?utf-8?B?a3pYTUQrQXFRU2RuK25PTG5zVUlYOWJKbXBPYnA0OThQTnNOSGQwUVlKWlNS?=
+ =?utf-8?B?cWd1R2RUS3JrdnZjaFNKRnpEMGh2V2k0UlN0WFV5akptbXZQcGlTcmR3b1Zw?=
+ =?utf-8?B?OU95dFVxeU5Dc3VLOERRMjZNZlVIV0Q0OGFZa0o0VUFOTDIxaWJOL2NRK3NZ?=
+ =?utf-8?B?eFNxR2hFRHNrZjVjVEVtcUlpc0JKYVZOYjFWWmlSZU1ETWd6Yk5hcFJqcHcx?=
+ =?utf-8?B?eDdYUWk0U0IxQTJxbTByZkJCNU9OM2plUlhsaWVNODZzOTlML09CeGhLbko2?=
+ =?utf-8?B?bXg5bWNaSkRPNm9vOFFhelVVNHVQdVc2Nm5BcDFaU2V5RWxNb2RLYUowN0Np?=
+ =?utf-8?B?TXVWa3UzZkZFMTdtcy9TNllwNGUvOThSaW9RU0lFV1NkaHlDazZqOUhKeDUx?=
+ =?utf-8?B?c0NXbFAxRklWMEtMUFpSRXBoK01vVmZWU2xKajZtQldISHQ4MWhZT1R0RzI1?=
+ =?utf-8?B?OTdvRDgyMitVbE5RUDVGMnNUeW5mbnJ3Y29YS0sydjR2emhpU2ZCZmFhSERo?=
+ =?utf-8?B?cFBrc3REYTlNRWtWcVorT21CUHhpQlhCR251Qkh4N2IyTVRpRFYrNEdSM2Y1?=
+ =?utf-8?B?TFVpTC82aGVRMnhyR3JDQ1dHSnNlaHpDSGtsRjJCMk1lT0hJWXc5Nkp2NFdO?=
+ =?utf-8?B?ZVQyMnlsTTBIQnV0dTNoTGdYaHpqeVIrM0RrN3Q5NTZVK01sdWhMQ3hFeTc2?=
+ =?utf-8?Q?kRkyMaDKxnZ77GGZhoOJ0EDQOsPriaqAsmujpzDfzc=3D?=
+X-OriginatorOrg: amperemail.onmicrosoft.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f1b28bc-0a6e-42ab-5e69-08dd72cd728a
+X-MS-Exchange-CrossTenant-AuthSource: BN3PR01MB9212.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2025 16:34:47.3077
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0Odthc55emvDv0S/+BOhBp2/GrIYPcKAhRpHk7T5U/68MTKSZs6aBAlmhJ+0q1RoY1y8jgYN1WvzUnfUhPimJutSGgJyyJjpNLl5GE1amfBtBpPtNU6oRcAloL3rr418
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS1PR01MB8968
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_092809_222415_CFDAFCB7 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20250403_093458_220137_4D605479 
+X-CRM114-Status: GOOD (  34.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,368 +184,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add oversampling support for STM32H7, STM32MP15 & STM32MP13.
-STM32F4 ADC has no oversampling feature.
+Is this something we can try to test? I have the ability to set this up 
+and test it on a server system in my lab.
 
-The current support of the oversampling feature aims at increasing
-the data SNR, without changing the data resolution.
-As the oversampling by itself increases data resolution,
-a right shift is applied to keep initial resolution.
-Only the oversampling ratio corresponding to a power of two are
-supported here, to get a direct link between right shift and
-oversampling ratio. (2exp(n) ratio <=> n right shift)
+If we can't write up a potential test case, it is not testable, and thus 
+probably not something to worry about.
 
-The oversampling ratio is shared by all channels, whatever channel type.
-(e.g. single ended or differential).
 
-Oversampling can be configured using IIO ABI:
-- in_voltage_oversampling_ratio_available
-- in_voltage_oversampling_ratio
 
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-
----
-Changes in v2:
-- Remove useless header files
-- Use FIELD_PREP macro
-- Reorder stm32_adc_write_raw() function
----
- drivers/iio/adc/stm32-adc-core.h |  14 ++++
- drivers/iio/adc/stm32-adc.c      | 137 +++++++++++++++++++++++++++++++
- 2 files changed, 151 insertions(+)
-
-diff --git a/drivers/iio/adc/stm32-adc-core.h b/drivers/iio/adc/stm32-adc-core.h
-index 73b2c2e91c08..bfd42c5456bf 100644
---- a/drivers/iio/adc/stm32-adc-core.h
-+++ b/drivers/iio/adc/stm32-adc-core.h
-@@ -91,6 +91,7 @@
- #define STM32H7_ADC_IER			0x04
- #define STM32H7_ADC_CR			0x08
- #define STM32H7_ADC_CFGR		0x0C
-+#define STM32H7_ADC_CFGR2		0x10
- #define STM32H7_ADC_SMPR1		0x14
- #define STM32H7_ADC_SMPR2		0x18
- #define STM32H7_ADC_PCSEL		0x1C
-@@ -160,6 +161,13 @@
- #define STM32H7_DMNGT_SHIFT		0
- #define STM32H7_DMNGT_MASK		GENMASK(1, 0)
- 
-+/* STM32H7_ADC_CFGR2 bit fields */
-+#define STM32H7_OVSR_MASK		GENMASK(25, 16) /* Correspond to OSVR field in datasheet */
-+#define STM32H7_OVSR(v)			FIELD_PREP(STM32H7_OVSR_MASK, v)
-+#define STM32H7_OVSS_MASK		GENMASK(8, 5)
-+#define STM32H7_OVSS(v)			FIELD_PREP(STM32H7_OVSS_MASK, v)
-+#define STM32H7_ROVSE			BIT(0)
-+
- enum stm32h7_adc_dmngt {
- 	STM32H7_DMNGT_DR_ONLY,		/* Regular data in DR only */
- 	STM32H7_DMNGT_DMA_ONESHOT,	/* DMA one shot mode */
-@@ -226,6 +234,12 @@ enum stm32h7_adc_dmngt {
- #define STM32MP13_RES_SHIFT		3
- #define STM32MP13_RES_MASK		GENMASK(4, 3)
- 
-+/* STM32MP13_ADC_CFGR2 bit fields */
-+#define STM32MP13_OVSR_MASK		GENMASK(4, 2)
-+#define STM32MP13_OVSR(v)		FIELD_PREP(STM32MP13_OVSR_MASK, v)
-+#define STM32MP13_OVSS_MASK		GENMASK(8, 5)
-+#define STM32MP13_OVSS(v)		FIELD_PREP(STM32MP13_OVSS_MASK, v)
-+
- /* STM32MP13_ADC_DIFSEL - bit fields */
- #define STM32MP13_DIFSEL_MASK		GENMASK(18, 0)
- 
-diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
-index 5dbf5f136768..0f0910e05de8 100644
---- a/drivers/iio/adc/stm32-adc.c
-+++ b/drivers/iio/adc/stm32-adc.c
-@@ -6,6 +6,7 @@
-  * Author: Fabrice Gasnier <fabrice.gasnier@st.com>.
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/debugfs.h>
- #include <linux/delay.h>
-@@ -202,11 +203,13 @@ struct stm32_adc;
-  * @has_boostmode:	boost mode support flag
-  * @has_linearcal:	linear calibration support flag
-  * @has_presel:		channel preselection support flag
-+ * @has_oversampling:	oversampling support flag
-  * @prepare:		optional prepare routine (power-up, enable)
-  * @start_conv:		routine to start conversions
-  * @stop_conv:		routine to stop conversions
-  * @unprepare:		optional unprepare routine (disable, power-down)
-  * @irq_clear:		routine to clear irqs
-+ * @set_ovs:		routine to set oversampling configuration
-  * @smp_cycles:		programmable sampling time (ADC clock cycles)
-  * @ts_int_ch:		pointer to array of internal channels minimum sampling time in ns
-  */
-@@ -219,11 +222,13 @@ struct stm32_adc_cfg {
- 	bool has_boostmode;
- 	bool has_linearcal;
- 	bool has_presel;
-+	bool has_oversampling;
- 	int (*prepare)(struct iio_dev *);
- 	void (*start_conv)(struct iio_dev *, bool dma);
- 	void (*stop_conv)(struct iio_dev *);
- 	void (*unprepare)(struct iio_dev *);
- 	void (*irq_clear)(struct iio_dev *indio_dev, u32 msk);
-+	void (*set_ovs)(struct iio_dev *indio_dev, u32 ovs_idx);
- 	const unsigned int *smp_cycles;
- 	const unsigned int *ts_int_ch;
- };
-@@ -255,6 +260,7 @@ struct stm32_adc_cfg {
-  * @num_diff:		number of differential channels
-  * @int_ch:		internal channel indexes array
-  * @nsmps:		number of channels with optional sample time
-+ * @ovs_idx:		current oversampling ratio index (in oversampling array)
-  */
- struct stm32_adc {
- 	struct stm32_adc_common	*common;
-@@ -282,6 +288,7 @@ struct stm32_adc {
- 	u32			num_diff;
- 	int			int_ch[STM32_ADC_INT_CH_NB];
- 	int			nsmps;
-+	int			ovs_idx;
- };
- 
- struct stm32_adc_diff_channel {
-@@ -293,12 +300,24 @@ struct stm32_adc_diff_channel {
-  * struct stm32_adc_info - stm32 ADC, per instance config data
-  * @max_channels:	Number of channels
-  * @resolutions:	available resolutions
-+ * @oversampling:	available oversampling ratios
-  * @num_res:		number of available resolutions
-+ * @num_ovs:		number of available oversampling ratios
-  */
- struct stm32_adc_info {
- 	int max_channels;
- 	const unsigned int *resolutions;
-+	const unsigned int *oversampling;
- 	const unsigned int num_res;
-+	const unsigned int num_ovs;
-+};
-+
-+static const unsigned int stm32h7_adc_oversampling_avail[] = {
-+1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
-+};
-+
-+static const unsigned int stm32mp13_adc_oversampling_avail[] = {
-+1, 2, 4, 8, 16, 32, 64, 128, 256
- };
- 
- static const unsigned int stm32f4_adc_resolutions[] = {
-@@ -322,14 +341,18 @@ static const unsigned int stm32h7_adc_resolutions[] = {
- static const struct stm32_adc_info stm32h7_adc_info = {
- 	.max_channels = STM32_ADC_CH_MAX,
- 	.resolutions = stm32h7_adc_resolutions,
-+	.oversampling = stm32h7_adc_oversampling_avail,
- 	.num_res = ARRAY_SIZE(stm32h7_adc_resolutions),
-+	.num_ovs = ARRAY_SIZE(stm32h7_adc_oversampling_avail),
- };
- 
- /* stm32mp13 can have up to 19 channels */
- static const struct stm32_adc_info stm32mp13_adc_info = {
- 	.max_channels = 19,
- 	.resolutions = stm32f4_adc_resolutions,
-+	.oversampling = stm32mp13_adc_oversampling_avail,
- 	.num_res = ARRAY_SIZE(stm32f4_adc_resolutions),
-+	.num_ovs = ARRAY_SIZE(stm32mp13_adc_oversampling_avail),
- };
- 
- /*
-@@ -889,6 +912,41 @@ static void stm32mp13_adc_start_conv(struct iio_dev *indio_dev, bool dma)
- 	stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADSTART);
- }
- 
-+static void stm32h7_adc_set_ovs(struct iio_dev *indio_dev, u32 ovs_idx)
-+{
-+	struct stm32_adc *adc = iio_priv(indio_dev);
-+	u32 ovsr_bits, bits, msk;
-+
-+	msk = STM32H7_ROVSE | STM32H7_OVSR_MASK | STM32H7_OVSS_MASK;
-+	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR2, msk);
-+
-+	if (!ovs_idx)
-+		return;
-+
-+	ovsr_bits = (1 << ovs_idx) - 1;
-+	bits = STM32H7_ROVSE | STM32H7_OVSS(ovs_idx) | STM32H7_OVSR(ovsr_bits);
-+
-+	stm32_adc_set_bits(adc, STM32H7_ADC_CFGR2, bits & msk);
-+}
-+
-+static void stm32mp13_adc_set_ovs(struct iio_dev *indio_dev, u32 ovs_idx)
-+{
-+	struct stm32_adc *adc = iio_priv(indio_dev);
-+	u32 bits, msk;
-+
-+	msk = STM32H7_ROVSE | STM32MP13_OVSR_MASK | STM32MP13_OVSS_MASK;
-+	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR2, msk);
-+
-+	if (!ovs_idx)
-+		return;
-+
-+	bits = STM32H7_ROVSE | STM32MP13_OVSS(ovs_idx);
-+	if (ovs_idx - 1)
-+		bits |= STM32MP13_OVSR(ovs_idx - 1);
-+
-+	stm32_adc_set_bits(adc, STM32H7_ADC_CFGR2, bits & msk);
-+}
-+
- static int stm32h7_adc_exit_pwr_down(struct iio_dev *indio_dev)
- {
- 	struct stm32_adc *adc = iio_priv(indio_dev);
-@@ -1461,6 +1519,69 @@ static int stm32_adc_single_conv(struct iio_dev *indio_dev,
- 	return ret;
- }
- 
-+static int stm32_adc_write_raw(struct iio_dev *indio_dev,
-+			       struct iio_chan_spec const *chan,
-+			       int val, int val2, long mask)
-+{
-+	struct stm32_adc *adc = iio_priv(indio_dev);
-+	struct device *dev = indio_dev->dev.parent;
-+	int nb = adc->cfg->adc_info->num_ovs;
-+	u32 idx;
-+	int ret;
-+
-+	switch (mask) {
-+	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
-+		if (val2)
-+			return -EINVAL;
-+
-+		for (idx = 0; idx < nb; idx++)
-+			if (adc->cfg->adc_info->oversampling[idx] == val)
-+				break;
-+
-+		if (idx >= nb)
-+			return -EINVAL;
-+
-+		ret = iio_device_claim_direct_mode(indio_dev);
-+		if (ret)
-+			return ret;
-+
-+		ret = pm_runtime_resume_and_get(dev);
-+		if (ret < 0)
-+			goto err;
-+
-+		adc->cfg->set_ovs(indio_dev, idx);
-+
-+		pm_runtime_mark_last_busy(dev);
-+		pm_runtime_put_autosuspend(dev);
-+
-+		adc->ovs_idx = idx;
-+
-+err:
-+		iio_device_release_direct_mode(indio_dev);
-+
-+		return ret;
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+static int stm32_adc_read_avail(struct iio_dev *indio_dev,
-+				struct iio_chan_spec const *chan,
-+				const int **vals, int *type, int *length, long m)
-+{
-+	struct stm32_adc *adc = iio_priv(indio_dev);
-+
-+	switch (m) {
-+	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
-+		*type = IIO_VAL_INT;
-+		*length = adc->cfg->adc_info->num_ovs;
-+		*vals = adc->cfg->adc_info->oversampling;
-+		return IIO_AVAIL_LIST;
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
- static int stm32_adc_read_raw(struct iio_dev *indio_dev,
- 			      struct iio_chan_spec const *chan,
- 			      int *val, int *val2, long mask)
-@@ -1502,6 +1623,10 @@ static int stm32_adc_read_raw(struct iio_dev *indio_dev,
- 			*val = 0;
- 		return IIO_VAL_INT;
- 
-+	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
-+		*val = adc->cfg->adc_info->oversampling[adc->ovs_idx];
-+		return IIO_VAL_INT;
-+
- 	default:
- 		return -EINVAL;
- 	}
-@@ -1678,6 +1803,8 @@ static int stm32_adc_debugfs_reg_access(struct iio_dev *indio_dev,
- 
- static const struct iio_info stm32_adc_iio_info = {
- 	.read_raw = stm32_adc_read_raw,
-+	.write_raw = stm32_adc_write_raw,
-+	.read_avail = stm32_adc_read_avail,
- 	.validate_trigger = stm32_adc_validate_trigger,
- 	.hwfifo_set_watermark = stm32_adc_set_watermark,
- 	.update_scan_mode = stm32_adc_update_scan_mode,
-@@ -1971,6 +2098,10 @@ static void stm32_adc_chan_init_one(struct iio_dev *indio_dev,
- 		chan->info_mask_separate = BIT(IIO_CHAN_INFO_RAW);
- 	chan->info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE) |
- 					 BIT(IIO_CHAN_INFO_OFFSET);
-+	if (adc->cfg->has_oversampling) {
-+		chan->info_mask_shared_by_all |= BIT(IIO_CHAN_INFO_OVERSAMPLING_RATIO);
-+		chan->info_mask_shared_by_all_available = BIT(IIO_CHAN_INFO_OVERSAMPLING_RATIO);
-+	}
- 	chan->scan_type.sign = 'u';
- 	chan->scan_type.realbits = adc->cfg->adc_info->resolutions[adc->res];
- 	chan->scan_type.storagebits = 16;
-@@ -2587,6 +2718,7 @@ static const struct stm32_adc_cfg stm32h7_adc_cfg = {
- 	.has_boostmode = true,
- 	.has_linearcal = true,
- 	.has_presel = true,
-+	.has_oversampling = true,
- 	.start_conv = stm32h7_adc_start_conv,
- 	.stop_conv = stm32h7_adc_stop_conv,
- 	.prepare = stm32h7_adc_prepare,
-@@ -2594,6 +2726,7 @@ static const struct stm32_adc_cfg stm32h7_adc_cfg = {
- 	.smp_cycles = stm32h7_adc_smp_cycles,
- 	.irq_clear = stm32h7_adc_irq_clear,
- 	.ts_int_ch = stm32_adc_min_ts_h7,
-+	.set_ovs = stm32h7_adc_set_ovs,
- };
- 
- static const unsigned int stm32_adc_min_ts_mp1[] = { 100, 100, 100, 4300, 9800 };
-@@ -2607,6 +2740,7 @@ static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
- 	.has_boostmode = true,
- 	.has_linearcal = true,
- 	.has_presel = true,
-+	.has_oversampling = true,
- 	.start_conv = stm32h7_adc_start_conv,
- 	.stop_conv = stm32h7_adc_stop_conv,
- 	.prepare = stm32h7_adc_prepare,
-@@ -2614,6 +2748,7 @@ static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
- 	.smp_cycles = stm32h7_adc_smp_cycles,
- 	.irq_clear = stm32h7_adc_irq_clear,
- 	.ts_int_ch = stm32_adc_min_ts_mp1,
-+	.set_ovs = stm32h7_adc_set_ovs,
- };
- 
- static const unsigned int stm32_adc_min_ts_mp13[] = { 100, 0, 0, 4300, 9800 };
-@@ -2623,6 +2758,7 @@ static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
- 	.regs = &stm32mp13_adc_regspec,
- 	.adc_info = &stm32mp13_adc_info,
- 	.trigs = stm32h7_adc_trigs,
-+	.has_oversampling = true,
- 	.start_conv = stm32mp13_adc_start_conv,
- 	.stop_conv = stm32h7_adc_stop_conv,
- 	.prepare = stm32h7_adc_prepare,
-@@ -2630,6 +2766,7 @@ static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
- 	.smp_cycles = stm32mp13_adc_smp_cycles,
- 	.irq_clear = stm32h7_adc_irq_clear,
- 	.ts_int_ch = stm32_adc_min_ts_mp13,
-+	.set_ovs = stm32mp13_adc_set_ovs,
- };
- 
- static const struct of_device_id stm32_adc_of_match[] = {
--- 
-2.25.1
-
+On 2/25/25 14:46, Mark Rutland wrote:
+> On Tue, Feb 25, 2025 at 12:38:13PM +0000, Leo Yan wrote:
+>> On Mon, Feb 24, 2025 at 07:31:52PM -0600, Rob Herring wrote:
+>>
+>> [...]
+>>
+>>>>>> When event rotation happens, if without context switch, in theory we
+>>>>>> should can directly use the branch record (no invalidation, no injection)
+>>>>>> for all events.
+>>>>> No; that only works in *some* cases, and will produce incorrect results
+>>>>> in others.
+>>>>>
+>>>>> For example, consider filtering. Imagine a PMU with a single counter,
+>>>>> and two events, where event-A filters for calls-and-returns and event-B
+>>>>> filters for calls-only. When switching from event-A to event-B, it's
+>>>>> theoretically possible to keep the existing records around, knowing that
+>>>>> the returns can be filtered out later. When switching from event-B to
+>>>>> event-A we cannot keep the existing records, since there are gaps
+>>>>> whenever a return should have been recorded.
+>>>> Seems to me, the problem is not caused by event rotation.  We need to
+>>>> calculate a correct filter in the first place - the BRBE driver should
+>>>> calculate a superset for all filters of events for a session.  Then,
+>>>> generate branch record based event's specific filter.
+>>> The driver doesn't have enough information. If it is told to schedule
+>>> event A, it doesn't know anything about event B. It could in theory
+>>> try to remember event B if event B had already been scheduled, but it
+>>> never knows when event B is gone.
+>> E.g., I tried below command for enabling 10 events in a perf session:
+>>
+>>    perf record -e armv9_nevis/r04/ -e armv9_nevis/r05/ \
+>>                -e armv9_nevis/r06/ -e armv9_nevis/r07/ \
+>>                -e armv9_nevis/r08/ -e armv9_nevis/r09/ \
+>>                -e armv9_nevis/r10/ -e armv9_nevis/r11/ \
+>>                -e armv9_nevis/r12/ -e armv9_nevis/r13/ \
+>>                -- sleep 1
+>>
+>> For Arm PMU, the flow below is invoked for every event on every
+>> affinied CPU in initialization phase:
+>>
+>>    armpmu_event_init() {
+>>      armv8pmu_set_event_filter();
+>>    }
+>>
+>> Shouldn't we calculate a superset branch filter for all events, store
+>> it into a per-CPU data structure and then apply the filter on BRBE?
+> Should we? No.
+>
+> *NONE* of the events in your example are CPU-bound, and the call to
+> armpmu_event_init() can happen on an arbitrary CPU which the relevant
+> event never actually runs on, while other unrelated events may run on
+> that CPU.
+>
+> It makes no sense for armv8pmu_set_event_filter() to write to a per-cpu
+> structure. That's purely there to determine what the filters *should* be
+> when *that specific event* is programmed into hardware.
+>
+> As Rob and I have pointed out already, the *only* thing that can be
+> relevant to deciding the configuration of HW filtering is the set of
+> events which are *active* on that CPU.
+>
+>>>>> There are a number of cases of that shape given the set of configurable
+>>>>> filters. In theory it's possible to retain those in some cases, but I
+>>>>> don't think that the complexity is justified.
+>>>>>
+>>>>> Similarly, whenever kernel branches are recorded it's necessary to drop
+>>>>> the stale branches whenever branch recording is paused, as there's
+>>>>> necessarily a blackout period and hence a gap in the records.
+>>>> If we save BRBE record when a process is switched out and then restore
+>>>> the record when a process is switched in, should we can keep a decent
+>>>> branch record for performance profiling?
+>>> Keep in mind that there's only 64 branches recorded at most. How many
+>>> branches in a context switch plus reconfiguring the PMU? Not a small
+>>> percentage of 64 I think. In traces where freeze on overflow was not
+>>> working (there's an example in v18), just the interrupt entry until
+>>> BRBE was stopped was a significant part of the trace. A context switch
+>>> is going to be similar.
+>> That is true for kernel mode enabled tracing.  But we will have no
+>> such kind noises for userspace only mode tracing.
+> As mentioned elsewhere, it's not a problem for x86, so why is it
+> magically a problem for arm64?
+>
+>>>>> Do you have a reason why you think we *must* keep events around?
+>>>> Here I am really concerned are cases when a process is preempted or
+>>>> migrated.  The driver doesn't save and restore branch records for these
+>>>> cases, it just invalidates all records when a task is scheduled in.
+>>>>
+>>>> As a result, if an event overflow is close to context switch, it is
+>>>> likely to capture incomplete branch records.  For a userspace-only
+>>>> tracing, it is risk to capture empty branch record after preemption
+>>>> and migrations.
+>>> There's the same risk if something else is recording kernel branches
+>>> when you are recording userspace only. I think the user has to be
+>>> aware if other things like context switches are perturbing their data.
+>> I am confused for the decription above.  Does it refer to branch
+>> recording cross different sessions?  It is fine for me that the branch
+>> data is interleaved by different sessions (e.g. one is global tracing
+>> and another is only per-thread tracing).
+> Imagine that there's an existing process with some pid ${PID}, and
+> concurrently, the following commands are run, either by the same user or
+> different users with appropriate permissions:
+>
+> 	# Trying to record user branches only
+> 	perf record -j any,u -e cycles -p ${PID}
+>
+> 	# Trying to record kernel branches only
+> 	perf record -j any,k -e cycles -p ${PID}
+>
+> Whatever you do, the task trying to record user branches only will lose
+> some records:
+>
+> * If we make the events mutually exclusive, the branches will only be
+>    recorded when the user event is installed.
+>
+> * If we merge the HW filters and later apply a SW filter, it's very
+>    likely that kernel branches taken after exception entry have filled
+>    all the records, and there are no user branches left to sample.
+>
+>> We might need to consider an intact branch record for the single perf
+>> session case.  E.g. if userspace program calls:
+>>
+>>      func_a -> func_b -> func_c
+>>
+>> In a case for only userspace tracing, we will have no chance to preserve
+>> the call sequence of these functions after the program is switched out.
+> If those functions are small, it's very likely that they'll all be in
+> the branch history. If they're so large that they're not executed in one
+> scheduling quantum, do you expect them to fall within the same event
+> period?
+>
+> I think that you're making a big deal out of an edge case that doesn't
+> matter much in practice.
+>
+> Mark.
+>
 
