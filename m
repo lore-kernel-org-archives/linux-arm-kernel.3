@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3384CC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 07:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A08C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 07:58:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wzpkJS2FeatB2CuT5HiqbKtSuIMPBgzlsAKZTEChgfM=; b=Ne2AEXbnwa/EAq3eDwjyhy6oWQ
-	fawRIzmBTMWquq8utVtcbhzt4EcidDsyrxyTkDTAMg+bn26r092p2T2ZCi10phcr/4cocuWsR456X
-	Jwsxcd1AS4bMYgdLbbVLUvAqSHAupGqmfhosbcZdXFIW51avzYAeDyMM9UfZ5GWcjF0HUZaGy9/jC
-	CechPWP+7yJstaovliidrv0EP1z2KKYCgK7ZoMTgFkf92xYIw2xes/1Rt62zJXAJ+sASsDisV/tgT
-	l5s0/m99R7vghCLMhniz+karG1bScAFQPf2zp+OXJel/z5IgLh1EgueywqvQfth0KBEjxw8ncjbGd
-	c0HZu4ng==;
+	bh=9Y0fhpN7ZcftI4MqUOgLa83LmotaUzWJeeBCNrw39c4=; b=eTvHu1PbdlljnoUyl2m31YSXn6
+	9I89RPPn1dFTwLAr+LHR5z3t7YeYIGTrZGS38ZRi5yFdheBQRUKo4JUQ8KivSCcQN6ijaFP8AIuX3
+	6AmkHqO6Iv0u7Ehps/BVZS/Zsds1xtsvhMZsjXBL5XiOPkN2kjUIrn9mXAPpiQi4vrHBQPKqAardk
+	xgGzjZ0rqz+C+5vR5tEo2mLkgfYr2yRcYhejeqk3DRzxuNOS4aUxRZ/dxVcdK6fu9cUZzzWDdWldG
+	AqnOXuxjTs6JxgZdouG1yjtmrpnIyGGpXQfYgLpdpfWyKG/gypFrPOUFa5IEGwxbsg9arYi80+q2+
+	HmJAMHCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0FRZ-00000008BtT-1yMj;
-	Thu, 03 Apr 2025 07:56:57 +0000
+	id 1u0FTJ-00000008C50-0vSc;
+	Thu, 03 Apr 2025 07:58:45 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0FFa-000000089uo-01UN
+	id 1u0FGX-00000008AAC-01Lu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 07:44:36 +0000
+	Thu, 03 Apr 2025 07:45:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 464E6A42BA9;
-	Thu,  3 Apr 2025 07:39:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22751C4CEE9;
-	Thu,  3 Apr 2025 07:44:27 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5EBADA44271;
+	Thu,  3 Apr 2025 07:40:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 322F5C4CEE9;
+	Thu,  3 Apr 2025 07:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743666272;
-	bh=PMFz1nH70HO50CCl8uliaiuKTdwXeTJzTjaAr0EqI+0=;
+	s=k20201202; t=1743666331;
+	bh=A03wrDYWnmPYNNfdVZ6NmbPrlqWAhypxVHx4h/4zM9o=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Cgyd9n3/bGX0J4N3KWFs1vJ17aXwZElge3/gVetF1jk5mGoJGzzhV2GHosw8DT9C6
-	 ueHTSe6eDPkBRwKUDanhpkqZyHZH+IdHmEL2iPBxZwVZFB/2THU3NaNqi2Otgb6Kmg
-	 BbL7TTvidVKgntUK3PePPzSC84t2wwGG3eQweyHLpGUsh7r8eWQH3pKUBKKAPqWZOj
-	 u6YpTF/qi+l3aBSEXj2Ukn9cRH1y8Z+3vKEWtP1KKmB69S4tuCCXNY+Qhh3i2/ilwY
-	 HrLS33QAueBkpvSPRD3TakerRy0/om74Q7ZXB5p/Z7lSTVKsLKAaESuTnL5KF4VGmp
-	 EPMWh52UX5xTg==
-Message-ID: <fa7cacf4-2809-4b43-8e2a-f4b040526681@kernel.org>
-Date: Thu, 3 Apr 2025 09:44:25 +0200
+	b=gk1jHHo6QVDUUetLKNaQQzcYrrNKt2243VfA07O1kd5OxromHrg+GjL8PWstYB1ez
+	 lYyGq77xenWIrUx+b0s1ei5vb6oTVMnJLVXbBZyCPgf2Sy0Pf+JauSxVAL8L8kfDJg
+	 jDZ6t5jcvcAqB5dXFCP5WCLlPX+5RDK8MVSLNLv7cjlJB1msvgQaDGX1a6N6OjkC7V
+	 D3BuuJDT0rX7SvkKIbDw1xYjpAWKW/41v1w10o8S/olKg5XofMFyiP7cyRjv6p3D5K
+	 OntDybXLahtGon1M+StSjYCBk3ft8q1O+PUE3JWT3gY2ta4SaY8YJIBxMnOp2jjd+C
+	 0uyD8OA2QERMw==
+Message-ID: <f75fb67a-91ac-4e3d-8ce7-5e0c6c2bb2cb@kernel.org>
+Date: Thu, 3 Apr 2025 09:45:24 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/9] MAINTAINERS: add maintainer for the GOcontroll
- Moduline controllersy
-To: Frank Li <Frank.li@nxp.com>, maudspierings@gocontroll.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+Subject: Re: [PATCH v4 3/9] MAINTAINERS: add maintainer for the Ka-Ro
+ tx8p-ml81 COM module
+To: maudspierings@gocontroll.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
  Sascha Hauer <s.hauer@pengutronix.de>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 References: <20250402-initial_display-v4-0-9f898838a864@gocontroll.com>
- <20250402-initial_display-v4-4-9f898838a864@gocontroll.com>
- <Z+2NNFyd3NmfeMSr@lizhi-Precision-Tower-5810>
+ <20250402-initial_display-v4-3-9f898838a864@gocontroll.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,13 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <Z+2NNFyd3NmfeMSr@lizhi-Precision-Tower-5810>
+In-Reply-To: <20250402-initial_display-v4-3-9f898838a864@gocontroll.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_004434_195846_39650298 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250403_004533_216417_0E894B54 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,30 +123,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/04/2025 21:17, Frank Li wrote:
-> On Wed, Apr 02, 2025 at 09:07:07AM +0200, Maud Spierings via B4 Relay wrote:
->> From: Maud Spierings <maudspierings@gocontroll.com>
->>
->> Add a maintainer for the GOcontroll Moduline series of controllers.
->>
->> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
->> ---
->>  MAINTAINERS | 6 ++++++
->>  1 file changed, 6 insertions(+)
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 4b3864a9852f9fca2be48987d383c0671e668336..7d4fbfdaaac1776fc7c4a569f7ab667f0a485eab 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -10043,6 +10043,12 @@ L:	linux-media@vger.kernel.org
->>  S:	Maintained
->>  F:	drivers/media/usb/go7007/
->>
->> +GOCONTROLL MODULINE CONTROLLERS
->> +M:	Maud Spierings <maudspierings@gocontroll.com>
->> +L:	devicetree@vger.kernel.org
+On 02/04/2025 09:07, Maud Spierings via B4 Relay wrote:
+> From: Maud Spierings <maudspierings@gocontroll.com>
+> 
+> Add GOcontroll as unofficial maintainers of the Ka-Ro tx8p-ml81 COM
+> module bindings.
+> 
+> This support is not officially done by Ka-Ro electronics, if they at
+> some point will supporting mainline, this should be changed to them.
+> 
+> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+> ---
+>  MAINTAINERS | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 322ee00547f6e494a96d2495092f72148da22bd0..4b3864a9852f9fca2be48987d383c0671e668336 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -12752,6 +12752,13 @@ S:	Maintained
+>  F:	Documentation/hwmon/k8temp.rst
+>  F:	drivers/hwmon/k8temp.c
+>  
+> +KA-RO TX8P COM MODULE
+> +M:	Maud Spierings <maudspierings@gocontroll.com>
+> +L:	devicetree@vger.kernel.org
 
-And this is not needed. Drop irrelevant entries.
+Drop
+
+> +L:	imx@lists.linux.dev
+
+I would say this as well, but not my subsystem to worry.
 
 Best regards,
 Krzysztof
