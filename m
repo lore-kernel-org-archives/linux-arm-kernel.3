@@ -4,101 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C390C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 09:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED5AC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:00:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/FZ2sB+aGjDu2Ign5/fbJkQ1EFpiN/+kFXshKweSgHY=; b=hJgR8Qq9pWitDvLnLPKgwnM8dY
-	N4dCkVuAQsldcx8BKLlqU2Jh2OK2rmMh02I0WzQuyPMkDPSkSt9oquNytErD4TH4yA6eFSh+NbZ25
-	Tg+Th5e9G6ZMkBiHH9I5DSFfyiz5zLDhG6uJrJ7gXs7W1vk1w3IscHhoEPe+BhT6LD0/wVBpOMaX1
-	P3hbXl60Uosq7kDyR2yaT97AVGl9Z0/7Z9FRGqTEUhSuf86V7gXKLuvMflKrqtsSNOVgABETVmCUd
-	3r5+GiH5y3utqp99voAhOGSLXkuMJHoNkHtb2ebzhanXywM0s4juxT6pl6URI2A/PkSzG29fJURvJ
-	Fp39BKZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3kNso+hK1n4iMaCMwsIjpacjAkCoQDiy41c2Y+VhG8E=; b=jdwAEYN8EAwT1BDtt17TnhnXlu
+	4igXow7SwGSYJkEhVtxvUAmE3JkPhl00i4binEohZHipF/lGEDLV+yDuBkKwGEjN0ATYHPNb4bfhA
+	WXCBWy3H1Wamy6NmTkLAVZxo70HB/GiR3xSbSVTwpzt7MPeHs8WydzSU/eq6dvq/p8QQFwdUc+Y7Y
+	wGwjk2cMhjmXDUrA1ifmPk8oJvT3Qo/Lihx16POG0bQAc50kM97XAP59PzMVDZevxnJu2Q9AnaWke
+	OjWg2x7mAwAN4t2XJ5Gb3uzbcBnCz4auSo8MDYDHFtuaeEPJo4lvGE1HX7xEMjrUkm4iC9FB2Ayyx
+	LobcjFOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HKj-00000008TA5-3aCd;
-	Thu, 03 Apr 2025 09:58:01 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0GQ3-00000008JtW-1lxb
+	id 1u0HMT-00000008TOY-2W1s;
+	Thu, 03 Apr 2025 09:59:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0GQI-00000008JzD-20d3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 08:59:28 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5e5e34f4e89so1306210a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 01:59:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743670766; x=1744275566; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/FZ2sB+aGjDu2Ign5/fbJkQ1EFpiN/+kFXshKweSgHY=;
-        b=NzNc/KZ30p/d/0KGMk5RuhjMP1u6xgtXVlE+rIvFtn/ojg5JDlt36OzYeH4gxgPANV
-         wZcCdx8fDLrB2K4soxrgvAcVwq44/DKtLHYv3f0IVSQ+JkxF5a13WeVTxyFwVKFkjHb0
-         Kdo2HhG6BANYV4m+ajmrfAqX5d88EWS4f56cuMghqp1z9T8OEoC0T18jQnrrL+9drcEZ
-         xGi/ClNtpI2i9ba0KixK4qeqcsmDzTDawqug+sdFIjYM0yAXxDj7D4MmRHBGc3uLIm32
-         4DU8M4wpc4isjjAa5at2xie/I16Ay4S/UnBt9/glEPtX5Ab7aW1xzLx/AsJ22MzfTR+o
-         Oxvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743670766; x=1744275566;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/FZ2sB+aGjDu2Ign5/fbJkQ1EFpiN/+kFXshKweSgHY=;
-        b=poOEsbQyBUO6vU26HzBQXK+ZuDbF2oNiAi38+a3KJR+JZ9Tb+Bbrn/IX/QV4P/Mns2
-         sGm3QZDopLxYSUmGmIpMj7m3OKeVjc597zg1oEmlB5rqWTYORgzXfSSwP1i2taBHwS1j
-         dejQtQ59C1BNlHdRHQ61bNLdd8b4TYpgcX9U5i9f3U4IRYk+ToqHxtYlpIFnxiawjzoZ
-         uS58xS8dZoVMOdl5JRJosP7oHKCsdmQ06SJy/U7xTuUDUky7YclPmDrBukSGPP3gtocJ
-         2Rx3KwvdnN3H4NywVeQXlmR0+AAnYAGaFe8WHo76dBAaYqPVASf+d/EAn1zke7nStGEW
-         17sw==
-X-Forwarded-Encrypted: i=1; AJvYcCWTBkqxWuIG+B/wHci2slV1tvo7TP844+UoVP7Jr87x+pov6oM0JE7Z/70Y64+YHsYSy1IE20v4n0AwpXH2dnfk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6wYN7J0cBJ/m19ENmpzyNurIq7JflF+XjjBxf/NOucceWK89h
-	T+zQYt630SbWtgdBDQ5Pg+Gfh0k/suiZ35fv9dM34RpfSklo2Ac7GwrJF+wUjTMIjaxhQjJI0jw
-	Fey0=
-X-Gm-Gg: ASbGnctDV1KWn0nnMQ/vyNDe3o4f0DY3YX0wpLxMJ9i+DT3azaK6CpeOM+8VYNt1Dow
-	pn/N8PjXgm3c6oWnDMKM1G0PcrZzJw5wOE7M8BuF/oHacQEoTcfxGlhCcpF2OU/fOZmlQrDKWp5
-	p7B1dNWah52pR+Vr7bnt6qK27ryK/pHi+wFVvjfrHkTg1p0f2tSeNRxyIZfMjf42HZ67OnY3kcQ
-	kT4+p3cL8ewBREWjRwymBKyZ8s7cvhrJkcfdrhwpO0XOhzkEpYZsIkRP1toqpUrghjSUB3bsE+a
-	7hVNOgR4sT05TAUF52zpb3/EGUFAjqi+sDKRShDxa42PzmtGmMbWw2De22nUtaD/9vTu/Fa/CDn
-	MXj6b8vxdz3ZgtrlswgxzX41Nqv8W
-X-Google-Smtp-Source: AGHT+IGQNpVavXNQ9/frqDzO9rSosrg/aPUOlz+BV6bBkX6B3R/1cOiAuqPEN4gk8MQb14kPnJPxIg==
-X-Received: by 2002:a05:6402:40c2:b0:5ee:497:d714 with SMTP id 4fb4d7f45d1cf-5f04ec3a302mr4194362a12.34.1743670755488;
-        Thu, 03 Apr 2025 01:59:15 -0700 (PDT)
-Received: from puffmais.c.googlers.com (8.239.204.35.bc.googleusercontent.com. [35.204.239.8])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f0880a535fsm637614a12.80.2025.04.03.01.59.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Apr 2025 01:59:15 -0700 (PDT)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Thu, 03 Apr 2025 09:59:17 +0100
-Subject: [PATCH v3 25/32] rtc: s5m: cache value of platform_get_device_id()
- during probe
+	Thu, 03 Apr 2025 08:59:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8716E106F;
+	Thu,  3 Apr 2025 01:59:44 -0700 (PDT)
+Received: from bogus (unknown [10.57.41.33])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BB72B3F63F;
+	Thu,  3 Apr 2025 01:59:40 -0700 (PDT)
+Date: Thu, 3 Apr 2025 09:59:38 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Matthew Bystrin <dev.mbstr@gmail.com>, arm-scmi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Philipp Zabel <p.zabel@pengutronix.de>, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH] firmware: arm_scmi: add timeout in
+ do_xfer_with_response()
+Message-ID: <20250403-discreet-tangerine-mink-d5faaf@sudeepholla>
+References: <20250402104254.149998-1-dev.mbstr@gmail.com>
+ <20250402-hidden-unyielding-carp-7ee32d@sudeepholla>
+ <Z-1gY8mQLznSg5Na@pluto>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250403-s2mpg10-v3-25-b542b3505e68@linaro.org>
-References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
-In-Reply-To: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z-1gY8mQLznSg5Na@pluto>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_015927_474127_418DE047 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20250403_015942_559379_65983D98 
+X-CRM114-Status: GOOD (  27.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,59 +66,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-platform_get_device_id() is called mulitple times during probe. This
-makes the code harder to read than necessary.
+On Wed, Apr 02, 2025 at 05:05:55PM +0100, Cristian Marussi wrote:
+> On Wed, Apr 02, 2025 at 11:59:47AM +0100, Sudeep Holla wrote:
+> > On Wed, Apr 02, 2025 at 01:42:54PM +0300, Matthew Bystrin wrote:
+> > > Add timeout argument to do_xfer_with_response() with subsequent changes
+> > > in corresponding drivers. To maintain backward compatibility use
+> > > previous hardcoded timeout value.
+> > > 
+> 
+> Hi Matthew, Sudeep,
+> 
+> this is something I had my eyes on since a while and never get back to
+> it....so thanks for looking at this first of all...
+> 
+> > > According to SCMI specification [1] there is no defined timeout for
+> > > delayed messages in the interface. While hardcoded 2 seconds timeout
+> > > might be good enough for existing protocol drivers, moving it to the
+> > > function argument may be useful for vendor-specific protocols with
+> > > different timing needs.
+> > > 
+> > 
+> > Please post this patch along with the vendor specific protocols mentioned
+> > above and with the reasoning as why 2s is not sufficient.
+> 
+> Ack on this, it would be good to understand why a huge 2 secs is not
+> enough...and also...
+> 
+> > 
+> > Also instead of churning up existing users/usage, we can explore to had
+> > one with this timeout as alternative if you present and convince the
+> > validity of your use-case and the associated timing requirement.
+> > 
+> 
+> ...with the proposed patch (and any kind of alternative API proposed
+> by Sudeep) the delayed response timeout becomes a parameter of the method
+> do_xfer_with_response() and so, as a consequence, this timoeut becomes
+> effectively configurable per-transaction, while usually a timeout is
+> commonly configurable per-channel, so valid as a whole for any protocol
+> on that channel across the whole platform, AND optionally describable as
+> different from the default standard value via DT props (like max-rx-timeout).
+> 
+> Is this what we want ? (a per-transaction configurable timeout ?)
+> 
+> If not, it could be an option to make instead this a per-channel optional
+> new DT described property so that you can configure globally a different
+> delayed timeout.
+> 
+> If yes, how this new parameter is meant to be used/configured/chosen ?
+> on a per-protocol/command basis, unrelated to the specific platform we run on ?
+>  
 
-Just get the ID once, which also trims the lengths of the lines
-involved.
-
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- drivers/rtc/rtc-s5m.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/rtc/rtc-s5m.c b/drivers/rtc/rtc-s5m.c
-index db5c9b641277213aa1371776c63e2eda3f223465..53c76b0e4253a9ba225c3c723d35d9182d071607 100644
---- a/drivers/rtc/rtc-s5m.c
-+++ b/drivers/rtc/rtc-s5m.c
-@@ -637,6 +637,8 @@ static int s5m8767_rtc_init_reg(struct s5m_rtc_info *info)
- static int s5m_rtc_probe(struct platform_device *pdev)
- {
- 	struct sec_pmic_dev *s5m87xx = dev_get_drvdata(pdev->dev.parent);
-+	const struct platform_device_id	* const id =
-+		platform_get_device_id(pdev);
- 	struct s5m_rtc_info *info;
- 	struct i2c_client *i2c;
- 	const struct regmap_config *regmap_cfg;
-@@ -646,7 +648,7 @@ static int s5m_rtc_probe(struct platform_device *pdev)
- 	if (!info)
- 		return -ENOMEM;
- 
--	switch (platform_get_device_id(pdev)->driver_data) {
-+	switch (id->driver_data) {
- 	case S2MPS15X:
- 		regmap_cfg = &s2mps14_rtc_regmap_config;
- 		info->regs = &s2mps15_rtc_regs;
-@@ -670,7 +672,7 @@ static int s5m_rtc_probe(struct platform_device *pdev)
- 	default:
- 		return dev_err_probe(&pdev->dev, -ENODEV,
- 				     "Device type %lu is not supported by RTC driver\n",
--				     platform_get_device_id(pdev)->driver_data);
-+				     id->driver_data);
- 	}
- 
- 	i2c = devm_i2c_new_dummy_device(&pdev->dev, s5m87xx->i2c->adapter,
-@@ -686,7 +688,7 @@ static int s5m_rtc_probe(struct platform_device *pdev)
- 
- 	info->dev = &pdev->dev;
- 	info->s5m87xx = s5m87xx;
--	info->device_type = platform_get_device_id(pdev)->driver_data;
-+	info->device_type = id->driver_data;
- 
- 	if (s5m87xx->irq_data) {
- 		info->irq = regmap_irq_get_virq(s5m87xx->irq_data, alarm_irq);
++1 on all the points above. I agree this must be per transport. If it is
+per message then you need to think why it needs to sync command. Why can't
+it be changed to async or use notification. I am waiting to see the usage
+in your vendor protocols to understand it in more detail.
 
 -- 
-2.49.0.472.ge94155a9ec-goog
-
+Regards,
+Sudeep
 
