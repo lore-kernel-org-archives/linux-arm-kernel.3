@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD186C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 19:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34EC0C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 19:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nCiXATxaY6l/1ZlW9kfY8iPzIpuHBGnDJeYZ18LYQvM=; b=dNVG5lnyaBxSxRYJMxfZlmAJsx
-	rM4XB77JyNXJfIyMQV4+IOO8RXqj5bCyDuBIkyZoA5teTJnFrxj/NpZHWkD9GRDdpR4U2L0PaqCWi
-	G5NYpHUgYXcFNxYTehnvg85nqsL3M/E7UO/KSysJgSNBxBe6ABJ9Bza+fwYc8GaBKvLFXsBhLP/fo
-	Q+bpkwfJ6t0fFbnoiGg/vh29GZewEfngZnl7on0fVh3k0FIjMCacOWooJsYs9+Z04LT9pZ3V3IfgD
-	4XXVGvePzvtmshR3wgGZQ6UcF3ulu9WSnqAuAi4z4OrIQFlJGIB/JSNi/ghkXIUjS//ryz5XyIh2X
-	M9AjtR5w==;
+	bh=NV5Keu7PobIj1Vs9zR4FhOKfU5f9HhtMky13/A51/JY=; b=zn0YIDnTzE3p2KmqWYbrRGLjsr
+	jTILMoK0kZkeK/HZl7OXCXZhRpp5CE9AF4QuCHrfDeOMXpq1W+1hJZGBqlazK53MGZ+9yi5CqhLj6
+	M6JiBLDmvTq0B6HVbhiyLRfSVhx2F1T2lcHukz5HOU3mKJm/W1w4/i86Ei/2Fq66lvuHZLZb8tmOL
+	cwb8/VhxJGT4SZtbSF5S3LAUvyhjlkYVlNhJXQQkGMO+4qGhJYsg7fcqzTh2q3CG8lB1yd4ilcV82
+	ocdWTQetVt9ampTTC53c5jZ2Cj8ePc8p+Nwtj87e1aHUvHu8K8OlLyKTct7OIW95W5HC8e9MPFflg
+	jPcptMyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0QAa-00000009jbT-0QxE;
-	Thu, 03 Apr 2025 19:24:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u0QCM-00000009k2S-0Lpj;
+	Thu, 03 Apr 2025 19:25:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0PxP-00000009fFU-0xK8;
-	Thu, 03 Apr 2025 19:10:31 +0000
+	id 1u0Pxv-00000009fL2-4C13;
+	Thu, 03 Apr 2025 19:11:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9F1FA614B5;
-	Thu,  3 Apr 2025 19:10:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F71DC4CEE8;
-	Thu,  3 Apr 2025 19:10:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 72DF6614B3;
+	Thu,  3 Apr 2025 19:10:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3234C4CEE3;
+	Thu,  3 Apr 2025 19:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743707430;
-	bh=NANuZcB+1Aam2VftjP5x9dhJ7SvyFJhCDE5Np6+DG1g=;
+	s=k20201202; t=1743707463;
+	bh=p0tKKu06Y829F+DUE1Ct7xBxdEYR3/AUxIgzVvJ3Lyg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sdThhI7ySQBkhSrHXaB/Ie7tHBlmTGMnyuEVtRULefQqzZWtCCMcHo+B+g8lRHQiV
-	 TvH0vCuJyYMIHpvEqzDQ+ncbog5X99OXTptHZXJOGk8S2kK33dKZWU1s5mjaw4isN5
-	 sD6kQAOxeVG4V8PZAsUc5HvAJrDxqFYB03cqYlYUVGZx6DGUfOWXXwCP+2flHVao4n
-	 8hDgblPnlDiD5CCGmUbmxcJ8+P436iNJeEIdBS6yrXsJFCAZ09ZWddAf4OHNlvWocW
-	 GL8bK1p+xGsX0+shMl3baEboM9oBDOhQ4LR5I9zVEReBhw6dMxZckeNT9pPYpcj+xA
-	 0de59l6vID5hQ==
+	b=osoQnYQkpnINrA2CaWCLL5cG7z/TKM10yEBblFUqLTLLW9w4lP2Tb63pu9/qqHG6j
+	 Uh7Q9b8wVdxkTc5IRfRpDYc+DqLnVp3vbdzJAaAqFkokDdSpw01jHtXTXYB5RcXtFW
+	 QtX/4kcFG3+cODEMiTGsxxAvKKRTng6voP64QUrIOf39jRSS6IRG3EwOL0YQ7Vi0n8
+	 hQArBsUBbUMwoGpXwlfLkRebkmbHx+6kHSB9BT/66FY0o0Qr65ECJ0jp+la2UyMcN+
+	 VX9GOdgUFHxTKU0Iy3WX104n/FlHgL6NxtWimsZRYjOJhqv9Xk5YdFBR2k+O4k6HiY
+	 678SbobnicPTA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -54,16 +54,16 @@ Cc: Icenowy Zheng <uwu@icenowy.me>,
 	linux-wireless@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 12/15] wifi: mt76: mt76x2u: add TP-Link TL-WDN6200 ID to device table
-Date: Thu,  3 Apr 2025 15:09:59 -0400
-Message-Id: <20250403191002.2678588-12-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 11/14] wifi: mt76: mt76x2u: add TP-Link TL-WDN6200 ID to device table
+Date: Thu,  3 Apr 2025 15:10:33 -0400
+Message-Id: <20250403191036.2678799-11-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250403191002.2678588-1-sashal@kernel.org>
-References: <20250403191002.2678588-1-sashal@kernel.org>
+In-Reply-To: <20250403191036.2678799-1-sashal@kernel.org>
+References: <20250403191036.2678799-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.235
+X-stable-base: Linux 5.4.291
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,10 +96,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c b/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
-index 4e003c7b62cf6..82a193aac09d7 100644
+index 96a2b7ba6764b..8c392d55d59ba 100644
 --- a/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
 +++ b/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
-@@ -21,6 +21,7 @@ static const struct usb_device_id mt76x2u_device_table[] = {
+@@ -19,6 +19,7 @@ static const struct usb_device_id mt76x2u_device_table[] = {
  	{ USB_DEVICE(0x0846, 0x9053) },	/* Netgear A6210 */
  	{ USB_DEVICE(0x045e, 0x02e6) },	/* XBox One Wireless Adapter */
  	{ USB_DEVICE(0x045e, 0x02fe) },	/* XBox One Wireless Adapter */
