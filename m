@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71981C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:15:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37049C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f9Dm0qUfPGSUG/mrvv+jXyOq2F0P020vN5aNziLNwQs=; b=dq8lP6hsrNf3aYLLigdUQGNX4M
-	STi4nPhWWZovZUYBSsYPGms3D9AQNrbrWj8t9BJ5SYbM51XI4IyvvoQg9lnhO45h/4OkqrVAA1Y4p
-	aVVouPElAPLKhWX+FxHmAKjmRZlZywZcRrshJzCxWNw4HleYu1zr6tpk+ZrnpNCE7ut1T962gG4WK
-	BtihyWo5v8hqXIOzsJdIfdsl48uwq6Gh6nHeMQtfFBcNghzrlA2NaQpr/fADI16mAQOjsjQKm/x1w
-	dpsnK1oyFRY4DCdTzn2SARJUccoq4on0CnFmEp45wL3MmwbZnBKo6VBsCvJU7AN/4FyNS5aOzJIfI
-	MaU+JTqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CnhMO1b6hRRnB93Fdjcwbr51m6r8ByhYTVJ6sKtTuAc=; b=uhCbKTjq6uvchUwLQCicK+e1Mn
+	iSVphC8S4nyZSL2k9qkxXr6ivLlp8po15iWp20a+ec4p745IuycUaNvOsOIutSu5JQT9fJnGmq5wi
+	hAc9MNxg6K3TbHxr6U6rgosuIWX0CUzY/1QWyrrvJO68FfxJeXelrvIvt+v6rFWbaL2Ejgq7h3cn8
+	wo4VO26sIJTFwR4B4/z7Y3rqiRelu/P1eWzvZ1aBqw3SjKKL8ZIDT9bh4a+Bo0k+ZrEwaI2SUaCkE
+	DqJmgoVu42yvB2hUrruWA4wOb39GfKbt3ApybKzYFfcvMEQtr97Rb7HLHiLCprJvDJoFcZ5873I/6
+	j81JDfFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0LLS-0000000929B-322v;
-	Thu, 03 Apr 2025 14:15:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1u0LNF-000000092VC-1cl1;
+	Thu, 03 Apr 2025 14:16:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0LJe-000000091ql-3YtH
+	id 1u0LJs-000000091t5-3QSz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 14:13:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1743689588;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=f9Dm0qUfPGSUG/mrvv+jXyOq2F0P020vN5aNziLNwQs=;
-	b=JGuqvIf1x3G70m2Oi7WGSIQZZJcm/gCiD+OnkNhiZeJrPw+fYZpVY5OZoPiQXhOVcJzBvi
-	GUL6q+9ZX4sghOpAW3db8yaHk4Z/5yNUqJ+buKTOi3K3ZDhNCAgOpNuzxOdkOUsdPdrUre
-	TqRrBVkGGrNo/nMybB1rEbNxa2jasZI=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-562-LAmY0aFrNMuCOayjr16JeA-1; Thu,
- 03 Apr 2025 10:13:05 -0400
-X-MC-Unique: LAmY0aFrNMuCOayjr16JeA-1
-X-Mimecast-MFC-AGG-ID: LAmY0aFrNMuCOayjr16JeA_1743689583
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 596C6180AF67;
-	Thu,  3 Apr 2025 14:13:03 +0000 (UTC)
-Received: from [172.20.219.140] (unknown [10.30.44.44])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6CE7E19560AD;
-	Thu,  3 Apr 2025 14:13:02 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (6.14.0,
- upstream-arm-next, d6b13dbd)
-Date: Thu, 03 Apr 2025 14:13:02 -0000
-To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
- will@kernel.org
+	Thu, 03 Apr 2025 14:13:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8E8C05C553E;
+	Thu,  3 Apr 2025 14:11:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 035D5C4CEE3;
+	Thu,  3 Apr 2025 14:13:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743689603;
+	bh=/vMOGYJHU3N99XcnouH6J7FcQMuSYe+/VfJBY8ovNzM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u+p6CC+gU0sA+GjrzK/KJv1pZ28LBj4hRjALrTyZbw16A9CGhfbMug7igY/rxzRQV
+	 /UxPjojecDRtbWVa9Efjv/g53zKGzhNpDUKjjGnQASZSdl7kOxE8igx9mw2rZF9xGn
+	 qOC3O+xLy7oMbLEd3bipPxt20w0LqK1DDp+tYASP14qVXo5x/dWpWB5Z+bObiOn5fJ
+	 fhiDEWaGO7x88pGpdoPwWpg6g2Ayo9E+Ul12jTcJlwZ+wKu18rNwiZqAegeBqgbejr
+	 OHS+kVO31Da0hKq1Q5oHfiw3AB6ttxEo+CXVCUvqa6mJyNYZpEhPpu19QyH+CxDtTl
+	 BYxMrp7QrYYXw==
+Date: Thu, 3 Apr 2025 17:13:15 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	"Sauerwein, David" <dssauerw@amazon.de>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	David Hildenbrand <david@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [RFC PATCH 3/3] mm: Implement for_each_valid_pfn() for
+ CONFIG_SPARSEMEM
+Message-ID: <Z-6XexJWecbxnrmK@kernel.org>
+References: <Z-vn-sMtNfwyJ9VW@kernel.org>
+ <20250402201841.3245371-1-dwmw2@infradead.org>
+ <20250402201841.3245371-3-dwmw2@infradead.org>
+ <Z-4phOInXZlxFwk9@kernel.org>
+ <e465ba32fb34b31eddb18890587960671b73234f.camel@infradead.org>
+ <380d9bff359150f67ca6e0468f99ee746c1abdea.camel@infradead.org>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-Message-Id: <81629.125040310130504601@us-mta-562.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: MTeOazpMyg8Qg1xaqThfFFPbaLCEuw46bNqj_99zNvA_1743689583
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <380d9bff359150f67ca6e0468f99ee746c1abdea.camel@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_071310_952557_9A50B407 
-X-CRM114-Status: UNSURE (   6.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250403_071324_927932_A7ED70C3 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Thu, Apr 03, 2025 at 08:15:41AM +0100, David Woodhouse wrote:
+> On Thu, 2025-04-03 at 08:07 +0100, David Woodhouse wrote:
+> > 
+> > I'll see if I can make it neater. I may drop the 'ret' variable
+> > completely and just turn the match clause into unlock-and-return-true.
+> > I *like* having a single unlock site. But I think I like simpler loop
+> > code more than that.
+> 
+> That's better (IMO).
+> 
+> And I note that pfn_valid() already doesn't follow the modern fetish
+> for having only one unlock site even when it makes the surrounding code
+> more complex to do so.
+> 
+> static inline bool first_valid_pfn(unsigned long *p_pfn)
+> {
+> 	unsigned long pfn = *p_pfn;
+> 	unsigned long nr = pfn_to_section_nr(pfn);
+> 	struct mem_section *ms;
+> 
+> 	rcu_read_lock_sched();
+> 
+> 	while (nr <= __highest_present_section_nr) {
+> 		ms = __pfn_to_section(pfn);
 
-    Overall result: FAILED
-             Merge: OK
-           Compile: FAILED
+Maybe move the declaration here:
 
+ 	struct mem_section *ms = __pfn_to_section(pfn);
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+> 
+> 		if (valid_section(ms) &&
+> 		    (early_section(ms) || pfn_section_first_valid(ms, &pfn))) {
+> 			*p_pfn = pfn;
+> 			rcu_read_unlock_sched();
+> 			return true;
+> 		}
+> 
+> 		/* Nothing left in this section? Skip to next section */
+> 		nr++;
+> 		pfn = section_nr_to_pfn(nr);
+> 	}
+> 
+> 	rcu_read_unlock_sched();
+> 
+> 	return false;
+> }
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1750721162
-
-One or more kernel builds failed:
-    Unrecognized or new issues:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:1750721162-aarch64-kernel
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+-- 
+Sincerely yours,
+Mike.
 
