@@ -4,81 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FDECC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 00:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB9FC3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 00:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NyoF5i3nxCUfNVJkAVl8GCLqKKAkd0DOEReeKsHnmjw=; b=RDNhWfChELQL+0sl9pqfCuzxOZ
-	nSoC+zAsV4kLHt/MI/HJYPCcoF0P8taBd92L5EH/99wuOwsTmrtLCRQ5lwf1hwLgYIUwjYEqZh3Jo
-	DMjGIVBAPMHtNss6mK03A/3E4ZwSPOxAmD1/Ecpr/IUeLSh5B+vQeYloNe06zomABVvYBdaCEh/Y2
-	qMnNbLptbm5fL4wXpni7BW8UxtPhzIDfVounrCcfiNzh50wP9vxGIvPd4R3eVZmjGLzPrAHHgpLPm
-	xaNkIK100OkRG7LW87fRtLCGwvlKiKehIblZT26LxCjaej8FP4UC2LuJF6tU/TiFsKCK/FMb2m3Cl
-	kIgpfjTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ljcbpuZJwXDAqPnol/jqn4PauxJjKGDyJjaPa56FKYI=; b=Qkj6HITxjzjKo8GbBTy+yFppqB
+	G+aaQoW9MZ8R2Vxn7oWTPjs54d/aMK+Bbx9M58v9CPAmAN0iJEA+oPV3NVo5bjxPlHOycqfj6JaaU
+	vZmsjxKcL2gGgfuxTUVdxXylaRKROBY7/AeqLlpNufgRbx0iRiM1NCwDt8rz78i50AETF8QKdq3/M
+	CUY4PB8z73GvB8dKt6qhzH80kI8AxuLogGh+q9calLgLbQCCQWxnTZJIgoq7fy8ufCK/O5Z50+7u3
+	O3W6qxOKXW4tYDXkTfqWy0G6w28RDbL3wVBHIh9FbLDPBRg/vZ9YgH3O/xwR9o8Ahd9SUzp4ZyCry
+	lu5iZR8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u08IY-00000007URt-1a93;
-	Thu, 03 Apr 2025 00:19:10 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1u08KH-00000007UbQ-0A8f;
+	Thu, 03 Apr 2025 00:20:57 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u088Q-00000007TLs-0owN
+	id 1u088n-00000007TQh-0ab4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 00:08:43 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff798e8c3bso279853a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 17:08:41 -0700 (PDT)
+	Thu, 03 Apr 2025 00:09:06 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2242ac37caeso245445ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Apr 2025 17:09:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743638921; x=1744243721; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NyoF5i3nxCUfNVJkAVl8GCLqKKAkd0DOEReeKsHnmjw=;
-        b=KoTY/YY0rCANoexGD4Bkq2yYwxO3nob8fYTj37ouPAoR815HAXxT6DupTSoBeVi4ri
-         7h3KKhTOqWurLCjtoYJgSZO2G5qudZAexb2kCILLJfWazlle5OyUi4NM7UBQdCdvqDrY
-         eLjgeeYCyvDE6PdrRqybF9HoeClW5KU7OBWXcwsRQcXeMujL1qhy81Jl6MBteGD9ThV8
-         VuMSrMHbeWrjj+hw9wM1aib4i2v6fm1AEwjYdXV0eNurXr3+8Kj0UZvWYSmJCpUU+r4h
-         BCsDRtLeS8Segsz8Uw27rPkw+9iSKwQ7VF0F/LyJl+ieGFo5IGbDgIpgH6T2YI4oI2BY
-         4CNg==
+        d=google.com; s=20230601; t=1743638943; x=1744243743; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ljcbpuZJwXDAqPnol/jqn4PauxJjKGDyJjaPa56FKYI=;
+        b=EOJhpPDTIgzriZnle+PeObtq7OLC7QsoNVO5HGxJCPcpRV0Tu3NdWbTA8Ihpx5SKqj
+         YeXdnpON2YLvFE7xRhvuhODS5BF5lmZpdeGQwZBlYwf2bjVBVZtF6m+qE7/G3Fdnd28h
+         OqOVcTUsADO8S+QC7yMRubPRB512cGM0MYVs0lmHiCmrSq1nYn4v28o8QRMnTgLQ3qlP
+         1NkMW/t2/Q+PRlK7fAzGzqzA9c4crvwpSGABXQKGsq1VAnDyDYi+ofiX/LmOrcr+oSe6
+         nU4eNDV9Glb892/w/7eiEP83y7nzHivnf7pkzD5Caq/XPNjdDQ7B7DF/AUWmHkVRM2Uv
+         LRAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743638921; x=1744243721;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NyoF5i3nxCUfNVJkAVl8GCLqKKAkd0DOEReeKsHnmjw=;
-        b=cfkmMV0KqlxNVSk5/xDOoA05cSLMriC4OKubhQitzS93xGKNby0POzn3G47vohtVfF
-         slEl+oLzSKTaF5LucSV1ARNYjTF4wpcLgi57kHfLNrMnRK9QZFV4Y/ATxARR8Qzno92o
-         4FMbPaFgpMQEhn5ZeRvFglgbxXgViw/XFvLIINDJKY0vwOj8PN/7bgfrx6Ehy+lTyjXw
-         VHDSSQ1rHPQW9jaiH9A00JYq++v1zmiTq6jGyhXeATFg7Ma6GvYu+ZDilwVrV0gNviIb
-         L0oLY7C4mm6FFyiO8Nq7d5KjyzZNGEOFR20pc7I4R80qFKjcrGINGtwkbgpvW6tzCFLb
-         HYQg==
-X-Forwarded-Encrypted: i=1; AJvYcCXZo31j7r0cljZfEKkKMSlWDralzd6cW2TazTIVgspQfRayWmABMdtdK8h03C0a3WR3vr2rygS+hmFll0QGYjaE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiXIkvbCHnM0wTgqtl7tHVsbt5Ity9u6XIdr6k7/NckFKEgPkW
-	5mzkrcI98fjAzepTObZWU/wBuFkeGyqHePBq5l3GCk7n3fyK3m07GU5ZAtIyraisLw==
-X-Google-Smtp-Source: AGHT+IF9PPSWYluV28LHjIAQYtoCIsrCyo2nNzgTlCfOaTtLczxhcR0/cQHFz16AjBy9tsQ09yZBi4s=
-X-Received: from pja11.prod.google.com ([2002:a17:90b:548b:b0:2fc:3022:36b8])
- (user=pcc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:dfc7:b0:2ee:b875:6d30
- with SMTP id 98e67ed59e1d1-30531fa4dd6mr27878978a91.9.1743638920951; Wed, 02
- Apr 2025 17:08:40 -0700 (PDT)
-Date: Wed,  2 Apr 2025 17:07:00 -0700
-In-Reply-To: <20250403000703.2584581-1-pcc@google.com>
-Mime-Version: 1.0
-References: <20250403000703.2584581-1-pcc@google.com>
-X-Mailer: git-send-email 2.49.0.472.ge94155a9ec-goog
-Message-ID: <20250403000703.2584581-3-pcc@google.com>
-Subject: [PATCH v5 2/2] kasan: Add strscpy() test to trigger tag fault on arm64
+        d=1e100.net; s=20230601; t=1743638943; x=1744243743;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ljcbpuZJwXDAqPnol/jqn4PauxJjKGDyJjaPa56FKYI=;
+        b=IeGrOgFPZIzAiSOuf4doG3ivn0iSZVwzcfMCKTzMIX6F1rPYwqkae5srKcP8VJUinS
+         SiSm8E1U7HmA0lh691msz+mqLAt4bkAFlGC6v0OxesnT0bv1NcIH8Efaw5oIPOIPRhu/
+         dErKJ+9tkjqm+f7k1yX7x1Lp39wHukLmPbKZ217wGIJ3fXl51Te+tPFEQzrLl7Vp0WCy
+         HQsqdZN5+8kgBPpdomQeNddB5aY9jhB74sm0FANXdFmSvTFgIvkDpYlCEO+rhM74kNFr
+         dFwMYvkEnL0gOCb4EqskUqWatv3mpb+fUPN82gOcHIsei9Kjy2/c+/NbmDVvwEoaa82N
+         N8yg==
+X-Forwarded-Encrypted: i=1; AJvYcCW+1+T9iQ/EQH5fFe2s8olRA1Iaou+bVex+Y/SkBFiWySlqnpwiHcevn/EZfr5zn9fU2aqpx4V/HSZqNQZZ7RdM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH8TG5wdvAjkFAX4u2pxSn/PMDI3JYfqofcrfYHxV28myc+hSf
+	J29F8onr+aOSUiJyCQSG1Y7UrKQbKG115J8nEmV/aWWbdrpBvX1PP4dH3KUNdr+WS4G9N32xo+l
+	wA7erIrFdVsUdqmD7vAqprBpVKLmgRX2SedWJ
+X-Gm-Gg: ASbGncuuM04JGbiIxZ7FUgfYc0xrVemCtEHwX7XGRa4LFX2ASuvJPeKEPfo8fjZvfwL
+	YQS0rcdn168BFAoS6eZvdot43FAbzZ9HM48X5fYs1/W/U6T2s3MyjkN/RRv1V/bAjphGilms5Gt
+	tHKlgi/9jrDBMwTuTAhFxOxoNEGWTm/VPbpBVMHwik/VBVAEcjHV8mffaF
+X-Google-Smtp-Source: AGHT+IHutOHO69SHU0XC60NdDFG2HVTZqKjKhFOA2HECg4WHds9ohBB1sYtL21Jdh2GqT2tdCyHjyFFTpGz4e0i31ds=
+X-Received: by 2002:a17:903:440b:b0:216:21cb:2e06 with SMTP id
+ d9443c01a7336-22978359fcemr754035ad.19.1743638943220; Wed, 02 Apr 2025
+ 17:09:03 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250329000338.1031289-1-pcc@google.com> <20250329000338.1031289-2-pcc@google.com>
+ <Z-2ZwThH-7rkQW86@arm.com>
+In-Reply-To: <Z-2ZwThH-7rkQW86@arm.com>
 From: Peter Collingbourne <pcc@google.com>
-To: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+Date: Wed, 2 Apr 2025 17:08:51 -0700
+X-Gm-Features: AQ5f1Jrfy-UpUdfn1d71XnyyKzDPZn2N3LIuWaGJ42FoAiNjcFlKYw9ZKliguAY
+Message-ID: <CAMn1gO55tC78BpD+KuFgygg1Of57pr16O4BvKsUsrpo830-jEw@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] string: Add load_unaligned_zeropad() code path to sized_strscpy()
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
 	Andrew Morton <akpm@linux-foundation.org>, Kees Cook <kees@kernel.org>, 
 	Andy Shevchenko <andy@kernel.org>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>, linux-fsdevel@vger.kernel.org, 
+	Mark Rutland <mark.rutland@arm.com>, linux-fsdevel@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>, 
-	Peter Collingbourne <pcc@google.com>
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_170842_235368_E7933E3B 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250402_170905_182299_25BAE334 
+X-CRM114-Status: GOOD (  34.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,83 +99,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vincenzo Frascino <vincenzo.frascino@arm.com>
+On Wed, Apr 2, 2025 at 1:10=E2=80=AFPM Catalin Marinas <catalin.marinas@arm=
+.com> wrote:
+>
+> On Fri, Mar 28, 2025 at 05:03:36PM -0700, Peter Collingbourne wrote:
+> > diff --git a/lib/string.c b/lib/string.c
+> > index eb4486ed40d25..b632c71df1a50 100644
+> > --- a/lib/string.c
+> > +++ b/lib/string.c
+> > @@ -119,6 +119,7 @@ ssize_t sized_strscpy(char *dest, const char *src, =
+size_t count)
+> >       if (count =3D=3D 0 || WARN_ON_ONCE(count > INT_MAX))
+> >               return -E2BIG;
+> >
+> > +#ifndef CONFIG_DCACHE_WORD_ACCESS
+> >  #ifdef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
+> >       /*
+> >        * If src is unaligned, don't cross a page boundary,
+> > @@ -133,12 +134,14 @@ ssize_t sized_strscpy(char *dest, const char *src=
+, size_t count)
+> >       /* If src or dest is unaligned, don't do word-at-a-time. */
+> >       if (((long) dest | (long) src) & (sizeof(long) - 1))
+> >               max =3D 0;
+> > +#endif
+> >  #endif
+> >
+> >       /*
+> > -      * read_word_at_a_time() below may read uninitialized bytes after=
+ the
+> > -      * trailing zero and use them in comparisons. Disable this optimi=
+zation
+> > -      * under KMSAN to prevent false positive reports.
+> > +      * load_unaligned_zeropad() or read_word_at_a_time() below may re=
+ad
+> > +      * uninitialized bytes after the trailing zero and use them in
+> > +      * comparisons. Disable this optimization under KMSAN to prevent
+> > +      * false positive reports.
+> >        */
+> >       if (IS_ENABLED(CONFIG_KMSAN))
+> >               max =3D 0;
+> > @@ -146,7 +149,11 @@ ssize_t sized_strscpy(char *dest, const char *src,=
+ size_t count)
+> >       while (max >=3D sizeof(unsigned long)) {
+> >               unsigned long c, data;
+> >
+> > +#ifdef CONFIG_DCACHE_WORD_ACCESS
+> > +             c =3D load_unaligned_zeropad(src+res);
+> > +#else
+> >               c =3D read_word_at_a_time(src+res);
+> > +#endif
+> >               if (has_zero(c, &data, &constants)) {
+> >                       data =3D prep_zero_mask(c, data, &constants);
+> >                       data =3D create_zero_mask(data);
+>
+> Kees mentioned the scenario where this crosses the page boundary and we
+> pad the source with zeros. It's probably fine but there are 70+ cases
+> where the strscpy() return value is checked, I only looked at a couple.
 
-When we invoke strscpy() with a maximum size of N bytes, it assumes
-that:
-- It can always read N bytes from the source.
-- It always write N bytes (zero-padded) to the destination.
+The return value is the same with/without the patch, it's the number
+of bytes copied before the null terminator (i.e. not including the
+extra nulls now written).
 
-On aarch64 with Memory Tagging Extension enabled if we pass an N that is
-bigger then the source buffer, it would previously trigger an MTE fault.
+> Could we at least preserve the behaviour with regards to page boundaries
+> and keep the existing 'max' limiting logic? If I read the code
+> correctly, a fall back to reading one byte at a time from an unmapped
+> page would panic. We also get this behaviour if src[0] is reading from
+> an invalid address, though for arm64 the panic would be in
+> ex_handler_load_unaligned_zeropad() when count >=3D 8.
 
-Implement a KASAN KUnit test that triggers the issue with the previous
-implementation of read_word_at_a_time() on aarch64 with MTE enabled.
+So do you think that the code should continue to panic if the source
+string is unterminated because of a page boundary? I don't have a
+strong opinion but maybe that's something that we should only do if
+some error checking option is turned on?
 
-Cc: Will Deacon <will@kernel.org>
-Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Co-developed-by: Peter Collingbourne <pcc@google.com>
-Signed-off-by: Peter Collingbourne <pcc@google.com>
-Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
-Link: https://linux-review.googlesource.com/id/If88e396b9e7c058c1a4b5a252274120e77b1898a
----
-v5:
-- add test for unreadable first byte of strscpy() source
+> Reading across tag granule (but not across page boundary) and causing a
+> tag check fault would result in padding but we can live with this and
+> only architectures that do MTE-style tag checking would get the new
+> behaviour.
 
-v4:
-- clarify commit message
-- improve comment
+By "padding" do you mean the extra (up to sizeof(unsigned long)) nulls
+now written to the destination? It seems unlikely that code would
+deliberately depend on the nulls not being written, the number of
+nulls written is not part of the documented interface contract and
+will vary right now depending on how close the source string is to a
+page boundary. If code is accidentally depending on nulls not being
+written, that's almost certainly a bug anyway (because of the page
+boundary thing) and we should fix it if discovered by this change.
 
-v3:
-- simplify test case
+> What I haven't checked is whether a tag check fault in
+> ex_handler_load_unaligned_zeropad() would confuse the KASAN logic for
+> MTE (it would be a second tag check fault while processing the first).
+> At a quick look, it seems ok but it might be worth checking.
 
-v2:
-- rebased
-- fixed test failure
+Yes, that works, and I added a test case for that in v5. The stack
+trace looks like this:
 
- mm/kasan/kasan_test_c.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+[   21.969736] Call trace:
+[   21.969739]  show_stack+0x18/0x24 (C)
+[   21.969756]  __dump_stack+0x28/0x38
+[   21.969764]  dump_stack_lvl+0x54/0x6c
+[   21.969770]  print_address_description+0x7c/0x274
+[   21.969780]  print_report+0x90/0xe8
+[   21.969789]  kasan_report+0xf0/0x150
+[   21.969799]  __do_kernel_fault+0x5c/0x1cc
+[   21.969808]  do_bad_area+0x30/0xec
+[   21.969816]  do_tag_check_fault+0x20/0x30
+[   21.969824]  do_mem_abort+0x3c/0x8c
+[   21.969832]  el1_abort+0x3c/0x5c
+[   21.969840]  el1h_64_sync_handler+0x50/0xcc
+[   21.969847]  el1h_64_sync+0x6c/0x70
+[   21.969854]  fixup_exception+0xb0/0xe4 (P)
+[   21.969865]  __do_kernel_fault+0x80/0x1cc
+[   21.969873]  do_bad_area+0x30/0xec
+[   21.969881]  do_tag_check_fault+0x20/0x30
+[   21.969889]  do_mem_abort+0x3c/0x8c
+[   21.969896]  el1_abort+0x3c/0x5c
+[   21.969905]  el1h_64_sync_handler+0x50/0xcc
+[   21.969912]  el1h_64_sync+0x6c/0x70
+[   21.969917]  sized_strscpy+0x30/0x114 (P)
+[   21.969929]  kunit_try_run_case+0x64/0x160
+[   21.969939]  kunit_generic_run_threadfn_adapter+0x28/0x4c
+[   21.969950]  kthread+0x1c4/0x208
+[   21.969956]  ret_from_fork+0x10/0x20
 
-diff --git a/mm/kasan/kasan_test_c.c b/mm/kasan/kasan_test_c.c
-index 59d673400085f..e8d33af634b03 100644
---- a/mm/kasan/kasan_test_c.c
-+++ b/mm/kasan/kasan_test_c.c
-@@ -1570,6 +1570,7 @@ static void kasan_memcmp(struct kunit *test)
- static void kasan_strings(struct kunit *test)
- {
- 	char *ptr;
-+	char *src;
- 	size_t size = 24;
- 
- 	/*
-@@ -1581,6 +1582,25 @@ static void kasan_strings(struct kunit *test)
- 	ptr = kmalloc(size, GFP_KERNEL | __GFP_ZERO);
- 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, ptr);
- 
-+	src = kmalloc(KASAN_GRANULE_SIZE, GFP_KERNEL | __GFP_ZERO);
-+	strscpy(src, "f0cacc1a0000000", KASAN_GRANULE_SIZE);
-+
-+	/*
-+	 * Make sure that strscpy() does not trigger KASAN if it overreads into
-+	 * poisoned memory.
-+	 *
-+	 * The expected size does not include the terminator '\0'
-+	 * so it is (KASAN_GRANULE_SIZE - 2) ==
-+	 * KASAN_GRANULE_SIZE - ("initial removed character" + "\0").
-+	 */
-+	KUNIT_EXPECT_EQ(test, KASAN_GRANULE_SIZE - 2,
-+			strscpy(ptr, src + 1, KASAN_GRANULE_SIZE));
-+
-+	/* strscpy should fail if the first byte is unreadable. */
-+	KUNIT_EXPECT_KASAN_FAIL(test, strscpy(ptr, src + KASAN_GRANULE_SIZE,
-+					      KASAN_GRANULE_SIZE));
-+
-+	kfree(src);
- 	kfree(ptr);
- 
- 	/*
--- 
-2.49.0.472.ge94155a9ec-goog
-
+Peter
 
