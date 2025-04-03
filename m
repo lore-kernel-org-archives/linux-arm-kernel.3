@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29252C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 20:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D3EC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 20:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HcyyW8n2nXXz5TDbV0rP4CRwU9QzhCUN75UJaK14+ik=; b=3Kz0n+BDvmby+jTFF92uxFDpHs
-	EykOig3wXqyxmNLnKI4K7D5VXS6ce1QTs5l/I1RNLKd2I0G6kkzlrtCHOr5nrWluw3wsjCqzpMNM2
-	0KqIf92RO9SPCoiif7vFfzO0azYwWmEFc+AMK4Bh/skCLsPIP1jGhQj7Ev1jHUL6Nhf3dovWGpHMU
-	JaYfjYhIOoTwF4F84WXeMkGXf3ni1W/GuKghTG/pctwiif1v56rjctX8JGDQWiXSPoL5hK+HEHV1u
-	W7O08X6IItl5Z/OaZ3HA6a8SDVvEd3fw4r7H8CAiyeFRiLrzswsCezm1Ex6fOcDU6w8g4G/lX4A05
-	7cmZELPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tToTvqgjKjFgEpiH/wvd2sZhq/aLX91Kukol3CuCkpk=; b=3uo3pMwi/OTdN/PUh+zaNxl/L4
+	pb+ZiQw/iIFO99mJXb7ep9Y6LvBODHUJUJ6+FAgII3SppXTHEH+FpKCUdBlSIs2BQdKv1+M5XrHlY
+	E4SHeaM8eDMJaU57G3gprIE8uBysjsusidEpK1FsaUUaTXjsM67Uag+OcdX/ev15tFe+UYaA55yT7
+	PdBslr1Mc+HtbZAVWXTTFvYD50QiZrjVrOXcywsUhjgfTkspIwwazaXzkIBUOOLP1zDRjtjxdcZQA
+	kw7FFFFKE9JCgreM5YqRvmGQ71l8F0aiW0MGP92oUSBqc+n9IHUidXAOiral80gjG2XSr13FAAtiV
+	q8y90CPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Qlx-00000009sLL-2RlI;
-	Thu, 03 Apr 2025 20:02:45 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0QJS-00000009lfD-2AXc
+	id 1u0Qnj-00000009skV-1DZP;
+	Thu, 03 Apr 2025 20:04:35 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0QLD-00000009m8s-0LG3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 19:33:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8516CA4256F;
-	Thu,  3 Apr 2025 19:27:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A421C4CEE3;
-	Thu,  3 Apr 2025 19:33:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743708797;
-	bh=Z+NPFKyR/BWMNNcuzNft9Hlawsjf1oqc2930OXUKl8Q=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=ArkuhQYpCO8im1IvYIzZ0Vlnk/Au5w3UoF8D5YeLh96VcXyWUu4geTHRY8Dlt98VI
-	 YvrAy9Wi1/Evms802FGWgv/xxEHf5J0iam62nVjnQZsBC86troOS5ylrHPktdsOAKY
-	 ISLaAJPGJduNYzoMzKLZBjeFk1VpK1pLgHmHpyMbo3GsLKK0Vtv07nXfCY+8fNlEoP
-	 oPOEWEETcC/gNT81vzlNFkiIi0STItzlgIe1fLTez3g607g4sbtrCyi49DhL4PnPWz
-	 gcF3a+2QbDVDTK4J59mU9rDmVeM/nXBCrGBVCndCMBCY7V41SnTqnhiMnl+WjpPDXF
-	 tuxBaH1x7drOg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33BEE380664C;
-	Thu,  3 Apr 2025 19:33:55 +0000 (UTC)
-Subject: Re: [GIT PULL] arm64 fixes for 6.15-rc1
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <Z-5c6hCqQb3s5GxI@arm.com>
-References: <Z-5c6hCqQb3s5GxI@arm.com>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <Z-5c6hCqQb3s5GxI@arm.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
-X-PR-Tracked-Commit-Id: c28f31deeacda307acfee2f18c0ad904e5123aac
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: aa18761a447fac41287a5c3c41f26b9380bc72b7
-Message-Id: <174370883384.2657822.3324006319698061766.pr-tracker-bot@kernel.org>
-Date: Thu, 03 Apr 2025 19:33:53 +0000
-To: Catalin Marinas <cmarinas@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	Thu, 03 Apr 2025 19:35:08 +0000
+Received: from thinkpad-p16sg1.corp.microsoft.com (unknown [20.236.11.42])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 9BE67202565A;
+	Thu,  3 Apr 2025 12:35:05 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 9BE67202565A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1743708905;
+	bh=tToTvqgjKjFgEpiH/wvd2sZhq/aLX91Kukol3CuCkpk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XV7c57UKnez5RKqG/At88TciQqS/Rn/wFVhMqxC4ViVJKqJ+xmD1pMNLdpmTrUQCA
+	 GXSPQxVF1xo03IZU1KvzigOm5aaMWdk9WjKQRQ4uKvkjmxfT9czgFWyZ8PDGQfDZeK
+	 UY+VF1RFjpwsXMo0AgZSlbu6Ro82uyp1n7tLcT14=
+From: Shyam Saini <shyamsaini@linux.microsoft.com>
+To: jgg@ziepe.ca
+Cc: code@tyhicks.com,
+	devicetree@vger.kernel.org,
+	eahariha@linux.microsoft.com,
+	eric.auger@redhat.com,
+	iommu@lists.linux.dev,
+	jacob.pan@linux.microsoft.com,
+	linux-arm-kernel@lists.infradead.org,
+	shyamsaini@linux.microsoft.com,
+	vijayb@linux.microsoft.com,
+	virtualization@lists.linux.dev,
+	will@kernel.org
+Subject: Re: [PATCH 0/3] make MSI IOVA base address and its length configurable
+Date: Thu,  3 Apr 2025 12:34:58 -0700
+Message-Id: <20250403193458.158085-1-shyamsaini@linux.microsoft.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250131003618.GB2296753@ziepe.ca>
+References: <20250131003618.GB2296753@ziepe.ca>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_123318_618758_E24A772E 
-X-CRM114-Status: UNSURE (   4.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250403_123507_152790_C1523E81 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +76,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Thu, 3 Apr 2025 11:03:22 +0100:
+Hi Jason,
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+> On Thu, Jan 30, 2025 at 03:21:37PM -0800, Shyam Saini wrote:
+> 
+> > Unfortunately, it is an HW issue.
+> 
+> Well, that's pretty bad to have built HW that can't DMA to low
+> addresses at all.. But OK.
+>  
+> > Are you okay with this passing custom MSI_IOVA via DTS approach ?
+> 
+> It isn't up to me, but I've understood the DT maintainers would reject
+> this as it isn't is describing HW but just a random Linux software
+> knob.
+> 
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/aa18761a447fac41287a5c3c41f26b9380bc72b7
+If i understood correctly MSI window IOVA is hw property, if yes then it should be accepted
+by DTS folks, did i misundertstand that?
 
-Thank you!
+> I think you should make selecting the sw_msi dynamic in Linux.
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+My understanding is that if we have to make it dynamic, we have to use iova allocator
+that would need iova_domain as a member of struct arm_smmu_domain,
+and allocate iova for MSI window dynamically using alloc_iova() in arm_smmu_get_resv_regions()
+is that what you meant when you mentioned selecting the sw_msi dynamically?
+
+later we still have to [1] re-adjust the final iova list to IOVA range - resereved regions (msi)
+[1] https://elixir.bootlin.com/linux/v6.13.1/source/drivers/vfio/vfio_iommu_type1.c#L2232
+
+so either static or dynamic, we seems to need MSI allocation
+
+Please let me know what you think about this?
+
+Thanks,
+Shyam
 
