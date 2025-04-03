@@ -4,83 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F96C3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 15:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD79C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 16:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4HXCFU9YonjJhyDLHpnnxPkRURBU3+SLjAkNFJPgsSI=; b=PrdSS3HygTPcio1a8ah61Y/jU3
-	QNmNQ73vhLk8jvgWyZ8IR9B6pWPOPDzYa/ukRODQ/OXfnB6RSYDn4ezvjVeH+6DJGRcFzre77cgSi
-	nqWdaiWFWB5710BCeJ7/k0iSlCn33jLbBTz9DBRJ1wcJjqiT09q624hox77e3G2bS1io1UR8tx31e
-	JCG8Zzw7IWPvZfb1qjDIgIBxVXwg76srg34wX1IsfZUuxhAZOCZKblIYFVhxJzd6OYxMtWy1T3v5b
-	EU737gePZxB+o2izzLWrdJSt6UEU3rYb5lwwUzHdcgIMJoKkrSabB1X+cSqmujk5ZTN6HDctlbmez
-	E4XVqwvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dy8Ws2qvwF9s55c8ff5LGR1nvZuXfJj+iEpUvr3iHP8=; b=PlKJDhiKqnO5sc4e9w2LfnAmd6
+	WndJZL42+wdSKFJ40m7RhAFcOzD5EqOcxYPlA8P8uJgehEqCDJCZ2+sgGcrK5CWOh4ZsRcngbtrfZ
+	u4XarvJ9pyRARytdHhMi3TLIlxOkkda+62+h/YCpgF0z9wTXym4pV+8kzK5ZPrQ1NAuvoXHFMh1mu
+	9RsXz6QzqFU63PKe0Xal3y2/HfPQR9wh9lIJZUYPwvB24aeRW9KHpxSQuVNfWDC7Ju5NFA0uy7FT+
+	jZbovSc4O0rdYWlz0cb8KSGGDheBakzcp4zA688eWRmfT90Q6xtfHlCL4ua7qUF7RjqN3ujoTx8YN
+	7hirZdVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0MxI-00000009IcE-0C7U;
-	Thu, 03 Apr 2025 15:58:12 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1u0NAh-00000009KAK-2hv3;
+	Thu, 03 Apr 2025 16:12:03 +0000
+Received: from mail-mw2nam04on2061a.outbound.protection.outlook.com ([2a01:111:f403:240a::61a] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0MvT-00000009IVZ-0c45
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 15:56:20 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-6ff1e375a47so11474597b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Apr 2025 08:56:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743695777; x=1744300577; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4HXCFU9YonjJhyDLHpnnxPkRURBU3+SLjAkNFJPgsSI=;
-        b=y/REPer8BIbMmeqWPPNiqQ8xzUrhZK76uBAPk3qdRmOaYU/cbpNpRtPH8tA7TB7SIl
-         XzpMZT2T6ECyexolHzgoowqcyRqiCu5v8AnucDyuhMoBpkLQ6iDqcKYs8si6OlwznH65
-         DKZOGcp1e/3B48MOk5W2cQXM6uT7XSeLmagUBeqlMkRvP/sDR5Xyk6itgZ/+mcQJzm0Z
-         Bt6m4noL+yJD8i/TY2Zd39+hksrrPgnVVdSs1Dahwx5Zq+8eTnLnsxeLJkc6uhfm6v0u
-         cpwz9dmWJav+cA2aQBKu545p6s+uBxsKi8Y0ar2dM0ue2lI343ELmMoGxgqd1kydVpji
-         HiWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743695777; x=1744300577;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4HXCFU9YonjJhyDLHpnnxPkRURBU3+SLjAkNFJPgsSI=;
-        b=k2XBpXxOwLGCtJOMPrUMnL84igpf12s99L+n/uEXmStKUWfRW0Xvma0oNqv8fA/wjI
-         diMjbCfk6hjySXSO8uLIzQmp0M37b6QwLsgw8jgc8OeBxlduGH64QlRg+leE/hf+gGcC
-         i7OsDffc4nxiIrrZL7mkJz38hCVFUGIX3oGNgzgA4uWqm+tAygi78aCVVF4yW/jKicAQ
-         0pMlE2ru5KZEGLz9kGMmAthKd7KcFUpxHlaeGv/mKdpYRGvDkElsWii7f/Jsx7Kdme51
-         rbqVJdAKT4HWruw1Ak+PRUNrtcaPERvAqyKnBy8HU7WmYZM/+6xngICb79DAmo76NbJC
-         P/jg==
-X-Forwarded-Encrypted: i=1; AJvYcCVp+KYCkRoEGVq4lq8pA6VgYnuvtqEJyzc+ascvuWT0PlVZse0YDgjaWPuViGfIqNDO/pcivZLo39Ls3/eVLv3/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbEFbOBdfa1LogtLrSGN6rp5TBP+9AgdLXCMIDq5xzzs48vuna
-	D9a2J+sqGpHhOM+5RqpwafZ2nAuXpzjdc9BlNGwMLUcbptrafTiZjgyGwm/kP8v/C7rY0yImhtX
-	0zbxTEKRlrPwvLTiVaIen3G3T32yHKuwcLeO5mw==
-X-Gm-Gg: ASbGncspIPIomQ1XKngzFXgCWkcRDHaVPIxP/6HT6LohD6Oxqylvrl2s1zn2F/nKagw
-	3Y57lBfam8xBwb2UNQ488Xy+G36U5RyKKth3YcIJyrAzXZtwEbbpW0MCUdT026GZA/d8mJrNRB3
-	Mo4AYUGE7Mo4DLB0sLLqvObjdUDz97m8q3ToCSSQ==
-X-Google-Smtp-Source: AGHT+IFtup6lzCCDcgglb/vouYIF02tq5aB9fUksxAEAz4mtg2896UBjPrAGsh8END8a/G1BpCJH1h+ZLmjMPi7nqts=
-X-Received: by 2002:a05:690c:4807:b0:6fd:41e1:83d8 with SMTP id
- 00721157ae682-703d0790885mr56680357b3.6.1743695777536; Thu, 03 Apr 2025
- 08:56:17 -0700 (PDT)
+	id 1u0N8s-00000009Jx3-1Tsn;
+	Thu, 03 Apr 2025 16:10:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BYLIpGboifHlJ4FUIOVaQemr5j/YhWeU8MBsBY7NM9BoXu/N3NCcyJZW4reXLsgc4G9GM8KmgypwF8pgITCySoGl7OsQ4hVDJPmNxdb1/s5/X5b7/wyuLVtVIPMXCYFcvt1AfI3q2LouR2/mRAAask2Je02M1059VJfp543UmdxDCjcI9qqEriES8+16IyxWvLrrliSOXGScW+J8QbGE+VY0xSXPZIGx0Cu+Nmg4NR0OsWkjkajxlyJCDXksATdhLHvL4JfJVLcfEmi7OHI0yYpccgA1xHNz3HFB2k2a42S3RJIZOFM0lh1RcduLhHJUylZ/9KD/JalIryahpEkgkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dy8Ws2qvwF9s55c8ff5LGR1nvZuXfJj+iEpUvr3iHP8=;
+ b=OCMQS+B2YbCDEu6+awANYI0k7MSAiadpqmBAYH8xCLS5y4hZkLSg9D8el18dr2GKDXFGWQFspHwJQmsllXkP+zAjh6BAYJhFSKF8N3kJkrBAXbItilFsf4g88EA9i4uoLloIN5/bXlUUFf+Hs6+RI5Te28V764RdvbBwTCWuzYGn4HEy2cwL553d8Pnb/KdHHbB3W4DDpRFNjNmNzC5n4giWwqsISFkyel3BqXb0EsPX086jceVBKnXQIv2Dy7f2RQHHFUU87x96lOt+XhlwSZi4FGV3aIMvLeYU+1fOAdvPmswTPaIq6OFUOVGX6Pm2nuAgJ73Cr6nYQYzUj3qu3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dy8Ws2qvwF9s55c8ff5LGR1nvZuXfJj+iEpUvr3iHP8=;
+ b=K+9U3XOxJQAtXib9UDfN3h9WU6WSBdjRQeu5p+LsPlPdqaKYaqoP1cRZKmChrwIW1Tlwpl5J18pdgL7xevx2FWAz4gZupsME09ey03WXfDRJZOKRHVlKqT1/hfNP1zSLIfBp0VJ1HDUeSVFyMbAJJwm4mCTeX9trhGqyysW7jv2G1D/uFsL0xGPv7A39mWh+2YZz5lrA975FYWvRMS/BS59ljbRfFY1j/UvPPgxWILW6ciqw2YwXCrU4L9zJPEm9TF8T6EmsSj5eZbXaVvJQnawnv8GqMTT5FHEGIk41g2BrhB9LR0jtii0FsZSaiBiPK2r/HW5qgzF8IwKS3kNbNQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by PH7PR12MB9253.namprd12.prod.outlook.com (2603:10b6:510:30d::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.42; Thu, 3 Apr
+ 2025 16:10:04 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.043; Thu, 3 Apr 2025
+ 16:10:04 +0000
+Date: Thu, 3 Apr 2025 13:10:01 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Pratyush Yadav <ptyadav@amazon.de>
+Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
+	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+	dave.hansen@linux.intel.com, dwmw2@infradead.org,
+	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
+	corbet@lwn.net, krzk@kernel.org, rppt@kernel.org,
+	mark.rutland@arm.com, pbonzini@redhat.com,
+	pasha.tatashin@soleen.com, hpa@zytor.com, peterz@infradead.org,
+	robh+dt@kernel.org, robh@kernel.org, saravanak@google.com,
+	skinsburskii@linux.microsoft.com, rostedt@goodmis.org,
+	tglx@linutronix.de, thomas.lendacky@amd.com,
+	usama.arif@bytedance.com, will@kernel.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
+ preservation
+Message-ID: <20250403161001.GG342109@nvidia.com>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-10-changyuanl@google.com>
+ <mafs01pu9qm6r.fsf@amazon.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <mafs01pu9qm6r.fsf@amazon.de>
+X-ClientProxiedBy: MN2PR19CA0022.namprd19.prod.outlook.com
+ (2603:10b6:208:178::35) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-References: <20250402120613.1116711-1-ulf.hansson@linaro.org> <20250403080815.jsdoydcczkeuvmy6@lcpd911>
-In-Reply-To: <20250403080815.jsdoydcczkeuvmy6@lcpd911>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 3 Apr 2025 17:55:41 +0200
-X-Gm-Features: ATxdqUE_uiMj0ReQyXslvnN9euZTVAjRRAl_6-w9vMIxjplB4kuU0aE6cNyzWdE
-Message-ID: <CAPDyKFrgYVMvaBf13ksdJ6Zr6bvLo1Jmz8yLiyg_43hs65STVQ@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: core: Reset genpd->states to avoid freeing
- invalid data
-To: Dhruva Gole <d-gole@ti.com>
-Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH7PR12MB9253:EE_
+X-MS-Office365-Filtering-Correlation-Id: c45ff6f4-1ee4-405c-40b0-08dd72c9fe05
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6xYbAqi6Aw8/7SB4Og7F26++lyFBodEmTy+7/tGEfbe/i7QTlNUB2LWNBT8o?=
+ =?us-ascii?Q?TrK/wFTar7zwoyxAK7vhI1sbae4ib0kq/fPzWd/Cnwx4fdG1XVxxiuEJY5uo?=
+ =?us-ascii?Q?N7kLjNPI9rXkWr8WoIqeBQV7OKKTBMtaV8Xr++kRPWfIAk91niaZPY8ky24T?=
+ =?us-ascii?Q?3rDPbsZVrjlkbiYtSu/M0W1gwpvrjokTJRw9gVNIS6Huv/M0J8BvenuS4eE0?=
+ =?us-ascii?Q?TpYLvOdxV1YnwqxlPpTlw4ItKaeHCWv3VMe/SwkgpNFGG5cfxWw472aFpuJL?=
+ =?us-ascii?Q?rvG8UtEPmF30Bx3rV+jmqlWwm0jLIZJohyZay3DObJKYZkSqi8WV7Mv6tviS?=
+ =?us-ascii?Q?dXuZKEoWt/giS01sAnUbDMgKn6kNM+vqrz5LH/p5xRZtH/nA4I5C0zDqGuoI?=
+ =?us-ascii?Q?ol9HcWNjqKROlfgAz3wbHhUPdsd5GXr3YelKjrTVyJXcJB4/pDrhJChSuYBu?=
+ =?us-ascii?Q?DLDZBOi63Vt7BZ6W5jrMIAOAT9/0XUN1Drbl7RtNuBegEurJOmHOzA3txXgR?=
+ =?us-ascii?Q?BS4xUGD5C/i12CwB5mYUoYH/SI0lmVZUyzfvWLfXD3aqvYZ/RHy8oVNeddpZ?=
+ =?us-ascii?Q?cSLSMgA9ZHz0X7CSWc8k7x8t2Qn2ux/Q3nmE4SOb7QJuIKlLeiYK0pJo7uU/?=
+ =?us-ascii?Q?neGeA0gIDedJqyoUvzFhLAbefyNU80qT+KwvH6Ria7TMVY1QwbH9PeCQfmWV?=
+ =?us-ascii?Q?g3Z2/BhoMVAI+n1qM1m2DW5kPPd/AC1OYxZZSumQZ8RjL3P/srtyS5N9G5cl?=
+ =?us-ascii?Q?Gnx4BjKAqSnbiFZyzmygv+Zt/WB+d8ENf4uJzgodOCGcvf7MqPhSxo2J0y53?=
+ =?us-ascii?Q?szHYxyg7P1jkg5uZFdrBHxGE4OQyJVnSAsXcJBXgjF+iFM4GTVIGBlKtdfJn?=
+ =?us-ascii?Q?CPhEHo7lbd6NxoolJ3YbBmlDyv9vYTddfBigSBtjls/hmBcUca3p4wziRRaH?=
+ =?us-ascii?Q?T8Ciy1yTsezMbYwxL/6cy4r3F19u8bTJPrWnAmuonFSNQ1ZDykZRjL/ZrID5?=
+ =?us-ascii?Q?F6uszrNaJrwqALNJEfy5dNfLxOw7aLHzSbj2iONKmmWbW2g7c+6I2eyUmWDe?=
+ =?us-ascii?Q?bvJyAVvoR4ejN1zULR9u6mVQ3Xr/TtVN7Zkmmp7x54UfbgZxKa3dcQvcBWvo?=
+ =?us-ascii?Q?HPc5H74UIxnFTtxD5VUf2joGXhvls9CnaTyR5LAdyp1SHtgZlI6PakHmitfZ?=
+ =?us-ascii?Q?QIsbK7eK/HpRaGh10G18SqBV7HX4Der1UUcsmyebM0tFldYJ/5MyhHHjaj7r?=
+ =?us-ascii?Q?Q/l62VqSFHa7O1Uhza0PdKTpaMK5gceSrGOKZpN8WOSP/n497jFTPk3J14kA?=
+ =?us-ascii?Q?onR8sfARLArUcGLNqG84gIP/AmwBkYYB5dpAZ+T7LOpvAJiN2cZcYIcTl2aq?=
+ =?us-ascii?Q?NhMIo3OZrPn0JETeugZd+I10KHsV?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MhN+ZW5cu9F6EVNfOLuqD3jAKfHNAcEZens0RUrzBdSemNMUBTMryuVFnsoP?=
+ =?us-ascii?Q?UDsQb2WvTXQs4HEoMXkJe6ORH/qtv9lr3BUba4FpCU6vKYNykVBORTw6cGS3?=
+ =?us-ascii?Q?+DigSrxuLr48VnZdAoybPoBxjAHBfE732QUklL6xlBHAOdLvlphfGdiMQXc2?=
+ =?us-ascii?Q?+eC430cgbiPBfxIzEDY0GT9F+rnFoW7qdaGta0UrC9n98sPekQWMBXGhwM0l?=
+ =?us-ascii?Q?RLJ5a+2Ek50c/ZO22XmkfrSyLi3f4gQhCW/20ohpIcrcH5KhbRdSpEXhUdja?=
+ =?us-ascii?Q?e3LjxUbJoJx8zFEWwUlCzIaox387x9+AwQcLurC+oMkiqrzQmKkmEClsclV1?=
+ =?us-ascii?Q?scFiJ177+aLc9XVPTsnySVeCXoMuOEXM6dWC6HV/aXX9c2vlDpv/QmbnhYyi?=
+ =?us-ascii?Q?uCwCbctyKNMaYcHkPytoqOeteOOcSV0wb5QXVxjvcRXc4o1ophOM6yNr4QTn?=
+ =?us-ascii?Q?TtWEFU8cqaj+bNi707YqeMf0R6rkF84PSzXDV6uWUwfef/H+sd684Lq0QNRz?=
+ =?us-ascii?Q?qJEoLgpeU8OpKb4r6X3JBqrDuvceaZowRBxQtshskNL+hyUFaDZHSkR096p/?=
+ =?us-ascii?Q?i9S2/Y0/DdW0eezH4DZXbTG1b5wA+2EHnh/DTGmb5Dx/ag5CY4tgTNlKhsg+?=
+ =?us-ascii?Q?t8nrS1hG9nAYSpKpuJ7tSxINyQTMVoUAez74rKgKXth+hqvJo55v41+gGj7j?=
+ =?us-ascii?Q?hOkS8Os9BVM/7EStzeoqjtZ1nCJl9RXRrO9OvknFmxccnZRNyO5gP7jfVng/?=
+ =?us-ascii?Q?xkkrMDZp8yTqOjlYBgnxOzzXXSI9iegVIN0t8lEfnIKBO6Z1NlnOxLKTliY5?=
+ =?us-ascii?Q?oiPBPOzI9XaWfR38mwmrDzBFB+rBV6OSOnl/zyK7J+bvl5wvdKZC6ScuBBsn?=
+ =?us-ascii?Q?+NHzDT55YP29V7057CBh4c7DCqsKefOM54LgitbrG+Y+0Gtkup8vrY3gLTCO?=
+ =?us-ascii?Q?xbGnuOEVNlf+9367yWuCRg7YTSddwMiPav2O0wwG600UTyMkIP5aO/FuPm/C?=
+ =?us-ascii?Q?aReb0OM8GTYfGlTM2FfZA5C0YXLgxntSDHzoCKAQlWOh2r6gotmEYvhq4ZKS?=
+ =?us-ascii?Q?72h/ECt9o1zu4G5SQ9gqF7qMdfBroOm7H28Mi1kSdu/QTKi+LfKhmuzYqQ0z?=
+ =?us-ascii?Q?hbnyTN1tZ39elgzt5wfil8Nh7bBODZlcUkV9cfN4tzFlS8gozTe/CRAgLqk0?=
+ =?us-ascii?Q?ZYLNX42kZVh0hxwtB1PtL6IqG1XA6bxmpCLGE+rhffpF5dqjwXhCiW8G021k?=
+ =?us-ascii?Q?c7O1vrnWjrZ3ENE3QFe/5+Ss1CCxYxVh1wvB75RE6+YLgXw7+RpKwsQ54JE8?=
+ =?us-ascii?Q?plbs2yoeQgV6ymP+M8/QmHi44ERT7XgtZg+g/QKaGUeBTzVA46btHgoUmV+r?=
+ =?us-ascii?Q?qNWldBYSeUZtc6s5GJDHAzAnhIgeA/K/mOAsuPXsUc+FTUdi7bb7E60ssi6t?=
+ =?us-ascii?Q?LZtGGBLOM3UMaU35PZZBQm+g1OFV3A7YXANdLtOJ7JFdpfjB2y2lPKq+aYrp?=
+ =?us-ascii?Q?kT9+nV6j5ihaz8UiC+GKptNnzH4ipWd8strHi8nSxS/XxrqAspfToThX73IB?=
+ =?us-ascii?Q?URPxwK9X4TpenK1/zNYtGL3y/+16zKtbccJD6vR3?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c45ff6f4-1ee4-405c-40b0-08dd72c9fe05
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2025 16:10:03.4782
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kF0FzqNwgju18Mi95WatwKVID/UAXTW9yg765RHFZWEEAIvTbVZjMcODIfuHXaPJ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9253
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_085619_219952_8E1C7860 
-X-CRM114-Status: GOOD (  26.58  )
+X-CRM114-CacheID: sfid-20250403_091010_526147_C693EB76 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,78 +171,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 3 Apr 2025 at 10:08, Dhruva Gole <d-gole@ti.com> wrote:
->
-> On Apr 02, 2025 at 14:06:13 +0200, Ulf Hansson wrote:
-> > If genpd_alloc_data() allocates data for the default power-states for t=
-he
-> > genpd, let's make sure to also reset the pointer in the error path. Thi=
-s
-> > makes sure a genpd provider driver doesn't end up trying to free the da=
-ta
-> > again, but using an invalid pointer.
->
-> I maybe missing something but if kfree works similar to [1]GNU free() won=
-'t
-> it make the genpd->states NULL anyway? Have you actually seen scenarios
-> where the genpd->states is remaining non-NULL even after kfree?
+On Thu, Apr 03, 2025 at 03:50:04PM +0000, Pratyush Yadav wrote:
 
-Yes. kfree() doesn't reset the pointer to the data.
+> The patch currently has a limitation where it does not free any of the
+> empty tables after a unpreserve operation. But Changyuan's patch also
+> doesn't do it so at least it is not any worse off.
 
->
-> [1]
-> https://www.gnu.org/software/libc/manual/html_node/Freeing-after-Malloc.h=
-tml#:~:text=3DThe%20free%20function%20deallocates%20the%20block%20of%20memo=
-ry%20pointed%20at%20by%20ptr%20.&text=3DOccasionally%2C%20free%20can%20actu=
-ally%20return,malloc%20to%20reuse%20the%20space.
-> >
-> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > ---
-> >  drivers/pmdomain/core.c | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> > index 9b2f28b34bb5..c179464047fe 100644
-> > --- a/drivers/pmdomain/core.c
-> > +++ b/drivers/pmdomain/core.c
-> > @@ -2229,8 +2229,10 @@ static int genpd_alloc_data(struct generic_pm_do=
-main *genpd)
-> >       return 0;
-> >  put:
-> >       put_device(&genpd->dev);
-> > -     if (genpd->free_states =3D=3D genpd_free_default_power_state)
-> > +     if (genpd->free_states =3D=3D genpd_free_default_power_state) {
-> >               kfree(genpd->states);
-> > +             genpd->states =3D NULL;
->
-> Also the coding convention for kfree in other places in pmdomains
-> doesn't seem to follow this practise either...
+We do we even have unpreserve? Just discard the entire KHO operation
+in a bulk.
 
-Right. I am not suggesting changing them all. Only this one, as it's a
-special case and an error path.
+> When working on this patch, I realized that kho_mem_deserialize() is
+> currently _very_ slow. It takes over 2 seconds to make memblock
+> reservations for 48 GiB of 0-order pages. I suppose this can later be
+> optimized by teaching memblock_free_all() to skip preserved pages
+> instead of making memblock reservations.
 
-genpd->states may be allocated by both the genpd provider driver and
-internally by genpd via pm_genpd_init(), hence we need to be a bit
-more careful.
+Yes, this was my prior point of not having actual data to know what
+the actual hot spots are.. This saves a few ms on an operation that
+takes over 2 seconds :)
 
->
-> $> rg -A1 kfree drivers/pmdomain
->
-> Is this something we're planning to start following in pmdomains from
-> now on?
+> +typedef unsigned long khomem_desc_t;
 
-As I said, this is a special case.
+This should be more like:
 
->
-> > +     }
-> >  free:
-> >       if (genpd_is_cpu_domain(genpd))
-> >               free_cpumask_var(genpd->cpus);
-> > --
-> > 2.43.0
-> >
-> >
+union {
+      void *table;
+      phys_addr_t table_phys;
+};
 
-Kind regards
-Uffe
+Since we are not using the low bits right now and it is alot cheaper
+to convert from va to phys only once during the final step. __va is
+not exactly fast.
+
+> +#define PTRS_PER_LEVEL		(PAGE_SIZE / sizeof(unsigned long))
+> +#define KHOMEM_L1_BITS		(PAGE_SIZE * BITS_PER_BYTE)
+> +#define KHOMEM_L1_MASK		((1 << ilog2(KHOMEM_L1_BITS)) - 1)
+> +#define KHOMEM_L1_SHIFT		(PAGE_SHIFT)
+> +#define KHOMEM_L2_SHIFT		(KHOMEM_L1_SHIFT + ilog2(KHOMEM_L1_BITS))
+> +#define KHOMEM_L3_SHIFT		(KHOMEM_L2_SHIFT + ilog2(PTRS_PER_LEVEL))
+> +#define KHOMEM_L4_SHIFT		(KHOMEM_L3_SHIFT + ilog2(PTRS_PER_LEVEL))
+> +#define KHOMEM_PFN_MASK		PAGE_MASK
+
+This all works better if you just use GENMASK and FIELD_GET
+
+> +static int __khomem_table_alloc(khomem_desc_t *desc)
+> +{
+> +	if (khomem_desc_none(*desc)) {
+
+Needs READ_ONCE
+
+> +struct kho_mem_track {
+> +	/* Points to L4 KHOMEM descriptor, each order gets its own table. */
+> +	struct xarray orders;
+> +};
+
+I think it would be easy to add a 5th level and just use bits 63:57 as
+a 6 bit order. Then you don't need all this stuff either.
+
+> +int kho_preserve_folio(struct folio *folio)
+> +{
+> +	unsigned long pfn = folio_pfn(folio);
+> +	unsigned int order = folio_order(folio);
+> +	int err;
+> +
+> +	if (!kho_enable)
+> +		return -EOPNOTSUPP;
+> +
+> +	down_read(&kho_out.tree_lock);
+
+This lock still needs to go away
+
+> +static void kho_mem_serialize(void)
+> +{
+> +	struct kho_mem_track *tracker = &kho_mem_track;
+> +	khomem_desc_t *desc;
+> +	unsigned long order;
+> +
+> +	xa_for_each(&tracker->orders, order, desc) {
+> +		if (WARN_ON(order >= NR_PAGE_ORDERS))
+> +			break;
+> +		kho_out.mem_tables[order] = *desc;
+
+Missing the virt_to_phys?
+
+> +	nr_tables = min_t(unsigned int, len / sizeof(*tables), NR_PAGE_ORDERS);
+> +	for (order = 0; order < nr_tables; order++)
+> +		khomem_walk_preserved((khomem_desc_t *)&tables[order], order,
+
+Missing phys_to_virt
+
+Please dont' remove the KHOSER stuff, and do use it with proper
+structs and types. It is part of keeping this stuff understandable.
+
+Jason
 
