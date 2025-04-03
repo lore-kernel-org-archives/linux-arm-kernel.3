@@ -4,82 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF8AEC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 18:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D0DC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 18:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z96XyB/PV9wGjHJsHGM84BTq3aFWcto9BXeE0RoCV3o=; b=dXsoTmazkYfSF83AxdP5D+W60F
-	FUA5ElwGaaYiY/+D0rGv38BZXqJVqfe664fh9rHbBfTWGhYWzU+3so3w84usoyqTli1kH4ijHwl/T
-	MFO7Zkb/lklYMIdNyXfycVe1mToXOnbxMin1tNXzdp6w4gCqZRkZBSpfRSe66ihL3doiQfnaIz91P
-	PabS1fWCuyPdw3oFL2pM6YC4dAANpETXBaizLmOmgt2L9ni6qqoQkYQyHrzhygR/kASRHmJqpxtfN
-	6jpXlemgUfIUUfGelVByFbgBdtIB9f4EyTLXfo7leUztWweGjDkt6NjxMXtIEPeUjFXHvQTiGQ4vm
-	L16fveqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QQ9ehOHdnNhPXlhSQHsn/YYloB24QsMZgMcRBGUNIcw=; b=z7/R13jNIphX+0oaLbsMLINZ96
+	BxkDDe0rYyxsUBTCCfFeTDXEKAVUKbauQ7EHJLz4C5cuwHPScq0WgHcCh11BPR9vc74qMF3x2zlzR
+	O6pRvZMOmsQB6KhJTGBqaLhq9RXqiCKi7RiBJy8h7h8NAydSuWAirtcYXCHLqtmo6FaRZjaliMPi1
+	28N02rQIyFuBoq1C3tyh59L8+IrfB03wVUw5RfS17aSTgcweEOj/xs4Y2AN5rD7PlYrHrY9pQFUmp
+	GrCuvDZF/bgD7PW9Bqx3c1lZjcrEY7fP8ul5lC7aKqvJv+O9YLeO33k+NVrQ39Uj2STETCMg/u5GU
+	31qcVrlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0OwU-00000009WgM-2y9u;
-	Thu, 03 Apr 2025 18:05:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u0PBy-00000009Xzs-2rX4;
+	Thu, 03 Apr 2025 18:21:30 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Oqv-00000009W4t-1TAA
+	id 1u0PA9-00000009Xe7-33o0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 17:59:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46B57446F7;
-	Thu,  3 Apr 2025 17:59:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9765DC4CEE3;
-	Thu,  3 Apr 2025 17:59:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743703184;
-	bh=u4uBLvKcZDtXzM4whjtNyxhNgE6BnlY7nR+h63ZqcD8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=G0Qmmlyigjizi2H/AnHP4w56K7NJ7gb9sO5WSVqeefPCtJqwGMvsY87S1d7RCNVSg
-	 Ia8u9mQXOR+06aESkVHsnMxyePthINhCAxYXHvtYj9ZWQ583ltgJnfI37gwg+yG+hw
-	 bv0T2MoUXNWYCaQ5mdp3+xeP8/UEDkfvOu7c4myR5xHy9KptzsinjE0Hoqspuis5DC
-	 mDpvIRl0DsolBk0e1F/d92DMll5lziPIQLorIZfUQ9TqHW5fQxgnTAJzbGaj85jKsX
-	 W8S7OYrOMWVmg7/eMLzmXfS3Zg07ogF9FNDjp/e4lMMdCTfCLabJkb66/QmBO4YDV2
-	 av2HP0RewHNIw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u0Oqs-0022UN-8c;
-	Thu, 03 Apr 2025 18:59:42 +0100
-Date: Thu, 03 Apr 2025 18:59:44 +0100
-Message-ID: <871pu9yvlb.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+	Thu, 03 Apr 2025 18:19:39 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1743704362;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=QQ9ehOHdnNhPXlhSQHsn/YYloB24QsMZgMcRBGUNIcw=;
+	b=oqJjLXicDLB2K2GOySnF9TOdTFATrWvb4Yu0Uym/Yvvbqo8wb2O/9nyu/3cfIgWnCgK1hR
+	5oGoOyc+pNZhKhE/DpxQtt2NKVH10DMj5/VWwcJoT1hJWj81a7OBX0yIUtc8sGk/q42wcm
+	QZOhFDml4siMzAGqTEOdE4tCtJ0IT9w=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: netdev@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: linux-kernel@vger.kernel.org,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	upstream@airoha.com,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Joyce Ooi <joyce.ooi@intel.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Li Yang <leoyang.li@nxp.com>,
+	Madalin Bucur <madalin.bucur@nxp.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <michal.simek@amd.com>,
+	Naveen N Rao <naveen@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Robert Hancock <robert.hancock@calian.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	UNGLinuxDriver@microchip.com,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Wei Fang <wei.fang@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	arnd@arndb.de,
-	kernel-team@meta.com,
-	vincenzo.frascino@arm.com,
-	anders.roxell@linaro.org,
-	ndecarli@meta.com,
-	rmikey@meta.com
-Subject: Re: [PATCH RFC] arm64: vdso: Use __arch_counter_get_cntvct()
-In-Reply-To: <Z+57uXX3u0zeTGeP@gmail.com>
-References: <20250402-arm-vdso-v1-1-2e7a12d75107@debian.org>
-	<87a58yz0cm.wl-maz@kernel.org>
-	<878qoiyzic.wl-maz@kernel.org>
-	<Z+57uXX3u0zeTGeP@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: leitao@debian.org, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, arnd@arndb.de, kernel-team@meta.com, vincenzo.frascino@arm.com, anders.roxell@linaro.org, ndecarli@meta.com, rmikey@meta.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-doc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linuxppc-dev@lists.ozlabs.org
+Subject: [RFC net-next PATCH 00/13] Add PCS core support
+Date: Thu,  3 Apr 2025 14:18:54 -0400
+Message-Id: <20250403181907.1947517-1-sean.anderson@linux.dev>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_105945_406954_431824EA 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20250403_111937_905969_D971D404 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,28 +109,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 03 Apr 2025 13:14:49 +0100,
-Breno Leitao <leitao@debian.org> wrote:
-> 
-> Since you created *all* this noise regarding instruction ordering, can
-> I pick your brain in the same topic? :-P
-> 
-> If my machine has Speculation Barrier (sb)[1] support, is it a good
-> replacement for `isb` ? Do you happen to know?
+This series adds support for creating PCSs as devices on a bus with a
+driver (patch 3). As initial users,
 
-Probably not. SB prevent speculation past it, while ISB is here to
-enforce ordering. We're pretty happy to let the CPU speculate the
-counter, as long as it does it the order we have defined.
+- The Lynx PCS (and all of its users) is converted to this system (patch 5)
+- The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6-8)
+- The Cadence MACB driver is converted to support external PCSs (namely
+  the Xilinx PCS) (patches 9-10).
 
-On some implementation, this can be have a similar effect (drain the
-fetch queue, restart). But the intent clearly isn't the same, and some
-implementations may do things differently.
+The last few patches add device links for pcs-handle to improve boot times,
+and add compatibles for all Lynx PCSs.
 
-In any case, what you want is CNTVCTSS_EL0 (part of FEAT_ECV), which
-does away with all barriers.
+Care has been taken to ensure backwards-compatibility. The main source
+of this is that many PCS devices lack compatibles and get detected as
+PHYs. To address this, pcs_get_by_fwnode_compat allows drivers to edit
+the devicetree to add appropriate compatibles.
 
-	M.
+This is technically a v3 (with [1,2] being v1 and v2, respectively), but
+there have been so many architectural changes that I didn't bother
+maintaining the series changelog. I think it is best to review this
+series independently of its past iterations. I submitted this as an RFC
+since net-next is closed, but I believe this series is fully tested and
+ready to be applied.
+
+[1] https://lore.kernel.org/netdev/20211004191527.1610759-1-sean.anderson@seco.com/
+[2] https://lore.kernel.org/netdev/20221103210650.2325784-1-sean.anderson@seco.com/
+
+
+Sean Anderson (12):
+  dt-bindings: net: Add binding for Xilinx PCS
+  net: phylink: Support setting PCS link change callbacks
+  net: pcs: Add subsystem
+  net: pcs: lynx: Convert to an MDIO driver
+  net: phy: Export some functions
+  net: pcs: Add Xilinx PCS driver
+  net: axienet: Convert to use PCS subsystem
+  net: macb: Move most of mac_config to mac_prepare
+  net: macb: Support external PCSs
+  of: property: Add device link support for PCS
+  arm64: dts: Add compatible strings for Lynx PCSs
+  powerpc: dts: Add compatible strings for Lynx PCSs
+
+Vladimir Oltean (1):
+  net: dsa: ocelot: suppress PHY device scanning on the internal MDIO
+    bus
+
+ .../devicetree/bindings/net/xilinx,pcs.yaml   | 129 ++++
+ Documentation/networking/index.rst            |   1 +
+ Documentation/networking/kapi.rst             |   4 +
+ Documentation/networking/pcs.rst              |  99 +++
+ MAINTAINERS                                   |   8 +
+ .../arm64/boot/dts/freescale/fsl-ls208xa.dtsi |  48 +-
+ .../arm64/boot/dts/freescale/fsl-lx2160a.dtsi |  54 +-
+ .../dts/freescale/qoriq-fman3-0-10g-0.dtsi    |   3 +-
+ .../dts/freescale/qoriq-fman3-0-10g-1.dtsi    |   3 +-
+ .../dts/freescale/qoriq-fman3-0-1g-0.dtsi     |   3 +-
+ .../dts/freescale/qoriq-fman3-0-1g-1.dtsi     |   3 +-
+ .../dts/freescale/qoriq-fman3-0-1g-2.dtsi     |   3 +-
+ .../dts/freescale/qoriq-fman3-0-1g-3.dtsi     |   3 +-
+ .../dts/freescale/qoriq-fman3-0-1g-4.dtsi     |   3 +-
+ .../dts/freescale/qoriq-fman3-0-1g-5.dtsi     |   3 +-
+ .../fsl/qoriq-fman3-0-10g-0-best-effort.dtsi  |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-0-10g-0.dtsi     |   3 +-
+ .../fsl/qoriq-fman3-0-10g-1-best-effort.dtsi  |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-0-10g-1.dtsi     |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-0-10g-2.dtsi     |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-0-10g-3.dtsi     |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-0-1g-0.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-0-1g-1.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-0-1g-2.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-0-1g-3.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-0-1g-4.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-0-1g-5.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-1-10g-0.dtsi     |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-1-10g-1.dtsi     |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-1-1g-0.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-1-1g-1.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-1-1g-2.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-1-1g-3.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-1-1g-4.dtsi      |   3 +-
+ .../boot/dts/fsl/qoriq-fman3-1-1g-5.dtsi      |   3 +-
+ drivers/net/dsa/ocelot/Kconfig                |   4 +
+ drivers/net/dsa/ocelot/felix_vsc9959.c        |  15 +-
+ drivers/net/dsa/ocelot/seville_vsc9953.c      |  16 +-
+ drivers/net/ethernet/altera/Kconfig           |   2 +
+ drivers/net/ethernet/altera/altera_tse_main.c |   7 +-
+ drivers/net/ethernet/cadence/macb.h           |   1 +
+ drivers/net/ethernet/cadence/macb_main.c      | 229 ++++--
+ drivers/net/ethernet/freescale/dpaa/Kconfig   |   2 +-
+ drivers/net/ethernet/freescale/dpaa2/Kconfig  |   3 +
+ .../net/ethernet/freescale/dpaa2/dpaa2-mac.c  |  11 +-
+ drivers/net/ethernet/freescale/enetc/Kconfig  |   2 +
+ .../net/ethernet/freescale/enetc/enetc_pf.c   |   8 +-
+ .../net/ethernet/freescale/enetc/enetc_pf.h   |   1 -
+ .../freescale/enetc/enetc_pf_common.c         |   4 +-
+ drivers/net/ethernet/freescale/fman/Kconfig   |   4 +-
+ .../net/ethernet/freescale/fman/fman_memac.c  |  27 +-
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   3 +
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |   6 +-
+ drivers/net/ethernet/xilinx/Kconfig           |   1 +
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |   4 +-
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 104 +--
+ drivers/net/pcs/Kconfig                       |  51 +-
+ drivers/net/pcs/Makefile                      |   4 +
+ drivers/net/pcs/core.c                        | 701 ++++++++++++++++++
+ drivers/net/pcs/pcs-lynx.c                    | 115 +--
+ drivers/net/pcs/pcs-xilinx.c                  | 481 ++++++++++++
+ drivers/net/phy/mdio_device.c                 |   1 +
+ drivers/net/phy/phy_device.c                  |   3 +-
+ drivers/net/phy/phylink.c                     |  24 +-
+ drivers/of/property.c                         |   2 +
+ include/linux/pcs-lynx.h                      |  13 +-
+ include/linux/pcs-xilinx.h                    |  36 +
+ include/linux/pcs.h                           | 122 +++
+ include/linux/phy.h                           |   1 +
+ include/linux/phylink.h                       |  27 +-
+ 70 files changed, 2104 insertions(+), 358 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/xilinx,pcs.yaml
+ create mode 100644 Documentation/networking/pcs.rst
+ create mode 100644 drivers/net/pcs/core.c
+ create mode 100644 drivers/net/pcs/pcs-xilinx.c
+ create mode 100644 include/linux/pcs-xilinx.h
+ create mode 100644 include/linux/pcs.h
 
 -- 
-Jazz isn't dead. It just smells funny.
+2.35.1.1320.gc452695387.dirty
+
 
