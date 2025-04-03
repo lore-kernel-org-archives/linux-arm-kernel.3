@@ -4,98 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0408CC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 13:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0673FC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 13:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tq7Ewy84FWklJ0DM2lQqRrm1CFpORg7fNcv68fsFdoI=; b=NOjb+jNIo8dS7UPXnpZCOiV/Yd
-	r6NEnDTBw1FMjzJAYz5/JoyMNdh1BObXMTERHe2x0ZKAUPjGG3vEn8LIWqPaBdmIIR8sbEX+HZaEt
-	mUnP2unWAKRbLf8dsWFd7ecB+7iYBKwQy/BmX2VP2VU/iK8nyaKMMoeFQFFJ/63WgVLYHi8Fjb0n8
-	BD2zNpg26HXrDY1xRJlPnTsid8D+da0otdZzRdzO1eWfmJWRwrqp/OyU1gD1d6eHoH9ZY0CaPPT1n
-	pIoEQ0kFsgPBgxItdlcE6zz70eY6L1CZqlDIYycrJ5p/PZ7o/Uz3ZGm5cVzuJP+gRvRzXjfGm6iEr
-	9km2MMbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zez+6p8Y3I5aFWhI6/jit+0uu3QYEFLgq6rmajm/pbc=; b=qjbu2RVBPnnAfmiwqNpJyYCm2H
+	L5ZKR/4MuwEC0JDR4skyCUQDfXJuQohPSnssRKUWXzzSUEINakq6BflOEylHZTiXdyiWbAtDzQe3l
+	Mf/PnsP4u0mqgnilRjmjt7bAsbESGKSBVGdq43CZUeq4mIVtNflACQbUNI8MtdAyA/fChNvs4S/hQ
+	zH/48w/53ya0rEZFWPit/VvKoWHG2dwLAzH89yRP+2YME21Mb9eJ0LZyjJGgb0YWaEFM3SJvVfIjT
+	ALAnJ0aDBhpjawUfNprS+TdDlJdMIxPVm7rE3RXlZhcbXPB4R3BeFZI1PR7A2XC4B8USLg/PFvC++
+	QrJJliJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0KPo-00000008tpl-22dX;
-	Thu, 03 Apr 2025 13:15:29 +0000
-Received: from mout.web.de ([212.227.15.3])
+	id 1u0L6V-00000008zAP-3PFg;
+	Thu, 03 Apr 2025 13:59:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0KO0-00000008thG-3fn8;
-	Thu, 03 Apr 2025 13:13:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1743686000; x=1744290800; i=frank.scheiner@web.de;
-	bh=tq7Ewy84FWklJ0DM2lQqRrm1CFpORg7fNcv68fsFdoI=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=jfpaWPDnqJlnn7d/eeKA+Q2dZ6gal+i27mW+REj0gdj86oe2hrp1rhPGmf7hy4Ps
-	 ucG7L7EDOF3MG/YJSYMNsvXaoeAKKiuPIFKvghBUxWs4T0rF+acXD/NDt/siXGzgj
-	 X8f+hJQZhTuPvqizGbwQAxuDK/ujk+GUPNZiM23PgGRC+xqSE/cfFEUrP53QV4RkI
-	 /N9DJ3bgz0roFD3YAqpyx7Bhmo015EwlCP2gSdoAbC8cJABBh/AsC+r5dxNClp5Tq
-	 L8ZyLbPeuNYG25J7trpGWIC1FtQp75NBD/OGH5SqZaeU8skoKP3ftavD+VnXM6vfa
-	 S+xM5OLloka1ig34xA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.30] ([84.152.250.142]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MZSBG-1tco0U2pmQ-00IJ9N; Thu, 03
- Apr 2025 15:13:20 +0200
-Message-ID: <667d272f-2b51-49d6-84ea-1156027e00a7@web.de>
-Date: Thu, 3 Apr 2025 15:13:17 +0200
+	id 1u0L4h-00000008yvI-25dO;
+	Thu, 03 Apr 2025 13:57:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 003CA4395F;
+	Thu,  3 Apr 2025 13:57:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A24EC4CEE3;
+	Thu,  3 Apr 2025 13:57:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743688661;
+	bh=5SR2KTBI1kKtfOBINvsox0Z0ryfiIm93Ekm8MRv/a4I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iW7Kcl6McmBEbJ1JPZ4u0Huxc2f6LpTnxB8SXB6QM6RbBFXxP9bN9E8qyknVSdeu+
+	 l/b+SAQ0QWM3fR8hQqvYA7ZOXApBXeYHLHS2dOtEI4U4eNVuZ996rcgf9L1vOMk1VK
+	 fsR+piAc8w0Tw7dC/yfcWpuGp/3Zm0/Hg6A4cnGFfj20+RRAL0D7bzGlvX7pR+TyEM
+	 MNWnWibgibRxnmAdvGDG7Qxe1hwAugVpYoRsDOYU8Dz9TOIZ3hKlDJrJ32IqaHfWrO
+	 0gY5wz+zFvE4o6h1f3Wor+aFDgX4QJbAEqle0OkXvoDBz/9rl4ykSomefNEMfNRYWa
+	 D3h05S20MooXA==
+Date: Thu, 3 Apr 2025 16:57:25 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Pratyush Yadav <ptyadav@amazon.de>
+Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
+	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+	dave.hansen@linux.intel.com, dwmw2@infradead.org,
+	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
+	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
+	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
+	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
+	saravanak@google.com, skinsburskii@linux.microsoft.com,
+	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
+	usama.arif@bytedance.com, will@kernel.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-mm@kvack.org, x86@kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>
+Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
+ preservation
+Message-ID: <Z-6TxZWEWbKSCqfh@kernel.org>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-10-changyuanl@google.com>
+ <mafs05xjmqsqc.fsf@amazon.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: apatel@ventanamicro.com
-Cc: ajones@ventanamicro.com, andrew@lunn.ch, anup@brainfault.org,
- atishp@atishpatra.org, bp@alien8.de, dave.hansen@linux.intel.com,
- gregory.clement@bootlin.com, hpa@zytor.com, imx@lists.linux.dev,
- kernel@pengutronix.de, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- maz@kernel.org, mingo@redhat.com, palmer@dabbelt.com,
- paul.walmsley@sifive.com, s.hauer@pengutronix.de,
- sebastian.hesselbarth@gmail.com, shawnguo@kernel.org,
- sunilvl@ventanamicro.com, tglx@linutronix.de, x86@kernel.org,
- linux-ia64@vger.kernel.org
-References: <20250217085657.789309-5-apatel@ventanamicro.com>
-Subject: Re: [PATCH v6 04/10] genirq: Introduce common
- irq_force_complete_move() implementation
-Content-Language: en-US
-From: Frank Scheiner <frank.scheiner@web.de>
-In-Reply-To: <20250217085657.789309-5-apatel@ventanamicro.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:XEpgZJH4hjXKrAVtN6WYfb76caRsH3G/1YZh0k6iv/5gAuOD6JZ
- /5tde3RwkXrkd/Pey4Lz/oZqXIOJwitxEp+fORe/ccUTmOxTdKdt1JHSPo7f6gtuJfxNzDZ
- CT0pBBS+/1TDZFBQT8c7xRTvQ04Ld/hNbLksOh9snnDnKPRk4pMuFmuPo7JqqG7e0gsfnuM
- o7r8alGP5hXS3FrAzPIkg==
-UI-OutboundReport: notjunk:1;M01:P0:Of7XFgulvNQ=;OVh5LHzbZMeUCHWhdl2nXotRgit
- jM6j1jgD5opSeNE7yy/Joxn4dWxgFOVQNAKd/9JrMF5rl1I5wvE1WrzuIA55muGKCafDi+qNf
- VM/TKsQ5FYBPmRxIMIODE9vSzoN8nXhbs4547OCs/oQraFxSR2fQCUvX+/XD/H2fu07WZxDF5
- JiKyCXLZkwYuP49khkI1RPsWSuznFlZUD8xkeB8OkRIsOAAn1AmhQGeWaigIF8080IM0X8SJC
- /Q0MEC4U0PoYB6fVozKBItqDoDSyPT8v2xUPgpM4eqIEUz/mnXKAAbNZqlQhNx7VJQwkdljWy
- hanRggjC+qcyvNnLv4+wWV361WVPE0XqVtSWkPJVSerVB5ZvzYYDvKDy3rAZSunshNvPPkjjd
- nF2CDEmIkniaETkOsdfzv/bGnskgZxhNsUDmjt12xjJgtp7/OfqAJ4sV12Ni2o06jYqHCIntJ
- lAv1rJYy7HWdYf1eu5xtCgIz2GZossoQJvhoC6EMXI4aAS2+xuYfuaoQARne38XIb6Vp4yv7p
- LJ2UP9ONGwFBoW/2qaBKubFr/6edJ0npfgdLzR0HkovRPwe1Xw1xCOO6OOwvVoklqrUOZ2iQ3
- EJVg8HRlqql/7e0imy9xYuEaQpU6K7d9u4FYppWQILPTr0N8xW1vJ9P0YUf7Rf4znCKxsoS1F
- MKPB83tuLCXlQ5bG+q1Q9bxzHNyPNlhWh6AuWdY0+XbRKYXf1JTDJUlxSn3J464O2RPfPmqdH
- HDVSisM8e0I7C2Fzl9Gi2irOvjG78Pena6EpnNuhC2GbMVwM0HuEH9dVI8ZqtVQp9koggzIzA
- h126Bu/qYCnPX6wXzAfJAnf4X/8HbAQowX13W7CCxhdd4U+PioOYYWXHPkYx6nO5OiCCvJ6wC
- t4DcaQPA6IPUC2xmwpZ1iuyUMpNNT/3wbfPwE64sa6/CZXKN9f+9j4UnsQDKfw4okD1iQnwhd
- Me4LKEO/bYQrmX4ZB7PwRFV4KFK7498IYaO26+frpSRi3Qdo8SKDIS462jGpd0qsELf3rporN
- VSGoBRFYikvqgrNVjiF9ItOmcRROIjXooW4kWaQj0kEyKbuqUP/QBtx+e553himBLKWRbXQgL
- 2mT4LxpzgUB8pez1+EeTuoBBpnKPHLs8Lb5+MyIBhjxgyhlQcXmCWF8K/4PyimOqbld6BVBkB
- b9c897IE7qU4qZr4claegKPHTOt4zT3q3ERrHiC9shhf1l2jKNJAghCAwuQFOgZ2fudl7W8dH
- KvEZ3v9n2hpNTq6auTCW9guBFFRV8x/yI6TBWhZCNwS1me+uL8jO2BFF7UsXh1k0o21Lr6g01
- 9aVgDoQ7l/vgmrgyB4Q8U0n33dGHKGuujhqJuFENBBhBe/faxIMPYUI8/pmGoK9/KWTKz1rqf
- Mtr0mYNyydPx0M/YfvQCBhIITMLSUsU8z8F7zjYKtscMJFtszwQTLMRjqgV9A/k+5dxBAIvcW
- KOMwjXQ==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <mafs05xjmqsqc.fsf@amazon.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_061337_306650_88BBB5A5 
-X-CRM114-Status: UNSURE (   6.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250403_065743_618171_050DE7EA 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,59 +87,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi there,
+On Wed, Apr 02, 2025 at 07:16:27PM +0000, Pratyush Yadav wrote:
+> Hi Changyuan,
+> 
+> On Wed, Mar 19 2025, Changyuan Lyu wrote:
+> 
+> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> >
+> > Introduce APIs allowing KHO users to preserve memory across kexec and
+> > get access to that memory after boot of the kexeced kernel
+> >
+> > kho_preserve_folio() - record a folio to be preserved over kexec
+> > kho_restore_folio() - recreates the folio from the preserved memory
+> > kho_preserve_phys() - record physically contiguous range to be
+> > preserved over kexec.
+> > kho_restore_phys() - recreates order-0 pages corresponding to the
+> > preserved physical range
+> >
+> > The memory preservations are tracked by two levels of xarrays to manage
+> > chunks of per-order 512 byte bitmaps. For instance the entire 1G order
+> > of a 1TB x86 system would fit inside a single 512 byte bitmap. For
+> > order 0 allocations each bitmap will cover 16M of address space. Thus,
+> > for 16G of memory at most 512K of bitmap memory will be needed for order 0.
+> >
+> > At serialization time all bitmaps are recorded in a linked list of pages
+> > for the next kernel to process and the physical address of the list is
+> > recorded in KHO FDT.
+> >
+> > The next kernel then processes that list, reserves the memory ranges and
+> > later, when a user requests a folio or a physical range, KHO restores
+> > corresponding memory map entries.
+> >
+> > Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > Co-developed-by: Changyuan Lyu <changyuanl@google.com>
+> > Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+> > ---
+> >  include/linux/kexec_handover.h |  38 +++
+> >  kernel/kexec_handover.c        | 486 ++++++++++++++++++++++++++++++++-
+> >  2 files changed, 522 insertions(+), 2 deletions(-)
+> [...]
+> > +int kho_preserve_phys(phys_addr_t phys, size_t size)
+> > +{
+> > +	unsigned long pfn = PHYS_PFN(phys), end_pfn = PHYS_PFN(phys + size);
+> > +	unsigned int order = ilog2(end_pfn - pfn);
+> 
+> This caught my eye when playing around with the code. It does not put
+> any limit on the order, so it can exceed NR_PAGE_ORDERS. Also, when
 
-this change, specfically the introduction of irq_force_complete_move()
-to `kernel/irq/migration.c`, strangely breaks our builds for the hp-sim
-platform (i.e. Linux/ia64 for Ski):
+I don't see a problem with this
 
-```
-  CC      kernel/irq/affinity.o
-kernel/irq/migration.c: In function 'irq_force_complete_move':
-kernel/irq/migration.c:40:72: error: 'struct irq_data' has no member named 'parent_data'
-   40 |         for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = d->parent_data) {
-      |                                                                        ^~
-make[4]: *** [scripts/Makefile.build:207: kernel/irq/migration.o] Error 1
-```
+> initializing the page after KHO, we pass the order directly to
+> prep_compound_page() without sanity checking it. The next kernel might
+> not support all the orders the current one supports. Perhaps something
+> to fix?
 
-The reason seems to be that "d->parent_data" (i.e.
-"irq_data.parent_data") is used unguarded in this function:
+And this needs to be fixed and we should refuse to create folios larger
+than MAX_ORDER.
+ 
+> > +	unsigned long failed_pfn;
+> > +	int err = 0;
+> > +
+> > +	if (!kho_enable)
+> > +		return -EOPNOTSUPP;
+> > +
+> > +	down_read(&kho_out.tree_lock);
+> > +	if (kho_out.fdt) {
+> > +		err = -EBUSY;
+> > +		goto unlock;
+> > +	}
+> > +
+> > +	for (; pfn < end_pfn;
+> > +	     pfn += (1 << order), order = ilog2(end_pfn - pfn)) {
+> > +		err = __kho_preserve(&kho_mem_track, pfn, order);
+> > +		if (err) {
+> > +			failed_pfn = pfn;
+> > +			break;
+> > +		}
+> > +	}
+> [...
+> > +struct folio *kho_restore_folio(phys_addr_t phys)
+> > +{
+> > +	struct page *page = pfn_to_online_page(PHYS_PFN(phys));
+> > +	unsigned long order = page->private;
+> > +
+> > +	if (!page)
+> > +		return NULL;
+> > +
+> > +	order = page->private;
+> > +	if (order)
+> > +		prep_compound_page(page, order);
+> > +	else
+> > +		kho_restore_page(page);
+> > +
+> > +	return page_folio(page);
+> > +}
+> [...]
+> 
+> -- 
+> Regards,
+> Pratyush Yadav
 
-```
-void irq_force_complete_move(struct irq_desc *desc)
-{
-    for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = d->parent_data) {
-        if (d->chip && d->chip->irq_force_complete_move) {
-            d->chip->irq_force_complete_move(d);
-            return;
-        }
-    }
-}
-```
-
-...but "parent_data" is only present in `include/linux/irq.h` if
-`CONFIG_IRQ_DOMAIN_HIERARCHY` was selected.
-
-```
-struct irq_data {
-    u32            mask;
-    unsigned int        irq;
-    irq_hw_number_t        hwirq;
-    struct irq_common_data    *common;
-    struct irq_chip        *chip;
-    struct irq_domain    *domain;
-#ifdef    CONFIG_IRQ_DOMAIN_HIERARCHY
-    struct irq_data        *parent_data;
-#endif
-    void            *chip_data;
-};
-```
-
-So I guess, either the requirement in `linux/include/linux/irq.h` needs
-to go, or the use of "d->parent_data" or the whole of
-irq_force_complete_move() and its use needs to be guarded as well.
-
-Cheers,
-Frank
-
+-- 
+Sincerely yours,
+Mike.
 
