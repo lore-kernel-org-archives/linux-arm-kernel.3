@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBBB2C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E2FC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 14:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3IsSPBXQWY1usNrfBN/KIensIpJex3632vzJAXdEQkI=; b=bVTQQrzd8Q8l/U8DZcNh1FQ5gX
-	HopoZLgUkWRDOdJdYIYgw29ClY8h4cLWPvvkcBCYtTJiZYb0pJShoj7VNGnOg4SHiz7SA+HxTYNza
-	Wmq7jJIoy/0wki9w0q9Vt5+4487UJ2jqYNbotZwLFSpca53E9mgFGZfBVtjE5+jlhqNHnBfM6w5BS
-	80D5RQYlxQEiLzjrBIeNI67gYLANkGer7wMIK1Y3k99vho55QAbf8zVYrcZOeAnxjWNkSqeTN18+q
-	RcDQH0NNEBs9hR5nl+4v5BtsPnVrlzLnHFSXNLaVKCN0ytFx/cbFrHxkO5Hme/z8a23MLxas5FIEy
-	77sgDkKw==;
+	bh=cR7V8tdp1JiFaqa4CurIg+Y74l5p4ap4GzC31HJp3Bs=; b=aV4/i/aMxhWdVTOJnxmqt7NWC9
+	WCwUDi6dbYCpVzRqhldDMf4pWhA1KLQID7XU3+jBzvvVKT/UxI6Pfjojxp+f2vcJvxyvOomMptpq9
+	1ke4pd6WHhArXQD9Nan0Q3n6HNo5sSwQAhFGPDDewvl6d33rTdY1kXuUBzdN+Rk/1Ap4nbv0zP6F9
+	+kZ+zpmGC80xUCiMnI3SHKEk1j5TbKYqzCf+g3sUGIq4Q+Dyxhb9wiNCPJJL1Um3VeYd0d8b4FuX0
+	CoNd2Sjq5vFNf4NuD76g+2e7ZEaU58bWaZ91e/GYoVvMQr7umIhHTuM8AdTjyVrRbd3iSkTmC6tRQ
+	CNpxUKag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Lnm-0000000974u-2yku;
-	Thu, 03 Apr 2025 14:44:18 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u0Lpa-000000097NV-2HPa;
+	Thu, 03 Apr 2025 14:46:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0LfM-000000095fP-30Zf
+	id 1u0LfO-000000095fp-0Ctv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 14:35:38 +0000
+	Thu, 03 Apr 2025 14:35:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 38436A432CE;
-	Thu,  3 Apr 2025 14:30:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94184C4CEE5;
-	Thu,  3 Apr 2025 14:35:35 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 65B81A432BD;
+	Thu,  3 Apr 2025 14:30:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D37D8C4CEEB;
+	Thu,  3 Apr 2025 14:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743690935;
-	bh=zumkyYgD4rKRxbVuiS3xNK72xMEL7G46+2AXsQp2PTM=;
+	s=k20201202; t=1743690937;
+	bh=UYZcrSoIukyNWFqG5RqeZgTW5DKkSSPFrREL7EXhL7A=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=aAn1mFcb7H6bICJ3q77Y2KkevOwYQkQpfxxEt5dkNtIUmPbo8+rf6rI7/i+ZmrqDF
-	 GQ8qmloqZtKEvPdwmAqegoZY0Zq0HeCZLpt5N1ASKyZuot87W1m1zDrNEJx6Z7goZF
-	 q4av7dDSYKfMX2lxMqsrE0hWkVSSxRqUUJEyJAG9VawD4CqdMSfEKVUme+qptjwA9T
-	 J0fq5D6JhaAqT5vKWz1lT4taJ7njeZe59y/5WxfFYp/2F3kG4w6uzldaX69N1B6H6S
-	 S7l+qc3d+gV6K/a4AhvM+jt5esZlNKngtfnSZPoXZHWLsg70SWvGdq+JwB5uUfstm7
-	 oYJLRDmmHhfbQ==
-Date: Thu, 03 Apr 2025 09:35:34 -0500
+	b=f25Mxn7sTE5uXYsLGJO6y9vJRVcdxdMTTjs995bdwPmwAWxtZUhuWmAtVPyYG4GsD
+	 xdzO74ybVodnmOEuOn91FigvsAw5u8Ohe1C8ldk+ZOvgQTt3qm07mc+u2ASB/fcHiS
+	 Kwb0Ty4JcDtqx6arTnkBZu2kJtTO4s331wYU0O+nJa9XRd0zu6mpHgXHK/9BwxRMKj
+	 RcEDf+XsiRwZKawYl1zyC5CEDuSm89kB750I3vspRA+T319KMGlrHnR/1d/Fzxe0qF
+	 WP1HB05/+4XrPEnwuhoMtyYBI8dKPBRtqRy52tg1EAWBjaoc78RZNlphdnYyqUhvNJ
+	 ci20RAzxULz9Q==
+Date: Thu, 03 Apr 2025 09:35:35 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, mcoquelin.stm32@gmail.com, 
- alexandre.torgue@foss.st.com, linux-arm-kernel@lists.infradead.org, 
- conor+dt@kernel.org, tglx@linutronix.de, krzk+dt@kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
- maz@kernel.org
-To: Christian Bruel <christian.bruel@foss.st.com>
-In-Reply-To: <20250403122805.1574086-1-christian.bruel@foss.st.com>
-References: <20250403122805.1574086-1-christian.bruel@foss.st.com>
-Message-Id: <174369066487.2789685.6006460527429704975.robh@kernel.org>
-Subject: Re: [PATCH 0/3] Add ST STM32MP2 GICv2 quirk for EOI split mode
+Cc: Conor Dooley <conor+dt@kernel.org>, 
+ Yashwanth Varakala <y.varakala@phytec.de>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Fabio Estevam <festevam@gmail.com>, Jan Remmet <j.remmet@phytec.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, upstream@lists.phytec.de, 
+ Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org, 
+ Shawn Guo <shawnguo@kernel.org>, linux-kernel@vger.kernel.org, 
+ Benjamin Hahn <b.hahn@phytec.de>, imx@lists.linux.dev, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Teresa Remmet <t.remmet@phytec.de>
+To: Yannic Moog <y.moog@phytec.de>
+In-Reply-To: <20250403-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v2-0-c0d2eff683ac@phytec.de>
+References: <20250403-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v2-0-c0d2eff683ac@phytec.de>
+Message-Id: <174369066563.2789714.13229546252082031365.robh@kernel.org>
+Subject: Re: [PATCH v2 0/3] Add new imx imx8mp-libra-rdk-fpsc SBC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_073536_896508_1FFD3636 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250403_073538_219459_DAF4BBA0 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,30 +81,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 03 Apr 2025 14:28:02 +0200, Christian Bruel wrote:
-> When using GIC EOI split mode, GICC_DIR fails to deactivate the interrupt,
-> leading to a WFI freeze. On ST MP2, GIC cpu interface is limitted to 4K,
-> thus GICC_DIR register is reachable with a 0x10000 remapping
+On Thu, 03 Apr 2025 13:29:26 +0200, Yannic Moog wrote:
+> The Libra i.MX 8M Plus is a SBC that consists of the Libra base board
+> and the phyCORE i.MX 8M Plus FPSC SoM.
+> This series adds its binding and device trees.
+> In addition add an overlay for an LVDS display that may optionally be
+> connected to the Libra board.
 > 
-> When using GIC EOI split mode, the GICC_DIR fails to deactivate the
-> interrupt, causing core freeze on WFI. On the ST MP2, the GIC CPU interface
-> is limited to 4K, so the GICC_DIR register can be accessed remapping the
-> register to a 0x10000 offset.
+> ---
+> Changes in v2:
+> - reorder device tree nodes of SoM and board device trees according to https://github.com/lznuaa/dt-format
+> - fix typo in reg: regulator-12v0 -> regulator-vdd-12v0
+> - add to binding commit description the difference between phycore-som and phycore-fpsc
+> - Link to v1: https://lore.kernel.org/r/20250328-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v1-0-28324c7f81fa@phytec.de
 > 
-> Christian Bruel (3):
->   dt-bindings: interrupt-controller: arm,gic: Add
->     st,stm32mp2-cortex-a7-gic
->   irqchip/gic: Use 0x10000 offset to access GICC_DIR
->   arm64: dts: st: add st,stm32mp2-cortex-a7-gic in intc node in
->     stm32mp251.dtsi
+> ---
+> Yannic Moog (3):
+>       dt-bindings: add imx8mp-libra-rdk-fpsc
+>       arm64: dts: add imx8mp-libra-rdk-fpsc board
+>       arm64: dts: add imx8mp-libra-rdk-fpsc LVDS panel overlay
 > 
->  .../interrupt-controller/arm,gic.yaml         |  1 +
->  arch/arm64/boot/dts/st/stm32mp251.dtsi        |  2 +-
->  drivers/irqchip/irq-gic.c                     | 47 ++++++++++++++++++-
->  3 files changed, 48 insertions(+), 2 deletions(-)
+>  Documentation/devicetree/bindings/arm/fsl.yaml     |   7 +
+>  arch/arm64/boot/dts/freescale/Makefile             |   3 +
+>  .../imx8mp-libra-rdk-fpsc-lvds-etml1010g3dra.dtso  |  44 ++
+>  .../boot/dts/freescale/imx8mp-libra-rdk-fpsc.dts   | 290 ++++++++
+>  .../boot/dts/freescale/imx8mp-phycore-fpsc.dtsi    | 796 +++++++++++++++++++++
+>  5 files changed, 1140 insertions(+)
+> ---
+> base-commit: 90453dc4dee29b96b9162895f45776bc25526e07
+> change-id: 20241210-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-c273025682f2
 > 
+> Best regards,
 > --
-> 2.34.1
+> Yannic Moog <y.moog@phytec.de>
 > 
 > 
 > 
@@ -119,38 +134,17 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250403 (exact match)
+ Base: using specified base-commit 90453dc4dee29b96b9162895f45776bc25526e07
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/st/' for 20250403122805.1574086-1-christian.bruel@foss.st.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250403-wip-y-moog-phytec-de-imx8mp-phycore-fpsc-v2-0-c0d2eff683ac@phytec.de:
 
-arch/arm64/boot/dts/st/stm32mp257f-dk.dtb: interrupt-controller@4ac00000: compatible: 'oneOf' conditional failed, one must be fixed:
-	['st,stm32mp2-cortex-a7-gic', 'arm,cortex-a7-gic'] is too long
-arch/arm64/boot/dts/st/stm32mp257f-dk.dtb: interrupt-controller@4ac00000: compatible: 'oneOf' conditional failed, one must be fixed:
-		['st,stm32mp2-cortex-a7-gic', 'arm,cortex-a7-gic'] is too long
-		'nvidia,tegra210-agic' was expected
-		'st,stm32mp2-cortex-a7-gic' is not one of ['nvidia,tegra186-agic', 'nvidia,tegra194-agic', 'nvidia,tegra234-agic']
-	'arm,gic-400' was expected
-	'arm,arm1176jzf-devchip-gic' was expected
-	'brcm,brahma-b15-gic' was expected
-	'arm,arm11mp-gic' was expected
-	'arm,cortex-a15-gic' was expected
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/arm,gic.yaml#
-arch/arm64/boot/dts/st/stm32mp257f-ev1.dtb: interrupt-controller@4ac00000: compatible: 'oneOf' conditional failed, one must be fixed:
-	['st,stm32mp2-cortex-a7-gic', 'arm,cortex-a7-gic'] is too long
-arch/arm64/boot/dts/st/stm32mp257f-ev1.dtb: interrupt-controller@4ac00000: compatible: 'oneOf' conditional failed, one must be fixed:
-		['st,stm32mp2-cortex-a7-gic', 'arm,cortex-a7-gic'] is too long
-		'nvidia,tegra210-agic' was expected
-		'st,stm32mp2-cortex-a7-gic' is not one of ['nvidia,tegra186-agic', 'nvidia,tegra194-agic', 'nvidia,tegra234-agic']
-	'arm,gic-400' was expected
-	'arm,arm1176jzf-devchip-gic' was expected
-	'brcm,brahma-b15-gic' was expected
-	'arm,arm11mp-gic' was expected
-	'arm,cortex-a15-gic' was expected
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/arm,gic.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dtb: clock-controller@30e20000: clock-names: ['ahb', 'sai1', 'sai2', 'sai3', 'sai5', 'sai6', 'sai7', 'axi'] is too long
+	from schema $id: http://devicetree.org/schemas/clock/imx8mp-audiomix.yaml#
+arch/arm64/boot/dts/freescale/imx8mp-libra-rdk-fpsc.dtb: clock-controller@30e20000: clocks: [[2, 284], [2, 123], [2, 124], [2, 125], [2, 127], [2, 128], [2, 182], [2, 321]] is too long
+	from schema $id: http://devicetree.org/schemas/clock/imx8mp-audiomix.yaml#
 
 
 
