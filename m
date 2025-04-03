@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC98C3601B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 06:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1935C3601F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 06:42:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hgIBgeuQ2a8zmExwgYbeFA+3+Qb+ol5B+TbgQUhRMmk=; b=n7yemyXjB5Xia45GwYUOhIh4US
-	0dBtC8RVCPN78/2O/hd1oJ64spn6hC/XnlmoEZpdnXmezCEYTGxC6og0bf7xI6Zri1yDd00W7blys
-	PmL/iVKP9jobdPsG1ETbQnarXhxWax/1obrxktP3CT+rYiOAVW9hJhbo1NSTJ6OjaIKUog+pZ70Hh
-	AiehucA8ClORSEVXXNeyHEKtU2+ZerKVkhJiSscrqv39VmN7yJEh1zJaUI9IHWpcYhf8CfFyhY8hc
-	7ifJaIlzZv7WwMUGehW+M+rjnJBUde7s1b46quvAJJqNgdJpSiJ0DdHb8BiYXlu9Wy8IiwnMxVT2n
-	ZciPUuAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3anVLaybc7Q9LxTXFWiupqpL66C9SB/8x/0EIFOjI44=; b=Qg4vc6VXugCvEyDjF7qlmO1P7c
+	3nQ1eoRZU83otucZIe9xn8ZCnXYtEUX06XdJyt9hHKqpBhY9VMcQCnR/uBuu+mJQnYlC4pvSGs9kN
+	yWwM4ChlH2gkoqICgpebqwMyOz49VMqWkDVBx5XoWkP2v7KTR2SRb4Jj9ZC7glMEtZMTRLCGfyfI9
+	VOwCzOVVDn6HKNqsE25NcfYCB4vtdBNXseDPIBLdL5OBtLnFcn86fSZA6OTP4MYxFwLcNLp3O9UFm
+	IwSDRoHSjvAI4zge6AR78V1xjOkAOVRNwggI1ZOBvNjyPeIqc05V7c4fxb09SeLXUnxP+/ULheOYN
+	M6e8SylA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0EFd-00000007xMk-1Q5I;
-	Thu, 03 Apr 2025 06:40:33 +0000
+	id 1u0EHM-00000007xZc-22bV;
+	Thu, 03 Apr 2025 06:42:20 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0EBE-00000007wV9-3IFB;
-	Thu, 03 Apr 2025 06:36:02 +0000
+	id 1u0EDs-00000007x5P-3eGJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Apr 2025 06:38:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E62761362;
-	Thu,  3 Apr 2025 06:35:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7BE0C4CEE3;
-	Thu,  3 Apr 2025 06:35:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E6FA61362;
+	Thu,  3 Apr 2025 06:38:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A111CC4CEE3;
+	Thu,  3 Apr 2025 06:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743662158;
-	bh=AGJNWfKRNZL//XYg7cPPDMuxOk/9JJAVddvZZSpuEEY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VQQndKRoCv1j7LhtIGvg7iXfK76iyoBI6qWG8JHeIVWZUMXdE6vuMdhlhXvQuFo4y
-	 XNRn7AOAnUGVDJpSze7BcqQ3U8Q6Iskb1CSCQ2ZQYb+JevofEDlFd5XQW9RH3PZzlD
-	 QCzVBydKlgK1dffpoWUAsnPf/PRXUaF7dH1JChf7yFqleEFFOkKsFbHqhuQ23cTMrL
-	 diBfgnv5Oge5fzNEbI6gEq1PF7hFmpoIdJA5YvVnKUSyqz+UgZNMI3FhUcW4yNAwbv
-	 yFYotLIxGgrxl+sxl+z8XFD4/3GH5uRkloeWLJEYDjBzGRpjGYANXmV5/YdZdTJGGX
-	 nQ35QgAhHviEg==
-Date: Thu, 3 Apr 2025 08:35:55 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: justin.chen@broadcom.com
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-phy@lists.infradead.org, rafal@milecki.pl, alcooperx@gmail.com, 
-	bcm-kernel-feedback-list@broadcom.com, florian.fainelli@broadcom.com, conor+dt@kernel.org, 
-	krzk+dt@kernel.org, robh@kernel.org, kishon@kernel.org, vkoul@kernel.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: phy: brcmstb-usb-phy: Add support
- for bcm74110
-Message-ID: <20250403-impetuous-spry-falcon-1e2ea9@krzk-bin>
-References: <20250402185159.2976920-1-justin.chen@broadcom.com>
- <20250402185159.2976920-2-justin.chen@broadcom.com>
+	s=k20201202; t=1743662324;
+	bh=YxNQgOwbq/vG85PIYBP1y2DGiGETcPpm5tCt19Qss54=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rdDW3wZC8xXiJzAIqacq3AFyhV8SPL68kl/cC3n98UPqJaEyMqxcsIFykpUpS2qQX
+	 4sdSc+FGzw9BhHakkWWvvuXP7JxZyQR0g75qSEBS4iVubpp5eBw9rX5ID/8epJy+05
+	 /xo8CcQNgCzSgs5ejS7jBfvglyxNu34h6yUdFl1d22Nkd08exLRJYHBKn7HuEzZG3v
+	 TDLyw3sEM8PuS3ZN48IvXVuQPVX5UxnC7AP3Pj1pjo+VpZDj3T7hba+7W6tCittmBL
+	 i6zzVdOhsmwr0giUHa2HcuH5vjA22qXOpy/yzC9+QY5YF94R+796LuGY7DBleOF6y8
+	 kIEdrT7oOBfbQ==
+Message-ID: <4371c835-205e-4ec5-865b-ae01d87b7b70@kernel.org>
+Date: Thu, 3 Apr 2025 15:38:40 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250402185159.2976920-2-justin.chen@broadcom.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: xilinx: Remove myself from maintainership
+To: Mubin Sayyed <mubin.sayyed@amd.com>, cassel@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, linus.walleij@linaro.org,
+ brgl@bgdev.pl, michal.simek@amd.com, p.zabel@pengutronix.de,
+ gregkh@linuxfoundation.org, radhey.shyam.pandey@amd.com
+Cc: linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org, git@amd.com
+References: <20250403060836.2602361-1-mubin.sayyed@amd.com>
+Content-Language: en-US
+From: Damien Le Moal <dlemoal@kernel.org>
+Organization: Western Digital Research
+In-Reply-To: <20250403060836.2602361-1-mubin.sayyed@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,19 +75,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 11:51:58AM -0700, justin.chen@broadcom.com wrote:
-> From: Justin Chen <justin.chen@broadcom.com>
+On 4/3/25 15:08, Mubin Sayyed wrote:
+> As I am leaving AMD and will no longer be maintaining
+> these platform drivers, so removing myself from maintainership.
 > 
-> bcm74110 brcmstb usb phy adds further power savings during suspend
-> states.
-> 
-> Signed-off-by: Justin Chen <justin.chen@broadcom.com>
+> Signed-off-by: Mubin Sayyed <mubin.sayyed@amd.com>
 > ---
-> v2:
+>  Documentation/devicetree/bindings/ata/ceva,ahci-1v84.yaml        | 1 -
+>  .../devicetree/bindings/gpio/xlnx,zynqmp-gpio-modepin.yaml       | 1 -
+>  Documentation/devicetree/bindings/reset/xlnx,zynqmp-reset.yaml   | 1 -
+>  Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml           | 1 -
+>  Documentation/devicetree/bindings/usb/microchip,usb5744.yaml     | 1 -
+>  Documentation/devicetree/bindings/usb/xlnx,usb2.yaml             | 1 -
+>  6 files changed, 6 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/ata/ceva,ahci-1v84.yaml b/Documentation/devicetree/bindings/ata/ceva,ahci-1v84.yaml
+> index 6ad78429dc74..c92341888a28 100644
+> --- a/Documentation/devicetree/bindings/ata/ceva,ahci-1v84.yaml
+> +++ b/Documentation/devicetree/bindings/ata/ceva,ahci-1v84.yaml
+> @@ -7,7 +7,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  title: Ceva AHCI SATA Controller
+>  
+>  maintainers:
+> -  - Mubin Sayyed <mubin.sayyed@amd.com>
+>    - Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Fine with me.
 
-Best regards,
-Krzysztof
+Acked-by: Damien Le Moal <dlemoal@kernel.org>
 
+Not sure which tree will pick this up though ? linux-arm maybe ?
+If noone volunteers, I can take it.
+
+-- 
+Damien Le Moal
+Western Digital Research
 
