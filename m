@@ -4,59 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DF2C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 02:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD071C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 03:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ztrTGJN54Lz8a6OospOvdxLRkTtIZkpNJxRjqnAs7NA=; b=ZrEg7SXtYE7vhizv0GmbsvH/cw
-	RfVZBkf5Ex+7ZV4lmB425yFESxVn+ojAAw+6e4ZxOb48hwvlehoLhOietBpeV2OYuGL4N07a07JFB
-	+Hfht/xQzSoa3LwBrqJ3rva84Yh8KzEnfuOu049Ge3Z81i6TYaTU8DvXf4PIr4Thk9pUZ0UTKQ+Z5
-	WAGubcp+nYKOqVGc1X1kEDPucvwOaqUUUyuO0pRTnzu+PYSE/9NoLbkiP3M4hwzN4L4hJeR0Gwqm1
-	u68J41Sbe8tq9wLaO5qq0e2sVQ28+46mXiDCC/9av5D/pl9bl+TnAYQzA9t/lgLsIxGxmD+4/yFE3
-	NuzPOcvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iHI0YqkBKRGg9RIBUbOKXQI1vbxFWwvXVylY/2OtvxU=; b=BW1o4qXHBrnYkR9PWRNmsUHM8o
+	ANYE6T7HmSVIw/Z4HDUTdaQ0GL2SjBm32zdd//oKBMzgSZLaNI0fdKGrcxD/OysAtRVXW68XXQ1rB
+	24PmmvMzLLHkl/43qebnQ3WO9v3X8F6TBwHy2lnJZdWWJRxgK62B6xAbfGFnKqVC7cPPlUNI8adQU
+	JQt/OIBMZuoOU2kwuWEQ75b5OwDSbu7Ngavp1g3M2JKa4usc626Grs3Mz5BgpVhSYn6zk2Ai01avr
+	ijiMhz52u5ieKNF5OfY9dLDxhhwSK5r5q+AaX//fiRmlC4QFTgX6Jo0goXwJ7irRq4EmubB/yUDgx
+	2XlP3zWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Ako-00000007deL-1HQl;
-	Thu, 03 Apr 2025 02:56:30 +0000
-Received: from mail-m8289.xmail.ntesmail.com ([156.224.82.89])
+	id 1u0BC0-00000007fJz-0bJN;
+	Thu, 03 Apr 2025 03:24:36 +0000
+Received: from mail-am7eur03on20601.outbound.protection.outlook.com ([2a01:111:f403:260e::601] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Aiz-00000007dMe-0M47
+	id 1u0BAF-00000007fCi-10P5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 02:54:42 +0000
-Received: from [172.21.129.240] (unknown [122.224.241.34])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1088f8c4a;
-	Thu, 3 Apr 2025 10:54:17 +0800 (GMT+08:00)
-Message-ID: <a1cf32e8-c711-476d-a827-e3affedba780@hj-micro.com>
-Date: Thu, 3 Apr 2025 10:53:48 +0800
+	Thu, 03 Apr 2025 03:22:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KzuoPbALCePsj5zk4au4yZTc2Yh+xdYpOw/8kU/XvY/0egN4jcKzt7IZLP3Xkfp2lWJXJ4xSZOhD/oi6P8Lcfkm6/Ug71MrMNc0nBpU0Rbyr3TUQQaq7yF4zRbS0sB0UYivth/lZDR90egXtLkli8FgydqVjqwkn0j0RS3/mS3+uIamdbWLjf+67jbmX2b1hbKGz2RImPh/aVGmYE4lLt19wmSCGqzFUkfbHDE/xparyg96xfiubACJ7KlTud+P82w0REyjJu7Iqx1q5OmxQddSVYcXaYWvZJZuwNU7G8B7uzqDgnx102McCqyrkwKBLrwX3CDlxFjRv5UpQ2Z3RQg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iHI0YqkBKRGg9RIBUbOKXQI1vbxFWwvXVylY/2OtvxU=;
+ b=ufWeYtJ1MrpXC+JBR8a8HSujTZ8qVFTwevDwXnEkEv8KHQt5/7liC/LKsy7GBCOL1TgObeRx4KZBIbdcTiFsw1MJnstvsXwpIUSh8CVivdfQ/5NcJBtccwji2BVFEK91tSqZ1SCx7J9HcReNjMRSI18BxKztrm6jty4ecQhW3/W/oyyYSoHVloYKZhrzSGt+Nuds4bgQl9BT16+R4TiFzbycnxnsT5AQPFwW4LOshEl0QxrObce6QPMXBfCXUOaGgfIadrBsqpDAIa3KwBw7PgNxE7jd16bZh69erUwMoWQzgq0OYh6MClWIpv4byrus0uKrWhzydWMUe8D+kF+BGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iHI0YqkBKRGg9RIBUbOKXQI1vbxFWwvXVylY/2OtvxU=;
+ b=Lrv4m3+8wpXUlZeWt70o+zrIFALzguVnyXaFanKpN3zJhZKaNar2Chge1ZGqc/nGPkrlKro1tMFOokae3taoy0QUvnqtPFVDFVB3MLcDkOlynaaJw+zHX71r+bHHv0B9UJNsSx9qapsyR45BdByx4wMOxehkF+3Z+mF6Ynxs4g5tR8iDHAhdii8dEIzwYIcDE5swWajryTkL7lLPx3KoviWCJQTzMf/cY1xZaEW5uUGIjjujl4AyWqoFjb0Q+hb2arty1cWypN553L6oo5jOLWKI6QEOz45rvJbARCpb/crw4TqEiloM1kshVrFYPAkGYBOvMNpQvFGAKMxrX0g35A==
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by AS8PR04MB8996.eurprd04.prod.outlook.com (2603:10a6:20b:42f::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Thu, 3 Apr
+ 2025 03:22:40 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%4]) with mapi id 15.20.8583.041; Thu, 3 Apr 2025
+ 03:22:40 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+CC: Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de"
+	<l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v3 3/6] PCI: imx6: Workaround i.MX95 PCIe may not exit L23
+ ready
+Thread-Topic: [PATCH v3 3/6] PCI: imx6: Workaround i.MX95 PCIe may not exit
+ L23 ready
+Thread-Index: AQHbn44DKK1oo7avrE6ytacDA3gL7LOP/LQAgAAFMnCAAIO0gIAAxEXQ
+Date: Thu, 3 Apr 2025 03:22:40 +0000
+Message-ID: <AS8PR04MB8676BB3EDFCF3E5A490AC0628CAE2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+References: <20250328030213.1650990-1-hongxing.zhu@nxp.com>
+ <20250328030213.1650990-4-hongxing.zhu@nxp.com>
+ <ovaomfvo7b3uxoss3tzhrkgdy6cvxi4kr2zxmqsfjxds5qfohl@t6kc4rswq6gp>
+ <AS8PR04MB8676687332C78840B927E7568CAF2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <rqgl5jjauppyudgmugp34fillkeli3qkwf4uf2djghi6nslebg@pyi6rbwyduxd>
+In-Reply-To: <rqgl5jjauppyudgmugp34fillkeli3qkwf4uf2djghi6nslebg@pyi6rbwyduxd>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8676:EE_|AS8PR04MB8996:EE_
+x-ms-office365-filtering-correlation-id: 574a36c7-5ca6-4a0d-c8e8-08dd725eca9b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?ekNybUlDMEo0YUhoUVV4NVY2T1ZxRnNZd2hCb0hSaXJsSWdHeUdtR003dyt2?=
+ =?utf-8?B?bU5KMVNwK2NxVFRjcDBTYzRuRkJ5MzNHSFFSbGFuUWd3VDZXeFhFdXFBTHpC?=
+ =?utf-8?B?TkJRd2FnUGZzVlM2NzZjeHoxM2JiL0JkcXZJZFVXYWE2YzZvUi9mZXJSUUNi?=
+ =?utf-8?B?cGJuMTRuMDF6M2diTVRuWjNDT0dFblV3RGR2UCtROG9uTG1SbGdsdnRJcWdI?=
+ =?utf-8?B?SzBsbnU1MFJOc0tZYVZvT2RtTFFTVmRKT3hFVnMxRkUrc05PaHFsOXVjSk5m?=
+ =?utf-8?B?ZThGWXlkbUNPRmRab1VLMnFKMzhLUUNWSCs2TGZDRWtBNHFLdVQ0TEx6TEhI?=
+ =?utf-8?B?WHJxaER3aVJzNTFITFZFR2ZhREtUeG9nM1I4Y2Z0TVExVStIdDVqUXZWYlpr?=
+ =?utf-8?B?UCt2M0NHc1h2RE96c0FvTnJHVWR1UU45MVUzbTJNd2VyQ2pheU12QUN1azMw?=
+ =?utf-8?B?MkMxL29Vb1g0WUhDSlI1eFFFZEIrbEFkMFlvaTFKeThIWjR2cmFSV1NCTnNo?=
+ =?utf-8?B?WjlDNE9DREkzY2ZzaTIvMllZbTBROWZZOWVHV0oxcTlOM1RFcmhXbytUK3ZU?=
+ =?utf-8?B?RHVFOUx5V0tOVFp3aXJKNmtsazlKb2c1cjBOWXE2L3JlSzFzaUVHQXY3YXow?=
+ =?utf-8?B?ajl1UXpJdlRNVWZJcWkxT2ZWdURneTNWRnpqMTNLWWpyY2t3NkR3aGI0U0pE?=
+ =?utf-8?B?N0JRbTRRTFRaT0huaG9LcnhLMHdPSEJ1dU10TWU4cFpUblEwd1hOU3BQZjk5?=
+ =?utf-8?B?SEJxaU1BbjdtLzJwT0J5dkQwakxhazI3clNsaFpSYWxxSjJ3MG10eVRROXZq?=
+ =?utf-8?B?QXJLRWxXNkVBQmhxUlk1OXdGTHRLSVZjMlFxU1RpOUFITWlyR0JraDhma1Yy?=
+ =?utf-8?B?d0RNU3hwbmt5c0wvaEg2eVRmVkpyZXRvaUZwblZ6bXE3OExMUjhYTVNkR2pp?=
+ =?utf-8?B?SVZsVXNhY25TVTVIekQrUDNLQ0N3cUJOQ1lXY2g2VlpmdEJZUndmVVJWays2?=
+ =?utf-8?B?SGp0V25MZGJtdUZ5ODNiVjd3elN3Ym1ma201TnBxVkhtTVh2UGU4UXFVeVpX?=
+ =?utf-8?B?cDhyMWRTWjFBdjRQd1FFQmd1ek1ZOUxJclV6eThUYXhySmRITFdyTkttdjhq?=
+ =?utf-8?B?TGRuenRwdGZzaC83SkVxeTJjYzd6cFRqUWtEWUtzbWpjcTk1MHc4bWpqRHpu?=
+ =?utf-8?B?WTNsUi9NQWMxK3ZUbWNldEx4VFRDbisyQVdyUXkzdXdpUXVHRk9sRVVVSTIx?=
+ =?utf-8?B?cEFROHJVWm5KeUNML2NUN1VianhYR3kxS1NSSWJKZE1uYndFMUVzb1dxU1Bo?=
+ =?utf-8?B?V3Ira2Fma3Yrd1JlVEthZURQL2NEWFBpR0JJMEs1d1RJaVkyVEI5ZHIxOGJJ?=
+ =?utf-8?B?cFdXY1RJaXVrSW9IcUlSck5iWmpUOEYvL25QRWlES2p4QVhJTEVuaCtqQmRx?=
+ =?utf-8?B?RHNqZTR2YWN5WVZaclFkSUZqQ2s2cjFZWENmQkNZZEpQajZ2OGpJNjJRbUtH?=
+ =?utf-8?B?b2RWRUtXeis4NHdsR29YbU1DeHNmbFZEYk51UGZsM1NxVC83QW5HeldILzNu?=
+ =?utf-8?B?dmZBWnNtTFFzampPU2l6eFJlcTVKTCtvTTdCZkR5T3dHTDd1R2NGYnlyM1I4?=
+ =?utf-8?B?Y1dPNzlzWWxUYlJkbVE4RTNtU1lNL3hrQjZOV3lycnpmcWFhV0s4N1ppeHg0?=
+ =?utf-8?B?SktUTms2Ykw2Y25XRFN4ZGNpaU5IZ1RjZzQwS2ZWRFhUUm8zRWF5WklVTWFB?=
+ =?utf-8?B?UVNETDZCblcwZTNKMWJhR0JSUTRibHpYbWR5TUoxeXJ6VER1c0lLN01XMW9t?=
+ =?utf-8?B?RlAvZVZYcmtaRUwvZ3ExQjhncUZCYzRheXJ1N2ZRcFFVZ0NmcG96M2szbGl1?=
+ =?utf-8?B?bmEvTE54anR6MjJ1N2Y5NDZpZ2xyTiszenBRTnBwOEgzamVTWnFYOGJlYnZJ?=
+ =?utf-8?B?WW93eG14c3VRdFlpVVVIdmhRZ1N2cGNxdU9jdXZtU3pUamY5R0EraGtHSC9T?=
+ =?utf-8?B?N25tWlN6QXhRPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?YlRLYVgyVmV1cXNzK3NJakJxR0t0b2xaS1RKRlUzTHJVWkgxd2VqSnRvZjFl?=
+ =?utf-8?B?Q2ZyU1hRcEZBN09TQTd4dTd6VEhXZ2xxRGtpTjJLZTF3L3RwL1hxNncrYVZl?=
+ =?utf-8?B?QXkycXpLU3BZVXRENzRoMzlFd0p1aHJLSnZtWnB4ZytPeWVYR1BHOXdIY1dn?=
+ =?utf-8?B?MXcxMTAxVWdkdndVeUdla1VPcWwzdFlqOWF3d0lZSnRncXlzSnQ1blk0czVq?=
+ =?utf-8?B?UHQyQ3l4QXE2MnJiNTlVVGZ4Z3ovSVhlbzJaNDFxaTNWRjlNMXJaMEgvSnFC?=
+ =?utf-8?B?VHZncEFzbGFDRkZieTRnb2dLYUtyNFFVM3JTSUZiNUJyQ1V5ekV2M0czRVl5?=
+ =?utf-8?B?NUg4MW14NzY2aE5nS3I4WFFDclByQ3JFWk5NbzRadnZGMlVaM3lqenR1Q09F?=
+ =?utf-8?B?VEQvaWpOSy9WandSMjNPdFh0YkJ5L1RRTTllS3E4UDZ4citQeW5DNTlxWlF5?=
+ =?utf-8?B?VzluOG1IRUEzeVI5Ri80Umo1L1NrZEtYZDAyVXhuUlVBeWZ5YWNNS2xvRXZF?=
+ =?utf-8?B?YndyckQ5bzhiSHZCclZDY29VL2RPWmY2d0tITVN0YVN1VTFhZ0ZOSHB5a0dS?=
+ =?utf-8?B?Njd5R2NQbmljRytMU01XSTE2a0g2cUE5MDc0V0ZqNGJmVFhlREtYOU9OeWda?=
+ =?utf-8?B?dEVMRXd0a2VmK1VFdWlBZ0tPbW82ZW1PL0x3L0lqd1hKWWdPODFTdUIyZmUy?=
+ =?utf-8?B?TTRVVU1iZklRZ2VMU1o3eGloMUpxbVlIM1dHYnZuRFROSUx3MGNuUXpENjcw?=
+ =?utf-8?B?OGVFKzlRM0EzMjdWb0RNT0NGY3crbnJoTjVMR2NFWFpHb1RhYVRhajB4RCtB?=
+ =?utf-8?B?VlJoSFF5dlVRNzFLKy93YnVXRVFOMVhaUlMrNnBkR2VyWjNuWHN3ZnJCMTlI?=
+ =?utf-8?B?aTJKWWU5MFZsS2k4NXlyaFZRcHMyWnRaeXBZNWErdXJDUUNIYUxKUWFDdTJ2?=
+ =?utf-8?B?VXBQOGZtZytOcFRMUVloOUwyeUErTUVCaXRHVHc3SkFmZG9lcHE4dTN5enpz?=
+ =?utf-8?B?TTFhaEFVYWV2N2RySFExUnVCWThxdkRmYnlkdW1YcFluZENwNUlQcm9OYldO?=
+ =?utf-8?B?YTNFVWdHTE5CRVZCT1NpODNYZkhmR2pjeSt5WTBjUEU1TDVrQmdEbWcwaXpp?=
+ =?utf-8?B?d3pLaVJZQjMxTmltZk1WNDh3NmNNTXVMLzNwK2VjK2NrbU9ZSXl2UkhXTitE?=
+ =?utf-8?B?SDBFNmgrRGtKM2RPY1RtakhyUm5GK3B1NWV5K0tQR1FCcndsa0VCSG5rWTZu?=
+ =?utf-8?B?TDFXZkM4Q3FqdHUrcVJHTU5oY0dmcmZIR0FieFFGVVFpU2ZRM0NQMm9jTEdR?=
+ =?utf-8?B?Snd4cDVzZW5kVVJVVUw5U0tUdFdzRlpKVjBYRVhvb0ZPSzVNVnlnNXNxdCtW?=
+ =?utf-8?B?T2Y2THJHd1hCYVFQTXVjSkFSZ29xN3lSajlRQi9sNmg3QXNpTEJXR1hiNVJo?=
+ =?utf-8?B?UzNVZ0JRWWhzWkVDUE5QZEhMeHo5MWpEelM3VHRhZHFWZVlGWVpIVCs3L0Ns?=
+ =?utf-8?B?bGNDU1NFRW9hM1FTSVdMcjFKdW1icm9kQlNJbFQ0cEZzdXF0L1VyejFnYy91?=
+ =?utf-8?B?V2I4dEdrVklIbGxhMXpUQTZNUURCejJEZnc4Q1hXOW1MQ0dMWm40U3dSbENv?=
+ =?utf-8?B?UVhhc1NJSlRGRzdXTlRlY1VXRXROUEh0QVRkb20wbzVlYWJHck9VZXJDYUY3?=
+ =?utf-8?B?ZGl2dy9ZS0hkbmVxUG9sVjFhaEpSUTB5dmQ5ZWJHbVdGbmNPdEE3cS93M0Ey?=
+ =?utf-8?B?NFpPTDM1NlF5ZUIvcUt2WExqV0FHK2x5dkx3SkFzdXBaaUczQkErNi9jalE1?=
+ =?utf-8?B?TGFwdGZkVWF0ZFBITm9ZK1BUQ0JRN0sxK01ZTTVSNUk0L1J1TnBRdGRrOG9l?=
+ =?utf-8?B?UUJQYXBOWlZvUXlwdXdQTHE1ODhsZExUWVVxYnFqZ01mVEZ6WDEvWk1LYjMx?=
+ =?utf-8?B?bGc2a3ZQWUwzaHpoRDlOS2xrUVV5cUc5V3Q5ZGVtcEtJem96TlZMc0RJQmF0?=
+ =?utf-8?B?ZTlUdXV2dWdxellFM01JNVg4Wi9UMjE1OHUzYmRpcXp0S2FPdzJObmVGQm85?=
+ =?utf-8?B?SkhhdHBVcFduRUdDdXFOT3lpVEhMOVI2ZWhRUEJkQ0NKTnA4N0hKa2xhZnFM?=
+ =?utf-8?Q?dlGGoogyr4ffBHlDdvZJ7XrFi?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] perf: arm-ni: Fix list_add() corruption in
- arm_ni_probe()
-To: Robin Murphy <robin.murphy@arm.com>, will@kernel.org
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, allen.wang@hj-micro.com, peter.du@hj-micro.com
-References: <20250331121536.2626552-1-andy.xu@hj-micro.com>
- <2f594c55-6fce-445f-b838-ea518916103f@arm.com>
-From: Hongbo Yao <andy.xu@hj-micro.com>
-In-Reply-To: <2f594c55-6fce-445f-b838-ea518916103f@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaQh0ZVhlNTENCGUIaQkodTFYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSUlVSUlPVUlPSlVIT1lXWRYaDxIVHRRZQVlPS0hVSktJSEJIQ1VKS0
-	tVSkJLS1kG
-X-HM-Tid: 0a95f9921d4403afkunm1088f8c4a
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NBQ6Dgw6CzJMOQMIETAWPBFK
-	IgpPCzZVSlVKTE9ITU9DQ05DT05PVTMWGhIXVRoVHwJVAw47ExFWFhIYCRRVGBQWRVlXWRILWUFZ
-	SklJVUlJT1VJT0pVSE9ZV1kIAVlBTk5ISDcG
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 574a36c7-5ca6-4a0d-c8e8-08dd725eca9b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Apr 2025 03:22:40.7706
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: AfHsungVGVDYYTTdoEtgwBeZ4aUyZL+vcmkC9GdwG5qSDLRfj/tLJa/xH5EL0hQ695HZgAc106M4yoEHUaeDRA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8996
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_195437_512413_D55E4C1E 
-X-CRM114-Status: GOOD (  24.53  )
+X-CRM114-CacheID: sfid-20250402_202247_297140_752B8DC8 
+X-CRM114-Status: GOOD (  25.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,127 +191,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-在 2025/4/2 20:17, Robin Murphy 写道:
-> On 2025-03-31 1:15 pm, HongBo Yao wrote:
->> From: Hongbo Yao <andy.xu@hj-micro.com>
->>
->> When a resource allocation fails in one clock domain of an NI device,
->> we need to properly roll back all previously registered perf PMUs in
->> other clock domains of the same device.
->>
->> Otherwise, it can lead to kernel panics.
->>
->> Calling arm_ni_init+0x0/0xff8 [arm_ni] @ 2374
->> arm-ni ARMHCB70:00: Failed to request PMU region 0x1f3c13000
->> arm-ni ARMHCB70:00: probe with driver arm-ni failed with error -16
->> list_add corruption: next->prev should be prev (fffffd01e9698a18),
->> but was 0000000000000000. (next=ffff10001a0decc8).
->> pstate: 6340009 (nZCv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
->> pc : list_add_valid_or_report+0x7c/0xb8
->> lr : list_add_valid_or_report+0x7c/0xb8
->> Call trace:
->>   __list_add_valid_or_report+0x7c/0xb8
->>   perf_pmu_register+0x22c/0x3a0
->>   arm_ni_probe+0x554/0x70c [arm_ni]
->>   platform_probe+0x70/0xe8
->>   really_probe+0xc6/0x4d8
->>   driver_probe_device+0x48/0x170
->>   __driver_attach+0x8e/0x1c0
->>   bus_for_each_dev+0x64/0xf0
->>   driver_add+0x138/0x260
->>   bus_add_driver+0x68/0x138
->>   __platform_driver_register+0x2c/0x40
->>   arm_ni_init+0x14/0x2a [arm_ni]
->>   do_init_module+0x36/0x298
->> ---[ end trace 0000000000000000 ]---
->> Kernel panic - not syncing: Oops - BUG: Fatal exception
->> SMP: stopping secondary CPUs
-> 
-> This, and the subject, are really confusing, since apparent list
-> corruption is just one of many possible symptoms, and the fact that it
-> happens to be a second instance of arm_ni_probe() hitting it is pure
-> coincidence. The bug is that probe failure can lead to PMUs being freed
-> without being unregistered, which can obviously lead to all manner of
-> use-after-free conditions in the perf core.
-> 
-Hi, robin.
-Thank you for the feedback. I'll revise the title as suggested.
-
->> Fixes: 4d5a7680f2b4 ("perf: Add driver for Arm NI-700 interconnect PMU")
->> Signed-off-by: Hongbo Yao <andy.xu@hj-micro.com>
->> ---
->>   drivers/perf/arm-ni.c | 44 +++++++++++++++++++++++++++++--------------
->>   1 file changed, 30 insertions(+), 14 deletions(-)
->>
->> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
->> index fd7a5e60e963..ee85577e86b9 100644
->> --- a/drivers/perf/arm-ni.c
->> +++ b/drivers/perf/arm-ni.c
->> @@ -102,6 +102,7 @@ struct arm_ni_unit {
->>   struct arm_ni_cd {
->>       void __iomem *pmu_base;
->>       u16 id;
->> +    bool pmu_registered;
->>       int num_units;
->>       int irq;
->>       int cpu;
->> @@ -571,10 +572,31 @@ static int arm_ni_init_cd(struct arm_ni *ni,
->> struct arm_ni_node *node, u64 res_s
->>       err = perf_pmu_register(&cd->pmu, name, -1);
->>       if (err)
->>           cpuhp_state_remove_instance_nocalls(arm_ni_hp_state, &cd-
->> >cpuhp_node);
->> +    else
->> +        cd->pmu_registered = true;
->>         return err;
->>   }
->>   +static void arm_ni_remove_cds(struct arm_ni *ni)
->> +{
->> +    for (int i = 0; i < ni->num_cds; i++) {
->> +        struct arm_ni_cd *cd = ni->cds + i;
->> +
->> +        if (!cd->pmu_base)
->> +            continue;
->> +
->> +        if (!cd->pmu_registered)
->> +            continue;
-> 
-> It's clearly redundant to have both checks here - TBH I'd be inclined to
-> just do the minimal fix with the existing pmu_base logic:
-> 
-> @@ -656,8 +673,11 @@ static int arm_ni_probe(struct platform_device *pdev)
->                  reg = readl_relaxed(pd.base + NI_CHILD_PTR(c));
->                  arm_ni_probe_domain(base + reg, &cd);
->                  ret = arm_ni_init_cd(ni, &cd, res->start);
-> -                if (ret)
-> +                if (ret) {
-> +                    ni->cds[cd.id].pmu_base = NULL;
-> +                    arm_ni_remove(pdev);
->                      return ret;
-> +                }
->              }
->          }
->      }
-> 
-> ...however I'm not against replacing that use of pmu_base with an
-> explicit flag if you think that's nicer. As implied, though, I really
-> don't see any point in splitting up arm_ni_remove() itself, we can just
-> move the whole definition up and call it for this purpose too (with your
-> other drvdata fix).
->
-You're right, i'll simplify the fix by leveraging the exisiting pmu_base
-logic and move the arm_ni_remove() definition up in the next version.
-Appreciate the guidance.
-
-Best regards,
-Hongbo.
-
-
-> Thanks,
-> Robin.
-> 
-> 
-
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBNYW5pdmFubmFuIFNhZGhhc2l2
+YW0gPG1hbml2YW5uYW4uc2FkaGFzaXZhbUBsaW5hcm8ub3JnPg0KPiBTZW50OiAyMDI15bm0NOac
+iDLml6UgMjM6MTgNCj4gVG86IEhvbmd4aW5nIFpodSA8aG9uZ3hpbmcuemh1QG54cC5jb20+DQo+
+IENjOiBGcmFuayBMaSA8ZnJhbmsubGlAbnhwLmNvbT47IGwuc3RhY2hAcGVuZ3V0cm9uaXguZGU7
+IGxwaWVyYWxpc2lAa2VybmVsLm9yZzsNCj4ga3dAbGludXguY29tOyByb2JoQGtlcm5lbC5vcmc7
+IGJoZWxnYWFzQGdvb2dsZS5jb207DQo+IHNoYXduZ3VvQGtlcm5lbC5vcmc7IHMuaGF1ZXJAcGVu
+Z3V0cm9uaXguZGU7IGtlcm5lbEBwZW5ndXRyb25peC5kZTsNCj4gZmVzdGV2YW1AZ21haWwuY29t
+OyBsaW51eC1wY2lAdmdlci5rZXJuZWwub3JnOw0KPiBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmlu
+ZnJhZGVhZC5vcmc7IGlteEBsaXN0cy5saW51eC5kZXY7DQo+IGxpbnV4LWtlcm5lbEB2Z2VyLmtl
+cm5lbC5vcmcNCj4gU3ViamVjdDogUmU6IFtQQVRDSCB2MyAzLzZdIFBDSTogaW14NjogV29ya2Fy
+b3VuZCBpLk1YOTUgUENJZSBtYXkgbm90IGV4aXQgTDIzDQo+IHJlYWR5DQo+IA0KPiBPbiBXZWQs
+IEFwciAwMiwgMjAyNSBhdCAwNzo1OToyNkFNICswMDAwLCBIb25neGluZyBaaHUgd3JvdGU6DQo+
+ID4gPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiA+ID4gRnJvbTogTWFuaXZhbm5hbiBT
+YWRoYXNpdmFtIDxtYW5pdmFubmFuLnNhZGhhc2l2YW1AbGluYXJvLm9yZz4NCj4gPiA+IFNlbnQ6
+IDIwMjXlubQ05pyIMuaXpSAxNTowOA0KPiA+ID4gVG86IEhvbmd4aW5nIFpodSA8aG9uZ3hpbmcu
+emh1QG54cC5jb20+DQo+ID4gPiBDYzogRnJhbmsgTGkgPGZyYW5rLmxpQG54cC5jb20+OyBsLnN0
+YWNoQHBlbmd1dHJvbml4LmRlOw0KPiA+ID4gbHBpZXJhbGlzaUBrZXJuZWwub3JnOyBrd0BsaW51
+eC5jb207IHJvYmhAa2VybmVsLm9yZzsNCj4gPiA+IGJoZWxnYWFzQGdvb2dsZS5jb207IHNoYXdu
+Z3VvQGtlcm5lbC5vcmc7IHMuaGF1ZXJAcGVuZ3V0cm9uaXguZGU7DQo+ID4gPiBrZXJuZWxAcGVu
+Z3V0cm9uaXguZGU7IGZlc3RldmFtQGdtYWlsLmNvbTsNCj4gPiA+IGxpbnV4LXBjaUB2Z2VyLmtl
+cm5lbC5vcmc7IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZzsNCj4gPiA+IGlt
+eEBsaXN0cy5saW51eC5kZXY7IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcNCj4gPiA+IFN1
+YmplY3Q6IFJlOiBbUEFUQ0ggdjMgMy82XSBQQ0k6IGlteDY6IFdvcmthcm91bmQgaS5NWDk1IFBD
+SWUgbWF5DQo+ID4gPiBub3QgZXhpdCBMMjMgcmVhZHkNCj4gPiA+DQo+ID4gPiBPbiBGcmksIE1h
+ciAyOCwgMjAyNSBhdCAxMTowMjoxMEFNICswODAwLCBSaWNoYXJkIFpodSB3cm90ZToNCj4gPiA+
+ID4gRVJSMDUxNjI0OiBUaGUgQ29udHJvbGxlciBXaXRob3V0IFZhdXggQ2Fubm90IEV4aXQgTDIz
+IFJlYWR5DQo+ID4gPiA+IFRocm91Z2ggQmVhY29uIG9yIFBFUlNUIyBEZS1hc3NlcnRpb24NCj4g
+PiA+DQo+ID4gPiBJcyBpdCBwb3NzaWJsZSB0byBzaGFyZSB0aGUgbGluayB0byB0aGUgZXJyYXR1
+bT8NCj4gPiA+DQo+ID4gU29ycnksIHRoZSBlcnJhdHVtIGRvY3VtZW50IGlzbid0IHJlYWR5IHRv
+IGJlIHB1Ymxpc2hlZCB5ZXQuDQo+ID4gPiA+DQo+ID4gPiA+IFdoZW4gdGhlIGF1eGlsaWFyeSBw
+b3dlciBpcyBub3QgYXZhaWxhYmxlLCB0aGUgY29udHJvbGxlciBjYW5ub3QNCj4gPiA+ID4gZXhp
+dCBmcm9tDQo+ID4gPiA+IEwyMyBSZWFkeSB3aXRoIGJlYWNvbiBvciBQRVJTVCMgZGUtYXNzZXJ0
+aW9uIHdoZW4gbWFpbiBwb3dlciBpcw0KPiA+ID4gPiBub3QgcmVtb3ZlZC4NCj4gPiA+ID4NCj4g
+PiA+DQo+ID4gPiBJIGRvbid0IHVuZGVyc3RhbmQgaG93IHRoZSBwcmVzZW5jZSBvZiBWYXV4IGFm
+ZmVjdHMgdGhlIGNvbnRyb2xsZXIuDQo+ID4gPiBTYW1lIGdvZXMgZm9yIFBFUlNUIyBkZWFzc2Vy
+dGlvbi4gSG93IGRvZXMgdGhhdCByZWxhdGUgdG8gVmF1eD8gSXMNCj4gPiA+IHRoaXMgZXJyYXR1
+bSBmb3IgYSBzcGVjaWZpYyBlbmRwb2ludCBiZWhhdmlvcj8NCj4gPiBJTUhPIEkgZG9uJ3Qga25v
+dyB0aGUgZXhhY3QgZGV0YWlscyBvZiB0aGUgcG93ZXIgc3VwcGxpZXMgaW4gdGhpcyBJUCBkZXNp
+Z24uDQo+ID4gUmVmZXIgdG8gbXkgZ3Vlc3MgLCBtYXliZSB0aGUgYmVhY29uIGRldGVjdCBvciB3
+YWtlLXVwIGxvZ2ljIGluDQo+ID4gZGVzaWducyBpcyAgcmVsaWVkIG9uIHRoZSBzdGF0dXMgb2Yg
+U1lTX0FVWF9QV1JfREVUIHNpZ25hbHMgaW4gdGhpcyBjYXNlLg0KPiANCj4gQ2FuIHlvdSBwbGVh
+c2UgdHJ5IHRvIGdldCBtb3JlIGRldGFpbHM/IEkgY291bGRuJ3QgdW5kZXJzdGFuZCB0aGUgZXJy
+YXRhLg0KPiANClN1cmUuIFdpbGwgY29udGFjdCBkZXNpZ25lciBhbmQgdHJ5IHRvIGdldCBtb3Jl
+IGRldGFpbHMuDQoNCkJlc3QgUmVnYXJkcw0KUmljaGFyZCBaaHUNCj4gLSBNYW5pDQo+IA0KPiAt
+LQ0KPiDgrq7grqPgrr/grrXgrqPgr43grqPgrqngr40g4K6a4K6k4K6+4K6a4K6/4K614K6u4K+N
+DQo=
 
