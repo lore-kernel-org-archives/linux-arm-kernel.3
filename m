@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B19C3601B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 07:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75C1C3601B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 07:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wAT6CJcD8ytdYoyJijtAbZBEnVq+2dlyKKEa8H2Koi8=; b=oJwx3HWcyjxhKARb5lRxXfmFFA
-	yDl2OiTCD2fCPw4qL+PgsI4Q4b5PnW3vHcKl+iGncK1soNH31iObG7fTSL6k7OX0iv5tKo5Lq0KH9
-	N+octT8u4D0lOIGPpTBom/ysrjILckeSgu1EYlcuxQXDWHxUe8V7iE7JYrxIpocq0V5+LAIlIIkXB
-	ywRnEP5JMX24uxnpg4Uipn0u6hyEDqxVu/E5466+sqH67Ov1/gk7ZY3KkYkoDkMDGbLLVBY4msDSv
-	PMsfOCuTVY2rerCluYEkbUKDEkHIc/7awZzQ5OERenSAkKW+54aSonJLMCgzCV+Vbz7m9KOqczK47
-	+S9ApdYA==;
+	bh=j7V+na5WMoWftKQ2Hz3mhtzoxRwiO3a5WF1VMKOb3JI=; b=EjHoXqLRAURH0rrhZ1e8wo5QVU
+	6XDHxiDyTfBVFuJv1JgkGDpefuIlj+5WSTqsUisBTU2N+sP/vKNyHe2b4lJPnrH00aikdGqqIC6jb
+	sOdwPgtluatc6+KqK0f+8bh4m0aZ5O8QDYhR8KowBliH0DHVdBKeI7YVPoA2tyYlxR2MUFs9H/GGU
+	7U7CStArRmFVKMRJiW7whKwnmxHL1uaxH+QT6VZraVuQ6S/IpPvwB8dhOrl8NNeYDkMsecxbBzu4D
+	ykZbHLVz4ATf1wLILmBuetdWPTuf/b8VjDCB/pPjeUknh1R4NigK5RnFLgpUyTbiriCoBfg3OwuV2
+	MvHI1YyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0FDS-000000089XD-2MrR;
-	Thu, 03 Apr 2025 07:42:22 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1u0FFC-000000089lc-2Vxg;
+	Thu, 03 Apr 2025 07:44:10 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0FBP-0000000895f-0SB0;
-	Thu, 03 Apr 2025 07:40:16 +0000
-X-UUID: e033144a105e11f083f2a1c9db70dae0-20250403
+	id 1u0FBP-0000000895v-31yY;
+	Thu, 03 Apr 2025 07:40:17 +0000
+X-UUID: df97eb6e105e11f0a1e849db4cc18d44-20250403
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=wAT6CJcD8ytdYoyJijtAbZBEnVq+2dlyKKEa8H2Koi8=;
-	b=CLQAGMoi7JxjSKpElYov9CGTEppJ7P8ReQ6udUdbzjv3GfmW3b4BRM7TQ4z2VK82oCqNIrPZzQttKVhK2nna/ViCzyT7rVh5xavtIyU0EmCyNvzAHmY/MYRdi5YOkyhuOl9GT462jGt2nWDzSYdA7y4kRPIIUkoIKzl3kAy46Bk=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=j7V+na5WMoWftKQ2Hz3mhtzoxRwiO3a5WF1VMKOb3JI=;
+	b=N8wMtqK1O1QhkAXLaW1QNLneRqVSkX66rNKMIA7aX4jZW5iMCG8+p6Smg1f6ywmS+2iVWfYMsSMwoCkjLEqP4JT4l+1rZHbf33P2hT+lj+ggGGxappyPw/i0LhQeTGTb+L4Uy0r1knfWXPQLYQjPbPqAUMXopriwryoK4Vv0cTs=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:d377da59-9ed6-4dc9-aba3-3470741bfc33,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:23b6a5a5-c619-47e3-a41b-90eedbf5b947,B
+X-CID-O-INFO: VERSION:1.2.1,REQID:78ba5f7b-d5ee-4ac0-bdef-ff99f228ab9d,IP:0,UR
+	L:25,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:06d624c7-16da-468a-87f7-8ca8d6b3b9f7,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+	,IP:nil,URL:11|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0,NGT
 X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: e033144a105e11f083f2a1c9db70dae0-20250403
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: df97eb6e105e11f0a1e849db4cc18d44-20250403
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
 	(envelope-from <bo.kong@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 282720387; Thu, 03 Apr 2025 00:40:12 -0700
+	with ESMTP id 27830790; Thu, 03 Apr 2025 00:40:11 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 3 Apr 2025 15:40:09 +0800
+ 15.2.1258.39; Thu, 3 Apr 2025 15:40:08 +0800
 Received: from mszsdhlt06.gcn.mediatek.inc (10.16.6.206) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 3 Apr 2025 15:40:09 +0800
+ 15.2.1258.39 via Frontend Transport; Thu, 3 Apr 2025 15:40:08 +0800
 From: bo.kong <bo.kong@mediatek.com>
 To: Rob Herring <robh@kernel.org>, AngeloGioacchino Del Regno
 	<angelogioacchino.delregno@collabora.com>, Mauro Carvalho Chehab
@@ -61,9 +61,9 @@ To: Rob Herring <robh@kernel.org>, AngeloGioacchino Del Regno
 	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
 CC: <zhaoyuan.chen@mediatek.com>, <Teddy.Chen@mediatek.com>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v5 3/4] uapi: linux: add MT8188 AIE
-Date: Thu, 3 Apr 2025 15:38:35 +0800
-Message-ID: <20250403074005.21472-4-bo.kong@mediatek.com>
+Subject: [PATCH v5 1/4] media: dt-bindings: add MT8188 AIE
+Date: Thu, 3 Apr 2025 15:38:33 +0800
+Message-ID: <20250403074005.21472-2-bo.kong@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250403074005.21472-1-bo.kong@mediatek.com>
 References: <20250403074005.21472-1-bo.kong@mediatek.com>
@@ -71,8 +71,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_004015_171217_009341B0 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20250403_004015_772587_7D307023 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,20 +89,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bo Kong <Bo.Kong@mediatek.com>
 
-Add AIE control related definitions.
+Add YAML device tree bindings for MT8188 AIE.
 
 Signed-off-by: Bo Kong <Bo.Kong@mediatek.com>
 ---
 Changes in v5:
-1. Add an introduction for feature_threshold.
-2. Change the name of v4l2_aie_roi to aie_roi_coordinate.
-3. Change the name of v4l2_aie_padding to aie_padding_size.
-4. Add an explanation for en_padding and describe the functions of the three modes of fd_mode.
-5. Move the structures in the mtk_aie.h file to the uapi directory.
+1. Modify the description to make it more concise.
+2. Delete the description of reg.
+3. Modify the description of iommus and delete the maxItems of iommus.
+4. Delete all mediatek,larb.
+5. Modify the name of clock, change _ to -.
 
 Changes in v4:
-1. Add document to describe the detail of V4L2_META_FMT_MTFD_RESULT
-2. Add the introduction of related variables
+1. Remove address-cells and size-cells
+2. Remove larb12 related content
+3. Update id content
 
 Changes in v3:
 None
@@ -110,364 +111,94 @@ None
 Changes in v2:
 1. Fix coding style
 ---
- drivers/media/v4l2-core/v4l2-ioctl.c       |   3 +
- include/uapi/linux/mtk_aie_v4l2_controls.h | 308 +++++++++++++++++++++
- include/uapi/linux/videodev2.h             |   6 +
- 3 files changed, 317 insertions(+)
- create mode 100644 include/uapi/linux/mtk_aie_v4l2_controls.h
+ .../bindings/media/mediatek,mt8188-aie.yaml   | 78 +++++++++++++++++++
+ 1 file changed, 78 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
 
-diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
-index a16fb44c7246..74d0d13f841f 100644
---- a/drivers/media/v4l2-core/v4l2-ioctl.c
-+++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-@@ -1479,6 +1479,9 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
- 	case V4L2_META_FMT_GENERIC_CSI2_16:	descr = "8-bit Generic Meta, 16b CSI-2"; break;
- 	case V4L2_META_FMT_GENERIC_CSI2_20:	descr = "8-bit Generic Meta, 20b CSI-2"; break;
- 	case V4L2_META_FMT_GENERIC_CSI2_24:	descr = "8-bit Generic Meta, 24b CSI-2"; break;
-+	case V4L2_META_FMT_MTFD_RESULT:
-+		descr = "MTK AIE Result Fmt";
-+	break;
- 
- 	default:
- 		/* Compressed formats */
-diff --git a/include/uapi/linux/mtk_aie_v4l2_controls.h b/include/uapi/linux/mtk_aie_v4l2_controls.h
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
 new file mode 100644
-index 000000000000..952dcdb23283
+index 000000000000..861110bb0c98
 --- /dev/null
-+++ b/include/uapi/linux/mtk_aie_v4l2_controls.h
-@@ -0,0 +1,308 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+/*
-+ * AIE Controls Header
-+ *
-+ * Copyright (c) 2020 MediaTek Inc.
-+ * Author: Bo Kong <bo.kong@mediatek.com>
-+ */
++++ b/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
+@@ -0,0 +1,78 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/mediatek,mt8188-aie.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#ifndef __MTK_AIE_V4L2_CONTROLS_H__
-+#define __MTK_AIE_V4L2_CONTROLS_H__
++title: The AI Engine Unit of MediaTek Camera System
 +
-+#include <linux/types.h>
++maintainers:
++  - Bo Kong <bo.kong@mediatek.com>
 +
-+/*
-+ * The base for the mediatek Face Detection driver controls.
-+ * We reserve 16 controls for this driver.
-+ * Each CID represents different stages of AIE, with different structures and functions
-+ * and cannot be reused
-+ */
-+#define V4L2_CID_USER_MTK_FD_BASE (V4L2_CID_USER_BASE + 0x1fd0)
-+#define V4L2_CID_MTK_AIE_INIT (V4L2_CID_USER_MTK_FD_BASE + 1)
-+#define V4L2_CID_MTK_AIE_PARAM (V4L2_CID_USER_MTK_FD_BASE + 2)
++description:
++  AIE(AI Engine) provides a hardware-accelerated face detection function.
 +
-+#define MAX_FACE_NUM			1024
-+#define FLD_CUR_LANDMARK		11
-+#define FLD_MAX_FRAME			15
++properties:
++  compatible:
++    items:
++      - const: mediatek,mt8188-aie
 +
-+/**
-+ * struct v4l2_ctrl_aie_init - aie init parameters.
-+ *
-+ * @max_img_width: maximum width of the source image.
-+ * @max_img_height: maximum height of the source image.
-+ * @pyramid_width: maximum width of the base pyramid.
-+ * @pyramid_height: maximum height of the base pyramid.
-+ * @feature_threshold: The threshold for the face confidence.Range: 100 ~ 400.
-+ *                     The larger the value,the lower the face recognition rate
-+ */
-+struct v4l2_ctrl_aie_init {
-+	__u32 max_img_width;
-+	__u32 max_img_height;
-+	__u32 pyramid_width;
-+	__u32 pyramid_height;
-+	__s32 feature_threshold;
-+};
++  reg:
++    maxItems: 1
 +
-+/**
-+ * struct aie_roi_coordinate - aie roi parameters.
-+ *
-+ * @x1: x1 of the roi coordinate.
-+ * @y1: y1 of the roi coordinate.
-+ * @x2: x2 of the roi coordinate.
-+ * @y2: y2 of the roi coordinate.
-+ */
-+struct aie_roi_coordinate {
-+	__u32 x1;
-+	__u32 y1;
-+	__u32 x2;
-+	__u32 y2;
-+};
++  interrupts:
++    maxItems: 1
 +
-+/**
-+ * struct aie_padding_size - aie padding parameters.
-+ *
-+ * @left: the size of padding left.
-+ * @right: the size of padding right.
-+ * @down: the size of padding below.
-+ * @up: the size of padding above.
-+ */
-+struct aie_padding_size {
-+	__u32 left;
-+	__u32 right;
-+	__u32 down;
-+	__u32 up;
-+};
++  iommus:
++    description:
++      List of the hardware port in respective IOMMU block for current Socs.
++      Refer to bindings/iommu/mediatek,iommu.yaml.
 +
-+/**
-+ * struct v4l2_fld_crop_rip_rop - aie fld parameters.
-+ *
-+ * @fld_in_crop_x1: x1 of the crop coordinate.
-+ * @fld_in_crop_y1: y1 of the crop coordinate.
-+ * @fld_in_crop_x2: x2 of the crop coordinate.
-+ * @fld_in_crop_y2: y2 of the crop coordinate.
-+ * @fld_in_rip: fld in rip.
-+ * @fld_in_rop: fld in rop.
-+ */
-+struct v4l2_fld_crop_rip_rop {
-+	__u32 fld_in_crop_x1;
-+	__u32 fld_in_crop_y1;
-+	__u32 fld_in_crop_x2;
-+	__u32 fld_in_crop_y2;
-+	__u32 fld_in_rip;
-+	__u32 fld_in_rop;
-+};
++  power-domains:
++    maxItems: 1
 +
-+/**
-+ * struct fd_ret - aie fd result parameters.
-+ *
-+ * @anchor_x0: X coordinate of the top-left corner of each detected face.
-+ * @anchor_x1: X coordinate of the bottom-right corner of each detected face.
-+ * @anchor_y0: Y coordinate of the top-left corner of each detected face.
-+ * @anchor_y1: Y coordinate of the bottom-right corner of each detected face.
-+ * @rop_landmark_score0: Score for the first rotation pose landmark.
-+ * @rop_landmark_score1: Score for the second rotation pose landmark.
-+ * @rop_landmark_score2: Score for the third rotation pose landmark.
-+ * @anchor_score: Score for the anchor points.
-+ * @rip_landmark_score0: Score for the first rotation-invariant pose landmark.
-+ * @rip_landmark_score1: Score for the second rotation-invariant pose landmark.
-+ * @rip_landmark_score2: Score for the third rotation-invariant pose landmark.
-+ * @rip_landmark_score3: Score for the fourth rotation-invariant pose landmark.
-+ * @rip_landmark_score4: Score for the fifth rotation-invariant pose landmark.
-+ * @rip_landmark_score5: Score for the sixth rotation-invariant pose landmark.
-+ * @rip_landmark_score6: Score for the seventh rotation-invariant pose landmark.
-+ * @face_result_index: Index of each detected face.
-+ * @anchor_index: Index of the anchor points.
-+ * @fd_partial_result: Partial face detection result.
-+ */
-+struct fd_ret {
-+	__u16 anchor_x0[MAX_FACE_NUM];
-+	__u16 anchor_x1[MAX_FACE_NUM];
-+	__u16 anchor_y0[MAX_FACE_NUM];
-+	__u16 anchor_y1[MAX_FACE_NUM];
-+	__s16 rop_landmark_score0[MAX_FACE_NUM];
-+	__s16 rop_landmark_score1[MAX_FACE_NUM];
-+	__s16 rop_landmark_score2[MAX_FACE_NUM];
-+	__s16 anchor_score[MAX_FACE_NUM];
-+	__s16 rip_landmark_score0[MAX_FACE_NUM];
-+	__s16 rip_landmark_score1[MAX_FACE_NUM];
-+	__s16 rip_landmark_score2[MAX_FACE_NUM];
-+	__s16 rip_landmark_score3[MAX_FACE_NUM];
-+	__s16 rip_landmark_score4[MAX_FACE_NUM];
-+	__s16 rip_landmark_score5[MAX_FACE_NUM];
-+	__s16 rip_landmark_score6[MAX_FACE_NUM];
-+	__u16 face_result_index[MAX_FACE_NUM];
-+	__u16 anchor_index[MAX_FACE_NUM];
-+	__u32 fd_partial_result;
-+};
++  clocks:
++    items:
++      - description: clock for imgsys main ipe
++      - description: clock for ipe fdvt
++      - description: clock for ipe top
 +
-+/**
-+ * struct fd_result - Face detection results for different pyramid levels.
-+ *
-+ * @fd_pyramid0_num: Number of faces detected at pyramid level 0.
-+ * @fd_pyramid1_num: Number of faces detected at pyramid level 1.
-+ * @fd_pyramid2_num: Number of faces detected at pyramid level 2.
-+ * @fd_total_num: Total number of faces detected across all pyramid levels.
-+ * @pyramid0_result: Detection results for pyramid level 0.
-+ * @pyramid1_result: Detection results for pyramid level 1.
-+ * @pyramid2_result: Detection results for pyramid level 2.
-+ */
-+struct fd_result {
-+	__u16 fd_pyramid0_num;
-+	__u16 fd_pyramid1_num;
-+	__u16 fd_pyramid2_num;
-+	__u16 fd_total_num;
-+	struct fd_ret pyramid0_result;
-+	struct fd_ret pyramid1_result;
-+	struct fd_ret pyramid2_result;
-+};
++  clock-names:
++    items:
++      - const: img-ipe
++      - const: ipe-fdvt
++      - const: ipe-top
 +
-+/**
-+ * struct attr_result - Attribute detection results parameters.
-+ *
-+ * @gender_ret: Gender detection results.
-+ * @ethnicity_ret: Ethnicity detection results.
-+ * @merged_age_ret: Merged age detection results.
-+ * @merged_gender_ret: Merged gender detection results.
-+ * @merged_is_indian_ret: Merged results indicating if the subject is Indian.
-+ * @merged_ethnicity_ret: Merged ethnicity detection results.
-+ */
-+struct attr_result {
-+	__s16 gender_ret[2][64];
-+	__s16 ethnicity_ret[4][64];
-+	__s16 merged_age_ret[2];
-+	__s16 merged_gender_ret[2];
-+	__s16 merged_is_indian_ret[2];
-+	__s16 merged_ethnicity_ret[4];
-+};
++required:
++  - compatible
++  - reg
++  - interrupts
++  - iommus
++  - power-domains
++  - clocks
++  - clock-names
 +
-+/**
-+ * struct fld_landmark - FLD coordinates parameters.
-+ *
-+ * @x: X coordinate of the facial landmark.
-+ * @y: Y coordinate of the facial landmark.
-+ */
-+struct fld_landmark {
-+	__u16 x;
-+	__u16 y;
-+};
++additionalProperties: false
 +
-+/**
-+ * struct fld_result - FLD detection results parameters.
-+ *
-+ * @fld_landmark: Array of facial landmarks, each with X and Y coordinates.
-+ * @fld_out_rip: Output rotation-invariant pose value.
-+ * @fld_out_rop: Output rotation pose value.
-+ * @confidence: Confidence score of the facial landmark detection.
-+ * @blinkscore: Blink score indicating the likelihood of eye blink.
-+ */
-+struct fld_result {
-+	struct fld_landmark fld_landmark[FLD_CUR_LANDMARK];
-+	__u16 fld_out_rip;
-+	__u16 fld_out_rop;
-+	__u16 confidence;
-+	__s16 blinkscore;
-+};
-+
-+/**
-+ * struct aie_enq_info - V4L2 Kernelspace parameters.
-+ *
-+ * @sel_mode: select a mode(FDMODE, ATTRIBUTEMODE, FLDMODE) for current fd.
-+ *           FDMODE: Face Detection.
-+ *           ATTRIBUTEMODE: Gender and ethnicity detection
-+ *           FLDMODE: Locations of eyebrows, eyes, ears, nose,and mouth
-+ * @src_img_fmt: source image format.
-+ * @src_img_width: the width of the source image.
-+ * @src_img_height: the height of the source image.
-+ * @src_img_stride: the stride of the source image.
-+ * @pyramid_base_width: pyramid is the size of resizer, the width of the base pyramid.
-+ * @pyramid_base_height: pyramid is the size of resizer, the width of the base pyramid.
-+ * @number_of_pyramid: number of pyramid, min: 1, max: 3.
-+ * @rotate_degree: the rotate degree of the image.
-+ * @en_roi: enable roi(roi is a box diagram that selects a rectangle in a picture).
-+ *          when en_roi is enable, AIE will return a rectangle face detection result
-+ * @src_roi: roi params.
-+ * @en_padding: enable padding, this is only used on the hardware of yuv to rgb.
-+ *              and has noting to do with fd_mode
-+ * @src_padding: padding params.
-+ * @freq_level: frequency level, Get value from user space enque.
-+ * @fld_face_num: the number of faces in fld.
-+ *                user space tells driver the number of detections.
-+ * @fld_input: fld input params.
-+ * @src_img_addr: Source image address.
-+ * @src_img_addr_uv: Source image address for UV plane.
-+ * @fd_out: Face detection results.
-+ * @attr_out: Attribute detection results.
-+ * @fld_out: Array of facial landmark detection results for multiple frames.
-+ * @irq_status: Interrupt request status.
-+ */
-+struct aie_enq_info {
-+	__u32 sel_mode;
-+	__u32 src_img_fmt;
-+	__u32 src_img_width;
-+	__u32 src_img_height;
-+	__u32 src_img_stride;
-+	__u32 pyramid_base_width;
-+	__u32 pyramid_base_height;
-+	__u32 number_of_pyramid;
-+	__u32 rotate_degree;
-+	int en_roi;
-+	struct aie_roi_coordinate src_roi;
-+	int en_padding;
-+	struct aie_padding_size src_padding;
-+	unsigned int freq_level;
-+	unsigned int fld_face_num;
-+	struct v4l2_fld_crop_rip_rop fld_input[FLD_MAX_FRAME];
-+	__u32 src_img_addr;
-+	__u32 src_img_addr_uv;
-+	struct fd_result fd_out;
-+	struct attr_result attr_out;
-+	struct fld_result fld_out[FLD_MAX_FRAME];
-+	__u32 irq_status;
-+};
-+
-+/**
-+ * struct v4l2_ctrl_aie_param - V4L2 Userspace parameters.
-+ *
-+ * @fd_mode: select a mode(FDMODE, ATTRIBUTEMODE, FLDMODE) for current fd.
-+ *           FDMODE: Face Detection.
-+ *           ATTRIBUTEMODE: Gender and ethnicity detection
-+ *           FLDMODE: Locations of eyebrows, eyes, ears, nose,and mouth
-+ * @src_img_fmt: source image format.
-+ * @src_img_width: the width of the source image.
-+ * @src_img_height: the height of the source image.
-+ * @src_img_stride: the stride of the source image.
-+ * @pyramid_base_width: pyramid is the size of resizer, the width of the base pyramid.
-+ * @pyramid_base_height: pyramid is the size of resizer, the width of the base pyramid.
-+ * @number_of_pyramid: number of pyramid, min: 1, max: 3.
-+ * @rotate_degree: the rotate degree of the image.
-+ * @en_roi: enable roi(roi is a box diagram that selects a rectangle in a picture).
-+ *          when en_roi is enable, AIE will return a rectangle face detection result
-+ * @src_roi: roi params.
-+ * @en_padding: enable padding, this is only used on the hardware of yuv to rgb.
-+ *              and has noting to do with fd_mode
-+ * @src_padding: padding params.
-+ * @freq_level: frequency level, Get value from user space enque.
-+ * @fld_face_num: the number of faces in fld.
-+ *                user space tells driver the number of detections.
-+ * @fld_input: fld input params.
-+ */
-+struct v4l2_ctrl_aie_param {
-+	__u32 fd_mode;
-+	__u32 src_img_fmt;
-+	__u32 src_img_width;
-+	__u32 src_img_height;
-+	__u32 src_img_stride;
-+	__u32 pyramid_base_width;
-+	__u32 pyramid_base_height;
-+	__u32 number_of_pyramid;
-+	__u32 rotate_degree;
-+	__s32 en_roi;
-+	struct aie_roi_coordinate src_roi;
-+	__s32 en_padding;
-+	struct aie_padding_size src_padding;
-+	__u32 freq_level;
-+	__u32 fld_face_num;
-+	struct v4l2_fld_crop_rip_rop fld_input[FLD_MAX_FRAME];
-+};
-+
-+#endif /* __MTK_AIE_V4L2_CONTROLS_H__ */
-diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
-index c8cb2796130f..329bbac9239e 100644
---- a/include/uapi/linux/videodev2.h
-+++ b/include/uapi/linux/videodev2.h
-@@ -858,6 +858,9 @@ struct v4l2_pix_format {
- #define V4L2_META_FMT_RK_ISP1_STAT_3A	v4l2_fourcc('R', 'K', '1', 'S') /* Rockchip ISP1 3A Statistics */
- #define V4L2_META_FMT_RK_ISP1_EXT_PARAMS	v4l2_fourcc('R', 'K', '1', 'E') /* Rockchip ISP1 3a Extensible Parameters */
- 
-+/* Vendor-specific definition: used for the MediaTek camera subsystem's face detection results */
-+#define V4L2_META_FMT_MTFD_RESULT	v4l2_fourcc('M', 'T', 'f', 'd')
-+
- /* Vendor specific - used for RaspberryPi PiSP */
- #define V4L2_META_FMT_RPI_BE_CFG	v4l2_fourcc('R', 'P', 'B', 'C') /* PiSP BE configuration */
- #define V4L2_META_FMT_RPI_FE_CFG	v4l2_fourcc('R', 'P', 'F', 'C') /* PiSP FE configuration */
-@@ -1965,6 +1968,9 @@ enum v4l2_ctrl_type {
- 	V4L2_CTRL_TYPE_AV1_TILE_GROUP_ENTRY = 0x281,
- 	V4L2_CTRL_TYPE_AV1_FRAME	    = 0x282,
- 	V4L2_CTRL_TYPE_AV1_FILM_GRAIN	    = 0x283,
-+
-+	V4L2_CTRL_TYPE_AIE_INIT		= 0x0290,
-+	V4L2_CTRL_TYPE_AIE_PARAM	= 0x0291,
- };
- 
- /*  Used in the VIDIOC_QUERYCTRL ioctl for querying controls */
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/memory/mediatek,mt8188-memory-port.h>
++    #include <dt-bindings/power/mediatek,mt8188-power.h>
++    #include <dt-bindings/clock/mediatek,mt8188-clk.h>
++    aie@15310000 {
++      compatible = "mediatek,mt8188-aie";
++      reg = <0x15310000 0x1000>;
++      interrupts = <GIC_SPI 787 IRQ_TYPE_LEVEL_HIGH 0>;
++      iommus = <&vpp_iommu M4U_PORT_L12_FDVT_RDA_0>,
++               <&vpp_iommu M4U_PORT_L12_FDVT_RDB_0>,
++               <&vpp_iommu M4U_PORT_L12_FDVT_WRA_0>,
++               <&vpp_iommu M4U_PORT_L12_FDVT_WRB_0>;
++      power-domains = <&spm MT8188_POWER_DOMAIN_IPE>;
++      clocks = <&imgsys CLK_IMGSYS_MAIN_IPE>,
++               <&ipesys CLK_IPE_FDVT>,
++               <&ipesys CLK_IPESYS_TOP>;
++      clock-names = "img-ipe",
++                    "ipe-fdvt",
++                    "ipe-top";
++    };
 -- 
 2.45.2
 
