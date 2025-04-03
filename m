@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEFA4C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84996C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/Iy24XD19OHG6c0mXkPLe2OKXuKwhNbirvzeBC58z4=; b=t9PG1OahTT1LcbKZ3x9xH7kmnn
-	Nv34PsRCngnqjzc6a/LHEiE31Sjw83UjHGuINem0VSeF1qf9wgcQjm1dUZp4af2z5Jp/T+7u6HNxT
-	5njsiuSajGIvYsi9kN6sDeyMDKxaaHt4Wkrdb3ZIDshOB3lMGLIxY0mtjbcsd4M//CjGuAcAJJcPy
-	neTfPi8xG4uZwSglbU2YT1z9fVRzRwZrF5q8l0whWLHp9frPcrEVkKFv3Wi/5p/SaRAHmAI6Qp9uY
-	XNzjL3Ps7e6kjdoICgP/SeWFjcm82tYI3IdtmMYTQHpXhgQ/S+MjFFbyzTdVgSUls7/jANf5LmVx8
-	9XI6vIIw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Message-ID:References:In-Reply-To:
+	Subject:Cc:To:From:Date:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CZ8+R8XT4dcdN/GHerXPS2K4xGlT84hC1felE/LCgYs=; b=Qa6sGrf/NQI9IV
+	g+ESfpcZn2NyUZSC7C0ACtHPR9KuQRvrxq1BTqfT3orrAXH7/VhHepqb7X+26m1UejplbmvopaZEx
+	EjfCKrtW2zB8V+9RmW0G5LRSdGH0co2xolCjFloDPpKqVC/TVKsVWOX+cz5oM3w84Vx9M+ziGLsw0
+	OW5s9S+2k5buCTHtx4+N2qJks7gcEtjhjBedvOXqn+rxHSwKN0qSL6DJRztviKCDn3iKr5XQAf17F
+	bVvmYbC7NLfrFNQsi5wM58iQCajrk8HOBE0Krtya0fknkkUq6teu7HDXnS2IhxU8XjOrBjqk0JO7e
+	pAnpCgT1m+AUhMhfA/BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HWq-00000008UWr-24TF;
-	Thu, 03 Apr 2025 10:10:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Giy-00000008NQw-2ryU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 09:19:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D7C6D106F;
-	Thu,  3 Apr 2025 02:19:01 -0700 (PDT)
-Received: from bogus (unknown [10.57.41.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09C813F63F;
-	Thu,  3 Apr 2025 02:18:56 -0700 (PDT)
-Date: Thu, 3 Apr 2025 10:18:54 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Youngmin Nam <youngmin.nam@samsung.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Saravana Kannan <saravanak@google.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com, hajun.sung@samsung.com,
-	d7271.choe@samsung.com, joonki.min@samsung.com, ne.yoo@samsung.com
-Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in GICv3
- ITS driver
-Message-ID: <20250403-rare-wasp-of-management-9bce59@sudeepholla>
-References: <CGME20250326030527epcas2p33aa30e62cc8a00c9e151c35bee71dac5@epcas2p3.samsung.com>
- <Z+Nv8U/4P3taDpUq@perf>
- <8634f0mall.wl-maz@kernel.org>
- <Z+TEa8CVAYnbD/Tu@perf>
- <20250402-messy-wild-squid-7b4da9@sudeepholla>
- <Z+3kwsesiXyC0hbO@perf>
+	id 1u0HZN-00000008WFx-2fqO;
+	Thu, 03 Apr 2025 10:13:09 +0000
+Received: from fr2000.dnsiaas.com ([151.106.4.82])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0H4e-00000008Qzc-3KSO;
+	Thu, 03 Apr 2025 09:41:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=superkali.me; s=default; h=Content-Transfer-Encoding:Content-Type:
+	Message-ID:References:In-Reply-To:Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=CZ8+R8XT4dcdN/GHerXPS2K4xGlT84hC1felE/LCgYs=; b=B0wBVPV+hgcSEQc4WDIGgIvPB9
+	RBtxye5wu4EsB7p+rWJZgMWtXVa3VYBLb8vW1fE8ApS7/A3hWVAhPVRBvcxFWUJ47Q4SLRwU/fO1V
+	V3bFz4rUJJuio0BjsF2q0+f53CRKA4md5KYLKjkxrDRdxpx+irvTxUt/dVxJ+Lw2jq8sZcjn+2pe0
+	6mEB2G8SaUmJJu/XycKh/PEKUtACf8eZPzpBjDTGMS/dJWGK1b8mwu8v8QzE4t/FBIrB7Ip/pyz3o
+	sVjHWV8vZmYFU353pcU/eAvtof169bhxPva5Cb791sqSI633xv81Miz3GMqQzQG4g2DQskQC/pUnx
+	00OwYYjA==;
+Received: from [127.0.0.1] (port=56532 helo=fr2000.dnsiaas.com)
+	by fr2000.dnsiaas.com with esmtpa (Exim 4.98.1)
+	(envelope-from <hello@superkali.me>)
+	id 1u0H4a-00000000drV-3EUC;
+	Thu, 03 Apr 2025 11:41:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z+3kwsesiXyC0hbO@perf>
+Date: Thu, 03 Apr 2025 11:41:14 +0200
+From: Daniele Briguglio <hello@superkali.me>
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, alchark@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Daniele Briguglio
+ <daniele.briguglio@icloud.com>
+Subject: Re: [PATCH] rockchip: dts: rk3588: add missing OPP nodes for lower
+ frequencies
+Mail-Reply-To: hello@superkali.me
+In-Reply-To: <2652016.Lt9SDvczpP@diego>
+References: <20250403091840.3349637-1-hello@superkali.me>
+ <2652016.Lt9SDvczpP@diego>
+User-Agent: Roundcube Webmail/1.6.9
+Message-ID: <a5bc7892ec9f84793db560b81cdb21bc@superkali.me>
+X-Sender: hello@superkali.me
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - fr2000.dnsiaas.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - superkali.me
+X-Get-Message-Sender-Via: fr2000.dnsiaas.com: authenticated_id: hello@superkali.me
+X-Authenticated-Sender: fr2000.dnsiaas.com: hello@superkali.me
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_021901_037611_4116B6FE 
-X-CRM114-Status: GOOD (  30.51  )
+X-CRM114-CacheID: sfid-20250403_024124_984321_DAE86D09 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,75 +88,149 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: hello@superkali.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 10:30:42AM +0900, Youngmin Nam wrote:
-> On Wed, Apr 02, 2025 at 12:56:53PM +0100, Sudeep Holla wrote:
-> > (Failed to find the original email, so reply on this instead)
-> > 
-> > On Thu, Mar 27, 2025 at 12:22:19PM +0900, Youngmin Nam wrote:
-> > > 
-> > > The problem is that syscore_ops is not invoked during the S2IDLE scenario,
-> > > so we cannot rely on it in that context.
-> > > We would like to use these suspend/resume functions during S2IDLE as well.
-> > 
-> > I have one orthogonal question. The s2idle will just use the deepest
-> > cpuidle state registered. So if s2idle needs this save/restore of GICv3
-> > ITS, how does that work when all the CPUs enter that idle state.
-> > 
-> > With respect to the PSCI CPU_SUSPEND call, it doesn't change. So I am
-> > bit confused as how it can work fine in normal cpuidle paths but no in
-> > s2idle path. What am I missing ? I do psci_enter_domain_idle_state handles
-> > s2idle little different but nothing to change this GICv3 ITS save/restore
-> > requirement between cpuidle and s2idle.
-> > 
-> Hi Sudeep,
-> 
-> Thanks for asking.
-> As a SoC vendor, we are using the Android kernel, which includes a vendor
-> hook like the one below.
-> 
-> In this function, a vendor-specific handler attached to
-> trace_android_vh_cpuidle_psci_enter is called.
-> 
-> 54 static __cpuidle int __psci_enter_domain_idle_state(struct cpuidle_device *dev,
-> 55                                                     struct cpuidle_driver *drv, int idx,
-> 56                                                     bool s2idle)
-> 57 {
-> 58         struct psci_cpuidle_data *data = this_cpu_ptr(&psci_cpuidle_data);
-> 59         u32 *states = data->psci_states;
-> 60         struct device *pd_dev = data->dev;
-> 61         u32 state;
-> 62         int ret;
-> 63
-> 64         ret = cpu_pm_enter();
-> 65         if (ret)
-> 66                 return -1;
-> 67
-> 68         /* Do runtime PM to manage a hierarchical CPU toplogy. */
-> 69         trace_android_vh_cpuidle_psci_enter(dev, s2idle);
-> 
-> Within the vendor-specific handler, if the current mode is S2IDLE and the
-> CPU logical number is 0, the GIC ITS suspend function is executed.
-> 
+Hi Heiko,
 
-/me more confused.
+Thank you for your feedback. I misunderstood how power savings work in 
+CPUs - I incorrectly assumed that simply reducing the frequency would 
+save significant energy, even without reducing voltage. I now understand 
+why that's not the case.
 
-Are you saying you have some cpuidle platform specific logic inside
-trace_android_vh_cpuidle_psci_enter(). I would assume it was just to
-trace the entry into the state and nothing more.
+My main purpose in adding these OPP nodes was to allow the system to 
+operate at lower frequencies like 408MHz, 600MHz, and 816MHz, which are 
+currently unavailable. I thought this would improve energy efficiency, 
+but I see now that keeping the same voltage (675mV) while only lowering 
+frequency won't achieve meaningful power savings.
 
-In fact, it was recently added upstream as well.
-Commit 7b7644831e72 ("cpuidle: psci: Add trace for PSCI domain idle")
+Do you have any guidance on lower voltage values that might be safe and 
+stable for these lower frequencies on the RK3588? I've seen some 
+overlays that maintain 675mV as the minimum even for lower frequencies, 
+but if there are tested lower voltages available, I'd be happy to 
+include those in an updated version of the patch.
 
-Further you didn't explicitly answer my question. IIUC are you calling
-GIC ITS suspend function unconditionally if its boot cpu ? Or is it
-done only for s2idle ? If done only for s2idle, how does it work for
-normal cpuidle entry to deepest idle state that matches the one entered
-during s2idle.
+Thanks,
+Daniele
 
--- 
-Regards,
-Sudeep
+On 03/04/2025 11:24, Heiko Stübner wrote:
+> Hi,
+> 
+> Am Donnerstag, 3. April 2025, 11:18:40 MESZ schrieb Daniele Briguglio:
+>> From: Daniele Briguglio <daniele.briguglio@icloud.com>
+>> 
+>> This Patch adds missing Operating Performance Point (OPP) nodes for 
+>> lower
+>> frequencies to the RK3588 device tree. These additions improve power
+>> management by enabling the CPU clusters to scale down to lower
+>> frequencies when under light loads, which should improve energy
+>> efficiency and reduce power consumption.
+>> 
+>> The changes add OPP nodes for 408MHz, 600MHz, 816MHz, and 1008MHz
+>> (for cluster1 and cluster2 only, as cluster0 already had 1008MHz)
+>> with appropriate voltage settings across all three CPU clusters in
+>> the RK3588 SoC.
+> 
+> the general consensus is that you don't save energy when you're not
+> reducing the voltage together with the frequency.
+> 
+> For example cluster0 @1GHz runs at 675mV already, so reducing just the
+> frequency, when you're not allowed to reduce the voltage with it won't
+> save energy, just make things slow.
+> 
+> 
+> Heiko
+> 
+>> Signed-off-by: Daniele Briguglio <hello@superkali.me>
+>> ---
+>>  arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi | 58 
+>> ++++++++++++++++++++
+>>  1 file changed, 58 insertions(+)
+>> 
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi 
+>> b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+>> index 0f1a77697351..1b018823d5d3 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi
+>> @@ -5,6 +5,22 @@ cluster0_opp_table: opp-table-cluster0 {
+>>  		compatible = "operating-points-v2";
+>>  		opp-shared;
+>> 
+>> +		opp-408000000 {
+>> +			opp-hz = /bits/ 64 <408000000>;
+>> +			opp-microvolt = <675000 675000 950000>;
+>> +			clock-latency-ns = <40000>;
+>> +			opp-suspend;
+>> +		};
+>> +		opp-600000000 {
+>> +			opp-hz = /bits/ 64 <600000000>;
+>> +			opp-microvolt = <675000 675000 950000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +		opp-816000000 {
+>> +			opp-hz = /bits/ 64 <816000000>;
+>> +			opp-microvolt = <675000 675000 950000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>>  		opp-1008000000 {
+>>  			opp-hz = /bits/ 64 <1008000000>;
+>>  			opp-microvolt = <675000 675000 950000>;
+>> @@ -37,6 +53,27 @@ cluster1_opp_table: opp-table-cluster1 {
+>>  		compatible = "operating-points-v2";
+>>  		opp-shared;
+>> 
+>> +		opp-408000000 {
+>> +			opp-hz = /bits/ 64 <408000000>;
+>> +			opp-microvolt = <675000 675000 1000000>;
+>> +			clock-latency-ns = <40000>;
+>> +			opp-suspend;
+>> +		};
+>> +		opp-600000000 {
+>> +			opp-hz = /bits/ 64 <600000000>;
+>> +			opp-microvolt = <675000 675000 1000000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +		opp-816000000 {
+>> +			opp-hz = /bits/ 64 <816000000>;
+>> +			opp-microvolt = <675000 675000 1000000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +		opp-1008000000 {
+>> +			opp-hz = /bits/ 64 <1008000000>;
+>> +			opp-microvolt = <675000 675000 1000000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>>  		opp-1200000000 {
+>>  			opp-hz = /bits/ 64 <1200000000>;
+>>  			opp-microvolt = <675000 675000 1000000>;
+>> @@ -78,6 +115,27 @@ cluster2_opp_table: opp-table-cluster2 {
+>>  		compatible = "operating-points-v2";
+>>  		opp-shared;
+>> 
+>> +		opp-408000000 {
+>> +			opp-hz = /bits/ 64 <408000000>;
+>> +			opp-microvolt = <675000 675000 1000000>;
+>> +			clock-latency-ns = <40000>;
+>> +			opp-suspend;
+>> +		};
+>> +		opp-600000000 {
+>> +			opp-hz = /bits/ 64 <600000000>;
+>> +			opp-microvolt = <675000 675000 1000000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +		opp-816000000 {
+>> +			opp-hz = /bits/ 64 <816000000>;
+>> +			opp-microvolt = <675000 675000 1000000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>> +		opp-1008000000 {
+>> +			opp-hz = /bits/ 64 <1008000000>;
+>> +			opp-microvolt = <675000 675000 1000000>;
+>> +			clock-latency-ns = <40000>;
+>> +		};
+>>  		opp-1200000000 {
+>>  			opp-hz = /bits/ 64 <1200000000>;
+>>  			opp-microvolt = <675000 675000 1000000>;
+>> 
 
