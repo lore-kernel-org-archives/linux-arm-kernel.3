@@ -4,55 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C6BDC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC27C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 10:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CfUhE07gyCvh0S499hviyB1Dj8eXCUbJ1Fg25uvES2A=; b=BVOdnhY3xdiNOLkFRVFte4ntCO
-	PLh/R4xyMhqGZFaESmmxNo8WCWAJsLglxGB6fUQOiX1Pmpq3UnKeo03Vm8/JRF9uG0+lgVuulji9q
-	2sy8+fQGG7xObWNJW/1M0tmHNdvw2y2XEnynrDvuKaQt+p0ZF+K2InJLO+T6jHE5nxq3mdaV0lMkn
-	IDOXJZANABLcvy0ICNnJoeIMu5dJ8TxDmjlgXdkBi0sXXNpIE/akhC6OrL6Ea096AGgm373Jlab/h
-	gnRevrYnvjsRGrncttMsrWIogKZvxU8ty/TVdqMfD1iLXgFVdRjF8v1m8vU5hrfMvvSLX5PHKXgMd
-	NdjZXahg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oe2enAhJycZGqY3npam/BdMZDLypvUBnYJHzMcOUVMM=; b=PVT+7KdJ9fMY5Yzp8mpLnV8l10
+	gu1l9vTfx88NBLqdaLVKUxdtLxlKAFKXaWtnJ5++u7Ike4dnuP2AkKOEAg1mgw7xv5TK6Gqlu3lCc
+	E5Oq4tX1yCZlqlmPWbL+d58WJBr8lB/HsVL4KQqMZm7xdt3SmfU1CgPFUlRtIV4ZI/Ho0pwjlStHC
+	Qj/7dQ2xF/h7vbV64RNkseH2/WJmKchviaQ8TkvihGFV7qy+nPGrot8ufCkLHGK6XMsYaKmtTF//t
+	u0Yb8I8Q/7f6sx+1JEU++xISDGMjX5/VsV1gAqiqlV/o39aZH9VTzU9Qz2MQ9X5mo5frrKP11ZbT+
+	8BSEyNkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HPv-00000008Tja-1Sz6;
-	Thu, 03 Apr 2025 10:03:23 +0000
+	id 1u0HRe-00000008TwY-0ewf;
+	Thu, 03 Apr 2025 10:05:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0GRm-00000008KK5-1KqO
+	id 1u0GVJ-00000008L5U-0Smf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 09:01:15 +0000
+	Thu, 03 Apr 2025 09:04:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2AA17106F;
-	Thu,  3 Apr 2025 02:01:16 -0700 (PDT)
-Received: from bogus (unknown [10.57.41.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F51E3F63F;
-	Thu,  3 Apr 2025 02:01:11 -0700 (PDT)
-Date: Thu, 3 Apr 2025 10:01:08 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	mark.rutland@arm.com, lpieralisi@kernel.org,
-	catalin.marinas@arm.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] smccc/kvm_guest: Remove the accidental semicolon
-Message-ID: <20250403-steadfast-bold-puffin-f0d2ed@sudeepholla>
-References: <20250402134401.146156-1-shameerali.kolothum.thodi@huawei.com>
- <20250402-independent-hyrax-of-honor-4515fb@sudeepholla>
- <Z-1pPLI8HRjg-bSx@linux.dev>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E1D12106F;
+	Thu,  3 Apr 2025 02:04:52 -0700 (PDT)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF29A3F63F;
+	Thu,  3 Apr 2025 02:04:47 -0700 (PDT)
+Message-ID: <957ccba4-2ae1-4358-b62d-3b5c44d7f1ca@arm.com>
+Date: Thu, 3 Apr 2025 10:04:46 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z-1pPLI8HRjg-bSx@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/6] arm64: Provide basic EL2 setup for FEAT_{LS64,
+ LS64_V} usage at EL0/1
+To: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, corbet@lwn.net,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org
+Cc: joey.gouly@arm.com, yuzenghui@huawei.com, shuah@kernel.org,
+ jonathan.cameron@huawei.com, shameerali.kolothum.thodi@huawei.com,
+ linuxarm@huawei.com, prime.zeng@hisilicon.com, xuwei5@huawei.com,
+ yangyicong@hisilicon.com, tangchengchang@huawei.com
+References: <20250331094320.35226-1-yangyicong@huawei.com>
+ <20250331094320.35226-2-yangyicong@huawei.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250331094320.35226-2-yangyicong@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_020114_521559_4BCE0035 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20250403_020453_192744_45996A66 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,36 +71,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 02, 2025 at 09:43:40AM -0700, Oliver Upton wrote:
-> Hi Sudeep,
+On 31/03/2025 10:43, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
 > 
-> On Wed, Apr 02, 2025 at 02:58:06PM +0100, Sudeep Holla wrote:
-> > On Wed, Apr 02, 2025 at 02:44:01PM +0100, Shameer Kolothum wrote:
-> > > Fixes cocci reported warning:Unneeded semicolon
-> > > 
-> > 
-> > There was similar patch on the list [1] few days ago.
-> > 
-> > > Fixes: 86edf6bdcf05 ("smccc/kvm_guest: Enable errata based on implementation CPUs")
-> > 
-> > ^^^ Is this really necessary as they get backported as well ?
+> Instructions introduced by FEAT_{LS64, LS64_V} is controlled by
+> HCRX_EL2.{EnALS, EnASR}. Configure all of these to allow usage
+> at EL0/1.
 > 
-> The blamed commit was introduced this release cycle so no concern about
-> backports.
+> This doesn't mean these instructions are always available in
+> EL0/1 if provided. The hypervisor still have the control at
+> runtime.
 > 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> ---
+>   arch/arm64/include/asm/el2_setup.h | 12 +++++++++++-
+>   1 file changed, 11 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index ebceaae3c749..0259941602c4 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -57,9 +57,19 @@
+>           /* Enable GCS if supported */
+>   	mrs_s	x1, SYS_ID_AA64PFR1_EL1
+>   	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
+> -	cbz	x1, .Lset_hcrx_\@
+> +	cbz	x1, .Lskip_gcs_hcrx_\@
+>   	orr	x0, x0, #HCRX_EL2_GCSEn
+>   
+> +.Lskip_gcs_hcrx_\@:
 
-Ah OK, sorry didn't look at the details.
+minor nit: For consistency, could we rename this "set_ls64", similar to 
+"set_hcrx" ?
 
-> > Since, KVM maintainers are in cc-ed, let me know if you guys want to pick
-> > this ? Else I can send it as part of my firmware (ffa/scmi) fixes.
-> 
-> I can grab the fix here in a moment, I've already got one queued up [*]
-> for the KVM guest driver anyway.
-> 
+> +	/* Enable LS64, LS64_V if supported */
+> +	mrs_s	x1, SYS_ID_AA64ISAR1_EL1
+> +	ubfx	x1, x1, #ID_AA64ISAR1_EL1_LS64_SHIFT, #4
+> +	cbz	x1, .Lset_hcrx_\@
+> +	orr	x0, x0, #HCRX_EL2_EnALS
+> +	cmp	x1, #ID_AA64ISAR1_EL1_LS64_LS64_V
+> +	b.lt	.Lset_hcrx_\@
+> +	orr	x0, x0, #HCRX_EL2_EnASR
+> +
+>   .Lset_hcrx_\@:
+>   	msr_s	SYS_HCRX_EL2, x0
+>   .Lskip_hcrx_\@:
 
-Thanks!
-
--- 
-Regards,
-Sudeep
+Suzuki
 
