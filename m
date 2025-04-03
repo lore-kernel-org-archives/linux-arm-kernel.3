@@ -4,93 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02256C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 06:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF0CC3601B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Apr 2025 06:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ykrR7iAx9ez7r09+03/1ZkDbNGh2pKfyFPnmAhHSaXs=; b=0AakaYd6aXy3km73JMucNRgOc3
-	o58nQisrwMrrJ1T0w81aNH4GHItGopSnQcGlcxdL1QwU0XbbnkQzqhn92lBjEy+R+tYXfPaMbRCtl
-	bggci/vO2tEEBc3iFUiRLor5dSbvXw2Hpg2okrKTjrspqrAk559H0AVnoLLMG8VC7TSAuD2BT47BR
-	AtXZFJemn00Gd1x4vJLwmIaI392R23LE/Q3jZtnAz6VZzIQRbMMU0OPOdIyR2fCC+hk8nHxJSzIzG
-	CAbdmu4DdUOX8xwFJvcszmejFMFecVo4DOGbdGKBhntnTy8M/GP6cs5ltAr3wi9ZxQ5HUUrAxyQA6
-	c5TnGTHw==;
+	bh=vX1nStTTyA2W3EtaX3VYwa1Dfg3sYgIY5n0SdMP1A9E=; b=vJLm+izDbtsIT6UuPJYaw5DCod
+	cUyG1TM3gECiDbatdhmLz3fjTMQ4i46j8+4L9wwamqb1P3QNHhyhJ7D2FGY1NofCVc7jXNgU0PEPV
+	yOB6u3kfUIhDlo8yy/k1Me7a7sL9EyRmd8n35oTfauU1LHAq7jjZyqk/6UPexbwGy6eGAKoWsVktD
+	5opPi1mPiqDiFpF06Khx9vESQLiLsANxawvTjyOX3unUaSFZP3eb8ZUmUsL2UbZbQQruu7HzdYnzs
+	lKvAsqPqO7ezJGah2rjzFJgO7Dsg8mRVmj4htoMnGMTLV4rd72tYoMKSqlBSVkRnR4mYUcDCVrV2v
+	K+P3jLyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0EMe-00000007yLp-3e8V;
-	Thu, 03 Apr 2025 06:47:48 +0000
-Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
+	id 1u0EPY-00000007ypy-40k4;
+	Thu, 03 Apr 2025 06:50:48 +0000
+Received: from qs51p00im-qukt01071901.me.com ([17.57.155.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0EIz-00000007xqf-3wZZ;
-	Thu, 03 Apr 2025 06:44:04 +0000
-Received: by mail-pg1-x543.google.com with SMTP id 41be03b00d2f7-af590aea813so862247a12.0;
-        Wed, 02 Apr 2025 23:44:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743662641; x=1744267441; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ykrR7iAx9ez7r09+03/1ZkDbNGh2pKfyFPnmAhHSaXs=;
-        b=BPEehj5qLN8wOjawegF+G7ZzYb+m4Ya1Qzb2YlrreQZUw+eZjZNic/C0y9oHAV+Kpz
-         IoRxN2qPbA0bEneCQeYDwdIZqOfWKomOiMJ+JfrtXqsFOgMVtWwNcrSaggntbvvjlGfN
-         q6LKzN3SRZv2O21X6wRLNaAgXnCIsX7MGSxodVIvxFZPjlxDROvFgIU3monEYNGfvxdA
-         mB+XdMhJ03b4W+ZTMRyE/c3fdsqvQgElHZTK1ohSu+MWMJbN73ILUJHmo8gRwyBpZ63X
-         vyViVQI36nYYnRiWm1amhmgUlN4xIY/2UrbEsUgKSTdhuHpfSfyOLx4Bo0zoebsCgF4N
-         vYZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743662641; x=1744267441;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ykrR7iAx9ez7r09+03/1ZkDbNGh2pKfyFPnmAhHSaXs=;
-        b=KYLYFS1NRpn2r5LCeHc8qS5JWitNJxfbu/RkS9Whf9mB22NCVqZaeyItE2pU08Wc+s
-         D8tpMAJHMayneujF1skW87F5fsQzI06vth9jIFANj6tvLCQbr0ZGH/jPi33HgQg//mSh
-         fSyJFVlXw4wLR9kpKjOZDPGDpwJUbX6NF4k27UbAEMl5JnSp2wybTfasjiq+cHq8xYdf
-         rp47Sqer4Ky2J5HBnhAGKdjlJiHFyyi/AzOerW+CKPHDw0eL/4fny0Sv+ZLPEFufRbHT
-         JjlriPgLRTTh4AnBsnqZFHy5UiTNJ3G0QATSs43iec39DW1B3t+7GKBOH5/gDR9GtoEE
-         ndbw==
-X-Forwarded-Encrypted: i=1; AJvYcCV+q+KZPj4xfqB0Z8o+kCzJ+Le3mnyfBe/PR0zFvd1ADsPiytqXX8R+FHHuliO0x842cVSicdw9uKE/5fsMxtzC@lists.infradead.org, AJvYcCX9s03G2H7sam89N3Fxz/NZbvZjEyc91FezqOTZONuGMadAmGczqc9ORPqEbgxu/Qhsi3BtKNwhVSbY97cIynU=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjN11nV24nvWVURIWIHOZrDfEeFm+tK4FwyOU1Neru29t7eC9i
-	x0QpImKevIUQ5MK4DJojPSM35Nk+mDK+GFGM17T5M4623sEpy5K6
-X-Gm-Gg: ASbGncuZBBjyXDuA+VnbZpxSoNgumlfbhXnO305q63Ex4b8dd9nyYMoCZiaJPlAuQhJ
-	BVqbHZKo9DL/unW2J56JlcOob7ZeUuTJ66OQQ7nTLQU6jwozk5/fYyb0MoVvaMo6f5hs45wLdBQ
-	1tT08XXrH1DTRKISLwpdl3EuYBtCI5OM2jLUz2Oto5EnYjjO/fR22z0k7bgpeZ/cnJLCg0/cJRN
-	r+HdEU4brlmMzKEhHHTjmmZjfeH5iHPk75dpW1i6dpbaoq9xwztOI3oJscfxryqKCl0LP6foO38
-	TZlfiAKGDrX2cRwH84Ub7MigM9jN0I56p5+9r2816ls7lJSO2ZRo24oZwWCx28dtQeVCXMo=
-X-Google-Smtp-Source: AGHT+IG83pAigN0u9fFp1U+1mHdp8ie0G+EShwD4mUh/8O4s3BJGqBMlbGS+xQCeTPBm2I+l1DLKGA==
-X-Received: by 2002:a17:903:3d04:b0:215:b1e3:c051 with SMTP id d9443c01a7336-229765eb309mr33330915ad.11.1743662640547;
-        Wed, 02 Apr 2025 23:44:00 -0700 (PDT)
-Received: from henry.localdomain ([111.202.148.167])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-229785c3819sm7055945ad.87.2025.04.02.23.43.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Apr 2025 23:44:00 -0700 (PDT)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	wiagn233@outlook.com,
-	rex.lu@mediatek.com,
-	chui-hao.chiu@mediatek.com,
-	bsdhenrymartin@gmail.com
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1u0ENn-00000007yTn-0mka
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Apr 2025 06:49:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=etehtsea.me; s=sig1;
+	bh=vX1nStTTyA2W3EtaX3VYwa1Dfg3sYgIY5n0SdMP1A9E=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme;
+	b=WNBc/xzqW6hc1w1xvZmvNkALMThcoORtpqWzc7S6k7HpLwRWJ7z0ZwCosnW2DI84q
+	 WNlBe//viYmPWvRelVykEW34qz7BL8uEXH8iwMXxGT8xWjXc3biR0LqjTI0S7Tr46+
+	 qmsAYrIEQkBImg0HFe2zGG18uVPPPwAMstTBZGP30uABvJC+33/NoP6jAjcAcBeHCZ
+	 cZccEECTodC9jTwSognP9wksu5sSbQFh1KaeEJgof1JDJkSWNGPbJjaoFti9h55x61
+	 GIGpDRkit07NAIRTsNEOZQnjiSoWE+e0ovF+v+6mg4GtnHehGwRyPzDHPs8H19eFk+
+	 JVrHi/7I9YRwg==
+Received: from localhost (qs51p00im-dlb-asmtp-mailmevip.me.com [17.57.155.28])
+	by qs51p00im-qukt01071901.me.com (Postfix) with ESMTPSA id DC75962801F9;
+	Thu,  3 Apr 2025 06:48:50 +0000 (UTC)
+From: Konstantin Shabanov <mail@etehtsea.me>
+To: Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Cc: Konstantin Shabanov <mail@etehtsea.me>,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v1] wifi: mt76: mt7996: Fix null-ptr-deref in mt7996_mmio_wed_init()
-Date: Thu,  3 Apr 2025 14:43:44 +0800
-Message-Id: <20250403064344.64253-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RESEND] (drm/rockchip): Consistently use rk3399 registers consts
+Date: Thu,  3 Apr 2025 06:47:39 +0000
+Message-ID: <20250403064740.4016-1-mail@etehtsea.me>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: F5HyCAe8Rgl6mAQE-0KnVlkmIu4GVdCO
+X-Proofpoint-ORIG-GUID: F5HyCAe8Rgl6mAQE-0KnVlkmIu4GVdCO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-03_02,2025-04-02_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=386
+ phishscore=0 bulkscore=0 suspectscore=0 malwarescore=0 mlxscore=0
+ adultscore=0 spamscore=0 clxscore=1030 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.22.0-2503100000 definitions=main-2504030033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_234401_976614_E964B013 
-X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-CacheID: sfid-20250402_234859_346289_3A616496 
+X-CRM114-Status: UNSURE (   9.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,32 +86,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_ioremap() returns NULL on error. Currently, mt7996_mmio_wed_init()
-does not check for this case, which results in a NULL pointer
-dereference.
+As rk3399 has its own registers definitions, update related structs to
+use them.
+There are no changes in behaviour as updated constants values are the
+ for rk3288/rk3368/rk3399 chips.
 
-Add NULL check after devm_ioremap() to prevent this issue.
-
-Fixes: 83eafc9251d6 ("wifi: mt76: mt7996: add wed tx support")
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+Signed-off-by: Konstantin Shabanov <mail@etehtsea.me>
 ---
- drivers/net/wireless/mediatek/mt76/mt7996/mmio.c | 2 ++
- 1 file changed, 2 insertions(+)
+Apologies for resend. The first email hadn't reached the mailing list for some reason.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-index 13b188e281bd..5bade83238bd 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-@@ -323,6 +323,8 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
- 	wed->wlan.base = devm_ioremap(dev->mt76.dev,
- 				      pci_resource_start(pci_dev, 0),
- 				      pci_resource_len(pci_dev, 0));
-+	if (!wed->wlan.base)
-+		return -ENOMEM;
- 	wed->wlan.phy_base = pci_resource_start(pci_dev, 0);
- 
- 	if (hif2) {
--- 
-2.34.1
+ drivers/gpu/drm/rockchip/rockchip_vop_reg.c | 94 ++++++++++-----------
+ 1 file changed, 47 insertions(+), 47 deletions(-)
 
+diff --git a/drivers/gpu/drm/rockchip/rockchip_vop_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop_reg.c
+index 4e2099d86517..d1f788763318 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_vop_reg.c
++++ b/drivers/gpu/drm/rockchip/rockchip_vop_reg.c
+@@ -906,21 +906,21 @@ static const struct vop_data rk3366_vop = {
+
+ static const struct vop_output rk3399_output = {
+ 	.dp_dclk_pol = VOP_REG(RK3399_DSP_CTRL1, 0x1, 19),
+-	.rgb_dclk_pol = VOP_REG(RK3368_DSP_CTRL1, 0x1, 19),
+-	.hdmi_dclk_pol = VOP_REG(RK3368_DSP_CTRL1, 0x1, 23),
+-	.edp_dclk_pol = VOP_REG(RK3368_DSP_CTRL1, 0x1, 27),
+-	.mipi_dclk_pol = VOP_REG(RK3368_DSP_CTRL1, 0x1, 31),
++	.rgb_dclk_pol = VOP_REG(RK3399_DSP_CTRL1, 0x1, 19),
++	.hdmi_dclk_pol = VOP_REG(RK3399_DSP_CTRL1, 0x1, 23),
++	.edp_dclk_pol = VOP_REG(RK3399_DSP_CTRL1, 0x1, 27),
++	.mipi_dclk_pol = VOP_REG(RK3399_DSP_CTRL1, 0x1, 31),
+ 	.dp_pin_pol = VOP_REG(RK3399_DSP_CTRL1, 0x7, 16),
+-	.rgb_pin_pol = VOP_REG(RK3368_DSP_CTRL1, 0x7, 16),
+-	.hdmi_pin_pol = VOP_REG(RK3368_DSP_CTRL1, 0x7, 20),
+-	.edp_pin_pol = VOP_REG(RK3368_DSP_CTRL1, 0x7, 24),
+-	.mipi_pin_pol = VOP_REG(RK3368_DSP_CTRL1, 0x7, 28),
++	.rgb_pin_pol = VOP_REG(RK3399_DSP_CTRL1, 0x7, 16),
++	.hdmi_pin_pol = VOP_REG(RK3399_DSP_CTRL1, 0x7, 20),
++	.edp_pin_pol = VOP_REG(RK3399_DSP_CTRL1, 0x7, 24),
++	.mipi_pin_pol = VOP_REG(RK3399_DSP_CTRL1, 0x7, 28),
+ 	.dp_en = VOP_REG(RK3399_SYS_CTRL, 0x1, 11),
+-	.rgb_en = VOP_REG(RK3288_SYS_CTRL, 0x1, 12),
+-	.hdmi_en = VOP_REG(RK3288_SYS_CTRL, 0x1, 13),
+-	.edp_en = VOP_REG(RK3288_SYS_CTRL, 0x1, 14),
+-	.mipi_en = VOP_REG(RK3288_SYS_CTRL, 0x1, 15),
+-	.mipi_dual_channel_en = VOP_REG(RK3288_SYS_CTRL, 0x1, 3),
++	.rgb_en = VOP_REG(RK3399_SYS_CTRL, 0x1, 12),
++	.hdmi_en = VOP_REG(RK3399_SYS_CTRL, 0x1, 13),
++	.edp_en = VOP_REG(RK3399_SYS_CTRL, 0x1, 14),
++	.mipi_en = VOP_REG(RK3399_SYS_CTRL, 0x1, 15),
++	.mipi_dual_channel_en = VOP_REG(RK3399_SYS_CTRL, 0x1, 3),
+ };
+
+ static const struct vop_common rk3399_common = {
+@@ -975,23 +975,23 @@ static const struct vop_win_phy rk3399_win0_data = {
+ 	.data_formats = formats_win_full_10,
+ 	.nformats = ARRAY_SIZE(formats_win_full_10),
+ 	.format_modifiers = format_modifiers_win_full_afbc,
+-	.enable = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 0),
+-	.format = VOP_REG(RK3288_WIN0_CTRL0, 0x7, 1),
+-	.fmt_10 = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 4),
+-	.rb_swap = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 12),
+-	.uv_swap = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 15),
+-	.x_mir_en = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 21),
+-	.y_mir_en = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 22),
+-	.act_info = VOP_REG(RK3288_WIN0_ACT_INFO, 0x1fff1fff, 0),
+-	.dsp_info = VOP_REG(RK3288_WIN0_DSP_INFO, 0x0fff0fff, 0),
+-	.dsp_st = VOP_REG(RK3288_WIN0_DSP_ST, 0x1fff1fff, 0),
+-	.yrgb_mst = VOP_REG(RK3288_WIN0_YRGB_MST, 0xffffffff, 0),
+-	.uv_mst = VOP_REG(RK3288_WIN0_CBR_MST, 0xffffffff, 0),
+-	.yrgb_vir = VOP_REG(RK3288_WIN0_VIR, 0x3fff, 0),
+-	.uv_vir = VOP_REG(RK3288_WIN0_VIR, 0x3fff, 16),
+-	.src_alpha_ctl = VOP_REG(RK3288_WIN0_SRC_ALPHA_CTRL, 0xff, 0),
+-	.dst_alpha_ctl = VOP_REG(RK3288_WIN0_DST_ALPHA_CTRL, 0xff, 0),
+-	.channel = VOP_REG(RK3288_WIN0_CTRL2, 0xff, 0),
++	.enable = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 0),
++	.format = VOP_REG(RK3399_WIN0_CTRL0, 0x7, 1),
++	.fmt_10 = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 4),
++	.rb_swap = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 12),
++	.uv_swap = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 15),
++	.x_mir_en = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 21),
++	.y_mir_en = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 22),
++	.act_info = VOP_REG(RK3399_WIN0_ACT_INFO, 0x1fff1fff, 0),
++	.dsp_info = VOP_REG(RK3399_WIN0_DSP_INFO, 0x0fff0fff, 0),
++	.dsp_st = VOP_REG(RK3399_WIN0_DSP_ST, 0x1fff1fff, 0),
++	.yrgb_mst = VOP_REG(RK3399_WIN0_YRGB_MST, 0xffffffff, 0),
++	.uv_mst = VOP_REG(RK3399_WIN0_CBR_MST, 0xffffffff, 0),
++	.yrgb_vir = VOP_REG(RK3399_WIN0_VIR, 0x3fff, 0),
++	.uv_vir = VOP_REG(RK3399_WIN0_VIR, 0x3fff, 16),
++	.src_alpha_ctl = VOP_REG(RK3399_WIN0_SRC_ALPHA_CTRL, 0xff, 0),
++	.dst_alpha_ctl = VOP_REG(RK3399_WIN0_DST_ALPHA_CTRL, 0xff, 0),
++	.channel = VOP_REG(RK3399_WIN0_CTRL2, 0xff, 0),
+ };
+
+ static const struct vop_win_phy rk3399_win1_data = {
+@@ -999,23 +999,23 @@ static const struct vop_win_phy rk3399_win1_data = {
+ 	.data_formats = formats_win_full_10,
+ 	.nformats = ARRAY_SIZE(formats_win_full_10),
+ 	.format_modifiers = format_modifiers_win_full,
+-	.enable = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 0),
+-	.format = VOP_REG(RK3288_WIN0_CTRL0, 0x7, 1),
+-	.fmt_10 = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 4),
+-	.rb_swap = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 12),
+-	.uv_swap = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 15),
+-	.x_mir_en = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 21),
+-	.y_mir_en = VOP_REG(RK3288_WIN0_CTRL0, 0x1, 22),
+-	.act_info = VOP_REG(RK3288_WIN0_ACT_INFO, 0x1fff1fff, 0),
+-	.dsp_info = VOP_REG(RK3288_WIN0_DSP_INFO, 0x0fff0fff, 0),
+-	.dsp_st = VOP_REG(RK3288_WIN0_DSP_ST, 0x1fff1fff, 0),
+-	.yrgb_mst = VOP_REG(RK3288_WIN0_YRGB_MST, 0xffffffff, 0),
+-	.uv_mst = VOP_REG(RK3288_WIN0_CBR_MST, 0xffffffff, 0),
+-	.yrgb_vir = VOP_REG(RK3288_WIN0_VIR, 0x3fff, 0),
+-	.uv_vir = VOP_REG(RK3288_WIN0_VIR, 0x3fff, 16),
+-	.src_alpha_ctl = VOP_REG(RK3288_WIN0_SRC_ALPHA_CTRL, 0xff, 0),
+-	.dst_alpha_ctl = VOP_REG(RK3288_WIN0_DST_ALPHA_CTRL, 0xff, 0),
+-	.channel = VOP_REG(RK3288_WIN0_CTRL2, 0xff, 0),
++	.enable = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 0),
++	.format = VOP_REG(RK3399_WIN0_CTRL0, 0x7, 1),
++	.fmt_10 = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 4),
++	.rb_swap = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 12),
++	.uv_swap = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 15),
++	.x_mir_en = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 21),
++	.y_mir_en = VOP_REG(RK3399_WIN0_CTRL0, 0x1, 22),
++	.act_info = VOP_REG(RK3399_WIN0_ACT_INFO, 0x1fff1fff, 0),
++	.dsp_info = VOP_REG(RK3399_WIN0_DSP_INFO, 0x0fff0fff, 0),
++	.dsp_st = VOP_REG(RK3399_WIN0_DSP_ST, 0x1fff1fff, 0),
++	.yrgb_mst = VOP_REG(RK3399_WIN0_YRGB_MST, 0xffffffff, 0),
++	.uv_mst = VOP_REG(RK3399_WIN0_CBR_MST, 0xffffffff, 0),
++	.yrgb_vir = VOP_REG(RK3399_WIN0_VIR, 0x3fff, 0),
++	.uv_vir = VOP_REG(RK3399_WIN0_VIR, 0x3fff, 16),
++	.src_alpha_ctl = VOP_REG(RK3399_WIN0_SRC_ALPHA_CTRL, 0xff, 0),
++	.dst_alpha_ctl = VOP_REG(RK3399_WIN0_DST_ALPHA_CTRL, 0xff, 0),
++	.channel = VOP_REG(RK3399_WIN0_CTRL2, 0xff, 0),
+ };
+
+ /*
+
+base-commit: 6b60c282330c46954be9ae1d33cd5c7e5acb315c
+--
+2.48.1
 
