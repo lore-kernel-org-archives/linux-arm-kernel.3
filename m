@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE34AC36014
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:06:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52243C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rr20TjwMb+nGA9+gyTaPX7rvBwY2Vc0vBMvqfcTN+Ec=; b=NPe300/qCnsByG8DR0j5Wlp3fP
-	swuZR3CY3w4VBJQf4z7reb5lTC4K/5OepPRWVpx9fYbVF+moZrmDxqezpvooUYpu+LAbt6EIvP5KN
-	a96GKMU68MFpLo0179Stut628UgKiYd7hxnJcfSWA+YdCcNeRNyRXeUaJQIGCg6eKzaNArxbKCKLk
-	msXIHAw8F2nobpveuKwn0KBgaRtzf4e+sPpfWwv1DaizTGs5YtMErD/K1bqnQpGKw40xzzosQHxxg
-	5uxXbFUGzyauYA6sK/Vxn81o815VC1vCLfWw38NCcm4gAPIJrEiarF49AgxpNjtZvpTvNc8NfnRzc
-	0KasXCLw==;
+	bh=0wvx3/faxM+zrMKIUWbUE2IQpkaQceyUHFy7PAVRxfQ=; b=zJTI/cMDoO6FGzgClwb8/aNbD5
+	URUq3ei7L8sMcFcdSLrklSZnZ5H3oFBKv0NWouVEWOFTYwoNbUO1Pw88GR0nT5Jt18pU3ewMI/sjL
+	hNUxVbbkmieq7SzckAqyEkbhfvM25zvyi+9/vQjeqwF9RhFJgmLqFoUZx9nwSHXIKGNIAJO3QBuN7
+	kxH0T4Z3HBdd97SyLn65BgdxrYC4WULqKln8b6kVbLCKN9yMHmELK/ingrnnAwbiKdDxLAnzJG7SW
+	1uhJqLAV8uXSqTC00IilPxzi4x4JqQ4MYTfYzf4ufBXnYVw6Tt/euzdp147n3pZeA5nG8S5XrhL7T
+	HnFjqwFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0hgj-0000000Bw8y-1zqB;
-	Fri, 04 Apr 2025 14:06:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u0hiS-0000000BwZf-074K;
+	Fri, 04 Apr 2025 14:08:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0hUB-0000000Btin-06BW;
-	Fri, 04 Apr 2025 13:53:32 +0000
+	id 1u0hZQ-0000000Burr-0PXA
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Apr 2025 13:58:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7CB95A47547;
-	Fri,  4 Apr 2025 13:48:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67702C4CEE9;
-	Fri,  4 Apr 2025 13:53:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 80F8AA474B9;
+	Fri,  4 Apr 2025 13:53:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C99C1C4CEDD;
+	Fri,  4 Apr 2025 13:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743774810;
-	bh=2rzMRftKBbWXyLp7FGHjPk6gHfvfTiEV+d+apCFfS6U=;
+	s=k20201202; t=1743775135;
+	bh=pjbR2oy4MEVD+Xk/Xm1QPe81N6K7y4Fo/TP5+T2tFHI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u86qq+WWOgfr/y8T3yYEfFibNlmCislNnrANwDMm0Ddd3FrjSwk5X/9lyM2ctT40p
-	 fbIqF2t2bIDazWL1aQ+8uKlFQwozKkEDLtbquMfiQEfWaMUxIkbLXNa3+U20SS79tc
-	 zsXuF9LVeo4pVn1onYujBO70qGEQvFTfGdJyt62/ft4rTl1i7VRVZueQsD5E0NMq3R
-	 4XlixfG7j2DkiY5hGeOJg9CqNrunFEW/Vhp7IbJcQUzXFhrmZ9yj191xLraeS8y+0B
-	 A5ZL0U88jgVbAMqN4TBDpuesEaWt5Mz+qG36eitZepGX00BCXMDM83p/0iTferff24
-	 ylNRrHAYePorg==
-Date: Fri, 4 Apr 2025 16:53:13 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Pratyush Yadav <ptyadav@amazon.de>,
-	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <Z-_kSXrHWU5Bf3sV@kernel.org>
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-10-changyuanl@google.com>
- <mafs05xjmqsqc.fsf@amazon.de>
- <20250403114209.GE342109@nvidia.com>
- <Z-6UA3C1TPeH_kGL@kernel.org>
- <20250403142438.GF342109@nvidia.com>
- <Z--sUYCvP3Q8nT8e@kernel.org>
- <20250404124729.GH342109@nvidia.com>
+	b=sMlFGb5GTBXgtAW1+GkgBPXDMXW6Dck/Dypw4CpaboAcsfiEI5FM0AcznQdmlIHhJ
+	 IC2QusyqYAsZzokNDpneK0U9DytGOP5nfxxIXRkQ09tetjpl3afkQlWDzzfQwT8Y+E
+	 K9HMjzHNHX831cy9o9cGssAxBwmYrSc6xnxPvkrHHLkGLo8suaCOKD4U4DKUr7JQ2T
+	 ytveJh22O5hz00GEbTRU9OBUpRq55bVQ6AXDscGkihhAwUfwq1WGlR+v2DLFWMj7tv
+	 P703owfrY2bxYbU14xLTNplE2R8RlAoDzYFgdI0npIpK465n1jYXL44CQZewG+We/g
+	 Q7Ll5cURWccUg==
+Date: Fri, 4 Apr 2025 14:58:50 +0100
+From: Will Deacon <will@kernel.org>
+To: Angelos Oikonomopoulos <angelos@igalia.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org, kernel-dev@igalia.com
+Subject: Re: [PATCH] arm64: Don't call NULL in do_compat_alignment_fixup
+Message-ID: <20250404135849.GA29860@willie-the-truck>
+References: <20250331085415.122409-1-angelos@igalia.com>
+ <17de4426-8263-4ccb-8420-f6913d478ae9@arm.com>
+ <D8V3VKNJJI1Z.27C32MUQ1OLYF@igalia.com>
+ <c1dc28a9-7a36-4303-a8eb-0e227d866c37@arm.com>
+ <D8V5E7FT19GH.3EUO3I50GYF8J@igalia.com>
+ <c5d835bc-883d-449f-afd3-16a09e418e1b@arm.com>
+ <D8V6FN8TF5IK.DV6F5X5L61V@igalia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250404124729.GH342109@nvidia.com>
+In-Reply-To: <D8V6FN8TF5IK.DV6F5X5L61V@igalia.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_065331_189072_A13BC04F 
-X-CRM114-Status: GOOD (  32.67  )
+X-CRM114-CacheID: sfid-20250404_065856_195655_5A1D9971 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,81 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 04, 2025 at 09:47:29AM -0300, Jason Gunthorpe wrote:
-> On Fri, Apr 04, 2025 at 12:54:25PM +0300, Mike Rapoport wrote:
-> > > IMHO it should not call kho_preserve_phys() at all.
-> > 
-> > Do you mean that for preserving large physical ranges we need something
-> > entirely different?
+On Tue, Apr 01, 2025 at 10:58:48AM +0200, Angelos Oikonomopoulos wrote:
+> On Tue Apr 1, 2025 at 10:22 AM CEST, Anshuman Khandual wrote:
+> > Makes sense. A small nit - just wondering if the following restructuring
+> > here would make things bit more readable ? Regardless, your decision.
+> >
+> > 	if (handler)
+> >         	type = handler(addr, instr, regs);
+> >         else
+> >                 return 1;
 > 
-> If they don't use the buddy allocator, then yes?
-> 
-> > Then we don't need the bitmaps at this point, as we don't have any users
-> > for kho_preserve_folio() and we should not worry ourself with orders and
-> > restoration of high order folios until then ;-)
-> 
-> Arguably yes :\
-> 
-> Maybe change the reserved regions code to put the region list in a
-> folio and preserve the folio instead of using FDT as a "demo" for the
-> functionality.
+> I went with the original formulation since -- to my mind at least -- an
+> "early exit" idiom feels more appropriate for something we found we
+> can't handle. Could work either way though.
 
-Folios are not available when we restore reserved regions, this just won't
-work.
+What you have is fine.
 
-> > The xarrays + bitmaps do have the limitation that we cannot store any
-> > information about the folio except its order and if we are anyway need
-> > something else to preserve physical ranges, I suggest starting with
-> > preserving ranges and then adding optimizations for the folio case.
-> 
-> Why? What is the use case for physical ranges that isn't handled
-> entirely by reserved_mem_add()?
-> 
-> We know what the future use case is for the folio preservation, all
-> the drivers and the iommu are going to rely on this.
-
-We don't know how much of the preservation will be based on folios.
-Most drivers do not use folios and for preserving memfd* and hugetlb we'd
-need to have some dance around that memory anyway.  So I think
-kho_preserve_folio() would be a part of the fdbox or whatever that
-functionality will be called.
-
-> > Here's something that implements preservation of ranges (compile tested
-> > only) and adding folios with their orders and maybe other information would
-> > be quite easy.
-> 
-> But folios and their orders is the *whole point*, again I don't see
-> any use case for preserving ranges, beyond it being a way to optimize
-> the memblock reserve path. But that path should be fixed up to just
-> use the bitmap directly..
-
-Are they? 
-The purpose of basic KHO is to make sure the memory we want to preserve is
-not trampled over. Preserving folios with their orders means we need to
-make sure memory range of the folio is preserved and we carry additional
-information to actually recreate the folio object, in case it is needed and
-in case it is possible. Hughetlb, for instance has its own way initializing
-folios and just keeping the order won't be enough for that.
-
-As for the optimizations of memblock reserve path, currently it what hurts
-the most in my and Pratyush experiments. They are not very representative,
-but still, preserving lots of pages/folios spread all over would have it's
-toll on the mm initialization. And I don't think invasive changes to how
-buddy and memory map initialization are the best way to move forward and
-optimize that. Quite possibly we'd want to be able to minimize amount of
-*ranges* that we preserve.
-
-So from the three alternatives we have now (xarrays + bitmaps, tables +
-bitmaps and maple tree for ranges) maple tree seems to be the simplest and
-efficient enough to start with.
- 
-Preserving folio orders with it is really straighforward and until we see
-some real data of how the entire KHO machinery is used, I'd prefer simple
-over anything else.
-
-> Jason
-
--- 
-Sincerely yours,
-Mike.
+Will
 
