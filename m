@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E249AC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 03:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFB6C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 03:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wy1eBoUdd32oYrBAo7INUJkEb71UqJejhLasW2VVXYw=; b=BAgyJCYH9UPh3/W8oZgw7XgijB
-	f1WO7+eYgmje0M1Vw1zncikMquvpP9awvu7By5kCoPf7/YHlMpFRArlJFemnyoHfPt2Yk4h1ezCrO
-	1+dz48ajWrgGW1ED50xmHTpJMUWCtULLFnCpjsiws7Dm+IdVsmsHvlFX03T8gJjFWg+56qP93OpB7
-	GqufTWjXmgLln6BmCgUf8xsJnKkueSTSy1xiW4WMY2lJ7DdqywasLD6vkaHZuwKj2aMiihvhnAs3F
-	dLuy+MXxmpWfJnIgp2hM7ghhWbHRAcig2LVWDMffYvTdKJXbkbJ1FBpNlBa83oeBDbFyd6eLwT40t
-	kDaQ3PPg==;
+	bh=vE4Pr6EvLlx9qL314dOg7r7NlyHjtHoMz1fJMFa2jjg=; b=Hy0CaEQVIb7bEt2kmd+mZzAj58
+	rH/KHWb3J4dK+GHvdnrQAwhkDX96mKgQujrcicntoy2qO2KOFSzJ3JoedNsVyWArhzWZW0BHmPSSL
+	uPi6Q8i54GHYM9uATi4b7LkKxZyQ+oN63o9yKnNvm87oLSg/daOLnfSpz1TACZh7oSdt/O3sUIIaX
+	BFnjGL6yIcriyTFo3h7QiIPITM/QI26G6yt0CwkYaOFLX+Jg+m0eIBP6eYynF8uOFq6rhO88tO6RN
+	HNFrgqpK+Lp/kZXUYzrGmaQ6jc0T+Sqc7YHh+QAOguODyZGP2OHtHiS7vrwMUUd/ul/eER7OTFALG
+	cXQMqnXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Xb8-0000000Ag9J-2xkB;
-	Fri, 04 Apr 2025 03:20:02 +0000
+	id 1u0Xcu-0000000AgKx-2ENx;
+	Fri, 04 Apr 2025 03:21:52 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0XHf-0000000Acyv-1zuc;
-	Fri, 04 Apr 2025 02:59:56 +0000
+	id 1u0XHg-0000000AczY-3WaE;
+	Fri, 04 Apr 2025 02:59:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A354B44F28;
-	Fri,  4 Apr 2025 02:59:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D85A7C4CEEA;
-	Fri,  4 Apr 2025 02:59:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CCECA44F2F;
+	Fri,  4 Apr 2025 02:59:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AB7BC4CEE9;
+	Fri,  4 Apr 2025 02:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743735595;
-	bh=xMgbsjBv9Kef+UFcQ6l0JsE73pnNHHIi5V3EKTVvKZU=;
+	s=k20201202; t=1743735596;
+	bh=xxnpE5qJ/N71v6fr0ntanbnn0YWeubI80yQwzP2nKgo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IWCsZoJxuJf4uC4DHbLlZqGIlVn0yqULR8Xtwd1cvdcGj7FhgjRQsG2SZFQd0XerM
-	 CRUVey1D2fQtZTk306phmWw6frB7jh1SH8kVjnZg+Qubx0VBm/vyiWFIzZpWBR08PA
-	 /LZ/0lId4BBMvcDw1WOPh7PViu2YUoTQ+UAqMt+Y7hyQdMNBm+uZwkM3WH9Tcr5/23
-	 Vd8Ft9GnkB81oQy2ce+2bXpECXxW3bO6y598SZCfo3GvNV1vdgjQQvH5ZZ6EYT4wcG
-	 6pqTzBxnPTqB8+Dy9NGVG76jnC1SNKcdt17QiODpJwYElrrof8OiFD5VlOEZ+y99Gs
-	 jg+wxJbjyDYcA==
+	b=XIrMHwGTXb4RmttX/4kwcXrnnodX0JBT8uweoux/nL/HuKOCPfCBajnBFPeD8Vts6
+	 Gxe61aW4gvaTXmKw6+t5HolmnAW2Voe3vCOH6CoEzBtJxFC7kFmaeCW+xjLtma4zQz
+	 ++plRy91W12HopTil7NZc1ybIwDLVV4XS0vSsAgmEKXZzpEGXa0NWNGe8YGQUDFq7g
+	 UO7KBuOKY4U2H35uR9JTDOezj0jCkY4PTq+UF987lhUjRS4VKyqb6aJ/ET9NTmi+nP
+	 8TGp3QOoj802IkgOm+5C2Z/QNMN0ZE8AL8H0rwftmHSLbeAbe8AJfG9aNj9PPoqaWO
+	 BgFjh05sC9akQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 03 Apr 2025 21:59:31 -0500
-Subject: [PATCH 10/19] arm/arm64: dts: imx: Drop redundant CPU
+Date: Thu, 03 Apr 2025 21:59:32 -0500
+Subject: [PATCH 11/19] arm: dts: qcom: ipq4019: Drop redundant CPU
  "clock-latency"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250403-dt-cpu-schema-v1-10-076be7171a85@kernel.org>
+Message-Id: <20250403-dt-cpu-schema-v1-11-076be7171a85@kernel.org>
 References: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
 In-Reply-To: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,8 +88,9 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_195955_570324_59944AEA 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250403_195956_939095_21846503 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,174 +107,50 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 The "clock-latency" property is part of the deprecated opp-v1 binding
 and is redundant if the opp-v2 table has equal or larger values in any
-"clock-latency-ns". The OPP tables have values of 150000, so it can be
+"clock-latency-ns". The OPP table has values of 256000, so it can be
 removed.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm/boot/dts/nxp/imx/imx7s.dtsi      | 1 -
- arch/arm64/boot/dts/freescale/imx8mm.dtsi | 4 ----
- arch/arm64/boot/dts/freescale/imx8mn.dtsi | 4 ----
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 4 ----
- arch/arm64/boot/dts/freescale/imx8mq.dtsi | 4 ----
- 5 files changed, 17 deletions(-)
+ arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7s.dtsi b/arch/arm/boot/dts/nxp/imx/imx7s.dtsi
-index 2629968001a7..9235dd7e93bb 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7s.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7s.dtsi
-@@ -73,7 +73,6 @@ cpu0: cpu@0 {
- 			device_type = "cpu";
- 			reg = <0>;
- 			clock-frequency = <792000000>;
--			clock-latency = <61036>; /* two CLK32 periods */
- 			clocks = <&clks IMX7D_CLK_ARM>;
- 			cpu-idle-states = <&cpu_sleep_wait>;
+diff --git a/arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi b/arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi
+index 06b20c196faf..fceb2f5f5482 100644
+--- a/arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi
++++ b/arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi
+@@ -53,7 +53,6 @@ cpu@0 {
+ 			reg = <0x0>;
+ 			clocks = <&gcc GCC_APPS_CLK_SRC>;
+ 			clock-frequency = <0>;
+-			clock-latency = <256000>;
  			operating-points-v2 = <&cpu0_opp_table>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm.dtsi b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-index 4de3bf22902b..cfebaa01217e 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-@@ -62,7 +62,6 @@ A53_0: cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x0>;
--			clock-latency = <61036>; /* two CLK32 periods */
- 			clocks = <&clk IMX8MM_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -83,7 +82,6 @@ A53_1: cpu@1 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
+ 		};
+ 
+@@ -67,7 +66,6 @@ cpu@1 {
  			reg = <0x1>;
--			clock-latency = <61036>; /* two CLK32 periods */
- 			clocks = <&clk IMX8MM_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -102,7 +100,6 @@ A53_2: cpu@2 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
+ 			clocks = <&gcc GCC_APPS_CLK_SRC>;
+ 			clock-frequency = <0>;
+-			clock-latency = <256000>;
+ 			operating-points-v2 = <&cpu0_opp_table>;
+ 		};
+ 
+@@ -81,7 +79,6 @@ cpu@2 {
  			reg = <0x2>;
--			clock-latency = <61036>; /* two CLK32 periods */
- 			clocks = <&clk IMX8MM_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -121,7 +118,6 @@ A53_3: cpu@3 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
+ 			clocks = <&gcc GCC_APPS_CLK_SRC>;
+ 			clock-frequency = <0>;
+-			clock-latency = <256000>;
+ 			operating-points-v2 = <&cpu0_opp_table>;
+ 		};
+ 
+@@ -95,7 +92,6 @@ cpu@3 {
  			reg = <0x3>;
--			clock-latency = <61036>; /* two CLK32 periods */
- 			clocks = <&clk IMX8MM_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn.dtsi b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-index a5f9cfb46e5d..848ba5e46ee6 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-@@ -62,7 +62,6 @@ A53_0: cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x0>;
--			clock-latency = <61036>;
- 			clocks = <&clk IMX8MN_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -83,7 +82,6 @@ A53_1: cpu@1 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x1>;
--			clock-latency = <61036>;
- 			clocks = <&clk IMX8MN_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -102,7 +100,6 @@ A53_2: cpu@2 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x2>;
--			clock-latency = <61036>;
- 			clocks = <&clk IMX8MN_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -121,7 +118,6 @@ A53_3: cpu@3 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x3>;
--			clock-latency = <61036>;
- 			clocks = <&clk IMX8MN_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index ce6793b2d57e..f8afdba71c36 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -65,7 +65,6 @@ A53_0: cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x0>;
--			clock-latency = <61036>;
- 			clocks = <&clk IMX8MP_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -86,7 +85,6 @@ A53_1: cpu@1 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x1>;
--			clock-latency = <61036>;
- 			clocks = <&clk IMX8MP_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -105,7 +103,6 @@ A53_2: cpu@2 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x2>;
--			clock-latency = <61036>;
- 			clocks = <&clk IMX8MP_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -124,7 +121,6 @@ A53_3: cpu@3 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x3>;
--			clock-latency = <61036>;
- 			clocks = <&clk IMX8MP_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-index d51de8d899b2..d27b824995eb 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-@@ -106,7 +106,6 @@ A53_0: cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x0>;
--			clock-latency = <61036>; /* two CLK32 periods */
- 			clocks = <&clk IMX8MQ_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -126,7 +125,6 @@ A53_1: cpu@1 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x1>;
--			clock-latency = <61036>; /* two CLK32 periods */
- 			clocks = <&clk IMX8MQ_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -144,7 +142,6 @@ A53_2: cpu@2 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x2>;
--			clock-latency = <61036>; /* two CLK32 periods */
- 			clocks = <&clk IMX8MQ_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
-@@ -162,7 +159,6 @@ A53_3: cpu@3 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a53";
- 			reg = <0x3>;
--			clock-latency = <61036>; /* two CLK32 periods */
- 			clocks = <&clk IMX8MQ_CLK_ARM>;
- 			enable-method = "psci";
- 			i-cache-size = <0x8000>;
+ 			clocks = <&gcc GCC_APPS_CLK_SRC>;
+ 			clock-frequency = <0>;
+-			clock-latency = <256000>;
+ 			operating-points-v2 = <&cpu0_opp_table>;
+ 		};
+ 
 
 -- 
 2.47.2
