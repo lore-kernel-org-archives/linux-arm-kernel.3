@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFA5C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE34AC36014
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=la0UMI/UisL21wG4UPlGkhTcnil6/pfUh4ZRF4MLSS8=; b=DRpY7Lqzg1ms//l7u7ZrikrKC6
-	8g3bMynUBf1W+zzvRthe3uXi5wipMoRxlqEf70+aaemLz4FQm0ZKFi+t9IdcLWj6D2V40irnSUM9O
-	0TYg0+9T57juRPF+7pSpdzem+4Pj+JwOXlG1fNiEOM9T2nKaMBWGGXmGKfLlsSahzKE3Pu4RSPXB/
-	NN0TFR0JaAPz/0zNeJicNtZ8va69wU4EOGGNv/4N+giJgi+1sUBjdUcbcMN5VA4tlXneLh8/AKjuy
-	QuQteY8Nl4vRsKnQ0+lC42XnYdCT/ycCGHbsEc/fsfCiSmaaH3zTjKS2IVDwwM38gD5aEnmKbzYEz
-	TzqcRltw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rr20TjwMb+nGA9+gyTaPX7rvBwY2Vc0vBMvqfcTN+Ec=; b=NPe300/qCnsByG8DR0j5Wlp3fP
+	swuZR3CY3w4VBJQf4z7reb5lTC4K/5OepPRWVpx9fYbVF+moZrmDxqezpvooUYpu+LAbt6EIvP5KN
+	a96GKMU68MFpLo0179Stut628UgKiYd7hxnJcfSWA+YdCcNeRNyRXeUaJQIGCg6eKzaNArxbKCKLk
+	msXIHAw8F2nobpveuKwn0KBgaRtzf4e+sPpfWwv1DaizTGs5YtMErD/K1bqnQpGKw40xzzosQHxxg
+	5uxXbFUGzyauYA6sK/Vxn81o815VC1vCLfWw38NCcm4gAPIJrEiarF49AgxpNjtZvpTvNc8NfnRzc
+	0KasXCLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0hf0-0000000BvnQ-40u4;
-	Fri, 04 Apr 2025 14:04:42 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1u0hgj-0000000Bw8y-1zqB;
+	Fri, 04 Apr 2025 14:06:29 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0hTu-0000000BtgC-2hsT;
-	Fri, 04 Apr 2025 13:53:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1743774793;
-	bh=wHSW2yYOr4KJOJ8+TNv3Qp3Jf9vVjS0eM/3lV8YHR0A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QazsvcgNslrT/Rv3rrW0/23ORVL5cuYxw4xkuVAs3u7eGNXUtrFdwWeM0aw2nBRFk
-	 dF8gBaach/iaMQoHFjPkg1T+fIFZDjYvoL65/F+vDYfzx152kIyV/SMe0uK3u8bdcr
-	 YO/LIcZwu0fKOyRzZ04oJ0Tvn67D3c6BHM6dEhyt3oCax2XSP+NsHrEYPGMItKBDJE
-	 0d7u8x+m2AkT3p/N6DPk3qN87cLaSw2ZRfA3d+DD+ZUtmT0ciZxiQzzZb2MOA59/56
-	 mgAfKsQwkYhAx1T76/jP1G+89T0tanEDDIC6j8PJbUzNlyAN3LpYZOqTeja007OfDi
-	 OX8Gh0wbosK3w==
-Received: from apertis-1.home (2a01cb0892F2D600C8f85cF092D4af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6CFEE17E080B;
-	Fri,  4 Apr 2025 15:53:12 +0200 (CEST)
-From: Julien Massot <julien.massot@collabora.com>
-Date: Fri, 04 Apr 2025 15:53:10 +0200
-Subject: [PATCH 2/2] arm64: dts: mediatek: mt8395-genio-1200-evk: Add scp
- firmware-name
+	id 1u0hUB-0000000Btin-06BW;
+	Fri, 04 Apr 2025 13:53:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7CB95A47547;
+	Fri,  4 Apr 2025 13:48:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67702C4CEE9;
+	Fri,  4 Apr 2025 13:53:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743774810;
+	bh=2rzMRftKBbWXyLp7FGHjPk6gHfvfTiEV+d+apCFfS6U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u86qq+WWOgfr/y8T3yYEfFibNlmCislNnrANwDMm0Ddd3FrjSwk5X/9lyM2ctT40p
+	 fbIqF2t2bIDazWL1aQ+8uKlFQwozKkEDLtbquMfiQEfWaMUxIkbLXNa3+U20SS79tc
+	 zsXuF9LVeo4pVn1onYujBO70qGEQvFTfGdJyt62/ft4rTl1i7VRVZueQsD5E0NMq3R
+	 4XlixfG7j2DkiY5hGeOJg9CqNrunFEW/Vhp7IbJcQUzXFhrmZ9yj191xLraeS8y+0B
+	 A5ZL0U88jgVbAMqN4TBDpuesEaWt5Mz+qG36eitZepGX00BCXMDM83p/0iTferff24
+	 ylNRrHAYePorg==
+Date: Fri, 4 Apr 2025 16:53:13 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Pratyush Yadav <ptyadav@amazon.de>,
+	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
+	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+	dave.hansen@linux.intel.com, dwmw2@infradead.org,
+	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
+	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
+	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
+	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
+	saravanak@google.com, skinsburskii@linux.microsoft.com,
+	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
+	usama.arif@bytedance.com, will@kernel.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
+ preservation
+Message-ID: <Z-_kSXrHWU5Bf3sV@kernel.org>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-10-changyuanl@google.com>
+ <mafs05xjmqsqc.fsf@amazon.de>
+ <20250403114209.GE342109@nvidia.com>
+ <Z-6UA3C1TPeH_kGL@kernel.org>
+ <20250403142438.GF342109@nvidia.com>
+ <Z--sUYCvP3Q8nT8e@kernel.org>
+ <20250404124729.GH342109@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250404-mt8395-scp-fw-v1-2-bb8f20cd399d@collabora.com>
-References: <20250404-mt8395-scp-fw-v1-0-bb8f20cd399d@collabora.com>
-In-Reply-To: <20250404-mt8395-scp-fw-v1-0-bb8f20cd399d@collabora.com>
-To: kernel@collabora.com, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Ben Lok <ben.lok@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Julien Massot <julien.massot@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250404124729.GH342109@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_065314_855608_9BAE22E5 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250404_065331_189072_A13BC04F 
+X-CRM114-Status: GOOD (  32.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,28 +92,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set the scp firmware name to the default location.
+On Fri, Apr 04, 2025 at 09:47:29AM -0300, Jason Gunthorpe wrote:
+> On Fri, Apr 04, 2025 at 12:54:25PM +0300, Mike Rapoport wrote:
+> > > IMHO it should not call kho_preserve_phys() at all.
+> > 
+> > Do you mean that for preserving large physical ranges we need something
+> > entirely different?
+> 
+> If they don't use the buddy allocator, then yes?
+> 
+> > Then we don't need the bitmaps at this point, as we don't have any users
+> > for kho_preserve_folio() and we should not worry ourself with orders and
+> > restoration of high order folios until then ;-)
+> 
+> Arguably yes :\
+> 
+> Maybe change the reserved regions code to put the region list in a
+> folio and preserve the folio instead of using FDT as a "demo" for the
+> functionality.
 
-Fixes: f2b543a191b6 ("arm64: dts: mediatek: add device-tree for Genio 1200 EVK board")
-Signed-off-by: Julien Massot <julien.massot@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts | 1 +
- 1 file changed, 1 insertion(+)
+Folios are not available when we restore reserved regions, this just won't
+work.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-index f02c32def593a54531221ec57473a335af08a92f..2740c799ca12d7e05694f706df34335fa164aeb8 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-@@ -872,6 +872,7 @@ &pmic {
+> > The xarrays + bitmaps do have the limitation that we cannot store any
+> > information about the folio except its order and if we are anyway need
+> > something else to preserve physical ranges, I suggest starting with
+> > preserving ranges and then adding optimizations for the folio case.
+> 
+> Why? What is the use case for physical ranges that isn't handled
+> entirely by reserved_mem_add()?
+> 
+> We know what the future use case is for the folio preservation, all
+> the drivers and the iommu are going to rely on this.
+
+We don't know how much of the preservation will be based on folios.
+Most drivers do not use folios and for preserving memfd* and hugetlb we'd
+need to have some dance around that memory anyway.  So I think
+kho_preserve_folio() would be a part of the fdbox or whatever that
+functionality will be called.
+
+> > Here's something that implements preservation of ranges (compile tested
+> > only) and adding folios with their orders and maybe other information would
+> > be quite easy.
+> 
+> But folios and their orders is the *whole point*, again I don't see
+> any use case for preserving ranges, beyond it being a way to optimize
+> the memblock reserve path. But that path should be fixed up to just
+> use the bitmap directly..
+
+Are they? 
+The purpose of basic KHO is to make sure the memory we want to preserve is
+not trampled over. Preserving folios with their orders means we need to
+make sure memory range of the folio is preserved and we carry additional
+information to actually recreate the folio object, in case it is needed and
+in case it is possible. Hughetlb, for instance has its own way initializing
+folios and just keeping the order won't be enough for that.
+
+As for the optimizations of memblock reserve path, currently it what hurts
+the most in my and Pratyush experiments. They are not very representative,
+but still, preserving lots of pages/folios spread all over would have it's
+toll on the mm initialization. And I don't think invasive changes to how
+buddy and memory map initialization are the best way to move forward and
+optimize that. Quite possibly we'd want to be able to minimize amount of
+*ranges* that we preserve.
+
+So from the three alternatives we have now (xarrays + bitmaps, tables +
+bitmaps and maple tree for ranges) maple tree seems to be the simplest and
+efficient enough to start with.
  
- &scp {
- 	memory-region = <&scp_mem>;
-+	firmware-name = "mediatek/mt8195/scp.img";
- 	status = "okay";
- };
- 
+Preserving folio orders with it is really straighforward and until we see
+some real data of how the entire KHO machinery is used, I'd prefer simple
+over anything else.
+
+> Jason
 
 -- 
-2.49.0
-
+Sincerely yours,
+Mike.
 
