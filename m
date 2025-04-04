@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91708C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 19:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4BEC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 19:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NQGNgVHxDhs7mBk3RqbeX6683p63yLHOISx5dQxLR50=; b=BJMMidLmAm5yvo51CxqIW6Es4o
-	KbElZIWQC06qsgvnd3Y3Aij8eWOBRJwAbQKmNiiZPoUjlECbsnUPTh7iOOqZta41k3sWqmS+2B4rV
-	h9W1Zm+I5Ty+3vLLjtWOQSAxiCl/PBQJbN76Pod+Y3EIKRXxyW52KdinQv68Kb4qJfpPqHeH3qNtV
-	A4xPndamZRX5+TXcnhH724+rLAM5Wj9ZvgOIpgY1Z5n2oXHp5M+m0o8mn+XmQpk7VFytzwWzzR0Wd
-	fDo5wX3ha6U6DU2qEPuZmKt2Fav1T3xHQljB4ObRSnThv3QPB9dTWZSFSLMWUPHvtAv1Hw1KEc6Ga
-	YRg2/yUQ==;
+	bh=aCdihjYQTCflyJxm6dwPDa7f9mrC1RNKPnkAQB9Cuvo=; b=OwEgxV8nX1FXeEQHYtdmYLwaV8
+	wvmpq030L44kMMy9Isf6KtwJQU8YoTgwukEn6gzuJGc6T1cjceA0f+ms36mHLkOcWFWXFAr6vN8Bb
+	1E7klZ1sFsCbPrA2eVIztefAfl14O+2Zg+sIUJdVr78oBrAONszdTDYnLbx4FHtREEHeizQY9jsQ9
+	HQGZRzAHFkpr5mus4jZg+9N6JCJB6+qKi06MLUTQld6c0kKoNtHpZubhQUInJheXwdIYgBagS+U+J
+	4Rvje3MR2xVnpnwed6eFOUHHAurLADDchMRsMnWSb5BMZuZMTY8qVfxZrOgUKm3pKkgQYk9qN4xTF
+	mxxBsgog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0muX-0000000Cf27-2xf7;
-	Fri, 04 Apr 2025 19:41:05 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1u0myG-0000000CfVt-2bOH;
+	Fri, 04 Apr 2025 19:44:56 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0msd-0000000CeNu-3sOF
+	id 1u0mwR-0000000CfOM-2uo9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 19:39:09 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22438c356c8so25592115ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 12:39:07 -0700 (PDT)
+	Fri, 04 Apr 2025 19:43:05 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2260c915749so18444535ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 12:43:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743795546; x=1744400346; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1743795783; x=1744400583; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=NQGNgVHxDhs7mBk3RqbeX6683p63yLHOISx5dQxLR50=;
-        b=Z8WG5kMtNPtaefA8S61/cpQa2pwt8QzpqGbLXqFwXIZB3+JUQTw2s6jn52ggVhaWqh
-         dk5UoebLt9yp3i5Pjw4QEocybzphwJwsNne4nycCEgRxTWwevUSOvSRgpE5nQ4Na/IXp
-         +KthPyyGedbYfPG9igWRfpnbzO/c+wsXmg1RxZxkHf8aNen4CGON0znz6mJLfMe5T2kN
-         72tFC42rrFLiusYfU+m5fijc3ksIHFYrZC0PwE2gG222jYiUM3ckLUti9dCi0TDM+XSA
-         YQxqppKAOBFUZMr+wLdX8SRdKx75mQM7kqv4QJ/fzAd5uf5LZP6OnTilFXnWghjT3FMF
-         qAng==
+        bh=aCdihjYQTCflyJxm6dwPDa7f9mrC1RNKPnkAQB9Cuvo=;
+        b=MHgVXUP7B33SuJNTy41qchuQCgdVrcCAzqXJaszofeDe6EO8fKLJdPDpVAXF6QWUsq
+         7q2znuXHEfwAZy+7nb4MWCCth6Byb8RehlTtgELHhxVReH0S2lo0+6pSUjB1UggKZEJ0
+         /oHDskw2Wyd9kE5lPMcYhNHWNNgwvVswLlCDVP7BM3bOr1TdPGSpJtFbj5/dzMckM4bx
+         wl5rxHXWijuUrxNDcjidsZVsqZK7+y6eFT/GV5EovTtSx3sPRt3CW7EIFy3PEU1x94gX
+         7yQsHq6oXeupIpUuCjfiNgZOe8wbMg40BdBHvOfLyIP1o2UKF3QwLSUi+qVUqKVpM53D
+         OZAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743795546; x=1744400346;
+        d=1e100.net; s=20230601; t=1743795783; x=1744400583;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NQGNgVHxDhs7mBk3RqbeX6683p63yLHOISx5dQxLR50=;
-        b=G17DSScBHky8/Bh4pzZE7qVGiGJ5BP1CY1GgYpUIzrs3v/Pth7el4ixdJL0MySy1T/
-         uVunoH6zIw6L2kRfgrrxYK0HZobHHOFBSlfK07FV+jEavvKvIe6vzonjYTbhpIAKtRyA
-         T/E+ajSZ2nlPtcPixeSXuDv/zRH7Hx4XECikayDD6y7K3VTBtTd3imCZ0RhdfKSjED36
-         giU1LNJMlKPUkFurGpyDC31U+SYtPUCRrvdd2/fQK+EkUJY1jo14noHlQRs1O+ukd0E4
-         +k5jf0+cxKWUziqHcoTOit94sAvBe+8cOKzShPId/KhZ/XjnHHN4LPvXvXUap3dUKj6l
-         0nsA==
-X-Forwarded-Encrypted: i=1; AJvYcCWBrMfklRXtnyIuEzTWnPLbt35s6Ft7rAm4cTVhxD5ABIv0GIYg6ISTMr6MOE1EiWpMEkbmmtsH5w10yt9aDz2B@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBmyFSSvqIVLK6dLIbvyoYc521pdTstT76nl7zDQHBLbe7UHys
-	u5nhIQI+91zUJXbIC1dmpgLOlRSkAgz/8SJkqP98J50nuv0bcjKMHJi3+kjH
-X-Gm-Gg: ASbGnculiU+SVpIwuM9m/WfE6MgLKy3/nw/WW6h+Ys1oyVuVMKJhUVFcwcNMoliwycA
-	p7rcL7M4ZvTwXR+gw+yQRZOsA/xpslDAgTbTWOJePPapofdE0sh63Tid0C33Gu5yP0zsRuyKR0s
-	goicblHoQE/H4hsJSDJ8179210Q+YDqF/KWxKjweP16ZzTYn/WnsGIHFUxZIu0aQyUOoJex03BS
-	9my2aYOFg+ImIuUuGDD7oRc8L+gOSfsxD6cENtTrMJjeCjYMIBoniqH9OPezrxTXCRj0GsV32C+
-	l7UY8PJDs+48LxNOJPgDuXTNBJc/zJvph9e2PlzOW2zzPBEVDHgLNmkFVik/Xb8E4EyQ81zsIG7
-	iXpqFmXYu3uqVs34KzBnVxOta
-X-Google-Smtp-Source: AGHT+IFe4mjpRg7zowmOKrRZGt9tbXvtfVX38ovvOh6lKYhx4xIePXLNWeuaoRutkTmWr1rWPnCrtw==
-X-Received: by 2002:a17:902:d4c7:b0:220:ec62:7dc8 with SMTP id d9443c01a7336-22a8a85a18dmr57542845ad.2.1743795546267;
-        Fri, 04 Apr 2025 12:39:06 -0700 (PDT)
+        bh=aCdihjYQTCflyJxm6dwPDa7f9mrC1RNKPnkAQB9Cuvo=;
+        b=Ov/vwoRC0mrZ1EPuFo6v8dM1zPHkzPUPccbgZCwTZny3gnRdh4hL9DxUS1r9ZMdgjO
+         HtleDfMt5Qy0P9k7GtwhZkgHvbIABo9ZYolvN5239OEvS3YO4tY2UTfpQT+nCohd3Uog
+         LP6PuxjFpFazqs6uCMROmpbSX1cpdNrZUD+Yn7vaFtXWJVagpcLaPaMEGfqHTXIm60Kt
+         FK4ZUMqsYomSWTKyl7TdP+wZ/2FDr4gkKU33pFu6Ld85VmyZVhs5EKdZC4zPsqTaMOX3
+         uqVmJPsY5lxkq6zTkyskw1Vn2VSzDjbsRekqCbayTmoWT/CE2HzYsNQOjsSoQuTnQ59e
+         T8Aw==
+X-Forwarded-Encrypted: i=1; AJvYcCVHpXCwVwmRJ9Ivq7t6lp773+7xMqMOwjLVAHoZwPD+rHxjv1dvZQk6kgcAM8uQ1OebZ1kE4K+L23XYr3RwxD3L@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2acKQXRN7mzv9AnxUZ95pxzcu+UYkNKPgDN+rkmAK3Sr6+rlD
+	B/3e8unE+reQEEjWEI9/kzlB2gUAav7jatD8PNc0B7zB9uEaVrcC
+X-Gm-Gg: ASbGncu+DECcKxlKuaHjpIE50zLVAZdozM9T9hr6JCC7+AHIz9/8hqZWW6w/myL58kP
+	ceS5IdRgPSgizezCLJeG3l8WLVTxT+xOEZVLGJtsCESHhNiwyvWT3Kt8bP6nMbgZIWFlabSW4by
+	K/vc22m5+QIYh9u1H2G4uzUef3VdRGJVZbX7AX7SduwZbuhsQOWb2C/oXrYdFdboaaNTPdadter
+	jrqhASVGyygGkJcP28mF+cUCSjUrw/nLSFCBhrGHvkliaPWqdvRDmVNA+EtAROFdSgYQJxmwYd0
+	OXL5tiH91Xfhmgp0hpwPf550GkMoAmwiPjzejcRFtv1dZXNGijqgE4CDEzbfyfKbPKaJ2QBBJZe
+	GkeR4Hj3ovR4ofizcOvF+N/py
+X-Google-Smtp-Source: AGHT+IGmSZQUmzN4kMPir1/3DwusZurNYkOuuU+RMXFG9BLfGYFc6j2Dj8c8UT3R/eHzPGq0z3D8Xw==
+X-Received: by 2002:a17:903:3baf:b0:215:b9a6:5cb9 with SMTP id d9443c01a7336-22a8a85a244mr65443215ad.5.1743795782746;
+        Fri, 04 Apr 2025 12:43:02 -0700 (PDT)
 Received: from ?IPV6:2409:4080:1197:5c59:9640:d38a:951e:d202? ([2409:4080:1197:5c59:9640:d38a:951e:d202])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2297866e242sm36279755ad.164.2025.04.04.12.39.01
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2297866e1b4sm36482985ad.181.2025.04.04.12.42.58
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 04 Apr 2025 12:39:05 -0700 (PDT)
-Message-ID: <b493166b-5d1b-4228-82a0-ee7efcdd03e6@gmail.com>
-Date: Sat, 5 Apr 2025 01:08:59 +0530
+        Fri, 04 Apr 2025 12:43:02 -0700 (PDT)
+Message-ID: <299e033b-05d6-4d85-8d01-2d7d0167432f@gmail.com>
+Date: Sat, 5 Apr 2025 01:12:56 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML
-To: Krzysztof Kozlowski <krzk@kernel.org>, ukleinek@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, vz@mleia.com,
- piotr.wojtaszczyk@timesys.com
-Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, vz@mleia.com,
+ piotr.wojtaszczyk@timesys.com, linux-pwm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 References: <20250312122750.6391-1-purvayeshi550@gmail.com>
- <b2f6a357-a468-4526-a1b6-69ab2c643b2c@kernel.org>
- <61b1e302-98ad-4dda-8c03-18315d432512@gmail.com>
- <023b7e98-58ef-4752-9ef4-6fe699188b2f@kernel.org>
+ <76ovkshf4dr6egh72uiigsugdqsin6zwy3skksldhhh2goer6x@gsp3qkhqdtev>
 Content-Language: en-US
 From: Purva Yeshi <purvayeshi550@gmail.com>
-In-Reply-To: <023b7e98-58ef-4752-9ef4-6fe699188b2f@kernel.org>
+In-Reply-To: <76ovkshf4dr6egh72uiigsugdqsin6zwy3skksldhhh2goer6x@gsp3qkhqdtev>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_123907_961679_0A7C85A0 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20250404_124303_733289_E4968FFF 
+X-CRM114-Status: GOOD (  21.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,59 +103,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/04/25 12:03, Krzysztof Kozlowski wrote:
-> On 01/04/2025 19:32, Purva Yeshi wrote:
->> On 13/03/25 16:34, Krzysztof Kozlowski wrote:
->>> On 12/03/2025 13:27, Purva Yeshi wrote:
->>>> Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
->>>> YAML schema (`nxp,lpc3220-pwm.yaml`).
->>>>
->>>> Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
->>>>
->>>> Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
->>>> ---
->>>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>>
->>>
->>> ---
->>>
->>> <form letter>
->>> This is an automated instruction, just in case, because many review tags
->>> are being ignored. If you know the process, you can skip it (please do
->>> not feel offended by me posting it here - no bad intentions intended).
->>> If you do not know the process, here is a short explanation:
->>>
->>> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
->>> of patchset, under or above your Signed-off-by tag, unless patch changed
->>> significantly (e.g. new properties added to the DT bindings). Tag is
->>> "received", when provided in a message replied to you on the mailing
->>> list. Tools like b4 can help here. However, there's no need to repost
->>> patches *only* to add the tags. The upstream maintainer will do that for
->>> tags received on the version they apply.
->>>
->>> Full context and explanation:
->>> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
->>> </form letter>
->>>
->>> Best regards,
->>> Krzysztof
+On 03/04/25 16:11, Uwe Kleine-König wrote:
+> Hello,
+> 
+> On Wed, Mar 12, 2025 at 05:57:50PM +0530, Purva Yeshi wrote:
+>> Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
+>> YAML schema (`nxp,lpc3220-pwm.yaml`).
 >>
->> Hello!
+>> Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
 >>
->> I wanted to follow up on the patch I submitted. I was wondering if you
->> had a chance to review it and if there are any comments or feedback.
+>> Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
 > 
-> And what did you quote? What's there? Did you read it before replying?
+> I suggest the following commit log:
 > 
-> Please avoid pinging during the merge window.
+>      dt-bindings: pwm: Convert lpc32xx-pwm.txt to yaml format
 > 
+>      Convert the existing plain text binding documentation for
+>      nxp,lpc3220-pwm devices to a YAML schema.
 > 
-> Best regards,
-> Krzysztof
+>      The value #pwm-cells wasn't specified before, set it to 3 to match the
+>      usual value for PWMs.
+> 
 
-Hello Krzysztof,
+Hello,
 
-Apologies for the unnecessary follow-up. I’ll avoid pinging during the 
-merge window.
+Thank you for the suggestion. I'll update the commit log accordingly in 
+the next revision.
+
+>> diff --git a/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml b/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
+>> new file mode 100644
+>> index 000000000..432a5e9d4
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
+>> @@ -0,0 +1,38 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/pwm/nxp,lpc3220-pwm.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: LPC32XX PWM controller
+>> +
+>> +maintainers:
+>> +  - Vladimir Zapolskiy <vz@mleia.com>
+>> +  - Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
+>> +
+>> +allOf:
+>> +  - $ref: pwm.yaml#
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: nxp,lpc3220-pwm
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  "#pwm-cells":
+>> +    const: 3
+> 
+> The PWMs defined in arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi also have a
+> clocks property and in the driver it's not optional. Can you please add
+> it (here, in the list of required properties and the commit log)?
+
+Thank you for the review. I’ll add the clocks property, update the list 
+of required properties, and adjust the commit log accordingly in the 
+next revision.
+
+> 
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +
+>> +unevaluatedProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    pwm@4005c000 {
+>> +        compatible = "nxp,lpc3220-pwm";
+>> +        reg = <0x4005c000 0x4>;
+>> +        #pwm-cells = <3>;
+>> +    };
+> 
+> Best regards
+> Uwe
+
+Best regards,
+Purva Yeshi
+
+
+
 
