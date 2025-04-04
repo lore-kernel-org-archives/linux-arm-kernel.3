@@ -4,67 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3314DC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 19:39:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91708C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 19:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j5iIDPsMyXuzJK77wAJ/JXOO40jyIXq/LxkNUBl62XQ=; b=Kdbgz3hxGwcmne83FCLI3HMji2
-	S1bjxAadMf4Ojtr5IG0S1S+602MhVB1liv4bbzP6skmjVapqsQa8C8vCppoIpr0D8j5RG5dKLpISO
-	VFonrWvjOqEU1iOhcGpT+g13I3nw45dopOlw8dMjX0d4k4okBUsYusWc+TwhqcUDYBqIo/CKnf/+L
-	GAtk/sEdL0xnl/2ceX3tyrh/wTHYr6uI1ROMoG6b/4/7FUpFDY3c6KSa3h4mBt4HIsw0nuZKNnipY
-	GdE5k7jztkdKaF8Jy9m0myADkb6xRtnfennESSXq/nAg8QjLcHTqRfcTNz6nDZ1U67yceQeZi+Uhd
-	IHwKh+sA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NQGNgVHxDhs7mBk3RqbeX6683p63yLHOISx5dQxLR50=; b=BJMMidLmAm5yvo51CxqIW6Es4o
+	KbElZIWQC06qsgvnd3Y3Aij8eWOBRJwAbQKmNiiZPoUjlECbsnUPTh7iOOqZta41k3sWqmS+2B4rV
+	h9W1Zm+I5Ty+3vLLjtWOQSAxiCl/PBQJbN76Pod+Y3EIKRXxyW52KdinQv68Kb4qJfpPqHeH3qNtV
+	A4xPndamZRX5+TXcnhH724+rLAM5Wj9ZvgOIpgY1Z5n2oXHp5M+m0o8mn+XmQpk7VFytzwWzzR0Wd
+	fDo5wX3ha6U6DU2qEPuZmKt2Fav1T3xHQljB4ObRSnThv3QPB9dTWZSFSLMWUPHvtAv1Hw1KEc6Ga
+	YRg2/yUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0msl-0000000CeOY-04lH;
-	Fri, 04 Apr 2025 19:39:15 +0000
-Received: from out-178.mta1.migadu.com ([95.215.58.178])
+	id 1u0muX-0000000Cf27-2xf7;
+	Fri, 04 Apr 2025 19:41:05 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0mqw-0000000CeAy-0fqW
+	id 1u0msd-0000000CeNu-3sOF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 19:37:23 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1743795430;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=j5iIDPsMyXuzJK77wAJ/JXOO40jyIXq/LxkNUBl62XQ=;
-	b=DQXOMEElFWKrqzc82mZ22U473YVAh7jYVz30PuKpuDL7ShqgdxTy23hx+dHmzeji0rxpqu
-	aMHDmf+1Gfg336iJLkjDx2PPPwPr7Qr0rhYThNk4b/UyCCXDLDx047eJDNsTSpawOLZlP/
-	FWj2tWol/jaD1Q3lh/y5Ff7w4LId2FIeXgC8UayYsJIDdBIN90bRvk/E6ZWHbgaKbgMXdD
-	CEfS7wmw0TRJ80J80ZOOWHRVFLrwBuvbe9rGwAqU344CLe6jq90KOZtF3QVr6KnJG+ORCq
-	D7K6TYOblr5rnCLYQyTxejqUpQmTe8bj6iBcQrgGg86b7V8tgGBh8YZe7ByPYw==
-Content-Type: multipart/signed;
- boundary=1d0b1c9b765b5909805ad66ccb19fe973b8f7f377113664bb82b4c67afb6;
- micalg=pgp-sha256; protocol="application/pgp-signature"
-Date: Fri, 04 Apr 2025 21:36:58 +0200
-Message-Id: <D8Y3VW5489RZ.3IXJX79M1ZK8O@cknow.org>
-Cc: <neil.armstrong@linaro.org>, <sebastian.reichel@collabora.com>,
- <stephen@radxa.com>, <dri-devel@lists.freedesktop.org>,
- <hjc@rock-chips.com>, <mripard@kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-rockchip@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <yubing.zhang@rock-chips.com>, <naoki@radxa.com>,
- <Laurent.pinchart@ideasonboard.com>, "Andy Yan" <andy.yan@rock-chips.com>,
- <krzk+dt@kernel.org>, <robh@kernel.org>,
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/9] dt-bindings: display: rockchip: Add schema for
- RK3588 DPTX Controller
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Andy Yan" <andyshrk@163.com>, <dmitry.baryshkov@oss.qualcomm.com>,
- <heiko@sntech.de>
-References: <20250403033748.245007-1-andyshrk@163.com>
- <20250403033748.245007-2-andyshrk@163.com>
-In-Reply-To: <20250403033748.245007-2-andyshrk@163.com>
-X-Migadu-Flow: FLOW_OUT
+	Fri, 04 Apr 2025 19:39:09 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22438c356c8so25592115ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 12:39:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743795546; x=1744400346; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NQGNgVHxDhs7mBk3RqbeX6683p63yLHOISx5dQxLR50=;
+        b=Z8WG5kMtNPtaefA8S61/cpQa2pwt8QzpqGbLXqFwXIZB3+JUQTw2s6jn52ggVhaWqh
+         dk5UoebLt9yp3i5Pjw4QEocybzphwJwsNne4nycCEgRxTWwevUSOvSRgpE5nQ4Na/IXp
+         +KthPyyGedbYfPG9igWRfpnbzO/c+wsXmg1RxZxkHf8aNen4CGON0znz6mJLfMe5T2kN
+         72tFC42rrFLiusYfU+m5fijc3ksIHFYrZC0PwE2gG222jYiUM3ckLUti9dCi0TDM+XSA
+         YQxqppKAOBFUZMr+wLdX8SRdKx75mQM7kqv4QJ/fzAd5uf5LZP6OnTilFXnWghjT3FMF
+         qAng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743795546; x=1744400346;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NQGNgVHxDhs7mBk3RqbeX6683p63yLHOISx5dQxLR50=;
+        b=G17DSScBHky8/Bh4pzZE7qVGiGJ5BP1CY1GgYpUIzrs3v/Pth7el4ixdJL0MySy1T/
+         uVunoH6zIw6L2kRfgrrxYK0HZobHHOFBSlfK07FV+jEavvKvIe6vzonjYTbhpIAKtRyA
+         T/E+ajSZ2nlPtcPixeSXuDv/zRH7Hx4XECikayDD6y7K3VTBtTd3imCZ0RhdfKSjED36
+         giU1LNJMlKPUkFurGpyDC31U+SYtPUCRrvdd2/fQK+EkUJY1jo14noHlQRs1O+ukd0E4
+         +k5jf0+cxKWUziqHcoTOit94sAvBe+8cOKzShPId/KhZ/XjnHHN4LPvXvXUap3dUKj6l
+         0nsA==
+X-Forwarded-Encrypted: i=1; AJvYcCWBrMfklRXtnyIuEzTWnPLbt35s6Ft7rAm4cTVhxD5ABIv0GIYg6ISTMr6MOE1EiWpMEkbmmtsH5w10yt9aDz2B@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBmyFSSvqIVLK6dLIbvyoYc521pdTstT76nl7zDQHBLbe7UHys
+	u5nhIQI+91zUJXbIC1dmpgLOlRSkAgz/8SJkqP98J50nuv0bcjKMHJi3+kjH
+X-Gm-Gg: ASbGnculiU+SVpIwuM9m/WfE6MgLKy3/nw/WW6h+Ys1oyVuVMKJhUVFcwcNMoliwycA
+	p7rcL7M4ZvTwXR+gw+yQRZOsA/xpslDAgTbTWOJePPapofdE0sh63Tid0C33Gu5yP0zsRuyKR0s
+	goicblHoQE/H4hsJSDJ8179210Q+YDqF/KWxKjweP16ZzTYn/WnsGIHFUxZIu0aQyUOoJex03BS
+	9my2aYOFg+ImIuUuGDD7oRc8L+gOSfsxD6cENtTrMJjeCjYMIBoniqH9OPezrxTXCRj0GsV32C+
+	l7UY8PJDs+48LxNOJPgDuXTNBJc/zJvph9e2PlzOW2zzPBEVDHgLNmkFVik/Xb8E4EyQ81zsIG7
+	iXpqFmXYu3uqVs34KzBnVxOta
+X-Google-Smtp-Source: AGHT+IFe4mjpRg7zowmOKrRZGt9tbXvtfVX38ovvOh6lKYhx4xIePXLNWeuaoRutkTmWr1rWPnCrtw==
+X-Received: by 2002:a17:902:d4c7:b0:220:ec62:7dc8 with SMTP id d9443c01a7336-22a8a85a18dmr57542845ad.2.1743795546267;
+        Fri, 04 Apr 2025 12:39:06 -0700 (PDT)
+Received: from ?IPV6:2409:4080:1197:5c59:9640:d38a:951e:d202? ([2409:4080:1197:5c59:9640:d38a:951e:d202])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2297866e242sm36279755ad.164.2025.04.04.12.39.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 04 Apr 2025 12:39:05 -0700 (PDT)
+Message-ID: <b493166b-5d1b-4228-82a0-ee7efcdd03e6@gmail.com>
+Date: Sat, 5 Apr 2025 01:08:59 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML
+To: Krzysztof Kozlowski <krzk@kernel.org>, ukleinek@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, vz@mleia.com,
+ piotr.wojtaszczyk@timesys.com
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250312122750.6391-1-purvayeshi550@gmail.com>
+ <b2f6a357-a468-4526-a1b6-69ab2c643b2c@kernel.org>
+ <61b1e302-98ad-4dda-8c03-18315d432512@gmail.com>
+ <023b7e98-58ef-4752-9ef4-6fe699188b2f@kernel.org>
+Content-Language: en-US
+From: Purva Yeshi <purvayeshi550@gmail.com>
+In-Reply-To: <023b7e98-58ef-4752-9ef4-6fe699188b2f@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_123722_338629_9E17A0E2 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20250404_123907_961679_0A7C85A0 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,120 +105,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---1d0b1c9b765b5909805ad66ccb19fe973b8f7f377113664bb82b4c67afb6
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On 02/04/25 12:03, Krzysztof Kozlowski wrote:
+> On 01/04/2025 19:32, Purva Yeshi wrote:
+>> On 13/03/25 16:34, Krzysztof Kozlowski wrote:
+>>> On 12/03/2025 13:27, Purva Yeshi wrote:
+>>>> Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
+>>>> YAML schema (`nxp,lpc3220-pwm.yaml`).
+>>>>
+>>>> Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
+>>>>
+>>>> Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
+>>>> ---
+>>>
+>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>
+>>>
+>>> ---
+>>>
+>>> <form letter>
+>>> This is an automated instruction, just in case, because many review tags
+>>> are being ignored. If you know the process, you can skip it (please do
+>>> not feel offended by me posting it here - no bad intentions intended).
+>>> If you do not know the process, here is a short explanation:
+>>>
+>>> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+>>> of patchset, under or above your Signed-off-by tag, unless patch changed
+>>> significantly (e.g. new properties added to the DT bindings). Tag is
+>>> "received", when provided in a message replied to you on the mailing
+>>> list. Tools like b4 can help here. However, there's no need to repost
+>>> patches *only* to add the tags. The upstream maintainer will do that for
+>>> tags received on the version they apply.
+>>>
+>>> Full context and explanation:
+>>> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+>>> </form letter>
+>>>
+>>> Best regards,
+>>> Krzysztof
+>>
+>> Hello!
+>>
+>> I wanted to follow up on the patch I submitted. I was wondering if you
+>> had a chance to review it and if there are any comments or feedback.
+> 
+> And what did you quote? What's there? Did you read it before replying?
+> 
+> Please avoid pinging during the merge window.
+> 
+> 
+> Best regards,
+> Krzysztof
 
-On Thu Apr 3, 2025 at 5:37 AM CEST, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
->
-> The Rockchip RK3588 SoC integrates the Synopsys DesignWare DPTX
-> controller. And this DPTX controller need share a USBDP PHY with
-> the USB 3.0 OTG controller during operation.
->
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
->
-> ---
->
-> (no changes since v2)
->
-> Changes in v2:
-> - Link to V1: https://lore.kernel.org/linux-rockchip/20250223113036.74252=
--1-andyshrk@163.com/
-> - Fix a character encoding issue
->
->  .../display/rockchip/rockchip,dw-dp.yaml      | 150 ++++++++++++++++++
->  1 file changed, 150 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/rockchip/ro=
-ckchip,dw-dp.yaml
->
-> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,=
-dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw=
--dp.yaml
-> new file mode 100644
-> index 0000000000000..a8a0087179972
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.y=
-aml
-> @@ -0,0 +1,150 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-dp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Rockchip DW DisplayPort Transmitter
-> +
-> +maintainers:
-> +  - Andy Yan <andy.yan@rock-chips.com>
-> +
-> +description: |
-> +  The Rockchip RK3588 SoC integrates the Synopsys DesignWare DPTX contro=
-ller
-> +  which is compliant with the DisplayPort Specification Version 1.4 with=
- the
-> +  following features:
-> +
-> +  * DisplayPort 1.4a
-> +  * Main Link: 1/2/4 lanes
-> +  * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
-> +  * AUX channel 1Mbps
-> +  * Single Stream Transport(SST)
-> +  * Multistream Transport (MST)
-> +  * Type-C support (alternate mode)
-> +  * HDCP 2.2, HDCP 1.3
-> +  * Supports up to 8/10 bits per color component
-> +  * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
-> +  * Pixel clock up to 594MHz
-> +  * I2S, SPDIF audio interface
-> +
-> +allOf:
-> +  - $ref: /schemas/sound/dai-common.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - rockchip,rk3588-dp
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: Peripheral/APB bus clock
-> +      - description: DisplayPort AUX clock
-> +      - description: HDCP clock
-> +      - description: I2S interface clock
-> +      - description: SPDIF interfce clock
+Hello Krzysztof,
 
-s/interfce/interface/
-
-Cheers,
-  Diederik
-
-> +
-> +  clock-names:
-> +    items:
-> +      - const: apb
-> +      - const: aux
-> +      - const: hdcp
-> +      - const: i2s
-> +      - const: spdif
-
---1d0b1c9b765b5909805ad66ccb19fe973b8f7f377113664bb82b4c67afb6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZ/A03gAKCRDXblvOeH7b
-bpJBAQDvx5djc7YfaKYs4IcJeoXUVMwHtmKxjI+9dTI+U5l82wD/TCM5+lKSSL8X
-Ub8SCGu2YvEfoUy58ySWw+QHY8eQfwE=
-=IJxa
------END PGP SIGNATURE-----
-
---1d0b1c9b765b5909805ad66ccb19fe973b8f7f377113664bb82b4c67afb6--
+Apologies for the unnecessary follow-up. I’ll avoid pinging during the 
+merge window.
 
