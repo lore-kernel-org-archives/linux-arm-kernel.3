@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEC3C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 11:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91713C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 11:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9jUjt+XhjUvh1I0aAWgVoLBSUgPdrIuXqPuTwG7GS8U=; b=CtvvKYpkspQ5J6RtLsmTXZUslW
-	igtrqrdCtvBbHva4wpIscz2A6uWxCvUK4gMucWeLl8lfA5w1f58LcwnzmZtf3VpBrc79Ebv7EIFdY
-	13ByyJxrhUtHdmz0gKhmL1V+e687EDY+exX270ETR4NNma/kw+yFfNVlECF+G8248/mXdPplW9ZXp
-	rBdjndqNFQMPTYmvzLyhLdZlUCTRAFDlH9nvS5TIsxNZEq7RswcAYxuLW2dGPPO2XSFccTbIKHGRD
-	ZSbrcW57CLovIG2x5sn/Yv9flEwjYWYx+vzZMnYSuqNZy1PVlkp0sBBcQQYmH/gId591pT3rODeWV
-	ik2Q6TJA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2H82D3ceyz7r5Ot6awJCahu6BBXmvQb/jfXpvl9UcwY=; b=SJPvEgXVdbDzaX1ithegHLH4+v
+	A9LdhYffAlE+EoC+vzTZXotD6WgX+orJShByVybqmoxGaRPeLXk9S6y5Lfuw5LZRz+yv11EnQBBWV
+	JS218eluhsPSZk0lqTAfjRSwr5hi5jtw4kEowDexh/m8lGPvc67BFfAKmy9+/w5MOFdGv9o8en0YY
+	QakUB2fI2nqQsY84wfOVVcmkk5QPKF1Gi0q1WHTxrJ19qfzywQVV31KVKIEbwl5GGyGyw8chWVSTH
+	Z6vRRMSodTmJqywX74L0eW4gaUNY9mDdFh9g3A2wifjISogArOTEsCM6I3H3DZ9A3N20jcKzCd8cy
+	QBvZSRpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0fFa-0000000BYGj-0ywT;
-	Fri, 04 Apr 2025 11:30:18 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1u0fHK-0000000BYNS-3pZx;
+	Fri, 04 Apr 2025 11:32:06 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0f9h-0000000BXIq-3XSU
+	id 1u0fBC-0000000BXWJ-3c0I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 11:24:14 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-39c2688e2bbso163456f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 04:24:13 -0700 (PDT)
+	Fri, 04 Apr 2025 11:25:48 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-301c4850194so1512069a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 04:25:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743765852; x=1744370652; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9jUjt+XhjUvh1I0aAWgVoLBSUgPdrIuXqPuTwG7GS8U=;
-        b=pP6YNCEGuH5/DSHHls8zL9And4P2cIOB3zYwHHWD7CCe0N6YjFFq/Y/QgF3lE2Oyrp
-         DzK2Uz4Rlksh9IPYt0QYM3QElCym4bvHdBwR6KfsmssnIO7pd6pWn1tc+6mZbgMl1MC1
-         +iVxMlT5eTNenZOz/1oWh5xt3oBhJoLXjbeguL2Tz2HWiI+B08VMR29HoNf2710ooKKf
-         ACbQ52KMYmyRzTwksHbbnx5TNDYnn+iGcaMsLgt9YplUcwGwn0zpTUhO1jKA30cqSCL2
-         hFMcjMxgKeZLLU5mzSqPYlFi05uiSj3zqKZ+Kmem8R2LfHGn9sOIrPzdLxe1yXBJU6mO
-         Icbw==
+        d=gmail.com; s=20230601; t=1743765946; x=1744370746; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2H82D3ceyz7r5Ot6awJCahu6BBXmvQb/jfXpvl9UcwY=;
+        b=bWRvIKeaL5Q/XwhtlDe/zdVGl0uN+OtFflq1qfflgEqyDUKWIL09vOgoUiGYIVgt6X
+         wl+U5SBD5Wxz8ACZf7jgX886LaOUtuQYmAML1VRzYg1+iV80vnfICUowgY0vdjYEqaNL
+         ayAFpJU0h8P8kJfTSciB9436Yvp2/P2r9trCksUHXooGRuUpT3KLelq4ZY6R2b7OrtNX
+         3zoN95jXxNg3lfB1bwa3Sd1JvnBvNuBQ4erBEoTgN45GMMbLV2x4JzOig5UAmxAYRbKO
+         pdghOV5n6gQWAGH3iARzaBkNqCeFhLnGrPohM7HrQlAgEu7bFoZQGZmBK3xOSaaT3qsS
+         I4QA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743765852; x=1744370652;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9jUjt+XhjUvh1I0aAWgVoLBSUgPdrIuXqPuTwG7GS8U=;
-        b=EkDPwWPD5LLi8YaaQx3H98U0srgauiGglxy8tl6OepivXsxy8DOAYaMtknNGu2w62H
-         fmbOuyie/fl5pyVss9T6ZMWJV/H+m80yi+4swVjIhkvy777LhL4jX000WrL5Tw2ud4KF
-         8x8N4YzAM82t9uifYhAPufU4y4vnidkUaToTCkX01g2XJsibmBJV0eQeNvbOyfIdbwc9
-         6VEXPkYRnRb0Akzt0ABg8LZUzR0/FKOH3V9FCOD6XlQ33HKoaS3adDtSbVq6t8sJYAgb
-         JOGTOioU4oiJpNOgHtPFCb1Gckain8PXyofjQoGYENewkNcp9Ecye9cLNitW8/j0iijZ
-         HD8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVaf6XgNXPqGHZAbDNn6YWyQb3A1SXVtRlvSgxfxyBqIp7II7LtoyeQCtzctVTC/HcUn8Q/FzSuXUVgEadUdsvp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhB3Q0ttChOaQd13ES0ks68FPcJzX/x7b1C8Bj/t4EXX3E/FAm
-	yDaPphq9BDyryrSRf4FooTyGf856rN7MAW4D9OqxEr1gAsOkveEmSUfN7R8THUk=
-X-Gm-Gg: ASbGncsqB7NoxyRXha5SN2T1misMYWcHrIjRn0mFwRFdabPgcR9DRc8yPJLC2zgkpck
-	rd6XNfhDei+bJBK/geJkcmx+KW2vFmLPl7nIK/FveEnruCVh6d3BmV+l4w85W5qcrzksxZr3L4g
-	7mhpEOM4FfCyewn//J4O/yh+MJK/qHd1Oq0eqYUWicSzqSPb5U/ib5fLA59wIVohx399GAvFZNZ
-	m068SZ73+zEQiGkmHR1eLDSMxEm+WqkGLJ9biPOYH0kLOh9yL85o91fbw/GqLo6bDPITYnQIA0S
-	WYG42wMZT1OWWY5Mnv7VBaN1cZejJ8wOLUb8z7QABEnva+AuFH+0eQ==
-X-Google-Smtp-Source: AGHT+IH0xDqfEbADnFxB7vDYTyNme6txywLT76cZgxeW7WAkJ3R8qDIzLSJ028j7QznnYBlvsuDHag==
-X-Received: by 2002:a05:6000:40c8:b0:39c:1efb:ee87 with SMTP id ffacd0b85a97d-39cba934e63mr788410f8f.12.1743765852236;
-        Fri, 04 Apr 2025 04:24:12 -0700 (PDT)
-Received: from shite.. ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c30226b17sm4149403f8f.92.2025.04.04.04.24.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Apr 2025 04:24:11 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] soc: fsl: Do not enable DPAA2_CONSOLE by default during compile testing
-Date: Fri,  4 Apr 2025 13:24:07 +0200
-Message-ID: <20250404112407.255126-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
+        d=1e100.net; s=20230601; t=1743765946; x=1744370746;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2H82D3ceyz7r5Ot6awJCahu6BBXmvQb/jfXpvl9UcwY=;
+        b=fYKeyuBOo5dhrb8ntHfuS9WKFCsCd3dQ4DYRqwH+bSNzHoDDCAlJmN76U0I+t78UvJ
+         A2BIQGverUexeOEJhUtJmP9e/RcvTpEpzZip9g5PWA0J/4fDq2qB4XFCl4O2tl4eRx1E
+         0vnDKI4M3X5zLXQlmbiqUDkRJQDDQP5yxO2F33EsK/4QhwRt0j5X2fzzXPhy8Ug2d8JR
+         EhIeu+ijLXj+395c/fxqV1VLRRn116A5Zei+/+vKNzQ5LbtrM83HQwfShqyZbEuZhAfq
+         X/xP4+HwEwYupMv7e6L5XVUiYH4YDFj4nYFhT/pr0QMPzwBZkMp4CLVYh8HZDiXBtMaY
+         f8dw==
+X-Forwarded-Encrypted: i=1; AJvYcCWekQwUb4V0snYuCfN3vS2uBL+73As7x4PTXxkuLvhMy6TdJWJGmFI/725FNzEhgg7NqtXBvKfS6Iyj99q+s2Nb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFaouI/P9D9FRm0Q9JYWlu87zYmayHQb/sMA1p9ZU21OwJmKYx
+	pGvq8TMA5CoigeUul25mHHg3R0JknUvRvv4oiYofOnkK350ZWhJI+88z9/B7vjqqq9bgkyykxyE
+	gbxqyOc86zbr2qoGnxmYWknMl3fg=
+X-Gm-Gg: ASbGncu3FENkKx9Hko5uj6MC7sFkXpV2VBiHbU+ustr4K3s4y+Z7ZO5TR4EU2qABXp5
+	cUst2ncBdFjnFssfAmeAli7CJiCGdzZomfupmsCwQQ/p9Ee4DdHJnS/CxnPAX2/X/oT8taePkpI
+	j91WJAfvojDFws9mWKxunZ8aw=
+X-Google-Smtp-Source: AGHT+IHzfIJRZpdeONCKC1hscbpEHgL+eOok3ABpVp7t0jI5xsF+h571shGT73MMq7pH/ucoJCkY3wGkF1YG+WPKcMw=
+X-Received: by 2002:a17:90b:5443:b0:2ff:796b:4d05 with SMTP id
+ 98e67ed59e1d1-306a485edb0mr4690761a91.11.1743765945929; Fri, 04 Apr 2025
+ 04:25:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250404105359.18632-1-ivitro@gmail.com> <20250404105359.18632-2-ivitro@gmail.com>
+In-Reply-To: <20250404105359.18632-2-ivitro@gmail.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Fri, 4 Apr 2025 14:27:31 +0300
+X-Gm-Features: AQ5f1Jo_vwVCsJBIV6IqomEQgPPhk2OrizKxFzdzrwjdmKaE32nMnNYDWv9ZEsk
+Message-ID: <CAEnQRZAkPJJRit7qrxHc4KtaR8Xej9qBZYgYTukWtKM6fwTSnw@mail.gmail.com>
+Subject: Re: [PATCH v1 2/2] arm64: dts: freescale: add Toradex SMARC iMX8MP
+To: Vitor Soares <ivitro@gmail.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Vitor Soares <vitor.soares@toradex.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Hiago De Franco <hiago.franco@toradex.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_042413_882725_9F56641F 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250404_042546_902376_3A5EECF9 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,28 +98,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enabling the compile test should not cause automatic enabling of such
-drivers.
+On Fri, Apr 4, 2025 at 1:56=E2=80=AFPM Vitor Soares <ivitro@gmail.com> wrot=
+e:
+>
+> From: Vitor Soares <vitor.soares@toradex.com>
+>
+> Add DT support for Toradex SMARC iMX8MP SoM and Toradex SMARC Development
+> carrier board.
+>
+> Link: https://www.toradex.com/computer-on-modules/smarc-arm-family/nxp-im=
+x-8m-plus
+> Link: https://www.toradex.com/products/carrier-board/smarc-development-bo=
+ard-kit
+> Co-developed-by: Hiago De Franco <hiago.franco@toradex.com>
+> Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+> Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile        |    1 +
+>  .../freescale/imx8mp-toradex-smarc-dev.dts    |  297 ++++
+>  .../dts/freescale/imx8mp-toradex-smarc.dtsi   | 1288 +++++++++++++++++
+>  3 files changed, 1586 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-de=
+v.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dt=
+si
+>
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts=
+/freescale/Makefile
+> index b6d3fe26d621..8106dbeffd3e 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -221,6 +221,7 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-venice-gw73xx-2x.d=
+tb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-venice-gw74xx.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-venice-gw75xx-2x.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-venice-gw82xx-2x.dtb
+> +dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-toradex-smarc-dev.dtb
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/soc/fsl/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I think here we should go in alphabetical order. So move this in the
+proper place.
 
-diff --git a/drivers/soc/fsl/Kconfig b/drivers/soc/fsl/Kconfig
-index a1e0bc8c1757..47870e29c290 100644
---- a/drivers/soc/fsl/Kconfig
-+++ b/drivers/soc/fsl/Kconfig
-@@ -36,7 +36,7 @@ config FSL_MC_DPIO
- config DPAA2_CONSOLE
- 	tristate "QorIQ DPAA2 console driver"
- 	depends on OF && (ARCH_LAYERSCAPE || COMPILE_TEST)
--	default y
-+	default ARCH_LAYERSCAPE
- 	help
- 	  Console driver for DPAA2 platforms. Exports 2 char devices,
- 	  /dev/dpaa2_mc_console and /dev/dpaa2_aiop_console,
--- 
-2.45.2
-
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-verdin-nonwifi-dahlia.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-verdin-nonwifi-dev.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-verdin-nonwifi-ivy.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts b=
+/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts
 
