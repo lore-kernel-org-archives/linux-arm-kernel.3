@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB62C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 21:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6427CC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 21:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Kqt2mSmmEPyr5zjTfhUFMHE5kFarqFQ+/vLOQEicRps=; b=1WfwAKK3/v8Qk2ai9VB2iE7Uwf
-	m67XA5ySsfhy4VCqLrQHM81XSvns4GkFRADKYDjj86hyXwdUkGWtGb0sMYBGTH678/GFMO8I338ha
-	aCnTF7r212zJ974KxsYTzlVpuHhiDm93zXKmn0LO9w7m/lFs12P9hdt328Cozlggs3TyDEZ/bTVRV
-	31DvvlmjcUMgQD87Z6Mvn+lyxjdX85enXXyKBNr1sr4El3fI7jSV80sqhx+sRzjL1ObysjlrFjYhQ
-	1WqximzI5qxANx0GxCrYo4yTJtR1Qw3hX4fIUb5z8Y9tLdO5ITwLXtK2cxrurVKHKlqEsO+ZCvHGO
-	2yNNqNow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pDm+MM6eCH2JMsUCcDzuTNQcKYoavTfO59/wdP1NPA4=; b=M9Ss5qYpZZ9SPifI4Tda60nhsQ
+	PMI+lTxOX+Xpk+c03qwfIcePFNZo3t863UMTxr83uua4VzXh63HPd/IFCHlCAq4q+/vk/gjs0OzRn
+	CdXrepIWRGP9h54PMsC3SxR+eIrw+bQN5jOvijTmb5lnA5CfoCa+9/xztb84fyhB2HeItxMMdNllH
+	TWORS40oICT65WmYIVauzaY0Z2InDqAhF1IOSqrNGwXxnpMtGaS8bTWlBV0+8T0HR4uTwzc7k69zD
+	EpypPrQaf5PZTof4Srycg+nPa0iOEZlsvoTknuJGhygcjmw2duIIJovYlFICT9TBwXCoUtZu2Q+u5
+	5clJ8nZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0opG-0000000CueI-0Y36;
-	Fri, 04 Apr 2025 21:43:46 +0000
+	id 1u0ozi-0000000CvWk-0EU9;
+	Fri, 04 Apr 2025 21:54:34 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0omJ-0000000CuIg-2rFN;
-	Fri, 04 Apr 2025 21:40:43 +0000
+	id 1u0oxy-0000000CvL9-0Lte
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Apr 2025 21:52:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1EF4261137;
-	Fri,  4 Apr 2025 21:40:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 050E1C4CEDD;
-	Fri,  4 Apr 2025 21:40:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8ECFB61135;
+	Fri,  4 Apr 2025 21:52:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 572D5C4CEDD;
+	Fri,  4 Apr 2025 21:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743802840;
-	bh=zFEs3x1/XsRtCRQwZtP7pGruMSG2FDF0PmU+lKKJ9YA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=lJOZ37XTk6Gzb058yCFIkSasbWMpjaSRo0WBYPx7oY6I29arVAfkMJzlDIq3Oz2dk
-	 OxrS2E0bPYx0vVtvExa1HT+SKWo2fPbvwpMWpYoyp/bI03lRa50nFWQoVLCbgrwTNt
-	 +YF+OBmSLnZ/qPjNCX3+bwJkTjRf0f3NuR7S80xejJNinrTllZIBi+hrSjSs/sjdXW
-	 mOWTBqGz4NUOV0jtVHZSe38vBj1DEygyCP6abYkDJ3sI1DgJZF/p1cLm9KdxxdBh13
-	 E5nG2vRHjEgPGZ8YaRFhFFhlkD5bkCmMrGHzvcyrgR6V3IbeJWwoGPvV4nE6CKd1Dn
-	 Ac0aoJnHA5TdA==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
+	s=k20201202; t=1743803564;
+	bh=zfKuyAqEThSpITUsQxukfzwj1EOtZMLMZc21pVrK58U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UJLbDe1UWCik0+X07dueePSGryP67mZMHCTK2OzoZPKRioPAbyPo+4gCEfNLSf/eJ
+	 6Qp/fWuBKrJZcXMd9IBvlrMC7FDFLvFwYuHitO3LfWNKxm4RJBKVnp7hMAQE+tzITt
+	 69k+1zH8kTEd28hZmQfjiOn9K8j6bLQE+0Uvbs0+QcmhRs1SR11IH9Hmv0VB3QH/uW
+	 FiuzBA7y52ebnEEM/TyOrp7u58pqPS7CqUwVi0vd5I9IXodxKzKb6QlvgMe121GNPr
+	 j4sgKOfZ5dHAnqMYTvJHCltafWgeDABxruiSkEoUaAizrenp3zqr0t2kNnm9w/nyQ1
+	 qeQkrB9FIcjRg==
+Date: Fri, 4 Apr 2025 16:52:43 -0500
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Anup Patel <apatel@ventanamicro.com>, Marc Zyngier <maz@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Shuah Khan <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: display: rockchip,vop: Drop assigned-clocks
-Date: Fri,  4 Apr 2025 16:40:29 -0500
-Message-ID: <20250404214030.401629-1-robh@kernel.org>
-X-Mailer: git-send-email 2.47.2
+	Conor Dooley <conor+dt@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org,
+	jdmason@kudzu.us, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v16 04/15] dt-bindings: pci: pci-msi: Add support for PCI
+ Endpoint msi-map
+Message-ID: <20250404215243.GA412761-robh@kernel.org>
+References: <20250404-ep-msi-v16-0-d4919d68c0d0@nxp.com>
+ <20250404-ep-msi-v16-4-d4919d68c0d0@nxp.com>
+ <20250404201140.GA236599-robh@kernel.org>
+ <Z/BB/Maq4253H7N2@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z/BB/Maq4253H7N2@lizhi-Precision-Tower-5810>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +93,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-assigned-clock properties are implicitly allowed in any node with
-'clocks' and don't have to be specified. The max here also appears to be
-wrong as there's a case with 4 entries.
+On Fri, Apr 04, 2025 at 04:33:00PM -0400, Frank Li wrote:
+> On Fri, Apr 04, 2025 at 03:11:40PM -0500, Rob Herring wrote:
+> > On Fri, Apr 04, 2025 at 03:01:05PM -0400, Frank Li wrote:
+> > > Document the use of msi-map for PCI Endpoint (EP) controllers, which can
+> > > use MSI as a doorbell mechanism. Each EP controller can support up to 8
+> > > physical functions and 65,536 virtual functions.
+> > >
+> > > Define how to construct device IDs using function bits [2:0] and virtual
+> > > function index bits [31:3], enabling msi-map to associate each child device
+> > > with a specific msi-specifier.
+> > >
+> > > Include a device tree example illustrating this configuration.
+> > >
+> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > > change from v15 to v16
+> > > - new patch
+> > > ---
+> > >  Documentation/devicetree/bindings/pci/pci-msi.txt | 51 +++++++++++++++++++++++
+> > >  1 file changed, 51 insertions(+)
+> >
+> > Please don't add to .txt files.
+> 
+> where should put?
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../devicetree/bindings/display/rockchip/rockchip-vop.yaml  | 6 ------
- 1 file changed, 6 deletions(-)
+Where ever you are putting the schema for msi-map for endpoints... Looks 
+like that's nowhere currently. The endpoint side is documented in 
+pci-ep.yaml, so there I suppose.
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop.yaml
-index b339b7e708c6..8b5f58103dda 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop.yaml
-@@ -73,12 +73,6 @@ properties:
-   port:
-     $ref: /schemas/graph.yaml#/properties/port
- 
--  assigned-clocks:
--    maxItems: 2
--
--  assigned-clock-rates:
--    maxItems: 2
--
-   iommus:
-     maxItems: 1
- 
--- 
-2.47.2
+What's in pci-msi.txt already has mostly moved to dtschema 
+dtschema/schemas/pci/pci-host-bridge.yaml. 
 
+Rob
 
