@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B063C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 03:25:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EFA3C3601B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 03:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e05OrNSWCcCsmzoY3y8dtZiHi9YnOHkoFCkFAlCqFcI=; b=IEkK9GHdMX/wVfUn/WTknGFDOC
-	ozZrv5LaIyJbQphxS6UVqkYrFOx83w1e5BHMYvRwdBbdmhRowUGtLntp9XJRRW3QoLy5EsvSyDI51
-	xpCebek+onhyQMY0dXM5K/+oJr3CEXzfEsOCrPLj9+2ziw2TnzkEM6ji40XsuZWos7v/tlo6VONVf
-	Vyinh3IFjCPoYIULv0ywB0RhmzQyAOL7wJ4X6U3WGnfSWsISu+legCijo39eGl/qw+27WT0nu/iqQ
-	mUcz0FHZI4yKwSuGOQSwSRc0Bqq370XVNKrHiLg/PdkI1crxCF8KJTBLG3ihHcf+2kp7PByiCpoff
-	qxWdl0OQ==;
+	bh=zaCxv3C/86+LVw1iSWNlJ4iMe/7CQFWlYPN2UJ/NoWo=; b=3xzxkAEDJOQyWZqjb0iqN/xwPE
+	WVA0K0hLXF8WXUp84fWfXD3rWKIfSwnLWra3jqrhqcp54aptrnImRRJUzVYGrLpRkdM/Gha7UCwS4
+	koKwo8KIcqeoqwvzZNc67VBuKWaUPJe6UMuSdqUsyWNLuKI0f7jDPALyOiCdQpcdyDyOvTHwT0QeY
+	zsPOS/1LmZHjCaY6/fbt/Z472yaW1kBB81UNF4rU/oXWd3gNLfBiP3WsWjx9w6W3qH8ScBysHU3zZ
+	LJHj9kPd5idYrFbgdoinHQxDvFql86L7cSOx7mP/rDMQd0Y9eivX0UxRNSdH5iWRNECvZobJayD6J
+	f/rbeQFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0XgR-0000000Aghw-2V0y;
-	Fri, 04 Apr 2025 03:25:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u0XiD-0000000AgtM-1z5M;
+	Fri, 04 Apr 2025 03:27:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0XHj-0000000Ad0y-25Wv;
-	Fri, 04 Apr 2025 03:00:00 +0000
+	id 1u0XHm-0000000Ad2r-2bHG;
+	Fri, 04 Apr 2025 03:00:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6CA5F44EC6;
-	Fri,  4 Apr 2025 02:59:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84474C4CEEC;
-	Fri,  4 Apr 2025 02:59:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7FF4A614BA;
+	Fri,  4 Apr 2025 02:59:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4003C4CEE3;
+	Fri,  4 Apr 2025 02:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743735598;
-	bh=4ruN2yfM04MfyMd6Xn/cn9jUkSuoetlWEHVWLk/RgcU=;
+	s=k20201202; t=1743735600;
+	bh=jooiBRiLZ5KXTeX7sTZYMvh719V+Qu5vq1GtZM6CWWA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=NSI78iULj7EW28JG6UGcyucWTfviR4kacHtacvVklWgcec5mnFZIlv9fRfA/TVrJy
-	 ykQoMv6ZI5LSkZnkgkd1LHdl0FUdDkos7cOsilXzM4YH8EtkHmpEbg7CUUCsa4cMEQ
-	 34nltx4QMZnliKNpDFK2EVs5rEq6DlFMy7GTEskilCGVfIBgVWXB3M/MSZV+I/Cwh/
-	 TcCvoRsiAFSsQY6saLpV+bNzRfI0Ly2Vy51nN0TLGGDzxTGpDHquXnFBg4U+YUqWHb
-	 JXFP+8N0MFAi9iBySk4TVdw8xIS2tRGUhAUWn4805s5EUR4SpRiaqcdYYmNjroveZ9
-	 WPd+aaU3lumQw==
+	b=g/nOEnzC90yU3P0Hon/50j7bjUU/KNblbpYe76syN5W2QOwwzzoNvatmCdI8LKjVB
+	 GXztCu4IL/A0IORZ4wEe5qoYTPu5Pg2qdTI/GADX2IpCtl7Qlq3BQHZO/zX+1p8D+1
+	 WWVmMPsdLpyQouxJvuQnVlL4t01jBhIea2T09Usomwxj5PZfFpxRCGDgrurnsztTdB
+	 LvDckdMjWvj4seYBkbJOQVVX3OvNQDV+Z/f9IycDIz/I8RnpgnpRFLLS+VkO+vHJ7g
+	 W15YUZMzei1FJHwfHbyfxPUCyc1xy9tvhheao1yd31ibmMsHDhN8tRCzytLaIxuI+5
+	 QtnT/Tce6b/3w==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 03 Apr 2025 21:59:34 -0500
-Subject: [PATCH 13/19] arm64: dts: amlogic: Drop redundant CPU
- "clock-latency"
+Date: Thu, 03 Apr 2025 21:59:35 -0500
+Subject: [PATCH 14/19] dt-bindings: arm/cpus: Add schemas for
+ "enable-method" dependencies
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250403-dt-cpu-schema-v1-13-076be7171a85@kernel.org>
+Message-Id: <20250403-dt-cpu-schema-v1-14-076be7171a85@kernel.org>
 References: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
 In-Reply-To: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -87,9 +87,6 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  imx@lists.linux.dev, linux-rockchip@lists.infradead.org, 
  linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org
 X-Mailer: b4 0.15-dev
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_195959_605130_C6078D44 
-X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,839 +101,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "clock-latency" property is part of the deprecated opp-v1 binding
-and is redundant if the opp-v2 table has equal or larger values in any
-"clock-latency-ns". Add any missing "clock-latency-ns" properties and
-remove "clock-latency".
+Replace the prose for properties dependent on specific "enable-method"
+values with schemas defining the same requirements.
+
+Both "qcom,acc" and "qcom,saw" properties appear to be required for any
+of the Qualcomm enable-method values, so the schema is a bit simpler
+than what the text said. The references to arm/msm/qcom,saw2.txt and
+arm/msm/qcom,kpss-acc.txt are out of date, so just drop them.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm64/boot/dts/amlogic/meson-g12a-fbx8am.dts             | 4 ----
- arch/arm64/boot/dts/amlogic/meson-g12a-radxa-zero.dts         | 4 ----
- arch/arm64/boot/dts/amlogic/meson-g12a-sei510.dts             | 4 ----
- arch/arm64/boot/dts/amlogic/meson-g12a-u200.dts               | 4 ----
- arch/arm64/boot/dts/amlogic/meson-g12a-x96-max.dts            | 4 ----
- arch/arm64/boot/dts/amlogic/meson-g12a.dtsi                   | 1 +
- arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dts | 6 ------
- arch/arm64/boot/dts/amlogic/meson-g12b-a311d.dtsi             | 2 ++
- arch/arm64/boot/dts/amlogic/meson-g12b-bananapi-cm4.dtsi      | 6 ------
- arch/arm64/boot/dts/amlogic/meson-g12b-bananapi.dtsi          | 6 ------
- arch/arm64/boot/dts/amlogic/meson-g12b-khadas-vim3.dtsi       | 6 ------
- arch/arm64/boot/dts/amlogic/meson-g12b-odroid-go-ultra.dts    | 6 ------
- arch/arm64/boot/dts/amlogic/meson-g12b-odroid.dtsi            | 6 ------
- arch/arm64/boot/dts/amlogic/meson-g12b-radxa-zero2.dts        | 6 ------
- arch/arm64/boot/dts/amlogic/meson-g12b-s922x.dtsi             | 2 ++
- arch/arm64/boot/dts/amlogic/meson-g12b-w400.dtsi              | 6 ------
- arch/arm64/boot/dts/amlogic/meson-sm1-ac2xx.dtsi              | 4 ----
- arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi           | 4 ----
- arch/arm64/boot/dts/amlogic/meson-sm1-khadas-vim3l.dts        | 4 ----
- arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi             | 4 ----
- arch/arm64/boot/dts/amlogic/meson-sm1-s905d3-libretech-cc.dts | 4 ----
- arch/arm64/boot/dts/amlogic/meson-sm1-sei610.dts              | 4 ----
- arch/arm64/boot/dts/amlogic/meson-sm1.dtsi                    | 1 +
- 23 files changed, 6 insertions(+), 92 deletions(-)
+ Documentation/devicetree/bindings/arm/cpus.yaml | 82 +++++++++++++++----------
+ 1 file changed, 49 insertions(+), 33 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12a-fbx8am.dts b/arch/arm64/boot/dts/amlogic/meson-g12a-fbx8am.dts
-index 9aa36f17ffa2..d0a3b4b9229c 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12a-fbx8am.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12a-fbx8am.dts
-@@ -267,28 +267,24 @@ &cpu0 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &ethmac {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12a-radxa-zero.dts b/arch/arm64/boot/dts/amlogic/meson-g12a-radxa-zero.dts
-index 952b8d02e5c2..4353485c6f26 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12a-radxa-zero.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12a-radxa-zero.dts
-@@ -220,28 +220,24 @@ &cpu0 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cvbs_vdac_port {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12a-sei510.dts b/arch/arm64/boot/dts/amlogic/meson-g12a-sei510.dts
-index 52fbc5103e45..f39fcabc763f 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12a-sei510.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12a-sei510.dts
-@@ -314,28 +314,24 @@ &cpu0 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cvbs_vdac_port {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12a-u200.dts b/arch/arm64/boot/dts/amlogic/meson-g12a-u200.dts
-index 5407049d2647..b5bf8ecc91e6 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12a-u200.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12a-u200.dts
-@@ -407,28 +407,24 @@ &cpu0 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &clkc_audio {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12a-x96-max.dts b/arch/arm64/boot/dts/amlogic/meson-g12a-x96-max.dts
-index 01da83658ae3..5ab460a3e637 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12a-x96-max.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12a-x96-max.dts
-@@ -263,28 +263,24 @@ &cpu0 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cvbs_vdac_port {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12a.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12a.dtsi
-index 543e70669df5..deee61dbe074 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12a.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12a.dtsi
-@@ -62,6 +62,7 @@ cpu_opp_table: opp-table {
- 		opp-1000000000 {
- 			opp-hz = /bits/ 64 <1000000000>;
- 			opp-microvolt = <731000>;
-+			clock-latency-ns = <50000>;
- 		};
- 
- 		opp-1200000000 {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dts b/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dts
-index adedc1340c78..415248931ab1 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dts
-@@ -76,42 +76,36 @@ &cpu0 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu100 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu101 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu102 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu103 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &pwm_ab {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-a311d.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b-a311d.dtsi
-index 8e9ad1e51d66..8ecb5bd125c1 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-a311d.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-a311d.dtsi
-@@ -14,6 +14,7 @@ cpu_opp_table_0: opp-table-0 {
- 		opp-1000000000 {
- 			opp-hz = /bits/ 64 <1000000000>;
- 			opp-microvolt = <761000>;
-+			clock-latency-ns = <50000>;
- 		};
- 
- 		opp-1200000000 {
-@@ -54,6 +55,7 @@ cpub_opp_table_1: opp-table-1 {
- 		opp-1000000000 {
- 			opp-hz = /bits/ 64 <1000000000>;
- 			opp-microvolt = <731000>;
-+			clock-latency-ns = <50000>;
- 		};
- 
- 		opp-1200000000 {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-bananapi-cm4.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b-bananapi-cm4.dtsi
-index 92e8b26ecccc..39011b645128 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-bananapi-cm4.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-bananapi-cm4.dtsi
-@@ -155,42 +155,36 @@ &cpu0 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu100 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu101 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu102 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu103 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &ext_mdio {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-bananapi.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b-bananapi.dtsi
-index 54663c55a20e..1b08303c4282 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-bananapi.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-bananapi.dtsi
-@@ -263,42 +263,36 @@ &cpu0 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu100 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu101 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu102 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu103 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &ethmac {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-khadas-vim3.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b-khadas-vim3.dtsi
-index 48650bad230d..fc737499f207 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-khadas-vim3.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-khadas-vim3.dtsi
-@@ -51,42 +51,36 @@ &cpu0 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu100 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu101 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu102 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu103 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &pwm_ab {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-go-ultra.dts b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-go-ultra.dts
-index e21831dfceee..d5938a4a6da3 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-go-ultra.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-go-ultra.dts
-@@ -281,42 +281,36 @@ &cpu0 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu100 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu101 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu102 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu103 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- /* RK817 only supports 12.5mV steps, round up the values */
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid.dtsi
-index 7e8964bacfce..3298d59833b6 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid.dtsi
-@@ -227,42 +227,36 @@ &cpu0 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu100 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu101 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu102 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu103 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu_thermal {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-radxa-zero2.dts b/arch/arm64/boot/dts/amlogic/meson-g12b-radxa-zero2.dts
-index fc05ecf90714..1e5c6f984945 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-radxa-zero2.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-radxa-zero2.dts
-@@ -259,42 +259,36 @@ &cpu0 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu100 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu101 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu102 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu103 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu_thermal {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-s922x.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b-s922x.dtsi
-index 44c23c984034..19cad93a6889 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-s922x.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-s922x.dtsi
-@@ -14,6 +14,7 @@ cpu_opp_table_0: opp-table-0 {
- 		opp-1000000000 {
- 			opp-hz = /bits/ 64 <1000000000>;
- 			opp-microvolt = <731000>;
-+			clock-latency-ns = <50000>;
- 		};
- 
- 		opp-1200000000 {
-@@ -59,6 +60,7 @@ cpub_opp_table_1: opp-table-1 {
- 		opp-1000000000 {
- 			opp-hz = /bits/ 64 <1000000000>;
- 			opp-microvolt = <771000>;
-+			clock-latency-ns = <50000>;
- 		};
- 
- 		opp-1200000000 {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-w400.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b-w400.dtsi
-index a7a0fc264cdc..9b6d780eada7 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-w400.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-w400.dtsi
-@@ -213,42 +213,36 @@ &cpu0 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table_0>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu100 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu101 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu102 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu103 {
- 	cpu-supply = <&vddcpu_a>;
- 	operating-points-v2 = <&cpub_opp_table_1>;
- 	clocks = <&clkc CLKID_CPUB_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cvbs_vdac_port {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-ac2xx.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1-ac2xx.dtsi
-index a3463149db3d..9be3084b090d 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-ac2xx.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-ac2xx.dtsi
-@@ -147,28 +147,24 @@ &cpu0 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU1_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU2_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU3_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cvbs_vdac_port {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi
-index 40db95f64636..538b35036954 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi
-@@ -185,28 +185,24 @@ &cpu0 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU1_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU2_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU3_CLK>;
--	clock-latency = <50000>;
- };
- 
- &ext_mdio {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-khadas-vim3l.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-khadas-vim3l.dts
-index 5d75ad3f3e46..a3d9b66b6878 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-khadas-vim3l.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-khadas-vim3l.dts
-@@ -51,28 +51,24 @@ &cpu0 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU1_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU2_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU3_CLK>;
--	clock-latency = <50000>;
- };
- 
- &pwm_AO_cd {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
-index ad8d07883760..c4524eb4f099 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
-@@ -250,28 +250,24 @@ &cpu0 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU1_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU2_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU3_CLK>;
--	clock-latency = <50000>;
- };
- 
- &ext_mdio {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-s905d3-libretech-cc.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-s905d3-libretech-cc.dts
-index 537370db360f..5daadfb170b4 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-s905d3-libretech-cc.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-s905d3-libretech-cc.dts
-@@ -64,26 +64,22 @@ &cpu0 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU1_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU2_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu_b>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU3_CLK>;
--	clock-latency = <50000>;
- };
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-sei610.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-sei610.dts
-index 37d7f64b6d5d..024d2eb8e6ee 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-sei610.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-sei610.dts
-@@ -359,28 +359,24 @@ &cpu0 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu1 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU1_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu2 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU2_CLK>;
--	clock-latency = <50000>;
- };
- 
- &cpu3 {
- 	cpu-supply = <&vddcpu>;
- 	operating-points-v2 = <&cpu_opp_table>;
- 	clocks = <&clkc CLKID_CPU3_CLK>;
--	clock-latency = <50000>;
- };
- 
- &ethmac {
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi
-index 97e4b52066dc..966ebb19cc55 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi
-@@ -100,6 +100,7 @@ cpu_opp_table: opp-table {
- 		opp-1000000000 {
- 			opp-hz = /bits/ 64 <1000000000>;
- 			opp-microvolt = <770000>;
-+			clock-latency-ns = <50000>;
- 		};
- 
- 		opp-1200000000 {
+diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
+index 2e666b2a4dcd..963a9320cba8 100644
+--- a/Documentation/devicetree/bindings/arm/cpus.yaml
++++ b/Documentation/devicetree/bindings/arm/cpus.yaml
+@@ -273,8 +273,6 @@ properties:
+     description:
+       The DT specification defines this as 64-bit always, but some 32-bit Arm
+       systems have used a 32-bit value which must be supported.
+-      Required for systems that have an "enable-method"
+-        property value of "spin-table".
+ 
+   cpu-idle-states:
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+@@ -333,24 +331,13 @@ properties:
+ 
+   qcom,saw:
+     $ref: /schemas/types.yaml#/definitions/phandle
+-    description: |
+-      Specifies the SAW* node associated with this CPU.
+-
+-      Required for systems that have an "enable-method" property
+-      value of "qcom,kpss-acc-v1" or "qcom,kpss-acc-v2"
+-
+-      * arm/msm/qcom,saw2.txt
++    description:
++      Specifies the SAW node associated with this CPU.
+ 
+   qcom,acc:
+     $ref: /schemas/types.yaml#/definitions/phandle
+-    description: |
+-      Specifies the ACC* node associated with this CPU.
+-
+-      Required for systems that have an "enable-method" property
+-      value of "qcom,kpss-acc-v1", "qcom,kpss-acc-v2", "qcom,msm8226-smp" or
+-      "qcom,msm8916-smp".
+-
+-      * arm/msm/qcom,kpss-acc.txt
++    description:
++      Specifies the ACC node associated with this CPU.
+ 
+   rockchip,pmu:
+     $ref: /schemas/types.yaml#/definitions/phandle
+@@ -378,22 +365,51 @@ properties:
+       formed by encoding the target CPU id into the low bits of the
+       physical start address it should jump to.
+ 
+-if:
+-  # If the enable-method property contains one of those values
+-  properties:
+-    enable-method:
+-      contains:
+-        enum:
+-          - brcm,bcm11351-cpu-method
+-          - brcm,bcm23550
+-          - brcm,bcm-nsp-smp
+-  # and if enable-method is present
+-  required:
+-    - enable-method
+-
+-then:
+-  required:
+-    - secondary-boot-reg
++allOf:
++  - if:
++      # If the enable-method property contains one of those values
++      properties:
++        enable-method:
++          contains:
++            enum:
++              - brcm,bcm11351-cpu-method
++              - brcm,bcm23550
++              - brcm,bcm-nsp-smp
++      # and if enable-method is present
++      required:
++        - enable-method
++    then:
++      required:
++        - secondary-boot-reg
++  - if:
++      properties:
++        enable-method:
++          enum:
++            - spin-table
++            - renesas,r9a06g032-smp
++      required:
++        - enable-method
++    then:
++      required:
++        - cpu-release-addr
++  - if:
++      properties:
++        enable-method:
++          enum:
++            - qcom,kpss-acc-v1
++            - qcom,kpss-acc-v2
++            - qcom,msm8226-smp
++            - qcom,msm8916-smp
++      required:
++        - enable-method
++    then:
++      required:
++        - qcom,acc
++        - qcom,saw
++    else:
++      properties:
++        qcom,acc: false
++        qcom,saw: false
+ 
+ required:
+   - device_type
 
 -- 
 2.47.2
