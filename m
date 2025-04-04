@@ -4,159 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DCA8C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A468BC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 17:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W+sgAnsLhH57eOdNsvuI1L0ywx/UFZY/lzF0V83S3Uc=; b=xe465MS4yemkcOIlMEkYVzHqev
-	DZz368tclb1vn4gWvybpSJS2orlt8JBrcqox2jCOoOyZz/DwsFf85k5QDyBEVVwbmKLtaZxX7r/mz
-	QoC1vAa60ubFHGf8sIQPH6s3FKyPtSu20+SgAklTBD1BAXJzdVMwSX8nu/PF5Dnt6w38Fcgom93Oq
-	g7evYwi6rnQPxVmOtkCBuI7cLNn3I5dka63j5wIgBA0KH1omsEeT+ozXeFITkusHBLtxw/sWIRjqc
-	yML792IhJy7O37qkh6WYTXlCVI2H8fKqc0VQKOvZnCLXSALzbJGKAZi+cjEDz616r5tPthkOW4bJZ
-	JYZwXgcQ==;
+	bh=v7ZE92hoHvdaouaIo5MEorqtXnwDKTGlSgpONKSgITY=; b=VNWTggvwl4u0iNc8C1AsdSi0Ty
+	7QxnJ5tXOC5WOed4wHc4q6G+rmiF6QxUpL641dTXbKi2rtuW9p15LN1/4oowa2n8kuLBqM87hPMNS
+	1ftVNrCK4mMJ4R3CpMeCmu+3uafvyZq1ReAND5hTza9yUcc09ahi5in+k4NgbTptPzhCqSf/AOjHr
+	t5o4xGGNx+UwmqkO/c3OGfLlpiXobgPv7Rt43SJ5JoRHdD9cTUzNs3AAND7MrTkh53YMZmwXCQjFv
+	YfqsTL8jbNtoJ6v2Cv9zzh+ko/ETDCgbIf6Bm1dygs0jU15JhPK4xbCBLvKPqjmfmLkspMKrp4NYN
+	5jrjIu6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0kHs-0000000CKvd-3tKQ;
-	Fri, 04 Apr 2025 16:53:00 +0000
-Received: from mail-am6eur05on20619.outbound.protection.outlook.com ([2a01:111:f403:2612::619] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1u0kQN-0000000CMVl-0nT8;
+	Fri, 04 Apr 2025 17:01:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0kFG-0000000CKZ9-1Lmd
+	id 1u0kOc-0000000CMAM-0Wdl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 16:50:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aKcK61JMoUNs89kVShuoRb4HB058BSf7evRzhnKPQg9Z0kb6kcRBcNn2YgQdrqUz/auqtddfC6cBMaT5o13xlhxDgwGE6LvAFHJVe19MxaH+wsW8GpGp+zCvqqxNHHCe5XbA1kJvgh61f9U3BUL8XLK4Ypq2G0e7BaBSsbVhQkwcnql2zZsjDHSAwQeIcb68xLmSWYFJqFi+W3cJXvZz/e0JlNAZaoZld3OgfPgHXMH1tnX+iz90GvNAVJcD2gFNZx014aqVP+c9XiHpN1jlCPuPU5HE3UShY1AzldPBHBYmBJPsojEjv9uvAVzNdKO/SB6E4uCtOq1dDYhyb606Gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W+sgAnsLhH57eOdNsvuI1L0ywx/UFZY/lzF0V83S3Uc=;
- b=SokvsjstyBEt/h/6kIL96e+ZgN6tOQkw2PKoT8oOhjjesa/jouh6Nsb1nACahFXmAC2JCUE5oaPIBoTEbhg/43J1WRvLqqLSRxTjaIlVTZYEt8qx0wdiEvmSuOLyC+NRnBbjamk77veuQ1XQR2G9ZM9G51qMS56LZ7vezM/saI7iXDp2S8ogtOg+vUTePYaL/F/DvYlRjfA0z6yzyE4H8mFHV0ESuIufhkf/y7g8Dmj14MzZLlqNRnby8zi55KFtqnrnI/zStnvvMbAJmXnTW8TJv8ofruXkfufm+ynrYzf2EcDzHMBTd219uUlASE90w1+wy6smdE2foHn/HpqJgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W+sgAnsLhH57eOdNsvuI1L0ywx/UFZY/lzF0V83S3Uc=;
- b=oKsLJlYb2xaTXd+7N5j914qqXYgBGsXfCLUMDBrGX9PxVziVrIp/57pIx8rRPWPrnJqF54HF3I/w+Zk12F+YPNdNP+PM47RW99as7c1jR9mgkWo5avl1pHOpKZMFG03Xl9qdxMBQYUtY7xaooKMrqOqXmnVs0QqqE+MIFOksg2Xo+AvLoaS4zmuGLEDFfflAPONod+af9+I50cGNqgyrYanHjgRCMwJqdu6D1jEhGtuhbBS1RRHoPm0ESdX5KPd93GY3tnZFEb/WWx7D26Bquc2GUzQjlUwC1M0cPawtWirboueJ+viCc1ysD8u95zvHqdjOaakYGMkuOKVRf61AWg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DBAPR04MB7303.eurprd04.prod.outlook.com (2603:10a6:10:1af::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.50; Fri, 4 Apr
- 2025 16:50:10 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8534.048; Fri, 4 Apr 2025
- 16:50:10 +0000
-Date: Fri, 4 Apr 2025 12:50:02 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v14 4/6] firmware: imx: add driver for NXP EdgeLock
- Enclave
-Message-ID: <Z/ANuvgHRRTUWV0x@lizhi-Precision-Tower-5810>
-References: <20250327-imx-se-if-v14-0-2219448932e4@nxp.com>
- <20250327-imx-se-if-v14-4-2219448932e4@nxp.com>
- <Z+QePoixgnheYQTW@lizhi-Precision-Tower-5810>
- <AM9PR04MB8604C02C27C8C43FF89B95DC95AC2@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <AM9PR04MB86046B9A3821D8793877F1D395AF2@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <Z+2qFe/E0dbR+qkQ@lizhi-Precision-Tower-5810>
- <AM9PR04MB8604F5E033F9C0985F29BD5F95AE2@AM9PR04MB8604.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AM9PR04MB8604F5E033F9C0985F29BD5F95AE2@AM9PR04MB8604.eurprd04.prod.outlook.com>
-X-ClientProxiedBy: SJ0PR03CA0138.namprd03.prod.outlook.com
- (2603:10b6:a03:33c::23) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBAPR04MB7303:EE_
-X-MS-Office365-Filtering-Correlation-Id: f08961b4-f2bb-4fc8-77e8-08dd7398c2fe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?grjGk8WP1c14NjFtfKgFm53i0jj3Vc6zYLpWidSvw+azurwqQGHLV4TONamX?=
- =?us-ascii?Q?nzwgRmH7UDpRI9GDuO98diaJI7Fr10KZuBitGadFVBbmNp7fNe5OY7MK5kyM?=
- =?us-ascii?Q?9YgE7JVC1RYDqE4tProB1HyTGK5Nc9E1QFVZXZFis3wIour6C6NasCvS1aEB?=
- =?us-ascii?Q?YujHmmK9ICVRiVZknufwS0R3b8N/SgPGxz4vwfNYF5yheQSXT5cuFnqX+LMa?=
- =?us-ascii?Q?tt7PpbsF7wRHqT7hq7sQWRyN9i7YIUfvBP3wxS5s3OGUXoTfam2KOEnyl8b3?=
- =?us-ascii?Q?lYORlNIV+swh042Jw+oMoETAW6pN1wd6kvzMDEEorzGmLAAIxcoWuczrX8L7?=
- =?us-ascii?Q?sAyZ3rowv9dwy76a6s7RSvaTO9JszEObtzmk1FJlvISpTOcyAieiUtbHz/9y?=
- =?us-ascii?Q?DhKORegBZSlGkH8SE59FD0stRH3VDt8zsXPBFrunloNs9pYlqKvDgu3PN+HW?=
- =?us-ascii?Q?qHukr+pwT7w5NybvTqK+1KhZqNWZp6ukhiYHvEwQjv2/q6SwtTtH6QYNS80X?=
- =?us-ascii?Q?y44vKGJbjScg+cPreEMSWHhCgwBJYXsrdyXSp84+MTtdi9g4TCvEGjpvkK9U?=
- =?us-ascii?Q?Rx9O7XbZxS0R2P6KrCl+t7XB+FxC6fGqozrwNPg/K4FS7PnzjswxEPqCd7CZ?=
- =?us-ascii?Q?Lp/GrTf61nYjoh+8MdHvQyjS1oM3wA28vCipmswHQ5bBeP53wdNMmQjLOgHt?=
- =?us-ascii?Q?aXKi7MCCG0PY49QK6AUYWvw0M+A+PbskBCX4YPqgd2a0yQo77AiP9jrv9xiE?=
- =?us-ascii?Q?Fed0UKSqIQU5H0bo27eDoDsXvTSQDso3mfVZaqPBBet8cH6dFuvKKFQsbJcO?=
- =?us-ascii?Q?TNCmt91TYL+m6jCNilGiE6AFvnrAD13uxuFSfmUhA9htMvdq+Ikokxe4Sgd6?=
- =?us-ascii?Q?Dw9tPZr2em+fG5+sFfYEL8JO8B16pRR2e2r/5WDOCu11bR6iwxYGLzzpooQZ?=
- =?us-ascii?Q?RwyPQDG/F1SrkdgA6jRBT4kKTjd4gYcbGbF24gBtWNbOQxItQdvrrRisC+de?=
- =?us-ascii?Q?RvLjSMdtowEgi8o0p9nZNYJOFWiV/NzCeuKBZ2IMy3hbvrtRtsEPb0IEYe+v?=
- =?us-ascii?Q?6XaresXpK8d+HVED3t0DiZM94sGZCn0aDPQHLW8mCOTiu/2usoQ4/nxNkyg9?=
- =?us-ascii?Q?O+5HK2q/lroKdD6lhFOFSBrhWIO7BJl7kzRVz+Z94VDUCUsXJchuFZN54OQB?=
- =?us-ascii?Q?YrUSDLTRwzAqZPSObQA30pM1BDrBZf7nRkHiIHpe7vQp5Of+NpWa/AlRkRv0?=
- =?us-ascii?Q?Y/63ggsQ8sRLH/l3U2AAgPISujPVFv4r+rRhuyRXHWRz88955Fts/o9LBa5d?=
- =?us-ascii?Q?ABhyNsfazlfp+Rmnw0nPCKYkXTj70SS9y/uKhSYEtRCZ5C2f0AmZ79clpT+b?=
- =?us-ascii?Q?nxyF8KHk3//6VVT7QJdk0mTATJ6LRM0LjYB6IqFy8zWfXauy3bDtCFO/AX6Z?=
- =?us-ascii?Q?RxAckLPr/pu67dPDaYxtT7IHjcLm4Blr?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RyOS0/7AiKDDwQNvIUOUDXXCdcRsk59kjg976OYe+lEY7NX2PJUh3L/LQ1Yr?=
- =?us-ascii?Q?28sJJxCqbcntE6bXQIvaAQCFHBBzVGKkf7dBapHnbJ99jBAPbSFHhu6uKqjm?=
- =?us-ascii?Q?Hvi0rAYg8SEx0gn+JC6iDIOQDA/L5TAyJYrHLdvpAhFy0PqwdbAUBqM1KhF+?=
- =?us-ascii?Q?TcgFCUad2XaLxM9Bq0E+kev+XgySbNulJ3kNzb+8NExWm83ofuVRIOOBMc8l?=
- =?us-ascii?Q?o2AhLUEFUu2roLdF87rqGTWc48sXh4TzPyTJt24VnKBjNyG276ATuLU2NQT2?=
- =?us-ascii?Q?RUYrbZ2elQNOBnQCttcwZrgTJIm308CbuEqtkf11V6ykj5gnv1Xl1WP9xwQK?=
- =?us-ascii?Q?Uh6B0ze6bYXdqCVPJJvxqS0r5j3b+hlqLIWZR7ev7otfbTwcbPtfkzqkmvm6?=
- =?us-ascii?Q?iO49sVz8keL0Iv+Mdu0Bk+v2E3PVTfreKk5ighVBFepKDeJ2Vk2JmjuttC2O?=
- =?us-ascii?Q?wGDatpwdRTMEcrIn2W03luGwVyzi0zObL0YEh+mXYIp6awYZiSXE1imWMm8q?=
- =?us-ascii?Q?E+wFFXNU+469OQatIpvkFhWpbkLN96P5duRqnCYanXWpuNTctpqoeu0kXJnO?=
- =?us-ascii?Q?GnU6G8I/YzuYMXOgHbohqYRftRv2CZlBC7v9p6xoHI0DrccfKBgRq0s/8cSJ?=
- =?us-ascii?Q?N4pFs+nHZ2C9/yCNEXoohab8P+eliROnZ7gIXFOmVfDncu/Ywnkc+fjI60RY?=
- =?us-ascii?Q?g9eZVeNTaZu6pjbI0KXtD3uHXuVLpxZnXl00x9kyrjz+wlwf2U/4S+764y4E?=
- =?us-ascii?Q?XiedelwvgIiaaipJyIuAw7bx51JSEeUoTI9PdQ7UAzKSrV0OiwtbEGjalfHn?=
- =?us-ascii?Q?RQJuONKGx6y4584vLRPZfSuMxL2SpudOtcHCpqCXrqXfEOUJ/qOuYyhRoaZR?=
- =?us-ascii?Q?5OhcZQQcCD4gPiCY4JVnZIUCyCUmlmICCMkAWy/AC/3ikw8cA4kkR9pKJ9Xx?=
- =?us-ascii?Q?YUacYt5vVwwrSAqb2DQ/tlueia/qMKZDaISP54/nhLQxHu4qKdd2g+QJamfd?=
- =?us-ascii?Q?1rYeLpCJSntGQmCsEjzmlfngbaqDXH1EqNM4nzrcmzygImN2x7UQnofFL65y?=
- =?us-ascii?Q?xkS5+HfhHhIY6uq5CrNe6cu8Nae0SAy2BQKoi5JzjRT2i611UPKDdk7n/TxF?=
- =?us-ascii?Q?x49Dd8UTijd+HHENJhW1OXN0H47FcxG+9JwSlasGJSsfl1MGCWjd3FpW6jrK?=
- =?us-ascii?Q?dX3Es9eORn+Bo1svsFj8vHJHC/1fW653j71TC7aRL3DY+X9gfbjF9VKEPuNu?=
- =?us-ascii?Q?AdN54phPSY67DVu5hW1VevAE8IvWYvBKbXeXuiQD3vAZ8qi2eZjj+stwl/89?=
- =?us-ascii?Q?3Pza+6nSVRH8KywFuVuLfuh4Cx2wvduysRUSMI0Djg16dQo2wbys581/Wj6M?=
- =?us-ascii?Q?vHrloZBppjIMM6CxQHIikNsR0P9jnqsMvuDOo2khpU+AIHf5m8mushv6hr9b?=
- =?us-ascii?Q?X4oOm899vak284QChjEWGRdTZzH9lws+yuUI14eqkGhDheGlhtLPjMprRgJu?=
- =?us-ascii?Q?4wCtQoYWZB0pHlDSQ0WiDB+q68EsOx+Vq6PU/HTHFeLY7Yy19Aa89t4f8FWB?=
- =?us-ascii?Q?MdEkHmWRSL/7uAvF5tA=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f08961b4-f2bb-4fc8-77e8-08dd7398c2fe
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Apr 2025 16:50:10.3684
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: T+Y0Pfg+3YldNd7D7vFe+LlvjfHj6uegsP9myy64cwuPVibcdNH+mE2Jk5F+DJS811HsJ6STSCXbTO0GHIMHBQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7303
+	Fri, 04 Apr 2025 16:59:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 39E17450DA;
+	Fri,  4 Apr 2025 16:59:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9410BC4CEE8;
+	Fri,  4 Apr 2025 16:59:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743785997;
+	bh=dfIttBr1UBv1XFNCaNT+D9E45dvWVGkJ4fwbbwmxtlY=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=WclBQcBDFqtTubjvXxw+Kpg3f2FSKObSD1fAOYFtOhuHU23c+BXV4Lnjuy4B9sXKA
+	 W81nXUKhY+QpqRzf32hyd6mu0lpHND90EB3H2yA5iB3j0o/XocG5fbhJuyy575kdF5
+	 WAbB4Mz0/bsd8BUMIYUakXbFgdq1KVD8KzIK31p9wGVVqNDNzrJgWmmoLaMtAxNbIz
+	 5DJeMYBLLT7m7liuvmob4EKejx9JtBAMPJjN35rNo+kq6lNIWb7Vryy6js4XWGSK4N
+	 Q8PNIVdikC+Rz1OtdvMy4pfgrlK4TWxP+7QhENIUgOlebLc8jrVWP2FzxSZ1rI5lUY
+	 JA3EEsIAFwsiQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4BD63822D28;
+	Fri,  4 Apr 2025 17:00:35 +0000 (UTC)
+Subject: Re: [GIT PULL] soc: drivers for 6.15, part 2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <cfc8fd0d-9d32-432b-a5ba-1477265670e0@app.fastmail.com>
+References: <cfc8fd0d-9d32-432b-a5ba-1477265670e0@app.fastmail.com>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <cfc8fd0d-9d32-432b-a5ba-1477265670e0@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-drivers-6.15-2
+X-PR-Tracked-Commit-Id: af34290cdc60a289e43f38a87621a3e9dd63c67b
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: a05c6e6694c1601bdefd160332d3deba8393644f
+Message-Id: <174378603455.3328120.9533370932633245120.pr-tracker-bot@kernel.org>
+Date: Fri, 04 Apr 2025 17:00:34 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Ioana Ciornei <ioana.ciornei@nxp.com>, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_095018_382989_B933F790 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20250404_095958_179410_6B30867A 
+X-CRM114-Status: UNSURE (   4.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,72 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 05:02:08AM +0000, Pankaj Gupta wrote:
-> On Wed, Apr 02, 2025 at 06:15:12AM +0000, Pankaj Gupta wrote:
-> >> >> diff --git a/drivers/firmware/imx/se_ctrl.h
-> >> >> b/drivers/firmware/imx/se_ctrl.h new file mode 100644 index
-> >> >> 000000000000..177623f3890e
-> >> >> --- /dev/null
-> >> >> +++ b/drivers/firmware/imx/se_ctrl.h
-> >> >> @@ -0,0 +1,84 @@
-> >> >> +/* SPDX-License-Identifier: GPL-2.0+ */
-> >> >> +/*
-> >> >> + * Copyright 2025 NXP
-> >> >> + */
-> >> >> +
-> >> >> +#ifndef SE_MU_H
-> >> >> +#define SE_MU_H
-> >> >> +
-> >> >> +#include <linux/miscdevice.h>
-> >> >> +#include <linux/semaphore.h>
-> >> >> +#include <linux/mailbox_client.h>
-> >> >> +
-> >>
-> >> ....
-> >>
-> >> >> +};
-> >> >> +
-> >> >> +struct se_if_defines {
-> >> >> +	const u8 se_if_type;
-> >> >> +	const u8 se_instance_id;
-> >> Getting used at drivers/firmware/imx/se_ctrl.c:320
->
-> >	dev_info(dev, "i.MX secure-enclave: %s%d interface to firmware,
-> configured.",
-> >		 SE_TYPE_STR_HSM,
-> >		 priv->if_defs->se_instance_id);
->
-> > You only print value, don't actual use it. It should be safe remove it
->
-> > Frank
->
-> No, it is not just used for print.
-> This variable is used to construct the device name as well, in 5/6 patch.
->
-> Moreover, it is needed for other SoC like i.MX8DXL, i.MX95, i.MX94, there
-> are multiple instances of same secure-enclave type.
-> It will be used to identify the intended instance later.
+The pull request you sent on Fri, 04 Apr 2025 17:09:35 +0200:
 
-But it all is 0 now. Add it back when it really need in future.
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-drivers-6.15-2
 
-Frank
->
-> >>
-> >> > This is not used actually, you can remove it
-> >> Getting used at drivers/firmware/imx/se_ctrl.c:347
-> >>
-> >> >> +	u8 cmd_tag;
-> >> >> +	u8 rsp_tag;
-> >> >> +	u8 success_tag;
-> >> >> +	u8 base_api_ver;
-> >> >> +	u8 fw_api_ver;
-> >> >> +};
-> >> >> +
-> >> >> +struct se_if_priv {
-> >> >> +	struct device *dev;
-> >> >> +
->
->
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/a05c6e6694c1601bdefd160332d3deba8393644f
 
+Thank you!
 
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
