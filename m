@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7B7C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 06:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19ACCC3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 06:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f87tNB8JBD2nIE3htroNP36O6UZdJ+0J/NLWPyqK/P0=; b=m6wqUPHxXP3U0MqiXk9O150zYa
-	WeGk3I1yjorcjaDTW283Tm4sD2Vz3t4iO3y7vCBDAQ6s2Ul80Pp0JkBebJ9tgjqA/uSbOqIPK5ZJT
-	2m/TM0YQz7y3SrhssDbrAOOIw7KEmVbBX37vjHwcM3zqdU0opU6E3vLBkCrGcoV1aQZDfZRpuA5Wf
-	b+9FFIDHqpqiqlRF6XQGNoo0lpf7QsS9wq5Isom+fEQPMPAhd3Mqi9yKfTGGKMQpNC1GUDKAsqCpc
-	srRrfixRBYCBRtrgjXWjIwRSBdgz28Psn3dl4gtqjdsK8HHNF2FBwVuzZsTKaOGwpus7eql2qT/fN
-	PU/YUMgg==;
+	bh=h52rjGDR8RwCcxsXdqFN3Y6gI8K9IwjarhO7xSpLDjU=; b=Bd3IYxSq1gyZwF7CTyLNOR7W/L
+	y0FqfGzz6KiqqIz4tSUmjf+AH4nRXtY4JM6r49BIr0vbfdZUNv708fH7c4jzOoSWMUVqXN3Ou8EEH
+	ndpOt57ZGOm+6aonSl+WEU7OtgUnCwStlxGaDdt9tMbR40lcaIrJTmGXsIp5cF+9kEMZ4Pp2V3wdA
+	d/VpgI675adg9hrovVJSXNO5qZnLXVkw/6PRAOOYGtsZVROcqBJtuAEB73VhO/qxgI/nCtgFzdiwO
+	OqnTdfoq1OAyjlxi2gl7tC2uBLpLhYRb1paXx3VbtOaAm58Tm6QKr6629Vej3tfYPmC+o8D6/kown
+	pyi/qz9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0aCH-0000000Apxb-1sJV;
-	Fri, 04 Apr 2025 06:06:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u0aE3-0000000Aq8c-0ic6;
+	Fri, 04 Apr 2025 06:08:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0a8i-0000000ApdT-2RFs
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 06:02:54 +0000
+	id 1u0aAP-0000000Apko-1VgE;
+	Fri, 04 Apr 2025 06:04:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DF295A46C90;
-	Fri,  4 Apr 2025 05:57:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 884B6C4CEDD;
-	Fri,  4 Apr 2025 06:02:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0FAFB44F3A;
+	Fri,  4 Apr 2025 06:04:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B916C4CEDD;
+	Fri,  4 Apr 2025 06:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743746571;
-	bh=IRMiqdgFfuR7YhdJiN5QWoj4YDPH4E1FMu5HHkdtHiE=;
+	s=k20201202; t=1743746676;
+	bh=KTv51o0IsAxXn/Iidm9NvazURuokfp6rpRDXZkySMfg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QjLrGbxacrlxnEDINOoGe5zW/1gRvzVUB0eEu2DckGZX07yoz1LdqMxMHV0LvgY5N
-	 XFu3hkroT0jzKNwM6yxxysCUOJ8+tzfd4am01efTd3+15QnbAvpNsZdGLev2eqyJk1
-	 vD+BXsbgqgP47020tukOf1SJbQEa60oQGOjcDGGa5YQ6TpOlPDxB6GXlqtV+mba5vX
-	 Zy0fFGrVfmC3viPWmKFNr4WUPKCaz1cM5y6PjUsgFpWEOjvvccgG8rRhxa3lGzDGkd
-	 k5cY//rzcrWtCHV4vZbaPke68UAgDhCvftw3hYRpt1tSAggbx34smVGx7KjY6wEGDU
-	 7Rm+oUrTk7bfA==
-Message-ID: <ef25c226-6801-48b4-8347-3362415d9de3@kernel.org>
-Date: Fri, 4 Apr 2025 08:02:41 +0200
+	b=ZTLEuYttc8iI9W0JB5pd878j6KkzM/1prfYq9dT+kXg4vuBSj8ciJrP+MFNvVmO+z
+	 KOZmZafruWW8Y+PWDOB3o1uh8dyDXrRml40uZ2YVRQZ5ljILT0tLBtsN3izONP9AXD
+	 eaXwVTtWfrgBydGpE5LHBOQPWsYaKr13lC/UOHGmGMw8LwWp8O7uTXX4Y+h3kXbZPi
+	 PWG7RI23vAxTV/qbt3NIdNgtoO1MZS2NA7TIq0Wc0JNVdnGG+1k+nVRVCkcvEnRh3U
+	 XFlUUbaO2SThkIv9zLXqYWUg4/46D6xqvu/JDpJzPw+yO407EJCgJ/1grUIvuQZ3+6
+	 r/84npa4FnZ4w==
+Message-ID: <0ea5c20f-1c6f-4e18-b4ad-0f8ecebf3026@kernel.org>
+Date: Fri, 4 Apr 2025 08:04:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/7] Add module support for Arm64 Exynos MCT driver
-To: Youngmin Nam <youngmin.nam@samsung.com>,
- Will McVicker <willmcvicker@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Saravana Kannan
- <saravanak@google.com>, Donghoon Yu <hoony.yu@samsung.com>,
- kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, semen.protsenko@linaro.org
-References: <CGME20250402233425epcas2p479285add99d27dc18aabd2295bfcbdc8@epcas2p4.samsung.com>
- <20250402233407.2452429-1-willmcvicker@google.com> <Z+8xrLbya9/oFg7y@perf>
+Subject: Re: [PATCH v5 1/4] media: dt-bindings: add MT8188 AIE
+To: "bo.kong" <bo.kong@mediatek.com>, Rob Herring <robh@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Cc: zhaoyuan.chen@mediatek.com, Teddy.Chen@mediatek.com,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250403074005.21472-1-bo.kong@mediatek.com>
+ <20250403074005.21472-2-bo.kong@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +100,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <Z+8xrLbya9/oFg7y@perf>
+In-Reply-To: <20250403074005.21472-2-bo.kong@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_230252_755098_07B4F766 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20250403_230437_456777_51B58C0E 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,52 +121,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/04/2025 03:11, Youngmin Nam wrote:
->>
->> -- 
->> 2.49.0.472.ge94155a9ec-goog
->>
->>
+On 03/04/2025 09:38, bo.kong wrote:
+> From: Bo Kong <Bo.Kong@mediatek.com>
 > 
-> Hi Will.
+> Add YAML device tree bindings for MT8188 AIE.
 > 
-> I tested this series on a E850-96(Exynos3830 based) board and it's working as a moudle.
+> Signed-off-by: Bo Kong <Bo.Kong@mediatek.com>
+> ---
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
-Hi,
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
-On which kernel did you apply these patches for testing?
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
 
-> 
-> # dmesg | grep mct
-> [7.376224] clocksource: mct-frc: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 73510017198 ns
-> 
-> # lsmod | grep exynos_mct
-> exynos_mct             12288  0
-> 
-> # cat /sys/devices/system/clocksource/clocksource0/current_clocksource
-> arch_sys_counter
-> # cat /sys/devices/system/clockevents/clockevent0/current_device
-> arch_sys_timer
-> 
-> # cat /proc/interrupts 
->         CPU0    CPU1    CPU2    CPU3    CPU4    CPU5    CPU6    CPU7
->  12:    2566    2752    2467    4026    3372    2822    2115    3227 GIC-0  27 Level     arch_timer
-> ...
->  77:       0       0       0       0       0       0       0       0 GIC-0 235 Level     mct_comp_irq
->  78:       0       0       0       0       0       0       0       0 GIC-0 239 Level     mct_tick0
->  79:       0       0       0       0       0       0       0       0 GIC-0 240 Level     mct_tick1
->  80:       0       0       0       0       0       0       0       0 GIC-0 241 Level     mct_tick2
->  81:       0       0       0       0       0       0       0       0 GIC-0 242 Level     mct_tick3
->  82:       0       0       0       0       0       0       0       0 GIC-0 243 Level     mct_tick4
->  83:       0       0       0       0       0       0       0       0 GIC-0 244 Level     mct_tick5
->  84:       0       0       0       0       0       0       0       0 GIC-0 245 Level     mct_tick6
->  85:       0       0       0       0       0       0       0       0 GIC-0 246 Level     mct_tick7
-> 
-> Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
-
-This means you reviewed *every* patch.
-
-> Tested-by: Youngmin Nam <youngmin.nam@samsung.com>
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
 
 Best regards,
 Krzysztof
