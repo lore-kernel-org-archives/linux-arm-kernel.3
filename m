@@ -4,105 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85928C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 06:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE92C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 06:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8jyE1QGc/5SdKoKd0Wdaykrdl2m/QI4No5h39CsdvaI=; b=gfRA9DjPNpbGSUslh4hILFjFIi
-	MdruonbhZYrEEyBHtXutY9SZZey4gKcfMbU1Iex6b3sURdueHwa7TyDAC2hr3OVahkgObRwUkw/iP
-	TSjPCPdwC7cF9nUyHwvV+NE5kzMII+4ra3edI/TKbK5H7VOxJqjKpdkGxyWle4ihOcXoa0EuQgjJG
-	YOCsczkKlec2nvpFiGhkvSBirwq5Gq6CcQ2G9/ox1zhXCVHPwA6zFjGXvaC7kz0TzOaIM0w/Opzmg
-	UwySVBtUAA3QgLp5avmcy8eV9EqLV2W7E16pQ/zXYeLtgYhwhHJKjv1hy5anDKl+m4Ki2C1iO3Pgo
-	Rr02zI5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KVWOwvRPO7YvD8ife4s6y5HXtx59DE9Bhv5GKy5bWME=; b=o+yyn4fxUM8tXzo4DK4tEDk6vl
+	+OF5M6YfsY68qjhQpuQantYiXDg1gej1io430Vucwm4TSHsRklLgne9du8fFsbAHYQEOmFkJoOPaF
+	sD8thrZ/xNS8EcNRgXohjMJ+OZMBjuZgp+oU70XxkJz19IkFTMsZofMDdqhu+qE7OkhW4cerA/fJR
+	IqbcKz+EnXXgj37gr35GQK1djwzCZqUSqlGGolaYeKIYkrdO7bqerH0NqSMWf0EvQKbu8+5q0hxVy
+	E42nq9PzO3mkP1LDYriEASfmVzEp/e0GC2ZXC7S4UzJiJe2vIOlDjs6MdXKzw+o6WNYKd1Q+u2uq3
+	/i3RX1+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0aHb-0000000AqTA-2JFj;
-	Fri, 04 Apr 2025 06:12:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u0aKM-0000000AqmY-2uhP;
+	Fri, 04 Apr 2025 06:14:54 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0aFR-0000000AqG2-2yUh;
-	Fri, 04 Apr 2025 06:09:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CBD436113B;
-	Fri,  4 Apr 2025 06:09:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13A69C4CEDD;
-	Fri,  4 Apr 2025 06:09:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743746988;
-	bh=DtKzF9oNT7Dh1HfsCHpB/e2yo5kN3sbBMqcD+/tjwj8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CfmUlaJpamv7NW5RRVHNrryPXJi89vm7GnNltU6bUbPrF8/8NhOsIy+FuN9+kxrtf
-	 mNnkDisuOhcjeI+UiAjwa1m4i1r8tHO/aS/tsBZn58VWaQtVPOyjFpPaiVIVlWIl9+
-	 Y+wUZowJa2xoauKDFKNZRzh0MnfKR5UJW1sxSJEsnSn6yZy6UCSI1qelBk4oezpRD+
-	 Q0HmwRWwC5K00DhqXqqmzf8DHAjyeW7b5m87HShwbVceezishIxsK6+TH76ViqX6xJ
-	 udX450/N4nTziUjvIzBPgMXMDFUhHjRbL4tuHEpmv3jv4TPeAwGrlKcG3aa0j9ed1y
-	 Vcg5ukdswz2bg==
-Message-ID: <03d12cd2-c719-4703-a0eb-2a32ef41af92@kernel.org>
-Date: Fri, 4 Apr 2025 08:09:40 +0200
+	id 1u0aIY-0000000AqdP-344m
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Apr 2025 06:13:04 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5346D073265204
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 4 Apr 2025 01:13:00 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1743747180;
+	bh=KVWOwvRPO7YvD8ife4s6y5HXtx59DE9Bhv5GKy5bWME=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=FLlcagOCAFXhKEBo2g69Vx91biEEicL67yNaykYglTguEFH+U1KZVfHYarNRCHBua
+	 DCDOeF0+rF+wOQ3+Eu3Z+ZCuL79E3OANB4j/mA+l0/LlMJiywQg3u96TdpH0B7HFJS
+	 CX8Efn0Le1+K6IWtV9jDlMjPBz1NxefQfyMgYXeY=
+Received: from DFLE20.ent.ti.com ([10.64.6.57])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5346D0b3032094;
+	Fri, 4 Apr 2025 01:13:00 -0500
+Received: from flwvowa01.ent.ti.com (10.64.41.90) by DFLE20.ent.ti.com
+ (10.64.6.57) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1748.10; Fri, 4 Apr
+ 2025 01:13:00 -0500
+Received: from DFLE115.ent.ti.com (10.64.6.36) by flwvowa01.ent.ti.com
+ (10.64.41.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.2507.34; Fri, 4 Apr
+ 2025 01:13:00 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 4 Apr 2025 01:13:00 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5346CxRT123540;
+	Fri, 4 Apr 2025 01:12:59 -0500
+Date: Fri, 4 Apr 2025 11:42:58 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+CC: <linux-pm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] pmdomain: core: Reset genpd->states to avoid freeing
+ invalid data
+Message-ID: <20250404061258.alstrdgpz75gywna@lcpd911>
+References: <20250402120613.1116711-1-ulf.hansson@linaro.org>
+ <20250403080815.jsdoydcczkeuvmy6@lcpd911>
+ <CAPDyKFrgYVMvaBf13ksdJ6Zr6bvLo1Jmz8yLiyg_43hs65STVQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drivers: pci: controller: pcie-rockchip: Use
- dev_err_probe()
-To: shao.mingyin@zte.com.cn, shawn.lin@rock-chips.com
-Cc: yang.yang29@zte.com.cn, xu.xin16@zte.com.cn, ye.xingchen@zte.com.cn,
- lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
- robh@kernel.org, bhelgaas@google.com, heiko@sntech.de,
- linux-pci@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- zhang.enpei@zte.com.cn
-References: <20250403154326411S4luMrK8A5RXovincATzF@zte.com.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250403154326411S4luMrK8A5RXovincATzF@zte.com.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <CAPDyKFrgYVMvaBf13ksdJ6Zr6bvLo1Jmz8yLiyg_43hs65STVQ@mail.gmail.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250403_231302_923251_0FA638F2 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,23 +89,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/04/2025 09:43, shao.mingyin@zte.com.cn wrote:
-> From: Zhang Enpei <zhang.enpei@zte.com.cn>
+On Apr 03, 2025 at 17:55:41 +0200, Ulf Hansson wrote:
+> On Thu, 3 Apr 2025 at 10:08, Dhruva Gole <d-gole@ti.com> wrote:
+> >
+> > On Apr 02, 2025 at 14:06:13 +0200, Ulf Hansson wrote:
+> > > If genpd_alloc_data() allocates data for the default power-states for the
+> > > genpd, let's make sure to also reset the pointer in the error path. This
+> > > makes sure a genpd provider driver doesn't end up trying to free the data
+> > > again, but using an invalid pointer.
+> >
+> > I maybe missing something but if kfree works similar to [1]GNU free() won't
+> > it make the genpd->states NULL anyway? Have you actually seen scenarios
+> > where the genpd->states is remaining non-NULL even after kfree?
 > 
-> Replace the open-code with dev_err_probe() to simplify the code.
+> Yes. kfree() doesn't reset the pointer to the data.
+
+Gotcha.
+
+[...]
+> > >       put_device(&genpd->dev);
+> > > -     if (genpd->free_states == genpd_free_default_power_state)
+> > > +     if (genpd->free_states == genpd_free_default_power_state) {
+> > >               kfree(genpd->states);
+> > > +             genpd->states = NULL;
+> >
+> > Also the coding convention for kfree in other places in pmdomains
+> > doesn't seem to follow this practise either...
 > 
-> Signed-off-by: Zhang Enpei <zhang.enpei@zte.com.cn>
-> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
-> ---
-Considering zte is sending untested patches from poor automation (or AI
-generated), this might be correct or might not be because it does not
-look like probe path.
+> Right. I am not suggesting changing them all. Only this one, as it's a
+> special case and an error path.
+> 
+> genpd->states may be allocated by both the genpd provider driver and
+> internally by genpd via pm_genpd_init(), hence we need to be a bit
+> more careful.
+> 
 
-Anyway, don't send patch by patch and line by line. Why you did not
-decide to fix all of the places in these drivers?
+I see.. okay then,
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 
-NAK
 
+-- 
 Best regards,
-Krzysztof
+Dhruva Gole
+Texas Instruments Incorporated
 
