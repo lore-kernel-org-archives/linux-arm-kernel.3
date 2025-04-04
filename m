@@ -4,90 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DC8C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 10:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B19CC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 10:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qrnOAx1Z42gXuu4NUkGGkg//gH1o3Mdb+pyo1hDqScI=; b=PqU3g5BQS7SZ1/bRF/SsjbG8sN
-	L5gaSrIOuZwZORrhIVEmU+91CSWgZarljqbTyOxtEzwTaW6FR1DAo7DQlo0RtgINy7fvGDjx+SQwn
-	rJUhXPqud0Up4ArsTlUOMItXrlFVdWtzEyxo6yPiNrc8vUc9JQNbCeva+apHwOXNLydasQWOPkx17
-	9dicZNDSlmECL2YQy7NKR4cWOWp602e+tTXGiEpH9cCvd/fD19e+WnwU1DvwwvXqAhBEfblQvgNkA
-	jXVZZcYgvGnXUamCvc9QkulrDL1d3izrEqbzMEYaFe8ZuAHV9+iq7wJt4X4RnAZRHhQiZV0LZ4D4z
-	4MsdbU1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=My25F9/bScMJSrGnT/OpBwm0OzqyY4mJ2A2WBB6gTCs=; b=DGI27pqL4TFOZcJjcYQCP0RlsZ
+	P2lyZjgdK7vEsOuKcDpY8LtSRj6goVwFNY80Uuj4KAaTPly9HUPv4pZN98sgU6h8aNyOunXBVsWnN
+	DV7qmGKs07+FEZwAtvvHhk7tofik7oJVLo67aFcGDU5s0SCVwkkDaoI1yXF+tZuOoEiNHS+L/luI2
+	UwmZKR7/0MtpxsY03PSBElcbimR0X1vBhSXGHo7Kr1DNtE7L3qp5SHvAE/N2R+KTuJThFZ/PSC7dg
+	GViwW9/jMVxlSHvFCt4rRGcP1MEJwNefxxxcMJ39myaa9MM3bYNgkWQWdGNNxeVmYPZbS5tzJaUGP
+	gj5A5uSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0e4T-0000000BMlU-3KmX;
-	Fri, 04 Apr 2025 10:14:45 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0e2b-0000000BMT3-2e8d
+	id 1u0eOF-0000000BQre-0sLF;
+	Fri, 04 Apr 2025 10:35:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0eMP-0000000BQNu-3LTM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 10:12:51 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43cebe06e9eso11890175e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 03:12:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743761567; x=1744366367; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qrnOAx1Z42gXuu4NUkGGkg//gH1o3Mdb+pyo1hDqScI=;
-        b=UzFSIOPbd80sP6d0KvShMhng5nBKFzcFqH9zvWPx7oE2LHjT3++4PO/aQzpBZbleN1
-         9PRNKtsYFbvXfts9hQzdmt42+USVTLUlb0zuzQnNnt2BcOCfeHNwZq5umTQdAIlgg1U9
-         ZuFOHFaEGsllSrFNwTLSlgD0X5GCB6lk+Y3CRxWuwR4U/1e0L3etam21DuLWr/fvJDxr
-         fiSVnF2R1c4Ahp9U9BMzlapkJtp4T2WNXc8ntXYW3A7VX7M3qnMUtJKr0N2YnIhDYKV3
-         SYkbp0qO8Coel2DUmIQIGC0oO426jxCIiJ1nSBaQSmPehq56jkuau0uZZRCDh93TfaOH
-         57fA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743761567; x=1744366367;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qrnOAx1Z42gXuu4NUkGGkg//gH1o3Mdb+pyo1hDqScI=;
-        b=U5869UzczJM2vCRzXa5G9Ee5XgBrI9yWg4oR0M4JKymRxHeWcZT2I88ZQTSzDLO3bA
-         KNczKS6fWIDpGdmBfej04jn2psxlP8a6r4QxUqemOH2lZxoTU820TQAQDO+Cvdqh5A/M
-         KZS/nETx2mACQU7nGMAbcRCumxq+0EXhwOul6bdO2CrQptHDfoySwblwnrCwh1QLrzf9
-         OLZdGZMSbjRy0FHkLBklsKaycNXNTwFzVtEdG1PH2l/dCNDHrfCwcuGUZgpKehCatRnD
-         +quM9w1s08wlQDBfbPGfKPIeUGeiJoD2LRv93IDdlg9yLfKdJS+4aBPHqr2himHmGp+9
-         KeNw==
-X-Forwarded-Encrypted: i=1; AJvYcCV6gypKT+Da3wxtA5zq3VbcMicA3zMmjzVqnnPmTSBFIGv5ZZv92WILz/rPO/8M6o9Smy+WXbd6U/V4aKdQaxfw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVHBRV2Rl4nGuxV2fZwPYP/uHQzPLisT2vq1WizIoigG6dKF9t
-	uduQr4U8p0AgwrRQ6/vqWtpDcIu29g3gW5kngymQev/s37It/Gw1nLS13UnN2xc=
-X-Gm-Gg: ASbGncvF/nR25CPGWH0lt8YrnfjWa03SUjdFsy/xW6n4okKw5sKu0eT0auAAu91QCum
-	XCzhs1j8ZnKWTqUVc5UKjiEQLIgfcXcq6HFRZuoIRbwRAL/dzrIFO9hukZJIdmbkoqzacZch2A4
-	iMJ2bkuOwjFiNh2nX1x5ViEL6LhFO1C3Y4DgadhZJmgoeLG7EThiwrqxcq/eFVDe14sHj3btUqi
-	KY44QWJFYpun7XqnVXs+MydanaNpnNZof+2igSHV1HSB4LvUsDM/GQKtaGtB7DQEt6N1XKgKMPl
-	GNMH0/2js89w8Am/WHyqlWOwEkOQPxg0Q0j3oiTceM/0IK1OtDPZeAfckZDReEaY112BjZ2QqKD
-	93puGE+eOuW9Ka/Y2
-X-Google-Smtp-Source: AGHT+IGn5zQjckVMr5yj5RkLrkNmEYqXiyrId5H4BjH0hkHpDWBOU4XybvpfkaZInnb7fcnChm8sLg==
-X-Received: by 2002:a05:600c:198b:b0:43c:fae1:5151 with SMTP id 5b1f17b1804b1-43ecf9fed70mr18873905e9.25.1743761567394;
-        Fri, 04 Apr 2025 03:12:47 -0700 (PDT)
-Received: from partp-nb.corp.toradex.com (31-10-206-125.static.upc.ch. [31.10.206.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec1f27a55sm43732995e9.2.2025.04.04.03.12.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Apr 2025 03:12:46 -0700 (PDT)
-From: Parth Pancholi <parth105105@gmail.com>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Parth Pancholi <parth.pancholi@toradex.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: ti: k3-j784s4-main: Enable ACSPCIE outputs for PCIe interfaces
-Date: Fri,  4 Apr 2025 12:12:34 +0200
-Message-Id: <20250404101234.2671147-1-parth105105@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 04 Apr 2025 10:33:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 675FB1516;
+	Fri,  4 Apr 2025 03:33:19 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3BADD3F63F;
+	Fri,  4 Apr 2025 03:33:16 -0700 (PDT)
+Date: Fri, 4 Apr 2025 11:33:13 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	robh@kernel.org
+Subject: Re: [boot-wrapper] aarch64: Enable access into FEAT_PMUv3p9
+ registers from EL2 and below
+Message-ID: <Z--1afRYgxy4rjXa@J2N7QTR9R3>
+References: <20250227041603.2029058-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250227041603.2029058-1-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_031249_673816_F69754D3 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250404_033317_874657_E4A39BE5 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,120 +63,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Parth Pancholi <parth.pancholi@toradex.com>
+On Thu, Feb 27, 2025 at 09:46:03AM +0530, Anshuman Khandual wrote:
+> FEAT_PMUv3p9 adds system register PMUACR_EL1 and similarly FEAT_PMUv3_ICNTR
+> adds system registers PMICFILTR_EL0 and PMICNTR_EL0. But access into these
+> system registers from EL2 and below exception levels, will trap into EL3
+> unless MDCR_EL3.EnPM2 is set.
+> 
+> Enable access to FEAT_PMUv3p9 registers when they are implemented.
+> 
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-TI J784S4-based devices, such as the AM69 SoC, provide PCIE_REFCLK outputs
-from the SoC, which can be used to clock external PCIe endpoint devices.
-Each PCIE_REFCLK output is enabled via the corresponding ACSPCIE clock
-buffer, with each buffer supporting two PADs to provide reference clocks
-for two associated PCIe instances. The mappings are as follows:
-        - PCIe0 -> ACSPCIE1 PAD0
-        - PCIe1 -> ACSPCIE0 PAD0
-        - PCIe2 -> ACSPCIE1 PAD1
-        - PCIe3 -> ACSPCIE0 PAD1
+Applied.
 
-This patch enables each ACSPCIE module and its corresponding PADs to ensure
-that all PCIE_REFCLK outputs are functional.
+Mark.
 
-This change have been tested on an AM69-based custom hardware platform,
-where all four PCIe instances (PCIe0, PCIe1, PCIe2, and PCIe3) with the
-internal PCIE_REFCLK are utilized with various endpoint devices such as
-a WiFi card, NVMe SSD, and PCIe-to-USB bridge.
-
-Link: https://e2e.ti.com/support/processors-group/processors/f/processors-forum/1484211/am69-pcie-refclk-out-and-acspcie-mappings
-Signed-off-by: Parth Pancholi <parth.pancholi@toradex.com>
----
-This change depends on https://lore.kernel.org/all/20241209085157.1203168-1-s-vadapalli@ti.com/
-v2: set ti,syscon-acspcie-proxy-ctrl mask to 0x3 for all PCIe instances to prevent unintended overrides.
-v1: https://lore.kernel.org/all/20250320122259.525613-1-parth105105@gmail.com/
----
- .../boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi    | 12 +++++++++---
- arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi           | 10 ++++++----
- 2 files changed, 15 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-index 591609f3194c..d82d5cb5607e 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-@@ -132,6 +132,11 @@ acspcie0_proxy_ctrl: clock-controller@1a090 {
- 			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
- 			reg = <0x1a090 0x4>;
- 		};
-+
-+		acspcie1_proxy_ctrl: clock-controller@1a094 {
-+			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
-+			reg = <0x1a094 0x4>;
-+		};
- 	};
- 
- 	main_ehrpwm0: pwm@3000000 {
-@@ -1067,11 +1072,12 @@ pcie0_rc: pcie@2900000 {
- 		interrupts = <GIC_SPI 318 IRQ_TYPE_EDGE_RISING>;
- 		device_type = "pci";
- 		ti,syscon-pcie-ctrl = <&pcie0_ctrl 0x0>;
-+		ti,syscon-acspcie-proxy-ctrl = <&acspcie1_proxy_ctrl 0x3>;
- 		max-link-speed = <3>;
- 		num-lanes = <4>;
- 		power-domains = <&k3_pds 332 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 332 0>;
--		clock-names = "fck";
-+		clocks = <&k3_clks 332 0>, <&serdes1 CDNS_TORRENT_REFCLK_DRIVER>;
-+		clock-names = "fck", "pcie_refclk";
- 		#address-cells = <3>;
- 		#size-cells = <2>;
- 		bus-range = <0x0 0xff>;
-@@ -1111,7 +1117,7 @@ pcie1_rc: pcie@2910000 {
- 		ranges = <0x01000000 0x0 0x18001000  0x00 0x18001000  0x0 0x0010000>,
- 			 <0x02000000 0x0 0x18011000  0x00 0x18011000  0x0 0x7fef000>;
- 		dma-ranges = <0x02000000 0x0 0x0 0x0 0x0 0x10000 0x0>;
--		ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x1>;
-+		ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
- 		status = "disabled";
- 	};
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-index 0160fe0da983..ebbc315649d0 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-@@ -34,8 +34,8 @@ pcie2_rc: pcie@2920000 {
- 		max-link-speed = <3>;
- 		num-lanes = <2>;
- 		power-domains = <&k3_pds 334 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 334 0>;
--		clock-names = "fck";
-+		clocks = <&k3_clks 334 0>, <&serdes1 CDNS_TORRENT_REFCLK_DRIVER>;
-+		clock-names = "fck", "pcie_refclk";
- 		#address-cells = <3>;
- 		#size-cells = <2>;
- 		bus-range = <0x0 0xff>;
-@@ -45,6 +45,7 @@ pcie2_rc: pcie@2920000 {
- 		dma-coherent;
- 		dma-ranges = <0x02000000 0x0 0x0 0x0 0x0 0x10000 0x0>;
- 		ti,syscon-pcie-ctrl = <&pcie2_ctrl 0x0>;
-+		ti,syscon-acspcie-proxy-ctrl = <&acspcie1_proxy_ctrl 0x3>;
- 		status = "disabled";
- 	};
- 
-@@ -63,8 +64,8 @@ pcie3_rc: pcie@2930000 {
- 		max-link-speed = <3>;
- 		num-lanes = <2>;
- 		power-domains = <&k3_pds 335 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 335 0>;
--		clock-names = "fck";
-+		clocks = <&k3_clks 335 0>, <&serdes0 CDNS_TORRENT_REFCLK_DRIVER>;
-+		clock-names = "fck", "pcie_refclk";
- 		#address-cells = <3>;
- 		#size-cells = <2>;
- 		bus-range = <0x0 0xff>;
-@@ -74,6 +75,7 @@ pcie3_rc: pcie@2930000 {
- 		dma-coherent;
- 		dma-ranges = <0x02000000 0x0 0x0 0x0 0x0 0x10000 0x0>;
- 		ti,syscon-pcie-ctrl = <&pcie3_ctrl 0x0>;
-+		ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
- 		status = "disabled";
- 	};
- 
--- 
-2.34.1
-
+> ---
+>  arch/aarch64/include/asm/cpu.h | 2 ++
+>  arch/aarch64/init.c            | 3 +++
+>  2 files changed, 5 insertions(+)
+> 
+> diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
+> index e049cda..b04bf71 100644
+> --- a/arch/aarch64/include/asm/cpu.h
+> +++ b/arch/aarch64/include/asm/cpu.h
+> @@ -56,6 +56,7 @@
+>  #define MDCR_EL3_SBRBE_NOTRAP_NOPROHIBIT	(UL(3) << 32)
+>  #define MDCR_EL3_ENPMSN				BIT(36)
+>  #define MDCR_EL3_EBWE				BIT(43)
+> +#define MDCR_EL3_EnPM2				BIT(7)
+>  
+>  #define SCR_EL3_RES1			BITS(5, 4)
+>  #define SCR_EL3_NS			BIT(0)
+> @@ -87,6 +88,7 @@
+>  #define ID_AA64DFR0_EL1_PMSVER		BITS(35, 32)
+>  #define ID_AA64DFR0_EL1_TRACEBUFFER	BITS(47, 44)
+>  #define ID_AA64DFR0_EL1_BRBE		BITS(55, 52)
+> +#define ID_AA64DFR0_EL1_PMUVER		BITS(11, 8)
+>  #define ID_AA64DFR0_EL1_DEBUGVER	BITS(3, 0)
+>  
+>  #define ID_AA64ISAR0_EL1_TME		BITS(27, 24)
+> diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
+> index 54e4cc4..fe7ed5f 100644
+> --- a/arch/aarch64/init.c
+> +++ b/arch/aarch64/init.c
+> @@ -152,6 +152,9 @@ static void cpu_init_el3(void)
+>  	if (mrs_field(ID_AA64DFR0_EL1, DEBUGVER) >= 11)
+>  		mdcr |= MDCR_EL3_EBWE;
+>  
+> +	if (mrs_field(ID_AA64DFR0_EL1, PMUVER) >= 0b1001)
+> +		mdcr |= MDCR_EL3_EnPM2;
+> +
+>  	msr(MDCR_EL3, mdcr);
+>  
+>  	if (mrs_field(ID_AA64PFR0_EL1, SVE)) {
+> -- 
+> 2.25.1
+> 
 
