@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B151C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 11:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F632C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 11:39:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wSB36n18dbWq3JPZyqngRMYdYz9NgseK45CAN/9M+/k=; b=T7d5UyCJ6Z95kIpw6QFMz9fFbB
-	/j23CWKlAJ+dkleBMqsBAtDn1njf4m1YI7luTvB9wicap1SZmQRkq68WTjNqHpFTsDhbtrQatVd0w
-	ufGXV27ufayIJvpJTtfVhB4grDvIhCuYH42thTS9oNQHfmCHPM3cf23eWcW+E3NF4bY5evLyEbJ3c
-	gMS0PsGrtYhO+8gi0vXjjIDUWupTHyANenNwq+DMANAdyvSyxQ0rTXMI3WPjFKM9sIJclOEYYRBYx
-	rBBoyiZ9BVu0ur3kQBVpuSS9w+A1rLHijT2M8sHYw2Hz1XqVKYsKtPHFrfuCWiaoe41A8fJgA3HSt
-	4XrsJYig==;
+	bh=A6vgbE4TYnmj+hfq88kdXovzQvYb/OaWLf5kbtVE6dY=; b=uHwKj092pBRbZbRQOqckEOusAk
+	so4Ff4hK6ptB6P8HmdmnF7KfvlwsywHLFXrmEurxNMfZ4+THZIcgpDG0MGryu60gYunfEaAGh3YFL
+	kZ4/29hc8cdOQAezpJ0fq8ndJRRv9h5jfxZgPfmjAVwi9t3EB9PbTWbLDmealyYEY27obpzuiX1R9
+	5+tRu56D+wycQuc32ZLXhuQzNE2/fXBZfPCtodnyvbJUMQXXDRaLRadiBIdG51fqq/U+2+bEKMbss
+	qhMaNviPWAj/phnNOVoDGk0TZWvsDIqUUJdNOZwiXJBnn9Kn8xW7JskLsAwoDeY67FuHWJeqrQZWn
+	3+XFnBfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0fMg-0000000BZBe-3Ewp;
-	Fri, 04 Apr 2025 11:37:38 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1u0fOS-0000000BZTp-3VFL;
+	Fri, 04 Apr 2025 11:39:28 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0fHQ-0000000BYOH-0RyL;
-	Fri, 04 Apr 2025 11:32:13 +0000
+	id 1u0fHS-0000000BYOk-3oaZ;
+	Fri, 04 Apr 2025 11:32:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1743766330;
-	bh=mKsqKGG/7YSKHNxFBBuOvn0Q62p5t5UmUS+Llf4Xv+o=;
+	s=mail; t=1743766333;
+	bh=Jw1FPz6DF2WaJMktgqsDpD5UOieABbNHs5cz1OQV7+Y=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nJwsmtKfCOFaRLtdheNLsrNXHau0c/Rn80fSu9DFp9dqh0mpVplJjf/RJDWsDppZj
-	 K1nRgU79IM9C/BB+INNLF9qPLoZM7FIfqo2dV2MHBZUrapbHXtTlVoq7Ee9D1ZuTvA
-	 8qMfMD5BzgJZ3gmloXl2Iny0cRXUy6qQFCGB+CGeaUn3O6T65csyfoVewC2Of83ZOo
-	 DuOsYQX6Qzp1rE1hL6kbztBjhtqz9ZmJEip0zPfqu9MltVplyd30pOV4KbwFUoQRBU
-	 iTCF9mpsJt0L86KQv1XekkmXzJkOvzzXy+fkz+jnQl6cJXvttX+etNTWbve4UriaIw
-	 PY8YN9NjjTqAA==
+	b=LJPXaVbq60/Cb5k5MJ7zBEKHhcJ/RJ2XOeSUfeGVa9B6t5StSeJpF5Rh8VSpyV4OG
+	 6qvbZA+DJiPKvA8oZmtxELP2AOQ0sZld5CamuOMDVdPFj6a78TccHaPK4Tvrr486vK
+	 jdSaxZDfwi0ncvAB9XwcoOY+tv9gv16LHwc9o8cmvTeXa2UskaGu4S1VKAfK8nGrZE
+	 vct7UyFGwVmWVCvZDCSClpfCMUyShZvHciYs3+sipjVjXeruKaQXsGVaHfymqTd+Og
+	 mPFSiSQmlYOjLNoHLs/SMTb/qZ/5zrPp+oAQM2P0hEj8RVXesY8cFd5/XQBtMb6elN
+	 Yrr95JBG7PAJg==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 17A6A17E0865;
-	Fri,  4 Apr 2025 13:32:08 +0200 (CEST)
-Message-ID: <2a12c4e7-7df7-49c7-8abe-1c5ee769cfcc@collabora.com>
-Date: Fri, 4 Apr 2025 13:32:07 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A836E17E0C50;
+	Fri,  4 Apr 2025 13:32:10 +0200 (CEST)
+Message-ID: <547daa6c-0ca9-44c0-9317-02e006926dc3@collabora.com>
+Date: Fri, 4 Apr 2025 13:32:09 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 17/19] dt-bindings: arm/cpus: Add missing properties
+Subject: Re: [PATCH 16/19] dt-bindings: Reference opp-v1 schema in CPU schemas
 To: "Rob Herring (Arm)" <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
@@ -82,15 +82,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  imx@lists.linux.dev, linux-rockchip@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org
 References: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
- <20250403-dt-cpu-schema-v1-17-076be7171a85@kernel.org>
+ <20250403-dt-cpu-schema-v1-16-076be7171a85@kernel.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250403-dt-cpu-schema-v1-17-076be7171a85@kernel.org>
+In-Reply-To: <20250403-dt-cpu-schema-v1-16-076be7171a85@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_043212_302558_7F49CE28 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20250404_043215_095734_44375424 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,75 +107,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 04/04/25 04:59, Rob Herring (Arm) ha scritto:
-> The Arm CPU schema is missing a number of properties already in use.
-> This has gone unnoticed as extra properties have not been restricted.
-> Add a missing reference to cpu.yaml, and add all the missing properties.
+> The opp-v1 binding is only used in MIPS and arm32 CPU nodes, so add a
+> $ref to it in the CPU schemas and drop the "select".
 > 
-> As "clock-latency" and "voltage-tolerance" are related to opp-v1, add
-> those properties to the opp-v1.yaml schema.
-> 
-> With this, other properties can be prevented from creeping in with
-> 'unevaluatedProperties: false'.
+> As opp-v1 has long been deprecated, mark it as such.
 > 
 > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->   Documentation/devicetree/bindings/arm/cpus.yaml   | 46 ++++++++++++++++++++++-
->   Documentation/devicetree/bindings/opp/opp-v1.yaml | 16 ++++++++
->   2 files changed, 61 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
-> index 3d2b6286efb8..6f74ebfd38df 100644
-> --- a/Documentation/devicetree/bindings/arm/cpus.yaml
-> +++ b/Documentation/devicetree/bindings/arm/cpus.yaml
-> @@ -299,6 +299,16 @@ properties:
->   
->         where voltage is in V, frequency is in MHz.
->   
-> +  interconnects:
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  nvmem-cells:
-> +    maxItems: 1
-> +
-> +  nvmem-cell-names:
-> +    const: speed_grade
-> +
->     performance-domains:
->       maxItems: 1
->   
-> @@ -317,6 +327,31 @@ properties:
->         corresponding to the index of an SCMI performance domain provider, must be
->         "perf".
->   
-> +  resets:
-> +    maxItems: 1
-> +
-> +  arm-supply:
-> +    deprecated: true
-> +    description: Use 'cpu-supply' instead
-> +
-> +  cpu0-supply:
-> +    deprecated: true
-> +    description: Use 'cpu-supply' instead
-> +
-> +  mem-supply: true
-> +
-> +  proc-supply:
-> +    deprecated: true
-> +    description: Use 'cpu-supply' instead
-> +
-> +  sram-supply:
-> +    deprecated: true
-> +    description: Use 'mem-supply' instead
-> +
-> +  mediatek,cci:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Link to Mediatek Cache Coherent Interconnect
 
-s/Mediatek/MediaTek/g please :-)
-
-Anyway:
+ARM//MediaTek:
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
