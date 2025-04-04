@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 753A6C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FEC4C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w5ERXJLtgLvtpfa6RvbVKrW20WwVDgBMq5aPoHyIxtQ=; b=zMFrGJjd91Ccg3XZBJY+wRxfWy
-	zzyFGc9Th4xIoRDCCbplk+qWkHuS+MRHQos9GlGykrHD9fY9MvvM1IIWPJP1xzkJvL0bP/Ukxpaep
-	O+Yg5/IusnMH0nGVzELcRVp6CD+hMeXDOJmO+kbx83P3j5oUJ/xx0nrCR5p8ptQRWr2wHoUw0oRfl
-	UqEn6GSQ6rsXwiFX9lDa9fdJtcwUx7hEjQzPWIJFnX0CSt3dDVpIVNhve3dN1IhHzDxUD8d91ANtL
-	0Sp1J4S2AhGKXiNzvzJH2uBSCb0CAmvJh1WBgGZMobDNcPqzSsPNSG8tASHhgpl1cEsgiIk9QfTq6
-	dR1UTdjQ==;
+	bh=bzhTX9e5Ndxofs9PWPQjKMiyjzcJ935BwY08z5T956o=; b=eLSK+mc1jfMJdgbGH+rouTWdRU
+	8g7Dc7jyrSc4o10aXS1YRGdyC+IEN6rOCi23KSQVAsTc05jJplbRderzGYInXlHMwUDcniCzmJDkF
+	P2cZWqiSy21UUYK48+3akZSt+qCrCrYdBfKhmrIzgYB+4Wff708qMVjdtZoSr0WxFpCeinyndLJi7
+	elvMlckdVh+YiwRIaapjU9BwXY1/SejObo2HYoazYEwQXP/WX1Pc1ez5k/FY0pdt0+FZSnK4rKzTp
+	Jk4+ZBRm76bKSHaZpTwH+UT4ES8gIKlltosDtBIRn7Me/GY0yBFlRBproVUsrbFSUG/EACAfQdcFr
+	hN4PWrug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jVU-0000000CFau-33ie;
-	Fri, 04 Apr 2025 16:03:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u0jXD-0000000CFpW-1faB;
+	Fri, 04 Apr 2025 16:04:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jSZ-0000000CF1Y-1pgq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 16:00:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 125784504A;
-	Fri,  4 Apr 2025 15:59:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C8E5C4CEDD;
-	Fri,  4 Apr 2025 15:59:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743782398;
-	bh=WrZEF9Yxb5ULBShRbFH48qvpHj9RvDQIE9VPe6LC7pI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=LAEp/ntu2bwl+Irpk6BuOuLI2cgXnKNQat2ed18ZIW5NctNUL1ZzhUd0SiXglWQhU
-	 wIgNo+pKH0sDGZc3CfjfhKe1E6uLnrSyFFyYIl3nEmcFKvLiqsr900F+GMsCUafUM2
-	 DSN9Sby7QD1DZoyazHYKnflfzSSO66Ayv/hTocDCBinOtlm/T1P9gOKgzbM39naJXN
-	 L1UOjaY0n+Afa09d9XFzORjYckdqmIc35buJxrJshty8ZLuuq6Vq+JbSVc52McYwxi
-	 37zgbu6RCMIJzQo2jfoX/8U0wTXaJ1N8Vtp20CSSmQEpFEPYwjCQEiSc5BKkPgBSae
-	 0UqgzEXJK8QwQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE4F33822D28;
-	Fri,  4 Apr 2025 16:00:36 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1u0jSf-0000000CF3f-2SGt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 04 Apr 2025 16:00:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description;
+	bh=bzhTX9e5Ndxofs9PWPQjKMiyjzcJ935BwY08z5T956o=; b=FXBcvlGeZ+C24swIZknr5xL0p8
+	XJhae2JBOiSnCkqw22sW73oMle0AScGnnrrjrgRcsQsZKQse1RoOVdLIAp+dv1eKSBknP+k57ZXTz
+	oWUMRnld+BtYXoPg9UHMvLAZzjw0c1r0zO6b6YuvPysev0lfnzXdLFdhNKt0M0ZRh4D85BOqRtvFd
+	tK/plvL5cesPT7WqFT+JxUKBNBmTGj3rplsy2rhhCN5gtGHW7sANGWiNY+prH/0XWDK8ACkkP8KYO
+	0V/99vErEol0YusGdeIvCekK7OkuLDr72beS/ATKgCtccaGDE3fu936DgqYjnSi8OA0ZPVlXsvrGH
+	9UT0Bu0g==;
+Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0jSc-00000007QP0-0VvU;
+	Fri, 04 Apr 2025 16:00:02 +0000
+Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0jSZ-0000000ERSE-2u5h;
+	Fri, 04 Apr 2025 16:59:59 +0100
+From: David Woodhouse <dwmw2@infradead.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	"Sauerwein, David" <dssauerw@amazon.de>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	David Hildenbrand <david@redhat.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Rapoport <rppt@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	kvmarm@lists.cs.columbia.edu,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: [RFC PATCH v2 2/7] mm: Implement for_each_valid_pfn() for CONFIG_FLATMEM
+Date: Fri,  4 Apr 2025 16:59:54 +0100
+Message-ID: <20250404155959.3442111-2-dwmw2@infradead.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250404155959.3442111-1-dwmw2@infradead.org>
+References: <20250404155959.3442111-1-dwmw2@infradead.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] selftests/bpf: Convert comma to semicolon
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174378243553.3310001.5428425724896312604.git-patchwork-notify@kernel.org>
-Date: Fri, 04 Apr 2025 16:00:35 +0000
-References: <20250401061546.1990156-1-nichen@iscas.ac.cn>
-In-Reply-To: <20250401061546.1990156-1-nichen@iscas.ac.cn>
-To: Chen Ni <nichen@iscas.ac.cn>
-Cc: andrii@kernel.org, eddyz87@gmail.com, mykolal@fb.com, ast@kernel.org,
- daniel@iogearbox.net, martin.lau@linux.dev, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, shuah@kernel.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- peterz@infradead.org, ameryhung@gmail.com, juntong.deng@outlook.com,
- oleg@redhat.com, bpf@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_085959_491443_1BCFEA2C 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +83,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+From: David Woodhouse <dwmw@amazon.co.uk>
 
-This patch was applied to bpf/bpf-next.git (master)
-by Andrii Nakryiko <andrii@kernel.org>:
+In the FLATMEM case, the default pfn_valid() just checks that the PFN is
+within the range [ ARCH_PFN_OFFSET .. ARCH_PFN_OFFSET + max_mapnr ).
 
-On Tue,  1 Apr 2025 14:15:46 +0800 you wrote:
-> Replace comma between expressions with semicolons.
-> 
-> Using a ',' in place of a ';' can have unintended side effects.
-> Although that is not the case here, it is seems best to use ';'
-> unless ',' is intended.
-> 
-> Found by inspection.
-> No functional change intended.
-> Compile tested only.
-> 
-> [...]
+The for_each_valid_pfn() function can therefore be a simple for() loop
+using those as min/max respectively.
 
-Here is the summary with links:
-  - selftests/bpf: Convert comma to semicolon
-    https://git.kernel.org/bpf/bpf-next/c/c9661394850d
+Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+---
+ include/asm-generic/memory_model.h | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
 
-You are awesome, thank you!
+diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
+index a3b5029aebbd..044536da3390 100644
+--- a/include/asm-generic/memory_model.h
++++ b/include/asm-generic/memory_model.h
+@@ -30,7 +30,31 @@ static inline int pfn_valid(unsigned long pfn)
+ 	return pfn >= pfn_offset && (pfn - pfn_offset) < max_mapnr;
+ }
+ #define pfn_valid pfn_valid
+-#endif
++
++static inline bool first_valid_pfn(unsigned long *pfn)
++{
++	/* avoid <linux/mm.h> include hell */
++	extern unsigned long max_mapnr;
++	unsigned long pfn_offset = ARCH_PFN_OFFSET;
++
++	if (*pfn < pfn_offset) {
++		*pfn = pfn_offset;
++		return true;
++	}
++
++	if ((*pfn - pfn_offset) < max_mapnr)
++		return true;
++
++	return false;
++}
++
++#ifndef for_each_valid_pfn
++#define for_each_valid_pfn(pfn, start_pfn, end_pfn)			       \
++	for (pfn = max_t(unsigned long, start_pfn, ARCH_PFN_OFFSET);	\
++	     pfn < min_t(unsigned long, end_pfn, ARCH_PFN_OFFSET + max_mapnr); \
++			 pfn++)
++#endif /* for_each_valid_pfn */
++#endif /* valid_pfn */
+ 
+ #elif defined(CONFIG_SPARSEMEM_VMEMMAP)
+ 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.49.0
 
 
