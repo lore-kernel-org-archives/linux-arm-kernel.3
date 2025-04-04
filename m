@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A507EC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 22:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22533C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 22:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pc9BIslmRtbzEaqCHxhWv7mDukpJW925YKmou2T40Cs=; b=1oh3UkFXJDXpNpQgzwZtr7Ch0Q
-	Y8gjyRXbJ/lf2QZRPqMfTOdEGHNA7JmtIKRQXrKAg2Y+c+TOwWAb7U49Pgo1hLm5c0ww6ZBPbK4VR
-	3dg3e0thD8h5wd7HMGsW131fZG/WFaNmaIBp9mPXd/gb9nt5azl1LLl/wU6GP5RbA1R+DrwvZFwjE
-	rS47ej+huiO8dQns3kaKPivF+hZkczjEO8RUeVi1TAm61qZdCpFBGILJtFkmOy5wn5SgtkmXN6sRv
-	ayyOQc5vOpDK+99e/R/IslXxhWusCEEeXUuDl7Ow9Cb815JNCQquv4Pow2U9RGSeP1+Qii9CazVMk
-	f+F73eQg==;
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+ABQvf2myBmBVu0tO5Zf2gufLBIF2IPE6tPBCISSnfw=; b=znackUjEU9roL/OaXIfqorP/jo
+	ogEVdLMhBuH/svcNAzD4eBcQOXJsIyGIDm2Gqkya9ozyjYq0e6IRV6HGA3SpstENhcAS4C8+lrx8y
+	hsBeIF3lTQ4vu9DkBF5LpPZ4AXKj0+0sSN4uzPypG9ZVALucQTDNKzMFz6YeUf8ro1g0OHLUnlU8T
+	UzkC5VWWRaETwrUqRjEi1vOzm4yGhudaDnKmk5Bl1+ZWifog723ix0n5GNVvegW4+uv1ZpnCA9GX6
+	0ZAWnaz7uwxLmu3Kjqlx1zhgOrMNzGS78dbFg7qS54ZJiZmnVDzEUSTKryB/ql7e7LnQ1t1vfBWQZ
+	Igg3XsfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0pFI-0000000CxQ5-30BQ;
-	Fri, 04 Apr 2025 22:10:40 +0000
+	id 1u0pH1-0000000CxfL-2qxQ;
+	Fri, 04 Apr 2025 22:12:27 +0000
 Received: from mail-io1-xd4a.google.com ([2607:f8b0:4864:20::d4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0pBq-0000000CwvX-1LIp
+	id 1u0pBr-0000000CwvQ-1yQs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 22:07:07 +0000
-Received: by mail-io1-xd4a.google.com with SMTP id ca18e2360f4ac-85b4ee2e69bso304589939f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 15:07:05 -0700 (PDT)
+	Fri, 04 Apr 2025 22:07:08 +0000
+Received: by mail-io1-xd4a.google.com with SMTP id ca18e2360f4ac-85ed07f832dso247601839f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 15:07:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743804425; x=1744409225; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pc9BIslmRtbzEaqCHxhWv7mDukpJW925YKmou2T40Cs=;
-        b=gdlqMm+VLWYoCp+E5GGDTuMle+vwDEzZiZi1bx9xsvNHUQnpsnWv1Mmg5GguJ9MCXi
-         LZ2VjSt2JpZdyt2Iik3Je7e1/j0YSUpcU8w0njflqpIho1v2WodW0OyDpsq/rO3MMYFM
-         JVYkw/KMcMBAMmtJ13NTNizIvoh6GkGigbAjre3aZOE7z8wLi2icoJL2gosOfS5B8wTr
-         dBM8D/OGikmYZ8L8o/aKC5HGoi/Atmvm5jtrm0Zpmd936btZf2wMTuJAQGh7fMCpdW+d
-         OIJjnYQse3wSPvm+7UWWVPDw1B9zl1ZDqne49g6CSBvrlYBC6QZC0ePiR7jNbG4bb8fN
-         Vo/g==
+        d=google.com; s=20230601; t=1743804423; x=1744409223; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=+ABQvf2myBmBVu0tO5Zf2gufLBIF2IPE6tPBCISSnfw=;
+        b=v5rvn4EPAd8l5W2cls851EMdqtPUDE/LiE3bITTTvei1CCGxkbRO1L394sGgsxPUPj
+         Xv/lOpKmM4cHCmUSQPgQrafoRzQ4LHimAee4Me7iW+S1gFdqcOtmgQ3LvodmGbXLHzdS
+         cxzkrGtVZ89wte+tZP91TVvzv65UMAU5xj8SzPb7Dxb7ALHOt0bpKRaFgzdwKxdtkX8Y
+         X3w4I1e5gciE+GbzPHIY8A1Cwox+BCOlTrI0VsQQyWXb646poVDrNE3e1tXvCDh5xdmS
+         3krpoXBpyy1+HSHNNKh4f1KiiDZQscUep8n4TKqkLy8Qxf6Zq8zVDxjJeP/T4yesE8PM
+         scEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743804425; x=1744409225;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pc9BIslmRtbzEaqCHxhWv7mDukpJW925YKmou2T40Cs=;
-        b=rXnFSa7OSbz3NCC19PmmGxdyz4esbQZZUvzE+aXOYHTvX6emtIFQBSyzDoJxpVAICB
-         WaFwp77JrcPFJJ3Ix2bPm396NhH9akHv5/6m0YLBThgVIchJ/m8vruAhbRHnhUhOeBzP
-         buCDPSghW7R/gIxngIulP/AhMzHXhauBuzHrXLRAJvq4/5nL6LRzRPC2JwA3PeoBzP9y
-         emMMkdDTvNyUomdonmJbgYxFZBAg/tpyONbrOjrOWGCtUbyO1D3Ogv6qpvvOmXh0mzNz
-         XoalO5LvY/D5/01fbsLHpr7Q9hm9Su4KhGI4ZrmS8kfTQDJ4COc7fnUKRdFdt31TBlQ+
-         1h9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWCft4Pe52GABp1caPdYR1Cd+5hKg4xxdKeJ+JC6v5Ex5wbq2uVQfTXyVrZy9XRWDR69GDIrJOUulqK1NHUDJwa@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBd2gibkB6ADqySRP3BM0qpkbRtpgdi4f1B8ccJQBrMd+PQgMx
-	RBVX2jfRmiFyTag6T5+Lv6E4XLMIOqKcwurVANygRn1PzKCx15zu9VpoI6njB4ag3aQdPhsr0IV
-	CrUgy8w==
-X-Google-Smtp-Source: AGHT+IHdes02xNhbHRa4hrCg2N+VywWvzx8Vq2+IoHciYVBDcUnJpNkQ4rg+6l0nOZiDn4tZhimhX6EbrE0g
-X-Received: from iobbf5.prod.google.com ([2002:a05:6602:3685:b0:85e:9686:d0f0])
- (user=rananta job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6602:6a46:b0:85b:46d7:1886
- with SMTP id ca18e2360f4ac-8611b49b398mr539039139f.7.1743804425293; Fri, 04
- Apr 2025 15:07:05 -0700 (PDT)
-Date: Fri,  4 Apr 2025 22:06:59 +0000
-In-Reply-To: <20250404220659.1312465-1-rananta@google.com>
+        d=1e100.net; s=20230601; t=1743804423; x=1744409223;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+ABQvf2myBmBVu0tO5Zf2gufLBIF2IPE6tPBCISSnfw=;
+        b=FA6bI89bfJa4paKaAMubKtPv8y5s0tL9oTh4wXWH06YLJs7Ac78NUh5/NaXOgn5bWi
+         79rQ7Yb61JWxrAPPaKw1wmjAenMaPzZno7eSEqkWLI8tMFJ2XntfIYTUEvB7TEVotr6R
+         WAKJ494NuZkp7t610eMk4HXIL+62QN5Ba2g8IVqIDh4j+M1bD9FVGzWONyRobWUCQMB2
+         FNcbzaKdBqOWP+PT/ng4yRFNqmnjPCrSs3m4JGdC8WtvDmGTjURz9tTeKJJ17tDSX8FK
+         4EuZN+QABIScagJocsDgQ2Bdj/4Uc1egOhOmW0IWouMQdC9Jbm2O11kDPMe91k1Qy2Jf
+         y9Bw==
+X-Forwarded-Encrypted: i=1; AJvYcCXNrvSSnAKTBo5egKB2Eca00h8rnToWhf+6tErcCHR7mX4awmgqfEsmnx11e/uSI8GqXpHtATfIurxS4k/j6NSi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmzVDnRHraq1Z2RnMX5UPow7EmZXcQa+TCfDPvt50xxIjsV4wh
+	ViDJuimniM/MbWo5Fcny5v9nr270YF2Quu3Sd0XP2MJCP1+fMAQZa/c1JowS9428HwCqUtlJa4S
+	TzSuxPg==
+X-Google-Smtp-Source: AGHT+IFV9Isc4fgBFHlpxTPEvIA2IWM9thB5QLOG0FR0uQ2WcHEpEv2w8WbCsDqt+JLpu7IkXXi3TGByiQPr
+X-Received: from iobjk27.prod.google.com ([2002:a05:6602:721b:b0:855:9384:bf3d])
+ (user=rananta job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6602:3a82:b0:85d:b054:6eb9
+ with SMTP id ca18e2360f4ac-8612ab4b028mr139258039f.14.1743804423530; Fri, 04
+ Apr 2025 15:07:03 -0700 (PDT)
+Date: Fri,  4 Apr 2025 22:06:57 +0000
 Mime-Version: 1.0
-References: <20250404220659.1312465-1-rananta@google.com>
 X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
-Message-ID: <20250404220659.1312465-3-rananta@google.com>
-Subject: [PATCH 2/2] KVM: selftests: arm64: Explicitly set the page attrs to Inner-Shareable
+Message-ID: <20250404220659.1312465-1-rananta@google.com>
+Subject: [PATCH 0/2] KVM : selftests: arm64: Explicitly set the page attrs to Inner-Shareable
 From: Raghavendra Rao Ananta <rananta@google.com>
 To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
 Cc: Raghavendra Rao Anata <rananta@google.com>, Mingwei Zhang <mizhang@google.com>, 
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	Oliver Upton <oupton@google.com>
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_150706_357942_9F75AF56 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20250404_150707_507696_6EE0A454 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,57 +89,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Atomic instructions such as 'ldset' over (global) variables in the guest
-is observed to cause an EL1 data abort with FSC 0x35 (IMPLEMENTATION
-DEFINED fault (Unsupported Exclusive or Atomic access)). The observation
-was particularly apparent on Neoverse-N3.
+The series fixes a conflict in memory attributes in some implementations,
+such as Neoverse-N3, that causes a data abort in guest EL1 with FSC
+0x35 (IMPLEMENTATION DEFINED fault (Unsupported Exclusive or Atomic
+access)).
 
-According to DDI0487L.a C3.2.6 (Single-copy atomic 64-byte load/store),
-it is implementation defined that a data abort with the mentioned FSC
-is reported for the first stage of translation that provides an
-inappropriate memory type. It's likely that the same rule also applies
-to memory attribute mismatch. When the guest loads the memory location of
-the variable that was already cached during the host userspace's copying
-of the ELF into the memory, the core is likely running into a mismatch
-of memory attrs that's checked in stage-1 itself, and thus causing the
-abort in EL1.
+Patch-1 is a cleanup patch that replaces numbers (and comments) to
+using proper macros for hardware configuration, such as registers and
+page-table entries.
 
-Fix this by explicitly setting the memory attribute to Inner-Shareable
-to avoid the mismatch, and by extension, the data abort.
+Patch-2 fixes the actual bug and sets the page attrs to Inner-Shareable
+by default for the VMs created in the selftests. More details are
+presented in the commit text.
 
-Suggested-by: Oliver Upton <oupton@google.com>
-Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
----
- tools/testing/selftests/kvm/include/arm64/processor.h | 1 +
- tools/testing/selftests/kvm/lib/arm64/processor.c     | 3 +++
- 2 files changed, 4 insertions(+)
+Raghavendra Rao Ananta (2):
+  KVM: selftests: arm64: Introduce and use hardware-definition macros
+  KVM: selftests: arm64: Explicitly set the page attrs to
+    Inner-Shareable
 
-diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
-index 691670bbe226..b337a606aac4 100644
---- a/tools/testing/selftests/kvm/include/arm64/processor.h
-+++ b/tools/testing/selftests/kvm/include/arm64/processor.h
-@@ -75,6 +75,7 @@
- #define PMD_TYPE_TABLE		BIT(1)
- #define PTE_TYPE_PAGE		BIT(1)
- 
-+#define PTE_SHARED		(UL(3) << 8) /* SH[1:0], inner shareable */
- #define PTE_AF			BIT(10)
- 
- #define PTE_ADDR_MASK(page_shift)	GENMASK(47, (page_shift))
-diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-index da5802c8a59c..9d69904cb608 100644
---- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-@@ -172,6 +172,9 @@ static void _virt_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr,
- 	}
- 
- 	pg_attr = PTE_AF | PTE_ATTRINDX(attr_idx) | PTE_TYPE_PAGE | PTE_VALID;
-+	if (!use_lpa2_pte_format(vm))
-+		pg_attr |= PTE_SHARED;
-+
- 	*ptep = addr_pte(vm, paddr, pg_attr);
- }
- 
+ tools/arch/arm64/include/asm/sysreg.h         | 38 ++++++++++++
+ .../selftests/kvm/arm64/page_fault_test.c     |  2 +-
+ .../selftests/kvm/include/arm64/processor.h   | 29 +++++++--
+ .../selftests/kvm/lib/arm64/processor.c       | 60 +++++++++++--------
+ 4 files changed, 96 insertions(+), 33 deletions(-)
+
+
+base-commit: 38fec10eb60d687e30c8c6b5420d86e8149f7557
 -- 
 2.49.0.504.g3bcea36a83-goog
 
