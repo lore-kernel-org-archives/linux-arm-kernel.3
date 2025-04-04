@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB6CC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 11:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F85C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 11:43:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRxHpDbRbc87OnKxP0K1ECoMEb79MKjLBxGvnym2WtA=; b=IYwZZYxIGQe8TZgM2YS4DgbloF
-	NUYuYCtXivzo4g3G50Z+2jHeNAFYBjR8voUPH4G3HZcpAfZN+nntz/5A6ZEJCOLixTZQDZ90nWfxh
-	ENNrTPXkamXM2G6JD6dH1TZSHci0gqr89vX9B0e0uFZE3Gb392HA08yt5cINjZzNIvu1utfD42Kss
-	Z29rOAgaNpxQZd84RkiIE1K59VEVbBx3gsOPKYtpGYxBgSabFZDTtGva08QPYlb2S3M5vrek5o9nq
-	irrHK2NkPxl0zerJLCYUj8XL3huunZTZ7MPM+jxy9MQn6466NWJvgiJ4+MhT+tcXt6qmvJ4RqC2H0
-	CKBjJJzQ==;
+	bh=Pldp6tAlldfDEdUQgZB4+APdzv0DrtAedQfzL2vr2f4=; b=4miv/7pkV/tjtizyk10nfgXe4t
+	ZbrO20mci0dgMQztxAvYli/NLF9Dkfh71n29FCb6rl2PMk4V7LLRZ7HpH4+6TUEfDo0rhmPrnKllQ
+	rsUhyBxcz2TcHeFRhxUwNlz8m2RDB64hdAFCtdc0kw8WC8h3DBNLirPv/rTLIm4yW3B0l8yhihU54
+	LwcLefcxshLzo/zf4qxfaMLYOtsXGSiUp0Q8kq6Bpm/dyfohSyBtSfWL3CXq2mf3PbqoXnr8qeNFT
+	+9oFusBaOAOTfAxGuWa3zaTLhSQFcuok4OHzgE7FSyRlX1jTiZlyVt1vOIKJwjTCrsbs/Lrw+19Ul
+	BIEcVbwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0fQF-0000000BZoO-2MHr;
-	Fri, 04 Apr 2025 11:41:19 +0000
+	id 1u0fS1-0000000BZzL-2Akb;
+	Fri, 04 Apr 2025 11:43:09 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0fHU-0000000BYQ0-3YhO;
-	Fri, 04 Apr 2025 11:32:18 +0000
+	id 1u0fKg-0000000BYr2-3RmD;
+	Fri, 04 Apr 2025 11:35:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1743766335;
-	bh=7ro02tI4QOXGzdStpWGlX+ZgeJtEMwipR1RCkON1Law=;
+	s=mail; t=1743766533;
+	bh=C2EbOJXZ4SFMszaSc0+T54wWbvFcCkJT7AbChKE5SOA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DpZaC4Ang2pBxxjmTz68g2C7ibpYHZpQh6M1Vf54ldz6Gdj74ETP0av4qGoCb/ZLE
-	 Nd8AggnN0xOivQCv3RRa6fUi4tBVfF2x3DzzzOGG2grt8rNvhOOkHge7mFCFX+t6Za
-	 PVEwNsWgnGUJqEYiXE1bkFT7+QLm1lXuCtguq+z0aersqXj/R9Nwm7q/Lh60UJifPD
-	 fvkkpnRm7HihkIPmz7RoHJFMHc6n9qkvDcTDSk8+gNG2xtpCfoGo+Ve20jQIiWIbSZ
-	 OhtlgUsxflfecAZAqNlLv6M6uBpC9jDo/tSHTaNjFijVjLM1CyXO+HY82Ey/eXajOU
-	 E2bLKaqY9B3rA==
+	b=Y3AOOlEtIhRpUcueVVGkPYW8bCRuNkUIytsushereC01TWMZH3/KeWeF/5RboaIAl
+	 78Klj2FgIPCFqwXtKWAIYom/8V3TetKbYBcKXAAjZmznbErK9Uy3Ej6xdDKrah2B/p
+	 sypEbyv/R5etYfGSVRah/b4dC1U5lEgPV/ktK5nL4S6SnHvfKwtEyH4AGpChDIJF4/
+	 IKpewUZwYX+a3pDV7RGc4L35inqoorMIUHzbP1wqQEJmYInIjjFGyc2UhPOUJ7aMHy
+	 Gu9migaijF/TNDu3DZCbDnQTP4lcm2KM93cy370gb/LJUB8t9ax8Po5mmy+5YX7DcU
+	 pI1ahFUleRAVQ==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 27B6717E0FC3;
-	Fri,  4 Apr 2025 13:32:13 +0200 (CEST)
-Message-ID: <236b31a6-3602-4705-9d04-48bdff719cc2@collabora.com>
-Date: Fri, 4 Apr 2025 13:32:12 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 17B4917E0865;
+	Fri,  4 Apr 2025 13:35:31 +0200 (CEST)
+Message-ID: <1b590b23-d18f-43db-ab39-cee8433fd9f6@collabora.com>
+Date: Fri, 4 Apr 2025 13:35:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 19/19] dt-bindings: cpufreq: Drop redundant Mediatek
- binding
+Subject: Re: [PATCH 18/19] dt-bindings: arm/cpus: Add power-domains
+ constraints
 To: "Rob Herring (Arm)" <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
@@ -83,15 +83,15 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  imx@lists.linux.dev, linux-rockchip@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org
 References: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
- <20250403-dt-cpu-schema-v1-19-076be7171a85@kernel.org>
+ <20250403-dt-cpu-schema-v1-18-076be7171a85@kernel.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250403-dt-cpu-schema-v1-19-076be7171a85@kernel.org>
+In-Reply-To: <20250403-dt-cpu-schema-v1-18-076be7171a85@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_043217_040514_C2125117 
-X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-CacheID: sfid-20250404_043535_007619_855573FF 
+X-CRM114-Status: UNSURE (   6.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,13 +108,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 04/04/25 04:59, Rob Herring (Arm) ha scritto:
-> The Mediatek CPUFreq binding document just describes properties from
-> the CPU node which the driver uses. This is redundant as all the
-> properties are described in the arm/cpus.yaml schema.
+> The "power-domains" and "power-domains-names" properties are missing any
+> constraints. Add the constraints and drop the generic descriptions.
 > 
 > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
+For MediaTek:
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
 
 
