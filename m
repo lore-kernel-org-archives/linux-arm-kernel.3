@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 092CEC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 03:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDE5C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 03:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z49/V2Sh5hY3LiaLrNsBwTqipZ+xEMUXwgouKxYdk+A=; b=TVR0ogxKp0+8rKWWg5Le76+WHi
-	Cb1gO8ExtgEmmXJDyp22M6XAQz/e2OVmt7EluwQKcl+Ddx/38yx+lesxzkkKLwgwSURq5qzw+ehBY
-	+R08niEd0uFZd8e871cs6DPYpZtDSlFkrYlL3NwlJCrhASv1FJl/HZYEtskkHTwqCHxcszhGcWLLt
-	Vl3d8pQPIw8OPwgHxHifugxY6KjM9WxkiiHt6lRDE/bUrKJQvHbXaYld5O3edMUzoyk3vULJ9CTia
-	pzkoLXZGzvvVYQbFrGY6P6/UReRJFofweDS8cKkE6W+e0TIL5iGbmzr3YSFIUZNJuOt6fL8OtllgE
-	Y0hsLpGw==;
+	bh=1pckvcCFjtHH+0FTGEZc85k9/Vccl7ohOO6z2horj9o=; b=IjNB5ZRB0oNB3Rc8A5MnlFdKzQ
+	JzEyPk20D0dyMVtC3zMstcifL54+lhLjNeIoVfpqvBYPwIZRzSzX8ddFyLEjVovmCc6e9UIgiGmBJ
+	6h1C+70EzDHiIqps7muyR9g759YNwXrW6I5bNRPBrHOkeGFoNFGyWPwX16Bc9h4NsT7XLNPwVkOMF
+	wswBnHwWdj4lPxOeJJgHP0ev0LLWMGK0MM6ZvE2isk2FoBiaG4662dEdp9wUNcEpU5002Y59ahjP0
+	9bqjJgeLzRjMvH+37bDqxxO7DkdNsOTGjglptRvbcl3jM/KZr7H5QQq7R89IbFCjJJBjKlmCxkKgc
+	ohPMzJpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0XTz-0000000AfNQ-0Zwq;
-	Fri, 04 Apr 2025 03:12:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u0XVk-0000000AfYw-3ZGa;
+	Fri, 04 Apr 2025 03:14:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0XHY-0000000Acw1-4777;
-	Fri, 04 Apr 2025 02:59:50 +0000
+	id 1u0XHc-0000000AcxX-0KFj;
+	Fri, 04 Apr 2025 02:59:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 06CA344F33;
-	Fri,  4 Apr 2025 02:59:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17ABBC4CEE7;
-	Fri,  4 Apr 2025 02:59:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 55BFE5C6508;
+	Fri,  4 Apr 2025 02:57:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFD73C4CEE7;
+	Fri,  4 Apr 2025 02:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743735588;
-	bh=gxonXFhgUAPjWh8ts8EKS+oHyduTymt0daNZo0ExVAA=;
+	s=k20201202; t=1743735591;
+	bh=nVo5X/MosXjoMIZOdVn7ETl8AN7NiwovxfdEw8OmSOs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=q5AlyHo+mQj3kurh2xUoSRYFq+1yRj9H+a7Gmn4LnwFHLR3AnDO/JaVceXofqiY/3
-	 /xQ+f5of5Hm4HbuSD27xDVrwkVEIeMMW4VTsN9M/FKQTp1fK9AAZ1eNnJHWa5EVcch
-	 1YuoXfohfyZI1t8ysMs/oJtbRtc/lXOx22hjlh62miVS8jEZ76LPU2rDV7Ip7Sp4hP
-	 1k08hbFngCdFOvEVrao83FuUXXn8xaBe6pMb28raR8ttL4HJfNlJ9x1l7dFVwdX5Po
-	 4DdcqBBRZFzRhTz4d6M83O7pVB3CLQkueenV35FwvKPcQwLGetut/o2MUhYhZQg6e7
-	 ZVrW1lHWld3gQ==
+	b=MpXVnVMrGj9jX534Z3QILWihteFROOZpFGF7cY4LpdJ/vHXhydB+UXGlWiL4yWQB4
+	 MkCR3gilGWmLGChDVWTTcfkMDs63dzW3J8NpL+I63xv6gf44HszHnPF5aNKa0h4T7c
+	 caRfFdYnPhzgZc1JocQT3/Q6LiL9G+DMwtJtDjgwmmquwSNBTS2H8djS9qC2sphBN2
+	 P1Cgp4AVOzpzTpPm8SpIsWdV0ESebX0hsTqoMjdNevs2pD82PnipJyPInDkUM2QXYA
+	 Z7Lg/Tk+1JcZyy9fVa7gbntS/8pmlDuzwioeuqSQW0x75dypqHfY+J4/VPsE36jmr2
+	 bm5Z7w4iLaFaQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 03 Apr 2025 21:59:27 -0500
-Subject: [PATCH 06/19] arm64: dts: qcom: msm8939: Fix CPU node
+Date: Thu, 03 Apr 2025 21:59:28 -0500
+Subject: [PATCH 07/19] arm64: dts: qcom: msm8992-lg-h815: Fix CPU node
  "enable-method" property dependencies
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250403-dt-cpu-schema-v1-6-076be7171a85@kernel.org>
+Message-Id: <20250403-dt-cpu-schema-v1-7-076be7171a85@kernel.org>
 References: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
 In-Reply-To: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,8 +88,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_195949_078675_4B007922 
-X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-CacheID: sfid-20250403_195952_235626_D70AFDC9 
+X-CRM114-Status: UNSURE (   8.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,118 +105,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "qcom,acc" and "qcom,saw" properties aren't valid with "spin-table"
-enable-method nor are they used on 64-bit kernels, so they can be
-dropped.
-
 The "spin-table" enable-method requires "cpu-release-addr" property,
 so add a dummy entry. It is assumed the bootloader will fill in the
 correct values.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm64/boot/dts/qcom/msm8939.dtsi | 24 ++++++++----------------
- 1 file changed, 8 insertions(+), 16 deletions(-)
+ arch/arm64/boot/dts/qcom/msm8992-lg-h815.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/qcom/msm8939.dtsi b/arch/arm64/boot/dts/qcom/msm8939.dtsi
-index 7cd5660de1b3..36f2ba3fb81c 100644
---- a/arch/arm64/boot/dts/qcom/msm8939.dtsi
-+++ b/arch/arm64/boot/dts/qcom/msm8939.dtsi
-@@ -46,10 +46,9 @@ cpu0: cpu@100 {
- 			compatible = "arm,cortex-a53";
- 			device_type = "cpu";
- 			enable-method = "spin-table";
-+			cpu-release-addr = /bits/ 64 <0>;
- 			reg = <0x100>;
- 			next-level-cache = <&l2_1>;
--			qcom,acc = <&acc0>;
--			qcom,saw = <&saw0>;
- 			cpu-idle-states = <&cpu_sleep_0>;
- 			clocks = <&apcs1_mbox>;
- 			#cooling-cells = <2>;
-@@ -64,10 +63,9 @@ cpu1: cpu@101 {
- 			compatible = "arm,cortex-a53";
- 			device_type = "cpu";
- 			enable-method = "spin-table";
-+			cpu-release-addr = /bits/ 64 <0>;
- 			reg = <0x101>;
- 			next-level-cache = <&l2_1>;
--			qcom,acc = <&acc1>;
--			qcom,saw = <&saw1>;
- 			cpu-idle-states = <&cpu_sleep_0>;
- 			clocks = <&apcs1_mbox>;
- 			#cooling-cells = <2>;
-@@ -77,10 +75,9 @@ cpu2: cpu@102 {
- 			compatible = "arm,cortex-a53";
- 			device_type = "cpu";
- 			enable-method = "spin-table";
-+			cpu-release-addr = /bits/ 64 <0>;
- 			reg = <0x102>;
- 			next-level-cache = <&l2_1>;
--			qcom,acc = <&acc2>;
--			qcom,saw = <&saw2>;
- 			cpu-idle-states = <&cpu_sleep_0>;
- 			clocks = <&apcs1_mbox>;
- 			#cooling-cells = <2>;
-@@ -90,10 +87,9 @@ cpu3: cpu@103 {
- 			compatible = "arm,cortex-a53";
- 			device_type = "cpu";
- 			enable-method = "spin-table";
-+			cpu-release-addr = /bits/ 64 <0>;
- 			reg = <0x103>;
- 			next-level-cache = <&l2_1>;
--			qcom,acc = <&acc3>;
--			qcom,saw = <&saw3>;
- 			cpu-idle-states = <&cpu_sleep_0>;
- 			clocks = <&apcs1_mbox>;
- 			#cooling-cells = <2>;
-@@ -103,9 +99,8 @@ cpu4: cpu@0 {
- 			compatible = "arm,cortex-a53";
- 			device_type = "cpu";
- 			enable-method = "spin-table";
-+			cpu-release-addr = /bits/ 64 <0>;
- 			reg = <0x0>;
--			qcom,acc = <&acc4>;
--			qcom,saw = <&saw4>;
- 			cpu-idle-states = <&cpu_sleep_0>;
- 			clocks = <&apcs0_mbox>;
- 			#cooling-cells = <2>;
-@@ -121,10 +116,9 @@ cpu5: cpu@1 {
- 			compatible = "arm,cortex-a53";
- 			device_type = "cpu";
- 			enable-method = "spin-table";
-+			cpu-release-addr = /bits/ 64 <0>;
- 			reg = <0x1>;
- 			next-level-cache = <&l2_0>;
--			qcom,acc = <&acc5>;
--			qcom,saw = <&saw5>;
- 			cpu-idle-states = <&cpu_sleep_0>;
- 			clocks = <&apcs0_mbox>;
- 			#cooling-cells = <2>;
-@@ -134,10 +128,9 @@ cpu6: cpu@2 {
- 			compatible = "arm,cortex-a53";
- 			device_type = "cpu";
- 			enable-method = "spin-table";
-+			cpu-release-addr = /bits/ 64 <0>;
- 			reg = <0x2>;
- 			next-level-cache = <&l2_0>;
--			qcom,acc = <&acc6>;
--			qcom,saw = <&saw6>;
- 			cpu-idle-states = <&cpu_sleep_0>;
- 			clocks = <&apcs0_mbox>;
- 			#cooling-cells = <2>;
-@@ -147,10 +140,9 @@ cpu7: cpu@3 {
- 			compatible = "arm,cortex-a53";
- 			device_type = "cpu";
- 			enable-method = "spin-table";
-+			cpu-release-addr = /bits/ 64 <0>;
- 			reg = <0x3>;
- 			next-level-cache = <&l2_0>;
--			qcom,acc = <&acc7>;
--			qcom,saw = <&saw7>;
- 			cpu-idle-states = <&cpu_sleep_0>;
- 			clocks = <&apcs0_mbox>;
- 			#cooling-cells = <2>;
+diff --git a/arch/arm64/boot/dts/qcom/msm8992-lg-h815.dts b/arch/arm64/boot/dts/qcom/msm8992-lg-h815.dts
+index 4520d5d51a29..6a231afad85d 100644
+--- a/arch/arm64/boot/dts/qcom/msm8992-lg-h815.dts
++++ b/arch/arm64/boot/dts/qcom/msm8992-lg-h815.dts
+@@ -93,26 +93,32 @@ key-vol-up {
+ 
+ &cpu0 {
+ 	enable-method = "spin-table";
++	cpu-release-addr = /bits/ 64 <0>;
+ };
+ 
+ &cpu1 {
+ 	enable-method = "spin-table";
++	cpu-release-addr = /bits/ 64 <0>;
+ };
+ 
+ &cpu2 {
+ 	enable-method = "spin-table";
++	cpu-release-addr = /bits/ 64 <0>;
+ };
+ 
+ &cpu3 {
+ 	enable-method = "spin-table";
++	cpu-release-addr = /bits/ 64 <0>;
+ };
+ 
+ &cpu4 {
+ 	enable-method = "spin-table";
++	cpu-release-addr = /bits/ 64 <0>;
+ };
+ 
+ &cpu5 {
+ 	enable-method = "spin-table";
++	cpu-release-addr = /bits/ 64 <0>;
+ };
+ 
+ &pm8994_resin {
 
 -- 
 2.47.2
