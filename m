@@ -4,87 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B55FCC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 12:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB52C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 12:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZTU9ncN4gaPvvWv2/kPgQ7Y0Lxm8sALtBZAAIO+VFQ8=; b=YWFSxK9KD67nSE3H2gmXcWGhvk
-	kXpKDnbkMp/LYg6jZkHdm6/YjqHlUHo4nwNLwGbfMcvLNOhN68eYxg4qGM/b1r9GokNAJ3BxBtqtN
-	S4Q7OOftS9gTglgaA33EMKrcr4m9JrQqEExZrl/DSPDZ0P9GanvWs6Ov4buRabObxNzi0nvyxk/Ww
-	7seevALTR0d2DKFGtL2MOUnWMsh87iZOQ64m1r8KeolWn3LEGovubzRR3QEAAXHDv73YaQoeu5tC4
-	E5Uvb1GC+ATNIQ57NEBBwiklncuwixMKDIWZvVA9LKKqkW5tQLrOUYprbVRERcybp/Cfvc3X2VRru
-	c2TaFE/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sdKLc5MjktJZa810aqGcSsPvinWQO84XBRNqViraEgk=; b=QPU4v0hDkBf+rjF0uoup5AJPmZ
+	TQFwtA3qRofeEH43AeQsvntaBeBEB73EqURzstTQBaZ9JhEOv6Iiv3rhjBr/ghG/2ifHJL2K8aY6F
+	+NtGf4GIWTfCSZvHNUEH7sNah4sPBW2mccpkSd7iAj3kHFUNyR3bfcrC2kU45wXmA6+yAX1BQDen5
+	rDZaamK1HYe6+9kAds5fplkvKZjWzAdkXbkjprZQEVZ0Lr7o4qhT8fajdDYbAn2GirwjX8Df45hcG
+	RlOD6+TzC5AJGH2ssZvPwmlXch4LGa1iDZy0pd2P/Kmu0quXF3lWodf5u7qh68yv5s1lBqkuZCt4X
+	b5gCtdFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0gOE-0000000BhsF-1f75;
-	Fri, 04 Apr 2025 12:43:18 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1u0gRo-0000000BiMj-22t5;
+	Fri, 04 Apr 2025 12:47:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0gKw-0000000BhVG-3fVC
+	id 1u0gQ4-0000000BiDP-0Loe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 12:39:56 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-39c2688e2bbso170626f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 05:39:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743770393; x=1744375193; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZTU9ncN4gaPvvWv2/kPgQ7Y0Lxm8sALtBZAAIO+VFQ8=;
-        b=vzVrWUm6wr/Cno2Popi0wtqIYexiks6tPpbV2StsE0x3VM6b5knUGrtgHzulttkI/l
-         HO4wVaC3/cpWe2LxDZJiKXHa0hhHvLlgE0fnBXSE4l+DGsWodPlSUja/VBKnKiqNCKlX
-         0F23pTFLV1Ni5uRJmTl7cGMCjdYSEOCH+XlPsqKmT7KSDHxy+RWdBxHsZ8xx5mpUF9ks
-         eMOwiacU8ciOuWFf3vmu/gXGnVdlnXJFPM0JbgsjyE/131UKG0R5PrlfRgjCLvjh/Wr3
-         Q3UpOhXa9QgAuFqflJH7oep1dzhL6lVoTbrSH9AGYf10wOmpaDMavjLjvzL6HdCEYyRD
-         XNKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743770393; x=1744375193;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZTU9ncN4gaPvvWv2/kPgQ7Y0Lxm8sALtBZAAIO+VFQ8=;
-        b=ljuz8/5rGJ9rXyyTL4W7t12AaIVppP6bqhLDd3R2xCJNVi3PB9rc4Eq6zXF1ZrsxQ9
-         qyp35uZ8xoySCNjjPBGiKzkgYJuk8Dv5HKWMZGBmuKKNwsT4htIdYQRP2g3vtfb7m0vE
-         dhR5weH5HpXpPFGKpHnz/RSnPjjsFeKJnr3TJrQDLaz9WcOwCLj7i0OmWbf838eJIjVK
-         X4WhEViZY9zjO4uTH7NOnGLI8IbwfPqxrHyKgTkgX+9W7yrHQG7noZUw7kBhmlgwOFkt
-         YJ4k3WURJjQ67+iRvPwZ6aqT0zjO52ENMqY85cYjtLBwdUCMxNh7Gv7K1T+WtnmaL4xf
-         R6qg==
-X-Forwarded-Encrypted: i=1; AJvYcCWbeMSDHoQHyEF5RJiY2tpCVW+8uy8W/jBQ2qlsq97OLi4Nt1fyPZr6SI7JmJ43KXv0HFBAOi+RbKPDGCcAjS2b@lists.infradead.org
-X-Gm-Message-State: AOJu0YzigekCj96WS0KsqMyklIk//p0581xuO7Xlw0w6c1oGG6ZOljp/
-	dYoB7ZW+BfudHiBbajua1oFDizMNyy+4lgO+bnn/1HAdbJKa5LvzcF4z77bXfvo=
-X-Gm-Gg: ASbGncuZVA3/wrMXhlY146SIXYy/c3uN3/hRDLkfEN6bXs4+n613eEDCDn/3RoBp1XS
-	dVbE7Q3JTvYprcQMZijSA05FYXev1LfAHEeTJP9m1IGPp/NO1tCzD2TCS0IrI0+Zg/jpDz2zVKI
-	9c7iLAgpVj3mRs9VKBw4u7IyvGqCwtH9HzxIbeDJnQVACJ9Mlyo4cmNWPZwsklBob41uX9CS/v4
-	7pr+8oaEcMVGOuBistQriW5//3TTed3C8Q4pFFaLMKiT10fe1Pp8CbfpLTLWyrDowt/YYAt3q/r
-	DPAKentmev//F3z43+3sHLWXeF+FQjbx8ACUIyaeE/15/SzNrnS18A==
-X-Google-Smtp-Source: AGHT+IFE/BNeQcKRRWZIPVRmYBmQ1t5nK5Wr5F4lJXYDnVHNSidWI2olRFDyeW5mBZo+ZjR5fCLwxA==
-X-Received: by 2002:a5d:5f44:0:b0:386:3a50:8c52 with SMTP id ffacd0b85a97d-39cb35a76e9mr962968f8f.7.1743770393235;
-        Fri, 04 Apr 2025 05:39:53 -0700 (PDT)
-Received: from shite.. ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c3020d98bsm4261898f8f.76.2025.04.04.05.39.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Apr 2025 05:39:52 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] firmware: meson: Do not enable MESON_SM by default during compile testing
-Date: Fri,  4 Apr 2025 14:39:49 +0200
-Message-ID: <20250404123949.362652-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Fri, 04 Apr 2025 12:45:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E52754393C;
+	Fri,  4 Apr 2025 12:45:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AFC4C4CEDD;
+	Fri,  4 Apr 2025 12:45:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743770711;
+	bh=+f9bptQzXW02fg/r/Fn12knWGTzQttrVy41KB2g3QZ4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dat10KXg8qGBRc6wGr53pYS2oCTMA1VLmxkoVxpX7r9er25pw4MdWL04Hy1t+FRn0
+	 WvanxZFRMN0ABsf8CwgkBg7gqlnepiYF75sXDI7vaDepE0LKLRib2BhfcAaOil1Xbu
+	 1WUEK7IMvBY9QSX2qyr/uFjkct2AYFoL0FLzf969RVdpPn66mrYlBmRhteMQyz05HY
+	 4leuNuDOZvtElIeFwz/8qQhSjkQcxZrZiZP9ayeF75uNQ5clm/SLcn8MOOlExX2S0u
+	 XUtpWC5GICfNvbfbiRpuopV99cvd0gxQEV7eTgSZ/q/ah2HfvunyBscvuBxnR79dAC
+	 MVOO3KkpueQYg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u0gQ0-002LQk-R4;
+	Fri, 04 Apr 2025 13:45:09 +0100
+Date: Fri, 04 Apr 2025 13:45:11 +0100
+Message-ID: <87zfgwxfhk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: <tglx@linutronix.de>,
+	<robh@kernel.org>,
+	<krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>,
+	<mcoquelin.stm32@gmail.com>,
+	<alexandre.torgue@foss.st.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>
+Subject: Re: [PATCH 3/3] arm64: dts: st: add st,stm32mp2-cortex-a7-gic in intc node in stm32mp251.dtsi
+In-Reply-To: <1c9a49cb-35a1-4bcc-abd5-b14a49d4d094@foss.st.com>
+References: <20250403122805.1574086-1-christian.bruel@foss.st.com>
+	<20250403122805.1574086-4-christian.bruel@foss.st.com>
+	<874iz5yx2c.wl-maz@kernel.org>
+	<1c9a49cb-35a1-4bcc-abd5-b14a49d4d094@foss.st.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: christian.bruel@foss.st.com, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_053954_918243_CE6DCB8A 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20250404_054512_167039_4F844888 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +94,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enabling the compile test should not cause automatic enabling of all
-drivers.
+On Fri, 04 Apr 2025 13:17:08 +0100,
+Christian Bruel <christian.bruel@foss.st.com> wrote:
+> 
+> 
+> 
+> On 4/3/25 19:27, Marc Zyngier wrote:
+> > On Thu, 03 Apr 2025 13:28:05 +0100,
+> > Christian Bruel <christian.bruel@foss.st.com> wrote:
+> >> 
+> >> Add st,stm32mp2-cortex-a7-gic to enable the GICC_DIR register remap
+> >> 
+> >> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> >> ---
+> >>   arch/arm64/boot/dts/st/stm32mp251.dtsi | 2 +-
+> >>   1 file changed, 1 insertion(+), 1 deletion(-)
+> >> 
+> >> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> >> index f3c6cdfd7008..030e5da67a7e 100644
+> >> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> >> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> >> @@ -115,7 +115,7 @@ scmi_vdda18adc: regulator@7 {
+> >>   	};
+> >>     	intc: interrupt-controller@4ac00000 {
+> >> -		compatible = "arm,cortex-a7-gic";
+> >> +		compatible = "st,stm32mp2-cortex-a7-gic", "arm,cortex-a7-gic";
+> > 
+> > What nonsense is this? This is an *arm64* machine, with I expect a
+> > GIC400. Where is this A7 compat coming from?
+> 
+> Probably historical, as the first port was for aarch32. I will fix
+> this separately. thanks for the head up!
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/firmware/meson/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Then while you're at it, you may want to consider removing the
+"always-on" property in the timer, because I'm pretty sure the
+comparator goes down in low power mode on A53 and A35, and loses its
+value.
 
-diff --git a/drivers/firmware/meson/Kconfig b/drivers/firmware/meson/Kconfig
-index f2fdd3756648..179f5d46d8dd 100644
---- a/drivers/firmware/meson/Kconfig
-+++ b/drivers/firmware/meson/Kconfig
-@@ -5,7 +5,7 @@
- config MESON_SM
- 	tristate "Amlogic Secure Monitor driver"
- 	depends on ARCH_MESON || COMPILE_TEST
--	default y
-+	default ARCH_MESON
- 	depends on ARM64_4K_PAGES
- 	help
- 	  Say y here to enable the Amlogic secure monitor driver
+In general, only VMs can make use of this property.
+
+	M.
+
 -- 
-2.45.2
-
+Jazz isn't dead. It just smells funny.
 
