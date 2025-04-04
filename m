@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E00C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 11:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929BEC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 11:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yr86mi2fY9Vmdc04Uxb6LfuvLQakZvpo4sXDLey8XKo=; b=eV7FL2Zv658cC2wqxew4W7R99Q
-	sD5wXhI9FmAAz+VSoOji5oD1lezMHzJIIl+cmZwdiQP4gdlkGVJzYliG7woqqbsCBK/vo03+J6Nuf
-	hE3n4d9HpiwYZ/zlrekq13zaB7au1vSuXlpEKRXt+R67vZupDnLzGa4U+cbn+WIulkBMfGPBHqzeY
-	V3afzdn1L9eqB1HsjcGMJM35ClX+gIFXB9/I+DIBhWiCXxzsQrTmRZXRD9NRCNlvJa2744qEnGjdB
-	+hjWZC18R2iosaD1xalQ//N9HGFkBrroqoplUdbDQdrt7wngTjYiW09pL4rqv/8HRT8mshQx/7/56
-	KmCcnwig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=89Q7P9rcer2LOwM5yvGXldpkkrB+pqePre3DpEVUJp0=; b=AJRIwxERcy95oL76WLWnjiyqOL
+	lIUaP/eMrrIDY7iRcPyNyCYXblcD7i4adOiSuThbCPOtTUs+wQvr/ny1W9fASevpiYSrMwRPNO8gT
+	S6LOR7yR9aOgpPhojpFNASq1Sv/Xas2yQiWGzP+mRxWP7/cP/dtCWq9nSvY8e76clPJKqLqMoF5oW
+	uQr3/sgD3sT/LYU+sqik5zTYrFzqwTNnPWPkPJWplTwLXN75Adt8NvRSAk59V0hjVM1I6qZ3Iawcc
+	KJV2Gn9AFtzvG6tKFuyanlgF5mMK6R6ue7WIMzYJhtaGeyyPiEqf53YVqiB0lrNutY5h+Iu0JY9YS
+	YZqZcOjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0eyp-0000000BWO2-1yDE;
-	Fri, 04 Apr 2025 11:12:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u0f8V-0000000BXBo-0eJ7;
+	Fri, 04 Apr 2025 11:22:59 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0ex1-0000000BW3d-29Ym;
-	Fri, 04 Apr 2025 11:11:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 90A715C433F;
-	Fri,  4 Apr 2025 11:08:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEEDEC4CEDD;
-	Fri,  4 Apr 2025 11:11:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743765066;
-	bh=PxW9C9uE2sPn+4J3bcvgkKgFGQt0vPUOZGSNVIJBhW0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nIGPRwcgNe+LrpmucRUeB6TYyfDmOz4zcF22kG1wiCAB2TN0wSlTet7gWXtbvEUHn
-	 OcgwRKO3f7e8yxYG52oo+CES6+qfbKq9C2T/Vnk0Qzuv9p1QQhpyKuzHLPc6qSEbNX
-	 aX0VuYPEf53boA40M1uDh1TgGlpevRp/LH4lxqdmMgqWP4E4bLUgFM39z+aQprf9rE
-	 HWS44gbSipCCMkdj5mTaiV0fiS2hL8CyVy1wIujogU/TDhRliGhgO7rZ3wZfj3620g
-	 ojYKfzKlqBCq1L2SbghpU4s+z7KgYHlwZr7dHx475APcyleKPcyvAxih3r7arSaWbq
-	 dLw9Xusgebqkg==
-Date: Fri, 4 Apr 2025 13:11:03 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Crystal Guo <crystal.guo@mediatek.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH v4 2/2] memory/mediatek: Add an interface to get current
- DDR data rate
-Message-ID: <20250404-soft-pumpkin-bettong-09abfc@shite>
-References: <20250403065030.22761-1-crystal.guo@mediatek.com>
- <20250403065030.22761-3-crystal.guo@mediatek.com>
+	id 1u0f6d-0000000BWvW-2LbS
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Apr 2025 11:21:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1743765658; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=89Q7P9rcer2LOwM5yvGXldpkkrB+pqePre3DpEVUJp0=;
+	b=bKmTrgEh5OtE4jgiiQCpJ7XIiQBRQ0DagOSdGYtpjwDOsnlqOUEMeVSh4GHAmoIaY0AiIEHL8qlczMfxpLrTO+sTVTIbN+JRJwe3FBhQHVnArkF3qkYh97Kl7gGKTuEuxHV8WotWBaBIXicEKxiZhZQftl0MGLTSMdd80qP0nh8=
+Received: from localhost.localdomain(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WUylQIl_1743765651 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 04 Apr 2025 19:20:54 +0800
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+To: catalin.marinas@arm.com,
+	sudeep.holla@arm.com,
+	guohanjun@huawei.com,
+	lpieralisi@kernel.org,
+	linux-acpi@vger.kernel.org,
+	yazen.ghannam@amd.com,
+	mark.rutland@arm.com,
+	mingo@redhat.com,
+	robin.murphy@arm.com,
+	Jonathan.Cameron@Huawei.com,
+	bp@alien8.de,
+	rafael@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	wangkefeng.wang@huawei.com,
+	tanxiaofei@huawei.com,
+	mawupeng1@huawei.com,
+	tony.luck@intel.com,
+	linmiaohe@huawei.com,
+	naoya.horiguchi@nec.com,
+	james.morse@arm.com,
+	tongtiangen@huawei.com,
+	gregkh@linuxfoundation.org,
+	will@kernel.org,
+	jarkko@kernel.org
+Cc: linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org,
+	linux-edac@vger.kernel.org,
+	x86@kernel.org,
+	xueshuai@linux.alibaba.com,
+	justin.he@arm.com,
+	ardb@kernel.org,
+	ying.huang@linux.alibaba.com,
+	ashish.kalra@amd.com,
+	baolin.wang@linux.alibaba.com,
+	tglx@linutronix.de,
+	dave.hansen@linux.intel.com,
+	lenb@kernel.org,
+	hpa@zytor.com,
+	robert.moore@intel.com,
+	lvying6@huawei.com,
+	xiexiuqi@huawei.com,
+	zhuo.song@linux.alibaba.com
+Subject: [RESEND PATCH v18 0/2] ACPI: APEI: handle synchronous errors in task work
+Date: Fri,  4 Apr 2025 19:20:48 +0800
+Message-ID: <20250404112050.42040-1-xueshuai@linux.alibaba.com>
+X-Mailer: git-send-email 2.44.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250403065030.22761-3-crystal.guo@mediatek.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_041107_669748_0F587392 
-X-CRM114-Status: GOOD (  34.43  )
+X-CRM114-CacheID: sfid-20250404_042104_384283_41F6F993 
+X-CRM114-Status: GOOD (  27.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,269 +102,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From Catalin:
 
-Please use subject prefixes matching the subsystem. You can get them for
-example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+> James Morse is listed as reviewer of the ACPI APEI code but he's busy
+> with resctrl/MPAM. 
 
-memory: mediatek:
+These two patches have undergone 18 iterations of review and have received
+11 'Reviewed-by' tags in total, but they have not yet been merged into the
+mainline. I am requesting further review and ack from the arm64
+ACPI maintainers: Lorenzo, Sudeep, and Hanjun. Thank you for your attention
+and assistance.
 
-On Thu, Apr 03, 2025 at 02:48:48PM GMT, Crystal Guo wrote:
-> Add MediaTek DRAMC driver to provide an interface that can
-> obtain current DDR data rate.
-> 
-> Signed-off-by: Crystal Guo <crystal.guo@mediatek.com>
-> ---
->  drivers/memory/Kconfig              |   1 +
->  drivers/memory/Makefile             |   1 +
->  drivers/memory/mediatek/Kconfig     |  20 +++
->  drivers/memory/mediatek/Makefile    |   2 +
->  drivers/memory/mediatek/mtk-dramc.c | 223 ++++++++++++++++++++++++++++
->  5 files changed, 247 insertions(+)
->  create mode 100644 drivers/memory/mediatek/Kconfig
->  create mode 100644 drivers/memory/mediatek/Makefile
->  create mode 100644 drivers/memory/mediatek/mtk-dramc.c
-> 
-> diff --git a/drivers/memory/Kconfig b/drivers/memory/Kconfig
-> index c82d8d8a16ea..b1698549ff81 100644
-> --- a/drivers/memory/Kconfig
-> +++ b/drivers/memory/Kconfig
-> @@ -227,5 +227,6 @@ config STM32_FMC2_EBI
->  
->  source "drivers/memory/samsung/Kconfig"
->  source "drivers/memory/tegra/Kconfig"
-> +source "drivers/memory/mediatek/Kconfig"
+no code changes since last v18:
+- drop a mm/hwpoison patch which is merged into mainline
 
-m goes before s, so this goes before samsung source.
+changes singce v17:
+- rebase to Linux 6.13-rc7 with no functional changes
+- add reviewed-by tag for patch 1-3 from Jane Chu
+- add reviewed-by tag for patch 3 from Yazen
 
->  
->  endif
-> diff --git a/drivers/memory/Makefile b/drivers/memory/Makefile
-> index d2e6ca9abbe0..c0facf529803 100644
-> --- a/drivers/memory/Makefile
-> +++ b/drivers/memory/Makefile
-> @@ -27,6 +27,7 @@ obj-$(CONFIG_STM32_FMC2_EBI)	+= stm32-fmc2-ebi.o
->  
->  obj-$(CONFIG_SAMSUNG_MC)	+= samsung/
->  obj-$(CONFIG_TEGRA_MC)		+= tegra/
-> +obj-$(CONFIG_MEDIATEK_MC)	+= mediatek/
->  obj-$(CONFIG_TI_EMIF_SRAM)	+= ti-emif-sram.o
->  obj-$(CONFIG_FPGA_DFL_EMIF)	+= dfl-emif.o
->  
-> diff --git a/drivers/memory/mediatek/Kconfig b/drivers/memory/mediatek/Kconfig
-> new file mode 100644
-> index 000000000000..eadc11ec0f1c
-> --- /dev/null
-> +++ b/drivers/memory/mediatek/Kconfig
-> @@ -0,0 +1,20 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +config MEDIATEK_MC
-> +	bool "MediaTek Memory Controller support"
-> +	default y
+changes singce v16:
+- add reviewed-by tag for patch 1 and patch 2 from Yazen
+- rewrite warning message for force kill (per Yazen)
+- warn with dev_err in ghes (per Jarkko)
+- add return value -ENXIO in memory_failure comments  (per Yazen)
+- Link: https://lore.kernel.org/lkml/20241104015430.98599-1-xueshuai@linux.alibaba.com/
 
-Why this has to be enabled for every compile test build? Look how other
-platforms do it.
+changes singce v15:
+- add HW_ERR and GHES_PFX prefix per Yazen 
 
-I'll fix the tegra.
+changes since v14:
+- add reviewed-by tags from Jarkko and Jonathan
+- remove local variable and use twcb->pfn
 
+changes since v13:
+- add reviewed-by tag from Jarkko
+- rename task_work to ghes_task_work (per Jarkko)
 
-> +	depends on ARCH_MEDIATEK || COMPILE_TEST
-> +	help
-> +	  This option allows to enable MediaTek memory controller drivers,
-> +	  which may include controllers for DRAM or others.
-> +
-> +if MEDIATEK_MC
-> +
-> +config MTK_DRAMC
-> +	tristate "MediaTek DRAMC driver"
-> +	default y
+changes since v12:
+- tweak error message for force kill (per Jarkko)
+- fix comments style (per Jarkko)
+- fix commit log typo (per Jarko)
 
-This matters less, could stay or could be also ARCH_MDIATEK.
+changes since v11:
+- rebase to Linux 6.11-rc6
+- fix grammer and typo in commit log (per Borislav)
+- remove `sync_` perfix of `sync_task_work`  (per Borislav)
+- comments flags and description of `task_work`  (per Borislav)
 
-> +	help
-> +	  This driver is for the DRAM Controller found in MediaTek SoCs
-> +	  and provides a sysfs interface for reporting the current DRAM
-> +	  data rate.
-> +
-> +endif
+changes since v10:
+- rebase to v6.8-rc2
 
-...
+changes since v9:
+- split patch 2 to address exactly one issue in one patch (per Borislav)
+- rewrite commit log according to template (per Borislav)
+- pickup reviewed-by tag of patch 1 from James Morse
+- alloc and free twcb through gen_pool_{alloc, free) (Per James)
+- rewrite cover letter
 
-> +
-> +static unsigned int read_reg_field(void __iomem *base, unsigned int offset, unsigned int mask)
-> +{
-> +	unsigned int val = readl(base + offset);
-> +	unsigned int shift = __ffs(mask);
-> +
-> +	return (val & mask) >> shift;
-> +}
-> +
-> +static int mtk_dramc_probe(struct platform_device *pdev)
+changes since v8:
+- remove the bug fix tag of patch 2 (per Jarkko Sakkinen)
+- remove the declaration of memory_failure_queue_kick (per Naoya Horiguchi)
+- rewrite the return value comments of memory_failure (per Naoya Horiguchi)
 
-Weird ordering. probe() is one of the last functions. Only other driver
-struct functions (like remove, suspend/resume) go after, not some
-regular code.
+changes since v7:
+- rebase to Linux v6.6-rc2 (no code changed)
+- rewritten the cover letter to explain the motivation of this patchset
 
-> +{
-> +	struct mtk_dramc *dramc;
-> +	const struct mtk_dramc_pdata *pdata;
-> +
-> +	dramc = devm_kzalloc(&pdev->dev, sizeof(struct mtk_dramc), GFP_KERNEL);
-> +	if (!dramc)
-> +		return dev_err_probe(&pdev->dev, -ENOMEM, "Failed to allocate memory\n");
-> +
-> +	pdata = of_device_get_match_data(&pdev->dev);
-> +	if (!pdata)
-> +		return dev_err_probe(&pdev->dev, -EINVAL, "No platform data available\n");
+changes since v6:
+- add more explicty error message suggested by Xiaofei
+- pick up reviewed-by tag from Xiaofei
+- pick up internal reviewed-by tag from Baolin
 
-Just return. That's impossible condition, so no need for printing errors.
+changes since v5 by addressing comments from Kefeng:
+- document return value of memory_failure()
+- drop redundant comments in call site of memory_failure() 
+- make ghes_do_proc void and handle abnormal case within it
+- pick up reviewed-by tag from Kefeng Wang 
 
-> +
-> +	dramc->pdata = pdata;
+changes since v4 by addressing comments from Xiaofei:
+- do a force kill only for abnormal sync errors
 
-Why do you need pdata variable in the first place? Make this code
-simple, not complicated.
+changes since v3 by addressing comments from Xiaofei:
+- do a force kill for abnormal memory failure error such as invalid PA,
+unexpected severity, OOM, etc
+- pcik up tested-by tag from Ma Wupeng
 
-> +
-> +	dramc->anaphy_base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(dramc->anaphy_base))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(dramc->anaphy_base),
-> +				     "Unable to map ANAPHY base\n");
-> +
-> +	dramc->ddrphy_base = devm_platform_ioremap_resource(pdev, 1);
-> +	if (IS_ERR(dramc->ddrphy_base))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(dramc->ddrphy_base),
-> +				     "Unable to map DDRPHY base\n");
-> +
-> +	platform_set_drvdata(pdev, dramc);
-> +	return 0;
-> +}
-> +
-> +static unsigned int mtk_fmeter_v1(struct mtk_dramc *dramc)
-> +{
-> +	const struct mtk_dramc_pdata *pdata = dramc->pdata;
-> +	unsigned int shu_level, pll_sel, offset;
-> +	unsigned int sdmpcw, posdiv, clkdiv, fbksel, sopen, async_ca, ser_mode;
-> +	unsigned int prediv_freq, posdiv_freq, vco_freq;
-> +	unsigned int final_rate;
-> +
-> +	shu_level = read_reg_field(dramc->ddrphy_base, pdata->regs[DRAMC_DPHY_DVFS_STA],
-> +				   pdata->masks[DRAMC_DPHY_DVFS_SHU_LV]);
+changes since v2 by addressing comments from Naoya:
+- rename mce_task_work to sync_task_work
+- drop ACPI_HEST_NOTIFY_MCE case in is_hest_sync_notify()
+- add steps to reproduce this problem in cover letter
 
-Don't creat your own wrappers. Use existing FIELD_PREP stuff.
+changes since v1:
+- synchronous events by notify type
+- Link: https://lore.kernel.org/lkml/20221206153354.92394-3-xueshuai@linux.alibaba.com/
 
-> +	pll_sel = read_reg_field(dramc->ddrphy_base, pdata->regs[DRAMC_DPHY_DVFS_STA],
-> +				 pdata->masks[DRAMC_DPHY_DVFS_PLL_SEL]);
-> +	offset = pdata->shuffle_offset * shu_level;
-> +
-> +	sdmpcw = read_reg_field(dramc->anaphy_base,
-> +				((pll_sel == 0) ?
-> +				pdata->regs[DRAMC_APHY_SHU_PHYPLL2] :
-> +				pdata->regs[DRAMC_APHY_SHU_CLRPLL2]) + offset,
-> +				pdata->masks[DRAMC_APHY_PLL2_SDMPCW]);
-> +	posdiv = read_reg_field(dramc->anaphy_base,
-> +				((pll_sel == 0) ?
-> +				pdata->regs[DRAMC_APHY_SHU_PHYPLL3] :
-> +				pdata->regs[DRAMC_APHY_SHU_CLRPLL3]) + offset,
-> +				pdata->masks[DRAMC_APHY_PLL3_POSDIV]);
-> +	fbksel = read_reg_field(dramc->anaphy_base, pdata->regs[DRAMC_APHY_SHU_PHYPLL4] + offset,
-> +				pdata->masks[DRAMC_APHY_PLL4_FBKSEL]);
-> +	sopen = read_reg_field(dramc->anaphy_base, pdata->regs[DRAMC_APHY_ARPI0] + offset,
-> +			       pdata->masks[DRAMC_APHY_ARPI0_SOPEN]);
-> +	async_ca = read_reg_field(dramc->anaphy_base, pdata->regs[DRAMC_APHY_CA_ARDLL1] + offset,
-> +				  pdata->masks[DRAMC_APHY_ARDLL1_CK_EN]);
-> +	ser_mode = read_reg_field(dramc->anaphy_base, pdata->regs[DRAMC_APHY_B0_TX0] + offset,
-> +				  pdata->masks[DRAMC_APHY_B0_TX0_SER_MODE]);
-> +
-> +	clkdiv = (ser_mode == 1) ? 1 : 0;
-> +	posdiv &= ~(pdata->posdiv_purify);
-> +
-> +	prediv_freq = pdata->ref_freq_mhz * (sdmpcw >> pdata->prediv);
-> +	posdiv_freq = (prediv_freq >> posdiv) >> 1;
-> +	vco_freq = posdiv_freq << fbksel;
-> +	final_rate = vco_freq >> clkdiv;
-> +
-> +	if (sopen == 1 && async_ca == 1)
-> +		final_rate >>= 1;
-> +
-> +	return final_rate;
-> +}
-> +
-> +/**
-> + * mtk_dramc_get_data_rate - Calculate the current DRAM data rate
-> + * @dev: Device pointer
-> + *
-> + * Return: DRAM Data Rate in Mbps or negative number for error
-> + */
-> +static unsigned int mtk_dramc_get_data_rate(struct device *dev)
-> +{
-> +	struct mtk_dramc *dramc = dev_get_drvdata(dev);
-> +
-> +	if (dramc->pdata->fmeter_version == 1)
+## Cover Letter
 
-Drop, it's not possible to have other case.
+There are two major types of uncorrected recoverable (UCR) errors :
 
-> +		return mtk_fmeter_v1(dramc);
-> +
-> +	dev_err(dev, "Frequency meter version %u not supported\n", dramc->pdata->fmeter_version);
-> +	return -EINVAL;
-> +}
-> +
-> +static ssize_t dram_data_rate_show(struct device *dev,
-> +				   struct device_attribute *attr, char *buf)
+- Synchronous error: The error is detected and raised at the point of the
+  consumption in the execution flow, e.g. when a CPU tries to access
+  a poisoned cache line. The CPU will take a synchronous error exception
+  such as Synchronous External Abort (SEA) on Arm64 and Machine Check
+  Exception (MCE) on X86. OS requires to take action (for example, offline
+  failure page/kill failure thread) to recover this uncorrectable error.
 
-No ABI doc.
+- Asynchronous error: The error is detected out of processor execution
+  context, e.g. when an error is detected by a background scrubber. Some data
+  in the memory are corrupted. But the data have not been consumed. OS is
+  optional to take action to recover this uncorrectable error.
 
-Why existing interconnect interface is not suitable here?  This should
-be an interconnect, otherwise what is the point of this driver? What do
-you exactly configure here?
+Currently, both synchronous and asynchronous error use
+memory_failure_queue() to schedule memory_failure() exectute in kworker
+context. As a result, when a user-space process is accessing a poisoned
+data, a data abort is taken and the memory_failure() is executed in the
+kworker context:
 
+  - will send wrong si_code by SIGBUS signal in early_kill mode, and
+  - can not kill the user-space in some cases resulting a synchronous
+    error infinite loop
 
-> +{
-> +	return snprintf(buf, PAGE_SIZE, "DRAM data rate = %u\n",
-> +			mtk_dramc_get_data_rate(dev));
-> +}
-> +
-> +static DEVICE_ATTR_RO(dram_data_rate);
-> +
-> +static struct attribute *mtk_dramc_attrs[] = {
-> +	&dev_attr_dram_data_rate.attr,
-> +	NULL
-> +};
-> +ATTRIBUTE_GROUPS(mtk_dramc);
-> +
-> +static const struct mtk_dramc_pdata dramc_pdata_mt8196 = {
-> +	.fmeter_version = 1,
-> +	.ref_freq_mhz = 26,
-> +	.regs = mtk_dramc_regs_mt8196,
-> +	.masks = mtk_dramc_masks_mt8196,
-> +	.posdiv_purify = BIT(2),
-> +	.prediv = 7,
-> +	.shuffle_offset = 0x700,
-> +};
-> +
-> +static const struct of_device_id mtk_dramc_of_ids[] = {
-> +	{ .compatible = "mediatek,mt8196-dramc", .data = &dramc_pdata_mt8196 },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, mtk_dramc_of_ids);
-> +
-> +static struct platform_driver mtk_dramc_driver = {
-> +	.probe = mtk_dramc_probe,
-> +	.driver = {
-> +		.name = "mtk-dramc",
-> +		.of_match_table = mtk_dramc_of_ids,
-> +		.dev_groups = mtk_dramc_groups,
-> +	},
-> +};
-> +module_platform_driver(mtk_dramc_driver);
-> +
-> +MODULE_AUTHOR("Crystal Guo <crystal.guo@mediatek.com>");
-> +MODULE_DESCRIPTION("MediaTek DRAM Controller Driver");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.18.0
-> 
+Issue 1: send wrong si_code in early_kill mode
+
+Since commit a70297d22132 ("ACPI: APEI: set memory failure flags as
+MF_ACTION_REQUIRED on synchronous events")', the flag MF_ACTION_REQUIRED
+could be used to determine whether a synchronous exception occurs on
+ARM64 platform.  When a synchronous exception is detected, the kernel is
+expected to terminate the current process which has accessed poisoned
+page. This is done by sending a SIGBUS signal with an error code
+BUS_MCEERR_AR, indicating an action-required machine check error on
+read.
+
+However, when kill_proc() is called to terminate the processes who have
+the poisoned page mapped, it sends the incorrect SIGBUS error code
+BUS_MCEERR_AO because the context in which it operates is not the one
+where the error was triggered.
+
+To reproduce this problem:
+
+  # STEP1: enable early kill mode
+  #sysctl -w vm.memory_failure_early_kill=1
+  vm.memory_failure_early_kill = 1
+
+  # STEP2: inject an UCE error and consume it to trigger a synchronous error
+  #einj_mem_uc single
+  0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
+  injecting ...
+  triggering ...
+  signal 7 code 5 addr 0xffffb0d75000
+  page not present
+  Test passed
+
+The si_code (code 5) from einj_mem_uc indicates that it is BUS_MCEERR_AO
+error and it is not fact.
+
+To fix it, queue memory_failure() as a task_work so that it runs in
+the context of the process that is actually consuming the poisoned data.
+
+After this patch set:
+
+  # STEP1: enable early kill mode
+  #sysctl -w vm.memory_failure_early_kill=1
+  vm.memory_failure_early_kill = 1
+
+  # STEP2: inject an UCE error and consume it to trigger a synchronous error
+  #einj_mem_uc single
+  0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
+  injecting ...
+  triggering ...
+  signal 7 code 4 addr 0xffffb0d75000
+  page not present
+  Test passed
+
+The si_code (code 4) from einj_mem_uc indicates that it is BUS_MCEERR_AR
+error as we expected.
+
+Issue 2: a synchronous error infinite loop due to memory_failure() failed
+
+If a user-space process, e.g. devmem, a poisoned page which has been set
+HWPosion flag, kill_accessing_process() is called to send SIGBUS to the
+current processs with error info. Because the memory_failure() is
+executed in the kworker contex, it will just do nothing but return
+EFAULT. So, devmem will access the posioned page and trigger an
+excepction again, resulting in a synchronous error infinite loop. Such
+loop may cause platform firmware to exceed some threshold and reboot
+when Linux could have recovered from this error.
+
+To reproduce this problem:
+
+  # STEP 1: inject an UCE error, and kernel will set HWPosion flag for related page
+  #einj_mem_uc single
+  0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
+  injecting ...
+  triggering ...
+  signal 7 code 4 addr 0xffffb0d75000
+  page not present
+  Test passed
+
+  # STEP 2: access the same page and it will trigger a synchronous error infinite loop
+  devmem 0x4092d55b400
+
+To fix it, if memory_failure() failed, perform a force kill to current process.
+
+Issue 3: a synchronous error infinite loop due to no memory_failure() queued
+
+No memory_failure() work is queued unless all bellow preconditions check passed:
+
+- `if (!(mem_err->validation_bits & CPER_MEM_VALID_PA))` in ghes_handle_memory_failure()
+- `if (flags == -1)` in ghes_handle_memory_failure()
+- `if (!IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))` in ghes_do_memory_failure()
+- `if (!pfn_valid(pfn) && !arch_is_platform_page(physical_addr)) ` in ghes_do_memory_failure()
+
+If the preconditions are not passed, the user-space process will trigger SEA again.
+This loop can potentially exceed the platform firmware threshold or even
+trigger a kernel hard lockup, leading to a system reboot.
+
+To fix it, if no memory_failure() queued, perform a force kill to current process.
+
+And the the memory errors triggered in kernel-mode[5], also relies on this
+patchset to kill the failure thread.
+
+Lv Ying and XiuQi from Huawei also proposed to address similar problem[2][4].
+Acknowledge to discussion with them.
+
+[1] Add ARMv8 RAS virtualization support in QEMU https://patchew.org/QEMU/20200512030609.19593-1-gengdongjiu@huawei.com/
+[2] https://lore.kernel.org/lkml/20221205115111.131568-3-lvying6@huawei.com/
+[3] https://lkml.kernel.org/r/20220914064935.7851-1-xueshuai@linux.alibaba.com
+[4] https://lore.kernel.org/lkml/20221209095407.383211-1-lvying6@huawei.com/
+[5] https://patchwork.kernel.org/project/linux-arm-kernel/cover/20240528085915.1955987-1-tongtiangen@huawei.com/
+
+Shuai Xue (2):
+  ACPI: APEI: send SIGBUS to current task if synchronous memory error
+    not recovered
+  ACPI: APEI: handle synchronous exceptions in task work
+
+ drivers/acpi/apei/ghes.c | 88 +++++++++++++++++++++++++---------------
+ include/acpi/ghes.h      |  3 --
+ include/linux/mm.h       |  1 -
+ mm/memory-failure.c      | 13 ------
+ 4 files changed, 55 insertions(+), 50 deletions(-)
+
+-- 
+2.39.3
+
 
