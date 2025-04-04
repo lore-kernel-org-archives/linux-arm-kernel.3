@@ -4,85 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40FCC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68286C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jJkY/rj+UDur6IhWIRiqvOf7fRgwOlEqOQiYwibJQko=; b=HFUe5rh5XS7qdLdU79qGULJtyf
-	nQK6H9eWsbKzD4PEDnBIvdaTeSVJM8CJ3zjua4SLenWwNwLBsgrSXW0TwHiA9aw8HoWpKfFsUkw+Q
-	7KpRKBQq8h1A73bcAnM4HsgUGEVnU3ZBm2CGMCw7aq7ZAd/YPOtQt4VBZfgptXE+76q1kJrK0N/+E
-	ehIrjf00fNw1vuarZVkV8ru88HOTP3DWRGo1swPmFiDsIHCk66RdS5gZWh3O4Bug6Mo4OJYe/fgnv
-	Fp2ZKOed9otcbhu8oWe6AhyXE9tMBgcqd9VPe37Os/CMCZWu10G/x3u6Q/2rrmKQ6cQCyM8/jOx6b
-	/C94Tmgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ReUSZ3oMQXTPnsGquL18rE47VGqTogpE0z1Ep4dGYqE=; b=TfhOb5uy4N5m+F+LNYcjiQ6tuw
+	RUxXtNnpxn+SONBRCPCh3R0rTPykKTBtVXvQ305BhZQPkt8MTsAB7vovRnwqaU4x/SNVn7yuEX9j+
+	pf0E6Y9OUERcd3nJOi9EAThVco3mmP6hMt8HoDjiospI5HRhXHD7gXnt1zfPKlQYyHwHovKIfKwYe
+	+75cWxHthtD8gFWRu8ILr9VaVvORGsftW6lLifURb0r7KdugtrTB4q5XS/QKoWYzq4A5SOfqV7J5r
+	cWhJ+FXzt3nPeC480I/t1/vH4PSJJV1F7+kwR9Q2PFubj53tI6biosLXOlrhkfPH76Ov1hSeBnIRc
+	+sLzeiwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0hsz-0000000BxlQ-0YVM;
-	Fri, 04 Apr 2025 14:19:09 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1u0i5z-0000000BzJX-0TFR;
+	Fri, 04 Apr 2025 14:32:35 +0000
+Received: from mail-dm6nam12on20627.outbound.protection.outlook.com ([2a01:111:f403:2417::627] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0hrD-0000000Bxb5-30AJ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 14:17:20 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2ff6cf448b8so2443594a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 07:17:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743776238; x=1744381038; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jJkY/rj+UDur6IhWIRiqvOf7fRgwOlEqOQiYwibJQko=;
-        b=nDEtJgrJL7Kw+epuFNw7whySbJ8EISzu5u8X8fa4PmNw1Ar+y9y/sY0pqHfdJSazsZ
-         qelbv89Lf0SWwEaABmjPo1AJduoHspxZYIWzsflnAUT9kbi4Nemo9EyGAx02R3spA0q/
-         DbrTPV+qaew+GQFOcwmpeENqKdTWeOAHuAs0UWaAlgK1tlIQfCJwPQzw18QylHtuM14U
-         g0E48SGGEyF2oltJKu3iYLKgmW8QYiBOmx+qYe01tT6JA2ai+gAvOlZF/Pum/aM/wmXK
-         2TQjN9T/aBV6XSWa6RoexU0VV3bOTk0W/P/dP9QZEouT2QPMMt+pWTxLYU2UY0dMPCeD
-         j2AA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743776238; x=1744381038;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jJkY/rj+UDur6IhWIRiqvOf7fRgwOlEqOQiYwibJQko=;
-        b=BdSfzRjgLgw8jKY6PTeHwLYpgzHZJ3S113pTGRMXu+9HlpmGSyeYY2FIwapC45Pd2/
-         z9328qYtj1WZs1pUD8wle9XMT/GQK8jSJ15YrfqUGAqFEZTB6QpkrcseJ4Ix30Sakm96
-         YrWpWWNa9j0sICgU7fi8UX7b9eATnqDuQCVEesjMA8cChWcXAu8lmjQtAeXxIys+jDeU
-         O2TAeWdEG03C/2Lz9udxpvyeOGCVz0UyXcYN+kKdKvSWFUdkcYM0v/EvL3MoYMlzJHxU
-         v95ubboxXPZghTi7aj/SsyXTuBL5CEPmMTHYYImF648e5Bj0BqZVBdmZn73IFQ34F1Op
-         TIbw==
-X-Forwarded-Encrypted: i=1; AJvYcCUtO0L4FNleFHA9g8RWjeItgNWHjJyBxSLMMN2/p9uNfqQqzTZlJI0cxDng5aFUTRod5Ckwy+0o06yYnXqRA8cZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxY8Rx/Tv6IHel9Uqp6r3vREHtfIClHDQkNhEUpoXl7VqCKl6G5
-	FyD6TOaJZTkS5k1YBP4zu6L06FduCZLRZt+Dj8eshCTyk7ztTqnC
-X-Gm-Gg: ASbGnct7CjmfkS/jbNyczFz9rQbBuTj77aGXs8CUwKkR/xbPcmqmrVO4FCAPo9GEmqc
-	nsiRT0tDdRkKfoplelpQvhcOualq58NT038rGnnvtniqVRSAeGDCUbXTdWULMfmEDsaWth7hXOt
-	mY2j5GdEE4cQgRpc301X2uztzjmLvkUf9zcJAkPCoJGaU0l3NAyzUZHIhkqNaV/CFSP+2xCysGV
-	WbeFHgah71qT5pOjYFxa2q+a66r/p9l47Ao/ezBZHLiWqrepZM0oo7hn3hbguIAWC2pmVMOnJgH
-	o+J74Qt0IKlyY5LzTfsd87SHGXXys80nFraji+GXud0=
-X-Google-Smtp-Source: AGHT+IGq9BLsszWtOE+3T1GWMl1g2khKbvr87Eb9IDtheXW5uB6Qt8lknEwKp1TWBl0CEPIqeeafWA==
-X-Received: by 2002:a17:90b:524f:b0:2ea:712d:9a82 with SMTP id 98e67ed59e1d1-306a498bfbbmr5106652a91.29.1743776238250;
-        Fri, 04 Apr 2025 07:17:18 -0700 (PDT)
-Received: from hiago-nb ([2804:1b3:a7c2:fdb9:802:4e79:d42a:3b39])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3057ca1f40fsm3693825a91.4.2025.04.04.07.17.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Apr 2025 07:17:17 -0700 (PDT)
-Date: Fri, 4 Apr 2025 11:17:13 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: linux-pm@vger.kernel.org
-Cc: Peng Fan <peng.fan@nxp.com>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	regressions@lists.linux.dev
-Subject: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when Cortex-M4 is
- running and it was started by U-Boot bootaux
-Message-ID: <20250404141713.ac2ntcsjsf7epdfa@hiago-nb>
-MIME-Version: 1.0
+	id 1u0i4F-0000000Bz1e-07Wd;
+	Fri, 04 Apr 2025 14:30:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JaicWWKIESvF/7ANDHPN4Xk24ccuAL23WpysxPqwMHAWoRDVBPGZFa95k9mXWqwyQN97wgoeBkNKk4zmRLdbib/2ukyS52t3we4fVhUnxx75kdBTvWoiTTOnvfm4o9IhtFbdcobMmw3FLAvQhvPEy76K6lMRqpt4tOeBls75d0o17Potao3YuLU0yOoYsH8O9GkZHN0udYL55Y4pXlwusp8GaGvEf7T/4twUkENP0duZAodMndzLFzE88qtP4SasaCI0tWZtobQmWE3CzSL8t84ciaJvyr/RdKJNVz0sqCenaeAkWNWuESZ8lOHj7F0QXrt9W8DPUorMsfocy6uqJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ReUSZ3oMQXTPnsGquL18rE47VGqTogpE0z1Ep4dGYqE=;
+ b=suWGyFDAvmNUVT2A3AQRXKcXcJXLZSARL+iafDYTzici2lfWV+IXWQSUYdaHKEf8Y6TZwmgxPQYUat71YKdSkRNXh187/7ke+yrt+BHS8oColyQ9QXxE3CswDUkjPjgocjH2S94IJhV7L1Nlb/odG8VNzXph0tFbd7mfwcKhxQ+zbNvguV2liwKsdjGrW2USBD/FbxSLZ4ScNswiJ8owIFNJpYwdhpXwr2aZk0ObBoMLugSLahiJPR/lP3gmDc/f7VPohjCkOI/ccZgcfeZjUAgpBD9bl+e+0dZKrzQgaE2BTRyz3TMa6utT+LSPPQmYjrAoy6+X/z2TxwiqNea1pA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ReUSZ3oMQXTPnsGquL18rE47VGqTogpE0z1Ep4dGYqE=;
+ b=If+b0/L/8nZHLfTgRmd4JhfGqMpN4pYoquj+cctX6KKao6DRlPEzyFzAq+p2aPADHyPph/y78HZwcwUMaCM0kG/jr/mNMtvgdkFyKOjmprpcTSsYZ+K2VlZRebjCYdw1hk+zB8M6a5LQjf//QUYqLi3TRH8CmQR08XAWpoPlte4b8r3AzaTzThYF4JUVPZsnyjzTM33BrlS/9xLrdvCJHGvHc+ngrSdU/dbFvRHvhSNpUZTZN6xjte6Ib8WDuFoqXv6KsijrPvVwQlLIWn7oAwA0kSZffuubkw1KM8vCrrPXRgcUaY16B7+GpuqFZrl5BPx9mE/vUf19zoqEspRckQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by IA1PR12MB8406.namprd12.prod.outlook.com (2603:10b6:208:3da::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.41; Fri, 4 Apr
+ 2025 14:30:33 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.043; Fri, 4 Apr 2025
+ 14:30:33 +0000
+Date: Fri, 4 Apr 2025 11:30:31 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Pratyush Yadav <ptyadav@amazon.de>,
+	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
+	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+	dave.hansen@linux.intel.com, dwmw2@infradead.org,
+	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
+	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
+	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
+	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
+	saravanak@google.com, skinsburskii@linux.microsoft.com,
+	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
+	usama.arif@bytedance.com, will@kernel.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
+ preservation
+Message-ID: <20250404143031.GB1336818@nvidia.com>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-10-changyuanl@google.com>
+ <mafs05xjmqsqc.fsf@amazon.de>
+ <20250403114209.GE342109@nvidia.com>
+ <Z-6UA3C1TPeH_kGL@kernel.org>
+ <20250403142438.GF342109@nvidia.com>
+ <Z--sUYCvP3Q8nT8e@kernel.org>
+ <20250404124729.GH342109@nvidia.com>
+ <Z-_kSXrHWU5Bf3sV@kernel.org>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <Z-_kSXrHWU5Bf3sV@kernel.org>
+X-ClientProxiedBy: BN9PR03CA0843.namprd03.prod.outlook.com
+ (2603:10b6:408:13d::8) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB8406:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4fb5910-b2da-41b4-4fed-08dd738541c2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DfCwXe61WKhxPSKAP7Xj4i6VqMV33wuxydV+87HCEh02IIj/iZ3qc+ABsTyB?=
+ =?us-ascii?Q?dj12ueKE5YsJINLbI+b38La0HtplWWA3QMphisu86UPDwuLq+pZ2+ygspi1w?=
+ =?us-ascii?Q?Rm07K/L9nh6O2cSuvEKjX0hvUwZ/rzxGE4mhh4jq1ckp8xvhsA2NyL8rsDOO?=
+ =?us-ascii?Q?1wNrYEcyPj6FCg4F2CWZfYCfGTz8u/05dc6caYB835zKvYMRG72BHuuZBN7S?=
+ =?us-ascii?Q?FCHnHm5DRyDf/+6jHccZ4CE02902C8EzxiBBRCgvK5PHf+I9HVDDQvU4BFHH?=
+ =?us-ascii?Q?oCJWquDdFXxLCazpoBm37q9TYeo9fyn8tmMkoavGB7A2A0LSmw+CODb5md6v?=
+ =?us-ascii?Q?jNc9Bgo8iqq6r+cmm8wd3ziYmU4ErTmFf0M/UVCfaST9DUMm6MJIpn5ul6DP?=
+ =?us-ascii?Q?IbIEKD6MOM8H5ntMU3HJwoAA07R2oBhpURxRclAp7W5UXUyK9gWHCVwYB41X?=
+ =?us-ascii?Q?ouOBPxhc2DhLvavEwFZRojOkT/OBTNn3PskKY1nuGdaFlB9IuYCWVaOO1a4U?=
+ =?us-ascii?Q?JBxUdFt6zTRGcnogDPEmins6dJwhnQzdcV6aIcd0X83vWMk1YQFICjCV3ihG?=
+ =?us-ascii?Q?ezcOmIq0EL7TRGRZwtOd0hGo4+l1/DFjm4VlUToZZWJZvkbYZYvtGXYbe5mG?=
+ =?us-ascii?Q?JIdxAbYa1mRvkmdXvMKZIAPZjXlyrvkA8Mc9881g9ddAyQ7uC6HdPFWGdLQx?=
+ =?us-ascii?Q?uhzHCoQOedzzQLW/aeNws7gn1FgiLOKXgTYjYqYJiZPV6hvA8I0RyKjKYCwL?=
+ =?us-ascii?Q?7qn+pJdHJrG9JUTKYhYYk1CHyKrsbPiyYGQ2dwiPXUHsZ6wcNTAlyGmFUYYf?=
+ =?us-ascii?Q?14cbbLp+b2djhDZZ5Taw5rM1sLTnW75XEXvwY785mLsyCM/xv+jwoEoRYdlQ?=
+ =?us-ascii?Q?u3Cd0O4kFQD+ybxQYa7BatQW1Ts/jKaH+V5yr2U18iipq1nqKn25gThQSAvz?=
+ =?us-ascii?Q?3of29O3QeP7oa1Ws2GlluQMLkf/ArCvaEgbWVFkS9je80inWAhGpsMOChlHp?=
+ =?us-ascii?Q?V7JU62yediSh7fB9M1F6ctEa9aStCVDXT7XJrlx8fpfgfoTbxEhjh7aWyFJg?=
+ =?us-ascii?Q?rk50kLCNotGkOUL6bMELQeCysKtvB13JzOcRbL9GbNYgy1w+CdzJ/s78QP56?=
+ =?us-ascii?Q?avL8RjvrTNcmTBPZavGUcu6EjbkXyZmm8TE9z0Qcuj2BaEQmVHT9bd+AxUjE?=
+ =?us-ascii?Q?KtqUacNO+cll13STyPlIR/XvyxBxjZgs4PBFO8bXUoYwmmCDXqhelMu3l2JN?=
+ =?us-ascii?Q?CxaNo9XhwvajGMC8JEna4zCKuMcLsjdja9XoNtzyx3ExEp4FGs3VGQzDIDbR?=
+ =?us-ascii?Q?3TkLHmRc3aBKi3kGsfh+tBifvCjcaIua1ZbKW0HFGuwbUUn/OlSQHaPsODfu?=
+ =?us-ascii?Q?/Vg2gakyQCC+q5sqeci7c0e28hTF?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IEyrknkHbyneGKE06wzAqjlORHk4kYY/tIdJ5XwNg5rQZ8AVDEYhxje7oPQU?=
+ =?us-ascii?Q?ByGtRKyXaRfGx5QcslqTCggjiHR3vKbU7CeyDnDKiXqvzgdiLwNtm+jXeTcl?=
+ =?us-ascii?Q?IX07NS0xreefH0Uti6+1GGpcV3NvmC6jd0+mU9nfSpP4ibPGz6DyfX212tUj?=
+ =?us-ascii?Q?ZQH334xfLCIhEKPoEpyif9h2mjkV3C6ojVyKsq+7pRRuuA5SsWVlqHhhyLRe?=
+ =?us-ascii?Q?BkgJIBSYshqglHM72kOX6JQs0UVDI5sy8vGsURzHlUtoAO34XYi//8aHA2Ei?=
+ =?us-ascii?Q?JFXdZTEC8sRdUPgmu4UHKZdvshsxspsExCstZPKZXCzjnnFUK8z7/I6OYx1d?=
+ =?us-ascii?Q?pnCHFKoz1TrIq+4+gTTufsyE2PL7NoL+jYKIeqhpMBkfdMUAX+oM3erhCFJG?=
+ =?us-ascii?Q?0ubf21wzhZP8e6HvxWadVYbw0QLs/mggPhuzEN3qqnIrRc1rvo03rEMR8A3t?=
+ =?us-ascii?Q?RsgCIPPBgUfX5VDJUNT0WtnankDm1X3Rip+lDkhnqMdtO/O74W4YcYaKCkx1?=
+ =?us-ascii?Q?rpidIatQ0l3/T8jLWo+zjecakM5CCSLMPWbi9VaUVX4TYyOQl706E56VPRAV?=
+ =?us-ascii?Q?ugqhZba0p+jAdNZudGAGD2topaHaStdQ0lRU/gIJNV1QUhQ3OJGS8oJLQFpQ?=
+ =?us-ascii?Q?lGpi3lwnuGTn3GNG1yzEWRc8Wv45ueiRDYigTmFn1OEplxneCCqug2fabC3b?=
+ =?us-ascii?Q?FAGPf3xO5sjmXelb/J0crJHGL6+eWA1tBK5P/2iBYw3xHAbi18+3haNRaCEq?=
+ =?us-ascii?Q?dEt7uHgBCvSt1alZ5z7KxonmuS2Gyn88WHP9PHMz9Kn4tyTyTdkQ+Hzq7O/I?=
+ =?us-ascii?Q?11ily2+dtVHuj7Twb4Pe+nRYg9Zkdpyoq19oIRNU87oyXmjr7wrGuQ2vVX/w?=
+ =?us-ascii?Q?0K7UeQe3E4eNM3cq6BCwL97I4fdWndl5xvZ0lXJdEMIXK5owd4kCtT9pnWpg?=
+ =?us-ascii?Q?/Sg0qd38q3PjXh9VW8DofndvxmHzyoXWIYB8CgA+jPVovoG3TV8zFl+n8cK7?=
+ =?us-ascii?Q?q1fkTDg2wOnS0nkLHZqq4cXy1ZIk33oWMjLT0pQ4ylVQ1y2977KI0CexoyS8?=
+ =?us-ascii?Q?mg5YqcJyvGYolKfhXrQX0x6YJ9wx44ToXIA/fd1CdPSzUB7CCDRDvCbd0gmz?=
+ =?us-ascii?Q?WnSIddscim2pkuJYK51f/6woc+vnrfr6GDCtqlUcSQ4Tlc86qr7U3v7cOgb3?=
+ =?us-ascii?Q?VfMN5ggNbihcZFjsfuYX3D6A+TB7S5OqPACPCYGCsmSlIbVWcAkUXqwZLNmi?=
+ =?us-ascii?Q?bqSUeZixeruJD9gV9DaBPYm1tLY8JDLFmeeXyI8jEetPq/FJA1Ve2SBP3YBb?=
+ =?us-ascii?Q?vMy4pMfAA7LcyN1qa0xY/TPuxWmuETzvWSia1VV8nGF8gZ1lSUpGTYdJImu1?=
+ =?us-ascii?Q?7fDZ7fXJJdegXOFO/zT0+u4AHsjv+ErohzJG1n1X3to6SVOMz9Xh4N+pqstI?=
+ =?us-ascii?Q?2aI7PR9QLJi5rhPMjJas3OpiqIGDjopHJbqzYW+SPiSaPyyaWN+qe697fQbH?=
+ =?us-ascii?Q?OophrdbbfCPr4OkN2E1sT94lA3Baq+N8QJjjGMB02JjRC1ViE9r6z1iKamwv?=
+ =?us-ascii?Q?b18GhISvqgykOQrBwEf5ysi8z1rJY5sFdUQOSiVz?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4fb5910-b2da-41b4-4fed-08dd738541c2
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Apr 2025 14:30:33.1630
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jzXagn8iRWdCGDAf6ndPE4cu6i4k9JCzENzxV1o6MtU3Fo3eU3J5ewT5NANde2RN
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8406
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_071719_751608_D582E6F9 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20250404_073047_063122_1F6F3A3F 
+X-CRM114-Status: GOOD (  36.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,62 +177,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-#regzbot introduced: 4f6c983261
+On Fri, Apr 04, 2025 at 04:53:13PM +0300, Mike Rapoport wrote:
+> > Maybe change the reserved regions code to put the region list in a
+> > folio and preserve the folio instead of using FDT as a "demo" for the
+> > functionality.
+> 
+> Folios are not available when we restore reserved regions, this just won't
+> work.
 
-Hi Peng and all,
+You don't need the folio at that point, you just need the data in the
+page.
 
-Commit 4f6c9832613b ("genpd: imx: scu-pd: initialize is_off according to
-HW state") introduced a regression where the Kernel reboots unexpectedly
-(without any warnings, crashes or errors) when the Cortex-M4 was loaded
-and running by U-Boot, using the bootaux command:
+The folio would be freed after starting up the buddy allocator.
 
-# load mmc 0:2 ${loadaddr} /home/root/hello_world.bin
-# bootaux ${loadaddr} 0
-# boot
+> > We know what the future use case is for the folio preservation, all
+> > the drivers and the iommu are going to rely on this.
+> 
+> We don't know how much of the preservation will be based on folios.
 
-This is a simple hello world binary that prints a message into the
-M40.UART0 pin (demo from NXP MCUXpresso).
+I think almost all of it. Where else does memory come from for drivers?
 
-Before this commit, everything worked as expected, Linux boots fine and
-the HMP core keeps running and printing messages to the UART. After the
-commit, the kernel reboots at the beggining of the boot process. The
-only relevant message is printed by U-Boot after reset:
+> Most drivers do not use folios
 
-"Reset cause: SCFW fault reset"
+Yes they do, either through kmalloc or through alloc_page/etc. "folio"
+here is just some generic word meaning memory from the buddy allocator.
 
-This commit was bisectabled, the same device tree, u-boot version, and
-SCFW versions were used. Reverting this commit fixes the issues.
+The big question on my mind is if we need a way to preserve slab
+objects as well..
 
-For testing purposes, I created the following patch which also fixes the
-issue:
+> and for preserving memfd* and hugetlb we'd need to have some dance
+> around that memory anyway.
 
-diff --git a/drivers/pmdomain/imx/scu-pd.c b/drivers/pmdomain/imx/scu-pd.c
-index 38f3cdd21042..0477b3fb4991 100644
---- a/drivers/pmdomain/imx/scu-pd.c
-+++ b/drivers/pmdomain/imx/scu-pd.c
-@@ -539,6 +539,9 @@ imx_scu_add_pm_domain(struct device *dev, int idx,
-                return NULL;
-        }
+memfd is all folios - what do you mean?
 
-+       if (strstr("cm40", sc_pd->name) != NULL)
-+               is_off = true;
-+
-        ret = pm_genpd_init(&sc_pd->pd, NULL, is_off);
-        if (ret) {
-                dev_warn(dev, "failed to init pd %s rsrc id %d",
+hugetlb is moving toward folios.. eg guestmemfd is supposed to be
+taking the hugetlb special stuff and turning it into folios.
 
+> So I think kho_preserve_folio() would be a part of the fdbox or
+> whatever that functionality will be called.
 
-Test Environment:
-- Hardware: Colibri iMX8DX 1GB with Colbiri Evaluation Board.
-- U-Boot Version: 2024.04
-- U-Boot Build info:
-	SCFW 83624b99, SECO-FW c9de51c0, IMX-MKIMAGE 4622115c, ATF 7c64d4e
+It is part of KHO. Preserving the folios has to be sequenced with
+starting the buddy allocator, and that is KHO's entire responsibility.
 
-The issue is not present on: v6.5
+I could see something like preserving slab being in a different layer,
+built on preserving folios.
 
-The real root cause is still unclear to me. Anybody has any ideas? I am
-happy to share more details if needed.
+> Are they? 
+> The purpose of basic KHO is to make sure the memory we want to preserve is
+> not trampled over. Preserving folios with their orders means we need to
+> make sure memory range of the folio is preserved and we carry additional
+> information to actually recreate the folio object, in case it is needed and
+> in case it is possible. Hughetlb, for instance has its own way initializing
+> folios and just keeping the order won't be enough for that.
 
-Cheers,
-Hiago.
+I expect many things will need a side-car datastructure to record that
+additional meta-data. hugetlb can start with folios, then switch them
+over to its non-folio stuff based on its metadata.
+
+The point is the basic low level KHO mechanism is simple folios -
+memory from the buddy allocator with an neutral struct folio that the
+caller can then customize to its own memory descriptor type on restore.
+
+Eventually restore would allocate a caller specific memdesc and it
+wouldn't be "folios" at all. We just don't have the right words yet to
+describe this.
+
+> As for the optimizations of memblock reserve path, currently it what hurts
+> the most in my and Pratyush experiments. They are not very representative,
+> but still, preserving lots of pages/folios spread all over would have it's
+> toll on the mm initialization.
+
+> And I don't think invasive changes to how
+> buddy and memory map initialization are the best way to move forward and
+> optimize that.
+
+I'm pretty sure this is going to be the best performance path, but I
+have no idea how invasive it would be to the buddy alloactor to make
+it work.
+
+> Quite possibly we'd want to be able to minimize amount of *ranges*
+> that we preserve.
+
+I'm not sure, that seems backwards to me, we really don't want to have
+KHO mem zones! So I think optimizing for, and thinking about ranges
+doesn't make sense.
+
+The big ranges will arise naturally beacuse things like hugetlb
+reservations should all be contiguous and the resulting folios should
+all be allocated for the VM and also all be contigous. So vast, vast
+amounts of memory will be high order and contiguous.
+
+> Preserving folio orders with it is really straighforward and until we see
+> some real data of how the entire KHO machinery is used, I'd prefer simple
+> over anything else.
+
+mapletree may not even work as it has a very high bound on memory
+usage if the preservation workload is small and fragmented. This is
+why I didn't want to use list of ranges in the first place.
+
+It also doesn't work so well if you need to preserve the order too :\
+
+Until we know the workload(s) and cost how much memory the maple tree
+version will use I don't think it is a good general starting point.
+
+Jason
 
