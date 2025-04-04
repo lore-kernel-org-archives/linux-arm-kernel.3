@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFB6C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 03:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 959C3C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 03:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vE4Pr6EvLlx9qL314dOg7r7NlyHjtHoMz1fJMFa2jjg=; b=Hy0CaEQVIb7bEt2kmd+mZzAj58
-	rH/KHWb3J4dK+GHvdnrQAwhkDX96mKgQujrcicntoy2qO2KOFSzJ3JoedNsVyWArhzWZW0BHmPSSL
-	uPi6Q8i54GHYM9uATi4b7LkKxZyQ+oN63o9yKnNvm87oLSg/daOLnfSpz1TACZh7oSdt/O3sUIIaX
-	BFnjGL6yIcriyTFo3h7QiIPITM/QI26G6yt0CwkYaOFLX+Jg+m0eIBP6eYynF8uOFq6rhO88tO6RN
-	HNFrgqpK+Lp/kZXUYzrGmaQ6jc0T+Sqc7YHh+QAOguODyZGP2OHtHiS7vrwMUUd/ul/eER7OTFALG
-	cXQMqnXw==;
+	bh=JcmHjLMfzYcTJuMpS92fyyOTTk/Z4wS48LysVMTPWjw=; b=lCyqRxKpqVhI0Uli++R+Ur08mH
+	lY9X0sl0uTNv56NWk9LF6IhyzOjXqIYj0cTcZVaCin+wtb5fuuZloM9Eu7ZJAWMYyJ25lIPNxYnHP
+	IJYGVTsEGZxUnHLbjazOxWSO+Aj4s73tCAMBdg9ZJ6O1GBuVp2cStiRVLucwiGnnE6ITS19x/Ryqm
+	qbW71//uy53tfSeJNm9jQpCxMA7GJdyHiefdr1pUpPemsKYdyD/TQM6eC+aU/uefMY4Fe3DvtRllj
+	Dc5zWODTVN29p8kruv9kJE8zDyzyFLprZqjpHX1CKMdZlaR4e6+4+WBqHiJpg07fnhhEJoOLbhSd6
+	o7lJkfLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0Xcu-0000000AgKx-2ENx;
-	Fri, 04 Apr 2025 03:21:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u0Xef-0000000AgWk-0wtA;
+	Fri, 04 Apr 2025 03:23:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0XHg-0000000AczY-3WaE;
-	Fri, 04 Apr 2025 02:59:58 +0000
+	id 1u0XHi-0000000Ad0C-1jSh;
+	Fri, 04 Apr 2025 02:59:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CCECA44F2F;
-	Fri,  4 Apr 2025 02:59:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AB7BC4CEE9;
-	Fri,  4 Apr 2025 02:59:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C9B1E5C6C11;
+	Fri,  4 Apr 2025 02:57:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 508DAC4CEE3;
+	Fri,  4 Apr 2025 02:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743735596;
-	bh=xxnpE5qJ/N71v6fr0ntanbnn0YWeubI80yQwzP2nKgo=;
+	s=k20201202; t=1743735597;
+	bh=xnnf/JMo7g8hotGpKUR0IYT07WFDf4YWzcm+WUwyUKc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XIrMHwGTXb4RmttX/4kwcXrnnodX0JBT8uweoux/nL/HuKOCPfCBajnBFPeD8Vts6
-	 Gxe61aW4gvaTXmKw6+t5HolmnAW2Voe3vCOH6CoEzBtJxFC7kFmaeCW+xjLtma4zQz
-	 ++plRy91W12HopTil7NZc1ybIwDLVV4XS0vSsAgmEKXZzpEGXa0NWNGe8YGQUDFq7g
-	 UO7KBuOKY4U2H35uR9JTDOezj0jCkY4PTq+UF987lhUjRS4VKyqb6aJ/ET9NTmi+nP
-	 8TGp3QOoj802IkgOm+5C2Z/QNMN0ZE8AL8H0rwftmHSLbeAbe8AJfG9aNj9PPoqaWO
-	 BgFjh05sC9akQ==
+	b=L9m4MVF+CjyKiJF4HQGUCr+TFqomiA/bqC44XWNkWA1DHlVlz11Nva+tpMBnQsZxX
+	 eTghr2qdE7kh4uMtWQ2MvUFrOCocer4i0q+HiEXH8Yt9NsFAAkTbMYbobNxAg5B3lG
+	 HHB/EKqho1Fxd955zmMMskUQxaJYEZ0sW4L4SQ0hth4v8pPtWW9kSY7nJbdWOg61zc
+	 /3x+zwMvRp7HYKDbQcQia+tpYSJckx6QMv5w4fAf+Q6BLKjiplevqbbSxd52uFDNcV
+	 +xjhIsAKGFyvY9b16zN1Ba9+p4FruKxUwWqia9z0I/HKN3uYF2G35eyAKEDXjpJG/1
+	 lKJRzlS2Kq4Sw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 03 Apr 2025 21:59:32 -0500
-Subject: [PATCH 11/19] arm: dts: qcom: ipq4019: Drop redundant CPU
+Date: Thu, 03 Apr 2025 21:59:33 -0500
+Subject: [PATCH 12/19] arm: dts: rockchip: Drop redundant CPU
  "clock-latency"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250403-dt-cpu-schema-v1-11-076be7171a85@kernel.org>
+Message-Id: <20250403-dt-cpu-schema-v1-12-076be7171a85@kernel.org>
 References: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
 In-Reply-To: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,9 +88,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_195956_939095_21846503 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250403_195958_548958_E64F9524 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +106,149 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 The "clock-latency" property is part of the deprecated opp-v1 binding
 and is redundant if the opp-v2 table has equal or larger values in any
-"clock-latency-ns". The OPP table has values of 256000, so it can be
-removed.
+"clock-latency-ns". Add any missing "clock-latency-ns" properties and
+remove "clock-latency".
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi | 4 ----
- 1 file changed, 4 deletions(-)
+ arch/arm/boot/dts/rockchip/rk3128.dtsi | 8 +++++++-
+ arch/arm/boot/dts/rockchip/rk3188.dtsi | 1 -
+ arch/arm/boot/dts/rockchip/rk322x.dtsi | 1 -
+ arch/arm/boot/dts/rockchip/rk3288.dtsi | 5 +----
+ arch/arm/boot/dts/rockchip/rv1108.dtsi | 1 -
+ 5 files changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi b/arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi
-index 06b20c196faf..fceb2f5f5482 100644
---- a/arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi
-+++ b/arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi
-@@ -53,7 +53,6 @@ cpu@0 {
+diff --git a/arch/arm/boot/dts/rockchip/rk3128.dtsi b/arch/arm/boot/dts/rockchip/rk3128.dtsi
+index d4572146d135..c49099954c28 100644
+--- a/arch/arm/boot/dts/rockchip/rk3128.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3128.dtsi
+@@ -48,7 +48,6 @@ cpu0: cpu@f00 {
+ 			device_type = "cpu";
+ 			compatible = "arm,cortex-a7";
+ 			reg = <0xf00>;
+-			clock-latency = <40000>;
+ 			clocks = <&cru ARMCLK>;
+ 			resets = <&cru SRST_CORE0>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+@@ -87,31 +86,38 @@ cpu_opp_table: opp-table-0 {
+ 		opp-216000000 {
+ 			opp-hz = /bits/ 64 <216000000>;
+ 			opp-microvolt = <950000 950000 1325000>;
++			clock-latency-ns = <40000>;
+ 		};
+ 		opp-408000000 {
+ 			opp-hz = /bits/ 64 <408000000>;
+ 			opp-microvolt = <950000 950000 1325000>;
++			clock-latency-ns = <40000>;
+ 		};
+ 		opp-600000000 {
+ 			opp-hz = /bits/ 64 <600000000>;
+ 			opp-microvolt = <950000 950000 1325000>;
++			clock-latency-ns = <40000>;
+ 		};
+ 		opp-696000000 {
+ 			opp-hz = /bits/ 64 <696000000>;
+ 			opp-microvolt = <975000 975000 1325000>;
++			clock-latency-ns = <40000>;
+ 		};
+ 		opp-816000000 {
+ 			opp-hz = /bits/ 64 <816000000>;
+ 			opp-microvolt = <1075000 1075000 1325000>;
+ 			opp-suspend;
++			clock-latency-ns = <40000>;
+ 		};
+ 		opp-1008000000 {
+ 			opp-hz = /bits/ 64 <1008000000>;
+ 			opp-microvolt = <1200000 1200000 1325000>;
++			clock-latency-ns = <40000>;
+ 		};
+ 		opp-1200000000 {
+ 			opp-hz = /bits/ 64 <1200000000>;
+ 			opp-microvolt = <1325000 1325000 1325000>;
++			clock-latency-ns = <40000>;
+ 		};
+ 	};
+ 
+diff --git a/arch/arm/boot/dts/rockchip/rk3188.dtsi b/arch/arm/boot/dts/rockchip/rk3188.dtsi
+index 44b54af0bbf9..850bd6e67895 100644
+--- a/arch/arm/boot/dts/rockchip/rk3188.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3188.dtsi
+@@ -23,7 +23,6 @@ cpu0: cpu@0 {
+ 			compatible = "arm,cortex-a9";
+ 			next-level-cache = <&L2>;
  			reg = <0x0>;
- 			clocks = <&gcc GCC_APPS_CLK_SRC>;
- 			clock-frequency = <0>;
--			clock-latency = <256000>;
+-			clock-latency = <40000>;
+ 			clocks = <&cru ARMCLK>;
  			operating-points-v2 = <&cpu0_opp_table>;
- 		};
- 
-@@ -67,7 +66,6 @@ cpu@1 {
- 			reg = <0x1>;
- 			clocks = <&gcc GCC_APPS_CLK_SRC>;
- 			clock-frequency = <0>;
--			clock-latency = <256000>;
+ 			resets = <&cru SRST_CORE0>;
+diff --git a/arch/arm/boot/dts/rockchip/rk322x.dtsi b/arch/arm/boot/dts/rockchip/rk322x.dtsi
+index 96421355c274..cd11a018105b 100644
+--- a/arch/arm/boot/dts/rockchip/rk322x.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk322x.dtsi
+@@ -36,7 +36,6 @@ cpu0: cpu@f00 {
+ 			resets = <&cru SRST_CORE0>;
  			operating-points-v2 = <&cpu0_opp_table>;
+ 			#cooling-cells = <2>; /* min followed by max */
+-			clock-latency = <40000>;
+ 			clocks = <&cru ARMCLK>;
+ 			enable-method = "psci";
  		};
- 
-@@ -81,7 +79,6 @@ cpu@2 {
- 			reg = <0x2>;
- 			clocks = <&gcc GCC_APPS_CLK_SRC>;
- 			clock-frequency = <0>;
--			clock-latency = <256000>;
- 			operating-points-v2 = <&cpu0_opp_table>;
+diff --git a/arch/arm/boot/dts/rockchip/rk3288.dtsi b/arch/arm/boot/dts/rockchip/rk3288.dtsi
+index 3f1d640afafa..42d705b544ec 100644
+--- a/arch/arm/boot/dts/rockchip/rk3288.dtsi
++++ b/arch/arm/boot/dts/rockchip/rk3288.dtsi
+@@ -70,7 +70,6 @@ cpu0: cpu@500 {
+ 			resets = <&cru SRST_CORE0>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			#cooling-cells = <2>; /* min followed by max */
+-			clock-latency = <40000>;
+ 			clocks = <&cru ARMCLK>;
+ 			dynamic-power-coefficient = <370>;
  		};
- 
-@@ -95,7 +92,6 @@ cpu@3 {
- 			reg = <0x3>;
- 			clocks = <&gcc GCC_APPS_CLK_SRC>;
- 			clock-frequency = <0>;
--			clock-latency = <256000>;
- 			operating-points-v2 = <&cpu0_opp_table>;
+@@ -81,7 +80,6 @@ cpu1: cpu@501 {
+ 			resets = <&cru SRST_CORE1>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			#cooling-cells = <2>; /* min followed by max */
+-			clock-latency = <40000>;
+ 			clocks = <&cru ARMCLK>;
+ 			dynamic-power-coefficient = <370>;
  		};
- 
+@@ -92,7 +90,6 @@ cpu2: cpu@502 {
+ 			resets = <&cru SRST_CORE2>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			#cooling-cells = <2>; /* min followed by max */
+-			clock-latency = <40000>;
+ 			clocks = <&cru ARMCLK>;
+ 			dynamic-power-coefficient = <370>;
+ 		};
+@@ -103,7 +100,6 @@ cpu3: cpu@503 {
+ 			resets = <&cru SRST_CORE3>;
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			#cooling-cells = <2>; /* min followed by max */
+-			clock-latency = <40000>;
+ 			clocks = <&cru ARMCLK>;
+ 			dynamic-power-coefficient = <370>;
+ 		};
+@@ -116,6 +112,7 @@ cpu_opp_table: opp-table-0 {
+ 		opp-126000000 {
+ 			opp-hz = /bits/ 64 <126000000>;
+ 			opp-microvolt = <900000>;
++			clock-latency-ns = <40000>;
+ 		};
+ 		opp-216000000 {
+ 			opp-hz = /bits/ 64 <216000000>;
+diff --git a/arch/arm/boot/dts/rockchip/rv1108.dtsi b/arch/arm/boot/dts/rockchip/rv1108.dtsi
+index f3291f3bbc6f..42a4d72597a5 100644
+--- a/arch/arm/boot/dts/rockchip/rv1108.dtsi
++++ b/arch/arm/boot/dts/rockchip/rv1108.dtsi
+@@ -32,7 +32,6 @@ cpu0: cpu@f00 {
+ 			device_type = "cpu";
+ 			compatible = "arm,cortex-a7";
+ 			reg = <0xf00>;
+-			clock-latency = <40000>;
+ 			clocks = <&cru ARMCLK>;
+ 			#cooling-cells = <2>; /* min followed by max */
+ 			dynamic-power-coefficient = <75>;
 
 -- 
 2.47.2
