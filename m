@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4306FC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D61C3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zwrAwVynWffEuxKPl0OEyEEBjA9QOQig2FF2bzdhEpA=; b=eyKMFOpCZMpakzJx4nt8WPnwbT
-	dGfZRSFAvIkBcuEY3fcyxyMBr5d7rllFJgvsV6u7md/GeS2Nl3t+S4a0sDgposy13l+zr2qvvJLdW
-	1YsK0PJjz6g08D88x4j7GZ6cYHUeoi6la9Uq9SMfme56cRaz83DJAInJDa4Y4NFPQ8CQJBZrADrIL
-	/ZhDZiIYfGR7A0jCWS/mSVK4Tl5ZrdzlHQQxAwyw2XMDtgFXI8jzBh3SmTO+qXcjPFQ2mf1WoYbMa
-	kq2HnlIVf3ID6HKXuc+VZFYXBQ8XhLV7KDSONZbi/QtTGjF5izX0BgnG+1qU8RHe3MsMI7Kk2wEzJ
-	T+WUpV9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jjz0Bi8WKyLJqMNsU8m6WOJraIVGFS572EwKtQSmgpI=; b=OzfiYmCwoUt9+3uD4m8HT2lzYp
+	MOp/ZBIpy34Elcbl0XVRO33cSpiq72AgUHpyq9iboPaDVGt2mkfbd5vTxhybVqtkyorQhe1gEmveu
+	zc/ZxSqdZJvJD7DluAvIfcRM3Na5+lBXO76CTEG4yOrIVlJp5Z9u+A2pkXY06IJRj39NU4AkwqHO6
+	G12K9hbkUOaJ722yxcLPQ7lwGyik0Ec/xEUcS7et9UXqS+NOfhBOkIn3UjXjRmcZ/O3nkMQucIsd3
+	6a37ManeGE7xu5DY+qwDPXn6O2+h0QjeKAOiKvoqQsMYGR/fqmaYmgsyHCb0sK/eLZKemCD/wkjw1
+	AgiS1JeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jhT-0000000CH7c-3JiR;
-	Fri, 04 Apr 2025 16:15:23 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1u0jjC-0000000CHMH-2CT2;
+	Fri, 04 Apr 2025 16:17:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jUI-0000000CFOt-27Kf
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 04 Apr 2025 16:01:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=zwrAwVynWffEuxKPl0OEyEEBjA9QOQig2FF2bzdhEpA=; b=rcQ/TZXnLakdQxL4crd49SXX3c
-	edNsEOVe5KuObd9N9FvHOyENAzG1hCUGVegfPjAUI+DESeHQ2QnvFHahouiLIKJXGm/9RbMSGbECY
-	3H7F9hOPYEdMTiEfgcGsbG7aWDxhy3ZY9WqpRK44a5vaJHV37Lx6OginK6lDUrp+urL++BV2mtbH5
-	p+ZFyzIAKAcSjEt2BvR0qBo1O4L3+1RqPBeKcN2MGAKLhzlFZ2wIbiVn+ohK9/LZ1v86JEJ+uw17N
-	4zNZ8gbxTQmZ4FYx30Cw1FcflV3mnJKiulvzObmjLOk24f6Y0o78MuVRM7S5DrvoDrcue1z65zfMb
-	chjOXhaA==;
-Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
-	by casper.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jSa-0000000GFHw-3A3Z;
-	Fri, 04 Apr 2025 16:01:01 +0000
-Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jSZ-0000000ERST-48Ac;
-	Fri, 04 Apr 2025 16:59:59 +0100
-From: David Woodhouse <dwmw2@infradead.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	"Sauerwein, David" <dssauerw@amazon.de>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Hildenbrand <david@redhat.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Rapoport <rppt@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	kvmarm@lists.cs.columbia.edu,
+	id 1u0jVl-0000000CFeK-040m;
+	Fri, 04 Apr 2025 16:03:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DBB8461135;
+	Fri,  4 Apr 2025 16:03:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C565FC4CEDD;
+	Fri,  4 Apr 2025 16:03:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743782596;
+	bh=ZeKtbccKAfskNRA51l4MhLz7OC60VEzIqp0CWNxqyYQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dHMecoa01reZDsWeYeRFKDoHvfVdjbITR0YQzM9FrxVMiEBb8fao+AwhSbaSskVdY
+	 tn0O84nyZ8Ca2Fex9WdB6BYhFs2swRBStq71ki/yVyokwEFe8WlW4tLe/B4GvwuKkW
+	 KXiBsNQb/KGDDsUE2NUCLFgwPjTmc5ROnyzx8piq1J95K4PXQ2/Zzd28jVcs5UON0V
+	 T0QAhQ2musAtZT4tcLK3iUVLfqepa3x8C0c+HemmeScwze3y2i1GvvF/zsJhiKb+1X
+	 cncYm1oRwoWq06MZTqN+5Mr8AjHFD+nof9k3F4euGkmwVE4n80vfvjQTMjO09HT8Q5
+	 WfvYqpksKft6Q==
+Date: Fri, 4 Apr 2025 11:03:14 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Mattijs Korpershoek <mkorpershoek@kernel.org>
+Cc: devicetree@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [RFC PATCH v2 7/7] mm: use for_each_valid_pfn() in memory_hotplug
-Date: Fri,  4 Apr 2025 16:59:59 +0100
-Message-ID: <20250404155959.3442111-7-dwmw2@infradead.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250404155959.3442111-1-dwmw2@infradead.org>
-References: <20250404155959.3442111-1-dwmw2@infradead.org>
+	Mattijs Korpershoek <mkorpershoek@baylibre.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-input@vger.kernel.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: mediatek,mt6779-keypad: Update Mattijs'
+ email address
+Message-ID: <174378259415.1509225.11221231406789658607.robh@kernel.org>
+References: <20250401-mattijs-dts-korg-v1-1-0f8d96bf8a99@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250401-mattijs-dts-korg-v1-1-0f8d96bf8a99@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,45 +75,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Woodhouse <dwmw@amazon.co.uk>
 
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
----
- mm/memory_hotplug.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+On Tue, 01 Apr 2025 15:30:37 +0200, Mattijs Korpershoek wrote:
+> Update Mattijs Korpershoek's email address to @kernel.org.
+> 
+> Signed-off-by: Mattijs Korpershoek <mkorpershoek@kernel.org>
+> ---
+>  Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
 
-diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
-index 75401866fb76..20c39ae45016 100644
---- a/mm/memory_hotplug.c
-+++ b/mm/memory_hotplug.c
-@@ -1756,12 +1756,10 @@ static int scan_movable_pages(unsigned long start, unsigned long end,
- {
- 	unsigned long pfn;
- 
--	for (pfn = start; pfn < end; pfn++) {
-+	for_each_valid_pfn (pfn, start, end) {
- 		struct page *page;
- 		struct folio *folio;
- 
--		if (!pfn_valid(pfn))
--			continue;
- 		page = pfn_to_page(pfn);
- 		if (PageLRU(page))
- 			goto found;
-@@ -1805,11 +1803,9 @@ static void do_migrate_range(unsigned long start_pfn, unsigned long end_pfn)
- 	static DEFINE_RATELIMIT_STATE(migrate_rs, DEFAULT_RATELIMIT_INTERVAL,
- 				      DEFAULT_RATELIMIT_BURST);
- 
--	for (pfn = start_pfn; pfn < end_pfn; pfn++) {
-+	for_each_valid_pfn (pfn, start_pfn, end_pfn) {
- 		struct page *page;
- 
--		if (!pfn_valid(pfn))
--			continue;
- 		page = pfn_to_page(pfn);
- 		folio = page_folio(page);
- 
--- 
-2.49.0
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
