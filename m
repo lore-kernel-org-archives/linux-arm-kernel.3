@@ -4,75 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D949CC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 13:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D8B7C3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 13:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cxaLF9g7ZYAlninbLCnqM7cpInfyFyRDA7PrXIPc+48=; b=vSKr8jxZgsy12ngpGnqg7AUYbZ
-	cIEJeo5v0kHlx0Birzx0Rgb9txwiscOxCduN/JGO/DMZNZCH3GHWJ5fsVI7AM6Mx5HgVz13iw74c5
-	MUcD0gnQafwU/dVtGf3VtW8JjUMszyhB06DPKyNUDLzqzS1GCy/25YuV6O0CuVZX/oyE5bJl48d6y
-	3v+JfrxmJdvpkC5t5yt8apIFXROMujY1XaJV9B59plnv7Pxh100Grh19FwhSONE5ms3euIZPXc6cE
-	Ki50WT6MG4xdE4/F/YUHdBDhY/oMlThqIJ5+u+wp3ce96GzQq0lJtwNb79iAMCZHzFsuEZS6Q/EP9
-	5uqh/y2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oj8p6whhi72BM4HEq5eN772YEoHNf1CRHOFexh4VN9M=; b=Q0WKSQJ2w/7EiKNqcV87P9oXsc
+	6/LghruEZynFhTldhrG9nB9qH2pOT0mq8KEbR6PTPL1cEalI90BqzfbofFSrD/O2XoLOp7JYnxdN8
+	t1FC3xsFgP9g+lJC7HC60yUOjab4jrgUs0Szbsdc8qhJzKe6qEXkCHHVWpsnkTNeGQip5MH5F++08
+	fnJ8IgcxyqZpCmYA+dQo5dut73j+LclNYWlNQs4O+W6rpv18UZVYyyICfItW9L4eIWwRofrHCBcIL
+	coDrXPgbbxpnpQx4VADrsUakZZbuRAxIqGMte7KMYrgyKCVOLtKsMBUQzag9bbqrxS/1hVgNjWaRw
+	H3yNXzNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0hR8-0000000Bt9y-3T82;
-	Fri, 04 Apr 2025 13:50:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0h5d-0000000BpEw-2IjG
+	id 1u0hSq-0000000BtVE-22gq;
+	Fri, 04 Apr 2025 13:52:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u0h8Y-0000000Bpqz-3wIj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 13:28:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 88A6D61127;
-	Fri,  4 Apr 2025 13:28:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ED04C4CEE8;
-	Fri,  4 Apr 2025 13:28:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743773288;
-	bh=HAv7NsSiFTK50k4Hz83uGNas7UoL/L6QevslpZ79Hvo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Z7uhIxgdLxV6pUs71ncmGLGt+BUPrRLHK+LuVmSmPDqBEQnuAoMM1tvs+HdTku4Cz
-	 AEfN7oeLX/vGvT/vgIQq8lvJc9UWmZiwRs5ey2jm5o3vmb8YuwNM203Q4WzTY7eoZm
-	 VVL4Zl04SNHqYDYBcCcBBaIN6JpK0J1e/XmZlMXTBK6INNzoMS15rnAQhBkYspSN3Y
-	 2m7hh+oJ6ldB3mX3Nf6v97aDQsWza+DhqC/t0FXwBnZ3mhLxrH7DPrPYZHSvcNa4Tq
-	 WsgnoFS9m0fn3V+cqPce9DHJ1cA7BSFYGcn07M7HQzhqtkNBV7DUQU9E0I9MGrdCAe
-	 ljE/zDrsiAapg==
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 04 Apr 2025 14:23:45 +0100
-Subject: [PATCH RESEND 6.1 12/12] KVM: arm64: Eagerly switch ZCR_EL{1,2}
+	Fri, 04 Apr 2025 13:31:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A68A81515;
+	Fri,  4 Apr 2025 06:31:01 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 87FA03F59E;
+	Fri,  4 Apr 2025 06:30:57 -0700 (PDT)
+Date: Fri, 4 Apr 2025 14:30:50 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Johan Hovold <johan@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, peng.fan@oss.nxp.com,
+	michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, maz@kernel.org
+Subject: Re: [RFC PATCH 0/3] Introduce SCMI Quirks framework
+Message-ID: <Z-_fCshrJiIYWVOK@pluto>
+References: <20250401122545.1941755-1-cristian.marussi@arm.com>
+ <Z-_dMev0v6P4UJ_i@hovoldconsulting.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250404-stable-sve-6-1-v1-12-cd5c9eb52d49@kernel.org>
-References: <20250404-stable-sve-6-1-v1-0-cd5c9eb52d49@kernel.org>
-In-Reply-To: <20250404-stable-sve-6-1-v1-0-cd5c9eb52d49@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- James Morse <james.morse@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Oliver Upton <oliver.upton@linux.dev>, Oleg Nesterov <oleg@redhat.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
- Mark Brown <broonie@kernel.org>, stable@vger.kernel.org, 
- Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13005; i=broonie@kernel.org;
- h=from:subject:message-id; bh=jBmdHfDYe/g7aZu/VzuVFBwig23sU36mad3b+6nEz3U=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn7942oibtfVGmbUhn+8y5LJjRXUBjShmUF50TpW0a
- 2dgkBISJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ+/eNgAKCRAk1otyXVSH0F9fB/
- 484wab/Ot0iBMgHI4djOGBKHSbzTBl+yQZI30fRsmt7aMWGpY0KhPtv1ZlJjA4zDmwlVsAdq+HwaVv
- ajcbKZNtHtOZV3AHbXZ+XdVLTs5jeBi26PK+lgqO8l1IaML9DUyNDGkT3a6baymcrCKx93TxO/nQN5
- xbIY0miyREqjWyKm/vMxE/c3fFq7AxLgXW1PlfXuqPbQwRDODaS/H8rRR4mU10fQzrWUAT8h5baeN1
- 0GHDi0nG9TojFjyx5y3YvVTu7L1TGyma0yjIOULwQRXcvZ7X0UPc0d3H0S8HVOiUp472YqQmptuDWC
- RSR9uYgamfigjM4p+qEuV9sgsw98KB
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z-_dMev0v6P4UJ_i@hovoldconsulting.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250404_063111_070321_A2756223 
+X-CRM114-Status: GOOD (  23.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,371 +68,397 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mark Rutland <mark.rutland@arm.com>
+On Fri, Apr 04, 2025 at 03:22:57PM +0200, Johan Hovold wrote:
+> Hi Cristian,
+> 
+> On Tue, Apr 01, 2025 at 01:25:42PM +0100, Cristian Marussi wrote:
+> 
+> > with the increasing adoption of SCMI across arm64 ecosystems, we have to
+> > start considering how to deal and take care of out-of-spec SCMI firmware
+> > platforms that are actively deployed in the wild, in a consistent manner.
+> > 
+> > This small series introduces a simple framework, based on static_keys,
+> > that allows a user to:
+> > 
+> > - define a quirk and its matching conditions; quirks can match based on:
+> > 
+> >   	compatible / Vendor_ID / Sub_Vendor_ID / ImplVersion
+> > 
+> >   from the longest matching sequence down to the shortest.
+> > 
+> >   When the SCMI core stack boots it will enable the matching quirks
+> >   depending on the information gathered from the platform via Base
+> >   protocol: any NULL/0 match condition is ignored during matching and is
+> >   interpreted as ANY, so you can decide to match on a very specific
+> >   combination of compatibles and FW versions OR simply on a compatible.
+> > 
+> > - define a quirk code-block: simply a block of code, meant to play the
+> >   magic quirk trick, defined in the proximity of where it will be used
+> >   and gated by an implicit quirk static-key associated with the defined
+> >   quirk
+> 
+> > Any feedback and testing is very much welcome.
+> 
+> I'm hitting the below lockdep splat when running with this series and
+> the FC quirk enabled.
+> 
 
-[ Upstream commit 59419f10045bc955d2229819c7cf7a8b0b9c5b59 ]
+Thanks, I'll have a look...
 
-In non-protected KVM modes, while the guest FPSIMD/SVE/SME state is live on the
-CPU, the host's active SVE VL may differ from the guest's maximum SVE VL:
+Cristian
 
-* For VHE hosts, when a VM uses NV, ZCR_EL2 contains a value constrained
-  by the guest hypervisor, which may be less than or equal to that
-  guest's maximum VL.
-
-  Note: in this case the value of ZCR_EL1 is immaterial due to E2H.
-
-* For nVHE/hVHE hosts, ZCR_EL1 contains a value written by the guest,
-  which may be less than or greater than the guest's maximum VL.
-
-  Note: in this case hyp code traps host SVE usage and lazily restores
-  ZCR_EL2 to the host's maximum VL, which may be greater than the
-  guest's maximum VL.
-
-This can be the case between exiting a guest and kvm_arch_vcpu_put_fp().
-If a softirq is taken during this period and the softirq handler tries
-to use kernel-mode NEON, then the kernel will fail to save the guest's
-FPSIMD/SVE state, and will pend a SIGKILL for the current thread.
-
-This happens because kvm_arch_vcpu_ctxsync_fp() binds the guest's live
-FPSIMD/SVE state with the guest's maximum SVE VL, and
-fpsimd_save_user_state() verifies that the live SVE VL is as expected
-before attempting to save the register state:
-
-| if (WARN_ON(sve_get_vl() != vl)) {
-|         force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
-|         return;
-| }
-
-Fix this and make this a bit easier to reason about by always eagerly
-switching ZCR_EL{1,2} at hyp during guest<->host transitions. With this
-happening, there's no need to trap host SVE usage, and the nVHE/nVHE
-__deactivate_cptr_traps() logic can be simplified to enable host access
-to all present FPSIMD/SVE/SME features.
-
-In protected nVHE/hVHE modes, the host's state is always saved/restored
-by hyp, and the guest's state is saved prior to exit to the host, so
-from the host's PoV the guest never has live FPSIMD/SVE/SME state, and
-the host's ZCR_EL1 is never clobbered by hyp.
-
-Fixes: 8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
-Fixes: 2e3cf82063a00ea0 ("KVM: arm64: nv: Ensure correct VL is loaded before saving SVE state")
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Tested-by: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Cc: Will Deacon <will@kernel.org>
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Link: https://lore.kernel.org/r/20250210195226.1215254-9-mark.rutland@arm.com
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-[ v6.6 lacks pKVM saving of host SVE state, pull in discovery of maximum
-  host VL separately -- broonie ]
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/include/asm/kvm_host.h       |  1 +
- arch/arm64/include/asm/kvm_hyp.h        |  1 +
- arch/arm64/kvm/fpsimd.c                 | 19 ++++++------
- arch/arm64/kvm/hyp/entry.S              |  5 +++
- arch/arm64/kvm/hyp/include/hyp/switch.h | 55 +++++++++++++++++++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  8 ++---
- arch/arm64/kvm/hyp/nvhe/pkvm.c          |  2 ++
- arch/arm64/kvm/hyp/nvhe/switch.c        | 30 +++++++++++-------
- arch/arm64/kvm/hyp/vhe/switch.c         |  4 +++
- arch/arm64/kvm/reset.c                  |  3 ++
- 10 files changed, 103 insertions(+), 25 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index c13a0d5907e8..0935f9849510 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -67,6 +67,7 @@ enum kvm_mode kvm_get_mode(void);
- DECLARE_STATIC_KEY_FALSE(userspace_irqchip_in_use);
- 
- extern unsigned int kvm_sve_max_vl;
-+extern unsigned int kvm_host_sve_max_vl;
- int kvm_arm_init_sve(void);
- 
- u32 __attribute_const__ kvm_target_cpu(void);
-diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
-index aa7fa2a08f06..1d0bb7624a1c 100644
---- a/arch/arm64/include/asm/kvm_hyp.h
-+++ b/arch/arm64/include/asm/kvm_hyp.h
-@@ -122,5 +122,6 @@ extern u64 kvm_nvhe_sym(id_aa64isar2_el1_sys_val);
- extern u64 kvm_nvhe_sym(id_aa64mmfr0_el1_sys_val);
- extern u64 kvm_nvhe_sym(id_aa64mmfr1_el1_sys_val);
- extern u64 kvm_nvhe_sym(id_aa64mmfr2_el1_sys_val);
-+extern unsigned int kvm_nvhe_sym(kvm_host_sve_max_vl);
- 
- #endif /* __ARM64_KVM_HYP_H__ */
-diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index df050e4d3562..3fd86b71ee37 100644
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -148,15 +148,16 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
- 	local_irq_save(flags);
- 
- 	if (vcpu->arch.fp_state == FP_STATE_GUEST_OWNED) {
--		if (vcpu_has_sve(vcpu)) {
--			__vcpu_sys_reg(vcpu, ZCR_EL1) = read_sysreg_el1(SYS_ZCR);
--
--			/* Restore the VL that was saved when bound to the CPU */
--			if (!has_vhe())
--				sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1,
--						       SYS_ZCR_EL1);
--		}
--
-+		/*
-+		 * Flush (save and invalidate) the fpsimd/sve state so that if
-+		 * the host tries to use fpsimd/sve, it's not using stale data
-+		 * from the guest.
-+		 *
-+		 * Flushing the state sets the TIF_FOREIGN_FPSTATE bit for the
-+		 * context unconditionally, in both nVHE and VHE. This allows
-+		 * the kernel to restore the fpsimd/sve state, including ZCR_EL1
-+		 * when needed.
-+		 */
- 		fpsimd_save_and_flush_cpu_state();
- 	}
- 
-diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
-index 435346ea1504..d8c94c45cb2f 100644
---- a/arch/arm64/kvm/hyp/entry.S
-+++ b/arch/arm64/kvm/hyp/entry.S
-@@ -44,6 +44,11 @@ alternative_if ARM64_HAS_RAS_EXTN
- alternative_else_nop_endif
- 	mrs	x1, isr_el1
- 	cbz	x1,  1f
-+
-+	// Ensure that __guest_enter() always provides a context
-+	// synchronization event so that callers don't need ISBs for anything
-+	// that would usually be synchonized by the ERET.
-+	isb
- 	mov	x0, #ARM_EXCEPTION_IRQ
- 	ret
- 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 0db90cb47308..275176e61d74 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -167,6 +167,61 @@ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
- 	write_sysreg_el1(__vcpu_sys_reg(vcpu, ZCR_EL1), SYS_ZCR);
- }
- 
-+static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
-+{
-+	u64 zcr_el1, zcr_el2;
-+
-+	if (!guest_owns_fp_regs(vcpu))
-+		return;
-+
-+	if (vcpu_has_sve(vcpu)) {
-+		zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
-+
-+		write_sysreg_el2(zcr_el2, SYS_ZCR);
-+
-+		zcr_el1 = __vcpu_sys_reg(vcpu, ZCR_EL1);
-+		write_sysreg_el1(zcr_el1, SYS_ZCR);
-+	}
-+}
-+
-+static inline void fpsimd_lazy_switch_to_host(struct kvm_vcpu *vcpu)
-+{
-+	u64 zcr_el1, zcr_el2;
-+
-+	if (!guest_owns_fp_regs(vcpu))
-+		return;
-+
-+	/*
-+	 * When the guest owns the FP regs, we know that guest+hyp traps for
-+	 * any FPSIMD/SVE/SME features exposed to the guest have been disabled
-+	 * by either fpsimd_lazy_switch_to_guest() or kvm_hyp_handle_fpsimd()
-+	 * prior to __guest_entry(). As __guest_entry() guarantees a context
-+	 * synchronization event, we don't need an ISB here to avoid taking
-+	 * traps for anything that was exposed to the guest.
-+	 */
-+	if (vcpu_has_sve(vcpu)) {
-+		zcr_el1 = read_sysreg_el1(SYS_ZCR);
-+		__vcpu_sys_reg(vcpu, ZCR_EL1) = zcr_el1;
-+
-+		/*
-+		 * The guest's state is always saved using the guest's max VL.
-+		 * Ensure that the host has the guest's max VL active such that
-+		 * the host can save the guest's state lazily, but don't
-+		 * artificially restrict the host to the guest's max VL.
-+		 */
-+		if (has_vhe()) {
-+			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
-+			write_sysreg_el2(zcr_el2, SYS_ZCR);
-+		} else {
-+			zcr_el2 = sve_vq_from_vl(kvm_host_sve_max_vl) - 1;
-+			write_sysreg_el2(zcr_el2, SYS_ZCR);
-+
-+			zcr_el1 = vcpu_sve_max_vq(vcpu) - 1;
-+			write_sysreg_el1(zcr_el1, SYS_ZCR);
-+		}
-+	}
-+}
-+
- /*
-  * We trap the first access to the FP/SIMD to save the host context and
-  * restore the guest context lazily.
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 3cea4b6ac23e..b183cc866404 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -5,6 +5,7 @@
-  */
- 
- #include <hyp/adjust_pc.h>
-+#include <hyp/switch.h>
- 
- #include <asm/pgtable-types.h>
- #include <asm/kvm_asm.h>
-@@ -25,7 +26,9 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
- {
- 	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
- 
-+	fpsimd_lazy_switch_to_guest(kern_hyp_va(vcpu));
- 	cpu_reg(host_ctxt, 1) =  __kvm_vcpu_run(kern_hyp_va(vcpu));
-+	fpsimd_lazy_switch_to_host(kern_hyp_va(vcpu));
- }
- 
- static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
-@@ -285,11 +288,6 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
- 	case ESR_ELx_EC_SMC64:
- 		handle_host_smc(host_ctxt);
- 		break;
--	case ESR_ELx_EC_SVE:
--		sysreg_clear_set(cptr_el2, CPTR_EL2_TZ, 0);
--		isb();
--		sve_cond_update_zcr_vq(ZCR_ELx_LEN_MASK, SYS_ZCR_EL2);
--		break;
- 	case ESR_ELx_EC_IABT_LOW:
- 	case ESR_ELx_EC_DABT_LOW:
- 		handle_host_mem_abort(host_ctxt);
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 93586bf80ec9..6042cdd3d887 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -9,6 +9,8 @@
- #include <nvhe/fixed_config.h>
- #include <nvhe/trap_handler.h>
- 
-+unsigned int kvm_host_sve_max_vl;
-+
- /*
-  * Set trap register values based on features in ID_AA64PFR0.
-  */
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index 58171926f9ba..47c7f3a675ae 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -40,6 +40,9 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
- {
- 	u64 val = CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
- 
-+	if (!guest_owns_fp_regs(vcpu))
-+		__activate_traps_fpsimd32(vcpu);
-+
- 	/* !hVHE case upstream */
- 	if (1) {
- 		val |= CPTR_EL2_TTA | CPTR_NVHE_EL2_RES1;
-@@ -55,12 +58,24 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
- 
- 		if (!guest_owns_fp_regs(vcpu))
- 			val |= CPTR_EL2_TFP;
-+
-+		write_sysreg(val, cptr_el2);
- 	}
-+}
- 
--	if (!guest_owns_fp_regs(vcpu))
--		__activate_traps_fpsimd32(vcpu);
-+static void __deactivate_cptr_traps(struct kvm_vcpu *vcpu)
-+{
-+	/* !hVHE case upstream */
-+	if (1) {
-+		u64 val = CPTR_NVHE_EL2_RES1;
- 
--	write_sysreg(val, cptr_el2);
-+		if (!cpus_have_final_cap(ARM64_SVE))
-+			val |= CPTR_EL2_TZ;
-+		if (!cpus_have_final_cap(ARM64_SME))
-+			val |= CPTR_EL2_TSM;
-+
-+		write_sysreg(val, cptr_el2);
-+	}
- }
- 
- static void __activate_traps(struct kvm_vcpu *vcpu)
-@@ -89,7 +104,6 @@ static void __activate_traps(struct kvm_vcpu *vcpu)
- static void __deactivate_traps(struct kvm_vcpu *vcpu)
- {
- 	extern char __kvm_hyp_host_vector[];
--	u64 cptr;
- 
- 	___deactivate_traps(vcpu);
- 
-@@ -114,13 +128,7 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
- 
- 	write_sysreg(this_cpu_ptr(&kvm_init_params)->hcr_el2, hcr_el2);
- 
--	cptr = CPTR_EL2_DEFAULT;
--	if (vcpu_has_sve(vcpu) && (vcpu->arch.fp_state == FP_STATE_GUEST_OWNED))
--		cptr |= CPTR_EL2_TZ;
--	if (cpus_have_final_cap(ARM64_SME))
--		cptr &= ~CPTR_EL2_TSM;
--
--	write_sysreg(cptr, cptr_el2);
-+	__deactivate_cptr_traps(vcpu);
- 	write_sysreg(__kvm_hyp_host_vector, vbar_el2);
- }
- 
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index f24569ac26c2..179152bb9e42 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -134,6 +134,8 @@ static int __kvm_vcpu_run_vhe(struct kvm_vcpu *vcpu)
- 
- 	sysreg_save_host_state_vhe(host_ctxt);
- 
-+	fpsimd_lazy_switch_to_guest(vcpu);
-+
- 	/*
- 	 * ARM erratum 1165522 requires us to configure both stage 1 and
- 	 * stage 2 translation for the guest context before we clear
-@@ -164,6 +166,8 @@ static int __kvm_vcpu_run_vhe(struct kvm_vcpu *vcpu)
- 
- 	__deactivate_traps(vcpu);
- 
-+	fpsimd_lazy_switch_to_host(vcpu);
-+
- 	sysreg_restore_host_state_vhe(host_ctxt);
- 
- 	if (vcpu->arch.fp_state == FP_STATE_GUEST_OWNED)
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index f9d070473614..54e00ee631a0 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -42,11 +42,14 @@ static u32 kvm_ipa_limit;
- 				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
- 
- unsigned int kvm_sve_max_vl;
-+unsigned int kvm_host_sve_max_vl;
- 
- int kvm_arm_init_sve(void)
- {
- 	if (system_supports_sve()) {
- 		kvm_sve_max_vl = sve_max_virtualisable_vl();
-+		kvm_host_sve_max_vl = sve_max_vl();
-+		kvm_nvhe_sym(kvm_host_sve_max_vl) = kvm_host_sve_max_vl;
- 
- 		/*
- 		 * The get_sve_reg()/set_sve_reg() ioctl interface will need
-
--- 
-2.39.5
-
+> Johan
+> 
+> 
+> [    8.399581] ======================================================
+> [    8.399582] WARNING: possible circular locking dependency detected
+> [    8.399583] 6.14.0 #103 Not tainted
+> [    8.399584] ------------------------------------------------------
+> [    8.399584] kworker/u49:5/165 is trying to acquire lock:
+> [    8.399586] ffff65d004d36320 (&info->protocols_mtx){+.+.}-{4:4}, at: scmi_get_protocol_instance+0x4c/0x5c0
+> [    8.399596] 
+>                but task is already holding lock:
+> [    8.399596] ffff65d00a895348 (&ni->pending_mtx){+.+.}-{4:4}, at: __scmi_event_handler_get_ops+0x70/0x47c
+> [    8.399600] 
+>                which lock already depends on the new lock.
+> 
+> [    8.399601] 
+>                the existing dependency chain (in reverse order) is:
+> [    8.399601] 
+>                -> #4 (&ni->pending_mtx){+.+.}-{4:4}:
+> [    8.399603]        __mutex_lock+0xa8/0x514
+> [    8.399606]        mutex_lock_nested+0x24/0x30
+> [    8.399608]        __scmi_event_handler_get_ops+0x70/0x47c
+> [    8.399610]        scmi_notifier_register+0x58/0x29c
+> [    8.399612]        scmi_cpufreq_init+0x30c/0x4d0
+> [    8.399615]        cpufreq_online+0x610/0xb58
+> [    8.399616]        cpufreq_add_dev+0xcc/0xe4
+> [    8.399618]        subsys_interface_register+0xfc/0x118
+> [    8.399622]        cpufreq_register_driver+0x178/0x2ec
+> [    8.399623]        scmi_cpufreq_probe+0x88/0x11c
+> [    8.399625]        scmi_dev_probe+0x28/0x3c
+> [    8.399626]        really_probe+0xc0/0x38c
+> [    8.399627]        __driver_probe_device+0x7c/0x160
+> [    8.399629]        driver_probe_device+0x40/0x110
+> [    8.399630]        __device_attach_driver+0xbc/0x158
+> [    8.399631]        bus_for_each_drv+0x84/0xe0
+> [    8.399633]        __device_attach+0xa8/0x1d4
+> [    8.399634]        device_initial_probe+0x14/0x20
+> [    8.399636]        bus_probe_device+0xb0/0xb4
+> [    8.399637]        device_add+0x57c/0x784
+> [    8.399639]        device_register+0x20/0x30
+> [    8.399641]        __scmi_device_create.part.0+0xf0/0x224
+> [    8.399642]        scmi_device_create+0x184/0x1c8
+> [    8.399644]        scmi_create_protocol_devices+0x50/0xb4
+> [    8.399646]        scmi_probe+0x854/0x91c
+> [    8.399647]        platform_probe+0x68/0xd8
+> [    8.399649]        really_probe+0xc0/0x38c
+> [    8.399650]        __driver_probe_device+0x7c/0x160
+> [    8.399651]        driver_probe_device+0x40/0x110
+> [    8.399653]        __device_attach_driver+0xbc/0x158
+> [    8.399654]        bus_for_each_drv+0x84/0xe0
+> [    8.399656]        __device_attach+0xa8/0x1d4
+> [    8.399657]        device_initial_probe+0x14/0x20
+> [    8.399658]        bus_probe_device+0xb0/0xb4
+> [    8.399659]        device_add+0x57c/0x784
+> [    8.399661]        platform_device_add+0x110/0x274
+> [    8.399663]        scmi_mailbox_probe+0xcc/0x110
+> [    8.399664]        platform_probe+0x68/0xd8
+> [    8.399666]        really_probe+0xc0/0x38c
+> [    8.399667]        __driver_probe_device+0x7c/0x160
+> [    8.399668]        driver_probe_device+0x40/0x110
+> [    8.399669]        __device_attach_driver+0xbc/0x158
+> [    8.399671]        bus_for_each_drv+0x84/0xe0
+> [    8.399673]        __device_attach+0xa8/0x1d4
+> [    8.399674]        device_initial_probe+0x14/0x20
+> [    8.399675]        bus_probe_device+0xb0/0xb4
+> [    8.399676]        deferred_probe_work_func+0xa0/0xf4
+> [    8.399677]        process_one_work+0x20c/0x610
+> [    8.399682]        worker_thread+0x23c/0x378
+> [    8.399684]        kthread+0x13c/0x20c
+> [    8.399685]        ret_from_fork+0x10/0x20
+> [    8.399687] 
+>                -> #3 (&policy->rwsem){+.+.}-{4:4}:
+> [    8.399689]        down_write+0x50/0xe8
+> [    8.399690]        cpufreq_online+0x5cc/0xb58
+> [    8.399692]        cpufreq_add_dev+0xcc/0xe4
+> [    8.399693]        subsys_interface_register+0xfc/0x118
+> [    8.399695]        cpufreq_register_driver+0x178/0x2ec
+> [    8.399697]        scmi_cpufreq_probe+0x88/0x11c
+> [    8.399699]        scmi_dev_probe+0x28/0x3c
+> [    8.399700]        really_probe+0xc0/0x38c
+> [    8.399701]        __driver_probe_device+0x7c/0x160
+> [    8.399702]        driver_probe_device+0x40/0x110
+> [    8.399704]        __device_attach_driver+0xbc/0x158
+> [    8.399705]        bus_for_each_drv+0x84/0xe0
+> [    8.399707]        __device_attach+0xa8/0x1d4
+> [    8.399708]        device_initial_probe+0x14/0x20
+> [    8.399709]        bus_probe_device+0xb0/0xb4
+> [    8.399710]        device_add+0x57c/0x784
+> [    8.399712]        device_register+0x20/0x30
+> [    8.399714]        __scmi_device_create.part.0+0xf0/0x224
+> [    8.877044]        scmi_device_create+0x184/0x1c8
+> [    8.882444]        scmi_create_protocol_devices+0x50/0xb4
+> [    8.888617]        scmi_probe+0x854/0x91c
+> [    8.893302]        platform_probe+0x68/0xd8
+> [    8.898172]        really_probe+0xc0/0x38c
+> [    8.902943]        __driver_probe_device+0x7c/0x160
+> [    8.908525]        driver_probe_device+0x40/0x110
+> [    8.913933]        __device_attach_driver+0xbc/0x158
+> [    8.919608]        bus_for_each_drv+0x84/0xe0
+> [    8.924657]        __device_attach+0xa8/0x1d4
+> [    8.929708]        device_initial_probe+0x14/0x20
+> [    8.935124]        bus_probe_device+0xb0/0xb4
+> [    8.940178]        device_add+0x57c/0x784
+> [    8.944870]        platform_device_add+0x110/0x274
+> [    8.950370]        scmi_mailbox_probe+0xcc/0x110
+> [    8.955699]        platform_probe+0x68/0xd8
+> [    8.960582]        really_probe+0xc0/0x38c
+> [    8.965375]        __driver_probe_device+0x7c/0x160
+> [    8.970971]        driver_probe_device+0x40/0x110
+> [    8.976390]        __device_attach_driver+0xbc/0x158
+> [    8.982076]        bus_for_each_drv+0x84/0xe0
+> [    8.987148]        __device_attach+0xa8/0x1d4
+> [    8.992212]        device_initial_probe+0x14/0x20
+> [    8.997637]        bus_probe_device+0xb0/0xb4
+> [    9.002699]        deferred_probe_work_func+0xa0/0xf4
+> [    9.008480]        process_one_work+0x20c/0x610
+> [    9.013783]        worker_thread+0x23c/0x378
+> [    9.018775]        kthread+0x13c/0x20c
+> [    9.023223]        ret_from_fork+0x10/0x20
+> [    9.028031] 
+>                -> #2 (subsys mutex#2){+.+.}-{4:4}:
+> [    9.035379]        __mutex_lock+0xa8/0x514
+> [    9.040197]        mutex_lock_nested+0x24/0x30
+> [    9.045366]        subsys_interface_register+0x50/0x118
+> [    9.051338]        cpufreq_register_driver+0x178/0x2ec
+> [    9.057223]        scmi_cpufreq_probe+0x88/0x11c
+> [    9.062585]        scmi_dev_probe+0x28/0x3c
+> [    9.067497]        really_probe+0xc0/0x38c
+> [    9.072317]        __driver_probe_device+0x7c/0x160
+> [    9.077941]        driver_probe_device+0x40/0x110
+> [    9.083392]        __device_attach_driver+0xbc/0x158
+> [    9.089104]        bus_for_each_drv+0x84/0xe0
+> [    9.094199]        __device_attach+0xa8/0x1d4
+> [    9.099292]        device_initial_probe+0x14/0x20
+> [    9.104749]        bus_probe_device+0xb0/0xb4
+> [    9.109843]        device_add+0x57c/0x784
+> [    9.114582]        device_register+0x20/0x30
+> [    9.119585]        __scmi_device_create.part.0+0xf0/0x224
+> [    9.125750]        scmi_device_create+0x184/0x1c8
+> [    9.131210]        scmi_create_protocol_devices+0x50/0xb4
+> [    9.137380]        scmi_probe+0x854/0x91c
+> [    9.142118]        platform_probe+0x68/0xd8
+> [    9.147091]        really_probe+0xc0/0x38c
+> [    9.151924]        __driver_probe_device+0x7c/0x160
+> [    9.157556]        driver_probe_device+0x40/0x110
+> [    9.163014]        __device_attach_driver+0xbc/0x158
+> [    9.168733]        bus_for_each_drv+0x84/0xe0
+> [    9.173836]        __device_attach+0xa8/0x1d4
+> [    9.178932]        device_initial_probe+0x14/0x20
+> [    9.184381]        bus_probe_device+0xb0/0xb4
+> [    9.189478]        device_add+0x57c/0x784
+> [    9.194213]        platform_device_add+0x110/0x274
+> [    9.199758]        scmi_mailbox_probe+0xcc/0x110
+> [    9.205172]        platform_probe+0x68/0xd8
+> [    9.210097]        really_probe+0xc0/0x38c
+> [    9.214930]        __driver_probe_device+0x7c/0x160
+> [    9.220558]        driver_probe_device+0x40/0x110
+> [    9.226017]        __device_attach_driver+0xbc/0x158
+> [    9.231739]        bus_for_each_drv+0x84/0xe0
+> [    9.236838]        __device_attach+0xa8/0x1d4
+> [    9.241937]        device_initial_probe+0x14/0x20
+> [    9.247396]        bus_probe_device+0xb0/0xb4
+> [    9.252490]        deferred_probe_work_func+0xa0/0xf4
+> [    9.258298]        process_one_work+0x20c/0x610
+> [    9.263631]        worker_thread+0x23c/0x378
+> [    9.268644]        kthread+0x13c/0x20c
+> [    9.273118]        ret_from_fork+0x10/0x20
+> [    9.277954] 
+>                -> #1 (cpu_hotplug_lock){++++}-{0:0}:
+> [    9.285522]        percpu_down_read.constprop.0+0x54/0x168
+> [    9.291789]        cpus_read_lock+0x10/0x1c
+> [    9.296770]        static_key_enable+0x18/0x34
+> [    9.301961]        scmi_quirks_enable+0xec/0x19c
+> [    9.307327]        scmi_base_protocol_init+0x374/0x4ec
+> [    9.313232]        scmi_get_protocol_instance+0x198/0x5c0
+> [    9.319411]        scmi_probe+0x3cc/0x91c
+> [    9.324156]        platform_probe+0x68/0xd8
+> [    9.329083]        really_probe+0xc0/0x38c
+> [    9.333918]        __driver_probe_device+0x7c/0x160
+> [    9.339557]        driver_probe_device+0x40/0x110
+> [    9.345020]        __device_attach_driver+0xbc/0x158
+> [    9.350753]        bus_for_each_drv+0x84/0xe0
+> [    9.355858]        __device_attach+0xa8/0x1d4
+> [    9.360964]        device_initial_probe+0x14/0x20
+> [    9.366425]        bus_probe_device+0xb0/0xb4
+> [    9.371532]        device_add+0x57c/0x784
+> [    9.376273]        platform_device_add+0x110/0x274
+> [    9.381824]        scmi_mailbox_probe+0xcc/0x110
+> [    9.387193]        platform_probe+0x68/0xd8
+> [    9.392121]        really_probe+0xc0/0x38c
+> [    9.397017]        __driver_probe_device+0x7c/0x160
+> [    9.402656]        driver_probe_device+0x40/0x110
+> [    9.408113]        __device_attach_driver+0xbc/0x158
+> [    9.413892]        bus_for_each_drv+0x84/0xe0
+> [    9.418997]        __device_attach+0xa8/0x1d4
+> [    9.424096]        device_initial_probe+0x14/0x20
+> [    9.429561]        bus_probe_device+0xb0/0xb4
+> [    9.434663]        deferred_probe_work_func+0xa0/0xf4
+> [    9.440483]        process_one_work+0x20c/0x610
+> [    9.445767]        worker_thread+0x23c/0x378
+> [    9.450786]        kthread+0x13c/0x20c
+> [    9.455318]        ret_from_fork+0x10/0x20
+> [    9.460153] 
+>                -> #0 (&info->protocols_mtx){+.+.}-{4:4}:
+> [    9.468090]        __lock_acquire+0x1344/0x20e8
+> [    9.473371]        lock_acquire+0x1c8/0x354
+> [    9.478295]        __mutex_lock+0xa8/0x514
+> [    9.483129]        mutex_lock_nested+0x24/0x30
+> [    9.488375]        scmi_get_protocol_instance+0x4c/0x5c0
+> [    9.494464]        scmi_protocol_acquire+0x10/0x24
+> [    9.500014]        __scmi_event_handler_get_ops+0x1c0/0x47c
+> [    9.506367]        scmi_notifier_register+0x58/0x29c
+> [    9.512096]        scmi_cpufreq_init+0x30c/0x4d0
+> [    9.517471]        cpufreq_online+0x610/0xb58
+> [    9.522580]        cpufreq_add_dev+0xcc/0xe4
+> [    9.527602]        subsys_interface_register+0xfc/0x118
+> [    9.533614]        cpufreq_register_driver+0x178/0x2ec
+> [    9.539526]        scmi_cpufreq_probe+0x88/0x11c
+> [    9.544897]        scmi_dev_probe+0x28/0x3c
+> [    9.549825]        really_probe+0xc0/0x38c
+> [    9.554656]        __driver_probe_device+0x7c/0x160
+> [    9.560297]        driver_probe_device+0x40/0x110
+> [    9.565764]        __device_attach_driver+0xbc/0x158
+> [    9.571494]        bus_for_each_drv+0x84/0xe0
+> [    9.576601]        __device_attach+0xa8/0x1d4
+> [    9.581710]        device_initial_probe+0x14/0x20
+> [    9.587178]        bus_probe_device+0xb0/0xb4
+> [    9.592282]        device_add+0x57c/0x784
+> [    9.597085]        device_register+0x20/0x30
+> [    9.602095]        __scmi_device_create.part.0+0xf0/0x224
+> [    9.608269]        scmi_device_create+0x184/0x1c8
+> [    9.613786]        scmi_create_protocol_devices+0x50/0xb4
+> [    9.619965]        scmi_probe+0x854/0x91c
+> [    9.624718]        platform_probe+0x68/0xd8
+> [    9.629647]        really_probe+0xc0/0x38c
+> [    9.634486]        __driver_probe_device+0x7c/0x160
+> [    9.640125]        driver_probe_device+0x40/0x110
+> [    9.645593]        __device_attach_driver+0xbc/0x158
+> [    9.651328]        bus_for_each_drv+0x84/0xe0
+> [    9.656437]        __device_attach+0xa8/0x1d4
+> [    9.661541]        device_initial_probe+0x14/0x20
+> [    9.667006]        bus_probe_device+0xb0/0xb4
+> [    9.672161]        device_add+0x57c/0x784
+> [    9.676913]        platform_device_add+0x110/0x274
+> [    9.682467]        scmi_mailbox_probe+0xcc/0x110
+> [    9.687843]        platform_probe+0x68/0xd8
+> [    9.692770]        really_probe+0xc0/0x38c
+> [    9.697607]        __driver_probe_device+0x7c/0x160
+> [    9.703250]        driver_probe_device+0x40/0x110
+> [    9.708718]        __device_attach_driver+0xbc/0x158
+> [    9.714454]        bus_for_each_drv+0x84/0xe0
+> [    9.719568]        __device_attach+0xa8/0x1d4
+> [    9.724670]        device_initial_probe+0x14/0x20
+> [    9.730193]        bus_probe_device+0xb0/0xb4
+> [    9.735302]        deferred_probe_work_func+0xa0/0xf4
+> [    9.741128]        process_one_work+0x20c/0x610
+> [    9.746414]        worker_thread+0x23c/0x378
+> [    9.751437]        kthread+0x13c/0x20c
+> [    9.755912]        ret_from_fork+0x10/0x20
+> [    9.760746] 
+>                other info that might help us debug this:
+> 
+> [    9.770784] Chain exists of:
+>                  &info->protocols_mtx --> &policy->rwsem --> &ni->pending_mtx
+> 
+> [    9.784150]  Possible unsafe locking scenario:
+> 
+> [    9.791482]        CPU0                    CPU1
+> [    9.796815]        ----                    ----
+> [    9.802092]   lock(&ni->pending_mtx);
+> [    9.806468]                                lock(&policy->rwsem);
+> [    9.813262]                                lock(&ni->pending_mtx);
+> [    9.820230]   lock(&info->protocols_mtx);
+> [    9.824981] 
+>                 *** DEADLOCK ***
+> 
+> [    9.832879] 11 locks held by kworker/u49:5/165:
+> [    9.838145]  #0: ffff65d000010948 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work+0x190/0x610
+> [    9.849165]  #1: ffff800081eb3dd0 (deferred_probe_work){+.+.}-{0:0}, at: process_one_work+0x1b8/0x610
+> [    9.859312]  #2: ffff65d0010b48f8 (&dev->mutex){....}-{4:4}, at: __device_attach+0x38/0x1d4
+> [    9.868580]  #3: ffff65d001e758f8 (&dev->mutex){....}-{4:4}, at: __device_attach+0x38/0x1d4
+> [    9.877839]  #4: ffff65d004d36460 (&info->devreq_mtx){+.+.}-{4:4}, at: scmi_create_protocol_devices+0x3c/0xb4
+> [    9.888790]  #5: ffffc981b6c603c8 (scmi_requested_devices_mtx){+.+.}-{4:4}, at: scmi_device_create+0xc8/0x1c8
+> [    9.899701]  #6: ffff65d0092ca8f8 (&dev->mutex){....}-{4:4}, at: __device_attach+0x38/0x1d4
+> [    9.909022]  #7: ffffc981b6af2148 (cpu_hotplug_lock){++++}-{0:0}, at: cpus_read_lock+0x10/0x1c
+> [    9.918629]  #8: ffff65d0009ee518 (subsys mutex#2){+.+.}-{4:4}, at: subsys_interface_register+0x50/0x118
+> [    9.929143]  #9: ffff65d011fc3b80 (&policy->rwsem){+.+.}-{4:4}, at: cpufreq_online+0x5cc/0xb58
+> [    9.938832]  #10: ffff65d00a895348 (&ni->pending_mtx){+.+.}-{4:4}, at: __scmi_event_handler_get_ops+0x70/0x47c
+> [    9.949921] 
+>                stack backtrace:
+> [    9.956066] CPU: 0 UID: 0 PID: 165 Comm: kworker/u49:5 Not tainted 6.14.0 #103
+> [    9.956068] Hardware name: Qualcomm CRD, BIOS 6.0.241007.BOOT.MXF.2.4-00534.1-HAMOA-1 10/ 7/2024
+> [    9.956069] Workqueue: events_unbound deferred_probe_work_func
+> [    9.956071] Call trace:
+> [    9.956072]  show_stack+0x18/0x24 (C)
+> [    9.956074]  dump_stack_lvl+0x90/0xd0
+> [    9.956077]  dump_stack+0x18/0x24
+> [    9.956078]  print_circular_bug+0x298/0x37c
+> [    9.956080]  check_noncircular+0x15c/0x170
+> [    9.956081]  __lock_acquire+0x1344/0x20e8
+> [    9.956082]  lock_acquire+0x1c8/0x354
+> [    9.956083]  __mutex_lock+0xa8/0x514
+> [    9.956084]  mutex_lock_nested+0x24/0x30
+> [    9.956085]  scmi_get_protocol_instance+0x4c/0x5c0
+> [    9.956087]  scmi_protocol_acquire+0x10/0x24
+> [    9.956089]  __scmi_event_handler_get_ops+0x1c0/0x47c
+> [    9.956091]  scmi_notifier_register+0x58/0x29c
+> [    9.956093]  scmi_cpufreq_init+0x30c/0x4d0
+> [    9.956095]  cpufreq_online+0x610/0xb58
+> [    9.956096]  cpufreq_add_dev+0xcc/0xe4
+> [    9.956098]  subsys_interface_register+0xfc/0x118
+> [    9.956100]  cpufreq_register_driver+0x178/0x2ec
+> [    9.956101]  scmi_cpufreq_probe+0x88/0x11c
+> [    9.956103]  scmi_dev_probe+0x28/0x3c
+> [    9.956104]  really_probe+0xc0/0x38c
+> [    9.956105]  __driver_probe_device+0x7c/0x160
+> [    9.956107]  driver_probe_device+0x40/0x110
+> [    9.956108]  __device_attach_driver+0xbc/0x158
+> [    9.956109]  bus_for_each_drv+0x84/0xe0
+> [    9.956111]  __device_attach+0xa8/0x1d4
+> [    9.956112]  device_initial_probe+0x14/0x20
+> [    9.956113]  bus_probe_device+0xb0/0xb4
+> [    9.956114]  device_add+0x57c/0x784
+> [    9.956116]  device_register+0x20/0x30
+> [    9.956118]  __scmi_device_create.part.0+0xf0/0x224
+> [    9.956120]  scmi_device_create+0x184/0x1c8
+> [    9.956121]  scmi_create_protocol_devices+0x50/0xb4
+> [    9.956123]  scmi_probe+0x854/0x91c
+> [    9.956124]  platform_probe+0x68/0xd8
+> [    9.956126]  really_probe+0xc0/0x38c
+> [    9.956127]  __driver_probe_device+0x7c/0x160
+> [    9.956128]  driver_probe_device+0x40/0x110
+> [    9.956129]  __device_attach_driver+0xbc/0x158
+> [    9.956131]  bus_for_each_drv+0x84/0xe0
+> [    9.956133]  __device_attach+0xa8/0x1d4
+> [    9.956134]  device_initial_probe+0x14/0x20
+> [    9.956135]  bus_probe_device+0xb0/0xb4
+> [    9.956136]  device_add+0x57c/0x784
+> [    9.956138]  platform_device_add+0x110/0x274
+> [    9.956140]  scmi_mailbox_probe+0xcc/0x110
+> [    9.956141]  platform_probe+0x68/0xd8
+> [    9.956142]  really_probe+0xc0/0x38c
+> [    9.956144]  __driver_probe_device+0x7c/0x160
+> [    9.956145]  driver_probe_device+0x40/0x110
+> [    9.956146]  __device_attach_driver+0xbc/0x158
+> [    9.956147]  bus_for_each_drv+0x84/0xe0
+> [    9.956149]  __device_attach+0xa8/0x1d4
+> [    9.956151]  device_initial_probe+0x14/0x20
+> [    9.956152]  bus_probe_device+0xb0/0xb4
+> [    9.956153]  deferred_probe_work_func+0xa0/0xf4
+> [    9.956154]  process_one_work+0x20c/0x610
+> [    9.956156]  worker_thread+0x23c/0x378
+> [    9.956157]  kthread+0x13c/0x20c
+> [    9.956159]  ret_from_fork+0x10/0x20
 
