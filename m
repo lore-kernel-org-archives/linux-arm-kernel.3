@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAF6C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 06:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85928C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 06:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ONGwjRPA12cjaQYlk7i1TJgOSz5LICmYmbkvfy/zmak=; b=hUgk9aMPO3ALUE55qXYv4KYVHv
-	hEgFv2Tt3SxQHNOnxtA+Jg7fGlDIv9rGmKRn1sKIg6W9pkJ7yS6U9bDQ6MSv5lFGkniOh6frGV363
-	freco+NMUdzQHdmLnK3K5JWNAmoVISwpYPcLN4m2WN5E9CZpQxLcpPjHgXBxQgfEiFjIkHO7X4W9L
-	X0RpmPKI94+J2tQUzFzxG8Rw8fpoATvRrjcf8duT3bffR3bIs1Sv4/0jmXqZNlPjIcMYe7f4q4YH0
-	PW5039WiXgNr+qRuODauq2AFpvRpebk7AKTgDCURucae+B/tHgHxtR5qGPKucggZu4f9tBD17AxNq
-	WMros88w==;
+	bh=8jyE1QGc/5SdKoKd0Wdaykrdl2m/QI4No5h39CsdvaI=; b=gfRA9DjPNpbGSUslh4hILFjFIi
+	MdruonbhZYrEEyBHtXutY9SZZey4gKcfMbU1Iex6b3sURdueHwa7TyDAC2hr3OVahkgObRwUkw/iP
+	TSjPCPdwC7cF9nUyHwvV+NE5kzMII+4ra3edI/TKbK5H7VOxJqjKpdkGxyWle4ihOcXoa0EuQgjJG
+	YOCsczkKlec2nvpFiGhkvSBirwq5Gq6CcQ2G9/ox1zhXCVHPwA6zFjGXvaC7kz0TzOaIM0w/Opzmg
+	UwySVBtUAA3QgLp5avmcy8eV9EqLV2W7E16pQ/zXYeLtgYhwhHJKjv1hy5anDKl+m4Ki2C1iO3Pgo
+	Rr02zI5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0aFp-0000000AqKJ-12uX;
-	Fri, 04 Apr 2025 06:10:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u0aHb-0000000AqTA-2JFj;
+	Fri, 04 Apr 2025 06:12:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0aAg-0000000ApnJ-3ThG;
-	Fri, 04 Apr 2025 06:04:56 +0000
+	id 1u0aFR-0000000AqG2-2yUh;
+	Fri, 04 Apr 2025 06:09:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CDFAB44F91;
-	Fri,  4 Apr 2025 06:04:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63697C4CEDD;
-	Fri,  4 Apr 2025 06:04:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CBD436113B;
+	Fri,  4 Apr 2025 06:09:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13A69C4CEDD;
+	Fri,  4 Apr 2025 06:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743746694;
-	bh=PQJ6XOqXBt51EcKN+TLx5KcGeVH/M6mNAkkhBybJbUw=;
+	s=k20201202; t=1743746988;
+	bh=DtKzF9oNT7Dh1HfsCHpB/e2yo5kN3sbBMqcD+/tjwj8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NS2jyF3Ib17ISe/HhQtiFpnwkAn2c1h9K8zGTl2DiJE2yMqH4UdZnw/7/yxkQyHhx
-	 Tz1aSRSBRsjTQtqunUCkyEcH5JmQ9u14hCJWuqFZSjiDCr//SL0qQOiE6eFADtB6io
-	 rqRkTiRhgBxEVKRK2FgiGXmBjpRDyyf9uHy5k6NcmCcfkf34VLlOMf6p91YW69lpWk
-	 ZN5QWibNqrt9hyHDKtieQogylf+I+CjCmidZnedzRz7hheKmYDuqx/69G7LeTxkXEV
-	 3dXqDP4KFe6gIzJMQf4r4gkVie7F5qXPzFO500NZYJ3Ig0/6Uzn9xZq+e5O+Gopxx1
-	 K/Q2gIPxkc7Jw==
-Message-ID: <62f35ffc-f6ad-492d-8ccc-bf78229b12d9@kernel.org>
-Date: Fri, 4 Apr 2025 08:04:47 +0200
+	b=CfmUlaJpamv7NW5RRVHNrryPXJi89vm7GnNltU6bUbPrF8/8NhOsIy+FuN9+kxrtf
+	 mNnkDisuOhcjeI+UiAjwa1m4i1r8tHO/aS/tsBZn58VWaQtVPOyjFpPaiVIVlWIl9+
+	 Y+wUZowJa2xoauKDFKNZRzh0MnfKR5UJW1sxSJEsnSn6yZy6UCSI1qelBk4oezpRD+
+	 Q0HmwRWwC5K00DhqXqqmzf8DHAjyeW7b5m87HShwbVceezishIxsK6+TH76ViqX6xJ
+	 udX450/N4nTziUjvIzBPgMXMDFUhHjRbL4tuHEpmv3jv4TPeAwGrlKcG3aa0j9ed1y
+	 Vcg5ukdswz2bg==
+Message-ID: <03d12cd2-c719-4703-a0eb-2a32ef41af92@kernel.org>
+Date: Fri, 4 Apr 2025 08:09:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/4] arm64: dts: mt8188: add aie node
-To: "bo.kong" <bo.kong@mediatek.com>, Rob Herring <robh@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Cc: zhaoyuan.chen@mediatek.com, Teddy.Chen@mediatek.com,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20250403074005.21472-1-bo.kong@mediatek.com>
- <20250403074005.21472-3-bo.kong@mediatek.com>
+Subject: Re: [PATCH] drivers: pci: controller: pcie-rockchip: Use
+ dev_err_probe()
+To: shao.mingyin@zte.com.cn, shawn.lin@rock-chips.com
+Cc: yang.yang29@zte.com.cn, xu.xin16@zte.com.cn, ye.xingchen@zte.com.cn,
+ lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
+ robh@kernel.org, bhelgaas@google.com, heiko@sntech.de,
+ linux-pci@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ zhang.enpei@zte.com.cn
+References: <20250403154326411S4luMrK8A5RXovincATzF@zte.com.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,13 +100,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250403074005.21472-3-bo.kong@mediatek.com>
+In-Reply-To: <20250403154326411S4luMrK8A5RXovincATzF@zte.com.cn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_230454_899509_87C59510 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,28 +117,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/04/2025 09:38, bo.kong wrote:
-> From: Bo Kong <Bo.Kong@mediatek.com>
+On 03/04/2025 09:43, shao.mingyin@zte.com.cn wrote:
+> From: Zhang Enpei <zhang.enpei@zte.com.cn>
 > 
-> Add aie node and related node
+> Replace the open-code with dev_err_probe() to simplify the code.
 > 
-> Signed-off-by: Bo Kong <Bo.Kong@mediatek.com>
+> Signed-off-by: Zhang Enpei <zhang.enpei@zte.com.cn>
+> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
 > ---
-<form letter>
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC (and consider --no-git-fallback argument, so you will
-not CC people just because they made one commit years ago). It might
-happen, that command when run on an older kernel, gives you outdated
-entries. Therefore please be sure you base your patches on recent Linux
-kernel.
+Considering zte is sending untested patches from poor automation (or AI
+generated), this might be correct or might not be because it does not
+look like probe path.
 
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-</form letter>
+Anyway, don't send patch by patch and line by line. Why you did not
+decide to fix all of the places in these drivers?
+
+NAK
 
 Best regards,
 Krzysztof
