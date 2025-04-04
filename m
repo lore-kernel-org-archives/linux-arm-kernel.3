@@ -4,78 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB1CC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 09:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DC8C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 10:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mrB1iO8WNCyw1FmbOcm5zEot0c6YpO468/MRGnmXPik=; b=laN33NV0/lC494mxThBUjABSL9
-	SGa0yc1iq29sABDyGSWdX5Aji0nAEKKOiz1KYNOtNNbfe3t4pHlA4HnL4tVJVOtcvjE6htSUw2hsX
-	M5n0u0KtjOYRrJ404HNRdItUcjbCGV+gaos8oL/xgcduz57Z7YozyBffLmQtvE7RhaWdIIXRJQbs9
-	3JJqwjnSFpD3dtzY0s4BqVcDJ50/ZokNKCa66C62QbFWbh9Oo9OJH2kNlcHCwAF8H8FOUPztRce0P
-	NrYeGgqcLsfffeqdVlzTgyI0WHTZWkbRvC5TnSJXOMA2fbx8imIrjEy+e8sj9ZPtzsRzphlJOHJb0
-	0jowPRxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qrnOAx1Z42gXuu4NUkGGkg//gH1o3Mdb+pyo1hDqScI=; b=PqU3g5BQS7SZ1/bRF/SsjbG8sN
+	L5gaSrIOuZwZORrhIVEmU+91CSWgZarljqbTyOxtEzwTaW6FR1DAo7DQlo0RtgINy7fvGDjx+SQwn
+	rJUhXPqud0Up4ArsTlUOMItXrlFVdWtzEyxo6yPiNrc8vUc9JQNbCeva+apHwOXNLydasQWOPkx17
+	9dicZNDSlmECL2YQy7NKR4cWOWp602e+tTXGiEpH9cCvd/fD19e+WnwU1DvwwvXqAhBEfblQvgNkA
+	jXVZZcYgvGnXUamCvc9QkulrDL1d3izrEqbzMEYaFe8ZuAHV9+iq7wJt4X4RnAZRHhQiZV0LZ4D4z
+	4MsdbU1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0dn5-0000000BLKt-0yX6;
-	Fri, 04 Apr 2025 09:56:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u0e4T-0000000BMlU-3KmX;
+	Fri, 04 Apr 2025 10:14:45 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0dl5-0000000BL2w-2aOJ;
-	Fri, 04 Apr 2025 09:54:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 747C55C5EBA;
-	Fri,  4 Apr 2025 09:52:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D486BC4CEDD;
-	Fri,  4 Apr 2025 09:54:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743760482;
-	bh=cSrVbGxlpctlURfhSmALnKBVmteINKipAHsEvzkIzVk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NqdZLC8PCMbwQmaPJjUq1AB8uqnD6azcUrHQUG7wlkgsJ5KZyLC3gWR8+5IQ8gdkH
-	 BipTaslXkHHOiwz6doB2JCUH5WpxGhWYjF6ywbQfHN0TpQDALMbrZQRGxKRdi/Mna1
-	 DrImE5oznfHcWyCtDYGehTiv4FdNZ3AgwLl+Pi4myqIj3yA8VUB8TtFzuY/hsgbk3V
-	 s+JisuKs89/jhocAXjeRatMHAtxEaG7IMWtsefPAlDHT4AGYaPA7lD9NRhHx33dXBn
-	 EjjpU4eQwu80NTHkXfft43c+DxySzS8KH3+L80qUYkfY8ownLn/BHE1NsKZaXz/ZwV
-	 WxjdoB7VzppCw==
-Date: Fri, 4 Apr 2025 12:54:25 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Pratyush Yadav <ptyadav@amazon.de>,
-	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <Z--sUYCvP3Q8nT8e@kernel.org>
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-10-changyuanl@google.com>
- <mafs05xjmqsqc.fsf@amazon.de>
- <20250403114209.GE342109@nvidia.com>
- <Z-6UA3C1TPeH_kGL@kernel.org>
- <20250403142438.GF342109@nvidia.com>
+	id 1u0e2b-0000000BMT3-2e8d
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Apr 2025 10:12:51 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43cebe06e9eso11890175e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 03:12:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743761567; x=1744366367; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qrnOAx1Z42gXuu4NUkGGkg//gH1o3Mdb+pyo1hDqScI=;
+        b=UzFSIOPbd80sP6d0KvShMhng5nBKFzcFqH9zvWPx7oE2LHjT3++4PO/aQzpBZbleN1
+         9PRNKtsYFbvXfts9hQzdmt42+USVTLUlb0zuzQnNnt2BcOCfeHNwZq5umTQdAIlgg1U9
+         ZuFOHFaEGsllSrFNwTLSlgD0X5GCB6lk+Y3CRxWuwR4U/1e0L3etam21DuLWr/fvJDxr
+         fiSVnF2R1c4Ahp9U9BMzlapkJtp4T2WNXc8ntXYW3A7VX7M3qnMUtJKr0N2YnIhDYKV3
+         SYkbp0qO8Coel2DUmIQIGC0oO426jxCIiJ1nSBaQSmPehq56jkuau0uZZRCDh93TfaOH
+         57fA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743761567; x=1744366367;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qrnOAx1Z42gXuu4NUkGGkg//gH1o3Mdb+pyo1hDqScI=;
+        b=U5869UzczJM2vCRzXa5G9Ee5XgBrI9yWg4oR0M4JKymRxHeWcZT2I88ZQTSzDLO3bA
+         KNczKS6fWIDpGdmBfej04jn2psxlP8a6r4QxUqemOH2lZxoTU820TQAQDO+Cvdqh5A/M
+         KZS/nETx2mACQU7nGMAbcRCumxq+0EXhwOul6bdO2CrQptHDfoySwblwnrCwh1QLrzf9
+         OLZdGZMSbjRy0FHkLBklsKaycNXNTwFzVtEdG1PH2l/dCNDHrfCwcuGUZgpKehCatRnD
+         +quM9w1s08wlQDBfbPGfKPIeUGeiJoD2LRv93IDdlg9yLfKdJS+4aBPHqr2himHmGp+9
+         KeNw==
+X-Forwarded-Encrypted: i=1; AJvYcCV6gypKT+Da3wxtA5zq3VbcMicA3zMmjzVqnnPmTSBFIGv5ZZv92WILz/rPO/8M6o9Smy+WXbd6U/V4aKdQaxfw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVHBRV2Rl4nGuxV2fZwPYP/uHQzPLisT2vq1WizIoigG6dKF9t
+	uduQr4U8p0AgwrRQ6/vqWtpDcIu29g3gW5kngymQev/s37It/Gw1nLS13UnN2xc=
+X-Gm-Gg: ASbGncvF/nR25CPGWH0lt8YrnfjWa03SUjdFsy/xW6n4okKw5sKu0eT0auAAu91QCum
+	XCzhs1j8ZnKWTqUVc5UKjiEQLIgfcXcq6HFRZuoIRbwRAL/dzrIFO9hukZJIdmbkoqzacZch2A4
+	iMJ2bkuOwjFiNh2nX1x5ViEL6LhFO1C3Y4DgadhZJmgoeLG7EThiwrqxcq/eFVDe14sHj3btUqi
+	KY44QWJFYpun7XqnVXs+MydanaNpnNZof+2igSHV1HSB4LvUsDM/GQKtaGtB7DQEt6N1XKgKMPl
+	GNMH0/2js89w8Am/WHyqlWOwEkOQPxg0Q0j3oiTceM/0IK1OtDPZeAfckZDReEaY112BjZ2QqKD
+	93puGE+eOuW9Ka/Y2
+X-Google-Smtp-Source: AGHT+IGn5zQjckVMr5yj5RkLrkNmEYqXiyrId5H4BjH0hkHpDWBOU4XybvpfkaZInnb7fcnChm8sLg==
+X-Received: by 2002:a05:600c:198b:b0:43c:fae1:5151 with SMTP id 5b1f17b1804b1-43ecf9fed70mr18873905e9.25.1743761567394;
+        Fri, 04 Apr 2025 03:12:47 -0700 (PDT)
+Received: from partp-nb.corp.toradex.com (31-10-206-125.static.upc.ch. [31.10.206.125])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec1f27a55sm43732995e9.2.2025.04.04.03.12.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Apr 2025 03:12:46 -0700 (PDT)
+From: Parth Pancholi <parth105105@gmail.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Parth Pancholi <parth.pancholi@toradex.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm64: dts: ti: k3-j784s4-main: Enable ACSPCIE outputs for PCIe interfaces
+Date: Fri,  4 Apr 2025 12:12:34 +0200
+Message-Id: <20250404101234.2671147-1-parth105105@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250403142438.GF342109@nvidia.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_025443_765322_187EC0C5 
-X-CRM114-Status: GOOD (  37.88  )
+X-CRM114-CacheID: sfid-20250404_031249_673816_F69754D3 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,271 +102,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
+From: Parth Pancholi <parth.pancholi@toradex.com>
 
-On Thu, Apr 03, 2025 at 11:24:38AM -0300, Jason Gunthorpe wrote:
-> On Thu, Apr 03, 2025 at 04:58:27PM +0300, Mike Rapoport wrote:
-> > On Thu, Apr 03, 2025 at 08:42:09AM -0300, Jason Gunthorpe wrote:
-> > > On Wed, Apr 02, 2025 at 07:16:27PM +0000, Pratyush Yadav wrote:
-> > > > > +int kho_preserve_phys(phys_addr_t phys, size_t size)
-> > > > > +{
-> > > > > +	unsigned long pfn = PHYS_PFN(phys), end_pfn = PHYS_PFN(phys + size);
-> > > > > +	unsigned int order = ilog2(end_pfn - pfn);
-> > > > 
-> > > > This caught my eye when playing around with the code. It does not put
-> > > > any limit on the order, so it can exceed NR_PAGE_ORDERS. Also, when
-> > > > initializing the page after KHO, we pass the order directly to
-> > > > prep_compound_page() without sanity checking it. The next kernel might
-> > > > not support all the orders the current one supports. Perhaps something
-> > > > to fix?
-> > > 
-> > > IMHO we should delete the phys functions until we get a user of them
-> > 
-> > The only user of memory tracker in this series uses kho_preserve_phys()
-> 
-> But it really shouldn't. The reserved memory is a completely different
-> mechanism than buddy allocator preservation. It doesn't even call
-> kho_restore_phys() those pages, it just feeds the ranges directly to:
-> 
-> +       reserved_mem_add(*p_start, size, name);
-> 
-> The bitmaps should be understood as preserving memory from the buddy
-> allocator only.
-> 
-> IMHO it should not call kho_preserve_phys() at all.
+TI J784S4-based devices, such as the AM69 SoC, provide PCIE_REFCLK outputs
+from the SoC, which can be used to clock external PCIe endpoint devices.
+Each PCIE_REFCLK output is enabled via the corresponding ACSPCIE clock
+buffer, with each buffer supporting two PADs to provide reference clocks
+for two associated PCIe instances. The mappings are as follows:
+        - PCIe0 -> ACSPCIE1 PAD0
+        - PCIe1 -> ACSPCIE0 PAD0
+        - PCIe2 -> ACSPCIE1 PAD1
+        - PCIe3 -> ACSPCIE0 PAD1
 
-Do you mean that for preserving large physical ranges we need something
-entirely different? 
+This patch enables each ACSPCIE module and its corresponding PADs to ensure
+that all PCIE_REFCLK outputs are functional.
 
-Then we don't need the bitmaps at this point, as we don't have any users
-for kho_preserve_folio() and we should not worry ourself with orders and
-restoration of high order folios until then ;-)
+This change have been tested on an AM69-based custom hardware platform,
+where all four PCIe instances (PCIe0, PCIe1, PCIe2, and PCIe3) with the
+internal PCIE_REFCLK are utilized with various endpoint devices such as
+a WiFi card, NVMe SSD, and PCIe-to-USB bridge.
 
-Now more seriously, I considered the bitmaps and sparse xarrays as good
-initial implementation of memory preservation that can do both physical
-ranges now and folios later when we'll need them. It might not be the
-optimal solution in the long run but we don't have enough data right now to
-do any optimizations for real. Preserving huge amounts of order-0 pages
-does not seem to me a representative test case at all. 
+Link: https://e2e.ti.com/support/processors-group/processors/f/processors-forum/1484211/am69-pcie-refclk-out-and-acspcie-mappings
+Signed-off-by: Parth Pancholi <parth.pancholi@toradex.com>
+---
+This change depends on https://lore.kernel.org/all/20241209085157.1203168-1-s-vadapalli@ti.com/
+v2: set ti,syscon-acspcie-proxy-ctrl mask to 0x3 for all PCIe instances to prevent unintended overrides.
+v1: https://lore.kernel.org/all/20250320122259.525613-1-parth105105@gmail.com/
+---
+ .../boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi    | 12 +++++++++---
+ arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi           | 10 ++++++----
+ 2 files changed, 15 insertions(+), 7 deletions(-)
 
-The xarrays + bitmaps do have the limitation that we cannot store any
-information about the folio except its order and if we are anyway need
-something else to preserve physical ranges, I suggest starting with
-preserving ranges and then adding optimizations for the folio case.
-
-As I've mentioned earlier, maple tree is perfect for tracking ranges, it
-simpler than other alternatives, and at allows storing information
-about a range and easy and efficient coalescing for adjacent ranges with
-matching properties. The maple tree based memory tracker is less memory
-efficient than bitmap if we count how many data is required to preserve
-gigabytes of distinct order-0 pages, but I don't think this is the right
-thing to measure at least until we have some real data about how KHO is
-used.
-
-Here's something that implements preservation of ranges (compile tested
-only) and adding folios with their orders and maybe other information would
-be quite easy.
-
-/*
- * Keep track of memory that is to be preserved across KHO.
- *
- * For simplicity use a maple tree that conveniently stores ranges and
- * allows adding BITS_PER_XA_VALUE of metadata to each range
- */
-
-struct kho_mem_track
-{
-	struct maple_tree ranges;
-};
-
-static struct kho_mem_track kho_mem_track;
-
-typedef unsigned long kho_range_desc_t;
-
-static int __kho_preserve(struct kho_mem_track *tracker, unsigned long addr,
-			  size_t size, kho_range_desc_t info)
-{
-	struct maple_tree *ranges = &tracker->ranges;
-	MA_STATE(mas, ranges, addr - 1, addr + size + 1);
-	unsigned long lower, upper;
-
-	void *area = NULL;
-
-	lower = addr;
-	upper = addr + size - 1;
-
-	might_sleep();
-
-	area = mas_walk(&mas);
-	if (area && mas.last == addr - 1)
-		lower = mas.index;
-
-	area = mas_next(&mas, ULONG_MAX);
-	if (area && mas.index == addr + size)
-		upper = mas.last;
-
-	mas_set_range(&mas, lower, upper);
-
-	return mas_store_gfp(&mas, xa_mk_value(info), GFP_KERNEL);
-}
-
-/**
- * kho_preserve_phys - preserve a physcally contiguous range accross KHO.
- * @phys: physical address of the range
- * @phys: size of the range
- *
- * Records that the entire range from @phys to @phys + @size is preserved
- * across KHO.
- *
- * Return: 0 on success, error code on failure
- */
-int kho_preserve_phys(phys_addr_t phys, size_t size)
-{
-	return __kho_preserve(&kho_mem_track, phys, size, 0);
-}
-EXPORT_SYMBOL_GPL(kho_preserve_phys);
-
-#define KHOSER_PTR(type)  union {phys_addr_t phys; type ptr;}
-#define KHOSER_STORE_PTR(dest, val)			\
-	({						\
-		(dest).phys = virt_to_phys(val);	\
-		typecheck(typeof((dest).ptr), val);	\
-	})
-#define KHOSER_LOAD_PTR(src) ((src).phys ? (typeof((src).ptr))(phys_to_virt((src).phys)): NULL)
-
-struct khoser_mem_range {
-	phys_addr_t start;
-	phys_addr_t size;
-	unsigned long data;
-};
-
-struct khoser_mem_chunk_hdr {
-	KHOSER_PTR(struct khoser_mem_chunk *) next;
-	unsigned long num_ranges;
-};
-
-#define KHOSER_RANGES_SIZE					\
-	((PAGE_SIZE - sizeof(struct khoser_mem_chunk_hdr) /	\
-	  sizeof(struct khoser_mem_range)))
-
-struct khoser_mem_chunk {
-	struct khoser_mem_chunk_hdr hdr;
-	struct khoser_mem_range ranges[KHOSER_RANGES_SIZE];
-};
-
-static int new_chunk(struct khoser_mem_chunk **cur_chunk)
-{
-	struct khoser_mem_chunk *chunk;
-
-	chunk = kzalloc(sizeof(*chunk), GFP_KERNEL);
-	if (!chunk)
-		return -ENOMEM;
-	if (*cur_chunk)
-		KHOSER_STORE_PTR((*cur_chunk)->hdr.next, chunk);
-	*cur_chunk = chunk;
-	return 0;
-}
-
-/*
- * Record all the ranges in a linked list of pages for the next kernel to
- * process. Each chunk holds array of ragnes. The maple_tree is used to store
- * them in a tree while building up the data structure, but the KHO successor
- * kernel only needs to process them once in order.
- *
- * All of this memory is normal kmalloc() memory and is not marked for
- * preservation. The successor kernel will remain isolated to the scratch space
- * until it completes processing this list. Once processed all the memory
- * storing these ranges will be marked as free.
- */
-static int kho_mem_serialize(phys_addr_t *fdt_value)
-{
-	struct kho_mem_track *tracker = &kho_mem_track;
-	struct maple_tree *ranges = &tracker->ranges;
-	struct khoser_mem_chunk *first_chunk = NULL;
-	struct khoser_mem_chunk *chunk = NULL;
-	MA_STATE(mas, ranges, 0, ULONG_MAX);
-	void *entry;
-	int err;
-
-	mas_for_each(&mas, entry, ULONG_MAX) {
-		size_t size = mas.last - mas.index + 1;
-		struct khoser_mem_range *range;
-
-		err = new_chunk(&chunk);
-		if (err)
-			goto err_free;
-		if (!first_chunk)
-			first_chunk = chunk;
-
-		if (chunk->hdr.num_ranges == ARRAY_SIZE(chunk->ranges)) {
-			err = new_chunk(&chunk);
-			if (err)
-				goto err_free;
-		}
-
-		range = &chunk->ranges[chunk->hdr.num_ranges];
-		range->start = mas.index;
-		range->size = size;
-		range->data = xa_to_value(entry);
-		chunk->hdr.num_ranges++;
-	}
-
-	*fdt_value = virt_to_phys(first_chunk);
-
-	return 0;
-
-err_free:
-	chunk = first_chunk;
-	while (chunk) {
-		struct khoser_mem_chunk *tmp = chunk;
-		chunk = KHOSER_LOAD_PTR(chunk->hdr.next);
-		kfree(tmp);
-	}
-	return err;
-}
-
-static void __init deserialize_range(struct khoser_mem_range *range)
-{
-	memblock_reserved_mark_noinit(range->start, range->size);
-	memblock_reserve(range->start, range->size);
-}
-
-static void __init kho_mem_deserialize(void)
-{
-	const void *fdt = kho_get_fdt();
-	struct khoser_mem_chunk *chunk;
-	const phys_addr_t *mem;
-	int len, node;
-
-	if (!fdt)
-		return;
-
-	node = fdt_path_offset(fdt, "/preserved-memory");
-	if (node < 0) {
-		pr_err("no preserved-memory node: %d\n", node);
-		return;
-	}
-
-	mem = fdt_getprop(fdt, node, "metadata", &len);
-	if (!mem || len != sizeof(*mem)) {
-		pr_err("failed to get preserved memory bitmaps\n");
-		return;
-	}
-
-	chunk = phys_to_virt(*mem);
-	while (chunk) {
-		unsigned int i;
-
-		memblock_reserve(virt_to_phys(chunk), sizeof(*chunk));
-
-		for (i = 0; i != chunk->hdr.num_ranges; i++)
-			deserialize_range(&chunk->ranges[i]);
-
-		chunk = KHOSER_LOAD_PTR(chunk->hdr.next);
-	}
-}
-
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+index 591609f3194c..d82d5cb5607e 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+@@ -132,6 +132,11 @@ acspcie0_proxy_ctrl: clock-controller@1a090 {
+ 			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
+ 			reg = <0x1a090 0x4>;
+ 		};
++
++		acspcie1_proxy_ctrl: clock-controller@1a094 {
++			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
++			reg = <0x1a094 0x4>;
++		};
+ 	};
+ 
+ 	main_ehrpwm0: pwm@3000000 {
+@@ -1067,11 +1072,12 @@ pcie0_rc: pcie@2900000 {
+ 		interrupts = <GIC_SPI 318 IRQ_TYPE_EDGE_RISING>;
+ 		device_type = "pci";
+ 		ti,syscon-pcie-ctrl = <&pcie0_ctrl 0x0>;
++		ti,syscon-acspcie-proxy-ctrl = <&acspcie1_proxy_ctrl 0x3>;
+ 		max-link-speed = <3>;
+ 		num-lanes = <4>;
+ 		power-domains = <&k3_pds 332 TI_SCI_PD_EXCLUSIVE>;
+-		clocks = <&k3_clks 332 0>;
+-		clock-names = "fck";
++		clocks = <&k3_clks 332 0>, <&serdes1 CDNS_TORRENT_REFCLK_DRIVER>;
++		clock-names = "fck", "pcie_refclk";
+ 		#address-cells = <3>;
+ 		#size-cells = <2>;
+ 		bus-range = <0x0 0xff>;
+@@ -1111,7 +1117,7 @@ pcie1_rc: pcie@2910000 {
+ 		ranges = <0x01000000 0x0 0x18001000  0x00 0x18001000  0x0 0x0010000>,
+ 			 <0x02000000 0x0 0x18011000  0x00 0x18011000  0x0 0x7fef000>;
+ 		dma-ranges = <0x02000000 0x0 0x0 0x0 0x0 0x10000 0x0>;
+-		ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x1>;
++		ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
+ 		status = "disabled";
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
+index 0160fe0da983..ebbc315649d0 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
+@@ -34,8 +34,8 @@ pcie2_rc: pcie@2920000 {
+ 		max-link-speed = <3>;
+ 		num-lanes = <2>;
+ 		power-domains = <&k3_pds 334 TI_SCI_PD_EXCLUSIVE>;
+-		clocks = <&k3_clks 334 0>;
+-		clock-names = "fck";
++		clocks = <&k3_clks 334 0>, <&serdes1 CDNS_TORRENT_REFCLK_DRIVER>;
++		clock-names = "fck", "pcie_refclk";
+ 		#address-cells = <3>;
+ 		#size-cells = <2>;
+ 		bus-range = <0x0 0xff>;
+@@ -45,6 +45,7 @@ pcie2_rc: pcie@2920000 {
+ 		dma-coherent;
+ 		dma-ranges = <0x02000000 0x0 0x0 0x0 0x0 0x10000 0x0>;
+ 		ti,syscon-pcie-ctrl = <&pcie2_ctrl 0x0>;
++		ti,syscon-acspcie-proxy-ctrl = <&acspcie1_proxy_ctrl 0x3>;
+ 		status = "disabled";
+ 	};
+ 
+@@ -63,8 +64,8 @@ pcie3_rc: pcie@2930000 {
+ 		max-link-speed = <3>;
+ 		num-lanes = <2>;
+ 		power-domains = <&k3_pds 335 TI_SCI_PD_EXCLUSIVE>;
+-		clocks = <&k3_clks 335 0>;
+-		clock-names = "fck";
++		clocks = <&k3_clks 335 0>, <&serdes0 CDNS_TORRENT_REFCLK_DRIVER>;
++		clock-names = "fck", "pcie_refclk";
+ 		#address-cells = <3>;
+ 		#size-cells = <2>;
+ 		bus-range = <0x0 0xff>;
+@@ -74,6 +75,7 @@ pcie3_rc: pcie@2930000 {
+ 		dma-coherent;
+ 		dma-ranges = <0x02000000 0x0 0x0 0x0 0x0 0x10000 0x0>;
+ 		ti,syscon-pcie-ctrl = <&pcie3_ctrl 0x0>;
++		ti,syscon-acspcie-proxy-ctrl = <&acspcie0_proxy_ctrl 0x3>;
+ 		status = "disabled";
+ 	};
+ 
 -- 
-Sincerely yours,
-Mike.
+2.34.1
+
 
