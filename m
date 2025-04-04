@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888F7C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 03:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0ADDC3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 03:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/D8N3AT/SDCbOQl1MHeeXXnpoLiiG4Uqz9lV9VA2rkQ=; b=vFMqjQg81/u1PJDYgeyvbwfSSC
-	kvsKgFPz7maDJcCGFFpz2aTKFchhFVgpMPgUGuncc52IF9DsN9LMGdQgvcnmxzOIaPw0ZPOKmSPNS
-	b3bmM4s+CwZkNQhWxxxD9QBGF8NZqwGE/Vvet1PrmDyo2cMkly8UsZ6r9aSi0aGa6Jkb9d7gmMvoH
-	W4ROgJSDTQbfJ5m0y5i4lvaOkaFjOJv85aT32LhCJeaA5mjJ/mXGipUrciGQNkH57mapvWzpy4Nmy
-	q612fN3YkhU9Z36+UKN0IblLEkaxhQEGz8HlAutpWoOYFZf0Fn8Qh3DHiCzuLBDptE93G94kfyOhD
-	z9Ru+Vfw==;
+	bh=SNMEsuzVoX5atq89fZdca0YcPSTyWQvV79ZvkhYBa9M=; b=Em2mHZTiEbA4VnGavuHphDKM0j
+	t6lnf5UOZC3/K8OKAYXFm/7ZrtYGOPrcc4n27V6pOa5gHG4jTEFQ0l30jrAzo8sfEMw+4xdF4sAT6
+	i74GB1S0fCsHv/iknP7OciQiWaNA+1pbVSo2c584FJc/pxoqn+kq9/UFCI1tP5k67CVL3UqnVbxKF
+	CDUsXUlgnhDi1iFr1GsQSjmCamgNpRsnus2peIvRfH/fg9CPB8Av/TXrCmUqMXvg+F315kVCEmbsb
+	zFkOfwubCZHvxBx3BqzerQptschDmt6l2IDQtgkENpI894qsKZokPxXXA3a5MGdBtCFPq7+cG2w0G
+	9Ko9TQ7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0XnX-0000000AhWB-0Nde;
-	Fri, 04 Apr 2025 03:32:51 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u0XpJ-0000000AhjJ-0iQi;
+	Fri, 04 Apr 2025 03:34:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0XHo-0000000Ad3y-3ygk;
-	Fri, 04 Apr 2025 03:00:06 +0000
+	id 1u0XHp-0000000Ad4Y-2ipU;
+	Fri, 04 Apr 2025 03:00:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6B362A42648;
-	Fri,  4 Apr 2025 02:54:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D06E7C4CEE3;
-	Fri,  4 Apr 2025 03:00:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D139944F26;
+	Fri,  4 Apr 2025 03:00:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1030DC4CEE9;
+	Fri,  4 Apr 2025 03:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743735604;
-	bh=qt04cpMtce1Dpx+XQO1X0rXON/Jr6p5yPdGytRb8Eas=;
+	s=k20201202; t=1743735605;
+	bh=VTRjZwZIi8q294b4YyTHrd0BG++P7ph5Qta/NAw+IT8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Q/n2/+qAbQ4lqGimi3B39jw61JwhYStJxbhIKpQByr6sATNhR0pByuj78+ofl0w3b
-	 mDYpwWD136Zeead5FiF3meTxotK0fSVSKY+pLIMCy6nHHT2XntZ2hIuZGE0CofixOf
-	 66GxYVVp8SPCEKljznidvtg8tyHPaWU3lqYPRODKskhUIdq8wmiyjOHnbX1UV5O/Hd
-	 1zXJDjHiwOeHhIiGKBrIEfSSy+5HgAQSIgjQkV+JNHxsvQiURpsgi3Auk/qhrqM7bU
-	 xft6O+le2YtCNm5Wk4E3pmvSVZajHPPBt2o9L5ObkWzDIY4YhQ+RA9wpGjeEYy7Lxk
-	 JSnSa3SGRCJlA==
+	b=BIydFOU9aJ9WhFAro8qghVTYQjHFs1Y2yZH4wibAW+ULHXKPCLPkRsy8d5oEx+P1/
+	 7Hf6x9eRUkjhWNVFDw8HAyxVL60tteeZLa+l0vLO0aXmI7gnLie+EpmL2PS11qVJYp
+	 xtIncqHBwXONuQspx+OM+dasoKJT4dzSHFN57/cN4VWkCms54jj2egjQDdMFmuhRKE
+	 mLjNtcfcBBslTMrt3O/4G+vg3XGVeaNpnOm2YoZvIupH38/6PxnwbZhh+59CyPHO7k
+	 rN6g4n76GbbVf3pd7BHkiVfkXnCHHO23yIhvWKPkp9pE4zZ+IRqV+P5Mdn30fiwwoM
+	 XayRRMFqSmyww==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 03 Apr 2025 21:59:38 -0500
-Subject: [PATCH 17/19] dt-bindings: arm/cpus: Add missing properties
+Date: Thu, 03 Apr 2025 21:59:39 -0500
+Subject: [PATCH 18/19] dt-bindings: arm/cpus: Add power-domains constraints
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250403-dt-cpu-schema-v1-17-076be7171a85@kernel.org>
+Message-Id: <20250403-dt-cpu-schema-v1-18-076be7171a85@kernel.org>
 References: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
 In-Reply-To: <20250403-dt-cpu-schema-v1-0-076be7171a85@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -87,8 +87,9 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_200005_126650_F88AA43B 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20250403_200005_738939_FBA6F9B0 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,144 +104,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm CPU schema is missing a number of properties already in use.
-This has gone unnoticed as extra properties have not been restricted.
-Add a missing reference to cpu.yaml, and add all the missing properties.
-
-As "clock-latency" and "voltage-tolerance" are related to opp-v1, add
-those properties to the opp-v1.yaml schema.
-
-With this, other properties can be prevented from creeping in with
-'unevaluatedProperties: false'.
+The "power-domains" and "power-domains-names" properties are missing any
+constraints. Add the constraints and drop the generic descriptions.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- Documentation/devicetree/bindings/arm/cpus.yaml   | 46 ++++++++++++++++++++++-
- Documentation/devicetree/bindings/opp/opp-v1.yaml | 16 ++++++++
- 2 files changed, 61 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/arm/cpus.yaml | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
-index 3d2b6286efb8..6f74ebfd38df 100644
+index 6f74ebfd38df..5bd5822db8af 100644
 --- a/Documentation/devicetree/bindings/arm/cpus.yaml
 +++ b/Documentation/devicetree/bindings/arm/cpus.yaml
-@@ -299,6 +299,16 @@ properties:
- 
-       where voltage is in V, frequency is in MHz.
- 
-+  interconnects:
-+    minItems: 1
-+    maxItems: 2
-+
-+  nvmem-cells:
-+    maxItems: 1
-+
-+  nvmem-cell-names:
-+    const: speed_grade
-+
-   performance-domains:
+@@ -313,19 +313,15 @@ properties:
      maxItems: 1
  
-@@ -317,6 +327,31 @@ properties:
+   power-domains:
+-    description:
+-      List of phandles and PM domain specifiers, as defined by bindings of the
+-      PM domain provider (see also ../power_domain.txt).
++    maxItems: 1
+ 
+   power-domain-names:
+     description:
+-      A list of power domain name strings sorted in the same order as the
+-      power-domains property.
+-
+       For PSCI based platforms, the name corresponding to the index of the PSCI
+       PM domain provider, must be "psci". For SCMI based platforms, the name
        corresponding to the index of an SCMI performance domain provider, must be
        "perf".
++    enum: [ psci, perf, cpr ]
  
-+  resets:
-+    maxItems: 1
-+
-+  arm-supply:
-+    deprecated: true
-+    description: Use 'cpu-supply' instead
-+
-+  cpu0-supply:
-+    deprecated: true
-+    description: Use 'cpu-supply' instead
-+
-+  mem-supply: true
-+
-+  proc-supply:
-+    deprecated: true
-+    description: Use 'cpu-supply' instead
-+
-+  sram-supply:
-+    deprecated: true
-+    description: Use 'mem-supply' instead
-+
-+  mediatek,cci:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Link to Mediatek Cache Coherent Interconnect
-+
-   qcom,saw:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description:
-@@ -327,6 +362,11 @@ properties:
-     description:
-       Specifies the ACC node associated with this CPU.
- 
-+  qcom,freq-domain:
-+    description: Specifies the QCom CPUFREQ HW associated with the CPU.
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    maxItems: 1
-+
-   rockchip,pmu:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description: >
-@@ -352,7 +392,11 @@ properties:
-       formed by encoding the target CPU id into the low bits of the
-       physical start address it should jump to.
- 
-+  thermal-idle:
-+    type: object
-+
- allOf:
-+  - $ref: /schemas/cpu.yaml#
-   - $ref: /schemas/opp/opp-v1.yaml#
-   - if:
-       # If the enable-method property contains one of those values
-@@ -407,7 +451,7 @@ required:
- dependencies:
-   rockchip,pmu: [enable-method]
- 
--additionalProperties: true
-+unevaluatedProperties: false
- 
- examples:
-   - |
-diff --git a/Documentation/devicetree/bindings/opp/opp-v1.yaml b/Documentation/devicetree/bindings/opp/opp-v1.yaml
-index 1b59b103dab6..61c080e50859 100644
---- a/Documentation/devicetree/bindings/opp/opp-v1.yaml
-+++ b/Documentation/devicetree/bindings/opp/opp-v1.yaml
-@@ -21,6 +21,18 @@ description: |+
- deprecated: true
- 
- properties:
-+  clock-latency:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The latency in nanoseconds for clock changes. Use OPP tables for new
-+      designs instead.
-+
-+  voltage-tolerance:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    maximum: 10
-+    description:
-+      The voltage tolerance in percent. Use OPP tables for new designs instead.
-+
-   operating-points:
-     $ref: /schemas/types.yaml#/definitions/uint32-matrix
-     items:
-@@ -28,8 +40,12 @@ properties:
-         - description: Frequency in kHz
-         - description: Voltage for OPP in uV
- 
-+dependencies:
-+  clock-latency: [ operating-points ]
-+  voltage-tolerance: [ operating-points ]
- 
- additionalProperties: true
-+
- examples:
-   - |
-     cpus {
+   resets:
+     maxItems: 1
 
 -- 
 2.47.2
