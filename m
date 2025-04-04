@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 716E7C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 18:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA67FC3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 18:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63IAw1jLZgb86/bQzlqbOKnYntiakT87A/FbR/kbNHE=; b=1FhzdjEaPGj5vEX88S4stCsGYD
-	S8MN/anhVsm0GYV9VyHqzpgSecgUcSgRKq8Ktsh6Nv7HoaRujYji1FSr+/n2WtYgQPN7dIpkCpFyp
-	BEPQ6W02bPJjyCvV7wNlHsfQsjzhTnUp7H0PM0iQCz3wRt1AYUhtLoQIYIuZk5Ts/LoRch6L2rz0J
-	Vqwecte/J7XwWg82JlyFHS6GIMCDspZ1V1LZGq+ynSUELE3PRiV6CETi5Xdxqo9+UDdjZrgytlkQb
-	H1Hyg/YVsoI0opOoujBovx1AwXv62hMoc2i+brSSkukgQZL3pF9A2+lLRRDDYh0OqaseYT5m5pREh
-	/gWfHQtw==;
+	bh=E/G9uDnqvO/SNte/vpWdizBSe8394GiUY5FDFE6yDmU=; b=PLKOKM73gVjFjVRodSxmH1FVkh
+	0qcgC7KLXgdACDvTjMNaiFuWNeITMNllKyFnIAEGAbZAAlvymhPqgnWEfJZsnDt7WCnCfZofq7XKw
+	77pzKBBKvbnfpWKlZBO/aey8Kwv7vZ6A9k6/lKX8iIzKIeQKEB3VHKqRYJpyaG3SvGAUR6W8lKt9l
+	He92bakMCmAeAzrUZn/oKeViq6d4T8HpES9C9cCY23ekMyetpdkGglkGUkeOOUXryD9+cUAJMJyMh
+	E5gBuTchdtSvkjbSX8/tL1ynEMTj+afRUThZFcYKGsLE4ZMv/BjLmCrDvP4LVP7bticRJ4e6uHNNZ
+	ZjcjYJ9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0lRg-0000000CUbV-3r5P;
-	Fri, 04 Apr 2025 18:07:12 +0000
+	id 1u0lTT-0000000CUqy-2r35;
+	Fri, 04 Apr 2025 18:09:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0l6G-0000000CRSg-2qkM
+	id 1u0l6I-0000000CRTL-2FbB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 17:45:05 +0000
+	Fri, 04 Apr 2025 17:45:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B1161515;
-	Fri,  4 Apr 2025 10:45:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DF5D1515;
+	Fri,  4 Apr 2025 10:45:08 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E843B3F63F;
-	Fri,  4 Apr 2025 10:45:02 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EC4093F63F;
+	Fri,  4 Apr 2025 10:45:04 -0700 (PDT)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: ardb@kernel.org,
@@ -41,17 +41,17 @@ Cc: ardb@kernel.org,
 	mark.rutland@arm.com,
 	maz@kernel.org,
 	will@kernel.org
-Subject: [PATCH 11/14] arm64/fpsimd: Add fpsimd_save_and_flush_current_state()
-Date: Fri,  4 Apr 2025 18:44:32 +0100
-Message-Id: <20250404174435.3288106-12-mark.rutland@arm.com>
+Subject: [PATCH 12/14] arm64/fpsimd: signal32: Always save+flush state early
+Date: Fri,  4 Apr 2025 18:44:33 +0100
+Message-Id: <20250404174435.3288106-13-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20250404174435.3288106-1-mark.rutland@arm.com>
 References: <20250404174435.3288106-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_104504_764752_4C543F97 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20250404_104506_621018_9DE6D988 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,26 +66,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the current task's FPSIMD/SVE/SME state may be live on *any* CPU in
-the system, special care must be taken when manipulating that state, as
-this manipulation can race with preemption and/or asynchronous usage of
-FPSIMD/SVE/SME (e.g. kernel-mode NEON in softirq handlers).
+There are several issues with the way the native signal handling code
+manipulates FPSIMD/SVE/SME state. To fix those issues, subsequent
+patches will rework the native signal handling code to always save+flush
+the current task's FPSIMD/SVE/SME state before manipulating that state.
 
-Even when manipulation is is protected with get_cpu_fpsimd_context() and
-get_cpu_fpsimd_context(), the logic necessary when the state is live on
-the current CPU can be wildly different from the logic necessary when
-the state is not live on the current CPU. A number of historical and
-extant issues result from failing to handle these cases consistetntly
-and/or correctly.
+In preparation for those changes, rework the compat signal handling code
+to save+flush the current task's FPSIMD state before manipulating it.
 
-To make it easier to get such manipulation correct, add a new
-fpsimd_save_and_flush_current_state() helper function, which ensures
-that the current task's state has been saved to memory and any stale
-state on any CPU has been "flushed" such that is not live on any CPU in
-the system. This will allow code to safely manipulate the saved state
-without risk of races.
+Subsequent patches will remove fpsimd_signal_preserve_current_state()
+and fpsimd_update_current_state(). Compat tasks can only have FPSIMD
+state, and cannot have any SVE or SME state. Thus, the SVE state
+manipulation present in fpsimd_signal_preserve_current_state() and
+fpsimd_update_current_state() is not necessary, and it is safe to
+directly manipulate current->thread.uw.fpsimd_state once it has been
+saved+flushed.
 
-Subsequent patches will use the new function.
+Use fpsimd_save_and_flush_current_state() to save+flush the state for
+both signal delivery and signal return, before the state is manipulated
+in any way. While it would be safe for compat_restore_vfp_context() to
+use fpsimd_flush_task_state(current), there are several extant issues in
+the native signal code resulting from incorrect use of
+fpsimd_flush_task_state(), and for consistency it is preferable to use
+fpsimd_save_and_flush_current_state().
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
@@ -93,44 +96,43 @@ Cc: Marc Zyngier <maz@kernel.org>
 Cc: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/fpsimd.h |  1 +
- arch/arm64/kernel/fpsimd.c      | 11 +++++++++++
- 2 files changed, 12 insertions(+)
+ arch/arm64/kernel/signal32.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index f2a84efc36185..3f2f8e7b2b7e5 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -97,6 +97,7 @@ struct cpu_fp_state {
- extern void fpsimd_bind_state_to_cpu(struct cpu_fp_state *fp_state);
+diff --git a/arch/arm64/kernel/signal32.c b/arch/arm64/kernel/signal32.c
+index 81e798b6dadaf..bb3b526ff43f7 100644
+--- a/arch/arm64/kernel/signal32.c
++++ b/arch/arm64/kernel/signal32.c
+@@ -103,7 +103,7 @@ static int compat_preserve_vfp_context(struct compat_vfp_sigframe __user *frame)
+ 	 * Note that this also saves V16-31, which aren't visible
+ 	 * in AArch32.
+ 	 */
+-	fpsimd_signal_preserve_current_state();
++	fpsimd_save_and_flush_current_state();
  
- extern void fpsimd_flush_task_state(struct task_struct *target);
-+extern void fpsimd_save_and_flush_current_state(void);
- extern void fpsimd_save_and_flush_cpu_state(void);
+ 	/* Place structure header on the stack */
+ 	__put_user_error(magic, &frame->magic, err);
+@@ -169,14 +169,17 @@ static int compat_restore_vfp_context(struct compat_vfp_sigframe __user *frame)
+ 	fpsimd.fpsr = fpscr & VFP_FPSCR_STAT_MASK;
+ 	fpsimd.fpcr = fpscr & VFP_FPSCR_CTRL_MASK;
  
- static inline bool thread_sm_enabled(struct thread_struct *thread)
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 11f21809d3b7d..ea07c4577f17e 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1819,6 +1819,17 @@ void fpsimd_flush_task_state(struct task_struct *t)
- 	barrier();
++	if (err)
++		return -EFAULT;
++
+ 	/*
+ 	 * We don't need to touch the exception register, so
+ 	 * reload the hardware state.
+ 	 */
+-	if (!err)
+-		fpsimd_update_current_state(&fpsimd);
++	fpsimd_save_and_flush_current_state();
++	current->thread.uw.fpsimd_state = fpsimd;
+ 
+-	return err ? -EFAULT : 0;
++	return 0;
  }
  
-+void fpsimd_save_and_flush_current_state(void)
-+{
-+	if (!system_supports_fpsimd())
-+		return;
-+
-+	get_cpu_fpsimd_context();
-+	fpsimd_save_user_state();
-+	fpsimd_flush_task_state(current);
-+	put_cpu_fpsimd_context();
-+}
-+
- /*
-  * Save the FPSIMD state to memory and invalidate cpu view.
-  * This function must be called with preemption disabled.
+ static int compat_restore_sigframe(struct pt_regs *regs,
 -- 
 2.30.2
 
