@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44E3C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 08:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5B8C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 08:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vdHO8YvBK17Mb+rjnMMMnqrXx61uFtvCNBz8M84xHHs=; b=FqJumZ4CKwKaSA5Yl4pDh6lINk
-	G7sJh1t9MUAmAdSGGmbcwQoF3TNvHSk41m7wz0hTwFPkFnP5gqjrRToQ9McqhkZZOWQq1pfcc29C5
-	ft7v/1OVUoy1RWempZh10SDWskXX+wFH0bA2bYqnEs4+6WPuDHoA0LjCisRLNGkwKjOeVDXyNZ/a2
-	PTQnicKeB6p6AWcizql3Vlx9bVahLo2zDPN2fDm/goSwFGEwjKfKVO8iThb8pWrW76BE0k1zCc6aF
-	zanD49DgLtDntNXbGOXBo0l6GUvwSYsZmPi77cOcwb3QlJYy7++RK2bQSKlRkzih0n7+IELRcRhaX
-	P1f8Ekeg==;
+	bh=Pi9+p40l7//vLKO8DuYTv+ORJz3B9aWETGdVOxLyydc=; b=UNuGI8qi6jHf0HiFKbEHsrjf16
+	tS9cX46S88/FVkrnNsbse0+UFZTGZD7YbnGLkJe0ZZOXOZI7iDDrMRmq+NIZI5Iu2lVG64z2w0sKX
+	/OBWOGmGRXtAixHgCghpTZbrnTB9lxvgS7M/4OALPP9bLedyWTblq3r+wadQ1eGL0hiUkIdDrZJjO
+	TVIDsFHKDxWAzaAH3V/QDZQ+2O+H6ddVtubiSWH0amB9BuaWX/HZqoD12m5hFXr0X1HmI58x4hfsH
+	aumREJAcagxQgWg1NKvKpSMjkieRZZLxH9l/GluwpGKyhszJNuPPE4virl4PiPwusykrrBXCg+Ueg
+	gjYs47og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0c9w-0000000B6o3-24dL;
-	Fri, 04 Apr 2025 08:12:16 +0000
-Received: from mail.commetrax.com ([141.95.18.165])
+	id 1u0cXZ-0000000BAJ8-0nlo;
+	Fri, 04 Apr 2025 08:36:41 +0000
+Received: from mail.ventrixor.pl ([91.134.88.136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0c89-0000000B6iQ-2GhI
+	id 1u0cVl-0000000BACj-1D0V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 08:10:26 +0000
-Received: by mail.commetrax.com (Postfix, from userid 1002)
-	id EBDEE24E44; Fri,  4 Apr 2025 10:10:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=commetrax.com;
-	s=mail; t=1743754221;
-	bh=vdHO8YvBK17Mb+rjnMMMnqrXx61uFtvCNBz8M84xHHs=;
+	Fri, 04 Apr 2025 08:34:50 +0000
+Received: by mail.ventrixor.pl (Postfix, from userid 1002)
+	id F403F25F31; Fri,  4 Apr 2025 08:33:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ventrixor.pl; s=mail;
+	t=1743755599; bh=Pi9+p40l7//vLKO8DuYTv+ORJz3B9aWETGdVOxLyydc=;
 	h=Date:From:To:Subject:From;
-	b=YlEFGUVqHBZOqGgtoE+etrz/Tz5Qrs1xUOlYGiG616Bk2N1wOxeV33IM9NS4Xp2R5
-	 x6+CXIW4XTVDA4n/OZ9BWog9Tz8w0eJvxWMif5Zbay3qSANCx1nSUlyfhG2ZZkZhHK
-	 1nT1ePyVY7yVJuXcOx0Gr1Q/aWRdqJEeapeqUrQOcPVZCBmxYoEYT9cy7jYYX30kPV
-	 0Kv3V+dREWgO+0mOgIlcUehOW73/yNfeaWK0rLI65WdZnewdusuDW5unmOraSh/en1
-	 5iVVpKFGWzj/VFg545kCpRbVnKy8zZ55QVId9Qg9dpdyTC5xPWsCmaGbRwmGDYcwGb
-	 XEuy/q2LfRaqw==
-Received: by mail.commetrax.com for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Apr 2025 08:10:11 GMT
-Message-ID: <20250404092858-0.1.8u.txfi.0.b4eb3o7f8b@commetrax.com>
-Date: Fri,  4 Apr 2025 08:10:11 GMT
-From: "Vincenc Turek" <vincenc.turek@commetrax.com>
+	b=l9bqJhfcjpWfgvi/lo6A0smma8cZDfngE4z928SwBDR62SCx3nFUl+JXqDSgVjdVO
+	 +ZLcQ5ZZB3JgyFhQ737xb/MNbWtEpIWa56QZNZMuAKliEQ2auGIyA8aIJU5lgGJnjg
+	 gmhO7jZ9hye0PQ+kRXWxocbX2T+YgHqJWxB506OyjvqIKCL8ShjFojbacGHQ6W9IqN
+	 aRS6rpfCukChJJKUj/QTZuwkVFtkuVqGsAC6veSYjmBSW+I2QW4b3Nr6KX76cg/Zhm
+	 W4C3Q34jc5XTqVluvkUp4TzO6SkvXyR8bghuxgXiJuJyISy29ikfP8VSvU9i8pygz6
+	 Psckb8DnAUSCQ==
+Received: by mail.ventrixor.pl for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Apr 2025 08:33:09 GMT
+Message-ID: <20250404074859-0.1.6c.1c9fv.0.6o79h7o2de@ventrixor.pl>
+Date: Fri,  4 Apr 2025 08:33:09 GMT
+From: "Jan Adamczyk" <jan.adamczyk@ventrixor.pl>
 To: <linux-arm-kernel@lists.infradead.org>
-Subject: Plastic components and packaging
-X-Mailer: mail.commetrax.com
+Subject: Rekrutacja handlowca 
+X-Mailer: mail.ventrixor.pl
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_011025_726713_5C33BFDB 
-X-CRM114-Status: UNSURE (   2.87  )
+X-CRM114-CacheID: sfid-20250404_013449_467042_8DD82A72 
+X-CRM114-Status: UNSURE (   2.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,21 +66,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Witam,
 
-While browsing your offer, I get the impression that packaging quality ma=
-tters to you =E2=80=93 it=E2=80=99s not just about protecting the product=
- but also about building your brand image.
+Czy maj=C4=85 Pa=C5=84stwa aktualnie potrzeby z zakresu rekrutacji os=C3=B3=
+b do dzia=C5=82u handlowego?=20
 
-We manufacture HDPE and PP bottles, caps, and buckets that work perfectly=
- in the cosmetics, chemical, and food industries. They are durable, aesth=
-etically pleasing, and customizable in terms of color and closures to per=
-fectly match your brand.
+Pomagamy skutecznie rekrutowa=C4=87 osoby na stanowiska Przedstawiciela H=
+andlowego, Sales Managera, a tak=C5=BCe Kadry Managerskiej w obszarze spr=
+zeda=C5=BCy.
 
-Let me know if you=E2=80=99d like to explore solutions for your business =
-=E2=80=93 I=E2=80=99d be happy to present the right products.
+Czy mo=C5=BCemy porozmawia=C4=87?=20
 
 
-Best regards
-Vincenc Turek
+Pozdrawiam
+Jan Adamczyk
 
