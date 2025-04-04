@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40846C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 15:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE65C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 15:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lUgmY8UQBPmXjpgnbV7bnU9250T2nRGJ8VnxW9xV2ZY=; b=3me73fMjOu6eLoszeCWwSHu3mG
-	ATI/Hk7jDoQ4AO8Dcmhbr5WC/fW7Bux/PSdeihE7BhuT3cPgQA96zS0Oej0gLNhWgas3AwNXVWTyb
-	7gsg9KWsaUV8rZTlnepJYhy8JJLJZX2dSctSZ+tpohx2BqnqRHbbLpZJ79MNrW0sY1GmGMAO3/K8k
-	1TSrBNB1cZjj0wrlotHbilCuAHXy9lCibR6M84hcFm4oBHMeENxHy+Mp9nzH4PjQzOShOQVFaiBBk
-	AE7qbkTQT/Is17oxVjqfH559bHmiWUCgmpjfl9WLCuJXXsjTaQp5VdqiuHTGvvA2PwZRutsKPet3q
-	hVaQ7WIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0UN1zEQHh+3iAICbKR3Qfw/BEbHddaeGqLeTAPFJgLU=; b=mxTS9Xjq3ccvjZWXm3eyClkszA
+	+D/kPAAbBeq3YcC6qUbxz1tzvd7kSDuOugXituoNDrtdchsZVfnomVkOsN4b7J+dTmt7g6WFzNK/v
+	aDRuAbGh4rKjvHlqVnoQgQ8Y8v3v6/lrowGKb4wIKSEg6XtYrs88ibDVgNW9UmwKifG/iVAKTxChp
+	odnj7ps2yWpfi1V1GTaqRhLFHhr8R9PsOm6HhcDRgo1+xh6IcZ26RaUQldjT5Gk+DM7dLbzdBKH4Q
+	2yKHrxRnLnYwSdr3lqU3t9UcO92ciG4S/MF7HLf9asPytaE8SmBVszePhaG9GeF80XPwr7dTNoM9+
+	BR+s+Rdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0ifC-0000000C7Jf-0vqf;
-	Fri, 04 Apr 2025 15:08:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u0ihw-0000000C7tT-05Ci;
+	Fri, 04 Apr 2025 15:11:48 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0idS-0000000C6uK-0Xkz
+	id 1u0igA-0000000C7Xo-2Obu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 15:07:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 10A8C61137;
-	Fri,  4 Apr 2025 15:07:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93ED5C4CEDD;
-	Fri,  4 Apr 2025 15:07:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743779229;
-	bh=PApck01QYV/Gm3ye6uMvwA27Rqmi2H7xw7efZ8WzdfU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WIVwUz30QNkraC8Xbe2q5/YV+CRnzJXgiz5dfbAw/VNjgtceqvuhvaQfe/3Tu4/7W
-	 7NX6rriinaFRtTk+uq5VcbmM8sd1ZYAHSt1dceBtZZxK+II7I1aeSAfrJvHW4Rapff
-	 l13UNnkHR4aV+DryGxG2GXlzocwwzL/FSakfnwayYbDyhbOWqHk+PEos94TiVntBLj
-	 fZPblxb4W1XZFj4wYrCL6eth6KPYjbhde+GGVPqNxZ+Zkj2D8TVOfrfxJduZZFd6Da
-	 imfLRsiyftRIRtblv2qnh00VdRN/gg+jo1j/TngHM2gNDqKOVA3gl8ZyheRm7AybpZ
-	 7e93sDPzqX4EA==
-Date: Fri, 4 Apr 2025 17:07:06 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: lee@kernel.org, alexandre.torgue@foss.st.com, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, jic23@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de, 
-	robh@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
-	devicetree@vger.kernel.org, wbg@kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, olivier.moysan@foss.st.com
-Subject: Re: [PATCH v4 5/8] pwm: stm32-lp: add support for stm32mp25
-Message-ID: <biwwcmsjatsmjdsgeiz27rfukeidkz64nfxdtdajpfp7ace4j7@5d5b5mvfoy43>
-References: <20250314171451.3497789-1-fabrice.gasnier@foss.st.com>
- <20250314171451.3497789-6-fabrice.gasnier@foss.st.com>
+	Fri, 04 Apr 2025 15:10:00 +0000
+Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
+	by mailfout.stl.internal (Postfix) with ESMTP id 0780B1140160;
+	Fri,  4 Apr 2025 11:09:57 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-12.internal (MEProxy); Fri, 04 Apr 2025 11:09:57 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm1; t=1743779396; x=1743865796; bh=0U
+	N1zEQHh+3iAICbKR3Qfw/BEbHddaeGqLeTAPFJgLU=; b=BFcPvZNMxp2G07QEFC
+	FtfCRHKf+y7LDSSgX+wqoiMVxUXkaLaRkdFb47Ukfi8p7xvPeKPy58b2e+NNiTe+
+	Ag/exsVsBFEqP4MjS8AH6KqTlprvCJzecQtlMH8FGak7IpjI4xEezbdiKdOUOLe/
+	rijhD7a12hlTpSY6Cx6L6FPRae+eJ2SLhBW0yC0Pvdb+Wb7pEL7YIwhBcP48D/CY
+	3v2tnT46KknvqnCcjig+ofeZEdnWtSWkRTeGNJPb8hqaiJQu2unKeT5Lu+lg7JsF
+	k5THmSjWw3vpB+iOKojLG38HX0mOe2MwWDfF2H/pJjX2uxM4pkILkZEJD6m3QoxS
+	hQJA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1743779396; x=1743865796; bh=0UN1zEQHh+3iAICbKR3Qfw/BEbHd
+	daeGqLeTAPFJgLU=; b=RY3UsWRb+2UHgffX4xV8KUskbOLVlIBBE6Zi/G0i5h4L
+	CPdOkfqzBnhAcLlTK+EDb5yNJ9R/8vpdORrElVWVHjILQqq16p18Hba4wyWbz2EW
+	7MrTseMQb5i2RH/60amsC6x5oGF4/wwBzeSZRnVugIQBo4MhM/H7XNrLK+AnJHbI
+	qHS0RJ/tZlpQNQPBwgiRoSTrdgVm8777HUaSVycpkAkJUq7coUAI5onPwNcDIP9W
+	tNM4UbGVzRhMDi6HvC3m+emo+mGdrcGg1NaE/zp9Slh2O9twOpVJLgyVQ7eUSGLD
+	QJD7JiSSOtFigQaYCfceTDj6yxiFNRZgotF99/+W2w==
+X-ME-Sender: <xms:RPbvZ2MvkEFU3wDt8I_5tJMnPUqqbN3E1xNgw6sUKnYRrPC1lLaqVA>
+    <xme:RPbvZ087MUYdSuFHlB4jcRNttrnvZ3JQW5xiTRzVqT8svOMhBs85gf63mMMJyMEOK
+    8-UdNrJo-20ShyE3jA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduledujeeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkffutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhepudfgfeeuheelheehfeeigeeigeeiveevheelteel
+    leeijeeikeekvddthfejieffnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpghhith
+    hhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhf
+    rhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepiedpmhhouggvpe
+    hsmhhtphhouhhtpdhrtghpthhtohepkhgrsggvlheskhgvrhhnvghlrdhorhhgpdhrtghp
+    thhtohepthhorhhvrghlughssehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprh
+    gtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrggu
+    vggrugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrdhlihhnuhigrdguvghvpd
+    hrtghpthhtohepihhorghnrgdrtghiohhrnhgvihesnhigphdrtghomhdprhgtphhtthho
+    pehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:RPbvZ9SSc0SvdTZwEYcJ1NaoSvJmt7rBZrYYbUcXv91eAFCFIMH96w>
+    <xmx:RPbvZ2toc3OhQomFrsi6iWeeCwJNulPM-FUSyjVk37CluQhcQ81p-g>
+    <xmx:RPbvZ-db2yB5F3Z44XPWC_YRW7PJ9kfrarFTNENa4A_8PmXfttoNnQ>
+    <xmx:RPbvZ61H0p1E6P8uzNRolZOp8tDb-W4E7e4UFNZSlB_QU1OwfuG_PQ>
+    <xmx:RPbvZ8utDE_4OumfRF9zjijdevK9Kgw_cCjKo0eSPjxRanvNK5GXru2E>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 60F592220074; Fri,  4 Apr 2025 11:09:56 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5sewg2xfq5x3bxnf"
-Content-Disposition: inline
-In-Reply-To: <20250314171451.3497789-6-fabrice.gasnier@foss.st.com>
+Date: Fri, 04 Apr 2025 17:09:35 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: "Ioana Ciornei" <ioana.ciornei@nxp.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+ =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>
+Message-Id: <cfc8fd0d-9d32-432b-a5ba-1477265670e0@app.fastmail.com>
+Subject: [GIT PULL] soc: drivers for 6.15, part 2
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250404_080959_003392_E692842D 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,61 +110,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit 0ad2507d5d93f39619fc42372c347d6006b64319:
 
---5sewg2xfq5x3bxnf
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 5/8] pwm: stm32-lp: add support for stm32mp25
-MIME-Version: 1.0
+  Linux 6.14-rc3 (2025-02-16 14:02:44 -0800)
 
-Hello,
+are available in the Git repository at:
 
-On Fri, Mar 14, 2025 at 06:14:48PM +0100, Fabrice Gasnier wrote:
-> Add support for STM32MP25 SoC. A new compatible has been added to the
-> dt-bindings. It represents handle new features, registers and bits
-> diversity.
-> It isn't used currently in the driver, as matching is done by retrieving
-> MFD parent data.
->=20
-> New dedicated capture/compare channels has been added: e.g. a new compare
-> register for channel 2. Some controls (polarity / cc channel enable) are
-> handled in CCMR register on this new variant (instead of wavepol bit).
->=20
-> So, Low-power timer can now have up to two PWM outputs. Use device data
-> from the MFD parent to configure the number of PWM channels e.g. 'npwm'.
->=20
-> Update current get_state() and apply() ops to support either:
-> - one PWM channel (as on older revision, or LPTIM5 on STM32MP25)
-> - two PWM channels (e.g. LPTIM1/2/3/4 on STM32MP25 that has the full
->   feature set)
-> Introduce new routines to manage common prescaler, reload register and
-> global enable bit.
->=20
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-drivers-6.15-2
 
-I didn't do an in-depth review, but the patch looks fine to me.
-It's ok for me if Lee picks this up for v6.16-rc1, so:
+for you to fetch changes up to af34290cdc60a289e43f38a87621a3e9dd63c67b:
 
-Acked-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org>
+  Merge tag 'omap-for-v6.14/drivers-signed' of https://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap into soc/drivers-2 (2025-04-04 14:37:41 +0200)
 
-Best regards
-Uwe
+----------------------------------------------------------------
+soc: drivers for 6.15, part 2
 
---5sewg2xfq5x3bxnf
-Content-Type: application/pgp-signature; name="signature.asc"
+This is the promised follow-up to the soc drivers branch, adding minor
+updates to omap and freescale drivers.
 
------BEGIN PGP SIGNATURE-----
+Most notably, Ioana Ciornei takes over maintenance of the DPAA bus
+driver used in some NXP (originally Freescale) chips.
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfv9ZcACgkQj4D7WH0S
-/k53Pwf/Zw3MFYpS7c/OdBkw9qirsB7YS6C3Y3MBc/vAYhYrhcxBpVevHbyFLsyW
-yLhfba05+l6U2GOdtWltJUqVwzdVX8kt7J61y1jtQnRDTAExxJDwjTH+rfKSv7wO
-3ZtQ9/BEO41/8sLLrZ8/eBxhG2SYgK4xBi46yR/b0Hx0/hGGPW82036L/xjxR3Cp
-N5+q3kjLaDYxUIBGy/dJ5N500yM1fizFEK+ejjfR18yhcYR3bWXLoMGHsXSChnZw
-3GnD89vE8w1ciehkBpbUWvjBXlFj0Qs+AUQmLAOBENriiX1OoH6+LI+qW9kqlef8
-58L7lQyOAj2g1DyQ0B20iXRaCCxtCg==
-=lIiW
------END PGP SIGNATURE-----
+----------------------------------------------------------------
 
---5sewg2xfq5x3bxnf--
+I had a hard time deciding whether to include the platforms/cznic
+driver changes in the pull request or not: The driver changes had
+caused some build time regressions and I actually made fixes for
+all of them but wasn't quite happy with them either.
+
+In the end I decided to send out everything else but skip the
+cznic driver since my fixes (finally sent today) hadn't been
+part of linux-next or properly reviewed so far, and the merge
+window is basically over. Sorry Marek, I should have been
+more active in making sure they branch was in shape. Let's
+make sure we get a new version into linux-next after the merge
+window. I have uploaded the current version to
+https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=cznic/platform
+and I think we should just rebase that and squash my three
+fixups into the original commits.
+
+Andreas Kemnade (1):
+      Input: tsc2007 - accept standard properties
+
+Arnd Bergmann (2):
+      Merge tag 'soc_fsl-6.15-1' of https://github.com/chleroy/linux into soc/drivers-2
+      Merge tag 'omap-for-v6.14/drivers-signed' of https://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap into soc/drivers-2
+
+Dr. David Alan Gilbert (1):
+      bus: fsl-mc: Remove deadcode
+
+Ioana Ciornei (3):
+      MAINTAINERS: add myself as maintainer for the fsl-mc bus
+      MAINTAINERS: fix nonexistent dtbinding file name
+      MAINTAINERS: add the linuppc-dev list to the fsl-mc bus entry
+
+Jiri Slaby (SUSE) (1):
+      irqdomain: soc: Switch to irq_find_mapping()
+
+ MAINTAINERS                              |  6 +++---
+ drivers/bus/fsl-mc/dpmcp.c               | 22 ----------------------
+ drivers/bus/fsl-mc/fsl-mc-allocator.c    |  5 -----
+ drivers/bus/fsl-mc/fsl-mc-private.h      |  6 ------
+ drivers/bus/fsl-mc/mc-io.c               | 20 --------------------
+ drivers/input/touchscreen/tsc2007.h      |  2 ++
+ drivers/input/touchscreen/tsc2007_core.c |  5 ++---
+ drivers/soc/fsl/qe/qe_ic.c               |  4 ++--
+ include/linux/fsl/mc.h                   |  2 --
+ 9 files changed, 9 insertions(+), 63 deletions(-)
 
