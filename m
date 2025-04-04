@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EF6C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 00:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9DFC36014
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 00:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wwQJWT3E4Za1gMFmO0KiwKEGd+4lX/BAmsR8ca0Ov4o=; b=Dx3bGlliRrKOd4S1R1BJQa3mwr
-	wrlmukOjkRwAf3FQJ37PfqCfKXd8af3h9Ft41QHvRbf3jc8dZxZe1q6sGu5MNkDowjajH4kZEv/1A
-	ylW6vRPCuF9LWx4WPuE+49jefxuv92dGv463kSIEJ0dxWQaVT5FycDnf34YnshkbheOSw8XXM0cmM
-	vAoZDO/FPHQTbQA24e6ToUVt6kuImIUlkWYN7uBGBJUXK1+Zr+zfFTwma1VUf0DFU5vIqv5qf/+Lc
-	WCv5C7F25g+e+7u/qBU66irO/LCIA7D/Un8wW3nVXCgyn4eWWpfg35tCBn05Tlg3i/cctxfn6Z/aq
-	BZknqHow==;
+	bh=2C/d7vvukKZ2LBtMiAuzC1XciiG81GObwwDrbzbmpRI=; b=bmn6NUMUgHzdfEJXhMIJZZYl98
+	dNNtvUM1V5dFGvHkY3Jqlc91FVw188LxIFuovvi/LjJhYvftHgieE/fBxmO7yzMdCKUWpo3wv681L
+	udebOo6K0qRFCf8OPR/d6Og63SrO8Gp9vnbsZldOYlnVPqFYuDelpGV05xOYsYbURRgC4DK+NW9Ud
+	ZADKz7ogAK7i9vsZy7PMKX91evzu7N2acRD+bMiFBJxfIlNYLFRINa7awAr2AvD3qJNOP5MV13UxE
+	ePVr1zkaF9je6NXSQQQIEmVtq8ToY7RMBC5XVNqTbsLHiLwtam12E8utJiNGRnJBz2/OjGwzUv8iB
+	Ark7r/gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0UbM-0000000ANNm-0h3T;
-	Fri, 04 Apr 2025 00:08:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u0Ud7-0000000ANdn-3Zyd;
+	Fri, 04 Apr 2025 00:09:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0UYa-0000000AMmx-1isN
+	id 1u0UZK-0000000AMwJ-0Vur
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 00:05:13 +0000
+	Fri, 04 Apr 2025 00:05:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8F1FAA46A8E;
-	Thu,  3 Apr 2025 23:59:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13EB0C4CEE3;
-	Fri,  4 Apr 2025 00:05:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 57B2F5C6AB8;
+	Fri,  4 Apr 2025 00:03:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1723FC4CEE3;
+	Fri,  4 Apr 2025 00:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743725111;
-	bh=kVQgNxq4m2oGBNbzDF5BjkGwrAuG/5jrS+kaq/UaZzg=;
+	s=k20201202; t=1743725157;
+	bh=MoxHxLpMQ/cPzCeMsJWesuSPEGcl5oWPfXJxOh0zs2g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TeaEjhBbCQSJHQu2oOakvU3VJOdnaAPlxybbFw3CiY/b6ZUpxdUJOULr0igtTwkj/
-	 N7cb7T/oIlDQFUhejWsaWKuJ9mLdikAoxhSrUdUzvOicU7o7Llg19Mjyb9G20bbDdN
-	 desEkL0bU1F/i7qrxaMGjAOSqn2hm51x7x33/z9uYIwAQbtVraOGl4DFCGDASQZlSM
-	 4h4UUPdFC4xapT7ga4hLX9be2YV6IUgzfZm6kjsAFihqVdTwahUzp+XeS8qQxZnCBB
-	 ikU3NTrbtZ+xrxMq0WyszIMkBYs+TK3IIIB77ia5RRckAPSuqcULcxpyneoiON6KG7
-	 UzGCT0pEzPZeg==
+	b=mkm9bpH4ZaxYo0ou5/1nca2csS9HLIl9mGHriPBE4vgAm0keW9kcW/3MBSyvaHcAo
+	 rJhH4/b9flzhRQ7UiSHtD5cGW5VphraKelzsqQkTKXeKMxU8d8GKIzmenBRsZMcqN3
+	 FkcXzRHDZg7R3JLY+7RNR6la/xmR+1bQ18m2EBDwdolPqK/ifaY9+nhVXajH6bb9xW
+	 XveQ97xxyUGsM/3ZS3VCFCLAyLTz4TXDO9FF6JM1JgffDL2Cczx3D94RwXwTPyrrE+
+	 1dUijjjWKVG9Zm+P4IBMnpEK6Il3qzwQeVfDep1BuYxLtxniZU/boMHqVXf001tF79
+	 raoEOJeXQZu3w==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -63,20 +63,20 @@ Cc: Herbert Xu <herbert@gondor.apana.org.au>,
 	linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org
-Subject: [PATCH AUTOSEL 6.13 07/22] crypto: lib/Kconfig - Fix lib built-in failure when arch is modular
-Date: Thu,  3 Apr 2025 20:04:36 -0400
-Message-Id: <20250404000453.2688371-7-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.12 06/20] crypto: lib/Kconfig - Fix lib built-in failure when arch is modular
+Date: Thu,  3 Apr 2025 20:05:26 -0400
+Message-Id: <20250404000541.2688670-6-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250404000453.2688371-1-sashal@kernel.org>
-References: <20250404000453.2688371-1-sashal@kernel.org>
+In-Reply-To: <20250404000541.2688670-1-sashal@kernel.org>
+References: <20250404000541.2688670-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.13.9
+X-stable-base: Linux 6.12.21
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_170512_578696_4F41B9FE 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250403_170558_279739_2CE80F38 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,7 +146,7 @@ index 5ff49a5e9afc9..8af59c1735ea4 100644
  	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
  	  stream cipher algorithms
 diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
-index 951a437264611..14299927d7964 100644
+index 46a4c85e85e24..2a2615e35fdb5 100644
 --- a/arch/powerpc/crypto/Kconfig
 +++ b/arch/powerpc/crypto/Kconfig
 @@ -6,7 +6,7 @@ config CRYPTO_CURVE25519_PPC64
@@ -168,7 +168,7 @@ index 951a437264611..14299927d7964 100644
  	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
  	  stream cipher algorithms
 diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index 3d2e38ba52403..82c5fbb13f048 100644
+index 7b1bebed879df..d87b268d17d39 100644
 --- a/arch/x86/crypto/Kconfig
 +++ b/arch/x86/crypto/Kconfig
 @@ -6,7 +6,7 @@ config CRYPTO_CURVE25519_X86
