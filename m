@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6170C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E88C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SAQbWjWGGmEWV/yrGcgLnMo50LiJ5Xc9HvWor5bjKpE=; b=Va5llWxPRQ9JY2xfO6kAe9XNGy
-	1J0LNjzS0V/4/+UC96fQmZcxZotClGwpYtubL0IL/EGfO3BzKr+nZka6z0cfIRJoZ71zlZD07MIJX
-	IFpw9vLeRBzxNHJiDtEfzvIVrc/SMjvqrwn1LAsUWK39nHT6XI1KuOPnVhPDEyeu+9UvosEHmdqz9
-	XK2itxzvX0pOeuQ+GX8Ofxwkp/fV9LQN/uU7IfJWyTQMaAhxoEhAZHpeFtVGpNq1qHbcS2nU8hGfR
-	ugZR/YSVlj/O3QzBE7/JKPUTpmHqLmn953j9nUJTjw0Pipc4two1lQCsWd8RLO6XsC0PqLj9LrlZa
-	F37rTLRA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P5VYLYdEkeWgyeWX/EZa0WnpJ73Q8FAesiLU/ww7Cxs=; b=ninKwQvR3ZR3OirlzHvFjp0Tbs
+	DLZtT9NoUND89ZsWPDjfaCuWK2xMsgCXUEvIVui7Bmvmpb2BnuN1WlJjUFafIzku/Gw8NI9q7jSGq
+	airbHBL0U5mrpgK0huA1RGhn9BVcqVbqfbm8qRrUfRqypcT2nHwngLx8E/ZEAqeja1lrz1JNb2PFD
+	g36kFxZbWiuEXxmBbIAoFIGxBNfdoq98Eufq8iMHc1vWOF2LmpctvOFnC/DKK9V48I34E0zZn0HZF
+	iUn4im99yMnrLG+TRdMPkGGfCAxS93m8zkU1SFlN0YwF1X7z9ntNIqajHhMu6bj2Le6EshNZHdT3H
+	QBudefuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jYv-0000000CG3S-0flT;
-	Fri, 04 Apr 2025 16:06:33 +0000
+	id 1u0jad-0000000CGFr-3SYx;
+	Fri, 04 Apr 2025 16:08:19 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jSf-0000000CF3c-2SX7
+	id 1u0jSf-0000000CF3d-2SZX
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 04 Apr 2025 16:00:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=SAQbWjWGGmEWV/yrGcgLnMo50LiJ5Xc9HvWor5bjKpE=; b=d7l3I/9/QLogRFJbAFJpwKuy6H
-	B0t3Z7Upm6Db3cxysxtEATptTKPyFIjrvR1IiTqa6fj8zd+dQ8qw/mYXmi9eramZYOT01xjsBr9gv
-	g3S8NHQZZWom5Th4kzq6dixygw3CD0iPWHeYGA+zJcTe5SD91Taidj9jqPX5gJFJP4ueN+seQocDD
-	jPgCHdxWYs/rmNqy4h+MUxbebrc9j5fMAou3iLqAwi6nhlq91/43pUrP3Nh2E91NbF/NfMzh1yd1o
-	cmGSfeUGIxkQ2VCvR8WSn2FWLQC/FlgQVqNRFhNpjyGM/f89o/R33M7cx3j005R7UGgMZUqNNonCz
-	5OSe/p9g==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=P5VYLYdEkeWgyeWX/EZa0WnpJ73Q8FAesiLU/ww7Cxs=; b=GUYU/YR47lcF88YQE7EH7TpKB2
+	zN7AKKvvGE+bbZSCVfqr/oyxCsvOKug18HG2HLPn2hzCCyr28tFqyGD9WE8XnLgGAI3tZkFoNGjRO
+	OgjbHNJH1PDByFVu8pm8ZivdCL5MEV/GNaFUfd+wAfiibiI9zWlpJtBcaljmCVRXvO2F5RxGRDFcv
+	n+kIPUAtdP9Y82yL00kM9ObdiypoF5byTbPDzb62xDr08XwYD5r8jUm8sLxrmkORJzVZ3UuKodDTs
+	Em+8VmA6k36CwWivAtW5UVU9ugF9e40TqXDlsMyj8sHumr6FwIMVgjq+YOd/BBlhaaZ+R0N+DDoUj
+	9yqvaGVQ==;
 Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
 	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jSc-00000007QOz-0XcV;
+	id 1u0jSc-00000007QOy-0YLc;
 	Fri, 04 Apr 2025 16:00:02 +0000
 Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jSZ-0000000ERSQ-40aW;
+	id 1u0jSZ-0000000ERSB-2cgL;
 	Fri, 04 Apr 2025 16:59:59 +0100
 From: David Woodhouse <dwmw2@infradead.org>
 To: Mike Rapoport <rppt@kernel.org>
@@ -60,13 +60,12 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [RFC PATCH v2 6/7] mm, x86: Use for_each_valid_pfn() from __ioremap_check_ram()
-Date: Fri,  4 Apr 2025 16:59:58 +0100
-Message-ID: <20250404155959.3442111-6-dwmw2@infradead.org>
+Subject: [RFC PATCH v2 1/7] mm: Introduce for_each_valid_pfn() and use it from reserve_bootmem_region()
+Date: Fri,  4 Apr 2025 16:59:53 +0100
+Message-ID: <20250404155959.3442111-1-dwmw2@infradead.org>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250404155959.3442111-1-dwmw2@infradead.org>
-References: <20250404155959.3442111-1-dwmw2@infradead.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,38 +84,86 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: David Woodhouse <dwmw@amazon.co.uk>
 
-Instead of calling pfn_valid() separately for every single PFN in the
-range, use for_each_valid_pfn() and only look at the ones which are.
+Especially since commit 9092d4f7a1f8 ("memblock: update initialization
+of reserved pages"), the reserve_bootmem_region() function can spend a
+significant amount of time iterating over every 4KiB PFN in a range,
+calling pfn_valid() on each one, and ultimately doing absolutely nothing.
+
+On a platform used for virtualization, with large NOMAP regions that
+eventually get used for guest RAM, this leads to a significant increase
+in steal time experienced during kexec for a live update.
+
+Introduce for_each_valid_pfn() and use it from reserve_bootmem_region().
+This implementation is precisely the same naïve loop that the function
+used to have, but subsequent commits will provide optimised versions
+for FLATMEM and SPARSEMEM, and this version will remain for those
+architectures which provide their own pfn_valid() implementation,
+until/unless they also provide a matching for_each_valid_pfn().
 
 Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/x86/mm/ioremap.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ include/linux/mmzone.h | 10 ++++++++++
+ mm/mm_init.c           | 23 ++++++++++-------------
+ 2 files changed, 20 insertions(+), 13 deletions(-)
 
-diff --git a/arch/x86/mm/ioremap.c b/arch/x86/mm/ioremap.c
-index 331e101bf801..12c8180ca1ba 100644
---- a/arch/x86/mm/ioremap.c
-+++ b/arch/x86/mm/ioremap.c
-@@ -71,7 +71,7 @@ int ioremap_change_attr(unsigned long vaddr, unsigned long size,
- static unsigned int __ioremap_check_ram(struct resource *res)
+diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+index 25e80b2ca7f4..32ecb5cadbaf 100644
+--- a/include/linux/mmzone.h
++++ b/include/linux/mmzone.h
+@@ -2176,6 +2176,16 @@ void sparse_init(void);
+ #define subsection_map_init(_pfn, _nr_pages) do {} while (0)
+ #endif /* CONFIG_SPARSEMEM */
+ 
++/*
++ * Fallback case for when the architecture provides its own pfn_valid() but
++ * not a corresponding for_each_valid_pfn().
++ */
++#ifndef for_each_valid_pfn
++#define for_each_valid_pfn(_pfn, _start_pfn, _end_pfn)			\
++	for ((_pfn) = (_start_pfn); (_pfn) < (_end_pfn); (_pfn)++)	\
++		if (pfn_valid(_pfn))
++#endif
++
+ #endif /* !__GENERATING_BOUNDS.H */
+ #endif /* !__ASSEMBLY__ */
+ #endif /* _LINUX_MMZONE_H */
+diff --git a/mm/mm_init.c b/mm/mm_init.c
+index a38a1909b407..7c699bad42ad 100644
+--- a/mm/mm_init.c
++++ b/mm/mm_init.c
+@@ -777,22 +777,19 @@ static inline void init_deferred_page(unsigned long pfn, int nid)
+ void __meminit reserve_bootmem_region(phys_addr_t start,
+ 				      phys_addr_t end, int nid)
  {
- 	unsigned long start_pfn, stop_pfn;
--	unsigned long i;
+-	unsigned long start_pfn = PFN_DOWN(start);
+-	unsigned long end_pfn = PFN_UP(end);
 +	unsigned long pfn;
  
- 	if ((res->flags & IORESOURCE_SYSTEM_RAM) != IORESOURCE_SYSTEM_RAM)
- 		return 0;
-@@ -79,9 +79,8 @@ static unsigned int __ioremap_check_ram(struct resource *res)
- 	start_pfn = (res->start + PAGE_SIZE - 1) >> PAGE_SHIFT;
- 	stop_pfn = (res->end + 1) >> PAGE_SHIFT;
- 	if (stop_pfn > start_pfn) {
--		for (i = 0; i < (stop_pfn - start_pfn); ++i)
--			if (pfn_valid(start_pfn + i) &&
--			    !PageReserved(pfn_to_page(start_pfn + i)))
-+		for_each_valid_pfn(pfn, start_pfn, stop_pfn)
-+			if (!PageReserved(pfn_to_page(pfn)))
- 				return IORES_MAP_SYSTEM_RAM;
+-	for (; start_pfn < end_pfn; start_pfn++) {
+-		if (pfn_valid(start_pfn)) {
+-			struct page *page = pfn_to_page(start_pfn);
++	for_each_valid_pfn (pfn, PFN_DOWN(start), PFN_UP(end)) {
++		struct page *page = pfn_to_page(pfn);
+ 
+-			init_deferred_page(start_pfn, nid);
++		init_deferred_page(pfn, nid);
+ 
+-			/*
+-			 * no need for atomic set_bit because the struct
+-			 * page is not visible yet so nobody should
+-			 * access it yet.
+-			 */
+-			__SetPageReserved(page);
+-		}
++		/*
++		 * no need for atomic set_bit because the struct
++		 * page is not visible yet so nobody should
++		 * access it yet.
++		 */
++		__SetPageReserved(page);
  	}
+ }
  
 -- 
 2.49.0
