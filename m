@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16797C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 22:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A06AAC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 23:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=icbPkrkUd1De4/wRlfQxCHPa3ucnmbOW4BGuGjTGkgM=; b=ZzNYl4rGo2RLdUbJECxrCxd5lH
-	SvDUIfdHrthrQQV5DUoTNW0ZfJQd+z8mZETzu03B+pWteNzZpqceeJ3PuBFOWWUnb3n7Z2lQtG7Fh
-	idpq8m8KPl2ne//9pJtfGYnIp9pap6IaYx4AJAtNmmGkrK9UPiQ7r6nibe+1l49z4c5dW7AXibN/N
-	H7nM1y3825+CVESMbbDN1zadlFF+AHZdyX/1OZc1p2psZMw1U7XrfdW3e7np2yNLiCRJtvvRQROS6
-	Ql3YW7C5JyJbEsgIaW4gTSG4c7+9ATZZGNpLjGx5rdihXVCyuN3iqNntE/7LOHqU+EhwXSOzUvsSz
-	1y4x0L0A==;
+	bh=7WE4k0gwgTAUdZ3znm9Bphq+twxiG2Hgud2fjJc9JwU=; b=mPDz9UbFvVIqub/Q9etIgAsTKH
+	kiQrXScfGqEcNsfDnpd547sY6ZMU0mrS6HEj1G/RwekgHgzrIyW106xl1l3Iuxj6ETXk/9bjmK3Hc
+	37FtMF1cPYzuIfVna0DpdQiLi3cV2v+yI7ymedx8cqKpW3ga+njBChhbz6f5GN4ZTBUNQVtD0Uf/d
+	ZH/f2eAT5DW+2siPAlCm4DHdPJIPwhgJnC/Bn9Tmura7WdfaHS49X6YsH2knd8Hpn8Pzh5vyeKS17
+	zaCvO6coBzSIys3MgUug1KR5TpLOZEqI80H/962cwONd+wUfzdpfGC3bwavwtzTGwfQ34jBNQYjUu
+	UjoaS/AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0ppU-0000000D1AH-28Ow;
-	Fri, 04 Apr 2025 22:48:04 +0000
-Received: from out-173.mta1.migadu.com ([95.215.58.173])
+	id 1u0q40-0000000D2UX-0hln;
+	Fri, 04 Apr 2025 23:03:04 +0000
+Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0pnj-0000000D0wY-0Uax
+	id 1u0q2F-0000000D2I5-1agK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 22:46:16 +0000
-Date: Fri, 4 Apr 2025 15:46:01 -0700
+	Fri, 04 Apr 2025 23:01:16 +0000
+Date: Fri, 4 Apr 2025 16:01:05 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1743806772;
+	t=1743807670;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=icbPkrkUd1De4/wRlfQxCHPa3ucnmbOW4BGuGjTGkgM=;
-	b=QRFDrlVXyeKYm2auWsnzd21S31ggUiVTESz37sca/elBzIWiLNknM2FIh5SUSNnCRe54b0
-	sjQO6yUYmITskjDTi/PpqBwTl26+n2loNJ8I11WPulIigWcmGzePbbUy9Cyk3amqBVg/6I
-	BLVUr6+FIXMOnJxuxpCWz5b68q7rF50=
+	bh=7WE4k0gwgTAUdZ3znm9Bphq+twxiG2Hgud2fjJc9JwU=;
+	b=PyNqoE2/uDWdg8j9a/zZA+hEa6IgIfhZnH++GFAzOCUqkD/3MxaMoGETH/bOrsK4RMj0tZ
+	3cuWIXLc2+4QaqYxb/3koglx3rsxd33mzVqIdmCUJ8zXAPn4yta8DhMdtByqfwr7S7d5JV
+	82bM8c0zA8FEttfc3VTH8bcwMH6KGUQ=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: Raghavendra Rao Ananta <rananta@google.com>
@@ -44,19 +44,19 @@ Cc: Marc Zyngier <maz@kernel.org>, Mingwei Zhang <mizhang@google.com>,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
 	Oliver Upton <oupton@google.com>
-Subject: Re: [PATCH 1/2] KVM: selftests: arm64: Introduce and use
- hardware-definition macros
-Message-ID: <Z_BhKUAgkLCdeWDB@linux.dev>
+Subject: Re: [PATCH 2/2] KVM: selftests: arm64: Explicitly set the page attrs
+ to Inner-Shareable
+Message-ID: <Z_BksUn4JiPPGc4G@linux.dev>
 References: <20250404220659.1312465-1-rananta@google.com>
- <20250404220659.1312465-2-rananta@google.com>
+ <20250404220659.1312465-3-rananta@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250404220659.1312465-2-rananta@google.com>
+In-Reply-To: <20250404220659.1312465-3-rananta@google.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_154615_628454_4C72B3CE 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20250404_160115_617050_1F089671 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,86 +71,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Raghu,
-
-On Fri, Apr 04, 2025 at 10:06:58PM +0000, Raghavendra Rao Ananta wrote:
-> The kvm selftest library for arm64 currently configures the hardware
-> fields, such as shift and mask in the page-table entries and registers,
-> directly with numbers. While it add comments at places, it's better to
-> rewrite them with appropriate macros to improve the readability and
-> reduce the risk of errors. Hence, introduce macros to define the
-> hardware fields and use them in the arm64 processor library.
+On Fri, Apr 04, 2025 at 10:06:59PM +0000, Raghavendra Rao Ananta wrote:
+> Atomic instructions such as 'ldset' over (global) variables in the guest
+> is observed to cause an EL1 data abort with FSC 0x35 (IMPLEMENTATION
+> DEFINED fault (Unsupported Exclusive or Atomic access)). The observation
+> was particularly apparent on Neoverse-N3.
 > 
-> Most of the definitions are primary copied from the Linux's header,
-> arch/arm64/include/asm/pgtable-hwdef.h.
+> According to DDI0487L.a C3.2.6 (Single-copy atomic 64-byte load/store),
+> it is implementation defined that a data abort with the mentioned FSC
+> is reported for the first stage of translation that provides an
+> inappropriate memory type. It's likely that the same rule also applies
+> to memory attribute mismatch. When the guest loads the memory location of
+> the variable that was already cached during the host userspace's copying
+> of the ELF into the memory, the core is likely running into a mismatch
+> of memory attrs that's checked in stage-1 itself, and thus causing the
+> abort in EL1.
 
-Thank you for doing this. Having magic numbers all around the shop was a
-complete mess. Just a single comment:
+Sorry, my index of the ARM ARM was trashed when we were discussing this
+before.
 
-> No functional change intended.
-> 
-> Suggested-by: Oliver Upton <oupton@google.com>
-> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
-> ---
->  tools/arch/arm64/include/asm/sysreg.h         | 38 +++++++++++++
->  .../selftests/kvm/arm64/page_fault_test.c     |  2 +-
->  .../selftests/kvm/include/arm64/processor.h   | 28 +++++++--
->  .../selftests/kvm/lib/arm64/processor.c       | 57 ++++++++++---------
->  4 files changed, 92 insertions(+), 33 deletions(-)
-> 
-> diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
-> index 150416682e2c..6fcde168f3a6 100644
-> --- a/tools/arch/arm64/include/asm/sysreg.h
-> +++ b/tools/arch/arm64/include/asm/sysreg.h
-> @@ -884,6 +884,44 @@
->  	 SCTLR_EL1_LSMAOE | SCTLR_EL1_nTLSMD | SCTLR_EL1_EIS   | \
->  	 SCTLR_EL1_TSCXT  | SCTLR_EL1_EOS)
->  
-> +/* TCR_EL1 specific flags */
-> +#define TCR_T0SZ_OFFSET	0
-> +#define TCR_T0SZ(x)		((UL(64) - (x)) << TCR_T0SZ_OFFSET)
-> +
-> +#define TCR_IRGN0_SHIFT	8
-> +#define TCR_IRGN0_MASK		(UL(3) << TCR_IRGN0_SHIFT)
-> +#define TCR_IRGN0_NC		(UL(0) << TCR_IRGN0_SHIFT)
-> +#define TCR_IRGN0_WBWA		(UL(1) << TCR_IRGN0_SHIFT)
-> +#define TCR_IRGN0_WT		(UL(2) << TCR_IRGN0_SHIFT)
-> +#define TCR_IRGN0_WBnWA	(UL(3) << TCR_IRGN0_SHIFT)
-> +
-> +#define TCR_ORGN0_SHIFT	10
-> +#define TCR_ORGN0_MASK		(UL(3) << TCR_ORGN0_SHIFT)
-> +#define TCR_ORGN0_NC		(UL(0) << TCR_ORGN0_SHIFT)
-> +#define TCR_ORGN0_WBWA		(UL(1) << TCR_ORGN0_SHIFT)
-> +#define TCR_ORGN0_WT		(UL(2) << TCR_ORGN0_SHIFT)
-> +#define TCR_ORGN0_WBnWA	(UL(3) << TCR_ORGN0_SHIFT)
-> +
-> +#define TCR_SH0_SHIFT		12
-> +#define TCR_SH0_MASK		(UL(3) << TCR_SH0_SHIFT)
-> +#define TCR_SH0_INNER		(UL(3) << TCR_SH0_SHIFT)
-> +
-> +#define TCR_TG0_SHIFT		14
-> +#define TCR_TG0_MASK		(UL(3) << TCR_TG0_SHIFT)
-> +#define TCR_TG0_4K		(UL(0) << TCR_TG0_SHIFT)
-> +#define TCR_TG0_64K		(UL(1) << TCR_TG0_SHIFT)
-> +#define TCR_TG0_16K		(UL(2) << TCR_TG0_SHIFT)
-> +
-> +#define TCR_IPS_SHIFT		32
-> +#define TCR_IPS_MASK		(UL(7) << TCR_IPS_SHIFT)
-> +#define TCR_IPS_52_BITS	(UL(6) << TCR_IPS_SHIFT)
-> +#define TCR_IPS_48_BITS	(UL(5) << TCR_IPS_SHIFT)
-> +#define TCR_IPS_40_BITS	(UL(2) << TCR_IPS_SHIFT)
-> +#define TCR_IPS_36_BITS	(UL(1) << TCR_IPS_SHIFT)
-> +
-> +#define TCR_HA			(UL(1) << 39)
-> +#define TCR_DS			(UL(1) << 59)
-> +
+DDI0487L.a B2.2.6 describes the exact situation you encountered, where
+atomics are only guaranteed to work on Inner/Outer Shareable MT_NORMAL
+memory.
 
-sysreg.h isn't the right home for these definitions since it is meant to
-be a copy of the corresponding kernel header.
+What's a bit more explicit for other memory attribute aborts (like the
+one you've cited) is whether or not the implementation can generate the
+abort solely on the stage-1 attributes vs. the combined stage-1/stage-2
+attributes at the end of translation.
 
-Since KVM selftests are likely the only thing in tools to care about
-setting up page tables, adding this to processor.h seems like a better
-place.
+Either way, let's correct the citation to point at the right section.
 
 Thanks,
 Oliver
