@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A07C36014
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 13:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 662B0C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jBI+tqoXt5vhAgUvqTj42G7dJy0THKD/XPrdcPoQDpA=; b=WbDPlRikAi2PprnlCJYu3m6+fF
-	vwGyTdEvzWQUmEGUlJrFhpRrVTJQZIFYVwN2yqFyZfR2PcaNGJCUQUI39pqSdshwi86SMH8AcrSjA
-	kO+XIV3Se0Cmeem66aVNwek1yGjUneVcLQeOyRce3aVDAj5OYKBZc06mFuwAaSAIJKpVyXlh+sTnF
-	cl9C0qPv4dE+NESJrPu+Ym2f8a/UzFbMDN1p9w2G4Q+OsYrTlzc0CHf0FVtJLgm7YYngzC41rkxgs
-	BfcNujtg2pdDRmTmkb6V0r7L4zymgQWnxXAVLKNUvJDu1t448SRW3o2lBR+BzAEeHOCNt56gZEftu
-	8UTQE8Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9ZVhWybsQPBRrmpyo04d68VKV2Tp06jwUv8a+/Fie0U=; b=H2aEXH8oQWpG/w
+	elGFEUu4aiHavNYyOHNIwGrM06R8YCnaShYIiJj/KN5DQ8/4K/owOOsFsZbjq81/jOpCdTp7ENsVu
+	uSu4yWk2Ru7tJkfmwVBVr3V03gqWJIlwrf040nWqwhtm+V/Kg7ld8hdI6AKS3QfosUzbAgCJzt5lz
+	bSiG4a2zwH2kScsyVLGkCUXG6y3UzEVqayFDqUpkEm/eU9ZLmvOLDTFTpYnU5n9o0s+h5ohkgGbo3
+	P2dnRnzi5vH4t8GaJau4xXu4bZURk3CjCPyvCPFNicVP/bxaGJAOw8FNbSyWil6dRTSJRQYr0AGQX
+	VTRPldllF4b4zYQTli9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0hZr-0000000BuxE-2d21;
-	Fri, 04 Apr 2025 13:59:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u0hbZ-0000000BvLo-3wz3;
+	Fri, 04 Apr 2025 14:01:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0hQZ-0000000Bt1u-0LnV;
-	Fri, 04 Apr 2025 13:49:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E642E614BA;
-	Fri,  4 Apr 2025 13:49:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86E89C4CEDD;
-	Fri,  4 Apr 2025 13:49:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743774586;
-	bh=InZ0uos7yT9Kf1hkWBsUYLcrp43412OOZl/bw7DO4Uw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=USi10D+naSHmsOpLEbclvvoUV8OCZArB3n9xpGD99on1UMZaLkaUh+brOpqRUHjUM
-	 z0XibKT/P/RSxfymt/L40cXSF8H9LKoNMf1OFTMr2U3NQCMAR2Ux6Hm3enCUZmWiNX
-	 3VMeGo/FM5zIrC468kOaLBCkZyOEsCxCJ1pPuSBWPFOVfilk0ZeJkRltCqUO5YRa0R
-	 4uhZNjLKNaCACgVmbORjBmkJlsqgdEBlTEA1QHIUiVg/sY8PhuaW1352AymUDAS/jD
-	 TIwikh2QEHHjedoxXiB3TpY2lpVaofO50dMmp1j9XakRekMytpGDUvOeLbL8RA9l7S
-	 F9qLsRuerEHMw==
-Date: Fri, 4 Apr 2025 14:49:38 +0100
-From: Will Deacon <will@kernel.org>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Subject: Re: [PATCH v5 11/21] RISC-V: perf: Restructure the SBI PMU code
-Message-ID: <20250404134937.GA29394@willie-the-truck>
-References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
- <20250327-counter_delegation-v5-11-1ee538468d1b@rivosinc.com>
+	id 1u0hTt-0000000Btft-3KX9;
+	Fri, 04 Apr 2025 13:53:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1743774791;
+	bh=vR24AuULjA4+FsZtPLkXjrIG5WFlOIcKpNzCDaqBB8I=;
+	h=From:Subject:Date:To:Cc:From;
+	b=o8Eb81yclHsonFXupkotQQ545cCg1bjrcg/KlF+sm4DtYaKpbAjYczvlI2rBtAN4H
+	 nhuW6IAhFV89ORMHep6ac+fbEaMXoPTLIlI1QRLFhqCqPExaDxvL0uibg15dbY/hqr
+	 Xy5RSFQn/EYF2cxGGnVC5mXf5i1GSeAV+yboQPxsZN6afxxc5s17g5M0Qv6/ueYy+t
+	 SwdUWIcIQOYpNR1QXuxNG/RVQ3jP3V2UkEK1aTOsKnREXoOKPqy2ZeAZSEYfImhwUO
+	 MrWVS6HjZX9YlR9O+xrOAvEouLA/64+7vfkuVZXtObUTP5a36PuW47uyCzYId2rtm0
+	 yFV0p5z0m7OlQ==
+Received: from apertis-1.home (2a01cb0892F2D600C8f85cF092D4af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: jmassot)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E7BC317E00AC;
+	Fri,  4 Apr 2025 15:53:10 +0200 (CEST)
+From: Julien Massot <julien.massot@collabora.com>
+Subject: [PATCH 0/2] mt8395 evk/radxa-nio-12l Add scp firmware name
+Date: Fri, 04 Apr 2025 15:53:08 +0200
+Message-Id: <20250404-mt8395-scp-fw-v1-0-bb8f20cd399d@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250327-counter_delegation-v5-11-1ee538468d1b@rivosinc.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAETk72cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDEwMT3dwSC2NLU93i5ALdtHJdQ2PTpBQDA9NES4skJaCegqLUtMwKsHn
+ RsbW1ADuol6VfAAAA
+X-Change-ID: 20250404-mt8395-scp-fw-135bd005a98b
+To: kernel@collabora.com, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Ben Lok <ben.lok@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Julien Massot <julien.massot@collabora.com>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250404_065314_019814_11729DC3 
+X-CRM114-Status: UNSURE (   7.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 27, 2025 at 12:35:52PM -0700, Atish Patra wrote:
-> With Ssccfg/Smcdeleg, we no longer need SBI PMU extension to program/
-> access hpmcounter/events. However, we do need it for firmware counters.
-> Rename the driver and its related code to represent generic name
-> that will handle both sbi and ISA mechanism for hpmcounter related
-> operations. Take this opportunity to update the Kconfig names to
-> match the new driver name closely.
-> 
-> No functional change intended.
-> 
-> Reviewed-by: Clément Léger <cleger@rivosinc.com>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  MAINTAINERS                                       |   4 +-
->  arch/riscv/include/asm/kvm_vcpu_pmu.h             |   4 +-
->  arch/riscv/include/asm/kvm_vcpu_sbi.h             |   2 +-
->  arch/riscv/kvm/Makefile                           |   4 +-
->  arch/riscv/kvm/vcpu_sbi.c                         |   2 +-
->  drivers/perf/Kconfig                              |  16 +-
->  drivers/perf/Makefile                             |   4 +-
->  drivers/perf/{riscv_pmu.c => riscv_pmu_common.c}  |   0
->  drivers/perf/{riscv_pmu_sbi.c => riscv_pmu_dev.c} | 214 +++++++++++++---------
+Add missing firmware-name property for mt8395 genio-1200-evk and
+radxa-nio-12l.
 
-I'm still against this renaming churn. It sucks for backporting and
-you're also changing the name of the driver, which could be used by
-scripts in userspace (e.g. module listings, udev rules, cmdline options)
+To: kernel@collabora.com
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Macpaul Lin <macpaul.lin@mediatek.com>
+To: Ben Lok <ben.lok@mediatek.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-mediatek@lists.infradead.org
+Cc: kernel@collabora.com
 
-Will
+Signed-off-by: Julien Massot <julien.massot@collabora.com>
+---
+Julien Massot (2):
+      arm64: dts: mediatek: mt8395-nio-12l: Add scp firmware-name
+      arm64: dts: mediatek: mt8395-genio-1200-evk: Add scp firmware-name
+
+ arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts | 1 +
+ arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts  | 1 +
+ 2 files changed, 2 insertions(+)
+---
+base-commit: a4cda136f021ad44b8b52286aafd613030a6db5f
+change-id: 20250404-mt8395-scp-fw-135bd005a98b
+
+Best regards,
+-- 
+Julien Massot <julien.massot@collabora.com>
+
 
