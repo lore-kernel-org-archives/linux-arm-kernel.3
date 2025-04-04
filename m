@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328E2C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 09:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1EA0C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 09:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2os7nP6bqlJSEOPlQT6Ba/W0RpzQXZsJSPidPlIa/A=; b=FOzdcKYu42eAU1+d5kccwuA924
-	sFIg7qEBnIKAIoTCD/275gyVhLTG9HsXE1ywBEgSpiSh4e8eD0tNOaRRLsEhPxkt02KZ/ttOS2rAx
-	pmxx7sLe6G5IRp4d4AZkflxrUCnomQn5e7D14p5CfNRjbtuypckJQ/Uiw8l+zyRrLQxskz2LSzGqK
-	u4/w7CXyP+TYF/Yvp2j1vZGI9dfvY2zq1sLRBgwP1nQ+gwvUvBd9nfD3bISTg8Ga4BtABWKFNTsfu
-	dWaO6AFJ7Zj+MfWTrF8pUkpS97cTJTX0US19nqzQtJPkcL7OjMdoaoO0vBp6RxLJg5T3iGrCauNjf
-	H3VKwKGw==;
+	bh=zKOFH2LoxcpTfC6CVHqjCAUEihzQMaHb7acIN6rZH+g=; b=0vGJ15nMUZqaVItNHgG84eu8bv
+	nwDleJxfyBfTjyAh8Hndi3Lx7t0/bTaccnhHNGozfLlSROdbz0Yx8zjh2Mzy+y+pw0rjzIqKQF3CA
+	jOVBxWQWxNdvhzshKowkInahl6Z+glBWrSSDtmO1JLfde1XfgjGHhwFHLo70ypIISr2Khe91BviSc
+	5FxlEx8lsoU1AdtWU4Jpk0LlUyIHipqFhK9cTYuaWfYKk6igmWBOhwXLuO5yqEmCDYpxP+4SDDA8y
+	yaH/5Ot2bics0+OB7LCS41TeHr6eKgbKuob/sdyH8EfSZFxLinOZuJwWwiK2X4bwl69lf9ozbT+gG
+	8Y5yRi1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0dGt-0000000BGWk-45Sf;
-	Fri, 04 Apr 2025 09:23:31 +0000
+	id 1u0dMt-0000000BHPu-0WNi;
+	Fri, 04 Apr 2025 09:29:43 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0dF5-0000000BGFT-2Bl7
+	id 1u0dL4-0000000BHCe-3jL2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 09:21:40 +0000
+	Fri, 04 Apr 2025 09:27:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A3AC643881;
-	Fri,  4 Apr 2025 09:21:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA9CBC4CEDD;
-	Fri,  4 Apr 2025 09:21:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0952143695;
+	Fri,  4 Apr 2025 09:27:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41D4DC4CEDD;
+	Fri,  4 Apr 2025 09:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743758499;
-	bh=8YXmkh4y0yK+27UdeCSafZhd00VNPUKtI2R/MeGHZw0=;
+	s=k20201202; t=1743758870;
+	bh=j0RVHsK+8Z70siy6KizMbeUUMr7khc2n2FyBiYwSGY0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BZUU+43R7jq6omveJw4jer75uPzA+ZLjJxaCvwnqHt7KNUQ0CAzRRaiKLlriM4YQT
-	 whjDY52WTH01XTrdPwZ0V+6yugelmu2i7PzrWWfwkwDWP4fmwMeUTOQdgHXL6KCjmW
-	 Xq2fO8j4XGNIx+lxVqm+bLv9mak3pODaMiU3zHKSFXPz82j/B+PctBqePCv6wJY4ej
-	 2eH9Nu3vJhVqePfECRAgseYVRzthGuN5imTSejU/X4H2JQg7Jl4U7Z+dF59KbkEGg2
-	 u6dIdk/jXcqPwsodzPpDjMXHyNNHvQdW3FgRxwtu/+BLsaNxD2C93IBbGfwBArpu6n
-	 4u10uBMVLPDUw==
-Date: Fri, 4 Apr 2025 10:21:31 +0100
+	b=k2mNmYL+Tn1jkYo6pbOKWN+sdTq6/m14DMgEi0eE9QfpMdbwetp53Q1//RfKRHqfJ
+	 2a8UyNCncTI5cIVqNggzKoCvtwGmhBscLRlfO2qSRbvjhTD+0jCwLIeonWZaHheBuv
+	 yXi7owlf6dD2e9L1gA5Iu28WHOv/F4mvVTGUnRwgQ44MOB4cqizdCNs1uwfBWA8yAW
+	 LGdA+Q7J2ngW0r3OMnnjFVbZA7lCnxyV9NsQs7q9F9trZ5DQDm7fV1H2/FR6JVzBaV
+	 yLHAMQVYISyQdLymipvLBbT7uCjf+438NTx0U0kSMJxiqOfGtwA9fNFmEzqrrkD4vz
+	 9Pi8tJCQTKGwQ==
+Date: Fri, 4 Apr 2025 10:27:43 +0100
 From: Lee Jones <lee@kernel.org>
 To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
 Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -61,20 +61,20 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
 	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
 	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v3 10/32] mfd: sec: merge separate core and irq modules
-Message-ID: <20250404092131.GB43241@google.com>
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+Subject: Re: [PATCH v3 11/32] mfd: sec: fix open parenthesis alignment
+ (multiple)
+Message-ID: <20250404092743.GC43241@google.com>
 References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
- <20250403-s2mpg10-v3-10-b542b3505e68@linaro.org>
+ <20250403-s2mpg10-v3-11-b542b3505e68@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250403-s2mpg10-v3-10-b542b3505e68@linaro.org>
+In-Reply-To: <20250403-s2mpg10-v3-11-b542b3505e68@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_022139_601792_A272752F 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20250404_022750_948338_E6B601BF 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,99 +91,54 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Thu, 03 Apr 2025, André Draszik wrote:
 
-> There is no reason to have these two kernel modules separate. Having
-> them merged into one kernel module also slightly reduces memory
-> consumption and module load times a little.
-> 
-> mapped size (lsmod):
->          before:             after:
->     sec_core   20480    sec_core   24576
->     sec_irq    16384
->     ----------------
->     total      36864
-> 
-> Section sizes (size -A):
->          before:             after:
->     sec_core    6780    sec_core   13239
->     sec_irq     8046
->     ----------------
->     Total      14826
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> checkpatch complains about unexpected alignment issues in this file -
+
+Fine, but either call it by it's name 'Checkpatch' or the command 'checkpatch.pl'.
+
+> update the code accordingly.
+
+This phrasing and grammar is odd.  How about?
+
+  Subject: mfd: sec-common: Fix multiple trivial whitespace issues
+
+  Rectify a couple of alignment problems reported by Checkpatch.
+
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
-> Checkpatch suggests to update MAINTAINERS, but the new file is covered
-> already due to using a wildcard.
-> ---
->  drivers/mfd/Makefile                     | 3 ++-
->  drivers/mfd/{sec-core.c => sec-common.c} | 2 ++
-
-Okay, but why the name change?
-
->  drivers/mfd/sec-irq.c                    | 9 ---------
->  3 files changed, 4 insertions(+), 10 deletions(-)
 > 
-> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-> index b617782eca436e34084a9cd24c309801c5680390..8f315298b32a2a9ee114ed5e49e760bd8f930aee 100644
-> --- a/drivers/mfd/Makefile
-> +++ b/drivers/mfd/Makefile
-> @@ -228,7 +228,8 @@ obj-$(CONFIG_MFD_RK8XX)		+= rk8xx-core.o
->  obj-$(CONFIG_MFD_RK8XX_I2C)	+= rk8xx-i2c.o
->  obj-$(CONFIG_MFD_RK8XX_SPI)	+= rk8xx-spi.o
->  obj-$(CONFIG_MFD_RN5T618)	+= rn5t618.o
-> -obj-$(CONFIG_MFD_SEC_CORE)	+= sec-core.o sec-irq.o
-> +sec-core-objs			:= sec-common.o sec-irq.o
-> +obj-$(CONFIG_MFD_SEC_CORE)	+= sec-core.o
->  obj-$(CONFIG_MFD_SEC_ACPM)	+= sec-acpm.o
->  obj-$(CONFIG_MFD_SEC_I2C)	+= sec-i2c.o
->  obj-$(CONFIG_MFD_SYSCON)	+= syscon.o
-> diff --git a/drivers/mfd/sec-core.c b/drivers/mfd/sec-common.c
-> similarity index 98%
-> rename from drivers/mfd/sec-core.c
-> rename to drivers/mfd/sec-common.c
-> index c4b7abe511090d8f5ff2eb501f325cc8173b9bf5..782dec1956a5fd7bf0dbb2159f9d222ad3fea942 100644
-> --- a/drivers/mfd/sec-core.c
+> ---
+> v2:
+> * make new alignment more readable (Krzysztof)
+> ---
+>  drivers/mfd/sec-common.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/mfd/sec-common.c b/drivers/mfd/sec-common.c
+> index 782dec1956a5fd7bf0dbb2159f9d222ad3fea942..1a6f14dda825adeaeee1a677459c7399c144d553 100644
+> --- a/drivers/mfd/sec-common.c
 > +++ b/drivers/mfd/sec-common.c
-> @@ -307,6 +307,8 @@ static int sec_pmic_resume(struct device *dev)
->  DEFINE_SIMPLE_DEV_PM_OPS(sec_pmic_pm_ops, sec_pmic_suspend, sec_pmic_resume);
->  EXPORT_SYMBOL_GPL(sec_pmic_pm_ops);
+> @@ -149,9 +149,9 @@ sec_pmic_parse_dt_pdata(struct device *dev)
+>  		return ERR_PTR(-ENOMEM);
 >  
-> +MODULE_AUTHOR("Chanwoo Choi <cw00.choi@samsung.com>");
-> +MODULE_AUTHOR("Krzysztof Kozlowski <krzk@kernel.org>");
->  MODULE_AUTHOR("Sangbeom Kim <sbkim73@samsung.com>");
->  MODULE_DESCRIPTION("Core driver for the Samsung S5M");
->  MODULE_LICENSE("GPL");
-> diff --git a/drivers/mfd/sec-irq.c b/drivers/mfd/sec-irq.c
-> index bf86281401ac6ff05c90c2d71c84744709ed79cb..aa467e488fb5ef79d5bc7110e1ba7c26fcfa9892 100644
-> --- a/drivers/mfd/sec-irq.c
-> +++ b/drivers/mfd/sec-irq.c
-> @@ -6,7 +6,6 @@
->  #include <linux/array_size.h>
->  #include <linux/build_bug.h>
->  #include <linux/dev_printk.h>
-> -#include <linux/export.h>
->  #include <linux/interrupt.h>
->  #include <linux/irq.h>
->  #include <linux/mfd/samsung/core.h>
-> @@ -17,7 +16,6 @@
->  #include <linux/mfd/samsung/s2mpu02.h>
->  #include <linux/mfd/samsung/s2mpu05.h>
->  #include <linux/mfd/samsung/s5m8767.h>
-> -#include <linux/module.h>
->  #include <linux/regmap.h>
->  #include "sec-core.h"
->  
-> @@ -510,10 +508,3 @@ int sec_irq_init(struct sec_pmic_dev *sec_pmic)
->  
->  	return 0;
+>  	pd->manual_poweroff = of_property_read_bool(dev->of_node,
+> -						"samsung,s2mps11-acokb-ground");
+> +						    "samsung,s2mps11-acokb-ground");
+>  	pd->disable_wrstbi = of_property_read_bool(dev->of_node,
+> -						"samsung,s2mps11-wrstbi-ground");
+> +						   "samsung,s2mps11-wrstbi-ground");
+>  	return pd;
 >  }
-> -EXPORT_SYMBOL_GPL(sec_irq_init);
-> -
-> -MODULE_AUTHOR("Sangbeom Kim <sbkim73@samsung.com>");
-> -MODULE_AUTHOR("Chanwoo Choi <cw00.choi@samsung.com>");
-> -MODULE_AUTHOR("Krzysztof Kozlowski <krzk@kernel.org>");
-> -MODULE_DESCRIPTION("Interrupt support for the S5M MFD");
-> -MODULE_LICENSE("GPL");
+>  
+> @@ -264,8 +264,8 @@ void sec_pmic_shutdown(struct device *dev)
+>  		 * ignore the rest.
+>  		 */
+>  		dev_warn(sec_pmic->dev,
+> -			"Unsupported device %lu for manual power off\n",
+> -			sec_pmic->device_type);
+> +			 "Unsupported device %lu for manual power off\n",
+> +			 sec_pmic->device_type);
+>  		return;
+>  	}
+>  
 > 
 > -- 
 > 2.49.0.472.ge94155a9ec-goog
