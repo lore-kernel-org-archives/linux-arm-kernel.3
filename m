@@ -4,86 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91713C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 11:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C41DC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 11:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2H82D3ceyz7r5Ot6awJCahu6BBXmvQb/jfXpvl9UcwY=; b=SJPvEgXVdbDzaX1ithegHLH4+v
-	A9LdhYffAlE+EoC+vzTZXotD6WgX+orJShByVybqmoxGaRPeLXk9S6y5Lfuw5LZRz+yv11EnQBBWV
-	JS218eluhsPSZk0lqTAfjRSwr5hi5jtw4kEowDexh/m8lGPvc67BFfAKmy9+/w5MOFdGv9o8en0YY
-	QakUB2fI2nqQsY84wfOVVcmkk5QPKF1Gi0q1WHTxrJ19qfzywQVV31KVKIEbwl5GGyGyw8chWVSTH
-	Z6vRRMSodTmJqywX74L0eW4gaUNY9mDdFh9g3A2wifjISogArOTEsCM6I3H3DZ9A3N20jcKzCd8cy
-	QBvZSRpA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6x83gL/65MaXshed1MGHV1G/Bw0QFznUQR/GQF+fLak=; b=yhwh73xUsTHTzfzbdw4xWNeGRh
+	AHkvCelzqRzHHXGR0Lbvb/NrD/BAkI+lMpPlEQWWYkDJRTtLsO0XHby6xBV/9vz7QSNinwmvt0VFq
+	OhZbU0muML2ug+rY8Mi6l3tQRyr/taxakyWlKy0qfmvVBTasSS5174aDd9v//cLl/Ox/PN3xEigrQ
+	g6KTfj0hEljdESa7+19eKxVFvCdi0DAsy9XspoQt1po84UpSbWtk4Up2gZPH1SHvlHZrRKvc3XhSO
+	OPHuNykvxU3xtUjGDgmDMzjr3Q5jbUx+KsPrEOVQa1FQYsSVeHgjakNP5x1r2BLvQtSPYpP2Cn1cJ
+	x9fmWoVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0fHK-0000000BYNS-3pZx;
-	Fri, 04 Apr 2025 11:32:06 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1u0fJ6-0000000BYfS-2jtQ;
+	Fri, 04 Apr 2025 11:33:56 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0fBC-0000000BXWJ-3c0I
+	id 1u0fDK-0000000BXyB-0eiE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 11:25:48 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-301c4850194so1512069a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 04:25:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743765946; x=1744370746; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2H82D3ceyz7r5Ot6awJCahu6BBXmvQb/jfXpvl9UcwY=;
-        b=bWRvIKeaL5Q/XwhtlDe/zdVGl0uN+OtFflq1qfflgEqyDUKWIL09vOgoUiGYIVgt6X
-         wl+U5SBD5Wxz8ACZf7jgX886LaOUtuQYmAML1VRzYg1+iV80vnfICUowgY0vdjYEqaNL
-         ayAFpJU0h8P8kJfTSciB9436Yvp2/P2r9trCksUHXooGRuUpT3KLelq4ZY6R2b7OrtNX
-         3zoN95jXxNg3lfB1bwa3Sd1JvnBvNuBQ4erBEoTgN45GMMbLV2x4JzOig5UAmxAYRbKO
-         pdghOV5n6gQWAGH3iARzaBkNqCeFhLnGrPohM7HrQlAgEu7bFoZQGZmBK3xOSaaT3qsS
-         I4QA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743765946; x=1744370746;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2H82D3ceyz7r5Ot6awJCahu6BBXmvQb/jfXpvl9UcwY=;
-        b=fYKeyuBOo5dhrb8ntHfuS9WKFCsCd3dQ4DYRqwH+bSNzHoDDCAlJmN76U0I+t78UvJ
-         A2BIQGverUexeOEJhUtJmP9e/RcvTpEpzZip9g5PWA0J/4fDq2qB4XFCl4O2tl4eRx1E
-         0vnDKI4M3X5zLXQlmbiqUDkRJQDDQP5yxO2F33EsK/4QhwRt0j5X2fzzXPhy8Ug2d8JR
-         EhIeu+ijLXj+395c/fxqV1VLRRn116A5Zei+/+vKNzQ5LbtrM83HQwfShqyZbEuZhAfq
-         X/xP4+HwEwYupMv7e6L5XVUiYH4YDFj4nYFhT/pr0QMPzwBZkMp4CLVYh8HZDiXBtMaY
-         f8dw==
-X-Forwarded-Encrypted: i=1; AJvYcCWekQwUb4V0snYuCfN3vS2uBL+73As7x4PTXxkuLvhMy6TdJWJGmFI/725FNzEhgg7NqtXBvKfS6Iyj99q+s2Nb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFaouI/P9D9FRm0Q9JYWlu87zYmayHQb/sMA1p9ZU21OwJmKYx
-	pGvq8TMA5CoigeUul25mHHg3R0JknUvRvv4oiYofOnkK350ZWhJI+88z9/B7vjqqq9bgkyykxyE
-	gbxqyOc86zbr2qoGnxmYWknMl3fg=
-X-Gm-Gg: ASbGncu3FENkKx9Hko5uj6MC7sFkXpV2VBiHbU+ustr4K3s4y+Z7ZO5TR4EU2qABXp5
-	cUst2ncBdFjnFssfAmeAli7CJiCGdzZomfupmsCwQQ/p9Ee4DdHJnS/CxnPAX2/X/oT8taePkpI
-	j91WJAfvojDFws9mWKxunZ8aw=
-X-Google-Smtp-Source: AGHT+IHzfIJRZpdeONCKC1hscbpEHgL+eOok3ABpVp7t0jI5xsF+h571shGT73MMq7pH/ucoJCkY3wGkF1YG+WPKcMw=
-X-Received: by 2002:a17:90b:5443:b0:2ff:796b:4d05 with SMTP id
- 98e67ed59e1d1-306a485edb0mr4690761a91.11.1743765945929; Fri, 04 Apr 2025
- 04:25:45 -0700 (PDT)
+	Fri, 04 Apr 2025 11:28:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:mime-version:content-transfer-encoding; s=k1; bh=6x83gL/65MaXsh
+	ed1MGHV1G/Bw0QFznUQR/GQF+fLak=; b=XkqPD76mdJ00JpoIehCMiNifODzMbD
+	9cRf8okGwgcSYvgpRDvKrjaEO7fOOizPDK33erHXYQaU0NmxtImlcOYUz0GjWjz9
+	ZzeG7w7X7Hn3F5P29ZG5PLKtTngl7ivnbqmad2sGNxVsg3/Fy9xEHXpkBKUGaKc/
+	zTFjS4JX3o9XFeW+A7mCjplDEj1vJ5vam92fdkPVMFg0I/V0W8ywaTSEg76SFWEh
+	VZc0jdORHiX1Tsd9Rio+1zl71u1Bj7Uh9US7rOla+Ofo+swMiyWSJUbUNrbCsQVy
+	imO4AyWG2Unc95z6GsVHxlLcC1sohBnUzgzQvLWy3VP+X36KilM6N34Q==
+Received: (qmail 2751198 invoked from network); 4 Apr 2025 13:27:52 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 4 Apr 2025 13:27:52 +0200
+X-UD-Smtp-Session: l3s3148p1@Q9xNLfIxNOQgAwDPXxG/ACep4iRxujz/
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jean-Christophe PLAGNIOL-VILLARD <plagnioj@jcrosoft.com>,
+	devicetree@vger.kernel.org
+Subject: [PATCH] ARM: dts: at91: usb_a9263: fix GPIO for Dataflash chip select
+Date: Fri,  4 Apr 2025 13:27:43 +0200
+Message-ID: <20250404112742.67416-2-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-References: <20250404105359.18632-1-ivitro@gmail.com> <20250404105359.18632-2-ivitro@gmail.com>
-In-Reply-To: <20250404105359.18632-2-ivitro@gmail.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Fri, 4 Apr 2025 14:27:31 +0300
-X-Gm-Features: AQ5f1Jo_vwVCsJBIV6IqomEQgPPhk2OrizKxFzdzrwjdmKaE32nMnNYDWv9ZEsk
-Message-ID: <CAEnQRZAkPJJRit7qrxHc4KtaR8Xej9qBZYgYTukWtKM6fwTSnw@mail.gmail.com>
-Subject: Re: [PATCH v1 2/2] arm64: dts: freescale: add Toradex SMARC iMX8MP
-To: Vitor Soares <ivitro@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Vitor Soares <vitor.soares@toradex.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Hiago De Franco <hiago.franco@toradex.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_042546_902376_3A5EECF9 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20250404_042759_065879_F78B32D3 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,49 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 4, 2025 at 1:56=E2=80=AFPM Vitor Soares <ivitro@gmail.com> wrot=
-e:
->
-> From: Vitor Soares <vitor.soares@toradex.com>
->
-> Add DT support for Toradex SMARC iMX8MP SoM and Toradex SMARC Development
-> carrier board.
->
-> Link: https://www.toradex.com/computer-on-modules/smarc-arm-family/nxp-im=
-x-8m-plus
-> Link: https://www.toradex.com/products/carrier-board/smarc-development-bo=
-ard-kit
-> Co-developed-by: Hiago De Franco <hiago.franco@toradex.com>
-> Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
-> ---
->  arch/arm64/boot/dts/freescale/Makefile        |    1 +
->  .../freescale/imx8mp-toradex-smarc-dev.dts    |  297 ++++
->  .../dts/freescale/imx8mp-toradex-smarc.dtsi   | 1288 +++++++++++++++++
->  3 files changed, 1586 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-de=
-v.dts
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dt=
-si
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts=
-/freescale/Makefile
-> index b6d3fe26d621..8106dbeffd3e 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -221,6 +221,7 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-venice-gw73xx-2x.d=
-tb
->  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-venice-gw74xx.dtb
->  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-venice-gw75xx-2x.dtb
->  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-venice-gw82xx-2x.dtb
-> +dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-toradex-smarc-dev.dtb
+Dataflash did not work on my board. After checking schematics and using
+the proper GPIO, it works now. Also, make it active low to avoid:
 
-I think here we should go in alphabetical order. So move this in the
-proper place.
+flash@0 enforce active low on GPIO handle
 
->  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-verdin-nonwifi-dahlia.dtb
->  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-verdin-nonwifi-dev.dtb
->  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-verdin-nonwifi-ivy.dtb
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts b=
-/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts
+Fixes: 2432d201468d ("ARM: at91: dt: usb-a9263: add dataflash support")
+Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+---
+ arch/arm/boot/dts/microchip/usb_a9263.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/microchip/usb_a9263.dts b/arch/arm/boot/dts/microchip/usb_a9263.dts
+index ebaf198e1bc4..8e1a3fb61087 100644
+--- a/arch/arm/boot/dts/microchip/usb_a9263.dts
++++ b/arch/arm/boot/dts/microchip/usb_a9263.dts
+@@ -58,7 +58,7 @@ usb1: gadget@fff78000 {
+ 			};
+ 
+ 			spi0: spi@fffa4000 {
+-				cs-gpios = <&pioB 15 GPIO_ACTIVE_HIGH>;
++				cs-gpios = <&pioA 5 GPIO_ACTIVE_LOW>;
+ 				status = "okay";
+ 				flash@0 {
+ 					compatible = "atmel,at45", "atmel,dataflash";
+-- 
+2.47.2
+
 
