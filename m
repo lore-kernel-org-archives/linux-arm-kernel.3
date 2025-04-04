@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04BB4C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 12:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8782C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 12:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rP6n61SWekMknO/zRlSYN14fVYP5G3VDX27XosLbmfk=; b=XCK/fQFR+XZzCUQ1YAZOSjY2bd
-	5LbMw8iYdO1EZ0U8qnG7bxr0JSIe8iwq5SramOrS2xbkSv7go4A6/iMxkiIVcfEmN9KEjVDCd5uZw
-	evJi9QbYVh7JexpbC9OwHvgHTRN37D1ocBocQAN9QhhLMnxKnNqXZbt2fzwBFLXHKNbfYZ3631GQ+
-	mJCOFhiofp1JDjlVEsRBmwuA2UtzWvAAUDGJKdBAN6UN5aUEVrdCx+RZJVb57tqDgfS2bMLZ41tla
-	T/HGNapwvn4UoPklExRYp9EWldV/NZjTwDvEAyNbsJhBVkPb5F8m+fIWiFK4TBaqO5PygRyn+wCXz
-	ulBXfPBA==;
+	bh=gxJBcAGGDyzbDLJAvfdPdyWxOOxD5U4tNFwB4IbsSu0=; b=rdcAuel/qtupusuSVjJJXIIxMK
+	E+KmfuspAAaZ7tkHu6iI4buKAnESVg1GlpiBdpjGrJte2w577c6lBKTAsdqU3VJOUbn7oHgYTAOof
+	zUhgBNAj7NWlCalScf2LOXj0ZdvXMFy2vvgTYsmz7cALKo5cd+7V6D+6sZuHuq1rtaiy/SFvIcX4d
+	r9UA/Fs4MRc30Y/cyp35NOm/l9qsGgRPfWsK/+q8tgjvXCH2V5Bi3oZYbXXPJwNnGeAvT7IIiJWQG
+	vTd+oRgefiaOqwlOm+aFyv0vI1AQey6GTE3gnp7Mg15+DQYbixXqOaywxAo+ZStwpzhO8NpjoSkvC
+	grSurR/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0fkn-0000000Bc8P-33th;
-	Fri, 04 Apr 2025 12:02:33 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1u0fmZ-0000000BcWc-3Rak;
+	Fri, 04 Apr 2025 12:04:23 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0ffU-0000000Bb68-3ZMc
+	id 1u0ffW-0000000Bb7d-2HdX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 11:57:06 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3912622c9c0so192212f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 04:57:04 -0700 (PDT)
+	Fri, 04 Apr 2025 11:57:07 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-39973c72e8cso195032f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 04:57:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743767823; x=1744372623; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1743767825; x=1744372625; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rP6n61SWekMknO/zRlSYN14fVYP5G3VDX27XosLbmfk=;
-        b=q2qB1xRO/YW+lV1RnVrsGW370m96S0//VmPjGAskuRX90ATZRNC0ugJBfXx5js0Iwt
-         vqLmjAW+xkHNMEcF/MfY7qHV+KbPkcsXB3xyz3mqqmYlLr4JKrwwl6au+8lWRJL0xPmq
-         b6BQbPsQJLwEKZKFykRKGn/QJS1wM2ebjLeEuJ+NAGIZjo2krwNWp/B1bNyThTiN9Gj1
-         wV2vZ5uBw8xHVTn/IpJRLOxZvfuPGezBvB9gtoC9WOYIJGHmxaJ99xcWfQr6jwXcKa50
-         hlhzOrA/c4j6oN9pu109x6DAK5QSGukRfbX8G60Ad9C+mi5SXtUpJSAOH98w4oDNnFRr
-         Uz4Q==
+        bh=gxJBcAGGDyzbDLJAvfdPdyWxOOxD5U4tNFwB4IbsSu0=;
+        b=SzqWlnLIIyW+ZjTYQ4UK3YD7cxoYabZTOX3MPwonQoAzmNunSEh0/EOiFGsfG7yf/Z
+         vymXeEkc63ecH8R0TJaTmsbASN1u0oGbi0rqUV7dUd3daAb6R3dlgEHTz5IXOpDbkdVw
+         +G5FiQpjCkGZwVjQJXpjuMuwHIPxnx6O5EfGamOqrA150lYrl1LX26UBysbLF+sFUO1S
+         QmAPJH0+FXYcWONgxo7ImvkBmRLyIOvvqnihS2OmTBdb1Wa7hzdfcqsb0nbRLB9oLqyX
+         9EhQvpKCTgbiRZxz30AReVVU62ea7dDjiO70JyNShIpDsslQ8x2KhytkN91GNfG0EyS6
+         4HtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743767823; x=1744372623;
+        d=1e100.net; s=20230601; t=1743767825; x=1744372625;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rP6n61SWekMknO/zRlSYN14fVYP5G3VDX27XosLbmfk=;
-        b=Clul9NpEP/97ge0kFDNBGo9ImRz5UOMsWiK4rUYSeVde2Q04yKxaGF3pLzRf4kE3Zc
-         yJg1U+Zjy3ybYsYXjTw9uvdDpXZC7goifBWEiSEB7woUWLsAfE36mFhuY4XZO6i6uUbT
-         Iq+/gt5XvwAINUJ60O2w2yh7MAiz76P61UNJQ/6H7ERKtVYJiUVAnZmvmbPzpe2cGksM
-         jDcTHi0bpURlJ+KqXKzP3jeaMnoGmVaVvcEz5Cr3M+CSUE+LugRtI8++ZsmX4QcWqhUg
-         zqitSadue4jjNVZXLcMENzszSLsoYkPeN3SJIn4R5kJOz2UifRNJthAn0guV1QMLYMXl
-         REdA==
-X-Forwarded-Encrypted: i=1; AJvYcCWnNltLcfbtr22UhKLlfNJni+g0T2d4ddj90wJNK3U37HhMD7CdrNHLqxopSUrMUl/5Y3dxncFiXw2pOPX+a89Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbLYr+cUX/l1NKzHt0q+b9hQOYwvha1wMrg/p1OJIQJLFK/EoI
-	22bx0KeUOV+XOL3+apYQACEtFGQRqqYWjmxyZpSoyyy8mJVerQ403nnmCQX8Ng0=
-X-Gm-Gg: ASbGnct7vzl+rt+1Da/1Cx1jWafUaneQNzEgsdUWT1UOWJ+GD0ZDITXMSFF0EW2oeeb
-	e46wW8VnJunbOxCyxu5YQbRDlEhA6EruuI6ONdIprpPQ5XNrG/dpUgGg2UJZXCP9NVyVMzOJWST
-	mQ/IyIJuIOw0MtpJNTibMd46Zjx/M9yPYl46gcgRCDdEOsrnAQIPLSGmdaV2K8sxexu8qBGUAD8
-	cYoTtOExp7+CUe2SeImpwtVGI5AjC+vLieGF/3CtUEytXMIOFhzRn0V4g+GBKyoCiNEfvTzuWVZ
-	7l6QHbSuYxsz91IddW8SUmglSA8nUm5YHltCK0CdvsAP0ea/TBo5UzkHHI5XgfI=
-X-Google-Smtp-Source: AGHT+IGREdRnQ2gEflgpMySypGT2xrFpTeuT80iZBzxVkRizH3MB1Iv/GdfxP0Mu67TBThpOTa6MIw==
-X-Received: by 2002:a05:6000:188e:b0:39c:266c:dae with SMTP id ffacd0b85a97d-39cba936215mr862740f8f.11.1743767823172;
-        Fri, 04 Apr 2025 04:57:03 -0700 (PDT)
+        bh=gxJBcAGGDyzbDLJAvfdPdyWxOOxD5U4tNFwB4IbsSu0=;
+        b=YDsdFvQusvXRCHS99cP1Qp6YM9MoJ6BvqJEfo/3L6zRkAW/iI1s+VqNnXHTDuYt1rl
+         /wAMQU1YO0Q4LFpoFfw4j3UuQaSaqmvYCWNaINl0tJEqG+jZc7mCRWbfXFQv/7hxYtrt
+         Pd8Z7fkWDhmoa/mN+yUWrivfr6sSj9h6A3mGt55CDTdSWOJqWHMT80roIYTsk67iXQMX
+         tW4d5gj6dNYSvn+sr6ShaAGI+udbaMUThSBUG8yYyEgWCGxv8tkbln3Zq2OzrM16r2he
+         BN1gxjoluLvBz9VfIRfshhAe/X6s20SnkJwOemC7vQs12aXP2B6KYGgIBmALvzxiy5et
+         M6PA==
+X-Forwarded-Encrypted: i=1; AJvYcCVt2sLXv6aHYQgqf2tol8jAE/+qnEoJxUann1+dPVXc07SSz12pDCLDn58yazJCGip/lZ47sdO6OzZOVJFtqFiY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx72bCiMcHOpdlBIkJyMvzcSbBeIIwCzZyOIPG5HZ8l/7RBxQGw
+	V2V4l0LvRuk1u4dr0FFDCJT5SJdJR3rEQ85FgHDF09wMbxVrPMqU1qcDDCO5Jj0=
+X-Gm-Gg: ASbGncvS2GvmjY8vqKHee6G8S0qKCC3q88ln+DE+Euu5X/STc71Zyyt2GqAB45M5sT9
+	W5CQMuEeP4AiYtWAOtY2iXTXQZ1pzAji6xfY6GoV3bKbm5e7cYfZhTw/q2ZT6UMlI5rPPtlt765
+	miL3hi6/xng3kxDp1JcMI3c9lw7CGQ9vGrXnFWWuIxGYxcbwD8KtwmRNHIOr0E/ei9gaucQlM7U
+	mBNo47SQxZ5nuzsvEjcgYOUHQmRl5AKBsRUAH4Wms4HIkwAkkTb30UuWYRhkcGy/qV1IKrpu7Ew
+	Ppd7mtPGS4xFe3MnEvC04BMQO7nNVpypsY+fTuNRZ3JiK1jh8Rso8URPPd9u4J2YMasi0LyYrA=
+	=
+X-Google-Smtp-Source: AGHT+IEbqWVdAZjF0/qLy/H0JxxfBZjOz1OHqDHaLpBpQad1gKc6l1hGJIvzr71knts2F+y5b2ubng==
+X-Received: by 2002:a5d:64c7:0:b0:39c:1258:17d7 with SMTP id ffacd0b85a97d-39cba94bb2bmr852989f8f.16.1743767824815;
+        Fri, 04 Apr 2025 04:57:04 -0700 (PDT)
 Received: from [192.168.1.26] ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec364cb9asm43842815e9.31.2025.04.04.04.57.01
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec364cb9asm43842815e9.31.2025.04.04.04.57.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Apr 2025 04:57:02 -0700 (PDT)
+        Fri, 04 Apr 2025 04:57:04 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Fri, 04 Apr 2025 13:56:58 +0200
-Subject: [PATCH 2/5] clk: nuvoton: Do not enable by default during compile
+Date: Fri, 04 Apr 2025 13:56:59 +0200
+Subject: [PATCH 3/5] clk: stm32: Do not enable by default during compile
  testing
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250404-kconfig-defaults-clk-v1-2-4d2df5603332@linaro.org>
+Message-Id: <20250404-kconfig-defaults-clk-v1-3-4d2df5603332@linaro.org>
 References: <20250404-kconfig-defaults-clk-v1-0-4d2df5603332@linaro.org>
 In-Reply-To: <20250404-kconfig-defaults-clk-v1-0-4d2df5603332@linaro.org>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -94,8 +95,8 @@ Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_045704_893558_A028F2AB 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20250404_045706_608833_DA24A051 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,30 +119,46 @@ compile testing.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/clk/nuvoton/Kconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/clk/stm32/Kconfig | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/clk/nuvoton/Kconfig b/drivers/clk/nuvoton/Kconfig
-index fe4b7f62f467048b7c86890972d55faebd066947..e7019b69ea74824de6943108f30ec259aa52e5f4 100644
---- a/drivers/clk/nuvoton/Kconfig
-+++ b/drivers/clk/nuvoton/Kconfig
+diff --git a/drivers/clk/stm32/Kconfig b/drivers/clk/stm32/Kconfig
+index dca409d52652213cfbd8d5ecf1a339ea53ba5d52..4d2eb993ea0838d408ff5b1e5b6d028cbcaa9301 100644
+--- a/drivers/clk/stm32/Kconfig
++++ b/drivers/clk/stm32/Kconfig
 @@ -4,7 +4,7 @@
- config COMMON_CLK_NUVOTON
- 	bool "Nuvoton clock controller common support"
- 	depends on ARCH_MA35 || COMPILE_TEST
+ menuconfig COMMON_CLK_STM32MP
+ 	bool "Clock support for common STM32MP clocks"
+ 	depends on ARCH_STM32 || COMPILE_TEST
 -	default y
-+	default ARCH_MA35
++	default ARCH_STM32
+ 	select RESET_CONTROLLER
  	help
- 	  Say y here to enable common clock controller for Nuvoton platforms.
- 
-@@ -12,7 +12,7 @@ if COMMON_CLK_NUVOTON
- 
- config CLK_MA35D1
- 	bool "Nuvoton MA35D1 clock controller support"
+ 	  Support for STM32MP SoC family clocks.
+@@ -14,21 +14,21 @@ if COMMON_CLK_STM32MP
+ config COMMON_CLK_STM32MP135
+ 	bool "Clock driver for stm32mp13x clocks"
+ 	depends on ARM || COMPILE_TEST
 -	default y
-+	default ARCH_MA35
++	default ARCH_STM32
  	help
- 	  Build the clock controller driver for MA35D1 SoC.
+ 	  Support for stm32mp13x SoC family clocks.
+ 
+ config COMMON_CLK_STM32MP157
+ 	bool "Clock driver for stm32mp15x clocks"
+ 	depends on ARM || COMPILE_TEST
+-	default y
++	default ARCH_STM32
+ 	help
+ 	  Support for stm32mp15x SoC family clocks.
+ 
+ config COMMON_CLK_STM32MP257
+ 	bool "Clock driver for stm32mp25x clocks"
+ 	depends on ARM64 || COMPILE_TEST
+-	default y
++	default ARCH_STM32
+ 	help
+ 	  Support for stm32mp25x SoC family clocks.
  
 
 -- 
