@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B135C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 13:39:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54FECC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 13:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i8cR9zwHtfrGwAZzZvi07Fb5vpqwnNfXNFjt+wO/qS0=; b=cvsOQ134ojpmpcaMF/XaR9U4DM
-	PQjAV3hcmGQyUrDsOkIX6UXHLdCtP1i6JQiD9bTHXQucPjdvEicH9WSSO4frqbAaXHoMcRtXazIdH
-	HVU6aT3ZVf/+eFJaPfmo69DZhxMyu25okL64mmjv5AuJIvOfr0Tny0sVGmSnJcIMQHlltPKZN1sBx
-	8636KwS7ZNIrFokjsrBI2L9ssUJyBIU83PMCXvV1pEbJDrxdiKSX4QxhcIx8cJeJSN4+vVTK/6fm1
-	+gAfJkSUCWkulyKIJlC8If5lJdN23+aBnMzS1oZCU2HITCXO0M0Bb805Df/Ndfu3qobrWrINT6trx
-	caOgMi5Q==;
+	bh=QBP1kbX+rTZATJpmbS1r11O0Ao784tAFLxNhCqCbeG4=; b=SKT/oMF7tjkbAj/5MAvEF/ocos
+	sp3tFbM3K2TV2LDKT3rBCqOO/3EORnWQPpdL1mJb0vD/3iw/uC2ovDpkZpJdJGz4CQGLt1dmYFAUA
+	Wml6asYwftW9FT+qvXO+HevVCtBFYZKKVwESy64lXprYZSphEd4ohHUkEGBf3h6NF6JDTdYRFSwdL
+	orF8ngoOZXDfX8YyraNSOoJnQJoFRAoSfiOOgdTeYGqDr5KZMUJ05eIJypFQzlLA5J6EkfVDl+rRm
+	Gsu8XOr4io8OYLIVXZaNQyghPoMyaDLc7bRr/i1LhGfdFLFsStR22zwOHI12WJKSgreBSszoCwNUd
+	IMA6jtNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0hGv-0000000BrHz-2umu;
-	Fri, 04 Apr 2025 13:39:49 +0000
+	id 1u0hId-0000000Brfa-1RGA;
+	Fri, 04 Apr 2025 13:41:35 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0h5I-0000000BpAh-1bBQ
+	id 1u0h5L-0000000BpBa-3gQC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 13:27:49 +0000
+	Fri, 04 Apr 2025 13:27:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9494945063;
-	Fri,  4 Apr 2025 13:27:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FC9BC4CEDD;
-	Fri,  4 Apr 2025 13:27:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EE694505E;
+	Fri,  4 Apr 2025 13:27:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 769E5C4CEDD;
+	Fri,  4 Apr 2025 13:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743773268;
-	bh=hbSvXiBm9+ecDREEoF8K9gTlgChPGoVUykMZmaDm+6o=;
+	s=k20201202; t=1743773271;
+	bh=W0sT2qa3mBNAZifs1J2a+WxYpChdTdPcLwJokOzpIEo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=PTJUHtQgiGAVjWZVpHELgRO9Y4YrwfoUmAp2LmJIckrB0H+DP8Uvktuv/kG3rixHg
-	 ggHHsYVZpPXo6jJPZQ2lwGyJE7ehQsrhsy/g3r6h1dpVXckr359ikSnEWilL9ZND0Q
-	 r7f68x7Y1aX6rXOr7uZ8J4+f9HzSMrl/7MV24G9vB7vKsqw9Gej0EIHc09YPdAS1dN
-	 g2N+U6BzMEEyGagyDfoS8FYQF1irwu11c1/9PGWrPHmD9q9AAUIGmeiW8+KNmTds8C
-	 Y6vhbfwTLFGU5oBVJ+OyW7O78ic7f54mgd5ybz/bT2KysNYyZjSJGCA7VUyUZ3wsZF
-	 tUzZK+4yIER+A==
+	b=pw8M9lZVHewkcycpEec0qodr6bP7fZ/zpiF+ev1kIP9W0et2umUOU/NamJEWH6jOR
+	 e2R/N6BU4ISebVmQ9OjT8dUp19S4HM767oOSTjB642m16MecYN1WmL5IXweluivbZE
+	 t9kvI/0oLh0NZCYPKT1HNWpvQ3B2vOBiZKriZZtvN+FmtQX8dD3/sHF5r14Hp/8UTN
+	 KzoL27azh4h/fUYnH6VdvMpxaKOQuvnD+wf768hfU4zngKbXtzp4RvEI2jueEzldH/
+	 u2ymiSMI1D41BjwVWaR7c4UdwbOzT+6mYraZLqPFTSahCPRTCTYRaPaBUG7h/M/gud
+	 wzxTC6ggGDFFg==
 From: Mark Brown <broonie@kernel.org>
-Date: Fri, 04 Apr 2025 14:23:39 +0100
-Subject: [PATCH RESEND 6.1 06/12] KVM: arm64: Remove host FPSIMD saving for
- non-protected KVM
+Date: Fri, 04 Apr 2025 14:23:40 +0100
+Subject: [PATCH RESEND 6.1 07/12] KVM: arm64: Remove VHE host restore of
+ CPACR_EL1.ZEN
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250404-stable-sve-6-1-v1-6-cd5c9eb52d49@kernel.org>
+Message-Id: <20250404-stable-sve-6-1-v1-7-cd5c9eb52d49@kernel.org>
 References: <20250404-stable-sve-6-1-v1-0-cd5c9eb52d49@kernel.org>
 In-Reply-To: <20250404-stable-sve-6-1-v1-0-cd5c9eb52d49@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -63,20 +63,20 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Mark Brown <broonie@kernel.org>, stable@vger.kernel.org, 
  Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3037; i=broonie@kernel.org;
- h=from:subject:message-id; bh=uTm4PvNAnNOKeIcBzhUY58bCxrtjcjA28blOXgiiseU=;
- b=owGbwMvMwMWocq27KDak/QLjabUkhvT39wxtFU6Fmt71K12zwlJNWu9wwpRw7511af2Kp68tWe6z
- 0T6lk9GYhYGRi0FWTJFl7bOMVenhElvnP5r/CmYQKxPIFAYuTgGYyA9t9n8GW8LedOokhfrPPcR8Ki
- yHL69OyfLe3DmW78MuLldaoVNhXaKxOeurVeCpaK113eutDzxLTjrpYOKzWYujPeC7aME8f93+WrPt
- 5vxCZXdLuKPTWiT/XKrbr7bTOKlLTWKDXoe46sQffzpv/ws5vdz3h/K/jWe2yAQfMIh6uoZH8ZjWLg
- HJl4yqeU/cT/cHPo7/kC+ufsHn4fX1GqnSFxjsDHmKPO48dQ5YVxn/wmJCA2vLqYfftnXtLIw786jo
- 0YfKngMP+oJy7st16mSV+CQs7Ao46Xek0jGs/kDWJL2arn/tAp098lZv+Pcn77xZs7ZnT/GcKM1PP1
- 9E+4jO2dLdUhU26Y3WHQmJTwLOAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3522; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=J/OoE8FnpyEkhPOOs7+baEyK/IhjSZTlC9a6+usk3TM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn794yD8xqXui9XonlLAg4gJEZgDxzTnNyUs2dj7fe
+ Io10iKuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ+/eMgAKCRAk1otyXVSH0IOYB/
+ sElUgNXACyCnoLY6IviOFiPWXT9uW1TDEK0HC/H/xKkC3NQt859TCHOq1e4s+ADhr4E89tALf0MOSQ
+ N+kmSHjvkUqiTru0aJOxW31XWEHmyzzoF0hwEJtQ7ZAMhNMoooIYIg+ck/bQOTXEW8Io67yZ/AK6Mn
+ IeyFmrtpp/ETP79o0ZYOcoNbqMmjPBMIcHauVuL0KcmvEOLIQ9kXCQ9TonoLCIl5s9qUwOUz8CMVFs
+ xWd8KmJx2xhphMpj5v9R9vf66LmZpyKdbhJhm0j4n7BMa8KoOVFV9bYKr/y4BKar0DRik2hpyMSp15
+ ayyZUWeErJkGv7KATAcuZWIY+VqAB6
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_062748_465025_5DC86CDA 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250404_062751_961451_2BF6B9CC 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,20 +93,24 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mark Rutland <mark.rutland@arm.com>
 
-[ Upstream commit 8eca7f6d5100b6997df4f532090bc3f7e0203bef ]
+[ Upstream commit 459f059be702056d91537b99a129994aa6ccdd35 ]
 
-Now that the host eagerly saves its own FPSIMD/SVE/SME state,
-non-protected KVM never needs to save the host FPSIMD/SVE/SME state,
-and the code to do this is never used. Protected KVM still needs to
-save/restore the host FPSIMD/SVE state to avoid leaking guest state to
-the host (and to avoid revealing to the host whether the guest used
-FPSIMD/SVE/SME), and that code needs to be retained.
+When KVM is in VHE mode, the host kernel tries to save and restore the
+configuration of CPACR_EL1.ZEN (i.e. CPTR_EL2.ZEN when HCR_EL2.E2H=1)
+across kvm_arch_vcpu_load_fp() and kvm_arch_vcpu_put_fp(), since the
+configuration may be clobbered by hyp when running a vCPU. This logic is
+currently redundant.
 
-Remove the unused code and data structures.
+The VHE hyp code unconditionally configures CPTR_EL2.ZEN to 0b01 when
+returning to the host, permitting host kernel usage of SVE.
 
-To avoid the need for a stub copy of kvm_hyp_save_fpsimd_host() in the
-VHE hyp code, the nVHE/hVHE version is moved into the shared switch
-header, where it is only invoked when KVM is in protected mode.
+Now that the host eagerly saves and unbinds its own FPSIMD/SVE/SME
+state, there's no need to save/restore the state of the EL0 SVE trap.
+The kernel can safely save/restore state without trapping, as described
+above, and will restore userspace state (including trap controls) before
+returning to userspace.
+
+Remove the redundant logic.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Reviewed-by: Mark Brown <broonie@kernel.org>
@@ -117,55 +121,62 @@ Cc: Fuad Tabba <tabba@google.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Oliver Upton <oliver.upton@linux.dev>
 Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Link: https://lore.kernel.org/r/20250210195226.1215254-3-mark.rutland@arm.com
+Link: https://lore.kernel.org/r/20250210195226.1215254-4-mark.rutland@arm.com
 Signed-off-by: Marc Zyngier <maz@kernel.org>
+[Rework for refactoring of where the flags are stored -- broonie]
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h       | 1 -
- arch/arm64/kvm/fpsimd.c                 | 2 --
- arch/arm64/kvm/hyp/include/hyp/switch.h | 4 ----
- 3 files changed, 7 deletions(-)
+ arch/arm64/include/asm/kvm_host.h |  2 --
+ arch/arm64/kvm/fpsimd.c           | 16 ----------------
+ 2 files changed, 18 deletions(-)
 
 diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 0e9b093adc67..7f187ac24e5d 100644
+index 7f187ac24e5d..181e49120e0c 100644
 --- a/arch/arm64/include/asm/kvm_host.h
 +++ b/arch/arm64/include/asm/kvm_host.h
-@@ -380,7 +380,6 @@ struct kvm_vcpu_arch {
- 	struct kvm_guest_debug_arch vcpu_debug_state;
- 	struct kvm_guest_debug_arch external_debug_state;
+@@ -556,8 +556,6 @@ struct kvm_vcpu_arch {
+ /* Save TRBE context if active  */
+ #define DEBUG_STATE_SAVE_TRBE	__vcpu_single_flag(iflags, BIT(6))
  
--	struct user_fpsimd_state *host_fpsimd_state;	/* hyp VA */
- 	struct task_struct *parent_task;
- 
- 	struct {
+-/* SVE enabled for host EL0 */
+-#define HOST_SVE_ENABLED	__vcpu_single_flag(sflags, BIT(0))
+ /* SME enabled for EL0 */
+ #define HOST_SME_ENABLED	__vcpu_single_flag(sflags, BIT(1))
+ /* Physical CPU not in supported_cpus */
 diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index 1765f723afd4..ee7c59f96451 100644
+index ee7c59f96451..8d073a37c266 100644
 --- a/arch/arm64/kvm/fpsimd.c
 +++ b/arch/arm64/kvm/fpsimd.c
-@@ -49,8 +49,6 @@ int kvm_arch_vcpu_run_map_fp(struct kvm_vcpu *vcpu)
- 	if (ret)
- 		return ret;
+@@ -88,10 +88,6 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+ 	fpsimd_save_and_flush_cpu_state();
+ 	vcpu->arch.fp_state = FP_STATE_FREE;
  
--	vcpu->arch.host_fpsimd_state = kern_hyp_va(fpsimd);
+-	vcpu_clear_flag(vcpu, HOST_SVE_ENABLED);
+-	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
+-		vcpu_set_flag(vcpu, HOST_SVE_ENABLED);
 -
  	/*
- 	 * We need to keep current's task_struct pinned until its data has been
- 	 * unshared with the hypervisor to make sure it is not re-used by the
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 081aca8f432e..50e6f3fcc27c 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -207,10 +207,6 @@ static bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	}
- 	isb();
+ 	 * We don't currently support SME guests but if we leave
+ 	 * things in streaming mode then when the guest starts running
+@@ -193,18 +189,6 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+ 		}
  
--	/* Write out the host state if it's in the registers */
--	if (vcpu->arch.fp_state == FP_STATE_HOST_OWNED)
--		__fpsimd_save_state(vcpu->arch.host_fpsimd_state);
--
- 	/* Restore the guest state */
- 	if (sve_guest)
- 		__hyp_sve_restore_guest(vcpu);
+ 		fpsimd_save_and_flush_cpu_state();
+-	} else if (has_vhe() && system_supports_sve()) {
+-		/*
+-		 * The FPSIMD/SVE state in the CPU has not been touched, and we
+-		 * have SVE (and VHE): CPACR_EL1 (alias CPTR_EL2) has been
+-		 * reset to CPACR_EL1_DEFAULT by the Hyp code, disabling SVE
+-		 * for EL0.  To avoid spurious traps, restore the trap state
+-		 * seen by kvm_arch_vcpu_load_fp():
+-		 */
+-		if (vcpu_get_flag(vcpu, HOST_SVE_ENABLED))
+-			sysreg_clear_set(CPACR_EL1, 0, CPACR_EL1_ZEN_EL0EN);
+-		else
+-			sysreg_clear_set(CPACR_EL1, CPACR_EL1_ZEN_EL0EN, 0);
+ 	}
+ 
+ 	local_irq_restore(flags);
 
 -- 
 2.39.5
