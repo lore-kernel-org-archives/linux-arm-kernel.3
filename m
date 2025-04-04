@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9283C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3B8C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1NKt9MGk7ZEOtW9yl+h4WTA3wA9CpVLn+mNMcHfKAhU=; b=ihym6m6rjdB5GABPEc0GJnEKDC
-	dG94Fk3NkAsAogI5MHVHtRN/kf3S6RZCs+oNCErwGlk1oPvJPXex44RnXLLOJo20TEk9H3bLbzBHz
-	xbqKPV6bBpQXdogAVdxyoBp8HRZOhUoas6206T9fT2WRgT16J97ZP61GtDDwxkCm0lUfgBvGJHaTY
-	+RrQ+6hAsqlVrp83UKIq2ADMZwZR7UjTql7RT92x+sOOKGlCTjlYt6YHzEY5Cd7NoaW6xQLtsi+/F
-	0aMiYf/lUv0ezdfSPHP7bz0JHMrw7sUp2al64/fzKsiKQJ7P0T+AAA58PyhfKImMRecg8uy4VA7+i
-	H2t9AJvw==;
+	bh=b/eiqZHdZQvwyfWZe39Nel4pZGk4oMDE2ktEcKkJ+Bg=; b=yb6MptIDoqd9vmeJ8UY9dI+gHY
+	Nfr0AJeMnwePuRxCGp9FFZQIUqduHzOmplNbgiWpFY662g//npZxxjPFtsjdnza8BzH0ynzZZ2NLs
+	Z2AxJ4bVSXiZdq6MF+8i7caDAm9xUXs9MrH1sCthpdSlIzZj1KN30+CSOB7EUK3sAvnSoHugWVasQ
+	DONg1ZkHa2PgJhtrlCu7e0FtKppF1ZupzDqv2lPw+wY1yzaDPHd3+wp9PihPpozdIYqGa5nNY4Qcc
+	hvHtz/fmXKEk/WQDC40OvZzGqIgZU3XV8MmKPnRlBGmmM2uLYeaar1nbDaEQlPCXRZD0Y1lS7B4M+
+	p6Em6UWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jrk-0000000CIO0-2qzd;
-	Fri, 04 Apr 2025 16:26:00 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1u0jtT-0000000CIXx-0DHY;
+	Fri, 04 Apr 2025 16:27:47 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jmo-0000000CHjM-1VmN
+	id 1u0jqq-0000000CIC8-3MOu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 16:20:56 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 534C4qNv029984;
-	Fri, 4 Apr 2025 18:20:45 +0200
+	Fri, 04 Apr 2025 16:25:06 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 534C4w9E024189;
+	Fri, 4 Apr 2025 18:24:48 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	1NKt9MGk7ZEOtW9yl+h4WTA3wA9CpVLn+mNMcHfKAhU=; b=IPxQ45rlu7+o8yi4
-	P4i53sGBKbLIQeId/7GJJNo4duzK01pjiygyNrVSkEFNErmTGQWnepIKgiu1yFdX
-	ui77G8b6N46xs1K4kkoylKxUISjZKFYqjabB5QqZI5i2LsW86hKRBHUUJiI2Cxst
-	XeIUM+GBJk/4qtMDVtGk+djcIX/lE+2hvO6DWlcYPyh+Zr6JEC5bDuvqMY1E2b7R
-	V0ufWH6OSmpVL7/pS7P2cJXwJUK2evuoeqUmLLCyVnpnqXyFTichVnxWlCmO0+v9
-	/nvW4kWhtrB3ZrNJdhbBB0l8pfo/6WHV4bOxSgXYZ+VmekajmANSP2mR4CzecLm2
-	/XSbLg==
+	b/eiqZHdZQvwyfWZe39Nel4pZGk4oMDE2ktEcKkJ+Bg=; b=GPs1mCk6so4eBW/i
+	lXR2Q8uSv9mTWSYzCTrsYIUpsGVl+b5KkwSPJUAiC+X8RPBpkWci6nFGYbKlJPU0
+	MyourA9U0IenCcBTUMRgeqcVY+RR+/Wan6EWNGFmsruygSbB5xREg+n77mKuz87V
+	hZAUYUfu76BpWVOB3T2Ws6OEytqZ2bQSz1NldoRVDBqIheVCCrxgb9UaFRGd3g4c
+	U2TwBLVAcig1ZN+EdMCoPaMk/RipFouF0wptUuRwaY3E8UKD3fx1ReRULWyIzgOO
+	TU3abhVTmwqEbP6nB2jFDuf3m4CRvQoerDEM6dppKj9+6u5Omms/F92d6PPSVwUe
+	mwNPDA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45t2ct4368-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45t2cjv2uh-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 04 Apr 2025 18:20:45 +0200 (MEST)
+	Fri, 04 Apr 2025 18:24:48 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 85F5040053;
-	Fri,  4 Apr 2025 18:19:40 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9A85E4004B;
+	Fri,  4 Apr 2025 18:23:17 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 89DA09645B9;
-	Fri,  4 Apr 2025 18:18:51 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0BD4C921962;
+	Fri,  4 Apr 2025 18:19:28 +0200 (CEST)
 Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
  (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 4 Apr
- 2025 18:18:50 +0200
-Message-ID: <ddfc03e2-d4a6-460f-aafd-933019751dbf@foss.st.com>
-Date: Fri, 4 Apr 2025 18:18:32 +0200
+ 2025 18:19:24 +0200
+Message-ID: <d2b38bb5-4551-4c8b-90bb-753f2176ff1e@foss.st.com>
+Date: Fri, 4 Apr 2025 18:19:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Christian Bruel <christian.bruel@foss.st.com>
@@ -83,8 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-04-04_07,2025-04-03_03,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_092055_071540_A1D94DA5 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20250404_092505_137744_CC795F03 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,15 +162,15 @@ greping other platforms there are a bunch 0xf000 offset 8KB mapped:
   arm/juno-base.dtsi
   mediatek/mt8516.dtsi
 
-but, looking at the stm32mp25 memory map (1)
+but, looking at the stm32mp25 memory map (1) page 239:
 
 0x4AC22000 - 0x4AC3FFFF 120 Reserved -
 0x4AC20000 - 0x4AC21FFF 8   GICC
 
-I can know guess that the  Reserved 120kB is for aliasing the 64kB 
-blocks. Thus describing the GICC range at 128kB makes sense
+I can know guess that the "Reserved" 120kB is for aliasing the 64kB 
+blocks. Thus describing the GICC 128KB range size makes sense
 
-similarly 4 kB + 120 Reserved for GICH and 8kB + 120 Reserved for GICV
+similarly 4KB + 120KB Reserved for GICH and 8KB + 120KB Reserved for GICV
 
 (1) 
 https://www.st.com/resource/en/reference_manual/rm0457-stm32mp25xx-advanced-armbased-3264bit-mpus-stmicroelectronics.pdf
@@ -191,8 +191,8 @@ https://www.st.com/resource/en/reference_manual/rm0457-stm32mp25xx-advanced-armb
 > parameter in the integration, dropping bits [15:12] from the PA
 > presented to the CPU interface.
 
-sorry, misunderstanding, I was referring about my dropped quirk that I 
-now dropped, not your options
+there might be a misunderstanding, I was referring to my dropped quirk 
+that I now dropped, not your options
 
 thanks
 
