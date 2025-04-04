@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1EA0C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 09:29:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17305C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 09:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zKOFH2LoxcpTfC6CVHqjCAUEihzQMaHb7acIN6rZH+g=; b=0vGJ15nMUZqaVItNHgG84eu8bv
-	nwDleJxfyBfTjyAh8Hndi3Lx7t0/bTaccnhHNGozfLlSROdbz0Yx8zjh2Mzy+y+pw0rjzIqKQF3CA
-	jOVBxWQWxNdvhzshKowkInahl6Z+glBWrSSDtmO1JLfde1XfgjGHhwFHLo70ypIISr2Khe91BviSc
-	5FxlEx8lsoU1AdtWU4Jpk0LlUyIHipqFhK9cTYuaWfYKk6igmWBOhwXLuO5yqEmCDYpxP+4SDDA8y
-	yaH/5Ot2bics0+OB7LCS41TeHr6eKgbKuob/sdyH8EfSZFxLinOZuJwWwiK2X4bwl69lf9ozbT+gG
-	8Y5yRi1Q==;
+	bh=+JGa3fhJPG8h0GrN1ej4PUvOsob3aigTAptTlepjKQg=; b=Gy0T6KZ1C0msvpQqHSAqlJPuhb
+	kHGWw848UsG5U+IvLBhQjFSsBVDEsjWqZ7pthAzehuhdtU7C1ohcg5wIfdAdIq6DH5oIsy5I4zHo3
+	VIZSRmTxWTIlLV838WQb/Wd1Z5AH2fLvho3wbmEgR28zFZgOmDbw/ogq7F5Fa5CEQpPXkaxBaVZoA
+	LG56/y7yACNAfYszmGqGZKTWw+BjQq39xAXEQaWB3yyoSqlupSb95SZ9tMleXHz4JGRIOy4x6sbmj
+	WIk2gwuijT6gM6yLqg+IZn8OOoo0DYqStDwiV7Rw+pItv1YkKYtY/4AYJ0WS0UAW9KVxpRqDSxt/I
+	eUnKAp7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0dMt-0000000BHPu-0WNi;
-	Fri, 04 Apr 2025 09:29:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u0dPe-0000000BHrQ-1UPh;
+	Fri, 04 Apr 2025 09:32:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0dL4-0000000BHCe-3jL2
+	id 1u0dNr-0000000BHc8-1QH7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 09:27:51 +0000
+	Fri, 04 Apr 2025 09:30:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0952143695;
-	Fri,  4 Apr 2025 09:27:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41D4DC4CEDD;
-	Fri,  4 Apr 2025 09:27:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F24B6113B;
+	Fri,  4 Apr 2025 09:30:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5338C4CEDD;
+	Fri,  4 Apr 2025 09:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743758870;
-	bh=j0RVHsK+8Z70siy6KizMbeUUMr7khc2n2FyBiYwSGY0=;
+	s=k20201202; t=1743759042;
+	bh=nJrNlBkQnuThOsj6kBsx3+iq0NbYhsHpNmbL85Jx8Ws=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=k2mNmYL+Tn1jkYo6pbOKWN+sdTq6/m14DMgEi0eE9QfpMdbwetp53Q1//RfKRHqfJ
-	 2a8UyNCncTI5cIVqNggzKoCvtwGmhBscLRlfO2qSRbvjhTD+0jCwLIeonWZaHheBuv
-	 yXi7owlf6dD2e9L1gA5Iu28WHOv/F4mvVTGUnRwgQ44MOB4cqizdCNs1uwfBWA8yAW
-	 LGdA+Q7J2ngW0r3OMnnjFVbZA7lCnxyV9NsQs7q9F9trZ5DQDm7fV1H2/FR6JVzBaV
-	 yLHAMQVYISyQdLymipvLBbT7uCjf+438NTx0U0kSMJxiqOfGtwA9fNFmEzqrrkD4vz
-	 9Pi8tJCQTKGwQ==
-Date: Fri, 4 Apr 2025 10:27:43 +0100
+	b=KSY37JVeP/zQpypBtXQaaCMZje8YFlYL3lR9+GbS2ME4hCi/elUvVS/zn2MC7clKu
+	 P1v21m/mBhALNaaLIL7jxa4cRT/wcxFiJOELsTdtiBUu3LtaHKdF+LGYzxF43WL9l/
+	 3GCPruR1a4BM/E1l46zXm5KLDVMk0Bq79CQp6DDhCqZP8LM9qO1EBnd4bb6RV0hAcf
+	 s4AiJMjHg2XM3jT1B9OrvHU6z/GDg9poEyDdWWm/9WOuP6dX6ngyFTytBAeeMMfqmh
+	 Rw5N13xBnyXvaYld2XzaCoYorbEVbB7Ap7KcazFOQ2/LvFT8WdPoRYtVgTMI2941nH
+	 x3WApBX7IDJGw==
+Date: Fri, 4 Apr 2025 10:30:35 +0100
 From: Lee Jones <lee@kernel.org>
 To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
 Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -61,20 +61,16 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
 	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
 	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
-Subject: Re: [PATCH v3 11/32] mfd: sec: fix open parenthesis alignment
- (multiple)
-Message-ID: <20250404092743.GC43241@google.com>
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v3 00/32] Samsung S2MPG10 PMIC MFD-based drivers
+Message-ID: <20250404093035.GD43241@google.com>
 References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
- <20250403-s2mpg10-v3-11-b542b3505e68@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250403-s2mpg10-v3-11-b542b3505e68@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_022750_948338_E6B601BF 
-X-CRM114-Status: GOOD (  17.33  )
+In-Reply-To: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +87,20 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Thu, 03 Apr 2025, André Draszik wrote:
 
-> checkpatch complains about unexpected alignment issues in this file -
+> This series adds initial support for the Samsung S2MPG10 PMIC using the
+> MFD framework. This is a PMIC for mobile applications and is used on
+> the Google Pixel 6 and 6 Pro (oriole / raven).
 
-Fine, but either call it by it's name 'Checkpatch' or the command 'checkpatch.pl'.
+When you resubmit these, please note that MFD subjects take the form:
 
-> update the code accordingly.
+  mfd: <file>: Succinct change description starting with an uppercase char
 
-This phrasing and grammar is odd.  How about?
+As seen with:
 
-  Subject: mfd: sec-common: Fix multiple trivial whitespace issues
+  $ git log --oneline -- drivers/mfd
 
-  Rectify a couple of alignment problems reported by Checkpatch.
-
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> 
-> ---
-> v2:
-> * make new alignment more readable (Krzysztof)
-> ---
->  drivers/mfd/sec-common.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/mfd/sec-common.c b/drivers/mfd/sec-common.c
-> index 782dec1956a5fd7bf0dbb2159f9d222ad3fea942..1a6f14dda825adeaeee1a677459c7399c144d553 100644
-> --- a/drivers/mfd/sec-common.c
-> +++ b/drivers/mfd/sec-common.c
-> @@ -149,9 +149,9 @@ sec_pmic_parse_dt_pdata(struct device *dev)
->  		return ERR_PTR(-ENOMEM);
->  
->  	pd->manual_poweroff = of_property_read_bool(dev->of_node,
-> -						"samsung,s2mps11-acokb-ground");
-> +						    "samsung,s2mps11-acokb-ground");
->  	pd->disable_wrstbi = of_property_read_bool(dev->of_node,
-> -						"samsung,s2mps11-wrstbi-ground");
-> +						   "samsung,s2mps11-wrstbi-ground");
->  	return pd;
->  }
->  
-> @@ -264,8 +264,8 @@ void sec_pmic_shutdown(struct device *dev)
->  		 * ignore the rest.
->  		 */
->  		dev_warn(sec_pmic->dev,
-> -			"Unsupported device %lu for manual power off\n",
-> -			sec_pmic->device_type);
-> +			 "Unsupported device %lu for manual power off\n",
-> +			 sec_pmic->device_type);
->  		return;
->  	}
->  
-> 
-> -- 
-> 2.49.0.472.ge94155a9ec-goog
-> 
+I don't mind changing one or two when they come in, but I'm not prepared
+to manually change 20-odd.  That gets tiresome real quick.  =:-)
 
 -- 
 Lee Jones [李琼斯]
