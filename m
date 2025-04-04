@@ -4,96 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10033C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A38C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8M1kcrllrPJGqNpSTkGjHsOAwcJ4P4JfrDK2o2gPRAw=; b=B5Cr8DG3F/5/O17ejMQAlRnRPI
-	lLDyGPSJnayszT3RprCAsrtSpvBtBpdRlgA7xi5oElZsifsRxc0XwWdnZ39e8J4Wpkp4BMyD05spb
-	NLpX+JsGm7RF8nN83RbWvLKwRn8bSevmGwY5fjENnJjhSMsEMN7VdsFU4Mcmyr1Va/q6/TR7BC5Vq
-	XKNf239cgPkpUBEbZ+PFvJdwIY4b0xFVvgVLRNX3KfgaOMMzszE1k88r+HGT0Y+zPATEv12yWMrLg
-	Z7Lc0u/TOqv5/jIziqtyASfbAfVLurx6b0wbqCTWWfUfqDzHirZRHcQZjhFboKTRZ5mtR7Gy1kV+T
-	iDOEWXkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xAGsnLdrspAycxCBxeKM44JqaHnIQt6B7n8T1zYYWxs=; b=osh0NcAFAavCNmO2odHCHJpZ5z
+	UUr6tp7RH8dHUrESLy+Fj1AkWJ8zbelcm4v27tKnZ3oeF2uXgvpljeA/0bGk8/0A8oginVVSoJ2nH
+	7vHJFTzbbfQ7fOT6wzwT+VvFv9Z1OCb3rKNVA4zzNqaLGM/e/L4p59fQIROR9jFuO2UWnvyHWr5dZ
+	YEMeb3r+Dt4s0tYbH2orFZoq/kytZSuy7+Zxcs1fc/7D/h5Ec0q8oLB1hTzyN8QFqHwuR18VQHHck
+	mYIg1g/+/Oyk/HPJ1fFkelWu15kv+DYasilLdYdtZZlthTuxzOPUYunciws8bSqGzIgQ/SLossCnw
+	+UTCzUGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jvA-0000000CIjj-2YJm;
-	Fri, 04 Apr 2025 16:29:32 +0000
-Received: from smtp-fw-9105.amazon.com ([207.171.188.204])
+	id 1u0kA9-0000000CJzL-3KbJ;
+	Fri, 04 Apr 2025 16:45:01 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jqy-0000000CIDE-06fC;
-	Fri, 04 Apr 2025 16:25:13 +0000
+	id 1u0k8O-0000000CJmu-0p2N
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Apr 2025 16:43:13 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3912387cf48so123093f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 09:43:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
-  t=1743783912; x=1775319912;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=8M1kcrllrPJGqNpSTkGjHsOAwcJ4P4JfrDK2o2gPRAw=;
-  b=GRrTQdV/oqMyDHVDf2wgm4Zc24mJeZVF0GWGtisl/D6UJl/3VDLEH5qs
-   BkC6KousddgRX3CetGXbI5sG5NFwKG68CK3UmP19TUp6FRHi1Tkgb2XhS
-   SFagrcb/OegaDa5ILUtBw5PzFSeg0eFfIqxpZUxtBrfUe0Jc8fPTnACls
-   8=;
-X-IronPort-AV: E=Sophos;i="6.15,188,1739836800"; 
-   d="scan'208";a="7655191"
-Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
-  by smtp-border-fw-9105.sea19.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Apr 2025 16:25:05 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [10.0.21.151:19358]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.43.57:2525] with esmtp (Farcaster)
- id 41e9b48e-af72-465f-a631-5054d723289f; Fri, 4 Apr 2025 16:25:04 +0000 (UTC)
-X-Farcaster-Flow-ID: 41e9b48e-af72-465f-a631-5054d723289f
-Received: from EX19D020UWA001.ant.amazon.com (10.13.138.249) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Fri, 4 Apr 2025 16:24:56 +0000
-Received: from EX19MTAUWB001.ant.amazon.com (10.250.64.248) by
- EX19D020UWA001.ant.amazon.com (10.13.138.249) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Fri, 4 Apr 2025 16:24:55 +0000
-Received: from email-imr-corp-prod-iad-all-1a-059220b4.us-east-1.amazon.com
- (10.25.36.214) by mail-relay.amazon.com (10.250.64.254) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1544.14 via Frontend Transport; Fri, 4 Apr 2025 16:24:55 +0000
-Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
-	by email-imr-corp-prod-iad-all-1a-059220b4.us-east-1.amazon.com (Postfix) with ESMTP id EBBDF42F0D;
-	Fri,  4 Apr 2025 16:24:54 +0000 (UTC)
-Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
-	id A83976148; Fri,  4 Apr 2025 16:24:54 +0000 (UTC)
-From: Pratyush Yadav <ptyadav@amazon.de>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Mike Rapoport <rppt@kernel.org>, Changyuan Lyu <changyuanl@google.com>,
-	<linux-kernel@vger.kernel.org>, <graf@amazon.com>,
-	<akpm@linux-foundation.org>, <luto@kernel.org>, <anthony.yznaga@oracle.com>,
-	<arnd@arndb.de>, <ashish.kalra@amd.com>, <benh@kernel.crashing.org>,
-	<bp@alien8.de>, <catalin.marinas@arm.com>, <dave.hansen@linux.intel.com>,
-	<dwmw2@infradead.org>, <ebiederm@xmission.com>, <mingo@redhat.com>,
-	<jgowans@amazon.com>, <corbet@lwn.net>, <krzk@kernel.org>,
-	<mark.rutland@arm.com>, <pbonzini@redhat.com>, <pasha.tatashin@soleen.com>,
-	<hpa@zytor.com>, <peterz@infradead.org>, <robh+dt@kernel.org>,
-	<robh@kernel.org>, <saravanak@google.com>,
-	<skinsburskii@linux.microsoft.com>, <rostedt@goodmis.org>,
-	<tglx@linutronix.de>, <thomas.lendacky@amd.com>, <usama.arif@bytedance.com>,
-	<will@kernel.org>, <devicetree@vger.kernel.org>, <kexec@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-mm@kvack.org>, <x86@kernel.org>
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory preservation
-In-Reply-To: <20250404143031.GB1336818@nvidia.com>
-References: <20250320015551.2157511-1-changyuanl@google.com>
-	<20250320015551.2157511-10-changyuanl@google.com>
-	<mafs05xjmqsqc.fsf@amazon.de> <20250403114209.GE342109@nvidia.com>
-	<Z-6UA3C1TPeH_kGL@kernel.org> <20250403142438.GF342109@nvidia.com>
-	<Z--sUYCvP3Q8nT8e@kernel.org> <20250404124729.GH342109@nvidia.com>
-	<Z-_kSXrHWU5Bf3sV@kernel.org> <20250404143031.GB1336818@nvidia.com>
-Date: Fri, 4 Apr 2025 16:24:54 +0000
-Message-ID: <mafs08qofq4h5.fsf@amazon.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+        d=linaro.org; s=google; t=1743784990; x=1744389790; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=xAGsnLdrspAycxCBxeKM44JqaHnIQt6B7n8T1zYYWxs=;
+        b=hAF6Jzi782gw4ofEUMwzQ+EAZrJ8JF4uRMFp6ZZz0273FSmI0sYJgR/ArbvellMeWr
+         3HhEagZsgrMo7FHrOTMIy41G71awP0ZqNwT7I0SYLoirxlIUYdO8aoqyVlAGqpz8SxhU
+         jWQRGLNWuOYvS78YlZQ/d8lItzEZBcw2maMLYxwxVwNgtjIKXfJwHlFrkprNOaJNoRrx
+         mE0QxcmMdZVR+AN/BKphE4LHaf5tZZJOG+jOEwmfgyl/09UQExqOt1BDu3BYyqDtkHds
+         I7DlUlsww4FjXreYfn8SMg4/WyFMi6Q1ueTapIMt8IWyuKhTIVdIHtLGYeSoHOE/HkFR
+         6SsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743784990; x=1744389790;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xAGsnLdrspAycxCBxeKM44JqaHnIQt6B7n8T1zYYWxs=;
+        b=wigEidMMTt6DvL3mJhSDJSg1HWF0Xk64dFe4R1EGpVW5VpjWHxRtfdFavzrZbyZpK8
+         Z4rg7ooNlo3UKfzPP0Pm40EDxLFfm62UZKkWagkjEFdndZjaB4vRgVyABJAIzAE1jFbA
+         q9YRMhK1eic4vfoDzr2pbwkwL2tNjChu6tUoavAKb9JEl/oackPnkYHt0Np0QmMBM7FV
+         JUN6Dm7u4NDR0luBE7vutFItddtUI11AlnYYEPRTq6DYZ/WtU9WCeNfEjmqoKiXZ+Z33
+         2b/ymAk/tejfa73ybLlR/0a+ZjKGTGgU9aF37I/GIvSqcXrG+hgIYcyCz42+zOcji59L
+         hIpA==
+X-Forwarded-Encrypted: i=1; AJvYcCUOHjkGB1JkjJGnXH0Fh+pzMl/3DMsGpPLnydz6/avF+0Roie9FWwKNky6TeiGlEa4KL+fK/3Sh7bcBpdEfVUCo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yya1Yr2nwWsYoTqGVOYBXpr99O6ReZqs6qoS79SOh4YNurY//Er
+	NvBB8b2DHoyh3yZwVXPInTRlyUMEUizmxqmCziDTLCqIrd7+VDtnIaGy17sZZYM=
+X-Gm-Gg: ASbGnctgmmjciffo4TWLgpro0JiycaguuI9Z/C5/aqX2GzWL0G0r+ZxvXGXfiRDlddn
+	Bv8vSq8pp2Mn3qi9bXS9QxvSPxIeQHbhVVtZKMb/8Gg3MaOKS5rU8uwrGni3ar1lBiE9ZGIw6Pe
+	bRJ8j1Omy+O1mqOy62ycOwZxLpQoUmOYH4/78nrWim9c6ILnQXoQrcG5zNjo3gopP/ArUVqEXgI
+	9WQwhSxh2Se50QIRSiz8DKAineY8ApvlFYQ23Xdqk1rIVNawxo7inQJJgYk0nBeFHBnqAPhirbz
+	bI8DL6ZTQsq4Pik2GbFsjf3KiWMHHTTZOX1Bsz2abaf8afMam9hz0DVBsYxEzFgI
+X-Google-Smtp-Source: AGHT+IG2IbUlYSnGQ6rLAHHC6qjUasnOVdNNxP1zU9JNrvGwlwZmuhSUx3coIjZGTA3VjYqWTFYtwQ==
+X-Received: by 2002:a05:600c:1d05:b0:43b:c0fa:f9c4 with SMTP id 5b1f17b1804b1-43ecfa03395mr12662335e9.4.1743784990341;
+        Fri, 04 Apr 2025 09:43:10 -0700 (PDT)
+Received: from [192.168.1.106] ([178.197.198.86])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec34bf258sm50009095e9.23.2025.04.04.09.43.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 04 Apr 2025 09:43:09 -0700 (PDT)
+Message-ID: <c5319e0f-6388-4f9a-82dd-526fdeb4ae26@linaro.org>
+Date: Fri, 4 Apr 2025 18:43:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/5] clk: sunxi-ng: Do not enable by default during
+ compile testing
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai
+ <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, =?UTF-8?Q?Emilio_L=C3=B3pez?=
+ <emilio@elopez.com.ar>, linux-amlogic@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-sunxi@lists.linux.dev
+References: <20250404-kconfig-defaults-clk-v1-0-4d2df5603332@linaro.org>
+ <20250404-kconfig-defaults-clk-v1-4-4d2df5603332@linaro.org>
+ <20250404151320.53c4698b@donnerap.manchester.arm.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <20250404151320.53c4698b@donnerap.manchester.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_092512_108493_CAA25167 
-X-CRM114-Status: GOOD (  28.56  )
+X-CRM114-CacheID: sfid-20250404_094312_250820_EC3A5BBF 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,80 +158,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 04 2025, Jason Gunthorpe wrote:
+On 04/04/2025 16:13, Andre Przywara wrote:
+> On Fri, 04 Apr 2025 13:57:00 +0200
+> Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> wrote:
+> 
+> Hi 
+>> Enabling the compile test should not cause automatic enabling of all
+>> drivers.  Restrict the default to ARCH also for individual drivers, even
+>> though their choice is not visible without selecting parent Kconfig
+>> symbol, because otherwise selecting parent would select the child during
+>> compile testing.
+> 
+> so I remember we changed this to "default y", because there were some
+> tricky problems with regards to RISC-V and ARM. See commits:
+> 
+> commit 0ff347db4c97cc16b4e428dc1db550ba3628f1e2
+> Author: Samuel Holland <samuel@sholland.org>
+> Date:   Sat Dec 31 17:14:25 2022 -0600
+>     clk: sunxi-ng: Move SoC driver conditions to dependencies
+> 
+> and 
+> 
+> commit a26dc096f683ca27ac5e68703bfd3098b4212abd
+> Author: Samuel Holland <samuel@sholland.org>
+> Date:   Sat Dec 31 17:14:24 2022 -0600
+>     clk: sunxi-ng: Remove duplicate ARCH_SUNXI dependencies
+> 
+> Don't remember what broke, exactly, but just wanted to give a heads up.
+> 
+Hm, I missed that. Quite unexpected commits.
 
-> On Fri, Apr 04, 2025 at 04:53:13PM +0300, Mike Rapoport wrote:
-[...]
->> Most drivers do not use folios
->
-> Yes they do, either through kmalloc or through alloc_page/etc. "folio"
-> here is just some generic word meaning memory from the buddy allocator.
->
-> The big question on my mind is if we need a way to preserve slab
-> objects as well..
+I would expect they to change default to match exact case but apparently
+for simplicity they became default for everyone? No clue...
 
-Only if the objects in the slab cache are of a format that doesn't
-change, and I am not sure if that is the case anywhere. Maybe a driver
-written with KHO in mind would find it useful, but that's way down the
-line.
+Commit says:
+" Do not duplicate the same expression on the `default` line, so the two
+lines do not need to be kept in sync."
+what it did, but not WHY.
 
->
->> and for preserving memfd* and hugetlb we'd need to have some dance
->> around that memory anyway.
->
-> memfd is all folios - what do you mean?
->
-> hugetlb is moving toward folios.. eg guestmemfd is supposed to be
-> taking the hugetlb special stuff and turning it into folios.
->
->> So I think kho_preserve_folio() would be a part of the fdbox or
->> whatever that functionality will be called.
->
-> It is part of KHO. Preserving the folios has to be sequenced with
-> starting the buddy allocator, and that is KHO's entire responsibility.
->
-> I could see something like preserving slab being in a different layer,
-> built on preserving folios.
+Why is the most important thing...
 
-Agree with both points.
+The rest of the commit msg:
+"Drivers stay disabled under COMPILE_TEST because of the `default
+ARCH_SUNXI` applied to SUNXI_CCU."
 
-[...]
->> As for the optimizations of memblock reserve path, currently it what hurts
->> the most in my and Pratyush experiments. They are not very representative,
->> but still, preserving lots of pages/folios spread all over would have it's
->> toll on the mm initialization.
->
->> And I don't think invasive changes to how
->> buddy and memory map initialization are the best way to move forward and
->> optimize that.
->
-> I'm pretty sure this is going to be the best performance path, but I
-> have no idea how invasive it would be to the buddy alloactor to make
-> it work.
+is true, until you enable SUNXI_CCU. Then all of them became enabled by
+default, which is not necessary and in general not welcomed. You should
+compile test only things which you want, not everything.
 
-I don't imagine it would be that invasive TBH. memblock_free_pages()
-already checks for kmsan_memblock_free_pages() or
-early_page_initialised(), it can also check for kho_page() just as
-easily.
-
->
->> Quite possibly we'd want to be able to minimize amount of *ranges*
->> that we preserve.
->
-> I'm not sure, that seems backwards to me, we really don't want to have
-> KHO mem zones! So I think optimizing for, and thinking about ranges
-> doesn't make sense.
->
-> The big ranges will arise naturally beacuse things like hugetlb
-> reservations should all be contiguous and the resulting folios should
-> all be allocated for the VM and also all be contigous. So vast, vast
-> amounts of memory will be high order and contiguous.
-
-Yes, and those can work quite well with table + bitmaps too.
-
-[...]
-
--- 
-Regards,
-Pratyush Yadav
+Best regards,
+Krzysztof
 
