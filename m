@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05FABC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4306FC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 16:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MbqCUn6gz37WzeN1KZjuSX3PD2UQTnr+fmi1Atuk78g=; b=lW3R+8FHaJuZo03NFvMUbrKqmN
-	UImpfKQLWIASb8cR6eWqpTDYmz0sbbfVJrIXAhtgqueVMqzRZ3aREUDWby0BELPATUkA3d0qwVdtc
-	jnV8QweJJpVOXvon2IKF/M7RBdNV25L5nokL1bK7RFX+HTz7QAuCH1M28kFVCQOXy4x2IAKSHZ8Zr
-	Iku6rocowAIcqwv1ucun9Go34axXkm5Cif8/Rz2aMq2x6aE7R8Fd+NK587Hbv6Di4at5Co/6sdDdM
-	OLzXlTCbb3UPYIDkMzykcDhKQ07fr3vBCkpGP4vSf74VN2/B/m04U5D+JtutCmefI518dvnXtxZ2C
-	XYQQLk6g==;
+	bh=zwrAwVynWffEuxKPl0OEyEEBjA9QOQig2FF2bzdhEpA=; b=eyKMFOpCZMpakzJx4nt8WPnwbT
+	dGfZRSFAvIkBcuEY3fcyxyMBr5d7rllFJgvsV6u7md/GeS2Nl3t+S4a0sDgposy13l+zr2qvvJLdW
+	1YsK0PJjz6g08D88x4j7GZ6cYHUeoi6la9Uq9SMfme56cRaz83DJAInJDa4Y4NFPQ8CQJBZrADrIL
+	/ZhDZiIYfGR7A0jCWS/mSVK4Tl5ZrdzlHQQxAwyw2XMDtgFXI8jzBh3SmTO+qXcjPFQ2mf1WoYbMa
+	kq2HnlIVf3ID6HKXuc+VZFYXBQ8XhLV7KDSONZbi/QtTGjF5izX0BgnG+1qU8RHe3MsMI7Kk2wEzJ
+	T+WUpV9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jfm-0000000CGv0-0YxV;
-	Fri, 04 Apr 2025 16:13:38 +0000
+	id 1u0jhT-0000000CH7c-3JiR;
+	Fri, 04 Apr 2025 16:15:23 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jUI-0000000CFOs-25oB
+	id 1u0jUI-0000000CFOt-27Kf
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 04 Apr 2025 16:01:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Sender:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=MbqCUn6gz37WzeN1KZjuSX3PD2UQTnr+fmi1Atuk78g=; b=RWsr+E1eF3WBGQC6oJ449g9gwA
-	SsSn8lnsUC2YHgCc1DkPkPKUDY6p05kQ+DQHTMZxOHadeL32SbwkTwJzKhfQt/wfDVlQW8LT7jUZt
-	VX02qdQbHulXzvoBi+9rj6QYyJI/ylZjTYb8TVl1afWmLJP+zM5u8vNCNCebmdlJ2y8SBe/ZXyXt/
-	JJSQzpsnNFWFUa2iVi2mxTLgNYe1QyHZhX8Ij0hjPdB6nmog4HCDepVSKqkH+UqV5YSpcns6K4gS4
-	9UCNGOU2P1ees86sHyldV/kbLqCzOHfVVIER2EGdjXCQetTdlO1ArY++q7RNBABd1DojRtj+sALb7
-	Zq45ERmg==;
+	bh=zwrAwVynWffEuxKPl0OEyEEBjA9QOQig2FF2bzdhEpA=; b=rcQ/TZXnLakdQxL4crd49SXX3c
+	edNsEOVe5KuObd9N9FvHOyENAzG1hCUGVegfPjAUI+DESeHQ2QnvFHahouiLIKJXGm/9RbMSGbECY
+	3H7F9hOPYEdMTiEfgcGsbG7aWDxhy3ZY9WqpRK44a5vaJHV37Lx6OginK6lDUrp+urL++BV2mtbH5
+	p+ZFyzIAKAcSjEt2BvR0qBo1O4L3+1RqPBeKcN2MGAKLhzlFZ2wIbiVn+ohK9/LZ1v86JEJ+uw17N
+	4zNZ8gbxTQmZ4FYx30Cw1FcflV3mnJKiulvzObmjLOk24f6Y0o78MuVRM7S5DrvoDrcue1z65zfMb
+	chjOXhaA==;
 Received: from [2001:8b0:10b:1::ebe] (helo=i7.infradead.org)
 	by casper.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jSa-0000000GFHx-39D6;
+	id 1u0jSa-0000000GFHw-3A3Z;
 	Fri, 04 Apr 2025 16:01:01 +0000
 Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0jSZ-0000000ERSH-3DUK;
+	id 1u0jSZ-0000000ERST-48Ac;
 	Fri, 04 Apr 2025 16:59:59 +0100
 From: David Woodhouse <dwmw2@infradead.org>
 To: Mike Rapoport <rppt@kernel.org>
@@ -60,9 +60,9 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [RFC PATCH v2 3/7] mm: Implement for_each_valid_pfn() for CONFIG_SPARSEMEM
-Date: Fri,  4 Apr 2025 16:59:55 +0100
-Message-ID: <20250404155959.3442111-3-dwmw2@infradead.org>
+Subject: [RFC PATCH v2 7/7] mm: use for_each_valid_pfn() in memory_hotplug
+Date: Fri,  4 Apr 2025 16:59:59 +0100
+Message-ID: <20250404155959.3442111-7-dwmw2@infradead.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250404155959.3442111-1-dwmw2@infradead.org>
 References: <20250404155959.3442111-1-dwmw2@infradead.org>
@@ -85,102 +85,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: David Woodhouse <dwmw@amazon.co.uk>
 
-Introduce a pfn_first_valid() helper which takes a pointer to the PFN and
-updates it to point to the first valid PFN starting from that point, and
-returns true if a valid PFN was found.
-
-This largely mirrors pfn_valid(), calling into a pfn_section_first_valid()
-helper which is trivial for the !CONFIG_SPARSEMEM_VMEMMAP case, and in
-the VMEMMAP case will skip to the next subsection as needed.
-
 Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- include/linux/mmzone.h | 59 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 59 insertions(+)
+ mm/memory_hotplug.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-index 32ecb5cadbaf..67cdf675a4b9 100644
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -2074,11 +2074,37 @@ static inline int pfn_section_valid(struct mem_section *ms, unsigned long pfn)
- 
- 	return usage ? test_bit(idx, usage->subsection_map) : 0;
- }
-+
-+static inline bool pfn_section_first_valid(struct mem_section *ms, unsigned long *pfn)
-+{
-+	struct mem_section_usage *usage = READ_ONCE(ms->usage);
-+	int idx = subsection_map_index(*pfn);
-+	unsigned long bit;
-+
-+	if (!usage)
-+		return false;
-+
-+	if (test_bit(idx, usage->subsection_map))
-+		return true;
-+
-+	/* Find the next subsection that exists */
-+	bit = find_next_bit(usage->subsection_map, SUBSECTIONS_PER_SECTION, idx);
-+	if (bit == SUBSECTIONS_PER_SECTION)
-+		return false;
-+
-+	*pfn = (*pfn & PAGE_SECTION_MASK) + (bit * PAGES_PER_SUBSECTION);
-+	return true;
-+}
- #else
- static inline int pfn_section_valid(struct mem_section *ms, unsigned long pfn)
+diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
+index 75401866fb76..20c39ae45016 100644
+--- a/mm/memory_hotplug.c
++++ b/mm/memory_hotplug.c
+@@ -1756,12 +1756,10 @@ static int scan_movable_pages(unsigned long start, unsigned long end,
  {
- 	return 1;
- }
-+
-+static inline bool pfn_section_first_valid(struct mem_section *ms, unsigned long *pfn)
-+{
-+	return true;
-+}
- #endif
+ 	unsigned long pfn;
  
- void sparse_init_early_section(int nid, struct page *map, unsigned long pnum,
-@@ -2127,6 +2153,39 @@ static inline int pfn_valid(unsigned long pfn)
+-	for (pfn = start; pfn < end; pfn++) {
++	for_each_valid_pfn (pfn, start, end) {
+ 		struct page *page;
+ 		struct folio *folio;
  
- 	return ret;
- }
-+
-+static inline bool first_valid_pfn(unsigned long *p_pfn)
-+{
-+	unsigned long pfn = *p_pfn;
-+	unsigned long nr = pfn_to_section_nr(pfn);
-+
-+	rcu_read_lock_sched();
-+
-+	while (nr <= __highest_present_section_nr) {
-+		struct mem_section *ms = __pfn_to_section(pfn);
-+
-+		if (valid_section(ms) &&
-+		    (early_section(ms) || pfn_section_first_valid(ms, &pfn))) {
-+			*p_pfn = pfn;
-+			rcu_read_unlock_sched();
-+			return true;
-+		}
-+
-+		/* Nothing left in this section? Skip to next section */
-+		nr++;
-+		pfn = section_nr_to_pfn(nr);
-+	}
-+
-+	rcu_read_unlock_sched();
-+
-+	return false;
-+}
-+
-+#define for_each_valid_pfn(_pfn, _start_pfn, _end_pfn)	       \
-+	for ((_pfn) = (_start_pfn);			       \
-+	     first_valid_pfn(&(_pfn)) && (_pfn) < (_end_pfn);  \
-+	     (_pfn)++)
-+
- #endif
+-		if (!pfn_valid(pfn))
+-			continue;
+ 		page = pfn_to_page(pfn);
+ 		if (PageLRU(page))
+ 			goto found;
+@@ -1805,11 +1803,9 @@ static void do_migrate_range(unsigned long start_pfn, unsigned long end_pfn)
+ 	static DEFINE_RATELIMIT_STATE(migrate_rs, DEFAULT_RATELIMIT_INTERVAL,
+ 				      DEFAULT_RATELIMIT_BURST);
  
- static inline int pfn_in_present_section(unsigned long pfn)
+-	for (pfn = start_pfn; pfn < end_pfn; pfn++) {
++	for_each_valid_pfn (pfn, start_pfn, end_pfn) {
+ 		struct page *page;
+ 
+-		if (!pfn_valid(pfn))
+-			continue;
+ 		page = pfn_to_page(pfn);
+ 		folio = page_folio(page);
+ 
 -- 
 2.49.0
 
