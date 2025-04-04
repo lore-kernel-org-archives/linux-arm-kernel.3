@@ -4,137 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7AFC3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 00:00:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54935C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 00:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7gGMAAexLf4FhhxeDyncinVybc8k4q0bbDjQN23hj8g=; b=4Zxdz62BkoGAGd4P5jPLN9szQw
-	zOskVP/wwkfBR7876XUKmHBhs4OfLZmQPrFYydMLRfx/LITJV8s7jQ7svU9fF4L2f7tIOoF5UM5Pd
-	k4k5VRru4YT4bBGEBAmKirSqF4EZOnkJ3gVlZj06BPk9D4OFtc1h9YYIqAxiF3UZKH0g3UdDlI5Q5
-	jTy8NT70633JkLIpJHHQCoZyJ2V+7U91HLpe+DiNeQiNHbI119W/SBqyuF704phiIMPwZxswWz1Ie
-	flpBy1ex1Cxx6GKFu6RbdyvImi4onugcb+JtN2U4fLI6iFyQzdYb6EKTr+tUaPApeakg/6S5ichDv
-	vpaedzAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LgeY4Fi97N5VuKWREsOEO3eIUOZAZelR3wdZIa+P15c=; b=1CZUiRkAK6iaC69NWmB8ykkD5d
+	WuIYVgE/CKKQvFA3N/wqzYet9qy1gbGI713CwrCTdBz848XTUlurx7NUY7aO13nmU6li4ZumqwoMQ
+	6KpAphMDtWkoS5m3hC3DkJiBjHx/93TeoIXThVYL1c4F3xcPIH0AIFAZ21JO6VnE8t6Y2P9Fuey5U
+	tKJbIv2pB3fAi4OlDK0hQNpTqnyAJDeiVgp8D6HxNcU1huY1JHRF6hIrmVYwp0BaDx6xQ9vFdbmsb
+	oKbOVXI8e5iKbJOziROwCsmSdy2vez/wQ66Qn+vMwkgOezib8Xm/qTpzEUKsXz7Xb++xldN1eiDPR
+	7qWfQ5DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0UTT-0000000AM3K-1LSY;
-	Thu, 03 Apr 2025 23:59:55 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1u0UZZ-0000000AMzU-22Jj;
+	Fri, 04 Apr 2025 00:06:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0URe-0000000ALpM-0Scq
+	id 1u0UXk-0000000AMbY-2ksZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Apr 2025 23:58:04 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250403235754epoutp049b115f62aac6c1c108f91cf1d980c745~y9FpI3L-j1920219202epoutp04t
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  3 Apr 2025 23:57:54 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250403235754epoutp049b115f62aac6c1c108f91cf1d980c745~y9FpI3L-j1920219202epoutp04t
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1743724674;
-	bh=7gGMAAexLf4FhhxeDyncinVybc8k4q0bbDjQN23hj8g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=IDip/NAv/kn7aYl5cgIQSYE0mgtYXspR0oT0mJMr2KX9+njFNF5LxPxpRS5qesxHS
-	 pQ3gAAL99zWf1beqkCnbPpxJuTlhJ+FSgcjzmshAznPBGPnB7FcI2NPUTyIeyvE9Ld
-	 MNMhsqScvu549cZy8B7YvPkh+voXC1kjpUKdwD7U=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250403235753epcas2p40e2e55932f5996808e0dafe103862034~y9FooSEpf2429624296epcas2p4e;
-	Thu,  3 Apr 2025 23:57:53 +0000 (GMT)
-Received: from epsmges2p4.samsung.com (unknown [182.195.36.100]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZTJZn132jz3hhTF; Thu,  3 Apr
-	2025 23:57:53 +0000 (GMT)
-Received: from epcas2p1.samsung.com ( [182.195.41.53]) by
-	epsmges2p4.samsung.com (Symantec Messaging Gateway) with SMTP id
-	EF.67.09871.1802FE76; Fri,  4 Apr 2025 08:57:53 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250403235752epcas2p192712bf4c5cbf0fda2c9b1dc71d3ac61~y9FnqbwGN0444504445epcas2p1b;
-	Thu,  3 Apr 2025 23:57:52 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250403235752epsmtrp2db0e0a6ea15e87b7ebe110bbf9363375~y9FnpaqKb0549905499epsmtrp2W;
-	Thu,  3 Apr 2025 23:57:52 +0000 (GMT)
-X-AuditID: b6c32a48-b7fff7000000268f-e8-67ef2081e7e3
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	A7.C6.08805.0802FE76; Fri,  4 Apr 2025 08:57:52 +0900 (KST)
-Received: from perf (unknown [10.229.95.91]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250403235752epsmtip1465881f309eff79f043b5d2e8e0b2852~y9FnXfgci2285222852epsmtip1D;
-	Thu,  3 Apr 2025 23:57:52 +0000 (GMT)
-Date: Fri, 4 Apr 2025 09:02:08 +0900
-From: Youngmin Nam <youngmin.nam@samsung.com>
-To: William McVicker <willmcvicker@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
-	<will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>, Tudor Ambarus
-	<tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alim
-	Akhtar <alim.akhtar@samsung.com>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Saravana
-	Kannan <saravanak@google.com>, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, Will Deacon
-	<willdeacon@google.com>, Youngmin Nam <youngmin.nam@samsung.com>
-Subject: Re: [PATCH v1 4/6] arm64: dts: exynos: gs101: Add
- 'local-timer-stop' to cpuidle nodes
-Message-ID: <Z+8hgK5YJ1ZhAl0C@perf>
+	Fri, 04 Apr 2025 00:04:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C308044EDB;
+	Fri,  4 Apr 2025 00:04:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D366C4CEF3;
+	Fri,  4 Apr 2025 00:04:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743725060;
+	bh=+U852PWkX9HpJ8w3HK774CIjyZa5t/VrC96/GO5bNBM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VQeedIY2meXJRHLon5gxOJAM/jg72VmbqHwCFFb+sveLhKKts8gGQFfK2ndoez8vO
+	 3EMuBJixAGmlURwTnDJQO4vrlbq0KxuBRzYbmIg/miCTs5GsqPW4EqiMuXrYRhnkdY
+	 g6MYT8lxOek2EAq9tOvQ/l48b1VaLKsrg5nty2uzuu+UPRqcJ/g6R1JjJfxc+K+V/l
+	 4aidBm6BDWHGVHwwmOtAcWDHD+fYgtaKbu5XMsCPwnoNZiJa5m72r8bZLCI9C7X7cG
+	 MkLYJJHKartQ5xoASeoCV3glB64o63X89s1nzEai4yuugtQVvLXPrXBc++T0lTFiWn
+	 PJQNVgeRS6Bgw==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	kernel test robot <lkp@intel.com>,
+	Sasha Levin <sashal@kernel.org>,
+	davem@davemloft.net,
+	linux@armlinux.org.uk,
+	leitao@debian.org,
+	nayna@linux.ibm.com,
+	pfsmorigo@gmail.com,
+	maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org
+Subject: [PATCH AUTOSEL 6.14 07/23] crypto: lib/Kconfig - Fix lib built-in failure when arch is modular
+Date: Thu,  3 Apr 2025 20:03:44 -0400
+Message-Id: <20250404000402.2688049-7-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250404000402.2688049-1-sashal@kernel.org>
+References: <20250404000402.2688049-1-sashal@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <Z-7V27GKU85vba0B@google.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA01TfUxTVxTn9r0+Xp0sj8rYlVWC3TCDDGihhQsKM0HnS7ZlJGQZTDN4oW8t
-	o7RNX2tA3cQJAzo14uTDrsOqREwDgRXokC9dIfFjBBATTDo2ZuYIH1NmkW7igLU8XPzvd879
-	/c75nXvuJTGxh4ggC3Um1qhjtFJiE+4ajFHGHYtaUMssKzj6rdFFoM65DhwtXD4BUEv/iAA1
-	Lm5D54dGhKj7hzA0a/2VQM7fJ4Tobo+NQA2jAwLU3rCKo7W+7mBkca8QqMNZiyGv5xNUPqlE
-	lU/nceTwrgF06bo3eHcY7ep1CemWxhZA251m2umoJujJiT6CfjQyEkx3NB2lT3U6AL3ojMwS
-	fVy0S8MyKtYYxeoK9KpCnTpd+m52XmaeMlkmj5OnohRplI4pZtOle97LinunUOufShp1kNGa
-	/akshuOkCRm7jHqziY3S6DlTupQ1qLSGFEM8xxRzZp06Xsea0uQyWaLST8wv0lwe/8jwzY6S
-	pnPNeBl4ss0CRCSkFPD4nUncAjaRYqobwLrb9RgfeAGcH7cLAiwx5QPw6592Plf8Yh3cUPQD
-	6FtaAnxwH8Bnvht4gIVTb8BKr20dE1QcdN1c9ZNIMoyKh/9WlAT4GDUrhKdcMyDA2ULlwzsD
-	c8IADqFeh2dnr2I8DoW3zj1YryOiYuH9oZl1e5B6QMJ2uzuYt7QH/l37s5DHW+Dcjc6NfARc
-	fNRP8JiDZVOeDXE5gLfvzWD8QRK0Tleuu8AoDey9O4wFnEK/iyEPzqdfhlWDK8F8OgRWfSXm
-	lTvg8tl2wGMJ7L10ZaMiDbvWXAR/KV0CaG8bxk+DSOsL81hf6Mbjt6C910tY/S0w6jXYvEry
-	MAa29STYgdABwlkDV6xmuUSD4v8FF+iLnWD9kcfS3eDbh3/Fu4GABG4ASUwaFjIjWVCLQ1RM
-	6SHWqM8zmrUs5wZK/3JqsIhXCvT+X6Iz5ckVqTJFcrI8JVEpS5G+GuJ+/IdaTKkZE1vEsgbW
-	+FwnIEURZYJ9vhqD7LMcT+Y+RZYlyaep2MncXH76eMKe3bT1grx0rLLnIqkSJsYcQs0OZ9tg
-	ZOqbrVz3Ulrm7qDPWyckDxOmrOXVQZuL+tIMs2u12fPP4kyd8zUnfeGHo7Gq+u8cw5vPf7B6
-	RrUV/Hi6rjqHnvknuitXlhZbG5oznn/RrM3cb/PsNQ4e8eaGwmvCubCMAsN1b6Pkz9z9S4bt
-	OccGxhbfLrXIM4IqRO6+J/prdSeu1Fw4MtV6RpW4nD3deXU5iVq0yfq7Glrst4AkTyhaUI+B
-	VAs4ePwLUZVbrvkw7Uvv+/cOY9G04OT2iPLeo6OTnyoqSg6Mfn9AYntptn7aGS7FOQ0jj8WM
-	HPMfDGQsKW0EAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA02RW0xScRzH9+dcPLDRjkj5T5EampUmpeX6t6x1mx7rIX1os5Yp5YksQYJM
-	rQetLIwua5pLmWIX0yKXhoqIwgy1VUtzubDZRV21BbZM2UqXUaFr9fb5fW8vPwoT3MCDqEzl
-	MVatlGVJSB5u7pKIowoXj8tXjdjC0IjBTKJmdxOOxmsvAlRv6+MggycEVXf3EcjSKkQu/TsS
-	md47CTRgrSRR+XM7BzWWe3H0q8Pih3SOnyRqMpVhaHJoHyp6E4u002M4Mk7+AuhW56TfJiFj
-	bjcTTL2hHjDXTTmMyXieZN44O0jmS1+fH9NUU8BcbjYCxmMSJ3H38OIy2KzM46x65cZ03qHe
-	wVukaiA075zeShaC3mAd4FKQXgPf6rtwHeBRArodwObbvsNniODruwPEHAfA4aJuYi40DGDr
-	S9dsCKfDoHaycpZJOgqaH3uBDlCUkJbCmbN5vjxGewjYUtyD+TIBdDp8Ufya42M+HQqvutqw
-	udE2Duy/8BifM/zhk4oPs4zREfCV18XxjWJ0MKzzUj6Z+0ce7f6EXQG0/r+G/r+G/l/jOsCM
-	YCGr0ijkCk20KkbJ5ko1MoUmRymXHshWmMDsFyMiLKDD+FXqABwKOACkMImQ/0k0LhfwM2T5
-	J1h1dpo6J4vVOEAwhUsC+d/GLmUIaLnsGHuEZVWs+q/LobhBhZy92VfonftPHm66506oWrco
-	ZFRCZm31cD3XJuLskWE9Bul2/xF7dSrhjoWrc+PW1mrFG6pr1ht+PBLFMzHbVihipkpCdfOS
-	G9vzRxb0prlqH6V8kRYnFczbalM3bICtpTsuhXz2ipJGR9ecThhf6zjYWFHTVRHbEn1mIMXj
-	ke+KsU5XLq9W2XgPT2lEz84tis3jz8dJt1s0mGpK2EeF+2uJZEsvf0kar2TB/curyxLtM4na
-	oc6b4siLaPMdfb8FdKm/C5wN/bLCox+r0scmHNS3LTny5VtShyfsIDyzvq7xaYs8UEJM7XEK
-	a4vi85Y1c1udH/EHp0t3WxuCsKUSXHNIFh2BqTWy32UE4mc0AwAA
-X-CMS-MailID: 20250403235752epcas2p192712bf4c5cbf0fda2c9b1dc71d3ac61
-X-Msg-Generator: CA
-Content-Type: multipart/mixed;
-	boundary="----rHPRFtJkdx5CiZJP2v5Cn8OZ9YZY2B0tfPkXi2gvBl6TiQFm=_8b7dd_"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250331230151epcas2p486a7c6d7153737f4168cfef74249742f
-References: <20250331230034.806124-1-willmcvicker@google.com>
-	<CGME20250331230151epcas2p486a7c6d7153737f4168cfef74249742f@epcas2p4.samsung.com>
-	<20250331230034.806124-5-willmcvicker@google.com> <Z+y4zxfifkQqLxKF@perf>
-	<Z-2zQ-PcvxFTBc6M@google.com> <Z+4Hve9pQoLeh9sZ@perf>
-	<Z-7V27GKU85vba0B@google.com>
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.14
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_165802_785280_7B022023 
-X-CRM114-Status: GOOD (  41.01  )
+X-CRM114-CacheID: sfid-20250403_170420_737278_14E19739 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,116 +91,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------rHPRFtJkdx5CiZJP2v5Cn8OZ9YZY2B0tfPkXi2gvBl6TiQFm=_8b7dd_
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
+From: Herbert Xu <herbert@gondor.apana.org.au>
 
-On Thu, Apr 03, 2025 at 11:39:23AM -0700, William McVicker wrote:
-> On 04/03/2025, Youngmin Nam wrote:
-> > On Wed, Apr 02, 2025 at 02:59:31PM -0700, William McVicker wrote:
-> > > Hi Youngmin,
-> > > 
-> > > On 04/02/2025, Youngmin Nam wrote:
-> > > > On Mon, Mar 31, 2025 at 04:00:26PM -0700, Will McVicker wrote:
-> > > > > From: Will Deacon <willdeacon@google.com>
-> > > > > 
-> > > > > In preparation for switching to the architected timer as the primary
-> > > > > clockevents device, mark the cpuidle nodes with the 'local-timer-stop'
-> > > > > property to indicate that an alternative clockevents device must be
-> > > > > used for waking up from the "c2" idle state.
-> > > > > 
-> > > > > Signed-off-by: Will Deacon <willdeacon@google.com>
-> > > > > [Original commit from https://android.googlesource.com/kernel/gs/+/a896fd98638047989513d05556faebd28a62b27c]
-> > > > > Signed-off-by: Will McVicker <willmcvicker@google.com>
-> > > > > ---
-> > > > >  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 3 +++
-> > > > >  1 file changed, 3 insertions(+)
-> > > > > 
-> > > > > diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> > > > > index 3de3a758f113..fd0badf24e6f 100644
-> > > > > --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> > > > > +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> > > > > @@ -155,6 +155,7 @@ ananke_cpu_sleep: cpu-ananke-sleep {
-> > > > >  				idle-state-name = "c2";
-> > > > >  				compatible = "arm,idle-state";
-> > > > >  				arm,psci-suspend-param = <0x0010000>;
-> > > > > +				local-timer-stop;
-> > > > >  				entry-latency-us = <70>;
-> > > > >  				exit-latency-us = <160>;
-> > > > >  				min-residency-us = <2000>;
-> > > > > @@ -164,6 +165,7 @@ enyo_cpu_sleep: cpu-enyo-sleep {
-> > > > >  				idle-state-name = "c2";
-> > > > >  				compatible = "arm,idle-state";
-> > > > >  				arm,psci-suspend-param = <0x0010000>;
-> > > > > +				local-timer-stop;
-> > > > >  				entry-latency-us = <150>;
-> > > > >  				exit-latency-us = <190>;
-> > > > >  				min-residency-us = <2500>;
-> > > > > @@ -173,6 +175,7 @@ hera_cpu_sleep: cpu-hera-sleep {
-> > > > >  				idle-state-name = "c2";
-> > > > >  				compatible = "arm,idle-state";
-> > > > >  				arm,psci-suspend-param = <0x0010000>;
-> > > > > +				local-timer-stop;
-> > > > >  				entry-latency-us = <235>;
-> > > > >  				exit-latency-us = <220>;
-> > > > >  				min-residency-us = <3500>;
-> > > > > -- 
-> > > > > 2.49.0.472.ge94155a9ec-goog
-> > > > > 
-> > > > Hi Will.
-> > > > 
-> > > > Are you using this property in production?
-> > > > If so, have you noticed any performance improvements?
-> > > 
-> > > On Pixel 6, I have only recently switched to using the arch_timer as the
-> > > default clocksource. I haven't noticed any major perf improvements to the main
-> > > benchmarks, but also haven't seen any regressions. Based on the ChromeOS perf
-> > > analysis in [1,2], there was a significant perf difference found.
-> > > 
-> > > [1] https://lore.kernel.org/linux-samsung-soc/CAJFHJrrgWGc4XGQB0ysLufAg3Wouz-aYXu97Sy2Kp=HzK+akVQ@mail.gmail.com/
-> > > [2] https://lore.kernel.org/linux-samsung-soc/CAASgrz2Nr69tpfC8ka9gbs2OvjLEGsvgAj4vBCFxhsamuFum7w@mail.gmail.com/
-> > > 
-> > > If it helps, I found that Pixel 8 and 9 devices (didn't check Pixel 7)
-> > > are already using the arch_timer with this 'local-timer-stop' as the default
-> > > clocksource in the production kernel.
-> > > 
-> > > Thanks,
-> > > Will
-> > > 
-> > > [...]
-> > > 
-> > 
-> > Hi Will,
-> > 
-> > Thanks for sharing the status of Pixel devices.
-> > 
-> > I agree that using the arch_timer as a clock source device brings significant benefits.
-> > The links you shared are definitely related to that.
-> > 
-> > However, I would also like to know whether arch_timer is used as a clock event device in Pixel production.
-> 
-> For Pixel 8 and 9, the arch_timer is used as both the clocksource and
-> clockevent device which is what my series is proposing for Pixel 6 upstream.
-> The MCT device is solely being used as the alternative clockevents device for
-> waking up from the "c2" state. The reason for using the arch_timer as the
-> clockevents device is because we were seeing hrtimer stability issues where
-> a 10ms interval timer would delay about 300ms-1s before starting the callback.
-> This resulted in several media-related latency issues.
-> 
-> Thanks,
-> Will
-> 
-> [...]
-> 
+[ Upstream commit 1047e21aecdf17c8a9ab9fd4bd24c6647453f93d ]
 
-Thank you for sharing your valuable experience. That will be helpful to us.
+The HAVE_ARCH Kconfig options in lib/crypto try to solve the
+modular versus built-in problem, but it still fails when the
+the LIB option (e.g., CRYPTO_LIB_CURVE25519) is selected externally.
 
-Thanks,
-Youngmin
+Fix this by introducing a level of indirection with ARCH_MAY_HAVE
+Kconfig options, these then go on to select the ARCH_HAVE options
+if the ARCH Kconfig options matches that of the LIB option.
 
-------rHPRFtJkdx5CiZJP2v5Cn8OZ9YZY2B0tfPkXi2gvBl6TiQFm=_8b7dd_
-Content-Type: text/plain; charset="utf-8"
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202501230223.ikroNDr1-lkp@intel.com/
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm/crypto/Kconfig     |  6 +++---
+ arch/powerpc/crypto/Kconfig |  4 ++--
+ arch/x86/crypto/Kconfig     |  6 +++---
+ lib/crypto/Kconfig          | 26 ++++++++++++++++++--------
+ 4 files changed, 26 insertions(+), 16 deletions(-)
 
+diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
+index 32650c8431d98..47d9cc59f254c 100644
+--- a/arch/arm/crypto/Kconfig
++++ b/arch/arm/crypto/Kconfig
+@@ -6,7 +6,7 @@ config CRYPTO_CURVE25519_NEON
+ 	tristate "Public key crypto: Curve25519 (NEON)"
+ 	depends on KERNEL_MODE_NEON
+ 	select CRYPTO_LIB_CURVE25519_GENERIC
+-	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
++	select CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519
+ 	help
+ 	  Curve25519 algorithm
+ 
+@@ -47,7 +47,7 @@ config CRYPTO_NHPOLY1305_NEON
+ config CRYPTO_POLY1305_ARM
+ 	tristate "Hash functions: Poly1305 (NEON)"
+ 	select CRYPTO_HASH
+-	select CRYPTO_ARCH_HAVE_LIB_POLY1305
++	select CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
+ 	help
+ 	  Poly1305 authenticator algorithm (RFC7539)
+ 
+@@ -214,7 +214,7 @@ config CRYPTO_AES_ARM_CE
+ config CRYPTO_CHACHA20_NEON
+ 	tristate "Ciphers: ChaCha20, XChaCha20, XChaCha12 (NEON)"
+ 	select CRYPTO_SKCIPHER
+-	select CRYPTO_ARCH_HAVE_LIB_CHACHA
++	select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
+ 	help
+ 	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
+ 	  stream cipher algorithms
+diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
+index 5b315e9756b3f..e453cb0c82d2a 100644
+--- a/arch/powerpc/crypto/Kconfig
++++ b/arch/powerpc/crypto/Kconfig
+@@ -6,7 +6,7 @@ config CRYPTO_CURVE25519_PPC64
+ 	tristate "Public key crypto: Curve25519 (PowerPC64)"
+ 	depends on PPC64 && CPU_LITTLE_ENDIAN
+ 	select CRYPTO_LIB_CURVE25519_GENERIC
+-	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
++	select CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519
+ 	help
+ 	  Curve25519 algorithm
+ 
+@@ -95,7 +95,7 @@ config CRYPTO_CHACHA20_P10
+ 	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+-	select CRYPTO_ARCH_HAVE_LIB_CHACHA
++	select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
+ 	help
+ 	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
+ 	  stream cipher algorithms
+diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
+index 4757bf922075b..c189dad0969ba 100644
+--- a/arch/x86/crypto/Kconfig
++++ b/arch/x86/crypto/Kconfig
+@@ -6,7 +6,7 @@ config CRYPTO_CURVE25519_X86
+ 	tristate "Public key crypto: Curve25519 (ADX)"
+ 	depends on X86 && 64BIT
+ 	select CRYPTO_LIB_CURVE25519_GENERIC
+-	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
++	select CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519
+ 	help
+ 	  Curve25519 algorithm
+ 
+@@ -352,7 +352,7 @@ config CRYPTO_CHACHA20_X86_64
+ 	depends on X86 && 64BIT
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+-	select CRYPTO_ARCH_HAVE_LIB_CHACHA
++	select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
+ 	help
+ 	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
+ 	  stream cipher algorithms
+@@ -420,7 +420,7 @@ config CRYPTO_POLY1305_X86_64
+ 	tristate "Hash functions: Poly1305 (SSE2/AVX2)"
+ 	depends on X86 && 64BIT
+ 	select CRYPTO_LIB_POLY1305_GENERIC
+-	select CRYPTO_ARCH_HAVE_LIB_POLY1305
++	select CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
+ 	help
+ 	  Poly1305 authenticator algorithm (RFC7539)
+ 
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index b01253cac70a7..c542ef1d64d03 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -42,12 +42,17 @@ config CRYPTO_LIB_BLAKE2S_GENERIC
+ 	  of CRYPTO_LIB_BLAKE2S.
+ 
+ config CRYPTO_ARCH_HAVE_LIB_CHACHA
+-	tristate
++	bool
+ 	help
+ 	  Declares whether the architecture provides an arch-specific
+ 	  accelerated implementation of the ChaCha library interface,
+ 	  either builtin or as a module.
+ 
++config CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
++	tristate
++	select CRYPTO_ARCH_HAVE_LIB_CHACHA if CRYPTO_LIB_CHACHA=m
++	select CRYPTO_ARCH_HAVE_LIB_CHACHA if CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA=y
++
+ config CRYPTO_LIB_CHACHA_GENERIC
+ 	tristate
+ 	select CRYPTO_LIB_UTILS
+@@ -60,7 +65,6 @@ config CRYPTO_LIB_CHACHA_GENERIC
+ 
+ config CRYPTO_LIB_CHACHA
+ 	tristate "ChaCha library interface"
+-	depends on CRYPTO_ARCH_HAVE_LIB_CHACHA || !CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	select CRYPTO_LIB_CHACHA_GENERIC if CRYPTO_ARCH_HAVE_LIB_CHACHA=n
+ 	help
+ 	  Enable the ChaCha library interface. This interface may be fulfilled
+@@ -68,12 +72,17 @@ config CRYPTO_LIB_CHACHA
+ 	  is available and enabled.
+ 
+ config CRYPTO_ARCH_HAVE_LIB_CURVE25519
+-	tristate
++	bool
+ 	help
+ 	  Declares whether the architecture provides an arch-specific
+ 	  accelerated implementation of the Curve25519 library interface,
+ 	  either builtin or as a module.
+ 
++config CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519
++	tristate
++	select CRYPTO_ARCH_HAVE_LIB_CURVE25519 if CRYPTO_LIB_CURVE25519=m
++	select CRYPTO_ARCH_HAVE_LIB_CURVE25519 if CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519=y
++
+ config CRYPTO_LIB_CURVE25519_GENERIC
+ 	tristate
+ 	help
+@@ -85,7 +94,6 @@ config CRYPTO_LIB_CURVE25519_GENERIC
+ 
+ config CRYPTO_LIB_CURVE25519
+ 	tristate "Curve25519 scalar multiplication library"
+-	depends on CRYPTO_ARCH_HAVE_LIB_CURVE25519 || !CRYPTO_ARCH_HAVE_LIB_CURVE25519
+ 	select CRYPTO_LIB_CURVE25519_GENERIC if CRYPTO_ARCH_HAVE_LIB_CURVE25519=n
+ 	select CRYPTO_LIB_UTILS
+ 	help
+@@ -104,12 +112,17 @@ config CRYPTO_LIB_POLY1305_RSIZE
+ 	default 1
+ 
+ config CRYPTO_ARCH_HAVE_LIB_POLY1305
+-	tristate
++	bool
+ 	help
+ 	  Declares whether the architecture provides an arch-specific
+ 	  accelerated implementation of the Poly1305 library interface,
+ 	  either builtin or as a module.
+ 
++config CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
++	tristate
++	select CRYPTO_ARCH_HAVE_LIB_POLY1305 if CRYPTO_LIB_POLY1305=m
++	select CRYPTO_ARCH_HAVE_LIB_POLY1305 if CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305=y
++
+ config CRYPTO_LIB_POLY1305_GENERIC
+ 	tristate
+ 	help
+@@ -121,7 +134,6 @@ config CRYPTO_LIB_POLY1305_GENERIC
+ 
+ config CRYPTO_LIB_POLY1305
+ 	tristate "Poly1305 library interface"
+-	depends on CRYPTO_ARCH_HAVE_LIB_POLY1305 || !CRYPTO_ARCH_HAVE_LIB_POLY1305
+ 	select CRYPTO_LIB_POLY1305_GENERIC if CRYPTO_ARCH_HAVE_LIB_POLY1305=n
+ 	help
+ 	  Enable the Poly1305 library interface. This interface may be fulfilled
+@@ -130,8 +142,6 @@ config CRYPTO_LIB_POLY1305
+ 
+ config CRYPTO_LIB_CHACHA20POLY1305
+ 	tristate "ChaCha20-Poly1305 AEAD support (8-byte nonce library version)"
+-	depends on CRYPTO_ARCH_HAVE_LIB_CHACHA || !CRYPTO_ARCH_HAVE_LIB_CHACHA
+-	depends on CRYPTO_ARCH_HAVE_LIB_POLY1305 || !CRYPTO_ARCH_HAVE_LIB_POLY1305
+ 	depends on CRYPTO
+ 	select CRYPTO_LIB_CHACHA
+ 	select CRYPTO_LIB_POLY1305
+-- 
+2.39.5
 
-------rHPRFtJkdx5CiZJP2v5Cn8OZ9YZY2B0tfPkXi2gvBl6TiQFm=_8b7dd_--
 
