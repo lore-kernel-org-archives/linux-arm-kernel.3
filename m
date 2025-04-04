@@ -4,161 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB46C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 12:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C78B3C36014
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 12:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9aqgfgDKLwqxawkJsxmoe0Deof9pf/7i9srUiwp5mDY=; b=Oz7GFu1mKf2SklQCqw3JtDsRId
-	ephSbqCefvAOwMP3pkq/He2s5LxQJi6pHrBPo40iAsIAxeGVgRxqlbnRW3SowvCmCyY9dnJhGsbod
-	eQi8S1fAwqGKUjKX7lVLwp6pDVMQPjwr5fcLYy0/7QuIuxjhLxi4EYe4haIlAt/H6EmsfU78OIaHd
-	DZCN1C8htwI19SX8faHZBu4yfi1wHazVvBfQ2SU8aSOOwbClIsx8vyoIgVmNw7ZRKE2xnfgTYA1O4
-	q8ZtwvqcgrHygRYHjTTQ13F+OPv6j3y/ZfTAmQT9Yd7i5wacHp+o6+YCYLBLxR52xY1KOuQ8azGYk
-	EyOz6Oeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q3DMfaX7enMK+CS7Fw8aqK7Kb4zBw5LAQWIhlF/2oKY=; b=bYBlzGLCW1aWU4w3TBhEF4AT22
+	B1S5iBMDa/SvxEgUOX7wXXfnQzt0KyIlqYin8A0JK4AtiT2sqE502WotB0gLIHiWeRmSwHp8r+ETv
+	scD8IjpzQIt1ul0sLUQbQPkYfw9Fa4WMSN/J/0gALYA8yscToW9GhRTMYt+I5ClRzyMu/Y1JhM7aX
+	/0RZNtjakqFPu01ztAd3IgXizkOVGQMNCCIU8Biz8IqWgeH8BzTk5ehlV/ptXw78VrlYlENlKQOEE
+	itpsKjTAxdfMcAp/LB9y7thVAlXDdxtr26Mj+ROsk0JuM3aRBPEebGuWnvfKiNZ1iauCrml81MB7s
+	MC4ytpig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0gao-0000000Bjll-0g7S;
-	Fri, 04 Apr 2025 12:56:18 +0000
-Received: from mail-co1nam11on20602.outbound.protection.outlook.com ([2a01:111:f403:2416::602] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1u0gdL-0000000BkBV-0imc;
+	Fri, 04 Apr 2025 12:58:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0gZ4-0000000BjOj-1jBI;
-	Fri, 04 Apr 2025 12:54:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dXOeefSqz/0bhAGhT/gpyqRoPdjgZnExFTgD8h1qZZwUyVP3htt6IQTVFYgg38ck/w/3CDw6G6B9145q2Jn+aJe/lgjgKBAuTw1LS3hjKtKrLPSczr4+0BuDMoY3Xz//XcH22wGBVPYeJS9o9v3dTtkODgYM0G9XKWFDp1dA6L3OOQo/Atu+yEIyTxWyeZ806X3Zc4C0WpkoTnCz9rViombrhfD1y4FJZGKfkfxtSUH3BnZlCKMLtEGP7CaMzX6mdZMf4E3bDZpyzQAzZQqh/iuE/qLcMcIxRs4Rm1RGlvUu/nEwNt4wTnXUKgFioq99wpyNFqyrytTWv/aw705dwA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9aqgfgDKLwqxawkJsxmoe0Deof9pf/7i9srUiwp5mDY=;
- b=VfyyE7VehrEtGqC1eithfsEZKpA74MuMUwV7dI4jmzojc4ZMN/jEiZEfLbM5H3wbs07ZcxfW3pdIAyq8qUmM82CN7E10bpPEC3k8o+3duLTLOcaXQKuaWPBOSP1vi8yTdm8tVBTdqSZjUh1cYebEaRh0RSdHo6EKrMaw1KE6elpW4dGVeP/8nU3MSF5mU9zMJo4DFbJGatJ/V4BiJtpkQn11ICEdx0IfObwlOpS7TcAg5U06Jmji1B2TMmw7whtHhNWJvbMj0x1RK7Fpz/DCgVgXhA+10P84OH8RrDvZ7sQsuMcmk0hdDvLDiMazsNFTeXVqafDy0qW4wDFNIdrBag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9aqgfgDKLwqxawkJsxmoe0Deof9pf/7i9srUiwp5mDY=;
- b=PiCjin02jE4++HzvvMq/TPkWqGklnelRPq5hu1zWfKPXebo3RjTHOBy6cKvh1WAqGlCaWB/hVXqTBSs0DGl1XchAjGyWEg2zFKspCXwAmUxIrS8hYUzhLd+IWQgyQheeIohop+GbUCGk+0jjHuOvILwFdmd8TFx+n/ew+bR/U72O2YjZLnsW0y7CBZe/aDWYM+/UUhKSRG5dwuCgyi32bI7yPr/xO+TpO4URg5rBdvOgeGe3+bIl9hD545gVWDqGpq6jK0N9xTuhnEpi0b/YLe7P43qIKMpCFHVUXNKD0SCZNFIWa6ebHfbbptmE3hJ3Eb2P7aPYaa0vSRo7WZ4paQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by BL3PR12MB6617.namprd12.prod.outlook.com (2603:10b6:208:38c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Fri, 4 Apr
- 2025 12:54:22 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.043; Fri, 4 Apr 2025
- 12:54:22 +0000
-Date: Fri, 4 Apr 2025 09:54:21 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Pratyush Yadav <ptyadav@amazon.de>
-Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, rppt@kernel.org,
-	mark.rutland@arm.com, pbonzini@redhat.com,
-	pasha.tatashin@soleen.com, hpa@zytor.com, peterz@infradead.org,
-	robh+dt@kernel.org, robh@kernel.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, rostedt@goodmis.org,
-	tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <20250404125421.GI342109@nvidia.com>
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-10-changyuanl@google.com>
- <mafs01pu9qm6r.fsf@amazon.de>
- <20250403161001.GG342109@nvidia.com>
- <mafs0tt75p2nx.fsf@amazon.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <mafs0tt75p2nx.fsf@amazon.de>
-X-ClientProxiedBy: BN9PR03CA0793.namprd03.prod.outlook.com
- (2603:10b6:408:13f::18) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u0gbb-0000000Bjx0-2HUG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Apr 2025 12:57:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1743771426;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=q3DMfaX7enMK+CS7Fw8aqK7Kb4zBw5LAQWIhlF/2oKY=;
+	b=W/m5ye6BAMjdyUPwYUi3MY6Ue4voDXa/DnXL2mY45icYLVomJeYYxKBJnR+krk+tM50uXB
+	vPZrq3fDAsjhzH1Fd708AAzRl4mSXFlx1gJ+9OmXxV/+KXK7VWSZcWvdwPYJcQTOFZqw6T
+	Khec+bBZ3J0l03RSPCCctqqtSB3l7xw=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-210-pLlm0CZANLWuOVyqZyGLsQ-1; Fri, 04 Apr 2025 08:57:05 -0400
+X-MC-Unique: pLlm0CZANLWuOVyqZyGLsQ-1
+X-Mimecast-MFC-AGG-ID: pLlm0CZANLWuOVyqZyGLsQ_1743771424
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43ea256f039so16645475e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 05:57:05 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743771424; x=1744376224;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=q3DMfaX7enMK+CS7Fw8aqK7Kb4zBw5LAQWIhlF/2oKY=;
+        b=ZJeryEhciGpjBmGSTbifU700GflH6B3mcUj8yUJvEq2KEhbslyKMsZqCTRJ7RF/L74
+         4Smlb+LBTVTxVhu8PKachVrf7+zoXxL6tkBxG0wtOxIEriaYz6nh0+tWJA/SdiaUcOtV
+         kZZt3WuDgK8AOuexDh7cXwb0fZzhmjQrLEZ8NDLHpX0dTghLdMK2P4c1cjVK6bHgf/Uz
+         Q8za0HlQPGLa8yGIS3I1KbpwuKl4JLh85+cuQme/QoN75pxC6nlEdnwVziTpLfYtYTBg
+         K3PHBza6V1OdyRr5YjhyxKDFB15meHK+Kg03VTJZCHXsS5p8D35eCPp5VY97OwUtZrQw
+         DoVA==
+X-Forwarded-Encrypted: i=1; AJvYcCXSmq7zFHaroGZC4gGXOj8TaR7TZxQkzxVMR0FDQvC3/B13QzHOqr5vYUtByr7P0Gm2Ipwfdnv4+cLvvuq2EI84@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkKf/tV6/qppyOBa9nMzBCm+5i4MuNmuBtpVGZu1jpCpgIHEP+
+	Ym8Dy8S5lJYQqSmgGksPNAO2XdvHBVDJk13auale2hC+emZBdw0tvOmX7PjRf63Y/n8nVSeexa7
+	F1o1FZvWUMwVdZYbi5dTp4wAAU9fyTE1UOI+VHvsDKbtr+3o7tTKSgw5tVHuu7W4FSJSB12ZL
+X-Gm-Gg: ASbGncvdrKbs81ksG08wVspl0ER4F/5zuDP/OdUUSNTtW3OWuJWQjGGrqJidSoIpNuj
+	9VlGy1CPiP9o6M195S4r+R9hNOaqdH1JjP+ZPadc3dI4IW4lDxgclRc1Cks4hkg7lriDRI2gWin
+	20LYG399xxrkiOzM+xA/WjrOTUz37LvFHA4oCXhZ0qVBP2afKpNP1BHGnJYNNjyjdkcPewwt7se
+	LJqD1rDmoieZad9Nl3ZsfAbUyXPVOZ5qbNAlupEYko49wLlyoNdOD4re9EwrgHjfWuNWYdS3RzX
+	xs5sjBFW/ya57wHiYYycWhJ7ytuNnG38xcueMDTJPBL6t+/62ZtAq4GgZ6Fbei4slOC8yE8g1HN
+	h/Ziw40OnmFEP+JwHkv2+PvHMCZO50jdhubGd8dvP3GA=
+X-Received: by 2002:a05:600c:3b14:b0:43c:ec97:75db with SMTP id 5b1f17b1804b1-43ed0bf6aeemr26013865e9.11.1743771424055;
+        Fri, 04 Apr 2025 05:57:04 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEsTD0NEe/13x1nCp/BwHj5jtQGwunCbeDSGxQPUJ97SNdpBIw8pTlFFk7pwqO9xIGqvwm+/w==
+X-Received: by 2002:a05:600c:3b14:b0:43c:ec97:75db with SMTP id 5b1f17b1804b1-43ed0bf6aeemr26013625e9.11.1743771423678;
+        Fri, 04 Apr 2025 05:57:03 -0700 (PDT)
+Received: from ?IPV6:2003:cb:c71b:7900:8752:fae3:f9c9:a07e? (p200300cbc71b79008752fae3f9c9a07e.dip0.t-ipconnect.de. [2003:cb:c71b:7900:8752:fae3:f9c9:a07e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec366a88csm44392385e9.37.2025.04.04.05.57.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 04 Apr 2025 05:57:03 -0700 (PDT)
+Message-ID: <75884033-9474-4d0c-b737-d9b6aebe298b@redhat.com>
+Date: Fri, 4 Apr 2025 14:57:01 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|BL3PR12MB6617:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1d0f128d-076a-4efd-d68c-08dd7377d273
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EgOagnqjRNmVpspjXG/oYobxaPhBO+X1QUPiMnNf9fzQR8gGqPTtlAM8kP7J?=
- =?us-ascii?Q?WDffXDWrEy5pJELW5sPzXjvdHrUQ55bmmYxJKT2vQSWQnKmM9tm6ktf+5jly?=
- =?us-ascii?Q?b4n2OlNepJax+1i9zXSzpqmqOaKcO19+inpiycjM1rT2oxL95lbyxDTIORBK?=
- =?us-ascii?Q?EzqFmhZZBhG7/GMBNxP5OhRD7kxfrzqbR9QwMzesd82Q/sbJwBi8eI2PpIqB?=
- =?us-ascii?Q?aayzO/U5WnTYUXxZLPE5BSSZT3jIlN+7D0uzP3yVZPjcoB7ByrXahnOp7XQm?=
- =?us-ascii?Q?ftm9RwED4oY5WcLcxDbc4Nq0M0OzFf35PhaXte8kv/XCafEDetRDTKAnx/I4?=
- =?us-ascii?Q?VRg7WwhodwGmlz2nKGZqAraqEIGiikZDQwv6gWPx+V9GcdMkbjgK8XqQVTCk?=
- =?us-ascii?Q?wbYJz1+JKEBFWY0pmpVr+6hOLQTyPGaX/MlgNHw3XZQtMN/K4X7svbfkdWAO?=
- =?us-ascii?Q?pWh4X0jZfUguw4Lx+rfBx+xnERD5W9Nui6lwqTV8BQq/IysUAeDdmiMuGVdR?=
- =?us-ascii?Q?qrb/myUcRd3+fh3lAGjQDAuHCWBxnkDEQiW8hbJmAbW5gug8yTcBWc66qFV9?=
- =?us-ascii?Q?zRFcPVtQ2RssEYCh4Ua7Cz6MnTfzAQ+/iokdXEE7LjGVwR/+FGTGtMw1h1rD?=
- =?us-ascii?Q?c/dmHX9WE4b4OZac+mmu2XEGe5cbHgDZVO0s3WtcXbptrtkVk8OLYS4E4afZ?=
- =?us-ascii?Q?BgKqOlVXFgZ8nyAPs2YFqAhQq3EiY3rOFaSOtub/Ros4tCWtW98SB9Z4PMjC?=
- =?us-ascii?Q?F7bGkem1krckd53nXK1jGRkjpeQ7bGnU3FtuTXNeH9nLW83E20FDDjdsY/uo?=
- =?us-ascii?Q?WbNCYWTYth90u417klLHNtTQaHvwb4QGI0oLQTqRCeSt7/Sn98esKB772VQr?=
- =?us-ascii?Q?4ff6JbcJTbbNk9e/ezRWLr/ytisuM+Z+W5b5xGjjl78l9cBggoedP+tavLoF?=
- =?us-ascii?Q?Ox6NEHuzSCxjyBX6JCIe3V6HCQmiWE7+g7IpdGeqqhD40ehWDQXTsen4BwHa?=
- =?us-ascii?Q?r8ClXf2YzVShMBwPcPpsisnOmbKHNGu77xYP3WMQSdVdAh55b87CyruMMJq1?=
- =?us-ascii?Q?W/FwyHrQKvDZdphNjfv9m2ZkMW555/VIUeOt4zsg0XZ5Q6AxFjY8CmTx8tsO?=
- =?us-ascii?Q?7XZmeigQs8pQODgVai6X2ZyY/zZiG2dl4OIE5gdZZeK7HxwDGw952LDrB564?=
- =?us-ascii?Q?2ShAmAWi7Gy9NrbvaS6bpaKiQIL6AbLia60pnTvJecgQ1xFPa5b+GI4yrdYs?=
- =?us-ascii?Q?QJdDDwqIEp93ukPYy1JKuzgJz5vcZMoevPruljigK5pQu95vEHkGPqAsbf4V?=
- =?us-ascii?Q?p3H1AjOO9HWIvED7w/h9f0FbLHVUlJpgw4sW26jtESZtn4kEjQkyKdYaAFzj?=
- =?us-ascii?Q?IBlRR5De07Xgmd4hIQ7yfaBeZu8c?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?znh2DhQsl/alrerFNBhuxbo24U7atutmcd4cJ9JQ4BcJcNaQgLcjFjgkYykh?=
- =?us-ascii?Q?y4XKqXnS7gYf26ADUhFKvPk+cYTWPmiZ0qZFle8SsU9KAwP8SEe1LgT+C3Wh?=
- =?us-ascii?Q?/AFhAIhJH29mtT1L98RhMCB5dSzmpn2c5YrEEJ/mkNcPCzD70qVS0v3P5dql?=
- =?us-ascii?Q?zBtLnzRHJwFMupV89c6CQpKC34kAdt/sgzRNA5UpdMRcMO1vpqnqkvIPkMzH?=
- =?us-ascii?Q?7zSKFBC106T5d+hoRsOw9WO7FCA4klT19smpjQtRCkISkGmWV9+gXZ6G/bam?=
- =?us-ascii?Q?rFUsx/N9qa9jlVBdu+6Ho9vpOcWnTKPLowJE4TdJax+M+ko6Nx4/yHa4szku?=
- =?us-ascii?Q?Pu2i51YnOgv+ybkScqV/tvZcNKk2ZBeusIvghy7h0qbTOVU3VSyT07JhDDrp?=
- =?us-ascii?Q?97BHFVhSr4jyD1Bva7L3vuQ2C0/XeVkikirYmtaIldAG/hxYmrcKV4mkw9R2?=
- =?us-ascii?Q?GwA4i+ihNMhuj4zaHT6idCGt/8ZuBTO02PwwMWmuDJgPvjN78FK7YBE+AtzU?=
- =?us-ascii?Q?VwdVdsA0Itsa+aZYW58K2N9OjpPgWAizg2iopWfajdxq6LuzsWcrAxarqGnk?=
- =?us-ascii?Q?e2nXsV6HcEwIqVEj3eaxjtVCXzU+AlJd7fGCRoqbi3rbzQEf8m76Mb7Cj7Tk?=
- =?us-ascii?Q?OozSOfU0AB+W42Z9EN1zK86OGJJgRYyBIIgqRyPEXqrjOsGGjxmEt/bR6l5U?=
- =?us-ascii?Q?Pc5y989i+Kmkt/3j/0C9JKXnBI8gZnWV2ntsEI58Podm01faMNwxKb89xW1h?=
- =?us-ascii?Q?NucuQ2lPYcV/pI51ODSETiDehHHxeL7upC0gMmY8vx1bwbWPCUiAwx+a48Fi?=
- =?us-ascii?Q?Fe5McV9KVkIlaQz8b2IdsUTTYyTb4ovtoHz62nmulyPsgVAgBm/9zcVPa8TJ?=
- =?us-ascii?Q?a0+Ovcfnc7qCKjzezxMOxEEAXQY5r7LoWAUkNdEkUYhWEehrA7Nz2yOaDrcZ?=
- =?us-ascii?Q?hodEI9r8nudh8/sW6/5KHu0QsL7u2UchPt2YfI4pm96U4lmMI5vmPhI+dG00?=
- =?us-ascii?Q?mh0GC6eLqNOZnvXQRPe2/87Ggwwai/64WymbbPwHp3tTxoCycNsbJAzcLJ6n?=
- =?us-ascii?Q?f6FIgRvK1IgJCPSfkm1rWPr2nx1VofugPPcyRg66Hh/5LZ6sEdHaZjL7kH8j?=
- =?us-ascii?Q?3r4dI1JH/mrodrNVxIPM0FIcn0raHFcHEmWX0Rh+1lUBeAjSAWxXfaS+GGln?=
- =?us-ascii?Q?EOATQHmNMDPDf6RBSv0Q+foEh7O5VdkuHmCyOQHYh9ZhwQUvpNXXRj3Ve+L/?=
- =?us-ascii?Q?3oSy6o/2FcA6Wy2bxN3zwByb5wI9M/onh62amjV+/YnT2iCfQ1nkwWHpCpOe?=
- =?us-ascii?Q?GHisuYo0tmCTNDOaXZRiLXx+UF9HkGmR3c+lu55jF6itVHimfVwy/bDCt26y?=
- =?us-ascii?Q?RUZRmdL73V8/OR0XO6VInq9erfFmziBs+owmUa4rqi0pEPnqObD7uDfuNbc+?=
- =?us-ascii?Q?Rx4yygI3USntfNDgf61tSrKLoFvfxQk6c5XUoZ+N6BOgPRu+5z5sK3/53rOL?=
- =?us-ascii?Q?b9ed/fvu7KadFyL7vGYICCNET1JI1O1d4TH46c87oTsI4oLDAojon3f3piSs?=
- =?us-ascii?Q?x48fgRdxmUNA4pjmciXewvBQaC82Lo6F8iDy7TEs?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d0f128d-076a-4efd-d68c-08dd7377d273
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Apr 2025 12:54:22.7695
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gFzpucZH7b669QPfUJgc1nyAUJFCP4lqkyTYeOcoPxqhUZrMqQBb7OXFNzbAKqoi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6617
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: pageattr: Explicitly bail out when changing
+ permissions for vmalloc_huge mappings
+To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
+Cc: gshan@redhat.com, rppt@kernel.org, steven.price@arm.com,
+ suzuki.poulose@arm.com, tianyaxiong@kylinos.cn, ardb@kernel.org,
+ ryan.roberts@arm.com, urezki@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250403052844.61818-1-dev.jain@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <20250403052844.61818-1-dev.jain@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: CiB-at1UY1DNkZoZ6HF-sN_7p1U1ZwLfWH1-XMdsSA0_1743771424
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_055430_458266_330708B2 
-X-CRM114-Status: GOOD (  26.54  )
+X-CRM114-CacheID: sfid-20250404_055707_655901_C62E3DC6 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,68 +159,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 05:37:06PM +0000, Pratyush Yadav wrote:
-
-> And I think this will help make the 2 seconds much smaller as well later
-> down the line since we can now find out if a given page is reserved in a
-> few operations, and do it in parallel.
-
-Yes, most certainly
- 
-> > This should be more like:
-> >
-> > union {
-> >       void *table;
-> >       phys_addr_t table_phys;
-> > };
-> >
-> > Since we are not using the low bits right now and it is alot cheaper
-> > to convert from va to phys only once during the final step. __va is
-> > not exactly fast.
+On 03.04.25 07:28, Dev Jain wrote:
+> arm64 uses apply_to_page_range to change permissions for kernel vmalloc mappings,
+> which does not support changing permissions for block mappings. This function
+> will change permissions until it encounters a block mapping, and will bail
+> out with a warning. Since there are no reports of this triggering, it
+> implies that there are currently no cases of code doing a vmalloc_huge()
+> followed by partial permission change. But this is a footgun waiting to
+> go off, so let's detect it early and avoid the possibility of permissions
+> in an intermediate state. So,  explicitly disallow changing permissions
+> for VM_ALLOW_HUGE_VMAP mappings.
 > 
-> The descriptor is used on _every_ level of the table, not just the
-> top.
-
-Yes
-
-> So if we use virtual addresses, at serialize time we would have to walk
-> the whole table and covert all addresses to physical.
-
-Yes
-
-> And __va() does
-> not seem to be doing too much. On x86, it expands to:
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+> v1->v2:
+>   - Improve changelog, keep mention of page mappings in comment
 > 
->     #define __va(x)			((void *)((unsigned long)(x)+PAGE_OFFSET))
+>   arch/arm64/mm/pageattr.c | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
 > 
-> and on ARM64 to:
-> 
->     #define __va(x)			((void *)__phys_to_virt((phys_addr_t)(x)))
->     #define __phys_to_virt(x)	((unsigned long)((x) - PHYS_OFFSET) | PAGE_OFFSET)
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 39fd1f7ff02a..04d4a8f676db 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -96,8 +96,8 @@ static int change_memory_common(unsigned long addr, int numpages,
+>   	 * we are operating on does not result in such splitting.
+>   	 *
+>   	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
+> -	 * Those are guaranteed to consist entirely of page mappings, and
+> -	 * splitting is never needed.
+> +	 * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
+> +	 * mappings are updated and splitting is never needed.
+>   	 *
+>   	 * So check whether the [addr, addr + size) interval is entirely
+>   	 * covered by precisely one VM area that has the VM_ALLOC flag set.
+> @@ -105,7 +105,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>   	area = find_vm_area((void *)addr);
+>   	if (!area ||
+>   	    end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
+> -	    !(area->flags & VM_ALLOC))
+> +	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
+>   		return -EINVAL;
+>   
+>   	if (!numpages)
 
-Hmm, I was sure sparsemem added a bunch of stuff to this path, maybe
-I'm thinking of page_to_phys
+Makes sense to me. Whenever required, we can improve the checks (or even 
+try supporting splitting).
 
-> >> +struct kho_mem_track {
-> >> +	/* Points to L4 KHOMEM descriptor, each order gets its own table. */
-> >> +	struct xarray orders;
-> >> +};
-> >
-> > I think it would be easy to add a 5th level and just use bits 63:57 as
-> > a 6 bit order. Then you don't need all this stuff either.
-> 
-> I am guessing you mean to store the order in the table descriptor
-> itself, instead of having a different table for each order.
+Acked-by: David Hildenbrand <david@redhat.com>
 
-Not quite, I mean to index the per-order sub trees by using the high
-order bits. You still end up with N seperate bitmap trees, but instead
-of using an xarray to hold their top pointers you hold them in a 5th
-level.
+-- 
+Cheers,
 
-> Though now that I think of it, it is probably much simpler to just use
-> khomem_desc_t orders[NR_PAGE_ORDERS] instead of the xarray.
+David / dhildenb
 
-Which is basically this, but encoding the index to orders in the address
-
-Jason
 
