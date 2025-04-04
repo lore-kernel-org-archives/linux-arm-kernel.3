@@ -4,76 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096ECC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 08:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF2FC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 08:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SZTRJDBNNgYDkCBY6upcyYXVnBhkGlf/cu+m+M/6vIQ=; b=d3m+Gj0Suc8p8B61EZlUwwsdKP
-	4qiM232VtZ5J9ZGvwiCAdopPvnGF6DD9w3/VA3OG0U9hFqqKxkPy4+30C5GnxSZC4VMv5Yy5qFjoj
-	qvyqQpOtsaM1VcG8YGUmrOocFmDTsGRCLTqQdKceKZ/ybJUuRaLgWONOrwlZC9PjdI4G4Yq771czy
-	RNsOsaf/mooRG5Wf0WVdpoU4RlRpIX/bat9Dkj0vWpVOwNmvCsphA5gIB9YwWV5VqbXfvmFNVO0HT
-	Sy+Qc4qtioQN5Jpxr8nQ0tpDUWhmBrhxk/zT4EglbgnihVhKe8nVQX7bVyLY0UMmMlk/XkTGWt6q5
-	I8dwkc5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CYUW+JoyF/G12mMwzahnbc23eTPvuYAy1EdgeaJckFw=; b=GeECY8axkZ1buT/M9HZuOhXEzA
+	mK+g98JVHSJTpjMjgAs+O2Fj9EPHghQ+ONccdzuTSa/2MAuXCAEZn/Pe2gVtVpL9I2jZlUK4N3u2y
+	j1HO42IpNIMWvxlHmoqVHTMnAgrmLTaQ1gYiNFOlWSivKfooxV8L9f03Kl4PQqie5Z89E+36fhBn8
+	6pvnyoj9CPyDRwQ8z1m3VZDrJLGei3ZzBJvLgEFE2r/fQOt8I865qK3OaKY14VmFLH/d8yIMUmqlb
+	fwHqiKAazwODH2z0WacLRM0Hzrvy1h9fvkSwHaGbNfezDJHhLxLAcfAvf6hPhot7mPc2AeypZNh1z
+	fMNJXsMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0cpf-0000000BD86-26x7;
-	Fri, 04 Apr 2025 08:55:23 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1u0crl-0000000BDQv-0nGE;
+	Fri, 04 Apr 2025 08:57:33 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0cno-0000000BCZP-48uD
+	id 1u0cpw-0000000BDCL-1NLp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 08:53:31 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7FA204340C;
-	Fri,  4 Apr 2025 08:53:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1743756804;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SZTRJDBNNgYDkCBY6upcyYXVnBhkGlf/cu+m+M/6vIQ=;
-	b=phXjCmqzZZKxxuJwruXaetuuVy5P0E2DyGB/9ihDxzLCq+CQn5d1CAbwfZaZ+Fmg9BRjus
-	7Q5NWpzcI5e6Iwg39kYruOE98vGmVxUWb92md2uia83KBMDgVaDpZD9qfsncjO9bloHYL0
-	5LW158MhgkQiGj/JRR4z4HNiKF/TIGimyBmXrN32dWWPehyS1tRmaxMY/ADDmnMiJ2JMXK
-	+jXcXkkKQxqOLY710F/sL0n/tx69yrVl2R2/wb7aZ+nBlIIbwoOt1WeP41torkK7+dYjWX
-	yZhckxdHE9b9jL60QvNPVyUM1Vvk86wzB9MlfLJgNsMswfGXXzhKQMTmz9R48g==
-Date: Fri, 4 Apr 2025 10:53:22 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, NXP S32 Linux <s32@nxp.com>,
-	imx@lists.linux.dev, Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>
-Subject: Re: [PATCH v9 3/4] arm64: defconfig: add S32G RTC module support
-Message-ID: <2025040408532288b38dea@mail.local>
-References: <20250403103346.3064895-1-ciprianmarian.costea@oss.nxp.com>
- <20250403103346.3064895-4-ciprianmarian.costea@oss.nxp.com>
- <c4a80c1f-56a0-4cdf-afbd-cb2c13cc0b8b@kernel.org>
- <6ebb8c15-9ff1-4bf3-bbf3-c91aa387d873@oss.nxp.com>
- <dec769ad-5144-4503-9714-d9c83a4c242c@kernel.org>
- <b7d82f31-05d1-4331-809b-e865d21c958c@oss.nxp.com>
+	Fri, 04 Apr 2025 08:55:41 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5348sv783766828
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 4 Apr 2025 03:54:57 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1743756897;
+	bh=CYUW+JoyF/G12mMwzahnbc23eTPvuYAy1EdgeaJckFw=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=fIwd/wjv9tNPGAqWuceipoxKdjUosBvrfZmw8J6brluxUGRxZXWtDFLp9q2ZJ/L65
+	 7/l11pcAprXbl2tvlbAGCi1BnOCF7vdiOReLao8ExUXRmO8ncRWKyTJNaTGCH91PXP
+	 qpunLiWN3HI6KJ/zWz+0USFzErUZnqPkxQjp+Sjc=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5348svC1091374
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 4 Apr 2025 03:54:57 -0500
+Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 4
+ Apr 2025 03:54:57 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 4 Apr 2025 03:54:57 -0500
+Received: from [172.24.23.235] (lt9560gk3.dhcp.ti.com [172.24.23.235])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5348sonl071093;
+	Fri, 4 Apr 2025 03:54:51 -0500
+Message-ID: <d54d6d16-8422-4506-8f9a-24628dd95471@ti.com>
+Date: Fri, 4 Apr 2025 14:24:50 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b7d82f31-05d1-4331-809b-e865d21c958c@oss.nxp.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduledutdduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpeetlhgvgigrnhgurhgvuceuvghllhhonhhiuceorghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeeiudeuteehhfekgeejveefhfeiudejuefhgfeljefgjeegkeeujeeugfehgefgnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemugekjegvmedusgdusgemledtkeegmegttghftgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemugekjegvmedusgdusgemledtkeegmegttghftgdphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudejpdhrtghpthhtoheptghiphhrihgrnhhmrghrihgrnhdrtghoshhtvggrsehoshhsrdhngihprdgtohhmpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtt
- hhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrthgtsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: alexandre.belloni@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXTERNAL] Re: [PATCH net v3 3/3] net: ti: icss-iep: Fix possible
+ NULL pointer dereference for perout request
+To: Paolo Abeni <pabeni@redhat.com>, Roger Quadros <rogerq@kernel.org>,
+        <dan.carpenter@linaro.org>, <kuba@kernel.org>, <edumazet@google.com>,
+        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <namcao@linutronix.de>, <javier.carrasco.cruz@gmail.com>,
+        <diogo.ivo@siemens.com>, <horms@kernel.org>,
+        <jacob.e.keller@intel.com>, <john.fastabend@gmail.com>,
+        <hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
+        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        <danishanwar@ti.com>
+References: <20250328102403.2626974-1-m-malladi@ti.com>
+ <20250328102403.2626974-4-m-malladi@ti.com>
+ <0fb67fc2-4915-49af-aa20-8bdc9bed4226@kernel.org>
+ <b0a099a6-33b2-49f9-9af7-580c60b98f55@ti.com>
+ <469fd8d0-c72e-4ca6-87a9-2f42b180276b@redhat.com>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <469fd8d0-c72e-4ca6-87a9-2f42b180276b@redhat.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_015329_780045_048FD1D0 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20250404_015540_621006_C79AE36F 
+X-CRM114-Status: GOOD (  27.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,57 +98,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/04/2025 10:19:56+0300, Ciprian Marian Costea wrote:
-> On 4/4/2025 10:15 AM, Krzysztof Kozlowski wrote:
-> > On 04/04/2025 08:24, Ciprian Marian Costea wrote:
-> > > On 4/4/2025 9:17 AM, Krzysztof Kozlowski wrote:
-> > > > On 03/04/2025 12:33, Ciprian Costea wrote:
-> > > > > From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> > > > > 
-> > > > > The RTC hardware module present on S32G based SoCs tracks clock time
-> > > > > during system suspend and it is used as a wakeup source on S32G2/S32G3
-> > > > > architecture.
-> > > > Which boards are using it? I don't see any DTS (nowhere), so I do not
-> > > > see single reason for this patch.
-> > > > 
-> > > > Best regards,
-> > > > Krzysztof
-> > > 
-> > > The RTC module is used by all the currently supported S32G2/S32G3
-> > > boards, so currently they are: S32G274A-EVB, S32G274A-RDB2, S32G399A-RDB3.
-> > 
-> > I don't think so. I looked at these DTS and there is no RTC.
-> > 
-> > > I do see your point in the fact that this driver should be enabled as
-> > > module only after platforms are actually using it.
-> > 
-> > No, post the user. I don't see the point of sending defconfig patch with
-> > RTC patchset anyway. That's different subsystem.
-> > 
-> > > 
-> > > So, would it be better for me to send a V10 in this series with the DTS
-> > > patch added ?
-> > 
-> > No, separate patchsets.
+
+
+On 4/3/2025 4:55 PM, Paolo Abeni wrote:
+> On 4/2/25 2: 37 PM, Malladi, Meghana wrote: > On 4/2/2025 5: 58 PM, 
+> Roger Quadros wrote: >> On 28/03/2025 12: 24, Meghana Malladi wrote: >>> 
+> ICSS IEP driver has flags to check if perout or pps has been enabled >>> at
+> ZjQcmQRYFpfptBannerStart
+> This message was sent from outside of Texas Instruments.
+> Do not click links or open attachments unless you recognize the source 
+> of this email and know the content is safe.
+> Report Suspicious
+> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
+> updqndalvOwRqgXOXDPJf9wy4vKojW68gavBCIsz5DlBLvSeawwT53qgFGcvIm0ULRBQkJv028AcR194Ei9ZDPp5ily-uAw$>
+> ZjQcmQRYFpfptBannerEnd
 > 
-> Ok. I will send out a V10 in which I will drop this current patch from the
-> patchset. Also, I will send the DTS patch which adds S32G274A-EVB,
-> S32G274-RDB2 and S32G399A-RDB3 usage of the RTC after this patchset gets
-> accepted.
+> On 4/2/25 2:37 PM, Malladi, Meghana wrote:
+>> On 4/2/2025 5:58 PM, Roger Quadros wrote:
+>>> On 28/03/2025 12:24, Meghana Malladi wrote:
+>>>> ICSS IEP driver has flags to check if perout or pps has been enabled
+>>>> at any given point of time. Whenever there is request to enable or
+>>>> disable the signal, the driver first checks its enabled or disabled
+>>>> and acts accordingly.
+>>>>
+>>>> After bringing the interface down and up, calling PPS/perout enable
+>>>> doesn't work as the driver believes PPS is already enabled,
+>>>
+>>> How? aren't we calling icss_iep_pps_enable(iep, false)?
+>>> wouldn't this disable the IEP and clear the iep->pps_enabled flag?
+>>>
+>> 
+>> The whole purpose of calling icss_iep_pps_enable(iep, false) is to clear 
+>> iep->pps_enabled flag, because if this flag is not cleared it hinders 
+>> generating new pps signal (with the newly loaded firmware) once any of 
+>> the interfaces are up (check icss_iep_perout_enable()), so instead of 
+>> calling icss_iep_pps_enable(iep, false) I am just clearing the 
+>> iep->pps_enabled flag.
+> 
+> IDK what Roger thinks, but the above is not clear to me. I read it as
+> you are stating that icss_iep_pps_enable() indeed clears the flag, so i
+> don't see/follow the reasoning behind this change.
 > 
 
-I don't need V10, I can apply V9 without 3/4 and 4/4
+The reason behind this change is to fix the possible null pointer 
+dereference which will occur when icss_iep_perout_enable(iep, NULL, 
+false) is called during icss_iep_exit(), my bad for not mentioning it 
+clearly in the commit message.
 
-> Best Regards,
-> Ciprian
-> 
-> > 
-> > Best regards,
-> > Krzysztof
+> Skimmir over the code, icss_iep_pps_enable() could indeed avoid clearing
+> the flag under some circumstances is that the reason?
 > 
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+icss_iep_pps_enable() does indeed clear the flag, but 
+icss_iep_perout_enable() doesn't due to the null pointer dereference. So 
+instead of calling these functions for clearing the flag, we can simply 
+just clear the flag directly.
+
+> Possibly a more describing commit message would help.
+> 
+
+Yes agreed. I will update it for v4.
+
+>>> And, what if you brought 2 interfaces of the same ICSS instances up
+>>> but put only 1 interface down and up?
+>>>
+>> 
+>> Then the flag need not be disabled if only one interface is brought down 
+>> because the IEP is still alive and all the IEP configuration (including 
+>> pps/perout) is still valid.
+> 
+> I read the above as stating this fix is not correct in such scenario,
+> leading to the wrong final state.
+> 
+
+No it is the correct scenario. When you bring down all the existing 
+interfaces (be it one or two, when whatever is up goes down) you unload 
+the existing firmware and clear the all the driver configuration (this 
+flag also needs to be cleared) to ensure everything starts with a clean 
+state.
+
+> I think it would be better to either give a better reasoning about this
+> change in the commit message or refactor it to handle even such scenario,
+> 
+> Thanks,
+> 
+> Paolo
+> 
+
 
