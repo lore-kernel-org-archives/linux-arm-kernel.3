@@ -4,165 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68286C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 132DCC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ReUSZ3oMQXTPnsGquL18rE47VGqTogpE0z1Ep4dGYqE=; b=TfhOb5uy4N5m+F+LNYcjiQ6tuw
-	RUxXtNnpxn+SONBRCPCh3R0rTPykKTBtVXvQ305BhZQPkt8MTsAB7vovRnwqaU4x/SNVn7yuEX9j+
-	pf0E6Y9OUERcd3nJOi9EAThVco3mmP6hMt8HoDjiospI5HRhXHD7gXnt1zfPKlQYyHwHovKIfKwYe
-	+75cWxHthtD8gFWRu8ILr9VaVvORGsftW6lLifURb0r7KdugtrTB4q5XS/QKoWYzq4A5SOfqV7J5r
-	cWhJ+FXzt3nPeC480I/t1/vH4PSJJV1F7+kwR9Q2PFubj53tI6biosLXOlrhkfPH76Ov1hSeBnIRc
-	+sLzeiwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Vz2pP+Iv6ryMRuo09LvW7rIvEXurcZar8UslF3EvOlE=; b=kkZ8Im3DDlFb4JT5yDr9PzPSx1
+	nGkqnXEro9AaTGufMcRQrFHBzhhqggDh4cUP++rkLZXZv+nLsQBUPBt6UP7/htmAVQhFJ6T0ol2q7
+	WxK8ztT6XqrUueA4FyjYiqYLGDQ4B+IrzAoHG7Gquj+DBw8NQY52ntMD1DcPUEXfU89jj9UYUoAVm
+	SvDcM87OzYTZKU+diSrLFzjVV5aDOHeBjm3d3T6U6oMHyq3zyTawcVOzCkCiBjW8Ao8MOcIr9DNGy
+	uMPToLEggN2LslHBC2K2BiqKJ3q/83roi0kKV1CtBsoZWd1VGvBwDH+mYLgrHuKniEodTYxEMYAcF
+	VRBiQDPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0i5z-0000000BzJX-0TFR;
-	Fri, 04 Apr 2025 14:32:35 +0000
-Received: from mail-dm6nam12on20627.outbound.protection.outlook.com ([2a01:111:f403:2417::627] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1u0i7h-0000000BzgB-0Hmc;
+	Fri, 04 Apr 2025 14:34:21 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0i4F-0000000Bz1e-07Wd;
-	Fri, 04 Apr 2025 14:30:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JaicWWKIESvF/7ANDHPN4Xk24ccuAL23WpysxPqwMHAWoRDVBPGZFa95k9mXWqwyQN97wgoeBkNKk4zmRLdbib/2ukyS52t3we4fVhUnxx75kdBTvWoiTTOnvfm4o9IhtFbdcobMmw3FLAvQhvPEy76K6lMRqpt4tOeBls75d0o17Potao3YuLU0yOoYsH8O9GkZHN0udYL55Y4pXlwusp8GaGvEf7T/4twUkENP0duZAodMndzLFzE88qtP4SasaCI0tWZtobQmWE3CzSL8t84ciaJvyr/RdKJNVz0sqCenaeAkWNWuESZ8lOHj7F0QXrt9W8DPUorMsfocy6uqJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ReUSZ3oMQXTPnsGquL18rE47VGqTogpE0z1Ep4dGYqE=;
- b=suWGyFDAvmNUVT2A3AQRXKcXcJXLZSARL+iafDYTzici2lfWV+IXWQSUYdaHKEf8Y6TZwmgxPQYUat71YKdSkRNXh187/7ke+yrt+BHS8oColyQ9QXxE3CswDUkjPjgocjH2S94IJhV7L1Nlb/odG8VNzXph0tFbd7mfwcKhxQ+zbNvguV2liwKsdjGrW2USBD/FbxSLZ4ScNswiJ8owIFNJpYwdhpXwr2aZk0ObBoMLugSLahiJPR/lP3gmDc/f7VPohjCkOI/ccZgcfeZjUAgpBD9bl+e+0dZKrzQgaE2BTRyz3TMa6utT+LSPPQmYjrAoy6+X/z2TxwiqNea1pA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ReUSZ3oMQXTPnsGquL18rE47VGqTogpE0z1Ep4dGYqE=;
- b=If+b0/L/8nZHLfTgRmd4JhfGqMpN4pYoquj+cctX6KKao6DRlPEzyFzAq+p2aPADHyPph/y78HZwcwUMaCM0kG/jr/mNMtvgdkFyKOjmprpcTSsYZ+K2VlZRebjCYdw1hk+zB8M6a5LQjf//QUYqLi3TRH8CmQR08XAWpoPlte4b8r3AzaTzThYF4JUVPZsnyjzTM33BrlS/9xLrdvCJHGvHc+ngrSdU/dbFvRHvhSNpUZTZN6xjte6Ib8WDuFoqXv6KsijrPvVwQlLIWn7oAwA0kSZffuubkw1KM8vCrrPXRgcUaY16B7+GpuqFZrl5BPx9mE/vUf19zoqEspRckQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by IA1PR12MB8406.namprd12.prod.outlook.com (2603:10b6:208:3da::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.41; Fri, 4 Apr
- 2025 14:30:33 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8534.043; Fri, 4 Apr 2025
- 14:30:33 +0000
-Date: Fri, 4 Apr 2025 11:30:31 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Pratyush Yadav <ptyadav@amazon.de>,
-	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <20250404143031.GB1336818@nvidia.com>
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-10-changyuanl@google.com>
- <mafs05xjmqsqc.fsf@amazon.de>
- <20250403114209.GE342109@nvidia.com>
- <Z-6UA3C1TPeH_kGL@kernel.org>
- <20250403142438.GF342109@nvidia.com>
- <Z--sUYCvP3Q8nT8e@kernel.org>
- <20250404124729.GH342109@nvidia.com>
- <Z-_kSXrHWU5Bf3sV@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z-_kSXrHWU5Bf3sV@kernel.org>
-X-ClientProxiedBy: BN9PR03CA0843.namprd03.prod.outlook.com
- (2603:10b6:408:13d::8) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u0i5q-0000000BzFi-1YaZ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Apr 2025 14:32:27 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e5e8274a74so3451967a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 07:32:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743777144; x=1744381944; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Vz2pP+Iv6ryMRuo09LvW7rIvEXurcZar8UslF3EvOlE=;
+        b=Y/Z6Co2AIb6TTnhaFLyV6aRo5VyGuPbPwlaTb3UhNcGbNdCyD1JDcmT5EKAwDkzd6c
+         ch/Bhpk1VfgunisaoAu/4FgJWyQBM8jk/jMSrSSytxiH87bKqdcTuCGiYNCom2mbj24E
+         x2H8jQX57CvEylWLZBLGOn93npeUHS5jLOpu3+hYF1hGp6te5AD9IoGWzsWNC78qyrqe
+         KgrwxgOqnIDq0752PPfgWrtzA4Drkh5H6kMwMcLBRWWEue8qZIYlUa15AP60Ckqrvoq4
+         pHLym/c/VQRjcUHxqGXTlxw69l5JjAKfxbHOrcwIllKPVS7JzJrbocJ4sqo+WN4qj66/
+         tvng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743777144; x=1744381944;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Vz2pP+Iv6ryMRuo09LvW7rIvEXurcZar8UslF3EvOlE=;
+        b=fpvSf7VuAYSvg4XT8bJQMfcxqzua0WEoPTLacp4sC44gM62gQZl0RsPJJwFJxZtzSN
+         qT/oMfZPFC8pb2nWvqDO5oYC/FY+BbD0rDyrE0axoHT8bixfYgZTFI3MCeemDUzGrDYX
+         xGlW/Y4xcpdgs+6gZDOBGWdZ+mWewZp8nqlOum3BvoXU2QAxWLl94mSZgXsOgqgQ1PDt
+         ck0SjVKdjOcPSCpjBOrfyr4S1JuEsQ6W2C3CUyYO1NwhZMNe4/gNZiw9J7nqmQCQb1o9
+         9t01h709UZmRzZX/JtnMyHOH2LGWwJu/ttiTHM9R8taXH4veV4pF1CPPnU/dRo8gihRA
+         oZYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXOx8d598BpUqYJWRbHV+rxsdR+cuLDUK7dOZSnHCHsk7E612xMKIzpgITf8z3esye1AVZHFOC/ppW4VjEJ1+m4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNm0XaAoYvWbcR5ZOYXR1vPLYNIJYQcOvYEXAzYX7fSqRoK88O
+	BART1Sgar1/MPHEYxzT0Qxrn/fUs1nDhI4iE255GOhKzBZ6/FV5y/O/ltypvWS4=
+X-Gm-Gg: ASbGncvP1qy6ek3FFaZh+SZgXxmtGkpUp7SDOJyj9FuiODaIqdkCGbnonnguDpKDmEj
+	QOau5RWUeycmfyD6EGc6L7RArlPfqaZl70d2WRBwb/Kmz730T6QsX/nZRvHqI9IbiGhyXH3Jfqe
+	/kILe7iwPvLypds5trVAfTXY4jkjvkmSkW+dywHebPUb0wk3Lr5akvuq0+eoV6uDPHag2dwxhpo
+	FWtYFPD0jfCzXhJXZs7d5U2UdM3oDE4sDM6IK47crNM6a6Fkf+3V7HQYgttfXcyUj4w1xVH/KNE
+	72wwCg1IN2cENos+g1NItRFMnWd/LmZ+pXahfFwnMev58mkwEYRPixLCpJ+dYxEIrWiSBPtcQ8Q
+	YVdTa+fEGcJRpBgZlFn7k3w==
+X-Google-Smtp-Source: AGHT+IEdgZOkrLF6ycV8/wwC/3iolqVfx9ajp4Goee6BQ/4P8oSJyY1xYgmxznjhXnETp5Af457/Qw==
+X-Received: by 2002:a05:6402:5c9:b0:5e0:8c55:50d with SMTP id 4fb4d7f45d1cf-5f0b3bb6205mr2626030a12.14.1743777144072;
+        Fri, 04 Apr 2025 07:32:24 -0700 (PDT)
+Received: from rayden.urgonet (h-98-128-140-123.A175.priv.bahnhof.se. [98.128.140.123])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f087f0a0f3sm2567450a12.43.2025.04.04.07.32.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Apr 2025 07:32:23 -0700 (PDT)
+From: Jens Wiklander <jens.wiklander@linaro.org>
+To: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>
+Subject: [PATCH v7 00/11] TEE subsystem for protected dma-buf allocations
+Date: Fri,  4 Apr 2025 16:31:23 +0200
+Message-ID: <20250404143215.2281034-1-jens.wiklander@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB8406:EE_
-X-MS-Office365-Filtering-Correlation-Id: f4fb5910-b2da-41b4-4fed-08dd738541c2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DfCwXe61WKhxPSKAP7Xj4i6VqMV33wuxydV+87HCEh02IIj/iZ3qc+ABsTyB?=
- =?us-ascii?Q?dj12ueKE5YsJINLbI+b38La0HtplWWA3QMphisu86UPDwuLq+pZ2+ygspi1w?=
- =?us-ascii?Q?Rm07K/L9nh6O2cSuvEKjX0hvUwZ/rzxGE4mhh4jq1ckp8xvhsA2NyL8rsDOO?=
- =?us-ascii?Q?1wNrYEcyPj6FCg4F2CWZfYCfGTz8u/05dc6caYB835zKvYMRG72BHuuZBN7S?=
- =?us-ascii?Q?FCHnHm5DRyDf/+6jHccZ4CE02902C8EzxiBBRCgvK5PHf+I9HVDDQvU4BFHH?=
- =?us-ascii?Q?oCJWquDdFXxLCazpoBm37q9TYeo9fyn8tmMkoavGB7A2A0LSmw+CODb5md6v?=
- =?us-ascii?Q?jNc9Bgo8iqq6r+cmm8wd3ziYmU4ErTmFf0M/UVCfaST9DUMm6MJIpn5ul6DP?=
- =?us-ascii?Q?IbIEKD6MOM8H5ntMU3HJwoAA07R2oBhpURxRclAp7W5UXUyK9gWHCVwYB41X?=
- =?us-ascii?Q?ouOBPxhc2DhLvavEwFZRojOkT/OBTNn3PskKY1nuGdaFlB9IuYCWVaOO1a4U?=
- =?us-ascii?Q?JBxUdFt6zTRGcnogDPEmins6dJwhnQzdcV6aIcd0X83vWMk1YQFICjCV3ihG?=
- =?us-ascii?Q?ezcOmIq0EL7TRGRZwtOd0hGo4+l1/DFjm4VlUToZZWJZvkbYZYvtGXYbe5mG?=
- =?us-ascii?Q?JIdxAbYa1mRvkmdXvMKZIAPZjXlyrvkA8Mc9881g9ddAyQ7uC6HdPFWGdLQx?=
- =?us-ascii?Q?uhzHCoQOedzzQLW/aeNws7gn1FgiLOKXgTYjYqYJiZPV6hvA8I0RyKjKYCwL?=
- =?us-ascii?Q?7qn+pJdHJrG9JUTKYhYYk1CHyKrsbPiyYGQ2dwiPXUHsZ6wcNTAlyGmFUYYf?=
- =?us-ascii?Q?14cbbLp+b2djhDZZ5Taw5rM1sLTnW75XEXvwY785mLsyCM/xv+jwoEoRYdlQ?=
- =?us-ascii?Q?u3Cd0O4kFQD+ybxQYa7BatQW1Ts/jKaH+V5yr2U18iipq1nqKn25gThQSAvz?=
- =?us-ascii?Q?3of29O3QeP7oa1Ws2GlluQMLkf/ArCvaEgbWVFkS9je80inWAhGpsMOChlHp?=
- =?us-ascii?Q?V7JU62yediSh7fB9M1F6ctEa9aStCVDXT7XJrlx8fpfgfoTbxEhjh7aWyFJg?=
- =?us-ascii?Q?rk50kLCNotGkOUL6bMELQeCysKtvB13JzOcRbL9GbNYgy1w+CdzJ/s78QP56?=
- =?us-ascii?Q?avL8RjvrTNcmTBPZavGUcu6EjbkXyZmm8TE9z0Qcuj2BaEQmVHT9bd+AxUjE?=
- =?us-ascii?Q?KtqUacNO+cll13STyPlIR/XvyxBxjZgs4PBFO8bXUoYwmmCDXqhelMu3l2JN?=
- =?us-ascii?Q?CxaNo9XhwvajGMC8JEna4zCKuMcLsjdja9XoNtzyx3ExEp4FGs3VGQzDIDbR?=
- =?us-ascii?Q?3TkLHmRc3aBKi3kGsfh+tBifvCjcaIua1ZbKW0HFGuwbUUn/OlSQHaPsODfu?=
- =?us-ascii?Q?/Vg2gakyQCC+q5sqeci7c0e28hTF?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IEyrknkHbyneGKE06wzAqjlORHk4kYY/tIdJ5XwNg5rQZ8AVDEYhxje7oPQU?=
- =?us-ascii?Q?ByGtRKyXaRfGx5QcslqTCggjiHR3vKbU7CeyDnDKiXqvzgdiLwNtm+jXeTcl?=
- =?us-ascii?Q?IX07NS0xreefH0Uti6+1GGpcV3NvmC6jd0+mU9nfSpP4ibPGz6DyfX212tUj?=
- =?us-ascii?Q?ZQH334xfLCIhEKPoEpyif9h2mjkV3C6ojVyKsq+7pRRuuA5SsWVlqHhhyLRe?=
- =?us-ascii?Q?BkgJIBSYshqglHM72kOX6JQs0UVDI5sy8vGsURzHlUtoAO34XYi//8aHA2Ei?=
- =?us-ascii?Q?JFXdZTEC8sRdUPgmu4UHKZdvshsxspsExCstZPKZXCzjnnFUK8z7/I6OYx1d?=
- =?us-ascii?Q?pnCHFKoz1TrIq+4+gTTufsyE2PL7NoL+jYKIeqhpMBkfdMUAX+oM3erhCFJG?=
- =?us-ascii?Q?0ubf21wzhZP8e6HvxWadVYbw0QLs/mggPhuzEN3qqnIrRc1rvo03rEMR8A3t?=
- =?us-ascii?Q?RsgCIPPBgUfX5VDJUNT0WtnankDm1X3Rip+lDkhnqMdtO/O74W4YcYaKCkx1?=
- =?us-ascii?Q?rpidIatQ0l3/T8jLWo+zjecakM5CCSLMPWbi9VaUVX4TYyOQl706E56VPRAV?=
- =?us-ascii?Q?ugqhZba0p+jAdNZudGAGD2topaHaStdQ0lRU/gIJNV1QUhQ3OJGS8oJLQFpQ?=
- =?us-ascii?Q?lGpi3lwnuGTn3GNG1yzEWRc8Wv45ueiRDYigTmFn1OEplxneCCqug2fabC3b?=
- =?us-ascii?Q?FAGPf3xO5sjmXelb/J0crJHGL6+eWA1tBK5P/2iBYw3xHAbi18+3haNRaCEq?=
- =?us-ascii?Q?dEt7uHgBCvSt1alZ5z7KxonmuS2Gyn88WHP9PHMz9Kn4tyTyTdkQ+Hzq7O/I?=
- =?us-ascii?Q?11ily2+dtVHuj7Twb4Pe+nRYg9Zkdpyoq19oIRNU87oyXmjr7wrGuQ2vVX/w?=
- =?us-ascii?Q?0K7UeQe3E4eNM3cq6BCwL97I4fdWndl5xvZ0lXJdEMIXK5owd4kCtT9pnWpg?=
- =?us-ascii?Q?/Sg0qd38q3PjXh9VW8DofndvxmHzyoXWIYB8CgA+jPVovoG3TV8zFl+n8cK7?=
- =?us-ascii?Q?q1fkTDg2wOnS0nkLHZqq4cXy1ZIk33oWMjLT0pQ4ylVQ1y2977KI0CexoyS8?=
- =?us-ascii?Q?mg5YqcJyvGYolKfhXrQX0x6YJ9wx44ToXIA/fd1CdPSzUB7CCDRDvCbd0gmz?=
- =?us-ascii?Q?WnSIddscim2pkuJYK51f/6woc+vnrfr6GDCtqlUcSQ4Tlc86qr7U3v7cOgb3?=
- =?us-ascii?Q?VfMN5ggNbihcZFjsfuYX3D6A+TB7S5OqPACPCYGCsmSlIbVWcAkUXqwZLNmi?=
- =?us-ascii?Q?bqSUeZixeruJD9gV9DaBPYm1tLY8JDLFmeeXyI8jEetPq/FJA1Ve2SBP3YBb?=
- =?us-ascii?Q?vMy4pMfAA7LcyN1qa0xY/TPuxWmuETzvWSia1VV8nGF8gZ1lSUpGTYdJImu1?=
- =?us-ascii?Q?7fDZ7fXJJdegXOFO/zT0+u4AHsjv+ErohzJG1n1X3to6SVOMz9Xh4N+pqstI?=
- =?us-ascii?Q?2aI7PR9QLJi5rhPMjJas3OpiqIGDjopHJbqzYW+SPiSaPyyaWN+qe697fQbH?=
- =?us-ascii?Q?OophrdbbfCPr4OkN2E1sT94lA3Baq+N8QJjjGMB02JjRC1ViE9r6z1iKamwv?=
- =?us-ascii?Q?b18GhISvqgykOQrBwEf5ysi8z1rJY5sFdUQOSiVz?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f4fb5910-b2da-41b4-4fed-08dd738541c2
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Apr 2025 14:30:33.1630
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jzXagn8iRWdCGDAf6ndPE4cu6i4k9JCzENzxV1o6MtU3Fo3eU3J5ewT5NANde2RN
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8406
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_073047_063122_1F6F3A3F 
-X-CRM114-Status: GOOD (  36.73  )
+X-CRM114-CacheID: sfid-20250404_073226_423791_031B062C 
+X-CRM114-Status: GOOD (  27.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,108 +114,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 04, 2025 at 04:53:13PM +0300, Mike Rapoport wrote:
-> > Maybe change the reserved regions code to put the region list in a
-> > folio and preserve the folio instead of using FDT as a "demo" for the
-> > functionality.
-> 
-> Folios are not available when we restore reserved regions, this just won't
-> work.
+Hi,
 
-You don't need the folio at that point, you just need the data in the
-page.
+This patch set allocates the protected DMA-bufs from a DMA-heap
+instantiated from the TEE subsystem.
 
-The folio would be freed after starting up the buddy allocator.
+The TEE subsystem handles the DMA-buf allocations since it is the TEE
+(OP-TEE, AMD-TEE, TS-TEE, or perhaps a future QTEE) which sets up the
+protection for the memory used for the DMA-bufs.
 
-> > We know what the future use case is for the folio preservation, all
-> > the drivers and the iommu are going to rely on this.
-> 
-> We don't know how much of the preservation will be based on folios.
+The DMA-heap uses a protected memory pool provided by the backend TEE
+driver, allowing it to choose how to allocate the protected physical
+memory.
 
-I think almost all of it. Where else does memory come from for drivers?
+The allocated DMA-bufs must be imported with a new TEE_IOC_SHM_REGISTER_FD
+before they can be passed as arguments when requesting services from the
+secure world.
 
-> Most drivers do not use folios
+Three use-cases (Secure Video Playback, Trusted UI, and Secure Video
+Recording) has been identified so far to serve as examples of what can be
+expected. The use-cases has predefined DMA-heap names,
+"protected,secure-video", "protected,trusted-ui", and
+"protected,secure-video-record". The backend driver registers protected
+memory pools for the use-cases it supports.
 
-Yes they do, either through kmalloc or through alloc_page/etc. "folio"
-here is just some generic word meaning memory from the buddy allocator.
+Each use-case has it's own protected memory pool since different use-cases
+requires isolation from different parts of the system. A protected memory
+pool can be based on a static carveout instantiated while probing the TEE
+backend driver, or dynamically allocated from CMA and made protected as
+needed by the TEE.
 
-The big question on my mind is if we need a way to preserve slab
-objects as well..
+This can be tested on a RockPi 4B+ with the following steps:
+repo init -u https://github.com/jenswi-linaro/manifest.git -m rockpi4.xml \
+        -b prototype/sdp-v7
+repo sync -j8
+cd build
+make toolchains -j$(nproc)
+make all -j$(nproc)
+# Copy ../out/rockpi4.img to an SD card and boot the RockPi from that
+# Connect a monitor to the RockPi
+# login and at the prompt:
+gst-launch-1.0 videotestsrc ! \
+        aesenc key=1f9423681beb9a79215820f6bda73d0f \
+                iv=e9aa8e834d8d70b7e0d254ff670dd718 serialize-iv=true ! \
+        aesdec key=1f9423681beb9a79215820f6bda73d0f ! \
+        kmssink
 
-> and for preserving memfd* and hugetlb we'd need to have some dance
-> around that memory anyway.
+The aesdec module has been hacked to use an OP-TEE TA to decrypt the stream
+into protected DMA-bufs which are consumed by the kmssink.
 
-memfd is all folios - what do you mean?
+The primitive QEMU tests from previous patch set can be tested on RockPi
+in the same way with:
+xtest --sdp-basic
 
-hugetlb is moving toward folios.. eg guestmemfd is supposed to be
-taking the hugetlb special stuff and turning it into folios.
+The primitive test are tested on QEMU with the following steps:
+repo init -u https://github.com/jenswi-linaro/manifest.git -m qemu_v8.xml \
+        -b prototype/sdp-v7
+repo sync -j8
+cd build
+make toolchains -j$(nproc)
+make SPMC_AT_EL=1 all -j$(nproc)
+make SPMC_AT_EL=1 run-only
+# login and at the prompt:
+xtest --sdp-basic
 
-> So I think kho_preserve_folio() would be a part of the fdbox or
-> whatever that functionality will be called.
+The SPMC_AT_EL=1 parameter configures the build with FF-A and an SPMC at
+S-EL1 inside OP-TEE. The parameter can be changed into SPMC_AT_EL=n to test
+without FF-A using the original SMC ABI instead. Please remember to do
+%rm -rf ../trusted-firmware-a/build/qemu
+for TF-A to be rebuilt properly using the new configuration.
 
-It is part of KHO. Preserving the folios has to be sequenced with
-starting the buddy allocator, and that is KHO's entire responsibility.
+https://optee.readthedocs.io/en/latest/building/prerequisites.html
+list dependencies needed to build the above.
 
-I could see something like preserving slab being in a different layer,
-built on preserving folios.
+The tests are pretty basic, mostly checking that a Trusted Application in
+the secure world can access and manipulate the memory. There are also some
+negative tests for out of bounds buffers etc.
 
-> Are they? 
-> The purpose of basic KHO is to make sure the memory we want to preserve is
-> not trampled over. Preserving folios with their orders means we need to
-> make sure memory range of the folio is preserved and we carry additional
-> information to actually recreate the folio object, in case it is needed and
-> in case it is possible. Hughetlb, for instance has its own way initializing
-> folios and just keeping the order won't be enough for that.
+Thanks,
+Jens
 
-I expect many things will need a side-car datastructure to record that
-additional meta-data. hugetlb can start with folios, then switch them
-over to its non-folio stuff based on its metadata.
+Changes since V6:
+* Restricted memory is now known as protected memory since to use the same
+  term as https://docs.vulkan.org/guide/latest/protected.html. Update all
+  patches to consistently use protected memory.
+* In "tee: implement protected DMA-heap" add the hidden config option
+  TEE_DMABUF_HEAP to tell if the DMABUF_HEAPS functions are available
+  for the TEE subsystem
+* Adding "tee: refactor params_from_user()", broken out from the patch
+  "tee: new ioctl to a register tee_shm from a dmabuf file descriptor"
+* For "tee: new ioctl to a register tee_shm from a dmabuf file descriptor":
+  - Update commit message to mention protected memory
+  - Remove and open code tee_shm_get_parent_shm() in param_from_user_memref()
+* In "tee: add tee_shm_alloc_cma_phys_mem" add the hidden config option
+  TEE_CMA to tell if the CMA functions are available for the TEE subsystem
+* For "tee: tee_device_alloc(): copy dma_mask from parent device" and
+  "optee: pass parent device to tee_device_alloc", added
+  Reviewed-by: Sumit Garg <sumit.garg@kernel.org>
 
-The point is the basic low level KHO mechanism is simple folios -
-memory from the buddy allocator with an neutral struct folio that the
-caller can then customize to its own memory descriptor type on restore.
+Changes since V5:
+* Removing "tee: add restricted memory allocation" and
+  "tee: add TEE_IOC_RSTMEM_FD_INFO"
+* Adding "tee: implement restricted DMA-heap",
+  "tee: new ioctl to a register tee_shm from a dmabuf file descriptor",
+  "tee: add tee_shm_alloc_cma_phys_mem()",
+  "optee: pass parent device to tee_device_alloc()", and
+  "tee: tee_device_alloc(): copy dma_mask from parent device"
+* The two TEE driver OPs "rstmem_alloc()" and "rstmem_free()" are replaced
+  with a struct tee_rstmem_pool abstraction.
+* Replaced the the TEE_IOC_RSTMEM_ALLOC user space API with the DMA-heap API
 
-Eventually restore would allocate a caller specific memdesc and it
-wouldn't be "folios" at all. We just don't have the right words yet to
-describe this.
+Changes since V4:
+* Adding the patch "tee: add TEE_IOC_RSTMEM_FD_INFO" needed by the
+  GStreamer demo
+* Removing the dummy CPU access and mmap functions from the dma_buf_ops
+* Fixing a compile error in "optee: FF-A: dynamic restricted memory allocation"
+  reported by kernel test robot <lkp@intel.com>
 
-> As for the optimizations of memblock reserve path, currently it what hurts
-> the most in my and Pratyush experiments. They are not very representative,
-> but still, preserving lots of pages/folios spread all over would have it's
-> toll on the mm initialization.
+Changes since V3:
+* Make the use_case and flags field in struct tee_shm u32's instead of
+  u16's
+* Add more description for TEE_IOC_RSTMEM_ALLOC in the header file
+* Import namespace DMA_BUF in module tee, reported by lkp@intel.com
+* Added a note in the commit message for "optee: account for direction
+  while converting parameters" why it's needed
+* Factor out dynamic restricted memory allocation from
+  "optee: support restricted memory allocation" into two new commits
+  "optee: FF-A: dynamic restricted memory allocation" and
+  "optee: smc abi: dynamic restricted memory allocation"
+* Guard CMA usage with #ifdef CONFIG_CMA, effectively disabling dynamic
+  restricted memory allocate if CMA isn't configured
 
-> And I don't think invasive changes to how
-> buddy and memory map initialization are the best way to move forward and
-> optimize that.
+Changes since the V2 RFC:
+* Based on v6.12
+* Replaced the flags for SVP and Trusted UID memory with a u32 field with
+  unique id for each use case
+* Added dynamic allocation of restricted memory pools
+* Added OP-TEE ABI both with and without FF-A for dynamic restricted memory
+* Added support for FF-A with FFA_LEND
 
-I'm pretty sure this is going to be the best performance path, but I
-have no idea how invasive it would be to the buddy alloactor to make
-it work.
+Changes since the V1 RFC:
+* Based on v6.11
+* Complete rewrite, replacing the restricted heap with TEE_IOC_RSTMEM_ALLOC
 
-> Quite possibly we'd want to be able to minimize amount of *ranges*
-> that we preserve.
+Changes since Olivier's post [2]:
+* Based on Yong Wu's post [1] where much of dma-buf handling is done in
+  the generic restricted heap
+* Simplifications and cleanup
+* New commit message for "dma-buf: heaps: add Linaro restricted dmabuf heap
+  support"
+* Replaced the word "secure" with "restricted" where applicable
 
-I'm not sure, that seems backwards to me, we really don't want to have
-KHO mem zones! So I think optimizing for, and thinking about ranges
-doesn't make sense.
 
-The big ranges will arise naturally beacuse things like hugetlb
-reservations should all be contiguous and the resulting folios should
-all be allocated for the VM and also all be contigous. So vast, vast
-amounts of memory will be high order and contiguous.
+Etienne Carriere (1):
+  tee: new ioctl to a register tee_shm from a dmabuf file descriptor
 
-> Preserving folio orders with it is really straighforward and until we see
-> some real data of how the entire KHO machinery is used, I'd prefer simple
-> over anything else.
+Jens Wiklander (10):
+  tee: tee_device_alloc(): copy dma_mask from parent device
+  optee: pass parent device to tee_device_alloc()
+  optee: account for direction while converting parameters
+  optee: sync secure world ABI headers
+  tee: implement protected DMA-heap
+  tee: refactor params_from_user()
+  tee: add tee_shm_alloc_cma_phys_mem()
+  optee: support protected memory allocation
+  optee: FF-A: dynamic protected memory allocation
+  optee: smc abi: dynamic protected memory allocation
 
-mapletree may not even work as it has a very high bound on memory
-usage if the preservation workload is small and fragmented. This is
-why I didn't want to use list of ranges in the first place.
+ drivers/tee/Kconfig               |  10 +
+ drivers/tee/Makefile              |   1 +
+ drivers/tee/optee/Makefile        |   1 +
+ drivers/tee/optee/call.c          |  10 +-
+ drivers/tee/optee/core.c          |   1 +
+ drivers/tee/optee/ffa_abi.c       | 195 ++++++++++++-
+ drivers/tee/optee/optee_ffa.h     |  27 +-
+ drivers/tee/optee/optee_msg.h     |  83 +++++-
+ drivers/tee/optee/optee_private.h |  55 +++-
+ drivers/tee/optee/optee_smc.h     |  71 ++++-
+ drivers/tee/optee/protmem.c       | 330 +++++++++++++++++++++
+ drivers/tee/optee/rpc.c           |  31 +-
+ drivers/tee/optee/smc_abi.c       | 192 ++++++++++--
+ drivers/tee/tee_core.c            | 157 +++++++---
+ drivers/tee/tee_heap.c            | 469 ++++++++++++++++++++++++++++++
+ drivers/tee/tee_private.h         |  16 +
+ drivers/tee/tee_shm.c             | 164 ++++++++++-
+ include/linux/tee_core.h          |  70 +++++
+ include/linux/tee_drv.h           |  10 +
+ include/uapi/linux/tee.h          |  31 ++
+ 20 files changed, 1792 insertions(+), 132 deletions(-)
+ create mode 100644 drivers/tee/optee/protmem.c
+ create mode 100644 drivers/tee/tee_heap.c
 
-It also doesn't work so well if you need to preserve the order too :\
 
-Until we know the workload(s) and cost how much memory the maple tree
-version will use I don't think it is a good general starting point.
+base-commit: 38fec10eb60d687e30c8c6b5420d86e8149f7557
+-- 
+2.43.0
 
-Jason
 
