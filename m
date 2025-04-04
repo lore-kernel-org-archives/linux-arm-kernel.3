@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C59EC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 09:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E77BC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 09:05:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HZZIhlXmSEM4mLMGt9PJm09NKzZfuiEVonPYgb5H/yw=; b=kEheFw6Py1f/dO0i//3fvKQz4f
-	2unCwXcMHsBVZzf4XZ75ULLJKxa1had/TMzRJt81jU8j4d8sswd3FmcVWK6kBjDrFCAg1PHKXNhFu
-	mkUqcQ3bhnDuikUFhyFLJY6Iwmr8s/LvuJEj4b3MjSru4K67vThUmrZd5IZnZKiT+QoVSoMn5IIFr
-	pLvpk+OhMbwNF5ysNStt5LpDSDExeUx3gDIj2xvzJKSDerAWfTBuOMfMO7rpU8/Fn47TeJET2fSs3
-	8cRYFMob8k1edrgnifJckYmJd2Ou0Y4OlY4g78VYoCgKU4GTAQv7z23cMj1k77DflQXjii396Mqpc
-	sa+0GC6A==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9r3rjhSZYe9kTQKj1A2IGsaMEllubj0HxqoQkvuRJWA=; b=QnKkAa4bQkRIG8LPpmIRcJX6c9
+	27Yq3ZStk2WYpz1FqkI8scF2T4IxaTfYDSxoacpoKhiPmaB6anjzviHXizwjya+TgFdmQdQmVjaUq
+	/OKVaytljJFmxdidBtKy8vkANbLWu3ptdyFF3c6gg3k7V4UTAuUBStoNp8rdOwWn6gRVbt5CZgiQ3
+	ez5UElLE/RA8EuSSFBUKetGK9vmAW/gcxjbZDo04y4mftD/+QvwQLcIvbtjquvmkII1R4W2toJs44
+	hjx6qYnkTdJElBWkYQvuT3IpLD67/Rsg7+pYa6l7rfSEem2Iz8fcocBZ4+X0YLujhh+STZi+YlgIG
+	/rhvr+JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0cwY-0000000BE0Z-34fg;
-	Fri, 04 Apr 2025 09:02:30 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1u0czA-0000000BETp-0zXf;
+	Fri, 04 Apr 2025 09:05:12 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0cuj-0000000BDgz-05Dt;
-	Fri, 04 Apr 2025 09:00:38 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-abf3d64849dso273319966b.3;
-        Fri, 04 Apr 2025 02:00:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743757235; x=1744362035; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=HZZIhlXmSEM4mLMGt9PJm09NKzZfuiEVonPYgb5H/yw=;
-        b=Hi5dhG6PPVXx+dk6xqdzld0Nwp8eAYlGTgNQ6vA35udMqYlub+Ma3VV7q3QMT/ahOm
-         E2StymsjMOo/UHmRVRWCpHmw8vK2aoSbN9HxTqends3lo1o0Wlokdcc/OALf2lC+y3NR
-         lTKuxMCpeGZ8cEOxCe5JrHFX56iFUXfUPsSGUYVWim0F8FRmYZI5tEd2NqWQHdPdMCiM
-         B6kJc7wkNIzkeAhovrkJNgaqHQlU87HwpZKEcY098Z+f69MPtihi2oilBT4ygoQqX3JG
-         bV108QFmvTOgUHlwQfXdxMj1KkEF4FCYFvOFvyDzqezRqMo3/+SO3S7uNfuDIGXjsUNa
-         aWWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743757235; x=1744362035;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HZZIhlXmSEM4mLMGt9PJm09NKzZfuiEVonPYgb5H/yw=;
-        b=QxeZHLmx/VuZAF+R1iiZZ9agXzl+LbkJqocIESxF6kbmOPBttPxo1l4EeJ1LXXcNGI
-         RiRX9Sgo2o3mO/AvPYFlhMW7FiEEHfbnQLSWRcMUilnq/h0B2rhC5CoNPeDmSxlvKrqG
-         wVxdPZRp3fCcFbNhPnFUrO9xdvVRu2wx5MJLqnkNXffiT1tRst97AoLxP0Ofge5wMSNx
-         sGO7x9gcx46zG8KF7p042bboAS47kvglm05FYJXuMWmhW+pf73UN1LNqG76y0t5XMNjY
-         U8meZWzqw0J9/Ndpje+oR1xj/MrWHkDvPZU71blS2iF+r8/ApGoypqam5jrQsM1ZMv4c
-         /g7A==
-X-Forwarded-Encrypted: i=1; AJvYcCUtI8y/lgXLn0PECDQhLOW+WNcWwEPChL1tAfXd5zwwqi2Yq+iqsEEVgvXtEW1H5flL/OLGNzfVVZYlT4TlPZEQkw==@lists.infradead.org, AJvYcCWWHQE479oqc0xq/C99Pxt0Zo+ShUXysGkylT6XMffs4YAjw9xmkarQI9o2dzbt6WG/XsfwbQKvfmZxLV3pmktX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy17z8VRw6+3zmW4jL724fhyLCSpRawfdwjTJfZBfPI5vgJkXjg
-	GqYSQDrYmpM0sp88QLUt0/lO9r4u6osxR8vLxiKD1Gs+mjxHZzMA
-X-Gm-Gg: ASbGnctLkypXDg20hvs7VbO1K9A45JoikAJ6hUVdE80lRWBMhSLUgHD4XEL3c1sspXm
-	zuj3LbkF6R5MurWZKea0xww/FobNuyk+CW/QfZpt65lc6Weu0sNG9JfGOPpDwD+EIV6/flSdqvy
-	bbQJ+P2NCEZCkprWaKkDmgj1zeAu1PL9aNn6leHSwdLHjK/YSIN5G1N5sbOcqwZtsSBcT9Kuvb3
-	DPd7LVfwI3Uy7p9xlYBhAFF0QONct8l6vFIzJPA34PK4WIkgW8xS4Gfrj0Tc6mnQSCc6RgWhzg1
-	IAdgEeQJgAZXS1S46b7kcbPmQg5hrdy0w+8kfwWBgyH9PKzhOEvweb7mFg6Jcduypz6lPw==
-X-Google-Smtp-Source: AGHT+IFKaYCa9Ekb9gEfEN5MRzSJWHbOs1q70b7ER2jDUNXjdVPmL24jFWpqdnQ80yp71nL0KKYsSg==
-X-Received: by 2002:a17:907:988:b0:ac7:31a4:d4e9 with SMTP id a640c23a62f3a-ac7d16bc089mr299516766b.4.1743757234491;
-        Fri, 04 Apr 2025 02:00:34 -0700 (PDT)
-Received: from demon-pc.localdomain ([188.27.129.206])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac7bfe9adc6sm222086166b.59.2025.04.04.02.00.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Apr 2025 02:00:33 -0700 (PDT)
-From: Cosmin Tanislav <demonsingur@gmail.com>
-To: 
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Naushir Patuck <naush@raspberrypi.com>,
-	linux-media@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [PATCH v2] media: platform: rpi1-cfe: fix pad in call to get_mbus_config()
-Date: Fri,  4 Apr 2025 12:00:25 +0300
-Message-ID: <20250404090026.2986810-1-demonsingur@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	id 1u0cxL-0000000BEDF-0Tfb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Apr 2025 09:03:20 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53492efm3905742
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 4 Apr 2025 04:02:40 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1743757360;
+	bh=9r3rjhSZYe9kTQKj1A2IGsaMEllubj0HxqoQkvuRJWA=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=a1xOuNoTOoGYlZq8rwTVaFTaCB9vZW/Pr91RqeQ5DLIC7EI/3kJgwJYpt/m3CcAF2
+	 8tNw1JqKIhy9HKS2uItCSiGMsnqUxO23c9kCfumfDatr/a2sBfu91H1vlwu+RKXZFJ
+	 5shN6Sh448Drw63Gu7dCbf87KyHnkZj0lEPv/X3g=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53492enC068812
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 4 Apr 2025 04:02:40 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 4
+ Apr 2025 04:02:39 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 4 Apr 2025 04:02:39 -0500
+Received: from [172.24.23.235] (lt9560gk3.dhcp.ti.com [172.24.23.235])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53492XVJ083733;
+	Fri, 4 Apr 2025 04:02:34 -0500
+Message-ID: <fccd824b-58dc-4ab1-91c0-77c2436914c9@ti.com>
+Date: Fri, 4 Apr 2025 14:32:33 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 3/3] net: ti: icss-iep: Fix possible NULL pointer
+ dereference for perout request
+To: Roger Quadros <rogerq@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+        <dan.carpenter@linaro.org>, <kuba@kernel.org>, <edumazet@google.com>,
+        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <namcao@linutronix.de>, <javier.carrasco.cruz@gmail.com>,
+        <diogo.ivo@siemens.com>, <horms@kernel.org>,
+        <jacob.e.keller@intel.com>, <john.fastabend@gmail.com>,
+        <hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
+        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        <danishanwar@ti.com>
+References: <20250328102403.2626974-1-m-malladi@ti.com>
+ <20250328102403.2626974-4-m-malladi@ti.com>
+ <0fb67fc2-4915-49af-aa20-8bdc9bed4226@kernel.org>
+ <b0a099a6-33b2-49f9-9af7-580c60b98f55@ti.com>
+ <469fd8d0-c72e-4ca6-87a9-2f42b180276b@redhat.com>
+ <58d26423-04da-4491-9318-d4a7a1f12005@kernel.org>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <58d26423-04da-4491-9318-d4a7a1f12005@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_020037_060004_599E4B15 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20250404_020319_260931_99D6F02E 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +99,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The source subdevice might be using a source pad not equal to 0.
+Hi Roger,
 
-Use the already existing source_pad field of cfe.
+On 4/4/2025 1:17 PM, Roger Quadros wrote:
+> 
+> 
+> On 03/04/2025 14:25, Paolo Abeni wrote:
+>> On 4/2/25 2:37 PM, Malladi, Meghana wrote:
+>>> On 4/2/2025 5:58 PM, Roger Quadros wrote:
+>>>> On 28/03/2025 12:24, Meghana Malladi wrote:
+>>>>> ICSS IEP driver has flags to check if perout or pps has been enabled
+>>>>> at any given point of time. Whenever there is request to enable or
+>>>>> disable the signal, the driver first checks its enabled or disabled
+>>>>> and acts accordingly.
+>>>>>
+>>>>> After bringing the interface down and up, calling PPS/perout enable
+>>>>> doesn't work as the driver believes PPS is already enabled,
+>>>>
+>>>> How? aren't we calling icss_iep_pps_enable(iep, false)?
+>>>> wouldn't this disable the IEP and clear the iep->pps_enabled flag?
+>>>>
+>>>
+>>> The whole purpose of calling icss_iep_pps_enable(iep, false) is to clear
+>>> iep->pps_enabled flag, because if this flag is not cleared it hinders
+>>> generating new pps signal (with the newly loaded firmware) once any of
+>>> the interfaces are up (check icss_iep_perout_enable()), so instead of
+>>> calling icss_iep_pps_enable(iep, false) I am just clearing the
+>>> iep->pps_enabled flag.
+>>
+>> IDK what Roger thinks, but the above is not clear to me. I read it as
+>> you are stating that icss_iep_pps_enable() indeed clears the flag, so i
+>> don't see/follow the reasoning behind this change.
+>>
+>> Skimmir over the code, icss_iep_pps_enable() could indeed avoid clearing
+>> the flag under some circumstances is that the reason?
+>>
+>> Possibly a more describing commit message would help.
+> 
+> I would expect that modifying the xxx_enabled flag should be done only
+> in the icss_iep_xxx_enable() function. Doing it anywhere else will be difficult
+> to track/debug in the long term.
+> 
 
-Fixes: 6edb685abb2a ("media: raspberrypi: Add support for RP1-CFE")
-Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
----
+There is no problem with calling icss_iep_pps_enable() for clearing the 
+pps_enable flag. Problem comes with icss_iep_perout_enable(), causing 
+null pointer dereference for the NULL perout request argument we are 
+passing just for clearing the perout_enable flag.
 
-V2:
- * correct Fixes tag
+> I don't see why the flag needs to be set anywhere else. Maye better to
+> improve logic inside icss_iep_pps_enable() like Paolo suggests.
+> 
 
- drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Ok, one thing I can do is create a ptp_perout_request to disable perout 
+instead of passing NULL to icss_iep_perout_enable(). What are your 
+thoughts on this ?
 
-diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-index 69a5f23e7954..7db4fe5e0fd4 100644
---- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-+++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-@@ -1206,8 +1206,8 @@ static int cfe_start_streaming(struct vb2_queue *vq, unsigned int count)
- 	cfg_reg_write(cfe, MIPICFG_INTE,
- 		      MIPICFG_INT_CSI_DMA | MIPICFG_INT_PISP_FE);
- 
--	ret = v4l2_subdev_call(cfe->source_sd, pad, get_mbus_config, 0,
--			       &mbus_config);
-+	ret = v4l2_subdev_call(cfe->source_sd, pad, get_mbus_config,
-+			       cfe->source_pad, &mbus_config);
- 	if (ret < 0 && ret != -ENOIOCTLCMD) {
- 		cfe_err(cfe, "g_mbus_config failed\n");
- 		goto err_clear_inte;
--- 
-2.49.0
+>>
+>>>> And, what if you brought 2 interfaces of the same ICSS instances up
+>>>> but put only 1 interface down and up?
+>>>>
+>>>
+>>> Then the flag need not be disabled if only one interface is brought down
+>>> because the IEP is still alive and all the IEP configuration (including
+>>> pps/perout) is still valid.
+>>
+>> I read the above as stating this fix is not correct in such scenario,
+>> leading to the wrong final state.
+>>
+>> I think it would be better to either give a better reasoning about this
+>> change in the commit message or refactor it to handle even such scenario,
+>>
+>> Thanks,
+>>
+>> Paolo
+>>
+> 
 
 
