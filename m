@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853F2C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 17:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A5E2C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 17:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aSEZBbvEe3qpG73LK4o8HjwaIhiytyeGBDtmBgYScYQ=; b=fHr5ee7IyC2y2SnrjeGuCR6pKz
-	xuri8N0hRrjgpUpT7qNhBRNNmauWUPd6UPQXsfN9yBNpCXFHzkNyFZfVaLe0O4enflvk3corpbU0l
-	IO0I4kExAXX2V3Hub8KcIraEEq3vh0/C1m06ZVKnoXKylE2RcCT1EYwJVUE1LbRb7ywmLvxQLo215
-	NYqyUYNW4K6C3AWkR4bStHZrp/rzV8S2KZKQfDsrd1xh/W0mXUzpkgp6l+L/QEdMqs9JV9a17STmN
-	mRrt/PLNMuC7U0zc0YDhmZ2vlnFi4+cLhPN9P9MnsktbuLc0gNMfQYqM2Y3tt0yIbiCUlBPJ7e2od
-	v6Ld9a3A==;
+	bh=urcjPGO/ldVu/mWI8JTzBSN6SKwOtRGa7u2Kt8myzPo=; b=CmJKV2jUNUemzK4HotsKOJo4RP
+	lipR398hz4rUqhVU3M+blDS2icEZqmTWshQ7QTt6oIxY4oEYqCQAa3Hh2O7sJMOxrWNRnw8ucwzg/
+	gcXXJTMkBZhyuim9wEinJDMfT9U7JOqcddFQmz0oGjRhmR84guqB5tGPLELdhpEmDooxWW2NaD842
+	PyxTKQ6sC/0hXOMZEZthIHxeZIjCNGfkDmVAZn1ehVCGssF4aBjWRV32ojN2ALBCER8mXN+35ibGN
+	1kK72W9mtd51L8CwZ8h5g+/cuWqhIAIxb0NqAiOI/4959YZJj2scT1pYnbxplx3Ec5YjarVXWYUF7
+	guP8ksFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0lBP-0000000CSCh-0UiR;
-	Fri, 04 Apr 2025 17:50:23 +0000
+	id 1u0lDD-0000000CSS0-3Psv;
+	Fri, 04 Apr 2025 17:52:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0l5x-0000000CRMt-49A0
+	id 1u0l60-0000000CROD-23qO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 17:44:47 +0000
+	Fri, 04 Apr 2025 17:44:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC37C1516;
-	Fri,  4 Apr 2025 10:44:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E43991516;
+	Fri,  4 Apr 2025 10:44:49 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 36EE23F63F;
-	Fri,  4 Apr 2025 10:44:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6F0B33F63F;
+	Fri,  4 Apr 2025 10:44:46 -0700 (PDT)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: ardb@kernel.org,
@@ -41,17 +41,17 @@ Cc: ardb@kernel.org,
 	mark.rutland@arm.com,
 	maz@kernel.org,
 	will@kernel.org
-Subject: [PATCH 01/14] arm64/fpsimd: Avoid RES0 bits in the SME trap handler
-Date: Fri,  4 Apr 2025 18:44:22 +0100
-Message-Id: <20250404174435.3288106-2-mark.rutland@arm.com>
+Subject: [PATCH 03/14] arm64/fpsimd: Remove redundant clearing of TIF_SVE
+Date: Fri,  4 Apr 2025 18:44:24 +0100
+Message-Id: <20250404174435.3288106-4-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20250404174435.3288106-1-mark.rutland@arm.com>
 References: <20250404174435.3288106-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_104446_080564_D628185C 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20250404_104448_591186_CD70C388 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,69 +66,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SME trap handler consumes RES0 bits from the ESR when determining
-the reason for the trap, and depends upon those bits reading as zero.
-This may break in future when those RES0 bits are allocated a meaning
-and stop reading as zero.
+TIF_SVE implies that sve_state has been allocated. Barring specific
+transient periods (e.g. during changes to SVE/SME vector lengths), it is
+not valid for a task to have TIF_SVE set while sve_state is NULL.
 
-For SME traps taken with ESR_ELx.EC == 0b011101, the specific reason for
-the trap is indicated by ESR_ELx.ISS.SMTC ("SME Trap Code"). This field
-occupies bits [2:0] of ESR_ELx.ISS, and as of ARM DDI 0487 L.a, bits
-[24:3] of ESR_ELx.ISS are RES0. ESR_ELx.ISS itself occupies bits [24:0]
-of ESR_ELx.
+This was not taken into account in commit:
 
-Extract the SMTC field specifically, matching the way we handle ESR_ELx
-fields elsewhere, and ensuring that the handler is future-proof.
+  7559b7d7d651d397 ("arm64/sve: Better handle failure to allocate SVE register storage")
 
-Fixes: 8bd7f91c03d886f4 ("arm64/sme: Implement traps and syscall handling for SME")
+As of that commit, sve_set_common() and restore_sve_fpsimd_context()
+clear TIF_SVE if sve_alloc() fails to allocate memory. In these cases
+TIF_SVE cannot legitimately have been set to begin with, and clearing
+TIF_SVE only serves to complicate the code. No other code paths clear
+TIF_SVE if sve_alloc() fails to allocate memory.
+
+The unnecessary clearing of TIF_SVE lead to further unnecessary changes
+in commit:
+
+  baa8515281b30861 ("arm64/fpsimd: Track the saved FPSIMD state type separately to TIF_SVE")
+
+As of that commit, sve_set_common() also sets the task's saved fp_type
+to FP_STATE_FPSIMD if sve_alloc() fails to allocate memory. This is
+unnecessary as when sve_state is NULL, the saved fp_type can only
+legitimately be FP_STATE_FPSIMD. That commit did not update
+restore_sve_fpsimd_context() similarly, and so
+restore_sve_fpsimd_context() does not alter the task's saved fp_type if
+sve_alloc() fails to allocate memory.
+
+Remove the unnecessary and confusing clearing of TIF_SVE, and remove the
+similarly unnecessary and confusing update of the saved fp_type.
+
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/esr.h | 14 ++++++++------
- arch/arm64/kernel/fpsimd.c   |  2 +-
- 2 files changed, 9 insertions(+), 7 deletions(-)
+ arch/arm64/kernel/ptrace.c | 2 --
+ arch/arm64/kernel/signal.c | 4 +---
+ 2 files changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index d1b1a33f9a8b0..63aed18a933fe 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -371,12 +371,14 @@
- /*
-  * ISS values for SME traps
-  */
--
--#define ESR_ELx_SME_ISS_SME_DISABLED	0
--#define ESR_ELx_SME_ISS_ILL		1
--#define ESR_ELx_SME_ISS_SM_DISABLED	2
--#define ESR_ELx_SME_ISS_ZA_DISABLED	3
--#define ESR_ELx_SME_ISS_ZT_DISABLED	4
-+#define ESR_ELx_SME_ISS_SMTC_MASK		GENMASK(2, 0)
-+#define ESR_ELx_SME_ISS_SMTC(esr)		((esr) & ESR_ELx_SME_ISS_SMTC_MASK)
-+
-+#define ESR_ELx_SME_ISS_SMTC_SME_DISABLED	0
-+#define ESR_ELx_SME_ISS_SMTC_ILL		1
-+#define ESR_ELx_SME_ISS_SMTC_SM_DISABLED	2
-+#define ESR_ELx_SME_ISS_SMTC_ZA_DISABLED	3
-+#define ESR_ELx_SME_ISS_SMTC_ZT_DISABLED	4
- 
- /* ISS field definitions for MOPS exceptions */
- #define ESR_ELx_MOPS_ISS_MEM_INST	(UL(1) << 24)
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 8370d55f03533..1ee5f330b8ed3 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1436,7 +1436,7 @@ void do_sme_acc(unsigned long esr, struct pt_regs *regs)
- 	 * If this not a trap due to SME being disabled then something
- 	 * is being used in the wrong mode, report as SIGILL.
- 	 */
--	if (ESR_ELx_ISS(esr) != ESR_ELx_SME_ISS_SME_DISABLED) {
-+	if (ESR_ELx_SME_ISS_SMTC(esr) != ESR_ELx_SME_ISS_SMTC_SME_DISABLED) {
- 		force_signal_inject(SIGILL, ILL_ILLOPC, regs->pc, 0);
- 		return;
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index f79b0d5f71ac9..575ececb8b720 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -969,8 +969,6 @@ static int sve_set_common(struct task_struct *target,
+ 	sve_alloc(target, true);
+ 	if (!target->thread.sve_state) {
+ 		ret = -ENOMEM;
+-		clear_tsk_thread_flag(target, TIF_SVE);
+-		target->thread.fp_type = FP_STATE_FPSIMD;
+ 		goto out;
  	}
+ 
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index 99ea26d400ffe..40c572869325b 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -443,10 +443,8 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+ 	/* From now, fpsimd_thread_switch() won't touch thread.sve_state */
+ 
+ 	sve_alloc(current, true);
+-	if (!current->thread.sve_state) {
+-		clear_thread_flag(TIF_SVE);
++	if (!current->thread.sve_state)
+ 		return -ENOMEM;
+-	}
+ 
+ 	err = __copy_from_user(current->thread.sve_state,
+ 			       (char __user const *)user->sve +
 -- 
 2.30.2
 
