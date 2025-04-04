@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DAB1C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B5EAC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Apr 2025 14:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ItVLbwXh6klaFZ4DOTZKuJkyifurR/QGuqAr/eTlGU=; b=etGCf3C1hh0qF45jaIzimZTR16
-	LYkMTlnJhj3nBtf245OCEkOs1Cl/ajpw3MPy8W/d4QfLzkTKsz+v30b9/wVGJngxrtylqmJEnH0wS
-	7cwZnAuTj1rOR1XvcCjZU3P2fUVGa74cCIEJZLpJMpvjzTYeK90rYD1Vqs5pRy1ig0B3ABHoyYifh
-	lXjValFEFpH6pDMlT6+ZfUrbSF0dUncbq7e6aHHSCZL7oi03qXo0XrvKOLjMVGV9guh+fC/YCOxOB
-	WE18LpyoKL88MGCMd704wg+LEX/b0lcW1b5Z5GdNkXv4Wx6mrJswAfaFJEaziv18756b7YVqWAj5E
-	VRDHKLsw==;
+	bh=5X2I1MlNrc8OtxTMPdYsTmJ1JjM0sba198ISiH4P8wU=; b=LaaFPy37lGaoN/IdE4PNglKSzf
+	oc1JwudrYNlsHp2eWNlXVKUzl7lrZCeNrPIAxx2TQxrW0dd/9RlnTUE5SLRydkhfPvE9wMOTtifsc
+	QbRhC/WI820OYdboJSsQrMMFKan7AcOLUCK240DOCFlH8E9Mn/sFhJdNvliQeCoHGIanHnUDldKMs
+	OmUrDMdfDrmMFYZarGQg0j3Zffv8vto+PvNw7g1Ibf7xY/soZJNpwK5XPlOjBE0Kpf5+PQs0Cw4qx
+	+ssMTsha9xfheJj3sXrksdx2NrMBNqqH0oS2GCFWS2atBuOWphKW+YeSdkWdmhputsBvy2IvM9/8T
+	XwNLARXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0i9P-0000000C00J-3cTg;
-	Fri, 04 Apr 2025 14:36:07 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1u0iB8-0000000C0Pg-2Hhw;
+	Fri, 04 Apr 2025 14:37:54 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0i5r-0000000BzFx-30Gz
+	id 1u0i5t-0000000BzGd-40WT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Apr 2025 14:32:28 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5e677f59438so3334665a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 07:32:27 -0700 (PDT)
+	Fri, 04 Apr 2025 14:32:31 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5ed43460d6bso3468587a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 07:32:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743777146; x=1744381946; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1743777148; x=1744381948; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5ItVLbwXh6klaFZ4DOTZKuJkyifurR/QGuqAr/eTlGU=;
-        b=WZeavRvGzPeK7+nabL1VLqREbCX1oi3VR/nL8wIAShdc1XHiJSliToY9F4AnUbzesz
-         uzyrKPQ0CNwy6pXuRyuh71a3eBmWibal9NOj9XT1HUkPFV+ubHc+KJAiyHG3eZzHifuR
-         a8f0QwLw86ZBAzthBatFHKAZ0QzRKCPspnNzhteH55jzqfvuYfGcf4dllvGCIGlw8l32
-         5gf15lZ8LS9UE3oWWuvomKo4ZKCEV8J1a5xB2hQ6gmtKyctQnY6DxotsvZP0mGfzUvFq
-         ZL7ZFcEbo8WeQsUUmQtc6QhQuuta92OYwy2RJLp6Xuilh7J4kJKnI3M/PrU+lRSHHGzB
-         iZaA==
+        bh=5X2I1MlNrc8OtxTMPdYsTmJ1JjM0sba198ISiH4P8wU=;
+        b=Dr6DrkKZ34kaDMzpDMwOl2F9PguZUQz3WgaGTDXrhiR0agYuUrWdPKgt0nSve0e/4W
+         FoJv5M/SAbrFIrjl/5dU2kbbfZI7xaOXPM/ly7+FHKacpxvpj60FLT7MfOailHMImFAn
+         YEYRHMyvTWgVXJsnt62/PVXePtxYCkU6MgueBBpxVIzzr+UZ9Tjs/Bfq9nL+ALk8Fii2
+         ar8ufScLZLcv+4IqX9aGyzNpwM3UF4Sw2SgCr429BRAyu0IAhz17Mdr+tsUNjXgwKl5F
+         UF6N+KILDmpM4lq7q+UeupRcK1MZ5Ca5OmAEOlliNrH0zA5bIayptOPd2TvCXmCLQ/2K
+         40vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743777146; x=1744381946;
+        d=1e100.net; s=20230601; t=1743777148; x=1744381948;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5ItVLbwXh6klaFZ4DOTZKuJkyifurR/QGuqAr/eTlGU=;
-        b=S8V1l7y7DhIwmvg2MSH5g6O46BRfB0BjU5ANOCc9pd1O0JLKzjM7kvUNXPZiodm3Bu
-         SSZDy64E3dWQ85dxm9e1/RfJOt8yrRTcK+trXzXfvHSYI55A7/kqjXBah/743pqf+MA7
-         1dtqIynf8XcrxnKVfxyI8Hx7HzwyFA13AZ3g2/CsHHN863M21P3bxbNMOLUKHy2sx2ry
-         CVlQ7M7nqeT8nA8JjzNxYVYov9rVC1Ft4ohukeFecHPCtpPkdpediUTgiU8yDvWnRPlp
-         fl3So3Yih/1R8oaosRJ03VOieW7VJ96Told2ZjxII6S0irNBYGERD5N3N0EruXKnFBtO
-         id+A==
-X-Forwarded-Encrypted: i=1; AJvYcCWNcfjzRcMjRWVbf+Iqw2PCGfazLShjsDgXckhv49C9YzX4QyzcbGecfT9qWsCNegL+09QB/h1/Dkyy+RmYhHe0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7scpZ2nbOTcpnQn2VMG+wO58yZP5LaIhObbM4bWiNDGrYUQUH
-	0kBCVzYgExivyYkc4THOLQcqdlmya15cMPaAlwUSMtvaisYNltAfYYiwuyf2IQU=
-X-Gm-Gg: ASbGnctYSK8LWVOmtgGYkN4O1Ao99jiQXZj8ZewfU+XV2JJ5mjmmulmG3WZSH0xNPa6
-	byPKZpan2YaMbfeKqzy9EI+Uh1kwz+9YPd5OguBRwy3jS9vvKScaE++VZoyELVKYAUzRsFs3eEQ
-	7i2Z2Se3WXqNgDLvL/NeL2rMr6pXUlQPep5g9pxcHwmxuDKrFGGOM9nAPRwv0KIy+gtV7gc0Syr
-	6q5PpDtd8ZUsjKO4XiwixW7Fbgac3EyjiMO377qQJhULFOvdIWknQ9FyhrI/6kv0+vc0bXKFhW5
-	SocDc70/GkTNpQ6xxNZ1YO65sbq4pttJFwg/dArNsjrlq9adaXKkkdJisVpoPe7Ao8aBnWhkHce
-	8UFBCqsDxKA0KqU2RYpasPA==
-X-Google-Smtp-Source: AGHT+IHJ/1I/ptH3pCVDAQfcdNx5KHUGy5Tb2VN4inalxBPszr0OVkQ817HOYwXzW+KxBXdP3/CVtg==
-X-Received: by 2002:a05:6402:234e:b0:5e7:b081:aa7c with SMTP id 4fb4d7f45d1cf-5f0b5ebbc4emr2568089a12.12.1743777145883;
-        Fri, 04 Apr 2025 07:32:25 -0700 (PDT)
+        bh=5X2I1MlNrc8OtxTMPdYsTmJ1JjM0sba198ISiH4P8wU=;
+        b=U12pFmKbYN/kEHnqtRiRbRTopwivpAvKMfrXmXIaPRBRfkgZ4BZmmjBQYs2FX4RANw
+         inpdK2jefCNUn5lArp7y3WRLemOGFxOXzHKueoPvlWlneW0A5AXR+rp3BOc9BFw42YB0
+         UrjMoN+YqzXaUZm1xm7WTxt1wHXPYTTqYZs9/ChaxF6prcvP+r+O24JKGmb8v6ZK5s4C
+         /DaBCngJkqS7xA7ay4H/v/ZjUQsr6Dlg8hGDYMQX63jB+8B2x1UqftcFfl7/7vb5HhsP
+         FsyPeZpKpE994Y6naskzDjr/i4mK4zOXTRiu8dq58HrJmPjDEi3k4yzY+z+k/U2rxBRT
+         WDdA==
+X-Forwarded-Encrypted: i=1; AJvYcCW0kLptLaUueKN/hh0zLLFsGuES9hGl4GUPbEyh6+NhTv9+3xTnyoLT2iJS4ufYQqq+0ru0ZEQH3vlHuYnv8CNV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxT7gFi40dOQ1JOqB9+jCzvchmOC5S3owW6XbJ7uDsDyVFKck3k
+	ddgWDl2j+Iq3f3RgBZkqjO7vYXkI+MAaSQkKtfxCRan4rfNvZ2HaN4A8/iLGyVM=
+X-Gm-Gg: ASbGncujNEa8rHNDjcqYht/l0wDIa3fmVezVkzo5/FxfY3gxnxXKFT/vhBK9cG6WcXs
+	npVko/3tl82JinBXR6e7zBx2KAcu0S1/X+8xdY8W7zAyYdflvbmjm1xB1w7pzXcVnCJO16H2Jz0
+	0YFUT+TqnTs2wFeSY6+MFTTBzMNsmW6sAzrde6WGE16RsyB2YnKIz04FGAd2TGmgmhtOkKG28ST
+	duvBbkVVUjs0+S1PBQJPs4pT/uiBlPw+n9xtP66e5Es1zkQQmgLsHQcUgEyEDt6Et61YhByn2pJ
+	sqo6pxoDzsvNdaXD+GJl+23eq4FMvogT9DS3DIRMVooKsPu9X28P+PUf7ug+lkvcEG8SzpUkhhj
+	EszxxicRpXN6SZ7yOnL8eig==
+X-Google-Smtp-Source: AGHT+IFkJLuZYKHkFqitQEQ3Yg1FLEq81E4C9if1/VM+Yaec4v2BrToG7RwujiSsE0q6nDmGLkPdOA==
+X-Received: by 2002:a05:6402:4415:b0:5e5:e396:3f6e with SMTP id 4fb4d7f45d1cf-5f0b661aaebmr2120030a12.26.1743777148470;
+        Fri, 04 Apr 2025 07:32:28 -0700 (PDT)
 Received: from rayden.urgonet (h-98-128-140-123.A175.priv.bahnhof.se. [98.128.140.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f087f0a0f3sm2567450a12.43.2025.04.04.07.32.24
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f087f0a0f3sm2567450a12.43.2025.04.04.07.32.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Apr 2025 07:32:25 -0700 (PDT)
+        Fri, 04 Apr 2025 07:32:27 -0700 (PDT)
 From: Jens Wiklander <jens.wiklander@linaro.org>
 To: linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org,
@@ -92,17 +92,17 @@ Cc: Olivier Masse <olivier.masse@nxp.com>,
 	Simona Vetter <simona.vetter@ffwll.ch>,
 	Daniel Stone <daniel@fooishbar.org>,
 	Jens Wiklander <jens.wiklander@linaro.org>
-Subject: [PATCH v7 01/11] tee: tee_device_alloc(): copy dma_mask from parent device
-Date: Fri,  4 Apr 2025 16:31:24 +0200
-Message-ID: <20250404143215.2281034-2-jens.wiklander@linaro.org>
+Subject: [PATCH v7 02/11] optee: pass parent device to tee_device_alloc()
+Date: Fri,  4 Apr 2025 16:31:25 +0200
+Message-ID: <20250404143215.2281034-3-jens.wiklander@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250404143215.2281034-1-jens.wiklander@linaro.org>
 References: <20250404143215.2281034-1-jens.wiklander@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_073227_751784_AD0F3C34 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250404_073229_996289_B3FD0581 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,29 +117,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If a parent device is supplied to tee_device_alloc(), copy the dma_mask
-field into the new device. This avoids future warnings when mapping a
-DMA-buf for the device.
+During probing of the OP-TEE driver, pass the parent device to
+tee_device_alloc() so the dma_mask of the new devices can be updated
+accordingly.
 
 Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
 Reviewed-by: Sumit Garg <sumit.garg@kernel.org>
 ---
- drivers/tee/tee_core.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/tee/optee/ffa_abi.c | 8 ++++----
+ drivers/tee/optee/smc_abi.c | 4 ++--
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/tee/tee_core.c b/drivers/tee/tee_core.c
-index d113679b1e2d..685afcaa3ea1 100644
---- a/drivers/tee/tee_core.c
-+++ b/drivers/tee/tee_core.c
-@@ -922,6 +922,8 @@ struct tee_device *tee_device_alloc(const struct tee_desc *teedesc,
- 	teedev->dev.class = &tee_class;
- 	teedev->dev.release = tee_release_device;
- 	teedev->dev.parent = dev;
-+	if (dev)
-+		teedev->dev.dma_mask = dev->dma_mask;
+diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
+index f3af5666bb11..4ca1d5161b82 100644
+--- a/drivers/tee/optee/ffa_abi.c
++++ b/drivers/tee/optee/ffa_abi.c
+@@ -914,16 +914,16 @@ static int optee_ffa_probe(struct ffa_device *ffa_dev)
+ 	    (sec_caps & OPTEE_FFA_SEC_CAP_RPMB_PROBE))
+ 		optee->in_kernel_rpmb_routing = true;
  
- 	teedev->dev.devt = MKDEV(MAJOR(tee_devt), teedev->id);
+-	teedev = tee_device_alloc(&optee_ffa_clnt_desc, NULL, optee->pool,
+-				  optee);
++	teedev = tee_device_alloc(&optee_ffa_clnt_desc, &ffa_dev->dev,
++				  optee->pool, optee);
+ 	if (IS_ERR(teedev)) {
+ 		rc = PTR_ERR(teedev);
+ 		goto err_free_pool;
+ 	}
+ 	optee->teedev = teedev;
  
+-	teedev = tee_device_alloc(&optee_ffa_supp_desc, NULL, optee->pool,
+-				  optee);
++	teedev = tee_device_alloc(&optee_ffa_supp_desc, &ffa_dev->dev,
++				  optee->pool, optee);
+ 	if (IS_ERR(teedev)) {
+ 		rc = PTR_ERR(teedev);
+ 		goto err_unreg_teedev;
+diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
+index f0c3ac1103bb..165fadd9abc9 100644
+--- a/drivers/tee/optee/smc_abi.c
++++ b/drivers/tee/optee/smc_abi.c
+@@ -1691,14 +1691,14 @@ static int optee_probe(struct platform_device *pdev)
+ 	    (sec_caps & OPTEE_SMC_SEC_CAP_RPMB_PROBE))
+ 		optee->in_kernel_rpmb_routing = true;
+ 
+-	teedev = tee_device_alloc(&optee_clnt_desc, NULL, pool, optee);
++	teedev = tee_device_alloc(&optee_clnt_desc, &pdev->dev, pool, optee);
+ 	if (IS_ERR(teedev)) {
+ 		rc = PTR_ERR(teedev);
+ 		goto err_free_optee;
+ 	}
+ 	optee->teedev = teedev;
+ 
+-	teedev = tee_device_alloc(&optee_supp_desc, NULL, pool, optee);
++	teedev = tee_device_alloc(&optee_supp_desc, &pdev->dev, pool, optee);
+ 	if (IS_ERR(teedev)) {
+ 		rc = PTR_ERR(teedev);
+ 		goto err_unreg_teedev;
 -- 
 2.43.0
 
