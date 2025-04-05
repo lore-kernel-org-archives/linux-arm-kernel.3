@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F034C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 15:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53BF8C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 15:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G1GlAmgIOhPLLwZH4tuH1EjSSjBMScVmC97s2f6I+2Q=; b=yqqq5F3bW8xlHFjLzTt98OR3Au
-	6Ihe2voV+yT1ZexfqrnjZ5x/0d8k4spn3+K7VaBSFHAjNffAbzlD/40HKa8CE1vo4VmRziblar6/A
-	VE7FUbRIoS6Z2r8ONucvpeUU7OM5XOMhpDx50OkuyQpHd4VJbysd6KkNfZ3H3z2uMAsHrFEFWB/8U
-	sIeb6WprBqOiUJb9VQkrsIvf//q1TeLEkEKmo1VztD/XoAHhdjePmYfBfuT7Fd+3FUZBqS/8yIbMX
-	jQUb3oLTORmdcNgqiSNVg9rShC/5Q7a7n+qWR4MVtmspjEZ44yc+AAdLhVVMyWcV/NAYsHdA9oS/Z
-	nE/kNiqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a6STbV+NwzNcHIr/JnBgDeICaBXLJ4QoQ1ZaZwuZ1t0=; b=q1mKr3oxz0uToHzdieq4aDZvbm
+	XspU7EbU3XFjnORiMPGcwORNfkU5DHJmp6NgNY3nis6arJvpRanzu/BTww+u2H+J/4QemAHgXc9jK
+	LA5gJlsKL0sT4HxAgzTarV5rIThdo2w1L1DXvXAfiMtNL0D7lbr7Qd5xIZY6ClD06OVTRPGOMAhiJ
+	n/stRb3ksmI96nU+ke5ITUTlXNwb8NHYh6+a3vzp2bESptHi1QafQrfWGVINdB8dv+1qG/9nbHzuD
+	oSirOD7ySJ6xi27ahOJMlUWw0/9kos3gYMrRSJDoT4p4lmcsKO2+kuKnvZECis1sKdfHqKJO0xrs1
+	39KdTwgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u15Od-0000000E81i-0QC0;
-	Sat, 05 Apr 2025 15:25:23 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1u15Rg-0000000E8Ny-2WEi;
+	Sat, 05 Apr 2025 15:28:32 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u15Ms-0000000E7pJ-2qpP
+	id 1u15Pw-0000000E8FQ-2SIE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 15:23:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1743866615; x=1775402615;
-  h=date:from:to:cc:subject:message-id;
-  bh=WSMv+iSTt3EweKI+/oTWfni+hFqMhY2yOfkrGhzEAmE=;
-  b=DMgN0RH878KKwsamdgRccgV9xF7/nhDhphjgihcA/ZtG/EnEZuLn3tvA
-   xlK9AYxg/u/BdoHAySDuJb07UHg5C6iB1UhZo1yThx7c/NWLfpF3rbgIM
-   357ri9y9VDYrvMKSavMBzDfKzsEh7TfrdlVrVI+yIEU3VSenCdj1RL4Zn
-   i509fMh8Njcoo3G2fKYkIzYbANX8aspYnZyfdDTCqxGnhNsjpqE0XUBLM
-   XmIucHPjA8HLwiMrqqyGI1ur3Di3V7NcwiuV3yVwMz223INMAZDXWczyB
-   SF47RfNj/qZpCL18m82rKZsN9jO7qoTcHpsEMOA9WilKuEWVpsMMh5AgX
-   g==;
-X-CSE-ConnectionGUID: OzKG0PeASP+KG5Gq9wUO7A==
-X-CSE-MsgGUID: CkVeR5VWSAGngN3y7ingXA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11395"; a="70670811"
-X-IronPort-AV: E=Sophos;i="6.15,191,1739865600"; 
-   d="scan'208";a="70670811"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Apr 2025 08:23:33 -0700
-X-CSE-ConnectionGUID: HJf/gLy+Q6GQsfG90HgY3g==
-X-CSE-MsgGUID: udnmxPorRvS8PZOJIss/EQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,191,1739865600"; 
-   d="scan'208";a="127300542"
-Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 05 Apr 2025 08:23:32 -0700
-Received: from kbuild by b207828170a5 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u15Mn-00027L-1X;
-	Sat, 05 Apr 2025 15:23:29 +0000
-Date: Sat, 05 Apr 2025 23:22:39 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:cznic/platform] BUILD SUCCESS
- b24e88b42d68d388f97ca71e11e50cb3e78406ec
-Message-ID: <202504052328.Zgn49SPS-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Sat, 05 Apr 2025 15:26:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1743866792; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=MoS8Jz1hhaALz29iYgPf+kAxJ5sjtO/8hAqhjIJs5LIy5qfjBN7FBRfRpskvI6nQVJFk946OAbBAYAf3p27nryKb5h68vztGrNC4/K1Msgx58P+peOqIKBwVaOy8ZiGeALAnXdzz4AZH/4AQTYzdoEucpXdpoorFVDnm49N2gko=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1743866792; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=a6STbV+NwzNcHIr/JnBgDeICaBXLJ4QoQ1ZaZwuZ1t0=; 
+	b=Zydx8zmaSZn3ebG76vrRs3tjCsSF/KCIo/pse2+N/RDmTxuCRErEi3NluCuNY3hdgU2J4qbBLjHNxsNLYtIKoX3WzTVobt8BdnI/OEL5wVvLfBtEDMRlek9an6fQc3rnIM8PlOSvyeDTVZb2l3rsN00BkAq0muovi1ZBlk8Pqks=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
+	dmarc=pass header.from=<sebastian.fricke@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1743866792;
+	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=a6STbV+NwzNcHIr/JnBgDeICaBXLJ4QoQ1ZaZwuZ1t0=;
+	b=SAH+0v2wJskYvfjcWHaJjHkHjHI/92k/+QeZ26a6Ofe9aeUySgjbLJ8oqY2Pf0u6
+	X0p57p9Y31T9NNzluN1tpIKJkNIpoK5P0d+Em+rGZUlxXL2yH2gu9U4IoakStgedTVV
+	/rUYw4Ruc7dSgc+u/AiLIz0nfYlfR4wuaJXyp5VU=
+Received: by mx.zohomail.com with SMTPS id 1743866790660738.8941385178805;
+	Sat, 5 Apr 2025 08:26:30 -0700 (PDT)
+Date: Sat, 5 Apr 2025 17:26:22 +0200
+From: Sebastian Fricke <sebastian.fricke@collabora.com>
+To: ming.qian@oss.nxp.com
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
+	mirela.rabulea@oss.nxp.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	xiahong.bao@nxp.com, eagle.zhou@nxp.com, linux-imx@nxp.com,
+	imx@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] media: imx-jpeg: Change the pattern size to 128x64
+Message-ID: <20250405152622.2nvwultytxnvqcki@basti-XPS-13-9310>
+References: <20250328063056.762-1-ming.qian@oss.nxp.com>
+ <20250328063056.762-3-ming.qian@oss.nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20250328063056.762-3-ming.qian@oss.nxp.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_082334_733316_D09F15A3 
-X-CRM114-Status: UNSURE (   4.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250405_082644_673916_EFC50A2F 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,140 +82,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git cznic/platform
-branch HEAD: b24e88b42d68d388f97ca71e11e50cb3e78406ec  platform: cznic: use ffs() instead of __bf_shf()
+Hey Ming,
 
-elapsed time: 1445m
+On 28.03.2025 14:30, ming.qian@oss.nxp.com wrote:
+>From: Ming Qian <ming.qian@oss.nxp.com>
+>
+>To support decoding motion-jpeg without DHT, driver will try to decode a
+>pattern jpeg before actual jpeg frame by use of linked descriptors
+>(This is called "repeat mode"), then the DHT in the pattern jpeg can be
+>used for decoding the motion-jpeg.
+>
+>To avoid performance loss, use the smallest supported resolution 64x64
+>as the pattern jpeg size.
+>
+>But there is a hardware issue: when the JPEG decoded frame with a
+>resolution that is no larger than 64x64 and it is followed by a next
+>decoded frame with a larger resolution but not 64 aligned, then this
+>next decoded frame may be corrupted.
+>
+>To avoid corruption of the decoded image, we change the pattern jpeg
+>size to 128x64, as we confirmed with the hardware designer that this is
+>a safe size.
+>
+>Besides, we also need to allocate a dma buffer to store the decoded
+>picture for the pattern image.
 
-configs tested: 120
-configs skipped: 6
+Why is that related to the change of the pattern size? Like why wasn't
+that needed for 64x64? And if this solves a different issue, can you put
+that into an extra patch?
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+This is a bit hard to understand, maybe this is better:
 
-tested configs:
-alpha                             allnoconfig    gcc-14.2.0
-alpha                            allyesconfig    gcc-14.2.0
-arc                              allmodconfig    gcc-14.2.0
-arc                               allnoconfig    gcc-14.2.0
-arc                              allyesconfig    gcc-14.2.0
-arc                   randconfig-001-20250405    gcc-14.2.0
-arc                   randconfig-002-20250405    gcc-14.2.0
-arc                        vdk_hs38_defconfig    gcc-14.2.0
-arm                              allmodconfig    gcc-14.2.0
-arm                               allnoconfig    clang-21
-arm                              allyesconfig    gcc-14.2.0
-arm                           imxrt_defconfig    clang-21
-arm                        multi_v7_defconfig    gcc-14.2.0
-arm                   randconfig-001-20250405    clang-18
-arm                   randconfig-002-20250405    gcc-7.5.0
-arm                   randconfig-003-20250405    gcc-8.5.0
-arm                   randconfig-004-20250405    clang-21
-arm                        spear3xx_defconfig    clang-17
-arm                           spitz_defconfig    gcc-14.2.0
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    gcc-14.2.0
-arm64                 randconfig-001-20250405    clang-19
-arm64                 randconfig-002-20250405    gcc-8.5.0
-arm64                 randconfig-003-20250405    gcc-8.5.0
-arm64                 randconfig-004-20250405    gcc-6.5.0
-csky                              allnoconfig    gcc-14.2.0
-csky                  randconfig-001-20250405    gcc-14.2.0
-csky                  randconfig-002-20250405    gcc-10.5.0
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-21
-hexagon                          allyesconfig    clang-21
-hexagon               randconfig-001-20250405    clang-21
-hexagon               randconfig-002-20250405    clang-21
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    gcc-12
-i386                             allyesconfig    gcc-12
-i386        buildonly-randconfig-003-20250404    gcc-12
-i386        buildonly-randconfig-004-20250404    gcc-12
-i386        buildonly-randconfig-006-20250404    gcc-12
-i386                                defconfig    clang-20
-loongarch                        allmodconfig    gcc-14.2.0
-loongarch                         allnoconfig    gcc-14.2.0
-loongarch             randconfig-001-20250405    gcc-14.2.0
-loongarch             randconfig-002-20250405    gcc-14.2.0
-m68k                             allmodconfig    gcc-14.2.0
-m68k                              allnoconfig    gcc-14.2.0
-m68k                             allyesconfig    gcc-14.2.0
-microblaze                       allmodconfig    gcc-14.2.0
-microblaze                        allnoconfig    gcc-14.2.0
-microblaze                       allyesconfig    gcc-14.2.0
-mips                              allnoconfig    gcc-14.2.0
-nios2                             allnoconfig    gcc-14.2.0
-nios2                 randconfig-001-20250405    gcc-12.4.0
-nios2                 randconfig-002-20250405    gcc-6.5.0
-openrisc                          allnoconfig    gcc-14.2.0
-openrisc                         allyesconfig    gcc-14.2.0
-openrisc                            defconfig    gcc-14.2.0
-openrisc                  or1klitex_defconfig    gcc-14.2.0
-parisc                           allmodconfig    gcc-14.2.0
-parisc                            allnoconfig    gcc-14.2.0
-parisc                           allyesconfig    gcc-14.2.0
-parisc                              defconfig    gcc-14.2.0
-parisc                randconfig-001-20250405    gcc-11.5.0
-parisc                randconfig-002-20250405    gcc-9.3.0
-powerpc                    adder875_defconfig    gcc-14.2.0
-powerpc                          allmodconfig    gcc-14.2.0
-powerpc                           allnoconfig    gcc-14.2.0
-powerpc                          allyesconfig    clang-21
-powerpc                     kmeter1_defconfig    gcc-14.2.0
-powerpc                      pcm030_defconfig    clang-15
-powerpc                     ppa8548_defconfig    gcc-14.2.0
-powerpc               randconfig-001-20250405    gcc-8.5.0
-powerpc               randconfig-002-20250405    gcc-8.5.0
-powerpc               randconfig-003-20250405    gcc-8.5.0
-powerpc                  storcenter_defconfig    gcc-14.2.0
-powerpc                     taishan_defconfig    clang-17
-powerpc                     tqm8555_defconfig    gcc-14.2.0
-powerpc64                        alldefconfig    clang-21
-powerpc64             randconfig-001-20250405    clang-21
-powerpc64             randconfig-002-20250405    clang-21
-powerpc64             randconfig-003-20250405    clang-18
-riscv                            allmodconfig    clang-21
-riscv                             allnoconfig    gcc-14.2.0
-riscv                            allyesconfig    clang-16
-riscv                 randconfig-001-20250405    clang-21
-riscv                 randconfig-002-20250405    clang-16
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-15
-s390                             allyesconfig    gcc-14.2.0
-s390                  randconfig-001-20250405    clang-15
-s390                  randconfig-002-20250405    clang-15
-sh                               allmodconfig    gcc-14.2.0
-sh                                allnoconfig    gcc-14.2.0
-sh                               allyesconfig    gcc-14.2.0
-sh                    randconfig-001-20250405    gcc-14.2.0
-sh                    randconfig-002-20250405    gcc-14.2.0
-sh                          rsk7264_defconfig    gcc-14.2.0
-sparc                            allmodconfig    gcc-14.2.0
-sparc                             allnoconfig    gcc-14.2.0
-sparc                 randconfig-001-20250405    gcc-11.5.0
-sparc                 randconfig-002-20250405    gcc-10.3.0
-sparc64               randconfig-001-20250405    gcc-9.3.0
-sparc64               randconfig-002-20250405    gcc-11.5.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-21
-um                               allyesconfig    gcc-12
-um                    randconfig-001-20250405    clang-17
-um                    randconfig-002-20250405    clang-21
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250405    gcc-12
-x86_64      buildonly-randconfig-002-20250405    clang-20
-x86_64      buildonly-randconfig-003-20250405    clang-20
-x86_64      buildonly-randconfig-004-20250405    clang-20
-x86_64      buildonly-randconfig-005-20250405    gcc-12
-x86_64      buildonly-randconfig-006-20250405    clang-20
-x86_64                              defconfig    gcc-11
-xtensa                            allnoconfig    gcc-14.2.0
-xtensa                randconfig-001-20250405    gcc-11.5.0
-xtensa                randconfig-002-20250405    gcc-13.3.0
+In order to decode a motion-jpeg bitstream, which doesn't provide a DHT,
+the driver will first decode a pattern jpeg and use the DHT found in the
+pattern to decode the first actual frame. This mode is called
+"repeat-mode" and it utilizes linked descriptors.
+The smallest supported resolution of 64x64 was used for that pattern to
+not cause unneeded performance delay. This choice, however, can cause a
+corrupted decoded picture of the first frame after the pattern, when the
+resolution of that frame is larger than the pattern and is not aligned
+to 64.
+By altering the pattern size to 128x64, this corruption can be avoided.
+That size has been confirmed to be safe by the hardware designers.
+Additionally, a DMA buffer needs to be allocated to store the decoded
+picture of the pattern image.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+The rest looks good.
+
+Regards,
+Sebastian
+
+>
+>Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>---
+> .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 42 +++++++++++++++----
+> .../media/platform/nxp/imx-jpeg/mxc-jpeg.h    |  5 +++
+> 2 files changed, 39 insertions(+), 8 deletions(-)
+>
+>diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>index 12661c177f5a..45705c606769 100644
+>--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>@@ -535,7 +535,18 @@ static const unsigned char jpeg_sos_maximal[] = {
+> };
+>
+> static const unsigned char jpeg_image_red[] = {
+>-	0xFC, 0x5F, 0xA2, 0xBF, 0xCA, 0x73, 0xFE, 0xFE,
+>+	0xF9, 0xFE, 0x8A, 0xFC, 0x34, 0xFD, 0xC4, 0x28,
+>+	0xA0, 0x02, 0x8A, 0x00, 0x28, 0xA0, 0x02, 0x8A,
+>+	0x00, 0x28, 0xA0, 0x02, 0x8A, 0x00, 0x28, 0xA0,
+>+	0x02, 0x8A, 0x00, 0x28, 0xA0, 0x02, 0x8A, 0x00,
+>+	0x28, 0xA0, 0x02, 0x8A, 0x00, 0x28, 0xA0, 0x02,
+>+	0x8A, 0x00, 0x28, 0xA0, 0x02, 0x8A, 0x00, 0x28,
+>+	0xA0, 0x02, 0x8A, 0x00, 0x28, 0xA0, 0x02, 0x8A,
+>+	0x00, 0x28, 0xA0, 0x02, 0x8A, 0x00, 0x28, 0xA0,
+>+	0x02, 0x8A, 0x00, 0x28, 0xA0, 0x02, 0x8A, 0x00,
+>+	0x28, 0xA0, 0x02, 0x8A, 0x00, 0x28, 0xA0, 0x02,
+>+	0x8A, 0x00, 0x28, 0xA0, 0x0F, 0xFF, 0xD0, 0xF9,
+>+	0xFE, 0x8A, 0xFC, 0x34, 0xFD, 0xC4, 0x28, 0xA0,
+> 	0x02, 0x8A, 0x00, 0x28, 0xA0, 0x02, 0x8A, 0x00,
+> 	0x28, 0xA0, 0x02, 0x8A, 0x00, 0x28, 0xA0, 0x02,
+> 	0x8A, 0x00, 0x28, 0xA0, 0x02, 0x8A, 0x00, 0x28,
+>@@ -545,7 +556,7 @@ static const unsigned char jpeg_image_red[] = {
+> 	0x28, 0xA0, 0x02, 0x8A, 0x00, 0x28, 0xA0, 0x02,
+> 	0x8A, 0x00, 0x28, 0xA0, 0x02, 0x8A, 0x00, 0x28,
+> 	0xA0, 0x02, 0x8A, 0x00, 0x28, 0xA0, 0x02, 0x8A,
+>-	0x00, 0x28, 0xA0, 0x02, 0x8A, 0x00
+>+	0x00, 0x28, 0xA0, 0x0F
+> };
+>
+> static const unsigned char jpeg_eoi[] = {
+>@@ -775,6 +786,13 @@ static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
+> 	jpeg->slot_data.cfg_stream_vaddr = NULL;
+> 	jpeg->slot_data.cfg_stream_handle = 0;
+>
+>+	dma_free_coherent(jpeg->dev, jpeg->slot_data.cfg_dec_size,
+>+			  jpeg->slot_data.cfg_dec_vaddr,
+>+			  jpeg->slot_data.cfg_dec_daddr);
+>+	jpeg->slot_data.cfg_dec_size = 0;
+>+	jpeg->slot_data.cfg_dec_vaddr = NULL;
+>+	jpeg->slot_data.cfg_dec_daddr = 0;
+>+
+> 	jpeg->slot_data.used = false;
+> }
+>
+>@@ -814,6 +832,14 @@ static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
+> 		goto err;
+> 	jpeg->slot_data.cfg_stream_vaddr = cfg_stm;
+>
+>+	jpeg->slot_data.cfg_dec_size = MXC_JPEG_PATTERN_WIDTH * MXC_JPEG_PATTERN_HEIGHT * 2;
+>+	jpeg->slot_data.cfg_dec_vaddr = dma_alloc_coherent(jpeg->dev,
+>+							   jpeg->slot_data.cfg_dec_size,
+>+							   &jpeg->slot_data.cfg_dec_daddr,
+>+							   GFP_ATOMIC);
+>+	if (!jpeg->slot_data.cfg_dec_vaddr)
+>+		goto err;
+>+
+> skip_alloc:
+> 	jpeg->slot_data.used = true;
+>
+>@@ -1216,14 +1242,14 @@ static void mxc_jpeg_config_dec_desc(struct vb2_buffer *out_buf,
+> 	 */
+> 	*cfg_size = mxc_jpeg_setup_cfg_stream(cfg_stream_vaddr,
+> 					      V4L2_PIX_FMT_YUYV,
+>-					      MXC_JPEG_MIN_WIDTH,
+>-					      MXC_JPEG_MIN_HEIGHT);
+>+					      MXC_JPEG_PATTERN_WIDTH,
+>+					      MXC_JPEG_PATTERN_HEIGHT);
+> 	cfg_desc->next_descpt_ptr = desc_handle | MXC_NXT_DESCPT_EN;
+>-	cfg_desc->buf_base0 = vb2_dma_contig_plane_dma_addr(dst_buf, 0);
+>+	cfg_desc->buf_base0 = jpeg->slot_data.cfg_dec_daddr;
+> 	cfg_desc->buf_base1 = 0;
+>-	cfg_desc->imgsize = MXC_JPEG_MIN_WIDTH << 16;
+>-	cfg_desc->imgsize |= MXC_JPEG_MIN_HEIGHT;
+>-	cfg_desc->line_pitch = MXC_JPEG_MIN_WIDTH * 2;
+>+	cfg_desc->imgsize = MXC_JPEG_PATTERN_WIDTH << 16;
+>+	cfg_desc->imgsize |= MXC_JPEG_PATTERN_HEIGHT;
+>+	cfg_desc->line_pitch = MXC_JPEG_PATTERN_WIDTH * 2;
+> 	cfg_desc->stm_ctrl = STM_CTRL_IMAGE_FORMAT(MXC_JPEG_YUV422);
+> 	cfg_desc->stm_ctrl |= STM_CTRL_BITBUF_PTR_CLR(1);
+> 	cfg_desc->stm_bufbase = cfg_stream_handle;
+>diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+>index 86e324b21aed..fdde45f7e163 100644
+>--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+>+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+>@@ -28,6 +28,8 @@
+> #define MXC_JPEG_W_ALIGN		3
+> #define MXC_JPEG_MAX_SIZEIMAGE		0xFFFFFC00
+> #define MXC_JPEG_MAX_PLANES		2
+>+#define MXC_JPEG_PATTERN_WIDTH		128
+>+#define MXC_JPEG_PATTERN_HEIGHT		64
+>
+> enum mxc_jpeg_enc_state {
+> 	MXC_JPEG_ENCODING	= 0, /* jpeg encode phase */
+>@@ -117,6 +119,9 @@ struct mxc_jpeg_slot_data {
+> 	dma_addr_t desc_handle;
+> 	dma_addr_t cfg_desc_handle; // configuration descriptor dma address
+> 	dma_addr_t cfg_stream_handle; // configuration bitstream dma address
+>+	dma_addr_t cfg_dec_size;
+>+	void *cfg_dec_vaddr;
+>+	dma_addr_t cfg_dec_daddr;
+> };
+>
+> struct mxc_jpeg_dev {
+>-- 
+>2.43.0-rc1
+>
+>
 
