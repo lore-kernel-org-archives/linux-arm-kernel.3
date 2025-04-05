@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1811C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 09:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63FF5C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 09:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9QgniJ6UdmWL8To9NYgCLVFTHa10nmpPKSIlfTFU2tU=; b=PWxhCE1w+z4ku2ITPklnEq32ga
-	IDEOSNB9c3qrX9lhOTj4eN00nPa9hhwCukMkAbbmX/nLDrswkPwcY6wRGfib+SHEPI7fB4rw4eFz4
-	sgncyr5R2Be4fCihWoWgric7mc1mXVKbE4Z5rGK/42QLmydLJbuPIHh4SCRyFC7OwFkJ2BJezviLx
-	uARsF19+HsNBKesnOiMEmupvVWZIaY5XQdVUKtNE8wZFKEwWw11uJ6D2GfSoAd5fp3GxuZdHHeKFU
-	aV6+XvAF/8uLqoTV9cyr050+7qoidlKEBi9XbqsvtgL75nmuXcAAQwSIwxss2DakkTBfHepQt2X2X
-	EJgENMFQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/vhjgPM25WIrJtvsOvWD9TP3Lhl6m8KVBdL4zwgprPU=; b=NpTbQSbHUJR5mMcZo/sqjzc0fS
+	FtK4ZNnJD4Joi+0dvNrcbsa2snPrpO7uSs0pU/9j1ApOUU2dEAAYFq9ogdkhKC+pGc3ssxCH4O1jB
+	h9ow5tqsHfmJPcglA5/XTR+wjCn62PPAujYodIlevfDGmnIstR2vq0ebQcoVmsXiLhJTgYCfV7nxG
+	hCtqyhosp5W1dcf4cG2qOyPgarCxe21a6VrRkbDSOk9Tj4eSPCQh/ljfviSN5fLjsOGy+HXSx8cX4
+	jZJ1gRoX2MYH2DPeLqmCeTiZwhNV7V6ezi+HuZMPQsLj2SpC2NGks07VsNWCCjfRtEvOv1+AgU+qf
+	l5XQgUIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0zqB-0000000Dlt4-2r5V;
-	Sat, 05 Apr 2025 09:29:27 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1u0zru-0000000Dm4L-1qPA;
+	Sat, 05 Apr 2025 09:31:14 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0zoP-0000000DlbT-3srM
+	id 1u0zoT-0000000Dlbp-29wl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 09:27:40 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5eb92df4fcbso5201230a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 02:27:37 -0700 (PDT)
+	Sat, 05 Apr 2025 09:27:42 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ab78e6edb99so407408466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 02:27:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743845256; x=1744450056; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9QgniJ6UdmWL8To9NYgCLVFTHa10nmpPKSIlfTFU2tU=;
-        b=o51iLKu/kz6VDt65QiOBDBn3VsDlgln3s/R5fI6krqc3Dq1DJKRFHua3d98ACiZNI5
-         WBdbtyoaNlnyh3bqSqAWbPGPDz+taGB/zxUEEZ8hFsoJMIkGqh9gc9lLqoooCzfZJm4P
-         mjyOnJQs6liiQYeZZPvSv5Sz8yynw6OXR/D5ormmaP2EBboIEbkX0gE52uouXnG95GVm
-         vEnJVMfwUxHfj9GUYsJ+5UdxHLUkYRYFGCZulrjqB53LZ7rYZWuaPWZwOkkuSv/TNZ4j
-         PHp3eJ9Kbwd9hocy38DTv+hL4Jlj31u+dIfMCNu0+G9zZytsJy52YOq8JPADYBDQmr4V
-         4lkw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743845260; x=1744450060; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/vhjgPM25WIrJtvsOvWD9TP3Lhl6m8KVBdL4zwgprPU=;
+        b=DfgQHYYH58lUqh8O3o5/0Hy5IHRFiIPhq+9vkM+YqWWeknscE6ooWCi0IZhpCcnLu0
+         7x/KSG3gy+HvGR/HGECgjhDjx5WyKkGW9ulV2bB1wAs5jUfQlNco/nInuZAxetn/6Sg+
+         /Hnt7d3BThiUBGQ3OcKVcxgJ0dT70nxGSohvw+j3AP7frckyl4kIM3RiqoJtOnC+4M1C
+         LjmqSfl5w91ShNSHsiSzxv9/lJ6kk5UFaOVG/XxKcYec4Haw7w5Xn82A0yhw3h0jNF6n
+         QGnzH8kb5LOfnriOQSTdd/ykodslkbPVhGt8PAckOfI/6+welehYkipJ/l2g4NaSqhff
+         o0sA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743845256; x=1744450056;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9QgniJ6UdmWL8To9NYgCLVFTHa10nmpPKSIlfTFU2tU=;
-        b=uMYlwNUlFpJvswnmG3Xl/QMzRgoZDeuXTmiLtl8zSYsa3JqbS6XaENsDYc7JnsXHVy
-         0qaH6gHvMuHRXQv8jqqu0+sxCMn9EZOFaJ8uOLRDW7IKOgGOLq/K0wUW0yi5yeUxqwyD
-         DeKzaLl1o2Ac87EU+/LSqDHD3ktfvYAbB4MMTOw+zPFdWA8xN+yEGOX4hy4y2zVHaw5i
-         uDfZWUaid549bsC54vdKvsjR/kxeqTjO5lkLRDWJb+ScyKX5qko9pY6ZKpXZ8hOBcFnh
-         gH5SjqWk3DALxYvUYwvqOVjENpf8xLF3pskg2ySqHh78VTNtcJf+h4VYObPXmNYZwCwe
-         sVyA==
-X-Forwarded-Encrypted: i=1; AJvYcCWWpnl9Uwmr0mLqF5BvLLR9sOvl7PuFcqZDA95AnqAftzYcPL6xcdX2aBAeh9mcBy+HaTIk/Y8ptjDw2N6roFKp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdVPzCkmi+u1o4kicM27IjMJjRbJCXtz6dPKfcTKJ0eMKpQLzs
-	wTUtEOlAAMiQTCBnQ3zfC5qJTVRi9hFAiq2xJH+OgNEDXIR7jfgtvFm9HXgz8VE=
-X-Gm-Gg: ASbGncvatEwhw1hZeYZgnEiCTbr2t1fauJ+sl95GfxokASofhsHnTJO5nsncdeIarBi
-	4vyZ/AxhlCNgAx31pS7wLo7ztefHL8rrE3Q9e0yBmDLiyuGSooPMqoJDJjPKsjHocoSYcLnAOeV
-	3Ymqqbs0ALY0kH1TXmSZUtLpTYKMBYUsNDq5TUPo/07JTt62yjwKVBFU0EMg2W6xNIsNNMLVGKf
-	Khc8GTbFH1yVzQ2oal2uCAWh5uTVHutmSgrVHAwzfwIfAeikXH6Z7LT2XVR3LjsX/TdaEhQKy1Y
-	qeeCof0UTO4Q1Bi13I3Tc6oWSB+dDpCsjWybA7Qu/CR6TjGSLQ==
-X-Google-Smtp-Source: AGHT+IEbL8c+JGzPbn45puOitVnDeaHIThpApjBbi0QC6iao2fwFoA3sj7pZiaJmhvJQOzAGSNO8Mg==
-X-Received: by 2002:a05:6402:280b:b0:5e6:44d9:57f7 with SMTP id 4fb4d7f45d1cf-5f0b3e4732amr4711403a12.26.1743845255834;
-        Sat, 05 Apr 2025 02:27:35 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1743845260; x=1744450060;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/vhjgPM25WIrJtvsOvWD9TP3Lhl6m8KVBdL4zwgprPU=;
+        b=o5ERWfEzcp9rhi8VnJzMZlNrz4OvzlHO779YeFu9CjlUOBi5nBiWfpxOyfhAkLv21e
+         2oG4ZaCuI3dcrWW38BhZfgJeWTEgcHxObA33zxK4PXldwA/U56Y/zLOq1aBUaMP1L+Jp
+         UukPvnb8+u/bkwi+rm+vNsExJtCj5mFV2tEe4SZBAylIFVix+oVjPfwG9UOab8LJzMFk
+         nj0U3fdXKJ487nQqD0b2LS7++8YQmiifkvyCuu0hQcisvov62/66RIyH+7JQjVbbCiW8
+         O+Qg+jteMtS5GLdiU6O/wiSv1uLyczk77bU3b8JU361CjD8M0RAKKun8YL38ohyNBuIu
+         4QTg==
+X-Forwarded-Encrypted: i=1; AJvYcCV3OuHEzSb8gUq6FvaVZq2d3wEjwf9mu1k8s0BzZ9sd1pOGNW/aUJGGOoJCIMjZdnCpyoAAECspS7Id4atcsrQD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYy1r+wDUEKr/KOwokaUbpmgYO8Tv5hVNdH05bFS2sndEh7ZNX
+	w2x4VEnEkq4xgFWRlYdRi2NFbK1hbOYXVEQetuSBSADrw/JGizBVy7kU4UoOuaw=
+X-Gm-Gg: ASbGncv60vNu0qRURrHYXV8QaQymZov8WII7KdhrR9KnjloPtQUdJsw4PeYp4sIzvAm
+	PF7uvZNHpEH887D31TO4UWENzfQvfZLUScEDDx48TiJoQRnRiVmTMPO+Ppr8eY1l6TFL6xZGu0W
+	BzSmfH63sCt4nFniWN2aa/czR8D9/wdHeBJM/HOp1WR/bbaLyHdl55Gh679rhA3pCCYGoC30m8E
+	bBwDhA3JfKOjs3iLxFQX+3Qrm20cMmeBjOO08L9yGSFWTvrfBnoSvfa/L/OlcI5pQEpMLc/MW3E
+	x4FJJBtCDrNZ5WjHooX/BuMP/Ie5P20y5l+2vWmnAB1ij9n6Bg==
+X-Google-Smtp-Source: AGHT+IGxU6AQk/lGxA5BuJalTi4YDJdWHCrI3Gxv3qwNMs4ENzrJKR1Xxmjq53bryBeUQ1gqPpBg8A==
+X-Received: by 2002:a17:906:f588:b0:ac7:7526:46a7 with SMTP id a640c23a62f3a-ac7d6c9f9f8mr456183566b.1.1743845259603;
+        Sat, 05 Apr 2025 02:27:39 -0700 (PDT)
 Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5f087ed1f40sm3442815a12.26.2025.04.05.02.27.35
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ac7bfe5d3d8sm392574566b.31.2025.04.05.02.27.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Apr 2025 02:27:35 -0700 (PDT)
+        Sat, 05 Apr 2025 02:27:39 -0700 (PDT)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: linux-pwm@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	=?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>
-Subject: [PATCH 0/6] pwm: Some fixes preparing chardev support
-Date: Sat,  5 Apr 2025 11:27:11 +0200
-Message-ID: <cover.1743844730.git.u.kleine-koenig@baylibre.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/6] pwm: stm32: Search an appropriate duty_cycle if period cannot be modified
+Date: Sat,  5 Apr 2025 11:27:13 +0200
+Message-ID: <f0c50df31daa3d6069bfa8d7fb3e71fae241b026.1743844730.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.2
+In-Reply-To: <cover.1743844730.git.u.kleine-koenig@baylibre.com>
+References: <cover.1743844730.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1226; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=SdTjxolhxMdpEMLdv2bok/HJQZH5YHyXLZcK4xTHZec=; b=owGbwMvMwMXY3/A7olbonx/jabUkhvQP3wue3FO2D7yoPyX3tFXWCtPSC9wxXg/6hGTMVGZbB hUsSOLvZDRmYWDkYpAVU2Sxb1yTaVUlF9m59t9lmEGsTCBTGLg4BWAid05wMHQGvZ3cUu4YtHTp 6coW45J/V5ef4p8hFa0cvPZHwTankIZ5zcd8X3KV8W84vpJ5YuP6zPN+y88nLy7l0rM9cTnLuLL G9WP4rv+Zdsb3XjxQMVAW9f434WduiGpiv0aE95O5T7uZZdvK018/ruj1KZ8/V5DXo1la9VhDeo WpifGV+IOPl7c+yAsWdTY8WLbKvITd6Gy/u5Yi644lPVpzN8zxZt5i+P/zp7dX91xz9WTX1bK+p cu+IOJaaHvGkjkhBT0V6rM6e5jK8kSW7S57pxZz4oXsBE8nxqu1joLhd8+JX1m41p9XW9U+ba9B 0fzGfZ32j64rr7YwizpmKp1fVFSz83yM3/11HQna2zcAAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1609; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=kHydnSM0ULFQvWKEWgBJvoEZ4DMOWEDjsKpnVZckxBc=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBn8Pd1OuSd8laVmWsGMsZDQ3jElzoOQdmOU0iVj Pfwnc8P+kaJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ/D3dQAKCRCPgPtYfRL+ Tkw/B/9jCyatQhCnULqdSAYE6atXCRb8xNFBivDhozOExipctqkbMkUxZN9AKJ1YgwFfWHLNl0z PUSP8gpGwtEQUxTzzp2s5toba5GXknwV0rO6+9YdTjf5SlLRVO9Vuru9m3Z6I67iUD7FG+8/20T hftKLgmwm1MFOxcN1nEr+5L9o9Il8jAkXqLMNWPtkiKBFDz3s4WDY6Utex2YaiDmbUdYGJTUOuM 3kXU1Dbmc9xQDzmoJPIU+ivoT7mGih87U1/i4W7s2iaJbgDM7KXly4D591nvm3oGGu9BMh4DKEn 9z21R0ghSUi0Z2k+g2BOV3Esx3ZQWrT//64X88x1buPhHoD6
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_022738_239043_4DB01885 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250405_022741_552757_F14C3B7A 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,37 +104,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+If another channel is already enabled period must not be modified. If
+the requested period is smaller than this unchangable period the driver
+is still supposed to search a duty_cycle according to the usual rounding
+rules.
 
-while working on character device support for PWMs I found a few
-inconsistencies that are fixed in this series. After that I plan to work
-on getting the character device support into shape to get it into
-mainline, too.
+So don't set the duty_cycle to 0 but continue to determine an
+appropriate value for ccr.
 
-While some of these patches qualify as fixes I think there is no urge to
-get them into 6.15, but given there is a bunch of such changes I might
-send them to all together to Linus for inclusion to 6.15.
+Fixes: deaba9cff809 ("pwm: stm32: Implementation of the waveform callbacks")
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+ drivers/pwm/pwm-stm32.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
-Best regards
-Uwe
-
-Uwe Kleine-König (6):
-  pwm: Let pwm_set_waveform() succeed even if lowlevel driver rounded up
-  pwm: stm32: Search an appropriate duty_cycle if period cannot be
-    modified
-  pwm: stm32: Don't open-code TIM_CCER_CCxE()
-  pwm: stm32: Emit debug output also for corner cases of the rounding
-    callbacks
-  pwm: axi-pwmgen: Let .round_waveform_tohw() signal when request was
-    rounded up
-  pwm: Do stricter return value checking for .round_waveform_tohw()
-
- drivers/pwm/core.c           | 23 ++++++++++++-----------
- drivers/pwm/pwm-axi-pwmgen.c | 10 +++++++---
- drivers/pwm/pwm-stm32.c      | 25 +++++++++----------------
- 3 files changed, 28 insertions(+), 30 deletions(-)
-
-base-commit: e48e99b6edf41c69c5528aa7ffb2daf3c59ee105
+diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
+index a59de4de18b6..ec2c05c9ee7a 100644
+--- a/drivers/pwm/pwm-stm32.c
++++ b/drivers/pwm/pwm-stm32.c
+@@ -103,22 +103,16 @@ static int stm32_pwm_round_waveform_tohw(struct pwm_chip *chip,
+ 		if (ret)
+ 			goto out;
+ 
+-		/*
+-		 * calculate the best value for ARR for the given PSC, refuse if
+-		 * the resulting period gets bigger than the requested one.
+-		 */
+ 		arr = mul_u64_u64_div_u64(wf->period_length_ns, rate,
+ 					  (u64)NSEC_PER_SEC * (wfhw->psc + 1));
+ 		if (arr <= wfhw->arr) {
+ 			/*
+-			 * requested period is small than the currently
++			 * requested period is smaller than the currently
+ 			 * configured and unchangable period, report back the smallest
+-			 * possible period, i.e. the current state; Initialize
+-			 * ccr to anything valid.
++			 * possible period, i.e. the current state and return 1
++			 * to indicate the wrong rounding direction.
+ 			 */
+-			wfhw->ccr = 0;
+ 			ret = 1;
+-			goto out;
+ 		}
+ 
+ 	} else {
 -- 
 2.47.2
 
