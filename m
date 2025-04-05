@@ -4,92 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D2CC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 09:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84612C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 09:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZnZ1QBH4c/cR2r7Z2I0IWQDQQpPtp/xF22TjNG8zFs=; b=WhgiOKpfr5f+hoYIOGbyLb3Ftd
-	6G9M14p4y1v5CSOn7qb9wQWGwhhPA4N5b0QYMdhAFDf9PRix5wUPJhWU2GsamZXJvDLQxXdS+nSou
-	FvH7Qb0/dnuXYG0I5hPkQHeqydpO+gN+WgiH3dT1e8qBUMlhkI3EFCBFP9iqSuNfp2NPanfeIWaD9
-	jKev85Ntmuo+UCAKhV6YE/Z5VHf9jEaU0rmHde4WF7amVRrW3uA2pejyHnjoYjEvz9FRvMCF71Wv3
-	S92c1LYxEZ7OHdLrO6wwxIZsJ9WGNvs4J5QcUhHu4gtjLdEBgu8epgNrHZXLg79srd8eI31ZvG8nN
-	X5CZR1Qw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ahND9LctfKv33wGeVl9lUFdRTzC7/hS5gDffiQvzIao=; b=3Qaw772vp9iwmGoK2nPjiqMSuQ
+	CAXYjTCPKTBXMAU3rEivr78WEUF+7hMrBKNi3+thMrZCtTyAKJUW80TSKh2dxV5g+/Ts8MnS0wH1T
+	NfC8RbXB6rz5TzdJdJGTk4+vlwJUUH6FwoXsRLZl/d9fYA3y7IOmXN2miKUG9QIbA8bCJkQsr4Agd
+	wNXEmCFY/7EvYGoZBK14VKN1Zz/munYY2DPVsiFT6CGJTHgjhiArelEjBY4AP7cc4xcSjtv+8lWIK
+	kDkGTEQF7HOXewoJWE3RgnOqNr6GYPNpx7nd25iNI0PS5hKfoL6zqann2nEEcjQEq5et0wzqtr9C4
+	icGH+DDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0zvK-0000000DmPJ-3Ok7;
-	Sat, 05 Apr 2025 09:34:46 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1u0zx2-0000000Dmap-0bEj;
+	Sat, 05 Apr 2025 09:36:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0zoW-0000000DlcW-3MMU
+	id 1u0zu5-0000000DmHL-1PnE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 09:27:45 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5e5e1a38c1aso3815907a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 02:27:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743845263; x=1744450063; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zZnZ1QBH4c/cR2r7Z2I0IWQDQQpPtp/xF22TjNG8zFs=;
-        b=xClEUknQp9600dQRmlz6Rh852otuKkgnpoDu1IGtc+Ap83j91LSLgWtgjnI0nYDZrJ
-         7SpnMS7KA5gf6vUDOALXHeGuahxutngIEdElk4Yfs66/2dfQtoBPltkrC8IsME66XZ/Q
-         LJ3F1p6B1Dh1VTZqE3jX6NoOeJfS7G7finBUvm1+gv/vVJEMFfZ5EbnRay7aaF1/rzwf
-         /IYrXbLBfKLGjYiZ30/AFLyyqH3NYENcqwqxUFpvBB+dTexQZQzgACz3vUtk5nh5nknl
-         Nn6LLmppCm1/11kTqzNUEjDlIakz3IGAE7FSB8EPX3fIz+25Po8eznC6gWvC6Gv26oZW
-         JFlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743845263; x=1744450063;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zZnZ1QBH4c/cR2r7Z2I0IWQDQQpPtp/xF22TjNG8zFs=;
-        b=nmFvLeWcAjaUdsFg1YVAPsMvg5tKEocbdQPLbkp/W66K4MZ2GaPu5Mg+ORbaCLIXFw
-         hnUBxD5mPgAUlQNLhk7gsKPHbUISbdFUcT9B3bJRN2i6Oc3eDCf0pruFX7DOOmGoYpzt
-         pAnLE3LnZBdNEXUFww6yDjL4fpfQyV+9sUyCwmfzpzSsIvpXQiLyGIX04whb1UqassuI
-         DABJ5kGUWSWzjeFzbflpUfQk3T0xjQhKH2bHiqx8yXbjeTCLQqwmtyVAmEf5ClBtGsuV
-         iyV8BNFLl/x59vHcmV61NmmPhkaJbInM8ASHB7RrGerukZ8cBvnAxJMLP5vCi10Tssv3
-         HZKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW7Q1S0FY/PuMRpq8PzqD8M7ivYI04MoSmgGD2JI38kqeAYt07bW4XaVjxstSH2UhkBNsdSR+BLiDNLDhRTKmH8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx76NZUnC4EuJe59d/ymo975Nxz+lMlu1r5S+zTWyrVAHs2Ivs2
-	/UlXfQAyR0NlMF4TkXxxvwXQd6hVKFQplLyZcy+GO61zF36SlZEfzLG4TUMqtHE=
-X-Gm-Gg: ASbGnct4YQH0MkYN63SVX+H8TOA4sGHegtfsItKYda/UROLWMxgokpF9YbZ50wQAoXN
-	z2c/5Y7Mpb5aaY8BJkFyAVjt18mdccTy4OaLMzpJElRhqRcbthwr7UYshJuES/HhP6IF0kCHroq
-	X8v+6seb/68BAgq5HYKW7+MievEtjdfMeelAI/ey5+dzHMR1LBLNB+hR/nM3INOzoSSJKYzTN5F
-	aCrLqlPmBpZxqN2QlVCPE2v06Q1FBY9i8ANLdU1/ZKCQRBFMSqBdMqtVVwoHYwGvl7qL000rR8v
-	AKh99ggh2zFiinPXo6d1+DPreeFAQx6C4wJs4JhiS1XEFM/VZQ==
-X-Google-Smtp-Source: AGHT+IGWO7dBoEwfH+vhvetzVchvOebwHG0LSEkTGJ+mVXy0B0Ix45di+z7EJEIkw1x3jHja6bWBjg==
-X-Received: by 2002:a17:907:7f07:b0:ac3:8a3a:e924 with SMTP id a640c23a62f3a-ac7d19903fdmr555132166b.39.1743845263101;
-        Sat, 05 Apr 2025 02:27:43 -0700 (PDT)
-Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ac7bfea0eadsm394579766b.67.2025.04.05.02.27.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Apr 2025 02:27:42 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: linux-pwm@vger.kernel.org
-Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Sat, 05 Apr 2025 09:33:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AF311A42F64;
+	Sat,  5 Apr 2025 09:27:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 279DCC4CEE4;
+	Sat,  5 Apr 2025 09:33:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743845608;
+	bh=kriz03AnZEeQQvO1jAPNT+Mky6ppncxoMV3q3M6sSRo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ti+/oISwOwauLDwS0nQMoncUJeCMwNjrfS6t3dHuXPWrwQH0AAyvbqSOh2aJL3As5
+	 ln/1Za6oi7agd2hl3dhzSrmNp9VEMQr5702xR9irXYJ6fQp+xOb+UjhhFS89P0h4nw
+	 8dGM5yX9rYbqSacrDl762Hq70+TznUBdC1J3ebusu0ZeOAfvIAKhBc7BcGRBqRTA/J
+	 VCkKGy1nBHNT/YHB/PuGFpWuew4FLjz9ErEjuZKvY7e1/ZZsH522RYW/yUdSfvIMSO
+	 np2s53T7AKn/9WV0Dfwm0qnFJpVQ3nBaoPBoRrHDtQUAHMvV7843GxtZi5xVxnihip
+	 1DO1yNeDclc2A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u0zu1-002Z6m-Ju;
+	Sat, 05 Apr 2025 10:33:25 +0100
+Date: Sat, 05 Apr 2025 10:33:28 +0100
+Message-ID: <87wmbzx89j.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mingwei Zhang <mizhang@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Raghavendra Rao Ananta <rananta@google.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/6] pwm: stm32: Emit debug output also for corner cases of the rounding callbacks
-Date: Sat,  5 Apr 2025 11:27:15 +0200
-Message-ID: <fe154e79319da5ff4159cdc71201a9d3b395e491.1743844730.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <cover.1743844730.git.u.kleine-koenig@baylibre.com>
-References: <cover.1743844730.git.u.kleine-koenig@baylibre.com>
-MIME-Version: 1.0
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	Oliver Upton <oupton@google.com>
+Subject: Re: [PATCH v2 2/2] KVM: selftests: arm64: Explicitly set the page attrs to Inner-Shareable
+In-Reply-To: <CAL715W+v-BgHr5FwgDnct5nQ3RV-FXMkuSaCG7DaDoQVnZeDpg@mail.gmail.com>
+References: <20250405001042.1470552-1-rananta@google.com>
+	<20250405001042.1470552-3-rananta@google.com>
+	<CAL715WKaAHSgUhtMMT3Ztw90mMoHpVLdKUgVM15xx6yoUws9+Q@mail.gmail.com>
+	<Z_CaiKsi42ho8DoK@linux.dev>
+	<CAL715W+v-BgHr5FwgDnct5nQ3RV-FXMkuSaCG7DaDoQVnZeDpg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1852; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=PeMUN5MaPR/iihGuaAYk1+RqNZDBvhqS1HijQAO+fo4=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBn8Pd6gBS/U7sm8gCc++Qe+H9FPvkAFOyatKX8B qZYNTVb/8WJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ/D3egAKCRCPgPtYfRL+ TiyKB/0dJZmWMtAaRs0WJ3PXT9d3VqFRF+ApoExKeBVC+2ES9YhZvF7McGhAzK48ik7Ly+LbIdd Il/cB2eBN8HrWNjZoHv/RVydoIwXGPyxm+7EVsFLjp6QVEbKfRjnonbncS3QTgmSKMIUL6e6JSC Exlph+FquJCDEjgnQZiyDNnKFMpId9mwZfG4STy0nFW4ohy/2CIVisdMr+VJ/Ku9COUq3a/FB+F QNpy10ntJAQfeJnxjycByIlnMBpPR+ouavHhm3lAae1baYZOSbounM633kPFBC43UuT9ehZ8ryi RmE7IGRwAQ/z49wXa8pqeOAbyygY5+bxUJ0PuQwUNrsaJoRK
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mizhang@google.com, oliver.upton@linux.dev, rananta@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, oupton@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_022744_836356_8A91C9FE 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20250405_023329_517776_EEDE4E37 
+X-CRM114-Status: GOOD (  39.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,59 +93,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When you're interested in the actual register settings the driver
-chooses or interprets you want to see them also for calls that hit
-corner cases.
+On Sat, 05 Apr 2025 08:24:30 +0100,
+Mingwei Zhang <mizhang@google.com> wrote:
+>=20
+> On Fri, Apr 4, 2025 at 7:51=E2=80=AFPM Oliver Upton <oliver.upton@linux.d=
+ev> wrote:
+> >
+> > On Fri, Apr 04, 2025 at 05:31:49PM -0700, Mingwei Zhang wrote:
+> > > On Fri, Apr 4, 2025 at 5:10=E2=80=AFPM Raghavendra Rao Ananta
+> > > <rananta@google.com> wrote:
+> > > >
+> > > > Atomic instructions such as 'ldset' over (global) variables in the =
+guest
+> > > > is observed to cause an EL1 data abort with FSC 0x35 (IMPLEMENTATION
+> > > > DEFINED fault (Unsupported Exclusive or Atomic access)). The observ=
+ation
+> > > > was particularly apparent on Neoverse-N3.
+> > > >
+> > > > According to ARM ARM DDI0487L.a B2.2.6 (Possible implementation
+> > > > restrictions on using atomic instructions), atomic instructions are
+> > > > architecturally guaranteed for Inner Shareable and Outer Shareable
+> > > > attributes. For Non-Shareable attribute, the atomic instructions are
+> > > > not atomic and issuing such an instruction can lead to the FSC
+> > > > mentioned in this case (among other things).
+> > > >
+> > > > Moreover, according to DDI0487L.a C3.2.6 (Single-copy atomic 64-byte
+> > > > load/store), it is implementation defined that a data abort with the
+> > > > mentioned FSC is reported for the first stage of translation that
+> > > > provides an inappropriate memory type. It's likely that Neoverse-N3
+> > > > chose to implement these two and why we see an FSC of 0x35 in EL1 u=
+pon
+> > > > executing atomic instructions.
+> >
+> > Ok, can we please drop this second reference?
+> >
+> > This is talking about something else (FEAT_LS64) that happens to share
+> > the same FSC as an unsupported atomic instruction. I mentioned this to
+> > you internally as an illustration of how different implementations may
+> > behave when determining if the attributes support a particular access,
+> > but it isn't actually relevant to this change.
+> >
+> > > nit: It's likely that Neoverse-N3 chose to implement this option (the
+> > > first option) instead of reporting at the final enabled stage of
+> > > translation
+> >
+> > I would much rather we rely on the language that describes what the
+> > architecture guarantees rather than speculate as to how Neoverse-N3
+> > behaves.
+> >
+> > Mentioning that the breakage was observed on Neoverse-N3 is still useful
+> > to add to the changelog.
+> >
+> > > I have minor question here: The DDI0487L C3.2.6 (Single-copy atomic
+> > > 64-byte load/store) mentioned
+> > >
+> > > """
+> > > When the instructions access a memory type that is not one of the
+> > > following, a data abort for unsupported Exclusive or atomic access is
+> > > generated:
+> > >
+> > > =E2=80=A2 Normal Inner Non-cacheable, Outer Non-cacheable.
+> > > """
+> > >
+> > > So, the above is the "Normal Inner Non-cacheable", but in our case we
+> > > have "Normal and non-shareable" in stage-1 mapping, right? I know it
+> > > is very close, but it seems the situation is still only "one bit" away
+> > > in my understanding...
+> >
+> > This citation relates to FEAT_LS64. If you look at B2.2.6 instead, it
+> > reads:
+> >
+> > """
+> > The memory types for which it is architecturally guaranteed that the
+> > atomic instructions will be atomic are:
+> >
+> >  - Inner Shareable, Inner Write-Back, Outer Write-Back Normal memory
+> >    with Read allocation hints and Write allocation hints and not
+> >    transient.
+> >
+> >  - Outer Shareable, Inner Write-Back, Outer Write-Back Normal memory
+> >    with Read allocation hints and Write allocation hints and not
+> >    transient.
+> > """
+>=20
+> Agree that the above should be the right place to cite. C3.2.6 seems
+> to discuss atomic instruction with memory attributes bits(which points
+> to MAIR_EL1 and MAIR_EL2?). In this case, it is more related to
+> shareability bits instead.
 
-Make sure that all calls to stm32_pwm_round_waveform_tohw() and
-stm32_pwm_round_waveform_fromhw() emit the debug message about the
-register settings.
+Not sure what you mean by this reference to MAIR.
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
- drivers/pwm/pwm-stm32.c | 11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
+These constraints apply to any memory access, including those that are
+*not* the direct effect of an instruction.  For example, an atomic
+page table update generated by the HW (AF or DB update) is only
+guaranteed to succeed if the PTW is itself configured to use ISH+WB or
+OSH+WB, and could otherwise result in any of the ill effects described
+in B2.2.6.
 
-diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
-index c6625f51a199..dca5d09d80b9 100644
---- a/drivers/pwm/pwm-stm32.c
-+++ b/drivers/pwm/pwm-stm32.c
-@@ -180,11 +180,11 @@ static int stm32_pwm_round_waveform_tohw(struct pwm_chip *chip,
- 
- 	wfhw->ccr = min_t(u64, ccr, wfhw->arr + 1);
- 
-+out:
- 	dev_dbg(&chip->dev, "pwm#%u: %lld/%lld [+%lld] @%lu -> CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x\n",
- 		pwm->hwpwm, wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns,
- 		rate, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr);
- 
--out:
- 	clk_disable(priv->clk);
- 
- 	return ret;
-@@ -236,17 +236,16 @@ static int stm32_pwm_round_waveform_fromhw(struct pwm_chip *chip,
- 			wf->duty_length_ns = ccr_ns;
- 			wf->duty_offset_ns = 0;
- 		}
--
--		dev_dbg(&chip->dev, "pwm#%u: CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x @%lu -> %lld/%lld [+%lld]\n",
--			pwm->hwpwm, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr, rate,
--			wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns);
--
- 	} else {
- 		*wf = (struct pwm_waveform){
- 			.period_length_ns = 0,
- 		};
- 	}
- 
-+	dev_dbg(&chip->dev, "pwm#%u: CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x @%lu -> %lld/%lld [+%lld]\n",
-+		pwm->hwpwm, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr, rate,
-+		wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns);
-+
- 	return 0;
- }
- 
--- 
-2.47.2
+	M.
 
+--=20
+Jazz isn't dead. It just smells funny.
 
