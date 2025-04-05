@@ -4,66 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB03C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 20:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F23C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 20:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qZp6NfcoO3Mma48KO7kExbEUQr7oAEa2sm8/7e6r6Pg=; b=U/HAjQ9g8HqW5TnmpKe9H8Bk3e
-	37GsNQZG/7OXeIHIMGwjZExnG8Ouef4i+yXD+E3KbOff0oosrADkxYBbUaQFNzFS4q2tqbo2M+ziC
-	fTjXkRoovz8L2xws60GiIA6RdDexwl+AYhDvYGGPTyb1zZ8l6K/YAcDNRUhiG1yV9etrgzbrt8PAF
-	Ai93jI0I9BRxL2M9CaIogNv0MiB+tVlcQX6P0J7oUfwLWXaD70XPdJ2xkLZLDsuJnjiNohY/B6xbr
-	p+k/zNTyVJLw0nPqVlTDAq4HnshG0PDGRn8JTGQMRYSwG5nVLR7hbeMn1i5Qy6EJnmC4uEaXGbfl4
-	n0vDTSFw==;
+	bh=hyr3I2LD6oYdyXFuRB514jaAJoLkJqMn3eQ4HuFH+h8=; b=OrXiU5aoQXxTRhzb0h/g2PO+lt
+	OuJUx+lh7ZTvdPmcobKrU06llJRuRoQbr12+sisSKk7WvkL8uh+TB2B++p3l7yyC31oDOOZjCOS0V
+	AbzVhOEkMlclON261wDxYWEXtL7gnQPs4QguV1NOvxwnE1+/B0VBTmifF+uAsNH9sSxTbAETfyJW2
+	kgNlunq50LiicgCPt/W9WLTkm+3qsGKgM/DlXUEAAY5643/PMF83KHBOsWZGfwPs1Uc0kdNSqQveh
+	jXKbrqqBFF16MIhxnJ0zj8Ol67w3ujC+mlgRoJIyJcsKMsimEWlDpTHGoGISzB5hHr4W1RoeLC0MG
+	cm+ajsmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u19jR-0000000ES0C-1wQQ;
-	Sat, 05 Apr 2025 20:03:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u19nP-0000000ESTH-3ho1;
+	Sat, 05 Apr 2025 20:07:15 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u18IC-0000000ELen-1xQi;
-	Sat, 05 Apr 2025 18:30:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C32765C4D9E;
-	Sat,  5 Apr 2025 18:28:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CEA9C4CEEE;
-	Sat,  5 Apr 2025 18:30:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743877855;
-	bh=sp+YKRB5qh5FHE2Tj1xgoFnzTPaRWdpcQVjEm9KF2PI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=scYmXbaipYKKc8QpG34jHUIr4k1VmpwvXHSu6rlkPNSfO8c8v5VgDQUYJB9j4cvY2
-	 CpFZ4rahL/U1iZwjRVgCuq/5hAQeA4bDQerVFLRIC5CNFpjguxM5N82CpbA3AcHg/A
-	 jZKjVD3cl8WcEbVjs0WIHdPd9B05ahYeKdu0aZKHN0xZyAGuOM0UbHK9wdFO2kLcsJ
-	 Jb7btAhBUEogJ6n91F3qdy3dW+V2x8wrRnI1vdUWLlfUEIb1xRNdfw8IYYhfdtzOaO
-	 GBJRlXRpaZj7UTR52bavnp4Pmp0MBHN/PCMGQBByWA0O64kb8R7s69sJwWhdTaaXXd
-	 ANAb5E+su+P3w==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 6/9] crypto: powerpc/chacha - remove the skcipher algorithms
-Date: Sat,  5 Apr 2025 11:26:06 -0700
-Message-ID: <20250405182609.404216-7-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250405182609.404216-1-ebiggers@kernel.org>
-References: <20250405182609.404216-1-ebiggers@kernel.org>
+	id 1u19lc-0000000ESLF-1on5
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 05 Apr 2025 20:05:25 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e8be1bdb7bso5072446a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 13:05:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743883522; x=1744488322; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hyr3I2LD6oYdyXFuRB514jaAJoLkJqMn3eQ4HuFH+h8=;
+        b=kzM5c6V2Op02a0EWqaK8vSuAPp+A2Lj+Rs5sxuHMY9UVxfvcOV0yCzxqepv0/0JTbP
+         JsNjp/TTuwVxwdp1UlKCC5N2dK+pgM6824mYhOwjworg0Rjxe9wx9kY9C49o9ynfFG8o
+         nIYRgRa+wlPDmSslRIsZIFnIjVO8Gho5/ToC3PYk5k5gj4z+wsEXMIsKCBw9pz852P6p
+         lKhVPc6As1u1Y10pj01BzeYlv9N1ydRD4/HjEF/YiGH6KjzcoxqfiLAyYKqe5tM4m34T
+         OkXV/GwlVRwapyNtDt1hFIPqQpajsGZ6G1Z0ERshQGu41RZ8yqtTZjkLHYmg6vBPp4D/
+         hd2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743883522; x=1744488322;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hyr3I2LD6oYdyXFuRB514jaAJoLkJqMn3eQ4HuFH+h8=;
+        b=bI2RI5xYDOl4MH4dAM69vvKQA1IRzymEzhRDylAS0ckmz0fKdGDJuR7F7o05EWS2Zn
+         2b9zBDzEc4FVJppTchxjBhwnzwkEZObXDz3e+XYjUOlueyCJR1zQklAEnfV49LvEzbFi
+         XDTrmOSVEZQjhUX4OPV2gqf3YpwaXCZsilHRT4h7O3i1esvmkiwbsmYTYUYj0pAwpNwO
+         Obbcj8Lw3WnlD6rYb4x/YxuPMyLfG3F/OUqvY434zk0QbwNUVPP12gxUDUUrkHXqqPsF
+         7Q4dnRaLlw6ylFqBzEw74F9EIZW1HSr8WWCSw1LeJy9+1U40mWzUUhFUVIm1ntfSogYv
+         aKtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWxA7rz30ksPT079JT/ap8wYgV6FGoKN9T0zXcjqbH5XU4geXiXwdFIoiclyw4JPL6U+20ajITk7iz22RPXa5RN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmTbBsPFaMXLW1MHPXnOIByyxGZXgwm5KMff46envFx3jGdtMn
+	ygdq/oKGvx8Y+W8/A4pQ6Ea4SAp64tVlPTcnOl+vS/VESV7qibnK
+X-Gm-Gg: ASbGncvbyxzm99WBHvdLMlyaPrBo+gZusc8iav1yYQD55A714qIQ90xU8/1PphoFjDK
+	LwLkKrKSAEuBAA5FXLBGZOwlXALOE/sGcK5vEJFrhseynZzDcGs+iQC7USAgVyjrfaQbEAFw4Al
+	OR9G7eKC7b6IWKAk+Fmx+EE04iFxf9EhcogufRLTlN627jmnD0TjJzgbFwz/WZ6RVM0kktH5PXO
+	9GJByShjweb5uJUaZ8eUPmZmAsyUViYBekptIx+y55cgyfxTTtSm/Q8ic2V4yNC8ynmrSgW1EKQ
+	HpZb3IvP6H2PIMkUdVNDEbpBCdHhKbZ36B+TAfdhSGr5nwvkANPxw2nvrA==
+X-Google-Smtp-Source: AGHT+IFqYGSqbRsbuD4i4wRSjvzH/8ifozRPrIqDZpWcze1lam4H31+dMiIOJy0Wh8owhFTIeDKZAQ==
+X-Received: by 2002:a17:907:a088:b0:ac3:3e40:e183 with SMTP id a640c23a62f3a-ac7e717035amr280556266b.3.1743883521868;
+        Sat, 05 Apr 2025 13:05:21 -0700 (PDT)
+Received: from ?IPV6:2001:871:22a:99c5::1ad1? ([2001:871:22a:99c5::1ad1])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac7bfee2591sm468902666b.79.2025.04.05.13.05.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 05 Apr 2025 13:05:21 -0700 (PDT)
+Message-ID: <399cceb4-dcf5-4af8-a8b7-6741e9b7e8ae@gmail.com>
+Date: Sat, 5 Apr 2025 22:05:19 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm: rust: Enable Rust support for ARMv7
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+ =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <benno.lossin@proton.me>,
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross <tmgross@umich.edu>, Jonathan Corbet <corbet@lwn.net>,
+ Russell King <linux@armlinux.org.uk>, Rudraksha Gupta <guptarud@gmail.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Geert Stappers <stappers@stappers.nl>,
+ Andrew Lunn <andrew@lunn.ch>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>,
+ Sven Van Asbroeck <thesven73@gmail.com>, rust-for-linux@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250123-rfl-arm32-v3-1-8f13623d42c5@gmail.com>
+ <CACRpkdYF0sVB2-qgy=GzETSR3+2sagVQPGdunDQDJrn8KqJorA@mail.gmail.com>
+Content-Language: en-US, de-DE
+From: Christian Schrefl <chrisi.schrefl@gmail.com>
+In-Reply-To: <CACRpkdYF0sVB2-qgy=GzETSR3+2sagVQPGdunDQDJrn8KqJorA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_113056_615998_3144F5E2 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20250405_130524_492604_5868EE40 
+X-CRM114-Status: GOOD (  28.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,228 +110,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+Hi Linus,
 
-Since crypto/chacha.c now registers chacha20-$(ARCH), xchacha20-$(ARCH),
-and xchacha12-$(ARCH) skcipher algorithms that use the architecture's
-ChaCha and HChaCha library functions, individual architectures no longer
-need to do the same.  Therefore, remove the redundant skcipher
-algorithms and leave just the library functions.
+On 21.03.25 8:24 AM, Linus Walleij wrote:
+> Hi Christian,
+> 
+> thanks for your patch!
+> 
+> Sorry for being late to the show. I missed this very nice patch
+> that was actually on my personal TODO but I have to much
+> to do and also I'm not smart with Rust, but I'm a big supporter.
+> 
+> On Thu, Jan 23, 2025 at 11:40 PM Christian Schrefl
+> <chrisi.schrefl@gmail.com> wrote:
+> 
+>> +       select HAVE_RUST if CPU_LITTLE_ENDIAN && CPU_32v7
+> 
+> Nothing in the patch series really explains this restriction, so it
+> should be in the commit message. Arnd mentions some atomics
+> etc, but we really need to know exactly why this is in the patch.
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
- arch/powerpc/crypto/Kconfig           |   8 --
- arch/powerpc/crypto/chacha-p10-glue.c | 145 ++------------------------
- 2 files changed, 6 insertions(+), 147 deletions(-)
+This should probably work with armv6 targets, for v5 or v4 Targets a 
+different target would have to be specified in the KBUILD_RUSTFLAGS.
 
-diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
-index 370db8192ce62..47dccdd496374 100644
---- a/arch/powerpc/crypto/Kconfig
-+++ b/arch/powerpc/crypto/Kconfig
-@@ -93,21 +93,13 @@ config CRYPTO_AES_GCM_P10
- 	  later CPU. This module supports stitched acceleration for AES/GCM.
- 
- config CRYPTO_CHACHA20_P10
- 	tristate
- 	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
--	select CRYPTO_SKCIPHER
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	default CRYPTO_LIB_CHACHA_INTERNAL
--	help
--	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
--	  stream cipher algorithms
--
--	  Architecture: PowerPC64
--	  - Power10 or later
--	  - Little-endian
- 
- config CRYPTO_POLY1305_P10
- 	tristate "Hash functions: Poly1305 (P10 or later)"
- 	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
- 	select CRYPTO_HASH
-diff --git a/arch/powerpc/crypto/chacha-p10-glue.c b/arch/powerpc/crypto/chacha-p10-glue.c
-index 3355305b6c7f8..9982929573add 100644
---- a/arch/powerpc/crypto/chacha-p10-glue.c
-+++ b/arch/powerpc/crypto/chacha-p10-glue.c
-@@ -1,17 +1,14 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * PowerPC P10 (ppc64le) accelerated ChaCha and XChaCha stream ciphers,
-- * including ChaCha20 (RFC7539)
-+ * ChaCha stream cipher (P10 accelerated)
-  *
-  * Copyright 2023- IBM Corp. All rights reserved.
-  */
- 
--#include <crypto/algapi.h>
--#include <crypto/internal/chacha.h>
-+#include <crypto/chacha.h>
- #include <crypto/internal/simd.h>
--#include <crypto/internal/skcipher.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/cpufeature.h>
- #include <linux/sizes.h>
- #include <asm/simd.h>
-@@ -76,152 +73,22 @@ void chacha_crypt_arch(u32 *state, u8 *dst, const u8 *src, unsigned int bytes,
- 		dst += todo;
- 	} while (bytes);
- }
- EXPORT_SYMBOL(chacha_crypt_arch);
- 
--static int chacha_p10_stream_xor(struct skcipher_request *req,
--				 const struct chacha_ctx *ctx, const u8 *iv)
--{
--	struct skcipher_walk walk;
--	u32 state[16];
--	int err;
--
--	err = skcipher_walk_virt(&walk, req, false);
--	if (err)
--		return err;
--
--	chacha_init(state, ctx->key, iv);
--
--	while (walk.nbytes > 0) {
--		unsigned int nbytes = walk.nbytes;
--
--		if (nbytes < walk.total)
--			nbytes = rounddown(nbytes, walk.stride);
--
--		if (!crypto_simd_usable()) {
--			chacha_crypt_generic(state, walk.dst.virt.addr,
--					     walk.src.virt.addr, nbytes,
--					     ctx->nrounds);
--		} else {
--			vsx_begin();
--			chacha_p10_do_8x(state, walk.dst.virt.addr,
--				      walk.src.virt.addr, nbytes, ctx->nrounds);
--			vsx_end();
--		}
--		err = skcipher_walk_done(&walk, walk.nbytes - nbytes);
--		if (err)
--			break;
--	}
--
--	return err;
--}
--
--static int chacha_p10(struct skcipher_request *req)
--{
--	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
--	struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
--
--	return chacha_p10_stream_xor(req, ctx, req->iv);
--}
--
--static int xchacha_p10(struct skcipher_request *req)
--{
--	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
--	struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
--	struct chacha_ctx subctx;
--	u32 state[16];
--	u8 real_iv[16];
--
--	chacha_init(state, ctx->key, req->iv);
--	hchacha_block_arch(state, subctx.key, ctx->nrounds);
--	subctx.nrounds = ctx->nrounds;
--
--	memcpy(&real_iv[0], req->iv + 24, 8);
--	memcpy(&real_iv[8], req->iv + 16, 8);
--	return chacha_p10_stream_xor(req, &subctx, real_iv);
--}
--
--static struct skcipher_alg algs[] = {
--	{
--		.base.cra_name		= "chacha20",
--		.base.cra_driver_name	= "chacha20-p10",
--		.base.cra_priority	= 300,
--		.base.cra_blocksize	= 1,
--		.base.cra_ctxsize	= sizeof(struct chacha_ctx),
--		.base.cra_module	= THIS_MODULE,
--
--		.min_keysize		= CHACHA_KEY_SIZE,
--		.max_keysize		= CHACHA_KEY_SIZE,
--		.ivsize			= CHACHA_IV_SIZE,
--		.chunksize		= CHACHA_BLOCK_SIZE,
--		.setkey			= chacha20_setkey,
--		.encrypt		= chacha_p10,
--		.decrypt		= chacha_p10,
--	}, {
--		.base.cra_name		= "xchacha20",
--		.base.cra_driver_name	= "xchacha20-p10",
--		.base.cra_priority	= 300,
--		.base.cra_blocksize	= 1,
--		.base.cra_ctxsize	= sizeof(struct chacha_ctx),
--		.base.cra_module	= THIS_MODULE,
--
--		.min_keysize		= CHACHA_KEY_SIZE,
--		.max_keysize		= CHACHA_KEY_SIZE,
--		.ivsize			= XCHACHA_IV_SIZE,
--		.chunksize		= CHACHA_BLOCK_SIZE,
--		.setkey			= chacha20_setkey,
--		.encrypt		= xchacha_p10,
--		.decrypt		= xchacha_p10,
--	}, {
--		.base.cra_name		= "xchacha12",
--		.base.cra_driver_name	= "xchacha12-p10",
--		.base.cra_priority	= 300,
--		.base.cra_blocksize	= 1,
--		.base.cra_ctxsize	= sizeof(struct chacha_ctx),
--		.base.cra_module	= THIS_MODULE,
--
--		.min_keysize		= CHACHA_KEY_SIZE,
--		.max_keysize		= CHACHA_KEY_SIZE,
--		.ivsize			= XCHACHA_IV_SIZE,
--		.chunksize		= CHACHA_BLOCK_SIZE,
--		.setkey			= chacha12_setkey,
--		.encrypt		= xchacha_p10,
--		.decrypt		= xchacha_p10,
--	}
--};
--
- bool chacha_is_arch_optimized(void)
- {
- 	return static_key_enabled(&have_p10);
- }
- EXPORT_SYMBOL(chacha_is_arch_optimized);
- 
- static int __init chacha_p10_init(void)
- {
--	if (!cpu_has_feature(CPU_FTR_ARCH_31))
--		return 0;
--
--	static_branch_enable(&have_p10);
--
--	return crypto_register_skciphers(algs, ARRAY_SIZE(algs));
--}
--
--static void __exit chacha_p10_exit(void)
--{
--	if (!static_branch_likely(&have_p10))
--		return;
--
--	crypto_unregister_skciphers(algs, ARRAY_SIZE(algs));
-+	if (cpu_has_feature(CPU_FTR_ARCH_31))
-+		static_branch_enable(&have_p10);
-+	return 0;
- }
--
- arch_initcall(chacha_p10_init);
--module_exit(chacha_p10_exit);
- 
--MODULE_DESCRIPTION("ChaCha and XChaCha stream ciphers (P10 accelerated)");
-+MODULE_DESCRIPTION("ChaCha stream cipher (P10 accelerated)");
- MODULE_AUTHOR("Danny Tsen <dtsen@linux.ibm.com>");
- MODULE_LICENSE("GPL v2");
--MODULE_ALIAS_CRYPTO("chacha20");
--MODULE_ALIAS_CRYPTO("chacha20-p10");
--MODULE_ALIAS_CRYPTO("xchacha20");
--MODULE_ALIAS_CRYPTO("xchacha20-p10");
--MODULE_ALIAS_CRYPTO("xchacha12");
--MODULE_ALIAS_CRYPTO("xchacha12-p10");
--- 
-2.49.0
+Rust also has some big endian arm targets.
 
+> 
+> I'm a bit surprised by this since the rustc LLVM backend nowadays
+> support all old ARM ISAs. I would have expected:
+> 
+> select HAVE_RUST if AEABI
+> 
+> Ideally this should work on any ARM core, but it's fair to require
+> EABI.
+> 
+> The big reason: I think we want to be able to use Rust in kernel
+> core components sooner than ARMv5 goes away from the kernel.
+> 
+> If testing is the only issue, I can provide testing on ARMv4, v5,
+> ARMv5 BE etc, just tell me how to test. (But I guess it's more than
+> that...)
+
+The main reason that I only did this for ARMv7 was that I'm not very
+familiar with older arm versions and that I only have v7 hardware for
+testing.
+
+I currently don't have much time to work on this, but when/if it 
+works in qemu I'll send you a message to test it on HW.
+
+Cheers
+Christian
 
