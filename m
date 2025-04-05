@@ -4,59 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1C4C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 02:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FFE7C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 05:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YWiQUGDJYpUyYTvlOld+PGAp6qItv2FNiR4OCFvP0v8=; b=OOiFi3IjGDXEvDApcpzwhldZmM
-	YydXjeoG0iKKDw7K3/CVrupCfJkqL0npr1jDuS/mHy5njJJT/nu3sDgsiMj4NWGhMKqMDdR3sNM/S
-	VHfyVop6GXQbb7g6DIEe0FoZoKyFEUar7jYu/2JyQ49uTPVvtM7MPWU9RK3eJiIaFlHOcGFnFGluW
-	DOb3q88e3j3agAX6QCWAT6cRoz0wVMgKD1U5Unk9bDDbvHsEGACCco5ki8AdpU+0qEgBZEvvsjRQ/
-	/3Y0Ex8ory2U7/Pvo4m8/SnOz4D+YX1cHw1dsavdwS+B0ILfhZSdsainAU8oArzx9o9/x0opduWBL
-	bl22+3Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ELXP8BnMg0kJvaDE3S2jRkd/Etcxd1UmTQ1mFWYQwxU=; b=fjjG0Uek4xwNcS6zyDu5eq8b3z
+	uRXEw5ewjJEHK6Gwn3OiB1C8s1A3eTnGpBywVRLcRVOttkL8AMSVo5pnQN9rZE6nA5m0zk9YJvFXg
+	oS0LI2rHmHmXVMvQYv38xTHj6JG0RIYKh57XJ0dKBoOpq8MiBoSKTSaOEOWy3dzTZ3xVl38ildbL2
+	1bsk85WWdBdBS6d7mlIE4QGX7CEp34SMMjUh3K7lIgJqnY2OR8DUoFMJaGr7sORbI4jPGbpuFuGgg
+	F2qaQHfm4ElOjKemgmuOLehCSqLrkcvi2uZw7veuZmJR1SQdgcZKO60zk8zjShODIXGW3Hwsf2UMb
+	V7hp8QYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0tg3-0000000DNAg-3tab;
-	Sat, 05 Apr 2025 02:54:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u0wWM-0000000DXO6-3SKE;
+	Sat, 05 Apr 2025 05:56:46 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0tdZ-0000000DN00-3O8f
+	id 1u0wUd-0000000DXDN-0b60
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 02:52:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 294745C3E60;
-	Sat,  5 Apr 2025 02:49:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6DCDC4CEDD;
-	Sat,  5 Apr 2025 02:52:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743821520;
-	bh=PzDiYIXiT4qV7j99+SEDS7NUkNdgdAH825CcNms1K7o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=akYWiaIpudqYuh/RU5mUvUpyjHQ9SsRC2e6O8Q6mWOaTfc1rl/Xm4ye0GFnKPa8j7
-	 gZ+ZeFVE+LKlcasCzx4Ym6eGmDPTbgzIBuToPndu2DJim9j28dKoROFtiBWktOHxr5
-	 5CRnpTUBPA2mQJZODX/bCDD20PcFMPcig8PvPUfq/F7vWAl8+d+CuF3gricqVC/NTo
-	 pArbQE4WLxb+pHEyC0U0GCNnuyJ5uGPP1I7AJ3gSlmXB95HwcLxQaH6UzDK4dfIkvm
-	 aWcygHkRedG4WHhMsCSTzmcceB1vJtKZYAO2ussw8u45CCSAxOztaRDMWIdaikrea3
-	 oJqStuO7jvsEw==
-Date: Fri, 4 Apr 2025 19:51:58 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	herbert@gondor.apana.org.au, Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v2 0/3] crypto: arm - drop dependency on SIMD helper
-Message-ID: <20250405025158.GA175983@sol.localdomain>
-References: <20250403071953.2296514-5-ardb+git@google.com>
+	Sat, 05 Apr 2025 05:55:00 +0000
+Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-736b98acaadso2699033b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Apr 2025 22:54:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743832498; x=1744437298; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ELXP8BnMg0kJvaDE3S2jRkd/Etcxd1UmTQ1mFWYQwxU=;
+        b=AxWtv0ugTPNl5r/x9NRgmv7VyRSxhzEKF41iiUrQr+8cfMzezPXsOfaBR5mEUTzf00
+         KGtnWAS6dVfqdvRMkPIaXwiu9Kj1PRexbyPC+8qkIQ7G0ZsxFgjs+F30DmqGyjlJB4GL
+         A5vrBxc35ml/Y9HHSkbMH86FNG7YjRRCdiEvE7TENfg3uERnsMbuaHxm/3iycvEDNxO/
+         n5jEbMJLOjd7/HfEFdj4On0vK2LCVVvoM++GFN6hSCve1W2l9EaEc2oBpfhYoq5qUQMb
+         qbcAQMOUy3yB8+Jr4WvB7os0pfXqtooSrO9ULDNqOfcchxld8oDet4/bR8IhQ8p5hqGM
+         TLSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743832498; x=1744437298;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ELXP8BnMg0kJvaDE3S2jRkd/Etcxd1UmTQ1mFWYQwxU=;
+        b=SHugGOQTVPF/jIdLLBKZfjcSI1GccFFMAsHOUMHaP9iFGNaT9SHcigMW9xcnlIUbIz
+         1TityplnQyemMWM66jU7Wx2nQEHJK8WYXcHFdQ0jgfkYyYUvY2pIQAArQpak0c/pNHLJ
+         qHYE2DcJlqc1xx4nEZX6uRnVR8CB9PPpLVa0qR/2uKuLqU63N9z/c9HkQUJefIwR7axd
+         HhNGwq5ng3ceSIZyVeMgZiI/4Tpmap0rH5D/nEMuA9a6mlKxMkSjRS9QhiYYBZWbDyru
+         uuXwbtK4lMakZM/h/xYU7fyfo+MepmXvatAx9BAflwpT/lKiM3hQV/LcEcRq8UFej2Th
+         ufuw==
+X-Forwarded-Encrypted: i=1; AJvYcCXKNnJEqB8lm/WHJOMs7+TYA4TBrI6ZU9NJBAhk6Fk1hRsCphAfsIvbb8IC6Fzi6HVRRow7l6xsWT22kP4WpsPb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCehoLiQnkdFPE2POF2hfyDHCvBt30UWgYBc3xdagbWfCRjlw3
+	O8QoUUW3tYFxSrPI1RVHOOJtuTGFdfbgB+D/IEPAGVj4FMVpy3mY
+X-Gm-Gg: ASbGncuxeeB6GsSKkcGq5M9Il9dWEktXjxCb+W0bP3FSYomLrUtinPbxanBSi6LiRER
+	qpQc05tdOtSSndhWdQpfg7w9VBLUs501Vv7fUn+HpKTT8hERGGX6RfNNAucrE2R1z8dFv4amovg
+	DHkyL1k2iM7kiytv4E0FM2/qi5MkroDa6zkQV11WrH/uvDmkmsQ+tnQMffaSFWrMfLp+z/VD0v5
+	eKw2KMH9a7Qz4X/G6b8oZUtLMyq1Xs9JY0IfJtKrgGXqoB4p2+0dQ5aufsEo0zszrRXMCHzxxfw
+	vOtDrRWIXY4AWo9UgFFzCnsTH9fOyMBMk1hYjLwsIkPzCmTxzNqB7ofm1G0IK6swqev7Vg==
+X-Google-Smtp-Source: AGHT+IFYqOzn0CbqAzO6U16/vv3yxNPBs7vBAGPe7v1D1GRNSbbegU+qDr2xpouLjVmiFE9cnTiGcg==
+X-Received: by 2002:a17:90a:fc44:b0:2ee:aed2:c15c with SMTP id 98e67ed59e1d1-306af788c23mr2724148a91.28.1743832497475;
+        Fri, 04 Apr 2025 22:54:57 -0700 (PDT)
+Received: from henry.localdomain ([223.72.104.130])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30561ca5da3sm5555489a91.0.2025.04.04.22.54.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Apr 2025 22:54:56 -0700 (PDT)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: sudeep.holla@arm.com,
+	cristian.marussi@arm.com,
+	rafael@kernel.org,
+	viresh.kumar@linaro.org
+Cc: arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Henry Martin <bsdhenrymartin@gmail.com>
+Subject: [PATCH v1] cpufreq: scmi: Fix null-ptr-deref in scmi_cpufreq_get_rate()
+Date: Sat,  5 Apr 2025 13:54:47 +0800
+Message-Id: <20250405055447.73925-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250403071953.2296514-5-ardb+git@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_195201_888990_DC789367 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20250404_225459_180144_94029821 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,33 +100,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 09:19:54AM +0200, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> The non-SIMD fallbacks in the ARM skcipher implementations have become
-> dead code now that SIMD is always allowed in the contexts where
-> skciphers may be used. So remove them.
-> 
-> While at it, remove the sync CTR helper function now that its last
-> users have been dropped.
-> 
-> v2:
-> - drop unnecessary includes
-> - add patch #3
-> 
-> Ard Biesheuvel (3):
->   crypto: arm/aes-ce - stop using the SIMD helper
->   crypto: arm/aes-neonbs - stop using the SIMD helper
->   crypto: ctr - remove unused crypto_ctr_encrypt_walk()
-> 
->  arch/arm/crypto/Kconfig           |   2 -
->  arch/arm/crypto/aes-ce-glue.c     | 104 ++----------------
->  arch/arm/crypto/aes-neonbs-glue.c | 116 ++------------------
->  include/crypto/ctr.h              |  47 --------
->  4 files changed, 20 insertions(+), 249 deletions(-)
-> 
+cpufreq_cpu_get_raw() can return NULL when the target CPU is not present
+in the policy->cpus mask. scmi_cpufreq_get_rate() does not check for
+this case, which results in a NULL pointer dereference.
 
-Reviewed-by: Eric Biggers <ebiggers@kernel.org>
+Add NULL check after cpufreq_cpu_get_raw() to prevent this issue.
 
-- Eric
+Fixes: 99d6bdf33877 ("cpufreq: add support for CPU DVFS based on SCMI message protocol")
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+---
+ drivers/cpufreq/scmi-cpufreq.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
+index c310aeebc8f3..c735f39245bf 100644
+--- a/drivers/cpufreq/scmi-cpufreq.c
++++ b/drivers/cpufreq/scmi-cpufreq.c
+@@ -37,11 +37,17 @@ static struct cpufreq_driver scmi_cpufreq_driver;
+ 
+ static unsigned int scmi_cpufreq_get_rate(unsigned int cpu)
+ {
+-	struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
+-	struct scmi_data *priv = policy->driver_data;
++	struct cpufreq_policy *policy;
++	struct scmi_data *priv;
+ 	unsigned long rate;
+ 	int ret;
+ 
++	policy = cpufreq_cpu_get_raw(cpu);
++	if (!policy)
++		return 0;
++
++	priv = policy->driver_data;
++
+ 	ret = perf_ops->freq_get(ph, priv->domain_id, &rate, false);
+ 	if (ret)
+ 		return 0;
+-- 
+2.34.1
+
 
