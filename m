@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AA8C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 22:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12D1C3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 23:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9lKoo/ZbDhYM9RiCmirWI9K2heacv2o2hdJ55p6p3QY=; b=dRwbF7ynrTu0f6xzQUodm8MsiL
-	SWZTuQFI2+ZpyNS4SuPPq59UrQtSPnwtmnR586hpL4808XA6cLfY9kWh2PqZOPm4BurwuLmMIL4mZ
-	QXDJqgQ0MmCAnPSg7XJ5xsS+XB3lNa3NRER4AGM/GPEmjokRD5pHutJvrluUl7F7TUa8wqiGiGFws
-	i8tXqiI9qa/nepNKGYaKxAoe5zU4iyVeekEf3MmxesV5gxOErbE2icJ0wlXlgXMZISLpCgVPxcPsp
-	C+J27fQD+6ZVN+48y/oxhPHf/CGmz5hpK8P0UNlJbuDsMbt7L1OeKlXvIe8LEFGjB6LAykAwHtyg5
-	3lbqABcA==;
+	bh=lyZGSnBMeeneCIwyMr0oHComy6X8X/19w17qqFQ5cVw=; b=bYaCig9U6+fX9gc5inkRouYIB1
+	7ISXSKg582aLcnDQ4+hy4g4PAQUi2S2MB7/lp7qEL84SPWgqmMQOzFoJRzGZhaDMY6oBcY1djkIKk
+	evteviW665ZPETK+s/N0wkdPMKw+906XfZwO5ic51fNaYUXkV+NfyF6DOFvijB6qvlXof7+zw3bO4
+	w+asFePn4ZTc+BARBlh1L9v+uHMWmx/tkk+VpTpBJ4TBD7asFqDZxGDdbgjKZJDRlzj77fAQ00uaw
+	ZmGl4hxR6LNwPwQjs1OPXzHMaYtiv3sia5uHnVDmlafFtlIFzL+3C22ajwrKVVLiqzxfxP9a7QYbX
+	42oRheig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Bpv-0000000EY7l-0v3G;
-	Sat, 05 Apr 2025 22:17:59 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1u1CaR-0000000EaaX-0eMd;
+	Sat, 05 Apr 2025 23:06:03 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1BoA-0000000EY2l-1jyK
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 22:16:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1743891370; x=1775427370;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=xXUS4GgMNiPbO1jwMYGA+GWr2ekyWvBCCBz0RyIJHDM=;
-  b=ZednLHSLeeM4wbi/4UI4nKOHa7ISx8olIqZHdDfi2hYSkoqdaXSIGItz
-   YYbHeNflTSDmuYUd3W9Rc1+14RYnyBh0FqLGgQYQcXTql6mSYS8AbgdL/
-   WzmHTgmNORvx23U7bobZ9/ThkgOnQ7D5K2V7S5PZpbDbEcJ86XHPDq//y
-   68P5Gre/8Eanr8VDZnfhMLFDdQbRGQRW1pZdWXwZOI1CkUychvfMH9m9m
-   LycL4LF9LWGalGRmZNzdKwYqZ2/bTnRnEOxAV1yTr91uTyPqIDQbFX23Q
-   80GtEb5+kQRvukyeRfJC7Eq5IhcaU/aIOLjIG4mpcjHdCgC5dxlxCsGsg
-   w==;
-X-CSE-ConnectionGUID: coZz3HVFRkSIFkKlgAxhcg==
-X-CSE-MsgGUID: O6q+qOhbQ/ikSoZgngGzCg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11395"; a="48018101"
-X-IronPort-AV: E=Sophos;i="6.15,192,1739865600"; 
-   d="scan'208";a="48018101"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Apr 2025 15:16:06 -0700
-X-CSE-ConnectionGUID: g4MEpJ50TTiUgcuNLPmOSw==
-X-CSE-MsgGUID: C0wrrevxTpKJWYkd9AmLDg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,192,1739865600"; 
-   d="scan'208";a="128116775"
-Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 05 Apr 2025 15:16:04 -0700
-Received: from kbuild by b207828170a5 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u1Bo2-0002Jz-06;
-	Sat, 05 Apr 2025 22:16:02 +0000
-Date: Sun, 6 Apr 2025 06:15:44 +0800
-From: kernel test robot <lkp@intel.com>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	linux-pwm@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/6] pwm: stm32: Emit debug output also for corner cases
- of the rounding callbacks
-Message-ID: <202504060517.dHXuUANs-lkp@intel.com>
-References: <fe154e79319da5ff4159cdc71201a9d3b395e491.1743844730.git.u.kleine-koenig@baylibre.com>
+	id 1u1CYg-0000000EaRN-1kTD;
+	Sat, 05 Apr 2025 23:04:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1743894244; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=T/1l6nSYmkjzcrrhFTI74xTmOePIaUVo+9aMZXhvp/em86ekNMSnEkys1Dl04Wg5HpPuiyIwtdazr8Fw3Hz4JSHyUW57kCyQXxjeBApggdXJ0kZocMpnyhA5sgpyRMr9P0x6gwNwJXsfusU89KADlFNJbOYchdG/z0iQFTGMaNs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1743894244; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=lyZGSnBMeeneCIwyMr0oHComy6X8X/19w17qqFQ5cVw=; 
+	b=EsJ/SJaaQoh4W0h9Ylztc8Ckr0Mw865B682my/yuLQQgCQMzax9Xqr99zKPknOPQfUIjdXa1scRJrVBtwe/jFFSYyZ72ZgASIwYFjDNi79wGcKwe4iO2htknhrJbNjM/x31G/4LOVq0mtFLTVev+uxXWNsBLwNGNUuHopCK0b6g=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1743894244;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=lyZGSnBMeeneCIwyMr0oHComy6X8X/19w17qqFQ5cVw=;
+	b=eiM7hbKr8YeqnfvfxZ0qJNFvbXiGEeDrKwbc3vU9mBZF128PH6o/eFsl2M8f2hO5
+	pVfxkjZuRXNH8vEsjXh9p/50oGDezN+4eiKZ7pwIvWm4dDAxbFkEdflA+xprElEzwtn
+	SnX9Ziw7QqG6PvyLWOV0DljjF0HzTsOvw8Cu7JmY=
+Received: by mx.zohomail.com with SMTPS id 1743894241072346.3815949955907;
+	Sat, 5 Apr 2025 16:04:01 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id D2E43182317; Sun, 06 Apr 2025 01:03:54 +0200 (CEST)
+Date: Sun, 6 Apr 2025 01:03:54 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: shao.mingyin@zte.com.cn
+Cc: vkoul@kernel.org, robert.marko@sartura.hr, kishon@kernel.org, 
+	wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org, 
+	zhang.enpei@zte.com.cn, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	luka.perkov@sartura.hr, linux-arm-msm@vger.kernel.org, heiko@sntech.de, 
+	linux-rockchip@lists.infradead.org, yang.yang29@zte.com.cn, xu.xin16@zte.com.cn, 
+	ye.xingchen@zte.com.cn
+Subject: Re: [PATCH linux-next 5/5] phy: rockchip: =?utf-8?Q?phy-rockchip-?=
+ =?utf-8?B?dHlwZWM6IFVzZcKgZGV2X2Vycl9wcm9iZSgp?=
+Message-ID: <gkq5rxrawtcqsnru7jsfkrxfzubbqq3rbd6fdulmqtdjmitbwk@5jj6l5aafh7x>
+References: <20250402194100610qY6KQ4JPISk-4v214Qs36@zte.com.cn>
+ <20250402194542026OH8jAzuv0uq-J-D9AVPqJ@zte.com.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bfw6qh3c36p7wbnt"
 Content-Disposition: inline
-In-Reply-To: <fe154e79319da5ff4159cdc71201a9d3b395e491.1743844730.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <20250402194542026OH8jAzuv0uq-J-D9AVPqJ@zte.com.cn>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.2/243.872.34
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_151610_492388_F3FAB665 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20250405_160414_496594_AA32B745 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,100 +88,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
 
-kernel test robot noticed the following build errors:
+--bfw6qh3c36p7wbnt
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH linux-next 5/5] phy: rockchip: =?utf-8?Q?phy-rockchip-?=
+ =?utf-8?B?dHlwZWM6IFVzZcKgZGV2X2Vycl9wcm9iZSgp?=
+MIME-Version: 1.0
 
-[auto build test ERROR on e48e99b6edf41c69c5528aa7ffb2daf3c59ee105]
+Hi,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Uwe-Kleine-K-nig/pwm-Let-pwm_set_waveform-succeed-even-if-lowlevel-driver-rounded-up/20250405-173024
-base:   e48e99b6edf41c69c5528aa7ffb2daf3c59ee105
-patch link:    https://lore.kernel.org/r/fe154e79319da5ff4159cdc71201a9d3b395e491.1743844730.git.u.kleine-koenig%40baylibre.com
-patch subject: [PATCH 4/6] pwm: stm32: Emit debug output also for corner cases of the rounding callbacks
-config: arm-randconfig-004-20250406 (https://download.01.org/0day-ci/archive/20250406/202504060517.dHXuUANs-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 10.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250406/202504060517.dHXuUANs-lkp@intel.com/reproduce)
+On Wed, Apr 02, 2025 at 07:45:42PM +0800, shao.mingyin@zte.com.cn wrote:
+> From: Zhang Enpei <zhang.enpei@zte.com.cn>
+>=20
+> Replace the open-code with dev_err_probe() to simplify the code.
+>=20
+> Signed-off-by: Zhang Enpei <zhang.enpei@zte.com.cn>
+> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+> ---
+>  drivers/phy/rockchip/phy-rockchip-typec.c | 8 +++-----
+>  1 file changed, 3 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rock=
+chip/phy-rockchip-typec.c
+> index d9701b6106d5..94d1e6ead1a7 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-typec.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-typec.c
+> @@ -1151,11 +1151,9 @@ static int rockchip_typec_phy_probe(struct platfor=
+m_device *pdev)
+>  	if (IS_ERR(tcphy->extcon)) {
+>  		if (PTR_ERR(tcphy->extcon) =3D=3D -ENODEV) {
+>  			tcphy->extcon =3D NULL;
+> -		} else {
+> -			if (PTR_ERR(tcphy->extcon) !=3D -EPROBE_DEFER)
+> -				dev_err(dev, "Invalid or missing extcon\n");
+> -			return PTR_ERR(tcphy->extcon);
+> -		}
+> +		} else
+> +			return dev_err_probe(dev, PTR_ERR(tcphy->extcon),
+> +					     "Invalid or missing extcon\n");
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504060517.dHXuUANs-lkp@intel.com/
+You should also remove the { } for the normal if clause. Otherwise
 
-All errors (new ones prefixed by >>):
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-   In file included from include/linux/device.h:15,
-                    from include/linux/dmaengine.h:8,
-                    from include/linux/mfd/stm32-timers.h:11,
-                    from drivers/pwm/pwm-stm32.c:12:
-   drivers/pwm/pwm-stm32.c: In function 'stm32_pwm_round_waveform_fromhw':
->> drivers/pwm/pwm-stm32.c:246:60: error: 'rate' undeclared (first use in this function)
-     246 |   pwm->hwpwm, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr, rate,
-         |                                                            ^~~~
-   include/linux/dev_printk.h:139:35: note: in definition of macro 'dev_no_printk'
-     139 |    _dev_printk(level, dev, fmt, ##__VA_ARGS__); \
-         |                                   ^~~~~~~~~~~
-   drivers/pwm/pwm-stm32.c:245:2: note: in expansion of macro 'dev_dbg'
-     245 |  dev_dbg(&chip->dev, "pwm#%u: CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x @%lu -> %lld/%lld [+%lld]\n",
-         |  ^~~~~~~
-   drivers/pwm/pwm-stm32.c:246:60: note: each undeclared identifier is reported only once for each function it appears in
-     246 |   pwm->hwpwm, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr, rate,
-         |                                                            ^~~~
-   include/linux/dev_printk.h:139:35: note: in definition of macro 'dev_no_printk'
-     139 |    _dev_printk(level, dev, fmt, ##__VA_ARGS__); \
-         |                                   ^~~~~~~~~~~
-   drivers/pwm/pwm-stm32.c:245:2: note: in expansion of macro 'dev_dbg'
-     245 |  dev_dbg(&chip->dev, "pwm#%u: CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x @%lu -> %lld/%lld [+%lld]\n",
-         |  ^~~~~~~
+But you might want to throw in an extra patch updating the error
+message. -ENODEV is covered explicitly, so it's not "missing". I
+suggest "Failed to get extcon".
 
+Greetings,
 
-vim +/rate +246 drivers/pwm/pwm-stm32.c
+-- Sebastian
 
-   208	
-   209	static int stm32_pwm_round_waveform_fromhw(struct pwm_chip *chip,
-   210						   struct pwm_device *pwm,
-   211						   const void *_wfhw,
-   212						   struct pwm_waveform *wf)
-   213	{
-   214		const struct stm32_pwm_waveform *wfhw = _wfhw;
-   215		struct stm32_pwm *priv = to_stm32_pwm_dev(chip);
-   216		unsigned int ch = pwm->hwpwm;
-   217	
-   218		if (wfhw->ccer & TIM_CCER_CCxE(ch + 1)) {
-   219			unsigned long rate = clk_get_rate(priv->clk);
-   220			u64 ccr_ns;
-   221	
-   222			/* The result doesn't overflow for rate >= 15259 */
-   223			wf->period_length_ns = stm32_pwm_mul_u64_u64_div_u64_roundup(((u64)wfhw->psc + 1) * (wfhw->arr + 1),
-   224										     NSEC_PER_SEC, rate);
-   225	
-   226			ccr_ns = stm32_pwm_mul_u64_u64_div_u64_roundup(((u64)wfhw->psc + 1) * wfhw->ccr,
-   227								       NSEC_PER_SEC, rate);
-   228	
-   229			if (wfhw->ccer & TIM_CCER_CCxP(ch + 1)) {
-   230				wf->duty_length_ns =
-   231					stm32_pwm_mul_u64_u64_div_u64_roundup(((u64)wfhw->psc + 1) * (wfhw->arr + 1 - wfhw->ccr),
-   232									      NSEC_PER_SEC, rate);
-   233	
-   234				wf->duty_offset_ns = ccr_ns;
-   235			} else {
-   236				wf->duty_length_ns = ccr_ns;
-   237				wf->duty_offset_ns = 0;
-   238			}
-   239		} else {
-   240			*wf = (struct pwm_waveform){
-   241				.period_length_ns = 0,
-   242			};
-   243		}
-   244	
-   245		dev_dbg(&chip->dev, "pwm#%u: CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x @%lu -> %lld/%lld [+%lld]\n",
- > 246			pwm->hwpwm, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr, rate,
-   247			wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns);
-   248	
-   249		return 0;
-   250	}
-   251	
+>  	}
+>=20
+>  	pm_runtime_enable(dev);
+> --=20
+> 2.25.1
+>=20
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--bfw6qh3c36p7wbnt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmfxttMACgkQ2O7X88g7
++ppy+A//fWq3tj+yzqjkHN+x3+fx/l6vrY7SMi3s0Y5iNWc8KoQih+KHs5rVt5gv
++/ubWJhmdA0ArduoDnuG8Q6iqWHqKQdDmqATJG7GvMUXLGWk4WewVGT7fFgWJ8ri
+0+lLkp2w4XFP2ODJYoAL0u7JXRtlBrK9hGoPAVn9qb5hlEBeFWsKKA1ymZcUJMzr
+Uo9dL69VDBghYPDHfTtF0ssyNncVWkcU6NXgOVmBv89hzhVKY/5k19h0tj97QTyK
+XxLwZTYGur3VACuGvu5fNj29bGq74enxRknPiGROryprdTklU5kojss0+SYQXbWU
+UIrLDj/FcOceikn6N+lmntsC7Xev2yXnoIdG8g4t0ft2MMNTzyyaTiUzpXrn6P9b
+3ywDYRigFeWi/ep5Mr6iMm0g8imQ398SOEn357I2Mj+XwkGZo3v3fo0G8LhfDBu9
+ea9y/z04gKVr1yVvqg5blz/G7U9XugwX2K8STj7xJjZkIadq7T7Ncq8xiYji30eU
+TAsXSbtxkzapGVJ6UZfnxSb+UE/lj1h21rGaQewt/jCUJz3XhrKaApKcNSb7fWcJ
+9AAGcKlCjiMhak8zOTGxJwO1P80Dq8oJ6oQrqciQRdYcOMUGjb3kp1/F6TdW2pji
+ifw2gZWm7FAFSVVH/jiSq9FYaoGhUrza6HITG0GEx7y1kK+yB+s=
+=4gXu
+-----END PGP SIGNATURE-----
+
+--bfw6qh3c36p7wbnt--
 
