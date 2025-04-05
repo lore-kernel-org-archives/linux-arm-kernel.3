@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB15FC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 15:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92726C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 16:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BugjcZAgjg+SxWM6msfC6lZpG578nU3iM1C5nasdLKg=; b=C+0hHHIHGLvwiIA+7bNPzxOY8V
-	rYgRk07swSg23jpI8LavfquzP68vr7jS3GCQ5xtAcIjkxjWTUg7Yn2J//e/DjO0VmBGR4nBrltpa/
-	kigjM5Osi0LNGWVOFPWO9unVX9O9SIE+CCWi+FdozQlO1kYJ6llfKew7V+MHpYFhFDoD5f8VMw9AW
-	klMKb0Gi5xiGtZeOqLQgpwqMZvSO+8G3wS+sIVH4Xn8m/oFP0y2Wovnon0nvNT3rbkmhyJAQFhwRY
-	IVUETdT4C6D3xctGphP3H66LcBpKPSN245/UV/EPfBuRycOoX2cQ+G19V5CSUoV7PZogP8K+JMxLi
-	NzzL/LeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZDkbYFcVGMaevGrqxd6kjBPIYg2NpgakeKa4aooi8U0=; b=wqeHzQjCvIcaRnjdg1skRMMKMp
+	zK6wXn2hVMbT3OTCDp+tp7fPRhjCht1Kx/Jta4CeLkHMo30HZ7Fv1iO+Rc+W46a3VWHucxrhTqkGb
+	lqI0j4x2LtFW6wGuRAHYCQlQ9oSRfKzD5ejek5IIgDCCRXB0WXCUn6Zt1vSZuRovUESdP2FfzABPi
+	bfY7lV1LJ3+2K9BDnZ0eqC3GqvZaBBbXnuDK1sMWC6SEHqQgW2WgRKwnYB4Jyt6+nvS2e3sMyPK41
+	ynDZV67vbxNNBBNzKASAJzpEjyOvv+8dCa/yjjKvldHZ7DvE0+akp5p7lOE9uU8yERpv0uQIQRt4J
+	XXs7NM/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u15cW-0000000E9VV-0uXp;
-	Sat, 05 Apr 2025 15:39:44 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1u16aI-0000000EDvb-0nxM;
+	Sat, 05 Apr 2025 16:41:30 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u15am-0000000E9KL-29Ux
+	id 1u16YX-0000000EDm8-2gVf
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 15:37:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1743867465; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=N7TYLJRZD6ltPOJ0w6zkwmqoCX8a9oPm0e3j9fFcAyICmX6Wso/h3+qeUlum4T5aS7VueRg1cnQsh0OCXcNi2FhfQO4hh9TN17kbh7VnDXeVqO/N5zb7QlAzEp8BoqmTfmnh6K1pBVl3yvy9/looxNI4f2o6IIT/4fKnzwS+bE4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1743867465; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=BugjcZAgjg+SxWM6msfC6lZpG578nU3iM1C5nasdLKg=; 
-	b=Yj2IFgu51s6yzD3LROPXgD2p1O6Z7PhKFJzdOcttzMgGqZDPblfR8SPaXDiRfiizP5hqCuPINUVpwBMbYJEEibD+u3IMDO0E8yJM+XzP6IRdm4Vhx6TtqXwirI03sE6fkLKoPlFVBD9dPojfA1NCAJRn78A94rNwVE7C01PsykI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
-	dmarc=pass header.from=<sebastian.fricke@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1743867465;
-	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=BugjcZAgjg+SxWM6msfC6lZpG578nU3iM1C5nasdLKg=;
-	b=jYUJylMc4wasWcn/B1RmXJTAM+mJqN90T/VAhxFdLDid9c3AlqIgL90ta4/CTSPa
-	3onteTmoLzeh1fh0usB1I1+QDb9sCpsfl8M59sx0BQ5ZcLunt29rfJpnoPh79lZqzaz
-	8XD0eMp87mc2VWrQstA3g409VOqD9ONBPn3P0w4Y=
-Received: by mx.zohomail.com with SMTPS id 1743867462417829.8012660744155;
-	Sat, 5 Apr 2025 08:37:42 -0700 (PDT)
-Date: Sat, 5 Apr 2025 17:37:32 +0200
-From: Sebastian Fricke <sebastian.fricke@collabora.com>
-To: ming.qian@oss.nxp.com
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
-	mirela.rabulea@oss.nxp.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	xiahong.bao@nxp.com, eagle.zhou@nxp.com, linux-imx@nxp.com,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] media: imx-jpeg: Check decoding is ongoing for
- motion-jpeg
-Message-ID: <20250405153732.sitanh6tucpzvkoe@basti-XPS-13-9310>
-References: <20250328063056.762-1-ming.qian@oss.nxp.com>
- <20250328063056.762-4-ming.qian@oss.nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20250328063056.762-4-ming.qian@oss.nxp.com>
-X-ZohoMailClient: External
+	Sat, 05 Apr 2025 16:39:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1743871182; x=1775407182;
+  h=date:from:to:cc:subject:message-id;
+  bh=KEDKwY9IoGniyg5xaTXS2/jq7jjLlG8skGpNny5aZGY=;
+  b=AA+QeJnGDVysiTlg3AwVkcnvQvZ8dzOr90RrPInHZ1SsBUtuSlmcV2wi
+   KP8zBETTaGXb9qu2D0jgWH4LyNtD0pv5YD9cTCd06jAGWrLll5Tj4czU+
+   CvdgKl53YXEGNQow9m7ODoiosv1pA8UfLzD9EtGF4ffk4hDM8jw1J2SNM
+   Fw9Y+vG2bk09RJPF4btrhNl7qaOAvSacYXmbpM0aTQOjaszWanOhvGo5G
+   imQ4RZxHj7/JvKGJVhOxXLDPA/yamgmS4knCyCTArEiimv9NCSTRP/Awr
+   uNlk55ZCHLCUE1MTmMKeWA815NQ/bVKcJNVlBgE+GeKBqW1XuCKiIw8ev
+   g==;
+X-CSE-ConnectionGUID: nLQCPyZeQYKyGorYHyiacQ==
+X-CSE-MsgGUID: HCFGWq1zTP2+cVuvPLEzbQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11395"; a="45186774"
+X-IronPort-AV: E=Sophos;i="6.15,191,1739865600"; 
+   d="scan'208";a="45186774"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Apr 2025 09:39:39 -0700
+X-CSE-ConnectionGUID: 5Q3zN4nkQ1uzjYY+AMrvWQ==
+X-CSE-MsgGUID: 2tcc4tH8SjWognIsjYgaCw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,191,1739865600"; 
+   d="scan'208";a="128081081"
+Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 05 Apr 2025 09:39:38 -0700
+Received: from kbuild by b207828170a5 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u16YR-00029i-2T;
+	Sat, 05 Apr 2025 16:39:35 +0000
+Date: Sun, 06 Apr 2025 00:38:36 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ 1990c01f0bcc5655596709d0b8cf4e412b4c837c
+Message-ID: <202504060025.SHHujyQZ-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_083756_621754_45D36FF8 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20250405_093941_693432_71026523 
+X-CRM114-Status: UNSURE (   4.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,103 +83,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Ming,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 1990c01f0bcc5655596709d0b8cf4e412b4c837c  Merge branch 'cznic/platform' into for-next
 
-On 28.03.2025 14:30, ming.qian@oss.nxp.com wrote:
->From: Ming Qian <ming.qian@oss.nxp.com>
->
->To support decoding motion-jpeg without DHT, driver will try to decode a
->pattern jpeg before actual jpeg frame by use of linked descriptors
->(This is called "repeat mode"), then the DHT in the pattern jpeg can be
->used for decoding the motion-jpeg.
+elapsed time: 1450m
 
-Hmm do we need to repeat the description from the previous patch?
->
->In other words, 2 frame done interrupts will be triggered, driver will
->ignore the first interrupt, and wait for the second interrupt.
->If the resolution is small, and the 2 interrupts may be too close,
->when driver is handling the first interrupt, two frames are done, then
->driver will fail to wait for the second interrupt.
+configs tested: 121
+configs skipped: 1
 
-Okay this first part is a bit hard to understand, how about:
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-As the first frame in "repeat-mode" is the pattern, the first interrupt
-is ignored by the driver. With small resolution bitstreams, the
-interrupts might fire too quickly and thus the driver might miss the
-second interrupt from the first actual frame.
+tested configs:
+alpha                             allnoconfig    gcc-14.2.0
+alpha                            allyesconfig    gcc-14.2.0
+arc                              allmodconfig    gcc-14.2.0
+arc                               allnoconfig    gcc-14.2.0
+arc                              allyesconfig    gcc-14.2.0
+arc                   randconfig-001-20250405    gcc-14.2.0
+arc                   randconfig-002-20250405    gcc-14.2.0
+arm                              allmodconfig    gcc-14.2.0
+arm                               allnoconfig    clang-21
+arm                              allyesconfig    gcc-14.2.0
+arm                        clps711x_defconfig    clang-21
+arm                   randconfig-001-20250405    clang-18
+arm                   randconfig-002-20250405    gcc-7.5.0
+arm                   randconfig-003-20250405    gcc-8.5.0
+arm                   randconfig-004-20250405    clang-21
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    gcc-14.2.0
+arm64                 randconfig-001-20250405    clang-19
+arm64                 randconfig-002-20250405    gcc-8.5.0
+arm64                 randconfig-003-20250405    gcc-8.5.0
+arm64                 randconfig-004-20250405    gcc-6.5.0
+csky                              allnoconfig    gcc-14.2.0
+csky                  randconfig-001-20250405    gcc-14.2.0
+csky                  randconfig-002-20250405    gcc-10.5.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-21
+hexagon                          allyesconfig    clang-21
+hexagon               randconfig-001-20250405    clang-21
+hexagon               randconfig-002-20250405    clang-21
+i386                             allmodconfig    gcc-12
+i386                              allnoconfig    gcc-12
+i386                             allyesconfig    gcc-12
+i386        buildonly-randconfig-001-20250405    gcc-12
+i386        buildonly-randconfig-002-20250405    clang-20
+i386        buildonly-randconfig-003-20250405    clang-20
+i386        buildonly-randconfig-004-20250405    clang-20
+i386        buildonly-randconfig-005-20250405    clang-20
+i386        buildonly-randconfig-006-20250405    gcc-12
+i386                                defconfig    clang-20
+loongarch                        allmodconfig    gcc-14.2.0
+loongarch                         allnoconfig    gcc-14.2.0
+loongarch             randconfig-001-20250405    gcc-14.2.0
+loongarch             randconfig-002-20250405    gcc-14.2.0
+m68k                             allmodconfig    gcc-14.2.0
+m68k                              allnoconfig    gcc-14.2.0
+m68k                             allyesconfig    gcc-14.2.0
+m68k                         apollo_defconfig    gcc-14.2.0
+m68k                       m5208evb_defconfig    gcc-14.2.0
+microblaze                       allmodconfig    gcc-14.2.0
+microblaze                        allnoconfig    gcc-14.2.0
+microblaze                       allyesconfig    gcc-14.2.0
+mips                              allnoconfig    gcc-14.2.0
+nios2                             allnoconfig    gcc-14.2.0
+nios2                 randconfig-001-20250405    gcc-12.4.0
+nios2                 randconfig-002-20250405    gcc-6.5.0
+openrisc                          allnoconfig    gcc-14.2.0
+openrisc                         allyesconfig    gcc-14.2.0
+parisc                           allmodconfig    gcc-14.2.0
+parisc                            allnoconfig    gcc-14.2.0
+parisc                           allyesconfig    gcc-14.2.0
+parisc                randconfig-001-20250405    gcc-11.5.0
+parisc                randconfig-002-20250405    gcc-9.3.0
+powerpc                          allmodconfig    gcc-14.2.0
+powerpc                           allnoconfig    gcc-14.2.0
+powerpc                          allyesconfig    clang-21
+powerpc                       ebony_defconfig    clang-21
+powerpc                    gamecube_defconfig    clang-21
+powerpc                        icon_defconfig    gcc-14.2.0
+powerpc                      mgcoge_defconfig    clang-21
+powerpc                   motionpro_defconfig    clang-15
+powerpc                 mpc832x_rdb_defconfig    gcc-14.2.0
+powerpc                 mpc836x_rdk_defconfig    clang-21
+powerpc                  mpc885_ads_defconfig    clang-21
+powerpc                       ppc64_defconfig    clang-21
+powerpc               randconfig-001-20250405    gcc-8.5.0
+powerpc               randconfig-002-20250405    gcc-8.5.0
+powerpc               randconfig-003-20250405    gcc-8.5.0
+powerpc                     tqm8541_defconfig    clang-21
+powerpc64             randconfig-001-20250405    clang-21
+powerpc64             randconfig-002-20250405    clang-21
+powerpc64             randconfig-003-20250405    clang-18
+riscv                            allmodconfig    clang-21
+riscv                             allnoconfig    gcc-14.2.0
+riscv                            allyesconfig    clang-16
+riscv                 randconfig-001-20250405    clang-21
+riscv                 randconfig-002-20250405    clang-16
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-15
+s390                             allyesconfig    gcc-14.2.0
+s390                  randconfig-001-20250405    clang-15
+s390                  randconfig-002-20250405    clang-15
+sh                               allmodconfig    gcc-14.2.0
+sh                                allnoconfig    gcc-14.2.0
+sh                               allyesconfig    gcc-14.2.0
+sh                    randconfig-001-20250405    gcc-14.2.0
+sh                    randconfig-002-20250405    gcc-14.2.0
+sh                            shmin_defconfig    gcc-14.2.0
+sparc                            allmodconfig    gcc-14.2.0
+sparc                             allnoconfig    gcc-14.2.0
+sparc                 randconfig-001-20250405    gcc-11.5.0
+sparc                 randconfig-002-20250405    gcc-10.3.0
+sparc64               randconfig-001-20250405    gcc-9.3.0
+sparc64               randconfig-002-20250405    gcc-11.5.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-21
+um                               allyesconfig    gcc-12
+um                    randconfig-001-20250405    clang-17
+um                    randconfig-002-20250405    clang-21
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250405    gcc-12
+x86_64      buildonly-randconfig-002-20250405    clang-20
+x86_64      buildonly-randconfig-003-20250405    clang-20
+x86_64      buildonly-randconfig-004-20250405    clang-20
+x86_64      buildonly-randconfig-005-20250405    gcc-12
+x86_64      buildonly-randconfig-006-20250405    clang-20
+x86_64                              defconfig    gcc-11
+xtensa                            allnoconfig    gcc-14.2.0
+xtensa                  cadence_csp_defconfig    gcc-14.2.0
+xtensa                randconfig-001-20250405    gcc-11.5.0
+xtensa                randconfig-002-20250405    gcc-13.3.0
 
-Is that what you mean?
-
->
->In such case, driver can check whether the decoding is still ongoing,
->if not, just done the current decoding.
-
-That doesn't answer to me why this solves the issue of missing the
-second interrupt, can you elaborate your solution a bit so that the
-reader of the commit description understands why this is needed?
-
-Regards,
-Sebastian
-
->
->Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
->---
-> .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |  1 +
-> .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 20 ++++++++++++++++++-
-> 2 files changed, 20 insertions(+), 1 deletion(-)
->
->diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
->index d579c804b047..adb93e977be9 100644
->--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
->+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
->@@ -89,6 +89,7 @@
-> /* SLOT_STATUS fields for slots 0..3 */
-> #define SLOT_STATUS_FRMDONE			(0x1 << 3)
-> #define SLOT_STATUS_ENC_CONFIG_ERR		(0x1 << 8)
->+#define SLOT_STATUS_ONGOING			(0x1 << 31)
->
-> /* SLOT_IRQ_EN fields TBD */
->
->diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
->index 45705c606769..e6bb45633a19 100644
->--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
->+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
->@@ -910,6 +910,23 @@ static u32 mxc_jpeg_get_plane_size(struct mxc_jpeg_q_data *q_data, u32 plane_no)
-> 	return size;
-> }
->
->+static bool mxc_dec_is_ongoing(struct mxc_jpeg_ctx *ctx)
->+{
->+	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
->+	u32 curr_desc;
->+	u32 slot_status;
->+
->+	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
->+	curr_desc = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_CUR_DESCPT_PTR));
->+
->+	if (curr_desc == jpeg->slot_data.cfg_desc_handle)
->+		return true;
->+	if (slot_status & SLOT_STATUS_ONGOING)
->+		return true;
->+
->+	return false;
->+}
->+
-> static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
-> {
-> 	struct mxc_jpeg_dev *jpeg = priv;
->@@ -979,7 +996,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
-> 		mxc_jpeg_enc_mode_go(dev, reg, mxc_jpeg_is_extended_sequential(q_data->fmt));
-> 		goto job_unlock;
-> 	}
->-	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed) {
->+	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed &&
->+	    mxc_dec_is_ongoing(ctx)) {
-> 		jpeg_src_buf->dht_needed = false;
-> 		dev_dbg(dev, "Decoder DHT cfg finished. Start decoding...\n");
-> 		goto job_unlock;
->-- 
->2.43.0-rc1
->
->
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
