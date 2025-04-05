@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B53EC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 14:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F034C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 15:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GiHxnNFMXpNIIyTnynX7IxDP/p9NCTJMguIsJZ7Y6h0=; b=bEO2KzyNgOeQLLM4q44qBQZ8N/
-	Mwfu0QiKDxpLDbNR2Q2eHpEmF/b7Isau1q13mAB0TKzBkbs+6C+3dc7t++/WltwfNSYdcQb9z6DAt
-	iPlv98sW9BALowxw2apgXVao2ggdYy49gVCJQQG7fxmAsxPFMto+miEz7LL/kjdNBWhzc9aqq5fBL
-	eb7nBVHJHueoFyWOTeUw+wZVv4eUHt915ymbe9wT+vVtrmDP3sdEnOjUu3B6HeLxbXujqiXFh5zaz
-	isQSkO6Wjd3ShXDDkK4uxm2XywPTDkaA4T0GZbeia+aYUfF5NQdXiLAACVQr3O3OjFM+LkJBdZNNY
-	7lBAbCog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=G1GlAmgIOhPLLwZH4tuH1EjSSjBMScVmC97s2f6I+2Q=; b=yqqq5F3bW8xlHFjLzTt98OR3Au
+	6Ihe2voV+yT1ZexfqrnjZ5x/0d8k4spn3+K7VaBSFHAjNffAbzlD/40HKa8CE1vo4VmRziblar6/A
+	VE7FUbRIoS6Z2r8ONucvpeUU7OM5XOMhpDx50OkuyQpHd4VJbysd6KkNfZ3H3z2uMAsHrFEFWB/8U
+	sIeb6WprBqOiUJb9VQkrsIvf//q1TeLEkEKmo1VztD/XoAHhdjePmYfBfuT7Fd+3FUZBqS/8yIbMX
+	jQUb3oLTORmdcNgqiSNVg9rShC/5Q7a7n+qWR4MVtmspjEZ44yc+AAdLhVVMyWcV/NAYsHdA9oS/Z
+	nE/kNiqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u14Xy-0000000E4BK-3Ktc;
-	Sat, 05 Apr 2025 14:30:58 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1u15Od-0000000E81i-0QC0;
+	Sat, 05 Apr 2025 15:25:23 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u14WE-0000000E3ye-22w3
+	id 1u15Ms-0000000E7pJ-2qpP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 14:29:11 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-39bf44be22fso2031738f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 07:29:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743863349; x=1744468149; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=GiHxnNFMXpNIIyTnynX7IxDP/p9NCTJMguIsJZ7Y6h0=;
-        b=kyvCqO4pq01kvKBVnSvOdCcJL5v2XXKEh8ef/ZMhLawVngH5ZM4mwKyeyF0Vihk0Kv
-         a6JH1FLWrBLySquqh528fh9AbWyYCB4C+khxlzG6aFB0Jpbuhj/ptRHloaV+UulvO9ZZ
-         rWatDdzTyvluexal2/CVJYdj19ENVWzlYRE2uIf9YUeArUPi2fKG397xQC7lHotjyYgO
-         Pj73avqdHoQ7Ifpa0x5gLL+KUi0rV3OtAoN9wW7ZLfzHyjbDc2h+KM9NqIwlMSn3equZ
-         dv6Pb/sD39Q8h+QfRx6jk91eXmDo+oVwSfXGECthB0Q2CJyhDtkqyaFX75fYMoMNaaY7
-         CdCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743863349; x=1744468149;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=GiHxnNFMXpNIIyTnynX7IxDP/p9NCTJMguIsJZ7Y6h0=;
-        b=l5bc2rKzee2XKKTzJfqALG0qzDwWHroSj64uBqP4vE/6mO44IeLfjhIdcG3sLN8OsS
-         60WD9dTuAhtXCA9D+O63j0e8ELPnzBtg/Kqyxzp+EepO8Vm2rbAPWJ1DRtRKuWNtiJ0X
-         Vfo1QbFOt85VaxKtj3UPT8eYbwMS4k/Xw3YtwlYu8LjZ+o69C+paweSlpapjx3xXWkpj
-         0DJKdrnNjBknUD0j26hs8jbDKrERArQsPvFWqtzBITXIDiojR+1ft+nGpUSSdzcYW/rd
-         MHAIE0JQRAoaakVxtnBwX5pMo63aH6TALKQ8U5Pkbn0RS14vQrUn1YW83ol2N+NILiAf
-         e1OQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVDkYmeNi2UOfCEM/z0oYoKsKpc2djkRvICZWmUkK01XFztSBQJNnRkNpWsZ1J7HeiMo4tMQRMBtBuESnGJvh4/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxND9DoMcrmZC/uchrhWmet+gqulclKuCntocOkMdAWCjovpPZ6
-	hhkSFU2CYQa5b+IwjGDN4qBjjsgj5tXG+ZGaVXb3vfSJRyvaPqIAsPHNL29h0AQ=
-X-Gm-Gg: ASbGncs3YYRTBv7s/wjoNqDe3nFVGy3xKRGpWbhdePi4MEcTPPRNxHzu4CHNmjfD6U2
-	KGgp0PMZQxNrY/BsrA8OPzxU0FXwIBMT8Gj/e5aiVmouhACLheZmdkwHDx6X9zn1rN5F9k3NYZR
-	+v9pDrI5Gt0ffPuZIzAosJEgWqhb9L4ZopE2E5xTs/fbPLuqse17gpPj1cUD0WuODp/7KiN++l7
-	UbFKAEyz7RI0tnVFeCaydzhDmpkyun4ime9YFBcrG82254MKAcFcI455yQAvbF7DQcCUpKTy4BV
-	jjp5p+lgBKk49OqCS16l656tRa5FQ3wd+JXdeHKXdV58CDIu
-X-Google-Smtp-Source: AGHT+IG+Z0ir3xm5RCrAq1SN4ZDlwjVRgFNS1Hr6WM6JjZY4zAku9AfXOB4reUpFaHMAVqmVf3D7Rw==
-X-Received: by 2002:a5d:6d8a:0:b0:39a:cc34:2f9b with SMTP id ffacd0b85a97d-39d6fc291b3mr2358345f8f.16.1743863348783;
-        Sat, 05 Apr 2025 07:29:08 -0700 (PDT)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c3020d63csm7230344f8f.69.2025.04.05.07.29.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Apr 2025 07:29:08 -0700 (PDT)
-Message-ID: <73d99b656c405a19f75633796b696cc1aae71b90.camel@linaro.org>
-Subject: Re: [PATCH v3 00/32] Samsung S2MPG10 PMIC MFD-based drivers
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Lee Jones <lee@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sylwester Nawrocki
- <s.nawrocki@samsung.com>, Chanwoo Choi	 <cw00.choi@samsung.com>, Alim
- Akhtar <alim.akhtar@samsung.com>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Russell King	
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon	 <will@kernel.org>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker	
- <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, Krzysztof
- Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Sat, 05 Apr 2025 15:29:06 +0100
-In-Reply-To: <20250404093035.GD43241@google.com>
-References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
-	 <20250404093035.GD43241@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.2-1 
-MIME-Version: 1.0
+	Sat, 05 Apr 2025 15:23:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1743866615; x=1775402615;
+  h=date:from:to:cc:subject:message-id;
+  bh=WSMv+iSTt3EweKI+/oTWfni+hFqMhY2yOfkrGhzEAmE=;
+  b=DMgN0RH878KKwsamdgRccgV9xF7/nhDhphjgihcA/ZtG/EnEZuLn3tvA
+   xlK9AYxg/u/BdoHAySDuJb07UHg5C6iB1UhZo1yThx7c/NWLfpF3rbgIM
+   357ri9y9VDYrvMKSavMBzDfKzsEh7TfrdlVrVI+yIEU3VSenCdj1RL4Zn
+   i509fMh8Njcoo3G2fKYkIzYbANX8aspYnZyfdDTCqxGnhNsjpqE0XUBLM
+   XmIucHPjA8HLwiMrqqyGI1ur3Di3V7NcwiuV3yVwMz223INMAZDXWczyB
+   SF47RfNj/qZpCL18m82rKZsN9jO7qoTcHpsEMOA9WilKuEWVpsMMh5AgX
+   g==;
+X-CSE-ConnectionGUID: OzKG0PeASP+KG5Gq9wUO7A==
+X-CSE-MsgGUID: CkVeR5VWSAGngN3y7ingXA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11395"; a="70670811"
+X-IronPort-AV: E=Sophos;i="6.15,191,1739865600"; 
+   d="scan'208";a="70670811"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Apr 2025 08:23:33 -0700
+X-CSE-ConnectionGUID: HJf/gLy+Q6GQsfG90HgY3g==
+X-CSE-MsgGUID: udnmxPorRvS8PZOJIss/EQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,191,1739865600"; 
+   d="scan'208";a="127300542"
+Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 05 Apr 2025 08:23:32 -0700
+Received: from kbuild by b207828170a5 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u15Mn-00027L-1X;
+	Sat, 05 Apr 2025 15:23:29 +0000
+Date: Sat, 05 Apr 2025 23:22:39 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:cznic/platform] BUILD SUCCESS
+ b24e88b42d68d388f97ca71e11e50cb3e78406ec
+Message-ID: <202504052328.Zgn49SPS-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_072910_526256_D1DEB3E8 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20250405_082334_733316_D09F15A3 
+X-CRM114-Status: UNSURE (   4.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,27 +83,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-04-04 at 10:30 +0100, Lee Jones wrote:
-> On Thu, 03 Apr 2025, Andr=C3=A9 Draszik wrote:
->=20
-> > This series adds initial support for the Samsung S2MPG10 PMIC using the
-> > MFD framework. This is a PMIC for mobile applications and is used on
-> > the Google Pixel 6 and 6 Pro (oriole / raven).
->=20
-> When you resubmit these, please note that MFD subjects take the form:
->=20
-> =C2=A0 mfd: <file>: Succinct change description starting with an uppercas=
-e char
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git cznic/platform
+branch HEAD: b24e88b42d68d388f97ca71e11e50cb3e78406ec  platform: cznic: use ffs() instead of __bf_shf()
 
-I've followed your suggestion regarding the prefix when patches touch just =
-one
-file, but for patches that touch multiple files, I've kept the 'mfd: sec:'
-prefix, e.g. in patch 18.
+elapsed time: 1445m
 
-Hope that's OK.
+configs tested: 120
+configs skipped: 6
 
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Cheers,
-Andre'
+tested configs:
+alpha                             allnoconfig    gcc-14.2.0
+alpha                            allyesconfig    gcc-14.2.0
+arc                              allmodconfig    gcc-14.2.0
+arc                               allnoconfig    gcc-14.2.0
+arc                              allyesconfig    gcc-14.2.0
+arc                   randconfig-001-20250405    gcc-14.2.0
+arc                   randconfig-002-20250405    gcc-14.2.0
+arc                        vdk_hs38_defconfig    gcc-14.2.0
+arm                              allmodconfig    gcc-14.2.0
+arm                               allnoconfig    clang-21
+arm                              allyesconfig    gcc-14.2.0
+arm                           imxrt_defconfig    clang-21
+arm                        multi_v7_defconfig    gcc-14.2.0
+arm                   randconfig-001-20250405    clang-18
+arm                   randconfig-002-20250405    gcc-7.5.0
+arm                   randconfig-003-20250405    gcc-8.5.0
+arm                   randconfig-004-20250405    clang-21
+arm                        spear3xx_defconfig    clang-17
+arm                           spitz_defconfig    gcc-14.2.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    gcc-14.2.0
+arm64                 randconfig-001-20250405    clang-19
+arm64                 randconfig-002-20250405    gcc-8.5.0
+arm64                 randconfig-003-20250405    gcc-8.5.0
+arm64                 randconfig-004-20250405    gcc-6.5.0
+csky                              allnoconfig    gcc-14.2.0
+csky                  randconfig-001-20250405    gcc-14.2.0
+csky                  randconfig-002-20250405    gcc-10.5.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-21
+hexagon                          allyesconfig    clang-21
+hexagon               randconfig-001-20250405    clang-21
+hexagon               randconfig-002-20250405    clang-21
+i386                             allmodconfig    gcc-12
+i386                              allnoconfig    gcc-12
+i386                             allyesconfig    gcc-12
+i386        buildonly-randconfig-003-20250404    gcc-12
+i386        buildonly-randconfig-004-20250404    gcc-12
+i386        buildonly-randconfig-006-20250404    gcc-12
+i386                                defconfig    clang-20
+loongarch                        allmodconfig    gcc-14.2.0
+loongarch                         allnoconfig    gcc-14.2.0
+loongarch             randconfig-001-20250405    gcc-14.2.0
+loongarch             randconfig-002-20250405    gcc-14.2.0
+m68k                             allmodconfig    gcc-14.2.0
+m68k                              allnoconfig    gcc-14.2.0
+m68k                             allyesconfig    gcc-14.2.0
+microblaze                       allmodconfig    gcc-14.2.0
+microblaze                        allnoconfig    gcc-14.2.0
+microblaze                       allyesconfig    gcc-14.2.0
+mips                              allnoconfig    gcc-14.2.0
+nios2                             allnoconfig    gcc-14.2.0
+nios2                 randconfig-001-20250405    gcc-12.4.0
+nios2                 randconfig-002-20250405    gcc-6.5.0
+openrisc                          allnoconfig    gcc-14.2.0
+openrisc                         allyesconfig    gcc-14.2.0
+openrisc                            defconfig    gcc-14.2.0
+openrisc                  or1klitex_defconfig    gcc-14.2.0
+parisc                           allmodconfig    gcc-14.2.0
+parisc                            allnoconfig    gcc-14.2.0
+parisc                           allyesconfig    gcc-14.2.0
+parisc                              defconfig    gcc-14.2.0
+parisc                randconfig-001-20250405    gcc-11.5.0
+parisc                randconfig-002-20250405    gcc-9.3.0
+powerpc                    adder875_defconfig    gcc-14.2.0
+powerpc                          allmodconfig    gcc-14.2.0
+powerpc                           allnoconfig    gcc-14.2.0
+powerpc                          allyesconfig    clang-21
+powerpc                     kmeter1_defconfig    gcc-14.2.0
+powerpc                      pcm030_defconfig    clang-15
+powerpc                     ppa8548_defconfig    gcc-14.2.0
+powerpc               randconfig-001-20250405    gcc-8.5.0
+powerpc               randconfig-002-20250405    gcc-8.5.0
+powerpc               randconfig-003-20250405    gcc-8.5.0
+powerpc                  storcenter_defconfig    gcc-14.2.0
+powerpc                     taishan_defconfig    clang-17
+powerpc                     tqm8555_defconfig    gcc-14.2.0
+powerpc64                        alldefconfig    clang-21
+powerpc64             randconfig-001-20250405    clang-21
+powerpc64             randconfig-002-20250405    clang-21
+powerpc64             randconfig-003-20250405    clang-18
+riscv                            allmodconfig    clang-21
+riscv                             allnoconfig    gcc-14.2.0
+riscv                            allyesconfig    clang-16
+riscv                 randconfig-001-20250405    clang-21
+riscv                 randconfig-002-20250405    clang-16
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-15
+s390                             allyesconfig    gcc-14.2.0
+s390                  randconfig-001-20250405    clang-15
+s390                  randconfig-002-20250405    clang-15
+sh                               allmodconfig    gcc-14.2.0
+sh                                allnoconfig    gcc-14.2.0
+sh                               allyesconfig    gcc-14.2.0
+sh                    randconfig-001-20250405    gcc-14.2.0
+sh                    randconfig-002-20250405    gcc-14.2.0
+sh                          rsk7264_defconfig    gcc-14.2.0
+sparc                            allmodconfig    gcc-14.2.0
+sparc                             allnoconfig    gcc-14.2.0
+sparc                 randconfig-001-20250405    gcc-11.5.0
+sparc                 randconfig-002-20250405    gcc-10.3.0
+sparc64               randconfig-001-20250405    gcc-9.3.0
+sparc64               randconfig-002-20250405    gcc-11.5.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-21
+um                               allyesconfig    gcc-12
+um                    randconfig-001-20250405    clang-17
+um                    randconfig-002-20250405    clang-21
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250405    gcc-12
+x86_64      buildonly-randconfig-002-20250405    clang-20
+x86_64      buildonly-randconfig-003-20250405    clang-20
+x86_64      buildonly-randconfig-004-20250405    clang-20
+x86_64      buildonly-randconfig-005-20250405    gcc-12
+x86_64      buildonly-randconfig-006-20250405    clang-20
+x86_64                              defconfig    gcc-11
+xtensa                            allnoconfig    gcc-14.2.0
+xtensa                randconfig-001-20250405    gcc-11.5.0
+xtensa                randconfig-002-20250405    gcc-13.3.0
 
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
