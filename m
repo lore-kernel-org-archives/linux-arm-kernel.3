@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D51C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 11:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8863C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 11:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SoQfJRPHunsbNr6uBql3ChRC57ynqxjZE49jEW526Ik=; b=MOEb7noO+t4mQJoDKOtRhB4yI4
-	jNqkqhF91UMgY8VWFUhhLq/BHoqxT7ihwzpUteYJkSq0fJ9+v8dZu44a5a32ha80roIe6ofgxWeq2
-	e2gdbIWJnS/dMdFq9vq7rgM0OfCDjfh6vsQ36NhjRxmtaXm/dfTpFf32TpDo1SlQw8jb3Qja0cCUQ
-	1gNfA/xWvCeLRtdYLvIVTsgaBFRFj+kFXE660LzcT7C6l6FgKdcAxuUhsObHWgp5NzFWJKGT3g1Ls
-	5wQfudTPfQpLY/d8EeP1CEE6Ebuz0s74qv8aEjZqhBhrxhPgtZMyE7w7YSLUfJGxIvuf2hYPL02kT
-	1D947PRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u22/p801QpjbmO2uhuEVgNGBkidyKPFcQ/iS9BFuS5s=; b=n8iu983hAy9Y4RNrvCULoifnwa
+	J1eLPOThM55RUCJLNWHZRAHnVaVvfTycFcq1M7fZYFdb7SStY2pu2aAdNLFqYgKhnGKo8idBNBJwm
+	qCLumoAoPXH7QFiyqAJHUt//kkgfmItrSAYRNa0tQTIxV0Vw4wWlHuPPskjMml9mWACcbP93sb5av
+	Vv2eif0/snjq2PyKHtFu7xy3kCqecM9Uhwxd4PcHJaVRRY6fCP2Wcr2y+RMeNi4OSAUSLbSKsa6pH
+	VVwSFlRdQkyY4bdLszAIzvXdZL4+F9oiuMAJ+VMXSs+Ap4JvekVCu8fNCStuNn2w+poYIvZfKSkEY
+	zMO79Qlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u11l8-0000000DtzT-1VO1;
-	Sat, 05 Apr 2025 11:32:22 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1u11uG-0000000DuYV-2VIX;
+	Sat, 05 Apr 2025 11:41:48 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u11jO-0000000DttP-1ITC
+	id 1u11sV-0000000DuOJ-3x2N
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 11:30:35 +0000
-Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-736b350a22cso2438999b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 04:30:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743852633; x=1744457433; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=SoQfJRPHunsbNr6uBql3ChRC57ynqxjZE49jEW526Ik=;
-        b=JyzuAYOUKmXWsfytnp5Vu2+fDLZL5S8Ul22W6yTiPVa3CfBhEWn5cj41JINLIleJBU
-         79XzplE/9El66szdk/Ua544Dizk1rwmIRkYEwdpFf+c/anB3D8Dh0KEi2keOt9fM0VvE
-         Dr5ZBPxDWdczGaYmfB1rle6g4/ganZ5OsuFAkLyEKclQpZ4hhH1gjIyBhxBAg94J40P1
-         deFmyGkvt9Kj4elG126H0e8A1tnUrWDEpzGDLcWZ8+vGrgat/QYoc1KpdxHDZ/iOdkuT
-         URhtxe2UDVQysu1BwTR+hunV7qUJ3K35eH3t5V7UPPOXWSBYoHCd5X/DZ3rqbhqdBLWn
-         nhIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743852633; x=1744457433;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SoQfJRPHunsbNr6uBql3ChRC57ynqxjZE49jEW526Ik=;
-        b=xURllwU8yTJHUsWUkYz7r9oYvVmK1J0181bRHqjMXaUYTxiEW75Vj8qFCooMUZJj7g
-         b0/H3GZ7aEgTtbpO5T9fz7/KlUcLD1A9cput/onZyShZDDQloFSBB/XE52XzUAoC8G0R
-         6cPP3Pwl1Awkcm0i1shN7wxb5DN2uMMtskfRxTuNWV0EBQCA9elc/huLQSJWm2ceO2Me
-         MLphqOshPJW5nLIA5I6VY6yVmLJ3SguyzZt3J+AC8vKdRD3ijaYRiA9cZ8IWInLOkwSN
-         5ImZ+LbuP33n5vYGaK9jwdQt+TC/vI4xrTRcR6Sm4U2kB8rbHKEyEZ1S1bKd8PlXiU8x
-         hdog==
-X-Forwarded-Encrypted: i=1; AJvYcCVtaaa4dgWGM9hqbsVfVUvg1jKAuk/qdn9xLkB6dhYGpQIc7/fcjPUaBfyU5IJKXYyo1EhcWFPZyXa0W/MiKr2G@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNwDOTMSnRnOFy89iWwbhIpIeD4UcDaqnT/PZoI+JN7rwFfBz7
-	yHLCHj60r83w5OmVhu3p5HiAn1JC4mU20yDITdSprHUyg3YK6+w/
-X-Gm-Gg: ASbGnctg7g8kroHIVoVB4F3Gyw9XJvwdwXTjoHQGgN0i+mwUKlk76+887GpWgn0aS0F
-	QvtQ+yRfLV7D68dCSzbqO6rdnGnIBh3OGFf/fktQyBYTG5VIFd2Y7HhOdwToC0yqb+0UnevXnVq
-	cMI09NkuORZZ/djaZJrqPfzvw7ne17ibmYB2j8B2oR8kZOiUqI0S45/eyJMAtdGE6UvF87X4T2H
-	wk50Wca3JIxfPcKGFaDouJiw3HTbtAhyC4iqGnRopyi8Orp/0QRAjl6weK7RnavDXHcv/+yoBR8
-	iWJWCbRowx/+4yENtndEEcXoVcpaPSwPJVlYYe+xy3LTlDCIv4cNyIPOi6GMmuIFxoKi
-X-Google-Smtp-Source: AGHT+IG3yh2rev0TOr9Xa1tn7dlPnXmv6Sk9wM2sX7rVbQR8YnS+sCVDoP/A+k0aNPhcL4ZnjR4Y1A==
-X-Received: by 2002:a17:90a:e18c:b0:2fe:d766:ad95 with SMTP id 98e67ed59e1d1-306a4860a03mr8905930a91.9.1743852633336;
-        Sat, 05 Apr 2025 04:30:33 -0700 (PDT)
-Received: from henry.localdomain ([223.72.104.21])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af9bc323839sm4299234a12.30.2025.04.05.04.30.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Apr 2025 04:30:32 -0700 (PDT)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: gregkh@linuxfoundation.org,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au
-Cc: linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] usb/gadget: Add NULL check in ast_vhub_init_dev()
-Date: Sat,  5 Apr 2025 19:30:20 +0800
-Message-Id: <20250405113020.80387-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 05 Apr 2025 11:40:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1743853187; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Aa6oaPo1O8q5AnU3Y1pDWWTPdKizSQIPiPsuolBj0+UXeYqsgn0k47Anir04kue1g6//wjVUP2WdE5A5T1jazvVJ+dRrp+PeVACtY7tDohXss+Dy6KSxROCdjHxfq138OoQ6nk540GNEiVO7kf2DWUPZnlSLqiEOS0lVvGQkv5Y=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1743853187; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=u22/p801QpjbmO2uhuEVgNGBkidyKPFcQ/iS9BFuS5s=; 
+	b=C6tx3IbtjTxMSj1ltGQIdc0SqC41cRFACrYH6ttVX+mZ0bAu/JRCUlY7SDnMlzS/F2uPl+b1I+67ID/JPyyVD0iYag6OvfmnT6n/X3T0X8P54b+wFS0VN8XDL0BzEheNhrUPzaEud8+Nxc7sLGGI2w0w8VTNFzFuBkAIaAVs0ck=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
+	dmarc=pass header.from=<sebastian.fricke@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1743853187;
+	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=u22/p801QpjbmO2uhuEVgNGBkidyKPFcQ/iS9BFuS5s=;
+	b=N5V51+Jb9Oh2VGeiRlqjxid+joMaQTSEkiQ9MwACEgsC7n39G9abF4/SBpLXjn+3
+	k0EBFHBIzQ+Buelbr5cpB2kxwFQ9i0zv3t7mUBJZlUFlcZf01TgEZNpBYSPdaG5HCLD
+	8NQpC9CzYLcbnkQBXVUcc0bjmGU7L9QQal3l2dO0=
+Received: by mx.zohomail.com with SMTPS id 1743853184816112.34259230527698;
+	Sat, 5 Apr 2025 04:39:44 -0700 (PDT)
+Date: Sat, 5 Apr 2025 13:39:36 +0200
+From: Sebastian Fricke <sebastian.fricke@collabora.com>
+To: ming.qian@oss.nxp.com
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
+	mirela.rabulea@oss.nxp.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	xiahong.bao@nxp.com, eagle.zhou@nxp.com, linux-imx@nxp.com,
+	imx@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] media: imx-jpeg: Enhance error handling in buffer
+ allocation
+Message-ID: <20250405113936.oepkmoz2czytbuxy@basti-XPS-13-9310>
+References: <20250328063056.762-1-ming.qian@oss.nxp.com>
+ <20250328063056.762-2-ming.qian@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20250328063056.762-2-ming.qian@oss.nxp.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_043034_345858_42B73D95 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250405_044000_019479_76A17EF7 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +83,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_kasprintf() returns NULL when memory allocation fails. Currently,
-ast_vhub_init_dev() does not check for this case, which results in a
-NULL pointer dereference.
+Hey Ming,
 
-Add NULL check after devm_kasprintf() to prevent this issue.
+In the title I'd suggest:
+media: imx-jpeg: Cleanup after an allocation error
 
-Cc: stable@vger.kernel.org	# v4.18
-Fixes: 7ecca2a4080c ("usb/gadget: Add driver for Aspeed SoC virtual hub")
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
-V1 -> V2: Add Cc: stable label and correct commit message.
+To be a bit more concrete, enhance error handling can mean pretty much
+anything.
 
- drivers/usb/gadget/udc/aspeed-vhub/dev.c | 2 ++
- 1 file changed, 2 insertions(+)
+On 28.03.2025 14:30, ming.qian@oss.nxp.com wrote:
+>From: Ming Qian <ming.qian@oss.nxp.com>
+>
+>In function mxc_jpeg_alloc_slot_data, driver will allocate some dma
+>buffer, but only return error if certain allocation failed.
+>
+>Without cleanup the allocation failure, the next time it will return
+>success directly, but let some buffer be uninitialized.
+>It may result in accessing a null pointer.
+>
+>Clean up if error occurs in the allocation.
 
-diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-index 573109ca5b79..5b7d41a990d7 100644
---- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-+++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-@@ -548,6 +548,8 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx)
- 	d->vhub = vhub;
- 	d->index = idx;
- 	d->name = devm_kasprintf(parent, GFP_KERNEL, "port%d", idx+1);
-+	if (!d->name)
-+		return -ENOMEM;
- 	d->regs = vhub->regs + 0x100 + 0x10 * idx;
- 
- 	ast_vhub_init_ep0(vhub, &d->ep0, d);
--- 
-2.34.1
+I'd suggest:
 
+When allocation failures are not cleaned up by the driver, further allocation
+errors will be false-positives, which will cause buffers to remain
+uninitialized and cause NULL pointer dereferences.
+Clean up the errors accordingly.
+
+>
+>Fixes: 2db16c6ed72c ("media: imx-jpeg: Add V4L2 driver for i.MX8 JPEG Encoder/Decoder")
+>Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>---
+>v2
+>- Add the Fixes tag
+>
+> .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 47 +++++++++++--------
+> 1 file changed, 27 insertions(+), 20 deletions(-)
+>
+>diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>index 0e6ee997284b..12661c177f5a 100644
+>--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>@@ -752,6 +752,32 @@ static int mxc_get_free_slot(struct mxc_jpeg_slot_data *slot_data)
+> 	return -1;
+> }
+>
+>+static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
+>+{
+>+	/* free descriptor for decoding/encoding phase */
+>+	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+>+			  jpeg->slot_data.desc,
+>+			  jpeg->slot_data.desc_handle);
+>+	jpeg->slot_data.desc = NULL;
+>+	jpeg->slot_data.desc_handle = 0;
+>+
+>+	/* free descriptor for encoder configuration phase / decoder DHT */
+>+	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+>+			  jpeg->slot_data.cfg_desc,
+>+			  jpeg->slot_data.cfg_desc_handle);
+>+	jpeg->slot_data.cfg_desc_handle = 0;
+>+	jpeg->slot_data.cfg_desc = NULL;
+>+
+>+	/* free configuration stream */
+>+	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
+>+			  jpeg->slot_data.cfg_stream_vaddr,
+>+			  jpeg->slot_data.cfg_stream_handle);
+>+	jpeg->slot_data.cfg_stream_vaddr = NULL;
+>+	jpeg->slot_data.cfg_stream_handle = 0;
+>+
+>+	jpeg->slot_data.used = false;
+>+}
+>+
+> static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
+> {
+> 	struct mxc_jpeg_desc *desc;
+>@@ -794,30 +820,11 @@ static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
+> 	return true;
+> err:
+> 	dev_err(jpeg->dev, "Could not allocate descriptors for slot %d", jpeg->slot_data.slot);
+>+	mxc_jpeg_free_slot_data(jpeg);
+>
+> 	return false;
+> }
+>
+>-static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
+>-{
+>-	/* free descriptor for decoding/encoding phase */
+>-	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+>-			  jpeg->slot_data.desc,
+>-			  jpeg->slot_data.desc_handle);
+>-
+>-	/* free descriptor for encoder configuration phase / decoder DHT */
+>-	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+>-			  jpeg->slot_data.cfg_desc,
+>-			  jpeg->slot_data.cfg_desc_handle);
+>-
+>-	/* free configuration stream */
+>-	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
+>-			  jpeg->slot_data.cfg_stream_vaddr,
+>-			  jpeg->slot_data.cfg_stream_handle);
+>-
+>-	jpeg->slot_data.used = false;
+>-}
+
+Can you split the moving of the code from the changes you do?
+Otherwise the reviewer is forced to get the diff manually.
+
+Regards,
+Sebastian Fricke
 
