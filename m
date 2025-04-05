@@ -4,88 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34260C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 09:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1811C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 09:29:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wugxhQvHKc30SDsT4EaI/HEENSsFdBpwWD0zIT6tInY=; b=sj4aqri4E4O+rRVC2aAsEYrdWo
-	PuMyaBXJsIpko4gqm/m1xDmSAGcrEdlYd4Ss5bZkGUWLTaCugKLWW0XevM+ynjAdsms9tdG9Y/xPo
-	Qye04tRhoPxU12AD2SXfgYto7l8fnOo4fPbrtPJToXhh3FXE+c5JqSts/EQK6q102GE+F01GRJ5T7
-	yJDnbVydaPVUEOhfZUJPOe3hy5GesnYbLOYLb1SvpsqS0GxdGiK3SOJE7DnFFv4Rzfv2aRqEDGzsO
-	JuVRJffMn4NMwYFBRJ3ctsKLLbnTvcEfxRWKdvFVkviXpgYAqyWJGX0BbWyUvoE0FbkUE0tnC1b7g
-	Vr+XOW3w==;
+	bh=9QgniJ6UdmWL8To9NYgCLVFTHa10nmpPKSIlfTFU2tU=; b=PWxhCE1w+z4ku2ITPklnEq32ga
+	IDEOSNB9c3qrX9lhOTj4eN00nPa9hhwCukMkAbbmX/nLDrswkPwcY6wRGfib+SHEPI7fB4rw4eFz4
+	sgncyr5R2Be4fCihWoWgric7mc1mXVKbE4Z5rGK/42QLmydLJbuPIHh4SCRyFC7OwFkJ2BJezviLx
+	uARsF19+HsNBKesnOiMEmupvVWZIaY5XQdVUKtNE8wZFKEwWw11uJ6D2GfSoAd5fp3GxuZdHHeKFU
+	aV6+XvAF/8uLqoTV9cyr050+7qoidlKEBi9XbqsvtgL75nmuXcAAQwSIwxss2DakkTBfHepQt2X2X
+	EJgENMFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0zm9-0000000DlRU-3eik;
-	Sat, 05 Apr 2025 09:25:17 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
+	id 1u0zqB-0000000Dlt4-2r5V;
+	Sat, 05 Apr 2025 09:29:27 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0zkP-0000000DlIH-2nwZ
+	id 1u0zoP-0000000DlbT-3srM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 09:23:30 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id 98e67ed59e1d1-306b6ae4fb3so52552a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 02:23:29 -0700 (PDT)
+	Sat, 05 Apr 2025 09:27:40 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5eb92df4fcbso5201230a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 02:27:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743845009; x=1744449809; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743845256; x=1744450056; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wugxhQvHKc30SDsT4EaI/HEENSsFdBpwWD0zIT6tInY=;
-        b=lG38SI30IQGgzdmesRwDMyKYo0htbMZwJpNigDNVB2JAqQo1w4H4g9gk98kU0j7h+F
-         RMRU5zjSKJwfRnUfXU5gfete4sb/vF8HIX9o/ryNtjmqrSTsH9txWKXAsk67yOv9mIRm
-         zTE0R0hkmV5sG1r48EUMOouiE9OCfGoYq8/pr5ohtS/W0bSuuuRTgbvTOc1XqvMyn1qy
-         FWZcRbRWHpDE23z+m2i+qweUaDxgOesac2rDY1LggciimQNmByQLOmyc7ei+Nehqaksg
-         g6RE5x8L+4ZlBOmc99n/0PTR4fMiGq/FN04rtLkhqR9GYvbn6iIhUO+Zdy1Ezp8jyRPJ
-         SVrQ==
+        bh=9QgniJ6UdmWL8To9NYgCLVFTHa10nmpPKSIlfTFU2tU=;
+        b=o51iLKu/kz6VDt65QiOBDBn3VsDlgln3s/R5fI6krqc3Dq1DJKRFHua3d98ACiZNI5
+         WBdbtyoaNlnyh3bqSqAWbPGPDz+taGB/zxUEEZ8hFsoJMIkGqh9gc9lLqoooCzfZJm4P
+         mjyOnJQs6liiQYeZZPvSv5Sz8yynw6OXR/D5ormmaP2EBboIEbkX0gE52uouXnG95GVm
+         vEnJVMfwUxHfj9GUYsJ+5UdxHLUkYRYFGCZulrjqB53LZ7rYZWuaPWZwOkkuSv/TNZ4j
+         PHp3eJ9Kbwd9hocy38DTv+hL4Jlj31u+dIfMCNu0+G9zZytsJy52YOq8JPADYBDQmr4V
+         4lkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743845009; x=1744449809;
+        d=1e100.net; s=20230601; t=1743845256; x=1744450056;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=wugxhQvHKc30SDsT4EaI/HEENSsFdBpwWD0zIT6tInY=;
-        b=qV/Obdu+4i9X9QfJlZ43FYqZ+MyX0ltavxdpgLkyzjq5DDXJLYHe3vuxCOsrwpmWGh
-         r/76ojdBxCnoBajS+YBg2PqU7Xfd8mCTLWnUrVoPUqKZp6ZBL9d8ksJ/0bi1HORveJFG
-         mz0gAFCw3Z4jNwHW3atw2Nb8MLLEzN/uIH1RWBTg8eop2egBRgLCZqeCJFAjlqDG4O7k
-         ZS+dczUK6cgp2QSGWeB6SrEhINjtVH+JiXUt5i4VfcymWJGfcSgKfM6LnWVlCuUSjTAA
-         53R0J6pcSfDsh3BBmAhm2CZKKeez5bPtt9Nf2vzhixgB7ye6OC+kn+TpizeF0NzFzL3B
-         bXug==
-X-Forwarded-Encrypted: i=1; AJvYcCVfvs9VfN88ytZL+TamgVPM6C5EWZ8RopZGVGVwyHgdNVL1j0dgTNw68u+LVHp0k7UGUOolylxA5mEonHyN34wN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnCqmKBsYpB5nV7zCz9d8ne4t2fh6x1pXOkCPY+izwHVz3JQHI
-	W7pSq5qeDqjQeWzxsYgaBdlmfSLGo3qrrHj9blzTRZZPw9OM3rUp
-X-Gm-Gg: ASbGncuFi8ISCBYY/3ttgLPYRLbV7RZfA4zXQe+UhXM3TTcqd+tRaKc11Xjyy9n5YfO
-	Bnw4D8XcC3W40EsTyk2g4QbokPhihHWX2C2omznlgGJqVj91+O02geP9uBC4BWTgARET/YYVUbg
-	Lgcd6qnrsTIGkt/IZ7BNNiayJ3HDK8BEqL9zkKV50oHuVurXnSlLSmEcZuBwHAX6GHupSxNjPCB
-	bUn7CTk1qTg45x3Nj/Lvr97eGvyys1S4GX9DZQgaIbvYyiO0zJYFsMemBHqJ+z6yETkxI+Z9M6g
-	vf8KwUVFF6gP5XNlQ7NY1y5LPHx2Mjj30/FgphvQzLnlQ2bF0hg5E6LQueqZhQ+F90DW
-X-Google-Smtp-Source: AGHT+IHkhHsjr2gLT8Ve1Sx3IQ03TqNe2hZ/KEE0KQj7rKla0oR9QG4GMVxeSmrYPKbVJrqgOXLaQg==
-X-Received: by 2002:a17:90b:50c4:b0:2ff:6a5f:9b39 with SMTP id 98e67ed59e1d1-306a47f2ca5mr10316513a91.18.1743845008573;
-        Sat, 05 Apr 2025 02:23:28 -0700 (PDT)
-Received: from henry.localdomain ([223.72.104.41])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3057cb91b9esm5139782a91.45.2025.04.05.02.23.23
+        bh=9QgniJ6UdmWL8To9NYgCLVFTHa10nmpPKSIlfTFU2tU=;
+        b=uMYlwNUlFpJvswnmG3Xl/QMzRgoZDeuXTmiLtl8zSYsa3JqbS6XaENsDYc7JnsXHVy
+         0qaH6gHvMuHRXQv8jqqu0+sxCMn9EZOFaJ8uOLRDW7IKOgGOLq/K0wUW0yi5yeUxqwyD
+         DeKzaLl1o2Ac87EU+/LSqDHD3ktfvYAbB4MMTOw+zPFdWA8xN+yEGOX4hy4y2zVHaw5i
+         uDfZWUaid549bsC54vdKvsjR/kxeqTjO5lkLRDWJb+ScyKX5qko9pY6ZKpXZ8hOBcFnh
+         gH5SjqWk3DALxYvUYwvqOVjENpf8xLF3pskg2ySqHh78VTNtcJf+h4VYObPXmNYZwCwe
+         sVyA==
+X-Forwarded-Encrypted: i=1; AJvYcCWWpnl9Uwmr0mLqF5BvLLR9sOvl7PuFcqZDA95AnqAftzYcPL6xcdX2aBAeh9mcBy+HaTIk/Y8ptjDw2N6roFKp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdVPzCkmi+u1o4kicM27IjMJjRbJCXtz6dPKfcTKJ0eMKpQLzs
+	wTUtEOlAAMiQTCBnQ3zfC5qJTVRi9hFAiq2xJH+OgNEDXIR7jfgtvFm9HXgz8VE=
+X-Gm-Gg: ASbGncvatEwhw1hZeYZgnEiCTbr2t1fauJ+sl95GfxokASofhsHnTJO5nsncdeIarBi
+	4vyZ/AxhlCNgAx31pS7wLo7ztefHL8rrE3Q9e0yBmDLiyuGSooPMqoJDJjPKsjHocoSYcLnAOeV
+	3Ymqqbs0ALY0kH1TXmSZUtLpTYKMBYUsNDq5TUPo/07JTt62yjwKVBFU0EMg2W6xNIsNNMLVGKf
+	Khc8GTbFH1yVzQ2oal2uCAWh5uTVHutmSgrVHAwzfwIfAeikXH6Z7LT2XVR3LjsX/TdaEhQKy1Y
+	qeeCof0UTO4Q1Bi13I3Tc6oWSB+dDpCsjWybA7Qu/CR6TjGSLQ==
+X-Google-Smtp-Source: AGHT+IEbL8c+JGzPbn45puOitVnDeaHIThpApjBbi0QC6iao2fwFoA3sj7pZiaJmhvJQOzAGSNO8Mg==
+X-Received: by 2002:a05:6402:280b:b0:5e6:44d9:57f7 with SMTP id 4fb4d7f45d1cf-5f0b3e4732amr4711403a12.26.1743845255834;
+        Sat, 05 Apr 2025 02:27:35 -0700 (PDT)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5f087ed1f40sm3442815a12.26.2025.04.05.02.27.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Apr 2025 02:23:28 -0700 (PDT)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: sudeep.holla@arm.com,
-	rafael@kernel.org,
-	viresh.kumar@linaro.org
-Cc: cristian.marussi@arm.com,
-	arm-scmi@vger.kernel.org,
+        Sat, 05 Apr 2025 02:27:35 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: linux-pwm@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>
-Subject: [PATCH v1] cpufreq: scpi: Fix null-ptr-deref in scpi_cpufreq_get_rate()
-Date: Sat,  5 Apr 2025 17:23:14 +0800
-Message-Id: <20250405092314.76297-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Michael Hennerich <michael.hennerich@analog.com>,
+	=?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>
+Subject: [PATCH 0/6] pwm: Some fixes preparing chardev support
+Date: Sat,  5 Apr 2025 11:27:11 +0200
+Message-ID: <cover.1743844730.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1226; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=SdTjxolhxMdpEMLdv2bok/HJQZH5YHyXLZcK4xTHZec=; b=owGbwMvMwMXY3/A7olbonx/jabUkhvQP3wue3FO2D7yoPyX3tFXWCtPSC9wxXg/6hGTMVGZbB hUsSOLvZDRmYWDkYpAVU2Sxb1yTaVUlF9m59t9lmEGsTCBTGLg4BWAid05wMHQGvZ3cUu4YtHTp 6coW45J/V5ef4p8hFa0cvPZHwTankIZ5zcd8X3KV8W84vpJ5YuP6zPN+y88nLy7l0rM9cTnLuLL G9WP4rv+Zdsb3XjxQMVAW9f434WduiGpiv0aE95O5T7uZZdvK018/ruj1KZ8/V5DXo1la9VhDeo WpifGV+IOPl7c+yAsWdTY8WLbKvITd6Gy/u5Yi644lPVpzN8zxZt5i+P/zp7dX91xz9WTX1bK+p cu+IOJaaHvGkjkhBT0V6rM6e5jK8kSW7S57pxZz4oXsBE8nxqu1joLhd8+JX1m41p9XW9U+ba9B 0fzGfZ32j64rr7YwizpmKp1fVFSz83yM3/11HQna2zcAAA==
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_022329_708432_518B66D1 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250405_022738_239043_4DB01885 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +104,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cpufreq_cpu_get_raw() can return NULL when the target CPU is not present
-in the policy->cpus mask. scpi_cpufreq_get_rate() does not check for
-this case, which results in a NULL pointer dereference.
+Hello,
 
-Fixes: 343a8d17fa8d ("cpufreq: scpi: remove arm_big_little dependency")
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
- drivers/cpufreq/scpi-cpufreq.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+while working on character device support for PWMs I found a few
+inconsistencies that are fixed in this series. After that I plan to work
+on getting the character device support into shape to get it into
+mainline, too.
 
-diff --git a/drivers/cpufreq/scpi-cpufreq.c b/drivers/cpufreq/scpi-cpufreq.c
-index 17cda84f00df..8f0da2a86e4b 100644
---- a/drivers/cpufreq/scpi-cpufreq.c
-+++ b/drivers/cpufreq/scpi-cpufreq.c
-@@ -29,9 +29,16 @@ static struct scpi_ops *scpi_ops;
- 
- static unsigned int scpi_cpufreq_get_rate(unsigned int cpu)
- {
--	struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
--	struct scpi_data *priv = policy->driver_data;
--	unsigned long rate = clk_get_rate(priv->clk);
-+	struct cpufreq_policy *policy;
-+	struct scpi_data *priv;
-+	unsigned long rate;
-+
-+	policy = cpufreq_cpu_get_raw(cpu);
-+	if (!policy)
-+		return 0;
-+
-+	priv = policy->driver_data;
-+	rate = clk_get_rate(priv->clk);
- 
- 	return rate / 1000;
- }
+While some of these patches qualify as fixes I think there is no urge to
+get them into 6.15, but given there is a bunch of such changes I might
+send them to all together to Linus for inclusion to 6.15.
+
+Best regards
+Uwe
+
+Uwe Kleine-König (6):
+  pwm: Let pwm_set_waveform() succeed even if lowlevel driver rounded up
+  pwm: stm32: Search an appropriate duty_cycle if period cannot be
+    modified
+  pwm: stm32: Don't open-code TIM_CCER_CCxE()
+  pwm: stm32: Emit debug output also for corner cases of the rounding
+    callbacks
+  pwm: axi-pwmgen: Let .round_waveform_tohw() signal when request was
+    rounded up
+  pwm: Do stricter return value checking for .round_waveform_tohw()
+
+ drivers/pwm/core.c           | 23 ++++++++++++-----------
+ drivers/pwm/pwm-axi-pwmgen.c | 10 +++++++---
+ drivers/pwm/pwm-stm32.c      | 25 +++++++++----------------
+ 3 files changed, 28 insertions(+), 30 deletions(-)
+
+base-commit: e48e99b6edf41c69c5528aa7ffb2daf3c59ee105
 -- 
-2.34.1
+2.47.2
 
 
