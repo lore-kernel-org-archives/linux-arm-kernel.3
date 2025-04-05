@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E630C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 09:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D2CC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 09:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+9siO1d0OJXf+kmdtXu0qBtLgacxuY3xseG/1b/zOl0=; b=vqVD+0+hmrvLgaTa6Qvmxo5r1W
-	cD+xSWf19DcmoFyjQuROnQvgnQg5wsbAWO59xUcGX8bVwVlsfv33KIqq/oVeHXwD7s+h4rKP26yya
-	IGnfdpKG1eI7aVyBjaEd7Vv4rkCDCpWoUblm8svYeUb5tRL7e6CzXdls4/ZFkaWcswDaZYLiPYsfB
-	wChU32hu/74PuE3alo55OPkMpu9P7kz/daDmNCVVZPQV57+bpUFl6LSTA1c4xOMuqv1xkyH9y6iqU
-	tmf1GwhXQwtsecu/XauledCJ9AnQJ6ow29srp/P0VTjFaH+U4qoq/xQlDlb9Vjy8pS7vlBSpqsl4W
-	FwwXFG5g==;
+	bh=zZnZ1QBH4c/cR2r7Z2I0IWQDQQpPtp/xF22TjNG8zFs=; b=WhgiOKpfr5f+hoYIOGbyLb3Ftd
+	6G9M14p4y1v5CSOn7qb9wQWGwhhPA4N5b0QYMdhAFDf9PRix5wUPJhWU2GsamZXJvDLQxXdS+nSou
+	FvH7Qb0/dnuXYG0I5hPkQHeqydpO+gN+WgiH3dT1e8qBUMlhkI3EFCBFP9iqSuNfp2NPanfeIWaD9
+	jKev85Ntmuo+UCAKhV6YE/Z5VHf9jEaU0rmHde4WF7amVRrW3uA2pejyHnjoYjEvz9FRvMCF71Wv3
+	S92c1LYxEZ7OHdLrO6wwxIZsJ9WGNvs4J5QcUhHu4gtjLdEBgu8epgNrHZXLg79srd8eI31ZvG8nN
+	X5CZR1Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0ztc-0000000DmCB-0TQu;
-	Sat, 05 Apr 2025 09:33:00 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1u0zvK-0000000DmPJ-3Ok7;
+	Sat, 05 Apr 2025 09:34:46 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0zoU-0000000Dlc6-45ZF
+	id 1u0zoW-0000000DlcW-3MMU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 09:27:44 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e6ff035e9aso5422443a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 02:27:42 -0700 (PDT)
+	Sat, 05 Apr 2025 09:27:45 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5e5e1a38c1aso3815907a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 02:27:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743845261; x=1744450061; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743845263; x=1744450063; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+9siO1d0OJXf+kmdtXu0qBtLgacxuY3xseG/1b/zOl0=;
-        b=hJkENiWcnSOtxO+SJP74CvGu2ZfJl636qWnA22f4jntUoNCdmyW75d4VDEGkzniBdx
-         rHp/yt+NdIFEpeu69ACmzE8Sn5F8L0fUBIMioe86IfVuizChe/aB5S0cVow71YjldPvr
-         4V+hZgi+GCKAfPTxzZD5gs1P3PKB5MdvQPcoi5hUr5ORM/Y61ccffiwkv3vOtfA9bNIA
-         Jokr6Pj4L+yU69QDC37Uy/17tFhfwlx946HBv9gU+37YnRVwA0ZBsSMIHF8tmmiwQtBy
-         Q/cNUagOlHu8TGARi+KN8r/EPGNryQEk16RUDmATqUTva+IdWaIAU8C4lKF9IUtQDMgL
-         6A6w==
+        bh=zZnZ1QBH4c/cR2r7Z2I0IWQDQQpPtp/xF22TjNG8zFs=;
+        b=xClEUknQp9600dQRmlz6Rh852otuKkgnpoDu1IGtc+Ap83j91LSLgWtgjnI0nYDZrJ
+         7SpnMS7KA5gf6vUDOALXHeGuahxutngIEdElk4Yfs66/2dfQtoBPltkrC8IsME66XZ/Q
+         LJ3F1p6B1Dh1VTZqE3jX6NoOeJfS7G7finBUvm1+gv/vVJEMFfZ5EbnRay7aaF1/rzwf
+         /IYrXbLBfKLGjYiZ30/AFLyyqH3NYENcqwqxUFpvBB+dTexQZQzgACz3vUtk5nh5nknl
+         Nn6LLmppCm1/11kTqzNUEjDlIakz3IGAE7FSB8EPX3fIz+25Po8eznC6gWvC6Gv26oZW
+         JFlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743845261; x=1744450061;
+        d=1e100.net; s=20230601; t=1743845263; x=1744450063;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+9siO1d0OJXf+kmdtXu0qBtLgacxuY3xseG/1b/zOl0=;
-        b=RogkfiCJ4ul9usqb2p8dMoZFAnQ5FjIJjPOoXkzcjNyjoeGLK+rUs993cDKms8rUYy
-         +h4Rij7Z0gk7Hyd7Py15lbfa0F1jbUDcGsJObyMY109vTPpSflziz6kBpE7pagyH6c2r
-         G/te/kKrc6MBBu4Y92lC0pRxo5TMhq2UUQnzgW7+Tkqt+M28egamRHWhhGGb3R5ynOcJ
-         3MD76GBsoIbmv+2VOOgAgLYgC1ShMu5CLkOUo0OTjlQHLsw77kzM2sJCdqHAzSuivZgf
-         tdEeDaUj2dTPnbyh2F+JTtE1gq1H7Aa4FIp1NkEw9EacztNXY/zAunbMovGP3FuHr/fv
-         XktA==
-X-Forwarded-Encrypted: i=1; AJvYcCWHvIQOg7QFoAzTjzRCtbur4PJ44uEMlUp6La5FMPbJCbh5UXdFiQ8j8lhJLaaX9P+64ahjL1+vC1EcPm+/1UtX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyoCBV65mw5YlJ6K+dRWJ9DmwaAfbiQDvNCGfcDg8gMHkSyMhr
-	l63vpSajrgJCrYuiO1QybBNI19OYQijQFAmm8oFnyiNJWJcYCJclCSl7okhPvDM=
-X-Gm-Gg: ASbGnctThUhrGZPA3XGb7dXsVGagO1WVkYbEnZnfu8phXJ05auEp9pi2Y5y1Xyr/Kwv
-	ymE4Bk4C0xQmYR4X//BMp6y4cLbCldLBDk5v6OhZSSOjxSGzvoUiElNYZNdoNZU7YqxVhz1DEa+
-	2m1n+6VAfDP/LHKilmEV1YhRPav0Mgyct0eCcI+y3IHrLZHz8vni3pKdXL2X6dAjv6v4PEOtaRU
-	4Xcfle8mrVxCwpnPwhUPfS/Ucju6V34AJ8JTtvLTkxse8heDm9bqXMsY7KwslBqwK9o1Nnj6eI4
-	UwNMUX7rkwWX3tQ62ITOqRZ3CKCwe+HloK36u8Bs42VlFEC6ND6u/RWTXd8W
-X-Google-Smtp-Source: AGHT+IEHAOg5qx1HK7FVLs7W0Qxv+LAaqChGFqw4tVT6n8qLbrhokvGfFob/wI9f+X8IvCQ2yZT+tQ==
-X-Received: by 2002:a05:6402:501a:b0:5ec:7909:1a with SMTP id 4fb4d7f45d1cf-5f0b3b90213mr5271124a12.12.1743845261362;
-        Sat, 05 Apr 2025 02:27:41 -0700 (PDT)
+        bh=zZnZ1QBH4c/cR2r7Z2I0IWQDQQpPtp/xF22TjNG8zFs=;
+        b=nmFvLeWcAjaUdsFg1YVAPsMvg5tKEocbdQPLbkp/W66K4MZ2GaPu5Mg+ORbaCLIXFw
+         hnUBxD5mPgAUlQNLhk7gsKPHbUISbdFUcT9B3bJRN2i6Oc3eDCf0pruFX7DOOmGoYpzt
+         pAnLE3LnZBdNEXUFww6yDjL4fpfQyV+9sUyCwmfzpzSsIvpXQiLyGIX04whb1UqassuI
+         DABJ5kGUWSWzjeFzbflpUfQk3T0xjQhKH2bHiqx8yXbjeTCLQqwmtyVAmEf5ClBtGsuV
+         iyV8BNFLl/x59vHcmV61NmmPhkaJbInM8ASHB7RrGerukZ8cBvnAxJMLP5vCi10Tssv3
+         HZKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW7Q1S0FY/PuMRpq8PzqD8M7ivYI04MoSmgGD2JI38kqeAYt07bW4XaVjxstSH2UhkBNsdSR+BLiDNLDhRTKmH8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx76NZUnC4EuJe59d/ymo975Nxz+lMlu1r5S+zTWyrVAHs2Ivs2
+	/UlXfQAyR0NlMF4TkXxxvwXQd6hVKFQplLyZcy+GO61zF36SlZEfzLG4TUMqtHE=
+X-Gm-Gg: ASbGnct4YQH0MkYN63SVX+H8TOA4sGHegtfsItKYda/UROLWMxgokpF9YbZ50wQAoXN
+	z2c/5Y7Mpb5aaY8BJkFyAVjt18mdccTy4OaLMzpJElRhqRcbthwr7UYshJuES/HhP6IF0kCHroq
+	X8v+6seb/68BAgq5HYKW7+MievEtjdfMeelAI/ey5+dzHMR1LBLNB+hR/nM3INOzoSSJKYzTN5F
+	aCrLqlPmBpZxqN2QlVCPE2v06Q1FBY9i8ANLdU1/ZKCQRBFMSqBdMqtVVwoHYwGvl7qL000rR8v
+	AKh99ggh2zFiinPXo6d1+DPreeFAQx6C4wJs4JhiS1XEFM/VZQ==
+X-Google-Smtp-Source: AGHT+IGWO7dBoEwfH+vhvetzVchvOebwHG0LSEkTGJ+mVXy0B0Ix45di+z7EJEIkw1x3jHja6bWBjg==
+X-Received: by 2002:a17:907:7f07:b0:ac3:8a3a:e924 with SMTP id a640c23a62f3a-ac7d19903fdmr555132166b.39.1743845263101;
+        Sat, 05 Apr 2025 02:27:43 -0700 (PDT)
 Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5f088084eecsm3379240a12.57.2025.04.05.02.27.40
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ac7bfea0eadsm394579766b.67.2025.04.05.02.27.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Apr 2025 02:27:41 -0700 (PDT)
+        Sat, 05 Apr 2025 02:27:42 -0700 (PDT)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: linux-pwm@vger.kernel.org
 Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
@@ -76,19 +76,19 @@ Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/6] pwm: stm32: Don't open-code TIM_CCER_CCxE()
-Date: Sat,  5 Apr 2025 11:27:14 +0200
-Message-ID: <7803f63b1310ddbd706f51f2f42d30b6dd786b03.1743844730.git.u.kleine-koenig@baylibre.com>
+Subject: [PATCH 4/6] pwm: stm32: Emit debug output also for corner cases of the rounding callbacks
+Date: Sat,  5 Apr 2025 11:27:15 +0200
+Message-ID: <fe154e79319da5ff4159cdc71201a9d3b395e491.1743844730.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <cover.1743844730.git.u.kleine-koenig@baylibre.com>
 References: <cover.1743844730.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=696; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=CS0yADAVELCrL+iW8Kx2zSuRfLKasMZMlkMKaonSN2U=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBn8Pd49kNiv7t7/o7GyEzogIHT7M1lDxUwJzEce gRP4hWfBuqJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ/D3eAAKCRCPgPtYfRL+ TkdAB/9t2HkMqkvlwY+Jf7FhSonomLwZB3nkfQZIxIbs37gW1zKYpAhW6k4zurBX/T+oPhnxlQv S5KxirYFhXffyyRqQncJrWlccSheAw0YjjPm7KCRLGqPfVO4dCvQDaYxNVfqYouDH/BK73jwIGe +ipg3OBU3Z2JOcrxZ7nRNsntv+UTTnGcAdCcu/FybQ11FZgcDILFaBDKYIhstF20JRKxb6bksfC /4e2hEFa1YynnIZ/p+efhShJeeO/UIvNHXhmmsT9hHxDR8LxwrCY/NMRvASLGSuPX/eZEuZX/Ez PmCs1OBnCmlGUeEdy8pu1jPMM/37D8zcim5+N9bBUnm+MfUk
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1852; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=PeMUN5MaPR/iihGuaAYk1+RqNZDBvhqS1HijQAO+fo4=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBn8Pd6gBS/U7sm8gCc++Qe+H9FPvkAFOyatKX8B qZYNTVb/8WJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ/D3egAKCRCPgPtYfRL+ TiyKB/0dJZmWMtAaRs0WJ3PXT9d3VqFRF+ApoExKeBVC+2ES9YhZvF7McGhAzK48ik7Ly+LbIdd Il/cB2eBN8HrWNjZoHv/RVydoIwXGPyxm+7EVsFLjp6QVEbKfRjnonbncS3QTgmSKMIUL6e6JSC Exlph+FquJCDEjgnQZiyDNnKFMpId9mwZfG4STy0nFW4ohy/2CIVisdMr+VJ/Ku9COUq3a/FB+F QNpy10ntJAQfeJnxjycByIlnMBpPR+ouavHhm3lAae1baYZOSbounM633kPFBC43UuT9ehZ8ryi RmE7IGRwAQ/z49wXa8pqeOAbyygY5+bxUJ0PuQwUNrsaJoRK
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_022743_010514_39E5C0AC 
+X-CRM114-CacheID: sfid-20250405_022744_836356_8A91C9FE 
 X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,27 +104,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of manually calculating the offset of the channels CCxE bit,
-make use of the TIM_CCER_CCxE macro.
+When you're interested in the actual register settings the driver
+chooses or interprets you want to see them also for calls that hit
+corner cases.
+
+Make sure that all calls to stm32_pwm_round_waveform_tohw() and
+stm32_pwm_round_waveform_fromhw() emit the debug message about the
+register settings.
 
 Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
- drivers/pwm/pwm-stm32.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/pwm/pwm-stm32.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
-index ec2c05c9ee7a..c6625f51a199 100644
+index c6625f51a199..dca5d09d80b9 100644
 --- a/drivers/pwm/pwm-stm32.c
 +++ b/drivers/pwm/pwm-stm32.c
-@@ -88,7 +88,7 @@ static int stm32_pwm_round_waveform_tohw(struct pwm_chip *chip,
+@@ -180,11 +180,11 @@ static int stm32_pwm_round_waveform_tohw(struct pwm_chip *chip,
  
- 	rate = clk_get_rate(priv->clk);
+ 	wfhw->ccr = min_t(u64, ccr, wfhw->arr + 1);
  
--	if (active_channels(priv) & ~(1 << ch * 4)) {
-+	if (active_channels(priv) & ~TIM_CCER_CCxE(ch + 1)) {
- 		u64 arr;
++out:
+ 	dev_dbg(&chip->dev, "pwm#%u: %lld/%lld [+%lld] @%lu -> CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x\n",
+ 		pwm->hwpwm, wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns,
+ 		rate, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr);
  
- 		/*
+-out:
+ 	clk_disable(priv->clk);
+ 
+ 	return ret;
+@@ -236,17 +236,16 @@ static int stm32_pwm_round_waveform_fromhw(struct pwm_chip *chip,
+ 			wf->duty_length_ns = ccr_ns;
+ 			wf->duty_offset_ns = 0;
+ 		}
+-
+-		dev_dbg(&chip->dev, "pwm#%u: CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x @%lu -> %lld/%lld [+%lld]\n",
+-			pwm->hwpwm, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr, rate,
+-			wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns);
+-
+ 	} else {
+ 		*wf = (struct pwm_waveform){
+ 			.period_length_ns = 0,
+ 		};
+ 	}
+ 
++	dev_dbg(&chip->dev, "pwm#%u: CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x @%lu -> %lld/%lld [+%lld]\n",
++		pwm->hwpwm, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr, rate,
++		wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns);
++
+ 	return 0;
+ }
+ 
 -- 
 2.47.2
 
