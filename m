@@ -4,98 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F23C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 20:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AA8C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Apr 2025 22:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hyr3I2LD6oYdyXFuRB514jaAJoLkJqMn3eQ4HuFH+h8=; b=OrXiU5aoQXxTRhzb0h/g2PO+lt
-	OuJUx+lh7ZTvdPmcobKrU06llJRuRoQbr12+sisSKk7WvkL8uh+TB2B++p3l7yyC31oDOOZjCOS0V
-	AbzVhOEkMlclON261wDxYWEXtL7gnQPs4QguV1NOvxwnE1+/B0VBTmifF+uAsNH9sSxTbAETfyJW2
-	kgNlunq50LiicgCPt/W9WLTkm+3qsGKgM/DlXUEAAY5643/PMF83KHBOsWZGfwPs1Uc0kdNSqQveh
-	jXKbrqqBFF16MIhxnJ0zj8Ol67w3ujC+mlgRoJIyJcsKMsimEWlDpTHGoGISzB5hHr4W1RoeLC0MG
-	cm+ajsmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9lKoo/ZbDhYM9RiCmirWI9K2heacv2o2hdJ55p6p3QY=; b=dRwbF7ynrTu0f6xzQUodm8MsiL
+	SWZTuQFI2+ZpyNS4SuPPq59UrQtSPnwtmnR586hpL4808XA6cLfY9kWh2PqZOPm4BurwuLmMIL4mZ
+	QXDJqgQ0MmCAnPSg7XJ5xsS+XB3lNa3NRER4AGM/GPEmjokRD5pHutJvrluUl7F7TUa8wqiGiGFws
+	i8tXqiI9qa/nepNKGYaKxAoe5zU4iyVeekEf3MmxesV5gxOErbE2icJ0wlXlgXMZISLpCgVPxcPsp
+	C+J27fQD+6ZVN+48y/oxhPHf/CGmz5hpK8P0UNlJbuDsMbt7L1OeKlXvIe8LEFGjB6LAykAwHtyg5
+	3lbqABcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u19nP-0000000ESTH-3ho1;
-	Sat, 05 Apr 2025 20:07:15 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1u1Bpv-0000000EY7l-0v3G;
+	Sat, 05 Apr 2025 22:17:59 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u19lc-0000000ESLF-1on5
+	id 1u1BoA-0000000EY2l-1jyK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Apr 2025 20:05:25 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e8be1bdb7bso5072446a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Apr 2025 13:05:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743883522; x=1744488322; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hyr3I2LD6oYdyXFuRB514jaAJoLkJqMn3eQ4HuFH+h8=;
-        b=kzM5c6V2Op02a0EWqaK8vSuAPp+A2Lj+Rs5sxuHMY9UVxfvcOV0yCzxqepv0/0JTbP
-         JsNjp/TTuwVxwdp1UlKCC5N2dK+pgM6824mYhOwjworg0Rjxe9wx9kY9C49o9ynfFG8o
-         nIYRgRa+wlPDmSslRIsZIFnIjVO8Gho5/ToC3PYk5k5gj4z+wsEXMIsKCBw9pz852P6p
-         lKhVPc6As1u1Y10pj01BzeYlv9N1ydRD4/HjEF/YiGH6KjzcoxqfiLAyYKqe5tM4m34T
-         OkXV/GwlVRwapyNtDt1hFIPqQpajsGZ6G1Z0ERshQGu41RZ8yqtTZjkLHYmg6vBPp4D/
-         hd2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743883522; x=1744488322;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hyr3I2LD6oYdyXFuRB514jaAJoLkJqMn3eQ4HuFH+h8=;
-        b=bI2RI5xYDOl4MH4dAM69vvKQA1IRzymEzhRDylAS0ckmz0fKdGDJuR7F7o05EWS2Zn
-         2b9zBDzEc4FVJppTchxjBhwnzwkEZObXDz3e+XYjUOlueyCJR1zQklAEnfV49LvEzbFi
-         XDTrmOSVEZQjhUX4OPV2gqf3YpwaXCZsilHRT4h7O3i1esvmkiwbsmYTYUYj0pAwpNwO
-         Obbcj8Lw3WnlD6rYb4x/YxuPMyLfG3F/OUqvY434zk0QbwNUVPP12gxUDUUrkHXqqPsF
-         7Q4dnRaLlw6ylFqBzEw74F9EIZW1HSr8WWCSw1LeJy9+1U40mWzUUhFUVIm1ntfSogYv
-         aKtQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWxA7rz30ksPT079JT/ap8wYgV6FGoKN9T0zXcjqbH5XU4geXiXwdFIoiclyw4JPL6U+20ajITk7iz22RPXa5RN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmTbBsPFaMXLW1MHPXnOIByyxGZXgwm5KMff46envFx3jGdtMn
-	ygdq/oKGvx8Y+W8/A4pQ6Ea4SAp64tVlPTcnOl+vS/VESV7qibnK
-X-Gm-Gg: ASbGncvbyxzm99WBHvdLMlyaPrBo+gZusc8iav1yYQD55A714qIQ90xU8/1PphoFjDK
-	LwLkKrKSAEuBAA5FXLBGZOwlXALOE/sGcK5vEJFrhseynZzDcGs+iQC7USAgVyjrfaQbEAFw4Al
-	OR9G7eKC7b6IWKAk+Fmx+EE04iFxf9EhcogufRLTlN627jmnD0TjJzgbFwz/WZ6RVM0kktH5PXO
-	9GJByShjweb5uJUaZ8eUPmZmAsyUViYBekptIx+y55cgyfxTTtSm/Q8ic2V4yNC8ynmrSgW1EKQ
-	HpZb3IvP6H2PIMkUdVNDEbpBCdHhKbZ36B+TAfdhSGr5nwvkANPxw2nvrA==
-X-Google-Smtp-Source: AGHT+IFqYGSqbRsbuD4i4wRSjvzH/8ifozRPrIqDZpWcze1lam4H31+dMiIOJy0Wh8owhFTIeDKZAQ==
-X-Received: by 2002:a17:907:a088:b0:ac3:3e40:e183 with SMTP id a640c23a62f3a-ac7e717035amr280556266b.3.1743883521868;
-        Sat, 05 Apr 2025 13:05:21 -0700 (PDT)
-Received: from ?IPV6:2001:871:22a:99c5::1ad1? ([2001:871:22a:99c5::1ad1])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac7bfee2591sm468902666b.79.2025.04.05.13.05.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 05 Apr 2025 13:05:21 -0700 (PDT)
-Message-ID: <399cceb4-dcf5-4af8-a8b7-6741e9b7e8ae@gmail.com>
-Date: Sat, 5 Apr 2025 22:05:19 +0200
+	Sat, 05 Apr 2025 22:16:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1743891370; x=1775427370;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xXUS4GgMNiPbO1jwMYGA+GWr2ekyWvBCCBz0RyIJHDM=;
+  b=ZednLHSLeeM4wbi/4UI4nKOHa7ISx8olIqZHdDfi2hYSkoqdaXSIGItz
+   YYbHeNflTSDmuYUd3W9Rc1+14RYnyBh0FqLGgQYQcXTql6mSYS8AbgdL/
+   WzmHTgmNORvx23U7bobZ9/ThkgOnQ7D5K2V7S5PZpbDbEcJ86XHPDq//y
+   68P5Gre/8Eanr8VDZnfhMLFDdQbRGQRW1pZdWXwZOI1CkUychvfMH9m9m
+   LycL4LF9LWGalGRmZNzdKwYqZ2/bTnRnEOxAV1yTr91uTyPqIDQbFX23Q
+   80GtEb5+kQRvukyeRfJC7Eq5IhcaU/aIOLjIG4mpcjHdCgC5dxlxCsGsg
+   w==;
+X-CSE-ConnectionGUID: coZz3HVFRkSIFkKlgAxhcg==
+X-CSE-MsgGUID: O6q+qOhbQ/ikSoZgngGzCg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11395"; a="48018101"
+X-IronPort-AV: E=Sophos;i="6.15,192,1739865600"; 
+   d="scan'208";a="48018101"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Apr 2025 15:16:06 -0700
+X-CSE-ConnectionGUID: g4MEpJ50TTiUgcuNLPmOSw==
+X-CSE-MsgGUID: C0wrrevxTpKJWYkd9AmLDg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,192,1739865600"; 
+   d="scan'208";a="128116775"
+Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 05 Apr 2025 15:16:04 -0700
+Received: from kbuild by b207828170a5 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u1Bo2-0002Jz-06;
+	Sat, 05 Apr 2025 22:16:02 +0000
+Date: Sun, 6 Apr 2025 06:15:44 +0800
+From: kernel test robot <lkp@intel.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	linux-pwm@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/6] pwm: stm32: Emit debug output also for corner cases
+ of the rounding callbacks
+Message-ID: <202504060517.dHXuUANs-lkp@intel.com>
+References: <fe154e79319da5ff4159cdc71201a9d3b395e491.1743844730.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm: rust: Enable Rust support for ARMv7
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
- Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <benno.lossin@proton.me>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Jonathan Corbet <corbet@lwn.net>,
- Russell King <linux@armlinux.org.uk>, Rudraksha Gupta <guptarud@gmail.com>,
- Ard Biesheuvel <ardb@kernel.org>, Geert Stappers <stappers@stappers.nl>,
- Andrew Lunn <andrew@lunn.ch>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>,
- Sven Van Asbroeck <thesven73@gmail.com>, rust-for-linux@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250123-rfl-arm32-v3-1-8f13623d42c5@gmail.com>
- <CACRpkdYF0sVB2-qgy=GzETSR3+2sagVQPGdunDQDJrn8KqJorA@mail.gmail.com>
-Content-Language: en-US, de-DE
-From: Christian Schrefl <chrisi.schrefl@gmail.com>
-In-Reply-To: <CACRpkdYF0sVB2-qgy=GzETSR3+2sagVQPGdunDQDJrn8KqJorA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fe154e79319da5ff4159cdc71201a9d3b395e491.1743844730.git.u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_130524_492604_5868EE40 
-X-CRM114-Status: GOOD (  28.20  )
+X-CRM114-CacheID: sfid-20250405_151610_492388_F3FAB665 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,54 +93,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+Hi Uwe,
 
-On 21.03.25 8:24 AM, Linus Walleij wrote:
-> Hi Christian,
-> 
-> thanks for your patch!
-> 
-> Sorry for being late to the show. I missed this very nice patch
-> that was actually on my personal TODO but I have to much
-> to do and also I'm not smart with Rust, but I'm a big supporter.
-> 
-> On Thu, Jan 23, 2025 at 11:40 PM Christian Schrefl
-> <chrisi.schrefl@gmail.com> wrote:
-> 
->> +       select HAVE_RUST if CPU_LITTLE_ENDIAN && CPU_32v7
-> 
-> Nothing in the patch series really explains this restriction, so it
-> should be in the commit message. Arnd mentions some atomics
-> etc, but we really need to know exactly why this is in the patch.
+kernel test robot noticed the following build errors:
 
-This should probably work with armv6 targets, for v5 or v4 Targets a 
-different target would have to be specified in the KBUILD_RUSTFLAGS.
+[auto build test ERROR on e48e99b6edf41c69c5528aa7ffb2daf3c59ee105]
 
-Rust also has some big endian arm targets.
+url:    https://github.com/intel-lab-lkp/linux/commits/Uwe-Kleine-K-nig/pwm-Let-pwm_set_waveform-succeed-even-if-lowlevel-driver-rounded-up/20250405-173024
+base:   e48e99b6edf41c69c5528aa7ffb2daf3c59ee105
+patch link:    https://lore.kernel.org/r/fe154e79319da5ff4159cdc71201a9d3b395e491.1743844730.git.u.kleine-koenig%40baylibre.com
+patch subject: [PATCH 4/6] pwm: stm32: Emit debug output also for corner cases of the rounding callbacks
+config: arm-randconfig-004-20250406 (https://download.01.org/0day-ci/archive/20250406/202504060517.dHXuUANs-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 10.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250406/202504060517.dHXuUANs-lkp@intel.com/reproduce)
 
-> 
-> I'm a bit surprised by this since the rustc LLVM backend nowadays
-> support all old ARM ISAs. I would have expected:
-> 
-> select HAVE_RUST if AEABI
-> 
-> Ideally this should work on any ARM core, but it's fair to require
-> EABI.
-> 
-> The big reason: I think we want to be able to use Rust in kernel
-> core components sooner than ARMv5 goes away from the kernel.
-> 
-> If testing is the only issue, I can provide testing on ARMv4, v5,
-> ARMv5 BE etc, just tell me how to test. (But I guess it's more than
-> that...)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504060517.dHXuUANs-lkp@intel.com/
 
-The main reason that I only did this for ARMv7 was that I'm not very
-familiar with older arm versions and that I only have v7 hardware for
-testing.
+All errors (new ones prefixed by >>):
 
-I currently don't have much time to work on this, but when/if it 
-works in qemu I'll send you a message to test it on HW.
+   In file included from include/linux/device.h:15,
+                    from include/linux/dmaengine.h:8,
+                    from include/linux/mfd/stm32-timers.h:11,
+                    from drivers/pwm/pwm-stm32.c:12:
+   drivers/pwm/pwm-stm32.c: In function 'stm32_pwm_round_waveform_fromhw':
+>> drivers/pwm/pwm-stm32.c:246:60: error: 'rate' undeclared (first use in this function)
+     246 |   pwm->hwpwm, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr, rate,
+         |                                                            ^~~~
+   include/linux/dev_printk.h:139:35: note: in definition of macro 'dev_no_printk'
+     139 |    _dev_printk(level, dev, fmt, ##__VA_ARGS__); \
+         |                                   ^~~~~~~~~~~
+   drivers/pwm/pwm-stm32.c:245:2: note: in expansion of macro 'dev_dbg'
+     245 |  dev_dbg(&chip->dev, "pwm#%u: CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x @%lu -> %lld/%lld [+%lld]\n",
+         |  ^~~~~~~
+   drivers/pwm/pwm-stm32.c:246:60: note: each undeclared identifier is reported only once for each function it appears in
+     246 |   pwm->hwpwm, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr, rate,
+         |                                                            ^~~~
+   include/linux/dev_printk.h:139:35: note: in definition of macro 'dev_no_printk'
+     139 |    _dev_printk(level, dev, fmt, ##__VA_ARGS__); \
+         |                                   ^~~~~~~~~~~
+   drivers/pwm/pwm-stm32.c:245:2: note: in expansion of macro 'dev_dbg'
+     245 |  dev_dbg(&chip->dev, "pwm#%u: CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x @%lu -> %lld/%lld [+%lld]\n",
+         |  ^~~~~~~
 
-Cheers
-Christian
+
+vim +/rate +246 drivers/pwm/pwm-stm32.c
+
+   208	
+   209	static int stm32_pwm_round_waveform_fromhw(struct pwm_chip *chip,
+   210						   struct pwm_device *pwm,
+   211						   const void *_wfhw,
+   212						   struct pwm_waveform *wf)
+   213	{
+   214		const struct stm32_pwm_waveform *wfhw = _wfhw;
+   215		struct stm32_pwm *priv = to_stm32_pwm_dev(chip);
+   216		unsigned int ch = pwm->hwpwm;
+   217	
+   218		if (wfhw->ccer & TIM_CCER_CCxE(ch + 1)) {
+   219			unsigned long rate = clk_get_rate(priv->clk);
+   220			u64 ccr_ns;
+   221	
+   222			/* The result doesn't overflow for rate >= 15259 */
+   223			wf->period_length_ns = stm32_pwm_mul_u64_u64_div_u64_roundup(((u64)wfhw->psc + 1) * (wfhw->arr + 1),
+   224										     NSEC_PER_SEC, rate);
+   225	
+   226			ccr_ns = stm32_pwm_mul_u64_u64_div_u64_roundup(((u64)wfhw->psc + 1) * wfhw->ccr,
+   227								       NSEC_PER_SEC, rate);
+   228	
+   229			if (wfhw->ccer & TIM_CCER_CCxP(ch + 1)) {
+   230				wf->duty_length_ns =
+   231					stm32_pwm_mul_u64_u64_div_u64_roundup(((u64)wfhw->psc + 1) * (wfhw->arr + 1 - wfhw->ccr),
+   232									      NSEC_PER_SEC, rate);
+   233	
+   234				wf->duty_offset_ns = ccr_ns;
+   235			} else {
+   236				wf->duty_length_ns = ccr_ns;
+   237				wf->duty_offset_ns = 0;
+   238			}
+   239		} else {
+   240			*wf = (struct pwm_waveform){
+   241				.period_length_ns = 0,
+   242			};
+   243		}
+   244	
+   245		dev_dbg(&chip->dev, "pwm#%u: CCER: %08x, PSC: %08x, ARR: %08x, CCR: %08x @%lu -> %lld/%lld [+%lld]\n",
+ > 246			pwm->hwpwm, wfhw->ccer, wfhw->psc, wfhw->arr, wfhw->ccr, rate,
+   247			wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns);
+   248	
+   249		return 0;
+   250	}
+   251	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
