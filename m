@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E553C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:23:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C59FC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bBwG5hoyXrH/+S5oCeTkWtCV5iIYwjcYjJ5i/zSRuXc=; b=EdDVfXds75vKx0RoSqC+ph7FQp
-	oMtUqiq6uouI7U58CspIDA5l5Y8cD3s0p+t0waOjbHA0gmsVRq+LmCVpFaMhINSQoDOl1J5NN00OU
-	skhNbBabGaW15jHXciBVromfrox5HZtvVYxJtqtnlNwjaiS409RYPgRZmb7xWEgQ16j6vlAXOGTJ6
-	KQkbjwB6EhX0fAv1Mn78Q36pqhMv2ktnj2oA013JwyKFGwjkxTeegG8Cq+swS6Af8a6vIyYD72oDe
-	hjn3OigWmsQdI+4VZMB1PLP8Kd+4tvFapBaZ1g9j+OKKgOWsE0v6mK6xl4fi4a/PfMB+bRS1KayHE
-	Z3NGvnjQ==;
+	bh=8MlCOtUJnDl9e5u4hATFK6OQJ9+K7+3DKgdW4P3m4ME=; b=wM0Z3lFFjmdFhg5YAZCVlk01ZT
+	8eSw8oSXcN6O+P7Nx/Y7YXHNgsIZGuuO9Ee1FhYTg7HHxkK9BdJJ0nl5iWIaoEZcXLP+jClpSa+Ws
+	30JQ+B31U1RNI/tmL7FivY4XipjKX0ZDON7XlYco1NPdhriria3jORiENG6WPFvDr/BfpW8SgNpxq
+	H9G9RJ2qkVovPyl35KM+rl1qVo4QNgL/yyMyDNeZ4Oi11+miOTOuoEBdym0m9kUXun+hGfGDMv58D
+	rXRbJYTgmZe1CdYo9kdoqQqloM6V545MmrtpmpSltJfEqBknAhmU1hzLKgXMMXO8ybMbZY7TDQMEw
+	R8XDWSUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UeK-0000000FdUZ-2sfK;
-	Sun, 06 Apr 2025 18:23:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u1Ug3-0000000FdiU-1TLp;
+	Sun, 06 Apr 2025 18:25:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UaN-0000000Fd6c-3cB2
+	id 1u1UdM-0000000FdP1-25KT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 18:19:13 +0000
+	Sun, 06 Apr 2025 18:22:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 46F04A40A2E;
-	Sun,  6 Apr 2025 18:13:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72A62C4CEE3;
-	Sun,  6 Apr 2025 18:19:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 014025C5932;
+	Sun,  6 Apr 2025 18:19:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AFB0C4CEE3;
+	Sun,  6 Apr 2025 18:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743963550;
-	bh=AEpqL+llri6g/xIAnkl8OAXLCQJOzdN39r87UUqAR60=;
+	s=k20201202; t=1743963734;
+	bh=g2RETw/Z4oprQEQecoLsQYOib0vL9w+4xAUlZqp5lSg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Kn0c3uQAIDBy6f8+VUKauiWb1+uOkINeDFNkmrp/YyOSKx4M0BXu/6I6sP9lQl3H7
-	 iRGV13NTdpZVcV443pHputl4PHdlFpFHH5BXnUOivon9DxbBrDuOKiScxkPE474Zuz
-	 f8nVXkAF1wyFzrLbv8ptDrbAJ986h7ZuMmal8C1CDENKH0281KLQ+Pw5h/PU7p2BAC
-	 hYo60I+k0F2irYP1jOX/m/Gc3a/3+WlwJdnXZAYRyX6sjxUHwjiNvIfuksGAt/90fL
-	 kjCYUFNeq3JsFOv2IEpn5FwKAHCoE3ME2+1pJMUy3YVdx0wWGvjxQCB6ltQLjwyeXz
-	 Oid0/skSYThpw==
-Message-ID: <346760fe-0595-4821-a5b4-0acfe4fc86cb@kernel.org>
-Date: Sun, 6 Apr 2025 20:19:03 +0200
+	b=V+dl7Udemgbo0GBnmy06bawFgYyaMF/GMgvalYuTCkdbTPkqSt/SGX98lZn3QeeFo
+	 q9vlk8lTyD8r0m9KYYwuQvXuu8Mmv0v0cet/5B6sqAqN/3CPbdTv+IYHycmujY7iIp
+	 ZQjnKWE3ki1SPSPyvMYfxbh7dYILC4Wnyu1sM0hiN5dENLAE+ahBGu63nGHETZbju9
+	 R1xHi2cwTiJvtSCUmGrX7Gj4lmnXkb0O91rqenFIowywc3dPvQaw/kZ9K795ruJLLE
+	 1CxSqILC2tX63droV/SiEoJRy6KoebiuCiei+E53MkoU5kzTI81rKgqwDhyUIrQn2z
+	 vh8war2ShlBaQ==
+Message-ID: <3b00b19b-729c-48f9-b069-124272778ac0@kernel.org>
+Date: Sun, 6 Apr 2025 20:22:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 14/32] mfd: sec: s2dos05/s2mpu05: use explicit regmap
- config and drop default
+Subject: Re: [PATCH v3 17/32] mfd: sec: rework platform data and regmap
+ instantiating
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -64,7 +64,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
 References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
- <20250403-s2mpg10-v3-14-b542b3505e68@linaro.org>
+ <20250403-s2mpg10-v3-17-b542b3505e68@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,12 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250403-s2mpg10-v3-14-b542b3505e68@linaro.org>
+In-Reply-To: <20250403-s2mpg10-v3-17-b542b3505e68@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_111912_031435_8C9634DE 
-X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-CacheID: sfid-20250406_112216_619319_9748F0C0 
+X-CRM114-Status: UNSURE (   7.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,18 +132,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/04/2025 10:59, André Draszik wrote:
-> When support for PMICs without compatibles was removed in
-> commit f736d2c0caa8 ("mfd: sec: Remove PMICs without compatibles"),
-> sec_regmap_config effectively became an orphan, because S5M8763X was
-> the only user left of it before removal, using the default: case of the
-> switch statement.
+> Instead of a large open-coded switch statement, just add both regmap
+> config and device type to the OF match data. This allows us to have all
+> related information in one place, and avoids a long switch() statement.
 > 
-> When s2dos05 and s2mpu05 support was added in commit bf231e5febcf
-> ("mfd: sec-core: Add support for the Samsung s2dos05") and commit
-> ed33479b7beb ("mfd: sec: Add support for S2MPU05 PMIC"), they ended up
-> using that orphaned regmap_config in a non-obvious way due to the
-> default: case of the device type switch matching statement taking
-> effect again.
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> 
+> ---
+> v2: fix typo in platform data for "samsung,s2mps14-pmic"
+> ---
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
