@@ -4,79 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F9AC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 16:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38D6C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IFKKm7Ern/16b5YntZX6gbHyvUt9H3U/nSXxdIz5XvQ=; b=DQ447vV4/T3/amX5GU/N4xyuWW
-	ZS25dYshzqtHM/2oxKgSjpwaccdexjCTt4PJ+wzIntPE/V46yK2UbU0SSxPhyYRbkGY9Mbxx1Oscj
-	xtZtoU5nsfxgFkY5xH0lfNUbaqcQZV31ZKudLl8+Jc03ioEoSqzEMHK23YngAxX8HCti9gs8aC9cJ
-	Xn1WHv5EAe8YS4/A0oattbicQDopQwq81VxUBfVyKdezky2dhSYrtjbRUm285vNUYFHQybpY7GPEk
-	9bjbnHyRA1nd6LSZR+lfsf6bytVmI5jX/i/0eY3L9yeFxD/lHmsP7FCSXTYK+kidv1SxdDU1YLWGE
-	ahNyI+lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+xnZVahFh2lcLW3kppsGMZBrrEkevbu/kxFQeGjbXKA=; b=jMh9noc/SPUVCdel/RZZn0xra/
+	sY+jjiMUsEwmR7VUK2cSZkUMCtbPh340mHpDE/ryH/0Ji2F5rlk+wO6G/PmADqR151UC1MYdPljJ8
+	yPBHAgZBG6VZU8UnBIPvjTVroJl1MTY9eTgeZopp3aj1HgixOysmY6HosJyk1eicVoRMNBfecvAfD
+	NNTPjFIX/SaPlPi1FZwcQdYlGhrqzOZ0ZHI8aF3ZJjzKCHRJRiH1XrRG5pmsm8n4oLLbOYoBSjaqF
+	nF2fAY+0BObQhboOwhvTAC89RNUPkXqiuoul6slt79InfHKMbc8KUr90nB3cC4egwRsPcIH+TWBcC
+	sMb6ikrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Sz4-0000000FYL0-3OSM;
-	Sun, 06 Apr 2025 16:36:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u1UXU-0000000Fckg-0hu0;
+	Sun, 06 Apr 2025 18:16:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1SxL-0000000FYCc-2QlU;
-	Sun, 06 Apr 2025 16:34:47 +0000
+	id 1u1UVk-0000000Fcbo-0v6m
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 06 Apr 2025 18:14:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 35E1061138;
-	Sun,  6 Apr 2025 16:34:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EE96C4CEE3;
-	Sun,  6 Apr 2025 16:34:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0753F60010;
+	Sun,  6 Apr 2025 18:14:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58F9C4CEE3;
+	Sun,  6 Apr 2025 18:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743957286;
-	bh=VXmaK1KEQ4OdnNW6qkbtDrEkJuNzVNaxsi9xvoHemA4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sHYEa8E+WecBvlODItuw2b7YX/6tTcKkPkVY5c8hgfkEY8qrvZS4g0a3Ps36mtTc7
-	 C1ll8nDNb2+K9tEtN6sZSs+7NVh3o6k6Kg/4wianbIJby8nQu2r7eDW3P4ypSyCXGB
-	 +PTm6pWbv464BBckQVvKgFmhVS12NRwvpw2dOxLPxKRX/NeHfTRBeqj47VFsu/qaTq
-	 kDdF/2+c/Pr6gHEjMytyRvKIWHvox2DCJh1vPUVQTXmvT+5ihdqD2WA5RflpUqRy7u
-	 XiEBaOkZARTvBBRMrCpj6S6HvzxefWgH6WKx/07uPfbphejPBi1964kPEwB7U3GezU
-	 UycEnTm5Y3e0A==
-Date: Sun, 6 Apr 2025 19:34:30 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Pratyush Yadav <ptyadav@amazon.de>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, Changyuan Lyu <changyuanl@google.com>,
-	linux-kernel@vger.kernel.org, graf@amazon.com,
-	akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <Z_KtFnmExftpotmR@kernel.org>
-References: <20250320015551.2157511-1-changyuanl@google.com>
- <20250320015551.2157511-10-changyuanl@google.com>
- <mafs05xjmqsqc.fsf@amazon.de>
- <20250403114209.GE342109@nvidia.com>
- <Z-6UA3C1TPeH_kGL@kernel.org>
- <20250403142438.GF342109@nvidia.com>
- <Z--sUYCvP3Q8nT8e@kernel.org>
- <20250404124729.GH342109@nvidia.com>
- <Z-_kSXrHWU5Bf3sV@kernel.org>
- <mafs0cydrq4wv.fsf@amazon.de>
+	s=k20201202; t=1743963262;
+	bh=kqgb/u7hwCpsg1gF7Akwy1ectvg3NU7wvnTRIu0kXyU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BhbBmwjf//VRbwcN8qgI71+IKmyvb1aNNbsR9+3oR+vwd9ntvS7cMXbhYJF4s/cdU
+	 UQ9EYPNt++r85uSE8JAy3PVtWnb7R7a2K5UeTOSqRMnjQBn7k1J/+LrjSy97gS2E1m
+	 JvP31fimvWVlZXfxyhDYj+6GqThpSyaVy384Ur3N+6INNo0IJUsN8xHNlF2qaIDBPU
+	 KIl1NdZ4JFXLx33GTcXOWxyfmCTAw3xOO0N3pnFsnRnEoVjZAMPIhU2oTd77OUXbH+
+	 iJmOGEx5PKnl7iyqZWaRbzGnMBog05MpmY2pVH+a+sKkAQwNdHmUEa90ZlzkN9zyB1
+	 k5p9w1gXlU8Mg==
+Message-ID: <1ff1a5b5-72b7-44bc-8a70-7281cb58785c@kernel.org>
+Date: Sun, 6 Apr 2025 20:14:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <mafs0cydrq4wv.fsf@amazon.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 05/32] mfd: sec: sort includes alphabetically
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
+ <20250403-s2mpg10-v3-5-b542b3505e68@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250403-s2mpg10-v3-5-b542b3505e68@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,82 +126,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 04, 2025 at 04:15:28PM +0000, Pratyush Yadav wrote:
-> Hi Mike,
+On 03/04/2025 10:58, André Draszik wrote:
+> Sorting headers alphabetically helps locating duplicates, and makes it
+> easier to figure out where to insert new headers.
 > 
-> On Fri, Apr 04 2025, Mike Rapoport wrote:
-> 
-> [...]
-> > As for the optimizations of memblock reserve path, currently it what hurts
-> > the most in my and Pratyush experiments. They are not very representative,
-> > but still, preserving lots of pages/folios spread all over would have it's
-> > toll on the mm initialization. And I don't think invasive changes to how
-> > buddy and memory map initialization are the best way to move forward and
-> > optimize that. Quite possibly we'd want to be able to minimize amount of
-> > *ranges* that we preserve.
-> >
-> > So from the three alternatives we have now (xarrays + bitmaps, tables +
-> > bitmaps and maple tree for ranges) maple tree seems to be the simplest and
-> > efficient enough to start with.
-> 
-> But you'd need to somehow serialize the maple tree ranges into some
-> format. So you would either end up going back to the kho_mem ranges we
-> had, or have to invent something more complex. The sample code you wrote
-> is pretty much going back to having kho_mem ranges.
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> ---
 
-It's a bit better and it's not a part of FDT which Jason was so much
-against :)
- 
-> And if you say that we should minimize the amount of ranges, the table +
-> bitmaps is still a fairly good data structure. You can very well have a
-> higher order table where your entire range is a handful of bits. This
-> lets you track a small number of ranges fairly efficiently -- both in
-> terms of memory and in terms of CPU. I think the only place where it
-> doesn't work as well as a maple tree is if you want to merge or split a
-> lot ranges quickly. But if you say that you only want to have a handful
-> of ranges, does that really matter?
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Until we all agree that we are bypassing memblock_reserve() and
-reimplementing memory map and free lists initialization for KHO we must
-minimize the amount of memblock_reserve() calls. And maple tree allows
-easily merge ranges where appropriate resulting in much smaller amount of
-ranges that kho_mem had.
- 
-> Also, I think the allocation pattern depends on which use case you have
-> in mind. For hypervisor live update, you might very well only have a
-> handful of ranges. The use case I have in mind is for taking a userspace
-> process, quickly checkpointing it by dumping its memory contents to a
-> memfd, and restoring it after KHO. For that, the ability to do random
-> sparse allocations quickly helps a lot.
-> 
-> So IMO the table works well for both sparse and dense allocations. So
-> why have a data structure that only solves one problem when we can have
-> one that solves both? And honestly, I don't think the table is that much
-> more complex either -- both in terms of understanding the idea and in
-> terms of code -- the whole thing is like 200 lines.
-
-It's more than 200 line longer than maple tree if we count the lines.
-My point is both table and xarrays are trying to optimize for an unknown
-goal. kho_mem with all it's drawbacks was an obvious baseline. Maple tree
-improves that baseline and it is more straightforward than the
-alternatives.
- 
-> Also, I think changes to buddy initialization _is_ the way to optimize
-> boot times. Having maple tree ranges and moving them around into
-> memblock ranges does not really scale very well for anything other than
-> a handful of ranges, and we shouldn't limit ourselves to that without
-> good reason.
-
-As I said, this means an alternative implementation of the memory map and
-free lists, which has been and remains quite fragile.
-So we'd better start with something that does not require that in the
-roadmap.
- 
-> -- 
-> Regards,
-> Pratyush Yadav
-
--- 
-Sincerely yours,
-Mike.
+Best regards,
+Krzysztof
 
