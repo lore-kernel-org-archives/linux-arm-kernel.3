@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75B9C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 22:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960C9C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 22:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1jotKc/Fqpl2Jd1jPfcmFs0z7oPm/HmjlcBjHuS3pTY=; b=jYNTnHIuYPLEAd0vzHVsOH754Q
-	GDtHlfkxL/LwIhAPG0zxWG9R3YT5HAVzvL7YzST5JVv7HP3QJZwCzs78QRkg/IVdOYvdoE6r9xLX0
-	zA8Z+5mWZbhVMYwiOjukpuyi49fKGXdeA35359X2rGpQmSYv60dHOCC5ClLlmR4Fbwe8ko3BB+Tkc
-	8ZIQkAH4w8pK5f6+hgySQDRWnO2BApN4z2zPR5q6iAszuz2mfkMoCj5QF3YaXATY1YVeAuvTR5M1O
-	XQOEjR6cMqIW+ZanEZSCvZeouqlNQWNiDDbUOwfARu8a/uL7KmLmr0GCeI36oUxMSiRUtM5lxSiTu
-	HPRe9KDA==;
+	bh=ayn/+ArG131gi18wLCzFlJOt7i4mpT3rXpgfAV6sJtQ=; b=UZtVulmjwex1GNMhfinPP//Cn7
+	mPlTmc/CRH9wopWF7A3PM4EyLLGPAJ8RNkm+6sJeBrp/y+sdFE5R69ZuJX8dYMTlclRCDEvu+epHT
+	I0pi/p+/A7161dgXVZSwjI8CZ3eqsyMuR/oND/8xwfIW1p24l4o+YBtiMyFIUVwHTfx5QaAOdYQ5Y
+	teZIm+SouKANIJXC2sioFoPoTQvTaOLwzoKn5Gcq/BTM+jjn9ySYIlayWbFN329xyWihJJYcwbDsv
+	KLIUnR9UTXK0MaDYpf53FCV4J0d3Ch3Yij7gFw0iSJbkFGRUrDcCiRHIVmr1U0aznaaZYniXAfV1F
+	yMasTaPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1YM0-0000000Fu4l-3QJH;
-	Sun, 06 Apr 2025 22:20:36 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1u1YNn-0000000FuMU-3uVz;
+	Sun, 06 Apr 2025 22:22:27 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1YGd-0000000FsuY-29Yd;
-	Sun, 06 Apr 2025 22:15:04 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43d2d952eb1so24972675e9.1;
-        Sun, 06 Apr 2025 15:15:03 -0700 (PDT)
+	id 1u1YGf-0000000Fsv8-125R;
+	Sun, 06 Apr 2025 22:15:06 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43cfba466b2so37474775e9.3;
+        Sun, 06 Apr 2025 15:15:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743977702; x=1744582502; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1743977703; x=1744582503; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1jotKc/Fqpl2Jd1jPfcmFs0z7oPm/HmjlcBjHuS3pTY=;
-        b=DVwX2YzZwbMxgw7aTEvaQ5reMcOdKB300IuE88owaJD/3aMTZ8DHiEG+f8rkQ2qlrf
-         s6AK6f2Q3O1nnLTSQ924N3vIYfkqoWo9Z3tshQhMyo6+Zk1Rlrl0WTZPKf2aMdpQb9Pm
-         TFGX+TFNTtvXHE4bYaNBg5Q4ICgAT3iKpgL1RBNSOUfe9mQftRQW9+I179ROkQoee645
-         MrGQxoO5zfEDRjHNIbghSeCaLTLsYUBj3DpJLVN5e55Y29wWebJLfe6eL9j8HeDyAeBV
-         fd1sQjzbRE9IGPd1GDp0/sYEVGBKf0dI6yVTBomDMk9VBNBiuTuc78Cj01TLUV4y5j5T
-         ECJA==
+        bh=ayn/+ArG131gi18wLCzFlJOt7i4mpT3rXpgfAV6sJtQ=;
+        b=F2YMpcfpvww/9ICKMYexWe0TnbJ8Kbw0SRZSJpGAPxJvuEie7P6dUdz8Jk1DLOE2MB
+         JVxhtDHQFrDrW3oanCgDiMrnEkUdgWh4//1ugt1PBtKRdPoYH6A5Xe4tX4zsxd9MFXUx
+         3qvudQQN31Of69dStMchnxd1Mw+AIeU9VhZ30acAMHDex08XxpmeGjG/bN48JGu+q8iv
+         k4RLNJ3UZJtOoOCCobOSrfKFT4Y7JreKmAtQxxW2WX+A87N058nmCbNTtBr2cqQiu7MR
+         gHltFp0SZJ/vj/M7KbQemaO6/9OYfT7JqqqqpxFaT3Jaz4MEb4Kv056ZINSCvk0kR9gO
+         yLWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743977702; x=1744582502;
+        d=1e100.net; s=20230601; t=1743977703; x=1744582503;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1jotKc/Fqpl2Jd1jPfcmFs0z7oPm/HmjlcBjHuS3pTY=;
-        b=puVugBocdAkiI4tLinhttFPkhKY9NIhH0jGFxKaPlvFke6ZMwwoNRk64RUl1UfM0wE
-         fT/LpqFsCNDOY/e5P8X8Nl+VXz36LppkDP8X61qyT9ntkvP38DqvFVnQgJR3G4gtZ1Np
-         ztT2Mqz7jVqExiMd8d+Pqy/KVHFpVa+9QqAS6+gEOobkOuC+1hSGKbA23+2wXnvwlxNE
-         t6Ywfn6qibQRBgEWp4olim2RmKZOHj5mEiUnGGQw2VxKR7u7J0RxXS/K82xuvQtv3FBv
-         ktveATKvlUZAZr0fLdM/A5ZfKCbSPI/qTM1t9IUupU1cLA/7zkWB1G0T9HV5GaCxTNsf
-         Vp8A==
-X-Forwarded-Encrypted: i=1; AJvYcCUKcZoIMqz5tL5wUBJLY1lONv0S8fYtjFpOp8ZtrFQq0ulU9/LF6YCPDpcumkDom8Aj0nlvqkxCXrRh+6tCb0Zn@lists.infradead.org, AJvYcCWJyU4KA2hVjO2fvdKyVTIFAmzuoSMFFc/5J0oIDWfNlAQbAaA4jiMHFTuVeUUZIy3v9eiPhr5RKi20KGxPUt4=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoKNlq5PJxqansmwu+rtYVlrB5p+24kauBNaTInReZCPPBAyxQ
-	LDIqblvJ532fsQTq2qtI6VjHtTwtAqz0QhtsW9TogHeRDXhCEp4S
-X-Gm-Gg: ASbGncsDos12XhDMQA0hhESOqxHG9HFLOm7tHsRxPPEaN8rz6HCvQGK2S4RABQQq9m2
-	K+CjIf6W1yyHAs8TIB3EA1XvF2G5x29/o7G+bcRJrAVAFMDGfdqBCjcw2sJrQ7x+qSSxaPor9z4
-	uM3vccEZiWCw9BrdJOS816f/uyyMMTj8Tr0xS2kCUyuMKl0k+RpSUe+JMwxmv2jG6Bj66jq8rrG
-	rcG9JQIyY5EP+0QjL503K9t+mNuKrFP5bbrM5BOjDwZthXCgL7ovo+FzhNh+OAT1cKsITqFoDdY
-	RcoNpy5JN0BcvI9C9Q9WarCOLvrHeJRr0EujT5p4pmpOHBb99XSWXGix82Iy+LPsTpnAvpWZDRn
-	rh8ac4jLJWcxu9w==
-X-Google-Smtp-Source: AGHT+IF4Orsr0uagyxWiA2SygCLbqK10XpF3iEqB0Ey1M4fJ6BNRGD2Cn9NKoC8AeNVhrjTx7AWL5g==
-X-Received: by 2002:a05:600c:5785:b0:43d:209:21fd with SMTP id 5b1f17b1804b1-43ee0783d96mr59382275e9.30.1743977701942;
-        Sun, 06 Apr 2025 15:15:01 -0700 (PDT)
+        bh=ayn/+ArG131gi18wLCzFlJOt7i4mpT3rXpgfAV6sJtQ=;
+        b=Qwe4dmgZmrPDkdAc1KjfW93zhUQ2JDYrYgW+5Tcvv18S6gnBh6tXm/+f1m/TgeXxVg
+         WSIvnjufE38nSGLsuo4vgy7fpCYZ/8tBNYaHmyW/agnqiq2NH9WE7VMX32C1WhnE6wjn
+         bYVzaSHZx0cFJLQScEXkEHG7iwGCrnPXbuR6q6v3I5rgzQFq5IgfxoLvUalAkgusLHTf
+         N9HTWeFfd+FT0UfVXaKv9kdzv8126h/FOQn2VGzAINUOaBm/9v2oiwBw4dNsUBy9Tly7
+         wX4HPz57Vnifch3Wtja3rsOMGu0qRckpoyqJ/SRMps57YFWawhGJSMruwtV44UmU0Acu
+         9yXA==
+X-Forwarded-Encrypted: i=1; AJvYcCUrJoAJ13jQ7dMSi9qCCfWFVWK7UHzcnkNf8NH1PKKg7s05DI5R+8UPr3lo0mNVQwZ8D58TkjDGaTyUN7jcsLdT@lists.infradead.org, AJvYcCWApF+lLEKG3dziCE1mR2rZwdCBYwDnfXEnDbFSXOX3/yH2STzEWaVPEpXgwNAkCpKtmOI3hJoEnKWrOTzoi14=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaitglYUgI4X59O4ClzIYG/BMPq8uiJZ6K6mLfFRcFgpZ5cXZR
+	Jr3cNUQqd6QjPaBCNIRlHsvHsCk+IDv0+BsMAiu7RRUUC/r9OpJv
+X-Gm-Gg: ASbGnctFj18oLlyG4x3ELrN59hUVQEquSaTxrTRExsvE5r597sILB9/+2iN4dhTeyFo
+	EeLho9vAXAaAOmOIKpcmUYE+OAOjwrNzWpDeB0qgp+rmD/qMm7VroVqLHAN1JAZTnuuMSteKaQx
+	fo1fOTfopm3rg431nFnayqrk033MYJBFYTpoAII+T8h00J1D7ipGyEKIXFaI1/FheX0Y3Y2MVRA
+	2DPMdf4FfM3mUsz0sjDYLN9fVI/XY3gyeh0RQpteCd3bX8FcemO12DbYTmMGjW4Ct+WDXMZ6fTy
+	BKNn57M7TxuEHXBSJap/HUrVbUXSnCwCzs4PugXIAJbBfDAZvgLi+l75oM3+17vebmuxAgKI8VB
+	TszxMczn67Aeldw==
+X-Google-Smtp-Source: AGHT+IENfMJTLXOWwcQUAP+VYmlM77Qj1I7980ItCU7kcoUNHVy1gAOdc18HDYP2esin/LYBB6Ur7g==
+X-Received: by 2002:a05:600c:1c07:b0:43d:45a:8fc1 with SMTP id 5b1f17b1804b1-43ecf84287dmr98127335e9.4.1743977703199;
+        Sun, 06 Apr 2025 15:15:03 -0700 (PDT)
 Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43ec366aa29sm111517055e9.39.2025.04.06.15.15.00
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43ec366aa29sm111517055e9.39.2025.04.06.15.15.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Apr 2025 15:15:01 -0700 (PDT)
+        Sun, 06 Apr 2025 15:15:02 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -90,17 +90,17 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	"Lei Wei (QUIC)" <quic_leiwei@quicinc.com>
-Subject: [RFC PATCH net-next v2 02/11] net: phylink: keep and use MAC supported_interfaces in phylink struct
-Date: Mon,  7 Apr 2025 00:13:55 +0200
-Message-ID: <20250406221423.9723-3-ansuelsmth@gmail.com>
+Subject: [RFC PATCH net-next v2 03/11] net: phy: introduce phy_interface_copy helper
+Date: Mon,  7 Apr 2025 00:13:56 +0200
+Message-ID: <20250406221423.9723-4-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250406221423.9723-1-ansuelsmth@gmail.com>
 References: <20250406221423.9723-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_151503_568023_7C128977 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20250406_151505_284758_98EF2B2B 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,105 +115,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add in phylink struct a copy of supported_interfaces from phylink_config
-and make use of that instead of relying on phylink_config value.
+Introduce phy_interface_copy helper as a shorthand to copy the PHY
+interface bitmap to a different location.
 
-This in preparation for support of PCS handling internally to phylink
-where a PCS can be removed or added after the phylink is created and we
-need both a reference of the supported_interfaces value from
-phylink_config and an internal value that can be updated with the new
-PCS info.
+This is useful if a PHY interface bitmap needs to be stored in a
+different variable and needs to be reset to an original value saved in a
+different bitmap.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- drivers/net/phy/phylink.c | 22 +++++++++++++++-------
- 1 file changed, 15 insertions(+), 7 deletions(-)
+ include/linux/phy.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 4a1edf19dfad..6a7d6e3768da 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -66,6 +66,11 @@ struct phylink {
- 	/* The link configuration settings */
- 	struct phylink_link_state link_config;
+diff --git a/include/linux/phy.h b/include/linux/phy.h
+index a2bfae80c449..65c520e556aa 100644
+--- a/include/linux/phy.h
++++ b/include/linux/phy.h
+@@ -173,6 +173,11 @@ static inline void phy_interface_or(unsigned long *dst, const unsigned long *a,
+ 	bitmap_or(dst, a, b, PHY_INTERFACE_MODE_MAX);
+ }
  
-+	/* What interface are supported by the current link.
-+	 * Can change on removal or addition of new PCS.
-+	 */
-+	DECLARE_PHY_INTERFACE_MASK(supported_interfaces);
++static inline void phy_interface_copy(unsigned long *dst, const unsigned long *src)
++{
++	bitmap_copy(dst, src, PHY_INTERFACE_MODE_MAX);
++}
 +
- 	/* The current settings */
- 	phy_interface_t cur_interface;
- 
-@@ -616,7 +621,7 @@ static int phylink_validate_mask(struct phylink *pl, struct phy_device *phy,
- static int phylink_validate(struct phylink *pl, unsigned long *supported,
- 			    struct phylink_link_state *state)
+ static inline void phy_interface_set_rgmii(unsigned long *intf)
  {
--	const unsigned long *interfaces = pl->config->supported_interfaces;
-+	const unsigned long *interfaces = pl->supported_interfaces;
- 
- 	if (state->interface == PHY_INTERFACE_MODE_NA)
- 		return phylink_validate_mask(pl, NULL, supported, state,
-@@ -1815,6 +1820,9 @@ struct phylink *phylink_create(struct phylink_config *config,
- 	mutex_init(&pl->state_mutex);
- 	INIT_WORK(&pl->resolve, phylink_resolve);
- 
-+	phy_interface_copy(pl->supported_interfaces,
-+			   config->supported_interfaces);
-+
- 	pl->config = config;
- 	if (config->type == PHYLINK_NETDEV) {
- 		pl->netdev = to_net_dev(config->dev);
-@@ -1973,7 +1981,7 @@ static int phylink_validate_phy(struct phylink *pl, struct phy_device *phy,
- 		 * those which the host supports.
- 		 */
- 		phy_interface_and(interfaces, phy->possible_interfaces,
--				  pl->config->supported_interfaces);
-+				  pl->supported_interfaces);
- 
- 		if (phy_interface_empty(interfaces)) {
- 			phylink_err(pl, "PHY has no common interfaces\n");
-@@ -2685,12 +2693,12 @@ static phy_interface_t phylink_sfp_select_interface(struct phylink *pl,
- 		return interface;
- 	}
- 
--	if (!test_bit(interface, pl->config->supported_interfaces)) {
-+	if (!test_bit(interface, pl->supported_interfaces)) {
- 		phylink_err(pl,
- 			    "selection of interface failed, SFP selected %s (%u) but MAC supports %*pbl\n",
- 			    phy_modes(interface), interface,
- 			    (int)PHY_INTERFACE_MODE_MAX,
--			    pl->config->supported_interfaces);
-+			    pl->supported_interfaces);
- 		return PHY_INTERFACE_MODE_NA;
- 	}
- 
-@@ -3577,14 +3585,14 @@ static int phylink_sfp_config_optical(struct phylink *pl)
- 
- 	phylink_dbg(pl, "optical SFP: interfaces=[mac=%*pbl, sfp=%*pbl]\n",
- 		    (int)PHY_INTERFACE_MODE_MAX,
--		    pl->config->supported_interfaces,
-+		    pl->supported_interfaces,
- 		    (int)PHY_INTERFACE_MODE_MAX,
- 		    pl->sfp_interfaces);
- 
- 	/* Find the union of the supported interfaces by the PCS/MAC and
- 	 * the SFP module.
- 	 */
--	phy_interface_and(interfaces, pl->config->supported_interfaces,
-+	phy_interface_and(interfaces, pl->supported_interfaces,
- 			  pl->sfp_interfaces);
- 	if (phy_interface_empty(interfaces)) {
- 		phylink_err(pl, "unsupported SFP module: no common interface modes\n");
-@@ -3730,7 +3738,7 @@ static int phylink_sfp_connect_phy(void *upstream, struct phy_device *phy)
- 
- 	/* Set the PHY's host supported interfaces */
- 	phy_interface_and(phy->host_interfaces, phylink_sfp_interfaces,
--			  pl->config->supported_interfaces);
-+			  pl->supported_interfaces);
- 
- 	/* Do the initial configuration */
- 	return phylink_sfp_config_phy(pl, phy);
+ 	__set_bit(PHY_INTERFACE_MODE_RGMII, intf);
 -- 
 2.48.1
 
