@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F609C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E553C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v6bez+xBBIeM+P3GO3BbgynRYNkWgi5Q+7DefXCEmyw=; b=RDOLBSuyTA/q80EyuomiSGvVNB
-	Xo3gcG8YM2f9CFGDPOFVz4KthMZztYXPTuIWJk9HaMXC79x/cehAdgx7T39y29tN7wpgVR9tB6/NX
-	CZYZT+HWW1cEcvaXG58p/iOPbAKZCtpUE7YXkscVeS56DmyKLwCoBAQc+CBHuQXwsmpUai/aL0tml
-	ThuWoLbF2SK7dxmefHUqiFu9eczOlQnbwDhSQ2X6y7V17iGzZgTN2JtE62s2sc3MWPQKv56iI3NLA
-	ZnOfiY3tWHj53xd/4ecNOGPH3MidRb9ly08o218THZYK6ijvJOYS7vlra7xhEbchAvYC8nKnkJkX0
-	j3z5YSJw==;
+	bh=bBwG5hoyXrH/+S5oCeTkWtCV5iIYwjcYjJ5i/zSRuXc=; b=EdDVfXds75vKx0RoSqC+ph7FQp
+	oMtUqiq6uouI7U58CspIDA5l5Y8cD3s0p+t0waOjbHA0gmsVRq+LmCVpFaMhINSQoDOl1J5NN00OU
+	skhNbBabGaW15jHXciBVromfrox5HZtvVYxJtqtnlNwjaiS409RYPgRZmb7xWEgQ16j6vlAXOGTJ6
+	KQkbjwB6EhX0fAv1Mn78Q36pqhMv2ktnj2oA013JwyKFGwjkxTeegG8Cq+swS6Af8a6vIyYD72oDe
+	hjn3OigWmsQdI+4VZMB1PLP8Kd+4tvFapBaZ1g9j+OKKgOWsE0v6mK6xl4fi4a/PfMB+bRS1KayHE
+	Z3NGvnjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Ucd-0000000FdHq-026K;
-	Sun, 06 Apr 2025 18:21:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u1UeK-0000000FdUZ-2sfK;
+	Sun, 06 Apr 2025 18:23:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UYL-0000000FcuG-3ZPP
+	id 1u1UaN-0000000Fd6c-3cB2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 18:17:05 +0000
+	Sun, 06 Apr 2025 18:19:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF3C160010;
-	Sun,  6 Apr 2025 18:16:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADB5AC4CEE3;
-	Sun,  6 Apr 2025 18:16:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 46F04A40A2E;
+	Sun,  6 Apr 2025 18:13:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72A62C4CEE3;
+	Sun,  6 Apr 2025 18:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743963424;
-	bh=Wra5R8sbQq427kqgIZ2pUVfCSxPeBe3+2UldP0GqSUM=;
+	s=k20201202; t=1743963550;
+	bh=AEpqL+llri6g/xIAnkl8OAXLCQJOzdN39r87UUqAR60=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VhzpqgVSiWpFwnDkSXDngTIDjelYErBKvYDclTfHx9QVsjevu8qRJ9XRobNxAbc36
-	 UplcUpA/qZHJU3WmUPgqd0N7l2WehiFuwsTuiMYyo3nxDAJaFNVZ9enPwI1m9a+VD8
-	 xq2Gq8QI4nZOtWLmBvxmgHGhGJbc9yA8ZUEaM+PgNbgiKRm0ZcnK8Y5qVVPHQ7F1mx
-	 YK4JOWMJ/t0RByG7E7FbBgtiPfoEOOuAlqmuwS2a+CafW4eG1jtA+FwUF/Dcg76P9l
-	 vHx2unCMdNaFQ6hPiMFDYwLsmcUCFtHrQWPSRxnU9ZPE3r3ZDH2/uGVJGan/twEpzE
-	 HyZ0JJ+IrRLzw==
-Message-ID: <9f4f51b2-79fb-4c8f-894e-a5f69c10c36f@kernel.org>
-Date: Sun, 6 Apr 2025 20:16:57 +0200
+	b=Kn0c3uQAIDBy6f8+VUKauiWb1+uOkINeDFNkmrp/YyOSKx4M0BXu/6I6sP9lQl3H7
+	 iRGV13NTdpZVcV443pHputl4PHdlFpFHH5BXnUOivon9DxbBrDuOKiScxkPE474Zuz
+	 f8nVXkAF1wyFzrLbv8ptDrbAJ986h7ZuMmal8C1CDENKH0281KLQ+Pw5h/PU7p2BAC
+	 hYo60I+k0F2irYP1jOX/m/Gc3a/3+WlwJdnXZAYRyX6sjxUHwjiNvIfuksGAt/90fL
+	 kjCYUFNeq3JsFOv2IEpn5FwKAHCoE3ME2+1pJMUy3YVdx0wWGvjxQCB6ltQLjwyeXz
+	 Oid0/skSYThpw==
+Message-ID: <346760fe-0595-4821-a5b4-0acfe4fc86cb@kernel.org>
+Date: Sun, 6 Apr 2025 20:19:03 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/32] mfd: sec: split into core and transport (i2c)
- drivers
+Subject: Re: [PATCH v3 14/32] mfd: sec: s2dos05/s2mpu05: use explicit regmap
+ config and drop default
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -64,7 +64,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
 References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
- <20250403-s2mpg10-v3-8-b542b3505e68@linaro.org>
+ <20250403-s2mpg10-v3-14-b542b3505e68@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,9 +110,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250403-s2mpg10-v3-8-b542b3505e68@linaro.org>
+In-Reply-To: <20250403-s2mpg10-v3-14-b542b3505e68@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250406_111912_031435_8C9634DE 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,21 +132,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/04/2025 10:59, André Draszik wrote:
-> As a preparation for adding support for Samsung's S2MPG10, which is
-> connected via SPEEDY / ACPM rather than I2C, split out (move) all
-> I2C-specific driver code into its own kernel module, sec-i2c, and
-> make the existing sec-core module be just the transport-agnostic core
-> driver kernel module.
+> When support for PMICs without compatibles was removed in
+> commit f736d2c0caa8 ("mfd: sec: Remove PMICs without compatibles"),
+> sec_regmap_config effectively became an orphan, because S5M8763X was
+> the only user left of it before removal, using the default: case of the
+> switch statement.
 > 
-> At the same time, update all defconfigs that reference the old kconfig
-> symbol name.
-> 
-> While at it, also update file header comments and module description(s)
-> to drop references to 'mfd', and update comments to be C-style, not
-> C++.
-> 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> 
+> When s2dos05 and s2mpu05 support was added in commit bf231e5febcf
+> ("mfd: sec-core: Add support for the Samsung s2dos05") and commit
+> ed33479b7beb ("mfd: sec: Add support for S2MPU05 PMIC"), they ended up
+> using that orphaned regmap_config in a non-obvious way due to the
+> default: case of the device type switch matching statement taking
+> effect again.
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
