@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB93BC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 22:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75B9C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 22:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbjlynKWg/4l7XREwNXFX/8RA/bU/RRJTqy0Jin3hBE=; b=VrSZs05ZslN4FyqQJTjFm1hb0j
-	lTaKP+dO9l2W5R7m6CvYC0il/lMXqnTPRxIZ2YWOT2CIRgcQzLN5W8XHxSMugZ3+G7oMonFISy+7V
-	3SUlN8yTqLkaQ88F9UQEq49S5WAQPnUsA0f2DWL18sg5P+qcMLlFDuPloj2zNr8xR+PFLiUO27URP
-	sP8k21Z946rl29T7GKXuybnSCuQkoeygjpFxhq6Qv8oMeknKRBYNoeGNXAik4vX9QD2O+Klsu48MT
-	5IjA70snFPo/sl50FvdVKTbTH/hV1ZxtCPLi9duiaoNHADMfk8ZLqrItl0awDL+22uCgfHUKb6Ttj
-	sLhJkKOQ==;
+	bh=1jotKc/Fqpl2Jd1jPfcmFs0z7oPm/HmjlcBjHuS3pTY=; b=jYNTnHIuYPLEAd0vzHVsOH754Q
+	GDtHlfkxL/LwIhAPG0zxWG9R3YT5HAVzvL7YzST5JVv7HP3QJZwCzs78QRkg/IVdOYvdoE6r9xLX0
+	zA8Z+5mWZbhVMYwiOjukpuyi49fKGXdeA35359X2rGpQmSYv60dHOCC5ClLlmR4Fbwe8ko3BB+Tkc
+	8ZIQkAH4w8pK5f6+hgySQDRWnO2BApN4z2zPR5q6iAszuz2mfkMoCj5QF3YaXATY1YVeAuvTR5M1O
+	XQOEjR6cMqIW+ZanEZSCvZeouqlNQWNiDDbUOwfARu8a/uL7KmLmr0GCeI36oUxMSiRUtM5lxSiTu
+	HPRe9KDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1YKD-0000000Ftgk-21IN;
-	Sun, 06 Apr 2025 22:18:45 +0000
+	id 1u1YM0-0000000Fu4l-3QJH;
+	Sun, 06 Apr 2025 22:20:36 +0000
 Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1YGc-0000000Fsu3-1ZiI;
-	Sun, 06 Apr 2025 22:15:03 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso23385825e9.0;
-        Sun, 06 Apr 2025 15:15:02 -0700 (PDT)
+	id 1u1YGd-0000000FsuY-29Yd;
+	Sun, 06 Apr 2025 22:15:04 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43d2d952eb1so24972675e9.1;
+        Sun, 06 Apr 2025 15:15:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743977701; x=1744582501; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1743977702; x=1744582502; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fbjlynKWg/4l7XREwNXFX/8RA/bU/RRJTqy0Jin3hBE=;
-        b=fBl0sECHdTdBaN31W/ZBltEcNW09E/oCFZ8igHaghfD1sXXIPvhJRL0CI4cew+l2tq
-         rgptbJpQxHPHVxRiY3FFOXnHqAh2emmc0iDsEgSyddKbQAHLPO92zMWk5B5Tys2AlGsE
-         4SaCIPfy5ulqHTUMDHCZrmCD9Vb68qcprzUgG2Pjb9T8t+NDLm0JdE3ATr4Haoc73Kuf
-         hS6sWz398lywi27eS3oJ10KKZyc1OhMDm1rtCqDIZoSWso4GmGljDhAYwpUwWtvFrvnU
-         1rHPqxJtoLZGrO8pVs2H23AHCvDoX01ktndqUTxnzLgPKqVe0x8BkOIiZvcZKBFC/Avh
-         hrlA==
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1jotKc/Fqpl2Jd1jPfcmFs0z7oPm/HmjlcBjHuS3pTY=;
+        b=DVwX2YzZwbMxgw7aTEvaQ5reMcOdKB300IuE88owaJD/3aMTZ8DHiEG+f8rkQ2qlrf
+         s6AK6f2Q3O1nnLTSQ924N3vIYfkqoWo9Z3tshQhMyo6+Zk1Rlrl0WTZPKf2aMdpQb9Pm
+         TFGX+TFNTtvXHE4bYaNBg5Q4ICgAT3iKpgL1RBNSOUfe9mQftRQW9+I179ROkQoee645
+         MrGQxoO5zfEDRjHNIbghSeCaLTLsYUBj3DpJLVN5e55Y29wWebJLfe6eL9j8HeDyAeBV
+         fd1sQjzbRE9IGPd1GDp0/sYEVGBKf0dI6yVTBomDMk9VBNBiuTuc78Cj01TLUV4y5j5T
+         ECJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743977701; x=1744582501;
+        d=1e100.net; s=20230601; t=1743977702; x=1744582502;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fbjlynKWg/4l7XREwNXFX/8RA/bU/RRJTqy0Jin3hBE=;
-        b=DxnbCK9WTuM/6YhPJKaF3DiX3aXCLXGr1tTBqNqfkGqiXrgFwHtS/2PFJifOZAtvmz
-         7uF06BEvOJv4LjwculXlDsIfG/QPcBRxZzcwpOUtj1aGpborrsItx+YEPVnJizXEhQAO
-         rHyS/FY08Rc9125otIuT68nzZw8vYyykSwrC8qwwgAcjoTxOWJYRAvTZIlWw7632PgkQ
-         HkkXveDtSVIM18SFWXyCgXWsGFtOOZkyWuV2avw6Ok9d/CyTn7anP8xL2/v9xmXXC2ji
-         LbkqhxYns/2ZvslGKTTK4ETzpOTa7ig6ynZnNJnTZsZS6Mr6eSdi31nqLemBbPJJs6cd
-         EsNA==
-X-Forwarded-Encrypted: i=1; AJvYcCUrtzBlSr/CEpCsz+VKA2Qpw9mCSXusqn54pJaAZlkre1Ncgb+gH6TZNH9TwR//0VpFz/FDicRas8IhkOxQl9Y=@lists.infradead.org, AJvYcCWn/qj6Saq6Dxx32fewgCAJWm58chGqZs1fwSu/PWZvurWhIylornefXc/jjOfzfYsgOdYxjotHRdtL1JEq3FMr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy54dkm6lW7Tc2uQDc4lbw34yIh+3rdfSQ2tI1cUqfhI5o4On4a
-	hF5T1QJAEofvGzqe5Fh34NppVUlGcqY4eXVy5grqOBJVsWQjUPjG
-X-Gm-Gg: ASbGncvstTWxkAwIQRu8e6erYGJ/CoVR8vO4adtRwgu1vWCSZ0hPVYNvFoCejPdATN3
-	/38NEG3zZohCEK8jszWO+2O3omQA2DqJi2xdlMi2kG5+dTMO9BoBleXmHhDuA776ElCoPzYgibS
-	aHtMiDvry8o0Y3TpzXI3NbrGMpgVEauq5m4jiN9952/HY19UK/aJMRShqKJvmvYbgw/26lQTr1e
-	hYPdvbHrYyMyIDCxinXq2UoTGgclh/+B+cOl6g1BF0wDLMY2lBxZgUKuxwcgRw3vCH+a9iQNmEV
-	DurFb6jQQsRadi/sWjQZyo2mEaWx5MMoogFspvw1w5ymSxMMjOhWwsMzasXtMHqIRbl2y/dZpl4
-	S+CwqNXAFGXVJkg==
-X-Google-Smtp-Source: AGHT+IEdcsmazJ3h4gV5FB1N2QFgWw4lBR8V7yh2Q970uDPmQsNJz+c+C9tAeyVOD9FOQdxcIx726Q==
-X-Received: by 2002:a05:600c:190b:b0:43d:fa5f:7d04 with SMTP id 5b1f17b1804b1-43ebf017220mr153587975e9.16.1743977700662;
-        Sun, 06 Apr 2025 15:15:00 -0700 (PDT)
+        bh=1jotKc/Fqpl2Jd1jPfcmFs0z7oPm/HmjlcBjHuS3pTY=;
+        b=puVugBocdAkiI4tLinhttFPkhKY9NIhH0jGFxKaPlvFke6ZMwwoNRk64RUl1UfM0wE
+         fT/LpqFsCNDOY/e5P8X8Nl+VXz36LppkDP8X61qyT9ntkvP38DqvFVnQgJR3G4gtZ1Np
+         ztT2Mqz7jVqExiMd8d+Pqy/KVHFpVa+9QqAS6+gEOobkOuC+1hSGKbA23+2wXnvwlxNE
+         t6Ywfn6qibQRBgEWp4olim2RmKZOHj5mEiUnGGQw2VxKR7u7J0RxXS/K82xuvQtv3FBv
+         ktveATKvlUZAZr0fLdM/A5ZfKCbSPI/qTM1t9IUupU1cLA/7zkWB1G0T9HV5GaCxTNsf
+         Vp8A==
+X-Forwarded-Encrypted: i=1; AJvYcCUKcZoIMqz5tL5wUBJLY1lONv0S8fYtjFpOp8ZtrFQq0ulU9/LF6YCPDpcumkDom8Aj0nlvqkxCXrRh+6tCb0Zn@lists.infradead.org, AJvYcCWJyU4KA2hVjO2fvdKyVTIFAmzuoSMFFc/5J0oIDWfNlAQbAaA4jiMHFTuVeUUZIy3v9eiPhr5RKi20KGxPUt4=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoKNlq5PJxqansmwu+rtYVlrB5p+24kauBNaTInReZCPPBAyxQ
+	LDIqblvJ532fsQTq2qtI6VjHtTwtAqz0QhtsW9TogHeRDXhCEp4S
+X-Gm-Gg: ASbGncsDos12XhDMQA0hhESOqxHG9HFLOm7tHsRxPPEaN8rz6HCvQGK2S4RABQQq9m2
+	K+CjIf6W1yyHAs8TIB3EA1XvF2G5x29/o7G+bcRJrAVAFMDGfdqBCjcw2sJrQ7x+qSSxaPor9z4
+	uM3vccEZiWCw9BrdJOS816f/uyyMMTj8Tr0xS2kCUyuMKl0k+RpSUe+JMwxmv2jG6Bj66jq8rrG
+	rcG9JQIyY5EP+0QjL503K9t+mNuKrFP5bbrM5BOjDwZthXCgL7ovo+FzhNh+OAT1cKsITqFoDdY
+	RcoNpy5JN0BcvI9C9Q9WarCOLvrHeJRr0EujT5p4pmpOHBb99XSWXGix82Iy+LPsTpnAvpWZDRn
+	rh8ac4jLJWcxu9w==
+X-Google-Smtp-Source: AGHT+IF4Orsr0uagyxWiA2SygCLbqK10XpF3iEqB0Ey1M4fJ6BNRGD2Cn9NKoC8AeNVhrjTx7AWL5g==
+X-Received: by 2002:a05:600c:5785:b0:43d:209:21fd with SMTP id 5b1f17b1804b1-43ee0783d96mr59382275e9.30.1743977701942;
+        Sun, 06 Apr 2025 15:15:01 -0700 (PDT)
 Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43ec366aa29sm111517055e9.39.2025.04.06.15.14.59
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43ec366aa29sm111517055e9.39.2025.04.06.15.15.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Apr 2025 15:15:00 -0700 (PDT)
+        Sun, 06 Apr 2025 15:15:01 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -90,18 +90,17 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	"Lei Wei (QUIC)" <quic_leiwei@quicinc.com>
-Cc: stable@vger.kernel.org
-Subject: [RFC PATCH net-next v2 01/11] net: phylink: fix possible circular locking dep with config in-band
-Date: Mon,  7 Apr 2025 00:13:54 +0200
-Message-ID: <20250406221423.9723-2-ansuelsmth@gmail.com>
+Subject: [RFC PATCH net-next v2 02/11] net: phylink: keep and use MAC supported_interfaces in phylink struct
+Date: Mon,  7 Apr 2025 00:13:55 +0200
+Message-ID: <20250406221423.9723-3-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250406221423.9723-1-ansuelsmth@gmail.com>
 References: <20250406221423.9723-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_151502_418578_3BE0AD74 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250406_151503_568023_7C128977 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,149 +115,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Debug lock detection revealed a possible circular locking dependency between
-phylink_major_config() and phylink_bringup_phy().
+Add in phylink struct a copy of supported_interfaces from phylink_config
+and make use of that instead of relying on phylink_config value.
 
-This was introduced by the addition of phy_config_inband(), which acquires
-the phydev lock. This made the locking order in phylink_bringup_phy()
-inconsistent, as it acquires the phydev lock before phylink's state_mutex.
+This in preparation for support of PCS handling internally to phylink
+where a PCS can be removed or added after the phylink is created and we
+need both a reference of the supported_interfaces value from
+phylink_config and an internal value that can be updated with the new
+PCS info.
 
-A deadlock can occur when phylink_major_config() is called from
-phylink_resolve(), where the state_mutex is taken first and then the phydev
-lock. This is the reverse of the order used in phylink_bringup_phy().
-
-To avoid this circular dependency, change the locking order in
-phylink_bringup_phy() to match the pattern used in phylink_resolve(): take
-state_mutex first, then the phydev lock.
-
-A sample lockdep warning is included below for reference:
-
-[  147.749178]
-[  147.750682] ======================================================
-[  147.756850] WARNING: possible circular locking dependency detected
-[  147.763019] 6.14.0-next-20250404+ #0 Tainted: G           O
-[  147.769189] ------------------------------------------------------
-[  147.775356] kworker/u16:0/12 is trying to acquire lock:
-[  147.780571] ffffff80ce9bcf08 (&dev->lock#2){+.+.}-{4:4}, at: phy_config_inband+0x44/0x90
-[  147.788672]
-[  147.788672] but task is already holding lock:
-[  147.794492] ffffff80c0dfbda0 (&pl->state_mutex){+.+.}-{4:4}, at: phylink_resolve+0x2c/0x6a8
-[  147.802840]
-[  147.802840] which lock already depends on the new lock.
-[  147.802840]
-[  147.811002]
-[  147.811002] the existing dependency chain (in reverse order) is:
-[  147.818472]
-[  147.818472] -> #1 (&pl->state_mutex){+.+.}-{4:4}:
-[  147.824647]        __mutex_lock+0x90/0x924
-[  147.828738]        mutex_lock_nested+0x20/0x28
-[  147.833173]        phylink_bringup_phy+0x210/0x700
-[  147.837954]        phylink_fwnode_phy_connect+0xe0/0x124
-[  147.843256]        phylink_of_phy_connect+0x18/0x20
-[  147.848124]        dsa_user_create+0x210/0x414
-[  147.852561]        dsa_port_setup+0xd4/0x14c
-[  147.856823]        dsa_register_switch+0xbb0/0xe40
-[  147.861605]        mt7988_probe+0xf8/0x140
-[  147.865694]        platform_probe+0x64/0xbc
-[  147.869869]        really_probe+0xbc/0x388
-[  147.873955]        __driver_probe_device+0x78/0x154
-[  147.878823]        driver_probe_device+0x3c/0xd4
-[  147.883430]        __device_attach_driver+0xb0/0x144
-[  147.888383]        bus_for_each_drv+0x6c/0xb0
-[  147.892732]        __device_attach+0x9c/0x19c
-[  147.897078]        device_initial_probe+0x10/0x18
-[  147.901771]        bus_probe_device+0xa8/0xac
-[  147.906118]        deferred_probe_work_func+0xb8/0x118
-[  147.911245]        process_one_work+0x224/0x610
-[  147.915769]        worker_thread+0x1b8/0x35c
-[  147.920029]        kthread+0x11c/0x1e8
-[  147.923769]        ret_from_fork+0x10/0x20
-[  147.927857]
-[  147.927857] -> #0 (&dev->lock#2){+.+.}-{4:4}:
-[  147.933686]        __lock_acquire+0x12b8/0x1ff0
-[  147.938209]        lock_acquire+0xf4/0x2d8
-[  147.942295]        __mutex_lock+0x90/0x924
-[  147.946383]        mutex_lock_nested+0x20/0x28
-[  147.950817]        phy_config_inband+0x44/0x90
-[  147.955252]        phylink_major_config+0x684/0xa64
-[  147.960120]        phylink_resolve+0x24c/0x6a8
-[  147.964554]        process_one_work+0x224/0x610
-[  147.969075]        worker_thread+0x1b8/0x35c
-[  147.973335]        kthread+0x11c/0x1e8
-[  147.977075]        ret_from_fork+0x10/0x20
-[  147.981162]
-[  147.981162] other info that might help us debug this:
-[  147.981162]
-[  147.989150]  Possible unsafe locking scenario:
-[  147.989150]
-[  147.995056]        CPU0                    CPU1
-[  147.999575]        ----                    ----
-[  148.004094]   lock(&pl->state_mutex);
-[  148.007748]                                lock(&dev->lock#2);
-[  148.013572]                                lock(&pl->state_mutex);
-[  148.019742]   lock(&dev->lock#2);
-[  148.023051]
-[  148.023051]  *** DEADLOCK ***
-[  148.023051]
-[  148.028958] 3 locks held by kworker/u16:0/12:
-[  148.033304]  #0: ffffff80c0011d48 ((wq_completion)events_power_efficient){+.+.}-{0:0}, at: process_one_work+0x1a8/0x610
-[  148.044082]  #1: ffffffc081ca3dd8 ((work_completion)(&pl->resolve)){+.+.}-{0:0}, at: process_one_work+0x1d0/0x610
-[  148.054338]  #2: ffffff80c0dfbda0 (&pl->state_mutex){+.+.}-{4:4}, at: phylink_resolve+0x2c/0x6a8
-[  148.063119]
-[  148.063119] stack backtrace:
-[  148.067465] CPU: 3 UID: 0 PID: 12 Comm: kworker/u16:0 Tainted: G           O        6.14.0-next-20250404+ #0 NONE
-[  148.067472] Tainted: [O]=OOT_MODULE
-[  148.067474] Hardware name: Bananapi BPI-R4 2.5GE PoE (DT)
-[  148.067476] Workqueue: events_power_efficient phylink_resolve
-[  148.067482] Call trace:
-[  148.067484]  show_stack+0x14/0x1c (C)
-[  148.067492]  dump_stack_lvl+0x84/0xc0
-[  148.067497]  dump_stack+0x14/0x1c
-[  148.067500]  print_circular_bug+0x330/0x43c
-[  148.067505]  check_noncircular+0x124/0x134
-[  148.067508]  __lock_acquire+0x12b8/0x1ff0
-[  148.067512]  lock_acquire+0xf4/0x2d8
-[  148.067516]  __mutex_lock+0x90/0x924
-[  148.067521]  mutex_lock_nested+0x20/0x28
-[  148.067527]  phy_config_inband+0x44/0x90
-[  148.067531]  phylink_major_config+0x684/0xa64
-[  148.067535]  phylink_resolve+0x24c/0x6a8
-[  148.067539]  process_one_work+0x224/0x610
-[  148.067544]  worker_thread+0x1b8/0x35c
-[  148.067548]  kthread+0x11c/0x1e8
-[  148.067552]  ret_from_fork+0x10/0x20
-
-Cc: stable@vger.kernel.org
-Fixes: 5fd0f1a02e75 ("net: phylink: add negotiation of in-band capabilities")
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- drivers/net/phy/phylink.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/net/phy/phylink.c | 22 +++++++++++++++-------
+ 1 file changed, 15 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 69ca765485db..4a1edf19dfad 100644
+index 4a1edf19dfad..6a7d6e3768da 100644
 --- a/drivers/net/phy/phylink.c
 +++ b/drivers/net/phy/phylink.c
-@@ -2072,8 +2072,8 @@ static int phylink_bringup_phy(struct phylink *pl, struct phy_device *phy,
- 		     dev_name(&phy->mdio.dev), phy->drv->name, irq_str);
- 	kfree(irq_str);
+@@ -66,6 +66,11 @@ struct phylink {
+ 	/* The link configuration settings */
+ 	struct phylink_link_state link_config;
  
--	mutex_lock(&phy->lock);
- 	mutex_lock(&pl->state_mutex);
-+	mutex_lock(&phy->lock);
- 	pl->phydev = phy;
- 	pl->phy_state.interface = interface;
- 	pl->phy_state.pause = MLO_PAUSE_NONE;
-@@ -2115,8 +2115,8 @@ static int phylink_bringup_phy(struct phylink *pl, struct phy_device *phy,
- 		phy_disable_eee(phy);
++	/* What interface are supported by the current link.
++	 * Can change on removal or addition of new PCS.
++	 */
++	DECLARE_PHY_INTERFACE_MASK(supported_interfaces);
++
+ 	/* The current settings */
+ 	phy_interface_t cur_interface;
+ 
+@@ -616,7 +621,7 @@ static int phylink_validate_mask(struct phylink *pl, struct phy_device *phy,
+ static int phylink_validate(struct phylink *pl, unsigned long *supported,
+ 			    struct phylink_link_state *state)
+ {
+-	const unsigned long *interfaces = pl->config->supported_interfaces;
++	const unsigned long *interfaces = pl->supported_interfaces;
+ 
+ 	if (state->interface == PHY_INTERFACE_MODE_NA)
+ 		return phylink_validate_mask(pl, NULL, supported, state,
+@@ -1815,6 +1820,9 @@ struct phylink *phylink_create(struct phylink_config *config,
+ 	mutex_init(&pl->state_mutex);
+ 	INIT_WORK(&pl->resolve, phylink_resolve);
+ 
++	phy_interface_copy(pl->supported_interfaces,
++			   config->supported_interfaces);
++
+ 	pl->config = config;
+ 	if (config->type == PHYLINK_NETDEV) {
+ 		pl->netdev = to_net_dev(config->dev);
+@@ -1973,7 +1981,7 @@ static int phylink_validate_phy(struct phylink *pl, struct phy_device *phy,
+ 		 * those which the host supports.
+ 		 */
+ 		phy_interface_and(interfaces, phy->possible_interfaces,
+-				  pl->config->supported_interfaces);
++				  pl->supported_interfaces);
+ 
+ 		if (phy_interface_empty(interfaces)) {
+ 			phylink_err(pl, "PHY has no common interfaces\n");
+@@ -2685,12 +2693,12 @@ static phy_interface_t phylink_sfp_select_interface(struct phylink *pl,
+ 		return interface;
  	}
  
--	mutex_unlock(&pl->state_mutex);
- 	mutex_unlock(&phy->lock);
-+	mutex_unlock(&pl->state_mutex);
+-	if (!test_bit(interface, pl->config->supported_interfaces)) {
++	if (!test_bit(interface, pl->supported_interfaces)) {
+ 		phylink_err(pl,
+ 			    "selection of interface failed, SFP selected %s (%u) but MAC supports %*pbl\n",
+ 			    phy_modes(interface), interface,
+ 			    (int)PHY_INTERFACE_MODE_MAX,
+-			    pl->config->supported_interfaces);
++			    pl->supported_interfaces);
+ 		return PHY_INTERFACE_MODE_NA;
+ 	}
  
- 	phylink_dbg(pl,
- 		    "phy: %s setting supported %*pb advertising %*pb\n",
+@@ -3577,14 +3585,14 @@ static int phylink_sfp_config_optical(struct phylink *pl)
+ 
+ 	phylink_dbg(pl, "optical SFP: interfaces=[mac=%*pbl, sfp=%*pbl]\n",
+ 		    (int)PHY_INTERFACE_MODE_MAX,
+-		    pl->config->supported_interfaces,
++		    pl->supported_interfaces,
+ 		    (int)PHY_INTERFACE_MODE_MAX,
+ 		    pl->sfp_interfaces);
+ 
+ 	/* Find the union of the supported interfaces by the PCS/MAC and
+ 	 * the SFP module.
+ 	 */
+-	phy_interface_and(interfaces, pl->config->supported_interfaces,
++	phy_interface_and(interfaces, pl->supported_interfaces,
+ 			  pl->sfp_interfaces);
+ 	if (phy_interface_empty(interfaces)) {
+ 		phylink_err(pl, "unsupported SFP module: no common interface modes\n");
+@@ -3730,7 +3738,7 @@ static int phylink_sfp_connect_phy(void *upstream, struct phy_device *phy)
+ 
+ 	/* Set the PHY's host supported interfaces */
+ 	phy_interface_and(phy->host_interfaces, phylink_sfp_interfaces,
+-			  pl->config->supported_interfaces);
++			  pl->supported_interfaces);
+ 
+ 	/* Do the initial configuration */
+ 	return phylink_sfp_config_phy(pl, phy);
 -- 
 2.48.1
 
