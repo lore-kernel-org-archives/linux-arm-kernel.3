@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B72C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 10:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3434DC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 11:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eZv0v0RPsaRBDEnnpvD31HKBEhLM68+tgkU8WpLqeDU=; b=UcQnOA+EmR19QerFmi1kDJZqUI
-	jvUzGa5S9wzwDkeny3/oO9pLW2xgmosfrnLZN4eb2LfLjZUoueThwNCeMEJxjYu5dikuric7BgNzA
-	kmmQEk7H6uLeqs78lCvVcdmI+SYWs8PdQtMAM7zJ7t4XrmP+S3LmXnboL4elsd6ksN3w1saNtxyS/
-	9qzuAJ7/BmpdWAScMEfalcTEQRwFIWHrN4wlor3xy8c3SDz9bU/Loxb4kOtVnc/74yCCFiZbGtyfP
-	7oI4wjwBqF+sZfiR74yowsPIIcCi4OmF3V4vQsFQK+S5F2g3l/DQ1diq24VGIaCktjWwsn1GaOAFw
-	59H+84iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qqH4N2+CHgOqU/M5fIoD1f1hycV5QL3eTccuZsOVm14=; b=ct9XwC3scufPA8G2twUEQNNoWj
+	Uiaty9/zmBClVzzhrSDW3R9Xm6MlASKRb1p2jOa8X8Z3HDX3aYOyjmRZgoLr8dy4QRo4Dp8jYLxso
+	v5OHcMnY0kJh87akXWRFXGext3pcGU2MgZvVy9g+sJBlt9DmpQA5N8k6mexKD/6D1OiB241AhamdY
+	jumDX3Fc7jk94h05C1kCkr1FVMjaw1HIjMHLL7bD3aao4AoUMQkW77hRLmmfZ9Efgznars3gZ4AlT
+	RylvO+PLF2BIa8tyLq3x0tT9YPpUwUqLnG+SDhNPDlXyrVG0xaFBeqUbY6SaoKzgQNxbBo6pMIkXI
+	EgThIevw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Mvt-0000000FAly-1Jvz;
-	Sun, 06 Apr 2025 10:08:53 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1u1Of0-0000000FH1O-37C1;
+	Sun, 06 Apr 2025 11:59:34 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Mu8-0000000FAhY-2Dfg
+	id 1u1OdF-0000000FGuj-4B0d
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 10:07:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1743934025; x=1775470025;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=3ogaiLm7zY7ExBvhU0wCaTIh4FloWzuJpR27AS/K70I=;
-  b=L8YAh5f8+Nu9VyQ+CjdJeqMviIS/2KCQoIGLUi3q1HwO/69Fa8xrOF7P
-   UOPISR4LStkxxo7oJNQbH7Qwbo7sqB356KMLYk95STNq2b5MgUtim4WBq
-   LYGYPO162cqRHoeEuE5Sw2twkl75gVk8sLKaSTsRXOWGfZrt+r+hADluy
-   oDhcp/CNX/CpuF4qySvQrK33eQQuTBeoyQ1Scs5PZPZs4yJUZI7eAedWM
-   PkTqrBbOHEbzxYPZUWawc2y3xPM+Hzm6bE0XjtHI6KgqhSae8UI2LYJ2d
-   x6Et4dWmF35bIRh448V1ud0+OTG+gZOKvfrFZBaIU+SR1Hzea3pJND9uY
-   A==;
-X-CSE-ConnectionGUID: 3nJw1+YNQdOfe6AK6a9P8Q==
-X-CSE-MsgGUID: lsxQO8ETQ2CrBaJJD2V1zw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11395"; a="45233983"
-X-IronPort-AV: E=Sophos;i="6.15,193,1739865600"; 
-   d="scan'208";a="45233983"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Apr 2025 03:06:58 -0700
-X-CSE-ConnectionGUID: +l1EkKxwQsCeiPffdfRl3g==
-X-CSE-MsgGUID: FKlNzjpRTdqTodCMG5Daeg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,193,1739865600"; 
-   d="scan'208";a="128009202"
-Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 06 Apr 2025 03:06:57 -0700
-Received: from kbuild by b207828170a5 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u1Mtz-0002Xd-0w;
-	Sun, 06 Apr 2025 10:06:55 +0000
-Date: Sun, 6 Apr 2025 18:06:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:hack/ppi 17/25] kernel/irq/irqdomain.c:916:29: error:
- 'const struct irq_domain_ops' has no member named 'get_info'
-Message-ID: <202504061741.GTuVK3RN-lkp@intel.com>
+	Sun, 06 Apr 2025 11:57:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1743940660; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=qqH4N2+CHgOqU/M5fIoD1f1hycV5QL3eTccuZsOVm14=;
+	b=OmEfz/4OSyBYBMxg2k/F7H644luhjRTA81SBCBY9M7RMOdxmZwshtK3OzEvQeGDpsMfELyZp27trdwr0eg4ToyvZn1IeRi+xMdxtUukckt/DqIRm7bS9RBPa1pktlOoQ1xwbFDIk1O/AbjC5kyye1Bg08mGstC3aDQDg4o0J6hs=
+Received: from 30.246.160.68(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WVZ69Fk_1743940654 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sun, 06 Apr 2025 19:57:35 +0800
+Message-ID: <3af36c30-48e9-4182-ad09-bd28d3e4acb4@linux.alibaba.com>
+Date: Sun, 6 Apr 2025 19:57:34 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] selftests/pidfd: align stack to fix SP alignment
+ exception
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, baolin.wang@linux.alibaba.com,
+ tianruidong@linux.alibaba.com, brauner@kernel.org, shuah@kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20250312061557.28532-1-xueshuai@linux.alibaba.com>
+ <0a70f4ab-cd83-434d-8dd2-486d58e5599a@linux.alibaba.com>
+ <20250404121759.GA28692@willie-the-truck>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20250404121759.GA28692@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_030704_651685_56FE45EE 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250406_045746_710335_37AD33D0 
+X-CRM114-Status: GOOD (  23.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,50 +71,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git hack/ppi
-head:   aefa1f7be0ec85eaa2d21637deea85660d4c153a
-commit: 56d963e82dae51037c004093c820370a4ad96cba [17/25] WIP
-config: powerpc64-randconfig-002-20250406 (https://download.01.org/0day-ci/archive/20250406/202504061741.GTuVK3RN-lkp@intel.com/config)
-compiler: powerpc64-linux-gcc (GCC) 7.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250406/202504061741.GTuVK3RN-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504061741.GTuVK3RN-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   kernel/irq/irqdomain.c: In function 'irq_populate_fwspec_info':
->> kernel/irq/irqdomain.c:916:29: error: 'const struct irq_domain_ops' has no member named 'get_info'
-     if (!domain || !domain->ops->get_info) {
-                                ^~
-   kernel/irq/irqdomain.c:921:20: error: 'const struct irq_domain_ops' has no member named 'get_info'
-     return domain->ops->get_info(info);
-                       ^~
-   kernel/irq/irqdomain.c:922:1: warning: control reaches end of non-void function [-Wreturn-type]
-    }
-    ^
 
 
-vim +916 kernel/irq/irqdomain.c
+在 2025/4/4 20:18, Will Deacon 写道:
+> On Wed, Mar 19, 2025 at 10:59:57AM +0800, Shuai Xue wrote:
+>> + ARM maintainers for review.
+>>
+>> 在 2025/3/12 14:15, Shuai Xue 写道:
+>>> The pidfd_test fails on the ARM64 platform with the following error:
+>>>
+>>>       Bail out! pidfd_poll check for premature notification on child thread exec test: Failed
+>>>
+>>> When exception-trace is enabled, the kernel logs the details:
+>>>
+>>>       #echo 1 > /proc/sys/debug/exception-trace
+>>>       #dmesg | tail -n 20
+>>>       [48628.713023] pidfd_test[1082142]: unhandled exception: SP Alignment, ESR 0x000000009a000000, SP/PC alignment exception in pidfd_test[400000+4000]
+>>>       [48628.713049] CPU: 21 PID: 1082142 Comm: pidfd_test Kdump: loaded Tainted: G        W   E      6.6.71-3_rc1.al8.aarch64 #1
+>>>       [48628.713051] Hardware name: AlibabaCloud AliServer-Xuanwu2.0AM-1UC1P-5B/AS1111MG1, BIOS 1.2.M1.AL.P.157.00 07/29/2023
+>>>       [48628.713053] pstate: 60001800 (nZCv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=-c)
+>>>       [48628.713055] pc : 0000000000402100
+>>>       [48628.713056] lr : 0000ffff98288f9c
+>>>       [48628.713056] sp : 0000ffffde49daa8
+>>>       [48628.713057] x29: 0000000000000000 x28: 0000000000000000 x27: 0000000000000000
+>>>       [48628.713060] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
+>>>       [48628.713062] x23: 0000000000000000 x22: 0000000000000000 x21: 0000000000400e80
+>>>       [48628.713065] x20: 0000000000000000 x19: 0000000000402650 x18: 0000000000000000
+>>>       [48628.713067] x17: 00000000004200d8 x16: 0000ffff98288f40 x15: 0000ffffde49b92c
+>>>       [48628.713070] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+>>>       [48628.713072] x11: 0000000000001011 x10: 0000000000402100 x9 : 0000000000000010
+>>>       [48628.713074] x8 : 00000000000000dc x7 : 3861616239346564 x6 : 000000000000000a
+>>>       [48628.713077] x5 : 0000ffffde49daa8 x4 : 000000000000000a x3 : 0000ffffde49daa8
+>>>       [48628.713079] x2 : 0000ffffde49dadc x1 : 0000ffffde49daa8 x0 : 0000000000000000
+>>>
+>>> According to ARM ARM D1.3.10.2 SP alignment checking:
+>>>
+>>>> When the SP is used as the base address of a calculation, regardless of
+>>>> any offset applied by the instruction, if bits [3:0] of the SP are not
+>>>> 0b0000, there is a misaligned SP.
+>>>
+>>> To fix it, align the stack with 16 bytes.
+>>>
+>>> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
+>>> ---
+>>>    tools/testing/selftests/pidfd/pidfd_test.c | 2 +-
+>>>    1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/tools/testing/selftests/pidfd/pidfd_test.c b/tools/testing/selftests/pidfd/pidfd_test.c
+>>> index c081ae91313a..ec161a7c3ff9 100644
+>>> --- a/tools/testing/selftests/pidfd/pidfd_test.c
+>>> +++ b/tools/testing/selftests/pidfd/pidfd_test.c
+>>> @@ -33,7 +33,7 @@ static bool have_pidfd_send_signal;
+>>>    static pid_t pidfd_clone(int flags, int *pidfd, int (*fn)(void *))
+>>>    {
+>>>    	size_t stack_size = 1024;
+>>> -	char *stack[1024] = { 0 };
+>>> +	char *stack[1024] __attribute__((aligned(16))) = {0};
+>>>    #ifdef __ia64__
+>>>    	return __clone2(fn, stack, stack_size, flags | SIGCHLD, NULL, pidfd);
+> 
+> The arm64 alignment requirement is correct, but I don't really grok what
+> this code is trying to do. If it's not using CLONE_VM, why bother passing
+> a separate stack? If it _is_ using CLONE_VM, then surely the stack needs
+> to be allocated somewhere other than the caller stack?
+> 
 
-   910	
-   911	int irq_populate_fwspec_info(struct irq_fwspec_info *info)
-   912	{
-   913		struct irq_domain *domain;
-   914	
-   915		domain = fwspec_to_domain(&info->fwspec);
- > 916		if (!domain || !domain->ops->get_info) {
-   917			info->flags = 0;
-   918			return 0;
-   919		}
-   920	
-   921		return domain->ops->get_info(info);
-   922	}
-   923	
+Hi, Will,
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thank for you reply.
+
+> https://man7.org/linux/man-pages/man2/clone3.2.html
+clone3()
+        The stack for the child process is specified via cl_args.stack,
+        which points to the lowest byte of the stack area, and
+        cl_args.stack_size, which specifies the size of the stack in
+        bytes.  In the case where the CLONE_VM flag (see below) is
+        specified, a stack must be explicitly allocated and specified.
+        * Otherwise, these two fields can be specified as NULL and 0 *, which
+        causes the child to use the same stack area as the parent (in the
+        child's own virtual address space).
+
+ From man-pages for clone3, I think you are right.
+As you pointed out, without CLONE_VM, the stack can indeed be set to NULL.
+However, when running the pidfd_test, issues arise:
+
+#./pidfd_test
+TAP version 13
+1..8
+# Parent: pid: 125004
+Bail out! pidfd_poll check for premature notification on child thread exec test: pidfd_clone failed (ret -1, errno 22)
+# Planned tests != run tests (8 != 0)
+# Totals: pass:0 fail:0 xfail:0 xpass:0 skip:0 error:0
+
+
+Upon examining the git diff:
+
+#git diff
+diff --git a/tools/testing/selftests/pidfd/pidfd_test.c b/tools/testing/selftests/pidfd/pidfd_test.c
+index 9a2d64901d59..c5991c0712c8 100644
+--- a/tools/testing/selftests/pidfd/pidfd_test.c
++++ b/tools/testing/selftests/pidfd/pidfd_test.c
+@@ -32,13 +32,10 @@ static bool have_pidfd_send_signal;
+
+  static pid_t pidfd_clone(int flags, int *pidfd, int (*fn)(void *))
+  {
+-       size_t stack_size = 1024;
+-       char *stack[1024] = { 0 };
+-
+  #ifdef __ia64__
+         return __clone2(fn, stack, stack_size, flags | SIGCHLD, NULL, pidfd);
+  #else
+-       return clone(fn, stack + stack_size, flags | SIGCHLD, NULL, pidfd);
++       return clone(fn, NULL, flags | SIGCHLD, NULL, pidfd);
+  #endif
+  }
+
+
+Also from man-pages of clone3, https://man7.org/linux/man-pages/man2/clone3.2.html
+
+    The clone() wrapper function
+
+        The stack argument specifies the location of the stack used by the
+        child process.  Since the child and calling process may share
+        memory, it is not possible for the child process to execute in the
+        same stack as the calling process.  *The calling process must
+        therefore set up memory space for the child stack and pass a
+        pointer to this space to clone()*.  Stacks grow downward on all
+        processors that run Linux (except the HP PA processors), so stack
+        usually points to the topmost address of the memory space set up
+        for the child stack.  Note that clone() does not provide a means
+        whereby the caller can inform the kernel of the size of the stack
+        area.
+
+Now, I am confused about the rules :(
+
+Upon reviewing the glibc code for handling this:
+https://elixir.bootlin.com/glibc/glibc-2.41.9000/source/sysdeps/unix/sysv/linux/aarch64/clone.S#L52
+
+It's evident that when the stack pointer is set to NULL, the aligned stack
+pointer remains zero, leading __clone to perform a syscall error,
+returning -EINVAL due to an invalid argument.
+
+In summary, memory space for the child's stack must be explicitly allocated,
+and a valid pointer must be passed to clone() regardless of the use of
+CLONE_VM.
+
+> Will
+
+Thanks.
+Shuai
+
 
