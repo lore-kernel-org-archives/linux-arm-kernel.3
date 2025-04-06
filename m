@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37866C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB40C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FjiCac8gLdFJU+6gKhCgQJNDRNn9pOzpmmU5XEypH/k=; b=Qeou1f+lnh4JRrCrKS/t2nysIf
-	CN7wV936rSP4maZBHFf9szPwnW8SP+tmN77pDjUxYr/k5wIF5+5UuQKZdSEM//q8Wf/J6tCKTSNGy
-	CWyd0n11YrMoECUnui0wNHR+9nIOGEl4NBwUNpiK2qSkqxVy91I2pvC1qCMMzIGWRPBXkB9BfjXji
-	kNYg5PvarR2tVLK/Gao0lgzEgwFla29gPDI3BMKlq+Zr5YOXr5e4Lyau3OGOHPB7mfQWOgR6vld0i
-	H+KnpvfRPmT83zLNYh/DMFXIr/JdoOLvRTqMGi3p9mBCd8hhu272uhLopdtQ+vvA04M7BkB85tQMq
-	InQoXx7g==;
+	bh=9rRnqCwL3e4RSYU6u8ZAKQceE4GJicsYigCmY+hA+u8=; b=qWzPNtgtQJg+jlqI4a6RI8wt6a
+	rfMqdAy2zFpuF3gqQQCEckUAEapQGthAAzOCg7RhvupXgOaGboxnD/LKXjbiGbor4Qj9zW/WRQshr
+	YGiHV4TMNss/odtoecEtgkuqa+umtAc6yQJfgpSSdJNsvZXKBV1pJCVPoRfLzcuFBGQ2RquDa7L7x
+	Fnftbccg63tsKLP+RpYgZnkhhYL5mKXQRfGl+Ar9TsCsQMSbHsikSBjyPf1cdzkCFrUToSh+GFHaC
+	lW+LlGHEIixpz2LX2CGhx89TsF2vcLmiZ6L9fyVk1kV74zNtVL/pu/7rmHm9m7eD847conS2IF2k/
+	pbIOMyaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Ul2-0000000FeGt-18FU;
-	Sun, 06 Apr 2025 18:30:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u1Umm-0000000FeVT-0HmK;
+	Sun, 06 Apr 2025 18:32:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UjH-0000000Fe1Z-2rEs
+	id 1u1Ukn-0000000FeDs-1PrA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 18:28:24 +0000
+	Sun, 06 Apr 2025 18:29:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0BC5149CD3;
-	Sun,  6 Apr 2025 18:28:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49987C4CEE3;
-	Sun,  6 Apr 2025 18:28:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E5C444DCC;
+	Sun,  6 Apr 2025 18:29:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5AC7C4CEE3;
+	Sun,  6 Apr 2025 18:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743964102;
-	bh=o3lo5mNQt20q7ZgKNeztTSYc3XExMVZ1QPahOdl5f+w=;
+	s=k20201202; t=1743964196;
+	bh=NBs+DdLD/dzoE5NyJhDiJ+oXA3sVIFYi4ilWUfIHYoI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O5lowjInlQXQ4IvmD2Av4AnagzVNL9s+iRvbQpUVjwYFx28mypXakWBtXrul84Mhw
-	 8svNwT9BXhn1diiAUzRYUgqsdcB2v7nv3/Fthbw6Jesgk3jVP87xj6EE/pQZgjl8Q/
-	 YSO2bUOhv/XQcBDZPyHbtvDQfZpz1WoTaw5ilhXw0B/EmSIFi3YFCJ/rn5MmzHWpAJ
-	 gpCSJsVWBtQuwFdYYEiLdlkll8zQjoWtqjz7BStQW2aXNE+IzSMbrO36HCJ31npbDr
-	 vW6iIONA2eRlft7v67Uf0uu0GB/ddT81sk6M4YF0LQ/c1qAZCkb27VGrm2+oB9HBGy
-	 9HNS+8qoklOlA==
-Message-ID: <8537da10-a5c4-440e-90b0-64982ce83a75@kernel.org>
-Date: Sun, 6 Apr 2025 20:28:15 +0200
+	b=C8ql6q/xzR+ePR7sVsHgykxyhNnutg1oJqab3rNFuEbIjFvhlqzmWjRDvGvICvvZM
+	 pFNVfUDmOHHrqpMTIZWptfO/9xkM0Fw0loZWWg7b0mfpOBrvbE/6MhiSO0ScskLWWn
+	 ip/z+2FJ8U++ZDA7yiN0OaTmC9u4/hUycDYOuhp1piivgld79MCEBvt3CLyq4vs8KC
+	 P24nOL930wN/X4jCgqjiT/5hHiZcx/FZB2nZZboD8DqVlqu77zU9CVP8p2sV0RQfrA
+	 rjudxk4m2/Y7CZNysggwnpbevOjIEWqPFoWhck4gqntMgh1fqUMOUP2Tl7YkYX+399
+	 YxW+2XVlqYv5w==
+Message-ID: <b68110b8-fd16-454f-9b59-a89c028ff92d@kernel.org>
+Date: Sun, 6 Apr 2025 20:29:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 24/32] clk: s2mps11: add support for S2MPG10 PMIC clock
+Subject: Re: [PATCH v3 25/32] rtc: s5m: cache value of
+ platform_get_device_id() during probe
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -63,7 +64,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
 References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
- <20250403-s2mpg10-v3-24-b542b3505e68@linaro.org>
+ <20250403-s2mpg10-v3-25-b542b3505e68@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,13 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250403-s2mpg10-v3-24-b542b3505e68@linaro.org>
+In-Reply-To: <20250403-s2mpg10-v3-25-b542b3505e68@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_112823_754201_377E441D 
-X-CRM114-Status: UNSURE (   8.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250406_112957_415523_2590D804 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,16 +131,31 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/04/2025 10:59, André Draszik wrote:
-> Add support for Samsung's S2MPG10 PMIC clock, which is similar to the
-> existing PMIC clocks supported by this driver.
+> platform_get_device_id() is called mulitple times during probe. This
+> makes the code harder to read than necessary.
 > 
-> S2MPG10 has three clock outputs @ 32kHz: AP, peri1 and peri2.
+> Just get the ID once, which also trims the lengths of the lines
+> involved.
 > 
-> Acked-by: Stephen Boyd <sboyd@kernel.org>
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
 > ---
+>  drivers/rtc/rtc-s5m.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/rtc/rtc-s5m.c b/drivers/rtc/rtc-s5m.c
+> index db5c9b641277213aa1371776c63e2eda3f223465..53c76b0e4253a9ba225c3c723d35d9182d071607 100644
+> --- a/drivers/rtc/rtc-s5m.c
+> +++ b/drivers/rtc/rtc-s5m.c
+> @@ -637,6 +637,8 @@ static int s5m8767_rtc_init_reg(struct s5m_rtc_info *info)
+>  static int s5m_rtc_probe(struct platform_device *pdev)
+>  {
+>  	struct sec_pmic_dev *s5m87xx = dev_get_drvdata(pdev->dev.parent);
+> +	const struct platform_device_id	* const id =
+> +		platform_get_device_id(pdev);
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+If doing this, why not storing here driver data, so the enum type?
+
 
 Best regards,
 Krzysztof
