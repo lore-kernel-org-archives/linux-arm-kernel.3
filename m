@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38D6C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D71CC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+xnZVahFh2lcLW3kppsGMZBrrEkevbu/kxFQeGjbXKA=; b=jMh9noc/SPUVCdel/RZZn0xra/
-	sY+jjiMUsEwmR7VUK2cSZkUMCtbPh340mHpDE/ryH/0Ji2F5rlk+wO6G/PmADqR151UC1MYdPljJ8
-	yPBHAgZBG6VZU8UnBIPvjTVroJl1MTY9eTgeZopp3aj1HgixOysmY6HosJyk1eicVoRMNBfecvAfD
-	NNTPjFIX/SaPlPi1FZwcQdYlGhrqzOZ0ZHI8aF3ZJjzKCHRJRiH1XrRG5pmsm8n4oLLbOYoBSjaqF
-	nF2fAY+0BObQhboOwhvTAC89RNUPkXqiuoul6slt79InfHKMbc8KUr90nB3cC4egwRsPcIH+TWBcC
-	sMb6ikrw==;
+	bh=z2wqw+nsCr8dg1boqysvchz8ZbuxWNUTSwK9B19x1YE=; b=EtyNZBvFy8hPJX8gEvJsLzq6y4
+	r5IHFlRbNe/ZFlbY0xO7ms6eToDfPWkytSmam/ulVg3s/JdQlpXC5CF17feFththsnPyM5WnFW9gl
+	JggZACce+C4c2xdVrpI8yh8jYyQxpYSTg9Qtvl13pnvVK7ML4uOzqADnrMSUz30DFJa9lfWoyG6w/
+	N8bk2oY10kP774qNmKucVaTDR/C8Nxy1QzOWjMDM3ANWvYlMrxCj5pWbNG3FKMwkiQl9OFbWkEKL/
+	ZM7yZIvbo+BhkZjXlNkq94gLB1AqEZjCeNSD+AiBRvYW/2htU9Rlc9CtN5+YNmh4/4zawymhbnuCf
+	pUN7ai/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UXU-0000000Fckg-0hu0;
-	Sun, 06 Apr 2025 18:16:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u1UZB-0000000Fczp-3NE7;
+	Sun, 06 Apr 2025 18:17:57 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UVk-0000000Fcbo-0v6m
+	id 1u1UWV-0000000Fcfc-3Ycp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 18:14:24 +0000
+	Sun, 06 Apr 2025 18:15:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0753F60010;
-	Sun,  6 Apr 2025 18:14:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58F9C4CEE3;
-	Sun,  6 Apr 2025 18:14:16 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3DAB9A42FB6;
+	Sun,  6 Apr 2025 18:09:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F90FC4CEE3;
+	Sun,  6 Apr 2025 18:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743963262;
-	bh=kqgb/u7hwCpsg1gF7Akwy1ectvg3NU7wvnTRIu0kXyU=;
+	s=k20201202; t=1743963310;
+	bh=5Rtzo+1DwDDMcsayvKa5fCMut+rwhJwi8sUI2YOJQjo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BhbBmwjf//VRbwcN8qgI71+IKmyvb1aNNbsR9+3oR+vwd9ntvS7cMXbhYJF4s/cdU
-	 UQ9EYPNt++r85uSE8JAy3PVtWnb7R7a2K5UeTOSqRMnjQBn7k1J/+LrjSy97gS2E1m
-	 JvP31fimvWVlZXfxyhDYj+6GqThpSyaVy384Ur3N+6INNo0IJUsN8xHNlF2qaIDBPU
-	 KIl1NdZ4JFXLx33GTcXOWxyfmCTAw3xOO0N3pnFsnRnEoVjZAMPIhU2oTd77OUXbH+
-	 iJmOGEx5PKnl7iyqZWaRbzGnMBog05MpmY2pVH+a+sKkAQwNdHmUEa90ZlzkN9zyB1
-	 k5p9w1gXlU8Mg==
-Message-ID: <1ff1a5b5-72b7-44bc-8a70-7281cb58785c@kernel.org>
-Date: Sun, 6 Apr 2025 20:14:14 +0200
+	b=gC1OP7SayDXGW3cgGArqj8RTUMjYFAH+WAIBcmKEcvVw56DkXvLBCEJ4L3hQCTxTw
+	 aihrMQ5wLZ4UpnVUVGvGzKqU5iqgDB2g73h3DjgXzDs8cOVYjq439Ma5Dv5E12Mh3X
+	 TcocEie7wDaPnVDZ4p2Gp8prwqiHpBLwUoNKZFY/c2kIBTItj9bbhwCUgvdpy94gE9
+	 vUFj0M9HGX/fD0j9LiUSic+iANxEWk1w8PeTP/yyJDQX1IKRngEgex8pWzNlhbRkzX
+	 7VIRKA7n+VUSdgX1aD8xlQ2idCNHWt4mhYxNycIiNHvxDnlUl659kdAUls/NqxgS2h
+	 Q/rgltBWYGIJA==
+Message-ID: <89e279dd-79e8-44ed-834a-3cefe87a11e4@kernel.org>
+Date: Sun, 6 Apr 2025 20:15:03 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 05/32] mfd: sec: sort includes alphabetically
+Subject: Re: [PATCH v3 06/32] mfd: sec: update includes to add missing and
+ remove superfluous ones
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -63,7 +64,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
 References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
- <20250403-s2mpg10-v3-5-b542b3505e68@linaro.org>
+ <20250403-s2mpg10-v3-6-b542b3505e68@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,9 +110,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250403-s2mpg10-v3-5-b542b3505e68@linaro.org>
+In-Reply-To: <20250403-s2mpg10-v3-6-b542b3505e68@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250406_111512_028667_69B4E6B5 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,11 +132,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/04/2025 10:58, André Draszik wrote:
-> Sorting headers alphabetically helps locating duplicates, and makes it
-> easier to figure out where to insert new headers.
+> This driver misses to include some of the respective headers of some of
+> the APIs used. It also includes headers that aren't needed (e.g. due to
+> previous driver rework where includes weren't updated).
+> 
+> It is good practice to directly include all headers used, which avoids
+> implicit dependencies and spurious build breakage if someone rearranged
+> headers, as this could cause the implicit includes to be dropped.
+> 
+> Include the relevant headers explicitly and drop superfluous ones.
 > 
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
+
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
