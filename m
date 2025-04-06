@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6877CC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEAC8C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ldzjDFa+HPuQFZCQsnLzR0412pTpK5tgZfW+JhKSE3A=; b=vqzOjMMzXq5JmjLgz/xzSZ3feJ
-	s1fM3CdxttowynWcIXR9xnEmthYvk7Lmarcrf2PuDuBizNLFwBBdukTR1uh6cxXMpnOSSOlODpeCM
-	SlazGDdKyO13B5lkzA6VT3VuWtXV0BvEcrZ/hiIg07lvUrkI4tnfG1HE/Y6/imCuJ52pUzMRjXSQc
-	+h9lizEoDxWAsranHM33NFwoCBECotGIIMbzQUjZNdm3Qfv23PbWrT8jc5cgWuvNa+/Z2qCakkfoZ
-	HQeoYDar+9F2p5r0b1zbqMVFJ39lfj0CzS/C9b/VhRp9HBWomuPcdmZJTO3k6ql8/TbXcE3zv3Tqy
-	dyobu3nQ==;
+	bh=+ah9gkt4OLRzfM3VmfsCMpCre3Srvx/jd9o1dKRMM5I=; b=WCVQArOs6Bv9JJNOPOndrvvQSr
+	JZEapEru1VwYECp1UcYunud7ZwM7pX1ioMWtIUsj3hjDcJwipKElhvSjhlPDM/zA3GOehXlLkbjtl
+	TsBxhs0CQ9u6XxOIWy/kBr0hn5U9XYb57jWSt273r/xo9fFICmpDWdOwksUDoiA0V5Efkh3lVymyI
+	6t4rx+XVB7RUICa3CgAZKUqDA6LwSwZtVRvJdI/VoKAbArj3pbk4H+1VplMLxyH5agqlLdg7eMwx8
+	+YOBNumB1VHN1oTZ0P58nBPUA9NZiQEiaMb+HH98nxvz3+9ZcXw58grMcHnzyOUmEU5j7IAmhz1FR
+	8xICK2EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Uru-0000000FfJ7-0fOz;
-	Sun, 06 Apr 2025 18:37:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u1Utc-0000000FfQj-3P8j;
+	Sun, 06 Apr 2025 18:39:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UoA-0000000FefR-3Qft
+	id 1u1UpO-0000000FevM-2Lv1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 18:33:28 +0000
+	Sun, 06 Apr 2025 18:34:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D374543D43;
-	Sun,  6 Apr 2025 18:33:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CC03C4CEE7;
-	Sun,  6 Apr 2025 18:33:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 077B25C588F;
+	Sun,  6 Apr 2025 18:32:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D077FC4CEE3;
+	Sun,  6 Apr 2025 18:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743964406;
-	bh=prtQqa+rKML42NnEa9Geedjl9Altf3Dij/aQGZSlD8U=;
+	s=k20201202; t=1743964481;
+	bh=+ah9gkt4OLRzfM3VmfsCMpCre3Srvx/jd9o1dKRMM5I=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dwPcWRkfplH+Ut+GXViVAcCXCIZncu+roqN6SJXWDbWWn0xer41DqK5ac5SHKkloQ
-	 qHEeV67l//n3aYquML0K6DvOKeDoFb1gfTbG3t7wMyBYdR2OokkvWuhm6GuIS/VsMQ
-	 2kSMw5gczpbMg9eHUrvLGGvhPwXrMPi18iwuQk6N5jvQqndRfDpa12UfCzkbcrcpyi
-	 tcGaSa/eh/iyX0l4KWsF+o7pb5jVo0iI2fBGwnE3sxuvixX8LvXFtr9t6nJNvcFUyr
-	 Lx/3OfJnpHxPZwRn7FFiw+zs3pyzD7IApkzqgWkAfEVT9ho+TK1r4EdKJcXfacuqDv
-	 4av/BHPbricNw==
-Message-ID: <c914f961-0124-4bee-98ed-7366835102a1@kernel.org>
-Date: Sun, 6 Apr 2025 20:33:20 +0200
+	b=fkv8C1jRx3ZWR9X7F0v2dgUReM3In0Khh/GlEyTy4RGChXP5pOGy183IbsoNsc0ry
+	 JjI3rhgGiRtd9+8P/8TigpHLN9NBcIqS+kJZGJF7fc8XS2IYfZNGHSaN5cSK+5kxfZ
+	 +P2WCY0LdI2rxH5FY8+rWi2E4CGFjgVJoiijObL2RYFn56kddGPDde0YguwKlvovMn
+	 r2FNjS32WHe96DgK/ildb3D/WE8YjxUIzqH6qkYsFj+0lKwb4xB+7oz+SqkDRhf4ax
+	 +ifax5EvStwbnXPSjnQNJ8MM+gjie9yAOrbS1OgOWQ2gsMPhGjUSoe//Rl2emlCGLc
+	 RAL2ezU+aVNmQ==
+Message-ID: <557692d2-17d9-4547-93f4-797ab342a541@kernel.org>
+Date: Sun, 6 Apr 2025 20:34:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 28/32] rtc: s5m: fix a typo: peding -> pending
+Subject: Re: [PATCH v3 29/32] rtc: s5m: switch to devm_device_init_wakeup
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -63,7 +63,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
 References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
- <20250403-s2mpg10-v3-28-b542b3505e68@linaro.org>
+ <20250403-s2mpg10-v3-29-b542b3505e68@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250403-s2mpg10-v3-28-b542b3505e68@linaro.org>
+In-Reply-To: <20250403-s2mpg10-v3-29-b542b3505e68@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_113326_891954_0864F7FE 
-X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-CacheID: sfid-20250406_113442_680135_124C7114 
+X-CRM114-Status: UNSURE (   4.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,13 +131,8 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/04/2025 10:59, André Draszik wrote:
-> Fix this minor typo, and adjust the a related incorrect alignment to
-> avoid a checkpatch error.
-> 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
->  drivers/rtc/rtc-s5m.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+> To release memory allocated by device_init_wakeup(true), drivers have
+
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
