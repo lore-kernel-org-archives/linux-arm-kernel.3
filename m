@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBD8C3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 20:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E211DC3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 20:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Oni6Z/lHvJDm4dC2qfnAqvwTkcCLV7N0fQ4hIhJQyc=; b=Yy93ZMsxi4/RaEQVksmU9vzUmg
-	GX1llHjSD3dVcb+/b8hsOwL6O49P7vzDLTUJA/jjGcEXmIbrLrWkQ+Qt1fUIspmoTv0FR1I6Tjv/u
-	wO4PgeyFD1GCho9zFcN3V5BOPJnn8usqsdycyF4VeBq9j1GKOzqKnsOQUn12T9TsFaSqF3fl7FkZC
-	WpBw1li3/EBJJFzrGly67aE+QQrcDERAEuDQp1MAwe8asnNSr7PPyIE3gsE8c/KxKWGdc3cv2rKZD
-	VWsdyIzI3UhHqsg+azd3sKqlrw1BTxQpcmAtZlYUOUsHroEik3eAlSCMdObvdxIjQ6NurTnYJDYAj
-	TRwO3ovA==;
+	bh=eTDKXTFTQLBPdri3otdi82MBqYNCG52DLi/ttprD1dA=; b=fJHM/7XYS9PDYAko/q3tpF06PA
+	AOenLdKib85VLuPtRsq+9qLg4muKm8w67pdJfkUDbeDcpOQciwAzOxunL99weSLZuNAxKfl/NfNq2
+	ZjqcJZXEtqTUaIo3LgfcrHAor44gPB4kY1kDJpo+35viNbOGZlQ27+6X5Ay9p8AziIJqEgHCVdR8Q
+	N8Fjgg46X61jhF0ZjPhCCpACBPi9BV5k2NVrrLNsqibWI1WY2EzjeIEFNnvzEL17Wg0OuGD85KoRh
+	uBeRUa61/WaoT9nD7IDlT/OTUc/niFMS/U0REZ9Pl4dsn2xLj3RAhPieLA+i4l3YgnBWvKHWwHjbO
+	UwSjZJnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Wm0-0000000Fn2k-20n6;
-	Sun, 06 Apr 2025 20:39:20 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1u1Wnn-0000000FnBU-15gm;
+	Sun, 06 Apr 2025 20:41:11 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1WiR-0000000FmiZ-2KD3
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 20:35:40 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43d72b749dcso3853985e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Apr 2025 13:35:39 -0700 (PDT)
+	id 1u1WjG-0000000Fmq5-0mzb;
+	Sun, 06 Apr 2025 20:36:31 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-223fb0f619dso34107035ad.1;
+        Sun, 06 Apr 2025 13:36:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743971738; x=1744576538; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=googlemail.com; s=20230601; t=1743971789; x=1744576589; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/Oni6Z/lHvJDm4dC2qfnAqvwTkcCLV7N0fQ4hIhJQyc=;
-        b=CzPVbSoKV7eGP/pr2T9OkS7LhVAR4slDhz3UkSPQKto9zNrWJzZJy000K5T/szCmny
-         vvpOWlT6De8iXMUbuhf0TKo8LHkSUJQt/gGkRfzQUIA8+VsvxoDxDT8iYZ/zEBwOkfQO
-         ZVFZ/4x+hKrlUIDqJq1kZaY3A+0Jp+o3nUz+uE4KyUYTe5oKhNoqGRSlXtXKldAcdX4d
-         xJfnLb2oBi0PrIQw/lp2FAQpoU4bLd8gKrCJIe8QxVbXqeSsd5eFCzv+m9IL8kmgQGwr
-         RhPdcRNTwURWBzJaacoXopjtXxwCRbdchpqLWjB6bPqkmTmf/Mi9RxPoCetbV7RARZUg
-         kWBw==
+        bh=eTDKXTFTQLBPdri3otdi82MBqYNCG52DLi/ttprD1dA=;
+        b=cpy+Q7W6rqViIYlpq/RrGdhF/Z4XMwn9hk7gphA1cX0WdwchJyKzp6vt2P7GI7P+Yv
+         Q18ZM1UCL2G+SwakBNz75JGgENPxQnKwKMPwxn7tDnhVJupDcReUYApwQGs1bqUNZEu7
+         J0wlrsJzr9d0dlK6C50l6wMFewk+IFBRG9139xh3oTJP9lNZLveoVJasBa09RjBG3EK4
+         zt2Uu3LWOngJiRe8gD370tFT2o/UT8EyUbVRsOSw1q+R9CUEa8QPFyJiwu355gWWPB3W
+         BFp26404AwT/b2h1THoEuWeIMCIWa9OqJk/WqdT8n3yXKzJoiKf+zmsnDYGEYJJtz0mg
+         8bEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743971738; x=1744576538;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1743971789; x=1744576589;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/Oni6Z/lHvJDm4dC2qfnAqvwTkcCLV7N0fQ4hIhJQyc=;
-        b=GdZlB6gurhf+AxdqIVPt7TPeFCdOz/apc8eA29WfnLi1Rm1jZvux5W/JhWRv4yA1SF
-         /qJLWGWrBe2W2RhJbDHqheiMGMNhlnr7jGEfg7COKh8pNHVQWNahiwPvC5V7Ydd/QPkI
-         aBrB/aIF3PiySn1A3VlJBaV1zyCLveLPDETjbFaUoOQsobTb5fIhSuHbgmk04UbOiLij
-         nKPJl/rAVNvqtKknGFVyYu/WNrHGK9oWI1hCAAwns7RhUKAlTtbKgKZfzs0zKk+cTSlR
-         1/gUbIm1W5TFqH/7JUltuCvqeoF/iq1Q46fjFitLhmUi7Mrn84p7a2+OeWR1dpJRjqAZ
-         GxGg==
-X-Forwarded-Encrypted: i=1; AJvYcCXsGJ8rJjHLmJ9weMreUOLH3aoiDz1blJuE8FB7JGtS0WX9s+aXS/xjLNlInzCMQPdHANKtUflXKZ8pcj6FMm4a@lists.infradead.org
-X-Gm-Message-State: AOJu0YymkEqV+jQqWxL3ouZjVig0hlD0WBXEpXyQBbplh6kS6lB58i7+
-	oqhEHZnGg6fFHEHrl8pEb6Hvo9cMUWorF00f8MarzkHa7CqkxNmd5GA5jVHjGyM=
-X-Gm-Gg: ASbGncsTQ2S/w/XC5b5kNG7zSpFxkB+Zwy2Lt8OG7wWX+ONGzLc0n561d/MY9sMsAzA
-	wmC+vKfA62fRTTbBnIDzkHq+M+a8Z9h6cLchNNBorgYJv0rZXC3eWvJ1bhKmDg2tlk5A825uEvj
-	bcJbnH8ALFT4pwyF9A1ccObcvyqC15+OYY1FQW97BZecFv4OEsIgQaAzCsJ4pt16t16CDZmNF8U
-	3XCmWxxTKwn91gxgQBQcVkCoiCmH5m6RUM2N80XwfbWjDcP79ZmAgbIq1Cl9UOjFHhaAPtOUare
-	O409ZQWQhsMiPcZKXGPI7wyAsy6O+OnYSrmXuBTb2RlWUdvBw338hQ==
-X-Google-Smtp-Source: AGHT+IFdkV0qo7M6MnBRCoiFVbhYiS1XD9xft1NUY735rauYmXbOkSn8HVSEp3wFfmum1Z3fJ/qIqQ==
-X-Received: by 2002:a5d:59ac:0:b0:391:2a9a:47a6 with SMTP id ffacd0b85a97d-39cb3595265mr3095383f8f.4.1743971737746;
-        Sun, 06 Apr 2025 13:35:37 -0700 (PDT)
-Received: from shite.. ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39d7c6d838bsm38022f8f.69.2025.04.06.13.35.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Apr 2025 13:35:36 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-watchdog@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 2/2] watchdog: Correct kerneldoc warnings
-Date: Sun,  6 Apr 2025 22:35:31 +0200
-Message-ID: <20250406203531.61322-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250406203531.61322-1-krzysztof.kozlowski@linaro.org>
-References: <20250406203531.61322-1-krzysztof.kozlowski@linaro.org>
+        bh=eTDKXTFTQLBPdri3otdi82MBqYNCG52DLi/ttprD1dA=;
+        b=r3tSRMdFIHPtikFLhtEmn8RwNOrxG4hw755MQ14YGlUOMChxrlUpGifwgB5GVlhA/Z
+         Y6i7QueXnP4Kva1pc+hByNb932IFuYniWM7Mw0yw2KERmjtPhELN88gcUi+DnZCVbAdH
+         S2q/ukd2PfplQsFpcDQkvYXNPESS9aurYDrBA3dUCKeGQIR9uFrrvaH4bKP6LTu6isCk
+         DA7RMXGOJHUlF1bf6FtyCQk9G/dkuBA26vJDiKAXFmwErcsL4nJDapCffe5DU/Cv2OS5
+         O+Bybyk7luAGsVtq9/VSwDreWmi4U3UqszV6c3DAQTgI701sU9LGt/WrUTsX5uNhtrSx
+         dJpg==
+X-Forwarded-Encrypted: i=1; AJvYcCUPe8X/XHd8ei5nOR26OP4SyYVdMgYMHrsntAbEGFa3JAyADc59U++a1QNaQZUD3HkJalXeDAzA7DL4TmIpoJOV8w==@lists.infradead.org, AJvYcCUXkdy814N52IWhP2a+DoPUHxbqpcpnsi+r5VlXTHpegHl/h//ZACA71nS1yPrTDKn3pRgTiVZmmESLztMf@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNFkjnjuQsMq5CJaHFuEYDHO8hW9xNcQ+udr9z4ILEoSnISpGA
+	Gb8ySKmmJ640y63tKnPTA6bx9nPfs/oUxsBgt0hy7/7Fn8KfK6/5KZvhcIpFAZvlULY5Ja5uIHc
+	Dx27J/a3o6+nGjMCiWmlOiFRpVJ8=
+X-Gm-Gg: ASbGncurhS2BenYIxVFflnsFjVEjKI1ym93pv08AT7svk/AbotbyvFSZvOBbT14N5TN
+	K4fx+47KuXA8Wr77CbBabt5O+jehOL0+dqjYMR8I2HErc0At6V32+X9tCgg6EVZu+0RgK6w8Mkg
+	pbkjBnWpI8CZbXpnELNRZAu3Gk2rsg7VoUOHZSgAX9
+X-Google-Smtp-Source: AGHT+IHVq/OJ+5eWqAgV0C40CkVvYiB3g3UpuuHrRaTOdnWvFTptDTYS2PzO/EixgKcm/7GKrRXQgpJN+Y1ESqaqhMM=
+X-Received: by 2002:a17:902:f610:b0:220:fce7:d3a6 with SMTP id
+ d9443c01a7336-22a8a06b429mr135619515ad.23.1743971789179; Sun, 06 Apr 2025
+ 13:36:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250323-fernsehfee-v1-0-2621341cd37a@posteo.net>
+ <20250323-fernsehfee-v1-3-2621341cd37a@posteo.net> <CAFBinCD13CNuxRkrSoPXUMNQ9AJH7UV0gsOfdgeRKhkXsANgnw@mail.gmail.com>
+ <Z-vjWFFWvo1gesCe@probook>
+In-Reply-To: <Z-vjWFFWvo1gesCe@probook>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Sun, 6 Apr 2025 22:36:18 +0200
+X-Gm-Features: ATxdqUGmtk00PreuVDRwGTRsD3__is8AGxXyJNh6rRQ0MhHTNzn1k6d2MHuZvGY
+Message-ID: <CAFBinCDgn30H13hfkEsfyzSjO-HJ-XpAUwSwimBk7VPpKyNKMw@mail.gmail.com>
+Subject: Re: [PATCH 3/3] ARM: dts: amlogic: Add TCU Fernsehfee 3.0
+To: =?UTF-8?B?Si4gTmV1c2Now6RmZXI=?= <j.ne@posteo.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_133539_595813_7F33766A 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20250406_133630_233483_AB19BC4B 
+X-CRM114-Status: GOOD (  33.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,90 +98,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct kerneldoc syntax or drop kerneldoc entirely for function
-comments not being kerneldoc to fix warnings like:
+On Tue, Apr 1, 2025 at 3:00=E2=80=AFPM J. Neusch=C3=A4fer <j.ne@posteo.net>=
+ wrote:
+>
+> On Sun, Mar 30, 2025 at 11:10:28PM +0200, Martin Blumenstingl wrote:
+> > Thanks for your patch!
+> >
+> > On Sun, Mar 23, 2025 at 1:38=E2=80=AFPM J. Neusch=C3=A4fer via B4 Relay
+> > <devnull+j.ne.posteo.net@kernel.org> wrote:
+> > [...]
+> > > +               eth_phy0: ethernet-phy@0 {
+> > > +                       /* IC Plus IP101A (0x02430c54) */
+> > > +                       reg =3D <0>;
+> > Does reg =3D <1> also work on your board?
+> > 0 is the broadcast address. It's unfortunately something that we still
+> > have incorrect in a lot of .dts files.
+>
+> Unfortunately not. I tried addresses 1 to 31 without success, which
+> seems strange; my guess was that the PHY should respond to one of them.
+> I get this error:
+>
+> # ip l set eth0 up
+> [    6.806847] meson6-dwmac c9410000.ethernet eth0: Register MEM_TYPE_PAG=
+E_POOL RxQ-0
+> [    6.810609] meson6-dwmac c9410000.ethernet eth0: __stmmac_open: Cannot=
+ attach to PHY (error: -19)
+Thanks for testing. Let's keep it at zero then.
 
-  pretimeout_noop.c:19: warning: Function parameter or struct member 'wdd' not described in 'pretimeout_noop'
+> >
+> > [...]
+> > > +&i2c_AO {
+> > > +       status =3D "okay";
+> > > +       pinctrl-0 =3D <&i2c_ao_pins>;
+> > > +       pinctrl-names =3D "default";
+> > > +
+> > > +       pmic@32 {
+> > > +               compatible =3D "ricoh,rn5t618";
+> > > +               reg =3D <0x32>;
+> > > +               system-power-controller;
+> > Here I'm a bit surprised:
+> > Aren't some of the outputs used to drive VCCK (CPU power rail) and
+> > VDDEE (everything else power rail, which also powers the GPU)?
+>
+> Unfortunately I don't have schematics and I wasn't able to trace the
+> connections on the board because they're so tiny. So it's quite possible =
+that
+> you're right, but I can't be sure.
+>
+> Are there voltage sensors in the Meson8 SoC that I could use to establish=
+s the
+> relation between PMIC outputs and SoC supplies?
+There aren't any sensors (that I'm aware of). But you can check
+/sys/kernel/debug/regulator/regulator_summary and compare the values
+with the ones from arch/arm/boot/dts/amlogic/meson8m2-mxiii-plus.dts
+Also the vendor u-boot and kernel logs may provide some information.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/watchdog/pcwd_usb.c         | 6 +++---
- drivers/watchdog/pretimeout_noop.c  | 2 +-
- drivers/watchdog/pretimeout_panic.c | 2 +-
- drivers/watchdog/wdt_pci.c          | 2 +-
- 4 files changed, 6 insertions(+), 6 deletions(-)
+> >
+> > [...]
+> > > +&usb1 {
+> > > +       status =3D "okay";
+> > > +       dr_mode =3D "host";
+> > > +       /*
+> > > +        * This bus features a Realtek RTL8188 2.4GHz WiFi module, wi=
+th a
+> > > +        * 3.3V supply voltage that must be enabled before use.
+> > > +        */
+> > > +       vbus-supply =3D <&wifi_3v3>;
+> > If you want to go for perfection then you can use
+> > Documentation/devicetree/bindings/sound/xmos,xvf3500.yaml as
+> > reference.
+> > It's also an "onboard" USB device which requires toggling a GPIO and re=
+gulators.
+> > The driver side is super easy to manage as it's generic (meaning: it
+> > parses any GPIO and regulator as long as the USB ID is registered):
+> > drivers/usb/misc/onboard_usb_dev.c
+>
+> I considered using onboard_usb_dev, but then came to the conclusion that
+> I don't need it because I don't need reset sequencing, only power.
+>
+> > That way you can just describe the RTL8188 on the USB bus and assign
+> > it's vd33-supply without having to (ab)use vbus-supply of the USB
+> > controller.
+>
+> This does sound reasonable. I'll reconsider the onboard_usb_dev
+> approach.
+Thank you for the onboard usb device patches (for those who are curious: [0=
+])!
 
-diff --git a/drivers/watchdog/pcwd_usb.c b/drivers/watchdog/pcwd_usb.c
-index 132699e2f247..b636650b714b 100644
---- a/drivers/watchdog/pcwd_usb.c
-+++ b/drivers/watchdog/pcwd_usb.c
-@@ -579,7 +579,7 @@ static struct notifier_block usb_pcwd_notifier = {
- 	.notifier_call =	usb_pcwd_notify_sys,
- };
- 
--/**
-+/*
-  *	usb_pcwd_delete
-  */
- static inline void usb_pcwd_delete(struct usb_pcwd_private *usb_pcwd)
-@@ -590,7 +590,7 @@ static inline void usb_pcwd_delete(struct usb_pcwd_private *usb_pcwd)
- 	kfree(usb_pcwd);
- }
- 
--/**
-+/*
-  *	usb_pcwd_probe
-  *
-  *	Called by the usb core when a new device is connected that it thinks
-@@ -758,7 +758,7 @@ static int usb_pcwd_probe(struct usb_interface *interface,
- }
- 
- 
--/**
-+/*
-  *	usb_pcwd_disconnect
-  *
-  *	Called by the usb core when the device is removed from the system.
-diff --git a/drivers/watchdog/pretimeout_noop.c b/drivers/watchdog/pretimeout_noop.c
-index 4799551dd784..74ec02b9ffca 100644
---- a/drivers/watchdog/pretimeout_noop.c
-+++ b/drivers/watchdog/pretimeout_noop.c
-@@ -11,7 +11,7 @@
- 
- /**
-  * pretimeout_noop - No operation on watchdog pretimeout event
-- * @wdd - watchdog_device
-+ * @wdd: watchdog_device
-  *
-  * This function prints a message about pretimeout to kernel log.
-  */
-diff --git a/drivers/watchdog/pretimeout_panic.c b/drivers/watchdog/pretimeout_panic.c
-index 2cc3c41d2be5..8c3ac674dc45 100644
---- a/drivers/watchdog/pretimeout_panic.c
-+++ b/drivers/watchdog/pretimeout_panic.c
-@@ -11,7 +11,7 @@
- 
- /**
-  * pretimeout_panic - Panic on watchdog pretimeout event
-- * @wdd - watchdog_device
-+ * @wdd: watchdog_device
-  *
-  * Panic, watchdog has not been fed till pretimeout event.
-  */
-diff --git a/drivers/watchdog/wdt_pci.c b/drivers/watchdog/wdt_pci.c
-index dc5f29560e9b..3918a600f2a0 100644
---- a/drivers/watchdog/wdt_pci.c
-+++ b/drivers/watchdog/wdt_pci.c
-@@ -264,7 +264,7 @@ static int wdtpci_get_status(int *status)
- 	return 0;
- }
- 
--/**
-+/*
-  *	wdtpci_get_temperature:
-  *
-  *	Reports the temperature in degrees Fahrenheit. The API is in
--- 
-2.45.2
 
+[0] https://lore.kernel.org/lkml/20250403-rtl-onboard-v1-0-10ca9a6a4ee0@pos=
+teo.net/
 
