@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 069B3C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 21:17:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C1C2C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 21:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zDleBR0jwFGhTNeC9UeCz4wwAyXYlgAVasnWCtF6ZzQ=; b=BArPl9En9rUSMYXbCfHZ3p6v3m
-	ANiYdAbUHL3mctu3mL8jkVdONyFuMCQnHdTK2gKRu3Wh4FsdJjQ/8yzw8icEok1Q4I4fqjCYdwfIZ
-	GHQtwcapO+F5n7fpsPFm0BxlSXkZqZ4onAJuGZalMPWBvGsPgMbJah0B7SGVpMCkyQIZq2sIiRANW
-	F0GyQSdy7ln8V71TJKgUuk1qX0GdbEG9C75l0g1pgqR3+aTxiYUdR2I53Z2OGiSNzwsmmuRv0gs6a
-	u2SctASTJAFRvVeN+XyU44vKLqTFgD5fpoKoVkbNirW0vIH+XOJzvL0mjD8xltsNQx9lihfO4HK7F
-	GEInLu5A==;
+	bh=+Dh3Q+/ESCOTgc833hn/a+Fb6lN+IAypXdcE5FvZtyA=; b=IxxcEo3D0zgV/1EDEsKl/KinJc
+	0kSirG3Kp2SI48NLZigNg3j/fukokJzLaNG1JSjsyrm0MBZx1/ez/A1W7fcsFVSoJsIWaDWQOjHqy
+	vrH06QIkgviYYI+ImCbqMBlU5VWjgnVdQkXBwnEGi21d8UGrTqSJzBgRKP42TnOgUJuu5FA0ncjE4
+	RhkPRkUoj231OV9P+pBrZRb5IDH0mh1kmpgnWDlmGptkPALWlB+2e1Ffx5JSiZeo7ldPYWw7HIJqE
+	y0SHNN5X6/dEyxi1Hehz2Xq8znMVUpWyCFKBi8qU6bsW1mSIR/rfojZ7Letouh//b9LxrQZAet26g
+	IhwdcXrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1XMR-0000000Fpep-2aHP;
-	Sun, 06 Apr 2025 21:16:59 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1u1XOS-0000000Fpu2-1TCP;
+	Sun, 06 Apr 2025 21:19:04 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1XKd-0000000Fpa2-2V9G
+	id 1u1XMe-0000000FpgT-0kzO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 21:15:08 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7376dd56f60so2566114b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Apr 2025 14:15:06 -0700 (PDT)
+	Sun, 06 Apr 2025 21:17:13 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-227b828de00so34402735ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Apr 2025 14:17:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743974106; x=1744578906; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1743974231; x=1744579031; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=zDleBR0jwFGhTNeC9UeCz4wwAyXYlgAVasnWCtF6ZzQ=;
-        b=Hgwl14SctBqbA+SEXBgS00XBkDLaohwmx+gsiqEFxHJKwOToUx6lkjiDw9UKWCL1Hb
-         hYa5brxVkBzqLKxzrB/+bZgDqi7RGJs+PBfLJh7kjWDfuYg+9TXEn+xEY/VV/DzsN92b
-         bWByMhmyKVXEib06LjHWt5YCZ6gZ/lC412dXfBfokjqpVzez/+Udsm/pV9B8Z1QQ/UwA
-         p4EJXXN0R7yfSnDFCkyenqXmP6iGP9wzPQV3lfOmV+O5WMW2dYLOJRWhD5y+1anc3QgB
-         f+VO+12vKNsN9pOCr9oRFGZd0axSYYGg3U5NU7nPK7PZgS+S2SWRPQqgx9X3wcjl+xf/
-         cIag==
+        bh=+Dh3Q+/ESCOTgc833hn/a+Fb6lN+IAypXdcE5FvZtyA=;
+        b=i3f/WVtg2d6OtDIOi1Gw2fTeKGNOXKqDAGSo1a6soM8rsMPdGezybHILjBG7oaCLQT
+         33fGc9XA09c9LE6FvkSfyZmx4TOK5KRYNLQqPpziyPKBBjUOmIL/rDUWyEH57ODepzTE
+         lHTcQ6CADTm9l4q5KgHON4nu1g2R9/Oi1hT0gGQQpS2umyaL7MZXy+gnI91TUItd9pnR
+         ut3R+1dIhFp06jYdqZ2NX1tdeHpZHbFJFV7ZDAcGh9TweFPuhVBw4I4RLj63ckhNhPfw
+         TQGOkHr670RrptQER2luiV63B9o5EthOQQ4v0QKLDLPZ3wp0ctlUP+uUs8K1+FkvG/j8
+         weJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743974106; x=1744578906;
+        d=1e100.net; s=20230601; t=1743974231; x=1744579031;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:sender:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zDleBR0jwFGhTNeC9UeCz4wwAyXYlgAVasnWCtF6ZzQ=;
-        b=Sohdc77XS1DGVs5Yveb4SbR6yzILUQK2o291cxS0scnR2KwP5ltXRSkB4ldA3HK/tp
-         W9vCcFiQtu0wYCwjHxYBxF+JEx41QSbBQpwYo1lSYo6SjAYNffnOi65T9JVMsu991iZb
-         t9N7fIdFHCUoifKXGpl3egriHLA4XDqCbkkeA8l1XvWypYlzFnLveOgnvmx4yC82XJYN
-         /kCz72yvCPBFl6Vxf/+AqmVJktK8Pee8jrQKX3EoJBcxFV+FjfU1/6aB0QPcXPdcp6q/
-         WRjhtawHw653SrmG3YotAFvDFFsQM24udAPk5P1mKBqeCvsbvPxV/Gsrudj82U14meGW
-         tibw==
-X-Forwarded-Encrypted: i=1; AJvYcCWzRpZUId7kVHlN3SJb1+vZlGw9Le5mn/td2Fm339fFbL/VVkwoGCpFCd09WCQUjlgi8Tl/h5Xm4/J/T0qbwpTl@lists.infradead.org
-X-Gm-Message-State: AOJu0YxADWmpo+tIDn3zUHGvAnMo+HNO9QZCi0ER7EGQNZVcKNumDBiN
-	T5/emzLDh010CayhoG6ZnVHMrDi2h6djpAuSaq8tmnpMEBG89iPFlf9FHw==
-X-Gm-Gg: ASbGncun8XIvxfZLpeDUAznbyw1OCWixzCBc9P+KeZee+F39yymgeBmxocqe57nBGof
-	+potc9NZzFYUjY3UW5e4KnKhCX3x1xMuyCzWVo0cIPkblW1T2FqRrgyYAvQ1jnVyct+44wqdLpJ
-	bvYPwdh7w0nwzENkRFPbzKqelsArPWmqnqLA6NwOtTlARBOrTgecvPm/qfIXWlIfjkXxjlHX229
-	uwaMHEI3a8uP6hShXRYr1Fl3Us2FmpEfFpWmJSKmm1PobjZk/XUHbuVDpF/3SbeqQP+tnlvxmAp
-	Cgu+RBRvnSew4oHHlv7X9Xn6Tbp41/IYiCwBtqO1PzOBsiaQCXPGBVqLS6PRbOj2ZCoCJdUbqne
-	TyJvHeeN4h+g68OrPaQ==
-X-Google-Smtp-Source: AGHT+IFQ8QWvvd1ZviCya2MeIjl1ablt6V+jxnurJmhA/g3jhsv/TE0Na/5We5Jj9KIVyelIFaeiUA==
-X-Received: by 2002:a05:6a21:9211:b0:1f5:7873:3053 with SMTP id adf61e73a8af0-20108187d17mr15484006637.29.1743974106291;
-        Sun, 06 Apr 2025 14:15:06 -0700 (PDT)
+        bh=+Dh3Q+/ESCOTgc833hn/a+Fb6lN+IAypXdcE5FvZtyA=;
+        b=AwxBJwg8YD0cbWwleTh9a9GSwSfB48qwTYfJoja/GdVe49TRH7VCX0MDkCSKVGl3u9
+         1741lvQFmAfsx0JJtq/rqFKgrLOdjVU6YeZm47F6SqkJKWIqrFPZqye/1ItMBlZ8mPWI
+         1aodgO3FRDKzIUTxzaoUN+6HCm4xiyF3eCd/RzQCDqydCFmmBuTGwSx0XXd0spNZYfFz
+         iN+0pEwK8M2Ca4BeJBP2o59OhzyPlqmbmoJZGmwA3XOsUNf3Awpy36iIU4fGAskVICyM
+         0VxHojf6+gzD0rbtvFKWS3rp21r1yWYYj81CrtBZmzeSKYN/3iXWQjsfe/xQdUkFljbO
+         JvgA==
+X-Forwarded-Encrypted: i=1; AJvYcCU+fE+b9/6kEbx9MOP6hh/TEXMk3sFjdImrt8nwxi3GavEkcYno5XH4Dr2+Mfx3mHTiDx63nAdmBeiMqZOyzzfR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy27uvIy4LVsFtG+piiZBOqh0Ie/BjH7kGAY2+9Sl112gC+IeFl
+	x9y5x5RX5Nrk+BaCb6zIi6pysedo31wf/h8NfE/EJtji3r4dbPTo
+X-Gm-Gg: ASbGncux0slmGu3pagtN+Lrf27mLXp4tmfCje42NBMj0gGgZyR3Rla+87kWkTXNyd9m
+	ll6+SrpFMO3erLfYV5T/YvjyNyPJkXFdYHz5oE31qtEsjbbTfhhi5z2M5Jl8NXfw3YDao+4ZmmN
+	i9gVWAvEIW0WdA1YKhnHDuMOmmI5nNHHw82QmeXWJRDpR/BuQaC8bdKSAMf0a3UkBQeBmCHHukZ
+	WMEyvow+lZ3dyeDN8vkk86HCv0vFFisiPCzRHKE3/TmXo720UnHv6lR9nkfqcUjT3AWMWaZyXb+
+	a5Edr2NU3Hl7yMkFN39puCQKPu4MIIGocqzJ3WFG7jTiyDheoi9NoMrVpDERkTj2eZySwLh62ax
+	T8pwfXRnudhNyYYuYrg==
+X-Google-Smtp-Source: AGHT+IFZhV9L9NQnjbxHqzuQWHloSa51wng9XDm1os9z7UwsaUvtPeYzq/GeVYYATAq42YOjNg2ktw==
+X-Received: by 2002:a17:902:d586:b0:224:2524:3047 with SMTP id d9443c01a7336-22a9553aae5mr91276255ad.26.1743974231454;
+        Sun, 06 Apr 2025 14:17:11 -0700 (PDT)
 Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739d9ea080esm7286630b3a.108.2025.04.06.14.15.05
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2297866e7f5sm67292515ad.206.2025.04.06.14.17.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 06 Apr 2025 14:15:05 -0700 (PDT)
-Message-ID: <c3c22904-d684-4294-99d6-a83f53545934@roeck-us.net>
-Date: Sun, 6 Apr 2025 14:15:04 -0700
+        Sun, 06 Apr 2025 14:17:11 -0700 (PDT)
+Message-ID: <f1dc5228-ac91-47c3-a854-b425cb77bb5f@roeck-us.net>
+Date: Sun, 6 Apr 2025 14:17:09 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] watchdog: Correct kerneldoc warnings
+Subject: Re: [PATCH 1/2] watchdog: stm32: Fix wakeup source leaks on device
+ unbind
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
  Wim Van Sebroeck <wim@linux-watchdog.org>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
@@ -83,7 +84,6 @@ To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org
 References: <20250406203531.61322-1-krzysztof.kozlowski@linaro.org>
- <20250406203531.61322-2-krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -129,12 +129,12 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
  HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
  mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20250406203531.61322-2-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250406203531.61322-1-krzysztof.kozlowski@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_141507_647773_52A3BCE3 
-X-CRM114-Status: UNSURE (   6.39  )
+X-CRM114-CacheID: sfid-20250406_141712_229725_613D2FAC 
+X-CRM114-Status: UNSURE (   6.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -151,10 +151,8 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 4/6/25 13:35, Krzysztof Kozlowski wrote:
-> Correct kerneldoc syntax or drop kerneldoc entirely for function
-> comments not being kerneldoc to fix warnings like:
-> 
->    pretimeout_noop.c:19: warning: Function parameter or struct member 'wdd' not described in 'pretimeout_noop'
+> Device can be unbound or probe can fail, so driver must also release
+> memory for the wakeup source.
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
