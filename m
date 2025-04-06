@@ -4,87 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D313C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 13:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B42E9C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 14:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RMBZuLcEi1BVATpyEBDSQRvEoX2RBDn8k/CK1srt6Gg=; b=JKNsIU4/rnqDwQif0iVaM+JcBa
-	OJ9tEAWwPTR9FPZsxgcKup3Qu8mXQpQ1hFnQOtVSndRmSiX2FMMPlLl/5PzEi2y5gsrXI+xtpTWYA
-	Nn1yx74qzjC1+cUb/TB1/56PIvW06U2pUk711NzqxBl3jxaiCNnZx9GopbQUYjSZQth/NdjKZ0JRU
-	iWCL3q6ZRYz/0lB05V2SqeaXxKnrn2ubOo0dvBEkDPFgelcigbDLbha+wOJ19/B1yBLRgvw7NxZMQ
-	XDdvEPA8LspV1D6IUupdObwowOzx4J93bP4NJ1vzwGe09Jd43DssSro+eKoEZV0VhHEf2AmtZ6TlS
-	tn+2JDvA==;
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NFJzntw16SzoC0742TK/hg9oHHtechyPu4gxi9PpXOk=; b=lRODAwa2Le3XR2vIuZE4YGIweQ
+	Q+YnJKt2tafCtf0fa3+ZVm0vIzBm5W9GY+lpA56NHcIj0PBPeKQ+liy8CJ9FlJrkzLvr2nHaIsR/S
+	uEfrdTde3F9rc5FTx0t01BD+vv9c2EfjsuzHuskOe9pIcjwQhuXPhnBiP2tY37UY+tPPi/8htm3cj
+	BLgrrf1OlIyGJ9bePgQvqjnYgH7Afsbm1DQwam+Qgnmj4rZw0TmQFm49jUuEWIr9TOm7UflhlFGsO
+	7Dh4+p9hX00x3pe1xfegavqajA32MY42cN5T6odIQtW+EOp8Dwag1d0xWxf35PlPkbbJz2PwAH3qK
+	o930s1MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1QCB-0000000FNLg-3ra9;
-	Sun, 06 Apr 2025 13:37:55 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1u1QhQ-0000000FPZ8-2sqQ;
+	Sun, 06 Apr 2025 14:10:12 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1QAR-0000000FNGh-2oKW
+	id 1u1Qfg-0000000FPLD-1TJv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 13:36:08 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43edecbfb94so15706505e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Apr 2025 06:36:06 -0700 (PDT)
+	Sun, 06 Apr 2025 14:08:25 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-477282401b3so37641201cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Apr 2025 07:08:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743946565; x=1744551365; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RMBZuLcEi1BVATpyEBDSQRvEoX2RBDn8k/CK1srt6Gg=;
-        b=AdLTCvP1N480sFyVofBRHzd/7iqsG7GnBFj+i4ins6k+mQx89B+aNIW+JHgxsM6Kkj
-         nQY+M5/LeyWCNyq9qQ54MT5zJpB+XnvGaNRvy3cxmmrg6JjnVrX5AmqzpDklDztB363r
-         uvZ/X1VxE5rn0ZwSoMGNtOxIj2sc+8StQGO2QcBzxveWGrNMWSRS4HaFoO1MybR0gsKP
-         HxYxwdAZous0prc0LtL/QZp0ufEDaxgoOoVIB9zlWLdOKtuMtNEFFU89fCNXX3/HiYuJ
-         vKwvl5HGjfXpbYHWbwi1sLpHw/oWWhSXGkO2wqctqTNEsTnTxEos0sdmpMBuIcEc5u/2
-         9mGw==
+        d=gmail.com; s=20230601; t=1743948502; x=1744553302; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language:subject
+         :references:cc:to:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NFJzntw16SzoC0742TK/hg9oHHtechyPu4gxi9PpXOk=;
+        b=KxyylIwTXkM1A3mv63CqMoHMRyAa6xT4MCHC3nGizjYyNMfnuOhyJxvQ25MsN5bT5z
+         jsPAXdRUCe3iFr3JN14at4bVAsh5/eisdoWl6cS5vwq9Hp/I6vVxQrxHTi/vQA194dcA
+         cO5qsZ9VpGEbTtywKk49Qo6QTHB4DHJowPTeVnKv20WvJDcJHTfl5M4M/JGDLREuIL0x
+         flbM7PWM1lj0Wb6+VdDkMCPyIpZveyJh80cOnqPkGWFphnSALRHpLq1fb8GlMykz988B
+         QeHwio+eRNZfDxXDxdRj+RPZQCm6JhtlE9Y1Z0G7Nq5L2MlyDfFTSnH7sIzguv+uRAuS
+         FugQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743946565; x=1744551365;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RMBZuLcEi1BVATpyEBDSQRvEoX2RBDn8k/CK1srt6Gg=;
-        b=Ov4j9wB0GsJRDNWzBt9qfN1vHrk+C64mD8Os9TlxTvglQsI2J3lqBRfnyfHezVWQyH
-         vU7eaReir8bG9tFmDZ251i9DeVo94rep383FgCSmIrqfGoJ0Pja8BWh7K/jQ1OfxtObz
-         4LdZdEjQRdTxUtyGJuVeuPRxr3zRgEqgWk6CnnlhL46+XqcHvtk5qOmuQyrJ/PmLTT8x
-         6KXE21lXfFpeYRbHf2hD0gL4110BPYc7pt7geMzh/ZDA0kDw9w8qGO0MkfycvwBHp7/I
-         fNcYYvKh5leT+WvwFTxW15Rb2eOwQuFX9XykFMYiqMXh+NpZf6hVbGQa2lD1pwaG8XWI
-         PYXA==
-X-Forwarded-Encrypted: i=1; AJvYcCXyUgb8JZDqC6431+ofrE+5k/uePOpn1DAl7mWksG9smnzmwFiA9rxOGNkXgZhbyaCbw9U0v2mZv5lEbMN1mR+S@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8ZOvd+ESWpUqbrrC31DZTuKnS9z6jjFjey7AybcOtk2Vq5uVE
-	3KeWofaT/e5IU+wAKEpub/E3jKZEYlvbfWUcx+ZAZWwqFj5cUXZu
-X-Gm-Gg: ASbGncsN+LiLqK3uy3nY6C7tLa03Aqr0UZcEy3aW5dipG/YInOMX6pKPcB13Fq25w1z
-	pV0OxdKByjxUsMLgSiAtQ4SppkbwBEnJ7VAikKyadfZDrEE/phf9Xv4NiHwPik70L6FBAcDY4Cx
-	/owmYMszGFERnX/F6J+tgpFQn/oLypf09gy7JEIjeue7ePP7ejgV8cg7m4beIccxqkLaa8wV2A0
-	SJSDIKU2TMQRojN8Dbc1NbmQIbcZ3tL6dygjd+FFCel4Nh3FrB3+y4rqhfZZsb6fHQ+hxJGoURO
-	gkiz27xFIKKo06EnE6Qd78EsuwT/pFHEFKoB5TwsO79Thg==
-X-Google-Smtp-Source: AGHT+IGaLSX5abguqVbP+J6yIKq+sGqu7t/mSZeOJdHosj/2KCuKMRBbvEKTP1d8iNP8JedYaFysdA==
-X-Received: by 2002:a05:600c:3d94:b0:43c:fceb:91f with SMTP id 5b1f17b1804b1-43ed0bc8d58mr87064365e9.11.1743946565281;
-        Sun, 06 Apr 2025 06:36:05 -0700 (PDT)
-Received: from qasdev.Home ([2a02:c7c:6696:8300:e805:af55:cd2d:e06f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec36699e0sm100652575e9.35.2025.04.06.06.36.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Apr 2025 06:36:04 -0700 (PDT)
-From: Qasim Ijaz <qasdev00@gmail.com>
-To: jikos@kernel.org,
-	bentiss@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: linux-input@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND] HID: thrustmaster: fix memory leak in thrustmaster_interrupts()
-Date: Sun,  6 Apr 2025 14:35:51 +0100
-Message-Id: <20250406133551.4576-1-qasdev00@gmail.com>
-X-Mailer: git-send-email 2.39.5
+        d=1e100.net; s=20230601; t=1743948502; x=1744553302;
+        h=content-transfer-encoding:in-reply-to:from:content-language:subject
+         :references:cc:to:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NFJzntw16SzoC0742TK/hg9oHHtechyPu4gxi9PpXOk=;
+        b=VU9JDxbcnaEe/4qXucFwc2mAyDi06lhrTCj3qqQgQ0uDRcpykQdcjNBst11kxG9kP3
+         ReM50PxJKGarLwqUafVgCt/TSNcQ85CHA+JoXGyMV1zMwCk/64VViqEZHCdlNsw09ngF
+         G3eLU9D/O6xO6t+/8oNpehk/9L4HtBLdGAp7dstSq/7a8uoowbHvyuPSFekegllCVwhq
+         k/H1djmkfXSyX/EnojQxnxopzCpEsgKNwJbfVabGPZd9XqroE0Rb96/cJYyMykrxWACR
+         tYU+ca7iZVcs0srEB6qw/4DYxirJzTh/zgOpJhCBpUo7ET6D0vkgEt8ZA9cIWQlxEDkn
+         b/Yg==
+X-Forwarded-Encrypted: i=1; AJvYcCWQKvr/JPW71zYyrQN1vs/46JEX4CMui2Jed2ia2/zrXSqSkMSSwkdo2X1bj6NlpsbnGA71Ii6diytvcg73Mip3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvMe7GiemwVy+RfWlvCird1PJPcnFqsHUOPkAwqgsVKuUoL5Q5
+	9yeTh006i5jBRyiqE3a9cWwyP3AhyBf3shpOvXnlsW0w8MTZTaBs
+X-Gm-Gg: ASbGncu7ZMMk9aEy6ydomDoaOLadSRHRk9v7RXuR4D5nWFfgS8loyJQDr72MAA/sFUO
+	yJ5SP+GmaYIpmwK95A5vsMd+iMs0kllyJJ3H0MQkXcndH0+KxynPwQwB3XyL0aY5TR8TtTO47P4
+	Gk/lUhUMzJCfaFf1g0hS1c7BGS6KDC3+ljY5QJNK7L7eSNLC2IDSn+cx98/n0faWJlYRwsI3vme
+	7ZneSKKo9t+3GUUaRaW8EMi22SQw1TOzYO5730JqNEwf6n2hL6S6uyEYH4431jdU4zyCOqoikXN
+	iaZx9QXgEIN0NzDGaRB7cY5w0RM9drdU4ImT9ZeB+a/DfA==
+X-Google-Smtp-Source: AGHT+IEUu/+m+XALAP+13peOc7iFxpgjBuow24PD88ZWu9Elv4WYM7GWKb8VhiqJcp3340l/+Tcpag==
+X-Received: by 2002:a05:622a:1a27:b0:476:ac03:3c2a with SMTP id d75a77b69052e-4793110f2e3mr84031561cf.43.1743948502417;
+        Sun, 06 Apr 2025 07:08:22 -0700 (PDT)
+Received: from [192.168.38.58] ([24.35.8.11])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c76e96cf01sm474436585a.55.2025.04.06.07.08.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 06 Apr 2025 07:08:22 -0700 (PDT)
+Message-ID: <0cc991ff-e0e5-453c-91dd-84710bf7e028@gmail.com>
+Date: Sun, 6 Apr 2025 10:08:20 -0400
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+To: chrisi.schrefl@gmail.com
+Cc: Jamie.Cunliffe@arm.com, a.hindborg@kernel.org, alex.gaynor@gmail.com,
+ aliceryhl@google.com, andrew@lunn.ch, ardb@kernel.org,
+ benno.lossin@proton.me, bjorn3_gh@protonmail.com, boqun.feng@gmail.com,
+ corbet@lwn.net, gary@garyguo.net, guptarud@gmail.com,
+ linus.walleij@linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux@armlinux.org.uk, ojeda@kernel.org, rust-for-linux@vger.kernel.org,
+ stappers@stappers.nl, thesven73@gmail.com, tmgross@umich.edu
+References: <399cceb4-dcf5-4af8-a8b7-6741e9b7e8ae@gmail.com>
+Subject: Re: [PATCH v3] arm: rust: Enable Rust support for ARMv7
+Content-Language: en-US
+From: Manish Shakya <msh.shakya@gmail.com>
+In-Reply-To: <399cceb4-dcf5-4af8-a8b7-6741e9b7e8ae@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_063607_708094_69517ABC 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20250406_070824_392430_BCFB9C76 
+X-CRM114-Status: UNSURE (   5.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,32 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In thrustmaster_interrupts(), the allocated send_buf is not 
-freed if the usb_check_int_endpoints() check fails, leading 
-to a memory leak. 
+Tested with Beaglebone back with following configs:
 
-Fix this by ensuring send_buf is freed before returning in 
-the error path.
-
-Fixes: 50420d7c79c3 ("HID: hid-thrustmaster: Fix warning in thrustmaster_probe by adding endpoint check")
-Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
----
- drivers/hid/hid-thrustmaster.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/hid/hid-thrustmaster.c b/drivers/hid/hid-thrustmaster.c
-index 3b81468a1df2..0bf70664c35e 100644
---- a/drivers/hid/hid-thrustmaster.c
-+++ b/drivers/hid/hid-thrustmaster.c
-@@ -174,6 +174,7 @@ static void thrustmaster_interrupts(struct hid_device *hdev)
- 	u8 ep_addr[2] = {b_ep, 0};
- 
- 	if (!usb_check_int_endpoints(usbif, ep_addr)) {
-+		kfree(send_buf);
- 		hid_err(hdev, "Unexpected non-int endpoint\n");
- 		return;
- 	}
--- 
-2.39.5
+# zcat /proc/config.gz | grep RUST
+CONFIG_RUSTC_VERSION=108600
+CONFIG_RUST_IS_AVAILABLE=y
+CONFIG_RUSTC_LLVM_VERSION=190107
+CONFIG_RUST=y
+CONFIG_RUSTC_VERSION_TEXT="rustc 1.86.0 (05f9846f8 2025-03-31)"
+CONFIG_HAVE_RUST=y
+# CONFIG_RUST_FW_LOADER_ABSTRACTIONS is not set
+CONFIG_TRUSTED_FOUNDATIONS=y
+# CONFIG_BLK_DEV_RUST_NULL is not set
+# CONFIG_RUST_PHYLIB_ABSTRACTIONS is not set
+# CONFIG_HID_THRUSTMASTER is not set
+# CONFIG_TRUSTED_KEYS is not set
+CONFIG_SYSTEM_TRUSTED_KEYRING=y
+CONFIG_SYSTEM_TRUSTED_KEYS=""
+# CONFIG_SECONDARY_TRUSTED_KEYRING is not set
+CONFIG_RUST_DEBUG_ASSERTIONS=y
+CONFIG_RUST_OVERFLOW_CHECKS=y
+CONFIG_RUST_BUILD_ASSERT_ALLOW=y
 
 
