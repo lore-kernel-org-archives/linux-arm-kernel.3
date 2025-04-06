@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36E4C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 466B4C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLdCqb5qlpUypwgjWb4blNp8AqxQ/CkYEt8yDQ5aSjg=; b=rof22hmQ++SHImfwENVNrYvDyc
-	YlTYh8loHESO9qiBVzDCsU+E32IjeOhikaE/rvCEVeuChVdiftwkxmxICWqw/RtdO6a8mA7wPbrzL
-	w+G8cGl2d0FvSMPjuIs0H5UavmMGqQps5H7punWq1cyNr2jfGljt728E+smqx+EgntM6ec8zjzX9U
-	tl8x3dncRfr8CgwxOjlJt9ZBpZ9p86uQ8EKSPbvAirDQFCxgvy5AXxN+hMNrmu8Sw0DUyJ1VJLMX/
-	Yz34Cg/MP8d9fqa+cBtgdkE3JXMeoxhJJ9Eahv6YMperzlRHZCkXfjdJ+6crIAbKoAmkz0TaqEPQr
-	u10ST/JQ==;
+	bh=gQxlk6JOEynWOGVX2Gnuf5Zsnajdg+4oUK9sYEqzrIk=; b=SnuMc7vHKx82NdE6hfDIff4SnD
+	lfGF1/QyZvDprzZCHXosZRaN0tJBzTRJCa9XDIjOprGPNqj+PSXlG7g+pD0dAEQVozu7sC3q45LjG
+	j+Fv5Npc5b+TkZJtT3yZqGfah4bGfWvYCi8uTfAL2CIRjjaFmr30VF0Jj1z1DCPISBkMFie9fbPu4
+	XXNwxLkvyBA9iDoba95hR9vYaJyeO7c523krHivlXxgXnMxjp9C4cUle/KcngoNsOADGX4pPIU5wN
+	v/IpT+EhFUOnTn9lBTM6lluURvQGwJmLjc+miL3TZjw8d7GNf9hXRgd5EbVjMTTOWpciUDPZ03RaK
+	u/ZfuAYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UoT-0000000Fejn-35me;
-	Sun, 06 Apr 2025 18:33:45 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u1UqC-0000000Ff1J-1e0g;
+	Sun, 06 Apr 2025 18:35:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UlS-0000000FeNG-1DaZ
+	id 1u1Uo1-0000000FedZ-0RSn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 18:30:39 +0000
+	Sun, 06 Apr 2025 18:33:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BE049A4312C;
-	Sun,  6 Apr 2025 18:25:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A2D5C4CEE3;
-	Sun,  6 Apr 2025 18:30:31 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A8D0EA43242;
+	Sun,  6 Apr 2025 18:27:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E6D8C4CEED;
+	Sun,  6 Apr 2025 18:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743964237;
-	bh=Mb+3+lFO7O0k+Q67FsmWRlgugLRno3Z7bhI9KUzzbdQ=;
+	s=k20201202; t=1743964396;
+	bh=/3f779uWbqlkOJ6r9PovSIAzryDK0IOH7avUmMgc+WE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QLlKND+qzRO6gM0XRkL9CXQlKl0we0+nAxZWpyhmR0HvxTGNEpup2f0AFleBm0gU2
-	 PHXz6iBJgdodawPLMslE/y5WCLKTm74nz4E1fZG83uDoYWL6DiAMjWvSFJ6uAHwFP4
-	 a7DhBMJGJIndt40wdE1pTMIVvcpoeoPAGjbz46LnoEiVUd74rTAymtVGowMisa5mtv
-	 uz9onndgJ0VuMIiHvMWH+KOOuupSYQlloosq7ivaT2xx/mZQXB1I5+SXWeNiD5gnHW
-	 Kld9Un/r7QjziW/mp1s93Su9Sge+VXSehC6nBNyAWSvl9gqBt1w8d+0/2xhd+jgfnw
-	 +Ci24NZLBcwAw==
-Message-ID: <718c954a-055f-4fda-aaf5-1e7e6167f715@kernel.org>
-Date: Sun, 6 Apr 2025 20:30:30 +0200
+	b=IcNNniBxND5Tjhbsibi1kiUdni51hybuMvXnWI9DaKNdYMlmi3YYgCJWuy7T+Yk/D
+	 MtpeWHFLLBgJ6HqDd9OSYIl2SXRNuM+DyYYIOiSxZNo7kZQlG9vlfWbo3EfNfbEgtx
+	 giIqVIFRDceBwst3u3a+d+8y9fyz9jT9738F8kpOhn3Kx07dCTG6wxnuyacR8TSaen
+	 kjfv9K9sq9/tVSY5X9biYIf1NTugZ7SvekL62NdtIOPjjCDw8yMfj4yLD6FNpcEQAS
+	 /fU2CFTTwzutD3wQ0SopxmhYRuuTlsDeixOx2/9w1XQlNhHhyFfjwGmHGx/M5zaEja
+	 xDD+D1R17Q8Vw==
+Message-ID: <5e91005a-28b0-4508-b576-5406f3e048e0@kernel.org>
+Date: Sun, 6 Apr 2025 20:33:09 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 26/32] rtc: s5m: prepare for external regmap
+Subject: Re: [PATCH v3 27/32] rtc: s5m: add support for S2MPG10 RTC
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -63,7 +63,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
 References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
- <20250403-s2mpg10-v3-26-b542b3505e68@linaro.org>
+ <20250403-s2mpg10-v3-27-b542b3505e68@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250403-s2mpg10-v3-26-b542b3505e68@linaro.org>
+In-Reply-To: <20250403-s2mpg10-v3-27-b542b3505e68@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_113038_454071_B9EE6F61 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20250406_113317_285270_7C0A0343 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,22 +130,40 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/04/2025 10:59, André Draszik wrote:
-> The Samsung S2MPG10 PMIC is not connected via I2C as this driver
-> assumes, hence this driver's current approach of creating an I2C-based
-> regmap doesn't work for it, and this driver should use the regmap
-> provided by the parent (core) driver instead for that PMIC.
+> Add support for Samsung's S2MPG10 PMIC RTC, which is similar to the
+> existing PMIC RTCs supported by this driver.
 > 
-> To prepare this driver for s2mpg support, restructure the code to only
-> create a regmap if one isn't provided by the parent.
+> S2MPG10 doesn't use I2C, so we expect the core driver to have created a
+> regmap for us.
 > 
-> No functional changes, since the parent doesn't provide a regmap for
-> any of the PMICs currently supported by this driver. Having this change
-> separate will simply make the addition of S2MPG10 support more
-> self-contained, without additional restructuring.
+> Additionally, it can be used for doing a cold-reset. If requested to do
+> so (via DT), S2MPG10 is programmed with a watchdog configuration that
+> will perform a full power cycle upon watchdog expiry.
 > 
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
 > ---
+>  drivers/rtc/rtc-s5m.c | 60 +++++++++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 60 insertions(+)
+> 
+> diff --git a/drivers/rtc/rtc-s5m.c b/drivers/rtc/rtc-s5m.c
+> index 86ccf666c68059408907c97f2647716ffaad10c6..0d8783577bab4f4ebe61050dbd68387d970773bd 100644
+> --- a/drivers/rtc/rtc-s5m.c
+> +++ b/drivers/rtc/rtc-s5m.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/i2c.h>
+>  #include <linux/bcd.h>
+>  #include <linux/regmap.h>
+> +#include <linux/reboot.h>
 
+You just sorted the MFD headers in other patch, but here you break the
+sorting.
+
+For me patches resorting the addresses (as a separate patch) is churn,
+but sure. If you do this however, it means you really believe that it is
+worth to sort them, so you must keep that standard for all your further
+patches in that series.
+
+Rest is fine, so with this fixed:
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
