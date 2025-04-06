@@ -4,91 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC3AC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 20:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B62E9C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 20:33:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E458gQJPEDLg7gt5tX3yC9GRB2p54/ySefPjbdFmnAo=; b=i0GCG04mdHL253vR2wU5BhjNnO
-	gSdOd2bGOsHP+zkxp0w6Vj5ZWiY8ydK7atW958/fVJzHPCCnV/brcW24Bg4vFjOoIhRXxKva+tBKn
-	6rskNGR8qabybQXCWRBKqNPiMu9b3n2T3x55BUvTShVIqe/4qfzjWwExVodDrsq7btUBfNYT4Qcv4
-	9V0TyzcOAcsH+LWQBDqQO7JtRF2b1k44fr9kJazOIgD596csIHr6gMAE7Oa/PgHdD5O9posWwkKSf
-	3/ewvbvzRQqp1MLa/1sFWWaLI3edCoX9DHp2tdCiWoz9Vzy0LVuE0lLHKPk35sOoBmhCTKDVNlq08
-	ctUEQDQA==;
+	bh=+JgDkSkEEcDLTsZdbQJiXeVweECmbECSQZoVfGZG0Ts=; b=lszOW4mwgDLMXumpL+dwt97VPq
+	6FW3C63nC3xeAHGXMDf0k2BR+Qjx4X+0X3fTdSReWRT6ezVLGQey/UQZefrL6fFCbyFgq9hYPlFpB
+	v8zvxVdhCbDz6RTj7P28i2rMsVw6kje5oVx2FOBF+bFY1yygLKzqbzGRtLQlHpbJcJF5rqdvLq9Hf
+	PTu/Vi/C2B+kMrAtMuUoE0IZ+ZBXVQX4w+YOrOPpc59K0Wm2llAuldgDTvWfdJQYEikghNWK9skG2
+	12QH828TlbNa5bi0jqlAQfrbH8sT0xxmAQiBTgQNmGcTybSN1r7/HirviMO5+lYlzAyWZjnROVGzK
+	rsBu6mTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1WZl-0000000Flrd-3Aff;
-	Sun, 06 Apr 2025 20:26:41 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1u1WgK-0000000FmUb-1RGH;
+	Sun, 06 Apr 2025 20:33:28 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1WW5-0000000Flbc-2f4a
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 20:22:54 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43ce4e47a85so2688495e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Apr 2025 13:22:53 -0700 (PDT)
+	id 1u1WeW-0000000FmM4-02lF;
+	Sun, 06 Apr 2025 20:31:37 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22409077c06so45057985ad.1;
+        Sun, 06 Apr 2025 13:31:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743970972; x=1744575772; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=googlemail.com; s=20230601; t=1743971495; x=1744576295; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=E458gQJPEDLg7gt5tX3yC9GRB2p54/ySefPjbdFmnAo=;
-        b=UvhGN/7qE+MPOpbYjZYPQKHzRLwTtKdhQpvRl0qVmM2egMqzaaSoZ0o9d7oIJiNmaV
-         z3kUUk2b0PT+qyQxHCuCzXo0+qMk35axO3xd3yDwr1MBQlOYPxRVDbiE8NJh0G8pWotc
-         qoN+ZWe8phmFYEKopQpnSMXuQemyuC3aJ+s2oB6Cgp16K5ubuk1qWsBFTksda7G6u/1F
-         ueLPCiUKH3XDMXt8z9memnGVWiYJNTmHAMISG7CgX51Z0aZQq1ZI4BgpPOwVPT97bWwc
-         O72/NO8r40KgoBQ9OW6aG6hSM9YsS3EtLNeIPVs95TXzO+3slQcyZTYBXWg9AJawgLwI
-         ZDXg==
+        bh=+JgDkSkEEcDLTsZdbQJiXeVweECmbECSQZoVfGZG0Ts=;
+        b=NDR/aZrngw5aR04IHLAkINC1bgA2F/3zFq1tcDL7oWd2gQURpVDz+pNJhKFWDJutFa
+         VuHqYM5Ta4hTVUWSa+th6dXr2igo167aYnysr1wu4Htx3mAdwBKY4Qw+ZicpLIdFb00e
+         JCtBipmO+pR1ZzozzNCc1jok7Jj9YCAwblXq/nvDtMlqIWIw5ETST/mdxF/HL+kOLq1a
+         dTZ4I3O3oaRO0xicVUXmBghhULlEmt3tjiI5/5fW70C6knNnHwjEzZKSecu93NsYlEpu
+         EgnktFUy4a8C+i+9W6m7qab/nvCDR4eAeaoFsqFENZ6/kAVN+LY4/EJgZaJ0My2HJ4b/
+         /9bQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743970972; x=1744575772;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1743971495; x=1744576295;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=E458gQJPEDLg7gt5tX3yC9GRB2p54/ySefPjbdFmnAo=;
-        b=KTplP0++rujYd4kl+/4UA3ysvrKhlIgRfmWj1bZxqZNd52IcHDw8oFD11HZOY+wxX8
-         I5LMjUcHAhB+oRgvspp+zW/fuA+B9xbA8OXYVbh0Jr1xrhJSWSSBROeomGJV9uG69D3m
-         /Mo54YasaG1yo7c0XA7Jx4zmWgBgna6bB4t7hImDNFU4g1CMFVrlh0Z5CPHuhDLQdnIh
-         fMgvTUbRD9oLptxvVV80ofqxMVa2JFDX/PHMWWpgBrPDWB5iVDatNEVqeRsl+bQIyjbd
-         Yl/XNCgXeH3S8Fnf63topjksmIkdbdofM2XXGvhdvwjOcvNS1Rbbf8JeQj0LMmflppO1
-         iqjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV1+yM4m2S2fo3zZmksCYqKdm22EkNe/t0rj0xRgPCfOs7Z//MCKCcLD/JlVqzbBINdWwRUFPNjGiKs5Tm+u7cZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBlPsavJjO3pnx/dj4F0n9i1xCafc/bwI5iPcmfo+oQ/477EaU
-	iOaT5vSxfk2rUzFdEgzWGQt8Bpug3koHE6iiSwj/6XEOBomkmG+nKVz55zpx3p0=
-X-Gm-Gg: ASbGncuEo3NP0GARW+/4mZcdo30K3jOujnAngtmnvj2+Wiz++fWXx7eK0zajG85a6dA
-	lO/66cf9n7gNcAhkHilGwd+Zr/6ebMyOz35PU01q4Is7PMV9BPVMsEBnNY17jgnMZWLE3XdEar4
-	G77LKrdsN2+JfCMdtD7KUquayeFODRua1rd+4hilOUzl8hu7VI3qwBUr/3ZmVVw0EtnxuHCtpsi
-	zNNhTkUc11qHF25aj1LKMYaJ9JEH6XG6BtlwMKbcYm6sD0JyRB6RKbiG6n7MWpLQW7X431IkqmU
-	257H/upgJXbm9Lq+6zUnC6QSEknQplv6xm17TqPiXHz/MBLCibEnwwKbOrz3UJ1I
-X-Google-Smtp-Source: AGHT+IEF8tj7Pq+6DZXgyHyaSB4Mgz8msO3r9oCeK6E+RJBMjaZB+pmLJuJSpG/6Qd5AvxQHxn7QGw==
-X-Received: by 2002:a05:600c:3b12:b0:439:9c0e:36e6 with SMTP id 5b1f17b1804b1-43ecf86b411mr30682825e9.3.1743970972004;
-        Sun, 06 Apr 2025 13:22:52 -0700 (PDT)
-Received: from shite.. ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec147c9dbsm115304655e9.0.2025.04.06.13.22.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Apr 2025 13:22:51 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 2/2] gpio: zynq: Fix wakeup source leaks on device unbind
-Date: Sun,  6 Apr 2025 22:22:45 +0200
-Message-ID: <20250406202245.53854-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250406202245.53854-1-krzysztof.kozlowski@linaro.org>
-References: <20250406202245.53854-1-krzysztof.kozlowski@linaro.org>
+        bh=+JgDkSkEEcDLTsZdbQJiXeVweECmbECSQZoVfGZG0Ts=;
+        b=GOSpfQg1DPKnCMge6Xa5fwpQHjdpD9RbTrDPK2bnrDYMCo8nSbpp34nb4euTT1lRdk
+         oxxYDofaA8qj8NZFdhV0miw5QrEyYrkn1UXc/gdXS5gs7iHRBzLnn4mVtX0GP6/B0sEJ
+         btHH5nZyecaJLJ90WQEyabJUAZTGKNmuZbNDvTM8I+orM4Tgr3+gthdxW87oGLIkQsBT
+         nZa3DFTto3Ll9OOgC7sdUti4XHpXuyhg5JPfTf51jBNlNbPxkVn0FQjvLI4ZLt2MS+26
+         jEfDVPGjggKSgzAqDuRraKVnyl5JdJm7u1th7OccBBXzJsKQHcKnV0A2ZDo/jgjpCyX4
+         cyAg==
+X-Forwarded-Encrypted: i=1; AJvYcCUwOyBzoKjt7+BvMBjpZcSUZTRGJ0CSiOUSD6mlr2exYdJzilhcWBIOVsq8MOkoRZLpJYANk2JReHN8Dn3Y@lists.infradead.org, AJvYcCX7m/S93Pu5xmsAf15wWUNH+2TvhMH2BGH9MG/7i7D+7psYlZQIaYZLFitkqr0btqTXdpXZeUsj7MW8HidQFa8YFw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNVQs/Jfkm3l+D9gn/X1LvvqQMum4Mk11CV+HQx5UQxFyGJja+
+	cbWkKzJViz7H4LMQzjGaStSIiV4KuEYG6+IshV1Fv5eeAgE5Ft4xhfbLWZArnSzvDdh11Dumi8f
+	DipXwzm9oK/ZBV3Ae7yZ6xyRTq3g=
+X-Gm-Gg: ASbGnctGjbeL9WbhNvNpdCjRdW+br/7AekYaqXDjxFxsOPaEGDwd6XfnlTLbPZIuior
+	bZ7fjk201CRU0w6WY/7D4x7GWEYNHe8vagKa7Ffh3cnJv7R2YcWwFfaAwJVZ1ZxraFdLSqs1OjX
+	uf6FT/DEilb47iZ93bpZPez8+8S+hzVSf6HYBo/P90
+X-Google-Smtp-Source: AGHT+IExK3rgstJKKKtoG9Q+crnhTsYrlTj7SKtkXlz2UX4GnZK54G+TsdpXNABvaY1e4/m9JtjPFbBfqcIQ/eTpRDo=
+X-Received: by 2002:a17:90b:5448:b0:2f6:be57:49d2 with SMTP id
+ 98e67ed59e1d1-306a6179aa1mr15876246a91.17.1743971494658; Sun, 06 Apr 2025
+ 13:31:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250404123949.362652-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250404123949.362652-1-krzysztof.kozlowski@linaro.org>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Sun, 6 Apr 2025 22:31:23 +0200
+X-Gm-Features: ATxdqUE1UrOGrlQFeIQJTFzofnatItzhBtfjuCm7JYGAi3H-c4k4SlKtOVMPYWc
+Message-ID: <CAFBinCDkH8dMUpzbHy2kM6ZtUOfjRmHQzHxSMFeZeSNzjivG-Q@mail.gmail.com>
+Subject: Re: [PATCH] firmware: meson: Do not enable MESON_SM by default during
+ compile testing
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_132253_688890_5DFCD582 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20250406_133136_157272_2AB6812A 
+X-CRM114-Status: UNSURE (   6.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,27 +96,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Device can be unbound, so driver must also release memory for the wakeup
-source.
-
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/gpio/gpio-zynq.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/gpio/gpio-zynq.c b/drivers/gpio/gpio-zynq.c
-index be81fa2b17ab..3dae63f3ea21 100644
---- a/drivers/gpio/gpio-zynq.c
-+++ b/drivers/gpio/gpio-zynq.c
-@@ -1011,6 +1011,7 @@ static void zynq_gpio_remove(struct platform_device *pdev)
- 	ret = pm_runtime_get_sync(&pdev->dev);
- 	if (ret < 0)
- 		dev_warn(&pdev->dev, "pm_runtime_get_sync() Failed\n");
-+	device_init_wakeup(&pdev->dev, 0);
- 	gpiochip_remove(&gpio->chip);
- 	device_set_wakeup_capable(&pdev->dev, 0);
- 	pm_runtime_disable(&pdev->dev);
--- 
-2.45.2
-
+On Fri, Apr 4, 2025 at 2:39=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> Enabling the compile test should not cause automatic enabling of all
+> drivers.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
