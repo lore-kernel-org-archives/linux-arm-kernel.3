@@ -4,59 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3434DC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 11:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D11A2C3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 12:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qqH4N2+CHgOqU/M5fIoD1f1hycV5QL3eTccuZsOVm14=; b=ct9XwC3scufPA8G2twUEQNNoWj
-	Uiaty9/zmBClVzzhrSDW3R9Xm6MlASKRb1p2jOa8X8Z3HDX3aYOyjmRZgoLr8dy4QRo4Dp8jYLxso
-	v5OHcMnY0kJh87akXWRFXGext3pcGU2MgZvVy9g+sJBlt9DmpQA5N8k6mexKD/6D1OiB241AhamdY
-	jumDX3Fc7jk94h05C1kCkr1FVMjaw1HIjMHLL7bD3aao4AoUMQkW77hRLmmfZ9Efgznars3gZ4AlT
-	RylvO+PLF2BIa8tyLq3x0tT9YPpUwUqLnG+SDhNPDlXyrVG0xaFBeqUbY6SaoKzgQNxbBo6pMIkXI
-	EgThIevw==;
+	bh=8nCtthITUwL+5rtfc3Ws1vsYDLZ1c4+EYEFfS9KygVE=; b=DPzdvrR+cKwVBNIbE0fo06CZdv
+	urijZZFu+9HGLD43ZXiMOBwQX3YJlrG6erK1zMGGkt6IILJKsNx+QEHHyJs02o1H1FLon5aqEWv0S
+	O7UNNcmoI3WzVUKnAC+FvIxLJQFBAOo1Buxw3RPm3xMQhavMLLoCUob14wz4vxOdVDGc7fz1qD39y
+	LsLe9zMFJ+YKMhIzTB+TZDpejJx2Bqq+cqeZqaV4RXCB2NdI6EliGgQLGIxWZWhwkVXmx8i+1pCUG
+	Xv5wJ51vaoymKPOG6R+3l2burJC+R9iTZ1bxmtqwujMk++OMDO+wEVT2k/4m5c7c2ev+yuO12Gq3S
+	vynflxXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Of0-0000000FH1O-37C1;
-	Sun, 06 Apr 2025 11:59:34 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1u1OrF-0000000FHnF-0maJ;
+	Sun, 06 Apr 2025 12:12:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1OdF-0000000FGuj-4B0d
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 11:57:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1743940660; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=qqH4N2+CHgOqU/M5fIoD1f1hycV5QL3eTccuZsOVm14=;
-	b=OmEfz/4OSyBYBMxg2k/F7H644luhjRTA81SBCBY9M7RMOdxmZwshtK3OzEvQeGDpsMfELyZp27trdwr0eg4ToyvZn1IeRi+xMdxtUukckt/DqIRm7bS9RBPa1pktlOoQ1xwbFDIk1O/AbjC5kyye1Bg08mGstC3aDQDg4o0J6hs=
-Received: from 30.246.160.68(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WVZ69Fk_1743940654 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sun, 06 Apr 2025 19:57:35 +0800
-Message-ID: <3af36c30-48e9-4182-ad09-bd28d3e4acb4@linux.alibaba.com>
-Date: Sun, 6 Apr 2025 19:57:34 +0800
+	id 1u1OpW-0000000FHfp-0FJF;
+	Sun, 06 Apr 2025 12:10:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8EC2460010;
+	Sun,  6 Apr 2025 12:10:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A17D0C4CEE3;
+	Sun,  6 Apr 2025 12:10:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743941423;
+	bh=DsRkNjsY5+T8gT1hnVCbvgLxu+0fbNqwPrZwcAUeAL4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uaBGSByIryyRFIcC3iKrXiRyRVm6V0Ix3pUjA8d9KIv0bDeT6nrOWyPvwAiWcEM4N
+	 LCQtK2/4h2VqpdDctKzSNZqn9aQavIWMx4zsabcSKGtHDiKJ1JZha2a6OOVf+IJkN8
+	 Rv6cZBjybQSNLrH2rhhz3/OGwpJC8AgXigPuJS+U9V94rVdLszIcPyWKi3M/c+QgGs
+	 h8JAfhfiGfgSUsqf03jtPIe0I7sOPUwLIPdRgpvrfYACNnY47Jx4HDP7gEW0TwhjGH
+	 aJjn9zKac7HXcV9qFlwfJFpa+2DcIYMV3Yji1jogQ0tpAPn/9JTbcMj1wgJU/CyhiJ
+	 1pIGkl3U+2r+Q==
+Message-ID: <21095cf1-45b2-4c41-933a-a0a4afc2cabb@kernel.org>
+Date: Sun, 6 Apr 2025 14:10:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] selftests/pidfd: align stack to fix SP alignment
- exception
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, baolin.wang@linux.alibaba.com,
- tianruidong@linux.alibaba.com, brauner@kernel.org, shuah@kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20250312061557.28532-1-xueshuai@linux.alibaba.com>
- <0a70f4ab-cd83-434d-8dd2-486d58e5599a@linux.alibaba.com>
- <20250404121759.GA28692@willie-the-truck>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20250404121759.GA28692@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: Add VCP support for mt8196
+To: =?UTF-8?B?WGlhbmd6aGkgVGFuZyAo5ZSQ55u45b+XKQ==?=
+ <Xiangzhi.Tang@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "andersson@kernel.org" <andersson@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "mathieu.poirier@linaro.org" <mathieu.poirier@linaro.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ =?UTF-8?B?SGFpbG9uZyBGYW4gKOiMg+a1t+m+mSk=?= <Hailong.Fan@mediatek.com>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ =?UTF-8?B?SmppYW4gWmhvdSAo5ZGo5bu6KQ==?= <Jjian.Zhou@mediatek.com>
+References: <20250402092134.12293-1-xiangzhi.tang@mediatek.com>
+ <20250402092134.12293-2-xiangzhi.tang@mediatek.com>
+ <860ae623-f33f-4cfe-be08-6bb6524ecf94@kernel.org>
+ <625410299fd45188759d3b1fe205e6c42af0bbda.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <625410299fd45188759d3b1fe205e6c42af0bbda.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_045746_710335_37AD33D0 
-X-CRM114-Status: GOOD (  23.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,154 +130,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-在 2025/4/4 20:18, Will Deacon 写道:
-> On Wed, Mar 19, 2025 at 10:59:57AM +0800, Shuai Xue wrote:
->> + ARM maintainers for review.
+On 06/04/2025 08:46, Xiangzhi Tang (唐相志) wrote:
+> On Wed, 2025-04-02 at 13:11 +0200, Krzysztof Kozlowski wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
 >>
->> 在 2025/3/12 14:15, Shuai Xue 写道:
->>> The pidfd_test fails on the ARM64 platform with the following error:
->>>
->>>       Bail out! pidfd_poll check for premature notification on child thread exec test: Failed
->>>
->>> When exception-trace is enabled, the kernel logs the details:
->>>
->>>       #echo 1 > /proc/sys/debug/exception-trace
->>>       #dmesg | tail -n 20
->>>       [48628.713023] pidfd_test[1082142]: unhandled exception: SP Alignment, ESR 0x000000009a000000, SP/PC alignment exception in pidfd_test[400000+4000]
->>>       [48628.713049] CPU: 21 PID: 1082142 Comm: pidfd_test Kdump: loaded Tainted: G        W   E      6.6.71-3_rc1.al8.aarch64 #1
->>>       [48628.713051] Hardware name: AlibabaCloud AliServer-Xuanwu2.0AM-1UC1P-5B/AS1111MG1, BIOS 1.2.M1.AL.P.157.00 07/29/2023
->>>       [48628.713053] pstate: 60001800 (nZCv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=-c)
->>>       [48628.713055] pc : 0000000000402100
->>>       [48628.713056] lr : 0000ffff98288f9c
->>>       [48628.713056] sp : 0000ffffde49daa8
->>>       [48628.713057] x29: 0000000000000000 x28: 0000000000000000 x27: 0000000000000000
->>>       [48628.713060] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
->>>       [48628.713062] x23: 0000000000000000 x22: 0000000000000000 x21: 0000000000400e80
->>>       [48628.713065] x20: 0000000000000000 x19: 0000000000402650 x18: 0000000000000000
->>>       [48628.713067] x17: 00000000004200d8 x16: 0000ffff98288f40 x15: 0000ffffde49b92c
->>>       [48628.713070] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
->>>       [48628.713072] x11: 0000000000001011 x10: 0000000000402100 x9 : 0000000000000010
->>>       [48628.713074] x8 : 00000000000000dc x7 : 3861616239346564 x6 : 000000000000000a
->>>       [48628.713077] x5 : 0000ffffde49daa8 x4 : 000000000000000a x3 : 0000ffffde49daa8
->>>       [48628.713079] x2 : 0000ffffde49dadc x1 : 0000ffffde49daa8 x0 : 0000000000000000
->>>
->>> According to ARM ARM D1.3.10.2 SP alignment checking:
->>>
->>>> When the SP is used as the base address of a calculation, regardless of
->>>> any offset applied by the instruction, if bits [3:0] of the SP are not
->>>> 0b0000, there is a misaligned SP.
->>>
->>> To fix it, align the stack with 16 bytes.
->>>
->>> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
->>> ---
->>>    tools/testing/selftests/pidfd/pidfd_test.c | 2 +-
->>>    1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/tools/testing/selftests/pidfd/pidfd_test.c b/tools/testing/selftests/pidfd/pidfd_test.c
->>> index c081ae91313a..ec161a7c3ff9 100644
->>> --- a/tools/testing/selftests/pidfd/pidfd_test.c
->>> +++ b/tools/testing/selftests/pidfd/pidfd_test.c
->>> @@ -33,7 +33,7 @@ static bool have_pidfd_send_signal;
->>>    static pid_t pidfd_clone(int flags, int *pidfd, int (*fn)(void *))
->>>    {
->>>    	size_t stack_size = 1024;
->>> -	char *stack[1024] = { 0 };
->>> +	char *stack[1024] __attribute__((aligned(16))) = {0};
->>>    #ifdef __ia64__
->>>    	return __clone2(fn, stack, stack_size, flags | SIGCHLD, NULL, pidfd);
-> 
-> The arm64 alignment requirement is correct, but I don't really grok what
-> this code is trying to do. If it's not using CLONE_VM, why bother passing
-> a separate stack? If it _is_ using CLONE_VM, then surely the stack needs
-> to be allocated somewhere other than the caller stack?
-> 
+>>
+>> On 02/04/2025 11:19, Xiangzhi Tang wrote:
+>>> +
+>>> +description:
+>>> +  The MediaTek VCP enables the SoC control the MediaTek Video
+>>> Companion Risc-V coprocessor.
+>>
+>> Wrap at coding style.
+>> Thanks comment, I will fix it on v1 version.
+>>
+Please kindly trim the replies from unnecessary context. It makes it
+much easier to find new content.
 
-Hi, Will,
+Anyway, not sure what you are referring to, but this was not fully
+tested and I still expect all my comments to be addressed.
 
-Thank for you reply.
-
-> https://man7.org/linux/man-pages/man2/clone3.2.html
-clone3()
-        The stack for the child process is specified via cl_args.stack,
-        which points to the lowest byte of the stack area, and
-        cl_args.stack_size, which specifies the size of the stack in
-        bytes.  In the case where the CLONE_VM flag (see below) is
-        specified, a stack must be explicitly allocated and specified.
-        * Otherwise, these two fields can be specified as NULL and 0 *, which
-        causes the child to use the same stack area as the parent (in the
-        child's own virtual address space).
-
- From man-pages for clone3, I think you are right.
-As you pointed out, without CLONE_VM, the stack can indeed be set to NULL.
-However, when running the pidfd_test, issues arise:
-
-#./pidfd_test
-TAP version 13
-1..8
-# Parent: pid: 125004
-Bail out! pidfd_poll check for premature notification on child thread exec test: pidfd_clone failed (ret -1, errno 22)
-# Planned tests != run tests (8 != 0)
-# Totals: pass:0 fail:0 xfail:0 xpass:0 skip:0 error:0
-
-
-Upon examining the git diff:
-
-#git diff
-diff --git a/tools/testing/selftests/pidfd/pidfd_test.c b/tools/testing/selftests/pidfd/pidfd_test.c
-index 9a2d64901d59..c5991c0712c8 100644
---- a/tools/testing/selftests/pidfd/pidfd_test.c
-+++ b/tools/testing/selftests/pidfd/pidfd_test.c
-@@ -32,13 +32,10 @@ static bool have_pidfd_send_signal;
-
-  static pid_t pidfd_clone(int flags, int *pidfd, int (*fn)(void *))
-  {
--       size_t stack_size = 1024;
--       char *stack[1024] = { 0 };
--
-  #ifdef __ia64__
-         return __clone2(fn, stack, stack_size, flags | SIGCHLD, NULL, pidfd);
-  #else
--       return clone(fn, stack + stack_size, flags | SIGCHLD, NULL, pidfd);
-+       return clone(fn, NULL, flags | SIGCHLD, NULL, pidfd);
-  #endif
-  }
-
-
-Also from man-pages of clone3, https://man7.org/linux/man-pages/man2/clone3.2.html
-
-    The clone() wrapper function
-
-        The stack argument specifies the location of the stack used by the
-        child process.  Since the child and calling process may share
-        memory, it is not possible for the child process to execute in the
-        same stack as the calling process.  *The calling process must
-        therefore set up memory space for the child stack and pass a
-        pointer to this space to clone()*.  Stacks grow downward on all
-        processors that run Linux (except the HP PA processors), so stack
-        usually points to the topmost address of the memory space set up
-        for the child stack.  Note that clone() does not provide a means
-        whereby the caller can inform the kernel of the size of the stack
-        area.
-
-Now, I am confused about the rules :(
-
-Upon reviewing the glibc code for handling this:
-https://elixir.bootlin.com/glibc/glibc-2.41.9000/source/sysdeps/unix/sysv/linux/aarch64/clone.S#L52
-
-It's evident that when the stack pointer is set to NULL, the aligned stack
-pointer remains zero, leading __clone to perform a syscall error,
-returning -EINVAL due to an invalid argument.
-
-In summary, memory space for the child's stack must be explicitly allocated,
-and a valid pointer must be passed to clone() regardless of the use of
-CLONE_VM.
-
-> Will
-
-Thanks.
-Shuai
-
+Best regards,
+Krzysztof
 
