@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B62E9C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 20:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2935DC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 20:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+JgDkSkEEcDLTsZdbQJiXeVweECmbECSQZoVfGZG0Ts=; b=lszOW4mwgDLMXumpL+dwt97VPq
-	6FW3C63nC3xeAHGXMDf0k2BR+Qjx4X+0X3fTdSReWRT6ezVLGQey/UQZefrL6fFCbyFgq9hYPlFpB
-	v8zvxVdhCbDz6RTj7P28i2rMsVw6kje5oVx2FOBF+bFY1yygLKzqbzGRtLQlHpbJcJF5rqdvLq9Hf
-	PTu/Vi/C2B+kMrAtMuUoE0IZ+ZBXVQX4w+YOrOPpc59K0Wm2llAuldgDTvWfdJQYEikghNWK9skG2
-	12QH828TlbNa5bi0jqlAQfrbH8sT0xxmAQiBTgQNmGcTybSN1r7/HirviMO5+lYlzAyWZjnROVGzK
-	rsBu6mTA==;
+	bh=/QKe2abRQc2yYg8840jEvGySXkfzcfSJKHrjRel0tUY=; b=ZcbiBEHxBnKGKf1oiB4m63CCa2
+	7yyVy1GXwscOZoLLJzyfMQik+4Ob4tFPs/WLc6PYnonomLfrMVbUshUX3iUuzYEacqj8FIk/c5PtS
+	mEJam4KVfSCnbeqHkHPiwrmWG+l2VITA/vmXLzsCgswd6FI8/Rpywbb6cYOj2GEe36QsV7REWs/Lb
+	IqmFEI/rh+KZeIy5J397S0ZSoJgVG6O1CxjtVz3xZ9ZbNvsQTR+eAAmIhc+UKiOIWyk854tCA5yuD
+	9JjERCa2e3EKnz9GgNxuvqDwqK4TgArBpQu2itQFd3hvhxR8GizL0Cl21Fg5K8bi+GjBuNgbo5zz/
+	clFH6aww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1WgK-0000000FmUb-1RGH;
-	Sun, 06 Apr 2025 20:33:28 +0000
+	id 1u1Wi7-0000000Fmg9-3k8g;
+	Sun, 06 Apr 2025 20:35:19 +0000
 Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1WeW-0000000FmM4-02lF;
-	Sun, 06 Apr 2025 20:31:37 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22409077c06so45057985ad.1;
-        Sun, 06 Apr 2025 13:31:35 -0700 (PDT)
+	id 1u1Wey-0000000FmOr-3VVc;
+	Sun, 06 Apr 2025 20:32:06 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2255003f4c6so32207295ad.0;
+        Sun, 06 Apr 2025 13:32:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1743971495; x=1744576295; darn=lists.infradead.org;
+        d=googlemail.com; s=20230601; t=1743971524; x=1744576324; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+JgDkSkEEcDLTsZdbQJiXeVweECmbECSQZoVfGZG0Ts=;
-        b=NDR/aZrngw5aR04IHLAkINC1bgA2F/3zFq1tcDL7oWd2gQURpVDz+pNJhKFWDJutFa
-         VuHqYM5Ta4hTVUWSa+th6dXr2igo167aYnysr1wu4Htx3mAdwBKY4Qw+ZicpLIdFb00e
-         JCtBipmO+pR1ZzozzNCc1jok7Jj9YCAwblXq/nvDtMlqIWIw5ETST/mdxF/HL+kOLq1a
-         dTZ4I3O3oaRO0xicVUXmBghhULlEmt3tjiI5/5fW70C6knNnHwjEzZKSecu93NsYlEpu
-         EgnktFUy4a8C+i+9W6m7qab/nvCDR4eAeaoFsqFENZ6/kAVN+LY4/EJgZaJ0My2HJ4b/
-         /9bQ==
+        bh=/QKe2abRQc2yYg8840jEvGySXkfzcfSJKHrjRel0tUY=;
+        b=KOMk+QioPBVywTUVcrZNES15Ojt4PeAeo8QV1r/AaqkkwBOJfieu2GDh27HnZpI/aM
+         YhD+4dFz+dm67DAsZQvKHD3nIB8T/wDijXWCaYiMm+hfneuPrUKeS+FO4Ayj7vRvk0wY
+         dvbfHEVfuyKq69v1MiDWaqvzkyRM2tkPUbxxpa1+1qPI/VVNNDXZZM+cjbdj6nBAK5kn
+         OAB1JZK/HYoMgs1YGZSsIb30UDoAhgT/sdWcti/IQvSNahKSHSIVy10q6xZMSz6JrA2U
+         UM3PKyGgVD66tiEIZEECQZQ/IsikDvoC6+PUmsS6LYgm2oHRZVSZBG8qWaBBe+hFqUYJ
+         KNrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743971495; x=1744576295;
+        d=1e100.net; s=20230601; t=1743971524; x=1744576324;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+JgDkSkEEcDLTsZdbQJiXeVweECmbECSQZoVfGZG0Ts=;
-        b=GOSpfQg1DPKnCMge6Xa5fwpQHjdpD9RbTrDPK2bnrDYMCo8nSbpp34nb4euTT1lRdk
-         oxxYDofaA8qj8NZFdhV0miw5QrEyYrkn1UXc/gdXS5gs7iHRBzLnn4mVtX0GP6/B0sEJ
-         btHH5nZyecaJLJ90WQEyabJUAZTGKNmuZbNDvTM8I+orM4Tgr3+gthdxW87oGLIkQsBT
-         nZa3DFTto3Ll9OOgC7sdUti4XHpXuyhg5JPfTf51jBNlNbPxkVn0FQjvLI4ZLt2MS+26
-         jEfDVPGjggKSgzAqDuRraKVnyl5JdJm7u1th7OccBBXzJsKQHcKnV0A2ZDo/jgjpCyX4
-         cyAg==
-X-Forwarded-Encrypted: i=1; AJvYcCUwOyBzoKjt7+BvMBjpZcSUZTRGJ0CSiOUSD6mlr2exYdJzilhcWBIOVsq8MOkoRZLpJYANk2JReHN8Dn3Y@lists.infradead.org, AJvYcCX7m/S93Pu5xmsAf15wWUNH+2TvhMH2BGH9MG/7i7D+7psYlZQIaYZLFitkqr0btqTXdpXZeUsj7MW8HidQFa8YFw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNVQs/Jfkm3l+D9gn/X1LvvqQMum4Mk11CV+HQx5UQxFyGJja+
-	cbWkKzJViz7H4LMQzjGaStSIiV4KuEYG6+IshV1Fv5eeAgE5Ft4xhfbLWZArnSzvDdh11Dumi8f
-	DipXwzm9oK/ZBV3Ae7yZ6xyRTq3g=
-X-Gm-Gg: ASbGnctGjbeL9WbhNvNpdCjRdW+br/7AekYaqXDjxFxsOPaEGDwd6XfnlTLbPZIuior
-	bZ7fjk201CRU0w6WY/7D4x7GWEYNHe8vagKa7Ffh3cnJv7R2YcWwFfaAwJVZ1ZxraFdLSqs1OjX
-	uf6FT/DEilb47iZ93bpZPez8+8S+hzVSf6HYBo/P90
-X-Google-Smtp-Source: AGHT+IExK3rgstJKKKtoG9Q+crnhTsYrlTj7SKtkXlz2UX4GnZK54G+TsdpXNABvaY1e4/m9JtjPFbBfqcIQ/eTpRDo=
-X-Received: by 2002:a17:90b:5448:b0:2f6:be57:49d2 with SMTP id
- 98e67ed59e1d1-306a6179aa1mr15876246a91.17.1743971494658; Sun, 06 Apr 2025
- 13:31:34 -0700 (PDT)
+        bh=/QKe2abRQc2yYg8840jEvGySXkfzcfSJKHrjRel0tUY=;
+        b=P7X1auXXEuvZmNk3vpxEQl3oox0CZwhHxAEvSUmPJoW3E0T4h0dHnyksuMIYU3khgk
+         ST32U/hDA7sNRoaPBcIqghlBiPkkXBwoRkg+BeJVNxgnhiQjHq26UF+GJvoRHpq79Qaj
+         dXYC5tYt+G7GcQM4msi1QPP1/dekZloo+ETbZkvFM04KWOaFUlnIUahLdKLewiQzUEOo
+         0dahadQ0Q2Kc9pNtmviL3otp+sTkXagizcloGpRaER/YxUIGF6lEQLD6zTshK0EYLw2S
+         MHypx2eSkyv1trKsKtkKwexIfdPbfLHVN4eUu3Ex0hfB7YvBrERHgr6XMfqSnt5hvEtI
+         XipA==
+X-Forwarded-Encrypted: i=1; AJvYcCVhBakuLnUinBRY15Y1yB7rMivuTa3anZpGQbqz2OZCRkBOrwnkHj40auB4W23U9nRlj3u/maANmbNYAbZhs8jQmg==@lists.infradead.org, AJvYcCWuUzIbB0mlz0iwRjp33h2ptAl3f0mitG5KJX1O1TxCmeT3qXWy6V76U31kYjMsIt+7saswVrILVfv/xzG8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9vNqVTo9N8M8yCpS64S1Udks6c3MkGUSiqhRHyzCKLYbihIK2
+	UyFR8sumH+AY8GZpzKIda5Zchjny0jJWxwZF0Pi2E3UVqFUU9gBJ6AmG3I5zgSISG3/xEPeW0Xk
+	w2PUTyWimssnL0j/nR8f+DHxOWt4=
+X-Gm-Gg: ASbGncuEGrOuCcWeNKGRvdqp8v1Lc+g/MGjkn7HAuhTOg74c+LaapXG+3CnCnI+nNTt
+	fPlYR9dEqOtcIImDX/fcnWbEz0hN/LdbZzmvauvdCls5Jj9DhVTiRJgrNxWZtEHcR1WR0dsvfi7
+	l0BQDrf4JCWvQut1nTM401QLlQu7CpikIjIg4lh3p6
+X-Google-Smtp-Source: AGHT+IHT9v90+iSAiZXg5CI9I2oqKoRX4lqsSVS1Jifp+TsFpnk0GJAUF4rHe1Z3iO76l1ihTjaQBPryFYN0akQAcDI=
+X-Received: by 2002:a17:902:e546:b0:216:410d:4c53 with SMTP id
+ d9443c01a7336-22a8a0a24f1mr155808815ad.41.1743971524234; Sun, 06 Apr 2025
+ 13:32:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250404123949.362652-1-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250404123949.362652-1-krzysztof.kozlowski@linaro.org>
+References: <20250404-kconfig-defaults-clk-v1-0-4d2df5603332@linaro.org> <20250404-kconfig-defaults-clk-v1-1-4d2df5603332@linaro.org>
+In-Reply-To: <20250404-kconfig-defaults-clk-v1-1-4d2df5603332@linaro.org>
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sun, 6 Apr 2025 22:31:23 +0200
-X-Gm-Features: ATxdqUE1UrOGrlQFeIQJTFzofnatItzhBtfjuCm7JYGAi3H-c4k4SlKtOVMPYWc
-Message-ID: <CAFBinCDkH8dMUpzbHy2kM6ZtUOfjRmHQzHxSMFeZeSNzjivG-Q@mail.gmail.com>
-Subject: Re: [PATCH] firmware: meson: Do not enable MESON_SM by default during
- compile testing
+Date: Sun, 6 Apr 2025 22:31:53 +0200
+X-Gm-Features: ATxdqUGuzCGyUj4WFxWudQ3GalFFdus2VKUZdP35pUaLUbjhJd9NZclZR-cjauk
+Message-ID: <CAFBinCB00HsScB6d4UboQkp8HPQ3pbDwbbwnzwgqJOvHwBDSdA@mail.gmail.com>
+Subject: Re: [PATCH 1/5] clk: meson: Do not enable by default during compile testing
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	=?UTF-8?Q?Emilio_L=C3=B3pez?= <emilio@elopez.com.ar>, 
+	linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_133136_157272_2AB6812A 
-X-CRM114-Status: UNSURE (   6.35  )
+X-CRM114-CacheID: sfid-20250406_133204_895385_CFEDC1D5 
+X-CRM114-Status: UNSURE (   6.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,7 +101,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 4, 2025 at 2:39=E2=80=AFPM Krzysztof Kozlowski
+On Fri, Apr 4, 2025 at 1:57=E2=80=AFPM Krzysztof Kozlowski
 <krzysztof.kozlowski@linaro.org> wrote:
 >
 > Enabling the compile test should not cause automatic enabling of all
