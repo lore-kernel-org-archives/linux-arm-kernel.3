@@ -4,97 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D60EC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 15:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F235DC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 16:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqWHGfBlgpXur5ymKn164EkhRYyd9ouy+P4Dy70Bi6o=; b=UTnpdDFVWrdVei27tpI3ggG28i
-	k+08+tEBLEnKU80fu1ohjecAgaYgIpu6Q9Zi8zgWpe/t1KPo065XbYiOpzsHLHftYMYA6ymhwzk+1
-	Yx5uO0yIcT23DLNiH2d9cQusDFGRMj4nNbCGGamfPYdOxzW6LLmgbllSYsfHe0gkQ6/S8mUMZzM8I
-	G2NXUzOlIHbSruxipcaiUwZWthxvhKp30eAiGb6iAWirt8MmYmwkMGPjR3WCBq+oOGn1qR2eL+2e6
-	bSNA7QPybaIXooI4IftXyw4rolmKcLagy4v2wnukxq6DNGB62QbRzJjeTzB0jnTq9c62Be5JrRGqX
-	Q+aR+5Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7eU5yz+mYelNkps8vU4xc9f2q1ld+c1dkc02DygDhqk=; b=JPRVz33wa6ko4fdEyevmaQ7Vb1
+	2A/sLeu94ujbUakFTj4FZMkDFAGYzXXB3IhM3pzD4sE1n6aLym5c57fOkLi7qE/sj9sKLjTKB2Uwe
+	cMjLC/GfFhzNR4/mFbLEZI6fUskcN99OMQ8hQmEUsZ9lMNdEqroDqRoeM/Ic5zgG3ETvM4YUul+pb
+	qaphFGg2ksZgmaorkFRmqmHaLj37Pln4RFrJjShqAEvpgKvZlDcnaUoTloxEsRUcOWD0HB9ptsdUH
+	ahNjwpNp3nXxsc5M2F/uAabHVfGK/Xs+lBjOvMzHcY00zDCVz+1ozfONpd/FA8lwzci9Bup2/vZhM
+	bc+PDoSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1SLc-0000000FW55-0yTY;
-	Sun, 06 Apr 2025 15:55:48 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1u1Scc-0000000FX3t-2Ykb;
+	Sun, 06 Apr 2025 16:13:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1RzY-0000000FUEz-2cUk
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 15:33:01 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-549b159c84cso969942e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Apr 2025 08:33:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1743953579; x=1744558379; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NqWHGfBlgpXur5ymKn164EkhRYyd9ouy+P4Dy70Bi6o=;
-        b=hk1Aq7gxb/dllvyqsZG1Ul+7VnZ3hEiSYgsgOJSKcw6jM3I9Z+SoDM3G0qDEBI5Tpf
-         bXls7OwYDPf35R+U5Bgs7WfSIXeG3kx9XykY6Vkt8xUjGdBfnR6bOHFCjJMJJ5XUN8Hj
-         +OB1khHgPMDZaHCw1Gz9CfkEJeyW+Xa+QQG1xwMTBcOZsb8jTcvqMR0q5EW7oEyigN4v
-         wHk3/RAnkGpPrzhyUs4uqyMbN7y4OY8mWDUExFJwmhNjU0xIWrsRILiwlqVs4zCVYycU
-         x+q2q0O4JwxPYY7lnesmXkkFQU9pk2BvX6QVnYHAWRf+t8Y7FKHZjYIQkjuBl2HdKRGu
-         ZTWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743953579; x=1744558379;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NqWHGfBlgpXur5ymKn164EkhRYyd9ouy+P4Dy70Bi6o=;
-        b=lCpV2vYR/SGcSmwU6nXC+SGVVMEDuLkFGCBZp1oNPA0y9DNNqinGpCx8Tbxm3rXYwD
-         XmlbUXBKp9eLxhuiEiGTerxPdHLoIYnwTMudEMWbzd1f14DOo9s+VUf9hZM65iZnX+fS
-         KUd6h4JLpI3upcCUfWC3BS8qTrhxvV2F6mEVT8T5lUz3kgRuTXBkpPPcAFjVa2ou+j32
-         p0ZZXDajHYKavw7VO344vqOWRx5udWhlC/6cFJAJtzkfHHA/sFNzortQZciBihlyi/zd
-         0wHVRFmjsAPInkig+73g8UD3OmXPJ3uFEtM3NjYZZMuO0VR70Yrh9A0wXdehHbflTmNY
-         Sz1g==
-X-Forwarded-Encrypted: i=1; AJvYcCU7KnP+f41AolOCWvv8wNNYrDd3j794gsfz5xxjwvRloxkRUHdcVBweb6dPabvrKvCqsOtFEbIuDQqL+pqaN2au@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+KZZvn/DcL1EKY7tIL33e+t/9cniKabVsklR5fDMKWSJPdeke
-	L2vnUygiglmE1Xktq9RJwJiU4O6KDaTXE8Hkw2MgMERf5y1cRCmkXkM4mFRkUTXH3z6IZD4Uu0e
-	1GAw=
-X-Gm-Gg: ASbGnctqub1WPGugdg0WCHUB8w8X4LUJyt/XotIpd0u5+EnV6dR/KB2m4SGKNh9DG2w
-	0EFpv4j2q0cFFFaZB4y4eZkSgCoA4gn2cfCLDTdt8oJi7XR12FC1IW9/eqOhPOOg4Z5ix9/uP0D
-	LDlZ153YF/Wv7h2n/jfNOSbXOX8JWxZe4eWpPbaunsMUaQMkpSebYXytGiAbKeZpjlolFvZiMH8
-	r2X8xS8UFnXhLp/LpzB2c/AYJd2uZoJIONRIiCQmPfNtg+Q+W6B6Hopa6KZ66EO2NZYnNa4Ac+8
-	7oQZY/0aM6h2gylSyOaOYDIBuomIWsrx20uq1/8w63YgzzOeH5d7sHM=
-X-Google-Smtp-Source: AGHT+IFo5lWlWrnONMPOJWYo5IqaTUomJD3tTkColMtGFQSw4EBGsjCL9oTTcbzR1eqoW0CXn95OVg==
-X-Received: by 2002:a05:6512:2387:b0:54b:1055:f4b1 with SMTP id 2adb3069b0e04-54c22692d91mr2732914e87.0.1743953579057;
-        Sun, 06 Apr 2025 08:32:59 -0700 (PDT)
-Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54c1e671fa8sm989747e87.218.2025.04.06.08.32.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Apr 2025 08:32:58 -0700 (PDT)
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Sun, 06 Apr 2025 17:32:52 +0200
-Subject: [PATCH v2 12/12] ARM64: dts: bcm63158: Add BCMBCA peripherals
+	id 1u1Sat-0000000FWxi-2z16;
+	Sun, 06 Apr 2025 16:11:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3039860010;
+	Sun,  6 Apr 2025 16:11:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 001A8C4CEE3;
+	Sun,  6 Apr 2025 16:11:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743955892;
+	bh=Sz4kzjU47HEj+yUM/THf8yMkaaup6Rg7Dx4qH2/70CY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TGZ7ZIB/u5WG5waiYDZ9nIiO+DrHUzhyT9rGMi+NxU4/5VEXHubGIE8QIT+ddpOBL
+	 GOhVn3oQOLm218mBHQbsLAHWcS++8ZJuwmz3m1kU8+IkHS6TDC0GcnlNzi9/4SHmbU
+	 n/q318Sa5wo6I0DzVTV51I3h3a69SN9OmvLC4lzDr4mef97Y8OOvrZRURv5RkQ9gDF
+	 qEs/aqPaBz3hyiHLDBlvO3mwumjpErkxZ3jfT0maQhp7YLf5gF2vjXvihOxf2Nh0mc
+	 sx42TYyj+JrkURKv0e81e9pLvqoWQzIf5XwEystouNJqJ0yHOviPP/fW+j2gB4oiSj
+	 /smAFmSyxIF9w==
+Date: Sun, 6 Apr 2025 19:11:14 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Pratyush Yadav <ptyadav@amazon.de>,
+	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
+	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
+	dave.hansen@linux.intel.com, dwmw2@infradead.org,
+	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
+	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
+	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
+	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
+	saravanak@google.com, skinsburskii@linux.microsoft.com,
+	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
+	usama.arif@bytedance.com, will@kernel.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
+ preservation
+Message-ID: <Z_KnovvW7F2ZyzhX@kernel.org>
+References: <20250320015551.2157511-1-changyuanl@google.com>
+ <20250320015551.2157511-10-changyuanl@google.com>
+ <mafs05xjmqsqc.fsf@amazon.de>
+ <20250403114209.GE342109@nvidia.com>
+ <Z-6UA3C1TPeH_kGL@kernel.org>
+ <20250403142438.GF342109@nvidia.com>
+ <Z--sUYCvP3Q8nT8e@kernel.org>
+ <20250404124729.GH342109@nvidia.com>
+ <Z-_kSXrHWU5Bf3sV@kernel.org>
+ <20250404143031.GB1336818@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250406-bcmbca-peripherals-arm-v2-12-22130836c2ed@linaro.org>
-References: <20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org>
-In-Reply-To: <20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- William Zhang <william.zhang@broadcom.com>, 
- Anand Gore <anand.gore@broadcom.com>, 
- Kursad Oney <kursad.oney@broadcom.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Olivia Mackall <olivia@selenic.com>, Ray Jui <rjui@broadcom.com>, 
- Scott Branden <sbranden@broadcom.com>, 
- Florian Fainelli <f.fainelli@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-crypto@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_083300_674927_C7216ECA 
-X-CRM114-Status: GOOD (  16.93  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250404143031.GB1336818@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,219 +91,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All the BCMBCA SoCs share a set of peripherals at 0xff800000,
-albeit at slightly varying memory locations on the bus and
-with varying IRQ assignments. On BCM63158 the PERF window was
-too big so adjust it down to its real size (0x3000).
+On Fri, Apr 04, 2025 at 11:30:31AM -0300, Jason Gunthorpe wrote:
+> On Fri, Apr 04, 2025 at 04:53:13PM +0300, Mike Rapoport wrote:
+> > > Maybe change the reserved regions code to put the region list in a
+> > > folio and preserve the folio instead of using FDT as a "demo" for the
+> > > functionality.
+> > 
+> > Folios are not available when we restore reserved regions, this just won't
+> > work.
+> 
+> You don't need the folio at that point, you just need the data in the
+> page.
+> 
+> The folio would be freed after starting up the buddy allocator.
 
-Add the watchdog, GPIO blocks, RNG, LED, second UART and DMA
-blocks for the BCM63158 based on the vendor files 63158_map_part.h
-and 63158_intr.h from the "bcmopen-consumer" code drop.
-
-The DTSI file has clearly been authored for the B0 revision of
-the SoC: there is an earlier A0 version, but this has
-the UARTs in the legacy PERF memory space, while the B0
-has opened a new peripheral window at 0xff812000 for the
-three UARTs. It also has a designated AHB peripheral area
-at 0xff810000 where the DMA resides, so we create new windows
-for these two peripheral group reflecting the internal
-structure of the B0 SoC.
-
-This SoC has up to 256 possible GPIOs due to having 8
-registers with 32 GPIOs in each available.
-
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
- arch/arm64/boot/dts/broadcom/bcmbca/bcm63158.dtsi | 150 +++++++++++++++++++++-
- 1 file changed, 147 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/broadcom/bcmbca/bcm63158.dtsi b/arch/arm64/boot/dts/broadcom/bcmbca/bcm63158.dtsi
-index 48d618e75866452a64adfdc781ac0ea3c2eff3e8..a47c5d6d034a7ae56803a651636148383acb8cc9 100644
---- a/arch/arm64/boot/dts/broadcom/bcmbca/bcm63158.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcmbca/bcm63158.dtsi
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-  * Copyright 2022 Broadcom Ltd.
-+ * This DTSI is for the B0 and later revision of the SoC
-  */
+Maybe, but seems a bit far fetched to me.
  
- #include <dt-bindings/interrupt-controller/irq.h>
-@@ -119,11 +120,107 @@ gic: interrupt-controller@1000 {
- 		};
- 	};
+> > > We know what the future use case is for the folio preservation, all
+> > > the drivers and the iommu are going to rely on this.
+> > 
+> > We don't know how much of the preservation will be based on folios.
+> 
+> I think almost all of it. Where else does memory come from for drivers?
+
+alloc_pages()? vmalloc()?
+These don't use struct folio unless there's __GFP_COMP in alloc_pages()
+call, and in my mind "folio" is memory described by struct folio.
  
-+	/* PERF Peripherals */
- 	bus@ff800000 {
- 		compatible = "simple-bus";
- 		#address-cells = <1>;
- 		#size-cells = <1>;
--		ranges = <0x0 0x0 0xff800000 0x800000>;
-+		ranges = <0x0 0x0 0xff800000 0x3000>;
-+
-+		/* GPIOs 0 .. 31 */
-+		gpio0: gpio@500 {
-+			compatible = "brcm,bcm6345-gpio";
-+			reg = <0x500 0x04>, <0x520 0x04>;
-+			reg-names = "dirout", "dat";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		/* GPIOs 32 .. 63 */
-+		gpio1: gpio@504 {
-+			compatible = "brcm,bcm6345-gpio";
-+			reg = <0x504 0x04>, <0x524 0x04>;
-+			reg-names = "dirout", "dat";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		/* GPIOs 64 .. 95 */
-+		gpio2: gpio@508 {
-+			compatible = "brcm,bcm6345-gpio";
-+			reg = <0x508 0x04>, <0x528 0x04>;
-+			reg-names = "dirout", "dat";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		/* GPIOs 96 .. 127 */
-+		gpio3: gpio@50c {
-+			compatible = "brcm,bcm6345-gpio";
-+			reg = <0x50c 0x04>, <0x52c 0x04>;
-+			reg-names = "dirout", "dat";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		/* GPIOs 128 .. 159 */
-+		gpio4: gpio@510 {
-+			compatible = "brcm,bcm6345-gpio";
-+			reg = <0x510 0x04>, <0x530 0x04>;
-+			reg-names = "dirout", "dat";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		/* GPIOs 160 .. 191 */
-+		gpio5: gpio@514 {
-+			compatible = "brcm,bcm6345-gpio";
-+			reg = <0x514 0x04>, <0x534 0x04>;
-+			reg-names = "dirout", "dat";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		/* GPIOs 192 .. 223 */
-+		gpio6: gpio@518 {
-+			compatible = "brcm,bcm6345-gpio";
-+			reg = <0x518 0x04>, <0x538 0x04>;
-+			reg-names = "dirout", "dat";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+		/* GPIOs 224 .. 255 */
-+		gpio7: gpio@51c {
-+			compatible = "brcm,bcm6345-gpio";
-+			reg = <0x51c 0x04>, <0x53c 0x04>;
-+			reg-names = "dirout", "dat";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			status = "disabled";
-+		};
-+
-+
-+		leds: led-controller@800 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			compatible = "brcm,bcm63138-leds";
-+			reg = <0x800 0xdc>;
-+			status = "disabled";
-+		};
-+
-+		rng@b80 {
-+			compatible = "brcm,iproc-rng200";
-+			reg = <0xb80 0x28>;
-+			interrupts = <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
-+		};
+> > Most drivers do not use folios
+> 
+> Yes they do, either through kmalloc or through alloc_page/etc. "folio"
+> here is just some generic word meaning memory from the buddy allocator.
+
+How about we find some less ambiguous term? Using "folio" for memory
+returned from kmalloc is really confusing. And even alloc_pages() does not
+treat all memory it returns as folios.
+
+How about we call them ranges? ;-)
  
- 		hsspi: spi@1000 {
- 			#address-cells = <1>;
-@@ -150,14 +247,61 @@ nandcs: nand@0 {
- 				reg = <0>;
- 			};
- 		};
-+	};
-+
-+	/* B0 AHB Peripherals */
-+	bus@ff810000 {
-+		compatible = "simple-bus";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0x0 0xff810000 0x2000>;
-+
-+		pl081_dma: dma-controller@1000 {
-+			compatible = "arm,pl081", "arm,primecell";
-+			// The magic B105F00D info is missing
-+			arm,primecell-periphid = <0x00041081>;
-+			reg = <0x1000 0x1000>;
-+			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
-+			memcpy-burst-size = <256>;
-+			memcpy-bus-width = <32>;
-+			clocks = <&periph_clk>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <2>;
-+		};
-+	};
-+
-+	/* B0 ARM UART Peripheral block */
-+	bus@ff812000 {
-+		compatible = "simple-bus";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0x0 0xff812000 0x3000>;
+> The big question on my mind is if we need a way to preserve slab
+> objects as well..
+> 
+> > and for preserving memfd* and hugetlb we'd need to have some dance
+> > around that memory anyway.
+> 
+> memfd is all folios - what do you mean?
+
+memfd is struct folios indeed, but some of them are hugetlb and even for
+those that are not I'm not sure that kho_preserve_folio(struct *folio)
+kho_restore_folio(some token?) will be enough. I totally might be wrong
+here.
  
--		uart0: serial@12000 {
-+		uart0: serial@0 {
- 			compatible = "arm,pl011", "arm,primecell";
--			reg = <0x12000 0x1000>;
-+			reg = <0x0 0x1000>;
- 			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&uart_clk>, <&uart_clk>;
- 			clock-names = "uartclk", "apb_pclk";
- 			status = "disabled";
- 		};
-+
-+		uart1: serial@1000 {
-+			compatible = "arm,pl011", "arm,primecell";
-+			reg = <0x1000 0x1000>;
-+			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&uart_clk>, <&uart_clk>;
-+			clock-names = "uartclk", "apb_pclk";
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@2000 {
-+			compatible = "arm,pl011", "arm,primecell";
-+			reg = <0x2000 0x1000>;
-+			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&uart_clk>, <&uart_clk>;
-+			clock-names = "uartclk", "apb_pclk";
-+			status = "disabled";
-+		};
- 	};
- };
+> hugetlb is moving toward folios.. eg guestmemfd is supposed to be
+> taking the hugetlb special stuff and turning it into folios.
+
+At some point yes. But I really hope KHO can happen faster than hugetlb and
+guestmemfd convergence.
+ 
+> > So I think kho_preserve_folio() would be a part of the fdbox or
+> > whatever that functionality will be called.
+> 
+> It is part of KHO. Preserving the folios has to be sequenced with
+> starting the buddy allocator, and that is KHO's entire responsibility.
+
+So if you call "folio" any memory range that comes from page allocator, I
+do agree. But since it's not necessarily struct folio, and struct folio is
+mostly used with file descriptors, the kho_preserve_folio(struct folio *)
+API can be a part of fdbox.
+
+Preserving struct folio is one of several case where we'd want to preserve
+ranges. There's simplistic memblock case that does not care about any
+memdesc, there's memory returned from alloc_pages() without __GFP_COMP,
+there's vmalloc() and of course there's memory with struct folio.
+
+But the basic KHO primitive should preserve ranges because they are the
+common denominator of alloc_pages(), folio_alloc(), vmalloc() and memblock.
+ 
+> I could see something like preserving slab being in a different layer,
+> built on preserving folios.
+
+Maybe, on top of ranges. slab is yet another memdesc.
+ 
+> > Are they? 
+> > The purpose of basic KHO is to make sure the memory we want to preserve is
+> > not trampled over. Preserving folios with their orders means we need to
+> > make sure memory range of the folio is preserved and we carry additional
+> > information to actually recreate the folio object, in case it is needed and
+> > in case it is possible. Hughetlb, for instance has its own way initializing
+> > folios and just keeping the order won't be enough for that.
+> 
+> I expect many things will need a side-car datastructure to record that
+> additional meta-data. hugetlb can start with folios, then switch them
+> over to its non-folio stuff based on its metadata.
+> 
+> The point is the basic low level KHO mechanism is simple folios -
+> memory from the buddy allocator with an neutral struct folio that the
+> caller can then customize to its own memory descriptor type on restore.
+
+I can't say I understand what do you mean by "neutral struct folio", but we
+can't really use struct folio for memory that wasn't struct folio at the
+first place. There's a ton of checks for flags etc in mm core that could
+blow up if we use a wrong memdesc.
+
+Hence the use of page->private for order of folios. It's stable (for now)
+and can be used by any page owner.
+ 
+> Eventually restore would allocate a caller specific memdesc and it
+> wouldn't be "folios" at all. We just don't have the right words yet to
+> describe this.
+> 
+> > As for the optimizations of memblock reserve path, currently it what hurts
+> > the most in my and Pratyush experiments. They are not very representative,
+> > but still, preserving lots of pages/folios spread all over would have it's
+> > toll on the mm initialization.
+> 
+> > And I don't think invasive changes to how
+> > buddy and memory map initialization are the best way to move forward and
+> > optimize that.
+> 
+> I'm pretty sure this is going to be the best performance path, but I
+> have no idea how invasive it would be to the buddy alloactor to make
+> it work.
+
+I'm not sure about the best performance, but if we are to completely bypass
+memblock_reserve() we'd need an alternative memory map and free lists
+initialization for KHO. I believe it's too premature to target that at this
+point.
+ 
+> > Quite possibly we'd want to be able to minimize amount of *ranges*
+> > that we preserve.
+> 
+> I'm not sure, that seems backwards to me, we really don't want to have
+> KHO mem zones! So I think optimizing for, and thinking about ranges
+> doesn't make sense.
+
+"folio" as "some generic word meaning memory from the buddy allocator" and
+range are quite the same thing.
+ 
+> The big ranges will arise naturally beacuse things like hugetlb
+> reservations should all be contiguous and the resulting folios should
+> all be allocated for the VM and also all be contigous. So vast, vast
+> amounts of memory will be high order and contiguous.
+
+So there won't be a problem with too many memblock_reserve() then.
+ 
+> > Preserving folio orders with it is really straighforward and until we see
+> > some real data of how the entire KHO machinery is used, I'd prefer simple
+> > over anything else.
+> 
+> mapletree may not even work as it has a very high bound on memory
+> usage if the preservation workload is small and fragmented. This is
+> why I didn't want to use list of ranges in the first place.
+
+But aren't "vast, vast amounts of memory will be high order and
+contiguous."? ;-)
+
+For small and fragmented workload bitmaps become really sparse and we are
+wasting memory for nothing. Maple tree only tracks memory that is actually
+used and coalesces adjacent ranges so although it's unbound in theory, in
+practice it may be not that bad. 
+
+> It also doesn't work so well if you need to preserve the order too :\
+
+It does. In the example I've sent there's an unsigned long to store
+"kho_mem_info_t", which definitely can contain order.
+
+> Until we know the workload(s) and cost how much memory the maple tree
+> version will use I don't think it is a good general starting point.
+ 
+I did and experiment with preserving 8G of memory allocated with randomly
+chosen order. For each order (0 to 10) I've got roughly 1000 "folios". I
+measured time kho_mem_deserialize() takes with xarrays + bitmaps vs maple
+tree based implementation. The maple tree outperformed by factor of 10 and
+it's serialized data used 6 times less memory.
+
+> Jason
 
 -- 
-2.49.0
-
+Sincerely yours,
+Mike.
 
