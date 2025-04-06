@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D11A2C3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 12:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CBEC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 12:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8nCtthITUwL+5rtfc3Ws1vsYDLZ1c4+EYEFfS9KygVE=; b=DPzdvrR+cKwVBNIbE0fo06CZdv
-	urijZZFu+9HGLD43ZXiMOBwQX3YJlrG6erK1zMGGkt6IILJKsNx+QEHHyJs02o1H1FLon5aqEWv0S
-	O7UNNcmoI3WzVUKnAC+FvIxLJQFBAOo1Buxw3RPm3xMQhavMLLoCUob14wz4vxOdVDGc7fz1qD39y
-	LsLe9zMFJ+YKMhIzTB+TZDpejJx2Bqq+cqeZqaV4RXCB2NdI6EliGgQLGIxWZWhwkVXmx8i+1pCUG
-	Xv5wJ51vaoymKPOG6R+3l2burJC+R9iTZ1bxmtqwujMk++OMDO+wEVT2k/4m5c7c2ev+yuO12Gq3S
-	vynflxXg==;
+	bh=05ORZ88YVmTEN+A86aa6NvDGEbi4V+SydHyIjaFy6aU=; b=row1fuJITHfNfGMelTSnNx5mPW
+	6OxkOPa5eh2mKsNnTGueLyUD47Zh50W/eoOyV41za6061yKrszPPQp8A2YpiyaU6XeUzldCZmqW4w
+	h3rmEE6CuVh8ueHJf+qOSK8yN894+KknmZ7HiAiIr6i+AczbCakXTywC9zUhiqUmjV/NURxx5Pe2K
+	JizttsBvC1Z16fVgxywH+fdIljng3DyICC7LLpqBztHrG3VqKqR4RQ3k1m+Kiz4hQZ19BOzpvv4MG
+	XGAt0t2rML3vWrJE1SHyJRL0fI7XIvysaS86dnYOZNfKdLAokCim0m+x+/IEasWt8er1ouv/w+EfU
+	qry+CJ4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1OrF-0000000FHnF-0maJ;
-	Sun, 06 Apr 2025 12:12:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u1Ot2-0000000FI32-0Uki;
+	Sun, 06 Apr 2025 12:14:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1OpW-0000000FHfp-0FJF;
-	Sun, 06 Apr 2025 12:10:26 +0000
+	id 1u1OrH-0000000FHnd-01D8;
+	Sun, 06 Apr 2025 12:12:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8EC2460010;
-	Sun,  6 Apr 2025 12:10:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A17D0C4CEE3;
-	Sun,  6 Apr 2025 12:10:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D13144A7B;
+	Sun,  6 Apr 2025 12:12:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0E7FC4CEE3;
+	Sun,  6 Apr 2025 12:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743941423;
-	bh=DsRkNjsY5+T8gT1hnVCbvgLxu+0fbNqwPrZwcAUeAL4=;
+	s=k20201202; t=1743941533;
+	bh=uE1VYnLzHGj3BuKZT/pIN6uW+WdcyM94ww02N9uW2ag=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uaBGSByIryyRFIcC3iKrXiRyRVm6V0Ix3pUjA8d9KIv0bDeT6nrOWyPvwAiWcEM4N
-	 LCQtK2/4h2VqpdDctKzSNZqn9aQavIWMx4zsabcSKGtHDiKJ1JZha2a6OOVf+IJkN8
-	 Rv6cZBjybQSNLrH2rhhz3/OGwpJC8AgXigPuJS+U9V94rVdLszIcPyWKi3M/c+QgGs
-	 h8JAfhfiGfgSUsqf03jtPIe0I7sOPUwLIPdRgpvrfYACNnY47Jx4HDP7gEW0TwhjGH
-	 aJjn9zKac7HXcV9qFlwfJFpa+2DcIYMV3Yji1jogQ0tpAPn/9JTbcMj1wgJU/CyhiJ
-	 1pIGkl3U+2r+Q==
-Message-ID: <21095cf1-45b2-4c41-933a-a0a4afc2cabb@kernel.org>
-Date: Sun, 6 Apr 2025 14:10:17 +0200
+	b=aRchfmau1t+IzzeT65S6rxS8P4FBLFRLyDhjB/arzZcxXdnXcRilOnjG1TD2ya6fU
+	 oRq59M7VtnM/K8YkAxc4ew3jnjbfjrCS9QGy5BDqf6zYY7tWLJL95CWdETs2HAAQQL
+	 OKjP0/DSwgAicpVq0OWPlIy6nTwlpGdwJ9nvQYVQtC2BvSUI1/l5SWLI+fefutEZVS
+	 s1QFh07tlnFhvKLSajeruVUq6xLDv/TptM57KpyavT59PjIoRarV+ZrTwgBH69GeWi
+	 I8T7YF6oWGaJZNh77lL1t+yh1CSV6nqrIUEZmbR3IpyXokPcrGmkhBWnGi32C8Pq9+
+	 0hWgPOyn0tI2w==
+Message-ID: <4479a68e-6a8d-4197-b983-90eae8e16c6c@kernel.org>
+Date: Sun, 6 Apr 2025 14:12:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: remoteproc: Add VCP support for mt8196
+Subject: Re: [PATCH 2/2] remoterpoc: mediatek: vcp: Add vcp remoteproc driver
 To: =?UTF-8?B?WGlhbmd6aGkgVGFuZyAo5ZSQ55u45b+XKQ==?=
  <Xiangzhi.Tang@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
  "robh@kernel.org" <robh@kernel.org>,
@@ -65,9 +65,9 @@ Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  <linux-arm-kernel@lists.infradead.org>,
  =?UTF-8?B?SmppYW4gWmhvdSAo5ZGo5bu6KQ==?= <Jjian.Zhou@mediatek.com>
 References: <20250402092134.12293-1-xiangzhi.tang@mediatek.com>
- <20250402092134.12293-2-xiangzhi.tang@mediatek.com>
- <860ae623-f33f-4cfe-be08-6bb6524ecf94@kernel.org>
- <625410299fd45188759d3b1fe205e6c42af0bbda.camel@mediatek.com>
+ <20250402092134.12293-3-xiangzhi.tang@mediatek.com>
+ <aa757d1f-4c5a-4a66-aa96-9d611a8e6bae@kernel.org>
+ <2aff75e4cf76cd7fe9f2e45ce174e5380363e501.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,9 +113,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <625410299fd45188759d3b1fe205e6c42af0bbda.camel@mediatek.com>
+In-Reply-To: <2aff75e4cf76cd7fe9f2e45ce174e5380363e501.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250406_051215_084955_BEF70E4A 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,26 +134,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/04/2025 08:46, Xiangzhi Tang (唐相志) wrote:
-> On Wed, 2025-04-02 at 13:11 +0200, Krzysztof Kozlowski wrote:
+On 06/04/2025 09:29, Xiangzhi Tang (唐相志) wrote:
+> On Wed, 2025-04-02 at 13:16 +0200, Krzysztof Kozlowski wrote:
 >> External email : Please do not click links or open attachments until
 >> you have verified the sender or the content.
 >>
->>
->> On 02/04/2025 11:19, Xiangzhi Tang wrote:
->>> +
->>> +description:
->>> +  The MediaTek VCP enables the SoC control the MediaTek Video
->>> Companion Risc-V coprocessor.
->>
->> Wrap at coding style.
->> Thanks comment, I will fix it on v1 version.
->>
+
+
 Please kindly trim the replies from unnecessary context. It makes it
 much easier to find new content.
 
-Anyway, not sure what you are referring to, but this was not fully
-tested and I still expect all my comments to be addressed.
+
+>>> +
+>>> +     for_each_available_child_of_node(np, child) {
+>>> +             if (of_device_is_compatible(child, "mediatek,vcp-
+>>> core")) {
+>>> +                     cpdev = of_find_device_by_node(child);
+>>> +                     if (!cpdev) {
+>>> +                             ret = -ENODEV;
+>>> +                             dev_err(dev, "Not found platform
+>>> device for core\n");
+>>
+>> You leak np, use scoped.
+>> I'm not quite able to understand your meaning, Could you please
+> explain it for me? Thanks very much.
+
+Use proper quoting. Above makes no sense - you put your reply into my quote.
+
+Explanation: You leak 'np'. Don't leak. Either drop reference or use
+scoped loops. Look how every other driver does it. Read the API, read
+the doc.
+
+You ignored all other comments, so I assume you will implement them fully.
 
 Best regards,
 Krzysztof
