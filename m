@@ -4,119 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFBCC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 18:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26269C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 20:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EYMLS7yLKZbRZWch1x9AqQYyU9HCAhSPOp7MlbxEhLk=; b=ryqELsgxYjm7h2+ISWdL+DuOgK
-	bnoOzzbECo8g4CTUlpqdn0bJH0Sj37w1qHGWSeOw3MIEeNwNgkgPOFjjPq+RTpsWT3bOdq/azo9tf
-	pFXSbO5egRLwF2UkH8kDo8EGOqrlLdahX0lFuj0cT4kG8vxP1x9H/ljN+z0KwIxCP5nyqYinOjfSQ
-	JLDEgqgfAGPt9gG3EJA+eopd9cgMEu8v4OK5+77qmtIVH+QDyHReOhkIAqwC2cfiBCV18CAKV32J5
-	RPHANvfWQVzJ5j4PCQmbOZ+VHCD6xrr5OIAYxb6cAP46e8UyHuKB5xnbVKAr/Q19I7gWePXuDBcAO
-	1e+kk1ag==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9DTqIB1KXItguWXeNYQcNwaI7W5L7sSNfK7n5CdOhYU=; b=41PLnwXqBcv/xE3vzmjpmwjkQL
+	umcv+U4vsKY53Ov29mfVHv1Gu19BnXvY7C8Q+lVjDOPaxSduwMx9UVDQwYBJ8KP9Aisi5xUEKOuhV
+	Cl7H/oqFJNkdAqUMCJZ0n3L7wDgUkR7o444vriYUlYR2mIv5KbRbJIBizN9dbh5r27oSO+B+24YA5
+	n2gzJRgzlQ5lo2Nu2SyLBgD6Kc0UA6/GOLFFC8BxSmBCSQDRd8eH2bFcdbN12xjywlvHhson3Ba9N
+	5HbeTDHCArHplhOiGXjyNrA5lMn1HZza8jTFnBdhadRCdD867clW34TY+E7uSiDoKW+XPNmVxxQOt
+	fQiWzAJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UvL-0000000FfYJ-20jT;
-	Sun, 06 Apr 2025 18:40:51 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u1WMB-0000000Fkrs-2Gjh;
+	Sun, 06 Apr 2025 20:12:39 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1UqW-0000000Ff5Z-0ONJ
+	id 1u1WJz-0000000FkgL-0Woz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Apr 2025 18:35:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9682EA4128F;
-	Sun,  6 Apr 2025 18:30:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B4CFC4CEE3;
-	Sun,  6 Apr 2025 18:35:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743964551;
-	bh=rrw6C9PxD3dEvPohcjb1eyJDWWnjgkEsQK+28Yte3ck=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lwVimBnDyzmabhTpR2luPs9LR0LS7Q2uJKf615xRwIpGJpSbPBVlZ4bDfalaROpFE
-	 B634jly0rS3iBPNm/lcpTTI4QqcayvPJ/FpSCkbDEAANk2vYL53LAZlRvcVRbWCEPE
-	 9spcEK4p0G58SMzNCp+KCSuoMR/cXYlT1/1AtJp0sBl+a0basDfQT/Z5UK8ds7yZib
-	 kOw+nDJtoro4T4PA2h9omS3cYOGYY0GTMWdQvRMyGsXLDAWjrO9rOt8JgnTzcZuTFl
-	 y0bMR5Jyer4fOL/qPNP1BafmRQ7F8fPtLpt0HH2pYj5aCeehTarh8NhUTqg3SCCI8Z
-	 t8uS/iCeRPLSA==
-Message-ID: <453f4691-d581-4187-be34-f0b004a856ba@kernel.org>
-Date: Sun, 6 Apr 2025 20:35:44 +0200
+	Sun, 06 Apr 2025 20:10:24 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39c2688e2bbso470591f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Apr 2025 13:10:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1743970221; x=1744575021; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9DTqIB1KXItguWXeNYQcNwaI7W5L7sSNfK7n5CdOhYU=;
+        b=VZw0QPKkEoUnLYvotp52DrDACGCYxXA8AamPVEzKqa/qHUiKfgFh3tGgT3o4GKIzOB
+         fMkNBjAThl+osIhGhq8lwRwOdu9JMPm6XgkUj9qqVln7NFP8oLwchjEmFXpK583CNoqF
+         UzYNi999zr793NFvQBv5TgZOMRNj5V2u5dwc+wjHQkVk5vEEBUaP3T1plljtbpfYs8Fk
+         X/ASQgkTmo8yDhHWTEuQyK5Jo1TuQjH560fDshv1cmHJLyAA7lxaeqIgz7dZNQo5DLdr
+         sMuBRMRk6bNCtBKy4ILd7WNiqQQ+wY5+dJxtZCIR5a7Pbok+ENadWsFtTGPQmKWhIVgl
+         m4/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743970221; x=1744575021;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9DTqIB1KXItguWXeNYQcNwaI7W5L7sSNfK7n5CdOhYU=;
+        b=WMAcWE8jCTtQr8Ktsdv9Tx64vayRyVaK36tMOW5iQe9BaXvP4QEKg/UDBKBM4ExKxA
+         c4TWqHu21kxqop2SRHhR/6I6dD/53ErDXnTsqoW/ECsSXEg0kZc299+8N3CtQcC0El9G
+         lmaB8ElPvz4PADFYS20AgBbSBT8HkCiTdndp01O4Y7904WOOpMctUknnhi0JBQEujlpX
+         5soFck2U1XwLcFl7ED6R+9n2W7JzBiVhaI8SFjBnmQIgmiBp05CWBBjR6j8HwGuXRRd2
+         8viaMAEseoXUH+5t4hb9E7WTxx9YSGPjLnze/MYBnG5gmjHErqVLi7DTKFd6A03t66QP
+         +KDg==
+X-Forwarded-Encrypted: i=1; AJvYcCVp+0jqy0qvhEh+jxbsSxuUFYu8Z6G2uQwePNrLdto+mB9c/LCetKgW+giAgJra8NRfkxy6EfLucsYUoy1pxq3v@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA1Sj54HYSYGh1ZnR2j1zcC0U+usQODN4+guyXKFFeYwBxGVWg
+	YWvj1zDrcymI3f0ia04EDc419pfLbrkuMzqVN443YSELwCxWH36YS3HC7o3tYWs=
+X-Gm-Gg: ASbGncv2LA8lYMM/EhmVGWM5DXOP8Rgt+ouElT6wX95U5Gkyk8oVUtvYmf3N1QqC2Pp
+	cmjRgyNLQpk19OSfdbm4ceVuK0cjwuZ5bFBsghC+2n1GOS+Yw/surVQtZIARWRTsf/hL9qe3QyE
+	cHEs6mRCRdVfijw0wzUTXBFlkvvq0O6iaP90iKOFU6kLxvtIt9rD8An6pziLNqpJ3sTAsYtn8+e
+	aN2yPZ7t9Q/zLf2hqi2y0uRgBkmlqJxEIb/LFQ8wVmL7tOlYJC0jsrvW9OCP+aXqDFKLfacLFv9
+	uELdUtOTqEaX8FL9lqLZPB4GLSHtnqpE+oa179xlM4mnLTA9x+REAw==
+X-Google-Smtp-Source: AGHT+IEaJAv7cq8up/ZJcJ41xkkrRi1H6wbFP+rMyncmJcukHJubfsFDxahu/j9T6NCNJr3cSnjNkA==
+X-Received: by 2002:a05:600c:548c:b0:43b:bbb9:e25f with SMTP id 5b1f17b1804b1-43ecfa05765mr31050015e9.6.1743970221127;
+        Sun, 06 Apr 2025 13:10:21 -0700 (PDT)
+Received: from shite.. ([178.197.198.86])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c301acec9sm10080656f8f.40.2025.04.06.13.10.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 06 Apr 2025 13:10:20 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 1/2] Bluetooth: btmrvl_sdio: Fix wakeup source leaks on device unbind
+Date: Sun,  6 Apr 2025 22:10:16 +0200
+Message-ID: <20250406201017.47727-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 30/32] rtc: s5m: replace regmap_update_bits with
- regmap_clear/set_bits
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
-References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
- <20250403-s2mpg10-v3-30-b542b3505e68@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250403-s2mpg10-v3-30-b542b3505e68@linaro.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_113552_258380_D9B24890 
-X-CRM114-Status: UNSURE (   6.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250406_131023_163568_7E276E4D 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,14 +100,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/04/2025 10:59, André Draszik wrote:
-> The regmap_clear_bits() and regmap_set_bits() helper macros state the
-> intention a bit more obviously.
-> 
-> Use those.
+Device can be unbound or probe can fail, so driver must also release
+memory for the wakeup source.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ drivers/bluetooth/btmrvl_sdio.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Best regards,
-Krzysztof
+diff --git a/drivers/bluetooth/btmrvl_sdio.c b/drivers/bluetooth/btmrvl_sdio.c
+index 07cd308f7abf..93932a0d8625 100644
+--- a/drivers/bluetooth/btmrvl_sdio.c
++++ b/drivers/bluetooth/btmrvl_sdio.c
+@@ -100,7 +100,9 @@ static int btmrvl_sdio_probe_of(struct device *dev,
+ 			}
+ 
+ 			/* Configure wakeup (enabled by default) */
+-			device_init_wakeup(dev, true);
++			ret = devm_device_init_wakeup(dev);
++			if (ret)
++				return dev_err_probe(dev, ret, "Failed to init wakeup\n");
+ 		}
+ 	}
+ 
+-- 
+2.45.2
+
 
