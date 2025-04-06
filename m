@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324C6C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 16:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADBFC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 16:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5PoKYFZojw/fxAM21aM9B8uqhKJ0oYEpyYHaTcaEMkY=; b=fzMdgGzUpSgScdseou1iLKiMhv
-	kazbGNbzbv9fisPxbY2ymfcMyfl+5AnPzjWz8HKAM0K75uDHRXj2/FJt7NLHprSpaoA0J1+dhr13p
-	S3Z3a4d+pAKA120nbUvD542ZLQqbwzOnd5YHmRd9Anw5Tja7mjRhaQNAXzJRxS8gwiDRKBUH9ofhV
-	7xcpNbyh8DpdD7gCUbUGxdfKMwo4iZr8usGnN0DgkyEZrMuF3lX3+nspq0G9OiQh89MF4ZA+iXsd1
-	k8gk9j4/UXHcwsdAHhuJkfuzHpE6jwmL9+vdECJKY1pNYDPbRiLAmgH99eQvqeL7QXoCSxWzbpbs0
-	fHqrnocA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZNzhcP+58tzl7neif3+9ZvEYUY999/jgt4z3xJWaHNk=; b=Pye1oLq9qyDKHI6LJmDeXPdj/j
+	Ej1AUOuLrVvqKXHx0MmeTAFYQXmzg+5nmwmJRQRx1trsjiO5DIAlaUpNm6EWuIKthCCBkQbXARBDr
+	KrUuIW5QVjO9w7tqPnkjVJHQYCjujSxGNcnVXDujgEIlC1gYRwoZtZrX9+O/ut9ddB+aVaYxmkbJi
+	nuQDIgF/i8fs5CGTUIFD9ezZMOjmsXUFrZaXkELhZJw+TvVNroJZj3M6lU5AvE2snWwbPMOTaiiG8
+	X4AcecnuIRqsxO9zW+9KulhhND69rAhy/o2xe9+y/12rg/hswzmeCEoZQaCv0jZLqgHWCV+sEqAyE
+	csA6x8lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Sea-0000000FXFZ-0Tsd;
-	Sun, 06 Apr 2025 16:15:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u1St9-0000000FXss-04oQ;
+	Sun, 06 Apr 2025 16:30:27 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Scr-0000000FX5P-0FaT;
-	Sun, 06 Apr 2025 16:13:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ADF4660010;
-	Sun,  6 Apr 2025 16:13:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D958C4CEE3;
-	Sun,  6 Apr 2025 16:13:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743956015;
-	bh=W0OMGEKRCIzqIrkZA9af/iDCd9Ojc329+ipStkNg+2Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lVL649jauEKYI4l+zYBSX7ppwy6IT04RV3unP/HxPdVIchTz9J7xinl7ighu53XJc
-	 VInujhiYAW68CGsOaP8QA3dL8s/ECb6HJYdDLnKaEh8XCMv1JCLAVpujC3668IHOXT
-	 jMy1/loS0VOWzECX6bTjCZin36JS3TKm1zBHmWiIee7BwnDJGcozLzX0IAXquRbBuu
-	 engWpzJT15+C+mpkMxWTg3sLPTx5bTToRcsXa/K8RxtmsRJzxyxBDSm2Kg1A5m1Mvx
-	 FAV+YRjrpYEr6Sooj9ZzL6hh7r4S4m+SWRgQ9AXjP+eUXOAWs/Mu8eErqLF6D4bfBn
-	 Ji+To1URvuL+w==
-Date: Sun, 6 Apr 2025 19:13:19 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Pratyush Yadav <ptyadav@amazon.de>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, Changyuan Lyu <changyuanl@google.com>,
-	linux-kernel@vger.kernel.org, graf@amazon.com,
-	akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <Z_KoHxDLzrzQAjhK@kernel.org>
-References: <20250320015551.2157511-10-changyuanl@google.com>
- <mafs05xjmqsqc.fsf@amazon.de>
- <20250403114209.GE342109@nvidia.com>
- <Z-6UA3C1TPeH_kGL@kernel.org>
- <20250403142438.GF342109@nvidia.com>
- <Z--sUYCvP3Q8nT8e@kernel.org>
- <20250404124729.GH342109@nvidia.com>
- <Z-_kSXrHWU5Bf3sV@kernel.org>
- <20250404143031.GB1336818@nvidia.com>
- <mafs08qofq4h5.fsf@amazon.de>
+	id 1u1SrO-0000000FXmb-2uaJ
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 06 Apr 2025 16:28:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1743956918; x=1775492918;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=2tnRdVF34BFIEQ+j55XIsruwWYVdNafgaJHyI9uxk2o=;
+  b=ENofa0kNSnLC0WEcYwSPuUphzE1CUl7fYfp3wqPl828IyVpknyh+KYCr
+   7ofaV/gJ8le8A6JAtRcYbz3lEJZ0EgxQe9QU1wzvVcMQaAKABhA9WI3Pc
+   rzlHORzKZXW53lEiFm8ZezrUleftp8EwPKEsZjoiYCcKhHfT1q/48Xjz6
+   9tT1YuRVhUC2oEIr7uCPRbAU4gIwdLgcYBQOnopdOj2LfDBGxN/kMHwcE
+   WGj1RX+tcI4YPwdj9xF4Vx/NXieQE7XF3fPCIb5O72p1AK8Jlwfu/LTfw
+   bBd04lR3hWRmnGm2CoNkpKfJfYq0KfjjB6lxRQd7R5cfj3jJsLGzMQuSj
+   A==;
+X-CSE-ConnectionGUID: 2rPI2TW2S9OWyujVpa/oQg==
+X-CSE-MsgGUID: +ipnfTs6QByCJxVDEvDMZQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11396"; a="62885256"
+X-IronPort-AV: E=Sophos;i="6.15,193,1739865600"; 
+   d="scan'208";a="62885256"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Apr 2025 09:28:33 -0700
+X-CSE-ConnectionGUID: nWxip8bcQx2MgZw8wTu0Qg==
+X-CSE-MsgGUID: F2Aq/NdYSHu/2VL8+1QM3Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,193,1739865600"; 
+   d="scan'208";a="128257378"
+Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 06 Apr 2025 09:28:32 -0700
+Received: from kbuild by b207828170a5 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u1SrF-0002hG-2T;
+	Sun, 06 Apr 2025 16:28:29 +0000
+Date: Mon, 7 Apr 2025 00:27:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:hack/ppi 8/13] include/linux/irqdomain.h:765:12:
+ warning: 'irq_populate_fwspec_info' defined but not used
+Message-ID: <202504070043.zBFNF505-lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <mafs08qofq4h5.fsf@amazon.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250406_092838_780610_7B1553C1 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,26 +84,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 04, 2025 at 04:24:54PM +0000, Pratyush Yadav wrote:
-> On Fri, Apr 04 2025, Jason Gunthorpe wrote:
-> >
-> > I'm pretty sure this is going to be the best performance path, but I
-> > have no idea how invasive it would be to the buddy alloactor to make
-> > it work.
-> 
-> I don't imagine it would be that invasive TBH. memblock_free_pages()
-> already checks for kmsan_memblock_free_pages() or
-> early_page_initialised(), it can also check for kho_page() just as
-> easily.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git hack/ppi
+head:   2eb268faef9c9204898770ee24a676c213566794
+commit: 069b6b94df996439ad61f8ad9f15617097a09fa9 [8/13] fixup! new affinity retrieval API
+config: powerpc64-randconfig-002-20250406 (https://download.01.org/0day-ci/archive/20250407/202504070043.zBFNF505-lkp@intel.com/config)
+compiler: powerpc64-linux-gcc (GCC) 7.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250407/202504070043.zBFNF505-lkp@intel.com/reproduce)
 
-And how does it help us? 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504070043.zBFNF505-lkp@intel.com/
 
-> -- 
-> Regards,
-> Pratyush Yadav
-> 
+All warnings (new ones prefixed by >>):
+
+   In file included from include/linux/of_irq.h:8:0,
+                    from drivers/crypto/inside-secure/safexcel.c:16:
+>> include/linux/irqdomain.h:765:12: warning: 'irq_populate_fwspec_info' defined but not used [-Wunused-function]
+    static int irq_populate_fwspec_info(struct irq_fwspec_info *info)
+               ^~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/crypto/inside-secure/safexcel.c: In function 'safexcel_probe_generic.constprop':
+   drivers/crypto/inside-secure/safexcel.c:1162:30: warning: '%d' directive output may be truncated writing between 1 and 10 bytes into a region of size 2 [-Wformat-truncation=]
+      snprintf(irq_name, 6, "ring%d", irqid);
+                                 ^~
+   drivers/crypto/inside-secure/safexcel.c:1162:25: note: directive argument in the range [0, 2147483647]
+      snprintf(irq_name, 6, "ring%d", irqid);
+                            ^~~~~~~~
+   drivers/crypto/inside-secure/safexcel.c:1162:3: note: 'snprintf' output between 6 and 15 bytes into a destination of size 6
+      snprintf(irq_name, 6, "ring%d", irqid);
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/crypto/inside-secure/safexcel.c:1667:32: warning: '%d' directive output may be truncated writing between 1 and 10 bytes into a region of size 2 [-Wformat-truncation=]
+      snprintf(wq_name, 9, "wq_ring%d", i);
+                                   ^~
+   drivers/crypto/inside-secure/safexcel.c:1667:24: note: directive argument in the range [0, 2147483647]
+      snprintf(wq_name, 9, "wq_ring%d", i);
+                           ^~~~~~~~~~~
+   drivers/crypto/inside-secure/safexcel.c:1667:3: note: 'snprintf' output between 9 and 18 bytes into a destination of size 9
+      snprintf(wq_name, 9, "wq_ring%d", i);
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+   In file included from include/linux/of_irq.h:8:0,
+                    from safexcel.c:16:
+>> include/linux/irqdomain.h:765:12: warning: 'irq_populate_fwspec_info' defined but not used [-Wunused-function]
+    static int irq_populate_fwspec_info(struct irq_fwspec_info *info)
+               ^~~~~~~~~~~~~~~~~~~~~~~~
+   safexcel.c: In function 'safexcel_probe_generic.constprop':
+   safexcel.c:1162:30: warning: '%d' directive output may be truncated writing between 1 and 10 bytes into a region of size 2 [-Wformat-truncation=]
+      snprintf(irq_name, 6, "ring%d", irqid);
+                                 ^~
+   safexcel.c:1162:25: note: directive argument in the range [0, 2147483647]
+      snprintf(irq_name, 6, "ring%d", irqid);
+                            ^~~~~~~~
+   safexcel.c:1162:3: note: 'snprintf' output between 6 and 15 bytes into a destination of size 6
+      snprintf(irq_name, 6, "ring%d", irqid);
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   safexcel.c:1667:32: warning: '%d' directive output may be truncated writing between 1 and 10 bytes into a region of size 2 [-Wformat-truncation=]
+      snprintf(wq_name, 9, "wq_ring%d", i);
+                                   ^~
+   safexcel.c:1667:24: note: directive argument in the range [0, 2147483647]
+      snprintf(wq_name, 9, "wq_ring%d", i);
+                           ^~~~~~~~~~~
+   safexcel.c:1667:3: note: 'snprintf' output between 9 and 18 bytes into a destination of size 9
+      snprintf(wq_name, 9, "wq_ring%d", i);
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +/irq_populate_fwspec_info +765 include/linux/irqdomain.h
+
+   764	
+ > 765	static int irq_populate_fwspec_info(struct irq_fwspec_info *info)
+   766	{
+   767		return -EINVAL;
+   768	}
+   769	#endif	/* CONFIG_IRQ_DOMAIN_HIERARCHY */
+   770	
 
 -- 
-Sincerely yours,
-Mike.
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
