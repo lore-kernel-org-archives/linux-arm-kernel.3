@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CBEC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 12:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F270CC3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Apr 2025 12:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=05ORZ88YVmTEN+A86aa6NvDGEbi4V+SydHyIjaFy6aU=; b=row1fuJITHfNfGMelTSnNx5mPW
-	6OxkOPa5eh2mKsNnTGueLyUD47Zh50W/eoOyV41za6061yKrszPPQp8A2YpiyaU6XeUzldCZmqW4w
-	h3rmEE6CuVh8ueHJf+qOSK8yN894+KknmZ7HiAiIr6i+AczbCakXTywC9zUhiqUmjV/NURxx5Pe2K
-	JizttsBvC1Z16fVgxywH+fdIljng3DyICC7LLpqBztHrG3VqKqR4RQ3k1m+Kiz4hQZ19BOzpvv4MG
-	XGAt0t2rML3vWrJE1SHyJRL0fI7XIvysaS86dnYOZNfKdLAokCim0m+x+/IEasWt8er1ouv/w+EfU
-	qry+CJ4Q==;
+	bh=BpX5lvjRscra1E4nvjTlzXHCwd/gnWsglkFx3W95v6U=; b=xR+pIN34zIf4QQ2TTu+iK3LWPC
+	+nM5y29nQXVTafeQPJKAFNFEY2yoHWv+GAxz5eDUnGYPaLzDknMIsdeWVOWZl13p2MXD1cfbt/6JQ
+	pgi83Fudgs8inIHvuPGOHM4J39NZqMT6FFjCo1Jf+Ul7AulSGcY0PHibbHNtigYrOq63+n+OkrBW7
+	umtQSoGWeSvsIjUZxOBPQPIwn87HT6FApbpK8SCOk4BeYfKYMNO0ekLHQ/+/8r6+dykNlOAddIS2Y
+	G+jXF6fXWgei2WIoR6urB58hi37bkWwxfGMp7CMDQ5dVa9Jp0WrvjREb45Y2pMRTfuQ2tzg+U2WK3
+	HU3AdBIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1Ot2-0000000FI32-0Uki;
-	Sun, 06 Apr 2025 12:14:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u1Ouk-0000000FIGX-2eoq;
+	Sun, 06 Apr 2025 12:15:50 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1OrH-0000000FHnd-01D8;
-	Sun, 06 Apr 2025 12:12:16 +0000
+	id 1u1OsE-0000000FHxO-2ZNv;
+	Sun, 06 Apr 2025 12:13:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D13144A7B;
-	Sun,  6 Apr 2025 12:12:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0E7FC4CEE3;
-	Sun,  6 Apr 2025 12:12:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1613DA42625;
+	Sun,  6 Apr 2025 12:07:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8E6AC4CEE3;
+	Sun,  6 Apr 2025 12:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743941533;
-	bh=uE1VYnLzHGj3BuKZT/pIN6uW+WdcyM94ww02N9uW2ag=;
+	s=k20201202; t=1743941593;
+	bh=xZzrqfASVG7xF2GB9rUYr1LIUP1qsSLaKh0AMWmh1Rw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aRchfmau1t+IzzeT65S6rxS8P4FBLFRLyDhjB/arzZcxXdnXcRilOnjG1TD2ya6fU
-	 oRq59M7VtnM/K8YkAxc4ew3jnjbfjrCS9QGy5BDqf6zYY7tWLJL95CWdETs2HAAQQL
-	 OKjP0/DSwgAicpVq0OWPlIy6nTwlpGdwJ9nvQYVQtC2BvSUI1/l5SWLI+fefutEZVS
-	 s1QFh07tlnFhvKLSajeruVUq6xLDv/TptM57KpyavT59PjIoRarV+ZrTwgBH69GeWi
-	 I8T7YF6oWGaJZNh77lL1t+yh1CSV6nqrIUEZmbR3IpyXokPcrGmkhBWnGi32C8Pq9+
-	 0hWgPOyn0tI2w==
-Message-ID: <4479a68e-6a8d-4197-b983-90eae8e16c6c@kernel.org>
-Date: Sun, 6 Apr 2025 14:12:08 +0200
+	b=YaG4HxspfHnyCoHLsMiRwfrJcZilrf+WruMMWLzgVRlv23zqUOv+x9or+nGJYrjFl
+	 drWVa5dKuqx+BB6Ms1bL7NtVNrmD5mR7aExmh1VGqaouWw8EzPaReN/FnW+WsN9Owq
+	 +wW1sj6qvnecajg3R5OtnofX3MP3LoYPvU8Jf4VRWB15QpUtReaCk8RNJh6Z6geReE
+	 n8LUmAkVDLecS2IlZUVJfUdry5GojMVYESQvawTUKWGReNuj2ImPWZF/1KlCatMGx8
+	 fqrHYtwBYiFEAaVPqwhyIWaNNTsmr3PY3jUnte8GJGYXOE1I59OtqApRgPPZqjTLfG
+	 uoFQMXMzMv8mg==
+Message-ID: <a162ce6f-bb69-4fa3-a67b-5d38ffb9e2ef@kernel.org>
+Date: Sun, 6 Apr 2025 14:13:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] remoterpoc: mediatek: vcp: Add vcp remoteproc driver
+Subject: Re: [PATCH 0/2] Add vcp driver
 To: =?UTF-8?B?WGlhbmd6aGkgVGFuZyAo5ZSQ55u45b+XKQ==?=
  <Xiangzhi.Tang@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
  "robh@kernel.org" <robh@kernel.org>,
@@ -65,9 +65,8 @@ Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  <linux-arm-kernel@lists.infradead.org>,
  =?UTF-8?B?SmppYW4gWmhvdSAo5ZGo5bu6KQ==?= <Jjian.Zhou@mediatek.com>
 References: <20250402092134.12293-1-xiangzhi.tang@mediatek.com>
- <20250402092134.12293-3-xiangzhi.tang@mediatek.com>
- <aa757d1f-4c5a-4a66-aa96-9d611a8e6bae@kernel.org>
- <2aff75e4cf76cd7fe9f2e45ce174e5380363e501.camel@mediatek.com>
+ <ca8d93e1-ea75-42b3-b7a5-a12cb509890c@kernel.org>
+ <4981f87ea9d86fb8633278ab31f7341ec0a9ad74.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,12 +112,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <2aff75e4cf76cd7fe9f2e45ce174e5380363e501.camel@mediatek.com>
+In-Reply-To: <4981f87ea9d86fb8633278ab31f7341ec0a9ad74.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_051215_084955_BEF70E4A 
-X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-CacheID: sfid-20250406_051314_779614_D399DB99 
+X-CRM114-Status: UNSURE (   9.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,38 +133,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/04/2025 09:29, Xiangzhi Tang (唐相志) wrote:
-> On Wed, 2025-04-02 at 13:16 +0200, Krzysztof Kozlowski wrote:
+On 06/04/2025 10:05, Xiangzhi Tang (唐相志) wrote:
+> On Wed, 2025-04-02 at 12:31 +0200, Krzysztof Kozlowski wrote:
 >> External email : Please do not click links or open attachments until
 >> you have verified the sender or the content.
 >>
-
-
-Please kindly trim the replies from unnecessary context. It makes it
-much easier to find new content.
-
-
->>> +
->>> +     for_each_available_child_of_node(np, child) {
->>> +             if (of_device_is_compatible(child, "mediatek,vcp-
->>> core")) {
->>> +                     cpdev = of_find_device_by_node(child);
->>> +                     if (!cpdev) {
->>> +                             ret = -ENODEV;
->>> +                             dev_err(dev, "Not found platform
->>> device for core\n");
 >>
->> You leak np, use scoped.
->> I'm not quite able to understand your meaning, Could you please
-> explain it for me? Thanks very much.
+>> On 02/04/2025 11:19, Xiangzhi Tang wrote:
+>>> Add support MediaTek's Video Companion Processor(VCP) host driver
+>>> to
+>>> control the MediaTek VCP Risc-V coprocessor.
+>>> The VCP host driver using rproc mechanism to load vcm firmware
+>>> from filesystem, and using SMC services to request ATF to setting
+>>> vcp boot sequence, and Host communicated with VCP FW depends on VCP
+>>> IPC interfaces
+>>>
+>>> This series patches dependent on:
+>>> [1]
+>>>
+> https://lore.kernel.org/all/20250307032942.10447-1-guangjie.song@mediatek.com/
+>>
+>> They should not depend. It blocks your patch. I suggest decoupling
+>> from
+>> dependencies.
+>> I run test "make dt_binding_check
+> DT_SCHEMA_FILES=Documentation/devicetree/bindings/remoteproc/mediatek,m
+> t8196-vcp.yaml", And, I have to cherry-pick first "
+> 
 
-Use proper quoting. Above makes no sense - you put your reply into my quote.
+How is this related? Did you read my message? You should not depend and
+you answer "I added dependency". Great, so your patch won't get accepted
+and won't get tested. Lack of testing will result in lack of review.
 
-Explanation: You leak 'np'. Don't leak. Either drop reference or use
-scoped loops. Look how every other driver does it. Read the API, read
-the doc.
-
-You ignored all other comments, so I assume you will implement them fully.
 
 Best regards,
 Krzysztof
