@@ -4,70 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A8CC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 13:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5395BC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 13:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pnGHcrER9YDxAyPU3nkvZnlbQptjLRPQDQ+T4cQt70g=; b=4mUMUSWI/7ZydnnMeBdOs1176C
-	Nw3Y6WjnUtQvBKyJXWCAiQkph7XVLIC/QigUZoSdM62M4oJpQ1SIWQtwDyrLtcqX/vfdgagp+maBd
-	EKh0JNvngTeslQmUfCIRXWHgEyYF1mRkYXzmgKR9kyjTbD4fU6qgKFtGui6pA+sRexGjQlul+ZCcD
-	uS2zPy6S+FSWgmr/TzHHsXMKnzAwm1ZYhBF65vYtm2ik+5pfPxEIMeprIC6dYwSnWRYhj9CwB3Al6
-	I3zVpvpkhLNuodGzE//dUEnz30yDBIdZ+od9jg0QaK/DuqrBojYTcHYgfij5P0ysMHZ4N5d4jqc8B
-	IUMx3nLg==;
+	bh=WwkG1pZIiujSvSdNAeNRVIU4m+oKTZ5N+BMPOnssFpU=; b=Yfc+PI9bIU/v+vS9j2yiziZikp
+	PiG/d3kmSj8/APOZwLRhl06K4MCjhdJy3UhnWMisA/QC5OrhEzdHjq+IDeLvITw+ebJD2wGCv1sXf
+	5rIXQAQGj694cw+ohs7ZS6+18zMu9WczJiOkY9c9BisRnK5jHjoWk5102BlEYioAJN43madjxh4tC
+	t/hC488Cs76t28QlsUS/+lRarcKUZNq6Ow6dXdil01jwqbdUXcBJYAf+at1PzdMLmWdQUyJ8TaBho
+	c9VtDb/Z1F0ZUz6+ps0A2cX+KLToPySCNqBtSkWTajB47DootKYWjasYWNYYGtUOhE/Q+bxwsfUlq
+	M3pETYqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1mVe-00000000Vd9-45od;
-	Mon, 07 Apr 2025 13:27:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u1mZV-00000000WsC-47T7;
+	Mon, 07 Apr 2025 13:31:29 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1mT3-00000000UnF-1mlk;
-	Mon, 07 Apr 2025 13:24:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 33B7C61129;
-	Mon,  7 Apr 2025 13:24:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF6D7C4CEDD;
-	Mon,  7 Apr 2025 13:24:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744032288;
-	bh=phz+W/y/P98TEbJzgV0y5Ve9zvJ2zXTVkoIK4Sd0Rz0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cMPH9s83obHD/J4Ik3GrucvSZ1HvxqMFUaVBhBsE3ECURdL3gO0LMM+1wzfO+2Nl0
-	 msMJIbdgl6bqFjf9LW3gMuy/IdtAhjyZabrVLFlZP9ni28+XAA2QvxaqEsuZbwu6qU
-	 eT1wYu2AUHehWodKeTcx0yvWhAd0qboDezG4HVQZyX0cB8jvIsxj6QMjDrbrCbRpjw
-	 h5WhU5otun52iDmd2aWnsBjuFFxu5uTJB4foYrIEUONew7GP5GyLPHyfZJgju/mkWH
-	 Yn0EQegdKgTzPqRbxD2OWXVcQUdNqLPClwq+U7FTKQByobcUnrY+T9m7Nt7pdFDvB0
-	 5UbxZyrOEIvPw==
-From: Christian Brauner <brauner@kernel.org>
-To: Vivek Goyal <vgoyal@redhat.com>,
-	Stefan Hajnoczi <stefanha@redhat.com>,
-	Miklos Szeredi <miklos@szeredi.hu>,
-	eperezma@redhat.com,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Xiangsheng Hou <xiangsheng.hou@mediatek.com>
-Cc: Christian Brauner <brauner@kernel.org>,
-	virtualization@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	benliang.zhao@mediatek.com,
-	bin.zhang@mediatek.com
-Subject: Re: [RESEND] virtiofs: add filesystem context source name check
-Date: Mon,  7 Apr 2025 15:24:32 +0200
-Message-ID: <20250407-erzeugen-granit-5fdd39986bfd@brauner>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250407115111.25535-1-xiangsheng.hou@mediatek.com>
-References: <20250407115111.25535-1-xiangsheng.hou@mediatek.com>
+	id 1u1mXi-00000000WM6-3lVb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 13:29:40 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 537CPsvl008739;
+	Mon, 7 Apr 2025 15:29:28 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	WwkG1pZIiujSvSdNAeNRVIU4m+oKTZ5N+BMPOnssFpU=; b=WDb2CwGDoGtAzSr2
+	Pl0f0frt8o3g+L9Pxy3wWWPy+rR728r403TKUNm8eu8h8BdzDzlmsMqYhucSP6oa
+	l5+ArHeR0FPGhYDd67F7BalVgzW9aPcZC2N1xF/M/yXcIWd2WeP/ow7J/o70NArB
+	YNofjsYdv0oReFDT307Bex0vqe0m3DRAid0ufl4aguSk0dAdmjsEoR+DZpnpwrBn
+	hUEc5M7Csxe1EiYTffp6qQyyMUDTRTOS/Jmp6qH0WSNH2OKIP4WI5hbxpkTSHr1W
+	ZB9SAdjpIa9h61ssUcJRIVk9lpwwRz5I3g+EGscceByzztWZrN5zef3sp1/99ho9
+	jzWc9w==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw2gqwyn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 07 Apr 2025 15:29:28 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D521E40059;
+	Mon,  7 Apr 2025 15:28:35 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8D11B9400D0;
+	Mon,  7 Apr 2025 15:27:46 +0200 (CEST)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 7 Apr
+ 2025 15:27:46 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Mon, 7 Apr 2025 15:27:38 +0200
+Subject: [PATCH v8 7/7] arm64: defconfig: Enable STM32 Octo Memory Manager
+ and OcstoSPI driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1025; i=brauner@kernel.org; h=from:subject:message-id; bh=phz+W/y/P98TEbJzgV0y5Ve9zvJ2zXTVkoIK4Sd0Rz0=; b=owGbwMvMwCU28Zj0gdSKO4sYT6slMaR/viR+uDh1wTkdg2mVAqyb9F9PjM/5EuUp+WuDsM4ji +1hxcsKOkpZGMS4GGTFFFkc2k3C5ZbzVGw2ytSAmcPKBDKEgYtTACYS9prhn9mM5ufHhQ6aZO9W Sj5W8KfH77Dxml8ORjnFaRM6rnde3s7wV2rV5Dd+oj93p21bwVGiemdh7qntsfvfRakuDHkSuq9 lJhcA
-X-Developer-Key: i=brauner@kernel.org; a=openpgp; fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250407-upstream_ospi_v6-v8-7-7b7716c1c1f6@foss.st.com>
+References: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
+In-Reply-To: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>
+CC: <christophe.kerello@foss.st.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Patrice Chotard
+	<patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-07_04,2025-04-03_03,2024-11-22_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250407_062939_368068_54248543 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +106,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 07 Apr 2025 19:50:49 +0800, Xiangsheng Hou wrote:
-> In certain scenarios, for example, during fuzz testing, the source
-> name may be NULL, which could lead to a kernel panic. Therefore, an
-> extra check for the source name should be added.
-> 
-> 
+Enable STM32 OctoSPI driver.
+Enable STM32 Octo Memory Manager (OMM) driver which is needed
+for OSPI usage on STM32MP257F-EV1 board.
 
-Applied to the vfs.fixes branch of the vfs/vfs.git tree.
-Patches in the vfs.fixes branch should appear in linux-next soon.
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+---
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index bde1287ad9a7a1341162b817873eb651bb310d52..3674d9138bae6deba19c0d13586aa6e1de6750c5 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -580,6 +580,7 @@ CONFIG_SPI_QUP=y
+ CONFIG_SPI_QCOM_GENI=m
+ CONFIG_SPI_S3C64XX=y
+ CONFIG_SPI_SH_MSIOF=m
++CONFIG_SPI_STM32_OSPI=m
+ CONFIG_SPI_SUN6I=y
+ CONFIG_SPI_TEGRA210_QUAD=m
+ CONFIG_SPI_TEGRA114=m
+@@ -1518,6 +1519,7 @@ CONFIG_EXTCON_USB_GPIO=y
+ CONFIG_EXTCON_USBC_CROS_EC=y
+ CONFIG_FSL_IFC=y
+ CONFIG_RENESAS_RPCIF=m
++CONFIG_STM32_OMM=m
+ CONFIG_IIO=y
+ CONFIG_EXYNOS_ADC=y
+ CONFIG_IMX8QXP_ADC=m
 
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
+-- 
+2.25.1
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs.fixes
-
-[1/1] virtiofs: add filesystem context source name check
-      https://git.kernel.org/vfs/vfs/c/a94fd938df2b
 
