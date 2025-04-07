@@ -4,102 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00081C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEECAC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nl5JULT9PoC4C0/72HEzW8Mzovg/wHI2O7mxt7leeac=; b=myHXuLxg/pHV78hGQcFkDzYkkC
-	GrORdRx8a2gA6eHNpBOb2zZ+g8aCkU9asqaSCSrL42qqVOJmQjOgSCo4KGtDc8W9jf41C5YEIycCa
-	WtGRmF8XHDcPvtA/1+M372qiyKtLZQvJx7K+TzqINUnoWqXuAZWMLvvlKMhD6g30y3XRq6wMj0X5w
-	lrf5UXIAP1MAaeqvrsW3PidrBMxlPrX6heL5eF+V0rY4tsRqfl2jfVZqMrqx5n1Hf+BCZT0Ltd+mc
-	INKxvZJ9PmP3X4b9vsMJVsn731m5sAjqbISKVO3AXtEdzSBoKmVKRF5aAuiN8yqhcayiSAha97pkR
-	SX76S61w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nDHs9PKLUVAndwGPsaJ6NUgoqH+6hu/tUbUyt3Nn+sw=; b=aXpTu87hnm9oGgVm8kx9XQ75DV
+	o/x5S0H0WdIRT3CNyfn3pzgGe1A10UGa37kXG/1wT4VfNQiJ7v+xpbElBBCEEDMVJ7aB6RxJx8omR
+	o9LVsFLgUANWQHiHny9wa3ea1Dd0/UDaD+fle/ORxNHVyDMvEEEEqcnlj58OPwb8P/XNn4S1mmDrx
+	qKbKSwyMHWplBdo0wjcPnYHx4YhFOSMoQnVqnJezBHp+UGbdSKEAeiDmiHCtK3EpmLZZEn2TaXNAn
+	9pBGRu654JOYJ51EDiftZjG11n5uTKGUOAnXaDHiWurbhoZuCsNhL12rPwcXrBJcxtklftlerUwBD
+	jHf9ry+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uKU-0000000277Q-3Zw2;
-	Mon, 07 Apr 2025 21:48:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u1uKT-0000000274v-1yea;
+	Mon, 07 Apr 2025 21:48:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1sjF-00000001utI-3TmP
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Apr 2025 20:05:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=nl5JULT9PoC4C0/72HEzW8Mzovg/wHI2O7mxt7leeac=; b=oGzAt25y2I1HSmwprHy7yc+DKn
-	vD5le80du510KN+poD4/iubBdS9nYFiUriPAIPBht4ld15eYk7u2DpMQF5aij1V4c5PKse+GcErtx
-	wla6boXKTnrKBYPuR0VEsLbc8YDqxpPEOKslOU9Gp49VgiVQfqfIZz2sJYsg2IbPe/LDRoQ+AK0nN
-	cudMmyEPbiLAccrDOdQEWnrbPFhx03kRab+DNzPKAlFXKWynoaMnQtezGYIZbUl60Tcx+mdQJo9M1
-	A2bwBlfk4J6h14m45/hPC+yB2IQk6znoUcqXKtGFRmCAAXtR66nOC/SxJeNK01Q80TndUED59s2ZK
-	zOxnyIVw==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1sjC-000000088uS-3On5
+	id 1u1sgh-00000001uRC-0YKg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 20:05:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=nl5JULT9PoC4C0/72HEzW8Mzovg/wHI2O7mxt7leeac=; b=qxWeMnezbVGyFUZ5BOqEZBMjTK
-	4viXQQ3adWeVMFtj8DWC62nPkKxNP3JRzHmTYRUWNXDWfiC9zspf3TzS6xn3/qt+/aH7SogayZXAf
-	9FfUvh72FV/sVaQ9VxcIoxpCx6DEvrtYWOUpWwVcdeWwajTvujFf2v2Ta/AVHazNifO0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u1sip-008Igt-Tz; Mon, 07 Apr 2025 22:05:31 +0200
-Date: Mon, 7 Apr 2025 22:05:31 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH 15/16] misc: lan966x_pci: Add dtso nodes in order to
- support SFPs
-Message-ID: <19f1a382-1b6b-42bd-a548-a1a5644c9a1b@lunn.ch>
-References: <20250407145546.270683-1-herve.codina@bootlin.com>
- <20250407145546.270683-16-herve.codina@bootlin.com>
+	Mon, 07 Apr 2025 20:03:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 799EE5C51B6;
+	Mon,  7 Apr 2025 20:01:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 058ADC4CEF6;
+	Mon,  7 Apr 2025 20:03:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744056197;
+	bh=6OMwIuv8o96JS+2SCmLB/cdc8b9zWCLSybt1kkH13F4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=qYE8RqzE3UyjG8/S1/qUyOTfGfxN51ecjsYjDNByXq8xmZqJUIJXXrnOUyWi3GVvE
+	 Dykhv/oc9rUDSRRJzA9wr/v5AA+Fmc49W3HjjiS9z6pCkhEtFBPv3Q4P2A1Q6RNpi9
+	 vQi9Ic73I0hffA7is2MyiN/uvVFJ8VROfabGdyF6ppZNA3HnpXpb3Kn2/SyH8c10Lm
+	 h9bEvTpNEEb2DyPZOyIuILpJVMMcrPmeb2PzD2aJK2s5Rzd/7lHX2PZ8YmG5pQQZ9a
+	 fojIxneAPbaUje0cTIalb7Jx+i3GmE+j5BNSgBWBnknpWs0TnpmoboeAPdn3VJu2lS
+	 rCr8i4NQYPzZg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E853BC36010;
+	Mon,  7 Apr 2025 20:03:16 +0000 (UTC)
+From: =?utf-8?q?Duje_Mihanovi=C4=87_via_B4_Relay?= <devnull+duje.mihanovic.skole.hr@kernel.org>
+Date: Mon, 07 Apr 2025 22:02:15 +0200
+Subject: [PATCH v15 4/4] MAINTAINERS: add myself as Marvell PXA1908
+ maintainer
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250407145546.270683-16-herve.codina@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250407-pxa1908-lkml-v15-4-e83ef101f944@skole.hr>
+References: <20250407-pxa1908-lkml-v15-0-e83ef101f944@skole.hr>
+In-Reply-To: <20250407-pxa1908-lkml-v15-0-e83ef101f944@skole.hr>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org, 
+ phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
+ soc@lists.linux.dev, 
+ =?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=911;
+ i=duje.mihanovic@skole.hr; s=20240706; h=from:subject:message-id;
+ bh=XeLw/nRd7g6pEyFxTHXgaJRQM07Qgsbah3nkCqFOIBU=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDOlf9JvUgtYu4L703uyGhLWE20T/3zuP/XexfTYz7+nP6
+ rK7cw/FdZSyMIhxMciKKbLk/ne8xvtZZOv27GUGMHNYmUCGMHBxCsBEnr9m+J975FPh49Bq3oPb
+ /ykEZX34Ixayf+5lqfa18qbl3xf9Xf2KkeG+gefBtx/vbZR4c1WDj7dE9+AUPzWp57VKSnE2JRG
+ RddwA
+X-Developer-Key: i=duje.mihanovic@skole.hr; a=openpgp;
+ fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
+X-Endpoint-Received: by B4 Relay for duje.mihanovic@skole.hr/20240706 with
+ auth_id=191
+X-Original-From: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_210555_053333_ACDA1F96 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20250407_130319_284576_75D94178 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,86 +96,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: duje.mihanovic@skole.hr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 04:55:44PM +0200, Herve Codina wrote:
-> Add device-tree nodes needed to support SFPs.
-> Those nodes are:
->  - the clock controller
->  - the i2c controller
->  - the i2c mux
->  - the SFPs themselves and their related ports in the switch
-> 
-> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-> ---
->  drivers/misc/lan966x_pci.dtso | 111 ++++++++++++++++++++++++++++++++++
->  1 file changed, 111 insertions(+)
-> 
-> diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_pci.dtso
-> index 94a967b384f3..a2015b46cd44 100644
-> --- a/drivers/misc/lan966x_pci.dtso
-> +++ b/drivers/misc/lan966x_pci.dtso
+From: Duje Mihanović <duje.mihanovic@skole.hr>
 
-What exactly does this DTSO file represent?
+Add myself as the maintainer for Marvell PXA1908 SoC support.
+
+Signed-off-by: Duje Mihanović <duje.mihanovic@skole.hr>
+---
+ MAINTAINERS | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 96b82704950184bd71623ff41fc4df31e4c7fe87..649b70ac8b96ea0bb91e3c641517c334c85270f3 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2717,6 +2717,14 @@ F:	drivers/irqchip/irq-mvebu-*
+ F:	drivers/pinctrl/mvebu/
+ F:	drivers/rtc/rtc-armada38x.c
+ 
++ARM/Marvell PXA1908 SOC support
++M:	Duje Mihanović <duje.mihanovic@skole.hr>
++L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++S:	Maintained
++F:	arch/arm64/boot/dts/marvell/pxa1908*
++F:	drivers/clk/mmp/clk-pxa1908*.c
++F:	include/dt-bindings/clock/marvell,pxa1908.h
++
+ ARM/Mediatek RTC DRIVER
+ M:	Eddie Huang <eddie.huang@mediatek.com>
+ M:	Sean Wang <sean.wang@mediatek.com>
+
+-- 
+2.49.0
 
 
-> @@ -47,6 +47,47 @@ sys_clk: clock-15625000 {
->  				clock-frequency = <15625000>;  /* System clock = 15.625MHz */
->  			};
->  
-> +			i2c0_emux: i2c0-emux {
-> +				compatible = "i2c-mux-pinctrl";
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +				i2c-parent = <&i2c0>;
-> +				pinctrl-names = "i2c102", "i2c103", "idle";
-> +				pinctrl-0 = <&i2cmux_0>;
-> +				pinctrl-1 = <&i2cmux_1>;
-> +				pinctrl-2 = <&i2cmux_pins>;
-> +
-> +				i2c102: i2c@0 {
-> +					reg = <0>;
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +				};
-> +
-> +				i2c103: i2c@1 {
-> +					reg = <1>;
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +				};
-> +			};
-> +
-> +			sfp2: sfp2 {
-> +				compatible = "sff,sfp";
-> +				i2c-bus = <&i2c102>;
-> +				tx-disable-gpios = <&gpio 0 GPIO_ACTIVE_HIGH>;
-> +				los-gpios = <&gpio 25 GPIO_ACTIVE_HIGH>;
-> +				mod-def0-gpios = <&gpio 18 GPIO_ACTIVE_LOW>;
-> +				tx-fault-gpios = <&gpio 2 GPIO_ACTIVE_HIGH>;
-
-DT files are generally hierarchical. There is a soc .dtsi file which
-describes everything internal to the SoC.  And then we have .dts file
-which describes the board the SoC is placed on.
-
-We have a slightly different setup here. A PCI chip instead of a SoC.
-And a PCI card in a slot, which could be seen as the board.
-
-The SFP cage is on the board. How the GPIOs and i2c busses are wired
-to the SFP cage is a board property, not a SoC/PCI chip
-property. Different boards could wire them up differently. So to me,
-it seems wrong these nodes are here. They should be in a dtso file
-which represents the PCIe board in the slot, and that .dtso file
-imports the .dtso file which represents the PCIe chip.
-
-I suppose this comes down to, what do the PCIe IDs represent, since
-that is what is used for probing? The PCIe chip, or the board as a
-whole. When somebody purchases the chips from Microchip, and builds
-their own board, are they required to have their own PCIe IDs, and a
-.dtso file representing their board design? The PCIe chip part should
-be reusable, so we are talking about stacked dtso files, or at least
-included .dtso files.
-
-      Andrew
 
