@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE83C3601E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF70C36010
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HpuUFRAKvqUt1ookpZdD9oyOxoSDFiuAMlGsrO+YCik=; b=COt9cgd92m5CDqxX+r1UaiUxxX
-	URHus59qZWQkdkvaAQah0xWGn4asemSVdswhaVZ/0to2lLIlD0lhDOUX/g591YGaAGiOPCINRT+1M
-	TYZiT5cE0rQjqlemH/BR3dA6dcP09vuus9bDRfT+vaLTJ8Fg/nka/9geuydWioky9UdEtQA0LcU3S
-	Lt/j5GpusaYWn4FuME3vjUBWcOwtYmE2gSQK4ma2S9+GXpDEIU/QBUA0drztwqWi9KmXVNF+s8tCd
-	2JHNKS6N0NlBbHaLmSfOUpG5Q2QkjitP8bYFEIZOzObBNE2d3us+xcZ80RMqAB1t/okLBNG1PPZkh
-	fG7iNcqw==;
+	bh=5QbRycxm7vGCRrdBNEytaF89Hh6LdVDglF4TAZ/Eo8Q=; b=gUXIWqQBWL/ebXo5CdALMzH8pm
+	ec67//WgoUO1PTgoMEbCBKEDQrM+4IX5ptBqtEmaXoJoGcX09I7wtZNk814LhiZ5NYSah9TjZp9QW
+	8eXAA19Db/gj6ahWsnOEjAgpKqXheuAXnRwKv9H/ZA80kSAQjWr4KKd9MwdrFDzqSt9HEzFrOA3St
+	btkv3TtHa9A78obezqQM5BCdBlyF1dA60myVanosLogy2/7PSp+nAEl/gfb28r7DKX0rnc+FluXsO
+	VigXzrTeJjV2WhzIjwnt/XpQAW+0TKjltDPqZLjQZZz6iGeegfsMNfv9Phc8EN4bbiSvtB7tuXeNS
+	W6Ne1LCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oyD-000000013vn-26a1;
-	Mon, 07 Apr 2025 16:05:09 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1u1oyF-000000013zL-2rRE;
+	Mon, 07 Apr 2025 16:05:11 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ntd-00000000pma-0eao
+	id 1u1ntf-00000000pmx-2u0Z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 14:56:22 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id C3CDA44327;
-	Mon,  7 Apr 2025 14:56:17 +0000 (UTC)
+	Mon, 07 Apr 2025 14:56:25 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id CBF4C4433C;
+	Mon,  7 Apr 2025 14:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744037779;
+	t=1744037781;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HpuUFRAKvqUt1ookpZdD9oyOxoSDFiuAMlGsrO+YCik=;
-	b=Y6FdI6Meq4FeMBr9XnuEJrp0IY8NFPfPIqn0k9d8NFKxqLeGD042WmKnZ/YRG19YKk5atD
-	EXy9rbDW/ZFTwS350JEf6so/KFb27eGnU6ImAlCs8kYv+ZWBwmdnXuXsPseQepwXCiRO5V
-	FkvuAnJDmyvl3T1ADS65uQW50zDFbQbMmpJsnQ2WXDexdZK8tlc2HZY+QkftNmIwkdLaXp
-	Q/DYbgwknx+aI7v0K7x35ItXSgMUmDRk8OrD+Gbbo41mVX5uASQVyvoJ1WWaY5tkFZbe2E
-	c+WowlaeQsRCTJxhGZZ9NOLbsM2A91RB1zuUWybDw2Q25Kcx0wsBQjAP1Tzh4A==
+	bh=5QbRycxm7vGCRrdBNEytaF89Hh6LdVDglF4TAZ/Eo8Q=;
+	b=UJibLhzStnjURTT2XwpbZOd/6Vf219UgdhYLn+PxsXj4jnL10BOZ7x87fHKoVxidadXbhD
+	nHe0+/tfmjeO8ZilO7s8/s0ghjzg+WAiMHYAjGcvqY3zzd7H6ilAGI5MsRsKvKh2oo/u/N
+	P8CUVcAG4zkuJqCZ8dg0BoDQIsFr5tb/57AhOW7OUP6YwrzCiXT+GpFlJnFY9iA0v4fgPY
+	/qhm3a5MlpPOocTB0z2mZrXROElCOebT5Z98DYHQbYSTlWTvym32kdm039P7EWFBRzQ7VY
+	QsCjVNaYNKc7qdbSLrcN50bdnTjzbULIp7027d26L53FIMypPI0HJmgvLNXJyw==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
@@ -83,9 +83,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH 07/16] PCI: of: Remove fwnode_dev_initialized() call for a PCI root bridge node
-Date: Mon,  7 Apr 2025 16:55:36 +0200
-Message-ID: <20250407145546.270683-8-herve.codina@bootlin.com>
+Subject: [PATCH 08/16] i2c: core: Introduce i2c_get_adapter_supplier()
+Date: Mon,  7 Apr 2025 16:55:37 +0200
+Message-ID: <20250407145546.270683-9-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250407145546.270683-1-herve.codina@bootlin.com>
 References: <20250407145546.270683-1-herve.codina@bootlin.com>
@@ -97,8 +97,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgeekucetufdoteggode
  ghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomhdprhgtphhtthhopehmthhurhhquhgvthhtvgessggrhihlihgsrhgvrdgtohhm
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_075621_322838_B8CB2C75 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20250407_075623_919909_314189F0 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,53 +113,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During the instantiation of devices described by a device-tree overlay
-applied on a PCI device, devlink displays the following kind of debug
-messages instead of creating the expected links:
-   'Not linking xxxx - might never become dev'
+The supplier device of an I2C adapter is the device that calls
+i2c_add_adapter() or variants and i2c_del_adapter().
 
-Without those expected links, the device removal order cannot be
-correct.
+Most of the time this supplier device is the parent of the adapter dev.
 
-Those debug traces are printed by fw_devlink_create_devlink(). In our
-use case, they are all printed because the supplier of the link has at
-least one of its ancestor with its fwnode flag FWNODE_FLAG_INITIALIZED
-set.
+Exceptions exist with i2c muxes. Indeed, in case of i2c muxes, the
+parent of the adapter dev points to the adapter dev the mux is connected
+to instead of the supplier of this adapter.
 
-The culprit ancestor is the PCI root bridge.
-
-The fwnode related to the PCI root bridge is created dynamically by the
-of_pci_make_host_bridge_node() function. During this creation
-fwnode_dev_initialized() is called which set the FWNODE_FLAG_INITIALIZED
-flag.
-
-Calling fwnode_dev_initialized() tells devlink that the device related
-to this node is handled out of the driver core. This is not correct in
-our case. Indeed the device related to this firmware node is handled
-using driver core mechanisms and is fully compliant devlink
-expectations.
-
-Simply remove the fwnode_dev_initialized() call. With that done, the
-devlink debug messages are no more displayed and links that were missing
-are correctly created.
+Introduce i2c_get_adapter_supplier() and a new supplier field in the
+adapter structure in order to ease the adapter supplier retrieval.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/pci/of.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/i2c/i2c-core-base.c | 16 ++++++++++++++++
+ include/linux/i2c.h         |  3 +++
+ 2 files changed, 19 insertions(+)
 
-diff --git a/drivers/pci/of.c b/drivers/pci/of.c
-index ac6c4e1d68e5..5ea55a6416c0 100644
---- a/drivers/pci/of.c
-+++ b/drivers/pci/of.c
-@@ -811,7 +811,6 @@ void of_pci_make_host_bridge_node(struct pci_host_bridge *bridge)
- 	 */
- 	of_node_set_flag(np, OF_POPULATED);
- 	np->fwnode.dev = &bridge->dev;
--	fwnode_dev_initialized(&np->fwnode, true);
+diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
+index 7ad1ad5c8c3f..e3eeac0b2b49 100644
+--- a/drivers/i2c/i2c-core-base.c
++++ b/drivers/i2c/i2c-core-base.c
+@@ -1917,6 +1917,22 @@ struct i2c_adapter *i2c_get_adapter_by_fwnode(struct fwnode_handle *fwnode)
+ }
+ EXPORT_SYMBOL(i2c_get_adapter_by_fwnode);
  
- 	ret = of_changeset_apply(cset);
- 	if (ret)
++/**
++ * i2c_get_adapter_supplier() - Get the supplier of an adapter
++ * @adapter: the adapter to get the supplier from
++ *
++ * return:
++ * Look up and return the &struct device corresponding to the device supplying
++ * this adapter.
++ *
++ * The user must call put_device() once done with the supplier returned.
++ */
++struct device *i2c_get_adapter_supplier(struct i2c_adapter *adapter)
++{
++	return get_device(adapter->supplier ?: adapter->dev.parent);
++}
++EXPORT_SYMBOL(i2c_get_adapter_supplier);
++
+ static void i2c_parse_timing(struct device *dev, char *prop_name, u32 *cur_val_p,
+ 			    u32 def_val, bool use_def)
+ {
+diff --git a/include/linux/i2c.h b/include/linux/i2c.h
+index 2e4903b7f7bc..04b85703bcd6 100644
+--- a/include/linux/i2c.h
++++ b/include/linux/i2c.h
+@@ -746,6 +746,7 @@ struct i2c_adapter {
+ 	int timeout;			/* in jiffies */
+ 	int retries;
+ 	struct device dev;		/* the adapter device */
++	struct device *supplier;	/* the device that supply this adapter */
+ 	unsigned long locked_flags;	/* owned by the I2C core */
+ #define I2C_ALF_IS_SUSPENDED		0
+ #define I2C_ALF_SUSPEND_REPORTED	1
+@@ -913,6 +914,8 @@ struct i2c_adapter *i2c_get_adapter(int nr);
+ void i2c_put_adapter(struct i2c_adapter *adap);
+ unsigned int i2c_adapter_depth(struct i2c_adapter *adapter);
+ 
++struct device *i2c_get_adapter_supplier(struct i2c_adapter *adap);
++
+ void i2c_parse_fw_timings(struct device *dev, struct i2c_timings *t, bool use_defaults);
+ 
+ /* Return the functionality mask */
 -- 
 2.49.0
 
