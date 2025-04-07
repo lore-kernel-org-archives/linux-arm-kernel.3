@@ -4,104 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15AAC369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 12:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF862C369A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 12:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RrLOjVCqCMsLo6/22WxxuDKmqoQV5liMyxCxtsLfqB0=; b=FeIh7tZLbsWiyN9QxYjT353OLU
-	RO+SfrQmD9RG3iElhakZFAOJkdC1E+NYBHza2VoJ0sHsF8muKkU/IfMTbCT01HOh17z6eK8JoGfsM
-	JPFsntraojiAvrBaXyLRdeFmlbOf0AGDMCjlVnIZncET2sKiTc3HQi2LSQfvV0qRgfyXrvcUq4rmI
-	Slct80TljHLJU+WHjUcKDfo/xF8HNjE0JHN0dEmtNo3AGBD3FYIMsWW45Qfwcp+38E3w90djaOJBx
-	jvbvQcQNyTqnrcSQAwEeONX1xI0GR46k5xAQOF/0GellaFc1hgCgBqq4RB49VcNmcB4udd47giJb/
-	RDTLfNxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SXx2rv9zT35RkoqKlgbg0mm3kdEQQG79f5HFBb1nhgc=; b=hwDjbk9BeFtByf94LhLUG4B9K4
+	lAPuK5lgn07lAB3WY8dVUOOxeN9at9UArTAVfWhxh/PD7n5ipdmT+8bSenSAacZMdOl35571HidqI
+	Ze4AB8iEx3STyHCyYtowMliMlxXFbV/4JxFcjk/LR/5gppin0a3qqulzcPIg+sfodWZ/NzOlo5gR4
+	Pjrq6Y3dPy51Xvn+XxEIhPBLdJA/F+BPWqANIseZcjtZC9V1KAxZDBUL9FzsB//ckFojlYbFqNUyh
+	ZEcZRV+nBlyplOd/xEQp1Se6q1jqLBp48PTKdsofvjTQkqQscZxliPH8U9VltkUafKuqG+dw+8oru
+	wYqhRanQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lhd-00000000GvI-0o3J;
-	Mon, 07 Apr 2025 12:35:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u1lhe-00000000Gwv-2ppg;
+	Mon, 07 Apr 2025 12:35:50 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lB2-000000008lx-0sEo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Apr 2025 12:02:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=RrLOjVCqCMsLo6/22WxxuDKmqoQV5liMyxCxtsLfqB0=; b=H+nBgCT/F0CasggDWK7ybE/86h
-	agkO96Y/TKNuTQsrg2qF7f4MV8QmHPkNm5Sh9PdBpmjk2Qznh7W6mzZ99tMYgzCT6V9ebhD1D8VCg
-	VR951sLV3Dx9LZE2hbjUe5CyMG0hridsXWEn3jOa70e56+9l/kqGRMNHCkj+/qxmy6z4r0H+K+Ih4
-	JZAXdzhFKkz9Kn4mGDkHklE0FPTMsI9IQXDyPpGeaunnvWNQDS3/YRtNJP1eXE6DOqpz3kfUDlPbj
-	5Sfvt1tMt3PUKf2dXYaaUCPsQv4NYzWARezck9BIpXcuCBpmFdS5Ng4CvAMg/9oLJZWCmcmb5KI+E
-	RhupSD+Q==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lAz-00000007wTK-0Ar9
+	id 1u1lCJ-0000000090c-3frt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 12:02:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744027321;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RrLOjVCqCMsLo6/22WxxuDKmqoQV5liMyxCxtsLfqB0=;
-	b=S6gNAAjvxMj7Y5W8FlWBSV80LIxZZi739kF1AZCMnqqWrdYC5DNy2E6horRXsbi9xEiOBO
-	jfgp/wkgEa7zB42bYADhCsJ5QJ2oggu01Fu3eNnLPQ2cYCZfMq2gxKXnvW5Fx6EbQ1Ljwy
-	DWXPAQndnB4txBR3N1GhUI3fAEnSY50=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744027321;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RrLOjVCqCMsLo6/22WxxuDKmqoQV5liMyxCxtsLfqB0=;
-	b=S6gNAAjvxMj7Y5W8FlWBSV80LIxZZi739kF1AZCMnqqWrdYC5DNy2E6horRXsbi9xEiOBO
-	jfgp/wkgEa7zB42bYADhCsJ5QJ2oggu01Fu3eNnLPQ2cYCZfMq2gxKXnvW5Fx6EbQ1Ljwy
-	DWXPAQndnB4txBR3N1GhUI3fAEnSY50=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-641-C8XnyaP1Nj2sTs5S9CcQvg-1; Mon,
- 07 Apr 2025 08:00:26 -0400
-X-MC-Unique: C8XnyaP1Nj2sTs5S9CcQvg-1
-X-Mimecast-MFC-AGG-ID: C8XnyaP1Nj2sTs5S9CcQvg_1744027224
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 261901828AB6;
-	Mon,  7 Apr 2025 12:00:21 +0000 (UTC)
-Received: from localhost (dhcp-192-216.str.redhat.com [10.33.192.216])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EF0F619541A6;
-	Mon,  7 Apr 2025 12:00:19 +0000 (UTC)
-From: Cornelia Huck <cohuck@redhat.com>
-To: Oliver Upton <oliver.upton@linux.dev>, linux-arm-kernel@lists.infradead.org
-Cc: kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
- <oliver.upton@linux.dev>
-Subject: Re: [PATCH] arm64: Expose AIDR_EL1 via sysfs
-In-Reply-To: <20250403231626.3181116-1-oliver.upton@linux.dev>
-Organization: "Red Hat GmbH, Sitz: Werner-von-Siemens-Ring 12, D-85630
- Grasbrunn, Handelsregister: Amtsgericht =?utf-8?Q?M=C3=BCnchen=2C?= HRB
- 153243,
- =?utf-8?Q?Gesch=C3=A4ftsf=C3=BChrer=3A?= Ryan Barnhart, Charles Cachera,
- Michael O'Neill, Amy
- Ross"
-References: <20250403231626.3181116-1-oliver.upton@linux.dev>
-User-Agent: Notmuch/0.38.3 (https://notmuchmail.org)
-Date: Mon, 07 Apr 2025 14:00:17 +0200
-Message-ID: <87jz7w9o6m.fsf@redhat.com>
+	Mon, 07 Apr 2025 12:03:29 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cef035a3bso28135175e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 05:03:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744027406; x=1744632206; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SXx2rv9zT35RkoqKlgbg0mm3kdEQQG79f5HFBb1nhgc=;
+        b=Uu8zHbdiWoUyqkHSsKczmbT9FaV6r/uJ9WzPo/FChl3s6RuTSooVZizFqMnr3JwCAc
+         cWLUB8UdDF1ynpn7OQ8sZsoU9jVGYMJQZ/pl9mMQY9yHg0bZlqv3QFOrHeuwRvkDXYFT
+         302L2M0/sdk/FPbcikc0Q3K/SYGnIUtdMEvQgc8r8S/0oQtP+TbL9Op1wD84WkGw4IAZ
+         bU0vCKHVBVcp3SHdPlu+fWLgSSfaEv/HAPrp8Ip1j8t9mufW/a2YxZ1YhCCuLXLZDZi1
+         MtccN+MUjOsU9b5KkwEEPfgrOUSjF2QQr6FSndP59atP8phGLeCb0Qj7oKQiwYU720bf
+         s7iA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744027406; x=1744632206;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SXx2rv9zT35RkoqKlgbg0mm3kdEQQG79f5HFBb1nhgc=;
+        b=sywq72vDEepRIc96vcqJvmihY9OG/uV26i/FLj1ge3JbTFPpS/sqgb5FIxM6qe2Utb
+         ySy9oFytTD2OnqoRQAADrLTOeDlmRqT3/IRopyhHrIjsfZZecTGIo0wqsTZvcb5NbUGm
+         hkxk20KEDtsau0z3XSQ5J4ThL3c17yt6dUSPTkLBIjc7rwkjWIA5vn4gLrIkN8iGw/aV
+         sfiZOHlEmrzIWgK6rGYZbgxn/u7HXaI409lmv5667WHj+4yHTuA9XzDNby0ZRHShudi1
+         34/sPwsJwWds+H98IPo1jseEbYvzzweK86JmPfWTY73GOJBCiz4SIpuIrFoPzkL+8VAB
+         tOjw==
+X-Forwarded-Encrypted: i=1; AJvYcCWZJsK6cg8tVy5q94sn+ufNlO7isq0nZq45iIW1WUxwHQFAMjT1oWTB9DywvRm6bRHtan0anhBbqM2KQW+BQzM3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpG89tiR2ULcKsLVNJQwWVgjV58W0GSgndSreAqeqs9v/a/7cT
+	g9eSNgobBRdSvffNFBj+YhU/BJNnhXop2ES17menfMWOk1xVUAPV
+X-Gm-Gg: ASbGncvLJ0aw+JJw3Jez3pQ+xoPlFY7nFTUJVjphnGhEbnxDqVYpuON+CLlvwyMMz6E
+	4ts3eg7CYcNDAOVB8F7ge08CfR1rFH7wYLUskA0FXquj1HnXUvS7DO5GFv5RZRTqr0OO74yNu3c
+	fXhElDLc7mSv538zdiACQCttBbSSiw85H24jtayXR3ZuqiyK2thwI4eKkb7NmCpwDwL+O/UKA3H
+	pCsrZBv6sYEfjOcISzbwPuGjBpjvkQXrl53VvkuigoWrfFnQ4034lxeifVKOJ44E3wqF1DNC8E0
+	7Y1ei/Y3p/A2rFaOajL4iSIIb8wWOiLZjPcI24O6SJQoOd1eXCaoZDXhZmU0n7Fe+gLM9jeUJzC
+	SgUBA
+X-Google-Smtp-Source: AGHT+IE37bdrVUeb/XqXM/+1lhsEdri9+eE8Oa4q2uNN8bo1IG+kwjQxWy1YJ26YTiId2TriZ2pQ3A==
+X-Received: by 2002:a05:6000:248a:b0:397:3900:ef80 with SMTP id ffacd0b85a97d-39cb3597eb7mr10077348f8f.22.1744027405651;
+        Mon, 07 Apr 2025 05:03:25 -0700 (PDT)
+Received: from iku.Home ([2a06:5906:61b:2d00:78b9:80c2:5373:1b49])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c3020d943sm11986976f8f.74.2025.04.07.05.03.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Apr 2025 05:03:25 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net-next v5 0/3] Add GBETH glue layer driver for Renesas RZ/V2H(P) SoC
+Date: Mon,  7 Apr 2025 13:03:14 +0100
+Message-ID: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: xbcBsVT45eMUlpcN_wfzjZ3WWpoHRYorv6V8CUmV528_1744027224
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_130205_268139_6341221E 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20250407_050327_921580_43E88E1F 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,29 +120,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03 2025, Oliver Upton <oliver.upton@linux.dev> wrote:
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-> The KVM PV ABI recently added a feature that allows the VM to discover
-> the set of physical CPU implementations, identified by a tuple of
-> {MIDR_EL1, REVIDR_EL1, AIDR_EL1}. Unlike other KVM PV features, the
-> expectation is that the VMM implements the hypercall instead of KVM as
-> it has the authoritative view of where the VM gets scheduled.
->
-> To do this the VMM needs to know the values of these registers on any
-> CPU in the system. While MIDR_EL1 and REVIDR_EL1 are already exposed,
-> AIDR_EL1 is not. Provide it in sysfs along with the other identification
-> registers.
->
-> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-> ---
->  Documentation/ABI/testing/sysfs-devices-system-cpu |  1 +
->  Documentation/arch/arm64/cpu-feature-registers.rst | 13 +++++++------
->  arch/arm64/include/asm/cpu.h                       |  1 +
->  arch/arm64/kernel/cpuinfo.c                        |  3 +++
->  4 files changed, 12 insertions(+), 6 deletions(-)
+Hi All,
 
-Indeed, AIDR_EL1 should be available alongside the others.
+This patch series adds support for the GBETH (Gigabit Ethernet) glue layer
+driver for the Renesas RZ/V2H(P) SoC. The GBETH IP is integrated with
+the Synopsys DesignWare MAC (version 5.20). The changes include updating
+the device tree bindings, documenting the GBETH bindings, and adding the
+DWMAC glue layer for the Renesas GBETH.
 
-Reviewed-by: Cornelia Huck <cohuck@redhat.com>
+v4->v5
+- Rebased the changes on net-next
+
+v3->v4
+- Fixed maxItems for interrupt-names property
+- Maintained reverse christmas tree order in renesas_gbeth_clks_config
+- Returned err in case of success in renesas_gbeth_probe()
+
+v2->v3
+- Fixed review comments from Rob and Russell
+
+v1->v2
+- Updated commit description for patch 2/3
+- Updated tx/rx queue completion interrupt names
+- Added clks_config callback
+
+v1:
+https://lore.kernel.org/all/20250302181808.728734-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+
+Cheers,
+Prabhakar
+
+Lad Prabhakar (3):
+  dt-bindings: net: dwmac: Increase 'maxItems' for 'interrupts' and
+    'interrupt-names'
+  dt-bindings: net: Document support for Renesas RZ/V2H(P) GBETH
+  net: stmmac: Add DWMAC glue layer for Renesas GBETH
+
+ .../bindings/net/renesas,r9a09g057-gbeth.yaml | 201 ++++++++++++++++++
+ .../devicetree/bindings/net/snps,dwmac.yaml   |  25 ++-
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../stmicro/stmmac/dwmac-renesas-gbeth.c      | 165 ++++++++++++++
+ 5 files changed, 394 insertions(+), 9 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/renesas,r9a09g057-gbeth.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+
+-- 
+2.49.0
 
 
