@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A9AC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 14:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FD1C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 14:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y2vRVDgjiAJpk8Ki0+vTDs+cY+Rn+ImdKgp8gnjEE0s=; b=IC7TWOkru9QWUJmNL3MUTvFKc8
-	X6x3qXjEM0c9ZqFHTmfblW9XWWqeJqowLjKn8lz19Ohtl+ZIku2t/bAhqbJUHctbtVsjyzN/WYf9D
-	HtfLJiV6gJl/KzcSmeZj0hDN/s3OTu2PZx8j0Y6/P8EZQpBFBxrydd4fqLCcSZYQJeXy0ocYt3yw3
-	VrFl3JDJfp2GU3uycUw0VdShlZm7WoESHn5+ShB43lE+QhitcZSm/3e1JXdLtZqllegTfvf0oSowe
-	F4F5BrgPBGwNlgiuisTcVaj0wEuhHRGO6+5sxPvaIJ/bscp+BhoBS54OCj1YoVroD1/6XXuw97opv
-	vuiSHFbw==;
+	bh=6BmLhtnefMPBJI/oyevKrGCUSrklDUs/8VNpksswoO4=; b=bEc5XaLGdgxD3X+hgvLta4oy4O
+	gcuOgiWpEBCWpg28DsnIPnCR/xgj19kcyBLBCVV27vRh4P74eqILOgavXcmDnOEAZ5U7aLS+Rb20r
+	VnClyYmzEn4oyZbLcFnuzqYhbPsqBSlz5YEXGelBCq3XJg+iY3Djk+6KXbFSxzBRBN5bRsIhD2v0u
+	CuAWvW9K96ECiZcS6OU93I3gMzFmzE7QyEm6NnyC2NNVaOHi7AW0Lnmseh+LFpZC938u+061Cx6Ou
+	C0jGKH4vFVUF1m5c/1jzZQksZ+yAAhRuEqGiJ55QQUCUNGTJG2NVNVFPgEHqcEH4IH6ACdvX9zEEj
+	+xn+99dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nqJ-00000000oxT-2bHE;
-	Mon, 07 Apr 2025 14:52:55 +0000
+	id 1u1ns2-00000000pMK-45HQ;
+	Mon, 07 Apr 2025 14:54:42 +0000
 Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nP4-00000000iJl-2tFy;
-	Mon, 07 Apr 2025 14:24:48 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D8787442C5;
-	Mon,  7 Apr 2025 14:24:41 +0000 (UTC)
+	id 1u1nP7-00000000iLj-2wkL;
+	Mon, 07 Apr 2025 14:24:50 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 2D914442C1;
+	Mon,  7 Apr 2025 14:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744035885;
+	t=1744035888;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Y2vRVDgjiAJpk8Ki0+vTDs+cY+Rn+ImdKgp8gnjEE0s=;
-	b=gkN3Kkhxyodq2MsiFZv3t2WVqN2oNukMTyu2Ux1rGrW2TAwwBmvYSROEln8Rg4SF2mw4rJ
-	iDI3cvgkQ52+HaveiTqRnDDNSRUPmqE8EQUUUxeeXEiQfdtHri+2TWWN9g0NcU/q9ifoyk
-	Z02mGYrTxMoCGguAUPztaSblIRGBnLLpbXUVskwOu/z7YsdCCusqbWV/dvjdSHD1oCtYA5
-	ITYEcp8Y94rpqmafKPn++d0zyjavXsdyjazVVPps7Gq4OoFP1XZhgq2Wy/GyJFKdP8jph9
-	+oEXfFs7ws4ovHUAPb8JovSBNChRvy+AeH/xqyJd6k/F0zZa/B3SdPJyR7Jbbg==
+	bh=6BmLhtnefMPBJI/oyevKrGCUSrklDUs/8VNpksswoO4=;
+	b=KceATwsILuI8pRNAKUVZoG7QEgCGqGujmkk/BMJZfFA5TrsvuWaOv1AeO6fZC/Oc4CRtMG
+	Nz9qcswy6k96uDqb9keC1MFQuwiuKWnhbNyWBaK4TjT8a1hPavEdcyuJj5wjbcjone9u7b
+	b/3pblZ7JVBAWTyoXqOmJECHxj1c1sVqRjznWFYGzBShJ4XCmcP8W/j1NHUN8xijH2O8Ne
+	BeyQfxZFd5bmjVcNJhkmG//8gpvO4Trpz2JKFHI5qaT2uJDJ1hbgSgn6T2ya0KOKWOFzvt
+	xtj3Eq8oOQmf1QU7QAn5poKaAyLdspycu2b/BN/P7sNDp90O6cmNfOGCSiJ/sg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Mon, 07 Apr 2025 16:23:29 +0200
-Subject: [PATCH 14/34] drm/exynos: mic: convert to devm_drm_bridge_alloc()
- API
+Date: Mon, 07 Apr 2025 16:23:30 +0200
+Subject: [PATCH 15/34] drm/mcde: convert to devm_drm_bridge_alloc() API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-14-42113ff8d9c0@bootlin.com>
+Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-15-42113ff8d9c0@bootlin.com>
 References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
 In-Reply-To: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -78,18 +77,16 @@ Cc: Anusha Srivatsa <asrivats@redhat.com>,
  linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
  Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Inki Dae <inki.dae@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Seung-Woo Kim <sw0312.kim@samsung.com>
+ Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedutdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegludelvddrudeikedrudejkedrjeehngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeghedprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvr
- hhnvghlrdhorhhgpdhrtghpthhtohepihhnkhhirdgurggvsehsrghmshhunhhgrdgtohhmpdhrtghpthhtoheprghlihhmrdgrkhhhthgrrhesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpeduvdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegludelvddrudeikedrudejkedrjeehngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegvddprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvr
+ hhnvghlrdhorhhgpdhrtghpthhtohepjfhuihdrrfhusehgvghhvggrlhhthhgtrghrvgdrtghomhdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhm
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_072446_868135_05827ACB 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20250407_072449_873405_3836C8FE 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,41 +107,36 @@ Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Cc: Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Inki Dae <inki.dae@samsung.com>
-Cc: Kyungmin Park <kyungmin.park@samsung.com>
-Cc: Seung-Woo Kim <sw0312.kim@samsung.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>
 ---
- drivers/gpu/drm/exynos/exynos_drm_mic.c | 7 +++----
+ drivers/gpu/drm/mcde/mcde_dsi.c | 7 +++----
  1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_mic.c b/drivers/gpu/drm/exynos/exynos_drm_mic.c
-index b34ec67283370e3fa836c7df06e12e2fba524622..29a8366513fa70655c6ceec9a09db0158e7bb169 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_mic.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_mic.c
-@@ -379,11 +379,11 @@ static int exynos_mic_probe(struct platform_device *pdev)
- 	struct resource res;
- 	int ret, i;
+diff --git a/drivers/gpu/drm/mcde/mcde_dsi.c b/drivers/gpu/drm/mcde/mcde_dsi.c
+index b302d8ec3ad0e82ace9c10194ae37948ebb8e753..a3423459dd7ac8395b77d0479a02ebb3a9ba259c 100644
+--- a/drivers/gpu/drm/mcde/mcde_dsi.c
++++ b/drivers/gpu/drm/mcde/mcde_dsi.c
+@@ -1138,7 +1138,6 @@ static int mcde_dsi_bind(struct device *dev, struct device *master,
+ 	d->bridge_out = bridge;
  
--	mic = devm_kzalloc(dev, sizeof(*mic), GFP_KERNEL);
--	if (!mic) {
-+	mic = devm_drm_bridge_alloc(dev, struct exynos_mic, bridge, &mic_bridge_funcs);
-+	if (IS_ERR(mic)) {
- 		DRM_DEV_ERROR(dev,
- 			      "mic: Failed to allocate memory for MIC object\n");
--		ret = -ENOMEM;
-+		ret = PTR_ERR(mic);
- 		goto err;
- 	}
+ 	/* Create a bridge for this DSI channel */
+-	d->bridge.funcs = &mcde_dsi_bridge_funcs;
+ 	d->bridge.of_node = dev->of_node;
+ 	drm_bridge_add(&d->bridge);
  
-@@ -421,7 +421,6 @@ static int exynos_mic_probe(struct platform_device *pdev)
+@@ -1174,9 +1173,9 @@ static int mcde_dsi_probe(struct platform_device *pdev)
+ 	u32 dsi_id;
+ 	int ret;
  
- 	platform_set_drvdata(pdev, mic);
+-	d = devm_kzalloc(dev, sizeof(*d), GFP_KERNEL);
+-	if (!d)
+-		return -ENOMEM;
++	d = devm_drm_bridge_alloc(dev, struct mcde_dsi, bridge, &mcde_dsi_bridge_funcs);
++	if (IS_ERR(d))
++		return PTR_ERR(d);
+ 	d->dev = dev;
+ 	platform_set_drvdata(pdev, d);
  
--	mic->bridge.funcs = &mic_bridge_funcs;
- 	mic->bridge.of_node = dev->of_node;
- 
- 	drm_bridge_add(&mic->bridge);
 
 -- 
 2.49.0
