@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64B1CC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F027EC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qk5GQt8I+7R2pPHJxzjfQlsZZkZxJhgSQbQsHr0o/hI=; b=ToDq9L+m4ahxLjFnaCv5jg3wNw
-	gP4uzsJjwhTWfhLmIKDi8I2QXpy4Y3D6C2hpGhsncnEIX8ziK1r4ca5e4aR4rM8S5LqKr1zaViBEI
-	+LUXLv7RH6hmF04XnPy6DOpNwUk/9YHIB5Vxz6eq/ser7WnQOMAUXlQKxrt3U8IKLN2D+hi0oVJr7
-	A4yyHDthVB18A3GLSamL/Br8PQuLPiHCccPqwifJh4L9nHAd8Yldtoctc8I0snN95wRi48V2KgtHW
-	kAImR27L+VPRqA3zTryJMkBBLxv+Qn/QuPWYXvVxRPcKh6uV2MUwlkJ6MtifLHCsi221e5XzGl5b8
-	YzM+EMrA==;
+	bh=8oQBv0PsMUDUre1Bu82m7dpdvbVeSSW511rM1FJ7IjE=; b=O4IxiF/3ki/21KGxt2m4l97LML
+	EhNBfUWn+eMO6Y208per01Um2XG5CTxJUAuaLyJmlgnXBrGVBmoUbxhFL1o+ur9dRwe/+nq7AZ0C5
+	R666+RPFZOGoEJIm2CO+ftT2nZChZQ8twV7YjE3jnN3aaarDQRPsGivYlZtZFsV7ZXghkFNyTNSGP
+	sCDhwDHaLMhEJDFPhQ9tGZp5U/UblyiYOUaKsW9N5frBdgeopkNW00hVx/VLvOYQb5JpKTvUtAJMu
+	Bv7v3v0bcR+dJabT0+aOyMZKClgwtFcFGZpVLiRL4/GgVUs/OXv09pCNUhcN3JHZF/5Pi4IcKm9II
+	hJe4H8Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1r1I-00000001V3J-2KeJ;
-	Mon, 07 Apr 2025 18:16:28 +0000
+	id 1u1r1J-00000001V43-2w1Y;
+	Mon, 07 Apr 2025 18:16:29 +0000
 Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ntT-00000000pkX-3TyK
+	id 1u1ntp-00000000pq2-2DvP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 14:56:13 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id 2E1D644327;
-	Mon,  7 Apr 2025 14:56:08 +0000 (UTC)
+	Mon, 07 Apr 2025 14:56:35 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id C076541D11;
+	Mon,  7 Apr 2025 14:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744037769;
+	t=1744037791;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Qk5GQt8I+7R2pPHJxzjfQlsZZkZxJhgSQbQsHr0o/hI=;
-	b=NCF8YrQeurrOLg19iw0E0baRYjfFOrx6IjRNk2HdtyCK5rpNymla2co1/mcbptqDw16lzg
-	kVOBe9mOrYsbHFLOhcDH8QBJ7/jujj2CUYFuZ9T+3wT/r6jKwQY0NbM0uN+raSl7EUv1/p
-	JWipr2DsN+7bwFa5Ay7t8aDu9dmQvMV7DkJ0GOH31ZCg9LJMvh95C8mwgXobs5X7fPGyoZ
-	y8cMaI6RnpaohtMh4oavzvlRDV6lS0/RWjtncwfdBtktNuC+4o78xc7CAVXaEzAcVub/tO
-	YiR/icZTO5I4JqHS9sNecAECJeSDLBHdjc+kYDOiYxqrprxz68wmHzJuhsfA3g==
+	bh=8oQBv0PsMUDUre1Bu82m7dpdvbVeSSW511rM1FJ7IjE=;
+	b=MA6t8E1Vsf8UStvq9JFa/A7J8/mDwxkfqCqdYvI0GfNlCIt0WDir0H1GnyOrMHfgppYBc8
+	VRqpR1suMaRV6vIJdLgplIaHwGAlt2dMogLOR1W7rHOO6kArETQDojSSLnYaDSiXsS6THY
+	x+QvmA/qhQQIcl0IaU0y/xUUZJdY+d+DF7oNZ3FuBqvZP4q0EiIDUBvZ6HjwYgxdK6T1ce
+	Xy0HzbVHYDjm/JrS0A2fU/aEtDNrye5NplSoeKzn988W6E7R3G/E26HF+2DBC625pDFqiM
+	hbLZlbz39j0Ap3QqdxyFF9X2pcnsNlIZoY2vCFKU+xsf4GGLjzu7a6jCqGlBQQ==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
@@ -83,9 +83,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH 02/16] driver core: Rename get_dev_from_fwnode() wrapper to get_device_from_fwnode()
-Date: Mon,  7 Apr 2025 16:55:31 +0200
-Message-ID: <20250407145546.270683-3-herve.codina@bootlin.com>
+Subject: [PATCH 13/16] i2c: busses: at91: Add MCHP_LAN966X_PCI dependency
+Date: Mon,  7 Apr 2025 16:55:42 +0200
+Message-ID: <20250407145546.270683-14-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250407145546.270683-1-herve.codina@bootlin.com>
 References: <20250407145546.270683-1-herve.codina@bootlin.com>
@@ -93,12 +93,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepleffudeludffledviefftedtffffjeehhfeiffelteejtdeugffggfffudffheegnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdrlhhotggrlhguohhmrghinhdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedupdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuv
- ghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhhtuhhrqhhuvghtthgvsegsrgihlhhisghrvgdrtghomh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheffiefgjeeuleeuueffleeufefglefhjefhheeigedukeetieeltddthfffkeffnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepkeenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtrdhlohgtrghlughomhgrihhnpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeguddprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrt
+ ghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomhdprhgtphhtthhopehmthhurhhquhgvthhtvgessggrhihlihgsrhgvrdgtohhm
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_075612_058276_77B1AA51 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20250407_075633_759975_4F729404 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,79 +113,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-get_dev_from_fwnode() calls get_device() and so it acquires a reference
-on the device returned.
+The AT91 I2C driver depends on ARCH_AT91.
 
-In order to be more obvious that this wrapper is a get_device() variant,
-rename it to get_device_from_fwnode().
+This I2C controller can be used by the LAN966x PCI device and so
+it needs to be available when the LAN966x PCI device is enabled.
 
-Suggested-by: Mark Brown <broonie@kernel.org>
-Link: https://lore.kernel.org/lkml/CAGETcx97QjnjVR8Z5g0ndLHpK96hLd4aYSV=iEkKPNbNOccYmA@mail.gmail.com/
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/base/core.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ drivers/i2c/busses/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/base/core.c b/drivers/base/core.c
-index d2f9d3a59d6b..f30260fd3031 100644
---- a/drivers/base/core.c
-+++ b/drivers/base/core.c
-@@ -1881,7 +1881,7 @@ static void fw_devlink_unblock_consumers(struct device *dev)
- 	device_links_write_unlock();
- }
+diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+index 83c88c79afe2..148f9f66d5f3 100644
+--- a/drivers/i2c/busses/Kconfig
++++ b/drivers/i2c/busses/Kconfig
+@@ -414,7 +414,7 @@ config I2C_ASPEED
  
--#define get_dev_from_fwnode(fwnode)	get_device((fwnode)->dev)
-+#define get_device_from_fwnode(fwnode)	get_device((fwnode)->dev)
- 
- static bool fwnode_init_without_drv(struct fwnode_handle *fwnode)
- {
-@@ -1891,7 +1891,7 @@ static bool fwnode_init_without_drv(struct fwnode_handle *fwnode)
- 	if (!(fwnode->flags & FWNODE_FLAG_INITIALIZED))
- 		return false;
- 
--	dev = get_dev_from_fwnode(fwnode);
-+	dev = get_device_from_fwnode(fwnode);
- 	ret = !dev || dev->links.status == DL_DEV_NO_DRIVER;
- 	put_device(dev);
- 
-@@ -1960,7 +1960,7 @@ static struct device *fwnode_get_next_parent_dev(const struct fwnode_handle *fwn
- 	struct device *dev;
- 
- 	fwnode_for_each_parent_node(fwnode, parent) {
--		dev = get_dev_from_fwnode(parent);
-+		dev = get_device_from_fwnode(parent);
- 		if (dev) {
- 			fwnode_handle_put(parent);
- 			return dev;
-@@ -2016,8 +2016,8 @@ static bool __fw_devlink_relax_cycles(struct fwnode_handle *con_handle,
- 		goto out;
- 	}
- 
--	sup_dev = get_dev_from_fwnode(sup_handle);
--	con_dev = get_dev_from_fwnode(con_handle);
-+	sup_dev = get_device_from_fwnode(sup_handle);
-+	con_dev = get_device_from_fwnode(con_handle);
- 	/*
- 	 * If sup_dev is bound to a driver and @con hasn't started binding to a
- 	 * driver, sup_dev can't be a consumer of @con. So, no need to check
-@@ -2156,7 +2156,7 @@ static int fw_devlink_create_devlink(struct device *con,
- 	if (sup_handle->flags & FWNODE_FLAG_NOT_DEVICE)
- 		sup_dev = fwnode_get_next_parent_dev(sup_handle);
- 	else
--		sup_dev = get_dev_from_fwnode(sup_handle);
-+		sup_dev = get_device_from_fwnode(sup_handle);
- 
- 	if (sup_dev) {
- 		/*
-@@ -2225,7 +2225,7 @@ static void __fw_devlink_link_to_consumers(struct device *dev)
- 		bool own_link = true;
- 		int ret;
- 
--		con_dev = get_dev_from_fwnode(link->consumer);
-+		con_dev = get_device_from_fwnode(link->consumer);
- 		/*
- 		 * If consumer device is not available yet, make a "proxy"
- 		 * SYNC_STATE_ONLY link from the consumer's parent device to
+ config I2C_AT91
+ 	tristate "Atmel AT91 I2C Two-Wire interface (TWI)"
+-	depends on ARCH_AT91 || COMPILE_TEST
++	depends on ARCH_AT91 || MCHP_LAN966X_PCI || COMPILE_TEST
+ 	help
+ 	  This supports the use of the I2C interface on Atmel AT91
+ 	  processors.
 -- 
 2.49.0
 
