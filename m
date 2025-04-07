@@ -4,61 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E08C369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AADAC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:48:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BGxVucIVlSEFbAitfPBjdS68Ocep8Kjrs9c8bCpYovM=; b=x9DbKYB6WRCSrbX2Q5YnIui1NU
-	1x9lNQUU/5jm2hmWoZ2M6nPUynmFs41nnPszf3z4wVn0YrR7VoR1ExOKiDwMW6zN9WvnGotUhNurq
-	uvsiCR66+7Ix0HEd6M2YbhCtesGDgeTDT7Rhyup3fL8wezWMEEBH3PfG+tqexvz/Z9ilKgpvTajfs
-	7skKaytOrJN+IzR+1ParJ3hcCfthTZm3crigi13R2ngIhuddQ0zL7y8dPq1uRugFx8XoSSF9TqxkX
-	zrIezHm1lGxIvVta3ayeG8dreDEjzomT2mRbZiLqgkq0oJxBRo9wTRbUSyTxfigqdUfU8LpdqQYdi
-	qVHUsFSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3HXJMXZ9LGUTZustVJgA/C/zKgpGDb31Acgkq44bsAc=; b=iKRgoRXto6gKgHLtKwqlD2zdgv
+	IiNHFrOUfflX8BeN/J1mB8BLq+QCvDCweeC/0X4iA3QT1PB5XDU8qPeHyrPinqImNWT4BBZVSLLlP
+	lrJRTGlrb2cph1sMFPVSeOYa2AQ99nxYvcWTgnGG4YwOA0qF0SqYDilp+1qHXizMNQqzSNI0tP2Iy
+	tDC/wSDwB1Y3thfP8RD/kdITM0ohBlQBY7zxu935a6bFcF/s4YOmEppxuL3cymX9SddXdk7RgDtaZ
+	F10GfRhjSanK+Lh/sSZiRQIoDaL1ltgM6MDjeNAVgSH7BPT8ttFcjkqFkKDjMP9oOhMp1xQ+6xPaN
+	PPCR+ijQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uKD-000000026dS-1eGm;
-	Mon, 07 Apr 2025 21:48:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u1uKC-000000026bD-1Vm9;
+	Mon, 07 Apr 2025 21:48:12 +0000
+Received: from mail-am6eur05on20623.outbound.protection.outlook.com ([2a01:111:f403:2612::623] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1sd1-00000001tfH-0HuX;
-	Mon, 07 Apr 2025 19:59:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EB0826111F;
-	Mon,  7 Apr 2025 19:59:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98640C4CEDD;
-	Mon,  7 Apr 2025 19:59:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744055970;
-	bh=IJJiTiufrBlO5nC2ia/xZN3g7wJxk91IVPvElnFO708=;
-	h=From:Date:Subject:To:Cc:From;
-	b=cVMTeiaWugrMINR7Zm9QDlGlm651K2BHvG7fbQ/FK6FjkkjBsY1f0qO9jf1uye2FE
-	 zirttmNrMrvOOztexIaInvZfWf1bVJAFrcjwasIIawHpKHiokfTKE7czsfnIdb69qc
-	 lp+HGLJi7A5YkGt7kKd0oNXYPCoKAd7gZp7nDoq84vo18oZ4HltK2RI5t9KOAGfV0h
-	 dVgpnVa4iXnlQs/gnGyNakl1kCVjkrYjeEGbFDaezYm40XYS3IZpY7pFZLRhwGuDFV
-	 qg9dUyc3aGe/UvmEPbo09g96E3CA1azn4UrWWpnWZL65woe+cUWsgYb7DjMKJg1ziU
-	 IP5oxfG2jndew==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 07 Apr 2025 21:59:04 +0200
-Subject: [PATCH net-next] net: airoha: Add matchall filter offload support
-MIME-Version: 1.0
+	id 1u1sWK-00000001sbf-0xEE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 19:52:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Qp06LB8Bek7Ua4jXlJlSb8ao3XYfSO/NQEY8XFizwWLTGL+6bZVdnVLyOHxAaDErmNkUEZxyIjRp6HeaaWi2X4cbkBBrF/QGsnm2yph1MQUcc0MT4b5+esT1Ey+INm5gLAhRGt+pIyGWaGbtX+ogUDidtSnXual88g9eq+XvdjbywblcnDYgclE5eu2b+Z7G4W0n99cU2MoVC/9TSZDHIMrkVxkdBVlbhr+N7I0G2VhuvBZPYCCupC63DPAMtXzOza4378mwIDuX0hPVl6QpEN0Zzihbe0dKAJ5WQ9uX9x91aNACurLXGnzNKbL2qDvFMMoJiXudXyMYo9SHZvdBUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3HXJMXZ9LGUTZustVJgA/C/zKgpGDb31Acgkq44bsAc=;
+ b=FXSAd+YHTG8o0LSf/nB6U4faFM7pd2BixGY1d7yskMv/pxXCdRxwlILYAclNIw8NcDBwHrJXdRl0uqJ2vHavG2rd1U18AkwbRSREMb3UeQeG34y9KT3TBDmuE3Bd5LQfzLLjAXYkzBHDW82RxcGPJL5u+c+fSXhL7j9JJm77njW9168Uf/8eQrYUKQfnQjDNBJ8Kaa4EnG6KQNOcvcupOJvgL7/TVGciC0zQGG9jah0pNXlI8on/5Gx4kny/H0CunUdi/rLNNtaiLDmLpk7Sk0VIZz5ehY84Kcfeq89JtI1HH8g9v90SzwSZraDqzq1CfRvgZMgJw6LfO6GyNjuLJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3HXJMXZ9LGUTZustVJgA/C/zKgpGDb31Acgkq44bsAc=;
+ b=d752ZsQNlLkRl+iX7nsN2I1hAwTL8q1PIOGI3zQcHCv+2m5H0wHbGI3kG+D+Hhe5i5j/MbgEDQIA3k39np8E8B0CLr0K+8R80oxQ4IohfzeP+nXL0fPqXmH6mXBzy/+KLv2gZYIlKDq2gFURztZIXUdU9YEZDSLm7BN4+aQXhnK+7ejYPO7bpCRMHjAUGCH6qBLyv19GXjc6ZbLYKAnLlpOqk1jDHkRrI7dm+0peVQUE5IJmvrw6mIk0KkRZTe6x2kevWanH6LvXGsN1W3HX5ON1yVid6RWkAt1blYoUHQxybjTR3NtdlbxRpeHvURPkUa6Bw89DycuEG8cagS/1YQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PR3PR04MB7452.eurprd04.prod.outlook.com (2603:10a6:102:80::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Mon, 7 Apr
+ 2025 19:52:33 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Mon, 7 Apr 2025
+ 19:52:33 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Date: Mon, 07 Apr 2025 15:51:05 -0400
+Subject: [PATCH v17 15/15] arm64: dts: imx95: Add msi-map for pci-ep device
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250407-airoha-hw-rx-ratelimit-v1-1-917d092d56fd@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAIcu9GcC/x3MTQqAIBBA4avErBtQK6SuEi0kpxzojzFKiO6et
- PwW7z0QSZgidMUDQhdH3rcMXRYwBrfNhOyzwSjTqEq36Fj24DDcKAnFnbTwyidq72tlydrWNJD
- jQ2ji9I/74X0/IcNwM2gAAAA=
-X-Change-ID: 20250319-airoha-hw-rx-ratelimit-1dd407e77925
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Message-Id: <20250407-ep-msi-v17-15-633ab45a31d0@nxp.com>
+References: <20250407-ep-msi-v17-0-633ab45a31d0@nxp.com>
+In-Reply-To: <20250407-ep-msi-v17-0-633ab45a31d0@nxp.com>
+To: Kishon Vijay Abraham I <kishon@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Anup Patel <apatel@ventanamicro.com>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Shuah Khan <shuah@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, jdmason@kudzu.us, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ imx@lists.linux.dev, devicetree@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744055468; l=827;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=qxV51hE9iVaqehK/qn4rz9KrbxpDkLsIBLjf7RRGT20=;
+ b=r2+4fvsAkmquI/lDxL6ovaIFymtnoci8MOwzny0OC8txBlZqw8k4FA2/YUz17OfVfYmxv/mGm
+ iuXOBfZVv4TC13rhFmXvJLx8G3wlQplCtBogmVwohaGgMRmCGywMwEH
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: AS4P189CA0041.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5dd::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PR3PR04MB7452:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0da3af99-c323-42d5-0832-08dd760dbcf8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TGQzTnhGTG1od3QrbTk5aFNGcE11c3pmTmoyU2JZSmNvT1FTL1VQWXRNMmdK?=
+ =?utf-8?B?WG5ueWw2a3p6ZUNMaVV5MHAvZjBycDZtT29BUS9LY3NQSWMvN3JWL3hSMWNw?=
+ =?utf-8?B?YTYzeFZRWU9kR1BzT2xpM05oUGozb3V5YkREL2lXazlGeUU3cU9EekdWZzZ3?=
+ =?utf-8?B?WkFpektBM2s5VVJDb3dKSjVxMXk2TGR2UkRseTg3eVh4bUtzYzdCd0tXZWVv?=
+ =?utf-8?B?eXIzdFE0V0ZJSmZZWEZtQ1A5TTliMjh2bzFMUER1MGZ4VDFqemNvZVpxZFMw?=
+ =?utf-8?B?dTZWOWErak5mdm9tdGxvQ1hmQzBpbWVVZXBhWlVxTDFYQ0pTYWdKZkZBSDhu?=
+ =?utf-8?B?ZGxuSk9VdkFoL0VZOWVhQVVydzlkT0c5Mm1OWGVnVm5uMkVnM1hFM2I4RlhD?=
+ =?utf-8?B?N1A2RDlFMitsUWlFWUlKWDNhTTFUSkV2cEhkQ01YSlVjbG8xY2MySWRqR0h1?=
+ =?utf-8?B?VnEwWWt0M1dDN3E4T0lJblQ2UkVLMllIMWxBYTA5SjJIeHJROEt5UnJnYk1Y?=
+ =?utf-8?B?Yld2RGJhTk4zVDlpV0s4eWozamRsbTlGWTF6L1NvRC9JMkRDczVOWmV3dHJ0?=
+ =?utf-8?B?YlZQQ1BvNVFiSmhLZFBjUUMvNGVzS0RXdXdTbjZPd2c3bnlWYjJMVExYMktZ?=
+ =?utf-8?B?ZkFZVmp2YXNuOFc1Ty9HWS9YOFluQ09RN0hLTUpDZEk5elJjSi9pSHUrV1Vk?=
+ =?utf-8?B?VXk1SGpMcGF6aXJQSndyQi9Sb1JCNHhmb2k1NDVmaUo2NWJUcithN2RucmZ2?=
+ =?utf-8?B?MXc3VFVqUmRDK05yTUlDZnJUYTR1QzFoY2Yrc2srSm5zcktFd1U5UDBiS0Jt?=
+ =?utf-8?B?SktZUTF4UHk1OFdGQTJkOWhHcXAyeVlmWS9RdHE4NzZUN3JvK2Q3NHR2Q0FL?=
+ =?utf-8?B?NkR0UUhCZjRaSmNYSUllaXJiRGdDU2d3Z0UzcjdRWGY2NGRvTnFudnBnRzFD?=
+ =?utf-8?B?M25GZFJtTUFaNFpvM3V0cUI2VExySW82SFpwT1EwdE9GMTB5U2dQNmtReW5L?=
+ =?utf-8?B?MGlTWlZ2MGRoWEN6U1h2WnQ3MWFRN3VRcXFEdzF1K0tjV2Izb2JsYnlOdU1X?=
+ =?utf-8?B?ZlRSTEhrRjV0bEltOTlpaDZVM2VGV09Ca2ZDb1V0QU5LZllwa3ljNHo4aXdZ?=
+ =?utf-8?B?NkdRWnBEa3hKdFo0L2FQSHBBQUVHRnNJYVlxVWd4c0xmalVRdVg2UVBuMG9H?=
+ =?utf-8?B?WStuZENIY0xzaDlkVFRBRko5dlBpbVhYZGU4TmpYVzE2ZFUySEIyWW9nSUk5?=
+ =?utf-8?B?emlZalFRRUFaV1ZWWEdYd3owOHdIY3R0VlJWbCs4U3dOZUJzczRBcHUzMUR2?=
+ =?utf-8?B?Y05mTExRQTAyOTNzVDIrV2R2eFUxV1NiUURSQ08wRkZFdWtUNXJ6NlM5cXpi?=
+ =?utf-8?B?N2xIRlEwcGg3bkcvMm5RbVgzb3pWQTNWNDRLRHQwWTc0T1BTaW0yR293WjRV?=
+ =?utf-8?B?dm9Bd0U0RzhvVHdyL1I4aldaV3BZUEZlVTh0dWNCaHFDaGtpejh5czhxK0Fp?=
+ =?utf-8?B?TnpTdkl0ZW5HWWtiMHBBMW05czlrWVpwMGtVTmtMUFlGcGFQa0xUVVNMSnp0?=
+ =?utf-8?B?NEhCV0RCdFI1Z1FONmJnOEZqUGxhbUNqQnJ1U3JPRWRlRHhlRGVDdi96cWh3?=
+ =?utf-8?B?dG8yNHdyMWFtbHljcy9kaDhDUnZMWFo5WDQzRDQ1NEJOZHdxZmdjYWtLckRv?=
+ =?utf-8?B?UThlb1h1cC8vSC91cjNMWDk1Y1orSHZUVVk4NkxkWHNBNVo0RUJ3cjVuVTFo?=
+ =?utf-8?B?VFIxZXMzc29uamhmZGErZTVOaUJrWURENHB1d0NFV0g1OGtCMUFnS21DSnZw?=
+ =?utf-8?B?MU5xN3ZhQzlXRlU3NzZxZk1uS3JmNnVGdWxzbVR5WkFVMDdrWm16a2FqaHM4?=
+ =?utf-8?B?dExieWE5cjZudXlqWG1ra0hoR3M3NU9pMm90ckcrLzhlVFJyRXZVWHRpeW84?=
+ =?utf-8?B?WWsrY3d1Ni95QVNrZlJGMmpuTlpXR09XYysvcERjVU1ZNjFpdXloR21DTHhz?=
+ =?utf-8?B?RnB5WVFjRmJ3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RlR6cE5XUzJLa3FpT0NqWThmaVB2Q0lUQU1BZmI2R2tKYzJRb3N6WUkzUDlF?=
+ =?utf-8?B?RHpJTjU1VUlYMC82NDlLem5XT1hXYnloUVd6V2o4R1JNbUZPdkM1dTYrV2Fx?=
+ =?utf-8?B?OGtrbndEMWdab3lHMXhjVVB0WUJvWlZDSmFLM1hqYzhSZmFSa1I5cVczNVBJ?=
+ =?utf-8?B?UFFGUHNCR3BrdWF4WUgzY0lrcE9YUDNZYktURXZ2Zkc1OVhObUJzZlUzK0Rw?=
+ =?utf-8?B?TWVwQkVGUXNFRFlhOXo5cWh0OTRYdEJrQ1N2NGFvV3c0Q3hSYS85VTJrb1c0?=
+ =?utf-8?B?S0tLYVp2dVNqbnZWTFE0SFlDcjRERGZpKzJtazBoVitpMXoxZ0F4OWxTckFU?=
+ =?utf-8?B?QzZiRGpkZmZEM2ZxbVd5S1VYekpaSDdWZkdPRFUwVHlBRFVucXUzNDJkaEFO?=
+ =?utf-8?B?YUVHb2VIWWZYVVUyejJpNGxDelVtUmdGbG1NNmxud2hvT1Y1eTZjR282dHFQ?=
+ =?utf-8?B?Z1BRUW9VbmRScE9RTFljMyt1blRJWWFPZFJuYlRHOElEcFhDNTJmV1hNSVJt?=
+ =?utf-8?B?SlZPOUxzN3FjODNKM282RmRzUHl2dmJ5S3YzbVZURTZhTXBmR1ZxNDRNZitN?=
+ =?utf-8?B?d3dHc0ZwT3RHY0ZxR3pnRUZHSEV2OFhudGFaVEtrNitOcGNYcFlKaStWekJZ?=
+ =?utf-8?B?VjB6aXdKNUVRQzV1UjhWYnMzMEhGMTJRcldKUkk2ZFc5akc4WE9nTHRGMU9n?=
+ =?utf-8?B?UHZMV1hUVmVoWGc1bDNKOUdCSVRYTzQ0UTBzU0NzOTFmN1BudGxqM3hjRStG?=
+ =?utf-8?B?bVQwdnc4cVl4RVlickZCU1NvUUo0MmgrWTNjTFFuY3Y3SHZETUgra1BrZGhL?=
+ =?utf-8?B?TTNjRmZHZHNnc1BGWUlPcWx6ZGpIc2ZOa2Y4T0UyMHQzQ1VmWWRKZzlRMERy?=
+ =?utf-8?B?bnBjYUV5WE9TUzNpNGxUZkhMc1g2aUsyMXFVbE5Gc1hFd0xwdDdYbDR3U0c4?=
+ =?utf-8?B?WEs0QWpFTVg4RDd2YlJnQ0s5WXM2U1FJVEZ0Tm05ZlIveHExVWVVREJyT0VR?=
+ =?utf-8?B?MU9VVXBSNW84dDR4R2FOOWRTY3prVExOZ2ZiNWlrZ25VRWVhUEl4d2MrcGpT?=
+ =?utf-8?B?QXp1RGYwcVhUZlo4MDZmQnpraElJWjc4ZXBMRURTellxL2RET0E0dEV5U2Vl?=
+ =?utf-8?B?N2dIV293NktiSGxONVFlNVZxSTVlOXpTcisrYUoxakhaaU45aXpMMG80Tk5E?=
+ =?utf-8?B?Yk9xd2pxS0hUdERYSy90LzNTRTRTeWk4bExWdmhpeDQrN0x0TjhQclU3dEtD?=
+ =?utf-8?B?UmNIZDFCcW8wb084VjFKZklmZHNtcFVXRjR0QnR6Q0wxRWRHZEFjVTgvZVkv?=
+ =?utf-8?B?dDBBRHRqbkY4MENFSG9UZDVBZTU3UDdlQ1FnQnd6VEJVQmJ0YkxRTDZHQ21H?=
+ =?utf-8?B?a05uT0NqcUVYSCtNWWpnRVZmbm5jUXpRUjJMcG1RVHJTdHJJMThTc2RjTWNz?=
+ =?utf-8?B?SFlqcm96YjFyZkhDdzhveGRyR1B0VFJGTmt6UnUya2JkMHQ4M1Z4M3dqekJn?=
+ =?utf-8?B?b3BtcUlIdEhQOHRwY1o0eEU3SEpFamZCYzBneVhHRXhtYVNGdUM1d1BKTXkx?=
+ =?utf-8?B?T2VEOWpRdjFrWkVmV0pzTkhYbnFySHcrMldRaU9kZExxSjh6Q1hiMjkrTnlZ?=
+ =?utf-8?B?WHEzY1VMaXNUSWhpK0lia096aVF2N0J4dUMvTnVKZW5qRWw3K3dEL1hUT1hB?=
+ =?utf-8?B?Nnp6ODVxQlkzMXpqTld6Vm5WZ3FvMjU3K1pabHdMZHNkN0NpVkhULzlRb2tF?=
+ =?utf-8?B?dzh1eG9IK3JnQjNYUVlGZkhjQjA0cDZNVThUcU1RNEpDdDkzb2NFYVhrTERC?=
+ =?utf-8?B?YTZqUVQva0o4VWlFWTdPVWpPV254L2k4cVNrT05OVzYvaEgwSTRMamloeDF2?=
+ =?utf-8?B?b1pnQ3RWQUR2dW40WTY2UmRwQ2RuYWxBZ0JHTXU1VFk3TXduNEVidEwxTVh2?=
+ =?utf-8?B?b3c3ajBVSFhvQU9yTm8xZTVSbExNbGdQSHdkMXdmRkNDZFg0VDJYcEVQQXRq?=
+ =?utf-8?B?TXJtWUNjYlZsczdFT3Vnb01WNzlxVURuOFVncFV2UVNDOXV3dnlUSjA1aFBn?=
+ =?utf-8?B?WlB4T05hYzA1eUFDMGpyS3FFZWhySU1XOUdwQmRPQ3RvaHNLMi9ReCtFSVVE?=
+ =?utf-8?Q?YYkvoySe764/3fwezxr9rLZIZ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0da3af99-c323-42d5-0832-08dd760dbcf8
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 19:52:33.4607
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: v/kYlHgUn37NfHzz8yWaww88PoOvzMxELgOCoSF1Y+iZV9siMn1mt0C9iKiKw4jPYJaVXxnZ8usQMyp/fvZXaA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7452
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250407_125236_267052_5C25FF56 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,419 +201,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce tc matchall filter offload support in airoha_eth driver.
-Matchall hw filter is used to implement hw rate policing via tc action
-police:
+Add msi-map for pci-ep device.
 
-$tc qdisc add dev eth0 handle ffff: ingress
-$tc filter add dev eth0 parent ffff: matchall action police \
- rate 100mbit burst 1000k drop
-
-Curennet implementation supports just drop/accept as exceed/notexceed
-actions. Moreover, rate and burst are the only supported configuration
-parameters.
-
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c  | 275 +++++++++++++++++++++++++++++-
- drivers/net/ethernet/airoha/airoha_eth.h  |   8 +-
- drivers/net/ethernet/airoha/airoha_ppe.c  |   9 +-
- drivers/net/ethernet/airoha/airoha_regs.h |   7 +
- 4 files changed, 288 insertions(+), 11 deletions(-)
+change from v14 to v16
+- none
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index d748dc6de92367365db9f9548f9af52a7fdac187..1839e44a241ad37c1588c0d040649d93d0fac733 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -527,6 +527,27 @@ static int airoha_fe_init(struct airoha_eth *eth)
- 	/* disable IFC by default */
- 	airoha_fe_clear(eth, REG_FE_CSR_IFC_CFG, FE_IFC_EN_MASK);
- 
-+	airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(0),
-+		     FIELD_PREP(DFT_CPORT_MASK(7), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(6), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(5), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(3), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(2), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(1), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(0), FE_PSE_PORT_CDM1));
-+	airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(1),
-+		     FIELD_PREP(DFT_CPORT_MASK(7), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(6), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(5), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(3), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(2), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(1), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(0), FE_PSE_PORT_CDM2));
-+
- 	/* enable 1:N vlan action, init vlan table */
- 	airoha_fe_set(eth, REG_MC_VLAN_EN, MC_VLAN_EN_MASK);
- 
-@@ -1631,7 +1652,6 @@ static void airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
- 
- 	if (port->id == 3) {
- 		/* FIXME: handle XSI_PCE1_PORT */
--		airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(0),  0x5500);
- 		airoha_fe_rmw(eth, REG_FE_WAN_PORT,
- 			      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
- 			      FIELD_PREP(WAN0_MASK, HSGMII_LAN_PCIE0_SRCPORT));
-@@ -2109,6 +2129,125 @@ static int airoha_tc_setup_qdisc_ets(struct airoha_gdm_port *port,
- 	}
- }
- 
-+static int airoha_qdma_get_rl_param(struct airoha_qdma *qdma, int queue_id,
-+				    u32 addr, enum trtcm_param_type param,
-+				    u32 *val_low, u32 *val_high)
-+{
-+	u32 idx = QDMA_METER_IDX(queue_id), group = QDMA_METER_GROUP(queue_id);
-+	u32 val, config = FIELD_PREP(RATE_LIMIT_PARAM_TYPE_MASK, param) |
-+			  FIELD_PREP(RATE_LIMIT_METER_GROUP_MASK, group) |
-+			  FIELD_PREP(RATE_LIMIT_PARAM_INDEX_MASK, idx);
-+
-+	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-+	if (read_poll_timeout(airoha_qdma_rr, val,
-+			      val & RATE_LIMIT_PARAM_RW_DONE_MASK,
-+			      USEC_PER_MSEC, 10 * USEC_PER_MSEC, true, qdma,
-+			      REG_TRTCM_CFG_PARAM(addr)))
-+		return -ETIMEDOUT;
-+
-+	*val_low = airoha_qdma_rr(qdma, REG_TRTCM_DATA_LOW(addr));
-+	if (val_high)
-+		*val_high = airoha_qdma_rr(qdma, REG_TRTCM_DATA_HIGH(addr));
-+
-+	return 0;
-+}
-+
-+static int airoha_qdma_set_rl_param(struct airoha_qdma *qdma, int queue_id,
-+				    u32 addr, enum trtcm_param_type param,
-+				    u32 val)
-+{
-+	u32 idx = QDMA_METER_IDX(queue_id), group = QDMA_METER_GROUP(queue_id);
-+	u32 config = RATE_LIMIT_PARAM_RW_MASK |
-+		     FIELD_PREP(RATE_LIMIT_PARAM_TYPE_MASK, param) |
-+		     FIELD_PREP(RATE_LIMIT_METER_GROUP_MASK, group) |
-+		     FIELD_PREP(RATE_LIMIT_PARAM_INDEX_MASK, idx);
-+
-+	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
-+	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-+
-+	return read_poll_timeout(airoha_qdma_rr, val,
-+				 val & RATE_LIMIT_PARAM_RW_DONE_MASK,
-+				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
-+				 qdma, REG_TRTCM_CFG_PARAM(addr));
-+}
-+
-+static int airoha_qdma_set_rl_config(struct airoha_qdma *qdma, int queue_id,
-+				     u32 addr, bool enable, u32 enable_mask)
-+{
-+	u32 val;
-+	int err;
-+
-+	err = airoha_qdma_get_rl_param(qdma, queue_id, addr, TRTCM_MISC_MODE,
-+				       &val, NULL);
-+	if (err)
-+		return err;
-+
-+	val = enable ? val | enable_mask : val & ~enable_mask;
-+
-+	return airoha_qdma_set_rl_param(qdma, queue_id, addr, TRTCM_MISC_MODE,
-+					val);
-+}
-+
-+static int airoha_qdma_set_rl_token_bucket(struct airoha_qdma *qdma,
-+					   int queue_id, u32 rate_val,
-+					   u32 bucket_size)
-+{
-+	u32 val, config, tick, unit, rate, rate_frac;
-+	int err;
-+
-+	err = airoha_qdma_get_rl_param(qdma, queue_id, REG_INGRESS_TRTCM_CFG,
-+				       TRTCM_MISC_MODE, &config, NULL);
-+	if (err)
-+		return err;
-+
-+	val = airoha_qdma_rr(qdma, REG_INGRESS_TRTCM_CFG);
-+	tick = FIELD_GET(INGRESS_FAST_TICK_MASK, val);
-+	if (config & TRTCM_TICK_SEL)
-+		tick *= FIELD_GET(INGRESS_SLOW_TICK_RATIO_MASK, val);
-+	if (!tick)
-+		return -EINVAL;
-+
-+	unit = (config & TRTCM_PKT_MODE) ? 1000000 / tick : 8000 / tick;
-+	if (!unit)
-+		return -EINVAL;
-+
-+	rate = rate_val / unit;
-+	rate_frac = rate_val % unit;
-+	rate_frac = FIELD_PREP(TRTCM_TOKEN_RATE_MASK, rate_frac) / unit;
-+	rate = FIELD_PREP(TRTCM_TOKEN_RATE_MASK, rate) |
-+	       FIELD_PREP(TRTCM_TOKEN_RATE_FRACTION_MASK, rate_frac);
-+
-+	err = airoha_qdma_set_rl_param(qdma, queue_id, REG_INGRESS_TRTCM_CFG,
-+				       TRTCM_TOKEN_RATE_MODE, rate);
-+	if (err)
-+		return err;
-+
-+	val = bucket_size;
-+	if (!(config & TRTCM_PKT_MODE))
-+		val = max_t(u32, val, MIN_TOKEN_SIZE);
-+	val = min_t(u32, __fls(val), MAX_TOKEN_SIZE_OFFSET);
-+
-+	return airoha_qdma_set_rl_param(qdma, queue_id, REG_INGRESS_TRTCM_CFG,
-+					TRTCM_BUCKETSIZE_SHIFT_MODE, val);
-+}
-+
-+static int airoha_qdma_init_rl_config(struct airoha_qdma *qdma, int queue_id,
-+				      bool enable, enum trtcm_unit_type unit)
-+{
-+	bool tick_sel = queue_id == 0 || queue_id == 2 || queue_id == 8;
-+	enum trtcm_param mode = TRTCM_METER_MODE;
-+	int err;
-+
-+	mode |= unit == TRTCM_PACKET_UNIT ? TRTCM_PKT_MODE : 0;
-+	err = airoha_qdma_set_rl_config(qdma, queue_id, REG_INGRESS_TRTCM_CFG,
-+					enable, mode);
-+	if (err)
-+		return err;
-+
-+	return airoha_qdma_set_rl_config(qdma, queue_id, REG_INGRESS_TRTCM_CFG,
-+					 tick_sel, TRTCM_TICK_SEL);
-+}
-+
- static int airoha_qdma_get_trtcm_param(struct airoha_qdma *qdma, int channel,
- 				       u32 addr, enum trtcm_param_type param,
- 				       enum trtcm_mode_type mode,
-@@ -2273,10 +2412,142 @@ static int airoha_tc_htb_alloc_leaf_queue(struct airoha_gdm_port *port,
- 	return 0;
- }
- 
-+static int airoha_qdma_set_rx_meter(struct airoha_gdm_port *port,
-+				    u32 rate, u32 bucket_size,
-+				    enum trtcm_unit_type unit_type)
-+{
-+	struct airoha_qdma *qdma = port->qdma;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-+		int err;
-+
-+		if (!qdma->q_rx[i].ndesc)
-+			continue;
-+
-+		err = airoha_qdma_init_rl_config(qdma, i, !!rate, unit_type);
-+		if (err)
-+			return err;
-+
-+		err = airoha_qdma_set_rl_token_bucket(qdma, i, rate,
-+						      bucket_size);
-+		if (err)
-+			return err;
-+	}
-+
-+	return 0;
-+}
-+
-+static int airoha_tc_matchall_act_validate(struct tc_cls_matchall_offload *f)
-+{
-+	const struct flow_action *actions = &f->rule->action;
-+	const struct flow_action_entry *act;
-+
-+	if (!flow_action_has_entries(actions)) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "filter run with no actions");
-+		return -EINVAL;
-+	}
-+
-+	if (!flow_offload_has_one_action(actions)) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "only once action per filter is supported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	act = &actions->entries[0];
-+	if (act->id != FLOW_ACTION_POLICE) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack, "unsupported action");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (act->police.exceed.act_id != FLOW_ACTION_DROP) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "invalid exceed action id");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (act->police.notexceed.act_id != FLOW_ACTION_ACCEPT) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "invalid notexceed action id");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (act->police.notexceed.act_id == FLOW_ACTION_ACCEPT &&
-+	    !flow_action_is_last_entry(actions, act)) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "action accept must be last");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (act->police.peakrate_bytes_ps || act->police.avrate ||
-+	    act->police.overhead) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "peakrate/avrate/overhead not supported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	return 0;
-+}
-+
-+static int airoha_dev_tc_matchall(struct net_device *dev,
-+				  struct tc_cls_matchall_offload *f)
-+{
-+	enum trtcm_unit_type unit_type = TRTCM_BYTE_UNIT;
-+	struct airoha_gdm_port *port = netdev_priv(dev);
-+	u32 rate = 0, bucket_size = 0;
-+
-+	switch (f->command) {
-+	case TC_CLSMATCHALL_REPLACE: {
-+		const struct flow_action_entry *act;
-+		int err;
-+
-+		err = airoha_tc_matchall_act_validate(f);
-+		if (err)
-+			return err;
-+
-+		act = &f->rule->action.entries[0];
-+		if (act->police.rate_pkt_ps) {
-+			rate = act->police.rate_pkt_ps;
-+			bucket_size = act->police.burst_pkt;
-+			unit_type = TRTCM_PACKET_UNIT;
-+		} else {
-+			rate = div_u64(act->police.rate_bytes_ps, 1000);
-+			rate = rate << 3; /* Kbps */
-+			bucket_size = act->police.burst;
-+		}
-+		fallthrough;
-+	}
-+	case TC_CLSMATCHALL_DESTROY:
-+		return airoha_qdma_set_rx_meter(port, rate, bucket_size,
-+						unit_type);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static int airoha_dev_setup_tc_block_cb(enum tc_setup_type type,
-+					void *type_data, void *cb_priv)
-+{
-+	struct net_device *dev = cb_priv;
-+
-+	if (!tc_can_offload(dev))
-+		return -EOPNOTSUPP;
-+
-+	switch (type) {
-+	case TC_SETUP_CLSFLOWER:
-+		return airoha_ppe_setup_tc_block_cb(dev, type_data);
-+	case TC_SETUP_CLSMATCHALL:
-+		return airoha_dev_tc_matchall(dev, type_data);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
- static int airoha_dev_setup_tc_block(struct airoha_gdm_port *port,
- 				     struct flow_block_offload *f)
- {
--	flow_setup_cb_t *cb = airoha_ppe_setup_tc_block_cb;
-+	flow_setup_cb_t *cb = airoha_dev_setup_tc_block_cb;
- 	static LIST_HEAD(block_cb_list);
- 	struct flow_block_cb *block_cb;
- 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index ec8908f904c61988c3dc973e187596c49af139fb..31ebb46be454c26ec789ed692a2f968c6c1ace03 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -127,6 +127,11 @@ enum tx_sched_mode {
- 	TC_SCH_WRR2,
- };
- 
-+enum trtcm_unit_type {
-+	TRTCM_BYTE_UNIT,
-+	TRTCM_PACKET_UNIT,
-+};
-+
- enum trtcm_param_type {
- 	TRTCM_MISC_MODE, /* meter_en, pps_mode, tick_sel */
- 	TRTCM_TOKEN_RATE_MODE,
-@@ -536,8 +541,7 @@ bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 			      struct airoha_gdm_port *port);
- 
- void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash);
--int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
--				 void *cb_priv);
-+int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data);
- int airoha_ppe_init(struct airoha_eth *eth);
- void airoha_ppe_deinit(struct airoha_eth *eth);
- struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index f10dab935cab6fad747fdfaa70b67903904c1703..3b14ad1c126ab11ee103de6448c3640244cf7f7f 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -822,18 +822,13 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
- 	return err;
- }
- 
--int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
--				 void *cb_priv)
-+int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data)
- {
--	struct flow_cls_offload *cls = type_data;
--	struct net_device *dev = cb_priv;
- 	struct airoha_gdm_port *port = netdev_priv(dev);
-+	struct flow_cls_offload *cls = type_data;
- 	struct airoha_eth *eth = port->qdma->eth;
- 	int err = 0;
- 
--	if (!tc_can_offload(dev) || type != TC_SETUP_CLSFLOWER)
--		return -EOPNOTSUPP;
--
- 	mutex_lock(&flow_offload_mutex);
- 
- 	if (!eth->npu)
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 8146cde4e8ba370e79b9b1bd87bb66a2caf7649a..29c8f046b9910c371ab4edc34b01f58d7383ae8d 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -283,6 +283,7 @@
- #define PPE_HASH_SEED				0x12345678
- 
- #define REG_PPE_DFT_CPORT0(_n)			(((_n) ? PPE2_BASE : PPE1_BASE) + 0x248)
-+#define DFT_CPORT_MASK(_n)			GENMASK(3 + ((_n) << 2), ((_n) << 2))
- 
- #define REG_PPE_DFT_CPORT1(_n)			(((_n) ? PPE2_BASE : PPE1_BASE) + 0x24c)
- 
-@@ -691,6 +692,12 @@
- #define REG_TRTCM_DATA_LOW(_n)		((_n) + 0x8)
- #define REG_TRTCM_DATA_HIGH(_n)		((_n) + 0xc)
- 
-+#define RATE_LIMIT_PARAM_RW_MASK	BIT(31)
-+#define RATE_LIMIT_PARAM_RW_DONE_MASK	BIT(30)
-+#define RATE_LIMIT_PARAM_TYPE_MASK	GENMASK(29, 28)
-+#define RATE_LIMIT_METER_GROUP_MASK	GENMASK(27, 26)
-+#define RATE_LIMIT_PARAM_INDEX_MASK	GENMASK(23, 16)
-+
- #define REG_TXWRR_MODE_CFG		0x1020
- #define TWRR_WEIGHT_SCALE_MASK		BIT(31)
- #define TWRR_WEIGHT_BASE_MASK		BIT(3)
-
+change from v13 to v14
+- new patch
 ---
-base-commit: 61f96e684edd28ca40555ec49ea1555df31ba619
-change-id: 20250319-airoha-hw-rx-ratelimit-1dd407e77925
+ arch/arm64/boot/dts/freescale/imx95.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-Best regards,
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 15ba83ce691f4..c3c76991f1c8e 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -1768,6 +1768,7 @@ pcie1_ep: pcie-ep@4c380000 {
+ 			assigned-clock-rates = <3600000000>, <100000000>, <10000000>;
+ 			assigned-clock-parents = <0>, <0>,
+ 						 <&scmi_clk IMX95_CLK_SYSPLL1_PFD1_DIV2>;
++			msi-map = <0x0 &its 0x98 0x1>;
+ 			power-domains = <&scmi_devpd IMX95_PD_HSIO_TOP>;
+ 			status = "disabled";
+ 		};
+
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.34.1
 
 
