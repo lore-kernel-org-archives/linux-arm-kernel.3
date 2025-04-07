@@ -4,110 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEB7C369A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 12:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5602C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 12:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fG6cklCkHNYJxMIIK0GDMVqFSaYHTVH2UbG4fjsK7gc=; b=z6eoohThhOiPrzbhHyxcLYXCI2
-	4RsayDqZY5pVCKUJtqRXThma9zGHmS+/Xxc1aBq5eEYaQax8/urp5dLE9+3mmycwVeLz7nk86Kg2T
-	ntRVrDPlIMnF7hsuqYL4QAFiNQF5JbYl/0oJ2ErZ2bUQX3AUYu3l0p9+G6LUjQvQBg77DLN7SAdFi
-	N2p1T6Qc5QSjzVGpIymYZTuOAVTj8XbHhcThTJgmc4+EYoDAfYjPikSs6c1ZL6y78x/JLRiU9y2Ja
-	9U51ACg/lHTKDGDlbb+hegJ914fjVQzFRcEJCB/5izCXlRB9qYQYKS/rv0j4/POdDpWSDXjPsaEhy
-	xaYjA/GQ==;
+	bh=1pnqaorkLrZEV4we2FcGB2lZ+lYdMYMSEtj/n+/qjUU=; b=1Xj28KIDVqRfOoffDVtzpymX0V
+	j8HztjR3jEiIPfcu0WI5rrMHzeKbokWW/j00c8LMQ8AfCkNCNglzOnI8mPinoXNmouoNBcnUs2X0Z
+	kWMc6Gt1DD5NLE3qg8R8k1lJQ2BHdw6dEYdNlWyL+/4QXPfDiCIAK7+xnd0x4RHJs7b2E3FObKWyZ
+	JKTxkyuWP1AFuk+X36YHAQnXO+zkfWoATmZSeXF7le81xzqxx2Zp4NxLW4+WkUBmd8/08e0aDq8wf
+	01VhoyVpWBSSlSDlDrVYv2PBD9YgKbCdhrP1lvGubiBKP7Nx9tm80PPlpXysM9+dgNHDSRqCvto49
+	I+NP4nyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lhf-00000000GxX-14uH;
-	Mon, 07 Apr 2025 12:35:51 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1u1lhd-00000000GwL-3Law;
+	Mon, 07 Apr 2025 12:35:50 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lCL-0000000090s-01oZ
+	id 1u1lB4-000000008mM-0IWs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 12:03:30 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-39c266c2dd5so3700269f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 05:03:28 -0700 (PDT)
+	Mon, 07 Apr 2025 12:02:12 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-39c0e0bc733so3735066f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 05:02:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744027407; x=1744632207; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744027328; x=1744632128; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fG6cklCkHNYJxMIIK0GDMVqFSaYHTVH2UbG4fjsK7gc=;
-        b=Y2XiTFMRXC6hq7EBJYAb7i+PtxyECOSoi60Q5RjO3ZnE1yHx49r4OO56G7QTuBMwi8
-         9rK4+2fufJjSlfKGgPBLSaPmkyGsLvZF8WR2MoWKWqIGBYeXlwfi8yRTqzM4kc4y7ZXK
-         1/ZBaQGHrsP66xce7+aEF4nAk3RL50JvqQNu9hRiV4bT9h2mE8k5CCicx9ZqZ3mXmIU2
-         PNde0su2OROhcCvswvUH4vIvDfiGQljK3cBAJFDq7Wg8Vd8pS9HM1a7COz3aUVicHWzc
-         Q4Cp5AYjwldI5g5s3uAMu8CmTdjLFlBvwe+4md+T1QLYAmJjhm/JvG+boRySvqQtEtwo
-         MtrQ==
+        bh=1pnqaorkLrZEV4we2FcGB2lZ+lYdMYMSEtj/n+/qjUU=;
+        b=G+7VQlCMwHy+RZMiW/zBNtexzbC8CsDhteLu9wt93jYIOe36qv0smNPrLI6V2A97v7
+         haDCaNG4OVB3QpTW8Nif+OS/3w8svkV4cP2/8tKALneKcLQVGjQFIaj1KoutNJsMW/xb
+         JjCQtVoqiHivIb5vzYmY+6BG1FYfpa69yY12776YUnmgjNZQsB8hauBueKTc3MmqvDvx
+         PV9L+BFxQKU6CWS2JjCkxNtwGVhTx9QG9xMN/sTkH+qJACRKbB3Jwm1dnI4IM0i4Ali3
+         xXuxGUtTDm99xpT8IhaplE9ZD5bAYUQmMpmE8LwtUFfSkF13pA1PzZNe4VxNx6mfnd3I
+         CFow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744027407; x=1744632207;
+        d=1e100.net; s=20230601; t=1744027328; x=1744632128;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fG6cklCkHNYJxMIIK0GDMVqFSaYHTVH2UbG4fjsK7gc=;
-        b=FcvvS04SCS78pnsftkGW2vOSwUQQch1pPNC305omtSI7WoHXED+bkDLGpvnobApWq4
-         Wn4KzCYhmS5Vrjzg/wpkV663cSSbCFInqpl/84A8ODtG6h+5mrwjg/G/F1yrzP2dXZ0z
-         l1GKOpM0FeRnrfGNO2Oc2GLryE8aAMLrj6q2mmw5vChf/VeZmYF4T6VIXYcuDr200JBI
-         kHHLTs58mtYzquuy+sRnd1w6tO12vdmOUdhG3ax7KFZo9WsYtOw6Wao4J9QlL8Rv8cD0
-         YvAfAQQwKiwhqj7Es7O9kbyNdAmZ7OV546iu/nWp0Tl0JPv8zwHtl3VkbeQFE39shKFb
-         7OwA==
-X-Forwarded-Encrypted: i=1; AJvYcCXznBpu7Dv5dPhnSfHRfs+Obzjj8B0wUM15PGMuB2ZjmuRHn3J/LHptFxdSKHmpAJo+ZNb6lj4k2nnFi9VWjtbv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yznpx9vCxoSvNRwhwbwBR+A5Tw1ZWAewTD7+BsP//Q3VjsGdCud
-	Sei52YnpR2/INQ/GNlhtJ2LKZZWyb3Dg4X20zjl3NUSxqluikb63
-X-Gm-Gg: ASbGnctqLW0KwmKEYPTLNo1m2fLMsh8uF48bdupRvFkvkxbM6IeNV9EPRbxjz5b8iiv
-	PF+1hCr9iyJtGCdSr+5hygKFWorOzvpSbIiB+HMwtT9V+HaTpZNcIkJZiXJcmnOE996m7qdDZ9o
-	kPjkTlWQ5uhAy5o+IF6VeXfPBZOeLOmNKYnZZoKeJQgPOO0IfyrEsJ2QeAPuj4py7OligqamO1W
-	IhSC8KRSC1O8QVM3KRucwFviyQxqDbb66/eNlFRAVNQ6rekhaR1slWCUie7BXPRKus3ym10Ec5H
-	LzmttNrpEsoPuaEOvKNvz5lh1ThdYPBfaTYjOnyWauAwmD9gR77SufJhmDOLpUdKHEXXIg==
-X-Google-Smtp-Source: AGHT+IEbZIVKSwKGcZGaZkVGFNqeu45TBBjhVhTZoMPStlgPwCbQmNhtEp6XGXu00ZWclskzPkReog==
-X-Received: by 2002:a05:6000:2407:b0:39c:1efb:ee8a with SMTP id ffacd0b85a97d-39d0de67a97mr9832691f8f.38.1744027406917;
-        Mon, 07 Apr 2025 05:03:26 -0700 (PDT)
-Received: from iku.Home ([2a06:5906:61b:2d00:78b9:80c2:5373:1b49])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c3020d943sm11986976f8f.74.2025.04.07.05.03.25
+        bh=1pnqaorkLrZEV4we2FcGB2lZ+lYdMYMSEtj/n+/qjUU=;
+        b=OzjtbAwHsA26bMO8kOValP5IIWNURVDHMOPUp5S0wa7CQZ8F61JTVOpNQjjFYIKO78
+         nQXokzbpk8SSIRLP56hy/VVY4JbX/+MRjU6gwaZptRVJ9HpCS5w4FYKZQwHvCjXSZakq
+         ttyoUwiOBiBP0c7w9DJCNR9kj/3PcDMcWnTlaJXCXhU1kT+getbyg8L1MtWU8h8hKHhn
+         A3bHAm/EtLW36GnnKjxYp/4jmzqFaafbjgih+vI2ags6vsgGFQCXbMlrhps2BF6uokC/
+         xnkO4i3j+wK7C5rlkCmRs05ee7H0rek7HXtXZBsAGNZy7RDhA8/rVAiThHa+10kdjrnM
+         PnHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXDj+aD52UGCQfFRiTPpZpdvzhozsWDYf2VH4BGYkJcogSzE0Zen5NTQvPNlhPQr4z3Kzzty62BgHBYhcW7wOMw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzm8jc8hdmDj4GHzGcM9dvDC886DEhgBU9H0fRtKchr4y7YzX37
+	a49JymP1cHwULsrCdHEGOOMfd5L+fpwI0tvsrqsVpjHFhUXwtVC2gGRwWA2Jyr8=
+X-Gm-Gg: ASbGncsh3JToLzUf00HFmEjf6+32vxZX+n59Ir5UtTENSWliU7K4ylSi/OP9iytmajM
+	+vbV4bKyAilMOR/mo+Wyp7mame2wLIszwb1phvcQNXTfjv2rfs/tSeoO4VWwSHuYDIpOyzguyp3
+	3j7NSQoQKjiyN8z+BGJ1tV/uI/1YXmXJfgdUZ/ki99FuP33Nl76jqUf0pPdofn53iyY8PV5pvNs
+	9YuORqghjyQFgtoMxbVZIdg5D6/aBKeex298a/a0d2d9FHJCCHRxlqj03xBVszhAPt+S3z45rqG
+	LgWMIto5gWjjQ5UHCo1qRB2r1nYnZfDj0yseEw4d7Nwa
+X-Google-Smtp-Source: AGHT+IHQzfBlcrdH5SeBUOUhvSnbXFRgYmEUvgyqEtRbmlRwoKeao0pvP22bOvClSu4BfKDmGCcmaw==
+X-Received: by 2002:a05:6000:1788:b0:38d:d666:5457 with SMTP id ffacd0b85a97d-39cba982600mr9594792f8f.42.1744027328186;
+        Mon, 07 Apr 2025 05:02:08 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:8c64:734d:705a:39a7])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c301a6796sm12061650f8f.31.2025.04.07.05.02.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Apr 2025 05:03:26 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
+        Mon, 07 Apr 2025 05:02:07 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
+	James Cowgill <james.cowgill@blaize.com>,
+	Matt Redfearn <matthew.redfearn@blaize.com>,
+	Neil Jones <neil.jones@blaize.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH net-next v5 1/3] dt-bindings: net: dwmac: Increase 'maxItems' for 'interrupts' and 'interrupt-names'
-Date: Mon,  7 Apr 2025 13:03:15 +0100
-Message-ID: <20250407120317.127056-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: (subset) [PATCH v2 0/3] Add support for Blaize BLZP1600 GPIO driver
+Date: Mon,  7 Apr 2025 14:02:05 +0200
+Message-ID: <174402729978.46356.11201188338288043335.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250327-kernel-upstreaming-add_gpio_support-v2-0-bbe51f8d66da@blaize.com>
+References: <20250327-kernel-upstreaming-add_gpio_support-v2-0-bbe51f8d66da@blaize.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_050329_046328_79E9F079 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20250407_050210_113819_7568DF41 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,78 +111,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Increase the `maxItems` value for the `interrupts` and `interrupt-names`
-properties to 11 to support additional per-channel Tx/Rx completion
-interrupts on the Renesas RZ/V2H(P) SoC, which features the
-`snps,dwmac-5.20` IP.
 
-Refactor the `interrupt-names` property by replacing repeated `enum`
-entries with a `oneOf` list. Add support for per-channel receive and
-transmit completion interrupts using regex patterns.
+On Thu, 27 Mar 2025 11:27:03 +0000, Nikolaos Pasaloukos wrote:
+> This patchset adds a GPIO driver for the VeriSilicon APB v0.2
+> hardware. This controller is used in the Blaize BLZP1600
+> SoC for its GPIO interface. It is essential for upstream
+> support since it is used to provide signals for the
+> Ethernet, USB, SD and many other interfaces.
+> 
+> Adds the GPIO interface to the Blaize BLZP1600 SoC devicetree.
+> 
+> [...]
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
-v4->v5
-- No change
+Applied, thanks!
 
-v3->v4
-- Fixed maxItems for interrupt-names property
-- Added RB tag from Rob
+[1/3] dt-bindings: Document Blaize BLZP1600 GPIO driver
+      https://git.kernel.org/brgl/linux/c/5de6156a402b2d2432767478fe75c40f9755232f
+[2/3] gpio: Enable Blaize BLZP1600 GPIO support
+      https://git.kernel.org/brgl/linux/c/52eafd817651d44ab006c83ebd98f5dd687df2d3
 
-v2->v3
-- Dropped adding `additionalItems`
-- Moved interrupts description into interrupt-names
-- Replaced enum with a oneOf and added Rx/Tx regex patterns
-
-v1->v2
-- No change
----
- .../devicetree/bindings/net/snps,dwmac.yaml   | 24 ++++++++++++-------
- 1 file changed, 15 insertions(+), 9 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 78b3030dc56d..4d4fcaeca8a8 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -114,19 +114,25 @@ properties:
- 
-   interrupts:
-     minItems: 1
--    items:
--      - description: Combined signal for various interrupt events
--      - description: The interrupt to manage the remote wake-up packet detection
--      - description: The interrupt that occurs when Rx exits the LPI state
--      - description: The interrupt that occurs when HW safety error triggered
-+    maxItems: 11
- 
-   interrupt-names:
-     minItems: 1
-+    maxItems: 11
-     items:
--      - const: macirq
--      - enum: [eth_wake_irq, eth_lpi, sfty]
--      - enum: [eth_wake_irq, eth_lpi, sfty]
--      - enum: [eth_wake_irq, eth_lpi, sfty]
-+      oneOf:
-+        - description: Combined signal for various interrupt events
-+          const: macirq
-+        - description: The interrupt to manage the remote wake-up packet detection
-+          const: eth_wake_irq
-+        - description: The interrupt that occurs when Rx exits the LPI state
-+          const: eth_lpi
-+        - description: The interrupt that occurs when HW safety error triggered
-+          const: sfty
-+        - description: Per channel receive completion interrupt
-+          pattern: '^rx-queue-[0-3]$'
-+        - description: Per channel transmit completion interrupt
-+          pattern: '^tx-queue-[0-3]$'
- 
-   clocks:
-     minItems: 1
+Best regards,
 -- 
-2.49.0
-
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
