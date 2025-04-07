@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09DFFC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 13:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD272C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 13:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0TmOhe1bI1nRNV0NE53OyjwkYey+CrXkJvZIridblTc=; b=F9qjcdm76Dj1xDJUB04uHNU99c
-	TR904gNQvoKD5NbRjz7vQdqndr3sCbEjm6uZo1IIaqfORUzP/kZhxsg8TvyACKsLwcK2CMUv8kCPE
-	k6AypiM2NzuMMPq2f167QOefF2jfdJtnbM6oGHYS8Imu7m+bmvCvkXLStsyQUIwneD80uj7qqtp6N
-	1zpY05jGnFHjNJNn2TL0Qc8a4qPpsDHlDwEl8V544CnY2FwrKdeNZYg3FwQ5HfPjvuLeRX1Fl8MY7
-	stSqQye+l2b87EF4qODIqGPn+Rhbpqh7Q7T9x5++iG5S+tb3pVfFBLY3PjWLixSl9S41shOS8uyhC
-	jcfTLB0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JW7NRP7hVniWiGB6UL0laEFQgAVHaVo7/jjO5z8p93o=; b=gBQBxt0cDbNQmcIbOPPzeviQea
+	sQKGknLoeB2KjibKsIYHaNAHNp7pq4d/RIh9hMWREBxu76HNJsFxBvfQCTiW3f3m7lV6bW4tAO+IC
+	qduRRDlrxZFbUSV9uv6EjvKI1vb7KUXyi2sHzdLm5pUj4Cbp9Wd+ZiasK8VNMWrFHlWkx/YBdf7w6
+	AvsrydGcyRQtIETeCn4YaaYRIlNov6WbD8JE8Ewpce7kN74LjRRCvW9iCKSRFaHucrwQsjTwv9Sdp
+	A+Bifwhm+92ymldAisxYN1XXlE1uXWc6lY1qWPJJw66tvrdUFDKbSrVYJEOyWW44T2VQCUIzbqWzS
+	m1ercWEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1mvx-00000000bzl-292S;
-	Mon, 07 Apr 2025 13:54:41 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1u1mxh-00000000cO2-0g5A;
+	Mon, 07 Apr 2025 13:56:29 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1mZs-00000000WyI-1YhK;
-	Mon, 07 Apr 2025 13:31:54 +0000
-X-UUID: a7588b9c13b411f083f2a1c9db70dae0-20250407
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=0TmOhe1bI1nRNV0NE53OyjwkYey+CrXkJvZIridblTc=;
-	b=MflTLccGJpLit7Gr+NV3MbXWbzGvQ2CoWjHt7LUbcKdzXjYDXQwf0+k9+Atjys+Pr1bzpGUqb71F99soDlNhOoP65nfrI5Yza7M8ZBKdZUQ3mDlxV2hxqfeOQTOsS563CvuqS+UbYoKZSnj+w2iVHXMx4b4/uPmYazjGHCFpoz4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:de0f6175-4fba-4e27-9119-b84045d86f1f,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:70b546c7-16da-468a-87f7-8ca8d6b3b9f7,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: a7588b9c13b411f083f2a1c9db70dae0-20250407
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <bincai.liu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1241197495; Mon, 07 Apr 2025 06:31:47 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 7 Apr 2025 21:31:44 +0800
-Received: from mszsdhlt06.gcn.mediatek.inc (10.16.6.206) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 7 Apr 2025 21:31:43 +0800
-From: Bincai Liu <bincai.liu@mediatek.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Jitao Shi <jitao.shi@mediatek.com>
-CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-phy@lists.infradead.org>,
-	Bincai Liu <bincai.liu@mediatek.com>
-Subject: [PATCH 4/4] drm/mediatek: dsi: Enable runtime PM
-Date: Mon, 7 Apr 2025 21:31:25 +0800
-Message-ID: <20250407133138.22449-5-bincai.liu@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250407133138.22449-1-bincai.liu@mediatek.com>
-References: <20250407133138.22449-1-bincai.liu@mediatek.com>
+	id 1u1mZw-00000000X0U-2IbZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 13:31:57 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e614da8615so3035390a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 06:31:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744032715; x=1744637515; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JW7NRP7hVniWiGB6UL0laEFQgAVHaVo7/jjO5z8p93o=;
+        b=V7nz4edanG1zu0gXmC1dikfadHhgGZXcn3DS/p0YQS0OXiPP377l7Go+G0Elq2QzKu
+         XuaI971FatZqVAtWiIF3brGYGrbdK0vCQwkWZylZhjCt9qDINmj8+Bw83imtArNvSLmc
+         7Be2dzCwNtzxtd5q4qQrxunJ1WMUWNmnJhsF8J4UlxBUzAmYif8KuNaJ2RJ9M/U++MxB
+         2jfdhdsjdDqWiFX6v9/3l5CcGxaSY/xgNpj3Khvu9fvTn/LZxETcJ/8JrC294fKRqYFN
+         ItKHaf+2iAP8JLIhl6dKJFWqeoC/OqP3k9AIzM3TXgPCUEwFRon4cx/6KLLyYDTKzH/1
+         lX7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744032715; x=1744637515;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JW7NRP7hVniWiGB6UL0laEFQgAVHaVo7/jjO5z8p93o=;
+        b=T+B8f4oMgrRJ7tauDMcX65Q+zipdNbG3/JfWjzp5J2Y10h3uaq1kezxLcw0dLqoAyR
+         3tIG0wBPiEXYcPeavsiHvnx9vroDsR7A5RxZbuLtceQS9jv64TKGRmXZWFime5ilfwfj
+         vYLCR2KsaXaTZLgsxUChwd2hvIm3A5aweFFzpKpMU8wLc7zjQXa6WTxKlYQlsYunPjsn
+         vOxBUe9RVg2wmT/nSvRNx8IsBz5/6teUPwPzf6VJ4JzbTSR4ntSH+dB3ntIH3yrWolBY
+         TUhlW3f4JxCFc52sqXNCbCkiSnkTgCe2jOTyRyS8fKtIvvxmI0utSVpXQgrTLgow5iiY
+         EgDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV7vZ9CWHdrk7ItGtqtixywI5IixDvTxEUh+Dbf6BUzp3BiG0sXTzDn5VcWFqAJDyxlF1sbjpo48WcQYuuQte4o@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU3dmqUr9lWm+YyRfEXZQBMfQKXF56P2Z4XK2m5Of4nA9dAdEg
+	ATqy+lc7Kc3uFInL7Ihz6bkACo/FK74IYUBTcVG0iYWkgXW/ykLJu2yf6ZEAx3VtRr4Q+xso342
+	m7cAO2c55Tq6i8PM9qSueYgk6vdB9k9dmMng=
+X-Gm-Gg: ASbGnctGklIOMJDuby7CfLYcgLkmm0jQCQiNQK1d5xrQT7BA4W7W/4OTIZmW8YsiBw0
+	dEwyzIwMnvPVLjV4OII5cqWWZsdNz/lapE6uojz+x+Lkeknyud+Rkw/OM/ATy4IkNkVFdGBmbFz
+	hBN3DGDzx4U85JgibwJSQPhX50tg==
+X-Google-Smtp-Source: AGHT+IFBlB6Ga15umPa39EQLS5gekFeGZCivZxz5YF+QtcJdtzN/ayMPgiFJeUDLz8ax5kgoj5rU5Ip1Rp8qsQe8kcM=
+X-Received: by 2002:a05:6402:430a:b0:5ed:19b4:98ea with SMTP id
+ 4fb4d7f45d1cf-5f0837374bamr13633396a12.0.1744032710021; Mon, 07 Apr 2025
+ 06:31:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+References: <20250407092243.2207837-1-xavier_qy@163.com> <20250407112922.17766-1-ioworker0@gmail.com>
+ <5e3f976f.bca1.19610528896.Coremail.xavier_qy@163.com>
+In-Reply-To: <5e3f976f.bca1.19610528896.Coremail.xavier_qy@163.com>
+From: Lance Yang <ioworker0@gmail.com>
+Date: Mon, 7 Apr 2025 21:31:12 +0800
+X-Gm-Features: ATxdqUFxa60yAB7AlomJiSWp637JosPrB4u1vsUKdG1vfTWoIp9hVXH1SuDnoCU
+Message-ID: <CAK1f24=hwXCg6K8a=qoWi2DGEWFGBcenSGRoKXtJEo=iR4DtDw@mail.gmail.com>
+Subject: Re: Re: [PATCH v1] mm/contpte: Optimize loop to reduce redundant operations
+To: Xavier <xavier_qy@163.com>
+Cc: akpm@linux-foundation.org, baohua@kernel.org, catalin.marinas@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	ryan.roberts@arm.com, will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_063152_447341_27864B80 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250407_063156_604717_55212F77 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,59 +96,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This power is new added in MT8196. So runtime PM is enable
-to turn off dsi power to reduce power consumption.
+On Mon, Apr 7, 2025 at 8:56=E2=80=AFPM Xavier <xavier_qy@163.com> wrote:
+>
+>
+>
+> Hi Lance,
+>
+> Thanks for your feedback, my response is as follows.
+>
+> --
+> Thanks,
+> Xavier
+>
+>
+>
+>
+>
+> At 2025-04-07 19:29:22, "Lance Yang" <ioworker0@gmail.com> wrote:
+> >Thanks for the patch. Would the following change be better?
+> >
+> >diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> >index 55107d27d3f8..64eb3b2fbf06 100644
+> >--- a/arch/arm64/mm/contpte.c
+> >+++ b/arch/arm64/mm/contpte.c
+> >@@ -174,6 +174,9 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+> >
+> >               if (pte_young(pte))
+> >                       orig_pte =3D pte_mkyoung(orig_pte);
+> >+
+> >+              if (pte_young(orig_pte) && pte_dirty(orig_pte))
+> >+                      break;
+> >       }
+> >
+> >       return orig_pte;
+> >--
+> >
+> >We can check the orig_pte flags directly instead of using extra boolean
+> >variables, which gives us an early-exit when both dirty and young flags
+> >are set.
+> Your way of writing the code is indeed more concise. However, I think
+>  using boolean variables might be more efficient. Although it introduces
+>  additional variables, comparing boolean values is likely to be more
+>  efficient than checking bit settings.
+>
+> >
+> >Also, is this optimization really needed for the common case?
+> This function is on a high-frequency execution path. During debugging,
+>  I found that in most cases, the first few pages are already marked as
+>  both dirty and young. But currently, the program still has to complete
+>  the entire loop of 16 ptep iterations, which seriously reduces the effic=
+iency.
 
-Signed-off-by: Bincai Liu <bincai.liu@mediatek.com>
----
- drivers/gpu/drm/mediatek/mtk_dsi.c | 5 +++++
- 1 file changed, 5 insertions(+)
+Hmm... agreed that this patch helps when early PTEs are dirty/young, but
+for late-ones-only cases, it only introduces overhead with no benefit, IIUC=
+.
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index b1467d6bed06..21cfba1f9b89 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -12,6 +12,7 @@
- #include <linux/of_platform.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/reset.h>
- #include <linux/units.h>
- 
-@@ -715,6 +716,7 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
- 	dsi->data_rate = DIV_ROUND_UP_ULL(dsi->vm.pixelclock * bit_per_pixel,
- 					  dsi->lanes);
- 
-+	pm_runtime_get_sync(dsi->host.dev);
- 	ret = clk_set_rate(dsi->hs_clk, dsi->data_rate);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to set data rate: %d\n", ret);
-@@ -789,6 +791,7 @@ static void mtk_dsi_poweroff(struct mtk_dsi *dsi)
- 	clk_disable_unprepare(dsi->digital_clk);
- 
- 	phy_power_off(dsi->phy);
-+	pm_runtime_put_sync(dsi->host.dev);
- 
- 	dsi->lanes_ready = false;
- }
-@@ -1272,6 +1275,7 @@ static int mtk_dsi_probe(struct platform_device *pdev)
- 	dsi->bridge.funcs = &mtk_dsi_bridge_funcs;
- 	dsi->bridge.of_node = dev->of_node;
- 	dsi->bridge.type = DRM_MODE_CONNECTOR_DSI;
-+	pm_runtime_enable(dev);
- 
- 	return 0;
- }
-@@ -1282,6 +1286,7 @@ static void mtk_dsi_remove(struct platform_device *pdev)
- 
- 	mtk_output_dsi_disable(dsi);
- 	mipi_dsi_host_unregister(&dsi->host);
-+	pm_runtime_disable(&pdev->dev);
- }
- 
- static const struct mtk_dsi_driver_data mt8173_dsi_driver_data = {
--- 
-2.45.2
+So, let's wait for folks to take a look ;)
 
+Thanks,
+Lance
+
+> >
+> >Thanks,
+> >Lance
 
