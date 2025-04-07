@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6538CC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 14:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E192BC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 14:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tpfNEX886JJA0Ip+wlSi9pdSxOoehCUc9pmM+Pa5XiQ=; b=3O4ATdVcS06QQmCmcqqTTgH6/X
-	v90BlVP0Fn5R9+k0k9V3v747H6e3g2DNib+r/J9YaNn8Ainc/JsXlkMBKVszNEXHU73DNFH3iMhn5
-	Ix0RVwZOnwbRUTutv5W9Rti+FDE/b5dpb5qTCeoK8XygBfrwCnlZRw9SbNlyp7x5Y1VPXceJnLbZc
-	zKIfkRik3hkE4PSPCvGnwtmO6xU7J20FuzxSYZTaJBAUJEejzK/NyJIPTIfVGSfUNr9iaps4rYsBl
-	/2ax/y00FGymvxMGhINncA1pku0Z5mEhmxU7PCQV0ui7imZhzLDfvdpToAYw+K1Mm5t80Lh0qm4LI
-	MGhtOhug==;
+	bh=AB0IAhO4R7Udo7Y4L4gNpZublBPLZole63NVpY8cdPk=; b=wepTsmt/0jcawhz5jKL6gMygBg
+	SJwJwMhBSO5RK9MZPwjGmPU4WE2AovJMzqbdOp+7bfR1CSD6dYRuxiHa+IhAr4GUlhggPK7S/7dBZ
+	mt7k+xGYmeV5vNhksSS7VOjXM/rtwY9Z7h5Vz+QsC2+y7LEsLBnXip369Yoegp0jey9QPbexYiKqz
+	beGL7Og54unNIwP2/vvkdqRg+H5kSNIWdbeDqqJtTWOr6Xpo4TkiGI1OPNmJ0MDE5x4u56BNTphi/
+	tIIJA1s4HmxWGbQ0MOLlhU4XIhmMHBqmsBcFeeFdp4xbDfVfhKbSZ+Y5eWiUQZLlQDo7WWxMocxII
+	19V/qqLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1njO-00000000nDd-0Tv7;
-	Mon, 07 Apr 2025 14:45:46 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1u1nl7-00000000nc6-2AM4;
+	Mon, 07 Apr 2025 14:47:33 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nOv-00000000iCY-1IzN;
-	Mon, 07 Apr 2025 14:24:38 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B2718443B2;
-	Mon,  7 Apr 2025 14:24:32 +0000 (UTC)
+	id 1u1nOy-00000000iF6-3IbA;
+	Mon, 07 Apr 2025 14:24:42 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C629143281;
+	Mon,  7 Apr 2025 14:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744035875;
+	t=1744035878;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tpfNEX886JJA0Ip+wlSi9pdSxOoehCUc9pmM+Pa5XiQ=;
-	b=guKLDSG0OryeNTVQUscsnDN2jtHQDrHGN+gaVbSQCMSbt8gXunMyiCqMVIWL02YqiDmWOr
-	nZeOdlm4iyUVVlTcMkI6CgngGn/YO+b0AaauWToH/I/pz1vkNivtzlsnhbfwOkmEXmBfNe
-	7IN2gqf9TvjHQO3gLG+SBrTgoKmX+6h8JoQyn+013z++Jgpgm3CvWnb5hyOte/dq72WRPB
-	lM/oKZtcgnJFxvhWV8WfhqawuDvDLyvo6smkeNdPcYPZwfDoVyxmmIBLYJqIlvt98azIQI
-	/E0VKTC5YHVtbyl6IU7hvB+mK9qrlsQXcix3Pikn1hmtmVqU1x/LzkUbwTxvUg==
+	bh=AB0IAhO4R7Udo7Y4L4gNpZublBPLZole63NVpY8cdPk=;
+	b=aZS6BPBaT9dFZkinWqde717qYLuOPCc8PMZ7XoNNQlKoeJJRF/s3+OQ0boCV9RXh0SiJ1s
+	DXiyWUl2/lkk650DVDrgBNULVi+TSv57AeCB7KO16KiFJU8o7M4SV0zRDBFY4PG8zy41Np
+	CawKg0g9Br93HXXNiUwSF32emwBcYF5q9M6RV3JS2j2DXG0Os4fKD+UiqGlMf1hDCm6OsV
+	VLoJmA5rWu+RV1j7URrNGQE3ktXS0Og2ooLN9ZsYZE+jLpWLFFXI6CshLxQtAcEo7FxViJ
+	Y6a+MX/XcZ+f7SI5SCEjyzPpMlDNNz57PbDqC5b4+D7vF1dWUKszN82zfH9taA==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Mon, 07 Apr 2025 16:23:26 +0200
-Subject: [PATCH 11/34] drm/bridge: dw-hdmi: convert to
+Date: Mon, 07 Apr 2025 16:23:27 +0200
+Subject: [PATCH 12/34] drm/bridge: tda998x: convert to
  devm_drm_bridge_alloc() API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-11-42113ff8d9c0@bootlin.com>
+Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-12-42113ff8d9c0@bootlin.com>
 References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
 In-Reply-To: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -78,7 +78,7 @@ Cc: Anusha Srivatsa <asrivats@redhat.com>,
  linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
  Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+ Russell King <linux@armlinux.org.uk>
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
@@ -86,8 +86,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgedvucetufdoteggode
  hgvlhdrohhrghdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomh
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_072437_486439_01B71672 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250407_072441_048509_20A9A839 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,36 +108,36 @@ Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Russell King <linux@armlinux.org.uk>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 7 +++----
+ drivers/gpu/drm/bridge/tda998x_drv.c | 7 +++----
  1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-index b1cdf806b3c4007dfef09c632fea354f7f6001b5..9bc3fb5c55045f0122bd6369b7e2139104b49e07 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-@@ -3333,9 +3333,9 @@ struct dw_hdmi *dw_hdmi_probe(struct platform_device *pdev,
- 	u8 config0;
- 	u8 config3;
+diff --git a/drivers/gpu/drm/bridge/tda998x_drv.c b/drivers/gpu/drm/bridge/tda998x_drv.c
+index 9c5bb2a1676986c89f47e23fe33dfa391a3de30a..9372e26d96a85f223a5f2d107ac01c2b4c9ba88c 100644
+--- a/drivers/gpu/drm/bridge/tda998x_drv.c
++++ b/drivers/gpu/drm/bridge/tda998x_drv.c
+@@ -1781,9 +1781,9 @@ static int tda998x_create(struct device *dev)
+ 	u32 video;
+ 	int rev_lo, rev_hi, ret;
  
--	hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
--	if (!hdmi)
--		return ERR_PTR(-ENOMEM);
-+	hdmi = devm_drm_bridge_alloc(dev, struct dw_hdmi, bridge, &dw_hdmi_bridge_funcs);
-+	if (IS_ERR(hdmi))
-+		return hdmi;
+-	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+-	if (!priv)
+-		return -ENOMEM;
++	priv = devm_drm_bridge_alloc(dev, struct tda998x_priv, bridge, &tda998x_bridge_funcs);
++	if (IS_ERR(priv))
++		return PTR_ERR(priv);
  
- 	hdmi->plat_data = plat_data;
- 	hdmi->dev = dev;
-@@ -3495,7 +3495,6 @@ struct dw_hdmi *dw_hdmi_probe(struct platform_device *pdev,
+ 	dev_set_drvdata(dev, priv);
+ 
+@@ -1948,7 +1948,6 @@ static int tda998x_create(struct device *dev)
+ 			tda998x_audio_codec_init(priv, &client->dev);
  	}
  
- 	hdmi->bridge.driver_private = hdmi;
--	hdmi->bridge.funcs = &dw_hdmi_bridge_funcs;
- 	hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID
- 			 | DRM_BRIDGE_OP_HPD;
- 	hdmi->bridge.interlace_allowed = true;
+-	priv->bridge.funcs = &tda998x_bridge_funcs;
+ #ifdef CONFIG_OF
+ 	priv->bridge.of_node = dev->of_node;
+ #endif
 
 -- 
 2.49.0
