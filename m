@@ -4,150 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA01C369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65737C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yFSPB2Esstnw7o9Wizz12Z1D13AxYfacj62fdsuu4pI=; b=DtqhV0d+67xm/PVJU4EhDcuqT4
-	sK8iJe6pu1tEMsC83Q/fDNww5u/7XZNs/KQX4RAVQxvrAtVL2XLruysZNKyZ/TDcdWjlpky0gPqo9
-	sBgAfIPmVOBkdM+4hIipRJ1OqCQgGv5VMF1XXV/n+0r7qlyK9ffCI2cTQH2BBz2WafhRYviH34Yxo
-	cYuJSavLQkJT6YLIDkWMJQ60h8rpfxIbVLfvlCkw8m2kLnIeHNsDgcag4lSsP/h4Sx3stjrRUoGye
-	2NLbHIw9+NpcxsMx1v3iTqkq3pfBZKK+RWwmJJv11KtIk1zQq6QnKdHfz4Pf0osbXDoDa7TLIiyKv
-	fxC89QIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ljtxhmEe2XvSJFPRZLmLhm9oOIVAqvWReFSOt396pAs=; b=b1ULURfhKPZgs0IIVqENUR11sE
+	3I+qH1Zbcmuix4I53UHael4+mW3KOjpn+L31RrqowqV5n8dFH0RnAIvceDbb4HGtQwBY5ohO9RTWq
+	CrQTwpvhagaa78GvS+LnjGCoHJALSg8bwQbVx6YHybbqm+mr0iF8fZtwFRDgwLdstvlMllGWn/pqS
+	z/yNNDIV0E9bPHZBbgEAGXM3gk/98W0OJpm0mBLvf7rCMrieBheNWf+62iMnpSBtpWtWgkHRWw28g
+	xkj5zDNCwY4e0idPU9Wg9+ctyaHLVkJeQGaW0+aJRFOLPG38omqjUWXptiSO8BQ42jV1BUzTSjza+
+	omquFH1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uJR-0000000259b-2wyt;
-	Mon, 07 Apr 2025 21:47:25 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1u1uJV-000000025Ft-2uwx;
+	Mon, 07 Apr 2025 21:47:29 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rnG-00000001kdS-30DO
+	id 1u1rx8-00000001mGv-1A6E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 19:06:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ePOfc4cL+diuxPy4iVZcCnfKC3ujoGWercHlIMmBq49kdHuO3QtdFZdsZ9It35yk3l6Kp39CzUue9nvMJtep8EZA/u1Opv07vwqD8pJ9oh131lJfPk/UC9p7HdOmrpE6m6DMG7J90g3hO5XBgazGIJK8FAfaaHRzH+Biy2sDRVy/ZmWc4sv39VDTfsfsFrWsQUKnffrfGt+WNf4BtONm9kPPjIKRKzn7ZhFyMUMw+M6HqLYEnhwjZGfS2TvoW3vENj6xeXAxpGvdWBPGqGLSXWtwCdp7b+btU5dR64jLj9IL4GaWEpwS52qtfxMeB2G3XGpF1wm6YvlOJLb7lkQh8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yFSPB2Esstnw7o9Wizz12Z1D13AxYfacj62fdsuu4pI=;
- b=gK/raIFr0Qvq5JO+OLQ1VwkYTc7yXbcnVW5EpWkhqIZDRjL5T+ftlmu7+Plyhee9GrvZ32vZZk/C9zvkWh7RE4PsZCOpJmx/6c9Om/Iz/VeMRJG9j1cdTQSQh1PPLAqP3Cp11GDD+03sCHvdDbyKvMnP5UtnbfeUx6gdO0Dwu3fO//VXZshHgvOn4HIwt5z6Prateai3fC2yyM/nvpj+5bDTGuRLjMMTvfM/fweWT+sSbGHbbtHgFl5wZJ22JCkgiESQPmnwaRi8noLWC12zz0BBS6ttRW7NAoFv6Rr7aW3MjHuRwOpPSXEjPYew9DzgU2FdSOAPBNtS8WYzp5Of+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yFSPB2Esstnw7o9Wizz12Z1D13AxYfacj62fdsuu4pI=;
- b=DDi7BNviFbo2yzYqjeuQr/VHAOqn2NigZPEYFHNAf5KLmzyUaJU3zWt4/5ou1MQiyYUEz7wRcqWniyAicEHH/jQC7/j5zX6ha3+5AfZSY7u2sAQdHmt7nMFp9ZYC7tqzgSkSH5QjH7Dj+TywQ+rOObpatMOwsTeqQtWrW3u+aL8aKM+IzGv9ODBj2D2yqRrYhRm6hjz05kcBwoP2SzAmE8dC3TIW44jKBjIA/nkPb2PuJa7GuU6tVzHwpICsrNVPIvJ8/68gXb8fY1n/aelmV92sb4wDWZzqhVghSZrkJkFBUMNgIObABh48Vvw8lXYNZR4+muDaiAQVcVWwSlU1Vw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DUZPR04MB10064.eurprd04.prod.outlook.com (2603:10a6:10:4d3::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.43; Mon, 7 Apr
- 2025 19:05:58 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Mon, 7 Apr 2025
- 19:05:58 +0000
-Date: Mon, 7 Apr 2025 15:05:49 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v15 3/7] arm64: dts: imx8ulp: add secure enclave node
-Message-ID: <Z/QiDQCgq7utUs54@lizhi-Precision-Tower-5810>
-References: <20250407-imx-se-if-v15-0-e3382cecda01@nxp.com>
- <20250407-imx-se-if-v15-3-e3382cecda01@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250407-imx-se-if-v15-3-e3382cecda01@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0149.namprd03.prod.outlook.com
- (2603:10b6:a03:33c::34) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 07 Apr 2025 19:16:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ljtxhmEe2XvSJFPRZLmLhm9oOIVAqvWReFSOt396pAs=; b=enbxzDpuPpTP2xGri0KCGBzPmZ
+	XYfDC8qA1fW9POEr90NwD5fCBu7Z63r54v9REz9bg8BjgJcVZ61XoJGQNTrHIeCoS3XT3+5q+24th
+	j+xT2NHJPOq1eDho0j8BS+3z2dVxe7pgEIIVI2VFkGkdPDtQmv6TJZOsGopPb4HvZnn0yowTBxeiR
+	XpLSENbZCNPfZCCXqZllhqUYKRKtxv9dbpr5hrokdch3YNhafQG+2iuGcxps6m/8m4ifUBY+10fHz
+	FyAqiRty2RBgaHJE798ng34eYiBX/gGZMaybF6tQzrtHifLtAOlOY9ZRRlkYqV/7RMIC6A2ssRWat
+	v/9OBB8A==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:37898 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1u1rx1-0006Cc-1e;
+	Mon, 07 Apr 2025 20:16:07 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1u1rwV-0013jc-Ez; Mon, 07 Apr 2025 20:15:35 +0100
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next] net: stmmac: stm32: simplify clock handling
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DUZPR04MB10064:EE_
-X-MS-Office365-Filtering-Correlation-Id: cacd1586-c281-4159-24c1-08dd76073af1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8k2mpa8/Y7YVziwJoPunQRYpl3Y+umhkGWV+txwU9Pr8vTOJNJcVBe1k3OD0?=
- =?us-ascii?Q?qftVOR2J1970SJm5Yw02KnwQarlIBUMGvG5ba0yPzdYr7A4om/Mdw1mYjGpv?=
- =?us-ascii?Q?0zBDuGRToiBFBe+jDfZjbsuSTE8tULuZRAi6K1wOQJ067Agpuce3cG2L2F0U?=
- =?us-ascii?Q?cm9YFUEgGomeins3msp70K/wNAIzQden7wuKMIBCDdcxLeDfDDeKBF2QfAvA?=
- =?us-ascii?Q?AO4zgOw96U6TBhTvncdmOHS/9IbHRIfJYO8wGBIJLUI7MRISxyZtUui9axRr?=
- =?us-ascii?Q?5SwN+ptL/0VODPnZ9AwtJs8f1V9UU1E1+zaBzgA8g6sNzjAfLsBN4WgdAQWt?=
- =?us-ascii?Q?AXLWhUVeXpaxFxh1DB4Xyz5NxDVlHrykmJwrA0jO90EIkgxPM7DmEDqVVh8j?=
- =?us-ascii?Q?Ur/tkEtxT0geLyjjKhkJgirMEo78BCnFUmQd7aWNa6EKUf/FtwhKh2v1WnRW?=
- =?us-ascii?Q?vbdyKl7+0oFGMmYMaK6dN57XGioxtgtCA49B32KzXLL0zI0lPxMZE+7kkKBh?=
- =?us-ascii?Q?9h+uaJgoYh/blNTmnhuX762fkYAa3x+UZ2S7pgr0Yddbe2cqbfTiBVH0ASAW?=
- =?us-ascii?Q?/rR0ysPHoW77Fv+LT/CAMU0F1d9RKHgHgXfLKL+/A8vcVD0J/hH6VlVeG7rk?=
- =?us-ascii?Q?+98aM+qPMAu60H92pZAKsrBWxQPUlMdRYjbJfJAAKZQCCHqzilkMEkQm6iuM?=
- =?us-ascii?Q?XpCGdZMo/dvKcgIT+EC3ct8noTfNoHA5bWntfZlZqsnF9WXdfS/BHA+/VB/b?=
- =?us-ascii?Q?LcBQgr11+TKJm6VFc9bxHcHrEAnJcBpmi0Xv734xe/fBO4de26r0mpVe+pXH?=
- =?us-ascii?Q?xUwN2Ov5z+TNtc2Z2vIqcgp8P+JGayO1G0dy1LXNVgUEYCEwbs1TNDPZaFNL?=
- =?us-ascii?Q?HHP319lex/AHGnNXM0+rkU5Lo8ZsZWM3qTG8sbLcv2RTFm0+M2zj2T9VvN3A?=
- =?us-ascii?Q?fzTurgzjMm4I9L3TW49fAe1h5bSOGfE6PSj8deB705N7ccKun+M/2dqJ4F9M?=
- =?us-ascii?Q?qvWkpJ2arDoBRzFNxWrt1hp00eUfYYVv4q64hSROpdxfMxbQ+4p+hWWZ+VEN?=
- =?us-ascii?Q?YUuD342iXsmbpPKjxvel423KrcLl2ZDGkz5MLrkvDWEhQo77KjVVQB21HGqq?=
- =?us-ascii?Q?eOOgKS2dmE92W9wslM64z30qqcrK7/BDjprMuYQv+le1E6by8sbeFDBqfr4n?=
- =?us-ascii?Q?BijA1UFF73/JUJoS7tFc5C40vEGej7A1muV0s0lrPQTSAlavYjltXFx1YSW3?=
- =?us-ascii?Q?wcc93PnZRDpJdsMsMWgymyDP7du2kBBA+jEUzg5wxdVUKBA07g6j0uUNtncC?=
- =?us-ascii?Q?QFFgxjjJYZlnSwAjo2u1PUZ4C1fxDGNw9uzNHawaMb91Z7JZNQDLn19Ngc1a?=
- =?us-ascii?Q?AsoAsSCMNTgQ2Fr7zn0K2GOT+dwlxmU0zP/w6Fk2VoC0Ry7gplSc9q7al/Ng?=
- =?us-ascii?Q?zcyhQ+bbkIs8k0kxU57rSyBoeIpRNc7M?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LtLKwW0bDxl3WUYEdUSON2fclgdmjW4rnU1xz2SCxzzFde2D17LvH5DXu8FG?=
- =?us-ascii?Q?LSMoM/1iGRO82KTXvHkbp2ybbo4FQTFmLSKG5tYpXa/SqnwGcwtn6t5Jgsm1?=
- =?us-ascii?Q?km01ioEThOwgQ2Ry9gMrUWsWB0QBlEVMhD3MzKwS1PevM4KD/PXwQkiquDeY?=
- =?us-ascii?Q?Q9eWhH25w5u3u4p3T1qScRcmbTuxLrdf5ZgaGtaxO+cYB6XX2Cbi+otOxxnG?=
- =?us-ascii?Q?rL9cRE4CYt9c51m9KCdY3Jtn+Pjhw6bQ1HNxZBfrdPS/xw5huQfK8Sq/qgcK?=
- =?us-ascii?Q?32hCbMRv0nuEUqFfKywER5f8mTprq/npgg3Z5H9K6kiKer/y5AcIhJyGxTi0?=
- =?us-ascii?Q?CbLi7P3lWTyZNgpehE9z9Gy19nbmatJipP5FY6psMa2S3k4K0ux71BEJtmKe?=
- =?us-ascii?Q?PVxPsoRjbILWGQ6d9GgJstmeVraX4pezvU4rQYlEs37bh/oaCIuTT18d2I3m?=
- =?us-ascii?Q?RiKhNTQPMAFEG4i7poDSrbKtgxIpti+i8IB/CMoeIMV44RJxvqITrWXpXiIX?=
- =?us-ascii?Q?y/51pV5WZeRV+l+dgyNDdfh3BBnqbMF5TTPgCtEbtup47hahgiHv1i4GHdom?=
- =?us-ascii?Q?5S1BWCMUB+ybafBJauAGz2PVN7lvHb3U6KNDER3tT3ntsPGjuhk+TbrcOimK?=
- =?us-ascii?Q?HgO+kmVpEfoMkSCzIBHPRcHBaCoWUuy5PGxE3aROBz9YbkJJ1iYSG1eJVo0J?=
- =?us-ascii?Q?cl1MPPo8hBxMjDI2RJlOEM7AvvrLXIItSRD7s0AxgwtNGnWYrRGYOZKIJHZd?=
- =?us-ascii?Q?uvqWARZ/XGj0IlUkBJ0h4u41ElEoI4V1GX6L3jOhaJwe3+hWoPgyg03OdnFD?=
- =?us-ascii?Q?399EVUP82zhEpfIaU5oouo9zuzJIByqjmLKEGEbdSyu73O2RiCFs2ac6tqEe?=
- =?us-ascii?Q?M/sJVNhAkg97KhUC9/MPow+2nOwRm23HbaF+Bns8KDx7DitA3q6pF6O3ydf2?=
- =?us-ascii?Q?B7QP4gu2NhlMEYXLPl59AsbaoUg/T5YNW0tSBzruzi6DNEJfeV5UDIj9iyBg?=
- =?us-ascii?Q?OLdmkHyoj62hr0fhMACrXsdG90YVyrXazzvwzkBrOfgNUDFiqdi92EbSMtwA?=
- =?us-ascii?Q?tsVD+I0yVJEHfQoEguxeJbOk4KNxQsOwdUD8fo1av+l2CMJm2yHWqL/zotUg?=
- =?us-ascii?Q?aBNubIq6kMj3DBdnkQ4e6aclTxssC6sR2Ka2oBAlVk9ALt7PEfgv1hDxuwbN?=
- =?us-ascii?Q?ffyugeqGWBNn6a0pS9I2nnFBBnsz5L+W6dnPkTEX4rxPomtGvFHSG2HzektN?=
- =?us-ascii?Q?1tJO8vT8olUDLYHl+iscrhSi/xRKa+/NPUqaQdB/Zt0abgYcP8L7YKe/eNLo?=
- =?us-ascii?Q?tY1+wwBENkwTPJbS4VBDkYepR6jHoOfp240g5fWChpGxoXgqa65kw/0qfWL2?=
- =?us-ascii?Q?myyIVNCn5QQ9aB6CQKRc94V3m9aG+6aWgtOG3T5jfxDvLI9NRRUWp8KJ3wxr?=
- =?us-ascii?Q?bKG9tWP3zJ3LiK5edldCZ3086LiaD8BeKnyWBbOAoLcSVDQiDrnJiaF4WY2Y?=
- =?us-ascii?Q?SiWUws5u8he7qNF6c+xuD8AxgbchblZylA1bEuFcEt2uK/Fvk4FOKg+p9zAO?=
- =?us-ascii?Q?sqIjrl96Rw5STzAdI+PxxO7pmksYrQVgaKWUahtD?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cacd1586-c281-4159-24c1-08dd76073af1
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 19:05:58.3872
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: J8XyVLBBq9K9mNvsTw3lgd49hvlppM8KK+E3TKhe/BqVUggpRbn6IH/k9ABKS84lH/zTaby1A5oc7qQUdHtvyw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB10064
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1u1rwV-0013jc-Ez@rmk-PC.armlinux.org.uk>
+Date: Mon, 07 Apr 2025 20:15:35 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_120602_753554_D35A3A96 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20250407_121614_324216_B3ECE563 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,72 +85,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 09:50:19PM +0530, Pankaj Gupta wrote:
-> Add support for NXP secure enclave called EdgeLock Enclave
-> firmware (se-fw) for imx8ulp-evk.
+Some stm32 implementations need the receive clock running in suspend,
+as indicated by dwmac->ops->clk_rx_enable_in_suspend. The existing
+code achieved this in a rather complex way, by passing a flag around.
 
-Pleas wrap at 75 chars to use screen width efficiently.
+However, the clk API prepare/enables are counted - which means that a
+clock won't be stopped as long as there are more prepare and enables
+than disables and unprepares, just like a reference count.
 
->
-> Add label sram0 for sram@2201f000 and add secure-enclave node
->
-> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-> ---
+Therefore, we can simplify this logic by calling clk_prepare_enable()
+an additional time in the probe function if this flag is set, and then
+balancing that at remove time.
 
-Move dts patches to last patch because generally driver patches was picked
-up firstly then dts files. driver part Maintainer will pick first N patch
-is easy than skip some in middile.
+With this, we can avoid passing a "are we suspending" and "are we
+resuming" flag to various functions in the driver.
 
-Frank
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+This patch has been only build tested, so I would be grateful if
+someone with the hardware could run-test this change please.
 
-> changes from v14 to v15
-> - Updated the commit message.
-> - split the current patch into two:
->   -- 3/7 for board dts, and
->   -- 4/7 for chip dts
->
-> Note: copied the change logs for v13 to v14, to cover letter.
-> ---
->  arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 11 +++++++++--
->  1 file changed, 9 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-> index 2562a35286c2..05db47668b7e 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-> @@ -1,6 +1,6 @@
->  // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->  /*
-> - * Copyright 2021 NXP
-> + * Copyright 2021, 2025 NXP
->   */
->
->  #include <dt-bindings/clock/imx8ulp-clock.h>
-> @@ -154,7 +154,7 @@ sosc: clock-sosc {
->  		#clock-cells = <0>;
->  	};
->
-> -	sram@2201f000 {
-> +	sram0: sram@2201f000 {
->  		compatible = "mmio-sram";
->  		reg = <0x0 0x2201f000 0x0 0x1000>;
->
-> @@ -186,6 +186,13 @@ scmi_sensor: protocol@15 {
->  				#thermal-sensor-cells = <1>;
->  			};
->  		};
-> +
-> +		hsm0: secure-enclave {
-> +			 compatible = "fsl,imx8ulp-se-ele-hsm";
-> +			 mbox-names = "tx", "rx";
-> +			 mboxes = <&s4muap 0 0>, <&s4muap 1 0>;
-> +			 sram = <&sram0>;
-> +		 };
->  	};
->
->  	cm33: remoteproc-cm33 {
->
-> --
-> 2.43.0
->
+ .../net/ethernet/stmicro/stmmac/dwmac-stm32.c | 57 ++++++++++++-------
+ 1 file changed, 37 insertions(+), 20 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+index c3d321192581..1eb16eec9c0d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+@@ -119,7 +119,7 @@ struct stm32_ops {
+ 	u32 syscfg_clr_off;
+ };
+ 
+-static int stm32_dwmac_clk_enable(struct stm32_dwmac *dwmac, bool resume)
++static int stm32_dwmac_clk_enable(struct stm32_dwmac *dwmac)
+ {
+ 	int ret;
+ 
+@@ -127,11 +127,9 @@ static int stm32_dwmac_clk_enable(struct stm32_dwmac *dwmac, bool resume)
+ 	if (ret)
+ 		goto err_clk_tx;
+ 
+-	if (!dwmac->ops->clk_rx_enable_in_suspend || !resume) {
+-		ret = clk_prepare_enable(dwmac->clk_rx);
+-		if (ret)
+-			goto err_clk_rx;
+-	}
++	ret = clk_prepare_enable(dwmac->clk_rx);
++	if (ret)
++		goto err_clk_rx;
+ 
+ 	ret = clk_prepare_enable(dwmac->syscfg_clk);
+ 	if (ret)
+@@ -148,15 +146,14 @@ static int stm32_dwmac_clk_enable(struct stm32_dwmac *dwmac, bool resume)
+ err_clk_eth_ck:
+ 	clk_disable_unprepare(dwmac->syscfg_clk);
+ err_syscfg_clk:
+-	if (!dwmac->ops->clk_rx_enable_in_suspend || !resume)
+-		clk_disable_unprepare(dwmac->clk_rx);
++	clk_disable_unprepare(dwmac->clk_rx);
+ err_clk_rx:
+ 	clk_disable_unprepare(dwmac->clk_tx);
+ err_clk_tx:
+ 	return ret;
+ }
+ 
+-static int stm32_dwmac_init(struct plat_stmmacenet_data *plat_dat, bool resume)
++static int stm32_dwmac_init(struct plat_stmmacenet_data *plat_dat)
+ {
+ 	struct stm32_dwmac *dwmac = plat_dat->bsp_priv;
+ 	int ret;
+@@ -167,7 +164,7 @@ static int stm32_dwmac_init(struct plat_stmmacenet_data *plat_dat, bool resume)
+ 			return ret;
+ 	}
+ 
+-	return stm32_dwmac_clk_enable(dwmac, resume);
++	return stm32_dwmac_clk_enable(dwmac);
+ }
+ 
+ static int stm32mp1_select_ethck_external(struct plat_stmmacenet_data *plat_dat)
+@@ -382,12 +379,10 @@ static int stm32mcu_set_mode(struct plat_stmmacenet_data *plat_dat)
+ 				 SYSCFG_MCU_ETH_MASK, val << 23);
+ }
+ 
+-static void stm32_dwmac_clk_disable(struct stm32_dwmac *dwmac, bool suspend)
++static void stm32_dwmac_clk_disable(struct stm32_dwmac *dwmac)
+ {
+ 	clk_disable_unprepare(dwmac->clk_tx);
+-	if (!dwmac->ops->clk_rx_enable_in_suspend || !suspend)
+-		clk_disable_unprepare(dwmac->clk_rx);
+-
++	clk_disable_unprepare(dwmac->clk_rx);
+ 	clk_disable_unprepare(dwmac->syscfg_clk);
+ 	if (dwmac->enable_eth_ck)
+ 		clk_disable_unprepare(dwmac->clk_eth_ck);
+@@ -541,18 +536,32 @@ static int stm32_dwmac_probe(struct platform_device *pdev)
+ 	plat_dat->flags |= STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP;
+ 	plat_dat->bsp_priv = dwmac;
+ 
+-	ret = stm32_dwmac_init(plat_dat, false);
++	ret = stm32_dwmac_init(plat_dat);
+ 	if (ret)
+ 		return ret;
+ 
++	/* If this platform requires the clock to be running in suspend,
++	 * prepare and enable the receive clock an additional time to keep
++	 * it running.
++	 */
++	if (dwmac->ops->clk_rx_enable_in_suspend) {
++		ret = clk_prepare_enable(dwmac->clk_rx);
++		if (ret)
++			goto err_clk_disable;
++	}
++
+ 	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+ 	if (ret)
+-		goto err_clk_disable;
++		goto err_clk_disable_suspend;
+ 
+ 	return 0;
+ 
++err_clk_disable_suspend:
++	if (dwmac->ops->clk_rx_enable_in_suspend)
++		clk_disable_unprepare(dwmac->clk_rx);
++
+ err_clk_disable:
+-	stm32_dwmac_clk_disable(dwmac, false);
++	stm32_dwmac_clk_disable(dwmac);
+ 
+ 	return ret;
+ }
+@@ -565,7 +574,15 @@ static void stm32_dwmac_remove(struct platform_device *pdev)
+ 
+ 	stmmac_dvr_remove(&pdev->dev);
+ 
+-	stm32_dwmac_clk_disable(dwmac, false);
++	/* If this platform requires the clock to be running in suspend,
++	 * we need to disable and unprepare the receive clock an additional
++	 * time to balance the extra clk_prepare_enable() in the probe
++	 * function.
++	 */
++	if (dwmac->ops->clk_rx_enable_in_suspend)
++		clk_disable_unprepare(dwmac->clk_rx);
++
++	stm32_dwmac_clk_disable(dwmac);
+ 
+ 	if (dwmac->irq_pwr_wakeup >= 0) {
+ 		dev_pm_clear_wake_irq(&pdev->dev);
+@@ -596,7 +613,7 @@ static int stm32_dwmac_suspend(struct device *dev)
+ 	if (ret)
+ 		return ret;
+ 
+-	stm32_dwmac_clk_disable(dwmac, true);
++	stm32_dwmac_clk_disable(dwmac);
+ 
+ 	if (dwmac->ops->suspend)
+ 		ret = dwmac->ops->suspend(dwmac);
+@@ -614,7 +631,7 @@ static int stm32_dwmac_resume(struct device *dev)
+ 	if (dwmac->ops->resume)
+ 		dwmac->ops->resume(dwmac);
+ 
+-	ret = stm32_dwmac_init(priv->plat, true);
++	ret = stm32_dwmac_init(priv->plat);
+ 	if (ret)
+ 		return ret;
+ 
+-- 
+2.30.2
+
 
