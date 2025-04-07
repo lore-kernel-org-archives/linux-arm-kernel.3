@@ -4,81 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88127C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98305C36018
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DQLAax2Ii+FAHRuLmxj8jCF9OOQWkFkx4XQUnJiKxnY=; b=jH4+8ynTAJylvgg2k1ilYS22GG
-	JcKog2VTGNvT4Y5+2RAAJhkX46ngF/K7vlinbLZmlBGuBz1itc1dCVK6eWaBvNM/8VOuDyPnIi76R
-	2sODQhoSZS5Jh+KpX5TdjJbvGJd6txzSBB/ObeKnMpFEsCaoOxvnYkzEkCaYSjW3FlKGCAzqFCgxW
-	smGDtKKPJC4QhZRbmFZ80Z81sUadekqA8BdrDf4cMLaa9HIXPJ4ZFOpxdMw/xhb16Hro8ZjehQzd7
-	SxAbzUCwMNPO2nkrOCIGE2OBAnASFVXLX0gf590gnbXxTUs3SH7gmoaV88Ji7cfhdyUhYtOHKu/p1
-	jvlomfzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yZnT3kn0lZwBedm0uGPv3h/z1Jk4dbKRxwN+6F5eRc0=; b=RxmPaCkmMpv0C9/SbDzjD07inV
+	Lz6VCS0So02pIga8TlvqQN3pINmM54AbZhH+ZkHtrPebMn90BoK1YIBHUoYVxssdIUzc8rqvQCFm/
+	6JF84ZNW1G+VRtujzuo76uUlNI5/RRZHhBEHAYsP7SFeSoKg1kY+Mld2IVOkx58+oyJ/TjIDtsmv4
+	FdOQKGK7nV7hhlK/r987jpeXNEk0mCE/iQk8yox+rCegYIHUeO7/t5fezf1+UjnXeLihC0zLIAdsV
+	kEiEXoOI97P2ivKHBHtOe+KArbPFssKnwIwnq6PHsF42ACkaj5qR5xWvvAxgxjUM9GFikWCo/rtUI
+	bbOP9qmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYJ-00000001ckc-168W;
-	Mon, 07 Apr 2025 18:50:35 +0000
+	id 1u1rYM-00000001cpI-1mxm;
+	Mon, 07 Apr 2025 18:50:38 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pRW-00000001ERe-1EP4
+	id 1u1pZl-00000001G5F-2VNx
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Apr 2025 16:35:26 +0000
+	Mon, 07 Apr 2025 16:43:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=DQLAax2Ii+FAHRuLmxj8jCF9OOQWkFkx4XQUnJiKxnY=; b=QRHsyw5h9FdkN0sRA1u4/vrL/R
-	aLu/jEBNRJBZMv4JacvkpruE327TzPZr7/wfHxe/oR1E0rANobdadldruy+xziZjXmzaGbAh9niSF
-	pX4OZ8ELblSJgBfSwI1ePdmUyTOWKWkFE5uDEu7iwDet/2ZDFAygo6Ow79EdFypo2MgLAbQWbdD07
-	E92SbIMZFt+9dbRVFka4ZAxv9o/iSJZNDalxfSbZORQxz1DQdY+n6+dj8mj4KeNR5jcPdYZNjrW8r
-	9oFyj4tYjoGUsQMGFJQWgvMF/Hn+YHMQqV0pr42UuhlN0YEyJeSCVW7M2jpEHqjQkVQmBwN/UXUKv
-	crvP9g3g==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pRT-000000083zQ-1G19
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=yZnT3kn0lZwBedm0uGPv3h/z1Jk4dbKRxwN+6F5eRc0=; b=PBOge62Q8581aqcB9yCP4C4yOI
+	dJ8rgsB8Rj6j5vQaBB3sWS50dilu5abQRw140+zSfy7ktzsIFBmdQpVmQgHI8S2U8S9jhG0G0PBfS
+	XcrZVt14+xnEf1jApP83Ta3MEwSwvV63BxC4kcygGYEtg3G57AriNJSPUy/U5rfj/IDAER4ShRCjB
+	2TgOWVXRIIvlb/gMHd8PLXXxipMWUiBfJbAsfMtVKC1YiIDCBURf1cPBdEUT7fswB4l4Nic6hKVYg
+	qZAmjOBX2zCCXuoOzh+T5xmBDIL2oVLp00Pbl+cjbbHzylwKPp2ebtatrSYV4Gb/dn6yTTNv02P6Z
+	nQFYA/mw==;
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1pZi-000000084IU-2xer
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 16:35:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6174106F;
-	Mon,  7 Apr 2025 09:35:23 -0700 (PDT)
-Received: from [10.57.17.31] (unknown [10.57.17.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D9893F694;
-	Mon,  7 Apr 2025 09:35:18 -0700 (PDT)
-Message-ID: <adbca476-7d0f-473d-a2a2-0a29a497dbca@arm.com>
-Date: Mon, 7 Apr 2025 17:35:16 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 35/45] arm64: RME: Propagate number of breakpoints and
- watchpoints to userspace
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-36-steven.price@arm.com>
- <c8af8a7f-5ee4-460b-aec4-959f688db628@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <c8af8a7f-5ee4-460b-aec4-959f688db628@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	Mon, 07 Apr 2025 16:43:56 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-736d30d2570so3932765b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 09:43:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1744044231; x=1744649031; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yZnT3kn0lZwBedm0uGPv3h/z1Jk4dbKRxwN+6F5eRc0=;
+        b=Y2nOZy57c24JO55CcEzrA0+FYFaCy3/cyMW7azQUoxDjP/FVoexmRZxyw4SYP8Q6YV
+         eZMIDsAgf/EBA9ArB1ha81ExgyAiqLQSytVALuEnmfSj+QqAaL4LMmgAJlJIE3sSZF9G
+         J9pzfifiIwZGjCJ7EvV5fU5O1wSvazb6omXZRFLIdU4txaaLAuDgvBJbUUUbnYoH57hx
+         2D+3+CVmWTUPpymYrsLOmdTBo+pm84ZVBHgmbmUOhCf+G6kUez7Ti+/WVP4HSHqyQoBi
+         4VMz8Maw1kmxDXKg5YJzt7uzTiyc81VHsq4NAY9jzUDn3UNi1yr6ByEDZi1x/jREQ4MM
+         xh9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744044231; x=1744649031;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yZnT3kn0lZwBedm0uGPv3h/z1Jk4dbKRxwN+6F5eRc0=;
+        b=j32pjchwGrB7Ep+VF/E1o50RWaemw2swZDgiqExQwJPWSqHIHug+9UPDpPT6QuMinM
+         P6ae6cURBXbWrCQUZjympYQaEx+nTPgzgCm9YEIKTgRrhlP5lhwGgsd0Oe5wIOgi5Ye9
+         LLaN65f0xZ0Ld7tOE+ulWe9X9YXZYb5Pwu6XDSNSh3uGO6KgaXzNp+vKrz22K9DFTY8w
+         rcwX3gbAq4AkBHvZ1NtGdELjhws8qcxK8f1ExRk7ywiFojDnN1DeI503HsTM7sbqwNnV
+         kFBI6KjjFsaj4aAI/rmzLinsMUVEuXvz7H8e0c0vukwmW5NxsH4oXj2UNZVmbXeGJ56t
+         NNIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWRnYmOaMkYiiIwvNyiV6isJV+Lz8JkhKZ/aX8UwRmol+x++GIBTRRR/rTWrMFGESkL2ZDp+4FdLhcTTV8T4gSa@lists.infradead.org
+X-Gm-Message-State: AOJu0YyA1Ytey9BLdsy5A+ekelJn1UYOd8V46QU9W/aMKmdoh0m1/Ywo
+	CzFCGOK2VR139+khf/g5xZnG7nJASUiDOMLRqyHdB0YXABttWNlYaoehBG5jo5VnCCjODyH4YNw
+	QJQ==
+X-Google-Smtp-Source: AGHT+IGF8eBnjAYFXIPI8U2dRPCijHocf42fEz6xwJrtVSsRVB6bz3zjqLRx5gwWh1OyqfcDjPG12qk0yPY=
+X-Received: from pfbhu13.prod.google.com ([2002:a05:6a00:698d:b0:732:51fc:618f])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:2d04:b0:1f5:7b6f:f8e8
+ with SMTP id adf61e73a8af0-20113c095fdmr14665309637.6.1744044231220; Mon, 07
+ Apr 2025 09:43:51 -0700 (PDT)
+Date: Mon, 7 Apr 2025 09:43:50 -0700
+In-Reply-To: <20250407161540.GG1557073@nvidia.com>
+Mime-Version: 1.0
+References: <Z9s7r2JocpoM_t-m@arm.com> <SA1PR12MB7199C7BD48EB39F536DD34DBB0A62@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <Z-QU7qJOf8sEA5R8@google.com> <86y0wrlrxt.wl-maz@kernel.org>
+ <Z-QnBcE1TKPChQay@google.com> <86wmcbllg2.wl-maz@kernel.org>
+ <Z-RGYO3QVj5JNjRB@google.com> <20250331145643.GF10839@nvidia.com>
+ <Z_PtKWnMPzwPb4sp@google.com> <20250407161540.GG1557073@nvidia.com>
+Message-ID: <Z_QAxiEWEyMpfLgL@google.com>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+From: Sean Christopherson <seanjc@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Marc Zyngier <maz@kernel.org>, Ankit Agrawal <ankita@nvidia.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	"joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, 
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "will@kernel.org" <will@kernel.org>, 
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>, 
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "david@redhat.com" <david@redhat.com>, 
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, 
+	Kirti Wankhede <kwankhede@nvidia.com>, "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>, 
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>, 
+	Alistair Popple <apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>, 
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Uday Dhoke <udhoke@nvidia.com>, 
+	Dheeraj Nigam <dnigam@nvidia.com>, Krishnakant Jaju <kjaju@nvidia.com>, 
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>, 
+	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com" <coltonlewis@google.com>, 
+	"kevin.tian@intel.com" <kevin.tian@intel.com>, "yi.l.liu@intel.com" <yi.l.liu@intel.com>, 
+	"ardb@kernel.org" <ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, 
+	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>, 
+	"ddutile@redhat.com" <ddutile@redhat.com>, "tabba@google.com" <tabba@google.com>, 
+	"qperret@google.com" <qperret@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_173523_667204_B2A398F5 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20250407_174354_837092_146F2838 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,107 +127,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 23:45, Gavin Shan wrote:
-> On 2/14/25 2:14 AM, Steven Price wrote:
->> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
->>
->> The RMM describes the maximum number of BPs/WPs available to the guest
->> in the Feature Register 0. Propagate those numbers into ID_AA64DFR0_EL1,
->> which is visible to userspace. A VMM needs this information in order to
->> set up realm parameters.
->>
->> Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->>   arch/arm64/include/asm/kvm_rme.h |  2 ++
->>   arch/arm64/kvm/rme.c             | 22 ++++++++++++++++++++++
->>   arch/arm64/kvm/sys_regs.c        |  2 +-
->>   3 files changed, 25 insertions(+), 1 deletion(-)
->>
+On Mon, Apr 07, 2025, Jason Gunthorpe wrote:
+> On Mon, Apr 07, 2025 at 08:20:09AM -0700, Sean Christopherson wrote:
+> > On Mon, Mar 31, 2025, Jason Gunthorpe wrote:
+> > > On Wed, Mar 26, 2025 at 11:24:32AM -0700, Sean Christopherson wrote:
+> > > > > I don't know how you reconcile the lack of host mapping and cache
+> > > > > maintenance. The latter cannot take place without the former.
+> > > > 
+> > > > I assume cache maintenance only requires _a_ mapping to the physical memory.
+> > > > With guest_memfd, KVM has the pfn (which happens to always be struct page memory
+> > > > today), and so can establish a VA=>PA mapping as needed.
+> > > 
+> > > This is why we are forcing FWB in this work, because we don't have a
+> > > VA mapping and KVM doesn't have the code to create one on demand.
+> > 
+> > I don't follow.  As it exists today, guest_memfd doesn't touch the direct map,
+> > i.e. there's already a kernel mapping, KVM doesn't need to create one.
 > 
-> With the following one nitpick addressed:
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
->> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
->> asm/kvm_rme.h
->> index d684b30493f5..67ee38541a82 100644
->> --- a/arch/arm64/include/asm/kvm_rme.h
->> +++ b/arch/arm64/include/asm/kvm_rme.h
->> @@ -85,6 +85,8 @@ void kvm_init_rme(void);
->>   u32 kvm_realm_ipa_limit(void);
->>   u32 kvm_realm_vgic_nr_lr(void);
->>   +u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu,
->> u64 val);
->> +
->>   bool kvm_rme_supports_sve(void);
->>     int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap
->> *cap);
->> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
->> index f83f34358832..8c426f575728 100644
->> --- a/arch/arm64/kvm/rme.c
->> +++ b/arch/arm64/kvm/rme.c
->> @@ -87,6 +87,28 @@ u32 kvm_realm_vgic_nr_lr(void)
->>       return u64_get_bits(rmm_feat_reg0,
->> RMI_FEATURE_REGISTER_0_GICV3_NUM_LRS);
->>   }
->>   +u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu,
->> u64 val)
->> +{
->> +    u32 bps = u64_get_bits(rmm_feat_reg0,
->> RMI_FEATURE_REGISTER_0_NUM_BPS);
->> +    u32 wps = u64_get_bits(rmm_feat_reg0,
->> RMI_FEATURE_REGISTER_0_NUM_WPS);
->> +    u32 ctx_cmps;
->> +
->> +    if (!kvm_is_realm(vcpu->kvm))
->> +        return val;
->> +
->> +    /* Ensure CTX_CMPs is still valid */
->> +    ctx_cmps = FIELD_GET(ID_AA64DFR0_EL1_CTX_CMPs, val);
->> +    ctx_cmps = min(bps, ctx_cmps);
->> +
->> +    val &= ~(ID_AA64DFR0_EL1_BRPs_MASK | ID_AA64DFR0_EL1_WRPs_MASK |
->> +         ID_AA64DFR0_EL1_CTX_CMPs);
->> +    val |= FIELD_PREP(ID_AA64DFR0_EL1_BRPs_MASK, bps) |
->> +           FIELD_PREP(ID_AA64DFR0_EL1_WRPs_MASK, wps) |
->> +           FIELD_PREP(ID_AA64DFR0_EL1_CTX_CMPs, ctx_cmps);
->> +
->> +    return val;
->> +}
->> +
-> 
-> The chunk of code can be squeezed to
-> sys_reg.c::sanitise_id_aa64dfr0_el1() since
-> sys_reg.c has been plumbed for realm, no reason to keep a separate
-> helper in rme.c
-> because it's only called by sys_reg.c::sanitise_id_aa64dfr0_el1()
+> This is not about guest_memfd..
 
-The issue here is the rmm_feat_reg0 variable - it's currently static in
-rme.c - so I can't just shift the code over. I could obviously provide
-helpers to get the necessary information but this seemed cleaner.
+Heh, my part of the thread was.  I was responding to Marc's comment:
 
-Thanks,
-Steve
+ : Remind me how this work with stuff such as guestmemfd, which, by
+ : definition, doesn't have a userspace mapping?
 
->>   static int get_start_level(struct realm *realm)
->>   {
->>       return 4 - ((realm->ia_bits - 8) / (RMM_PAGE_SHIFT - 3));
->> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
->> index ed881725eb64..5618eff33155 100644
->> --- a/arch/arm64/kvm/sys_regs.c
->> +++ b/arch/arm64/kvm/sys_regs.c
->> @@ -1820,7 +1820,7 @@ static u64 sanitise_id_aa64dfr0_el1(const struct
->> kvm_vcpu *vcpu, u64 val)
->>       /* Hide BRBE from guests */
->>       val &= ~ID_AA64DFR0_EL1_BRBE_MASK;
->>   -    return val;
->> +    return kvm_realm_reset_id_aa64dfr0_el1(vcpu, val);
->>   }
->>     static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
-> 
-> Thanks,
-> Gavin
-> 
-
+I'm pretty sure we're on the same page.
 
