@@ -4,162 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6904C3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 09:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929FAC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 09:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pYVrZ/LKT23EGAPlyxyawMRqc4dMa3w514Ce/QtC5Qo=; b=RRl5WW5Q+db1yX3tmy2AgOZEGX
-	WfVCpEJy4m2DoEH5ghtPS9H+QVDYl+R8y/SEa+I927DHK7xp4V3xm2JA2ZOeSZptWv1CcodiFp/gR
-	2fnXCaXVo7sl61Hhq7+FMv5qMU5YBaGhR8mCOiZ4GkSuYad9e8yMdN5OkzRayLIPZyJ+4EhOpoBro
-	efgBEbaGGYFjoWuGpoVhipHUTsTfi2uz1523xflJo1vhb3nUibpQvscpzuiQbuveHOmlbM05W+Ksh
-	a23dKxeyMctvmrPzbzgqBIZG/EF9XqPAYJMnSTwottTwtq4i4oqVc8lZHjAtzbqmIdff0jztm8fBC
-	ccH3PUKg==;
+	bh=eamk+m6hItJvvYURRtivMfLvxKXUv+N3LqKXR7/o518=; b=DCpfXWskrtt+9YXQAAHKhUro5P
+	3vIyF5lf1DcjePthsX6elwtEHrRLrpwlgfDsFbRACt8IqnYGZEkt89jR1K+KA23jn+0mVMsL/kVJF
+	3IbRJAv09rdnPAxw+vqNwG3YnQ676VrrRBruEc8qQXbd3pXT3rEHOl4uS36A39tPvO08tzP3QO2Av
+	sQPPquO0buSnbOaa03T0ZU1B3mWPFMMHas6rT9Hx4WyR/jUD9rc+rCxjfeWr/PAsNAsQlV9jhrZiu
+	aZHQj7U1fRm5C6YNd8dR9gm5F8k5ZxCy/0HdiWX992tc2svxwWtWmb1SAjSJWA9hP9w0VQp7dNBTz
+	X/vLZFjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1izQ-0000000HEMm-2gwM;
-	Mon, 07 Apr 2025 09:42:00 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1u1izv-0000000HEWt-0u0D;
+	Mon, 07 Apr 2025 09:42:31 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1iwW-0000000HDgC-2qLC
+	id 1u1hpO-0000000GzwS-1o45
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 09:39:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DiYsCI9Ct8qsXnEPnvzOh/5LlUPxjPWSxTxh8x6zUdS/anC+aUoqUx//sUIjY3wIAhFkYMy1U7lnUyOxsRTlaIU315UveIwc0RMzez05hkOtSwM82EC5VibbiZ3myrvnEvVwbnpJcTHjApLRnjnRs3c0+FtxI4UZ7rnvBddmV0h5+KwrJls9rJT7BUzEm9UOo+oMrzALNBeZVQZn6t/OlHKDvwZfBZhKGP73qdQ9p5cieuVyzJGcCNQs+i0WaPxeQLcvA0LBYAUkN7HTAqE7oRbr9vzTjUDZd8OtZ348B5Z63DbVJYKDr4yOtomqMtUD5t+V14rSN3vrFfBEOcHpAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pYVrZ/LKT23EGAPlyxyawMRqc4dMa3w514Ce/QtC5Qo=;
- b=Y7XZPLyCkvk7NJDq0QFrWARxoDzeE4CbIS70w/4LSJoNAQ1loiNJDcLnkBQeWEOfayRl9nzSm3fNEBjaXzRhbVFBxCJ2a73WKwmllLOyoy0A89jQs7ZGes3sqxTFW92FpvBN72sMAqt5h4fry/60kOjqg5/hRl4utP2XHX7XRXG1xTShrvWbIh8UWu0ir7PcTere2wMFVYzR+qMeh2jmlgF07GwBOKUKnXJK/wO7NMXiliBqnXwTy2wopq+SAk1flBl1pO23/6IcH72zaS7ZUz+PPg9jW6DLytexIbRP0qJ5Xn3bR4IPkwF+vOzYv8tIuFLRkpebe+piv+n9YH7BwA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pYVrZ/LKT23EGAPlyxyawMRqc4dMa3w514Ce/QtC5Qo=;
- b=Jhu1QqBKJXgtY6qJGhmn4ouB6IS30IHuew5I6BE1OB9InLbKEKkDCd3YM6mO9IeGfnYApLhMWuA48iYMmHc4RfiTTJZDuxKVwyAF0lomrz9XyS/Ya+qbHr0Qqp1RsblVbAcUjmSeOTTE6oqWetenGvMleuqtFy5EZGrLRHw1aAkEVRnaCtlsFehrVavJDMoG022ze1D08ILfMlRx3aLFdwQj1pqS5UnhjS0jW6GSIwsZj9msi8TqSOUbSBdJMYxR+yeW25AoKg6NxMJll/bKKxRdBMxEsfQRc0OogVPSAXT9eVCRvGQb4129IAqEuFRgpu1uuGKrFpatSescjvleZA==
-Received: from DB9PR04MB8429.eurprd04.prod.outlook.com (2603:10a6:10:242::19)
- by PA1PR04MB10098.eurprd04.prod.outlook.com (2603:10a6:102:45b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.31; Mon, 7 Apr
- 2025 09:38:57 +0000
-Received: from DB9PR04MB8429.eurprd04.prod.outlook.com
- ([fe80::2edf:edc4:794f:4e37]) by DB9PR04MB8429.eurprd04.prod.outlook.com
- ([fe80::2edf:edc4:794f:4e37%5]) with mapi id 15.20.8583.041; Mon, 7 Apr 2025
- 09:38:56 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-CC: Hongxing Zhu <hongxing.zhu@nxp.com>, "l.stach@pengutronix.de"
-	<l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, dl-linux-imx <linux-imx@nxp.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH V2 2/4] dt-bindings: imx6q-pcie: Add wake-gpios property
-Thread-Topic: [PATCH V2 2/4] dt-bindings: imx6q-pcie: Add wake-gpios property
-Thread-Index: AQHaLabE+/mqsANsskSLK4N2coNpALOWMC4AgASMryCAAAO/AIAAJLrA
-Date: Mon, 7 Apr 2025 09:38:56 +0000
-Message-ID: <DB9PR04MB8429618213357F5CE918C68292AA2@DB9PR04MB8429.eurprd04.prod.outlook.com>
-References: <20231213092850.1706042-1-sherry.sun@nxp.com>
- <20231213092850.1706042-3-sherry.sun@nxp.com>
- <20250404094130.GA35433@francesco-nb>
- <DB9PR04MB8429588E7CF00BDC9CDA863F92AA2@DB9PR04MB8429.eurprd04.prod.outlook.com>
- <Z_N9cO64FZwONcK9@gaggiata.pivistrello.it>
-In-Reply-To: <Z_N9cO64FZwONcK9@gaggiata.pivistrello.it>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DB9PR04MB8429:EE_|PA1PR04MB10098:EE_
-x-ms-office365-filtering-correlation-id: 90350a73-8bb2-42ce-8325-08dd75b80475
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?jWiSnjvWmqxKvUWflhfSNcSCsVh1p3tkDn8ABDayGDRI0KUZAbg1MdA3vrRo?=
- =?us-ascii?Q?pCdC781QERgcB/vz77BbuH0NQBkq+BsAFklmXXsU+GEAkFFXFIeNvZFbPSC3?=
- =?us-ascii?Q?JFQAsww9Gm62vs6/4CimVgP5JsQfTMrMYWVvEY0pVR1f6k8ceKpaJEVUvgcZ?=
- =?us-ascii?Q?a2Sc97QAax5Gfm8bilY3gffOaLjsf+Dp9s8/uXVqIyMy9wAHafCBlb+Skn2v?=
- =?us-ascii?Q?TJk3k4KmRJ4nzfGzB01C1sG9fW+zMJsGHS5iFcyJisy8pIA5WlsWDC1O0urp?=
- =?us-ascii?Q?vq63H09VEp3WfbCJNGI7yLvSQKzoQncFMnW7pomUKxGqMqiENYwV9D6E2ygg?=
- =?us-ascii?Q?WROFtToV/GCs3ojSRUDkD8FljpIrvnpiHGstS33AO0zcc95FhAq1F+G6tYwM?=
- =?us-ascii?Q?pts9beh215p8fXuDovJHBV0pOK4+sTytkNqOLxI3tOw9x0la+d80mSDPyaKf?=
- =?us-ascii?Q?W8VkRsR/spZAtkwQJaJLcKiStAk6MPbOq4LACSrz9OI/0jI/iFcvqa2okt/y?=
- =?us-ascii?Q?W30xPJm+5z9Ihslh1GdIHCnsRJDPPdRms+z5FUKP7qNsftzuIecTN7mjcSPn?=
- =?us-ascii?Q?jZgTkpYYOzoD6kPQlLlyi2EFM1HZ+VV5kFCOSyvbB3AJWbsML62UrVwVXeNW?=
- =?us-ascii?Q?AagCO/nA+X966NIcZOlMmTmvQxgNYJj6v5mXsZ2sUrJFc+rvxtqKG9V6LP8D?=
- =?us-ascii?Q?dyTrJvyn2Wpfc4Rm72PQI1F/AMOWmYxxkjned+29nPHVxz92skbuPNTYFXE0?=
- =?us-ascii?Q?ueQzU+B4uRt1d5fkfOOOnLBXEI1GJzrWUIGTo5etfzRK09MsDncSw7nudW8d?=
- =?us-ascii?Q?zTPeTtC/4r5Q54m2DECru5xzXvqAX0tJaOnZKox3QOpxVe9ayliHkhBapeAv?=
- =?us-ascii?Q?neZhKSD8+MWqjC+/x2thlskcexUdFEc/VPZSQ6mRTwgf7tVNr7dFLC0AQ0AD?=
- =?us-ascii?Q?Z+PQIY/0tlaXUhW91ZE6BtMlMGmKwB42VFi4Yoe7HJZFnYOejGo1CgARK/Bj?=
- =?us-ascii?Q?zH9PEAnH+GCWBbO5jMtbZP3QY95Le9HbWgKDl5bWHv7/xVb6EqBtUwcK6vw/?=
- =?us-ascii?Q?Fo0Kwk275WFtJVKF0QYw+/MeMsuZXJhbFgAVGRlROPxcwh/WHgKiLkQA0hln?=
- =?us-ascii?Q?NdxZnYVxSoFBLsGeCSlDoUYlj6YiahWhoYFT+9DSht3yvp4a/wI1fxkyiJ+/?=
- =?us-ascii?Q?QZ6ZcI6RCGJEetJkG8VV0jP4GVhhC7AS0j8FxFVseIOOCTXhRa59B18JU1gh?=
- =?us-ascii?Q?mUWFs7mNDmM93yPQpyA34WkH/95CEpyq1ngn2f824DVAStdG/0UUPxtH4Itd?=
- =?us-ascii?Q?4WOY9RvCfXze5WkldgsKZ0zGFeLV3Yy1MVseSA6l3sjyzcV7k53XxHuri1gn?=
- =?us-ascii?Q?gf5XyUOckD6v6penP4ClznIqQk+ZFqxcSmSWVUKyZnktoQQGX3aXkN9jLBDn?=
- =?us-ascii?Q?qkEYRlmjeaQIolBaaQL3pfa+9YGqMzh5?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8429.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?row+HwUe/epL29ZOp+CBgGiIfJGQxcezHy41AKm0Q0yuFhToz4Y3D7oYS6KS?=
- =?us-ascii?Q?38R+oclEUY2ZSpUXzyTuLhWC9xVJN3MzDzp6TlNsMc7COGR7Cv9Mj4hDP/R0?=
- =?us-ascii?Q?ZUVIA8homl/sw3fIBQFVgWWyYPSx9N7nAGSABbJ5pwn0whPCOgnhM6f3GR9u?=
- =?us-ascii?Q?BxV/9hrCJX1hvX2oI1U3r2zYIfQx36GAP5Jqkr9xTPXdOTa5Z1SF3hV2GPD7?=
- =?us-ascii?Q?9yClPF3D0kRPoEPlAscntSNqQyl5HtNs8zkEhtQdfG0JFOvnJCCoLTfskOSX?=
- =?us-ascii?Q?JMLfkEcFmAKxOjx4LbaD2rA6Q6JB7HA772dERj5OtKJOd+OWf6Rzd9SQr0xa?=
- =?us-ascii?Q?yYBa3kOcjpsg4n4is51F5nD+iL/Xx2kq/gECJ1JXA9YcqHkttpoqrFxugZxX?=
- =?us-ascii?Q?XJZVIJj7W//ksiGkqgMdKGQ+D/b/zd+khOoWLBATL5UMGvyi5dFrZD5jRnWb?=
- =?us-ascii?Q?4uuk0d+iPdXNujVXi/3rGfBca2QE/x4qDzprDnPH25votn/pN0RNj4jPOrTM?=
- =?us-ascii?Q?9PD38gUmW8vhH8+t3z7eeORmwGG0KX/ghgKWoKlZk2+/5/YsWnyCchn+xZx9?=
- =?us-ascii?Q?q6+MeX8viL0ehy00NDvSgoJvPSveZdofu01kzEcPbqdPI8Oo7qiYflfEuiOY?=
- =?us-ascii?Q?tjTbbFB3oanKFyBga1fj4meZBj1rnpN1UtEDtDF8/Qp1o+pF4CQSpHaSSGTf?=
- =?us-ascii?Q?xa9DmBeKBLgHsq73NQaZGRWU3INfNhDGicyTSr2HWiZ+UW/i8EWZo17TCuWM?=
- =?us-ascii?Q?KUu02nlNRYMh6lJN2+kPCjET3GJUlxLLYjoz+lYho3osLdAFvqjwGvf2oOZe?=
- =?us-ascii?Q?2ZXKeNTTDM0HXKzmNAuaDnLbwHmtxqbXOzJIE/CFyG+Ui4UnbCZN2puRgT2x?=
- =?us-ascii?Q?sM/ftpfmiKUTzA4bAkRc6SBvqLBMzxVRW1m0fsKCijJW3HyS34lstaWgm875?=
- =?us-ascii?Q?JC9slF4WrZSilITVAJhXOCn+tZjQfyqDeostBqB1C8557xlO/VywjzBxcd1S?=
- =?us-ascii?Q?3ICMY33Zj681WZ7GyVt7/f677iBzGKWdrQxPHH0sAtmajBUV+n/epI4Q2z3m?=
- =?us-ascii?Q?rT+E2arjfAJMxYkrukodvAQ7ewFgC050+aSVhpNCyPu7x3OwA3+c7kVGRsyu?=
- =?us-ascii?Q?V4O3NtT+cYy9DLdiRIgamJ4dOVISo7TkbJXGqikNos3PBxXzCNum0AVaRuDD?=
- =?us-ascii?Q?iX/ukjjVP030vZmzAaQYUqP6HzBssR+bQzpGK2IiNvevnhANBUGdbMAkKFNf?=
- =?us-ascii?Q?uRSAvJef/izAxohDRdZovu9dhPh6paXC5gusamVdzjgPxvkL9SOPiWY6Uf1Q?=
- =?us-ascii?Q?JYI2HRUhnrYFC2S0tAvzIKBiDj+XiYnN730Zn+zcvExX6wGc0mwtFyhyUtLC?=
- =?us-ascii?Q?eG/Ku5zNBAAcrASm8e0SxgzkhqhGDztjKy89hpnxLExyFIVsnnEEwIM61RHy?=
- =?us-ascii?Q?wkh54S3qLRTsl41wvDIAf9GUbKdCSiOtqGE8ZBr1qxY5PO3vZ5IHeYTkJY+i?=
- =?us-ascii?Q?0hpUTzcwJec//Z6fFzNUvyWT6iilqK6ksEvihIIxDhOClcU22QGhRqzpekD0?=
- =?us-ascii?Q?xKwYa0llXfWRmZmh/io=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8429.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 90350a73-8bb2-42ce-8325-08dd75b80475
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Apr 2025 09:38:56.5425
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 2OuJRtATHa+0eSoGTHsyNqThQQOfywWqMjxOSPhQcJM8fodfqnYTwoJ/ipW7YS1jqlZQwED8opmpJy6rwk7SZA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10098
+	Mon, 07 Apr 2025 08:27:35 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43d0830c3f7so34181725e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 01:27:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1744014453; x=1744619253; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=eamk+m6hItJvvYURRtivMfLvxKXUv+N3LqKXR7/o518=;
+        b=GSF5ShTkcXaRipiuRTNCP4L4fNtL3pABwdR67Qskj9f+vlgt9hUTqpuluugVYIRmuF
+         0G1qJqzjs5Dll8W2BCF3HNeTG/+k1u8OGOpCtztd1l4INfVvOpB/FijiRFhVz6Q+WiHI
+         zuOWgDJBX0wDiuOAtuQG4UlQQnGCop55+6S3I9peOy2VbEPcy2TH8QipEFvRsmD+U9xT
+         anzYf20MXAClNHBhKW18J/x3551B1D7tmLGbs9xe4XVwZj0fIwq/dmCDxJKU6ELXrBFF
+         BaNrNEgxZpNdZngyV3CNFa7L16nQCHcYP5C/I3J9spZYMWp47Kfde1RtbfPTnqla/Ylt
+         9DNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744014453; x=1744619253;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eamk+m6hItJvvYURRtivMfLvxKXUv+N3LqKXR7/o518=;
+        b=HiT6t4hd2Qes8Tcme5ZqwHm+x38MjIWlXPWtdYlWRCDLd+W+qDejBJ8lJ9h/xp5JBv
+         PpP9myINRUJF7mrzsOzUtZJDoAouimPXbVVoFyZG7QQYDkues6C7/jq5OUWdYa1Y61Vn
+         YRDMt/g7dZuNqTFWJjWIrb+Cn8XsU8Jn+J6XqPg0C7LMvjbFVMBLGzk1GHgIAJNwKLFu
+         mOCb5dLO6C+6DcXdRzR0e7JScT/Sn+IxSOxpH/kP1zTkZpfcai3OvQFt8eogGASm4ALf
+         F7FoGl/zPpSjhRHMr0x1IqWF4OOgHw/dseIdFXTU56JS0JWUVIf2tGJZhLhOdL5KU/jF
+         XWKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4fwY4oS7p4mcibQTGrwrN7on5f121a5pVobfJgv5cev30qB0C9I35xVrMw4esxR6Xk+2zs52nXsPcTA3Toufg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz11BknzUWnS0eBVgmvBaxlOb1rr/hTbEbMdipqIQfJ1DfF7P+C
+	KHiZL3zt+DHTT3/6gCb9nH2+Nc82kgcabs5guB9dODsruLxsGqwEjZRmrkEge4ziqS2+ivY3hQi
+	ume57BYP9OdvcEf7EfQ==
+X-Google-Smtp-Source: AGHT+IHEfDdtZEMKCFIiHPdGqbLmomiVEbcScZiVB7Z9bOtLoQQDsPDC5tGrnKssCX7IQ10njG1t/CVa1RWO127b
+X-Received: from wmbep23.prod.google.com ([2002:a05:600c:8417:b0:43c:f6c0:3375])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:46d0:b0:43c:e8a5:87a with SMTP id 5b1f17b1804b1-43ed0c6ba07mr107917445e9.16.1744014452806;
+ Mon, 07 Apr 2025 01:27:32 -0700 (PDT)
+Date: Mon,  7 Apr 2025 09:26:58 +0100
+In-Reply-To: <20250407082706.1239603-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20250407082706.1239603-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
+Message-ID: <20250407082706.1239603-2-vdonnefort@google.com>
+Subject: [PATCH v3 1/9] KVM: arm64: Handle huge mappings for np-guest CMOs
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org
+Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_023900_736558_EBA1C4EE 
-X-CRM114-Status: GOOD (  34.04  )
+X-CRM114-CacheID: sfid-20250407_012734_468955_03A991E2 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,103 +93,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+clean_dcache_guest_page() and invalidate_icache_guest_page() accept a
+size as an argument. But they also rely on fixmap, which can only map a
+single PAGE_SIZE page.
 
+With the upcoming stage-2 huge mappings for pKVM np-guests, those
+callbacks will get size > PAGE_SIZE. Loop the CMOs on a PAGE_SIZE basis
+until the whole range is done.
 
-> -----Original Message-----
-> From: Francesco Dolcini <francesco@dolcini.it>
-> Sent: Monday, April 7, 2025 3:23 PM
-> To: Sherry Sun <sherry.sun@nxp.com>
-> Cc: Francesco Dolcini <francesco@dolcini.it>; Hongxing Zhu
-> <hongxing.zhu@nxp.com>; l.stach@pengutronix.de; lpieralisi@kernel.org;
-> kw@linux.com; robh@kernel.org; bhelgaas@google.com;
-> krzysztof.kozlowski+dt@linaro.org; conor+dt@kernel.org;
-> shawnguo@kernel.org; s.hauer@pengutronix.de; kernel@pengutronix.de;
-> festevam@gmail.com; dl-linux-imx <linux-imx@nxp.com>; linux-
-> pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org
-> Subject: Re: [PATCH V2 2/4] dt-bindings: imx6q-pcie: Add wake-gpios prope=
-rty
->=20
-> On Mon, Apr 07, 2025 at 07:18:32AM +0000, Sherry Sun wrote:
-> >
-> >
-> > > -----Original Message-----
-> > > From: Francesco Dolcini <francesco@dolcini.it>
-> > > Sent: Friday, April 4, 2025 5:42 PM
-> > > To: Sherry Sun <sherry.sun@nxp.com>
-> > > Cc: Hongxing Zhu <hongxing.zhu@nxp.com>; l.stach@pengutronix.de;
-> > > lpieralisi@kernel.org; kw@linux.com; robh@kernel.org;
-> > > bhelgaas@google.com; krzysztof.kozlowski+dt@linaro.org;
-> > > conor+dt@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> > > kernel@pengutronix.de; festevam@gmail.com; dl-linux-imx <linux-
-> > > imx@nxp.com>; linux-pci@vger.kernel.org; linux-arm-
-> > > kernel@lists.infradead.org; devicetree@vger.kernel.org; linux-
-> > > kernel@vger.kernel.org
-> > > Subject: Re: [PATCH V2 2/4] dt-bindings: imx6q-pcie: Add wake-gpios
-> > > property
-> > >
-> > > Hello
-> > >
-> > > On Wed, Dec 13, 2023 at 05:28:48PM +0800, Sherry Sun wrote:
-> > > > Add wake-gpios property that can be used to wakeup the host process=
-or.
-> > > >
-> > > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > > > Reviewed-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > > ---
-> > > >  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 6
-> > > > ++++++
-> > > >  1 file changed, 6 insertions(+)
-> > > >
-> > > > diff --git
-> > > > a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > > > b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > > > index 81bbb8728f0f..fba757d937e1 100644
-> > > > --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > > > +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > > > @@ -72,6 +72,12 @@ properties:
-> > > >        L=3Doperation state) (optional required).
-> > > >      type: boolean
-> > > >
-> > > > +  wake-gpios:
-> > > > +    description: If present this property specifies WAKE# sideband
-> signaling
-> > > > +      to implement wakeup functionality. This is an input GPIO
-> > > > + pin for the
-> > > Root
-> > > > +      Port mode here. Host drivers will wakeup the host using the =
-IRQ
-> > > > +      corresponding to the passed GPIO.
-> > > > +
-> > >
-> > > From what I know it is possible to share the same WAKE# signal for
-> > > multiple root ports. Is this going to work fine with this binding?
-> > > Same question on the driver.
-> > >
-> > > We do have design exactly like that, so it's not a theoretical questi=
-on.
-> > >
-> > The current design doesn't support such case, maybe some changes in
-> > the driver could achieve that (mark the wake-gpio as
-> > GPIOD_FLAGS_BIT_NONEXCLUSIVE and the interrupt as IRQF_SHARED,
-> etc.).
->=20
-> Can you consider implementing this?
->=20
-> > But usually each RC has its own WAKE# pin assigned. We have not come
-> > across a case where multiple RC share the same WAKE# pin.
->=20
-> We do have such design, with an NXP iMX95 SoC, available now.
->=20
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Hi Francesco,
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index f34f11c720d7..6a90e7687f1f 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -219,14 +219,28 @@ static void guest_s2_put_page(void *addr)
+ 
+ static void clean_dcache_guest_page(void *va, size_t size)
+ {
+-	__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
+-	hyp_fixmap_unmap();
++	WARN_ON(!PAGE_ALIGNED(size));
++
++	while (size) {
++		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
++					  PAGE_SIZE);
++		hyp_fixmap_unmap();
++		va += PAGE_SIZE;
++		size -= PAGE_SIZE;
++	}
+ }
+ 
+ static void invalidate_icache_guest_page(void *va, size_t size)
+ {
+-	__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
+-	hyp_fixmap_unmap();
++	WARN_ON(!PAGE_ALIGNED(size));
++
++	while (size) {
++		__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
++					       PAGE_SIZE);
++		hyp_fixmap_unmap();
++		va += PAGE_SIZE;
++		size -= PAGE_SIZE;
++	}
+ }
+ 
+ int kvm_guest_prepare_stage2(struct pkvm_hyp_vm *vm, void *pgd)
+-- 
+2.49.0.504.g3bcea36a83-goog
 
-Now the patch set is pending, please check the comment under
-https://patchwork.kernel.org/project/linux-pci/cover/20231213092850.1706042=
--1-sherry.sun@nxp.com/ .
-Seems this property should be put into the common PCI root port schema,
-now it relies on the pci-bus.yaml splitting job Rob is doing.
-
-Best Regards
-Sherry
 
