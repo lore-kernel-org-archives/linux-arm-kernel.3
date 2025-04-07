@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F645C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 07:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E6FC3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 07:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mKHBQhlPmU3j6804TJoiY+lijz2sviuHoc3u/Cr+n0I=; b=2yHLqMzfpoco5IySBRKoRXorBn
-	zTX2TjMkrlRsg3th7kd3Frwm2RTzHH3rtir3qB0wnoMDQdOibPz963/d8COsfVuTywmtxeETVlzXS
-	tegJeOMNE6pZ1ylNhkF+TWMXDGao04ry18MJHA5n6PAPXcmZ6GCxws67LTvC9QEgIp6DySKv9rySI
-	dLi/4JP8232j+SzgBooBbsshwccbH4mw0nAT+abL/HE7Hd2FTeo0FQre95MAVfC+RNnW15A44VLP/
-	6qVWOY5Kt9mscHvT2Zjva4N6r+HGXWoO6nG5VWz5Haw24tyiJUPTJSWgZuW8x+eL8O4dCEel0UKmF
-	mdOG7EFg==;
+	bh=HsaSC2HaVJRroJP0HwzWYTmvmXosq879cETOeyvqI4E=; b=NxKAlonZv6m7o+3MBtkB3fJMtf
+	da5wyHvXEUdH1tfsO9A4oZNn0tRZnbWb0ZAeWLE1CyI9b8hnEiNYoltLwaiX6t0oECnSRF32msbiM
+	OGMrsKXVmY9EQDqqw2e4gS+M4hZ4YbB1foD9dGsVA122SwKHVLp9U0qsghP4CvnGb4l5qr165PKhZ
+	r5q/J4qLqk6UX6tnRhUAdTI/DUF6GyGRGPAd+1eA0+Rq8b9x3NC8w5J3rREiBdzkvCNv+dFcJLqx9
+	+W86qKD8dGtxKhNCG/flGhCXfruSLKqs9HgZuKeq7l0Fk2LTX9unzW/B1n3JpdorKyTCPtDqrgQ4R
+	H7Bt4a1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1gij-0000000GiBa-2i2l;
-	Mon, 07 Apr 2025 07:16:37 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1u1gkS-0000000GiZh-1n2M;
+	Mon, 07 Apr 2025 07:18:24 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1gbq-0000000GgSP-0Pfz
+	id 1u1gbu-0000000GgTS-0elG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 07:09:31 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-39c1efbefc6so2168794f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 00:09:29 -0700 (PDT)
+	Mon, 07 Apr 2025 07:09:35 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43d0c18e84eso19913135e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 00:09:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744009768; x=1744614568; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744009772; x=1744614572; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=mKHBQhlPmU3j6804TJoiY+lijz2sviuHoc3u/Cr+n0I=;
-        b=1ITPt3JyVzzg2WGKPDykWtjiZHcIszm423gD4LSqc0bmqGskb/07/EKhdHsDb4gMlM
-         /ZFBlMx3eifZyk/PkOCXmtqN4hWcUuTIumQgZlw7oqHTCYxJzMsvpM8JJrgqBoI6LY6b
-         a4O65aKobM3W+gH292XgCsMxKUoAirv72ytDMT9qtvfkOVivs0iru832gPuw684yPEZP
-         aONg+Wt4RPtXPjBJYiD54Bwl1m2T5AInOHCB/Mx7ltJVgJu6WISmMNvl68HPvQyspEEj
-         Dz/Kt0+vTSSuBacld6Gi/Oh6aNM0rVRsFGIHthlAFZzGZw3AdNj7QzuddoSzRSxap3P0
-         KSJg==
+        bh=HsaSC2HaVJRroJP0HwzWYTmvmXosq879cETOeyvqI4E=;
+        b=SNr/c6Bvv0xoYcvqnITwcDaA7evnY85CUlJtvLlI+1gYWJi1bmNNapfHBTI1M7Z02S
+         E1ShW6ZZzRoYnz/RbLPG3qzjyUvM2qTpN9NlJR5ZNDR5IjqvrIquTN2/Xqno/FaV+eCX
+         fdcM+fvuI+P9dZW1o0//RK0A5YAN2Ru0w6m+y01n7wofaZ4QnJRh5FOccCnAsRGa38xO
+         cL/8NTn9mqeZc2543+SAYi+I41ctXWbsenUYt19ZtnfxLI9RuF2rICrhZn6Vq10WEHHp
+         fiyISG/m4W81iwKxIX+c41udAM6yUFii59g9nQHm0iD0t63U/6T5JFIk5WhidEXY2QMu
+         bgRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744009768; x=1744614568;
+        d=1e100.net; s=20230601; t=1744009772; x=1744614572;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mKHBQhlPmU3j6804TJoiY+lijz2sviuHoc3u/Cr+n0I=;
-        b=FhYfM85AYUnfwGWrgSdqwhNJ5PeVnkB2J++VkxE44zml+fCsI4XtQNErEOlzbbYCRc
-         z6uKbAi9Ao1cf65K0AwiN2tKhFxVvUCF+M+CU3ZQZ1nMlBQ6GZeAjOJ3z4/oyvVZt2b6
-         OxEpA3DQ7AKDd2frfEK29Ly10aN/3h6OoAO1/tMxa3lWOt4Xe8ysdQBiB3THN+H35r3H
-         FRub+gsTRjRhk32k4qOOw9HUE+Y6h+4TeAuGVT9hnbpZl+zksfp2A0puGD7lg3nHTywq
-         liIFv8Wo+YuhdDK5Qp7einbU5eZNZGfeflJXFT5lGwBI50DkSXuWvJWNcqWduv8TLpaE
-         G4Mg==
-X-Gm-Message-State: AOJu0YyeiT6DlUKX1DS5B2gNvj+1KeRNXDjUGg0lsGQQMY3LsZMnwr3b
-	hAc9sX1TuV6CVs/YMRw7VpRvsz+oKNNIOu/4sbqTLDY5LpARRRl+lmKTQreaXEE=
-X-Gm-Gg: ASbGnctnI2vTW6NIGXrRX3gvaxaLyJpNKSGKVssSeApQCFpBd8huPu382UPcuebamEw
-	pwfKYH3tObvSpeChzvI/a3PrHQYj3g2FWTCJeMcZPBiMc4aFjjH0KBbumvlaX4BTuuyhdhezmS5
-	iCRcJdSfCJm6fb9gvSTWn5l6SkRqV2PaWSbGwujKPwacMzf/eXam9pmn/ddiNv5rCv+8q8MSa5M
-	2wHgCmhH52/MfP+mnq3Wv/1Ci14b5wDlaHU0Qg1Ra23H1psbY33PQaymMmJAKMJ3GxuIGuaQkwE
-	HY40K4SbHpdh9Hcm00J+LqFv5JlSp52afT54869wMqVG5oHN
-X-Google-Smtp-Source: AGHT+IEOVwEvDvK/VaX877azSHwhGwB+qG3k0uZPl7enDJ5MXPhr/6Jl2r6haw04RdA5keAMOfMCAQ==
-X-Received: by 2002:a05:6000:440d:b0:399:7f44:5c74 with SMTP id ffacd0b85a97d-39d6fd06920mr4321098f8f.55.1744009768449;
-        Mon, 07 Apr 2025 00:09:28 -0700 (PDT)
+        bh=HsaSC2HaVJRroJP0HwzWYTmvmXosq879cETOeyvqI4E=;
+        b=oLj5odzs8KHSTKQDecbNDdnaqs7HAybMQLE/JPIlZwCkpWYu+LXn+4W/A9xm5ZNBY/
+         QzmsoTLPAudmf+Lv7a1sDkdokePBp9JhuDVjXgQf9L8Go1+ASOlUm203krodpBAkPC4P
+         wtuiBSeKeIfTYvViKidQRBdQOjAaY7tqx+Ps4r++Qb1YhgLSP9QOzqD0hS6PEOSWSWLk
+         0tsFLLffZ03iOwid+q4H9+3lkfs/eDvD3HUiAlh5dAavq+mGh1qX+CT+P3HrWvnRtaAV
+         K+KadYS5xUu1GtMTPR4RXhSX6qIYx5Oub2XYOb7IwkB+172QTdbVyXcdiWOZpmQ7NrZ8
+         vFKA==
+X-Gm-Message-State: AOJu0YwirIbUyLHGBFlRflfIjH1C+qUVqA/KLkcJGdeB9f7Y8fNVbpM/
+	t88OhM4SXFvnrFY8eYjhh/4BAoikNMWKofCyndY+xPKY7Jj96HtCspeUh0n2Bsc=
+X-Gm-Gg: ASbGncuSwYUMnE14rKJpvSEgYKfzQmS1Y8Abvj5C1eYaNBmYzpZ4jB6RrfNkeZevYCp
+	xJPOBiER2pJZuj37wKVPdLMLVOx7cpQsxL7CJHgieBDHBP5g3heVWuLlm9IT/1q9wVDvEbKdO65
+	KkT+txTg14FhLYNGefTbVXqI/7uf66JVJZpgrJsUzJP4yR2ChzWBmUSJiVZAR2vylp0KNpgU3yH
+	YCcHyZq0lj64rP/4QFnbXxQF3GR1KdyHbAH1ZI4SOlG2zyOt/XfGb6xsPRPUDKrv8pOfmLmJnyP
+	+KW1bJZpaZJ7G+6vmyRdbUd3XS91yU8/4ad8Gg==
+X-Google-Smtp-Source: AGHT+IFoq+Y3x3L+TzUAPfnpayxhMl0EXTH8ChvoeKZsiBjolFAg72wzCsqeqv6HGqtEWqKDzyAzpA==
+X-Received: by 2002:a05:600c:5394:b0:43e:bdf7:7975 with SMTP id 5b1f17b1804b1-43ed0db4aa5mr81239825e9.32.1744009769231;
+        Mon, 07 Apr 2025 00:09:29 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:8c64:734d:705a:39a7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec1663060sm124622795e9.14.2025.04.07.00.09.27
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec1663060sm124622795e9.14.2025.04.07.00.09.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Apr 2025 00:09:27 -0700 (PDT)
+        Mon, 07 Apr 2025 00:09:28 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Mon, 07 Apr 2025 09:09:20 +0200
-Subject: [PATCH 3/4] ARM: scoop/gpio: use new line value setter callbacks
+Date: Mon, 07 Apr 2025 09:09:21 +0200
+Subject: [PATCH 4/4] ARM: s3c/gpio: use new line value setter callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250407-gpiochip-set-rv-arm-v1-3-9e4a914c7fd4@linaro.org>
+Message-Id: <20250407-gpiochip-set-rv-arm-v1-4-9e4a914c7fd4@linaro.org>
 References: <20250407-gpiochip-set-rv-arm-v1-0-9e4a914c7fd4@linaro.org>
 In-Reply-To: <20250407-gpiochip-set-rv-arm-v1-0-9e4a914c7fd4@linaro.org>
 To: Andrew Lunn <andrew@lunn.ch>, 
@@ -87,26 +87,26 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-gpio@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1649;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1523;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=ehKRyvYg5rUoJTMfe9/Qu0Sq86m2y/6ATgEJ9xwP4+c=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBn83ok4MKKf0abAA3OAYKfP6+RbRvjSZlJeEPjq
- onYoqwKNmOJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCZ/N6JAAKCRARpy6gFHHX
- cg+gEACBTJJGVlRuVE35u0vd0TPLco/EUqtFuji2MMq9tgOsFcm+6EyEyHEQWYwVXELmtyi+pgs
- v47ssFCyjuUpRiTQuoDAiz+kNGhhbedC/Y81QS9HhmIiqRr7+4or1ntC0EF6w5bDaCJ8czd5b1u
- r+uHTdRr3K0PH7leknEkF03e2e8FaUoC6DfVhGDgiKSNujP+zHMI7CTLP1CCLMw6Vni4z5rnZ+B
- DTtwtPu/nStaMeYbGVVXdRHMfuzLqGHhT/vURx7RlT8x4ozmQCC+hRgjMeokIALearKmc9fxYGB
- 6mLjyWbGDqlKg7ewiYLhs4/hVQqxrveH8fwxGUhqb9gu761NA6BXH6uqRGupXN1Yfb9bQBJDv0U
- 8egk07IK/MjZ3r1pBfvICWR7mPPe+WPaiEIZYJdVU0FZr3n5qbj5Cvx3cxDbMawDkChProIlGKB
- La8MSZeeryoNdDhNqBCuTQDl5LzdUCQEZgr6a750ft2Lx8NJRckIBa9+xlwydt5/Sed6G5FqBtj
- mb8BBh21dARgYpr76EntXsciH5RifmwOuKMO8WhVzLwM920GOuBCc0KnVZjgE3BBSRyLZnjsLEj
- S6Uy6Iibd+lHLM8ACyvhERmG9VK2xhyBVzAKzEjp7D8UMlGaSjXznkrvHdePu3ybRMH4hftvDol
- VtUkDFktum4jREg==
+ bh=abv30zYA5XuyGwoeP1ru48ZEwjgixTtNG3nmu6YE3a4=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBn83oktedBQx8pZUxbFWhdPQr1mhvAceAMNekvM
+ eg9/SFm5bCJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCZ/N6JAAKCRARpy6gFHHX
+ cr4uD/920+W4HTn/DythHwMtCVrHef5JpB0YFglUyOJ4l+wrZNhV0VZcDRiw3F4l9uygDSEhyso
+ biZUtfnWodZkYBVGq/dILl7oXl7vF8oWyBJBOzWK3dQxlFdzjiwjxS61wFDTiJtDqrwoHDBGvTP
+ cdZzcOKwYrcWrxD1m8tsHEr4sYBaocCBaMA2DwOBsmTMuwLcnEhYE5HaoI7qjMdz+F5QjH+F5lT
+ F4ogzhuGDbEZ6J5R06tmUkVr48izLrPyCCplJRhaREIq62mx+mTilrFqFpqxB2iDdfr46vmCzuJ
+ 7xIvHs5P4COrgPm6/I5bKr+h3+1VzO7HQFBoDKY2Xuzejttwa3sTTD2RzFuKJiHYYkQM0Oxw178
+ Evb4gwQE/VxyQWocnlavibF52tIaBu3yLnHlf677OVaESjEllEOiw4lWfYVjj0vfVMDeR1OMO1/
+ +KBoC+MsYFiv2hkzvDRonuAMQITxCp1ygc3x2w6s9X7KYWS1CkudDWlCs/NRSMobunZUcYUkspl
+ nsvorsS0oxCLJ07Oetc1JL7Q7A9uln5YELWlRQEIIT8hUBtLX7zVdJtvH6QwPqg5flDaNLjrTz/
+ O4tqaQq1mIozfl75z4Xn3k4+O6OudAZzvKN7VnXBJAK8HhrKrll2cDu2DajhxBcH61elXnqtFyn
+ KFr7Ne2L2ryXdeA==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_000930_143184_D8A0028D 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20250407_000934_200145_AF3D1603 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,41 +129,42 @@ them.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- arch/arm/common/scoop.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ arch/arm/mach-s3c/gpio-samsung.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/common/scoop.c b/arch/arm/common/scoop.c
-index 0b08b6621878..2d3ee76c8e17 100644
---- a/arch/arm/common/scoop.c
-+++ b/arch/arm/common/scoop.c
-@@ -63,7 +63,8 @@ static void __scoop_gpio_set(struct scoop_dev *sdev,
- 	iowrite16(gpwr, sdev->base + SCOOP_GPWR);
+diff --git a/arch/arm/mach-s3c/gpio-samsung.c b/arch/arm/mach-s3c/gpio-samsung.c
+index 87daaa09e2c3..ea496958f488 100644
+--- a/arch/arm/mach-s3c/gpio-samsung.c
++++ b/arch/arm/mach-s3c/gpio-samsung.c
+@@ -430,8 +430,8 @@ static int samsung_gpiolib_4bit2_output(struct gpio_chip *chip,
+ 	return 0;
  }
  
--static void scoop_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
-+static int scoop_gpio_set(struct gpio_chip *chip, unsigned int offset,
-+			  int value)
+-static void samsung_gpiolib_set(struct gpio_chip *chip,
+-				unsigned offset, int value)
++static int samsung_gpiolib_set(struct gpio_chip *chip, unsigned int offset,
++			       int value)
  {
- 	struct scoop_dev *sdev = gpiochip_get_data(chip);
- 	unsigned long flags;
-@@ -73,6 +74,8 @@ static void scoop_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
- 	__scoop_gpio_set(sdev, offset, value);
+ 	struct samsung_gpio_chip *ourchip = to_samsung_gpio(chip);
+ 	void __iomem *base = ourchip->base;
+@@ -447,6 +447,8 @@ static void samsung_gpiolib_set(struct gpio_chip *chip,
+ 	__raw_writel(dat, base + 0x04);
  
- 	spin_unlock_irqrestore(&sdev->scoop_lock, flags);
+ 	samsung_gpio_unlock(ourchip, flags);
 +
 +	return 0;
  }
  
- static int scoop_gpio_get(struct gpio_chip *chip, unsigned offset)
-@@ -215,7 +218,7 @@ static int scoop_probe(struct platform_device *pdev)
- 		devptr->gpio.label = dev_name(&pdev->dev);
- 		devptr->gpio.base = inf->gpio_base;
- 		devptr->gpio.ngpio = 12; /* PA11 = 0, PA12 = 1, etc. up to PA22 = 11 */
--		devptr->gpio.set = scoop_gpio_set;
-+		devptr->gpio.set_rv = scoop_gpio_set;
- 		devptr->gpio.get = scoop_gpio_get;
- 		devptr->gpio.direction_input = scoop_gpio_direction_input;
- 		devptr->gpio.direction_output = scoop_gpio_direction_output;
+ static int samsung_gpiolib_get(struct gpio_chip *chip, unsigned offset)
+@@ -515,7 +517,7 @@ static void __init samsung_gpiolib_add(struct samsung_gpio_chip *chip)
+ 	if (!gc->direction_output)
+ 		gc->direction_output = samsung_gpiolib_2bit_output;
+ 	if (!gc->set)
+-		gc->set = samsung_gpiolib_set;
++		gc->set_rv = samsung_gpiolib_set;
+ 	if (!gc->get)
+ 		gc->get = samsung_gpiolib_get;
+ 
 
 -- 
 2.45.2
