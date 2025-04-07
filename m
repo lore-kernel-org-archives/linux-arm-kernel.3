@@ -4,148 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78699C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AFAAC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:51:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AWG7QzFyNO3IeY8vNAD5cFDgLl9EBUpbthRD5d9tcqI=; b=dXrw81SDFfRReYEXxT4K2cuXWb
-	BbLhcbDjplESFJj0idtbD3SUw4LV5u+T0FME1a1aY7zyJbJmeAww8qs5bX9WkTxmTVq/pX02lGS4T
-	FgUFjYDWKOD1vw1dwJl/t/Bhoi3FFfQZvui4GUOuYUVM0F6QVDaPtQkvtEPzaPITx5dXyqN4shkPt
-	j+FGesyPsHqHFo1diEheHfj6GOVayqZsL+temftYtVWKCaGhli72+0Iwqy7YLfDSB+1C2Risw0e4O
-	a1E0bfvdOFsuiM8pWFwtTXVrOsNxW5v+ulSRx00dANJUJwsy2vvRMIm3PQ5NvcUpNOjX59njtqRdx
-	ajf9lL2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kUw5s0es5oFO/TpdBwZO6q9Zko7b0Q3JT+ATmXX861Q=; b=j5RsmRJ42jvpZ+L9n4s3StgyPi
+	vskPJCKRhWVs+7LIj9xWiw3pOhdv2095JS6VZgaQ922QMYKZQDZ/8Bpuo+3rC3pCVcfVIghpUBDBt
+	TcKETYXYTVjrDmCe5D3gdIFFqV91xVj5a4amiTX+KAh8wlNIkzGMVT5mW9gs9t43/R+FBu+o8rAu9
+	N+Mg2A5o9MqS4vT5qhtWUMwUXZF/y1j+ooL+Nj11Yn/q/j9dwAs/FABsO5tjFHidyAgTeB/TjJzSR
+	2FB9e73PIvk9heAh5T2vNj3PO7KdOsZtwX0TbmjgfB6dHOTQP1OoVmwMNIvN/mp2QuhyEYWxkG4MC
+	g3WdNI7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYj-00000001dWv-1RFs;
-	Mon, 07 Apr 2025 18:51:01 +0000
-Received: from mail-dm6nam11on2061e.outbound.protection.outlook.com ([2a01:111:f403:2415::61e] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1u1rYm-00000001ddX-3Mua;
+	Mon, 07 Apr 2025 18:51:04 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1phx-00000001HVp-12xw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 16:52:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e3UHDPBVVOwuE2O+wYWUv4Cp5Y4zOAIT6Z6H8ydQIMu7V6kJvup9lMqN+0NoiCQWE64heGv8sKL4EM1ua4WiiEnAjnhUj+l/2X0cz6bfp4Bl4OKjxb2H0hVI2DYwul0cwhoIpL7XhCVWZ3WGXyNTryMcC2zE3f01xmlmWSJuI+heJEQOHTj258CxUNJ3/de61bmTzUjc8eo8dMDWoaW7EOAW/QzbBIMmXfhVJUtOEH1YvUmnSuaK0zeDmHTFS3X8BsdH7wjQXHdeFg9w+Kjfv5yB/4R1i4Y6/qqELtyMsqu6uiMcoweRtbMrmJQvZxuaUyepIy5br6nTvp2UwKBpwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AWG7QzFyNO3IeY8vNAD5cFDgLl9EBUpbthRD5d9tcqI=;
- b=IqBOOt4xCvrLvBMiz9aolN/A2tuXzRHN3GS5747fWgxhCeUBu87/MUl+3R4v1+BxREiWT/6aLnDwP2U1d/3UjH3Kaa50eHaSAgtJP1EAKOsgeoXDD7lytdGrneHRMnC+R9d8VEi6XMpPNttmHmE+iWvIqpoO8XIKXlfGaDYsyqPEtL92pSHK4n47ersEBjN82DudFWuqqHWdRHNqzo7/ctvBOWHTh5uA3XFgu6Ym97D17DfPnnfawr7kg7gvpKwv/EfyAwOwc4jnAbK0kF25hZH5YYYAfEuoxlkYqOZMHWENM4pcV9uNqyGeX6r/l/ho3mCC7uqOLF6hMt3CCwRE6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AWG7QzFyNO3IeY8vNAD5cFDgLl9EBUpbthRD5d9tcqI=;
- b=VKcfCrBJ2bW6QauEP7JWyMLEs3ri/fVEkESgutY9B2X8TZPnbDGDY6KzxgIE5/2WS3fFUlZgQnfQe421DziPtZO53szGzQog12sR90sJwYsxgTgluKaQWnmLAikem04PP2fPQlcB+J+2U6zWvOI+l4Xfv0oid0GWKDspow9Sov4FKKxjwLEzeCVVVD3Y7VExQK10v3vTFKYrWcEXAdTpIv2MlpFHZySxiciPkGe3Ahc8HPp3+WeI2H92UH242ksaIG2OJxMcwWA6uV19kzT2l0ensk8c5vPYYjjiCK6/1M7kLs2DzCnpqfS1v/yYOJ19Kqwqr4/Rh7bbrGJMOi1Q1A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DM6PR12MB4435.namprd12.prod.outlook.com (2603:10b6:5:2a6::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.35; Mon, 7 Apr
- 2025 16:52:21 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Mon, 7 Apr 2025
- 16:52:21 +0000
-Date: Mon, 7 Apr 2025 13:52:20 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
-	robin.murphy@arm.com, joro@8bytes.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, shameerali.kolothum.thodi@huawei.com
-Subject: Re: [PATCH v1 3/4] iommu/arm-smmu-v3: Decouple vmid from S2
- nest_parent domain
-Message-ID: <20250407165220.GH1557073@nvidia.com>
-References: <cover.1741150594.git.nicolinc@nvidia.com>
- <0429d554fb0f54f6d79bdacacb3fb3e7877ca8f7.1741150594.git.nicolinc@nvidia.com>
- <Z_OuLJ7RGnChDckY@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z_OuLJ7RGnChDckY@google.com>
-X-ClientProxiedBy: BN9P221CA0013.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:408:10a::6) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u1plf-00000001IBT-24qr;
+	Mon, 07 Apr 2025 16:56:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 01826A479D0;
+	Mon,  7 Apr 2025 16:50:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2712CC4CEDD;
+	Mon,  7 Apr 2025 16:56:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744044974;
+	bh=ymohgFDi4LwP6+Gv1CbYrCj/hTTJ8VYbtY7mVpem+4I=;
+	h=From:To:Cc:Subject:Date:From;
+	b=pYgofEh3AKidigQiwzejSdSQLNcVkNiLqs1Jia4hB1g8iPGht4pKtBvKEie3ph6Sd
+	 tSAvqQviln4Vz7K/7QG98uQiIMrDex6OJlzU11WhZT6HXOuTP+K77RPQUndUS2eJwm
+	 qLtv3r2BJi1AKxHzspdtxHCu1BhQi66xvj/DUOQ9SrLzpTcyPYOC9LRuIDjen1kEZw
+	 ZrjfbroFM2LCB0dT1J8EzKX45Dpkbtj7/4r/YoiAuwsdKHx8ygLx0cBbS4/YNKBCV9
+	 JJFIYHO6XOv+NXJHhaEXwcnohZB89tg6AfP56DxdKM81pd+/xNyTZmkxgOWYKc4g8v
+	 Idf/+cd1WnqAA==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Zhang Yubing <yubing.zhang@rock-chips.com>
+Cc: linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] dt-bindings: phy: rockchip: Add missing "phy-supply" property
+Date: Mon,  7 Apr 2025 11:56:06 -0500
+Message-ID: <20250407165607.2937088-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DM6PR12MB4435:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc61ca23-3b92-4158-4654-08dd75f49084
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?82nfDlO5FEaVqkOiRBwVkSh4rjDQUSUCleb6MnNJL5IGzru5N0ZCkVvpuZow?=
- =?us-ascii?Q?pj08sO96sJkqa+/VVGtn+2tg8X00VSGomiFz4NAdd45oUof/7dowJj4oYv3g?=
- =?us-ascii?Q?EEXFB1JNZuBz4YJ194xdwP7u83Z/cfC/b6n/Pr58M8/lERrV6cJ7Y9uys8zl?=
- =?us-ascii?Q?FfO2c07weKkzie0ZrJBNlRS+HadUzpwNYqxe1MviS0nNfZiPzqi50FDcR3bh?=
- =?us-ascii?Q?SHcU+18PB0bASVReWmcOT5r+tF4boTP81wm0MSnABULWdRMHrSaRrgPfctO3?=
- =?us-ascii?Q?F20Z2ASNmbBG64JfDg8ti/rrt0T4VO6zpMZFBmeTOPIu5O2RIItFWPPgWAMe?=
- =?us-ascii?Q?yZAt/2QYWA9JTPEpfMWCnaX5RZy6MjhBy1LmgmnmvUzFiANfp2UdpktfIm8I?=
- =?us-ascii?Q?+4Ky1a1HbDt0SN2csg24fOXKkjaot2dcKqk6dblj44WKpP7/ommnLuhsFS9N?=
- =?us-ascii?Q?8wicphehzB0+BPrKqBxqM/0ydA+BTnUTuGnwhOvPk/BYd07O4iSuVX8CIXVl?=
- =?us-ascii?Q?mgtluIhYNuIFU8U5Y7P0GNcuT7i8xuhm02EgPPrU7Oi7mSauZgUuVf6s08rW?=
- =?us-ascii?Q?v1WQuOPZc134rXBy5htW8t9dm1EF05AK4HxTiDY9pa4gJhZmPx9g0bcIhcD4?=
- =?us-ascii?Q?+jym0LA/c0azvww9I+7bwDU+4c12vUDznkOjfejmGbI2r+KNOy0NsITmygLE?=
- =?us-ascii?Q?LWDrzczDumj8urmYG+sKpa+bHGWgKVN6giSxyEqnxHeFkto9uu4sXUrAV3mr?=
- =?us-ascii?Q?3wu3tHORoB8OXwzHHtck44S/0tLc96i0JJtl0UUeO7RFWY2k3B7kxZSp43EX?=
- =?us-ascii?Q?IZfi3UJ2mXSNDGWQIeYcUvlqhEPj9dekL9cFplQMWDFDynUZgcHQeppHv9uw?=
- =?us-ascii?Q?qfroZ3AGl5ADgZkG66tSefW0tD1Y5EcqsWtStPj58y9OS34duZQgtFJJ7WCu?=
- =?us-ascii?Q?C+YB4S+q0RqfAkFPVXQsjXjIp3+Hfl9JunX68677QgffSQpbjzXcfusFipS2?=
- =?us-ascii?Q?V6sPATQHb0lQgHsowE3XvBgqTvspE4Hnpxl+WnL7eff3q8hwdCw4bs10Qbeh?=
- =?us-ascii?Q?ESLSTWUmsz0bwohVF9W5o2eY12VBrKJVQ5nF+sLVyR/bJX66e/H1TKMhJZX6?=
- =?us-ascii?Q?/0sP5+Y7TCQrUwD4KE5m/QcCAj3djFoCwCGTDW4SyyOvRBbz/wy+ND8hKw9q?=
- =?us-ascii?Q?/CZDZSNKOgtdyeE9cIhYItSV3+GfZpTlzEp6yVsgOJrUto/syDv32dLxjt5V?=
- =?us-ascii?Q?IbPgzLEco6mHHG9tvwMQaZlb8gEsURjVLD5yriq4+mxncCnpsLz+nFjJ9G6M?=
- =?us-ascii?Q?4hm0fyK3mIS8P2nDHjwwyUF/MAM42wJEvD91FDx90+sRObO2baTPtFNSDEna?=
- =?us-ascii?Q?F0ytrN61Irjn9qfKxUqq+LfBCfP9?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vdb6hmG89NkMjl87bYCX8oR66zbPRrf26x8YS9GwcZUEW7V8pTyn0easGTxa?=
- =?us-ascii?Q?V9YsnAnYe54g44r/HfS5QQT/xOc2a+cOe0z1xoqUWUzBJvgRitX2+4uyOMOj?=
- =?us-ascii?Q?D4O3P3EkvCfSu2XhPtUoQ9o14fiH1oZJigNVZVB+bJUZQOnvcdd4ypVYUwAm?=
- =?us-ascii?Q?6XdFo6wcTW9OG1ISTpbQUYaHS7pApouecpIIpQLTRyZvVyFFaNQp4C1AvqP8?=
- =?us-ascii?Q?+TWD6qRKxP194upSXup01DoM7AXiSm3GbRZGDbYm0ON3AzFUz+5bYTF/8oKr?=
- =?us-ascii?Q?v7KfV8jMfiuDx2LZ7suvHlbplYC57Ub7wZTKe3RAimM1e6akN4wNY0rBQCDy?=
- =?us-ascii?Q?j/vkQvWsfxRiH3UBF0x3A9u8Zd3ADd+nYnJxj9OG4STCw/z6ETcbgZmipOt5?=
- =?us-ascii?Q?zbDkfffGqBUNlten5SOGgQEpwjTa1RjUlKUHxEJM84B7uV2Mr/1mB2H3nZ0C?=
- =?us-ascii?Q?m+4C9AR+5ByNdDELvV5Y8fWWJLPKYCiNN9aiqoUY1FVjOhOBkUH9hYBY80tc?=
- =?us-ascii?Q?ffEVAPszrJLwzZuzvgiD8aSRBLQy0wIyqmFAVyStep7bwMQgs/m2dMcoG10Y?=
- =?us-ascii?Q?bwfp6HCHhoXXzRjMXL4dBIYndGCcnhF37SngC9Xx7BbZxQ0zt3E2wdXvGeIk?=
- =?us-ascii?Q?IusIeMPOuwLCPmfxee7G/PagfSJUMZhttO5jFUZj30JxRlUt10KPIFdpJMse?=
- =?us-ascii?Q?B0H1zwsvl3wrSdtjkVtyLZzEfafCtuOKj7xvJygv2ZVKRaYhsIXmilRuwT5I?=
- =?us-ascii?Q?ld46A+MWjQNAYx9EuGGiTpQNsCKTCCLjvY91ZsVGj7SRrwizVc9mFcSesKYr?=
- =?us-ascii?Q?whElL9Py/E2asNCviduzxrMa11gUoD0V6Yo/5yXuopXG9GxbZemxZtpDoL6k?=
- =?us-ascii?Q?c1eitvYse/HRVw6bblvSslkR+/TMlzuFYdsE0GwHte3cbthIxnpho3rLopa1?=
- =?us-ascii?Q?N9NJNwuNwVnEiMougyUB7WwvxJFFh4ZWAf+QZmFfZjNIT3XgtnszPJjvFDU5?=
- =?us-ascii?Q?WSmACuOEjmqagJiyz6+xbQc+/p8Z2EIzYy+7dZ5swq3fSfnacCM8/Ni/yqCV?=
- =?us-ascii?Q?vWPmL66J6yvp4QAlgg0BpYbw1M4I6LarCXZQ06e+Qn/LgYQ3AqO4sRCxf47R?=
- =?us-ascii?Q?n/3MueEd9EY2CH3FX7PVFdGzMIZCafzfhWMhQcRkGMJWsxgVskP65SbI4HNx?=
- =?us-ascii?Q?VHWz+ctZaLa/OSQYlkN99Jk0rq9F246Bye5z8aIwEJrsjf+a7XL1OAIOe4k7?=
- =?us-ascii?Q?nbDGZpXh2/xEZS8U92u+nj87tPHjU/m7WKMyLZiMqm7ZTlPygrjsnFSQumwf?=
- =?us-ascii?Q?Inzub+SWYeBzXautgq8PaySJob/JlaZEnhoNPzRMfAorsrfDaj3RN8ejsHfB?=
- =?us-ascii?Q?0RyEWWK2cE3fA+UDSvF5ni2hmBKk70ef09Ar5Tg/WG6GAk7MTyGXHQhZE+4J?=
- =?us-ascii?Q?Hj/vH+NChr1/xqosHrq3pAtKe+4F2EG95zmPwXjl+FxL+AobqXYXV/kxVl04?=
- =?us-ascii?Q?62la+Zy/IoYCPF+oVQ4vtzfT44k3ac4quS/ZMmyOm1BrrsuRrniTC1KZmuYv?=
- =?us-ascii?Q?060V/DB5ILI+jgfDe+Cgr9Gz9oXh+UHWl1wNN8bu?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc61ca23-3b92-4158-4654-08dd75f49084
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 16:52:21.5484
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dx+0ATQp2X1UPJeLXtpl/ejA2oF0oJ1ZZmP5i/6ql1fBLSsa2JFwGtUm+JeUrb6n
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4435
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_095225_302875_A4F0CED9 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20250407_095615_595534_873CD3C6 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,36 +78,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 10:51:24AM +0000, Pranjal Shrivastava wrote:
-> > @@ -381,15 +401,24 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
-> >  	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
-> >  		return ERR_PTR(-EOPNOTSUPP);
-> >  
-> > +	vmid = ida_alloc_range(&smmu->vmid_map, 1, (1 << smmu->vmid_bits) - 1,
-> > +			       GFP_KERNEL);
-> > +	if (vmid < 0)
-> > +		return ERR_PTR(vmid);
-> > +
-> 
-> Probably a basic question, I hope we'll have one vSMMU per VM? 
+Several Rockchip PHYs use the "phy-supply" property, but don't
+document it. Add it to the current known users.
 
-A VIOMMU is tied to the physical SMMU, it cannot be shared across
-physical SMMU, so this is the right sort of way to get the ID
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+v2:
+ - Drop maxItems
+---
+ .../devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml   | 3 +++
+ Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml  | 3 +++
+ Documentation/devicetree/bindings/phy/rockchip,pcie3-phy.yaml  | 3 +++
+ 3 files changed, 9 insertions(+)
 
-> Even if that's not the case then the VMM should take care of
-> invalidating contexts of all associated vSMMUs anyway? (Just
-> thinking if we should allocate a VMID per VM or per vSMMU)
+diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
+index 888e6b2aac5a..3e101c3c5ea9 100644
+--- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
++++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
+@@ -42,6 +42,9 @@ properties:
+       - const: phy
+       - const: apb
+ 
++  phy-supply:
++    description: Single PHY regulator
++
+   rockchip,enable-ssc:
+     type: boolean
+     description:
+diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
+index b42f1272903d..8b7059d5b182 100644
+--- a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
++++ b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
+@@ -47,6 +47,9 @@ properties:
+       - const: pcs_apb
+       - const: pma_apb
+ 
++  phy-supply:
++    description: Single PHY regulator
++
+   rockchip,dp-lane-mux:
+     $ref: /schemas/types.yaml#/definitions/uint32-array
+     minItems: 2
+diff --git a/Documentation/devicetree/bindings/phy/rockchip,pcie3-phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,pcie3-phy.yaml
+index ba67dca5a446..d7de8b527c5c 100644
+--- a/Documentation/devicetree/bindings/phy/rockchip,pcie3-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/rockchip,pcie3-phy.yaml
+@@ -46,6 +46,9 @@ properties:
+   reset-names:
+     const: phy
+ 
++  phy-supply:
++    description: Single PHY regulator
++
+   rockchip,phy-grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description: phandle to the syscon managing the phy "general register files"
+-- 
+2.47.2
 
-If the VMM wants to present a single vSMMU to the VM then the VMM
-needs to replicate invalidations as required to all the physical
-VIOMMU objects. This will prevent using the HW accelerated
-invalidation paths, so I expect that the VMM will have one vSMM per
-physical.
-
-> Nit: Does it makes sense to create a helper like `arm_smmu_vmid_alloc`
-> and call it here and finalise_s2?
-
-Maybe so
-
-Jason
 
