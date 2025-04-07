@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52C9C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C77AC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8kNUocanSk1jvPKertsRXJie0PdQYYWNaW5fdSQn338=; b=cbXEkBDjsLGmouOvZ5+fVOGSp0
-	sr6j4vVn+5OVl8q2nug/EAD69LiKYUoZ2qNFWYVd4yjsY172FrAFV/jfFygo3AZzI53nSA2D0xy7X
-	2RLKGB13urjeBF4c80YtBPyi29CMonWXy2qcw9aN0eVDsofSaxLpRjgTGYwMcdAPSjEc7yFaGlVG2
-	oYmpoNhM9jkZhLd6P91BbdOyr0ddguFbNK3CTzBHNKQAiXkZnYi4kDAyefGHOso/yTk+8rDTEEtNa
-	DwQvXNY74gkcgGGpNi8xKrBbUNPkPyMhcb9MeCI7nJ4XsKr0IjL2NlqysZ1BEEUHEFFOIuhGdO32j
-	2TKJRDpQ==;
+	bh=XHIHTgB/R73AYZV/OW+GQm/snhRKxdhK6e3jnuFlVTI=; b=i+LaIGrzrQ2+aa6X5DJMXCg8xp
+	U/5j/AUsVjF4hMbIhcNzZ/ZL86xyBtmWXi6U2O9Ei1bLQF/hZUnQBdpkqI9x2caKAmlJPSq9DJRBk
+	DJ6Z0YIWTMoO8rmn8GxXa3BFmvSOFOTrFtNcg4Mo8Tr6X7mR6FyXqQdPcKElHBBdhupTAgbmTtZHX
+	eZQWQNEICjFt36WC+Iuzh75CHEot7bnqZciI3khCR8wbrA/OQvp7X9PmouoJFrYkK3nYqH+UcHLZM
+	8PQREcp3GpTWB8JGK2GY0JmKfearWqXZmDz1w+Xtq1HhALJ+Hrt60i6b+AszMErsZXcnt2m4keq75
+	6Ls0w9+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oxx-000000013Ug-2aiJ;
-	Mon, 07 Apr 2025 16:04:53 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1u1oxw-000000013TQ-3QXS;
+	Mon, 07 Apr 2025 16:04:52 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1npr-00000000opk-3gqI
+	id 1u1npr-00000000opX-07a1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 14:52:29 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 898E2102EB9ED;
-	Mon,  7 Apr 2025 16:52:24 +0200 (CEST)
+	Mon, 07 Apr 2025 14:52:28 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7088C102EBA59;
+	Mon,  7 Apr 2025 16:52:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1744037546; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1744037544; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=8kNUocanSk1jvPKertsRXJie0PdQYYWNaW5fdSQn338=;
-	b=FP83RM5m9gW5NclfpOqg2DWe6KOjCReNsZ4EQi5Xnkzo2HEHJf/U7FtgUeNcy/Rs7jdqsj
-	4HlqkJz+8/3tI7jRAHdIs+DtybD0bCWJbvoeXdGbhklp5HGKq/Kx67Snzo3WNrv7zibP2Y
-	mseWKrdHy31C6kyv+aQo3Z2xPbNz14EmMI0uofvSkpp5nncIhhy/Dv9CevFR/7i2rp3d9S
-	E7jb9HK8u013UmOr9QnR6m4HCRSC/Za5WemOi/BSq8WYgvKbDSvSNz/jeyuGYt/I9tqEjb
-	0BGRoduAKLtaYYM1rZ7xD8eu6F/V01aPeWs7mYnDD+ms8y4U54yfSa82vDc9Mg==
+	bh=XHIHTgB/R73AYZV/OW+GQm/snhRKxdhK6e3jnuFlVTI=;
+	b=UYDCJIMt1tO2yrkNJcerwMYBe6h70vpGsrLOVJruwXYbS0NmRXWFpEQb1rkgmrZKHsrE+w
+	e8tgqheHWGakbve4vv+hytXm5TM1CAac9zt6lEWyvMlkApTmKSwIJzXLk8VERuWvNcJMdJ
+	Umpj7FA7XltZQYHCZ9nPP8Ft514NYdVX1irLXKr4tRCkX7AIuxtqSPVWi3nM8xSiXa1V7a
+	8FnxVlZHUkBE+fXp++SwbgUdwi3qnmhB5KlueEZfJ/zlbBFzZlp+1e0bZwT1OAu2nqygQF
+	5EIRs/L8/8br0B63SOgZChMzC39wm9DXYpSbFjx+8+ezqeD238Hi/dLz9YzEUQ==
 From: Lukasz Majewski <lukma@denx.de>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -58,11 +58,10 @@ Cc: Sascha Hauer <s.hauer@pengutronix.de>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	Stefan Wahren <wahrenst@gmx.net>,
-	Lukasz Majewski <lukma@denx.de>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [net-next v4 2/5] ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2 switch description
-Date: Mon,  7 Apr 2025 16:51:54 +0200
-Message-Id: <20250407145157.3626463-3-lukma@denx.de>
+	Lukasz Majewski <lukma@denx.de>
+Subject: [net-next v4 1/5] dt-bindings: net: Add MTIP L2 switch description
+Date: Mon,  7 Apr 2025 16:51:53 +0200
+Message-Id: <20250407145157.3626463-2-lukma@denx.de>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250407145157.3626463-1-lukma@denx.de>
 References: <20250407145157.3626463-1-lukma@denx.de>
@@ -70,8 +69,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_075228_056702_73F8176B 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250407_075227_351481_3ECE1CD2 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,50 +85,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current range of 'reg' property is too small to allow full control
-of the L2 switch on imx287.
-
-As this IP block also uses ENET-MAC blocks for its operation, the address
-range for it must be included as well.
-
-Moreover, some SoC common properties (like compatible, clocks, interrupts
-numbers) have been moved to this node.
+This patch provides description of the MTIP L2 switch available in some
+NXP's SOCs - e.g. imx287.
 
 Signed-off-by: Lukasz Majewski <lukma@denx.de>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-
 ---
 Changes for v2:
-- adding extra properties (like compatible, clocks, interupts)
+- Rename the file to match exactly the compatible
+  (nxp,imx287-mtip-switch)
 
 Changes for v3:
-- None
+- Remove '-' from const:'nxp,imx287-mtip-switch'
+- Use '^port@[12]+$' for port patternProperties
+- Drop status = "okay";
+- Provide proper indentation for 'example' binding (replace 8
+  spaces with 4 spaces)
+- Remove smsc,disable-energy-detect; property
+- Remove interrupt-parent and interrupts properties as not required
+- Remove #address-cells and #size-cells from required properties check
+- remove description from reg:
+- Add $ref: ethernet-switch.yaml#
 
 Changes for v4:
-- Rename imx287 with imx28 (as the former is not used in kernel anymore)
+- Use $ref: ethernet-switch.yaml#/$defs/ethernet-ports and remove already
+  referenced properties
+- Rename file to nxp,imx28-mtip-switch.yaml
 ---
- arch/arm/boot/dts/nxp/mxs/imx28.dtsi | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ .../bindings/net/nxp,imx28-mtip-switch.yaml   | 126 ++++++++++++++++++
+ 1 file changed, 126 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
 
-diff --git a/arch/arm/boot/dts/nxp/mxs/imx28.dtsi b/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
-index bbea8b77386f..a0b565ffc83d 100644
---- a/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
-+++ b/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
-@@ -1321,8 +1321,12 @@ mac1: ethernet@800f4000 {
- 			status = "disabled";
- 		};
- 
--		eth_switch: switch@800f8000 {
--			reg = <0x800f8000 0x8000>;
-+		eth_switch: switch@800f0000 {
-+			compatible = "nxp,imx28-mtip-switch";
-+			reg = <0x800f0000 0x20000>;
-+			interrupts = <100>, <101>, <102>;
-+			clocks = <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
-+			clock-names = "ipg", "ahb", "enet_out", "ptp";
- 			status = "disabled";
- 		};
- 	};
+diff --git a/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+new file mode 100644
+index 000000000000..1afaf8029725
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+@@ -0,0 +1,126 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/nxp,imx28-mtip-switch.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: NXP SoC Ethernet Switch Controller (L2 MoreThanIP switch)
++
++maintainers:
++  - Lukasz Majewski <lukma@denx.de>
++
++description:
++  The 2-port switch ethernet subsystem provides ethernet packet (L2)
++  communication and can be configured as an ethernet switch. It provides the
++  reduced media independent interface (RMII), the management data input
++  output (MDIO) for physical layer device (PHY) management.
++
++$ref: ethernet-switch.yaml#/$defs/ethernet-ports
++
++patternProperties:
++  "^(ethernet-)?ports$":
++    type: object
++    additionalProperties: true
++
++properties:
++  compatible:
++    const: nxp,imx28-mtip-switch
++
++  reg:
++    maxItems: 1
++
++  phy-supply:
++    description:
++      Regulator that powers Ethernet PHYs.
++
++  clocks:
++    items:
++      - description: Register accessing clock
++      - description: Bus access clock
++      - description: Output clock for external device - e.g. PHY source clock
++      - description: IEEE1588 timer clock
++
++  clock-names:
++    items:
++      - const: ipg
++      - const: ahb
++      - const: enet_out
++      - const: ptp
++
++  interrupts:
++    items:
++      - description: Switch interrupt
++      - description: ENET0 interrupt
++      - description: ENET1 interrupt
++
++  pinctrl-names: true
++
++  mdio:
++    type: object
++    $ref: mdio.yaml#
++    unevaluatedProperties: false
++    description:
++      Specifies the mdio bus in the switch, used as a container for phy nodes.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - mdio
++  - ethernet-ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include<dt-bindings/interrupt-controller/irq.h>
++    switch@800f0000 {
++        compatible = "nxp,imx28-mtip-switch";
++        reg = <0x800f0000 0x20000>;
++        pinctrl-names = "default";
++        pinctrl-0 = <&mac0_pins_a>, <&mac1_pins_a>;
++        phy-supply = <&reg_fec_3v3>;
++        interrupts = <100>, <101>, <102>;
++        clocks = <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
++        clock-names = "ipg", "ahb", "enet_out", "ptp";
++
++        ethernet-ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            mtip_port1: ethernet-port@1 {
++                reg = <1>;
++                label = "lan0";
++                local-mac-address = [ 00 00 00 00 00 00 ];
++                phy-mode = "rmii";
++                phy-handle = <&ethphy0>;
++            };
++
++            mtip_port2: ethernet-port@2 {
++                reg = <2>;
++                label = "lan1";
++                local-mac-address = [ 00 00 00 00 00 00 ];
++                phy-mode = "rmii";
++                phy-handle = <&ethphy1>;
++            };
++        };
++
++        mdio_sw: mdio {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            reset-gpios = <&gpio2 13 0>;
++            reset-delay-us = <25000>;
++            reset-post-delay-us = <10000>;
++
++            ethphy0: ethernet-phy@0 {
++                reg = <0>;
++            };
++
++            ethphy1: ethernet-phy@1 {
++                reg = <1>;
++            };
++        };
++    };
 -- 
 2.39.5
 
