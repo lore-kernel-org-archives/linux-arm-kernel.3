@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399C5C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:16:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB09FC36018
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YlS9SNfRqEBGJwWaFAFEV0VEKXfqmIqqn9u3rCmOfpU=; b=3Z/F+s1NkGpGboFXkzCDLZa0PQ
-	4ur/jj/ONrxO7q4SYRmjGaGJ8sAkobTXfeEMlOdxx8czbIXtlyhENcVewpmkiAL0fpAh8MaHvFawZ
-	TAXMyZnOZu44KLtIVEGMXXYiTo3t3oQlHl+tw+SpO0iLvJ6kixSQDTvJzygJ8VbbUVX6pbAPPmxTa
-	kVpDjyf/2VtLw7RPYdJIoC43yuT9AOQQhI0utPfmr9CYiVtK/fpXU2V5wyy8/Rro3dzexbLC66SlT
-	ZfLqn8bYz46F8GZyB3MCJs/z02VwlwY2oHdE+/cwJI3yGXNDK1S082vRTKJ+VbcDGkogZQ14gfg3D
-	bHFv8W8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yoUbEfEojKpbNb9OTSz678XRKXNdE6eHUfk0iKNiJys=; b=i/W8Ghsd/SAFy6Ozn+KXsSDxXk
+	uOS4w6z13Kgc+FyWc0N0xGBnrU0rHratueviG8izVcKkhTMUZEtZkthOYMLXLLH5Oa3N3JAsbC9L9
+	7musgUugSwPltNQaut+LmhNfry25WRI5NNTOT47P9h7wjT0WACazgUQ7ARGpPZxkKDvHre69rRCpc
+	dN1VcZ7/1xsVceKs3eq+eLGXGXizScGsQ+LZtOXQ+qY1Ov5WMM7d9gAfz25/IFwFQfn0ntA1ymDSW
+	KoTGVeNPWnChBsM1GSwU0fkk+gxsUfhn8dz3zMotFPbLfuyMgN0X0jEo+CzvciGzVjvlZoIS/SiGH
+	T+KC2TLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1r1Y-00000001VMb-2Uya;
-	Mon, 07 Apr 2025 18:16:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u1r1a-00000001VPa-02cY;
+	Mon, 07 Apr 2025 18:16:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oqB-000000011zG-14r3;
-	Mon, 07 Apr 2025 15:56:51 +0000
+	id 1u1p3E-000000016I5-2Af0;
+	Mon, 07 Apr 2025 16:10:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 31AC06115E;
-	Mon,  7 Apr 2025 15:56:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55AEEC4CEE7;
-	Mon,  7 Apr 2025 15:56:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 946625C1ECA;
+	Mon,  7 Apr 2025 16:08:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BA86C4CEDD;
+	Mon,  7 Apr 2025 16:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744041410;
-	bh=lB60eOJuf5tOWXfPKUzsxGfJef4dFGup2NjoNJe7wnM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Uh5uiJLM2GbJZh2empkgAoW7OP6kChL6dFWFY7ekUSlkXXjH/HNgLOaHvwXV+Y2vz
-	 ZQ0WYyMFRITXJeVajWbn8NQrleMF6L2lu6svbF6TujpSvc8Xv2GSsmSN4hDJ1eYZzB
-	 l8pLiPOZL5dLdRjxw8kb9JuL8mzyiwr3tX86QnCDuGo4L7PsbOKlIJSMylX4EPIt6V
-	 7Q2ipTIQJxrwPp/Kc5herELmX9RlDXBEq2ammPU+n4F+g9bwSELzteAJBDCh369ZHn
-	 nOFnK27gpbD4/1VNl0UOqVYUt0iRJpEJWU0FUiJI3j74luu1G0LAndJH5oa7JZUoAR
-	 NrEpQ1ePUmF6Q==
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-abbd96bef64so874550866b.3;
-        Mon, 07 Apr 2025 08:56:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVlCRNa6yjp1BaWZfF0x4xCkpoWv5GZlWVZZkyoZkq+dr5dZNAQnmHyYwEI6RTdpvEz3Cwz8vS7IUJF6kJFpPMD@lists.infradead.org, AJvYcCX4n/xe2HyGTYbJAytf06YJ4s8zl6u59bLSm5ArnVIybaAMY5wTkibQDPUWP2jCAWc2ptHy8GSHlZxUjHAqoX0=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4xVch6MuQAI+Z+GgEf6AZpCU/PJlepK6lQVZgQw7MU2wM34HM
-	M9G5Am7tbQ804KsBVg1LgcwU0HQbSfFDfk3J+FVwZCCrYcA8MEn4IOqj/sQIgYoCbMVKXpjNs3/
-	LIN+XXID64GMiqJ5KIx6Yp/NdfA==
-X-Google-Smtp-Source: AGHT+IEwypuQHtewe7oLHDK0Lin7VVDrmqaMnF/yfoZXK0Vm9Z2Mu4r1UfY0Dvl+rcyWlqG0RDs93c4ecVbGJ/eFp/s=
-X-Received: by 2002:a17:907:7e88:b0:ac6:bf3d:bf45 with SMTP id
- a640c23a62f3a-ac7d19671efmr1333301966b.36.1744041408915; Mon, 07 Apr 2025
- 08:56:48 -0700 (PDT)
+	s=k20201202; t=1744042219;
+	bh=T/icUZNKagvrKD/XyMsdV5kUXZvHz0F432ZQ6gD6/bc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uCSADcswQIgmHv9oHsLj9h4sGt3gtocSsO3jdUKpd+jKaOH8nQfKzmfm4woAno6NN
+	 ymVchZUBmmnbhQhN7zMQl1h1dAo44xBd6sGtcOBjGNqkkSKdNVPB38ZJAqNU4AjjGL
+	 MbKC5udI1PomP+E/ZbVSHRCt4sPTm4UWgGMqkZ6St3oRwyOBthcc6DRtqbvfMRSpKt
+	 d+wbjuc13tikm6zQvxnVYfiI7CqHsk0+CYdXDIMqzFLrOXjkH2UEUT0RJ6rjFSMdNi
+	 gdf1JrW62iBFzpwTZX8WG/lapMNvFFii1nDV6XANfrjE94Umjn5ZUHwYgI9gIfuhxC
+	 RGy9BJ5DsapnA==
+Date: Mon, 7 Apr 2025 17:10:13 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Bincai Liu <bincai.liu@mediatek.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jitao Shi <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH 1/4] dt-bindings: soc: mediatek: add mipi yaml for MT8196
+Message-ID: <20250407-cramp-fidelity-b3a6db245938@spud>
+References: <20250407133138.22449-1-bincai.liu@mediatek.com>
+ <20250407133138.22449-2-bincai.liu@mediatek.com>
 MIME-Version: 1.0
-References: <5552256.Sb9uPGUboI@phil>
-In-Reply-To: <5552256.Sb9uPGUboI@phil>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 7 Apr 2025 10:56:37 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJo+9ycUFHVZ2Darh_RWaRuJGX6KKQGsbeuDWav7vKA2g@mail.gmail.com>
-X-Gm-Features: ATxdqUFJPngLMLFKdy7L4W0Pm0-UEMG8nDV-9UTClAhrHanA2WHbpGaiUSuF7Mg
-Message-ID: <CAL_JsqJo+9ycUFHVZ2Darh_RWaRuJGX6KKQGsbeuDWav7vKA2g@mail.gmail.com>
-Subject: Re: [GIT PULL] Rockchip dts64 changes for 6.15 #3
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: arm@kernel.org, soc@kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="8xUyRlIlJRn2Mb1P"
+Content-Disposition: inline
+In-Reply-To: <20250407133138.22449-2-bincai.liu@mediatek.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250407_091020_614852_258E162C 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +88,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 6:56=E2=80=AFPM Heiko Stuebner <heiko@sntech.de> wr=
-ote:
->
-> Hi soc maintainers,
->
-> I made an error and accidentially applied a patch that was meant for
-> the mfd tree. Thankfully Stephen noticed that when the duplicate
-> commit appeared in linux-next.
 
-Both commits are in v6.15-rc1 now and the revert is not, so this
-should not get applied/pulled. Or you will need to revert the revert.
+--8xUyRlIlJRn2Mb1P
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Rob
+On Mon, Apr 07, 2025 at 09:31:22PM +0800, Bincai Liu wrote:
+> Add compatible string to support mipi for MT8196.
 
->
->
-> Please pull.
-> Thanks
-> Heiko
->
->
-> The following changes since commit 73d246b4402c3356f6b3d13665de3a51eea7b5=
-55:
->
->   arm64: dts: rockchip: remove ethm0_clk0_25m_out from Sige5 gmac0 (2025-=
-03-15 15:49:00 +0100)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git =
-tags/v6.15-rockchip-dts64-3
->
-> for you to fetch changes up to cee24bc73d4f3f47344a1a54100a69c72f1db061:
->
->   Revert "dt-bindings: mfd: syscon: Add rk3528 QoS register compatible" (=
-2025-03-19 00:22:18 +0100)
->
-> ----------------------------------------------------------------
-> Revert of one commit that was applied accidentially and should instead
-> go through the MFD tree. It is already part of that tree as
-> commit 7f3e3e7228bb ("dt-bindings: mfd: syscon: Add rk3528 QoS register
-> compatible").
->
-> ----------------------------------------------------------------
-> Heiko Stuebner (1):
->       Revert "dt-bindings: mfd: syscon: Add rk3528 QoS register compatibl=
-e"
->
->  Documentation/devicetree/bindings/mfd/syscon.yaml | 2 --
->  1 file changed, 2 deletions(-)
->
->
->
->
+You need to point out in your commit message here and in the mipi
+binding patch, why a fallback compatible is not suitable.
+
+Cheers,
+Conor.
+
+>=20
+> Signed-off-by: Bincai Liu <bincai.liu@mediatek.com>
+> ---
+>  Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml =
+b/Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml
+> index f6e494d0d89b..ed99e959bf4b 100644
+> --- a/Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/mediatek,dsi-phy.yaml
+> @@ -37,6 +37,7 @@ properties:
+>        - const: mediatek,mt2701-mipi-tx
+>        - const: mediatek,mt8173-mipi-tx
+>        - const: mediatek,mt8183-mipi-tx
+> +      - const: mediatek,mt8196-mipi-tx
+> =20
+>    reg:
+>      maxItems: 1
+> --=20
+> 2.45.2
+>=20
+
+--8xUyRlIlJRn2Mb1P
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ/P45QAKCRB4tDGHoIJi
+0uZ2AQCmQRddIAahlK8Ed+uZbLQZVr9L4zCTUWXg3FZUCLVczwD+KTSQUSVEAcAA
+ytubYwzhw6MZqL5MEKTRb+4e+b1dCA0=
+=3pKV
+-----END PGP SIGNATURE-----
+
+--8xUyRlIlJRn2Mb1P--
 
