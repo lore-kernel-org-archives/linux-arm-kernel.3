@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EFBC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 08:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE37C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 08:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PM1xp6gzVd/l23ioaAQhkaBubnLpRRJNpYojAABDe0E=; b=SWpnRsi4ilRmQL5z2AEIIx4Vbw
-	WHgqi+VkPDZEpbt9dSiOYn34FknEN3hpW/zbe6HFpNbUzfbpnaz7Z0PsKiAuIvak25XKkN5ZP6wB6
-	8qoVPVHSIXcNuwDVjhX6C1KRPWcXYSjK8WAWjmqex6hYpu5mMNLZY8L9vTFWdU236qy4DUxLQknIx
-	UW07luBYSgMMylK8Uz9jZrOx4UV1uSYCPHhZgeuZlt9bCbziyUMPTFAZgX4lk66PR4sgmuuwAqcVr
-	n4BVhveSvkE/w5fc+2kbEyHUBYKXVK5Jmft9vdwVI0kMB1XjcKEzeKfHO1lMHNiz2ydhoXRdGkyjU
-	2tDzJFUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M4fDmZRN7yquUeZo8bSMP2LmovWfrpFiqUhwN/ePUVc=; b=H0g4/kyLPiH0k1qcQoE/Wb+tS5
+	M+Dq8DbdWpNqiKvsarkcGYKbHMO7NhAohRmD8jv0ZC/t9F1Rdl3RuFAR3qMjxpCNZe0vD4d/2xM8y
+	v6m8rwmL/kch6hjAUSV2NQL8fiwmv7sq28JL2wJvW8mDIThWDOW4cpN4O325/atURHVys2r3oZqv4
+	oL6MgnN6E0BmCtJei1gACi1j1QLaPwduTNhDJ7FwR+u21zy/mkqMqXpl/73dcYwNZBBjiSjV1ckGd
+	oFgy1TelytD9CVesg1P75fV8F+lRBPGsDPBKoZ6iw++sEwO1Bguce7OVDLFFgTzMEyZgG4FZbR54z
+	8fjjrLEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1iFZ-0000000H5bq-1mbs;
-	Mon, 07 Apr 2025 08:54:37 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1u1iHJ-0000000H640-0RUA;
+	Mon, 07 Apr 2025 08:56:25 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1hyt-0000000H2Wp-3ZXW
+	id 1u1i0t-0000000H2qi-1E97
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 08:37:24 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2264c9d0295so324945ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 01:37:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744015043; x=1744619843; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PM1xp6gzVd/l23ioaAQhkaBubnLpRRJNpYojAABDe0E=;
-        b=k+8HMHMlJ2Op4OUVtPNNgqyNOEMloclLP+8EdSIda75UdDTS0DWnhTvhm3/54664a8
-         LQDIlim2ZGHuPtQuFw6xRE3EV73pvV7gC35ZVVK32yYNG6Q8S+y1WuW10LGY4YpoLus4
-         miAxgZi4wFPu0YvDy9VM17eImMrADpbF7Ab2ogFN6bp8onWuwVVwtF0dIlOUKSkDd0nN
-         aOcaaqjzfPbPmGeZF8yA+2XBSM1+kuXkbOW6XmtFQcCuHL/DBC0whmzACQVImbmjP4OI
-         dp8m2jVgZKsn6AXVXe9jvLC4mfa9RZGWJYhVchv4OY7Sm84HoGkB5fAAnqhBW8Qh9ovK
-         BoZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744015043; x=1744619843;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PM1xp6gzVd/l23ioaAQhkaBubnLpRRJNpYojAABDe0E=;
-        b=EDG33mIXf68BY/9OUQ3zD2SDIPb4wK2TUeK/0/3O8HTRQY7aUqRK3kZw0Ys8WhTsO+
-         KuWWvjq7ALW2ysvNnfwXwHKVyR/HtXa5QCCWdlT2qUnotvXoH7CPERPxLCdXV0M39s3Z
-         O3sSWJgwbTH6ylmKLocjUJ1z59zBunMwzb/YBPjZpSCNWlrEoVqDJWJue8x2PUNxJcXx
-         zA5RD0t3c/FPwGxnw87UhSeiE5QJN3KvxMwJFH29cUeLawuQzxhPl/yFQJ8Sm6/ZJCjj
-         ozHh7cO0tsFVsfU+CGBIEEDsCjDfsQ7kKlBbcoAQY2BUdlvVTNzVkZSIR/oeBrOSTWn3
-         s65A==
-X-Forwarded-Encrypted: i=1; AJvYcCXiRUIjMnBZaiyl+bWU6CbJHPWlN9B8oKhhpqykqqfU/BpU/KMGgLXNz0AUl47zzO6byWuFyp96MGOywqdZdDNW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmOn0bih/AwPwFQ0c6LoClaqeGgrs5K7guAvAFhbgL65aahIml
-	vYrdLvFhp1NYGVXzMcYaQeur4R5rdR5S++Ul9rK9m7rHLvH7pwFnUuRnu8bpmQ==
-X-Gm-Gg: ASbGnctk6Q3XdwnwFSLSLuM2Gz1vrUf9PXR6G642oyofE1wg7NyMC9kYKeiTt8KXHMc
-	el2rt/l3nIgiot/ZFgv97JSW4qHORxbc2q6mN1g7eRW9uBi0lY1IGb/aJlWJOyfqLXjMbMgYajR
-	Jjsu9A2smoqlrF9G/uQGsWMOJJq9rHXRFR9zSRcXWBLAjyogV8IclQ1Lhle33lTI4L3+aI5Omye
-	l5HcNkbbl2eDEbJZXT2FGkJqqbIfgUxJE4SCN8i9NavtUJ8GDLNXe7r/cswXBlk7NBZitSt04yR
-	Ew0AuqjBRvjcP9SQIFOrSyMa5pcDT0dFDfkHx6Bn07B5OsNIyCEBiiwG7YtjK6DotmJZbgPm/+y
-	7uCU=
-X-Google-Smtp-Source: AGHT+IFEcecwODNx4wiqbqJKpBlZrrA4mcqLS8OyyMt6tYMj4vc7ksfjibFdVhVKjFGu4nMmJA0OlA==
-X-Received: by 2002:a17:903:2308:b0:215:8232:5596 with SMTP id d9443c01a7336-22a95e638e2mr3367595ad.16.1744015042625;
-        Mon, 07 Apr 2025 01:37:22 -0700 (PDT)
-Received: from google.com (188.152.87.34.bc.googleusercontent.com. [34.87.152.188])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739d97d19c5sm7904646b3a.20.2025.04.07.01.37.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Apr 2025 01:37:22 -0700 (PDT)
-Date: Mon, 7 Apr 2025 08:37:14 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"jgg@nvidia.com" <jgg@nvidia.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 1/4] iommu/arm-smmu-v3: Pass in vmid to
- arm_smmu_make_s2_domain_ste()
-Message-ID: <Z_OOukRG0foehmV6@google.com>
-References: <cover.1741150594.git.nicolinc@nvidia.com>
- <214b10db02f1046efdc70e2c4803111357f60070.1741150594.git.nicolinc@nvidia.com>
- <a95b39a55c324907a7001d3a2cdf076b@huawei.com>
- <Z8iNfnZ9N5Lczxmq@Asurada-Nvidia>
+	Mon, 07 Apr 2025 08:39:29 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5378d75g030209;
+	Mon, 7 Apr 2025 10:39:10 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=M4fDmZRN7yquUeZo8bSMP2
+	LmovWfrpFiqUhwN/ePUVc=; b=LHYmZFDc7FLDVSArv6RpKwZQLAukYgWXCJIpgv
+	errUQg9s9rqoLZJK/t/p/2MPeJQVpXwmiZpphYN4LjeZWJUY+huriQB9Zgc2jC2L
+	kvauvSrXFld++hAtUey0VbDCZKd6r54aanX+BRhlm544Lc1P2jlf0g8aKvF72el/
+	sn0w/n0cs4Ku7q+dQm2WkacdoJb6CBaBAVPBCoETHHXX4e+8pdU8qlV6yCaPVjzw
+	XbWtAUlIau2H2DWh3dEQ9N0JcG3nl/bGWuTvHyFDJc1zHdKeuae9eP3rM6/hh1mP
+	vrqYvwn06bHdTyu8wVGZcNGvUaHH9id+iO3/q5sDsmD/1LDQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw6e6hvt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 07 Apr 2025 10:39:10 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6F4164006A;
+	Mon,  7 Apr 2025 10:38:11 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B94F693C4C2;
+	Mon,  7 Apr 2025 10:35:41 +0200 (CEST)
+Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 7 Apr
+ 2025 10:35:41 +0200
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <maz@kernel.org>, Christian Bruel <christian.bruel@foss.st.com>
+Subject: [PATCH 1/2] arm64: dts: st: Adjust interrupt-controller for aarch64
+Date: Mon, 7 Apr 2025 10:35:12 +0200
+Message-ID: <20250407083513.2072434-1-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z8iNfnZ9N5Lczxmq@Asurada-Nvidia>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-07_02,2025-04-03_03,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_013723_893122_8615179C 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20250407_013927_962232_56E00F27 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,37 +90,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 05, 2025 at 09:44:30AM -0800, Nicolin Chen wrote:
-> On Wed, Mar 05, 2025 at 08:50:17AM +0000, Shameerali Kolothum Thodi wrote:
-> > > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> > > b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> > > index bd9d7c85576a..e08c4ede4b2d 100644
-> > > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> > > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> > > @@ -887,7 +887,7 @@ struct arm_smmu_entry_writer_ops {
-> > >  void arm_smmu_make_abort_ste(struct arm_smmu_ste *target);
-> > >  void arm_smmu_make_s2_domain_ste(struct arm_smmu_ste *target,
-> > >  				 struct arm_smmu_master *master,
-> > > -				 struct arm_smmu_domain *smmu_domain,
-> > > +				 struct arm_smmu_domain *smmu_domain,
-> > > u16 vmid,
-> > >  				 bool ats_enabled);
-> > 
-> > Now that vmid is an input, do we need some kind of validation here as
-> > at least vmid = 0 is reserved I guess for bypass STEs.
-> 
-> Perhaps it should do a WARN_ON_ONCE(!vmid), as it doesn't make
-> sense for a caller to make an S2-bypass STE with this function.
-> 
+Use gic-400 compatible and remove address-cells = <1>.
 
-+1, a warning should suffice as the caller isn't expected to call this
-with vmid = 0. For the s2 bypass case, we already set vmid field to 0 in
-make_cdtable_ste for clients who *really* want the vmid = 0.
+Fixes: 5d30d03aaf785 ("arm64: dts: st: introduce stm32mp25 SoCs family")
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+---
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-> Thanks
-> Nicolin
-> 
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index f3c6cdfd7008..379e290313dc 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -115,9 +115,8 @@ scmi_vdda18adc: regulator@7 {
+ 	};
+ 
+ 	intc: interrupt-controller@4ac00000 {
+-		compatible = "arm,cortex-a7-gic";
++		compatible = "arm,gic-400";
+ 		#interrupt-cells = <3>;
+-		#address-cells = <1>;
+ 		interrupt-controller;
+ 		reg = <0x0 0x4ac10000 0x0 0x1000>,
+ 		      <0x0 0x4ac20000 0x0 0x2000>,
+-- 
+2.34.1
 
-Thanks
-Praan
 
