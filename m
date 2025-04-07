@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBBB7C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690B0C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g+gTqjr9DCh74fm5MrIN8IfG63yVQfUMTpEsACnoz9g=; b=cGLFIFXvTKwK+qatuVpGRoGTjq
-	+BRin3dxb/r6jzjetYcVsa82ojgDo6AuLpeZEpMIH5S612fdDS3OskcECd45ZH2m23YonpzAbNxre
-	TfOEi3NAmwIGk4hTGBpSKgJN/o4VlxjZAQPHwxBSsWv9fFz1Vmg8cCicU4+7eT+UwzQLM+VXHhdtt
-	ZtetypfwZh6Yrdho9O6v4Aieo7hWXV11l2XI/LCH0YN5A1zpsmANfgXAAo7sDQ2EieyzEaYe3lhaE
-	tLrTUu6ls2wcfZvBGAT7Pw3xSnwHlkrtFvULTyKjud/mw0LLk7MWKQ1b6xiYRE6bVQwKG5ItxI6uI
-	QIA4SPsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M7W29gsQrq0H9dwj935eGoewqVShH9mztjb0+yL0CVA=; b=QWldjku7Y0DH+oX7tHl7TfRwW3
+	J/8VFO1LRXrMucCWVTFp/ebOzSUprLb9M7YadfoN5n8KdBxc59U4HsW+KnPiRQsNqTML6MxhaX4iS
+	lL7W+WO8luzQY4tJK/V/z0+SPItfp6eWBtdFJoHjyFLtFi/mgdwXOdv8t4Y14Xh7nmDRlnBAiypC2
+	/u5aYGy94Xx8GmVOPpnmpmUfpOh3OleK4KMVnJfDXljLghrur5a3gCSYQJtzY1WegIKnLzSK67osB
+	7uJ4GdLTCrfeSq/qhOTN6ab8MHW6u4yftQRmUJWrgctxsbPhfT8noqRywHDxCfs38jotN1rzBDfHk
+	7EO+m3kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uJB-000000024eS-02gp;
-	Mon, 07 Apr 2025 21:47:09 +0000
+	id 1u1uJI-000000024tK-2BBy;
+	Mon, 07 Apr 2025 21:47:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rhG-00000001j86-2545
+	id 1u1rhc-00000001jJa-2ynq
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Apr 2025 18:59:50 +0000
+	Mon, 07 Apr 2025 19:00:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=g+gTqjr9DCh74fm5MrIN8IfG63yVQfUMTpEsACnoz9g=; b=S+9/lpDdDRdEMm/HJ3B2WEMXYp
-	3lTvAD1I5rsAmIiHjA8BHyJZYG2cxGITCkq/swCt+TlFSBth6dXpuQ2GFzFuu0FiXa9zvGbLWEsjQ
-	wYHfAHeyCis5IrXimU2kYPf5KTfkwKLx8YJNNNjWpfTPt22A+kKzeGv/lPrf8IwAg7iM3BIRTFi0x
-	b9T53bUVP3As9nGJxfDvDShJpiKumxTXkTCP5d9hMuOHrJTOTNvnFdlnuJ9pP7ekRWGWAbYaVeKj1
-	KJOeLl7nOZs//b/0WCJMlBz0PAJdti54O4gTDIijyfQKrsgaVV0F5OGqUI9IL5+ZSwGksXlXxWq9I
-	/Aco7FvA==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=M7W29gsQrq0H9dwj935eGoewqVShH9mztjb0+yL0CVA=; b=Lsezrs0+KDkQZsEjU+XX1jEzuS
+	hVJ8l1wHlIkICUFplH8SC/7T2gEcLo/p8NPlZV8hEoib2xoOKIF6evOrnna37YDiLJJIOvs1dYFKd
+	6fM6KQoYmRJKecyKJkBXozD0G/BNMy+oWdYdSPMNJK3BhWM4w+iFdEMQLSNqhbwZmFWllq66yuyFX
+	RhWiGgeCPlCUpv1EZLM0CZ8qAqY4rOKz8xF34X/htdDQcfzmBx3KrqjNSDyNDN0LHAdlaumPcwWIO
+	NLn3V42oVR4vw0GCJlkoYGhOqJyT79CFW1j2n8ONIq9mp779nOYiIdCquZx1hkY0kGxwguSL03UJe
+	vuRtLjGg==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rhD-000000086ja-3RvQ
+	id 1u1rhY-000000086nG-1gco
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 18:59:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=g+gTqjr9DCh74fm5MrIN8IfG63yVQfUMTpEsACnoz9g=; b=aSGIamiJukybih316LqvTsGTCU
-	VJrvt/A8Zi349runxTQ69QaQi0QPBl4R2XSxcE7aIP+xD5O1s5Rwajkxo+EHErgJM5Iy63s2KUKmM
-	9bDd2+WP3srjq7mU2Lmxi9a57c6tQropXqxKy76NXPvRL4GWDKng97FpnMbZ7fhDeaAJq1se6+7AJ
-	xLIYV42W3RV4xvEaXvdVpUyrEa8vs4MRHegTVntemDmTkXCAlwFRivqysD9KDJ7VYU6FL0Bkj8GzR
-	WE0lGLkhEiq80lGjbyDZWRpTr+viXLhmvkbpZGECYwfVcH7+IpUBBjLMVT0C4ZCm9Rm/k+Ssudqnc
-	F8zRG/Cw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43020 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1u1rh9-0006AU-1k;
-	Mon, 07 Apr 2025 19:59:43 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1u1rgd-0013h1-Fz; Mon, 07 Apr 2025 19:59:11 +0100
-In-Reply-To: <Z_QgOTC1hOSkIdur@shell.armlinux.org.uk>
-References: <Z_QgOTC1hOSkIdur@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Thierry Reding <treding@nvidia.com>
-Subject: [PATCH net-next 5/5] net: stmmac: remove GMAC_1US_TIC_COUNTER
- definition
+	Mon, 07 Apr 2025 19:00:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9F6F2A484E8;
+	Mon,  7 Apr 2025 18:54:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54610C4CEE9;
+	Mon,  7 Apr 2025 19:00:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744052407;
+	bh=M7W29gsQrq0H9dwj935eGoewqVShH9mztjb0+yL0CVA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uPC73g+eU/HaQ1z0uUeOKaao8DIyTZ9QG+L+9Mgwk2ZyT2hFHRXhS2lOyvmq4dtnt
+	 NiXdGs5f81X1EFz2AjtZsAwVcjCgButu02KBukwNyvX7w4FjbCaoZk4KusskvOoiEi
+	 ayhVwbFr0e4/NbgdjxBWnUh7knUvu8r1mxUvk+Ge+eKt/RDg6O6veN+tTdqtinMC7z
+	 +WnfAFtCxDAf4Le1qvbn6K71ANt/4C0PVDqqaq9AZiKJpHn0x0NpEDOZfOyFS0O66z
+	 6biC2xUUFL8N/sp32ZBydKtStaath5ICnqRPd5YVQlUwng5F1oL1bXTmb79o4S07Si
+	 ebP3NA5ZIDBTg==
+Date: Mon, 7 Apr 2025 20:00:02 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, ardb@kernel.org,
+	catalin.marinas@arm.com, maz@kernel.org, will@kernel.org
+Subject: Re: [PATCH 11/14] arm64/fpsimd: Add
+ fpsimd_save_and_flush_current_state()
+Message-ID: <ed129f25-ff6e-47d6-9398-487e0f886a61@sirena.org.uk>
+References: <20250404174435.3288106-1-mark.rutland@arm.com>
+ <20250404174435.3288106-12-mark.rutland@arm.com>
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tCd0YtrqUnplrY3d"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1u1rgd-0013h1-Fz@rmk-PC.armlinux.org.uk>
-Date: Mon, 07 Apr 2025 19:59:11 +0100
+In-Reply-To: <20250404174435.3288106-12-mark.rutland@arm.com>
+X-Cookie: Meester, do you vant to buy a duck?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_195947_939250_49E35C76 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250407_200008_652175_DC85C263 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,28 +90,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-GMAC_1US_TIC_COUNTER is now no longer used, so remove the definition.
-This was duplicated by GMAC4_MAC_ONEUS_TIC_COUNTER further down in the
-same file.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac4.h | 1 -
- 1 file changed, 1 deletion(-)
+--tCd0YtrqUnplrY3d
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
-index 42fe29a4e300..5f387ec27c8c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
-@@ -31,7 +31,6 @@
- #define GMAC_RXQ_CTRL3			0x000000ac
- #define GMAC_INT_STATUS			0x000000b0
- #define GMAC_INT_EN			0x000000b4
--#define GMAC_1US_TIC_COUNTER		0x000000dc
- #define GMAC_PCS_BASE			0x000000e0
- #define GMAC_PHYIF_CONTROL_STATUS	0x000000f8
- #define GMAC_PMT			0x000000c0
--- 
-2.30.2
+On Fri, Apr 04, 2025 at 06:44:32PM +0100, Mark Rutland wrote:
+> When the current task's FPSIMD/SVE/SME state may be live on *any* CPU in
+> the system, special care must be taken when manipulating that state, as
+> this manipulation can race with preemption and/or asynchronous usage of
+> FPSIMD/SVE/SME (e.g. kernel-mode NEON in softirq handlers).
 
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+--tCd0YtrqUnplrY3d
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmf0ILEACgkQJNaLcl1U
+h9AvXgf/X/+7ZjIYG1NlHy6iukr+v6nu0Q83Ks9RcSpmi4dOuUw7nKHJ//wMcxHH
+t8Q9MH11BBI6ohn3iNVmHacyr+WcVizwU8PRYYtyMvoIJbh1PUzh2DECLUweqEwI
+MU5Du7/fCeLdQdfjGbLlMraZ5BifzWki764Waz9qa296xi7BF6/6PejmTfPSmXmy
+crulBkbHemVgcWGRz9qttFkrMiSkaR/VaeOOVKHRJL9tfadOPL28la/DlhQEk99e
+ooCAJ4isFX1wIkd2AARakeog/Eb5kWrgEwewquFLxFqulaR6Dddw1smS/nHrfcNV
+G/dj3CLRD78f7jIy/N0Qfg12/h4XTg==
+=wA83
+-----END PGP SIGNATURE-----
+
+--tCd0YtrqUnplrY3d--
 
