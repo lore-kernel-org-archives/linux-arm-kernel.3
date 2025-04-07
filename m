@@ -4,122 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56907C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439BEC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:12:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k9iJegd5Ia1sf2YYhjnML6Z7o/nrmQGKc6nCIrJDSk0=; b=gELT2/4TEAxWh0wrHKdEhd3vcK
-	uAxt6wXpJR8Ygt7YhlriJ3xDzLwY+Jcov3Hg7vacEvX/XIFwO375FgZm5Ba6m99jfQ7AkuBJL/Jdy
-	B6AeXWj9htxw90OBA7N6UtwtaB6qn7mV/C9Sqg5nwaCNQDfIpPHNkygsRbyjLgRGq1Y3MLb517Zwi
-	6H6i9Exxh4XfwejSQJ/qBMDw1+kc6dbrl1lS0tTy5ZV9lPZKV3ZtRLs3xqHNeHbibo6geVz+Lmiyn
-	KrLR7Ru60gKtVdVKEvv/JNM408YlIU68ayzM6pIoarJ6fuG0GS4l6UxHoK6tnomYt7n8K+aKpq0Oz
-	jXdcT31g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Au0mQLhtD+SC9FQejYqXmeWmtMq3lmMU5k6WXMVlQsE=; b=QvyehUqinaUZyFxXZOOdySqTe5
+	C42qKBBd7Y00fWxZ3yaOsjjpGyH+N0rORGJO8Ni+yf70NuBCXO8QfLbtyZulnycxKKtuNNhes1+ec
+	4C02fYxhTh4a9Qwqj6O8y41GHE1sVtKMjUSRVH1D3v3YydKvc3qPJa/OXqG6msZX0lv1uu4EiVzHm
+	brIgMry1MKZJWZ0zsUQvpTOXxQvB+XuK55Ufm9Zx9LjSE5U9ofQ51vB/WBMvEWVhuI/XjXlAEw1KF
+	6XGfMBaiGRz7Tl7SxHGGdn5QuQESwKH1qqZgjiJN9DdxgZHGKydSIAS9rqkGZqbLVnguS4RjJRoWh
+	QAun5d0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1p52-000000016mk-3Yy8;
-	Mon, 07 Apr 2025 16:12:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u1p5Q-000000016vr-07Gl;
+	Mon, 07 Apr 2025 16:12:36 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oFQ-00000000vko-3HtT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Apr 2025 15:18:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=k9iJegd5Ia1sf2YYhjnML6Z7o/nrmQGKc6nCIrJDSk0=; b=aAyW2rSGjflxZu/4F+X1KilQFZ
-	IinzJSdZF75sIeMUolEJcQhCkoOE667+CXKTeNpPFqurzvq2J736dOtNvCcxqVGiGUSkNqkWnVLpP
-	8s4F1GKjJGPlE1NdvFRY8VNkTQ2bCBCVU0Rtd6cSyd0Dnb3umNHDjT5gcUN/T2j9Jctf1PHuQU/MJ
-	HvivtlYx5Fg6TOQ7nHQKV8fUwf7juM80vNobP9u5+me+yUQdbvSWekqaSIAuzb+QkvEA5hwWjvNMd
-	z1uuenEV6NPGxzu/PTjNJWg3zrOy1YNXmO8r2lD4cfK2Tox8CZdiyqfSc3o/8UeEAJg63znBZ4wTY
-	6fVZ6eJw==;
-Received: from mgamail.intel.com ([192.198.163.8])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oFN-000000080hi-1Gwa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 15:18:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744039130; x=1775575130;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1NJRt6LbnYr5vWij5ePJd37xgMVsqCx9Jmee3+UErzw=;
-  b=VFGWwg13Jd/qm+6mk6CF628mrzFSnTInQBbLK6pZ7Nn+3YS/zL6e5WHB
-   wW6f2eB/xwGVOmJLMvQ2pl1nrDSrDLwxQDsfGxM8qREUFfeiDXyDp3iTJ
-   ViZJfWk5stS6w6MoMpeBafBUo9irodWeD7E46Hx9PdsBOCAkHQGOF4Xrw
-   8nbs0L4qlyxRPvsErkSssJgA7FlQ+gHnQPWfFoKMEd2tVepVW3vsuOaEC
-   xAhClfzpoHGvVZp6g1SBNGuB+e0uz1hkN7v5A4N4QLnm/p0euw7SKtYqG
-   VbowatSNjvpvh+Xx33zOJ4AN/Fmjjpr9V7WCsYe+QXYUSjp4q0PXVI1d0
-   w==;
-X-CSE-ConnectionGUID: 5u5MqHeyTKq6dNWdnkh1Ug==
-X-CSE-MsgGUID: 6BNGJPU3SUGfRjgbab6w2w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="62978218"
-X-IronPort-AV: E=Sophos;i="6.15,194,1739865600"; 
-   d="scan'208";a="62978218"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2025 08:18:43 -0700
-X-CSE-ConnectionGUID: IqMU7/H/Rw+TqFJhz588Jw==
-X-CSE-MsgGUID: TbsEHfwYSTaH3B2GpUiTew==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,194,1739865600"; 
-   d="scan'208";a="127866370"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2025 08:18:35 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1u1oF4-0000000A6jQ-1MZV;
-	Mon, 07 Apr 2025 18:18:30 +0300
-Date: Mon, 7 Apr 2025 18:18:30 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH 03/16] of: dynamic: Fix overlayed devices not probing
- because of fw_devlink
-Message-ID: <Z_PsxpQC-I5abp0o@smile.fi.intel.com>
-References: <20250407145546.270683-1-herve.codina@bootlin.com>
- <20250407145546.270683-4-herve.codina@bootlin.com>
+	id 1u1nPX-00000000iWs-36GW;
+	Mon, 07 Apr 2025 14:25:16 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DAC6F442C5;
+	Mon,  7 Apr 2025 14:25:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744035914;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Au0mQLhtD+SC9FQejYqXmeWmtMq3lmMU5k6WXMVlQsE=;
+	b=IOIZY+9FLNNwjOVUejlZYenKMCe4v8sL2aHDUymtGUB7UEo7ItpPsVQB3px1CLvTO+tCP+
+	wwXiP9jbwgPcWbyu8yKyvZ6PMMtiLrBkA2OFiRaynXANve6aeDokcxnigRFnwAIqqNuQJO
+	nWtiE1DVBvbdm4kZIrB4gHRHM16+/1px4IiI3mo+2tGIScPdDMb9usH/cU4EkoQeM7fZ3C
+	8zlxR6WDD51Kzr+yAVmCjsQhN66beiiN/CY46HZS+Fys+UC3Bl/KQSCBEN4uglieZrsr++
+	5FCuNrtemNjPAZqFylLv01rdESTyKWF4eKEGQkHtudkimjTOjeHytwktMm5zxg==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Mon, 07 Apr 2025 16:23:38 +0200
+Subject: [PATCH 23/34] drm/omap: dss: sdi: convert to
+ devm_drm_bridge_alloc() API
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250407145546.270683-4-herve.codina@bootlin.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-23-42113ff8d9c0@bootlin.com>
+References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
+In-Reply-To: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Douglas Anderson <dianders@chromium.org>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Anusha Srivatsa <asrivats@redhat.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, 
+ =?utf-8?q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>, 
+ Hui Pu <Hui.Pu@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ "Rob Herring (Arm)" <robh@kernel.org>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedvtdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegludelvddrudeikedrudejkedrjeehngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeggedprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvr
+ hhnvghlrdhorhhgpdhrtghpthhtohepjfhuihdrrfhusehgvghhvggrlhhthhgtrghrvgdrtghomhdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhm
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_161849_888799_095DBA3C 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250407_072515_911770_78F38545 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,22 +104,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 04:55:32PM +0200, Herve Codina wrote:
-> From: Saravana Kannan <saravanak@google.com>
-> 
-> From: Saravana Kannan <saravanak@google.com>
+This is the new API for allocating DRM bridges.
 
-Same here.
+Switching from a non-devm to a devm allocation allows removing the kfree()
+in the remove function and in the probe error management code, and as a
+consequence to simplify the code flow by removing now unnecessary gotos.
 
-> When an overlay is applied, if the target device has already probed
-> successfully and bound to a device, then some of the fw_devlink logic
-> that ran when the device was probed needs to be rerun. This allows newly
-> created dangling consumers of the overlayed device tree nodes to be
-> moved to become consumers of the target device.
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+
+---
+
+Cc: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+---
+ drivers/gpu/drm/omapdrm/dss/sdi.c | 25 ++++++++-----------------
+ 1 file changed, 8 insertions(+), 17 deletions(-)
+
+diff --git a/drivers/gpu/drm/omapdrm/dss/sdi.c b/drivers/gpu/drm/omapdrm/dss/sdi.c
+index e78826e4b560a2b9af2d8a5a38e181bd3e44d250..df4cbc683e2ca27ef5fc45f79b77dcdcd9ca529a 100644
+--- a/drivers/gpu/drm/omapdrm/dss/sdi.c
++++ b/drivers/gpu/drm/omapdrm/dss/sdi.c
+@@ -284,7 +284,6 @@ static const struct drm_bridge_funcs sdi_bridge_funcs = {
+ 
+ static void sdi_bridge_init(struct sdi_device *sdi)
+ {
+-	sdi->bridge.funcs = &sdi_bridge_funcs;
+ 	sdi->bridge.of_node = sdi->pdev->dev.of_node;
+ 	sdi->bridge.type = DRM_MODE_CONNECTOR_LVDS;
+ 
+@@ -344,21 +343,19 @@ int sdi_init_port(struct dss_device *dss, struct platform_device *pdev,
+ 	u32 datapairs;
+ 	int r;
+ 
+-	sdi = kzalloc(sizeof(*sdi), GFP_KERNEL);
+-	if (!sdi)
+-		return -ENOMEM;
++	sdi = devm_drm_bridge_alloc(&pdev->dev, struct sdi_device, bridge, &sdi_bridge_funcs);
++	if (IS_ERR(sdi))
++		return PTR_ERR(sdi);
+ 
+ 	ep = of_graph_get_next_port_endpoint(port, NULL);
+-	if (!ep) {
+-		r = 0;
+-		goto err_free;
+-	}
++	if (!ep)
++		return 0;
+ 
+ 	r = of_property_read_u32(ep, "datapairs", &datapairs);
+ 	of_node_put(ep);
+ 	if (r) {
+ 		DSSERR("failed to parse datapairs\n");
+-		goto err_free;
++		return r;
+ 	}
+ 
+ 	sdi->datapairs = datapairs;
+@@ -372,19 +369,14 @@ int sdi_init_port(struct dss_device *dss, struct platform_device *pdev,
+ 		r = PTR_ERR(sdi->vdds_sdi_reg);
+ 		if (r != -EPROBE_DEFER)
+ 			DSSERR("can't get VDDS_SDI regulator\n");
+-		goto err_free;
++		return r;
+ 	}
+ 
+ 	r = sdi_init_output(sdi);
+ 	if (r)
+-		goto err_free;
++		return r;
+ 
+ 	return 0;
+-
+-err_free:
+-	kfree(sdi);
+-
+-	return r;
+ }
+ 
+ void sdi_uninit_port(struct device_node *port)
+@@ -395,5 +387,4 @@ void sdi_uninit_port(struct device_node *port)
+ 		return;
+ 
+ 	sdi_uninit_output(sdi);
+-	kfree(sdi);
+ }
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.49.0
 
 
