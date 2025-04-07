@@ -4,148 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A40CC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01A2C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l32xApiI+gg24AXpOHwudkim+RE+PX7NDLCeLuFfkYc=; b=BQkX+rqqN7SrFdra3etJmUC1bV
-	1n9AzP/uYiQQfaWCS8gaynfZg30qXVpo/fgDyGYZnp63iTy1speEeYRtR7ro7fMW04Qj1qpha/t/2
-	XDDgVllq5Yg6qG4b81ec4ZG2FBfXsVtP1gHSLqG0ivgFOwlARIjj1kKFrtXWLwmbf/TjffewzoEQI
-	kEmNJi662L74eLX6yg7t8CX3nITdToWMi6mVBJfWWFcsunrYXpPC6iEBYOSriVZM8FU0ksHN+ssPp
-	0ZJLgvOZRMxvLbN2d1k1kl5xtUeIhmcrTh0DYPe9TQWt4ZHkwEHrDj51UXOaMdZPb1IsziDhVBQRf
-	1tgceLJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=wkTAESEKeKUtdyXTDTV8eheg+YrwZqve/99BaU7jXd0=; b=CNypLqO3wvBLq5GJhD5j319Vpm
+	M9MMvj3R9RC8qneN9CcUeJOWZU1TyWQ21gULZ/m5QxSm5k05ZA1KpJlv7LUrKBv7KH9eO1aG//gCb
+	E1pPW6/wDlCWBZZrjFHLxaBljmNtKOWLfM/4WzHDmLKYXS9Hud+fe7m8rDZosD9RO8QwGiR6CX0lX
+	8qD7MYer2shJx8gV9hkdRMMN4fg8k7pSy9n4sVNBbic9CyH88vmlWasKZPMyrUE2WedKbOJMfBgnP
+	wncZ6EmZgD6boeIqzBJ58WibpLCgH1KjMqkc/tXMPBvyf9jMLYv+JXHRUyWb+XbO4MsQfqa0aY7zG
+	3DlveK+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rZv-00000001fmr-3GT9;
-	Mon, 07 Apr 2025 18:52:15 +0000
-Received: from mail-co1nam11on20610.outbound.protection.outlook.com ([2a01:111:f403:2416::610] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1u1rZy-00000001frs-0fyd;
+	Mon, 07 Apr 2025 18:52:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1qmN-00000001SM6-2jOX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 18:01:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xF0rhKV6ZcWvp1JLyazK6sFr1+s3H72zNJbekXEPVUFDdBrxmTtmTYm1FCp80ZBEqBwzz6I0Gj+k9kEmzrx683eW7+1CFqUFuvCQTqCVC/V8QFZy3sfaPHssJ6gh66VVwrrPH1RRm0jQ5YldzMGcNDvRSJs0A7A78oVQCQcQziDeFFDNCzm4FvxmRdYYnM29ESpq+JPFd3AQlxjyTc1+guuCvHx4PYSvskeeqQmS8erH73BxFPFZOPmy6PV2Bq00V5saOWeFBH/FzCy+coKMqEPKmBGf8c8DbjjId8pjX/+ZBidw/+tG1DFnMHISzM8HYJbP8hHBkVCWn8ECRTehYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l32xApiI+gg24AXpOHwudkim+RE+PX7NDLCeLuFfkYc=;
- b=J19RJcc1IG9TRWiXzoMSifpMGHvu1gxB7Admla5dzj0pONrD1Mh2QZwcqQoIsp8zfn3sXkjlKGmsVWLj0CU+IC9kxcS/SkwqvtYKfRm6KMLKKqbjh69bE/5z022DCKZvvtJsyYt/aO/5t4/wA0wDUeBIw8pZAD7gsIDlOYPb5UDAApM2HTtDgAoHqwfdwDP3LOtny42W1mtyQu9TGWmNwngxGDzNJlcOKeDP97dS8RoLRsT/Ft1PW0gpk/rKvN/E3UtfoIac3Et7UkgE4n+4eB2bq6Fnm9X2DjB5kj0M1JiF3fkRNaKMgF75f9S75vvPZZW4rlmlWg4i+VbHsc2/aw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=linaro.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l32xApiI+gg24AXpOHwudkim+RE+PX7NDLCeLuFfkYc=;
- b=Y9JlJlYMLzSsNbQdCRCYDhkUTZ1iFwNT4yliGR1eCz+WuQY+Z/oNQVzTQQPOWdMIS3+xPiKiYBhbrNA6bEvRMtRlKwYokxjzrdg0PPHwd2sQlQrQ+VZSfk+Ajp2n73Kmngw+Q6iVHQH58JtbmDcPgQhF6fy/5hv0OEnqkO+TQoK8nd7SkqKuhpv68MM6GXgd+GjJ01E6K0InXysS7Cn0lTtkx8KJkcLzywzpIwS9JWgrxHC8RQy2Un5ivcBZ1V0toC3CiSM1NVoqY+6aULlL46ZDk9luto4uDUqnM7ZmlvLPEPESPhLJ7ZWwWgrNSaQr/8qZtQhI9Iz3xmbd2kWRbw==
-Received: from MW4PR04CA0254.namprd04.prod.outlook.com (2603:10b6:303:88::19)
- by SN7PR12MB8819.namprd12.prod.outlook.com (2603:10b6:806:32a::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.31; Mon, 7 Apr
- 2025 18:00:56 +0000
-Received: from SJ1PEPF000023D7.namprd21.prod.outlook.com
- (2603:10b6:303:88:cafe::4e) by MW4PR04CA0254.outlook.office365.com
- (2603:10b6:303:88::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8606.32 via Frontend Transport; Mon,
- 7 Apr 2025 18:00:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ1PEPF000023D7.mail.protection.outlook.com (10.167.244.72) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.0 via Frontend Transport; Mon, 7 Apr 2025 18:00:55 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 7 Apr 2025
- 11:00:31 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 7 Apr
- 2025 11:00:31 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 7 Apr 2025 11:00:27 -0700
-Date: Mon, 7 Apr 2025 11:00:24 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Zhangfei Gao <zhangfei.gao@linaro.org>
-CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>, <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
-	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <praan@google.com>,
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v8 12/14] iommu/arm-smmu-v3: Introduce struct
- arm_smmu_vmaster
-Message-ID: <Z/QSuMzJVGOcTx60@nvidia.com>
-References: <cover.1740504232.git.nicolinc@nvidia.com>
- <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
- <CABQgh9Fuh2HdBH7pyAteawZBpa55ZzfR9dv2K4RF=Ps4yhREbw@mail.gmail.com>
+	id 1u1qoy-00000001Siq-0WrI;
+	Mon, 07 Apr 2025 18:03:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 066DB61164;
+	Mon,  7 Apr 2025 18:03:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0CDAC4CEDD;
+	Mon,  7 Apr 2025 18:03:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744049023;
+	bh=YHIy5Y1koKmkECfrSnEDyoWYCat4HjXEskfIpv3fwuc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=RttCvuN6FYjIuyMSpBvHJlb4NGyWZ/3GBZXejCnlcffyyRb6qBm7entEeT5evaQPe
+	 LF0Y0672+3ZAnwDw6WTDneKn3v8souc6WjSgylaiDpxYunKnwcZj2aCfx1rd5invPL
+	 tBhB17TFw4gFjshVKtaDfsnXWzrIe8GsvSp0EKT1tgW4qdDsoptaI4oabflYTQKqah
+	 0S0QDF0bxdh3qiwItJEEY2RlOOnJ8Yd1d4s+7BKH0GEopNDPQU+7M4phafo7qggkpP
+	 qmvHquthg0WYzrN/WkyrxyW/lHo+3k6cCJK2Ffia4l+TYXQIuehc971AnL7F8FZX1I
+	 x1p5l2w16/ZBw==
+Date: Mon, 7 Apr 2025 13:03:41 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
+Cc: tglx@linutronix.de, maz@kernel.org, linux-kernel@vger.kernel.org,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+	Toan Le <toan@os.amperecomputing.com>,
+	Joyce Ooi <joyce.ooi@intel.com>, Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2 07/57] irqdomain: pci: Switch to of_fwnode_handle()
+Message-ID: <20250407180341.GA189772@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CABQgh9Fuh2HdBH7pyAteawZBpa55ZzfR9dv2K4RF=Ps4yhREbw@mail.gmail.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D7:EE_|SN7PR12MB8819:EE_
-X-MS-Office365-Filtering-Correlation-Id: e4693767-7e8b-4f05-7f89-08dd75fe24f3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|7416014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MZMMJBDqR09E0oemVbJbqZblT6tQLcEW0A/718JWvA1pBM6nNujzYZbWkfHj?=
- =?us-ascii?Q?VNqm9DBpx1ZU/WzNtC3u8ARY6cMtoJ+TYsOqQsmw8TEkLiOagb70F6W0fOU7?=
- =?us-ascii?Q?TF5yueUh7nh72O9oeGHkEYLGZVQwbwsozHzYI3FE9IbydsPoBRGxklmeFkG4?=
- =?us-ascii?Q?cTrSol1MvvTachUBjKNI2yHFjmEhwuz9zDZARl2Az9IXDs0IJV5qy0M/2Y7U?=
- =?us-ascii?Q?hRPxBKDE59PDnIY/HCM8uID1v8/Nh157kwWscbVpgR+1kvz2QRzmhMzEYjp2?=
- =?us-ascii?Q?G5jxgKloq7jmusCkSljde/MTBIi8rpPeTwmmHaP36fkaoozcj+8tE8zY1Xn5?=
- =?us-ascii?Q?TWlTT9XSdOeNfkVWtcUEIhLudEmFgFnOoqdpMmnWZ/psKXIeqGsi0nkegm4K?=
- =?us-ascii?Q?39rHW9QFUVKfbVq0d9loW4TZyxaF9XBuzGhyLPCZzKO2M2TGp3cGaypVFJNV?=
- =?us-ascii?Q?tkpmyuojlnsx6P+J9Oz8ja2LfRChrlp2yrxhGF/QRfqPjSxtjo3u9LkTCI8z?=
- =?us-ascii?Q?WuCBswTv7ed7f2J2Hwmh3vp5k/lAq3mjG/bEPtjP+irFBBMWIg/QCQGYgKsw?=
- =?us-ascii?Q?GBTEwIMNTWKljSSbz/hspVL5Gw3SDXUHO27s43dhzJwqzl+D6VEziMBb9rV4?=
- =?us-ascii?Q?8PZoLN4SMDHcv6T1OjjSAo3e8O3etF2vS5Uxz/FArRBVmTzQj9kSd1cobgO2?=
- =?us-ascii?Q?7XmTcAoy2V/JF2PzW4ebzhk6aySomGAjR5tlKQM6iWq7KAJyYbfynCHANM/A?=
- =?us-ascii?Q?gkPr+EWkFH37Gi0WOu8cUN1YGe7mcESPn4ZNTYte7gj69nRDaTI54WtBYBAy?=
- =?us-ascii?Q?z2ymskTjZ2ge8Sb1SUIPOlfjIdiVYWq3y239lujb6IzLRnQeeA5b8borITLb?=
- =?us-ascii?Q?jG5OQun1/ZhZIB6pmCuN574XsS2eks1aBf2piESxsxQh9bu8oxaIa6JGw+HI?=
- =?us-ascii?Q?QievnsmAPYKdyP36Idzi0MW1buF2nLDG6ORfBXpUqTmHRZGpsUyDEr2AiqN4?=
- =?us-ascii?Q?buSlNPkEgCRl2DnKEWNAzJH8/QyZ80DgD2v2T7wBLHF2AljDGvoZaOAHsIxt?=
- =?us-ascii?Q?bR7lEvsPCQKoKgf4/co/rOtd2IzC7dpzFIa2/3vqZFJLcBgwV6rTnbbDs+fp?=
- =?us-ascii?Q?69Hke4O6iGcxGeO7jpwTxKa2wS9K1KCx/rxHqe6bwZiwO0PIkg4W6Xd5czTI?=
- =?us-ascii?Q?VYNm/Qm2eQoRhlKHNXePchnRD/IS1OACzJy/dhXdLS8wbbqDi3lnMo5rEbHT?=
- =?us-ascii?Q?L0ROkXikeyGu4J43OH93Cd8Q6lp1u7ZnKgPoZ+zB4sOnWESnDp/zluPaewkR?=
- =?us-ascii?Q?1/C7CSkzxeXtZEk4xzXCyTWGpDA15w1d2/UzuIRQHc0Jw6DQzToMl0yXkh6B?=
- =?us-ascii?Q?49HovViT+UJ/mDjoAHqs0IT76LDtxCb3zXNscMkodHmKYWs2FKlsHdjDQMKZ?=
- =?us-ascii?Q?PVfhyaGYXh1PQRTpBrVh4rq1ZEBZCfWzWp9jnjMO2LxonbpnBII8A4CuoNXP?=
- =?us-ascii?Q?xFhawRSpWRLnWBo=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(7416014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 18:00:55.7267
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e4693767-7e8b-4f05-7f89-08dd75fe24f3
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D7.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8819
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_110103_689401_8345F526 
-X-CRM114-Status: GOOD (  19.30  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250319092951.37667-8-jirislaby@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,55 +86,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 08:08:57PM +0800, Zhangfei Gao wrote:
-> Hi, Nico
+On Wed, Mar 19, 2025 at 10:29:00AM +0100, Jiri Slaby (SUSE) wrote:
+> of_node_to_fwnode() is irqdomain's reimplementation of the "officially"
+> defined of_fwnode_handle(). The former is in the process of being
+> removed, so use the latter instead.
 > 
-> On Wed, 26 Feb 2025 at 01:35, Nicolin Chen <nicolinc@nvidia.com> wrote:
-> >
-> > Use it to store all vSMMU-related data. The vsid (Virtual Stream ID) will
-> > be the first use case. Since the vsid reader will be the eventq handler
-> > that already holds a streams_mutex, reuse that to fenche the vmaster too.
-> >
-> > Also add a pair of arm_smmu_attach_prepare/commit_vmaster helpers to set
-> > or unset the master->vmaster point. Put these helpers inside the existing
-> > arm_smmu_attach_prepare/commit().
-> >
-> > For identity/blocked ops that don't call arm_smmu_attach_prepare/commit(),
-> > add a simpler arm_smmu_master_clear_vmaster helper to unset the vmaster.
-> >
-> > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> > Reviewed-by: Pranjal Shrivastavat <praan@google.com>
-> > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> > ---
+> Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+> Cc: Jingoo Han <jingoohan1@gmail.com>
+> Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: "Krzysztof Wilczyński" <kw@linux.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>
+> Cc: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
+> Cc: Toan Le <toan@os.amperecomputing.com>
+> Cc: Joyce Ooi <joyce.ooi@intel.com>
+> Cc: Jim Quinlan <jim2101024@gmail.com>
+> Cc: Nicolas Saenz Julienne <nsaenz@kernel.org>
+> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+> Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+> Cc: Ray Jui <rjui@broadcom.com>
+> Cc: Scott Branden <sbranden@broadcom.com>
+> Cc: Ryder Lee <ryder.lee@mediatek.com>
+> Cc: Jianjun Wang <jianjun.wang@mediatek.com>
+> Cc: Michal Simek <michal.simek@amd.com>
+> Cc: Daire McNamara <daire.mcnamara@microchip.com>
+> Cc: linux-pci@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-rpi-kernel@lists.infradead.org
+> Cc: linux-mediatek@lists.infradead.org
+
+Applied to pci/irq for v6.16, thanks!
+
+> ---
+>  drivers/pci/controller/dwc/pcie-designware-host.c    | 2 +-
+>  drivers/pci/controller/mobiveil/pcie-mobiveil-host.c | 2 +-
+>  drivers/pci/controller/pci-xgene-msi.c               | 2 +-
+>  drivers/pci/controller/pcie-altera-msi.c             | 2 +-
+>  drivers/pci/controller/pcie-brcmstb.c                | 2 +-
+>  drivers/pci/controller/pcie-iproc-msi.c              | 2 +-
+>  drivers/pci/controller/pcie-mediatek.c               | 2 +-
+>  drivers/pci/controller/pcie-xilinx-dma-pl.c          | 2 +-
+>  drivers/pci/controller/pcie-xilinx-nwl.c             | 2 +-
+>  drivers/pci/controller/plda/pcie-plda-host.c         | 2 +-
+>  10 files changed, 10 insertions(+), 10 deletions(-)
 > 
-> >
-> > +int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
-> > +                                   struct arm_smmu_nested_domain *nested_domain)
-> > +{
-> > +       struct arm_smmu_vmaster *vmaster;
-> > +       unsigned long vsid;
-> > +       int ret;
-> > +
-> > +       iommu_group_mutex_assert(state->master->dev);
-> > +
-> > +       /* Skip invalid vSTE */
-> > +       if (!(nested_domain->ste[0] & cpu_to_le64(STRTAB_STE_0_V)))
-> > +               return 0;
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index ecc33f6789e3..d1cd48efad43 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -227,7 +227,7 @@ static const struct irq_domain_ops dw_pcie_msi_domain_ops = {
+>  int dw_pcie_allocate_domains(struct dw_pcie_rp *pp)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> -	struct fwnode_handle *fwnode = of_node_to_fwnode(pci->dev->of_node);
+> +	struct fwnode_handle *fwnode = of_fwnode_handle(pci->dev->of_node);
+>  
+>  	pp->irq_domain = irq_domain_create_linear(fwnode, pp->num_vectors,
+>  					       &dw_pcie_msi_domain_ops, pp);
+> diff --git a/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c b/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
+> index 0e088e74155d..6628eed9d26e 100644
+> --- a/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
+> +++ b/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
+> @@ -435,7 +435,7 @@ static const struct irq_domain_ops msi_domain_ops = {
+>  static int mobiveil_allocate_msi_domains(struct mobiveil_pcie *pcie)
+>  {
+>  	struct device *dev = &pcie->pdev->dev;
+> -	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
+> +	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
+>  	struct mobiveil_msi *msi = &pcie->rp.msi;
+>  
+>  	mutex_init(&msi->lock);
+> diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
+> index 7bce327897c9..69a9c0a87639 100644
+> --- a/drivers/pci/controller/pci-xgene-msi.c
+> +++ b/drivers/pci/controller/pci-xgene-msi.c
+> @@ -247,7 +247,7 @@ static int xgene_allocate_domains(struct xgene_msi *msi)
+>  	if (!msi->inner_domain)
+>  		return -ENOMEM;
+>  
+> -	msi->msi_domain = pci_msi_create_irq_domain(of_node_to_fwnode(msi->node),
+> +	msi->msi_domain = pci_msi_create_irq_domain(of_fwnode_handle(msi->node),
+>  						    &xgene_msi_domain_info,
+>  						    msi->inner_domain);
+>  
+> diff --git a/drivers/pci/controller/pcie-altera-msi.c b/drivers/pci/controller/pcie-altera-msi.c
+> index e1cee3c0575f..5fb3a2e0017e 100644
+> --- a/drivers/pci/controller/pcie-altera-msi.c
+> +++ b/drivers/pci/controller/pcie-altera-msi.c
+> @@ -164,7 +164,7 @@ static const struct irq_domain_ops msi_domain_ops = {
+>  
+>  static int altera_allocate_domains(struct altera_msi *msi)
+>  {
+> -	struct fwnode_handle *fwnode = of_node_to_fwnode(msi->pdev->dev.of_node);
+> +	struct fwnode_handle *fwnode = of_fwnode_handle(msi->pdev->dev.of_node);
+>  
+>  	msi->inner_domain = irq_domain_add_linear(NULL, msi->num_of_vectors,
+>  					     &msi_domain_ops, msi);
+> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+> index 8b2b099e81eb..1f356fca07a2 100644
+> --- a/drivers/pci/controller/pcie-brcmstb.c
+> +++ b/drivers/pci/controller/pcie-brcmstb.c
+> @@ -581,7 +581,7 @@ static const struct irq_domain_ops msi_domain_ops = {
+>  
+>  static int brcm_allocate_domains(struct brcm_msi *msi)
+>  {
+> -	struct fwnode_handle *fwnode = of_node_to_fwnode(msi->np);
+> +	struct fwnode_handle *fwnode = of_fwnode_handle(msi->np);
+>  	struct device *dev = msi->dev;
+>  
+>  	msi->inner_domain = irq_domain_add_linear(NULL, msi->nr, &msi_domain_ops, msi);
+> diff --git a/drivers/pci/controller/pcie-iproc-msi.c b/drivers/pci/controller/pcie-iproc-msi.c
+> index 649fcb449f34..804b3a5787c5 100644
+> --- a/drivers/pci/controller/pcie-iproc-msi.c
+> +++ b/drivers/pci/controller/pcie-iproc-msi.c
+> @@ -451,7 +451,7 @@ static int iproc_msi_alloc_domains(struct device_node *node,
+>  	if (!msi->inner_domain)
+>  		return -ENOMEM;
+>  
+> -	msi->msi_domain = pci_msi_create_irq_domain(of_node_to_fwnode(node),
+> +	msi->msi_domain = pci_msi_create_irq_domain(of_fwnode_handle(node),
+>  						    &iproc_msi_domain_info,
+>  						    msi->inner_domain);
+>  	if (!msi->msi_domain) {
+> diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
+> index 811a8b4acd50..efcc4a7c17be 100644
+> --- a/drivers/pci/controller/pcie-mediatek.c
+> +++ b/drivers/pci/controller/pcie-mediatek.c
+> @@ -485,7 +485,7 @@ static struct msi_domain_info mtk_msi_domain_info = {
+>  
+>  static int mtk_pcie_allocate_msi_domains(struct mtk_pcie_port *port)
+>  {
+> -	struct fwnode_handle *fwnode = of_node_to_fwnode(port->pcie->dev->of_node);
+> +	struct fwnode_handle *fwnode = of_fwnode_handle(port->pcie->dev->of_node);
+>  
+>  	mutex_init(&port->lock);
+>  
+> diff --git a/drivers/pci/controller/pcie-xilinx-dma-pl.c b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+> index dd117f07fc95..71cf13ae51c7 100644
+> --- a/drivers/pci/controller/pcie-xilinx-dma-pl.c
+> +++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+> @@ -470,7 +470,7 @@ static int xilinx_pl_dma_pcie_init_msi_irq_domain(struct pl_dma_pcie *port)
+>  	struct device *dev = port->dev;
+>  	struct xilinx_msi *msi = &port->msi;
+>  	int size = BITS_TO_LONGS(XILINX_NUM_MSI_IRQS) * sizeof(long);
+> -	struct fwnode_handle *fwnode = of_node_to_fwnode(port->dev->of_node);
+> +	struct fwnode_handle *fwnode = of_fwnode_handle(port->dev->of_node);
+>  
+>  	msi->dev_domain = irq_domain_add_linear(NULL, XILINX_NUM_MSI_IRQS,
+>  						&dev_msi_domain_ops, port);
+> diff --git a/drivers/pci/controller/pcie-xilinx-nwl.c b/drivers/pci/controller/pcie-xilinx-nwl.c
+> index 8d6e2a89b067..9cf8a96f7bc4 100644
+> --- a/drivers/pci/controller/pcie-xilinx-nwl.c
+> +++ b/drivers/pci/controller/pcie-xilinx-nwl.c
+> @@ -495,7 +495,7 @@ static int nwl_pcie_init_msi_irq_domain(struct nwl_pcie *pcie)
+>  {
+>  #ifdef CONFIG_PCI_MSI
+>  	struct device *dev = pcie->dev;
+> -	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
+> +	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
+>  	struct nwl_msi *msi = &pcie->msi;
+>  
+>  	msi->dev_domain = irq_domain_add_linear(NULL, INT_PCI_MSI_NR,
+> diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
+> index 4153214ca410..4c7a9fa311e3 100644
+> --- a/drivers/pci/controller/plda/pcie-plda-host.c
+> +++ b/drivers/pci/controller/plda/pcie-plda-host.c
+> @@ -150,7 +150,7 @@ static struct msi_domain_info plda_msi_domain_info = {
+>  static int plda_allocate_msi_domains(struct plda_pcie_rp *port)
+>  {
+>  	struct device *dev = port->dev;
+> -	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
+> +	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
+>  	struct plda_msi *msi = &port->msi;
+>  
+>  	mutex_init(&port->msi.lock);
+> -- 
+> 2.49.0
 > 
-> Why this is removed in v9 and 6.15-rc1?
-> 
-> I tested 6.15-rc1 the qemu failed to boot with qemu branch:
-> for_iommufd_veventq-v8
-> "failed to attach the bypass pagetable"
-
-Here is the problem: v9 isn't compatible with v8 :)
-
-Would you please try for-v9 version?
-https://github.com/nicolinc/qemu/commits/wip/for_iommufd_veventq-v9
-
-I also asked Shameer to integrate this change to his QEMU series:
-https://lore.kernel.org/qemu-devel/8fbdb07be20a43bf8281143720a0c10e@huawei.com/
-
-Thanks
-Nicolin
 
