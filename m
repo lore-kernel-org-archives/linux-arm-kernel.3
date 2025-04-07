@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BF9C369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E629C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9DDSNdi1Vm7CF1r5MUhXK3gIEzhoSFzXZa431fz1lzU=; b=Gs2XWBrpkooDjI/vgqNVVUj89a
-	4lDQ/h5oBr0SigC/LauQXgdZEHFc0C0ASg/jg3s4o8Hiarr7e5T1DBfLxdATvY5FE2URF9TVEXGR4
-	BpfLIUUGIRbVhDdusB2AcjzlRv6O8yfPOJT+c3god0raLHvhAXBbSWtbPxu/J+cRDrHHaI/3OB79s
-	KX0MPwz3ab04Tj62K93ZvHkSKRcN2hIFifyK1s3ztqgt04uMJm9Wp55J9Kykd3MYt3zsejJEwWFn2
-	p0QFfbkNfj6peQOUBmhjg8rN7qZyM7IjWE1VXz9+BbyP6OHtuxmjdOnxCcujy4iEQwd2TOz2wDgr8
-	2GOfZqzw==;
+	bh=1hB+Rsl8dEIP80gJg1dRpUGGywa9yjHgvJWWFP9MDZc=; b=BzCa7gtr9e5iMIW1OCf7vz/sUG
+	eOPErS921yAwLk0SDPAC2vlDugvNOoPbV09CB6IFDBmlwzhE7yFBs+rLy/RNU79QMAHxfur4n8Pp0
+	iRd9sHuhobsfA+uT724xwFblsiGuaDKvHZ2hjEK53PTyOROxGmQEKe9B/FZmGpzyEnmzpR+NLCoPy
+	DmDxqiXAHdeu7MaDU+xofoWsu1IXBevhlvfJPdUO9RpbEHvvQ3nX8jek7wb3uQ7ot8xcWfNt+gXbN
+	5GNiSQtKDfXGKf7scDSGGFDKu5mYq75NWFywed4sU7jW3H4ioOaxOSa+YbClvQKQ4ZdqK2fk8GP1e
+	MtrmYaGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uIx-000000024F4-2f7p;
-	Mon, 07 Apr 2025 21:46:55 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u1uIy-000000024Gc-2JFV;
+	Mon, 07 Apr 2025 21:46:56 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rej-00000001iQn-3JZm
+	id 1u1rek-00000001iQo-099H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 18:57:15 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 537Iusmv316741
+	Mon, 07 Apr 2025 18:57:16 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 537Iurh2454879
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 7 Apr 2025 13:56:54 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744052214;
-	bh=9DDSNdi1Vm7CF1r5MUhXK3gIEzhoSFzXZa431fz1lzU=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=eHyiPm95etrO5lg6pieTn5132+O+HC9GgCbDlhR3kFsLpsjI9Ai6mxh87PuXxra4S
-	 aZAJPOlN4/K2Y5WccNbVryrtax4FrtrnWFMkYFJQH9A+AQitjSq8CrUi+x7cZ2/KLA
-	 C3tfBL+q28aZDmMfsLhajeVp6eRwWgx4Aw5y2V/4=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 537Ius9Q012013
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 7 Apr 2025 13:56:54 -0500
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 7
- Apr 2025 13:56:54 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 7 Apr 2025 13:56:54 -0500
-Received: from fllvsmtp8.itg.ti.com ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 537Iup4B094348;
 	Mon, 7 Apr 2025 13:56:53 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744052213;
+	bh=1hB+Rsl8dEIP80gJg1dRpUGGywa9yjHgvJWWFP9MDZc=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=ilAhbRuQvUr5o5N86CHRjPzz8/cXGDJJ0lrVBSpJVYkgfA8BdUNF1Pvu3skNKv/lc
+	 ceS9y8Zl5/7f00qk9/NnQ6KSuo26ZtbCFqPmzdyYuYSmG30Kz7isxhXfgkty85nW5u
+	 G7Xn0UGNuXQFxjnif9VQFoyOmRv8Bz1iQ5ApA06A=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 537Iurf7025521
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 7 Apr 2025 13:56:53 -0500
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 7
+ Apr 2025 13:56:53 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 7 Apr 2025 13:56:53 -0500
+Received: from fllvsmtp8.itg.ti.com ([10.249.42.149])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 537Iup49094348;
+	Mon, 7 Apr 2025 13:56:52 -0500
 From: Andrew Davis <afd@ti.com>
 To: Arnd Bergmann <arnd@arndb.de>, Andre Przywara <andre.przywara@arm.com>,
         Russell King <linux@armlinux.org.uk>, Daniel Mack <daniel@zonque.org>,
@@ -65,9 +65,9 @@ To: Arnd Bergmann <arnd@arndb.de>, Andre Przywara <andre.przywara@arm.com>,
         Stefano Stabellini <sstabellini@kernel.org>
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <xen-devel@lists.xenproject.org>, Andrew Davis <afd@ti.com>
-Subject: [PATCH v5 4/5] ARM: vt8500: Switch to new sys-off handler API
-Date: Mon, 7 Apr 2025 13:56:49 -0500
-Message-ID: <20250407185650.411887-5-afd@ti.com>
+Subject: [PATCH v5 2/5] ARM: pxa: Switch to new sys-off handler API
+Date: Mon, 7 Apr 2025 13:56:47 -0500
+Message-ID: <20250407185650.411887-3-afd@ti.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250407185650.411887-1-afd@ti.com>
 References: <20250407185650.411887-1-afd@ti.com>
@@ -76,8 +76,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_115713_870982_78795C47 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20250407_115714_123236_E8A45ABC 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,24 +98,23 @@ handler. Legacy pm_power_off() will be removed once all drivers and archs
 are converted to the new sys-off API.
 
 Signed-off-by: Andrew Davis <afd@ti.com>
-Acked-by: Alexey Charkov <alchark@gmail.com>
 ---
- arch/arm/mach-vt8500/vt8500.c | 2 +-
+ arch/arm/mach-pxa/spitz.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/mach-vt8500/vt8500.c b/arch/arm/mach-vt8500/vt8500.c
-index 0ab40087ae1cc..1d294255d7083 100644
---- a/arch/arm/mach-vt8500/vt8500.c
-+++ b/arch/arm/mach-vt8500/vt8500.c
-@@ -141,7 +141,7 @@ static void __init vt8500_init(void)
- 			pr_err("%s:ioremap(power_off) failed\n", __func__);
- 	}
- 	if (pmc_base)
--		pm_power_off = &vt8500_power_off;
-+		register_platform_power_off(vt8500_power_off);
- 	else
- 		pr_err("%s: PMC Hibernation register could not be remapped, not enabling power off!\n", __func__);
- }
+diff --git a/arch/arm/mach-pxa/spitz.c b/arch/arm/mach-pxa/spitz.c
+index 33533e35720f8..c0b1f7e6be874 100644
+--- a/arch/arm/mach-pxa/spitz.c
++++ b/arch/arm/mach-pxa/spitz.c
+@@ -1096,7 +1096,7 @@ static void __init spitz_init(void)
+ 		software_node_register(&spitz_scoop_2_gpiochip_node);
+ 
+ 	init_gpio_reset(SPITZ_GPIO_ON_RESET, 1, 0);
+-	pm_power_off = spitz_poweroff;
++	register_platform_power_off(spitz_poweroff);
+ 
+ 	PMCR = 0x00;
+ 
 -- 
 2.39.2
 
