@@ -4,85 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86182C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 15:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3DE8C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nySQPps4T2a0FRio8EjYlEXOxTgZnY6kE2ly05mdvsU=; b=ROXxOtQ38NAR0CpZenDiWiWsuc
-	+UDDyNqRRasleP4ckJQ+9Z/8ubAnNWx61lZQ2kOjyeXanoSK/6lXR9NQlDIn5jRASd9j9pM8f39Un
-	PBRWWPl1xGhV6C+fZNp57oNDoSJQnRr0Gm/KtvML1aDB3+gzlRpEd/yvL7eyZnddVsbiJqWdARTW1
-	B4j8y9SMEPRGQFJwuV9I+97tRRvOts3rWgWXg2iXImcPSVVIAWkNdH4wcbLAjyj/mGSbK6Hy6dBo7
-	6g9XREzkcRGwTMpaa5p1umzUuDg0NWIXVxQbvo5JIVwfXy0D8m7ooJjcKBzYuCORKxZ0t7T80J/1V
-	VRwIasSg==;
+	bh=A1auUoTPr7Oz11P+/FMFNheHGLj7KmSTlsD2PRFxfQg=; b=0oMSa6DJqVmiJLtXfDQ+3qO+GW
+	uU7gz+Rh1if1jcuLfnKdbUJGO1JD0mbXYtqdb3oCs2HkCPguSa8jTPHdW9kwLN/Ma1mOC78q/OsIC
+	4C+OtIsAiPmdLRPNRimt+CX2hm+hjy5vkWd+2eQdoKYTHYQzXekEcZuDWI15W5Fy+5H+7iT/Cr6K/
+	q6DpByxcW0EieoeVUyr3uwXBRpjKLyIcr8oRAH9LEhu3aBPY/LFvQcut7uLsnCtgWYfr9jppGLYaU
+	0ewSmrXG18nlwCtOT5Szierim3ITtNtlW82lmbgsH+8b7gTdHqbz2ESbl04JBsuaxvlEfeuzSuETX
+	eER7c4nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oLn-00000000wuM-1hxE;
-	Mon, 07 Apr 2025 15:25:27 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u1oxq-000000013JT-1L47;
+	Mon, 07 Apr 2025 16:04:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ncg-00000000lhA-0TTd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 14:38:51 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 537EcjNv385036
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 7 Apr 2025 09:38:45 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744036725;
-	bh=nySQPps4T2a0FRio8EjYlEXOxTgZnY6kE2ly05mdvsU=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=vyVRcrtD3xjOIAXPPd1J9sovyIHHufJymNRSCBZUw0E/1fmoZQkym040c60IfRVGX
-	 xA2MKUwcN2xWAJ/WXQkHjFlfdk1bClxvWTHnc1JNGVs+2CPRYQXfQXWKN7d2SKcVHl
-	 ZKs5QnMngiP2eUaLAVFZz4q8ZfJfqAYspm9Zcnr0=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 537EcjIH065068
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 7 Apr 2025 09:38:45 -0500
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 7
- Apr 2025 09:38:44 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 7 Apr 2025 09:38:44 -0500
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 537Eciuh037344;
-	Mon, 7 Apr 2025 09:38:44 -0500
-Message-ID: <dab7c2ae-2ce9-4fdc-933c-35a4fd92a8e5@ti.com>
-Date: Mon, 7 Apr 2025 09:38:44 -0500
+	id 1u1nJG-00000000h4Z-402W;
+	Mon, 07 Apr 2025 14:18:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 97EF36113B;
+	Mon,  7 Apr 2025 14:18:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67A22C4CEDD;
+	Mon,  7 Apr 2025 14:18:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744035525;
+	bh=PEpWf8UDnWeJgZfMFDcP4fGro2nxdLzGkplXxHxBRYQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=UqFeO53ffL2wmeJDPwHEtPBVn0HgR/ZAof9fceTLjw7xZAvzUodrc6+ZGRcrpqFNc
+	 FJb6tAElmStsMRakUxfajNYGcUmDhNmRE+yOKGPMUYvTdfmcKEG7/XOyiE5On6YHI0
+	 VIxtwBHYXf6SfMHFYFW/0FyorPzHIgT1bn4/jM3vsDLKRkAGclY5VVxebIDxwBWaIe
+	 sHL0tw63cjr/R4IFsJLuLCR4zJrDGHJ+kJORaxbogIfT7lWYZrgfiyWCc1fBToKzV8
+	 nwzSmj8nk/vP++iUEYCSlmAaaebZ4jUp2r9x3lriBoCom0x0VGKzuC04xpswo7D2e9
+	 f2cICdZEFRVwA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Mon, 07 Apr 2025 16:18:30 +0200
+Subject: [PATCH net-next 1/3] net: airoha: Add l2_flows rhashtable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 11/11] arm64: dts: ti: k3-am64: Reserve timers used by
- MCU FW
-To: Andrew Davis <afd@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla <hnagalla@ti.com>,
-        Beleswar
- Padhi <b-padhi@ti.com>,
-        Markus Schneider-Pargmann <msp@baylibre.com>
-References: <20250405001518.1315273-1-jm@ti.com>
- <20250405001518.1315273-12-jm@ti.com>
- <956c0598-9934-4295-87af-ef86f4eabd94@ti.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <956c0598-9934-4295-87af-ef86f4eabd94@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_073850_282209_72BB5E31 
-X-CRM114-Status: GOOD (  14.75  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250407-airoha-flowtable-l2b-v1-1-18777778e568@kernel.org>
+References: <20250407-airoha-flowtable-l2b-v1-0-18777778e568@kernel.org>
+In-Reply-To: <20250407-airoha-flowtable-l2b-v1-0-18777778e568@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,97 +71,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Introduce l2_flows rhashtable in airoha_ppe struct in order to
+store L2 flows committed by upper layers of the kernel. This is a
+preliminary patch in order to offload L2 traffic rules.
 
-On 4/7/25 7:35 AM, Andrew Davis wrote:
-> On 4/4/25 7:15 PM, Judith Mendez wrote:
->> From: Hari Nagalla <hnagalla@ti.com>
->>
->> AM64x device has 4 R5F cores in the main domain. TI MCU firmware uses
->> main domain timers as tick timers in these firmwares. Hence keep them
->> as reserved in the Linux device tree.
->>
->> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
->> Signed-off-by: Judith Mendez <jm@ti.com>
->> ---
->>   arch/arm64/boot/dts/ti/k3-am642-evm.dts | 17 +++++++++++++++++
->>   arch/arm64/boot/dts/ti/k3-am642-sk.dts  | 17 +++++++++++++++++
->>   2 files changed, 34 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts 
->> b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
->> index f8ec40523254b..68bd6b806f8f0 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
->> @@ -796,6 +796,23 @@ &mcu_m4fss {
->>       status = "okay";
->>   };
->> +/* main_timers 8-11 are used by TI MCU FW */
-> 
-> Can you make this comment per-core and explain which core
-> each timer is reserved for? Makes it easier on me in Zephyr
-> to point out why we use the timers that we do, something
-> like:
-> 
-> /* main_timer8 is reserved for mcu_r5fss0_core0 */
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.h | 15 ++++++-
+ drivers/net/ethernet/airoha/airoha_ppe.c | 67 +++++++++++++++++++++++++++-----
+ 2 files changed, 72 insertions(+), 10 deletions(-)
 
-Sure, I can do that. Will wait for [0] conversation to close and then
-respin the series with this change
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index ec8908f904c61988c3dc973e187596c49af139fb..57925648155b104021c10821096ba267c9c7cef6 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -422,12 +422,23 @@ struct airoha_flow_data {
+ 	} pppoe;
+ };
+ 
++enum airoha_flow_entry_type {
++	FLOW_TYPE_L4,
++	FLOW_TYPE_L2,
++	FLOW_TYPE_L2_SUBFLOW,
++};
++
+ struct airoha_flow_table_entry {
+-	struct hlist_node list;
++	union {
++		struct hlist_node list;
++		struct rhash_head l2_node;
++	};
+ 
+ 	struct airoha_foe_entry data;
+ 	u32 hash;
+ 
++	enum airoha_flow_entry_type type;
++
+ 	struct rhash_head node;
+ 	unsigned long cookie;
+ };
+@@ -480,6 +491,8 @@ struct airoha_ppe {
+ 	void *foe;
+ 	dma_addr_t foe_dma;
+ 
++	struct rhashtable l2_flows;
++
+ 	struct hlist_head *foe_flow;
+ 	u16 foe_check_time[PPE_NUM_ENTRIES];
+ 
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index f10dab935cab6fad747fdfaa70b67903904c1703..aed4a22f3a8b8737f18509b48fc47eae594b9d5f 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -24,6 +24,13 @@ static const struct rhashtable_params airoha_flow_table_params = {
+ 	.automatic_shrinking = true,
+ };
+ 
++static const struct rhashtable_params airoha_l2_flow_table_params = {
++	.head_offset = offsetof(struct airoha_flow_table_entry, l2_node),
++	.key_offset = offsetof(struct airoha_flow_table_entry, data.bridge),
++	.key_len = 2 * ETH_ALEN,
++	.automatic_shrinking = true,
++};
++
+ static bool airoha_ppe2_is_enabled(struct airoha_eth *eth)
+ {
+ 	return airoha_fe_rr(eth, REG_PPE_GLO_CFG(1)) & PPE_GLO_CFG_EN_MASK;
+@@ -505,11 +512,36 @@ static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe, u32 hash)
+ 	spin_unlock_bh(&ppe_lock);
+ }
+ 
++static int
++airoha_ppe_foe_l2_flow_commit_entry(struct airoha_ppe *ppe,
++				    struct airoha_flow_table_entry *e)
++{
++	struct airoha_flow_table_entry *prev;
++
++	e->type = FLOW_TYPE_L2;
++	prev = rhashtable_lookup_get_insert_fast(&ppe->l2_flows, &e->l2_node,
++						 airoha_l2_flow_table_params);
++	if (!prev)
++		return 0;
++
++	if (IS_ERR(prev))
++		return PTR_ERR(prev);
++
++	return rhashtable_replace_fast(&ppe->l2_flows, &prev->l2_node,
++				       &e->l2_node,
++				       airoha_l2_flow_table_params);
++}
++
+ static int airoha_ppe_foe_flow_commit_entry(struct airoha_ppe *ppe,
+ 					    struct airoha_flow_table_entry *e)
+ {
+-	u32 hash = airoha_ppe_foe_get_entry_hash(&e->data);
++	int type = FIELD_GET(AIROHA_FOE_IB1_BIND_PACKET_TYPE, e->data.ib1);
++	u32 hash;
+ 
++	if (type == PPE_PKT_TYPE_BRIDGE)
++		return airoha_ppe_foe_l2_flow_commit_entry(ppe, e);
++
++	hash = airoha_ppe_foe_get_entry_hash(&e->data);
+ 	e->hash = 0xffff;
+ 
+ 	spin_lock_bh(&ppe_lock);
+@@ -524,13 +556,18 @@ static void airoha_ppe_foe_flow_remove_entry(struct airoha_ppe *ppe,
+ {
+ 	spin_lock_bh(&ppe_lock);
+ 
+-	hlist_del_init(&e->list);
+-	if (e->hash != 0xffff) {
+-		e->data.ib1 &= ~AIROHA_FOE_IB1_BIND_STATE;
+-		e->data.ib1 |= FIELD_PREP(AIROHA_FOE_IB1_BIND_STATE,
+-					  AIROHA_FOE_STATE_INVALID);
+-		airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash);
+-		e->hash = 0xffff;
++	if (e->type == FLOW_TYPE_L2) {
++		rhashtable_remove_fast(&ppe->l2_flows, &e->l2_node,
++				       airoha_l2_flow_table_params);
++	} else {
++		hlist_del_init(&e->list);
++		if (e->hash != 0xffff) {
++			e->data.ib1 &= ~AIROHA_FOE_IB1_BIND_STATE;
++			e->data.ib1 |= FIELD_PREP(AIROHA_FOE_IB1_BIND_STATE,
++						  AIROHA_FOE_STATE_INVALID);
++			airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash);
++			e->hash = 0xffff;
++		}
+ 	}
+ 
+ 	spin_unlock_bh(&ppe_lock);
+@@ -890,9 +927,20 @@ int airoha_ppe_init(struct airoha_eth *eth)
+ 	if (err)
+ 		return err;
+ 
++	err = rhashtable_init(&ppe->l2_flows, &airoha_l2_flow_table_params);
++	if (err)
++		goto error_flow_table_destroy;
++
+ 	err = airoha_ppe_debugfs_init(ppe);
+ 	if (err)
+-		rhashtable_destroy(&eth->flow_table);
++		goto error_l2_flow_table_destroy;
++
++	return 0;
++
++error_l2_flow_table_destroy:
++	rhashtable_destroy(&ppe->l2_flows);
++error_flow_table_destroy:
++	rhashtable_destroy(&eth->flow_table);
+ 
+ 	return err;
+ }
+@@ -909,6 +957,7 @@ void airoha_ppe_deinit(struct airoha_eth *eth)
+ 	}
+ 	rcu_read_unlock();
+ 
++	rhashtable_destroy(&eth->ppe->l2_flows);
+ 	rhashtable_destroy(&eth->flow_table);
+ 	debugfs_remove(eth->ppe->debugfs_dir);
+ }
 
-[0] 
-https://lore.kernel.org/linux-devicetree/f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com/
-
-~ Judith
-
-> 
-> Andrew
-> 
->> +&main_timer8 {
->> +    status = "reserved";
->> +};
->> +
->> +&main_timer9 {
->> +    status = "reserved";
->> +};
->> +
->> +&main_timer10 {
->> +    status = "reserved";
->> +};
->> +
->> +&main_timer11 {
->> +    status = "reserved";
->> +};
->> +
->>   &serdes_ln_ctrl {
->>       idle-states = <AM64_SERDES0_LANE0_PCIE0>;
->>   };
->> diff --git a/arch/arm64/boot/dts/ti/k3-am642-sk.dts 
->> b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
->> index 33e421ec18abb..07fbdf2400d23 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am642-sk.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
->> @@ -710,6 +710,23 @@ &mcu_m4fss {
->>       status = "okay";
->>   };
->> +/* main_timers 8-11 are used by TI MCU FW */
->> +&main_timer8 {
->> +    status = "reserved";
->> +};
->> +
->> +&main_timer9 {
->> +    status = "reserved";
->> +};
->> +
->> +&main_timer10 {
->> +    status = "reserved";
->> +};
->> +
->> +&main_timer11 {
->> +    status = "reserved";
->> +};
->> +
->>   &ecap0 {
->>       status = "okay";
->>       /* PWM is available on Pin 1 of header J3 */
+-- 
+2.49.0
 
 
