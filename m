@@ -4,99 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 681AAC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD0CC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I9kdmTO4tcqMNv0b+m3Ev3puZ8xn/klk3TOQNZ1xzZQ=; b=FOqaNZOsMCL5Af3XtKRLOy6mA6
-	uj09ssHfB76eoFwQH13pALge+V9D1e9lnbh4TGEn+XYWH9LDWIz6JxvGnSFgqewIPNjfVWRwSyK0u
-	zCSbNhK6r7uuWrGbBKA965iSHwDG0dbIBurXZyCc8inO7Pg4O9uF6jF/XoD7Q5v8uDzutSj09PTry
-	v073FZNiJQuix2tOSaaGPmBQkHc4IkpRdE5wE6OquHzjVvRM/qHYr/+j25H+Z15F7ls2Jd6wsEEIU
-	wI06vyuTslBP3Ecq114jOgojUcm0s3F2X8YgdPdw2R0vVjlFT8PV0y1PPskZhrYojwpPW9aDlM8v6
-	knzNAfLQ==;
+	bh=ePiwJtWqlANqnCk2rR6tEp8SjDwgJ0HyiP7oZXjHj8o=; b=e6s/P3YNZWs8fShP7gti6r2wxJ
+	YEUbK/u57JxmgUO8NElFbj68Ie0+G7cDaRZe7vzbcZlVFUVokjJFgnPSOM0JHNL/2Uk8VFKxVqNaL
+	fumf3M7CygCpnHKmi8dN8N/DMsx/yhqIvsiwViTvkkwude9k3WHNTkY48ocKc1wxTr6fFFiVB5F1k
+	WGfvOY9BQnoQwPeERCb8JhgR9F4byE5KlaDyiiu5pavAcAOc0HF/uYFTaoaxEsoTWeZR37Lx6Beev
+	tRkKp37bwoW88csqBFJuskMduEhIw7CSi6AnkkdG7HyBEOu0rMuQ7cRgN/WmO3jaFnhllUeru0NhX
+	/sPk4thA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ozb-000000015Iu-30h1;
-	Mon, 07 Apr 2025 16:06:37 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1u1p1Z-000000015xr-1l2C;
+	Mon, 07 Apr 2025 16:08:37 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1o1q-00000000rhS-1ang
+	id 1u1oE4-00000000vWW-3pv6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 15:04:52 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-227aaa82fafso37824115ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 08:04:43 -0700 (PDT)
+	Mon, 07 Apr 2025 15:17:30 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7c5c815f8efso430272085a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 08:17:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=csie.ntu.edu.tw; s=google; t=1744038283; x=1744643083; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=I9kdmTO4tcqMNv0b+m3Ev3puZ8xn/klk3TOQNZ1xzZQ=;
-        b=Yg/SOHEm3geVTby2/nyd6bAxGFPNXGmGvnvqGaWzUemD7mTMfRHcRLuau0Ppw6IMw3
-         2bTO7aVOs7LaYfsdqeSzg4TchoLuwBdyr8DnVgyKsnYEcv6SGGop48MbvoIvJBietLd2
-         bH3Tskl9loD/qGCT5ri9k3XRKNWdSxcsmNvQRKTxsY75IfT/JHspitHXuY9d4D0RuxKn
-         sZeKvMKSEWJ7iKU06SPkMdMBOvQFSXmsJjPqXiFX8oTZNRgm1rt9DpvVhDqmOJxef9HC
-         JtphBP7yIcPIwCx8wJmTSI9MO/sJdnfI83oCuUDPdqe78aPq7ksnzBlqen6oTIEvpEMb
-         aYHA==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1744039047; x=1744643847; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ePiwJtWqlANqnCk2rR6tEp8SjDwgJ0HyiP7oZXjHj8o=;
+        b=OqLSoKxbI8ePLOUASGm7Y0/SY88yFCccRw5JK+YTtVvUp5Q1D9vCRnEBFE52Le2xun
+         3rQX39nwt+OgGjCA2gMP+tEU6smfXLEq12lbPnyIEXjCx2cuxEL1ssRHQd/7azjOBmTf
+         TQ4GUccfj0bI0A9WIHjz8d/AR4b4X91e0uWdIUmwmh3cAT0gtHcUyeTEyFVJ+O25ZFBH
+         kGPHSoHce5QifbSUNgC1RMCIwmMPtjplVDrN2xnSRyP9rOKOUu9CC3Dhch1CyYBkiNg/
+         pA4ZKoZSYsNq7TazrfQs7+XDtFqLawfDAn+DW0HMDYnf0DHHRLRN7HFfOjdl2RTpFqPM
+         FVgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744038283; x=1744643083;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I9kdmTO4tcqMNv0b+m3Ev3puZ8xn/klk3TOQNZ1xzZQ=;
-        b=hhwX2hfg7gYKFCHMAWK9pAaxWg+67azWKnINpsLyeRXkxpeyPAd9LXSvDAchJ1j4PI
-         EHQx6j44Xkk5B0ObaZGZQYqH8xPXalfFtqalWeZ+w6Hep70n/LRe04KECaTBCvBOk6vo
-         qtKuvx9ayS90vErERgRqz3HXexSBEFN3jnQmt+7w8+yibvhR4G5wF5gAB5ODQMvG9YER
-         BWPw1oQxnjqnSJrf+oRd8Nd9ePOufwuCvzzT/LCvm5PcEfk+jtUuQd7AKNUANLAxB67l
-         9hVGfOqQ6GSiovBBVT0z0ih8+uEC4pmv2OEGPDrWHPndyhar4hMyVJAOEsuv52onN7hX
-         yocA==
-X-Forwarded-Encrypted: i=1; AJvYcCVSzJ/tzNR4cYAnEt4XRgeU/B9E1cojPxdkCP2OnjD0C9jrDaXomaSfw1I7+h1GNWATY0M79iD1yoLeCtZ5Sy7t@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEBm5UhnMibsmIhO9eNtU6XCP6/dwK/yrCUecBKkCbEnxgTXYq
-	hhTqOPphYQxhDM57Gqf4bq4gmlrcqQROuiaiglFJ1ykMYKsIDlfWyb2BBPelEazjOeGptWodFCS
-	ZrntDYwL7ONESwt41H8OIso/GAgghyLrc1LTiSzT+ahGehNdAF2P9DmO5Lkt51F/aGvgcmZru/b
-	HmwQu0nQ==
-X-Gm-Gg: ASbGncubfgdOuIxPbIaLthhT74OZjsPrHT4iq1Ze1/apzJxy8hzpdJkM4LrWpTapWA7
-	LVp8/4ONlFtfDnrSuO9V4WDw7vbM1eU5jjs2PWRnaKck7FHsP7YDMMdqpEAEq9rDrMKGzF8wmT9
-	4YOnsF6r10BJtvlcnTvx/8hfavJGLb6rXSVHYeP9RbLD1T9lNtA8ay0UX+4LHw7a7tf9W6LVxNr
-	OUsJQtxuwxGzYF/UixBTqtX1Ris8F+m/RJH2PmtmLx/NEnaOfoxfmkY6JlmZriLM6Mr2gMGz55E
-	z+r4oVrhPA+tAnvVLskkye1I/63FsSlCiMcvhZBTNKsEAj8yqRbjCzNEU38svXccm6DAZNHp2cj
-	mhhUT
-X-Google-Smtp-Source: AGHT+IH2oVXyQ3zs/hUIZ8h7pbZlqmcCBM70vrTswgR9PuCbdJMakAfyi957MMSEaZ9tPm8qDM8Oug==
-X-Received: by 2002:a17:902:ef10:b0:216:53fa:634f with SMTP id d9443c01a7336-22a8a1d4617mr200860295ad.48.1744038282789;
-        Mon, 07 Apr 2025 08:04:42 -0700 (PDT)
-Received: from zenbook (1-162-87-224.dynamic-ip.hinet.net. [1.162.87.224])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-229787778efsm81770435ad.259.2025.04.07.08.04.37
+        d=1e100.net; s=20230601; t=1744039047; x=1744643847;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ePiwJtWqlANqnCk2rR6tEp8SjDwgJ0HyiP7oZXjHj8o=;
+        b=S/r3QpupHvAp/IfqU9KDtqDYUpJy9+uoRDKoLi+mCs/vwF+AIkz5H/hbuTZja8ot0Z
+         obPDY3C8NVoi+MxwGRqbrFZpXPewNY7sne/EDHBBU1vy7s0DzsnjpczGzCYclCF6Ggce
+         7bDDLaZ66woqJ63V7LDcm8byvrkDNCFYHjNcr4PvEvt25dppd+jmnSieyxKoPIwZgOts
+         lCe1gDc5SZiehWK/qq+XzSC1YUuG1zTp/EvC91V/Xw3BqwCN1yl60QJdGPWkIfwA7qUx
+         aqbyvFVVU9Fccixbzmm0QZU/mXHgQsDJ3GLSp4IvkhvidIYiVm70aiwORT2Td3hi3mKJ
+         elxA==
+X-Forwarded-Encrypted: i=1; AJvYcCXYSNM9SU8f10lgLS06diHS4vmm4erluedQFku3VlST8BGj5riREx3NDlI/W6fdtO4TV4amJapEBoSHRm7JBRuj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzF9WvpSR3mf1f4ODGaOHiYUZtMTkqEc6nDJ9T8EukzfH+YxIqw
+	L6HWhFLinglOxXN5koqE664qW4bo/opAl1xcpn3zLeW9U1Ed+e319Fa5PZh3JwY=
+X-Gm-Gg: ASbGncuo5NJRrJTnfUdASLb29L6v5u48p4mncoIXEq//MCyTg/F7iKueUgPn2trkBQd
+	CjFrJu3uaafuOKCM+9gCCjGlZtI869ioFiI6+PowvT0MFNvuTlmtOrw9K1worKDSRLqik2Gd5bg
+	NAIlQLHX/y2A291dzXdh+k0wDehNBJ2cNdXfDOA7TZ9nSJ8fa81SF6C5jSD4MkpbCD60PWzm2yE
+	Ow/gTma2UzwKB71+/OD3KNtmLNEZ0oYy4vg7nwlSJdSJmxyGfU6uou4mIHnVoseRoq4mcVLiRlA
+	Qi0tWnwX2fLnDosOg5G031RO0tqQBeyeD2Nni/yvOdPQo/BJUg==
+X-Google-Smtp-Source: AGHT+IFMZnMbTyTQh098Zt7F9FsPuh2cDoKqbCbOEQoYMRNbuRJjmQBNxdpIsF9J7BtIACIamCOHKg==
+X-Received: by 2002:a05:620a:40c5:b0:7c5:9ac7:2ccc with SMTP id af79cd13be357-7c775b15514mr1550295185a.55.1744039046981;
+        Mon, 07 Apr 2025 08:17:26 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:11:e976::c41? ([2606:6d00:11:e976::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c76ea58d63sm610314885a.87.2025.04.07.08.17.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Apr 2025 08:04:42 -0700 (PDT)
-Date: Mon, 7 Apr 2025 23:06:23 +0800
-From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, r09922117@csie.ntu.edu.tw
-Subject: Re: [PATCH v7 12/45] arm64: RME: Allocate/free RECs to match vCPUs
-Message-ID: <omfhugkuqmbvijitmlq2tluspjhsh43d32ecvr5uubnnhukapk@up6i7g4nbovb>
-References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-13-steven.price@arm.com>
+        Mon, 07 Apr 2025 08:17:26 -0700 (PDT)
+Message-ID: <f4eec2aa4856edbbb2f1e9248dffd9aff62c1a80.camel@ndufresne.ca>
+Subject: Re: [PATCH 4/5] media: vcodec: Implement manual request completion
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sebastian Fricke <sebastian.fricke@collabora.com>, Sakari Ailus	
+ <sakari.ailus@linux.intel.com>, Laurent Pinchart	
+ <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Hans Verkuil <hverkuil@xs4all.nl>, Tiffany Lin
+ <tiffany.lin@mediatek.com>, Andrew-CT Chen	 <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>,  Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	kernel@collabora.com
+Date: Mon, 07 Apr 2025 11:17:25 -0400
+In-Reply-To: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b@collabora.com>
+References: <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-0-5e277a3d695b@collabora.com>
+	 <20250314-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v1-4-5e277a3d695b@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.0 (3.56.0-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250213161426.102987-13-steven.price@arm.com>
-X-Gm-Spam: 0
-X-Gm-Phishy: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_080450_701075_DD93CC0E 
-X-CRM114-Status: GOOD (  39.09  )
+X-CRM114-CacheID: sfid-20250407_081729_147323_254B9FDE 
+X-CRM114-Status: GOOD (  25.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,421 +107,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steven,
-
-On Thu, Feb 13, 2025 at 04:13:52PM +0000, Steven Price wrote:
-> The RMM maintains a data structure known as the Realm Execution Context
-> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
-> virtual CPUs. KVM must delegate memory and request the structures are
-> created when vCPUs are created, and suitably tear down on destruction.
-> 
-> RECs must also be supplied with addition pages - auxiliary (or AUX)
-> granules - for storing the larger registers state (e.g. for SVE). The
-> number of AUX granules for a REC depends on the parameters with which
-> the Realm was created - the RMM makes this information available via the
-> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor (RD).
-> 
-> Note that only some of register state for the REC can be set by KVM, the
-> rest is defined by the RMM (zeroed). The register state then cannot be
-> changed by KVM after the REC is created (except when the guest
-> explicitly requests this e.g. by performing a PSCI call). The RMM also
-> requires that the VMM creates RECs in ascending order of the MPIDR.
-> 
-> See Realm Management Monitor specification (DEN0137) for more information:
-> https://developer.arm.com/documentation/den0137/
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
+Le vendredi 14 mars 2025 =C3=A0 14:26 +0100, Sebastian Fricke a =C3=A9crit=
+=C2=A0:
+> Rework how requests are completed in the MediaTek VCodec driver, by
+> implementing the new manual request completion feature, which allows to
+> keep a request open while allowing to add new bitstream data.
+> This is useful in this case, because the hardware has a LAT and a core
+> decode work, after the LAT decode the bitstream isn't required anymore
+> so the source buffer can be set done and the request stays open until
+> the core decode work finishes.
+>=20
+> Signed-off-by: Sebastian Fricke <sebastian.fricke@collabora.com>
 > ---
-> Changes since v6:
->  * Avoid reporting the KVM_ARM_VCPU_REC feature if the guest isn't a
->    realm guest.
->  * Support host page size being larger than RMM's granule size when
->    allocating/freeing aux granules.
-> Changes since v5:
->  * Separate the concept of vcpu_is_rec() and
->    kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
->    the indication that the VCPU is a REC.
-> Changes since v2:
->  * Free rec->run earlier in kvm_destroy_realm() and adapt to previous patches.
-> ---
->  arch/arm64/include/asm/kvm_emulate.h |   7 ++
->  arch/arm64/include/asm/kvm_host.h    |   3 +
->  arch/arm64/include/asm/kvm_rme.h     |  18 +++
->  arch/arm64/kvm/arm.c                 |  13 +-
->  arch/arm64/kvm/reset.c               |  11 ++
->  arch/arm64/kvm/rme.c                 | 179 +++++++++++++++++++++++++++
->  6 files changed, 229 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index 909c5c3b7632..f7b5a78f2e91 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -711,7 +711,14 @@ static inline bool kvm_realm_is_created(struct kvm *kvm)
->  
->  static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
->  {
-> +	if (static_branch_unlikely(&kvm_rme_is_available))
-> +		return vcpu_has_feature(vcpu, KVM_ARM_VCPU_REC);
->  	return false;
->  }
->  
-> +static inline bool kvm_arm_rec_finalized(struct kvm_vcpu *vcpu)
-> +{
-> +	return vcpu->arch.rec.mpidr != INVALID_HWID;
-> +}
-> +
->  #endif /* __ARM64_KVM_EMULATE_H__ */
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 992eb2a6f56f..016d0685958d 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -803,6 +803,9 @@ struct kvm_vcpu_arch {
->  
->  	/* Per-vcpu CCSIDR override or NULL */
->  	u32 *ccsidr;
-> +
-> +	/* Realm meta data */
-> +	struct realm_rec rec;
->  };
->  
->  /*
-> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-> index 698bb48a8ae1..5db377943db4 100644
-> --- a/arch/arm64/include/asm/kvm_rme.h
-> +++ b/arch/arm64/include/asm/kvm_rme.h
-> @@ -6,6 +6,7 @@
->  #ifndef __ASM_KVM_RME_H
->  #define __ASM_KVM_RME_H
->  
-> +#include <asm/rmi_smc.h>
->  #include <uapi/linux/kvm.h>
->  
->  /**
-> @@ -65,6 +66,21 @@ struct realm {
->  	unsigned int ia_bits;
->  };
->  
+> =C2=A0.../mediatek/vcodec/common/mtk_vcodec_cmn_drv.h=C2=A0=C2=A0=C2=A0 |=
+ 13 ++++++
+> =C2=A0.../mediatek/vcodec/decoder/mtk_vcodec_dec.c=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0 4 +-
+> =C2=A0.../mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c=C2=A0=C2=A0 | 52 +=
++++++++++++++++++++++
+> =C2=A0.../mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h=C2=A0=C2=A0 |=C2=
+=A0 4 ++
+> =C2=A0.../vcodec/decoder/mtk_vcodec_dec_stateless.c=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 | 46 +++++++++----------
+> =C2=A05 files changed, 94 insertions(+), 25 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_cmn=
+_drv.h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_cmn_drv.h
+> index 6087e27bd604d24e5d37b48de5bb37eab86fc1ab..81ec5beecfaed239ed70bee34=
+60aae27e476231c 100644
+> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_cmn_drv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_cmn_drv.h
+> @@ -105,6 +105,19 @@ enum mtk_instance_state {
+> =C2=A0	MTK_STATE_ABORT =3D 4,
+> =C2=A0};
+> =C2=A0
 > +/**
-> + * struct realm_rec - Additional per VCPU data for a Realm
-> + *
-> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify this VCPU
-> + * @rec_page: Kernel VA of the RMM's private page for this REC
-> + * @aux_pages: Additional pages private to the RMM for this REC
-> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
+> + * enum mtk_request_state - Stages of processing a request
+> + * MTK_REQUEST_RECEIVED: Hardware prepared for the LAT decode
+> + * MTK_REQUEST_DONE_WITH_BITSTREAM: LAT decode finished, the bitstream i=
+s not
+> + *				=C2=A0=C2=A0=C2=A0 needed anymore
+> + * MTK_REQUEST_COMPLETE: CORE decode finished
 > + */
-> +struct realm_rec {
-> +	unsigned long mpidr;
-> +	void *rec_page;
-> +	struct page *aux_pages[REC_PARAMS_AUX_GRANULES];
-> +	struct rec_run *run;
+> +enum mtk_request_state {
+> +	MTK_REQUEST_RECEIVED =3D 0,
+> +	MTK_REQUEST_LAT_DONE =3D 1,
+> +	MTK_REQUEST_CORE_DONE =3D 2,
 > +};
 > +
->  void kvm_init_rme(void);
->  u32 kvm_realm_ipa_limit(void);
->  
-> @@ -72,6 +88,8 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
->  int kvm_init_realm_vm(struct kvm *kvm);
->  void kvm_destroy_realm(struct kvm *kvm);
->  void kvm_realm_destroy_rtts(struct kvm *kvm, u32 ia_bits);
-> +int kvm_create_rec(struct kvm_vcpu *vcpu);
-> +void kvm_destroy_rec(struct kvm_vcpu *vcpu);
->  
->  static inline bool kvm_realm_is_private_address(struct realm *realm,
->  						unsigned long addr)
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 917ee7c674f5..a6a3034a2f50 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -496,6 +496,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->  	/* Force users to call KVM_ARM_VCPU_INIT */
->  	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
->  
-> +	vcpu->arch.rec.mpidr = INVALID_HWID;
+> =C2=A0enum mtk_fmt_type {
+> =C2=A0	MTK_FMT_DEC =3D 0,
+> =C2=A0	MTK_FMT_ENC =3D 1,
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+> index 98838217b97d45ed2b5431fdf87c94e0ff79fc57..036ad191a9c3e644fe99b4ce2=
+5d6a089292f1e57 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+> @@ -889,8 +889,10 @@ void vb2ops_vdec_stop_streaming(struct vb2_queue *q)
+> =C2=A0					src_buf->vb2_buf.req_obj.req;
+> =C2=A0				v4l2_m2m_buf_done(src_buf,
+> =C2=A0						VB2_BUF_STATE_ERROR);
+> -				if (req)
+> +				if (req) {
+> =C2=A0					v4l2_ctrl_request_complete(req, &ctx->ctrl_hdl);
+> +					media_request_manual_complete(req);
+> +				}
+> =C2=A0			}
+> =C2=A0		}
+> =C2=A0		return;
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv=
+.c
+> index 9247d92d431d8570609423156b989878f7901f1c..d9c7aaec0c4515cb73b80c913=
+b1ad5b08392dd18 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+> @@ -26,6 +26,58 @@
+> =C2=A0#include "mtk_vcodec_dec_pm.h"
+> =C2=A0#include "../common/mtk_vcodec_intr.h"
+> =C2=A0
+> +const char *state_to_str(enum mtk_request_state state)
+> +{
+> +	switch (state) {
+> +	case MTK_REQUEST_RECEIVED:
+> +		return "RECEIVED";
+> +	case MTK_REQUEST_LAT_DONE:
+> +		return "LAT_DONE";
+> +	case MTK_REQUEST_CORE_DONE:
+> +		return "CORE_DONE";
+> +	default:
+> +		return "UNKNOWN";
+> +	}
+> +}
 > +
->  	vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
->  
->  	/* Set up the timer */
-> @@ -1433,7 +1435,7 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
->  	return -EINVAL;
->  }
->  
-> -static unsigned long system_supported_vcpu_features(void)
-> +static unsigned long system_supported_vcpu_features(struct kvm *kvm)
->  {
->  	unsigned long features = KVM_VCPU_VALID_FEATURES;
->  
-> @@ -1454,6 +1456,9 @@ static unsigned long system_supported_vcpu_features(void)
->  	if (!cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
->  		clear_bit(KVM_ARM_VCPU_HAS_EL2, &features);
->  
-> +	if (!kvm_is_realm(kvm))
-> +		clear_bit(KVM_ARM_VCPU_REC, &features);
+> +int mtk_vcodec_complete(struct mtk_vcodec_dec_ctx *ctx, enum mtk_request=
+_state state,
+> +			enum vb2_buffer_state buffer_state, struct media_request *src_buf_req=
+)
+> +{
+> +	struct vb2_v4l2_buffer *src_buf, *dst_buf;
 > +
->  	return features;
->  }
->  
-> @@ -1471,7 +1476,7 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
->  			return -ENOENT;
->  	}
->  
-> -	if (features & ~system_supported_vcpu_features())
-> +	if (features & ~system_supported_vcpu_features(vcpu->kvm))
->  		return -EINVAL;
->  
->  	/*
-> @@ -1493,6 +1498,10 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
->  	if (test_bit(KVM_ARM_VCPU_HAS_EL2, &features))
->  		return -EINVAL;
->  
-> +	/* RME is incompatible with AArch32 */
-> +	if (test_bit(KVM_ARM_VCPU_REC, &features))
+> +	mutex_lock(&ctx->lock);
+> +
+> +	if (ctx->req_state >=3D state) {
+> +		mutex_unlock(&ctx->lock);
 > +		return -EINVAL;
-> +
->  	return 0;
->  }
->  
-> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-> index 803e11b0dc8f..a6423ef20144 100644
-> --- a/arch/arm64/kvm/reset.c
-> +++ b/arch/arm64/kvm/reset.c
-> @@ -137,6 +137,11 @@ int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature)
->  			return -EPERM;
->  
->  		return kvm_vcpu_finalize_sve(vcpu);
-> +	case KVM_ARM_VCPU_REC:
-> +		if (!kvm_is_realm(vcpu->kvm) || !vcpu_is_rec(vcpu))
-> +			return -EINVAL;
-> +
-> +		return kvm_create_rec(vcpu);
->  	}
->  
->  	return -EINVAL;
-> @@ -147,6 +152,11 @@ bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu)
->  	if (vcpu_has_sve(vcpu) && !kvm_arm_vcpu_sve_finalized(vcpu))
->  		return false;
->  
-> +	if (kvm_is_realm(vcpu->kvm) &&
-> +	    !(vcpu_is_rec(vcpu) && kvm_arm_rec_finalized(vcpu) &&
-> +	      READ_ONCE(vcpu->kvm->arch.realm.state) == REALM_STATE_ACTIVE))
-> +		return false;
-> +
->  	return true;
->  }
->  
-> @@ -159,6 +169,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
->  		kvm_unshare_hyp(sve_state, sve_state + vcpu_sve_state_size(vcpu));
->  	kfree(sve_state);
->  	kfree(vcpu->arch.ccsidr);
-> +	kvm_destroy_rec(vcpu);
->  }
->  
->  static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-> index f5d79efee454..0aa1f29b0610 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-> @@ -474,6 +474,185 @@ void kvm_destroy_realm(struct kvm *kvm)
->  	kvm_free_stage2_pgd(&kvm->arch.mmu);
->  }
->  
-> +static void free_rec_aux(struct page **aux_pages,
-> +			 unsigned int num_aux)
-> +{
-> +	unsigned int i, j;
-> +	unsigned int page_count = 0;
-> +
-> +	for (i = 0; i < num_aux;) {
-> +		struct page *aux_page = aux_pages[page_count++];
-> +		phys_addr_t aux_page_phys = page_to_phys(aux_page);
-> +		bool undelegate_failed = false;
-> +
-> +		for (j = 0; j < PAGE_SIZE && i < num_aux; j += RMM_PAGE_SIZE) {
-> +			if (WARN_ON(rmi_granule_undelegate(aux_page_phys)))
-> +				undelegate_failed = true;
-> +			aux_page_phys += RMM_PAGE_SIZE;
-> +			i++;
-> +		}
-> +		if (!undelegate_failed)
-> +			__free_page(aux_page);
-> +	}
-> +}
-> +
-
-Just a small stylistic comment:
-I feel it can be slightly clearer if the double negative
-
-bool undelegate_failed = false;
-
-can be just:
-bool undelegate_succeeded = true;
-
-with the other true/false flipped, the if condition also won't need to be
-negated.
-
-Thanks,
-Wei-Lin Chang
-
-> +static int alloc_rec_aux(struct page **aux_pages,
-> +			 u64 *aux_phys_pages,
-> +			 unsigned int num_aux)
-> +{
-> +	struct page *aux_page;
-> +	int page_count = 0;
-> +	unsigned int i, j;
-> +	int ret;
-> +
-> +	for (i = 0; i < num_aux;) {
-> +		phys_addr_t aux_page_phys;
-> +
-> +		aux_page = alloc_page(GFP_KERNEL);
-> +		if (!aux_page) {
-> +			ret = -ENOMEM;
-> +			goto out_err;
-> +		}
-> +
-> +		aux_page_phys = page_to_phys(aux_page);
-> +		for (j = 0; j < PAGE_SIZE && i < num_aux; j += RMM_PAGE_SIZE) {
-> +			if (rmi_granule_delegate(aux_page_phys)) {
-> +				ret = -ENXIO;
-> +				goto err_undelegate;
-> +			}
-> +			aux_phys_pages[i++] = aux_page_phys;
-> +			aux_page_phys += RMM_PAGE_SIZE;
-> +		}
-> +		aux_pages[page_count++] = aux_page;
 > +	}
 > +
+> +	switch (ctx->req_state) {
+> +	case MTK_REQUEST_RECEIVED:
+> +		v4l2_ctrl_request_complete(src_buf_req, &ctx->ctrl_hdl);
+> +		src_buf =3D v4l2_m2m_src_buf_remove(ctx->m2m_ctx);
+> +		v4l2_m2m_buf_done(src_buf, buffer_state);
+> +		ctx->req_state =3D MTK_REQUEST_LAT_DONE;
+> +		if (state =3D=3D MTK_REQUEST_LAT_DONE)
+> +			break;
+> +		fallthrough;
+> +	case MTK_REQUEST_LAT_DONE:
+> +		dst_buf =3D v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
+> +		v4l2_m2m_buf_done(dst_buf, buffer_state);
+> +		media_request_manual_complete(src_buf_req);
+> +		ctx->req_state =3D MTK_REQUEST_CORE_DONE;
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	mtk_v4l2_vdec_dbg(3, ctx, "Switch state from %s to %s.\n",
+> +			=C2=A0 state_to_str(ctx->req_state), state_to_str(state));
+> +	ctx->req_state =3D state;
+> +	mutex_unlock(&ctx->lock);
 > +	return 0;
-> +err_undelegate:
-> +	while (j > 0) {
-> +		j -= RMM_PAGE_SIZE;
-> +		i--;
-> +		if (WARN_ON(rmi_granule_undelegate(aux_phys_pages[i]))) {
-> +			/* Leak the page if the undelegate fails */
-> +			goto out_err;
-> +		}
-> +	}
-> +	__free_page(aux_page);
-> +out_err:
-> +	free_rec_aux(aux_pages, i);
-> +	return ret;
 > +}
 > +
-> +int kvm_create_rec(struct kvm_vcpu *vcpu)
+> =C2=A0static int mtk_vcodec_get_hw_count(struct mtk_vcodec_dec_ctx *ctx, =
+struct mtk_vcodec_dec_dev *dev)
+> =C2=A0{
+> =C2=A0	switch (dev->vdec_pdata->hw_arch) {
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_drv.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv=
+.h
+> index ac568ed14fa257d25b533b6fd6b3cd341227ecc2..21c2301363d0151ba3cf384a2=
+a32fff9f5d46034 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> @@ -185,6 +185,7 @@ struct mtk_vcodec_dec_ctx {
+> =C2=A0	struct mtk_q_data q_data[2];
+> =C2=A0	int id;
+> =C2=A0	enum mtk_instance_state state;
+> +	enum mtk_request_state req_state;
+
+As you discovered before I came to do that final review, this is the
+wrong version of the patchset. The request state must be per-request.
+Looking forward your v2.
+
+Nicolas
+
+> =C2=A0
+> =C2=A0	const struct vdec_common_if *dec_if;
+> =C2=A0	void *drv_handle;
+> @@ -326,6 +327,9 @@ wake_up_dec_ctx(struct mtk_vcodec_dec_ctx *ctx, unsig=
+ned int reason, unsigned in
+> =C2=A0	wake_up_interruptible(&ctx->queue[hw_id]);
+> =C2=A0}
+> =C2=A0
+> +int mtk_vcodec_complete(struct mtk_vcodec_dec_ctx *ctx, enum mtk_request=
+_state state,
+> +			enum vb2_buffer_state buffer_state, struct media_request *src_buf_req=
+);
+> +
+> =C2=A0#define mtk_vdec_err(ctx, fmt, args...)=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 \
+> =C2=A0	mtk_vcodec_err((ctx)->id, (ctx)->dev->plat_dev, fmt, ##args)
+> =C2=A0
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_stateless.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_d=
+ec_stateless.c
+> index afa224da0f4165cf5701d6861f1f787c6317bfe4..9187d7bcfc8aea17f3fc98d94=
+419777d8026db51 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+less.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+less.c
+> @@ -247,7 +247,6 @@ static const struct v4l2_frmsize_stepwise stepwise_fh=
+d =3D {
+> =C2=A0static void mtk_vdec_stateless_cap_to_disp(struct mtk_vcodec_dec_ct=
+x *ctx, int error,
+> =C2=A0					=C2=A0=C2=A0 struct media_request *src_buf_req)
+> =C2=A0{
+> -	struct vb2_v4l2_buffer *vb2_dst;
+> =C2=A0	enum vb2_buffer_state state;
+> =C2=A0
+> =C2=A0	if (error)
+> @@ -255,17 +254,7 @@ static void mtk_vdec_stateless_cap_to_disp(struct mt=
+k_vcodec_dec_ctx *ctx, int e
+> =C2=A0	else
+> =C2=A0		state =3D VB2_BUF_STATE_DONE;
+> =C2=A0
+> -	vb2_dst =3D v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
+> -	if (vb2_dst) {
+> -		v4l2_m2m_buf_done(vb2_dst, state);
+> -		mtk_v4l2_vdec_dbg(2, ctx, "free frame buffer id:%d to done list",
+> -				=C2=A0 vb2_dst->vb2_buf.index);
+> -	} else {
+> -		mtk_v4l2_vdec_err(ctx, "dst buffer is NULL");
+> -	}
+> -
+> -	if (src_buf_req)
+> -		v4l2_ctrl_request_complete(src_buf_req, &ctx->ctrl_hdl);
+> +	mtk_vcodec_complete(ctx, MTK_REQUEST_CORE_DONE, state, src_buf_req);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static struct vdec_fb *vdec_get_cap_buffer(struct mtk_vcodec_dec_ct=
+x *ctx)
+> @@ -308,6 +297,7 @@ static void vb2ops_vdec_buf_request_complete(struct v=
+b2_buffer *vb)
+> =C2=A0	struct mtk_vcodec_dec_ctx *ctx =3D vb2_get_drv_priv(vb->vb2_queue)=
+;
+> =C2=A0
+> =C2=A0	v4l2_ctrl_request_complete(vb->req_obj.req, &ctx->ctrl_hdl);
+> +	media_request_manual_complete(vb->req_obj.req);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void mtk_vdec_worker(struct work_struct *work)
+> @@ -358,12 +348,17 @@ static void mtk_vdec_worker(struct work_struct *wor=
+k)
+> =C2=A0	else
+> =C2=A0		mtk_v4l2_vdec_err(ctx, "vb2 buffer media request is NULL");
+> =C2=A0
+> +	mutex_lock(&ctx->lock);
+> +	ctx->req_state =3D MTK_REQUEST_RECEIVED;
+> +	mutex_unlock(&ctx->lock);
+> +
+> =C2=A0	ret =3D vdec_if_decode(ctx, bs_src, NULL, &res_chg);
+> +
+> =C2=A0	if (ret && ret !=3D -EAGAIN) {
+> =C2=A0		mtk_v4l2_vdec_err(ctx,
+> -				=C2=A0 "[%d] decode src_buf[%d] sz=3D0x%zx pts=3D%llu ret=3D%d res_c=
+hg=3D%d",
+> +				=C2=A0 "[%d] decode src_buf[%d] sz=3D0x%zx pts=3D%llu res_chg=3D%d r=
+et=3D%d",
+> =C2=A0				=C2=A0 ctx->id, vb2_src->index, bs_src->size,
+> -				=C2=A0 vb2_src->timestamp, ret, res_chg);
+> +				=C2=A0 vb2_src->timestamp, res_chg, ret);
+> =C2=A0		if (ret =3D=3D -EIO) {
+> =C2=A0			mutex_lock(&ctx->lock);
+> =C2=A0			dec_buf_src->error =3D true;
+> @@ -372,18 +367,15 @@ static void mtk_vdec_worker(struct work_struct *wor=
+k)
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	state =3D ret ? VB2_BUF_STATE_ERROR : VB2_BUF_STATE_DONE;
+> +	if (ret !=3D -EAGAIN)
+> +		mtk_vcodec_complete(ctx, MTK_REQUEST_LAT_DONE, state, src_buf_req);
+> +
+> =C2=A0	if (!IS_VDEC_LAT_ARCH(dev->vdec_pdata->hw_arch) ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 ctx->current_codec =3D=3D V4L2_PIX_FMT_VP8_FRAM=
+E) {
+> -		v4l2_m2m_buf_done_and_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx, state=
+);
+> -		if (src_buf_req)
+> -			v4l2_ctrl_request_complete(src_buf_req, &ctx->ctrl_hdl);
+> -	} else {
+> -		if (ret !=3D -EAGAIN) {
+> -			v4l2_m2m_src_buf_remove(ctx->m2m_ctx);
+> -			v4l2_m2m_buf_done(vb2_v4l2_src, state);
+> -		}
+> -		v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
+> +		mtk_vcodec_complete(ctx, MTK_REQUEST_CORE_DONE, state, src_buf_req);
+> =C2=A0	}
+> +
+> +	v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void vb2ops_vdec_stateless_buf_queue(struct vb2_buffer *vb)
+> @@ -731,9 +723,15 @@ static int fops_media_request_validate(struct media_=
+request *mreq)
+> =C2=A0	return vb2_request_validate(mreq);
+> =C2=A0}
+> =C2=A0
+> +static void fops_media_request_queue(struct media_request *mreq)
 > +{
-> +	struct user_pt_regs *vcpu_regs = vcpu_gp_regs(vcpu);
-> +	unsigned long mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
-> +	struct realm *realm = &vcpu->kvm->arch.realm;
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long rec_page_phys;
-> +	struct rec_params *params;
-> +	int r, i;
-> +
-> +	if (kvm_realm_state(vcpu->kvm) != REALM_STATE_NEW)
-> +		return -ENOENT;
-> +
-> +	if (rec->run)
-> +		return -EBUSY;
-> +
-> +	/*
-> +	 * The RMM will report PSCI v1.0 to Realms and the KVM_ARM_VCPU_PSCI_0_2
-> +	 * flag covers v0.2 and onwards.
-> +	 */
-> +	if (!vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2))
-> +		return -EINVAL;
-> +
-> +	BUILD_BUG_ON(sizeof(*params) > PAGE_SIZE);
-> +	BUILD_BUG_ON(sizeof(*rec->run) > PAGE_SIZE);
-> +
-> +	params = (struct rec_params *)get_zeroed_page(GFP_KERNEL);
-> +	rec->rec_page = (void *)__get_free_page(GFP_KERNEL);
-> +	rec->run = (void *)get_zeroed_page(GFP_KERNEL);
-> +	if (!params || !rec->rec_page || !rec->run) {
-> +		r = -ENOMEM;
-> +		goto out_free_pages;
-> +	}
-> +
-> +	for (i = 0; i < ARRAY_SIZE(params->gprs); i++)
-> +		params->gprs[i] = vcpu_regs->regs[i];
-> +
-> +	params->pc = vcpu_regs->pc;
-> +
-> +	if (vcpu->vcpu_id == 0)
-> +		params->flags |= REC_PARAMS_FLAG_RUNNABLE;
-> +
-> +	rec_page_phys = virt_to_phys(rec->rec_page);
-> +
-> +	if (rmi_granule_delegate(rec_page_phys)) {
-> +		r = -ENXIO;
-> +		goto out_free_pages;
-> +	}
-> +
-> +	r = alloc_rec_aux(rec->aux_pages, params->aux, realm->num_aux);
-> +	if (r)
-> +		goto out_undelegate_rmm_rec;
-> +
-> +	params->num_rec_aux = realm->num_aux;
-> +	params->mpidr = mpidr;
-> +
-> +	if (rmi_rec_create(virt_to_phys(realm->rd),
-> +			   rec_page_phys,
-> +			   virt_to_phys(params))) {
-> +		r = -ENXIO;
-> +		goto out_free_rec_aux;
-> +	}
-> +
-> +	rec->mpidr = mpidr;
-> +
-> +	free_page((unsigned long)params);
-> +	return 0;
-> +
-> +out_free_rec_aux:
-> +	free_rec_aux(rec->aux_pages, realm->num_aux);
-> +out_undelegate_rmm_rec:
-> +	if (WARN_ON(rmi_granule_undelegate(rec_page_phys)))
-> +		rec->rec_page = NULL;
-> +out_free_pages:
-> +	free_page((unsigned long)rec->run);
-> +	free_page((unsigned long)rec->rec_page);
-> +	free_page((unsigned long)params);
-> +	return r;
+> +	media_request_mark_manual_completion(mreq);
+> +	v4l2_m2m_request_queue(mreq);
 > +}
 > +
-> +void kvm_destroy_rec(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm *realm = &vcpu->kvm->arch.realm;
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long rec_page_phys;
-> +
-> +	if (!vcpu_is_rec(vcpu))
-> +		return;
-> +
-> +	if (!rec->run) {
-> +		/* Nothing to do if the VCPU hasn't been finalized */
-> +		return;
-> +	}
-> +
-> +	free_page((unsigned long)rec->run);
-> +
-> +	rec_page_phys = virt_to_phys(rec->rec_page);
-> +
-> +	/*
-> +	 * The REC and any AUX pages cannot be reclaimed until the REC is
-> +	 * destroyed. So if the REC destroy fails then the REC page and any AUX
-> +	 * pages will be leaked.
-> +	 */
-> +	if (WARN_ON(rmi_rec_destroy(rec_page_phys)))
-> +		return;
-> +
-> +	free_rec_aux(rec->aux_pages, realm->num_aux);
-> +
-> +	free_delegated_granule(rec_page_phys);
-> +}
-> +
->  int kvm_init_realm_vm(struct kvm *kvm)
->  {
->  	struct realm_params *params;
-> -- 
-> 2.43.0
-> 
+> =C2=A0const struct media_device_ops mtk_vcodec_media_ops =3D {
+> =C2=A0	.req_validate	=3D fops_media_request_validate,
+> -	.req_queue	=3D v4l2_m2m_request_queue,
+> +	.req_queue	=3D fops_media_request_queue,
+> =C2=A0};
+> =C2=A0
+> =C2=A0static void mtk_vcodec_add_formats(unsigned int fourcc,
 
