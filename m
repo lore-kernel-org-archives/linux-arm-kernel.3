@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF70C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01DE7C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5QbRycxm7vGCRrdBNEytaF89Hh6LdVDglF4TAZ/Eo8Q=; b=gUXIWqQBWL/ebXo5CdALMzH8pm
-	ec67//WgoUO1PTgoMEbCBKEDQrM+4IX5ptBqtEmaXoJoGcX09I7wtZNk814LhiZ5NYSah9TjZp9QW
-	8eXAA19Db/gj6ahWsnOEjAgpKqXheuAXnRwKv9H/ZA80kSAQjWr4KKd9MwdrFDzqSt9HEzFrOA3St
-	btkv3TtHa9A78obezqQM5BCdBlyF1dA60myVanosLogy2/7PSp+nAEl/gfb28r7DKX0rnc+FluXsO
-	VigXzrTeJjV2WhzIjwnt/XpQAW+0TKjltDPqZLjQZZz6iGeegfsMNfv9Phc8EN4bbiSvtB7tuXeNS
-	W6Ne1LCg==;
+	bh=aItmirLdEVI7NHCsRGR9Uysz/lglV3mIfktUv8r1Nvo=; b=clhnbfdhGdkWgiuDM8WgDAV1Eo
+	iBp2qrRHNB09jEdbXWrDodR88VWVJls0i5aVrBtT+SBqhbTiaQNZCKnsHOKx+tnVomWGJSlgC875v
+	WHXL0OUdSsPk4rHSAyF35HVQ9H4lV0Hgu97sB6hfAU/V8bhWbPEhu9mvSpxEf5oSSKcjG6uDgAW8K
+	igQJUl95nqQYN112ZlRM3qdvxnCF5e9On+5hLQrKq9xx3u2s/Gru17DIKrQTCtM62MbsZRsKknXNF
+	otq2IMq64UsjL77i2B4se+ALKfstBaT8pnlpDaf1jQEOKWqbjukh9cyS8AfAFJ+gVfmIMS8d9XkzZ
+	9ZKTqUBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oyF-000000013zL-2rRE;
-	Mon, 07 Apr 2025 16:05:11 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1u1oyI-0000000143c-0d0z;
+	Mon, 07 Apr 2025 16:05:14 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ntf-00000000pmx-2u0Z
+	id 1u1ntj-00000000poB-09Kn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 14:56:25 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id CBF4C4433C;
-	Mon,  7 Apr 2025 14:56:19 +0000 (UTC)
+	Mon, 07 Apr 2025 14:56:28 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id CCD0C4433E;
+	Mon,  7 Apr 2025 14:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744037781;
+	t=1744037785;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=5QbRycxm7vGCRrdBNEytaF89Hh6LdVDglF4TAZ/Eo8Q=;
-	b=UJibLhzStnjURTT2XwpbZOd/6Vf219UgdhYLn+PxsXj4jnL10BOZ7x87fHKoVxidadXbhD
-	nHe0+/tfmjeO8ZilO7s8/s0ghjzg+WAiMHYAjGcvqY3zzd7H6ilAGI5MsRsKvKh2oo/u/N
-	P8CUVcAG4zkuJqCZ8dg0BoDQIsFr5tb/57AhOW7OUP6YwrzCiXT+GpFlJnFY9iA0v4fgPY
-	/qhm3a5MlpPOocTB0z2mZrXROElCOebT5Z98DYHQbYSTlWTvym32kdm039P7EWFBRzQ7VY
-	QsCjVNaYNKc7qdbSLrcN50bdnTjzbULIp7027d26L53FIMypPI0HJmgvLNXJyw==
+	bh=aItmirLdEVI7NHCsRGR9Uysz/lglV3mIfktUv8r1Nvo=;
+	b=WsvImHZf8/ypzjdPBUs2PPKIK49DxWcoSWB6Mcnww6f5MVeVYwZZQbv1IJh3RQFXicMJxy
+	/2HQmIvz9+45kBP7THQyY6yBdYIcB+7RfOWNcnUudJB//Uts5yI1W9GOPBFWNcPXRMd1Lc
+	9FG/mUAbBgggzWKSB/7oCIvb/e9USVjgilXdzubN4JdIZBorlLZJhsHErJOC9mZ6fk3NNN
+	ePAzGbupcjdoXVCQ7RAbf9QoSF8NW9il3M5LAgh0+q8S7AMx+j3I/6lElStUac0+266kFA
+	W59HSTDgxkwMpRG3Y5OHRf0mHJGr3L/N2WtlKPMaQ/dfXZvg17ATPifcOPS84w==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
@@ -83,9 +83,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH 08/16] i2c: core: Introduce i2c_get_adapter_supplier()
-Date: Mon,  7 Apr 2025 16:55:37 +0200
-Message-ID: <20250407145546.270683-9-herve.codina@bootlin.com>
+Subject: [PATCH 10/16] i2c: mux: Create missing devlink between mux and adapter supplier
+Date: Mon,  7 Apr 2025 16:55:39 +0200
+Message-ID: <20250407145546.270683-11-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250407145546.270683-1-herve.codina@bootlin.com>
 References: <20250407145546.270683-1-herve.codina@bootlin.com>
@@ -93,12 +93,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheffiefgjeeuleeuueffleeufefglefhjefhheeigedukeetieeltddthfffkeffnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepfeenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtrdhlohgtrghlughomhgrihhnpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeguddprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrt
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheffiefgjeeuleeuueffleeufefglefhjefhheeigedukeetieeltddthfffkeffnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepieenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtrdhlohgtrghlughomhgrihhnpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeguddprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrt
  ghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomhdprhgtphhtthhopehmthhurhhquhgvthhtvgessggrhihlihgsrhgvrdgtohhm
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_075623_919909_314189F0 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20250407_075627_207241_565FA9FE 
+X-CRM114-Status: GOOD (  18.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,72 +113,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The supplier device of an I2C adapter is the device that calls
-i2c_add_adapter() or variants and i2c_del_adapter().
+When removing an i2c controller device handling an i2c bus where an i2c
+mux is connected to, the removal process hangs and is stuck in the
+wait_completion() call done in i2c_del_adapter().
 
-Most of the time this supplier device is the parent of the adapter dev.
+The i2c_del_adapter() tries to removed the i2c adapter related to the
+i2c controller device and the wait_completion() is waiting for the i2c
+adapter dev release. This release is performed when the device is no
+more used (i.e. refcount reaches zero).
 
-Exceptions exist with i2c muxes. Indeed, in case of i2c muxes, the
-parent of the adapter dev points to the adapter dev the mux is connected
-to instead of the supplier of this adapter.
+When an i2c mux is involved in an i2c path, the struct dev topology is
+the following:
+    +----------------+                +-------------------+
+    | i2c controller |                |      i2c mux      |
+    |     device     |                |      device       |
+    |       ^        |                |                   |
+    |       |        |                |                   |
+    |  dev's parent  |                |                   |
+    |       |        |                |                   |
+    |   i2c adapter  |                | i2c adapter chanX |
+    |     device  <---- dev's parent ------  device       |
+    |   (no driver)  |                |    (no driver)    |
+    +----------------+                +-------------------+
 
-Introduce i2c_get_adapter_supplier() and a new supplier field in the
-adapter structure in order to ease the adapter supplier retrieval.
+When an i2c mux device creates an i2c adapter for its downstream
+channel, a reference is taken its adapter dev's parent. This parent is
+the i2c mux upstream adapter device.
+
+No relationship exists between the i2c mux device itself and the i2c
+controller device in order to have the i2c mux device calling
+i2c_del_adapter() to remove its downtream adapters and so, release
+references taken to the upstream adapter.
+
+This consumer/supplier relationship is typically a devlink relationship.
+
+Also, i2c muxes can be chained and so, the upstream adapter can be
+supplied by either an i2c controller device or an other i2c mux device.
+
+In order to get the supplier of the adapter a mux is connected to,
+rely on the newly introduced i2c_adapter_get_supplier() and create the
+missing devlink between the i2c mux device and the supplier of the
+adapter the mux is connected to.
+
+With that done, the i2c mux device is removed before the device
+handling the upstream i2c adapter (i2c controller device or i2c mux
+device). All references are released and the i2c_del_adapter() call
+performed by driver handling the upstream adapter device is not blocking
+anymore.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/i2c/i2c-core-base.c | 16 ++++++++++++++++
- include/linux/i2c.h         |  3 +++
- 2 files changed, 19 insertions(+)
+ drivers/i2c/i2c-mux.c | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
-index 7ad1ad5c8c3f..e3eeac0b2b49 100644
---- a/drivers/i2c/i2c-core-base.c
-+++ b/drivers/i2c/i2c-core-base.c
-@@ -1917,6 +1917,22 @@ struct i2c_adapter *i2c_get_adapter_by_fwnode(struct fwnode_handle *fwnode)
- }
- EXPORT_SYMBOL(i2c_get_adapter_by_fwnode);
- 
-+/**
-+ * i2c_get_adapter_supplier() - Get the supplier of an adapter
-+ * @adapter: the adapter to get the supplier from
-+ *
-+ * return:
-+ * Look up and return the &struct device corresponding to the device supplying
-+ * this adapter.
-+ *
-+ * The user must call put_device() once done with the supplier returned.
-+ */
-+struct device *i2c_get_adapter_supplier(struct i2c_adapter *adapter)
-+{
-+	return get_device(adapter->supplier ?: adapter->dev.parent);
-+}
-+EXPORT_SYMBOL(i2c_get_adapter_supplier);
-+
- static void i2c_parse_timing(struct device *dev, char *prop_name, u32 *cur_val_p,
- 			    u32 def_val, bool use_def)
+diff --git a/drivers/i2c/i2c-mux.c b/drivers/i2c/i2c-mux.c
+index d8bdb3b40acf..84ffd58e4d6d 100644
+--- a/drivers/i2c/i2c-mux.c
++++ b/drivers/i2c/i2c-mux.c
+@@ -271,7 +271,9 @@ int i2c_mux_add_adapter(struct i2c_mux_core *muxc,
+ 			u32 force_nr, u32 chan_id)
  {
-diff --git a/include/linux/i2c.h b/include/linux/i2c.h
-index 2e4903b7f7bc..04b85703bcd6 100644
---- a/include/linux/i2c.h
-+++ b/include/linux/i2c.h
-@@ -746,6 +746,7 @@ struct i2c_adapter {
- 	int timeout;			/* in jiffies */
- 	int retries;
- 	struct device dev;		/* the adapter device */
-+	struct device *supplier;	/* the device that supply this adapter */
- 	unsigned long locked_flags;	/* owned by the I2C core */
- #define I2C_ALF_IS_SUSPENDED		0
- #define I2C_ALF_SUSPEND_REPORTED	1
-@@ -913,6 +914,8 @@ struct i2c_adapter *i2c_get_adapter(int nr);
- void i2c_put_adapter(struct i2c_adapter *adap);
- unsigned int i2c_adapter_depth(struct i2c_adapter *adapter);
+ 	struct i2c_adapter *parent = muxc->parent;
++	struct device *parent_supplier;
+ 	struct i2c_mux_priv *priv;
++	struct device_link *dl;
+ 	char symlink_name[20];
+ 	int ret;
  
-+struct device *i2c_get_adapter_supplier(struct i2c_adapter *adap);
+@@ -378,6 +380,24 @@ int i2c_mux_add_adapter(struct i2c_mux_core *muxc,
+ 				      ACPI_COMPANION(muxc->dev),
+ 				      chan_id);
+ 
++	/*
++	 * There is no relationship set between the mux dev and the device
++	 * handling the parent adapter. Create this missing relationship in
++	 * order to remove the i2c mux device (consumer) and so the dowstream
++	 * channel adapters before removing the device (supplier) which handles
++	 * the i2c mux upstream adapter.
++	 */
++	parent_supplier = i2c_get_adapter_supplier(parent);
++	dl = device_link_add(muxc->dev, parent_supplier, DL_FLAG_AUTOREMOVE_CONSUMER);
++	if (!dl) {
++		dev_err(muxc->dev, "failed to create device link to %s\n",
++			dev_name(parent_supplier));
++		put_device(parent_supplier);
++		ret = -EINVAL;
++		goto err_free_priv;
++	}
++	put_device(parent_supplier);
 +
- void i2c_parse_fw_timings(struct device *dev, struct i2c_timings *t, bool use_defaults);
- 
- /* Return the functionality mask */
+ 	if (force_nr) {
+ 		priv->adap.nr = force_nr;
+ 		ret = i2c_add_numbered_adapter(&priv->adap);
 -- 
 2.49.0
 
