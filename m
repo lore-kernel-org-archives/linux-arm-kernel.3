@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD807C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 12:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED5DC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 12:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JAbvFEC9Kt8P81+V2sHCH2GZ+SfpkGkZ983AinyulB0=; b=T2Jrckvt1xuuIISUIA5Fxxoerd
-	qiiBa27FZP832UkOvpCakWYL6TIZFnIoRhIZsSTulVaRO1jjF/kKBTc2m6l3ng1wsdQ6QLJZo/AGv
-	hyYQkoakYxaXKyT6HBLV1qD3MCqxir2p7BCSxJo4rrc5XVDvA5vqduKv9NaN+/BGjapW6lTm3xGge
-	pHXlIJ5Mk4Kt8LWiXSTtgT+T1mpsQChxeU1iD8CVOIFk2kdEgDv40yHP1Y9vGyB3Vcqgw4dr09gZc
-	FlCURJF9FQkdu7jj+Kc5fm5a+prAtsrQ6ogKEqMBnKiLdHjBR8yxuGZLc2JeHixhtotVx7sh2DjpI
-	k8ZmJcoQ==;
+	bh=i4+pLFMxzNKF7wuYEtBPsrpqj7a4qDgMwXzKwK/DCEs=; b=SOGUlPNTjLeHyQzyGJvH2X+KCt
+	duvvhLDLD75EG1hyeu2lke3LJNN2TTkp/eHuCI7dLbggYRr5KPi9hw2j+PkTVaGuY2EOhz+30wFta
+	ITBNCajnK+srdfS/JPdzVmLafiAfzWbxfXPsc/vOA8cLG6YyI44Hh6iF5MLh5iGl6hXvxs3IjuZ6X
+	iYCyKtEGkkCqlmRk2T5s+AWf6l0l4wZ0gXmIDpBTbvr0Nl5NazIXX6BQ8uhnBUSaHeoGzFsRuRDB8
+	IH8mKXyNa2R0HWx6jp1w5CEPiojUxG6iMD7Zn8h1M4gvZEiA1FZVwCeNyZrUWA9W+Y3h+mVaNpIma
+	EytxX83w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lFg-00000000AXW-2PlC;
-	Mon, 07 Apr 2025 12:06:56 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u1lHP-00000000AwE-1VkZ;
+	Mon, 07 Apr 2025 12:08:43 +0000
+Received: from mail-ua1-f44.google.com ([209.85.222.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ky2-000000004rq-2yCe;
-	Mon, 07 Apr 2025 11:48:44 +0000
-X-UUID: 3f29135613a611f0a1e849db4cc18d44-20250407
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=JAbvFEC9Kt8P81+V2sHCH2GZ+SfpkGkZ983AinyulB0=;
-	b=g+SZDsLkvjKbQxs5p066AGN5gh2k8U3h9Adi1CSuEDmSxz1Q2AJw4bK5hstY9jKXCGCOj2zgsmo0fKHWtcR20ucFALmwiFTmw8kCPe9JUgnPvjM+Kzu4DdzeGSxO6rBrAciXdmoquefy7n7AFofl8Np1QziyFW0is0486e4jynE=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:c9a04a74-1160-41eb-8aa6-6ed27e4f4af8,IP:0,UR
-	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:0ef645f,CLOUDID:73eec6a5-c619-47e3-a41b-90eedbf5b947,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULN,TF_CID_SPAM_SNR
-X-UUID: 3f29135613a611f0a1e849db4cc18d44-20250407
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <darren.ye@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1193778182; Mon, 07 Apr 2025 04:48:39 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 7 Apr 2025 19:48:36 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 7 Apr 2025 19:48:35 +0800
-From: Darren.Ye <darren.ye@mediatek.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, "Linus
- Walleij" <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
-	<darren.ye@mediatek.com>
-Subject: [PATCH 11/11] ASoC: dt-bindings: mediatek,mt8196-mt6681: add mt8196-mt6681 document
-Date: Mon, 7 Apr 2025 19:47:24 +0800
-Message-ID: <20250407114759.24835-13-darren.ye@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250407114759.24835-1-darren.ye@mediatek.com>
-References: <20250407114759.24835-1-darren.ye@mediatek.com>
+	id 1u1kzg-000000005Uk-2TN5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 11:50:26 +0000
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-86b9ea43955so1689611241.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 04:50:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744026621; x=1744631421;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=i4+pLFMxzNKF7wuYEtBPsrpqj7a4qDgMwXzKwK/DCEs=;
+        b=d9PGTwNF/QnlNy4rL2IqrDOMljGUx04AAXGd5p9r3yGvhUYEbyIiQWYEFRFYuuXuvO
+         g9XdQnCpu0zQ4XhAw3BEUdx8U1YrTyaG+LhG98w6yzi1jYeDFmw/XyIqozKvN9csxq2g
+         vQ92AGIbHvVfqvFjDOlC8cbeA9S7jmMmJrrUSTnm+kTEf/1wTaBZ3f7Z4w9eZHPFHh3x
+         qnbgIUJqsczbTSoF5pM9gJKSOQNuXKtDuruIL2IFlAoPajkW/fYDynmyReAb3gDL1F1A
+         6ZLwORk0P+xLZ/osdvtFlOiH1O3+R7Wlb90XFFFPWtJyQqlcjxwCcblgjWuZkxgd2/Ei
+         ySMw==
+X-Forwarded-Encrypted: i=1; AJvYcCWFRK7wgc86zxuZZh49QXL0c/84b5FGAwF0jK2at5XV8pkKlzjCYXD2NLW0OvOHlVJTwhDx34j4U3bZRohQrB0T@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkQ+z6Wr/KXMJMNSJO+eMEDikZ1XPulFhZ0TNR0lhXgarHu/4W
+	9kkMq5DfjUcOT/EJWfC1fBfDeEcR/9yasGj42CzA1Y4Ckjv9GPTEMFHae01F
+X-Gm-Gg: ASbGncvGCf2cgUHkw203coIKPOKJ7V3toyb8hMfBvSMA8i2j69TzOvdNPfcyMF54HpH
+	N+mGnKaLsP8ikBuJOOlUu8eB4z+HtmTVY6lRcF7Eb8yzYRXDyLyYqDYkmlvjz2EC90tKo+YT7EQ
+	N73kEyVOgwOKhXYr2UFTV/L0ZpSc1uTfR5SzehKAS1sMyzLV79QWlXB4qpq/OFWsVztkyz92dSR
+	6PpVO60ioEBCandJk/2npMHA+E3UkmoGgM14bU3+w+YWEMgvLfY6GUD/VekTwU5xNNZvp3YmZ/r
+	a9Fjpto2x119ZZBy3O48iDZPLLJVN27ugucpZ3KNNa4VZmrWzlrkrN1/cj7XPePyMErSZlDy1p/
+	n3uLYH6koSlo=
+X-Google-Smtp-Source: AGHT+IEZVG6uL56+ovxH9RyOgUqqmRvJcCqBn+ovPIeSeLxURfhJELeNvr9RJYPKZ1unrOVfGKa1bA==
+X-Received: by 2002:a05:6102:38c7:b0:4c4:dead:59a3 with SMTP id ada2fe7eead31-4c855383805mr9512382137.2.1744026620711;
+        Mon, 07 Apr 2025 04:50:20 -0700 (PDT)
+Received: from mail-vk1-f172.google.com (mail-vk1-f172.google.com. [209.85.221.172])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-8738b28b447sm1714598241.21.2025.04.07.04.50.19
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Apr 2025 04:50:20 -0700 (PDT)
+Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-523d8c024dfso1794547e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 04:50:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXfeV6aAIsjpEpjhefA00V+1JVVKJq8OmUzeQxIYnyoARWib+OPq2T8iedIE1uPx7cGz9IcqKNYJIHEVZCi05Yy@lists.infradead.org
+X-Received: by 2002:a05:6102:f86:b0:4bb:eb4a:f9f2 with SMTP id
+ ada2fe7eead31-4c8553aea85mr9265953137.9.1744026619724; Mon, 07 Apr 2025
+ 04:50:19 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+References: <20250228182928.2645936-1-fvdl@google.com> <20250228182928.2645936-3-fvdl@google.com>
+In-Reply-To: <20250228182928.2645936-3-fvdl@google.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 7 Apr 2025 13:50:08 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVWviQ7O9yBFE3f=ev0eVb1CnsQvR6SKtEROBbM6z7g3w@mail.gmail.com>
+X-Gm-Features: ATxdqUH7PH4vq6Q_RgYLRrVLiKbH_NIvyy9Ay2B6TtCJJJg26LiT8zWJ4O0OrhI
+Message-ID: <CAMuHMdVWviQ7O9yBFE3f=ev0eVb1CnsQvR6SKtEROBbM6z7g3w@mail.gmail.com>
+Subject: Re: [PATCH v5 02/27] mm, cma: support multiple contiguous ranges, if requested
+To: Frank van der Linden <fvdl@google.com>
+Cc: akpm@linux-foundation.org, muchun.song@linux.dev, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, yuzhao@google.com, usamaarif642@gmail.com, 
+	joao.m.martins@oracle.com, roman.gushchin@linux.dev, ziy@nvidia.com, 
+	david@redhat.com, Arnd Bergmann <arnd@arndb.de>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_044842_748627_7BE09953 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20250407_045024_633558_BE226134 
+X-CRM114-Status: GOOD (  35.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,137 +98,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Darren Ye <darren.ye@mediatek.com>
+Hi Frank,
 
-Add document for mt8196 board with mt6681.
+On Fri, 28 Feb 2025 at 19:30, Frank van der Linden <fvdl@google.com> wrote:
+> Currently, CMA manages one range of physically contiguous memory.
+> Creation of larger CMA areas with hugetlb_cma may run in to gaps
+> in physical memory, so that they are not able to allocate that
+> contiguous physical range from memblock when creating the CMA
+> area.
+>
+> This can happen, for example, on an AMD system with > 1TB of memory,
+> where there will be a gap just below the 1TB (40bit DMA) line. If
+> you have set aside most of memory for potential hugetlb CMA allocation,
+> cma_declare_contiguous_nid will fail.
+>
+> hugetlb_cma doesn't need the entire area to be one physically
+> contiguous range. It just cares about being able to get physically
+> contiguous chunks of a certain size (e.g. 1G), and it is fine
+> to have the CMA area backed by multiple physical ranges, as
+> long as it gets 1G contiguous allocations.
+>
+> Multi-range support is implemented by introducing an array of
+> ranges, instead of just one big one. Each range has its own bitmap.
+> Effectively, the allocate and release operations work as before,
+> just per-range. So, instead of going through one large bitmap, they
+> now go through a number of smaller ones.
+>
+> The maximum number of supported ranges is 8, as defined in
+> CMA_MAX_RANGES.
+>
+> Since some current users of CMA expect a CMA area to just use one
+> physically contiguous range, only allow for multiple ranges if a
+> new interface, cma_declare_contiguous_nid_multi, is used. The other
+> interfaces will work like before, creating only CMA areas with
+> 1 range.
+>
+> cma_declare_contiguous_nid_multi works as follows, mimicking the
+> default "bottom-up, above 4G" reservation approach:
+>
+> 0) Try cma_declare_contiguous_nid, which will use only one
+>    region. If this succeeds, return. This makes sure that for
+>    all the cases that currently work, the behavior remains
+>    unchanged even if the caller switches from
+>    cma_declare_contiguous_nid to cma_declare_contiguous_nid_multi.
+> 1) Select the largest free memblock ranges above 4G, with
+>    a maximum number of CMA_MAX_RANGES.
+> 2) If we did not find at most CMA_MAX_RANGES that add
+>    up to the total size requested, return -ENOMEM.
+> 3) Sort the selected ranges by base address.
+> 4) Reserve them bottom-up until we get what we wanted.
+>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Frank van der Linden <fvdl@google.com>
 
-Signed-off-by: Darren Ye <darren.ye@mediatek.com>
----
- .../sound/mediatek,mt8196-mt6681.yaml         | 114 ++++++++++++++++++
- 1 file changed, 114 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-mt6681.yaml
+Thanks for your patch, which is now commit c009da4258f9885c
+("mm, cma: support multiple contiguous ranges, if requested")
+in v6.15-rc1.
 
-diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8196-mt6681.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8196-mt6681.yaml
-new file mode 100644
-index 000000000000..2c1b0df05c27
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/mediatek,mt8196-mt6681.yaml
-@@ -0,0 +1,114 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/mediatek,mt8196-mt6681.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek MT8196 ASoC sound card
-+
-+maintainers:
-+  - Darren Ye <darren.ye@mediatek.com>
-+
-+allOf:
-+  - $ref: sound-card-common.yaml#
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - mediatek,mt8196-mt6681-sound
-+          - mediatek,mt8196-nau8825-sound
-+          - mediatek,mt8196-rt5682s-sound
-+          - mediatek,mt8196-rt5650-sound
-+
-+  audio-routing:
-+    description:
-+      Valid names could be the input or output widgets of audio components,
-+      power supplies, MicBias of codec and the software switch.
-+
-+  mediatek,platform:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: The phandle of MT8188 ASoC platform.
-+
-+  mediatek,adsp:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      The phandle of the MT8188 ADSP platform, which is the optional Audio DSP
-+      hardware that provides additional audio functionalities if present.
-+      The AFE will link to ADSP when the phandle is provided.
-+
-+patternProperties:
-+  "^dai-link-[0-9]+$":
-+    type: object
-+    description:
-+      Container for dai-link level properties and CODEC sub-nodes.
-+
-+    properties:
-+      link-name:
-+        description:
-+          This property corresponds to the name of the BE dai-link to which
-+          we are going to update parameters in this node.
-+        items:
-+          enum:
-+            - TDM_DPTX_BE
-+            - I2SOUT6_BE
-+            - I2SIN6_BE
-+            - I2SOUT4_BE
-+            - I2SOUT3_BE
-+
-+      codec:
-+        description: Holds subnode which indicates codec dai.
-+        type: object
-+        additionalProperties: false
-+        properties:
-+          sound-dai:
-+            minItems: 1
-+            maxItems: 2
-+        required:
-+          - sound-dai
-+
-+      dai-format:
-+        description: audio format.
-+        items:
-+          enum:
-+            - i2s
-+            - right_j
-+            - left_j
-+            - dsp_a
-+            - dsp_b
-+
-+      mediatek,clk-provider:
-+        $ref: /schemas/types.yaml#/definitions/string
-+        description: Indicates dai-link clock master.
-+        items:
-+          enum:
-+            - cpu
-+            - codec
-+
-+    additionalProperties: false
-+
-+    required:
-+      - link-name
-+
-+unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - mediatek,platform
-+
-+examples:
-+  - |
-+    sound {
-+        compatible = "mediatek,mt8196-mt6681-sound";
-+        model = "mt8196-mt6681";
-+        mediatek,platform = <&afe>;
-+        dai-link-0 {
-+            link-name = "I2SOUT6_BE";
-+            dai-format = "i2s";
-+            mediatek,clk-provider = "cpu";
-+            codec {
-+                sound-dai = <&nau8825>;
-+            };
-+        };
-+    };
-+
+After this patch, the printed base address becomes zero on several
+Renesas arm32/arm64 platforms:
+
+  - Koelsch (R-Car M2-W):
+
+      -cma: Reserved 64 MiB at 0x7c000000 on node -1
+      +cma: Reserved 64 MiB at 0x00000000
+
+   - Salvator-XS (R-Car H3 ES2.0):
+
+      -cma: Reserved 128 MiB at 0x0000000078000000 on node -1
+      +cma: Reserved 128 MiB at 0x0000000000000000
+
+  - Gray Hawk Single (R-Car V4H):
+
+      -cma: Reserved 128 MiB at 0x00000000b8000000 on node -1
+      +cma: Reserved 128 MiB at 0x0000000000000000
+
+None of these have actual RAM at address zero.  As I haven't noticed
+any other impact on system operation, I do not know if this is purely
+a cosmetic issue, or if it can cause real problems.
+
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.45.2
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
