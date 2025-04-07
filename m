@@ -4,95 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C4FC36018
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE739C369A4
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jUuYsrCNZuom26Ku72dSBPeeyC8punlJl9ufLVLiqm4=; b=RiVnD/hp6yBu8P/CdnqyArpooV
-	lYEApPgVXlB2LWuwbXrCjLME1aQCF0Z33sao+Epn0y+0KTHmTTYkjG1TpFR666FUxNNpCNdzG7feu
-	D1O3Niyp5lTjVgFAM6Sv/bfK4hdMEiBMYaBza46Gm5vgGdeVcle4kdPTPFxUuWxb4divRadelwSJ1
-	BRCwOfz41rOWrziPmZV/3kWckROZZ2zimpn9IQqyK2Iu5orrlpE/HnibiGQGY5XFVtJR5zmsvb6JX
-	O8Awnq6bChtl39fo9zG7KZHLFokVOrHFl8MCIrdzHf7XWu7MbxOX5cnYvqiHfhlaf2nrv1EnEdePn
-	iJ9b0xKg==;
+	bh=kFU4PCOFCF2t2dPmfjFQsFfH3+loT9oNKaTNo2jAsrw=; b=PFAjeXXA88vO3N7MMfsiGXq/5T
+	vw+LNRcg9Fwml7HACS/jTBlW0ykUc6CZgTkrHtyCqoPMnCjt2awkeoKT2gB2LOsrcyD6FYrNznGfG
+	Fvdp7WU7LM0jfaket//CHibn7N/m0ah+IfwKf/iM1Ba+OpVXnV9H2CXqU9BOLf7zNwTlgLuOInK7r
+	3HIUyOPjK8BlpPbAkfhryi+xSxEX6NTw3joPvcggNU1+gSnAY5Lc8OGS0F67zV9P+FaijNbr9msc/
+	FkEMXW+BuvLgEOeRIZ5q5LYUefWupxEIxd1X8vA/Mhtljrc6AtrQm2yOjRMH7e9VezDyHiqBiX1e3
+	OATUavOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ra4-00000001g2s-2cBn;
-	Mon, 07 Apr 2025 18:52:24 +0000
-Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
+	id 1u1ra2-00000001fzB-2mxY;
+	Mon, 07 Apr 2025 18:52:22 +0000
+Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1qtM-00000001TIu-3GC8
+	id 1u1qri-00000001Szj-2d4E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 18:08:18 +0000
-Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-52413efd0d3so1999230e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 11:08:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744049295; x=1744654095; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jUuYsrCNZuom26Ku72dSBPeeyC8punlJl9ufLVLiqm4=;
-        b=f+tc9fktgV94Hv5FOZ/GVgeVJ8M0YFzppBcv49zp9T4LPhPHmhSJGPRE5OM8p2o6kW
-         VN+9igLXpZwq2gzU0cN25OwOhE+yw20eG4hcPU6vExfExAeoK++4Pk1SEs4kOurrg+RH
-         imQQ5Z7MQsQqV7dloSV+y7LMkq+QuhPpIOlfBKsm6SJzeLU+3AGEBz7lD1OsjDG7RJ+9
-         cAatjrbl/Bo5xF2IN+qI9SasHJ+vD4qb3zC51CZcbUL6aBw6FSB9HxOFllXSAtXGKN4B
-         50g7L3Sx/w2tasC0dLQmiCn3RhgGDaW4lCVfH+FJrzputVMlhfQToa66MOUZwDahRl7/
-         zKqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744049295; x=1744654095;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jUuYsrCNZuom26Ku72dSBPeeyC8punlJl9ufLVLiqm4=;
-        b=UVEZMaUZAhCS1yIdzIUdkJcd+1SxKf42OhH1nlxqEZxZxKjm5rhyqKZvNqOOjzi9xl
-         /A9c3JnFCuat98oiZfySrWYEbln7W4JgdA8BEKHDrdML0NJCnVrlR59yrThdCRhDOcyL
-         c0geo3antoSbS4+V6skZaGE7Ocw7E3RJSB48Lo4SLQ2bHzX/awqvoWf3GoI/rjdgVLo3
-         Ciuseyukk1uimzNvKIrxVL4mAozMHdzZqqIXMgLBCxuERq/+jND/5hyZkuWBOcO+r/Cc
-         fJWIP2vcoNII4bVwEgEOKyEVkSmMORK8lDCd8T/FrBodG0zWh4jN9OqI0Y9RJnI7VlwT
-         QViA==
-X-Forwarded-Encrypted: i=1; AJvYcCXP03tZ911Wxd+kiIZEp/igkOsNpKPCPFqiUsqCVceWcNUrqEMiD38lqf9bSF02/dwrv8DUVp7Jy06FrhETG0QW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4ZFGIF1ZW17sdzvrO03SSpUGlpp0byWGQDseXoNvaXlYh4OmY
-	BTVes2huwVXP3ED1pLIdk0Xg5cThBi/kWCdKPLQI6InEJzMGZiXRb+iJISkXBWFXyyuNHQbXbHa
-	aBGoVdirVnysrGzAfhmNPcCK31LM=
-X-Gm-Gg: ASbGncvU3Cmyw8gQO1n8OO8krv2dI9UW3ml0Zk3tgcg4CG33VKOGeIlpur200VBb7Bo
-	Ejijpjyw7JPr1XiGB43u3WU83/RTC5YHhfC/p2Z8oKlXvm2HauiOxkVGOgnzKpR39xU2iVpIb9F
-	nufPl/t4bUQdWxO90u60TNXMp0L0GQMNRLsLmSk1QNMdSYuXr5pepmnA/sZw8=
-X-Google-Smtp-Source: AGHT+IEN6rDHodvyUoowo8BFuQsI+M3qkHprXMun6ue2nFvUns/xZBc98c1/xylp9Sz4+dM00gUNYRdzmCwmGkE0JHw=
-X-Received: by 2002:a05:6122:16a6:b0:526:1ddd:8953 with SMTP id
- 71dfb90a1353d-527642e498emr8513099e0c.0.1744049295202; Mon, 07 Apr 2025
- 11:08:15 -0700 (PDT)
+	Mon, 07 Apr 2025 18:06:36 +0000
+Message-ID: <3203955d-b0fa-4ef6-bcec-6d23a5b6441d@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1744049190;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kFU4PCOFCF2t2dPmfjFQsFfH3+loT9oNKaTNo2jAsrw=;
+	b=kybWyAZ0LNPljlzODiID9MCxmPkOsj3+XZ3NOBA1SJ+GUkEwxi2q4YG6Tqzxu5OztwOoy2
+	4FWNfu+DxWPsP6v4QiY6skK5eZddzEVCNMMTHOBHgUXOXHrueBs+hUmpIpZBJYNh/tQl0M
+	sPWqXv7raQ0Wc9svTCLcg7RV8xLYw7E=
+Date: Mon, 7 Apr 2025 14:06:21 -0400
 MIME-Version: 1.0
-References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com> <Z_QSHpvSK7I--xPq@shell.armlinux.org.uk>
-In-Reply-To: <Z_QSHpvSK7I--xPq@shell.armlinux.org.uk>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Mon, 7 Apr 2025 19:07:49 +0100
-X-Gm-Features: ATxdqUGJm_OgZHRFfu9Amyd2UVOtmAsyuknbI3Y7Xd-HEEICL3GbzjhydkDONtY
-Message-ID: <CA+V-a8vgavmN7c9KYjc-3tm-9GC1_aVUkF-dF=Ws9axTBmSa5g@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
- Renesas GBETH
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [RFC net-next PATCH 00/13] Add PCS core support
+To: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
+Cc: Kory Maincent <kory.maincent@bootlin.com>, netdev@vger.kernel.org,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org,
+ upstream@airoha.com, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Clark Wang <xiaoning.wang@nxp.com>,
+ Claudiu Beznea <claudiu.beznea@microchip.com>,
+ Claudiu Manoil <claudiu.manoil@nxp.com>, Conor Dooley <conor+dt@kernel.org>,
+ Ioana Ciornei <ioana.ciornei@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+ Joyce Ooi <joyce.ooi@intel.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Li Yang <leoyang.li@nxp.com>, Madalin Bucur <madalin.bucur@nxp.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <michal.simek@amd.com>,
+ Naveen N Rao <naveen@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Robert Hancock <robert.hancock@calian.com>,
+ Saravana Kannan <saravanak@google.com>, Shawn Guo <shawnguo@kernel.org>,
+ UNGLinuxDriver@microchip.com, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ Wei Fang <wei.fang@nxp.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linuxppc-dev@lists.ozlabs.org
+References: <20250403181907.1947517-1-sean.anderson@linux.dev>
+ <20250407182738.498d96b0@kmaincent-XPS-13-7390>
+ <720b6db8-49c5-47e7-98da-f044fc38fc1a@linux.dev>
+ <CA+_ehUyAo7fMTe_P0ws_9zrcbLEWVwBXDKbezcKVkvDUUNg0rg@mail.gmail.com>
+ <1aec6dab-ed03-4ca3-8cd1-9cfbb807be10@linux.dev>
+ <CA+_ehUzeMBFrDEb7Abn3UO3S7VVjMiKc+2o=p5RGjPDkfLPVtQ@mail.gmail.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <CA+_ehUzeMBFrDEb7Abn3UO3S7VVjMiKc+2o=p5RGjPDkfLPVtQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_110816_813618_FECEBAAE 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20250407_110634_814760_174DD6EC 
+X-CRM114-Status: GOOD (  40.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,60 +102,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 7, 2025 at 6:58=E2=80=AFPM Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
->
-> On Mon, Apr 07, 2025 at 01:03:17PM +0100, Prabhakar wrote:
-> > +static struct clk *renesas_gbeth_find_clk(struct plat_stmmacenet_data =
-*plat_dat,
-> > +                                       const char *name)
-> > +{
-> > +     for (unsigned int i =3D 0; i < plat_dat->num_clks; i++)
-> > +             if (!strcmp(plat_dat->clks[i].id, name))
-> > +                     return plat_dat->clks[i].clk;
-> > +
-> > +     return NULL;
-> > +}
->
-> In addition to Jakub's request, I'll ask that you hold off for a week
-> because I have the following that I'd like to submit:
->
-Ack, please add me in Cc while you post this patch.
+On 4/7/25 13:21, Christian Marangi (Ansuel) wrote:
+> Il giorno lun 7 apr 2025 alle ore 19:00 Sean Anderson
+> <sean.anderson@linux.dev> ha scritto:
+>>
+>> On 4/7/25 12:46, Christian Marangi (Ansuel) wrote:
+>> > Il giorno lun 7 apr 2025 alle ore 18:33 Sean Anderson
+>> > <sean.anderson@linux.dev> ha scritto:
+>> >>
+>> >> On 4/7/25 12:27, Kory Maincent wrote:
+>> >> > On Thu,  3 Apr 2025 14:18:54 -0400
+>> >> > Sean Anderson <sean.anderson@linux.dev> wrote:
+>> >> >
+>> >> >> This series adds support for creating PCSs as devices on a bus with a
+>> >> >> driver (patch 3). As initial users,
+>> >> >>
+>> >> >> - The Lynx PCS (and all of its users) is converted to this system (patch 5)
+>> >> >> - The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6-8)
+>> >> >> - The Cadence MACB driver is converted to support external PCSs (namely
+>> >> >>   the Xilinx PCS) (patches 9-10).
+>> >> >>
+>> >> >> The last few patches add device links for pcs-handle to improve boot times,
+>> >> >> and add compatibles for all Lynx PCSs.
+>> >> >>
+>> >> >> Care has been taken to ensure backwards-compatibility. The main source
+>> >> >> of this is that many PCS devices lack compatibles and get detected as
+>> >> >> PHYs. To address this, pcs_get_by_fwnode_compat allows drivers to edit
+>> >> >> the devicetree to add appropriate compatibles.
+>> >> >
+>> >> > I don't dive into your patch series and I don't know if you have heard about it
+>> >> > but Christian Marangi is currently working on fwnode for PCS:
+>> >> > https://lore.kernel.org/netdev/20250406221423.9723-1-ansuelsmth@gmail.com
+>> >> >
+>> >> > Maybe you should sync with him!
+>> >>
+>> >> I saw that series and made some comments. He is CC'd on this one.
+>> >>
+>> >> I think this approach has two advantages:
+>> >>
+>> >> - It completely solves the problem of the PCS being unregistered while the netdev
+>> >>   (or whatever) is up
+>> >> - I have designed the interface to make it easy to convert existing
+>> >>   drivers that may not be able to use the "standard" probing process
+>> >>   (because they have to support other devicetree structures for
+>> >>   backwards-compatibility).
+>> >>
+>> >
+>> > I notice this and it's my fault for taking too long to post v2 of the PCS patch.
+>> > There was also this idea of entering the wrapper hell but I scrapped that early
+>> > as I really feel it's a workaround to the current problem present for
+>> > PCS handling.
+>>
+>> It's no workaround. The fundamental problem is that drivers can become
+>> unbound at any time, and we cannot make consumers drop their references.
+>> Every subsystem must deal with this reality, or suffer from
+>> user-after-free bugs. See [1-3] for discussion of this problem in
+>> relation to PCSs and PHYs, and [4] for more discussion of my approach.
+>>
+>> [1] https://lore.kernel.org/netdev/YV7Kp2k8VvN7J0fY@shell.armlinux.org.uk/
+>> [2] https://lore.kernel.org/netdev/20220816163701.1578850-1-sean.anderson@seco.com/
+>> [3] https://lore.kernel.org/netdev/9747f8ef-66b3-0870-cbc0-c1783896b30d@seco.com/
+>> [3] https://lpc.events/event/17/contributions/1627/
+>>
+>> > And the real problem IMHO is that currently PCS handling is fragile and with too
+>> > many assumptions. With Daniel we also discussed backwards-compatibility.
+>> > (mainly needed for mt7621 and mt7986 (for mediatek side those are the 2
+>> > that slipped in before it was correctly complained that things were
+>> > taking a bad path)
+>> >
+>> > We feel v2 permits correct support of old implementations.
+>> > The ""legacy"" implementation pose the assumption that PCS is never removed
+>> > (unless the MAC driver is removed)
+>> > That fits v2 where a MAC has to initially provide a list of PCS to
+>> > phylink instance.
+>>
+>> And what happens when the driver is unbound from the device and suddenly
+>> a PCS on that list is free'd memory but is in active use by a netdev?
+>>
+> 
+> driver bug for not correctly implementing the removal task.
+> 
+> The approach is remove as provider and call phylink removal phase
+> under rtnl lock.
+> We tested this with unbind, that is actually the main problem we are
+> trying to address
+> and works correctly.
 
-Cheers,
-Prabhakar
+OK, so this is a different approach since your last submission. Please
+CC me on your series.
 
-> bbc73b8b6dfd net: stmmac: provide stmmac_pltfr_find_clk()
->
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/driv=
-ers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> index c73eff6a56b8..43c869f64c39 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> @@ -709,6 +709,17 @@ devm_stmmac_probe_config_dt(struct platform_device *=
-pdev, u8 *mac)
->  #endif /* CONFIG_OF */
->  EXPORT_SYMBOL_GPL(devm_stmmac_probe_config_dt);
->
-> +struct clk *stmmac_pltfr_find_clk(struct plat_stmmacenet_data *plat_dat,
-> +                                 const char *name)
-> +{
-> +       for (int i =3D 0; i < plat_dat->num_clks; i++)
-> +               if (strcmp(plat_dat->clks[i].id, name) =3D=3D 0)
-> +                       return plat_dat->clks[i].clk;
-> +
-> +       return NULL;
-> +}
-> +EXPORT_SYMBOL_GPL(stmmac_pltfr_find_clk);
-> +
-> ...
->
-> which will avoid glue drivers duplicating this functionality. This will
-> be part of the first sets of patches I'm going to be submitting.
->
-> Thanks.
->
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+- Fundamentally this is going to make backwards compatibility very
+  difficult, since your approach cannot work with mac_select_pcs. How
+  are you going to handle the case of MAC-internal PCSs? Are you going
+  to make them create a swnode and bind to it just to create a PCS for
+  e.g. MMIO registers? And how is the MAC supposed to know how to select
+  the PCS? From what I can tell you don't even notify the MAC about
+  which PCS it's using.
+
+  I considered an approach like this, where the phylink would be in the
+  driver's seat (so to speak), but I decided not to persue it due to
+  the problems listed above. A lot of PCSs are tightly-integrated with
+  their MACs, so it does not make sense to introduce this little
+  coupling. I think it is better to let the MAC select the PCS e.g.
+  based on the phy interface. This tends to be a few lines of code for
+  the MAC and saves so much complexity in phylink.
+
+  I think you should try doing the macb and lynx conversions for your
+  approach. It will make the above problems obvious.
+
+- Your approach is very intrusive. There are lots of changes all over
+  phylink across several patches and it is hard to verify all the
+  assumptions. Whereas a wrapper keeps everything contained to one file,
+  and most of the functions can be evaluated independently.
+
+--Sean
 
