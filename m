@@ -4,175 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BA4C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 11:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4284CC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 11:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LCzFj4nrTzKnvMqs5VdUnDQw6FAw9hRqlswPTZi9QOY=; b=aiBdW8T2UoAFcgcQSYUFFQvLAe
-	Vu8trgQm6bSfl2iOh7JylJtT3XhScId6pFyg0RpVtlidRv/pIp2Dj+C7hEC9GBSemWTyW6TdlowsE
-	AdsRjBf0DuxPlF4sxalKPV/J6qB4/L3OC3KSBrbtTvv86gI5+27Qj11Ia5wvFPPySb2MGaL90QZ/z
-	OwsWn4NuT7cb71Rv7+mY2UFqxJfWTGEvQfgX0sC2Y3/nVTTKN5RH/YRBf0BYjqVPBJyN+2j/GNZPf
-	VMZRsUsDAxJv47L7c3H4yq0v+POsNfmFq+J5x5w63082NOubDjGsygeyyI5smGrP0IKbA1yUz/v1A
-	5RZFktSw==;
+	bh=bjNP63G+fAyAyGQb7WUecVf9CDYMikWqHRq+/UjXZxI=; b=PVKJYe1GtAebbMs5FD1xtkeUib
+	1XSU7jbdSlyT8pksCtp88p1WhjFMjMLBylooc5zLGK9W6xwKas85kJzgoXBrRGH9RxsW1u3Xj132X
+	NN9pr0plSMIR6r+jNIakDB2+zdgxaina1jjhnMgFVqz5e81zpKYk40Vl86VleAP7FiYx3J1si2USC
+	qOg8lLY6y5WylmU8SjjSgqbQRZeX0WOECIDexOVagvh/3ujLbyMhZWjet1WNSuQVQY+HGIZYQUYMN
+	6xxkCZNLvh105czRt9L8/SflGRCwcRO1HpKnFNi47731oH9vdnT4It+X7LPkRVI/JiDgu1xjUMDe/
+	rUiuNs6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1kMW-0000000HW9B-3D96;
-	Mon, 07 Apr 2025 11:09:56 +0000
-Received: from mail-db8eur05on2062b.outbound.protection.outlook.com ([2a01:111:f403:2614::62b] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1u1kPy-0000000HWsQ-3Qre;
+	Mon, 07 Apr 2025 11:13:30 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1kAk-0000000HSKD-27MK
+	id 1u1kH9-0000000HUdK-1Vjk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 10:57:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bUQlBzvaWD/BxMcn86s8iOCY05ibeEVBiUII4EcY3gr7d0sh3vLtmhuF37IHqQ4ww2dGu1F+pkJveZLM9SEYBSRHPtSsKJS/5rvRy8psX5s1YtYrpxu2ireVjr4dFENUdFYMl6fxQ0218LaxnK1gdqFHm/D2pL9oRD2vF9NfhTzxDQkzwxoEfo135epPpV1sHpfPkKmMOouGPzQVys9OWB85JCAcWtj09WBpEUyFGmtfeIzCYy2pWr3tlH/crTix1ADHsekEoUJaJdZkTcLbpzbVYMhJ3qMSsPJ+rszJawtSoon+yNGSeSW1SKr185flcpHLY/tS9ZBjeWik5IgiCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LCzFj4nrTzKnvMqs5VdUnDQw6FAw9hRqlswPTZi9QOY=;
- b=Lerw3JKd//eQNjuhNC9mOHZ3mH3SkdVLDgPNG5+Zcal3bUrg1L/U4SzguU2pH+m1UzF4Q01w3SFYoxcqb7P/A6Ky7Mpo9F1CBOk0xAq5hO5QmDWXxkVm6/iXkR/xe9I835Sdd8j1MUREq3PwUftOKse3S55PBJixXhblFWOQ9RqQUVibgYAFc7VLI7uLjSC82uciq1YUzRaE/PhpWdYLdZniBPvhFOaw0tx94aGTToDd6dOqtPdEtozcYu8nbPbyAnCFck46LEZEvno2vN8QK/kUNdFI2mSS+50sgURVMEqLsMi1FXLOK6EPfsLtvFCGIYXYSV3fyem+44oOoexrXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LCzFj4nrTzKnvMqs5VdUnDQw6FAw9hRqlswPTZi9QOY=;
- b=kYGp72EIB0fLTPxJHTPCDR/88WEp6f6HtLYVaJE9zlyTosh1va9uGTicaDa2yLFID02vrMUySrq2E/3n2HxqmBDTqzTp2txMjuhEjYXufkIheqYGZOAR1nklY9UKd9ACMQvza1O/3l5yk2UBxZt04TDl+BON1oTmu4Dt84Sg3gi4xzeQqINqPMywYaaImF6Zb2ZtCWeHErZSu+AVSAWlBbt2lWjP6UpRh9MuZazWLwDRJLk4ba9LOdTwe3xhum/nNKnUED7VFl2E1rx3veN2nuBHvpp1sFyiIc0FjAb4e+mabCpHhhGssAHfpWb+326mBy92CXWOrb0gs7FatiFfJQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
- by DB9PR04MB8493.eurprd04.prod.outlook.com (2603:10a6:10:2c5::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.43; Mon, 7 Apr
- 2025 10:57:44 +0000
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827%6]) with mapi id 15.20.8583.045; Mon, 7 Apr 2025
- 10:57:44 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-Date: Mon, 07 Apr 2025 21:50:22 +0530
-Subject: [PATCH v15 6/7] firmware: imx: device context dedicated to priv
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250407-imx-se-if-v15-6-e3382cecda01@nxp.com>
-References: <20250407-imx-se-if-v15-0-e3382cecda01@nxp.com>
-In-Reply-To: <20250407-imx-se-if-v15-0-e3382cecda01@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744042844; l=10297;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=pS//50BHa/Q8/uV/EPH6Ev7uq9bBTKuoXm4eJqLYR9w=;
- b=IaG8r3Gd47ZR+Xjj2g4xo4uolUr3dqPUvBz9ryXaZQoZ3rmuOUbdn5BFz2+EkgVoOlRSvYDL8
- HcAm/Su6giyD1xdchTc7AbARGenicMZ8mPuZ1vzOuqL9SfreNbsyIgt
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SI2PR01CA0036.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::22) To AM9PR04MB8604.eurprd04.prod.outlook.com
- (2603:10a6:20b:43b::21)
+	Mon, 07 Apr 2025 11:04:24 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-39c1ee0fd43so3535643f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 04:04:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744023861; x=1744628661; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=bjNP63G+fAyAyGQb7WUecVf9CDYMikWqHRq+/UjXZxI=;
+        b=TrLJY2d/tF2PAGfozMx94nRCJSc2+OEpOc7Rb5Z1zhCDgdIhNabdAubmqz9c5RxtYB
+         hNr/sNOEEsSE7SSZQkM7M0NOmtnKaPX11TmCw3grPDpk4DpkQOfUN0hpHvDmSIERaoWe
+         TQ6nBzdG70lDqe5CnbYQcTDRAFYBFeO4oehM03dq50lbThJW3Ave5jf89lh56B7TjUbv
+         c/xhlIU616aac2PoheafE5XUghqWCpbNmyewnll3T9hWx1FXdyeg7VnxJa1iz6WsYF0Z
+         aP811UHASXaqrE0fACkfsETfFBcmnFmt3AAhfbC5fPrlJZ7LB9P2fwQBtVmPdAcX1Ex5
+         Ep/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744023861; x=1744628661;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bjNP63G+fAyAyGQb7WUecVf9CDYMikWqHRq+/UjXZxI=;
+        b=FtZNUnrp6U3+HCF4wnNWKxvanq4omj4vDv6OXGCiEuLv0vF0uMMII/mFzZkqZL0Ovm
+         k+rR/19f+3tjhp1XE/cLPKwTL+jcbYhfsk3Hjhc/EAdDS7PJp5YplWOn9iQldm4xOttj
+         5b+F87/dpRNbZa/yGTqiP/HvMDatgA18/d3/cpdpHxhGzC2OVoHU9c6w5tTBE59DKB7Z
+         vblC8G4MXP+hbEQnCbu3+dml4U5UjE8L191OWvMvq4JzX4UiXvg/uXakIEz23lqR19VT
+         +hSvYaAyOxYQSJ9cFrj5H6/YVFfF2MOzVMzXepaCaIi4Zw/QpVlGBssJ0fxP/Xaee1XL
+         LrIg==
+X-Forwarded-Encrypted: i=1; AJvYcCUVeRu01VJ0lX5GzmJldxAr/2clLlic+wvdZv9JH5OWXZRQNq1h+2MQB/EkPtV+B5onqgcJ38dppaPohTeu2ist@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw51zCQ28aLSNN7hOOEyO36/p5AlpHSK2sQKBvQWdb59gHs1gOZ
+	hRR6VUyQpWE2du1y7KYdWZ2Xj7pJr0d6vlr1hfcMjhh9sTNNRp/qTi9RkrlkzaA=
+X-Gm-Gg: ASbGnctgCEhSbXgyFdJlgokfHppTTeXp4TAGm4Nvvl6l0CatYfLDBfRs9mrRyCFkA90
+	+oGDmXWQnr7ote+ogbWjat9L1fIPE/A5Ng0SF8c0R8QEMDyGO7UHfq10UpzCSxTXAQbhQxHR6SN
+	lOkHjN40EqqNqK1+jdX2n60TJJoWppWiJYufZs86ngGpaUtN2w9GzOyJaClMsSWh05rmPFzRYjn
+	Cs//uR5IEBKt1OgiMiFW8OHXRImncF0Yv4k+RzYQnV2YXn7cD2fmAdOeCamfReoa/A4hPSKHDjG
+	ACzFT4+Wprya0bD+3jLSqYxd9JJdcTkR0DvknYefdSfm1133lg==
+X-Google-Smtp-Source: AGHT+IE98q/exAYcbXtaZDbUrx+IuA1N3tIoGfV9NOXz2xzrCG0lt2xc3oN4y/3w/IH6VurA5lmsRg==
+X-Received: by 2002:a05:6000:430c:b0:391:47d8:de2d with SMTP id ffacd0b85a97d-39cba93382fmr10043977f8f.23.1744023861560;
+        Mon, 07 Apr 2025 04:04:21 -0700 (PDT)
+Received: from [10.1.1.109] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec1795205sm130230235e9.30.2025.04.07.04.04.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Apr 2025 04:04:21 -0700 (PDT)
+Message-ID: <819718d731bc1496a75ebd0a4076d88273b21229.camel@linaro.org>
+Subject: Re: [PATCH v3 25/32] rtc: s5m: cache value of
+ platform_get_device_id() during probe
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sylwester
+ Nawrocki	 <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>,
+ Alim Akhtar	 <alim.akhtar@samsung.com>, Michael Turquette
+ <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas	 <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Alexandre Belloni	 <alexandre.belloni@bootlin.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	 <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rtc@vger.kernel.org
+Date: Mon, 07 Apr 2025 12:04:19 +0100
+In-Reply-To: <b68110b8-fd16-454f-9b59-a89c028ff92d@kernel.org>
+References: <20250403-s2mpg10-v3-0-b542b3505e68@linaro.org>
+	 <20250403-s2mpg10-v3-25-b542b3505e68@linaro.org>
+	 <b68110b8-fd16-454f-9b59-a89c028ff92d@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.2-1 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8604:EE_|DB9PR04MB8493:EE_
-X-MS-Office365-Filtering-Correlation-Id: dcf06a97-3894-4a7b-ffb5-08dd75c30678
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|366016|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?N0ZTUHNoU1JVMHVRWW1DZnNuUm1Nc3VsVmtEdzA0clVpTk1OczZTcmZ2V1cv?=
- =?utf-8?B?aGNvMHlnQzlLZUdUSjFqdXRXaGdjZ0diMmtMMDVtU0JmR2ZlaGprSS9kdmRv?=
- =?utf-8?B?eWdyRkJLWGZXR1JyM2Y0MHRZcXpUakhsTnhNaXFmYW5iOGN4akV0d3E5TUFu?=
- =?utf-8?B?dXpFZTVBZ1lWdVQrZ0ZSMFI0R1M2MnVqR2pmYmRjVjRsbktIK2hldGFDQWVM?=
- =?utf-8?B?Ky82VEkwVjBMUVZsbVcvM2FIL2ZNeU1RUFZ2V2loU1BhM3VCSFBESFFtTWVL?=
- =?utf-8?B?YkkzUmswMzl0MGtteWR4allyV3FmaVVKeU8xMzk2SEhlWU9aMkNtZHpRdTA4?=
- =?utf-8?B?REVXWTBkTzFjYlkzc1BXTDY3YUFZR0RLUVFxeG5rdFFOL1FIdkVwSUswT1pK?=
- =?utf-8?B?NHhvVU1YV0s1OXo0UkVVUjlZdUQ3dVV1ODJuK2xRankyWFNaRXpNWmNDaUpU?=
- =?utf-8?B?L3RHMzVmNGI5WDF6RFFzSmZiSy94RXpVTWFoelVISWV5QWljUk5xY0crY1NP?=
- =?utf-8?B?bkMzU1BRODE4WnJUMXAvd2x5QXFaaERoY1Z4c3BsZEd1ZU1yeXRlRmxvSlZ4?=
- =?utf-8?B?SGVHTy9EWlJJYnVJZU1uamorQzR0VFhtdnIrRjF3VVBDTGc2SXlUVmpmZzlH?=
- =?utf-8?B?SHd2clhjYk11dC9tNkhMM0xmb1VUZkR5cXhlTXhOL05OdlRVN0t4RWpwckMz?=
- =?utf-8?B?YS9vc2tHblVqYTF6ZHFtQkI0d0dLa3ExL2VoNnpIc1h6eXZ2dng4WFVLWlVv?=
- =?utf-8?B?YlRaOXBjRmt3QlVqZDU1cUJwRTZtMHRGYlZRazh2WnpabzhJc0F5ZVNDcTZH?=
- =?utf-8?B?MDlBZ2wxKzIydGZaQWd6aFNqSjMyVjZwVzcvZW9xMWlLZ1hoNHQ5VjJpNUY4?=
- =?utf-8?B?TE1mZTZjbzlGbElNUUhCbXpwbjNDY2xPZHBoYW1EZXhVQmpTU0VBMGZpWkJ0?=
- =?utf-8?B?a1ZFclNWN2pGTVV0TEZkZ1BiWmRTQ002enFmajVlMDBKM20vTTQ4akpxb3V6?=
- =?utf-8?B?eEJpN0p3eHpzeml5ZStVL1NEVG83RGc4YkJMRjg1RjQrVEZyZzcxV2JkUmV5?=
- =?utf-8?B?dzFTRHpheHBCUzZ1ZnNObE8ra29taXZhTUcvK2h4bEE5OWo0a0dqQ2JGWmVx?=
- =?utf-8?B?V3FlN1AwNUdlaVFrcEgwa0ZPNS9VNlFTUjhyd2N6TGd4Z01CaWU3Z2Rha1Fv?=
- =?utf-8?B?b0tVTm1CdVJBczlMaWRRVUo2N1Yxd2pWRTVzbUJxNTkyeDVGRitidEZrRVZ6?=
- =?utf-8?B?OUxuUjZjeEpIb3JsNGRWRnl1MEdPekoxN3VBSnJLT1JjOElRUHIvWjN6bkRu?=
- =?utf-8?B?bGxZZHZEUDFnMXVkbXJLbXBJN1RKZ3N2dWNsN1ZZMkJaQWRjVUtiTUwrMmk2?=
- =?utf-8?B?UlVlZFRaTXg2ZjdweDhsS0daaDMwb1JJTjNxeWpBY2ErMlh6bVlBWGtvUDhW?=
- =?utf-8?B?SGU1MWVZVDlnS2ZxR05SWGRIeXFiemlkSTBVS01xNStJOWdGSHVON0c3NEpr?=
- =?utf-8?B?RUQ4WjhqS0Nwci96YnNrTUpIc0ltU2JyaFRMWEpPRGZ4UStTV1RsaS8rWDlX?=
- =?utf-8?B?THlNQi9TTittYWwrTGZxdm9XQWxyUHJiSE1zZmhHUjBjenBLOHkzZ3ZZN2I4?=
- =?utf-8?B?R1JKYmY0SzBIMVJMK0tnb0V0MFAyRkFDaWJZdnlsZ2paZXk3SnZkMkE4MC9o?=
- =?utf-8?B?WndJQXg0SitkeUY1T2NpM2VacVQ5TkFNR25jS3JsZTVsMTZCdkNudEFqSGtM?=
- =?utf-8?B?YlJSQnc3RzNFdVZXclFKWWtTMUZkanVpdUZSa091VlRQT2MwYkg3dWZqTG1X?=
- =?utf-8?B?RTFPTEd3UW9QeTd4MGpOeE56TmoyN3VubmhsZUVFTDlreXhFcnpvVlg4THVS?=
- =?utf-8?B?R3RrRUxCdnR4ck1zN0NOZ3VWRzYvcCszM1ZZcWVaNDhiblhUbzVNbUlGbnE4?=
- =?utf-8?B?ZzlFaEgxZ0RBQjI1Wk05K1MrVFFockxMTjdNUCtTRE4zNWpSTDdMRWxNRTdD?=
- =?utf-8?B?YkU2bko2bkJnPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(366016)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0hmNktReC9pMkVPeUtRNGlvSHdRcERBd3JyeFlrb1hNblBzcFZQOTVaNkR5?=
- =?utf-8?B?eXBreGdESCtEajdsSXdHVTZRMk1neFlsVUdJYUx4MVBicm95TUlXOHVmSFdr?=
- =?utf-8?B?ZEpSSDJQNHB5M1RpV2Qrc2pjejBHa292MUhLdUl0NlRHQ3loOTMvZnc4L2RS?=
- =?utf-8?B?aHRuQkNNMEdrdlVBZkJoamdaVDAvMkllVHNMOHU5MFZPTUZJOUxQMU5hRHJK?=
- =?utf-8?B?dUhlSWZ3QXVTZ1MwODFRTG5YZ3lta0JNbDZnbis2VkRucldCaytFTEZLMHE0?=
- =?utf-8?B?KzFPUlhFSmxKQndrTVc5Q2ZQMzczaEhGblZOUjlNajBWaks4MVcwY3RLQXFs?=
- =?utf-8?B?ZUpsSnA2RlVkbHZpSE1KV3FuRm9wVXdzaDZkMFYvb3AxVlM1bUxIR0RGS0FG?=
- =?utf-8?B?N0Vla2ljNjRPSFdYbzBmRkhTYkVSVFF3cE1sR01KMTd4VGQwU2NiakFkdjdS?=
- =?utf-8?B?T2NZWWZNN25pNEtyblZhRUsvNkF2R2VJNGh0U1M3RzJ5dTVIYkthcTJQOTlF?=
- =?utf-8?B?emp3L2s4MGZxZDRtaURNeDF6eDBRV0liRCs4OHRza1N6ZmxCTWtPWjRGRnFk?=
- =?utf-8?B?UUsrU2xJM1MzUkNzaEFkZUFVZ3FzK0xVdk5LeXl2Ry81UkJocmVHUjRLV1Yy?=
- =?utf-8?B?aktFak5SRlhJRW1QaThpT2szYi82UXJWK1dzTGdpUW4vcXY1azBDMTgwem1Y?=
- =?utf-8?B?V0RJSlBtVjBjeFBha0hrNVZHUW15bDJNZ1NqbXNVQTJPQlpOcFpDdlRmdVZB?=
- =?utf-8?B?SjhYcllEa3NvNjhxenVQMFBJd1oyWjJ1TzNUS2hZU0ppNGxlKzh1SS80Zlcz?=
- =?utf-8?B?SmZlaGk3aW92bjJ4ZnpQWGVvWW1TYkVFcXpreWFubGI2b1JwbmRuWWdTTGh0?=
- =?utf-8?B?STVRbmpqaUMrdUhiOXVmZWQxTGl3cHNiQnIwOEtyUDQzVlNMZ1ZGWWFCelFD?=
- =?utf-8?B?b1pCMEEreGoySGl1Y2NOaWpKSHoyMGZNbThBZjJHU2hyRFVOeEkyOXY0bFRH?=
- =?utf-8?B?Yks3ZXBiL0IrdUpuU0VYeFhYUE1xUGY3Z1RGZ2lTQ3BDOWUzVlBpTmhHSUpz?=
- =?utf-8?B?Yk9oMmUxbGNmTVZtQzBaZG9kNXhicE0rUUFVay9SN0hnOCttL3ZhNUxHeXo1?=
- =?utf-8?B?Ulc3SkZjSUtKMTBhZnBoSWljbjR2OGtXQU9XVWcvc3VjQkFUZGVZVitsc0J2?=
- =?utf-8?B?RG1iaDBnM2lwQUJTWnkwWmxzczVlWVFHT0VyZndJZ2M5UkJtSDhUczNCM3Br?=
- =?utf-8?B?VUF5cWRVb1ZIKzJNOHpDRWRTczVqU1FkRWNWMEliS1gyd25Jd0p4cmY2OWtQ?=
- =?utf-8?B?cHZEM0d3dllFZVd2cGI4K3FQSWJQZ2hLR1dCRDRITGFlVVFRNStqL3FhNmNS?=
- =?utf-8?B?TW0zbmVZNWg4Q3lpdDBVcUtKWEpxT1N2NjFxcG0wT0hkcE1uWHdNRGxjRS9j?=
- =?utf-8?B?ckUzYldVQkxqS3A3a0lWTTkvRXJJKytoVnhNM05rMzdKT1htNUtNU3pwMkZi?=
- =?utf-8?B?S2lCbGExcldzd0oramFjZHFlYlJLZlF2SXBmenhReHgzUlZ3dGF2TU44WHBT?=
- =?utf-8?B?LysvdTlwM0tTSm5VSWx2UU1Xa0JyTjdka3dZdDYxejFHa1MvRFIzZUZjUzNn?=
- =?utf-8?B?SUZGakV2aGZUcDBMRTZKQXhhS3l1STJlU1VuTFdhc3ZSSEZtWldaZ1VVUVY0?=
- =?utf-8?B?ODR2NnVHZWNQeFVGNHAxUzlFRzRnRE8xZVBkQVBJSHJ5bmhSeTJ3SWQvd1o0?=
- =?utf-8?B?dXcxMTBJUlM0dVg0S0FMOFlWUTJTTUkwOEkrWk5NS3oyMDVJaWpoMEllNEVN?=
- =?utf-8?B?RVpFaDMzSDVSc2I1TERJNHBKOEtJYjVSZm5sUW5oang5R1N6UXI0S3g1eUhy?=
- =?utf-8?B?UUZDUEsvYm8xWmxpOVAzM0JvM0NLUFA3dGFWSHgzVjNJU1lUS2xXSlpwdmEz?=
- =?utf-8?B?aFI3bFYrNkRQTDR2MjNiNXFqN3RxY2hjU2VHVlZpU2ttYzZXTXJHdkxJZ1N4?=
- =?utf-8?B?N1pnWVgrdnRaUGtRUUYydTQvMXEzZm5SRmlBUEhDNGZmUHd1aCtmaEQzeVRZ?=
- =?utf-8?B?NVEvNUU5N2NrY0lHUDBaczB0OXkrb1h1Zm9zSnR0TXhpWVJpVHllMDM5SUxG?=
- =?utf-8?Q?WeN+7o7yoMBCsNfRsFX0B0Anv?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dcf06a97-3894-4a7b-ffb5-08dd75c30678
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 10:57:44.6672
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: V+jsQj9dN5QsPArl7Ahqhm1P8iLjuKhAasKyxEVn7XN2Y0+6r3F7EyLliBD3W0FaAu9obZIoMq7HKtPZlU+GnQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8493
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_035746_553719_112E463F 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20250407_040423_416881_5871DC03 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,316 +111,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add priv_dev_ctx to prepare enabling misc-device context
-based send-receive path, to communicate with FW.
+On Sun, 2025-04-06 at 20:29 +0200, Krzysztof Kozlowski wrote:
+> On 03/04/2025 10:59, Andr=C3=A9 Draszik wrote:
+> > platform_get_device_id() is called mulitple times during probe. This
+> > makes the code harder to read than necessary.
+> >=20
+> > Just get the ID once, which also trims the lengths of the lines
+> > involved.
+> >=20
+> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> > ---
+> > =C2=A0drivers/rtc/rtc-s5m.c | 8 +++++---
+> > =C2=A01 file changed, 5 insertions(+), 3 deletions(-)
+> >=20
+> > diff --git a/drivers/rtc/rtc-s5m.c b/drivers/rtc/rtc-s5m.c
+> > index db5c9b641277213aa1371776c63e2eda3f223465..53c76b0e4253a9ba225c3c7=
+23d35d9182d071607 100644
+> > --- a/drivers/rtc/rtc-s5m.c
+> > +++ b/drivers/rtc/rtc-s5m.c
+> > @@ -637,6 +637,8 @@ static int s5m8767_rtc_init_reg(struct s5m_rtc_info=
+ *info)
+> > =C2=A0static int s5m_rtc_probe(struct platform_device *pdev)
+> > =C2=A0{
+> > =C2=A0	struct sec_pmic_dev *s5m87xx =3D dev_get_drvdata(pdev->dev.paren=
+t);
+> > +	const struct platform_device_id	* const id =3D
+> > +		platform_get_device_id(pdev);
+>=20
+>=20
+> If doing this, why not storing here driver data, so the enum type?
 
-No functionality change.
+Good point, thanks Krzysztof
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Cheers,
+Andr=C3=A9
 
----
-Changes from v14 to v15:
-- removed the se_intance_id structure member variable.
-- Added dev_ctx to the structure se_clbk_handle, too.
-- Collected Frank's R-b tag.
-
-Note: copied the change logs for v13 to v14, to cover letter.
----
- drivers/firmware/imx/ele_base_msg.c | 10 ++++-----
- drivers/firmware/imx/ele_common.c   | 43 +++++++++++++++++++++++--------------
- drivers/firmware/imx/ele_common.h   |  6 +++---
- drivers/firmware/imx/se_ctrl.c      | 29 +++++++++++++++++++++++++
- drivers/firmware/imx/se_ctrl.h      |  9 ++++++++
- 5 files changed, 73 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/firmware/imx/ele_base_msg.c b/drivers/firmware/imx/ele_base_msg.c
-index c843a5508a9e..9227d083abbb 100644
---- a/drivers/firmware/imx/ele_base_msg.c
-+++ b/drivers/firmware/imx/ele_base_msg.c
-@@ -62,7 +62,7 @@ int ele_get_info(struct se_if_priv *priv, struct ele_dev_info *s_info)
- 	tx_msg->data[0] = upper_32_bits(get_info_addr);
- 	tx_msg->data[1] = lower_32_bits(get_info_addr);
- 	tx_msg->data[2] = sizeof(*s_info);
--	ret = ele_msg_send_rcv(priv,
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx,
- 			       tx_msg,
- 			       ELE_GET_INFO_REQ_MSG_SZ,
- 			       rx_msg,
-@@ -122,7 +122,7 @@ int ele_ping(struct se_if_priv *priv)
- 		return ret;
- 	}
- 
--	ret = ele_msg_send_rcv(priv,
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx,
- 			       tx_msg,
- 			       ELE_PING_REQ_SZ,
- 			       rx_msg,
-@@ -174,7 +174,7 @@ int ele_service_swap(struct se_if_priv *priv,
- 	if (!tx_msg->data[4])
- 		return -EINVAL;
- 
--	ret = ele_msg_send_rcv(priv,
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx,
- 			       tx_msg,
- 			       ELE_SERVICE_SWAP_REQ_MSG_SZ,
- 			       rx_msg,
-@@ -227,7 +227,7 @@ int ele_fw_authenticate(struct se_if_priv *priv, phys_addr_t addr)
- 	tx_msg->data[0] = lower_32_bits(addr);
- 	tx_msg->data[2] = addr;
- 
--	ret = ele_msg_send_rcv(priv,
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx,
- 			       tx_msg,
- 			       ELE_FW_AUTH_REQ_SZ,
- 			       rx_msg,
-@@ -275,7 +275,7 @@ int ele_debug_dump(struct se_if_priv *priv)
- 	do {
- 		memset(rx_msg, 0x0, ELE_DEBUG_DUMP_RSP_SZ);
- 
--		ret = ele_msg_send_rcv(priv,
-+		ret = ele_msg_send_rcv(priv->priv_dev_ctx,
- 				       tx_msg,
- 				       ELE_DEBUG_DUMP_REQ_SZ,
- 				       rx_msg,
-diff --git a/drivers/firmware/imx/ele_common.c b/drivers/firmware/imx/ele_common.c
-index 7573603cdbec..baf83f03c1a0 100644
---- a/drivers/firmware/imx/ele_common.c
-+++ b/drivers/firmware/imx/ele_common.c
-@@ -42,7 +42,7 @@ u32 se_get_msg_chksum(u32 *msg, u32 msg_len)
- 	return chksum;
- }
- 
--int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl)
-+int ele_msg_rcv(struct se_if_device_ctx *dev_ctx, struct se_clbk_handle *se_clbk_hdl)
- {
- 	unsigned long timeout;
- 	int ret;
-@@ -52,8 +52,8 @@ int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl)
- 
- 		ret = wait_for_completion_interruptible_timeout(&se_clbk_hdl->done, timeout);
- 		if (ret == -ERESTARTSYS) {
--			if (priv->waiting_rsp_clbk_hdl.rx_msg) {
--				priv->waiting_rsp_clbk_hdl.signal_rcvd = true;
-+			if (dev_ctx->priv->waiting_rsp_clbk_hdl.dev_ctx) {
-+				dev_ctx->priv->waiting_rsp_clbk_hdl.signal_rcvd = true;
- 				continue;
- 			}
- 			ret = -EINTR;
-@@ -66,7 +66,7 @@ int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl)
- 	return ret;
- }
- 
--int ele_msg_send(struct se_if_priv *priv,
-+int ele_msg_send(struct se_if_device_ctx *dev_ctx,
- 		 void *tx_msg,
- 		 int tx_msg_sz)
- {
-@@ -78,16 +78,19 @@ int ele_msg_send(struct se_if_priv *priv,
- 	 * carried in the message.
- 	 */
- 	if (header->size << 2 != tx_msg_sz) {
--		dev_err(priv->dev,
--			"User buf hdr: 0x%x, sz mismatced with input-sz (%d != %d).",
-+		dev_err(dev_ctx->priv->dev,
-+			"%s: User buf hdr: 0x%x, sz mismatced with input-sz (%d != %d).",
-+			dev_ctx->devname,
- 			*(u32 *)header,
- 			header->size << 2, tx_msg_sz);
- 		return -EINVAL;
- 	}
- 
--	err = mbox_send_message(priv->tx_chan, tx_msg);
-+	err = mbox_send_message(dev_ctx->priv->tx_chan, tx_msg);
- 	if (err < 0) {
--		dev_err(priv->dev, "Error: mbox_send_message failure.\n");
-+		dev_err(dev_ctx->priv->dev,
-+			"%s: Error: mbox_send_message failure.",
-+			dev_ctx->devname);
- 		return err;
- 	}
- 
-@@ -95,31 +98,35 @@ int ele_msg_send(struct se_if_priv *priv,
- }
- 
- /* API used for send/receive blocking call. */
--int ele_msg_send_rcv(struct se_if_priv *priv,
-+int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx,
- 		     void *tx_msg,
- 		     int tx_msg_sz,
- 		     void *rx_msg,
- 		     int exp_rx_msg_sz)
- {
-+	struct se_if_priv *priv = dev_ctx->priv;
- 	int err;
- 
- 	guard(mutex)(&priv->se_if_cmd_lock);
- 
-+	priv->waiting_rsp_clbk_hdl.dev_ctx = dev_ctx;
- 	priv->waiting_rsp_clbk_hdl.rx_msg_sz = exp_rx_msg_sz;
- 	priv->waiting_rsp_clbk_hdl.rx_msg = rx_msg;
- 
--	err = ele_msg_send(priv, tx_msg, tx_msg_sz);
-+	err = ele_msg_send(dev_ctx, tx_msg, tx_msg_sz);
- 	if (err < 0)
- 		return err;
- 
--	err = ele_msg_rcv(priv, &priv->waiting_rsp_clbk_hdl);
-+	err = ele_msg_rcv(dev_ctx, &priv->waiting_rsp_clbk_hdl);
- 
- 	if (priv->waiting_rsp_clbk_hdl.signal_rcvd) {
- 		err = -EINTR;
- 		priv->waiting_rsp_clbk_hdl.signal_rcvd = false;
- 		dev_err(priv->dev,
--			"Err[0x%x]:Interrupted by signal.\n", err);
-+			"%s: Err[0x%x]:Interrupted by signal.\n",
-+			dev_ctx->devname, err);
- 	}
-+	priv->waiting_rsp_clbk_hdl.dev_ctx = NULL;
- 
- 	return err;
- }
-@@ -166,7 +173,8 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 	if (header->tag == priv->if_defs->cmd_tag) {
- 		se_clbk_hdl = &priv->cmd_receiver_clbk_hdl;
- 		dev_dbg(dev,
--			"Selecting cmd receiver for mesg header:0x%x.",
-+			"Selecting cmd receiver:%s for mesg header:0x%x.",
-+			se_clbk_hdl->dev_ctx->devname,
- 			*(u32 *)header);
- 
- 		/*
-@@ -176,7 +184,8 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 		 */
- 		if (rx_msg_sz > MAX_NVM_MSG_LEN) {
- 			dev_err(dev,
--				"CMD-RCVER NVM: hdr(0x%x) with different sz(%d != %d).\n",
-+				"%s: CMD-RCVER NVM: hdr(0x%x) with different sz(%d != %d).\n",
-+				se_clbk_hdl->dev_ctx->devname,
- 				*(u32 *)header,
- 				rx_msg_sz, se_clbk_hdl->rx_msg_sz);
- 
-@@ -187,13 +196,15 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 	} else if (header->tag == priv->if_defs->rsp_tag) {
- 		se_clbk_hdl = &priv->waiting_rsp_clbk_hdl;
- 		dev_dbg(dev,
--			"Selecting resp waiter for mesg header:0x%x.",
-+			"Selecting resp waiter:%s for mesg header:0x%x.",
-+			se_clbk_hdl->dev_ctx->devname,
- 			*(u32 *)header);
- 
- 		if (rx_msg_sz != se_clbk_hdl->rx_msg_sz &&
- 		    check_hdr_exception_for_sz(priv, header)) {
- 			dev_err(dev,
--				"Rsp to CMD: hdr(0x%x) with different sz(%d != %d).\n",
-+				"%s: Rsp to CMD: hdr(0x%x) with different sz(%d != %d).\n",
-+				se_clbk_hdl->dev_ctx->devname,
- 				*(u32 *)header,
- 				rx_msg_sz, se_clbk_hdl->rx_msg_sz);
- 
-diff --git a/drivers/firmware/imx/ele_common.h b/drivers/firmware/imx/ele_common.h
-index cba2c7854455..62c75e149d95 100644
---- a/drivers/firmware/imx/ele_common.h
-+++ b/drivers/firmware/imx/ele_common.h
-@@ -13,12 +13,12 @@
- #define IMX_ELE_FW_DIR                 "imx/ele/"
- 
- u32 se_get_msg_chksum(u32 *msg, u32 msg_len);
--int ele_msg_rcv(struct se_if_priv *priv,
-+int ele_msg_rcv(struct se_if_device_ctx *dev_ctx,
- 		struct se_clbk_handle *se_clbk_hdl);
--int ele_msg_send(struct se_if_priv *priv,
-+int ele_msg_send(struct se_if_device_ctx *dev_ctx,
- 		 void *tx_msg,
- 		 int tx_msg_sz);
--int ele_msg_send_rcv(struct se_if_priv *priv,
-+int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx,
- 		     void *tx_msg,
- 		     int tx_msg_sz,
- 		     void *rx_msg,
-diff --git a/drivers/firmware/imx/se_ctrl.c b/drivers/firmware/imx/se_ctrl.c
-index 2d885c03a450..a326e07ae547 100644
---- a/drivers/firmware/imx/se_ctrl.c
-+++ b/drivers/firmware/imx/se_ctrl.c
-@@ -204,6 +204,29 @@ static int get_se_soc_info(struct se_if_priv *priv, const struct se_soc_info *se
- 	return 0;
- }
- 
-+static int init_misc_device_context(struct se_if_priv *priv, int ch_id,
-+				    struct se_if_device_ctx **new_dev_ctx)
-+{
-+	struct se_if_device_ctx *dev_ctx;
-+	int ret = 0;
-+
-+	dev_ctx = devm_kzalloc(priv->dev, sizeof(*dev_ctx), GFP_KERNEL);
-+
-+	if (!dev_ctx)
-+		return -ENOMEM;
-+
-+	dev_ctx->devname = devm_kasprintf(priv->dev, GFP_KERNEL, "%s0_ch%d",
-+					  get_se_if_name(priv->if_defs->se_if_type),
-+					  ch_id);
-+	if (!dev_ctx->devname)
-+		return -ENOMEM;
-+
-+	dev_ctx->priv = priv;
-+	*new_dev_ctx = dev_ctx;
-+
-+	return ret;
-+}
-+
- /* interface for managed res to free a mailbox channel */
- static void if_mbox_free_channel(void *mbox_chan)
- {
-@@ -333,6 +356,12 @@ static int se_if_probe(struct platform_device *pdev)
- 					    "Failed to init reserved memory region.");
- 	}
- 
-+	ret = init_misc_device_context(priv, 0, &priv->priv_dev_ctx);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Failed[0x%x] to create device contexts.",
-+				     ret);
-+
- 	if (if_node->if_defs.se_if_type == SE_TYPE_ID_HSM) {
- 		ret = get_se_soc_info(priv, se_info);
- 		if (ret)
-diff --git a/drivers/firmware/imx/se_ctrl.h b/drivers/firmware/imx/se_ctrl.h
-index b15c4022a46c..b5e7705e2f26 100644
---- a/drivers/firmware/imx/se_ctrl.h
-+++ b/drivers/firmware/imx/se_ctrl.h
-@@ -19,6 +19,7 @@
- #define MESSAGING_VERSION_7		0x7
- 
- struct se_clbk_handle {
-+	struct se_if_device_ctx *dev_ctx;
- 	struct completion done;
- 	bool signal_rcvd;
- 	u32 rx_msg_sz;
-@@ -36,6 +37,12 @@ struct se_imem_buf {
- 	u32 state;
- };
- 
-+/* Private struct for each char device instance. */
-+struct se_if_device_ctx {
-+	struct se_if_priv *priv;
-+	const char *devname;
-+};
-+
- /* Header of the messages exchange with the EdgeLock Enclave */
- struct se_msg_hdr {
- 	u8 ver;
-@@ -80,6 +87,8 @@ struct se_if_priv {
- 
- 	struct gen_pool *mem_pool;
- 	const struct se_if_defines *if_defs;
-+
-+	struct se_if_device_ctx *priv_dev_ctx;
- };
- 
- char *get_se_if_name(u8 se_if_id);
-
--- 
-2.43.0
 
 
