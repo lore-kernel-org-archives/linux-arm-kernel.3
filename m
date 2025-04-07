@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF13C369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 530D5C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=irGaKVT9+XA4nCM/0Thqc3JUvEeLWJjpImy/ePnSuvw=; b=sPdf//z37LGvjq8gU2JWptsNwV
-	YQLrwdU+/qegH3Cj58FqERI7IXMEA9MrG0z41NExiQbDqsw5Ok37pgdj9vljEwFgQ8AVFbTsPr7+R
-	cjY6sIyaVsHcNDx9BEJSnVP9eksIN8KKmFicXYepy7dYkxTR38oo3pyqxoqgtC8XSaWnGWKa3mU7K
-	8N0/siaP6PeTY1DjesFdWAt0AM2M8tkHrGfg92oZFPuIzuSOEqD6qQSsiKxY+uhZkzm17PW8K/cwS
-	w+DlR7XVMyg7lebbrrTDxPuxik2iwNB6MBTEVjy/gUGbWnulI38iDm53wpPMZra0BO2vccrdLDMpF
-	c6HEy0jQ==;
+	bh=QfzFTayOvFIF5HGaklBMKxJvGcN1YhzJb5XK0BSIt0w=; b=mrrsNhz+J1DpwnICm7OeYIde8N
+	2X7+ZSg5EqlrjBCu5MIHvNK8ipEaGtKJPMQVgTHUqawXGbNnplow/1N0hhbciqMHDSJ74s3BBnDJf
+	GgFBQ951o3oa+3ogLKaJm3BVpWUzmOSy+9tBPQq6o51f9dJBXB3HdAltgd0sqIcj4AQi1rIFy7iXo
+	7KoKaoJ3RIPNqRsXUFKix59OQ76bm4qycF2ej0DRu6WLTNslQhSW6pfSKBtMhqR9rmeBvimkfKCM6
+	Iz1LihPamMkNKbGwpm8rVM9UjX0j3+xlm0xU3xtVMZjHYSxreii5q/WpYq2hyTtJAFWHa3o99u7tD
+	oh9hoKPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYG-00000001chF-15up;
-	Mon, 07 Apr 2025 18:50:32 +0000
+	id 1u1rYI-00000001cjR-1f0m;
+	Mon, 07 Apr 2025 18:50:34 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pQf-00000001EAw-2DkV
+	id 1u1pR4-00000001ELC-0kNu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 16:34:34 +0000
+	Mon, 07 Apr 2025 16:34:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB54B106F;
-	Mon,  7 Apr 2025 09:34:33 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 616AC12FC;
+	Mon,  7 Apr 2025 09:34:58 -0700 (PDT)
 Received: from [10.57.17.31] (unknown [10.57.17.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6B343F694;
-	Mon,  7 Apr 2025 09:34:28 -0700 (PDT)
-Message-ID: <3b563b01-5090-4c9d-a47c-a0aaa13c474b@arm.com>
-Date: Mon, 7 Apr 2025 17:34:28 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 224E73F694;
+	Mon,  7 Apr 2025 09:34:52 -0700 (PDT)
+Message-ID: <d254a8ea-0f02-4826-9af3-4a288efcc90c@arm.com>
+Date: Mon, 7 Apr 2025 17:34:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 18/45] arm64: RME: Handle RMI_EXIT_RIPAS_CHANGE
+Subject: Re: [PATCH v7 34/45] kvm: rme: Hide KVM_CAP_READONLY_MEM for realm
+ guests
 To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
@@ -52,16 +53,16 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
  <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
 References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-19-steven.price@arm.com>
- <b89caaaf-3d26-4ca4-b395-08bf3f90dd1f@redhat.com>
+ <20250213161426.102987-35-steven.price@arm.com>
+ <32a09a27-f131-44dd-8959-abb63b2089a8@redhat.com>
 From: Steven Price <steven.price@arm.com>
 Content-Language: en-GB
-In-Reply-To: <b89caaaf-3d26-4ca4-b395-08bf3f90dd1f@redhat.com>
+In-Reply-To: <32a09a27-f131-44dd-8959-abb63b2089a8@redhat.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_093433_656598_9C56C5C9 
-X-CRM114-Status: GOOD (  34.79  )
+X-CRM114-CacheID: sfid-20250407_093458_307435_F2A25311 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,201 +77,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 04:35, Gavin Shan wrote:
-> On 2/14/25 2:13 AM, Steven Price wrote:
->> The guest can request that a region of it's protected address space is
->> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
->> RSI_IPA_STATE_SET. This causes a guest exit with the
->> RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
->> protected region to unprotected (or back), exiting to the VMM to make
->> the necessary changes to the guest_memfd and memslot mappings. On the
->> next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
->> calls.
->>
->> The VMM may wish to reject the RIPAS change requested by the guest. For
->> now it can only do with by no longer scheduling the VCPU as we don't
->> currently have a usecase for returning that rejection to the guest, but
->> by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
->> open for adding a new ioctl in the future for this purpose.
+On 04/03/2025 11:51, Gavin Shan wrote:
+> On 2/14/25 2:14 AM, Steven Price wrote:
+>> For protected memory read only isn't supported. While it may be possible
+>> to support read only for unprotected memory, this isn't supported at the
+>> present time.
 >>
 >> Signed-off-by: Steven Price <steven.price@arm.com>
 >> ---
->> New patch for v7: The code was previously split awkwardly between two
->> other patches.
->> ---
->>   arch/arm64/kvm/rme.c | 87 ++++++++++++++++++++++++++++++++++++++++++++
->>   1 file changed, 87 insertions(+)
+>>   arch/arm64/kvm/arm.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
 >>
 > 
-> With the following comments addressed:
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
->> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
->> index 507eb4b71bb7..f965869e9ef7 100644
->> --- a/arch/arm64/kvm/rme.c
->> +++ b/arch/arm64/kvm/rme.c
->> @@ -624,6 +624,64 @@ void kvm_realm_unmap_range(struct kvm *kvm,
->> unsigned long start, u64 size,
->>           realm_unmap_private_range(kvm, start, end);
->>   }
->>   +static int realm_set_ipa_state(struct kvm_vcpu *vcpu,
->> +                   unsigned long start,
->> +                   unsigned long end,
->> +                   unsigned long ripas,
->> +                   unsigned long *top_ipa)
->> +{
->> +    struct kvm *kvm = vcpu->kvm;
->> +    struct realm *realm = &kvm->arch.realm;
->> +    struct realm_rec *rec = &vcpu->arch.rec;
->> +    phys_addr_t rd_phys = virt_to_phys(realm->rd);
->> +    phys_addr_t rec_phys = virt_to_phys(rec->rec_page);
->> +    struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
->> +    unsigned long ipa = start;
->> +    int ret = 0;
->> +
->> +    while (ipa < end) {
->> +        unsigned long next;
->> +
->> +        ret = rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end, &next);
->> +
-> 
-> This doesn't look correct to me. Looking at RMM::smc_rtt_set_ripas(),
-> it's possible
-> the SMC call is returned without updating 'next' to a valid address. In
-> this case,
-> the garbage content resident in 'next' can be used to updated to 'ipa'
-> in next
-> iternation. So we need to initialize it in advance, like below.
-> 
->     unsigned long ipa = start;
->     unsigned long next = start;
-> 
->     while (ipa < end) {
->         ret = rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end, &next);
+> It's worthy to explain why KVM_CAP_READONLY_MEM isn't supported and its
+> negative impact. It's something to be done in the future if I'm correct.
 
-I agree this might not be the clearest code, but 'next' should be set if
-the return state is RMI_SUCCESS, and we don't actually get to the "ipa =
-next" line unless that is the case. But I'll rejig things because it's
-not clear.
+I'll add to the commit message:
 
->> +        if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
->> +            int walk_level = RMI_RETURN_INDEX(ret);
->> +            int level = find_map_level(realm, ipa, end);
->> +
->> +            /*
->> +             * If the RMM walk ended early then more tables are
->> +             * needed to reach the required depth to set the RIPAS.
->> +             */
->> +            if (walk_level < level) {
->> +                ret = realm_create_rtt_levels(realm, ipa,
->> +                                  walk_level,
->> +                                  level,
->> +                                  memcache);
->> +                /* Retry with RTTs created */
->> +                if (!ret)
->> +                    continue;
->> +            } else {
->> +                ret = -EINVAL;
->> +            }
->> +
->> +            break;
->> +        } else if (RMI_RETURN_STATUS(ret) != RMI_SUCCESS) {
->> +            WARN(1, "Unexpected error in %s: %#x\n", __func__,
->> +                 ret);
->> +            ret = -EINVAL;
-> 
->             ret = -ENXIO;
+    Note that this does mean that e.g. ROM (or flash) data cannot be
+    emulated correctly by the VMM.
 
-Ack
+> From QEMU's perspective, all ROM data, which is populated by it, can
+> be written. It conflicts to the natural limit: all ROM data should be
+> read-only.
 
->> +            break;
->> +        }
->> +        ipa = next;
->> +    }
->> +
->> +    *top_ipa = ipa;
->> +
->> +    if (ripas == RMI_EMPTY && ipa != start)
->> +        realm_unmap_private_range(kvm, start, ipa);
->> +
->> +    return ret;
->> +}
->> +
->>   static int realm_init_ipa_state(struct realm *realm,
->>                   unsigned long ipa,
->>                   unsigned long end)
->> @@ -863,6 +921,32 @@ void kvm_destroy_realm(struct kvm *kvm)
->>       kvm_free_stage2_pgd(&kvm->arch.mmu);
->>   }
->>   +static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
->> +{
->> +    struct kvm *kvm = vcpu->kvm;
->> +    struct realm_rec *rec = &vcpu->arch.rec;
->> +    unsigned long base = rec->run->exit.ripas_base;
->> +    unsigned long top = rec->run->exit.ripas_top;
->> +    unsigned long ripas = rec->run->exit.ripas_value;
->> +    unsigned long top_ipa;
->> +    int ret;
->> +
-> 
-> Some checks are needed here to ensure the addresses (@base and @top)
-> falls inside
-> the protected (private) space for two facts: (1) Those parameters
-> originates from
-> the guest, which can be misbehaving. (2) RMM::smc_rtt_set_ripas() isn't
-> limited to
-> the private space, meaning it also can change RIPAS for the ranges in
-> the shared
-> space.
+Yes this is my understanding of the main impact. I'm not sure how useful
+(shared) ROM/flash emulation is. It can certainly be added in the future
+if needed. Protected read-only memory I don't believe is useful - the
+only sane response I can see from a write fault in that case is killing
+the guest.
 
-I might be missing something, but AFAICT this is safe:
-
- 1. The RMM doesn't permit RIPAS changes within the shared space:
-    RSI_IPA_STATE_SET has a precondition [rgn_bound]:
-    AddrRangeIsProtected(base, top, realm)
-    So a malicious guest shouldn't get passed the RMM.
-
- 2. The RMM validates that the range passed here is (a subset of) the
-    one provided to the NS-world [base_bound / top_bound].
-
-And even if somehow a malicious guest managed to bypass these checks I
-don't see how it would cause harm to the host operating on the wrong region.
-
-I'm happy to be corrected though! What am I missing?
-
-Thank,
+Thanks,
 Steve
 
->> +    do {
->> +        kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_page_cache,
->> +                       kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
->> +        write_lock(&kvm->mmu_lock);
->> +        ret = realm_set_ipa_state(vcpu, base, top, ripas, &top_ipa);
->> +        write_unlock(&kvm->mmu_lock);
->> +
->> +        if (WARN_RATELIMIT(ret && ret != -ENOMEM,
->> +                   "Unable to satisfy RIPAS_CHANGE for %#lx - %#lx,
->> ripas: %#lx\n",
->> +                   base, top, ripas))
->> +            break;
->> +
->> +        base = top_ipa;
->> +    } while (top_ipa < top);
->> +}
->> +
->>   int kvm_rec_enter(struct kvm_vcpu *vcpu)
->>   {
->>       struct realm_rec *rec = &vcpu->arch.rec;
->> @@ -873,6 +957,9 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu)
->>           for (int i = 0; i < REC_RUN_GPRS; i++)
->>               rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
+> QEMU
+> ====
+> rom_add_blob
+>   rom_set_mr
+>     memory_region_set_readonly
+>       memory_region_transaction_commit
+>         kvm_region_commit
+>           kvm_set_phys_mem
+>             kvm_mem_flags                                    // flag
+> KVM_MEM_READONLY is missed
+>             kvm_set_user_memory_region
+>               kvm_vm_ioctl(KVM_SET_USER_MEMORY_REGION2)
+> 
+> non-secure host
+> ===============
+> rec_exit_sync_dabt
+>   kvm_handle_guest_abort
+>     user_mem_abort
+>       __kvm_faultin_pfn                       // writable == true
+>         realm_map_ipa
+>           WARN_ON(!(prot & KVM_PGTABLE_PROT_W)
+> 
+> non-secure host
+> ===============
+> kvm_realm_enable_cap(KVM_CAP_ARM_RME_POPULATE_REALM)
+>   kvm_populate_realm
+>     __kvm_faultin_pfn                      // writable == true
+>       realm_create_protected_data_page
+> 
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 1f3674e95f03..0f1d65f87e2b 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -348,7 +348,6 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm,
+>> long ext)
+>>       case KVM_CAP_ONE_REG:
+>>       case KVM_CAP_ARM_PSCI:
+>>       case KVM_CAP_ARM_PSCI_0_2:
+>> -    case KVM_CAP_READONLY_MEM:
+>>       case KVM_CAP_MP_STATE:
+>>       case KVM_CAP_IMMEDIATE_EXIT:
+>>       case KVM_CAP_VCPU_EVENTS:
+>> @@ -362,6 +361,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm,
+>> long ext)
+>>       case KVM_CAP_COUNTER_OFFSET:
+>>           r = 1;
 >>           break;
->> +    case RMI_EXIT_RIPAS_CHANGE:
->> +        kvm_complete_ripas_change(vcpu);
->> +        break;
->>       }
->>         if (kvm_realm_state(vcpu->kvm) != REALM_STATE_ACTIVE)
+>> +    case KVM_CAP_READONLY_MEM:
+>>       case KVM_CAP_SET_GUEST_DEBUG:
+>>           r = !kvm_is_realm(kvm);
+>>           break;
 > 
 > Thanks,
 > Gavin
