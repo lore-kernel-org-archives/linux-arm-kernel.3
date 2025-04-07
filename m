@@ -4,106 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6671C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 09:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F94C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 09:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6yJom5lLN47mb5CeqNqNc0ewpE5T8mTT65laeLRAGKs=; b=dQEpQEBi2Yn31HCS6+LtcX8Uf1
-	hrQK+eDibZ2cH5LMitRNF8QsBwuCd7vgWTEbIvDwJy9QXSZtf8uqkZ5F9M51UJDe3ro1IzyopOgl2
-	o7MgtALVL61gWBTdVwKobT4VEKogq9omhRWaHsLj5YheXnYLp+xhI4B6iCUBhyhXM6q0CXHdbM47E
-	VNe5y8nT9P52tvZ0UMqaW0AKT3q+HzMgvGnpWXVwuLhWPMy6NsCTFyZNAaSNl1XsM72q4O3Lw889c
-	syMA/bocQjqBb1Mdc5CR0eQazo0UHV1glm/VvKqr8B2uJUBK9F/gDQNakFQwmaI9aVXwDWKwvGjsN
-	gbemoi8Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PKUKgD1kM1UgZR3NN9w1SlMSCpamSKsnNPGiLjMQjvc=; b=1XP0aqtBAWUyimQTJDxpc58LBO
+	jYsiCnuH528RmZAOLicpkpmzwEjwAklNtfwQL/55N4M9p9mXKt6XF1Nxf4IF3Acna9VsUMAqJ9Pxm
+	sgCS0he3RXdlmMOt+yI00dkmdgoG3pIHTyTeuL5mt4rhrMKAVnYKAXXfxwQkKD34JIrotofjIjin1
+	fbCD3TrnWFAls6WLT8Poi5aU+bLT1Z0+tnTbXFbAOvBIutpxKXPkP9UQBjzjNxDxg5G9DjOvzi/Pe
+	Nb0KAsMdkxK2fVoSVCg5bCPf83tF/168juULRchVc7LxFwlXhud1FL5c4SVfk79L4oyAqcf5WMuKR
+	ZnlZjVLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1j2r-0000000HFCe-2OwD;
-	Mon, 07 Apr 2025 09:45:33 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1u1j4f-0000000HFeV-3gLE;
+	Mon, 07 Apr 2025 09:47:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ixI-0000000HDnb-2dAB;
-	Mon, 07 Apr 2025 09:39:49 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CC3CA606;
-	Mon,  7 Apr 2025 11:37:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1744018666;
-	bh=Ddiu0qIBgxnm7wJx0EjWym5+uArydNvBn0dNMnr/NkI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jD3jIxcgo6TUEIh1Fce1Yuffzff3nh7oIeBvalyK5+5W3JqXraBJXVT5YcHFaZw31
-	 sMpD20Qs4mCVmgfazOAgGFoiCIdTkjOZxDxdFmZPQ8ZiCtLZKQxMqbQa2YGXb7Ukiz
-	 xpbCtxQMHswksZCtcu+kQCW1kqKCHGP1rYN9eDSI=
-Message-ID: <0347b899-f80c-43bd-8e71-dc88642226f9@ideasonboard.com>
-Date: Mon, 7 Apr 2025 12:39:38 +0300
+	id 1u1iyu-0000000HEDj-1vVw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 09:41:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 599595C597D;
+	Mon,  7 Apr 2025 09:39:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E958C4CEE9;
+	Mon,  7 Apr 2025 09:41:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744018887;
+	bh=cqFVpiMLss0+HxdO2CYbfXC6D/iBdTbrM+nK40NDFG4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Wrj4Vs/n9PxnaHaHHtmEMpxeE23Qy8lrGk4d3zss3LW8jHzTSZsCiMr6hJc+p+j2Q
+	 GLNRtgJ0DhH9Ww1/PA/9J6uJBBcnzFcj6K5cV5Cp38K5imMNe/kpNGqRgBOObcXY6B
+	 jCrY2CWl7pQpC0ZbkKeeGND8TRvCKFEHqAWWYYOsOeT41hYnu9plJ0xQrLnMSSRh2e
+	 92ncte/rG/1MsHNVe/aYtRao0MZpmsripKQ+Azt+o8HyTKGCBOcFvevIeSoM5X/DK9
+	 cQ62sFa4cxfq36tnxUuHI5WxLJFetXTDNXMILyQhF2YOG1+ZISRCKc3Dk1Fqg077xa
+	 gK1fLhXrhHfdg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Gerst <brgerst@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Takashi Iwai <tiwai@suse.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uros Bizjak <ubizjak@gmail.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-raid@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH 0/4] Make gcc-8.1 and binutils-2.30 the minimum version
+Date: Mon,  7 Apr 2025 11:41:12 +0200
+Message-Id: <20250407094116.1339199-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] media: platform: rpi1-cfe: fix pad in call to
- get_mbus_config()
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250404090026.2986810-1-demonsingur@gmail.com>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- xsFNBE6ms0cBEACyizowecZqXfMZtnBniOieTuFdErHAUyxVgtmr0f5ZfIi9Z4l+uUN4Zdw2
- wCEZjx3o0Z34diXBaMRJ3rAk9yB90UJAnLtb8A97Oq64DskLF81GCYB2P1i0qrG7UjpASgCA
- Ru0lVvxsWyIwSfoYoLrazbT1wkWRs8YBkkXQFfL7Mn3ZMoGPcpfwYH9O7bV1NslbmyJzRCMO
- eYV258gjCcwYlrkyIratlHCek4GrwV8Z9NQcjD5iLzrONjfafrWPwj6yn2RlL0mQEwt1lOvn
- LnI7QRtB3zxA3yB+FLsT1hx0va6xCHpX3QO2gBsyHCyVafFMrg3c/7IIWkDLngJxFgz6DLiA
- G4ld1QK/jsYqfP2GIMH1mFdjY+iagG4DqOsjip479HCWAptpNxSOCL6z3qxCU8MCz8iNOtZk
- DYXQWVscM5qgYSn+fmMM2qN+eoWlnCGVURZZLDjg387S2E1jT/dNTOsM/IqQj+ZROUZuRcF7
- 0RTtuU5q1HnbRNwy+23xeoSGuwmLQ2UsUk7Q5CnrjYfiPo3wHze8avK95JBoSd+WIRmV3uoO
- rXCoYOIRlDhg9XJTrbnQ3Ot5zOa0Y9c4IpyAlut6mDtxtKXr4+8OzjSVFww7tIwadTK3wDQv
- Bus4jxHjS6dz1g2ypT65qnHen6mUUH63lhzewqO9peAHJ0SLrQARAQABzTBUb21pIFZhbGtl
- aW5lbiA8dG9taS52YWxrZWluZW5AaWRlYXNvbmJvYXJkLmNvbT7CwY4EEwEIADgWIQTEOAw+
- ll79gQef86f6PaqMvJYe9QUCX/HruAIbAwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgAAKCRD6
- PaqMvJYe9WmFD/99NGoD5lBJhlFDHMZvO+Op8vCwnIRZdTsyrtGl72rVh9xRfcSgYPZUvBuT
- VDxE53mY9HaZyu1eGMccYRBaTLJSfCXl/g317CrMNdY0k40b9YeIX10feiRYEWoDIPQ3tMmA
- 0nHDygzcnuPiPT68JYZ6tUOvAt7r6OX/litM+m2/E9mtp8xCoWOo/kYO4mOAIoMNvLB8vufi
- uBB4e/AvAjtny4ScuNV5c5q8MkfNIiOyag9QCiQ/JfoAqzXRjVb4VZG72AKaElwipiKCWEcU
- R4+Bu5Qbaxj7Cd36M/bI54OrbWWETJkVVSV1i0tghCd6HHyquTdFl7wYcz6cL1hn/6byVnD+
- sR3BLvSBHYp8WSwv0TCuf6tLiNgHAO1hWiQ1pOoXyMEsxZlgPXT+wb4dbNVunckwqFjGxRbl
- Rz7apFT/ZRwbazEzEzNyrBOfB55xdipG/2+SmFn0oMFqFOBEszXLQVslh64lI0CMJm2OYYe3
- PxHqYaztyeXsx13Bfnq9+bUynAQ4uW1P5DJ3OIRZWKmbQd/Me3Fq6TU57LsvwRgE0Le9PFQs
- dcP2071rMTpqTUteEgODJS4VDf4lXJfY91u32BJkiqM7/62Cqatcz5UWWHq5xeF03MIUTqdE
- qHWk3RJEoWHWQRzQfcx6Fn2fDAUKhAddvoopfcjAHfpAWJ+ENc7BTQROprNHARAAx0aat8GU
- hsusCLc4MIxOQwidecCTRc9Dz/7U2goUwhw2O5j9TPqLtp57VITmHILnvZf6q3QAho2QMQyE
- DDvHubrdtEoqaaSKxKkFie1uhWNNvXPhwkKLYieyL9m2JdU+b88HaDnpzdyTTR4uH7wk0bBa
- KbTSgIFDDe5lXInypewPO30TmYNkFSexnnM3n1PBCqiJXsJahE4ZQ+WnV5FbPUj8T2zXS2xk
- 0LZ0+DwKmZ0ZDovvdEWRWrz3UzJ8DLHb7blPpGhmqj3ANXQXC7mb9qJ6J/VSl61GbxIO2Dwb
- xPNkHk8fwnxlUBCOyBti/uD2uSTgKHNdabhVm2dgFNVuS1y3bBHbI/qjC3J7rWE0WiaHWEqy
- UVPk8rsph4rqITsj2RiY70vEW0SKePrChvET7D8P1UPqmveBNNtSS7In+DdZ5kUqLV7rJnM9
- /4cwy+uZUt8cuCZlcA5u8IsBCNJudxEqBG10GHg1B6h1RZIz9Q9XfiBdaqa5+CjyFs8ua01c
- 9HmyfkuhXG2OLjfQuK+Ygd56mV3lq0aFdwbaX16DG22c6flkkBSjyWXYepFtHz9KsBS0DaZb
- 4IkLmZwEXpZcIOQjQ71fqlpiXkXSIaQ6YMEs8WjBbpP81h7QxWIfWtp+VnwNGc6nq5IQDESH
- mvQcsFS7d3eGVI6eyjCFdcAO8eMAEQEAAcLBXwQYAQIACQUCTqazRwIbDAAKCRD6PaqMvJYe
- 9fA7EACS6exUedsBKmt4pT7nqXBcRsqm6YzT6DeCM8PWMTeaVGHiR4TnNFiT3otD5UpYQI7S
- suYxoTdHrrrBzdlKe5rUWpzoZkVK6p0s9OIvGzLT0lrb0HC9iNDWT3JgpYDnk4Z2mFi6tTbq
- xKMtpVFRA6FjviGDRsfkfoURZI51nf2RSAk/A8BEDDZ7lgJHskYoklSpwyrXhkp9FHGMaYII
- m9EKuUTX9JPDG2FTthCBrdsgWYPdJQvM+zscq09vFMQ9Fykbx5N8z/oFEUy3ACyPqW2oyfvU
- CH5WDpWBG0s5BALp1gBJPytIAd/pY/5ZdNoi0Cx3+Z7jaBFEyYJdWy1hGddpkgnMjyOfLI7B
- CFrdecTZbR5upjNSDvQ7RG85SnpYJTIin+SAUazAeA2nS6gTZzumgtdw8XmVXZwdBfF+ICof
- 92UkbYcYNbzWO/GHgsNT1WnM4sa9lwCSWH8Fw1o/3bX1VVPEsnESOfxkNdu+gAF5S6+I6n3a
- ueeIlwJl5CpT5l8RpoZXEOVtXYn8zzOJ7oGZYINRV9Pf8qKGLf3Dft7zKBP832I3PQjeok7F
- yjt+9S+KgSFSHP3Pa4E7lsSdWhSlHYNdG/czhoUkSCN09C0rEK93wxACx3vtxPLjXu6RptBw
- 3dRq7n+mQChEB1am0BueV1JZaBboIL0AGlSJkm23kw==
-In-Reply-To: <20250404090026.2986810-1-demonsingur@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_023948_809221_F11FFDFC 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20250407_024128_606633_366F236B 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,41 +92,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Arnd Bergmann <arnd@arndb.de>
 
-On 04/04/2025 12:00, Cosmin Tanislav wrote:
-> The source subdevice might be using a source pad not equal to 0.
-> 
-> Use the already existing source_pad field of cfe.
-> 
-> Fixes: 6edb685abb2a ("media: raspberrypi: Add support for RP1-CFE")
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> ---
-> 
-> V2:
->   * correct Fixes tag
-> 
->   drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-> index 69a5f23e7954..7db4fe5e0fd4 100644
-> --- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-> +++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-> @@ -1206,8 +1206,8 @@ static int cfe_start_streaming(struct vb2_queue *vq, unsigned int count)
->   	cfg_reg_write(cfe, MIPICFG_INTE,
->   		      MIPICFG_INT_CSI_DMA | MIPICFG_INT_PISP_FE);
->   
-> -	ret = v4l2_subdev_call(cfe->source_sd, pad, get_mbus_config, 0,
-> -			       &mbus_config);
-> +	ret = v4l2_subdev_call(cfe->source_sd, pad, get_mbus_config,
-> +			       cfe->source_pad, &mbus_config);
->   	if (ret < 0 && ret != -ENOIOCTLCMD) {
->   		cfe_err(cfe, "g_mbus_config failed\n");
->   		goto err_clear_inte;
+x86 already requires gcc-8.1 since linux-6.15-rc1, which led me to
+actually go through all  version checks and make this is the minimum
+for all architectures.
 
-Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Most of the actual resulting changes are actually for raising the
+binutils version, which eliminates version checks on x86 and arm64.
 
-  Tomi
+Arnd Bergmann (4):
+  kbuild: require gcc-8 and binutils-2.30
+  raid6: skip avx512 checks
+  x86: remove checks for binutils-2.30 and earlier
+  arm64: drop binutils version checks
+
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Brian Gerst <brgerst@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>
+Cc: Nicolas Schier <nicolas@fjasle.eu>
+Cc: Takashi Iwai <tiwai@suse.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Uros Bizjak <ubizjak@gmail.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-crypto@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-raid@vger.kernel.org
+Cc: x86@kernel.org
+
+ Documentation/admin-guide/README.rst          |  2 +-
+ Documentation/kbuild/makefiles.rst            |  4 +-
+ Documentation/process/changes.rst             |  4 +-
+ .../translations/it_IT/process/changes.rst    |  4 +-
+ .../translations/zh_CN/admin-guide/README.rst |  2 +-
+ arch/arm64/Kconfig                            | 37 +--------------
+ arch/arm64/Makefile                           | 21 +--------
+ arch/arm64/include/asm/rwonce.h               |  4 --
+ arch/arm64/kvm/Kconfig                        |  1 -
+ arch/arm64/lib/xor-neon.c                     |  2 +-
+ arch/um/Makefile                              |  4 +-
+ arch/x86/Kconfig.assembler                    | 29 ------------
+ arch/x86/crypto/Kconfig                       |  2 +-
+ arch/x86/crypto/Makefile                      | 12 +++--
+ arch/x86/crypto/aes-ctr-avx-x86_64.S          |  2 -
+ arch/x86/crypto/aes-xts-avx-x86_64.S          |  2 -
+ arch/x86/crypto/aesni-intel_glue.c            | 21 +--------
+ arch/x86/crypto/aria-aesni-avx-asm_64.S       | 10 -----
+ arch/x86/crypto/aria-aesni-avx2-asm_64.S      | 10 +----
+ arch/x86/crypto/aria_aesni_avx2_glue.c        |  4 +-
+ arch/x86/crypto/aria_aesni_avx_glue.c         |  4 +-
+ arch/x86/crypto/blake2s-core.S                |  4 --
+ arch/x86/crypto/blake2s-glue.c                |  6 +--
+ arch/x86/crypto/chacha_glue.c                 |  6 +--
+ arch/x86/crypto/poly1305-x86_64-cryptogams.pl |  8 ----
+ arch/x86/crypto/poly1305_glue.c               |  4 +-
+ arch/x86/crypto/sha1_ssse3_glue.c             | 10 -----
+ arch/x86/crypto/sha256_ssse3_glue.c           | 10 -----
+ include/linux/unroll.h                        |  4 +-
+ kernel/gcov/gcc_4_7.c                         |  4 --
+ lib/raid6/algos.c                             |  6 ---
+ lib/raid6/avx512.c                            |  4 --
+ lib/raid6/recov_avx512.c                      |  6 ---
+ lib/raid6/test/Makefile                       |  3 --
+ lib/test_fortify/Makefile                     |  5 +--
+ scripts/Makefile.compiler                     |  2 +-
+ scripts/gcc-plugins/gcc-common.h              | 45 -------------------
+ scripts/min-tool-version.sh                   |  6 +--
+ 38 files changed, 36 insertions(+), 278 deletions(-)
+
+-- 
+2.39.5
 
 
