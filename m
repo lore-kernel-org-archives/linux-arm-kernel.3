@@ -4,100 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5786C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BA4C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JTNpEax445O2ynSr3XUTtKC9NAWm3dqDTuE2ry3Vens=; b=LAf1kUuNEfwQDCbyoI7mYUZIHZ
-	f5oV+/z+ceZbxt0dG2uuWN72sTKoj74sGZiMWnz1YL1aRfo7A/UyKRsgxDS/PykJwG8NsvuSin/Db
-	xquxAWTGm5OOLaBTLJFkgL/L6/uMwmaJKoDgDHn7SO3l7KpeJoy0GfrB6h62ZJHvIBP6SBXiuQnM9
-	gwxwvTTOgZOaG/1iiHzR38PMy1HzM4UgPVOUOwtiL2vHfj73ESalBRFI1oI6/xERaR1KoJ3htGkWc
-	EGr2Z4giImBp46h3I7n/DDEULD3VFqCm4sNe3kTM4q3nQvA5wa9oE8w4gzBedl7I6/cuKkih7kmbp
-	swQE9/sQ==;
+	bh=qxnBAvpwCrecjAvuTm91rB4larlUyZM1HHjTp7DbEqQ=; b=g6rMD4vpq2yiQkwVt0GY+v2n+C
+	BJfcYpOLtpuOuwA1nNVeKvRu+S/ejTnXDGPMTOd53M5NcvkrRDgjsFzN1XhzoJ0Bv5Qx7txE7KA4w
+	DMBlI3w9u/z0WRq+PsA37ZipGXKZ4qTKaXCkTuqywa+OLvNss+pvDssILOAumUIChuqLPHCG6NjIT
+	sLPDBln/9IfxL/Yoerjcqh0cAxEDxVnK9c9E7ZH5z8XLjiT+3LM8VytpjjUaJQAxY5MyctGVVhL7j
+	P6+TzlAjxJqk13xXeLlrJ5zcWk7PdkKkCkYnPEUdrr4uEqAcm00AU32Md0i8r+RR9+fkBgWli1buP
+	Ny1vnHuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1p8V-000000017p2-3pu1;
-	Mon, 07 Apr 2025 16:15:47 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1u1pAE-000000018FS-2RJI;
+	Mon, 07 Apr 2025 16:17:34 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oGi-00000000vzE-3Ij8
+	id 1u1oDc-00000000vRV-28hK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 15:20:14 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-af423fb4f0eso2990106a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 08:20:11 -0700 (PDT)
+	Mon, 07 Apr 2025 15:17:02 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ac73723b2d5so942649966b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 08:17:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744039211; x=1744644011; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JTNpEax445O2ynSr3XUTtKC9NAWm3dqDTuE2ry3Vens=;
-        b=4KEaoH5XvusEfhOzcVeqOJnKrRzmn84HvP4cSazIwLoFY+e86+q763cM5ER5JimYF2
-         oMLyTdLwhRocAasPijnG1zV6aytMBhdaf1DXpysGhiWdyU1O7r1LEfeOAXlrhwXcMlYM
-         +uIp1ILGN5JZRw8HOpNQdKfC9cHMWrb1ArFTFxBg0jO4zFPc25QP7tFccub+nGtTdSXG
-         qTudJx0G2n/Kgxh7yP9ePUwVcN6aYcCNBU5EqjCYEJKWhXx8RoBHYIv3ANK3WZu52yuZ
-         jmP+eJi5tzzjhPMG6AxO4slQ9ss+niFdUcYtPFKdJMK2fIDwdw35yMZgAZyDQnaon7JL
-         QzsQ==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744039019; x=1744643819; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qxnBAvpwCrecjAvuTm91rB4larlUyZM1HHjTp7DbEqQ=;
+        b=VS41Rrmzhqw+E/HGMjVYyG82Ue1cT9EELeCWPycyvai4Vdd/cEctZIF3TKSaVPUIRn
+         I1pjTbd8aPwvkRW3juhOO/fi15f7PwUX7P9Fd60E1LS4WXNdbgN+aXShCli4ljQSxype
+         tp5wWGGHr6NXhAj0mYWIz0dkm/iaaWDmIS5JMGobCGq7UfhZ/AAcjsXOOP0++aRr++4E
+         T5EADaDuWmoWku//Oqsri/b4kQp9QsbOqHiZ8F6r0HekyUbstcbP/iN2Yl3+IXgnw1l9
+         tW4zqxMRyXrtnNDgENS0ahWplj+qPXOXpC428I8aPD+xioxM/Vy4Y1xLUzZfIVWHud5a
+         z0jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744039211; x=1744644011;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JTNpEax445O2ynSr3XUTtKC9NAWm3dqDTuE2ry3Vens=;
-        b=dAirr8WvtBEQgubLD6YZjNsduRqWsvX9Wi+MRWuxQmWqdN7aNgFKOiL+b5MJqmlRCL
-         1+AGGdsIAcAKZzuyBY9qKJbsq/21hJFTwlKrgShYGLTSEX8dwLpRaedAVGiL2GBSnALz
-         +fvasJVPTczkmf4LDdvlmLrN604jjIiwC6TFCbEUr/N/RavlPhC3X4lQ+rfAr11HTvUN
-         PCwru3E1GCE4dSBfhGS8p/mVpPWnCEdicFly4rRTFgMIZh1KBpD/xvZ273RKlHY8XStM
-         1oR1AZtg2YbmIURdsUJpKXN5n93yveXlkYsKnIHBs+DhU0JstYlRmn2uRHdIPC8Su5s4
-         1lLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXN/5v6wfA4JaVdgJdUukDW3KSkMav+osNc5hSY98RifZxFW+c46W6jExpRKEp9rsQNqxeXUdfSXXISWi0okjlc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTad+g4s7jfqJLbJ/FDkIpbsju0MrkJmXhMUiRUqwbibUH0T2h
-	8boDgk7W69EVVXRD1SyUYgteqNTA3U0JqG5lQThsQmBW98vy7v2O+qMdC9XvfwEFx8gQmkQICXo
-	o7w==
-X-Google-Smtp-Source: AGHT+IHFT5IWpb0wEWYBsgf38l3iAGlVDr2qHVuyYE70TQA84d8Gl7Htq0vtNTpBGTTuOvXXCqA42VAV2Ds=
-X-Received: from pfbhg1.prod.google.com ([2002:a05:6a00:8601:b0:736:3d80:706e])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:3bc8:b0:223:5124:a16e
- with SMTP id d9443c01a7336-22a8a048ffamr208407455ad.5.1744039210859; Mon, 07
- Apr 2025 08:20:10 -0700 (PDT)
-Date: Mon, 7 Apr 2025 08:20:09 -0700
-In-Reply-To: <20250331145643.GF10839@nvidia.com>
-Mime-Version: 1.0
-References: <Z9sItt8BIgvbBY8M@arm.com> <20250319192246.GQ9311@nvidia.com>
- <Z9s7r2JocpoM_t-m@arm.com> <SA1PR12MB7199C7BD48EB39F536DD34DBB0A62@SA1PR12MB7199.namprd12.prod.outlook.com>
- <Z-QU7qJOf8sEA5R8@google.com> <86y0wrlrxt.wl-maz@kernel.org>
- <Z-QnBcE1TKPChQay@google.com> <86wmcbllg2.wl-maz@kernel.org>
- <Z-RGYO3QVj5JNjRB@google.com> <20250331145643.GF10839@nvidia.com>
-Message-ID: <Z_PtKWnMPzwPb4sp@google.com>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-From: Sean Christopherson <seanjc@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Marc Zyngier <maz@kernel.org>, Ankit Agrawal <ankita@nvidia.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	"joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, 
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "will@kernel.org" <will@kernel.org>, 
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>, 
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "david@redhat.com" <david@redhat.com>, 
-	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, 
-	Kirti Wankhede <kwankhede@nvidia.com>, "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>, 
-	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>, 
-	Alistair Popple <apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>, 
-	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Uday Dhoke <udhoke@nvidia.com>, 
-	Dheeraj Nigam <dnigam@nvidia.com>, Krishnakant Jaju <kjaju@nvidia.com>, 
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>, 
-	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com" <coltonlewis@google.com>, 
-	"kevin.tian@intel.com" <kevin.tian@intel.com>, "yi.l.liu@intel.com" <yi.l.liu@intel.com>, 
-	"ardb@kernel.org" <ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, 
-	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>, 
-	"ddutile@redhat.com" <ddutile@redhat.com>, "tabba@google.com" <tabba@google.com>, 
-	"qperret@google.com" <qperret@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1744039019; x=1744643819;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qxnBAvpwCrecjAvuTm91rB4larlUyZM1HHjTp7DbEqQ=;
+        b=QNW55db4dHUFa9VSVLvZ92rsRO57yKndYLfjPkYCmze9tCMQIaZ4X/3ZXyUz09972V
+         CL4vNxuHr47ehaOsLIKt3tRo/43szsrQyGfnWO1bYwM6XaJX928qdw8/wUM3XVWfIsQC
+         ypmMqWDeRE7IG31mj3kQGocmyHfkd3X1dFBbSSP5Hs2ULx6CT91VYvuuB39NBe90lHvr
+         KhOHxoJZC9dP1aoArPGYTrqefgC8PRBA39+C/YM97SR3jmiV2FQGUIsvJEQKtar1QWLf
+         bq0J6QLpMJbpMv8pyKH0lKYMEFHwdIBElCxdSb8WWs34kGYDGTN4RJ2i52gatrNP8KDN
+         wI4g==
+X-Forwarded-Encrypted: i=1; AJvYcCU2j/z+Uk8134+ok6EMdLsCA/i5NE37WXSnB4gprp0V5WKggX2iHzcsOuwnNt3LmY8qo3IdVkQimnZ37ve98d2B@lists.infradead.org
+X-Gm-Message-State: AOJu0YylJwmx2M+V4HhfijdjaREiwL6EgmkB77zMjUrwiqFlSq5dHVE/
+	dGnWjZlCtJOvetbM3H57NMHBw5hnNSRAmNIi24A5BTfWpaVrh7X52Ft2EXQxdq4=
+X-Gm-Gg: ASbGnctGBT7/YYndXtIdhF6M0oSlaLHDo7eBG/uNaaUWo5hHDXKeMTu7aProMYxaR02
+	Bx1TbqeOR2Uzmfrw5XhW+vOAVjJoMb3iD1Eg68dOto69mNixW0zsd7P+1HtR1VRnIrLoHyZnhti
+	9OiTxkGuIua6/W/DqjXEUme60kWFhEWP4h8gdvSeNgh99vPDa3osJv4QuR6hdUiewmbU0b/+Td/
+	SXKkA+shbx3un3vV+GKfpbx0tvEcITNxf44Abs5SAaZ1P8AHcxYwZozl2CIXglT3Y5SFwfjjvKX
+	01iGmLyzGvf8qKgMdIy2k2PppoXFtYkxD/33DLfOAtR/P+l9Tw==
+X-Google-Smtp-Source: AGHT+IFzTIXbrDVkyQ6AbBiDuE5pSliyWRspT9PlDuGXWQ5GmY7qspmZDr7hbN6PADzz8nJe3cDOSw==
+X-Received: by 2002:a17:907:9716:b0:ac8:179a:42f5 with SMTP id a640c23a62f3a-ac8179a43b5mr48095166b.14.1744039018700;
+        Mon, 07 Apr 2025 08:16:58 -0700 (PDT)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ac7c01c2c3asm768777166b.176.2025.04.07.08.16.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Apr 2025 08:16:57 -0700 (PDT)
+Date: Mon, 7 Apr 2025 17:16:56 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: linux-pwm@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, 
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Michael Hennerich <michael.hennerich@analog.com>, 
+	Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, Trevor Gamblin <tgamblin@baylibre.com>
+Subject: Re: [PATCH 0/6] pwm: Some fixes preparing chardev support
+Message-ID: <wn3ef55yaangw4p5cihu2rafqlm7ckmylner6q5irtpu6yq3cw@tyjieqhlq6vc>
+References: <cover.1743844730.git.u.kleine-koenig@baylibre.com>
+ <lzwvrhmx3yqv2v2qkpiq5e542eflnnwvhm63fjmq6szh4bh47b@zk4hifurejja>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pvxqsbn576kt2xa5"
+Content-Disposition: inline
+In-Reply-To: <lzwvrhmx3yqv2v2qkpiq5e542eflnnwvhm63fjmq6szh4bh47b@zk4hifurejja>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_082012_841776_913CCD6F 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250407_081700_548225_DF88D0B9 
+X-CRM114-Status: GOOD (  25.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,18 +101,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 31, 2025, Jason Gunthorpe wrote:
-> On Wed, Mar 26, 2025 at 11:24:32AM -0700, Sean Christopherson wrote:
-> > > I don't know how you reconcile the lack of host mapping and cache
-> > > maintenance. The latter cannot take place without the former.
-> > 
-> > I assume cache maintenance only requires _a_ mapping to the physical memory.
-> > With guest_memfd, KVM has the pfn (which happens to always be struct page memory
-> > today), and so can establish a VA=>PA mapping as needed.
-> 
-> This is why we are forcing FWB in this work, because we don't have a
-> VA mapping and KVM doesn't have the code to create one on demand.
 
-I don't follow.  As it exists today, guest_memfd doesn't touch the direct map,
-i.e. there's already a kernel mapping, KVM doesn't need to create one.
+--pvxqsbn576kt2xa5
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/6] pwm: Some fixes preparing chardev support
+MIME-Version: 1.0
+
+On Mon, Apr 07, 2025 at 12:24:31PM +0200, Uwe Kleine-K=F6nig wrote:
+> On Sat, Apr 05, 2025 at 11:27:11AM +0200, Uwe Kleine-K=F6nig wrote:
+> > Hello,
+> >=20
+> > while working on character device support for PWMs I found a few
+> > inconsistencies that are fixed in this series. After that I plan to work
+> > on getting the character device support into shape to get it into
+> > mainline, too.
+> >=20
+> > While some of these patches qualify as fixes I think there is no urge to
+> > get them into 6.15, but given there is a bunch of such changes I might
+> > send them to all together to Linus for inclusion to 6.15.
+> >=20
+> > Best regards
+> > Uwe
+> >=20
+> > Uwe Kleine-K=F6nig (6):
+> >   pwm: Let pwm_set_waveform() succeed even if lowlevel driver rounded up
+> >   pwm: stm32: Search an appropriate duty_cycle if period cannot be
+> >     modified
+> >   pwm: stm32: Don't open-code TIM_CCER_CCxE()
+> >   pwm: stm32: Emit debug output also for corner cases of the rounding
+> >     callbacks
+> >   pwm: axi-pwmgen: Let .round_waveform_tohw() signal when request was
+> >     rounded up
+> >   pwm: Do stricter return value checking for .round_waveform_tohw()
+>=20
+> I applied patches #1, #2 and #5 to
+> https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/fi=
+xes
+
+And patches #3, #4 and #6 applied to
+
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+
+with=20
+
+diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
+index dca5d09d80b9..4b148f0afeb9 100644
+--- a/drivers/pwm/pwm-stm32.c
++++ b/drivers/pwm/pwm-stm32.c
+@@ -213,10 +213,10 @@ static int stm32_pwm_round_waveform_fromhw(struct pwm=
+_chip *chip,
+ {
+ 	const struct stm32_pwm_waveform *wfhw =3D _wfhw;
+ 	struct stm32_pwm *priv =3D to_stm32_pwm_dev(chip);
++	unsigned long rate =3D clk_get_rate(priv->clk);
+ 	unsigned int ch =3D pwm->hwpwm;
+=20
+ 	if (wfhw->ccer & TIM_CCER_CCxE(ch + 1)) {
+-		unsigned long rate =3D clk_get_rate(priv->clk);
+ 		u64 ccr_ns;
+=20
+ 		/* The result doesn't overflow for rate >=3D 15259 */
+
+squashed into #4 to fix the build failure that the 0day robot reported
+in this thread.
+
+Best regards
+Uwe
+
+--pvxqsbn576kt2xa5
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfz7GUACgkQj4D7WH0S
+/k6YPgf/SN1j5yOtJmC7QVuGTcUlTuOBLQ2qNU8p1Lg66BPQ6jADoLAXq6aILNiA
+Yd2vrJGFq4Aiw1p6B2xWwmzt7C2QdcqKRD8qdbDsfR1STaNLoseLs6nNG4PvbrKw
+5HI6vqngB8oD4YE1TRq98S9/J0oGXmP9sHJk7LsHRbsVlaZggTLGXHqqc4wxJFNx
+cOBJ4o8zEfjytVTIA4E5wYf86/ag/ZjROBWuZTuhzZG57hkeM3rzGnMtT58/8A98
+VaEFgkpFp15TF3utVme6ORwWOm1JNGUJYyV67iDMY4h7IawmHHcstQYR5iOHfqoU
+jzQYSZKQ/foRNzTwC+xzpVl5326WiA==
+=EicF
+-----END PGP SIGNATURE-----
+
+--pvxqsbn576kt2xa5--
 
