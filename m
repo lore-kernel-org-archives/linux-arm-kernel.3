@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6004AC369A3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F45EC369A2
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kD9ClAPkcPNvQ2iYHfbuGpRxSpQFRsp0tY1oJ6ehDRk=; b=EiUJKMbJt/N6g6zkas8QZJd2TL
-	baEE9fD9nzluNl7jrxqOggk5CDMQ9jfB8kOUTk6Sf7Sc6m1EQUZUdjIR9g2ZMOc3I3ufzss5mr57B
-	YHCJDp8X34WnodZbd0jFWSDYiUig2yHjN8S1rXZfJar0KlRxARARygeJU69iF8eip63vFq/vZeU3T
-	inUSqGMWvsR2eNlIwadKve5kijXeKaru2Ifhrm84mEG/hUoa4YaEkZe31cFI5MDTAkpdEariUKduT
-	sS11OEe/yjDVlf53EZ5aQ+uvSuwEyULiXo1B1z0L1s++XPZsZ9yK0TuZFVymI/PWmHJsQkdcU0KWf
-	l8zS0ZCw==;
+	bh=SKRkBSja/o7ORAvQYrt/LIQOqrRkQaDjQ9l7ROg3bho=; b=eBnw3ZWYgWV39th08ArhvFKpX0
+	qHCr2BlyJliqDPxatyNk3/urPjb3Q/e5nSNvSF41lX5b7J1UvzmOPEV5LXqzkvvtTubxZFZVzvMOm
+	raQpK4GGgcqBQCTi/0f8TE6jciGK9fj4f9cuBReb7A60F/D/bee8WiIGMHxwWhSdqVwnNKjgp0rpl
+	L4Dq6bZwVNHIVvt02XYZLHxrZiaLaLRA+QNPYJDKMYkUsmfDH7qutRFIfN63XCkcRgm00SiBXJnYn
+	BuOr5IKpeXc75PJt9zQyK/n8cnQrGhY7TwVYJ6mUeh9aOx6e7VxqP6/wK3o1PsXjXCu1iWrP+QWNz
+	lA/fjUbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oyB-000000013rY-1vIk;
-	Mon, 07 Apr 2025 16:05:07 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1u1oyC-000000013tx-2Q2X;
+	Mon, 07 Apr 2025 16:05:08 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ntZ-00000000plf-2ox2
+	id 1u1ntb-00000000pmD-0Cpm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 14:56:19 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id E468844333;
-	Mon,  7 Apr 2025 14:56:13 +0000 (UTC)
+	Mon, 07 Apr 2025 14:56:20 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id D99DB44342;
+	Mon,  7 Apr 2025 14:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744037775;
+	t=1744037777;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=kD9ClAPkcPNvQ2iYHfbuGpRxSpQFRsp0tY1oJ6ehDRk=;
-	b=fHeh3Q3vAiE9f7/1NRTt3k6LL7EWHzVL7T54/lfobgBmrEP0/5nUc2RTcQwDPt3Zrd5nvv
-	dl1vEeW16POzheafzz6mu6bSPmCffJM/waRZpyl4IfbvMiWPbho4XACOv97EbkEvkg3apQ
-	8aavhArgyVvN7sUZjG6zODH/nTDKmr2hMEHitAN8zowVvRjcx74kBkvLucXCgPw4f1grKb
-	9kTJhKR0+J1yZyGZztFbxI009FPTKNkDAsCbWSPAdU+ZG8nBcvxdsNZau154HQ2dtrhFc6
-	oEa43NV7TeUuk6/PF2QIuqWZnU4v6XCddxalNoudJpAxfJsxNB3WSe2Z3uY9gw==
+	bh=SKRkBSja/o7ORAvQYrt/LIQOqrRkQaDjQ9l7ROg3bho=;
+	b=I9uOzSP7ZKO+JrlLDJlmlW54yLQhUymmzCjH+uOCBjArAz03etKCoQ80+NFgnNnkmynx1m
+	YLAXXh1JzDlirh4Lpi9yTFNovfhBu+3xaR9brTCvbvU9kex6fvon4DOmoUs25U86EibKmI
+	+h3pkFqSWVjfrOlr50VHZpQabSOExGGdfHUkyurHqt9WFX6S/XctbQ9ZYq1yRkqj4OBclv
+	D2q84wdfr5K+3u45bzMQ+7MbtDIDA5yn+R9luZwq8g53CPO+iQlVOE81/Oen8Xfe/x9pJW
+	6b281sHcM5sfI924Cob9lj4ZMr02IJUsBKdNZ3ZL6v80PFa7zQ7zu5xPbJR5mQ==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
@@ -83,9 +83,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH 05/16] bus: simple-pm-bus: Populate child nodes at probe
-Date: Mon,  7 Apr 2025 16:55:34 +0200
-Message-ID: <20250407145546.270683-6-herve.codina@bootlin.com>
+Subject: [PATCH 06/16] PCI: of: Set fwnode.dev of newly created PCI device nodes
+Date: Mon,  7 Apr 2025 16:55:35 +0200
+Message-ID: <20250407145546.270683-7-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250407145546.270683-1-herve.codina@bootlin.com>
 References: <20250407145546.270683-1-herve.codina@bootlin.com>
@@ -97,8 +97,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgeekucetufdoteggode
  ghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomhdprhgtphhtthhopehmthhurhhquhgvthhtvgessggrhihlihgsrhgvrdgtohhm
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_075617_908712_05CA5A17 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20250407_075619_217874_1CF380EB 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,99 +113,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The simple-pm-bus drivers handles several simple bus. When it is used
-with busses other than a compatible "simple-pm-bus", it don't populate
-its child devices during its probe.
+Device-tree node can be created when CONFIG_PCI_DYNAMIC_OF_NODES. Those
+node are created and filled based on PCI core information but the
+fwnode.dev field is not set.
 
-This confuses fw_devlink and results in wrong or missing devlinks.
+When later an overlay is applied, this consuses fw_devlink. Indeed,
+without any device attached to the node, fw_devlink considers that this
+node will never become a device. When this node is pointed as a
+supplier, devlink looks at its ancestors in order to find a node with a
+device that could be used as the supplier.
 
-Once a driver is bound to a device and the probe() has been called,
-device_links_driver_bound() is called.
+In the PCI use case, this leads to links that wrongly use the PCI root
+bridge device as the supplier instead of the expected PCI device.
 
-This function performs operation based on the following assumption:
-    If a child firmware node of the bound device is not added as a
-    device, it will never be added.
-
-Among operations done on fw_devlinks of those "never be added" devices,
-device_links_driver_bound() changes their supplier.
-
-With devices attached to a simple-bus compatible device, this change
-leads to wrong devlinks where supplier of devices points to the device
-parent (i.e. simple-bus compatible device) instead of the device itself
-(i.e. simple-bus child).
-
-When the device attached to the simple-bus is removed, because devlinks
-are not correct, its consumers are not removed first.
-
-In order to have correct devlinks created, make the simple-pm-bus driver
-compliant with the devlink assumption and create its child devices
-during its probe.
+Setting fwnode.dev to the dev of the PCI device allows devlink to use
+this device as a supplier and so, correct links are created.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/bus/simple-pm-bus.c | 23 ++++++++++++++---------
- 1 file changed, 14 insertions(+), 9 deletions(-)
+ drivers/pci/of.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
-index d8e029e7e53f..93c6ba605d7a 100644
---- a/drivers/bus/simple-pm-bus.c
-+++ b/drivers/bus/simple-pm-bus.c
-@@ -42,14 +42,14 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
- 	match = of_match_device(dev->driver->of_match_table, dev);
- 	/*
- 	 * These are transparent bus devices (not simple-pm-bus matches) that
--	 * have their child nodes populated automatically.  So, don't need to
--	 * do anything more. We only match with the device if this driver is
--	 * the most specific match because we don't want to incorrectly bind to
--	 * a device that has a more specific driver.
-+	 * have their child nodes populated automatically. So, don't need to
-+	 * do anything more except populate child nodes. We only match with the
-+	 * device if this driver is the most specific match because we don't
-+	 * want to incorrectly bind to a device that has a more specific driver.
- 	 */
- 	if (match && match->data) {
- 		if (of_property_match_string(np, "compatible", match->compatible) == 0)
--			return 0;
-+			goto populate;
- 		else
- 			return -ENODEV;
- 	}
-@@ -64,13 +64,14 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
+diff --git a/drivers/pci/of.c b/drivers/pci/of.c
+index ab7a8252bf41..ac6c4e1d68e5 100644
+--- a/drivers/pci/of.c
++++ b/drivers/pci/of.c
+@@ -709,6 +709,13 @@ void of_pci_make_dev_node(struct pci_dev *pdev)
+ 	if (ret)
+ 		goto out_free_node;
  
- 	dev_set_drvdata(&pdev->dev, bus);
- 
--	dev_dbg(&pdev->dev, "%s\n", __func__);
--
- 	pm_runtime_enable(&pdev->dev);
- 
-+populate:
- 	if (np)
- 		of_platform_populate(np, NULL, lookup, &pdev->dev);
- 
-+	dev_dbg(&pdev->dev, "%s\n", __func__);
++	/*
++	 * Set the fwnode.dev in order to have fw_devlink creating links
++	 * pointing to this PCI device instead of walking up to the PCI host
++	 * bridge.
++	 */
++	np->fwnode.dev = &pdev->dev;
 +
- 	return 0;
- }
- 
-@@ -78,12 +79,16 @@ static void simple_pm_bus_remove(struct platform_device *pdev)
- {
- 	const void *data = of_device_get_match_data(&pdev->dev);
- 
--	if (pdev->driver_override || data)
-+	if (pdev->driver_override)
- 		return;
- 
- 	dev_dbg(&pdev->dev, "%s\n", __func__);
- 
--	pm_runtime_disable(&pdev->dev);
-+	if (pdev->dev.of_node)
-+		of_platform_depopulate(&pdev->dev);
-+
-+	if (!data)
-+		pm_runtime_disable(&pdev->dev);
- }
- 
- static int simple_pm_bus_runtime_suspend(struct device *dev)
+ 	ret = of_changeset_apply(cset);
+ 	if (ret)
+ 		goto out_free_node;
 -- 
 2.49.0
 
