@@ -4,66 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC41FC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 07:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB60CC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 07:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5/I513d+MFkQFDWshUjg+9PMMs2+x6RZMvhWnl3IRE4=; b=03tIIIjWZlJZd9bTmLEUZoEhpg
-	4dk9QNJCnoUfwaqfqkdqStWoKG8pML7VY69mY+rw44frt4C8ZtxSJOickPi5kt0hM5XXCYu9bT96Q
-	Shp3r40lnIOmAYg2BEqYSkDTf6GlytYWzUkCBq876gc0FiCRseNBLqfLscZAO+fwAECueVGxik50f
-	WybRjB+8EqXA/zwsnQgGFLfe6AEZgOtGaPC6lhDJKvi5BA9OXwFPapx+oagEyxFqb/XStwN4Jml3p
-	9FtQ5JUrhkAnKh8oDxpn+qKJMmPobd9JHaholLJHYBcBACI0tVwxYOM73vfOFxO4K14uTFJStomt+
-	D1/n2/kA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+RNn5SAyspBzcMxDZ2Rf29ksnCDKjgLyQJRVVyZXvxw=; b=X7NxlYXbuqFGLh
+	05b+L0recVtPnEjdS5y4lG5JVBgZsnSqcgbcnpUgTNTy6qPUl5AcZCN5UcSOJx91pb0xvPE+cCt5N
+	IiveyHQFXvnqFCIKtYLWcb5lomGgS8yWH1fo/1HAPOE77Fec8v5muhgG68jon0mq0QLahRLT6S4Hc
+	JZNE9YzKOo06/CHGzfOdH6lA5OsdHOZliuxsNpxBcUYB1QJq2ZZcow7erQsf44IQJ51aGsJCfSr3a
+	lFm0T9FVl9FB90UTW/Gc4n+pAta5JOQqehfldHserRQ2CKGNhcd2MBDaIRKIvkXGkYygHcTSoGtD/
+	h3LE6rQtR4bTErWvgPVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1gbc-0000000GgNp-1ajL;
-	Mon, 07 Apr 2025 07:09:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u1gdY-0000000GhFG-24Dy;
+	Mon, 07 Apr 2025 07:11:16 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1gZs-0000000Gg8A-1XKw
+	id 1u1gbn-0000000GgRU-1r6o
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 07:07:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 45B556112C;
-	Mon,  7 Apr 2025 07:07:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87205C4CEE8;
-	Mon,  7 Apr 2025 07:07:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744009647;
-	bh=OPZXRFuI5uzN707xyLASfygRwfYY/xEScjSG9fL5FtI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sINAG7xnyWMM7KuoQ3b66O3ahLdy8/9el1HbYr4a5KONOaRk5uQjGx4iYl7iqcnIl
-	 EvR0aSRCLFHERW58gWf9zHJ4y9AmBeP9nJB4HSfyNDf5CizVPXwzjHsEsPFExHjLNU
-	 e8kmf0lev3gZZKxwwAkQHSwpg08dJ6xTEoJfsf8vmb7Dcbr+2UxC5/98fHkoZwkMFi
-	 6IWYN5aMDWP5N8ahxQZIDmqIRMyaD+FR0ImPUcdZOwdL/ANkaUGMTO3U54UxyiM3ds
-	 2nCsZ1MUyum7qQlhZZqofdvHdB6are4QOqsqob5VKyMnKT7xJE9jIjvbEOtjiLtyu3
-	 U8kk4w50Q1yoQ==
-Date: Mon, 7 Apr 2025 10:07:18 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	"Sauerwein, David" <dssauerw@amazon.de>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	David Hildenbrand <david@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [RFC PATCH v2 4/7] mm: Optimise SPARSEMEM implementation of
- for_each_valid_pfn()
-Message-ID: <Z_N5ps86xJmewe_P@kernel.org>
-References: <20250404155959.3442111-1-dwmw2@infradead.org>
- <20250404155959.3442111-4-dwmw2@infradead.org>
+	Mon, 07 Apr 2025 07:09:28 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-39c1efc457bso2192217f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 00:09:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744009766; x=1744614566; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+RNn5SAyspBzcMxDZ2Rf29ksnCDKjgLyQJRVVyZXvxw=;
+        b=rJSHXdTslT3F5c8cClNdtmPVq7blo/6DBvawObJesAEy5cMbXLDiC6yXcRf8ErNfcD
+         gh07PULhio1Ax1A19oj/idNtyxLgrBtcFFVSq4EuyPKvXdZ+hlSAm6ZWCkjDLiZXSnhN
+         IQlbOyMmp6xe6/m6tm5/HHDxl+tKZ1sq09jqAXzoQ46Z7ik/9XWYOnuO8cvcdi6HJ3VE
+         InGwK79O2HsMF9zSyn0tZarmubiuh90M9/Q4J9hO024SJUj3kXWI9paoHCKONGBak2Qc
+         GdIuUmxCAJ53E9AHO34wGEqNxN5xAOUXq2tHtB3HJI8lf2RQypy06B6u8C/RpOwTlT8H
+         ISnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744009766; x=1744614566;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+RNn5SAyspBzcMxDZ2Rf29ksnCDKjgLyQJRVVyZXvxw=;
+        b=ASQj+4p7hYh6IzkCqy8CiGWhTJ6hxEibdygCdcWasaIevgY9XWq09Tk6GjqFo904xV
+         QrZcLdq6U+gXhmqVi7sAzLqkqOlu97fmK3W+Y/OLJpaxoEYdtiXZ19HCkBwZYuQeyHqo
+         Ua3ywTOwGT2lJk0yzYEEc+3jFPSLpkxiVOX7UjXXVm91uN/tvPi6F565uG0yygfTtTyi
+         eEmnyDAfTr+wtjOo3Ih5jTnyK1xHMRcVXQhnoSb+4jGMEUHDfIc7VwhHdiAUUcBN8E9K
+         9j6qA+56q+A0pnXx8PudsMZn5b5HEnzjP+KV5hekVQNC4y7Om6hoOaQNHRYuhYBLnjUe
+         XPLg==
+X-Gm-Message-State: AOJu0YybgtTzkdqjqPJKruvB+J50bXVauxNhOTiF1b56k3ELX9eoOKb7
+	vGEzha6IvnQATHEUT5zGL7UQmW5iQVWXLW/tKJTg5ZZvmdXhYq+3pS/qvPymjiM=
+X-Gm-Gg: ASbGncs6hV/nblap7nEFeEBJHdb9Impy61E+chb4dmo0/SNy6zbabxt7U4TANtOO8zP
+	at4lk8zRJXXNu4RXiTcWfDXkV6ZEcCodb1NRyBbLYzTSoKcXBS1dBCgZwdUqtLgGp+KGfOhzvV0
+	05TWtqGtFMkFJB318P8YrfH1T5AKm5QcWI1E9sNgf4a4yGMaP0mG/6ZhbZw/rhDtbEPoUXk7XVz
+	CWZ35jEpA50NHhGwrDvqB52A7U9GGcNxdFilrniYB/T9JfpGrZi2v45MCuF9XK7BuDJBsZ7v1XI
+	iTuqWRktk0FOHT14ibXgEZCRp5+9shYHoePkEg==
+X-Google-Smtp-Source: AGHT+IFsqC1d8hUahT2wAGNxMelgG0ITSws4TQAzfYlVRfWzJHmehfuM8/9lVQue9+N1lHyMNtizRA==
+X-Received: by 2002:a05:6000:290d:b0:391:2e6a:30fe with SMTP id ffacd0b85a97d-39cba93333emr8618200f8f.39.1744009765319;
+        Mon, 07 Apr 2025 00:09:25 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:8c64:734d:705a:39a7])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec1663060sm124622795e9.14.2025.04.07.00.09.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Apr 2025 00:09:25 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH 0/4] ARM: convert board-file GPIO chips to using new value
+ setters
+Date: Mon, 07 Apr 2025 09:09:17 +0200
+Message-Id: <20250407-gpiochip-set-rv-arm-v1-0-9e4a914c7fd4@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250404155959.3442111-4-dwmw2@infradead.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAB1682cC/x3MMQqAMAxA0atIZgM2tYpeRRzExppBLamIIN7d4
+ viG/x9IrMIJ+uIB5UuSHHuGKQuY12kPjOKzgSpylaUaQ5RjXiVi4hP1wkk3bJaaWuM7R2whl1F
+ 5kfu/DuP7fqYalfplAAAA
+To: Andrew Lunn <andrew@lunn.ch>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Gregory Clement <gregory.clement@bootlin.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1023;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=oCmtcQ3XuI+cx4a64CkUUMq51aBbMji8srIW/rMRtig=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBn83ojKJ4eRLXH81clnfKezriaN1CLisDQ3rqzk
+ JzFkrrZruKJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCZ/N6IwAKCRARpy6gFHHX
+ cn37EADA08bCYfZqeBjZXtU0G2h35f8c4btZsNDcBJ50euRl4+vHxdgj3v3AMhDWTGMak4M29wI
+ mqwP3NcSrUPXLqTTyFkkPeKbvEP7ZdsPTmNJ+8pn3TikB97L4abj+HREE5sYr6wL6Q8CvqGpamO
+ U4LHlghdIhxtpetGhz5GkamZ0KXJU6IKSossfIsCRLABd49qWLHXQthEByton/kQovIW8vntk2w
+ DH+ySfLHgMUmSaRP9iCpwPMFIvRiRPwpl8HURtr030oYgufHYVTo+Xixu+xTm9w2r3gJaHgxLwr
+ jdgUedVvYMuR2LyiPPxv2eX+M8IH3BMjlLWxQiw97tLhXfrBFy+7FCze/L2zIKgDedkThxWhr/n
+ u7A+bgXLWfR2Z7DC0RNkkBk9oEKtSk6l8CUZ5MhS4mqgf6UaGgD8Zjd5FYEtlEb7j/YZ3aqHFT5
+ fEkp5mg9spn8dunvorQSGSAagKX1TLrKxjWDAdmOdz2tgvn4+81SEhHtuZewsvjqAuoQMx7+RTr
+ bPjQAvLINEk9+8vNTJ6vABE73WQZxRgmyPa9byuNWianYti/rAX3TOxpHAQrHfgk32JYLme9ITi
+ lPbmshT65lPcnXMXjeeaXuZtMPL3okPYm3U+RCo7Qg53ZX2RHb+j/ESgG/8Ud5PFrh7Qqfe8ZzF
+ y7ZKh0TnWVrqazw==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250407_000927_484500_64596310 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,94 +123,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 04, 2025 at 04:59:56PM +0100, David Woodhouse wrote:
-> From: David Woodhouse <dwmw@amazon.co.uk>
-> 
-> There's no point in checking the section and subsection bitmap for *every*
-> PFN in the same section; they're either all valid or they aren't.
+struct gpio_chip now has callbacks for setting line values that return
+an integer, allowing to indicate failures. We're in the process of
+converting all GPIO drivers to using the new API. This series converts
+all ARM board-file level controllers.
 
-Don't you want to merge this with the previous commit?
- 
-> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-> ---
->  include/linux/mmzone.h | 39 +++++++++++++++++++++++++++++----------
->  1 file changed, 29 insertions(+), 10 deletions(-)
-> 
-> diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-> index 67cdf675a4b9..0da1b0ba5d9f 100644
-> --- a/include/linux/mmzone.h
-> +++ b/include/linux/mmzone.h
-> @@ -2154,21 +2154,20 @@ static inline int pfn_valid(unsigned long pfn)
->  	return ret;
->  }
->  
-> -static inline bool first_valid_pfn(unsigned long *p_pfn)
-> +/* Returns -1 (an invalid PFN) if no valid PFN remaining */
-> +static inline unsigned long first_valid_pfn(unsigned long pfn, unsigned long end_pfn)
->  {
-> -	unsigned long pfn = *p_pfn;
->  	unsigned long nr = pfn_to_section_nr(pfn);
->  
->  	rcu_read_lock_sched();
->  
-> -	while (nr <= __highest_present_section_nr) {
-> +	while (nr <= __highest_present_section_nr && pfn < end_pfn) {
->  		struct mem_section *ms = __pfn_to_section(pfn);
->  
->  		if (valid_section(ms) &&
->  		    (early_section(ms) || pfn_section_first_valid(ms, &pfn))) {
-> -			*p_pfn = pfn;
->  			rcu_read_unlock_sched();
-> -			return true;
-> +			return pfn;
->  		}
->  
->  		/* Nothing left in this section? Skip to next section */
-> @@ -2177,14 +2176,34 @@ static inline bool first_valid_pfn(unsigned long *p_pfn)
->  	}
->  
->  	rcu_read_unlock_sched();
-> +	return (unsigned long)-1;
-> +}
->  
-> -	return false;
-> +static inline unsigned long next_valid_pfn(unsigned long pfn, unsigned long end_pfn)
-> +{
-> +	pfn++;
-> +
-> +	if (pfn >= end_pfn)
-> +		return (unsigned long)-1;
-> +
-> +	/*
-> +	 * Either every PFN within the section (or subsection for VMEMMAP) is
-> +	 * valid, or none of them are. So there's no point repeating the check
-> +	 * for every PFN; only call first_valid_pfn() the first time, and when
-> +	 * crossing a (sub)section boundary (i.e. !(pfn & ~PFN_VALID_MASK)).
-> +	 */
-> +	if (pfn & (IS_ENABLED(CONFIG_SPARSEMEM_VMEMMAP) ?
-> +		   PAGE_SUBSECTION_MASK : PAGE_SECTION_MASK))
-> +		return pfn;
-> +
-> +	return first_valid_pfn(pfn, end_pfn);
->  }
->  
-> -#define for_each_valid_pfn(_pfn, _start_pfn, _end_pfn)	       \
-> -	for ((_pfn) = (_start_pfn);			       \
-> -	     first_valid_pfn(&(_pfn)) && (_pfn) < (_end_pfn);  \
-> -	     (_pfn)++)
-> +
-> +#define for_each_valid_pfn(_pfn, _start_pfn, _end_pfn)			\
-> +	for ((_pfn) = first_valid_pfn((_start_pfn), (_end_pfn));	\
-> +	     (_pfn) != (unsigned long)-1;				\
-> +	     (_pfn) = next_valid_pfn((_pfn), (_end_pfn)))
->  
->  #endif
->  
-> -- 
-> 2.49.0
-> 
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+Bartosz Golaszewski (4):
+      ARM: orion/gpio: use new line value setter callbacks
+      ARM: sa1100/gpio: use new line value setter callbacks
+      ARM: scoop/gpio: use new line value setter callbacks
+      ARM: s3c/gpio: use new line value setter callbacks
 
+ arch/arm/common/sa1111.c         | 6 ++++--
+ arch/arm/common/scoop.c          | 7 +++++--
+ arch/arm/mach-s3c/gpio-samsung.c | 8 +++++---
+ arch/arm/plat-orion/gpio.c       | 6 ++++--
+ 4 files changed, 18 insertions(+), 9 deletions(-)
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250324-gpiochip-set-rv-arm-6f4271d952e3
+
+Best regards,
 -- 
-Sincerely yours,
-Mike.
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
 
