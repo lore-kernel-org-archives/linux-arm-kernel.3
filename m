@@ -4,102 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 405F3C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB43C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WgX6S64ngnXsjU0lQPqeLHBfnA+UnbXv6BjQk1oGXZU=; b=g9tdSBjzUQSD4oEn4LKDpVSiXv
-	reyb56qdfY70MWqo1Kfg34CQ3KVZ7N4emh6/wIxM8gV0HRs+nnXYLKQVkH66eteOj6hzA1l2UPIAR
-	0cA1L3YmRUNCLqDdVYXQSjuJ1swyuxHwYZs4+KO0ucdH1ciSVqmQyVUt/IuksAoadcPqLODF3adkf
-	hZmCSLUz5riugCmu3cNjgld1xRuZD9z3eVW+2k3Y8s74iGBlKbKvSxZUVfCJy8d/SLrsnaMow5Bw3
-	CKSq5w6zxNYCSdlRoZIY7kojpj2vl1wZYrNh7eJDajGZOWJ18AAhP2pJCwWP6HS+JQE55BodDh84h
-	dJWFzwLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NWZ2QEzQSsax0RMmNVi5/QIUkpjXCdv9f5sixO2omPw=; b=HvRGONVPrpD13v+h0lV0YjkuDH
+	WtxRm5QFy8fmKT3j8I8SEuvpzZGnIB8mbMPQ+MnzAcLFg2kIu+dBQvtdZbQoA95GV+e4b+1Xk8kYV
+	6ZqAJDPVSdG16g+2FanxHBeL++vTDZ7QzcNy79ubWUubzBbNgqz9gENNfsXylmTcajY/H3z9fuRby
+	w1szFHjfy1T16wQIOAa3UWlA+HauAfufgkqUn0d6+iCr5rvowuiJVQKRhkfuiuAFreYDVUFKSvPGh
+	gN3ANa6ZHAtyTWaEeY02v9hvFXscnntaJWLZmxxmv9ZaRFH+aQORsZUyAUFSRms7tSCfRUejRHKOv
+	xguHuUSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pIu-00000001ANa-0C4k;
-	Mon, 07 Apr 2025 16:26:32 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1u1pK0-00000001Af0-0WSE;
+	Mon, 07 Apr 2025 16:27:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oO6-00000000xcn-2Y99;
-	Mon, 07 Apr 2025 15:27:52 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 72646431EA;
-	Mon,  7 Apr 2025 15:27:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744039667;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WgX6S64ngnXsjU0lQPqeLHBfnA+UnbXv6BjQk1oGXZU=;
-	b=LBZvLE2G+afaVJ2bwhuBl1x1YRR/aqaZ2Xm5yU+xaLjjIqM+WbNAKPx85Swnqti9EdXmCR
-	jxm3gIWcOaG1co2jTwQSHLMwRfa/o37ZW3TL5sERhaicxQw3i4iyp8UcVcTXkH1w4KSGdk
-	Y19KevZYjLYHr3HXXP8AducFPd1YdMFTPsJeGctmaMWsKIGeEO+n7SDKrX8kxYN5Z1gWgI
-	+UT+rfLgfI9oZV+al0AMr7X1Hj0w9CZsV0S3DJwxwGrF5CvYlrRAnPH725fFHTQ9VF1+RR
-	KAa03YipbyuRmYOv8qQstJ9OZTNaCvUkN6DRY2d/JonMQilxNjXgv50w/l7c9A==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Anusha Srivatsa <asrivats@redhat.com>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	=?utf-8?q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>,
-	Hui Pu <Hui.Pu@gehealthcare.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	dri-devel@lists.freedesktop.org,
-	asahi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	chrome-platform@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	freedreno@lists.freedesktop.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 34/34] drm/bridge: panel: convert to devm_drm_bridge_alloc() API
-Date: Mon,  7 Apr 2025 17:27:39 +0200
-Message-ID: <20250407-drm-bridge-convert-to-alloc-api-v1-34-42113ff8d9c0@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
-References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
-MIME-Version: 1.0
+	id 1u1ltW-00000000LjX-1XLi
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 07 Apr 2025 12:48:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	Date:Sender:Reply-To:Content-ID:Content-Description;
+	bh=NWZ2QEzQSsax0RMmNVi5/QIUkpjXCdv9f5sixO2omPw=; b=OOQcbKqAF2f9DCFtGH+YZDzGJS
+	oSlDAa4lJvVeOeUvI/8Lm0+67UJXbTZ9g1WmdQU1e6iwOypW7qq2e7sUZAndgV5DohuLomdSxYS0D
+	UibqFR9kuEJWnB9JxML0KdWqye97IXH72KBVvsfzUfPGaWNAOAQD5cA1csqnblZvLs3puV8VCVlVU
+	CPyo141my4qU1VwKvdlBKM6oxMhUCrNaVongdIPqy43yiI/jlNwpAuGv5SHz08OqUGu+GErRlI/Gq
+	JwWPO836Tk/1KgiCF5FumUVtKZC+mixgZSfKqgYFW5FNSX8KBwZTGv6Xbvbg1l7zxyBJh02OQtqmq
+	rl5QI9UA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1ltS-00000007wzq-3xEg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 12:48:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E02649F2A;
+	Mon,  7 Apr 2025 12:47:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD1D1C4CEE7;
+	Mon,  7 Apr 2025 12:47:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744030079;
+	bh=KEDPVE33uQKjxzGqy3bcfJL5Q/mx4ddBU49uxTRs+Rk=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=C/HzPV+0IWPNdEnGyAEliW8SgzV6uzSCnQfPsNEC8XhWhr6AbCwbTOHoKNvjmg5Jn
+	 DeW1wI71Wh+5+RXPBO55pRCv9rlQtHmOotWufjr55PgBLHBMBNsNa8ljvA7Msx4Gf+
+	 W1U2OWnBGMW0VueP3gxHMp8EK1tSXWQKoYLZhzL4ueHEIzSIvwse+mSenjPsNLQCk8
+	 JAzWjSnQepfYSgSIg6Krn23ke9vQNuOIzG5Z9pyQT6h7DreRup/CE4E3VzzkTnC7DV
+	 gD+9N2tbebyd83SvarpzjbDtIbLngWbXR4ArcdVAm41zGc5ECGAeLlrd/tjwNMSZ7u
+	 HQPFoFOi5h5kg==
+Date: Mon, 07 Apr 2025 07:47:57 -0500
 Content-Type: text/plain; charset="utf-8"
-X-Mailer: b4 0.14.2
 Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtheegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfgggtoffgsehtkeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepudffiefgvdfftdffkeejjefhffduleejleeuieetieetgeehtefhjedtgeegieegnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihrdhfrhhithiirdgsohigpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedupdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvp
- dhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehnvghilhdrrghrmhhsthhrohhngheslhhinhgrrhhordhorhhgpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: luca.ceresoli@bootlin.com
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Anand Gore <anand.gore@broadcom.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-crypto@vger.kernel.org, Olivia Mackall <olivia@selenic.com>, 
+ William Zhang <william.zhang@broadcom.com>, 
+ Kursad Oney <kursad.oney@broadcom.com>, 
+ Florian Fainelli <f.fainelli@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, Ray Jui <rjui@broadcom.com>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Scott Branden <sbranden@broadcom.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+In-Reply-To: <20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org>
+References: <20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org>
+Message-Id: <174402971847.1782936.5442564444780183051.robh@kernel.org>
+Subject: Re: [PATCH v2 00/12] ARM: bcm: Add some BCMBCA peripherals
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_082750_777767_7C253C47 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250407_134803_392407_3C10FBBD 
+X-CRM114-Status: GOOD (  31.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,102 +97,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the new API for allocating DRM bridges.
 
-The devm lifetime management of this driver is peculiar. The underlying
-device for the panel_bridge is the panel, and the devm lifetime is tied the
-panel device (panel->dev). However the panel_bridge allocation is not
-performed by the panel driver, but rather by a separate entity (typically
-the previous bridge in the encoder chain).
+On Sun, 06 Apr 2025 17:32:40 +0200, Linus Walleij wrote:
+> This adds a bunch peripherals to the Broadcom BRCMBCA
+> SoC:s that I happened to find documentation for in some
+> vendor header files.
+> 
+> It started when I added a bunch of peripherals for the
+> BCM6846, and this included really helpful peripherals
+> such as the PL081 DMA, for which I think the most common
+> usecase is to be used as a memcpy engine to offload
+> transfer of blocks from NAND flash to/from the NAND
+> flash controller (at least this is how the STMicro
+> FSMC controller was using it).
+> 
+> So I took a sweep and added all the stuff that has
+> bindings to:
+> 
+> ARM:
+> - BCM6846
+> - BCM6855
+> - BCM6878
+> - BCM63138
+> - BCM63148
+> - BCM63178
+> 
+> ARM64:
+> - BCM4908
+> - BCM6856
+> - BCM6858
+> - BCM63158
+> 
+> There are several "holes" in this SoC list, I simply
+> just fixed those that I happened to run into documentation
+> for.
+> 
+> Unfortunately while very similar, some IP blocks vary
+> slightly in version, the GPIO block is differently
+> integrated on different systems, and the interrupt assignments
+> are completely different, so it's safest to add these to each
+> DTSI individually.
+> 
+> I add the interrupt binding for the RNG block in the
+> process as this exists even if Linux isn't using the
+> IRQ, and I put the RNG and DMA engines as default-enabled
+> because they are not routed to the outside and should
+> "just work" so why not.
+> 
+> I did a rogue patch adding some stuff to BCM6756 based
+> on guessed but eventually dropped it. If someone has
+> docs for this SoC I can add it.
+> 
+> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+> ---
+> Changes in v2:
+> - Pick up Krzysztof's ACK
+> - Push the BCM6858 DMA block into its own simple bus.
+> - Fix GPIO node names and registers on BCM63138.
+> - Fix GPIO node names and registers on BCM63148.
+> - Link to v1: https://lore.kernel.org/r/20250328-bcmbca-peripherals-arm-v1-0-e4e515dc9b8c@linaro.org
+> 
+> ---
+> Linus Walleij (12):
+>       ARM: dts: bcm6878: Correct UART0 IRQ number
+>       dt-bindings: rng: r200: Add interrupt property
+>       ARM: dts: bcm6846: Add interrupt to RNG
+>       ARM: dts: bcm6855: Add BCMBCA peripherals
+>       ARM: dts: bcm6878: Add BCMBCA peripherals
+>       ARM: dts: bcm63138: Add BCMBCA peripherals
+>       ARM: dts: bcm63148: Add BCMBCA peripherals
+>       ARM: dts: bcm63178: Add BCMBCA peripherals
+>       ARM64: dts: bcm4908: Add BCMBCA peripherals
+>       ARM64: dts: bcm6856: Add BCMBCA peripherals
+>       ARM64: dts: bcm6858: Add BCMBCA peripherals
+>       ARM64: dts: bcm63158: Add BCMBCA peripherals
+> 
+>  .../devicetree/bindings/rng/brcm,iproc-rng200.yaml |   6 +
+>  arch/arm/boot/dts/broadcom/bcm63138.dtsi           |  79 ++++++++++-
+>  arch/arm/boot/dts/broadcom/bcm63148.dtsi           |  64 +++++++++
+>  arch/arm/boot/dts/broadcom/bcm63178.dtsi           | 112 +++++++++++++++
+>  arch/arm/boot/dts/broadcom/bcm6846.dtsi            |   1 +
+>  arch/arm/boot/dts/broadcom/bcm6855.dtsi            | 127 +++++++++++++++++
+>  arch/arm/boot/dts/broadcom/bcm6878.dtsi            | 120 ++++++++++++++++-
+>  arch/arm64/boot/dts/broadcom/bcmbca/bcm4908.dtsi   | 122 ++++++++++++++++-
+>  arch/arm64/boot/dts/broadcom/bcmbca/bcm63158.dtsi  | 150 ++++++++++++++++++++-
+>  arch/arm64/boot/dts/broadcom/bcmbca/bcm6856.dtsi   | 138 ++++++++++++++++++-
+>  arch/arm64/boot/dts/broadcom/bcmbca/bcm6858.dtsi   | 127 ++++++++++++++++-
+>  11 files changed, 1037 insertions(+), 9 deletions(-)
+> ---
+> base-commit: 8359b1e7edc722d4b1be26aa515041a79e4224a3
+> change-id: 20250327-bcmbca-peripherals-arm-dfb312052363
+> 
+> Best regards,
+> --
+> Linus Walleij <linus.walleij@linaro.org>
+> 
+> 
+> 
 
-Thus when that separate entoty is destroyed, the panel_bridge is not
-removed automatically by devm, so it is rather done explicitly by calling
-drm_panel_bridge_remove(). This is the function that does devm_kfree() the
-panel_bridge in current code, so update it as well to put the bridge
-reference instead.
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
----
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-To: Maxime Ripard <mripard@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-To: David Airlie <airlied@gmail.com>
-To: Simona Vetter <simona@ffwll.ch>
-To: Andrzej Hajda <andrzej.hajda@intel.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-To: Robert Foss <rfoss@kernel.org>
-To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-To: Jonas Karlman <jonas@kwiboo.se>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Jagan Teki <jagan@amarulasolutions.com>
-To: Shawn Guo <shawnguo@kernel.org>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-To: Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Fabio Estevam <festevam@gmail.com>
-To: Douglas Anderson <dianders@chromium.org>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Anusha Srivatsa <asrivats@redhat.com>
-Cc: Paul Kocialkowski <paulk@sys-base.io>
-Cc: Dmitry Baryshkov <lumag@kernel.org>
-Cc: Hervé Codina <herve.codina@bootlin.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: asahi@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org
-Cc: chrome-platform@lists.linux.dev
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-mediatek@lists.infradead.org
-Cc: linux-amlogic@lists.infradead.org
-Cc: linux-renesas-soc@vger.kernel.org
-Cc: platform-driver-x86@vger.kernel.org
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: linux-arm-msm@vger.kernel.org
-Cc: freedreno@lists.freedesktop.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
----
- drivers/gpu/drm/bridge/panel.c | 11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-diff --git a/drivers/gpu/drm/bridge/panel.c b/drivers/gpu/drm/bridge/panel.c
-index 79b009ab9396048eac57ad47631a902e949d77c6..ddd1e91970d09b93aa64f50cd9155939a12a2c6f 100644
---- a/drivers/gpu/drm/bridge/panel.c
-+++ b/drivers/gpu/drm/bridge/panel.c
-@@ -287,15 +287,14 @@ struct drm_bridge *drm_panel_bridge_add_typed(struct drm_panel *panel,
- 	if (!panel)
- 		return ERR_PTR(-EINVAL);
- 
--	panel_bridge = devm_kzalloc(panel->dev, sizeof(*panel_bridge),
--				    GFP_KERNEL);
--	if (!panel_bridge)
--		return ERR_PTR(-ENOMEM);
-+	panel_bridge = devm_drm_bridge_alloc(panel->dev, struct panel_bridge, bridge,
-+					     &panel_bridge_bridge_funcs);
-+	if (IS_ERR(panel_bridge))
-+		return (void *)panel_bridge;
- 
- 	panel_bridge->connector_type = connector_type;
- 	panel_bridge->panel = panel;
- 
--	panel_bridge->bridge.funcs = &panel_bridge_bridge_funcs;
- 	panel_bridge->bridge.of_node = panel->dev->of_node;
- 	panel_bridge->bridge.ops = DRM_BRIDGE_OP_MODES;
- 	panel_bridge->bridge.type = connector_type;
-@@ -327,7 +326,7 @@ void drm_panel_bridge_remove(struct drm_bridge *bridge)
- 	panel_bridge = drm_bridge_to_panel_bridge(bridge);
- 
- 	drm_bridge_remove(bridge);
--	devm_kfree(panel_bridge->panel->dev, bridge);
-+	devm_drm_put_bridge(panel_bridge->panel->dev, bridge);
- }
- EXPORT_SYMBOL(drm_panel_bridge_remove);
- 
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
--- 
-2.49.0
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: base-commit 8359b1e7edc722d4b1be26aa515041a79e4224a3 not known, ignoring
+ Base: attempting to guess base-commit...
+ Base: tags/v6.14-rc6-274-gf4e35e5f940c (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/broadcom/' for 20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org:
+
+arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac87u.dtb: pcie@12000: 'device_type' is a required property
+	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
+
+
+
+
 
 
