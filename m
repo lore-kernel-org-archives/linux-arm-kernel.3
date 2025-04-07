@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 600E5C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 23:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AF3DC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 23:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s2yWl97ovmpgvlPVOC1vm3SnHhqTufbXu1TkSI5pMJ4=; b=v5FY05T0VD9rv7XIK29DsQ+GOo
-	l4xHmpKhruPqs5+z+Sf4ZS2caEdzxHcKWR9cqmwIXofaZ1yN7F1lJyogaNQzzwQXV0zQDXTLlqT6w
-	nvWjL8u6S02C8Q8QdZwVj09dTToYell+1BxcCHp/f0/KPMOt/uD0W2GxRTjUqVytOq//WPUaoJPqc
-	9Enc4htCpkhvVz+wY2l+p45VlzkxP4tm+0W0IyOUlL3UJb4KSs+7qDGK/3nHjeIAeqB8qBuH6er1P
-	sDXqYV3KTmw84+9PYgdRtz+EsPIO6138X075VOy5Hzs4+coPV3GU5QiQVva1WWc83jMzsN9abe1vM
-	tByI/JNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cWonVcXX3jqcfNp/b9lgu6z0q2BXOtRBQGBmf1D4SVQ=; b=ykzyTvAZa1iLwxBAXQUGeyiddD
+	+WqAFM4Ll8WIRvYbqvS70bfDz9SrxQAOECujGJka7xBa6ijRP5bq2vDhGI/frDxv4/lBBFyx0XGc9
+	vZDIsTBG274ozjxPE71XRkEid5C1uLjEx3EUTDBWrAg6MyO7Ekl/a67aDQtSY161nUJDOEe+HTXde
+	W1p95l4FIM0KC6KWVVwdoN4aeDfwBQOMH5vzlCl4YlRRcQ+POR/N5nTgkTFtVjs3E5HAFj4Avuugp
+	AVO+DP7KyvyhjNp4+StTrNZM/jhHajJGsGgOqIiSRFVKt9YuP5N9KAOIxNfHq6MljkKJxZpMSBbqB
+	XLt7N3Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1vcq-00000002GQU-0Eej;
-	Mon, 07 Apr 2025 23:11:32 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1u1vkq-00000002HOy-22iz;
+	Mon, 07 Apr 2025 23:19:48 +0000
+Received: from out-174.mta0.migadu.com ([91.218.175.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1vb3-00000002GGc-4C6T
+	id 1u1vj4-00000002H7q-440P
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 23:09:43 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 02556240028
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Apr 2025 01:09:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=posteo.net; s=2017;
-	t=1744067378; bh=O74ZcjE1OQcfzpO0kSxXYabLxllHbRodD/griblwqRc=;
-	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:From;
-	b=evTTQNeq+5tyiYgfXbWGpw+B8C3f+zTyO5vx+qOOZr1x1dG7dxECxAEVlb8uclcyk
-	 6QpEDOo97vPxiQeV+D+BCW4oiEnegLZWsrQLnTaDyv1TlK+noe/0Whk8UIRyjsWraU
-	 exRyemlkFtaslIugBnayZvi8eeHboilpeMX+ONpVMswzKhh2soS30CelHhiXoU/u9Y
-	 8HP/ytUmgHZcnaag3AkimbcA3qlcyvoPmHppI9uJUt9UsQFNjBjPJwq4aMW1psB0xn
-	 UpmoeOwLo7fqJRbr9fo0nT8sHVkLpiB97r+axxO0ln4017eZR/5d828ofPhoIfqef7
-	 vkQT9GsHp6yOw==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4ZWlKD3rbZz6v0r;
-	Tue,  8 Apr 2025 01:09:36 +0200 (CEST)
-Date: Mon,  7 Apr 2025 23:09:36 +0000
-From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Mon, 07 Apr 2025 23:18:00 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1744067875;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cWonVcXX3jqcfNp/b9lgu6z0q2BXOtRBQGBmf1D4SVQ=;
+	b=SgnrJsFAJgNi9WQ+rl1nhgeJ8/jKFu0Z1ceqFZKXJFSOU0aFCGLqqAQNIakS5vh508pWuH
+	ZXTig3Oqa7Hl5tBUgAKuqZbCvXp0LPqoN1GgiGYAELr0mPP34Yh3WnW7wh65Ig2gKNQlrd
+	Omk115Z2psF0DR9mJ9RfqEV0eWNXxQs=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: netdev@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: linux-kernel@vger.kernel.org,
+	upstream@airoha.com,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Claudiu Manoil <claudiu.manoil@nxp.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH 3/3] ARM: dts: amlogic: Add TCU Fernsehfee 3.0
-Message-ID: <Z_RbMLu27AKHaCIO@probook>
-References: <20250323-fernsehfee-v1-0-2621341cd37a@posteo.net>
- <20250323-fernsehfee-v1-3-2621341cd37a@posteo.net>
- <CAFBinCD13CNuxRkrSoPXUMNQ9AJH7UV0gsOfdgeRKhkXsANgnw@mail.gmail.com>
- <Z-vjWFFWvo1gesCe@probook>
- <CAFBinCDgn30H13hfkEsfyzSjO-HJ-XpAUwSwimBk7VPpKyNKMw@mail.gmail.com>
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Joyce Ooi <joyce.ooi@intel.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Madalin Bucur <madalin.bucur@nxp.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Robert Hancock <robert.hancock@calian.com>,
+	Saravana Kannan <saravanak@google.com>,
+	UNGLinuxDriver@microchip.com,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Wei Fang <wei.fang@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [net-next PATCH v2 00/14] Add PCS core support
+Date: Mon,  7 Apr 2025 19:17:31 -0400
+Message-Id: <20250407231746.2316518-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAFBinCDgn30H13hfkEsfyzSjO-HJ-XpAUwSwimBk7VPpKyNKMw@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_160942_312426_59E03C22 
-X-CRM114-Status: GOOD (  29.79  )
+X-CRM114-CacheID: sfid-20250407_161759_151643_97DE7C5D 
+X-CRM114-Status: GOOD (  20.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,92 +101,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 06, 2025 at 10:36:18PM +0200, Martin Blumenstingl wrote:
-> On Tue, Apr 1, 2025 at 3:00 PM J. Neuschäfer <j.ne@posteo.net> wrote:
-> >
-> > On Sun, Mar 30, 2025 at 11:10:28PM +0200, Martin Blumenstingl wrote:
-> > > Thanks for your patch!
-> > >
-> > > On Sun, Mar 23, 2025 at 1:38 PM J. Neuschäfer via B4 Relay
-> > > <devnull+j.ne.posteo.net@kernel.org> wrote:
-> > > [...]
-> > > > +               eth_phy0: ethernet-phy@0 {
-> > > > +                       /* IC Plus IP101A (0x02430c54) */
-> > > > +                       reg = <0>;
-> > > Does reg = <1> also work on your board?
-> > > 0 is the broadcast address. It's unfortunately something that we still
-> > > have incorrect in a lot of .dts files.
-> >
-> > Unfortunately not. I tried addresses 1 to 31 without success, which
-> > seems strange; my guess was that the PHY should respond to one of them.
-> > I get this error:
-> >
-> > # ip l set eth0 up
-> > [    6.806847] meson6-dwmac c9410000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
-> > [    6.810609] meson6-dwmac c9410000.ethernet eth0: __stmmac_open: Cannot attach to PHY (error: -19)
-> Thanks for testing. Let's keep it at zero then.
-> 
-> > >
-> > > [...]
-> > > > +&i2c_AO {
-> > > > +       status = "okay";
-> > > > +       pinctrl-0 = <&i2c_ao_pins>;
-> > > > +       pinctrl-names = "default";
-> > > > +
-> > > > +       pmic@32 {
-> > > > +               compatible = "ricoh,rn5t618";
-> > > > +               reg = <0x32>;
-> > > > +               system-power-controller;
-> > > Here I'm a bit surprised:
-> > > Aren't some of the outputs used to drive VCCK (CPU power rail) and
-> > > VDDEE (everything else power rail, which also powers the GPU)?
-> >
-> > Unfortunately I don't have schematics and I wasn't able to trace the
-> > connections on the board because they're so tiny. So it's quite possible that
-> > you're right, but I can't be sure.
-> >
-> > Are there voltage sensors in the Meson8 SoC that I could use to establishs the
-> > relation between PMIC outputs and SoC supplies?
->
-> There aren't any sensors (that I'm aware of). But you can check
-> /sys/kernel/debug/regulator/regulator_summary and compare the values
-> with the ones from arch/arm/boot/dts/amlogic/meson8m2-mxiii-plus.dts
-> Also the vendor u-boot and kernel logs may provide some information.
+This series adds support for creating PCSs as devices on a bus with a
+driver (patch 3). As initial users,
 
-The values in /sys/kernel/debug/regulator/regulator_summary do indeed
-match the values in meson8m2-mxiii-plus.dts:
+- The Lynx PCS (and all of its users) is converted to this system (patch 5)
+- The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6-8)
+- The Cadence MACB driver is converted to support external PCSs (namely
+  the Xilinx PCS) (patches 9-10).
 
- DCDC1                            0    0      0 unknown  1100mV     0mA     0mV     0mV
- DCDC2                            0    0      0 unknown  1150mV     0mA     0mV     0mV
- DCDC3                            0    0      0 unknown  1500mV     0mA     0mV     0mV
- LDO1                             0    0      0 unknown  2900mV     0mA     0mV     0mV
- LDO2                             0    0      0 unknown  1800mV     0mA     0mV     0mV
- LDO3                             0    0      0 unknown  1800mV     0mA     0mV     0mV
- LDO4                             0    0      0 unknown  2850mV     0mA     0mV     0mV
- LDO5                             0    0      0 unknown  1800mV     0mA     0mV     0mV
- LDORTC1                          0    0      0 unknown  2700mV     0mA     0mV     0mV
- LDORTC2                          0    0      0 unknown   900mV     0mA     0mV     0mV
+The last few patches add device links for pcs-handle to improve boot times,
+and add compatibles for all Lynx PCSs.
 
-After I copy the regulator table from meson8m2-mxiii-plus.dts, I can indeed
-observe the effect of regulators being on/off. I will use that to further
-investigate how the regulators are used.
+This series depends on [1,2], and they have been included at the
+beginning so CI will run. However, I expect them to be reviewed/applied
+outside the net-next tree.
 
-The vendor u-boot/kernel aren't very useful, unfortunately.
-The downstream devicetree includes these settings:
+Care has been taken to ensure backwards-compatibility. The main source
+of this is that many PCS devices lack compatibles and get detected as
+PHYs. To address this, pcs_get_by_fwnode_compat allows drivers to edit
+the devicetree to add appropriate compatibles.
 
-	rn5t618 {
-		status = "okay";
-		ddr_voltage   = <1500000>; // 1.5V
-		vddao_voltage = <1200000>; // 1.2V
-		[...]
-	};
+There is another series [3] with the same goal by Christian Marangi. In
+comparison, I believe this series
 
-The corresponding driver seems to associate ddr_voltage with DCDC2 and
-vddio_voltage with DCDC3, although this part of the code[1] is "#if 0"'d.
+- Implements a simpler and more-robust method of PCS access.
+- Provides a more-direct upgrade path for existing MAC and PCS drivers.
 
-[1] https://github.com/endlessm/linux-meson/blob/master/drivers/amlogic/power/ricoh/ricoh_pmu.c#L127
+Due to popular demand, I have added support for #pcs-cells with this
+revision.
 
+[1] https://lore.kernel.org/all/20250407222134.2280553-1-sean.anderson@linux.dev/
+[2] https://lore.kernel.org/all/20250407223714.2287202-1-sean.anderson@linux.dev/
+[3] https://lore.kernel.org/netdev/20250406221423.9723-1-ansuelsmth@gmail.com/
 
-Best regards,
-J. Neuschäfer
+Changes in v2:
+- Add fallbacks for pcs_get* and pcs_put
+- Add support for #pcs-cells
+- Change base compatible to just xlnx,pcs
+- Change compatible to just xlnx,pcs
+- Defer devicetree updates for another series
+- Drop #clock-cells description
+- Drop PCS_ALTERA_TSE which was accidentally added while rebasing
+- Move #clock-cells after compatible
+- Move update to macb_pcs_get_state to previous patch
+- Remove outdated comment
+- Remove second example
+- Remove unused variable
+- Remove unused variable lynx_properties
+- Rename pcs-modes to xlnx,pcs-modes
+- Reorder pcs_handle to come before suffix props
+- Reword commit message
+- Rework xilinx_pcs_validate to just clear out half-duplex modes instead
+  of constraining modes based on the interface.
+
+Sean Anderson (13):
+  dt-bindings: net: Add Xilinx PCS
+  device property: Add optional nargs_prop for get_reference_args
+  device property: Add fwnode_property_get_reference_optional_args
+  scripts: kernel-doc: fix parsing function-like typedefs (again)
+  net: phylink: Support setting PCS link change callbacks
+  net: pcs: Add subsystem
+  net: pcs: lynx: Convert to an MDIO driver
+  net: phy: Export some functions
+  net: pcs: Add Xilinx PCS driver
+  net: axienet: Convert to use PCS subsystem
+  net: macb: Move most of mac_config to mac_prepare
+  net: macb: Support external PCSs
+  of: property: Add device link support for PCS
+
+Vladimir Oltean (1):
+  net: dsa: ocelot: suppress PHY device scanning on the internal MDIO
+    bus
+
+ .../devicetree/bindings/net/xilinx,pcs.yaml   | 115 +++
+ Documentation/networking/index.rst            |   1 +
+ Documentation/networking/kapi.rst             |   4 +
+ Documentation/networking/pcs.rst              | 107 +++
+ MAINTAINERS                                   |   8 +
+ drivers/base/property.c                       |  50 +-
+ drivers/base/swnode.c                         |  13 +-
+ drivers/net/dsa/ocelot/Kconfig                |   4 +
+ drivers/net/dsa/ocelot/felix_vsc9959.c        |  15 +-
+ drivers/net/dsa/ocelot/seville_vsc9953.c      |  16 +-
+ drivers/net/ethernet/altera/Kconfig           |   2 +
+ drivers/net/ethernet/altera/altera_tse_main.c |   7 +-
+ drivers/net/ethernet/cadence/macb.h           |   1 +
+ drivers/net/ethernet/cadence/macb_main.c      | 229 +++--
+ drivers/net/ethernet/freescale/dpaa/Kconfig   |   2 +-
+ drivers/net/ethernet/freescale/dpaa2/Kconfig  |   3 +
+ .../net/ethernet/freescale/dpaa2/dpaa2-mac.c  |  11 +-
+ drivers/net/ethernet/freescale/enetc/Kconfig  |   2 +
+ .../net/ethernet/freescale/enetc/enetc_pf.c   |   8 +-
+ .../net/ethernet/freescale/enetc/enetc_pf.h   |   1 -
+ .../freescale/enetc/enetc_pf_common.c         |   4 +-
+ drivers/net/ethernet/freescale/fman/Kconfig   |   4 +-
+ .../net/ethernet/freescale/fman/fman_memac.c  |  27 +-
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   3 +
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |   6 +-
+ drivers/net/ethernet/xilinx/Kconfig           |   1 +
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |   4 +-
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 104 +--
+ drivers/net/pcs/Kconfig                       |  45 +-
+ drivers/net/pcs/Makefile                      |   4 +
+ drivers/net/pcs/core.c                        | 782 ++++++++++++++++++
+ drivers/net/pcs/pcs-lynx.c                    | 110 +--
+ drivers/net/pcs/pcs-xilinx.c                  | 479 +++++++++++
+ drivers/net/phy/mdio_device.c                 |   1 +
+ drivers/net/phy/phy_device.c                  |   3 +-
+ drivers/net/phy/phylink.c                     |  24 +-
+ drivers/of/property.c                         |  12 +-
+ include/linux/fwnode.h                        |   2 +-
+ include/linux/pcs-lynx.h                      |  13 +-
+ include/linux/pcs-xilinx.h                    |  36 +
+ include/linux/pcs.h                           | 195 +++++
+ include/linux/phy.h                           |   1 +
+ include/linux/phylink.h                       |  27 +-
+ include/linux/property.h                      |   4 +
+ scripts/kernel-doc                            |   2 +-
+ 45 files changed, 2181 insertions(+), 311 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/xilinx,pcs.yaml
+ create mode 100644 Documentation/networking/pcs.rst
+ create mode 100644 drivers/net/pcs/core.c
+ create mode 100644 drivers/net/pcs/pcs-xilinx.c
+ create mode 100644 include/linux/pcs-xilinx.h
+ create mode 100644 include/linux/pcs.h
+
+-- 
+2.35.1.1320.gc452695387.dirty
+
 
