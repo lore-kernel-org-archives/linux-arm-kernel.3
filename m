@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1624BC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 19:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25A6C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 19:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cGSukBRzmg8n0+9cjuObXUH/cH44qlXadRu6k+17x6I=; b=Hfl8fLvhlJ4kQhW99HGMaDzNNr
-	W4N6pIo0qAn9f6cJbdNsO0RtnsMR5pFtctbKjGz/jUsaqeyyrqOA9QG/gUPUTLOL72A38jOfC1bR9
-	G0iv6+8RA8dgny3yoUPLIWeNsvigg+a1k6kqeQDye0c82kIViwU0XmYem1v3BhPRppGN9An2EdYVc
-	FgZQG0wZzUk36qwtl/hLs3dPEGD0wS6T9P2F/sUMRphpphUu3y0mY1M6o3CXZlemYBrocs1n6YHOR
-	n7ahL/qsFEnhqlntQnPSm34KG9G+D3orm8oy3ftc9HLPqcsCYtfo0Y9XxAKM0zzCLPrsGpYKShfU+
-	IC9KMwvQ==;
+	bh=7BFkzchF7Fl7VjFOlM+Uyf/YptztaY7jNT05p37h9zY=; b=NSpbPMsjZ2PVxZPw1TdfnjjI6T
+	Oo/t5uSRcvbHE/OALOhcvcGD6S5ZyY1RMPufk5LzhIHMdndPkJzEkIJvHkrlhhLIqWXjGYFLhxTto
+	mXPifgre7SSD8qoOoCT/DxU35SIv0wBpVIAY+1YBCCmzLZKfdvM3S7KA1MNvln0YB6MXF1YFv9X8P
+	xM8Lu+OKTZdv7lVvm8ShxChfOGFCJvotDk+iXsIdcLOJt+o3BJMbPsZ5RsPlxUwS7XS6kQeJG7wVl
+	qxadClaZDIEgzAMTyuEBByYARjcMCYSMMt8e17QhVtAAs0LldVEGHRGHbWuoBSDfouvUe2vBnNl2v
+	ApAKoo2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1s9E-00000001p15-3kre;
-	Mon, 07 Apr 2025 19:28:44 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u1sCh-00000001pfJ-3Yb8;
+	Mon, 07 Apr 2025 19:32:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1qxv-00000001UKB-0rxY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 18:13:00 +0000
+	id 1u1qyq-00000001UXy-0Dnf;
+	Mon, 07 Apr 2025 18:13:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 872F6A48450;
-	Mon,  7 Apr 2025 18:07:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9F16C4CEDD;
-	Mon,  7 Apr 2025 18:12:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 226D849FB9;
+	Mon,  7 Apr 2025 18:13:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 953F1C4CEE7;
+	Mon,  7 Apr 2025 18:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744049577;
-	bh=QBJ+dUeJc1CSohXQzdN/Y/YCiwyNb/H1CHJQS7EhYcg=;
+	s=k20201202; t=1744049635;
+	bh=N3tuyanrTtxiKtiQRftQJLpETtDOfLjsVli+Lpax9x8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JX7xthFK7yQFN3HXFZHFZFmUFAdcZWRaGPaRbR0JNQe4NRXcYZ0Zp5LffamXeiky0
-	 YdKE1P8r9qfOZ4UYmV9kGouGqSs0g0RSluDqqChFSqOzfy1P4vBYifru3iNGnlzhhV
-	 6nyurJRdf4mAgjk3ldiaLlNKL9fVCRigYqwj67fdohZ/kv+Ws4IjNjKxC3fbKJQJw0
-	 PkcKdf5viakPWY3FbL4UjsfWgDvRLaUFfdcm72ioLVbzInXokosSeEHGFNLzDNa2eT
-	 Ndcj06nVv2L7J/vK/nWxVHLenQAKXb9USZawsPilpEgU91x04XN45kAIFAYshR9SjX
-	 MK9SUJAPaXn0Q==
+	b=uR/XuDW2PPtV5U18bb5F1SFI3r+MACZ5F76O3xpKTB8d1Q28HJO4qF+7BKhLMM0A+
+	 goouL4GGKCqmHIdQy77GqunjlypiwhhBurB2n62GkFan/GIAUVQ5f87DGmazuOVioN
+	 ET5zUFDuQeCbiXxmpV+Wvl9GCt5iY2eDewfSOiTI42gcERVtIDyReAJR0pdVqUgHc7
+	 /nuvUpqLoVTFXfLf6HFSMImWd8Hzo2eYbHUgzRSP/EWQOnG2IhCY46o7Nxy5WTFJ0F
+	 2OwVt5aOHmKrk+uYsR+Ui5DVOuqL13q54myBNjGnQqTcr5ZUZ2wzr0FZuCJIpQ0Bih
+	 L+2cE9vJhr9FA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Chenyuan Yang <chenyuan0y@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+Cc: Andy Yan <andy.yan@rock-chips.com>,
+	Vinod Koul <vkoul@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au,
-	richardcochran@gmail.com,
-	linux-usb@vger.kernel.org,
+	kishon@kernel.org,
+	heiko@sntech.de,
+	linux-phy@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	netdev@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.13 17/28] usb: gadget: aspeed: Add NULL pointer check in ast_vhub_init_dev()
-Date: Mon,  7 Apr 2025 14:12:07 -0400
-Message-Id: <20250407181224.3180941-17-sashal@kernel.org>
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 13/22] phy: rockchip: usbdp: Avoid call hpd_event_trigger in dp_phy_init
+Date: Mon,  7 Apr 2025 14:13:23 -0400
+Message-Id: <20250407181333.3182622-13-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250407181224.3180941-1-sashal@kernel.org>
-References: <20250407181224.3180941-1-sashal@kernel.org>
+In-Reply-To: <20250407181333.3182622-1-sashal@kernel.org>
+References: <20250407181333.3182622-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.13.10
+X-stable-base: Linux 6.12.22
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_111259_307955_4535B3A9 
-X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-CacheID: sfid-20250407_111356_108779_E67C1CDB 
+X-CRM114-Status: UNSURE (   8.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,39 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chenyuan Yang <chenyuan0y@gmail.com>
+From: Andy Yan <andy.yan@rock-chips.com>
 
-[ Upstream commit 8c75f3e6a433d92084ad4e78b029ae680865420f ]
+[ Upstream commit 28dc672a1a877c77b000c896abd8f15afcdc1b0c ]
 
-The variable d->name, returned by devm_kasprintf(), could be NULL.
-A pointer check is added to prevent potential NULL pointer dereference.
-This is similar to the fix in commit 3027e7b15b02
-("ice: Fix some null pointer dereference issues in ice_ptp.c").
+Function rk_udphy_dp_hpd_event_trigger will set vogrf let it
+trigger HPD interrupt to DP by Type-C. This configuration is only
+required when the DP work in Alternate Mode, and called by
+typec_mux_set. In standard DP mode, such settings will prevent
+the DP from receiving HPD interrupts.
 
-This issue is found by our static analysis tool
-
-Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
-Link: https://lore.kernel.org/r/20250311012705.1233829-1-chenyuan0y@gmail.com
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Link: https://lore.kernel.org/r/20250302115257.188774-1-andyshrk@163.com
+Signed-off-by: Vinod Koul <vkoul@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/usb/gadget/udc/aspeed-vhub/dev.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-index 573109ca5b799..a09f72772e6e9 100644
---- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-+++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-@@ -548,6 +548,9 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx)
- 	d->vhub = vhub;
- 	d->index = idx;
- 	d->name = devm_kasprintf(parent, GFP_KERNEL, "port%d", idx+1);
-+	if (!d->name)
-+		return -ENOMEM;
-+
- 	d->regs = vhub->regs + 0x100 + 0x10 * idx;
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 2c51e5c62d3eb..f5c6d264d89ed 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -1045,7 +1045,6 @@ static int rk_udphy_dp_phy_init(struct phy *phy)
+ 	mutex_lock(&udphy->mutex);
  
- 	ast_vhub_init_ep0(vhub, &d->ep0, d);
+ 	udphy->dp_in_use = true;
+-	rk_udphy_dp_hpd_event_trigger(udphy, udphy->dp_sink_hpd_cfg);
+ 
+ 	mutex_unlock(&udphy->mutex);
+ 
 -- 
 2.39.5
 
