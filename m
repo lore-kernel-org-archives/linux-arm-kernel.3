@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34948C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 09:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3380C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 09:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4eDjRS2hC0vlG/zR57fnDcqGBidSBNVgWKh9+kcMn9o=; b=OkdzgggnwwwpHHZ4M211pfGu46
-	a03w6by1HKZOWUGQTbAwfI5dtpiNy9QZq8QPflacIipgzSZy3HdrWbfPHOomHXqYqI1U8A/vpAD3z
-	azvFSXwMCdTykuhBe5bQc1jBZK7r3sAVtjJkVd3ywLBIakYKHBN5/DIKt8KNTLh8wmESw9TJJ2kHw
-	vEjAhM09H4/4HVbejrKRqbqThVwp9Jd4dvkJQw3T+6x1EFsOEJ3uoTFe2snCcLWtaMgeLulH7RisM
-	QE1AadhXREqjK9G54apvxYiCO/b2kNrkiTHTtNE5Phn5KivxAeGqz+qmIyRJs97hReJzgfnwGXpFy
-	tkJVRBWw==;
+	bh=zzzoSA42unHPq3blB0h8MsMPa11UOtrCu037wqmBEyY=; b=HGdQVvP9BAsYx+jQVi3Sknvq4K
+	TGBA0FuM8n0Q84BkJ8SJxWiKZV+/LG0IG4qDXnm2UPdk+nOfswLUpIpuXCZJSNKCMUS8Qi+fWXKqW
+	5MLxZimFiLA5b08l3cVa70qKM/DQ9jD8Y5vu+NlESCrAaLydy/k4b75AWcHGd45V/XsaSQ6NlLNIa
+	2I6DHfcMn4U5hT5V0NXHutSH/25mvWt9g5abRudX0VD/AGC22mG4b4jMXb8bymO6OHol3hIHEGHIC
+	IPKUdPaiipGyLwbLhmP3BUkUnVEVQoKzEc9CRt5Nv3YxyseomRPDq/Iu7LSkzTl70tcN8r2Du6Ejz
+	Gk1EQwXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1jDJ-0000000HHWS-1xMS;
-	Mon, 07 Apr 2025 09:56:21 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1u1jEQ-0000000HIAe-42Vb;
+	Mon, 07 Apr 2025 09:57:30 +0000
+Received: from mail-wm1-f74.google.com ([209.85.128.74])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1j0C-0000000HEcY-3oMU
+	id 1u1hpe-0000000H01O-0kfD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 09:42:50 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B6097103B92D0;
-	Mon,  7 Apr 2025 11:42:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1744018966; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=4eDjRS2hC0vlG/zR57fnDcqGBidSBNVgWKh9+kcMn9o=;
-	b=OacILLR0PwfGSFd3hcH03M4AGX0eCI+iwWLGOHkju2e/YjCChp42qafsC7ngwfwStcTbGB
-	yBEfpNQezQ8CC9+MjOI9E+r3mkWD8hWIOlJzQNlT5lJxe/lU9M1BrOmdbZ6NxsCEJTbFmh
-	CBPP6rIic66CUcRi0f/AbztRI4GnG/frJ+runK2heeTWaE6cDDM5t+G3ZvhRWD7MW/Fu9u
-	BxpzTVV/ikPpPimshka6Te0UALX8btX3TIYzZneD2IH/A8dx54upW92ZdWdSZEgTiispCF
-	/7cyDDgUJMTi/kVsrbeVtZibZKzfKm8Q4p5IaaJx5rqt3+ykqd+uKzG7MOLPfQ==
-Date: Mon, 7 Apr 2025 11:42:39 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 4/4] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250407114239.193cd217@wsk>
-In-Reply-To: <33394d5b-9a67-4acc-bdd1-bf43dc3bd8ab@lunn.ch>
-References: <20250331103116.2223899-1-lukma@denx.de>
-	<20250331103116.2223899-5-lukma@denx.de>
-	<33394d5b-9a67-4acc-bdd1-bf43dc3bd8ab@lunn.ch>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/dGGFaEc2.hmY7aZKdqC+Kiu";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+	Mon, 07 Apr 2025 08:27:51 +0000
+Received: by mail-wm1-f74.google.com with SMTP id 5b1f17b1804b1-43ce245c5acso51474785e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 01:27:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1744014468; x=1744619268; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zzzoSA42unHPq3blB0h8MsMPa11UOtrCu037wqmBEyY=;
+        b=yOb+4WPWhb3YQpNafXCx9x68JbJraLWLVM/mqMsTD2bpvODg56nMjC3h+cbceUi4fk
+         YM7yVGpJwG+V/vT6pdVZNkhZkF+DMIFjyjEsa42d01xf7j87bV1dVdVxeNvhedUjwar2
+         gr4u2cMTpt1eP9U4SYzAtveSrvPwy2dG/cVsRONwSylPrFXrTGy3gzzQoZ3GFvi+yjaD
+         AFRsYyEEvIW3le+NTVB050ku3gyYVekFJYhnFBv9dbJQcMZQQ4dPxrCPYpp6nM1Fbr/K
+         ppyQxvEHxVG8Ov5gAhWeDfJAf3a6PzCPVjJElQE9sNS6UEQfIOnZuFeQOtWZtOOxlIzV
+         /Q8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744014468; x=1744619268;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zzzoSA42unHPq3blB0h8MsMPa11UOtrCu037wqmBEyY=;
+        b=cbT5oBQaIvYJftQStZ4wcmAZvyfgK6mmGtnha986xIB/u1mvIpR4pTs95fT4eufRiT
+         kocSpn2VeVsI1r+Yl1igSLJ7p+2F2vZmo+MpZmgbQ/Npvn5qGWcjccLCslF9AukAccYi
+         ZmYUP+uuSVRTd84ArOb/6Nmz2+O61S4o8CSP5ciL9PzQQMcyrBPsuXc5FqBacPP/nu53
+         HW1sOFd505o/uJ77QX24a0aAa/NMm94w3F4GTGThgHKtgNgGxp485uR2R+WJAohBXmht
+         b/QOtQJ2uYcEvl7JfRGAMWHIxkXwZFMRXXtoQUtidPl6q4uYRe6hUrdGHp4ZWCEpyr2B
+         bc9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU+hYKlwp/C2q1QdFnvXXm/UAThiZQRAgEHBNR9M5GPD/+xgsvBHCrzW8u93XgjHnyQ80sUSH+HK3PKU0KWusbA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV5llL4NAHslirLRieBr1zTY+wDh7JDuCWwCB8rCeohlMCcJDW
+	woVjevXJSOCF0IUeSCy7bTuqUEmcJQvCXDCXOWiztw8C4L97uMccch6UszFs6Tf4nNxyMY1KcTc
+	yhWqqmRwAG7JChWxV5w==
+X-Google-Smtp-Source: AGHT+IGnUridpgjPubam8YujaYbrltWFNlafyAl6T6J8kp+n5+9Me3rdeXELJVFMtMw+9kg5EqHn5wZkJZc7sPGe
+X-Received: from wmbfl21.prod.google.com ([2002:a05:600c:b95:b0:43d:4ba5:b5d6])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:1f17:b0:43d:4e9:27fe with SMTP id 5b1f17b1804b1-43ed0bc77bcmr112690825e9.8.1744014467973;
+ Mon, 07 Apr 2025 01:27:47 -0700 (PDT)
+Date: Mon,  7 Apr 2025 09:27:06 +0100
+In-Reply-To: <20250407082706.1239603-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20250407082706.1239603-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
+Message-ID: <20250407082706.1239603-10-vdonnefort@google.com>
+Subject: [PATCH v3 9/9] KVM: arm64: np-guest CMOs with PMD_SIZE fixmap
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org
+Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_024249_238236_A578146D 
-X-CRM114-Status: GOOD (  33.05  )
+X-CRM114-CacheID: sfid-20250407_012750_220348_22D819A8 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,152 +92,313 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/dGGFaEc2.hmY7aZKdqC+Kiu
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+With the introduction of stage-2 huge mappings in the pKVM hypervisor,
+guest pages CMO is needed for PMD_SIZE size. Fixmap only supports
+PAGE_SIZE and iterating over the huge-page is time consuming (mostly due
+to TLBI on hyp_fixmap_unmap) which is a problem for EL2 latency.
 
-Hi Andrew,
+Introduce a shared PMD_SIZE fixmap (hyp_fixblock_map/hyp_fixblock_unmap)
+to improve guest page CMOs when stage-2 huge mappings are installed.
 
-> > +struct switch_enet_private *mtip_netdev_get_priv(const struct
-> > net_device *ndev) +{
-> > +	if (ndev->netdev_ops =3D=3D &mtip_netdev_ops)
-> > +		return netdev_priv(ndev);
-> > +
-> > +	return NULL;
-> > +} =20
->=20
-> > +static bool mtip_port_dev_check(const struct net_device *ndev)
-> > +{
-> > +	if (!mtip_netdev_get_priv(ndev))
-> > +		return false;
-> > +
-> > +	return true;
-> > +}
-> > + =20
->=20
-> Rearranging the code a bit to make my point....
->=20
-> mtip_port_dev_check() tells us if this ndev is one of the ports of
-> this switch.
->=20
-> > +/* netdev notifier */
-> > +static int mtip_netdevice_event(struct notifier_block *unused,
-> > +				unsigned long event, void *ptr)
-> > +{
-> > +	struct net_device *ndev =3D netdev_notifier_info_to_dev(ptr);
-> > +	struct netdev_notifier_changeupper_info *info;
-> > +	int ret =3D NOTIFY_DONE;
-> > +
-> > +	if (!mtip_port_dev_check(ndev))
-> > +		return NOTIFY_DONE; =20
->=20
-> We have received a notification about some interface. This filters out
-> all but the switches interfaces.
->=20
-> > +
-> > +	switch (event) {
-> > +	case NETDEV_CHANGEUPPER:
-> > +		info =3D ptr; =20
->=20
-> CHANGERUPPER is that a netdev has been added or removed from a bridge,
-> or some other sort of master device, e.g. a bond.
->=20
-> > +
-> > +		if (netif_is_bridge_master(info->upper_dev)) {
-> > +			if (info->linking)
-> > +				ret =3D mtip_ndev_port_link(ndev,
-> > +
-> > info->upper_dev); =20
->=20
-> Call mtip_ndev_port_link() has been added to some bridge.
->=20
-> > +static int mtip_ndev_port_link(struct net_device *ndev,
-> > +			       struct net_device *br_ndev)
-> > +{
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(ndev);
-> > +	struct switch_enet_private *fep =3D priv->fep;
-> > +
-> > +	dev_dbg(&ndev->dev, "%s: ndev: %s br: %s fep: 0x%x\n",
-> > +		__func__, ndev->name,  br_ndev->name, (unsigned
-> > int)fep); +
-> > +	/* Check if MTIP switch is already enabled */
-> > +	if (!fep->br_offload) {
-> > +		if (!priv->master_dev)
-> > +			priv->master_dev =3D br_ndev;
-> > +
-> > +		fep->br_offload =3D 1;
-> > +		mtip_switch_dis_port_separation(fep);
-> > +		mtip_clear_atable(fep);
-> > +	} =20
->=20
-> So lets consider
->=20
-> ip link add br0 type bridge
-> ip link add br1 type bridge
-> ip link set dev lan1 master br0
->=20
-> We create two bridges, and add the first port to one of the bridges.
->=20
-> fep->br_offload should be False
-> priv->master_dev should be NULL.
->=20
-> So fep->br_offload is set to 1, priv->master_dev is set to br0 and the
-> separation between the ports is removed.
->=20
-> It seems like the hardware will now be bridging packets between the
-> two interfaces, despite lan2 not being a member of any bridge....
->=20
-> Now
->=20
-> ip link set dev lan2 master br1
->=20
-> I make the second port a member of some other bridge. fep->br_offload
-> is True, so nothing happens.
->=20
-> This is why i said this code needs expanding.
->=20
-> If you look at other switch drivers, you will see each port keeps
-> track of what bridge it has been joined to. There is then logic which
-> iterates over the ports, finds which ports are members of the same
-> bridge, and enables packets to flow between those ports.
->=20
-> With only two ports, you can make some simplifications, but you should
-> only disable the separation once both ports are the member of the same
-> bridge.
->=20
+On a Pixel6, the iterative solution resulted in a latency of ~700us,
+while the PMD_SIZE fixmap reduces it to ~100us.
 
-I think that I do have your point. Thanks for the info.
+Because of the horrendous private range allocation that would be
+necessary, this is disabled for 64KiB pages systems.
 
-> 	Andrew
+Suggested-by: Quentin Perret <qperret@google.com>
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Signed-off-by: Quentin Perret <qperret@google.com>
 
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 1b43bcd2a679..2888b5d03757 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -59,6 +59,11 @@ typedef u64 kvm_pte_t;
+ 
+ #define KVM_PHYS_INVALID		(-1ULL)
+ 
++#define KVM_PTE_TYPE			BIT(1)
++#define KVM_PTE_TYPE_BLOCK		0
++#define KVM_PTE_TYPE_PAGE		1
++#define KVM_PTE_TYPE_TABLE		1
++
+ #define KVM_PTE_LEAF_ATTR_LO		GENMASK(11, 2)
+ 
+ #define KVM_PTE_LEAF_ATTR_LO_S1_ATTRIDX	GENMASK(4, 2)
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+index 230e4f2527de..b0c72bc2d5ba 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+@@ -13,9 +13,11 @@
+ extern struct kvm_pgtable pkvm_pgtable;
+ extern hyp_spinlock_t pkvm_pgd_lock;
+ 
+-int hyp_create_pcpu_fixmap(void);
++int hyp_create_fixmap(void);
+ void *hyp_fixmap_map(phys_addr_t phys);
+ void hyp_fixmap_unmap(void);
++void *hyp_fixblock_map(phys_addr_t phys);
++void hyp_fixblock_unmap(void);
+ 
+ int hyp_create_idmap(u32 hyp_va_bits);
+ int hyp_map_vectors(void);
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index da82d554ff88..858994f20741 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -220,16 +220,52 @@ static void guest_s2_put_page(void *addr)
+ 	hyp_put_page(&current_vm->pool, addr);
+ }
+ 
++static void *__fixmap_guest_page(void *va, size_t *size)
++{
++	if (IS_ALIGNED(*size, PMD_SIZE)) {
++		void *addr = hyp_fixblock_map(__hyp_pa(va));
++
++		if (addr)
++			return addr;
++
++		*size = PAGE_SIZE;
++	}
++
++	if (IS_ALIGNED(*size, PAGE_SIZE))
++		return hyp_fixmap_map(__hyp_pa(va));
++
++	WARN_ON(1);
++
++	return NULL;
++}
++
++static void __fixunmap_guest_page(size_t size)
++{
++	switch (size) {
++	case PAGE_SIZE:
++		hyp_fixmap_unmap();
++		break;
++	case PMD_SIZE:
++		hyp_fixblock_unmap();
++		break;
++	default:
++		WARN_ON(1);
++	}
++}
++
+ static void clean_dcache_guest_page(void *va, size_t size)
+ {
+ 	WARN_ON(!PAGE_ALIGNED(size));
+ 
+ 	while (size) {
+-		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
+-					  PAGE_SIZE);
+-		hyp_fixmap_unmap();
+-		va += PAGE_SIZE;
+-		size -= PAGE_SIZE;
++		size_t fixmap_size = size == PMD_SIZE ? size : PAGE_SIZE;
++		void *addr = __fixmap_guest_page(va, &fixmap_size);
++
++		__clean_dcache_guest_page(addr, fixmap_size);
++		__fixunmap_guest_page(fixmap_size);
++
++		size -= fixmap_size;
++		va += fixmap_size;
+ 	}
+ }
+ 
+@@ -238,11 +274,14 @@ static void invalidate_icache_guest_page(void *va, size_t size)
+ 	WARN_ON(!PAGE_ALIGNED(size));
+ 
+ 	while (size) {
+-		__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
+-					       PAGE_SIZE);
+-		hyp_fixmap_unmap();
+-		va += PAGE_SIZE;
+-		size -= PAGE_SIZE;
++		size_t fixmap_size = size == PMD_SIZE ? size : PAGE_SIZE;
++		void *addr = __fixmap_guest_page(va, &fixmap_size);
++
++		__invalidate_icache_guest_page(addr, fixmap_size);
++		__fixunmap_guest_page(fixmap_size);
++
++		size -= fixmap_size;
++		va += fixmap_size;
+ 	}
+ }
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index f41c7440b34b..e3b1bece8504 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -229,9 +229,8 @@ int hyp_map_vectors(void)
+ 	return 0;
+ }
+ 
+-void *hyp_fixmap_map(phys_addr_t phys)
++static void *fixmap_map_slot(struct hyp_fixmap_slot *slot, phys_addr_t phys)
+ {
+-	struct hyp_fixmap_slot *slot = this_cpu_ptr(&fixmap_slots);
+ 	kvm_pte_t pte, *ptep = slot->ptep;
+ 
+ 	pte = *ptep;
+@@ -243,10 +242,21 @@ void *hyp_fixmap_map(phys_addr_t phys)
+ 	return (void *)slot->addr;
+ }
+ 
++void *hyp_fixmap_map(phys_addr_t phys)
++{
++	return fixmap_map_slot(this_cpu_ptr(&fixmap_slots), phys);
++}
++
+ static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
+ {
+ 	kvm_pte_t *ptep = slot->ptep;
+ 	u64 addr = slot->addr;
++	u32 level;
++
++	if (FIELD_GET(KVM_PTE_TYPE, *ptep) == KVM_PTE_TYPE_PAGE)
++		level = KVM_PGTABLE_LAST_LEVEL;
++	else
++		level = KVM_PGTABLE_LAST_LEVEL - 1; /* create_fixblock() guarantees PMD level */
+ 
+ 	WRITE_ONCE(*ptep, *ptep & ~KVM_PTE_VALID);
+ 
+@@ -260,7 +270,7 @@ static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
+ 	 * https://lore.kernel.org/kvm/20221017115209.2099-1-will@kernel.org/T/#mf10dfbaf1eaef9274c581b81c53758918c1d0f03
+ 	 */
+ 	dsb(ishst);
+-	__tlbi_level(vale2is, __TLBI_VADDR(addr, 0), KVM_PGTABLE_LAST_LEVEL);
++	__tlbi_level(vale2is, __TLBI_VADDR(addr, 0), level);
+ 	dsb(ish);
+ 	isb();
+ }
+@@ -273,9 +283,9 @@ void hyp_fixmap_unmap(void)
+ static int __create_fixmap_slot_cb(const struct kvm_pgtable_visit_ctx *ctx,
+ 				   enum kvm_pgtable_walk_flags visit)
+ {
+-	struct hyp_fixmap_slot *slot = per_cpu_ptr(&fixmap_slots, (u64)ctx->arg);
++	struct hyp_fixmap_slot *slot = (struct hyp_fixmap_slot *)ctx->arg;
+ 
+-	if (!kvm_pte_valid(ctx->old) || ctx->level != KVM_PGTABLE_LAST_LEVEL)
++	if (!kvm_pte_valid(ctx->old) || (ctx->end - ctx->start) != kvm_granule_size(ctx->level))
+ 		return -EINVAL;
+ 
+ 	slot->addr = ctx->addr;
+@@ -296,13 +306,73 @@ static int create_fixmap_slot(u64 addr, u64 cpu)
+ 	struct kvm_pgtable_walker walker = {
+ 		.cb	= __create_fixmap_slot_cb,
+ 		.flags	= KVM_PGTABLE_WALK_LEAF,
+-		.arg = (void *)cpu,
++		.arg = (void *)per_cpu_ptr(&fixmap_slots, cpu),
+ 	};
+ 
+ 	return kvm_pgtable_walk(&pkvm_pgtable, addr, PAGE_SIZE, &walker);
+ }
+ 
+-int hyp_create_pcpu_fixmap(void)
++#ifndef CONFIG_ARM64_64K_PAGES
++static struct hyp_fixmap_slot hyp_fixblock_slot;
++static DEFINE_HYP_SPINLOCK(hyp_fixblock_lock);
++
++void *hyp_fixblock_map(phys_addr_t phys)
++{
++	hyp_spin_lock(&hyp_fixblock_lock);
++	return fixmap_map_slot(&hyp_fixblock_slot, phys);
++}
++
++void hyp_fixblock_unmap(void)
++{
++	fixmap_clear_slot(&hyp_fixblock_slot);
++	hyp_spin_unlock(&hyp_fixblock_lock);
++}
++
++static int create_fixblock(void)
++{
++	struct kvm_pgtable_walker walker = {
++		.cb	= __create_fixmap_slot_cb,
++		.flags	= KVM_PGTABLE_WALK_LEAF,
++		.arg = (void *)&hyp_fixblock_slot,
++	};
++	unsigned long addr;
++	phys_addr_t phys;
++	int ret, i;
++
++	/* Find a RAM phys address, PMD aligned */
++	for (i = 0; i < hyp_memblock_nr; i++) {
++		phys = ALIGN(hyp_memory[i].base, PMD_SIZE);
++		if (phys + PMD_SIZE < (hyp_memory[i].base + hyp_memory[i].size))
++			break;
++	}
++
++	if (i >= hyp_memblock_nr)
++		return -EINVAL;
++
++	hyp_spin_lock(&pkvm_pgd_lock);
++	addr = ALIGN(__io_map_base, PMD_SIZE);
++	ret = __pkvm_alloc_private_va_range(addr, PMD_SIZE);
++	if (ret)
++		goto unlock;
++
++	ret = kvm_pgtable_hyp_map(&pkvm_pgtable, addr, PMD_SIZE, phys, PAGE_HYP);
++	if (ret)
++		goto unlock;
++
++	ret = kvm_pgtable_walk(&pkvm_pgtable, addr, PMD_SIZE, &walker);
++
++unlock:
++	hyp_spin_unlock(&pkvm_pgd_lock);
++
++	return ret;
++}
++#else
++void hyp_fixblock_unmap(void) { WARN_ON(1); }
++void *hyp_fixblock_map(phys_addr_t phys) { return NULL; }
++static int create_fixblock(void) { return 0; }
++#endif
++
++int hyp_create_fixmap(void)
+ {
+ 	unsigned long addr, i;
+ 	int ret;
+@@ -322,7 +392,7 @@ int hyp_create_pcpu_fixmap(void)
+ 			return ret;
+ 	}
+ 
+-	return 0;
++	return create_fixblock();
+ }
+ 
+ int hyp_create_idmap(u32 hyp_va_bits)
+diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+index d62bcb5634a2..fb69cf5e6ea8 100644
+--- a/arch/arm64/kvm/hyp/nvhe/setup.c
++++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+@@ -295,7 +295,7 @@ void __noreturn __pkvm_init_finalise(void)
+ 	if (ret)
+ 		goto out;
+ 
+-	ret = hyp_create_pcpu_fixmap();
++	ret = hyp_create_fixmap();
+ 	if (ret)
+ 		goto out;
+ 
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index df5cc74a7dd0..c351b4abd5db 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -11,12 +11,6 @@
+ #include <asm/kvm_pgtable.h>
+ #include <asm/stage2_pgtable.h>
+ 
+-
+-#define KVM_PTE_TYPE			BIT(1)
+-#define KVM_PTE_TYPE_BLOCK		0
+-#define KVM_PTE_TYPE_PAGE		1
+-#define KVM_PTE_TYPE_TABLE		1
+-
+ struct kvm_pgtable_walk_data {
+ 	struct kvm_pgtable_walker	*walker;
+ 
+-- 
+2.49.0.504.g3bcea36a83-goog
 
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/dGGFaEc2.hmY7aZKdqC+Kiu
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmfzng8ACgkQAR8vZIA0
-zr1QPggAx9Y8piyOWlU04a35TryOc69ycDWnjqzMqg11YaCSKZRe0597B8yD8gCi
-aNIIj+tSDbWmJS9aghABK6uFYyWdHV6reZPoDA2FSIyc+HnmNyJG8l+467EJyVyE
-cfPbcXsw/Pg0eAgEJVbcXoCrzLi+sAwBXzsegu6xFVOOcZoVpwJ37I7sSzTC/7zZ
-T90PsPu/sBksuaIr0xMW/VbYG5I0FLCEaOf06iThR3xQOTpWisjgdwmYPSvigPoq
-HmVQXp0w4LsfRTTvLavgpwa9YBJXOk87Jnyi86KvPoRxCVFNUvlSU432qzCV/7AN
-eXojuGHIx4+E2CgGqhfOCrcv/Ffnxg==
-=nOs3
------END PGP SIGNATURE-----
-
---Sig_/dGGFaEc2.hmY7aZKdqC+Kiu--
 
