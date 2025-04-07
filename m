@@ -4,107 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EC1C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 06:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA71BC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 06:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9JiwKhBxuNFYEusTuf1LQBAG/j+AVzq10oWn3l/o6DU=; b=dSdNeh7yOxWEbSWf0KTeXCjDQB
-	IehrY5TJMR9htrCqljl16ChR+Mo15ucSjpVPAsvlzdjMNOhVeE80GD2UJwWxtPOoMRvtk3Dw6e8kP
-	QrGebDTxj5qRIBz/cP4+/JsM8BPyszFKuFitOFctIXSUyaVw0AISGk4UhAooPMtSdnOqabI85JXuz
-	ByyqXCzWqI1/kwjWQo1kRugeRcOLxs932Ns12hVpH3nXuAwpJaf4+D5fr5o6ZncPSQEjFNdGewTuO
-	GMoVb1pp9re8TADu3RNACS8PPQfHcLUvCEicqvVuSXez7pn2b7tsoO65xKHWJGnlLHKaKlkwtjxdf
-	zIosLF4Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7dFXeq2CgWYu3KZ9DVuWvCtQbxPHL6sdTWZtnaoyOKs=; b=D0wwMYLgkIcDSsRxEe7SKAn0IW
+	WHBJ7k7TPv4QOHGnOjuX8SGpq4EdoWFyNjRuOyKrmTTDxanFJZ5U3BcTCLh537Zo1kC+hm/9GuoWC
+	24zhk7Gdge938AQ4vZb+OEZ29lqTuuUarSXJ33uN82rQO+Gpoywq8bxUHKi0t8XKsqHRxASRJ37fC
+	dW9lIIelIC3ZDcIflUlNkyzIX7BDU9YHZ6stMiZXqEntHqbSx8Z0J5jY6IitfvKQNVcVp0UP2rR3w
+	LKM3/rMChdRUEQQrJnMuBI4QvtCD9lIMmfl5mK4oC6YmTPGvEVeBfT57LteKUhbZ0FLfBrASgbW16
+	+YszjEEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1fdD-0000000GWeO-1VDo;
-	Mon, 07 Apr 2025 06:06:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u1fqy-0000000GYbM-3BOA;
+	Mon, 07 Apr 2025 06:21:04 +0000
+Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1fbS-0000000GWE0-2z3K
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 06:05:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A909343FC4;
-	Mon,  7 Apr 2025 06:05:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A1E6C4CEDD;
-	Mon,  7 Apr 2025 06:04:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744005902;
-	bh=QdlPTuGFDzHLTqGSHvpyqeL+wyYF1szxTKJZUAoSyAs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lLHkWsYj5spzqNUuH90Xd8qyXgoOZloNmjJ0gHK4EvJvTCrNLAwG+3nIJ1Y0l7CuZ
-	 8mUzIFqjh6IqSYAnZFL1cUspFhtUhYFTsJ7Dja2j9XI2Gg20dwN9Dyx2uxZrv1fQRZ
-	 2gcqVR2csGTopegBDIC3qjkr4RVCKJOGV4m/9voKS8eYYavf86BKA7FFRwKTnKznK2
-	 /rDyDVzfe/HHv7a42+Iuw4CxJRwpkRSe3JU8w96H5SsHCwSHvGktXSzNUeEwdWC63c
-	 w9V+Q4gQkFmABRMbrJbUEiNiHKAR8X4QFDRjrgiQOswgD1hY1YXbrtt+okKtKsU7gn
-	 oCjUqy44ya8Kg==
-Message-ID: <befe7d30-1727-4540-9072-f21ef96ea504@kernel.org>
-Date: Mon, 7 Apr 2025 08:04:57 +0200
+	id 1u1fpD-0000000GYOJ-1Mrv;
+	Mon, 07 Apr 2025 06:19:16 +0000
+Received: by mail-pj1-x1041.google.com with SMTP id 98e67ed59e1d1-3014cb646ecso2846439a91.1;
+        Sun, 06 Apr 2025 23:19:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744006754; x=1744611554; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7dFXeq2CgWYu3KZ9DVuWvCtQbxPHL6sdTWZtnaoyOKs=;
+        b=hkeLd+jK3ITm8M6lYYKWbr553k0P1Jy2PPtI1trZzSVQ6L5pXRY4x18WzBgeeiExoY
+         4tkDocp1A8+XXuknZrmVDmADKGew+qZBPwRaIyPReb0hQ99F7F/09svULzVVgNZU14Zo
+         RkCJCGGzoT/OJ5a7JUO3wE0qOgi410a9+VgI1LqK5fIbIey01nQ2pqwVbHj72Mq2rr5V
+         ac1SaVwLQnfAkU1YptTdTfEyQSQ35v7kIKAAeZnZ8PphiKtl/7e9mdilVvlSHmE0UOtJ
+         ZIppcLLKynzrfYw2SGfWFXmtkMxU+1Tu5Q1uSzT24IynN7AZjTP/B1Gzp3xiAAJXUOjd
+         t8PA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744006754; x=1744611554;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7dFXeq2CgWYu3KZ9DVuWvCtQbxPHL6sdTWZtnaoyOKs=;
+        b=AVlQTZM5wiNru8oFOWh+MTAXKkIed19U9lBobdneAVBRBRo/NNDtXiohwJgQvIlx/h
+         dGnD0sJxMJNFZA/bhxMKYjUonV6Idl7Dek0u4VD1ckqDD0NRPM5I6tW0L+1GDn/6yfsD
+         hBMQUo2K80OJtganbuuC3kI1WUxvXnKuVtF3jAQRuVy705gfzL56rKksZCwRTn22eACu
+         Qk2fH0hpqdXKRIn9rrJdkL1MGi8OWDOcRUZ2GlZ/rK40G57f/BR6qOaNnE6Z2ZgjwkxC
+         KDQla8UHv2BLl6yYkiPVAACOEznA4+nbrN25vuuV521IldR6IDhFuI9pmegqNN2u8gzz
+         2bdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUwTg9yPfuSPx5wnclyqLPLnmVwEw0iMfvmPkb2W1YGVTid/WoLhf5n+uxzC2bGiibxpUXPP5PRz6pyyha1h8o=@lists.infradead.org, AJvYcCWVyFQHHqvyHRO0zOCbozUU0fRKE0KJRPVcTP1iJpB8mOPWe0UpdHZooCdscYOP0HOUxsjfBZn2LmdeKqo9mc38@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvnWmYqQ/FKPmZM3FTQsenSL17FC81J2mccu9v5pN4U6fFRF6b
+	YM2whZkR9x3OEKxJJoHjKMwXxkXBIzXHAAJAkoH0IeiNJ3iwdzRO
+X-Gm-Gg: ASbGncveJ6EXtVfiRZV0jnJSIgf5PNgpyfNa5ky7P6UHX4ed3ejWyDDs7UdSaiuas2U
+	GUavAZi9KEJ9pptimWX7BhEJfcEeExmhTNRwxV+Es633kbTv2pvIuoN4m1p9j9aFxujKWwIsew4
+	J2rnpVjTat1+Bzql4A4lybwAwejKUodxQ5uaR1q9XB45UHgqsa2fDYpeCPMSsnS8d+oZOepbOqp
+	vPbnEjllve3d8rkRRS++ioaCy32j2SB/ZNaoKxNkyBwucVEw4HrIyIwOD1aMsonoT4PjCI3gYqm
+	cUjQUxF+mpT0FDZp0HZsEb4sX/b7sAdLnx7fn+eL6wEk62unbq374rSlMeiftSfOT1E06FI=
+X-Google-Smtp-Source: AGHT+IHeXC09XSFChpRb9qXhzMWyzY1i/YN7qCwEDFJ4TLe1zHG3OW/lwBLze1CQACFTsx9I7iunWw==
+X-Received: by 2002:a17:90a:d450:b0:2ff:5357:1c7e with SMTP id 98e67ed59e1d1-306a48a4b94mr15463045a91.20.1744006754416;
+        Sun, 06 Apr 2025 23:19:14 -0700 (PDT)
+Received: from henry.localdomain ([111.202.148.133])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-305983b9cfbsm7967837a91.31.2025.04.06.23.19.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 06 Apr 2025 23:19:13 -0700 (PDT)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: nbd@nbd.name,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	shayne.chen@mediatek.com,
+	sean.wang@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: linux-wireless@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Henry Martin <bsdhenrymartin@gmail.com>
+Subject: [PATCH v2] wifi: mt76: mt7915: Fix null-ptr-deref in mt7915_mmio_wed_init()
+Date: Mon,  7 Apr 2025 14:19:00 +0800
+Message-Id: <20250407061900.85317-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: exynos: Add DT node for all UART ports
-To: Faraz Ata <faraz.ata@samsung.com>, alim.akhtar@samsung.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- rosa.pila@samsung.com, dev.tailor@samsung.com, suyash.bitti@samsung.com
-References: <CGME20250318074801epcas5p3de68627a3e64ebc2a95ed33a3f485e80@epcas5p3.samsung.com>
- <20250318075635.3372599-1-faraz.ata@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250318075635.3372599-1-faraz.ata@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_230502_798118_18D01EF5 
-X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-CacheID: sfid-20250406_231915_364649_D889063B 
+X-CRM114-Status: UNSURE (   8.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,45 +103,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2025 08:56, Faraz Ata wrote:
-> +
-> +		usi_17: usi@10d800c0 {
+devm_ioremap() returns NULL on error. Currently, mt7915_mmio_wed_init()
+does not check for this case, which results in a NULL pointer
+dereference.
 
-Messed order. Keep nodes sorted by unit address (see DTS coding style).
+Prevent null pointer dereference in mt7915_mmio_wed_init().
 
-> +			compatible = "samsung,exynosautov920-usi",
-> +				     "samsung,exynos850-usi";
-> +			reg = <0x10d800c0 0x20>;
-> +			samsung,sysreg = <&syscon_peric1 0x1040>;
-> +			samsung,mode = <USI_V2_UART>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			ranges;
-> +			clocks = <&cmu_peric1 CLK_MOUT_PERIC1_NOC_USER>,
-> +				 <&cmu_peric1 CLK_DOUT_PERIC1_USI17_USI>;
-> +			clock-names = "pclk", "ipclk";
-> +			status = "disabled";
-> +
-> +			serial_17: serial@10d80000 {
-> +				compatible = "samsung,exynosautov920-uart",
-> +					     "samsung,exynos850-uart";
-> +				reg = <0x10d80000 0xc0>;
-> +				interrupts = <GIC_SPI 803 IRQ_TYPE_LEVEL_HIGH>;
-> +				pinctrl-names = "default";
-> +				pinctrl-0 = <&uart17_bus>;
-> +				clocks = <&cmu_peric1 CLK_MOUT_PERIC1_NOC_USER>,
-> +					 <&cmu_peric1 CLK_DOUT_PERIC1_USI17_USI>;
-> +				clock-names = "uart", "clk_uart_baud0";
-> +				samsung,uart-fifosize = <64>;
-> +				status = "disabled";
-> +			};
-> +		};
-> +
->  		pwm: pwm@109b0000 {
->  			compatible = "samsung,exynosautov920-pwm",
->  				     "samsung,exynos4210-pwm";
+Fixes: 4f831d18d12d ("wifi: mt76: mt7915: enable WED RX support")
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+---
+V1 -> V2: Add a blank line after each test and correct commit message.
 
+ drivers/net/wireless/mediatek/mt76/mt7915/mmio.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Best regards,
-Krzysztof
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
+index 876f0692850a..9c4d5cea0c42 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
+@@ -651,6 +651,9 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, void *pdev_ptr,
+ 		wed->wlan.base = devm_ioremap(dev->mt76.dev,
+ 					      pci_resource_start(pci_dev, 0),
+ 					      pci_resource_len(pci_dev, 0));
++		if (!wed->wlan.base)
++			return -ENOMEM;
++
+ 		wed->wlan.phy_base = pci_resource_start(pci_dev, 0);
+ 		wed->wlan.wpdma_int = pci_resource_start(pci_dev, 0) +
+ 				      MT_INT_WED_SOURCE_CSR;
+@@ -678,6 +681,9 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, void *pdev_ptr,
+ 		wed->wlan.bus_type = MTK_WED_BUS_AXI;
+ 		wed->wlan.base = devm_ioremap(dev->mt76.dev, res->start,
+ 					      resource_size(res));
++		if (!wed->wlan.base)
++			return -ENOMEM;
++
+ 		wed->wlan.phy_base = res->start;
+ 		wed->wlan.wpdma_int = res->start + MT_INT_SOURCE_CSR;
+ 		wed->wlan.wpdma_mask = res->start + MT_INT_MASK_CSR;
+-- 
+2.34.1
+
 
