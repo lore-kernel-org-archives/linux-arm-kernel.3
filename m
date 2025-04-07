@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FE6C369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88127C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nk+NCAHcg4JBvmzwCcPZcWCjL0/f2yMc6PoTFU9DwbY=; b=gYFrZK/l1sPzkwmDoOdRhCMB/h
-	bJg57wkj8xR8ZdPeF8j3QulLIx8CMllqpFnWAVj+elHDbdxmA+JJGneVOm0fBWvrPktDdit5Sab8m
-	FVLvluu+HGy9kUEFCaRncDj5bxAPArEuq1CEGmoVuVQeZNMzUVntVePIQiNwl3T27pZ+XcNIBFYre
-	xXMAjer4E5ZMctSIp+5Nf0qYIT/qtpJ8jYbWyjF3rqE6hZLSNUT0tMptGljaqoU75cb+eVoDLbeKx
-	6mzreZ+xkHzmgD4Wy/HQAWtB+iIreTlUYofz4/LbWAw/G1llboCCqPDAZxCPpdCmSTzq7lKhHvU5L
-	Y06S3utA==;
+	bh=DQLAax2Ii+FAHRuLmxj8jCF9OOQWkFkx4XQUnJiKxnY=; b=jH4+8ynTAJylvgg2k1ilYS22GG
+	JcKog2VTGNvT4Y5+2RAAJhkX46ngF/K7vlinbLZmlBGuBz1itc1dCVK6eWaBvNM/8VOuDyPnIi76R
+	2sODQhoSZS5Jh+KpX5TdjJbvGJd6txzSBB/ObeKnMpFEsCaoOxvnYkzEkCaYSjW3FlKGCAzqFCgxW
+	smGDtKKPJC4QhZRbmFZ80Z81sUadekqA8BdrDf4cMLaa9HIXPJ4ZFOpxdMw/xhb16Hro8ZjehQzd7
+	SxAbzUCwMNPO2nkrOCIGE2OBAnASFVXLX0gf590gnbXxTUs3SH7gmoaV88Ji7cfhdyUhYtOHKu/p1
+	jvlomfzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYH-00000001cie-2YK2;
-	Mon, 07 Apr 2025 18:50:33 +0000
+	id 1u1rYJ-00000001ckc-168W;
+	Mon, 07 Apr 2025 18:50:35 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pQx-00000001EIl-3TZJ
+	id 1u1pRW-00000001ERe-1EP4
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Apr 2025 16:34:51 +0000
+	Mon, 07 Apr 2025 16:35:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nk+NCAHcg4JBvmzwCcPZcWCjL0/f2yMc6PoTFU9DwbY=; b=jEi8b76jYCL9JRec8p7Acxwb4V
-	a2Y/m/SpHmhMnFF2CmObQCTU7wpYosRT0a+767BENEKUCOZ+kC+cNRTdabQ36DjbVW3f1aaKXc5Gz
-	aGNK2uNUL+a6mIFGxbV1V4+D4CmnFwaKskKuEA4ssB//1yIbMqoZD51xT7El4G0JkQOHDhe5AzhGC
-	5qlVkSERqQpBQV+3mdgdrznvhn2LX8ZSwGse09/G7VEXto8lZu51kZat3Dtco+r0sgltuZKn2aTWt
-	nRGZ/zvKc2AWMp9A68UGna34ePoGXlDAjkpibKRDcumZb11HS/gp+BfwEvUNyxNE+8zKPYIlBYa9X
-	KJIcbFUg==;
+	bh=DQLAax2Ii+FAHRuLmxj8jCF9OOQWkFkx4XQUnJiKxnY=; b=QRHsyw5h9FdkN0sRA1u4/vrL/R
+	aLu/jEBNRJBZMv4JacvkpruE327TzPZr7/wfHxe/oR1E0rANobdadldruy+xziZjXmzaGbAh9niSF
+	pX4OZ8ELblSJgBfSwI1ePdmUyTOWKWkFE5uDEu7iwDet/2ZDFAygo6Ow79EdFypo2MgLAbQWbdD07
+	E92SbIMZFt+9dbRVFka4ZAxv9o/iSJZNDalxfSbZORQxz1DQdY+n6+dj8mj4KeNR5jcPdYZNjrW8r
+	9oFyj4tYjoGUsQMGFJQWgvMF/Hn+YHMQqV0pr42UuhlN0YEyJeSCVW7M2jpEHqjQkVQmBwN/UXUKv
+	crvP9g3g==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pQu-000000083xX-2tEj
+	id 1u1pRT-000000083zQ-1G19
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 16:34:50 +0000
+	Mon, 07 Apr 2025 16:35:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AA4112FC;
-	Mon,  7 Apr 2025 09:34:49 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6174106F;
+	Mon,  7 Apr 2025 09:35:23 -0700 (PDT)
 Received: from [10.57.17.31] (unknown [10.57.17.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD2023F694;
-	Mon,  7 Apr 2025 09:34:43 -0700 (PDT)
-Message-ID: <29103a40-bea4-4e00-a183-83d9c678a935@arm.com>
-Date: Mon, 7 Apr 2025 17:34:43 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D9893F694;
+	Mon,  7 Apr 2025 09:35:18 -0700 (PDT)
+Message-ID: <adbca476-7d0f-473d-a2a2-0a29a497dbca@arm.com>
+Date: Mon, 7 Apr 2025 17:35:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 30/45] arm64: RME: Always use 4k pages for realms
+Subject: Re: [PATCH v7 35/45] arm64: RME: Propagate number of breakpoints and
+ watchpoints to userspace
 To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
  Oliver Upton <oliver.upton@linux.dev>,
  Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
@@ -67,16 +69,16 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
  <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
 References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-31-steven.price@arm.com>
- <9d32bfed-31f2-49ad-ae43-87e60957ad74@redhat.com>
+ <20250213161426.102987-36-steven.price@arm.com>
+ <c8af8a7f-5ee4-460b-aec4-959f688db628@redhat.com>
 From: Steven Price <steven.price@arm.com>
 Content-Language: en-GB
-In-Reply-To: <9d32bfed-31f2-49ad-ae43-87e60957ad74@redhat.com>
+In-Reply-To: <c8af8a7f-5ee4-460b-aec4-959f688db628@redhat.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_173449_185421_0D54F0EC 
-X-CRM114-Status: GOOD (  26.37  )
+X-CRM114-CacheID: sfid-20250407_173523_667204_B2A398F5 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,105 +93,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 06:23, Gavin Shan wrote:
+On 04/03/2025 23:45, Gavin Shan wrote:
 > On 2/14/25 2:14 AM, Steven Price wrote:
->> Always split up huge pages to avoid problems managing huge pages. There
->> are two issues currently:
+>> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 >>
->> 1. The uABI for the VMM allows populating memory on 4k boundaries even
->>     if the underlying allocator (e.g. hugetlbfs) is using a larger page
->>     size. Using a memfd for private allocations will push this issue onto
->>     the VMM as it will need to respect the granularity of the allocator.
+>> The RMM describes the maximum number of BPs/WPs available to the guest
+>> in the Feature Register 0. Propagate those numbers into ID_AA64DFR0_EL1,
+>> which is visible to userspace. A VMM needs this information in order to
+>> set up realm parameters.
 >>
->> 2. The guest is able to request arbitrary ranges to be remapped as
->>     shared. Again with a memfd approach it will be up to the VMM to deal
->>     with the complexity and either overmap (need the huge mapping and add
->>     an additional 'overlapping' shared mapping) or reject the request as
->>     invalid due to the use of a huge page allocator.
->>
->> For now just break everything down to 4k pages in the RMM controlled
->> stage 2.
->>
+>> Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 >> Signed-off-by: Steven Price <steven.price@arm.com>
 >> ---
->>   arch/arm64/kvm/mmu.c | 4 ++++
->>   1 file changed, 4 insertions(+)
+>>   arch/arm64/include/asm/kvm_rme.h |  2 ++
+>>   arch/arm64/kvm/rme.c             | 22 ++++++++++++++++++++++
+>>   arch/arm64/kvm/sys_regs.c        |  2 +-
+>>   3 files changed, 25 insertions(+), 1 deletion(-)
 >>
 > 
-> The change log looks confusing to me. Currently, there are 3 classes of
-> stage2 faults,
-> handled by their corresponding handlers like below.
+> With the following one nitpick addressed:
 > 
-> stage2 fault in the private space: private_memslot_fault()
-> stage2 fault in the MMIO space:    io_mem_abort()
-> stage2 fault in the shared space:  user_mem_abort()
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 > 
-> Only the stage2 fault in the private space needs to allocate a 4KB page
-> from guest-memfd.
-> This patch is changing user_mem_abort(), which is all about the stage2
-> fault in the shared
-> space, where a guest-memfd isn't involved. The only intersection between
-> the private/shared
-> space is the stage2 page table. I'm guessing we want to have enforced
-> 4KB page is due to
-> the shared stage2 page table by the private/shared space, or I'm wrong.
+>> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
+>> asm/kvm_rme.h
+>> index d684b30493f5..67ee38541a82 100644
+>> --- a/arch/arm64/include/asm/kvm_rme.h
+>> +++ b/arch/arm64/include/asm/kvm_rme.h
+>> @@ -85,6 +85,8 @@ void kvm_init_rme(void);
+>>   u32 kvm_realm_ipa_limit(void);
+>>   u32 kvm_realm_vgic_nr_lr(void);
+>>   +u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu,
+>> u64 val);
+>> +
+>>   bool kvm_rme_supports_sve(void);
+>>     int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap
+>> *cap);
+>> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+>> index f83f34358832..8c426f575728 100644
+>> --- a/arch/arm64/kvm/rme.c
+>> +++ b/arch/arm64/kvm/rme.c
+>> @@ -87,6 +87,28 @@ u32 kvm_realm_vgic_nr_lr(void)
+>>       return u64_get_bits(rmm_feat_reg0,
+>> RMI_FEATURE_REGISTER_0_GICV3_NUM_LRS);
+>>   }
+>>   +u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu,
+>> u64 val)
+>> +{
+>> +    u32 bps = u64_get_bits(rmm_feat_reg0,
+>> RMI_FEATURE_REGISTER_0_NUM_BPS);
+>> +    u32 wps = u64_get_bits(rmm_feat_reg0,
+>> RMI_FEATURE_REGISTER_0_NUM_WPS);
+>> +    u32 ctx_cmps;
+>> +
+>> +    if (!kvm_is_realm(vcpu->kvm))
+>> +        return val;
+>> +
+>> +    /* Ensure CTX_CMPs is still valid */
+>> +    ctx_cmps = FIELD_GET(ID_AA64DFR0_EL1_CTX_CMPs, val);
+>> +    ctx_cmps = min(bps, ctx_cmps);
+>> +
+>> +    val &= ~(ID_AA64DFR0_EL1_BRPs_MASK | ID_AA64DFR0_EL1_WRPs_MASK |
+>> +         ID_AA64DFR0_EL1_CTX_CMPs);
+>> +    val |= FIELD_PREP(ID_AA64DFR0_EL1_BRPs_MASK, bps) |
+>> +           FIELD_PREP(ID_AA64DFR0_EL1_WRPs_MASK, wps) |
+>> +           FIELD_PREP(ID_AA64DFR0_EL1_CTX_CMPs, ctx_cmps);
+>> +
+>> +    return val;
+>> +}
+>> +
 > 
-> What I'm understanding from the change log: it's something to be
-> improved in future due to
-> only 4KB pages can be supported by guest-memfd. Please correct me if I'm
-> wrong.
+> The chunk of code can be squeezed to
+> sys_reg.c::sanitise_id_aa64dfr0_el1() since
+> sys_reg.c has been plumbed for realm, no reason to keep a separate
+> helper in rme.c
+> because it's only called by sys_reg.c::sanitise_id_aa64dfr0_el1()
 
-Yes that commit message is confusing - I'll have a go at rewriting.
-
-The issues are:
-
- 1. The RMM spec (as it stands) says the guest is free to request a
-RIPAS change at 4k granularity.
-
- 2. We have no reasonable allocator to allow mapping part of a huge page
-in the protected half of the guest's and the other part in the shared half.
-
-Issue (1) also causes problems with larger page size in the host. We
-have plans for a RHI (Realm Host Interface) to allow the guest to
-discover the host's page size so it can size RIPAS changes appropriately.
-
-Issue (2) is (hopefully) going to be solved by guest_memfd in the
-future. I'm hoping in the future guest_memfd will be able to allocate
-from a suitable allocator (e.g. hugetlbfs) *AND* it allow mmap() of
-pages which are transitioned to shared. The VMM can then provide the
-same physical pages for use in the shared region as were originally
-provided in the protected region. This means a share/unshare sequence
-can get back to a situation where a huge page can once again be used in
-the guest's stage 2 (RTTs in RMM speak).
-
-Without a solution to issue 2 then it's hard for the VMM to get hold of
-memory which is suitably contiguous/aligned and deal with the guest
-potentially wanting to share any portion of it.
-
-When the mmap() support that Fuad has been working on lands it might be
-worth revisiting for an opportunistic support for huge pages. But we
-really also need the integration with a suitable huge page allocator for
-it to work well (i.e. guest_memfd supporting larger page sizes natively).
+The issue here is the rmm_feat_reg0 variable - it's currently static in
+rme.c - so I can't just shift the code over. I could obviously provide
+helpers to get the necessary information but this seemed cleaner.
 
 Thanks,
 Steve
 
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index 994e71cfb358..8c656a0ef4e9 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -1641,6 +1641,10 @@ static int user_mem_abort(struct kvm_vcpu
->> *vcpu, phys_addr_t fault_ipa,
->>       if (logging_active || is_protected_kvm_enabled()) {
->>           force_pte = true;
->>           vma_shift = PAGE_SHIFT;
->> +    } else if (vcpu_is_rec(vcpu)) {
->> +        // Force PTE level mappings for realms
->> +        force_pte = true;
->> +        vma_shift = PAGE_SHIFT;
->>       } else {
->>           vma_shift = get_vma_page_shift(vma, hva);
->>       }
+>>   static int get_start_level(struct realm *realm)
+>>   {
+>>       return 4 - ((realm->ia_bits - 8) / (RMM_PAGE_SHIFT - 3));
+>> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+>> index ed881725eb64..5618eff33155 100644
+>> --- a/arch/arm64/kvm/sys_regs.c
+>> +++ b/arch/arm64/kvm/sys_regs.c
+>> @@ -1820,7 +1820,7 @@ static u64 sanitise_id_aa64dfr0_el1(const struct
+>> kvm_vcpu *vcpu, u64 val)
+>>       /* Hide BRBE from guests */
+>>       val &= ~ID_AA64DFR0_EL1_BRBE_MASK;
+>>   -    return val;
+>> +    return kvm_realm_reset_id_aa64dfr0_el1(vcpu, val);
+>>   }
+>>     static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
 > 
 > Thanks,
 > Gavin
