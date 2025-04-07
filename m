@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CACC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 19:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09209C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 19:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lxj6yNnJBi4QVZZ0/9cezFhrxRssjeKepNLI50uV6nI=; b=dE+Cm7BqXwrtGY+YcMuifRrS3t
-	smctkcsAgAhyI5HnuCkPilnMjtr2DbYABByVmsXO6jDCrvgjrZI+1FTtcQGc60ClPtVYFipiyGIv2
-	Zbl8Eo/jUaMAddoyKluVbVM5Vm+vPU6DujOm+gB2GXUpXciO49Z80bxUXcVu9yaSzB61G3ERBtbXX
-	L7rfRAb2wwuwB50ipwz+wXPJ9+TLpf2UqopwvYRek33qKPkjTqaI/CTti9TOqXB9mDpJ/66UqVMoj
-	+0iULT05+/2KbwxWK8hIP5ZvaTD7hooEJwS2zAGBTqIjhxIx6ADq6DeF7eHT4NkB0500Ahk0sMqw/
-	L773NqGQ==;
+	bh=N/PvIqoBhOks4pI9/14blM+cqFT4WQ4VRTCjC/QfJ0g=; b=znb4c77B6QrVnXEd5WCNH+xnKS
+	Qre6naBEwXl3fMWn3M1aRy5tBgmANzHsSrYSN7/tN8DUC8eUg4KzK5VuNSq2GLSEM1W7D6e2bdFfm
+	nz4+FRsrMxakv7YnhbA9YmrjxcUXX1Te72idailaOWbEnSvjDhm5snjRdveOsIM7f5qSURum/eWqR
+	ZlVJHNoM2UuvXwLGAlVeIM/e+ZxHh6RcV0Zc47VhFiRuX42qzuQhA1NUZkUKw89WK0JH8JjKudAQ7
+	Sx/ttn/Pp3++Zgwuxazb4VI6oljadUcyRO8Aj0HJ09FYeGV2YZHboL+vZwPiw6PJpaMKKTOeV1oL5
+	MLeM7w1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1sHs-00000001qgI-3s4e;
-	Mon, 07 Apr 2025 19:37:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u1sJb-00000001quR-2aow;
+	Mon, 07 Apr 2025 19:39:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1qzy-00000001UqM-2VUd
+	id 1u1r0O-00000001UuT-3oBH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 18:15:07 +0000
+	Mon, 07 Apr 2025 18:15:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9591E49FBA;
-	Mon,  7 Apr 2025 18:15:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2E4DC4CEDD;
-	Mon,  7 Apr 2025 18:15:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CFB6D61164;
+	Mon,  7 Apr 2025 18:15:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B67B0C4CEEA;
+	Mon,  7 Apr 2025 18:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744049706;
-	bh=Z5ZlPmDMTP1xihGctDcUIJglsi5pe1J/GU767msqbr4=;
+	s=k20201202; t=1744049732;
+	bh=9lnZvdYWucsD43LgxrIBgPkhCQuCm3u66wDOkTVnmIw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lsGfy74IQYwnlgSuGF75Kcrk1/TqM4CukckmDSbW2oEzS0n3YD1Lw8kfsPeFKhqrJ
-	 ar2qaSr7+kVYx+PScZ51hyqcyFyym1kjMOqHxAeoG9kuOf2b9uD9Jec9q8OpuB+5z6
-	 BJVzUJOf49i2Dr/SIIAiHOeA1kPTiRdmxpkwvqj+tIcZ5b+VsfGUt3F7TKSooB2CPr
-	 OiBaKmjALqo40/tnPHyim6RYoNfwr6PlJJkQ+mtzazbZfuttsHOP6eQEqf5pmvSS3b
-	 5VtF4LDPfKq5VUTkofAReXK3scDz6Aoa5+qZpT98PCXtdHS/iKpcc6H1w1f/E5V8iM
-	 qd7RwFOQTcBkg==
+	b=thAmL8VY6DYY8a3gSfFzvB4C7s8tzb1EZ8zpMLNfNFsoW4tTdaGwP7THjwWtVKzfd
+	 DmdabyBEfi1gHz8VYgvkPgpGWRJ77cDqskzcLGstl9hzTHV8vykSX2kzUmnD+KEZke
+	 dBuxjWdeVluOLkWK4Trm2p3wuZznFGYIqMlAmrfJBoH3kc56FwvI5IvOji6F+Rt4vM
+	 pcGR7Aic+MeRvqhUAVzak1cc2W+THHhw8AtqxG0QPCiCccPeYobfhVuo9df/qbtWQU
+	 UeSyXle5pH0Ulpq09a0BPVJFTnsIq0jIHcChn/lkr8JesvQAgszyN3TaoqEp65OYoo
+	 F74+fCPU7UBMw==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -55,21 +55,17 @@ Cc: Chenyuan Yang <chenyuan0y@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-aspeed@lists.ozlabs.org,
 	netdev@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.1 08/13] usb: gadget: aspeed: Add NULL pointer check in ast_vhub_init_dev()
-Date: Mon,  7 Apr 2025 14:14:42 -0400
-Message-Id: <20250407181449.3183687-8-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 7/8] usb: gadget: aspeed: Add NULL pointer check in ast_vhub_init_dev()
+Date: Mon,  7 Apr 2025 14:15:13 -0400
+Message-Id: <20250407181516.3183864-7-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250407181449.3183687-1-sashal@kernel.org>
-References: <20250407181449.3183687-1-sashal@kernel.org>
+In-Reply-To: <20250407181516.3183864-1-sashal@kernel.org>
+References: <20250407181516.3183864-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.133
+X-stable-base: Linux 5.15.179
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_111506_654380_181EE6B4 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,10 +100,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 3 insertions(+)
 
 diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-index 4f3bc27c1c628..73664a123c7a0 100644
+index d918e8b2af3c2..c5f7123837751 100644
 --- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
 +++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-@@ -549,6 +549,9 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx)
+@@ -538,6 +538,9 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx)
  	d->vhub = vhub;
  	d->index = idx;
  	d->name = devm_kasprintf(parent, GFP_KERNEL, "port%d", idx+1);
