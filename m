@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C11C369A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1108C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/VOo4nxhe81ylL++yxOhvwH2PxTy0R/aiCxSjp7uDE0=; b=jAynEKO6HXm+xoURZTZ4wSoEL8
-	ts460Dg43kTb5PRy5d6j5xejH7F1oiyjbToT/oL+y/d5pbeV+4bIRRbc9vONdDhlB18Hc8lNmPf/K
-	ABN+UNscY1L+KlcPY4K766C26HRcrJ/HtL3Q+fMMJnW+ss2Nebm9SnINQMzVlVuxArkESM5o0ZHKv
-	twEZe5HodWWN2l+uT2k78S6nJiLIGcMNh6zwaJ7jkYZQcG7lLgxhBIIzjj2P+ukZmJ4OTJ+Rk7MiG
-	54NXNGz97LhAU9406IJn/gemO0ZSuZfg+1jZqZtko2cQs2k+gTusIwb40F29X5BtfCo1UkPDohgvd
-	SlWjaU0g==;
+	bh=KFg4OMSXqyZAd4XoQGwUdaygVVdJ30SNWIcU9tJnxO4=; b=chwR6S8ByCzOjzaD0zq2DPtN0N
+	RQCyoDn/cDGBhgojdpkxpdxB/VsZul2b6cf92S257VEguw5ZUS4NuVHa0yU7VwgtM+615J9LNXI2P
+	UPMVY4AYV+zzlnMCdb8z+f1nS8YXDk5iLBGkqdF9zjR6VZ2g7NGA9c+HqvTgyF37Gz4FV8gtgsVQ5
+	4cXdMJrzR1y6etIWZMZ48UH2T4A7OkD/J81m5KoBwJvmPQx4REpwYa+KUa0+Z6ezyi3aHADxsbSaE
+	mTVXvPecM8ZTcpKxWc6CEQslXH/+JHJjqxXANHOzuIGZgdjq3SLcW4RLImgq54wHIcX34ATz3n0jh
+	Eh0t7UQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYF-00000001cgg-2pSt;
+	id 1u1rYE-00000001cfD-1yRb;
 	Mon, 07 Apr 2025 18:50:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pQY-00000001E7P-1zOg
+Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1pPr-00000001Dur-3Bpk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 16:34:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D9F3106F;
-	Mon,  7 Apr 2025 09:34:24 -0700 (PDT)
-Received: from [10.57.17.31] (unknown [10.57.17.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 231A03F694;
-	Mon,  7 Apr 2025 09:34:18 -0700 (PDT)
-Message-ID: <95c06abf-591f-4dd0-b1fd-296b0d5ae924@arm.com>
-Date: Mon, 7 Apr 2025 17:34:16 +0100
+	Mon, 07 Apr 2025 16:33:46 +0000
+Message-ID: <720b6db8-49c5-47e7-98da-f044fc38fc1a@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1744043618;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KFg4OMSXqyZAd4XoQGwUdaygVVdJ30SNWIcU9tJnxO4=;
+	b=UJWGbxFqDDyMWF8b4G2fYOD53tA+BWAfWoGwac3pflGNx/7Q8PgHH198LIFtBZ+wsx8gh/
+	XnnznK1WuR4pSzwX7dn9Bt8JcNWp1s5DrdqgsT/GTNhH4Vgnu+/qhtSKjA+JF6SZ4FceM1
+	MRxTN0uezDbNPzPZHXbHspuUXvMOgC8=
+Date: Mon, 7 Apr 2025 12:33:28 -0400
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 17/45] arm64: RME: Handle realm enter/exit
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-18-steven.price@arm.com>
- <80983793-5df7-4828-96e8-90540e7d9183@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <80983793-5df7-4828-96e8-90540e7d9183@redhat.com>
+Subject: Re: [RFC net-next PATCH 00/13] Add PCS core support
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ linux-kernel@vger.kernel.org, Christian Marangi <ansuelsmth@gmail.com>,
+ upstream@airoha.com, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Clark Wang <xiaoning.wang@nxp.com>,
+ Claudiu Beznea <claudiu.beznea@microchip.com>,
+ Claudiu Manoil <claudiu.manoil@nxp.com>, Conor Dooley <conor+dt@kernel.org>,
+ Ioana Ciornei <ioana.ciornei@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+ Joyce Ooi <joyce.ooi@intel.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Li Yang <leoyang.li@nxp.com>, Madalin Bucur <madalin.bucur@nxp.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <michal.simek@amd.com>,
+ Naveen N Rao <naveen@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Robert Hancock <robert.hancock@calian.com>,
+ Saravana Kannan <saravanak@google.com>, Shawn Guo <shawnguo@kernel.org>,
+ UNGLinuxDriver@microchip.com, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ Wei Fang <wei.fang@nxp.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linuxppc-dev@lists.ozlabs.org
+References: <20250403181907.1947517-1-sean.anderson@linux.dev>
+ <20250407182738.498d96b0@kmaincent-XPS-13-7390>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20250407182738.498d96b0@kmaincent-XPS-13-7390>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_093426_600638_16F8C1E7 
-X-CRM114-Status: GOOD (  27.17  )
+X-CRM114-CacheID: sfid-20250407_093344_636745_B6050DCA 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,153 +98,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 01:03, Gavin Shan wrote:
-> On 2/14/25 2:13 AM, Steven Price wrote:
->> Entering a realm is done using a SMC call to the RMM. On exit the
->> exit-codes need to be handled slightly differently to the normal KVM
->> path so define our own functions for realm enter/exit and hook them
->> in if the guest is a realm guest.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v6:
->>   * Use vcpu_err() rather than pr_err/kvm_err when there is an associated
->>     vcpu to the error.
->>   * Return -EFAULT for KVM_EXIT_MEMORY_FAULT as per the documentation for
->>     this exit type.
->>   * Split code handling a RIPAS change triggered by the guest to the
->>     following patch.
->> Changes since v5:
->>   * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
->>     change on next entry rather than immediately on the exit. This allows
->>     the VMM to 'reject' a RIPAS change by refusing to continue
->>     scheduling.
->> Changes since v4:
->>   * Rename handle_rme_exit() to handle_rec_exit()
->>   * Move the loop to copy registers into the REC enter structure from the
->>     to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
->>     where the handler exits to user space and user space wants to modify
->>     the GPRS.
->>   * Some code rearrangement in rec_exit_ripas_change().
->> Changes since v2:
->>   * realm_set_ipa_state() now provides an output parameter for the
->>     top_iap that was changed. Use this to signal the VMM with the correct
->>     range that has been transitioned.
->>   * Adapt to previous patch changes.
->> ---
->>   arch/arm64/include/asm/kvm_rme.h |   3 +
->>   arch/arm64/kvm/Makefile          |   2 +-
->>   arch/arm64/kvm/arm.c             |  19 +++-
->>   arch/arm64/kvm/rme-exit.c        | 171 +++++++++++++++++++++++++++++++
->>   arch/arm64/kvm/rme.c             |  19 ++++
->>   5 files changed, 208 insertions(+), 6 deletions(-)
->>   create mode 100644 arch/arm64/kvm/rme-exit.c
->>
+On 4/7/25 12:27, Kory Maincent wrote:
+> On Thu,  3 Apr 2025 14:18:54 -0400
+> Sean Anderson <sean.anderson@linux.dev> wrote:
 > 
-> With below nitpicks addressed:
+>> This series adds support for creating PCSs as devices on a bus with a
+>> driver (patch 3). As initial users,
+>> 
+>> - The Lynx PCS (and all of its users) is converted to this system (patch 5)
+>> - The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6-8)
+>> - The Cadence MACB driver is converted to support external PCSs (namely
+>>   the Xilinx PCS) (patches 9-10).
+>> 
+>> The last few patches add device links for pcs-handle to improve boot times,
+>> and add compatibles for all Lynx PCSs.
+>> 
+>> Care has been taken to ensure backwards-compatibility. The main source
+>> of this is that many PCS devices lack compatibles and get detected as
+>> PHYs. To address this, pcs_get_by_fwnode_compat allows drivers to edit
+>> the devicetree to add appropriate compatibles.
 > 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> I don't dive into your patch series and I don't know if you have heard about it
+> but Christian Marangi is currently working on fwnode for PCS:
+> https://lore.kernel.org/netdev/20250406221423.9723-1-ansuelsmth@gmail.com
 > 
-> [...]
-> 
->> diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
->> new file mode 100644
->> index 000000000000..aae1adefe1a3
->> --- /dev/null
->> +++ b/arch/arm64/kvm/rme-exit.c
->> @@ -0,0 +1,171 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (C) 2023 ARM Ltd.
->> + */
->> +
->> +#include <linux/kvm_host.h>
->> +#include <kvm/arm_hypercalls.h>
->> +#include <kvm/arm_psci.h>
->> +
->> +#include <asm/rmi_smc.h>
->> +#include <asm/kvm_emulate.h>
->> +#include <asm/kvm_rme.h>
->> +#include <asm/kvm_mmu.h>
->> +
->> +typedef int (*exit_handler_fn)(struct kvm_vcpu *vcpu);
->> +
-> 
-> Duplicated to exit_handler_fn, defined in handle_exit.c, need move the
-> definition to header file.
+> Maybe you should sync with him!
 
-While I get this is duplication, I'm a little reluctant to move it to a
-header file because this is completely internal to each C file (the
-xxx_exit_handler[] arrays are both static). If either side wants to e.g.
-add an extra argument there shouldn't be a requirement to reflect that
-change in the other.
+I saw that series and made some comments. He is CC'd on this one.
 
-Specifically I'm wondering if we're going to ever need to pass an RMI
-return status into the rme-exit callbacks at some point.
+I think this approach has two advantages:
 
->> +static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu)
->> +{
->> +    struct realm_rec *rec = &vcpu->arch.rec;
->> +
->> +    vcpu_err(vcpu, "Unhandled exit reason from realm (ESR: %#llx)\n",
->> +         rec->run->exit.esr);
->> +    return -ENXIO;
->> +}
->> +
->> +static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu)
->> +{
->> +    return kvm_handle_guest_abort(vcpu);
->> +}
->> +
->> +static int rec_exit_sync_iabt(struct kvm_vcpu *vcpu)
->> +{
->> +    struct realm_rec *rec = &vcpu->arch.rec;
->> +
->> +    vcpu_err(vcpu, "Unhandled instruction abort (ESR: %#llx).\n",
->> +         rec->run->exit.esr);
->> +    return -ENXIO;
->> +}
->> +
->> +static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
->> +{
->> +    struct realm_rec *rec = &vcpu->arch.rec;
->> +    unsigned long esr = kvm_vcpu_get_esr(vcpu);
->> +    int rt = kvm_vcpu_sys_get_rt(vcpu);
->> +    bool is_write = !(esr & 1);
->> +    int ret;
->> +
->> +    if (is_write)
->> +        vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[0]);
->> +
->> +    ret = kvm_handle_sys_reg(vcpu);
->> +
->> +    if (ret >= 0 && !is_write)
->> +        rec->run->enter.gprs[0] = vcpu_get_reg(vcpu, rt);
->> +
-> 
-> Unncessary blank line and the conditon isn't completely correct:
-> kvm_handle_sys_reg()
-> should return 0 if the requested emulation fails, even it always returns
-> 1 for now.
+- It completely solves the problem of the PCS being unregistered while the netdev
+  (or whatever) is up
+- I have designed the interface to make it easy to convert existing
+  drivers that may not be able to use the "standard" probing process
+  (because they have to support other devicetree structures for
+  backwards-compatibility).
 
-It shouldn't matter, but like you say it's not technically the correct
-condition so I'll fix this up.
-
-Thanks,
-Steve
-
->     ret = kvm_handle_sys_reg(vcpu);
->     if (ret > 0 && !is_write)
->         rec->run->enter.gprs[0] = vcpu_get_reg(vcpu, rt);
-> 
->> +    return ret;
->> +}
->> +
-> 
-> [...]
-> 
-> Thanks,
-> Gavin
-> 
-
+--Sean
 
