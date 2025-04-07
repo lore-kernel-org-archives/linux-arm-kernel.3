@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 682A1C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 05:32:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E82C3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 05:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QuCXxemOwzi+daSzhgNPUWipNAarADZvuPuX9JnARXw=; b=MXg1HQESC+QL9Y9C6i3bbPfERz
-	uOCrun2KDFOuAFs4AsOI28AyRzQmxb0fZ2MQN72aOL0p+3nHxZ0KEI5jaEEO9lFqKcUXIgDN3mKUv
-	91TLn2tQfDMjhcFdPuEjSXZpLc5nEhm3oOcAVt0XBem2WQNe5th55z4e66/HqOSGcgAqF0tAqYxGU
-	kZD/0UUK6ML74dmqUS+gnBTBkg0S4HrasUzkR8i31zIURrv2A7NL/A5YM7/8nJl8svFWaH1VgHsjC
-	TeymmKOTnGYCJapEBfMZLLpaIxqaAzlTuft3ZUcNzX5TPpfbCPu7CD5Nw4c6K7S6TYcUqxHrZfvv7
-	b/Zf59uw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=dB9keRMOwVIcNoNRSHHCD2QKgPNuoGWRXYd2uwzW990=; b=dEfNX+Y5jUsQTA
+	cIUfN0GEv02B5RtU2ovNGBp7Po3oSKNK2VHulBO/kZFDOmMDufmdbxLpbDfPASmmF+4pdvV89itVS
+	KzwNviER4/gZpBqGrJNTb6txAcKTy93cjWjCDKJdHNJ+fMngnDjDMbg25YTrmJi/sDHVU1zINM8XU
+	51pVcBZfMUZLt+LAfYDv1z+ntYZZswCPjY6yYpp+hBtMbpfzzd+7aqGiQAtWC5dD8Gt2g3Z8yiVi2
+	2UwbUVFAXgYkItBpG0O80z7Bx8z+1fWEsP7mK3diGfkdSg9q5T+LI+tQBpI1unvY9mS8rVlYhgwAU
+	0Ssp2ZoX8Sg13cDDOuhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1f66-0000000GSrO-1MQV;
-	Mon, 07 Apr 2025 05:32:38 +0000
+	id 1u1f7p-0000000GSyP-09UC;
+	Mon, 07 Apr 2025 05:34:25 +0000
 Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1f1X-0000000GS7R-0s8U
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 05:27:56 +0000
+	id 1u1f2c-0000000GSD0-2W2h;
+	Mon, 07 Apr 2025 05:29:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=QuCXxemOwzi+daSzhgNPUWipNAarADZvuPuX9JnARXw=; b=TKJCRGVG2bB4Yr1Ejq+Rqc7o1w
-	ZlloVXACk9ldkGz92nj6T4DjN/ATD8L0wihD0Ux5UvnmI4iQsNw5HZkEXnc586wDhLxU3ESYTn8vn
-	St9/SmfcBGn6nIuntaKGOaet0Ok/CssBg2AgpPP9Gq+G3kaIsshtrciO3HWmazIbtgNNRj4HuIKpP
-	FGrY40axzskgd5zAOO4O1OsO1q3gtBWCzcEjDazAmhQPZxfVeEV7mwcXyk2FhJ4R8j9h5ZbyoD/OV
-	kC/rf6y6B0Hstz0YJVPK4FTuJjqYnXVj1UPz867jpLR4+a2QVelXyK7pXwWCuE4XZxzvbgjPF7rTw
-	RfcghOOg==;
+	:Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dB9keRMOwVIcNoNRSHHCD2QKgPNuoGWRXYd2uwzW990=; b=UHwODn/VjKqS1kbYWo32znTwIw
+	MpG+JrhQnruzYLJX7YQgJWvbKzQEVRLBvy+UtAHi+prcy5LeUWFzHeyu50iWv7ZK2ZXKEI411HdBa
+	INdLSkaiUMFA7St1XvHZCW6gpjZ/2fBNspqrUn4sydcldmLTQK3JipGLUX6JBpyhtaGFyUko+gNb9
+	ahhkIXuXKtsuWfFxIr07DIWSvlFWv9XCC35yW/hlTv6DR0CyIboNnoXiPAZlcUDhopzdffRNRbUsV
+	bbEO4jeMKg2+Ye/30S7ktszHbEo4g+SHTyevuL6IO8GGowfjSH7PNtJ1Mzj5vhPd3xQZHT7RapLsr
+	wT/2Mn5g==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u1f1P-00DNMd-0L;
-	Mon, 07 Apr 2025 13:27:48 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 07 Apr 2025 13:27:47 +0800
-Date: Mon, 7 Apr 2025 13:27:47 +0800
+	id 1u1f2Y-00DNNS-2U;
+	Mon, 07 Apr 2025 13:28:59 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 07 Apr 2025 13:28:58 +0800
+Date: Mon, 7 Apr 2025 13:28:58 +0800
 From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	ebiggers@kernel.org, Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v2 0/3] crypto: arm - drop dependency on SIMD helper
-Message-ID: <Z_NiU5dgIT3Wwvxe@gondor.apana.org.au>
-References: <20250403071953.2296514-5-ardb+git@google.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, x86@kernel.org, ardb@kernel.org,
+	Jason@zx2c4.com, torvalds@linux-foundation.org
+Subject: Re: [PATCH 0/9] Remove per-architecture ChaCha skcipher glue code
+Message-ID: <Z_Nimiv1Wkfo3gBd@gondor.apana.org.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250403071953.2296514-5-ardb+git@google.com>
+In-Reply-To: <20250405182609.404216-1-ebiggers@kernel.org>
+X-Newsgroups: apana.lists.os.linux.cryptoapi,apana.lists.os.linux.kernel
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_222755_247019_02921B06 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250406_222902_638512_1561FCE8 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,35 +75,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 09:19:54AM +0200, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
+Eric Biggers <ebiggers@kernel.org> wrote:
+> Currently each architecture exposes ChaCha not only through the library
+> API, but also through the crypto_skcipher API.  That requires each
+> architecture to implement essentially the same skcipher glue code.
 > 
-> The non-SIMD fallbacks in the ARM skcipher implementations have become
-> dead code now that SIMD is always allowed in the contexts where
-> skciphers may be used. So remove them.
+> Following the example of what's been done for crc32 and crc32c,
+> eliminate this redundancy by making crypto/chacha.c register both the
+> generic and architecture-optimized skcipher algorithms, implemented on
+> top of the appropriate library functions.  This removes almost 800 lines
+> of code and disentangles the library code from the skcipher API.
 > 
-> While at it, remove the sync CTR helper function now that its last
-> users have been dropped.
+> From what I remember, the following are the reasons why it wasn't just
+> done this way originally.  But none of these really hold water:
 > 
-> v2:
-> - drop unnecessary includes
-> - add patch #3
+> - The skcipher code was there first, so it may have seemed more natural
+>  to add onto it rather than replace it.
 > 
-> Ard Biesheuvel (3):
->   crypto: arm/aes-ce - stop using the SIMD helper
->   crypto: arm/aes-neonbs - stop using the SIMD helper
->   crypto: ctr - remove unused crypto_ctr_encrypt_walk()
+> - Architectures could register multiple skcipher algorithms using
+>  different CPU features and have them all be tested in a single boot.
+>  This was convenient in theory, but it never really worked properly.
+>  It didn't apply to the library code, the x86 ChaCha code wasn't
+>  actually doing this (it used static keys instead), and this cannot
+>  catch bugs like accidentally using an AVX instruction in SSE code.
+>  Instead, a correct solution, which also doesn't require any special
+>  kernel support, is to just boot the kernel in QEMU using different
+>  -cpu arguments as needed to test all the code.
 > 
->  arch/arm/crypto/Kconfig           |   2 -
->  arch/arm/crypto/aes-ce-glue.c     | 104 ++----------------
->  arch/arm/crypto/aes-neonbs-glue.c | 116 ++------------------
->  include/crypto/ctr.h              |  47 --------
->  4 files changed, 20 insertions(+), 249 deletions(-)
+> - There was a concern about changing cra_driver_names potentially
+>  breaking users.  But in practice users rely on cra_name, not
+>  cra_driver_name.  We already change, add, and remove cra_driver_names
+>  occasionally for various reasons.  And even if someone was relying on
+>  a specific cra_driver_name, there are some more lightweight
+>  compatibility tricks that could be used.
 > 
+> - There was a desire for users to be able to override the kernel's
+>  choice of ChaCha implementation by blacklisting the arch-optimized
+>  ChaCha module.  But that already became mostly impossible when the
+>  library functions were added to the same module.  And in practice
+>  users don't do this anyway.  Even if, hypothetically, someone really
+>  needed to do this and for some reason the kernel couldn't be fixed to
+>  make the right choice in their case automatically, there are other
+>  ways this could be implemented such as a module parameter.
 > 
-> base-commit: 99585c2192cb1ce212876e82ef01d1c98c7f4699
-> -- 
-> 2.49.0.472.ge94155a9ec-goog
+> Eric Biggers (9):
+>  crypto: riscv/chacha - implement library instead of skcipher
+>  crypto: chacha - centralize the skcipher wrappers for arch code
+>  crypto: arm/chacha - remove the redundant skcipher algorithms
+>  crypto: arm64/chacha - remove the skcipher algorithms
+>  crypto: mips/chacha - remove the skcipher algorithms
+>  crypto: powerpc/chacha - remove the skcipher algorithms
+>  crypto: s390/chacha - remove the skcipher algorithms
+>  crypto: x86/chacha - remove the skcipher algorithms
+>  crypto: chacha - remove <crypto/internal/chacha.h>
+> 
+> arch/arm/crypto/Kconfig                 |   7 -
+> arch/arm/crypto/chacha-glue.c           | 243 +---------------------
+> arch/arm/crypto/chacha-neon-core.S      |   2 +-
+> arch/arm64/crypto/Kconfig               |   7 -
+> arch/arm64/crypto/chacha-neon-core.S    |   2 +-
+> arch/arm64/crypto/chacha-neon-glue.c    | 146 +------------
+> arch/mips/crypto/Kconfig                |   6 -
+> arch/mips/crypto/chacha-glue.c          | 131 +-----------
+> arch/powerpc/crypto/Kconfig             |   8 -
+> arch/powerpc/crypto/chacha-p10-glue.c   | 147 +-------------
+> arch/riscv/crypto/Kconfig               |  11 +-
+> arch/riscv/crypto/chacha-riscv64-glue.c | 112 ++++------
+> arch/riscv/crypto/chacha-riscv64-zvkb.S |  71 +++----
+> arch/s390/crypto/Kconfig                |   7 -
+> arch/s390/crypto/chacha-glue.c          |  99 ++-------
+> arch/x86/crypto/Kconfig                 |   9 -
+> arch/x86/crypto/chacha_glue.c           | 144 +------------
+> crypto/Makefile                         |   3 +-
+> crypto/chacha.c                         | 260 ++++++++++++++++++++++++
+> crypto/chacha_generic.c                 | 139 -------------
+> include/crypto/chacha.h                 |   9 +
+> include/crypto/internal/chacha.h        |  43 ----
+> 22 files changed, 413 insertions(+), 1193 deletions(-)
+> create mode 100644 crypto/chacha.c
+> delete mode 100644 crypto/chacha_generic.c
+> delete mode 100644 include/crypto/internal/chacha.h
+> 
+> base-commit: 56f944529ec2292cbe63377a76df3759d702dd39
 
 All applied.  Thanks.
 -- 
