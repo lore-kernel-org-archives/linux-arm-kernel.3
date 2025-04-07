@@ -4,181 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F338FC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A2CC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+sQy6RP37N5DItN0jZmXVqQOx+o2I5IWnuXAaMnsVFk=; b=OySqoSzYEZm0mI+REcelT6jctB
-	qVWzumWuG4HGuf6LEajkjY0QCuAVfXq0HcRfp5xnaH34OnHNBVlRnVQSYqv5wcywlgB848Jy8f3Q/
-	uN2kqnaBfgyejOEnH9tCBFvmRnpBh0wVwJf9VlFZx9GeRi5ofFLRXpT97nsw2PQwBE+bJIhdvMhSb
-	+uOH43WInU/zspIPzXf6XegCFRIMca7A9r2DQ7AwFY6YJe2Exhnak9DeUxR4KgTdKQ2RjAfQrp9cm
-	/vfEp+6VyXzTiBprHjnFWXkMOLHPP3cbauuST9BGL4sjDihSUShTGJJxrVBlSMSawaG30lHXPiDMw
-	6yBYvHEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aQvs5PM1gpfyo8zFdbVtMefzo4Lv3nxL51EfMSsyelE=; b=zBobREdj+IaaVVFtbLPxS3C1El
+	bDZcCg4+xpGpi7z0PbeqXNBWw6f+IYQKlg/tn0upvok3x+Spj7JwSHXKuke1XjylqWDC3xO+LjFkk
+	DHor9F+y6uPsA1pOUuHxXz8YutaraeTAsCaFYfRxcy9WLgxFrNn0ZLCvMVcEUG2qVcCGdgCnenj5P
+	PwRUVTRgfio/k6/QXsXcTbTy+DK+ca7z1sGjIcS9/dnUY6nM1g9HJVRnY2BLjjSWHpOyx1E1Ecbt+
+	OWVclJcQfJLVjnElpTHYsCQG4eR5ecmUus3utPxQZXbVy+MsXsaB79IjgdAl+hFMI6svu4fEkdTbN
+	kJ8fvgXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uKa-000000027GX-1BG7;
-	Mon, 07 Apr 2025 21:48:36 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1sjO-00000001uvL-18p2
+	id 1u1uKf-000000027Ra-45Sj;
+	Mon, 07 Apr 2025 21:48:41 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1sqi-00000001wC9-2mZo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 20:06:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BHR0MHxlCvj9G0HVh9vyIv4QgSp6Nq4j0nPAnBmZS/as7wcUYFF0qSFv3NfiTeVmuBfJWcy0NcPK2jGc2n0puSh3l18k2pHcs+J0GknBAVckFnh1+W0rhIkZJBjjgswukZ5DQ25jkba7xaLXEUQwYVfzbuTakZYjZqPnSEQx7Gr8apLQFYTFG1Z+U+PXkhkqk4sXwJXStjADG57H3hawRInDylxpLbMxDszRsU1ZpryPbU0zWhDqATX+mg4xyDOwtzYFOToABsuMFeAZBmLYTUkM+vEvCZT8SEd3SBwKG4CdFzL+MJXf+1LLTgiKejdpQoVeIHs0fhlvsVtsaP4ExA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+sQy6RP37N5DItN0jZmXVqQOx+o2I5IWnuXAaMnsVFk=;
- b=D8K3czkwbVBk9KtImgg7Z25+bd+GCQwt7CpCl6LX3oh/Ue3ib7nGsukER0nsq8RypImRYAvNfP2r0fasbtwxayUvo+naUxNz88PqJKgGotCfit6oI6yVJ2MbJk96eUV+EwZX90hYKcz7IW9aMBo/9HPMRqVyVme0asB/r5iU5QY5je3EeMAVQkLPyR+IdaC2OukmD1g0qGl2omTtpHqdzavIyn36j9jHBj6MyOG6coIqbbd722aAyCBRbyCUm0X+16eSJNdbju//EFUlOEvwykktMibAXF64XGa5M+kqaz0/cgsQ3AZ47rgF1fCL5J58MVwHc8RVAJcUXz8lpSedUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+sQy6RP37N5DItN0jZmXVqQOx+o2I5IWnuXAaMnsVFk=;
- b=DieP5xRl31K6E207q/NDw64CpGxkUxcPMKaVftkIqfohYp3xgNpx2YbmZTZsZNLvflZyXCIyt2mtvSsdMun70QGynCW/s+DY6GftaeZy21CBxZlAPbD+jdMfvILvxLNPQahJ6LKuTCT1olFNhcLMQyohgsyn16dc7FcIhXUwGCcHAsVW3dwORaZzSYalHD4pc/fsKN6NT06xYCkSl6gh1QvJoZynX8TPgvx0q6eOD/FI4zMg5aNOHJPAG6u/1xNTreMC8Yp/FL+YehU/+RHHAhQAyp/HarKNJWLZUFyIZ6zq5mGpdxf1Zv6HP/VXtrf1PAV8h7Vs1Ptgw9AhzFmsvw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM9PR04MB7668.eurprd04.prod.outlook.com (2603:10a6:20b:2dd::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.43; Mon, 7 Apr
- 2025 20:06:04 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Mon, 7 Apr 2025
- 20:06:04 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Mon, 07 Apr 2025 16:05:40 -0400
-Subject: [PATCH RESEND v6 2/2] thermal: imx91: Add support for i.MX91
- thermal monitoring unit
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250407-imx91tmu-v6-2-e48c2aa3ae44@nxp.com>
-References: <20250407-imx91tmu-v6-0-e48c2aa3ae44@nxp.com>
-In-Reply-To: <20250407-imx91tmu-v6-0-e48c2aa3ae44@nxp.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pengfei Li <pengfei.li_1@nxp.com>, 
- Marco Felsch <m.felsch@pengutronix.de>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, ye.li@nxp.com, joy.zou@nxp.com, 
- Frank Li <Frank.Li@nxp.com>, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744056350; l=15172;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=ZmDXRbH6wNI0VwbN7e+E+vQyFtq4jtjbaOSLMJUl0ws=;
- b=2NJHfdmQ5OejDSQshoKXU7gcILHrrvdr9gRVlQSwWUeZujz1WT8FhGDSyzdH4gCgaoJnitYXw
- ZxhtcXGaMwIBk8G8B0pJpWLVK9XyJGmcFO6ZY67ZJZqaz7KmUGqxtN9
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: PH0PR07CA0026.namprd07.prod.outlook.com
- (2603:10b6:510:5::31) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 07 Apr 2025 20:13:42 +0000
+Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id BF5592113E7F;
+	Mon,  7 Apr 2025 13:13:39 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BF5592113E7F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1744056820;
+	bh=aQvs5PM1gpfyo8zFdbVtMefzo4Lv3nxL51EfMSsyelE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lGgIEkLv3v6NAy0Ze7W+RG0NF7oQa0OcSoB4t7sgbfQ3ipjsotw9o6djd3p4LCUE7
+	 dhAULeUO9w1Y7VQLrtGX8cPRUhkt80l0e5hEynwufDSg4QXLYoVKlLsPmdy1LWh1Fb
+	 qLjRmg06vKy86jViyEta6k4B2GUl4ADX6Dj25MEM=
+From: Roman Kisel <romank@linux.microsoft.com>
+To: arnd@arndb.de,
+	bhelgaas@google.com,
+	bp@alien8.de,
+	catalin.marinas@arm.com,
+	conor+dt@kernel.org,
+	dan.carpenter@linaro.org,
+	dave.hansen@linux.intel.com,
+	decui@microsoft.com,
+	haiyangz@microsoft.com,
+	hpa@zytor.com,
+	joey.gouly@arm.com,
+	krzk+dt@kernel.org,
+	kw@linux.com,
+	kys@microsoft.com,
+	lenb@kernel.org,
+	lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	mingo@redhat.com,
+	oliver.upton@linux.dev,
+	rafael@kernel.org,
+	robh@kernel.org,
+	rafael.j.wysocki@intel.com,
+	ssengar@linux.microsoft.com,
+	sudeep.holla@arm.com,
+	suzuki.poulose@arm.com,
+	tglx@linutronix.de,
+	wei.liu@kernel.org,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	devicetree@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	x86@kernel.org
+Cc: apais@microsoft.com,
+	benhill@microsoft.com,
+	bperkins@microsoft.com,
+	sunilmut@microsoft.com
+Subject: [PATCH hyperv-next v7 04/11] Drivers: hv: Provide arch-neutral implementation of get_vtl()
+Date: Mon,  7 Apr 2025 13:13:29 -0700
+Message-ID: <20250407201336.66913-5-romank@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250407201336.66913-1-romank@linux.microsoft.com>
+References: <20250407201336.66913-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB7668:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1b84f96b-cd2b-473f-6e48-08dd760fa002
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?b0xtMGhLb0JFWG1kejdnWHRyZmpzK0QxSUdyb2VuK1RleWJ1QVNzdHE0MjlG?=
- =?utf-8?B?M3gvbVJYSFBib0xoKzZxMnBLNWp1d2tqenVJcy9xT094OTdQeUpQVXp3Q2Mv?=
- =?utf-8?B?WUJMKzdZYjV2K0xvekVTcS9NM2dPU3NpclZYR1V5RVhjOUFrVTVYdlFjMUhC?=
- =?utf-8?B?TGJnYTFvb2xuaU81OUNYS1o0MUtQZklPblRkWEZybHc5d2VDVUJaMi92MEJh?=
- =?utf-8?B?WndnNURCMTVFOWUrS2phdUxkdzYxN1QvQTVXN0VIVmZsNlZnL09KemxLdDNu?=
- =?utf-8?B?UmtBZXZtVFNSWnkvVzBCTGd6bXYvczVxSjRzK2NjREZWTVJZM0djQWIzZzR0?=
- =?utf-8?B?YmNGZ1VXTmFpUkZYWUp1cWs4UkR4c0daekJJajZzN2l6eGd3ZUFkRkw5ZUhB?=
- =?utf-8?B?ZGVKbE5pOElTSjczSnNsajBWUloyR3hNTDlhQS91QjFKTVVIakdURjI5V2du?=
- =?utf-8?B?TVlzb3RCR21DSWxFVkZOSUsxdmM5d1hlMVA4bVF3dHptUkxQMXdWcklXMmgv?=
- =?utf-8?B?dkFpQjN4RGcyRE5BdUUvMExCUnZGcmNOenRtSHUzMksvZ1lyalFTalhscHpR?=
- =?utf-8?B?SFBHNHdjckl2WjRPSmQ2R3RNVG5HNW1XWm0zTDFmYnNwamh3MXREZnMreTNi?=
- =?utf-8?B?b25sT1luOUY1dEhLVDJReExPckJPUkRZUjEwUDNSekhMWWFBMWxRR1BGQU1n?=
- =?utf-8?B?ZUs2eHFPbHJBSlVMOE9taWs3YnFUL1dOWld0eHZYclB4cU80Q0hUekJWTFRm?=
- =?utf-8?B?ZTBOcDVIODh3R0RvaEpmWmh3MnFjcnFDU00reWUrTUZ1Ykc1RGFhM0cxY2pm?=
- =?utf-8?B?NjZhcWd3eFhrRmhHM204VXVBV2NpbzhjVjNwem91RGdJVVQwNXYvNFowOFE4?=
- =?utf-8?B?NWc1eFJvMjNsczVDNFNYZlBBdmtwUWk1THFkZENyOExOalhUc2hocm40WWw1?=
- =?utf-8?B?VHZQS0xwU2JqcE1WK3I3anNBeHBlckE2dk0va0h4WCtnS0VGcW1DaGJjamdt?=
- =?utf-8?B?ZGM0bitZUHMwNFpDaWd0UURVM29PekJiVFB3Q3dzczhKb2p6N2xWNnZSTVVX?=
- =?utf-8?B?dklzaXdCeFFuZDNIWno4a3grTytxYWNOSDNieUJ4NDdyT1J5SnNSSTZmbDJy?=
- =?utf-8?B?U0hOKzBNbDB2cEdjMnBXYUVINS9mdHZXZkVza3dzVVZ2M3czbjF6VXJac2Rp?=
- =?utf-8?B?dStTb1RDL2MxVkQvdVdlYVBNTGRoUTJ5bXpMVnRzQmdUTGt1a0dYdk1xTEVL?=
- =?utf-8?B?TEdhNGZQTFJ6RFgzWnM0c1JLSXNQUWwxQTFLem1jYTk0akRiV0pjMk5lTHFs?=
- =?utf-8?B?LytLSUZ0allVVXNVcVBuWFNoQm5GT2JabW5mUlV0cDRIWGNZMzBVTDIzOXZU?=
- =?utf-8?B?VkpvaVFRVmd3SnBtQ0xyZWliOTBtL0xNT2FKbVFzcFp4bFgxQWdCUVM1WlBN?=
- =?utf-8?B?N1l2YS9uS3pPWWh3OXFPWDI2dDNINzJjcHdTVDRYTWhtTXJESWR4NUVnb0VL?=
- =?utf-8?B?eExjSnBmZW9vcHhCb2Y2aFVkUFR0MGdVMXF0SjlPUFJyOFRMMXVLN0EwMXJY?=
- =?utf-8?B?NVZnay9UeTYxTEhJd3V4dVpCL2k3ZjRHaVRsWkpZK2F2V3I4WlZDQzFyVTJX?=
- =?utf-8?B?ZVI1SkxXallYVWJyU2xLTVY4eUdNdGVoVjc3TjU1c3R2SGRXTSttcytWYkph?=
- =?utf-8?B?ejVnWFB0bzkxc01MbVRTeFBIcU4wWjEwQm5YZ0VzbUJXYzliNTRBTzJIc2h1?=
- =?utf-8?B?MkZDbzg0dmJyNk8zemFCL0h0MWRaSUcyMDFvZkVrMGRESWxLZVFXcStkTGk5?=
- =?utf-8?B?TEZoamhZUlZJMitpT1NFYTJDOENSWGxzNWxVTHhyaEo0YllDVWd6em9zREhU?=
- =?utf-8?B?MDc1SG9IYllHMHI3WGdnNzJUWVNaN29iMGpTNEpwZmsvWkFrWktpeHUvWktn?=
- =?utf-8?B?VERiY2ViclhENy81U2xYUjg2TGZDd01SdUdHM2FqY3orcUY3UlVtemM1c1l5?=
- =?utf-8?B?TFlHQnhWSitaYktNR2hKRmxITis3dWo0RUo4NHVEWVduQ3Fjd3lSYS9aMkd4?=
- =?utf-8?Q?hZvq3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cmpPUldPcXMwU1NvMWt6aHJoR2tIOW1HVitaRFU5Uk0yQ3hVUDlyYXh4UzRa?=
- =?utf-8?B?Q1Bid3dqZEtVNi9RTlJyYlUvN2U5ZUJhQnl2UGx2T0Q2a2tLZHpycDBTdzVs?=
- =?utf-8?B?UHVpUHF1dlErN0N0RkhSb1dtQmo0RUZIMk1XckdtbENXcjBjRXVTd1JZMWRM?=
- =?utf-8?B?QVhUWURBMkVseWl5cTV1b3YrRU10VnV3NURWREJKVWsvMXlUTGNFUW1ucUI1?=
- =?utf-8?B?M1d4V3o3NDBjRndMMmZHTGJMR1ZuYlFDNG1zaURrQzYrSS83bnNKb0ZReHZi?=
- =?utf-8?B?TGZLVEJ1enQwSE43N2RtSGpOSjkwL2pFSjhLTmJ1Rjg4Q2FDQ2UyTXowbjRR?=
- =?utf-8?B?Y0tKSlJnM01TZHVTZER5OXBBY2NzRUpzWWwxQWJENy92c1hQRU1BQzFaRHZ5?=
- =?utf-8?B?eTlhQWlhc25FeVF0bjFNM0w0dHZtNFd1QU4wRThFUEVtcmxHN21nU2xsSlBC?=
- =?utf-8?B?U3o4NFA4ZGdXZGQ2TTFhUmloK2RxSVcwT3ZSbmZwcGxlMHdVUzNqZlhtVCt1?=
- =?utf-8?B?eW9UbFlIVVZzNGZXY24wK3BIODFsYVVOR25MbmFIRENoSlN0UDZuSkxRdzNi?=
- =?utf-8?B?bTluSTFOUTR3K1lBUUpHeFNyUVEwTW5vLzRIS0ZUQm9Oa0VOYzhLQ2tPbHZk?=
- =?utf-8?B?ZjBUY2h1NGdwb1poUzZKNlQ5N2xuZ0g3S1JDK1d6VVJzTG1SZFQzdEh1Zk5q?=
- =?utf-8?B?WXUxVXJZaDhKQ2szRjVvRlFHNEg3YU9SN01nWWtRUWprVGh6enFZUFEraUF3?=
- =?utf-8?B?YkdNTHJSNnpMR0FsZlJhN25VbHJOeVFvQW9sZjhPRzJrVlFHMzE0VXF0M2pP?=
- =?utf-8?B?SzltNElkbllIMUxGanYxSHVTd0FyZFpEVlNaMDExSWgrQnlpUk1La2lqRHFp?=
- =?utf-8?B?a0kvVnoySm1xUDZ1elBPTFdtRXArMitLNlFtMElwcm1VbnRpK2V1LzJWUDh6?=
- =?utf-8?B?QnhsdU1zc0tGN052UzkvbklCS3NqSzU0aTc5RGlYRnlxUEpLS2Jidit1RytS?=
- =?utf-8?B?NGJXdFNqaXVxSEtDSGxvUmdQSW1Ca0wxSVoycEYyWjJqOU42aW5iODJKV3Rq?=
- =?utf-8?B?K0ZweU8zVEtUQ2J5MUdObW1jZzFzTXJhMkpoc1FxSmFuOFZsRUVlSEhiYTJv?=
- =?utf-8?B?Yy9vQUZiNXZGVHV4cDhsRU5WRE9RakpCZG01bWZTYVUvQWJhVXU5RjI4NE1x?=
- =?utf-8?B?M3EyMHpHUWRZWllXb0cveEhtV2hzbk1LU2N3M3BieUpQS0dzVVlsK2s0TjlV?=
- =?utf-8?B?RWUxZm1RNktJMlBIbHJKN1ovSHRRMHVUODBUVFJzSG5RYjlCOXBrSHNqcWE4?=
- =?utf-8?B?V2w0T0hQYXR3Q3lPa3daMWJSWGlnUUNoOUF4Zk9WNlB6OTJzZ3lGRWREcnlY?=
- =?utf-8?B?UzBSYVVicjRCcGZCdW5haGlMbWJwZjRhNE5VeXF4MkZSMTFKUDlHY0ZUaHdH?=
- =?utf-8?B?QVJuazBrajJ6M2ZXenMyMkRGZm5UenNGNnJxYS9QQTExd0txa3ZnV3JCMUVM?=
- =?utf-8?B?WmpDdGd6ZFdXTE5jM2w5UDJmYWl5b3JBcHh4WktvdnVtWnh2UkNVcVBWNEhm?=
- =?utf-8?B?RHNoNGJRalpKanRReTZhdTNYR0N1Zm1sY255dEZ4SFM1T3l1Qk96eVVUWWNY?=
- =?utf-8?B?L054WjNTU0d5ODdHZndZTmJ2WGJLN1pqKzkyYkczdFZ6aEgzLzFVZnJWT3Vj?=
- =?utf-8?B?a294a2Z4cEVDemxVK2NWc040UVo3Y285Y0VYRWtJaHVnZlVFODgzZ0YveVRl?=
- =?utf-8?B?aC9vNjdIcFl4cVl6VzBJVm5EbGo1azBLSGpRSHRTQmNNYlEzZ081NmtLZkpI?=
- =?utf-8?B?QUNRTlE3YkNFdytGOWdRVE4yWGYvdUdUYzBTNnZqZ3hxR1grcUsyTmZ0TTFF?=
- =?utf-8?B?NERNV1YrZ2ZYWUM0N1ZUWjlXdWQ3UVBlWDFzUDhNZVREQ01xODEvaTZsNlpo?=
- =?utf-8?B?bkNGODJQTzFXd2FYUlFuT3FCdU0zZG4vODFwSFpkOENXdVk3MnFGSnQxdms2?=
- =?utf-8?B?eWl4VFNob293Y1g4ZEhidTk0WUtRc1dob05JZGNMYWI2TlVDQW0zd1JGaEpI?=
- =?utf-8?B?NTMwZmJNbXU4N2xQV1htSUswQmkyUmVVZXpRYlZQN25jVzRaY1pjZW5JTUtL?=
- =?utf-8?Q?w+WY=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1b84f96b-cd2b-473f-6e48-08dd760fa002
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 20:06:04.0796
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ls6GhX/8G35VHDmbrzUc+6yV4AyaABmestkklIgRKhdNWY38pSp26ngqZVsqzJmTmGdvhUuspIFm3g6lxvmp6Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7668
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_130606_474046_60D274A5 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20250407_131340_748022_23C883A0 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,504 +108,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pengfei Li <pengfei.li_1@nxp.com>
+To run in the VTL mode, Hyper-V drivers have to know what
+VTL the system boots in, and the arm64/hyperv code does not
+have the means to compute that.
 
-Introduce support for the i.MX91 thermal monitoring unit, which features a
-single sensor for the CPU. The register layout differs from other chips,
-necessitating the creation of a dedicated file for this.
+Refactor the code to hoist the function that detects VTL,
+make it arch-neutral to be able to employ it to get the VTL
+on arm64.
 
-This sensor provides a resolution of 1/64°C (6-bit fraction). For actual
-accuracy, refer to the datasheet, as it varies depending on the chip grade.
-Provide an interrupt for end of measurement and threshold violation and
-Contain temperature threshold comparators, in normal and secure address
-space, with direction and threshold programmability.
-
-Datasheet Link: https://www.nxp.com/docs/en/data-sheet/IMX91CEC.pdf
-
-Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+Reviewed-by: Tianyu Lan <tiala@microsoft.com>
 ---
-Change from v5 to v6
-- remove Macro's review tag
-- remove mutex lock
-- use set_trips callback
+ arch/x86/hyperv/hv_init.c      | 34 ----------------------------------
+ drivers/hv/hv_common.c         | 31 +++++++++++++++++++++++++++++++
+ include/asm-generic/mshyperv.h |  6 ++++++
+ include/hyperv/hvgdk_mini.h    |  2 +-
+ 4 files changed, 38 insertions(+), 35 deletions(-)
 
-Change from v4 to v5
-- add irq support
-- use period mode
-- Marco, if need drop review tag, let me know
-
-Change from v3 to v4
-- Add Macro's review tag
-- Use devm_add_action()
-- Move pm_runtim_put before thermal_of_zone_register()
-
-change from v2 to v3
-- add IMX91_TMU_ prefix for register define
-- remove unused register define
-- fix missed pm_runtime_put() at error path in imx91_tmu_get_temp()
-- use dev variable in probe function
-- use pm_runtime_set_active() in probe
-- move START to imx91_tmu_get_temp()
-- use DEFINE_RUNTIME_DEV_PM_OPS()
-- keep set reset value because there are not sw "reset" bit in controller,
-uboot may change and enable tmu.
-
-change from v1 to v2
-- use low case for hexvalue
-- combine struct imx91_tmu and tmu_sensor
-- simplify imx91_tmu_start() and imx91_tmu_enable()
-- use s16 for imx91_tmu_get_temp(), which may negative value
-- use reverse christmas tree style
-- use run time pm
-- use oneshot to sample temp
-- register thermal zone after hardware init
----
- drivers/thermal/Kconfig         |  10 +
- drivers/thermal/Makefile        |   1 +
- drivers/thermal/imx91_thermal.c | 398 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 409 insertions(+)
-
-diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
-index d3f9686e26e71..78a05d1030882 100644
---- a/drivers/thermal/Kconfig
-+++ b/drivers/thermal/Kconfig
-@@ -296,6 +296,16 @@ config IMX8MM_THERMAL
- 	  cpufreq is used as the cooling device to throttle CPUs when the passive
- 	  trip is crossed.
+diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+index ddeb40930bc8..3b569291dfed 100644
+--- a/arch/x86/hyperv/hv_init.c
++++ b/arch/x86/hyperv/hv_init.c
+@@ -390,40 +390,6 @@ static void __init hv_stimer_setup_percpu_clockev(void)
+ 		old_setup_percpu_clockev();
+ }
  
-+config IMX91_THERMAL
-+	tristate "Temperature sensor driver for NXP i.MX91 SoC"
-+	depends on ARCH_MXC || COMPILE_TEST
-+	depends on OF
-+	help
-+	  Include one sensor and six comparators. Each of them compares the
-+	  temperature value (from the sensor) against the programmable
-+	  threshold values. The direction of the comparison is configurable
-+	  (greater / lesser than).
-+
- config K3_THERMAL
- 	tristate "Texas Instruments K3 thermal support"
- 	depends on ARCH_K3 || COMPILE_TEST
-diff --git a/drivers/thermal/Makefile b/drivers/thermal/Makefile
-index 9abf43a74f2bb..08da241e6a598 100644
---- a/drivers/thermal/Makefile
-+++ b/drivers/thermal/Makefile
-@@ -50,6 +50,7 @@ obj-$(CONFIG_ARMADA_THERMAL)	+= armada_thermal.o
- obj-$(CONFIG_IMX_THERMAL)	+= imx_thermal.o
- obj-$(CONFIG_IMX_SC_THERMAL)	+= imx_sc_thermal.o
- obj-$(CONFIG_IMX8MM_THERMAL)	+= imx8mm_thermal.o
-+obj-$(CONFIG_IMX91_THERMAL)	+= imx91_thermal.o
- obj-$(CONFIG_MAX77620_THERMAL)	+= max77620_thermal.o
- obj-$(CONFIG_QORIQ_THERMAL)	+= qoriq_thermal.o
- obj-$(CONFIG_DA9062_THERMAL)	+= da9062-thermal.o
-diff --git a/drivers/thermal/imx91_thermal.c b/drivers/thermal/imx91_thermal.c
-new file mode 100644
-index 0000000000000..e8deb0b07dc98
---- /dev/null
-+++ b/drivers/thermal/imx91_thermal.c
-@@ -0,0 +1,398 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright 2025 NXP.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/err.h>
-+#include <linux/interrupt.h>
-+#include <linux/iopoll.h>
-+#include <linux/nvmem-consumer.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/thermal.h>
-+#include <linux/units.h>
-+
-+#define REG_SET					0x4
-+#define REG_CLR					0x8
-+#define REG_TOG					0xc
-+
-+#define IMX91_TMU_CTRL0				0x0
-+#define   IMX91_TMU_CTRL0_THR1_IE		BIT(9)
-+#define   IMX91_TMU_CTRL0_THR1_MASK		GENMASK(3, 2)
-+#define   IMX91_TMU_CTRL0_CLR_FLT1		BIT(21)
-+
-+#define IMX91_TMU_THR_MODE_LE			0
-+#define IMX91_TMU_THR_MODE_GE			1
-+
-+#define IMX91_TMU_STAT0				0x10
-+#define   IMX91_TMU_STAT0_THR1_IF		BIT(9)
-+#define   IMX91_TMU_STAT0_THR1_STAT		BIT(13)
-+#define   IMX91_TMU_STAT0_DRDY0_IF_MASK		BIT(16)
-+
-+#define IMX91_TMU_DATA0				0x20
-+
-+#define IMX91_TMU_CTRL1				0x200
-+#define IMX91_TMU_CTRL1_EN			BIT(31)
-+#define IMX91_TMU_CTRL1_START			BIT(30)
-+#define IMX91_TMU_CTRL1_STOP			BIT(29)
-+#define IMX91_TMU_CTRL1_RES_MASK		GENMASK(19, 18)
-+#define IMX91_TMU_CTRL1_MEAS_MODE_MASK		GENMASK(25, 24)
-+#define   IMX91_TMU_CTRL1_MEAS_MODE_SINGLE	0
-+#define   IMX91_TMU_CTRL1_MEAS_MODE_CONTINUES	1
-+#define   IMX91_TMU_CTRL1_MEAS_MODE_PERIODIC	2
-+
-+#define IMX91_TMU_THR_CTRL01			0x30
-+#define   IMX91_TMU_THR_CTRL01_THR1_MASK	GENMASK(31, 16)
-+
-+#define IMX91_TMU_REF_DIV			0x280
-+#define IMX91_TMU_DIV_EN			BIT(31)
-+#define IMX91_TMU_DIV_MASK			GENMASK(23, 16)
-+#define IMX91_TMU_DIV_MAX			255
-+
-+#define IMX91_TMU_PUD_ST_CTRL			0x2b0
-+#define IMX91_TMU_PUDL_MASK			GENMASK(23, 16)
-+
-+#define IMX91_TMU_TRIM1				0x2e0
-+#define IMX91_TMU_TRIM2				0x2f0
-+
-+#define IMX91_TMU_TEMP_LOW_LIMIT		-40000
-+#define IMX91_TMU_TEMP_HIGH_LIMIT		125000
-+
-+#define IMX91_TMU_DEFAULT_TRIM1_CONFIG		0xb561bc2d
-+#define IMX91_TMU_DEFAULT_TRIM2_CONFIG		0x65d4
-+
-+#define IMX91_TMU_PERIOD_CTRL			0x270
-+#define   IMX91_TMU_PERIOD_CTRL_MEAS_MASK	GENMASK(23, 0)
-+
-+#define IMX91_TMP_FRAC				64
-+
-+struct imx91_tmu {
-+	void __iomem *base;
-+	struct clk *clk;
-+	struct device *dev;
-+	struct thermal_zone_device *tzd;
-+	int high;
-+	bool enable;
-+};
-+
-+static void imx91_tmu_start(struct imx91_tmu *tmu, bool start)
+-#if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+-static u8 __init get_vtl(void)
+-{
+-	u64 control = HV_HYPERCALL_REP_COMP_1 | HVCALL_GET_VP_REGISTERS;
+-	struct hv_input_get_vp_registers *input;
+-	struct hv_output_get_vp_registers *output;
+-	unsigned long flags;
+-	u64 ret;
+-
+-	local_irq_save(flags);
+-	input = *this_cpu_ptr(hyperv_pcpu_input_arg);
+-	output = *this_cpu_ptr(hyperv_pcpu_output_arg);
+-
+-	memset(input, 0, struct_size(input, names, 1));
+-	input->partition_id = HV_PARTITION_ID_SELF;
+-	input->vp_index = HV_VP_INDEX_SELF;
+-	input->input_vtl.as_uint8 = 0;
+-	input->names[0] = HV_REGISTER_VSM_VP_STATUS;
+-
+-	ret = hv_do_hypercall(control, input, output);
+-	if (hv_result_success(ret)) {
+-		ret = output->values[0].reg8 & HV_X64_VTL_MASK;
+-	} else {
+-		pr_err("Failed to get VTL(error: %lld) exiting...\n", ret);
+-		BUG();
+-	}
+-
+-	local_irq_restore(flags);
+-	return ret;
+-}
+-#else
+-static inline u8 get_vtl(void) { return 0; }
+-#endif
+-
+ /*
+  * This function is to be invoked early in the boot sequence after the
+  * hypervisor has been detected.
+diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+index b3b11be11650..1ece6721c486 100644
+--- a/drivers/hv/hv_common.c
++++ b/drivers/hv/hv_common.c
+@@ -317,6 +317,37 @@ void __init hv_get_partition_id(void)
+ 		pr_err("Hyper-V: failed to get partition ID: %#x\n",
+ 		       hv_result(status));
+ }
++#if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
++u8 __init get_vtl(void)
 +{
-+	u32 val = start ? IMX91_TMU_CTRL1_START : IMX91_TMU_CTRL1_STOP;
++	u64 control = HV_HYPERCALL_REP_COMP_1 | HVCALL_GET_VP_REGISTERS;
++	struct hv_input_get_vp_registers *input;
++	struct hv_output_get_vp_registers *output;
++	unsigned long flags;
++	u64 ret;
 +
-+	writel_relaxed(val, tmu->base + IMX91_TMU_CTRL1 + REG_SET);
-+}
++	local_irq_save(flags);
++	input = *this_cpu_ptr(hyperv_pcpu_input_arg);
++	output = *this_cpu_ptr(hyperv_pcpu_output_arg);
 +
-+static void imx91_tmu_enable(struct imx91_tmu *tmu, bool enable)
-+{
-+	u32 reg = IMX91_TMU_CTRL1;
++	memset(input, 0, struct_size(input, names, 1));
++	input->partition_id = HV_PARTITION_ID_SELF;
++	input->vp_index = HV_VP_INDEX_SELF;
++	input->input_vtl.as_uint8 = 0;
++	input->names[0] = HV_REGISTER_VSM_VP_STATUS;
 +
-+	reg += enable ? REG_SET : REG_CLR;
-+
-+	writel_relaxed(IMX91_TMU_CTRL1_EN, tmu->base + reg);
-+}
-+
-+static int imx91_tmu_to_mcelsius(int x)
-+{
-+	return x * MILLIDEGREE_PER_DEGREE / IMX91_TMP_FRAC;
-+}
-+
-+static int imx91_tmu_from_mcelsius(int x)
-+{
-+	return x * IMX91_TMP_FRAC / MILLIDEGREE_PER_DEGREE;
-+}
-+
-+static int imx91_tmu_get_temp(struct thermal_zone_device *tz, int *temp)
-+{
-+	struct imx91_tmu *tmu = thermal_zone_device_priv(tz);
-+	s16 data;
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(tmu->dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	/* DATA0 is 16bit signed number */
-+	data = readw_relaxed(tmu->base + IMX91_TMU_DATA0);
-+	*temp = imx91_tmu_to_mcelsius(data);
-+	if (*temp < IMX91_TMU_TEMP_LOW_LIMIT || *temp > IMX91_TMU_TEMP_HIGH_LIMIT)
-+		ret = -EAGAIN;
-+
-+	if (*temp <= tmu->high && tmu->enable) {
-+		writel_relaxed(IMX91_TMU_STAT0_THR1_IF, tmu->base + IMX91_TMU_STAT0 + REG_CLR);
-+		writel_relaxed(IMX91_TMU_CTRL0_THR1_IE, tmu->base + IMX91_TMU_CTRL0 + REG_SET);
++	ret = hv_do_hypercall(control, input, output);
++	if (hv_result_success(ret)) {
++		ret = output->values[0].reg8 & HV_VTL_MASK;
++	} else {
++		pr_err("Failed to get VTL(error: %lld) exiting...\n", ret);
++		BUG();
 +	}
 +
-+	pm_runtime_put(tmu->dev);
-+
++	local_irq_restore(flags);
 +	return ret;
 +}
-+
-+static int imx91_tmu_set_trips(struct thermal_zone_device *tz, int low, int high)
-+{
-+	struct imx91_tmu *tmu = thermal_zone_device_priv(tz);
-+	int val;
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(tmu->dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	if (high >= IMX91_TMU_TEMP_HIGH_LIMIT)
-+		return -EINVAL;
-+
-+	writel_relaxed(IMX91_TMU_CTRL0_THR1_IE, tmu->base + IMX91_TMU_CTRL0 + REG_CLR);
-+
-+	/* Comparator1 for temperature threshold */
-+	writel_relaxed(IMX91_TMU_THR_CTRL01_THR1_MASK, tmu->base + IMX91_TMU_THR_CTRL01 + REG_CLR);
-+	val = FIELD_PREP(IMX91_TMU_THR_CTRL01_THR1_MASK, imx91_tmu_from_mcelsius(high));
-+	writel_relaxed(val, tmu->base + IMX91_TMU_THR_CTRL01 + REG_SET);
-+
-+	writel_relaxed(IMX91_TMU_STAT0_THR1_IF, tmu->base + IMX91_TMU_STAT0 + REG_CLR);
-+
-+	tmu->high = high;
-+
-+	writel_relaxed(IMX91_TMU_CTRL0_THR1_IE, tmu->base + IMX91_TMU_CTRL0 + REG_SET);
-+	pm_runtime_put(tmu->dev);
-+
-+	return 0;
-+}
-+
-+static int imx91_init_from_nvmem_cells(struct imx91_tmu *tmu)
-+{
-+	struct device *dev = tmu->dev;
-+	u32 trim1, trim2;
-+	int ret;
-+
-+	ret = nvmem_cell_read_u32(dev, "trim1", &trim1);
-+	if (ret)
-+		return ret;
-+
-+	ret = nvmem_cell_read_u32(dev, "trim2", &trim2);
-+	if (ret)
-+		return ret;
-+
-+	if (trim1 == 0 || trim2 == 0)
-+		return -EINVAL;
-+
-+	writel_relaxed(trim1, tmu->base + IMX91_TMU_TRIM1);
-+	writel_relaxed(trim2, tmu->base + IMX91_TMU_TRIM2);
-+
-+	return 0;
-+}
-+
-+static void imx91_tmu_action_remove(void *data)
-+{
-+	struct imx91_tmu *tmu = data;
-+
-+	/* disable tmu */
-+	imx91_tmu_enable(tmu, false);
-+}
-+
-+static irqreturn_t imx91_tmu_alarm_irq_thread(int irq, void *dev)
-+{
-+	struct imx91_tmu *tmu = dev;
-+	int val;
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(tmu->dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	thermal_zone_device_update(tmu->tzd, THERMAL_EVENT_UNSPECIFIED);
-+
-+	val = readl_relaxed(tmu->base + IMX91_TMU_STAT0);
-+	/* Have to use CLR register to clean up w1c bits */
-+	writel_relaxed(val, tmu->base + IMX91_TMU_STAT0 + REG_CLR);
-+
-+	writel_relaxed(IMX91_TMU_CTRL0_THR1_IE, tmu->base + IMX91_TMU_CTRL0 + REG_CLR);
-+
-+	pm_runtime_put(tmu->dev);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int imx91_tmu_change_mode(struct thermal_zone_device *tz, enum thermal_device_mode mode)
-+{
-+	struct imx91_tmu *tmu = thermal_zone_device_priv(tz);
-+	int ret;
-+
-+	if (mode == THERMAL_DEVICE_ENABLED) {
-+		ret = pm_runtime_get(tmu->dev);
-+		if (ret < 0)
-+			return ret;
-+
-+		imx91_tmu_start(tmu, true);
-+		writel_relaxed(IMX91_TMU_CTRL0_THR1_IE, tmu->base + IMX91_TMU_CTRL0 + REG_SET);
-+		tmu->enable = true;
-+	} else {
-+		writel_relaxed(IMX91_TMU_CTRL0_THR1_IE, tmu->base + IMX91_TMU_CTRL0 + REG_CLR);
-+		imx91_tmu_start(tmu, false);
-+		pm_runtime_put(tmu->dev);
-+		tmu->enable = false;
-+	}
-+
-+	return 0;
-+}
-+
-+static struct thermal_zone_device_ops tmu_tz_ops = {
-+	.get_temp = imx91_tmu_get_temp,
-+	.change_mode = imx91_tmu_change_mode,
-+	.set_trips = imx91_tmu_set_trips,
-+};
-+
-+static int imx91_tmu_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct imx91_tmu *tmu;
-+	unsigned long rate;
-+	int irq, ret;
-+	u32 div;
-+
-+	tmu = devm_kzalloc(dev, sizeof(struct imx91_tmu), GFP_KERNEL);
-+	if (!tmu)
-+		return -ENOMEM;
-+
-+	tmu->dev = dev;
-+
-+	tmu->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(tmu->base))
-+		return dev_err_probe(dev, PTR_ERR(tmu->base), "failed to get io resource");
-+
-+	tmu->clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(tmu->clk))
-+		return dev_err_probe(dev, PTR_ERR(tmu->clk), "failed to get tmu clock\n");
-+
-+	platform_set_drvdata(pdev, tmu);
-+
-+	/* disable the monitor during initialization */
-+	imx91_tmu_enable(tmu, false);
-+	imx91_tmu_start(tmu, false);
-+
-+	ret = imx91_init_from_nvmem_cells(tmu);
-+	if (ret) {
-+		writel_relaxed(IMX91_TMU_DEFAULT_TRIM1_CONFIG, tmu->base + IMX91_TMU_TRIM1);
-+		writel_relaxed(IMX91_TMU_DEFAULT_TRIM2_CONFIG, tmu->base + IMX91_TMU_TRIM2);
-+	}
-+
-+	/* The typical conv clk is 4MHz, the output freq is 'rate / (div + 1)' */
-+	rate = clk_get_rate(tmu->clk);
-+	div = (rate / (4 * HZ_PER_MHZ)) - 1;
-+	if (div > IMX91_TMU_DIV_MAX)
-+		return dev_err_probe(dev, -EINVAL, "clock divider exceed hardware limitation");
-+
-+	/* Set divider value and enable divider */
-+	writel_relaxed(IMX91_TMU_DIV_EN | FIELD_PREP(IMX91_TMU_DIV_MASK, div),
-+		       tmu->base + IMX91_TMU_REF_DIV);
-+
-+	/* Set max power up delay: 'Tpud(ms) = 0xFF * 1000 / 4000000' */
-+	writel_relaxed(FIELD_PREP(IMX91_TMU_PUDL_MASK, 100U), tmu->base + IMX91_TMU_PUD_ST_CTRL);
-+
-+	/*
-+	 * Set resolution mode
-+	 * 00b - Conversion time = 0.59325 ms
-+	 * 01b - Conversion time = 1.10525 ms
-+	 * 10b - Conversion time = 2.12925 ms
-+	 * 11b - Conversion time = 4.17725 ms
-+	 */
-+	writel_relaxed(FIELD_PREP(IMX91_TMU_CTRL1_RES_MASK, 0x3),
-+		       tmu->base + IMX91_TMU_CTRL1 + REG_CLR);
-+	writel_relaxed(FIELD_PREP(IMX91_TMU_CTRL1_RES_MASK, 0x1),
-+		       tmu->base + IMX91_TMU_CTRL1 + REG_SET);
-+
-+	writel_relaxed(IMX91_TMU_CTRL1_MEAS_MODE_MASK, tmu->base + IMX91_TMU_CTRL1 + REG_CLR);
-+	writel_relaxed(FIELD_PREP(IMX91_TMU_CTRL1_MEAS_MODE_MASK,
-+				  IMX91_TMU_CTRL1_MEAS_MODE_PERIODIC),
-+		       tmu->base + IMX91_TMU_CTRL1 + REG_SET);
-+
-+	/*
-+	 * Set Periodic Measurement Frequency to 25Hz:
-+	 * tMEAS_FREQ = tCONV_CLK * PERIOD_CTRL[MEAS_FREQ]
-+	 */
-+	writel_relaxed(FIELD_PREP(IMX91_TMU_PERIOD_CTRL_MEAS_MASK, 4 * HZ_PER_MHZ / 25),
-+		       tmu->base + IMX91_TMU_PERIOD_CTRL);
-+
-+	writel_relaxed(IMX91_TMU_CTRL0_THR1_IE | IMX91_TMU_CTRL0_THR1_MASK,
-+		       tmu->base + IMX91_TMU_CTRL0 + REG_CLR);
-+
-+	writel_relaxed(FIELD_PREP(IMX91_TMU_CTRL0_THR1_MASK, IMX91_TMU_THR_MODE_GE),
-+		       tmu->base + IMX91_TMU_CTRL0 + REG_SET);
-+
-+	pm_runtime_set_active(dev);
-+	devm_pm_runtime_enable(dev);
-+	pm_runtime_suspend(dev);
-+
-+	tmu->tzd = devm_thermal_of_zone_register(dev, 0, tmu, &tmu_tz_ops);
-+	if (IS_ERR(tmu->tzd))
-+		return dev_err_probe(dev, PTR_ERR(tmu->tzd),
-+				     "failed to register thermal zone sensor\n");
-+
-+	ret = devm_add_action(dev, imx91_tmu_action_remove, tmu);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failure to add action imx91_tmu_action_remove()\n");
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	ret = devm_request_threaded_irq(dev, irq, NULL, imx91_tmu_alarm_irq_thread,
-+					IRQF_ONESHOT, "imx91_thermal", tmu);
-+
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "failed to request alarm irq\n");
-+
-+	return 0;
-+}
-+
-+static int imx91_tmu_runtime_suspend(struct device *dev)
-+{
-+	struct imx91_tmu *tmu = dev_get_drvdata(dev);
-+
-+	/* disable tmu */
-+	imx91_tmu_enable(tmu, false);
-+
-+	clk_disable_unprepare(tmu->clk);
-+
-+	return 0;
-+}
-+
-+static int imx91_tmu_runtime_resume(struct device *dev)
-+{
-+	struct imx91_tmu *tmu = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_prepare_enable(tmu->clk);
-+	if (ret)
-+		return ret;
-+
-+	imx91_tmu_enable(tmu, true);
-+
-+	return 0;
-+}
-+
-+static DEFINE_RUNTIME_DEV_PM_OPS(imx91_tmu_pm_ops, imx91_tmu_runtime_suspend,
-+				 imx91_tmu_runtime_resume, NULL);
-+
-+static const struct of_device_id imx91_tmu_table[] = {
-+	{ .compatible = "fsl,imx91-tmu", },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, imx91_tmu_table);
-+
-+static struct platform_driver imx91_tmu = {
-+	.driver = {
-+		.name	= "imx91_thermal",
-+		.pm	= pm_ptr(&imx91_tmu_pm_ops),
-+		.of_match_table = imx91_tmu_table,
-+	},
-+	.probe = imx91_tmu_probe,
-+};
-+module_platform_driver(imx91_tmu);
-+
-+MODULE_AUTHOR("Peng Fan <peng.fan@nxp.com>");
-+MODULE_DESCRIPTION("i.MX91 Thermal Monitor Unit driver");
-+MODULE_LICENSE("GPL");
-
++#endif
+ 
+ int __init hv_common_init(void)
+ {
+diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+index ccccb1cbf7df..6c51a25ed7b5 100644
+--- a/include/asm-generic/mshyperv.h
++++ b/include/asm-generic/mshyperv.h
+@@ -378,4 +378,10 @@ static inline int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u3
+ }
+ #endif /* CONFIG_MSHV_ROOT */
+ 
++#if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
++u8 __init get_vtl(void);
++#else
++static inline u8 get_vtl(void) { return 0; }
++#endif
++
+ #endif
+diff --git a/include/hyperv/hvgdk_mini.h b/include/hyperv/hvgdk_mini.h
+index abf0bd76e370..cf0923dc727d 100644
+--- a/include/hyperv/hvgdk_mini.h
++++ b/include/hyperv/hvgdk_mini.h
+@@ -1228,7 +1228,7 @@ struct hv_send_ipi {	 /* HV_INPUT_SEND_SYNTHETIC_CLUSTER_IPI */
+ 	u64 cpu_mask;
+ } __packed;
+ 
+-#define	HV_X64_VTL_MASK			GENMASK(3, 0)
++#define	HV_VTL_MASK			GENMASK(3, 0)
+ 
+ /* Hyper-V memory host visibility */
+ enum hv_mem_host_visibility {
 -- 
-2.34.1
+2.43.0
 
 
