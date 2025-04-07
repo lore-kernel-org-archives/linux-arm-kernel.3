@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D949AC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 17:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94230C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 17:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gLc5v44BbBjHGH2R/IosxNm2fZiVevhZk8y6Zg923ko=; b=cC6lwzBizQoknWg7PotBbXiCKT
-	/uhI/RyT84RQ6priAycljofd1Begt26gTlX1cPxJAdHmsvQj5/l3ZFXllkO05DS0m0tLt0nXyWYFl
-	JRslfBb3BTLkL9dfvK+nshBN2ZGeo4gJ1DSV+rhx2dfD4gaaGrcG7xBCIOh3lD5U5lYBuGwbdGXwJ
-	3bURudZfzmb4peXMcT1d3Dl6E9KeInZCf09NTQoYBZinl1UmKNB4ctoW1E64esE0o43QZNHiQYZpF
-	gyjOIwvUjt6J8q4gFZFRqxcKlN/JKn+UiiW53cbDa/1BYbl2JQfQbLkVlxnbZm9qhNIiQmSV00QXQ
-	ifaKWs9g==;
+	bh=MmJI79xOX++xDBcrvPihMsLbiYiuLuD+bYY7rFVQsyw=; b=p09K0ERd1YKWUgBjEF2ILG8xRE
+	15Om8w6lOg5dyKDGlonEIG9af5B0gvdo16AaUx3VpG7gai+RIf+uNdz0vwZ/MTbAruRSG49NLAfmR
+	lv3QMoA6uXs5WC76+9sIqXmMTai5itz95i/wFc+LQLcYsRLQG0J1Vr2pvAnYM5UFLNVULuQmfye5e
+	1Hz4c0JsnIvMrRGJVLqEAdxG0svag2ziyyS2WWMz7ndD99+DomPFXHnEVTyvNoq62rjjDxTSW8MjM
+	m0qUVV0dWgWZ9eeDPLpR8KSC000JBusrAbKtYy16M+UmJQUvPdxkBLb1xwahCFXzUOuo5gY5hiwUC
+	FxpKVUXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1q2S-00000001KzV-1jLi;
-	Mon, 07 Apr 2025 17:13:36 +0000
+	id 1u1q4B-00000001LC4-0cEg;
+	Mon, 07 Apr 2025 17:15:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pCm-000000019AP-1uCJ
+	id 1u1pCn-000000019B9-1SSh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 16:20:13 +0000
+	Mon, 07 Apr 2025 16:20:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F6E91BCB;
-	Mon,  7 Apr 2025 09:20:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EAE21BF3;
+	Mon,  7 Apr 2025 09:20:14 -0700 (PDT)
 Received: from u200865.usa.arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 784343F694;
-	Mon,  7 Apr 2025 09:20:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 822873F694;
+	Mon,  7 Apr 2025 09:20:12 -0700 (PDT)
 From: Jeremy Linton <jeremy.linton@arm.com>
 To: linux-trace-kernel@vger.kernel.org
 Cc: linux-perf-users@vger.kernel.org,
@@ -56,18 +56,19 @@ Cc: linux-perf-users@vger.kernel.org,
 	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jeremy Linton <jeremy.linton@arm.com>
-Subject: [PATCH v2 4/6] arm64: probes: Add GCS support to bl/blr/ret
-Date: Mon,  7 Apr 2025 11:19:49 -0500
-Message-ID: <20250407161951.560865-5-jeremy.linton@arm.com>
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Steve Capper <steve.capper@arm.com>
+Subject: [PATCH v2 5/6] arm64: uprobes: Add GCS support to uretprobes
+Date: Mon,  7 Apr 2025 11:19:50 -0500
+Message-ID: <20250407161951.560865-6-jeremy.linton@arm.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250407161951.560865-1-jeremy.linton@arm.com>
 References: <20250407161951.560865-1-jeremy.linton@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_092012_591344_ABF8EFF0 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20250407_092013_417989_36FA97D1 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,95 +83,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 probe simulation doesn't currently have logic in place
-to deal with GCS and this results in core dumps if probes are inserted
-at control flow locations. Fix-up bl, blr and ret to manipulate the
-shadow stack as needed.
+Ret probes work by changing the value in the link register at
+the probe location to return to the probe rather than the calling
+routine. Thus the GCS needs to be updated with this address as well.
 
-While we manipulate and validate the shadow stack correctly, the
-hardware provides additional security by only allowing GCS operations
-against pages which are marked to support GCS. For writing there is
-gcssttr() which enforces this, but there isn't an equivalent for
-reading. This means that uprobe users should be aware that probing on
-control flow instructions which require reading the shadow stack (ex:
-ret) offers lower security guarantees than what is achieved without
-the uprobe active.
+Since its possible to insert probes at locations where the
+current value of the LR doesn't match the GCS state this needs
+to be detected and handled in order to maintain the existing
+no-fault behavior.
 
+Co-developed-by: Steve Capper <steve.capper@arm.com>
+Signed-off-by: Steve Capper <steve.capper@arm.com>
+(updated to use new gcs accessors, and handle LR/GCS mismatches)
 Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
 ---
- arch/arm64/kernel/probes/simulate-insn.c | 28 ++++++++++++++++++++----
- 1 file changed, 24 insertions(+), 4 deletions(-)
+ arch/arm64/kernel/probes/uprobes.c | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/arch/arm64/kernel/probes/simulate-insn.c b/arch/arm64/kernel/probes/simulate-insn.c
-index 09a0b36122d0..1fc9bb69b1eb 100644
---- a/arch/arm64/kernel/probes/simulate-insn.c
-+++ b/arch/arm64/kernel/probes/simulate-insn.c
-@@ -13,6 +13,7 @@
- #include <asm/traps.h>
- 
- #include "simulate-insn.h"
-+#include "asm/gcs.h"
- 
- #define bbl_displacement(insn)		\
- 	sign_extend32(((insn) & 0x3ffffff) << 2, 27)
-@@ -49,6 +50,18 @@ static inline u32 get_w_reg(struct pt_regs *regs, int reg)
- 	return lower_32_bits(pt_regs_read_reg(regs, reg));
- }
- 
-+static inline void update_lr(struct pt_regs *regs, long addr)
-+{
+diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
+index cb3d05af36e3..5e72409a255a 100644
+--- a/arch/arm64/kernel/probes/uprobes.c
++++ b/arch/arm64/kernel/probes/uprobes.c
+@@ -159,11 +159,41 @@ arch_uretprobe_hijack_return_addr(unsigned long trampoline_vaddr,
+ 				  struct pt_regs *regs)
+ {
+ 	unsigned long orig_ret_vaddr;
++	unsigned long gcs_ret_vaddr;
 +	int err = 0;
++	u64 gcspr;
+ 
+ 	orig_ret_vaddr = procedure_link_pointer(regs);
 +
-+	if (user_mode(regs) && task_gcs_el0_enabled(current)) {
-+		push_user_gcs(addr + 4,	 &err);
-+		if (err)
++	if (task_gcs_el0_enabled(current)) {
++		gcspr = read_sysreg_s(SYS_GCSPR_EL0);
++		gcs_ret_vaddr = load_user_gcs((unsigned long __user *)gcspr, &err);
++		if (err) {
 +			force_sig(SIGSEGV);
-+	}
-+	procedure_link_pointer_set(regs, addr + 4);
-+}
-+
- static bool __kprobes check_cbz(u32 opcode, struct pt_regs *regs)
- {
- 	int xn = opcode & 0x1f;
-@@ -107,9 +120,8 @@ simulate_b_bl(u32 opcode, long addr, struct pt_regs *regs)
- {
- 	int disp = bbl_displacement(opcode);
- 
--	/* Link register is x30 */
- 	if (opcode & (1 << 31))
--		set_x_reg(regs, 30, addr + 4);
-+		update_lr(regs, addr);
- 
- 	instruction_pointer_set(regs, addr + disp);
- }
-@@ -133,17 +145,25 @@ simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs)
- 	/* update pc first in case we're doing a "blr lr" */
- 	instruction_pointer_set(regs, get_x_reg(regs, xn));
- 
--	/* Link register is x30 */
- 	if (((opcode >> 21) & 0x3) == 1)
--		set_x_reg(regs, 30, addr + 4);
-+		update_lr(regs, addr);
- }
- 
- void __kprobes
- simulate_ret(u32 opcode, long addr, struct pt_regs *regs)
- {
-+	u64 ret_addr;
-+	int err = 0;
- 	int xn = (opcode >> 5) & 0x1f;
- 
- 	instruction_pointer_set(regs, get_x_reg(regs, xn));
-+
-+	if (user_mode(regs) && task_gcs_el0_enabled(current)) {
-+		ret_addr = pop_user_gcs(&err);
-+		if (err || ret_addr != procedure_link_pointer(regs))
++			goto out;
++		}
++		/*
++		 * If the LR and GCS entry don't match, then some kind of PAC/control
++		 * flow happened. Likely because the user is attempting to retprobe
++		 * on something that isn't a function boundary or inside a leaf
++		 * function. Explicitly abort this retprobe because it will generate
++		 * a GCS exception.
++		 */
++		if (gcs_ret_vaddr != orig_ret_vaddr)	{
++			orig_ret_vaddr = -1;
++			goto out;
++		}
++		put_user_gcs(trampoline_vaddr, (unsigned long __user *) gcspr, &err);
++		if (err) {
 +			force_sig(SIGSEGV);
++			goto out;
++		}
 +	}
 +
+ 	/* Replace the return addr with trampoline addr */
+ 	procedure_link_pointer_set(regs, trampoline_vaddr);
+ 
++out:
+ 	return orig_ret_vaddr;
  }
  
- void __kprobes
 -- 
 2.49.0
 
