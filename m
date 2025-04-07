@@ -4,109 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D41D9C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 334BCC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rb3jpYcr1aAKgglyM97oOu4+KuEmV0wKwC1KNpWZoYY=; b=LGEL3zajOQBawyl0ldNREYdxst
-	HwmdaKfhlmdttln4hFoRApIJCJPg2nvFsX3p8qzunhYackMGMs6Dejtb09Hhi1bfbr10eAKkRgC7d
-	ycFOKlqFt5YT+9iQ5Ki/iZA9P0hviFEe61fqPFXqRLZdWOP8yrddtuG/DCDVo/jVdT6ZS83B2CI1N
-	QDN5y+Ms3LhdOeSxVFfMUVMiskHRJO14jHrFhsCiCLkHu+R+/CBGlsxjyA3S1VI2BQNAixt192U6l
-	RcYqtHuoAIW82rMCU7T2UjDqYFX4YG0bt87bprfiRvnDHqLT48Af7QNoc8MMBl3t5Tvo5l55r+BF+
-	EAhRltmA==;
+	bh=ebgCpKb0JBnNyBzMJIKOLuwJd1meFjjT61fyzD63fBQ=; b=TvdsZTtKQc/s3xniP09Jqqex50
+	COzeGwe+pHTt+skNkKszdYIfrQP5f52mYRG2d0KiiKqeuJNIQBRG2Yu9g30y+p6YYk5RigVmCJly2
+	ehQxt5ch+pH4xdjcG4DCBY2xEO4lgC9b9V8jKUQ+MML/C01ZinKWe8Wh4muqgy2HZL/FdR2DZ9vcB
+	yCgWt5C5hqcUFJKvwdAW5oCHlBMgGgM8EgxShnXg5cfMTXbKiZnFXaj0cmzG91SW3oa3x4Y4gIYh9
+	9JJ+vZBo+YLB20c3WeP/nRCzaH+EE8A2VuiQqMmxtzQOVVSq64T1ok4McfguJ6w1/nG5/RHMg7qch
+	KmMw9n9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pK3-00000001Aik-2XVu;
-	Mon, 07 Apr 2025 16:27:43 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1u1pKE-00000001B27-1hOJ;
+	Mon, 07 Apr 2025 16:27:54 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lw5-00000000MMt-1vr5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 12:50:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=rb3jpYcr1aAKgglyM97oOu4+KuEmV0wKwC1KNpWZoYY=; b=BNm4QLQQHs61JmfzMsMIOumii6
-	7oGIeSYGU5d0L50dqfxP5iu2yUTFm2nY0W8vWvoqdWUijKhmCpSdSB0YKZGVq9jKWLgSrluUvTrsD
-	UvJzYi5JutHA/tlpRbrH7KOnDTa33r7Q9wYdGX9u16T9wDArvGRSDpWWBJxdedo47Hz1e23iwEcEI
-	wk3nqbBK+o0kVTBYl6eKcReOZCxsW2YdUBxpXnbGKW4mSpkJKMPfkksZM15qR+PoEaSGKJ1bszKYK
-	wec0A6AssR15INAZQF+V2mefjwwhc3CNqWozi2frjDkoj7ZYQS7tbqN0z+qKkXInIGYRmDPQy7RmH
-	QaVMu9hw==;
-Received: from [122.175.9.182] (port=42615 helo=cypher.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1u1lw0-0000000047R-09DT;
-	Mon, 07 Apr 2025 18:20:40 +0530
-From: Parvathi Pudi <parvathi@couthit.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	nm@ti.com,
-	ssantosh@kernel.org,
-	tony@atomide.com,
-	richardcochran@gmail.com,
-	glaroque@baylibre.com,
-	schnelle@linux.ibm.com,
-	m-karicheri2@ti.com,
-	rdunlap@infradead.org,
-	diogo.ivo@siemens.com,
-	basharath@couthit.com,
-	parvathi@couthit.com,
-	horms@kernel.org,
-	jacob.e.keller@intel.com,
-	m-malladi@ti.com,
-	javier.carrasco.cruz@gmail.com,
-	afd@ti.com,
-	s-anna@ti.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	pratheesh@ti.com,
-	prajith@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	pmohan@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v4 11/11] net: ti: prueth: Adds PTP OC Support for AM335x and AM437x
-Date: Mon,  7 Apr 2025 18:19:04 +0530
-Message-Id: <20250407124904.1051462-12-parvathi@couthit.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250407102528.1048589-1-parvathi@couthit.com>
-References: <20250407102528.1048589-1-parvathi@couthit.com>
+	id 1u1nPx-00000000ihC-3KIX;
+	Mon, 07 Apr 2025 14:25:43 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1AB77442B9;
+	Mon,  7 Apr 2025 14:25:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744035940;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ebgCpKb0JBnNyBzMJIKOLuwJd1meFjjT61fyzD63fBQ=;
+	b=lM7vJvKvBKYwHDIqNg9m3hu0vb4jPOkECMiAsXsESARSvZnpOjIAjGzvaM/5i+nq9n2SBO
+	YtBRrm574LAiOzMnAO9HrNMZCkEiSROPGlWsfHDWPfz7V3XlGeVEkBKILnpY1GccdFEMi8
+	sRYEC1xRJvmvyR14c6t/p5Qf/OjP2RRZLItT+jnl8JtWHtkU+g+ofusmSAsKDsQwH4/BCi
+	a7nm6y0DFtMvOvar/IHOpkQaeTruncyAbMr4BIib0lywGqvCIiy+subPgADw/GmsCc1woM
+	oXvYIgNRYfImNH0cyIFRsSap2efDKkLC44W4+1kLi78zA+IKX+2yFUMWLh2W3g==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Mon, 07 Apr 2025 16:23:46 +0200
+Subject: [PATCH 31/34] drm/bridge: imx8*-ldb: convert to
+ devm_drm_bridge_alloc() API
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-31-42113ff8d9c0@bootlin.com>
+References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
+In-Reply-To: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Douglas Anderson <dianders@chromium.org>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Anusha Srivatsa <asrivats@redhat.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, 
+ =?utf-8?q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>, 
+ Hui Pu <Hui.Pu@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Liu Ying <victor.liu@nxp.com>
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedvieenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegludelvddrudeikedrudejkedrjeehngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegvddprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvr
+ hhnvghlrdhorhhgpdhrtghpthhtohepjfhuihdrrfhusehgvghhvggrlhhthhgtrghrvgdrtghomhdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhm
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_055045_537930_652208DA 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20250407_072541_970761_668D0393 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,481 +101,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roger Quadros <rogerq@ti.com>
+This is the new API for allocating DRM bridges.
 
-PRU-ICSS IEP module, which is capable of timestamping RX and
-TX packets at HW level, is used for time synchronization by PTP4L.
+These two drivers are tangled together by the ldb_add_bridge_helper(), so
+they are converted at once.
 
-This change includes interaction between firmware/driver and user
-application (ptp4l) with required packet timestamps.
+They also have a similar design, each embedding an array of channels in
+their main struct, and each channel embeds a drm_bridge. This prevents
+dynamic, refcount-based deallocation of the bridges.
 
-RX SOF timestamp comes along with packet and firmware will rise
-interrupt with TX SOF timestamp after pushing the packet on to the wire.
+To make the new, dynamic bridge allocation possible:
 
-IEP driver available in upstream linux as part of ICSSG assumes 64-bit
-timestamp value from firmware.
+ * change the array of channels into an array of channel pointers
+ * allocate each channel using devm_drm_bridge_alloc()
+ * adapt ldb_add_bridge_helper() to not set the funcs pointer
+   (now done by devm_drm_bridge_alloc())
+ * adapt the code wherever using the channels
 
-Enhanced the IEP driver to support the legacy 32-bit timestamp
-conversion to 64-bit timestamp by using 2 fields as below:
-- 32-bit HW timestamp from SOF event in ns
-- Seconds value maintained in driver.
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-Currently ordinary clock (OC) configuration has been validated with
-Linux ptp4l.
-
-Signed-off-by: Roger Quadros <rogerq@ti.com>
-Signed-off-by: Andrew F. Davis <afd@ti.com>
-Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
 ---
- drivers/net/ethernet/ti/icssg/icss_iep.c     | 155 ++++++++++++++++++-
- drivers/net/ethernet/ti/icssg/icss_iep.h     |  11 ++
- drivers/net/ethernet/ti/icssm/icssm_prueth.c |  58 ++++++-
- drivers/net/ethernet/ti/icssm/icssm_prueth.h |  10 ++
- 4 files changed, 229 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
-index 8522901ec721..32d9f50163b3 100644
---- a/drivers/net/ethernet/ti/icssg/icss_iep.c
-+++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
-@@ -14,12 +14,15 @@
- #include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
-+#include <linux/timecounter.h>
-+#include <linux/clocksource.h>
- #include <linux/timekeeping.h>
- #include <linux/interrupt.h>
- #include <linux/of_irq.h>
- #include <linux/workqueue.h>
- 
- #include "icss_iep.h"
-+#include "../icssm/icssm_prueth_ptp.h"
- 
- #define IEP_MAX_DEF_INC		0xf
- #define IEP_MAX_COMPEN_INC		0xfff
-@@ -53,6 +56,14 @@
- #define IEP_CAP_CFG_CAPNR_1ST_EVENT_EN(n)	BIT(LATCH_INDEX(n))
- #define IEP_CAP_CFG_CAP_ASYNC_EN(n)		BIT(LATCH_INDEX(n) + 10)
- 
-+#define IEP_TC_DEFAULT_SHIFT         28
-+#define IEP_TC_INCR5_MULT            BIT(28)
-+
-+/* Polling period - how often iep_overflow_check() is called */
-+#define IEP_OVERFLOW_CHECK_PERIOD_MS   50
-+
-+#define TIMESYNC_SECONDS_COUNT_SIZE    6
-+
- /**
-  * icss_iep_get_count_hi() - Get the upper 32 bit IEP counter
-  * @iep: Pointer to structure representing IEP.
-@@ -87,6 +98,28 @@ int icss_iep_get_count_low(struct icss_iep *iep)
+Cc: Liu Ying <victor.liu@nxp.com>
+---
+ drivers/gpu/drm/bridge/imx/imx-ldb-helper.c |  4 +---
+ drivers/gpu/drm/bridge/imx/imx-ldb-helper.h |  3 +--
+ drivers/gpu/drm/bridge/imx/imx8qm-ldb.c     | 32 ++++++++++++++++++-----------
+ drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c    | 20 ++++++++++++------
+ 4 files changed, 36 insertions(+), 23 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/imx/imx-ldb-helper.c b/drivers/gpu/drm/bridge/imx/imx-ldb-helper.c
+index 61347f6ec33d906264f7e06902b0d915d263f3f8..6149ba141a389a04b3c347a67f13e049328c07ff 100644
+--- a/drivers/gpu/drm/bridge/imx/imx-ldb-helper.c
++++ b/drivers/gpu/drm/bridge/imx/imx-ldb-helper.c
+@@ -190,8 +190,7 @@ int ldb_find_next_bridge_helper(struct ldb *ldb)
  }
- EXPORT_SYMBOL_GPL(icss_iep_get_count_low);
+ EXPORT_SYMBOL_GPL(ldb_find_next_bridge_helper);
  
-+static inline u64 icss_iep_get_count32(struct icss_iep *iep)
-+{
-+	void __iomem *sram = iep->sram;
-+	u64 v_sec = 0;
-+	u32 v_ns = 0;
-+	u64 v = 0;
-+
-+	v_ns = icss_iep_get_count_low(iep);
-+	memcpy_fromio(&v_sec, sram + TIMESYNC_SECONDS_COUNT_OFFSET,
-+		      TIMESYNC_SECONDS_COUNT_SIZE);
-+	v = (v_sec * NSEC_PER_SEC) + v_ns;
-+
-+	return v;
-+}
-+
-+static u64 icss_iep_cc_read(const struct cyclecounter *cc)
-+{
-+	struct icss_iep *iep = container_of(cc, struct icss_iep, cc);
-+
-+	return icss_iep_get_count32(iep);
-+}
-+
- /**
-  * icss_iep_get_ptp_clock_idx() - Get PTP clock index using IEP driver
-  * @iep: Pointer to structure representing IEP.
-@@ -280,6 +313,78 @@ static void icss_iep_set_slow_compensation_count(struct icss_iep *iep,
- 	regmap_write(iep->map, ICSS_IEP_SLOW_COMPEN_REG, compen_count);
- }
- 
-+/* PTP PHC operations */
-+static int icss_iep_ptp_adjfine_v1(struct ptp_clock_info *ptp, long scaled_ppm)
-+{
-+	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
-+	s32 ppb = scaled_ppm_to_ppb(scaled_ppm);
-+	struct timespec64 ts;
-+	int neg_adj = 0;
-+	u32 diff, mult;
-+	u64 adj;
-+
-+	mutex_lock(&iep->ptp_clk_mutex);
-+
-+	if (ppb < 0) {
-+		neg_adj = 1;
-+		ppb = -ppb;
-+	}
-+	mult = iep->cc_mult;
-+	adj = mult;
-+	adj *= ppb;
-+	diff = div_u64(adj, 1000000000ULL);
-+
-+	ts = ns_to_timespec64(timecounter_read(&iep->tc));
-+	pr_debug("iep ptp adjfine check at %lld.%09lu\n", ts.tv_sec,
-+		 ts.tv_nsec);
-+
-+	iep->cc.mult = neg_adj ? mult - diff : mult + diff;
-+
-+	mutex_unlock(&iep->ptp_clk_mutex);
-+
-+	return 0;
-+}
-+
-+static int icss_iep_ptp_adjtime_v1(struct ptp_clock_info *ptp, s64 delta)
-+{
-+	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
-+
-+	mutex_lock(&iep->ptp_clk_mutex);
-+	timecounter_adjtime(&iep->tc, delta);
-+	mutex_unlock(&iep->ptp_clk_mutex);
-+
-+	return 0;
-+}
-+
-+static int icss_iep_ptp_gettimeex_v1(struct ptp_clock_info *ptp,
-+				     struct timespec64 *ts,
-+				     struct ptp_system_timestamp *sts)
-+{
-+	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
-+	u64 ns;
-+
-+	mutex_lock(&iep->ptp_clk_mutex);
-+	ns = timecounter_read(&iep->tc);
-+	*ts = ns_to_timespec64(ns);
-+	mutex_unlock(&iep->ptp_clk_mutex);
-+
-+	return 0;
-+}
-+
-+static int icss_iep_ptp_settime_v1(struct ptp_clock_info *ptp,
-+				   const struct timespec64 *ts)
-+{
-+	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
-+	u64 ns;
-+
-+	mutex_lock(&iep->ptp_clk_mutex);
-+	ns = timespec64_to_ns(ts);
-+	timecounter_init(&iep->tc, &iep->cc, ns);
-+	mutex_unlock(&iep->ptp_clk_mutex);
-+
-+	return 0;
-+}
-+
- /* PTP PHC operations */
- static int icss_iep_ptp_adjfine(struct ptp_clock_info *ptp, long scaled_ppm)
+-void ldb_add_bridge_helper(struct ldb *ldb,
+-			   const struct drm_bridge_funcs *bridge_funcs)
++void ldb_add_bridge_helper(struct ldb *ldb)
  {
-@@ -674,6 +779,17 @@ static int icss_iep_ptp_enable(struct ptp_clock_info *ptp,
- 	return -EOPNOTSUPP;
- }
+ 	struct ldb_channel *ldb_ch;
+ 	int i;
+@@ -203,7 +202,6 @@ void ldb_add_bridge_helper(struct ldb *ldb,
+ 			continue;
  
-+static long icss_iep_overflow_check(struct ptp_clock_info *ptp)
-+{
-+	struct icss_iep *iep = container_of(ptp, struct icss_iep, ptp_info);
-+	unsigned long delay = iep->ovfl_check_period;
-+	struct timespec64 ts;
-+
-+	ts = ns_to_timespec64(timecounter_read(&iep->tc));
-+
-+	pr_debug("iep overflow check at %lld.%09lu\n", ts.tv_sec, ts.tv_nsec);
-+	return (long)delay;
-+}
- static struct ptp_clock_info icss_iep_ptp_info = {
- 	.owner		= THIS_MODULE,
- 	.name		= "ICSS IEP timer",
-@@ -685,6 +801,18 @@ static struct ptp_clock_info icss_iep_ptp_info = {
- 	.enable		= icss_iep_ptp_enable,
- };
+ 		ldb_ch->bridge.driver_private = ldb_ch;
+-		ldb_ch->bridge.funcs = bridge_funcs;
+ 		ldb_ch->bridge.of_node = ldb_ch->np;
  
-+static struct ptp_clock_info icss_iep_ptp_info_v1 = {
-+	.owner		= THIS_MODULE,
-+	.name		= "ICSS IEP timer",
-+	.max_adj	= 10000000,
-+	.adjfine	= icss_iep_ptp_adjfine_v1,
-+	.adjtime	= icss_iep_ptp_adjtime_v1,
-+	.gettimex64	= icss_iep_ptp_gettimeex_v1,
-+	.settime64	= icss_iep_ptp_settime_v1,
-+	.enable		= icss_iep_ptp_enable,
-+	.do_aux_work	= icss_iep_overflow_check,
-+};
-+
- struct icss_iep *icss_iep_get_idx(struct device_node *np, int idx)
- {
- 	struct platform_device *pdev;
-@@ -706,6 +834,18 @@ struct icss_iep *icss_iep_get_idx(struct device_node *np, int idx)
- 	if (!iep)
- 		return ERR_PTR(-EPROBE_DEFER);
+ 		drm_bridge_add(&ldb_ch->bridge);
+diff --git a/drivers/gpu/drm/bridge/imx/imx-ldb-helper.h b/drivers/gpu/drm/bridge/imx/imx-ldb-helper.h
+index 38a8a54b37a60e1be942aaa60b1d1bc375a7a131..de187e3269996d284ecad451dd857271056812e1 100644
+--- a/drivers/gpu/drm/bridge/imx/imx-ldb-helper.h
++++ b/drivers/gpu/drm/bridge/imx/imx-ldb-helper.h
+@@ -88,8 +88,7 @@ int ldb_init_helper(struct ldb *ldb);
  
-+	if (iep->plat_data->iep_rev == IEP_REV_V1_0) {
-+		iep->cc.shift = IEP_TC_DEFAULT_SHIFT;
-+		iep->cc.mult = IEP_TC_INCR5_MULT;
-+
-+		iep->cc.read = icss_iep_cc_read;
-+		iep->cc.mask = CLOCKSOURCE_MASK(64);
-+
-+		iep->ovfl_check_period =
-+			msecs_to_jiffies(IEP_OVERFLOW_CHECK_PERIOD_MS);
-+		iep->cc_mult = iep->cc.mult;
-+	}
-+
- 	device_lock(iep->dev);
- 	if (iep->client_np) {
- 		device_unlock(iep->dev);
-@@ -800,6 +940,10 @@ int icss_iep_init(struct icss_iep *iep, const struct icss_iep_clockops *clkops,
- 		icss_iep_enable(iep);
- 	icss_iep_settime(iep, ktime_get_real_ns());
+ int ldb_find_next_bridge_helper(struct ldb *ldb);
  
-+	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
-+		timecounter_init(&iep->tc, &iep->cc,
-+				 ktime_to_ns(ktime_get_real()));
-+
- 	iep->ptp_clock = ptp_clock_register(&iep->ptp_info, iep->dev);
- 	if (IS_ERR(iep->ptp_clock)) {
- 		ret = PTR_ERR(iep->ptp_clock);
-@@ -807,6 +951,9 @@ int icss_iep_init(struct icss_iep *iep, const struct icss_iep_clockops *clkops,
- 		dev_err(iep->dev, "Failed to register ptp clk %d\n", ret);
+-void ldb_add_bridge_helper(struct ldb *ldb,
+-			   const struct drm_bridge_funcs *bridge_funcs);
++void ldb_add_bridge_helper(struct ldb *ldb);
+ 
+ void ldb_remove_bridge_helper(struct ldb *ldb);
+ 
+diff --git a/drivers/gpu/drm/bridge/imx/imx8qm-ldb.c b/drivers/gpu/drm/bridge/imx/imx8qm-ldb.c
+index 524aac751359f5cd377807508cbeeb6a597529e1..47aa65938e6a521cd6f111535f6feb3920a0dfb7 100644
+--- a/drivers/gpu/drm/bridge/imx/imx8qm-ldb.c
++++ b/drivers/gpu/drm/bridge/imx/imx8qm-ldb.c
+@@ -47,7 +47,7 @@ struct imx8qm_ldb_channel {
+ struct imx8qm_ldb {
+ 	struct ldb base;
+ 	struct device *dev;
+-	struct imx8qm_ldb_channel channel[MAX_LDB_CHAN_NUM];
++	struct imx8qm_ldb_channel *channel[MAX_LDB_CHAN_NUM];
+ 	struct clk *clk_pixel;
+ 	struct clk *clk_bypass;
+ 	int active_chno;
+@@ -107,7 +107,7 @@ static int imx8qm_ldb_bridge_atomic_check(struct drm_bridge *bridge,
+ 
+ 	if (is_split) {
+ 		imx8qm_ldb_ch =
+-			&imx8qm_ldb->channel[imx8qm_ldb->active_chno ^ 1];
++			imx8qm_ldb->channel[imx8qm_ldb->active_chno ^ 1];
+ 		imx8qm_ldb_set_phy_cfg(imx8qm_ldb, di_clk, is_split, true,
+ 				       phy_cfg);
+ 		ret = phy_validate(imx8qm_ldb_ch->phy, PHY_MODE_LVDS, 0, &opts);
+@@ -158,7 +158,7 @@ imx8qm_ldb_bridge_mode_set(struct drm_bridge *bridge,
+ 
+ 	if (is_split) {
+ 		imx8qm_ldb_ch =
+-			&imx8qm_ldb->channel[imx8qm_ldb->active_chno ^ 1];
++			imx8qm_ldb->channel[imx8qm_ldb->active_chno ^ 1];
+ 		imx8qm_ldb_set_phy_cfg(imx8qm_ldb, di_clk, is_split, true,
+ 				       phy_cfg);
+ 		ret = phy_configure(imx8qm_ldb_ch->phy, &opts);
+@@ -226,13 +226,13 @@ static void imx8qm_ldb_bridge_atomic_enable(struct drm_bridge *bridge,
  	}
  
-+	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
-+		ptp_schedule_worker(iep->ptp_clock, iep->ovfl_check_period);
+ 	if (is_split) {
+-		ret = phy_power_on(imx8qm_ldb->channel[0].phy);
++		ret = phy_power_on(imx8qm_ldb->channel[0]->phy);
+ 		if (ret)
+ 			DRM_DEV_ERROR(dev,
+ 				      "failed to power on channel0 PHY: %d\n",
+ 				      ret);
+ 
+-		ret = phy_power_on(imx8qm_ldb->channel[1].phy);
++		ret = phy_power_on(imx8qm_ldb->channel[1]->phy);
+ 		if (ret)
+ 			DRM_DEV_ERROR(dev,
+ 				      "failed to power on channel1 PHY: %d\n",
+@@ -261,12 +261,12 @@ static void imx8qm_ldb_bridge_atomic_disable(struct drm_bridge *bridge,
+ 	ldb_bridge_disable_helper(bridge);
+ 
+ 	if (is_split) {
+-		ret = phy_power_off(imx8qm_ldb->channel[0].phy);
++		ret = phy_power_off(imx8qm_ldb->channel[0]->phy);
+ 		if (ret)
+ 			DRM_DEV_ERROR(dev,
+ 				      "failed to power off channel0 PHY: %d\n",
+ 				      ret);
+-		ret = phy_power_off(imx8qm_ldb->channel[1].phy);
++		ret = phy_power_off(imx8qm_ldb->channel[1]->phy);
+ 		if (ret)
+ 			DRM_DEV_ERROR(dev,
+ 				      "failed to power off channel1 PHY: %d\n",
+@@ -412,7 +412,7 @@ static int imx8qm_ldb_get_phy(struct imx8qm_ldb *imx8qm_ldb)
+ 	int i, ret;
+ 
+ 	for (i = 0; i < MAX_LDB_CHAN_NUM; i++) {
+-		imx8qm_ldb_ch = &imx8qm_ldb->channel[i];
++		imx8qm_ldb_ch = imx8qm_ldb->channel[i];
+ 		ldb_ch = &imx8qm_ldb_ch->base;
+ 
+ 		if (!ldb_ch->is_available)
+@@ -448,6 +448,14 @@ static int imx8qm_ldb_probe(struct platform_device *pdev)
+ 	if (!imx8qm_ldb)
+ 		return -ENOMEM;
+ 
++	for (i = 0; i < MAX_LDB_CHAN_NUM; i++) {
++		imx8qm_ldb->channel[i] =
++			devm_drm_bridge_alloc(dev, struct imx8qm_ldb_channel, base.bridge,
++					      &imx8qm_ldb_bridge_funcs);
++		if (IS_ERR(imx8qm_ldb->channel[i]))
++			return PTR_ERR(imx8qm_ldb->channel[i]);
++	}
 +
+ 	imx8qm_ldb->clk_pixel = devm_clk_get(dev, "pixel");
+ 	if (IS_ERR(imx8qm_ldb->clk_pixel)) {
+ 		ret = PTR_ERR(imx8qm_ldb->clk_pixel);
+@@ -473,7 +481,7 @@ static int imx8qm_ldb_probe(struct platform_device *pdev)
+ 	ldb->ctrl_reg = 0xe0;
+ 
+ 	for (i = 0; i < MAX_LDB_CHAN_NUM; i++)
+-		ldb->channel[i] = &imx8qm_ldb->channel[i].base;
++		ldb->channel[i] = &imx8qm_ldb->channel[i]->base;
+ 
+ 	ret = ldb_init_helper(ldb);
+ 	if (ret)
+@@ -499,12 +507,12 @@ static int imx8qm_ldb_probe(struct platform_device *pdev)
+ 		}
+ 
+ 		imx8qm_ldb->active_chno = 0;
+-		imx8qm_ldb_ch = &imx8qm_ldb->channel[0];
++		imx8qm_ldb_ch = imx8qm_ldb->channel[0];
+ 		ldb_ch = &imx8qm_ldb_ch->base;
+ 		ldb_ch->link_type = pixel_order;
+ 	} else {
+ 		for (i = 0; i < MAX_LDB_CHAN_NUM; i++) {
+-			imx8qm_ldb_ch = &imx8qm_ldb->channel[i];
++			imx8qm_ldb_ch = imx8qm_ldb->channel[i];
+ 			ldb_ch = &imx8qm_ldb_ch->base;
+ 
+ 			if (ldb_ch->is_available) {
+@@ -525,7 +533,7 @@ static int imx8qm_ldb_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, imx8qm_ldb);
+ 	pm_runtime_enable(dev);
+ 
+-	ldb_add_bridge_helper(ldb, &imx8qm_ldb_bridge_funcs);
++	ldb_add_bridge_helper(ldb);
+ 
  	return ret;
  }
- EXPORT_SYMBOL_GPL(icss_iep_init);
-@@ -884,7 +1031,11 @@ static int icss_iep_probe(struct platform_device *pdev)
- 		return PTR_ERR(iep->map);
- 	}
- 
--	iep->ptp_info = icss_iep_ptp_info;
-+	if (iep->plat_data->iep_rev == IEP_REV_V1_0)
-+		iep->ptp_info = icss_iep_ptp_info_v1;
-+	else
-+		iep->ptp_info = icss_iep_ptp_info;
-+
- 	mutex_init(&iep->ptp_clk_mutex);
- 	dev_set_drvdata(dev, iep);
- 	icss_iep_disable(iep);
-@@ -1009,6 +1160,7 @@ static const struct icss_iep_plat_data am57xx_icss_iep_plat_data = {
- 		[ICSS_IEP_SYNC_START_REG] = 0x19c,
- 	},
- 	.config = &am654_icss_iep_regmap_config,
-+	.iep_rev = IEP_REV_V2_1,
- };
- 
- static bool am335x_icss_iep_valid_reg(struct device *dev, unsigned int reg)
-@@ -1062,6 +1214,7 @@ static const struct icss_iep_plat_data am335x_icss_iep_plat_data = {
- 		[ICSS_IEP_SYNC_START_REG] = 0x11C,
- 	},
- 	.config = &am335x_icss_iep_regmap_config,
-+	.iep_rev = IEP_REV_V1_0,
- };
- 
- static const struct of_device_id icss_iep_of_match[] = {
-diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.h b/drivers/net/ethernet/ti/icssg/icss_iep.h
-index 0bdca0155abd..437153350197 100644
---- a/drivers/net/ethernet/ti/icssg/icss_iep.h
-+++ b/drivers/net/ethernet/ti/icssg/icss_iep.h
-@@ -47,6 +47,11 @@ enum {
- 	ICSS_IEP_MAX_REGS,
- };
- 
-+enum iep_revision {
-+	IEP_REV_V1_0 = 0,
-+	IEP_REV_V2_1
-+};
-+
- /**
-  * struct icss_iep_plat_data - Plat data to handle SoC variants
-  * @config: Regmap configuration data
-@@ -57,11 +62,13 @@ struct icss_iep_plat_data {
- 	const struct regmap_config *config;
- 	u32 reg_offs[ICSS_IEP_MAX_REGS];
- 	u32 flags;
-+	enum iep_revision iep_rev;
- };
- 
- struct icss_iep {
+diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c b/drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c
+index d4f3492ca5abf65a3327d7fa62214832946eb218..5d272916e200980f7253a032701dcd990e0e34f2 100644
+--- a/drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c
++++ b/drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c
+@@ -44,7 +44,7 @@ struct imx8qxp_ldb_channel {
+ struct imx8qxp_ldb {
+ 	struct ldb base;
  	struct device *dev;
- 	void __iomem *base;
-+	void __iomem *sram;
- 	const struct icss_iep_plat_data *plat_data;
- 	struct regmap *map;
- 	struct device_node *client_np;
-@@ -70,6 +77,10 @@ struct icss_iep {
- 	struct ptp_clock_info ptp_info;
- 	struct ptp_clock *ptp_clock;
- 	struct mutex ptp_clk_mutex;	/* PHC access serializer */
-+	u32 cc_mult; /* for the nominal frequency */
-+	struct cyclecounter cc;
-+	struct timecounter tc;
-+	unsigned long ovfl_check_period;
- 	u32 def_inc;
- 	s16 slow_cmp_inc;
- 	u32 slow_cmp_count;
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index 87b366030aa1..87df29308fbf 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -39,6 +39,8 @@
- #define TX_START_DELAY		0x40
- #define TX_CLK_DELAY_100M	0x6
- 
-+#define TIMESYNC_SECONDS_BIT_MASK   0x0000ffffffffffff
-+
- static struct prueth_fw_offsets fw_offsets_v2_1;
- 
- static void icssm_prueth_set_fw_offsets(struct prueth *prueth)
-@@ -637,13 +639,49 @@ irqreturn_t icssm_prueth_ptp_tx_irq_handle(int irq, void *dev)
- 	return IRQ_HANDLED;
- }
- 
-+/**
-+ * icssm_iep_get_timestamp_cycles - IEP get timestamp
-+ * @iep: icss_iep structure
-+ * @mem: io memory address
-+ *
-+ * To convert the 10 byte timestamp from firmware
-+ * i.e., nanoseconds part from 32-bit IEP counter(4 bytes)
-+ * seconds part updated by firmware(rev FW_REV1_0) in SRAM
-+ * (6 bytes) into 64-bit timestamp in ns
-+ *
-+ * Return: 64-bit converted timestamp
-+ */
-+u64 icssm_iep_get_timestamp_cycles(struct icss_iep *iep,
-+				   void __iomem *mem)
-+{
-+	u64 cycles, cycles_sec = 0;
-+	u32 cycles_ns;
-+
-+	memcpy_fromio(&cycles_ns, mem, sizeof(cycles_ns));
-+	memcpy_fromio(&cycles_sec, mem + 4, sizeof(cycles_sec));
-+
-+	/*To get the 6 bytes seconds part*/
-+	cycles_sec = (cycles_sec & TIMESYNC_SECONDS_BIT_MASK);
-+	cycles = cycles_ns + (cycles_sec * NSEC_PER_SEC);
-+	cycles = timecounter_cyc2time(&iep->tc, cycles);
-+
-+	return cycles;
-+}
-+
- static u64 icssm_prueth_ptp_ts_get(struct prueth_emac *emac, u32 ts_offs)
+-	struct imx8qxp_ldb_channel channel[MAX_LDB_CHAN_NUM];
++	struct imx8qxp_ldb_channel *channel[MAX_LDB_CHAN_NUM];
+ 	struct clk *clk_pixel;
+ 	struct clk *clk_bypass;
+ 	struct drm_bridge *companion;
+@@ -410,7 +410,7 @@ static const struct drm_bridge_funcs imx8qxp_ldb_bridge_funcs = {
+ static int imx8qxp_ldb_set_di_id(struct imx8qxp_ldb *imx8qxp_ldb)
  {
- 	void __iomem *sram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
- 	u64 cycles;
+ 	struct imx8qxp_ldb_channel *imx8qxp_ldb_ch =
+-			 &imx8qxp_ldb->channel[imx8qxp_ldb->active_chno];
++			 imx8qxp_ldb->channel[imx8qxp_ldb->active_chno];
+ 	struct ldb_channel *ldb_ch = &imx8qxp_ldb_ch->base;
+ 	struct device_node *ep, *remote;
+ 	struct device *dev = imx8qxp_ldb->dev;
+@@ -456,7 +456,7 @@ imx8qxp_ldb_check_chno_and_dual_link(struct ldb_channel *ldb_ch, int link)
+ static int imx8qxp_ldb_parse_dt_companion(struct imx8qxp_ldb *imx8qxp_ldb)
+ {
+ 	struct imx8qxp_ldb_channel *imx8qxp_ldb_ch =
+-			 &imx8qxp_ldb->channel[imx8qxp_ldb->active_chno];
++			 imx8qxp_ldb->channel[imx8qxp_ldb->active_chno];
+ 	struct ldb_channel *ldb_ch = &imx8qxp_ldb_ch->base;
+ 	struct ldb_channel *companion_ldb_ch;
+ 	struct device_node *companion;
+@@ -586,6 +586,14 @@ static int imx8qxp_ldb_probe(struct platform_device *pdev)
+ 	if (!imx8qxp_ldb)
+ 		return -ENOMEM;
  
--	memcpy_fromio(&cycles, sram + ts_offs, sizeof(cycles));
--	memset_io(sram + ts_offs, 0, sizeof(cycles));
-+	if (emac->prueth->fw_data->fw_rev == FW_REV_V1_0) {
-+		cycles = icssm_iep_get_timestamp_cycles(emac->prueth->iep,
-+							sram + ts_offs);
-+		/* 4 bytes of timestamp + 6 bytes of seconds counter */
-+		memset_io(sram + ts_offs, 0, 10);
-+	} else {
-+		memcpy_fromio(&cycles, sram + ts_offs, sizeof(cycles));
-+		memset_io(sram + ts_offs, 0, sizeof(cycles));
++	for (i = 0; i < MAX_LDB_CHAN_NUM; i++) {
++		imx8qxp_ldb->channel[i] =
++			devm_drm_bridge_alloc(dev, struct imx8qxp_ldb_channel, base.bridge,
++					      &imx8qxp_ldb_bridge_funcs);
++		if (IS_ERR(imx8qxp_ldb->channel[i]))
++			return PTR_ERR(imx8qxp_ldb->channel[i]);
 +	}
++
+ 	imx8qxp_ldb->clk_pixel = devm_clk_get(dev, "pixel");
+ 	if (IS_ERR(imx8qxp_ldb->clk_pixel)) {
+ 		ret = PTR_ERR(imx8qxp_ldb->clk_pixel);
+@@ -611,7 +619,7 @@ static int imx8qxp_ldb_probe(struct platform_device *pdev)
+ 	ldb->ctrl_reg = 0xe0;
  
- 	return cycles;
+ 	for (i = 0; i < MAX_LDB_CHAN_NUM; i++)
+-		ldb->channel[i] = &imx8qxp_ldb->channel[i].base;
++		ldb->channel[i] = &imx8qxp_ldb->channel[i]->base;
+ 
+ 	ret = ldb_init_helper(ldb);
+ 	if (ret)
+@@ -627,7 +635,7 @@ static int imx8qxp_ldb_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	for (i = 0; i < MAX_LDB_CHAN_NUM; i++) {
+-		imx8qxp_ldb_ch = &imx8qxp_ldb->channel[i];
++		imx8qxp_ldb_ch = imx8qxp_ldb->channel[i];
+ 		ldb_ch = &imx8qxp_ldb_ch->base;
+ 
+ 		if (ldb_ch->is_available) {
+@@ -660,7 +668,7 @@ static int imx8qxp_ldb_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, imx8qxp_ldb);
+ 	pm_runtime_enable(dev);
+ 
+-	ldb_add_bridge_helper(ldb, &imx8qxp_ldb_bridge_funcs);
++	ldb_add_bridge_helper(ldb);
+ 
+ 	return 0;
  }
-@@ -952,8 +990,14 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
- 	if (pkt_info->timestamp) {
- 		src_addr = (void *)PTR_ALIGN((uintptr_t)src_addr,
- 					   ICSS_BLOCK_SIZE);
--		dst_addr = &ts;
--		memcpy(dst_addr, src_addr, sizeof(ts));
-+		if (emac->prueth->fw_data->fw_rev == FW_REV_V1_0) {
-+			ts = icssm_iep_get_timestamp_cycles
-+				(emac->prueth->iep,
-+				 (void __iomem *)src_addr);
-+		} else {
-+			dst_addr = &ts;
-+			memcpy(dst_addr, src_addr, sizeof(ts));
-+		}
- 	}
- 
- 	if (!pkt_info->sv_frame) {
-@@ -2173,6 +2217,9 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 		goto netdev_exit;
- 	}
- 
-+	if (prueth->fw_data->fw_rev == FW_REV_V1_0)
-+		prueth->iep->sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
-+
- 	/* Make rx interrupt pacing optional so that users can use ECAP for
- 	 * other use cases if needed
- 	 */
-@@ -2380,6 +2427,7 @@ static struct prueth_private_data am335x_prueth_pdata = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am335x-pru1-prueth-fw.elf",
- 	},
-+	.fw_rev = FW_REV_V1_0,
- };
- 
- /* AM437x SoC-specific firmware data */
-@@ -2393,6 +2441,7 @@ static struct prueth_private_data am437x_prueth_pdata = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am437x-pru1-prueth-fw.elf",
- 	},
-+	.fw_rev = FW_REV_V1_0,
- };
- 
- /* AM57xx SoC-specific firmware data */
-@@ -2406,6 +2455,7 @@ static struct prueth_private_data am57xx_prueth_pdata = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am57xx-pru1-prueth-fw.elf",
- 	},
-+	.fw_rev = FW_REV_V2_1,
- };
- 
- static const struct of_device_id prueth_dt_match[] = {
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-index dc6284441f6d..a883b2db08fe 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-@@ -297,6 +297,12 @@ enum prueth_mem {
- 	PRUETH_MEM_MAX,
- };
- 
-+/* PRU firmware revision*/
-+enum fw_revision {
-+	FW_REV_V1_0 = 0,
-+	FW_REV_V2_1
-+};
-+
- /* Firmware offsets/size information */
- struct prueth_fw_offsets {
- 	u32 index_array_offset;
-@@ -337,6 +343,7 @@ enum pruss_device {
- struct prueth_private_data {
- 	enum pruss_device driver_data;
- 	const struct prueth_firmware fw_pru[PRUSS_NUM_PRUS];
-+	enum fw_revision fw_rev;
- 	bool support_lre;
- 	bool support_switch;
- };
-@@ -426,6 +433,9 @@ int icssm_emac_add_del_vid(struct prueth_emac *emac,
- irqreturn_t icssm_prueth_ptp_tx_irq_handle(int irq, void *dev);
- irqreturn_t icssm_prueth_ptp_tx_irq_work(int irq, void *dev);
- 
-+u64 icssm_iep_get_timestamp_cycles(struct icss_iep *iep,
-+				   void __iomem *mem);
-+
- void icssm_emac_mc_filter_bin_allow(struct prueth_emac *emac, u8 hash);
- void icssm_emac_mc_filter_bin_disallow(struct prueth_emac *emac, u8 hash);
- u8 icssm_emac_get_mc_hash(u8 *mac, u8 *mask);
+
 -- 
-2.34.1
+2.49.0
 
 
