@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7CFC369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 12:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CCEC369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 12:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nyzXLIZQz5jByjQJS2N0CsVIfLCOdR71gsbEiiRIwmo=; b=eiPQA0yecagb4Q/74QWR51Pe3e
-	VZE2Ot0wJNHW2VQWJzmStBzI88KOewhjJ42klPMExPn2lSamAwkG2yvJypqT8rfulEh8SmFzanT1H
-	G9CuED3P9N+g1631YsecYs3aFG/03RxDpIjGqZwH3P9Qe6h+R8PM+zv0OocP0PoCihveqz5cp7cMP
-	dYUP7VATOsMO2WtHFzyZXo5cExNCTZFxbqm32GVy/ABE1HAgoIlGkhOdCn+qvra54AJb6u4Ra/8ei
-	s8LA7KLrDSBvt2OyNFcoqaXqk0t27Y3ZpTxgmF0tff29P0IQfL0hSgJ2GXn7q9H1w1XydUkzwKK7a
-	8B0uhQzA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=H0Ju1JYitew1f7vP2gI0VqL3Y8dqgqZen6iVSaDOPyM=; b=maF2nx1KAqmWNFo/+HjVHaovUo
+	+DLZxaaHF8vz1xFU6kHYNFINCmUm+HA7HE2GYyPbCu9GGxsdFmBF3KQSybLL0KcdwAXmiqtouB5Vn
+	FWEhAJYXRIGvuJelIY5WuzsklwpgoWyZLo4NnKeVAlH1A7UQKB2u1WRzI2VRM0NNH3agLG2+M2GWW
+	YhTYKMkPg3OshRk5JMednr1Pa2rYvNhOHH5PRht52lMirkq5h9xUyi6vjLOWqEH72UmvVZ0tXzMYk
+	EMQO5CrupzaKUusQ/v+h6sx8452/1pZDbItXWqd17vRpkDD98XeV+Ykj4vKKQulQAJwST+EP/z8Qu
+	g9aUaF8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lhi-00000000H1E-2Qzf;
-	Mon, 07 Apr 2025 12:35:54 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1u1lhk-00000000H3u-11GR;
+	Mon, 07 Apr 2025 12:35:56 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lEA-000000009fr-2TZw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 12:05:23 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-54954fa61c9so1884286e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 05:05:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744027521; x=1744632321; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nyzXLIZQz5jByjQJS2N0CsVIfLCOdR71gsbEiiRIwmo=;
-        b=v+BYIbTHIm815EEPp3Tq9hMkQ8vsj607usY2LgEHYiVcb0rxRlH7ccL09elVxNKkUB
-         SBINrkVh1Fjk7aNxnvVei5oAYqlsersQdnLK5kvT2r4+uX7l/mnzV1AMEerohSC+SbWg
-         WbmzXLStxxSl2v+Wx4+ah6XUzfTzHUIb61BrVP3otUUnoJK8vBzY4zSnIIPpoJ45oQyE
-         9GV3/mdpTnJ/2BMiVU9elpQecz4nyyEsq1zg7tYskuUuAbsb/SoDqcMJQhAyN+9TFiOh
-         9+6kFYlj1biCJlaQjk3qhthm52y8AhKy9tEjTT7N+tC8ty5UWGowcHXH3Aavmpkd0ZfZ
-         AZhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744027521; x=1744632321;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nyzXLIZQz5jByjQJS2N0CsVIfLCOdR71gsbEiiRIwmo=;
-        b=iZCvTIfll69AyLY1U2/ULQBIC3CFRWmIK2tSrGySYthEyHuQNzp+UcU7J1jjticlyA
-         MbbuiHU1vsZDQrO5RaoKz2K/zn8VJksyU/+ajdL6UT7/nbqy4eXnFqLgrgSr9eXsJ+mQ
-         sqBXdHOQmcX4PvWm5+XlnsB/7dtiOe81Q2HrB1HmSjtokiosXtGGJ1CB44vJPCDsFKH+
-         6wSC4ezZSIKuwRwfKp1tYt57eJnucx8Tg5CuAdaWogckXW2yGaKYV20/4IQcNmKC4xfk
-         V3hG77NC8r182bF3y9K6QzpIXNykBBQc5mQ9pSvxuCxbTHFUGq+WRJMwSGsmCfWIeB49
-         2j9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUHnShInMbTXsPvc+RZXa2NieQmAcLiLxaJrH6xE49IDsWmgMCkzUlMY75MjJT2HKZnRXsE9L7E3IjtUrnbutGi@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJEEFApzIGTavHOoKIvCh2wWLv0L6gOkFHu1ZJ/tFPB+gHNttA
-	MxoLoeHfQzJdTYfIFUHwhBCfiiBS+2L7HzAGnH0xG4vF70oLoPUKyooox433n9GE1KgY9dhEyod
-	d0E96jf6Oyxjn7SMYr3s+r1J2xntxYb+YHcphnK6MfGP5gao7
-X-Gm-Gg: ASbGnctCgwONsY4jX1UzjtiIYOcUqgrY2ULugqs7GHdM0WT6nhEUUUgvILf4rKE8GFg
-	O/kThQRSxzBlaYr4xMTWbzyC8/iMKEnO/I6/FQsbWeO7zS5Ai4OAarH4E/+6F+bKcnD+bcuB3zl
-	5xNdqMlBKAnCbgX9QCNdtZSDBh8oyQjnV0hULBcBfiUzJj5zm4Qt2lE311+w==
-X-Google-Smtp-Source: AGHT+IEHw9355ezApneCF4SUVAzLY4ETP4OFd5PKxXyTOOvjdLrpav+qCe3u7bCH6diRQ2nujvbYSwfCNWcbhNX6Dk8=
-X-Received: by 2002:a05:6512:3984:b0:54a:f7fb:ff82 with SMTP id
- 2adb3069b0e04-54c2278b893mr3000965e87.26.1744027520594; Mon, 07 Apr 2025
- 05:05:20 -0700 (PDT)
+	id 1u1lGY-00000000Al4-2tud;
+	Mon, 07 Apr 2025 12:07:51 +0000
+X-UUID: ea77f73413a811f083f2a1c9db70dae0-20250407
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=H0Ju1JYitew1f7vP2gI0VqL3Y8dqgqZen6iVSaDOPyM=;
+	b=fVGsZOev5PR+5hAOjWZV7iMEkOqRDqNUByGkTp5Rahz56nLM3VBlXSJDGbg+/hAfdIzPPdoNymQ+Ni+YdbU+QngsZ7JdRYzHS8FWvYO4wOoi9vrC91SBpljK0l9+m9VMWgefjRBs0C2w3Z6A6BsVcNA51I8W+TozkEQsTDMHUmg=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:19bc6594-b091-479f-bf94-3471af1a8007,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:7bec0a4b-a527-43d8-8af6-bc8b32d9f5e9,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|102,TC:nil,Content:0|50,EDM:-3,IP
+	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: ea77f73413a811f083f2a1c9db70dae0-20250407
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <darren.ye@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1830155125; Mon, 07 Apr 2025 05:07:45 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 7 Apr 2025 20:07:43 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 7 Apr 2025 20:07:42 +0800
+From: Darren.Ye <darren.ye@mediatek.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Linus
+ Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
+	<darren.ye@mediatek.com>
+Subject: [PATCH v2 00/11] ASoC: mediatek: Add support for MT8196 SoC
+Date: Mon, 7 Apr 2025 20:06:24 +0800
+Message-ID: <20250407120708.26495-1-darren.ye@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-References: <20250327-kernel-upstreaming-add_gpio_support-v2-0-bbe51f8d66da@blaize.com>
- <20250327-kernel-upstreaming-add_gpio_support-v2-1-bbe51f8d66da@blaize.com> <6b8583c9-3755-4b33-a454-261854e6cf2f@blaize.com>
-In-Reply-To: <6b8583c9-3755-4b33-a454-261854e6cf2f@blaize.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Mon, 7 Apr 2025 14:05:08 +0200
-X-Gm-Features: ATxdqUEsVQaphQBZzJswprLa4CXDw66XJ1bSTvKJk9OJJy8QVGv0t5yn3iIm7lM
-Message-ID: <CAMRc=MetyZqOgtdPgtSVQ2BHDCOAqoE3K70eCehkOscL8kmbMw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] dt-bindings: Document Blaize BLZP1600 GPIO driver
-To: Neil Jones <neil.jones@blaize.com>
-Cc: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	James Cowgill <james.cowgill@blaize.com>, Matt Redfearn <matthew.redfearn@blaize.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_050522_628931_A422492D 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20250407_050750_728736_05DF8458 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,56 +89,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 11:02=E2=80=AFAM Neil Jones <neil.jones@blaize.com>=
- wrote:
->
-> On 27/03/2025 11:27, Nikolaos Pasaloukos wrote:
->
-> > This is a custom silicon GPIO driver provided by VeriSilicon
-> > Microelectronics. It has 32 input/output ports which can be
-> > configured as edge or level triggered interrupts. It also provides
-> > a de-bounce feature.
-> > This controller is used on the Blaize BLZP1600 SoC.
-> >
-> > Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
-> > ---
-> >   .../bindings/gpio/blaize,blzp1600-gpio.yaml        | 77 +++++++++++++=
-+++++++++
-> >   1 file changed, 77 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/gpio/blaize,blzp1600-gpi=
-o.yaml b/Documentation/devicetree/bindings/gpio/blaize,blzp1600-gpio.yaml
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..8b7842331a22b7b9fbfa42b=
-9c711da99227de2e4
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/gpio/blaize,blzp1600-gpio.yaml
-> > @@ -0,0 +1,77 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/gpio/blaize,blzp1600-gpio.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Blaize BLZP1600 GPIO controller
-> > +
-> > +description:
-> > +  Blaize BLZP1600 GPIO controller is a design of VeriSilicon APB GPIO =
-v0.2
-> > +  IP block. It has 32 ports each of which are intended to be represent=
-ed
-> > +  as child noeds with the generic GPIO-controller properties as descri=
-bed
->
-> Typo here I assume, should be nodes ?
->
-> Also maybe better worded as:
->
-> Blaize BLZP1600 GPIO controller is an _implementation_ of the VeriSilicon=
- APB GPIO v0.2 IP block
->
+From: Darren Ye <darren.ye@mediatek.com>
 
-I fixed these in tree, thanks.
+This series of patches adds support for Mediatek AFE of MT8196 SoC.
+Patches are based on broonie tree "for-next" branch.
 
-Bart
+Changes since v1:
+  - modify mtk_memif_set_channel and mtk_afe_pcm_pointer interfaces
+    are improved to support mt8196.
+  - remove duplicate definitions in the mt8196 common header file.
+  - cm logic is merge into the afe platform driver.
+  - modify afe clk to return judgment logic and remove useless clk sources.
+  - refactor the mt8196 adda dai driver.
+  - remove the gpio module and use SND_SOC_DAPM_PINCTRL to manage it.
+  - removes CONNSYS_I2S related functions that are not supported in i2s dai driver.
+  - fixed mt8196-afe.yaml and mt8196-mt6681.yaml syntax issues.
+  - modify log printing in all modules.
+  - optimize the header file included for machine driver.
+
+Darren Ye (11):
+  ASoC: mediatek: common: modify mtk afe common driver for mt8196
+  ASoC: mediatek: common: modify mtk afe platform driver for mt8196
+  ASoC: mediatek: mt8196: add common header
+  ASoC: mediatek: mt8196: support audio clock control
+  ASoC: mediatek: mt8196: support ADDA in platform driver
+  ASoC: mediatek: mt8196: support I2S in platform driver
+  ASoC: mediatek: mt8196: support TDM in platform driver
+  ASoC: mediatek: mt8196: add platform driver
+  ASoC: dt-bindings: mediatek,mt8196-afe: add audio AFE document
+  ASoC: mediatek: mt8196: add machine driver with mt6681
+  ASoC: dt-bindings: mediatek,mt8196-mt6681: add mt8196-mt6681 document
+
+ .../bindings/sound/mediatek,mt8196-afe.yaml   |   233 +
+ .../sound/mediatek,mt8196-mt6681.yaml         |   114 +
+ sound/soc/mediatek/Kconfig                    |    30 +
+ sound/soc/mediatek/Makefile                   |     1 +
+ sound/soc/mediatek/common/mtk-afe-fe-dai.c    |    23 +-
+ sound/soc/mediatek/common/mtk-afe-fe-dai.h    |     1 +
+ .../mediatek/common/mtk-afe-platform-driver.c |    47 +-
+ .../mediatek/common/mtk-afe-platform-driver.h |     2 +
+ sound/soc/mediatek/common/mtk-base-afe.h      |    13 +
+ sound/soc/mediatek/mt8196/Makefile            |    16 +
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.c    |   729 +
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.h    |    78 +
+ sound/soc/mediatek/mt8196/mt8196-afe-common.h |   194 +
+ sound/soc/mediatek/mt8196/mt8196-afe-pcm.c    |  5070 +++++++
+ sound/soc/mediatek/mt8196/mt8196-dai-adda.c   |   918 ++
+ sound/soc/mediatek/mt8196/mt8196-dai-i2s.c    |  4080 ++++++
+ sound/soc/mediatek/mt8196/mt8196-dai-tdm.c    |   825 ++
+ .../mediatek/mt8196/mt8196-interconnection.h  |   121 +
+ sound/soc/mediatek/mt8196/mt8196-mt6681.c     |   876 ++
+ sound/soc/mediatek/mt8196/mt8196-reg.h        | 12068 ++++++++++++++++
+ 20 files changed, 25414 insertions(+), 25 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-afe.yaml
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-mt6681.yaml
+ create mode 100644 sound/soc/mediatek/mt8196/Makefile
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-common.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-adda.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-i2s.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-tdm.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-interconnection.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-mt6681.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-reg.h
+
+-- 
+2.45.2
+
 
