@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64EAEC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 09:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D960EC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 09:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2hFCpNzgvYPcy3ClT3r7L6ZPnfTiI/feFQRvvV2p21s=; b=jIzv+488PpKpCKCcTs3izKEzZU
-	4qnKdRkFzJexx8Ms54SFWkvPCsvFehBsXgzbEme7tkklkvIcNUKDOzFITVDhrBOSuxuLpv/qkVMEI
-	1T9PV3b6XuGhlFAXX8ZbOzu1ZrNuxqxdm8Hl7l13UkfMc2FLviXShqlHbqZeSRtjJhKeIrefC9pO2
-	Vi4mzxe9kpFph2AtWFxMRy6j6zQBGoCbAaZt5FxoK5g8rjiCRmNjdhxz94SA9E6iB1unExCrjaZSN
-	7VuaIhjx3vhgUbFUgiKXHoH3NU42+tNpaOvU+OVdqzC0bvdNAr1HUu93e5b1aU44nZg9e0y1tTS/x
-	LfEqMIcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8TN9/6BnKvyU3e8vS2iprMvt0bdbH7kVE3wStXcniB4=; b=o4ZSicv4VoDDAIzqdCDpiUQmcz
+	KP8cgva9PJS8+0lMwU6sJxvPzd71MCAumHz6/GzvyHkDeZg15av8FlyVqd4REsCRiaRlRWE3UgPex
+	MuOqn/lJEmqiNFItj02MskTNOoGmRB6jCmW23C+dJNjF8+ufl/s3Ad/9Apa8Q5EdyKCbqQs746fxA
+	ENY9csWdWarrlS9wMTeFzjMqghteEgcCefTQbqPEI8j7xzRTeaMKYdu+jp1uqJl+HHeKYVjunGh1n
+	qA4CBJZXXq2YhJubtrDIztiKwAxT3LzDR5e1XbAk57yTe5Kmq8SNwR2CnYU0lNoPu4Kz1v03v827+
+	SmFFTU2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ifO-0000000HAoI-0R2r;
-	Mon, 07 Apr 2025 09:21:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1u1ijk-0000000HBh2-41VE;
+	Mon, 07 Apr 2025 09:25:48 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ic2-0000000HA5j-15Gz
+	id 1u1ihz-0000000HBLB-1780
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 09:17:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95DC7106F;
-	Mon,  7 Apr 2025 02:17:49 -0700 (PDT)
-Received: from bogus (unknown [10.57.41.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D141B3F59E;
-	Mon,  7 Apr 2025 02:17:45 -0700 (PDT)
-Date: Mon, 7 Apr 2025 10:17:43 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Donghyeok Choe <d7271.choe@samsung.com>
-Cc: Youngmin Nam <youngmin.nam@samsung.com>, Marc Zyngier <maz@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com, hajun.sung@samsung.com,
-	joonki.min@samsung.com, ne.yoo@samsung.com
-Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in GICv3
- ITS driver
-Message-ID: <20250407-amiable-perfect-hummingbird-06ad83@sudeepholla>
-References: <CGME20250326030527epcas2p33aa30e62cc8a00c9e151c35bee71dac5@epcas2p3.samsung.com>
- <Z+Nv8U/4P3taDpUq@perf>
- <8634f0mall.wl-maz@kernel.org>
- <Z+TEa8CVAYnbD/Tu@perf>
- <20250402-messy-wild-squid-7b4da9@sudeepholla>
- <Z+3kwsesiXyC0hbO@perf>
- <20250403-rare-wasp-of-management-9bce59@sudeepholla>
- <20250404041323.GA685160@tiffany>
+	Mon, 07 Apr 2025 09:24:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=8TN9/
+	6BnKvyU3e8vS2iprMvt0bdbH7kVE3wStXcniB4=; b=d3JbWkbc94Y9e0M1/KoJZ
+	kJCyNIX5hYPPv5KEDfpgU49ogkrXWuQDHG99CC1liP2oR3dx8/IgApfkGGeUbeDF
+	n7xib3tanF2iFbJPf+/cjXtxJqYpwkjKpUT6vn+EejgVSGa8fgxK9zigJF+vNWNF
+	IrkHR5+Jej5uuiiwHABwNg=
+Received: from localhost (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wDn32p6mfNne6pOEw--.1721S2;
+	Mon, 07 Apr 2025 17:23:06 +0800 (CST)
+From: Xavier <xavier_qy@163.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	akpm@linux-foundation.org,
+	baohua@kernel.org,
+	ryan.roberts@arm.com,
+	ioworker0@gmail.com
+Cc: xavier_qy@163.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] mm/contpte: Optimize loop to reduce redundant operations
+Date: Mon,  7 Apr 2025 17:22:43 +0800
+Message-Id: <20250407092243.2207837-1-xavier_qy@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250404041323.GA685160@tiffany>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDn32p6mfNne6pOEw--.1721S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrur43Cr17tw15uF4xZry7KFg_yoWkArb_Zr
+	4xtasxXF1UJFyjgFyUt398Gryjgayj93W3JFn29r1UXryfW3yfXrZ2qF92gF1xWrWagr45
+	trn8Jr13uFnrCjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRNE_MDUUUUU==
+X-Originating-IP: [101.132.132.191]
+X-CM-SenderInfo: 50dyxvpubt5qqrwthudrp/1tbiTh8oEGfzkOnw9AABsB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_021750_339607_2B47C270 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250407_022359_676165_55E9D327 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +76,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 04, 2025 at 01:13:23PM +0900, Donghyeok Choe wrote:
-> On Thu, Apr 03, 2025 at 10:18:54AM +0100, Sudeep Holla wrote:
-> > /me more confused.
-> > 
-> > Are you saying you have some cpuidle platform specific logic inside
-> > trace_android_vh_cpuidle_psci_enter(). I would assume it was just to
-> > trace the entry into the state and nothing more.
-> 
-> If you have any further questions, feel free to reach out.
-> 
+This commit optimizes the contpte_ptep_get function by adding early
+ termination logic. It checks if the dirty and young bits of orig_pte
+ are already set and skips redundant bit-setting operations during
+ the loop. This reduces unnecessary iterations and improves performance.
 
-I was trying to understand the difference in behaviour between normal
-cpuidle entering the same deepest state that is entered in s2idle state.
-I assume GIC doesn't loose power and no need for GIC ITS save/restore
-in normal cpuidle path ?
+Signed-off-by: Xavier <xavier_qy@163.com>
+---
+ arch/arm64/mm/contpte.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
 
-If so, what triggers the GIC suspend in s2idle path if syscore_ops is
-not getting called ?
-
-Why would the firmware pull the plug on GIC ?
-
-Do you use any suspend/resume logic in drivers/irqchip/irq-gic-pm.c ?
-I am still missing something in this flow.
-
+diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+index bcac4f55f9c1..ca15d8f52d14 100644
+--- a/arch/arm64/mm/contpte.c
++++ b/arch/arm64/mm/contpte.c
+@@ -163,17 +163,26 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+ 
+ 	pte_t pte;
+ 	int i;
++	bool dirty = false;
++	bool young = false;
+ 
+ 	ptep = contpte_align_down(ptep);
+ 
+ 	for (i = 0; i < CONT_PTES; i++, ptep++) {
+ 		pte = __ptep_get(ptep);
+ 
+-		if (pte_dirty(pte))
++		if (!dirty && pte_dirty(pte)) {
++			dirty = true;
+ 			orig_pte = pte_mkdirty(orig_pte);
++		}
+ 
+-		if (pte_young(pte))
++		if (!young && pte_young(pte)) {
++			young = true;
+ 			orig_pte = pte_mkyoung(orig_pte);
++		}
++
++		if (dirty && young)
++			break;
+ 	}
+ 
+ 	return orig_pte;
 -- 
-Regards,
-Sudeep
+2.34.1
+
 
