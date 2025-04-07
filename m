@@ -4,82 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C8E6C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A25CC369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXJpfmhZ+8yM3mjrwdmbYrVV3J33ZSlFaLXrj0slIbA=; b=xxEMv+FdSCkYfGZnV+J+yxuDyV
-	8G4QDiq2Kmqk5F7mldUO4k8ahMQ4n5aneR9KMpHojJr+dL9Wn1wqP8U5bfVj0r2XWiotMGfSlKHfl
-	4iPzPGwMaTLVSGK1SqVcb5qmL3LQJBKEJCZVwh8IkgIw63JAYjVrMPDm2HQQAcHueWPSiG4uVdcxb
-	AbBJ1rOLM69Zrx4+UEq+hYJ6umeGaAxwkHPGhR3d1PKqdDhVYtOmoXaBaTEl0UvBBR7tKlKaoqsrO
-	P3GmbMCKZ58Jj6t3At03KCIbPTEuKUGP1UU6cLwx6xRWpHsuaDJP9Ry+W1mD34BbbZW08YCC1yXud
-	zFEU+rpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ry6I4UZZpSwJthTgqZO2PxmG1uzefuqJ4HOXz4bGQKE=; b=hDbUx9qRT+tJGM1Ip46MFmVMoX
+	DvBSUrzmRJGdPn7QC9MnZjzh3t+KVEdn/d9iu6fWHfpYnbCZVDFSZG8tM2DUSRyU2ICPy5omImSUr
+	/3ahjp6tSQ/wmCQk/pWNJDDUm5kVm57Vo6i3you3pHoMowI0ZT/NQf9Znf85w8FX9hVyEQxNsOrBl
+	CfSmmy/zJPiYmmsuJ/4TxkdrHMzWu54lU0nQLem6YvIWR2YRAtN9xIw4aFNbdoG0ExgOpQJ1hEl6b
+	5fBJDflV6dOUDrU/w76EhKxYMcb3/TglflIUcJYK++pwpmaUBTUXO+n9ahEixotc2MNDnST+dAVVe
+	Cw2EvgAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYQ-00000001cvO-07El;
-	Mon, 07 Apr 2025 18:50:42 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1u1rYS-00000001d0y-3MM9;
+	Mon, 07 Apr 2025 18:50:44 +0000
+Received: from mail-am6eur05on2052.outbound.protection.outlook.com ([40.107.22.52] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pcc-00000001GkL-35TG;
-	Mon, 07 Apr 2025 16:46:56 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 910F543137;
-	Mon,  7 Apr 2025 16:46:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744044412;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RXJpfmhZ+8yM3mjrwdmbYrVV3J33ZSlFaLXrj0slIbA=;
-	b=Nuh6OFc3/kXzo6DFhHDNjBix1k6eSZDM8GdsMsXmsU0V3T4vccLEgUCC4EgQeWaqxdDd+m
-	6iDycLP0ZRwOMlRdIP55ClDsYY3RRZggJjGc57Tbk0t12a7NIkAiyOyEKWjVYYGcYtB8cY
-	LSF3wv/M4lhju7DTiyJXQ8Vfvi1s2OBuTch5r0lwm/s2X3bqq+j8hq+NI1nantxL2od+tP
-	b5oVECDGuEQqoTNn/1N8Bm58s4JuR7NFVdrwxCIpRF2xGRCvUw2WN9uKmJ98U/NeGEgPJo
-	E8lKL1tTsWOpYcW6n8W0UST7oX+rytoqLVzC9dA4uDFH/LG6/2QHCJ7BxnoDoA==
-Date: Mon, 7 Apr 2025 18:46:47 +0200
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Petr Mladek <pmladek@suse.com>, Daniel Lezcano
- <daniel.lezcano@linaro.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui
- <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott Branden
- <sbranden@broadcom.com>, Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Steven Rostedt
- <rostedt@goodmis.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, Sergey Senozhatsky
- <senozhatsky@chromium.org>, Jonathan Corbet <corbet@lwn.net>, Andrew Morton
- <akpm@linux-foundation.org>, Alex Shi <alexs@kernel.org>, Yanteng Si
- <si.yanteng@linux.dev>, Binbin Zhou <zhoubinbin@loongson.cn>, Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Geert
- Uytterhoeven <geert+renesas@glider.be>, Liu Ying <victor.liu@nxp.com>,
- linux-clk@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] vsprintf: remove redundant and unused %pCn
- format specifier
-Message-ID: <20250407184647.3b72de47@booty>
-In-Reply-To: <Z9BKW_06nLAOzYfY@pathway.suse.cz>
-References: <20250311-vsprintf-pcn-v2-0-0af40fc7dee4@bootlin.com>
-	<20250311-vsprintf-pcn-v2-2-0af40fc7dee4@bootlin.com>
-	<Z9BKW_06nLAOzYfY@pathway.suse.cz>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	id 1u1pcj-00000001Gkp-22QY
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 16:47:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lGZO+vT8AhTBf92mUWIOZRPLI7xZc9KXHwy0nb1cy69S57X//ImyQClPFvE4nnZQ6DGHACBs11KzENCVln5OqTR6VNAf2k5C8WF7dC9ZVZZJ4fY76nid1UkGjzTMCNi+S7W9xtCbLxeIA5TJHykWu3Y5vXOTfw7uqDb0LXNmSbWZ9zCExossLflW5IJjdO6jHxLc1gUCggYRHtyqOTk6IbaoqZMFxkx/qV9s/Ymo7n7SqnEG50vnZfTm5NW7AClpmuW81Hb8BUwfF7jYN4TLmUx0S+G6t3fIhGN2yead2lEofFpTfacFs9vEaasHL7HrA1xmB9UzTZa/h6jxODIIZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ry6I4UZZpSwJthTgqZO2PxmG1uzefuqJ4HOXz4bGQKE=;
+ b=PvX8LiuMtiPyR3Op1dIrt1fxdWyL+K7b3wDQLQSX6X6jbPnj50V4fh1W7gsRifoi/hUmYtoSIH+snd8gCSjGulWps3xpvuAO82JIZIRGaMB65HCXLX88VSUJXhT2dJ91YLxuPlc63HEzce8SyOLx8d7EC1+iakUr4uU+2iscqY0qG81pX0tK5y1LZocIxFpfmoz83wGZLbUQwE+B6ZhRLFVQn8pVNiOUqLAgCmkOe8jxpBSl69Y0bz+p9hu8yvpjW49Cnc6n+85rTkgfz/wJ+Mlh6J0hCMv5PdX4eAS3LBcOotdX3ZnqsgfHbKGOOZbCX2Gt7lT97URs2OnZiw/mtA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ry6I4UZZpSwJthTgqZO2PxmG1uzefuqJ4HOXz4bGQKE=;
+ b=AtWjVqXALLVhrn9oGj72ijD6Dmiw3Zo8fyrE3e6Sc025aygXzbTmQRwu+Bk4AHHY0lCLtunno+7jieBPXxcvWUqMukF6BDFSsGkXz0/mAlRuhYxi4V+w9+gg4pfaKMuqNQncZ2uFHOPUJJhylaI0r4FEUaKZ9DVf65X+/18L2uNMR/zXo6ZuQx8kHYXObfxe5bnN7UwX77B9FaNls9F7HDixJ8G3lCBfClEwEfPYg2gJREyoP6HP/eubMQNWR7q8+sepIChMZXNac36vPx24o9hDyXMWBi0dsENYnrNWPrkuSWvapDdHsYEJYPAmkuYYLTB6E3hGhTnJY7EQO+cq1Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM7PR04MB7029.eurprd04.prod.outlook.com (2603:10a6:20b:118::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.33; Mon, 7 Apr
+ 2025 16:46:57 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Mon, 7 Apr 2025
+ 16:46:57 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Date: Mon, 07 Apr 2025 12:46:35 -0400
+Subject: [PATCH v2 1/3] dt-bindings: dma: fsl-edma: increase maxItems of
+ interrupts and interrupt-names
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtjeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeelffefgfehhfdtvdefueefieevkefggfelkeeiudetkeektedvhedukefgvddvnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdelpdhrtghpthhtohepphhmlhgruggvkhesshhushgvrdgtohhmpdhrtghpthhtohepuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghrohdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrt
- ghpthhtoheprhhuihdriihhrghnghesihhnthgvlhdrtghomhdprhgtphhtthhopehluhhkrghsiidrlhhusggrsegrrhhmrdgtohhmpdhrtghpthhtohepfhhlohhrihgrnhdrfhgrihhnvghllhhisegsrhhorggutghomhdrtghomhdprhgtphhtthhopehrjhhuihessghrohgruggtohhmrdgtohhmpdhrtghpthhtohepshgsrhgrnhguvghnsegsrhhorggutghomhdrtghomh
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Message-Id: <20250407-edma_err-v2-1-9d7e5b77fcc4@nxp.com>
+References: <20250407-edma_err-v2-0-9d7e5b77fcc4@nxp.com>
+In-Reply-To: <20250407-edma_err-v2-0-9d7e5b77fcc4@nxp.com>
+To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: imx@lists.linux.dev, dmaengine@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>, 
+ Joy Zou <joy.zou@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744044406; l=843;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=vAG7HoIDqb2w3aEvYT2e5p26tSed3G829srp2fLSwGk=;
+ b=puZ1dj9gl1gKP0Bo16v4TX91viOchHH3/J5V/rtV8GXvDENH298B5xkez1QPTzGlnFr3vJo9e
+ 68aKvp3ynaPC3X7OBYhsMxbWV444T11Li8w4CqPFOQ23qAaT3SPvzio
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR03CA0243.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a0::8) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM7PR04MB7029:EE_
+X-MS-Office365-Filtering-Correlation-Id: 93c7c0b4-c146-40d6-0fdf-08dd75f3cf38
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?M0pEMTRTNjBneUxVbHBHL05DTmxpSGVoSXNRMFByZk9rakR5OTcreklpY1lL?=
+ =?utf-8?B?SWlPS0VVcjlnY25Yb28wRnZkdWcrcnVNR3psWmV1Tk1qcitRT0sxditBUEY5?=
+ =?utf-8?B?eWduU3lWU3hJYktoVjZWM2MreVJYS0ZJcjVEckRQSWlDZkJTVE5paDVUZEpI?=
+ =?utf-8?B?MnoxaDk4VkJMbFRTVGFxK1M1ZFZ2SlJEZWZZL05ZbGlFTzRmMEVLcitrNHJY?=
+ =?utf-8?B?MXY5bmo5VU1PdzkrOTdPdStxTHZMaiszVnRvV2tRdm5YT3dhNTBRQUdMYVNH?=
+ =?utf-8?B?cjJqLzR0YnNyZHU4cTNwUG5PTXdNNWdNRjJqL3RNczMxWFdWM0liNzJzUXNM?=
+ =?utf-8?B?c2FweWRISEhCbzE1T1M1ZnE5cHhNMmhZenJxazBldHFKRWNpc0RUcEFXYWsy?=
+ =?utf-8?B?N2JIN1ZLR1pVSDNtWHc1NmJ5Wnp2cllnSzNodjFqOWYxWmFuaTlqKys0MWVt?=
+ =?utf-8?B?Q2FXOVUvSFFCblYrMHZLdWtpSnNyaG92L3RxckdIcjRoKzkvRTUrbFkyTHRV?=
+ =?utf-8?B?dmZWM052L3BkR2dIbFhkdm1OTUNBcmZxbXczS2pVeVVZK1FGQitZb3ZvQUhO?=
+ =?utf-8?B?VmNJdXc1K0p4OVlBbjlYL0pUWG0wZi9kU1g4TDlTM0VMMG1jVElrWlFIRzJi?=
+ =?utf-8?B?N0hTdVlNWTFhMzl6NmI4SFprMmpnTWlFNEdYL29WMFJOQUdLZzRZQlg0TmxI?=
+ =?utf-8?B?MUp6cFc1aWN1ZXJnM01ZWnVhOFE3N1JHOVV1WGNScWZTZlM3bGJ1VDhpd0Nz?=
+ =?utf-8?B?N2xCdzJKanBuRkFPZWJUWUdCMndESXFaUUVXbndtZnkwTTdnRkFOZnlzT2VT?=
+ =?utf-8?B?RmJTbm1wUXhrdDlvSmNGcTdEZjYyY0Y2aVlMQVlpc3hCR3VGSGhBbHpRVmt0?=
+ =?utf-8?B?N0NIZ3dpTEZmT0hYT05yZHF2UW9tcmlEbDV2WUN6TTdtY3N0Nm5weFZDWVMy?=
+ =?utf-8?B?eVpTRTdGd0xQV1JMMEg1cWF6V1pwTlM3QnZDVEtNc0VFOFhNMEdmWUI5cFFD?=
+ =?utf-8?B?KzBkZDkwVFUxVW12UitmUjd0SFJNMTVBZDZReTN2Uzc0M3prYkc0VnJ5cDRG?=
+ =?utf-8?B?RWNtRC9oV0dGZkhVa1BPbHNOekx1eTRsd0c2WnpMQmFmKys1Si8zSDdaRVhX?=
+ =?utf-8?B?bGFoVTFGR1VRRkMrWFdwcTU2N3haQWZWa1NRTDBRaWUwUVRXWktuQ1NVQ2pK?=
+ =?utf-8?B?b1VYbFA1UmJhczlLSGluendvRDlpZEZRKzRGRTNuK3ViZ3kzeDZNa0xIbjdB?=
+ =?utf-8?B?dnVHL1pYNEszS0ErV2o1T3psNVJTT2VLamYwYVJwNm05SXo4S01EdmwwUFZ3?=
+ =?utf-8?B?OVVKYW1HS1ZmaGpEbWhSbzFtUDN6QlFkTlBldG5sZ3haci9ocjdzREdBdHpQ?=
+ =?utf-8?B?eXBNSFFZTHRGQVBHT0hXRzFIME5GQ3g3ajIxeExjQzFBL3JnMzMxY0UrMm1v?=
+ =?utf-8?B?R3R5L09VRXdZMjNHdkVzTU1ZNHJ3OURUQjFIWEdacmVOTmJ0RXRwQ2d3Vi85?=
+ =?utf-8?B?cEJVQjd4VSt4RElMa0xST3JGU3A0WXVKajJ3MzJoMS81MFU2RmEvZFNyVkkv?=
+ =?utf-8?B?ZFBTUFlBcElaUmhBVjMzdzczcXNCdCtINHIxci9kNjhqR29iSU0yK1cwTXN0?=
+ =?utf-8?B?OU9sSzhGMWZFMmlzY21MbFMvdzc1K3dxRi9CQlFlNTFkSGdVektKNnNhNTZp?=
+ =?utf-8?B?ZGhTY0pwa1d4SzY2TWdDT0ZNRE9vcEJ3VGJyMFZmUXUyV1pHYW9yM0g3M2tZ?=
+ =?utf-8?B?ekcrNmNuK3dIR1VkYlplQWREb0lTTWtnN1VCQlVrRTJlbTlxZE8zVUdlVGdy?=
+ =?utf-8?B?RVhVTi9XVGMrYzcyZ3BzZElaQkJWSHMwNnVTd3lzNVZxUlBvVFhkVHpUQTlR?=
+ =?utf-8?B?aDcyN01QdjhWcXRrWTU1cHpRdU8yeTBUeGhXWFh3b25OQ2NoTzBuZzZ0OWdh?=
+ =?utf-8?Q?VQC8h2sajPnnhfOCDsLlIJRJbhaNg2P+?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UnJNYWdsOEU1Rmd3bE1sNlQzZFN4MUwya25EVjE0Qll5cTY0SU96b0JiOWg5?=
+ =?utf-8?B?REo3NExwV1JuMnZKcmM2bEVwK3AxNVpQT3dFUnpnakd0WGF5NjRoOEZxSy9z?=
+ =?utf-8?B?NENCOVRDL1VsRGFvc1VubGVIQUlKT1lCK2h1bG9JQVR3L3g3OXFIQzdrMlFE?=
+ =?utf-8?B?c0tHcXBocUUvNEVPdkdvdzdWTTVQb3UwVkV2VFhwZFhNYVhsNnNvYVcydkxk?=
+ =?utf-8?B?UVZaWXh0eUVoWVlaenlmZ0Q3dk9uTzlIMlhZVjd4Z0FhREVDQ2Q0d0J4bW11?=
+ =?utf-8?B?Z3M2QWlpMXAxWmZnQUtJZjBHOWZ1bUdPSURnK3NGL1l5QldRTEhCRlJmY2x5?=
+ =?utf-8?B?bkRFbklGdncvOGthVmNxTmhSWEhNMnFOZUFJZkRhYlMvR2FwTE8rTGk3OXlw?=
+ =?utf-8?B?Uk5xeWJtci9CVE5mZG4wQVVsY0dPR3d5MmF2MlVha3p2L2phY3RLNHcyRTQ5?=
+ =?utf-8?B?TFJKTlJMVTNWdFd0SytvbjRHbElBU0dteUtTMkR1d0EzakdlU2M0NkdLTVJZ?=
+ =?utf-8?B?d3JaV0pjR05HSjFHTVBQbG1xMm40cmp5RWMzY2lCd0F3ZWd1SDdDbWFTd3h5?=
+ =?utf-8?B?ZVJ1ckJJNkthWWNtYmQ5d3J5NThwS0E1ZWdiaE1uelJrZ1poR0JBSFlyMGtl?=
+ =?utf-8?B?aUo1OWN1cWdCclBlZVpCc2phcmFhTWZoS1A5T2pvSXp3blNlZS82akNkSFBj?=
+ =?utf-8?B?UlhJWWZXRk1zWlhkRWFtQlAzZXUxSzEzc0pnYWVGNWR4NUxTN2NuT3luZnFm?=
+ =?utf-8?B?VmQzZTY4bU1lV1BsK0ZpaEZOeTRYTkh1akdVV3U5Z2VPWUlkb292b0pzUWlI?=
+ =?utf-8?B?alkzNnpiU1AxUE5xY1JBYUxzYVM4dFBrdG9xYVFoUUdXRWFNd1QrYzlPU0pP?=
+ =?utf-8?B?VjR3NS9SMFRST3ZWTlBJNVNSdmM0UnZYdlNkbUQrYWJQWFhlU201RFJZR2F0?=
+ =?utf-8?B?b0g0Z0RhSk1oQlFyM2RxbElBYXNkTEViNzZzSjBwLytLaldWMUZURGpnWE9M?=
+ =?utf-8?B?VjBLTHZnc0V6eUFCZHJnWWZEelByVXJ0VUQ3ZTdtdktWYWcvd1FRVXdsaWww?=
+ =?utf-8?B?MlpOd1FOTm4vT3hGSlFyUmVCTDAxUUhMT0ZDbUZVRTU2dlh5dHFSQlJxYTFo?=
+ =?utf-8?B?RG5taHBrRisxYmh5Q0NhVGRqYms0U1RBQlFMRTJ6UDM3RDRuSytYcjBCQTFD?=
+ =?utf-8?B?MWVJQlAwVUQwZ2w3YllsYTVGaEplVE5Xbnh3SllMMmR0R1RtcllUYUtncmM0?=
+ =?utf-8?B?Q1V1aHk2Q2hsT09oZGRMNVRKdHlFNlArOWZEUndFNVlxRnIzaVZZSm5QUFBp?=
+ =?utf-8?B?bXdjNnlXaTFZR3JmQ1RoQ3MxWGcxcS9adU5rUThHY0hnM1BMMlk2NW8zaHhB?=
+ =?utf-8?B?dkJZTGVFQjQ4SDBUeVNvZXVadEZSM0UrbmZIMnAvcDg4ZDFtNnE1dWkwT2tU?=
+ =?utf-8?B?VHRYUEtIdnd5M0t1Nk11YTI3Z1Q0cFNLVGJ2VURYeXh0SHRGZjJhRWU1T2pC?=
+ =?utf-8?B?aHduMUErT1kxNkNNNnc5UWtuQWMreDdxditFM29TRGRkcU1IWjNWb2M4WWsx?=
+ =?utf-8?B?N1NZTjRYUEx1a0tjblNMVVlIWmVESENoLzNFOEJhRk0vdmp5ZFU3WkMwOUFN?=
+ =?utf-8?B?dEttYVovZDJsbDRvV1pjZGJ3TkFtbmdlS1h2NkdaT0gwWGkxWUFucTJsK1o4?=
+ =?utf-8?B?V0FGTGJ1cFNyRlowRHVWcGxQNXBFNUUzWmc5RzRHQXg3d3hIRHp0alMzT1VN?=
+ =?utf-8?B?MlVMNUlNTWUvZEowL2Y0M2dKTGxRYUJFdnpnUDBGYUlEbEwrVzI5MUw2Qlht?=
+ =?utf-8?B?MjRmT3FVS2hONFRmTnMyVXdsU0haUUl3c3FlVFZMU1pQVXVpT0NORDZXamtl?=
+ =?utf-8?B?WnIzUDgranpPYUQ1MGdjOFFtMWtEaVQvU21wSUduQ0FBd2RpV2hHUi80UGdq?=
+ =?utf-8?B?a21xWmtnNjV1WE9pdktBMVVRV0tQSThucEd2bFZHU3Y3SjVweStMb2RZL0th?=
+ =?utf-8?B?K0JvWVUzcytYVEU1UGdnd0VpajI5SVVoZVR5TVZER2wzaUo3T2t2RkJ1TWNh?=
+ =?utf-8?B?cXRSUmMwU3pQZmpPVzJJQzlaNDBuSGNjc0M0MU52TmIzdlhTeW9zeEwwN0wr?=
+ =?utf-8?Q?jZZT4ofzASphIIjlzteuNhUqV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 93c7c0b4-c146-40d6-0fdf-08dd75f3cf38
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 16:46:57.3920
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PWo+Is05+v75uqtFU9I1gS1KcuyM+mnN0yyRHFxGt5/uBXx+6PJz8Dv83bpjKAFznb85wuYKL+iIZSZCJq2VaQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_094655_079892_FF327DDD 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20250407_094701_530790_6EBC38C2 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,46 +188,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Petr, Daniel,
+From: Joy Zou <joy.zou@nxp.com>
 
-On Tue, 11 Mar 2025 15:36:11 +0100
-Petr Mladek <pmladek@suse.com> wrote:
+The edma controller support optional error interrupt, so update interrupts
+and interrupt-names's maxItems.
 
-> On Tue 2025-03-11 10:21:23, Luca Ceresoli wrote:
-> > %pC and %pCn print the same string, and commit 900cca294425 ("lib/vsprintf:
-> > add %pC{,n,r} format specifiers for clocks") introducing them does not
-> > clarify any intended difference. It can be assumed %pC is a default for
-> > %pCn as some other specifiers do, but not all are consistent with this
-> > policy. Moreover there is now no other suffix other than 'n', which makes a
-> > default not really useful.
-> > 
-> > All users in the kernel were using %pC except for one which has been
-> > converted. So now remove %pCn and all the unnecessary extra code and
-> > documentation.
-> > 
-> > Acked-by: Stephen Boyd <sboyd@kernel.org>
-> > Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>  
-> 
-> Makes sense. Looks and works well, so:
-> 
-> Reviewed-by: Petr Mladek <pmladek@suse.com>
-> Tested-by: Petr Mladek <pmladek@suse.com>
-> 
-> Daniel, if I get it correctly, you have already taken the 1st patch.
-> Would you mind to take also this patch using the same tree, please?
-> Otherwise, we would need to coordinate pull requests in the upcoming
-> merge window ;-)
+Signed-off-by: Joy Zou <joy.zou@nxp.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ Documentation/devicetree/bindings/dma/fsl,edma.yaml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-I see none of these two patches in linux-next.
-
-Anything I should do? Resend? Or just wait a bit more?
-
-Best regards,
-Luca
+diff --git a/Documentation/devicetree/bindings/dma/fsl,edma.yaml b/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+index 950e8fa4f4ab4..fa4248e2f1b9c 100644
+--- a/Documentation/devicetree/bindings/dma/fsl,edma.yaml
++++ b/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+@@ -48,11 +48,11 @@ properties:
+ 
+   interrupts:
+     minItems: 1
+-    maxItems: 64
++    maxItems: 65
+ 
+   interrupt-names:
+     minItems: 1
+-    maxItems: 64
++    maxItems: 65
+ 
+   "#dma-cells":
+     description: |
 
 -- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.34.1
+
 
