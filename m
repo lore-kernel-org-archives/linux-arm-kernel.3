@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71ABAC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 17:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BEDC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 17:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cp8UO9pOPIEmLwNOQK36z2oJFXixrdcvGimuc4r5OxQ=; b=BBMeoMCUdGZb1NdLh5cLCUXkud
-	QsMeevW0DRRmPUIAPoaJR2xVTm+a2uxEpIv366UcWjuiRiwy8gB3o2sr7N2HbNfStSltdE/ObUPPe
-	phIZum+SJeYcMlI77vmd1SSl4Uw4b0X66BpUJAjQKF40wsqNvFEXuBAt0+B40yDekARdttryNYefk
-	a//X4ebYL2riAG1qDeo0qeyp74/o+Dju0Vgd1/CS3qJf3aRf5Gq5l2+Y1DQ+/k1u1IanQXuVus2z1
-	NrsVFPQ1ADCEhpg9O7stbwsM8ao1TSnsr9e6kZAwbmX5vGKH/1uYhHNQoKsHlLtO2ME5N+aUxM5I4
-	mazWXjFw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/WMHo01xUwdS8oQQrEyS0O+pWy7gsZCa0aWpjGKO1WY=; b=sSVQ57AleD5zzEbLbFJUrAcmVU
+	+LUyadbXLUYYdxYO9LYvctwHOO7Qosn+mqqseGlnE9EQijIJfs4Enp1gDsuRIqyk2QNnCZgtYNOk8
+	88VuPz7Ssc6is8BodhG4Kgp3X0XdA40sxDz6jPQ0Wda/U2G0jmIND4p3Y8i95kcdmilCC+msvUwL6
+	SZGD5/rS0Me4Ceh5Qvl6dnVJML/pB1rZYE1kvvdZzUCN2KKZE92bP7Y4J2HZIVPCWT1qyvYEZKoht
+	/IjWMT/1SuOP4VGulk2AcgQjiZHjod5txS3q3LtS29IZ5W0ZVRZhu4NSl2FuEKXemVKj8PgHi8h+K
+	Zmzmd0bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pvX-00000001K3a-2Qi9;
-	Mon, 07 Apr 2025 17:06:27 +0000
+	id 1u1pyz-00000001KNs-1xb5;
+	Mon, 07 Apr 2025 17:10:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pCj-0000000197n-2MVC
+	id 1u1pCl-0000000197x-0JbX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 16:20:10 +0000
+	Mon, 07 Apr 2025 16:20:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4C208106F;
-	Mon,  7 Apr 2025 09:20:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AAECE12FC;
+	Mon,  7 Apr 2025 09:20:09 -0700 (PDT)
 Received: from u200865.usa.arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF1D53F694;
-	Mon,  7 Apr 2025 09:20:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E8EC3F694;
+	Mon,  7 Apr 2025 09:20:08 -0700 (PDT)
 From: Jeremy Linton <jeremy.linton@arm.com>
 To: linux-trace-kernel@vger.kernel.org
 Cc: linux-perf-users@vger.kernel.org,
@@ -57,16 +57,17 @@ Cc: linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jeremy Linton <jeremy.linton@arm.com>
-Subject: [PATCH v2 0/6] arm64: Enable UPROBES with GCS
-Date: Mon,  7 Apr 2025 11:19:45 -0500
-Message-ID: <20250407161951.560865-1-jeremy.linton@arm.com>
+Subject: [PATCH v2 1/6] arm64/gcs: task_gcs_el0_enable() should use passed task
+Date: Mon,  7 Apr 2025 11:19:46 -0500
+Message-ID: <20250407161951.560865-2-jeremy.linton@arm.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250407161951.560865-1-jeremy.linton@arm.com>
+References: <20250407161951.560865-1-jeremy.linton@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_092009_652524_6CD5AD14 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250407_092011_160084_DAB8FF82 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,45 +82,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently uprobes and the Arm Guarded Control Stack (GCS) feature are
-exclusive of each other. This restriction needs to be lifted in order
-to utilize GCS for generic Linux distro images where the expectation
-is that core debugging features like uprobes work.
+Mark Rutland noticed that the task parameter is ignored and
+'current' is being used instead. Since this is usually
+what its passed, it hasn't yet been causing problems but likely
+will as the code gets more testing.
 
-This series adds some user accessors to read/push/pop the userspace
-shadow stack. It then utilizes those functions in the uprobe paths
-as needed to synchronize GCS with the changes in control flow at
-probe locations. 
+But, once this is fixed, it creates a new bug in copy_thread_gcs()
+since the gcs_el_mode isn't yet set for the task before its being
+checked. Move gcs_alloc_thread_stack() after the new task's
+gcs_el0_mode initialization to avoid this.
 
-Along the way we fix a bug in the core gcs task handling and export
-some uprobe quality of life functionality for use in arch specific code.
+Fixes: fc84bc5378a8 ("arm64/gcs: Context switch GCS state for EL0")
+Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+---
+ arch/arm64/include/asm/gcs.h | 2 +-
+ arch/arm64/kernel/process.c  | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-The KCONFIG restriction is then dropped.
-
-v1->v2:
-	Drop uprobe_warn() patch
-	Fix copy_thread_gcs() bug created by fixing task_gcs_el0_enabled()
-	Comments, now describe issues with reading userspace GCS pages
-	Rebased to 6.15
-
-Jeremy Linton (6):
-  arm64/gcs: task_gcs_el0_enable() should use passed task
-  arm64: probes: Break ret out from bl/blr
-  arm64: uaccess: Add additional userspace GCS accessors
-  arm64: probes: Add GCS support to bl/blr/ret
-  arm64: uprobes: Add GCS support to uretprobes
-  arm64: Kconfig: Remove GCS restrictions on UPROBES
-
- arch/arm64/Kconfig                       |  1 -
- arch/arm64/include/asm/gcs.h             |  2 +-
- arch/arm64/include/asm/uaccess.h         | 42 ++++++++++++++++++++++++
- arch/arm64/kernel/probes/decode-insn.c   |  7 ++--
- arch/arm64/kernel/probes/simulate-insn.c | 38 ++++++++++++++++++---
- arch/arm64/kernel/probes/simulate-insn.h |  3 +-
- arch/arm64/kernel/probes/uprobes.c       | 30 +++++++++++++++++
- arch/arm64/kernel/process.c              |  6 ++--
- 8 files changed, 115 insertions(+), 14 deletions(-)
-
+diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
+index f50660603ecf..5bc432234d3a 100644
+--- a/arch/arm64/include/asm/gcs.h
++++ b/arch/arm64/include/asm/gcs.h
+@@ -58,7 +58,7 @@ static inline u64 gcsss2(void)
+ 
+ static inline bool task_gcs_el0_enabled(struct task_struct *task)
+ {
+-	return current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
++	return task->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE;
+ }
+ 
+ void gcs_set_el0_mode(struct task_struct *task);
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 42faebb7b712..68b7021cda77 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -305,13 +305,13 @@ static int copy_thread_gcs(struct task_struct *p,
+ 	p->thread.gcs_base = 0;
+ 	p->thread.gcs_size = 0;
+ 
++	p->thread.gcs_el0_mode = current->thread.gcs_el0_mode;
++	p->thread.gcs_el0_locked = current->thread.gcs_el0_locked;
++
+ 	gcs = gcs_alloc_thread_stack(p, args);
+ 	if (IS_ERR_VALUE(gcs))
+ 		return PTR_ERR((void *)gcs);
+ 
+-	p->thread.gcs_el0_mode = current->thread.gcs_el0_mode;
+-	p->thread.gcs_el0_locked = current->thread.gcs_el0_locked;
+-
+ 	return 0;
+ }
+ 
 -- 
 2.49.0
 
