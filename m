@@ -4,88 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 816A8C369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 22:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812EFC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 22:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p9kUupfLeM2bb97UEnJtJkHdlxhJbbR6dWtAC4xPAdw=; b=z/8QNa0Ix6ojmURuYRP0otm45z
-	URmFki2NDFAuM3tj7o9VGdDABOFtJgUbSoiH4HEf/0VK0t7DJXE96zteFsO3YqqGh+CmHUl2A0k2O
-	odI70bO6vrUriK/bd7WdkSgxArLI8PwuG7RVROPnv52rzwmjhfGbulDiYrI5dByob/PxrjjyoPvxj
-	/S8evZcK7oyGzLMeEXqUWlbMMmp3GomeLz/94qw7ROg9d1j4rjoctT4wYuDLrgzgutKAEpvvX6Nx6
-	hxlJNtPEDOcGsZWFqNNy/xRy5kijPtxCQnhvcRTskSre1KVy644R+VtKdIR57jHkB7KUyB/cnn9na
-	weTuStTA==;
+	bh=dEqY+MizYE3Tuj7oGWh4pKfuLIDZLrhKXP4HN0AHPSc=; b=y/t1bo0EqHWs8shEe5JoTjx/iF
+	wsDmZ72Txaqrfsk8qm1aXOnir25YNfX50gBG1ymwL+c6E8n2rrnWVDzBcRi5xpcViPC9x55URrVtt
+	RSBxpXyQxxxBLEHm+IUajt7X89tXBYRSLECG32THk8Zf3MKlZUa3XmmbHBGyoNCIhAQ5TnO9aO7+j
+	CAOVVJFvyJuRuNX1hIRFZI61rzxhYx3bXSv4hCYY+/BaOIyWHXIC2dVUBUTiGoHmZxkZGcsSC/8s5
+	B0q2N9gldF5mp00/e3hzQ0Kzc+XhmlACVhZW9X+iIK0sozYSKhbP6cCM9OA4fwPWf4LbrTrbITVv2
+	8CzhLnCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1vPT-00000002EXm-2RWL;
-	Mon, 07 Apr 2025 22:57:43 +0000
-Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1sEb-00000001q4T-3rlh
+	id 1u1vPX-00000002EcR-0039;
+	Mon, 07 Apr 2025 22:57:47 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1sqj-00000001wBx-12aS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 19:34:19 +0000
-Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-5242f137a1eso1977261e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 12:34:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744054457; x=1744659257; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p9kUupfLeM2bb97UEnJtJkHdlxhJbbR6dWtAC4xPAdw=;
-        b=JeB41DHCq+g2Nrbaw1vungzIws8J2lLj7wMhMRLQ1/jn8Lfo49UnacVasmvsS5YlQA
-         y685HCNY+FMvtD0VE0R1IDrnN/EaxSzVpMF90SZ5VhbNjl8X5YBgfuLmNxjbZWnsM38r
-         DaLa41E7oHi+Tp4wIYyxwxKMkmhka8WSDmKK99E0BpJpWhE83Z99Lg0o/qOtb32IP/aq
-         5hXwlnQjIruoSNFfAd5whtsbbrkEF2mAmaI4CNtVIBnxJZrAJjRFNAl9z4khReHRc5jW
-         g5U62GezoC9nFx8CJWknT0A0zei8lsymlrSLLuy0q49xKecUtAG49d8M/UprssvMi/9a
-         q8Ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744054457; x=1744659257;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p9kUupfLeM2bb97UEnJtJkHdlxhJbbR6dWtAC4xPAdw=;
-        b=huA4FvVlq6RZxbbBNs/FEkZp73Tbfu/Xww4V4J6StMlpT1OJ6L1guP3ghpPEB7SDVX
-         dqHGe6xUmPWt1Jc9MvdviiRZ04t+Sz/vT34ssDtDd71ekQ/0DWNi89ZIiBrzBw6C0vRA
-         ZvQ08xcwVgvT/Srkrlze4AVefBv+GD9LskOmk4GheQnHJXBBP0d6BOJdbErZuviErBqN
-         vcgockm565U19z30A4UC9V6xkGT4HvOqq5An4WoV3hqcAJ9mVa81a20XwfeZgUxrtCBa
-         1I0sQEQ47xP1HfRu0UREgmV9J97SbcWRMJnQaSSdI5xJRAyWpnW6Lp+lAqn35jD4TGvd
-         phYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW/YyyS6r+levfLe6p+16bDrMUuCxl5s9i1sl1m/Ce7MwCHI6BNIRYk3euMXMZPDQ34oex6b+9J5sLcAkVp8aHZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUGpOeH7C5qC2GTzfRC8O7/g4LAuxhBEPpuHpkdPGv7Ev3/009
-	jbZN9N8fQvdF5h1CarbeRbc1ehqvqS4ssTkfnaqTM0aHLq8pF02VjhlDuauOs+1KkuQ5OfWPZhX
-	ddENoFnH4cvfYIvIxjrP9mEX+6MA=
-X-Gm-Gg: ASbGncuAHHAsZipIv8N+KPnSS+jH2y12qzEOm8ePjbvlvmJmbOCfKbKDB7Zc/OTtwF9
-	om2MIqWXYrRFqijYrDo4zjFNqN/I6zlBTgAFxIwmZBuXZV4K8zsHXh5REfkL4sw4GL7XHo/rTuj
-	EOJ2u7CnCsaV0TNhViKrXMnqxW/sR2yY3igy6wQoC9Y487FXKcbhwR0vcix+A=
-X-Google-Smtp-Source: AGHT+IEUwdqKil1pOvRnLZ3FdzjENanpIPQHgPq8R+xUeQrCDsCevqcy7D/AW0+zBxjvwQs2SZQhqHplRtvsFcJ07KA=
-X-Received: by 2002:a05:6122:2502:b0:526:483:95fd with SMTP id
- 71dfb90a1353d-527645b6798mr10677466e0c.10.1744054456970; Mon, 07 Apr 2025
- 12:34:16 -0700 (PDT)
+	Mon, 07 Apr 2025 20:13:42 +0000
+Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 59D362113E7E;
+	Mon,  7 Apr 2025 13:13:39 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 59D362113E7E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1744056819;
+	bh=dEqY+MizYE3Tuj7oGWh4pKfuLIDZLrhKXP4HN0AHPSc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VnoktXpmnCMA6P5J4u68sf8Wczp2hON3IjXx+lXkEFEApagIgyBzbnM12H5dZjUBT
+	 scAUJf3fGyIEb6Tm8OiFENslVdk3qZJd6D/0iVAj4EaRZuvT9PV50QeRqbZtnxOa2F
+	 Lu6UimG790RR1nkD6FlO0Ad5pYtwMgMbhnv9cBsI=
+From: Roman Kisel <romank@linux.microsoft.com>
+To: arnd@arndb.de,
+	bhelgaas@google.com,
+	bp@alien8.de,
+	catalin.marinas@arm.com,
+	conor+dt@kernel.org,
+	dan.carpenter@linaro.org,
+	dave.hansen@linux.intel.com,
+	decui@microsoft.com,
+	haiyangz@microsoft.com,
+	hpa@zytor.com,
+	joey.gouly@arm.com,
+	krzk+dt@kernel.org,
+	kw@linux.com,
+	kys@microsoft.com,
+	lenb@kernel.org,
+	lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	mingo@redhat.com,
+	oliver.upton@linux.dev,
+	rafael@kernel.org,
+	robh@kernel.org,
+	rafael.j.wysocki@intel.com,
+	ssengar@linux.microsoft.com,
+	sudeep.holla@arm.com,
+	suzuki.poulose@arm.com,
+	tglx@linutronix.de,
+	wei.liu@kernel.org,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	devicetree@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	x86@kernel.org
+Cc: apais@microsoft.com,
+	benhill@microsoft.com,
+	bperkins@microsoft.com,
+	sunilmut@microsoft.com
+Subject: [PATCH hyperv-next v7 03/11] Drivers: hv: Enable VTL mode for arm64
+Date: Mon,  7 Apr 2025 13:13:28 -0700
+Message-ID: <20250407201336.66913-4-romank@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250407201336.66913-1-romank@linux.microsoft.com>
+References: <20250407201336.66913-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
-References: <Z_Qbw0tZ2ktgBf7c@shell.armlinux.org.uk> <E1u1rMv-0013ON-TJ@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1u1rMv-0013ON-TJ@rmk-PC.armlinux.org.uk>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Mon, 7 Apr 2025 20:33:50 +0100
-X-Gm-Features: ATxdqUHy--tranG0MT0BFF5juBVy575ZL4jQsNWdM38rbJ8aGrL8W5d1ehNrSPQ
-Message-ID: <CA+V-a8t=V-EB4r_vBBSJfmAx1_tBRsvV-m3wM841fAw75-ueZA@mail.gmail.com>
-Subject: Re: [PATCH net-next 2/2] net: stmmac: dwc-qos: use stmmac_pltfr_find_clk()
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Jon Hunter <jonathanh@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, 
-	Paolo Abeni <pabeni@redhat.com>, Thierry Reding <treding@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_123417_959353_BCAA74F0 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20250407_131341_321488_4F28B0DC 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,65 +109,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 7, 2025 at 7:39=E2=80=AFPM Russell King (Oracle)
-<rmk+kernel@armlinux.org.uk> wrote:
->
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  .../ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    | 14 ++------------
->  1 file changed, 2 insertions(+), 12 deletions(-)
->
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Kconfig dependencies for arm64 guests on Hyper-V require that be
+ACPI enabled, and limit VTL mode to x86/x64. To enable VTL mode
+on arm64 as well, update the dependencies. Since VTL mode requires
+DeviceTree instead of ACPI, don’t require arm64 guests on Hyper-V
+to have ACPI unconditionally.
 
-Cheers,
-Prabhakar
+Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+---
+ drivers/hv/Kconfig | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/dr=
-ivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-> index cd431f84f34f..f5c68e3b4354 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-> @@ -34,16 +34,6 @@ struct tegra_eqos {
->         struct gpio_desc *reset;
->  };
->
-> -static struct clk *dwc_eth_find_clk(struct plat_stmmacenet_data *plat_da=
-t,
-> -                                   const char *name)
-> -{
-> -       for (int i =3D 0; i < plat_dat->num_clks; i++)
-> -               if (strcmp(plat_dat->clks[i].id, name) =3D=3D 0)
-> -                       return plat_dat->clks[i].clk;
-> -
-> -       return NULL;
-> -}
-> -
->  static int dwc_eth_dwmac_config_dt(struct platform_device *pdev,
->                                    struct plat_stmmacenet_data *plat_dat)
->  {
-> @@ -132,7 +122,7 @@ static int dwc_qos_probe(struct platform_device *pdev=
-,
->                          struct plat_stmmacenet_data *plat_dat,
->                          struct stmmac_resources *stmmac_res)
->  {
-> -       plat_dat->pclk =3D dwc_eth_find_clk(plat_dat, "phy_ref_clk");
-> +       plat_dat->pclk =3D stmmac_pltfr_find_clk(plat_dat, "phy_ref_clk")=
-;
->
->         return 0;
->  }
-> @@ -242,7 +232,7 @@ static int tegra_eqos_probe(struct platform_device *p=
-dev,
->         if (!is_of_node(dev->fwnode))
->                 goto bypass_clk_reset_gpio;
->
-> -       plat_dat->clk_tx_i =3D dwc_eth_find_clk(plat_dat, "tx");
-> +       plat_dat->clk_tx_i =3D stmmac_pltfr_find_clk(plat_dat, "tx");
->
->         eqos->reset =3D devm_gpiod_get(&pdev->dev, "phy-reset", GPIOD_OUT=
-_HIGH);
->         if (IS_ERR(eqos->reset)) {
-> --
-> 2.30.2
->
+diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
+index 6c1416167bd2..eefa0b559b73 100644
+--- a/drivers/hv/Kconfig
++++ b/drivers/hv/Kconfig
+@@ -5,7 +5,7 @@ menu "Microsoft Hyper-V guest support"
+ config HYPERV
+ 	tristate "Microsoft Hyper-V client drivers"
+ 	depends on (X86 && X86_LOCAL_APIC && HYPERVISOR_GUEST) \
+-		|| (ACPI && ARM64 && !CPU_BIG_ENDIAN)
++		|| (ARM64 && !CPU_BIG_ENDIAN)
+ 	select PARAVIRT
+ 	select X86_HV_CALLBACK_VECTOR if X86
+ 	select OF_EARLY_FLATTREE if OF
+@@ -15,7 +15,7 @@ config HYPERV
+ 
+ config HYPERV_VTL_MODE
+ 	bool "Enable Linux to boot in VTL context"
+-	depends on X86_64 && HYPERV
++	depends on (X86_64 || ARM64) && HYPERV
+ 	depends on SMP
+ 	default n
+ 	help
+@@ -31,7 +31,7 @@ config HYPERV_VTL_MODE
+ 
+ 	  Select this option to build a Linux kernel to run at a VTL other than
+ 	  the normal VTL0, which currently is only VTL2.  This option
+-	  initializes the x86 platform for VTL2, and adds the ability to boot
++	  initializes the kernel to run in VTL2, and adds the ability to boot
+ 	  secondary CPUs directly into 64-bit context as required for VTLs other
+ 	  than 0.  A kernel built with this option must run at VTL2, and will
+ 	  not run as a normal guest.
+-- 
+2.43.0
+
 
