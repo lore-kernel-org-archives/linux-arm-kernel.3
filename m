@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739CAC369A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C48D4C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EcpHIHdpCMLJF4s/VJZo/G6a9nsNam8x34XSwJ2u6Pg=; b=P3S7KIyZqsvAHCvlXohWW4Q7G4
-	6iNTTQ/2vZqda6SxfNZsEs4CFfln14de34K0OSgyEFEaKRwQJ0CyO0TR9vMTQmxcWGLxjNERMmXDK
-	LN9bS0x5OPO9rdTaVX01k0oxwqQBH87dom4Xzj+3QWgesgI6QOIJC+GMaA70DlhN90PzYK1mLiHgh
-	lliAe0BOPUBDrh2tvO/5dqecrUX0yFrEPCYHQ2u6KNQQyORxypauUj8lRaxMTxdclhhIUEFBhfaKf
-	rKCHuD4AbY8BFgh27gZ6RHEaAd4hs6yhx35o34rt+BbmkuEIqc37yIQfDC67JhMyDIhGfDoNSDl/b
-	w4/TbVDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H1iMwU3ajJMnMcuSPtx2gxJdVmNL3/UCZFSDfHMc86M=; b=KOhl9GG6sZ2iEBJZEf5NvpXBLz
+	NacD+bJT12cNsQsb0pF9eJsR3NvPpzHmAWx8sLY+5BpqxHLA7hGu3CNZ0TTP+F0zlVreAcgWrHOqx
+	OL6xmhw1hS3e35I1TUWyXNcnNCTCL0YkF8/lWKx9lkqRD2SdFPZ41v3GfGfN1tcfJxQmb7/9iqfrE
+	m1rJG2K0ks+pbXCSrbajqXRm03M7CwHGsMmSzzJSa3vcw/ffGv/TbhhFiu2qIX11dmdx/ucGgRDdS
+	7JHuIyJoTy61XHZ7opF7kU27MYsYwFYLfkEUoyxv9IZRoEHFGr0kwsu9EnkzmvXrdyI0SL1eIoPiR
+	JCy41jYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYb-00000001dJ8-43je;
-	Mon, 07 Apr 2025 18:50:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u1rYh-00000001dT5-21fC;
+	Mon, 07 Apr 2025 18:50:59 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pfB-00000001H5U-1ln8;
-	Mon, 07 Apr 2025 16:49:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=EcpHIHdpCMLJF4s/VJZo/G6a9nsNam8x34XSwJ2u6Pg=; b=qqa/4dRGnVDR62Hv5OhVImQIXU
-	sNnKKxkLnFP2nJfL0cJS8sAUjVGvO7+mwMfQp6/4r1+xB0BbpBmcr2O6/O72IEjrYMlaWX2i3gpZC
-	3xW3F1kqBWP/1ZCq80fnzB4YR5s/92qqMUmeTOwqBlVxE8e+NJFZmkHpUFz7ujfHSp8wB07TKgIb8
-	3BzneylOTil6JTVRjE45XGq43GuyY6Kimt757++x+1E9uh8Zo9L5qcJgGhFo66bCAMN5uoKoKoNIe
-	N9VbiaFbdLhTrl9Jw0p6vBEHUo71CcU64wjzth0N8AycRu8m1WYR82uBLo5TqbqgjfCWJcgFUL79l
-	33BmgLBw==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pf7-000000084Xb-035V;
-	Mon, 07 Apr 2025 16:49:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=EcpHIHdpCMLJF4s/VJZo/G6a9nsNam8x34XSwJ2u6Pg=; b=AIOr9KeOCXW3cDn3zHEBy8fKnn
-	ayCLSm0pqP94IK2Qj0y6Td2zAucfuTKPpOipaO1sbrXyDxJv/XgPRrx3y74yn0qoC5fQEyMpbAaWg
-	m4TUkWdviNIHqw5T04qfz8gGuOO6afiGkGiHk5+cTKWdAHXleNJXMuODJtbXy3UMJ2QCiWOtQWeRq
-	3dYbcvBdcifWh1m9+Tn8IwTRX6L8Vsx6ReO4HNksS/oNHk/tVoaVkPmE1f/UG/C7MRmQSkvTEJmyn
-	FZMickVV4wb45j7XJ6u4rZ+CneyK9EU3jkb+diMe3erRXkg5ciZd0v5jCHR0fjBj8XChFUeo7x8Gn
-	1+vMBrGw==;
-Received: from i53875b95.versanet.de ([83.135.91.149] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1u1pf6-0006eA-5t; Mon, 07 Apr 2025 18:49:28 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>
-Cc: arm@kernel.org, soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] Rockchip dts64 changes for 6.15 #3
-Date: Mon, 07 Apr 2025 18:49:27 +0200
-Message-ID: <2000188.PYKUYFuaPT@diego>
-In-Reply-To: <CAL_JsqJVi5tf8bh6AnZwNwiBe+EG2CHQRGQGLK6SdMzQiiSbWA@mail.gmail.com>
-References: <5552256.Sb9uPGUboI@phil> <8512245.T7Z3S40VBb@diego>
- <CAL_JsqJVi5tf8bh6AnZwNwiBe+EG2CHQRGQGLK6SdMzQiiSbWA@mail.gmail.com>
+	id 1u1phB-00000001HNj-3js5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 16:51:39 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5D6084439C;
+	Mon,  7 Apr 2025 16:51:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744044694;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=H1iMwU3ajJMnMcuSPtx2gxJdVmNL3/UCZFSDfHMc86M=;
+	b=QYtsHvD9DTOGiFETvj+We/hzG7h1j54bIDzufGVCgmf9PbORkltx0JqHpWe+aPyMEzw+BY
+	BLDFSYOw4BRIzx3SstgbwbImXzPVHlUsTqWNRXQMNtJwh5XyQjekREZy25k9HxtytuDyZN
+	qV59Wm1ThVZCXTV3w9PeAglD6hgRNxlH/IwDQIUaCvNdsDNQovSjkUY3vwG7oobLiOXONu
+	3fcpBrr6eKbvYY2tiur2Zp4fDRRWjdS+BQCz++nt2rDXujLJerJnif/Ws3w7qaHXJ5i+Nh
+	B4dnM/nggzNsA6Hna2/Z08ckKMc22MO7DWqmr40zEGjIdMt7bvIlwiAJxj0IUQ==
+Date: Mon, 7 Apr 2025 18:51:29 +0200
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Sean Anderson <sean.anderson@linux.dev>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Russell King
+ <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org, Christian Marangi
+ <ansuelsmth@gmail.com>, upstream@airoha.com, Heiner Kallweit
+ <hkallweit1@gmail.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Clark Wang <xiaoning.wang@nxp.com>, Claudiu
+ Beznea <claudiu.beznea@microchip.com>, Claudiu Manoil
+ <claudiu.manoil@nxp.com>, Conor Dooley <conor+dt@kernel.org>, Ioana Ciornei
+ <ioana.ciornei@nxp.com>, Jonathan Corbet <corbet@lwn.net>, Joyce Ooi
+ <joyce.ooi@intel.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Li Yang
+ <leoyang.li@nxp.com>, Madalin Bucur <madalin.bucur@nxp.com>, Madhavan
+ Srinivasan <maddy@linux.ibm.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, Michal
+ Simek <michal.simek@amd.com>, Naveen N Rao <naveen@kernel.org>, Nicholas
+ Piggin <npiggin@gmail.com>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Rob Herring
+ <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, Robert Hancock
+ <robert.hancock@calian.com>, Saravana Kannan <saravanak@google.com>, Shawn
+ Guo <shawnguo@kernel.org>, UNGLinuxDriver@microchip.com, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [RFC net-next PATCH 00/13] Add PCS core support
+Message-ID: <20250407185129.654e7c9c@kmaincent-XPS-13-7390>
+In-Reply-To: <720b6db8-49c5-47e7-98da-f044fc38fc1a@linux.dev>
+References: <20250403181907.1947517-1-sean.anderson@linux.dev>
+	<20250407182738.498d96b0@kmaincent-XPS-13-7390>
+	<720b6db8-49c5-47e7-98da-f044fc38fc1a@linux.dev>
+Organization: bootlin
+X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtjedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhephfduveekuedtvdeiffduleetvdegteetveetvdelteehhfeuhfegvdeuuedtleegnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghlohepkhhmrghinhgtvghnthdqigfrufdqudefqdejfeeltddpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegledprhgtphhtthhopehsvggrnhdrrghnuggvrhhsohhnsehlihhnuhigrdguvghvpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegurghvvghmsegur
+ ghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhk
+X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_174929_216421_FDEE72CE 
-X-CRM114-Status: GOOD (  26.18  )
+X-CRM114-CacheID: sfid-20250407_095138_075623_A5CA75A0 
+X-CRM114-Status: GOOD (  27.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,56 +103,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 7. April 2025, 18:43:54 Mitteleurop=C3=A4ische Sommerzeit schrie=
-b Rob Herring:
-> On Mon, Apr 7, 2025 at 11:40=E2=80=AFAM Heiko St=C3=BCbner <heiko@sntech.=
-de> wrote:
-> >
-> > Hi Rob,
-> >
-> > Am Montag, 7. April 2025, 17:56:37 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Rob Herring:
-> > > On Wed, Mar 19, 2025 at 6:56=E2=80=AFPM Heiko Stuebner <heiko@sntech.=
-de> wrote:
-> > > >
-> > > > Hi soc maintainers,
-> > > >
-> > > > I made an error and accidentially applied a patch that was meant for
-> > > > the mfd tree. Thankfully Stephen noticed that when the duplicate
-> > > > commit appeared in linux-next.
-> > >
-> > > Both commits are in v6.15-rc1 now and the revert is not, so this
-> > > should not get applied/pulled. Or you will need to revert the revert.
-> >
-> > yes, that was the intention.
-> >
-> > Back when I submitted this PR, I talked with Arnd on IRC the next day.
-> >
-> > As both commits are identical sans some Signed-off-by lines, he suggest=
-ed
-> > not trying to put a revert in, but instead let git solve it itself, bec=
-ause
-> >
-> > arnd on IRC:
-> > > [...], but I worry that this would make things worse if 'git merge'
-> > > ends up doing the revert on top of the original commit once it gets to
-> > > torvalds. Not sure if that's still a problem in git these days, but
-> > > I've seen it happen in the past.
-> > > if two identical patches are in different branches, just leaving them
-> > > there is usually easier
-> >
-> > So this PR was already marked as "superseeded" in patchwork back
-> > on march 20th.
-> >
-> >
-> > Nevertheless, thanks for making sure no funky revert happens now.
+On Mon, 7 Apr 2025 12:33:28 -0400
+Sean Anderson <sean.anderson@linux.dev> wrote:
+
+> On 4/7/25 12:27, Kory Maincent wrote:
+> > On Thu,  3 Apr 2025 14:18:54 -0400
+> > Sean Anderson <sean.anderson@linux.dev> wrote:
+> >  =20
+> >> This series adds support for creating PCSs as devices on a bus with a
+> >> driver (patch 3). As initial users,
+> >>=20
+> >> - The Lynx PCS (and all of its users) is converted to this system (pat=
+ch 5)
+> >> - The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6=
+-8)
+> >> - The Cadence MACB driver is converted to support external PCSs (namely
+> >>   the Xilinx PCS) (patches 9-10).
+> >>=20
+> >> The last few patches add device links for pcs-handle to improve boot t=
+imes,
+> >> and add compatibles for all Lynx PCSs.
+> >>=20
+> >> Care has been taken to ensure backwards-compatibility. The main source
+> >> of this is that many PCS devices lack compatibles and get detected as
+> >> PHYs. To address this, pcs_get_by_fwnode_compat allows drivers to edit
+> >> the devicetree to add appropriate compatibles. =20
+> >=20
+> > I don't dive into your patch series and I don't know if you have heard
+> > about it but Christian Marangi is currently working on fwnode for PCS:
+> > https://lore.kernel.org/netdev/20250406221423.9723-1-ansuelsmth@gmail.c=
+om
+> >=20
+> > Maybe you should sync with him! =20
 >=20
-> The commit is still in linux-next though. That's how I happened upon this.
+> I saw that series and made some comments. He is CC'd on this one.
 
-Ah right. I've recreated my next branch earlier today, after the -rc1
-release, so this should be gone with the next linux-next.
+Oh indeed, you have replied on his v1, sorry I missed it.
+It seems he forgot to add you in CC in the v2.
 
-Heiko
+> I think this approach has two advantages:
+>=20
+> - It completely solves the problem of the PCS being unregistered while the
+> netdev (or whatever) is up
+> - I have designed the interface to make it easy to convert existing
+>   drivers that may not be able to use the "standard" probing process
+>   (because they have to support other devicetree structures for
+>   backwards-compatibility).
 
+Ok, thanks for the clarification!
+I was working on the axienet driver to add support for the 10G version that=
+'s
+why I discovered your series.
 
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
