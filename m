@@ -4,70 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63A8C36018
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96FDC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7aXt2koPsf4jatl2BEaDbyBltL8GupCo0peGOg+vXXs=; b=wL/oXwdYdTT5CrzNGWWjWIJaz9
-	ak0o8Mo90iBBpE5dY71Z5SuzGHYO4bND8s4ciUWUww/Mm2QnXjn5O0Nv+/Mm0lSfHXE/kpIPANQPr
-	V7LeRb/OXAps+7wjhov4iIWskETyBPWulmn9GgplaXm5NJWp5a4PN6EL4KdXsyv5Q2DO4199MSvqN
-	L+iRuDLUXcny29IsfSlXbDpcaRTtz803Y+xk1XIzKNnlbhT4TLOzYbVq9Qv5VepLMeeBwd5FMOX8U
-	q3y7n8CSzgqPxIG2A2m39wfTNxywgwSBY8Nl2SNsqXvzbyBBkqYAqu17jdH55aXFO5mzkuO4T2d7G
-	xbBXmwVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l0JP9W6U1LjdFgPNOZLeL/srJMeNPv7qFK8Qwhn+e3s=; b=DebP14RifUR/WXLmjY3XytK1TX
+	HgTJUmQIcnqyQsTRfghvT0ZL+Y7wYcuk7AmaDL+G7fIdDAzzpgQX8/btgAjGDFQoPQksoTl+7KjV+
+	WZ+aT8/p0BuivahNSO954PY7URk1MrV/qNpdXtg9wpYeOniUtZ/iZEGkI88KjW+OzLQDX+iSRJKyz
+	GlsCcG6fjkHh2H7XVFi7KTJguAQPFpI4/fndr5zGCEBwWVFj8wOOPAadmcFy7xpSqMV7HHyRKIKSS
+	3QMpTpKxRXjb4WDXDojAZ1iLmjvcRXtNUZwP/MrICc05YhEB8StFPECMfCTeuuf8mqYjyR8whEAm5
+	Ja8MASZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pKZ-00000001BcW-42Z6;
-	Mon, 07 Apr 2025 16:28:15 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1u1pMU-00000001D5U-2zqI;
+	Mon, 07 Apr 2025 16:30:14 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1npo-00000000opA-2wVk
+	id 1u1oQd-00000000y50-1Hd9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 14:52:26 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 575EF102EB9FB;
-	Mon,  7 Apr 2025 16:52:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1744037541; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=7aXt2koPsf4jatl2BEaDbyBltL8GupCo0peGOg+vXXs=;
-	b=iFa0jpRR+XykMU6AK6AhSCuqS6EhaK8e0fGvWfzxnF4aNWS3SpeeQTftCC0y1DY4FWCDT/
-	zGJ1UogWEXjz5e7YM4uOUBCY3nYyaCJR28BpBRXBhOUmqxED1mQJNq3YyinFyUya85ny+d
-	GU7TcGs1KLPjfJJooWNCDI3jaDFQWQtKhHkmEL0eZCay6or3IuaTtsrbetLP/rngyCdba5
-	KVIgww5Fk9c3bmMFZ4aZj5w2E01sJZ/PYzJw/NTc/IY3VfS0CU/khwBUJfeAuJnV4+EVbP
-	ReXEEyeX4tGl916NRzibF5Y+8Mzq2EEH801jTHhguzRl6aqBvxjSttgddyxP8g==
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Mon, 07 Apr 2025 15:30:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744039827; x=1775575827;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=g0yyqdpKhTJeG+BAd0Yg/gUdc7l4ULmzVrzx9Rpmr6U=;
+  b=m8CzBLsTptY3Xf6g3XGx7Ym50hFjohPW/qs+GBGQ6LppT0LzwxgHXsF3
+   b0RlRYiFnDC69Xo5CEYZNaKCkyoRN2N+6Gvdv+SEzmGn3jUkdORwPheSW
+   W45YupKX0EaGQIamqCggIelu14V1pNYZWcNQavmy/uwfbkz+rwy+9xVJL
+   z+cp9ChupGNaBLWvhp3iDkRHy/kWSbReTKXr8Fl7sVhufSFgnQly11azp
+   FVR3MKMEqMSNWG5j5/1QRBvzy3skwEOedskXRt9kymYNaHmesK7E6h8rr
+   5HyiXcZGDJYYYI8eB06pfXDtTezsXuHiiyxuC6gTcGeTBArKJ1iGRZe/K
+   w==;
+X-CSE-ConnectionGUID: HAIhzz/LQ4izQBm+zqzgJw==
+X-CSE-MsgGUID: YjGn+cM3Q4yCTKrLgxZVhg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="62980194"
+X-IronPort-AV: E=Sophos;i="6.15,194,1739865600"; 
+   d="scan'208";a="62980194"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2025 08:30:26 -0700
+X-CSE-ConnectionGUID: GDqsXhTrRFKRa8fqJC2lKA==
+X-CSE-MsgGUID: vQcAL9GpSRixUUMsO+9hag==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,194,1739865600"; 
+   d="scan'208";a="158982543"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2025 08:30:17 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1u1oQP-0000000A6tV-2nff;
+	Mon, 07 Apr 2025 18:30:13 +0300
+Date: Mon, 7 Apr 2025 18:30:13 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Lukasz Majewski <lukma@denx.de>
-Subject: [net-next v4 0/5] net: mtip: Add support for MTIP imx287 L2 switch driver
-Date: Mon,  7 Apr 2025 16:51:52 +0200
-Message-Id: <20250407145157.3626463-1-lukma@denx.de>
-X-Mailer: git-send-email 2.39.5
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 06/16] PCI: of: Set fwnode.dev of newly created PCI
+ device nodes
+Message-ID: <Z_PvhVkdhubA9jAe@smile.fi.intel.com>
+References: <20250407145546.270683-1-herve.codina@bootlin.com>
+ <20250407145546.270683-7-herve.codina@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250407145546.270683-7-herve.codina@bootlin.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_075225_028701_F5C3F065 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20250407_083027_356087_98FDFCCC 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,98 +119,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for More Than IP's L2 switch driver embedded
-in some NXP's SoCs. This one has been tested on imx287, but is also available
-in the vf610.
+On Mon, Apr 07, 2025 at 04:55:35PM +0200, Herve Codina wrote:
+> Device-tree node can be created when CONFIG_PCI_DYNAMIC_OF_NODES. Those
+> node are created and filled based on PCI core information but the
+> fwnode.dev field is not set.
+> 
+> When later an overlay is applied, this consuses fw_devlink. Indeed,
+> without any device attached to the node, fw_devlink considers that this
+> node will never become a device. When this node is pointed as a
+> supplier, devlink looks at its ancestors in order to find a node with a
+> device that could be used as the supplier.
+> 
+> In the PCI use case, this leads to links that wrongly use the PCI root
+> bridge device as the supplier instead of the expected PCI device.
+> 
+> Setting fwnode.dev to the dev of the PCI device allows devlink to use
+> this device as a supplier and so, correct links are created.
 
-In the past there has been performed some attempts to upstream this driver:
+...
 
-1. The 4.19-cip based one [1]
-2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
-   with NO tag appended.
-3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
-   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
-   the driver uses already configured MAC and PHY to also configure PHY.
+> +	/*
+> +	 * Set the fwnode.dev in order to have fw_devlink creating links
+> +	 * pointing to this PCI device instead of walking up to the PCI host
+> +	 * bridge.
+> +	 */
+> +	np->fwnode.dev = &pdev->dev;
 
-All three approaches were not accepted as eligible for upstreaming.
+This is too invasive. I suppose here should be a helper for this kind of
+operation. If not, create one.
 
-The driver from this series has floowing features:
+	fw_devlink_set_device(...);
 
-1. It is fully separated from fec_main - i.e. can be used interchangeable
-   with it. To be more specific - one can build them as modules and
-   if required switch between them when e.g. bridge offloading is required.
 
-   To be more specific:
-        - Use FEC_MAIN: When one needs support for two ETH ports with separate
-          uDMAs used for both and bridging can be realized in SW.
-
-        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
-          attached to switch and bridging shall be offloaded to HW. 
-
-2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
-   separation at boot time. Port separation is disabled when bridging is
-   required.
-
-3. Example usage:
-        Configuration:
-        ip link set lan0 up; sleep 1;
-        ip link set lan1 up; sleep 1;
-        ip link add name br0 type bridge;
-        ip link set br0 up; sleep 1;
-        ip link set lan0 master br0;
-        ip link set lan1 master br0;
-        bridge link;
-        ip addr add 192.168.2.17/24 dev br0;
-        ping -c 5 192.168.2.222
-
-        Removal:
-        ip link set br0 down;
-        ip link delete br0 type bridge;
-        ip link set dev lan1 down
-        ip link set dev lan0 down
-
-4. Limitations:
-        - Driver enables and disables switch operation with learning and ageing.
-        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
-          on purpose, as up till now we didn't had consensus about how the driver
-          shall be added to Linux.
-
-Links:
-[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
-[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
-[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
-
-Lukasz Majewski (5):
-  dt-bindings: net: Add MTIP L2 switch description
-  ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2 switch description
-  ARM: dts: nxp: mxs: Adjust XEA board's DTS to support L2 switch
-  net: mtip: The L2 switch driver for imx287
-  ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2
-    switch
-
- .../bindings/net/nxp,imx28-mtip-switch.yaml   |  126 ++
- MAINTAINERS                                   |    7 +
- arch/arm/boot/dts/nxp/mxs/imx28-xea.dts       |   54 +
- arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |    8 +-
- arch/arm/configs/mxs_defconfig                |   14 +-
- drivers/net/ethernet/freescale/Kconfig        |    1 +
- drivers/net/ethernet/freescale/Makefile       |    1 +
- drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
- .../net/ethernet/freescale/mtipsw/Makefile    |    3 +
- .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1970 +++++++++++++++++
- .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  782 +++++++
- .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  122 +
- .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  449 ++++
- 13 files changed, 3537 insertions(+), 13 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
+or alike.
 
 -- 
-2.39.5
+With Best Regards,
+Andy Shevchenko
+
 
 
