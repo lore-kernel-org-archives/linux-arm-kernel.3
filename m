@@ -4,69 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A6F5C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 08:07:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2C7C3601A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 08:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=58cco15IO24hWp0On5PpJFu0SKhXmxDGqWHzOYEtnjM=; b=QU3sflZOJ95MsrJLkY95wjwrEO
-	Jt/IVxu7ylDTaM9eiYYoXj6T4pSdg5uUSqX1i31L36jnbs2ROzyrHlw6FII4JQI6FjKRT0cxQ6aAc
-	8LUh9f+jvoe4Wy5bV/OmRi51W4wfaNhy6MRnGbxCMXj3v1Uolyw2NFSzd8a0GZllkxuI9tBprFR85
-	MVfSsytjr6XMNsy3mBVJbeWsp1/Ht924FuMDXsfaJ33GgX8CiuAatYvLCC+FvktPIcDwLW5Xty93E
-	+axj64QEzKyv8gxped9FsChWHDO8hr23N5ODUjhkQehALD2w+Dc75s+SMhR7/wPeffPwJkjqKNiYZ
-	EaAlFciA==;
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0jZmhDZudwbmeQKUZf99XBuFy576VsgeJRC56CQxISU=; b=hMYEtMhHsL4e9oyHkUzeYgXqBF
+	K1+83Q/eoXzG4oiskT0O5ha0y7EskwlhsPFwV4z9mKR9BXjhzBsy64k3C83xyq7gEOy3bYV1TNSgJ
+	zg5IFil46TM4K+flIdeuwVrDeMAqlp8DG/ByFfjXfzd146VaoRiqySDTrlXNO3/CUvrZMFFFG6cmv
+	b/69GeFyDzcMYY0TZ4FDk/KeZbl8jhOX1sE6UqmfJVUS9D8A+K2c7pfhn50fMBVaVTGvE/suIaRHg
+	PVIbhpYp7iPCTTdMTutRqWfd3xcar0Qbq4y4tUx5fnEE6M2/iWZUE9yADMIWawpxjj/suPb0uDHuR
+	0J1AQjiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1hVY-0000000Gvmw-3uaW;
-	Mon, 07 Apr 2025 08:07:04 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1u1hXI-0000000GwJQ-2Sy9;
+	Mon, 07 Apr 2025 08:08:52 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1hNY-0000000Gu7F-0jTN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 07:58:49 +0000
-Received: from icess-ProLiant-DL380-Gen10.. (unknown [183.174.60.14])
-	by APP-03 (Coremail) with SMTP id rQCowAC3Y0CphfNnN1jWBg--.33395S2;
-	Mon, 07 Apr 2025 15:58:39 +0800 (CST)
-From: Ma Ke <make24@iscas.ac.cn>
-To: linux@armlinux.org.uk,
-	elder@kernel.org,
-	sumit.garg@kernel.org,
-	make24@iscas.ac.cn,
-	gregkh@linuxfoundation.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v5 RESEND] [ARM] fix reference leak in locomo_init_one_child()
-Date: Mon,  7 Apr 2025 15:58:32 +0800
-Message-Id: <20250407075832.2592519-1-make24@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1u1hPW-0000000GuY7-2hNk;
+	Mon, 07 Apr 2025 08:00:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1744012825; x=1744617625; i=markus.elfring@web.de;
+	bh=0jZmhDZudwbmeQKUZf99XBuFy576VsgeJRC56CQxISU=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Kl+KgrHeWQp9HhxxSC2q7E0/B3G/WAiO/wMBrnYkUPUmu0YjSHFmco6/V2Okd7VN
+	 wJ0RrDJeczZnRtb3ji1hAf5pHdvO93rxu1d8Kq7IxLXunj39ReFo7ik3EBbjTfmJx
+	 EkRETrGKbX2c7DQHON6dJ08zVVKMkkq7dvN+2/M5bOjES4XZIUqKoM/x1gXdzPlYa
+	 VT+sRbTY/kF0bbR8fLwljfgmL/jTkzAbTbkO9j1PRpO55OW2xCYNuoyrUJgcU1i3P
+	 fCFzgqwr26J4yOk9EDpu1iXpObROW50D8vs+jpvsx6ZncFutSDcw6EzHe6fX5Qksp
+	 3au2ql1gjpdGcChStQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.93.4]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1Melax-1tTBbI21VF-00jGQQ; Mon, 07
+ Apr 2025 10:00:25 +0200
+Message-ID: <946ab07c-47d0-443a-9ece-2ce65d586bef@web.de>
+Date: Mon, 7 Apr 2025 10:00:23 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAC3Y0CphfNnN1jWBg--.33395S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WryrKw13CF4fuFW7AryDGFg_yoW8Wry7pa
-	s7Cas8trWUWr4vgFW0qFn7ZFyUGayIkw45GrW8C340g3s0vrWIqFy0ga429w1UXrWkAFnY
-	vF4xXw4UG3WUCaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvK14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwCY1x0262kKe7AKxVWUAVWUtwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbV
-	WUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF
-	67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42
-	IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF
-	0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxh
-	VjvjDU0xZFpf9x0JUvg4fUUUUU=
-X-Originating-IP: [183.174.60.14]
-X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+To: Henry Martin <bsdhenrymartin@gmail.com>, linux-wireless@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chad Monroe <chad@monroe.io>, Felix Fietkau <nbd@nbd.name>,
+ Lorenzo Bianconi <lorenzo@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Peter Chiu <chui-hao.chiu@mediatek.com>, Ryder Lee <ryder.lee@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
+ Shengyu Qu <wiagn233@outlook.com>
+References: <20250407061900.85317-1-bsdhenrymartin@gmail.com>
+Subject: Re: [PATCH v2] wifi: mt76: mt7915: Fix null-ptr-deref in
+ mt7915_mmio_wed_init()
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250407061900.85317-1-bsdhenrymartin@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:oLbjMncbOULxE9gX3qvqqW9FqKIyHZrKv6CYE+c/GKKRkDElqtj
+ GgUW6lLILmh6lGxnqBPfN28dBS1rPRUqjByrgfxFFAyDL8eSLoeWu7p9WKw7yTBKXGaDBtm
+ QprydO14pTEfekV/cHFu+G6/2wVefZu8VrJPYWMK0KH4mzgJPSHKfOKRvdOiOZnBr+alMHs
+ nKeh54XLeOq9FcJEw8A4A==
+UI-OutboundReport: notjunk:1;M01:P0:EqVqH2Yl4Hk=;pXLjU/2QG4i6RlQsohpA8k64bMJ
+ b/BflAaMnh9FBt8b42gDhJknR8RaiG7KJDpCQE/Ak6Dfo6nQyKrYhbOpA/YU0Fvtawgu725HX
+ hPnIeMaAoXPHxZ2hMsObAgg8XX6sjGiG4/ZG2YCWU4Ws2cSEDICGxW1JFJHWDQqs1nkdIWHGw
+ pizqWSTOFJfUh36IrPAY4BLEVyP4IffcNND5x7LQDD/6vlIFpfHjdSmTTtPGhqgtqgE8G2q3z
+ oQFFzrCbwIievGtgANlwmY/rbNRAt0/gOCTXbX8vxgpj6tCc3K1ltUlzTPO4eKZn+V1G1A2x3
+ 7hcxVIiR1TA0TCekD8qc65/QPP8r6demyZ5qjV2FTW+AeyAe0KrwHsyzHbYSBp1QstVpA4Kfa
+ +9SsPcCPZnbmZkPzrJ4ooniLQW6Lk+E5xhXkz3JbffoW7AJPfyhXI/M73cdkjcTma8sr9lboc
+ NhmiGOQCcxoG1YgT2zDZKiFWB+gXSR31Qj9664TjHlBsnQH/ypLXQEUVvvtv8J6kqmy7njOY2
+ mHEiG5nywQg1GTlrfqVNIZ4+NtoYiapJKnWHASs+vcQ/C1Fjr8072IUcRA3q3wGGlMTTIBNu3
+ 5cMtCW5rX5BNbVV22DRiC5Ej/2o5H9j0ONfj6+8SROIYQDSuzuBi2SMp/Fh+3VrNI7x7V0L5U
+ vOBtw4/OLHvzDEKSH40pYQCItF2ZPrxSAN93PzcCwA0AWwIfHqk919yFuK7WdGZbzbQIWz/Px
+ 9AtxT4Supp1k6rr7eYnbaSDSzG6QZZqj5WjVyhOg2l7Z8duCmzwrwpPwLK1Ab6M5AsmdaPyra
+ o8eDkwmYENqB0hDu7bd+V274kHSNi1TqPHOmxFnwwXBKVCk1R+uwLrno7pJJJUCVZfgh1vGdB
+ 9CZNZBNbbtDS+Vkz1bnsGMK71xor2a0eG+gLS9P2zvR2jq90Tocr5c4ulsn/VeFTnRh1D0ZZx
+ RNJiKish+PhFGze8yEgQpcDGf3AoQNubfaiYEWby6Fcm6AG0is1/yDKQh8kKKfa0G5nTKB7g5
+ PdWO/c3dfLYqUvA0m/ZFl3ShpL+fe880bGOxJmmTkRHUQoOYHH9IsRUm6C1JEjr03dKi365Am
+ n/gKFSJS5e91lUIJPiVofO7+cEQm6JG6V7S6DxRq3XGmhYR1OfOJHjBE13QINkXX/KZ39r5vg
+ THdrerspw+59R6G1IAGm2knRlnAUZH6iZ+RtTUTzZsFsApSKsIZ1RS/+CYphIwCUXIsAYIOLi
+ HfaP5yUvZIYC5sGQYOVVEeufEjqhJgpELGgeV5uf3ydArbO+DgeKYe7v89JHxaAAfcRYO6uVo
+ ZAXYABc1A7MfsKgCYGEY9T22x0FgxXb1AZNZM7jv/N7gJmtr7bSoYuERUvB/xpg/Rhww0vcZz
+ 1jaAP7U8vVFyCRvvtjPZOaGzfOy4SW9WvU5WAxZVq8aIo/sSdDtvWIs6fMcz2IR2dDj0eROgm
+ eFFuV2GogkEMq9wu7zVu1YDO4CvoY9vjnuabMHctsd/SrbGWa
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_005848_576858_5959C0C6 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20250407_010051_002250_091CC795 
+X-CRM114-Status: UNSURE (   5.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +109,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Once device_register() failed, we should call put_device() to
-decrement reference count for cleanup. Or it could cause memory leak.
+=E2=80=A6
+> Prevent null pointer dereference in mt7915_mmio_wed_init().
 
-As comment of device_register() says, 'NOTE: _Never_ directly free
-@dev after calling this function, even if it returned an error! Always
-use put_device() to give up the reference initialized in this function
-instead.'
+Can any other summary phrase variant become more desirable accordingly?
 
-Found by code review.
 
-Cc: stable@vger.kernel.org
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: Ma Ke <make24@iscas.ac.cn>
----
-Changes in v5:
-- modified the bug description as suggestions;
-Changes in v4:
-- deleted the redundant initialization;
-Changes in v3:
-- modified the patch as suggestions;
-Changes in v2:
-- modified the patch as suggestions.
----
- arch/arm/common/locomo.c | 13 +++++--------
- 1 file changed, 5 insertions(+), 8 deletions(-)
+=E2=80=A6
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
+=E2=80=A6
+> @@ -678,6 +681,9 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, voi=
+d *pdev_ptr,
+>  		wed->wlan.bus_type =3D MTK_WED_BUS_AXI;
+>  		wed->wlan.base =3D devm_ioremap(dev->mt76.dev, res->start,
+>  					      resource_size(res));
+> +		if (!wed->wlan.base)
+> +			return -ENOMEM;
+> +
+=E2=80=A6
 
-diff --git a/arch/arm/common/locomo.c b/arch/arm/common/locomo.c
-index cb6ef449b987..45106066a17f 100644
---- a/arch/arm/common/locomo.c
-+++ b/arch/arm/common/locomo.c
-@@ -223,10 +223,8 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
- 	int ret;
- 
- 	dev = kzalloc(sizeof(struct locomo_dev), GFP_KERNEL);
--	if (!dev) {
--		ret = -ENOMEM;
--		goto out;
--	}
-+	if (!dev)
-+		return -ENOMEM;
- 
- 	/*
- 	 * If the parent device has a DMA mask associated with it,
-@@ -254,10 +252,9 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
- 			NO_IRQ : lchip->irq_base + info->irq[0];
- 
- 	ret = device_register(&dev->dev);
--	if (ret) {
-- out:
--		kfree(dev);
--	}
-+	if (ret)
-+		put_device(&dev->dev);
-+
- 	return ret;
- }
- 
--- 
-2.25.1
+Would the function =E2=80=9Cdevm_platform_get_and_ioremap_resource=E2=80=
+=9D be applicable
+in this else branch?
+https://elixir.bootlin.com/linux/v6.14-rc6/source/drivers/base/platform.c#=
+L87
 
+Regards,
+Markus
 
