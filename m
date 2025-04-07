@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E7AC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 05:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC02C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 05:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HRwmECLRlTZmZ0+NCYgvVUErOZFaimdP930wmDJU8Ig=; b=tQCCp9hRoK/9U93iruV8fNYl+q
-	hxieDoyKQ6uV0s7CAiiE663txalFGZNENkScUWgXmF53UOGSulTkkT1Rj2a8Qy5HCtx5CFRhDbStr
-	cLhLUEZhkv+IhMbW36KCdRIqvntxROKiEQlDbUWqpjqNgHfp5MRjbfZzngIQX6K6iQV8ygfx5gccg
-	fPXcLg8+g/QOJmztSD2Je7fY1mBPxsEJAqFd2ZcEOyZWGuJBFh19g1syASwQ4jctLoD4Soyf0VeCx
-	o3yZvn4cKxX0ktSSW4MN02TpVIzQiD6KWvgywCLdkUnICQdwjEQGuJf5/vasn2l/BE8Rpk2b1RbGL
-	JtBlvJQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RNfyjJ36NwMo27wB3yA4lOZ9U2Fsk9+3dltOkC7RDUE=; b=ajRwdoIhgJUb2GQn6lKgTn212I
+	2GA1oUhbaCKwl2mierzZr5G/NU83LFxpd6cjZkVsFL/doSC4QYHL7aELdYI89XJM7i7/l+DR2jHQa
+	8BLYTKa28rSQVCkwmugK3QG3WaPw8Y05DJ8Od0c7ZpniMk5uYNGR0wrbzxoBQK3/3MazdgUr85+8Y
+	oDEWYoXK39yjtyWWSX6Ly2wVynm8Ql17ZdOJQ+RrBKE/D9/vVXOKORBnN+S3paRK6XGQ25+OR7Ge0
+	vEJCOi5NrhvP56mI0NSNJwRjNlo6UrGca/OcNN0CFEWP/fJ01S39mf3DkdgWhIvWAxJyg5in+utO7
+	JVJ7uTdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1fEk-0000000GTzu-3QR5;
-	Mon, 07 Apr 2025 05:41:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1f5I-0000000GScs-2TKR;
-	Mon, 07 Apr 2025 05:31:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 336541CC4;
-	Sun,  6 Apr 2025 22:31:49 -0700 (PDT)
-Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.42.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0B0463F6A8;
-	Sun,  6 Apr 2025 22:31:40 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-mm@kvack.org
-Cc: mark.rutland@arm.com,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-efi@vger.kernel.org
-Subject: [PATCH V2 3/3] arm64/mm: Define ptdesc_t
-Date: Mon,  7 Apr 2025 11:01:13 +0530
-Message-Id: <20250407053113.746295-4-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250407053113.746295-1-anshuman.khandual@arm.com>
-References: <20250407053113.746295-1-anshuman.khandual@arm.com>
+	id 1u1fGT-0000000GUHh-07sP;
+	Mon, 07 Apr 2025 05:43:21 +0000
+Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1f94-0000000GT8p-1XDS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 05:35:44 +0000
+Date: Sun, 6 Apr 2025 22:35:25 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1744004138;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RNfyjJ36NwMo27wB3yA4lOZ9U2Fsk9+3dltOkC7RDUE=;
+	b=Ho0knh0xTy/U6S07jKpiwc1tvurITGV4mcne2YhLXL2Rn6cx3FnLTTNaMt27AwnJgeBq6H
+	+TzMKPCaBi/Ke6MgVhhKc9uyOD2BPbMMn3jOQSa5bxoveD0Tb0fYKCBa4KW7K9ohcrUd6O
+	D3h0nI+wvSMyFHJP3zSreSgpZecBsKA=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: yangyicong@hisilicon.com, catalin.marinas@arm.com, will@kernel.org,
+	maz@kernel.org, corbet@lwn.net,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	shuah@kernel.org, jonathan.cameron@huawei.com,
+	shameerali.kolothum.thodi@huawei.com, linuxarm@huawei.com,
+	prime.zeng@hisilicon.com, xuwei5@huawei.com,
+	tangchengchang@huawei.com
+Subject: Re: [PATCH v2 6/6] KVM: arm64: Handle DABT caused by LS64*
+ instructions on unsupported memory
+Message-ID: <Z_NkHWStDJLo0cmY@linux.dev>
+References: <20250331094320.35226-1-yangyicong@huawei.com>
+ <20250331094320.35226-7-yangyicong@huawei.com>
+ <Z-wQuJAefT3xNipl@linux.dev>
+ <e9674079-9a22-c3cd-3b00-5989f6926303@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e9674079-9a22-c3cd-3b00-5989f6926303@huawei.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_223149_387540_B2B6809C 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20250406_223543_097325_59904DFD 
+X-CRM114-Status: GOOD (  28.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,197 +78,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define ptdesc_t type which describes the basic page table descriptor layout
-on arm64 platform. Subsequently all level specific pxxval_t descriptors are
-derived from ptdesc_t thus establishing a common original format, which can
-also be appropriate for page table entries, masks and protection values etc
-which are used at all page table levels.
+On Mon, Apr 07, 2025 at 11:33:01AM +0800, Yicong Yang wrote:
+> On 2025/4/2 0:13, Oliver Upton wrote:
+> > On Mon, Mar 31, 2025 at 05:43:20PM +0800, Yicong Yang wrote:
+> >> @@ -1658,6 +1658,25 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+> > Keep in mind that data aborts with DFSC == 0x35 can happen for a lot
+> > more than LS64 instructions, e.g. an atomic on a Device-* mapping.
+> > 
+> 
+> got it. 0x35 should be caused by LS64* or IMPLEMENTATION DEFINED fault, but no
+> further hint to distinguish between these two faults. hope it's also the right
+> behaviour to inject a DABT back for the latter case.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-efi@vger.kernel.org
-Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm64/include/asm/pgtable-types.h | 20 ++++++++++++++------
- arch/arm64/include/asm/ptdump.h        |  8 ++++----
- arch/arm64/kernel/efi.c                |  4 ++--
- arch/arm64/kernel/pi/map_kernel.c      |  2 +-
- arch/arm64/kernel/pi/map_range.c       |  4 ++--
- arch/arm64/kernel/pi/pi.h              |  2 +-
- arch/arm64/mm/mmap.c                   |  2 +-
- arch/arm64/mm/ptdump.c                 |  2 +-
- 8 files changed, 26 insertions(+), 18 deletions(-)
+There isn't exactly a 'right' behavior here. The abort could either be
+due to a bug in the guest (doing an access on something knows it can't)
+or the VMM creating / describing the IPA memory map incorrectly.
 
-diff --git a/arch/arm64/include/asm/pgtable-types.h b/arch/arm64/include/asm/pgtable-types.h
-index 6d6d4065b0cb..265e8301d7ba 100644
---- a/arch/arm64/include/asm/pgtable-types.h
-+++ b/arch/arm64/include/asm/pgtable-types.h
-@@ -11,11 +11,19 @@
- 
- #include <asm/types.h>
- 
--typedef u64 pteval_t;
--typedef u64 pmdval_t;
--typedef u64 pudval_t;
--typedef u64 p4dval_t;
--typedef u64 pgdval_t;
-+/*
-+ * Page Table Descriptor
-+ *
-+ * Generic page table descriptor format from which
-+ * all level specific descriptors can be derived.
-+ */
-+typedef u64 ptdesc_t;
-+
-+typedef ptdesc_t pteval_t;
-+typedef ptdesc_t pmdval_t;
-+typedef ptdesc_t pudval_t;
-+typedef ptdesc_t p4dval_t;
-+typedef ptdesc_t pgdval_t;
- 
- /*
-  * These are used to make use of C type-checking..
-@@ -46,7 +54,7 @@ typedef struct { pgdval_t pgd; } pgd_t;
- #define pgd_val(x)	((x).pgd)
- #define __pgd(x)	((pgd_t) { (x) } )
- 
--typedef struct { pteval_t pgprot; } pgprot_t;
-+typedef struct { ptdesc_t pgprot; } pgprot_t;
- #define pgprot_val(x)	((x).pgprot)
- #define __pgprot(x)	((pgprot_t) { (x) } )
- 
-diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-index 01033c1d38dc..fded5358641f 100644
---- a/arch/arm64/include/asm/ptdump.h
-+++ b/arch/arm64/include/asm/ptdump.h
-@@ -24,8 +24,8 @@ struct ptdump_info {
- };
- 
- struct ptdump_prot_bits {
--	u64		mask;
--	u64		val;
-+	ptdesc_t	mask;
-+	ptdesc_t	val;
- 	const char	*set;
- 	const char	*clear;
- };
-@@ -34,7 +34,7 @@ struct ptdump_pg_level {
- 	const struct ptdump_prot_bits *bits;
- 	char name[4];
- 	int num;
--	u64 mask;
-+	ptdesc_t mask;
- };
- 
- /*
-@@ -51,7 +51,7 @@ struct ptdump_pg_state {
- 	const struct mm_struct *mm;
- 	unsigned long start_address;
- 	int level;
--	u64 current_prot;
-+	ptdesc_t current_prot;
- 	bool check_wx;
- 	unsigned long wx_pages;
- 	unsigned long uxn_pages;
-diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-index 1d25d8899dbf..42e281c07c2f 100644
---- a/arch/arm64/kernel/efi.c
-+++ b/arch/arm64/kernel/efi.c
-@@ -29,7 +29,7 @@ static bool region_is_misaligned(const efi_memory_desc_t *md)
-  * executable, everything else can be mapped with the XN bits
-  * set. Also take the new (optional) RO/XP bits into account.
-  */
--static __init pteval_t create_mapping_protection(efi_memory_desc_t *md)
-+static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
- {
- 	u64 attr = md->attribute;
- 	u32 type = md->type;
-@@ -83,7 +83,7 @@ static __init pteval_t create_mapping_protection(efi_memory_desc_t *md)
- 
- int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
- {
--	pteval_t prot_val = create_mapping_protection(md);
-+	ptdesc_t prot_val = create_mapping_protection(md);
- 	bool page_mappings_only = (md->type == EFI_RUNTIME_SERVICES_CODE ||
- 				   md->type == EFI_RUNTIME_SERVICES_DATA);
- 
-diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
-index e57b043f324b..a00f57c73d81 100644
---- a/arch/arm64/kernel/pi/map_kernel.c
-+++ b/arch/arm64/kernel/pi/map_kernel.c
-@@ -159,7 +159,7 @@ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(u64 ttbr)
- static void __init remap_idmap_for_lpa2(void)
- {
- 	/* clear the bits that change meaning once LPA2 is turned on */
--	pteval_t mask = PTE_SHARED;
-+	ptdesc_t mask = PTE_SHARED;
- 
- 	/*
- 	 * We have to clear bits [9:8] in all block or page descriptors in the
-diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-index 81345f68f9fc..7982788e7b9a 100644
---- a/arch/arm64/kernel/pi/map_range.c
-+++ b/arch/arm64/kernel/pi/map_range.c
-@@ -30,7 +30,7 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
- 		      int level, pte_t *tbl, bool may_use_cont, u64 va_offset)
- {
- 	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
--	pteval_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
-+	ptdesc_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
- 	int lshift = (3 - level) * PTDESC_TABLE_SHIFT;
- 	u64 lmask = (PAGE_SIZE << lshift) - 1;
- 
-@@ -87,7 +87,7 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
- 	}
- }
- 
--asmlinkage u64 __init create_init_idmap(pgd_t *pg_dir, pteval_t clrmask)
-+asmlinkage u64 __init create_init_idmap(pgd_t *pg_dir, ptdesc_t clrmask)
- {
- 	u64 ptep = (u64)pg_dir + PAGE_SIZE;
- 	pgprot_t text_prot = PAGE_KERNEL_ROX;
-diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
-index c91e5e965cd3..91dcb5b6bbd1 100644
---- a/arch/arm64/kernel/pi/pi.h
-+++ b/arch/arm64/kernel/pi/pi.h
-@@ -33,4 +33,4 @@ void map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
- 
- asmlinkage void early_map_kernel(u64 boot_status, void *fdt);
- 
--asmlinkage u64 create_init_idmap(pgd_t *pgd, pteval_t clrmask);
-+asmlinkage u64 create_init_idmap(pgd_t *pgd, ptdesc_t clrmask);
-diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
-index 07aeab8a7606..c86c348857c4 100644
---- a/arch/arm64/mm/mmap.c
-+++ b/arch/arm64/mm/mmap.c
-@@ -83,7 +83,7 @@ arch_initcall(adjust_protection_map);
- 
- pgprot_t vm_get_page_prot(unsigned long vm_flags)
- {
--	pteval_t prot;
-+	ptdesc_t prot;
- 
- 	/* Short circuit GCS to avoid bloating the table. */
- 	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
-diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-index ac0c20ba0cd9..421a5de806c6 100644
---- a/arch/arm64/mm/ptdump.c
-+++ b/arch/arm64/mm/ptdump.c
-@@ -194,7 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
- 	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
- 	struct ptdump_pg_level *pg_level = st->pg_level;
- 	static const char units[] = "KMGTPE";
--	u64 prot = 0;
-+	ptdesc_t prot = 0;
- 
- 	/* check if the current level has been folded dynamically */
- 	if (st->mm && ((level == 1 && mm_p4d_folded(st->mm)) ||
--- 
-2.25.1
+Since KVM can't really work out who's to blame in this situation we should
+probably exit to userspace + provide a way to reinject the abort.
 
+> >> @@ -1919,6 +1939,21 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+> >>  			goto out_unlock;
+> >>  		}
+> >>  
+> >> +		/*
+> >> +		 * If instructions of FEAT_{LS64, LS64_V} operated on
+> >> +		 * unsupported memory regions, a DABT for unsupported
+> >> +		 * Exclusive or atomic access is generated. It's
+> >> +		 * implementation defined whether the exception will
+> >> +		 * be taken to, a stage-1 DABT or the final enabled
+> >> +		 * stage of translation (stage-2 in this case as we
+> >> +		 * hit here). Inject a DABT to the guest to handle it
+> >> +		 * if it's implemented as a stage-2 DABT.
+> >> +		 */
+> >> +		if (esr_fsc_is_excl_atomic_fault(esr)) {
+> >> +			kvm_inject_dabt_excl_atomic(vcpu, kvm_vcpu_get_hfar(vcpu));
+> >> +			return 1;
+> >> +		}
+> >> +
+> > 
+> > A precondition of taking such a data abort is having a valid mapping at
+> > stage-2. If KVM can't resolve the HVA of the fault then there couldn't
+> > have been a stage-2 mapping.
+> > 
+> 
+> Here's handling the case for emulated mmio, I thought there's no valid stage-2 mapping
+> for the emulated MMIO? so this check is put just before entering io_mem_abort(). should
+> it be put into io_mem_abort() or we just don't handle the emulated case?
+
+Right -- there's no valid stage-2 translation for _most_ MMIO. If KVM
+cannot find an HVA for the fault (look at the condition that gets us
+here) then we know there isn't a stage-2 mapping. How would we know what
+to map?
+
+In that case I would expect to take a Translation fault with instruction
+syndrome that can can be used to construct an exit to the VMM. Marc had
+some patches on list to do exactly that [*].
+
+However, after reading this again there's a rather ugly catch. The KVM
+ABI has it that writes to a RO memlot generate an MMIO exit, so it *is*
+possible to get here w/ a stage-2 mapping. Unfortunately there's no
+instruction syndrome with DFSC = 0x35 so no way to decode the access.
+
+This is starting to sound similar an nISV MMIO abort...
+
+[*]: https://lore.kernel.org/kvmarm/20240815125959.2097734-1-maz@kernel.org/
+
+Thanks,
+Oliver
 
