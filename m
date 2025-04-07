@@ -4,89 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 121E3C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 14:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEE3C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 14:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yt1taznpShq1t237z645Qr8mHGKFK9bfr6SZ3mXBRSQ=; b=WcvO3H04PFg3Mr+ouRaile8Nzo
-	Zg7DbEQ7B9lVltQejdL6vJUb8G81BH8+S1AMg6ddj9HcGqlXy0HxizUgGnnm9PKfX+YA/vmP8kLcB
-	YEOQoyz8XHbibCfJKx9FlNIixiMvFwQjglSym6C7gdwfKb2h9CYzLV6tbAsioJARGbLc5img++I/S
-	d0DHiPDqFEJefXtSNCEztZiAlTeKGXcGXVhrVpEOEratHpQMA4OIiQeGqDuBey/WS8nmwLAlj+R5D
-	6WG0Q8rkUEOxieTTO6DAblk0hwQ6f37fv8eoRtP0uw9eJ84vbPJdkKOaALaL2kjnJLYaQ1ogrprLI
-	2ydjnJPg==;
+	bh=6+aM4v81IIJ0lXB9aqI4mX4YkHUFBD7dtY0uixMWUn8=; b=UHJfQC8UALnSzx4MDCoHM0U+Wc
+	SEk8Vs4gLNxqDsV6PaRPkTsKx0bkajY6BN6VB1oRnAefDJXGOpGUedPHnopic+wKsW7TA6DZ2/YG5
+	hnKO/mBzIh/uaxLasbHJuSwyfH+xk9oeWriGJmPkr1H8AjV1Jmyr1SFfXy8KdqkLH+gRnyNU1N5v5
+	OhfPWHRETimN3EItD3HGYX7WHzFDBdShrRKq42pDzkwf8S8V5ZWlhr6wPn+tq7xRR2pkkN0/bP7gi
+	jXTNUELprYc0N3X15D6xlsbDa4hydldjlX9QYTz9VSQEhERdiPDhplO76VndomiRqNO9+GfD1O7rZ
+	H52C89Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nfk-00000000mGb-2ZBb;
-	Mon, 07 Apr 2025 14:42:00 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1u1ngH-00000000mRO-3aTw;
+	Mon, 07 Apr 2025 14:42:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nOp-00000000i8k-3Ot6;
-	Mon, 07 Apr 2025 14:24:33 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B090C43281;
-	Mon,  7 Apr 2025 14:24:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744035869;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Yt1taznpShq1t237z645Qr8mHGKFK9bfr6SZ3mXBRSQ=;
-	b=pNpDQn3gIPKgSludFQWt1himp6r8F0BxLZ+j3n/1y5oOAtgZwAJ07xKYbXCiZ8DLN3RAvJ
-	ZXPeAqFQEETxC+EtesAqlMRth6cKLyGZ9G7Ok40M+78NUU+3RLj4SXntbiFoXEDnZUPhyy
-	E0p03QNMTcv1j2+RyADM5WHylZygWomUMSP1NFsxVWdWFww2mgiIj/X3ZTB/CBENfA6Ah2
-	d1JgQH79Iq2oKDeMi7ttPoKG0ivtL59xLqsHuVSsj4YoPRgU1OrMz0WC6fcpZGarqmR83t
-	QF6/e6/gzwEGcYyj+LmPJEkShdTOnCkjVRU4nW1w47pi2imrgdizruIBCFm6mQ==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Mon, 07 Apr 2025 16:23:24 +0200
-Subject: [PATCH 09/34] drm/bridge: nxp-ptn3460: convert to
- devm_drm_bridge_alloc() API
+	id 1u1mXp-00000000WQu-0urj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 07 Apr 2025 13:29:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=6+aM4v81IIJ0lXB9aqI4mX4YkHUFBD7dtY0uixMWUn8=; b=N+Y49kqSeSBJw4xssjQ5UpieMH
+	HrkVMUoksqOORUGI8hgCdNharryz2l7XfiZ6g0R4/RhP6NMbtaZggbsE4j3XGpiVQYbwly4ZP9FNl
+	gLhHLVthg141b+9CNszrkKv26LHqrW+9Sjak7uILYumGH+hKc6mtb6nFwa+TvmH1pJ85559vnz/Lj
+	2oc0ctjSVPova4tKEFGMq/bqG47Ms9byTa74vImS0sU3EZF5j5KjpVzfR59iQHpntKdxL2W3KzohJ
+	2ogmyleff2PMI4VZ81dJSB6m/cZ4VWcs67SS/UdwtRcwiXe2BK9ZjEY9UAimv3nKnH2dTf+lithjk
+	8IPCDucQ==;
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1mXl-00000007xLV-2gkP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 13:29:44 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 537CPtK0020013;
+	Mon, 7 Apr 2025 15:29:30 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	6+aM4v81IIJ0lXB9aqI4mX4YkHUFBD7dtY0uixMWUn8=; b=doCt7kmH+R5+iRmg
+	YP2prSynfMLoUGpYUPeb0JZBr5fVjhai0q6iYGuJeKDA2LhBQvPWHuhC0T8SRaVb
+	dGwYJwniFTgiDv/qABGzN5kvv462dTCXaIGguJ2A18wxTUtITONuZ7aMh8IzCtzC
+	aZxvg0/V6QOGjcGYLDEgNRaZg9ANJGWTTdvht2Zfq1FMnn8N30pTCUrAQFV4uULg
+	xWpuGx97fR+ck1O/5naouKs5+BLVBocE+uhc66D85UQWrESY4E3ge11otKOO3ROC
+	xu5M5JY0R9rz1QA29CkmkJPOI5cr1DFRK+MnEsN3FD4PwXLrwDa8EhiokZ1c4WLF
+	8Y3oGA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw5g04jn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 07 Apr 2025 15:29:30 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6697240047;
+	Mon,  7 Apr 2025 15:28:21 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3ABB49400C0;
+	Mon,  7 Apr 2025 15:27:42 +0200 (CEST)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 7 Apr
+ 2025 15:27:41 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Mon, 7 Apr 2025 15:27:32 +0200
+Subject: [PATCH v8 1/7] MAINTAINERS: add entry for STM32 OCTO MEMORY
+ MANAGER driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-9-42113ff8d9c0@bootlin.com>
-References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
-In-Reply-To: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Anusha Srivatsa <asrivats@redhat.com>, 
- Paul Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, 
- =?utf-8?q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
+Message-ID: <20250407-upstream_ospi_v6-v8-1-7b7716c1c1f6@foss.st.com>
+References: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
+In-Reply-To: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>
+CC: <christophe.kerello@foss.st.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Patrice Chotard
+	<patrice.chotard@foss.st.com>
 X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpeeinecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdejhegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedupdhrtghpthhtohephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhrtghpthhtoheplhhinhhugidqmhgvughirghtvghksehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrn
- hgvlhdrohhrghdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomh
-X-GND-Sasl: luca.ceresoli@bootlin.com
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-07_04,2025-04-03_03,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_072432_036522_10B1FB5F 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20250407_142941_913752_89626B84 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,42 +121,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the new API for allocating DRM bridges.
+Add myself as STM32 OCTO MEMORY MANAGER maintainer.
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
- drivers/gpu/drm/bridge/nxp-ptn3460.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ MAINTAINERS | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/nxp-ptn3460.c b/drivers/gpu/drm/bridge/nxp-ptn3460.c
-index 25d7c415478b14ef634bff4185a8dd8e866be0c6..7acb11f16dc19e87a84cc765b1cebef158662c00 100644
---- a/drivers/gpu/drm/bridge/nxp-ptn3460.c
-+++ b/drivers/gpu/drm/bridge/nxp-ptn3460.c
-@@ -261,10 +261,10 @@ static int ptn3460_probe(struct i2c_client *client)
- 	struct drm_bridge *panel_bridge;
- 	int ret;
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5b7e1f9c30f3e45fb85b0d0f58b56db84d986061..830245c8d583c422e869dfe4b5a184faaf52b559 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22766,6 +22766,12 @@ L:	linux-i2c@vger.kernel.org
+ S:	Maintained
+ F:	drivers/i2c/busses/i2c-stm32*
  
--	ptn_bridge = devm_kzalloc(dev, sizeof(*ptn_bridge), GFP_KERNEL);
--	if (!ptn_bridge) {
--		return -ENOMEM;
--	}
-+	ptn_bridge = devm_drm_bridge_alloc(dev, struct ptn3460_bridge, bridge,
-+					   &ptn3460_bridge_funcs);
-+	if (IS_ERR(ptn_bridge))
-+		return PTR_ERR(ptn_bridge);
- 
- 	panel_bridge = devm_drm_of_get_bridge(dev, dev->of_node, 0, 0);
- 	if (IS_ERR(panel_bridge))
-@@ -300,7 +300,6 @@ static int ptn3460_probe(struct i2c_client *client)
- 		return ret;
- 	}
- 
--	ptn_bridge->bridge.funcs = &ptn3460_bridge_funcs;
- 	ptn_bridge->bridge.ops = DRM_BRIDGE_OP_EDID;
- 	ptn_bridge->bridge.type = DRM_MODE_CONNECTOR_LVDS;
- 	ptn_bridge->bridge.of_node = dev->of_node;
++ST STM32 OCTO MEMORY MANAGER
++M:	Patrice Chotard <patrice.chotard@foss.st.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
++F:	drivers/memory/stm32_omm.c
++
+ ST STM32 SPI DRIVER
+ M:	Alain Volmat <alain.volmat@foss.st.com>
+ L:	linux-spi@vger.kernel.org
 
 -- 
-2.49.0
+2.25.1
 
 
