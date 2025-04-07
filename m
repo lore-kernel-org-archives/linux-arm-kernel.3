@@ -4,40 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B440C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E43CC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SIS7Ml4VZ/wIhHt29L18904r+oPLJIB7CTsSxudVE84=; b=ozW7kmPSKRnPGw5VYuvn966VEg
-	9A8RAc/5Mw51BPrcYB0oNuGWl06odCP2fhi8ZfGuLuIx/SLf71vRkoDkGDfHnThHaTztr09cBtjx8
-	FeSwgH/nS0YWRGbuLIwWNKdVrzCGNngtPyn1NBXvdKjsO9o62rFt1nmnuNi51RIdghZSOOgy+I83O
-	449U8K17v7Tpw6JF9HYGUIrRrENnJjJa8zlgiUPnz9G1EHwhZ70RAMVoRh5jjfMl7wnrpNSYxlOb7
-	EzGeZ5xBmcGVgS5GlkPSnRSq1WtmYfFEJ/aGiw9bCfSJB5XTmJstODBzKenKSNKyoMJ8cSgOKFlme
-	gXVmWM/A==;
+	bh=EiWYoHUyjXVwkeFT7aCipcb1kNdkuvJlZrw4+O5x91w=; b=hpSNFEMIxckY+Nhbc1x8V1hI1r
+	+7pf2AoGwpcA48cGJjKvxs+cy21wZnQsVV8cQtaM4pBCmbUGBWZdticHBL4v0EHIAgWeaKOMDB1sP
+	XQ2djyKSf2ywbahmcc3ltjqoRq7mqiqG5nYeD4CN7asNTOhNeN7m30F9ooZUrjPZnl/p1nI763FLO
+	SdwCdRGFxS+Nv15ZEU2A18EmDnaEaOKwqMNx6dyD4SBMwFAtQ87lBLadA9rk9+XZf1T/UFEpPXvzq
+	DEarJMmbQQgixFHS86nKbIL6R8Ftg95xHOVidfcbhcj7PxDACbINtAhqvAarCA1KboHXzFgFZhThX
+	eMeFKNzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uKv-000000027oK-0YUz;
-	Mon, 07 Apr 2025 21:48:57 +0000
+	id 1u1uKy-000000027uc-1De6;
+	Mon, 07 Apr 2025 21:49:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1sqs-00000001wIt-2lkk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 07 Apr 2025 20:13:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=EiWYoHUyjXVwkeFT7aCipcb1kNdkuvJlZrw4+O5x91w=; b=paqhsQkTYgFCY7B2DmW3bszAhd
+	YTc6gpfitgVGRQV2u5ojHRkO3i86hdJjWlLWZryDhdsGcaYZ0D5cawv8nydnDHOL1PkKR6mm3eXwX
+	qP31pGCZt6R6T5dPTeW2ln+zpVO5qgfyaCkO/Jsy5RFpfp3VhU5yBwvSR8ZVxG5hNh6JRpqi9/fAq
+	n7eosfyVXTK0dUb6Hg9w/Olp5bxq9zVj1y6PCdscFy3YncrIm9Z6kOdAyYK4tiGj6vgPiYCZq45kD
+	qb+T4AJSo4t0AoR3aoS8EqIAs7C3ONgX+kpWE1sh+lecLuEmFfXAHhOnE+N90y1fTrF4tEGEa9igH
+	x2uwCssQ==;
 Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1sql-00000001wFl-3pZS
+	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1sqp-0000000893J-2Lkv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 20:13:46 +0000
+	Mon, 07 Apr 2025 20:13:49 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 7F22C2113E83;
-	Mon,  7 Apr 2025 13:13:42 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7F22C2113E83
+	by linux.microsoft.com (Postfix) with ESMTPSA id 8A3C72113E80;
+	Mon,  7 Apr 2025 13:13:40 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8A3C72113E80
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1744056822;
-	bh=SIS7Ml4VZ/wIhHt29L18904r+oPLJIB7CTsSxudVE84=;
+	s=default; t=1744056820;
+	bh=EiWYoHUyjXVwkeFT7aCipcb1kNdkuvJlZrw4+O5x91w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RxmnLzF2XngTwFiyKKH5hdLGJE0nEzHXDwMz6IcLNsXAa5X+x7hkym2LCUETAmXjE
-	 A1I7K+DEKgTBLx6zwLoYV5xzk7tSpZv8IQs3J34wsuW+/Nta1VC3/xiYcpGcRHCeP2
-	 CeHyVMWlrCbQLtmhnn2JQvXbrAot+cu6qCgG061U=
+	b=rlJew+pCEAMAblBos5cUaZBK6FKYFaxcs04yrXFuct3w6xqmKjYZA36rsuov3EMQ/
+	 oYjtfnce66ifmDsZfd+J96isC9P31jB3RzYVN7BhlmEdU9oWWfPYii+boWnCdhEXn5
+	 YpKE82W2b45+KZBAAkFlKywWLsD0U1wKtlrEjmDI=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -83,17 +98,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v7 11/11] PCI: hv: Get vPCI MSI IRQ domain from DeviceTree
-Date: Mon,  7 Apr 2025 13:13:36 -0700
-Message-ID: <20250407201336.66913-12-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v7 06/11] arm64, x86: hyperv: Report the VTL the system boots in
+Date: Mon,  7 Apr 2025 13:13:31 -0700
+Message-ID: <20250407201336.66913-7-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250407201336.66913-1-romank@linux.microsoft.com>
 References: <20250407201336.66913-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_131344_024397_3AFE92AE 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20250407_211347_920947_36DFDE9C 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,127 +123,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hyperv-pci driver uses ACPI for MSI IRQ domain configuration on
-arm64. It won't be able to do that in the VTL mode where only DeviceTree
-can be used.
+The hyperv guest code might run in various Virtual Trust Levels.
 
-Update the hyperv-pci driver to get vPCI MSI IRQ domain in the DeviceTree
-case, too.
+Report the level when the kernel boots in the non-default (0)
+one.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 ---
- drivers/pci/controller/pci-hyperv.c | 72 ++++++++++++++++++++++++++---
- 1 file changed, 66 insertions(+), 6 deletions(-)
+ arch/arm64/hyperv/mshyperv.c | 2 ++
+ arch/x86/hyperv/hv_vtl.c     | 7 ++++++-
+ 2 files changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
-index 6084b38bdda1..2d7de07bbf38 100644
---- a/drivers/pci/controller/pci-hyperv.c
-+++ b/drivers/pci/controller/pci-hyperv.c
-@@ -50,6 +50,7 @@
- #include <linux/irqdomain.h>
- #include <linux/acpi.h>
- #include <linux/sizes.h>
-+#include <linux/of_irq.h>
- #include <asm/mshyperv.h>
+diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+index 43f422a7ef34..4fdc26ade1d7 100644
+--- a/arch/arm64/hyperv/mshyperv.c
++++ b/arch/arm64/hyperv/mshyperv.c
+@@ -118,6 +118,8 @@ static int __init hyperv_init(void)
+ 	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
+ 		hv_get_partition_id();
+ 	ms_hyperv.vtl = get_vtl();
++	if (ms_hyperv.vtl > 0) /* non default VTL */
++		pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
  
- /*
-@@ -817,9 +818,17 @@ static int hv_pci_vec_irq_gic_domain_alloc(struct irq_domain *domain,
- 	int ret;
+ 	ms_hyperv_late_init();
  
- 	fwspec.fwnode = domain->parent->fwnode;
--	fwspec.param_count = 2;
--	fwspec.param[0] = hwirq;
--	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
-+	if (is_of_node(fwspec.fwnode)) {
-+		/* SPI lines for OF translations start at offset 32 */
-+		fwspec.param_count = 3;
-+		fwspec.param[0] = 0;
-+		fwspec.param[1] = hwirq - 32;
-+		fwspec.param[2] = IRQ_TYPE_EDGE_RISING;
-+	} else {
-+		fwspec.param_count = 2;
-+		fwspec.param[0] = hwirq;
-+		fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
-+	}
+diff --git a/arch/x86/hyperv/hv_vtl.c b/arch/x86/hyperv/hv_vtl.c
+index 582fe820e29c..038c896fdd60 100644
+--- a/arch/x86/hyperv/hv_vtl.c
++++ b/arch/x86/hyperv/hv_vtl.c
+@@ -55,7 +55,12 @@ static void  __noreturn hv_vtl_restart(char __maybe_unused *cmd)
  
- 	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
- 	if (ret)
-@@ -887,10 +896,46 @@ static const struct irq_domain_ops hv_pci_domain_ops = {
- 	.activate = hv_pci_vec_irq_domain_activate,
- };
- 
-+#ifdef CONFIG_OF
-+
-+static struct irq_domain *hv_pci_of_irq_domain_parent(void)
-+{
-+	struct device_node *parent;
-+	struct irq_domain *domain;
-+
-+	parent = of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
-+	if (!parent)
-+		return NULL;
-+	domain = irq_find_host(parent);
-+	of_node_put(parent);
-+
-+	return domain;
-+}
-+
-+#endif
-+
-+#ifdef CONFIG_ACPI
-+
-+static struct irq_domain *hv_pci_acpi_irq_domain_parent(void)
-+{
-+	acpi_gsi_domain_disp_fn gsi_domain_disp_fn;
-+
-+	if (acpi_irq_model != ACPI_IRQ_MODEL_GIC)
-+		return NULL;
-+	gsi_domain_disp_fn = acpi_get_gsi_dispatcher();
-+	if (!gsi_domain_disp_fn)
-+		return NULL;
-+	return irq_find_matching_fwnode(gsi_domain_disp_fn(0),
-+				     DOMAIN_BUS_ANY);
-+}
-+
-+#endif
-+
- static int hv_pci_irqchip_init(void)
+ void __init hv_vtl_init_platform(void)
  {
- 	static struct hv_pci_chip_data *chip_data;
- 	struct fwnode_handle *fn = NULL;
-+	struct irq_domain *irq_domain_parent = NULL;
- 	int ret = -ENOMEM;
+-	pr_info("Linux runs in Hyper-V Virtual Trust Level\n");
++	/*
++	 * This function is a no-op if the VTL mode is not enabled.
++	 * If it is, this function runs if and only if the kernel boots in
++	 * VTL2 which the x86 hv initialization path makes sure of.
++	 */
++	pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
  
- 	chip_data = kzalloc(sizeof(*chip_data), GFP_KERNEL);
-@@ -907,9 +952,24 @@ static int hv_pci_irqchip_init(void)
- 	 * way to ensure that all the corresponding devices are also gone and
- 	 * no interrupts will be generated.
- 	 */
--	hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
--							  fn, &hv_pci_domain_ops,
--							  chip_data);
-+#ifdef CONFIG_ACPI
-+	if (!acpi_disabled)
-+		irq_domain_parent = hv_pci_acpi_irq_domain_parent();
-+#endif
-+#ifdef CONFIG_OF
-+	if (!irq_domain_parent)
-+		irq_domain_parent = hv_pci_of_irq_domain_parent();
-+#endif
-+	if (!irq_domain_parent) {
-+		WARN_ONCE(1, "Invalid firmware configuration for VMBus interrupts\n");
-+		ret = -EINVAL;
-+		goto free_chip;
-+	}
-+
-+	hv_msi_gic_irq_domain = irq_domain_create_hierarchy(irq_domain_parent, 0,
-+		HV_PCI_MSI_SPI_NR,
-+		fn, &hv_pci_domain_ops,
-+		chip_data);
- 
- 	if (!hv_msi_gic_irq_domain) {
- 		pr_err("Failed to create Hyper-V arm64 vPCI MSI IRQ domain\n");
+ 	x86_platform.realmode_reserve = x86_init_noop;
+ 	x86_platform.realmode_init = x86_init_noop;
 -- 
 2.43.0
 
