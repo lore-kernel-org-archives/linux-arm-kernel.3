@@ -4,106 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93EF2C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 405F3C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uMvk5GSSlY6lIH8i4g5HHC2jAyUoBf6HjRkaPB9oNGc=; b=sapqK59GffUnRr7IPN2TDiFUni
-	gDwwj2Cq60m6KahtbGnIRVOYO/BjV0piW56iFq0zpkURAGhi9kn65KUnKiQf2gSPu1v9CLsp72hn3
-	eDph1K8owb0h1RdnaMSUCYtRQSSuAmNjUNEF40V7ZpykJ+Qt+nicB0oS40ZpKHaZDdzhohpUyJJiE
-	gLA4rhuSe5xi2Zyu3etULYa49u8ZXN006e3jxNWvrUe2UCPO5/gK74VWAb+Cqimhuf+zhwiuAhOQi
-	C6e1IrKyU2KRxn4YpvdcoV48iYdYNI5NOEFmaExHVEhVYhSAEmXoGjTUTfRnDwr9xRgcJbpjIfzEj
-	AtiCV5Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WgX6S64ngnXsjU0lQPqeLHBfnA+UnbXv6BjQk1oGXZU=; b=g9tdSBjzUQSD4oEn4LKDpVSiXv
+	reyb56qdfY70MWqo1Kfg34CQ3KVZ7N4emh6/wIxM8gV0HRs+nnXYLKQVkH66eteOj6hzA1l2UPIAR
+	0cA1L3YmRUNCLqDdVYXQSjuJ1swyuxHwYZs4+KO0ucdH1ciSVqmQyVUt/IuksAoadcPqLODF3adkf
+	hZmCSLUz5riugCmu3cNjgld1xRuZD9z3eVW+2k3Y8s74iGBlKbKvSxZUVfCJy8d/SLrsnaMow5Bw3
+	CKSq5w6zxNYCSdlRoZIY7kojpj2vl1wZYrNh7eJDajGZOWJ18AAhP2pJCwWP6HS+JQE55BodDh84h
+	dJWFzwLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pFQ-000000019eu-2gp8;
-	Mon, 07 Apr 2025 16:22:56 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1u1pIu-00000001ANa-0C4k;
+	Mon, 07 Apr 2025 16:26:32 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oNd-00000000xQa-0Brc
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 15:27:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744039641; x=1775575641;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=wzVkiX1WHW1+VEd41zgoCl+IvRzbkG2erhgb/grMY6c=;
-  b=KDkweTABnKRrWzNr6Ob3RSO09XarIaNp1DlAebYbttNksP0PgKwlM6Yx
-   HTyskV5KxRdChGsoPSeq+ltCSh/4BUHjBNKszyM14p4ADjs9D1nk1C81d
-   3o8XHhiF8ls69Hx/2zyoDKSJBcWyVxKZrkYWGl7U/feFuz0C6DCiVbJF7
-   UnYqeLZaaQ91G9FDAGxzH+ZgEDBRQWejsd6SbBjf9idwhFmUE5fNF+wkw
-   WZtotpUtMOEIShzOlfRKM75UTttZ8/iZAIjzUD/WoH5Q/bdGq5L5K8u2o
-   d5H771YKwNBmjymqX4Ls2WrbxCdTqxYzvNNT9sjQQrw9F8H3+XVXKKqNL
-   A==;
-X-CSE-ConnectionGUID: kHmTDWKyT8KfAzugFhP8qw==
-X-CSE-MsgGUID: KR9bGGD8Qj243fTR0IGdag==
-X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="56071570"
-X-IronPort-AV: E=Sophos;i="6.15,194,1739865600"; 
-   d="scan'208";a="56071570"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2025 08:27:20 -0700
-X-CSE-ConnectionGUID: jvFf7bVAQseoAmXxE0FYLw==
-X-CSE-MsgGUID: HlBrMmKlQUu/6KGFBwYp/w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,194,1739865600"; 
-   d="scan'208";a="128496587"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2025 08:27:12 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1u1oNQ-0000000A6q5-0tDQ;
-	Mon, 07 Apr 2025 18:27:08 +0300
-Date: Mon, 7 Apr 2025 18:27:07 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	id 1u1oO6-00000000xcn-2Y99;
+	Mon, 07 Apr 2025 15:27:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 72646431EA;
+	Mon,  7 Apr 2025 15:27:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744039667;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WgX6S64ngnXsjU0lQPqeLHBfnA+UnbXv6BjQk1oGXZU=;
+	b=LBZvLE2G+afaVJ2bwhuBl1x1YRR/aqaZ2Xm5yU+xaLjjIqM+WbNAKPx85Swnqti9EdXmCR
+	jxm3gIWcOaG1co2jTwQSHLMwRfa/o37ZW3TL5sERhaicxQw3i4iyp8UcVcTXkH1w4KSGdk
+	Y19KevZYjLYHr3HXXP8AducFPd1YdMFTPsJeGctmaMWsKIGeEO+n7SDKrX8kxYN5Z1gWgI
+	+UT+rfLgfI9oZV+al0AMr7X1Hj0w9CZsV0S3DJwxwGrF5CvYlrRAnPH725fFHTQ9VF1+RR
+	KAa03YipbyuRmYOv8qQstJ9OZTNaCvUkN6DRY2d/JonMQilxNjXgv50w/l7c9A==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH 08/16] i2c: core: Introduce i2c_get_adapter_supplier()
-Message-ID: <Z_Puy8eEBc6tubEx@smile.fi.intel.com>
-References: <20250407145546.270683-1-herve.codina@bootlin.com>
- <20250407145546.270683-9-herve.codina@bootlin.com>
+	Douglas Anderson <dianders@chromium.org>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Anusha Srivatsa <asrivats@redhat.com>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	=?utf-8?q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>,
+	Hui Pu <Hui.Pu@gehealthcare.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	dri-devel@lists.freedesktop.org,
+	asahi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	chrome-platform@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH 34/34] drm/bridge: panel: convert to devm_drm_bridge_alloc() API
+Date: Mon,  7 Apr 2025 17:27:39 +0200
+Message-ID: <20250407-drm-bridge-convert-to-alloc-api-v1-34-42113ff8d9c0@bootlin.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
+References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250407145546.270683-9-herve.codina@bootlin.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Content-Type: text/plain; charset="utf-8"
+X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtheegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfgggtoffgsehtkeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepudffiefgvdfftdffkeejjefhffduleejleeuieetieetgeehtefhjedtgeegieegnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihrdhfrhhithiirdgsohigpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedupdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvp
+ dhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehnvghilhdrrghrmhhsthhrohhngheslhhinhgrrhhordhorhhgpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_082721_099197_F1F74C6B 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20250407_082750_777767_7C253C47 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,54 +114,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 04:55:37PM +0200, Herve Codina wrote:
-> The supplier device of an I2C adapter is the device that calls
-> i2c_add_adapter() or variants and i2c_del_adapter().
-> 
-> Most of the time this supplier device is the parent of the adapter dev.
-> 
-> Exceptions exist with i2c muxes. Indeed, in case of i2c muxes, the
-> parent of the adapter dev points to the adapter dev the mux is connected
+This is the new API for allocating DRM bridges.
 
-dev --> device (in both cases)
+The devm lifetime management of this driver is peculiar. The underlying
+device for the panel_bridge is the panel, and the devm lifetime is tied the
+panel device (panel->dev). However the panel_bridge allocation is not
+performed by the panel driver, but rather by a separate entity (typically
+the previous bridge in the encoder chain).
 
-> to instead of the supplier of this adapter.
-> 
-> Introduce i2c_get_adapter_supplier() and a new supplier field in the
-> adapter structure in order to ease the adapter supplier retrieval.
+Thus when that separate entoty is destroyed, the panel_bridge is not
+removed automatically by devm, so it is rather done explicitly by calling
+drm_panel_bridge_remove(). This is the function that does devm_kfree() the
+panel_bridge in current code, so update it as well to put the bridge
+reference instead.
 
-...
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
 
-> +/**
-> + * i2c_get_adapter_supplier() - Get the supplier of an adapter
-> + * @adapter: the adapter to get the supplier from
-> + *
-> + * return:
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+To: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+To: David Airlie <airlied@gmail.com>
+To: Simona Vetter <simona@ffwll.ch>
+To: Andrzej Hajda <andrzej.hajda@intel.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Robert Foss <rfoss@kernel.org>
+To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+To: Jonas Karlman <jonas@kwiboo.se>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Jagan Teki <jagan@amarulasolutions.com>
+To: Shawn Guo <shawnguo@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Douglas Anderson <dianders@chromium.org>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Anusha Srivatsa <asrivats@redhat.com>
+Cc: Paul Kocialkowski <paulk@sys-base.io>
+Cc: Dmitry Baryshkov <lumag@kernel.org>
+Cc: Hervé Codina <herve.codina@bootlin.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: asahi@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org
+Cc: chrome-platform@lists.linux.dev
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-mediatek@lists.infradead.org
+Cc: linux-amlogic@lists.infradead.org
+Cc: linux-renesas-soc@vger.kernel.org
+Cc: platform-driver-x86@vger.kernel.org
+Cc: linux-samsung-soc@vger.kernel.org
+Cc: linux-arm-msm@vger.kernel.org
+Cc: freedreno@lists.freedesktop.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+---
+ drivers/gpu/drm/bridge/panel.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
-Return:
-
-> + * Look up and return the &struct device corresponding to the device supplying
-> + * this adapter.
-
-@adapter
-
-> + * The user must call put_device() once done with the supplier returned.
-> + */
-> +struct device *i2c_get_adapter_supplier(struct i2c_adapter *adapter)
-> +{
-> +	return get_device(adapter->supplier ?: adapter->dev.parent);
-
-What will be the meaning when both are set? Why dev.parent is not the same
-as supplier in this case?  Looking at the commit message example, it seems
-like you want to provide a physdev or sysdev (as term supplier seems more
-devlink:ish), like it's done elsewhere. And in the same way _always_ initialise
-it. In such a case, the ambiguity will be gone.
-
-> +}
+diff --git a/drivers/gpu/drm/bridge/panel.c b/drivers/gpu/drm/bridge/panel.c
+index 79b009ab9396048eac57ad47631a902e949d77c6..ddd1e91970d09b93aa64f50cd9155939a12a2c6f 100644
+--- a/drivers/gpu/drm/bridge/panel.c
++++ b/drivers/gpu/drm/bridge/panel.c
+@@ -287,15 +287,14 @@ struct drm_bridge *drm_panel_bridge_add_typed(struct drm_panel *panel,
+ 	if (!panel)
+ 		return ERR_PTR(-EINVAL);
+ 
+-	panel_bridge = devm_kzalloc(panel->dev, sizeof(*panel_bridge),
+-				    GFP_KERNEL);
+-	if (!panel_bridge)
+-		return ERR_PTR(-ENOMEM);
++	panel_bridge = devm_drm_bridge_alloc(panel->dev, struct panel_bridge, bridge,
++					     &panel_bridge_bridge_funcs);
++	if (IS_ERR(panel_bridge))
++		return (void *)panel_bridge;
+ 
+ 	panel_bridge->connector_type = connector_type;
+ 	panel_bridge->panel = panel;
+ 
+-	panel_bridge->bridge.funcs = &panel_bridge_bridge_funcs;
+ 	panel_bridge->bridge.of_node = panel->dev->of_node;
+ 	panel_bridge->bridge.ops = DRM_BRIDGE_OP_MODES;
+ 	panel_bridge->bridge.type = connector_type;
+@@ -327,7 +326,7 @@ void drm_panel_bridge_remove(struct drm_bridge *bridge)
+ 	panel_bridge = drm_bridge_to_panel_bridge(bridge);
+ 
+ 	drm_bridge_remove(bridge);
+-	devm_kfree(panel_bridge->panel->dev, bridge);
++	devm_drm_put_bridge(panel_bridge->panel->dev, bridge);
+ }
+ EXPORT_SYMBOL(drm_panel_bridge_remove);
+ 
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.49.0
 
 
