@@ -4,102 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501ECC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E9BC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rcI46lTVSeHRR6PCsmQIdJkenRV/ajFn4WU+i3FnG5M=; b=Qvi8aQAVIBCMJKo/+0itFQGYtq
-	Wy8otPqy58Hbdkj7BMLFmwELNBC/1wCtPvoWLjNoDHe9to3sXrLfMIEFjgePGI/CeB9tdqKhsNBJq
-	j+CgIkknRfWLl32UjK2ZyyHfvZT6Z3KrsaRwbeFoS4phXJEX/a0uM8F5xW9XeCUgkEjozB47AYPpO
-	Z8DsS/lQwLXJhQ68ESuCOozLt621I0bOR0xksN68DTPP0MX8KfuA3sl6NbmHVrPizP6Ia+owcfiLD
-	4gEmIuTgVZlyz9BLOd/Yvc0iwvh5Zl6poYtmNLCMWnIFtXHj6vvw0ejzdbtynAzDeZmgkfG5lGmk1
-	RyzwxK9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NHU0TiDXccQqF6OC61H82VuWUMk3B6ibzXusIw1YZyU=; b=rco+lp3Z02uAWWeDaOjpucTOhd
+	JEg8UteVcaNmSNjMbAHb++rWemeU8qbDbOThg8rHdYT38+Sdt/P8rZ/8L7yJJs4hEUxv+0wWFwov8
+	Ml2DfBYhn+DeXuLj3O4PgNYFikMStzL6U81t2/rRut65klhryNuCJ7NE3+i0aJPTLrfD5Bu7DHuFv
+	EE/KHJLKVmEyfhv4mKv+sQ9tSGrL6djMz4TANhILVOIIn2iYs7m95KMEc0hnQP+OuzGK3g9VLyAtJ
+	InJxoB5iBiRYRlrkY5tVsIjQFkJNsvnRUYW3LBxX4jEZbwUQWPt6+TMrV4asFkNnkAH9LK7tK0Y2M
+	Xu3az4sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYO-00000001ctp-3w7D;
-	Mon, 07 Apr 2025 18:50:40 +0000
-Received: from mail-qv1-f50.google.com ([209.85.219.50])
+	id 1u1rYR-00000001cyp-2XpA;
+	Mon, 07 Apr 2025 18:50:43 +0000
+Received: from mail-am6eur05on2052.outbound.protection.outlook.com ([40.107.22.52] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pcU-00000001GjC-3Y0p
+	id 1u1pch-00000001Gkp-3E6h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 16:46:48 +0000
-Received: by mail-qv1-f50.google.com with SMTP id 6a1803df08f44-6f0cfbe2042so5300796d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 09:46:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744044405; x=1744649205; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=rcI46lTVSeHRR6PCsmQIdJkenRV/ajFn4WU+i3FnG5M=;
-        b=ETvBQhQfz30y5G491GvFvFKyErANNGrLlemKwa1soeQwhD/JZvEkKzCjeKGlYimkV4
-         jGPzXpa8mVV39LQplV/unbN5PyZMZ7SGxhSb8Nkyc4xRw/6CJW80wqfW+yWNg0HWFJ/z
-         uhwolAKR394RxKyCY8etDPoJJGVxqKFfoeMeOWPQqU6OKXvqqaEi/yxZghSEu3rXJyk4
-         1aqWsEz4mruKM59u4bCZ+oOlZGPfgTohXx29S636N72l9S2Mxos10HwvgbAppVUmS81X
-         EnBXNscA63rfFHevu0dXp0tqEFU27Nza3rCH/0PevMzb5OydQ6Ln0GfLskB7lHPRmtkp
-         mUQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744044405; x=1744649205;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rcI46lTVSeHRR6PCsmQIdJkenRV/ajFn4WU+i3FnG5M=;
-        b=pUP9ah+WZtZrtYsDdVP21Ye0EhWlQgVmYzycjqnySztLFqfr72BO87HqXDkyNrSbNw
-         bW7ZXdS/GqisIrra/++5B1aE55M8JpLac7CO0xtt4tG1BKpyhLcZoCu7EOj8fJMqkPOm
-         gk7abpg4YqjUrtEKsoiXrEYAXiJ84ZVL2TO1vDXv/BLryZ1B5rd4zbYP49kwlFiak8gS
-         hBgALnL3Iek7Kbg6/MRiqjhLnjv80etxC6EfjqlhIrThkH2RG32LFt1QmvarPWVcdwrf
-         ZMzcNvj6BiklfyZ2n25bJWsOCKw1uLgBkETzAKlAva/SV6kqVA5/09nLD47TvIynOyWg
-         ha7A==
-X-Forwarded-Encrypted: i=1; AJvYcCW3tfPvYBjzoquaBSDHnoNs8CbL0fCtpt6MtZ1SUXerLrr9whAWZOYZLUZh9R71p5B5c1WXeWi7icdcDIhxNGpa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwH56vNLLdbs1mqHnazNsPEpqIvo+CPelhP0vT+VPPJ3VWPGYce
-	Tqe4D6C4Mt+tIPkjy5FEvvHhkQejzRTO0shOAn6lX952rPg9yUJvb5JA0VYvUHA/ek3UHozU6cG
-	9dj0n+Djv9L9ZzY5G1b/thnQy/Z0=
-X-Gm-Gg: ASbGnctEOfFCxpPc+zewvLC1jIkhvb97SEHTExKM/04m+olonoDt9uAPR6Kv+NAJnjg
-	KTo5ungVIXKXM56ig5jjVrm1sL5DY70+8wg6Tc42Riq2uZMnzZTOSDOn04CwAtdHBevvQJ1UP9p
-	vm9L9m1yqpA/9jKvxhH3R+/3y0
-X-Google-Smtp-Source: AGHT+IHn1NWvGQNUg+cTWq77arIBOMg99zSiThdNcGxwwVSUpNgoUD/iAcjqlZYjSbS/ACMXvRhNvnrbFKc+S9VTrwY=
-X-Received: by 2002:a05:6214:1307:b0:6e2:3761:71b0 with SMTP id
- 6a1803df08f44-6f0d24ed16bmr3696846d6.5.1744044405300; Mon, 07 Apr 2025
- 09:46:45 -0700 (PDT)
+	Mon, 07 Apr 2025 16:47:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tXLX9dyM/lhmt9fBRZufk8izy4Yi6I2t/XJmaEonVua3RlmprvP+uT1jbrrILIYFdz9Wdl3mDSrvKzruxXpnDhq+Bj4OnH625IJjttZ/nz/32iTQiHCzv/ftrcRyrMvu/yK8DiBY0l2Tp8SlkPo+a25tfMjSvBNvPPpfRHKQ0XjkH9qvgQ8BVw4a2QE1+/Lz7lxj/FVXXT7hPCS/5HP0nYyyLceF6LYrkcX67UKRH8T65v5jieg15reGRiNcKNu6kpga+++UqbUVV4Q5jYXkmkWjpL74KX0D+ISg7N58TfM83TfZVZ0MPFRrtcCUSyVVaOa5YugxfbmxuNLDPN36/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NHU0TiDXccQqF6OC61H82VuWUMk3B6ibzXusIw1YZyU=;
+ b=S8cHDrlIK0cTHdcGli+jvNDmTutgsg5R525o1kKMmI2Huy2gAfduGmDdnDwHy96wI04ww1Op/rYK+av9HbVA3cfdNiuxZLUUJn7+2GWIphxMjoDW9EKC6Lsit4C/JL2ku/GEDRXQPVWoNvtcXuHJtgfzvb0xVr55B2h90gyfFbZQxo94OHIg2C7wd2tyAfHwIZxDMQaa5aIc8oZv4Tbs7U4tpImiO5C6LDhsnIrXkysB4GcKSzlR0CzvyTX7UK1HW3XLPgVinrUUYlLjcA8Ns/gB25nHTVRkMRDZ2FrvG0x20/vWO35NB3PCQbU8iaQ6Mgs0RTY65D+DrQlDahzHeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NHU0TiDXccQqF6OC61H82VuWUMk3B6ibzXusIw1YZyU=;
+ b=nGF9R9O0CLnTNDTEwNUlkxtWH2nQfrZMI7qrhQsAyZxAGlPC8cDoreTEGCukz6IwuvUijwuPnmoz/I8WIJOXAstj84hRpjhvFQkjBFZG5/QO163IdJ/mU0RMNB2b5jMiNcjOOj+678bPVBFxgky6fZPBAfhGNZowDbHnUUKWNSXxpOeNGxwvYKiMfPjnqws9De8ISgnCTGiYHZhYz1vHZkVXiLr9bg5NZxh+mDJPt8BtYEOCOY3579ZmaJUqdnB22W5eMgZHP13nak6KLJlPQ74/9WXThw1KZej26fWT9s2Abab0hHLtJmkYcjCuLxk8F6CCpZDaVIlKhtYWM1lvVQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM7PR04MB7029.eurprd04.prod.outlook.com (2603:10a6:20b:118::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.33; Mon, 7 Apr
+ 2025 16:46:53 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Mon, 7 Apr 2025
+ 16:46:53 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2 0/3] dmaengine: fsl-edma: add error irq to help debug
+ problem
+Date: Mon, 07 Apr 2025 12:46:34 -0400
+Message-Id: <20250407-edma_err-v2-0-9d7e5b77fcc4@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGoB9GcC/0XMQQqDMBCF4avIrJuSRGNTV71HkRLMWGdhlEkJF
+ sndmwqly//x+HaIyIQRumoHxkSRllBCnyoYJheeKMiXBi21kVobgX52D2QWxl1qa7AxVkoo95V
+ xpO2g7n3pieJr4fchJ/Vdf4j9I0kJKbyy7XXERrU13sK2nodlhj7n/AEeV8HingAAAA==
+To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: imx@lists.linux.dev, dmaengine@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>, 
+ Joy Zou <joy.zou@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744044406; l=1112;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=UV/EyvqxCJkl3WjDyAgtDWOSWyokir58QZg0tmiUxh4=;
+ b=0IQRdk6y8s7UMXYAY6shXJsPcBPJpeT4eNijxzQyMz0S/cGT98tH2DHYswbzncOOQTnTpFi9K
+ rJR6YmKmN9DCFKs1zD7mclW2tlx83FI8DMlSTMwDUlo4QsKne0FJ5XO
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR03CA0243.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a0::8) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-References: <20250403181907.1947517-1-sean.anderson@linux.dev>
- <20250407182738.498d96b0@kmaincent-XPS-13-7390> <720b6db8-49c5-47e7-98da-f044fc38fc1a@linux.dev>
-In-Reply-To: <720b6db8-49c5-47e7-98da-f044fc38fc1a@linux.dev>
-From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
-Date: Mon, 7 Apr 2025 18:46:34 +0200
-X-Gm-Features: ATxdqUHTe6GO-vqbSM3EmiJ-FaS0XfNSqylpsewp4c0XXyMi1WCC05uIygoRAqs
-Message-ID: <CA+_ehUyAo7fMTe_P0ws_9zrcbLEWVwBXDKbezcKVkvDUUNg0rg@mail.gmail.com>
-Subject: Re: [RFC net-next PATCH 00/13] Add PCS core support
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Kory Maincent <kory.maincent@bootlin.com>, netdev@vger.kernel.org, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Russell King <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org, upstream@airoha.com, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Clark Wang <xiaoning.wang@nxp.com>, 
-	Claudiu Beznea <claudiu.beznea@microchip.com>, Claudiu Manoil <claudiu.manoil@nxp.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Ioana Ciornei <ioana.ciornei@nxp.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Joyce Ooi <joyce.ooi@intel.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Li Yang <leoyang.li@nxp.com>, 
-	Madalin Bucur <madalin.bucur@nxp.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Michal Simek <michal.simek@amd.com>, Naveen N Rao <naveen@kernel.org>, 
-	Nicholas Piggin <npiggin@gmail.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Rob Herring <robh+dt@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Robert Hancock <robert.hancock@calian.com>, 
-	Saravana Kannan <saravanak@google.com>, Shawn Guo <shawnguo@kernel.org>, UNGLinuxDriver@microchip.com, 
-	Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM7PR04MB7029:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7d461a72-0b28-4563-7a86-08dd75f3cc7d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YVpMbzZYN1pjZVByOXhrc0wyaVh6QURXbW1VNTFhYnoybzFSMThsdGNWZ1ox?=
+ =?utf-8?B?bHlLNWRvVEFyZ2FQdTNqcjNaaGswaERibjdCU0hRT24vc1FtNE5xR0ZnbDND?=
+ =?utf-8?B?THJTWXVUbUtIeUZpbDA1eU9VWXFQQTRyYjV2aGc0b3NLWFdqeEdLcGNWQTdN?=
+ =?utf-8?B?cnlGY3lzQS9WOG1LT2xrUjVrTmhhRysySWw3ZlppdFBJUWY0VkVnNS9IYXJl?=
+ =?utf-8?B?bU90QUNjL1A4Q1p1ek5ONDZWN2U0ZTBBUzZwdE0xWG41Uk1oRzhWQ2N4eCtt?=
+ =?utf-8?B?OEdkUDFPM0M2YUZxQWFIQ3drOFp4djU2azREUUdKZWxsZzQ1TWFiOXZ5bWM3?=
+ =?utf-8?B?dTgwZXp0SkZaeUpRNWdEai9zNnF3YmVRbXNXUTI0ZGZKY0VNb1NoT3BRTXJr?=
+ =?utf-8?B?bDVSbXhXSGwycTNzTGxZTDFlU09PbkxoLzVJQjl4d1ViaWNkbUF6SFZWNC8w?=
+ =?utf-8?B?WEEveG1lNDBLbE1RamRWNzZpOVc4SCt4SUd2cUV6VkJQVGJldXpDMFNpSm5K?=
+ =?utf-8?B?T0lzMDFKZDRDdm4yckhKbGZ0V040VlpVMER3S3VYanRIQUhLUnJxUlVSb3Ji?=
+ =?utf-8?B?MzBrM0FOTXRNRnZ1ZHpYVVlRUmhpUTBmWG1jNlEzenkxWk8wZ0pHWGtiNFFz?=
+ =?utf-8?B?aXhVUkVFOHZiNzVER1lYWng2OHFvaHBJc0svWmdWSXp4VW9zNCt3OHhCVTFm?=
+ =?utf-8?B?YXd4Zm5wbkllY2JJT0s4N2VzVW9HTHloeEdTZkErWU14RzI0ZmdxTzdtRFRs?=
+ =?utf-8?B?ZVpsU21WTGVTcjZ1Sy9KRGM1K0NLNEtIYmxqcjgrOE1sS0NiczBudG9aL09C?=
+ =?utf-8?B?M1BwVFc0eE05anRwTCtod3E1bnF4bjBiM3hjWkR1V3lJeEFwaEIvUVR5bEs0?=
+ =?utf-8?B?TlRVc1FsTnJBNTFjZG1BSlFjbVJBa0xBV29sU3hCYlpVcCtUckFDWG5CZmx1?=
+ =?utf-8?B?eTJZN3oyVlVvU3hydk9yOFBHSElteUoyaTJEMHlCaVBUOEgrbDBBRXVzeFBJ?=
+ =?utf-8?B?bW13d3BNZi9Ic21ETmsxaFhYN2IxdDhHMDg2c2NZR1I5WEJXTWo4Q0l4ajZM?=
+ =?utf-8?B?UHZvVXFXaDBmYWtmUkxpUE05RFd0QmJZRTlFNWtsYldoeXdGd0kzK1FXbnFh?=
+ =?utf-8?B?U29HeHBHVGNpUFZISGtLVm5ScUdIU1QzVnNKZmY5dTlSS0lTeXJFQUgwZlNs?=
+ =?utf-8?B?MXNWNVdieFBMa0VKV0EvN1lBRUk4bHZTSVN1TjVYTTlYUWtwaWJXazVKMWZJ?=
+ =?utf-8?B?VTNIQ2RXQklIM3o1Z2YzV1UybnYxTjlQZmhqK1NPN3dMT0w4bTYvT2ZpWFpy?=
+ =?utf-8?B?RTVyVEpPb0hybkFwMWNGelcySnYvQUQrUlBJbnpia1hMc29FcjFOTFc3S203?=
+ =?utf-8?B?aXAyZmlnTTNZc01oZytLYXh0eElyZ21rRTNZVWR4V1NJVVByVHljallqSVJZ?=
+ =?utf-8?B?anlEcVIwcndHSVFObDhpMDVQeHVJR016UnhoSTlsd2FaZ1d1cjB2Rm9sTEFv?=
+ =?utf-8?B?cFZwcUJVS29XMGpDSkVEMFhPMVhUanRzRmgrT0ljWVJsSnhhOElwM1JLOENo?=
+ =?utf-8?B?QWtWQW5SNnNqaXorWUJLcXVaNGkxOGVEUWNnOXpnQ0pPUzNXSjZsTjkrcmF2?=
+ =?utf-8?B?MFUxNnpSTTZIZU9tMEJoY1hUNWk0RzNZQ1NTM2R5SFJlS2FsOThlWHJFaVc4?=
+ =?utf-8?B?M3NhN2ltMXc1c1pDamJlZ2lwVHk2MDhsb3Y3a0hXOWFHYXNNdEdVMnZaUndQ?=
+ =?utf-8?B?eGloZG1adWY5NjJTd0gxMU1RbE9qZEZ6RGlxSnpXa2I4NHFDZThLQWhxWnIv?=
+ =?utf-8?B?WmhPSHJwUmpFVFF5NW9HU1MyZU95Q2RzU1ZGZlB6UDI0a3ZXd1B5aHNnN29O?=
+ =?utf-8?B?eXNZOUxkdVBWeXdCTkNnMVRLM1JLWmN4bThUQnZsL1RaTWJiY3dVNXQ5T0d1?=
+ =?utf-8?Q?2upxVhLXckDak+B7YE08RW/xRoZaI7qZ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dENHZzZaYXFOY2IydGRWQ0xNVVZqdEc2TUlvZk9mYTJRalVvUjRCWUZDL0hB?=
+ =?utf-8?B?VDhkLzkzSHZqWW5RWlR4MDF6b2ZKUjg5OUVRY1RJMzVGQlh2QkFPdUpxRHZU?=
+ =?utf-8?B?TnplU012YjAvZFRWWGltVndyQnU3ZEJNTlFTSWtZQVd6NUQrVTNCajdnckhH?=
+ =?utf-8?B?Wkw3TEdVMlRNNC84UnkwVkFXWVJHOWw3OUdZUjkrVjlVMnI4ZUxsU2NUQUlZ?=
+ =?utf-8?B?RkQ0aHhEeGtRVGczclNSczhPRnpadFVEaVArSy9Mc2NMTkszYkdCS3lQdzhI?=
+ =?utf-8?B?TU1KNzVyS0NqSjJZKzh0RWNFZWZVNlFoa0RIT3dMNlEzSld5QzZhNVJmZkhq?=
+ =?utf-8?B?ekpCY1p0aUlGc1ZFVDVhRGgxR2ZxKzRRQ2pTNVlRZzlQNlgrZS9VQlVReFU2?=
+ =?utf-8?B?UmpQNFp0bGRHOGxBSFpFUUtORExGOENkU1VqOXlsTlRFRTM1eHBWcEVmeW9W?=
+ =?utf-8?B?TTdVc2NxMFpMUTVxVDhmUitzTGYxakJsWVVmeWZPMkFBVUpLa1QwajdPWXRP?=
+ =?utf-8?B?Y1RJMUZPb01kbmRzaFQvZ3ByOCt5TWhiYi93WHJvYUFybEVjbkhqWjF6SjFK?=
+ =?utf-8?B?UDJ6SnBGUlU0RmEyWHhRb1BCQ1hkUGNEUGF4Z2ljV2hFMWNrRHhRY282Qjhu?=
+ =?utf-8?B?RDhobWdlTkRBWXUvRGN1YkYrS3pGT3dDZys1MjZwRCtnWWhVV0gydG1HN1Nz?=
+ =?utf-8?B?MGZtZU1sb0J1ZXIrQnVxSGVkZ0NDd1d0T0d6ZHB3SUdBUkpPcGZxWHh0ZXU2?=
+ =?utf-8?B?MENsSkttdExranZBdmIxUmMxOFE0UHJueXNMVGZITnBQVlRCK0Evb0NZVENx?=
+ =?utf-8?B?N2hML0JLNVloaklXYU5PWVhPNnR6bzU3akxPakdWSEVsbXNTOU9CNUtSMWlC?=
+ =?utf-8?B?T1Q3aXhvT05PRjlOMlJXOHJHVHoxU01oT3gyd1NSNis1MFduN0ltVkcrTTlV?=
+ =?utf-8?B?MzQwb2w1V3U3LzZHNndaU3pHN0JxSGd6L3pkZnZleXo5WTBhZEQwVVRTbVQ4?=
+ =?utf-8?B?Q0c3My9QV2IwenArQUZzRnVSYzlkOFpXc0lSTDM0VHZsczJ2OUw3bnpsbk9k?=
+ =?utf-8?B?YnVnYk43RFplVkVlVUU0ZCt4TWlpdzNidUduNzlqZ3RlMUpvTVFlVGhFdS83?=
+ =?utf-8?B?SHNJRlhSK1B3MmYzdzZDOWQ0cEpraGJuNS9lWW9WZUdjTkFKWmgvWExGU3Rz?=
+ =?utf-8?B?MndvZlJReE8rSlFIVjNEempFc2xoMTd6SlBkSS9ja0pxQ2RvenZFSVJ3MDdG?=
+ =?utf-8?B?T3YyQWRXaEZZRnA0a0JYK0JWaUFmTG41Q0FwRytDOFE3QXFaUWtlQlQzNHRy?=
+ =?utf-8?B?TzRzaWI0Q3IyMitacGk4bFZ3VXN4K3Ird082RURMOURHc2ZmZjNGZlFQeHhm?=
+ =?utf-8?B?WEdLakJHYXFScVMvWW42THY5ZmtpMkI4Tk1DUXIrV3AwYzhkMzJxejltdE9S?=
+ =?utf-8?B?STlFdUhKRlpBV1NKclhZWmtuNlB3UmNzOVRuUlJyRllZV2Y3OG9TU1NVMGxh?=
+ =?utf-8?B?MjdaYzMyQUZEaEdxWm5hMGJMQ1EvcndpY1FqeEVvT2Y4RnVxQnl0Q0JzeHpH?=
+ =?utf-8?B?SUtuVVVEclhaOTFycHZwYzFJZ1Y1ODM3WWxDeTY5Qi9GOUdidFBzdXFNbEt4?=
+ =?utf-8?B?cFRTekdWLytEY09wQWlWTDZOM20xNDR4clR6cVF0QVY2ckluU3l6cjJWc1lB?=
+ =?utf-8?B?dlVXRkxHTkhCYzUxRTlpQWsrYS9mcjdNTzVXMzFoMHpiY0Y3MjZVemFEV25O?=
+ =?utf-8?B?NDRHV2c5UE01MWFBVHMwMk91V3ZlSlFCUUg0QVgzbFYzNUpncWVqazZXWDZ0?=
+ =?utf-8?B?TkVkV0xuWmVEOCtDWTFJWVFLeVNLdkg4cG9Ha1ZHR3hQdVV3NDVxYktuRHQ3?=
+ =?utf-8?B?clZ6OVAva1lkSzNnU2xsUkFqb1FPS0tZT2VwUDQwS0E4S3prV0tyU3hheHVk?=
+ =?utf-8?B?TzJ3c3A5TXozMTNjeSt1REdReFN6NWFrUEx6ZStMR1dlRGoxSHY2R3hqM2Vw?=
+ =?utf-8?B?T3NTWmhCdS9rVXUva0xkV2FWQTJZWkJqcXVDWlhudng2cHB2Qmd4dHRyZGVN?=
+ =?utf-8?B?YWhLaVhCNWNPWVJNY0hERG80TE1kRmREc1dZaDdjK0IyajlYMDN2VlVKRzdN?=
+ =?utf-8?Q?FGz3xak/5B78W+IF8K61qDaxG?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d461a72-0b28-4563-7a86-08dd75f3cc7d
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 16:46:53.0370
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e2Kgm0jot6GCr0iJmawaa2GIr93NYqI68RDdJhpiZyN09qqPVU92mebvY9fTs5A7i1xjQ4GeJJknXIWa4PMJBw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_094646_900544_E5453AEC 
-X-CRM114-Status: GOOD (  30.10  )
+X-CRM114-CacheID: sfid-20250407_094659_828608_821B054E 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,72 +190,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il giorno lun 7 apr 2025 alle ore 18:33 Sean Anderson
-<sean.anderson@linux.dev> ha scritto:
->
-> On 4/7/25 12:27, Kory Maincent wrote:
-> > On Thu,  3 Apr 2025 14:18:54 -0400
-> > Sean Anderson <sean.anderson@linux.dev> wrote:
-> >
-> >> This series adds support for creating PCSs as devices on a bus with a
-> >> driver (patch 3). As initial users,
-> >>
-> >> - The Lynx PCS (and all of its users) is converted to this system (patch 5)
-> >> - The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6-8)
-> >> - The Cadence MACB driver is converted to support external PCSs (namely
-> >>   the Xilinx PCS) (patches 9-10).
-> >>
-> >> The last few patches add device links for pcs-handle to improve boot times,
-> >> and add compatibles for all Lynx PCSs.
-> >>
-> >> Care has been taken to ensure backwards-compatibility. The main source
-> >> of this is that many PCS devices lack compatibles and get detected as
-> >> PHYs. To address this, pcs_get_by_fwnode_compat allows drivers to edit
-> >> the devicetree to add appropriate compatibles.
-> >
-> > I don't dive into your patch series and I don't know if you have heard about it
-> > but Christian Marangi is currently working on fwnode for PCS:
-> > https://lore.kernel.org/netdev/20250406221423.9723-1-ansuelsmth@gmail.com
-> >
-> > Maybe you should sync with him!
->
-> I saw that series and made some comments. He is CC'd on this one.
->
-> I think this approach has two advantages:
->
-> - It completely solves the problem of the PCS being unregistered while the netdev
->   (or whatever) is up
-> - I have designed the interface to make it easy to convert existing
->   drivers that may not be able to use the "standard" probing process
->   (because they have to support other devicetree structures for
->   backwards-compatibility).
->
+Change binding to support optional error irq.
+Add error irq handle for fsl-edma drivers.
+imx93 dts add dma error irq interupt.
 
-I notice this and it's my fault for taking too long to post v2 of the PCS patch.
-There was also this idea of entering the wrapper hell but I scrapped that early
-as I really feel it's a workaround to the current problem present for
-PCS handling.
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v2:
+- Rebase to v6.15-rc1, fix conflict at fsl-edma-main.c
+- Link to v1: https://lore.kernel.org/r/20250228-edma_err-v1-0-d1869fe4163e@nxp.com
 
-And the real problem IMHO is that currently PCS handling is fragile and with too
-many assumptions. With Daniel we also discussed backwards-compatibility.
-(mainly needed for mt7621 and mt7986 (for mediatek side those are the 2
-that slipped in before it was correctly complained that things were
-taking a bad path)
+---
+Joy Zou (3):
+      dt-bindings: dma: fsl-edma: increase maxItems of interrupts and interrupt-names
+      dmaegnine: fsl-edma: add edma error interrupt handler
+      arm64: dtsi: imx93: add edma error interrupt support
 
-We feel v2 permits correct support of old implementations.
-The ""legacy"" implementation pose the assumption that PCS is never removed
-(unless the MAC driver is removed)
-That fits v2 where a MAC has to initially provide a list of PCS to
-phylink instance.
-With this implementation, a MAC can manually parse whatever PCS node structure
-is in place and fill the PCS.
+ .../devicetree/bindings/dma/fsl,edma.yaml          |   4 +-
+ arch/arm64/boot/dts/freescale/imx93.dtsi           |   6 +-
+ drivers/dma/fsl-edma-common.c                      |  30 ++++--
+ drivers/dma/fsl-edma-common.h                      |  18 ++++
+ drivers/dma/fsl-edma-main.c                        | 114 ++++++++++++++++++++-
+ 5 files changed, 155 insertions(+), 17 deletions(-)
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250225-edma_err-5a7385e45800
 
-As really the "late" removal/addition of a PCS can only be supported with fwnode
-implementation as dedicated PCS driver will make use of that.
+Best regards,
+---
+Frank Li <Frank.Li@nxp.com>
 
-I honestly hope we can skip having to enter the wrapper hell.
-Anyway I also see you made REALLY GOOD documentation. Would be ideal to
-collaborate for that. Anyway it's up to net maintainers on what path to follow.
-
-Just my 2 cent on the PCS topic.
 
