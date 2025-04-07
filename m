@@ -4,155 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E82C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFF4C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=++41Dxz4X4/WP3pTcOSKEtCQJaCHfwd1obOQP7YTvJc=; b=JJIZ52EnkcUponMfz8/ZVA3feU
-	byH/neRI3Sd+F95n1t1FM8pmzUH9au9znDhRbetXKsRELzl4pgexDba/YSV+XdfD41FoscR3I9IAq
-	tCRMOqeS/BsiObBqaQjpZuGBlCFon0iRCTGx9ERO0RQII56vGINRYqhZPSgmeNwtmeCkg3lTy70fU
-	vIF21jK3W92J0QU0cLGoKONol9hKY/aK15kkpcfJ9HeWatA2Vy7d4e/bzJrT9erN2MFkBVLidSgq2
-	s4ysX461k18r2qsk2PyXLwD7gd0YCVyO/Y22+8EGVTMIIWEFCh/5DIlRzeNJXF0jVeBWGNmFaCBPp
-	ukQBmXdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=znUavP/BrlHSUj49dkNncKOBHc7iyfaD5tE24M8Y1yg=; b=0+48S1GK5fIWtV9la6P//c+iIc
+	lOMxrTRQrJEq4s3pOJ8zvvmkW6KPWvVrz49TK7tsjVvmCO812dfSi4Zr6JaxmvNtBCgdBaaieb2jr
+	X9jt8JsyMEsC5UtRibfJsuOcBqX8HX7AsGPuM9enV3jHmdtDwghuqcAW/LF2bfCTTE3mWE/5ZJ1gW
+	r1yJ67maZumLJ5Fjv9eimy/+yiszj2N/YdiwAgItJuBHRqvBCyTBduG/pcqB1tisMPtY1x1626rzj
+	vB32stcxTNOyscZTXbUlwjjZ2g/aT31m5mFzc17ml9NiFSmpxiRQFTMPOAkeUp9/1Ngklj/cQokhX
+	NeSTVX7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uIv-000000024Cd-4Bhf;
-	Mon, 07 Apr 2025 21:46:54 +0000
-Received: from mail-vi1eur05on20609.outbound.protection.outlook.com ([2a01:111:f403:2613::609] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1u1uIj-000000023zn-3549;
+	Mon, 07 Apr 2025 21:46:41 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rdN-00000001i9p-2ruL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 18:55:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wERMUbdDvchwa96rN09drPsqGIVR2TtQ5D2jNf2ASFJUvPfDBChs71egemvZ9F31iXrbjkKT8KLDAYCuw00DzJOWWPDoqw7eFUztmbAmUX4EqeHwVBJ+F6wVFA7KnvUf5elVhlgIVM4xSbgtUshiInvE7tc3qvR7dN171mOpaZpn6qqaoLpVUIpKia8jMSAPMpK3/FQAIDK6ZPe4SBMFanY6JH3vk4RFbofbWxSUKdL2ZysJoo5qt9Sf6z6EZY0cR1d4u8Xh53fzJ8jjsytIgIlNNjCO40I2SXNZpxj3/e43j/F0fgZ5ruUh4v7s38ZFU9TriDUkyRjOGbHXUinaLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=++41Dxz4X4/WP3pTcOSKEtCQJaCHfwd1obOQP7YTvJc=;
- b=xbnoNotlUWDFWxHBXX1HQO1TEy5zjQgXkrsUrzYbTVud7SF4wvAxYW+ihaDLaEXHEQmPV5IymhAk5ubPvXAdilbL53V/cAeXZQMNgXgaf39/E8Ox0cEMtz1ltIE4kk/JmPd87ncfJJSvLiK5PtTIUVqge5PBLlaDqT35FQP1JgHwua/Wda3X1u1ltj5XvPF9VytalQpuZ7I5FZa4OhvRtUqqPmx2AK8IVqx0F94EDgvghc6bDKZGvmTF1JuHChFjhLWtpSELIlHwN0fkiw68IVZdLr4R3PhwZ0jgK9fGUQyJCCV0qsYAW+vTEz/6VjpAYxnk7+1Fbd9gVy6LIHHnPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=++41Dxz4X4/WP3pTcOSKEtCQJaCHfwd1obOQP7YTvJc=;
- b=ki9Jd9H5TimMQPzqWlZJJKR2aiIFkvmvOAn6JgxpQeXRgvlS5Akz/W5VC1t61wwkNlqco2OghwLpGqVYA+TeQCFLMdrVTai8aiI9p1NRi3QaF5ePbBc5FpVeeElYJ+BLcwG/ujoccMRfcrBcdKF6zzaBRt0qZnIemg+ooVosn7Ya6GskFRiqJ6s/F08POzJpalabJKle0O/2dg27VH+HJWb7g5qJwYxh+x0zBYEIDER2D1NjP4x+NpLS5676ZywzdYdYDbvrreW+qKl1Z/ZWn6DQ4xXK0xoWj0BJWJNY8NrXvpzsp73Dq04gmieyGvDUg+eGg0fjzzE8TxbaaRESPw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB9PR04MB9474.eurprd04.prod.outlook.com (2603:10a6:10:368::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.33; Mon, 7 Apr
- 2025 18:55:41 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Mon, 7 Apr 2025
- 18:55:41 +0000
-Date: Mon, 7 Apr 2025 14:55:29 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Thomas Richard <thomas.richard@bootlin.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: watchdog: fsl,scu-wdt: Document imx8qm
-Message-ID: <Z/QfodUQMax4PXzA@lizhi-Precision-Tower-5810>
-References: <20250407-imx8qm-watchdog-v1-0-20c219b15fd2@bootlin.com>
- <20250407-imx8qm-watchdog-v1-1-20c219b15fd2@bootlin.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250407-imx8qm-watchdog-v1-1-20c219b15fd2@bootlin.com>
-X-ClientProxiedBy: PH8PR02CA0018.namprd02.prod.outlook.com
- (2603:10b6:510:2d0::8) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	id 1u1qv8-00000001TjQ-37fr;
+	Mon, 07 Apr 2025 18:10:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1744049394; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=K6IiAeHqBHlNrWiqQn+3MNldAf/eENA+BvXOKM7nbKf1rlWU+6fUObV15o6Rm6AzFG6GgOEtfu0XIpDc8C0GFToquzvl87oy2p6ABernLurSxNOjQglpzYwNJNglrILRb0r22iJejThpPi1wf3L6VWQrwvwgIWNorUtwpX/WALQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1744049394; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=znUavP/BrlHSUj49dkNncKOBHc7iyfaD5tE24M8Y1yg=; 
+	b=NXh8bDoXXWwwOExleJ5437igv5RzEKqCGSEovzd4+KtJN2D/EGSY3B8ycbC31KnJP8R8YkF0sSnDU1LdYgNcNJ6Fvs2aqT8u/ZjryWDtOcmiIhNiT7JSoFvJ0mNtUGEg6DeI8DLfYJrFI/8fzjWmZ1zdRTAFQFdx+QFOEdz0D6k=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744049394;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=znUavP/BrlHSUj49dkNncKOBHc7iyfaD5tE24M8Y1yg=;
+	b=RwpDAbGcZNxlG/P6vQDHPFyHVr7ljwNalyK6/Nd34ZnUbpXUgs6R2H3OfuaWiSLp
+	gnHapHdlFh770AYbaJvZTiPxdoNrvOi1rMaW5zbLWhcGZ0JkREGGZ3swN8pMQ6jUzm0
+	nJf56irj5oDDC5GLmNZ6ihhSktGDII90JP717cGU=
+Received: by mx.zohomail.com with SMTPS id 1744049392553406.29570236196037;
+	Mon, 7 Apr 2025 11:09:52 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Mon, 07 Apr 2025 20:09:16 +0200
+Subject: [PATCH 3/4] arm64: dts: rockchip: add phy suspend quirk to usb on
+ rk3576
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9474:EE_
-X-MS-Office365-Filtering-Correlation-Id: f9724230-fe2a-4556-b077-08dd7605c92a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1BdSiqU7dvMYgPHHyqXFqJImhLFXp/agjoQFIyhgRRSljBOGyaWCd/KWXilN?=
- =?us-ascii?Q?/5diFiUzsC+hnmBDtJnzoN2E4XdoGhUYKqb62/4iAWGHezjAdCDBgg2X6ZdS?=
- =?us-ascii?Q?VLGYQoY5YlNn2HWLzQBDoWGqNze44iI/o1VPt8Oa8Be/d2TowrNKUWr6yxXO?=
- =?us-ascii?Q?DPZhrpHvsRAVJ89lhYWbf5042fXqCg3BQvWt985KtND4uxf7OisC6gafhqUN?=
- =?us-ascii?Q?VXpW8Ya6SrmjVWlCalav6odsLULlpB7oS5xobzpnLeNHCy2BSneohRZXiqWN?=
- =?us-ascii?Q?pZx3Y6l2slwhoQzlaYzNEPVR48ixoUMAWQ1EPQWmdpzVpz/h/XuWbQCyAZVN?=
- =?us-ascii?Q?BOskg0bSPM7C9SmT41sejKdr1O2x4RIPgAYB7LA9o6TaUA9KVmd2AFs09OPB?=
- =?us-ascii?Q?ZQ4y5+YDKEGv7m9XQkuoKrsV+tuNpSAuf0Df36il2Oiz0BcIc53GcySosv0u?=
- =?us-ascii?Q?aLFBpUejc8OcONVJEys2A2HwK+MEPw6uRAxsvcIjlU120EeQXKhXGSruyXE2?=
- =?us-ascii?Q?/iL7KCnZc/d8okSjPXTbx282N5h2y8lpFZtBEIKYVKtKGPfVEHHTHuHRaqFS?=
- =?us-ascii?Q?HgpPjJVmsb22fPDTqgOD3eP+Yy53fr8EZI5qFv47MkDdkx1PjBHhTkbA0Ieo?=
- =?us-ascii?Q?+otRjiV74ih2RLANEnlG8O7hvcoeF4+qyNc26IztnIUYI9cICUnhz9igNcO8?=
- =?us-ascii?Q?PH1jHjyxMiHwePWxXr8lSbg/G1nkICpvqdhk1ejIItonm/eNmbt4Xb31n7KX?=
- =?us-ascii?Q?e9R92FfjwkN3H+6TC1JykkQd2YpfOZVI03MCY1ggsQxwL7HMO5iY6sNtuzUB?=
- =?us-ascii?Q?Bd9sYO7QgDrzyDFPIgQ7LF/hTMGsybU+Hx/lMsM2/XQPUgOlkQxOEdkSEbRy?=
- =?us-ascii?Q?5Cz6ANmxJm6EWVxTqrId7g37UkpISJ2SbIsamHxuJgBPtqdewVkcrbSJIkp5?=
- =?us-ascii?Q?GwK+JSzCI3G99u6dfWXAjON68XH1EKaYl96EusjbkGELEIjx/Ys3Z5wAsCL0?=
- =?us-ascii?Q?+kchMA81ss9gjuvbxwfLaXADc211NjOUT+y+DNcPqqE4dqn76OCjKfH/TJ0N?=
- =?us-ascii?Q?lUsjBvryM/gx4+VlGRTTpYQDH0UNsYVwEwakpY+lXUy7DAtkZRB32ag2Ndbn?=
- =?us-ascii?Q?L8I+HTnafKW8UKmI7CbETLG7kpkvUo+jeFaMsiXyzHBwvG/pkilzAyDbdpSe?=
- =?us-ascii?Q?0um3ffxps1Dn+M/By2geaNvlTBTOI+m4lwahFA1bplzQY+jSzMMRu+2IJ98S?=
- =?us-ascii?Q?x6pkBe/XDSHsdsly2MPUwTfnrBazCiywRhD5LWCCmnqiKJoEItqsAnxamuzy?=
- =?us-ascii?Q?UsCyUK1dvOc+/gwLvGoz2XGNpA3mBKBtFwXKaVC4e//ahyriuMrtJLFRK/bS?=
- =?us-ascii?Q?jF6Q1JVYfgHME1iCzvYK1AdLxch3wmyyYw0C46sMTTpoSkGS9/eHaUp1vZ9G?=
- =?us-ascii?Q?QBLKI55mTMGpqKnaRoegyNKD21DZXHNF?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oIlq64DZI/HxlD0rKoi+IasUrnYdanmEIO9HHJ18/nG1Ov9Blyglhu13X3wg?=
- =?us-ascii?Q?ExZihwqK60YKcOcUZ/tR0dikEt6P4hLvjh1bSesPFmOm2jc0BD7s88wBm8yG?=
- =?us-ascii?Q?quCS/zpHLpSSgz9BavPnGEvnj6N9a6c10tfQ3MKBzNzBFkQS0koaF4bQIiEp?=
- =?us-ascii?Q?1XI8P3f4FoagQOjquhS/dyeQJ8TpZk4rLtU9qoXs5EpDiV5naJYbIiG+I+pC?=
- =?us-ascii?Q?h/3h3BOMdjDeC0QbIdisi4wjzNnvhrqwILPS2eCpWSSPm8hW1TBfcuNBC1kL?=
- =?us-ascii?Q?Baf5gO80AUGhf/6lf03uSQmlBxZXmmv77RA+/SksCuYMKnHqsUITlK6xIF6X?=
- =?us-ascii?Q?1yT/OYrpKh95DmCw67d/OkANh75zldSS/H1UsYY9XyCIKOsdtAGGq4SwwlcV?=
- =?us-ascii?Q?BRxNsY0aCYa2ie9g3IYn72o8f1lwRmPjPJ17e2Q7LownFgpesXfCA+Lh/uFz?=
- =?us-ascii?Q?UHXPDEicO509HxWLM2kNaMp6yD6jRK0iKUoBixaH7i1o8TIrm+hijAMA8gzH?=
- =?us-ascii?Q?vIZNPHsROnbB76t57cOYOcW+Wd5GlsJ82OjeXFx/WggpUBSC7EqXrBv7hSuW?=
- =?us-ascii?Q?gmV1lbGi2ric9xgehN3IIuNrqo9J06N6F2MydaFSeLccgToaUdcG0HQYjz2r?=
- =?us-ascii?Q?MBkIZmY8EOg327eS/DMq2JkdPsIJVok+ykdb4mRUC0aNAX3+uZ1IzGkCk4eq?=
- =?us-ascii?Q?nrF9khfEXUa2Y4GZERzt7Xy7GbSCv/+M2Zl8LwteApTcShaZTr2ZCanOtyuF?=
- =?us-ascii?Q?7Lxi/t6ECMWJdAOWuw13G9tsA5LIYNptO3ll1VS670n8Lh9XZkadS7p/bQ7r?=
- =?us-ascii?Q?/XdXeGU+Zc6H+jLOp0oYT/FVC4jv/4HkKYc12xj4LkTcArbXbeX6YlSh/MN6?=
- =?us-ascii?Q?+QsTub0x/3SFbStfMf7g9FS6uWAmNkIOp+fomaQcMjAwWwyu34o4pBa+M1M+?=
- =?us-ascii?Q?G1O/EzrewPOZjFu+0jsXdo5zZBtbyufzBFRR7xw8qi5ekgok0HSjzBcKk86B?=
- =?us-ascii?Q?EVGwYW+I71L2Bbmv7b2P3UusfAvXSKtk6dS53gJiddzx30hWTq62NJ8Jl6oB?=
- =?us-ascii?Q?1usexg7NgSwA7ONFLkSdzLxGmQf3U+Ulz0nxjewCEK6HXy5l8xU9QGvDjq6G?=
- =?us-ascii?Q?l9n1b6nA1uN/ROKzfKLnqLLTxnwRxL7CvcdykLZ2dNGlm/8ROvvCuH7pGv/H?=
- =?us-ascii?Q?InO+qLLyxU1QDUk0P3zqwFV2a+TVaCeeIDQnQmSdJbqzucPaey6NPAIv4eND?=
- =?us-ascii?Q?Ca3nD0egQr0EXo/RUBf4ubhoisXahFqvoaNMwzUOC611G7jJVnLCzmkw8myP?=
- =?us-ascii?Q?p9BPS2dfGny5+JdVGk/KQ1X3I8ThxH2z9tfmKlxIjcM0cNRwTNcybE7OG75B?=
- =?us-ascii?Q?oh/nbXtKlMYO7EaxQxFpIb4gNZ3lt6Iw+W6Xd8xnFU0EVOczBhCnhvPP9FOV?=
- =?us-ascii?Q?tR/6Dz+sJQnYdlcm7KWJ2W/NjQGJyZTjNGqbQRnS5diUPz/cOQExQP6XZJiN?=
- =?us-ascii?Q?ux6IbeUitm/ZTyLy1/v42Odf8VGmvs00HfAnSNv9IbHsmTqtGwY0RTZ3hHai?=
- =?us-ascii?Q?4D07H4xcNQpG8oKC3ExQv/VI+0EprcTK4n9up3gl?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f9724230-fe2a-4556-b077-08dd7605c92a
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 18:55:41.6801
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cY6TSqmKSlYMa2nJ76hc7B5GzwtvKgxkBMX0SKFBpt7v2v224uxbSZ0SJgM1g58WJss0/IZhe4nBB04+kJjfwA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9474
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250407-rk3576-sige5-usb-v1-3-67eec166f82f@collabora.com>
+References: <20250407-rk3576-sige5-usb-v1-0-67eec166f82f@collabora.com>
+In-Reply-To: <20250407-rk3576-sige5-usb-v1-0-67eec166f82f@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Frank Wang <frank.wang@rock-chips.com>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ kernel@collabora.com, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_115549_719704_4F71AE77 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20250407_111006_842858_ECC9EED4 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,32 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 07:03:25PM +0200, Thomas Richard wrote:
-> Add an entry for 'fsl,imx8qm-sc-wdt' as imx8qm also contains the SCU
-> watchdog block.
->
-> Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
-> ---
+The dwc3 controllers on RK3576 appear to have some quirky behaviour
+relating to runtime power suspension. Specifically, they will cause
+SError aborts on register reads in the xhci code when setting the device
+role.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Downstream appears to work around this by manually checking for the
+rk3576 compatible in the dwc3 core driver, and then setting the
+autosuspend delay to 200. This appears to be smaller than what mainline
+uses, and I'm not quite sure how that fixes it, but I could also be
+reading the code wrong. The important takeaway is that the RK3399 uses
+the same codepath.
 
->  Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml b/Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml
-> index 8b7aa922249b..1d9f15ec6657 100644
-> --- a/Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml
-> +++ b/Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml
-> @@ -20,6 +20,7 @@ properties:
->      items:
->        - enum:
->            - fsl,imx8dxl-sc-wdt
-> +          - fsl,imx8qm-sc-wdt
->            - fsl,imx8qxp-sc-wdt
->        - const: fsl,imx-sc-wdt
->
->
-> --
-> 2.39.5
->
+Looking at RK3399 in mainline then, we see that it has one quirk that
+RK3576 doesn't have in its dwc3 controllers: snps,dis_u2_susphy_quirk.
+
+Long story short, adding the snps,dis_u2_susphy_quirk property to
+rk3576.dtsi's dwc3 controllers fixes the issue. Quite suspicious that
+this is not needed among usb controllers based on dwc3 in other Rockchip
+designs, especially other RK35xx ones.
+
+Fixes: 23ec57a32da4 ("arm64: dts: rockchip: add usb related nodes for rk3576")
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index ebb5fc8bb8b1363127b9d3782801c4a79b678a92..71c71f5a2b77c52b251bea16e4deaa4b0109715a 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -470,6 +470,7 @@ usb_drd0_dwc3: usb@23000000 {
+ 			snps,dis-u2-freeclk-exists-quirk;
+ 			snps,dis-del-phy-power-chg-quirk;
+ 			snps,dis-tx-ipgap-linecheck-quirk;
++			snps,dis_u2_susphy_quirk;
+ 			snps,parkmode-disable-hs-quirk;
+ 			snps,parkmode-disable-ss-quirk;
+ 			status = "disabled";
+@@ -496,6 +497,7 @@ usb_drd1_dwc3: usb@23400000 {
+ 			snps,dis-del-phy-power-chg-quirk;
+ 			snps,dis-tx-ipgap-linecheck-quirk;
+ 			snps,dis_rxdet_inp3_quirk;
++			snps,dis_u2_susphy_quirk;
+ 			snps,parkmode-disable-hs-quirk;
+ 			snps,parkmode-disable-ss-quirk;
+ 			dma-coherent;
+
+-- 
+2.49.0
+
 
