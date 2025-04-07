@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF0FC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 08:44:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F155C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 08:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FRbmnXi/kMVYfkZ+DJBP7bhEsGPG5CEmYLC9waH1gHc=; b=kV36Z3cc2KuCczHVPNKvTK4NWB
-	NugNDPIud3IbzKE+awCfZ4RZrv5gXhdzNmpQBH5LNHRxOINSN8Gkb6szZzSEnmhbrPzB+VHQ4QXop
-	5AXx7qloGt9hnazW30Nh0MWMaL6TXUwjISVEfBoQLQ2h+ec8/Ndo76BSW5Cq9DDrMFVY+NMG2yoN+
-	aWdYokB2UmHmHqfWTS9sXvUtgbUrAjDHO8nt7yQDSFiAFk33qSE9n0ZCXQwBgHtX3C1eK41AXHpcJ
-	aFj12s/Y5yQUOMCRR8gmPb00qD8fkvaGq1sJZfmj6xn8P78TSnyNTHcv4JTOaqIrRRPqWmNStJJjc
-	TSgW4oXw==;
+	bh=jcXjjA+jirbGtlXlcOVxvxixEqyX9/ZtaNYQ+3n7vks=; b=WX3gy23p/XMCWJ18ERZYbdmZaD
+	RdsJ/ZFmqYS00I4oHzjevxx1gADYemi/xrFrAUzLSqiTKPFaiszGeqC0Xd0h7XSpzIdUg2mu1GH75
+	v5Tz3GZbQ7wnlJ5kSOjw+1JdC3kdkJJqV/a6G2mRqRGTy7bEOTUzYpnXPQ88vriND7tW9KfuSf8Ak
+	ROk7DdsBLJZLdz8xRGkHNBArRz6B1E6bmr/8uzSVpHMJcpX2w6KHPfco19Muu6Nie5YwvFEDOoKRo
+	H0tL6eCI1thuy3APh7Q9ob4JjnVH32CZHbUPgWdLV2dZcwLJLm5CchZiQDaxKqtgeeRpxlfu9CiGn
+	L0s9DReg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1i5D-0000000H3WY-2UUa;
-	Mon, 07 Apr 2025 08:43:55 +0000
-Received: from mail-wm1-f73.google.com ([209.85.128.73])
+	id 1u1i8f-0000000H4Ci-2T38;
+	Mon, 07 Apr 2025 08:47:29 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1hpc-0000000H00b-1ezH
+	id 1u1huo-0000000H0wN-2uui
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 08:27:49 +0000
-Received: by mail-wm1-f73.google.com with SMTP id 5b1f17b1804b1-43cec217977so26175325e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 01:27:47 -0700 (PDT)
+	Mon, 07 Apr 2025 08:33:12 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2264c9d0295so324265ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 01:33:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744014466; x=1744619266; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FRbmnXi/kMVYfkZ+DJBP7bhEsGPG5CEmYLC9waH1gHc=;
-        b=IZK10n6YswS6+sMvC+V6T1JynFA3et3JpRZjHzsZSzwctRTtMhQHyOkiuwCSaLORoa
-         GxyDb/ty4ulm6Mf9IMTZ05LIXAZT6NSykrl9NsHcRNAr2WoaBNL+yjbhWI399ALHu0wp
-         RYRzweecLpfgGdiV+gARUA669xWk8HUo2i6r70r8+weNT/3S6V6CyaC/DTn76Iltb4av
-         Vzmx0F07zbRrxcB0uFnS8QMpjSB3Pc38PKit9MG53O+8o2YgtM7Mlwe9sFZx/xJOe75u
-         8ZV23PjWJEJyHZ1QvBRpqgsSy/jo0J6eg4FfueEJKi7M742GZApI8Xt0fm1a+tSgEW9z
-         Tp0Q==
+        d=google.com; s=20230601; t=1744014788; x=1744619588; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jcXjjA+jirbGtlXlcOVxvxixEqyX9/ZtaNYQ+3n7vks=;
+        b=4MyjHl7t7SCv3iaNnOLVkYCc/6JXgCJ9F/D88UcQpxpMmLQexeN3SrgvInjEWqeA3u
+         BMHGEJrf3iYLGqFGSaxwO0fR8hHsO0Zf1vH9M/4YN4v6jTQSo5kBUNmVU5S0ba78UDZ+
+         BXCwUBN4jwwCk7Kh7kIPiGuIIWZ3K8SGUzjjd4mYvHFSO76cRKfuEwJCYnUdN8cWPWio
+         6fZCOTrIkbftTjPs7WCykEpxdRdWn4MMy6owkDy1x14Y4xIo+VAB/6qklLGD7n1nPZ4h
+         nSMjAHg86L/gnAjJRs/G8jRNBS29i9Vi0tfwP9LDxcDCqkbhsAsA/zqK50zR2sEU9GOl
+         SDEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744014466; x=1744619266;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FRbmnXi/kMVYfkZ+DJBP7bhEsGPG5CEmYLC9waH1gHc=;
-        b=mY1OoTy7ByrkT4hlNTyTTVKCGPytxY26waLG398neeBs5Uu2WU+wd6Kh0AFUDMeHuM
-         Vnal2tsQ8Q1sZCHjz6RequsgSsZ99wfFSEwinFhxm5RoqXbi347C7uHhNeg5QL3wC7Bi
-         W43G3DPKCzMQ9qOsQqxWtNhZpE62sgPxfY7K8BxQC2372NeJDQ3mMZ1r45R4kJhhoI/6
-         sLO8JhsxCD18VOUnMeaNcn4m5ijOUP5qzcvbPL1kKVy/DQrr6TOmyY9w92qOqbL6jN2y
-         si3eGHOHbJUyRdH7AZKLEFqg3wxph4EjRRclF9azDYrGsDDberGRRAhIFW5cDpo6co3X
-         H4rQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX4xQMcqARk2FuM/Ddf1SkX3LQbRIpl5ZVU7r/Z4k+Umnk7xVZQnpaC8xBnKn3c9MG0o5aIO9s0PRown4xQd9+Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YznLVVOHJREjezjVNoeT2PrFTve/N9pnMzN8gbnDMhvCAYjpC1B
-	gLErHRk2fdGen/SHKKhYM8CLrYEfeey+Bi/y8yDCRofCfqVzf7ptq55e8ClEaQiPh0XwZpTmY5A
-	Qb7qQzvLQc3gZXXr7Aw==
-X-Google-Smtp-Source: AGHT+IEic6OXLHFjJFcSMjX6yW+diABGg79TavoXgMJoLPcFtBwYVwRi0D0qAEBQti0q9fFPcQTMJ2BeP0VaFbsn
-X-Received: from wmqe6.prod.google.com ([2002:a05:600c:4e46:b0:43b:c914:a2d9])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:500c:b0:43d:bb9:ad00 with SMTP id 5b1f17b1804b1-43ecf8cf6b2mr129812945e9.15.1744014466013;
- Mon, 07 Apr 2025 01:27:46 -0700 (PDT)
-Date: Mon,  7 Apr 2025 09:27:05 +0100
-In-Reply-To: <20250407082706.1239603-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20250407082706.1239603-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
-Message-ID: <20250407082706.1239603-9-vdonnefort@google.com>
-Subject: [PATCH v3 8/9] KVM: arm64: Stage-2 huge mappings for np-guests
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1744014788; x=1744619588;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jcXjjA+jirbGtlXlcOVxvxixEqyX9/ZtaNYQ+3n7vks=;
+        b=gySk2PWvs/58h4ZE/d3QWoOoGdpLaWVL42ml99cRgzkyA/mDw1BeAQgScaR6f6HcM0
+         6DiIS4WALi5PMaexprNUDM7O5aZ9J29I6BFWdhixGELH0Ao/Ob9OshX9oFzZh9exHfbb
+         5Xn66TFNQJJZGnL0OOpp95VlMy2YRbS17SFNDkOc4BhzIJo38hzGuvBB3OpgU9iE0df0
+         DOemsLXr+bPesGKK1eo+ctW6zqxSP80oKjQjpYvF8bF4w5DQhsaf1UT59X04ny19ImGd
+         7igUZ4jZW7riA9hvKbM9HvIQ7xnbk3t5/kzrRde+B1jpKJSzw43pg7dwcIKRAjBOQ+4H
+         1DNw==
+X-Forwarded-Encrypted: i=1; AJvYcCXeyuE18TYczs9+7dCLhpobcGq7B1WsqaKfRCFU9kQfunUbazNqufkF/dG0ojwy/RMteRqIO3sQ/CYqK3FmmfmN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7VJHD3FpHuWUBg3FO3E1ik7xC8B6uxRJ8bOo921v0Y/3534n0
+	hygiLguTSd6nsstvgA0vOuUZuv05RYkJvtwbydK4Pzmq3pxE/PZ5X0mxTHYzgg==
+X-Gm-Gg: ASbGncvr3U93gtCtthgeLJpLI9dMly7/NyFMhVYuaHmyn3fyVJ2dR6+xyCRQoNJ/luj
+	2A9a3J2PQG71yO0LwjUtrkyn+hLlXDAtOU3kyAsc6n9Aj+eHFqQ64/yq9EDJmmGq7658A39JEDi
+	gKi+QTpUHyus+I1omZxs8SQ1Fe/qO0yVuBgg/DKBLovPV75lpNa/aagoeLx/HRn67vLpkT1xj0y
+	vc51Q7o93/MAyIqkaeuxt2goK/B35MaDlwsrjixBed2MWGtV7vBybAhppAnJKCzkN6lshnhSUIB
+	TK8HUPt2u5lvgtO/qJPZhHZ66EL1o8ZKfYPBJ3QXLJXOAn01Pv8zR4N0jKT09RdIY2pdyfozN0H
+	PYDUF+RPjYpQWnw==
+X-Google-Smtp-Source: AGHT+IGgoaBTlg9BjbIvqCWdACY/aXtozoW3tXEbZzO1wBZolldhDpZWuJ7yv4qhtjzddz/sud5TLQ==
+X-Received: by 2002:a17:903:c4a:b0:215:aca2:dc04 with SMTP id d9443c01a7336-22a95eb8d41mr3228575ad.26.1744014788291;
+        Mon, 07 Apr 2025 01:33:08 -0700 (PDT)
+Received: from google.com (188.152.87.34.bc.googleusercontent.com. [34.87.152.188])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-229785c385csm75476405ad.81.2025.04.07.01.33.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Apr 2025 01:33:07 -0700 (PDT)
+Date: Mon, 7 Apr 2025 08:32:59 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, shameerali.kolothum.thodi@huawei.com
+Subject: Re: [PATCH v1 1/4] iommu/arm-smmu-v3: Pass in vmid to
+ arm_smmu_make_s2_domain_ste()
+Message-ID: <Z_ONu4pIDyiWr2DK@google.com>
+References: <cover.1741150594.git.nicolinc@nvidia.com>
+ <214b10db02f1046efdc70e2c4803111357f60070.1741150594.git.nicolinc@nvidia.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <214b10db02f1046efdc70e2c4803111357f60070.1741150594.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_012748_432263_195A7765 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250407_013310_735549_6C2915C6 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,63 +100,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now np-guests hypercalls with range are supported, we can let the
-hypervisor to install block mappings whenever the Stage-1 allows it,
-that is when backed by either Hugetlbfs or THPs. The size of those block
-mappings is limited to PMD_SIZE.
+On Tue, Mar 04, 2025 at 09:04:00PM -0800, Nicolin Chen wrote:
+> An stage-2 STE requires a vmid that has been so far allocated per domain,
+> so arm_smmu_make_s2_domain_ste() has been extracting the vmid from the S2
+> domain.
+> 
+> To share an S2 parent domain across vSMMUs in the same VM, a vmid will be
+> no longer allocated for nor stored in the S2 domain, but per vSMMU, which
+> means the arm_smmu_make_s2_domain_ste() can get a vmid either from an S2
+> domain (non nesting parent) or a vSMMU.
+> 
+> Allow to pass in vmid explicitly to arm_smmu_make_s2_domain_ste(), giving
+> its callers a chance to pick the vmid between a domain or a vSMMU.
+> 
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index ad14b79a32e2..da82d554ff88 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -167,7 +167,7 @@ int kvm_host_prepare_stage2(void *pgt_pool_base)
- static bool guest_stage2_force_pte_cb(u64 addr, u64 end,
- 				      enum kvm_pgtable_prot prot)
- {
--	return true;
-+	return false;
- }
- 
- static void *guest_s2_zalloc_pages_exact(size_t size)
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 2feb6c6b63af..b1479e607a9b 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1537,7 +1537,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	 * logging_active is guaranteed to never be true for VM_PFNMAP
- 	 * memslots.
- 	 */
--	if (logging_active || is_protected_kvm_enabled()) {
-+	if (logging_active) {
- 		force_pte = true;
- 		vma_shift = PAGE_SHIFT;
- 	} else {
-@@ -1547,7 +1547,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	switch (vma_shift) {
- #ifndef __PAGETABLE_PMD_FOLDED
- 	case PUD_SHIFT:
--		if (fault_supports_stage2_huge_mapping(memslot, hva, PUD_SIZE))
-+		if (!is_protected_kvm_enabled() &&
-+		    fault_supports_stage2_huge_mapping(memslot, hva, PUD_SIZE))
- 			break;
- 		fallthrough;
- #endif
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 97ce9ca68143..18dfaee3143e 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -345,7 +345,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 	u64 pfn = phys >> PAGE_SHIFT;
- 	int ret;
- 
--	if (size != PAGE_SIZE)
-+	if (size != PAGE_SIZE && size != PMD_SIZE)
- 		return -EINVAL;
- 
- 	lockdep_assert_held_write(&kvm->mmu_lock);
--- 
-2.49.0.504.g3bcea36a83-goog
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h         | 2 +-
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 6 ++++--
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c    | 3 ++-
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c         | 6 +++---
+>  4 files changed, 10 insertions(+), 7 deletions(-)
+> 
 
+Thanks
 
