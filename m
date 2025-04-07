@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700CEC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 14:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC39AC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 14:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5dpUmMt+S/OI2c2iE1k7M1eJLqralXYhPrDshRzYb5k=; b=ap9veBGpr0r5tU
-	iOUppVdvIjxUYBDb2qRGxI73S48eCBIw9KbbYdQeUfKtjOHCRUyMlwiObSmPReHRw3kJWbhj7S02L
-	Dk7NNaGNu9KOj9Yjd4xMOQA+7ZFqcLOYtRCKufMgDBAZooXbN+iA/UKZRx68Q5hX5OTwIvW0/Jp2q
-	hIK+dISPgM2ZS05SNeITSZV2fSF2SjahzDiBGon5k8heuwnVndOqRfBNmI3DOSYlXh756NOPjVIcD
-	sqzaEE6YVROK3IFPIBWR5jfjLgOq9QNu8A+cFG8uJYHa076LuX0yYn7AmC/hOyO0lGySCgIKNv5j4
-	Y4fq21/SpuUZYq2hOlfw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PKi3slRvjki8fVHN5rWjp+XsedZXgybN1mZlgeDcx8s=; b=In6skX92nzvzUlOAi+jSvAAtc6
+	ujRlZqHbFj0BBY9PO/S/tUWURkTiXsuJsLWEjswFVtJLmIBSud02G48+ZT2g4SLgUn/t9uBE5HGsq
+	SoZ0ck5mPQi+hslUKfuaDXZkMn5cxFg32YSE4xay0MlyUNLcWqt30IRkTYz7mG3mZ65eXIU4w93VD
+	weDZy7/Vc551+IYooHiHqcgb1lV4X7gWvsC55xeEBJIc9wn9Lqbtz9VZuC5A2RNUDpb74ZKmdi7cv
+	g/RuScMW/gS4GJCH9K6ZF50JqIUrH1V+pDqQ9M8ktoWjCR0ZJgJ6EVWJY4/FA7hxtiN0F0aSdTE5d
+	FL8GTjMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nKz-00000000hLR-2ojO;
-	Mon, 07 Apr 2025 14:20:33 +0000
+	id 1u1nOQ-00000000hwO-3ZYO;
+	Mon, 07 Apr 2025 14:24:06 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nJE-00000000h3w-0tVb;
-	Mon, 07 Apr 2025 14:18:45 +0000
+	id 1u1nJJ-00000000h4o-1pLj;
+	Mon, 07 Apr 2025 14:18:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 22FC75C5E59;
-	Mon,  7 Apr 2025 14:16:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DDAFC4CEE7;
-	Mon,  7 Apr 2025 14:18:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DFE105C5DD0;
+	Mon,  7 Apr 2025 14:16:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46906C4CEDD;
+	Mon,  7 Apr 2025 14:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744035522;
-	bh=DnrMjwW8y80OVJq5tsXLXyJch9UJ6gA4haWZSBKjZGw=;
-	h=From:Subject:Date:To:Cc:From;
-	b=CJALCunY5XwA6fJnawsx9DBCukkaaLIXr0IGlmoYPmZNgWE24Uc2Oj8jZBxmTEysv
-	 CRhOPVHuSlXMB+pgd5W91CoFgAw/3aiFj2w6cTaXv1UxOTvU/6UrJFpnYtyMGHYMiG
-	 jMlwk9Y7Y2PpC3O6+dtq1fnpKT0PCuo/oQmQuG/m2BrkV1rpBLeACRcC6FQvVHhKfO
-	 xckGzy+5mPwDiDiV1tYGEuqgaBXMO4Gz72fGIdZIDp+GavAD0YqV5sDRAJtSq22Inm
-	 TPDWihIpBAojtfsSKQxAMS8VPeRlaL7tLTaa1+QwFTH4s6VUIqf75G/eKyXS3srDzG
-	 VGtm9bDXnqdBg==
+	s=k20201202; t=1744035528;
+	bh=K5EzkBuJAc3ZaJRcknCSYudz4Q3lzDRYva1mnChGj0s=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=V4vmVd1QY1vK4QwpKwk2rxeIMORGRSdiYWWTZ/Dqt983289euYrYVv5/04Ncn9XBi
+	 ZZcYbWrdCAC+UuS5uEEClfwBgWF+CTPEw7dWKCcX2IgMKpke9LVPYn8w5E9aPbOi67
+	 5Y/0gbpbiV9RDBnK5CRyJSx9pml5HfosgDls8D0FWh6DntGfq2B8YvXXt7OmXsGQnB
+	 Aol/cPmZ80Nepju+4QgE5cP7k/fit+x28BFaGzf7Rx3TjGc3rXriKspzgu3mbXH3/M
+	 Zc7w0qGWdJyw4+AXxugoq7YedOluRrCxgAw09ISjMPjU8VM2f4cGH0XApA0gqD0mxD
+	 zKkFM4/UDgSRg==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH net-next 0/3] Add L2 hw acceleration for airoha_eth driver
-Date: Mon, 07 Apr 2025 16:18:29 +0200
-Message-Id: <20250407-airoha-flowtable-l2b-v1-0-18777778e568@kernel.org>
+Date: Mon, 07 Apr 2025 16:18:31 +0200
+Subject: [PATCH net-next 2/3] net: airoha: Add
+ airoha_ppe_foe_flow_remove_entry_locked()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALXe82cC/x3MPQqAMAxA4atIZgP9sYtXEYdUowaKlVZUKN7d4
- vgN7xXInIQz9E2BxJdkiXuFbhuYNtpXRpmrwSjjlNUWSVLcCJcQ75N8YAzGIyvv1NyRNdpBTY/
- Eizz/dhjf9wP4+ayfZgAAAA==
-X-Change-ID: 20250313-airoha-flowtable-l2b-e0b50d4a3215
+Message-Id: <20250407-airoha-flowtable-l2b-v1-2-18777778e568@kernel.org>
+References: <20250407-airoha-flowtable-l2b-v1-0-18777778e568@kernel.org>
+In-Reply-To: <20250407-airoha-flowtable-l2b-v1-0-18777778e568@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -60,9 +59,8 @@ Cc: linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_071844_296198_57F0C0DA 
-X-CRM114-Status: UNSURE (   6.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250407_071849_564169_925ECAA8 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,28 +75,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the capability to offload L2 traffic defining flower rules in
-the PSE/PPE engine available on EN7581 SoC.
-Since the hw always reports L2/L3/L4 flower rules, link all L2 rules
-sharing the same L2 info (with different L3/L4 info) in the L2 subflows
-list of a given L2 PPE entry.
+Introduce airoha_ppe_foe_flow_remove_entry_locked utility routine
+in order to run airoha_ppe_foe_flow_remove_entry holding ppe_lock.
+This is a preliminary patch to L2 offloading support to airoha_eth
+driver.
 
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Lorenzo Bianconi (3):
-      net: airoha: Add l2_flows rhashtable
-      net: airoha: Add airoha_ppe_foe_flow_remove_entry_locked()
-      net: airoha: Add L2 hw acceleration support
+ drivers/net/ethernet/airoha/airoha_ppe.c | 45 ++++++++++++++++++--------------
+ 1 file changed, 26 insertions(+), 19 deletions(-)
 
- drivers/net/ethernet/airoha/airoha_eth.c |   2 +-
- drivers/net/ethernet/airoha/airoha_eth.h |  22 ++-
- drivers/net/ethernet/airoha/airoha_ppe.c | 224 ++++++++++++++++++++++++++-----
- 3 files changed, 215 insertions(+), 33 deletions(-)
----
-base-commit: 61f96e684edd28ca40555ec49ea1555df31ba619
-change-id: 20250313-airoha-flowtable-l2b-e0b50d4a3215
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index aed4a22f3a8b8737f18509b48fc47eae594b9d5f..8f75752c6714cc211a8efd0b6fdf5565ffa23c14 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -483,6 +483,26 @@ static int airoha_ppe_foe_commit_entry(struct airoha_ppe *ppe,
+ 	return 0;
+ }
+ 
++static void airoha_ppe_foe_flow_remove_entry(struct airoha_ppe *ppe,
++					     struct airoha_flow_table_entry *e)
++{
++	lockdep_assert_held(&ppe_lock);
++
++	if (e->type == FLOW_TYPE_L2) {
++		rhashtable_remove_fast(&ppe->l2_flows, &e->l2_node,
++				       airoha_l2_flow_table_params);
++	} else {
++		hlist_del_init(&e->list);
++		if (e->hash != 0xffff) {
++			e->data.ib1 &= ~AIROHA_FOE_IB1_BIND_STATE;
++			e->data.ib1 |= FIELD_PREP(AIROHA_FOE_IB1_BIND_STATE,
++						  AIROHA_FOE_STATE_INVALID);
++			airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash);
++			e->hash = 0xffff;
++		}
++	}
++}
++
+ static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe, u32 hash)
+ {
+ 	struct airoha_flow_table_entry *e;
+@@ -551,25 +571,12 @@ static int airoha_ppe_foe_flow_commit_entry(struct airoha_ppe *ppe,
+ 	return 0;
+ }
+ 
+-static void airoha_ppe_foe_flow_remove_entry(struct airoha_ppe *ppe,
+-					     struct airoha_flow_table_entry *e)
++static void
++airoha_ppe_foe_flow_remove_entry_locked(struct airoha_ppe *ppe,
++					struct airoha_flow_table_entry *e)
+ {
+ 	spin_lock_bh(&ppe_lock);
+-
+-	if (e->type == FLOW_TYPE_L2) {
+-		rhashtable_remove_fast(&ppe->l2_flows, &e->l2_node,
+-				       airoha_l2_flow_table_params);
+-	} else {
+-		hlist_del_init(&e->list);
+-		if (e->hash != 0xffff) {
+-			e->data.ib1 &= ~AIROHA_FOE_IB1_BIND_STATE;
+-			e->data.ib1 |= FIELD_PREP(AIROHA_FOE_IB1_BIND_STATE,
+-						  AIROHA_FOE_STATE_INVALID);
+-			airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash);
+-			e->hash = 0xffff;
+-		}
+-	}
+-
++	airoha_ppe_foe_flow_remove_entry(ppe, e);
+ 	spin_unlock_bh(&ppe_lock);
+ }
+ 
+@@ -762,7 +769,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
+ 	return 0;
+ 
+ remove_foe_entry:
+-	airoha_ppe_foe_flow_remove_entry(eth->ppe, e);
++	airoha_ppe_foe_flow_remove_entry_locked(eth->ppe, e);
+ free_entry:
+ 	kfree(e);
+ 
+@@ -780,7 +787,7 @@ static int airoha_ppe_flow_offload_destroy(struct airoha_gdm_port *port,
+ 	if (!e)
+ 		return -ENOENT;
+ 
+-	airoha_ppe_foe_flow_remove_entry(eth->ppe, e);
++	airoha_ppe_foe_flow_remove_entry_locked(eth->ppe, e);
+ 	rhashtable_remove_fast(&eth->flow_table, &e->node,
+ 			       airoha_flow_table_params);
+ 	kfree(e);
 
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.49.0
 
 
