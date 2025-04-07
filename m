@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E629C369A1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3075C369A6
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1hB+Rsl8dEIP80gJg1dRpUGGywa9yjHgvJWWFP9MDZc=; b=BzCa7gtr9e5iMIW1OCf7vz/sUG
-	eOPErS921yAwLk0SDPAC2vlDugvNOoPbV09CB6IFDBmlwzhE7yFBs+rLy/RNU79QMAHxfur4n8Pp0
-	iRd9sHuhobsfA+uT724xwFblsiGuaDKvHZ2hjEK53PTyOROxGmQEKe9B/FZmGpzyEnmzpR+NLCoPy
-	DmDxqiXAHdeu7MaDU+xofoWsu1IXBevhlvfJPdUO9RpbEHvvQ3nX8jek7wb3uQ7ot8xcWfNt+gXbN
-	5GNiSQtKDfXGKf7scDSGGFDKu5mYq75NWFywed4sU7jW3H4ioOaxOSa+YbClvQKQ4ZdqK2fk8GP1e
-	MtrmYaGA==;
+	bh=P6d498xP36XXy4X2j2XNBIV3J80KTeTFWEpSStPLVgY=; b=yEjyIe2uYcEg3aaml4GmLc9bQ9
+	k2bf0Sy1WG11navbOP8bxYHzAVsrGkedPRxZQarTdWzDBYGDjN2S4MPEDp299ypqVCjUkzdqxlZ3W
+	A5e+vaEC1/E9wqK4+AamTpneasWSf7n3ok1kvgMC2wS59DuhjJ0IqfXYvuTNnNJ9+Ff6GMEatIC0T
+	kJoKUREFi/YBI5k0HprofphsBoKgslJ55Aq6bpy3qQeXpNF1DG88JTVlJGM82vnxaa2dlEgXVmyq0
+	X0hK+WG5Kdp22d8OnkH4AzNSsNAvPEu8se5VdD4OaskWlEqjn23KCeYlIuCtYmReaCeH7C6KOCHb3
+	SMsxL9eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uIy-000000024Gc-2JFV;
-	Mon, 07 Apr 2025 21:46:56 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u1uJ1-000000024Lc-1gb9;
+	Mon, 07 Apr 2025 21:46:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rek-00000001iQo-099H
+	id 1u1ret-00000001iT1-0mx0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 07 Apr 2025 18:57:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=P6d498xP36XXy4X2j2XNBIV3J80KTeTFWEpSStPLVgY=; b=S6dYkoU0LuBzTyyrOkV4fnuqHD
+	3AZVRe7FsS6KaFfW07WfygJh2puMkPUgYBTmPtfhu9WAMD2kQpl48w7hmctIbXqDkPRuVnITSZqzt
+	7DKHnsDqDjkeYnQW19psWnDvQCXudYGsoABF9Uf5eK/gBYC1TLaVxuqrFRowXceLs/vzZ560he8r8
+	vcNHS7bdDaa6PBbNzV9MSXgJkGbaLBc/8VhYU4reBm+KzsVNJgeCuElbHTvUgLoHHfGx3kx96u5/A
+	Z7Kv+KOhVVyRkOe1UEFB7x+wKRa3e0eMBquBPuHOlEhYW+QeY6nkQO3qNAqKSuOb57YkcH/zlwcYy
+	fwrr0kMA==;
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1reo-000000086WO-2cD7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 18:57:16 +0000
+	Mon, 07 Apr 2025 18:57:22 +0000
 Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 537Iurh2454879
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 537IuqCb956347
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 7 Apr 2025 13:56:53 -0500
+	Mon, 7 Apr 2025 13:56:52 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1744052213;
-	bh=1hB+Rsl8dEIP80gJg1dRpUGGywa9yjHgvJWWFP9MDZc=;
+	bh=P6d498xP36XXy4X2j2XNBIV3J80KTeTFWEpSStPLVgY=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ilAhbRuQvUr5o5N86CHRjPzz8/cXGDJJ0lrVBSpJVYkgfA8BdUNF1Pvu3skNKv/lc
-	 ceS9y8Zl5/7f00qk9/NnQ6KSuo26ZtbCFqPmzdyYuYSmG30Kz7isxhXfgkty85nW5u
-	 G7Xn0UGNuXQFxjnif9VQFoyOmRv8Bz1iQ5ApA06A=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 537Iurf7025521
+	b=cQd2JMUAKZXHGACU6Xp3DzfFHvnyebICZs9Nqfjuf6TIo6/KtACl9o6/OQESWTbw6
+	 QTDHCqUMVwKLZaS9SXSGmNU0wkuUUk8mCB3+90f2fRTRv6+eTA687utiImEVPKn+/l
+	 SowPHHM3E13P+OFcj1kb7H/vGdXdr2rDyEqiojxI=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 537IuqTo025514
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 7 Apr 2025 13:56:53 -0500
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 7 Apr 2025 13:56:52 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 7
- Apr 2025 13:56:53 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 13:56:52 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 7 Apr 2025 13:56:53 -0500
+ Frontend Transport; Mon, 7 Apr 2025 13:56:52 -0500
 Received: from fllvsmtp8.itg.ti.com ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 537Iup49094348;
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 537Iup48094348;
 	Mon, 7 Apr 2025 13:56:52 -0500
 From: Andrew Davis <afd@ti.com>
 To: Arnd Bergmann <arnd@arndb.de>, Andre Przywara <andre.przywara@arm.com>,
@@ -65,9 +80,9 @@ To: Arnd Bergmann <arnd@arndb.de>, Andre Przywara <andre.przywara@arm.com>,
         Stefano Stabellini <sstabellini@kernel.org>
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <xen-devel@lists.xenproject.org>, Andrew Davis <afd@ti.com>
-Subject: [PATCH v5 2/5] ARM: pxa: Switch to new sys-off handler API
-Date: Mon, 7 Apr 2025 13:56:47 -0500
-Message-ID: <20250407185650.411887-3-afd@ti.com>
+Subject: [PATCH v5 1/5] ARM: highbank: Switch to new sys-off handler API
+Date: Mon, 7 Apr 2025 13:56:46 -0500
+Message-ID: <20250407185650.411887-2-afd@ti.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250407185650.411887-1-afd@ti.com>
 References: <20250407185650.411887-1-afd@ti.com>
@@ -76,8 +91,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_115714_123236_E8A45ABC 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20250407_195718_918331_F1FDA4D9 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,23 +113,24 @@ handler. Legacy pm_power_off() will be removed once all drivers and archs
 are converted to the new sys-off API.
 
 Signed-off-by: Andrew Davis <afd@ti.com>
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 ---
- arch/arm/mach-pxa/spitz.c | 2 +-
+ arch/arm/mach-highbank/highbank.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/mach-pxa/spitz.c b/arch/arm/mach-pxa/spitz.c
-index 33533e35720f8..c0b1f7e6be874 100644
---- a/arch/arm/mach-pxa/spitz.c
-+++ b/arch/arm/mach-pxa/spitz.c
-@@ -1096,7 +1096,7 @@ static void __init spitz_init(void)
- 		software_node_register(&spitz_scoop_2_gpiochip_node);
+diff --git a/arch/arm/mach-highbank/highbank.c b/arch/arm/mach-highbank/highbank.c
+index 5d4f977ac7d2a..47335c7dadf8d 100644
+--- a/arch/arm/mach-highbank/highbank.c
++++ b/arch/arm/mach-highbank/highbank.c
+@@ -143,7 +143,7 @@ static void __init highbank_init(void)
+ 	sregs_base = of_iomap(np, 0);
+ 	WARN_ON(!sregs_base);
  
- 	init_gpio_reset(SPITZ_GPIO_ON_RESET, 1, 0);
--	pm_power_off = spitz_poweroff;
-+	register_platform_power_off(spitz_poweroff);
+-	pm_power_off = highbank_power_off;
++	register_platform_power_off(highbank_power_off);
+ 	highbank_pm_init();
  
- 	PMCR = 0x00;
- 
+ 	bus_register_notifier(&platform_bus_type, &highbank_platform_nb);
 -- 
 2.39.2
 
