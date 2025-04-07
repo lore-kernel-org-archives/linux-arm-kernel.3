@@ -4,176 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49791C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23331C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IXCYBvQHP6LoD8UvUjr2imJ3HBeclffkcBbYNbZRrcY=; b=bM/YU6VBPsnDaUEtgcERWP+vQf
-	ahCpv2i6q/au21DD5TF75k1XRvFeN4t0wqOjwbnYrt2F/WrAS5iKOkNgR57P/LzzS7aj5HSXTi0hc
-	hbNN6zPo2DjzEH650paFTFIzTMfAyXNlTiwBBVk7DxXsrn7LPZxGw+PigVpyI30UooZoJ+9jnQTBN
-	fJ7DloFDW3jNpliCF6uE1/VNNQJGn4kRiIIB4V7hukU2kwQsWOiHxm+H82zzySY+D9MS43rB8PXAq
-	VFpE1qAWNabm7KAI+q7Tnr5R8eM9WfJHKc4cBKgMrz+yN6RdLS9p04MGxLeL1WQKdUfy9JHrhgYc3
-	q+Ci24Ig==;
+	bh=fcEmP8BWR9G6jF7SFswjkfMRfPbz6AuZJB2v6MIMGzY=; b=ZpxpmdPK5fezazwlYRkikK0XyS
+	3Z8SxTKzKWF9aqyBeBchK2+OgpnJv36sIAaNfOHQFPwGfx7auiDdsLsQma7YSSPGmTU6aNAa+B1yr
+	/sEqBnfpKtpY8nw3pA5qf9dpsEJulg7hT3QjOfcclLIe4SIjxLTX4TBI/mq4BGkzEWHD1cAfPpCjc
+	nGT9ZoeBPGMVH1YYRcw9SQ3uvh3dst9lCNA2IVM6+2jbSbuw+ZaXw7YCTguEEwSiigl3H7UM1fagZ
+	z7U0eKq9VIoV34bY/LH0rwiRRR0ToIapBm3t2K4PQedQNzP3dXsEVH2/gAnrStSfUNe6D4UlhvWGj
+	yEuGrHSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYU-00000001d4U-2uKw;
-	Mon, 07 Apr 2025 18:50:46 +0000
-Received: from mail-am7eur03on20617.outbound.protection.outlook.com ([2a01:111:f403:260e::617] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1u1rYZ-00000001dDc-0DCr;
+	Mon, 07 Apr 2025 18:50:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pco-00000001Gma-3QLC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 16:47:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ec2jhxoUm1foHFimxvvWvuWDNkOA7R2TTDbW9I6liONkC07bJWkG1SJ4EJllT7+vSFTbfOf/k5z4aCbKD6Z5hxY5+X24WyBD9jQLnEc5/+vRWUMTgHuyyV2TCRollfuIwdVGvWPNoW9URnimjafbuGiqbfE+hgxQ11nyb/+EI6r9ttHtP4hqCdG6oHo5gX3E3dIglWNo5sLJWLXb/sRngmCYAqgGEvlNJoSa7EZC88ZbAObM4ESyFgHpkuk7iPeoYjA28qnf/2dBzZ9c7Dl8YTEY+e/ASFevHsXJdQeDAhVWVs9QnXtPibNaJFWZOMbz24cy3kGo901QiFkMnKEvgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IXCYBvQHP6LoD8UvUjr2imJ3HBeclffkcBbYNbZRrcY=;
- b=iR/tATZj9GSj2Z43BUvJxmfZ0F+Gq7oBxkgxFPYmtk58l10kwCLQpAi7zemzxEQe3jPB5w6YXLp1JSmBN8/tyMJmp+Dj/HyZXN8rrWsubQUk2dwHqZ+5tawMHmGYEyPydNvvYJmKyaJkk2iqsIjKfdMOYBiCBUs1LRFS/HKr5ZvKg9Q1ArU5+PWGxLzFcILUju1Ai5dKFdO2LO1X3ScDFEUeFhDctnLG8+CMX1pq6Po18uke7hjUEwJwUrmMfwXjXdId+4XSsM95t75j3Ig6mfOS+13FGQiwcmAIz/fqMvk9scGPriQzGJYIfFIX9Tm2fryy/tjQiAlJZAJ1A5vqSQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IXCYBvQHP6LoD8UvUjr2imJ3HBeclffkcBbYNbZRrcY=;
- b=OKA1E8p1AHknD6e95qGd9l7DD3/ss25iBJN9AZLEocgNoLNUrr1r4r10NUQP+1rGiZkC+6y3vb7Edo9ZfIMlyTkFZv4Q3fTWwJ0eqc2dLt7SYoUbUuOs+QAzx50CxCyrVy3C+q0BavC3i42D9Q5briVgFdpcDXQAwYSXzkHjcMMm3tkoYo7nqVrRJxP9mJ3aE6NTrPhFZMiY0f8Rz+xxpxNf75o/jTYZinHfzr0G5X1kzbrBwhF6ZTyxCGmbloiwkk4/HwlPAsbA6KlfL9fMmcWbYZj0ZJtvCRgtHlgdEpRugcSMdlnukCKTlfFWdNpzIXpHBfgHOKyELsbHxRczIQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM7PR04MB7029.eurprd04.prod.outlook.com (2603:10a6:20b:118::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.33; Mon, 7 Apr
- 2025 16:47:03 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Mon, 7 Apr 2025
- 16:47:03 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Mon, 07 Apr 2025 12:46:36 -0400
-Subject: [PATCH v2 2/3] dmaegnine: fsl-edma: add edma error interrupt
- handler
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250407-edma_err-v2-2-9d7e5b77fcc4@nxp.com>
-References: <20250407-edma_err-v2-0-9d7e5b77fcc4@nxp.com>
-In-Reply-To: <20250407-edma_err-v2-0-9d7e5b77fcc4@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: imx@lists.linux.dev, dmaengine@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>, 
- Joy Zou <joy.zou@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744044406; l=10170;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=LD6Mp7AzKiFOHMUjSiRbTwVIAnQ+zTBqUt1To6QgEGs=;
- b=c4S+b13BD+b4d/L3v4s5sBQhq0TVsEKD1MF315h0P3igZTBADsBA6ThgfePbuY46fN41Q6UMc
- yejUcGGKpLHDBp1aAbXnpimAGwyn3Kd9DDDHjEqgCfKlCLP5NrlxZ/a
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR03CA0243.namprd03.prod.outlook.com
- (2603:10b6:a03:3a0::8) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	id 1u1pd6-00000001Gov-1kYi;
+	Mon, 07 Apr 2025 16:47:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	Message-ID:In-Reply-To:Subject:cc:To:Date:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=fcEmP8BWR9G6jF7SFswjkfMRfPbz6AuZJB2v6MIMGzY=; b=RDLa366e7pfEavfl0soKISCI4K
+	2DKfURBuxad42nrYy8swXY7tliKg0O4TXDzrYaTDfMmTr7EsVRZQ9ORzLtnSjTei3LApc8Nu2wvkd
+	L/lRRGtpi8Kebp3Ef+pXvZuu91eMMKS66bvmr1ID6MgU/MFItUFiapZicLiUBDo08CVQGqdpp5uk3
+	j4km0GiaM8HF7JzN+xrfogUFblT08spRSFWC9be+PABQKAjszKXZwYPGTuWKx+FC2Jc+UjBFlYwoI
+	t95pHJFJhqoheBWvMWI1z8JtEbACBKlHj7e60Phpg0I1jfrO2VdNYUobrbrY49tzB3kJ0KGCtcB6Y
+	S27u35Qg==;
+Received: from mgamail.intel.com ([198.175.65.16])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1pd3-000000084RE-0BO9;
+	Mon, 07 Apr 2025 16:47:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744044441; x=1775580441;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=d/9rF2v6gxz+aVjjloTd50bAqLAn569sdN/hKyUhniA=;
+  b=StNe33wtqmNTXyRn0mk9qeP1sByARAW2sZdHEto/aidbogWuI0Kt1Q3q
+   IOYSBUVG6bUHvDUbRhMqFMjKo7Yaocg+CzGrxarCzBhw7Tq5lXbRAhC4d
+   ZvZjGMfA0PsMTRM1vzUXGWvHwbZP//Mhp1l4y173vd1OBQtafs7WCkn/d
+   5VETtfELPESGZ9jV4QWuaPo34uwEDW2eDfakSlpJDq0k2mQFgK7zgj+eS
+   mb4ubfmVbO6xW3Y81KG3WppRsXDzIpy8YGVPVACIiaQamE2DnU6ywvW3y
+   QQQy/tkP4jZUpzzKezeljXwICHj4sv/hnmGefsEAzV22LvtX3HYbDBI9Q
+   Q==;
+X-CSE-ConnectionGUID: HViCMrgGQY6urprMpRR+2Q==
+X-CSE-MsgGUID: fIJTYMMXRNCl9h+Sabfv1Q==
+X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="45533295"
+X-IronPort-AV: E=Sophos;i="6.15,194,1739865600"; 
+   d="scan'208";a="45533295"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2025 09:47:13 -0700
+X-CSE-ConnectionGUID: dEMeJzZ7RJaZ+YDO48bYaw==
+X-CSE-MsgGUID: yioqSJnkQC+IzOwpsUAeHQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,194,1739865600"; 
+   d="scan'208";a="127767783"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.229])
+  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2025 09:47:02 -0700
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Mon, 7 Apr 2025 19:46:59 +0300 (EEST)
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+    Maxime Ripard <mripard@kernel.org>, 
+    Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+    Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+    Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+    Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+    Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+    Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, 
+    Sascha Hauer <s.hauer@pengutronix.de>, 
+    Pengutronix Kernel Team <kernel@pengutronix.de>, 
+    Fabio Estevam <festevam@gmail.com>, 
+    Douglas Anderson <dianders@chromium.org>, 
+    Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+    Krzysztof Kozlowski <krzk@kernel.org>, 
+    Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+    Anusha Srivatsa <asrivats@redhat.com>, 
+    Paul Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, 
+    =?ISO-8859-15?Q?Herv=E9_Codina?= <herve.codina@bootlin.com>, 
+    Hui Pu <Hui.Pu@gehealthcare.com>, 
+    Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+    dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
+    LKML <linux-kernel@vger.kernel.org>, chrome-platform@lists.linux.dev, 
+    imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+    linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+    linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
+    linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+    freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
+    Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+    Hans de Goede <hdegoede@redhat.com>
+Subject: Re: [PATCH 02/34] platform: arm64: acer-aspire1-ec: convert to
+ devm_drm_bridge_alloc() API
+In-Reply-To: <20250407-drm-bridge-convert-to-alloc-api-v1-2-42113ff8d9c0@bootlin.com>
+Message-ID: <a9000632-a6d1-d369-c317-9ee73aa645dc@linux.intel.com>
+References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com> <20250407-drm-bridge-convert-to-alloc-api-v1-2-42113ff8d9c0@bootlin.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM7PR04MB7029:EE_
-X-MS-Office365-Filtering-Correlation-Id: 729e436c-d24a-45e6-8721-08dd75f3d2e9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?S2RNZVZGWFA0UFVPK3B6M1pFQlVvbnJhY0JPSXRkUzFkMHZKdGhDT3ZudzJF?=
- =?utf-8?B?ZkRBSUpzU2R3bDZnMzhUdlY2bUtlNjJzUGlNREpBRmtBamtGNEVlb0hLbDdo?=
- =?utf-8?B?d3ZEeTBtcy9Yc2VWakJLY3Y1aWd1R0ZRam9FNUZKbDZtaEZMWmVib1o5Q0N4?=
- =?utf-8?B?OG81MlhEeUlwcWdMaTE5dWdDejExalprVUsvWnZJTHJxWkhXNGU3YTFjbTh1?=
- =?utf-8?B?WFB3enh5ZENTNy9IdUJlT21Vb2lBY3poZ2FUbWhmM3kva0w3QU1vc2tiOXk2?=
- =?utf-8?B?Rks5OFFYblY0YUc3eWFxa01BenpZc2sxWnROSzFDWG1RVXlld0NNRUNYWnZO?=
- =?utf-8?B?SXBGUXYraitUV2IzVmRPZHVhMlFId1FFZGVDUFUwWHBWMHd3RXNGOHdRWUNo?=
- =?utf-8?B?RXh0ZGZTU0gyT3hIamt5aE1BUEFWN3AzbUlLbHVHR2pJVVdDL0l2eC9yeWts?=
- =?utf-8?B?WUt2ZDlLMUNJRUlmS3JORGJ4SzAzbnJjTVBoTHNWMVJzVmhEaWV1NTVQeHNI?=
- =?utf-8?B?UmJvUnlKT1M4eUMvekFKRnRTS3Z3cEt3TTh0bk5lK3J4ZHp4eE9BY2hNcThH?=
- =?utf-8?B?ZU9vSjlDem92ZU9wa1QrQll5OE1JUkVhbElBTTlGcit4UDU0TW1UZ0RieVFY?=
- =?utf-8?B?OUlrbkI3T1J1cnN4aTIrZVYweWpOUkx3UkpzSXY2bW40Z3F5MHZ2c1d1WmdJ?=
- =?utf-8?B?WVRRRkdPck1nakV6cEJIMGF1N29mY2lzVDVvb3E2UnRSZzJINGZxRDU0ODZC?=
- =?utf-8?B?YVFzQS9XcmpSWmV2OFZ3eXduTjYzUUdQVHV6OHpFZ2pWU2dXbzZueVd0MStI?=
- =?utf-8?B?L3V3MFVkQVVTZ3hYZCtiWWdVNTBSaEk3eFV0RitRS0dVMEJxSG5JRkhORCtq?=
- =?utf-8?B?RDhLaVQ1OCtMbUFTSC9TM3JQTkc5SmhFcXlMM1pSWCsxMS90L3VSSlNwMjQy?=
- =?utf-8?B?ZEpKRDRyRXNhNXhlUGd1aklFVTNrUHMyRmkveUVFaXVoNDVEdGhMb01XY3Zs?=
- =?utf-8?B?QldPTWxtajN5RGdESUJYTkNnUlBtTWZrTUY0cnRBRmJybitmRlBwVXU1TG9k?=
- =?utf-8?B?VUxSOHlTdGdsa0RUV1d1YzUzZjBjeG94WXBONnozcTRRWTdmNXRDWnc4TTd3?=
- =?utf-8?B?NnpadExmU1NXVVVBNTM2WW1rZHJHcnFiUTVOSldoZXZmRUFkSFoxWVJabTBV?=
- =?utf-8?B?Z0xHY2d0SkUzVGc1MFd5eGVPTlAvc3BkN1BQT3VncWxZWlBKWVo0K3VaOHE5?=
- =?utf-8?B?RFMveEsvL1dyZkNnaEwrbkNMb3lVVGxiaE5Vd3RzMkJYdXYwTDZYeHl2WEo1?=
- =?utf-8?B?TFBhelJwOE1YQ044WVMwS1F3YXR0MzhQS3VHOEQ5RVhBWjFqVTZrMTFZMklR?=
- =?utf-8?B?MGlZaHVpaEt5MW1DMVh1ZjgzcEovY00zVnF4cyszdVhOemdwbkRqK0RHQ3Zu?=
- =?utf-8?B?ZUdwSEZhdjJKN1BhK0FPUDlydXMyUlJjTDNDSngrQXREbmhaUzgyUnIwdmI4?=
- =?utf-8?B?Rmo3YjlTSjc2Z21OZURSMGQvV3Z5Umhqd1dBUmY4Ukg5SFRuWFl1ZzRydkRP?=
- =?utf-8?B?Z0Q4cytYM0FiU0owSVRlNzBuKzk5RHVFcEx3RUlMdDZYTDl1OC9uZXBnOEtN?=
- =?utf-8?B?SVByNDN3TE1BOHZDN01lM005dVU0WDdHdzdvdVZpeDBSWlBEWkt0N2E5SlNr?=
- =?utf-8?B?Z0NxSWp6TEhvL2hWT1REL1M2N0JQWTltb3FMalRYck9sa1hCSHQ5aEt6cUlu?=
- =?utf-8?B?T0JOYnBtSGxNNXg4YjhEbmZQVVB3di9GNVE0SVBGSmlreHMrSEkxYTdLa3ZT?=
- =?utf-8?B?RzJyNlZYQXdGTXY3RTlUUUl1REpZMDhBNDI1bVUwSnFjanNmekpjaVUyMHQz?=
- =?utf-8?B?Z3oyWTZhZFR0YXNLZ1pjcjBscGN0bmVtUXZpVXV6WTN0N2J2WU40ZjduY29T?=
- =?utf-8?Q?HkjMV5svrxKk4iU1UaYGA9/TiBEsU2Oq?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MU5tK0tydEVoaTgwUTF1UnAvdGZuNWJ3M0I1SlFkSTNOckJFeWFNamIzZHhh?=
- =?utf-8?B?MElHWU5pbzdubzc1dlp0b1N4cVdvUnV3czRVWmhBR1FYMnB3cXpMK0w3MkpN?=
- =?utf-8?B?VVVjelNKY1JuZXRTTU8rUWJ1bXd4bUtTZGd3SGRUcUo1L2hIWTJZdngxclFU?=
- =?utf-8?B?WnFPdks4VjJEZm9BMWpWSk5GV25MOUNrM1VJdWhnYUdIK1c1YUJyRVNtL05N?=
- =?utf-8?B?blVreGUwalcyZzZkWThHdEdFYTRCa1Q0eEtzZ2owbkgxOUVSa0R4WDFHSVAw?=
- =?utf-8?B?QUFtYm1Qb0dDVlFWRC83bTdzM24wTXdOS0FHUjBlazhMdkZQNmRaVWF2V0ZZ?=
- =?utf-8?B?eVlnYzV6UHBQR1hBR2N5RmhtVXEwL3JXeWgrSGtlcDhaRk00K0MrK0hFK1VI?=
- =?utf-8?B?V2NVM3ZqY3NwYzZReVNMSjBmNGFRLzdMQVdQZDg0R2lMSzNtWVVhd3BOanZB?=
- =?utf-8?B?NU1mOEowaFhCR293ckhjSkd2bUN6cytyQ2VqZXZTc1dRcTQ4MHBZYjhOMEJK?=
- =?utf-8?B?TDZUMkNqREpBUkhreUl6Ylk2VUFBNm5GQXZOK3FDWmhRdnBRaXI2aVY4RHo1?=
- =?utf-8?B?MkR2UDFTaGNTMlhWOUxPVmtKUEZFNzhSOWpoWHVUV1pUOFJJVGxhNjZ6T2hD?=
- =?utf-8?B?di9uVFpyeDYyNk9rdFptNlg0VTJKMmhmeUZvejlobDNvTi9SdTF6L3U2RU5s?=
- =?utf-8?B?UnBlVmVseHNFNy9ING1peEYrK0JMNlM4RE1YRFZJd1JGYUp5K2hzeWNWNkYz?=
- =?utf-8?B?YzNYbm5iaXh4YnlETlNYL3RlSE44Mm9iZmZBRmpWNFJGV3llTkVVQXNpZ0hM?=
- =?utf-8?B?Y2hQMTN2YUx4YjYrbXlXUlgzaEQzTm9mdkMvV3ByMEhUSHpMZndZazBmQ2pN?=
- =?utf-8?B?R2pGTmFKMS9OZzhTVXJjM09YeENDaEZ6YUdWU0JoTkEybm5mL1dVQlhtV2Uy?=
- =?utf-8?B?cHBGNFQ5K1VENWlMWFFJVnNTdHB4UTVqTzV6N0lNYWErRjRnT1lNMnVFTkpu?=
- =?utf-8?B?Z0cvUEVKSllIWEhhQkpneXJ4a0ZSTDRiQ0NpRStvbmwweVFvWXlsejhqalFy?=
- =?utf-8?B?ZXVvamlHMFpSa0lYQWRlWXlZTjdManlGL1RQNTFJVGpvZk9KTWN5Y1dvcmdw?=
- =?utf-8?B?MnJ1WERyNjVtQjVJMnVJSEh5SEVzK1dTbmhyR3FJUE9WcG05cFA3TDNDOUJq?=
- =?utf-8?B?cHBZM2J6d3BGREt6MFJ6c1I4aHpleWd4TkRpOUsvK0dzdmQrV3I5NkhLdlVO?=
- =?utf-8?B?YzV6T0lXditLcWtoNGkrTlhnVUZUMThmSHEwVEFZMWtnaWV5YWdyZHF3bVFU?=
- =?utf-8?B?QmlWdlNwdWRxRCtHT1hmdVd0K2huQisrRnR2TEsrY0VJWk9wRWl4UHB6Yjc1?=
- =?utf-8?B?cGEzTEpTM21ES2hWY2VNWGV0NFNTVXUySTBaNDZBMnMxMkh6eXR0SkkrNmFy?=
- =?utf-8?B?T2FHL2Jhc2Y5UHNkOVJVOWlnRlpPak8vTnRDcUFyNEt1TlY4ZHg1cjFBS1R1?=
- =?utf-8?B?UzdjUGZHMTdiT1VtaXlJSy9oQklnM1RCWGw1ZnBuRUdPQWR4b1ZBTEVEeDF4?=
- =?utf-8?B?TkUrcmd1RkpGK05HSS9BTGtaNFVaSE5OUTIwRXFqQ2FkelRYWXJDSlVTSzlO?=
- =?utf-8?B?eUhLNkExOHd0TzA2OUorZ2IyUUZyWXF0dDNiR1lIaFk2RmM0ZEZ5dzRFcDRn?=
- =?utf-8?B?Mys1Z1poQUkwMWVoYzhuMFlBY3Jnc1IyL2tNZVZNR3lOeTFLYXRTQXQzSWll?=
- =?utf-8?B?RTlCcjNnUWJWekNiQmVWWFBIdTB4WWozUGJKeEc5dkVXNlAybUNiVm9VYUg1?=
- =?utf-8?B?SEY3dXpHanV2ME1uZmNwRkNCZ2xMSnZHTmtDUHJZd1ZhdFdVblMzK2dCMlcv?=
- =?utf-8?B?b0ZjY1Rhc2V0SWp1VVZicGhGenhBZ29QWENpODJNSERHb3JwR2NnUHV2KzlH?=
- =?utf-8?B?bGdmdW0yN2NaQktmZ09DdjlSaUhVNEcyYmo5Z2hXcktRKzVRRXVqVTlUS0ZV?=
- =?utf-8?B?MzFSL2dTTTlwNTk5MEdQbjZzNHFtejVkMmY5MThxb0JhUWlDQVBDNml3dkd0?=
- =?utf-8?B?SDJ3dWQ0VTBUVDhRLy8yekQ4SnJzYjlKZXRUQmFkUXl4dUl0d1A3bE4yL1NW?=
- =?utf-8?Q?n5oa/IgKd8wPhvwdD/8BfMtc4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 729e436c-d24a-45e6-8721-08dd75f3d2e9
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 16:47:03.6415
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MD41jmgC1HCBN19heYLdiokj+8oUxIrRgthP6oekL3X0DXEdVZOWwWvhPC55/lGLe99xCGB7uBX/W2ZLZQDgkQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7029
+Content-Type: multipart/mixed; boundary="8323328-1316811861-1744044419=:936"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_094707_015379_CE69E7F0 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20250407_174721_486170_7343113B 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,315 +123,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joy Zou <joy.zou@nxp.com>
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Add the edma error interrupt handler because it's useful to debug issue.
+--8323328-1316811861-1744044419=:936
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
 
-i.MX8ULP edma has per channel error interrupt.
+On Mon, 7 Apr 2025, Luca Ceresoli wrote:
 
-i.MX91/93/95 and i.MX8QM/QXP/DXL edma share one error interrupt.
+> This is the new API for allocating DRM bridges.
+>=20
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>=20
+> ---
+>=20
+> Cc: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>
+> Cc: "Ilpo J=C3=A4rvinen" <ilpo.jarvinen@linux.intel.com>
+> Cc: Hans de Goede <hdegoede@redhat.com>
+> ---
+>  drivers/platform/arm64/acer-aspire1-ec.c | 7 +++----
+>  1 file changed, 3 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/platform/arm64/acer-aspire1-ec.c b/drivers/platform/=
+arm64/acer-aspire1-ec.c
+> index 958fe1bf5f85bb69ac7962f217de9f0b40cde9a1..438532a047e68799ac53a16a4=
+c813fc16be997b9 100644
+> --- a/drivers/platform/arm64/acer-aspire1-ec.c
+> +++ b/drivers/platform/arm64/acer-aspire1-ec.c
+> @@ -452,9 +452,9 @@ static int aspire_ec_probe(struct i2c_client *client)
+>  =09int ret;
+>  =09u8 tmp;
+> =20
+> -=09ec =3D devm_kzalloc(dev, sizeof(*ec), GFP_KERNEL);
+> -=09if (!ec)
+> -=09=09return -ENOMEM;
+> +=09ec =3D devm_drm_bridge_alloc(dev, struct aspire_ec, bridge, &aspire_e=
+c_bridge_funcs);
+> +=09if (IS_ERR(ec))
+> +=09=09return PTR_ERR(ec);
+> =20
+>  =09ec->client =3D client;
+>  =09i2c_set_clientdata(client, ec);
+> @@ -497,7 +497,6 @@ static int aspire_ec_probe(struct i2c_client *client)
+>  =09fwnode =3D device_get_named_child_node(dev, "connector");
+>  =09if (fwnode) {
+>  =09=09INIT_WORK(&ec->work, aspire_ec_bridge_update_hpd_work);
+> -=09=09ec->bridge.funcs =3D &aspire_ec_bridge_funcs;
+>  =09=09ec->bridge.of_node =3D to_of_node(fwnode);
+>  =09=09ec->bridge.ops =3D DRM_BRIDGE_OP_HPD;
+>  =09=09ec->bridge.type =3D DRM_MODE_CONNECTOR_USB;
 
-Signed-off-by: Joy Zou <joy.zou@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/dma/fsl-edma-common.c |  30 ++++++++---
- drivers/dma/fsl-edma-common.h |  18 +++++++
- drivers/dma/fsl-edma-main.c   | 114 ++++++++++++++++++++++++++++++++++++++++--
- 3 files changed, 149 insertions(+), 13 deletions(-)
+Hi Luca,
 
-diff --git a/drivers/dma/fsl-edma-common.c b/drivers/dma/fsl-edma-common.c
-index 443b2430466cb..4976d7dde0809 100644
---- a/drivers/dma/fsl-edma-common.c
-+++ b/drivers/dma/fsl-edma-common.c
-@@ -95,7 +95,7 @@ static void fsl_edma3_enable_request(struct fsl_edma_chan *fsl_chan)
- 	}
- 
- 	val = edma_readl_chreg(fsl_chan, ch_csr);
--	val |= EDMA_V3_CH_CSR_ERQ;
-+	val |= EDMA_V3_CH_CSR_ERQ | EDMA_V3_CH_CSR_EEI;
- 	edma_writel_chreg(fsl_chan, val, ch_csr);
- }
- 
-@@ -821,7 +821,7 @@ void fsl_edma_issue_pending(struct dma_chan *chan)
- int fsl_edma_alloc_chan_resources(struct dma_chan *chan)
- {
- 	struct fsl_edma_chan *fsl_chan = to_fsl_edma_chan(chan);
--	int ret;
-+	int ret = 0;
- 
- 	if (fsl_edma_drvflags(fsl_chan) & FSL_EDMA_DRV_HAS_CHCLK)
- 		clk_prepare_enable(fsl_chan->clk);
-@@ -831,17 +831,29 @@ int fsl_edma_alloc_chan_resources(struct dma_chan *chan)
- 				sizeof(struct fsl_edma_hw_tcd64) : sizeof(struct fsl_edma_hw_tcd),
- 				32, 0);
- 
--	if (fsl_chan->txirq) {
-+	if (fsl_chan->txirq)
- 		ret = request_irq(fsl_chan->txirq, fsl_chan->irq_handler, IRQF_SHARED,
- 				 fsl_chan->chan_name, fsl_chan);
- 
--		if (ret) {
--			dma_pool_destroy(fsl_chan->tcd_pool);
--			return ret;
--		}
--	}
-+	if (ret)
-+		goto err_txirq;
-+
-+	if (fsl_chan->errirq > 0)
-+		ret = request_irq(fsl_chan->errirq, fsl_chan->errirq_handler, IRQF_SHARED,
-+				  fsl_chan->errirq_name, fsl_chan);
-+
-+	if (ret)
-+		goto err_errirq;
- 
- 	return 0;
-+
-+err_errirq:
-+	if (fsl_chan->txirq)
-+		free_irq(fsl_chan->txirq, fsl_chan);
-+err_txirq:
-+	dma_pool_destroy(fsl_chan->tcd_pool);
-+
-+	return ret;
- }
- 
- void fsl_edma_free_chan_resources(struct dma_chan *chan)
-@@ -862,6 +874,8 @@ void fsl_edma_free_chan_resources(struct dma_chan *chan)
- 
- 	if (fsl_chan->txirq)
- 		free_irq(fsl_chan->txirq, fsl_chan);
-+	if (fsl_chan->errirq)
-+		free_irq(fsl_chan->errirq, fsl_chan);
- 
- 	vchan_dma_desc_free_list(&fsl_chan->vchan, &head);
- 	dma_pool_destroy(fsl_chan->tcd_pool);
-diff --git a/drivers/dma/fsl-edma-common.h b/drivers/dma/fsl-edma-common.h
-index 10a5565ddfd76..205a964890948 100644
---- a/drivers/dma/fsl-edma-common.h
-+++ b/drivers/dma/fsl-edma-common.h
-@@ -71,6 +71,18 @@
- #define EDMA_V3_CH_ES_ERR          BIT(31)
- #define EDMA_V3_MP_ES_VLD          BIT(31)
- 
-+#define EDMA_V3_CH_ERR_DBE	BIT(0)
-+#define EDMA_V3_CH_ERR_SBE	BIT(1)
-+#define EDMA_V3_CH_ERR_SGE	BIT(2)
-+#define EDMA_V3_CH_ERR_NCE	BIT(3)
-+#define EDMA_V3_CH_ERR_DOE	BIT(4)
-+#define EDMA_V3_CH_ERR_DAE	BIT(5)
-+#define EDMA_V3_CH_ERR_SOE	BIT(6)
-+#define EDMA_V3_CH_ERR_SAE	BIT(7)
-+#define EDMA_V3_CH_ERR_ECX	BIT(8)
-+#define EDMA_V3_CH_ERR_UCE	BIT(9)
-+#define EDMA_V3_CH_ERR		BIT(31)
-+
- enum fsl_edma_pm_state {
- 	RUNNING = 0,
- 	SUSPENDED,
-@@ -162,6 +174,7 @@ struct fsl_edma_chan {
- 	u32				dma_dev_size;
- 	enum dma_data_direction		dma_dir;
- 	char				chan_name[32];
-+	char				errirq_name[36];
- 	void __iomem			*tcd;
- 	void __iomem			*mux_addr;
- 	u32				real_count;
-@@ -174,7 +187,9 @@ struct fsl_edma_chan {
- 	int                             priority;
- 	int				hw_chanid;
- 	int				txirq;
-+	int				errirq;
- 	irqreturn_t			(*irq_handler)(int irq, void *dev_id);
-+	irqreturn_t			(*errirq_handler)(int irq, void *dev_id);
- 	bool				is_rxchan;
- 	bool				is_remote;
- 	bool				is_multi_fifo;
-@@ -208,6 +223,9 @@ struct fsl_edma_desc {
- /* Need clean CHn_CSR DONE before enable TCD's MAJORELINK */
- #define FSL_EDMA_DRV_CLEAR_DONE_E_LINK	BIT(14)
- #define FSL_EDMA_DRV_TCD64		BIT(15)
-+/* All channel ERR IRQ share one IRQ line */
-+#define FSL_EDMA_DRV_ERRIRQ_SHARE       BIT(16)
-+
- 
- #define FSL_EDMA_DRV_EDMA3	(FSL_EDMA_DRV_SPLIT_REG |	\
- 				 FSL_EDMA_DRV_BUS_8BYTE |	\
-diff --git a/drivers/dma/fsl-edma-main.c b/drivers/dma/fsl-edma-main.c
-index 756d67325db52..32a52a6acd60b 100644
---- a/drivers/dma/fsl-edma-main.c
-+++ b/drivers/dma/fsl-edma-main.c
-@@ -50,6 +50,83 @@ static irqreturn_t fsl_edma_tx_handler(int irq, void *dev_id)
- 	return IRQ_HANDLED;
- }
- 
-+static void fsl_edma3_err_check(struct fsl_edma_chan *fsl_chan)
-+{
-+	unsigned int ch_err;
-+	u32 val;
-+
-+	scoped_guard(spinlock, &fsl_chan->vchan.lock) {
-+		ch_err = edma_readl_chreg(fsl_chan, ch_es);
-+		if (!(ch_err & EDMA_V3_CH_ERR))
-+			return;
-+
-+		edma_writel_chreg(fsl_chan, EDMA_V3_CH_ERR, ch_es);
-+		val = edma_readl_chreg(fsl_chan, ch_csr);
-+		val &= ~EDMA_V3_CH_CSR_ERQ;
-+		edma_writel_chreg(fsl_chan, val, ch_csr);
-+	}
-+
-+	/* Ignore this interrupt since channel has been disabled already */
-+	if (!fsl_chan->edesc)
-+		return;
-+
-+	if (ch_err & EDMA_V3_CH_ERR_DBE)
-+		dev_err(&fsl_chan->pdev->dev, "Destination Bus Error interrupt.\n");
-+
-+	if (ch_err & EDMA_V3_CH_ERR_SBE)
-+		dev_err(&fsl_chan->pdev->dev, "Source Bus Error interrupt.\n");
-+
-+	if (ch_err & EDMA_V3_CH_ERR_SGE)
-+		dev_err(&fsl_chan->pdev->dev, "Scatter/Gather Configuration Error interrupt.\n");
-+
-+	if (ch_err & EDMA_V3_CH_ERR_NCE)
-+		dev_err(&fsl_chan->pdev->dev, "NBYTES/CITER Configuration Error interrupt.\n");
-+
-+	if (ch_err & EDMA_V3_CH_ERR_DOE)
-+		dev_err(&fsl_chan->pdev->dev, "Destination Offset Error interrupt.\n");
-+
-+	if (ch_err & EDMA_V3_CH_ERR_DAE)
-+		dev_err(&fsl_chan->pdev->dev, "Destination Address Error interrupt.\n");
-+
-+	if (ch_err & EDMA_V3_CH_ERR_SOE)
-+		dev_err(&fsl_chan->pdev->dev, "Source Offset Error interrupt.\n");
-+
-+	if (ch_err & EDMA_V3_CH_ERR_SAE)
-+		dev_err(&fsl_chan->pdev->dev, "Source Address Error interrupt.\n");
-+
-+	if (ch_err & EDMA_V3_CH_ERR_ECX)
-+		dev_err(&fsl_chan->pdev->dev, "Transfer Canceled interrupt.\n");
-+
-+	if (ch_err & EDMA_V3_CH_ERR_UCE)
-+		dev_err(&fsl_chan->pdev->dev, "Uncorrectable TCD error during channel execution interrupt.\n");
-+
-+	fsl_chan->status = DMA_ERROR;
-+}
-+
-+static irqreturn_t fsl_edma3_err_handler_per_chan(int irq, void *dev_id)
-+{
-+	struct fsl_edma_chan *fsl_chan = dev_id;
-+
-+	fsl_edma3_err_check(fsl_chan);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static irqreturn_t fsl_edma3_err_handler_shared(int irq, void *dev_id)
-+{
-+	struct fsl_edma_engine *fsl_edma = dev_id;
-+	unsigned int ch;
-+
-+	for (ch = 0; ch < fsl_edma->n_chans; ch++) {
-+		if (fsl_edma->chan_masked & BIT(ch))
-+			continue;
-+
-+		fsl_edma3_err_check(&fsl_edma->chans[ch]);
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
- static irqreturn_t fsl_edma3_tx_handler(int irq, void *dev_id)
- {
- 	struct fsl_edma_chan *fsl_chan = dev_id;
-@@ -309,7 +386,8 @@ fsl_edma_irq_init(struct platform_device *pdev, struct fsl_edma_engine *fsl_edma
- 
- static int fsl_edma3_irq_init(struct platform_device *pdev, struct fsl_edma_engine *fsl_edma)
- {
--	int i;
-+	char *errirq_name;
-+	int i, ret;
- 
- 	for (i = 0; i < fsl_edma->n_chans; i++) {
- 
-@@ -324,6 +402,27 @@ static int fsl_edma3_irq_init(struct platform_device *pdev, struct fsl_edma_engi
- 			return  -EINVAL;
- 
- 		fsl_chan->irq_handler = fsl_edma3_tx_handler;
-+
-+		if (!(fsl_edma->drvdata->flags & FSL_EDMA_DRV_ERRIRQ_SHARE)) {
-+			fsl_chan->errirq = fsl_chan->txirq;
-+			fsl_chan->errirq_handler = fsl_edma3_err_handler_per_chan;
-+		}
-+	}
-+
-+	/* All channel err use one irq number */
-+	if (fsl_edma->drvdata->flags & FSL_EDMA_DRV_ERRIRQ_SHARE) {
-+		/* last one is error irq */
-+		fsl_edma->errirq = platform_get_irq_optional(pdev, fsl_edma->n_chans);
-+		if (fsl_edma->errirq < 0)
-+			return 0; /* dts miss err irq, treat as no err irq case */
-+
-+		errirq_name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%s-err",
-+					     dev_name(&pdev->dev));
-+
-+		ret = devm_request_irq(&pdev->dev, fsl_edma->errirq, fsl_edma3_err_handler_shared,
-+				       0, errirq_name, fsl_edma);
-+		if (ret)
-+			return dev_err_probe(&pdev->dev, ret, "Can't register eDMA err IRQ.\n");
- 	}
- 
- 	return 0;
-@@ -464,7 +563,8 @@ static struct fsl_edma_drvdata imx7ulp_data = {
- };
- 
- static struct fsl_edma_drvdata imx8qm_data = {
--	.flags = FSL_EDMA_DRV_HAS_PD | FSL_EDMA_DRV_EDMA3 | FSL_EDMA_DRV_MEM_REMOTE,
-+	.flags = FSL_EDMA_DRV_HAS_PD | FSL_EDMA_DRV_EDMA3 | FSL_EDMA_DRV_MEM_REMOTE
-+		 | FSL_EDMA_DRV_ERRIRQ_SHARE,
- 	.chreg_space_sz = 0x10000,
- 	.chreg_off = 0x10000,
- 	.setup_irq = fsl_edma3_irq_init,
-@@ -481,14 +581,15 @@ static struct fsl_edma_drvdata imx8ulp_data = {
- };
- 
- static struct fsl_edma_drvdata imx93_data3 = {
--	.flags = FSL_EDMA_DRV_HAS_DMACLK | FSL_EDMA_DRV_EDMA3,
-+	.flags = FSL_EDMA_DRV_HAS_DMACLK | FSL_EDMA_DRV_EDMA3 | FSL_EDMA_DRV_ERRIRQ_SHARE,
- 	.chreg_space_sz = 0x10000,
- 	.chreg_off = 0x10000,
- 	.setup_irq = fsl_edma3_irq_init,
- };
- 
- static struct fsl_edma_drvdata imx93_data4 = {
--	.flags = FSL_EDMA_DRV_HAS_CHMUX | FSL_EDMA_DRV_HAS_DMACLK | FSL_EDMA_DRV_EDMA4,
-+	.flags = FSL_EDMA_DRV_HAS_CHMUX | FSL_EDMA_DRV_HAS_DMACLK | FSL_EDMA_DRV_EDMA4
-+		 | FSL_EDMA_DRV_ERRIRQ_SHARE,
- 	.chreg_space_sz = 0x8000,
- 	.chreg_off = 0x10000,
- 	.mux_off = 0x10000 + offsetof(struct fsl_edma3_ch_reg, ch_mux),
-@@ -498,7 +599,7 @@ static struct fsl_edma_drvdata imx93_data4 = {
- 
- static struct fsl_edma_drvdata imx95_data5 = {
- 	.flags = FSL_EDMA_DRV_HAS_CHMUX | FSL_EDMA_DRV_HAS_DMACLK | FSL_EDMA_DRV_EDMA4 |
--		 FSL_EDMA_DRV_TCD64,
-+		 FSL_EDMA_DRV_TCD64 | FSL_EDMA_DRV_ERRIRQ_SHARE,
- 	.chreg_space_sz = 0x8000,
- 	.chreg_off = 0x10000,
- 	.mux_off = 0x200,
-@@ -700,6 +801,9 @@ static int fsl_edma_probe(struct platform_device *pdev)
- 		snprintf(fsl_chan->chan_name, sizeof(fsl_chan->chan_name), "%s-CH%02d",
- 							   dev_name(&pdev->dev), i);
- 
-+		snprintf(fsl_chan->errirq_name, sizeof(fsl_chan->errirq_name),
-+			 "%s-CH%02d-err", dev_name(&pdev->dev), i);
-+
- 		fsl_chan->edma = fsl_edma;
- 		fsl_chan->pm_state = RUNNING;
- 		fsl_chan->srcid = 0;
+It took a while to locate where the code for the new helper is. I suggest=
+=20
+if you need send another version of the series directly linking to the=20
+commit in the cover letter so that it won't take multiple hoops to find it=
+=20
+if one wants to review the code and is not having all drm trees easily at=
+=20
+hand. Here it is for the benefit of other pdx86 people:
 
--- 
-2.34.1
+https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/0cc6aadd7fc1e629b71=
+5ea3d1ba537ef2da95eec
 
+
+Acked-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
+
+I assume you want this to go through the drm tree where the helper already=
+=20
+is?
+
+--=20
+ i.
+
+--8323328-1316811861-1744044419=:936--
 
