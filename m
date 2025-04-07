@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD62C369A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399C5C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xXXoLwvzZrukEdlx3X/HwLUc1KrRLOBJumxqoeXr2k=; b=Bjf3lnSce0XFc+eWHqc/a352Ub
-	9sPuxFMWVkNVfi2v25OkYn6/7Eu1fSYTvKOMEqhhsOOLAO11nYBoalZICpCUxIi67546XtiuEil0C
-	/jkqkFwPvzs9yeGWZXmgdkd3RVsGRlJ+jMA8N6qw54jcLPR5jrAP5LuAZjpA6U7Ykmh4wqA2VarN3
-	Pp6qPHcx+PGRlGwV3w3ZXYDa7o88fhzRtp8Tcodfb6V1fEhZ0bUOmgvj0VhC/glx2JBIq/5V4t6k0
-	LuGy4rEd0/5OO06oM66hBWemSYU5ZkH2hVwZdMsOJdPi1muLVejX1N8Iyk754bFozplmtuAhpRQyi
-	A0t1LYuw==;
+	bh=YlS9SNfRqEBGJwWaFAFEV0VEKXfqmIqqn9u3rCmOfpU=; b=3Z/F+s1NkGpGboFXkzCDLZa0PQ
+	4ur/jj/ONrxO7q4SYRmjGaGJ8sAkobTXfeEMlOdxx8czbIXtlyhENcVewpmkiAL0fpAh8MaHvFawZ
+	TAXMyZnOZu44KLtIVEGMXXYiTo3t3oQlHl+tw+SpO0iLvJ6kixSQDTvJzygJ8VbbUVX6pbAPPmxTa
+	kVpDjyf/2VtLw7RPYdJIoC43yuT9AOQQhI0utPfmr9CYiVtK/fpXU2V5wyy8/Rro3dzexbLC66SlT
+	ZfLqn8bYz46F8GZyB3MCJs/z02VwlwY2oHdE+/cwJI3yGXNDK1S082vRTKJ+VbcDGkogZQ14gfg3D
+	bHFv8W8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1r1V-00000001VHN-2ySP;
-	Mon, 07 Apr 2025 18:16:41 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1u1r1Y-00000001VMb-2Uya;
+	Mon, 07 Apr 2025 18:16:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1omN-000000011YW-2rCy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 15:52:56 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-4769e30af66so758751cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 08:52:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744041174; x=1744645974; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6xXXoLwvzZrukEdlx3X/HwLUc1KrRLOBJumxqoeXr2k=;
-        b=YN7AgOIxBmiWc/IPJSyYImFJUTpSktpbFhaE/JPYOQosOWAK+4Gm3TvfQ2q6H4xgU2
-         o6zUcQGbDd5G5cTT5cDxNZnDYMan8o/mQQ/2n563jNxKR6a41ZvvV5hk42SPvwDaB/rB
-         +SLfATOB0Qt8Ml4zNUyAUnYm3JirwKDle6ZdhZah4O351fwIIWdDrQBvyGJsb+36VGAt
-         iGVD6yGj1bY97XTX94/aOAixJbHzceK80FhvcNmJIGfOeAiTcpgT5dK3RlFTuZrDbEQp
-         yOTZYccCTH9eFMeDtDZOT2gO9yYGfRDP0qNOVcN2QAFJQmKC+APuACvMMJOhHL06tKYV
-         vQXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744041174; x=1744645974;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6xXXoLwvzZrukEdlx3X/HwLUc1KrRLOBJumxqoeXr2k=;
-        b=Iicl9J2sX0aLT5YwiRnLrSz3DPILb+3svy+cplcLIQt4dVy9sjTCEmqmlL0sW70244
-         tmXGZMNAuAqPVIcHDGnL+Pc0eds9+GafLzWDRg2EzS4qtj8T1Zw8oUFG5vGS5ws3ztd6
-         ephD0UeJLm1Gyogn8TwQ+zbrzQgR96bige5YKpL/6pw2crBuu9ZwC1NVi+GO6e1Jvvgc
-         F+2W6uhCVZf4hnnJOwa4PyOol6pZK14ciJjKc7FPg9v04CNRKU1DHDvpgUkDUIB23Mnz
-         +X6cGu6NMsDORmKehZLhRFG7QuZ4JrvWcj4wR2SkrYAWspjLAHwWJ2eH78lElmbXdLoz
-         NndA==
-X-Forwarded-Encrypted: i=1; AJvYcCVD8wgkm2jHe+rZY/TsPkAUjiwP9xYU9CXvaatvEr5zvqH9iG2Kv409DRNaF7rmQxb16xUInP4Dm31+SYMCLs0O@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy72RXxWVMXFLnSBqodsf7I1/7a234S0jskGmul3X0hysOD4ym7
-	MFfhc9LYazaL4D2aVmjsw8ViErqZFZHh3CAvJbP7wGRfETKL+nD8goHFQQ/ANVvOZfwzrUJBlAn
-	Ou5De5dB0aY3BsxgZip70lpqJKn9w9qS19Yz+
-X-Gm-Gg: ASbGncv8aHbKJ2EV/6EZ0Wjb4/Fpo0ntNdt8vG+xRqa6DmDbyUFO4Z9Tm2w5bcPkfFk
-	Iiv273EpuvhttAvVQ914skQujsEjIdh2iMSVxXbbIX6W9sUikXF69KEHadzyZjQ8dWqOhxxB3ij
-	qe7NZbGn4BLDpgaN4f/UGnWJA=
-X-Google-Smtp-Source: AGHT+IFIBgZaC437wC6LFI2WkYOyO3PJh+Hp0KwQwHgd7KVbv0KJT81vcrxyQeuTbHfu7nS8KoS+po1riLdnTGeL6ck=
-X-Received: by 2002:a05:622a:110c:b0:477:1f57:38a8 with SMTP id
- d75a77b69052e-47953704448mr313851cf.8.1744041173528; Mon, 07 Apr 2025
- 08:52:53 -0700 (PDT)
+	id 1u1oqB-000000011zG-14r3;
+	Mon, 07 Apr 2025 15:56:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 31AC06115E;
+	Mon,  7 Apr 2025 15:56:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55AEEC4CEE7;
+	Mon,  7 Apr 2025 15:56:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744041410;
+	bh=lB60eOJuf5tOWXfPKUzsxGfJef4dFGup2NjoNJe7wnM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Uh5uiJLM2GbJZh2empkgAoW7OP6kChL6dFWFY7ekUSlkXXjH/HNgLOaHvwXV+Y2vz
+	 ZQ0WYyMFRITXJeVajWbn8NQrleMF6L2lu6svbF6TujpSvc8Xv2GSsmSN4hDJ1eYZzB
+	 l8pLiPOZL5dLdRjxw8kb9JuL8mzyiwr3tX86QnCDuGo4L7PsbOKlIJSMylX4EPIt6V
+	 7Q2ipTIQJxrwPp/Kc5herELmX9RlDXBEq2ammPU+n4F+g9bwSELzteAJBDCh369ZHn
+	 nOFnK27gpbD4/1VNl0UOqVYUt0iRJpEJWU0FUiJI3j74luu1G0LAndJH5oa7JZUoAR
+	 NrEpQ1ePUmF6Q==
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-abbd96bef64so874550866b.3;
+        Mon, 07 Apr 2025 08:56:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVlCRNa6yjp1BaWZfF0x4xCkpoWv5GZlWVZZkyoZkq+dr5dZNAQnmHyYwEI6RTdpvEz3Cwz8vS7IUJF6kJFpPMD@lists.infradead.org, AJvYcCX4n/xe2HyGTYbJAytf06YJ4s8zl6u59bLSm5ArnVIybaAMY5wTkibQDPUWP2jCAWc2ptHy8GSHlZxUjHAqoX0=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4xVch6MuQAI+Z+GgEf6AZpCU/PJlepK6lQVZgQw7MU2wM34HM
+	M9G5Am7tbQ804KsBVg1LgcwU0HQbSfFDfk3J+FVwZCCrYcA8MEn4IOqj/sQIgYoCbMVKXpjNs3/
+	LIN+XXID64GMiqJ5KIx6Yp/NdfA==
+X-Google-Smtp-Source: AGHT+IEwypuQHtewe7oLHDK0Lin7VVDrmqaMnF/yfoZXK0Vm9Z2Mu4r1UfY0Dvl+rcyWlqG0RDs93c4ecVbGJ/eFp/s=
+X-Received: by 2002:a17:907:7e88:b0:ac6:bf3d:bf45 with SMTP id
+ a640c23a62f3a-ac7d19671efmr1333301966b.36.1744041408915; Mon, 07 Apr 2025
+ 08:56:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250228182928.2645936-1-fvdl@google.com> <20250228182928.2645936-3-fvdl@google.com>
- <CAMuHMdVWviQ7O9yBFE3f=ev0eVb1CnsQvR6SKtEROBbM6z7g3w@mail.gmail.com>
-In-Reply-To: <CAMuHMdVWviQ7O9yBFE3f=ev0eVb1CnsQvR6SKtEROBbM6z7g3w@mail.gmail.com>
-From: Frank van der Linden <fvdl@google.com>
-Date: Mon, 7 Apr 2025 08:52:41 -0700
-X-Gm-Features: ATxdqUF9nwle-L2yhrR-TnrIw4GPykG22raNMPvcz2hBIWJJmX1JDxamArUc2zI
-Message-ID: <CAPTztWaAmG2L7L7x0boGG2aCNosJ8GHU=GiAQP-2nuP3k2650A@mail.gmail.com>
-Subject: Re: [PATCH v5 02/27] mm, cma: support multiple contiguous ranges, if requested
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: akpm@linux-foundation.org, muchun.song@linux.dev, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, yuzhao@google.com, usamaarif642@gmail.com, 
-	joao.m.martins@oracle.com, roman.gushchin@linux.dev, ziy@nvidia.com, 
-	david@redhat.com, Arnd Bergmann <arnd@arndb.de>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>
+References: <5552256.Sb9uPGUboI@phil>
+In-Reply-To: <5552256.Sb9uPGUboI@phil>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 7 Apr 2025 10:56:37 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJo+9ycUFHVZ2Darh_RWaRuJGX6KKQGsbeuDWav7vKA2g@mail.gmail.com>
+X-Gm-Features: ATxdqUFJPngLMLFKdy7L4W0Pm0-UEMG8nDV-9UTClAhrHanA2WHbpGaiUSuF7Mg
+Message-ID: <CAL_JsqJo+9ycUFHVZ2Darh_RWaRuJGX6KKQGsbeuDWav7vKA2g@mail.gmail.com>
+Subject: Re: [GIT PULL] Rockchip dts64 changes for 6.15 #3
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: arm@kernel.org, soc@kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_085255_716649_57AA03A8 
-X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,49 +79,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 7, 2025 at 4:50=E2=80=AFAM Geert Uytterhoeven <geert@linux-m68k=
-.org> wrote:
+On Wed, Mar 19, 2025 at 6:56=E2=80=AFPM Heiko Stuebner <heiko@sntech.de> wr=
+ote:
 >
-> Thanks for your patch, which is now commit c009da4258f9885c
-> ("mm, cma: support multiple contiguous ranges, if requested")
-> in v6.15-rc1.
+> Hi soc maintainers,
 >
-> After this patch, the printed base address becomes zero on several
-> Renesas arm32/arm64 platforms:
->
->   - Koelsch (R-Car M2-W):
->
->       -cma: Reserved 64 MiB at 0x7c000000 on node -1
->       +cma: Reserved 64 MiB at 0x00000000
->
->    - Salvator-XS (R-Car H3 ES2.0):
->
->       -cma: Reserved 128 MiB at 0x0000000078000000 on node -1
->       +cma: Reserved 128 MiB at 0x0000000000000000
->
->   - Gray Hawk Single (R-Car V4H):
->
->       -cma: Reserved 128 MiB at 0x00000000b8000000 on node -1
->       +cma: Reserved 128 MiB at 0x0000000000000000
->
-> None of these have actual RAM at address zero.  As I haven't noticed
-> any other impact on system operation, I do not know if this is purely
-> a cosmetic issue, or if it can cause real problems.
->
-> Thanks!
->
-> Gr{oetje,eeting}s,
->
->                         Geert
+> I made an error and accidentially applied a patch that was meant for
+> the mfd tree. Thankfully Stephen noticed that when the duplicate
+> commit appeared in linux-next.
 
-Hi Geert,
+Both commits are in v6.15-rc1 now and the revert is not, so this
+should not get applied/pulled. Or you will need to revert the revert.
 
-Thanks for the report! This is just a reporting issue with my change,
-it's working fine otherwise. I refactored the code slightly, and the
-!fixed && !multi case will now report base 0, because it doesn't 'see'
-the actual allocated base. Let me send a follow-up patch.
+Rob
 
-Thanks again,
-
-- Frank
+>
+>
+> Please pull.
+> Thanks
+> Heiko
+>
+>
+> The following changes since commit 73d246b4402c3356f6b3d13665de3a51eea7b5=
+55:
+>
+>   arm64: dts: rockchip: remove ethm0_clk0_25m_out from Sige5 gmac0 (2025-=
+03-15 15:49:00 +0100)
+>
+> are available in the Git repository at:
+>
+>   git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git =
+tags/v6.15-rockchip-dts64-3
+>
+> for you to fetch changes up to cee24bc73d4f3f47344a1a54100a69c72f1db061:
+>
+>   Revert "dt-bindings: mfd: syscon: Add rk3528 QoS register compatible" (=
+2025-03-19 00:22:18 +0100)
+>
+> ----------------------------------------------------------------
+> Revert of one commit that was applied accidentially and should instead
+> go through the MFD tree. It is already part of that tree as
+> commit 7f3e3e7228bb ("dt-bindings: mfd: syscon: Add rk3528 QoS register
+> compatible").
+>
+> ----------------------------------------------------------------
+> Heiko Stuebner (1):
+>       Revert "dt-bindings: mfd: syscon: Add rk3528 QoS register compatibl=
+e"
+>
+>  Documentation/devicetree/bindings/mfd/syscon.yaml | 2 --
+>  1 file changed, 2 deletions(-)
+>
+>
+>
+>
 
