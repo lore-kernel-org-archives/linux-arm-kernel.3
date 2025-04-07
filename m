@@ -4,74 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01A2C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C4FC36018
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=wkTAESEKeKUtdyXTDTV8eheg+YrwZqve/99BaU7jXd0=; b=CNypLqO3wvBLq5GJhD5j319Vpm
-	M9MMvj3R9RC8qneN9CcUeJOWZU1TyWQ21gULZ/m5QxSm5k05ZA1KpJlv7LUrKBv7KH9eO1aG//gCb
-	E1pPW6/wDlCWBZZrjFHLxaBljmNtKOWLfM/4WzHDmLKYXS9Hud+fe7m8rDZosD9RO8QwGiR6CX0lX
-	8qD7MYer2shJx8gV9hkdRMMN4fg8k7pSy9n4sVNBbic9CyH88vmlWasKZPMyrUE2WedKbOJMfBgnP
-	wncZ6EmZgD6boeIqzBJ58WibpLCgH1KjMqkc/tXMPBvyf9jMLYv+JXHRUyWb+XbO4MsQfqa0aY7zG
-	3DlveK+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jUuYsrCNZuom26Ku72dSBPeeyC8punlJl9ufLVLiqm4=; b=RiVnD/hp6yBu8P/CdnqyArpooV
+	lYEApPgVXlB2LWuwbXrCjLME1aQCF0Z33sao+Epn0y+0KTHmTTYkjG1TpFR666FUxNNpCNdzG7feu
+	D1O3Niyp5lTjVgFAM6Sv/bfK4hdMEiBMYaBza46Gm5vgGdeVcle4kdPTPFxUuWxb4divRadelwSJ1
+	BRCwOfz41rOWrziPmZV/3kWckROZZ2zimpn9IQqyK2Iu5orrlpE/HnibiGQGY5XFVtJR5zmsvb6JX
+	O8Awnq6bChtl39fo9zG7KZHLFokVOrHFl8MCIrdzHf7XWu7MbxOX5cnYvqiHfhlaf2nrv1EnEdePn
+	iJ9b0xKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rZy-00000001frs-0fyd;
-	Mon, 07 Apr 2025 18:52:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u1ra4-00000001g2s-2cBn;
+	Mon, 07 Apr 2025 18:52:24 +0000
+Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1qoy-00000001Siq-0WrI;
-	Mon, 07 Apr 2025 18:03:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 066DB61164;
-	Mon,  7 Apr 2025 18:03:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0CDAC4CEDD;
-	Mon,  7 Apr 2025 18:03:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744049023;
-	bh=YHIy5Y1koKmkECfrSnEDyoWYCat4HjXEskfIpv3fwuc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=RttCvuN6FYjIuyMSpBvHJlb4NGyWZ/3GBZXejCnlcffyyRb6qBm7entEeT5evaQPe
-	 LF0Y0672+3ZAnwDw6WTDneKn3v8souc6WjSgylaiDpxYunKnwcZj2aCfx1rd5invPL
-	 tBhB17TFw4gFjshVKtaDfsnXWzrIe8GsvSp0EKT1tgW4qdDsoptaI4oabflYTQKqah
-	 0S0QDF0bxdh3qiwItJEEY2RlOOnJ8Yd1d4s+7BKH0GEopNDPQU+7M4phafo7qggkpP
-	 qmvHquthg0WYzrN/WkyrxyW/lHo+3k6cCJK2Ffia4l+TYXQIuehc971AnL7F8FZX1I
-	 x1p5l2w16/ZBw==
-Date: Mon, 7 Apr 2025 13:03:41 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
-Cc: tglx@linutronix.de, maz@kernel.org, linux-kernel@vger.kernel.org,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
-	Toan Le <toan@os.amperecomputing.com>,
-	Joyce Ooi <joyce.ooi@intel.com>, Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 07/57] irqdomain: pci: Switch to of_fwnode_handle()
-Message-ID: <20250407180341.GA189772@bhelgaas>
+	id 1u1qtM-00000001TIu-3GC8
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 18:08:18 +0000
+Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-52413efd0d3so1999230e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 11:08:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744049295; x=1744654095; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jUuYsrCNZuom26Ku72dSBPeeyC8punlJl9ufLVLiqm4=;
+        b=f+tc9fktgV94Hv5FOZ/GVgeVJ8M0YFzppBcv49zp9T4LPhPHmhSJGPRE5OM8p2o6kW
+         VN+9igLXpZwq2gzU0cN25OwOhE+yw20eG4hcPU6vExfExAeoK++4Pk1SEs4kOurrg+RH
+         imQQ5Z7MQsQqV7dloSV+y7LMkq+QuhPpIOlfBKsm6SJzeLU+3AGEBz7lD1OsjDG7RJ+9
+         cAatjrbl/Bo5xF2IN+qI9SasHJ+vD4qb3zC51CZcbUL6aBw6FSB9HxOFllXSAtXGKN4B
+         50g7L3Sx/w2tasC0dLQmiCn3RhgGDaW4lCVfH+FJrzputVMlhfQToa66MOUZwDahRl7/
+         zKqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744049295; x=1744654095;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jUuYsrCNZuom26Ku72dSBPeeyC8punlJl9ufLVLiqm4=;
+        b=UVEZMaUZAhCS1yIdzIUdkJcd+1SxKf42OhH1nlxqEZxZxKjm5rhyqKZvNqOOjzi9xl
+         /A9c3JnFCuat98oiZfySrWYEbln7W4JgdA8BEKHDrdML0NJCnVrlR59yrThdCRhDOcyL
+         c0geo3antoSbS4+V6skZaGE7Ocw7E3RJSB48Lo4SLQ2bHzX/awqvoWf3GoI/rjdgVLo3
+         Ciuseyukk1uimzNvKIrxVL4mAozMHdzZqqIXMgLBCxuERq/+jND/5hyZkuWBOcO+r/Cc
+         fJWIP2vcoNII4bVwEgEOKyEVkSmMORK8lDCd8T/FrBodG0zWh4jN9OqI0Y9RJnI7VlwT
+         QViA==
+X-Forwarded-Encrypted: i=1; AJvYcCXP03tZ911Wxd+kiIZEp/igkOsNpKPCPFqiUsqCVceWcNUrqEMiD38lqf9bSF02/dwrv8DUVp7Jy06FrhETG0QW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4ZFGIF1ZW17sdzvrO03SSpUGlpp0byWGQDseXoNvaXlYh4OmY
+	BTVes2huwVXP3ED1pLIdk0Xg5cThBi/kWCdKPLQI6InEJzMGZiXRb+iJISkXBWFXyyuNHQbXbHa
+	aBGoVdirVnysrGzAfhmNPcCK31LM=
+X-Gm-Gg: ASbGncvU3Cmyw8gQO1n8OO8krv2dI9UW3ml0Zk3tgcg4CG33VKOGeIlpur200VBb7Bo
+	Ejijpjyw7JPr1XiGB43u3WU83/RTC5YHhfC/p2Z8oKlXvm2HauiOxkVGOgnzKpR39xU2iVpIb9F
+	nufPl/t4bUQdWxO90u60TNXMp0L0GQMNRLsLmSk1QNMdSYuXr5pepmnA/sZw8=
+X-Google-Smtp-Source: AGHT+IEN6rDHodvyUoowo8BFuQsI+M3qkHprXMun6ue2nFvUns/xZBc98c1/xylp9Sz4+dM00gUNYRdzmCwmGkE0JHw=
+X-Received: by 2002:a05:6122:16a6:b0:526:1ddd:8953 with SMTP id
+ 71dfb90a1353d-527642e498emr8513099e0c.0.1744049295202; Mon, 07 Apr 2025
+ 11:08:15 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250319092951.37667-8-jirislaby@kernel.org>
+References: <20250407120317.127056-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250407120317.127056-4-prabhakar.mahadev-lad.rj@bp.renesas.com> <Z_QSHpvSK7I--xPq@shell.armlinux.org.uk>
+In-Reply-To: <Z_QSHpvSK7I--xPq@shell.armlinux.org.uk>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Mon, 7 Apr 2025 19:07:49 +0100
+X-Gm-Features: ATxdqUGJm_OgZHRFfu9Amyd2UVOtmAsyuknbI3Y7Xd-HEEICL3GbzjhydkDONtY
+Message-ID: <CA+V-a8vgavmN7c9KYjc-3tm-9GC1_aVUkF-dF=Ws9axTBmSa5g@mail.gmail.com>
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add DWMAC glue layer for
+ Renesas GBETH
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250407_110816_813618_FECEBAAE 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,183 +107,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 10:29:00AM +0100, Jiri Slaby (SUSE) wrote:
-> of_node_to_fwnode() is irqdomain's reimplementation of the "officially"
-> defined of_fwnode_handle(). The former is in the process of being
-> removed, so use the latter instead.
-> 
-> Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
-> Cc: Jingoo Han <jingoohan1@gmail.com>
-> Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: "Krzysztof Wilczyński" <kw@linux.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>
-> Cc: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
-> Cc: Toan Le <toan@os.amperecomputing.com>
-> Cc: Joyce Ooi <joyce.ooi@intel.com>
-> Cc: Jim Quinlan <jim2101024@gmail.com>
-> Cc: Nicolas Saenz Julienne <nsaenz@kernel.org>
-> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-> Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-> Cc: Ray Jui <rjui@broadcom.com>
-> Cc: Scott Branden <sbranden@broadcom.com>
-> Cc: Ryder Lee <ryder.lee@mediatek.com>
-> Cc: Jianjun Wang <jianjun.wang@mediatek.com>
-> Cc: Michal Simek <michal.simek@amd.com>
-> Cc: Daire McNamara <daire.mcnamara@microchip.com>
-> Cc: linux-pci@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-rpi-kernel@lists.infradead.org
-> Cc: linux-mediatek@lists.infradead.org
+On Mon, Apr 7, 2025 at 6:58=E2=80=AFPM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+>
+> On Mon, Apr 07, 2025 at 01:03:17PM +0100, Prabhakar wrote:
+> > +static struct clk *renesas_gbeth_find_clk(struct plat_stmmacenet_data =
+*plat_dat,
+> > +                                       const char *name)
+> > +{
+> > +     for (unsigned int i =3D 0; i < plat_dat->num_clks; i++)
+> > +             if (!strcmp(plat_dat->clks[i].id, name))
+> > +                     return plat_dat->clks[i].clk;
+> > +
+> > +     return NULL;
+> > +}
+>
+> In addition to Jakub's request, I'll ask that you hold off for a week
+> because I have the following that I'd like to submit:
+>
+Ack, please add me in Cc while you post this patch.
 
-Applied to pci/irq for v6.16, thanks!
+Cheers,
+Prabhakar
 
-> ---
->  drivers/pci/controller/dwc/pcie-designware-host.c    | 2 +-
->  drivers/pci/controller/mobiveil/pcie-mobiveil-host.c | 2 +-
->  drivers/pci/controller/pci-xgene-msi.c               | 2 +-
->  drivers/pci/controller/pcie-altera-msi.c             | 2 +-
->  drivers/pci/controller/pcie-brcmstb.c                | 2 +-
->  drivers/pci/controller/pcie-iproc-msi.c              | 2 +-
->  drivers/pci/controller/pcie-mediatek.c               | 2 +-
->  drivers/pci/controller/pcie-xilinx-dma-pl.c          | 2 +-
->  drivers/pci/controller/pcie-xilinx-nwl.c             | 2 +-
->  drivers/pci/controller/plda/pcie-plda-host.c         | 2 +-
->  10 files changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index ecc33f6789e3..d1cd48efad43 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -227,7 +227,7 @@ static const struct irq_domain_ops dw_pcie_msi_domain_ops = {
->  int dw_pcie_allocate_domains(struct dw_pcie_rp *pp)
->  {
->  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> -	struct fwnode_handle *fwnode = of_node_to_fwnode(pci->dev->of_node);
-> +	struct fwnode_handle *fwnode = of_fwnode_handle(pci->dev->of_node);
->  
->  	pp->irq_domain = irq_domain_create_linear(fwnode, pp->num_vectors,
->  					       &dw_pcie_msi_domain_ops, pp);
-> diff --git a/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c b/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
-> index 0e088e74155d..6628eed9d26e 100644
-> --- a/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
-> +++ b/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
-> @@ -435,7 +435,7 @@ static const struct irq_domain_ops msi_domain_ops = {
->  static int mobiveil_allocate_msi_domains(struct mobiveil_pcie *pcie)
->  {
->  	struct device *dev = &pcie->pdev->dev;
-> -	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
-> +	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
->  	struct mobiveil_msi *msi = &pcie->rp.msi;
->  
->  	mutex_init(&msi->lock);
-> diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
-> index 7bce327897c9..69a9c0a87639 100644
-> --- a/drivers/pci/controller/pci-xgene-msi.c
-> +++ b/drivers/pci/controller/pci-xgene-msi.c
-> @@ -247,7 +247,7 @@ static int xgene_allocate_domains(struct xgene_msi *msi)
->  	if (!msi->inner_domain)
->  		return -ENOMEM;
->  
-> -	msi->msi_domain = pci_msi_create_irq_domain(of_node_to_fwnode(msi->node),
-> +	msi->msi_domain = pci_msi_create_irq_domain(of_fwnode_handle(msi->node),
->  						    &xgene_msi_domain_info,
->  						    msi->inner_domain);
->  
-> diff --git a/drivers/pci/controller/pcie-altera-msi.c b/drivers/pci/controller/pcie-altera-msi.c
-> index e1cee3c0575f..5fb3a2e0017e 100644
-> --- a/drivers/pci/controller/pcie-altera-msi.c
-> +++ b/drivers/pci/controller/pcie-altera-msi.c
-> @@ -164,7 +164,7 @@ static const struct irq_domain_ops msi_domain_ops = {
->  
->  static int altera_allocate_domains(struct altera_msi *msi)
->  {
-> -	struct fwnode_handle *fwnode = of_node_to_fwnode(msi->pdev->dev.of_node);
-> +	struct fwnode_handle *fwnode = of_fwnode_handle(msi->pdev->dev.of_node);
->  
->  	msi->inner_domain = irq_domain_add_linear(NULL, msi->num_of_vectors,
->  					     &msi_domain_ops, msi);
-> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> index 8b2b099e81eb..1f356fca07a2 100644
-> --- a/drivers/pci/controller/pcie-brcmstb.c
-> +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -581,7 +581,7 @@ static const struct irq_domain_ops msi_domain_ops = {
->  
->  static int brcm_allocate_domains(struct brcm_msi *msi)
->  {
-> -	struct fwnode_handle *fwnode = of_node_to_fwnode(msi->np);
-> +	struct fwnode_handle *fwnode = of_fwnode_handle(msi->np);
->  	struct device *dev = msi->dev;
->  
->  	msi->inner_domain = irq_domain_add_linear(NULL, msi->nr, &msi_domain_ops, msi);
-> diff --git a/drivers/pci/controller/pcie-iproc-msi.c b/drivers/pci/controller/pcie-iproc-msi.c
-> index 649fcb449f34..804b3a5787c5 100644
-> --- a/drivers/pci/controller/pcie-iproc-msi.c
-> +++ b/drivers/pci/controller/pcie-iproc-msi.c
-> @@ -451,7 +451,7 @@ static int iproc_msi_alloc_domains(struct device_node *node,
->  	if (!msi->inner_domain)
->  		return -ENOMEM;
->  
-> -	msi->msi_domain = pci_msi_create_irq_domain(of_node_to_fwnode(node),
-> +	msi->msi_domain = pci_msi_create_irq_domain(of_fwnode_handle(node),
->  						    &iproc_msi_domain_info,
->  						    msi->inner_domain);
->  	if (!msi->msi_domain) {
-> diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
-> index 811a8b4acd50..efcc4a7c17be 100644
-> --- a/drivers/pci/controller/pcie-mediatek.c
-> +++ b/drivers/pci/controller/pcie-mediatek.c
-> @@ -485,7 +485,7 @@ static struct msi_domain_info mtk_msi_domain_info = {
->  
->  static int mtk_pcie_allocate_msi_domains(struct mtk_pcie_port *port)
->  {
-> -	struct fwnode_handle *fwnode = of_node_to_fwnode(port->pcie->dev->of_node);
-> +	struct fwnode_handle *fwnode = of_fwnode_handle(port->pcie->dev->of_node);
->  
->  	mutex_init(&port->lock);
->  
-> diff --git a/drivers/pci/controller/pcie-xilinx-dma-pl.c b/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> index dd117f07fc95..71cf13ae51c7 100644
-> --- a/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> +++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> @@ -470,7 +470,7 @@ static int xilinx_pl_dma_pcie_init_msi_irq_domain(struct pl_dma_pcie *port)
->  	struct device *dev = port->dev;
->  	struct xilinx_msi *msi = &port->msi;
->  	int size = BITS_TO_LONGS(XILINX_NUM_MSI_IRQS) * sizeof(long);
-> -	struct fwnode_handle *fwnode = of_node_to_fwnode(port->dev->of_node);
-> +	struct fwnode_handle *fwnode = of_fwnode_handle(port->dev->of_node);
->  
->  	msi->dev_domain = irq_domain_add_linear(NULL, XILINX_NUM_MSI_IRQS,
->  						&dev_msi_domain_ops, port);
-> diff --git a/drivers/pci/controller/pcie-xilinx-nwl.c b/drivers/pci/controller/pcie-xilinx-nwl.c
-> index 8d6e2a89b067..9cf8a96f7bc4 100644
-> --- a/drivers/pci/controller/pcie-xilinx-nwl.c
-> +++ b/drivers/pci/controller/pcie-xilinx-nwl.c
-> @@ -495,7 +495,7 @@ static int nwl_pcie_init_msi_irq_domain(struct nwl_pcie *pcie)
->  {
->  #ifdef CONFIG_PCI_MSI
->  	struct device *dev = pcie->dev;
-> -	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
-> +	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
->  	struct nwl_msi *msi = &pcie->msi;
->  
->  	msi->dev_domain = irq_domain_add_linear(NULL, INT_PCI_MSI_NR,
-> diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
-> index 4153214ca410..4c7a9fa311e3 100644
-> --- a/drivers/pci/controller/plda/pcie-plda-host.c
-> +++ b/drivers/pci/controller/plda/pcie-plda-host.c
-> @@ -150,7 +150,7 @@ static struct msi_domain_info plda_msi_domain_info = {
->  static int plda_allocate_msi_domains(struct plda_pcie_rp *port)
->  {
->  	struct device *dev = port->dev;
-> -	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
-> +	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
->  	struct plda_msi *msi = &port->msi;
->  
->  	mutex_init(&port->msi.lock);
-> -- 
-> 2.49.0
-> 
+> bbc73b8b6dfd net: stmmac: provide stmmac_pltfr_find_clk()
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/driv=
+ers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> index c73eff6a56b8..43c869f64c39 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> @@ -709,6 +709,17 @@ devm_stmmac_probe_config_dt(struct platform_device *=
+pdev, u8 *mac)
+>  #endif /* CONFIG_OF */
+>  EXPORT_SYMBOL_GPL(devm_stmmac_probe_config_dt);
+>
+> +struct clk *stmmac_pltfr_find_clk(struct plat_stmmacenet_data *plat_dat,
+> +                                 const char *name)
+> +{
+> +       for (int i =3D 0; i < plat_dat->num_clks; i++)
+> +               if (strcmp(plat_dat->clks[i].id, name) =3D=3D 0)
+> +                       return plat_dat->clks[i].clk;
+> +
+> +       return NULL;
+> +}
+> +EXPORT_SYMBOL_GPL(stmmac_pltfr_find_clk);
+> +
+> ...
+>
+> which will avoid glue drivers duplicating this functionality. This will
+> be part of the first sets of patches I'm going to be submitting.
+>
+> Thanks.
+>
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
