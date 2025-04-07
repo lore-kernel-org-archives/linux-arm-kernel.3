@@ -4,166 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 075CFC36018
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51A7C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SovsdLYmNZQQn+AX1T/HhC2wN3hrETuP/Ro+w2IBk7I=; b=ift0yOijCHYXSKPcreTlefDa9w
-	jTrxXPzltNyUJfFGzvQ3Qm1MigZRTnYcTrvy/lGXWSCEpxpALQLTosxsUMHnFtgi6mxQqhncVX5Rh
-	fbA0fyPjXfKiRVxOQr90lnqEVTTbaI53Gzbxl/6ChVzQ258D0z33xdHGiocAX8v69WMUvx8DU2nH5
-	wOo8w8N2CcEx6EKKjWZ5lsX8oj7Y1HXePuQr4sRSghBZnlOPdjvZXtPZJRRsalnw+SjZZ0cBGa1Pk
-	JILaqkyBQvGMs5oWhmB+LoIO/vvnsXCgVIyNEoj2qdFRgqWaj6MUKe3815bfxZSPi9axNta0zf3kF
-	i+gplEbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6KnO3es45UTLkftum7NUaaMCWaK1KKXAtuBnraxJuJY=; b=pS3ygX71WghLtHQlm6n7cL2tYs
+	XJc+lNwGydSP2awLWHjdboECBWycai9ObV1xm4AlNfvfLE3EVZWAPXKLO9lNdc5KofNBqIH527hly
+	Upy5tukaollD7YQA2XhBwcbr5rr4ABOHFFifj/tgLrSvFl4HT1H5TPFVoDkmQTXZq06gf29dhrDvR
+	nfjJaXa5q6hnkhgxsknpQKcHqPZg9jWdbRmCqhMCdXDkcoT2R4KJTJU8kUrArHedX91KRdAQHRujW
+	l1n7gdcFiFZHd5/lEDOBddcR66y51WanvTsRm860bHSObvIIu7UMsS9XpeLGN3j9DlAdy+s7W5Nby
+	qZzvfzzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rZ1-00000001e5v-0yxh;
-	Mon, 07 Apr 2025 18:51:19 +0000
-Received: from mail-mw2nam10on20625.outbound.protection.outlook.com ([2a01:111:f403:2412::625] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1u1rZ5-00000001eCZ-1pXF;
+	Mon, 07 Apr 2025 18:51:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1psN-00000001JXT-3ebs;
-	Mon, 07 Apr 2025 17:03:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xDkzL5Ox3lesSeWuaeMMiDAuv9sxEfB0AOPn/77l8zAcse2aZKZxsyozHOaz3XZChKUMqqNPfv24KpeEBei+9zfVwE/k0CDG6rU1+UN1u+LXXQJhLCgzfzISTM2J5ZDtsaT9T10FWESnDInKZ+kBGOEZGh+TYq+bATpciYdddzrLUy3e/TVrVcvcDz1fN98zb1+jT715scrfVdh6W0czso3+QpBjXxMG+zsWbqvrHsQ+/KyoW3C8xObKnWKeOS/XmWlL9LWRY/ODBepiXCAJ+3t69FMdA+JyQd++jN14sbtvdmGJNndnh1iUkDEzc/7kNDzScqwgPsucBd0LVPHMBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SovsdLYmNZQQn+AX1T/HhC2wN3hrETuP/Ro+w2IBk7I=;
- b=xrexrhJSKWJOX7nTpimcPGcJCNOnrxOLdQyXeH0oe4/gX/UDSpCPPKLTK27Wn9H4XC7rYKcVl5b1fBQTnrwDkva+8WAK1eB7R8/RM97OwyzZ3LMCPWPA7vr56CVTjZDmwGDmSvx2Bg4Vp4V+yphLJIyhrcCW7gePMgOZ/Gya0o/ookanWYvISeK9cYe5kZjaKWI8rARCJBWnDVPklntjihEnCnA0Fj3lbwDTUbtTp3f5DKex3pZOEGgia20aRRPQCyfmcSSKZbl5HqXRwQzp+34xFztqnk43i+dnQclTWhkiONE5zLFZD8RDI/OoGpzxZ8i7U+2caonAKVbUUWqjkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SovsdLYmNZQQn+AX1T/HhC2wN3hrETuP/Ro+w2IBk7I=;
- b=lw7LHgj5p3v3wvv7bSe8FIKvCWe5miFmqWR7tgHAKLl222cwZ5DW60PcfzV5Afzn/1WfnA8CfoeNZjXRkr8EnqAXsLmyGuALKFGoYN1ep3JBc4BDrUH+q/qHeFkgsMnlf+zwPtvYO7TpRVW2IC8jJ9NS9gF37+wF+tVj/wHDuEvbv1npqiSgGyzkRrJHpcZ7/ZCVndc/Aw60IJjIOmNEniOq0WUSxNIRrLU4ylFWqlIHXB8NOHbTA7yUxRjfMcqMh5L/lGJz/hU3TlUuV4ReKOd7ypFg46p53yO/fjzIEke4+u3HibpQT4pOWLfy9g9MPyjdtXLlFl/QTCPtu8a8UA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SJ1PR12MB6028.namprd12.prod.outlook.com (2603:10b6:a03:489::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.31; Mon, 7 Apr
- 2025 17:03:07 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Mon, 7 Apr 2025
- 17:03:07 +0000
-Date: Mon, 7 Apr 2025 14:03:05 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Pratyush Yadav <ptyadav@amazon.de>,
-	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <20250407170305.GI1557073@nvidia.com>
-References: <20250403114209.GE342109@nvidia.com>
- <Z-6UA3C1TPeH_kGL@kernel.org>
- <20250403142438.GF342109@nvidia.com>
- <Z--sUYCvP3Q8nT8e@kernel.org>
- <20250404124729.GH342109@nvidia.com>
- <Z-_kSXrHWU5Bf3sV@kernel.org>
- <20250404143031.GB1336818@nvidia.com>
- <Z_KnovvW7F2ZyzhX@kernel.org>
- <20250407141626.GB1557073@nvidia.com>
- <Z_P92UCbNCV0TbiA@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z_P92UCbNCV0TbiA@kernel.org>
-X-ClientProxiedBy: BN0PR04CA0056.namprd04.prod.outlook.com
- (2603:10b6:408:e8::31) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u1ptT-00000001Jmb-310L
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 07 Apr 2025 17:04:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=6KnO3es45UTLkftum7NUaaMCWaK1KKXAtuBnraxJuJY=; b=P/QtKNTuVIbthq6K9XVPGDxwNu
+	KvLAvVCEDUbuM+A4AnueAXGDkqx8G4EsMfyw4vK3szuLYBrKWXRJFDNAjBWllb1rEZVEAkNP4gbxW
+	S/+pJcmsnMu/urEVKmEgtcQlXgUGryLtaExaaS5BIkdsO1BFEA1fwDqGjIRP9tc8gjZZsKawe+/ko
+	NMRp/V9sn/dAhzdAIf4GLGdParb4yF5Gm4/V9dN4DsayTjVZuXQTOH71J9TF3oVEr77nTPNW3RYxX
+	i4T08LX1oRs60IhTgQ77O9LWZxgYzBm5YXKPUbkYfWuOafWyvgdkT4d4a/yDtfTVwg0sWvGFXk7Du
+	yhuag67w==;
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1ptQ-0000000852O-3hLJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 17:04:18 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E38D9444D7;
+	Mon,  7 Apr 2025 17:04:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744045453;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6KnO3es45UTLkftum7NUaaMCWaK1KKXAtuBnraxJuJY=;
+	b=PLcj/GgInpfzrX5Zzqtqa8joMUfDBp3WDL74t0nbyUARrE6bl6IKviOmfgf7HwY2Mcs4m8
+	QH0QF6gll11QPKVRSFYoRiLqk5QTR/g10yMjEid+s1/quX9zicutv+a9Qoc9M35HCvcVkq
+	c6HXXEZ3O5Ji4GKGJDdxt+m+Ua7HbfD4ibHqsMxHji1hricm+0YsjbSW8vZLV9ynAKRcUP
+	DRwqSV+GbmTErZwLHUwc/6iDyVjiZmAcurV2EKjbawYyWgG5oRRJ8ATYLpk4o0sZ9PVeZt
+	ILe5OSVtpZVD6Vl2B2Iv617MKE7s3Znp8vuYo555o8b4+1HHjlnBIA3kzBcuQg==
+From: Thomas Richard <thomas.richard@bootlin.com>
+Date: Mon, 07 Apr 2025 19:03:25 +0200
+Subject: [PATCH 1/2] dt-bindings: watchdog: fsl,scu-wdt: Document imx8qm
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SJ1PR12MB6028:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9b02822b-8318-468d-e29f-08dd75f61121
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?whhFyC1Kh9AfeKBxvHNKheZNYYfhzmf97TaOsTmA3YtHFQUqMR2OLXRiaDkz?=
- =?us-ascii?Q?atUYcx07ibQAzZZ7GpG3EG5qHWJogMwiekROMmWMFHersOeZXIyXMv+0qcTs?=
- =?us-ascii?Q?wwv4EQjD9Js6Y/1oW6rhhCaQXfV4FXCV629dpSYvgfPeebgbaHFrKZNaA6Ze?=
- =?us-ascii?Q?cRMjTRptSTEbQE9rOpiNU0CXsyxMcxwbm3PsNeWJHwYqVXzakBuTGK70bljl?=
- =?us-ascii?Q?umf689emk2tkWg8rb9LRKyItsRZ84DNvJCaYgLph9ooyOrEfxK2SMbIqz+Vl?=
- =?us-ascii?Q?FsaqT+DJhiQ00gvR48VZmwJEHfo4DqdE627kAG5ZIH4MPEUUJgDSPqbOfQVV?=
- =?us-ascii?Q?ZlUCCGD301P/BLC0M3H1EA0eSHaCqIQblf0icj6yCx2LS/3dx15Z1M+HHtAR?=
- =?us-ascii?Q?AQRv2YMPnYXsFWOwyyQApSrg5WMMaLoRfbLVwIdi9fe2chYK6fzj2/pJt3Ak?=
- =?us-ascii?Q?ZfWQTsYLlBU8KhQ/GOQpFwPqHSwd22Ggv8idzqotVivhMdXcjk0DnRf8JhWf?=
- =?us-ascii?Q?KMyoGRy0POiO4WWFxdjFQm4ICfAiAxQq3Arbjp/L32zMDKiKTDsNQbKCiXQX?=
- =?us-ascii?Q?N0KZKg1TxbVzt2APwEMf+93fFCzwegDLJ7Yk7ozTAsUfndMUjTdjMqbJXuDL?=
- =?us-ascii?Q?Sfe+J1KrNPd6/5JVuPrmh51oJjNWZ09B/6JBV9mFGRvulM1v5l5019MSXdim?=
- =?us-ascii?Q?BzIe8gH66jPPyKeYqnKX3bYwZ9Bn0bjVhVEl86/CarBGtSRFzx+JSbzkJ1jg?=
- =?us-ascii?Q?INkal8xDr1jd9kG071sEYWze1A4tCg4kBzcSGuLbsW1hJYr7s6O91jqzTeZd?=
- =?us-ascii?Q?kWkHbfXgf+Ow4hTHU0QoCTtQ/IBSkgWQcAEXueqWZYk4hHsbzDIin2gq8CVd?=
- =?us-ascii?Q?+iLMF7Jdqw9cl5o6ZCQ6GtGqblqAHoDY2T4dhjqu/ldajLiz1c+BcF1f96eE?=
- =?us-ascii?Q?TY71Joz+WoWDi0JmmtuaZiOA0aSz8DW78C6a7dtllRrQEgifIbW/7pjgfyxw?=
- =?us-ascii?Q?zYztpufgSNUKYNcXxwKdN93oT5ZcifXcZ5IagzzfjmtlO7O5IVUjEJDHPOV0?=
- =?us-ascii?Q?q0xqr1rp1liHNO7mXuXOooGBBhLLmHcdy44B8sMFGd9FaQx1CzuVx5UxBJD2?=
- =?us-ascii?Q?Jen8pCLQdwDrOC9du0jRmDd/UiQB3kMw678+DjJnmVXOcN0Xlxjsm6REkqOW?=
- =?us-ascii?Q?am+JV/PDU2IrEonM/IOgHfLlCCtyc/RVrEyZaZu3GlzCWhuT6weR7/1Ts+O5?=
- =?us-ascii?Q?oOpWTRO2XcqZ2gpWcab+2KKT0wOWErbZnRL8WTcS+ykXG3fWeA+Y06cebmFf?=
- =?us-ascii?Q?4oB81Gq0p7dSwEj9DneYc/LBYXTo7+H/Alj5JfN3rKWe7dvq+uOezTkQ8a8c?=
- =?us-ascii?Q?GhuFWM9sl0xXQ5+TgnGp83ja0qPs?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FR9qraM0JkXFFVzYxhzg+bK0+QVx2qBmpYs4vn/r3wu2DuR3aSIx2VyRMSzY?=
- =?us-ascii?Q?THDIk96GpvDYBIcOKOFhPVZwb837o3U9mMVC8YO83yBxJD1NwIjzvbbzFQsL?=
- =?us-ascii?Q?x0qQGl7jXfbWY+P+PQLHxubiYzBpxslcj+vhn1DVOZMV9jLeMEzRxAE1uLK7?=
- =?us-ascii?Q?6tn6ttHeQz57/Stwcx4PCGIlt8LEvb7MkbxgJpFu7zhWHD2meVtQTEyrOOhS?=
- =?us-ascii?Q?kNLXhi5KpA8n2mte/FKGOfuoKhGGrpm8czLmSsh9yBUB6jwKTh8rnCVPRuKH?=
- =?us-ascii?Q?QO0o9ddFt3+q6H5KnjqYjFzc6Jj98zPhI3VMKVJFmRF9DMp/kdc+FSdqyOqv?=
- =?us-ascii?Q?D5f/AxDOLV/K12X5+1aE/Lb0LNRIAvCbnPpxgOGPcpJhq7MQ3z270InEf7fy?=
- =?us-ascii?Q?VR3Z38LNWUyIjcbWOOSZ6SU6fiT8dL8gmyqA3muXz+F6CywYt5+XasLcaqsh?=
- =?us-ascii?Q?sU7S4CXj8I3zRWf4F40eWlcMPBjWb/oy5efITkZOUyFdtKHyKWhtG1tlo2xh?=
- =?us-ascii?Q?DK5Ow5Ul/D4bqAgT/JvaUj4PkVEO6rMyxWkdQCmwUF2RDJRTOg+VaFknj6Sb?=
- =?us-ascii?Q?56OPVB2CeEKeWycOx4u8CtGSnH+zVpTHmiOe1zaBdvW6lSL+QBHDY+QVQJDw?=
- =?us-ascii?Q?CZOHQLZH3YCIRMZ+1QPIu8Li7GA9se3OGl1V07RJaxqe0OBR63LcVYVUCnU+?=
- =?us-ascii?Q?DUJRyzyDq1NMO3FIbgTFqmdWtjI3dDUsHP4A5kvndHPKjfemK4c4K7ejCzcq?=
- =?us-ascii?Q?aAGaeReZYTSSfAr6b9RYDF3MPBsvAoCkuKo34oDd6pOiNk7YjBuQZQK3aLUb?=
- =?us-ascii?Q?c6578oXlwO2Vg35fhfzG7DRBHRt8DbXWmVDpICbFoEOTe/Ylksb2HC6YEEBL?=
- =?us-ascii?Q?Jap2UkqkZZ/wDJZ1ssdJjFFnDsJY+donCenb3JIq/dhko1jsUTlMAZ9TMj6u?=
- =?us-ascii?Q?K5aPBx3CpYWI2jLtfabPQkSlqk3gjfwzqdsFaJIXJ45LhWtxUfX+NIYdf2CY?=
- =?us-ascii?Q?Ht9Dp5pcp+7WBWoFb+1AGGwKhTq8BKUSRxgL6WpxCsit0PnNDyWjnBcrFWu9?=
- =?us-ascii?Q?KVdgqzs9uOP/opvvsRTDGTmVOJw04Fsk+pBkVRF4pA9Om3PbqXjpsIdoFXq1?=
- =?us-ascii?Q?sRCwe0rN5T7S9uf1dO9gj96Mpyb6GpXOzKSDT7kvTuDSHXsrN2M5LAWcM8nL?=
- =?us-ascii?Q?Dkx/egFWMGiZ7kHAzyHzlYT15PfOVrnEZfxPNgSGBoooVvIyosO38tH9GAiJ?=
- =?us-ascii?Q?iGW9MxiUFfSaIbiPbC7Ppo9q3O4I2Gnq7WfsokZY6Y0TtGBVhPXeBQnfdB0C?=
- =?us-ascii?Q?QKWTERSLxsURGPeZSp/hG9k4znI3CVkvJzk224oE8fJUL0iZbdZldgixsSPe?=
- =?us-ascii?Q?N+QO5NbLHcyMdGiM4FW1r1DjJGfKwHsFx2p21OoRoGuRMfUS/Hooow1wgh4V?=
- =?us-ascii?Q?hOxqQz67d/uNF0TiylcCFG6/3C8v7lc67e0fx2u9M9djPg2vIBfvx//o8PKX?=
- =?us-ascii?Q?RG2aP/tQmnGYzrjwdQanW/bkEIrvCXxJBPk4R6i0l/t1Tub8KlIDa+9/sQek?=
- =?us-ascii?Q?/FacV9FXrM7uIg0fjZqibFdyc0y7w+r8a6nqonbG?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9b02822b-8318-468d-e29f-08dd75f61121
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 17:03:06.8951
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gpkovNkFzudeaRlgpzQ8QcNuoIJfVwZgi62wr+FGE0YJclk63yL80dZ3slGaK6ox
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6028
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250407-imx8qm-watchdog-v1-1-20c219b15fd2@bootlin.com>
+References: <20250407-imx8qm-watchdog-v1-0-20c219b15fd2@bootlin.com>
+In-Reply-To: <20250407-imx8qm-watchdog-v1-0-20c219b15fd2@bootlin.com>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Thomas Richard <thomas.richard@bootlin.com>
+X-Mailer: b4 0.14.1
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtjeegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepvfhhohhmrghsucftihgthhgrrhguuceothhhohhmrghsrdhrihgthhgrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeektdehvdeiteehtdelteffheduveelgeelvdetgedvueejgefhhfekgefgfeduveenucfkphepvdgrtddumegtsgdugeemfhegtdemsghftddtmehftdehgeemtgeltgdvmedvudgtfeemudehieeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemfhegtdemsghftddtmehftdehgeemtgeltgdvmedvudgtfeemudehieeipdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehthhhomhgrshdrrhhitghhrghrugessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudejpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheplhhinhhugiesrhhovggtkhdquhhsrdhnvghtpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvr
+ ggurdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrrhhitghhrghrugessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdifrghttghhughoghesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: thomas.richard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_100311_917986_7E24D13F 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20250407_180417_027575_FCCEAAD1 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,61 +101,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 07:31:21PM +0300, Mike Rapoport wrote:
-> > alloc_pages is a 0 order "folio". vmalloc is an array of 0 order
-> > folios (?)
-> 
-> According to current Matthew's plan [1] vmalloc is misc memory :)
+Add an entry for 'fsl,imx8qm-sc-wdt' as imx8qm also contains the SCU
+watchdog block.
 
-Someday! :)
+Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
+---
+ Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-> Ok, let's stick with memdesc then. Put aside the name it looks like we do
-> agree that KHO needs to provide a way to preserve memory allocated from
-> buddy along with some of the metadata describing that memory, like order
-> for multi-order allocations.
+diff --git a/Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml b/Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml
+index 8b7aa922249b..1d9f15ec6657 100644
+--- a/Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml
+@@ -20,6 +20,7 @@ properties:
+     items:
+       - enum:
+           - fsl,imx8dxl-sc-wdt
++          - fsl,imx8qm-sc-wdt
+           - fsl,imx8qxp-sc-wdt
+       - const: fsl,imx-sc-wdt
+ 
 
-+1
+-- 
+2.39.5
 
-> The issue I see with bitmaps is that there's nothing except the order that
-> we can save. And if sometime later we'd have to recreate memdesc for that
-> memory, that would mean allocating a correct data structure, i.e. struct
-> folio, struct slab, struct vmalloc maybe.
-
-Yes. The caller would have to take care of this using a caller
-specific serialization of any memdesc data. Like slab would have to
-presumably record the object size and the object allocation bitmap.
-
-> I'm not sure we are going to preserve slabs at least at the foreseeable
-> future, but vmalloc seems like something that we'd have to address.
-
-And I suspect vmalloc doesn't need to preserve any memdesc information?
-It can all be recreated
-
-> > Also the bitmap scanning to optimize the memblock reserve isn't
-> > implemented for xarray.. I don't think this is representative..
-> 
-> I believe that even with optimization of bitmap scanning maple tree would
-> perform much better when the memory is not fragmented. 
-
-Hard to guess, bitmap scanning is not free, especially if there are
-lots of zeros, but memory allocating maple tree nodes and locking them
-is not free either so who knows where things cross over..
-
-> And when it is fragmented both will need to call memblock_reserve()
-> similar number of times and there won't be real difference. Of
-> course maple tree will consume much more memory in the worst case.
-
-Yes.
-
-bitmaps are bounded like the comment says, 512K for 16G of memory with
-arbitary order 0 fragmentation.
-
-Assuming absolute worst case fragmentation maple tree (@24 bytes per
-range, alternating allocated/freed pattern) would require around
-50M. Then almost doubled since we have the maple tree and then the
-serialized copy.
-
-100Mb vs 512k - I will pick the 512K :)
-
-Jason
 
