@@ -4,79 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB92CC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 12:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B504C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 12:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t45h2K/DAsVv7bzVikraPn5qJ6SE+6gaua4uz6B/apM=; b=2OkMUyZqXk9RKEfuSOHprJOl1m
-	0XLSYTdxU7hAEtw/GSK0lLg7LqbV7o6f0+ylsMPGGauROmrBLMXzeqgFWbxc9C7o8+jBwGHv3cHbR
-	NwEJXcCKuRVANAYi440KVHYL4bkLEkX83EUE0jlHNfPD2c4yvpwrCTcvUUlm3oGSOT3RBaSdTOMBz
-	1g9CJnuf8jdW/lbH3MbS2gYye3itSWDPfevIYFeGqQar0Kq3ZRFvAkAuxtzdWhzclQZzOoOGlQl4J
-	f4PYrJvw1SHicNYRF2dTmwDhsW/45RQdHySuVMalPRizCTNduo2sYrLu5F8X2iI5KCQdQlbRUbzq0
-	DL6Us/RA==;
+	bh=m/LHFPsYBw0bwDf6dVcpDSJnHybANIimgmPtryFgNPA=; b=zxAjcIvwjTE6OPR4nQE38G30+3
+	0izomoxlMNp5VsLpNd4ltXiZWMbmQEHouf9CJU2iUtMJQsfybbSIpHbeNWV/kU9T5ZbI6h8/oRu/n
+	2YEt7Cy4YCpPH1evKf6Vj0YBE/oWHAzzWnOav73PsJjjjwefGXJqS191iT5lkDRN5V9Ld1coDkMDg
+	BHhJWPWFG6+ytNLiiP4E0WKpROE+soBVCKlPOOjbtLKiYIDDfRXGeUJpRDOYn16giTA59TiKN5z+o
+	6LNPjXz2JgNys2jvufjAWW4VXS+9wEJyEJjM9+UoR8EiaKg2ieLr1TTaCkoDCYKIaD/gMxMZwdQhl
+	/UXnqK0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lhl-00000000H5M-20t7;
-	Mon, 07 Apr 2025 12:35:57 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u1lhm-00000000H7d-3dBq;
+	Mon, 07 Apr 2025 12:35:58 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lHF-00000000Au5-2fsP;
-	Mon, 07 Apr 2025 12:08:34 +0000
-X-UUID: 03e328b013a911f0a1e849db4cc18d44-20250407
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=t45h2K/DAsVv7bzVikraPn5qJ6SE+6gaua4uz6B/apM=;
-	b=AKM4T2eizWenDdICVtHFiP+EQx3h89yYnfdd9VovVusjkVTNpIQ0dYWfgGks6sobm87HbWGtuuylffj/LxOMapjLtV2E64OyZCFo0V6K0CdRpZLkcxeatTq0zw2XPJBCbsOZSaZpo8T4iQbSho8hshVbvS0MiKbsk6aP+QkCBac=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:e58f8356-7857-4adb-896b-844daa0db6cd,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:d83146c7-16da-468a-87f7-8ca8d6b3b9f7,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 03e328b013a911f0a1e849db4cc18d44-20250407
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
-	(envelope-from <darren.ye@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1214814983; Mon, 07 Apr 2025 05:08:28 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 7 Apr 2025 20:08:25 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 7 Apr 2025 20:08:24 +0800
-From: Darren.Ye <darren.ye@mediatek.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Linus
- Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
-	<darren.ye@mediatek.com>
-Subject: [PATCH v2 01/11] ASoC: mediatek: common: modify mtk afe common driver for mt8196
-Date: Mon, 7 Apr 2025 20:06:25 +0800
-Message-ID: <20250407120708.26495-2-darren.ye@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250407120708.26495-1-darren.ye@mediatek.com>
-References: <20250407120708.26495-1-darren.ye@mediatek.com>
+	id 1u1lHr-00000000B5W-2fCJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 12:09:12 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-30db1bd3bebso38637941fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 05:09:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744027749; x=1744632549; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=m/LHFPsYBw0bwDf6dVcpDSJnHybANIimgmPtryFgNPA=;
+        b=vZEUs5IapW2ygYMB1jiSO/dxhfNp0Dsi5va77YWpPepoHqQOmfOPuYBbaC/cXZLwmT
+         b9Vp32bZe4pUBXAINSoGk6SQyEMRZ4FXVUIajykRInu4dZe4ckwil0h8nbwQ0svvq1iA
+         6rGv9SRhv9OsOBteQSGGV8flOvetVWBITcMTI45MltzpSdGYgMxL8+zqjelIjGSroLtK
+         Pf28qjkOUP5yD/G6i8fUp/kI6+x35q/WnyeiSD3WXoVXVTmMgkOVseZp+3TvUte/J0Bx
+         7kCaowNURixg+CJrM9HqdoqDCHW54047oTfNnL+PjJCnL2Wlw2oRHxn3UQKY2Kpu/nVA
+         MfmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744027749; x=1744632549;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=m/LHFPsYBw0bwDf6dVcpDSJnHybANIimgmPtryFgNPA=;
+        b=JzBYdl6AIJCp/kp8QK1TS8e1NxEtyrYdBiCyhivZ1T6zmVmCLg4LS4r8R+gyvajUxn
+         LtVgI45MT0yaDJVAgDniFZLj4JBc822xIJ7a/MSsUbtzyhAvhgSdCxJOlJeTM0Faz+58
+         stnT6okjxqxclsEX49tLqKQ/HSBGbFVBtDlKGKdLQKhdhy9a+aqccpsKrSI71pkf1WRz
+         GKBTu6C1zK62PydGLaZzFdttoWXRT+q8mZjQTpthNUq9O+wQOpmyZ7KrNwl8lLTWjlV7
+         T8VzzXVrLRr3+ptKtWzYGfhI0MAjDzA3dupgBCHZyj1TPiW4788bncsuo75tlOgVh6Ar
+         DyeA==
+X-Forwarded-Encrypted: i=1; AJvYcCWQ5HO+46PqVQF18ub2iaYDS7ajio/i9Vr1ZV8WXJ9BOplCLw4a5DmJ1Wz+Ly+xu0MJ5N5a/uDKQCklqh1MFdJj@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywej4wRDosjC3SZdjOcay1vAR82TTlJQNU8UVBa7JovSSJmox11
+	XtDa/hxnyQ3DqcvQUkjNIkCzIw35k8WQz5r2D3ndDo+PJgAdIeBxfrIZ/2KDWKGm/Lf9toV3yWG
+	R1YpLdfq8mXP/Enri8snKkGmDxmQmYnTlB6IYLg==
+X-Gm-Gg: ASbGnctyPXAz3+KMghB8uaEZmsmVIYnggMt2/NeOtGDf43pcXgA/PW0BYbgsti5RP12
+	oeQ8/WyqlirHIDPUW4mUaJB7HkhcxDIfNM8mkL5XGkdrAXj0DbmKI4pF7nkEHvMQXWmi6zcZbrK
+	OV7C9+8LVWJzONR7rTilFXswz1ctDKNCm0z73tZ++m4g==
+X-Google-Smtp-Source: AGHT+IE7avfocEmD5lqNIyS63JcSTkkwf3BvTJpAGhR9l+oQoFSuLjrFiN2oMnoA2mOmJOAmlfiARgKB+FZMo6LuuCU=
+X-Received: by 2002:a2e:bc1b:0:b0:308:f580:729e with SMTP id
+ 38308e7fff4ca-30f0a180dd0mr35506541fa.27.1744027749231; Mon, 07 Apr 2025
+ 05:09:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+References: <cover.1740504232.git.nicolinc@nvidia.com> <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
+In-Reply-To: <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
+From: Zhangfei Gao <zhangfei.gao@linaro.org>
+Date: Mon, 7 Apr 2025 20:08:57 +0800
+X-Gm-Features: ATxdqUE-WE2mGG2qPqESoLiVUp7LnTlD7II4G1YhfYdYp1Eq06d5HdYvjf8h2-k
+Message-ID: <CABQgh9Fuh2HdBH7pyAteawZBpa55ZzfR9dv2K4RF=Ps4yhREbw@mail.gmail.com>
+Subject: Re: [PATCH v8 12/14] iommu/arm-smmu-v3: Introduce struct arm_smmu_vmaster
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, 
+	joro@8bytes.org, suravee.suthikulpanit@amd.com, robin.murphy@arm.com, 
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, linux-kernel@vger.kernel.org, 
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org, 
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org, 
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com, smostafa@google.com, 
+	ddutile@redhat.com, yi.l.liu@intel.com, praan@google.com, 
+	patches@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_050833_668907_67363CB6 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20250407_050911_685984_08D8654D 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,126 +99,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Darren Ye <darren.ye@mediatek.com>
+Hi, Nico
 
-update the mtk_memif_set_channel interface for the mt8196 platform.
+On Wed, 26 Feb 2025 at 01:35, Nicolin Chen <nicolinc@nvidia.com> wrote:
+>
+> Use it to store all vSMMU-related data. The vsid (Virtual Stream ID) will
+> be the first use case. Since the vsid reader will be the eventq handler
+> that already holds a streams_mutex, reuse that to fenche the vmaster too.
+>
+> Also add a pair of arm_smmu_attach_prepare/commit_vmaster helpers to set
+> or unset the master->vmaster point. Put these helpers inside the existing
+> arm_smmu_attach_prepare/commit().
+>
+> For identity/blocked ops that don't call arm_smmu_attach_prepare/commit(),
+> add a simpler arm_smmu_master_clear_vmaster helper to unset the vmaster.
+>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Pranjal Shrivastavat <praan@google.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
 
-Signed-off-by: Darren Ye <darren.ye@mediatek.com>
----
- sound/soc/mediatek/common/mtk-afe-fe-dai.c | 23 +++++++++++++---------
- sound/soc/mediatek/common/mtk-afe-fe-dai.h |  1 +
- sound/soc/mediatek/common/mtk-base-afe.h   | 13 ++++++++++++
- 3 files changed, 28 insertions(+), 9 deletions(-)
+>
+> +int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
+> +                                   struct arm_smmu_nested_domain *nested_domain)
+> +{
+> +       struct arm_smmu_vmaster *vmaster;
+> +       unsigned long vsid;
+> +       int ret;
+> +
+> +       iommu_group_mutex_assert(state->master->dev);
+> +
+> +       /* Skip invalid vSTE */
+> +       if (!(nested_domain->ste[0] & cpu_to_le64(STRTAB_STE_0_V)))
+> +               return 0;
 
-diff --git a/sound/soc/mediatek/common/mtk-afe-fe-dai.c b/sound/soc/mediatek/common/mtk-afe-fe-dai.c
-index 3809068f5620..caf703faf424 100644
---- a/sound/soc/mediatek/common/mtk-afe-fe-dai.c
-+++ b/sound/soc/mediatek/common/mtk-afe-fe-dai.c
-@@ -459,8 +459,13 @@ int mtk_memif_set_channel(struct mtk_base_afe *afe,
- 	struct mtk_base_afe_memif *memif = &afe->memif[id];
- 	unsigned int mono;
- 
--	if (memif->data->mono_shift < 0)
--		return 0;
-+	dev_dbg(afe->dev, "id: %d, channel: %d\n", id, channel);
-+
-+	mono = memif->data->mono_invert ^ (channel == 1);
-+
-+	if (memif->data->mono_shift > 0)
-+		mtk_regmap_update_bits(afe->regmap, memif->data->mono_reg,
-+				       0x1, mono, memif->data->mono_shift);
- 
- 	if (memif->data->quad_ch_mask) {
- 		unsigned int quad_ch = (channel == 4) ? 1 : 0;
-@@ -470,11 +475,6 @@ int mtk_memif_set_channel(struct mtk_base_afe *afe,
- 				       quad_ch, memif->data->quad_ch_shift);
- 	}
- 
--	if (memif->data->mono_invert)
--		mono = (channel == 1) ? 0 : 1;
--	else
--		mono = (channel == 1) ? 1 : 0;
--
- 	/* for specific configuration of memif mono mode */
- 	if (memif->data->int_odd_flag_reg)
- 		mtk_regmap_update_bits(afe->regmap,
-@@ -482,8 +482,13 @@ int mtk_memif_set_channel(struct mtk_base_afe *afe,
- 				       1, mono,
- 				       memif->data->int_odd_flag_shift);
- 
--	return mtk_regmap_update_bits(afe->regmap, memif->data->mono_reg,
--				      1, mono, memif->data->mono_shift);
-+	if (memif->data->ch_num_maskbit) {
-+		mtk_regmap_update_bits(afe->regmap, memif->data->ch_num_reg,
-+				       memif->data->ch_num_maskbit,
-+				       channel, memif->data->ch_num_shift);
-+	}
-+
-+	return 0;
- }
- EXPORT_SYMBOL_GPL(mtk_memif_set_channel);
- 
-diff --git a/sound/soc/mediatek/common/mtk-afe-fe-dai.h b/sound/soc/mediatek/common/mtk-afe-fe-dai.h
-index b6d0f2b27e86..b720c1dd8012 100644
---- a/sound/soc/mediatek/common/mtk-afe-fe-dai.h
-+++ b/sound/soc/mediatek/common/mtk-afe-fe-dai.h
-@@ -12,6 +12,7 @@
- struct snd_soc_dai_ops;
- struct mtk_base_afe;
- struct mtk_base_afe_memif;
-+struct mtk_base_irq_data;
- 
- int mtk_afe_fe_startup(struct snd_pcm_substream *substream,
- 		       struct snd_soc_dai *dai);
-diff --git a/sound/soc/mediatek/common/mtk-base-afe.h b/sound/soc/mediatek/common/mtk-base-afe.h
-index f51578b6c50a..01c27fe92e2f 100644
---- a/sound/soc/mediatek/common/mtk-base-afe.h
-+++ b/sound/soc/mediatek/common/mtk-base-afe.h
-@@ -53,9 +53,11 @@ struct mtk_base_memif_data {
- 	int enable_reg;
- 	int enable_shift;
- 	int hd_reg;
-+	int hd_mask;
- 	int hd_shift;
- 	int hd_align_reg;
- 	int hd_align_mshift;
-+	int hd_msb_shift;
- 	int msb_reg;
- 	int msb_shift;
- 	int msb_end_reg;
-@@ -65,6 +67,10 @@ struct mtk_base_memif_data {
- 	int ch_num_reg;
- 	int ch_num_shift;
- 	int ch_num_maskbit;
-+	/* VUL 24~26 only for CM2 */
-+	int out_on_use_reg;
-+	int out_on_use_mask;
-+	int out_on_use_shift;
- 	/* playback memif only */
- 	int pbuf_reg;
- 	int pbuf_mask;
-@@ -72,6 +78,9 @@ struct mtk_base_memif_data {
- 	int minlen_reg;
- 	int minlen_mask;
- 	int minlen_shift;
-+	int maxlen_reg;
-+	int maxlen_mask;
-+	int maxlen_shift;
- };
- 
- struct mtk_base_irq_data {
-@@ -87,6 +96,10 @@ struct mtk_base_irq_data {
- 	int irq_clr_reg;
- 	int irq_clr_shift;
- 	int irq_status_shift;
-+	int irq_ap_en_reg;
-+	int irq_ap_en_shift;
-+	int irq_scp_en_reg;
-+	int irq_scp_en_shift;
- };
- 
- struct device;
--- 
-2.45.2
+Why this is removed in v9 and 6.15-rc1?
 
+I tested 6.15-rc1 the qemu failed to boot with qemu branch:
+for_iommufd_veventq-v8
+"failed to attach the bypass pagetable"
+
+After adding this "skip check" back, the qemu works again.
+
+Do we need to add this back?
+
+Thanks
 
