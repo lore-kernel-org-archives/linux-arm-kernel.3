@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1600DC369A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54714C369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hFS7mkJjmpuYSEioASPocfXE9tFZiE4yxHGMBy3XokQ=; b=0+nmVybRgkHaP93W+Tau/n9pQV
-	6wlIT4pM3dn+28fESoWqPAS04FbT6ESPeKxvpUY4ug7y8IqOycG61YYeKCym8fsppRLZET98pYwO2
-	NfuWtwkdHZMxRrHlt4spYU7T1y/hKJSK1BmvaEC1dHWS8z0wwS15IUh6CNwRddOl723P6whztZg35
-	Fie/8hdKHszqm4DBRh17dOJR0OPZNPSvPF49jxKDtNr1/8gUWA6jZXkfd2JiewnCQx4bmY3k/FgDy
-	jVb2XOnYe1PyFADHPfmfTyPGM4kNZ8qlKQ+y3B/ejP+jf2lVAXrKBPxZuu/uzJp4IipnDzulnqaOE
-	Te+oZYEw==;
+	bh=M4/G8/exgOOvkgKjAj+UibFwMMH8hTvH+jqgXzucqWA=; b=QfTK0MhwJPwTUEoo/OS76S1OyD
+	hL9hm0J4TCdVCrM0et0L99lT2XOoD0i93bsJsMMWxYa4oUxe1/WRRFB89sjgzfuXhNnLC7gmYRtR9
+	wkJqK04zVKmRNHzb9e2pK9cwQYGksKIDcWD+U0xfV3//D55fU0rvViWVqwEGSxIZiIIhMknQX6kTP
+	OVLHAey+3DnS3e/idHvSzWMBesQ0wrRSIpudjeGOAonLFd7GGVqpOw3gTMzJhmMtYzOo1cq7tFedo
+	vpKGG0XKBw0tbG2hOolx9QnOieskgUpAwREHKzQ0uiTVP1tTK3xsiQzk1jZnZA818jbyss/2i9u7M
+	zyMyzUnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1r1L-00000001V4i-1eqf;
-	Mon, 07 Apr 2025 18:16:31 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1u1r1K-00000001V4e-3ZFx;
+	Mon, 07 Apr 2025 18:16:30 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ntv-00000000pts-1MBM
+	id 1u1ntt-00000000psy-2iRu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 14:56:40 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id D25DC44334;
-	Mon,  7 Apr 2025 14:56:35 +0000 (UTC)
+	Mon, 07 Apr 2025 14:56:38 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id B56C544329;
+	Mon,  7 Apr 2025 14:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744037797;
+	t=1744037795;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=hFS7mkJjmpuYSEioASPocfXE9tFZiE4yxHGMBy3XokQ=;
-	b=i8A/QbrytSBSNDOIwQrOPt8cTmoIXfPqJnMhiNxvxgaK77DffW+pNZKoWSCzbZYxChnz2o
-	6IVf7zw5yu5ZDNVfOcIqsUo3w5oe5LxOrktNyHMy/DlWuVVw8fCHlu/RGMVATYgxHgNvIJ
-	mB+znqbckeg8sPaIBTKrVfAZnmGjlc9sfGNL0Kkd4WKt07rXEXnwKp98mIHjE8sCB7jHpV
-	BEoMt62lk6Xb5CGovsLaFdYoOCQ6PMHjFU07ylr9mDVH8D260KrnOg3+XiELToFkEJ+9PA
-	pNUQf2J1dzWHHOtiu0S+dqd0PO2nRPweHMTiRGI0tnAOqzd5TwyvQTMMEEg3WA==
+	bh=M4/G8/exgOOvkgKjAj+UibFwMMH8hTvH+jqgXzucqWA=;
+	b=NL/lwJGY4IhVWDGBQIV4jX9Elf9DXdzMg6cgxl1zajKwlwt/1xNlIhdwJI3yHsUYWBZaKX
+	lBwJlii0OyrvJgo2UXJ/y374HpPZJnGGOQJ/pHX8XYWI8MMAKp3LPHAk0IeKBauALvaoub
+	fLd+NDugNMAfWeYw1RAh5RmcsJeUDv1NZV2fCHJy0xS8fic0T9oyQQCdBOIOGd/J5oaw+r
+	Sb4z5MVtFeS85WS7uRRnZAN5/Mov83wGdbYo8mEmvhC67kRv3LAKP5sgSzEuzp2xEkamE6
+	hIYKZ2E8wVBh+bMAovBsEnc28So1BO7dy7i6n5kvZETvoEz8QLXb7osFozn23Q==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
@@ -83,9 +83,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH 16/16] misc: lan966x_pci: Add drivers needed to support SFPs in Kconfig help
-Date: Mon,  7 Apr 2025 16:55:45 +0200
-Message-ID: <20250407145546.270683-17-herve.codina@bootlin.com>
+Subject: [PATCH 15/16] misc: lan966x_pci: Add dtso nodes in order to support SFPs
+Date: Mon,  7 Apr 2025 16:55:44 +0200
+Message-ID: <20250407145546.270683-16-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250407145546.270683-1-herve.codina@bootlin.com>
 References: <20250407145546.270683-1-herve.codina@bootlin.com>
@@ -93,12 +93,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheffiefgjeeuleeuueffleeufefglefhjefhheeigedukeetieeltddthfffkeffnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepuddunecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdrlhhotggrlhguohhmrghinhdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedupdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdpr
- hgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhhtuhhrqhhuvghtthgvsegsrgihlhhisghrvgdrtghomh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheffiefgjeeuleeuueffleeufefglefhjefhheeigedukeetieeltddthfffkeffnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepkeenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtrdhlohgtrghlughomhgrihhnpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeguddprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrt
+ ghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomhdprhgtphhtthhopehmthhurhhquhgvthhtvgessggrhihlihgsrhgvrdgtohhm
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_075639_492320_9EEB6933 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250407_075637_874636_073570F9 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,36 +113,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Recently, new device-tree nodes were added in the overlay to add support
-for SFPs on LAN966x PCI device.
-
-The LAN966X Kconfig help section mentions drivers related to devices
-added based on the overlay description.
-
-Add drivers related to devices described by those new nodes in the
-already existing driver list.
+Add device-tree nodes needed to support SFPs.
+Those nodes are:
+ - the clock controller
+ - the i2c controller
+ - the i2c mux
+ - the SFPs themselves and their related ports in the switch
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/misc/Kconfig | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/misc/lan966x_pci.dtso | 111 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 111 insertions(+)
 
-diff --git a/drivers/misc/Kconfig b/drivers/misc/Kconfig
-index 6b37d61150ee..fb3e48543453 100644
---- a/drivers/misc/Kconfig
-+++ b/drivers/misc/Kconfig
-@@ -631,6 +631,11 @@ config MCHP_LAN966X_PCI
- 	    - lan966x-serdes (PHY_LAN966X_SERDES)
- 	    - lan966x-miim (MDIO_MSCC_MIIM)
- 	    - lan966x-switch (LAN966X_SWITCH)
-+	    - lan966x-gck (COMMON_CLK_LAN966X)
-+	    - i2c-mux-pinctrl (I2C_MUX_PINCTRL)
-+	    - sama5d2-flexcom (MFD_ATMEL_FLEXCOM)
-+	    - sam9x60-i2c (I2C_AT91)
-+	    - sfp (SFP)
+diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_pci.dtso
+index 94a967b384f3..a2015b46cd44 100644
+--- a/drivers/misc/lan966x_pci.dtso
++++ b/drivers/misc/lan966x_pci.dtso
+@@ -47,6 +47,47 @@ sys_clk: clock-15625000 {
+ 				clock-frequency = <15625000>;  /* System clock = 15.625MHz */
+ 			};
  
- source "drivers/misc/c2port/Kconfig"
- source "drivers/misc/eeprom/Kconfig"
++			i2c0_emux: i2c0-emux {
++				compatible = "i2c-mux-pinctrl";
++				#address-cells = <1>;
++				#size-cells = <0>;
++				i2c-parent = <&i2c0>;
++				pinctrl-names = "i2c102", "i2c103", "idle";
++				pinctrl-0 = <&i2cmux_0>;
++				pinctrl-1 = <&i2cmux_1>;
++				pinctrl-2 = <&i2cmux_pins>;
++
++				i2c102: i2c@0 {
++					reg = <0>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++				};
++
++				i2c103: i2c@1 {
++					reg = <1>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++				};
++			};
++
++			sfp2: sfp2 {
++				compatible = "sff,sfp";
++				i2c-bus = <&i2c102>;
++				tx-disable-gpios = <&gpio 0 GPIO_ACTIVE_HIGH>;
++				los-gpios = <&gpio 25 GPIO_ACTIVE_HIGH>;
++				mod-def0-gpios = <&gpio 18 GPIO_ACTIVE_LOW>;
++				tx-fault-gpios = <&gpio 2 GPIO_ACTIVE_HIGH>;
++			};
++
++			sfp3: sfp3 {
++				compatible = "sff,sfp";
++				i2c-bus = <&i2c103>;
++				tx-disable-gpios = <&gpio 1 GPIO_ACTIVE_HIGH>;
++				los-gpios = <&gpio 26 GPIO_ACTIVE_HIGH>;
++				mod-def0-gpios = <&gpio 19 GPIO_ACTIVE_LOW>;
++				tx-fault-gpios = <&gpio 3 GPIO_ACTIVE_HIGH>;
++			};
++
+ 			pci-ep-bus@0 {
+ 				compatible = "simple-bus";
+ 				#address-cells = <1>;
+@@ -95,6 +136,50 @@ port1: port@1 {
+ 							phy-mode = "gmii";
+ 							phys = <&serdes 1 CU(1)>;
+ 						};
++
++						port2: port@2 {
++							reg = <2>;
++							phy-mode = "sgmii";
++							phys = <&serdes 2 SERDES6G(0)>;
++							sfp = <&sfp2>;
++							managed = "in-band-status";
++						};
++
++						port3: port@3 {
++							reg = <3>;
++							phy-mode = "sgmii";
++							phys = <&serdes 3 SERDES6G(1)>;
++							sfp = <&sfp3>;
++							managed = "in-band-status";
++						};
++					};
++				};
++
++				flx0: flexcom@e0040000 {
++					compatible = "atmel,sama5d2-flexcom";
++					reg = <0xe0040000 0x100>;
++					clocks = <&clks GCK_ID_FLEXCOM0>;
++					#address-cells = <1>;
++					#size-cells = <1>;
++					ranges = <0x0 0xe0040000 0x800>;
++
++					atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_TWI>;
++
++					i2c0: i2c@600 {
++						compatible = "microchip,sam9x60-i2c";
++						reg = <0x600 0x200>;
++						interrupt-parent = <&oic>;
++						interrupts = <48 IRQ_TYPE_LEVEL_HIGH>;
++						#address-cells = <1>;
++						#size-cells = <0>;
++						clocks = <&clks GCK_ID_FLEXCOM0>;
++						assigned-clocks = <&clks GCK_ID_FLEXCOM0>;
++						assigned-clock-rates = <20000000>;
++						pinctrl-0 = <&fc0_a_pins>;
++						pinctrl-names = "default";
++						i2c-analog-filter;
++						i2c-digital-filter;
++						i2c-digital-filter-width-ns = <35>;
+ 					};
+ 				};
+ 
+@@ -103,6 +188,14 @@ cpu_ctrl: syscon@e00c0000 {
+ 					reg = <0xe00c0000 0xa8>;
+ 				};
+ 
++				clks: clock-controller@e00c00a8 {
++					compatible = "microchip,lan966x-gck";
++					#clock-cells = <1>;
++					clocks = <&cpu_clk>, <&ddr_clk>, <&sys_clk>;
++					clock-names = "cpu", "ddr", "sys";
++					reg = <0xe00c00a8 0x38>, <0xe00c02cc 0x4>;
++				};
++
+ 				oic: oic@e00c0120 {
+ 					compatible = "microchip,lan966x-oic";
+ 					#interrupt-cells = <2>;
+@@ -143,6 +236,24 @@ fc0_a_pins: fcb4-i2c-pins {
+ 						pins = "GPIO_9", "GPIO_10";
+ 						function = "fc0_a";
+ 					};
++
++					i2cmux_pins: i2cmux-pins {
++						pins = "GPIO_76", "GPIO_77";
++						function = "twi_slc_gate";
++						output-low;
++					};
++
++					i2cmux_0: i2cmux-0 {
++						pins = "GPIO_76";
++						function = "twi_slc_gate";
++						output-high;
++					};
++
++					i2cmux_1: i2cmux-1 {
++						pins = "GPIO_77";
++						function = "twi_slc_gate";
++						output-high;
++					};
+ 				};
+ 
+ 				mdio1: mdio@e200413c {
 -- 
 2.49.0
 
