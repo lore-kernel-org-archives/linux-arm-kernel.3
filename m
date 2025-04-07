@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43941C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 09:49:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF95C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 09:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i1hTj6cDfhtfhARxJR7kut9hmntTt8qdPshR1N/OKqY=; b=y3RU/vGE7OTtGypAw7vt/w0Uof
-	nrF9uLUeLU3h9W3HeqIwV3zfuMhpH3z235fsphZrgJDk29jxXRdrvBnP5Fjqu8F2MVAD60isUyS0V
-	XpLfI8Pf18adr0vl/1CInIVWeHHBP7wp/f/ZT2WeaWLCjTSCyiz+Kjb7GmRGOsbKLXQGyk9pqGTtz
-	m0IHZtzKFjjsgn4ZskIB+4vUDyVMnEirvM/78FeU4oBFw1fChUGm1xaOQsmGNsfeRx72dn3V8kZnF
-	QcHlqC+9H4Tkf7uZTF8mI3dnkqvdwEVa5UnNmxdv+2aPp9iABqAnjwQH+cICakIExg2/vrPUutIxC
-	4gT4IeeA==;
+	bh=KHsKAAS4xn/E3BE2tcKx5LKhY9hfcmn910IVFbLatwo=; b=a94Z0GOWNAC+X6Jj1tfVr5qosD
+	+r7cMO8iheXG1fVZkXZJWUZh7+mSgPWUv44o0XQpEbthWuboXV2Ww8NurdjlNjePILOyuCy2PV7W6
+	s4liLN/++MYET9WW0d+Ps9ctUnzPUC+DIySGeqg85t78BQY3VgqwgFICM4iq87UKpPHGZb4CeUD8D
+	FfS++o2AigJ6DBmRpq3D+7wTbIjg+IdsQkdAuB5k7VhFDTIT32ktwBxPxDAVV3Mitthez/cbV/mAV
+	gY3hvw7L8/+4KTSAeoRJbAjowYYNAEVAqhupYtL52JTMSELIrc5BHtAY4hzwcsm/n1CA0OY2VfJ0R
+	qrUhZcDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1j6O-0000000HFuC-2Jb5;
-	Mon, 07 Apr 2025 09:49:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u1j87-0000000HGBF-1NxA;
+	Mon, 07 Apr 2025 09:50:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1iyz-0000000HEF4-0v6h
+	id 1u1iz4-0000000HEGa-1Pwr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 09:41:34 +0000
+	Mon, 07 Apr 2025 09:41:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8756D5C5D5C;
-	Mon,  7 Apr 2025 09:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83C23C4CEDD;
-	Mon,  7 Apr 2025 09:41:27 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E4F57A4867C;
+	Mon,  7 Apr 2025 09:36:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF8CDC4CEEE;
+	Mon,  7 Apr 2025 09:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744018892;
-	bh=LADWl+fVBw+ZhNd73tyJyeOs41U/nX6r/rG0GxLjseE=;
+	s=k20201202; t=1744018897;
+	bh=VwzxAZgsRybA0F2IDNYCLluyflBkB+VWLGkimMGzLx0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XHsw47fa1vykt54xSk2kKBeoNqvHMWT4hSYd+mem0KHkTAtdDPRPviOIjH7TmXyIn
-	 cGitmtAXfD1pge+FopBslumR8GbdAy0390VqmZNyN2zCjT22l0M2lSPgofYkvpaH5m
-	 sQaZ5V9UHeTmZxGI9F+uB7zCE96/uwsd34Cr1oJj7WWPUUup49+nNeShQIAvbcFR5P
-	 J2zAJ8sSYmVLIcqTe3Og+D5lEhYXiFMrsyLge5oyYIRaT+/dr77QL5vaNTzY4Aw0bE
-	 GrA0fRws1IGUPIbtS3GyRIIwkxMQGB6qp1vyyxMJWa4AboI3lT1RQ91UIJQ+TRbCHA
-	 yIy7kbl+9ZXlw==
+	b=dV3U946eMOm6wdNY//ORQidKNfD6+720aVfe5fmXsvQQXzscsW1aXUi38et3haz15
+	 lm/XsBfnz+TpcumI/6XVgq9IPEdze6PGUJJAbdLFIyha0+djkIcWylatZcgTMrBOqT
+	 HpAS8uTlwNdTx4/9l67XiA+Xn4YW0qyQFoMa9Q1G/7TDWdMrKrPZTlMDJb3Mwy9u02
+	 gVc3yKnpH3FRV4pjhcPP4v+zndz2Fa0jqrwl5k4dfbEge4CUhl6kgsP4l3l9Jq+fhY
+	 jCriA1cjNVHdG3LU4uva6VoMwfx6bumqqh8MVu/sYkMfCvy297c1stgUA4IaO8a1Fb
+	 2VaY5yyST2Wew==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-kbuild@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>,
@@ -69,18 +69,17 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-kernel@vger.kernel.org,
 	linux-raid@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH 1/4] kbuild: require gcc-8 and binutils-2.30
-Date: Mon,  7 Apr 2025 11:41:13 +0200
-Message-Id: <20250407094116.1339199-2-arnd@kernel.org>
+Subject: [PATCH 2/4] raid6: skip avx512 checks
+Date: Mon,  7 Apr 2025 11:41:14 +0200
+Message-Id: <20250407094116.1339199-3-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250407094116.1339199-1-arnd@kernel.org>
 References: <20250407094116.1339199-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_024133_374870_11DA0509 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20250407_024138_511653_0FC0C5F6 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,343 +96,108 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-Commit a3e8fe814ad1 ("x86/build: Raise the minimum GCC version to 8.1")
-raised the minimum compiler version as enforced by Kbuild to gcc-8.1
-and clang-15 for x86.
+It is no longer necessary to check for CONFIG_AS_AVX512, since the minimum
+assembler version is now from binutils-2.30 and this always supports it.
 
-This is actually the same gcc version that has been discussed as the
-minimum for all architectures several times in the past, with little
-objection. A previous concern was the kernel for SLE15-SP7 needing to
-be built with gcc-7. As this ended up still using linux-6.4 and there
-is no plan for an SP8, this is no longer a problem.
-
-Change it for all architectures and adjust the documentation accordingly.
-A few version checks can be removed in the process.  The binutils
-version 2.30 is the lowest version used in combination with gcc-8 on
-common distros, so use that as the corresponding minimum.
-
-Link: https://lore.kernel.org/lkml/20240925150059.3955569-32-ardb+git@google.com/
-Link: https://lore.kernel.org/lkml/871q7yxrgv.wl-tiwai@suse.de/
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- Documentation/admin-guide/README.rst          |  2 +-
- Documentation/kbuild/makefiles.rst            |  4 +-
- Documentation/process/changes.rst             |  4 +-
- .../translations/it_IT/process/changes.rst    |  4 +-
- .../translations/zh_CN/admin-guide/README.rst |  2 +-
- arch/um/Makefile                              |  4 +-
- include/linux/unroll.h                        |  4 +-
- kernel/gcov/gcc_4_7.c                         |  4 --
- lib/test_fortify/Makefile                     |  5 +--
- scripts/Makefile.compiler                     |  2 +-
- scripts/gcc-plugins/gcc-common.h              | 45 -------------------
- scripts/min-tool-version.sh                   |  6 +--
- 12 files changed, 14 insertions(+), 72 deletions(-)
+ lib/raid6/algos.c        | 6 ------
+ lib/raid6/avx512.c       | 4 ----
+ lib/raid6/recov_avx512.c | 6 ------
+ lib/raid6/test/Makefile  | 3 ---
+ 4 files changed, 19 deletions(-)
 
-diff --git a/Documentation/admin-guide/README.rst b/Documentation/admin-guide/README.rst
-index 70b02f30013a..05301f03b717 100644
---- a/Documentation/admin-guide/README.rst
-+++ b/Documentation/admin-guide/README.rst
-@@ -259,7 +259,7 @@ Configuring the kernel
- Compiling the kernel
- --------------------
+diff --git a/lib/raid6/algos.c b/lib/raid6/algos.c
+index cd2e88ee1f14..dfd3f800ac9b 100644
+--- a/lib/raid6/algos.c
++++ b/lib/raid6/algos.c
+@@ -28,10 +28,8 @@ EXPORT_SYMBOL_GPL(raid6_call);
  
-- - Make sure you have at least gcc 5.1 available.
-+ - Make sure you have at least gcc 8.1 available.
-    For more information, refer to :ref:`Documentation/process/changes.rst <changes>`.
- 
-  - Do a ``make`` to create a compressed kernel image. It is also possible to do
-diff --git a/Documentation/kbuild/makefiles.rst b/Documentation/kbuild/makefiles.rst
-index 3b9a8bc671e2..38cc656fac20 100644
---- a/Documentation/kbuild/makefiles.rst
-+++ b/Documentation/kbuild/makefiles.rst
-@@ -625,10 +625,10 @@ gcc-min-version
- 
-   Example::
- 
--    cflags-$(call gcc-min-version, 70100) := -foo
-+    cflags-$(call gcc-min-version, 110100) := -foo
- 
-   In this example, cflags-y will be assigned the value -foo if $(CC) is gcc and
--  $(CONFIG_GCC_VERSION) is >= 7.1.
-+  $(CONFIG_GCC_VERSION) is >= 11.1.
- 
- clang-min-version
-   clang-min-version tests if the value of $(CONFIG_CLANG_VERSION) is greater
-diff --git a/Documentation/process/changes.rst b/Documentation/process/changes.rst
-index d564362773b5..41b1431f5a6b 100644
---- a/Documentation/process/changes.rst
-+++ b/Documentation/process/changes.rst
-@@ -29,13 +29,13 @@ you probably needn't concern yourself with pcmciautils.
- ====================== ===============  ========================================
-         Program        Minimal version       Command to check the version
- ====================== ===============  ========================================
--GNU C                  5.1              gcc --version
-+GNU C                  8.1              gcc --version
- Clang/LLVM (optional)  13.0.1           clang --version
- Rust (optional)        1.78.0           rustc --version
- bindgen (optional)     0.65.1           bindgen --version
- GNU make               4.0              make --version
- bash                   4.2              bash --version
--binutils               2.25             ld -v
-+binutils               2.30             ld -v
- flex                   2.5.35           flex --version
- bison                  2.0              bison --version
- pahole                 1.16             pahole --version
-diff --git a/Documentation/translations/it_IT/process/changes.rst b/Documentation/translations/it_IT/process/changes.rst
-index c7d05e2fff15..2e203fbd1785 100644
---- a/Documentation/translations/it_IT/process/changes.rst
-+++ b/Documentation/translations/it_IT/process/changes.rst
-@@ -32,13 +32,13 @@ PC Card, per esempio, probabilmente non dovreste preoccuparvi di pcmciautils.
- ====================== =================  ========================================
-         Programma       Versione minima       Comando per verificare la versione
- ====================== =================  ========================================
--GNU C                  5.1                gcc --version
-+GNU C                  8.1                gcc --version
- Clang/LLVM (optional)  13.0.0             clang --version
- Rust (opzionale)       1.78.0             rustc --version
- bindgen (opzionale)    0.65.1             bindgen --version
- GNU make               4.0                make --version
- bash                   4.2                bash --version
--binutils               2.25               ld -v
-+binutils               2.30               ld -v
- flex                   2.5.35             flex --version
- bison                  2.0                bison --version
- pahole                 1.16               pahole --version
-diff --git a/Documentation/translations/zh_CN/admin-guide/README.rst b/Documentation/translations/zh_CN/admin-guide/README.rst
-index 1bdafdc4c8e2..82e628b77efd 100644
---- a/Documentation/translations/zh_CN/admin-guide/README.rst
-+++ b/Documentation/translations/zh_CN/admin-guide/README.rst
-@@ -224,7 +224,7 @@ Linux内核6.x版本 <http://kernel.org/>
- 编译内核
- ---------
- 
-- - 确保您至少有gcc 5.1可用。
-+ - 确保您至少有gcc 8.1可用。
-    有关更多信息，请参阅 :ref:`Documentation/process/changes.rst <changes>` 。
- 
-  - 执行 ``make`` 来创建压缩内核映像。如果您安装了lilo以适配内核makefile，
-diff --git a/arch/um/Makefile b/arch/um/Makefile
-index 1d36a613aad8..599c167890ff 100644
---- a/arch/um/Makefile
-+++ b/arch/um/Makefile
-@@ -118,9 +118,7 @@ archprepare:
- 	$(Q)$(MAKE) $(build)=$(HOST_DIR)/um include/generated/user_constants.h
- 
- LINK-$(CONFIG_LD_SCRIPT_STATIC) += -static
--ifdef CONFIG_LD_SCRIPT_DYN
--LINK-$(call gcc-min-version, 60100)$(CONFIG_CC_IS_CLANG) += -no-pie
--endif
-+LINK-$(CONFIG_LD_SCRIPT_DYN) += -no-pie
- LINK-$(CONFIG_LD_SCRIPT_DYN_RPATH) += -Wl,-rpath,/lib
- 
- CFLAGS_NO_HARDENING := $(call cc-option, -fno-PIC,) $(call cc-option, -fno-pic,) \
-diff --git a/include/linux/unroll.h b/include/linux/unroll.h
-index 863fb69f6a7e..186b71de740f 100644
---- a/include/linux/unroll.h
-+++ b/include/linux/unroll.h
-@@ -11,10 +11,8 @@
- 
- #ifdef CONFIG_CC_IS_CLANG
- #define __pick_unrolled(x, y)		_Pragma(#x)
--#elif CONFIG_GCC_VERSION >= 80000
--#define __pick_unrolled(x, y)		_Pragma(#y)
- #else
--#define __pick_unrolled(x, y)		/* not supported */
-+#define __pick_unrolled(x, y)		_Pragma(#y)
+ const struct raid6_calls * const raid6_algos[] = {
+ #if defined(__i386__) && !defined(__arch_um__)
+-#ifdef CONFIG_AS_AVX512
+ 	&raid6_avx512x2,
+ 	&raid6_avx512x1,
+-#endif
+ 	&raid6_avx2x2,
+ 	&raid6_avx2x1,
+ 	&raid6_sse2x2,
+@@ -42,11 +40,9 @@ const struct raid6_calls * const raid6_algos[] = {
+ 	&raid6_mmxx1,
  #endif
+ #if defined(__x86_64__) && !defined(__arch_um__)
+-#ifdef CONFIG_AS_AVX512
+ 	&raid6_avx512x4,
+ 	&raid6_avx512x2,
+ 	&raid6_avx512x1,
+-#endif
+ 	&raid6_avx2x4,
+ 	&raid6_avx2x2,
+ 	&raid6_avx2x1,
+@@ -96,9 +92,7 @@ EXPORT_SYMBOL_GPL(raid6_datap_recov);
  
- /**
-diff --git a/kernel/gcov/gcc_4_7.c b/kernel/gcov/gcc_4_7.c
-index fd75b4a484d7..a08cc076f332 100644
---- a/kernel/gcov/gcc_4_7.c
-+++ b/kernel/gcov/gcc_4_7.c
-@@ -22,10 +22,6 @@
- #define GCOV_COUNTERS			9
- #elif (__GNUC__ >= 10)
- #define GCOV_COUNTERS			8
--#elif (__GNUC__ >= 7)
--#define GCOV_COUNTERS			9
--#elif (__GNUC__ > 5) || (__GNUC__ == 5 && __GNUC_MINOR__ >= 1)
--#define GCOV_COUNTERS			10
- #else
- #define GCOV_COUNTERS			9
+ const struct raid6_recov_calls *const raid6_recov_algos[] = {
+ #ifdef CONFIG_X86
+-#ifdef CONFIG_AS_AVX512
+ 	&raid6_recov_avx512,
+-#endif
+ 	&raid6_recov_avx2,
+ 	&raid6_recov_ssse3,
  #endif
-diff --git a/lib/test_fortify/Makefile b/lib/test_fortify/Makefile
-index 1c3f82ad8bb2..399cae880e1d 100644
---- a/lib/test_fortify/Makefile
-+++ b/lib/test_fortify/Makefile
-@@ -18,10 +18,7 @@ quiet_cmd_gen_fortify_log = CAT     $@
- $(obj)/test_fortify.log: $(addprefix $(obj)/, $(logs)) FORCE
- 	$(call if_changed,gen_fortify_log)
+diff --git a/lib/raid6/avx512.c b/lib/raid6/avx512.c
+index 9c3e822e1adf..009bd0adeebf 100644
+--- a/lib/raid6/avx512.c
++++ b/lib/raid6/avx512.c
+@@ -17,8 +17,6 @@
+  *
+  */
  
--# GCC<=7 does not always produce *.d files.
--# Run the tests only for GCC>=8 or Clang.
--always-$(call gcc-min-version, 80000) += test_fortify.log
--always-$(CONFIG_CC_IS_CLANG)          += test_fortify.log
-+always-y += test_fortify.log
+-#ifdef CONFIG_AS_AVX512
+-
+ #include <linux/raid/pq.h>
+ #include "x86.h"
  
- # Some architectures define __NO_FORTIFY if __SANITIZE_ADDRESS__ is undefined.
- # Pass CFLAGS_KASAN to avoid warnings.
-diff --git a/scripts/Makefile.compiler b/scripts/Makefile.compiler
-index 8956587b8547..d74fad494b5b 100644
---- a/scripts/Makefile.compiler
-+++ b/scripts/Makefile.compiler
-@@ -60,7 +60,7 @@ cc-option-yn = $(if $(call cc-option,$1),y,n)
- cc-disable-warning = $(if $(call cc-option,-W$(strip $1)),-Wno-$(strip $1))
+@@ -560,5 +558,3 @@ const struct raid6_calls raid6_avx512x4 = {
+ 	.priority = 2		/* Prefer AVX512 over priority 1 (SSE2 and others) */
+ };
+ #endif
+-
+-#endif /* CONFIG_AS_AVX512 */
+diff --git a/lib/raid6/recov_avx512.c b/lib/raid6/recov_avx512.c
+index fd9e15bf3f30..310c715db313 100644
+--- a/lib/raid6/recov_avx512.c
++++ b/lib/raid6/recov_avx512.c
+@@ -6,8 +6,6 @@
+  * Author: Megha Dey <megha.dey@linux.intel.com>
+  */
  
- # gcc-min-version
--# Usage: cflags-$(call gcc-min-version, 70100) += -foo
-+# Usage: cflags-$(call gcc-min-version, 110100) += -foo
- gcc-min-version = $(call test-ge, $(CONFIG_GCC_VERSION), $1)
+-#ifdef CONFIG_AS_AVX512
+-
+ #include <linux/raid/pq.h>
+ #include "x86.h"
  
- # clang-min-version
-diff --git a/scripts/gcc-plugins/gcc-common.h b/scripts/gcc-plugins/gcc-common.h
-index 3222c1070444..3fdaf1c4b258 100644
---- a/scripts/gcc-plugins/gcc-common.h
-+++ b/scripts/gcc-plugins/gcc-common.h
-@@ -3,11 +3,7 @@
- #define GCC_COMMON_H_INCLUDED
- 
- #include "bversion.h"
--#if BUILDING_GCC_VERSION >= 6000
- #include "gcc-plugin.h"
+@@ -377,7 +375,3 @@ const struct raid6_recov_calls raid6_recov_avx512 = {
+ #endif
+ 	.priority = 3,
+ };
+-
 -#else
--#include "plugin.h"
+-#warning "your version of binutils lacks AVX512 support"
 -#endif
- #include "plugin-version.h"
- #include "config.h"
- #include "system.h"
-@@ -39,9 +35,7 @@
- 
- #include "hash-map.h"
- 
--#if BUILDING_GCC_VERSION >= 7000
- #include "memmodel.h"
--#endif
- #include "emit-rtl.h"
- #include "debug.h"
- #include "target.h"
-@@ -74,9 +68,7 @@
- #include "context.h"
- #include "tree-ssa-alias.h"
- #include "tree-ssa.h"
--#if BUILDING_GCC_VERSION >= 7000
- #include "tree-vrp.h"
--#endif
- #include "tree-ssanames.h"
- #include "print-tree.h"
- #include "tree-eh.h"
-@@ -149,16 +141,6 @@ static inline opt_pass *get_pass_for_id(int id)
- 	return g->get_passes()->get_pass_for_id(id);
- }
- 
--#if BUILDING_GCC_VERSION < 6000
--/* gimple related */
--template <>
--template <>
--inline bool is_a_helper<const gassign *>::test(const_gimple gs)
--{
--	return gs->code == GIMPLE_ASSIGN;
--}
--#endif
--
- #define TODO_verify_ssa TODO_verify_il
- #define TODO_verify_flow TODO_verify_il
- #define TODO_verify_stmts TODO_verify_il
-@@ -181,7 +163,6 @@ static inline const char *get_decl_section_name(const_tree decl)
- #define varpool_get_node(decl) varpool_node::get(decl)
- #define dump_varpool_node(file, node) (node)->dump(file)
- 
--#if BUILDING_GCC_VERSION >= 8000
- #define cgraph_create_edge(caller, callee, call_stmt, count, freq) \
- 	(caller)->create_edge((callee), (call_stmt), (count))
- 
-@@ -189,15 +170,6 @@ static inline const char *get_decl_section_name(const_tree decl)
- 		old_call_stmt, call_stmt, count, freq, reason)	\
- 	(caller)->create_edge_including_clones((callee),	\
- 		(old_call_stmt), (call_stmt), (count), (reason))
--#else
--#define cgraph_create_edge(caller, callee, call_stmt, count, freq) \
--	(caller)->create_edge((callee), (call_stmt), (count), (freq))
--
--#define cgraph_create_edge_including_clones(caller, callee,	\
--		old_call_stmt, call_stmt, count, freq, reason)	\
--	(caller)->create_edge_including_clones((callee),	\
--		(old_call_stmt), (call_stmt), (count), (freq), (reason))
--#endif
- 
- typedef struct cgraph_node *cgraph_node_ptr;
- typedef struct cgraph_edge *cgraph_edge_p;
-@@ -293,14 +265,12 @@ static inline void cgraph_call_edge_duplication_hooks(cgraph_edge *cs1, cgraph_e
- 	symtab->call_edge_duplication_hooks(cs1, cs2);
- }
- 
--#if BUILDING_GCC_VERSION >= 6000
- typedef gimple *gimple_ptr;
- typedef const gimple *const_gimple_ptr;
- #define gimple gimple_ptr
- #define const_gimple const_gimple_ptr
- #undef CONST_CAST_GIMPLE
- #define CONST_CAST_GIMPLE(X) CONST_CAST(gimple, (X))
--#endif
- 
- /* gimple related */
- static inline gimple gimple_build_assign_with_ops(enum tree_code subcode, tree lhs, tree op1, tree op2 MEM_STAT_DECL)
-@@ -400,15 +370,7 @@ static inline void ipa_remove_stmt_references(symtab_node *referring_node, gimpl
- 	referring_node->remove_stmt_references(stmt);
- }
- 
--#if BUILDING_GCC_VERSION < 6000
--#define get_inner_reference(exp, pbitsize, pbitpos, poffset, pmode, punsignedp, preversep, pvolatilep, keep_aligning)	\
--	get_inner_reference(exp, pbitsize, pbitpos, poffset, pmode, punsignedp, pvolatilep, keep_aligning)
--#define gen_rtx_set(ARG0, ARG1) gen_rtx_SET(VOIDmode, (ARG0), (ARG1))
--#endif
--
--#if BUILDING_GCC_VERSION >= 6000
- #define gen_rtx_set(ARG0, ARG1) gen_rtx_SET((ARG0), (ARG1))
--#endif
- 
- #ifdef __cplusplus
- static inline void debug_tree(const_tree t)
-@@ -425,15 +387,8 @@ static inline void debug_gimple_stmt(const_gimple s)
- #define debug_gimple_stmt(s) debug_gimple_stmt(CONST_CAST_GIMPLE(s))
- #endif
- 
--#if BUILDING_GCC_VERSION >= 7000
- #define get_inner_reference(exp, pbitsize, pbitpos, poffset, pmode, punsignedp, preversep, pvolatilep, keep_aligning)	\
- 	get_inner_reference(exp, pbitsize, pbitpos, poffset, pmode, punsignedp, preversep, pvolatilep)
--#endif
--
--#if BUILDING_GCC_VERSION < 7000
--#define SET_DECL_ALIGN(decl, align)	DECL_ALIGN(decl) = (align)
--#define SET_DECL_MODE(decl, mode)	DECL_MODE(decl) = (mode)
--#endif
- 
- #if BUILDING_GCC_VERSION >= 14000
- #define last_stmt(x)			last_nondebug_stmt(x)
-diff --git a/scripts/min-tool-version.sh b/scripts/min-tool-version.sh
-index 787868183b84..0d223b4a9445 100755
---- a/scripts/min-tool-version.sh
-+++ b/scripts/min-tool-version.sh
-@@ -14,15 +14,13 @@ fi
- 
- case "$1" in
- binutils)
--	echo 2.25.0
-+	echo 2.30.0
- 	;;
- gcc)
- 	if [ "$ARCH" = parisc64 ]; then
- 		echo 12.0.0
--	elif [ "$SRCARCH" = x86 ]; then
--		echo 8.1.0
- 	else
--		echo 5.1.0
-+		echo 8.1.0
- 	fi
- 	;;
- llvm)
+diff --git a/lib/raid6/test/Makefile b/lib/raid6/test/Makefile
+index 2abe0076a636..8f2dd2210ba8 100644
+--- a/lib/raid6/test/Makefile
++++ b/lib/raid6/test/Makefile
+@@ -54,9 +54,6 @@ endif
+ ifeq ($(IS_X86),yes)
+         OBJS   += mmx.o sse1.o sse2.o avx2.o recov_ssse3.o recov_avx2.o avx512.o recov_avx512.o
+         CFLAGS += -DCONFIG_X86
+-        CFLAGS += $(shell echo "vpmovm2b %k1, %zmm5" |          \
+-                    gcc -c -x assembler - >/dev/null 2>&1 &&    \
+-                    rm ./-.o && echo -DCONFIG_AS_AVX512=1)
+ else ifeq ($(HAS_NEON),yes)
+         OBJS   += neon.o neon1.o neon2.o neon4.o neon8.o recov_neon.o recov_neon_inner.o
+         CFLAGS += -DCONFIG_KERNEL_MODE_NEON=1
 -- 
 2.39.5
 
