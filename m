@@ -4,50 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2693CC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 14:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F3C6C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 14:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PtT82CTCAJi7GIQsdFWvOD88JDJ6rvOOMJtHFDPWzVk=; b=IYLQtV7uEWfO74ojwcQkCGRTi0
-	3RdP+y2CoegPz/YptabfOmJOvE9JGc9jdrpQLc8GkpRQCXyLntJC3puoYghw8DOGyUMbUkGSZRZhD
-	vqsiunRDDGWuiy5AsV9U32TjTlrvQF1KG7fivMS6rIPzQLER9FztYkEr4YkBPbufK/JoKJxfHzIt5
-	FHiQDs9bBveVvuKDfTR7M4ey/UUdwXpLmvEtjyKH4yrXVwod6CB0ygo5A4fCcCr5kAzKc3/eSB4gh
-	98qyQDG5OEZVH5IRb96K1KdqMSqow8A5cQ2jFMEg8ZS/1c1W3tZjBdWg16voTlQ+LLwqjl/bgw7Cy
-	tuCdvMug==;
+	bh=V4Zsaq+fmaPAXXaladGs7kZ/PtNPZK4DfBqyvjdF6Hc=; b=ybUSrzzwM/J1gM0XJAaWiLnVei
+	jQUMkiyIBq2Fb01C9/U5ZQ+/2KubwJZnJ0ZGg8t2mwwTRFZtC/wKf3ws+/wL5d+R0LTmBBxlqEqLp
+	IlGoFe6XIiF4qfKP8V/uKvqR0u8DAemAIKbQBlU+cRwYEdnBjEKxu2HbeDoLN7aCna1bhHRZnBpAG
+	16NWqKXRUq7rbsz3H2mARYKCH9iKTpgrh55gjC9lYFFYvQ4v68OU5sP8nGZVoisouI/bcO27AHbz3
+	G/8z9Y2VINJ9WkYm1Hv3v1IFgybg0LPDnZ1MrEmAlK1W0WQ7CQu/UA5F7xfYxWBsrgkE9OfmQehis
+	Jhxz9SeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nTe-00000000js6-44UK;
-	Mon, 07 Apr 2025 14:29:30 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1u1nYp-00000000kfn-3sjM;
+	Mon, 07 Apr 2025 14:34:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nOS-00000000hwi-3RJn;
-	Mon, 07 Apr 2025 14:24:10 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 2A7CB442B9;
-	Mon,  7 Apr 2025 14:24:04 +0000 (UTC)
+	id 1u1nOe-00000000i44-2kX8;
+	Mon, 07 Apr 2025 14:24:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=V4Zsaq+fmaPAXXaladGs7kZ/PtNPZK4DfBqyvjdF6Hc=; b=rd7aJQheMLEXtuuQCvXQJua2PU
+	Z+rNux/5aWeDbgk9bOPXcAwJz10HBcilvbBF0pHOWiy8+n4Xrb27t79z/Yd/C3B1HGhizH8nbJT1s
+	OjetTj/fgZ+A+ecU1UB8PF6mrOkUoyEgigzyggFrpKZX4fh1G/8FTNjvF+WJZb7okG7YifVHbKq8B
+	dbrCm4VFL/7OvgZK7aTebnzFntmpSnbWT7IWHjYQdIA3FQBpPYlsc4hmo2G7k3kHmUYL7RMvJypT8
+	I167lNNRhXzfh6WHtWfv30XeDFom7FdRdyfQp58AyVDt35HUz2f4lfnB+WV4u9iZb0Xyfp4ReANYD
+	0MClvbSw==;
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1nOb-00000007yub-3B0i;
+	Mon, 07 Apr 2025 14:24:19 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C5F66443AE;
+	Mon,  7 Apr 2025 14:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744035847;
+	t=1744035854;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PtT82CTCAJi7GIQsdFWvOD88JDJ6rvOOMJtHFDPWzVk=;
-	b=CdOix076zY2dsvoFeunrgd4LWuCU+L4H3Kr5x9w+AJ+6d64WjgTuaKyPvgk0JwZNaNSuc1
-	Yk6J6XTdlCKxt2ZgfvPQtWq4DgO+p/J9UiTe5mstIGQL3jcq73dgQP4RBzJJZEmQ55wCS5
-	vnnvGgCPKhW6w1KZVJhxX5Yu7bSG+SAzSY4MzpyLi9W355Y6Q3EXApH8j53+A6+dyqYHu7
-	km4pLGPQF+NzfHn37BZr5vYFnnGn8kyj0FmVBrOW0E5Ds+O8pZIhdZLdzcWqJVe5lLL7Sh
-	pU4jW53itNYhKW2eR8sJqhRLwvbaKYoLVCRpTsAFMM4tKFD3F8ZU4WPzGBRS1g==
+	bh=V4Zsaq+fmaPAXXaladGs7kZ/PtNPZK4DfBqyvjdF6Hc=;
+	b=HpqL+cWuTPvNYHFfL44NSEFNibib4dRZ8M6ToPWpH8kkXGghWRdoE7cgXep/kQP2XUmy2f
+	pUczcNUlq8hUZAPviUd/B7miPb+jBc/4uC8kLdomQz4oFe3RBXc67qUV3gwDPXd86MTl76
+	JFZx7mDnePT3QDV2fzs7ZCbZklQuwZVJ40av57yHfGUoFcAMicg7vFWQYyaR9SyV6oC4TK
+	F7D5ZQ0lcxnsImCcQk8McFpo7wHlKIipG0UXmA0QCgkGXhj5r32IW+c5x03Qpxz40d3R/Z
+	N//3Kx4PCSCbqrQYqv2cRVsV4b+uWIJKb53md+8uc5aZ2DUDEmxeKJkS+/SopQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Mon, 07 Apr 2025 16:23:17 +0200
-Subject: [PATCH 02/34] platform: arm64: acer-aspire1-ec: convert to
+Date: Mon, 07 Apr 2025 16:23:19 +0200
+Subject: [PATCH 04/34] drm/bridge: anx7625: convert to
  devm_drm_bridge_alloc() API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-2-42113ff8d9c0@bootlin.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-4-42113ff8d9c0@bootlin.com>
 References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
 In-Reply-To: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -78,19 +92,19 @@ Cc: Anusha Srivatsa <asrivats@redhat.com>,
  linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
  Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Hans de Goede <hdegoede@redhat.com>
+ "Rob Herring (Arm)" <robh@kernel.org>, 
+ Hsin-Te Yuan <yuanhsinte@chromium.org>, Jani Nikula <jani.nikula@intel.com>, 
+ Pin-yen Lin <treapking@chromium.org>, Sui Jingfeng <sui.jingfeng@linux.dev>, 
+ Xin Ji <xji@analogixsemi.com>
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthekredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefffffgfefghfettedtfeehgfdtveekhfekudeiueetkeehleetveetjeffhedugeenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdejhegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeegpdhrtghpthhtohephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhrtghpthhtoheplhhinhhugidqmhgvughirghtvghksehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrn
- hgvlhdrohhrghdprhgtphhtthhopehilhhpohdrjhgrrhhvihhnvghnsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepjfhuihdrrfhusehgvghhvggrlhhthhgtrghrvgdrtghomhdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrgh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdejhegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeejpdhrtghpthhtohephihurghnhhhsihhnthgvsegthhhrohhmihhumhdrohhrghdprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnf
+ hhrrgguvggrugdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjfhuihdrrfhusehgvghhvggrlhhthhgtrghrvgdrtghomhdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrgh
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_072409_002977_606C3E89 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250407_152418_019580_E2EB0E91 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,38 +125,42 @@ Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Cc: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>
-Cc: "Ilpo Järvinen" <ilpo.jarvinen@linux.intel.com>
-Cc: Hans de Goede <hdegoede@redhat.com>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Hsin-Te Yuan <yuanhsinte@chromium.org>
+Cc: Jani Nikula <jani.nikula@intel.com>
+Cc: Pin-yen Lin <treapking@chromium.org>
+Cc: Sui Jingfeng <sui.jingfeng@linux.dev>
+Cc: Xin Ji <xji@analogixsemi.com>
 ---
- drivers/platform/arm64/acer-aspire1-ec.c | 7 +++----
+ drivers/gpu/drm/bridge/analogix/anx7625.c | 7 +++----
  1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/platform/arm64/acer-aspire1-ec.c b/drivers/platform/arm64/acer-aspire1-ec.c
-index 958fe1bf5f85bb69ac7962f217de9f0b40cde9a1..438532a047e68799ac53a16a4c813fc16be997b9 100644
---- a/drivers/platform/arm64/acer-aspire1-ec.c
-+++ b/drivers/platform/arm64/acer-aspire1-ec.c
-@@ -452,9 +452,9 @@ static int aspire_ec_probe(struct i2c_client *client)
- 	int ret;
- 	u8 tmp;
+diff --git a/drivers/gpu/drm/bridge/analogix/anx7625.c b/drivers/gpu/drm/bridge/analogix/anx7625.c
+index 866806e908cdb0b9bed8467489094cb2712fa64a..5ee244edea583e47d84f03e23c5a9e69d37222a4 100644
+--- a/drivers/gpu/drm/bridge/analogix/anx7625.c
++++ b/drivers/gpu/drm/bridge/analogix/anx7625.c
+@@ -2587,7 +2587,6 @@ static int anx7625_link_bridge(struct drm_dp_aux *aux)
+ 		return ret;
+ 	}
  
--	ec = devm_kzalloc(dev, sizeof(*ec), GFP_KERNEL);
--	if (!ec)
+-	platform->bridge.funcs = &anx7625_bridge_funcs;
+ 	platform->bridge.of_node = dev->of_node;
+ 	if (!anx7625_of_panel_on_aux_bus(dev))
+ 		platform->bridge.ops |= DRM_BRIDGE_OP_EDID;
+@@ -2622,10 +2621,10 @@ static int anx7625_i2c_probe(struct i2c_client *client)
+ 		return -ENODEV;
+ 	}
+ 
+-	platform = devm_kzalloc(dev, sizeof(*platform), GFP_KERNEL);
+-	if (!platform) {
++	platform = devm_drm_bridge_alloc(dev, struct anx7625_data, bridge, &anx7625_bridge_funcs);
++	if (IS_ERR(platform)) {
+ 		DRM_DEV_ERROR(dev, "fail to allocate driver data\n");
 -		return -ENOMEM;
-+	ec = devm_drm_bridge_alloc(dev, struct aspire_ec, bridge, &aspire_ec_bridge_funcs);
-+	if (IS_ERR(ec))
-+		return PTR_ERR(ec);
++		return PTR_ERR(platform);
+ 	}
  
- 	ec->client = client;
- 	i2c_set_clientdata(client, ec);
-@@ -497,7 +497,6 @@ static int aspire_ec_probe(struct i2c_client *client)
- 	fwnode = device_get_named_child_node(dev, "connector");
- 	if (fwnode) {
- 		INIT_WORK(&ec->work, aspire_ec_bridge_update_hpd_work);
--		ec->bridge.funcs = &aspire_ec_bridge_funcs;
- 		ec->bridge.of_node = to_of_node(fwnode);
- 		ec->bridge.ops = DRM_BRIDGE_OP_HPD;
- 		ec->bridge.type = DRM_MODE_CONNECTOR_USB;
+ 	pdata = &platform->pdata;
 
 -- 
 2.49.0
