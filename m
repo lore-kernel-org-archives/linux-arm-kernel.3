@@ -4,73 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65737C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35755C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ljtxhmEe2XvSJFPRZLmLhm9oOIVAqvWReFSOt396pAs=; b=b1ULURfhKPZgs0IIVqENUR11sE
-	3I+qH1Zbcmuix4I53UHael4+mW3KOjpn+L31RrqowqV5n8dFH0RnAIvceDbb4HGtQwBY5ohO9RTWq
-	CrQTwpvhagaa78GvS+LnjGCoHJALSg8bwQbVx6YHybbqm+mr0iF8fZtwFRDgwLdstvlMllGWn/pqS
-	z/yNNDIV0E9bPHZBbgEAGXM3gk/98W0OJpm0mBLvf7rCMrieBheNWf+62iMnpSBtpWtWgkHRWw28g
-	xkj5zDNCwY4e0idPU9Wg9+ctyaHLVkJeQGaW0+aJRFOLPG38omqjUWXptiSO8BQ42jV1BUzTSjza+
-	omquFH1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cjEt/IPzaAdKLiLHC8nJ5ihJ1fjZFnzeMJstnBzp7XQ=; b=UufV2hjBUyOA2e7fUiiF9tFpYU
+	5PYYvRC4odsqRG0RCRM9o9d4Ao/Ihh9Fxklabl8durwToEr6bPN6pbgHqBZk4FvuV+D48O/Q24TTc
+	tc6RtpvsGbS2rEflaWQBnx0hHL28VuD7CsBScPBZc4+wapf1F6eEkA5Sh8AGq144Su32Q6Gd0WHyj
+	SXBGF+zT/4QUkQnRxM31+60Ifcsdr38CE2t4HNvRMlrS1hvVNN5GCL8dhkNfH806WlIJi0OZfHXER
+	QmmlFzGh/DayHsPDaU1gwAbmBm3+Wvv3fRGGYMb1axkJmFODq0q5+MNss2X9Nl5x/+zM71wQPbpM4
+	SUea3FNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uJV-000000025Ft-2uwx;
-	Mon, 07 Apr 2025 21:47:29 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1u1uJb-000000025QT-27FS;
+	Mon, 07 Apr 2025 21:47:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rx8-00000001mGv-1A6E
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 19:16:15 +0000
+	id 1u1s8N-00000001orE-1gLc;
+	Mon, 07 Apr 2025 19:27:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ljtxhmEe2XvSJFPRZLmLhm9oOIVAqvWReFSOt396pAs=; b=enbxzDpuPpTP2xGri0KCGBzPmZ
-	XYfDC8qA1fW9POEr90NwD5fCBu7Z63r54v9REz9bg8BjgJcVZ61XoJGQNTrHIeCoS3XT3+5q+24th
-	j+xT2NHJPOq1eDho0j8BS+3z2dVxe7pgEIIVI2VFkGkdPDtQmv6TJZOsGopPb4HvZnn0yowTBxeiR
-	XpLSENbZCNPfZCCXqZllhqUYKRKtxv9dbpr5hrokdch3YNhafQG+2iuGcxps6m/8m4ifUBY+10fHz
-	FyAqiRty2RBgaHJE798ng34eYiBX/gGZMaybF6tQzrtHifLtAOlOY9ZRRlkYqV/7RMIC6A2ssRWat
-	v/9OBB8A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:37898 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1u1rx1-0006Cc-1e;
-	Mon, 07 Apr 2025 20:16:07 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1u1rwV-0013jc-Ez; Mon, 07 Apr 2025 20:15:35 +0100
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next] net: stmmac: stm32: simplify clock handling
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=cjEt/IPzaAdKLiLHC8nJ5ihJ1fjZFnzeMJstnBzp7XQ=; b=WNfTXju/J+uQEFb71+wGkU7uTO
+	lEP6eHOaRDzTh3qLjRqAfnGM6fHND/o3GN8b+yXKxHdSx0nvDr6EGDcrDq6nJW1p4bZuwS8z7AcOm
+	2wWmNDtURDi43mPRmnKRM6+h6F02F25Rh6Xi4PJ6As8/s6KKopMqqKYT6g1TxNuwnfAsa5yPZxF1W
+	DYQ51qMzX+brwujfsaXQYLZ52TK0/zmwATyhtb2fofpXR7XJyJdco80PCkVrVfLitc/TaZNiA7KKT
+	j506dIJnR170KpmTofNel0cdtsCivy2FC4BYqGIhOCVhEw13ujtG0VWB7bAZqxvrzI5NAPlsaF/FE
+	tO4ok1fg==;
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1s8K-0000000885B-0kXO;
+	Mon, 07 Apr 2025 19:27:50 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 37D604421F;
+	Mon,  7 Apr 2025 19:27:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744054065;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cjEt/IPzaAdKLiLHC8nJ5ihJ1fjZFnzeMJstnBzp7XQ=;
+	b=Gi+8MJKk54bvu0U11jHOJw08NvtnpAzunZzJXO4mlFlnzsLVy8DFQIv5f1cwemOl31f/in
+	yXq1Um8EF62nuW+7K5/FANGhJKfIDt3FpxkAeF2Uw52NGHGgsgSLt5hId5UF1i3v6U7LiQ
+	QV71SvnJzRB4Bv9Y0pBT6LtPqcjAci3aXj9uPyPUUIhwMeK2lXlaYCBe0svd+nHK7Htak4
+	/9HotCk7aCwdmAu+N82j0bdVIG/9XNextLdkUXD3MPHCRUDF3rNzBb5f+B2kzx0rN1agcB
+	y2M7EU6B7HGxiOcK1BDKg9fGTg+UZIk8/GVGNr8AJuzWT4pQ2/Cw+JF6m2DEKA==
+Date: Mon, 7 Apr 2025 21:27:39 +0200
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Ilpo =?UTF-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Jagan Teki
+ <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Douglas Anderson
+ <dianders@chromium.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, Krzysztof
+ Kozlowski <krzk@kernel.org>, Dmitry Baryshkov
+ <dmitry.baryshkov@linaro.org>, Anusha Srivatsa <asrivats@redhat.com>, Paul
+ Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>,
+ =?UTF-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Hui Pu
+ <Hui.Pu@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, LKML
+ <linux-kernel@vger.kernel.org>, chrome-platform@lists.linux.dev,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, Hans de Goede
+ <hdegoede@redhat.com>
+Subject: Re: [PATCH 02/34] platform: arm64: acer-aspire1-ec: convert to
+ devm_drm_bridge_alloc() API
+Message-ID: <20250407212739.1e991b6a@booty>
+In-Reply-To: <a9000632-a6d1-d369-c317-9ee73aa645dc@linux.intel.com>
+References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
+	<20250407-drm-bridge-convert-to-alloc-api-v1-2-42113ff8d9c0@bootlin.com>
+	<a9000632-a6d1-d369-c317-9ee73aa645dc@linux.intel.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1u1rwV-0013jc-Ez@rmk-PC.armlinux.org.uk>
-Date: Mon, 07 Apr 2025 20:15:35 +0100
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddutdefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepvddtuedtfefgueehiefhjeeiffekudfhgfdtledvffekhfegteduieejveevteehnecuffhomhgrihhnpehfrhgvvgguvghskhhtohhprdhorhhgpdgsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeefpdhrtghpthhtohepihhlphhordhjrghrvhhinhgvnheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigr
+ dhinhhtvghlrdgtohhmpdhrtghpthhtohepmhhrihhprghrugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthiiihhmmhgvrhhmrghnnhesshhushgvrdguvgdprhgtphhtthhopegrihhrlhhivggusehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhrgh
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_121614_324216_B3ECE563 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20250407_202748_372309_68140329 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,171 +116,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some stm32 implementations need the receive clock running in suspend,
-as indicated by dwmac->ops->clk_rx_enable_in_suspend. The existing
-code achieved this in a rather complex way, by passing a flag around.
+Hello Ilpo,
 
-However, the clk API prepare/enables are counted - which means that a
-clock won't be stopped as long as there are more prepare and enables
-than disables and unprepares, just like a reference count.
+On Mon, 7 Apr 2025 19:46:59 +0300 (EEST)
+Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com> wrote:
 
-Therefore, we can simplify this logic by calling clk_prepare_enable()
-an additional time in the probe function if this flag is set, and then
-balancing that at remove time.
+> On Mon, 7 Apr 2025, Luca Ceresoli wrote:
+>=20
+> > This is the new API for allocating DRM bridges.
+> >=20
+> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> >=20
+> > ---
+> >=20
+> > Cc: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>
+> > Cc: "Ilpo J=C3=A4rvinen" <ilpo.jarvinen@linux.intel.com>
+> > Cc: Hans de Goede <hdegoede@redhat.com>
+> > ---
+> >  drivers/platform/arm64/acer-aspire1-ec.c | 7 +++----
+> >  1 file changed, 3 insertions(+), 4 deletions(-)
+> >=20
+> > diff --git a/drivers/platform/arm64/acer-aspire1-ec.c b/drivers/platfor=
+m/arm64/acer-aspire1-ec.c
+> > index 958fe1bf5f85bb69ac7962f217de9f0b40cde9a1..438532a047e68799ac53a16=
+a4c813fc16be997b9 100644
+> > --- a/drivers/platform/arm64/acer-aspire1-ec.c
+> > +++ b/drivers/platform/arm64/acer-aspire1-ec.c
+> > @@ -452,9 +452,9 @@ static int aspire_ec_probe(struct i2c_client *clien=
+t)
+> >  	int ret;
+> >  	u8 tmp;
+> > =20
+> > -	ec =3D devm_kzalloc(dev, sizeof(*ec), GFP_KERNEL);
+> > -	if (!ec)
+> > -		return -ENOMEM;
+> > +	ec =3D devm_drm_bridge_alloc(dev, struct aspire_ec, bridge, &aspire_e=
+c_bridge_funcs);
+> > +	if (IS_ERR(ec))
+> > +		return PTR_ERR(ec);
+> > =20
+> >  	ec->client =3D client;
+> >  	i2c_set_clientdata(client, ec);
+> > @@ -497,7 +497,6 @@ static int aspire_ec_probe(struct i2c_client *clien=
+t)
+> >  	fwnode =3D device_get_named_child_node(dev, "connector");
+> >  	if (fwnode) {
+> >  		INIT_WORK(&ec->work, aspire_ec_bridge_update_hpd_work);
+> > -		ec->bridge.funcs =3D &aspire_ec_bridge_funcs;
+> >  		ec->bridge.of_node =3D to_of_node(fwnode);
+> >  		ec->bridge.ops =3D DRM_BRIDGE_OP_HPD;
+> >  		ec->bridge.type =3D DRM_MODE_CONNECTOR_USB; =20
+>=20
+> Hi Luca,
+>=20
+> It took a while to locate where the code for the new helper is. I suggest=
+=20
+> if you need send another version of the series directly linking to the=20
+> commit in the cover letter so that it won't take multiple hoops to find i=
+t=20
+> if one wants to review the code and is not having all drm trees easily at=
+=20
+> hand. Here it is for the benefit of other pdx86 people:
+>=20
+> https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/0cc6aadd7fc1e629b=
+715ea3d1ba537ef2da95eec
 
-With this, we can avoid passing a "are we suspending" and "are we
-resuming" flag to various functions in the driver.
+Apologies, indeed you have a good point. I added the link to the cover
+letter so it will be in v2, if any.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
-This patch has been only build tested, so I would be grateful if
-someone with the hardware could run-test this change please.
+> Acked-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
 
- .../net/ethernet/stmicro/stmmac/dwmac-stm32.c | 57 ++++++++++++-------
- 1 file changed, 37 insertions(+), 20 deletions(-)
+Thanks!
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-index c3d321192581..1eb16eec9c0d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-@@ -119,7 +119,7 @@ struct stm32_ops {
- 	u32 syscfg_clr_off;
- };
- 
--static int stm32_dwmac_clk_enable(struct stm32_dwmac *dwmac, bool resume)
-+static int stm32_dwmac_clk_enable(struct stm32_dwmac *dwmac)
- {
- 	int ret;
- 
-@@ -127,11 +127,9 @@ static int stm32_dwmac_clk_enable(struct stm32_dwmac *dwmac, bool resume)
- 	if (ret)
- 		goto err_clk_tx;
- 
--	if (!dwmac->ops->clk_rx_enable_in_suspend || !resume) {
--		ret = clk_prepare_enable(dwmac->clk_rx);
--		if (ret)
--			goto err_clk_rx;
--	}
-+	ret = clk_prepare_enable(dwmac->clk_rx);
-+	if (ret)
-+		goto err_clk_rx;
- 
- 	ret = clk_prepare_enable(dwmac->syscfg_clk);
- 	if (ret)
-@@ -148,15 +146,14 @@ static int stm32_dwmac_clk_enable(struct stm32_dwmac *dwmac, bool resume)
- err_clk_eth_ck:
- 	clk_disable_unprepare(dwmac->syscfg_clk);
- err_syscfg_clk:
--	if (!dwmac->ops->clk_rx_enable_in_suspend || !resume)
--		clk_disable_unprepare(dwmac->clk_rx);
-+	clk_disable_unprepare(dwmac->clk_rx);
- err_clk_rx:
- 	clk_disable_unprepare(dwmac->clk_tx);
- err_clk_tx:
- 	return ret;
- }
- 
--static int stm32_dwmac_init(struct plat_stmmacenet_data *plat_dat, bool resume)
-+static int stm32_dwmac_init(struct plat_stmmacenet_data *plat_dat)
- {
- 	struct stm32_dwmac *dwmac = plat_dat->bsp_priv;
- 	int ret;
-@@ -167,7 +164,7 @@ static int stm32_dwmac_init(struct plat_stmmacenet_data *plat_dat, bool resume)
- 			return ret;
- 	}
- 
--	return stm32_dwmac_clk_enable(dwmac, resume);
-+	return stm32_dwmac_clk_enable(dwmac);
- }
- 
- static int stm32mp1_select_ethck_external(struct plat_stmmacenet_data *plat_dat)
-@@ -382,12 +379,10 @@ static int stm32mcu_set_mode(struct plat_stmmacenet_data *plat_dat)
- 				 SYSCFG_MCU_ETH_MASK, val << 23);
- }
- 
--static void stm32_dwmac_clk_disable(struct stm32_dwmac *dwmac, bool suspend)
-+static void stm32_dwmac_clk_disable(struct stm32_dwmac *dwmac)
- {
- 	clk_disable_unprepare(dwmac->clk_tx);
--	if (!dwmac->ops->clk_rx_enable_in_suspend || !suspend)
--		clk_disable_unprepare(dwmac->clk_rx);
--
-+	clk_disable_unprepare(dwmac->clk_rx);
- 	clk_disable_unprepare(dwmac->syscfg_clk);
- 	if (dwmac->enable_eth_ck)
- 		clk_disable_unprepare(dwmac->clk_eth_ck);
-@@ -541,18 +536,32 @@ static int stm32_dwmac_probe(struct platform_device *pdev)
- 	plat_dat->flags |= STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP;
- 	plat_dat->bsp_priv = dwmac;
- 
--	ret = stm32_dwmac_init(plat_dat, false);
-+	ret = stm32_dwmac_init(plat_dat);
- 	if (ret)
- 		return ret;
- 
-+	/* If this platform requires the clock to be running in suspend,
-+	 * prepare and enable the receive clock an additional time to keep
-+	 * it running.
-+	 */
-+	if (dwmac->ops->clk_rx_enable_in_suspend) {
-+		ret = clk_prepare_enable(dwmac->clk_rx);
-+		if (ret)
-+			goto err_clk_disable;
-+	}
-+
- 	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
- 	if (ret)
--		goto err_clk_disable;
-+		goto err_clk_disable_suspend;
- 
- 	return 0;
- 
-+err_clk_disable_suspend:
-+	if (dwmac->ops->clk_rx_enable_in_suspend)
-+		clk_disable_unprepare(dwmac->clk_rx);
-+
- err_clk_disable:
--	stm32_dwmac_clk_disable(dwmac, false);
-+	stm32_dwmac_clk_disable(dwmac);
- 
- 	return ret;
- }
-@@ -565,7 +574,15 @@ static void stm32_dwmac_remove(struct platform_device *pdev)
- 
- 	stmmac_dvr_remove(&pdev->dev);
- 
--	stm32_dwmac_clk_disable(dwmac, false);
-+	/* If this platform requires the clock to be running in suspend,
-+	 * we need to disable and unprepare the receive clock an additional
-+	 * time to balance the extra clk_prepare_enable() in the probe
-+	 * function.
-+	 */
-+	if (dwmac->ops->clk_rx_enable_in_suspend)
-+		clk_disable_unprepare(dwmac->clk_rx);
-+
-+	stm32_dwmac_clk_disable(dwmac);
- 
- 	if (dwmac->irq_pwr_wakeup >= 0) {
- 		dev_pm_clear_wake_irq(&pdev->dev);
-@@ -596,7 +613,7 @@ static int stm32_dwmac_suspend(struct device *dev)
- 	if (ret)
- 		return ret;
- 
--	stm32_dwmac_clk_disable(dwmac, true);
-+	stm32_dwmac_clk_disable(dwmac);
- 
- 	if (dwmac->ops->suspend)
- 		ret = dwmac->ops->suspend(dwmac);
-@@ -614,7 +631,7 @@ static int stm32_dwmac_resume(struct device *dev)
- 	if (dwmac->ops->resume)
- 		dwmac->ops->resume(dwmac);
- 
--	ret = stm32_dwmac_init(priv->plat, true);
-+	ret = stm32_dwmac_init(priv->plat);
- 	if (ret)
- 		return ret;
- 
--- 
-2.30.2
+> I assume you want this to go through the drm tree where the helper alread=
+y=20
+> is?
 
+MY best guess is that drm-misc-next is the appropriate branch, and it
+is where the helper is already present, but I'll let maintainers decide
+what is most appropriate.
+
+Luca
+
+--=20
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
