@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31843C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D13CC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k4K++fqiP84qacsZ/10/m3tNXa1bo+IGgMpwd09KRMY=; b=elApz2SkY5XnxBfpJLMz9ylt6W
-	NJVgptfrMfZYIivawxD9dh6WSfqGMf5CkvQeFfnVEl9dXIrrtwEjuhdc9JgPPjpHuJrtKsgwCZXaF
-	Z1MRrxD+ocXxE9KWQUjxoPih4o2bePBjlMCQArLAbcuZ0mvtPQQ8kzt6bxG1/2a5Y4K5yrpn5JFxh
-	0Y5RpwLU8NV8Kmf+NeStb1ugkuE4lGOoFwW3S2RoDxKD+pdOcKsKPScsY3IhB0xVbpz+Js5vBifdH
-	dOM7dYUi2gcDKq6HfmKeOgI5R3CJbf8K3CcHhMWAuzdh82XzALo4py99gxy3mmEzjiiwbsdusA06/
-	vrZGXFIQ==;
+	bh=6NhcoKa6JL1NM9sMn3gmj98XuhFiqjkn7M2jrThtdQE=; b=NIjd701M3/xkqYoDCk7EgTNx2R
+	nF+ay62rY0PpUNd/SZ0+7xkerI7Ro4mL6IodoqjdfD5kuB4RtsBf8hrEJGwea37bbuXjgj+HYJa4t
+	/Iv4zUegfI2ILS1FO/1cV4BUU8M9x6Kt3+wQ/LCRGFiBU638IdVtJjWCIlDpckwgAaz4E+wNrx4Ql
+	elliC71UdIUZC4L4PsLjBp+00ejoamynfXEqhqpSCRAm4zpmp0duya0oISpTW5OJC4oSZvvyRTKBw
+	nG0DQuREKuUGDtw7lQSBQRBJmlv5FwTUBuGsEp/bAXnvXuur4q5/S5hV9qlptFz5wjfq5/gow8Jfr
+	xYClO+pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uKl-000000027aP-0VCA;
-	Mon, 07 Apr 2025 21:48:47 +0000
+	id 1u1uKm-000000027cg-1KYv;
+	Mon, 07 Apr 2025 21:48:48 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1sql-00000001wE4-18FE
+	id 1u1sql-00000001wEB-1FXn
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 07 Apr 2025 20:13:44 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id B47742113E7B;
-	Mon,  7 Apr 2025 13:13:41 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B47742113E7B
+	by linux.microsoft.com (Postfix) with ESMTPSA id 1E9C82113E7D;
+	Mon,  7 Apr 2025 13:13:42 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1E9C82113E7D
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
 	s=default; t=1744056822;
-	bh=k4K++fqiP84qacsZ/10/m3tNXa1bo+IGgMpwd09KRMY=;
+	bh=6NhcoKa6JL1NM9sMn3gmj98XuhFiqjkn7M2jrThtdQE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=E0MkSuc4AWTZBbrsulJffigv5JiHduEwoVUmHpE7ydw/fwD0EiuNP8mZS9B0OLUu6
-	 LmxgxlugN67qHgG7dz65ki2/ijUW7lvX1HJAfkPMu41fVQSvRluuwIu2mMT9Yqm9bR
-	 AIBXIm7ohm/LIRhXEEulGwsLpV5FlDJIadD9ks7s=
+	b=s0doI5BIqSvNh80G4PtEpPG/GcrIH+4KzmJAOUk4cNIarK7Qz7QqL7bK6hmnu9uJf
+	 vUAOcF6S2Chpd1S4F+Kl31SqdwT50lHmnLDhmgf1cFJuXB+MRXi0rUY08gduq48ZrJ
+	 oKPn1dnQodDme1eUILnPzUqDulODD1su5F/LKApQ=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -83,17 +83,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v7 09/11] Drivers: hv: vmbus: Introduce hv_get_vmbus_root_device()
-Date: Mon,  7 Apr 2025 13:13:34 -0700
-Message-ID: <20250407201336.66913-10-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v7 10/11] ACPI: irq: Introduce acpi_get_gsi_dispatcher()
+Date: Mon,  7 Apr 2025 13:13:35 -0700
+Message-ID: <20250407201336.66913-11-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250407201336.66913-1-romank@linux.microsoft.com>
 References: <20250407201336.66913-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_131343_358058_6E91A037 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250407_131343_429373_098824F8 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,118 +108,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM64 PCI code for hyperv needs to know the VMBus root
-device, and it is private.
+Using acpi_irq_create_hierarchy() in the cases where the code
+also handles OF leads to code duplication as the ACPI subsystem
+doesn't provide means to compute the IRQ domain parent whereas
+the OF does.
 
-Provide a function that returns it. Rename it from "hv_dev"
-as "hv_dev" as a symbol is very overloaded. No functional
-changes.
+Introduce acpi_get_gsi_dispatcher() so that the drivers relying
+on both ACPI and OF may use irq_domain_create_hierarchy() in the
+common code paths.
+
+No functional changes.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- drivers/hv/vmbus_drv.c | 23 +++++++++++++++--------
- include/linux/hyperv.h |  2 ++
- 2 files changed, 17 insertions(+), 8 deletions(-)
+ drivers/acpi/irq.c   | 16 ++++++++++++++--
+ include/linux/acpi.h |  5 ++++-
+ 2 files changed, 18 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-index e8f2c3e92d1f..df18b4070b01 100644
---- a/drivers/hv/vmbus_drv.c
-+++ b/drivers/hv/vmbus_drv.c
-@@ -45,7 +45,8 @@ struct vmbus_dynid {
- 	struct hv_vmbus_device_id id;
- };
+diff --git a/drivers/acpi/irq.c b/drivers/acpi/irq.c
+index 1687483ff319..76a856c32c4d 100644
+--- a/drivers/acpi/irq.c
++++ b/drivers/acpi/irq.c
+@@ -12,7 +12,7 @@
  
--static struct device  *hv_dev;
-+/* VMBus Root Device */
-+static struct device  *vmbus_root_device;
+ enum acpi_irq_model_id acpi_irq_model;
  
- static int hyperv_cpuhp_online;
+-static struct fwnode_handle *(*acpi_get_gsi_domain_id)(u32 gsi);
++static acpi_gsi_domain_disp_fn acpi_get_gsi_domain_id;
+ static u32 (*acpi_gsi_to_irq_fallback)(u32 gsi);
  
-@@ -80,9 +81,15 @@ static struct resource *fb_mmio;
- static struct resource *hyperv_mmio;
- static DEFINE_MUTEX(hyperv_mmio_lock);
- 
-+struct device *hv_get_vmbus_root_device(void)
-+{
-+	return vmbus_root_device;
-+}
-+EXPORT_SYMBOL_GPL(hv_get_vmbus_root_device);
-+
- static int vmbus_exists(void)
+ /**
+@@ -307,12 +307,24 @@ EXPORT_SYMBOL_GPL(acpi_irq_get);
+  *	for a given GSI
+  */
+ void __init acpi_set_irq_model(enum acpi_irq_model_id model,
+-			       struct fwnode_handle *(*fn)(u32))
++			       acpi_gsi_domain_disp_fn fn)
  {
--	if (hv_dev == NULL)
-+	if (vmbus_root_device == NULL)
- 		return -ENODEV;
- 
- 	return 0;
-@@ -861,7 +868,7 @@ static int vmbus_dma_configure(struct device *child_device)
- 	 * On x86/x64 coherence is assumed and these calls have no effect.
- 	 */
- 	hv_setup_dma_ops(child_device,
--		device_get_dma_attr(hv_dev) == DEV_DMA_COHERENT);
-+		device_get_dma_attr(vmbus_root_device) == DEV_DMA_COHERENT);
- 	return 0;
+ 	acpi_irq_model = model;
+ 	acpi_get_gsi_domain_id = fn;
  }
  
-@@ -1930,7 +1937,7 @@ int vmbus_device_register(struct hv_device *child_device_obj)
- 		     &child_device_obj->channel->offermsg.offer.if_instance);
- 
- 	child_device_obj->device.bus = &hv_bus;
--	child_device_obj->device.parent = hv_dev;
-+	child_device_obj->device.parent = vmbus_root_device;
- 	child_device_obj->device.release = vmbus_device_release;
- 
- 	child_device_obj->device.dma_parms = &child_device_obj->dma_parms;
-@@ -2292,7 +2299,7 @@ static int vmbus_acpi_add(struct platform_device *pdev)
- 	struct acpi_device *ancestor;
- 	struct acpi_device *device = ACPI_COMPANION(&pdev->dev);
- 
--	hv_dev = &device->dev;
-+	vmbus_root_device = &device->dev;
- 
- 	/*
- 	 * Older versions of Hyper-V for ARM64 fail to include the _CCA
-@@ -2378,7 +2385,7 @@ static int vmbus_device_add(struct platform_device *pdev)
- 	struct device_node *np = pdev->dev.of_node;
- 	int ret;
- 
--	hv_dev = &pdev->dev;
-+	vmbus_root_device = &pdev->dev;
- 
- 	ret = of_range_parser_init(&parser, np);
- 	if (ret)
-@@ -2696,7 +2703,7 @@ static int __init hv_acpi_init(void)
- 	if (ret)
- 		return ret;
- 
--	if (!hv_dev) {
-+	if (!vmbus_root_device) {
- 		ret = -ENODEV;
- 		goto cleanup;
- 	}
-@@ -2727,7 +2734,7 @@ static int __init hv_acpi_init(void)
- 
- cleanup:
- 	platform_driver_unregister(&vmbus_platform_driver);
--	hv_dev = NULL;
-+	vmbus_root_device = NULL;
- 	return ret;
- }
- 
-diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
-index 675959fb97ba..1f310fbbc4f9 100644
---- a/include/linux/hyperv.h
-+++ b/include/linux/hyperv.h
-@@ -1277,6 +1277,8 @@ static inline void *hv_get_drvdata(struct hv_device *dev)
- 	return dev_get_drvdata(&dev->device);
- }
- 
-+struct device *hv_get_vmbus_root_device(void);
++/*
++ * acpi_get_gsi_dispatcher() - Get the GSI dispatcher function
++ *
++ * Return the dispatcher function that computes the domain fwnode for
++ * a given GSI.
++ */
++acpi_gsi_domain_disp_fn acpi_get_gsi_dispatcher(void)
++{
++	return acpi_get_gsi_domain_id;
++}
++EXPORT_SYMBOL_GPL(acpi_get_gsi_dispatcher);
 +
- struct hv_ring_buffer_debug_info {
- 	u32 current_interrupt_mask;
- 	u32 current_read_index;
+ /**
+  * acpi_set_gsi_to_irq_fallback - Register a GSI transfer
+  * callback to fallback to arch specified implementation.
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index 4e495b29c640..1917044dea72 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -336,8 +336,11 @@ int acpi_register_gsi (struct device *dev, u32 gsi, int triggering, int polarity
+ int acpi_gsi_to_irq (u32 gsi, unsigned int *irq);
+ int acpi_isa_irq_to_gsi (unsigned isa_irq, u32 *gsi);
+ 
++typedef struct fwnode_handle *(*acpi_gsi_domain_disp_fn)(u32);
++
+ void acpi_set_irq_model(enum acpi_irq_model_id model,
+-			struct fwnode_handle *(*)(u32));
++			acpi_gsi_domain_disp_fn fn);
++acpi_gsi_domain_disp_fn acpi_get_gsi_dispatcher(void);
+ void acpi_set_gsi_to_irq_fallback(u32 (*)(u32));
+ 
+ struct irq_domain *acpi_irq_create_hierarchy(unsigned int flags,
 -- 
 2.43.0
 
