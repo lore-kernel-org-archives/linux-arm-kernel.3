@@ -4,85 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB43C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1887CC369A3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NWZ2QEzQSsax0RMmNVi5/QIUkpjXCdv9f5sixO2omPw=; b=HvRGONVPrpD13v+h0lV0YjkuDH
-	WtxRm5QFy8fmKT3j8I8SEuvpzZGnIB8mbMPQ+MnzAcLFg2kIu+dBQvtdZbQoA95GV+e4b+1Xk8kYV
-	6ZqAJDPVSdG16g+2FanxHBeL++vTDZ7QzcNy79ubWUubzBbNgqz9gENNfsXylmTcajY/H3z9fuRby
-	w1szFHjfy1T16wQIOAa3UWlA+HauAfufgkqUn0d6+iCr5rvowuiJVQKRhkfuiuAFreYDVUFKSvPGh
-	gN3ANa6ZHAtyTWaEeY02v9hvFXscnntaJWLZmxxmv9ZaRFH+aQORsZUyAUFSRms7tSCfRUejRHKOv
-	xguHuUSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0jI8FHAZftC+1HYuaKmnC6H3JrV3Q+6JExWXE5djLOc=; b=QvYJopPAj2eZ80qOoIa9pS9pEN
+	hUDpP/5UUUEo7f2GgIBXHObOCOphKjWXetDai7vFZKox+OQofmW5VUeNHHIxsXkAnQp5z1S4wpWMS
+	Bcx5MBE1FsWqNU4K5afyIEG1/v1PLuuYbRHt4I34tHywqLMUJQzRC6lRXO9uXlxubYzgzi/Rof7yu
+	9+38rCco5T2m49p7Cdn58Tg6jF9pddRqvOGqUSUauWuUveo/iRaMR1TUMf7OK26BEbUzBldGLCgKY
+	H1JtdGTKPyXRC85ZXf5FlRghEJPu4Sld4RfJmHMjIgsp0GDxOX7ZJMYtCQ8uxPCAqgFW+HYpS6q9p
+	GakSFrSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pK0-00000001Af0-0WSE;
-	Mon, 07 Apr 2025 16:27:40 +0000
+	id 1u1pK4-00000001Ajy-1XPN;
+	Mon, 07 Apr 2025 16:27:44 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ltW-00000000LjX-1XLi
+	id 1u1lwM-00000000MSP-0Xmj
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Apr 2025 12:48:06 +0000
+	Mon, 07 Apr 2025 12:51:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	Date:Sender:Reply-To:Content-ID:Content-Description;
-	bh=NWZ2QEzQSsax0RMmNVi5/QIUkpjXCdv9f5sixO2omPw=; b=OOQcbKqAF2f9DCFtGH+YZDzGJS
-	oSlDAa4lJvVeOeUvI/8Lm0+67UJXbTZ9g1WmdQU1e6iwOypW7qq2e7sUZAndgV5DohuLomdSxYS0D
-	UibqFR9kuEJWnB9JxML0KdWqye97IXH72KBVvsfzUfPGaWNAOAQD5cA1csqnblZvLs3puV8VCVlVU
-	CPyo141my4qU1VwKvdlBKM6oxMhUCrNaVongdIPqy43yiI/jlNwpAuGv5SHz08OqUGu+GErRlI/Gq
-	JwWPO836Tk/1KgiCF5FumUVtKZC+mixgZSfKqgYFW5FNSX8KBwZTGv6Xbvbg1l7zxyBJh02OQtqmq
-	rl5QI9UA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=0jI8FHAZftC+1HYuaKmnC6H3JrV3Q+6JExWXE5djLOc=; b=flCysHDjgLzamYSpEbfKS5lCG8
+	ojDgESztozhy7DkwQpiTUyX3QANMX8G3EatCqWb5+evp7I2HuXUQgTbnKvJ47IUYGDzfGAfBkwT6k
+	8dqU3HS8KJcnD5UFXgeupHs3VcAztga46syXEo4DG7J4OFNOWT6d9WsHOaEjVOL4i7jUxiRn47aww
+	ObjeYAQN9+KkSL/Ff8/Orq5m6Q7w1VGZghDWGUeMEFXCbhameaZabFm2qfdf5qzh3z9vZim+JZSE+
+	N73kOevuooZZok3niT5OHVD5mom1UwE6s+Mdm/hPip3fU4vUc+41jZoUxl18lBE51N9fhLsVTpRV+
+	9pSAv2rw==;
+Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ltS-00000007wzq-3xEg
+	id 1u1lwI-00000007x48-2mMw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 12:48:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E02649F2A;
-	Mon,  7 Apr 2025 12:47:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD1D1C4CEE7;
-	Mon,  7 Apr 2025 12:47:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744030079;
-	bh=KEDPVE33uQKjxzGqy3bcfJL5Q/mx4ddBU49uxTRs+Rk=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=C/HzPV+0IWPNdEnGyAEliW8SgzV6uzSCnQfPsNEC8XhWhr6AbCwbTOHoKNvjmg5Jn
-	 DeW1wI71Wh+5+RXPBO55pRCv9rlQtHmOotWufjr55PgBLHBMBNsNa8ljvA7Msx4Gf+
-	 W1U2OWnBGMW0VueP3gxHMp8EK1tSXWQKoYLZhzL4ueHEIzSIvwse+mSenjPsNLQCk8
-	 JAzWjSnQepfYSgSIg6Krn23ke9vQNuOIzG5Z9pyQT6h7DreRup/CE4E3VzzkTnC7DV
-	 gD+9N2tbebyd83SvarpzjbDtIbLngWbXR4ArcdVAm41zGc5ECGAeLlrd/tjwNMSZ7u
-	 HQPFoFOi5h5kg==
-Date: Mon, 07 Apr 2025 07:47:57 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 07 Apr 2025 12:51:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=0jI8FHAZftC+1HYuaKmnC6H3JrV3Q+6JExWXE5djLOc=; b=faCd5m9cmhFYJp/bLFO7GWTFdY
+	PudWcKn0DjZtnaKjY3Ou6FM1+aKim3M57NrVTrv0lq0bhLb38uZ9HJJFS/sVYjbEGWQAW4PknmQab
+	Y58Vy3qI+R/JYHuaKWHEqvonotC9ZDSRheRj792LYYAvFw6BcVm4/HTP+1VkuDg1tgmnjdPZ83Y+a
+	rKCu0efFxoU74YcXlQzdsmIhNLVJO6kaRhPj4PVdfYwhGVtEXdeNPLbgjR6utsfHZnrCka/fUVSyM
+	BGjTASB7KDR6yAFEX/NbxcgAE05Ugg8iWeQ07rTzw4Wpr9ZxzF+Qfkw1o7bU6AcyY8BRKWvFQ32OT
+	sW2dz7AA==;
+Received: from [122.175.9.182] (port=42615 helo=cypher.couthit.local)
+	by server.wki.vra.mybluehostin.me with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1u1lvT-0000000047R-1Et9;
+	Mon, 07 Apr 2025 18:20:07 +0530
+From: Parvathi Pudi <parvathi@couthit.com>
+To: danishanwar@ti.com,
+	rogerq@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nm@ti.com,
+	ssantosh@kernel.org,
+	tony@atomide.com,
+	richardcochran@gmail.com,
+	glaroque@baylibre.com,
+	schnelle@linux.ibm.com,
+	m-karicheri2@ti.com,
+	rdunlap@infradead.org,
+	diogo.ivo@siemens.com,
+	basharath@couthit.com,
+	parvathi@couthit.com,
+	horms@kernel.org,
+	jacob.e.keller@intel.com,
+	m-malladi@ti.com,
+	javier.carrasco.cruz@gmail.com,
+	afd@ti.com,
+	s-anna@ti.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	pmohan@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v4 09/11] net: ti: prueth: Adds power management support for PRU-ICSS
+Date: Mon,  7 Apr 2025 18:19:02 +0530
+Message-Id: <20250407124904.1051462-10-parvathi@couthit.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250407102528.1048589-1-parvathi@couthit.com>
+References: <20250407102528.1048589-1-parvathi@couthit.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Anand Gore <anand.gore@broadcom.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- linux-crypto@vger.kernel.org, Olivia Mackall <olivia@selenic.com>, 
- William Zhang <william.zhang@broadcom.com>, 
- Kursad Oney <kursad.oney@broadcom.com>, 
- Florian Fainelli <f.fainelli@gmail.com>, 
- linux-arm-kernel@lists.infradead.org, Ray Jui <rjui@broadcom.com>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Scott Branden <sbranden@broadcom.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-In-Reply-To: <20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org>
-References: <20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org>
-Message-Id: <174402971847.1782936.5442564444780183051.robh@kernel.org>
-Subject: Re: [PATCH v2 00/12] ARM: bcm: Add some BCMBCA peripherals
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.wki.vra.mybluehostin.me: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_134803_392407_3C10FBBD 
-X-CRM114-Status: GOOD (  31.85  )
+X-CRM114-CacheID: sfid-20250407_135058_963002_FCEABEEC 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,134 +136,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Roger Quadros <rogerq@ti.com>
 
-On Sun, 06 Apr 2025 17:32:40 +0200, Linus Walleij wrote:
-> This adds a bunch peripherals to the Broadcom BRCMBCA
-> SoC:s that I happened to find documentation for in some
-> vendor header files.
-> 
-> It started when I added a bunch of peripherals for the
-> BCM6846, and this included really helpful peripherals
-> such as the PL081 DMA, for which I think the most common
-> usecase is to be used as a memcpy engine to offload
-> transfer of blocks from NAND flash to/from the NAND
-> flash controller (at least this is how the STMicro
-> FSMC controller was using it).
-> 
-> So I took a sweep and added all the stuff that has
-> bindings to:
-> 
-> ARM:
-> - BCM6846
-> - BCM6855
-> - BCM6878
-> - BCM63138
-> - BCM63148
-> - BCM63178
-> 
-> ARM64:
-> - BCM4908
-> - BCM6856
-> - BCM6858
-> - BCM63158
-> 
-> There are several "holes" in this SoC list, I simply
-> just fixed those that I happened to run into documentation
-> for.
-> 
-> Unfortunately while very similar, some IP blocks vary
-> slightly in version, the GPIO block is differently
-> integrated on different systems, and the interrupt assignments
-> are completely different, so it's safest to add these to each
-> DTSI individually.
-> 
-> I add the interrupt binding for the RNG block in the
-> process as this exists even if Linux isn't using the
-> IRQ, and I put the RNG and DMA engines as default-enabled
-> because they are not routed to the outside and should
-> "just work" so why not.
-> 
-> I did a rogue patch adding some stuff to BCM6756 based
-> on guessed but eventually dropped it. If someone has
-> docs for this SoC I can add it.
-> 
-> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
-> ---
-> Changes in v2:
-> - Pick up Krzysztof's ACK
-> - Push the BCM6858 DMA block into its own simple bus.
-> - Fix GPIO node names and registers on BCM63138.
-> - Fix GPIO node names and registers on BCM63148.
-> - Link to v1: https://lore.kernel.org/r/20250328-bcmbca-peripherals-arm-v1-0-e4e515dc9b8c@linaro.org
-> 
-> ---
-> Linus Walleij (12):
->       ARM: dts: bcm6878: Correct UART0 IRQ number
->       dt-bindings: rng: r200: Add interrupt property
->       ARM: dts: bcm6846: Add interrupt to RNG
->       ARM: dts: bcm6855: Add BCMBCA peripherals
->       ARM: dts: bcm6878: Add BCMBCA peripherals
->       ARM: dts: bcm63138: Add BCMBCA peripherals
->       ARM: dts: bcm63148: Add BCMBCA peripherals
->       ARM: dts: bcm63178: Add BCMBCA peripherals
->       ARM64: dts: bcm4908: Add BCMBCA peripherals
->       ARM64: dts: bcm6856: Add BCMBCA peripherals
->       ARM64: dts: bcm6858: Add BCMBCA peripherals
->       ARM64: dts: bcm63158: Add BCMBCA peripherals
-> 
->  .../devicetree/bindings/rng/brcm,iproc-rng200.yaml |   6 +
->  arch/arm/boot/dts/broadcom/bcm63138.dtsi           |  79 ++++++++++-
->  arch/arm/boot/dts/broadcom/bcm63148.dtsi           |  64 +++++++++
->  arch/arm/boot/dts/broadcom/bcm63178.dtsi           | 112 +++++++++++++++
->  arch/arm/boot/dts/broadcom/bcm6846.dtsi            |   1 +
->  arch/arm/boot/dts/broadcom/bcm6855.dtsi            | 127 +++++++++++++++++
->  arch/arm/boot/dts/broadcom/bcm6878.dtsi            | 120 ++++++++++++++++-
->  arch/arm64/boot/dts/broadcom/bcmbca/bcm4908.dtsi   | 122 ++++++++++++++++-
->  arch/arm64/boot/dts/broadcom/bcmbca/bcm63158.dtsi  | 150 ++++++++++++++++++++-
->  arch/arm64/boot/dts/broadcom/bcmbca/bcm6856.dtsi   | 138 ++++++++++++++++++-
->  arch/arm64/boot/dts/broadcom/bcmbca/bcm6858.dtsi   | 127 ++++++++++++++++-
->  11 files changed, 1037 insertions(+), 9 deletions(-)
-> ---
-> base-commit: 8359b1e7edc722d4b1be26aa515041a79e4224a3
-> change-id: 20250327-bcmbca-peripherals-arm-dfb312052363
-> 
-> Best regards,
-> --
-> Linus Walleij <linus.walleij@linaro.org>
-> 
-> 
-> 
+Changes for supporting the sleep/resume feature for PRU-ICSS.
 
+PRU-ICSS will be kept in IDLE mode for optimal power consumption by Linux
+power management subsystem and will be resumed when it is required.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Signed-off-by: Roger Quadros <rogerq@ti.com>
+Signed-off-by: Andrew F. Davis <afd@ti.com>
+Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+---
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c | 58 ++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: base-commit 8359b1e7edc722d4b1be26aa515041a79e4224a3 not known, ignoring
- Base: attempting to guess base-commit...
- Base: tags/v6.14-rc6-274-gf4e35e5f940c (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/broadcom/' for 20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org:
-
-arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac87u.dtb: pcie@12000: 'device_type' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
-
-
-
-
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+index 8c6270c5cb87..90b5876b93ed 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+@@ -2308,6 +2308,63 @@ static void icssm_prueth_remove(struct platform_device *pdev)
+ 		pru_rproc_put(prueth->pru1);
+ }
+ 
++#ifdef CONFIG_PM_SLEEP
++static int icssm_prueth_suspend(struct device *dev)
++{
++	struct prueth *prueth = dev_get_drvdata(dev);
++	struct net_device *ndev;
++	int i, ret;
++
++	for (i = 0; i < PRUETH_NUM_MACS; i++) {
++		ndev = prueth->registered_netdevs[i];
++
++		if (!ndev)
++			continue;
++
++		if (netif_running(ndev)) {
++			netif_device_detach(ndev);
++			ret = icssm_emac_ndo_stop(ndev);
++			if (ret < 0) {
++				netdev_err(ndev, "failed to stop: %d", ret);
++				return ret;
++			}
++		}
++	}
++
++	return 0;
++}
++
++static int icssm_prueth_resume(struct device *dev)
++{
++	struct prueth *prueth = dev_get_drvdata(dev);
++	struct net_device *ndev;
++	int i, ret;
++
++	for (i = 0; i < PRUETH_NUM_MACS; i++) {
++		ndev = prueth->registered_netdevs[i];
++
++		if (!ndev)
++			continue;
++
++		if (netif_running(ndev)) {
++			ret = icssm_emac_ndo_open(ndev);
++			if (ret < 0) {
++				netdev_err(ndev, "failed to start: %d", ret);
++				return ret;
++			}
++			netif_device_attach(ndev);
++		}
++	}
++
++	return 0;
++}
++
++#endif /* CONFIG_PM_SLEEP */
++
++static const struct dev_pm_ops prueth_dev_pm_ops = {
++	SET_SYSTEM_SLEEP_PM_OPS(icssm_prueth_suspend, icssm_prueth_resume)
++};
++
+ /* AM57xx SoC-specific firmware data */
+ static struct prueth_private_data am57xx_prueth_pdata = {
+ 	.driver_data = PRUSS_AM57XX,
+@@ -2333,6 +2390,7 @@ static struct platform_driver prueth_driver = {
+ 	.driver = {
+ 		.name = "prueth",
+ 		.of_match_table = prueth_dt_match,
++		.pm = &prueth_dev_pm_ops,
+ 	},
+ };
+ module_platform_driver(prueth_driver);
+-- 
+2.34.1
 
 
