@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E0DC369A4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E20A4C369A5
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UVnAGMUSTYDJOyrcXnEm0dONHzPaMOATMF9mkSE1I2s=; b=XHN4v1wMKE2dtAq7HD03JbMYjR
-	AJLhGkINknS23T+ON6/pRzX1NbGUWM8497yHMPvFOXE29hxZgdAKB6y1xTgBS50MfZq4I9B87tvEB
-	ybQFJH6MWMT5u0wTdMGmWjGG0OTnQKfdk6UrS4OYalQBPanwzSuNqo9Rub0mWMNWWarA296WNKPRA
-	bB6zgg7+RC+YAtW9YKlIPINUke8nRLUQDOLIvg0TEqQk5jPOZ7/mKt2nMcv/qLyMb6GJ0KE5QJrmD
-	BEgdys5E8Vg76EVZ/sy5W8dTzUkOVWk/535jSiHLi4ltnYRbcs6o0HHGUtBanoG9Vl6jOkNokBRZG
-	FFK8W85g==;
+	bh=NfOWGaC8yhBrvWRb12ANzDM9tZiGFnZs/jj8xJ27+qE=; b=nhlp+JQjtJ/AvHrH8CL2ykUky1
+	lHfkLY0rzClD99W+Big1wiUYZJLLq0Hq8b8Ejmu3lbou5kKn6m0Bf7VeqRJOSKri1W2gnd3vTWGm7
+	ynHL71luwE3VO2lVryMDl9JulNt2VJSXM5hp208YNReyhBAloOGWhTZeDwAWSFK6Y7gDIMuVoNBiO
+	DslAE3ZXip8fF+PNyIOdgmFPVtc59ii34q6bVO7c+IOwQVoZSr1zm1A8Uk/0ZiXxFhdIN54mwCJUp
+	S7z4ziGctJr7Nujh7TFJN5ocbVZvYqsFLQojyORdYvvVILXBe9LSGUkbM3Xl9Z/bcQBnun/KNC+sH
+	HnQWnVvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rZg-00000001fJF-0UCr;
-	Mon, 07 Apr 2025 18:52:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u1rZh-00000001fMa-3mBG;
+	Mon, 07 Apr 2025 18:52:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1qUQ-00000001P8S-1XZf
+	id 1u1qUS-00000001P8s-40YQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 17:42:30 +0000
+	Mon, 07 Apr 2025 17:42:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 39E0361365;
-	Mon,  7 Apr 2025 17:42:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC88CC4CEDD;
-	Mon,  7 Apr 2025 17:42:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 45C535C55D0;
+	Mon,  7 Apr 2025 17:40:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0607C4CEE7;
+	Mon,  7 Apr 2025 17:42:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744047749;
-	bh=+1HqJO4cLaLllQi418UI/9GswP/adaWlCJaOEPk8HU0=;
+	s=k20201202; t=1744047752;
+	bh=8Kx22YpwTv6CDDXLOZLuXFTgEv5m6y050fgQj+Bd4kY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kQAJ1BdAc54CGfUqizsbhpus/6rmV+qOGnt7L3o9MaT6OXOKY8FncNrgfyINeSUTg
-	 tvTUJNfSB2gh6ajjLNwCV++KM/hjU/bUKIfG/2QSjEp0t7dbTcqbFd1RmUXs7n+r4a
-	 dAePrhjlDrGz9EglHTyLFfEW7e3X1ZIZzANU3rqsaoa5/Im5LGaysr+H9Uz8lBs/Ub
-	 0tyMUxi37f1wdByiQvEM1GlUM34bu31zWGg8lcuyeRma3AYVJJmm1OM0K46FYu7RWg
-	 vvV24VYcwyokRYSqUcRjF8TWvoDSMdlkjFhzAEwIEA4zw26JftpP9HEMKf4JlxqDEz
-	 hB1cyXDNaM/lg==
+	b=E6R6QuS5r9VhHcC2I2timwG9kwUr+HyxT5NqWC5lzPMX6W83clr2cTI/axWD+VFN3
+	 2sizHvmS5BffJBDThOFvtDPf0bhwFiYMzNrQcdCOujxlP3KMf3NFNMkTQuGz//qOC6
+	 Du9phq/rWPa2adwAwe73cu6vaqorbqGQFVRhBKOu/ZcbR+c+bVB0WcMM4DFH9cdBDw
+	 XKKEBm1F+GyrAboH3Q6ze8sqLCF6KwW/S7sq3OG4in90YHDKg73uyE7IBVlKfYyePZ
+	 V074DwGxbcU9+Ri5RhMpZDmyleRAik1gUYp0/e5WpQfIUzqsQwz9MABtdm4YPx3AXr
+	 hGpyDuNKodBUQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Mon, 07 Apr 2025 12:41:30 -0500
-Subject: [PATCH v21 1/4] arm64/sysreg: Add BRBE registers and fields
+Date: Mon, 07 Apr 2025 12:41:32 -0500
+Subject: [PATCH v21 3/4] KVM: arm64: nvhe: Disable branch generation in
+ nVHE guests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250407-arm-brbe-v19-v21-1-ff187ff6c928@kernel.org>
+Message-Id: <20250407-arm-brbe-v19-v21-3-ff187ff6c928@kernel.org>
 References: <20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org>
 In-Reply-To: <20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -59,8 +60,11 @@ To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
  Anshuman Khandual <anshuman.khandual@arm.com>, Leo Yan <leo.yan@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, Mark Brown <broonie@kernel.org>
+ kvmarm@lists.linux.dev
 X-Mailer: b4 0.15-dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250407_104233_089817_1E0D622B 
+X-CRM114-Status: GOOD (  23.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,221 +81,155 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-This patch adds definitions related to the Branch Record Buffer Extension
-(BRBE) as per ARM DDI 0487K.a. These will be used by KVM and a BRBE driver
-in subsequent patches.
+While BRBE can record branches within guests, the host recording
+branches in guests is not supported by perf (though events are).
+Support for BRBE in guests will supported by providing direct access
+to BRBE within the guests. That is how x86 LBR works for guests.
+Therefore, BRBE needs to be disabled on guest entry and restored on
+exit.
 
-Some existing BRBE definitions in asm/sysreg.h are replaced with equivalent
-generated definitions.
+For nVHE, this requires explicit handling for guests. Before
+entering a guest, save the BRBE state and disable the it. When
+returning to the host, restore the state.
 
-Cc: Marc Zyngier <maz@kernel.org>
-Reviewed-by: Mark Brown <broonie@kernel.org>
+For VHE, it is not necessary. We initialize
+BRBCR_EL1.{E1BRE,E0BRE}=={0,0} at boot time, and HCR_EL2.TGE==1 while
+running in the host. We configure BRBCR_EL2.{E2BRE,E0HBRE} to enable
+branch recording in the host. When entering the guest, we set
+HCR_EL2.TGE==0 which means BRBCR_EL1 is used instead of BRBCR_EL2.
+Consequently for VHE, BRBE recording is disabled at EL1 and EL0 when
+running a guest.
+
+Should recording in guests (by the host) ever be desired, the perf ABI
+will need to be extended to distinguish guest addresses (struct
+perf_branch_entry.priv) for starters. BRBE records would also need to be
+invalidated on guest entry/exit as guest/host EL1 and EL0 records can't
+be distinguished.
+
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
+Co-developed-by: Rob Herring (Arm) <robh@kernel.org>
 Tested-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-v19:
-- split BRBINF.CC field into mantissa and exponent
----
- arch/arm64/include/asm/sysreg.h |  17 ++----
- arch/arm64/tools/sysreg         | 132 ++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 138 insertions(+), 11 deletions(-)
+v20:
+ - Reword commit message about no guest recording.
+ - Add BRBE to __kvm_vcpu_run() synchronization comment
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 2639d3633073..67e96494749e 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -198,16 +198,8 @@
- #define SYS_DBGVCR32_EL2		sys_reg(2, 4, 0, 7, 0)
+v19:
+ - Rework due to v6.14 debug flag changes
+ - Redo commit message
+---
+ arch/arm64/include/asm/kvm_host.h  |  2 ++
+ arch/arm64/kvm/debug.c             |  4 ++++
+ arch/arm64/kvm/hyp/nvhe/debug-sr.c | 32 ++++++++++++++++++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/switch.c   |  2 +-
+ 4 files changed, 39 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index e98cfe7855a6..e3f1e7b5ce52 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -654,6 +654,7 @@ struct kvm_host_data {
+ #define KVM_HOST_DATA_FLAG_HAS_TRBE			1
+ #define KVM_HOST_DATA_FLAG_TRBE_ENABLED			4
+ #define KVM_HOST_DATA_FLAG_EL1_TRACING_CONFIGURED	5
++#define KVM_HOST_DATA_FLAG_HAS_BRBE			6
+ 	unsigned long flags;
  
- #define SYS_BRBINF_EL1(n)		sys_reg(2, 1, 8, (n & 15), (((n & 16) >> 2) | 0))
--#define SYS_BRBINFINJ_EL1		sys_reg(2, 1, 9, 1, 0)
- #define SYS_BRBSRC_EL1(n)		sys_reg(2, 1, 8, (n & 15), (((n & 16) >> 2) | 1))
--#define SYS_BRBSRCINJ_EL1		sys_reg(2, 1, 9, 1, 1)
- #define SYS_BRBTGT_EL1(n)		sys_reg(2, 1, 8, (n & 15), (((n & 16) >> 2) | 2))
--#define SYS_BRBTGTINJ_EL1		sys_reg(2, 1, 9, 1, 2)
--#define SYS_BRBTS_EL1			sys_reg(2, 1, 9, 0, 2)
--
--#define SYS_BRBCR_EL1			sys_reg(2, 1, 9, 0, 0)
--#define SYS_BRBFCR_EL1			sys_reg(2, 1, 9, 0, 1)
--#define SYS_BRBIDR0_EL1			sys_reg(2, 1, 9, 2, 0)
+ 	struct kvm_cpu_context host_ctxt;
+@@ -687,6 +688,7 @@ struct kvm_host_data {
+ 		u64 trfcr_el1;
+ 		/* Values of trap registers for the host before guest entry. */
+ 		u64 mdcr_el2;
++		u64 brbcr_el1;
+ 	} host_debug_state;
  
- #define SYS_TRCITECR_EL1		sys_reg(3, 0, 1, 2, 3)
- #define SYS_TRCACATR(m)			sys_reg(2, 1, 2, ((m & 7) << 1), (2 | (m >> 3)))
-@@ -273,8 +265,6 @@
- /* ETM */
- #define SYS_TRCOSLAR			sys_reg(2, 1, 1, 0, 4)
+ 	/* Guest trace filter value */
+diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+index 0e4c805e7e89..bc6015108a68 100644
+--- a/arch/arm64/kvm/debug.c
++++ b/arch/arm64/kvm/debug.c
+@@ -81,6 +81,10 @@ void kvm_init_host_debug_data(void)
+ 	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
+ 		host_data_set_flag(HAS_SPE);
  
--#define SYS_BRBCR_EL2			sys_reg(2, 4, 9, 0, 0)
--
- #define SYS_MIDR_EL1			sys_reg(3, 0, 0, 0, 0)
- #define SYS_MPIDR_EL1			sys_reg(3, 0, 0, 0, 5)
- #define SYS_REVIDR_EL1			sys_reg(3, 0, 0, 0, 6)
-@@ -607,7 +597,6 @@
- #define SYS_CNTHV_CVAL_EL2		sys_reg(3, 4, 14, 3, 2)
++	/* Check if we have BRBE implemented and available at the host */
++	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_BRBE_SHIFT))
++		host_data_set_flag(HAS_BRBE);
++
+ 	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_TraceFilt_SHIFT)) {
+ 		/* Force disable trace in protected mode in case of no TRBE */
+ 		if (is_protected_kvm_enabled())
+diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+index 2f4a4f5036bb..2a1c0f49792b 100644
+--- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
++++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+@@ -92,12 +92,42 @@ static void __trace_switch_to_host(void)
+ 			  *host_data_ptr(host_debug_state.trfcr_el1));
+ }
  
- /* VHE encodings for architectural EL0/1 system registers */
--#define SYS_BRBCR_EL12			sys_reg(2, 5, 9, 0, 0)
- #define SYS_SCTLR_EL12			sys_reg(3, 5, 1, 0, 0)
- #define SYS_CPACR_EL12			sys_reg(3, 5, 1, 0, 2)
- #define SYS_SCTLR2_EL12			sys_reg(3, 5, 1, 0, 3)
-@@ -818,6 +807,12 @@
- #define OP_COSP_RCTX			sys_insn(1, 3, 7, 3, 6)
- #define OP_CPP_RCTX			sys_insn(1, 3, 7, 3, 7)
++static void __debug_save_brbe(u64 *brbcr_el1)
++{
++	*brbcr_el1 = 0;
++
++	/* Check if the BRBE is enabled */
++	if (!(read_sysreg_el1(SYS_BRBCR) & (BRBCR_ELx_E0BRE | BRBCR_ELx_ExBRE)))
++		return;
++
++	/*
++	 * Prohibit branch record generation while we are in guest.
++	 * Since access to BRBCR_EL1 is trapped, the guest can't
++	 * modify the filtering set by the host.
++	 */
++	*brbcr_el1 = read_sysreg_el1(SYS_BRBCR);
++	write_sysreg_el1(0, SYS_BRBCR);
++}
++
++static void __debug_restore_brbe(u64 brbcr_el1)
++{
++	if (!brbcr_el1)
++		return;
++
++	/* Restore BRBE controls */
++	write_sysreg_el1(brbcr_el1, SYS_BRBCR);
++}
++
+ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+ {
+ 	/* Disable and flush SPE data generation */
+ 	if (host_data_test_flag(HAS_SPE))
+ 		__debug_save_spe(host_data_ptr(host_debug_state.pmscr_el1));
  
-+/*
-+ * BRBE Instructions
-+ */
-+#define BRB_IALL_INSN	__emit_inst(0xd5000000 | OP_BRB_IALL | (0x1f))
-+#define BRB_INJ_INSN	__emit_inst(0xd5000000 | OP_BRB_INJ  | (0x1f))
++	/* Disable BRBE branch records */
++	if (host_data_test_flag(HAS_BRBE))
++		__debug_save_brbe(host_data_ptr(host_debug_state.brbcr_el1));
 +
- /* Common SCTLR_ELx flags. */
- #define SCTLR_ELx_ENTP2	(BIT(60))
- #define SCTLR_ELx_DSSBS	(BIT(44))
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index f9476848a2ed..ec74419dc1ae 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -1038,6 +1038,138 @@ UnsignedEnum	3:0	MTEPERM
- EndEnum
- EndSysreg
- 
-+
-+SysregFields BRBINFx_EL1
-+Res0	63:47
-+Field	46	CCU
-+Field	45:40	CC_EXP
-+Field	39:32	CC_MANT
-+Res0	31:18
-+Field	17	LASTFAILED
-+Field	16	T
-+Res0	15:14
-+Enum	13:8		TYPE
-+	0b000000	DIRECT_UNCOND
-+	0b000001	INDIRECT
-+	0b000010	DIRECT_LINK
-+	0b000011	INDIRECT_LINK
-+	0b000101	RET
-+	0b000111	ERET
-+	0b001000	DIRECT_COND
-+	0b100001	DEBUG_HALT
-+	0b100010	CALL
-+	0b100011	TRAP
-+	0b100100	SERROR
-+	0b100110	INSN_DEBUG
-+	0b100111	DATA_DEBUG
-+	0b101010	ALIGN_FAULT
-+	0b101011	INSN_FAULT
-+	0b101100	DATA_FAULT
-+	0b101110	IRQ
-+	0b101111	FIQ
-+	0b110000	IMPDEF_TRAP_EL3
-+	0b111001	DEBUG_EXIT
-+EndEnum
-+Enum	7:6	EL
-+	0b00	EL0
-+	0b01	EL1
-+	0b10	EL2
-+	0b11	EL3
-+EndEnum
-+Field	5	MPRED
-+Res0	4:2
-+Enum	1:0	VALID
-+	0b00	NONE
-+	0b01	TARGET
-+	0b10	SOURCE
-+	0b11	FULL
-+EndEnum
-+EndSysregFields
-+
-+SysregFields	BRBCR_ELx
-+Res0	63:24
-+Field	23 	EXCEPTION
-+Field	22 	ERTN
-+Res0	21:10
-+Field	9	FZPSS
-+Field	8 	FZP
-+Res0	7
-+Enum	6:5	TS
-+	0b01	VIRTUAL
-+	0b10	GUEST_PHYSICAL
-+	0b11	PHYSICAL
-+EndEnum
-+Field	4	MPRED
-+Field	3	CC
-+Res0	2
-+Field	1	ExBRE
-+Field	0	E0BRE
-+EndSysregFields
-+
-+Sysreg	BRBCR_EL1	2	1	9	0	0
-+Fields	BRBCR_ELx
-+EndSysreg
-+
-+Sysreg	BRBFCR_EL1	2	1	9	0	1
-+Res0	63:30
-+Enum	29:28	BANK
-+	0b00	BANK_0
-+	0b01	BANK_1
-+EndEnum
-+Res0	27:23
-+Field	22	CONDDIR
-+Field	21	DIRCALL
-+Field	20	INDCALL
-+Field	19	RTN
-+Field	18	INDIRECT
-+Field	17	DIRECT
-+Field	16	EnI
-+Res0	15:8
-+Field	7	PAUSED
-+Field	6	LASTFAILED
-+Res0	5:0
-+EndSysreg
-+
-+Sysreg	BRBTS_EL1	2	1	9	0	2
-+Field	63:0	TS
-+EndSysreg
-+
-+Sysreg	BRBINFINJ_EL1	2	1	9	1	0
-+Fields BRBINFx_EL1
-+EndSysreg
-+
-+Sysreg	BRBSRCINJ_EL1	2	1	9	1	1
-+Field	63:0 ADDRESS
-+EndSysreg
-+
-+Sysreg	BRBTGTINJ_EL1	2	1	9	1	2
-+Field	63:0 ADDRESS
-+EndSysreg
-+
-+Sysreg	BRBIDR0_EL1	2	1	9	2	0
-+Res0	63:16
-+Enum	15:12	CC
-+	0b0101	20_BIT
-+EndEnum
-+Enum	11:8	FORMAT
-+	0b0000	FORMAT_0
-+EndEnum
-+Enum	7:0		NUMREC
-+	0b00001000	8
-+	0b00010000	16
-+	0b00100000	32
-+	0b01000000	64
-+EndEnum
-+EndSysreg
-+
-+Sysreg	BRBCR_EL2	2	4	9	0	0
-+Fields	BRBCR_ELx
-+EndSysreg
-+
-+Sysreg	BRBCR_EL12	2	5	9	0	0
-+Fields	BRBCR_ELx
-+EndSysreg
-+
- Sysreg	ID_AA64ZFR0_EL1	3	0	0	4	4
- Res0	63:60
- UnsignedEnum	59:56	F64MM
+ 	if (__trace_needs_switch())
+ 		__trace_switch_to_guest();
+ }
+@@ -111,6 +141,8 @@ void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+ {
+ 	if (host_data_test_flag(HAS_SPE))
+ 		__debug_restore_spe(*host_data_ptr(host_debug_state.pmscr_el1));
++	if (host_data_test_flag(HAS_BRBE))
++		__debug_restore_brbe(*host_data_ptr(host_debug_state.brbcr_el1));
+ 	if (__trace_needs_switch())
+ 		__trace_switch_to_host();
+ }
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index 7d2ba6ef0261..0d66d3b54800 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -319,7 +319,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+ 	 * We're about to restore some new MMU state. Make sure
+ 	 * ongoing page-table walks that have started before we
+ 	 * trapped to EL2 have completed. This also synchronises the
+-	 * above disabling of SPE and TRBE.
++	 * above disabling of BRBE, SPE and TRBE.
+ 	 *
+ 	 * See DDI0487I.a D8.1.5 "Out-of-context translation regimes",
+ 	 * rule R_LFHQG and subsequent information statements.
 
 -- 
 2.47.2
