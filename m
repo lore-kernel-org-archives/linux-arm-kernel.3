@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C0FC3601A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 08:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35EC9C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 08:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=em0yD0kIpDtyZFKdGXKgNdHuMfrDjAXLZIWfYU3VNv0=; b=tKEBeRGo+5W6RS6N+b/O5blIFV
-	SATTRCeMGAWk3ezuehdLgDFqkGUMoQDiH56vSIguxC4WL8k9zfT0VJhaTOHIIhBdbRppGjqF5Etbl
-	Rms46jfBqlFv0ATeMjRPzjmM1sevHDB5PCYa4+TA6+lDFZLg27AbUxuLRVtHhsvTPm8E6k/df2b0t
-	0b7QD6XD0z+ODCFwSewDUU8sHwkWWU02uu4l7WxqUfTGPW2MCFXW/eJg+q2T1WGsMGYI2bqcuhWqU
-	OuEHBsexqITVkHaHTtSnPJJbujbPM4lwz1ddZqGkjefr16V31qMGKH4uFS67GaFMu9BFOoxxsC9DJ
-	7WQdJOTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T928jhb11mCyyDUoYmQa6lOgS7v+VzxkIKfT/fGJ2Ko=; b=peqjFt7U+lEiCZg0UxbW+wzEed
+	sN0zVAl0n8WM9HH0vzhTGt32O+lV4HwL/HrH40QlLRsG+eDFrnxkFQ8qMECuKMYc4s2uidVRxfe7p
+	xxfV8id10F+ym4riJUib6rt5ag48DI73coBh5nzm9uj2FDANbKUyVfNbFvKCA3JiMp16FyhMSXEEr
+	awfHhkrYAYDqPjtAZOfgYyEpTxNGyIfp2l+fzNHRnDg6+MuWTE/vV2eQNg0w85qJV39S81suR1EK7
+	N66VDgZNfp5AQNqrof7lg4z3yfdrnhAPNH5i0j/ZtOb98o2aRT/PNIsIby9XxfG9MAq0xkwyzBYWk
+	dAkTNK6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1hcS-0000000GwwV-3RSp;
-	Mon, 07 Apr 2025 08:14:12 +0000
-Received: from mail-vk1-f175.google.com ([209.85.221.175])
+	id 1u1hph-0000000H02W-0g32;
+	Mon, 07 Apr 2025 08:27:53 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1hUp-0000000Gvf5-3PeY;
-	Mon, 07 Apr 2025 08:06:21 +0000
-Received: by mail-vk1-f175.google.com with SMTP id 71dfb90a1353d-523de5611a3so1808877e0c.1;
-        Mon, 07 Apr 2025 01:06:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744013177; x=1744617977;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=em0yD0kIpDtyZFKdGXKgNdHuMfrDjAXLZIWfYU3VNv0=;
-        b=slp7KPyMfSOPGg93zcSuTtaL3cyTFaEiilNp93X9wn9xSxFojx0ybw3AZ8bUqQVFqV
-         lX54eOhNgwRyl5ly5htUVRgPTGcJ18l9ZRjMk15K28ZItoIXWxZYCyCt7lymMHxRzaOo
-         EblDXnukOBAuoEpnhXuCXoWYSczLV0F45ZbauHUq7cDPArY9xouwUT39TWcVZeRxmHBJ
-         KGVocCDIy2KzWmBRA5WGVdjvFC6rXHtAb1USx+TdkTyccExZiiEapBFHWpRZyE/rBOgx
-         ZsvnXoZvACLjFca3feDMIq7NQd0u/BjZLON5Nl8TrA1SShLlk1nhikeGQDfbj/kOONpq
-         jwSg==
-X-Forwarded-Encrypted: i=1; AJvYcCU4AJRa4x4WREWCEKpLRWiqu8LLILLxWP6T2Im58j7D3tZjKQzWxIM+Lb7TLlTXuv6C4rQDmSz11tZqJkSi51s=@lists.infradead.org, AJvYcCW+jjbtCghQ47LJiW1Kw3lJGIj6iEtl2z/Se5AHRSfgN8EJ/+na50Wd66OYWnoNjkmWT0o56hXMFwDsbNv7cZvs@lists.infradead.org, AJvYcCWP/WEIC9vuDGfMtI/rVg5cDgCHixN8da26wHCkAEPQO6t46Cq0jm/gTDsjxvVIw9Z1ERj9YBd+JhaCgkg=@lists.infradead.org, AJvYcCX404Kq9BwND+HMyfQF9lqjxeVc//j8n3Yrrj9uruNw7HQLNaZKFy5KmXmZBP7mGTVx49xYw0EO9OY=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3shT3pCUTAulHMx8H04qt6upVW65zdZgEOeTe41nfafyxmAI2
-	fKrDJmBx0rRqXa0rusvPJJUiApQNE1bTeRfGnpzsHvWf/ZxzBGi2z9zDl+tx
-X-Gm-Gg: ASbGncu3ZGZbtsIM1cAUbetc0EnfYj1FAY9e4iKxvLrVhHIFRHs9ZuMi2JmO7i0VOv6
-	JoXYH+14SdLg2jsoLxrXQt/4k+87lXwbWgqyYPdhytY7Hvu3Q5NRTSIotqxpLsehcJYuD15Zgv8
-	o5efg5gcrl0TwsmOB+3AODhKIZEFXMTzQvrGcdfga+oBgSlkln1mAIgYSk4IW/xl17AHsfCLNZ6
-	GW+kyON1SfGVK/XL9d7BVU90Va1Q8qRNdOgRch1toSx6X0TebfSNRvMbsNnEupAzv5xn0qFP4X8
-	EmbP1G+92BDfnBtTf0BwswPk44XJeKHChQjuElgDeJr3Uknp5580xOCbHbHWd2dvohEXN2f/HZb
-	/9tP3pmY=
-X-Google-Smtp-Source: AGHT+IHQ+MYl5RRJTujY4oYX2pqJBFucZEPAxztRZsOKcEJits9/HLTYm00mNvzDiTYFp+0w9ImMAQ==
-X-Received: by 2002:a05:6122:2217:b0:520:420a:a07a with SMTP id 71dfb90a1353d-5276455eeddmr7822992e0c.8.1744013176947;
-        Mon, 07 Apr 2025 01:06:16 -0700 (PDT)
-Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com. [209.85.222.53])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52767d8f9f8sm1303026e0c.37.2025.04.07.01.06.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Apr 2025 01:06:16 -0700 (PDT)
-Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-86cce5dac90so1702787241.0;
-        Mon, 07 Apr 2025 01:06:16 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVIi6f9oSmZrdne1woPlGE0JyJaxaV6VcuFhDl5GhNL2taN0XR2LAq2YaOvxYbzIPa0Cd6OFeClCIPeZTuxZd4=@lists.infradead.org, AJvYcCWtbSGX0eKzXetFLunlb3uOx8vFxkB7wvpiRN/QcHn4Sj6Pt0dRXZKnGbL+1AhFh0PGLTq5GQU6w0D0uBU=@lists.infradead.org, AJvYcCX+Q+J8WPIUCEOvMKnjw2VbBzgygbxfWTSt3vYedSsyRIYNEcgISSpdhQSyZRKCowP9cB/1jRn/3tw=@lists.infradead.org, AJvYcCXKMlboZ0SfK3t2KaG3pO/Qml+MxpllDVRQko2XFl+u/Nz88kIIS6f1wOclgF23pxexAQGawpyLlqC6h/h3Ia25@lists.infradead.org
-X-Received: by 2002:a05:6102:1622:b0:4c3:221:8f47 with SMTP id
- ada2fe7eead31-4c8553d0fafmr8533368137.13.1744013176401; Mon, 07 Apr 2025
- 01:06:16 -0700 (PDT)
+	id 1u1hnw-0000000GzmU-0QBc
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 08:26:05 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1744014362;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=T928jhb11mCyyDUoYmQa6lOgS7v+VzxkIKfT/fGJ2Ko=;
+	b=UlekL+fRHqrMl0rWDuxbaS65Z9rNHn1mgcqqjrRTEBaCTbwteU6Zi1xNiM/2cMl+cz1zZ9
+	7qyskdCSa/AWLrICA6sleJi7DRhuh7PuSoSx8SKkrqGPQqUBbu7TlXBY7Kr/lPSr1ZP3dR
+	hJrLYnGRGQWLxLUsBnusGZDwcwlODEnTnauzMn4HacRvL4MxAHOh6EzgnG8gqDmE0Gr2nH
+	qdkeBLBvrMX7LBWUsdCwYKEwvZ4/hDYdej7atIDD0vu6EltiQ5Ppdgfv9etGmxxoSz3Bgd
+	uxyk8nVJcJk5vrgzbK2hyzhT2bISqyKba52VxHKh50SXeIRbHV3O+rWZFr6kgg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1744014362;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=T928jhb11mCyyDUoYmQa6lOgS7v+VzxkIKfT/fGJ2Ko=;
+	b=z4b3KwRYbmHbyX4yxiAQ0E0wiff6TggfkOJ4X66yOGivixHQAOxeZYT3FnzPhqFqbI07Tm
+	gjeLqLbgTeSjroAQ==
+Date: Mon, 07 Apr 2025 10:26:00 +0200
+Subject: [PATCH] dmaengine: stm32: Don't use %pK through printk
 MIME-Version: 1.0
-References: <20250218175735.19882-1-linmag7@gmail.com> <20250218175735.19882-2-linmag7@gmail.com>
- <4209b9816551367f8e5670cc5a08e139f0f2c215.camel@physik.fu-berlin.de>
-In-Reply-To: <4209b9816551367f8e5670cc5a08e139f0f2c215.camel@physik.fu-berlin.de>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 7 Apr 2025 10:06:03 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWLVw8aUY8aCowgOz+puxjrDqcbUXUAoVXGi8=FpTHwrA@mail.gmail.com>
-X-Gm-Features: ATxdqUEtUaFZruSQ19joR0gbmVyVokHgxasQdxoPHK2-UPmtdbKL5noyYxpgMcc
-Message-ID: <CAMuHMdWLVw8aUY8aCowgOz+puxjrDqcbUXUAoVXGi8=FpTHwrA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/1] mm: pgtable: fix pte_swp_exclusive
-To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Cc: Magnus Lindholm <linmag7@gmail.com>, richard.henderson@linaro.org, mattst88@gmail.com, 
-	ink@unseen.parts, kees@kernel.org, arnd@arndb.de, 
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org, chris@zankel.net, 
-	dinguyen@kernel.org, jcmvbkbc@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org, 
-	loongarch@lists.linux.dev, monstr@monstr.eu, sparclinux@vger.kernel.org, 
-	x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250407-restricted-pointers-dma-v1-1-b617dd0e293a@linutronix.de>
+X-B4-Tracking: v=1; b=H4sIABeM82cC/x3MMQqAMAxA0atIZgO1KqhXEYfaRs1glaSIIN7d4
+ viG/x9QEiaFoXhA6GLlI2ZUZQF+c3El5JAN1tjWNKZBIU3CPlHA8+CYSBTD7tD2funq3lXOzJD
+ rU2jh+z+P0/t+mJK5NWkAAAA=
+X-Change-ID: 20250404-restricted-pointers-dma-29cf839a1a0b
+To: =?utf-8?q?Am=C3=A9lie_Delaunay?= <amelie.delaunay@foss.st.com>, 
+ Vinod Koul <vkoul@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: dmaengine@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744014361; l=6492;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=ZKHPukZoqMbuTJ2lgvcYq0kW/i8OIXcifKmKZ6xQoI0=;
+ b=4GwCpsvDlQhbuECcKBrTLhQ91ywVmdNgnTq3Ec5//e+nIqjsBPoi+/Gb/0mFsz8hMNC61Kpa0
+ 0sjj/ikn50MDrOYoCx5fQVWj+IBhDF/2d++a3sgfKD+LuUh0qiXLkM0
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_010619_852610_8AAD8DAD 
-X-CRM114-Status: GOOD (  25.15  )
+X-CRM114-CacheID: sfid-20250407_012604_427187_5D762FD4 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,68 +88,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Adrian,
+In the past %pK was preferable to %p as it would not leak raw pointer
+values into the kernel log.
+Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
+the regular %p has been improved to avoid this issue.
+Furthermore, restricted pointers ("%pK") were never meant to be used
+through printk(). They can still unintentionally leak raw pointers or
+acquire sleeping looks in atomic contexts.
 
-On Sat, 5 Apr 2025 at 19:22, John Paul Adrian Glaubitz
-<glaubitz@physik.fu-berlin.de> wrote:
-> On Tue, 2025-02-18 at 18:55 +0100, Magnus Lindholm wrote:
-> > Make pte_swp_exclusive return bool instead of int. This will better reflect
-> > how pte_swp_exclusive is actually used in the code. This fixes swap/swapoff
-> > problems on Alpha due pte_swp_exclusive not returning correct values when
-> > _PAGE_SWP_EXCLUSIVE bit resides in upper 32-bits of PTE (like on alpha).
->
-> Minor nitpick:
->
-> "when _PAGE_SWP_EXCLUSIVE" => "when the _PAGE_SWP_EXCLUSIVE"
->
-> >
-> > Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
+Switch to the regular pointer formatting which is safer and
+easier to reason about.
+There are still a few users of %pK left, but these use it through seq_file,
+for which its usage is safe.
 
-> > --- a/arch/alpha/include/asm/pgtable.h
-> > +++ b/arch/alpha/include/asm/pgtable.h
-> > @@ -334,7 +334,7 @@ extern inline pte_t mk_swap_pte(unsigned long type, unsigned long offset)
-> >  #define __pte_to_swp_entry(pte)      ((swp_entry_t) { pte_val(pte) })
-> >  #define __swp_entry_to_pte(x)        ((pte_t) { (x).val })
-> >
-> > -static inline int pte_swp_exclusive(pte_t pte)
-> > +static inline bool pte_swp_exclusive(pte_t pte)
-> >  {
-> >       return pte_val(pte) & _PAGE_SWP_EXCLUSIVE;
-> >  }
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+ drivers/dma/stm32/stm32-dma.c  | 10 +++++-----
+ drivers/dma/stm32/stm32-dma3.c | 10 +++++-----
+ drivers/dma/stm32/stm32-mdma.c |  8 ++++----
+ 3 files changed, 14 insertions(+), 14 deletions(-)
 
-> > --- a/arch/xtensa/include/asm/pgtable.h
-> > +++ b/arch/xtensa/include/asm/pgtable.h
-> > @@ -355,7 +355,7 @@ ptep_set_wrprotect(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
-> >  #define __pte_to_swp_entry(pte)      ((swp_entry_t) { pte_val(pte) })
-> >  #define __swp_entry_to_pte(x)        ((pte_t) { (x).val })
-> >
-> > -static inline int pte_swp_exclusive(pte_t pte)
-> > +static inline bool pte_swp_exclusive(pte_t pte)
-> >  {
-> >       return pte_val(pte) & _PAGE_SWP_EXCLUSIVE;
-> >  }
->
-> I'm not so sure about this implicit cast from unsigned long to bool though.
->
-> Is this verified to work correctly on all architectures? I wonder why this
+diff --git a/drivers/dma/stm32/stm32-dma.c b/drivers/dma/stm32/stm32-dma.c
+index 917f8e9223739af853e492d97cecac0e95e0aea3..ee9246c6888ffde2d416270f25890c04c72daff7 100644
+--- a/drivers/dma/stm32/stm32-dma.c
++++ b/drivers/dma/stm32/stm32-dma.c
+@@ -613,7 +613,7 @@ static void stm32_dma_start_transfer(struct stm32_dma_chan *chan)
+ 	reg->dma_scr |= STM32_DMA_SCR_EN;
+ 	stm32_dma_write(dmadev, STM32_DMA_SCR(chan->id), reg->dma_scr);
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
+ }
+ 
+ static void stm32_dma_configure_next_sg(struct stm32_dma_chan *chan)
+@@ -676,7 +676,7 @@ static void stm32_dma_handle_chan_paused(struct stm32_dma_chan *chan)
+ 
+ 	chan->status = DMA_PAUSED;
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: paused\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: paused\n", &chan->vchan);
+ }
+ 
+ static void stm32_dma_post_resume_reconfigure(struct stm32_dma_chan *chan)
+@@ -728,7 +728,7 @@ static void stm32_dma_post_resume_reconfigure(struct stm32_dma_chan *chan)
+ 	dma_scr |= STM32_DMA_SCR_EN;
+ 	stm32_dma_write(dmadev, STM32_DMA_SCR(chan->id), dma_scr);
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: reconfigured after pause/resume\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: reconfigured after pause/resume\n", &chan->vchan);
+ }
+ 
+ static void stm32_dma_handle_chan_done(struct stm32_dma_chan *chan, u32 scr)
+@@ -820,7 +820,7 @@ static void stm32_dma_issue_pending(struct dma_chan *c)
+ 
+ 	spin_lock_irqsave(&chan->vchan.lock, flags);
+ 	if (vchan_issue_pending(&chan->vchan) && !chan->desc && !chan->busy) {
+-		dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
++		dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
+ 		stm32_dma_start_transfer(chan);
+ 
+ 	}
+@@ -922,7 +922,7 @@ static int stm32_dma_resume(struct dma_chan *c)
+ 
+ 	spin_unlock_irqrestore(&chan->vchan.lock, flags);
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: resumed\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: resumed\n", &chan->vchan);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
+index 0c6c4258b19561c94f1c68f26ade16b82660ebe6..50e7106c5cb73394c1de52ad5f571f6db63750e6 100644
+--- a/drivers/dma/stm32/stm32-dma3.c
++++ b/drivers/dma/stm32/stm32-dma3.c
+@@ -801,7 +801,7 @@ static void stm32_dma3_chan_start(struct stm32_dma3_chan *chan)
+ 
+ 	chan->dma_status = DMA_IN_PROGRESS;
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
+ }
+ 
+ static int stm32_dma3_chan_suspend(struct stm32_dma3_chan *chan, bool susp)
+@@ -1452,7 +1452,7 @@ static int stm32_dma3_pause(struct dma_chan *c)
+ 
+ 	chan->dma_status = DMA_PAUSED;
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: paused\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: paused\n", &chan->vchan);
+ 
+ 	return 0;
+ }
+@@ -1465,7 +1465,7 @@ static int stm32_dma3_resume(struct dma_chan *c)
+ 
+ 	chan->dma_status = DMA_IN_PROGRESS;
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: resumed\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: resumed\n", &chan->vchan);
+ 
+ 	return 0;
+ }
+@@ -1490,7 +1490,7 @@ static int stm32_dma3_terminate_all(struct dma_chan *c)
+ 	spin_unlock_irqrestore(&chan->vchan.lock, flags);
+ 	vchan_dma_desc_free_list(&chan->vchan, &head);
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: terminated\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: terminated\n", &chan->vchan);
+ 
+ 	return 0;
+ }
+@@ -1543,7 +1543,7 @@ static void stm32_dma3_issue_pending(struct dma_chan *c)
+ 	spin_lock_irqsave(&chan->vchan.lock, flags);
+ 
+ 	if (vchan_issue_pending(&chan->vchan) && !chan->swdesc) {
+-		dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
++		dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
+ 		stm32_dma3_chan_start(chan);
+ 	}
+ 
+diff --git a/drivers/dma/stm32/stm32-mdma.c b/drivers/dma/stm32/stm32-mdma.c
+index e6d525901de7ecf822d218b87b95aba6bbf0a3ef..080c1c725216cb627675c372591b4c0c227c3cea 100644
+--- a/drivers/dma/stm32/stm32-mdma.c
++++ b/drivers/dma/stm32/stm32-mdma.c
+@@ -1187,7 +1187,7 @@ static void stm32_mdma_start_transfer(struct stm32_mdma_chan *chan)
+ 
+ 	chan->busy = true;
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: started\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: started\n", &chan->vchan);
+ }
+ 
+ static void stm32_mdma_issue_pending(struct dma_chan *c)
+@@ -1200,7 +1200,7 @@ static void stm32_mdma_issue_pending(struct dma_chan *c)
+ 	if (!vchan_issue_pending(&chan->vchan))
+ 		goto end;
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: issued\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: issued\n", &chan->vchan);
+ 
+ 	if (!chan->desc && !chan->busy)
+ 		stm32_mdma_start_transfer(chan);
+@@ -1220,7 +1220,7 @@ static int stm32_mdma_pause(struct dma_chan *c)
+ 	spin_unlock_irqrestore(&chan->vchan.lock, flags);
+ 
+ 	if (!ret)
+-		dev_dbg(chan2dev(chan), "vchan %pK: pause\n", &chan->vchan);
++		dev_dbg(chan2dev(chan), "vchan %p: pause\n", &chan->vchan);
+ 
+ 	return ret;
+ }
+@@ -1261,7 +1261,7 @@ static int stm32_mdma_resume(struct dma_chan *c)
+ 
+ 	spin_unlock_irqrestore(&chan->vchan.lock, flags);
+ 
+-	dev_dbg(chan2dev(chan), "vchan %pK: resume\n", &chan->vchan);
++	dev_dbg(chan2dev(chan), "vchan %p: resume\n", &chan->vchan);
+ 
+ 	return 0;
+ }
 
-Should work fine: any non-zero value is mapped to one.
+---
+base-commit: e48e99b6edf41c69c5528aa7ffb2daf3c59ee105
+change-id: 20250404-restricted-pointers-dma-29cf839a1a0b
 
-> bug was not caught earlier on alpha on the other hand.
-
-On Alpha, "pte_val(pte) & _PAGE_SWP_EXCLUSIVE" is either
-_PAGE_SWP_EXCLUSIVE == 0x8000000000UL or zero.  Due to the return
-type being int, the return value was truncated, and the function always
-returned zero.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
+Best regards,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
