@@ -4,86 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1108C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF13C369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFg4OMSXqyZAd4XoQGwUdaygVVdJ30SNWIcU9tJnxO4=; b=chwR6S8ByCzOjzaD0zq2DPtN0N
-	RQCyoDn/cDGBhgojdpkxpdxB/VsZul2b6cf92S257VEguw5ZUS4NuVHa0yU7VwgtM+615J9LNXI2P
-	UPMVY4AYV+zzlnMCdb8z+f1nS8YXDk5iLBGkqdF9zjR6VZ2g7NGA9c+HqvTgyF37Gz4FV8gtgsVQ5
-	4cXdMJrzR1y6etIWZMZ48UH2T4A7OkD/J81m5KoBwJvmPQx4REpwYa+KUa0+Z6ezyi3aHADxsbSaE
-	mTVXvPecM8ZTcpKxWc6CEQslXH/+JHJjqxXANHOzuIGZgdjq3SLcW4RLImgq54wHIcX34ATz3n0jh
-	Eh0t7UQw==;
+	bh=irGaKVT9+XA4nCM/0Thqc3JUvEeLWJjpImy/ePnSuvw=; b=sPdf//z37LGvjq8gU2JWptsNwV
+	YQLrwdU+/qegH3Cj58FqERI7IXMEA9MrG0z41NExiQbDqsw5Ok37pgdj9vljEwFgQ8AVFbTsPr7+R
+	cjY6sIyaVsHcNDx9BEJSnVP9eksIN8KKmFicXYepy7dYkxTR38oo3pyqxoqgtC8XSaWnGWKa3mU7K
+	8N0/siaP6PeTY1DjesFdWAt0AM2M8tkHrGfg92oZFPuIzuSOEqD6qQSsiKxY+uhZkzm17PW8K/cwS
+	w+DlR7XVMyg7lebbrrTDxPuxik2iwNB6MBTEVjy/gUGbWnulI38iDm53wpPMZra0BO2vccrdLDMpF
+	c6HEy0jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYE-00000001cfD-1yRb;
-	Mon, 07 Apr 2025 18:50:31 +0000
-Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pPr-00000001Dur-3Bpk
+	id 1u1rYG-00000001chF-15up;
+	Mon, 07 Apr 2025 18:50:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1pQf-00000001EAw-2DkV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 16:33:46 +0000
-Message-ID: <720b6db8-49c5-47e7-98da-f044fc38fc1a@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1744043618;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KFg4OMSXqyZAd4XoQGwUdaygVVdJ30SNWIcU9tJnxO4=;
-	b=UJWGbxFqDDyMWF8b4G2fYOD53tA+BWAfWoGwac3pflGNx/7Q8PgHH198LIFtBZ+wsx8gh/
-	XnnznK1WuR4pSzwX7dn9Bt8JcNWp1s5DrdqgsT/GTNhH4Vgnu+/qhtSKjA+JF6SZ4FceM1
-	MRxTN0uezDbNPzPZHXbHspuUXvMOgC8=
-Date: Mon, 7 Apr 2025 12:33:28 -0400
+	Mon, 07 Apr 2025 16:34:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB54B106F;
+	Mon,  7 Apr 2025 09:34:33 -0700 (PDT)
+Received: from [10.57.17.31] (unknown [10.57.17.31])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6B343F694;
+	Mon,  7 Apr 2025 09:34:28 -0700 (PDT)
+Message-ID: <3b563b01-5090-4c9d-a47c-a0aaa13c474b@arm.com>
+Date: Mon, 7 Apr 2025 17:34:28 +0100
 MIME-Version: 1.0
-Subject: Re: [RFC net-next PATCH 00/13] Add PCS core support
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-kernel@vger.kernel.org, Christian Marangi <ansuelsmth@gmail.com>,
- upstream@airoha.com, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Clark Wang <xiaoning.wang@nxp.com>,
- Claudiu Beznea <claudiu.beznea@microchip.com>,
- Claudiu Manoil <claudiu.manoil@nxp.com>, Conor Dooley <conor+dt@kernel.org>,
- Ioana Ciornei <ioana.ciornei@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
- Joyce Ooi <joyce.ooi@intel.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Li Yang <leoyang.li@nxp.com>, Madalin Bucur <madalin.bucur@nxp.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <michal.simek@amd.com>,
- Naveen N Rao <naveen@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Robert Hancock <robert.hancock@calian.com>,
- Saravana Kannan <saravanak@google.com>, Shawn Guo <shawnguo@kernel.org>,
- UNGLinuxDriver@microchip.com, Vladimir Oltean <vladimir.oltean@nxp.com>,
- Wei Fang <wei.fang@nxp.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linuxppc-dev@lists.ozlabs.org
-References: <20250403181907.1947517-1-sean.anderson@linux.dev>
- <20250407182738.498d96b0@kmaincent-XPS-13-7390>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20250407182738.498d96b0@kmaincent-XPS-13-7390>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 18/45] arm64: RME: Handle RMI_EXIT_RIPAS_CHANGE
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250213161426.102987-1-steven.price@arm.com>
+ <20250213161426.102987-19-steven.price@arm.com>
+ <b89caaaf-3d26-4ca4-b395-08bf3f90dd1f@redhat.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <b89caaaf-3d26-4ca4-b395-08bf3f90dd1f@redhat.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_093344_636745_B6050DCA 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20250407_093433_656598_9C56C5C9 
+X-CRM114-Status: GOOD (  34.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,42 +76,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/7/25 12:27, Kory Maincent wrote:
-> On Thu,  3 Apr 2025 14:18:54 -0400
-> Sean Anderson <sean.anderson@linux.dev> wrote:
+On 04/03/2025 04:35, Gavin Shan wrote:
+> On 2/14/25 2:13 AM, Steven Price wrote:
+>> The guest can request that a region of it's protected address space is
+>> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
+>> RSI_IPA_STATE_SET. This causes a guest exit with the
+>> RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
+>> protected region to unprotected (or back), exiting to the VMM to make
+>> the necessary changes to the guest_memfd and memslot mappings. On the
+>> next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
+>> calls.
+>>
+>> The VMM may wish to reject the RIPAS change requested by the guest. For
+>> now it can only do with by no longer scheduling the VCPU as we don't
+>> currently have a usecase for returning that rejection to the guest, but
+>> by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
+>> open for adding a new ioctl in the future for this purpose.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> New patch for v7: The code was previously split awkwardly between two
+>> other patches.
+>> ---
+>>   arch/arm64/kvm/rme.c | 87 ++++++++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 87 insertions(+)
+>>
 > 
->> This series adds support for creating PCSs as devices on a bus with a
->> driver (patch 3). As initial users,
->> 
->> - The Lynx PCS (and all of its users) is converted to this system (patch 5)
->> - The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6-8)
->> - The Cadence MACB driver is converted to support external PCSs (namely
->>   the Xilinx PCS) (patches 9-10).
->> 
->> The last few patches add device links for pcs-handle to improve boot times,
->> and add compatibles for all Lynx PCSs.
->> 
->> Care has been taken to ensure backwards-compatibility. The main source
->> of this is that many PCS devices lack compatibles and get detected as
->> PHYs. To address this, pcs_get_by_fwnode_compat allows drivers to edit
->> the devicetree to add appropriate compatibles.
+> With the following comments addressed:
 > 
-> I don't dive into your patch series and I don't know if you have heard about it
-> but Christian Marangi is currently working on fwnode for PCS:
-> https://lore.kernel.org/netdev/20250406221423.9723-1-ansuelsmth@gmail.com
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 > 
-> Maybe you should sync with him!
+>> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+>> index 507eb4b71bb7..f965869e9ef7 100644
+>> --- a/arch/arm64/kvm/rme.c
+>> +++ b/arch/arm64/kvm/rme.c
+>> @@ -624,6 +624,64 @@ void kvm_realm_unmap_range(struct kvm *kvm,
+>> unsigned long start, u64 size,
+>>           realm_unmap_private_range(kvm, start, end);
+>>   }
+>>   +static int realm_set_ipa_state(struct kvm_vcpu *vcpu,
+>> +                   unsigned long start,
+>> +                   unsigned long end,
+>> +                   unsigned long ripas,
+>> +                   unsigned long *top_ipa)
+>> +{
+>> +    struct kvm *kvm = vcpu->kvm;
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +    phys_addr_t rd_phys = virt_to_phys(realm->rd);
+>> +    phys_addr_t rec_phys = virt_to_phys(rec->rec_page);
+>> +    struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
+>> +    unsigned long ipa = start;
+>> +    int ret = 0;
+>> +
+>> +    while (ipa < end) {
+>> +        unsigned long next;
+>> +
+>> +        ret = rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end, &next);
+>> +
+> 
+> This doesn't look correct to me. Looking at RMM::smc_rtt_set_ripas(),
+> it's possible
+> the SMC call is returned without updating 'next' to a valid address. In
+> this case,
+> the garbage content resident in 'next' can be used to updated to 'ipa'
+> in next
+> iternation. So we need to initialize it in advance, like below.
+> 
+>     unsigned long ipa = start;
+>     unsigned long next = start;
+> 
+>     while (ipa < end) {
+>         ret = rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end, &next);
 
-I saw that series and made some comments. He is CC'd on this one.
+I agree this might not be the clearest code, but 'next' should be set if
+the return state is RMI_SUCCESS, and we don't actually get to the "ipa =
+next" line unless that is the case. But I'll rejig things because it's
+not clear.
 
-I think this approach has two advantages:
+>> +        if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+>> +            int walk_level = RMI_RETURN_INDEX(ret);
+>> +            int level = find_map_level(realm, ipa, end);
+>> +
+>> +            /*
+>> +             * If the RMM walk ended early then more tables are
+>> +             * needed to reach the required depth to set the RIPAS.
+>> +             */
+>> +            if (walk_level < level) {
+>> +                ret = realm_create_rtt_levels(realm, ipa,
+>> +                                  walk_level,
+>> +                                  level,
+>> +                                  memcache);
+>> +                /* Retry with RTTs created */
+>> +                if (!ret)
+>> +                    continue;
+>> +            } else {
+>> +                ret = -EINVAL;
+>> +            }
+>> +
+>> +            break;
+>> +        } else if (RMI_RETURN_STATUS(ret) != RMI_SUCCESS) {
+>> +            WARN(1, "Unexpected error in %s: %#x\n", __func__,
+>> +                 ret);
+>> +            ret = -EINVAL;
+> 
+>             ret = -ENXIO;
 
-- It completely solves the problem of the PCS being unregistered while the netdev
-  (or whatever) is up
-- I have designed the interface to make it easy to convert existing
-  drivers that may not be able to use the "standard" probing process
-  (because they have to support other devicetree structures for
-  backwards-compatibility).
+Ack
 
---Sean
+>> +            break;
+>> +        }
+>> +        ipa = next;
+>> +    }
+>> +
+>> +    *top_ipa = ipa;
+>> +
+>> +    if (ripas == RMI_EMPTY && ipa != start)
+>> +        realm_unmap_private_range(kvm, start, ipa);
+>> +
+>> +    return ret;
+>> +}
+>> +
+>>   static int realm_init_ipa_state(struct realm *realm,
+>>                   unsigned long ipa,
+>>                   unsigned long end)
+>> @@ -863,6 +921,32 @@ void kvm_destroy_realm(struct kvm *kvm)
+>>       kvm_free_stage2_pgd(&kvm->arch.mmu);
+>>   }
+>>   +static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+>> +{
+>> +    struct kvm *kvm = vcpu->kvm;
+>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>> +    unsigned long base = rec->run->exit.ripas_base;
+>> +    unsigned long top = rec->run->exit.ripas_top;
+>> +    unsigned long ripas = rec->run->exit.ripas_value;
+>> +    unsigned long top_ipa;
+>> +    int ret;
+>> +
+> 
+> Some checks are needed here to ensure the addresses (@base and @top)
+> falls inside
+> the protected (private) space for two facts: (1) Those parameters
+> originates from
+> the guest, which can be misbehaving. (2) RMM::smc_rtt_set_ripas() isn't
+> limited to
+> the private space, meaning it also can change RIPAS for the ranges in
+> the shared
+> space.
+
+I might be missing something, but AFAICT this is safe:
+
+ 1. The RMM doesn't permit RIPAS changes within the shared space:
+    RSI_IPA_STATE_SET has a precondition [rgn_bound]:
+    AddrRangeIsProtected(base, top, realm)
+    So a malicious guest shouldn't get passed the RMM.
+
+ 2. The RMM validates that the range passed here is (a subset of) the
+    one provided to the NS-world [base_bound / top_bound].
+
+And even if somehow a malicious guest managed to bypass these checks I
+don't see how it would cause harm to the host operating on the wrong region.
+
+I'm happy to be corrected though! What am I missing?
+
+Thank,
+Steve
+
+>> +    do {
+>> +        kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_page_cache,
+>> +                       kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
+>> +        write_lock(&kvm->mmu_lock);
+>> +        ret = realm_set_ipa_state(vcpu, base, top, ripas, &top_ipa);
+>> +        write_unlock(&kvm->mmu_lock);
+>> +
+>> +        if (WARN_RATELIMIT(ret && ret != -ENOMEM,
+>> +                   "Unable to satisfy RIPAS_CHANGE for %#lx - %#lx,
+>> ripas: %#lx\n",
+>> +                   base, top, ripas))
+>> +            break;
+>> +
+>> +        base = top_ipa;
+>> +    } while (top_ipa < top);
+>> +}
+>> +
+>>   int kvm_rec_enter(struct kvm_vcpu *vcpu)
+>>   {
+>>       struct realm_rec *rec = &vcpu->arch.rec;
+>> @@ -873,6 +957,9 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu)
+>>           for (int i = 0; i < REC_RUN_GPRS; i++)
+>>               rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
+>>           break;
+>> +    case RMI_EXIT_RIPAS_CHANGE:
+>> +        kvm_complete_ripas_change(vcpu);
+>> +        break;
+>>       }
+>>         if (kvm_realm_state(vcpu->kvm) != REALM_STATE_ACTIVE)
+> 
+> Thanks,
+> Gavin
+> 
+
 
