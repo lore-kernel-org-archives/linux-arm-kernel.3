@@ -4,71 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6C4C36010
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501ECC36018
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 18:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/hLJ//pzM4un2bQ2ayC32XDMKmA5ak0QqcGXXfNyzk=; b=gBk/XFZvPasju+3E5IuWEF+rob
-	m7cDmTY4LiLEY6ganQFk9/dAU3m8JglVfFIQRv04RCjh5waEkmfBXKr8cm+IRUwDB4/aMmO1GAMAX
-	J+aqPxfl04K5DlHsl0F/XqkaWbEVSGTBLvQoueSrgPwmCPUmrbkZjjxFzV9kWfWQ5SJ0QOd6RTTOa
-	grKDHGJnAiDLQiEsHuG7KQGdbPLIkpWmVGOU3rcUnarPQeBXT6/lAjknPk6R+cFAKNL2TgX3XOnxB
-	4FUHsUHB9K9IaSwZJy+ZVpPqa3Rcx+qbhjv2WgaOtNYC+RkyRKH7h6rtCtMqPLr1C4s5TRxeBINeZ
-	25ZoHL4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rcI46lTVSeHRR6PCsmQIdJkenRV/ajFn4WU+i3FnG5M=; b=Qvi8aQAVIBCMJKo/+0itFQGYtq
+	Wy8otPqy58Hbdkj7BMLFmwELNBC/1wCtPvoWLjNoDHe9to3sXrLfMIEFjgePGI/CeB9tdqKhsNBJq
+	j+CgIkknRfWLl32UjK2ZyyHfvZT6Z3KrsaRwbeFoS4phXJEX/a0uM8F5xW9XeCUgkEjozB47AYPpO
+	Z8DsS/lQwLXJhQ68ESuCOozLt621I0bOR0xksN68DTPP0MX8KfuA3sl6NbmHVrPizP6Ia+owcfiLD
+	4gEmIuTgVZlyz9BLOd/Yvc0iwvh5Zl6poYtmNLCMWnIFtXHj6vvw0ejzdbtynAzDeZmgkfG5lGmk1
+	RyzwxK9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rYN-00000001cqh-1eMD;
-	Mon, 07 Apr 2025 18:50:39 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u1rYO-00000001ctp-3w7D;
+	Mon, 07 Apr 2025 18:50:40 +0000
+Received: from mail-qv1-f50.google.com ([209.85.219.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pZx-00000001G8m-1ivX;
-	Mon, 07 Apr 2025 16:44:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F2E09A478CD;
-	Mon,  7 Apr 2025 16:38:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BC6EC4CEE7;
-	Mon,  7 Apr 2025 16:44:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744044248;
-	bh=Y/hLJ//pzM4un2bQ2ayC32XDMKmA5ak0QqcGXXfNyzk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UzmZScU/uoH9Tm7HKXop1oqBcJA6LDr4GPS1uR1DSHakslwRy1DtdncBdZ5/WgSPy
-	 ItZncV+gWIzdjdOr1Fs2isqKIhqTGKfjj96bllzDPg0YjbwRZ72Km8WlxhZSDKdXIs
-	 tyW6tdu7e1NVcAsVtDjOiUkiCct05PAIPW36DOR29uyaZWxJ/CnD/011tAAGLrq+V1
-	 fa2zK4EXjyVpViVpLfHRbgzDSqN0ux+kPZZ++2xCk4pZ+hbTbijyZbjGtx8X28CBJw
-	 nRWEtHbuGhSE7B4SDonOGz3rjB2azaqo5CdDBSgYKWSaORrINMmWxvEDpoJQYXSG72
-	 MzVCQm/tw5+kQ==
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-abec8b750ebso778762766b.0;
-        Mon, 07 Apr 2025 09:44:08 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUnE9QXoVpAhPT3KqYHIEFafiTBYGQkP6HaQgqjAWJZ58JkCGCrIOpCWi+nCb33gKXXIBnDxna04cCsLeGpeaw=@lists.infradead.org, AJvYcCUyCQkJbH0Rczn+Je1IV+QkXf0ZKJ2LHHCnMBGyiPEJkB9RikKJ/NBXcAwVlG/D80Z5oaRhn/V4AgrpNq1ooVWR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr3s4JNOsCvwRr78DqYNt88TJ7yWp/noOGmp+wil9gk+9gcYAa
-	JcDZAksZkDRld0dkod8lQqliWe/CthbdalYW+0SnYLftHQRrxf+Bv9SeEkHxDjQYUbfmFz8XYBc
-	KTzk2iYi4o2FWLwwvpM1hKmaUBg==
-X-Google-Smtp-Source: AGHT+IGLOtOLmhpSq0PLbaQYhuI2hTXNomO3c9M6XDkDTB0xbkcQkN/9c1/rJNryKU1+tfluzQLXvqqsDiAM+1t+d6w=
-X-Received: by 2002:a17:907:da7:b0:ac2:3ea:c23c with SMTP id
- a640c23a62f3a-ac7e7116fd7mr754949966b.5.1744044246963; Mon, 07 Apr 2025
- 09:44:06 -0700 (PDT)
+	id 1u1pcU-00000001GjC-3Y0p
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 16:46:48 +0000
+Received: by mail-qv1-f50.google.com with SMTP id 6a1803df08f44-6f0cfbe2042so5300796d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 09:46:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744044405; x=1744649205; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=rcI46lTVSeHRR6PCsmQIdJkenRV/ajFn4WU+i3FnG5M=;
+        b=ETvBQhQfz30y5G491GvFvFKyErANNGrLlemKwa1soeQwhD/JZvEkKzCjeKGlYimkV4
+         jGPzXpa8mVV39LQplV/unbN5PyZMZ7SGxhSb8Nkyc4xRw/6CJW80wqfW+yWNg0HWFJ/z
+         uhwolAKR394RxKyCY8etDPoJJGVxqKFfoeMeOWPQqU6OKXvqqaEi/yxZghSEu3rXJyk4
+         1aqWsEz4mruKM59u4bCZ+oOlZGPfgTohXx29S636N72l9S2Mxos10HwvgbAppVUmS81X
+         EnBXNscA63rfFHevu0dXp0tqEFU27Nza3rCH/0PevMzb5OydQ6Ln0GfLskB7lHPRmtkp
+         mUQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744044405; x=1744649205;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rcI46lTVSeHRR6PCsmQIdJkenRV/ajFn4WU+i3FnG5M=;
+        b=pUP9ah+WZtZrtYsDdVP21Ye0EhWlQgVmYzycjqnySztLFqfr72BO87HqXDkyNrSbNw
+         bW7ZXdS/GqisIrra/++5B1aE55M8JpLac7CO0xtt4tG1BKpyhLcZoCu7EOj8fJMqkPOm
+         gk7abpg4YqjUrtEKsoiXrEYAXiJ84ZVL2TO1vDXv/BLryZ1B5rd4zbYP49kwlFiak8gS
+         hBgALnL3Iek7Kbg6/MRiqjhLnjv80etxC6EfjqlhIrThkH2RG32LFt1QmvarPWVcdwrf
+         ZMzcNvj6BiklfyZ2n25bJWsOCKw1uLgBkETzAKlAva/SV6kqVA5/09nLD47TvIynOyWg
+         ha7A==
+X-Forwarded-Encrypted: i=1; AJvYcCW3tfPvYBjzoquaBSDHnoNs8CbL0fCtpt6MtZ1SUXerLrr9whAWZOYZLUZh9R71p5B5c1WXeWi7icdcDIhxNGpa@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH56vNLLdbs1mqHnazNsPEpqIvo+CPelhP0vT+VPPJ3VWPGYce
+	Tqe4D6C4Mt+tIPkjy5FEvvHhkQejzRTO0shOAn6lX952rPg9yUJvb5JA0VYvUHA/ek3UHozU6cG
+	9dj0n+Djv9L9ZzY5G1b/thnQy/Z0=
+X-Gm-Gg: ASbGnctEOfFCxpPc+zewvLC1jIkhvb97SEHTExKM/04m+olonoDt9uAPR6Kv+NAJnjg
+	KTo5ungVIXKXM56ig5jjVrm1sL5DY70+8wg6Tc42Riq2uZMnzZTOSDOn04CwAtdHBevvQJ1UP9p
+	vm9L9m1yqpA/9jKvxhH3R+/3y0
+X-Google-Smtp-Source: AGHT+IHn1NWvGQNUg+cTWq77arIBOMg99zSiThdNcGxwwVSUpNgoUD/iAcjqlZYjSbS/ACMXvRhNvnrbFKc+S9VTrwY=
+X-Received: by 2002:a05:6214:1307:b0:6e2:3761:71b0 with SMTP id
+ 6a1803df08f44-6f0d24ed16bmr3696846d6.5.1744044405300; Mon, 07 Apr 2025
+ 09:46:45 -0700 (PDT)
 MIME-Version: 1.0
-References: <5552256.Sb9uPGUboI@phil> <CAL_JsqJo+9ycUFHVZ2Darh_RWaRuJGX6KKQGsbeuDWav7vKA2g@mail.gmail.com>
- <8512245.T7Z3S40VBb@diego>
-In-Reply-To: <8512245.T7Z3S40VBb@diego>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 7 Apr 2025 11:43:54 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJVi5tf8bh6AnZwNwiBe+EG2CHQRGQGLK6SdMzQiiSbWA@mail.gmail.com>
-X-Gm-Features: ATxdqUFxaCjS80Qj_U9puWLvAEoD3V9o6VjAwVp2ZHTzEA7_GR-X9ZqxugryY_s
-Message-ID: <CAL_JsqJVi5tf8bh6AnZwNwiBe+EG2CHQRGQGLK6SdMzQiiSbWA@mail.gmail.com>
-Subject: Re: [GIT PULL] Rockchip dts64 changes for 6.15 #3
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: arm@kernel.org, soc@kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
+References: <20250403181907.1947517-1-sean.anderson@linux.dev>
+ <20250407182738.498d96b0@kmaincent-XPS-13-7390> <720b6db8-49c5-47e7-98da-f044fc38fc1a@linux.dev>
+In-Reply-To: <720b6db8-49c5-47e7-98da-f044fc38fc1a@linux.dev>
+From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
+Date: Mon, 7 Apr 2025 18:46:34 +0200
+X-Gm-Features: ATxdqUHTe6GO-vqbSM3EmiJ-FaS0XfNSqylpsewp4c0XXyMi1WCC05uIygoRAqs
+Message-ID: <CA+_ehUyAo7fMTe_P0ws_9zrcbLEWVwBXDKbezcKVkvDUUNg0rg@mail.gmail.com>
+Subject: Re: [RFC net-next PATCH 00/13] Add PCS core support
+To: Sean Anderson <sean.anderson@linux.dev>
+Cc: Kory Maincent <kory.maincent@bootlin.com>, netdev@vger.kernel.org, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Russell King <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org, upstream@airoha.com, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Clark Wang <xiaoning.wang@nxp.com>, 
+	Claudiu Beznea <claudiu.beznea@microchip.com>, Claudiu Manoil <claudiu.manoil@nxp.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Ioana Ciornei <ioana.ciornei@nxp.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Joyce Ooi <joyce.ooi@intel.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Li Yang <leoyang.li@nxp.com>, 
+	Madalin Bucur <madalin.bucur@nxp.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Michal Simek <michal.simek@amd.com>, Naveen N Rao <naveen@kernel.org>, 
+	Nicholas Piggin <npiggin@gmail.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Rob Herring <robh+dt@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Robert Hancock <robert.hancock@calian.com>, 
+	Saravana Kannan <saravanak@google.com>, Shawn Guo <shawnguo@kernel.org>, UNGLinuxDriver@microchip.com, 
+	Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_094409_574719_3E890323 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20250407_094646_900544_E5453AEC 
+X-CRM114-Status: GOOD (  30.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +114,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 7, 2025 at 11:40=E2=80=AFAM Heiko St=C3=BCbner <heiko@sntech.de=
-> wrote:
+Il giorno lun 7 apr 2025 alle ore 18:33 Sean Anderson
+<sean.anderson@linux.dev> ha scritto:
 >
-> Hi Rob,
->
-> Am Montag, 7. April 2025, 17:56:37 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Rob Herring:
-> > On Wed, Mar 19, 2025 at 6:56=E2=80=AFPM Heiko Stuebner <heiko@sntech.de=
-> wrote:
-> > >
-> > > Hi soc maintainers,
-> > >
-> > > I made an error and accidentially applied a patch that was meant for
-> > > the mfd tree. Thankfully Stephen noticed that when the duplicate
-> > > commit appeared in linux-next.
+> On 4/7/25 12:27, Kory Maincent wrote:
+> > On Thu,  3 Apr 2025 14:18:54 -0400
+> > Sean Anderson <sean.anderson@linux.dev> wrote:
 > >
-> > Both commits are in v6.15-rc1 now and the revert is not, so this
-> > should not get applied/pulled. Or you will need to revert the revert.
+> >> This series adds support for creating PCSs as devices on a bus with a
+> >> driver (patch 3). As initial users,
+> >>
+> >> - The Lynx PCS (and all of its users) is converted to this system (patch 5)
+> >> - The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6-8)
+> >> - The Cadence MACB driver is converted to support external PCSs (namely
+> >>   the Xilinx PCS) (patches 9-10).
+> >>
+> >> The last few patches add device links for pcs-handle to improve boot times,
+> >> and add compatibles for all Lynx PCSs.
+> >>
+> >> Care has been taken to ensure backwards-compatibility. The main source
+> >> of this is that many PCS devices lack compatibles and get detected as
+> >> PHYs. To address this, pcs_get_by_fwnode_compat allows drivers to edit
+> >> the devicetree to add appropriate compatibles.
+> >
+> > I don't dive into your patch series and I don't know if you have heard about it
+> > but Christian Marangi is currently working on fwnode for PCS:
+> > https://lore.kernel.org/netdev/20250406221423.9723-1-ansuelsmth@gmail.com
+> >
+> > Maybe you should sync with him!
 >
-> yes, that was the intention.
+> I saw that series and made some comments. He is CC'd on this one.
 >
-> Back when I submitted this PR, I talked with Arnd on IRC the next day.
+> I think this approach has two advantages:
 >
-> As both commits are identical sans some Signed-off-by lines, he suggested
-> not trying to put a revert in, but instead let git solve it itself, becau=
-se
+> - It completely solves the problem of the PCS being unregistered while the netdev
+>   (or whatever) is up
+> - I have designed the interface to make it easy to convert existing
+>   drivers that may not be able to use the "standard" probing process
+>   (because they have to support other devicetree structures for
+>   backwards-compatibility).
 >
-> arnd on IRC:
-> > [...], but I worry that this would make things worse if 'git merge'
-> > ends up doing the revert on top of the original commit once it gets to
-> > torvalds. Not sure if that's still a problem in git these days, but
-> > I've seen it happen in the past.
-> > if two identical patches are in different branches, just leaving them
-> > there is usually easier
->
-> So this PR was already marked as "superseeded" in patchwork back
-> on march 20th.
->
->
-> Nevertheless, thanks for making sure no funky revert happens now.
 
-The commit is still in linux-next though. That's how I happened upon this.
+I notice this and it's my fault for taking too long to post v2 of the PCS patch.
+There was also this idea of entering the wrapper hell but I scrapped that early
+as I really feel it's a workaround to the current problem present for
+PCS handling.
 
-Rob
+And the real problem IMHO is that currently PCS handling is fragile and with too
+many assumptions. With Daniel we also discussed backwards-compatibility.
+(mainly needed for mt7621 and mt7986 (for mediatek side those are the 2
+that slipped in before it was correctly complained that things were
+taking a bad path)
+
+We feel v2 permits correct support of old implementations.
+The ""legacy"" implementation pose the assumption that PCS is never removed
+(unless the MAC driver is removed)
+That fits v2 where a MAC has to initially provide a list of PCS to
+phylink instance.
+With this implementation, a MAC can manually parse whatever PCS node structure
+is in place and fill the PCS.
+
+As really the "late" removal/addition of a PCS can only be supported with fwnode
+implementation as dedicated PCS driver will make use of that.
+
+I honestly hope we can skip having to enter the wrapper hell.
+Anyway I also see you made REALLY GOOD documentation. Would be ideal to
+collaborate for that. Anyway it's up to net maintainers on what path to follow.
+
+Just my 2 cent on the PCS topic.
 
