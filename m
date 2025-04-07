@@ -4,84 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F27CDC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE68AC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bNy53/ZwTHSLz+zRzyZ238Lusm7CUXwB7x08xN1b9bw=; b=cCl9RaYEwG3wrR7tJHVEAU1btx
-	+8PpGTi4HI84tYRHIEgKdnEzoz9lU6VZI/hmK248kxrNGSRAjXEGkRMDZH+taMxcedEFT1hDJMp08
-	cYIOzym90ofmieLdFu9AdY8+fi7hZmJZ5XJ+jabebOvaaup7OfmbTkYzvTkqP2mS43UUzw2bVt1e3
-	QSY7yd891S7lKb22v8Tex6jNvK2KBtyLUA0GUUf+8+gABxAn7Rh/6Ae7ph8+rIrtbfIdXR0YBU/PV
-	Ds33700fRe2FYekRKM+s4eW5w/lYoWwBqlhfzba4iXuqrZtHjlXCXP0R+DjMIdjP83OONkISS4uMW
-	F2AUMZQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CM1BJ12DnqqQb7OjNUW+NjZkGcwmy/JnA2JZ39Kh3aw=; b=V9ZSYlCap65Q25TgN/arnMoADv
+	4+ku2o2kgLN2s8ddfcrKNNSNtbJb3OT0uVfowzmUqo8PR7dPdco8k+hR2/JNDndvmwPP+5Juwv06E
+	n9YwYUy4brIgu8KLns7VjnMXMSY6Qlz+tLlds0QBVdEPoA9xjQsYapRe9HQNjpTr0fuynmOl0cVuA
+	08FAPgXDI4OtF5mkaeub/jbxZu31yc2bE77fK2u0nrEEyXrS49onq3NPzJaCSBtztyoqMhrh1ASXE
+	CrQhukrO8/J6AOtOxFvLC2pzRdlZixAmYvp+IlK6zjLV/eOudSgBsB0jmaN44Qj8GPrPoIeP4/2j2
+	Wt1Yh3xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pZ2-00000001FtM-3woD;
-	Mon, 07 Apr 2025 16:43:12 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1u1pfw-00000001H9b-2Nwy;
+	Mon, 07 Apr 2025 16:50:20 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oh2-000000010fd-0UsL
+	id 1u1osC-000000012KR-1cBc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 15:47:25 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-736ad42dfd6so3577424b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 08:47:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744040843; x=1744645643; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bNy53/ZwTHSLz+zRzyZ238Lusm7CUXwB7x08xN1b9bw=;
-        b=yGCSvdGgKd9Rlxm16aqJ4Oo79GCSn/XR7qCR3w2r1aCfjq7sxhs8m5+RxsKTeX11kP
-         QVv+CeO1F7hJpdhMTRs4ijgGjpucNcitCn1SajiJAM+ekjzfvWQHOOU9LviQ1AG7uhIH
-         OC7WBJIwi/i1IQfD8dQPvtiWkqCiycA3pBGeTHcAkmCSSKGPNCtj+mdANrOr7wAn7KmN
-         Hg0CuW10XMg7T8MRIj4IBhzS/h3sp4B8/aeznrxTvDVnYZr2VxH+XbcthyoDp4YSDOZ+
-         a9pHLu8DzHFq0zKndIxXRoU2uUleVxtE8989BZBxHEFEmN05ZIwspPZGoQTatM0HZvUV
-         hy8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744040843; x=1744645643;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bNy53/ZwTHSLz+zRzyZ238Lusm7CUXwB7x08xN1b9bw=;
-        b=GzX/xbprpzeveISUrze4M5u9sOO0RPFbmSEzClh+T4ooE4RJAoUzZvd/6l2JNxgpxp
-         I9DiVozFjtAHE7qoQG6McvybxmPjbnZiKDTzQh58KK4HD+tXvCpKjcjLJs6kxboZLFUw
-         naHIZmpFBAcUheeQOV1xggCkrsc1WQ/fAyjSjcvAzj4DxutUwQxLd2Biq/qpa4EX/Bxl
-         CZFHOENW/VwPUGhizKRVX5r0dB9cx4DtyPUtcmfvz7dABGOtUc640Me66NbWuGgPKE9B
-         TvslrpUadO/Dyd8KkKBVvMJZAuyNlcK5+uxHaJj321WSngvdg/FYXAUkYhLE4FvL0n1Y
-         jqzw==
-X-Forwarded-Encrypted: i=1; AJvYcCVQeFWZgyKTodOYKvB3o7Vj+nSSvU2/mE5kybU5q99mVu7shSO4/3nPlhB1vxQzTwZLWedcsnwS2VAxkgxD+cZ7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQsdSfdTE1P91+IVOZDOZ+iGx9OqPttpFZsD9U9sumalSL9ui0
-	e6474xmgH5cnHrxOZjRo36o79ufvxgq0NvRqk0+qqc4WzbLdJ9Y8uzZHj6sX40+SFdgUD48WhYE
-	TigtiesuAikUJSGdqRwRpTnUGjo6QJeeTVTvHxQ==
-X-Gm-Gg: ASbGnctUrZ9jwWEDi2WTiLGZ5NDYOrebvKd0fBOKpkE+melJYF2E8p3jOKbraoIve8Q
-	HnVavMrrcrjGrYUMIdxdIOpW59wrvbMOeX1Hx9hDGRe2ERk1gpP6FUN88qV/jx3h08wUqNpGnYG
-	W6tDqbDSrwC6jOjGFUNFkLMCuHHCNhr2RwJs4ErSebM173zassQi64/vzRgZM=
-X-Google-Smtp-Source: AGHT+IFsF8BZ9rpj3D/vrDRwMv4ljfHYt9ZuYNYZ7VfoyGlYWpvoDHXT8dp74ZQrtLPbP7l//cYdzSnBUvRETkNj0IE=
-X-Received: by 2002:a05:6a00:4603:b0:736:5dae:6b0d with SMTP id
- d2e1a72fcca58-73b6aa44d71mr11392059b3a.10.1744040842652; Mon, 07 Apr 2025
- 08:47:22 -0700 (PDT)
+	Mon, 07 Apr 2025 15:58:57 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 537Fwp64412378
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 7 Apr 2025 10:58:51 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744041531;
+	bh=CM1BJ12DnqqQb7OjNUW+NjZkGcwmy/JnA2JZ39Kh3aw=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=RnfscsZjHDPkYoOtGmVavQryimF7JMTVgyOOkpBGdsqkznTmyCjbmQT6ibOtFncnz
+	 jqBBmCAksx5FiZ26rjiXhZl8xprGLx+B6MXliWgaTyddHS02I+oDnkIPGBdgpxRAf2
+	 Dm+Wm96RicagazhqJ9aXWi77m4b7m91wH8CyaSmw=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 537FwoH5114980
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 7 Apr 2025 10:58:50 -0500
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 7
+ Apr 2025 10:58:50 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 7 Apr 2025 10:58:50 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 537FwnDW117852;
+	Mon, 7 Apr 2025 10:58:50 -0500
+Message-ID: <e131298f-3713-482a-a740-ff89709270b4@ti.com>
+Date: Mon, 7 Apr 2025 10:58:49 -0500
 MIME-Version: 1.0
-References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com> <20250226-trace-noc-driver-v2-2-8afc6584afc5@quicinc.com>
-In-Reply-To: <20250226-trace-noc-driver-v2-2-8afc6584afc5@quicinc.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Mon, 7 Apr 2025 16:47:11 +0100
-X-Gm-Features: ATxdqUGwptWmWGuTEMFywAJMbM58Cdy5rm8GMkf77_zrs0cIkHqC_ImQSl0RKT0
-Message-ID: <CAJ9a7Vhkp2xBZmjGO9iqCVkJJAt2+Dh+QkRH-BaCMUZ=6G+t4g@mail.gmail.com>
-Subject: Re: [PATCH v2 2/5] coresight: add coresight Trace NOC driver
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, kernel@quicinc.com, 
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@oss.qualcomm.com, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
+ remote processors
+To: Judith Mendez <jm@ti.com>,
+        Devarsh Thakkar
+	<devarsht@lewv0571a.ent.ti.com>,
+        Nishanth Menon <nm@ti.com>, Hari Nagalla
+	<hnagalla@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Beleswar Padhi <b-padhi@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Markus Schneider-Pargmann <msp@baylibre.com>
+References: <20250405001518.1315273-1-jm@ti.com>
+ <20250405001518.1315273-7-jm@ti.com>
+ <6868f593-0728-4e92-a57b-87db6a0037f6@ti>
+ <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_084724_167815_08D59505 
-X-CRM114-Status: GOOD (  36.94  )
+X-CRM114-CacheID: sfid-20250407_085856_516200_16D14920 
+X-CRM114-Status: GOOD (  30.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,340 +100,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 4/7/25 9:13 AM, Judith Mendez wrote:
+> Hi Devarsh,
+> 
+> On 4/7/25 8:54 AM, Devarsh Thakkar wrote:
+>> Hi Judith,
+>>
+>> On 05/04/25 05:45, Judith Mendez wrote:
+>>  > From: Devarsh Thakkar <devarsht@ti.com>
+>>>
+>>
+>> Thanks for the patch.
+>>
+>>> For each remote proc, reserve memory for IPC and bind the mailbox
+>>> assignments. Two memory regions are reserved for each remote processor.
+>>> The first region of 1MB of memory is used for Vring shared buffers
+>>> and the second region is used as external memory to the remote processor
+>>> for the resource table and for tracebuffer allocations.
+>>>
+>>> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+>>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+>>> Signed-off-by: Judith Mendez <jm@ti.com>
+>>> ---
+>>>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 96 +++++++++++++++++++++++--
+>>>   1 file changed, 90 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>>> index 1c9d95696c839..7d817b447c1d0 100644
+>>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>>> @@ -52,6 +52,42 @@ linux,cma {
+>>>               linux,cma-default;
+>>>           };
+>>> +        c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x99800000 0x00 0x100000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        c7x_0_memory_region: c7x-memory@99900000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x99900000 0x00 0xf00000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x9b800000 0x00 0x100000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x9b900000 0x00 0xf00000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x9c800000 0x00 0x100000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x9c900000 0x00 0xf00000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>>           secure_tfa_ddr: tfa@9e780000 {
+>>>               reg = <0x00 0x9e780000 0x00 0x80000>;
+>>>               alignment = <0x1000>;
+>>> @@ -63,12 +99,6 @@ secure_ddr: optee@9e800000 {
+>>>               alignment = <0x1000>;
+>>>               no-map;
+>>>           };
+>>> -
+>>> -        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>>> -            compatible = "shared-dma-pool";
+>>> -            reg = <0x00 0x9c900000 0x00 0x01e00000>;
+>>> -            no-map;
+>>> -        };
+>>>       };
+>>
+>> This is missing the edgeAI specific remote-core carveouts and RTOS-to-RTOS IPC memory regions [1] being used by edgeAI firmwares which come as pre-packaged in the official SDK release for AM62A.
+>>
+>> There is only one official SDK release for AM62A (which is edgeAI based) [2] which packages these edgeAI remoteproc firmwares and in my view it is a fair expectation that remote core careveouts in device-tree should align with firmwares released in SDK.
+>>
 
-On Wed, 26 Feb 2025 at 11:06, Yuanfang Zhang <quic_yuanfang@quicinc.com> wrote:
->
-> Add driver to support Coresight device Trace NOC(Network On Chip).
-> Trace NOC is an integration hierarchy which is a replacement of
-> Dragonlink configuration. It brings together debug components like
-> TPDA, funnel and interconnect Trace Noc.
->
-> It sits in the different subsystem of SOC and aggregates the trace
-> and transports to QDSS trace bus.
->
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> ---
->  drivers/hwtracing/coresight/Kconfig          |  13 ++
->  drivers/hwtracing/coresight/Makefile         |   1 +
->  drivers/hwtracing/coresight/coresight-tnoc.c | 190 +++++++++++++++++++++++++++
->  drivers/hwtracing/coresight/coresight-tnoc.h |  53 ++++++++
->  4 files changed, 257 insertions(+)
->
-> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
-> index 06f0a7594169c5f03ca5f893b7debd294587de78..6cfd160f09d383ab5f5aa276fa57496a52c8f961 100644
-> --- a/drivers/hwtracing/coresight/Kconfig
-> +++ b/drivers/hwtracing/coresight/Kconfig
-> @@ -247,4 +247,17 @@ config CORESIGHT_DUMMY
->
->           To compile this driver as a module, choose M here: the module will be
->           called coresight-dummy.
-> +
-> +config CORESIGHT_TNOC
-> +       tristate "Coresight Trace Noc driver"
-> +       help
-> +         This driver provides support for Trace NoC component.
-> +         Trace NoC is a interconnect that is used to collect trace from
-> +         various subsystems and transport it QDSS trace sink.It sits in
-> +         the different tiles of SOC and aggregates the trace local to the
-> +         tile and transports it another tile or to QDSS trace sink eventually.
-> +
-> +         To compile this driver as a module, choose M here: the module will be
-> +         called coresight-tnoc.
-> +
->  endif
-> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-> index 4ba478211b318ea5305f9f98dda40a041759f09f..60b729979f19c8f8848c77c290605132dba1a991 100644
-> --- a/drivers/hwtracing/coresight/Makefile
-> +++ b/drivers/hwtracing/coresight/Makefile
-> @@ -34,6 +34,7 @@ obj-$(CONFIG_CORESIGHT_SINK_TPIU) += coresight-tpiu.o
->  obj-$(CONFIG_CORESIGHT_SINK_ETBV10) += coresight-etb10.o
->  obj-$(CONFIG_CORESIGHT_LINKS_AND_SINKS) += coresight-funnel.o \
->                                            coresight-replicator.o
-> +obj-$(CONFIG_CORESIGHT_TNOC) += coresight-tnoc.o
->  obj-$(CONFIG_CORESIGHT_SOURCE_ETM3X) += coresight-etm3x.o
->  coresight-etm3x-y := coresight-etm3x-core.o coresight-etm-cp14.o \
->                      coresight-etm3x-sysfs.o
-> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..fad8e61f05ef25989aba1be342c547f835e8953a
-> --- /dev/null
-> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-> @@ -0,0 +1,190 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/amba/bus.h>
-> +#include <linux/io.h>
-> +#include <linux/coresight.h>
-> +#include <linux/of.h>
-> +
-> +#include "coresight-priv.h"
-> +#include "coresight-tnoc.h"
-> +#include "coresight-trace-id.h"
-> +
-> +static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
-> +{
-> +       u32 val;
-> +
-> +       /* Set ATID */
-> +       writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
-> +
-> +       /* Config sync CR */
-> +       writel_relaxed(0xffff, drvdata->base + TRACE_NOC_SYNCR);
-> +
-> +       /* Set frequency value */
-> +       writel_relaxed(drvdata->freq_req_val, drvdata->base + TRACE_NOC_FREQVAL);
-> +
-> +       /* Set Ctrl register */
-> +       val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
-> +
-> +       if (drvdata->flag_type == FLAG_TS)
-> +               val = val | TRACE_NOC_CTRL_FLAGTYPE;
-> +       else
-> +               val = val & ~TRACE_NOC_CTRL_FLAGTYPE;
-> +
-> +       if (drvdata->freq_type == FREQ_TS)
-> +               val = val | TRACE_NOC_CTRL_FREQTYPE;
-> +       else
-> +               val = val & ~TRACE_NOC_CTRL_FREQTYPE;
-> +
-> +       val = val | TRACE_NOC_CTRL_PORTEN;
-> +       writel_relaxed(val, drvdata->base + TRACE_NOC_CTRL);
-> +
-> +       dev_dbg(drvdata->dev, "Trace NOC is enabled\n");
-> +}
-> +
-> +static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
-> +                           struct coresight_connection *outport)
-> +{
-> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +       spin_lock(&drvdata->spinlock);
-> +       if (csdev->refcnt == 0)
-> +               trace_noc_enable_hw(drvdata);
-> +
-> +       csdev->refcnt++;
-> +       spin_unlock(&drvdata->spinlock);
-> +
-> +       return 0;
-> +}
-> +
-> +static void trace_noc_disable_hw(struct trace_noc_drvdata *drvdata)
-> +{
-> +       writel_relaxed(0x0, drvdata->base + TRACE_NOC_CTRL);
-> +       dev_dbg(drvdata->dev, "Trace NOC is disabled\n");
-> +}
-> +
-> +static void trace_noc_disable(struct coresight_device *csdev, struct coresight_connection *inport,
-> +                             struct coresight_connection *outport)
-> +{
-> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +       spin_lock(&drvdata->spinlock);
-> +       if (--csdev->refcnt == 0)
-> +               trace_noc_disable_hw(drvdata);
-> +
-> +       spin_unlock(&drvdata->spinlock);
-> +       dev_info(drvdata->dev, "Trace NOC is disabled\n");
-> +}
-> +
-> +static const struct coresight_ops_link trace_noc_link_ops = {
-> +       .enable         = trace_noc_enable,
-> +       .disable        = trace_noc_disable,
-> +};
-> +
-> +static const struct coresight_ops trace_noc_cs_ops = {
-> +       .link_ops       = &trace_noc_link_ops,
-> +};
-> +
-> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
-> +{
-> +       int atid;
-> +
-> +       atid = coresight_trace_id_get_system_id();
-> +       if (atid < 0)
-> +               return atid;
-> +
-> +       drvdata->atid = atid;
-> +
-> +       drvdata->freq_type = FREQ_TS;
-> +       drvdata->flag_type = FLAG;
-> +       drvdata->freq_req_val = 0;
-> +
-> +       return 0;
-> +}
-> +
-> +static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
-> +{
-> +       struct device *dev = &adev->dev;
-> +       struct coresight_platform_data *pdata;
-> +       struct trace_noc_drvdata *drvdata;
-> +       struct coresight_desc desc = { 0 };
-> +       int ret;
-> +
-> +       desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
-> +       if (!desc.name)
-> +               return -ENOMEM;
-> +       pdata = coresight_get_platform_data(dev);
-> +       if (IS_ERR(pdata))
-> +               return PTR_ERR(pdata);
-> +       adev->dev.platform_data = pdata;
-> +
-> +       drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +       if (!drvdata)
-> +               return -ENOMEM;
-> +
-> +       drvdata->dev = &adev->dev;
-> +       dev_set_drvdata(dev, drvdata);
-> +
-> +       drvdata->base = devm_ioremap_resource(dev, &adev->res);
-> +       if (!drvdata->base)
-> +               return -ENOMEM;
-> +
-> +       spin_lock_init(&drvdata->spinlock);
-> +
-> +       ret = trace_noc_init_default_data(drvdata);
-> +       if (ret)
-> +               return ret;
-> +
-> +       desc.ops = &trace_noc_cs_ops;
-> +       desc.type = CORESIGHT_DEV_TYPE_LINK;
-> +       desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
-> +       desc.pdata = adev->dev.platform_data;
-> +       desc.dev = &adev->dev;
-> +       desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
-> +       drvdata->csdev = coresight_register(&desc);
-> +       if (IS_ERR(drvdata->csdev))
-> +               return PTR_ERR(drvdata->csdev);
-> +
-> +       pm_runtime_put(&adev->dev);
-> +
-> +       return 0;
-> +}
-> +
-> +static void trace_noc_remove(struct amba_device *adev)
-> +{
-> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
-> +
-> +       coresight_trace_id_put_system_id(drvdata->atid);
-> +       coresight_unregister(drvdata->csdev);
-> +}
-> +
-> +static struct amba_id trace_noc_ids[] = {
-> +       {
-> +               .id     = 0x000f0c00,
-> +               .mask   = 0x000fff00,
-> +       },
-> +       {},
-> +};
-> +MODULE_DEVICE_TABLE(amba, trace_noc_ids);
-> +
-> +static struct amba_driver trace_noc_driver = {
-> +       .drv = {
-> +               .name   = "coresight-trace-noc",
-> +               .owner  = THIS_MODULE,
-> +               .suppress_bind_attrs = true,
-> +       },
-> +       .probe          = trace_noc_probe,
-> +       .remove         = trace_noc_remove,
-> +       .id_table       = trace_noc_ids,
-> +};
-> +
-> +module_amba_driver(trace_noc_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("Trace NOC driver");
-> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..b6bd1ef659897d8e0994c5e8514e8cbdd16eebd8
-> --- /dev/null
-> +++ b/drivers/hwtracing/coresight/coresight-tnoc.h
-> @@ -0,0 +1,53 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#define TRACE_NOC_CTRL 0x008
-> +#define TRACE_NOC_XLD  0x010
-> +#define TRACE_NOC_FREQVAL      0x018
-> +#define TRACE_NOC_SYNCR        0x020
-> +
-> +/* Enable generation of output ATB traffic.*/
+Why should Linux upstream care about what we do in our current evil vendor SDKs?
+We change things around every cycle, and do all kinds of hacky things to just
+"make it work" for the current SDK release.
 
+>> This is because most developers (including me) and vendors download this official SDK release and use it with latest upstream kernel and modules (right now we are applying required patches locally) and this patch won't suffice for this, in-fact it won't work since the remoteproc firmwares are already using regions beyond the reserved-regions from this patch.
 
+Then that firmware team should fix their firmware, Linux should not
+do things just because some builds of a firmware did the wrong thing.
 
-> +#define TRACE_NOC_CTRL_PORTEN  BIT(0)
-> +/* Writing 1 to issue a FREQ or FREQ_TS packet*/
-> +#define TRACE_NOC_CTRL_FREQTSREQ       BIT(5)
-> +/* Sets the type of issued ATB FLAG packets. 0: 'FLAG' packets; 1: 'FLAG_TS' packets.*/
-> +#define TRACE_NOC_CTRL_FLAGTYPE                BIT(7)
-> +/* sets the type of issued ATB FREQ packets. 0: 'FREQ' packets; 1: 'FREQ_TS' packets.*/
-> +#define TRACE_NOC_CTRL_FREQTYPE                BIT(8)
-> +DEFINE_CORESIGHT_DEVLIST(trace_noc_devs, "traceNoc");
+Just a random example from the top of my mind here, a while back
+someone on the codec firmware team decided to take the standard RPMSG
+name service structure and modify it to suit some specific usecase
+they had, suddenly all the firmware we made for AM57x devices stopped
+working on upstream kernels. Instead of fixing the firmware we just
+carried a hack for the same in our vendor kernel trees. Now customers
+have no path to use this old firmware on newer kernels as adding the
+hack to upstream Linux (rightly) failed [0].
 
-Coresight links do not generate their own packets - please explain
-what these are.
+Let's not do that again, if we have firmware that doesn't follow
+upstream, then let's fix the firmware, not hack around it upstream.
 
-As far as I am aware, frequency and flag packets are not part of the
-ATB specification.
+The edgeAI firmware folks have no issue ignoring existing upstream
+IPC carveouts and simply replacing them all with their own custom
+ones in their SDK[1], I see no reason they cannot continue doing that
+if they don't want to fix their firmware.
 
-If the output bus for this device is not in fact an ATB bus, then it
-should not be referred to as such.
+> 
+> I understand your point, currently with this patch remoteproc loading
+> will not work for some cores. However, the goal here is to standardize
+> as much as possible the memory carveout sizes, push the "demo firmware"
+> to request resources the correct way from resource table, and move away
+> from this dependency and limitations that we have with our firmware. We
+> should soon be able to generate our own firmware using Zephyr,  which
+> Andrew is pioneering, so with this firmware we should move to the
+> correct direction upstream. Downstream we are still using the memory
+> carveout sizes that the firmware folk want so desperately to keep, for
+> now..
+> 
 
-Thanks and regards
++1
 
- Mike
+I have this Zephyr based firmware for AM62A working and it uses the
+standard IPC regions as specified in this patch. I'll be posting the PR
+for it in Zephyr upstream by the end of week.
 
-> +
-> +/**
-> + * struct trace_noc_drvdata - specifics associated to a trace noc component
-> + * @base:      memory mapped base address for this component.
-> + * @dev:       device node for trace_noc_drvdata.
-> + * @csdev:     component vitals needed by the framework.
-> + * @spinlock:  only one at a time pls.
-> + * @atid:      id for the trace packet.
-> + * @freqtype:  0: 'FREQ' packets; 1: 'FREQ_TS' packets.
-> + * @flagtype:  0: 'FLAG' packets; 1: 'FLAG_TS' packets.
-> + * @freq_req_val:       set frequency values carried by 'FREQ' and 'FREQ_TS' packets.
-> + */
-> +struct trace_noc_drvdata {
-> +       void __iomem            *base;
-> +       struct device           *dev;
-> +       struct coresight_device *csdev;
-> +       spinlock_t              spinlock; /* lock for the drvdata. */
-> +       u32                     atid;
-> +       u32                     freq_type;
-> +       u32                     flag_type;
-> +       u32                     freq_req_val;
-> +};
-> +
-> +/* freq type */
-> +enum freq_type {
-> +       FREQ,
-> +       FREQ_TS,
-> +};
-> +
-> +/* flag type */
-> +enum flag_type {
-> +       FLAG,
-> +       FLAG_TS,
-> +};
->
-> --
-> 2.34.1
->
+For this patch as it is:
 
+Acked-by: Andrew Davis <afd@ti.com>
 
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Andrew
+
+[0] https://lore.kernel.org/lkml/20241011123922.23135-1-richard@nod.at/
+[1] https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-kernel/linux/linux-ti-staging/j721e-evm/0001-arm64-dts-ti-Add-DTB-overlays-for-vision-apps-and-ed.patch?h=kirkstone
+
+> ~ Judith
+> 
+>>
+>> [1]: https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=ti-linux-6.6.y-cicd#n103
+>> [2]: https://www.ti.com/tool/PROCESSOR-SDK-AM62A
+>>
+>> Regards
+>> Devarsh
+>>
+>>>       opp-table {
+>>> @@ -741,3 +771,57 @@ dpi1_out: endpoint {
+>>>           };
+>>>       };
+>>>   };
+>>> +
+>>> +&mailbox0_cluster0 {
+>>> +    status = "okay";
+>>> +
+>>> +    mbox_r5_0: mbox-r5-0 {
+>>> +        ti,mbox-rx = <0 0 0>;
+>>> +        ti,mbox-tx = <1 0 0>;
+>>> +    };
+>>> +};
+>>> +
+>>> +&mailbox0_cluster1 {
+>>> +    status = "okay";
+>>> +
+>>> +    mbox_c7x_0: mbox-c7x-0 {
+>>> +        ti,mbox-rx = <0 0 0>;
+>>> +        ti,mbox-tx = <1 0 0>;
+>>> +    };
+>>> +};
+>>> +
+>>> +&mailbox0_cluster2 {
+>>> +    status = "okay";
+>>> +
+>>> +    mbox_mcu_r5_0: mbox-mcu-r5-0 {
+>>> +        ti,mbox-rx = <0 0 0>;
+>>> +        ti,mbox-tx = <1 0 0>;
+>>> +    };
+>>> +};
+>>> +
+>>> +&wkup_r5fss0 {
+>>> +    status = "okay";
+>>> +};
+>>> +
+>>> +&wkup_r5fss0_core0 {
+>>> +    mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
+>>> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+>>> +            <&wkup_r5fss0_core0_memory_region>;
+>>> +};
+>>> +
+>>> +&mcu_r5fss0 {
+>>> +    status = "okay";
+>>> +};
+>>> +
+>>> +&mcu_r5fss0_core0 {
+>>> +    mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
+>>> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+>>> +            <&mcu_r5fss0_core0_memory_region>;
+>>> +};
+>>> +
+>>> +&c7x_0 {
+>>> +    mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
+>>> +    memory-region = <&c7x_0_dma_memory_region>,
+>>> +            <&c7x_0_memory_region>;
+>>> +    status = "okay";
+>>> +};
+>>
+> 
 
