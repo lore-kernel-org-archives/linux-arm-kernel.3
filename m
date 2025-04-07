@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868B5C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 19:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E33C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 19:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qqdO05o8i9/QOOI/IEIMoKVY2e0jYkwrLvfoaCsqNjg=; b=rFCGjnrD2AHHpayWOvtonIPB2Z
-	b+/3vR/rE5OolxO7bG7ThnWeadyXMPtM5zlNNA27nurFQFMggyohardJlMU+oyqoHPIpmozyfu67Q
-	BId8hiv+4DjsUSOUbgf3twb14/n2S7S/R+5WdhkmENWzH+YXli80o53qpl/BxGlT7PI8hU4MXzuwZ
-	aAhYyVKiQtSMzfabtKI5mZRIlvy55uW4JdCiZQhThhIXdBv7uW/C6ezvOoMWS5zbkYwqfKtPqL2WW
-	lwi9abwgN61FMnw2DOPAHUh4eOhOn7s7d4nrthsr4Hkfytb4V/BKtsJ/JmDIJIcY2kM9epeTYRFSG
-	6D378Xig==;
+	bh=7+k8l60Jz29isMjvUltmDyPcIdk3zSjT5fRqSkqwuVw=; b=3uzmVg88G8p/MaCnbJNXd5TqtK
+	CM6XYEOhp/NG5c0IyYOGwW2xOEvN96mW+X8AB1BYXf2XuorbCybGUsTCKA+z/YGQtGa4+wFODztpr
+	YkD8QEctxMwiXej8V/Zo8h++SwNFkQ/4jk8dbQV8/dkqCGd96zVDgN7M2ing1den/dM+TRPK0RVS8
+	Mrt5WOxxhleW0oCcskcci8YX2zjGzUvw0if4NIlqaaXLeUjakTGywA5lyzOKwm3Lly1jFRH2tgHY0
+	PV2aZdqgJyUeclPpnTAunmDdrjAJwSXSwYH43kn4UdW3TVZNPMl8LBfEKbSV8DoY7AB8dpDWOKUCH
+	X267IgWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rmj-00000001kUC-3Wvl;
-	Mon, 07 Apr 2025 19:05:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u1rvM-00000001lrU-2F99;
+	Mon, 07 Apr 2025 19:14:24 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1r0c-00000001UwW-2l5K
+	id 1u1rNV-00000001aVZ-2mUp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 18:15:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DBFEA5C5554;
-	Mon,  7 Apr 2025 18:13:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C98DC4CEE7;
-	Mon,  7 Apr 2025 18:15:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744049745;
-	bh=ojmiIKC5JoIOY5ncsM343Ilta0QjoLb8LQTtRAMq5Mg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ftQIQVyzGt536oXaO7gh8Odq9U85GV04hk2FXfqtDG6dy12mM5wjDKlUN+nLTdRWa
-	 enNvRrOnDbmFaG8ZuOvGBFkjTlJOP9u4pVJEgQWT55T00nE+b9tal5LTvT1V6gVZ6w
-	 d2TMzVmtZWBPOIxOiG7LqtqU5n8GYBEAF1/yvo9B1haC33k729ZRRog3qDXhZr5m09
-	 Mg81iFCxWXG6K1pIbIyClp6ZTq0A//2Ve/nbPyQBmb4zVrVQblNbATjyJbYU/FXALG
-	 1wy9BwUwB7cSfv4GDZ9AAd6j219w2EDEgJ7Hlnt6OlLBqUv8UM7lvwDBkZKSIBZQx7
-	 Df6tDh2epdNAw==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Chenyuan Yang <chenyuan0y@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sasha Levin <sashal@kernel.org>,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au,
-	richardcochran@gmail.com,
-	linux-usb@vger.kernel.org,
+	Mon, 07 Apr 2025 18:39:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=7+k8l60Jz29isMjvUltmDyPcIdk3zSjT5fRqSkqwuVw=; b=K/UowfzxYQzkpVrgomY9rjzdDV
+	T79PoPiBig959UMX8og4dwts15l/1eYRDGbcp4rIDvuMpRvxmwAsbdgpFn/kL8Z6xhdBkF75pvzH6
+	H00/A7+UFsdLNgTKd9tFOddhujUtTecGImGg6fjBYmRH6kHAt6XwMSbLvjETsPnckUa1u+zddznYg
+	A2ISIpTHuAw28s+81sxwzBZ7P+mLLZluDhgLBVrUffUeyLLD3sFLOBRWRv2JzDYiSAFS27PGs5fNz
+	nggsl0uoHbAf1aI4c2/TqJdw2ybpJOlSrJp3cCk4Ig+dT8ptr7B2DvZGCnMcFj4vf2/znABsGSRAT
+	VGv37MlQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:47490 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1u1rNM-0005re-2S;
+	Mon, 07 Apr 2025 19:39:16 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1u1rMq-0013OH-PI; Mon, 07 Apr 2025 19:38:44 +0100
+In-Reply-To: <Z_Qbw0tZ2ktgBf7c@shell.armlinux.org.uk>
+References: <Z_Qbw0tZ2ktgBf7c@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jon Hunter <jonathanh@nvidia.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	netdev@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.10 3/4] usb: gadget: aspeed: Add NULL pointer check in ast_vhub_init_dev()
-Date: Mon,  7 Apr 2025 14:15:33 -0400
-Message-Id: <20250407181536.3183979-3-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250407181536.3183979-1-sashal@kernel.org>
-References: <20250407181536.3183979-1-sashal@kernel.org>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: [PATCH net-next 1/2] net: stmmac: provide stmmac_pltfr_find_clk()
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.235
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1u1rMq-0013OH-PI@rmk-PC.armlinux.org.uk>
+Date: Mon, 07 Apr 2025 19:38:44 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_111546_751587_15DD55BF 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250407_113925_697738_6C794ED8 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +90,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chenyuan Yang <chenyuan0y@gmail.com>
+Provide a generic way to find a clock in the bulk data.
 
-[ Upstream commit 8c75f3e6a433d92084ad4e78b029ae680865420f ]
-
-The variable d->name, returned by devm_kasprintf(), could be NULL.
-A pointer check is added to prevent potential NULL pointer dereference.
-This is similar to the fix in commit 3027e7b15b02
-("ice: Fix some null pointer dereference issues in ice_ptp.c").
-
-This issue is found by our static analysis tool
-
-Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
-Link: https://lore.kernel.org/r/20250311012705.1233829-1-chenyuan0y@gmail.com
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/usb/gadget/udc/aspeed-vhub/dev.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 11 +++++++++++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.h |  3 +++
+ 2 files changed, 14 insertions(+)
 
-diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-index d268306a7bfee..92755a2fe4ff7 100644
---- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-+++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-@@ -543,6 +543,9 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx)
- 	d->vhub = vhub;
- 	d->index = idx;
- 	d->name = devm_kasprintf(parent, GFP_KERNEL, "port%d", idx+1);
-+	if (!d->name)
-+		return -ENOMEM;
-+
- 	d->regs = vhub->regs + 0x100 + 0x10 * idx;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index c73eff6a56b8..43c869f64c39 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -709,6 +709,17 @@ devm_stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ #endif /* CONFIG_OF */
+ EXPORT_SYMBOL_GPL(devm_stmmac_probe_config_dt);
  
- 	ast_vhub_init_ep0(vhub, &d->ep0, d);
++struct clk *stmmac_pltfr_find_clk(struct plat_stmmacenet_data *plat_dat,
++				  const char *name)
++{
++	for (int i = 0; i < plat_dat->num_clks; i++)
++		if (strcmp(plat_dat->clks[i].id, name) == 0)
++			return plat_dat->clks[i].clk;
++
++	return NULL;
++}
++EXPORT_SYMBOL_GPL(stmmac_pltfr_find_clk);
++
+ int stmmac_get_platform_resources(struct platform_device *pdev,
+ 				  struct stmmac_resources *stmmac_res)
+ {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.h
+index 72dc1a32e46d..6e6561e29d6e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.h
+@@ -14,6 +14,9 @@
+ struct plat_stmmacenet_data *
+ devm_stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac);
+ 
++struct clk *stmmac_pltfr_find_clk(struct plat_stmmacenet_data *plat_dat,
++				  const char *name);
++
+ int stmmac_get_platform_resources(struct platform_device *pdev,
+ 				  struct stmmac_resources *stmmac_res);
+ 
 -- 
-2.39.5
+2.30.2
 
 
