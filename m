@@ -4,64 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350BEC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 02:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC4FC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 02:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=72ED1ETj5TNm96Y8ef67UN8/SxRcjwp7diw/thOQEZk=; b=kaYB5sHbhfG+nUKTH4CKh0ntRX
-	VzQn6TodYSYKiY5AkwnSAEZ4ZDhR1WYkKkuRyvwYf8UReoeimNVyfESvlGRjuuxSzmmUry0fcyN3+
-	o2L9aIilNzaVlJ0+QBAuEWvBcq6yMg083Y3v4+7O18oZYsNj0tDiCOROJfaLcPOLE6R0Vp+w3ddf0
-	f1NyVrKga1bHCwr0ng6fobU+YE2QVRMrDffcYp1p1HHJl8NEZCdrDuyB7MrdcXNh+Mve+HuQe1Jhu
-	mvQmGyWp/wZnTpksvF3D0/EoVt+0i2BUftNCfiRe/BJKWBj74DI5udNWSWIgs8jzgNZbLZMJcYRLM
-	fsgmsthA==;
+	bh=OfvIV59H9ViSrmdJzqKZgZRASpvrzVATDKHNsi1badA=; b=z95/rvcMGBG6C0RTWao9FldRfg
+	qYa7wd04Yhfs0kbP4eui64XW1RlP0qH9gdw41VGUxQOrKZlRZ0Uv1EpTLJ23CxCQ1SFPGCM6NwlL5
+	5gaIrhHqGdMzuIJndcqQiLD7RgHPR0Ihs4iqvnQsN1YcvxndtyLVxIfyTB9Z2u4AH5pH3UGHrnhDI
+	5coo3LcAUHxPdPJ5K/cFHO2t30gTfO052kX1ByJ5loc2YnuNxtzgn674eSGqOvHur1xeoXerbxXFD
+	OCWlpAOZHT0SI3dqFYFNKTyctAjDdmlcOtpgt3aQpm1AbqthmhrdWXpQldhFy/cnKogl4F7Osu1CK
+	BoVhMFYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1c42-0000000GBnt-2Jxn;
-	Mon, 07 Apr 2025 02:18:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u1ceI-0000000GDx5-2eE5;
+	Mon, 07 Apr 2025 02:55:46 +0000
+Received: from mail-db8eur05on20609.outbound.protection.outlook.com ([2a01:111:f403:2614::609] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1c2G-0000000GBcE-1o12;
-	Mon, 07 Apr 2025 02:16:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1C8475C3AF7;
-	Mon,  7 Apr 2025 02:14:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0528C4CEE3;
-	Mon,  7 Apr 2025 02:16:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743992186;
-	bh=3rHspDM4Z5rVXG4tA5JfDXRtzhVtLN/iGOYarrS7OaY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Nd3On4L0RRnfdW4UpVrVDTfvgyoJBRLKLksqf40lOGeFMZEr6wCgvvEyslc82DDDc
-	 Uw8fHsH92SfvGU6SrO3I+pspMWlDmu6D9YZ5d39BgBuIBet+Df/f4Ae2eaqAKjrlPZ
-	 rM25M+WsfVymcB8XLe4/GHJQqM8OZlrYH4zHeU7/NJIAV5kZiOJ8XAtT+RxjvR2+Xr
-	 25EKDktVGqKHqZ9vi4OXiB++uepdgzQQ1Jl260KCrLKjXX3a/wcLdz0rHaVTx7LfGv
-	 MPLEiibWo6n66Hd1vg7oXL6WyxEsuMiv7JzqfWLQrnba5W9EgQVTEnYkkQduMiLaJT
-	 s5mn1ZsHglNAg==
-Date: Mon, 7 Apr 2025 02:16:22 +0000
-From: Tzung-Bi Shih <tzungbi@kernel.org>
-To: Laura Nao <laura.nao@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	bleung@chromium.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, chrome-platform@lists.linux.dev,
-	nfraprado@collabora.com, kernel@collabora.com
-Subject: Re: (subset) [PATCH 0/2] Use ChromeOS DT hardware prober with MT8192
- Spherion trackpads
-Message-ID: <Z_M1dti05ZUeTfrG@google.com>
-References: <20250318102259.189289-1-laura.nao@collabora.com>
+	id 1u1ccW-0000000GDf1-3fKJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Apr 2025 02:53:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VmlGyazlsguLLJViiyQz1nlSeFk9AhvL/UpSdCPEb1OzJqLCKyOpFA32aydTgVG39/0hK7M5psLNsBOXE5Ncll4vK3xP9fEeHKB8CFCZbAe9PIxVp60hY7AafkqKRC9ZQwZsLZv+AkJNQ7/4hpgvJy4tSZZKKffJ4VuEYhClfhOTvRrS8nMR+ZExE+7hmws+UIaCq++XN79RDt3BxaF0iMoW0axqmq2obFrYU/jyTdAUDN6ixIaQmoxvp9b2qCtZLGRgy/IkSDXQ8IvkOTFYu8+iOAzXD4ujZlQ5eOE7kjuN/YEa86VH0vqJbA0uk1mEBy1r4B+AlZyU69RdWlhgsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OfvIV59H9ViSrmdJzqKZgZRASpvrzVATDKHNsi1badA=;
+ b=GBkhadbwmyhkSwIqO+yAznIq7O9l9xuLRM1Z8/b3AejNvJEVyPs5PrUuYTXQZ6TtAJjPlGEZvPk/oKYdTgtxf+Eains0cVOiWBf7DJ2YDLXpzYo1hicdM4gz4qxiq9e0F4OEDNaIrEqyYlmRkY85acuHRd/g+RermGfLP6KH6seQeSU7GydUoP1Jd8RGLJsnyvjpBauecj299M9sYvhSVpGKdbU2/0V05hsvlQwNgRk/Xv7lbPjsiARtXfC20rrbSTG6f23P3gQdm3IZc01U3fxSpXAZ11w5ktQz5I11sDF904lKIn8z68u+m/wCpi391IxWtT2CAnF59KViesDd/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OfvIV59H9ViSrmdJzqKZgZRASpvrzVATDKHNsi1badA=;
+ b=mx7b/d9YtHMtYjnBFJ1pjroeOdoKecWrfkFcYe8iZ2RRqnUeKjVszztCBm/1vQQDgU10vv9dDtTamhmrwotVJgSzmTOxehdVQHLPVVg66XCc5q1t3YuNwPUNQ/zjz/qItFlff6bcdEtgwm9Upghp95CZ9b/jQ59bJpyB3NvxnC2qGK17tpImFMXd+VSotg1umxBftHayOW1qulIGmjZ0S2sxsEe7zvN6ojGxH+oi85aQpdZJkGx2SGP7XyKZteLZxLVIIFxaoX/jtbMUTkakRFWGKaIkT5A555rQGAw7evlqHtq2d69ULtAmF1YTwqnlhxDrIIsAheLQRk5Xrz1XDg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by AS1PR04MB9263.eurprd04.prod.outlook.com (2603:10a6:20b:4c5::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.31; Mon, 7 Apr
+ 2025 02:53:51 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8606.029; Mon, 7 Apr 2025
+ 02:53:51 +0000
+Message-ID: <92c8f778-cd94-4113-8b9e-699b8ffa9fa2@oss.nxp.com>
+Date: Mon, 7 Apr 2025 10:52:10 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] media: imx-jpeg: Enhance error handling in buffer
+ allocation
+To: Sebastian Fricke <sebastian.fricke@collabora.com>
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, mirela.rabulea@oss.nxp.com,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, xiahong.bao@nxp.com, eagle.zhou@nxp.com,
+ linux-imx@nxp.com, imx@lists.linux.dev, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250328063056.762-1-ming.qian@oss.nxp.com>
+ <20250328063056.762-2-ming.qian@oss.nxp.com>
+ <20250405113936.oepkmoz2czytbuxy@basti-XPS-13-9310>
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+In-Reply-To: <20250405113936.oepkmoz2czytbuxy@basti-XPS-13-9310>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR02CA0008.apcprd02.prod.outlook.com
+ (2603:1096:3:17::20) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250318102259.189289-1-laura.nao@collabora.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|AS1PR04MB9263:EE_
+X-MS-Office365-Filtering-Correlation-Id: 819f5bdb-c70c-4dca-4331-08dd757f6d1f
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bGlSR2oyYTRsekhYTDVlZXZMS1BENVd4b09qbmFvK3dQcU1SbmVLcDI3Q1Qy?=
+ =?utf-8?B?Q1pLUk9IZWI0K1BUaEUzdHp1RXEwTkU2YW5BcEN2dlRwT0RaQTQxL1lLeWNN?=
+ =?utf-8?B?aU41dEtpOEpMKytRWklyMGtjOTcrZHdEZ0VnUE1Pa3JDS2Uwa3ovKzJHZEw3?=
+ =?utf-8?B?WFZoWE4zSk9hSHNndEJ6L092eDh2eWlwWXRURXZvQ08wNVp6czJhaXk0WXpu?=
+ =?utf-8?B?c2EyV0EwM05uV21DS0tWV0FWMzRWajBTV2VjdFROZU1SSkhxdU9TTzlVTlJO?=
+ =?utf-8?B?M1VYbm5QV3Fnd3BkRVJXOTFuNVZzbjFmbUFkeXhMbjlmeDR1MmIvbndnbWgr?=
+ =?utf-8?B?L0VsejNFakhiWlE4NjVCZzBkZERUb0tyMGhENFN3eG1KQncxY3IrN09rdG1h?=
+ =?utf-8?B?TXhoSCtrTm5UNWliNVdzSWJ4ajBLbk1PMXlTSlpUaFpIaHZmN3hUQ0FQd2VZ?=
+ =?utf-8?B?ZnZ3TVZ0M2FPRmxZSE5SYy9tUHF6OHJnbDhETUdnY0c1ME5CY1RkRllkb3JL?=
+ =?utf-8?B?bjhRL2tDc0ZzNXo3TWpSZ1liRWpoN0ZyM0tvdXZmNDJab3BnN3o2REdyeFdy?=
+ =?utf-8?B?QVJRbGRzLzdoWnp2Z2Q5cStyNUFkNS9kVEhYZ0xhNy9lRnRjN242OUFaTHZu?=
+ =?utf-8?B?ak8vWXFGc2VDK3ZWOHVjL1RUY09ReFFIKzhEY1dqZmVSS0pzdUl5eDQ4Zm9G?=
+ =?utf-8?B?eSthYzNCUUJJMUoyaUhXSVYwckQrMGZJNTI4TVN3TTc3eWs5MjNHYnBwNWVS?=
+ =?utf-8?B?dFdHVFRtVkY4R1hVRGxEcTNkblFiUVlDMUNFNXZMa0I5N3VuakE5V0xTd0RP?=
+ =?utf-8?B?MUVTaHdMeFZwQWlRTVh5SGJTRWVHMnV2bHJTeHVzN1ZoMEx2TjYxSFczOXlU?=
+ =?utf-8?B?QjZxRzFxKzZvOHpHYnpUNGRGUzNoeDE5RG1RTFc0S1VMZ01Zc21oZUFOcnl1?=
+ =?utf-8?B?ZFFPZUxLUWJQWVA0WHBPQko5NDdIM2ZwWjVmWDk3eDJWZU9zblYvSktGWWhX?=
+ =?utf-8?B?b3B5QkJLNmlBRk54bVJRclJocE5aWFRjUUJCcFg4b1ZHT0F3YzZJbTZ0Y3ht?=
+ =?utf-8?B?am5scVFhaUpTRkQxK3pVSnBSSy9pRHl4K0dYdUx0cGYvVlVFRGRwSTY3cThC?=
+ =?utf-8?B?cTMzUGtzc3ErMWI4T09BK2dGTStFS25WMnVBSElLVmI0Y2pvRVgyYTlNMXJs?=
+ =?utf-8?B?cDd6ZHFveVpyKzQwK2xWUDJwSXM5NHVrMmtsUWl5eVFHbWY0UWlxV3pyemln?=
+ =?utf-8?B?MDdLZWI1RnNFZ2xDUVBpT01OanVsTWxYWU5NZFBOQ2tSd3FHY1pVaWxFMFJa?=
+ =?utf-8?B?VUhQbnJjQ1ZEWGZBZDZRbGk1bGRlT0xFeHVUQmtaZ0Nsa3lmb3hDSW1BMlJL?=
+ =?utf-8?B?NGQ0elhSejFUcW41STFYS2lmSU0xUmdtL0RQeTh1MmxTOUo0Qzl3VlFNWlNH?=
+ =?utf-8?B?RU1sc00zaHhod0MwanpsN3V5VEI3dlhKQ1N0QkhOeFhzQVlrSDlaSnVTWEJ6?=
+ =?utf-8?B?aFFpd0l4ZzBPU2JuTWk3REdRNFN6aSt4RytZcnQ0S1VEUEdkS0FYeCtlL3Z4?=
+ =?utf-8?B?R1crbGNSTmNHcnV0dEh2eWhJTkEwdDdPVjZ5QTdweWI2NzRtTkJ0eHZReHpy?=
+ =?utf-8?B?T3dCY2l3VzN1NllJZlkva0FYNVNnbmk5U2sxS0hPRmVFVmR5Rjk2clZRRzFv?=
+ =?utf-8?B?STlHTEFKS1ZLSTJFQXdpMm5VVFdYcVhUd1J5MGpPamtNZHhsS3VNdkRIU1FU?=
+ =?utf-8?B?c2R5ZjUyQlNxZFIvMDdaT2RMWGZXYmQ5VUk2U1M2N3o3L1pwRHdkb2lqMi93?=
+ =?utf-8?B?WkJ4czd4aDFVUmw4VzV2RnUzVHlIVG1Bcml3RWI4dVBoK3M1ZVVyZ3krVWNi?=
+ =?utf-8?Q?O/XEiWl2Z2apy?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cUExMllFblFkZ1poWjJBdnB6dzc0dFcrWGhTaG56N2M0WUUrak5TS1QvWW5m?=
+ =?utf-8?B?emlSVmFvMTB4dDRXSm9VU2JIREZtd2tFdUVLbS9TZHlJNm1kKytTcUQxM2My?=
+ =?utf-8?B?ZTNvRTdNZHlMSm9aV3NOQi9LbS96Zmo4RS9ZdUJBenZyQm9zODRXb1hRSTkr?=
+ =?utf-8?B?VlMwVFFHU1REeE9KVWx4WlVFRE92T3Ruc2ZlZE81d1EzTm1vZklkTWlOMzdZ?=
+ =?utf-8?B?MlNxVU5Ed0VFblZpZ04rWUN1eDBESGVPN29RTVI0blIwY2JCMjE1bUdtamJS?=
+ =?utf-8?B?N1lHMmMyV1l1bXVya29ZdjBqQnlCWUFQU3BaVk1Ma2M4OTVjblRCMlgzRE9v?=
+ =?utf-8?B?Y0M5OWFnRjdCdTRoOEFSU0g4SC9FL1RCSURHa1FaMWYwdmxJVnp3cXQvWEhX?=
+ =?utf-8?B?QmNveE96ZTFtQzdsRTdqYTV5R0xEZ0tlQlJnNU9pYWt4QzF0ZzFVa0oyZ0tu?=
+ =?utf-8?B?MHpVY083Q3JXQmVFNWZXdk0yQlVFMFpqKzBSdUE5c1hCN1A0ZEpWMEo3cUNw?=
+ =?utf-8?B?NU0yaWJvN0xxUDJiMmZBblgvSGNJRi9iSFRZb2ptLzU2Nk9oZmhYaGxQeGZO?=
+ =?utf-8?B?ZytPVFhjZWltTmRnMG1SbmFsam12eTAzbXJuRkZkZGNHMWhtVFdTditrdzVi?=
+ =?utf-8?B?Umc5SSszU2NlYWdVRFFrQ1E2b2FiU0U3ZERWTTNRU2UrY0hGbkpaTXM2WFZI?=
+ =?utf-8?B?Q2t5Z0l6bnNsN2Y0ODBadGkxMlN3R0VlMGFobDVmR0pYT00wWngzRUpRY010?=
+ =?utf-8?B?MXRlOE1uWW1PWFNZR2hHaFo5SU1QcDBxTm9kNnBXTUFIYXNsM2tmTVRXOFdq?=
+ =?utf-8?B?RTAzSHd1d1g0Y25rTndubFdnQ0FvVERlbS9pTnhaOVFtakZrdk1idXp4ODZD?=
+ =?utf-8?B?MkRXOHJNOTVYUmJxQVRuRkMwSkk5cHZkaXFmTmw3ekRaVmxqdkhhZHVTTmVI?=
+ =?utf-8?B?QS9MZ0lNNFM0a3htb01EcXdwcWJIdTBGOVY3YmVtekcrRFFPcG1NVVRpcDNn?=
+ =?utf-8?B?ZDRCTDIweVJHOUdRVFdVbHhkNXFmZVl6SkZjSVZ3MVZkOVJpUXFiSGxBc2dI?=
+ =?utf-8?B?a1REZjdyVyt1UVUzeDZidW1ENkpCclQ1ZGlZV1owZHJIYjhQNC9qeGx2QzJF?=
+ =?utf-8?B?Y3dRditDbTM4azJWRlI5WFlzNWNSSllTbGNQc1drNXFnNGNMaVowdzBGMXJH?=
+ =?utf-8?B?WXdwZS9qTnE2T0x5TCttcDRCUUhQaGlnTDY4V1ZSTnRDTnl4REQ0RDdEYTNx?=
+ =?utf-8?B?aU9TV0FFZ3VSRTB6c2lZNnNSOHlvZzB1K21VT2dRUVFUekN1eFJTdWxZRDlB?=
+ =?utf-8?B?QWhiWE81VWlVVGluMVErcXFZQjlLZW1qUjV5M0hUZzU2aVZTc1h6c05mUGYz?=
+ =?utf-8?B?TkhYcjByQU1COVlJMVVmdDc3NS9GT1RzWFoveFFKbWRUdXRES1JBYk1zMmc4?=
+ =?utf-8?B?dWZVRUg4WHRRdHZLS1ZvTnU5ZngveFJWSVV6eitGSW1LQ09sVjVRNXZJZ0pO?=
+ =?utf-8?B?ZDNjQStwaU00T0trTmFrZXdYdnd4cXNMK0VZbjBLclo0Nm9xZ1lKLzZ0YXdz?=
+ =?utf-8?B?VzhxTStzVFhydGlEWXZNc0gzVFJza0xINXlOZkxXQS9MRlRDNHlPaVVURHRw?=
+ =?utf-8?B?V0hQMS9KOFZERmhLR2hxRVZGTTlPSDFwNTdJdFV4OHVPcThScVBsWTN5c0NX?=
+ =?utf-8?B?UktHMFUxRTlkdUN6QWR5Zi9yVmxkcmZ0MXVpVW1sdG5wTlR0MEJZNk9mWVpE?=
+ =?utf-8?B?RTBqU2NIYzJ0b1MwQjVGTXNFRnlxNHY4aGdsek8rdkFsdlJROTQrdzRLV2Nu?=
+ =?utf-8?B?UThFUkZma1lkcHhocmFReGRndldwL0g0cnRUYmFIRnk0TzBnbUdyUWxGRkkz?=
+ =?utf-8?B?N2dLRGxCN0lBZnpGU2MxTnRxL2YyV0d2ZzdJTU9QMlRTTkc1M0kvWHVGTktQ?=
+ =?utf-8?B?akZaWHlHdnYrL21GUGxQenE4NHVtNGJQb21LeTVOOVJUNlVUK3VHR1hIT0hz?=
+ =?utf-8?B?b2NmRmxoc1FuRm1DNEc0Vi9XVEdYVExOOHlIRmZ1blliWW54NUpxbmg3dk5j?=
+ =?utf-8?B?bTRqZm92U21ENXJLTEZXQ1A2SmtrUUZ0c2EvZWRWMWhxbEMrQVhrS2UzV1Jt?=
+ =?utf-8?Q?F7YogwMMOInFERIiryKfwZMZc?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 819f5bdb-c70c-4dca-4331-08dd757f6d1f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2025 02:53:51.4587
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yY/2eMWcxZItlIuqtA7hycP4A797LPojUZNiGn0VcX+lvk94P9nn9LXiOfEYpTSMzroNInPXh2zJW0d5xepwqg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9263
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_191628_679436_E2D5822B 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250406_195356_926562_F914EDDF 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +181,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 11:22:57AM +0100, Laura Nao wrote:
-> This series marks the trackpads for the Google Spherion variants as
-> "fail-needs-probe" and makes them compatibile with the ChromeOS DT hardware
-> prober.
+
+Hi Sebastian,
+
+
+On 2025/4/5 19:39, Sebastian Fricke wrote:
+> Hey Ming,
 > 
-> Laura Nao (2):
->   platform/chrome: Add support for Google Spherion in HW prober
->   arm64: dts: mediatek: mt8192-asurada-spherion: Mark trackpads as
->     fail-needs-probe
->
-> [...]
+> In the title I'd suggest:
+> media: imx-jpeg: Cleanup after an allocation error
+> 
+> To be a bit more concrete, enhance error handling can mean pretty much
+> anything.
+> 
 
-Applied to
+Thanks, I'll apply your suggestion
 
-    https://git.kernel.org/pub/scm/linux/kernel/git/chrome-platform/linux.git for-next
+> On 28.03.2025 14:30, ming.qian@oss.nxp.com wrote:
+>> From: Ming Qian <ming.qian@oss.nxp.com>
+>>
+>> In function mxc_jpeg_alloc_slot_data, driver will allocate some dma
+>> buffer, but only return error if certain allocation failed.
+>>
+>> Without cleanup the allocation failure, the next time it will return
+>> success directly, but let some buffer be uninitialized.
+>> It may result in accessing a null pointer.
+>>
+>> Clean up if error occurs in the allocation.
+> 
+> I'd suggest:
+> 
+> When allocation failures are not cleaned up by the driver, further 
+> allocation
+> errors will be false-positives, which will cause buffers to remain
+> uninitialized and cause NULL pointer dereferences.
+> Clean up the errors accordingly.
+> 
 
-[1/2] platform/chrome: Add support for Google Spherion in HW prober
-      commit: 8dc528bed728ca0b887d9d5edecbcf23d7fed5a4
+Thanks, I'll apply your suggestion
 
-Thanks!
+>>
+>> Fixes: 2db16c6ed72c ("media: imx-jpeg: Add V4L2 driver for i.MX8 JPEG 
+>> Encoder/Decoder")
+>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>> ---
+>> v2
+>> - Add the Fixes tag
+>>
+>> .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 47 +++++++++++--------
+>> 1 file changed, 27 insertions(+), 20 deletions(-)
+>>
+>> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c 
+>> b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>> index 0e6ee997284b..12661c177f5a 100644
+>> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+>> @@ -752,6 +752,32 @@ static int mxc_get_free_slot(struct 
+>> mxc_jpeg_slot_data *slot_data)
+>>     return -1;
+>> }
+>>
+>> +static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
+>> +{
+>> +    /* free descriptor for decoding/encoding phase */
+>> +    dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+>> +              jpeg->slot_data.desc,
+>> +              jpeg->slot_data.desc_handle);
+>> +    jpeg->slot_data.desc = NULL;
+>> +    jpeg->slot_data.desc_handle = 0;
+>> +
+>> +    /* free descriptor for encoder configuration phase / decoder DHT */
+>> +    dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+>> +              jpeg->slot_data.cfg_desc,
+>> +              jpeg->slot_data.cfg_desc_handle);
+>> +    jpeg->slot_data.cfg_desc_handle = 0;
+>> +    jpeg->slot_data.cfg_desc = NULL;
+>> +
+>> +    /* free configuration stream */
+>> +    dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
+>> +              jpeg->slot_data.cfg_stream_vaddr,
+>> +              jpeg->slot_data.cfg_stream_handle);
+>> +    jpeg->slot_data.cfg_stream_vaddr = NULL;
+>> +    jpeg->slot_data.cfg_stream_handle = 0;
+>> +
+>> +    jpeg->slot_data.used = false;
+>> +}
+>> +
+>> static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
+>> {
+>>     struct mxc_jpeg_desc *desc;
+>> @@ -794,30 +820,11 @@ static bool mxc_jpeg_alloc_slot_data(struct 
+>> mxc_jpeg_dev *jpeg)
+>>     return true;
+>> err:
+>>     dev_err(jpeg->dev, "Could not allocate descriptors for slot %d", 
+>> jpeg->slot_data.slot);
+>> +    mxc_jpeg_free_slot_data(jpeg);
+>>
+>>     return false;
+>> }
+>>
+>> -static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
+>> -{
+>> -    /* free descriptor for decoding/encoding phase */
+>> -    dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+>> -              jpeg->slot_data.desc,
+>> -              jpeg->slot_data.desc_handle);
+>> -
+>> -    /* free descriptor for encoder configuration phase / decoder DHT */
+>> -    dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+>> -              jpeg->slot_data.cfg_desc,
+>> -              jpeg->slot_data.cfg_desc_handle);
+>> -
+>> -    /* free configuration stream */
+>> -    dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
+>> -              jpeg->slot_data.cfg_stream_vaddr,
+>> -              jpeg->slot_data.cfg_stream_handle);
+>> -
+>> -    jpeg->slot_data.used = false;
+>> -}
+> 
+> Can you split the moving of the code from the changes you do?
+> Otherwise the reviewer is forced to get the diff manually.
+
+Sure, this will be done in v3
+
+> 
+> Regards,
+> Sebastian Fricke
 
