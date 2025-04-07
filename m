@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2813C369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A052C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ayTupi2WPvTI3Popd5a6clT7WjyIKWAcMrNm4hWyGyk=; b=H+zMqS9nqu0a5yOKiTRyAMXQ2q
-	3YM264N7ffXo8UwtbhrVtZ1AcHUKUSTUrP+ytfd7kTpoxlx20ffzH+zLBI7wBn8BI9FtPxkTAQBkR
-	o75nzs9/GpZSqeVpjQuOudLRoE565RR5wPLXUM+eM6S1WVEQ1Mi4KFUiq7O4dEfTgfPto3WgVAfBO
-	Iqq8B0YyEj1avamVC8A1h3+aHpTUZ4Yabvp3EMM10TC2dahIrIZTu+iyi5UfkPkE+qyalB9R/1YTZ
-	V2J8bqczA2V2+Xm6ufihTjKKDGkeVSFOFvlD0oYICVLbe5wtKoGNtCCnrf/ADPXyYE2ql9o5E1Hk2
-	9Sflyuzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WNdh5DzKkHzYa5BInKwu7W+JyJ1xHiWn4QJkYHQJpjQ=; b=4o99W8YhqaVAZybbDGUsL41UXx
+	CY8fORexUALHnBMa3vnoFd8IYqmSZX97ESF1M3Qru4WunwzRTitX2KbofkTaUUWS6wE4h4jVaMa6x
+	wi6xI88lFPbz5g0ImUGIOzMLEbf1jFPvV9juuecytqedMS9UtrhQcvNpvABtf6N0fKDQ7eMGOPnXk
+	ilX6UEqVdu8pqikkG+54PDpOZ6x1rxIT5HHfBluBT7zUEhDI3vkXAcjYBvCGwv5HtiLnzRfK7njmC
+	cDCJ04ihK7IFVk6BZJ2dsgVBf+ywzXn4cSGK67Ib4ih7+qe/yW3YHYh6Dx+bhEvGljizJUQtR/+fx
+	kLfchi/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uJ0-000000024Jq-1fCZ;
-	Mon, 07 Apr 2025 21:46:58 +0000
+	id 1u1uJ3-000000024Pa-2Kwi;
+	Mon, 07 Apr 2025 21:47:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1rer-00000001iSZ-3Bxk
+	id 1u1rgw-00000001j2T-43IM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Apr 2025 18:57:21 +0000
+	Mon, 07 Apr 2025 18:59:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=ayTupi2WPvTI3Popd5a6clT7WjyIKWAcMrNm4hWyGyk=; b=bXR3R7fxim5/7tOUTrqrnwgx+g
-	IVCz/H1aZjiL5wdcNkQNzBW1Y3g/cNJ6kovPgAgP9WNx+6R2Nrgc/296hWeQIXw7AHVewWkt0nW9c
-	CNIsWZWplGBknmrNIOsS9QVKC60uS5xUcGUWU4bdueCfgIG4qCvekr5XAaNJuci+q5SknZbeQalaU
-	5ucKBxGX4dEZzmMUiZX4T7PYTE+u0HAq+zKVcGMyIrykTwF1k3NO1/Zx3Ob6VUs/hZDhNFr8Itb2o
-	49d7Ymm+UMXksaoP2julxc4nXIzhuzyt6sOhU6uxXvQOEWcH1juF842V0/UgJUc6q7p+PO0eKgp4O
-	J1Wqv5LQ==;
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description;
+	bh=WNdh5DzKkHzYa5BInKwu7W+JyJ1xHiWn4QJkYHQJpjQ=; b=WE/ZtwsP/xmJnlKb8R4DzEOAXJ
+	7tLrP0jAchtZ8vH39hwTsbx7sXBEmyz+h9qIzR7AF97U1KBC+lJsbbZuJtEJ6AwqPHKQ4sSiVfdkY
+	j+/bggxlu3YlNtiHFZm/N6Xfkdv3aDEIrywXoAo/oQqiDpnfTq4VK1sEJB3Cw28xMbXmoaJSM8u16
+	oQVUsPyercSiHuy1mK5cUpR3MehexwbR6Y4DV2v8kLyIsgEEkUhu06G3lz6vjvWAx2VJDd69E7sZE
+	FAzNa5WxGbW2cuzsU3328d3B3Fi/MM2/i/nX+CS2jPy3hdGBKdRInpj84KAgkai7HDST4okNCd9Bo
+	XjWl4Q5A==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1reo-000000086WU-2ft3
+	id 1u1rgu-000000086gF-0l05
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 18:57:20 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 537Iuq0i454871
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 7 Apr 2025 13:56:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744052212;
-	bh=ayTupi2WPvTI3Popd5a6clT7WjyIKWAcMrNm4hWyGyk=;
-	h=From:To:CC:Subject:Date;
-	b=OX+PNp412lCc0vxhnOijlFpYYMx/tJ5YQmkV0cuMqpvpzNsm301qpxGYAg7ILwzps
-	 C7Icr+4R8Ys0tWuKfbkxkqtxhSHVRKIYKSFkb3lQypD4CkIvmJkpTvE9FIDR2aukmL
-	 r/TAGQJJ4Zj4Qr51qB+A5bOBnCMhBNSeZx1oMeZ0=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 537Iuq3q011999
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 7 Apr 2025 13:56:52 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 7
- Apr 2025 13:56:52 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 7 Apr 2025 13:56:51 -0500
-Received: from fllvsmtp8.itg.ti.com ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 537Iup47094348;
-	Mon, 7 Apr 2025 13:56:51 -0500
-From: Andrew Davis <afd@ti.com>
-To: Arnd Bergmann <arnd@arndb.de>, Andre Przywara <andre.przywara@arm.com>,
-        Russell King <linux@armlinux.org.uk>, Daniel Mack <daniel@zonque.org>,
-        Haojian Zhuang <haojian.zhuang@gmail.com>,
-        Robert Jarzmik
-	<robert.jarzmik@free.fr>,
-        Alexey Charkov <alchark@gmail.com>,
-        Krzysztof
- Kozlowski <krzk@kernel.org>,
-        Stefano Stabellini <sstabellini@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <xen-devel@lists.xenproject.org>, Andrew Davis <afd@ti.com>
-Subject: [PATCH v5 0/5] Switch more ARM plats to sys-off handler API
-Date: Mon, 7 Apr 2025 13:56:45 -0500
-Message-ID: <20250407185650.411887-1-afd@ti.com>
-X-Mailer: git-send-email 2.39.2
+	Mon, 07 Apr 2025 18:59:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=WNdh5DzKkHzYa5BInKwu7W+JyJ1xHiWn4QJkYHQJpjQ=; b=oe0T4ZWdJrQUHI1RLctiKWbMbQ
+	jp7LrA30xsy5eMJj75+mY1+PDfwuCESzZsgUqxkkzIFQtCgMWz3lzemH6SMMeBRYEQdlslW5wAgJW
+	v4/dH9NbZRlBHGZa+tGq3I1KJhazhmmCix6rDseVCvn7m3k9ZBLtRj+nMj6y7Tak/rPTS3j+c9DfC
+	cMZrI6XkQamBGpkfkstrBdDRN/LmElz+gJrLcou6EkTQu6TFnHLPC/RNvh8BJEK+6jmT4cnWoUdXy
+	sCGjDDnc1tCDDkQ7h5E2dtxCaDFXWHsbkY2XQSP1LJ0wAbsxxDFSkwt78a+JCLQnQ4VNUCRAsnZsH
+	jGdbfzDQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:47696 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1u1rgp-000697-0g;
+	Mon, 07 Apr 2025 19:59:23 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1u1rgJ-0013gd-2q; Mon, 07 Apr 2025 19:58:51 +0100
+In-Reply-To: <Z_QgOTC1hOSkIdur@shell.armlinux.org.uk>
+References: <Z_QgOTC1hOSkIdur@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: [PATCH net-next 1/5] net: stmmac: dwc-qos: remove tegra_eqos_init()
 MIME-Version: 1.0
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1u1rgJ-0013gd-2q@rmk-PC.armlinux.org.uk>
+Date: Mon, 07 Apr 2025 19:58:51 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_195718_914181_3D45DF33 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20250407_195928_313965_864FDBA0 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,49 +106,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello all,
+tegra_eqos_init() initialises the 1US TIC counter for the EEE timers.
+However, the DWGMAC core is reset after this write, which clears
+this register to its default.
 
-Continuing the quest to remove the legacy pm_power_off() global
-function handler. Remove uses from arch/arm/ using the helper
-register_platform_power_off().
+However, dwmac4_core_init() configures this register using the same
+clock, which happens after reset - thus this is the write which
+ensures that the register is correctly configured.
 
-These have been sent for several cycles without feedback, not
-sure if there are anymore active platform maintainers who
-can take these individually, maybe these remaining could
-go in directly though the arm-soc tree?
+Therefore, tegra_eqos_init() is not required and is removed. This also
+means eqos->clk_slave can also be removed.
 
-Thanks,
-Andrew
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../stmicro/stmmac/dwmac-dwc-qos-eth.c        | 24 +------------------
+ 1 file changed, 1 insertion(+), 23 deletions(-)
 
-Changes for v5:
- - Rebase on v6.15-rc1
-
-Changes for v4:
- - Drop already taken patches
- - Rebase on latest master
-
-Changes for v3:
- - Rebase on v6.12-rc1
-
-Changes for v2:
- - Collect Reviewed/Acked-bys
- - Rebase on v6.11-rc1
-
-Andrew Davis (5):
-  ARM: highbank: Switch to new sys-off handler API
-  ARM: pxa: Switch to new sys-off handler API
-  ARM: sa1100: Switch to new sys-off handler API
-  ARM: vt8500: Switch to new sys-off handler API
-  arm/xen: Switch to new sys-off handler API
-
- arch/arm/mach-highbank/highbank.c | 2 +-
- arch/arm/mach-pxa/spitz.c         | 2 +-
- arch/arm/mach-sa1100/generic.c    | 2 +-
- arch/arm/mach-vt8500/vt8500.c     | 2 +-
- arch/arm/xen/enlighten.c          | 2 +-
- 5 files changed, 5 insertions(+), 5 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+index 126702873e2a..2b6ed0f720eb 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+@@ -29,7 +29,6 @@ struct tegra_eqos {
+ 	void __iomem *regs;
+ 
+ 	struct reset_control *rst;
+-	struct clk *clk_slave;
+ 
+ 	struct gpio_desc *reset;
+ };
+@@ -199,20 +198,6 @@ static void tegra_eqos_fix_speed(void *priv, int speed, unsigned int mode)
+ 	}
+ }
+ 
+-static int tegra_eqos_init(struct platform_device *pdev, void *priv)
+-{
+-	struct tegra_eqos *eqos = priv;
+-	unsigned long rate;
+-	u32 value;
+-
+-	rate = clk_get_rate(eqos->clk_slave);
+-
+-	value = (rate / 1000000) - 1;
+-	writel(value, eqos->regs + GMAC_1US_TIC_COUNTER);
+-
+-	return 0;
+-}
+-
+ static int tegra_eqos_probe(struct platform_device *pdev,
+ 			    struct plat_stmmacenet_data *plat_dat,
+ 			    struct stmmac_resources *res)
+@@ -227,7 +212,6 @@ static int tegra_eqos_probe(struct platform_device *pdev,
+ 
+ 	eqos->dev = &pdev->dev;
+ 	eqos->regs = res->addr;
+-	eqos->clk_slave = plat_dat->stmmac_clk;
+ 
+ 	if (!is_of_node(dev->fwnode))
+ 		goto bypass_clk_reset_gpio;
+@@ -267,18 +251,12 @@ static int tegra_eqos_probe(struct platform_device *pdev,
+ bypass_clk_reset_gpio:
+ 	plat_dat->fix_mac_speed = tegra_eqos_fix_speed;
+ 	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
+-	plat_dat->init = tegra_eqos_init;
+ 	plat_dat->bsp_priv = eqos;
+ 	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE |
+ 			   STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP;
+ 
+-	err = tegra_eqos_init(pdev, eqos);
+-	if (err < 0)
+-		goto reset;
+-
+ 	return 0;
+-reset:
+-	reset_control_assert(eqos->rst);
++
+ reset_phy:
+ 	gpiod_set_value(eqos->reset, 1);
+ 
 -- 
-2.39.2
+2.30.2
 
 
