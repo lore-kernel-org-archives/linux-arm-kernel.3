@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1A6C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B440C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 21:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y7usvJbWdzao6Cpj0TdEPzfAZnIHMs9Jb/NJTFyO0qY=; b=lDPej1Otgi0+UMzzG2VFD51yzv
-	FwHopyR4TN6EgdnR4syqtTLpSuQggq0JQud9/qOZ6yhOt3dGWO3RrWjDt2iA6T2xtWu7wH0uyULBc
-	hoe2DDA1A37Ul06lXBehFk54EwGSjWfJ3ruRKEBJdKlidlo09C1oMECkik3ZPlilP4XJ4lA6w/G/J
-	0xqBJBZPf4vgbdODsGMwQwuiKVGeEVWPvvn210rn3XvPlGgPM2vdOi9oCpx5Rh8EPs04OtFwZTOIF
-	xTfB58O+9V7SkcHrqE5npfQ3gKfom5Xm0FEW25gz8bBywFBf0XXVxQ8gPvVFkgjxvO5O/tWOq33WW
-	O3Vfttaw==;
+	bh=SIS7Ml4VZ/wIhHt29L18904r+oPLJIB7CTsSxudVE84=; b=ozW7kmPSKRnPGw5VYuvn966VEg
+	9A8RAc/5Mw51BPrcYB0oNuGWl06odCP2fhi8ZfGuLuIx/SLf71vRkoDkGDfHnThHaTztr09cBtjx8
+	FeSwgH/nS0YWRGbuLIwWNKdVrzCGNngtPyn1NBXvdKjsO9o62rFt1nmnuNi51RIdghZSOOgy+I83O
+	449U8K17v7Tpw6JF9HYGUIrRrENnJjJa8zlgiUPnz9G1EHwhZ70RAMVoRh5jjfMl7wnrpNSYxlOb7
+	EzGeZ5xBmcGVgS5GlkPSnRSq1WtmYfFEJ/aGiw9bCfSJB5XTmJstODBzKenKSNKyoMJ8cSgOKFlme
+	gXVmWM/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uKq-000000027hl-2wAd;
-	Mon, 07 Apr 2025 21:48:52 +0000
+	id 1u1uKv-000000027oK-0YUz;
+	Mon, 07 Apr 2025 21:48:57 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1sql-00000001wER-1pRe
+	id 1u1sql-00000001wFl-3pZS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 20:13:45 +0000
+	Mon, 07 Apr 2025 20:13:46 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 54B862113E88;
-	Mon,  7 Apr 2025 13:13:41 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 54B862113E88
+	by linux.microsoft.com (Postfix) with ESMTPSA id 7F22C2113E83;
+	Mon,  7 Apr 2025 13:13:42 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7F22C2113E83
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1744056821;
-	bh=y7usvJbWdzao6Cpj0TdEPzfAZnIHMs9Jb/NJTFyO0qY=;
+	s=default; t=1744056822;
+	bh=SIS7Ml4VZ/wIhHt29L18904r+oPLJIB7CTsSxudVE84=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EHi+eNCM61h7pcU0C55egc10Rg40Cvcy6Ih35fIv/1RsKF9JPtRNv7yhXKGfHqsyL
-	 ikM/4E2A0i93AFZsf4k9usi61d7e3AkCo+xLigqbb5BwwPafyDGNBT7FOLbbavgBmJ
-	 vKSkrPu3BEIHIzFj0BWtz64ATsqoxCs4BlMKicQs=
+	b=RxmnLzF2XngTwFiyKKH5hdLGJE0nEzHXDwMz6IcLNsXAa5X+x7hkym2LCUETAmXjE
+	 A1I7K+DEKgTBLx6zwLoYV5xzk7tSpZv8IQs3J34wsuW+/Nta1VC3/xiYcpGcRHCeP2
+	 CeHyVMWlrCbQLtmhnn2JQvXbrAot+cu6qCgG061U=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -83,17 +83,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v7 08/11] Drivers: hv: vmbus: Get the IRQ number from DeviceTree
-Date: Mon,  7 Apr 2025 13:13:33 -0700
-Message-ID: <20250407201336.66913-9-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v7 11/11] PCI: hv: Get vPCI MSI IRQ domain from DeviceTree
+Date: Mon,  7 Apr 2025 13:13:36 -0700
+Message-ID: <20250407201336.66913-12-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250407201336.66913-1-romank@linux.microsoft.com>
 References: <20250407201336.66913-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_131343_501099_2FE37794 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20250407_131344_024397_3AFE92AE 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,67 +108,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VMBus driver uses ACPI for interrupt assignment on
-arm64 hence it won't function in the VTL mode where only
-DeviceTree can be used.
+The hyperv-pci driver uses ACPI for MSI IRQ domain configuration on
+arm64. It won't be able to do that in the VTL mode where only DeviceTree
+can be used.
 
-Update the VMBus driver to discover interrupt configuration
-from DT.
+Update the hyperv-pci driver to get vPCI MSI IRQ domain in the DeviceTree
+case, too.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 ---
- drivers/hv/vmbus_drv.c | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ drivers/pci/controller/pci-hyperv.c | 72 ++++++++++++++++++++++++++---
+ 1 file changed, 66 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-index 22afebfc28ff..e8f2c3e92d1f 100644
---- a/drivers/hv/vmbus_drv.c
-+++ b/drivers/hv/vmbus_drv.c
-@@ -2345,6 +2345,31 @@ static int vmbus_acpi_add(struct platform_device *pdev)
- }
- #endif
+diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
+index 6084b38bdda1..2d7de07bbf38 100644
+--- a/drivers/pci/controller/pci-hyperv.c
++++ b/drivers/pci/controller/pci-hyperv.c
+@@ -50,6 +50,7 @@
+ #include <linux/irqdomain.h>
+ #include <linux/acpi.h>
+ #include <linux/sizes.h>
++#include <linux/of_irq.h>
+ #include <asm/mshyperv.h>
  
-+static int vmbus_set_irq(struct platform_device *pdev)
-+{
-+	struct irq_data *data;
-+	int irq;
-+	irq_hw_number_t hwirq;
-+
-+	irq = platform_get_irq(pdev, 0);
-+	/* platform_get_irq() may not return 0. */
-+	if (irq < 0)
-+		return irq;
-+
-+	data = irq_get_irq_data(irq);
-+	if (!data) {
-+		pr_err("No interrupt data for VMBus virq %d\n", irq);
-+		return -ENODEV;
+ /*
+@@ -817,9 +818,17 @@ static int hv_pci_vec_irq_gic_domain_alloc(struct irq_domain *domain,
+ 	int ret;
+ 
+ 	fwspec.fwnode = domain->parent->fwnode;
+-	fwspec.param_count = 2;
+-	fwspec.param[0] = hwirq;
+-	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
++	if (is_of_node(fwspec.fwnode)) {
++		/* SPI lines for OF translations start at offset 32 */
++		fwspec.param_count = 3;
++		fwspec.param[0] = 0;
++		fwspec.param[1] = hwirq - 32;
++		fwspec.param[2] = IRQ_TYPE_EDGE_RISING;
++	} else {
++		fwspec.param_count = 2;
++		fwspec.param[0] = hwirq;
++		fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
 +	}
-+	hwirq = irqd_to_hwirq(data);
+ 
+ 	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
+ 	if (ret)
+@@ -887,10 +896,46 @@ static const struct irq_domain_ops hv_pci_domain_ops = {
+ 	.activate = hv_pci_vec_irq_domain_activate,
+ };
+ 
++#ifdef CONFIG_OF
 +
-+	vmbus_irq = irq;
-+	vmbus_interrupt = hwirq;
-+	pr_debug("VMBus virq %d, hwirq %d\n", vmbus_irq, vmbus_interrupt);
++static struct irq_domain *hv_pci_of_irq_domain_parent(void)
++{
++	struct device_node *parent;
++	struct irq_domain *domain;
 +
-+	return 0;
++	parent = of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
++	if (!parent)
++		return NULL;
++	domain = irq_find_host(parent);
++	of_node_put(parent);
++
++	return domain;
 +}
 +
- static int vmbus_device_add(struct platform_device *pdev)
- {
- 	struct resource **cur_res = &hyperv_mmio;
-@@ -2359,6 +2384,11 @@ static int vmbus_device_add(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	if (!__is_defined(HYPERVISOR_CALLBACK_VECTOR))
-+		ret = vmbus_set_irq(pdev);
-+	if (ret)
-+		return ret;
++#endif
 +
- 	for_each_of_range(&parser, &range) {
- 		struct resource *res;
++#ifdef CONFIG_ACPI
++
++static struct irq_domain *hv_pci_acpi_irq_domain_parent(void)
++{
++	acpi_gsi_domain_disp_fn gsi_domain_disp_fn;
++
++	if (acpi_irq_model != ACPI_IRQ_MODEL_GIC)
++		return NULL;
++	gsi_domain_disp_fn = acpi_get_gsi_dispatcher();
++	if (!gsi_domain_disp_fn)
++		return NULL;
++	return irq_find_matching_fwnode(gsi_domain_disp_fn(0),
++				     DOMAIN_BUS_ANY);
++}
++
++#endif
++
+ static int hv_pci_irqchip_init(void)
+ {
+ 	static struct hv_pci_chip_data *chip_data;
+ 	struct fwnode_handle *fn = NULL;
++	struct irq_domain *irq_domain_parent = NULL;
+ 	int ret = -ENOMEM;
  
+ 	chip_data = kzalloc(sizeof(*chip_data), GFP_KERNEL);
+@@ -907,9 +952,24 @@ static int hv_pci_irqchip_init(void)
+ 	 * way to ensure that all the corresponding devices are also gone and
+ 	 * no interrupts will be generated.
+ 	 */
+-	hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
+-							  fn, &hv_pci_domain_ops,
+-							  chip_data);
++#ifdef CONFIG_ACPI
++	if (!acpi_disabled)
++		irq_domain_parent = hv_pci_acpi_irq_domain_parent();
++#endif
++#ifdef CONFIG_OF
++	if (!irq_domain_parent)
++		irq_domain_parent = hv_pci_of_irq_domain_parent();
++#endif
++	if (!irq_domain_parent) {
++		WARN_ONCE(1, "Invalid firmware configuration for VMBus interrupts\n");
++		ret = -EINVAL;
++		goto free_chip;
++	}
++
++	hv_msi_gic_irq_domain = irq_domain_create_hierarchy(irq_domain_parent, 0,
++		HV_PCI_MSI_SPI_NR,
++		fn, &hv_pci_domain_ops,
++		chip_data);
+ 
+ 	if (!hv_msi_gic_irq_domain) {
+ 		pr_err("Failed to create Hyper-V arm64 vPCI MSI IRQ domain\n");
 -- 
 2.43.0
 
