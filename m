@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E5DC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 15:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63656C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 15:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KOcho37MvrVhiA5dQkVJX8FlRBRSDHiJRf+zEmA1rlY=; b=vZDNNDlmpnGxMGI4XIWSB+Zjxf
-	neNlDcG/tM6B6MKbZhnKrJHvATtlyQxnjSL6FnYgq7WU4vRgcKKtDv3mZiThpAjThOjCM6RoN3xxO
-	76OeHC7gvgRg1xeiQyU5eHLnTO3EZ7VGuIC4VTEThU8QZ12FoIZapproMX1omxjZdIjeFqa99Uxnq
-	l2ptQrJCGtrV3uYGVOoEGZKNcIT6C0hX+NCFqddEa6/8sS/SygXKQy7MWFKjfaNBxD9NDwe03SQC4
-	/skCxVGv5ItmhJL3L1myV6n23Zgt5cemYZemuHO5SLb9Q0M6qi5vX8aMiLT21Q/wxeddH8+Ys728X
-	rExdbuXQ==;
+	bh=GlbxOSSQor75pYLhcBGMiTmVttlHOD9YuyyYG+JTv+8=; b=DXy0/hHsEsDgRtixhskzV7sozi
+	94yX/yASQV98VcVwT//w1J661+SS1noLMa9yN8jIBVKRzKh4FAhdVKhsdhMizpxsq9DqTKLIlPNYF
+	exyoaypKRPv8O70vF2/bm2j6EFCe10yDsFcRjVUuJGvuAq8dWr4bdFh7YY8Is4fXAhkYzetzGw8DY
+	ujd5gGYWIDV0rGpQki+1rZEiHeH7vlSZ+P+ktPq9F4OUaJ+G2pu4OsZkEWyGiHaHXComG1zSXPIpj
+	ytTkpHqULcRgiowgXmu8A+0C8eXh0aUx3csemCbR7RKUP4BvEK9Ch50r2GExlkvtIZ3wnlO9TtMee
+	cDKGJvag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1o7i-00000000t6w-1nVL;
-	Mon, 07 Apr 2025 15:10:54 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1u1o9X-00000000tsk-0X2n;
+	Mon, 07 Apr 2025 15:12:47 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nPb-00000000iXv-2fti;
-	Mon, 07 Apr 2025 14:25:21 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 40B91443B4;
-	Mon,  7 Apr 2025 14:25:14 +0000 (UTC)
+	id 1u1nPe-00000000iZe-1VOd;
+	Mon, 07 Apr 2025 14:25:23 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8251643281;
+	Mon,  7 Apr 2025 14:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744035917;
+	t=1744035920;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=KOcho37MvrVhiA5dQkVJX8FlRBRSDHiJRf+zEmA1rlY=;
-	b=D0danf4qUYVlA+OsldSLv5VeHErZ5R+XS/EI8G0W7/pw96QLLVqQb0JXQ0xb1gSBQyZ++6
-	Ibam302Oi5QFRZJ8GKfAK4a/hXpaO3kWUZfFeyz/faD1NLQn/HyMK2c/1YR46fNeTYS/Sx
-	ACx7UuOmXwY+heqjzhLMeXqVUH7KREOd4z1yxEy+MwZHGaBhFgWLC1dpyBYvZfFV+W5bLY
-	72t0OyQUQm/Yx0iNXUiOulOJnzkhptEL9IlBXtAUKFXlYBT/6mhvXUf8x23h/Rn8bpjSv5
-	rMzkF1i0m307tf7x6AFrZMmToPWWGw7WZQOJCriAy8F+dUyhEdF0q65NyPOb3Q==
+	bh=GlbxOSSQor75pYLhcBGMiTmVttlHOD9YuyyYG+JTv+8=;
+	b=iSyoRz2Y2qjob8/NLhf8GqmyoV2qkPrDQz+ge31BPb1Y3wBs+o4tMTIQHhTBr3a4h1EqsV
+	q2mUgk/XKzP7T3x9jPQXMPcHh2R6NKt72XHzWDbmd9QASSW3+jCYhsuTtL16DGk5grxIRW
+	XMjJ6t19DcUSWjEouODKrY/wofGEY1+EF6dtZu45g/+emk5IuXSNXvlIN6FAA3RID4FjPG
+	T8EuoHIDLJNMXONu/unSxKAD0H+2GQHlLip9t66MDoqIIkjHb/QB6zN0uQFLkodazkVbow
+	g7jcqS15T5pV8tUq+Qg68Ay6rshRWXWbSHp2RK+NYXHZEGwBEswXg2jhVYKbJg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Mon, 07 Apr 2025 16:23:39 +0200
-Subject: [PATCH 24/34] drm/omap: dss: venc: convert to
- devm_drm_bridge_alloc() API
+Date: Mon, 07 Apr 2025 16:23:40 +0200
+Subject: [PATCH 25/34] drm/rcar-du: dsi: convert to devm_drm_bridge_alloc()
+ API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-24-42113ff8d9c0@bootlin.com>
+Message-Id: <20250407-drm-bridge-convert-to-alloc-api-v1-25-42113ff8d9c0@bootlin.com>
 References: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
 In-Reply-To: <20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -78,16 +78,18 @@ Cc: Anusha Srivatsa <asrivats@redhat.com>,
  linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
  Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedvudenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegludelvddrudeikedrudejkedrjeehngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegvddprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvr
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtgedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedvudenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegludelvddrudeikedrudejkedrjeehngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeggedprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvr
  hhnvghlrdhorhhgpdhrtghpthhtohepjfhuihdrrfhusehgvghhvggrlhhthhgtrghrvgdrtghomhdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhm
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_072519_871126_2402F9C4 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20250407_072522_530093_DC08A79E 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,94 +106,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 This is the new API for allocating DRM bridges.
 
-Switching from a non-devm to a devm allocation allows removing the kfree()
-in the remove function and in the probe error management code, and as a
-consequence to simplify the code flow by removing now unnecessary gotos.
-
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+Cc: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>
 ---
- drivers/gpu/drm/omapdrm/dss/venc.c | 23 ++++++++---------------
- 1 file changed, 8 insertions(+), 15 deletions(-)
+ drivers/gpu/drm/renesas/rcar-du/rcar_mipi_dsi.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/omapdrm/dss/venc.c b/drivers/gpu/drm/omapdrm/dss/venc.c
-index 50349518eda1630400529caf27ca4469bb09fc82..9b5d53dc361e654a2e4009c3c81b726f9ef76ced 100644
---- a/drivers/gpu/drm/omapdrm/dss/venc.c
-+++ b/drivers/gpu/drm/omapdrm/dss/venc.c
-@@ -664,7 +664,6 @@ static const struct drm_bridge_funcs venc_bridge_funcs = {
- 
- static void venc_bridge_init(struct venc_device *venc)
- {
--	venc->bridge.funcs = &venc_bridge_funcs;
- 	venc->bridge.of_node = venc->pdev->dev.of_node;
- 	venc->bridge.ops = DRM_BRIDGE_OP_MODES;
- 	venc->bridge.type = DRM_MODE_CONNECTOR_SVIDEO;
-@@ -809,9 +808,9 @@ static int venc_probe(struct platform_device *pdev)
- 	struct venc_device *venc;
- 	int r;
- 
--	venc = kzalloc(sizeof(*venc), GFP_KERNEL);
--	if (!venc)
--		return -ENOMEM;
-+	venc = devm_drm_bridge_alloc(&pdev->dev, struct venc_device, bridge, &venc_bridge_funcs);
-+	if (IS_ERR(venc))
-+		return PTR_ERR(venc);
- 
- 	venc->pdev = pdev;
- 
-@@ -824,26 +823,24 @@ static int venc_probe(struct platform_device *pdev)
- 	venc->config = &venc_config_pal_trm;
- 
- 	venc->base = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(venc->base)) {
--		r = PTR_ERR(venc->base);
--		goto err_free;
--	}
-+	if (IS_ERR(venc->base))
-+		return PTR_ERR(venc->base);
- 
- 	venc->vdda_dac_reg = devm_regulator_get(&pdev->dev, "vdda");
- 	if (IS_ERR(venc->vdda_dac_reg)) {
- 		r = PTR_ERR(venc->vdda_dac_reg);
- 		if (r != -EPROBE_DEFER)
- 			DSSERR("can't get VDDA_DAC regulator\n");
--		goto err_free;
-+		return r;
+diff --git a/drivers/gpu/drm/renesas/rcar-du/rcar_mipi_dsi.c b/drivers/gpu/drm/renesas/rcar-du/rcar_mipi_dsi.c
+index 7ab8be46c7f6547f29b4d45af7ac704283da9dcd..1af4c73f7a887712aef8c8176b0d0338d9ca9727 100644
+--- a/drivers/gpu/drm/renesas/rcar-du/rcar_mipi_dsi.c
++++ b/drivers/gpu/drm/renesas/rcar-du/rcar_mipi_dsi.c
+@@ -918,7 +918,6 @@ static int rcar_mipi_dsi_host_attach(struct mipi_dsi_host *host,
  	}
  
- 	r = venc_get_clocks(venc);
- 	if (r)
--		goto err_free;
-+		return r;
+ 	/* Initialize the DRM bridge. */
+-	dsi->bridge.funcs = &rcar_mipi_dsi_bridge_ops;
+ 	dsi->bridge.of_node = dsi->dev->of_node;
+ 	drm_bridge_add(&dsi->bridge);
  
- 	r = venc_probe_of(venc);
- 	if (r)
--		goto err_free;
-+		return r;
+@@ -1004,9 +1003,10 @@ static int rcar_mipi_dsi_probe(struct platform_device *pdev)
+ 	struct rcar_mipi_dsi *dsi;
+ 	int ret;
  
- 	pm_runtime_enable(&pdev->dev);
+-	dsi = devm_kzalloc(&pdev->dev, sizeof(*dsi), GFP_KERNEL);
+-	if (dsi == NULL)
+-		return -ENOMEM;
++	dsi = devm_drm_bridge_alloc(&pdev->dev, struct rcar_mipi_dsi, bridge,
++				    &rcar_mipi_dsi_bridge_ops);
++	if (IS_ERR(dsi))
++		return PTR_ERR(dsi);
  
-@@ -861,8 +858,6 @@ static int venc_probe(struct platform_device *pdev)
- 	venc_uninit_output(venc);
- err_pm_disable:
- 	pm_runtime_disable(&pdev->dev);
--err_free:
--	kfree(venc);
- 	return r;
- }
+ 	platform_set_drvdata(pdev, dsi);
  
-@@ -875,8 +870,6 @@ static void venc_remove(struct platform_device *pdev)
- 	venc_uninit_output(venc);
- 
- 	pm_runtime_disable(&pdev->dev);
--
--	kfree(venc);
- }
- 
- static __maybe_unused int venc_runtime_suspend(struct device *dev)
 
 -- 
 2.49.0
