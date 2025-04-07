@@ -4,111 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D48C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 16:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C5AC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Apr 2025 17:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RbRVJgB2du8ydGrHNeqxiskz3OR4/cSTNp5c0THLTGc=; b=pE6GEgxo0BLFL3
-	lwkupe/nfDRq5I9eg9Bi4l75dzV79GFO3LGGh5CasWO4zztm8SDwQHkEmZhx1QRKR7kitTY+9Babr
-	LeJBEK9wsMraeGureSDFb0+5/ZXMt737+e7Zuvpxljs6zVeBdjDIg1hBZCUKCTMKHQ0QrRDx2Ma+Z
-	fD4rBFb6FIwAZXkEOl7c6VUX145ffOo/7un0l5neni8JtlC20+USxuRwiZih2wuyxk8qAOR57G2PW
-	Y6dJuPdJKEjqo/kso4PhIuDhJqEBMSDSC9djjx91TURprzozTW0MlpZhCe87xPu0KyWml0SytBMT+
-	N8AETuCAF53lcbkN148A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2YZX8FTm7gnnATlvkEU+CvdZ8Zmrv4/GwdsExPDms+c=; b=o7wbMf0tGIp73gGbQ02hDiwW76
+	bjjwUgwhwyjqqZS0HwCLBcwmxg/Pg1nM1KEwHfbpiH8+M9GtWCOUtE9fZP9YA67VSHLDXGxE+mHx/
+	ZqzhFMop7VluSgs0/b36KZ1aPx1rMt/DK7Zgho7ZdsgCxMeXGDILJLB6c/F3qhSTMVRCVU/hjRNbA
+	B0za8P8B3ArEnh5QINADFKEwiVAYXTd2gn2HNPQPtCfOuLJzAsYPnn1aMuxhgQM7DPl+qL4ryf9mG
+	+7Ks2joO7SITa+qUYjv+ZSisTM013qdIloQT3GJHVE2g6RLn8rAUC08Dm2NS4Y02REq5pjBNRHjz+
+	3uw0dOdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pmt-00000001INm-3jhF;
-	Mon, 07 Apr 2025 16:57:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u1ps4-00000001JQl-11Q3;
+	Mon, 07 Apr 2025 17:02:52 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oUx-00000000ydV-2qik
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Apr 2025 15:34:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=RbRVJgB2du8ydGrHNeqxiskz3OR4/cSTNp5c0THLTGc=; b=ZWULl4jnJ7q+8EylF8+wPHx+40
-	EWDtB9AWwv4iqYjb3tb4l/MNbxQekX4kZUhQaXPwBLQKJtA/LC2rYvdne8WA5v7cH0kn3z3uV8cqh
-	q9QqnZsgbng3skNeClEY830UacN6y3cy2N6Jrq60JD9SLY4VGRBIDhyqPFhf9gwvYWgavE1RKn2IL
-	OXzeT1/JbW34iYi0hoxhVEtWPQ3tjjZtFVArZik+yWg7MabIBN4JDMDNlv/1KZB2T+d8xiWdyG/eI
-	PYo+fm2ngerWu3nqTu9LcFYbD5bbuBDarwKcOevOWqT1g4+Y7r2VY5LGaNh2Y8fvoZttlu8EbSL6H
-	2ZRaEvjw==;
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oUt-000000081aA-3L84
+	id 1u1pAK-000000018J3-2Yeh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Apr 2025 15:34:54 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 537FYfgc408834
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 7 Apr 2025 10:34:41 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744040081;
-	bh=RbRVJgB2du8ydGrHNeqxiskz3OR4/cSTNp5c0THLTGc=;
-	h=From:Subject:Date:To:CC;
-	b=ad4OZuzTQbR7oa5jv2Mr4p5+GNh4KULRcSEoMX/KpfPmvWmCw1PjziQ1tDIAXGb/j
-	 ivM6Ul/+XcXMHmuB7jzyNiqkDWL+jagIUOFVOkjt4LqIIezAsL6yLF9aiaa8iXqwr0
-	 ft22Pq42U0YROUTLU7ZG+aGsqk1K2LkIcYApsRxw=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 537FYfM3024411
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 7 Apr 2025 10:34:41 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 7
- Apr 2025 10:34:40 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 7 Apr 2025 10:34:40 -0500
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 537FYeOf090531;
-	Mon, 7 Apr 2025 10:34:40 -0500
-From: Bryan Brattlof <bb@ti.com>
-Subject: [PATCH v4 0/3] arm64: dts: ti: introduce basic support for the
- AM62L
-Date: Mon, 7 Apr 2025 10:34:37 -0500
-Message-ID: <20250407-am62lx-v4-0-ce97749b9eae@ti.com>
+	Mon, 07 Apr 2025 16:17:42 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2260c91576aso37843315ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 09:17:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744042659; x=1744647459; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2YZX8FTm7gnnATlvkEU+CvdZ8Zmrv4/GwdsExPDms+c=;
+        b=Y2lVe0Ed4LrS3xqkUgI8GTO/k+0qHlqmpbhbgD0cX8tNgnro81mRIeGvkt5APsRXXp
+         YTxYn7LmmLKdb1b3RQllMElmu2D0B1sgX0MpXC3jIFAZF+dnfWMZGn48iEqpHDHYgrFL
+         /wqArsFxnlaZ0zliC70LrCylCeo+DuPaWKXde/vib94TnebbmTeAg1mkbMi3duY7wrDU
+         CICKuv2JfvHjbokhPZTBI51UpJIdVulkNGbVb89wEcKQZsoAtpuKJzuwkYmzbCgXswOg
+         QxeZgXEGNK8YfEH85sa5yKvZm/hcxbcYCgc5sxObNUd/kuZKce5EFSjoceFkf53CAQUj
+         lTEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744042659; x=1744647459;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2YZX8FTm7gnnATlvkEU+CvdZ8Zmrv4/GwdsExPDms+c=;
+        b=G2zgzZuKQ7KUlB1VZy7CHhlObdde5BOo01K/itVMiH7xfA9ntwjt41i8Ye/A2cSmNE
+         oReEvnOlc+PnU1vOUsOw4F2xFmD4U3waQb/1Js0NkSOsIP5H8YH3LR+IXV988IouYYvI
+         TyLg0NxZ1JlyqiUIUYPQYtwMcvBljvqPhATN/o6CaR2aQzo39d87Qx64btEQxxvjp+bK
+         qveXIHUJxxogQsGnkqLvZ5xCJPo9RVi4iQ+FxJd9TaLR7rcg3qdEQ+DFQaGKL/3ftgz9
+         9rIlpumf8PZjpzeDrl+iBmEyPKSBZ1hiYSHMgAyHrN5akF+Dr8haav2wR4CYUpMjo54/
+         V6Ug==
+X-Forwarded-Encrypted: i=1; AJvYcCUvvG9g30pI6gFcLsLBoSlsHXJSluLOVCS17bfv/fHo+89ks6ES0kKDV3iX1YDMTDWbs/RG1kIjkKUWa7fPcKNm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW3yb6Z6rHgiE894OKoNZ/Lj1oBxNib1GQsfLFjFURd39PPlVS
+	GVV1qTxn5S5fd0lQPsQZJroyyWi5Oq81WaO1KZn6XmjHLI2Eht0DC867nTLq35E=
+X-Gm-Gg: ASbGncvyXqe9boh7sf19iobwC4RqQn07jP1jAJ9hHL6MReKNh0N2ajQbG7Y7z9585/w
+	8OtjQQSpP7nxdkzN99wVn9FOdqJHkax/d+M8oLH2kv0k5cIGjWECd03lXWIqNipzN6pUWRUJZ1b
+	7Ntu2Db34j2b8Kjaf+BV6xyY7xCtuL6Odj+1CAytjp5VQeMufyo4ik6VKq3Yh85IM3mKitVuQEZ
+	UdOohgVgEX00GgzUojCx6GhaNR3wJ3y35Iu6jVhHx+9m5bviDZWsf9FMtaAhvzXvU53H8Hji5KX
+	NJMCtlAw1lHpLIexUuNgne8yohkLehGbX288MAqCTNwsRfM=
+X-Google-Smtp-Source: AGHT+IGV6fnvs4sscSKdOoEFY19/hs9fXnSrUMMOtavJUI+vrIykhaiZctAqp+tkYlgjXDshCo3m3A==
+X-Received: by 2002:a17:902:d501:b0:227:ac2a:1dcf with SMTP id d9443c01a7336-22a8a06b403mr178027265ad.23.1744042659200;
+        Mon, 07 Apr 2025 09:17:39 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:8a1d:e713:b97:3a58])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739da0e7be3sm8995261b3a.175.2025.04.07.09.17.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Apr 2025 09:17:38 -0700 (PDT)
+Date: Mon, 7 Apr 2025 10:17:35 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: "Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"S.J. Wang" <shengjiu.wang@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Mpuaudiosw <Mpuaudiosw@nxp.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>, imx@lists.linux.dev,
+	linux-remoteproc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH v3] remoteproc: imx_dsp_rproc: Add support for
+ DSP-specific features
+Message-ID: <Z_P6n5wQfGuSmV2B@p14s>
+References: <20250403100124.637889-1-iuliana.prodan@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAI3w82cC/02MwQqDMBAFf0Vybkqymibpqf9Regi6qQtVSyLBI
- v57E6HS4zzezMoiBsLIrtXKAiaKNI0ZmlPF2t6NT+TUZWYgoJEAgrvhAq+Ft8421qDvjEaWz++
- AnpY9dH9k7inOU/js3QRlLQklpDC/RAIuuDISjHK17oy/zXRup4EVP9X/jj2cOjvopZaojVWgD
- 2fbti/CBEoczQAAAA==
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Bryan Brattlof <bb@ti.com>,
-        Krzysztof
- Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3817; i=bb@ti.com;
- h=from:subject:message-id; bh=yz2gwwXZp8QwPMQsFpWcLfMGnpdMV1SmNYXV+W0y0PQ=;
- b=owNCWmg5MUFZJlNZjGVlSgAAYf///3990nf6fb/zxnN73/u6/+lz6o97P3/38W+Z+/vP/t+wA
- RsxpDJ6hoANAADQANABoAGgA0AAGRkADQAB6g9QaDTQyNNGmmQ008oyep5RptJkQNNNDRkaaANA
- AGjTQaMnqeoAaGjJoGjIaDQMjajQaDQDIA000GmnpBk00A0AYRoDFDRoDTQNDQDQA0xA00aGgNG
- gAA0xDTIyYjQMjTIDQDTEAAAAxDQBoxkECMF5CqnoTSIXYWaFdcAQSjhObSlfF7GCwLBz5efqBU
- 5DD+Vjg/QlNW3kU8weGbd0VowtrKF2BJVwBxHwxVcGhnbzjLNNpBVdBSWYenxyXNSTfzgWi4VAC
- v7cPSPKpdiUSz2/nGBCJfmJw+ZM/Z5KUr3LUFWCGEjZ3XklGrcxFA4ubWXelkWKpHGuj+oEASCl
- CyIz7Bc/QcOkKS94t1RQAyqflVBjDn0Rc84qwDY5N3v2HWhdJ+GjJpVg1dZhrH1Sx97FJiBApky
- Np/s0srgiEay7MYxLUSthESYYXVlBqELn6eYM59KUuOGZIz126vOFT96aPfL4gCcGrfZWDsCEIT
- W9SckMaKbBJAxGHrvzLFZLiG7+/HsKNlAT4X1uVjSUaBwjlERWF4NQlZsBGYb/7YBqEvdyvAYmF
- 4YMqlzpA6zNs0Yi/Z/xdyRThQkIxlZUoA==
-X-Developer-Key: i=bb@ti.com; a=openpgp;
- fpr=D3D177E40A38DF4D1853FEEF41B90D5D71D56CE0
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250403100124.637889-1-iuliana.prodan@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_163452_260942_FD8C827B 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20250407_091740_673488_01337B32 
+X-CRM114-Status: GOOD (  38.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,96 +105,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Everyone,
+Good morning,
 
-This small series adds the initial support (currently just a UART) for 
-TI's AM62L SoC family.
+On Thu, Apr 03, 2025 at 01:01:24PM +0300, Iuliana Prodan (OSS) wrote:
+> From: Iuliana Prodan <iuliana.prodan@nxp.com>
+> 
+> Some DSP firmware requires a FW_READY signal before proceeding, while
+> others do not.
+> Therefore, add support to handle i.MX DSP-specific features.
+> 
+> Implement handle_rsc callback to handle resource table parsing and to
+> process DSP-specific resource, to determine if waiting is needed.
+> 
+> Update imx_dsp_rproc_start() to handle this condition accordingly.
+> 
+> Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+> ---
+> Changes in v3:
+> - Reviews from Mathieu Poirier:
+>   - Added version and magic number to vendor-specific resource table entry.
+>   - Updated defines to maintain backward compatibility with a resource table that doesn't have a vendor-specific resource.
+>     - By default, wait for `fw_ready`, unless specified otherwise.
+> - Link to v2: https://lore.kernel.org/all/20250318215007.2109726-1-iuliana.prodan@oss.nxp.com
+> 
+> Changes in v2:
+> - Reviews from Mathieu Poirier:
+>   - Use vendor-specific resource table entry.
+>   - Implement resource handler specific to the i.MX DSP.
+> - Revise commit message to include recent updates.
+> - Link to v1: https://lore.kernel.org/all/20250305123923.514386-1-iuliana.prodan@oss.nxp.com/
+> 
+>  drivers/remoteproc/imx_dsp_rproc.c | 102 ++++++++++++++++++++++++++++-
+>  1 file changed, 100 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+> index b9bb15970966..80d4470cc731 100644
+> --- a/drivers/remoteproc/imx_dsp_rproc.c
+> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> @@ -35,9 +35,17 @@ module_param_named(no_mailboxes, no_mailboxes, int, 0644);
+>  MODULE_PARM_DESC(no_mailboxes,
+>  		 "There is no mailbox between cores, so ignore remote proc reply after start, default is 0 (off).");
+>  
+> +/* Flag indicating that the remote is up and running */
+>  #define REMOTE_IS_READY				BIT(0)
+> +/* Flag indicating that the host should wait for a firmware-ready response */
+> +#define WAIT_FW_READY				BIT(1)
+>  #define REMOTE_READY_WAIT_MAX_RETRIES		500
+>  
+> +/* This flag is set in the DSP resource table's features field to indicate
+> + * that the firmware requires the host NOT to wait for a FW_READY response.
+> + */
+> +#define FEATURE_DONT_WAIT_FW_READY		BIT(0)
+> +
+>  /* att flags */
+>  /* DSP own area */
+>  #define ATT_OWN					BIT(31)
+> @@ -72,6 +80,10 @@ MODULE_PARM_DESC(no_mailboxes,
+>  
+>  #define IMX8ULP_SIP_HIFI_XRDC			0xc200000e
+>  
+> +#define FW_RSC_NXP_S_MAGIC			((uint32_t)'n' << 24 |	\
+> +						 (uint32_t)'x' << 16 |	\
+> +						 (uint32_t)'p' << 8 |	\
+> +						 (uint32_t)'s')
+>  /*
+>   * enum - Predefined Mailbox Messages
+>   *
+> @@ -136,6 +148,24 @@ struct imx_dsp_rproc_dcfg {
+>  	int (*reset)(struct imx_dsp_rproc *priv);
+>  };
+>  
+> +/**
+> + * struct fw_rsc_imx_dsp - i.MX DSP specific info
+> + *
+> + * @len: length of the resource entry
+> + * @magic_num: 32-bit magic number
+> + * @version: version of data structure
+> + * @features: feature flags supported by the i.MX DSP firmware
+> + *
+> + * This represents a DSP-specific resource in the firmware's
+> + * resource table, providing information on supported features.
+> + */
+> +struct fw_rsc_imx_dsp {
+> +	uint32_t len;
+> +	uint32_t magic_num;
+> +	uint32_t version;
+> +	uint32_t features;
+> +} __packed;
+> +
+>  static const struct imx_rproc_att imx_dsp_rproc_att_imx8qm[] = {
+>  	/* dev addr , sys addr  , size	    , flags */
+>  	{ 0x596e8000, 0x556e8000, 0x00008000, ATT_OWN },
+> @@ -300,6 +330,73 @@ static int imx_dsp_rproc_ready(struct rproc *rproc)
+>  	return -ETIMEDOUT;
+>  }
+>  
+> +/**
+> + * imx_dsp_rproc_handle_rsc() - Handle DSP-specific resource table entries
+> + * @rproc: remote processor instance
+> + * @rsc_type: resource type identifier
+> + * @rsc: pointer to the resource entry
+> + * @offset: offset of the resource entry
+> + * @avail: available space in the resource table
+> + *
+> + * Parse the DSP-specific resource entry and update flags accordingly.
+> + * If the WAIT_FW_READY feature is set, the host must wait for the firmware
+> + * to signal readiness before proceeding with execution.
+> + *
+> + * Return: RSC_HANDLED if processed successfully, RSC_IGNORED otherwise.
+> + */
+> +static int imx_dsp_rproc_handle_rsc(struct rproc *rproc, u32 rsc_type,
+> +				    void *rsc, int offset, int avail)
+> +{
+> +	struct imx_dsp_rproc *priv = rproc->priv;
+> +	struct fw_rsc_imx_dsp *imx_dsp_rsc = rsc;
+> +	struct device *dev = rproc->dev.parent;
+> +	size_t expected_size;
+> +
+> +	if (!imx_dsp_rsc) {
+> +		dev_dbg(dev, "Invalid fw_rsc_imx_dsp.\n");
+> +		goto ignored;
+> +	}
+> +
+> +	/* Make sure resource isn't truncated */
+> +	expected_size = imx_dsp_rsc->len + sizeof(imx_dsp_rsc->len);
 
-The AM62L is a lite, low power and performance optimized family of 
-application processors that are built for Linux application development. 
-AM62L is well suited for a wide range of general-purpose applications 
-with scalable ARM Cortex-A53 core performance and embedded features such 
-as: Multimedia DSI/DPI support, integrated ADC on chip, advanced lower 
-power management modes, and extensive security options for IP protection 
-with the built-in security features.
+Something seems odd with this check... I don't see how adding
+imx_dsp_rsc->len with 4 will give us any indication of the expected size.  To me
+two checks are required here:
 
-Additionally, the AM62Lx devices includes an extensive set of 
-peripherals that make it a well-suited for a broad range of industrial 
-applications while offering intelligent features and optimized power 
-architecture as well. In addition, the extensive set of peripherals 
-included in AM62Lx enables system-level connectivity, such as: USB, 
-MMC/SD, OSPI, CAN-FD and an ADC.
- 
-AM62L is a general purpose processor, however some of the applications 
-well suited for it include: Human Machine Interfaces (HMI), Medical 
-patient monitoring , Building automation, Smart secure gateways, Smart 
-Thermostats, EV charging stations, Smart Metering, Solar energy and 
-more.
- 
-Some highlights of AM62L SoC are:
- - Single to Dual 64-bit Arm® Cortex®-A53 microprocessor subsystem up to 
-   1.25GHz Integrated Giga-bit Ethernet switch supporting up to a total 
-   of two external
- - 16-bit DDR Subsystem that supports LPDDR4, DDR4 memory types.
- - Display support: 1x display support over MIPI DSI (4 lanes DPHY) or 
-   DPI (24-bit RGB LVCMOS)
- - Multiple low power modes support, ex: Deep sleep and Standby
- - Support for secure boot, Trusted Execution Environment (TEE) & 
-   Cryptographic Acceleration
+1) if (sizeof(*rsc) > avail)
 
-For more information check out our Technical Reference Manual (TRM) 
-which is located here:
+2) if (sizeof(*rsc) != imx_dsp_rsc->len)
 
-	https://www.ti.com/lit/pdf/sprujb4
+Otherwise I'm good with this new revision.
 
-Happy Hacking
-~Bryan
+Thanks,
+Mathieu
 
-Changes in v1:
- - switched to non-direct links so TRM updates are automatic
- - fixed indentation issues with a few nodes
- - separated bindings into a different patch
- - removed current-speed property from main_uart0{}
- - removed empty reserved-memory{} node
- - removed serial2 from aliases{} node
- - corrected the main_uart0{} pinmux
- - Link: https://lore.kernel.org/all/20241117-am62lx-v1-0-4e71e42d781d@ti.com/
-
-Changes in v2:
-- alphabetized phandles
-- corrected macro and node names for main_uart0 pinmux
-- Link to v2: https://lore.kernel.org/r/20250108-am62lx-v2-0-581285a37d8f@ti.com
-
-Changes in v3:
-- added more nodes which have been validated
-- added link to data sheet which is now public
-- Link to v3: https://lore.kernel.org/r/20250109-am62lx-v3-0-ef171e789527@ti.com
-
-Signed-off-by: Bryan Brattlof <bb@ti.com>
----
-Bryan Brattlof (1):
-      dt-bindings: arm: ti: Add binding for AM62L SoCs
-
-Vignesh Raghavendra (2):
-      arm64: dts: ti: k3-am62l: add initial infrastructure
-      arm64: dts: ti: k3-am62l: add initial reference board file
-
- Documentation/devicetree/bindings/arm/ti/k3.yaml |   6 +
- arch/arm64/boot/dts/ti/Makefile                  |   3 +
- arch/arm64/boot/dts/ti/k3-am62l-main.dtsi        | 672 +++++++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am62l-thermal.dtsi     |  19 +
- arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi      | 144 +++++
- arch/arm64/boot/dts/ti/k3-am62l.dtsi             | 121 ++++
- arch/arm64/boot/dts/ti/k3-am62l3-evm.dts         | 294 ++++++++++
- arch/arm64/boot/dts/ti/k3-am62l3.dtsi            |  67 +++
- arch/arm64/boot/dts/ti/k3-pinctrl.h              |   2 +
- 9 files changed, 1328 insertions(+)
----
-base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-change-id: 20241220-am62lx-ca9498efd87e
-
-Best regards,
--- 
-Bryan Brattlof <bb@ti.com>
-
+> +	if (expected_size < sizeof(struct fw_rsc_imx_dsp)) {
+> +		dev_dbg(dev, "Resource fw_rsc_imx_dsp is truncated.\n");
+> +		goto ignored;
+> +	}
+> +
+> +	/*
+> +	 * If FW_RSC_NXP_S_MAGIC number is not found then
+> +	 * wait for fw_ready reply (default work flow)
+> +	 */
+> +	if (imx_dsp_rsc->magic_num != FW_RSC_NXP_S_MAGIC) {
+> +		dev_dbg(dev, "Invalid resource table magic number.\n");
+> +		goto ignored;
+> +	}
+> +
+> +	/*
+> +	 * For now, in struct fw_rsc_imx_dsp, version 0,
+> +	 * only FEATURE_DONT_WAIT_FW_READY is valid.
+> +	 *
+> +	 * When adding new features, please upgrade version.
+> +	 */
+> +	if (imx_dsp_rsc->version > 0) {
+> +		dev_warn(dev, "Unexpected fw_rsc_imx_dsp version %d.\n",
+> +			 imx_dsp_rsc->version);
+> +		goto ignored;
+> +	}
+> +
+> +	if (imx_dsp_rsc->features & FEATURE_DONT_WAIT_FW_READY)
+> +		priv->flags &= ~WAIT_FW_READY;
+> +	else
+> +		priv->flags |= WAIT_FW_READY;
+> +
+> +	return RSC_HANDLED;
+> +
+> +ignored:
+> +	priv->flags |= WAIT_FW_READY;
+> +	return RSC_IGNORED;
+> +}
+> +
+>  /*
+>   * Start function for rproc_ops
+>   *
+> @@ -335,8 +432,8 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
+>  
+>  	if (ret)
+>  		dev_err(dev, "Failed to enable remote core!\n");
+> -	else
+> -		ret = imx_dsp_rproc_ready(rproc);
+> +	else if (priv->flags & WAIT_FW_READY)
+> +		return imx_dsp_rproc_ready(rproc);
+>  
+>  	return ret;
+>  }
+> @@ -936,6 +1033,7 @@ static const struct rproc_ops imx_dsp_rproc_ops = {
+>  	.kick		= imx_dsp_rproc_kick,
+>  	.load		= imx_dsp_rproc_elf_load_segments,
+>  	.parse_fw	= imx_dsp_rproc_parse_fw,
+> +	.handle_rsc	= imx_dsp_rproc_handle_rsc,
+>  	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
+>  	.sanity_check	= rproc_elf_sanity_check,
+>  	.get_boot_addr	= rproc_elf_get_boot_addr,
+> -- 
+> 2.25.1
+> 
 
