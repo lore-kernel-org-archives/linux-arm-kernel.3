@@ -4,100 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B8DC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 15:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A3BC369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 15:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rtG6uWcIXl5lH7IBHhdVeY4nZALvB6ooRyYGRnxDiL0=; b=IIXF79i8gdVdcXrm3Ir0f3567Q
-	2fnFRkXGlFL2mN02GskZkFJ0oBz2uWT1F1IGWiQHuG9Ra0PSY6jhdFdBMatEW+gS9GqEQGRJj4ZH2
-	QWsrm5088A3FEDRr3sjDWCPcrjXGZVwJyDaTO7f9p18lC+zQfCypXOfcxI2KPv5dsIL1DfsxKQxli
-	9DssD4fW49CVsoRe988DFN8E7dX0KjcZ6ZBqBU7B4BEjnC/kwFhtvYxrzMHMaCZ4Dx6FRFwFH+oAu
-	Ul7Zw99UA1m+wJdrHJRevruwjh/I4zepEj+SrMqCiU+iD6icG+KHxFZjTpFZbeA0rX8fUGhJPECD/
-	Hkkd+ITg==;
+	bh=d3v4cd4TMfIKWMhvlqeuZ2JjyuPQMdC/A2P+VNln3tQ=; b=qryhJ9wFcMfJxf7PKHf51BUVSn
+	D3yyW/KgQUXsVYgmfQKTdaKO+Vuxr3jB2U9qTKFsFbAdOUVB4Gu1WVet+XUzNc0UNn4ad3oxLm1u8
+	iSQiUve1V/Uy5LmEDoE98kN8MVeWo1//wRh27EGhF08cGPskCHPxtJG/93E1WXf7XJNt4QjVFLCoq
+	IQXp295kJ7tfaQR5YtU8DgMosBe6rfke8gKnuXQ1HmqR9aA/Aeax0CGkg3vhbg6/XlnO+5IdChMOA
+	wcE9F1rW8XKmtfZVOsta//tgnUbwCITpsqzo1G0zPNKFs/AdIBRfU4yQj5BJ0z16bCKVTPzLLY3JI
+	eY5GmdwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2BIV-00000004i5l-29l5;
-	Tue, 08 Apr 2025 15:55:35 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1u2BKG-00000004iUu-18DI;
+	Tue, 08 Apr 2025 15:57:24 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2B6P-00000004fpq-2u2J
+	id 1u2B94-00000004gGM-11Li
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 15:43:07 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43d2d952eb1so38941075e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 08:43:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744126984; x=1744731784; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rtG6uWcIXl5lH7IBHhdVeY4nZALvB6ooRyYGRnxDiL0=;
-        b=QkaQ/s7AHNO1b2MG2F9XT955sRwMAmcBUGPLj4LGMl+nAb4EdfhAo85g96MLHwp1H2
-         ncUs/mExXePLjOsBKzt7gNKU6Gwez5T19+h/LEpvx2CrG56on88/SKVoh1kzbenzeCUP
-         YVfNERBYd7M6uqgIVZurB6jD+5ZORcNanbuVjU8WTCGoVm+bp0oDE1BEGkICGOWpUdMq
-         LlRzlzjqj9JrtqOHCc2oJ+Y8t+2IVzm7cJ43+xCxXU2b7t3RPDUkEcQ/YYlbKy//d+um
-         Ibaw/l96HCdpHtFXwhJK3jhdxr1mDDBKn3KXsYziLLeQ778OGFNX5qRI6XV4cud9EJoo
-         Wn2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744126984; x=1744731784;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rtG6uWcIXl5lH7IBHhdVeY4nZALvB6ooRyYGRnxDiL0=;
-        b=LhO6eavJT5bN+w4+k3nl3NWAoh43CtSKamgGqIDlZdp1qchlXTXITemYugErH/tmnh
-         IGR8GBNMfnzb++5gKHECItAbWbQKSE9aN3y/vBNsO3/+cBUifIX/pBxfCqierYlVUTEw
-         izlyCEXjBTRB0uRPnha3S4Czj0euIWe+wdX9cRGPgPi5i0VRh2MlInOdqFfNkom3gh21
-         UHuy/ftTnrjuYyamOxx1voKnmShffmp6sar9OZAI2o0Fq/IENEAY2PZY/KBC8OdtZlxr
-         kdvPOyPK/uqVUL5vSlqt0BV5D79gRWhs/4OdgaUkPxynbBuKZLhY0AmCCemkYRXLht88
-         K1ug==
-X-Forwarded-Encrypted: i=1; AJvYcCUCpBzR3ZD+F3sH4Ct9yFsTxcJqle/pDJo3EZC+ELQpgnXpbceK9PkgoOY3tDxF5tjl9T05TBl2frlFH1HWGI1R@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTd574L8QB0KKN3jK/O+ukMRHNWcsqmeb66EBGWe4TQZeXvo4x
-	uaY3sI5rNxXi39Y7yGf4t1impO4be00pcBE4kIKHqIy+dPsW6Gq0
-X-Gm-Gg: ASbGnctQ5oqS+foXWXt19tj07XDGfNpavQQoH3Cv0M/FUn+LNe8Izb003MLcN4xb04t
-	fB+N0OkEaXP/2ZPx9C+qvNUohxuKoSDathIrSMac50o3xcRrvHA7SmoHYzFE1KW796UyCmYfzpU
-	Pm97cFKSKrYC6sUIiN6KoGJlcMQlXrcrsyImDgLynZGz9r1G20t7XffZIURtwLogoyRKgeM1JDc
-	ne6/pfDzfacQ5z7EWTEtqVrHO1Atg7R18Xuf/EDF2mzAeVTfuAGcmerGhI2L5RdYNE5I15cQ0q/
-	a4Bwj7gsswWV+GJayU8YyuQlMOJt8QvCbFQW7Y6MaEf4lySLA1Iigc2do1qcwbyA7eOPvDiINbB
-	IXvDLb2Y=
-X-Google-Smtp-Source: AGHT+IH2pIjwLHd99OaOkEDJZzV3BxzBXMBL7iQPz/Uj8BamXLBLhgF6w37q7JaR9mEFlWaWbAKHNw==
-X-Received: by 2002:a05:600c:3489:b0:43c:f0ae:da7 with SMTP id 5b1f17b1804b1-43ee0617025mr127689295e9.7.1744126983675;
-        Tue, 08 Apr 2025 08:43:03 -0700 (PDT)
-Received: from playground.localdomain ([82.79.237.110])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec34be2e6sm164476675e9.18.2025.04.08.08.43.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 08:43:03 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Frank Li <Frank.li@nxp.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 6/6] arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
-Date: Tue,  8 Apr 2025 11:42:36 -0400
-Message-Id: <20250408154236.49421-7-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250408154236.49421-1-laurentiumihalcea111@gmail.com>
-References: <20250408154236.49421-1-laurentiumihalcea111@gmail.com>
+	Tue, 08 Apr 2025 15:45:52 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 538FjVYa727315
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 8 Apr 2025 10:45:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744127131;
+	bh=d3v4cd4TMfIKWMhvlqeuZ2JjyuPQMdC/A2P+VNln3tQ=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=ffk711svConoIJeUGaH3fq63oFmHtY8IsZLZYXIb5wuHsjnrsc3CNpOJhwGm4pImG
+	 lwmE8dpT9slAygh7sfbSD7EVEi/DCKZxfur6m04NeYKQ8flHcc2fH+oan8ZXNrWdfX
+	 QqT3Bko5Vt1ZC7v9QTQ+qC/CDJQpQxRjAvWdw3dE=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 538FjVGN016850
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 8 Apr 2025 10:45:31 -0500
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 8
+ Apr 2025 10:45:30 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 8 Apr 2025 10:45:30 -0500
+Received: from [172.24.227.245] (uda0132425.dhcp.ti.com [172.24.227.245])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 538FjR2t004072;
+	Tue, 8 Apr 2025 10:45:27 -0500
+Message-ID: <24b28bda-e294-4680-bed5-c44efcb6c455@ti.com>
+Date: Tue, 8 Apr 2025 21:15:26 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: Kernel WARNING (RCU) with btnxpuart on TI AM62 platform
+To: Francesco Dolcini <francesco@dolcini.it>,
+        Amitkumar Karwar
+	<amitkumar.karwar@nxp.com>,
+        Neeraj Kale <neeraj.sanjaykale@nxp.com>, Nishanth
+ Menon <nm@ti.com>,
+        Tero Kristo <kristo@kernel.org>,
+        Santosh Shilimkar
+	<ssantosh@kernel.org>
+CC: <linux-bluetooth@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+        <linux-serial@vger.kernel.org>
+References: <20250408083512.GA26035@francesco-nb>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20250408083512.GA26035@francesco-nb>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_084305_730499_E2D5B77B 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20250408_084550_422723_DE621064 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,33 +93,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Hi,
 
-The DSP needs to access peripherals on AIPSTZ5 (to communicate with
-the AP using AUDIOMIX MU, for instance). To do so, the security-related
-registers of the bridge have to be configured before the DSP is started.
-Enforce a dependency on AIPSTZ5 by adding the 'access-controllers'
-property to the 'dsp' node.
+On 08/04/25 14:05, Francesco Dolcini wrote:
+> Hello,
+> I do have the following kernel warning with 6.15-rc1, on a TI AM62
+> platform (arm64), single CPU core, using btnxpuart driver, any idea?
+> PREEMPT_RT is enabled, if it matters.
+> 
+> Either the issue is not systematic, or multi cores SoCs are not affected
+> (no error on the exact same image on a dual nor on quad core TI AM62).
+> 
+> 
+> [   23.139080] Voluntary context switch within RCU read-side critical section!
+> [   23.139119] WARNING: CPU: 0 PID: 61 at /kernel/rcu/tree_plugin.h:332 rcu_note_context_switch+0x3c4/0x430
+> [   23.139172] Modules linked in: uas onboard_usb_dev optee_rng dwc3 evdev btnxpuart spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils optee spi_cadence_quadspi tee gpio_keys usb_conn_gpio display_connector roles dwc3_am62 mwifiex_sdio k3_j72xx_bandgap mwifiex rtc_ti_k3 cfg80211 tidss sa2ul sha512_generic snd_soc_davinci_mcasp authenc drm_display_helper snd_soc_ti_udma crypto_null snd_soc_ti_edma sha1_generic snd_soc_ti_sdma omap_hwspinlock lontium_lt8912b ina2xx snd_soc_wm8904 ti_ads1015 industrialio_triggered_buffer kfifo_buf lm75 tpm_tis_i2c tps65219_pwrbutton crc_ccitt tpm_tis_core tpm rng_core tc358768 m_can_platform pwm_tiehrpwm m_can spi_omap2_mcspi can_dev bluetooth ecdh_generic ecc rfkill libaes loop fuse ipv6 autofs4
+> [   23.139459] CPU: 0 UID: 0 PID: 61 Comm: kworker/u5:0 Not tainted 6.15.0-rc1-0.0.0-devel #1 PREEMPT_RT
+> [   23.139471] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
+> [   23.139478] Workqueue: hci0 hci_power_off [bluetooth]
+> [   23.139615] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [   23.139625] pc : rcu_note_context_switch+0x3c4/0x430
+> [   23.139647] lr : rcu_note_context_switch+0x3c4/0x430
+> [   23.139658] sp : ffff8000819fb740
+> [   23.139661] x29: ffff8000819fb740 x28: 0000000000000000 x27: ffff0000079d2010
+> [   23.139673] x26: ffff0000011e7810 x25: ffff000001c2c200 x24: 0000000000000000
+> [   23.139688] x23: 0000000000000000 x22: ffff000001c2c200 x21: ffff000001c2c200
+> [   23.139700] x20: ffff800081083ec0 x19: ffff00001da9fec0 x18: fffffffffffe7e78
+> [   23.139712] x17: ffff7fff9ca1c000 x16: ffff800080000000 x15: ffff00001da9f8c0
+> [   23.139726] x14: fffffffffffc7e77 x13: 216e6f6974636573 x12: 206c616369746972
+> [   23.139738] x11: 6320656469732d64 x10: 6165722055435220 x9 : 206e696874697720
+> [   23.139750] x8 : ffff80008113f040 x7 : ffff8000819fb4e0 x6 : 000000000000000c
+> [   23.139761] x5 : ffff00001da95888 x4 : 0000000000000000 x3 : 0000000000000027
+> [   23.139775] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff000001c2c200
+> [   23.139788] Call trace:
+> [   23.139793]  rcu_note_context_switch+0x3c4/0x430 (P)
+> [   23.139813]  __schedule+0xa0/0x7dc
+> [   23.139830]  schedule+0x34/0x11c
+> [   23.139841]  schedule_timeout+0x8c/0x110
+> [   23.139861]  wait_for_completion_timeout+0x78/0x14c
+> [   23.139873]  ti_sci_set_device_state+0x120/0x1fc
+> [   23.139886]  ti_sci_cmd_get_device_exclusive+0x18/0x30
+> [   23.139899]  ti_sci_pd_power_on+0x28/0x54
+> [   23.139916]  _genpd_power_on+0x98/0x188
+> [   23.139927]  genpd_power_on+0xa8/0x168
+> [   23.139940]  genpd_runtime_resume+0xc0/0x298
+> [   23.139957]  __rpm_callback+0x48/0x1a4
+> [   23.139974]  rpm_callback+0x74/0x80
+> [   23.139987]  rpm_resume+0x3b0/0x698
+> [   23.140000]  __pm_runtime_resume+0x48/0x88
+> [   23.140012]  omap8250_set_mctrl+0x2c/0xbc
+> [   23.140030]  serial8250_set_mctrl+0x20/0x40
+> [   23.140046]  uart_update_mctrl+0x80/0x110
 
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+I think issue is that uart_update_mctrl() holds a spinlock:
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index ebbc99f9ceba..f0f0ff5edea6 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -2425,6 +2425,7 @@ dsp: dsp@3b6e8000 {
- 			mboxes = <&mu2 2 0>, <&mu2 2 1>,
- 				<&mu2 3 0>, <&mu2 3 1>;
- 			memory-region = <&dsp_reserved>;
-+			access-controllers = <&aips5 IMX8MP_AIPSTZ_HIFI4_T_RW_PL>;
- 			status = "disabled";
- 		};
- 	};
+	uart_port_lock_irqsave(port, &flags);
+
+and then omap8250_set_mctrl() calls pm_runtime APIs which on K3 SoC
+needs to talk to a Firmware to enable pd. This IPC call is a sleeping
+call leading to scheduling with IRQs disabled.
+
+I guess this is what RT linux is complaining? I dont have a solution
+though, maybe serdev delays pm_runtime_put till the port is closed?
+
+> [   23.140062]  uart_dtr_rts+0x104/0x118
+> [   23.140079]  tty_port_shutdown+0xd4/0xe0
+> [   23.140092]  tty_port_close+0x3c/0xb8
+> [   23.140103]  uart_close+0x34/0x98
+> [   23.140116]  ttyport_close+0x50/0xa0
+> [   23.140137]  serdev_device_close+0x40/0x5c
+> [   23.140150]  btnxpuart_close+0x1c/0xa0 [btnxpuart]
+> [   23.140175]  hci_dev_close_sync+0x304/0x7cc [bluetooth]
+> [   23.140243]  hci_dev_do_close+0x2c/0x70 [bluetooth]
+> [   23.140309]  hci_power_off+0x20/0x64 [bluetooth]
+> [   23.140379]  process_one_work+0x148/0x284
+> [   23.140403]  worker_thread+0x2c8/0x3dc
+> [   23.140414]  kthread+0x12c/0x208
+> [   23.140426]  ret_from_fork+0x10/0x20
+> 
+> 
+> Francesco
+> 
+> 
+
 -- 
-2.34.1
+Regards
+Vignesh
+https://ti.com/opensource
 
 
