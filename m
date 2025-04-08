@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBF1C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 15:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E109C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 15:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8BoOWeNe+pe93MVOTNw72S8eDhTJzWNGVCLyplYdrjU=; b=qxGkxOEuCPQGRik1ByBSdbnoZV
-	SJLR7XNpF/i71jaAwXC5UUrhaipw4NcivBKA6sfZ2O4/fv9vbpUk1/xwheD8BxmknzgWzpDnjRwsw
-	kBGfoVvSOxoUDDOTfqjkZcnFtzhIKyqiowlTEaEMD3FoYVF4oQ3rS7txSkWziy8Ic84LgzI75FcWc
-	al7kjyEFUfz539h/ASN8dVSOMZxAAm1PYg5OrGeVfCK4EQEfF3laj8Np2WoYnV6RjLmkbtiutS5D2
-	t/rsHg3ogLXCE8+odPiS6P0ZGV9Ts7RSXTo8+KyD7iWaghQo3upxUDBVcZD5tsZq3lu1gbzSMoU4V
-	hd4GlziQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h3v2u8ip3cqMDDLNIpKhDZO5Hm5vU3p7hzEHmiU+27A=; b=eXQxPTYMga4mGTnilO8R5gZZx3
+	CAuVBFqlGQhbOR62BW65MXW7lEcrGt4nksaQHT+awvA9sWoCut3sXkxN+T9/pbGmrIofKdi141QRX
+	yMPkjzAStj+/Abi+TTIccZA3YiM52fTeg17wHVHxhclyx45eiVEZuFh+8LFMQXRCIP856I3MrNfhv
+	KeMmAKgKZvjv0cbUL8ixSWsClJ0Is/P333XfUKlivkSlmWzZlQaJkCcQ5iuu6i2sNiQ3kAYmAjcZD
+	pzV1h4noSehNVzdiaXEjq5KmoFao11/kP0+joapQXT3c+ciy/A1zePHw9NwXeXjsjIBpYy8kBOeTh
+	vy63+rlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2AwS-00000004ddo-1AYp;
-	Tue, 08 Apr 2025 15:32:48 +0000
-Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
+	id 1u2AyB-00000004dwd-3y7K;
+	Tue, 08 Apr 2025 15:34:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Aud-00000004d21-1vZ6
+	id 1u2AvG-00000004dNO-43at
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 15:30:57 +0000
-Message-ID: <08c0e1eb-2de6-45bf-95a4-e817008209ab@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1744126252;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8BoOWeNe+pe93MVOTNw72S8eDhTJzWNGVCLyplYdrjU=;
-	b=xHjiYEdgV7tMnhbjUS9rxzHVYtisqRgofwAbFgKBjHeCW/w+sALVnUMiySoFUarrOrSbJp
-	Ecqv/CNdAQM8aUz/+aPqTRou80iDO+z9ZzmUuIVt85PyF9sLMmnGUY26Em+RgqaMhsISwv
-	mClV4f4j7VSPhAIpytBuD78aAgb4MhI=
-Date: Tue, 8 Apr 2025 11:30:43 -0400
+	Tue, 08 Apr 2025 15:31:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4793E5C59B4;
+	Tue,  8 Apr 2025 15:29:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A14E9C4CEE5;
+	Tue,  8 Apr 2025 15:31:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744126294;
+	bh=Uq29KL+ro4IRBo8g5H8MypBCBK0Ooc76QGNcWH4alfw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P4UJEaCtF61oGuLRw5Uii2z9vVlYo67NwlmwTqICCwpgHdYrc/oIvkhAI0jjnKiYr
+	 Foi1EZ+/FfOtwDutvDlZ9IsQ6EaTcYYiD+reVoWqi4tU8zzV1GPixJdCq3xMn5ULof
+	 keSD4lGX9dDqatRoGU+M0XVaSjc2nQ2FStY95360gQvs2zoe+wDlgAKASUDQjaYgeZ
+	 kQ3WWSvJQ9LkYm40V+PxAHXYZKpuv+S9USOhEty0CogIdTgr+YTMAnmHfwKeorOjfK
+	 lEPaV0ygH0+6jINKFxGVxFPjOV4RS3OnCQKWa9pJFTARzwygN4IV07Gvc2xj2sINKa
+	 D8jpHP3BSx3cg==
+Date: Tue, 8 Apr 2025 18:31:30 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	linux-kernel@vger.kernel.org,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	linuxppc-dev@lists.ozlabs.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linux-integrity@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Naveen N Rao <naveen@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>
+Subject: Re: [PATCH v2 2/4] tpm: support devices with synchronous send()
+Message-ID: <Z_VBUozuHvbxdyB3@kernel.org>
+References: <20250408083208.43512-1-sgarzare@redhat.com>
+ <20250408083208.43512-3-sgarzare@redhat.com>
 MIME-Version: 1.0
-Subject: Re: [net-next PATCH v2 00/14] Add PCS core support
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Russell King <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org,
- upstream@airoha.com, Christian Marangi <ansuelsmth@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Kory Maincent <kory.maincent@bootlin.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Clark Wang <xiaoning.wang@nxp.com>,
- Claudiu Beznea <claudiu.beznea@microchip.com>,
- Claudiu Manoil <claudiu.manoil@nxp.com>, Conor Dooley <conor+dt@kernel.org>,
- Ioana Ciornei <ioana.ciornei@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
- Joyce Ooi <joyce.ooi@intel.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Madalin Bucur <madalin.bucur@nxp.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Michal Simek <michal.simek@amd.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Robert Hancock <robert.hancock@calian.com>,
- Saravana Kannan <saravanak@google.com>, UNGLinuxDriver@microchip.com,
- Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20250407231746.2316518-1-sean.anderson@linux.dev>
- <20250408075047.69d031a9@kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20250408075047.69d031a9@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250408083208.43512-3-sgarzare@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_083055_782969_044176A6 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20250408_083135_124596_A9F36FFD 
+X-CRM114-Status: GOOD (  26.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,25 +86,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/8/25 10:50, Jakub Kicinski wrote:
-> On Mon,  7 Apr 2025 19:17:31 -0400 Sean Anderson wrote:
->> This series depends on [1,2], and they have been included at the
->> beginning so CI will run. However, I expect them to be reviewed/applied
->> outside the net-next tree.
+On Tue, Apr 08, 2025 at 10:32:06AM +0200, Stefano Garzarella wrote:
+> From: Stefano Garzarella <sgarzare@redhat.com>
 > 
-> These appear to break the build:
+> Some devices do not support interrupts and provide a single synchronous
+> operation to send the command and receive the response on the same buffer.
 > 
-> drivers/acpi/property.c:1669:39: error: initialization of ‘int (*)(const struct fwnode_handle *, const char *, const char *, int,  unsigned int,  struct fwnode_reference_args *)’ from incompatible pointer type ‘int (*)(const struct fwnode_handle *, const char *, const char *, unsigned int,  unsigned int,  struct fwnode_reference_args *)’ [-Wincompatible-pointer-types]
->  1669 |                 .get_reference_args = acpi_fwnode_get_reference_args,   \
+> Currently, these types of drivers must use an internal buffer where they
+> temporarily store the response between .send() and recv() calls.
 > 
-> Could you post as RFC until we can actually merge this? I'm worried 
-> some sleep deprived maintainer may miss the note in the cover letter
-> and just apply it all to net-next..
+> Introduce a new flag (TPM_CHIP_FLAG_SYNC) to support synchronous send().
+> If that flag is set by the driver, tpm_try_transmit() will use the send()
+> callback to send the command and receive the response on the same buffer
+> synchronously. In that case send() return the number of bytes of the
+> response on success, or -errno on failure.
+> 
+> Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
+> Suggested-by: Jarkko Sakkinen <jarkko@kernel.org>
+> Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
+> ---
+>  include/linux/tpm.h              |  1 +
+>  drivers/char/tpm/tpm-interface.c | 18 +++++++++++++++---
+>  2 files changed, 16 insertions(+), 3 deletions(-)
+> 
+> diff --git a/include/linux/tpm.h b/include/linux/tpm.h
+> index 2e38edd5838c..0e9746dc9d30 100644
+> --- a/include/linux/tpm.h
+> +++ b/include/linux/tpm.h
+> @@ -350,6 +350,7 @@ enum tpm_chip_flags {
+>  	TPM_CHIP_FLAG_SUSPENDED			= BIT(8),
+>  	TPM_CHIP_FLAG_HWRNG_DISABLED		= BIT(9),
+>  	TPM_CHIP_FLAG_DISABLE			= BIT(10),
+> +	TPM_CHIP_FLAG_SYNC			= BIT(11),
+>  };
+>  
+>  #define to_tpm_chip(d) container_of(d, struct tpm_chip, dev)
+> diff --git a/drivers/char/tpm/tpm-interface.c b/drivers/char/tpm/tpm-interface.c
+> index 3b6ddcdb4051..9fbe84b5a131 100644
+> --- a/drivers/char/tpm/tpm-interface.c
+> +++ b/drivers/char/tpm/tpm-interface.c
+> @@ -114,8 +114,17 @@ static ssize_t tpm_try_transmit(struct tpm_chip *chip, void *buf, size_t bufsiz)
+>  		return rc;
+>  	}
+>  
+> -	/* A sanity check. send() should just return zero on success e.g.
+> -	 * not the command length.
+> +	/* Synchronous devices return the response directly during the send()
+> +	 * call in the same buffer.
+> +	 */
 
-I would really like to keep RFC off the titles since some reviewers don't
-pay attention to RFC series.
+Nit:
 
-Would [DO NOT MERGE] in the subject be OK?
+/*
+ * ...
 
---Sean
+It's wrong in the existing comment.
+
+> +	if (chip->flags & TPM_CHIP_FLAG_SYNC) {
+> +		len = rc;
+> +		rc = 0;
+> +		goto out_send_sync;
+> +	}
+> +
+> +	/* A sanity check. send() of asynchronous devices should just return
+> +	 * zero on success e.g. not the command length.
+>  	 */
+>  	if (rc > 0) {
+>  		dev_warn(&chip->dev,
+> @@ -151,7 +160,10 @@ static ssize_t tpm_try_transmit(struct tpm_chip *chip, void *buf, size_t bufsiz)
+>  	if (len < 0) {
+>  		rc = len;
+>  		dev_err(&chip->dev, "tpm_transmit: tpm_recv: error %d\n", rc);
+> -	} else if (len < TPM_HEADER_SIZE || len != be32_to_cpu(header->length))
+> +		return rc;
+> +	}
+> +out_send_sync:
+
+out_sync would be sufficient
+
+> +	if (len < TPM_HEADER_SIZE || len != be32_to_cpu(header->length))
+>  		rc = -EFAULT;
+>  
+>  	return rc ? rc : len;
+> -- 
+> 2.49.0
+> 
+
+BR, Jarkko
 
