@@ -4,182 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C215C369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:27:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D87AC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BgTEvV7v3q40KTL5MdLmBUliyzoqF5VO/B9uqMhOrRk=; b=zbLblaLRJNOCzplFmG3ApUmoEJ
-	671lZsTHbbw3pDwzN1d/p4wH49JVMscaXZymu8gYjRcUAE1agdX8PCE3Wt8Iy5ks3Zbu0q2q/d7Im
-	e/Ik9WXZ5eotO0WDCPCrBhrSFfJT23SunCaKpbxUocGp9tFhwV62ftG+t61yhAxGGTPoVPGQCpvFh
-	gCJiWyDWL37jgLBrB21QGqGkICXSttepbglgvv0bOuto9rwZp26BEXuTsVZFGsANoOHPO6/wRnPrM
-	0Qkv8ZJ58txUuG+doIkSuYT4CSDjuVsfEjqCZ+rXzO8HHhADgYcSm85+7vY1J+it483Upun1w5aJJ
-	dodvl9HQ==;
+	bh=2TlbJsVg7ADUXbeqN4HViqbS/v7ZZAnjfGTYi4tNQpg=; b=iTyPOva4NvSnON65/+UfQtRP44
+	aa9DhNgiqO6RpPPNCqoP+rqDpC55hKp6sUeX5tkvoB16xXbPQgySwkjNTpkuJvvhcby2rIb11RKje
+	0dRmU0z1/ShLOnRg+y7Kb35wwnliUOfZydTl1HC/s1/bwRkWY5RrWFZnHL2cCYEeGgyFgzYvmJX3l
+	7UcwwyIn5eY2PBdJ/VxUhkZOEEdtR/FWUMTvWEdFZ3SV+ccAlihp6FPwmoJiQ1d3HXFpJ6GV86Ebp
+	ed8WlFp2w+hrFVVvDHnJfpgVtDFFGqEzm/FlXS/sKb8UkO1SL12fz888+ND16naFC8a8q66xZaHQj
+	/SVkDiew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Dfn-000000056l6-44pV;
-	Tue, 08 Apr 2025 18:27:47 +0000
-Received: from mail-bn7nam10on20601.outbound.protection.outlook.com ([2a01:111:f403:2009::601] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1u2DhV-000000057IC-3jbw;
+	Tue, 08 Apr 2025 18:29:33 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2CDZ-00000004sGe-1DaB;
-	Tue, 08 Apr 2025 16:54:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N2xBvxQ3hVWQ+GEHvUdXrPET78zu0QfXqivAuvCohFJqSDxmjBrwqo7pS4MPV8Y99ixbWfTobkaCgHPw5lIAQYEt8d+Yvgdk1/xkq+TdOa4hGOzpvJRoO5Ei4B2oXCpOBLSgX7iUF5YAP1nH7U+cTmDPF+ZjFwJD60CbxMoX14CWAbL83FGSdkksnzQTZEAtIW3hHPsTaFnn56u7F+s47+Iaqjm9w+AeqdyHg90CUqWx/npQkcVn6lEJIHihPm1b3gdvVMHWuJDNXnFyk0MhmdKMmNkvj+WCxZY/8jeGgiqpSbYNz+rIS/yaRG9U5CeljEKap+YLdyLydNgcHrt01g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BgTEvV7v3q40KTL5MdLmBUliyzoqF5VO/B9uqMhOrRk=;
- b=oKacMqbMBokix+DktkeQxKy96DHv1QwYTYbmzbLrzrwyXHJjjtwrQPNqOiEMqJQvq73EqiDGTAOMy+FZGTkguNEGJvOGJGs8D2W+ewrY5u0/8N5Vb+davsclrggNlpYjlEStYqq/r0VE3Klg+HahbohkkXyt5kfDlr4MbDxUv599g9V8m1eaGLkXR+7zMWYJgpkxJJ/rS0Rq51XuvCTd56vsE0wjYNZhk7fRg/4PWaD0rFLNzR4piZ80TRcJbwAnUhXFXNU394ZoCcgS8drMoItCwdQ6eaBxKBvx40zybgrAYxVG02lce0UvwmTomnD/mnUSTLoH7/fp8LgJ0TH0sA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BgTEvV7v3q40KTL5MdLmBUliyzoqF5VO/B9uqMhOrRk=;
- b=Q8gfJJhAKdSmjBR7XciDHGYwPx1r8NSeIaOThNlRp65OvIBklqSvSAmKPWssxroSb/Wp5F0hu1CxcE1/daV6MJmy1KoOuYObApYtScv9z3Koc7NczjrSYTR754l2/pVbx6TXx05XIB7HazLXZ5Dg2EzzGHWkN8fH3bkZ8iU8bfVA+dPtgJ8Jua+4UXT7RCJ95lcUTFJDNNgbshGPJyXsNWXOItJz0sUfUi5CNYe7VzYxIDvczlU4IcvgVbGRDGFwdqBPL9fEZFFLmJFb+3kfZfZzPscKGeaSQtf5Tmi2aUmNVpkyTzuE88CtfTH90wF5qXBYli8OiKcaODuGWrDCew==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SN7PR12MB8001.namprd12.prod.outlook.com (2603:10b6:806:340::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Tue, 8 Apr
- 2025 16:54:24 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Tue, 8 Apr 2025
- 16:54:24 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Janne Grunau <j@jannau.net>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Neal Gompa <neal@gompa.dev>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>
-Cc: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
-	Bagas Sanjaya <bagasdotme@gmail.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH v4 21/23] iommu/pages: Remove iommu_alloc_page_node()
-Date: Tue,  8 Apr 2025 13:54:09 -0300
-Message-ID: <21-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
-In-Reply-To: <0-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BLAPR03CA0035.namprd03.prod.outlook.com
- (2603:10b6:208:32d::10) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u2Dad-000000055sF-0QsS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 18:22:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C8FFAA48FDE;
+	Tue,  8 Apr 2025 18:16:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88A7CC4CEE8;
+	Tue,  8 Apr 2025 18:22:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744136546;
+	bh=ROS5jr/XnGZ06dtqqkVH5FTegaK3TD2euUktm9dfK+A=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=u4vKl6rvmfLdqWK4Kul+5+fDibO2yJ5yWaJFerR5uj8Kwks3J+wPO2DeDJgasR4cs
+	 ls8MaNp8Ezu/I27KvuyKHIDmv9ucOgh0tYWU6FroXMZY8VJneGO6tvMXElp4X9cHPL
+	 UyJ7sqxzMC2IPlEfnmbZD/KsEwNgve1ICU9l+AUg3iH6PqYUaj+r5fKov7uPb22Fgj
+	 j30dXXdkGUnBEsXBqQpgp9mgEOJfDpqfCqensolvXKIFXZtOJto16LITogSgwqmbFU
+	 oOaDomzF+9fw5c4ik5e14pmgZfq3CCsgrTrIss4+vQ7k4++Qdt7t6aSMrCO43QU7Wm
+	 HJ29r5B5BebpA==
+From: Mark Brown <broonie@kernel.org>
+Date: Tue, 08 Apr 2025 19:09:58 +0100
+Subject: [PATCH 5.15 v3 03/11] KVM: arm64: Discard any SVE state when
+ entering KVM guests
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SN7PR12MB8001:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9565e244-52e5-40de-b08f-08dd76be019f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?I+b9wUkTUZ8d+qB6Dlcw6IZCFaDLjrcyPfliNXgMaTH9BXfYT6sxADgi8Y/q?=
- =?us-ascii?Q?9QTNOJOyfn2fgCAz00NDL4mTEaeNjHktgZVEPHCliNKNQYYAJnY4jW4YUDwt?=
- =?us-ascii?Q?z4l9oWmkq0RpTrWuyCFTJwCbqptM15HV4qEVbwsGpgnWRlCY7F0rszbO4nlR?=
- =?us-ascii?Q?80Ywst89ddKVVKAZzpHuuL7UU7CK9tyEsrIkpqrFwRJhRYgaNhMXB92SNnEo?=
- =?us-ascii?Q?5TsxqdmKb/Da0UynTm+rDXwyrrWF3tH8a3GGDswOd4xSo3cKvbvpOj648jDe?=
- =?us-ascii?Q?aPLO8mdfzCTj/fNEoTUixu3n84loEJp43tQ7zsH8M+pVqUQ3hJmODrx+qwPZ?=
- =?us-ascii?Q?SBybnqeUuD+9IIdVLv9IYbg5ZyB0bZfgJmsGvXnRIz28OJq+X8DmwYlBZXjC?=
- =?us-ascii?Q?ZEF6QqaRTdi5bf2RgtIef/DYWMwRkQumL10Dp5ru8oSm0heXEwPfIKsP2JHC?=
- =?us-ascii?Q?V3HFpoO1rccXX2KOmns8YZFRAL0CPGFXQ/7qNvm7vmsLjPWoy+ryctRmAOkU?=
- =?us-ascii?Q?mD2BNXkni+Hm9qDLsT5sNQN+wPmk0GjLDgF0syaQbQRoV7v6C7pbg5vNMmoT?=
- =?us-ascii?Q?lK3N/M5vT/HZbxVa2KotkoY+C5j9E4VHjHqzD0wOctTzghozJihigZDxcQCP?=
- =?us-ascii?Q?UPnFKeErf72bEgBE5XgGJPTgMJTZSlfaQOKXI9Th52mxgTAPuudcR0Yw2eFs?=
- =?us-ascii?Q?CpAdKlkVHsiAqYhZPfR29VNUjVLrnPVoTs5kq46GSKYDLG/20i9j919M5RVW?=
- =?us-ascii?Q?LnU05oZfJev21a0Nsvp1C2uSbBKg3vURdS2SlDQBVV4kivHA1GobAVfMJTCW?=
- =?us-ascii?Q?n/2MuGD/opCfTZ+B1ttjuwv+42lwdqjGR48HXBZxNUzIUxb4JFdm1sqXDSH/?=
- =?us-ascii?Q?flSzuKct1jyFovw9dL3tUyb6ZsgvIIJWy59K1+3KX735Jb44fzcU6HZ/lh3J?=
- =?us-ascii?Q?KVR92nuj17sSlMPPKNiLJaXzYXNSC9tRA0/utq+QysQRe/WYCRCkz3cR9CHj?=
- =?us-ascii?Q?vYdjQ2w49vNr6JpM9wz2o230VAiHdvDq4tmexvM+Dnw0rkouXrT26PFNyLEN?=
- =?us-ascii?Q?aSGXFUzUNjRcWhZuhkrNwPCqak4JHT3D2P43uxUJdCWDOgCCH3a73UNOqeIj?=
- =?us-ascii?Q?KcwX5jpuT4j2ZnNfgT+UhI6QYQJgLcrQ0w9hFGGpA+dZRhdyxL7sL4qxtkVB?=
- =?us-ascii?Q?k2ICxnXiQV1snsASesoXAsAB74SDGD3h9hoDvbceriIOBTBfLgUJzl0PcsTg?=
- =?us-ascii?Q?vd3MalelpQSitkCKnhtVh03N4I1KXYCnglJihdCV0S7AecVxxWcsJ86UZeGw?=
- =?us-ascii?Q?WLN/q0BBC9N/woWGz9PtL3Mj6Ra9qkhRGPQcMtO1O0e0tOJ+nEMNU1HCMEmJ?=
- =?us-ascii?Q?YJPRrzSN3ir80SlU5vsWGXn3yLYjhTV9K3YQt9KD4Y4huNM1pB8K396SoXqJ?=
- =?us-ascii?Q?PW5bOO1secpgW7kSPl8XF17akeT2p+I4Pa7AJKGW5QuFU1SPuFVW+g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?a3m05McrdF3rZQOUAVegQwKDGHgZd3yBdVsPkWQqM+nb6fPJlSNt9ZIwiwOh?=
- =?us-ascii?Q?yQQrpAVKoui534nzu88MUsAZp8jZJ2aFtNxETNl1az/2xbt37LstbWxScCc6?=
- =?us-ascii?Q?pmfFBVbq9Vmf2GAdsaUa+iCAhYrs2bqOG9v6Ih4S7tET1STD7HQZHoxBPQrv?=
- =?us-ascii?Q?V9ivaS/k2G9j/1aKt8W9h40i9cXdfg2k/3U7nq4Mpx/h0uSHOnVSuYOcM5K8?=
- =?us-ascii?Q?Aum28a7qAz+JseKHoocQ1wzYccpR2F3ci+d/NElM102E1y58P5SQE69fDSJ7?=
- =?us-ascii?Q?q+BTj4A+SBf0PhQjwSpuWbyBfeGmHNvzBgnJCtD5VqJ7Bg/4I0pNav8hyUeI?=
- =?us-ascii?Q?UZgmJqR+/rcR0PyWTAX0L81Iie0iv6cgGw59Y1arr4OLgFcHf3kLmyxguW0i?=
- =?us-ascii?Q?/HpzQty+tfXye29f0OT+cy74dK5+waTYo9DNvQlWKSqXFVSC0XqWm9Mc4DGN?=
- =?us-ascii?Q?ek6hQgeOt6VvQgxvJidoGw9Rn4xP6V+QvwVCsR7re/C3Cia/RSSwNoq9+JhY?=
- =?us-ascii?Q?qGAYiIG6bGJKwlIOJL0wLAkdvaKws03tTyYzZX/5fNQICFzFSHRQz1S/YMFi?=
- =?us-ascii?Q?m2kT4wOitLL8h0Yf2u+DU3jK2AXL8bFhFgG1uaXK0QvxzQeEI8n+jFo9Mkjt?=
- =?us-ascii?Q?AN4kNPZlQS0Wcqu/nMWiNqDg/565U3eoO4QkZRoos1K67CEzj2lvDjZ0aYqH?=
- =?us-ascii?Q?X26zlEu06thhPU8VHRRxp+NWcv6hpaYPF/kiADHKbJVcjy2J4o1Mb7zNpHM2?=
- =?us-ascii?Q?73inZT9+98KnU0lbFg3vIEHiRjhfoJ8Hsvg6hk6ZAbnz1p/jJ8zD5RTCX58f?=
- =?us-ascii?Q?3Ltnx4dBH90Nb/PwybzcqPnn+C3rJAna5HPeh8vWQtFF9NH2/IyJx+jQNO03?=
- =?us-ascii?Q?AWkPqSdeNCnPGDEQumUpwZsWxFCg+N9Ytyn6LbtbHKXF1veNeiWkF71Tdwl4?=
- =?us-ascii?Q?7ZKovoUlHT0qzWYAlSZInhVO5YCkYnukOa/qNnGI23zYp8R6xk9hQZDWb79n?=
- =?us-ascii?Q?cyi65yYbmShG9aCSIFUZz6+niGKdNr9R5LeQ1uy62tzI117pXfijFp0pfETR?=
- =?us-ascii?Q?d06TMjnut1h6Ut07a10bCXun+QmpZ0oGSP2b2CCOpV9cGT4kpsZL8inMh+0Z?=
- =?us-ascii?Q?1nZ1PVRkBG0z+9mSJ6cUD7KeCu5Xlof3GjB6FzFVCpyG7VSuQcdaYMRQSd/u?=
- =?us-ascii?Q?4wWzJ/FlFETnKDqcKcnV+fdA0zpapZFDA2E0Wjknr38QYIHcXMxfxTAnzkLD?=
- =?us-ascii?Q?BbjmMJK5ie9fepJgLzoZ/2F3E1Za1vOMUOIcAi5JbVXMJj0t/mBk8QKl7RQ5?=
- =?us-ascii?Q?l9JPT9RkylM7ZoP3KLzGuQJGjbZQYPYsF+P/4yU4dKSywzCH7zoHaFFf6dq8?=
- =?us-ascii?Q?Of5WvbO/5j4wTVT000Nwjuk1LQ3Eh5OAED6TJN6IcEJa976v3NRVWCnpTQun?=
- =?us-ascii?Q?tblTMR3UdNdRQUZLMVT25Ff2YRf92yTGpyTxcj60/80zc3K98yU1ZT0GHH8T?=
- =?us-ascii?Q?7sjo1/1OIBNjIKuoPcj8AT7BeAqNUWoOUED9DeET3MzYp3zfnFu28vvgOluv?=
- =?us-ascii?Q?njfFQLd6DzYez+K8Z7ko+GK8fKG8yY+D/b2ePdSE?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9565e244-52e5-40de-b08f-08dd76be019f
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 16:54:20.3136
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aIg8U78JGqKPT/YJfZ4DywU2r1IuWQgGN5MZgqOMYJI+DDjVHLJWTR8mxVdMB4gp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8001
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250408-stable-sve-5-15-v3-3-ca9a6b850f55@kernel.org>
+References: <20250408-stable-sve-5-15-v3-0-ca9a6b850f55@kernel.org>
+In-Reply-To: <20250408-stable-sve-5-15-v3-0-ca9a6b850f55@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Oleg Nesterov <oleg@redhat.com>, Oliver Upton <oliver.upton@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+X-Mailer: b4 0.15-dev-c25d1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3562; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=ROS5jr/XnGZ06dtqqkVH5FTegaK3TD2euUktm9dfK+A=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn9WlN98cQ/PSAdnjHKGF2x/DeH/D/JoC7PCjo5IQz
+ vy8RWU+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ/VpTQAKCRAk1otyXVSH0DySB/
+ 9phxVh+yQ1r2/VJPq78DO5XvJd9IID/lMbU4lEYeOwXylwsQWtN43or0QjkjMPjnX2pyBGCaE1T+AD
+ Neht04TMqS+Fdrg8Y8jvuEtFY0KBT2S9a4ioZdpnaVeCXhvtPGXsCajBGJtwiLvJt8oSbrvt0gAVyk
+ MG4krlmzmmn7+GffR1EAg+OTuoy/6w1atZldRfrh/mkWDIAHLLiu6tz4nrTD47CKo6s4IJrJCkrLmY
+ I7X8/7muNEluxJXGX/X7CWtUEYbZ1c5TrpFc8J1tVVKSqZilOVWguyQ1a5zmLP3BMOFipST4qrd54f
+ PKIGN/lgN76BgMMPzN5B6tnZcR3Ys8
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_095433_401571_7E37DC62 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20250408_112227_273780_4D9228AF 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,208 +89,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use iommu_alloc_pages_node_sz() instead.
+[ Upstream commit 93ae6b01bafee8fa385aa25ee7ebdb40057f6abe ]
 
-AMD and Intel are both using 4K pages for these structures since those
-drivers only work on 4K PAGE_SIZE.
+Since 8383741ab2e773a99 (KVM: arm64: Get rid of host SVE tracking/saving)
+KVM has not tracked the host SVE state, relying on the fact that we
+currently disable SVE whenever we perform a syscall. This may not be true
+in future since performance optimisation may result in us keeping SVE
+enabled in order to avoid needing to take access traps to reenable it.
+Handle this by clearing TIF_SVE and converting the stored task state to
+FPSIMD format when preparing to run the guest.  This is done with a new
+call fpsimd_kvm_prepare() to keep the direct state manipulation
+functions internal to fpsimd.c.
 
-riscv is also spec'd to use SZ_4K.
-
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-Tested-by: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/20221115094640.112848-2-broonie@kernel.org
+Signed-off-by: Will Deacon <will@kernel.org>
+[ Mark: trivial backport to v6.1 ]
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- drivers/iommu/amd/io_pgtable.c    |  8 +++++---
- drivers/iommu/amd/io_pgtable_v2.c |  4 ++--
- drivers/iommu/amd/iommu.c         |  2 +-
- drivers/iommu/intel/iommu.c       | 13 ++++++++-----
- drivers/iommu/intel/pasid.c       |  3 ++-
- drivers/iommu/iommu-pages.h       | 13 -------------
- drivers/iommu/riscv/iommu.c       |  7 ++++---
- 7 files changed, 22 insertions(+), 28 deletions(-)
+ arch/arm64/include/asm/fpsimd.h |  1 +
+ arch/arm64/kernel/fpsimd.c      | 23 +++++++++++++++++++++++
+ arch/arm64/kvm/fpsimd.c         |  4 +++-
+ 3 files changed, 27 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/amd/io_pgtable.c b/drivers/iommu/amd/io_pgtable.c
-index 97ddadbcfb54d6..4d308c07113495 100644
---- a/drivers/iommu/amd/io_pgtable.c
-+++ b/drivers/iommu/amd/io_pgtable.c
-@@ -114,7 +114,7 @@ static bool increase_address_space(struct amd_io_pgtable *pgtable,
- 	bool ret = true;
- 	u64 *pte;
+diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+index 9a62884183e5..f7faf0f4507c 100644
+--- a/arch/arm64/include/asm/fpsimd.h
++++ b/arch/arm64/include/asm/fpsimd.h
+@@ -44,6 +44,7 @@ extern void fpsimd_signal_preserve_current_state(void);
+ extern void fpsimd_preserve_current_state(void);
+ extern void fpsimd_restore_current_state(void);
+ extern void fpsimd_update_current_state(struct user_fpsimd_state const *state);
++extern void fpsimd_kvm_prepare(void);
  
--	pte = iommu_alloc_page_node(cfg->amd.nid, gfp);
-+	pte = iommu_alloc_pages_node_sz(cfg->amd.nid, gfp, SZ_4K);
- 	if (!pte)
- 		return false;
- 
-@@ -206,7 +206,8 @@ static u64 *alloc_pte(struct amd_io_pgtable *pgtable,
- 
- 		if (!IOMMU_PTE_PRESENT(__pte) ||
- 		    pte_level == PAGE_MODE_NONE) {
--			page = iommu_alloc_page_node(cfg->amd.nid, gfp);
-+			page = iommu_alloc_pages_node_sz(cfg->amd.nid, gfp,
-+							 SZ_4K);
- 
- 			if (!page)
- 				return NULL;
-@@ -535,7 +536,8 @@ static struct io_pgtable *v1_alloc_pgtable(struct io_pgtable_cfg *cfg, void *coo
- {
- 	struct amd_io_pgtable *pgtable = io_pgtable_cfg_to_data(cfg);
- 
--	pgtable->root = iommu_alloc_page_node(cfg->amd.nid, GFP_KERNEL);
-+	pgtable->root =
-+		iommu_alloc_pages_node_sz(cfg->amd.nid, GFP_KERNEL, SZ_4K);
- 	if (!pgtable->root)
- 		return NULL;
- 	pgtable->mode = PAGE_MODE_3_LEVEL;
-diff --git a/drivers/iommu/amd/io_pgtable_v2.c b/drivers/iommu/amd/io_pgtable_v2.c
-index f5f2f53273786d..b47941353ccbb8 100644
---- a/drivers/iommu/amd/io_pgtable_v2.c
-+++ b/drivers/iommu/amd/io_pgtable_v2.c
-@@ -152,7 +152,7 @@ static u64 *v2_alloc_pte(int nid, u64 *pgd, unsigned long iova,
- 		}
- 
- 		if (!IOMMU_PTE_PRESENT(__pte)) {
--			page = iommu_alloc_page_node(nid, gfp);
-+			page = iommu_alloc_pages_node_sz(nid, gfp, SZ_4K);
- 			if (!page)
- 				return NULL;
- 
-@@ -346,7 +346,7 @@ static struct io_pgtable *v2_alloc_pgtable(struct io_pgtable_cfg *cfg, void *coo
- 	struct amd_io_pgtable *pgtable = io_pgtable_cfg_to_data(cfg);
- 	int ias = IOMMU_IN_ADDR_BIT_SIZE;
- 
--	pgtable->pgd = iommu_alloc_page_node(cfg->amd.nid, GFP_KERNEL);
-+	pgtable->pgd = iommu_alloc_pages_node_sz(cfg->amd.nid, GFP_KERNEL, SZ_4K);
- 	if (!pgtable->pgd)
- 		return NULL;
- 
-diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
-index fe31166ced94b7..ed04d1471c2428 100644
---- a/drivers/iommu/amd/iommu.c
-+++ b/drivers/iommu/amd/iommu.c
-@@ -1884,7 +1884,7 @@ static int setup_gcr3_table(struct gcr3_tbl_info *gcr3_info,
- 		return -ENOSPC;
- 	gcr3_info->domid = domid;
- 
--	gcr3_info->gcr3_tbl = iommu_alloc_page_node(nid, GFP_ATOMIC);
-+	gcr3_info->gcr3_tbl = iommu_alloc_pages_node_sz(nid, GFP_ATOMIC, SZ_4K);
- 	if (gcr3_info->gcr3_tbl == NULL) {
- 		pdom_id_free(domid);
- 		return -ENOMEM;
-diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
-index 4ca74a2b1a1109..7842e437fb170e 100644
---- a/drivers/iommu/intel/iommu.c
-+++ b/drivers/iommu/intel/iommu.c
-@@ -397,7 +397,8 @@ struct context_entry *iommu_context_addr(struct intel_iommu *iommu, u8 bus,
- 		if (!alloc)
- 			return NULL;
- 
--		context = iommu_alloc_page_node(iommu->node, GFP_ATOMIC);
-+		context = iommu_alloc_pages_node_sz(iommu->node, GFP_ATOMIC,
-+						    SZ_4K);
- 		if (!context)
- 			return NULL;
- 
-@@ -731,7 +732,8 @@ static struct dma_pte *pfn_to_dma_pte(struct dmar_domain *domain,
- 		if (!dma_pte_present(pte)) {
- 			uint64_t pteval, tmp;
- 
--			tmp_page = iommu_alloc_page_node(domain->nid, gfp);
-+			tmp_page = iommu_alloc_pages_node_sz(domain->nid, gfp,
-+							     SZ_4K);
- 
- 			if (!tmp_page)
- 				return NULL;
-@@ -982,7 +984,7 @@ static int iommu_alloc_root_entry(struct intel_iommu *iommu)
- {
- 	struct root_entry *root;
- 
--	root = iommu_alloc_page_node(iommu->node, GFP_ATOMIC);
-+	root = iommu_alloc_pages_node_sz(iommu->node, GFP_ATOMIC, SZ_4K);
- 	if (!root) {
- 		pr_err("Allocating root entry for %s failed\n",
- 			iommu->name);
-@@ -2026,7 +2028,8 @@ static int copy_context_table(struct intel_iommu *iommu,
- 			if (!old_ce)
- 				goto out;
- 
--			new_ce = iommu_alloc_page_node(iommu->node, GFP_KERNEL);
-+			new_ce = iommu_alloc_pages_node_sz(iommu->node,
-+							   GFP_KERNEL, SZ_4K);
- 			if (!new_ce)
- 				goto out_unmap;
- 
-@@ -3359,7 +3362,7 @@ static struct dmar_domain *paging_domain_alloc(struct device *dev, bool first_st
- 		domain->domain.geometry.aperture_end = __DOMAIN_MAX_ADDR(domain->gaw);
- 
- 	/* always allocate the top pgd */
--	domain->pgd = iommu_alloc_page_node(domain->nid, GFP_KERNEL);
-+	domain->pgd = iommu_alloc_pages_node_sz(domain->nid, GFP_KERNEL, SZ_4K);
- 	if (!domain->pgd) {
- 		kfree(domain);
- 		return ERR_PTR(-ENOMEM);
-diff --git a/drivers/iommu/intel/pasid.c b/drivers/iommu/intel/pasid.c
-index b616aaad03ba24..728da85a910068 100644
---- a/drivers/iommu/intel/pasid.c
-+++ b/drivers/iommu/intel/pasid.c
-@@ -147,7 +147,8 @@ static struct pasid_entry *intel_pasid_get_entry(struct device *dev, u32 pasid)
- 	if (!entries) {
- 		u64 tmp;
- 
--		entries = iommu_alloc_page_node(info->iommu->node, GFP_ATOMIC);
-+		entries = iommu_alloc_pages_node_sz(info->iommu->node,
-+						    GFP_ATOMIC, SZ_4K);
- 		if (!entries)
- 			return NULL;
- 
-diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
-index 4513fbc76260cd..7ece83bb0f54bb 100644
---- a/drivers/iommu/iommu-pages.h
-+++ b/drivers/iommu/iommu-pages.h
-@@ -114,17 +114,4 @@ static inline void *iommu_alloc_pages_sz(gfp_t gfp, size_t size)
- 	return iommu_alloc_pages_node_sz(NUMA_NO_NODE, gfp, size);
+ extern void fpsimd_bind_state_to_cpu(struct user_fpsimd_state *state,
+ 				     void *sve_state, unsigned int sve_vl);
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index e22571e57ae1..57e89361edcb 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -1108,6 +1108,29 @@ void fpsimd_signal_preserve_current_state(void)
+ 		sve_to_fpsimd(current);
  }
  
--/**
-- * iommu_alloc_page_node - allocate a zeroed page at specific NUMA node.
-- * @nid: memory NUMA node id
-- * @gfp: buddy allocator flags
-- *
-- * returns the virtual address of the allocated page
-- * Prefer to use iommu_alloc_pages_node_lg2()
-- */
--static inline void *iommu_alloc_page_node(int nid, gfp_t gfp)
--{
--	return iommu_alloc_pages_node_sz(nid, gfp, PAGE_SIZE);
--}
--
- #endif	/* __IOMMU_PAGES_H */
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 8835c82f118db4..bb57092ca90110 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1144,7 +1144,8 @@ static unsigned long *riscv_iommu_pte_alloc(struct riscv_iommu_domain *domain,
- 		 * page table. This might race with other mappings, retry.
- 		 */
- 		if (_io_pte_none(pte)) {
--			addr = iommu_alloc_page_node(domain->numa_node, gfp);
-+			addr = iommu_alloc_pages_node_sz(domain->numa_node, gfp,
-+							 SZ_4K);
- 			if (!addr)
- 				return NULL;
- 			old = pte;
-@@ -1385,8 +1386,8 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
- 	domain->numa_node = dev_to_node(iommu->dev);
- 	domain->amo_enabled = !!(iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD);
- 	domain->pgd_mode = pgd_mode;
--	domain->pgd_root = iommu_alloc_page_node(domain->numa_node,
--						 GFP_KERNEL_ACCOUNT);
-+	domain->pgd_root = iommu_alloc_pages_node_sz(domain->numa_node,
-+						     GFP_KERNEL_ACCOUNT, SZ_4K);
- 	if (!domain->pgd_root) {
- 		kfree(domain);
- 		return ERR_PTR(-ENOMEM);
++/*
++ * Called by KVM when entering the guest.
++ */
++void fpsimd_kvm_prepare(void)
++{
++	if (!system_supports_sve())
++		return;
++
++	/*
++	 * KVM does not save host SVE state since we can only enter
++	 * the guest from a syscall so the ABI means that only the
++	 * non-saved SVE state needs to be saved.  If we have left
++	 * SVE enabled for performance reasons then update the task
++	 * state to be FPSIMD only.
++	 */
++	get_cpu_fpsimd_context();
++
++	if (test_and_clear_thread_flag(TIF_SVE))
++		sve_to_fpsimd(current);
++
++	put_cpu_fpsimd_context();
++}
++
+ /*
+  * Associate current's FPSIMD context with this cpu
+  * The caller must have ownership of the cpu FPSIMD context before calling
+diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+index 24734bfcfaa0..16e29f03dcbf 100644
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -70,12 +70,14 @@ int kvm_arch_vcpu_run_map_fp(struct kvm_vcpu *vcpu)
+ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+ {
+ 	BUG_ON(!current->mm);
+-	BUG_ON(test_thread_flag(TIF_SVE));
+ 
+ 	vcpu->arch.flags &= ~KVM_ARM64_FP_ENABLED;
+ 	vcpu->arch.flags |= KVM_ARM64_FP_HOST;
+ 
++	fpsimd_kvm_prepare();
++
+ 	vcpu->arch.flags &= ~KVM_ARM64_HOST_SVE_ENABLED;
++
+ 	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
+ 		vcpu->arch.flags |= KVM_ARM64_HOST_SVE_ENABLED;
+ }
+
 -- 
-2.43.0
+2.39.5
 
 
