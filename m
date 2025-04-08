@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F256C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802EFC369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wy3Km0AVXCTI4DrQJkFCQiFPROUoaPoc5lNFfKuzy6A=; b=PuzOthM6XLazKaXA+p2b6gjg+5
-	HGHku3ULjOMEEUuQOcDBbjbv5he+zHOboph++CCRDBs0/krJmkke9wkXgKYdnTB5mglGxO7gMR/R/
-	vq0xshqqX5QnkafDloHgG7mKPknBAMhs6xG3Q7K2w/2P0PNXmLGTkeCroA6o1XnOzfphdfU/nybIt
-	heStk2XZLXoJv2Ik1A/QzE29Ex5RjFuwHjMwqGH41CvBaM3xrT8iM9rhTbXRQ3Ow4ARi/sUzKIoU4
-	okhXXAntClXtOrSAOx9V38isz+HYVqu01APtrPGybZYSiXFAK5SOY/YiBB2i3dJrlgpD39OSgmJnA
-	cLc5Rmhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MtQ1RX1XHakV4BJm9VJ9jncw9PkEX8uZ1NRRr/+hnO8=; b=yMWLVjfK3YUolq5SO+QzMesSf4
+	LfPjeXLdTfCxLWDTtLVs4M2dR1OksQQWWvotSwTYa1pfBzaNRs7HTXoZ9AKSCrJEdC3mcJcy7vIvz
+	x7XyZVD3BQMmLxfxmzzCOlDmqdSSvth7KrgfE43/OzmLAmGQSmhMxTSdosnPU8NrdlkL+Sa6iYFLv
+	73hBeA9fUyMjIWqCQowa6FcNwkVbiVveAjO9FRNzPSl5X3M54bHst4NelqhcVJ7k/aQXKuE8Ux3i/
+	We9F+OFUoZLW1mS6OXTJLSwz4dpuz2GQorGmJYka7lzOdwI7l2Qn19s+JRZM00dF32t21F6MP8MNZ
+	IPUd2X/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2A11-00000004Ors-0n01;
-	Tue, 08 Apr 2025 14:33:27 +0000
+	id 1u2A2l-00000004PDd-1AvM;
+	Tue, 08 Apr 2025 14:35:15 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u29wn-00000004O2V-2o3I
+	id 1u2A0l-00000004OpX-3Q0b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 14:29:07 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 74EF144351;
-	Tue,  8 Apr 2025 14:29:01 +0000 (UTC)
+	Tue, 08 Apr 2025 14:33:13 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 450C643210;
+	Tue,  8 Apr 2025 14:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744122543;
+	t=1744122787;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wy3Km0AVXCTI4DrQJkFCQiFPROUoaPoc5lNFfKuzy6A=;
-	b=gxVrnn/JVh0iC4BPAsAridJn4qT7FAvRDSKdNs6dH7buDlSemR54nzZAPf3tIIgziWPivZ
-	owfGzS3t8eTMAXID8Ioi7sBsZdU89YTITi0SEbf8OqVFObyYjO+ht1vLjc5sY+ZyvqoT1K
-	XbseKEUk2rLd/GRjaBGXXD4ZWxucg5+n12Wvsu4S5CSPYu5QmT6BNMavIW1w1SbZQReccT
-	qUUpAhhXYCUUmyEmRSVEe1j6vwK02/srrDJfFTL7lpFtxTtMFeLk14cSsFkAKRvzUyYHkM
-	gSlm2nGbIp2xmGhocUyVGi1ZV+VblO56FfmKtmdd8n0wwK2H7ES6ZJo6/49MhQ==
-Date: Tue, 8 Apr 2025 16:29:00 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang
- <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, Derek
- Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
- Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana
- Kannan <saravanak@google.com>, Bjorn Helgaas <bhelgaas@google.com>, Mark
- Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, Daniel Scally
- <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, Allan Nielsen
- <allan.nielsen@microchip.com>, Horatiu Vultur
- <horatiu.vultur@microchip.com>, Steen Hegelund
- <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH 08/16] i2c: core: Introduce i2c_get_adapter_supplier()
-Message-ID: <20250408162900.41b6bc08@bootlin.com>
-In-Reply-To: <Z_UpB1cgU_99JHdF@smile.fi.intel.com>
-References: <20250407145546.270683-1-herve.codina@bootlin.com>
-	<20250407145546.270683-9-herve.codina@bootlin.com>
-	<Z_Puy8eEBc6tubEx@smile.fi.intel.com>
-	<20250408150836.327a337d@bootlin.com>
-	<Z_UpB1cgU_99JHdF@smile.fi.intel.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	bh=MtQ1RX1XHakV4BJm9VJ9jncw9PkEX8uZ1NRRr/+hnO8=;
+	b=OT4Vg+INpqb39sAAx0HMNcZIzeUBSZpIkjtBucWdRUBC/8E8xAWI1SJLJFoXyis7sfjYmT
+	0BNyxiMnxH2m+VzKn0beEhCiW/KIGXd2joOcNr/9oNSvr2+Yufl3eNQJOXZ1jkZHIXY1UL
+	jsra+WWxYMkd3PUFdKMK+Dx4FOD+jJGCK26tVyeKZeZY8XAyiMmBwkPp9gqoXZB++868ea
+	LnX5jdRx1+zbtebupBszf9bIHq2kKbQL7SjGxtp5Zwuka0hYHu7mNjow446tLoYzQC3Jsl
+	SkVxwIiK+cLdpdxu2mjfxutuZzaXm2bXU+mT83XgoD4gH2bFaOslt124KxyKsw==
+Date: Tue, 8 Apr 2025 16:33:06 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH 0/4] ARM: dts: at91: calao_usb: clean up and remove
+ usb_a9g20_common.dtsi
+Message-ID: <20250408143306fd090d99@mail.local>
+References: <20250402204856.5197-1-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250402204856.5197-1-wsa+renesas@sang-engineering.com>
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdeffeefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveeiffefgeeitdelleeigefhjeelueeuveekveetgeffheeltdekgeduiefggfdvnecukfhppedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgdphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegtddprhgtphhtthhopegrnhgurhhihidrshhhvghvtghhvghnkhhosehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
- egurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhm
-X-GND-Sasl: herve.codina@bootlin.com
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdeffeegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpeetlhgvgigrnhgurhgvuceuvghllhhonhhiuceorghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeeiudeuteehhfekgeejveefhfeiudejuefhgfeljefgjeegkeeujeeugfehgefgnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemrggutdefmeegfheltgemfeefjehfmehffeefugenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemrggutdefmeegfheltgemfeefjehfmehffeefugdphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepkedprhgtphhtthhopeifshgrodhrvghnvghsrghssehsrghnghdqvghnghhinhgvvghrihhnghdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhts
+ hdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhhitgholhgrshdrfhgvrhhrvgesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_072905_836430_03C89537 
-X-CRM114-Status: GOOD (  31.19  )
+X-CRM114-CacheID: sfid-20250408_073311_981338_8013B2F4 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,58 +79,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 8 Apr 2025 16:47:51 +0300
-Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
-
-> On Tue, Apr 08, 2025 at 03:08:36PM +0200, Herve Codina wrote:
-> > On Mon, 7 Apr 2025 18:27:07 +0300
-> > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:  
-> > > On Mon, Apr 07, 2025 at 04:55:37PM +0200, Herve Codina wrote:  
+On 02/04/2025 22:48:50+0200, Wolfram Sang wrote:
+> My USB-A9G20 definitely has no external RTC, unlike the LPW version.
+> While fixing that, I noticed that this renders the whole a9g20 include
+> obsolete. Here is a complete series doing that.
 > 
-> ...
 > 
-> > > > +	return get_device(adapter->supplier ?: adapter->dev.parent);    
-> > > 
-> > > What will be the meaning when both are set? Why dev.parent is not the same
-> > > as supplier in this case?  Looking at the commit message example, it seems
-> > > like you want to provide a physdev or sysdev (as term supplier seems more
-> > > devlink:ish), like it's done elsewhere. And in the same way _always_ initialise
-> > > it. In such a case, the ambiguity will be gone.  
-> > 
-> > When both are set (this is case for i2c muxes), the adapter->supplier the
-> > device that register the I2C adapter using i2c_add_adapter() or variant.
-> > In other word, the device that creates the I2C adapter.
-> > 
-> > The adapter->dev.parent is most of the time the device that register the
-> > I2C adapter except for i2c muxes. For I2C muxes, this adapter->dev.parent
-> > is the adapter the i2c mux is connected to.
-> > 
-> > Between physdev and sysdev, I really prefer physdev and, if renaming from
-> > supplier to physdev is still needed (and wanted), I will rename it. Let me
-> > know.  
-> 
-> The terms supplier/consumer are widely used in terms of power and devlink.
-> I think here should not be used the term supplier.
-
-physdev seems good.
-I will use that.
-
-> 
-> > For initialization, I don't want to modify all the I2C controller drivers.
-> > What I can do is to initialize adapter->supplier using adapter->dev.parent
-> > during the i2c_register_adapter() call if it was not already initialize by
-> > the caller (i.e. the I2C controller driver).  
-> 
-> This can be done in the I²C core, but I'm not insisting on this part.
-> We can start from your function only and then decide later on how to
-> proceed (depending on how many users of that field appear and what
-> they want to do with it).
+> Wolfram Sang (4):
+>   ARM: dts: at91: calao_usb: simplify memory node
+>   ARM: dts: at91: usb_a9260: use 'stdout-path'
+>   ARM: dts: at91: calao_usb: simplify chosen node
+>   ARM: dts: at91: usb_a9g20: move wrong RTC node
 > 
 
-Right I think I can keep my function as it.
+Reviewed-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
 
-Wolfram any opinion?
+>  arch/arm/boot/dts/microchip/usb_a9260.dts     |  8 ------
+>  .../boot/dts/microchip/usb_a9260_common.dtsi  |  9 +++++++
+>  arch/arm/boot/dts/microchip/usb_a9g20.dts     |  3 ++-
+>  .../boot/dts/microchip/usb_a9g20_common.dtsi  | 27 -------------------
+>  arch/arm/boot/dts/microchip/usb_a9g20_lpw.dts | 10 ++++++-
+>  5 files changed, 20 insertions(+), 37 deletions(-)
+>  delete mode 100644 arch/arm/boot/dts/microchip/usb_a9g20_common.dtsi
+> 
+> -- 
+> 2.47.2
+> 
 
-Best regards,
-Hervé
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
