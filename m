@@ -4,94 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E189EC369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A09C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RFphVcqK3mFE7z2xyqgIGdTaijWdMSkT/C4V2pISyXU=; b=KB4IXTMvgzO7ytfTTUa9wMxdHG
-	ccHiRebBFrrcoZF/71wYdHwj8a/c38aclR0f9yZrpDBwe4mndFdM3V3Rk3foWVZq/IK5Q2rZC9Mva
-	Y7F8Q/m0JuWVVMIhduhOC1TuqJfpzljL+5Qgb/3rsJcofjag+zXqWCiUuUyIg+rgFbIEHxs846mSA
-	KNe8+kWAwobMJ57ON2ixmDOD6lrbilaD//RIb89NGtDS4TjNYaJDi9Zb3YNIqjuPsIZY5mr8njNFo
-	QZP0IKKy2IHgeATBHsQXdEXWA4aXboy4+Kf30G3XkLfRVkHwPbl6TwU0taOKWGk3kgcic5bvP2Uuj
-	d6Fh2KNg==;
+	bh=l8cdqG5KHqsfV2J/kbmNJYoWMA/0nOsqrEAaBMjMGD8=; b=Krmfk95RiE4NPpToaGwmQVL3aV
+	uk4LPMKghOU2sGfiYKdAqAE62WEignuycryrR4EctBaCwcO9RgLa6TTTyDRqGF7XpMooimTfyfBA1
+	BGd7hexnFPeqn9R4UeKzM2K0afFjCttVEOmLerz8wr9JhXy8PIUIBBn168eT2iAdMjImDH3mtOZ95
+	m7LyNkjfTgPa6Xsn40xsgY9hmqJwbaMJbSnNwHZlFd02EGs/twxBJN3kIDg3rQTnGO5UUQvvO3Yv9
+	+liV63M4hzyJ0siOWRZ7nP+mkXFfkSC/HO33D17kwLkkGtepuaVuOV67zdcV4DABp8XSzp8TbFm/g
+	z/1wtbcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Bnh-00000004oGT-2e7q;
-	Tue, 08 Apr 2025 16:27:49 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Blv-00000004o5T-0O2l
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 16:26:00 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43ceeb85ab2so4372425e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 09:25:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744129557; x=1744734357; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RFphVcqK3mFE7z2xyqgIGdTaijWdMSkT/C4V2pISyXU=;
-        b=q76AC32GIUN8jFu99rpKXKcV8CKW0UQx3Wg5m8i7rUHTO8Cs+bAj8ZuRoBnHZmDwfN
-         AU4a5su7xcpxz2kuRCXEB6wDMtKMVl4MoAV69/VYl+eRglkEYK6YAFxu6qnnuGA5W2jf
-         +RqMhgvt1JcA8Lne3K3O4Ozdd8Rylj7lzE5gyOEqOwpu528XOCRHSjNboe8PWqgcfcSd
-         7ss+Q/TOf2EH3LA+wd4zAqibYLdA395b5wzsd6XtppHgKqx0TwyxK0YB0Q7S8dSn1ciq
-         OUBV+rHqi5AzciY7lVggZ0/lTgg72itenyU13i9DD04hfbKSWBpi5+NPVqtOA3APM/jo
-         MmLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744129557; x=1744734357;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RFphVcqK3mFE7z2xyqgIGdTaijWdMSkT/C4V2pISyXU=;
-        b=Gx/Ha15lAbM5ENWM7PCk9Ib9BV9RiKJG+Mp4DaZfs93TJ4Z7OmgoLoLZNC5o3auXeP
-         rBkmMBu5FIJLldIkWLMVYFGAKmLN/sLzfkB3GumyKK6HyBHrSS9CdHoIWQLLbBxIkONX
-         i4JXfEfWM5ka0BNYDejPWebSPAfoj/2Y+JVeecvw/xDUTXfyMldA6rN/exen8s3JRiln
-         sL/gklKnVW0XizHQl7evi90ruWwwfJEqaZoTUBKc1Bicnq9ACGXMMJPL8MTjFoTq9/tY
-         df5Zx/pb8/YpTW94WdHzvBJUFcWhZIhkSxkUI1Km8KQ/Rc9OkJbhK4MlZRAf7rvVpHR8
-         gk1g==
-X-Forwarded-Encrypted: i=1; AJvYcCWUecto3P3ikb9iXd2M8lNWMMqsEA6QRBOSt4yDeAaTLlzIXYPeS0aNeD3PaLTTokvqxk1i72Q4yvUUa4M5oThi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzoVL4d0X9A74QkQd5CZhU1sPu65nG1j66BmCAQxz7wrKCP4kZK
-	1s0ao6Xrm3AVm8mPPryVunSlqLgh6VSLGxxpmQKvIDBtVFW6YvEDk+kJiqV2liM=
-X-Gm-Gg: ASbGncsBlkyzXcg1IrUE7bTFi6KQuiwJ5Sfi0AH5fOFmHUpqyx5OMc5JfJHvzi30cXJ
-	dKhIfFyaRhRRWqdZEnF9CJBo6VBVBalTTt7Z4f1Rvc9kjFYt3dfIZpIsaZvCnvwBoUOArhq3bC2
-	EFg0XkOqGg4VGU2uvdMOJtA3fFIJ2DRESmYwwSSjnHLdJTS0UCvP1M8uo0C1+QdPeKfogvwgRQG
-	oFuKWeWjlUO95Q/qR3RDPUlVz/Sl1m1PUU/hURl7KDREPJPi+3QifrzxkPlOH2c/uCdCN3pCgGV
-	5if17XOiV9UuLv3oWYe0L560hptjcaSmOvXlRyMLSgOzJNRSHx+KBKYVdlw9vu1T3T97r8AKOA=
-	=
-X-Google-Smtp-Source: AGHT+IHcjPw7vTVflIx/On2eYRJY4Tq9MrtcT3MQ3yA+ESz6rLfbUvrWYzlL9vvcgtQLsbxNYvAtHw==
-X-Received: by 2002:a05:600c:848d:b0:439:a3df:66f3 with SMTP id 5b1f17b1804b1-43ecfa18ba7mr56191265e9.6.1744129557114;
-        Tue, 08 Apr 2025 09:25:57 -0700 (PDT)
-Received: from [192.168.1.26] ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec34a7615sm164763125e9.9.2025.04.08.09.25.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 09:25:56 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: krzk+dt@kernel.org, linux-fsd@tesla.com, robh@kernel.org, 
- conor+dt@kernel.org, richardcochran@gmail.com, alim.akhtar@samsung.com, 
- Swathi K S <swathi.ks@samsung.com>
-Cc: jayati.sahu@samsung.com, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
- pankaj.dubey@samsung.com, ravi.patel@samsung.com, gost.dev@samsung.com
-In-Reply-To: <20250307044904.59077-1-swathi.ks@samsung.com>
-References: <CGME20250307045516epcas5p3b4006a5e2005beda04170179dc92ad16@epcas5p3.samsung.com>
- <20250307044904.59077-1-swathi.ks@samsung.com>
-Subject: Re: [PATCH v8 0/2] arm64: dts: fsd: Add Ethernet support for FSD
- SoC
-Message-Id: <174412955552.86459.1583748766350981659.b4-ty@linaro.org>
-Date: Tue, 08 Apr 2025 18:25:55 +0200
+	id 1u2Bng-00000004oFp-03sM;
+	Tue, 08 Apr 2025 16:27:48 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2Amq-00000004Z1I-2ns9;
+	Tue, 08 Apr 2025 15:22:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744125773; x=1775661773;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=D9XuG7Ugb2+SGuMTNvueeFKYwGqptTWhQqYGjQrqjVo=;
+  b=YeDTlwonn5/c9VP7imsQGIRaS+evpPJlMQmB4pqUHN1OirrhAfXk5qeN
+   p4JmfTIy4Hmg6slNdtaMYDb3LxqFWxnKnI9LKDsJG54dp8poWfttPeteG
+   9gPb79Jp7znX6zvhhKkrLk2LSXyQY+fHkM+mAVX72CR4ZiiC9cFBbkgS2
+   cl55Cgn1AjmiZ0KzCkRQDGQapOWX7/YpPa4odmaxOZNbP3Ls8S0FTeAor
+   L9ahASFS8V2E+w+wh+JP1mhDi681BpvsR68bSq6aHfy8heAAt6XkuHLv1
+   cFj61j6Aj9L1FtOnaozk0CraQmC0zGHG0BzGqOEaZK+v+39qRv6wDzHHI
+   Q==;
+X-CSE-ConnectionGUID: jExkZcfsT+SRnJiCjVoI1g==
+X-CSE-MsgGUID: XmjC6sgqS/6VQ6KjXlg6Qw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="56936752"
+X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
+   d="scan'208";a="56936752"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 08:22:51 -0700
+X-CSE-ConnectionGUID: Ib9xckXnQRq6rJZ0mR1kdw==
+X-CSE-MsgGUID: IfuAIkdqSzeGpojNSuwg2g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
+   d="scan'208";a="133023105"
+Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.124.220.83]) ([10.124.220.83])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 08:22:49 -0700
+Message-ID: <409d2019-a409-4e97-a16f-6b345b0f5a38@intel.com>
+Date: Tue, 8 Apr 2025 08:22:47 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 02/12] x86: pgtable: Always use pte_free_kernel()
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Matthew Wilcox <willy@infradead.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Peter Zijlstra <peterz@infradead.org>, Qi Zheng
+ <zhengqi.arch@bytedance.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-openrisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, x86@kernel.org
+References: <20250408095222.860601-1-kevin.brodsky@arm.com>
+ <20250408095222.860601-3-kevin.brodsky@arm.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20250408095222.860601-3-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_092559_155258_70F193B8 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250408_082252_726770_A5BA6F3A 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,27 +147,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 07 Mar 2025 10:19:02 +0530, Swathi K S wrote:
-> FSD platform has two instances of EQoS IP, one is in FSYS0 block and
-> another one is in PERIC block. This patch series add required DT file
-> modifications for the same.
+On 4/8/25 02:52, Kevin Brodsky wrote:
+> Page table pages are normally freed using the appropriate helper for
+> the given page table level. On x86, pud_free_pmd_page() and
+> pmd_free_pte_page() are an exception to the rule: they call
+> free_page() directly.
 > 
-> Changes since v1:
-> 1. Addressed the format related corrections.
-> 2. Addressed the MAC address correction.
+> Constructor/destructor calls are about to be introduced for kernel
+> PTEs. To avoid missing dtor calls in those helpers, free the PTE
+> pages using pte_free_kernel() instead of free_page().
 > 
-> [...]
+> While at it also use pmd_free() instead of calling pagetable_dtor()
+> explicitly at the PMD level.
 
-Applied, thanks!
+Looks sane and adding consistency is nice.
 
-[1/2] arm64: dts: fsd: Add Ethernet support for FSYS0 Block of FSD SoC
-      https://git.kernel.org/krzk/linux/c/1d62af229b18bff2430ea5dde0e129d43515e12c
-[2/2] arm64: dts: fsd: Add Ethernet support for PERIC Block of FSD SoC
-      https://git.kernel.org/krzk/linux/c/ebeab0be707ddcffd2b7f6ff4f9bd8e0c1c49fdd
+Are there any tests for folio_test_pgtable() at free_page() time? If we
+had that, it would make it less likely that another free_page() user
+could sneak in without calling the destructor.
 
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
 
