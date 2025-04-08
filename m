@@ -4,110 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58DF9C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 10:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8443C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 10:24:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q/W0x52D15NfB+BOP8T/m/ZC7owLNeVqs+BHfnihvT0=; b=ceippAhBqL8sxWQWZVRWxCSlaJ
-	KetV0evOo0Mt0V3LYD8NVi71CD6F9i3D7toXTqTlc+YbfAzitzu74f7RvWYA/G4OpSRjSRnFZ1vok
-	xjkVLHh2uEJGlwFOXK/WAb6F/yBrHsQdD7sHi0ldf5Dx+CpWAfmdmdAtYD7DJyYDMri3TzuwNEo0v
-	dJR4NWAFZ0TX82gHwrqUnMKW9ZX7mCp09RlmlaPHbWvv4I4BVBbWZkClkO4McPEQHrZPV2oTZv0BM
-	KmHI8/W7nRs7LKdqBYr/dLZqL3FeE/ytuUAiWbgRQJmqIFNZ3kneymQW/uMawgg4JYdjN0h3ThPXq
-	cUlwoH5Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tu1tLTcZMSXtRTHZPL6ek9nS4BqmH9hO5mA5mQ0aBFA=; b=r3DdljdLxM/lnNTTT18C1yBxYd
+	nqd9v1LSKUK1Klb0uvOb9Z3cbvarDijSaf9En4JbeabH/QOHBlgXt08i43F/KdEJf8i1fywCI0Slg
+	c1vgbTt+J5UTEu3YammpZCXcxPZZPTzIUxqj2+vDLfQjVGhVdxPA57S7XwxWLctS2seGY+aiUDq9R
+	rIwRffToP2ct/Ve75Juns9CzutZkC8Bka+WGz+KpwjbRQVjiduGwgsOghmFjpfP8addafccDBTKPl
+	KIIEPxuetogroMWIxx87IjYDZx/SVGe3iAmYT1l2r8rNJGKyb9ws0zzIdF4mMX+uyE7cF/+N3Z/QI
+	VzSkyF1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u266R-00000003deI-2oLx;
-	Tue, 08 Apr 2025 10:22:47 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25dF-00000003WEb-3nlx;
-	Tue, 08 Apr 2025 09:52:39 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43ea40a6e98so46538505e9.1;
-        Tue, 08 Apr 2025 02:52:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744105956; x=1744710756; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Q/W0x52D15NfB+BOP8T/m/ZC7owLNeVqs+BHfnihvT0=;
-        b=gfoVPyIDAArtJJUJIxAP/8QjjDSRgZb/0JRtdp5fDi8MnwvSWkXvNBw0rO8ZGMhjqh
-         DPfgypmT6iu081coibbGKiUWQJu4sUSKpMYIJpHeMPlxPJkpsOBXzVk/1ju+qHbuzzuj
-         8POapGopbV/uR0EjdcSTbEz/CGnIq04ariydRWLkTb5U4fXds1GIdC84cVdJrzf6ZxTl
-         m5Bo5F5QqQz9OVXcW2J0dIOaoJowtG4DH/wBqtRMVSd8SoPxHXrDlQKdoN/2sULDBbMo
-         L2j7Bl00Swx3vrZZ5syBrarZjxhXFvVAhw2pZRhliU2NyonIjUYrST+VIeHWE69r/Bi6
-         jWTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744105956; x=1744710756;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Q/W0x52D15NfB+BOP8T/m/ZC7owLNeVqs+BHfnihvT0=;
-        b=XAorfzXUCt3d/Cav+K7/PxI/c6DTe99vvDGu6robjPvNkMWoWsf1OR1ZONRVtC3KsJ
-         iUg5kQkAcSP+3IvgH63R9N4De0osxEzL18oY2I0o1RovrTAuKnvjOS6kavEVJ05gUryM
-         eG2Em/Hzh+ylfl049oxxfgVT7kBMTv5stu7IinQjYA9AS5yAb5rUlfaTqoNJ5afL2NQh
-         9jUhkIwWfCqh8mzXqKbvs3pELSNYQ36H0cVT23Pm6Nh2oQEG1UySQaj96r+ej9xM6Em4
-         bQPazv6MB1AthVhvHjMrKb8SJMs63UmPDeiRDTFN0Hyr90dDlTYjRbWRRskbHQTvXbxl
-         1grg==
-X-Forwarded-Encrypted: i=1; AJvYcCXT3q/rNo+I4tE5OJkRZo86hd7btWXcudkyyw2YShwdpzuwsp6vTMwEZI1SnUD/pCa1vhQhj3feQ9EEicHBW+VL@lists.infradead.org, AJvYcCXktO6WQ95czAeQO+xZYRIhafAuDurbxUkyCIFYW7qBllFoTIN1cyWsj8C3M/BfAqr9LkjI2UHbQP4da01ZCnw=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3a37p5Aa4wwyg9vNFkRAx2hQKMiDRy8SKCpmN6Cx7RdqMCOJR
-	aB4i61GyFTQJvf/9Rqh0OvN1673/DsXo5nM9YtLocVtRgMyaudkJ
-X-Gm-Gg: ASbGnctdKV0f2JO3wgX+sitef48vk6PR7YuUStFYwPgr9wJuzw0qEf5YrzOHFldnVyV
-	ogME9VEKdN2pb7lAz/ljLlkpAKjYSwuHlrBpTwRYTkiABao5bHMni9vYwGckG1/jRSJA5sgVd2O
-	x8oLFKUWmkpYHL0kCFOFnWG6+aqIiKcoFyWEpb40XpoWE1Zbz95sECI7gGfOvtDaC70J0AYMTkR
-	PxZ6OKr77r57RomxbSBdGYdKFKdtZANTZN7Eg6/o/xMxoI5xSGoLyfxTFAxUWllHwON/3C07/zT
-	Ids6pSk5/enkrpQzyj3sVNeDUKHbnvNUwipMgCx1APQWDa8S/iYK9gMQwrDt5JFpmglFegXl+4C
-	9eZmZ4YBwyrTzTw==
-X-Google-Smtp-Source: AGHT+IHnIRihboK4mhsVHOwL3IqceZiuQzPsMe0EptmYYIze/kCrhf/3JVkvsqSSB53X5rHEN/sF5A==
-X-Received: by 2002:a05:600c:1c17:b0:43c:f64c:44a4 with SMTP id 5b1f17b1804b1-43ee063fbc7mr115902005e9.8.1744105956238;
-        Tue, 08 Apr 2025 02:52:36 -0700 (PDT)
-Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39c3020dacfsm14493310f8f.72.2025.04.08.02.52.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 02:52:35 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
+	id 1u268E-00000003e4f-2D7I;
+	Tue, 08 Apr 2025 10:24:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u25dp-00000003WPZ-0iT7;
+	Tue, 08 Apr 2025 09:53:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D2B11688;
+	Tue,  8 Apr 2025 02:53:11 -0700 (PDT)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DE0F73F6A8;
+	Tue,  8 Apr 2025 02:53:05 -0700 (PDT)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
 	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Simon Horman <horms@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: [net-next PATCH v14 16/16] net: dsa: tag_mtk: add comments about Airoha usage of this TAG
-Date: Tue,  8 Apr 2025 11:51:23 +0200
-Message-ID: <20250408095139.51659-17-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250408095139.51659-1-ansuelsmth@gmail.com>
-References: <20250408095139.51659-1-ansuelsmth@gmail.com>
+	linux-csky@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-openrisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH v2 00/12] Always call constructor for kernel page tables
+Date: Tue,  8 Apr 2025 10:52:10 +0100
+Message-ID: <20250408095222.860601-1-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_025237_958591_3F794DDA 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20250408_025313_308398_9DC3575E 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,34 +89,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add comments about difference between Airoha AN8855 and Mediatek tag
-bitmap.
+There has been much confusion around exactly when page table
+constructors/destructors (pagetable_*_[cd]tor) are supposed to be
+called. They were initially introduced for user PTEs only (to support
+split page table locks), then at the PMD level for the same purpose.
+Accounting was added later on, starting at the PTE level and then moving
+to higher levels (PMD, PUD). Finally, with my earlier series "Account
+page tables at all levels" [1], the ctor/dtor is run for all levels, all
+the way to PGD.
 
-Airoha AN88555 doesn't support controlling SA learning and Leaky VLAN
-from tag. Although these bits are not used (and even not defined for
-Leaky VLAN), it's worth to add comments for these difference to prevent
-any kind of regression in the future if ever these bits will be used.
+I thought this was the end of the story, and it hopefully is for user
+pgtables, but I was wrong for what concerns kernel pgtables. The current
+situation there makes very little sense:
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+* At the PTE level, the ctor/dtor is not called (at least in the generic
+  implementation). Specific helpers are used for kernel pgtables at this
+  level (pte_{alloc,free}_kernel()) and those have never called the
+  ctor/dtor, most likely because they were initially irrelevant in the
+  kernel case.
+
+* At all other levels, the ctor/dtor is normally called. This is
+  potentially wasteful at the PMD level (more on that later).
+
+This series aims to ensure that the ctor/dtor is always called for kernel
+pgtables, as it already is for user pgtables. Besides consistency, the
+main motivation is to guarantee that ctor/dtor hooks are systematically
+called; this makes it possible to insert hooks to protect page tables [2],
+for instance. There is however an extra challenge: split locks are not
+used for kernel pgtables, and it would therefore be wasteful to
+initialise them (ptlock_init()).
+
+It is worth clarifying exactly when split locks are used. They clearly
+are for user pgtables, but as illustrated in commit 61444cde9170 ("ARM:
+8591/1: mm: use fully constructed struct pages for EFI pgd
+allocations"), they also are for special page tables like efi_mm. The
+one case where split locks are definitely unused is pgtables owned by
+init_mm; this is consistent with the behaviour of apply_to_pte_range().
+
+The approach chosen in this series is therefore to pass the mm
+associated to the pgtables being constructed to
+pagetable_{pte,pmd}_ctor() (patch 1), and skip ptlock_init() if
+mm == &init_mm (patch 3 and 7). This makes it possible to call the PTE
+ctor/dtor from pte_{alloc,free}_kernel() without unintended consequences
+(patch 3). As a result the accounting functions are now called at
+all levels for kernel pgtables, and split locks are never initialised.
+
+In configurations where ptlocks are dynamically allocated (32-bit,
+PREEMPT_RT, etc.) and ARCH_ENABLE_SPLIT_PMD_PTLOCK is selected, this
+series results in the removal of a kmem_cache allocation for every
+kernel PMD. Additionally, for certain architectures that do not use
+<asm-generic/pgalloc.h> such as s390, the same optimisation occurs at
+the PTE level.
+
 ---
- net/dsa/tag_mtk.c | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/net/dsa/tag_mtk.c b/net/dsa/tag_mtk.c
-index b670e3c53e91..ac3f956abe39 100644
---- a/net/dsa/tag_mtk.c
-+++ b/net/dsa/tag_mtk.c
-@@ -18,6 +18,9 @@
- #define MTK_HDR_XMIT_TAGGED_TPID_88A8	2
- #define MTK_HDR_RECV_SOURCE_PORT_MASK	GENMASK(2, 0)
- #define MTK_HDR_XMIT_DP_BIT_MASK	GENMASK(5, 0)
-+/* AN8855 doesn't support SA_DIS and Leaky VLAN
-+ * control in tag as these bits doesn't exist.
-+ */
- #define MTK_HDR_XMIT_SA_DIS		BIT(6)
- 
- static struct sk_buff *mtk_tag_xmit(struct sk_buff *skb,
+Things get more complicated when it comes to special pgtable allocators
+(patch 8-12). All architectures need such allocators to create initial
+kernel pgtables; we are not concerned with those as the ctor cannot be
+called so early in the boot sequence. However, those allocators may also
+be used later in the boot sequence or during normal operations. There
+are two main use-cases:
+
+1. Mapping EFI memory: efi_mm (arm, arm64, riscv)
+2. arch_add_memory(): init_mm
+
+The ctor is already explicitly run (at the PTE/PMD level) in the first
+case, as required for pgtables that are not associated with init_mm.
+However the same allocators may also be used for the second use-case (or
+others), and this is where it gets messy. Patch 1 calls the ctor with
+NULL as mm in those situations, as the actual mm isn't available.
+Practically this means that ptlocks will be unconditionally initialised.
+This is fine on arm - create_mapping_late() is only used for the EFI
+mapping. On arm64, __create_pgd_mapping() is also used by
+arch_add_memory(); patch 8/9/11 ensure that ctors are called at all
+levels with the appropriate mm. The situation is similar on riscv, but
+propagating the mm down to the ctor would require significant
+refactoring. Since they are already called unconditionally, this series
+leaves riscv no worse off - patch 10 adds comments to clarify the
+situation.
+
+From a cursory look at other architectures implementing
+arch_add_memory(), s390 and x86 may also need a similar treatment to add
+constructor calls. This is to be taken care of in a future version or as
+a follow-up.
+
+---
+
+The complications in those special pgtable allocators beg the question:
+does it really make sense to treat efi_mm and init_mm differently in
+e.g. apply_to_pte_range()? Maybe what we really need is a way to tell if
+an mm corresponds to user memory or not, and never use split locks for
+non-user mm's. Feedback and suggestions welcome!
+
+- Kevin
+
+[1] https://lore.kernel.org/linux-mm/20250103184415.2744423-1-kevin.brodsky@arm.com/
+[2] https://lore.kernel.org/linux-hardening/20250203101839.1223008-1-kevin.brodsky@arm.com/
+---
+Changelog
+
+v1..v2:
+
+- Added patch 2 to fix a BUG() on x86 caused by a missing dtor call at
+  the PTE level.
+
+- Patch 9: declared the new helpers with __maybe_unused to avoid a
+  warning if CONFIG_MEMORY_HOTPLUG isn't selected.
+
+v1: https://lore.kernel.org/linux-mm/20250317141700.3701581-1-kevin.brodsky@arm.com/
+---
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Andreas Larsson <andreas@gaisler.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Matthew Wilcox <willy@infradead.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: "Mike Rapoport (IBM)" <rppt@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>
+Cc: linux-arch@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-openrisc@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: sparclinux@vger.kernel.org
+Cc: x86@kernel.org
+---
+Kevin Brodsky (12):
+  mm: Pass mm down to pagetable_{pte,pmd}_ctor
+  x86: pgtable: Always use pte_free_kernel()
+  mm: Call ctor/dtor for kernel PTEs
+  m68k: mm: Call ctor/dtor for kernel PTEs
+  powerpc: mm: Call ctor/dtor for kernel PTEs
+  sparc64: mm: Call ctor/dtor for kernel PTEs
+  mm: Skip ptlock_init() for kernel PMDs
+  arm64: mm: Use enum to identify pgtable level instead of *_SHIFT
+  arm64: mm: Always call PTE/PMD ctor in __create_pgd_mapping()
+  riscv: mm: Clarify ctor mm argument in alloc_{pte,pmd}_late
+  arm64: mm: Call PUD/P4D ctor in __create_pgd_mapping()
+  riscv: mm: Call PUD/P4D ctor in special kernel pgtable alloc
+
+ arch/arm/mm/mmu.c                        |  2 +-
+ arch/arm64/mm/mmu.c                      | 93 ++++++++++++++----------
+ arch/csky/include/asm/pgalloc.h          |  2 +-
+ arch/loongarch/include/asm/pgalloc.h     |  2 +-
+ arch/m68k/include/asm/mcf_pgalloc.h      |  8 +-
+ arch/m68k/include/asm/motorola_pgalloc.h | 10 +--
+ arch/m68k/mm/motorola.c                  |  6 +-
+ arch/microblaze/mm/pgtable.c             |  2 +-
+ arch/mips/include/asm/pgalloc.h          |  2 +-
+ arch/openrisc/mm/ioremap.c               |  2 +-
+ arch/parisc/include/asm/pgalloc.h        |  2 +-
+ arch/powerpc/mm/book3s64/pgtable.c       |  2 +-
+ arch/powerpc/mm/pgtable-frag.c           | 30 ++++----
+ arch/riscv/mm/init.c                     | 26 ++++---
+ arch/s390/include/asm/pgalloc.h          |  2 +-
+ arch/s390/mm/pgalloc.c                   |  2 +-
+ arch/sparc/mm/init_64.c                  | 29 ++++----
+ arch/sparc/mm/srmmu.c                    |  2 +-
+ arch/x86/mm/pgtable.c                    |  9 +--
+ include/asm-generic/pgalloc.h            | 11 ++-
+ include/linux/mm.h                       | 10 ++-
+ 21 files changed, 142 insertions(+), 112 deletions(-)
+
+
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
 -- 
-2.48.1
+2.47.0
 
 
