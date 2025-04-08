@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15F9C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 10:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5791C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 10:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=08E//Tnzm4Otbmgjv5PkMZzFPCICf9ItkLK9Ykz94vQ=; b=s2NZ54WykVDNczLOvw91SJT12e
-	74N5DEctSBhgw9JM6y613qJm1ahvoR5MLxd2MMpzhVcckt+LGztTIiqAUegnOlX1l8GQuuMR6U//C
-	CQl1V7+QluEM05ks6zntEnzpW95Fyw+/nt9XQVQtdteNzD/RpbFgzqksl1weHyUvbu16gAlnAcQje
-	1vh/jR22pMgyU96eUxRuewZ7bMT89VwMSJ2Qw0D9JkQSpm5gn+HKeqjams/BD6Px5/IdumWgTy2cN
-	PrVbisUlyPC/9FVR8Eb9jgHhIvUzZU5uoFQtkAIOEvA0QQVU3KQ44P5V3l/TAyPmYloOJsAt7lt06
-	W7OWnTyQ==;
+	bh=TzR32DbReKxN1gNABAGBHX05QxXHRYwxaULYt2Tll9Q=; b=PC3EO4iJVCa6IS/gUDfr913MRa
+	r6BSbGmxrettalzaF875MKYwqJpTWdlEo6ZZObPgkG9nBHhOJVpZP8RPEwRTomJaZ2nbJjGjPuQMi
+	B85yU88mwajUNBfIxAUcK1pemM/jJksTxpm9ezfodRt+ghWZ//KPiujUuvlVCaYC8fnrsyauLJqxY
+	zPze5DEc8M/uVtfeX5MPRSHpI1MJ/k5isaqXNDiXeHpXzJAeLYmsVm1QxZSUntSy3HAedzSoTS28l
+	p8bZOgEKWKPviAbsV8kMBQQvCUHapHG3qynQHzCid28yJbU3mo74X+MAYFGiphSilO+hat/ZjIGSw
+	HuYI3v3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26Tx-00000003j9Y-1KAL;
-	Tue, 08 Apr 2025 10:47:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25eh-00000003Wty-1Leg;
-	Tue, 08 Apr 2025 09:54:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C22912308;
-	Tue,  8 Apr 2025 02:54:07 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8289A3F6A8;
-	Tue,  8 Apr 2025 02:54:02 -0700 (PDT)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-openrisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v2 12/12] riscv: mm: Call PUD/P4D ctor in special kernel pgtable alloc
-Date: Tue,  8 Apr 2025 10:52:22 +0100
-Message-ID: <20250408095222.860601-13-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250408095222.860601-1-kevin.brodsky@arm.com>
-References: <20250408095222.860601-1-kevin.brodsky@arm.com>
+	id 1u26XY-00000003k5G-2Y1t;
+	Tue, 08 Apr 2025 10:50:48 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u25u2-00000003aSG-0JIq;
+	Tue, 08 Apr 2025 10:10:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744106995;
+	bh=zKoPiYcz99Nz4xf/JHPeWfzhs+Akk0ORk8KQJztJIxQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QbKB7Hnuj7ZBKkSBv3cR7rUneJAWMFXGUNA2RlvgRAAa1CE/eyVhw+cTMS9R2St27
+	 SY+aAKK7+tpi2H2knNvVcHXpaHtcmrs6uAShV4d/FuBat2tnGJN6tWO85BPStSNJ7j
+	 JteOu1GtkRGekbkzFGq5oBg5/E6qzWLhfdos8uTCNTti9FheqrOxphMDfwhhTI4Ceq
+	 DF2CsyyTHpEerv9N7B1HfZr0pjHcRtHhFXY4op4H9xERbyo3Q36zT7BIG04l7UsScx
+	 6qiqVNloHKIJGsn/jxOyaPjHMNGR5YBeX0kQ67wcH75tMHgVfELm/JF9aJdocanaOX
+	 lUjWERyst7HVw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 147C517E0F9E;
+	Tue,  8 Apr 2025 12:09:55 +0200 (CEST)
+Message-ID: <ae6b9a80-c8b6-48dc-9229-da4e8c102551@collabora.com>
+Date: Tue, 8 Apr 2025 12:09:54 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8188: Fix IOMMU device for rdma0
+To: Chen-Yu Tsai <wenst@chromium.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Chengci . Xu" <chengci.xu@mediatek.com>, Yong Wu <yong.wu@mediatek.com>,
+ Robin Murphy <robin.murphy@arm.com>
+References: <20250408092303.3563231-1-wenst@chromium.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250408092303.3563231-1-wenst@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_025407_416396_85117076 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20250408_030958_266893_D7F6C926 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +77,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Constructors for PUD/P4D-level pgtables were recently introduced.
-They should be called for all pgtables; make sure they are called
-for special kernel mappings created by create_pgd_mapping() too.
+Il 08/04/25 11:23, Chen-Yu Tsai ha scritto:
+> Based on the comments in the MT8188 IOMMU binding header, the rdma0
+> device specifies the wrong IOMMU device for the IOMMU port it is
+> tied to:
+> 
+>      This SoC have two MM IOMMU HWs, this is the connected information:
+>      iommu-vdo: larb0/2/5/9/10/11A/11C/13/16B/17B/19/21
+>      iommu-vpp: larb1/3/4/6/7/11B/12/14/15/16A/17A/23/27
+> 
+> rdma0's endpoint is M4U_PORT_L1_DISP_RDMA0 (on larb1), which should use
+> iommu-vpp, but it is currently tied to iommu-vdo.
+> 
+> Somehow this went undetected until recently in Linux v6.15-rc1 with some
+> IOMMU subsystem framework changes that caused the IOMMU to no longer
+> work. The IOMMU would fail to probe if any devices associated with it
+> could not be successfully attached. Prior to these changes, only the
+> end device would be left without an IOMMU attached.
+> 
+> Fixes: 7075b21d1a8e ("arm64: dts: mediatek: mt8188: Add display nodes for vdosys0")
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-While at it also switch to using pagetable_alloc() like
-in alloc_{pte,pmd}_late().
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/riscv/mm/init.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 59a982f88908..8d0374d7ce8e 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -590,11 +590,11 @@ static phys_addr_t __init alloc_pud_fixmap(uintptr_t va)
- 
- static phys_addr_t __meminit alloc_pud_late(uintptr_t va)
- {
--	unsigned long vaddr;
-+	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL, 0);
- 
--	vaddr = __get_free_page(GFP_KERNEL);
--	BUG_ON(!vaddr);
--	return __pa(vaddr);
-+	BUG_ON(!ptdesc);
-+	pagetable_pud_ctor(ptdesc);
-+	return __pa((pud_t *)ptdesc_address(ptdesc));
- }
- 
- static p4d_t *__init get_p4d_virt_early(phys_addr_t pa)
-@@ -628,11 +628,11 @@ static phys_addr_t __init alloc_p4d_fixmap(uintptr_t va)
- 
- static phys_addr_t __meminit alloc_p4d_late(uintptr_t va)
- {
--	unsigned long vaddr;
-+	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL, 0);
- 
--	vaddr = __get_free_page(GFP_KERNEL);
--	BUG_ON(!vaddr);
--	return __pa(vaddr);
-+	BUG_ON(!ptdesc);
-+	pagetable_p4d_ctor(ptdesc);
-+	return __pa((p4d_t *)ptdesc_address(ptdesc));
- }
- 
- static void __meminit create_pud_mapping(pud_t *pudp, uintptr_t va, phys_addr_t pa, phys_addr_t sz,
--- 
-2.47.0
 
 
