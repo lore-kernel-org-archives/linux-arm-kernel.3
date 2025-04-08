@@ -4,126 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D8AC369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F256C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=maYeBHyukcD41Ok36kPrsdL9APyex77i93BMZAgSjDY=; b=K1cbigGeDsSX40wXkFrc5QWo0M
-	//FLuHUxiw//w12WS6FCgxHetqRkbGU8DB3XpFRF9IC7c/AX3f10WqjJl5Rh6HmiaFRIpDy+RKBuV
-	8eSO79quDIGbnkWcXnap+BpZbcoj1xChyL6QLiNGZHxQw1ZsoHIBO9dAJIorpstQ6zK4xWmgUquKR
-	j/eDRtzMp9TyliL3TrgrOH6fZQOU21LFC72zdWX7iVrcH32gPkKlTyPryL/0+qYng8fJtZ7IFd4UE
-	1Zr53+rwP4FbKnMO2tau4n9IQDLtI4ScBC1vZZPsZ48mypmNO982i3XevNxsMzsLz5CeIARfyPWof
-	let0MgNQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wy3Km0AVXCTI4DrQJkFCQiFPROUoaPoc5lNFfKuzy6A=; b=PuzOthM6XLazKaXA+p2b6gjg+5
+	HGHku3ULjOMEEUuQOcDBbjbv5he+zHOboph++CCRDBs0/krJmkke9wkXgKYdnTB5mglGxO7gMR/R/
+	vq0xshqqX5QnkafDloHgG7mKPknBAMhs6xG3Q7K2w/2P0PNXmLGTkeCroA6o1XnOzfphdfU/nybIt
+	heStk2XZLXoJv2Ik1A/QzE29Ex5RjFuwHjMwqGH41CvBaM3xrT8iM9rhTbXRQ3Ow4ARi/sUzKIoU4
+	okhXXAntClXtOrSAOx9V38isz+HYVqu01APtrPGybZYSiXFAK5SOY/YiBB2i3dJrlgpD39OSgmJnA
+	cLc5Rmhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u29zH-00000004OVi-0iOs;
-	Tue, 08 Apr 2025 14:31:39 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1u2A11-00000004Ors-0n01;
+	Tue, 08 Apr 2025 14:33:27 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u29vZ-00000004NXJ-2X51
+	id 1u29wn-00000004O2V-2o3I
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 14:27:52 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43ed8d32a95so33327125e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 07:27:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744122468; x=1744727268; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=maYeBHyukcD41Ok36kPrsdL9APyex77i93BMZAgSjDY=;
-        b=pWySzRZko8EwBW+fGLiXe36yid3b9Qx5r50vuD+xwl4wNLeM1H3Ot4jSQDUE0QmGrz
-         M+af7ufhbr5nADwbZa/ArC4aukrfn3CZoxGZC9EfyOZgDt62bzBFll6dQTr9QUFsU875
-         JcUU+jAqYe0gpQhguFehimTh19JJ9FLyW0UrLqegVmK+ttNoXcaBxs3SKoXtWr656zoA
-         em2bjBzIKeplJ8+zMO/ag29aIRXTqL+c7kvspJHRlf54wF6WqHVKy6OR8eHxfH3V9cAe
-         NOCsYc88vgvSqYsPwRAHsLYieEaP+lIw1rD8nmXSzzqLZyeQgGNU/T1L7+v1RqYiFCJM
-         TIYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744122468; x=1744727268;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=maYeBHyukcD41Ok36kPrsdL9APyex77i93BMZAgSjDY=;
-        b=Z2HKHcpkglGmRVc7ayrrhJsBG62LKbxbM+fbTgaud5o1usLElBmAB8Alp5gWQxzaXm
-         H0UhttinbehcSaqNpBSkk4YDgBcJtMfF34VG8p9HOST/o7eiL5bmpYhQ68eGvo5FhLlM
-         mIXxFCtvzItj5FyI4hFOgYygGnPdeD/Ca+awP3icVyF2bDBP/e/0PT4Zo9TEjFwQvgCi
-         VYeqR14E/LygU+lhjiHawJHMZMQf8H04n83yPTBnxwLfvnhsrtwUNaw45txJUiFh0YsM
-         c++CfDzqbhIcfuRbZJisU3sd1UjWf+W8IMPOK9MuxlDYYp/h6hemNprORo5L/bGSa95F
-         oKyw==
-X-Gm-Message-State: AOJu0YwWC26GaFNPHuLthBLokxE1dUzSzTfRDV+pL4/cFvsjFLDHEtoJ
-	YkY8RBoDZVyPOmSQysOjRIEXs9wtblEKGfSU85XT27fOfb8QfvhjX9DZpy64Vsw=
-X-Gm-Gg: ASbGnct6PbuUdnwxIw1BLB3PxHWfJdKdUY7vOTHPTeD4im7+MqVyCmLSPC8UXqJqkNT
-	gqbmahM4bYlkwRccwHMZ5BP6+vH98pTwabMbhmwqGEMcIbDL4snkIRxn+G7lqNeTC+kRn0fahJL
-	UnV0ybwT+R6/I5fs7CvAz8KalkumTYz9ygZHG/C09VZoCXxA6b8LZaCV2DBQEVBkRMjmj34rpRG
-	64RTegxsKX+IVpNkq63p/4lzpx5ScjQBmhWQagKsDvsk9hRGJ4KTBhjT0MgygaRd6ynC/myEp1R
-	9H8hkr6fS0/7Cg+jaoz4eOJ7FNhDOgtG/ImSFVjNLoU2MSwxrxO+LtsY0MC7Be/om2feD0nJcAY
-	dp1tn3A1L8+h72endXRvaVQ==
-X-Google-Smtp-Source: AGHT+IHOQl3NOqzgesmZMaye/+jS53HYFNcdFr4mTBR4HNItRvuMdvVuoVoOZXlrImVcJ2UxCZ7isA==
-X-Received: by 2002:a05:6000:4011:b0:391:31f2:b99a with SMTP id ffacd0b85a97d-39cb35b2527mr16291235f8f.5.1744122467955;
-        Tue, 08 Apr 2025 07:27:47 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:3daa:5b6d:6ccb:4c71? ([2a01:e0a:3d9:2080:3daa:5b6d:6ccb:4c71])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec34be2f4sm161009595e9.19.2025.04.08.07.27.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Apr 2025 07:27:47 -0700 (PDT)
-Message-ID: <81d462fb-b118-4354-82b5-92c33d870b44@linaro.org>
-Date: Tue, 8 Apr 2025 16:27:47 +0200
+	Tue, 08 Apr 2025 14:29:07 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 74EF144351;
+	Tue,  8 Apr 2025 14:29:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744122543;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wy3Km0AVXCTI4DrQJkFCQiFPROUoaPoc5lNFfKuzy6A=;
+	b=gxVrnn/JVh0iC4BPAsAridJn4qT7FAvRDSKdNs6dH7buDlSemR54nzZAPf3tIIgziWPivZ
+	owfGzS3t8eTMAXID8Ioi7sBsZdU89YTITi0SEbf8OqVFObyYjO+ht1vLjc5sY+ZyvqoT1K
+	XbseKEUk2rLd/GRjaBGXXD4ZWxucg5+n12Wvsu4S5CSPYu5QmT6BNMavIW1w1SbZQReccT
+	qUUpAhhXYCUUmyEmRSVEe1j6vwK02/srrDJfFTL7lpFtxTtMFeLk14cSsFkAKRvzUyYHkM
+	gSlm2nGbIp2xmGhocUyVGi1ZV+VblO56FfmKtmdd8n0wwK2H7ES6ZJo6/49MhQ==
+Date: Tue, 8 Apr 2025 16:29:00 +0200
+From: Herve Codina <herve.codina@bootlin.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang
+ <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, Derek
+ Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
+ Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana
+ Kannan <saravanak@google.com>, Bjorn Helgaas <bhelgaas@google.com>, Mark
+ Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, Daniel Scally
+ <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, Allan Nielsen
+ <allan.nielsen@microchip.com>, Horatiu Vultur
+ <horatiu.vultur@microchip.com>, Steen Hegelund
+ <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 08/16] i2c: core: Introduce i2c_get_adapter_supplier()
+Message-ID: <20250408162900.41b6bc08@bootlin.com>
+In-Reply-To: <Z_UpB1cgU_99JHdF@smile.fi.intel.com>
+References: <20250407145546.270683-1-herve.codina@bootlin.com>
+	<20250407145546.270683-9-herve.codina@bootlin.com>
+	<Z_Puy8eEBc6tubEx@smile.fi.intel.com>
+	<20250408150836.327a337d@bootlin.com>
+	<Z_UpB1cgU_99JHdF@smile.fi.intel.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 07/10] pinctrl: sx150x: enable building modules with
- COMPILE_TEST=y
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
- Ludovic Desroches <ludovic.desroches@microchip.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Xianwei Zhao <xianwei.zhao@amlogic.com>,
- Patrick Rudolph <patrick.rudolph@9elements.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250408-gpiochip-set-rv-pinctrl-part1-v1-0-c9d521d7c8c7@linaro.org>
- <20250408-gpiochip-set-rv-pinctrl-part1-v1-7-c9d521d7c8c7@linaro.org>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250408-gpiochip-set-rv-pinctrl-part1-v1-7-c9d521d7c8c7@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdeffeefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveeiffefgeeitdelleeigefhjeelueeuveekveetgeffheeltdekgeduiefggfdvnecukfhppedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgdphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegtddprhgtphhtthhopegrnhgurhhihidrshhhvghvtghhvghnkhhosehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
+ egurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhm
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_072749_712095_B6A68BAF 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20250408_072905_836430_03C89537 
+X-CRM114-Status: GOOD (  31.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,35 +98,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/04/2025 09:17, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Tue, 8 Apr 2025 16:47:51 +0300
+Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+
+> On Tue, Apr 08, 2025 at 03:08:36PM +0200, Herve Codina wrote:
+> > On Mon, 7 Apr 2025 18:27:07 +0300
+> > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:  
+> > > On Mon, Apr 07, 2025 at 04:55:37PM +0200, Herve Codina wrote:  
 > 
-> Increase the build coverage by enabling the sx150x modules with
-> COMPILE_TEST=y.
+> ...
 > 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
->   drivers/pinctrl/Kconfig | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> > > > +	return get_device(adapter->supplier ?: adapter->dev.parent);    
+> > > 
+> > > What will be the meaning when both are set? Why dev.parent is not the same
+> > > as supplier in this case?  Looking at the commit message example, it seems
+> > > like you want to provide a physdev or sysdev (as term supplier seems more
+> > > devlink:ish), like it's done elsewhere. And in the same way _always_ initialise
+> > > it. In such a case, the ambiguity will be gone.  
+> > 
+> > When both are set (this is case for i2c muxes), the adapter->supplier the
+> > device that register the I2C adapter using i2c_add_adapter() or variant.
+> > In other word, the device that creates the I2C adapter.
+> > 
+> > The adapter->dev.parent is most of the time the device that register the
+> > I2C adapter except for i2c muxes. For I2C muxes, this adapter->dev.parent
+> > is the adapter the i2c mux is connected to.
+> > 
+> > Between physdev and sysdev, I really prefer physdev and, if renaming from
+> > supplier to physdev is still needed (and wanted), I will rename it. Let me
+> > know.  
 > 
-> diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
-> index 464cc9aca157..94eb41bb9cf2 100644
-> --- a/drivers/pinctrl/Kconfig
-> +++ b/drivers/pinctrl/Kconfig
-> @@ -541,7 +541,7 @@ config PINCTRL_STMFX
->   
->   config PINCTRL_SX150X
->   	bool "Semtech SX150x I2C GPIO expander pinctrl driver"
-> -	depends on I2C=y
-> +	depends on I2C=y || COMPILE_TEST
->   	select PINMUX
->   	select PINCONF
->   	select GENERIC_PINCONF
+> The terms supplier/consumer are widely used in terms of power and devlink.
+> I think here should not be used the term supplier.
+
+physdev seems good.
+I will use that.
+
+> 
+> > For initialization, I don't want to modify all the I2C controller drivers.
+> > What I can do is to initialize adapter->supplier using adapter->dev.parent
+> > during the i2c_register_adapter() call if it was not already initialize by
+> > the caller (i.e. the I2C controller driver).  
+> 
+> This can be done in the I²C core, but I'm not insisting on this part.
+> We can start from your function only and then decide later on how to
+> proceed (depending on how many users of that field appear and what
+> they want to do with it).
 > 
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Right I think I can keep my function as it.
+
+Wolfram any opinion?
+
+Best regards,
+Hervé
 
