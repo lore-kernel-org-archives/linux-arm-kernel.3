@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E1FC369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B66FC369A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q8c5kGuEjzUrixCQz8SJfmiMTtSSZ6M/pup07QMbIZo=; b=GP6us4E919p8Nfny3DpqtQWZbO
-	lDgPS3dZwYIqz8qDKDDbqaU7yE5dNrJtnD9krx0h+Ko2YKPwYF9MHs7OQEXt1s7aKXxElVrBhFO2K
-	aZlClUha5IivHd2Piti4Zs9U8J1coEFj9Mz3V8QQlm9oLaKyJxXlbEdKbTtDJzO7/ODtI2UHTRQ/h
-	7+nLALDtJU7H8SIvqJfwZNLuJ26c0g/4Fs3kP5JMRAB6NDDTTXYdxgGugfDtJhnACui0gw/fCJNxL
-	RKZm33AhwOh6hoEqAMiFofFp8eBT1Y/IYTA+k1iBxyc/NiVj3CQV1BxE/hfhMWeU8TNGmmnbYXDfs
-	M7aqim3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1T9J7a4wvw+eQlYg0BzdhhYoh6hx3LuKNuaBwNMHByw=; b=gh8HuKSCiAP2x6ShjFg1QJSSIE
+	Rz5+e9aXjX2KQcvK7+zyaFw///wOPJRv/Ir47Oa4SvsP+za9FXCj3g+cgxuyKo58fd1Z/v836jwk2
+	Nj6qkkAkBWaMyz3GFsWDwTXKcNP9hTZcA4jc5X78TP84gKmGoOunLr9NeLOlJtzGCKOoFHYd0mwiJ
+	Cz8DpFL4/Z8ChXZAHazgXdgMSvWAbEs/xK39n76Sy1eeLcBhG9+wd0cFZNH2Js7cF08e3JfhTBZY3
+	lurPqkbqWLBF4/JiMmBVG+IsXb9z3NTq6+ILQFMDqTbOmZ8pB5hxNnnUDGMq+uMX+81oGB6IMhX99
+	PWQWfJMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2BzZ-00000004q4o-0CWC;
-	Tue, 08 Apr 2025 16:40:05 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1u2C4Q-00000004qri-2Otr;
+	Tue, 08 Apr 2025 16:45:06 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Bxn-00000004pni-3DJB;
-	Tue, 08 Apr 2025 16:38:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=q8c5kGuEjzUrixCQz8SJfmiMTtSSZ6M/pup07QMbIZo=; b=t9QSCPFKWRX+IEXLLTG7nFPvtv
-	qDrwtyW8ndHz9ADtdBvDwK9R1/b7GawfLb9Ry+HoJokPfkHZsWEY8kmm+jpBlq6UtOttGJYiUw7RR
-	YQcU45qxxKziWZ2wo5RrV8K7L++OSyA0Pg6W4VCgKFlOrXroMKnLYbVxn6C0iXMlaNBqc55NZ+7ry
-	DAQLC5cv7ugIBp7R5NUNcrnkv6P4QXcnyZrwaQNIPaFmW3FgZted7FwYDS5UBdqKAJDVf5IQeUvr3
-	Gezyf9Lp+/2LMaVmh9DL4kYQDtD4GOp47bbpeRMV5gu/qNM87gpbm6R4yQ33Abl/XS2ElP+tzf6AO
-	XyawnGVw==;
-Received: from willy by casper.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2Bx2-0000000GpOB-0hye;
-	Tue, 08 Apr 2025 16:37:28 +0000
-Date: Tue, 8 Apr 2025 17:37:27 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v2 02/12] x86: pgtable: Always use pte_free_kernel()
-Message-ID: <Z_VQxyqkU8DV7QGy@casper.infradead.org>
-References: <20250408095222.860601-1-kevin.brodsky@arm.com>
- <20250408095222.860601-3-kevin.brodsky@arm.com>
- <409d2019-a409-4e97-a16f-6b345b0f5a38@intel.com>
+	id 1u2C2d-00000004qZq-1tZD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 16:43:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B7BA65C0599;
+	Tue,  8 Apr 2025 16:40:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E62F3C4CEE9;
+	Tue,  8 Apr 2025 16:43:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744130594;
+	bh=6euOao2eAtJ0Z0zrGfX9QrQRF5t21fg8cXwT3RaDtnA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Ca7Fs8XkQuFb/FKXa9ESOVTGRnOxXszAt9veA7MdGHW4kgZxhe59XHkEaq+8kw3ll
+	 pXNR/byP/mEmOPyTEl6SBuQ3om/gkmXVFEKFQ/ns+SpNY29osxxcVDwCRiGIb/EDq3
+	 6XDeNSatxaE2mCbe97AoV6TY4rs61CeUAXcvm0iCC8+THYKhaRaYBBMwCeGfhXJimI
+	 MKjBli7k+OIDjYp3JoM5EYEoUKPYHP5Q44O9BrqvUqmxKT2TZ6essWe7I8dRlivnWP
+	 8MNdh2lrZeMQ3V5zaOBBZHNcIswbyWAPWElPGzwEhT77spADk8JLKvGeLAYXulGEza
+	 MR7kTABOGDVJA==
+From: Mark Brown <broonie@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ christophe.kerello@foss.st.com, linux-spi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250324-upstream_ospi_required_resets-v2-0-85a48afcedec@foss.st.com>
+References: <20250324-upstream_ospi_required_resets-v2-0-85a48afcedec@foss.st.com>
+Subject: Re: [PATCH v2 0/2] spi: spi-stm32-ospi: dt-bindings fixes
+Message-Id: <174413059164.2217856.1996505992127496471.b4-ty@kernel.org>
+Date: Tue, 08 Apr 2025 17:43:11 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <409d2019-a409-4e97-a16f-6b345b0f5a38@intel.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c25d1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250408_094315_536863_24281B3E 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,24 +79,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 08:22:47AM -0700, Dave Hansen wrote:
-> Are there any tests for folio_test_pgtable() at free_page() time? If we
-> had that, it would make it less likely that another free_page() user
-> could sneak in without calling the destructor.
+On Mon, 24 Mar 2025 10:40:12 +0100, Patrice Chotard wrote:
+> Make "resets" property mandatory.
+> Update spi-stm32-ospi driver and dt-bindings accordingly.
+> 
+> 
 
-It's hidden, but yes:
+Applied to
 
-static inline bool page_expected_state(struct page *page,
-                                        unsigned long check_flags)
-{
-        if (unlikely(atomic_read(&page->_mapcount) != -1))
-                return false;
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-PageTable uses page_type which aliases with mapcount, so this check
-covers "PageTable is still set when the last refcount to it is put".
+Thanks!
 
-I don't think we really use the page refcount when allocating/freeing
-page tables.  Anyone want to try switching it over to using
-alloc_frozen_pages() / free_frozen_pages()?  Might need to move that API
-out of mm/internal.h ...
+[1/2] spi: dt-bindings: st,stm32mp25-ospi: Make "resets" a required property
+      commit: d58b4eb7c03cabb10d4eebc89d7596e06376e54d
+[2/2] spi: spi-stm32-ospi: Make "resets" a required property
+      commit: 69e3433fa5e24edc94e94b4f34e3dbb754bdedbf
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
