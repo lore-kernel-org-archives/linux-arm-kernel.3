@@ -4,181 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29696C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 22:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29ACCC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 22:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KttHrRtzn1U19NH6GsJwXSoXWlO1SKYYwMmHuWE8chQ=; b=ez+2JKHONqNndyqzTQ5YdMa3t4
-	b97t+9UyKHVThT+RWWE0xy7o0oMVxDIYiIJABYJVQc/H2NfAY19oHkix1EMeQJT9DNt3JAkUsfiEC
-	euzE4GTngzMDC4VoFdtrr5IrcCPxqrpvDYefJOGMlEFHRxE/l/z4pTW31Aydegq30rjhO9fxYQr67
-	2PhKh5H/43ycmv3aKdKJXf+S3gToy4RbDJY/06CbYiDrfNHaiEXK9UnSf2Ywzbtb0DG6aL6SReqmq
-	9riCZUUOZOyA8J4iKuijzT2XwkOe4piZ/NotSDmD9Unx/Xq+GlVOOEt22xaG2lQPF7cgia+7Pz72r
-	8uF4X8Lg==;
+	bh=98nLlPYT+VTzspfa339eHkagfVUGyHyGGsVV5kY2nSQ=; b=021rpdpE5c0iGhm4cJnDNB6EAw
+	KvgKriqo8fJUz6L8O9Jl6bWAp9Zi+txs1RNREbMF0PDR8O2nmawdGDc3kpcqBGLyuyA5BVx8QTPZc
+	T7qXMXncswaIMwvt/pp3n4uby0wSNwXZYeCXqnYj0Tki8zLF+whpynGKhGnLXy2uTeMY4VV6k6bbU
+	ke4MZHStJ7gpK5dYaUTRYi0ss9JgRMJP/uhbaG+BT9Znl8jAsUEf00ZpTSZ16vA9X3Swb/kJMpzvQ
+	oUazsVPou9cTJlM9MS+8eUNa5HSjzE6wV6MPKoRlqNmAkLvFvTCTzTj3Ue//TEkz9w5PR0J623H/D
+	DkWeF11Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2HHn-00000005YMr-3PLL;
-	Tue, 08 Apr 2025 22:19:15 +0000
-Received: from mail-db5eur02on2062f.outbound.protection.outlook.com ([2a01:111:f403:2608::62f] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1u2HJX-00000005Yc1-25E2;
+	Tue, 08 Apr 2025 22:21:03 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2GuB-00000005UhP-3vWy
+	id 1u2HCK-00000005XYh-1Axm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 21:54:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C1WJDZT/qLNW57qWG2NN/XZ5i8OkS5HTaPeXIHCKWglp5M8e7I0lz1n2bInofiMQbnv38oyPxXFcZHPn46N0GPf7FV/Q6/ev3hvEa+T+Qo9BjzmogVfUtjpCeFmYnk+3x0GFRqrA/myutVGZoxCwxo9FAN02u60VOGxI5pEGhsxyVn7YYA86jtefL7AmjkKx1clsfIOQFsy5pr8dTCXPWMh4uKygMgEwqcA3YkxQutvkEsUoWnrISKiieG39GOtvZXJvDTtoaCHrGfBBdeeNmyKhGNdeDFsULXScfxuTpwkXJOLI4ksU0lMQxKF29rWrNO0d6SbeZD6HT7FRqFTF7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KttHrRtzn1U19NH6GsJwXSoXWlO1SKYYwMmHuWE8chQ=;
- b=HMxAbzINl88he2iP2CSGDkFf/jHnB4llwnkLG1uOu5/T6QHrxEK1rahjXRUUiRuksf0OG8JeLzzIQ+XZelZuodK8gIqgpIbuKct1vnEgG7Om9IOPLQyJ/xQAZkqIrOGkamsgplcmULPfatKWT6lu2/Nx2sqxk15448UQ33aKe/k7odylGsbsQXl1CELy4mSXkefqj3KbWwlFLsEXTa9Il9sre1ST8k+f/Nkj960g0DbrnQ0KJxU1CHe2ULCo50YzrQuNYYm+kxzCZuXV0Wepfq0q/cKKyU0mZo0D6qL26CZDW1LJTgyourQWtwKrDBJW8jjs+Z9Mlbr6ajmLUimDMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KttHrRtzn1U19NH6GsJwXSoXWlO1SKYYwMmHuWE8chQ=;
- b=K1Y61WHSpqaQ0oa8w9SND/t5efSTqDDMtSCh/2rkzjlcarUa8VR+fiv9Lgsu/M1NrLe633o7n5TLJw5vRnllyxMeXeA2QeMH8VpKHuWJYaIwu1CT7j7pHTflNO3h6bsY9mqQ4ZGtsiythvF7rVCtUI3S7nlmyhnyUMoo2dQhAe+FHI5Hs2LBCWf7PueXm2YpbjFVg0jjxNF1hR7bnDuEtWsfL9DGnxewjb6BAGsJ3q16F0NTpHd9JCUoxQgWdG2ka6IUdT9Eh2tpMPQ1WGafqx91X5R9pfgSKLlpSLLCuH0fE7ZAxNWfzUiV3Tezgh8qVRGUDhOPXXnMf2D5/URvSw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM0PR04MB6993.eurprd04.prod.outlook.com (2603:10a6:208:17d::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Tue, 8 Apr
- 2025 21:54:48 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Tue, 8 Apr 2025
- 21:54:48 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Tue, 08 Apr 2025 17:53:11 -0400
-Subject: [PATCH v4 13/13] arm64: dts: imx8q: add camera ov5640 support for
- imx8qm-mek and imx8qxp-mek
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250408-8qxp_camera-v4-13-ef695f1b47c4@nxp.com>
-References: <20250408-8qxp_camera-v4-0-ef695f1b47c4@nxp.com>
-In-Reply-To: <20250408-8qxp_camera-v4-0-ef695f1b47c4@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
- Rui Miguel Silva <rmfrfs@gmail.com>, Martin Kepplinger <martink@posteo.de>, 
- Purism Kernel Team <kernel@puri.sm>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Robert Chiras <robert.chiras@nxp.com>, 
- "Guoniu.zhou" <guoniu.zhou@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744149229; l=11400;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=+nDGwia3/owe7pv+QZPq07IJEos+Cd/hT3WNI74TaMk=;
- b=i2EyRjc1aHRNqIiLkIX6ZmEkrru7FOytIrJP/4yJun2zSyDrri9B0hU3DPRXPbOv95wQ/NhQg
- 1dorGgMmvbHD7X4WLpWluIo5+oc1l6P1qIrRzQbBUD6pf+G2ZqeMOhh
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: PH8PR02CA0047.namprd02.prod.outlook.com
- (2603:10b6:510:2da::8) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Tue, 08 Apr 2025 22:13:38 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250408221328epoutp015470c792cc870337c81f04a43c0076bb~0d45HkKk21592015920epoutp01p
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Apr 2025 22:13:28 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250408221328epoutp015470c792cc870337c81f04a43c0076bb~0d45HkKk21592015920epoutp01p
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1744150408;
+	bh=98nLlPYT+VTzspfa339eHkagfVUGyHyGGsVV5kY2nSQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Tq/1zFm5e6HXdip/B1Uqg5Q5mO9QC52Stzg95+Fw8Gs0Xgllmd6ZgUJMFEZjsghNC
+	 uIWWFPKj7aRS6iahiv/ln0fyFJqJCJAWnvvZenA04F/A9ZjfDB8vLby5f9e979UaBA
+	 /tYyjzroN2YZ+C4SJWGUg9Tzy/bbZyiCsaP68mmw=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250408221327epcas2p4d4199845dd58741a72b446173060bd0a~0d44YY62L0708307083epcas2p40;
+	Tue,  8 Apr 2025 22:13:27 +0000 (GMT)
+Received: from epsmgec2p1-new.samsung.com (unknown [182.195.36.97]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZXL1z1l5lz3hhT3; Tue,  8 Apr
+	2025 22:13:27 +0000 (GMT)
+Received: from epcas2p3.samsung.com ( [182.195.41.55]) by
+	epsmgec2p1-new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	0D.FD.37303.78F95F76; Wed,  9 Apr 2025 07:13:27 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250408221326epcas2p24b455e5a9f65dff52807a3a0010eff9a~0d43GJ9xt1382213822epcas2p2M;
+	Tue,  8 Apr 2025 22:13:26 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250408221326epsmtrp15bda4a714b1657db260153597e377797~0d43Fb2SQ1774717747epsmtrp16;
+	Tue,  8 Apr 2025 22:13:26 +0000 (GMT)
+X-AuditID: b6c32a4d-541ff700000091b7-34-67f59f87d99c
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	51.41.19478.68F95F76; Wed,  9 Apr 2025 07:13:26 +0900 (KST)
+Received: from tiffany (unknown [10.229.95.142]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250408221326epsmtip184585f5a670a2dd4bd418068c2ee1230~0d4229ybz1185811858epsmtip1E;
+	Tue,  8 Apr 2025 22:13:26 +0000 (GMT)
+Date: Wed, 9 Apr 2025 07:11:47 +0900
+From: Donghyeok Choe <d7271.choe@samsung.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Youngmin Nam <youngmin.nam@samsung.com>, Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Saravana Kannan
+	<saravanak@google.com>, Sudeep Holla <sudeep.holla@arm.com>, Ulf Hansson
+	<ulf.hansson@linaro.org>, Vincent Guittot <vincent.guittot@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com, hajun.sung@samsung.com, joonki.min@samsung.com,
+	ne.yoo@samsung.com, Donghyeok Choe <d7271.choe@samsung.com>
+Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in
+ GICv3 ITS driver
+Message-ID: <20250408221147.GA2187207@tiffany>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM0PR04MB6993:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e8f1ca2-63df-40f2-743d-08dd76e7fb49
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WnlXWEQrVGQyTzVpVXVHTHROTEVJekk0OEhmZ2hoM2Z0YTFpcmJ6b2JuK015?=
- =?utf-8?B?aDJ4aVZVR1IwY1lkRXVxZDdrd2d6ZmxZZWFabERISTBHRzhjb0tFSStFTzBL?=
- =?utf-8?B?WXZWZzQxcklmcnBucTFhQ3MxS2tER0RPNW1oUVpjZWNTK0xaZGRlWDhrdkJR?=
- =?utf-8?B?bEVDRzdhM3NIZ3g0V1I1STlsRGJVejBKVEJSREtsa0hjWTAxVGxBUG1WWUl3?=
- =?utf-8?B?NVVnZjgwVFFyMnBUK0VtQnM0SDRpTjVJYzRrS2F5eXo1cGREWkxac0Q3UXBn?=
- =?utf-8?B?TUtBQ2J3TTA2Nmk5SUxYNnZERVcrWXNQbkFZdEd6VjYvdjh5UzlucTk4YTF4?=
- =?utf-8?B?RkFWbkxuT2lmWGVVem5NenFENUk0RWtMZEUxRUdYbFFEbjlmc1JNbDlsRnFV?=
- =?utf-8?B?MDdjRXhKVU9aUmVVMFdOZnliUXFuaDhNSVN3d3pGU0xCc21hek9Ba2RPblhj?=
- =?utf-8?B?RDJ4RVlhR2hiSTFkUXVxSlBZWU9sZU1NbEJTbjBVZ2RneE9GZUVEVUd2V1c1?=
- =?utf-8?B?d1pJc05ETmtyb3JCdS9hektZdzlyWWpCYzJoRmVrbHhpMVhTeURUM1RlV09p?=
- =?utf-8?B?R1Y0OUtOMCtZUVRxMmYzc3p0dE16UEdIazhZaDNGQXh5QlZDY3BtdHZoQWdK?=
- =?utf-8?B?RzVvSHZVbzBzVm1KcFFzUmE5cVg0RDVweUNERUpzY2h0d2QxNFVvQSs5UXo3?=
- =?utf-8?B?WklablZ2K1RrTEl6STBlTTJZVDBvcVZmOUNiUDFGZWp6SExZRmcrOVNGUU9s?=
- =?utf-8?B?OUhPMXFGWjVWaXVXYmxSY093YXVpS3IvUEhuUjkzWU9XcE0veVlTYmxBcFBR?=
- =?utf-8?B?Ri84RkY5RGQvT0h3cGM1bmlKRDRXRXdMbXBqQmdXWVZ4enhYNmxEUC9UN2lV?=
- =?utf-8?B?ZUJ6R21KYlZnUjNpd2JITXF0SURBaHhMSlBHY2NLOTVVU3FsOW5jN2p5UTBn?=
- =?utf-8?B?OVJjU0piaWIrRWNOdXcxSlFValdsSXI4RlR5R1VncGtRTGVNaUxhVG9CWXp1?=
- =?utf-8?B?WFRBYU5peEpDZXdZaHhTZ0ljelZlL3ZQRVRNT3l3MkdmeEVHT2xxRTduWnRS?=
- =?utf-8?B?Y1B4MXFYTjE1cVd4ZFArRURadjRNeDBIcDdTSTZ1OXAvRDk3c21HeVBGS2RJ?=
- =?utf-8?B?cGRuZnVLVUN2UjcrZ2cwcGl4K0hyN0R6V0dKQ1psMkxmU2I0Q0VlU3Bxa1BG?=
- =?utf-8?B?Y0ZyUElOU2xueHBMdFRQTEdLdlpBanZnL3BhYlg1WEc1RVNyRENBaHYyZUtx?=
- =?utf-8?B?dVNPN3BWSjRodnZKTlNKaTRkaEIvZnJ1em1oZUpxeW5ibVJaUFJabXY3MGRK?=
- =?utf-8?B?TnErdWFwZlEyUzFlTTk0d1V5RWNSWXNicXdzdmZMR0duZ1JmQ1RWNE5vbjl1?=
- =?utf-8?B?U1A3RldTdThRRVpSbmRUekZXU25yT3V5VUtjSmZVU2xsOHE3MWVock03VER1?=
- =?utf-8?B?dFhHRDFQeDk4THFMMnRnVit6TUtweGtGYVE3UUJDaGswNmFxbXBYVEdQSGZh?=
- =?utf-8?B?d0h6L3hTSGhMT1BXVDlha3Q2RU1RQk9vVmZLUHJ6OHlYUUUwY1VjUDFjNG1B?=
- =?utf-8?B?c0xuTktONVdkNEU0OTRWQlN3VjZMU2Nvb1o5QlYrdS9YNzRzT0F3S3FFdXpi?=
- =?utf-8?B?Qzk1TXdLTHZWSS84YXU5bXgzQ01kQWJQdDlzclR3aVZwdG9VMDRndlBwUzFr?=
- =?utf-8?B?QmxzRnRmeDVORzVHdHRLRGtzZFp3UEJhVnVLNHFDL25aZi85N0hiYTVwRk1I?=
- =?utf-8?B?ZVdNTUZOTjRDZlFmbnRkVHZSTEx6UndMR0wvN1FtWnJPUEtQSzBISjNrZzNy?=
- =?utf-8?B?cWdHK0dYdkZzNzVWREVscEZ0aHppQkUwOHJKbUEwR2FwYXlMbjJ6SVltS3Z2?=
- =?utf-8?B?RTRLTFBNeTkvV0tCTFNoUElvaE1INm9nNFc4REJ5SVFVTU1VTmJua2pDS2Nz?=
- =?utf-8?B?bXVYRjJna3BxbnlGdGlKWnlpQmFja1ltQzEyQkNYWFkrUWwyTks3bmJiODhX?=
- =?utf-8?B?VDNlZWVKZ0pnPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eTFENXBnenUrM2h6ZkUzZ1JOWmdjQUR5L1NXZ000VDBERnV2MUwxMVp5MUtO?=
- =?utf-8?B?T3cvZjN6SlM2RmNKR21kc0pTZDEvblJXOVNjSVRKcngwTXcydXNHSHVjU0Fs?=
- =?utf-8?B?M3FYVkIxS0hDK2wrUTMrTXB6Z0l1aEJPcmg3MVIxSzdzWDNkbWVXWVRKL3BQ?=
- =?utf-8?B?aFhRN0s2b3hnNHJ3Q3BkR2N5WEtobkZrSWtkM0hPVjFWdFZpVFFzazRQeUMv?=
- =?utf-8?B?bFE0OTBnUlo2OXZoQXJKSURRWlBRdGR0bDdXYVRHaEZ5NmRLNE1ZRkhzUVA5?=
- =?utf-8?B?TzBtSWJlMmFDZ1VLcDB6ZUtmZFpHd2MyVmpzWEZOMUNMajAyR0RYNmFqTWhu?=
- =?utf-8?B?NTlFOTdyME9KRFVoeXFSY3BqTWhFbDVuUXl6WUNIazJwV0t3R2g1TW03bDdu?=
- =?utf-8?B?SDNYYnFoK2tiSnpoWEZwNDV4NEhMSXA0K05CdXJKUE50b3RNY09JOVFzTEZC?=
- =?utf-8?B?UTNVNy9lTlBhZ21NWnhFTmVReGt3bGcvRGVPaWVEM0swZmZyUHlaYW0xM29C?=
- =?utf-8?B?VlVsRmE4RS9VSzVyNlhlVjJXUVZ5bFVzdEdZQ1dKWVk5czk5cS92ajNMLzh2?=
- =?utf-8?B?eS9oRnNrNWxRS0cvZ1htWXZOM2ZXa0JtVlVmUjFJWksxQWRKNzVRYUVSdUti?=
- =?utf-8?B?RW94Vm1SYjFTd0ljZmQ4QXB1MXlmRDRJL0l6R0FWTm5TTXFCSUU5YlJFVXJ6?=
- =?utf-8?B?dXFRcTdTMFlvcHdVMGwwMVhwZVgrQ3hVcGtqbURHekVzT0lzRk1TVk9iS3k0?=
- =?utf-8?B?TW1aQlg5dVliL09NK080RWtyNnJ6bXlNM2RFQ0h3YXdXN1ZVcDZ2cjZudmZr?=
- =?utf-8?B?YVVud2RkK0syeTBqbW9WTnZBSG5XbHZmNjJFM1RlcDBoaTAzcU5KK3A0TjBy?=
- =?utf-8?B?Q014SzhaUVlFZ09SVDBaK0tCemMzQUZMWk42cGlLKzZYK3RKYUFrQXF2OGVK?=
- =?utf-8?B?TW1DZm96S0ZIVzlOOVdkemlYSnpMdFFyZzZDNTdHdXlpOFFick9GNnBXaFZk?=
- =?utf-8?B?SENIZkdEc3VtUjNBSHpvTUlocWUxank5ODYybVJXYjY3czdteU9ZSkVGTE9k?=
- =?utf-8?B?VElWT1NHMnJzQ0ZsYlNYd0FYSGJwU09zeVpWcHpnUW9IL0hYM2NoVEhiZEsz?=
- =?utf-8?B?cWkveWY0ellTNXNJd2IrR0dienVJVUNvV3R4VmJMczEveFlYbUE2eTVKd29v?=
- =?utf-8?B?TFRpQlc5T3ZEMGQ5TlJQTWJWbzFPYzFCb05peFJOdW5SODlzNDBHN2lBckJt?=
- =?utf-8?B?TzMwVE9QdVVoRndKUFN6T0dQdUNFbHduQWJzaUsrOE1XTzU5YWREQ0dYNDE1?=
- =?utf-8?B?VDMyVTlaSnFJZGlOQUVBZS80M0hJT0FEWENObjFHekE0MlFPc2ZMaVJTY1d4?=
- =?utf-8?B?K1dJeFpYNEJ5R0V0RTNySDVLSWFpMzIwZVVzN285aXBkS3RTd3ZNM2JnZ2ZS?=
- =?utf-8?B?ek1wLzQ3aDFBQkZEdEJXY3hWNkRxZk8rV1Yzdjc2L2IxZW94Q3JBZzVWOXM0?=
- =?utf-8?B?aWV3dnJCR2UvZkJRTy9ydGwzdTgwZXVmYWJCeTJhRFR2Ty9KZ0N1OHBwNjg0?=
- =?utf-8?B?a3p4NjJUcVUvWVlUYWhKSFFGUmY0MGJJWkFiemJQRlAxVDZ2LzI2QzUwbnFN?=
- =?utf-8?B?NitEelBKRkNrcmZQZThBZkF3SFhLcVkrdHBGQk1WWkxvZFhmNllJSk1kRVl6?=
- =?utf-8?B?UWtRV3RmZGw4L2gzeStkSHRLVXdoSUU1Q3FXemN4N1Z5MTVuSmF5VjBmUDBk?=
- =?utf-8?B?czA5dndTdHp2R2hWZkxMZG4yTytOMlo0STdva1NWOHU0QUw0WDdwc2VWbEJI?=
- =?utf-8?B?SnFhTTRzLzZ4eTJpR2ZxbitscXQ0SDAxYno1emZkeEpTT01MV0pyY1hOdmRX?=
- =?utf-8?B?dVU3ZTFMbWx5OHlINmR5R0dVMHdPaFVrY0FMNzQ0MnpZcmUzMmtQcG1XY2NF?=
- =?utf-8?B?UlNtQ3ZjaFVXcHFBaDBGS0l3NVRPOGYrMHlMTGxWdERva3dqbVc0UThZRXJ3?=
- =?utf-8?B?bUhJWk1uUEluWkFQZGpweTJtcjVhNkVEVGorcTlsaCs3ZUMrOXVEbnZ0VVgr?=
- =?utf-8?B?NGZFZXZXRlJFT2tjbUs5V2tNWVNmREpjeTNMa3hrWllNZUEzckVzbDR1Wkw1?=
- =?utf-8?Q?3NJA=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e8f1ca2-63df-40f2-743d-08dd76e7fb49
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 21:54:48.3180
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mODXtObTYQ8Ca8gSC31tC+v3oASG3+ITKPRALLwzvEq/8Cw7ZAj5rvwEx0UdlMRYSgmWyiRxjngQcQq7Lgi59w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6993
+In-Reply-To: <20250408-transparent-daft-dog-ec2a74@sudeepholla>
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrHJsWRmVeSWpSXmKPExsWy7bCmuW77/K/pBrv6OC2u7Z3IbtG0/xKz
+	xdXd75gtdmwXsdj0+BqrxeVdc9gsds45yWqx7HgXq0XXob9sFstP7WCx2LxpKrPF8bXhFh1H
+	vjFbLD7wid2Bz2Pb7m2sHmvmrWH0WLCp1GPTqk42jzvX9rB5vDt3jt1j85J6j74tqxg9Pm+S
+	C+CMyrbJSE1MSS1SSM1Lzk/JzEu3VfIOjneONzUzMNQ1tLQwV1LIS8xNtVVy8QnQdcvMAbpc
+	SaEsMacUKBSQWFyspG9nU5RfWpKqkJFfXGKrlFqQklNgXqBXnJhbXJqXrpeXWmJlaGBgZApU
+	mJCdMetcD2tBi3LFzx17WRsYl0h3MXJwSAiYSJxabtTFyMUhJLCHUeLan/2MEM4nRomfSyaw
+	wTkzf09l6mLkBOt49mADO0RiJ6PExdd7WSCcp0DO4sXsIFUsAioSpze8ZQSx2QR0JSZ1bmMD
+	sUUE1CWWnN0CFmcWeM4s0fCmEuQOYYEoicftcSBhXgE9iTl/FrFB2IISJ2c+YQGxOQXsJdrn
+	zgVbLCFwhENi64TZbBAXuUgcftcFdZ2wxKvjW9ghbCmJl/1tUA3NjBKTbrxmgnBmMEpcmfwZ
+	qsNYYtazdqiLMiSuntrJAgkZZYkjt1ggwnwSHYf/skOEeSU62oQgOlUkzvc9YITZtWHuW6iJ
+	HhK3T59nhQTKa2aJn21TmSYwys1C8tAsJNtmAY1lFtCUWL9LHyIsL9G8dTYzRFhaYvk/DiQV
+	CxjZVjFKpRYU56anJhsVGOrmpZbDIzw5P3cTIzhha/nuYHy9/q/eIUYmDsZDjBIczEoivG8n
+	fkkX4k1JrKxKLcqPLyrNSS0+xGgKjKuJzFKiyfnAnJFXEm9oYmlgYmZmaG5kamCuJM576OPT
+	dCGB9MSS1OzU1ILUIpg+Jg5OqQamaJXPiz6dnxSwhLkmLlx44eoZFRy3amSWC4pwXPXe5+k+
+	ZUXOW+5/k/IOPrQ43qi4ImZ1W+a1F+84nfJk2D82xh6/e+9NrOJkieMctfsFuy9MM//9XCB3
+	ntuZY1/mXK63urtycsXThV0b3Rf3n1JUk684sm03kz/jbP0tTnz2/4zfmj+4UzHn/LonodH7
+	rsSzfnLvq7bd02j45vk7of8Ore+kVQtvJeWYfnjMHrG6Sl+3I+ANS+1tqcquP4odK++wHTu1
+	5k25+0Nm29kP1a77sW32nXy8XHlx7Bw1vpk7/tS+azq/Kt7g31FbL/nZe3vPmyy3nHVqgkDY
+	I24X53jzv5MtmuytF9w/fEg7TvbnZyWW4oxEQy3mouJEADxurJJhBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprBIsWRmVeSWpSXmKPExsWy7bCSnG7b/K/pBhfniFtc2zuR3aJp/yVm
+	i6u73zFb7NguYrHp8TVWi8u75rBZ7JxzktVi2fEuVouuQ3/ZLJaf2sFisXnTVGaL42vDLTqO
+	fGO2WHzgE7sDn8e23dtYPdbMW8PosWBTqcemVZ1sHneu7WHzeHfuHLvH5iX1Hn1bVjF6fN4k
+	F8AZxWWTkpqTWZZapG+XwJUxdeUdxoJlChVvLm5kbGB8JNHFyMkhIWAi8ezBBnYQW0hgO6NE
+	90EHiLiURPuWmUwQtrDE/ZYjrF2MXEA1jxkl2npOgiVYBFQkTm94ywhiswnoSkzq3MYGYosI
+	qEssObsFLM4s8JZZ4umMABBbWCBKYs/baWC9vAJ6EnP+LGKDGDqbWeLn/nvMEAlBiZMzn7BA
+	NKtL/Jl3CSjOAWRLSyz/xwERlpdo3jobrJxTwF6ife5c9gmMgrOQdM9C0j0LoXsWku4FjCyr
+	GEVTC4pz03OTCwz1ihNzi0vz0vWS83M3MYIjTytoB+Oy9X/1DjEycTAeYpTgYFYS4X078Uu6
+	EG9KYmVValF+fFFpTmrxIUZpDhYlcV7lnM4UIYH0xJLU7NTUgtQimCwTB6dUA1PZlYSbdYEh
+	fjmH1HbFW67mXbTELFvUyXDFkytea5f07bw74QrfoV1cLgt/qeSv2Ze63uqB+r7LF5jqBU/c
+	vb64KP7845cH93L43C0Le7Ol9ebDN3UhX69/m8DktTA+zvaDfZbsHH++3MOKnYXPJ/a2zphh
+	MU1NW4BzuoGr2Nkz9+X+mXj9Ub4htqhd+fHnM2+br7JeWfv/icFKzYpQzvzG+Cns/LvO/Pey
+	l/fdbntkuQ/HWR6LtIZF8466hbeeLrtQebDB4s4cvz9+obza827xT75xn2G38ssfuTs8p++1
+	8jG2MUyu1Hif+ddUY9UWQfs8zbJY2eeVTkdb85T6sjMVfqo8vWZ9+G/IO5ZzT7SUWIozEg21
+	mIuKEwFvcbiBKwMAAA==
+X-CMS-MailID: 20250408221326epcas2p24b455e5a9f65dff52807a3a0010eff9a
+X-Msg-Generator: CA
+Content-Type: multipart/mixed;
+	boundary="----JAxyHCgdtJ96A8.Ok.gYWmZQmsTOHaTnMoXq.aDuWNAvXzgf=_baefa_"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250408221326epcas2p24b455e5a9f65dff52807a3a0010eff9a
+References: <Z+Nv8U/4P3taDpUq@perf> <8634f0mall.wl-maz@kernel.org>
+	<Z+TEa8CVAYnbD/Tu@perf> <20250402-messy-wild-squid-7b4da9@sudeepholla>
+	<Z+3kwsesiXyC0hbO@perf>
+	<20250403-rare-wasp-of-management-9bce59@sudeepholla>
+	<20250404041323.GA685160@tiffany>
+	<20250407-amiable-perfect-hummingbird-06ad83@sudeepholla>
+	<20250407225146.GA2858456@tiffany>
+	<20250408-transparent-daft-dog-ec2a74@sudeepholla>
+	<CGME20250408221326epcas2p24b455e5a9f65dff52807a3a0010eff9a@epcas2p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_145452_130387_DCFD4F88 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20250408_151336_938209_C05FE158 
+X-CRM114-Status: GOOD (  42.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,410 +148,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ov5640 overlay file for imx8qm-mek and imx8qxp-mek board. Camera can
-connect different CSI port. So use dts overlay file to handle these
-difference connect options.
+------JAxyHCgdtJ96A8.Ok.gYWmZQmsTOHaTnMoXq.aDuWNAvXzgf=_baefa_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change from v3 to v4
-- add board level xtal24m
-- remove reduntant ports information at dtso because chip leave already add
-it.
+On Tue, Apr 08, 2025 at 11:46:40AM +0100, Sudeep Holla wrote:
+> On Tue, Apr 08, 2025 at 07:51:46AM +0900, Donghyeok Choe wrote:
+> > On Mon, Apr 07, 2025 at 10:17:43AM +0100, Sudeep Holla wrote:
+> > > On Fri, Apr 04, 2025 at 01:13:23PM +0900, Donghyeok Choe wrote:
+> > > > On Thu, Apr 03, 2025 at 10:18:54AM +0100, Sudeep Holla wrote:
+> > > > > /me more confused.
+> > > > > 
+> > > > > Are you saying you have some cpuidle platform specific logic inside
+> > > > > trace_android_vh_cpuidle_psci_enter(). I would assume it was just to
+> > > > > trace the entry into the state and nothing more.
+> > > > 
+> > > > If you have any further questions, feel free to reach out.
+> > > > 
+> > > 
+> > > I was trying to understand the difference in behaviour between normal
+> > > cpuidle entering the same deepest state that is entered in s2idle state.
+> > > I assume GIC doesn't loose power and no need for GIC ITS save/restore
+> > > in normal cpuidle path ?
+> > >
+> > > If so, what triggers the GIC suspend in s2idle path if syscore_ops is
+> > > not getting called ?
+> > >
+> > > Why would the firmware pull the plug on GIC ?
+> > 
+> > The GIC loses power. It is powered down to the same level as during suspend.
+> > Therefore, it became necessary to perform GIC ITS save/restore through
+> > a method other than the GIC ITS syscore path.
+> > To help with better understanding, I will write a pseudo code.
+> > 
+> > void mimic_syscore_suspend()
+> > {
+> > 	/* Perform the actions required to power off all cores. */
+> > 	...
+> > 	its_save_disable();
+> > }
+> > 
+> > void android_vh_cpuidle_psci_enter_handler(... bool s2idle)
+> > {
+> > 
+> > 	if (!s2idle)
+> > 		return;
+> > 
+> > 	set_cpu_powerdown_mark();
+> > 
+> > 	if (cpu != booting core)
+> > 		return;
+> > 
+> > 	/* only booting core here */
+> > 	mimic_syscore_suspend()
+> > }
+> > 
+> > void mimic_syscore_resume()
+> > {
+> > 	...
+> > 	its_restore_enable();
+> > }
+> > 
+> > void android_vh_cpuidle_psci_exit_handler(... bool s2idle)
+> > {
+> > 	if (!s2idle)
+> > 		return;
+> > 
+> > 	if (cpu == booting core)
+> > 		mimic_syscore_resume();
+> > 
+> > 	set_cpu_poweron_mark();
+> > }
+> > 
+> > All cores will be marked as powered down when the HVC/SMC call for
+> > CPU suspend is invoked. When all cores call the suspend function,
+> > the firmware will recognize the powerdown mark and transition
+> > the system into suspend. At this point, the entire GIC will also
+> > be powered off.
+> > In a cpuidle situation that is not s2idle, the cores do not mark
+> > CPU powerdown, so the GIC ITS save/restore operation is neither
+> > performed nor necessary.
+> > 
+> 
+> OK, I understood. In short, you create problems by hacking up or misusing
+> your trace handlers in ways it shouldn't be, and now you are t/crying to
+> solve those problems.
+> 
+> > > Do you use any suspend/resume logic in drivers/irqchip/irq-gic-pm.c ?
+> > No, there are parts of the GIC that require secure access, so the
+> > GIC save/restore is performed by the firmware.
+> > Since the GIC-ITS is entirely controlled as a non-secure IP,
+> > I think it is more efficient to perform save/restore in the kernel.
+> > 
+> 
+> I can understand that part, but my hacking up things the way you have
+> shown above, though you may think you have achieved some feature very
+> smartly, you have just dug up the hole with issues you are facing now.
+> 
+> The only reason IIUC s2idle info is used is to identify when the RPM
+> is disabled. You are using that info to manage GIC power state.
+> 
+> The CPU deepest idle states entered in the normal and s2idle must be
+> same. If you want to still achieve extra power save with GIC powerdown
+> make it completely transparent to the OS.
 
-change from v2 to v3
-- remove phy nodes
+First of all, thank you.
+You're clearly pointing out the painful truth.
+I’m well aware that this approach isn’t ideal.
 
-change from v1 to v2
-- none
----
- arch/arm64/boot/dts/freescale/Makefile             | 11 ++++
- .../boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso | 60 ++++++++++++++++++++++
- .../boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso | 60 ++++++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx8qm-mek.dts       | 58 +++++++++++++++++++++
- .../boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso | 59 +++++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx8qxp-mek.dts      | 36 +++++++++++++
- 6 files changed, 284 insertions(+)
+Following your advice, I’ll do my best to keep things
+as clear and transparent as possible.
+My goal was to explain the situation we’re facing, and I feel
+like I’ve managed to do that — so I’m glad about that.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index b6d3fe26d6212..4101ef6ed520d 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -277,6 +277,14 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-eval-v1.2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-ixora-v1.1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-ixora-v1.2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qm-mek.dtb
-+
-+imx8qm-mek-ov5640-csi0-dtbs := imx8qm-mek.dtb imx8qm-mek-ov5640-csi0.dtbo
-+dtb-${CONFIG_ARCH_MXC} += imx8qm-mek-ov5640-csi0.dtb
-+imx8qm-mek-ov5640-csi1-dtbs := imx8qm-mek.dtb imx8qm-mek-ov5640-csi1.dtbo
-+dtb-${CONFIG_ARCH_MXC} += imx8qm-mek-ov5640-csi1.dtb
-+imx8qm-mek-ov5640-dual-dtbs := imx8qm-mek.dtb imx8qm-mek-ov5640-csi0.dtbo imx8qm-mek-ov5640-csi1.dtbo
-+dtb-${CONFIG_ARCH_MXC} += imx8qm-mek-ov5640-dual.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-ai_ml.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-colibri-aster.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-colibri-eval-v3.dtb
-@@ -287,6 +295,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-mek.dtb
- imx8qxp-mek-pcie-ep-dtbs += imx8qxp-mek.dtb imx8qxp-mek-pcie-ep.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-mek-pcie-ep.dtb
- 
-+imx8qxp-mek-ov5640-csi-dtbs := imx8qxp-mek.dtb imx8qxp-mek-ov5640-csi.dtbo
-+dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-csi.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso
-new file mode 100644
-index 0000000000000..ba8ceee41db6f
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso
-@@ -0,0 +1,60 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/media/video-interfaces.h>
-+
-+&i2c_mipi_csi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-frequency = <100000>;
-+	pinctrl-0 = <&pinctrl_i2c_mipi_csi0>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	ov5640_mipi_0: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&xtal24m>;
-+		clock-names = "xclk";
-+		pinctrl-0 = <&pinctrl_mipi_csi0>;
-+		pinctrl-names = "default";
-+		powerdown-gpios = <&lsio_gpio1 28 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&lsio_gpio1 27 GPIO_ACTIVE_LOW>;
-+		AVDD-supply = <&reg_2v8>;
-+		DVDD-supply = <&reg_1v5>;
-+		DOVDD-supply = <&reg_1v8>;
-+		status = "okay";
-+
-+		port {
-+			ov5640_mipi_0_ep: endpoint {
-+				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&mipi_csi0_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&irqsteer_csi0 {
-+	status = "okay";
-+};
-+
-+&isi {
-+	status = "okay";
-+};
-+
-+&mipi_csi_0 {
-+	status = "okay";
-+};
-+
-+&mipi_csi0_in {
-+	data-lanes = <1 2>;
-+	remote-endpoint = <&ov5640_mipi_0_ep>;
-+};
-+
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso
-new file mode 100644
-index 0000000000000..549633f37db53
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso
-@@ -0,0 +1,60 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/media/video-interfaces.h>
-+
-+&i2c_mipi_csi1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-frequency = <100000>;
-+	pinctrl-0 = <&pinctrl_i2c_mipi_csi1>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	ov5640_mipi_1: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&xtal24m>;
-+		clock-names = "xclk";
-+		pinctrl-0 = <&pinctrl_mipi_csi1>;
-+		pinctrl-names = "default";
-+		powerdown-gpios = <&lsio_gpio1 31 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&lsio_gpio1 30 GPIO_ACTIVE_LOW>;
-+		AVDD-supply = <&reg_2v8>;
-+		DVDD-supply = <&reg_1v5>;
-+		DOVDD-supply = <&reg_1v8>;
-+		status = "okay";
-+
-+		port {
-+			ov5640_mipi_1_ep: endpoint {
-+				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&mipi_csi1_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&irqsteer_csi1 {
-+	status = "okay";
-+};
-+
-+&isi {
-+	status = "okay";
-+};
-+
-+&mipi_csi_1 {
-+	status = "okay";
-+};
-+
-+&mipi_csi1_in {
-+	data-lanes = <1 2>;
-+	remote-endpoint = <&ov5640_mipi_1_ep>;
-+};
-+
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-index 68442c8575f3f..503e0acd7963d 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-@@ -32,6 +32,13 @@ memory@80000000 {
- 		reg = <0x00000000 0x80000000 0 0x40000000>;
- 	};
- 
-+	xtal24m: clock-xtal24m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+		clock-output-names = "xtal_24MHz";
-+	};
-+
- 	reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
-@@ -155,6 +162,27 @@ usb3_data_ss: endpoint {
- 		};
- 	};
- 
-+	reg_1v5: regulator-1v5 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v5";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+	};
-+
-+	reg_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+	};
-+
-+	reg_2v8: regulator-2v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "2v8";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+	};
-+
- 	reg_usdhc2_vmmc: usdhc2-vmmc {
- 		compatible = "regulator-fixed";
- 		regulator-name = "SD1_SPWR";
-@@ -824,6 +852,20 @@ IMX8QM_QSPI1A_DATA1_LSIO_GPIO4_IO25			0x0600004c
- 		>;
- 	};
- 
-+	pinctrl_i2c_mipi_csi0: i2c-mipi-csi0grp {
-+		fsl,pins = <
-+			IMX8QM_MIPI_CSI0_I2C0_SCL_MIPI_CSI0_I2C0_SCL		0xc2000020
-+			IMX8QM_MIPI_CSI0_I2C0_SDA_MIPI_CSI0_I2C0_SDA		0xc2000020
-+		>;
-+	};
-+
-+	pinctrl_i2c_mipi_csi1: i2c-mipi-csi1grp {
-+		fsl,pins = <
-+			IMX8QM_MIPI_CSI1_I2C0_SCL_MIPI_CSI1_I2C0_SCL		0xc2000020
-+			IMX8QM_MIPI_CSI1_I2C0_SDA_MIPI_CSI1_I2C0_SDA		0xc2000020
-+		>;
-+	};
-+
- 	pinctrl_i2c0: i2c0grp {
- 		fsl,pins = <
- 			IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL			0x06000021
-@@ -1017,6 +1059,22 @@ IMX8QM_LVDS1_I2C1_SDA_LVDS1_I2C1_SDA	0xc600004c
- 		>;
- 	};
- 
-+	pinctrl_mipi_csi0: mipi-csi0grp {
-+		fsl,pins = <
-+			IMX8QM_MIPI_CSI0_GPIO0_00_LSIO_GPIO1_IO27		0xC0000041
-+			IMX8QM_MIPI_CSI0_GPIO0_01_LSIO_GPIO1_IO28		0xC0000041
-+			IMX8QM_MIPI_CSI0_MCLK_OUT_MIPI_CSI0_ACM_MCLK_OUT	0xC0000041
-+		>;
-+	};
-+
-+	pinctrl_mipi_csi1: mipi-csi1grp {
-+		fsl,pins = <
-+			IMX8QM_MIPI_CSI1_GPIO0_00_LSIO_GPIO1_IO30		0xC0000041
-+			IMX8QM_MIPI_CSI1_GPIO0_01_LSIO_GPIO1_IO31		0xC0000041
-+			IMX8QM_MIPI_CSI1_MCLK_OUT_MIPI_CSI1_ACM_MCLK_OUT	0xC0000041
-+		>;
-+	};
-+
- 	pinctrl_pciea: pcieagrp {
- 		fsl,pins = <
- 			IMX8QM_PCIE_CTRL0_WAKE_B_LSIO_GPIO4_IO28		0x04000021
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso b/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso
-new file mode 100644
-index 0000000000000..5500c4846f031
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso
-@@ -0,0 +1,59 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024 NXP
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/media/video-interfaces.h>
-+
-+&i2c_mipi_csi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-frequency = <100000>;
-+	pinctrl-0 = <&pinctrl_i2c_mipi_csi0>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	ov5640_mipi: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&xtal24m>;
-+		clock-names = "xclk";
-+		pinctrl-0 = <&pinctrl_mipi_csi0>;
-+		pinctrl-names = "default";
-+		powerdown-gpios = <&lsio_gpio3 7 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&lsio_gpio3 8 GPIO_ACTIVE_LOW>;
-+		AVDD-supply = <&reg_2v8>;
-+		DVDD-supply = <&reg_1v5>;
-+		DOVDD-supply = <&reg_1v8>;
-+		status = "okay";
-+
-+		port {
-+			ov5640_mipi_ep: endpoint {
-+				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&mipi_csi0_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&irqsteer_csi0 {
-+	status = "okay";
-+};
-+
-+&isi {
-+	status = "okay";
-+};
-+
-+&mipi_csi_0 {
-+	status = "okay";
-+};
-+
-+&mipi_csi0_in {
-+	data-lanes = <1 2>;
-+	remote-endpoint = <&ov5640_mipi_ep>;
-+};
-+
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-index a378f462a283b..d7ab042e0e72b 100644
---- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-@@ -90,6 +90,27 @@ usb3_data_ss: endpoint {
- 		};
- 	};
- 
-+	reg_1v5: regulator-1v5 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v5";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+	};
-+
-+	reg_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+	};
-+
-+	reg_2v8: regulator-2v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "2v8";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+	};
-+
- 	reg_pcieb: regulator-pcie {
- 		compatible = "regulator-fixed";
- 		regulator-max-microvolt = <3300000>;
-@@ -781,6 +802,13 @@ IMX8QXP_FLEXCAN1_RX_ADMA_FLEXCAN1_RX			0x21
- 		>;
- 	};
- 
-+	pinctrl_i2c_mipi_csi0: i2c-mipi-csi0grp {
-+		fsl,pins = <
-+			IMX8QXP_MIPI_CSI0_I2C0_SCL_MIPI_CSI0_I2C0_SCL		0xc2000020
-+			IMX8QXP_MIPI_CSI0_I2C0_SDA_MIPI_CSI0_I2C0_SDA		0xc2000020
-+		>;
-+	};
-+
- 	pinctrl_ioexp_rst: ioexprstgrp {
- 		fsl,pins = <
- 			IMX8QXP_SPI2_SDO_LSIO_GPIO1_IO01			0x06000021
-@@ -821,6 +849,14 @@ IMX8QXP_FLEXCAN2_RX_ADMA_UART3_RX       0x06000020
- 		>;
- 	};
- 
-+	pinctrl_mipi_csi0: mipi-csi0grp {
-+		fsl,pins = <
-+			IMX8QXP_MIPI_CSI0_GPIO0_01_LSIO_GPIO3_IO07		0xC0000041
-+			IMX8QXP_MIPI_CSI0_GPIO0_00_LSIO_GPIO3_IO08		0xC0000041
-+			IMX8QXP_MIPI_CSI0_MCLK_OUT_MIPI_CSI0_ACM_MCLK_OUT	0xC0000041
-+		>;
-+	};
-+
- 	pinctrl_pcieb: pcieagrp {
- 		fsl,pins = <
- 			IMX8QXP_PCIE_CTRL0_PERST_B_LSIO_GPIO4_IO00		0x06000021
+Best regards,  
+Donghyeok Choe
 
--- 
-2.34.1
+------JAxyHCgdtJ96A8.Ok.gYWmZQmsTOHaTnMoXq.aDuWNAvXzgf=_baefa_
+Content-Type: text/plain; charset="utf-8"
 
+
+------JAxyHCgdtJ96A8.Ok.gYWmZQmsTOHaTnMoXq.aDuWNAvXzgf=_baefa_--
 
