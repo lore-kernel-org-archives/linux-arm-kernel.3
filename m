@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A87EDC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9927C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PqVSoMgA7ejuBO+qrLSjuozdGOXpRDYCsKwOXjeKomE=; b=na9o57hznGr1aBJeT/A+7hsHAJ
-	UpnJE5Tex8hYKf/Fo4dWexo7Va7kZJQM2dW4fxdw22vRoHjW9sbJyO6n0WdCRHzF9YUE/X3A8mdon
-	1Qg971ZvMdkF+N2SEfL43UXYXEE1ZT8MLipsNhuKYUZ07DUOEy0yFcUK5aRHJMs3UW0p+nNcEUaFt
-	l0jh7kGHe07qNSDtbBwSx/8QrcUgdTNEh9utYArPvMP2pocQZ4cglsDwCnu26bNDUdC8bAGfYsTme
-	JuthZ9ZVolJ4e3RqqMiNVGLje8TmI00qYg/E6ROXFM/V3QO4gYDtMrBomU37u23jz01oNB9mTwCM7
-	jvk38Isg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DNUnjAwr3K7/bh0YQuGEFB/xa4tI2s8atXnUMP1mg7g=; b=mflOvX42sUndVabEJHHmSk3HHf
+	daRZM6zOcZS5jrYA4Om73Xd8ZXi9ZrzXCW80UELTaDprSIGwxSHXduWOm1RUszVEx37CutO0v9k1R
+	Pw2Gyaky9xhQ3pxBETZ1M+xEVoj9PrTSg1wf4iZEBEh2IEpNYCM+cgjC/0VP6+i2WKS3OJPKcYOHq
+	pyPEALVraEPgz2uJZ+M5tOYbJrlB32gVaQcXVq/FrWFSEpMpQi+MMDMjv1JcYN7NkWqZa8JpU/9HE
+	AXQPDX3O2kOE3d4slymwm5nWjGSJKpBbWWTE3apINCYlUaQCE+R6Gl6DxdYJ5EWULwb5+g+4Je/Mz
+	kzIjvhKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25G3-00000003RUY-2hyg;
-	Tue, 08 Apr 2025 09:28:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u25Hr-00000003Rx5-3hMf;
+	Tue, 08 Apr 2025 09:30:31 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2585-00000003Q1e-0Tux
+	id 1u25Av-00000003QOe-0iUS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 09:20:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 58B95439DF;
-	Tue,  8 Apr 2025 09:20:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E1B0C4CEE8;
-	Tue,  8 Apr 2025 09:20:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744104023;
-	bh=oPws6XXa1Q7PyoXErXwLGgOjoJSswMaricVXHxQU9Do=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xm+As+b9UdgYv/Vwn+Ce+i9sfrkGk17Y9klQ6NCFQJ27qHYHPZPVTJ6cizsC97m6l
-	 jsxG8tf+ShISAEgZYJGEFHXKQHRFrfk8EDxFfYvQtRMQ+xH4cJNcX6Jq/Gp0hr4d3Q
-	 2Qns0WjrHSTdjW4z+m+7NyDWRCq6+VDUUrTOR/tykowjfr5AgBVCMs8W/h2txv+XK4
-	 bSfD5neJNSHpkjOlIrfYq/MrXxZs//V5HXvLXbCgsObUkwme7s7yOaHvNqp+sLpirU
-	 l6ndy/YReXkpL+EFvfxCa5qHEWjsJ59tlmfxV33V9i2sBltwI6n8dd06ZTpsqJ2rbw
-	 nyl390aUzvCpw==
-Date: Tue, 8 Apr 2025 14:50:13 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: akpm@linux-foundation.org, david@redhat.com, rppt@linux.ibm.com,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
+	Tue, 08 Apr 2025 09:23:22 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-224191d92e4so49159445ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 02:23:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1744104200; x=1744709000; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DNUnjAwr3K7/bh0YQuGEFB/xa4tI2s8atXnUMP1mg7g=;
+        b=VqRzcteSR5MEBGl/6aG0GyFzdhRObtO6YMaSYuBzZ9Hzqex/g7LcsANQIyfArS8fas
+         YVw5fhtRwC3nXpDo5WkVLtr7yg4/fwXGllJRPMo9z7JxDu8Ly4PTxdhvBRjomOkFg1Y8
+         sXx2+Ypt4qaT8cD/b5bSJEqev0jCISUzhyPVw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744104200; x=1744709000;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DNUnjAwr3K7/bh0YQuGEFB/xa4tI2s8atXnUMP1mg7g=;
+        b=DPpa2cn07YrinJ6jqAXjYDu6uzWf1ANLSpwvaiwyupirYlzYjt2yWen2Ze4c47fbrI
+         XxrHxDoW+T94vvfrkMC06MW3FSax57LPcEH5Ad1CLzT/3VgFfTbmGI3JuCZmP+6Ny5nU
+         kJaR32yv3cOy0Di97bmoM5KLOriby0lXdXpOTmNbCVRcEcIsSCaSuhPGePfOQMy0A24R
+         MNNYOh4bqoL1+2TIMC5i5EG8FEO5mA6V0MRLEuRICq2hpRxKUNdIf5z4anLfpZYs+BOL
+         eBcTEwlkFBVUpDrXWw7TyxmcSoQL/BZdf9gZ4YpGzAPcJl49BgxWYOrxILuCZkuCo/s2
+         WQoA==
+X-Forwarded-Encrypted: i=1; AJvYcCUBc5ksPaguewtkNNzJJsI4Al1fN19fI04jL5GYY59f1hYjB1KJfztgrH+VMCKgnvj6dAGXx/APUjpJaATHLnuI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxit1UjoU6QabTT2AZrf8NjjcUQhAUygYJJ+PQ8Xd5/e/uZaGkR
+	ySoxS+Afez1cyBePgIH2ng/b/hQf5vtu8lNMwgHt0b61w5LrjmPq4N2Krt01rQ==
+X-Gm-Gg: ASbGncskwWWLVQd/GT96eJ4467NZM6P+7cJJKHJgzirGqj9OMbeqiZktLyTid9O8ovK
+	59sUH53g1jnmmq9736mSXibI3Jik9bzfhmBu2BRFlbROyZMCwPWan+xifAlbwRVstFZefmrkQXb
+	+4P8xgT97dUQ4W9AynqxTTr86UwzK8itNbgXJ6I+Onln91dId7/nVgNfw4LTTw0NFaw0cgsg5PM
+	z7ygQs3T75sGDPrw0imy7RBNfdQ7I71xb51Fy/7a49WgIiO6O/T+xfE3/0qyIeRAAAXiBwzAV2R
+	J3w7pLVS9Vp8lp9jTy8xv6dxirDmaD+wSEl67Gfn6/Fiw4oX8FpPvnT8VNvEHHg=
+X-Google-Smtp-Source: AGHT+IGPhkSRb5R3PVNGCzYv1a6SJZoNU3t0aIi0QTJm3JWsa/HB1uZ+jzdpdKOIXFpq6puPuDXpRQ==
+X-Received: by 2002:a17:902:da85:b0:224:f12:3735 with SMTP id d9443c01a7336-22a8a06b38dmr169101945ad.31.1744104200152;
+        Tue, 08 Apr 2025 02:23:20 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:79d9:c941:96f6:ac1c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2297865e477sm95651655ad.122.2025.04.08.02.23.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Apr 2025 02:23:19 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	"Chengci . Xu" <chengci.xu@mediatek.com>,
 	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>, linux-mm@kvack.org
-Subject: Re: [PATCH v6 09/10] optee: FF-A: dynamic restricted memory
- allocation
-Message-ID: <Z_TqTUpGhz1s-F8h@sumit-X1>
-References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
- <20250305130634.1850178-10-jens.wiklander@linaro.org>
- <Z-JePo6yGlUgrZkw@sumit-X1>
- <CAHUa44H1MzBLBM+Oeawca52C8PF3uAT0ggbL-zRdnBqj4LYrZg@mail.gmail.com>
- <Z-u8MWNVNy9lLbkK@sumit-X1>
- <CAHUa44GGEypYfiVz5E1aBsZ0TOK0UoeDBVRYB8_dUYJLhrSyUg@mail.gmail.com>
+	Robin Murphy <robin.murphy@arm.com>
+Subject: [PATCH] arm64: dts: mediatek: mt8188: Fix IOMMU device for rdma0
+Date: Tue,  8 Apr 2025 17:23:02 +0800
+Message-ID: <20250408092303.3563231-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHUa44GGEypYfiVz5E1aBsZ0TOK0UoeDBVRYB8_dUYJLhrSyUg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_022025_197049_0FC73DD6 
-X-CRM114-Status: GOOD (  47.79  )
+X-CRM114-CacheID: sfid-20250408_022321_240212_9433CD71 
+X-CRM114-Status: GOOD (  15.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,148 +98,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 02:26:59PM +0200, Jens Wiklander wrote:
-> On Tue, Apr 1, 2025 at 12:13 PM Sumit Garg <sumit.garg@kernel.org> wrote:
-> >
-> > + MM folks to seek guidance here.
-> >
-> > On Thu, Mar 27, 2025 at 09:07:34AM +0100, Jens Wiklander wrote:
-> > > Hi Sumit,
-> > >
-> > > On Tue, Mar 25, 2025 at 8:42 AM Sumit Garg <sumit.garg@kernel.org> wrote:
-> > > >
-> > > > On Wed, Mar 05, 2025 at 02:04:15PM +0100, Jens Wiklander wrote:
-> > > > > Add support in the OP-TEE backend driver dynamic restricted memory
-> > > > > allocation with FF-A.
-> > > > >
-> > > > > The restricted memory pools for dynamically allocated restrict memory
-> > > > > are instantiated when requested by user-space. This instantiation can
-> > > > > fail if OP-TEE doesn't support the requested use-case of restricted
-> > > > > memory.
-> > > > >
-> > > > > Restricted memory pools based on a static carveout or dynamic allocation
-> > > > > can coexist for different use-cases. We use only dynamic allocation with
-> > > > > FF-A.
-> > > > >
-> > > > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > > > > ---
-> > > > >  drivers/tee/optee/Makefile        |   1 +
-> > > > >  drivers/tee/optee/ffa_abi.c       | 143 ++++++++++++-
-> > > > >  drivers/tee/optee/optee_private.h |  13 +-
-> > > > >  drivers/tee/optee/rstmem.c        | 329 ++++++++++++++++++++++++++++++
-> > > > >  4 files changed, 483 insertions(+), 3 deletions(-)
-> > > > >  create mode 100644 drivers/tee/optee/rstmem.c
-> > > > >
-> >
-> > <snip>
-> >
-> > > > > diff --git a/drivers/tee/optee/rstmem.c b/drivers/tee/optee/rstmem.c
-> > > > > new file mode 100644
-> > > > > index 000000000000..ea27769934d4
-> > > > > --- /dev/null
-> > > > > +++ b/drivers/tee/optee/rstmem.c
-> > > > > @@ -0,0 +1,329 @@
-> > > > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > > > +/*
-> > > > > + * Copyright (c) 2025, Linaro Limited
-> > > > > + */
-> > > > > +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-> > > > > +
-> > > > > +#include <linux/errno.h>
-> > > > > +#include <linux/genalloc.h>
-> > > > > +#include <linux/slab.h>
-> > > > > +#include <linux/string.h>
-> > > > > +#include <linux/tee_core.h>
-> > > > > +#include <linux/types.h>
-> > > > > +#include "optee_private.h"
-> > > > > +
-> > > > > +struct optee_rstmem_cma_pool {
-> > > > > +     struct tee_rstmem_pool pool;
-> > > > > +     struct gen_pool *gen_pool;
-> > > > > +     struct optee *optee;
-> > > > > +     size_t page_count;
-> > > > > +     u16 *end_points;
-> > > > > +     u_int end_point_count;
-> > > > > +     u_int align;
-> > > > > +     refcount_t refcount;
-> > > > > +     u32 use_case;
-> > > > > +     struct tee_shm *rstmem;
-> > > > > +     /* Protects when initializing and tearing down this struct */
-> > > > > +     struct mutex mutex;
-> > > > > +};
-> > > > > +
-> > > > > +static struct optee_rstmem_cma_pool *
-> > > > > +to_rstmem_cma_pool(struct tee_rstmem_pool *pool)
-> > > > > +{
-> > > > > +     return container_of(pool, struct optee_rstmem_cma_pool, pool);
-> > > > > +}
-> > > > > +
-> > > > > +static int init_cma_rstmem(struct optee_rstmem_cma_pool *rp)
-> > > > > +{
-> > > > > +     int rc;
-> > > > > +
-> > > > > +     rp->rstmem = tee_shm_alloc_cma_phys_mem(rp->optee->ctx, rp->page_count,
-> > > > > +                                             rp->align);
-> > > > > +     if (IS_ERR(rp->rstmem)) {
-> > > > > +             rc = PTR_ERR(rp->rstmem);
-> > > > > +             goto err_null_rstmem;
-> > > > > +     }
-> > > > > +
-> > > > > +     /*
-> > > > > +      * TODO unmap the memory range since the physical memory will
-> > > > > +      * become inaccesible after the lend_rstmem() call.
-> > > > > +      */
-> > > >
-> > > > What's your plan for this TODO? I think we need a CMA allocator here
-> > > > which can allocate un-mapped memory such that any cache speculation
-> > > > won't lead to CPU hangs once the memory restriction comes into picture.
-> > >
-> > > What happens is platform-specific. For some platforms, it might be
-> > > enough to avoid explicit access. Yes, a CMA allocator with unmapped
-> > > memory or where memory can be unmapped is one option.
-> >
-> > Did you get a chance to enable real memory protection on RockPi board?
-> 
-> No, I don't think I have access to the needed documentation for the
-> board to set it up for relevant peripherals.
-> 
-> > This will atleast ensure that mapped restricted memory without explicit
-> > access works fine. Since otherwise once people start to enable real
-> > memory restriction in OP-TEE, there can be chances of random hang ups
-> > due to cache speculation.
-> 
-> A hypervisor in the normal world can also make the memory inaccessible
-> to the kernel. That shouldn't cause any hangups due to cache
-> speculation.
+Based on the comments in the MT8188 IOMMU binding header, the rdma0
+device specifies the wrong IOMMU device for the IOMMU port it is
+tied to:
 
-The hypervisor should unmap the memory from EL2 translation tables which
-I think should disallow the cache speculation to take place. However,
-without hypervisor here the memory remains mapped in normal world which
-can lead to cache speculation for restricted buffers. That's why we
-should atleast test on one platform with real memory protection enabled
-to rule out any assumptions we make.
+    This SoC have two MM IOMMU HWs, this is the connected information:
+    iommu-vdo: larb0/2/5/9/10/11A/11C/13/16B/17B/19/21
+    iommu-vpp: larb1/3/4/6/7/11B/12/14/15/16A/17A/23/27
 
--Sumit
+rdma0's endpoint is M4U_PORT_L1_DISP_RDMA0 (on larb1), which should use
+iommu-vpp, but it is currently tied to iommu-vdo.
 
-> 
-> Cheers,
-> Jens
-> 
-> >
-> > MM folks,
-> >
-> > Basically what we are trying to achieve here is a "no-map" DT behaviour
-> > [1] which is rather dynamic in  nature. The use-case here is that a memory
-> > block allocated from CMA can be marked restricted at runtime where we
-> > would like the Linux not being able to directly or indirectly (cache
-> > speculation) access it. Once memory restriction use-case has been
-> > completed, the memory block can be marked as normal and freed for
-> > further CMA allocation.
-> >
-> > It will be apprciated if you can guide us regarding the appropriate APIs
-> > to use for un-mapping/mamping CMA allocations for this use-case.
-> >
-> > [1] https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/reserved-memory/reserved-memory.yaml#L79
-> >
-> > -Sumit
+Somehow this went undetected until recently in Linux v6.15-rc1 with some
+IOMMU subsystem framework changes that caused the IOMMU to no longer
+work. The IOMMU would fail to probe if any devices associated with it
+could not be successfully attached. Prior to these changes, only the
+end device would be left without an IOMMU attached.
+
+Fixes: 7075b21d1a8e ("arm64: dts: mediatek: mt8188: Add display nodes for vdosys0")
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+index 69a8423d3858..29d35ca94597 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+@@ -2579,7 +2579,7 @@ rdma0: rdma@1c002000 {
+ 			reg = <0 0x1c002000 0 0x1000>;
+ 			clocks = <&vdosys0 CLK_VDO0_DISP_RDMA0>;
+ 			interrupts = <GIC_SPI 638 IRQ_TYPE_LEVEL_HIGH 0>;
+-			iommus = <&vdo_iommu M4U_PORT_L1_DISP_RDMA0>;
++			iommus = <&vpp_iommu M4U_PORT_L1_DISP_RDMA0>;
+ 			power-domains = <&spm MT8188_POWER_DOMAIN_VDOSYS0>;
+ 			mediatek,gce-client-reg = <&gce0 SUBSYS_1c00XXXX 0x2000 0x1000>;
+ 
+-- 
+2.49.0.504.g3bcea36a83-goog
+
 
