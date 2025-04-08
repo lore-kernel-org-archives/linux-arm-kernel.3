@@ -4,159 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328C4C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 07:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F2CC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 07:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vm9RytGQiNDEopIPTOiiytfxshfIS5+Rfw6gHfWgHHI=; b=rVepAYCCrV8Y4/jfML9y4nlWcW
-	m8pSyunoRc0XWA5mT+QP11ZOpJd9daUrlJ2I2R2Mthoy53dniLzOQWsrVvUEjhTEilppLzBrqy2Pt
-	otPKzNlCQt7VNVSvFnoIp6ilBrqfuspk9RwIvW6ogfxuNASQincXEh5AXjVdgIOq+pQCnkMJSq8K0
-	YwVKGbp/3cN8ET3iR4o4zZPm2dLwHqMM+Ws+7Eq/CmorW8CyH+JluSYfWNfPwBTqsq1SApF9R5I/5
-	tyY9l/jCFqLaYJrC/aFHJ7NT8fPeyelgwZArCrmLRC8eIK9md4G91MJMSB+MEEqUmU1JMD6zMQGO8
-	7AJXo6Hg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4VsMWWC9/D+b8SS5A7uVlJ4q/oMjSrIp9Q36boJRXP0=; b=iXLZocqYwuoZlnIOmsCvxs9lS+
+	fJPCWlQ0ytZtiKZyOa9vVoXYRqf4lD9RWIHrpXsntk2fmTGOjhNT7WxSJLl+Nqb+fWJWB7AA3EJhW
+	l5XXY6LQ3UYNanjt9FRZonZEAJi+g5m5W5Gs5+OPztKOSTn7OP2/YgO/Pz3n+aR7BFCK+2FNrm+xl
+	Z0EGPBLfsLk6azWnuTbILLoMlYM0xfQD6XiU/25/6T8OFeyrvU2FtkjJwaLNpArOM/ZQ/FjTKj4vo
+	2ZcBacVvFRdZEmWYC4+Etmki2/iqQcGmg4ZK5tOBSgVK715zM4GT+lQ4TQh4DQcAUbA8cl9MLn9fu
+	bMRVhPOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u234N-000000030Ux-0qmk;
-	Tue, 08 Apr 2025 07:08:27 +0000
-Received: from mail-db8eur05on2062d.outbound.protection.outlook.com ([2a01:111:f403:2614::62d] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1u2366-000000030tx-2u2D;
+	Tue, 08 Apr 2025 07:10:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u22z1-00000002zOX-0MGn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 07:02:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s7UC/UDenRwGYiUQ1vK9aU9L/FDHwIYmnB96ivw8jsFgDJpqgY7yYuJwGsdVNl3rXHSuDMPK0mC0SlXNclEkEW57A9npH4xuTNcBX4IvbUKMr6j9hNUnxnQil9rRJBcwOfEG5HOSuBXXuLWIv31kiY1b5a0VntMObUAeTcFjx3jvvU71aI+yHiMkjwkuqNi3D9GRiS0DtayU1QH4U8kbOtBkbTB9H2ujWVkEqhVCAVQY/h4xezPjecuYfh0kQZXNwAvIFLghJTpuKHjsyM2GJVePmHFvbE6teE5fqSVFHV0RPFK4wqsg+yC5ogY55VZobF+OhqxVhvoDQQlSrom+AQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Vm9RytGQiNDEopIPTOiiytfxshfIS5+Rfw6gHfWgHHI=;
- b=mhYt0B1eU+YHK8rydnd5mSb+YWGt9mHTDPatQuxwoiT6ey+l9y5lh86ZUMbzcoXhc+U3+7zsh0PGgahQ6w+vZkqDoDzdq133x7PfgSrFz9VD5XEJ6clHnS+UbTUn6nAk0r/7XEWF/7IROAWuIKL2HLkfYHByzHzzCSqQK+uGChCgHzKv6vYl4iB89Q8AfacqDFj0K/JJ0puzF5K9Zyrpxsa78VN+M2n75GLAjk9rx7e1HbgDv1J2bsmm5QySNZKqiZwUBk+t4ibYXMFh5swrrzPyyL1Q3VLzojd/GwoOgTtUCW4QmqtCr+1huYgy6DuSrQtNXggx4rpKwV5A9TRayg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Vm9RytGQiNDEopIPTOiiytfxshfIS5+Rfw6gHfWgHHI=;
- b=UM/a8LYiD4GLTGRHV9dt+pqxqiDmKZE7Uuy2vssYbum5Umj0EAf95fbp6gEaU1a3+C9Kf0xV4A3B9rzGqf6f661wqz2LQeWNb3mQ6hv3Mk8LHM0/F39vOJAdTkdwuyPubRoGWD9THm0pWyWswIE/Neykpa2/Rn1DfvnZGvARD1d3LiEu+XBMxlR7Xn8GJrjZwMB302Nl55BK5spQ9BbKycEN4oZzuovh+CxzuyZzUav6nt2ehqGnYHnvb2cqAAQhRvva5Tqz7GJkJk3t5/knXWrlAl14s+uOTQLfe0TB3MaaP5spQhHZmWwytexuiKB6DBGt4srCxHDinOS0caP2Pw==
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
- by DB9PR04MB10066.eurprd04.prod.outlook.com (2603:10a6:10:4c1::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.29; Tue, 8 Apr
- 2025 07:02:50 +0000
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827%6]) with mapi id 15.20.8606.033; Tue, 8 Apr 2025
- 07:02:50 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-To: Frank Li <frank.li@nxp.com>
-CC: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
-	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v15 5/7] firmware: imx: add driver for NXP EdgeLock
- Enclave
-Thread-Topic: [PATCH v15 5/7] firmware: imx: add driver for NXP EdgeLock
- Enclave
-Thread-Index: AQHbp6vhaY9E288aNEeiPyiVfy3UcLOYlioAgACwizA=
-Date: Tue, 8 Apr 2025 07:02:50 +0000
-Message-ID: <AM9PR04MB8604CF0462EA2071610F0E4095B52@AM9PR04MB8604.eurprd04.prod.outlook.com>
-References: <20250407-imx-se-if-v15-0-e3382cecda01@nxp.com>
- <20250407-imx-se-if-v15-5-e3382cecda01@nxp.com>
- <Z/QmjEZjBGLSMO9d@lizhi-Precision-Tower-5810>
-In-Reply-To: <Z/QmjEZjBGLSMO9d@lizhi-Precision-Tower-5810>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: yes
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM9PR04MB8604:EE_|DB9PR04MB10066:EE_
-x-ms-office365-filtering-correlation-id: 87d04b02-e819-45ec-99c9-08dd766b600c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700018|4053099003;
-x-microsoft-antispam-message-info: =?us-ascii?Q?iSgC8cRaUj0yCzlBOCjJKVm0nCEQeTw/9SMBmKd4JR/v35y8bZBIcYfkIyY+?=
- =?us-ascii?Q?aZ3ixaXb9RlJJ5+niz+XqmM20CKelgEQiJxciIuAoq3T5l8teo/Zp9IOOIfY?=
- =?us-ascii?Q?pTdqDIadv2uX2CuLB4djegRBCQxu+byndXDu/yrKMFJKoro7efQL6ld6gaLc?=
- =?us-ascii?Q?NZDhqEDm0USXeynoESaZlMMAdgqZ6X3O0TvzUEaqDRymoMZTCC4r7LmfJLeb?=
- =?us-ascii?Q?veGdZRUMTpb3X7iA30lndGkJencZNr1yTfSYyn0ux3O/5AWhD2EziXLhJAwC?=
- =?us-ascii?Q?uUY1oZ7VabxYACGoOMf9vhm4GDjsD7g63SK1z2rTVJtiUKjLWkj7vVtQYn3m?=
- =?us-ascii?Q?Uw1Y3XIrXTiqZwBRHVR++s8ld7/x0z/oBxvTfCQx0FvoWb31QFEBjY4JnwWb?=
- =?us-ascii?Q?XusujM6zlmqNr8kFnuSG8vSA2cA8Ye3/5hYPeA89c5Bwl1W4gtrHRZQvufa+?=
- =?us-ascii?Q?64B8SktsxV4xgg0B6XwTrOjvCLTgoA6KdB4EcPOw8MFreyoAGZRe8ipAwx50?=
- =?us-ascii?Q?qTg30h1Jqy2guEzTpaOWGg56RMSc0lO/56PfwpZGJsA9joOLtzGXq1HqTTce?=
- =?us-ascii?Q?KCfQI/S9IiCfnov83kjOr0UUXhOHBw1mI1GntZ1+D9ABhMmCMzIV6pxRGzbz?=
- =?us-ascii?Q?bTSkOeKymX+Djsy0GiWgbqryjTpAXKr9/QrCyP7yjs8IYsRRPzI4UVDf9P5I?=
- =?us-ascii?Q?3AGnCuPf0+hhT8tKyZVIgA2akQA/EnIq7SJ+Ee7P+2lKO9k58wpRGqSws0Qn?=
- =?us-ascii?Q?tsoqvb0A5Jrchb+keF5sVueOQJ6qRVdNhSxL5r0G/UZlnO87k7knksJYRD7I?=
- =?us-ascii?Q?zVfgEvemNjt1r4GKxhEXETubJ4UT+FVkBFepNCkLB1B5eJO2+cFXyn+nXhEp?=
- =?us-ascii?Q?/geDMoevbypJtNV6b2iEYbhK1ftpLn9gqe0jwKNtX8WHFCGLgePDYd1jJRIe?=
- =?us-ascii?Q?CBg8koFG3/dOUATP3civx+np004eLGErAcL/KMkARMX2JhEXqKB23X/eQ1w+?=
- =?us-ascii?Q?IxB4PhPDf0Fe2DPdc8BZc3pJ6oAFpP/P+ZlFU/nk4iHzp98Qw9w+jfyTXqID?=
- =?us-ascii?Q?v6i5smwGvdO+MO/SgNScQzdksctFIKKUu3+HPwWnCjAHciGTJYSKWIu0vvoB?=
- =?us-ascii?Q?CPLY88LZKVLWazUVWzpWg/0tdiSSV1nIDpkcgJ9pgTYmxPrTb5wknGH0nAzL?=
- =?us-ascii?Q?edlWTIjgxxwum69WNpMvy2Wnc1gyHgbNh1FqRSML/z2Z9l6qcD8CiO4AIUBr?=
- =?us-ascii?Q?e2ZpmyygxZrQYVLP/YE1EbFCcwwkP+ZVkbH73Q9plQyVRTKOC9axaCLPbuwI?=
- =?us-ascii?Q?nEmb46vDWke5vz8DSmpjW73HWKPZZRihnxrQ62GQx11mavXxLMqau3QwBYU6?=
- =?us-ascii?Q?Dfesw5/aES4IXDosx0raWI9eMVKNm0JICvsAy/uFJf62th6jTWxf6uZ+cbPe?=
- =?us-ascii?Q?1mDxqkHxbf+mv2vmPlfft+8C5q+kTD3NsGKmDkZP5x7XHn2xdvzfcA=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700018)(4053099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?yS6OB59bRITzsJkRoXBt7WEkiW/mxJC5L6EcMDsgbOy2jNvNnJB8N6hWhp+h?=
- =?us-ascii?Q?ab+Da2XRzYCiYQTl3FX3p/ucHWRof9jXUi/Wvx0pdGVBaIHKzg7tAqs6kELC?=
- =?us-ascii?Q?atRBL1P/6bm9I93j9cEl42L7ITSUyIVjhGxwnH3xjNUcoVyzVd6oF8lojToa?=
- =?us-ascii?Q?FqMSJuMOseFv7wqpploHKc2ykxElyxdB6FIgSyHCr+BpM53Us5ZYGi7W/0Qr?=
- =?us-ascii?Q?zwRrN4TKm/Xt+rACEwuJVFI+PxWUmZW+2lY4SQLEY3EnHdEmY4lThswOws5N?=
- =?us-ascii?Q?nO/1MHPVtq+/exkgOVOctOHq+YWlIiIiwxMqmru+zEK0RStEGd0aZ9v/5N18?=
- =?us-ascii?Q?QYdTTsJRVVQEzS737/h/9pmUiuLqsyVhta8qL/kPjV2W4LuQb23QiTT9BKRN?=
- =?us-ascii?Q?OM58JT0uSK4UuRi+Q9Yg6pOIAA1N37d/JF93xaaRXaKExBB31K40h/FPwHBl?=
- =?us-ascii?Q?EdltzOJEqccct78yjjZ1+bkPto9Y7vDo4ykRDTGVa9qdFkRdWelQywPhDM7V?=
- =?us-ascii?Q?cDxX7n9K16OSFEeqSbvbqyVasFl1UPy3c9Ra0iqKmIlnu3yyaasoSxBwlBfV?=
- =?us-ascii?Q?JdUEIX89dLhd3yMSQuXmgMG/4ve84mrStX9X2Jt4TrZodOyuw7/ZxiMNMe5v?=
- =?us-ascii?Q?wmXCllNpMN+S1La/ux7Vx31R+CVrcZya4cLEP9jsFjWEbUMngHWjEG8qMzwN?=
- =?us-ascii?Q?bAuoV97jBAlTCF3Lxh7jykAI6e7DujDsbkysFGwKDQpvArUZRVrhRtVQ655x?=
- =?us-ascii?Q?gjGdH7tCQRtQBZTPpH/J3q4nEcOXDL0ZXIaSCL4JPMMqiwbf0qlHZmtUBXf6?=
- =?us-ascii?Q?CkzcpoqMXxTSlKNuX6wjOuY+kCk8E6lFdEBNefNtOs3ZlTAin/XERBTSUn2N?=
- =?us-ascii?Q?BdiHmYCHPyireIBIZ35qKMQ4FQaHmm4N4k6ciOG8eiEXAwoCugZMTo6rp1RI?=
- =?us-ascii?Q?zKAv3PRmVufsYx05Qu4KBo9ExgjhRMKgtdBRb0+M3PdL4M2tReKNppDP602B?=
- =?us-ascii?Q?rihq1kHsFG7hQAxUiuzfOIXk0/OT0EzcCpgxFhufp8BZgxV+1574H+DxOvd1?=
- =?us-ascii?Q?K87J4XSMWWZ3RJbs4Wczd+FeH98KFp3wLoqdMwIyObKODXK/3bJx3L5wmVyx?=
- =?us-ascii?Q?cb7mLRmgKjYoVlzG6VR6poOmKMGXMW64VzXuFxA8Yv8EMZdJ5n8bbdI6dmUn?=
- =?us-ascii?Q?M3VBGUf+BiLaCbfnCmolA0k1wfFhlQPpdRLq1SZxqFOsXNMeQnWKe/RCGplv?=
- =?us-ascii?Q?B0BOKp1Mec6kt+tEdlzN+1DmlkdpzKTENhaWJ8/6AhUkbgFa/MEbGOh1rZEE?=
- =?us-ascii?Q?2AYPpv8YT1SF+q9rqy4oN0Le1deV5MZIBdUc2j3NDolvPQFAuMb71PBQWHg4?=
- =?us-ascii?Q?GlgGuDSHhkc+plF6Iz8+7EIxL35ALHWnFnTZiioo0usSElBgCdMTXupdybJv?=
- =?us-ascii?Q?pCgRSJzI+xJ3ow054KLEf4/mOpOOSRHKru9Q134eeF1t613DpnniXrO6r0iA?=
- =?us-ascii?Q?Fmc2f2Hjx6Yu9QeDB3koS/9dJh9cNpUaEcKpKR0jCtTD4FpmvzmP/PqBStVd?=
- =?us-ascii?Q?OB2AKLZJN8b5+P1YEvnZLIxyKDAJa5qhqz7CZKfH?=
-Content-Type: multipart/signed;
-	protocol="application/x-pkcs7-signature";
-	micalg=SHA1;
-	boundary="----=_NextPart_000_0016_01DBA882.53E84F30"
+	id 1u2308-00000002zaR-1Z6F;
+	Tue, 08 Apr 2025 07:04:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1BB3243CC7;
+	Tue,  8 Apr 2025 07:04:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9EA90C4CEE9;
+	Tue,  8 Apr 2025 07:04:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744095843;
+	bh=fdd64doT3ZUCmvsoRtRL1uM7nadg2Erx2MdHF1BDcyY=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=r6BWOmxVRabHmMcraz60OK43gNEsbPHAshAOQsFAMGDo6z2beXBxh+Bp+vmx9uT9/
+	 K0qGl4HdZiR61ycc53ENHsM7vWBY3aZ3YT5sO5vuJsm2xqT8DU5Lt17qr1DVUCH6HE
+	 VR2GNNuSTGsl9zNObAuxnFyj8RL4aG/+9HRdPYi5o8HTshpJy4HncIYretMe4/iHCH
+	 aGzwuv4MlVOyTpmcbJ7OB0lNsGDZSsIN6mzREaqDRobUuVyif7QTivVqPqA3Kj+t6K
+	 BAsrJqIFMP18rutfdIHu3H9oVizvzpSc5kOcgChIVING4HEgLuKCQvf6T/q0dioq9p
+	 2sufQcw6bWLsg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8B2A6C3600C;
+	Tue,  8 Apr 2025 07:04:03 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Tue, 08 Apr 2025 15:04:01 +0800
+Subject: [PATCH] spi: meson-spicc: add DMA support
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87d04b02-e819-45ec-99c9-08dd766b600c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Apr 2025 07:02:50.0924
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: T+ONWjL/9/iTRvndiU0LGIa5SL5rWGe5Ujt3lRYvvc5YK3TtmllHLG3Ae1TzZe4YBHi9Q6BzeoqjwOokVLr0MQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB10066
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250408-spi-dma-v1-1-3c38be62c09c@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIAGDK9GcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDEwML3eKCTN2U3ETdZBNLyzRTM4MUI0tTJaDqgqLUtMwKsEnRsbW1ACx
+ sJVRZAAAA
+To: Mark Brown <broonie@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sunny Luo <sunny.luo@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744095841; l=11051;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=HoQngfucDhq8Rc3lBesyjBYIgN9TUaxT6bDfj5vDpZY=;
+ b=LCuBOKvTVtOq4fONF3GKDsl2aycldIHGZMpCbjNdsFyagqAM/E+wFfih8p3Iox5DlC9SGMYLi
+ d/7sAJuvOhMALJT8Jgwwu4th7/+vvSOf9hzMx0+YIM3QdRLEsIkGfku
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_000255_274578_193FF4DE 
-X-CRM114-Status: GOOD (  18.16  )
+X-CRM114-CacheID: sfid-20250408_000404_460308_6A46C262 
+X-CRM114-Status: GOOD (  27.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,282 +86,345 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------=_NextPart_000_0016_01DBA882.53E84F30
-Content-Type: text/plain;
-	charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-> diff --git a/drivers/firmware/imx/ele_base_msg.c 
-> b/drivers/firmware/imx/ele_base_msg.c
-> new file mode 100644
-> index 000000000000..c843a5508a9e
-> --- /dev/null
->> +++ b/drivers/firmware/imx/ele_base_msg.c
-> @@ -0,0 +1,312 @@
->> +// SPDX-License-Identifier: GPL-2.0+
->> +/*
->> + * Copyright 2025 NXP
->> + */
->> +
->> +int ele_fw_authenticate(struct se_if_priv *priv, phys_addr_t addr) {
->> +	struct se_api_msg *tx_msg __free(kfree) = NULL;
->> +	struct se_api_msg *rx_msg __free(kfree) = NULL;
->> +	int ret = 0;
->> +
->> +	if (!priv)
->> +		return -EINVAL;
->> +
->> +	tx_msg = kzalloc(ELE_FW_AUTH_REQ_SZ, GFP_KERNEL);
->> +	if (!tx_msg)
->> +		return -ENOMEM;
->> +
->> +	rx_msg = kzalloc(ELE_FW_AUTH_RSP_MSG_SZ, GFP_KERNEL);
->> +	if (!rx_msg)
->> +		return -ENOMEM;
->> +
->> +	ret = se_fill_cmd_msg_hdr(priv,
->> +				  (struct se_msg_hdr *)&tx_msg->header,
->> +				  ELE_FW_AUTH_REQ,
->> +				  ELE_FW_AUTH_REQ_SZ,
->> +				  true);
->> +	if (ret)
->> +		return ret;
->> +
->> +	tx_msg->data[1] = upper_32_bits(addr);
->> +	tx_msg->data[0] = lower_32_bits(addr);
->> +	tx_msg->data[2] = addr;
+Add DMA support for spicc driver.
+
+DMA works if the transfer meets the following conditions:
+1. 64 bits per word;
+2. The transfer length must be multiples of the dma_burst_len,
+   and the dma_burst_len should be one of 8,7...2,
+   otherwise, it will be split into several SPI bursts.
+
+Signed-off-by: Sunny Luo <sunny.luo@amlogic.com>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+ drivers/spi/spi-meson-spicc.c | 243 ++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 232 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/spi/spi-meson-spicc.c b/drivers/spi/spi-meson-spicc.c
+index df74ad5060f8..81e263bceba9 100644
+--- a/drivers/spi/spi-meson-spicc.c
++++ b/drivers/spi/spi-meson-spicc.c
+@@ -21,6 +21,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/reset.h>
+ #include <linux/pinctrl/consumer.h>
++#include <linux/dma-mapping.h>
+ 
+ /*
+  * The Meson SPICC controller could support DMA based transfers, but is not
+@@ -33,6 +34,20 @@
+  * - CS management is dumb, and goes UP between every burst, so is really a
+  *   "Data Valid" signal than a Chip Select, GPIO link should be used instead
+  *   to have a CS go down over the full transfer
++ *
++ * DMA achieves a transfer with one or more SPI bursts, each SPI burst is made
++ * up of one or more DMA bursts. The DMA burst implementation mechanism is,
++ * For TX, when the number of words in TXFIFO is less than the preset
++ * reading threshold, SPICC starts a reading DMA burst, which reads the preset
++ * number of words from TX buffer, then writes them into TXFIFO.
++ * For RX, when the number of words in RXFIFO is greater than the preset
++ * writing threshold, SPICC starts a writing request burst, which reads the
++ * preset number of words from RXFIFO, then write them into RX buffer.
++ * DMA works if the transfer meets the following conditions,
++ * - 64 bits per word
++ * - The transfer length in word must be multiples of the dma_burst_len, and
++ *   the dma_burst_len should be one of 8,7...2, otherwise, it will be split
++ *   into several SPI bursts by this driver
+  */
+ 
+ #define SPICC_MAX_BURST	128
+@@ -128,6 +143,29 @@
+ 
+ #define SPICC_DWADDR	0x24	/* Write Address of DMA */
+ 
++#define SPICC_LD_CNTL0	0x28
++#define VSYNC_IRQ_SRC_SELECT		BIT(0)
++#define DMA_EN_SET_BY_VSYNC		BIT(2)
++#define XCH_EN_SET_BY_VSYNC		BIT(3)
++#define DMA_READ_COUNTER_EN		BIT(4)
++#define DMA_WRITE_COUNTER_EN		BIT(5)
++#define DMA_RADDR_LOAD_BY_VSYNC		BIT(6)
++#define DMA_WADDR_LOAD_BY_VSYNC		BIT(7)
++#define DMA_ADDR_LOAD_FROM_LD_ADDR	BIT(8)
++
++#define SPICC_LD_CNTL1	0x2c
++#define DMA_READ_COUNTER		GENMASK(15, 0)
++#define DMA_WRITE_COUNTER		GENMASK(31, 16)
++#define DMA_BURST_LEN_DEFAULT		8
++#define DMA_BURST_COUNT_MAX		0xffff
++#define SPI_BURST_LEN_MAX	(DMA_BURST_LEN_DEFAULT * DMA_BURST_COUNT_MAX)
++
++enum {
++	DMA_TRIG_NORMAL = 0,
++	DMA_TRIG_VSYNC,
++	DMA_TRIG_LINE_N,
++};
++
+ #define SPICC_ENH_CTL0	0x38	/* Enhanced Feature */
+ #define SPICC_ENH_CLK_CS_DELAY_MASK	GENMASK(15, 0)
+ #define SPICC_ENH_DATARATE_MASK		GENMASK(23, 16)
+@@ -171,6 +209,9 @@ struct meson_spicc_device {
+ 	struct pinctrl			*pinctrl;
+ 	struct pinctrl_state		*pins_idle_high;
+ 	struct pinctrl_state		*pins_idle_low;
++	dma_addr_t			tx_dma;
++	dma_addr_t			rx_dma;
++	bool				using_dma;
+ };
+ 
+ #define pow2_clk_to_spicc(_div) container_of(_div, struct meson_spicc_device, pow2_div)
+@@ -202,6 +243,155 @@ static void meson_spicc_oen_enable(struct meson_spicc_device *spicc)
+ 	writel_relaxed(conf, spicc->base + SPICC_ENH_CTL0);
+ }
+ 
++static int meson_spicc_dma_map(struct meson_spicc_device *spicc,
++			       struct spi_transfer *t)
++{
++	struct device *dev = spicc->host->dev.parent;
++
++	if (!(t->tx_buf && t->rx_buf))
++		return -EINVAL;
++
++	t->tx_dma = dma_map_single(dev, (void *)t->tx_buf, t->len, DMA_TO_DEVICE);
++	if (dma_mapping_error(dev, t->tx_dma))
++		return -ENOMEM;
++
++	t->rx_dma = dma_map_single(dev, t->rx_buf, t->len, DMA_FROM_DEVICE);
++	if (dma_mapping_error(dev, t->rx_dma))
++		return -ENOMEM;
++
++	spicc->tx_dma = t->tx_dma;
++	spicc->rx_dma = t->rx_dma;
++
++	return 0;
++}
++
++static void meson_spicc_dma_unmap(struct meson_spicc_device *spicc,
++				  struct spi_transfer *t)
++{
++	struct device *dev = spicc->host->dev.parent;
++
++	if (t->tx_dma)
++		dma_unmap_single(dev, t->tx_dma, t->len, DMA_TO_DEVICE);
++	if (t->rx_dma)
++		dma_unmap_single(dev, t->rx_dma, t->len, DMA_FROM_DEVICE);
++}
++
++/*
++ * According to the remain words length, calculate a suitable spi burst length
++ * and a dma burst length for current spi burst
++ */
++static u32 meson_spicc_calc_dma_len(struct meson_spicc_device *spicc,
++				    u32 len, u32 *dma_burst_len)
++{
++	u32 i;
++
++	if (len <= spicc->data->fifo_size) {
++		*dma_burst_len = len;
++		return len;
++	}
++
++	*dma_burst_len = DMA_BURST_LEN_DEFAULT;
++
++	if (len == (SPI_BURST_LEN_MAX + 1))
++		return SPI_BURST_LEN_MAX - DMA_BURST_LEN_DEFAULT;
++
++	if (len >= SPI_BURST_LEN_MAX)
++		return SPI_BURST_LEN_MAX;
++
++	for (i = DMA_BURST_LEN_DEFAULT; i > 1; i--)
++		if ((len % i) == 0) {
++			*dma_burst_len = i;
++			return len;
++		}
++
++	i = len % DMA_BURST_LEN_DEFAULT;
++	len -= i;
++
++	if (i == 1)
++		len -= DMA_BURST_LEN_DEFAULT;
++
++	return len;
++}
++
++static void meson_spicc_setup_dma(struct meson_spicc_device *spicc, u8 trig)
++{
++	unsigned int len;
++	unsigned int dma_burst_len, dma_burst_count;
++	unsigned int count_en = 0;
++	unsigned int txfifo_thres = 0;
++	unsigned int read_req = 0;
++	unsigned int rxfifo_thres = 31;
++	unsigned int write_req = 0;
++	unsigned int ld_ctr1 = 0;
++
++	writel_relaxed(spicc->tx_dma, spicc->base + SPICC_DRADDR);
++	writel_relaxed(spicc->rx_dma, spicc->base + SPICC_DWADDR);
++
++	/* Set the max burst length to support a transmission with length of
++	 * no more than 1024 bytes(128 words), which must use the CS management
++	 * because of some strict timing requirements
++	 */
++	writel_bits_relaxed(SPICC_BURSTLENGTH_MASK, SPICC_BURSTLENGTH_MASK,
++			    spicc->base + SPICC_CONREG);
++
++	len = meson_spicc_calc_dma_len(spicc, spicc->xfer_remain,
++				       &dma_burst_len);
++	spicc->xfer_remain -= len;
++	dma_burst_count = DIV_ROUND_UP(len, dma_burst_len);
++	dma_burst_len--;
++
++	if (trig == DMA_TRIG_LINE_N)
++		count_en |= VSYNC_IRQ_SRC_SELECT;
++
++	if (spicc->tx_dma) {
++		spicc->tx_dma += len;
++		count_en |= DMA_READ_COUNTER_EN;
++		if (trig == DMA_TRIG_VSYNC || trig == DMA_TRIG_LINE_N)
++			count_en |= DMA_RADDR_LOAD_BY_VSYNC
++				    | DMA_ADDR_LOAD_FROM_LD_ADDR;
++		txfifo_thres = spicc->data->fifo_size - dma_burst_len;
++		read_req = dma_burst_len;
++		ld_ctr1 |= FIELD_PREP(DMA_READ_COUNTER, dma_burst_count);
++	}
++
++	if (spicc->rx_dma) {
++		spicc->rx_dma += len;
++		count_en |= DMA_WRITE_COUNTER_EN;
++		if (trig == DMA_TRIG_VSYNC || trig == DMA_TRIG_LINE_N)
++			count_en |= DMA_WADDR_LOAD_BY_VSYNC
++				    | DMA_ADDR_LOAD_FROM_LD_ADDR;
++		rxfifo_thres = dma_burst_len;
++		write_req = dma_burst_len;
++		ld_ctr1 |= FIELD_PREP(DMA_WRITE_COUNTER, dma_burst_count);
++	}
++
++	writel_relaxed(count_en, spicc->base + SPICC_LD_CNTL0);
++	writel_relaxed(ld_ctr1, spicc->base + SPICC_LD_CNTL1);
++	writel_relaxed(((trig == DMA_TRIG_NORMAL) ? SPICC_DMA_ENABLE : 0)
++		    | SPICC_DMA_URGENT
++		    | FIELD_PREP(SPICC_TXFIFO_THRESHOLD_MASK, txfifo_thres)
++		    | FIELD_PREP(SPICC_READ_BURST_MASK, read_req)
++		    | FIELD_PREP(SPICC_RXFIFO_THRESHOLD_MASK, rxfifo_thres)
++		    | FIELD_PREP(SPICC_WRITE_BURST_MASK, write_req),
++		    spicc->base + SPICC_DMAREG);
++}
++
++static void meson_spicc_dma_irq(struct meson_spicc_device *spicc)
++{
++	if (readl_relaxed(spicc->base + SPICC_DMAREG) & SPICC_DMA_ENABLE)
++		return;
++
++	if (spicc->xfer_remain) {
++		meson_spicc_setup_dma(spicc, DMA_TRIG_NORMAL);
++	} else {
++		writel_bits_relaxed(SPICC_SMC, 0, spicc->base + SPICC_CONREG);
++		writel_relaxed(0, spicc->base + SPICC_INTREG);
++		writel_relaxed(0, spicc->base + SPICC_DMAREG);
++		meson_spicc_dma_unmap(spicc, spicc->xfer);
++		complete(&spicc->done);
++	}
++}
++
+ static inline bool meson_spicc_txfull(struct meson_spicc_device *spicc)
+ {
+ 	return !!FIELD_GET(SPICC_TF,
+@@ -293,6 +483,11 @@ static irqreturn_t meson_spicc_irq(int irq, void *data)
+ 
+ 	writel_bits_relaxed(SPICC_TC, SPICC_TC, spicc->base + SPICC_STATREG);
+ 
++	if (spicc->using_dma) {
++		meson_spicc_dma_irq(spicc);
++		return IRQ_HANDLED;
++	}
++
+ 	/* Empty RX FIFO */
+ 	meson_spicc_rx(spicc);
+ 
+@@ -426,9 +621,6 @@ static int meson_spicc_transfer_one(struct spi_controller *host,
+ 
+ 	meson_spicc_reset_fifo(spicc);
+ 
+-	/* Setup burst */
+-	meson_spicc_setup_burst(spicc);
+-
+ 	/* Setup wait for completion */
+ 	reinit_completion(&spicc->done);
+ 
+@@ -442,11 +634,40 @@ static int meson_spicc_transfer_one(struct spi_controller *host,
+ 	/* Increase it twice and add 200 ms tolerance */
+ 	timeout += timeout + 200;
+ 
+-	/* Start burst */
+-	writel_bits_relaxed(SPICC_XCH, SPICC_XCH, spicc->base + SPICC_CONREG);
++	if (xfer->bits_per_word == 64) {
++		int ret;
+ 
+-	/* Enable interrupts */
+-	writel_relaxed(SPICC_TC_EN, spicc->base + SPICC_INTREG);
++		/* must tx */
++		if (!xfer->tx_buf)
++			return -EINVAL;
++
++		/* dma_burst_len 1 can't trigger a dma burst */
++		if (xfer->len < 16)
++			return -EINVAL;
++
++		ret = meson_spicc_dma_map(spicc, xfer);
++		if (ret) {
++			meson_spicc_dma_unmap(spicc, xfer);
++			dev_err(host->dev.parent, "dma map failed\n");
++			return ret;
++		}
++
++		spicc->using_dma = true;
++		spicc->xfer_remain = DIV_ROUND_UP(xfer->len, spicc->bytes_per_word);
++		meson_spicc_setup_dma(spicc, DMA_TRIG_NORMAL);
++		writel_relaxed(SPICC_TE_EN, spicc->base + SPICC_INTREG);
++		writel_bits_relaxed(SPICC_SMC, SPICC_SMC, spicc->base + SPICC_CONREG);
++	} else {
++		spicc->using_dma = false;
++		/* Setup burst */
++		meson_spicc_setup_burst(spicc);
++
++		/* Start burst */
++		writel_bits_relaxed(SPICC_XCH, SPICC_XCH, spicc->base + SPICC_CONREG);
++
++		/* Enable interrupts */
++		writel_relaxed(SPICC_TC_EN, spicc->base + SPICC_INTREG);
++	}
+ 
+ 	if (!wait_for_completion_timeout(&spicc->done, msecs_to_jiffies(timeout)))
+ 		return -ETIMEDOUT;
+@@ -853,10 +1074,10 @@ static int meson_spicc_probe(struct platform_device *pdev)
+ 	host->num_chipselect = 4;
+ 	host->dev.of_node = pdev->dev.of_node;
+ 	host->mode_bits = SPI_CPHA | SPI_CPOL | SPI_CS_HIGH | SPI_LOOP;
+-	host->bits_per_word_mask = SPI_BPW_MASK(32) |
+-				   SPI_BPW_MASK(24) |
+-				   SPI_BPW_MASK(16) |
+-				   SPI_BPW_MASK(8);
++	/* DMA works at 64 bits, but it is invalidated by the spi core,
++	 * clr the mask to avoid the spi core validation check
++	 */
++	host->bits_per_word_mask = 0;
+ 	host->flags = (SPI_CONTROLLER_MUST_RX | SPI_CONTROLLER_MUST_TX);
+ 	host->min_speed_hz = spicc->data->min_speed_hz;
+ 	host->max_speed_hz = spicc->data->max_speed_hz;
+
+---
+base-commit: 49807ed87851916ef655f72e9562f96355183090
+change-id: 20250408-spi-dma-c499f560d295
+
+Best regards,
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
 
 
-> are you sure 0 lower, 1 is upper
-> in ele_get_info(), 0 is upper, 1 lower.
-Yes.
-
-> Please order as index.
-Accepted.
-
-> why need fill "tx_msg->data[2] = addr" (0,1 already have addr)
-As per FW spec after the header, the 3rd word should contain the actual
-address of the image, conveyed by the container. 
-In our case container address is same as that of the image address conveyed
-by the container.
-
-Accepted, Will add another argument img_addr. And re-name the addr to
-contnr_addr.
-
->> +
->> +	ret = ele_msg_send_rcv(priv,
->> +			       tx_msg,
->> +			       ELE_FW_AUTH_REQ_SZ,
->> +			       rx_msg,
->> +			       ELE_FW_AUTH_RSP_MSG_SZ);
->> +	if (ret < 0)
->> +		return ret;
-
-------=_NextPart_000_0016_01DBA882.53E84F30
-Content-Type: application/pkcs7-signature;
-	name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment;
-	filename="smime.p7s"
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExCzAJBgUrDgMCGgUAMIAGCSqGSIb3DQEHAQAAoIImZTCCBaIw
-ggOKoAMCAQICCE4Rpu+H69FRMA0GCSqGSIb3DQEBCwUAMGUxIjAgBgNVBAMMGU5YUCBJbnRlcm5h
-bCBQb2xpY3kgQ0EgRzIxCzAJBgNVBAsMAklUMREwDwYDVQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJ
-RWluZGhvdmVuMQswCQYDVQQGEwJOTDAeFw0yMzA0MjEwNjQzNDVaFw0yODA0MTkwNjQzNDVaMIG2
-MRwwGgYDVQQDDBNOWFAgRW50ZXJwcmlzZSBDQSA1MQswCQYDVQQLDAJJVDERMA8GA1UECgwITlhQ
-IEIuVi4xEjAQBgNVBAcMCUVpbmRob3ZlbjEWMBQGA1UECAwNTm9vcmQtQnJhYmFudDETMBEGCgmS
-JomT8ixkARkWA3diaTETMBEGCgmSJomT8ixkARkWA254cDETMBEGCgmSJomT8ixkARkWA2NvbTEL
-MAkGA1UEBhMCTkwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDAWrnSkYP60A8wj4AO
-kATDjnbdgLv6waFfyXE/hvatdWz2YYtb1YSRi5/wXW+Pz8rsTmSj7iusI+FcLP8WEaMVLn4sEIQY
-NI8KJUCz21tsIArYs0hMKEUFeCq3mxTJfPqzdj9CExJBlZ5vWS4er8eJI8U8kZrt4CoY7De0FdJh
-35Pi5QGzUFmFuaLgXfV1N5yukTzEhqz36kODoSRw+eDHH9YqbzefzEHK9d93TNiLaVlln42O0qaI
-MmxK1aNcZx+nQkFsF/VrV9M9iLGA+Qb/MFmR20MJAU5kRGkJ2/QzgVQM3Nlmp/bF/3HWOJ2j2mpg
-axvzxHNN+5rSNvkG2vSpAgMBAAGjggECMIH/MFIGCCsGAQUFBwEBBEYwRDBCBggrBgEFBQcwAoY2
-aHR0cDovL253dy5wa2kubnhwLmNvbS9jZXJ0cy9OWFBJbnRlcm5hbFBvbGljeUNBRzIuY2VyMB0G
-A1UdDgQWBBRYlWDuTnTvZSKqve0ZqSt6jhedBzASBgNVHRMBAf8ECDAGAQH/AgEAMEUGA1UdHwQ+
-MDwwOqA4oDaGNGh0dHA6Ly9ud3cucGtpLm54cC5jb20vY3JsL05YUEludGVybmFsUG9saWN5Q0FH
-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
-ggEKAoIBAQCsljsxzffby7IAt42e7cJH7K+49RL+7i56h3ORt8dS8WNVSdDlejp6uS6mLk/UX0wn
-sSxDK1S5KquGJQzaT/3gxE8tdgvfFNBVdrgr48DeCVwWDr1o/UF3RmGcMdxqRz1M/oLDJ03C8n6h
-L/0JXiwsNx0KZJoqDrN/48yX5TkoeKJmHFftZ5Op57xV0WkZJ/yLxSC1Om75jOG/UPdqsDzl+wi7
-YVj5egV24hoaXgHBxtCeJzUgsHcJlo9nFtGe11j6H1vqFzkPzN9ydjRmhQATV/WLqpG8uot79u0m
-6n7Mjwsd/HmJf+8xpovMcHPO2a0axppssKso/3APP6mR1FuVAgMBAAGjggORMIIDjTAOBgNVHQ8B
-Af8EBAMCB4AwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMEMAwGA1UdEwEB/wQCMAAwHQYD
-VR0OBBYEFLNr0DCWM1fCXv4ubOt/elkvcoiaMEUGA1UdEQQ+MDygJAYKKwYBBAGCNxQCA6AWDBRw
-YW5rYWouZ3VwdGFAbnhwLmNvbYEUcGFua2FqLmd1cHRhQG54cC5jb20wHwYDVR0jBBgwFoAU5TJ6
-9GbBR5Ykf/wngDlY3ysX4rswggFKBgNVHR8EggFBMIIBPTCCATmgggE1oIIBMYaByGxkYXA6Ly8v
-Q049TlhQJTIwRW50ZXJwcmlzZSUyMENBJTIwNCxDTj1ubGFtc3BraTAwMDQsQ049Q0RQLENOPVB1
-YmxpYyUyMEtleSUyMFNlcnZpY2VzLENOPVNlcnZpY2VzLENOPUNvbmZpZ3VyYXRpb24sREM9d2Jp
-LERDPW54cCxEQz1jb20/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVjdENsYXNz
-PWNSTERpc3RyaWJ1dGlvblBvaW50hjFodHRwOi8vbnd3LnBraS5ueHAuY29tL2NybC9OWFAtRW50
-ZXJwcmlzZS1DQTQuY3JshjFodHRwOi8vd3d3LnBraS5ueHAuY29tL2NybC9OWFAtRW50ZXJwcmlz
-ZS1DQTQuY3JsMIIBEAYIKwYBBQUHAQEEggECMIH/MIG7BggrBgEFBQcwAoaBrmxkYXA6Ly8vQ049
-TlhQJTIwRW50ZXJwcmlzZSUyMENBJTIwNCxDTj1BSUEsQ049UHVibGljJTIwS2V5JTIwU2Vydmlj
-ZXMsQ049U2VydmljZXMsQ049Q29uZmlndXJhdGlvbixEQz13YmksREM9bnhwLERDPWNvbT9jQUNl
-cnRpZmljYXRlP2Jhc2U/b2JqZWN0Q2xhc3M9Y2VydGlmaWNhdGlvbkF1dGhvcml0eTA/BggrBgEF
-BQcwAoYzaHR0cDovL253dy5wa2kubnhwLmNvbS9jZXJ0cy9OWFAtRW50ZXJwcmlzZS1DQTQuY2Vy
-MDwGCSsGAQQBgjcVBwQvMC0GJSsGAQQBgjcVCIWCwH6BjvRVhu2FOILrmUuaklY/hMbNXILljX4C
-AWQCAT8wJwYJKwYBBAGCNxUKBBowGDAKBggrBgEFBQcDAjAKBggrBgEFBQcDBDANBgkqhkiG9w0B
-AQsFAAOCAQEAWS4IrHXWhCGNWk5vn20xV7mlLkM7JPwltVJzB6MRzwUB438upbyUMwNHcEgAmHcs
-xL9hafErN+n9rLL00wEqZsCV732s7YOxSRRjZTE3CmZQ2+TYjXR7A6AzQKo0fv/x43bpSes8ttQ6
-Qtt8nzIbGBkDAcI7wfXsUPF5o0NwLOxre+Z+JCPNH0eaOj2J7EKD2ERLCClmvohrYdlmu85iXfyi
-nJo42eq9g08FtnxTXVQSIZCtiETiGtXA7+t2Aa8429XXunsijRznaYw2SwI/s4sVmvaK3XHaif0D
-QaUYxQp4s2ctzgz3eU6hK68OnNzbhBtF/lx6PHbifqHDzrtUbzCCB+8wggbXoAMCAQICEy0ACwRu
-JYOozH+yQuYAAQALBG4wDQYJKoZIhvcNAQELBQAwgbYxHDAaBgNVBAMME05YUCBFbnRlcnByaXNl
-IENBIDUxCzAJBgNVBAsMAklUMREwDwYDVQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJRWluZGhvdmVu
-MRYwFAYDVQQIDA1Ob29yZC1CcmFiYW50MRMwEQYKCZImiZPyLGQBGRYDd2JpMRMwEQYKCZImiZPy
-LGQBGRYDbnhwMRMwEQYKCZImiZPyLGQBGRYDY29tMQswCQYDVQQGEwJOTDAeFw0yMzEyMjAwOTIw
-NDdaFw0yNTEyMTkwOTIwNDdaMIGaMRMwEQYKCZImiZPyLGQBGRYDY29tMRMwEQYKCZImiZPyLGQB
-GRYDbnhwMRMwEQYKCZImiZPyLGQBGRYDd2JpMQwwCgYDVQQLEwNOWFAxCzAJBgNVBAsTAklOMRYw
-FAYDVQQLEw1NYW5hZ2VkIFVzZXJzMRMwEQYDVQQLEwpEZXZlbG9wZXJzMREwDwYDVQQDEwhueGEx
-ODcxNzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL2JT+kRihW1mBdeZFOoCLGIl4DZ
-VL7FWt3V1iFFJJe/bZDw/SUf5z1HeA8xv9+S8rqMyybjlSRHFLgiMm7qrGpVEDniKe8eiqP8Un4Y
-3fHgK5FKZIVVn0KlaMuD5G30AMk9HyUdc2MkVRL8YSQCewkQDEVjB8gnx/e6xfbWEVHf5+dOWJoR
-aket5+0JKV0l/dPV7cT4hL3BFtiBhq8976Li6rn8gxIi63u0G3qvm9Scqk+EHzemDhw/W+eMmGR4
-nwKVLKzumxko8l6EOnnvqqF4vj2hKTpB+2lsEXH1giireMEsvB2RY40lnRUXVQ0FDklOIQV4Qdgi
-EJfUdq/ZhCUCAwEAAaOCBA4wggQKMDwGCSsGAQQBgjcVBwQvMC0GJSsGAQQBgjcVCIWCwH6BjvRV
-hu2FOILrmUuaklY/gbeCPIPthzICAWQCAT4wEwYDVR0lBAwwCgYIKwYBBQUHAwQwDgYDVR0PAQH/
-BAQDAgUgMAwGA1UdEwEB/wQCMAAwGwYJKwYBBAGCNxUKBA4wDDAKBggrBgEFBQcDBDCBlAYJKoZI
-hvcNAQkPBIGGMIGDMAsGCWCGSAFlAwQBKjALBglghkgBZQMEAS0wCwYJYIZIAWUDBAEWMAsGCWCG
-SAFlAwQBGTALBglghkgBZQMEAQIwCwYJYIZIAWUDBAEFMAoGCCqGSIb3DQMHMAcGBSsOAwIHMA4G
-CCqGSIb3DQMCAgIAgDAOBggqhkiG9w0DBAICAgAwHQYDVR0OBBYEFMJ81PK4p3H8Q7gn7u/5OwWx
-uAwGMEUGA1UdEQQ+MDygJAYKKwYBBAGCNxQCA6AWDBRwYW5rYWouZ3VwdGFAbnhwLmNvbYEUcGFu
-a2FqLmd1cHRhQG54cC5jb20wHwYDVR0jBBgwFoAUWJVg7k5072Uiqr3tGakreo4XnQcwggFGBgNV
-HR8EggE9MIIBOTCCATWgggExoIIBLYaByGxkYXA6Ly8vQ049TlhQJTIwRW50ZXJwcmlzZSUyMENB
-JTIwNSxDTj1ubGFtc3BraTAwMDUsQ049Q0RQLENOPVB1YmxpYyUyMEtleSUyMFNlcnZpY2VzLENO
-PVNlcnZpY2VzLENOPUNvbmZpZ3VyYXRpb24sREM9d2JpLERDPW54cCxEQz1jb20/Y2VydGlmaWNh
-dGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVjdENsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50hi9o
-dHRwOi8vbnd3LnBraS5ueHAuY29tL2NybC9OWFBFbnRlcnByaXNlQ0E1LmNybIYvaHR0cDovL3d3
-dy5wa2kubnhwLmNvbS9jcmwvTlhQRW50ZXJwcmlzZUNBNS5jcmwwggEQBggrBgEFBQcBAQSCAQIw
-gf8wgbsGCCsGAQUFBzAChoGubGRhcDovLy9DTj1OWFAlMjBFbnRlcnByaXNlJTIwQ0ElMjA1LENO
-PUFJQSxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0
-aW9uLERDPXdiaSxEQz1ueHAsREM9Y29tP2NBQ2VydGlmaWNhdGU/YmFzZT9vYmplY3RDbGFzcz1j
-ZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MD8GCCsGAQUFBzAChjNodHRwOi8vbnd3LnBraS5ueHAuY29t
-L2NlcnRzL05YUC1FbnRlcnByaXNlLUNBNS5jZXIwDQYJKoZIhvcNAQELBQADggEBALwIIuww1PaF
-EbpQoy5vgJ/4N3xS+niIpFTKyYNAD0Ar38FcUlSnj0FIHKRj8rUmZP9WTky3U8m5B3LOyhJ14FPh
-iy1EwkhZmds9fJiZyEEFiwQWYDG/uknu6zIKOTlLmtlYPfbzfi58keGcjD3T5H8D8DpCGWI1lAwe
-clR9fJCbcYnQSQnuicSCfrHjjXiDZ2O8h7WbE1CC6Cj/qwo5nmS0lMv7yoG94rTNBvYe8iqOkcav
-7KiZA6SdhXms3ppvFmBukI6pTheMvT39SM0S6E0dgeqZSGSxHrM7dcxUdAL4fnYMv3Sa+GAgyXB6
-rihWC11+goz2eawt5TRU2w45TmcxggSzMIIErwIBATCBzjCBtjEcMBoGA1UEAwwTTlhQIEVudGVy
-cHJpc2UgQ0EgNDELMAkGA1UECwwCSVQxETAPBgNVBAoMCE5YUCBCLlYuMRIwEAYDVQQHDAlFaW5k
-aG92ZW4xFjAUBgNVBAgMDU5vb3JkLUJyYWJhbnQxEzARBgoJkiaJk/IsZAEZFgN3YmkxEzARBgoJ
-kiaJk/IsZAEZFgNueHAxEzARBgoJkiaJk/IsZAEZFgNjb20xCzAJBgNVBAYTAk5MAhM/AAV1goSs
-wyqoLYNbAAUABXWCMAkGBSsOAwIaBQCgggK5MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJ
-KoZIhvcNAQkFMQ8XDTI1MDQwODA3MDI0NFowIwYJKoZIhvcNAQkEMRYEFBCZfg1j6OYzt+XobGx7
-sb9njl3wMIGTBgkqhkiG9w0BCQ8xgYUwgYIwCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBFjAKBggq
-hkiG9w0DBzALBglghkgBZQMEAQIwDgYIKoZIhvcNAwICAgCAMA0GCCqGSIb3DQMCAgFAMAcGBSsO
-AwIaMAsGCWCGSAFlAwQCAzALBglghkgBZQMEAgIwCwYJYIZIAWUDBAIBMIHfBgkrBgEEAYI3EAQx
-gdEwgc4wgbYxHDAaBgNVBAMME05YUCBFbnRlcnByaXNlIENBIDUxCzAJBgNVBAsMAklUMREwDwYD
-VQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJRWluZGhvdmVuMRYwFAYDVQQIDA1Ob29yZC1CcmFiYW50
-MRMwEQYKCZImiZPyLGQBGRYDd2JpMRMwEQYKCZImiZPyLGQBGRYDbnhwMRMwEQYKCZImiZPyLGQB
-GRYDY29tMQswCQYDVQQGEwJOTAITLQALBG4lg6jMf7JC5gABAAsEbjCB4QYLKoZIhvcNAQkQAgsx
-gdGggc4wgbYxHDAaBgNVBAMME05YUCBFbnRlcnByaXNlIENBIDUxCzAJBgNVBAsMAklUMREwDwYD
-VQQKDAhOWFAgQi5WLjESMBAGA1UEBwwJRWluZGhvdmVuMRYwFAYDVQQIDA1Ob29yZC1CcmFiYW50
-MRMwEQYKCZImiZPyLGQBGRYDd2JpMRMwEQYKCZImiZPyLGQBGRYDbnhwMRMwEQYKCZImiZPyLGQB
-GRYDY29tMQswCQYDVQQGEwJOTAITLQALBG4lg6jMf7JC5gABAAsEbjANBgkqhkiG9w0BAQEFAASC
-AQBFzSLykTs31N6LzPkhU6AXWDPOPB8T+EXJdy3g65itqihf2RgeoZRdeBT2job7XPQWSWR5W0fO
-K99klVP0D5favBQMo39VTcELS4xr7sIX4Q7YVZmPgn1e5G9kME/6m7UKfOuASHVJfWzXpo8gt3Am
-3sOpFwozkigioEl9Gef8Np7S5sx+qQbg5dgxxrspNDsCaOTBrvAQzhU4QGC7A2E9v3x3jHf8uN4j
-AaarQbu2ftImaFSJgQ1KxUInzJILX3ECgoMgufQDNHKv24H1jxW8om00AwglorU8LNIne1OKTjYb
-CgvVhNbQybsVB+Z4HGg8auWjLx4AUjyagkzeMh5hAAAAAAAA
-
-------=_NextPart_000_0016_01DBA882.53E84F30--
 
