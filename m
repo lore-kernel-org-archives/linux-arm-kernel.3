@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E212BC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA95C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZU8AgxcMgNb7+V6IhjT3po2+emT09ZzOnp6Z/8jLn6c=; b=0Dt9kXlw7WrBxNvhyofsiHrxDf
-	Jh5OdZlFTi5xYoaCctzw3hqy4OSeK4+SPCjUbovwuP8fyN7HDcbFN8hEJwLDF7ZE0KgsrONyzM08K
-	eKNUAe2FqViRsM/KxFP+JvtUedE4sWxskjzafp2wmfMRtoSqFXqwQqVbr6JC/5NZiEzn9OOBlb4w0
-	NO+KuJNKMrfRUe4PFkjA9fWG6Ctp43BEuDR9/gBoM5sD5+sRD5aNb4x+cbdAPBUNl7BrRipOdXseu
-	+zJw1yZG/skKxr6ZPSo3/WYTRYmhWEjUPR+VkQvQnB086Y9YDSsj8s/JbTvF+qZIfoZufbGZavP5q
-	7ZQbDwdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W6zXisO6cvr6kicsWwvDso6VKfDBHFtaX4qs8BKIN18=; b=fWQkFBxXAiST7LDD2cgLQJg0rJ
+	ig041x/hOFQAMVn1TgV3Fv+cWkJjHkNatVwp12WiagZ3lYY8cfQx9rzgewCLu4FJspS0YYrZnruJF
+	QKArZZ+2E71WIfZuAF4CpPta3fmzs1YOeUXARKgnKeub43g0kReMpuY9XhAU6rQBuB8N68mFPlb8C
+	RrP9omsDcvQ9Zv1fKOVj6fObS83Zyu6yc4fXe/RY7KBf82dRcp0GabAs62blF4WGcGlutNZRu5liq
+	lEGRLyKyC21kRerQ0X+R5DMkC510SKepMUtteCfjafwtRoQWj0xc5CgfpQSTdZZgh6w9lmcBeoed2
+	+Dljuamg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2AEe-00000004SHg-3baS;
-	Tue, 08 Apr 2025 14:47:32 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1u2AJd-00000004T2n-3pHj;
+	Tue, 08 Apr 2025 14:52:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2ACs-00000004RxI-3xOY
+	id 1u2AHr-00000004Sj0-0e79
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 14:45:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ZU8AgxcMgNb7+V6IhjT3po2+emT09ZzOnp6Z/8jLn6c=; b=TLs5lB9Q6k6NOM0ejAiZKSUmbw
-	Dj+iAfTAAhm+Ug5dOAXdaCUR0ebD73P/pVGjYFtKaTG8ZV+/atjxB8tqHRg7WBYsJwW5Vwwr7EF9c
-	EXg2eTLofm8UMCn7fjXC4Ewz5LuW28/Ib8u6LPJzVd95vL9xcZUe0UdgFLyk1LVTAELk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u2ACU-008PSe-Gy; Tue, 08 Apr 2025 16:45:18 +0200
-Date: Tue, 8 Apr 2025 16:45:18 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH 15/16] misc: lan966x_pci: Add dtso nodes in order to
- support SFPs
-Message-ID: <e370fcd3-bd58-47d1-bc0c-c0abeebbefdc@lunn.ch>
-References: <20250407145546.270683-1-herve.codina@bootlin.com>
- <20250407145546.270683-16-herve.codina@bootlin.com>
- <19f1a382-1b6b-42bd-a548-a1a5644c9a1b@lunn.ch>
- <20250408162603.02d6c3a1@bootlin.com>
+	Tue, 08 Apr 2025 14:50:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1D1C65C591A;
+	Tue,  8 Apr 2025 14:48:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2297AC4CEE5;
+	Tue,  8 Apr 2025 14:50:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744123849;
+	bh=iippsYe8qLb/2X9/I9NX6d/fzC9lDY7Hh/+44sczz4g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NSMi+sI6BfxNdjGVuI7k1YPEEB3cI1ZteuMz/i77RX6ZKVVtc7G5wTT1aSxozuebA
+	 XMflo8Dg43jH0NMQTNts8wq5qxJk/KX2JwIt/jhxJDVCZ4nfBlEdutImR4Y8TcCGYr
+	 a/LZp8xVwK5rZ8s5TpytyreXMUjrkSIDT3dfjZA+mKTMjzNxb00w63F9LCi2sDaXhM
+	 TIDpgJYw9Skn+WXlBrEQ6c6lH13pqYKgkqZjUgH+ju6TbeV8JhlZv2pzeLBH9H8w9a
+	 hApED5WPIbOVRA8ssP34+b8l6uizHChdo0YvbYvAoSbbprKSYOk6daNln8naVIVuOY
+	 ngrqmh3HwUXXQ==
+Date: Tue, 8 Apr 2025 07:50:47 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Sean Anderson <sean.anderson@linux.dev>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
+ Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ linux-kernel@vger.kernel.org, upstream@airoha.com, Christian Marangi
+ <ansuelsmth@gmail.com>, Heiner Kallweit <hkallweit1@gmail.com>, Kory
+ Maincent <kory.maincent@bootlin.com>, Alexandre Belloni
+ <alexandre.belloni@bootlin.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Clark Wang <xiaoning.wang@nxp.com>, Claudiu
+ Beznea <claudiu.beznea@microchip.com>, Claudiu Manoil
+ <claudiu.manoil@nxp.com>, Conor Dooley <conor+dt@kernel.org>, Ioana Ciornei
+ <ioana.ciornei@nxp.com>, Jonathan Corbet <corbet@lwn.net>, Joyce Ooi
+ <joyce.ooi@intel.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Madalin
+ Bucur <madalin.bucur@nxp.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Michal Simek <michal.simek@amd.com>, Nicolas Ferre
+ <nicolas.ferre@microchip.com>, Radhey Shyam Pandey
+ <radhey.shyam.pandey@amd.com>, Rob Herring <robh+dt@kernel.org>, Rob
+ Herring <robh@kernel.org>, Robert Hancock <robert.hancock@calian.com>,
+ Saravana Kannan <saravanak@google.com>, UNGLinuxDriver@microchip.com,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [net-next PATCH v2 00/14] Add PCS core support
+Message-ID: <20250408075047.69d031a9@kernel.org>
+In-Reply-To: <20250407231746.2316518-1-sean.anderson@linux.dev>
+References: <20250407231746.2316518-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250408162603.02d6c3a1@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_074542_978368_78A59304 
-X-CRM114-Status: GOOD (  21.86  )
+X-CRM114-CacheID: sfid-20250408_075051_246355_257BE00A 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +91,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 04:26:03PM +0200, Herve Codina wrote:
-> Hi Andrew,
-> 
-> On Mon, 7 Apr 2025 22:05:31 +0200
-> Andrew Lunn <andrew@lunn.ch> wrote:
-> 
-> > On Mon, Apr 07, 2025 at 04:55:44PM +0200, Herve Codina wrote:
-> > > Add device-tree nodes needed to support SFPs.
-> > > Those nodes are:
-> > >  - the clock controller
-> > >  - the i2c controller
-> > >  - the i2c mux
-> > >  - the SFPs themselves and their related ports in the switch
-> > > 
-> > > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-> > > ---
-> > >  drivers/misc/lan966x_pci.dtso | 111 ++++++++++++++++++++++++++++++++++
-> > >  1 file changed, 111 insertions(+)
-> > > 
-> > > diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_pci.dtso
-> > > index 94a967b384f3..a2015b46cd44 100644
-> > > --- a/drivers/misc/lan966x_pci.dtso
-> > > +++ b/drivers/misc/lan966x_pci.dtso  
-> > 
-> > What exactly does this DTSO file represent?
-> 
-> The dsto represents de board connected to the PCI slot and identified
-> by its PCI vendor/device IDs.
+On Mon,  7 Apr 2025 19:17:31 -0400 Sean Anderson wrote:
+> This series depends on [1,2], and they have been included at the
+> beginning so CI will run. However, I expect them to be reviewed/applied
+> outside the net-next tree.
 
-Then i think the name lan966x_pci.dtso is too generic. It should be
-named after whatever microchip calls the RDK.
+These appear to break the build:
 
-> We can move the PCI chip in a dtsi included by this dtso but in the
-> end this leads to the exact same representation. Further more, moving
-> out the PCI chip description in its own dtsi out of this dtso can be
-> done in a second step when an other dtso uses the same chip.
+drivers/acpi/property.c:1669:39: error: initialization of =E2=80=98int (*)(=
+const struct fwnode_handle *, const char *, const char *, int,  unsigned in=
+t,  struct fwnode_reference_args *)=E2=80=99 from incompatible pointer type=
+ =E2=80=98int (*)(const struct fwnode_handle *, const char *, const char *,=
+ unsigned int,  unsigned int,  struct fwnode_reference_args *)=E2=80=99 [-W=
+incompatible-pointer-types]
+ 1669 |                 .get_reference_args =3D acpi_fwnode_get_reference_a=
+rgs,   \
 
-And what would you call this pulled out dtsi file? lan966x_pci.dtsi?
-That is going to be confusing.
-
-Naming is hard, but we should assume this PCIe device is going to be
-successful, and a number of OEMs will build cards around it, so there
-needs to be space within the naming scheme for them.
-
-	Andrew
+Could you post as RFC until we can actually merge this? I'm worried=20
+some sleep deprived maintainer may miss the note in the cover letter
+and just apply it all to net-next..
+--=20
+pw-bot: cr
 
