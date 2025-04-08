@@ -4,183 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB2EC369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 20:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19390C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 20:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HZBj1pu1Gbt9nmf3HPjL8Iajal0YtOWsZfn+N+DCOL0=; b=351fAEFmN6rqpV0pLbZfwoK5zr
-	HlIoaigXuRCJn7Lu5bQZ80Qg+hufpQuSOMSPP1dYwmwCAXlQBNZ69/2v72K04Fil9Q/Gamp6icUXD
-	J6pHsZNDriPm/hGHksHMwqjibtZbTXOB4jQ/6uIQ+lIX26Q2HqGxCJwVwpxpXB3QvOHSaUdybrEln
-	NKDRKZwHzUZHDGwUVpH41obAUVmFw/RTKjPWmY9LqDJPxBbagyNNWFGbmJXJ/yf7z3PU2crdULD2s
-	STCNIs7yHIpg/mYz+NSsx5bhnwURjKDJGBdfHV/cvro602ZpUiJL1nAdtXwR4Msg0LW0CJmErsmMd
-	IHwOx0QQ==;
+	bh=QzmGSkpEVFcojxkiM5YqtoPiGm2xWAAbzqRSSJMKobU=; b=QZV4C95S6rSMKOm48rf+lJtqY4
+	aQ2yZ1bh/jNuepC8p0a/nRaWQt/cQKw5i1ilqMHXh9BzX4P/2C2Kh9emmIIWNEdgu1BfkAaUEW+yi
+	LbASHXFS9oMGhPQYDt8SGqiWEKnchck1K5BH4SALLROXvIfICmklodFIf83wBq1lnyT+qvNJS5Mx+
+	s8XN4PVQJDmgJ/VooaqKNi6OUal3BlF5TXS7fPVGDfc0x2hodP9gpWRJ3/2zOF6tOFuOd2pLw4JRv
+	VQHU+CGLKLPEAdljCJecl5FaV0vZN9dXRoCf49b8SV6Ey/YyFpYA/KRLXpqlM8amqnxvpFjTv5H2P
+	fvBvujMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2FLV-00000005JtN-1hOk;
-	Tue, 08 Apr 2025 20:14:57 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1u2FP4-00000005KNX-2Z5d;
+	Tue, 08 Apr 2025 20:18:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2FJi-00000005JhG-0ZQV;
-	Tue, 08 Apr 2025 20:13:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744143186; x=1775679186;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=aMzOj12PNde/KPNS9qVhrJY6oQK1b/3ZBCz99YKojRI=;
-  b=No6RM74fjMyYf3Iop13MlnO5gEsH+LA9/qJh5UQIWxhwMgTpVbIoKhzS
-   /NfjgZPdnOQUa2JGaSPC2MlvemsW1TDgDQkW21OlIeiWCmMExmHCzTX9z
-   JLp4RtAos9uqz6GPIBX8Re6h1AVtjpGnNBcRgcncVwB94FJm05KeIuhwJ
-   zsWXhy3tjFf1Tz3WoYKhygqiG7q1O+PReyCy5FKHsNAkbDFhl9yn0RqhJ
-   mjm8BYFjYhnzRvvIKBga5tFcHn9wJ61OyyZ09lKujZk9iesAuVipaiNd/
-   wxds9u02nCzTrlNuxtV1cVl5GQG4ohmvAPPIL4DWSRbg76adhyR5eEVVd
-   A==;
-X-CSE-ConnectionGUID: c4px2K80QMqFWuWwdehdfA==
-X-CSE-MsgGUID: oFMzImuHT5qABavFe2UZwg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="45759280"
-X-IronPort-AV: E=Sophos;i="6.15,199,1739865600"; 
-   d="scan'208";a="45759280"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 13:13:01 -0700
-X-CSE-ConnectionGUID: Zdz/8253T+Cf/gG1igQuEw==
-X-CSE-MsgGUID: gYvI7u8cTHCmuenSIy8vJg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,199,1739865600"; 
-   d="scan'208";a="159355953"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by fmviesa001.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 13:13:01 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 8 Apr 2025 13:13:00 -0700
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Tue, 8 Apr 2025 13:13:00 -0700
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.169)
- by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 8 Apr 2025 13:13:00 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f1BGTuuQTARCyT82mc+4RATz+Fu7Bbly3SD7yV9M5w/QyYOfaqmXyRcRY7ka98OHx6r6dt98SJUIPcnvK8wBBkRnfxt+dNDB/Tp6QAmOREDByskjit8I9q00lEebA+G4f6orgc47NOH4bxHTZq5eIzh0KgIFGeYuyirLYg61IZaoHk3mPoFb2etnuKqUytmHQiVTY7HbFnpnY7q7Oaf3bTy2kwxafKYDWud3MFmJRIrcrPT4MDeUQs3YJtzPMOeDsT+/0nmIMfkQJlr9vQ2NNEiwytCXaesZDq6gpyajJNe5K5mhM6aw0kq2YOd9wgoa4mERj1sJmns//aVbn22iBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HZBj1pu1Gbt9nmf3HPjL8Iajal0YtOWsZfn+N+DCOL0=;
- b=mupr2wXCvQ6ytWGRB+DVvswgEImqTIG2BGNuF+3QtGM3bxE5kC/9grV0j8U1mFAvuRGz9JLL3F5xaKHJ6UiIuczcGmheHHKjJ/wsJpcsZ+Ykh/uA8J1EKkwUmDxWUo24v15ZZldhtD4H7juS8PhmHyJyhpuckpo7teIH3R8UZL+HrxcarCbFoHJ+03Xiegp+s2zQ/gNVzRURjbMgCuiPRd/iBU0Pn1tK5AyEIuqJf7kciEtilLebQuf8ICLO9oxPJkJZuDw8cST7PBf0Yec2o3pphm/54NVe0K/9jzyS4Z16EDTFDERTd20Sgfcb5Fa0pNqvhEHKZzKksQ97Uztpyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB8665.namprd11.prod.outlook.com (2603:10b6:8:1b8::6) by
- SJ2PR11MB8538.namprd11.prod.outlook.com (2603:10b6:a03:578::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Tue, 8 Apr
- 2025 20:12:57 +0000
-Received: from DS0PR11MB8665.namprd11.prod.outlook.com
- ([fe80::8e7e:4f8:f7e4:3955]) by DS0PR11MB8665.namprd11.prod.outlook.com
- ([fe80::8e7e:4f8:f7e4:3955%5]) with mapi id 15.20.8632.021; Tue, 8 Apr 2025
- 20:12:56 +0000
-Date: Tue, 8 Apr 2025 22:12:44 +0200
-From: Michal Kubiak <michal.kubiak@intel.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<netdev@vger.kernel.org>
-Subject: Re: [PATCH net-next 2/3] net: airoha: Add
- airoha_ppe_foe_flow_remove_entry_locked()
-Message-ID: <Z/WDPBMIPSCkbg9e@localhost.localdomain>
-References: <20250407-airoha-flowtable-l2b-v1-0-18777778e568@kernel.org>
- <20250407-airoha-flowtable-l2b-v1-2-18777778e568@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250407-airoha-flowtable-l2b-v1-2-18777778e568@kernel.org>
-X-ClientProxiedBy: ZR0P278CA0220.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:6a::22) To DS0PR11MB8665.namprd11.prod.outlook.com
- (2603:10b6:8:1b8::6)
+	id 1u2FNJ-00000005KD5-3R5b
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Apr 2025 20:16:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=QzmGSkpEVFcojxkiM5YqtoPiGm2xWAAbzqRSSJMKobU=; b=KjKQMTkIaIAWt5CCDS9wshTnz0
+	ePRzcyob1RjEbr/ybzbcj9W4eAE6yJHAE9GNyqaHvGc+Edoti3Y5Xg9Q2f0qXLjSKfG2hBpV+oecT
+	Rv4P7Veo1M2gmMxzmplSsys+8T/ofEkXQnInFc899r3K2Wn4Cq2lgzj4gLb/REIEREUuCeRR/50a0
+	hy0VzUW7a0Bf/caRxtVvdFf0qZmfz/YV0J+hy7igB0TaGwJARthTpGOeX4ZS+gLM3TyE12MF309vK
+	aVKBEvrbPz0x4RdhsUf5jSLwy48dZnpSo8SFSx4vhqxfeXbxH9MReEeMhvmjxHZbA65+HZ4PcdV89
+	C0JpXnwA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2FNG-00000008QW4-2qOW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 20:16:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5F9DB5C4A16;
+	Tue,  8 Apr 2025 20:14:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A16CCC4CEE5;
+	Tue,  8 Apr 2025 20:16:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744143405;
+	bh=FRDvcnro+C0U0uDXFa9znLcbNqr0CFpmmm1Nx8eyClM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FYXjCVJvaoKulf/FzdPUuLB2XlbGauNYJ16m0Gj4yr3f7PBh3Kww/j/gLQhaakRu/
+	 uO4Kgy0qxIOEiiLEXR22Vxd6oMKvuxgToHm4Jwu7jwe+oY6t9itQU/PxmNlZYYUWiJ
+	 bYp9yByhyCJNCjpG2CKMnkwDOo9aXnQNJWUcAO5Lxg9HrOW6F+Fz5QoNEC3pY9Gc7o
+	 uydQue5gUKDZkefhj4J+rXxYk/UKBZ5ZHolQp17Vh8nCnfCLet5frsHAUa1IReNvf7
+	 Lxjk924gybsJLkWFfHpYweyFaBybZ4WlVCeHevIIohgHdjWMNOUro2xOvotMsknExf
+	 AxXaou0TUNW+w==
+Date: Tue, 8 Apr 2025 21:16:40 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, ardb@kernel.org,
+	catalin.marinas@arm.com, maz@kernel.org, will@kernel.org
+Subject: Re: [PATCH 00/14] arm64: Preparatory FPSIMD/SVE/SME fixes
+Message-ID: <879811da-d0f0-4b0b-bca4-df68ff9bf394@sirena.org.uk>
+References: <45cb5ce9-39af-4c42-b68d-fa506b67bc55@sirena.org.uk>
+ <Z_VS5wvn0C7tdjbo@J2N7QTR9R3.cambridge.arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB8665:EE_|SJ2PR11MB8538:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9d60adb-5a22-4e01-c3e4-08dd76d9c088
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cDv9EOrzWb3uemdgK9mexO73XmhNDomo2jndB/rQGRuHVbMDD8GV0WccGlOl?=
- =?us-ascii?Q?Fdmi5jdzn0bW67R7seJlKfWanre1i6NdIwyxvoxBCL6P+wCExzig73An90K/?=
- =?us-ascii?Q?qXjdcKThYn82/TotExxCD/Rj8tjflf2Byd9cf97xooaLp2fWwLZXoNtD4DxZ?=
- =?us-ascii?Q?/rPtHgZDOFvHauN/nQupfInt0IqTBfiHYF6W3i5v4ym710F3u/tDixNNhnNz?=
- =?us-ascii?Q?oub6SwkLcO5mLg+wenDVorwYlr9v/0RSIqAmBnk+U3ba1+rlvsH6+a+zFlqw?=
- =?us-ascii?Q?ySJAo3p4y/55fLDiOnCv+U3pMYaajzfXZbBVwVnuhJQCYzD4b3+lll/ne5V4?=
- =?us-ascii?Q?LEPHcxJQpuvhLUTVG23pw2pAZN9R+kUyZec+d+SZ873BBu0EVPvfkdCROY4d?=
- =?us-ascii?Q?ie7i27M+VIs2VkOd5CxAOMFuB3tGox0h6TMMJfRqp2NfVQMT9DS7pTqzymEZ?=
- =?us-ascii?Q?HBHcl8ENAd3GMHZNj18PhQITYYaM9l2KvyBpRHT73deVFkIud81mZU7NEgaV?=
- =?us-ascii?Q?ySC81wKgr7HZx4yqu/ovTzP7+GsfJ/xOW36uJ4ODZKWUz2HyytvJpjs3Awl1?=
- =?us-ascii?Q?AHG0rbhueURIDCc0dHsgWUqJK+r4/sPh3jHh0cVU2zix9wZgUGuTAVFSlgbE?=
- =?us-ascii?Q?Yz2BW1NRI5JOj+CgOV+Ba8J/0W23rnt3I4KdxVfVfYB1r0sithC8N7zlrCP9?=
- =?us-ascii?Q?1FVXRI3zYHgZJZ5LcGTW3mT9uwVp/DWo5xD5H+plfBDV2mWP3i4L8rMb80rv?=
- =?us-ascii?Q?9oCL6NkLe40YWQ38SOWYGg0kOEURJiE6mme1RMw4dEbU1Uth4kFi2hh0GHN8?=
- =?us-ascii?Q?QYXf22wTVcFLJckPu0IUgjD9vm7VRy6T+UUpDASUzVxCfv8JKqnmeby44vB9?=
- =?us-ascii?Q?0guHXwbEW39pYZ90VQh2nhjRj3GDQhwxmBlvhdAz6jpHeCWoBFCaMnvM71DP?=
- =?us-ascii?Q?053CcfMqREj7Gx9vuPea6Jz0Sy31/yCAbcJcHRgMqUH2/EBmYRWEo5KRC3m2?=
- =?us-ascii?Q?Wsl6XXzzIg4dB4lajHvjqFRuByVRJZC+JjHyZw690IG5zNU1Rd3niHoSFdka?=
- =?us-ascii?Q?C3GABusIhPXC+kHiFB4xPsJsV8IlTtZIr87aZLjQ6AIMIVBJ2Kx5Hr5D1mNg?=
- =?us-ascii?Q?UX88neJYlboR1Aa3N2fg70btEEzwT+xVRZjpyh3JeW9X4XkiCSI7XI3Jls4u?=
- =?us-ascii?Q?4TcXYK7Mhlxdn+vZHvP7k2L5EbSOS5w9lK0Dj0uqOIoOjidlNAPgS6Tx8r4I?=
- =?us-ascii?Q?HkZnDuwyCoQG1KeqleWOZ49RbpXXGzhRWCjiQOlt2WRti9guZaMIGbaR0jHS?=
- =?us-ascii?Q?qzISJZ59wbgpJEtvfvf1u6IE2vQCZoMUBNTFvV1R2JwgX5/elu2cBirpiUpO?=
- =?us-ascii?Q?GWKDr6apG2KfE5Qb+HIV+HTuFvRi?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8665.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nTrexB8VCsAJKQkXedqJm103p2YBZCFgw4t6njk9x2zA5n9BIC5iklisMnft?=
- =?us-ascii?Q?wkDVxg6H74MOscZnFNmFBLsDSeDln7zrvW3fxFs/hzP2glehaIS3caIhOBJ1?=
- =?us-ascii?Q?Q5R/9dP+Z7yNTgLyMkmioHVmyzvxcxD9+unDtDihGzOuyB/A9kUkCWfEbdRy?=
- =?us-ascii?Q?WYkHuQneUogjWHSNXRTdifaiqUbpBwrTvCaXfoDIDenFq69EhXjpgFlOgedp?=
- =?us-ascii?Q?E2oE8SpBAXEQUh6hgWKIyedqVyGnlyWismV2wJ3U6Z22wyDaNjGnciEiIaqK?=
- =?us-ascii?Q?ZbTESU+Oewa75iyJRInsrB0Jh3NvbbcLdksEbby1awg1e3MR8YJPttb5GVd+?=
- =?us-ascii?Q?Wi31fx3gbqLV6rxmbPcNVIegRg80wqKfjuCnQ96YO/6Pi7bi1wDAFOsh5x4Z?=
- =?us-ascii?Q?5l7+hMPzPzS0J0xsuJcPO7Zxr+aTP/ib01U2brY02lF4NRhoGigEqnDHENYE?=
- =?us-ascii?Q?4y6DB5lQeITPX+u5DZWG6fdVO/Qq2cMm1Z2ZHt6Hmu71WnJMYIGjlL3B4xkn?=
- =?us-ascii?Q?Hm0Rc0cj5GBgjoV4gqb8D84mwqjAFyIHKiaxbAwiZnPY9J/qEGrlID6HNl/+?=
- =?us-ascii?Q?ivYvrbOQjDOMBA60PnynPl1jKYZ2Cub7pBREfihskePTbWMzfjmGTEWOn7zP?=
- =?us-ascii?Q?BjZdKZGcnMw64MGx+N5j6cDr/HVU10fDZRtwW8jZNXEevg0fKNZUwn0NqKk6?=
- =?us-ascii?Q?6zH43TaxGGTrjBpEur8ypobA6J1/X0iVf/yJp5ILpOnwBkJ6wEIr+UeQf1Nd?=
- =?us-ascii?Q?DNYxh0fE4bAg71UDXcO+ffFbbI9kYIVQ324V3NZDoUklHb+zWq3QifwEc6OR?=
- =?us-ascii?Q?7YLMWWiSt6q8MIAsfkIqrKXch44WS06iNLpQmD4Yi37On0OdewnVwzlcXNdZ?=
- =?us-ascii?Q?MpVBHoN3LrHixb1vfKoC0QAxT79dBtY16HdGRPFNxUGtnVVDgfdL2w/vIiJ6?=
- =?us-ascii?Q?40cdw/btILgiyji839WByvzH6vjsBVPxwtrlnbqenTLa4a4hGXVivpcIxCME?=
- =?us-ascii?Q?xaUrEwbkGMU9/b6NZWJQv8DNM51faYk4ZogPdZbCn338excqH+3OhdDl2R3n?=
- =?us-ascii?Q?7RrvRrKg5EOUsHv4lIAFiIERQieecGXtDYso8BTgP45/G2rDST3WomzyGAdo?=
- =?us-ascii?Q?Gxm3PQuuBrQW/pbsGYDhQQASoDZcuO24eMCvaE/7dXIyagHAGRUoYWF+l1GY?=
- =?us-ascii?Q?v6721m/kQdOCl2zhJ6c3YdxFs2EtO0oudQUt4tWnZF7i3ih2SB6pQTaH65/j?=
- =?us-ascii?Q?i1tu6q9KX2Bb9mTXHmjy5dyjpedwSLSLp+w3u6uF60c9bAJiRqjEnPEdppCT?=
- =?us-ascii?Q?JvVKmewRdyLeUutRlc7HCKT1x2RmHA3nrf56DU7okhi+Tyx90WU+wsw7lzZi?=
- =?us-ascii?Q?e0JgnKzrYsiKL/R9LtKNskHx3R+DbBgyydv5VNJAMlERu/FInfldXgkNh98W?=
- =?us-ascii?Q?5ZFDcLShjUdesciSn83iKhyr4Jn64CEi/6EqP1nAqTVfvKdJI0wuvzVboWVh?=
- =?us-ascii?Q?5cTYciObqenwTo3i4KHcTXry2FLDME7+9aC5ZXj8OXyQ+s7duM8AkE707dQe?=
- =?us-ascii?Q?0zLcy2Z3sGaIc0k/sFDyDuRngbGsaxI6AfDp/SWdYIyoPxrJN2VXouJ6gENc?=
- =?us-ascii?Q?dQ=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9d60adb-5a22-4e01-c3e4-08dd76d9c088
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8665.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 20:12:56.8162
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nXBto02aK9cb0DqXmdVwatChLCOD3u2Nh+DL1I0sy1F0S/icFMu4mzoe3y4yXFCBJ1IuaafoiEKGo1B8JYKbSQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR11MB8538
-X-OriginatorOrg: intel.com
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9DXsmRg8N76hh/Kv"
+Content-Disposition: inline
+In-Reply-To: <Z_VS5wvn0C7tdjbo@J2N7QTR9R3.cambridge.arm.com>
+X-Cookie: Meester, do you vant to buy a duck?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_131306_189971_39EEE09B 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20250408_211647_101872_04438B84 
+X-CRM114-Status: GOOD (  38.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,23 +89,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 04:18:31PM +0200, Lorenzo Bianconi wrote:
-> Introduce airoha_ppe_foe_flow_remove_entry_locked utility routine
-> in order to run airoha_ppe_foe_flow_remove_entry holding ppe_lock.
-> This is a preliminary patch to L2 offloading support to airoha_eth
-> driver.
-> 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Could you please explain the reason of introducing the *_remove_entry_locked
-function if "airoha_ppe_foe_flow_remove_entry()" is still never called out of
-"airoha_ppe_foe_flow_remove_entry_locked()" context (at least in this
-series)?
-I would expect that it can be useful if you have an use case when you want
-to call "airoha_ppe_foe_flow_remove_entry()" from another function that
-has already taken the lock, but I haven't found such a context.
+--9DXsmRg8N76hh/Kv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Michal
+On Tue, Apr 08, 2025 at 05:46:31PM +0100, Mark Rutland wrote:
+> On Fri, Apr 04, 2025 at 07:06:50PM +0100, Mark Brown wrote:
+> > On Fri, Apr 04, 2025 at 06:44:21PM +0100, Mark Rutland wrote:
 
+> > > * The ptrace ABI for SME is written around the assumption that
+> > >   SVE_PT_REGS_FPSIMD and SVE_PT_REGS_SVE are separate bit flags, wher=
+eas
+> > >   in reality these are different values (0 and 1 respectively) for
+> > >   bit 0 of the user_sve_header flags.
+
+> > The documentation definitely doesn't reflect what actually got
+> > implemented, IIRC the errors are more around returning the header only
+> > rather than the assumption that they're separate flags but at this point
+> > it doesn't really matter given that the documentation is clearly wrong.
+
+=2E...
+
+> This means portions of the code are wildly misleading, and this caused
+> secondary problems such as providing register data when we didn't intend
+> to, which I assume is what you mean by "the errors are more around
+> returning the header only".
+
+Yes, exactly.
+
+> > >   I haven't yet worked through all of the implications of this, but
+> > >   AFAICT we can't reliably indicate the value of PSTATE.SM, and
+> > >   userspace cannot reliably save/restore a task's state in all cases.
+
+> > Userspace should be able to read by looking the SSVE registers, if you
+> > get SVE format register state back you're in streaming mode. Streaming
+> > mode state will always be saved in SVE format so a read of streaming SVE
+> > vector state will come out with the SVE bit set, if we're not in
+> > streaming mode it won't be set.
+
+> Unfortunately, that's not always true today.
+
+> While fpsimd_save_user_state() will save streaming mode state into the
+> FP_STATE_SVE format, other code can manipulate the task into a state
+> where thread_sm_enabled() is true, but the task's registers are saved in
+> the FPSIMD format. That combination is broken for a number of reasons,
+> but you seemed to permit this deliberately in commit:
+
+>   bbc6172eefdb276b ("arm64/fpsimd: SME no longer requires SVE register st=
+ate")
+
+> ... which says:
+
+> | Now that we track the type of the stored register state separately
+> | to what is active in the task, it is valid to have the FPSIMD
+> | register state stored while in streaming mode.=20
+
+> I will assume that commit message is misleading, and that we do not want
+> to permit that case. It's possible to get a task into a bad state
+> regardless of that commit.
+
+Ah, yes - that case is indeed going to break.
+
+> We can fix that in a number of ways, but we need to think of the shape
+> of ABI we actually want, e.g. whether writes to NT_ARM_SSVE with
+> SVE_PT_REGS_FPSIMD should be rejected outright.
+
+It's hard to see a use case for it so it does seem reasonable to
+disallow that, it would really be nice if SVE_PT_REGS_FPSIMD weren't
+part of the ABI at all.  OTOH it will be implementable with any read
+side ABI and it *is* there.
+
+I think the intended ABI where returning SVE register state from
+NT_ARM_SSVE indicates streaming mode is probably a good choice given
+that it is compatible with the existing userspace code you've surveyed,
+will be the behaviour seen in most actual usage with the current code
+and is fairly close to the documentation.
+
+If we do that then when streaming mode is disabled the obvious options
+are that we can either keep the current behaviour and return FPSIMD
+register state, or change to only return the header.  The former is less
+change and therefore safer, the latter is probably a nicer ABI.  GDB
+appears to do the right thing if it only gets the header back.  LLDB
+appears to only attempt to read the header when determining if it's in
+streaming mode so shouldn't see any difference at all, though that code
+is a bit less clear to me.
+
+--9DXsmRg8N76hh/Kv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmf1hCgACgkQJNaLcl1U
+h9B/vAf+Pq5oTkdw28QXqOdRnoDK0i0yM+0DYDwVZVgW3n42tl0tX2PXiTqjDE2W
+/louzDJWgkQUeC7fEkcDK6jgfsLt61qLSLogXpUpHe3IYjVDr26ZYomnKNoIQcNK
+2s7xp1EO4y8jpUaWPLwBsYMNaZdGYvUgyB1ELLt8vRxf5XAFSsE2U1H5gX4hYZ94
+Iwm5jIJxHHgur5VnDDpwRgvnaiRjL+KF9U8jZO5mJqOMzjrKOyWsDvBu9rMZyD+O
+4qAIdnQLD4uHcTe6qm7tZ8TBF3b/FH+PDR2+az7dOl2bc7xVY4xe/RRMLT+BmB1o
+YBZ6xyXHZX4LG+Qe5hjamjpcayec9A==
+=MM3a
+-----END PGP SIGNATURE-----
+
+--9DXsmRg8N76hh/Kv--
 
