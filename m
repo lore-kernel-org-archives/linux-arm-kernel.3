@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA51C369AD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FCA9C369AC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LTTL9dQEScHE4pj+G94YjoxirJBT5idVWapzbvs8BzI=; b=QZsIV2TJb+7Zb0Yeu0lZVTSdtc
-	NSNPLdtG4SyG7cy2jaWKc51/qOdNPYrWAooMPVQZwkCJpqBBX8B/6cm51EdLRkw2kOvgKW6kyYdY3
-	QvKy276U2vb02zc1TUzWnvq56jbg90jWsywZrw1XiQqDmUHnYgzcOTtvRPUX7gqVIoWPSjhotYhNG
-	7Y/t4TrT3qNLdd1uUbU3xAp87lh96iiWwYGNr3yaVOQod4nGl3U4tQmBDiCKjdf2P7kX8kXUXjQe7
-	U8V4iT6i0FK5Z/CA6AV68pwhm4sLNnPKc2Nc36zS8VyK8MIYTCbbRADkZaxXwGsN+ADbjla7cswRx
-	NMtBlaZw==;
+	bh=Q19XYvU/Ro13/HumWF+ExDj9VyTsluFGq7J8txirQ+0=; b=Gs9Dtfg0t2HiirjKkpkyWFAqwx
+	UlIZVFIpoWNTTfve4kGCy9QVAUCNRKLsFi34J6Ty2Fbl4EJJ1qXMnZpzXO0mcm8JRNTrL/64/xoID
+	jvcDMRBvogmSXtbsdAY4Q4ChBES79jyNEMBB+psqg2UYNXa3I5hDXA9ckXKo5dKsGHvveGN3YgBGi
+	8EDL1LSr9y50DJtumGjJniykCe+vzAWYMi0MKUdvHYJfV/3iuK6586zfTIejJIUa7pSnxsJ8Jycu2
+	YbORjNmi9gY2kLLxsNVJxcMTullTs/hxkRA9bg/UNJTOvDgrcbCTwpbeDInnTqZjBivV3XwRmb83e
+	RTmwXagg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28lz-000000046I6-0JlN;
-	Tue, 08 Apr 2025 13:13:51 +0000
+	id 1u28lw-000000046D0-0lkD;
+	Tue, 08 Apr 2025 13:13:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26ZU-00000003kcW-40aS
+	id 1u26ZT-00000003kb7-0wko
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Apr 2025 10:52:48 +0000
+	Tue, 08 Apr 2025 10:52:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=LTTL9dQEScHE4pj+G94YjoxirJBT5idVWapzbvs8BzI=; b=PgAyuYCW7ljjltC6plrmfeQscd
-	T6UXUBbUpIPy7wBPvV7jUCYB5PSHfZvhc6BC8NGbMgT7i32ZWWz3rVUfIN58L1pdvNwwRBnN+gxqa
-	M/tn01gYjSCjB6vvzW+2VBt278MkIZXz+OeLm2YvDSei/gkaEwV6XNSKQBm+v87llVMf437Ncu+MD
-	EuBcCeYUUTQ1nHurGXigAhR7O7ertVVdw0AiYtEoHGNdjUfv1w2GU2uIqKnotI2bFO1g0TpcTOAlS
-	k+0gTl9tGaH3cZ8gnv0sneN5q4+zn1chLGZA8Mk28dPG2dF2CMzSzL7qqm1ly1DhdKNsWCiT0T0T6
-	5+ofY0jA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	bh=Q19XYvU/Ro13/HumWF+ExDj9VyTsluFGq7J8txirQ+0=; b=ilqjHIeXwVMPlPfwF5OuubTvWv
+	2/lFhbgXb0EOdZbdMxil7fXdQ3J4Yfrsq0gEPsYvBmUBqMHduaaH7Rgb4Mrp3/w8j2XTryW7z/ygx
+	g/AnE3BEy2NKmPTf8HRfUqh6T+EwXpoHkYffcQtliQTfPiuAyMVOKTKsyggK59KRA924kCO9V4M9h
+	PMXffhiIZM36oWIm9umSpNs0I8hy2z+YfAqJnhN7IetWG4ErU93+B5dWUxs1/N4cFVbVQDvFQ2w1h
+	ZU0L/G2/jNJTBHHe2kouQV0pUyRvIkbHycQwxCy87JvY1ylYY/YuHG1SmF/LmOVNuUU98rANMNsH+
+	I6khmpnA==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26ZQ-00000008GRb-0L4j
+	id 1u26ZP-00000008GRf-0tJR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 10:52:47 +0000
+	Tue, 08 Apr 2025 10:52:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83EA449D41;
-	Tue,  8 Apr 2025 10:52:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18BC0C4CEE7;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7935BA4924C;
+	Tue,  8 Apr 2025 10:47:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D12D2C4CEE7;
 	Tue,  8 Apr 2025 10:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1744109561;
-	bh=ydvZE2fcKiHSXxy2PEWqOT/2J5DSfX2LWTaD8LM7MhU=;
+	bh=AgOtMrlLPvb6zKXe+xDLaAQQQZ+/MSUpbXn+rAw0ohk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=p6EQqhUbjihCw38r8bJlIz/jQWNYrmqWPIph4sFf8VkH2AyZAO9Hxv3xLW8z2wWF5
-	 qglkD09LyTxd/SayrAyYOoHMgF2a192LO+/PJQb6eQtYNiRPtTcK9CV/jQV5br0/NY
-	 ZG2EUwaUpd8NXWFTURjlrcrwGiTtq7OvcqVBjv8uIF+Qc7fynRHTq1LqCSXqyf0bPZ
-	 z4yuRz6Lr3SsMqowkEKU8kQiuNfQvM2qpWuE5BR5fjv6iO59BhxSl6P97xxLTukPBD
-	 rMIGzX5Ic6njY+A2i2Kypnp6TA8VS5TBugaVEYbowxmnL9K0Lft98wXiPmKF9GT4nt
-	 doJ3ksJg+tPoA==
+	b=nOcyuml1+X8f0mV2QzBsgLSchi/ZAd3r7eB/IYB2Xkd1irysliiz3d5O9rurG2T4b
+	 RfQrmR+SILsV2Vas4U7dyOvFZaaLECrl7H1s7RB4jOMlKNF9xgd7g1T+CsV4BRzfzb
+	 HkOjLGQIwOMiy14692juo85qPC7mNvPvGzE3ycJaqczWKZVdBfD+NqGafqlIKxV+ME
+	 +Msj1zxZ4ip90fqqlek3NGv66I+xhLAb9vV0pjTj9Kgtin2m8Ti+7muh0eUxoQ+VlR
+	 jCL/BLL3ULFz7TEdEByLZhfYEAZyYL4r1H7Gm6/2FFZyLzID69ixG6ZSXBD7ipsB+3
+	 dZSf1JY2PshLg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u26ZL-003QX2-Ac;
-	Tue, 08 Apr 2025 11:52:39 +0100
+	id 1u26ZM-003QX2-4c;
+	Tue, 08 Apr 2025 11:52:40 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -72,9 +72,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v2 12/17] KVM: arm64: nv: Program host's VNCR_EL2 to the fixmap address
-Date: Tue,  8 Apr 2025 11:52:20 +0100
-Message-Id: <20250408105225.4002637-13-maz@kernel.org>
+Subject: [PATCH v2 16/17] KVM: arm64: Allow userspace to request KVM_ARM_VCPU_EL2*
+Date: Tue,  8 Apr 2025 11:52:24 +0100
+Message-Id: <20250408105225.4002637-17-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250408105225.4002637-1-maz@kernel.org>
 References: <20250408105225.4002637-1-maz@kernel.org>
@@ -85,8 +85,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_115244_357993_61A07A0F 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20250408_115243_510428_BBD3F8ED 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,56 +101,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since we now have a way to map the guest's VNCR_EL2 on the host,
-we can point the host's VNCR_EL2 to it and go full circle!
+Since we're (almost) feature complete, let's allow userspace to
+request KVM_ARM_VCPU_EL2* by bumping KVM_VCPU_MAX_FEATURES up.
 
-Note that we unconditionally assign the fixmap to VNCR_EL2,
-irrespective of the guest's version being mapped or not. We want
-to take a fault on first access, so the fixmap either contains
-something guranteed to be either invalid or a guest mapping.
+We also now advertise the features to userspace with new capabilities.
 
+It's going to be great...
+
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/vhe/switch.c | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_host.h | 2 +-
+ arch/arm64/kvm/arm.c              | 6 ++++++
+ include/uapi/linux/kvm.h          | 2 ++
+ 3 files changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 220dee8a45e0d..5eaff1ae32b29 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -48,6 +48,7 @@ DEFINE_PER_CPU(unsigned long, kvm_hyp_vector);
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index b2c535036a06b..79e175a16d356 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -39,7 +39,7 @@
  
- static u64 __compute_hcr(struct kvm_vcpu *vcpu)
- {
-+	u64 guest_hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
- 	u64 hcr = vcpu->arch.hcr_el2;
+ #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
  
- 	if (!vcpu_has_nv(vcpu))
-@@ -70,9 +71,23 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
- 		write_sysreg_s(vcpu->arch.ctxt.vncr_array, SYS_VNCR_EL2);
- 	} else {
- 		host_data_clear_flag(VCPU_IN_HYP_CONTEXT);
-+
-+		if (guest_hcr & HCR_NV) {
-+			u64 va = __fix_to_virt(vncr_fixmap(smp_processor_id()));
-+
-+			/* Inherit the low bits from the actual register */
-+			va |= __vcpu_sys_reg(vcpu, VNCR_EL2) & GENMASK(PAGE_SHIFT - 1, 0);
-+			write_sysreg_s(va, SYS_VNCR_EL2);
-+
-+			/* Force NV2 in case the guest is forgetful... */
-+			guest_hcr |= HCR_NV2;
-+		}
- 	}
+-#define KVM_VCPU_MAX_FEATURES 7
++#define KVM_VCPU_MAX_FEATURES 9
+ #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
  
--	return hcr | (__vcpu_sys_reg(vcpu, HCR_EL2) & ~NV_HCR_GUEST_EXCLUDE);
-+	BUG_ON(host_data_test_flag(VCPU_IN_HYP_CONTEXT) &&
-+	       host_data_test_flag(L1_VNCR_MAPPED));
-+
-+	return hcr | (guest_hcr & ~NV_HCR_GUEST_EXCLUDE);
- }
+ #define KVM_REQ_SLEEP \
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 5287435873609..b021ce1e42c5c 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -368,6 +368,12 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 	case KVM_CAP_ARM_EL1_32BIT:
+ 		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
+ 		break;
++	case KVM_CAP_ARM_EL2:
++		r = cpus_have_final_cap(ARM64_HAS_NESTED_VIRT);
++		break;
++	case KVM_CAP_ARM_EL2_E2H0:
++		r = cpus_have_final_cap(ARM64_HAS_HCR_NV1);
++		break;
+ 	case KVM_CAP_GUEST_DEBUG_HW_BPS:
+ 		r = get_num_brps();
+ 		break;
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index b6ae8ad8934b5..c9d4a908976e8 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -930,6 +930,8 @@ struct kvm_enable_cap {
+ #define KVM_CAP_X86_APIC_BUS_CYCLES_NS 237
+ #define KVM_CAP_X86_GUEST_MODE 238
+ #define KVM_CAP_ARM_WRITABLE_IMP_ID_REGS 239
++#define KVM_CAP_ARM_EL2 240
++#define KVM_CAP_ARM_EL2_E2H0 241
  
- static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
+ struct kvm_irq_routing_irqchip {
+ 	__u32 irqchip;
 -- 
 2.39.2
 
