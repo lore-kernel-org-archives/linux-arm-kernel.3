@@ -4,79 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA3D8C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 10:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47E7C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 10:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H3XPZUFeB3j0oUqZhyoJ7SKF30TvT5YWB8oVd5GbDSs=; b=IJkLcx2TezM21H5fNAqvmp9JwE
-	2K6XReealkamblwC0p1pvNY599pRQuDwZdQo83HJMGjJvHlvghbhL2p/WWSU+E1Qzuo+s9Gz1MwRl
-	V3Ytj386UOT+Tkf6bEv6I5KQuvGL/RSSRy2dEeV+N5qbK1fNxkv9FFOspgffcN+Gu22rrGFPf7wzj
-	stUq9VMp12OZJAlu675DMS/jvZXA3fTGRxd0ft8rJc3Uw2d3IjRYVKEON5EFksnt2pBCwjbCdX3vb
-	vQ66ElknrLBrEjllSqPSGNAcGIyUbnbqrs7n8PCbamgmGhaQTK13K3XwqsT+6YsVk0PG6UxwX5UdC
-	6uTtPFHA==;
+	bh=k2SJkg06ckcdDzIziVPgyah9kgdAaOhw56y6spOAOFY=; b=JeK5ao9akwHdxqowvHfJHPByBk
+	AhUPLMMh48ZLRBz20/ViZ/uWx7/GHYgQNbJK2aoIrWzK6plGg5zqT3lqUaTvIywJLkkyjRpITyshj
+	qmqXFHwTqFMP5ZnYJLgVlfVzEQp+KMqj+Rk0x38Ww++G5xkL8Fq/80cbdQzzbZbU80sV1bhZYdxPS
+	s7XmYaMMnOkIuWQclFI76neo0+MBjGiwwAqAxlxm459zcmFgLRXe61l88qs1enDECJUshT0OE969s
+	GyuGhVK20wgJGZRSOuun4yK71BDkdiQFyDe1i/gxylZW6sOCGeEnEZivqKpz2StWuokb834o3gxcp
+	of3IxI0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26A3-00000003eYD-3O2F;
-	Tue, 08 Apr 2025 10:26:31 +0000
+	id 1u26BF-00000003eqH-0Lxg;
+	Tue, 08 Apr 2025 10:27:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25dr-00000003WS6-2SnB;
-	Tue, 08 Apr 2025 09:53:21 +0000
+	id 1u24u0-00000003NML-2QVp;
+	Tue, 08 Apr 2025 09:05:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 021EA1691;
-	Tue,  8 Apr 2025 02:53:16 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98B8B3F6A8;
-	Tue,  8 Apr 2025 02:53:10 -0700 (PDT)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-openrisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v2 01/12] mm: Pass mm down to pagetable_{pte,pmd}_ctor
-Date: Tue,  8 Apr 2025 10:52:11 +0100
-Message-ID: <20250408095222.860601-2-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250408095222.860601-1-kevin.brodsky@arm.com>
-References: <20250408095222.860601-1-kevin.brodsky@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56FDA1688;
+	Tue,  8 Apr 2025 02:05:50 -0700 (PDT)
+Received: from [10.57.41.251] (unknown [10.57.41.251])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 04B913F694;
+	Tue,  8 Apr 2025 02:05:47 -0700 (PDT)
+Message-ID: <98f6fa74-f14e-48f1-b550-c1ff962df53d@arm.com>
+Date: Tue, 8 Apr 2025 10:05:47 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] [Patch v1]Add ETE devarch condition in
+ etm4_init_iomem_access
+Content-Language: en-GB
+To: yiru zhang <yiru.zhang@mediatek.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
+References: <20250408073651.17140-1-yiru.zhang@mediatek.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250408073651.17140-1-yiru.zhang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_025315_719943_2A491462 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20250408_020552_669008_FECB2715 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,364 +68,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for calling constructors for all kernel page tables
-while eliding unnecessary ptlock initialisation, let's pass down the
-associated mm to the PTE/PMD level ctors. (These are the two levels
-where ptlocks are used.)
+Hi Yiru
 
-In most cases the mm is already around at the point of calling the
-ctor so we simply pass it down. This is however not the case for
-special page table allocators:
 
-* arch/arm/mm/mmu.c
-* arch/arm64/mm/mmu.c
-* arch/riscv/mm/init.c
 
-In those cases, the page tables being allocated are either for
-standard kernel memory (init_mm) or special page directories, which
-may not be associated to any mm. For now let's pass NULL as mm; this
-will be refined where possible in future patches.
+On 08/04/2025 08:36, yiru zhang wrote:
+> Due to ETE supported, so add ETE devarch condition in etm4_init_iomem_access.
 
-No functional change in this patch.
+Is there a reason why you cannot use the "system instructions to access 
+the ETE" ?
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/arm/mm/mmu.c                        |  2 +-
- arch/arm64/mm/mmu.c                      |  4 ++--
- arch/loongarch/include/asm/pgalloc.h     |  2 +-
- arch/m68k/include/asm/mcf_pgalloc.h      |  2 +-
- arch/m68k/include/asm/motorola_pgalloc.h | 10 +++++-----
- arch/m68k/mm/motorola.c                  |  6 +++---
- arch/mips/include/asm/pgalloc.h          |  2 +-
- arch/parisc/include/asm/pgalloc.h        |  2 +-
- arch/powerpc/mm/book3s64/pgtable.c       |  2 +-
- arch/powerpc/mm/pgtable-frag.c           |  2 +-
- arch/riscv/mm/init.c                     |  4 ++--
- arch/s390/include/asm/pgalloc.h          |  2 +-
- arch/s390/mm/pgalloc.c                   |  2 +-
- arch/sparc/mm/init_64.c                  |  2 +-
- arch/sparc/mm/srmmu.c                    |  2 +-
- arch/x86/mm/pgtable.c                    |  2 +-
- include/asm-generic/pgalloc.h            |  4 ++--
- include/linux/mm.h                       |  6 ++++--
- 18 files changed, 30 insertions(+), 28 deletions(-)
+The patch as such is fine by me (withe some minor styling nits). But, we
+do not recommend using the MMIO for ETE, when it can be accessed
+directly by sysreg.
 
-diff --git a/arch/arm/mm/mmu.c b/arch/arm/mm/mmu.c
-index f02f872ea8a9..edb7f56b7c91 100644
---- a/arch/arm/mm/mmu.c
-+++ b/arch/arm/mm/mmu.c
-@@ -735,7 +735,7 @@ static void *__init late_alloc(unsigned long sz)
- 	void *ptdesc = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_HIGHMEM,
- 			get_order(sz));
- 
--	if (!ptdesc || !pagetable_pte_ctor(ptdesc))
-+	if (!ptdesc || !pagetable_pte_ctor(NULL, ptdesc))
- 		BUG();
- 	return ptdesc_to_virt(ptdesc);
- }
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index ea6695d53fb9..8c5c471cfb06 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -494,9 +494,9 @@ static phys_addr_t pgd_pgtable_alloc(int shift)
- 	 * folded, and if so pagetable_pte_ctor() becomes nop.
- 	 */
- 	if (shift == PAGE_SHIFT)
--		BUG_ON(!pagetable_pte_ctor(ptdesc));
-+		BUG_ON(!pagetable_pte_ctor(NULL, ptdesc));
- 	else if (shift == PMD_SHIFT)
--		BUG_ON(!pagetable_pmd_ctor(ptdesc));
-+		BUG_ON(!pagetable_pmd_ctor(NULL, ptdesc));
- 
- 	return pa;
- }
-diff --git a/arch/loongarch/include/asm/pgalloc.h b/arch/loongarch/include/asm/pgalloc.h
-index b58f587f0f0a..1c63a9d9a6d3 100644
---- a/arch/loongarch/include/asm/pgalloc.h
-+++ b/arch/loongarch/include/asm/pgalloc.h
-@@ -69,7 +69,7 @@ static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long address)
- 	if (!ptdesc)
- 		return NULL;
- 
--	if (!pagetable_pmd_ctor(ptdesc)) {
-+	if (!pagetable_pmd_ctor(mm, ptdesc)) {
- 		pagetable_free(ptdesc);
- 		return NULL;
- 	}
-diff --git a/arch/m68k/include/asm/mcf_pgalloc.h b/arch/m68k/include/asm/mcf_pgalloc.h
-index 4c648b51e7fd..465a71101b7d 100644
---- a/arch/m68k/include/asm/mcf_pgalloc.h
-+++ b/arch/m68k/include/asm/mcf_pgalloc.h
-@@ -48,7 +48,7 @@ static inline pgtable_t pte_alloc_one(struct mm_struct *mm)
- 
- 	if (!ptdesc)
- 		return NULL;
--	if (!pagetable_pte_ctor(ptdesc)) {
-+	if (!pagetable_pte_ctor(mm, ptdesc)) {
- 		pagetable_free(ptdesc);
- 		return NULL;
- 	}
-diff --git a/arch/m68k/include/asm/motorola_pgalloc.h b/arch/m68k/include/asm/motorola_pgalloc.h
-index 5abe7da8ac5a..1091fb0affbe 100644
---- a/arch/m68k/include/asm/motorola_pgalloc.h
-+++ b/arch/m68k/include/asm/motorola_pgalloc.h
-@@ -15,7 +15,7 @@ enum m68k_table_types {
- };
- 
- extern void init_pointer_table(void *table, int type);
--extern void *get_pointer_table(int type);
-+extern void *get_pointer_table(struct mm_struct *mm, int type);
- extern int free_pointer_table(void *table, int type);
- 
- /*
-@@ -26,7 +26,7 @@ extern int free_pointer_table(void *table, int type);
- 
- static inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
- {
--	return get_pointer_table(TABLE_PTE);
-+	return get_pointer_table(mm, TABLE_PTE);
- }
- 
- static inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
-@@ -36,7 +36,7 @@ static inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
- 
- static inline pgtable_t pte_alloc_one(struct mm_struct *mm)
- {
--	return get_pointer_table(TABLE_PTE);
-+	return get_pointer_table(mm, TABLE_PTE);
- }
- 
- static inline void pte_free(struct mm_struct *mm, pgtable_t pgtable)
-@@ -53,7 +53,7 @@ static inline void __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pgtable,
- 
- static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long address)
- {
--	return get_pointer_table(TABLE_PMD);
-+	return get_pointer_table(mm, TABLE_PMD);
- }
- 
- static inline int pmd_free(struct mm_struct *mm, pmd_t *pmd)
-@@ -75,7 +75,7 @@ static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
- 
- static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- {
--	return get_pointer_table(TABLE_PGD);
-+	return get_pointer_table(mm, TABLE_PGD);
- }
- 
- 
-diff --git a/arch/m68k/mm/motorola.c b/arch/m68k/mm/motorola.c
-index 73651e093c4d..6ab3ef39ba7a 100644
---- a/arch/m68k/mm/motorola.c
-+++ b/arch/m68k/mm/motorola.c
-@@ -139,7 +139,7 @@ void __init init_pointer_table(void *table, int type)
- 	return;
- }
- 
--void *get_pointer_table(int type)
-+void *get_pointer_table(struct mm_struct *mm, int type)
- {
- 	ptable_desc *dp = ptable_list[type].next;
- 	unsigned int mask = list_empty(&ptable_list[type]) ? 0 : PD_MARKBITS(dp);
-@@ -164,10 +164,10 @@ void *get_pointer_table(int type)
- 			 * m68k doesn't have SPLIT_PTE_PTLOCKS for not having
- 			 * SMP.
- 			 */
--			pagetable_pte_ctor(virt_to_ptdesc(page));
-+			pagetable_pte_ctor(mm, virt_to_ptdesc(page));
- 			break;
- 		case TABLE_PMD:
--			pagetable_pmd_ctor(virt_to_ptdesc(page));
-+			pagetable_pmd_ctor(mm, virt_to_ptdesc(page));
- 			break;
- 		case TABLE_PGD:
- 			pagetable_pgd_ctor(virt_to_ptdesc(page));
-diff --git a/arch/mips/include/asm/pgalloc.h b/arch/mips/include/asm/pgalloc.h
-index bbca420c96d3..942af87f1cdd 100644
---- a/arch/mips/include/asm/pgalloc.h
-+++ b/arch/mips/include/asm/pgalloc.h
-@@ -62,7 +62,7 @@ static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long address)
- 	if (!ptdesc)
- 		return NULL;
- 
--	if (!pagetable_pmd_ctor(ptdesc)) {
-+	if (!pagetable_pmd_ctor(mm, ptdesc)) {
- 		pagetable_free(ptdesc);
- 		return NULL;
- 	}
-diff --git a/arch/parisc/include/asm/pgalloc.h b/arch/parisc/include/asm/pgalloc.h
-index 2ca74a56415c..3b84ee93edaa 100644
---- a/arch/parisc/include/asm/pgalloc.h
-+++ b/arch/parisc/include/asm/pgalloc.h
-@@ -39,7 +39,7 @@ static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long address)
- 	ptdesc = pagetable_alloc(gfp, PMD_TABLE_ORDER);
- 	if (!ptdesc)
- 		return NULL;
--	if (!pagetable_pmd_ctor(ptdesc)) {
-+	if (!pagetable_pmd_ctor(mm, ptdesc)) {
- 		pagetable_free(ptdesc);
- 		return NULL;
- 	}
-diff --git a/arch/powerpc/mm/book3s64/pgtable.c b/arch/powerpc/mm/book3s64/pgtable.c
-index 8f7d41ce2ca1..a282233c8785 100644
---- a/arch/powerpc/mm/book3s64/pgtable.c
-+++ b/arch/powerpc/mm/book3s64/pgtable.c
-@@ -422,7 +422,7 @@ static pmd_t *__alloc_for_pmdcache(struct mm_struct *mm)
- 	ptdesc = pagetable_alloc(gfp, 0);
- 	if (!ptdesc)
- 		return NULL;
--	if (!pagetable_pmd_ctor(ptdesc)) {
-+	if (!pagetable_pmd_ctor(mm, ptdesc)) {
- 		pagetable_free(ptdesc);
- 		return NULL;
- 	}
-diff --git a/arch/powerpc/mm/pgtable-frag.c b/arch/powerpc/mm/pgtable-frag.c
-index 713268ccb1a0..387e9b1fe12c 100644
---- a/arch/powerpc/mm/pgtable-frag.c
-+++ b/arch/powerpc/mm/pgtable-frag.c
-@@ -61,7 +61,7 @@ static pte_t *__alloc_for_ptecache(struct mm_struct *mm, int kernel)
- 		ptdesc = pagetable_alloc(PGALLOC_GFP | __GFP_ACCOUNT, 0);
- 		if (!ptdesc)
- 			return NULL;
--		if (!pagetable_pte_ctor(ptdesc)) {
-+		if (!pagetable_pte_ctor(mm, ptdesc)) {
- 			pagetable_free(ptdesc);
- 			return NULL;
- 		}
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index ab475ec6ca42..e5ef693fc778 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -442,7 +442,7 @@ static phys_addr_t __meminit alloc_pte_late(uintptr_t va)
- {
- 	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL & ~__GFP_HIGHMEM, 0);
- 
--	BUG_ON(!ptdesc || !pagetable_pte_ctor(ptdesc));
-+	BUG_ON(!ptdesc || !pagetable_pte_ctor(NULL, ptdesc));
- 	return __pa((pte_t *)ptdesc_address(ptdesc));
- }
- 
-@@ -522,7 +522,7 @@ static phys_addr_t __meminit alloc_pmd_late(uintptr_t va)
- {
- 	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL & ~__GFP_HIGHMEM, 0);
- 
--	BUG_ON(!ptdesc || !pagetable_pmd_ctor(ptdesc));
-+	BUG_ON(!ptdesc || !pagetable_pmd_ctor(NULL, ptdesc));
- 	return __pa((pmd_t *)ptdesc_address(ptdesc));
- }
- 
-diff --git a/arch/s390/include/asm/pgalloc.h b/arch/s390/include/asm/pgalloc.h
-index 005497ffebda..5345398df653 100644
---- a/arch/s390/include/asm/pgalloc.h
-+++ b/arch/s390/include/asm/pgalloc.h
-@@ -97,7 +97,7 @@ static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long vmaddr)
- 	if (!table)
- 		return NULL;
- 	crst_table_init(table, _SEGMENT_ENTRY_EMPTY);
--	if (!pagetable_pmd_ctor(virt_to_ptdesc(table))) {
-+	if (!pagetable_pmd_ctor(mm, virt_to_ptdesc(table))) {
- 		crst_table_free(mm, table);
- 		return NULL;
- 	}
-diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
-index e3a6f8ae156c..619d6917e3b7 100644
---- a/arch/s390/mm/pgalloc.c
-+++ b/arch/s390/mm/pgalloc.c
-@@ -145,7 +145,7 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
- 	ptdesc = pagetable_alloc(GFP_KERNEL, 0);
- 	if (!ptdesc)
- 		return NULL;
--	if (!pagetable_pte_ctor(ptdesc)) {
-+	if (!pagetable_pte_ctor(mm, ptdesc)) {
- 		pagetable_free(ptdesc);
- 		return NULL;
- 	}
-diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-index 760818950464..5c8eabda1d17 100644
---- a/arch/sparc/mm/init_64.c
-+++ b/arch/sparc/mm/init_64.c
-@@ -2895,7 +2895,7 @@ pgtable_t pte_alloc_one(struct mm_struct *mm)
- 
- 	if (!ptdesc)
- 		return NULL;
--	if (!pagetable_pte_ctor(ptdesc)) {
-+	if (!pagetable_pte_ctor(mm, ptdesc)) {
- 		pagetable_free(ptdesc);
- 		return NULL;
- 	}
-diff --git a/arch/sparc/mm/srmmu.c b/arch/sparc/mm/srmmu.c
-index dd32711022f5..f8fb4911d360 100644
---- a/arch/sparc/mm/srmmu.c
-+++ b/arch/sparc/mm/srmmu.c
-@@ -350,7 +350,7 @@ pgtable_t pte_alloc_one(struct mm_struct *mm)
- 	page = pfn_to_page(__nocache_pa((unsigned long)ptep) >> PAGE_SHIFT);
- 	spin_lock(&mm->page_table_lock);
- 	if (page_ref_inc_return(page) == 2 &&
--			!pagetable_pte_ctor(page_ptdesc(page))) {
-+			!pagetable_pte_ctor(mm, page_ptdesc(page))) {
- 		page_ref_dec(page);
- 		ptep = NULL;
- 	}
-diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
-index a05fcddfc811..7930f234c5f6 100644
---- a/arch/x86/mm/pgtable.c
-+++ b/arch/x86/mm/pgtable.c
-@@ -205,7 +205,7 @@ static int preallocate_pmds(struct mm_struct *mm, pmd_t *pmds[], int count)
- 
- 		if (!ptdesc)
- 			failed = true;
--		if (ptdesc && !pagetable_pmd_ctor(ptdesc)) {
-+		if (ptdesc && !pagetable_pmd_ctor(mm, ptdesc)) {
- 			pagetable_free(ptdesc);
- 			ptdesc = NULL;
- 			failed = true;
-diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
-index 892ece4558a2..e164ca66f0f6 100644
---- a/include/asm-generic/pgalloc.h
-+++ b/include/asm-generic/pgalloc.h
-@@ -70,7 +70,7 @@ static inline pgtable_t __pte_alloc_one_noprof(struct mm_struct *mm, gfp_t gfp)
- 	ptdesc = pagetable_alloc_noprof(gfp, 0);
- 	if (!ptdesc)
- 		return NULL;
--	if (!pagetable_pte_ctor(ptdesc)) {
-+	if (!pagetable_pte_ctor(mm, ptdesc)) {
- 		pagetable_free(ptdesc);
- 		return NULL;
- 	}
-@@ -137,7 +137,7 @@ static inline pmd_t *pmd_alloc_one_noprof(struct mm_struct *mm, unsigned long ad
- 	ptdesc = pagetable_alloc_noprof(gfp, 0);
- 	if (!ptdesc)
- 		return NULL;
--	if (!pagetable_pmd_ctor(ptdesc)) {
-+	if (!pagetable_pmd_ctor(mm, ptdesc)) {
- 		pagetable_free(ptdesc);
- 		return NULL;
- 	}
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index b7f13f087954..f9b793cce2c1 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3100,7 +3100,8 @@ static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
- 	pagetable_free(ptdesc);
- }
- 
--static inline bool pagetable_pte_ctor(struct ptdesc *ptdesc)
-+static inline bool pagetable_pte_ctor(struct mm_struct *mm,
-+				      struct ptdesc *ptdesc)
- {
- 	if (!ptlock_init(ptdesc))
- 		return false;
-@@ -3206,7 +3207,8 @@ static inline spinlock_t *pmd_lock(struct mm_struct *mm, pmd_t *pmd)
- 	return ptl;
- }
- 
--static inline bool pagetable_pmd_ctor(struct ptdesc *ptdesc)
-+static inline bool pagetable_pmd_ctor(struct mm_struct *mm,
-+				      struct ptdesc *ptdesc)
- {
- 	if (!pmd_ptlock_init(ptdesc))
- 		return false;
--- 
-2.47.0
+FWIW, if you remove the "mmio base" address from the DT/ACPI, it
+should automatically use the system instructions for ETE.
+
+
+
+
+> Signed-off-by: yiru zhang <yiru.zhang@mediatek.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 5 +++--
+>   1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 2b8f10463840..971b9f0fe5e4 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -1135,8 +1135,9 @@ static bool etm4_init_iomem_access(struct etmv4_drvdata *drvdata,
+>   	 * with MMIO. But we cannot touch the OSLK until we are
+>   	 * sure this is an ETM. So rely only on the TRCDEVARCH.
+>   	 */
+> -	if ((devarch & ETM_DEVARCH_ID_MASK) != ETM_DEVARCH_ETMv4x_ARCH) {
+> -		pr_warn_once("TRCDEVARCH doesn't match ETMv4 architecture\n");
+> +	if ((devarch & ETM_DEVARCH_ID_MASK) != ETM_DEVARCH_ETMv4x_ARCH \
+> +	&& (devarch & ETM_DEVARCH_ID_MASK) != ETM_DEVARCH_ETE_ARCH) {
+
+We could use a switch case ?
+
+	switch (devarch & ETM_DEVARCH_ID_MASK) {
+	case ETM_DEVARCH_ETMv4x_ARCH:
+	case ETM_DEVARCH_ETE_ARCH:
+		break;
+	default:
+		pr_warn_once("Unknown ETM architecture: %x\n",
+				devarch & ETM_DEVARCH_ID_MASK);
+		return false;
+	}
+
+Suzuki
+
+> +		pr_warn_once("TRCDEVARCH doesn't match ETMv4&ETE architecture\n");
+>   		return false;
+>   	}
+>   
 
 
