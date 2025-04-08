@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF2FC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 04:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F764C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 05:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LIjjOoByUI2pIOPhMAIlcgJI8+NphePBM49vRMjEqNQ=; b=FKtA/TCKQQ+oXP28nqRmHTjPZO
-	d0Qch+s6fXhzjL7RXhaWWXDVR/2x9S05MTqsTEKUstUPExURwsrY5ubAsqruywCHKEw8RHMFK6lAE
-	hBaEl3Cr++8ajDO4CyLzfQqNrcjFp1tHOmdNyA3wJCTPkB2xdP2heaOcZmIO5NnZH2ZfnPr5iRCYV
-	mFKVkm6vCFsFOI9Xgpe3XfwCGkMtOca2uFPzE7bPERKT/qr8veAaX8LaMmb2nD+Sfq7pLVlnrSUNj
-	l86l2gCR7Yh1a2Rra6YrbXQZDpfBRARkcjZIrDGVZf7PTHNGV+8yA2OPPRQ1ZWfKb45YINrGpi5As
-	GbvG0XhA==;
+	bh=08d10QPRbou7mD/4AaojdjLjtx5I6e0q1cXfeY1kUxQ=; b=xuFQrzrWWIFsw1EMmV8pkV2Ond
+	mozVFZ7yQsVxBCzUfGUtIpZIMy4xNC0kcgVDBQX0XjFKObUf6WMDw1/1QkGgcGcLM52jBJufrkQyY
+	pzSf8l1kR9aLAsE5Sh0CgJ0CRR2liL2POg6e08U7tjDpiiECAwJtPLC7yfi59UuCWoCGchuqPuKly
+	eD7+rxs8HICKhEhzf12+cZHClTUixdY/C1J/Fmiu5tSfRq8CnPpHX65CsIX9Qe2o7MQ3rBYaORGXB
+	W11Dz/xn8lhhm45t/wFG6wgr/sKngTY/AB4+PZRPKkrqKJ2ADvJM/vkOBtWN/sRyv81hqdBrcYyGv
+	nuSzFdNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2124-00000002jXs-1cre;
-	Tue, 08 Apr 2025 04:57:56 +0000
+	id 1u219J-00000002kJL-28CU;
+	Tue, 08 Apr 2025 05:05:25 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u210I-00000002jQD-0FKd
+	id 1u217W-00000002k42-1ikW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 04:56:08 +0000
+	Tue, 08 Apr 2025 05:03:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744088163;
+	s=mimecast20190719; t=1744088613;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LIjjOoByUI2pIOPhMAIlcgJI8+NphePBM49vRMjEqNQ=;
-	b=XYqiXsL+TS9O3HZHZroyEjn+8fbHNVGjZ5RMNeo6LC9Lo+8i+/AvTVd/V6j78du8QX5sGu
-	vVZK6o3mmdRTVh1RRxRXjF4bTHo8/60mEhtff/HWkI/1yNsJINVGJNib1P+d3bP6cESSH1
-	c053RE4gNvphqHiWl0p+2fy6+CNy7aU=
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
- [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=08d10QPRbou7mD/4AaojdjLjtx5I6e0q1cXfeY1kUxQ=;
+	b=Cdi+hkKlHZy8aegy/ODLPEFAi2buC3w7dAPVdObwD3fF7B/mcG/6xSrLiGuVhEDkKe4B8U
+	5l/6bIJgHJDZ1voFQhWYNRPT5mH1bvx8UN7eO6zfJKGOwIIC2dcfqpejotwsdZl7Z9YeQj
+	70RERuscdYqkZA5A1Ve9F506pYtpaXk=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-278-wtbwQH_MM06Tyee0aYSm7A-1; Tue, 08 Apr 2025 00:56:02 -0400
-X-MC-Unique: wtbwQH_MM06Tyee0aYSm7A-1
-X-Mimecast-MFC-AGG-ID: wtbwQH_MM06Tyee0aYSm7A_1744088161
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-7395095a505so3968174b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 21:56:02 -0700 (PDT)
+ us-mta-154-MZs2Smp0McKAOKp0YPrTKQ-1; Tue, 08 Apr 2025 01:03:29 -0400
+X-MC-Unique: MZs2Smp0McKAOKp0YPrTKQ-1
+X-Mimecast-MFC-AGG-ID: MZs2Smp0McKAOKp0YPrTKQ_1744088609
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2242f3fd213so38685285ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 22:03:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744088161; x=1744692961;
+        d=1e100.net; s=20230601; t=1744088608; x=1744693408;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LIjjOoByUI2pIOPhMAIlcgJI8+NphePBM49vRMjEqNQ=;
-        b=lcBi96uYcX4rnOZLHB/oT9SYKwOtuugfwUruDCEkowznbzQyP8dsdRQ6D24qYYSl7H
-         H8DT66p407spHYu4gMxIj7wy/OGAhvsahAMhHNa+WPictJOyl/WNZt+fymYfNId2Bsbb
-         h0sXwX3C2lOv9R3xbcxiJedXg8L1VCdujn+TTtJljKi3nuTIW0CqYtyj1wT4eHCxISzi
-         BfO3i6Z3Xm9BmvzVPwFvbvRbWUUAvUnXJKF7B1uOkEMCYtcMJw+/lLwzNO3nfyboU4pd
-         m6/MmfdDGEt+oYlnqA73uCHqenweJ9FvAn0a7IseHkYJbz1M29pH7HviHhzyk+oL+ng3
-         Baxw==
-X-Forwarded-Encrypted: i=1; AJvYcCUkXqOa6UY1yq52HHN/wUmd+MCLleTzxpO49vP7JAHyQXXyJBm7nhq8zsQn+ukL7/uqO3vZ5POcNtM3lyZsw/D6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz07nhnzigcMQ0aAibb+BUqcIr4PMUu/uNjuAeNOyWmM+5ROx6b
-	j8WNt6T4IwxAjx/YErlUpl9nOY8LnlXCA9WrO8YYIizzh0tidBucQbKYnIK4oYeyoUHFZRa2M+D
-	TDJMq0MmZpNtRuyct0ZxY47NwkxYkWkH6uqylrhcM6E11Q0LAn4MO4mIMOE/VttagUArUkzXZ
-X-Gm-Gg: ASbGncsEdzczE2lLmHYkZLRAYStVzi3lI5YQtS3xnzPHBUt7MS1F0qNvBmsIlOCddqP
-	ftUPWlIA9WEhnMreyBL9E03nQcjn9EDvh1SnzRC2sqjrO1U9aEsf0WR0epr0KU3y/gMpkteGF0U
-	d1K5AzgyVyVXX28FcHvB1CaOtTEalVI60IWDuXzjOL8ObExY+hBLWQ7ciwG/y7aYMV6K+0haD9h
-	jr2a6LR72PodBO4Ziop+KH/7lTOdZeuCuNOOOmSZMHtiZ9FgDnes3YspcWZtcwWsqiqxRY67o1N
-	59SaaJ2yF60kYJ9i
-X-Received: by 2002:a05:6a20:c89b:b0:1f5:7d57:8309 with SMTP id adf61e73a8af0-2010468efe3mr21310698637.21.1744088161224;
-        Mon, 07 Apr 2025 21:56:01 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IERbmBP4PLZ4lD5fRaruKvT92VMq6IeMtLHrpj4YwtyvzhMXIT9jbuvqEjkQzxoAS5XwcPooA==
-X-Received: by 2002:a05:6a20:c89b:b0:1f5:7d57:8309 with SMTP id adf61e73a8af0-2010468efe3mr21310671637.21.1744088160876;
-        Mon, 07 Apr 2025 21:56:00 -0700 (PDT)
+        bh=08d10QPRbou7mD/4AaojdjLjtx5I6e0q1cXfeY1kUxQ=;
+        b=V70U+MXe05Q5b8egamzJfEEuy0iS1e5UrtXGSsOXT9Pkvq1EFa7FwCjPZ2co3Yl7IO
+         AxSJgvmWZ7WWesVRuIMgPCZRYAX1eIMG4WKuidGhiAytdFcag+zY0+MgAjyjbZxTcs0j
+         hLJjj1G6g0AviRZaPJ4p678hGA3FnW4yEt204COz0eGIYO4gb9Jo+UtvRhWi9u1r5rfm
+         VkFPRrph6/QzB4UxaWvsxcpUnFRtpAJfxp/XDYaUfFU4Q14yRL7uisYGkUHE61Sik5rP
+         H/uE+BpaOTOk4EMSZLfyeSFJT0TheEJ4rql4el7hUC2G02I0ymWCXIIqNYmHUp/x8B9G
+         GOGg==
+X-Forwarded-Encrypted: i=1; AJvYcCUbnIUPiW9XV7gtjI0rmwmlB8wgdq8vf4V6LE9QF4ytgoghB8KS5pYVZbKQguON+rrcR2cVFWUTY5xD2sBtGUSo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxwOi6J27c9jkZOBEPUYjBrThyensatEJy3LpIdruhqibzHzYH
+	hf0tCVwLnE56jkft+7sQ/ImHjR8xc8KNkYDxl6UHjDgX9zMiw/0bvJsAvsTni+GIfGT4fraHy+i
+	a4IDbbxpwajcxSv75QKzYImIjiZD0Zn9eX904TotA08rmEMe4GuLE67UTPVe9Rdux1bStxBG6
+X-Gm-Gg: ASbGncspip11W3gSEzEys3e2LLSuLnfjXN5maLaXx3pmAtXJ589lCKlCpLKQi0ULPyE
+	ChTDtilq/wdbHCwdaTf32URefoJAqE9wy0TLgPTRP1i8cHulLxANXIHUHJcPCKn4L66bu2G83gc
+	yfuurdZMHLINSXYHkcWURaZKZpxEDU24AtDHx4bQWQOkTqwx+soQfJkFqZDObqx9X3XMYeWvNsc
+	8b223++0AyxHVpb5ftr4BnZBmT4JiF+epsf4aDUGJHbqalrG63If14wIMWmGx1czT5y1pD0WqSD
+	RnyvehaOPK0q3hwE
+X-Received: by 2002:a17:902:ccce:b0:215:8809:b3b7 with SMTP id d9443c01a7336-22a8a04593emr212605265ad.7.1744088608516;
+        Mon, 07 Apr 2025 22:03:28 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGML8JrfPQSGP1sTXgAJbLiBC79RWpQvktKvDF6YE82nc5K0KhNIo0FYjrqKNMDpWPDe5wEjg==
+X-Received: by 2002:a17:902:ccce:b0:215:8809:b3b7 with SMTP id d9443c01a7336-22a8a04593emr212604925ad.7.1744088608147;
+        Mon, 07 Apr 2025 22:03:28 -0700 (PDT)
 Received: from [192.168.68.55] ([180.233.125.65])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739d9806e9csm9495071b3a.83.2025.04.07.21.55.53
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-229785c01b7sm90355785ad.96.2025.04.07.22.03.21
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Apr 2025 21:56:00 -0700 (PDT)
-Message-ID: <822a348f-46e1-44cb-b475-1b120bf96de4@redhat.com>
-Date: Tue, 8 Apr 2025 14:55:52 +1000
+        Mon, 07 Apr 2025 22:03:27 -0700 (PDT)
+Message-ID: <005ccfb3-b616-4723-b039-b8a3d6fb10bc@redhat.com>
+Date: Tue, 8 Apr 2025 15:03:19 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 12/45] arm64: RME: Allocate/free RECs to match vCPUs
+Subject: Re: [PATCH v7 17/45] arm64: RME: Handle realm enter/exit
 To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
@@ -95,20 +95,20 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
  <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
 References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-13-steven.price@arm.com>
- <7639eca7-8fd8-491c-90bd-1be084fbd710@redhat.com>
- <4566d2d1-1f59-49e3-ad75-45c27ac4dfda@arm.com>
+ <20250213161426.102987-18-steven.price@arm.com>
+ <80983793-5df7-4828-96e8-90540e7d9183@redhat.com>
+ <95c06abf-591f-4dd0-b1fd-296b0d5ae924@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <4566d2d1-1f59-49e3-ad75-45c27ac4dfda@arm.com>
+In-Reply-To: <95c06abf-591f-4dd0-b1fd-296b0d5ae924@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 1iQ7vh8bglujObD79O6-Zzeg3LCyqU75A87jiGXvaq0_1744088161
+X-Mimecast-MFC-PROC-ID: PwEzUdPqtRrJs7_WpXYdmD0o421NbWYR5ilhlppGV4g_1744088609
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_215606_167851_E6158D25 
-X-CRM114-Status: GOOD (  38.18  )
+X-CRM114-CacheID: sfid-20250407_220334_519948_305518B2 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,149 +123,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steven,
-
-On 3/8/25 1:43 AM, Steven Price wrote:
-> On 03/03/2025 07:08, Gavin Shan wrote:
+On 4/8/25 2:34 AM, Steven Price wrote:
+> On 04/03/2025 01:03, Gavin Shan wrote:
 >> On 2/14/25 2:13 AM, Steven Price wrote:
->>> The RMM maintains a data structure known as the Realm Execution Context
->>> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
->>> virtual CPUs. KVM must delegate memory and request the structures are
->>> created when vCPUs are created, and suitably tear down on destruction.
->>>
->>> RECs must also be supplied with addition pages - auxiliary (or AUX)
->>> granules - for storing the larger registers state (e.g. for SVE). The
->>> number of AUX granules for a REC depends on the parameters with which
->>> the Realm was created - the RMM makes this information available via the
->>> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor
->>> (RD).
->>>
->>> Note that only some of register state for the REC can be set by KVM, the
->>> rest is defined by the RMM (zeroed). The register state then cannot be
->>> changed by KVM after the REC is created (except when the guest
->>> explicitly requests this e.g. by performing a PSCI call). The RMM also
->>> requires that the VMM creates RECs in ascending order of the MPIDR.
->>>
->>> See Realm Management Monitor specification (DEN0137) for more
->>> information:
->>> https://developer.arm.com/documentation/den0137/
+>>> Entering a realm is done using a SMC call to the RMM. On exit the
+>>> exit-codes need to be handled slightly differently to the normal KVM
+>>> path so define our own functions for realm enter/exit and hook them
+>>> in if the guest is a realm guest.
 >>>
 >>> Signed-off-by: Steven Price <steven.price@arm.com>
 >>> ---
 >>> Changes since v6:
->>>    * Avoid reporting the KVM_ARM_VCPU_REC feature if the guest isn't a
->>>      realm guest.
->>>    * Support host page size being larger than RMM's granule size when
->>>      allocating/freeing aux granules.
+>>>    * Use vcpu_err() rather than pr_err/kvm_err when there is an associated
+>>>      vcpu to the error.
+>>>    * Return -EFAULT for KVM_EXIT_MEMORY_FAULT as per the documentation for
+>>>      this exit type.
+>>>    * Split code handling a RIPAS change triggered by the guest to the
+>>>      following patch.
 >>> Changes since v5:
->>>    * Separate the concept of vcpu_is_rec() and
->>>      kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
->>>      the indication that the VCPU is a REC.
+>>>    * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
+>>>      change on next entry rather than immediately on the exit. This allows
+>>>      the VMM to 'reject' a RIPAS change by refusing to continue
+>>>      scheduling.
+>>> Changes since v4:
+>>>    * Rename handle_rme_exit() to handle_rec_exit()
+>>>    * Move the loop to copy registers into the REC enter structure from the
+>>>      to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
+>>>      where the handler exits to user space and user space wants to modify
+>>>      the GPRS.
+>>>    * Some code rearrangement in rec_exit_ripas_change().
 >>> Changes since v2:
->>>    * Free rec->run earlier in kvm_destroy_realm() and adapt to previous
->>> patches.
+>>>    * realm_set_ipa_state() now provides an output parameter for the
+>>>      top_iap that was changed. Use this to signal the VMM with the correct
+>>>      range that has been transitioned.
+>>>    * Adapt to previous patch changes.
 >>> ---
->>>    arch/arm64/include/asm/kvm_emulate.h |   7 ++
->>>    arch/arm64/include/asm/kvm_host.h    |   3 +
->>>    arch/arm64/include/asm/kvm_rme.h     |  18 +++
->>>    arch/arm64/kvm/arm.c                 |  13 +-
->>>    arch/arm64/kvm/reset.c               |  11 ++
->>>    arch/arm64/kvm/rme.c                 | 179 +++++++++++++++++++++++++++
->>>    6 files changed, 229 insertions(+), 2 deletions(-)
+>>>    arch/arm64/include/asm/kvm_rme.h |   3 +
+>>>    arch/arm64/kvm/Makefile          |   2 +-
+>>>    arch/arm64/kvm/arm.c             |  19 +++-
+>>>    arch/arm64/kvm/rme-exit.c        | 171 +++++++++++++++++++++++++++++++
+>>>    arch/arm64/kvm/rme.c             |  19 ++++
+>>>    5 files changed, 208 insertions(+), 6 deletions(-)
+>>>    create mode 100644 arch/arm64/kvm/rme-exit.c
 >>>
 >>
->> With the following one comment addressed:
+>> With below nitpicks addressed:
 >>
 >> Reviewed-by: Gavin Shan <gshan@redhat.com>
 >>
 >> [...]
 >>
->>>      /*
->>> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
->>> asm/kvm_rme.h
->>> index 698bb48a8ae1..5db377943db4 100644
->>> --- a/arch/arm64/include/asm/kvm_rme.h
->>> +++ b/arch/arm64/include/asm/kvm_rme.h
->>> @@ -6,6 +6,7 @@
->>>    #ifndef __ASM_KVM_RME_H
->>>    #define __ASM_KVM_RME_H
->>>    +#include <asm/rmi_smc.h>
->>>    #include <uapi/linux/kvm.h>
->>>      /**
->>> @@ -65,6 +66,21 @@ struct realm {
->>>        unsigned int ia_bits;
->>>    };
->>>    +/**
->>> + * struct realm_rec - Additional per VCPU data for a Realm
->>> + *
->>> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify
->>> this VCPU
->>> + * @rec_page: Kernel VA of the RMM's private page for this REC
->>> + * @aux_pages: Additional pages private to the RMM for this REC
->>> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
+>>> diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
+>>> new file mode 100644
+>>> index 000000000000..aae1adefe1a3
+>>> --- /dev/null
+>>> +++ b/arch/arm64/kvm/rme-exit.c
+>>> @@ -0,0 +1,171 @@
+>>> +// SPDX-License-Identifier: GPL-2.0-only
+>>> +/*
+>>> + * Copyright (C) 2023 ARM Ltd.
 >>> + */
->>> +struct realm_rec {
->>> +    unsigned long mpidr;
->>> +    void *rec_page;
->>> +    struct page *aux_pages[REC_PARAMS_AUX_GRANULES];
->>> +    struct rec_run *run;
->>> +};
+>>> +
+>>> +#include <linux/kvm_host.h>
+>>> +#include <kvm/arm_hypercalls.h>
+>>> +#include <kvm/arm_psci.h>
+>>> +
+>>> +#include <asm/rmi_smc.h>
+>>> +#include <asm/kvm_emulate.h>
+>>> +#include <asm/kvm_rme.h>
+>>> +#include <asm/kvm_mmu.h>
+>>> +
+>>> +typedef int (*exit_handler_fn)(struct kvm_vcpu *vcpu);
 >>> +
 >>
->> REC_PARAMS_AUX_GRANULES represents the maximal number of the auxiliary
->> granules.
->> Since the base page size is always larger than or equal to granule size
->> (4KB).
->> The capacity of array @aux_pages[] needs to be REC_PARAMS_AUX_GRANULES.
->> Ideally,
->> the array's size can be computed dynamically and it's allocated in
->> kvm_create_rec().
+>> Duplicated to exit_handler_fn, defined in handle_exit.c, need move the
+>> definition to header file.
 > 
-> This is indeed another example of where pages and granules have got
-> mixed. The RMM specification provides a maximum number of granules (and
-> there's a similar array in struct rec_params). Here the use of
-> REC_PARAMS_AUX_GRANULES is just to keep the structure more simple (no
-> dynamic allocation) with the cost of ~128bytes. Obviously if
-> PAGE_SIZE>4k then this array could be smaller.
+> While I get this is duplication, I'm a little reluctant to move it to a
+> header file because this is completely internal to each C file (the
+> xxx_exit_handler[] arrays are both static). If either side wants to e.g.
+> add an extra argument there shouldn't be a requirement to reflect that
+> change in the other.
+> 
+> Specifically I'm wondering if we're going to ever need to pass an RMI
+> return status into the rme-exit callbacks at some point.
 > 
 
-Exactly. The confusion is caused by the mismatched size between page and granule.
-We're declaring an array of pages and the array's capacity is REC_PARAMS_AUX_GRANULES.
-A comment is needed to explain for now. In long run, I think it's nice to allocate
-them dynamically. The buddy allocator allocates 2^N pages and memory waste will be
-existing without perfect alignment.
+Ok, thanks for explaining it in details. In that case, I think it's fine
+to keep exit_handler_fn in rme-exit.c.
 
->> Alternatively, to keep the code simple, a comment is needed here to
->> explain why
->> the array's size has been set to REC_PARAMS_AUX_GRANULES.
+>>> +static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu)
+>>> +{
+>>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>>> +
+>>> +    vcpu_err(vcpu, "Unhandled exit reason from realm (ESR: %#llx)\n",
+>>> +         rec->run->exit.esr);
+>>> +    return -ENXIO;
+>>> +}
+>>> +
+>>> +static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu)
+>>> +{
+>>> +    return kvm_handle_guest_abort(vcpu);
+>>> +}
+>>> +
+>>> +static int rec_exit_sync_iabt(struct kvm_vcpu *vcpu)
+>>> +{
+>>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>>> +
+>>> +    vcpu_err(vcpu, "Unhandled instruction abort (ESR: %#llx).\n",
+>>> +         rec->run->exit.esr);
+>>> +    return -ENXIO;
+>>> +}
+>>> +
+>>> +static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
+>>> +{
+>>> +    struct realm_rec *rec = &vcpu->arch.rec;
+>>> +    unsigned long esr = kvm_vcpu_get_esr(vcpu);
+>>> +    int rt = kvm_vcpu_sys_get_rt(vcpu);
+>>> +    bool is_write = !(esr & 1);
+>>> +    int ret;
+>>> +
+>>> +    if (is_write)
+>>> +        vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[0]);
+>>> +
+>>> +    ret = kvm_handle_sys_reg(vcpu);
+>>> +
+>>> +    if (ret >= 0 && !is_write)
+>>> +        rec->run->enter.gprs[0] = vcpu_get_reg(vcpu, rt);
+>>> +
+>>
+>> Unncessary blank line and the conditon isn't completely correct:
+>> kvm_handle_sys_reg()
+>> should return 0 if the requested emulation fails, even it always returns
+>> 1 for now.
 > 
-> Definitely a valid point - this could do with a comment explaining the
-> situation.
+> It shouldn't matter, but like you say it's not technically the correct
+> condition so I'll fix this up.
 > 
 
-Ack.
+Ok.
 
->> An relevant question: Do we plan to support differentiated sizes between
->> page
->> and granule? I had the assumption this feature will be supported in the
->> future
->> after the base model (equal page and granule size) gets merged first.
+> Thanks,
+> Steve
 > 
-> Yes I do plan to support it. This series actually has the basic support
-> in it already, with an experimental patch at the end enabling that
-> support. It "works" but I haven't tested it well and I think some of the
-> error handling isn't quite right yet.
-> 
-> But there's also a bunch more work to be done (like here) to avoid
-> over-allocating memory when PAGE_SIZE>4k. E.g. RTTs need an
-> sub-allocator so that we don't waste an entire (larger) page on each RTT.
-> 
-
-Ok. Frankly I didn't expect it when I reviewed the first patches of this
-series. I thought it would be an incremental feature, meaning a separate
-series to support it after the base series is accepted. Anyway, it's something
-I need to review on the next respin (v8) if it's going to be supported
-together with the base functionalities :-)
+>>      ret = kvm_handle_sys_reg(vcpu);
+>>      if (ret > 0 && !is_write)
+>>          rec->run->enter.gprs[0] = vcpu_get_reg(vcpu, rt);
+>>
+>>> +    return ret;
+>>> +}
+>>> +
+>>
 
 Thanks,
 Gavin
