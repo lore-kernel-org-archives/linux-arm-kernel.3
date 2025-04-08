@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 743ECC369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F6AC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SeBQc9h5M7q3UQfwf0irk0KULxQkJimYw7hKr7BXjvM=; b=bigbiDTCiUOsvnfPWM0iXZQIA9
-	TLqLh0f2DtUSBkRZmAyIqZSDgYfETfRz8Iy5D2mwQDORAqvMA9qoktoQkf98N5vw728Lb0uQOpD01
-	6kluOsW8OuVj6FqyF503/XHV5ErapTC5oo3nmiOPprYVP0caLQZjcP0kM6/H05b9tkuIp0V9yuhXP
-	Id+RmesdwF9uJe7gQFE/CSMZBSUAWGLFnA2gm12btdiwfXR0oiCE3m/+QvWL2Lt3ebiR1SDKqXrbj
-	sJ1Z5cOvPSxe6YibsTqHvmgSgUQ94ECT38Qs6FX3W3ZwM8gMLEH5k3B9QyRMO2rYvyqKBIcEnGDxn
-	kausom/w==;
+	bh=MV50P6hRI3KzUliHqBLYdOCZItbY15amgHPFy4fSIrA=; b=Lt+Tulb/xzvEbmVE0G0GEW75ge
+	gbr5D10UIFKKMKor+EkInia7FUGzrd1xAF1ICEL0oR+kcLQw1fLERLDHe7M0Lscb5gX5rFCT4ympY
+	CAijvyVkemnAE7Nmr6K1nG1rE4F1i/uVJ8G37+oOeupcg1f5YgseoIFgWSK7fPScyXsnzcJ4uYaUX
+	86NV75mFt1fextq/2F/BA+GQ/AaXXEP3+rGh4lylvPVXPILeFV726DtNCwGtSrSKQXB9IXpxNdHmx
+	02K7SOTEHl91mFNmSk+eT78B4MvDJj7/H/n1EWFKbxdb4JThsQDjpbvKCj3PjYN+oAun0HjCc9oYa
+	xxTUr1mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2DuM-000000058lu-0tHJ;
-	Tue, 08 Apr 2025 18:42:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u2DvP-0000000594m-3r8X;
+	Tue, 08 Apr 2025 18:43:55 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2CYe-00000004whb-3eer
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Apr 2025 17:16:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=SeBQc9h5M7q3UQfwf0irk0KULxQkJimYw7hKr7BXjvM=; b=BWdIpTqVOwI8IrgxlK8ifcBXrg
-	RuTbNJyP/qucSyjmd0WsHSSWM3Zoimb6vi1qX0UksIR+5w2yh1n1Mq4iohMipiER1K/LX+gEL0zV9
-	X+RuXojS4LDbS5uSxYY55RenFCDieN5VXcY6cX/pIMt/Emd4wVEoR6mnFPPOstvxnyOQgY6hFaQl+
-	hv9o5k9fp/nxqyl522vYtVsjNA+3r9ZKamA3LT7jGpKbvFm05pvcUMkgNmjiT5ee+Km2PXMDm+IXP
-	ImJK+w+pxssZPibUouxQ3p/FPMEdLv4t1h6XrQFccFiYY7ArtnUJEoqq6S0g4qi9bPkkbEMkgzg0O
-	kTmO32SA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2CYb-00000008LaS-0S5S
+	id 1u2Db3-000000055yX-2nIo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 17:16:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D4E71688;
-	Tue,  8 Apr 2025 10:16:17 -0700 (PDT)
-Received: from e128066.cambridge.arm.com (e128066.cambridge.arm.com [10.1.26.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EFB703F59E;
-	Tue,  8 Apr 2025 10:16:12 -0700 (PDT)
-From: mark.barnett@arm.com
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	irogers@google.com
-Cc: ben.gainey@arm.com,
-	deepak.surti@arm.com,
-	ak@linux.intel.com,
-	will@kernel.org,
-	james.clark@arm.com,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	adrian.hunter@intel.com,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Mark Barnett <mark.barnett@arm.com>
-Subject: [PATCH v4 2/5] perf: Allow periodic events to alternate between two sample periods
-Date: Tue,  8 Apr 2025 18:15:27 +0100
-Message-Id: <20250408171530.140858-3-mark.barnett@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250408171530.140858-1-mark.barnett@arm.com>
-References: <20250408171530.140858-1-mark.barnett@arm.com>
+	Tue, 08 Apr 2025 18:22:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3B0D5A48FEA;
+	Tue,  8 Apr 2025 18:17:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD090C4CEEA;
+	Tue,  8 Apr 2025 18:22:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744136572;
+	bh=ZKoFePMNCshD50hjfLmDWFxIxGgrZ+11urqHkfqB0ao=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ZCXtcD3G3j7+yFsCuOS+1YSIUnuZ0nOyBKBF4D85HA4+I7qggig6kqxhrtONYdwib
+	 iSq0iXY/TtVxjmDMtpIpuBCliYwryNbGJIhmeS1j1pytFH2RQns56slF8LfIk2B36j
+	 xjoSw9tsIDftPb/fjwOxTCfkYBXSVB7AeZaB/SKKsLUabm0fEaufuQOnE9hw/YOn/v
+	 NyOWVe/Px4kK1FmV2byxJngwDz3DJrhkpc0/hgaxlTdh37Qkkp/ncSi7Soa9TnqEF3
+	 7D/KZWUft7sZjujSVvVz9fmyfDjQj5p8j7zX/5mKf9GRMScLQOP88In+5ptMj/2fgZ
+	 H7YVmCuLBwANg==
+From: Mark Brown <broonie@kernel.org>
+Date: Tue, 08 Apr 2025 19:10:06 +0100
+Subject: [PATCH 5.15 v3 11/11] KVM: arm64: Eagerly switch ZCR_EL{1,2}
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250408-stable-sve-5-15-v3-11-ca9a6b850f55@kernel.org>
+References: <20250408-stable-sve-5-15-v3-0-ca9a6b850f55@kernel.org>
+In-Reply-To: <20250408-stable-sve-5-15-v3-0-ca9a6b850f55@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Oleg Nesterov <oleg@redhat.com>, Oliver Upton <oliver.upton@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Fuad Tabba <tabba@google.com>
+X-Mailer: b4 0.15-dev-c25d1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=12846; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=6f4SDNyGZNLjxVE6DsFNZSv+dF8z3VxQEDFwAdXgt+k=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn9WlU3O1zh0SLnOtRX3lUXawZU1keWZGORZ6IEWWG
+ RdMizqaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ/VpVAAKCRAk1otyXVSH0MBXB/
+ 9Pr2PVDFCO5zr29dgVZ/Ly5HFO/ZZhlLXU/a6/JEKqziAg7VeOm0tukoosG+Te1HUw8LrgWiOHnPAL
+ 5QietVair/am1og5J2T0PxNiflL6DjLsKFChZK/HpNZPHqgduCZWjeiUpARp2JGoSCBI7/S3QxpyCa
+ NS5RhT6TFZWcOWsgf88HwQgoR1E5U/uFcobPdL225b2QjRdQFMHm+FiNBM5RomgFOvakhFcqAHAhH+
+ ASu65ADufKsEO+R1ujRLsqlB6pa3rNUUk5ENFnoOCwFIIz3BTCLmXt7glo+7i2gCy6+9APd6dzGc5x
+ mpN4FwdK10CgIdezGZKij2mkIL3le1
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_181617_466190_E1E37569 
-X-CRM114-Status: GOOD (  24.27  )
+X-CRM114-CacheID: sfid-20250408_112253_855600_63DA865F 
+X-CRM114-Status: GOOD (  32.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,254 +89,368 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ben Gainey <ben.gainey@arm.com>
+From: Mark Rutland <mark.rutland@arm.com>
 
-This change modifies perf_event_attr to add a second, alternative
-sample period field, and modifies the core perf overflow handling
-such that when specified an event will alternate between two sample
-periods.
+[ Upstream commit 59419f10045bc955d2229819c7cf7a8b0b9c5b59 ]
 
-Currently, perf does not provide a  mechanism for decoupling the period
-over which counters are counted from the period between samples. This is
-problematic for building a tool to measure per-function metrics derived
-from a sampled counter group. Ideally such a tool wants a very small
-sample window in order to correctly attribute the metrics to a given
-function, but prefers a larger sample period that provides representative
-coverage without excessive probe effect, triggering throttling, or
-generating excessive amounts of data.
+In non-protected KVM modes, while the guest FPSIMD/SVE/SME state is live on the
+CPU, the host's active SVE VL may differ from the guest's maximum SVE VL:
 
-By alternating between a long and short sample_period and subsequently
-discarding the long samples, tools may decouple the period between
-samples that the tool cares about from the window of time over which
-interesting counts are collected.
+* For VHE hosts, when a VM uses NV, ZCR_EL2 contains a value constrained
+  by the guest hypervisor, which may be less than or equal to that
+  guest's maximum VL.
 
-It is expected that typically tools would use this feature with the
-cycles or instructions events as an approximation for time, but no
-restrictions are applied to which events this can be applied to.
+  Note: in this case the value of ZCR_EL1 is immaterial due to E2H.
 
-Signed-off-by: Ben Gainey <ben.gainey@arm.com>
-Signed-off-by: Mark Barnett <mark.barnett@arm.com>
+* For nVHE/hVHE hosts, ZCR_EL1 contains a value written by the guest,
+  which may be less than or greater than the guest's maximum VL.
+
+  Note: in this case hyp code traps host SVE usage and lazily restores
+  ZCR_EL2 to the host's maximum VL, which may be greater than the
+  guest's maximum VL.
+
+This can be the case between exiting a guest and kvm_arch_vcpu_put_fp().
+If a softirq is taken during this period and the softirq handler tries
+to use kernel-mode NEON, then the kernel will fail to save the guest's
+FPSIMD/SVE state, and will pend a SIGKILL for the current thread.
+
+This happens because kvm_arch_vcpu_ctxsync_fp() binds the guest's live
+FPSIMD/SVE state with the guest's maximum SVE VL, and
+fpsimd_save_user_state() verifies that the live SVE VL is as expected
+before attempting to save the register state:
+
+| if (WARN_ON(sve_get_vl() != vl)) {
+|         force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
+|         return;
+| }
+
+Fix this and make this a bit easier to reason about by always eagerly
+switching ZCR_EL{1,2} at hyp during guest<->host transitions. With this
+happening, there's no need to trap host SVE usage, and the nVHE/nVHE
+__deactivate_cptr_traps() logic can be simplified to enable host access
+to all present FPSIMD/SVE/SME features.
+
+In protected nVHE/hVHE modes, the host's state is always saved/restored
+by hyp, and the guest's state is saved prior to exit to the host, so
+from the host's PoV the guest never has live FPSIMD/SVE/SME state, and
+the host's ZCR_EL1 is never clobbered by hyp.
+
+Fixes: 8c8010d69c132273 ("KVM: arm64: Save/restore SVE state for nVHE")
+Fixes: 2e3cf82063a00ea0 ("KVM: arm64: nv: Ensure correct VL is loaded before saving SVE state")
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Tested-by: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Cc: Will Deacon <will@kernel.org>
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+Link: https://lore.kernel.org/r/20250210195226.1215254-9-mark.rutland@arm.com
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+[ v6.6 lacks pKVM saving of host SVE state, pull in discovery of maximum
+  host VL separately -- broonie ]
+Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- include/linux/perf_event.h      | 12 +++++-
- include/uapi/linux/perf_event.h | 10 +++++
- kernel/events/core.c            | 69 +++++++++++++++++++++++++++++----
- 3 files changed, 82 insertions(+), 9 deletions(-)
+ arch/arm64/include/asm/kvm_host.h       |  1 +
+ arch/arm64/include/asm/kvm_hyp.h        |  7 +++++
+ arch/arm64/kvm/fpsimd.c                 | 19 ++++++------
+ arch/arm64/kvm/hyp/entry.S              |  5 +++
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 55 +++++++++++++++++++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  9 +++---
+ arch/arm64/kvm/hyp/nvhe/switch.c        | 31 ++++++++++---------
+ arch/arm64/kvm/hyp/vhe/switch.c         |  4 +++
+ arch/arm64/kvm/reset.c                  |  3 ++
+ 9 files changed, 106 insertions(+), 28 deletions(-)
 
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 5a9bf15d4461..be006965054e 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -229,7 +229,11 @@ struct hw_perf_event {
- #define PERF_HES_UPTODATE	0x02 /* event->count up-to-date */
- #define PERF_HES_ARCH		0x04
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 2e0952134e2e..6d7b6b5d076d 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -64,6 +64,7 @@ enum kvm_mode kvm_get_mode(void);
+ DECLARE_STATIC_KEY_FALSE(userspace_irqchip_in_use);
  
--	int				state;
-+	u32				state;
+ extern unsigned int kvm_sve_max_vl;
++extern unsigned int kvm_host_sve_max_vl;
+ int kvm_arm_init_sve(void);
+ 
+ u32 __attribute_const__ kvm_target_cpu(void);
+diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+index 657d0c94cf82..308df86f9a4b 100644
+--- a/arch/arm64/include/asm/kvm_hyp.h
++++ b/arch/arm64/include/asm/kvm_hyp.h
+@@ -117,5 +117,12 @@ void __noreturn __host_enter(struct kvm_cpu_context *host_ctxt);
+ 
+ extern u64 kvm_nvhe_sym(id_aa64mmfr0_el1_sys_val);
+ extern u64 kvm_nvhe_sym(id_aa64mmfr1_el1_sys_val);
++extern unsigned int kvm_nvhe_sym(kvm_host_sve_max_vl);
 +
-+#define PERF_SPS_HF_ON			0x00000001
-+#define PERF_SPS_HF_SAMPLE		0x00000002
-+	u32				sample_period_state;
- 
- 	/*
- 	 * The last observed hardware counter value, updated with a
-@@ -242,6 +246,12 @@ struct hw_perf_event {
- 	 */
- 	u64				sample_period;
- 
-+	/*
-+	 * The original sample_period value before being modified with
-+	 * a high-frequency sampling window.
-+	 */
-+	u64				sample_period_base;
++static inline bool guest_owns_fp_regs(struct kvm_vcpu *vcpu)
++{
++	return vcpu->arch.flags & KVM_ARM64_FP_ENABLED;
++}
 +
- 	union {
- 		struct { /* Sampling */
- 			/*
-diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
-index 5fc753c23734..1529f97fb15d 100644
---- a/include/uapi/linux/perf_event.h
-+++ b/include/uapi/linux/perf_event.h
-@@ -379,6 +379,7 @@ enum perf_event_read_format {
- #define PERF_ATTR_SIZE_VER6	120	/* add: aux_sample_size */
- #define PERF_ATTR_SIZE_VER7	128	/* add: sig_data */
- #define PERF_ATTR_SIZE_VER8	136	/* add: config3 */
-+#define PERF_ATTR_SIZE_VER9	144	/* add: hf_sample */
  
- /*
-  * Hardware event_id to monitor via a performance monitoring event:
-@@ -533,6 +534,15 @@ struct perf_event_attr {
- 	__u64	sig_data;
+ #endif /* __ARM64_KVM_HYP_H__ */
+diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+index 1360ddd4137b..cfda503c8b3f 100644
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -129,15 +129,16 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+ 	local_irq_save(flags);
  
- 	__u64	config3; /* extension of config2 */
-+
-+	union {
-+		__u64 hf_sample;
-+		struct {
-+			__u64 hf_sample_period : 32,
-+			      hf_sample_rand   :  4,
-+			      __reserved_4     : 28;
-+		};
-+	};
- };
- 
- /*
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 128db74e9eab..5752ac7408b1 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -4195,19 +4195,19 @@ static void perf_adjust_period(struct perf_event *event, u64 nsec, u64 count, bo
- 
- 	period = perf_calculate_period(event, nsec, count);
- 
--	delta = (s64)(period - hwc->sample_period);
-+	delta = (s64)(period - hwc->sample_period_base);
- 	if (delta >= 0)
- 		delta += 7;
- 	else
- 		delta -= 7;
- 	delta /= 8; /* low pass filter */
- 
--	sample_period = hwc->sample_period + delta;
-+	sample_period = hwc->sample_period_base + delta;
- 
- 	if (!sample_period)
- 		sample_period = 1;
- 
--	hwc->sample_period = sample_period;
-+	hwc->sample_period_base = sample_period;
- 
- 	if (local64_read(&hwc->period_left) > 8*sample_period) {
- 		if (disable)
-@@ -6179,7 +6179,7 @@ static void __perf_event_period(struct perf_event *event,
- 		event->attr.sample_freq = value;
- 	} else {
- 		event->attr.sample_period = value;
--		event->hw.sample_period = value;
-+		event->hw.sample_period_base = value;
+ 	if (vcpu->arch.flags & KVM_ARM64_FP_ENABLED) {
+-		if (vcpu_has_sve(vcpu)) {
+-			__vcpu_sys_reg(vcpu, ZCR_EL1) = read_sysreg_el1(SYS_ZCR);
+-
+-			/* Restore the VL that was saved when bound to the CPU */
+-			if (!has_vhe())
+-				sve_cond_update_zcr_vq(vcpu_sve_max_vq(vcpu) - 1,
+-						       SYS_ZCR_EL1);
+-		}
+-
++		/*
++		 * Flush (save and invalidate) the fpsimd/sve state so that if
++		 * the host tries to use fpsimd/sve, it's not using stale data
++		 * from the guest.
++		 *
++		 * Flushing the state sets the TIF_FOREIGN_FPSTATE bit for the
++		 * context unconditionally, in both nVHE and VHE. This allows
++		 * the kernel to restore the fpsimd/sve state, including ZCR_EL1
++		 * when needed.
++		 */
+ 		fpsimd_save_and_flush_cpu_state();
  	}
  
- 	active = (event->state == PERF_EVENT_STATE_ACTIVE);
-@@ -10064,7 +10064,7 @@ __perf_event_account_interrupt(struct perf_event *event, int throttle)
- 		}
- 	}
+diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
+index 435346ea1504..d8c94c45cb2f 100644
+--- a/arch/arm64/kvm/hyp/entry.S
++++ b/arch/arm64/kvm/hyp/entry.S
+@@ -44,6 +44,11 @@ alternative_if ARM64_HAS_RAS_EXTN
+ alternative_else_nop_endif
+ 	mrs	x1, isr_el1
+ 	cbz	x1,  1f
++
++	// Ensure that __guest_enter() always provides a context
++	// synchronization event so that callers don't need ISBs for anything
++	// that would usually be synchonized by the ERET.
++	isb
+ 	mov	x0, #ARM_EXCEPTION_IRQ
+ 	ret
  
--	if (event->attr.freq) {
-+	if (event->attr.freq && !(hwc->sample_period_state & PERF_SPS_HF_SAMPLE)) {
- 		u64 now = perf_clock();
- 		s64 delta = now - hwc->freq_time_stamp;
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index cc102e46b0e2..797544662a95 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -215,6 +215,61 @@ static inline void __hyp_sve_restore_guest(struct kvm_vcpu *vcpu)
+ 	write_sysreg_el1(__vcpu_sys_reg(vcpu, ZCR_EL1), SYS_ZCR);
+ }
  
-@@ -10197,6 +10197,8 @@ static int __perf_event_overflow(struct perf_event *event,
- 				 int throttle, struct perf_sample_data *data,
- 				 struct pt_regs *regs)
- {
-+	struct hw_perf_event *hwc = &event->hw;
-+	u64 sample_period;
- 	int events = atomic_read(&event->event_limit);
- 	int ret = 0;
- 
-@@ -10212,6 +10214,33 @@ static int __perf_event_overflow(struct perf_event *event,
- 	if (event->attr.aux_pause)
- 		perf_event_aux_pause(event->aux_event, true);
- 
-+	sample_period = hwc->sample_period_base;
++static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
++{
++	u64 zcr_el1, zcr_el2;
++
++	if (!guest_owns_fp_regs(vcpu))
++		return;
++
++	if (vcpu_has_sve(vcpu)) {
++		zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
++
++		write_sysreg_el2(zcr_el2, SYS_ZCR);
++
++		zcr_el1 = __vcpu_sys_reg(vcpu, ZCR_EL1);
++		write_sysreg_el1(zcr_el1, SYS_ZCR);
++	}
++}
++
++static inline void fpsimd_lazy_switch_to_host(struct kvm_vcpu *vcpu)
++{
++	u64 zcr_el1, zcr_el2;
++
++	if (!guest_owns_fp_regs(vcpu))
++		return;
 +
 +	/*
-+	 * High Freq samples are injected inside the larger period:
-+	 *
-+	 *   |------------|-|------------|-|
-+	 *   P0          HF P1          HF
-+	 *
-+	 * By ignoring the HF samples, we measure the actual period.
++	 * When the guest owns the FP regs, we know that guest+hyp traps for
++	 * any FPSIMD/SVE/SME features exposed to the guest have been disabled
++	 * by either fpsimd_lazy_switch_to_guest() or kvm_hyp_handle_fpsimd()
++	 * prior to __guest_entry(). As __guest_entry() guarantees a context
++	 * synchronization event, we don't need an ISB here to avoid taking
++	 * traps for anything that was exposed to the guest.
 +	 */
-+	if (hwc->sample_period_state & PERF_SPS_HF_ON) {
-+		u64 hf_sample_period = event->attr.hf_sample_period;
++	if (vcpu_has_sve(vcpu)) {
++		zcr_el1 = read_sysreg_el1(SYS_ZCR);
++		__vcpu_sys_reg(vcpu, ZCR_EL1) = zcr_el1;
 +
-+		if (sample_period <= hf_sample_period)
-+			goto set_period;
++		/*
++		 * The guest's state is always saved using the guest's max VL.
++		 * Ensure that the host has the guest's max VL active such that
++		 * the host can save the guest's state lazily, but don't
++		 * artificially restrict the host to the guest's max VL.
++		 */
++		if (has_vhe()) {
++			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
++			write_sysreg_el2(zcr_el2, SYS_ZCR);
++		} else {
++			zcr_el2 = sve_vq_from_vl(kvm_host_sve_max_vl) - 1;
++			write_sysreg_el2(zcr_el2, SYS_ZCR);
 +
-+		if (hwc->sample_period_state & PERF_SPS_HF_SAMPLE)
-+			sample_period = hf_sample_period;
-+		else
-+			sample_period -= hf_sample_period;
-+
-+		hwc->sample_period_state ^= PERF_SPS_HF_SAMPLE;
-+	}
-+
-+set_period:
-+	hwc->sample_period = sample_period;
-+
- 	if (event->prog && event->prog->type == BPF_PROG_TYPE_PERF_EVENT &&
- 	    !bpf_overflow_handler(event, data, regs))
- 		goto out;
-@@ -11694,6 +11723,7 @@ static void perf_swevent_init_hrtimer(struct perf_event *event)
- 		long freq = event->attr.sample_freq;
- 
- 		event->attr.sample_period = NSEC_PER_SEC / freq;
-+		hwc->sample_period_base = event->attr.sample_period;
- 		hwc->sample_period = event->attr.sample_period;
- 		local64_set(&hwc->period_left, hwc->sample_period);
- 		hwc->last_period = hwc->sample_period;
-@@ -12675,12 +12705,25 @@ perf_event_alloc(struct perf_event_attr *attr, int cpu,
- 	pmu = NULL;
- 
- 	hwc = &event->hw;
-+	hwc->sample_period_base = attr->sample_period;
- 	hwc->sample_period = attr->sample_period;
--	if (attr->freq && attr->sample_freq)
-+	if (attr->freq && attr->sample_freq) {
- 		hwc->sample_period = 1;
--	hwc->last_period = hwc->sample_period;
-+		hwc->sample_period_base = 1;
-+	}
- 
--	local64_set(&hwc->period_left, hwc->sample_period);
-+	/*
-+	 * If the user requested a high-frequency sample period subtract that
-+	 * from the first period (the larger one), and set the high-frequency
-+	 * value to be used next.
-+	 */
-+	u64 first_sample_period = hwc->sample_period;
-+	if (attr->hf_sample_period && attr->hf_sample_period < hwc->sample_period) {
-+		first_sample_period -= attr->hf_sample_period;
-+		hwc->sample_period = attr->hf_sample_period;
-+	}
-+	hwc->last_period = first_sample_period;
-+	local64_set(&hwc->period_left, first_sample_period);
- 
- 	/*
- 	 * We do not support PERF_SAMPLE_READ on inherited events unless
-@@ -12710,6 +12753,9 @@ perf_event_alloc(struct perf_event_attr *attr, int cpu,
- 			return ERR_PTR(err);
- 	}
- 
-+	if (attr->hf_sample_period)
-+		hwc->sample_period_state |= PERF_SPS_HF_ON;
-+
- 	/*
- 	 * Disallow uncore-task events. Similarly, disallow uncore-cgroup
- 	 * events (they don't make sense as the cgroup will be different
-@@ -13131,6 +13177,12 @@ SYSCALL_DEFINE5(perf_event_open,
- 	} else {
- 		if (attr.sample_period & (1ULL << 63))
- 			return -EINVAL;
-+		if (attr.hf_sample_period) {
-+			if (!attr.sample_period)
-+				return -EINVAL;
-+			if (attr.hf_sample_period >= attr.sample_period)
-+				return -EINVAL;
++			zcr_el1 = vcpu_sve_max_vq(vcpu) - 1;
++			write_sysreg_el1(zcr_el1, SYS_ZCR);
 +		}
++	}
++}
++
+ /* Check for an FPSIMD/SVE trap and handle as appropriate */
+ static inline bool __hyp_handle_fpsimd(struct kvm_vcpu *vcpu)
+ {
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 2da6aa8da868..a446883d5b9a 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -19,13 +19,17 @@
+ 
+ DEFINE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
+ 
++unsigned int kvm_host_sve_max_vl;
++
+ void __kvm_hyp_host_forward_smc(struct kvm_cpu_context *host_ctxt);
+ 
+ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+ {
+ 	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
+ 
++	fpsimd_lazy_switch_to_guest(kern_hyp_va(vcpu));
+ 	cpu_reg(host_ctxt, 1) =  __kvm_vcpu_run(kern_hyp_va(vcpu));
++	fpsimd_lazy_switch_to_host(kern_hyp_va(vcpu));
+ }
+ 
+ static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+@@ -237,11 +241,6 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
+ 	case ESR_ELx_EC_SMC64:
+ 		handle_host_smc(host_ctxt);
+ 		break;
+-	case ESR_ELx_EC_SVE:
+-		sysreg_clear_set(cptr_el2, CPTR_EL2_TZ, 0);
+-		isb();
+-		sve_cond_update_zcr_vq(ZCR_ELx_LEN_MASK, SYS_ZCR_EL2);
+-		break;
+ 	case ESR_ELx_EC_IABT_LOW:
+ 	case ESR_ELx_EC_DABT_LOW:
+ 		handle_host_mem_abort(host_ctxt);
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index c0885197f2a5..fff7491d8351 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -34,15 +34,13 @@ DEFINE_PER_CPU(struct kvm_host_data, kvm_host_data);
+ DEFINE_PER_CPU(struct kvm_cpu_context, kvm_hyp_ctxt);
+ DEFINE_PER_CPU(unsigned long, kvm_hyp_vector);
+ 
+-static bool guest_owns_fp_regs(struct kvm_vcpu *vcpu)
+-{
+-	return vcpu->arch.flags & KVM_ARM64_FP_ENABLED;
+-}
+-
+ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
+ {
+ 	u64 val = CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+ 
++	if (!guest_owns_fp_regs(vcpu))
++		__activate_traps_fpsimd32(vcpu);
++
+ 	/* !hVHE case upstream */
+ 	if (1) {
+ 		val |= CPTR_EL2_TTA | CPTR_NVHE_EL2_RES1;
+@@ -52,12 +50,22 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
+ 
+ 		if (!guest_owns_fp_regs(vcpu))
+ 			val |= CPTR_EL2_TFP;
++
++		write_sysreg(val, cptr_el2);
  	}
++}
  
- 	/* Only privileged users can get physical addresses */
-@@ -14054,6 +14106,7 @@ inherit_event(struct perf_event *parent_event,
- 		struct hw_perf_event *hwc = &child_event->hw;
+-	if (!guest_owns_fp_regs(vcpu))
+-		__activate_traps_fpsimd32(vcpu);
++static void __deactivate_cptr_traps(struct kvm_vcpu *vcpu)
++{
++	/* !hVHE case upstream */
++	if (1) {
++		u64 val = CPTR_NVHE_EL2_RES1;
  
- 		hwc->sample_period = sample_period;
-+		hwc->sample_period_base = sample_period;
- 		hwc->last_period   = sample_period;
+-	write_sysreg(val, cptr_el2);
++		if (!cpus_have_final_cap(ARM64_SVE))
++			val |= CPTR_EL2_TZ;
++
++		write_sysreg(val, cptr_el2);
++	}
+ }
  
- 		local64_set(&hwc->period_left, sample_period);
+ static void __activate_traps(struct kvm_vcpu *vcpu)
+@@ -86,7 +94,6 @@ static void __activate_traps(struct kvm_vcpu *vcpu)
+ static void __deactivate_traps(struct kvm_vcpu *vcpu)
+ {
+ 	extern char __kvm_hyp_host_vector[];
+-	u64 cptr;
+ 
+ 	___deactivate_traps(vcpu);
+ 
+@@ -111,11 +118,7 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
+ 
+ 	write_sysreg(this_cpu_ptr(&kvm_init_params)->hcr_el2, hcr_el2);
+ 
+-	cptr = CPTR_EL2_DEFAULT;
+-	if (vcpu_has_sve(vcpu) && (vcpu->arch.flags & KVM_ARM64_FP_ENABLED))
+-		cptr |= CPTR_EL2_TZ;
+-
+-	write_sysreg(cptr, cptr_el2);
++	__deactivate_cptr_traps(vcpu);
+ 	write_sysreg(__kvm_hyp_host_vector, vbar_el2);
+ }
+ 
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index 813e6e2178c1..d8a8628a9d70 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -114,6 +114,8 @@ static int __kvm_vcpu_run_vhe(struct kvm_vcpu *vcpu)
+ 
+ 	sysreg_save_host_state_vhe(host_ctxt);
+ 
++	fpsimd_lazy_switch_to_guest(vcpu);
++
+ 	/*
+ 	 * ARM erratum 1165522 requires us to configure both stage 1 and
+ 	 * stage 2 translation for the guest context before we clear
+@@ -144,6 +146,8 @@ static int __kvm_vcpu_run_vhe(struct kvm_vcpu *vcpu)
+ 
+ 	__deactivate_traps(vcpu);
+ 
++	fpsimd_lazy_switch_to_host(vcpu);
++
+ 	sysreg_restore_host_state_vhe(host_ctxt);
+ 
+ 	if (vcpu->arch.flags & KVM_ARM64_FP_ENABLED)
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index 5ce36b0a3343..deb205638279 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -42,11 +42,14 @@ static u32 kvm_ipa_limit;
+ 				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
+ 
+ unsigned int kvm_sve_max_vl;
++unsigned int kvm_host_sve_max_vl;
+ 
+ int kvm_arm_init_sve(void)
+ {
+ 	if (system_supports_sve()) {
+ 		kvm_sve_max_vl = sve_max_virtualisable_vl;
++		kvm_host_sve_max_vl = sve_max_vl;
++		kvm_nvhe_sym(kvm_host_sve_max_vl) = kvm_host_sve_max_vl;
+ 
+ 		/*
+ 		 * The get_sve_reg()/set_sve_reg() ioctl interface will need
+
 -- 
-2.43.0
+2.39.5
 
 
