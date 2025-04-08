@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E547FC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 04:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5F5C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 04:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pKWwXjEbgKR5LRjh8ynqM9FjtxFCrhpKInGKB0rNh8c=; b=q0hCgy7vjyLdPQWQfkJec/LxJ+
-	mt22xXK/gqmvOHO7C/laLiU3CYs3XpjdyALqa7RzsxrhzPK3Acr+ElJN5wq4gPrrSwpqHa6y6pRDP
-	YNltTfZbODxlu5MY3T+EsOkzxAT/DlqL15ozbaAFrRySPLHRUhtN5dA+UHiYLo2Bx8KUqm5uvr11t
-	dPkqupSgktFNT/EcThEmMkgaScqaq3ZwUAv/aCJbYjdJ4Bn+5t1hUkw0eCF5cU76YKXlF16wvvnGK
-	yeQ77Bf8jXdPyhuyzk+cWK6n0yxGN0zt1N+9O9o8Y62F92rjtmdMflw3cEA7teCkpqeKO+5dRALYw
-	IDr2TZug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mahaabwDrQlQzhrNZftxJhgbFWCOhwEQ+DtuX71tBgo=; b=n6/n/wcUNZ2QHcTc+i24XxpYvE
+	F7CLp2OW+YWFLoMidmhd7d4Mxe50Z74n0KzqIKOJIL+bHwne56mREcmPnQTOM0keA/1yW/YNnkxap
+	kacr/S+0kQ2OqzuUGKjHe5kPlGIphaJc3rFe3Fi7jCcdHpaNwvKZvrFtt0tV/ceA9wTYh4uPgfosD
+	9Cs8S6kBzPEtRJ45PKPCyYU6yleA8j+Jm6kDbDbkIkZi2WVs07+M0VsjvTq0uXJksFZ0fWGWWhizj
+	sVgKxPkNQUFvFvuY1LwgskSOkhC+kkke4RZhZ0X8Il48BFtx+FphZJP3FxS6GnFa7sBW21O63MB6b
+	YZgPN6QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u20QH-00000002gOL-1Woj;
-	Tue, 08 Apr 2025 04:18:53 +0000
-Received: from esa9.hc1455-7.c3s2.iphmx.com ([139.138.36.223])
+	id 1u20Vc-00000002gr6-0pCz;
+	Tue, 08 Apr 2025 04:24:24 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u20OV-00000002gIu-3Msz
+	id 1u20Tq-00000002glR-40rR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 04:17:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1744085823; x=1775621823;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=O/Tn1U4L5YYmQ1KHlDb+KfX9uYMb4KE782y8YRNBRxc=;
-  b=psFh+jtWV+uatjQmmr2VCOBOFbiQCN6KP6WrJIcGcPnjobWhrsDaBNVm
-   0V87BorWqFIsCXF1igpvNeOgwtG+d5ceklPAwxiP+9M2hi3oi6KIccMyS
-   ETytZqoziihJ0Eg+FhMZshDZNgyRZeTd8zx5/S2XsV7qlQKkJVy4FxEWl
-   /iRE2J/yL4SYNQEgFoIE69xqq6OXBk9iSXLJGEvI/akEsE4GIjU3UXnAj
-   En8Gll0VTCNt8XdGlTWLtA2MjK8huQKhIgS+xUcvoBTbrKazAa9iIaeS4
-   FdyxRwFGX7Pd30o3ryA5+y63J5nuXovYplu3t3CIxKw6Rv2AOKkz414/L
-   g==;
-X-CSE-ConnectionGUID: C0st4PAESaWC7Qw3pL5Ppg==
-X-CSE-MsgGUID: ZcgtHuqwTXedgEp/aNaSLw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="184140419"
-X-IronPort-AV: E=Sophos;i="6.15,197,1739804400"; 
-   d="scan'208";a="184140419"
-Received: from unknown (HELO yto-r1.gw.nic.fujitsu.com) ([218.44.52.217])
-  by esa9.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 13:16:58 +0900
-Received: from yto-m3.gw.nic.fujitsu.com (yto-nat-yto-m3.gw.nic.fujitsu.com [192.168.83.66])
-	by yto-r1.gw.nic.fujitsu.com (Postfix) with ESMTP id 24853D6EA9
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Apr 2025 13:16:56 +0900 (JST)
-Received: from edo.cn.fujitsu.com (edo.cn.fujitsu.com [10.167.33.5])
-	by yto-m3.gw.nic.fujitsu.com (Postfix) with ESMTP id DBE6AD9687
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Apr 2025 13:16:55 +0900 (JST)
-Received: from iaas-rpma.. (unknown [10.167.135.44])
-	by edo.cn.fujitsu.com (Postfix) with ESMTP id 2F7731A0078;
-	Tue,  8 Apr 2025 12:16:54 +0800 (CST)
-From: Li Zhijian <lizhijian@fujitsu.com>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	linux-crypto@vger.kernel.org
-Cc: mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
+	Tue, 08 Apr 2025 04:22:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=mahaabwDrQlQzhrNZftxJhgbFWCOhwEQ+DtuX71tBgo=; b=YfBrzn9h6eYCkpnfx+kdVgpMYM
+	/ORtIBDJCM6yaKVs3H08hjqHKk8iDe9xqkermuv0sDSrgaEvWhwOAf2GYX8dJ7qxMeajRitWdRlLi
+	P1OtoaL22eOs7/kuKS40NdC48/wwk0Aa9Vk3rlDvpQw6QexNPKi00vkSVM1YiXlyis4XlaHM5MVmK
+	J/OUN6sylUHcgGCidEUttf7D82CbMQ0+XwLa2XM2lxD8hSUOE/j85eafYrOqrvtVZfFeCLZqnfQaa
+	ahEwWt7J6P3ZxuLQmjFqMHr7KvK0/prUfnqVvWhCgoz5LJXwpPKBSjfe5z6XwoXfh5lYxnKtpGW1V
+	W+IJySFQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u20TZ-00Dlme-1v;
+	Tue, 08 Apr 2025 12:22:18 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Tue, 08 Apr 2025 12:22:17 +0800
+Date: Tue, 8 Apr 2025 12:22:17 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Li Zhijian <lizhijian@fujitsu.com>
+Cc: davem@davemloft.net, linux-crypto@vger.kernel.org,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Li Zhijian <lizhijian@fujitsu.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Erhard Furtner <erhard_f@mailbox.org>
-Subject: [PATCH] crypto/testmgr: Fix acomp_req leak
-Date: Tue,  8 Apr 2025 12:16:47 +0800
-Message-Id: <20250408041647.88489-1-lizhijian@fujitsu.com>
-X-Mailer: git-send-email 2.31.1
+Subject: Re: [PATCH] crypto/testmgr: Fix acomp_req leak
+Message-ID: <Z_Skef-ZAYAzPfOF@gondor.apana.org.au>
+References: <20250408041647.88489-1-lizhijian@fujitsu.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250408041647.88489-1-lizhijian@fujitsu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_211704_258916_AD7AFAC0 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20250407_212234_992980_8662E4BD 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,67 +76,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kmemleak reported that
-...
-unreferenced object 0xffff888108d6c300 (size 256):
-  comm "cryptomgr_test", pid 183, jiffies 4294700957
-  hex dump (first 32 bytes):
-    00 c1 d6 08 81 88 ff ff 00 cb d6 08 81 88 ff ff  ................
-    50 cd a7 81 ff ff ff ff b8 fb 93 02 00 c9 ff ff  P...............
-  backtrace (crc 29cca632):
-    __kmalloc_noprof+0x2fa/0x430
-    test_acomp+0x174/0x960
-    alg_test_comp+0x6f/0x90
-    alg_test.part.26+0x105/0x410
-    cryptomgr_test+0x20/0x40
-    kthread+0x10c/0x250
-    ret_from_fork+0x30/0x40
-    ret_from_fork_asm+0x1a/0x30
-unreferenced object 0xffff888108d6c100 (size 256):
-  comm "cryptomgr_test", pid 183, jiffies 4294700972
-  hex dump (first 32 bytes):
-    00 1d da 08 81 88 ff ff 00 c3 d6 08 81 88 ff ff  ................
-    50 cd a7 81 ff ff ff ff b8 fb 93 02 00 c9 ff ff  P...............
-  backtrace (crc 3047d62b):
-    __kmalloc_noprof+0x2fa/0x430
-    test_acomp+0x174/0x960
-    alg_test_comp+0x6f/0x90
-    alg_test.part.26+0x105/0x410
-    cryptomgr_test+0x20/0x40
-    kthread+0x10c/0x250
-    ret_from_fork+0x30/0x40
-    ret_from_fork_asm+0x1a/0x30
+On Tue, Apr 08, 2025 at 12:16:47PM +0800, Li Zhijian wrote:
+> The kmemleak reported that
+> ...
+> unreferenced object 0xffff888108d6c300 (size 256):
+>   comm "cryptomgr_test", pid 183, jiffies 4294700957
+>   hex dump (first 32 bytes):
+>     00 c1 d6 08 81 88 ff ff 00 cb d6 08 81 88 ff ff  ................
+>     50 cd a7 81 ff ff ff ff b8 fb 93 02 00 c9 ff ff  P...............
+>   backtrace (crc 29cca632):
+>     __kmalloc_noprof+0x2fa/0x430
+>     test_acomp+0x174/0x960
+>     alg_test_comp+0x6f/0x90
+>     alg_test.part.26+0x105/0x410
+>     cryptomgr_test+0x20/0x40
+>     kthread+0x10c/0x250
+>     ret_from_fork+0x30/0x40
+>     ret_from_fork_asm+0x1a/0x30
+> unreferenced object 0xffff888108d6c100 (size 256):
+>   comm "cryptomgr_test", pid 183, jiffies 4294700972
+>   hex dump (first 32 bytes):
+>     00 1d da 08 81 88 ff ff 00 c3 d6 08 81 88 ff ff  ................
+>     50 cd a7 81 ff ff ff ff b8 fb 93 02 00 c9 ff ff  P...............
+>   backtrace (crc 3047d62b):
+>     __kmalloc_noprof+0x2fa/0x430
+>     test_acomp+0x174/0x960
+>     alg_test_comp+0x6f/0x90
+>     alg_test.part.26+0x105/0x410
+>     cryptomgr_test+0x20/0x40
+>     kthread+0x10c/0x250
+>     ret_from_fork+0x30/0x40
+>     ret_from_fork_asm+0x1a/0x30
+> 
+> acomp_request will be chained to req[0], however,
+> acomp_request_free(), it will not free the whole chain.
+> 
+> Fix it by freeing them one by one.
+> 
+> Fixes: 99585c2192cb ("crypto: testmgr - Add multibuffer acomp testing")
+> Reported-by: Erhard Furtner <erhard_f@mailbox.org>
+> Closes: https://lore.kernel.org/linux-crypto/20250408002741.089f1e9a@outsider.home/
+> Signed-off-by: Li Zhijian <lizhijian@fujitsu.com>
+> ---
+>  crypto/testmgr.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-acomp_request will be chained to req[0], however,
-acomp_request_free(), it will not free the whole chain.
+Thanks for the patch but this will be removed by
 
-Fix it by freeing them one by one.
+https://patchwork.kernel.org/project/linux-crypto/patch/048b1e176dd3507ec31497ccf215630dc2b2ed04.1744018301.git.herbert@gondor.apana.org.au/
 
-Fixes: 99585c2192cb ("crypto: testmgr - Add multibuffer acomp testing")
-Reported-by: Erhard Furtner <erhard_f@mailbox.org>
-Closes: https://lore.kernel.org/linux-crypto/20250408002741.089f1e9a@outsider.home/
-Signed-off-by: Li Zhijian <lizhijian@fujitsu.com>
----
- crypto/testmgr.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-index abd609d4c8ef..7f02feee9fb6 100644
---- a/crypto/testmgr.c
-+++ b/crypto/testmgr.c
-@@ -3498,10 +3498,10 @@ static int test_acomp(struct crypto_acomp *tfm,
- 	ret = 0;
- 
- out:
--	acomp_request_free(reqs[0]);
- 	for (i = 0; i < MAX_MB_MSGS; i++) {
- 		kfree(output[i]);
- 		kfree(decomp_out[i]);
-+		acomp_request_free(reqs[i]);
- 	}
- 	kfree(dst);
- 	kfree(src);
+Cheers,
 -- 
-2.27.0
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
