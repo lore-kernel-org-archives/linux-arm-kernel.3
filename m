@@ -4,92 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92664C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 15:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 329EAC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 15:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0AxXXCyGehUeIEBMKM+/UdgR6pywaI6NfyB/Hg4NGkk=; b=Qj/+YHrtGx/k6P5JoPz8EYJM1j
-	8UI+Xjf11KhlUufkUPatDluKO+X83nBNZ/dIS2CElOhZ3NXBQrqAphMVpPCbokY1jrWNlVFLPOzz2
-	2xWLK11IQaAKfnZqqw2VX1oOnJKK44c1tq901MecSH3uI+yv9c1fbxWvtWa24sUXM2E0iB4RsfbsB
-	N7NKGSXUCOV+VQkPE4hZe/n0JPiZqEQSz1b6IPIYRV9gZ/t5qD4cim10dGzuo3pbI8GjqbfZtfeyu
-	WHY+dl+CAecQKTQHpPeSg67SpsK7R32aEuEUL/WikFpvPTI+c42cIvu0vUnd8RiXyKayVdXZYb5jn
-	KAgK3+sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9L/RZ+p4NJbk4dcC+rTyDYkbHqicPrFhMjMSCL9eOJA=; b=ZaJTcSzA1dBwhf2KpkoF+w3hot
+	SsPxYVBgmfDvHvD9WBHW1LXJuDE1KW/QHvnm6if++B2SPU24xj3vrpw5hM5/6+A1vC1acjWQJw+6d
+	VTLwm45ahDPN4rdvQXwGzjOaPmfh/WdIOh/QI2j84RtKq5RtMp3upkSZ7zj3v4L17Z3ElB1KnRt8e
+	hLbPwYZamOGlZQ3D9/3c3DDuWMOvx3jFqTnFSY0ZZsettXA9xjHPUtLz2u3U8HtcGDVch8wHf7Fuo
+	iYV08XE3V5ZCrHmRjLSN24J/WMLyRW2h91A50n5tPqQrmlK6IW5VZagtXTVe2whkExXYltz2oPyLl
+	UE1uzM4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2B59-00000004faT-2AMI;
-	Tue, 08 Apr 2025 15:41:47 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1u2B80-00000004g57-2Z4o;
+	Tue, 08 Apr 2025 15:44:44 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2B2A-00000004eto-0J9c
+	id 1u2B6D-00000004flT-1RxR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 15:38:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=0AxXXCyGehUeIEBMKM+/UdgR6pywaI6NfyB/Hg4NGkk=; b=ax
-	RaKRvMxLNy1nBRskzmrWJqy7SKbGNVN5ztU5caLqrvQKZZPlHkHy104KGZfqfMnbtPn6mJ2MdUynW
-	bSlFnNxpbCZGbL9L+rBQrRBde2BHYdR68UaRU610uhMDkZyCerFWvPcuXpriSsBVfUt5PPjdGGus8
-	+qhrEZY1NPDNudE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u2B1l-008PrO-KZ; Tue, 08 Apr 2025 17:38:17 +0200
-Date: Tue, 8 Apr 2025 17:38:17 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Cc: Herve Codina <herve.codina@bootlin.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Tue, 08 Apr 2025 15:42:55 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cfecdd8b2so45090525e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 08:42:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744126971; x=1744731771; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9L/RZ+p4NJbk4dcC+rTyDYkbHqicPrFhMjMSCL9eOJA=;
+        b=VgfCn0YYR8CGiMW/XeOGRRepsPAoPApNByryV5vGFMVT9CtSbMRcb5TVAXHNq/zhN6
+         /GfUbUTS71sS0mXVmbr9/8oGqMyR9HMVelycc3CE8DbsR9UlDwSFnn+d7DpDvlW1i+vf
+         xKSOeTvQcBTT9MbPARwcfBTy2UBCg0i4CMPHLyVfGoj8R6Iu8e53pzKlaWjG9BljllbU
+         yZ23cPLrRPtFgSibN/+YRIy4ov7kvVwkRP2QMmkoPtgzhKpILmfEgIkG8pXhm3bczlpJ
+         YzOQEquv0lvR6Z248adoRjrGZtQc3OYDB79x2H3K5wo4NGUF1NqaNH2yRIZSD7NkA910
+         ooEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744126971; x=1744731771;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9L/RZ+p4NJbk4dcC+rTyDYkbHqicPrFhMjMSCL9eOJA=;
+        b=kAON9312R9ty7OVMJs1+G4b67aosenpG7OHGSl3M7WAiZ7DUNcllTgv0td5Ot/ymSg
+         bCmcmO5WMzGMQu81T6tCzJpKvFVeEeu2QzsVMpTQ9BeLZv7lfyCUroP4XEOLuPgkd0YY
+         /nUkvkssiJZ5+fbHX/Qx61dc5FOwu59JYFXDcRpfMuS+CTj5WTZhW1w8FG1sLEnEFa0W
+         hjJH35iaU//zXLmoOgbH2ayLU6v/T1uf/LYCoemh7rCsVF+xyCtj+cQcgJgY/7ZXI8DQ
+         6TJ/sH8AahtlsGTsoeub1yBfzgz5XSLkFfG65GV2nAhyRb2zXdDPLV0sdGYXCKb/NOuN
+         Cuhw==
+X-Forwarded-Encrypted: i=1; AJvYcCVMrwUHGAbSiApRsEdB/zz/ZgpWwvDlq45PCvLgk6D8gyQgKxys6qqpTzjL1w/53Plf1HJJf9y2Wt7c5gV6j/L2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaZevBe1i8kGAX2AWZDeq7MJ/6axNI3w9jJFdmVheK65trHoIc
+	1w7EFwlSM1jurJURGXOSrPkOBDewokAAGAWDRINqibjjY8uL8Dbl
+X-Gm-Gg: ASbGncvBvisRt0UkQz1/aY4j/tVHJnZW/+yJPTh4/GvpWjRh+H+1GWapan5Hy37qI4D
+	i8bb2S/U2W0XUC+DeUG5lO69sQAq0prTAumq3IrDxDQPCMk6Hr7s7Wt+n7gW4hGrTPfN198FbPd
+	iXllJ+PGjEUdKsajUipB9KV+vxASXZm3Pvm7Q18PJVi/rjZDARdg6V8LUBDJ53aAlFAq8oS5qcz
+	44qCH5eJz1qGXsYymBT/ZEqdzoP88QsFF4/RbdoHLOWJ8qktjisgXaepdrkKoFLaNODa3BIsFvp
+	gymgOTUHsshbgJtizyVM7Y3qfgED7tp+UfQvpKAYiz5WjYUE8vuJONVB91ajVeBMf20EItEm5sI
+	hoN0j3uc=
+X-Google-Smtp-Source: AGHT+IEsYOAvrRYx9U7RkXBzKdYrz1m/zDGUfOXgzDK4kgV+9jgyDCOg9AoAc+QioVKMgn9BFwQyuA==
+X-Received: by 2002:a05:600c:1387:b0:43c:f513:9585 with SMTP id 5b1f17b1804b1-43ed0bde88amr180587605e9.13.1744126970824;
+        Tue, 08 Apr 2025 08:42:50 -0700 (PDT)
+Received: from playground.localdomain ([82.79.237.110])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec34be2e6sm164476675e9.18.2025.04.08.08.42.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Apr 2025 08:42:50 -0700 (PDT)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 15/16] misc: lan966x_pci: Add dtso nodes in order to
- support SFPs
-Message-ID: <c14dd5c6-2dae-4398-89a9-342e7a25bb30@lunn.ch>
-References: <20250407145546.270683-1-herve.codina@bootlin.com>
- <20250407145546.270683-16-herve.codina@bootlin.com>
- <19f1a382-1b6b-42bd-a548-a1a5644c9a1b@lunn.ch>
- <20250408162603.02d6c3a1@bootlin.com>
- <D91CSNC07NYM.3KC467K0OZ4GG@bootlin.com>
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Frank Li <Frank.li@nxp.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/6] imx8mp: add support for the IMX AIPSTZ bridge
+Date: Tue,  8 Apr 2025 11:42:30 -0400
+Message-Id: <20250408154236.49421-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <D91CSNC07NYM.3KC467K0OZ4GG@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_083842_112720_464F6507 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20250408_084253_388303_A7AC29D9 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +109,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 05:13:54PM +0200, Thomas Petazzoni wrote:
-> Andrew, Hervé,
-> 
-> On Tue Apr 8, 2025 at 4:26 PM CEST, Herve Codina wrote:
-> 
-> >> What exactly does this DTSO file represent?
-> >
-> > The dsto represents de board connected to the PCI slot and identified
-> > by its PCI vendor/device IDs.
-> 
-> If I may extend on that by providing what I believe is a more
-> accurate/precise definition.
-> 
-> The DTSO doesn't represent the board, rather it describes the HW
-> topology of the devices inside the PCI endpoint. Indeed, the PCI
-> endpoint is a full-blown SoC with lots of different HW blocks that
-> already have drivers in the kernel (because the same chip can be used
-> with Linux running on an ARM core embedded in the SoC, rather than
-> access as a PCI endpoint). So the DTSO describes the full topology of
-> the HW blocks inside this complex PCI endpoint, just like the DTS
-> describes the full topology of the HW blocks inside an SoC.
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-"HW blocks inside an SoC." That would be the SoC .dtsi file. Anything
-outside of the SoC is in the .dts file. OEM vendors take the SoC,
-build a board around it, and name there .dts file after the board,
-describing how the board components are connected to the SoC.
+The AIPSTZ bridge offers some security-related configurations which can
+be used to restrict master access to certain peripherals on the bridge.
 
-So..
+Normally, this could be done from a secure environment such as ATF before
+Linux boots but the configuration of AIPSTZ5 is lost each time the power
+domain is powered off and then powered on. Because of this, it has to be
+configured each time the power domain is turned on and before any master
+tries to access the peripherals (e.g: AP, CM7, DSP, on i.MX8MP).
 
-So by PCI endpoint, you mean the PCIe chip? So it sounds like there
-should be a .dtsi file describing the chip.
+The child-parent relationship between the bridge and its peripherals
+should guarantee that the bridge is configured before the AP attempts
+to access the IPs.
 
-Everything outside of the chip, like the SFP cages, are up to the
-vendor building the board. I would say that should be described in a
-.dtso file, which describes how the board components are connected to
-the PCIe chip? And that .dtso file should be named after the board,
-since there are going to many of them, from different OEM vendors.
+Other masters should use the 'access-controllers' property to enforce
+a dependency between their device and the bridge device (see the DSP,
+for example).
 
-	Andrew
+The initial version of the series can be found at [1]. The new version
+should provide better management of the device dependencies.
+
+[1]: https://lore.kernel.org/linux-arm-kernel/20241119130726.2761726-1-daniel.baluta@nxp.com/
+
+---
+Changes in v5:
+* merge imx-aipstz.h into imx8mp-aipstz.h. imx-aipstz.h is
+currently only used in the DTS so it can't be added as a binding.
+* place 'ranges' property just after 'reg' in the binding DT example
+as Frank suggested.
+* use the  (1 << x) notation for the configuration bits. Previously,
+hex values were used which didn't make it very clear that the
+configuration options are bits.
+* shorten the description of the bridge's AC cells.
+* shorten the message of the commit introducing the bridge's binding.
+* pick up some more R-b's on patches that remained untouched since V4.
+* link to v4: https://lore.kernel.org/lkml/20250401154404.45932-1-laurentiumihalcea111@gmail.com/
+
+Changes in v4:
+* AIPS5 node now only contains a single memory region: that of the AC
+(just like in V2). 'reg-names' property is dropped.
+* AIPS5 node now uses 'ranges' property to restrict the size of the bus
+(1:1 mapping)
+* change the number of AC cells from 0 to 3
+* add binding headers
+* link to v3: https://lore.kernel.org/lkml/20250324162556.30972-1-laurentiumihalcea111@gmail.com/
+
+Changes in v3:
+* make '#address-cells' and '#size-cells' constants and equal to 1 in the
+binding. The bus is 32-bit.
+* add child node in the example DT snippet.
+* the 'aips5' DT node now contains 2 memory regions: that of the
+peripherals accessible via this bridge and that of the access controller.
+* link to v2: https://lore.kernel.org/lkml/20250226165314.34205-1-laurentiumihalcea111@gmail.com/
+
+Changes in v2:
+* adress Frank Li's comments
+* pick up some A-b/R-b's
+* don't use "simple-bus" as the second compatible. As per Krzysztof's
+comment, AIPSTZ is not a "simple-bus".
+* link to v1: https://lore.kernel.org/lkml/20250221191909.31874-1-laurentiumihalcea111@gmail.com/
+---
+
+Laurentiu Mihalcea (6):
+  dt-bindings: bus: document the IMX AIPSTZ bridge
+  dt-bindings: dsp: fsl,dsp: document 'access-controllers' property
+  bus: add driver for IMX AIPSTZ bridge
+  arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
+  arm64: dts: imx8mp: add aipstz-related definitions
+  arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
+
+ .../bindings/bus/fsl,imx8mp-aipstz.yaml       | 104 ++++++++++++++++++
+ .../devicetree/bindings/dsp/fsl,dsp.yaml      |   3 +
+ arch/arm64/boot/dts/freescale/imx8mp-aipstz.h |  39 +++++++
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  12 +-
+ drivers/bus/Kconfig                           |   6 +
+ drivers/bus/Makefile                          |   1 +
+ drivers/bus/imx-aipstz.c                      |  92 ++++++++++++++++
+ 7 files changed, 253 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aipstz.h
+ create mode 100644 drivers/bus/imx-aipstz.c
+
+-- 
+2.34.1
+
 
