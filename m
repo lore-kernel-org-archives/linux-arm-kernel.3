@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B2F8C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 08:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E9EC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 08:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VFTdsiG3njDFeoiFwgXGIzG7m8CuqnlEWsPnh2h5Pjc=; b=b/oR8FIJKszY+uSfQIxPHNahBA
-	d0VkVYqYXjDcrWeL9lFIgYhLoQNHyHcjxDzMPT3hYhCjWEWGirnwQ76MLUkJNjnxUk8xaR5BXuuh5
-	YyZSzeIRXaBYNenmU7IktlPMTLPxV/7rDc2uDJhK6CUvOokXZpObYIBmoSIeGHR/oENMlt7A2ubMZ
-	bdyq39EDD4W6C4y4abH3T0ZlmxzaE31Z5eKuHjJqSJtk5plQCDJ69j/K0PkrM+09vDNzWatXmuoe2
-	/ZVgR0DTfuXDjJjb0mrtoHu3Gv+tTWvgdzN+RLg2qQEvk5/dpiHE9x3Hyn0ziW49/mF7V+vj72fJY
-	elWdt7/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AJjno0ngebiuX7C9w99K4Qs1Ucuo7p0N2nbncgeNwto=; b=13YvehRtfn2M7FbZevC7LVwpCg
+	/48ISsMv3XdGrUn2JNlpwk1tXdoHWhwftBxguMfiC1nJzZzO+2YhLj5W9OL/pyaEwioiLJHVS90I7
+	pRdSZyxRJcVe5oNttCWyGGCVe9XknjjuqCEuepkoQfDhVsaqZsEWNVwQPTd93+Gw2iM+kccYlb+1b
+	/kf1CFRI/IgTzJdMRpSWQ1B0k7cWMvOKv+JBsx4+UsGAQBlYBdeKIsGXVyVCL1Ic7bzr2uY9LwXvT
+	zCt8PyKGobivCaBox9MlI4jtAkQGUO1cp5mc06UAV9Wok9X9P8K0yseM0TTc45EexFlbmug9ty+T4
+	x36owB4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2470-00000003DBU-2bPv;
-	Tue, 08 Apr 2025 08:15:14 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1u248k-00000003DUj-1edB;
+	Tue, 08 Apr 2025 08:17:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u243b-00000003CDJ-2Pe8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 08:11:45 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4ZWzKq25m1z13LWd;
-	Tue,  8 Apr 2025 16:10:55 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id C0DD51800E4;
-	Tue,  8 Apr 2025 16:11:34 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 8 Apr 2025 16:11:33 +0800
-CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<maz@kernel.org>, <corbet@lwn.net>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>, <shuah@kernel.org>, <jonathan.cameron@huawei.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <tangchengchang@huawei.com>
-Subject: Re: [PATCH v2 6/6] KVM: arm64: Handle DABT caused by LS64*
- instructions on unsupported memory
-To: Oliver Upton <oliver.upton@linux.dev>
-References: <20250331094320.35226-1-yangyicong@huawei.com>
- <20250331094320.35226-7-yangyicong@huawei.com> <Z-wQuJAefT3xNipl@linux.dev>
- <e9674079-9a22-c3cd-3b00-5989f6926303@huawei.com>
- <Z_NkHWStDJLo0cmY@linux.dev>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <3355f89a-aecf-6ec7-b8ee-6faf6f1f7106@huawei.com>
-Date: Tue, 8 Apr 2025 16:11:33 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	id 1u243h-00000003CGU-03NB;
+	Tue, 08 Apr 2025 08:11:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A496C4A0E4;
+	Tue,  8 Apr 2025 08:11:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD2C7C4CEE9;
+	Tue,  8 Apr 2025 08:11:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744099908;
+	bh=sdci4lJsO/FOikKIVq4yCkhQfnhsn9Us40sQtnVw+Xs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Qzp9zD1fw7vRDLwtT0qI/gIR/GHnf3Qv752bVzjp7b5VGG06sX7xDK5fp961WVTEf
+	 WPEAfUv/c2tzI+IBLGZ+y1Rx/KE1w9Q7Yf/tHlA3lLIe5QufpOu0k3puZt4WL4a5Is
+	 VrpCeIsEhZrQ4QP1zM3Xn3XrPRmsgXFEfDQE+Qo1PAvmatJiHf3B/XPntRYegpfMYr
+	 r8E9sOE+bqEf+25D9ZvKx626KgpcFQnDkzCvTVZVzat7FuIBUxJDU6QKvFIrMuhodP
+	 ntQLt9UlAtCulJpHCkWXZy7RvYHOPdM/BZVkbc/fUibXacHQVeleZ7US4z/TeZ7cio
+	 XP3uLDDN3mb8g==
+Date: Tue, 8 Apr 2025 10:11:45 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Davide Caratti <dcaratti@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Add matchall filter offload support
+Message-ID: <Z_TaQbEeTZnKL9ei@lore-desk>
+References: <20250407-airoha-hw-rx-ratelimit-v1-1-917d092d56fd@kernel.org>
+ <CAKa-r6tNa+Ltxb61g6E3h66pxW0XTDb76T6Wc2XMJCu8xuAvPg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <Z_NkHWStDJLo0cmY@linux.dev>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="cf4oqZqIraZr0Mc3"
+Content-Disposition: inline
+In-Reply-To: <CAKa-r6tNa+Ltxb61g6E3h66pxW0XTDb76T6Wc2XMJCu8xuAvPg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_011144_307004_2EEB6C78 
-X-CRM114-Status: GOOD (  30.70  )
+X-CRM114-CacheID: sfid-20250408_011149_071294_486A965D 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,93 +76,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/4/7 13:35, Oliver Upton wrote:
-> On Mon, Apr 07, 2025 at 11:33:01AM +0800, Yicong Yang wrote:
->> On 2025/4/2 0:13, Oliver Upton wrote:
->>> On Mon, Mar 31, 2025 at 05:43:20PM +0800, Yicong Yang wrote:
->>>> @@ -1658,6 +1658,25 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->>> Keep in mind that data aborts with DFSC == 0x35 can happen for a lot
->>> more than LS64 instructions, e.g. an atomic on a Device-* mapping.
->>>
->>
->> got it. 0x35 should be caused by LS64* or IMPLEMENTATION DEFINED fault, but no
->> further hint to distinguish between these two faults. hope it's also the right
->> behaviour to inject a DABT back for the latter case.
-> 
-> There isn't exactly a 'right' behavior here. The abort could either be
-> due to a bug in the guest (doing an access on something knows it can't)
-> or the VMM creating / describing the IPA memory map incorrectly.
-> 
-> Since KVM can't really work out who's to blame in this situation we should
-> probably exit to userspace + provide a way to reinject the abort.
-> 
 
-as mentioned below, maybe the proper way is to handle it like KVM_EXIT_ARM_NISV. In this
-case exit to userspace with KVM_EXIT_ARM_LDST64B, if it's due to the wrong mapping of the
-guestOS then reinject the DABT back to the guest, otherwise the userspace need to check
-whether it's reporting the memory region correctly and handle in its own way.
+--cf4oqZqIraZr0Mc3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->>>> @@ -1919,6 +1939,21 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->>>>  			goto out_unlock;
->>>>  		}
->>>>  
->>>> +		/*
->>>> +		 * If instructions of FEAT_{LS64, LS64_V} operated on
->>>> +		 * unsupported memory regions, a DABT for unsupported
->>>> +		 * Exclusive or atomic access is generated. It's
->>>> +		 * implementation defined whether the exception will
->>>> +		 * be taken to, a stage-1 DABT or the final enabled
->>>> +		 * stage of translation (stage-2 in this case as we
->>>> +		 * hit here). Inject a DABT to the guest to handle it
->>>> +		 * if it's implemented as a stage-2 DABT.
->>>> +		 */
->>>> +		if (esr_fsc_is_excl_atomic_fault(esr)) {
->>>> +			kvm_inject_dabt_excl_atomic(vcpu, kvm_vcpu_get_hfar(vcpu));
->>>> +			return 1;
->>>> +		}
->>>> +
->>>
->>> A precondition of taking such a data abort is having a valid mapping at
->>> stage-2. If KVM can't resolve the HVA of the fault then there couldn't
->>> have been a stage-2 mapping.
->>>
->>
->> Here's handling the case for emulated mmio, I thought there's no valid stage-2 mapping
->> for the emulated MMIO? so this check is put just before entering io_mem_abort(). should
->> it be put into io_mem_abort() or we just don't handle the emulated case?
-> 
-> Right -- there's no valid stage-2 translation for _most_ MMIO. If KVM
-> cannot find an HVA for the fault (look at the condition that gets us
-> here) then we know there isn't a stage-2 mapping. How would we know what
-> to map?
-> 
-> In that case I would expect to take a Translation fault with instruction
-> syndrome that can can be used to construct an exit to the VMM.
+> hello Lorenzo, thanks for this patch!
 
-you're right, I misunderstand here. If there's no stage-2 mapping we'll have
-a translation fault here rather than an unsupported exclusive or atomic access
-fault. So no need to check and handle it here since we won't have such a fault
-in this case.
+Hi Davide,
 
-> Marc had
-> some patches on list to do exactly that [*].
-> 
-> However, after reading this again there's a rather ugly catch. The KVM
-> ABI has it that writes to a RO memlot generate an MMIO exit, so it *is*
-> possible to get here w/ a stage-2 mapping. Unfortunately there's no
-> instruction syndrome with DFSC = 0x35 so no way to decode the access.
-> 
-> This is starting to sound similar an nISV MMIO abort...
-> 
+thx for the review.
 
-yes similiar to nISV MMIO and no ISV as well. Per-spec DABT caused by LS64* has ISV==1
-if it's a Translation fault, Access flag fault, or Permission fault, but not for
-unsupported exclusive or atomic access fault..
+>=20
+> On Mon, Apr 7, 2025 at 10:04=E2=80=AFPM Lorenzo Bianconi <lorenzo@kernel.=
+org> wrote:
+> >
+> > Introduce tc matchall filter offload support in airoha_eth driver.
+> > Matchall hw filter is used to implement hw rate policing via tc action
+> > police:
+> >
+> > $tc qdisc add dev eth0 handle ffff: ingress
+> > $tc filter add dev eth0 parent ffff: matchall action police \
+> >  rate 100mbit burst 1000k drop
+> >
+> > Curennet implementation supports just drop/accept as exceed/notexceed
+> > actions. Moreover, rate and burst are the only supported configuration
+> > parameters.
+> >
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
+> [...]
+>=20
+> > +
+> > +       if (act->police.peakrate_bytes_ps || act->police.avrate ||
+> > +           act->police.overhead) {
+> > +               NL_SET_ERR_MSG_MOD(f->common.extack,
+> > +                                  "peakrate/avrate/overhead not suppor=
+ted");
+> > +               return -EOPNOTSUPP;
+> > +       }
+>=20
+> I think the driver should also validate the so-called "mtu policing"
+> parameter. E.g, configuring it in the hardware if it has non-zero
+> value in act->police, or alternatively reject offloading of police
+> rules where act->police.mtu is non-zero (like done in the hunk above).
+> WDYT?
 
-> [*]: https://lore.kernel.org/kvmarm/20240815125959.2097734-1-maz@kernel.org/
-> 
+ack, right, I missed it. I will add it in v2.
 
-Thanks.
+Regards,
+Lorenzo
 
+> --=20
+> davide
+>=20
 
+--cf4oqZqIraZr0Mc3
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ/TaQQAKCRA6cBh0uS2t
+rO5FAP9IPAyg0FFzsbCQb+ZqLZXr+62jP0nLzaeO/Mklx3HefwEAloAoGjXka5kn
+3FvimlCwCpSabbKDUFgb6Nl9SpTVnQk=
+=NtS5
+-----END PGP SIGNATURE-----
+
+--cf4oqZqIraZr0Mc3--
 
