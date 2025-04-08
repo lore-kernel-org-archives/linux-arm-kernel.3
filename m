@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12EFAC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 08:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B2F8C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 08:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nj/7fcsf30Nl8qf2AjASDTaU9/a5G4x2NM42ScBp3WU=; b=A475MH1w6AzXD5Jk7ggPumThTt
-	lfdriHpIwaoe6jWMlAAlXRKIF0d7RZbB1guNr6Tx8UNH5UckK0nPb6uOYS0VrdxGp0Kl6ajgIblUC
-	pk68g5NQ8KXF1ES8on7tHGrDFhTx+Bu6zD5nYRF8oggMMHm525Lf8AR/YFNEbpYxLOkR1BUl+IaH5
-	IqoVUAuD4Jgg8q3qy8wf/eBmGgUJTV4kUpJ22pFzEMwXlS0JLpCTRioOgJwkKP/alNAPZuauWdJT2
-	ojh3yS+bRmwdD5A7use6IARoyrwuuImqx1qBLKMQDrT7wWhQ6epCB+oUFEuw+IbLEZAPC4/bs5jg/
-	0d7F+t2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VFTdsiG3njDFeoiFwgXGIzG7m8CuqnlEWsPnh2h5Pjc=; b=b/oR8FIJKszY+uSfQIxPHNahBA
+	d0VkVYqYXjDcrWeL9lFIgYhLoQNHyHcjxDzMPT3hYhCjWEWGirnwQ76MLUkJNjnxUk8xaR5BXuuh5
+	YyZSzeIRXaBYNenmU7IktlPMTLPxV/7rDc2uDJhK6CUvOokXZpObYIBmoSIeGHR/oENMlt7A2ubMZ
+	bdyq39EDD4W6C4y4abH3T0ZlmxzaE31Z5eKuHjJqSJtk5plQCDJ69j/K0PkrM+09vDNzWatXmuoe2
+	/ZVgR0DTfuXDjJjb0mrtoHu3Gv+tTWvgdzN+RLg2qQEvk5/dpiHE9x3Hyn0ziW49/mF7V+vj72fJY
+	elWdt7/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u245F-00000003Cq6-3zq0;
-	Tue, 08 Apr 2025 08:13:25 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1u2470-00000003DBU-2bPv;
+	Tue, 08 Apr 2025 08:15:14 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u243Q-00000003CBB-0IRr
+	id 1u243b-00000003CDJ-2Pe8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 08:11:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=nj/7fcsf30Nl8qf2AjASDTaU9/a5G4x2NM42ScBp3WU=; b=LQjnvWYu3WOigFeuvNGsLhVyeA
-	LSBftwv1jH5BbNLCieyXiqFYEX3BE8h4ymP8FdQ1TXE8KEoTgCBKOBsMdINAIf7mZ9sFBGSyVHx97
-	bj8nOzMPWgRRGd/CEPxvEqyub6YJeRhc866hMUlCIlha1QDfz1R5r0hK9gTNH0tpb7QC8DvPhYgcs
-	GxG81Vp9C61eONYw7rE6F937r9GgLov71RcD4mQZJ9k86q/hlquMkMBDlY6Msh5dS3ld/zSKDr5IZ
-	zlnZizKi8GCOrR4jWnVOPPQV7OftOMeUJ+Zvd4iEoRHbnCFZu00+lNexG2ZP7p4Tk/PomzZcIgu+i
-	dEl7TZwA==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u243C-00Donk-01;
-	Tue, 08 Apr 2025 16:11:19 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Tue, 08 Apr 2025 16:11:18 +0800
-Date: Tue, 8 Apr 2025 16:11:17 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Cc: clabbe.montjoie@gmail.com, davem@davemloft.net,
-	linux-crypto@vger.kernel.org, wens@csie.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/6] crypto: sun8i-ce-hash - fix error handling in
- sun8i_ce_hash_run()
-Message-ID: <Z_TaJWOFdAGNAOyh@gondor.apana.org.au>
-References: <20250401192321.3370188-1-ovidiu.panait.oss@gmail.com>
+	Tue, 08 Apr 2025 08:11:45 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4ZWzKq25m1z13LWd;
+	Tue,  8 Apr 2025 16:10:55 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id C0DD51800E4;
+	Tue,  8 Apr 2025 16:11:34 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Tue, 8 Apr 2025 16:11:33 +0800
+CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<maz@kernel.org>, <corbet@lwn.net>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <shuah@kernel.org>, <jonathan.cameron@huawei.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <tangchengchang@huawei.com>
+Subject: Re: [PATCH v2 6/6] KVM: arm64: Handle DABT caused by LS64*
+ instructions on unsupported memory
+To: Oliver Upton <oliver.upton@linux.dev>
+References: <20250331094320.35226-1-yangyicong@huawei.com>
+ <20250331094320.35226-7-yangyicong@huawei.com> <Z-wQuJAefT3xNipl@linux.dev>
+ <e9674079-9a22-c3cd-3b00-5989f6926303@huawei.com>
+ <Z_NkHWStDJLo0cmY@linux.dev>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <3355f89a-aecf-6ec7-b8ee-6faf6f1f7106@huawei.com>
+Date: Tue, 8 Apr 2025 16:11:33 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250401192321.3370188-1-ovidiu.panait.oss@gmail.com>
+In-Reply-To: <Z_NkHWStDJLo0cmY@linux.dev>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_011132_106106_0B37D686 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250408_011144_307004_2EEB6C78 
+X-CRM114-Status: GOOD (  30.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,20 +80,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 01, 2025 at 10:23:16PM +0300, Ovidiu Panait wrote:
-> Rework error handling in sun8i_ce_hash_run() to unmap the dma buffers in
-> case of failure. Currently, the dma unmap functions are not called if the
-> function errors out at various points.
+On 2025/4/7 13:35, Oliver Upton wrote:
+> On Mon, Apr 07, 2025 at 11:33:01AM +0800, Yicong Yang wrote:
+>> On 2025/4/2 0:13, Oliver Upton wrote:
+>>> On Mon, Mar 31, 2025 at 05:43:20PM +0800, Yicong Yang wrote:
+>>>> @@ -1658,6 +1658,25 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>>> Keep in mind that data aborts with DFSC == 0x35 can happen for a lot
+>>> more than LS64 instructions, e.g. an atomic on a Device-* mapping.
+>>>
+>>
+>> got it. 0x35 should be caused by LS64* or IMPLEMENTATION DEFINED fault, but no
+>> further hint to distinguish between these two faults. hope it's also the right
+>> behaviour to inject a DABT back for the latter case.
 > 
-> Fixes: 56f6d5aee88d1 ("crypto: sun8i-ce - support hash algorithms")
-> Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-> ---
->  .../crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 34 ++++++++++++-------
->  1 file changed, 21 insertions(+), 13 deletions(-)
+> There isn't exactly a 'right' behavior here. The abort could either be
+> due to a bug in the guest (doing an access on something knows it can't)
+> or the VMM creating / describing the IPA memory map incorrectly.
+> 
+> Since KVM can't really work out who's to blame in this situation we should
+> probably exit to userspace + provide a way to reinject the abort.
+> 
 
-All applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+as mentioned below, maybe the proper way is to handle it like KVM_EXIT_ARM_NISV. In this
+case exit to userspace with KVM_EXIT_ARM_LDST64B, if it's due to the wrong mapping of the
+guestOS then reinject the DABT back to the guest, otherwise the userspace need to check
+whether it's reporting the memory region correctly and handle in its own way.
+
+>>>> @@ -1919,6 +1939,21 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>>>>  			goto out_unlock;
+>>>>  		}
+>>>>  
+>>>> +		/*
+>>>> +		 * If instructions of FEAT_{LS64, LS64_V} operated on
+>>>> +		 * unsupported memory regions, a DABT for unsupported
+>>>> +		 * Exclusive or atomic access is generated. It's
+>>>> +		 * implementation defined whether the exception will
+>>>> +		 * be taken to, a stage-1 DABT or the final enabled
+>>>> +		 * stage of translation (stage-2 in this case as we
+>>>> +		 * hit here). Inject a DABT to the guest to handle it
+>>>> +		 * if it's implemented as a stage-2 DABT.
+>>>> +		 */
+>>>> +		if (esr_fsc_is_excl_atomic_fault(esr)) {
+>>>> +			kvm_inject_dabt_excl_atomic(vcpu, kvm_vcpu_get_hfar(vcpu));
+>>>> +			return 1;
+>>>> +		}
+>>>> +
+>>>
+>>> A precondition of taking such a data abort is having a valid mapping at
+>>> stage-2. If KVM can't resolve the HVA of the fault then there couldn't
+>>> have been a stage-2 mapping.
+>>>
+>>
+>> Here's handling the case for emulated mmio, I thought there's no valid stage-2 mapping
+>> for the emulated MMIO? so this check is put just before entering io_mem_abort(). should
+>> it be put into io_mem_abort() or we just don't handle the emulated case?
+> 
+> Right -- there's no valid stage-2 translation for _most_ MMIO. If KVM
+> cannot find an HVA for the fault (look at the condition that gets us
+> here) then we know there isn't a stage-2 mapping. How would we know what
+> to map?
+> 
+> In that case I would expect to take a Translation fault with instruction
+> syndrome that can can be used to construct an exit to the VMM.
+
+you're right, I misunderstand here. If there's no stage-2 mapping we'll have
+a translation fault here rather than an unsupported exclusive or atomic access
+fault. So no need to check and handle it here since we won't have such a fault
+in this case.
+
+> Marc had
+> some patches on list to do exactly that [*].
+> 
+> However, after reading this again there's a rather ugly catch. The KVM
+> ABI has it that writes to a RO memlot generate an MMIO exit, so it *is*
+> possible to get here w/ a stage-2 mapping. Unfortunately there's no
+> instruction syndrome with DFSC = 0x35 so no way to decode the access.
+> 
+> This is starting to sound similar an nISV MMIO abort...
+> 
+
+yes similiar to nISV MMIO and no ISV as well. Per-spec DABT caused by LS64* has ISV==1
+if it's a Translation fault, Access flag fault, or Permission fault, but not for
+unsupported exclusive or atomic access fault..
+
+> [*]: https://lore.kernel.org/kvmarm/20240815125959.2097734-1-maz@kernel.org/
+> 
+
+Thanks.
+
+
 
