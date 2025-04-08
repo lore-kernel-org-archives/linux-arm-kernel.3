@@ -4,86 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9927C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCAECC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DNUnjAwr3K7/bh0YQuGEFB/xa4tI2s8atXnUMP1mg7g=; b=mflOvX42sUndVabEJHHmSk3HHf
-	daRZM6zOcZS5jrYA4Om73Xd8ZXi9ZrzXCW80UELTaDprSIGwxSHXduWOm1RUszVEx37CutO0v9k1R
-	Pw2Gyaky9xhQ3pxBETZ1M+xEVoj9PrTSg1wf4iZEBEh2IEpNYCM+cgjC/0VP6+i2WKS3OJPKcYOHq
-	pyPEALVraEPgz2uJZ+M5tOYbJrlB32gVaQcXVq/FrWFSEpMpQi+MMDMjv1JcYN7NkWqZa8JpU/9HE
-	AXQPDX3O2kOE3d4slymwm5nWjGSJKpBbWWTE3apINCYlUaQCE+R6Gl6DxdYJ5EWULwb5+g+4Je/Mz
-	kzIjvhKw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xl9pdrn/7oTYvr0o5FBrDZetLCGU9w8F4g1xpUfQX3M=; b=Kceu7IF6koMjmqwlsQx2vhHdmc
+	HWWaaAyzFZvTI02akkpi3KvgNPqYeRPTzSb5kn0GtIGEF7w1oxc6/GjFSVuCfAFXB5d4tUkSsMiyB
+	+YctFwEmVwyOAcK44DknJlKTOJka4MeUvoEjVA5ROgKGPoUNRkn4wTdwNYjdQosLQ79bi1ghHbIlo
+	Zhsg8ivFvoqXZgGLoA3b5MozvK7n9NUrTAyCJvrqN0AY+4wQcIHZqKDiQZexA6USn5Mlwoj/5U/5w
+	SeYTGF0CikZLbhEXNkfE5zt/svhjjcClsE2UA/GE1KL99MB/djLNDqpKoNV4XPyLbkKX1ua/y2r4l
+	mFP+nt8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25Hr-00000003Rx5-3hMf;
-	Tue, 08 Apr 2025 09:30:31 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1u25LU-00000003ShT-0tLn;
+	Tue, 08 Apr 2025 09:34:16 +0000
+Received: from mx3.molgen.mpg.de ([141.14.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25Av-00000003QOe-0iUS
+	id 1u25El-00000003RDL-0tV3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 09:23:22 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-224191d92e4so49159445ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 02:23:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1744104200; x=1744709000; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DNUnjAwr3K7/bh0YQuGEFB/xa4tI2s8atXnUMP1mg7g=;
-        b=VqRzcteSR5MEBGl/6aG0GyFzdhRObtO6YMaSYuBzZ9Hzqex/g7LcsANQIyfArS8fas
-         YVw5fhtRwC3nXpDo5WkVLtr7yg4/fwXGllJRPMo9z7JxDu8Ly4PTxdhvBRjomOkFg1Y8
-         sXx2+Ypt4qaT8cD/b5bSJEqev0jCISUzhyPVw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744104200; x=1744709000;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DNUnjAwr3K7/bh0YQuGEFB/xa4tI2s8atXnUMP1mg7g=;
-        b=DPpa2cn07YrinJ6jqAXjYDu6uzWf1ANLSpwvaiwyupirYlzYjt2yWen2Ze4c47fbrI
-         XxrHxDoW+T94vvfrkMC06MW3FSax57LPcEH5Ad1CLzT/3VgFfTbmGI3JuCZmP+6Ny5nU
-         kJaR32yv3cOy0Di97bmoM5KLOriby0lXdXpOTmNbCVRcEcIsSCaSuhPGePfOQMy0A24R
-         MNNYOh4bqoL1+2TIMC5i5EG8FEO5mA6V0MRLEuRICq2hpRxKUNdIf5z4anLfpZYs+BOL
-         eBcTEwlkFBVUpDrXWw7TyxmcSoQL/BZdf9gZ4YpGzAPcJl49BgxWYOrxILuCZkuCo/s2
-         WQoA==
-X-Forwarded-Encrypted: i=1; AJvYcCUBc5ksPaguewtkNNzJJsI4Al1fN19fI04jL5GYY59f1hYjB1KJfztgrH+VMCKgnvj6dAGXx/APUjpJaATHLnuI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxit1UjoU6QabTT2AZrf8NjjcUQhAUygYJJ+PQ8Xd5/e/uZaGkR
-	ySoxS+Afez1cyBePgIH2ng/b/hQf5vtu8lNMwgHt0b61w5LrjmPq4N2Krt01rQ==
-X-Gm-Gg: ASbGncskwWWLVQd/GT96eJ4467NZM6P+7cJJKHJgzirGqj9OMbeqiZktLyTid9O8ovK
-	59sUH53g1jnmmq9736mSXibI3Jik9bzfhmBu2BRFlbROyZMCwPWan+xifAlbwRVstFZefmrkQXb
-	+4P8xgT97dUQ4W9AynqxTTr86UwzK8itNbgXJ6I+Onln91dId7/nVgNfw4LTTw0NFaw0cgsg5PM
-	z7ygQs3T75sGDPrw0imy7RBNfdQ7I71xb51Fy/7a49WgIiO6O/T+xfE3/0qyIeRAAAXiBwzAV2R
-	J3w7pLVS9Vp8lp9jTy8xv6dxirDmaD+wSEl67Gfn6/Fiw4oX8FpPvnT8VNvEHHg=
-X-Google-Smtp-Source: AGHT+IGPhkSRb5R3PVNGCzYv1a6SJZoNU3t0aIi0QTJm3JWsa/HB1uZ+jzdpdKOIXFpq6puPuDXpRQ==
-X-Received: by 2002:a17:902:da85:b0:224:f12:3735 with SMTP id d9443c01a7336-22a8a06b38dmr169101945ad.31.1744104200152;
-        Tue, 08 Apr 2025 02:23:20 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:79d9:c941:96f6:ac1c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2297865e477sm95651655ad.122.2025.04.08.02.23.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 02:23:19 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"Chengci . Xu" <chengci.xu@mediatek.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Robin Murphy <robin.murphy@arm.com>
-Subject: [PATCH] arm64: dts: mediatek: mt8188: Fix IOMMU device for rdma0
-Date: Tue,  8 Apr 2025 17:23:02 +0800
-Message-ID: <20250408092303.3563231-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
+	Tue, 08 Apr 2025 09:27:21 +0000
+Received: from [141.14.220.43] (g43.guest.molgen.mpg.de [141.14.220.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pmenzel)
+	by mx.molgen.mpg.de (Postfix) with ESMTPSA id AD33E61E647BB;
+	Tue, 08 Apr 2025 11:26:48 +0200 (CEST)
+Message-ID: <a8e7171b-d859-4611-9681-e4c614f29d64@molgen.mpg.de>
+Date: Tue, 8 Apr 2025 11:26:47 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: Kernel WARNING (RCU) with btnxpuart on TI AM62 platform
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Amitkumar Karwar <amitkumar.karwar@nxp.com>,
+ Neeraj Kale <neeraj.sanjaykale@nxp.com>, Nishanth Menon <nm@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+ linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ linux-serial@vger.kernel.org, regressions@lists.linux.dev
+References: <20250408083512.GA26035@francesco-nb>
+Content-Language: en-US
+From: Paul Menzel <pmenzel@molgen.mpg.de>
+In-Reply-To: <20250408083512.GA26035@francesco-nb>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_022321_240212_9433CD71 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20250408_022719_537171_940A666B 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,43 +69,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Based on the comments in the MT8188 IOMMU binding header, the rdma0
-device specifies the wrong IOMMU device for the IOMMU port it is
-tied to:
+[Cc: +regressions@]
 
-    This SoC have two MM IOMMU HWs, this is the connected information:
-    iommu-vdo: larb0/2/5/9/10/11A/11C/13/16B/17B/19/21
-    iommu-vpp: larb1/3/4/6/7/11B/12/14/15/16A/17A/23/27
+#regzbot introduced: v6.14..v6.15-rc1
 
-rdma0's endpoint is M4U_PORT_L1_DISP_RDMA0 (on larb1), which should use
-iommu-vpp, but it is currently tied to iommu-vdo.
 
-Somehow this went undetected until recently in Linux v6.15-rc1 with some
-IOMMU subsystem framework changes that caused the IOMMU to no longer
-work. The IOMMU would fail to probe if any devices associated with it
-could not be successfully attached. Prior to these changes, only the
-end device would be left without an IOMMU attached.
+Dear Francesco,
 
-Fixes: 7075b21d1a8e ("arm64: dts: mediatek: mt8188: Add display nodes for vdosys0")
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- arch/arm64/boot/dts/mediatek/mt8188.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-index 69a8423d3858..29d35ca94597 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-@@ -2579,7 +2579,7 @@ rdma0: rdma@1c002000 {
- 			reg = <0 0x1c002000 0 0x1000>;
- 			clocks = <&vdosys0 CLK_VDO0_DISP_RDMA0>;
- 			interrupts = <GIC_SPI 638 IRQ_TYPE_LEVEL_HIGH 0>;
--			iommus = <&vdo_iommu M4U_PORT_L1_DISP_RDMA0>;
-+			iommus = <&vpp_iommu M4U_PORT_L1_DISP_RDMA0>;
- 			power-domains = <&spm MT8188_POWER_DOMAIN_VDOSYS0>;
- 			mediatek,gce-client-reg = <&gce0 SUBSYS_1c00XXXX 0x2000 0x1000>;
- 
--- 
-2.49.0.504.g3bcea36a83-goog
+Thank you for your report.
 
+Am 08.04.25 um 10:35 schrieb Francesco Dolcini:
+
+> I do have the following kernel warning with 6.15-rc1, on a TI AM62
+> platform (arm64), single CPU core, using btnxpuart driver, any idea?
+> PREEMPT_RT is enabled, if it matters.
+> 
+> Either the issue is not systematic, or multi cores SoCs are not affected
+> (no error on the exact same image on a dual nor on quad core TI AM62).
+> 
+> 
+> [   23.139080] Voluntary context switch within RCU read-side critical section!
+> [   23.139119] WARNING: CPU: 0 PID: 61 at /kernel/rcu/tree_plugin.h:332 rcu_note_context_switch+0x3c4/0x430
+> [   23.139172] Modules linked in: uas onboard_usb_dev optee_rng dwc3 evdev btnxpuart spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils optee spi_cadence_quadspi tee gpio_keys usb_conn_gpio display_connector roles dwc3_am62 mwifiex_sdio k3_j72xx_bandgap mwifiex rtc_ti_k3 cfg80211 tidss sa2ul sha512_generic snd_soc_davinci_mcasp authenc drm_display_helper snd_soc_ti_udma crypto_null snd_soc_ti_edma sha1_generic snd_soc_ti_sdma omap_hwspinlock lontium_lt8912b ina2xx snd_soc_wm8904 ti_ads1015 industrialio_triggered_buffer kfifo_buf lm75 tpm_tis_i2c tps65219_pwrbutton crc_ccitt tpm_tis_core tpm rng_core tc358768 m_can_platform pwm_tiehrpwm m_can spi_omap2_mcspi can_dev bluetooth ecdh_generic ecc rfkill libaes loop fuse ipv6 autofs4
+> [   23.139459] CPU: 0 UID: 0 PID: 61 Comm: kworker/u5:0 Not tainted 6.15.0-rc1-0.0.0-devel #1 PREEMPT_RT
+> [   23.139471] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
+> [   23.139478] Workqueue: hci0 hci_power_off [bluetooth]
+> [   23.139615] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [   23.139625] pc : rcu_note_context_switch+0x3c4/0x430
+> [   23.139647] lr : rcu_note_context_switch+0x3c4/0x430
+> [   23.139658] sp : ffff8000819fb740
+> [   23.139661] x29: ffff8000819fb740 x28: 0000000000000000 x27: ffff0000079d2010
+> [   23.139673] x26: ffff0000011e7810 x25: ffff000001c2c200 x24: 0000000000000000
+> [   23.139688] x23: 0000000000000000 x22: ffff000001c2c200 x21: ffff000001c2c200
+> [   23.139700] x20: ffff800081083ec0 x19: ffff00001da9fec0 x18: fffffffffffe7e78
+> [   23.139712] x17: ffff7fff9ca1c000 x16: ffff800080000000 x15: ffff00001da9f8c0
+> [   23.139726] x14: fffffffffffc7e77 x13: 216e6f6974636573 x12: 206c616369746972
+> [   23.139738] x11: 6320656469732d64 x10: 6165722055435220 x9 : 206e696874697720
+> [   23.139750] x8 : ffff80008113f040 x7 : ffff8000819fb4e0 x6 : 000000000000000c
+> [   23.139761] x5 : ffff00001da95888 x4 : 0000000000000000 x3 : 0000000000000027
+> [   23.139775] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff000001c2c200
+> [   23.139788] Call trace:
+> [   23.139793]  rcu_note_context_switch+0x3c4/0x430 (P)
+> [   23.139813]  __schedule+0xa0/0x7dc
+> [   23.139830]  schedule+0x34/0x11c
+> [   23.139841]  schedule_timeout+0x8c/0x110
+> [   23.139861]  wait_for_completion_timeout+0x78/0x14c
+> [   23.139873]  ti_sci_set_device_state+0x120/0x1fc
+> [   23.139886]  ti_sci_cmd_get_device_exclusive+0x18/0x30
+> [   23.139899]  ti_sci_pd_power_on+0x28/0x54
+> [   23.139916]  _genpd_power_on+0x98/0x188
+> [   23.139927]  genpd_power_on+0xa8/0x168
+> [   23.139940]  genpd_runtime_resume+0xc0/0x298
+> [   23.139957]  __rpm_callback+0x48/0x1a4
+> [   23.139974]  rpm_callback+0x74/0x80
+> [   23.139987]  rpm_resume+0x3b0/0x698
+> [   23.140000]  __pm_runtime_resume+0x48/0x88
+> [   23.140012]  omap8250_set_mctrl+0x2c/0xbc
+> [   23.140030]  serial8250_set_mctrl+0x20/0x40
+> [   23.140046]  uart_update_mctrl+0x80/0x110
+> [   23.140062]  uart_dtr_rts+0x104/0x118
+> [   23.140079]  tty_port_shutdown+0xd4/0xe0
+> [   23.140092]  tty_port_close+0x3c/0xb8
+> [   23.140103]  uart_close+0x34/0x98
+> [   23.140116]  ttyport_close+0x50/0xa0
+> [   23.140137]  serdev_device_close+0x40/0x5c
+> [   23.140150]  btnxpuart_close+0x1c/0xa0 [btnxpuart]
+> [   23.140175]  hci_dev_close_sync+0x304/0x7cc [bluetooth]
+> [   23.140243]  hci_dev_do_close+0x2c/0x70 [bluetooth]
+> [   23.140309]  hci_power_off+0x20/0x64 [bluetooth]
+> [   23.140379]  process_one_work+0x148/0x284
+> [   23.140403]  worker_thread+0x2c8/0x3dc
+> [   23.140414]  kthread+0x12c/0x208
+> [   23.140426]  ret_from_fork+0x10/0x20
+
+As I understood, that it’s a regression, and you can reproduce it, would 
+it be possible, that you bisected the issue?
+
+
+Kind regards,
+
+Paul
 
