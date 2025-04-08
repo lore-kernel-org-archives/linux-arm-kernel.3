@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B7FAC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 19:12:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A63C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 19:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4ZR2UVpqmeFDPx4PfDo4Uk4g9Hsu2oDRhSNi1KzWe7k=; b=nQlhoNXZm+RStdsDJ8yiIioj0L
-	/fTF3HOLInEtZwS3W0A8wQIcPYOJsQolFNrX6xpmkvk7jbFfF18oJQg/hRUIyARxwZcVAR1PkveL+
-	s/7yimtLQmsu1bwjTUlvmLMSUs9UKzIF+uwrDcvRUe9tX1prH3+AMF7GObMwXG+abzLbgi8NW+Jue
-	IoqBhh9dC/I+yy3XVPcrUqLrm7rcyMjHR51vB+8ht/wI+9x2EVSDHQbqK3O7dq7wr8AKJ61gRSsLx
-	QXCcQj+Jb7k5mWky+vSAzuXiPu9ac0cGKSN50N9a5y0fIuPE7TmjliOWeymGNJmOfphgbVpYJiwLL
-	Lqlb4BNg==;
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ORupiyOALZSaNO8QGxFuqMgWPsdK6vWbY5xqB7+FD4g=; b=ILPc5TF4LS5Adu6miermTv/H+Y
+	Dnq5Ws02cBZuak978xpXlXT7AL/LpxdpPbUU8cx+JaolZYKSyIjVH2eHaMzIdC+zzB8wuSJy9Qo8p
+	58oI20yRCLwzPE4o35txTAFWLB/EzD06OLSEBXT374kcOsFctcJfOjRV9IqgAz/Wu+6h4nSvc3nXG
+	cjnJJQk3G2gxKEyxse/Whpu+OyVsDB5G7RAgArCKJjZEsYQ7DErg8iorWJUS1FJQfFJM6ehfIzY7E
+	yc+O09TWNGw+a34r6oQ+37Vn9I7YiEgqHBNusKHcKNpx52Gf54mwc23Dj2oBPJauL4dl360uzZ30Y
+	aBFNZvbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ENN-00000005DGr-0v1X;
-	Tue, 08 Apr 2025 19:12:49 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1u2EZk-00000005Ejm-2l6X;
+	Tue, 08 Apr 2025 19:25:36 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2D4W-00000005121-0aP5;
-	Tue, 08 Apr 2025 17:49:17 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43d07ca6a80so30591535e9.1;
-        Tue, 08 Apr 2025 10:49:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744134554; x=1744739354; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4ZR2UVpqmeFDPx4PfDo4Uk4g9Hsu2oDRhSNi1KzWe7k=;
-        b=O0/YERsuNXF3w+hxdST/u57k97xBpQllQRdLNRkUBdsSRk4aEn+15skJy7Qm0D2abp
-         A+Dx64A8asF//LoMwvIYMkxyTz/lrl9SHfNKGt/sC1sBeCfxQsN8gMduK7PhLMLCBBYJ
-         xEAue2X36mC/uRrgx6TeCIOj+Zcf9onSjM9MZNC8S0nJyqePqkqOuVbE9BfN5kwHLBrM
-         wWyho/+8USlEN2sDgBqUvHYSxdfpKo8T20t2vDnjcdkB3hxIKaLlonjNhZudNux5skJ+
-         6mibIOt890W0PwtkJORgG4QhdSCwMQsB3ZmkpJEky1aZjxi+I2Va94TfB2EYM5MocHya
-         H5wQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744134554; x=1744739354;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4ZR2UVpqmeFDPx4PfDo4Uk4g9Hsu2oDRhSNi1KzWe7k=;
-        b=wYgPrXw4rOFbs5yrzJX5gwHBdQ5odJXwiG8UzeCOYsB1QxN6y0XqQmzMlX3fyHCQuv
-         EmbJa8T4yr9s+oWwDjYPOW0xbUmnw8ihIwih4gfQbA7aFsjHYNshGASZMPzBU2AjqZ5q
-         rq0G8g0CVhKeM+S6X9R/rb/oOhQD8I4BHVLCFRr3MgC30bAO6+tbwCeWfirn+9nPS39n
-         wtpeBH5n7Yntetxm9p4olKNFbo9Qbv7oVtYBmHQNwPmogGI1WXWr6MTLCGgYyJkXUbVc
-         JEqvXWHMKJoJBLuWfmK7WLFN0VJUESnby9mSva1YRS91YqI33i3/OHVNGuiHUi6BiL6X
-         NnmA==
-X-Forwarded-Encrypted: i=1; AJvYcCU6F1iNygVtWFJnhZKRbpUppD107ij9+wNRyXOEx7fyxPofVgWoGUFNSI0rpNvOHOcbR+LP1R/Sog7XEVEq2KQ=@lists.infradead.org, AJvYcCXQunD9QuPV1iF5QbgHs5mpWxKBOyV9ueDOag5gK9EHDMurlCxX/AZYLfL9ae/RpTvgqvXDoztTn6lpQupnXgwm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrPwaas8LvbTR67qKuHMIIm6/ZbobN6ZTu9aKbp7qbbN5mpAJL
-	MX5IRmHiir0gVRWo2NE7qFSwS/9R6loa11Z6OEgDbOIaIPevj49L5NouYg==
-X-Gm-Gg: ASbGncs83Tmage9xJHko5gIwn18zuPIC5dVF0BW8wrlFBRczAR2tSlCMAxvk9SAYpYA
-	Sk2BjLW68ufHNz+kLrkTCDrFaNbdMhJbFdu9VZq6i8NzcVTat/4nHq5WmdyHdsZ7epw9iCTLKu0
-	15damAC1kIIjSviU7csNZ8Lp7aCmkcVBMd6ztwCwuvCov89pGk8FW1EJU8dRr8Xz7Yd6iIRHo83
-	sQalnAH9wpScCqybVJcs+Gy7cxntAyoN834+H9Rpylsmy38Rxx0jPz4ZPVC5FfG3T6dG276JiBx
-	zBwCdYubSTT2M5qdPz1Y9DCmxnf9YCq1jHDsqAoAbXJWsA==
-X-Google-Smtp-Source: AGHT+IEZ3U5D/EEyRNJJA0h121CkODT3waTKE0XhCx7gpizhS9Xryu5e5ySB2/sFUv+P+fwP9Vnchg==
-X-Received: by 2002:a05:600c:1e20:b0:43b:d0fe:b8ac with SMTP id 5b1f17b1804b1-43f1ed6727bmr189225e9.30.1744134553902;
-        Tue, 08 Apr 2025 10:49:13 -0700 (PDT)
-Received: from qasdev.Home ([2a02:c7c:6696:8300:5b45:5642:beb0:688f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec16a5776sm173535645e9.22.2025.04.08.10.49.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 10:49:13 -0700 (PDT)
-From: Qasim Ijaz <qasdev00@gmail.com>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chui-hao.chiu@mediatek.com,
-	Bo.Jiao@mediatek.com
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 RESEND] wifi: mt76: mt7996: prevent uninit return in mt7996_mac_sta_add_links
-Date: Tue,  8 Apr 2025 18:48:58 +0100
-Message-Id: <20250408174858.15847-1-qasdev00@gmail.com>
-X-Mailer: git-send-email 2.39.5
+	id 1u2EXx-00000005EcW-3c1T
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 19:23:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1744140216; x=1744745016; i=markus.elfring@web.de;
+	bh=ORupiyOALZSaNO8QGxFuqMgWPsdK6vWbY5xqB7+FD4g=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=poz33RYUkIlroB64JgZAmjwnKgWt6wwNTRNFJm/r46hUuPziJrW/pAIB+xY9fxw5
+	 EGrGjdwbC8PGcBpGKkTmQf864VfCa5bWzJPC4tSGz24u7dzHvH7d5r412AcLgM43Q
+	 MuM2aSUY/wozg0wFojwvcCOk7QvnV9b7KbaGpgqfbi727b8FxC9gypZof24FqL0gA
+	 EwAp2vDqUwaSGmF+Fb1uR+1iYWqIf3yG6T2LSluJ3YGyJ0QOcOTwjn2xuzk+SMTiU
+	 g5/RaniUPh+SXeN0//TWDi69ksMxlv+v+1/HlXucjKf+l6qoFmiv1Os9bo/qhWv32
+	 0XhOKPGbHulo+JuWLQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.41]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MQgl2-1tfaow2U3q-00KORa; Tue, 08
+ Apr 2025 21:23:36 +0200
+Message-ID: <0558b7f7-8c69-4664-afc6-bae4fdc6f071@web.de>
+Date: Tue, 8 Apr 2025 21:23:35 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+To: Henry Martin <bsdhenrymartin@gmail.com>, arm-scmi@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Cristian Marussi <cristian.marussi@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Sudeep Holla
+ <sudeep.holla@arm.com>, Viresh Kumar <viresh.kumar@linaro.org>
+References: <20250408150354.104532-1-bsdhenrymartin@gmail.com>
+Subject: Re: [PATCH v2 0/2] cpufreq: scmi/scpi: Fix NULL pointer dereference
+ in get_rate()
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250408150354.104532-1-bsdhenrymartin@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:u6uFVW+ak15/uxBv+EyE+kavakv+ju2yYmazNaogRVKiCXjwIcx
+ EcVxW4Pj6WLQTxQtX2FFlS5b3rD7YK2TjwSuySlbDy+ov3KNlK+SuK4sLTBGj97qjo3pxmV
+ /ZSIBQZxHOODq/I5u/6evY1BS4JJ1tcYBhllVw8j9t/Z4Jc20RL9G2K+Pz3CY7eg0YriQMC
+ tX9xZnoZY1jQ1tG89hYbQ==
+UI-OutboundReport: notjunk:1;M01:P0:+CIQkeTljWY=;Pnys6I1QlDPG6ZGflL/7mdQAKbH
+ v3OY17uA/UeJkYP3ncV2ZDzO84Q8w/J1VuTtc5jKnzoFMFeSFpTtHd4Ll18QOR0Xf0dXDSwNY
+ UzCbc5C7/frB9IQ2LIua/tBDMi7ilUjEDuftfoAuul2vPsbPWmhUdfLT4Z96lnBsOdxuvi1qy
+ QxEBKVKxp6EZ7tcHX7IQuk7wFUCwOIFTkeKEx9tIjCn+kiHiOqI8Y5mGB0ztJauExjG3HpL/m
+ AplLRoF1jADfOKFFAgztzXLgjLMPVbcpi5L+c26No5QLfC+xLD5sk8iR0fP3Oy1jsmzQ+Pt5T
+ 7TdS8NCajChL6j8l0fow+d1swEwZrVE/I7TxP+spKlM9+GLdOeQZgpR2F7L9RIgDVESO8Pfgn
+ TEvJEWreon/3sc5D+5dTT3cSWc9jEVn0/OmKGt1MizxbB4ryt4DlYr/wPkcgM1ItS3ElaNxph
+ mhXwjeJdEbHRpKZs3BjrUNPbdbPMeatpvmAvgVZfP+vql97bFB2Kjb3WALotk3yoBQGAlYo0+
+ o5b/l/4h4lLrH89TtH4pxx2xGYssu3jyClSAy43kh43/dph/J0N2Xmgo29rUrggEWFhmFwRIQ
+ eiZW6HmR7yhzOYPi1f0L6+lrdtJEDwNdcBPu5R7ZBNPQorYb+xgPT3pyVcm5xNcjkWKSF+kFJ
+ l26hawZGHLFVNGIAdbYniFrKhvGB4qV4mkRvnQvkSz17wh+7jSZTc3TmwkByPALErfQheLp7P
+ RuBxgEhWpKclzR0cTqfaYaO0Nr7yRBpnDpd/G3UQcgfmxKiosExGZkWAoGlBIE2BQK20kzH4H
+ m5/TX+7B4ktlJgUYRTqsd69YGiRJ15/9ErR19RFUTHsV1vfZlnA7HqeWHnt7RzjBb/bDwGf0M
+ H9W/yEYHSN+LlOAGgluks6XzGa1iKs6d0krfdQkKIQitFmuCLCXID+NbROt20vZfBE2240pxX
+ yHHJ69xcPMbarOfH+egFF6t2ZP1LQ+DSSyVWaqjlcQTdV2Hxj4Fw3G5HBGUdE3Kd4vZr9ZOlh
+ 31weAWMY/XHAyex63z8H4hpCRqNwdo6rkaXxzBd/ImksS7R9XBLwbTPA0lQl+GVOcixDP0srj
+ WG1CBDo7dKsJCFATHG+FS+pPm3FH9y0yhdYWhDrM6aiWwAkl0/afpzKn6xckDCK7nzxXSsGR2
+ 1tXH8eTrnNqM/jxzOlzUry2zXxOBStY3ml+BwVFGlW+IFoI/B98JYx0kSCegc6w9ZHlqAbvPZ
+ APbsHyfFki52ilFk6LyHZOx3BxnG9Izj8EqX4CoSKFnYJ2cJ47CJ2HwGbPEO1teVElj3cm4Ia
+ nkmh7b7x7Z/aQrrFCViL+YF4td7OYARAVOQH2n5TUBEM1ZY2ARV/I4eErldUI1go7csqboh4J
+ X06Go6wmsMrgB5Kk0v6JNtzFUuDI8o7ylETHKozZHEl1FnvkM3N0IE7OGT3EirYWXfGBgzpHm
+ 7DLsdclVnCUXEpGgDK6iDCbabI6MUkBdRdwLg0Kf6FU8JFu0D9/k0XSPAnPjxqgbKQ6/b7A==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_104916_193438_B988192D 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20250408_122346_289172_EA1534BA 
+X-CRM114-Status: UNSURE (   5.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,53 +106,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If link_conf_dereference_protected() or mt7996_vif_link()
-or link_sta_dereference_protected() fail the code jumps to
-the error_unlink label and returns ret which is uninitialised.
+> This series fixes potential NULL pointer dereferences in scmi_cpufreq_ge=
+t_rate()
+> and scpi_cpufreq_get_rate() when cpufreq_cpu_get_raw() returns NULL.
+>
+> Henry Martin (2):
+>   cpufreq: scmi: Fix null-ptr-deref in scmi_cpufreq_get_rate()
+>   cpufreq: scpi: Fix null-ptr-deref in scpi_cpufreq_get_rate()
 
-Fix this by setting err before jumping to error_unlink.
- 
-Fixes: c7e4fc362443 ("wifi: mt76: mt7996: Update mt7996_mcu_add_sta to MLO support")
-Fixes: dd82a9e02c05 ("wifi: mt76: mt7996: Rely on mt7996_sta_link in sta_add/sta_remove callbacks")
-Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
----
-v2:
-- Added missing semi-colon as pointed out by Jonas Gorski
+Can any other summary phrase variants become more desirable accordingly?
 
- drivers/net/wireless/mediatek/mt76/mt7996/main.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 91c64e3a0860..70823bbb165c 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -998,16 +998,22 @@ mt7996_mac_sta_add_links(struct mt7996_dev *dev, struct ieee80211_vif *vif,
- 			continue;
- 
- 		link_conf = link_conf_dereference_protected(vif, link_id);
--		if (!link_conf)
-+		if (!link_conf) {
-+			err = -EINVAL;
- 			goto error_unlink;
-+		}
- 
- 		link = mt7996_vif_link(dev, vif, link_id);
--		if (!link)
-+		if (!link) {
-+			err = -EINVAL;
- 			goto error_unlink;
-+		}
- 
- 		link_sta = link_sta_dereference_protected(sta, link_id);
--		if (!link_sta)
-+		if (!link_sta) {
-+			err = -EINVAL;
- 			goto error_unlink;
-+		}
- 
- 		err = mt7996_mac_sta_init_link(dev, link_conf, link_sta, link,
- 					       link_id);
--- 
-2.39.5
-
+Regards,
+Markus
 
