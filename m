@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17135C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 03:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A96C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 04:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CXPfrI60oNrK5u6bCV3aNX+XsdZR+asWKl3bKnq3y88=; b=N48y6wAYuRPg6Zh6gCCHUL37dl
-	7Bq4ORp2DVzE8NlDhKLrVQm+jshAWWH34OMPKxOyU3F4RVJ8XMac5gf7qQvwuvhd894brn+/hfcn3
-	+b5X7bZi++WVUODgzAGu2m7qeezK9bEktDXX+v+miK47lhFmZEKHjif9BdoQbBAO0jdUZSI9eTRoV
-	/S4WQikQnhbr1E5Q44/K08SVA3o9Hs1U/KZlm+7UXztnrNEW4tYjfiTSY4qIHLfJ2uV9VD8k5Fl09
-	bpvw/GhftIndTmcSM3nJk15UCqbjptOALmDtcADdHpqjWoRNUfI7sk9pDITftdBBH9VDSPyok4ljo
-	ONSIhxgw==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pi4u4vviO7H/sqB5xmMHreIonnQjMbp/FTaS4iPPJhk=; b=Yjo+NPEwYgBsxZ98idPFCGGv0S
+	2hLahLgmei9VvcRKrMvmw1Qq/WiVjJjdEIiVKKhwo5letRZigQ3O2nxaeFo2Qxv2i9+emRuKzM20B
+	ayK3sWZpgPXTMb4FpdlMOxyP/GWKEabOZTRI9e591BbdfTvI2PPDiOuPezSXzXdMWJf1n0/SCJDNf
+	HSfqCvJQxwImEPfCt/OKEf3gJDleohtB7adc8SU8fjgNK3H9wq8kqjk6/b/tD8fq1lWt90Yws8/vw
+	UonTHv9xJ5h0D0OLOOaarCMvV/y9PCETGVzI0P675g/9uOZApKG+Qf2BJv73P31jsNISaBAV8qwb7
+	dUD7WKLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1zpu-00000002e58-18yK;
-	Tue, 08 Apr 2025 03:41:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u20AH-00000002fcR-0YFk;
+	Tue, 08 Apr 2025 04:02:21 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1zj2-00000002dNK-3VuT
+	id 1u208U-00000002fPQ-30Nt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 03:34:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6708B6115B;
-	Tue,  8 Apr 2025 03:34:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9841C4CEE5;
-	Tue,  8 Apr 2025 03:34:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744083251;
-	bh=TRxqNba1FVNttWXGyNADBZI4wo3jt4eA8mooq34DEqA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=MkH0jsbEibXql9rWea8fM6DvGfJCXnaKvnY2KK7uAlW0WLmZX7A7Rya5MtvtOTxE8
-	 b+2zFVPdiG0/g53IWf7F9Z3uu0p+Yxe+PmFE2df6tNYfe8pW3wTYLxp4hN3f0ojIVw
-	 60YyYjiPIIRgyKNAZgaGgNoPvGSo0qcpLNygQGq71KamztoOPfmR/+hlfEqZDUfTlF
-	 V1be6zCj7QreIaS2ldBZMjAIYJT7QHTXymtMzwFxLdUILxQevzlA/zEixv4cFF6VUL
-	 sG/5vSVODbkTkyx/sPQFIPLOtr4eeFVMQDF44Uy2+sZdrSWTlGpfRibXMgbm+dchrK
-	 ir3PFrZpX1Sxw==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: will@kernel.org,
-	robin.murphy@arm.com,
-	jgg@ziepe.ca,
-	nicolinc@nvidia.com,
-	jsnitsel@redhat.com,
-	praan@google.com,
-	kevin.tian@intel.com,
-	ddutile@redhat.com,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Subject: [PATCH] iommu/arm-smmu-v3: Add missing S2FWB feature detection
-Date: Tue,  8 Apr 2025 09:03:51 +0530
-Message-ID: <20250408033351.1012411-1-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	Tue, 08 Apr 2025 04:00:32 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53840O4n564009
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 7 Apr 2025 23:00:24 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744084824;
+	bh=pi4u4vviO7H/sqB5xmMHreIonnQjMbp/FTaS4iPPJhk=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=f2+vO3bV2XJTqCfwRdZUcbm8Dw6HWQUivzY9CR4mNSEW8M5okFqt3Z5dYdbtsm+ix
+	 7mN8AdYa11Ed75Qnonj67GHd7qSB3vvW8WwYeX3I3H3i9+dIt8/C84P7GzXiCbmf2T
+	 OFTO6hKxRkcHFZ96Bsv49W0Ji8vWJHvDz9Z4o5eI=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53840Osa019027
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 7 Apr 2025 23:00:24 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 7
+ Apr 2025 23:00:24 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 7 Apr 2025 23:00:24 -0500
+Received: from [172.24.227.151] (uda0510294.dhcp.ti.com [172.24.227.151])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53840JH2031207;
+	Mon, 7 Apr 2025 23:00:20 -0500
+Message-ID: <f8f1d877-3d13-4ba7-90e1-455923458c11@ti.com>
+Date: Tue, 8 Apr 2025 09:30:19 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
+ remote processors
+To: Judith Mendez <jm@ti.com>,
+        Devarsh Thakkar
+	<devarsht@lewv0571a.ent.ti.com>,
+        Nishanth Menon <nm@ti.com>, Andrew Davis
+	<afd@ti.com>,
+        Hari Nagalla <hnagalla@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Markus
+ Schneider-Pargmann <msp@baylibre.com>
+References: <20250405001518.1315273-1-jm@ti.com>
+ <20250405001518.1315273-7-jm@ti.com>
+ <6868f593-0728-4e92-a57b-87db6a0037f6@ti>
+ <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
+Content-Language: en-US
+From: Beleswar Prasad Padhi <b-padhi@ti.com>
+In-Reply-To: <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250407_210030_916587_08899ABA 
+X-CRM114-Status: GOOD (  25.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +100,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 67e4fe398513 ("iommu/arm-smmu-v3: Use S2FWB for NESTED domains")
-introduced S2FWB usage but omitted the corresponding feature detection.
-As a result, vIOMMU allocation fails on FVP in arm_vsmmu_alloc(), due to
-the following check:
+Hi Judith, Andrew,
 
-	if (!arm_smmu_master_canwbs(master) &&
-	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
-		return ERR_PTR(-EOPNOTSUPP);
+On 07/04/25 19:43, Judith Mendez wrote:
+> Hi Devarsh,
+>
+> On 4/7/25 8:54 AM, Devarsh Thakkar wrote:
+>> Hi Judith,
+>>
+>> On 05/04/25 05:45, Judith Mendez wrote:
+>>  > From: Devarsh Thakkar <devarsht@ti.com>
+>>>
+>>
+>> Thanks for the patch.
+>>
+>>> For each remote proc, reserve memory for IPC and bind the mailbox
+>>> assignments. Two memory regions are reserved for each remote processor.
+>>> The first region of 1MB of memory is used for Vring shared buffers
+>>> and the second region is used as external memory to the remote 
+>>> processor
+>>> for the resource table and for tracebuffer allocations.
+>>>
+>>> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+>>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+>>> Signed-off-by: Judith Mendez <jm@ti.com>
+>>> ---
+>>>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 96 
+>>> +++++++++++++++++++++++--
+>>>   1 file changed, 90 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts 
+>>> b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>>> index 1c9d95696c839..7d817b447c1d0 100644
+>>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>>> @@ -52,6 +52,42 @@ linux,cma {
+>>>               linux,cma-default;
+>>>           };
+>>> +        c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x99800000 0x00 0x100000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        c7x_0_memory_region: c7x-memory@99900000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x99900000 0x00 0xf00000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x9b800000 0x00 0x100000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x9b900000 0x00 0xf00000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x9c800000 0x00 0x100000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>> +        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>>> +            compatible = "shared-dma-pool";
+>>> +            reg = <0x00 0x9c900000 0x00 0xf00000>;
+>>> +            no-map;
+>>> +        };
+>>> +
+>>>           secure_tfa_ddr: tfa@9e780000 {
+>>>               reg = <0x00 0x9e780000 0x00 0x80000>;
+>>>               alignment = <0x1000>;
+>>> @@ -63,12 +99,6 @@ secure_ddr: optee@9e800000 {
+>>>               alignment = <0x1000>;
+>>>               no-map;
+>>>           };
+>>> -
+>>> -        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>>> -            compatible = "shared-dma-pool";
+>>> -            reg = <0x00 0x9c900000 0x00 0x01e00000>;
+>>> -            no-map;
+>>> -        };
+>>>       };
+>>
+>> This is missing the edgeAI specific remote-core carveouts and 
+>> RTOS-to-RTOS IPC memory regions [1] being used by edgeAI firmwares 
+>> which come as pre-packaged in the official SDK release for AM62A.
+>>
+>> There is only one official SDK release for AM62A (which is edgeAI 
+>> based) [2] which packages these edgeAI remoteproc firmwares and in my 
+>> view it is a fair expectation that remote core careveouts in 
+>> device-tree should align with firmwares released in SDK.
+>>
+>> This is because most developers (including me) and vendors download 
+>> this official SDK release and use it with latest upstream kernel and 
+>> modules (right now we are applying required patches locally) and this 
+>> patch won't suffice for this, in-fact it won't work since the 
+>> remoteproc firmwares are already using regions beyond the 
+>> reserved-regions from this patch.
+>
+> I understand your point, currently with this patch remoteproc loading
+> will not work for some cores. However, the goal here is to standardize
+> as much as possible the memory carveout sizes, push the "demo firmware"
+> to request resources the correct way from resource table, 
 
-This patch adds the missing detection logic to prevent allocation
-failure when S2FWB is supported.
 
-Fixes: 67e4fe398513 ("iommu/arm-smmu-v3: Use S2FWB for NESTED domains")
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 2 ++
- 1 file changed, 2 insertions(+)
+It is indeed more suitable if the memory carveouts are called out in the 
+resource table of the firmware. But you will still need to reserve that 
+memory sections in the Device Tree so that Kernel does not map that 
+memory for anything else. So I am thinking how moving to resource table 
+will help solve this problem?
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 358072b4e293..c7d297ceabdb 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4405,6 +4405,8 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR3);
- 	if (FIELD_GET(IDR3_RIL, reg))
- 		smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
-+	if (FIELD_GET(IDR3_FWB, reg))
-+		smmu->features |= ARM_SMMU_FEAT_S2FWB;
- 
- 	/* IDR5 */
- 	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
--- 
-2.43.0
+Thanks,
+Beleswar
 
+> and move away
+> from this dependency and limitations that we have with our firmware. We
+> should soon be able to generate our own firmware using Zephyr, which
+> Andrew is pioneering, so with this firmware we should move to the
+> correct direction upstream. Downstream we are still using the memory
+> carveout sizes that the firmware folk want so desperately to keep, for
+> now..
+>
+> ~ Judith
+>
+>>
+>> [1]: 
+>> https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=ti-linux-6.6.y-cicd#n103
+>> [2]: https://www.ti.com/tool/PROCESSOR-SDK-AM62A
+>>
+>> Regards
+>> Devarsh
+>>
+>>>       opp-table {
+>>> @@ -741,3 +771,57 @@ dpi1_out: endpoint {
+>>>           };
+>>>       };
+>>>   };
+>>> +
+>>> +&mailbox0_cluster0 {
+>>> +    status = "okay";
+>>> +
+>>> +    mbox_r5_0: mbox-r5-0 {
+>>> +        ti,mbox-rx = <0 0 0>;
+>>> +        ti,mbox-tx = <1 0 0>;
+>>> +    };
+>>> +};
+>>> +
+>>> +&mailbox0_cluster1 {
+>>> +    status = "okay";
+>>> +
+>>> +    mbox_c7x_0: mbox-c7x-0 {
+>>> +        ti,mbox-rx = <0 0 0>;
+>>> +        ti,mbox-tx = <1 0 0>;
+>>> +    };
+>>> +};
+>>> +
+>>> +&mailbox0_cluster2 {
+>>> +    status = "okay";
+>>> +
+>>> +    mbox_mcu_r5_0: mbox-mcu-r5-0 {
+>>> +        ti,mbox-rx = <0 0 0>;
+>>> +        ti,mbox-tx = <1 0 0>;
+>>> +    };
+>>> +};
+>>> +
+>>> +&wkup_r5fss0 {
+>>> +    status = "okay";
+>>> +};
+>>> +
+>>> +&wkup_r5fss0_core0 {
+>>> +    mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
+>>> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+>>> +            <&wkup_r5fss0_core0_memory_region>;
+>>> +};
+>>> +
+>>> +&mcu_r5fss0 {
+>>> +    status = "okay";
+>>> +};
+>>> +
+>>> +&mcu_r5fss0_core0 {
+>>> +    mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
+>>> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+>>> +            <&mcu_r5fss0_core0_memory_region>;
+>>> +};
+>>> +
+>>> +&c7x_0 {
+>>> +    mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
+>>> +    memory-region = <&c7x_0_dma_memory_region>,
+>>> +            <&c7x_0_memory_region>;
+>>> +    status = "okay";
+>>> +};
+>>
+>
 
