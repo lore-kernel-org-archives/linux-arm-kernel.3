@@ -4,80 +4,196 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEF6C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 17:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01FF9C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 17:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=si+Gmb5C3HwQvhBR6hVMIXM7650dhluZHCEpLyM95Ik=; b=22GdlRpIXR2zSua1RtkLc1ZYt4
-	9q7iD2DyOJTZIz6xAyihj3vOM69FnQGel0RQ7cx25F8vpM6qzK1gYQErfxz6ad/CFDVLqZYrFzzN7
-	RluDZVbAc+npXceXjyMYxHWL+i3P4HhI+N0Ip/c8mtSKdr+i4oZOvrRCvzdw46QlogEdT6/cxoD7B
-	JHmlRNQyw4PNntWZDyGQ9XOzOWbmdySg/5mLorUPfPs0rx8Ga9lWJf6TpKRw3ouBwvg1RoB9FU7Ru
-	McFjfRrdB3ALIDxLW0sqaRCuWtXGq5zUvKGgTqF7PYPWxkicfr07fbll/RWTxMgr1v/Z6F9vKQyPF
-	+gvEatPA==;
+	bh=U7BPIeyT3cotDXj6MRVWw7szAtV/kLylvW05uYWnCe0=; b=uUn7nyxh/bpyWJArYLGO7cx/5Y
+	OMhIymMev9XL6s3QncLubFDma1E+L3KxYQmUWLATtMquoiXSWIgG+zZ0jH3zHkaLHfDTMUkrwINB6
+	GWCJr8EQY6ZdqeaboXvcAATnMW5xBTQH3NHPc+mh9dnfU1VuYb2kIRRdNUz9qbB9ifw93ofd/dHOh
+	wE9fd7X5vNKOWIu9Fq2yeYOeI2LvQ10BMeZy9JSQ0YQQGl6hKB+SfOyTcfzsjjMxY0/SbgAORAIWL
+	ckPyKuFzDbA5RHGkTn0j1Nvd1tZ/eygQZ6cs07+6zTKpp/yQomOvoGvokl+GY29N1nn+GK6J6eczE
+	ONMjSi3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2D0F-000000050fh-1Pbo;
-	Tue, 08 Apr 2025 17:44:51 +0000
+	id 1u2D5R-0000000517T-2JM9;
+	Tue, 08 Apr 2025 17:50:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2CZ2-00000004woA-11DJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Apr 2025 17:16:44 +0000
+	id 1u2CgL-00000004y3G-2SCE;
+	Tue, 08 Apr 2025 17:24:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=si+Gmb5C3HwQvhBR6hVMIXM7650dhluZHCEpLyM95Ik=; b=Rqr6Iglm7Ce3cPEEr4P2t2a3yI
-	iQy4aItxtyTJHiD8h0wOa7op7+APP+hoFM7x9qrIPB5rQ/Xbg/uq0gAUgyGZkDzzG523bujPhD7/5
-	oxj84G+lNDNxRm9gqrgUYxVGdUGPUYdWkIhNWBtLUM0Z8n/4omjxNuOmU6nle3H5YJrs50mKEe0gM
-	70EffYwhFiY+7iPhMkY/sTLX0Szk68EtZnyTAhTCouLLcqHbPQSI/QfQ+tFG3lz7MvRSF4hVLPJ4y
-	kFptRV1wyDY3o4wF9hXENUxH0mybAZODA4jbMkvWbrTF1TyNNmiJ2inP9ZFv0ZgWRLhpTk7GCM5lH
-	fOMoV31Q==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2CYy-00000008LfY-278z
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 17:16:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 960591688;
-	Tue,  8 Apr 2025 10:16:40 -0700 (PDT)
-Received: from e128066.cambridge.arm.com (e128066.cambridge.arm.com [10.1.26.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E23EA3F59E;
-	Tue,  8 Apr 2025 10:16:35 -0700 (PDT)
-From: mark.barnett@arm.com
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	irogers@google.com
-Cc: ben.gainey@arm.com,
-	deepak.surti@arm.com,
-	ak@linux.intel.com,
-	will@kernel.org,
-	james.clark@arm.com,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	adrian.hunter@intel.com,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=U7BPIeyT3cotDXj6MRVWw7szAtV/kLylvW05uYWnCe0=; b=VPwkD5altjEwIG/BspYnnvum2Z
+	f5WwQ56+g1AyV04CerHkob1i0Y8PwGK2ay24/rFAs204zK4Xf+g/F3JYTAooUZXzfx2XKwZpU0Azl
+	lSse53me+qdIz6DULOFZDb35QryuSMilRsI5IA/9T3Zy1gw8WfrbGaaIt5yUM/+d67uDom3Ajy4jC
+	EC5ORHXDJ+URJu9wym1o3LZ4xb4fZ0U+mAqW7YBjHdb0B2m4017/LwR/epME4EFs5EEmuVJIw7+Zb
+	4u4Ah4oNcKr1JVRgKgvSkPzq1fSNJO7AayhCmsHAtekr9QwZjUa1dZk05pWHWU1C1+NhFa66dBTgP
+	biCj4MYw==;
+Received: from mail-dm6nam10on20625.outbound.protection.outlook.com ([2a01:111:f403:2413::625] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2CgI-00000008M6u-1Hm6;
+	Tue, 08 Apr 2025 17:24:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t4iW8O5YtkTRKuz5fwIq2JOCdzbBFV/q+7iDQH6FbvBoxcIKgflr9KOLXDHjKTc4XhHIB7ifmT3F72HASEhPgUn6dd1hv5fmg2AsNWeHsxzww00h/2DMNVx3SeGmceC/4BthjxFsYlC4tphWT0fSCChY6kdqUdFDPUcqYfgVc1h0RkVo73ETXZw/pTBFzx+fzkRL3eZeRntVvQalp6hwsN2A8cAzmktyYs6VpqzaujbW+aARgV8AKb5s45HGK06l3Y8Qhya0yUWkDfQdvzIJjjvkxDZDpesi8wCFTc5VHjW2tdPuXzvo6iRgxq77WEZg4/UirvYbXPjOIS9NGVlpaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=U7BPIeyT3cotDXj6MRVWw7szAtV/kLylvW05uYWnCe0=;
+ b=dkZU46AL+1DNCfcVXESyOzxMFkL5IsDRrqujaSVhaOUjinRU4maCKi1YwVHthrvAnzw+3ZiuOFapLIgwtji2AbKjHWstj/J3Q2prjlTkaHhWvQ3A8so36w0+s1LfoiUfZ+nNxIVOt6A6Nwgg2UZAoL8FgdBHu9qppF7ew1EzBMaf/+qSx1XkCJ8oYY0EtdIp3gtm7QXacYc7IeouICLZST3Zy6lBKey/+NL6s/D7i6XDMcc1PZr7f52L8SCKqBvO6JqRleNa35Zo5UwLuBjBUCtcwtRuf7ddbhiBn3IooeWz+n+6rwYUgcQTpcfSMzAhDgwmy5L8pJnwSNKZcNFuaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=U7BPIeyT3cotDXj6MRVWw7szAtV/kLylvW05uYWnCe0=;
+ b=hzrLUX2lh+3E+yQuZXh8GWvpUtJB2dQu1a958tZE0cQqy0SFYkjfPD37sdi5UFsLsinNSB4mPUy34bgUCXS9MI3uwE3xgeGuyU2Cqx/yq5xMc8rUiPj8TtYHShNu8UK15JnDDO1BlTuMJoHMkkL7QUBBVgP1aGXPjaRi6l/MET05Ky/V1k31m0mQeywAo9A5CdL7bnR5AkrpXx6cns4wJrGVF0WC6hIwmHKHSZWQ6/UBR8pBKdcjY17oitMM1pxiSz0kvs1z8sw5rGGFymNEaXT26FY7tsa5QENnN4zGlpXhTCMW6rfziqumdarvg/IzljLdNwXj3PRLx8+t7Q7UgQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by IA1PR12MB6330.namprd12.prod.outlook.com (2603:10b6:208:3e4::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.33; Tue, 8 Apr
+ 2025 17:24:05 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Tue, 8 Apr 2025
+ 17:24:05 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alexandre Ghiti <alex@ghiti.fr>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	asahi@lists.linux.dev,
+	David Woodhouse <dwmw2@infradead.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Mark Barnett <mark.barnett@arm.com>
-Subject: [PATCH v4 5/5] tools/perf: Modify event parser to support hf-rand term
-Date: Tue,  8 Apr 2025 18:15:30 +0100
-Message-Id: <20250408171530.140858-6-mark.barnett@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250408171530.140858-1-mark.barnett@arm.com>
-References: <20250408171530.140858-1-mark.barnett@arm.com>
-MIME-Version: 1.0
+	linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Neal Gompa <neal@gompa.dev>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>
+Cc: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
+	Bagas Sanjaya <bagasdotme@gmail.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Joerg Roedel <jroedel@suse.de>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	patches@lists.linux.dev,
+	David Rientjes <rientjes@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: [PATCH v4 07/23] iommu/pages: De-inline the substantial functions
+Date: Tue,  8 Apr 2025 13:53:55 -0300
+Message-ID: <7-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
+In-Reply-To: <0-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
+References: 
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BL1PR13CA0078.namprd13.prod.outlook.com
+ (2603:10b6:208:2b8::23) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB6330:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4005723f-5ae5-4995-4ad5-08dd76c2298f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?N2iduw8wavf6sadVDsJOWmEKVWV11+xysB52r/3Ip8XIcYmk85h3oP7rPbrH?=
+ =?us-ascii?Q?Rh4JIunOPTyAZaLINpJUl0jxePI7hx+orjjpdCD2JqNwSCM9x7pSBjLvDDTd?=
+ =?us-ascii?Q?p857Od6TTkEGJz9Y4hsL3eXD24TFJVph77dJjceoo4E2AQQod8SoepOalmeO?=
+ =?us-ascii?Q?461Ycgs/JVoNdtioHnB8FWZFvkPp3/Tl7sb+bm740DDJ+nGXa8LW5iHHG0SA?=
+ =?us-ascii?Q?o3sqxIwzDXYg6vccm0dTvrWUrfBYxStHrhRM1BlQf2MTmLiiFpDMoGvKO01Q?=
+ =?us-ascii?Q?YSvZAduYsnyHSKegXz0gTbOW0tc6OtUnNi1mWEHXFzSjCHhP9//KLUM71St0?=
+ =?us-ascii?Q?B+bbyxXv9OxNF948XH7Xg7I770ttNvKSu6J0dOsAmsYoF1rnjEoKZH0isak1?=
+ =?us-ascii?Q?l+P4rSz+IYDugYY9o1kIhfA5NvfJx0ATKbxDbovAwRi5Nqv1dNju0HMmKwio?=
+ =?us-ascii?Q?G4cmVHjTdLYSa9xFg47Ou3zkRL6WyFmUJahMlajHNftNU14ep/Psn4iYCjlv?=
+ =?us-ascii?Q?/FBbcFVmOsfqnXEqr7DLo3VRkg1mNWb8uM/j4Hba5ygrLCJ71kkrQXNN2Z8q?=
+ =?us-ascii?Q?xBtvPWpX3m+WWjxpsJt9DJPUCsHTxyjaNdCC4XurbUoKiTsqHTqyVg2cSUKw?=
+ =?us-ascii?Q?ewXg9USIC2YH79W9aTHqZ41X/JIs/jsslKe1csqVfqcyM7k744FDtvxPWkrN?=
+ =?us-ascii?Q?tfk7nBOuQwSEGIDP/7y8JBK0NsmqnFOuKPwHZLx8tICF0fhMGmG/r+dg4nNA?=
+ =?us-ascii?Q?885uI2MwAT6s+IcnqZQlIg5vPbiHaq8flesS8vdFI3wpPzKtiX1JOsTUOkuo?=
+ =?us-ascii?Q?avVJfAmpoHHjVGkj1n+69JqxzcaIXaLTjrldg0k9fwCjxs9QjO5FxSgrHZ6K?=
+ =?us-ascii?Q?dBS6ZJr0F+eq4yrJPeSdJlqU4gpMCIvvrqM03rWpSHt7r7UsItDJHwV/wkq1?=
+ =?us-ascii?Q?FFVNPGlCdSlI2flJCaucfvUI/wwisA710cH/jC8kBH1kECJyUW8n/lJM/1Rt?=
+ =?us-ascii?Q?ce951x93u9z4ZYXcS01LDmy6AboSrUTTWrDmJ8KoR+G3a9sSXX/jU1gLCfXq?=
+ =?us-ascii?Q?S/DavW5CZEvScjyyDg1a2LUBTOKHWt4kyzLAn7dHr1zNMR1n853+AUebwlRu?=
+ =?us-ascii?Q?PF5E7S5RNgvmNZL3+IblPaLXte0YEJpE1JJ91gAXF2kRZDGqGeR2lN2hrKxS?=
+ =?us-ascii?Q?lZ/kJKITsZco+esCAk2OQn3haTU7UCNdHmNIiA3F1gKRbNRZAcHjQL0y153+?=
+ =?us-ascii?Q?ogXHaKbATlXZ5QIO4czuhIPxsqKX4qS25A2JNskfC6KTHD7rcie1DHpE4YE4?=
+ =?us-ascii?Q?dUUyc8k5ejjsoa2KAQJCT/RBqWaXzzukms7kjQm5UWshdLLmamR72OH/Qm7X?=
+ =?us-ascii?Q?JtLxJ7AhlpZxI/jrb60GzkWVtdBXzIDZiwxXgjTvIuZ3ss4czrHrRaEGdFTK?=
+ =?us-ascii?Q?UDK1/sD0BcEDMnibPryVU4/EgwUeP12nCj8e595ZZxFwCxzwzJpiYw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/rHjik2yHDjVGt9gTQrfO8sZUy8Kozps+x3T9KKSo4EBi2fybevJcNHHh6+9?=
+ =?us-ascii?Q?jVuo/fhiZJcc/Qz8JOHSQaxBgL2orNP7+ILrfpYlbr1rpJBzkh1hhADrE+Q/?=
+ =?us-ascii?Q?/NlwPoLyNYs6bSN6wOpzl3X9GDG49+p5AEZwnSOoy2O5KIKjK3LIIzzDotZb?=
+ =?us-ascii?Q?iryn9UMk5nl/jL4+p88/KYGbwyDfVFHHldTlE8xRy2cpsVOTkeXsscBFIyyn?=
+ =?us-ascii?Q?b6fYKHXpHXGXFDhnGE+2ZuWUsYr2VJvG8dFwwuc7jPF7JlEXm0ss2XYGk02j?=
+ =?us-ascii?Q?rkI4F+OVEgXxtulxUu0m52byhuvDhVdQjMnilxOw1B2X0/J5Y+4bzPsLbmmB?=
+ =?us-ascii?Q?ZKenyUIxsD09yZciq+sR3g9X0hwLmd1XpyjFfag2elg3mxpLI317GY0rEnwc?=
+ =?us-ascii?Q?2xjpNQf0vzn4w7aoWc0lUsyuIPB2tIvdXTIzZrtYSFaccxbqxdtZGVKlwnp3?=
+ =?us-ascii?Q?J7qEL5IpJi9q2T6TPyLE4F0FYaTo+fgeJaL0Mb00V4rz099e/cJLA6CTSlB6?=
+ =?us-ascii?Q?8nNTqDG2h5wVTL21IgLGZui+JqIsp7gdnEiwn59HriXK9cv3xGcuv972VQ1g?=
+ =?us-ascii?Q?JfRQXozJ3UdLiIXIaB8THpIWCJD35oWuo7orJS1vWaP+6vTl/lQRsmEflJdl?=
+ =?us-ascii?Q?UfIL/FsT7RSOqXjO6wE2JPeWbYfoSvamW8anxhyi3xB+7NBBB8PgNRQ+mv24?=
+ =?us-ascii?Q?tjLNYyo5vlycmzg7qx7UjU1FCZvQOLMMjSM40e2uTA8Fgn5qCR81q0ZixakU?=
+ =?us-ascii?Q?GFohGJgRUD9OWBzPKiKaCt1bIvF88Uf6TIkQ0R5NxAwXEZhcmLIzPw6cBICO?=
+ =?us-ascii?Q?9K2Ww3t4c54sr2b77ybOYUN+rJN3qKCq3VjCgy+hM8c/IcMmrijzNotc/UCQ?=
+ =?us-ascii?Q?WrQfm1q1aIKJdCkEOdGB5TVCdPgP/q67F7cNDsze1SWyLxcHkZd8A1hleB4T?=
+ =?us-ascii?Q?qsM1qVGQZF3s48l9Z0P2545/ykCwf5SKZLnjsQGa1X9tzvNXFP4wvn/pnJ1K?=
+ =?us-ascii?Q?cx7OoOsA7koG2YdQLUiqw2eEYqEOQW70CVb1R0Wa3DaFjgtUeswhW0+i/y4k?=
+ =?us-ascii?Q?IZf1twLHeNBLAh7nsACax7BpEjOFQjyrLZFkbs45rdeu4Eg6aOQ6E0JIfH9W?=
+ =?us-ascii?Q?srjnf3ZPfPykqS3xiQZf/75kjcR3VA+VeOvTll+v1PhqdWLX2LvnYSdQ2mS6?=
+ =?us-ascii?Q?YYw3rWWaY3W8Ok3O+zJRHo/mH556VWfKsAoxn+AHm9DXQ4grV3V46lFLPIT8?=
+ =?us-ascii?Q?FAmU350wzGyZbGiHiJEFh82KKyGeboQhDfYzn02wnjIXtIWlrWb2EQyyyNln?=
+ =?us-ascii?Q?BwCFPGXZI97/937C8Ff8Np/B0XBO/gxQLnjBzsT+qELTsorO7/nBzUW/YUpf?=
+ =?us-ascii?Q?COJGUJcgLG9SJxH44fo+5lWaFtjL20rwi6xnB/j7S/yCyDRVrutSE62Dfizf?=
+ =?us-ascii?Q?h+5Mhtiw5YdfgxdZ3blWdl5GgTNm7LVkY9m7J91T60XIDgy89rqgBofi30El?=
+ =?us-ascii?Q?Y9kL4L/CsSlQT5MOmkVwn0894/u4BeTx5RBLFGBubKgyA/0PwzXJBL4LDHZx?=
+ =?us-ascii?Q?NdT4REeN8Bq6hH0RgECzXOkxGZ8It2VbwaG4DZnK?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4005723f-5ae5-4995-4ad5-08dd76c2298f
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 17:24:05.2499
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0z24EPWdt6YYtJ1ph3IZigWh00/SA53eettlQikFAydGeGITSyFqvI2F2oOjVy1Q
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6330
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_181640_869055_A98BD149 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20250408_182414_695763_F38BFF22 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,238 +208,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ben Gainey <ben.gainey@arm.com>
+These are called in a lot of places and are not trivial. Move them to the
+core module.
 
-parse-events is modified, adding the "hf-rand" term which can be used to
-enable enable random jitter of the sample period.
+Tidy some of the comments and function arguments, fold
+__iommu_alloc_account() into its only caller, change
+__iommu_free_account() into __iommu_free_page() to remove some
+duplication.
 
-Signed-off-by: Ben Gainey <ben.gainey@arm.com>
-Signed-off-by: Mark Barnett <mark.barnett@arm.com>
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
+Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+Tested-by: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- tools/perf/tests/shell/attr/base-record           |  1 +
- tools/perf/tests/shell/attr/base-record-spe       |  1 +
- tools/perf/tests/shell/attr/base-stat             |  1 +
- tools/perf/tests/shell/attr/system-wide-dummy     |  1 +
- tools/perf/tests/shell/attr/test-record-dummy-C0  |  1 +
- .../tests/shell/attr/test-record-hf-period-rand   | 13 +++++++++++++
- tools/perf/tests/shell/lib/attr.py                |  1 +
- tools/perf/util/evsel.c                           |  1 +
- tools/perf/util/parse-events.c                    | 15 +++++++++++++++
- tools/perf/util/parse-events.h                    |  3 ++-
- tools/perf/util/parse-events.l                    |  1 +
- tools/perf/util/perf_event_attr_fprintf.c         |  1 +
- tools/perf/util/pmu.c                             |  3 ++-
- 13 files changed, 41 insertions(+), 2 deletions(-)
- create mode 100644 tools/perf/tests/shell/attr/test-record-hf-period-rand
+ drivers/iommu/Makefile      |   1 +
+ drivers/iommu/iommu-pages.c |  84 +++++++++++++++++++++++++++++
+ drivers/iommu/iommu-pages.h | 103 ++----------------------------------
+ 3 files changed, 90 insertions(+), 98 deletions(-)
+ create mode 100644 drivers/iommu/iommu-pages.c
 
-diff --git a/tools/perf/tests/shell/attr/base-record b/tools/perf/tests/shell/attr/base-record
-index 8369f505dfb2..f51a20abde2e 100644
---- a/tools/perf/tests/shell/attr/base-record
-+++ b/tools/perf/tests/shell/attr/base-record
-@@ -40,3 +40,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- hf_sample_period=0
-+hf_sample_rand=0
-diff --git a/tools/perf/tests/shell/attr/base-record-spe b/tools/perf/tests/shell/attr/base-record-spe
-index 2b4f051b6717..d8695abeb2b2 100644
---- a/tools/perf/tests/shell/attr/base-record-spe
-+++ b/tools/perf/tests/shell/attr/base-record-spe
-@@ -39,3 +39,4 @@ branch_sample_type=*
- sample_regs_user=*
- sample_stack_user=*
- hf_sample_period=0
-+hf_sample_rand=0
-diff --git a/tools/perf/tests/shell/attr/base-stat b/tools/perf/tests/shell/attr/base-stat
-index 499c44c6216c..11df6cb36b9a 100644
---- a/tools/perf/tests/shell/attr/base-stat
-+++ b/tools/perf/tests/shell/attr/base-stat
-@@ -40,3 +40,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- hf_sample_period=0
-+hf_sample_rand=0
-diff --git a/tools/perf/tests/shell/attr/system-wide-dummy b/tools/perf/tests/shell/attr/system-wide-dummy
-index 1dad060d304a..0439c81c5895 100644
---- a/tools/perf/tests/shell/attr/system-wide-dummy
-+++ b/tools/perf/tests/shell/attr/system-wide-dummy
-@@ -51,3 +51,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- hf_sample_period=0
-+hf_sample_rand=0
-diff --git a/tools/perf/tests/shell/attr/test-record-dummy-C0 b/tools/perf/tests/shell/attr/test-record-dummy-C0
-index 18f0e3766389..d9eecbd5d246 100644
---- a/tools/perf/tests/shell/attr/test-record-dummy-C0
-+++ b/tools/perf/tests/shell/attr/test-record-dummy-C0
-@@ -54,3 +54,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- hf_sample_period=0
-+hf_sample_rand=0
-diff --git a/tools/perf/tests/shell/attr/test-record-hf-period-rand b/tools/perf/tests/shell/attr/test-record-hf-period-rand
+diff --git a/drivers/iommu/Makefile b/drivers/iommu/Makefile
+index 5e5a83c6c2aae2..fe91d770abe16c 100644
+--- a/drivers/iommu/Makefile
++++ b/drivers/iommu/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ obj-y += amd/ intel/ arm/ iommufd/ riscv/
+ obj-$(CONFIG_IOMMU_API) += iommu.o
++obj-$(CONFIG_IOMMU_SUPPORT) += iommu-pages.o
+ obj-$(CONFIG_IOMMU_API) += iommu-traces.o
+ obj-$(CONFIG_IOMMU_API) += iommu-sysfs.o
+ obj-$(CONFIG_IOMMU_DEBUGFS) += iommu-debugfs.o
+diff --git a/drivers/iommu/iommu-pages.c b/drivers/iommu/iommu-pages.c
 new file mode 100644
-index 000000000000..517ff6cbc0e9
+index 00000000000000..31ff83ffaf0106
 --- /dev/null
-+++ b/tools/perf/tests/shell/attr/test-record-hf-period-rand
-@@ -0,0 +1,13 @@
-+[config]
-+command = record
-+args    = --no-bpf-event -e cycles/period=3,hf-period=2,hf-rand=7/ -- kill >/dev/null 2>&1
-+ret     = 1
-+kernel_since = 6.15
++++ b/drivers/iommu/iommu-pages.c
+@@ -0,0 +1,84 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2024, Google LLC.
++ * Pasha Tatashin <pasha.tatashin@soleen.com>
++ */
++#include "iommu-pages.h"
++#include <linux/gfp.h>
++#include <linux/mm.h>
 +
-+[event-10:base-record]
-+sample_period=3
-+hf_sample_period=2
-+hf_sample_rand=7
++/**
++ * iommu_alloc_pages_node - Allocate a zeroed page of a given order from
++ *                          specific NUMA node
++ * @nid: memory NUMA node id
++ * @gfp: buddy allocator flags
++ * @order: page order
++ *
++ * Returns the virtual address of the allocated page. The page must be
++ * freed either by calling iommu_free_pages() or via iommu_put_pages_list().
++ */
++void *iommu_alloc_pages_node(int nid, gfp_t gfp, unsigned int order)
++{
++	const unsigned long pgcnt = 1UL << order;
++	struct page *page;
 +
-+freq=0
-+sample_type=7
-diff --git a/tools/perf/tests/shell/lib/attr.py b/tools/perf/tests/shell/lib/attr.py
-index 80c99758bd86..a9600997a9ea 100644
---- a/tools/perf/tests/shell/lib/attr.py
-+++ b/tools/perf/tests/shell/lib/attr.py
-@@ -86,6 +86,7 @@ class Event(dict):
-         'sample_regs_user',
-         'sample_stack_user',
-         'hf_sample_period',
-+        'hf_sample_rand',
-     ]
++	page = alloc_pages_node(nid, gfp | __GFP_ZERO | __GFP_COMP, order);
++	if (unlikely(!page))
++		return NULL;
++
++	/*
++	 * All page allocations that should be reported to as "iommu-pagetables"
++	 * to userspace must use one of the functions below. This includes
++	 * allocations of page-tables and other per-iommu_domain configuration
++	 * structures.
++	 *
++	 * This is necessary for the proper accounting as IOMMU state can be
++	 * rather large, i.e. multiple gigabytes in size.
++	 */
++	mod_node_page_state(page_pgdat(page), NR_IOMMU_PAGES, pgcnt);
++	mod_lruvec_page_state(page, NR_SECONDARY_PAGETABLE, pgcnt);
++
++	return page_address(page);
++}
++EXPORT_SYMBOL_GPL(iommu_alloc_pages_node);
++
++static void __iommu_free_page(struct page *page)
++{
++	unsigned int order = folio_order(page_folio(page));
++	const unsigned long pgcnt = 1UL << order;
++
++	mod_node_page_state(page_pgdat(page), NR_IOMMU_PAGES, -pgcnt);
++	mod_lruvec_page_state(page, NR_SECONDARY_PAGETABLE, -pgcnt);
++	put_page(page);
++}
++
++/**
++ * iommu_free_pages - free pages
++ * @virt: virtual address of the page to be freed.
++ *
++ * The page must have have been allocated by iommu_alloc_pages_node()
++ */
++void iommu_free_pages(void *virt)
++{
++	if (!virt)
++		return;
++	__iommu_free_page(virt_to_page(virt));
++}
++EXPORT_SYMBOL_GPL(iommu_free_pages);
++
++/**
++ * iommu_put_pages_list - free a list of pages.
++ * @head: the head of the lru list to be freed.
++ *
++ * Frees a list of pages allocated by iommu_alloc_pages_node().
++ */
++void iommu_put_pages_list(struct list_head *head)
++{
++	while (!list_empty(head)) {
++		struct page *p = list_entry(head->prev, struct page, lru);
++
++		list_del(&p->lru);
++		__iommu_free_page(p);
++	}
++}
++EXPORT_SYMBOL_GPL(iommu_put_pages_list);
+diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
+index fcd17b94f7b830..e3c35aa14ad716 100644
+--- a/drivers/iommu/iommu-pages.h
++++ b/drivers/iommu/iommu-pages.h
+@@ -7,67 +7,12 @@
+ #ifndef __IOMMU_PAGES_H
+ #define __IOMMU_PAGES_H
  
-     def add(self, data):
-diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-index 6e8eb34ef957..b0a54d64f616 100644
---- a/tools/perf/util/evsel.c
-+++ b/tools/perf/util/evsel.c
-@@ -181,6 +181,7 @@ static int store_event(struct perf_event_attr *attr, pid_t pid, struct perf_cpu
- 	WRITE_ASS(sample_regs_user,   "llu");
- 	WRITE_ASS(sample_stack_user,  PRIu32);
- 	WRITE_ASS(hf_sample_period,  PRIu32);
-+	WRITE_ASS(hf_sample_rand,	"d");
+-#include <linux/vmstat.h>
+-#include <linux/gfp.h>
+-#include <linux/mm.h>
++#include <linux/types.h>
++#include <linux/topology.h>
  
- 	fclose(file);
- 	return 0;
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index c0943eb7f171..91e5a0d07d58 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -806,6 +806,7 @@ const char *parse_events__term_type_str(enum parse_events__term_type term_type)
- 		[PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE]          = "legacy-cache",
- 		[PARSE_EVENTS__TERM_TYPE_HARDWARE]              = "hardware",
- 		[PARSE_EVENTS__TERM_TYPE_HF_PERIOD]		= "hf-period",
-+		[PARSE_EVENTS__TERM_TYPE_HF_RAND]		= "hf-rand",
- 	};
- 	if ((unsigned int)term_type >= __PARSE_EVENTS__TERM_TYPE_NR)
- 		return "unknown term";
-@@ -835,6 +836,7 @@ config_term_avail(enum parse_events__term_type term_type, struct parse_events_er
- 	case PARSE_EVENTS__TERM_TYPE_METRIC_ID:
- 	case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
- 	case PARSE_EVENTS__TERM_TYPE_HF_PERIOD:
-+	case PARSE_EVENTS__TERM_TYPE_HF_RAND:
- 	case PARSE_EVENTS__TERM_TYPE_PERCORE:
- 		return true;
- 	case PARSE_EVENTS__TERM_TYPE_USER:
-@@ -993,6 +995,16 @@ do {									   \
- 		}
- 		attr->hf_sample_period = term->val.num;
- 		break;
-+	case PARSE_EVENTS__TERM_TYPE_HF_RAND:
-+		CHECK_TYPE_VAL(NUM);
-+		if ((unsigned int)term->val.num > 15) {
-+			parse_events_error__handle(err, term->err_val,
-+						strdup("expected a value between 0-15"),
-+						NULL);
-+			return -EINVAL;
-+		}
-+		attr->hf_sample_rand = (unsigned int)term->val.num;
-+		break;
- 	case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
- 	case PARSE_EVENTS__TERM_TYPE_USER:
- 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
-@@ -1121,6 +1133,7 @@ static int config_term_tracepoint(struct perf_event_attr *attr,
- 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 	case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 	case PARSE_EVENTS__TERM_TYPE_HF_PERIOD:
-+	case PARSE_EVENTS__TERM_TYPE_HF_RAND:
- 	default:
- 		if (err) {
- 			parse_events_error__handle(err, term->err_term,
-@@ -1256,6 +1269,7 @@ do {								\
- 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 		case PARSE_EVENTS__TERM_TYPE_HF_PERIOD:
-+		case PARSE_EVENTS__TERM_TYPE_HF_RAND:
- 		default:
- 			break;
- 		}
-@@ -1311,6 +1325,7 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
- 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 		case PARSE_EVENTS__TERM_TYPE_HF_PERIOD:
-+		case PARSE_EVENTS__TERM_TYPE_HF_RAND:
- 		default:
- 			break;
- 		}
-diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
-index a6c4f81d5989..4c2e950dcf81 100644
---- a/tools/perf/util/parse-events.h
-+++ b/tools/perf/util/parse-events.h
-@@ -81,7 +81,8 @@ enum parse_events__term_type {
- 	PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE,
- 	PARSE_EVENTS__TERM_TYPE_HARDWARE,
- 	PARSE_EVENTS__TERM_TYPE_HF_PERIOD,
--#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_HF_PERIOD + 1)
-+	PARSE_EVENTS__TERM_TYPE_HF_RAND,
-+#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_HF_RAND + 1)
- };
+-/*
+- * All page allocations that should be reported to as "iommu-pagetables" to
+- * userspace must use one of the functions below.  This includes allocations of
+- * page-tables and other per-iommu_domain configuration structures.
+- *
+- * This is necessary for the proper accounting as IOMMU state can be rather
+- * large, i.e. multiple gigabytes in size.
+- */
+-
+-/**
+- * __iommu_alloc_account - account for newly allocated page.
+- * @page: head struct page of the page.
+- * @order: order of the page
+- */
+-static inline void __iommu_alloc_account(struct page *page, int order)
+-{
+-	const long pgcnt = 1l << order;
+-
+-	mod_node_page_state(page_pgdat(page), NR_IOMMU_PAGES, pgcnt);
+-	mod_lruvec_page_state(page, NR_SECONDARY_PAGETABLE, pgcnt);
+-}
+-
+-/**
+- * __iommu_free_account - account a page that is about to be freed.
+- * @page: head struct page of the page.
+- * @order: order of the page
+- */
+-static inline void __iommu_free_account(struct page *page)
+-{
+-	unsigned int order = folio_order(page_folio(page));
+-	const long pgcnt = 1l << order;
+-
+-	mod_node_page_state(page_pgdat(page), NR_IOMMU_PAGES, -pgcnt);
+-	mod_lruvec_page_state(page, NR_SECONDARY_PAGETABLE, -pgcnt);
+-}
+-
+-/**
+- * iommu_alloc_pages_node - allocate a zeroed page of a given order from
+- * specific NUMA node.
+- * @nid: memory NUMA node id
+- * @gfp: buddy allocator flags
+- * @order: page order
+- *
+- * returns the virtual address of the allocated page
+- */
+-static inline void *iommu_alloc_pages_node(int nid, gfp_t gfp, int order)
+-{
+-	struct page *page =
+-		alloc_pages_node(nid, gfp | __GFP_ZERO | __GFP_COMP, order);
+-
+-	if (unlikely(!page))
+-		return NULL;
+-
+-	__iommu_alloc_account(page, order);
+-
+-	return page_address(page);
+-}
++void *iommu_alloc_pages_node(int nid, gfp_t gfp, unsigned int order);
++void iommu_free_pages(void *virt);
++void iommu_put_pages_list(struct list_head *head);
  
- struct parse_events_term {
-diff --git a/tools/perf/util/parse-events.l b/tools/perf/util/parse-events.l
-index 482321ace228..b60b5e796d3a 100644
---- a/tools/perf/util/parse-events.l
-+++ b/tools/perf/util/parse-events.l
-@@ -336,6 +336,7 @@ aux-action		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_ACTION); }
- aux-sample-size		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE); }
- metric-id		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_METRIC_ID); }
- hf-period		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_HF_PERIOD); }
-+hf-rand			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_HF_RAND); }
- cpu-cycles|cycles				{ return hw_term(yyscanner, PERF_COUNT_HW_CPU_CYCLES); }
- stalled-cycles-frontend|idle-cycles-frontend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_FRONTEND); }
- stalled-cycles-backend|idle-cycles-backend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_BACKEND); }
-diff --git a/tools/perf/util/perf_event_attr_fprintf.c b/tools/perf/util/perf_event_attr_fprintf.c
-index c93904a299af..3d769a10304b 100644
---- a/tools/perf/util/perf_event_attr_fprintf.c
-+++ b/tools/perf/util/perf_event_attr_fprintf.c
-@@ -361,6 +361,7 @@ int perf_event_attr__fprintf(FILE *fp, struct perf_event_attr *attr,
- 	PRINT_ATTRf(aux_pause, p_unsigned);
- 	PRINT_ATTRf(aux_resume, p_unsigned);
- 	PRINT_ATTRf(hf_sample_period, p_unsigned);
-+	PRINT_ATTRf(hf_sample_rand, p_unsigned);
- 
- 	return ret;
+ /**
+  * iommu_alloc_pages - allocate a zeroed page of a given order
+@@ -104,42 +49,4 @@ static inline void *iommu_alloc_page(gfp_t gfp)
+ 	return iommu_alloc_pages_node(numa_node_id(), gfp, 0);
  }
-diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index f90c59e29371..f735216e88c1 100644
---- a/tools/perf/util/pmu.c
-+++ b/tools/perf/util/pmu.c
-@@ -1429,7 +1429,7 @@ static int pmu_config_term(const struct perf_pmu *pmu,
- 			break;
- 		case PARSE_EVENTS__TERM_TYPE_USER: /* Not hardcoded. */
- 			return -EINVAL;
--		case PARSE_EVENTS__TERM_TYPE_NAME ... PARSE_EVENTS__TERM_TYPE_HF_PERIOD:
-+		case PARSE_EVENTS__TERM_TYPE_NAME ... PARSE_EVENTS__TERM_TYPE_HF_RAND:
- 			/* Skip non-config terms. */
- 			break;
- 		default:
-@@ -1805,6 +1805,7 @@ int perf_pmu__for_each_format(struct perf_pmu *pmu, void *state, pmu_format_call
- 		"aux-action=(pause|resume|start-paused)",
- 		"aux-sample-size=number",
- 		"hf-period=number",
-+		"hf-period-rand=number",
- 	};
- 	struct perf_pmu_format *format;
- 	int ret;
+ 
+-/**
+- * iommu_free_pages - free pages
+- * @virt: virtual address of the page to be freed.
+- *
+- * The page must have have been allocated by iommu_alloc_pages_node()
+- */
+-static inline void iommu_free_pages(void *virt)
+-{
+-	struct page *page;
+-
+-	if (!virt)
+-		return;
+-
+-	page = virt_to_page(virt);
+-	__iommu_free_account(page);
+-	put_page(page);
+-}
+-
+-/**
+- * iommu_put_pages_list - free a list of pages.
+- * @page: the head of the lru list to be freed.
+- *
+- * There are no locking requirement for these pages, as they are going to be
+- * put on a free list as soon as refcount reaches 0. Pages are put on this LRU
+- * list once they are removed from the IOMMU page tables. However, they can
+- * still be access through debugfs.
+- */
+-static inline void iommu_put_pages_list(struct list_head *page)
+-{
+-	while (!list_empty(page)) {
+-		struct page *p = list_entry(page->prev, struct page, lru);
+-
+-		list_del(&p->lru);
+-		__iommu_free_account(p);
+-		put_page(p);
+-	}
+-}
+-
+ #endif	/* __IOMMU_PAGES_H */
 -- 
 2.43.0
 
