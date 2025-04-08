@@ -4,57 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EAAAC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 11:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 854ACC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 11:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qy+FnMFK22tbEo44QkGDKl1rq5su70dIJ4pldSqSk/U=; b=QnVxtu5ZCtyLymHsaMdgqlRkwv
-	mSFJQr6CWwytauV5MHkD/pHFYB8SaLVNBpUjvOw3cgia3sTEb0A6GIUwO88SeLtShQkGS8AfE5rY6
-	75aUKWcgWiqWKnkea6S+x68dNFPKdxPnKSpaRBWhV4OXcAMmL08tjgjjf/fJFW/kp/0iDWwptH6N/
-	mKJsTU7khZTMDYXm91T7vZNzkx8Lx5T8YGPZGGey1lomk6VL6XicYttSKssLcUBuJXl8yQIwP8y16
-	PkAJtpATIy8ucf61P/vR9H3v2w5EpZDzAwpSJZfmZwk4GzpZzsaioIM7izsAF5EuUfr7oyemvHX9g
-	9F/0t/3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PbIXTJ8cqYyRq4DH9ZIEbVM9db9hbL/vEEhMzlT0zZk=; b=l02CL9qqX/8CbfFIU7DpUHLCMO
+	k8dxXbfg3lxSgRcH/I0pD4cZgnMFRbO/8jf0TWi/ol6JbBpe2oNAF+EDhX8hpz/3qrX5sGCwg1jJm
+	n56jQUBtZsIBmx+wX++Q7qESzwGXEiKR+8x3DT3ugSrgKomtEITzrv6ooyuZO3h5ZFNxaBHhhrzpp
+	bvzr7mc/IF8gDItLeB8yOMi4V+yuF82ID7mBE/bTcnh/zVtnsyYUeyz8qjXoA78TEdVKAthrXMsYf
+	QNWAnXVI43dVuM8SybXVorPsd5t9mu/TqJ8ic+3ImanVNnqSjLrZUtQtCrWbc8DtKIHd4OMpt5w8R
+	evyPv5Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26iA-00000003mUS-3wEy;
-	Tue, 08 Apr 2025 11:01:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u267p-00000003dzB-0Tn0
+	id 1u26jv-00000003mqe-22LF;
+	Tue, 08 Apr 2025 11:03:35 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u26JX-00000003h2Z-2xtl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 10:24:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A4B61688;
-	Tue,  8 Apr 2025 03:24:13 -0700 (PDT)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E03173F6A8;
-	Tue,  8 Apr 2025 03:24:10 -0700 (PDT)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	dan.carpenter@linaro.org,
-	Huangjie <huangjie1663@phytium.com.cn>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scmi: Fix timeout checks on polling path
-Date: Tue,  8 Apr 2025 11:24:06 +0100
-Message-Id: <174410781232.2545069.2779905512336783485.b4-ty@arm.com>
+	Tue, 08 Apr 2025 10:36:21 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 538AaF2e1150088
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 8 Apr 2025 05:36:15 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744108575;
+	bh=PbIXTJ8cqYyRq4DH9ZIEbVM9db9hbL/vEEhMzlT0zZk=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=bUmwAx3mmKlR4xs33su2aKXb5VPw48f2mLZHrtj4/Oh44BNNmwgjGIg1t507G8lQ4
+	 CiI97d2R295S3PJ1gk1/ZEitShFCRyK0+aGRC+uV2dg9utpa+6gvhyob+v+oHGpGYy
+	 uBAfc/MO/PdT8BIYNWqX2qQZrN3dq6/KkQ6wNmHA=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 538AaFK0028494
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 8 Apr 2025 05:36:15 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 8
+ Apr 2025 05:36:15 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 8 Apr 2025 05:36:14 -0500
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 538Aa6T8016171;
+	Tue, 8 Apr 2025 05:36:11 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <rogerq@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH v2 1/2] arm64: dts: ti: k3-j722s-evm: Enable "serdes_wiz0" and "serdes_wiz1"
+Date: Tue, 8 Apr 2025 16:06:05 +0530
+Message-ID: <20250408103606.3679505-2-s-vadapalli@ti.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250310175800.1444293-1-cristian.marussi@arm.com>
-References: <20250310175800.1444293-1-cristian.marussi@arm.com>
+In-Reply-To: <20250408103606.3679505-1-s-vadapalli@ti.com>
+References: <20250408103606.3679505-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_032413_198785_9B14331C 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250408_033619_839011_6EF0177F 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,25 +86,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Mar 2025 17:58:00 +0000, Cristian Marussi wrote:
-> Polling mode transactions wait for a reply busy-looping without holding a
-> spinlock, but currently the timeout checks are based only on elapsed time:
-> as a result we could hit a false positive whenever our busy-looping thread
-> is pre-empted and scheduled out for a time greater than the polling
-> timeout.
-> 
-> Change the checks at the end of the busy-loop to make sure that the polling
-> wasn't indeed successful or an out-of-order reply caused the polling to be
-> forcibly terminated.
-> 
-> [...]
+In preparation for disabling "serdes_wiz0" and "serdes_wiz1" device-tree
+nodes in the SoC file, enable them in the board file. The motivation for
+this change is that of following the existing convention of disabling
+nodes in the SoC file and only enabling the required ones in the board
+file.
 
-Applied to sudeep.holla/linux (for-next/scmi/fixes), thanks!
+Fixes: 485705df5d5f ("arm64: dts: ti: k3-j722s: Enable PCIe and USB support on J722S-EVM")
+Cc: stable@vger.kernel.org
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
 
-[1/1] firmware: arm_scmi: Fix timeout checks on polling path
-      https://git.kernel.org/sudeep.holla/c/c23c03bf1faa
---
+v1 of this patch is at:
+https://lore.kernel.org/r/20250408060636.3413856-2-s-vadapalli@ti.com/
+Changes since v1:
+- Added "Fixes" tag and updated commit message accordingly.
+
 Regards,
-Sudeep
+Siddharth.
+
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+index 2127316f36a3..0bf2e1821662 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+@@ -843,6 +843,10 @@ &serdes_ln_ctrl {
+ 		      <J722S_SERDES1_LANE0_PCIE0_LANE0>;
+ };
+ 
++&serdes_wiz0 {
++	status = "okay";
++};
++
+ &serdes0 {
+ 	status = "okay";
+ 	serdes0_usb_link: phy@0 {
+@@ -854,6 +858,10 @@ serdes0_usb_link: phy@0 {
+ 	};
+ };
+ 
++&serdes_wiz1 {
++	status = "okay";
++};
++
+ &serdes1 {
+ 	status = "okay";
+ 	serdes1_pcie_link: phy@0 {
+-- 
+2.34.1
 
 
