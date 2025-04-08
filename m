@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B66FC369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C84CC369A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1T9J7a4wvw+eQlYg0BzdhhYoh6hx3LuKNuaBwNMHByw=; b=gh8HuKSCiAP2x6ShjFg1QJSSIE
-	Rz5+e9aXjX2KQcvK7+zyaFw///wOPJRv/Ir47Oa4SvsP+za9FXCj3g+cgxuyKo58fd1Z/v836jwk2
-	Nj6qkkAkBWaMyz3GFsWDwTXKcNP9hTZcA4jc5X78TP84gKmGoOunLr9NeLOlJtzGCKOoFHYd0mwiJ
-	Cz8DpFL4/Z8ChXZAHazgXdgMSvWAbEs/xK39n76Sy1eeLcBhG9+wd0cFZNH2Js7cF08e3JfhTBZY3
-	lurPqkbqWLBF4/JiMmBVG+IsXb9z3NTq6+ILQFMDqTbOmZ8pB5hxNnnUDGMq+uMX+81oGB6IMhX99
-	PWQWfJMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VmkE7r3kBpx3SAV1pRAwjyKd53a3psEP3CCiT8kmhyc=; b=uHz9WsjR409YYCCZ/6WEpsZJEJ
+	lXsMZoD5dMgYzPmJvr7okR0vm1Oi4uBmiHx6MNvCO9/bo10VyF/FKZB76Y2DXvXmXzwAuEu49xRX6
+	1iFtFthLk8QxBx6H8OeSFRTTwOHh8qAqHTwfR7QTa3xohjAQUEdeGVAAvW1WXnmTKMJmI3/2WOQN3
+	uy6/wC2uF9HeB2Me5flP4EyLsSsAVPDWYG/R7NK3aJgSvUEfZ0UYoAH6p0zrYwC4ocLdQZP6kQu+l
+	1cjdl+mlgeNE+icgLrry2myZdv/TZOL6pXuGMsZP7Bt1a+OwFPXwPYWmYi5jB3Jhs7XbJt0jRNOFe
+	GCLM+6pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2C4Q-00000004qri-2Otr;
-	Tue, 08 Apr 2025 16:45:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u2C7G-00000004rEv-3sQI;
+	Tue, 08 Apr 2025 16:48:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2C2d-00000004qZq-1tZD
+	id 1u2C5V-00000004r3z-17MW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 16:43:17 +0000
+	Tue, 08 Apr 2025 16:46:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B7BA65C0599;
-	Tue,  8 Apr 2025 16:40:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E62F3C4CEE9;
-	Tue,  8 Apr 2025 16:43:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 964D65C04B9;
+	Tue,  8 Apr 2025 16:43:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B965C4CEE5;
+	Tue,  8 Apr 2025 16:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744130594;
-	bh=6euOao2eAtJ0Z0zrGfX9QrQRF5t21fg8cXwT3RaDtnA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Ca7Fs8XkQuFb/FKXa9ESOVTGRnOxXszAt9veA7MdGHW4kgZxhe59XHkEaq+8kw3ll
-	 pXNR/byP/mEmOPyTEl6SBuQ3om/gkmXVFEKFQ/ns+SpNY29osxxcVDwCRiGIb/EDq3
-	 6XDeNSatxaE2mCbe97AoV6TY4rs61CeUAXcvm0iCC8+THYKhaRaYBBMwCeGfhXJimI
-	 MKjBli7k+OIDjYp3JoM5EYEoUKPYHP5Q44O9BrqvUqmxKT2TZ6essWe7I8dRlivnWP
-	 8MNdh2lrZeMQ3V5zaOBBZHNcIswbyWAPWElPGzwEhT77spADk8JLKvGeLAYXulGEza
-	 MR7kTABOGDVJA==
-From: Mark Brown <broonie@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- christophe.kerello@foss.st.com, linux-spi@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250324-upstream_ospi_required_resets-v2-0-85a48afcedec@foss.st.com>
-References: <20250324-upstream_ospi_required_resets-v2-0-85a48afcedec@foss.st.com>
-Subject: Re: [PATCH v2 0/2] spi: spi-stm32-ospi: dt-bindings fixes
-Message-Id: <174413059164.2217856.1996505992127496471.b4-ty@kernel.org>
-Date: Tue, 08 Apr 2025 17:43:11 +0100
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+	s=k20201202; t=1744130772;
+	bh=y4Hqk7RHiAYWnIB3Uz5J2+6PZDT7++zFv2jNYoLEenY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DUjOR1gPJl0ApZpB/E3373YoIV46OrU6cPFDDiW/l0F6x+bHvm5eQDURxTLou+4c3
+	 3yTBK/zyqVIhQA2YvV3bS2ZsgR6PgOqVjbwf3YK0KMN525zzQVUogeYmafZ0E20/OS
+	 pHy8CEgkFAulpaAgESXJV/jYZL5hLjUnATbmorU6USCxP7EpTyQm8qPndBkUektB1g
+	 Hr5dqoxcWuDTH6hFdlKNUm64U96rUn+IQB9CsLK3dtqsL6tFydy79icXhCh1tEokeQ
+	 uhJHGXizHmp+7/j/xSdceKL19YXdEqEeYN2E45L3qSEMNxZftRbIffewIB1sIIrXSW
+	 LfpV46f0oYjag==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u2C5R-003YhG-TM;
+	Tue, 08 Apr 2025 17:46:10 +0100
+Date: Tue, 08 Apr 2025 17:46:09 +0100
+Message-ID: <86r022lhym.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: <robh@kernel.org>,
+	<krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>,
+	<mcoquelin.stm32@gmail.com>,
+	<alexandre.torgue@foss.st.com>,
+	<devicetree@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] arm64: dts: st: Use 128kB size for aliased GIC400 register access
+In-Reply-To: <20250407084028.2072504-1-christian.bruel@foss.st.com>
+References: <20250407084028.2072504-1-christian.bruel@foss.st.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: christian.bruel@foss.st.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_094315_536863_24281B3E 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20250408_094613_362970_A5F5349D 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,40 +90,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Mar 2025 10:40:12 +0100, Patrice Chotard wrote:
-> Make "resets" property mandatory.
-> Update spi-stm32-ospi driver and dt-bindings accordingly.
+On Mon, 07 Apr 2025 09:40:28 +0100,
+Christian Bruel <christian.bruel@foss.st.com> wrote:
 > 
+> Adjust the size of 8kB GIC regions to 128kB so that each 4kB is mapped
+> to 64kB. The offset is then adjusted in the irq-gic driver.
+
+nit: mapped *16 times* over a 64kB region.
+
 > 
+> see commit 12e14066f4835 ("irqchip/GIC: Add workaround for aliased GIC400")
+> 
+> Fixes: 5d30d03aaf785 ("arm64: dts: st: introduce stm32mp25 SoCs family")
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> ---
+>  arch/arm64/boot/dts/st/stm32mp251.dtsi | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> index 379e290313dc..87110f91e489 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> @@ -119,9 +119,9 @@ intc: interrupt-controller@4ac00000 {
+>  		#interrupt-cells = <3>;
+>  		interrupt-controller;
+>  		reg = <0x0 0x4ac10000 0x0 0x1000>,
+> -		      <0x0 0x4ac20000 0x0 0x2000>,
+> -		      <0x0 0x4ac40000 0x0 0x2000>,
+> -		      <0x0 0x4ac60000 0x0 0x2000>;
+> +		      <0x0 0x4ac20000 0x0 0x20000>,
+> +		      <0x0 0x4ac40000 0x0 0x20000>,
+> +		      <0x0 0x4ac60000 0x0 0x20000>;
+>  	};
+>  
+>  	psci {
 
-Applied to
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+	M.
 
-Thanks!
-
-[1/2] spi: dt-bindings: st,stm32mp25-ospi: Make "resets" a required property
-      commit: d58b4eb7c03cabb10d4eebc89d7596e06376e54d
-[2/2] spi: spi-stm32-ospi: Make "resets" a required property
-      commit: 69e3433fa5e24edc94e94b4f34e3dbb754bdedbf
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-- 
+Without deviation from the norm, progress is not possible.
 
