@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CBDC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 11:50:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4F8C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 11:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FeMTCqHqBiJL0RSMo9jBoKngEZeiJjMrmRS17Nt6wEE=; b=cWY9SkYTrzDqYFCY8B8FXh8lXV
-	wMddYICsBiut2Cvk9kRwHYiwfrCgQ98KQT0VQX8P3bouTODRmaH4MtN0n6VCpt4wOarxP59oDtl79
-	tH+2XTjr7z8GsbZJd3WlzQmy0zWmB1Pau6kysbFVUxXRjt0NvQDe4ltxtq72/h1jA3oEdoSBzS1D6
-	mSYdztvTtMeGtLci9vgI/nYWTHkMzS+0y+X7cewNyfA2XzRVpV19dHrj7OCUFnT+oaPqdsK2UnCNy
-	BHYiHxCaytE4MYr6Inpte4cPDliP3hscQPOYhlRHl0nHPnkELTlGzq3t8yAAPKtDkfR65mYedd17k
-	A3eajjvA==;
+	bh=irKK2bAr8EMeminD6huGLx2duPwb4l64CYId8gZhN1k=; b=EyX7suSnR7CE+XclmCRq6RscZd
+	3BCKy7ad7nUo2+E+6a8oGod2waJYN5gG6XK2EX6qPdvEcDM6mPMEWyBc23BW3zM150VCQEzBrzdZv
+	lqWe2ezURgdA9lyTox9LaDhWjcoCUweeG94OM82atcfGmWZDR5cABMtM1Q4QD8LtL57qsGM+4cL8A
+	4bIj8JnGj71BYCBYnTfv8muznssxjamWIZM990QXeQTmDWQX8iJ/C33A6IaBwk78wSWz4WLC5IVN6
+	d3b1hkqmfNL9c1rqVGtVj2FW8MjeKK8eVh10wuxQkOrwfINJrXlME6dXEcTN4d2Z5rl0iFFxx3bcz
+	fwQLj35A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u27Sq-00000003tmg-3Hhx;
-	Tue, 08 Apr 2025 11:50:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u27Ua-00000003u1R-1uWO;
+	Tue, 08 Apr 2025 11:51:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26ZM-00000003kX7-249c
+	id 1u26ZM-00000003kXB-3IZA
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 08 Apr 2025 10:52:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 069C3614AB;
+	by tor.source.kernel.org (Postfix) with ESMTP id 4DC48614B4;
 	Tue,  8 Apr 2025 10:52:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88BA8C4CEE7;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1F77C4CEEE;
 	Tue,  8 Apr 2025 10:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1744109559;
-	bh=ayufPG04JUVcNxf6n2DEYwXazk6eodXAbR7FKt08Fag=;
+	bh=8+XdFyrg3jdFCFbcepfTStu3SnK+HZn4Io5Q3v/8QsQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NpfLFI1VcRweVxd3V4zAUvt1pGod8YpOLRnCBhMuezhmd5R/jhW4DgreGMBv1ZyGH
-	 toz1eIuKwQfVeOcHtlJcDFd8jPrVeOuQRXl+rAECPV1hGb4lPJL5eg4ov4gg/J36Cy
-	 TRQozJDwyfNjPsADO8+Im+50ek06BzQwfL+3KJRU5jnbdlaYiruWSTAKRqBUVDWLXQ
-	 9j4gmB6icgP1MjZM/nN2fKi5Hz1oHDQjzx0rjg3n0alqu9vAfYj3UGHf20oKGVKH2o
-	 PhnWTOdVYDvD1ADQd15q2FoCei1CIRJA77tCsBhX0Cpc0AkF7VxS9HwAa4fNXkGblK
-	 2Ix86VBrOYOFw==
+	b=prWNdZwGLMmLoaEiVn3nCmRUDVoQH2jUYhlgxpkx/pNHurzvqlCdOHgSHrTNvuyCj
+	 qbqjUtz6WTO/+xZOcR6P0Zor83uDJdVR9GAZ17dOHKAaYNEbM4fKJgB0f8ve8dumrA
+	 b51T9n7HpYXcNQEysPoBLvx6ulhBkEtCCn34VJdr0uFkt4V9biYfXA52EFcFfrw5Rb
+	 49i9Pkjc+BDCt8DhAdE+oHBjkxZxYFofyQ2UJ+UmJoBT8uu7AjYuEQxq9By+yaxn2U
+	 gk+LpHdw80PLpxVeUlx5o6ThirvBvIdJao0qs9Hpjj8b07+thJNPGvqfggOI7Sr2e6
+	 YFkfuk+esB3AQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u26ZJ-003QX2-Le;
-	Tue, 08 Apr 2025 11:52:37 +0100
+	id 1u26ZK-003QX2-0c;
+	Tue, 08 Apr 2025 11:52:38 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -57,9 +57,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v2 03/17] KVM: arm64: nv: Extract translation helper from the AT code
-Date: Tue,  8 Apr 2025 11:52:11 +0100
-Message-Id: <20250408105225.4002637-4-maz@kernel.org>
+Subject: [PATCH v2 05/17] KVM: arm64: nv: Move TLBI range decoding to a helper
+Date: Tue,  8 Apr 2025 11:52:13 +0100
+Message-Id: <20250408105225.4002637-6-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250408105225.4002637-1-maz@kernel.org>
 References: <20250408105225.4002637-1-maz@kernel.org>
@@ -83,225 +83,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The address translation infrastructure is currently pretty tied to
-the AT emulation.
-
-However, we also need to features that require the use of VAs, such
-as VNCR_EL2 (and maybe one of these days SPE), meaning that we need
-a slightly more generic infrastructure.
-
-Start this by introducing a new helper (__kvm_translate_va()) that
-performs a S1 walk for a given translation regime, EL and PAN
-settings.
+As we are about to expand out TLB invalidation capabilities to support
+recursive virtualisation, move the decoding of a TLBI by range into
+a helper that returns the base, the range and the ASID.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_nested.h | 54 ++++++++++++++++
- arch/arm64/kvm/at.c                 | 96 +++++++++++------------------
- 2 files changed, 91 insertions(+), 59 deletions(-)
+ arch/arm64/include/asm/kvm_nested.h | 32 +++++++++++++++++++++++++++++
+ arch/arm64/kvm/sys_regs.c           | 24 ++--------------------
+ 2 files changed, 34 insertions(+), 22 deletions(-)
 
 diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 692f403c1896e..c8a779b393c28 100644
+index 4ba3780cb7806..9d56fd946e5ef 100644
 --- a/arch/arm64/include/asm/kvm_nested.h
 +++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -245,4 +245,58 @@ static inline unsigned int ps_to_output_size(unsigned int ps)
- 	}
- }
+@@ -231,6 +231,38 @@ static inline u64 kvm_encode_nested_level(struct kvm_s2_trans *trans)
+ 		shift;							\
+ 	})
  
-+enum trans_regime {
-+	TR_EL10,
-+	TR_EL20,
-+	TR_EL2,
-+};
-+
-+struct s1_walk_info {
-+	u64	     		baddr;
-+	enum trans_regime	regime;
-+	unsigned int		max_oa_bits;
-+	unsigned int		pgshift;
-+	unsigned int		txsz;
-+	int 	     		sl;
-+	bool			as_el0;
-+	bool	     		hpd;
-+	bool			e0poe;
-+	bool			poe;
-+	bool			pan;
-+	bool	     		be;
-+	bool	     		s2;
-+};
-+
-+struct s1_walk_result {
-+	union {
-+		struct {
-+			u64	desc;
-+			u64	pa;
-+			s8	level;
-+			u8	APTable;
-+			bool	UXNTable;
-+			bool	PXNTable;
-+			bool	uwxn;
-+			bool	uov;
-+			bool	ur;
-+			bool	uw;
-+			bool	ux;
-+			bool	pwxn;
-+			bool	pov;
-+			bool	pr;
-+			bool	pw;
-+			bool	px;
-+		};
-+		struct {
-+			u8	fst;
-+			bool	ptw;
-+			bool	s2;
-+		};
-+	};
-+	bool	failed;
-+};
-+
-+int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
-+		       struct s1_walk_result *wr, u64 va);
-+
- #endif /* __ARM64_KVM_NESTED_H */
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index f74a66ce3064b..6e6a8fa054e15 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -10,56 +10,6 @@
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
- 
--enum trans_regime {
--	TR_EL10,
--	TR_EL20,
--	TR_EL2,
--};
--
--struct s1_walk_info {
--	u64	     		baddr;
--	enum trans_regime	regime;
--	unsigned int		max_oa_bits;
--	unsigned int		pgshift;
--	unsigned int		txsz;
--	int 	     		sl;
--	bool	     		hpd;
--	bool			e0poe;
--	bool			poe;
--	bool			pan;
--	bool	     		be;
--	bool	     		s2;
--};
--
--struct s1_walk_result {
--	union {
--		struct {
--			u64	desc;
--			u64	pa;
--			s8	level;
--			u8	APTable;
--			bool	UXNTable;
--			bool	PXNTable;
--			bool	uwxn;
--			bool	uov;
--			bool	ur;
--			bool	uw;
--			bool	ux;
--			bool	pwxn;
--			bool	pov;
--			bool	pr;
--			bool	pw;
--			bool	px;
--		};
--		struct {
--			u8	fst;
--			bool	ptw;
--			bool	s2;
--		};
--	};
--	bool	failed;
--};
--
- static void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool ptw, bool s2)
- {
- 	wr->fst		= fst;
-@@ -145,20 +95,15 @@ static void compute_s1poe(struct kvm_vcpu *vcpu, struct s1_walk_info *wi)
- 	}
- }
- 
--static int setup_s1_walk(struct kvm_vcpu *vcpu, u32 op, struct s1_walk_info *wi,
-+static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 			 struct s1_walk_result *wr, u64 va)
- {
- 	u64 hcr, sctlr, tcr, tg, ps, ia_bits, ttbr;
- 	unsigned int stride, x;
--	bool va55, tbi, lva, as_el0;
-+	bool va55, tbi, lva;
- 
- 	hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
- 
--	wi->regime = compute_translation_regime(vcpu, op);
--	as_el0 = (op == OP_AT_S1E0R || op == OP_AT_S1E0W);
--	wi->pan = (op == OP_AT_S1E1RP || op == OP_AT_S1E1WP) &&
--		  (*vcpu_cpsr(vcpu) & PSR_PAN_BIT);
--
- 	va55 = va & BIT(55);
- 
- 	if (wi->regime == TR_EL2 && va55)
-@@ -319,7 +264,7 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, u32 op, struct s1_walk_info *wi,
- 
- 	/* R_BNDVG and following statements */
- 	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, E0PD, IMP) &&
--	    as_el0 && (tcr & (va55 ? TCR_E0PD1 : TCR_E0PD0)))
-+	    wi->as_el0 && (tcr & (va55 ? TCR_E0PD1 : TCR_E0PD0)))
- 		goto transfault_l0;
- 
- 	/* AArch64.S1StartLevel() */
-@@ -1155,7 +1100,12 @@ static u64 handle_at_slow(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
- 	bool perm_fail = false;
- 	int ret, idx;
- 
--	ret = setup_s1_walk(vcpu, op, &wi, &wr, vaddr);
-+	wi.regime = compute_translation_regime(vcpu, op);
-+	wi.as_el0 = (op == OP_AT_S1E0R || op == OP_AT_S1E0W);
-+	wi.pan = (op == OP_AT_S1E1RP || op == OP_AT_S1E1WP) &&
-+		 (*vcpu_cpsr(vcpu) & PSR_PAN_BIT);
-+
-+	ret = setup_s1_walk(vcpu, &wi, &wr, vaddr);
- 	if (ret)
- 		goto compute_par;
- 
-@@ -1444,3 +1394,31 @@ void __kvm_at_s12(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
- 	par = compute_par_s12(vcpu, par, &out);
- 	vcpu_write_sys_reg(vcpu, par, PAR_EL1);
- }
-+
-+/*
-+ * Translate a VA for a given EL in a given translation regime, with
-+ * or without PAN. This requires wi->{regime, as_el0, pan} to be
-+ * set. The rest of the wi and wr should be 0-initialised.
-+ */
-+int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
-+		       struct s1_walk_result *wr, u64 va)
++static inline u64 decode_range_tlbi(u64 val, u64 *range, u16 *asid)
 +{
-+	int ret;
++	u64 base, tg, num, scale;
++	int shift;
 +
-+	ret = setup_s1_walk(vcpu, wi, wr, va);
-+	if (ret)
-+		return ret;
++	tg	= FIELD_GET(GENMASK(47, 46), val);
 +
-+	if (wr->level == S1_MMU_DISABLED) {
-+		wr->ur = wr->uw = wr->ux = true;
-+		wr->pr = wr->pw = wr->px = true;
-+	} else {
-+		ret = walk_s1(vcpu, wi, wr, va);
-+		if (ret)
-+			return ret;
-+
-+		compute_s1_permissions(vcpu, wi, wr);
++	switch(tg) {
++	case 1:
++		shift = 12;
++		break;
++	case 2:
++		shift = 14;
++		break;
++	case 3:
++	default:		/* IMPDEF: handle tg==0 as 64k */
++		shift = 16;
++		break;
 +	}
 +
-+	return 0;
++	base	= (val & GENMASK(36, 0)) << shift;
++
++	if (asid)
++		*asid = FIELD_GET(TLBIR_ASID_MASK, val);
++
++	scale	= FIELD_GET(GENMASK(45, 44), val);
++	num	= FIELD_GET(GENMASK(43, 39), val);
++	*range	= __TLBI_RANGE_PAGES(num, scale) << shift;
++
++	return base;
 +}
++
+ static inline unsigned int ps_to_output_size(unsigned int ps)
+ {
+ 	switch (ps) {
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 005ad28f73068..26e02e1723911 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -3546,8 +3546,7 @@ static bool handle_ripas2e1is(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ {
+ 	u32 sys_encoding = sys_insn(p->Op0, p->Op1, p->CRn, p->CRm, p->Op2);
+ 	u64 vttbr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
+-	u64 base, range, tg, num, scale;
+-	int shift;
++	u64 base, range;
+ 
+ 	if (!kvm_supported_tlbi_ipas2_op(vcpu, sys_encoding))
+ 		return undef_access(vcpu, p, r);
+@@ -3557,26 +3556,7 @@ static bool handle_ripas2e1is(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	 * of the guest's S2 (different base granule size, for example), we
+ 	 * decide to ignore TTL and only use the described range.
+ 	 */
+-	tg	= FIELD_GET(GENMASK(47, 46), p->regval);
+-	scale	= FIELD_GET(GENMASK(45, 44), p->regval);
+-	num	= FIELD_GET(GENMASK(43, 39), p->regval);
+-	base	= p->regval & GENMASK(36, 0);
+-
+-	switch(tg) {
+-	case 1:
+-		shift = 12;
+-		break;
+-	case 2:
+-		shift = 14;
+-		break;
+-	case 3:
+-	default:		/* IMPDEF: handle tg==0 as 64k */
+-		shift = 16;
+-		break;
+-	}
+-
+-	base <<= shift;
+-	range = __TLBI_RANGE_PAGES(num, scale) << shift;
++	base = decode_range_tlbi(p->regval, &range, NULL);
+ 
+ 	kvm_s2_mmu_iterate_by_vmid(vcpu->kvm, get_vmid(vttbr),
+ 				   &(union tlbi_info) {
 -- 
 2.39.2
 
