@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15985C369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158EDC369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ZEE1HIlrq2TWoYjj5I6R5nX+0NpgWxdYlUEb2ydSfQ=; b=kgjvzjoZGPAbpgTCtGna66AJlI
-	liIVAgHsixqbn+cGPhUxYpAT/8K/4kiLpyTL8AODXVdvz4NwKWIDiynsR1TB+ZGOIOdthvGx7EcRj
-	sijuOn+U/BWPRzq/J65JyCK16H5rY9spqKKJvP6wAM09XnXgZEpxzBLA7NuYHRoadMqxjWZRxFxTg
-	THIU31o272/jvcdKQtmbmqqJOarrn1usr7yIyoYYhAvpXEZt3kIAI+/xo90R1x3oPECsanJ+OvGzn
-	f427WJz612i3pSZzM2Fcdi2jiAs7wqhgUqP88i2UqVWLqmnpNJl4m/khHb/bqn5goTqMuZCU/ex+w
-	S7+jnrwg==;
+	bh=9zxld5MK5nl7RVPnOXXCg5A1OmUF2muw/uPgyMfoYRo=; b=sQMh1nJN5IWNWVkewzCm1j5rZL
+	eZ8U52KxrH0KMZ9JLltU3NdNprNx8v6zIzNDqF2ziIwBsrQQrMNpVIuScEX5TUpQXfoagt0xk6Nt1
+	cvO4HCaV3J9sEMJThcPkeoaghcbtAFkTBQDKBEYaAntlXhjEBLnMJ6AMMQ00HBJkVgnHOF5b4u4Pt
+	EPPpvixkj919qjF3S+wy9GMoA372yzGlgkjOt5SrVBlnnqtL9OJPDABsFyRpowH/9bQ29SEYbbv8k
+	b1VAd58xUptKwQgWsfHkMjCRG5C4DeSWSeqtn66tZumPHGnl5FOSIDFbim7XGmBCS18U8jeGVjw9f
+	eFjCDdkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28lq-0000000463b-0twE;
-	Tue, 08 Apr 2025 13:13:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u28lk-000000045yg-1ary;
+	Tue, 08 Apr 2025 13:13:36 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26ZN-00000003kY1-18Cb
+	id 1u26YP-00000003kIh-2Urx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 10:52:42 +0000
+	Tue, 08 Apr 2025 10:51:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A77285C5C61;
-	Tue,  8 Apr 2025 10:50:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 649CFC4CEEA;
-	Tue,  8 Apr 2025 10:52:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 454CCA4391D;
+	Tue,  8 Apr 2025 10:46:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96949C4CEE5;
+	Tue,  8 Apr 2025 10:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744109560;
-	bh=KBhsrJoJfcYkIbZFWr08lWCN7bMdM7TJIJWYw74z9JY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=N2WFVl1psCGv86ov5NTGvvMCl7jzTdXn9TSbGfnwTdl4JOajHmV1ElQKlIKX8luc9
-	 hFn2pWGad0LuuY9YHFWOQ9JZkB4vcMMGbHgRZ43gl+kYYsrn8DGfAyTyYEduIY/vll
-	 gbrvhydC5zkiDemKd5SgefQwmKpJ0Ngf4iJwKX3DmGoG+rJL1PoCr5oyQkuSqSn8AV
-	 ZrC7c+9MLCC0Ec0c4K8zthZ993+uoV4/i83biamTKqro30ZfwY4kfKLjHbaFf6+45j
-	 EnyeEgCShTqCFqDl8FC5m4mrWukA5Wk2APx4Xd7GrnB5tgMfkxWeF90drCZxIM4JXM
-	 tdv+Spahdrv7w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u26ZK-003QX2-Jm;
-	Tue, 08 Apr 2025 11:52:38 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v2 08/17] KVM: arm64: nv: Add userspace and guest handling of VNCR_EL2
-Date: Tue,  8 Apr 2025 11:52:16 +0100
-Message-Id: <20250408105225.4002637-9-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250408105225.4002637-1-maz@kernel.org>
-References: <20250408105225.4002637-1-maz@kernel.org>
+	s=k20201202; t=1744109500;
+	bh=9zWp7WGj091+ZG2FSlP0T7J3sn+1tw+UEtNEfbmUjxQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=nqlpQpc1SEMWis8VXKD3OnJH1X5KYSi+9N9gfPHksaZ6ekQ2RN6rNygsuiZpMx5Bb
+	 SX/sGi0Os0mb8ZDQC3ickjOESKwD4P5gzt98oAbOovsDGLK11Z4WnlS/l4Z9Aa8dTU
+	 vqK7cx686WtbvVdn4cEjU36P44gVnD8ThbKS7w63kBc7qUcqUDbA/SwbKliM79DsWQ
+	 bHHMFgS2HeNh1hi1FH1fR8Oa4Q+ZyGYQQgOI9oO2aIWGaHWP/IdPMe814VFjMcnfj4
+	 Aw+P09xsa3MKaZw9yq1sQoLh8aHPjC4KTo/GPWaB2j+g/ZIBXY3ZANsmfrjbEo+Ph0
+	 /QnSwZbk7PuwA==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Date: Tue, 08 Apr 2025 12:50:13 +0200
+Subject: [PATCH 14/24] arm64/sysreg: Add ICH_HFGITR_EL2
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250408-gicv5-host-v1-14-1f26db465f8d@kernel.org>
+References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
+In-Reply-To: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Sascha Bischoff <sascha.bischoff@arm.com>, 
+ Timothy Hayes <timothy.hayes@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_035241_399431_CC897EF3 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20250408_035141_701165_9FF382AD 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,101 +78,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Plug VNCR_EL2 in the vcpu_sysreg enum, define its RES0/RES1 bits,
-and make it accessible to userspace when the VM is configured to
-support FEAT_NV2.
+Add ICH_HFGITR_EL2 register description to sysreg.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h |  2 ++
- arch/arm64/kvm/nested.c           |  3 +++
- arch/arm64/kvm/sys_regs.c         | 24 +++++++++++++++---------
- 3 files changed, 20 insertions(+), 9 deletions(-)
+ arch/arm64/tools/sysreg | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index c762919a2072d..f5ac454dcf66a 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -562,6 +562,8 @@ enum vcpu_sysreg {
- 	VNCR(HDFGWTR_EL2),
- 	VNCR(HAFGRTR_EL2),
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 1b519e35000be328acfe26d51e098059f9cf9ef2..5af0dea6e775ea680686dbe4bc836b5f5b69fbc7 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -3616,6 +3616,21 @@ Res0	1
+ Field	0	ICC_APR_EL1
+ EndSysreg
  
-+	VNCR(VNCR_EL2),
++Sysreg	ICH_HFGITR_EL2	3	4	12	9	7
++Res0	63:11
++Field	10	GICRCDNMIA
++Field	9	GICRCDIA
++Field	8	GICCDDI
++Field	7	GICCDEOI
++Field	6	GICCDHM
++Field	5	GICCRDRCFG
++Field	4	GICCDPEND
++Field	3	GICCDAFF
++Field	2	GICCDPRI
++Field	1	GICCDDIS
++Field	0	GICCDEN
++EndSysreg
 +
- 	VNCR(CNTVOFF_EL2),
- 	VNCR(CNTV_CVAL_EL0),
- 	VNCR(CNTV_CTL_EL0),
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index fb09598b78e3c..810aa668e1f3a 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1399,6 +1399,9 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
- 	res0 |= ICH_HCR_EL2_DVIM | ICH_HCR_EL2_vSGIEOICount;
- 	set_sysreg_masks(kvm, ICH_HCR_EL2, res0, res1);
- 
-+	/* VNCR_EL2 */
-+	set_sysreg_masks(kvm, VNCR_EL2, VNCR_EL2_RES0, VNCR_EL2_RES1);
-+
- out:
- 	for (enum vcpu_sysreg sr = __SANITISED_REG_START__; sr < NR_SYS_REGS; sr++)
- 		(void)__vcpu_sys_reg(vcpu, sr);
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 26e02e1723911..204470283ccc3 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2281,15 +2281,6 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
- 			"trap of EL2 register redirected to EL1");
- }
- 
--#define EL2_REG(name, acc, rst, v) {		\
--	SYS_DESC(SYS_##name),			\
--	.access = acc,				\
--	.reset = rst,				\
--	.reg = name,				\
--	.visibility = el2_visibility,		\
--	.val = v,				\
--}
--
- #define EL2_REG_FILTERED(name, acc, rst, v, filter) {	\
- 	SYS_DESC(SYS_##name),			\
- 	.access = acc,				\
-@@ -2299,6 +2290,9 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
- 	.val = v,				\
- }
- 
-+#define EL2_REG(name, acc, rst, v)			\
-+	EL2_REG_FILTERED(name, acc, rst, v, el2_visibility)
-+
- #define EL2_REG_VNCR(name, rst, v)	EL2_REG(name, bad_vncr_trap, rst, v)
- #define EL2_REG_REDIR(name, rst, v)	EL2_REG(name, bad_redir_trap, rst, v)
- 
-@@ -2446,6 +2440,16 @@ static unsigned int sve_el2_visibility(const struct kvm_vcpu *vcpu,
- 	return __el2_visibility(vcpu, rd, sve_visibility);
- }
- 
-+static unsigned int vncr_el2_visibility(const struct kvm_vcpu *vcpu,
-+					const struct sys_reg_desc *rd)
-+{
-+	if (el2_visibility(vcpu, rd) == 0 &&
-+	    kvm_has_feat(vcpu->kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
-+		return 0;
-+
-+	return REG_HIDDEN;
-+}
-+
- static bool access_zcr_el2(struct kvm_vcpu *vcpu,
- 			   struct sys_reg_params *p,
- 			   const struct sys_reg_desc *r)
-@@ -3263,6 +3267,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 			 tcr2_el2_visibility),
- 	EL2_REG_VNCR(VTTBR_EL2, reset_val, 0),
- 	EL2_REG_VNCR(VTCR_EL2, reset_val, 0),
-+	EL2_REG_FILTERED(VNCR_EL2, bad_vncr_trap, reset_val, 0,
-+			 vncr_el2_visibility),
- 
- 	{ SYS_DESC(SYS_DACR32_EL2), undef_access, reset_unknown, DACR32_EL2 },
- 	EL2_REG_VNCR(HDFGRTR_EL2, reset_val, 0),
+ Sysreg	ICH_HCR_EL2	3	4	12	11	0
+ Res0	63:32
+ Field	31:27	EOIcount
+
 -- 
-2.39.2
+2.48.0
 
 
