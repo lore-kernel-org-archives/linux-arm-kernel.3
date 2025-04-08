@@ -4,94 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B20FC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 19:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F6EC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 19:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26BZYOZea4bfw7CNCFKawdkyJnG29aqqnfgcKzudge0=; b=sIG3y3DruUq2SsW4jZ18algBWO
-	q8Na2MWee9WkgVXjZvfdRDjtDGcKaV0bM3V6Pawim+1o8aHKVE1kdaBGKVpy4f5uSC7erDAsjZKbb
-	5+lLoMJxtg1u9oG6hktNYbanOAfLUHdL9XxjaSwgy4LWKK4ztv2JZZBQP/mvvYpHnjMkAB3w5Q3vO
-	4ac278v7PqCxbFuYaQKUHAGNlB0RCEgN7hnj/MbZp/VvpfPz5jlOzWCqLhzdPWl9vn14fl4kKgAUL
-	51B9F94syXqsEtcYKugAvyidhclS90MltlY7rEYlFGgicQ4sjMbSfaM2E5QwWi1CFcEOYy9OxTLTf
-	nKfAd10g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k9yTtoxH/xWKG6IZlbraRRY+Xrel+M2msfAmxrJCSPU=; b=kTR+ZBnP8H4/TzuLhn9FJR0PWK
+	ybm1Eg66e1/aGrcUe4nMWCIg0F8abT6UPA9ofar9GOafU1qPtfn6+uwDGhKC1gWjYmwYBY/QXthvu
+	OO5RJj9hjQouZBXWIqbCF7JwJAvT/fRbmyTLTD5Pl+b+J2Zn0wluqc2OLojPoz1OaAP+84vWoztqM
+	vYoimYyYjklCvGqjfgUfHTAf9aeSrc+hW5XB1TfjvilrIQl0v8+Cvnn9QzFsJi4nt8sw8Jj8/SqLw
+	X82WZmtRjEfjO3jWs2ElmHHme/PMbgvEciXPTZtpPxmJwpROqnPK8SMgqHjIM2fwPg2/jQxiuHqBr
+	9ZEzaEbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2EK3-00000005Ck7-3rPS;
-	Tue, 08 Apr 2025 19:09:23 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1u2ELn-00000005D2o-2xgs;
+	Tue, 08 Apr 2025 19:11:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2EHb-00000005CEC-2lXz
+	id 1u2EJh-00000005Cg8-0XBS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Apr 2025 19:09:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=k9yTtoxH/xWKG6IZlbraRRY+Xrel+M2msfAmxrJCSPU=; b=Axi5BCET0/+sBX+D09NNmSa1UX
+	sPI9zmwceosq6AQHBUnE8MKd2xfJNnthP2fo4SAXwS0yjes10vZLZSs89yjtzLOKeLz6R5OAbbOgd
+	RVzDawCwm1FmDy05fQ5Xyiw+8fwpxIzbz0ANI0HxMf5HHsGid5gWxjaSBMkFHJxomjlk8nCAiDGjK
+	ynIxzmoA6TurzBQuOlOnRjuho59KUISfX20WIPMcxKristKrJ7ZBKUhhlNUL1I6jZnh9w2v7GZqXa
+	Pm89z842RIjUcTHhHKWMSBA6cznb3hj26X2XkGZ9qalnPJSG0J79S/+fI/FWLtafz9pKuiCtOfIC1
+	PfyD5tFw==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2EJe-00000008PID-0ybO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 19:06:54 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43ceeb85ab2so4470335e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 12:06:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744139209; x=1744744009; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=26BZYOZea4bfw7CNCFKawdkyJnG29aqqnfgcKzudge0=;
-        b=aftMPAPMKAoMl4WtU73gIXZftLtvHtna67SeLiZHaqYWH7O+maYjlVg9qfaBzKfbSJ
-         eecZrt/ckKM66v7BoCaXt9fh6i0Ng7I4BDqcRDa8LZPosr28PuwRkw2DtVNNQrfEI4Bo
-         1RFXsocYUHPGnHgmmftwmh9NkIBQaeRolChnae7K+5sc8FBFpZn0UGbx8yZxmLFg94tU
-         5RUVsfKY31nPvHSbVPRQphLmzDn7Z3Ki4AYaJJsviARnIIZXIOeqyHAddoPmMjNWzfO3
-         JXTvcIooGPVDcQOhE1w4BwwPxiPjRv3vSDNsH8sZYRmEctUcL75R9hiIeaRyOTkKBWqe
-         XImQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744139209; x=1744744009;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=26BZYOZea4bfw7CNCFKawdkyJnG29aqqnfgcKzudge0=;
-        b=sgRHwNehpdBRc9WQzpwkczpAwMlsHtC/+S2msmr4YqdBX1XniA+lUgsLxkOJ7n3Bov
-         TGOvT2QKRSiJw7LTAODaL8z9NaK992E41w/hToK+M+agz4cKWOJ1gUKkJRl7TvAv4ov9
-         TXbUPiTBA7tcusOdGNCpsvvdnnKEL+Z3T6Bg1067kPqCgKjNRhRaSWFqSIDNyeqSFJE/
-         3jYikURqFtPJdwjglJOThJMk3vrqYgHX1joFjmQZW3/B3XhH72T/BGF2p2Xj9MxwHk6x
-         +642vSOAnze3srYTNRmCo2tE+z1Wl4qZOAnLtPMaBrw6rbMg0E72RXGchoXLHmg2/qsH
-         perA==
-X-Gm-Message-State: AOJu0YxSbvf06dzal9rqpeQd8TGu03aeB4SgJ0IuPSIgYah3s4aUlWr4
-	MoPOp15VZksG3wOADO3FHq5/rEZ/taRfoqJQVrLPLBKPDiXccYQTuNeKXmTtY9dErmZV8mJHUSW
-	Z
-X-Gm-Gg: ASbGncvbd8C2RpHoJhadX2ZgJh9TThienv2AkwXqvv2KxDUNXcX+uYvfMUwd495PDpb
-	0nFeGmChNMKf0N3TSVM92K89W5BFaamrQHMPqCQabIU4yoeir+/7h5dqWGhAiyX0VaOoYNyPF+T
-	r+eqULx6EYOHcHgSHW+sfIN7EKcsyN0z1FtI9ir6g9GEO/1gUBx+B4HKCoQ/3gf53oifNSOnxQR
-	lQx3fDLc95ueREhvevK2h0neXMe+fa+YY+n5xhb0FI9gXpZufUPD7pA3RwxRMbRDnBS7b5nIlFZ
-	U4P/VNcrMV6CLWXe0r2GJ+1cZLUT/n6d/G8KPNHXD+rFoQAV1XQ4pCgkF4SY1dM=
-X-Google-Smtp-Source: AGHT+IFEmj19Sjp6m7XUEA3vyo+E8QmKaZA1qZbfv2jh+SPPFex3IJzzYfOY3+icqIou7/aTD5sG1A==
-X-Received: by 2002:a05:600c:a016:b0:439:a3df:66f3 with SMTP id 5b1f17b1804b1-43f1ed660damr1024815e9.6.1744139209570;
-        Tue, 08 Apr 2025 12:06:49 -0700 (PDT)
-Received: from [192.168.1.26] ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c3020da17sm15853743f8f.64.2025.04.08.12.06.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 12:06:49 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Peter Griffin <peter.griffin@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- andre.draszik@linaro.org, tudor.ambarus@linaro.org, willmcvicker@google.com, 
- semen.protsenko@linaro.org, kernel-team@android.com, 
- jaewon02.kim@samsung.com, stable@vger.kernel.org
-In-Reply-To: <20250402-pinctrl-fltcon-suspend-v6-0-78ce0d4eb30c@linaro.org>
-References: <20250402-pinctrl-fltcon-suspend-v6-0-78ce0d4eb30c@linaro.org>
-Subject: Re: [PATCH v6 0/4] samsung: pinctrl: Add support for
- eint_fltcon_offset and filter selection on gs101
-Message-Id: <174413920812.155881.15584409813277033669.b4-ty@linaro.org>
-Date: Tue, 08 Apr 2025 21:06:48 +0200
+	Tue, 08 Apr 2025 19:09:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=k9yTtoxH/xWKG6IZlbraRRY+Xrel+M2msfAmxrJCSPU=; b=bdzK3TmE0IlSyEQdEgOrUaL7Ys
+	n5fZvxOtzOw8wDop7soIXjYwQ+oORRP7cHm8jESLnEEzirqlrUFPsoBWPkkS+PANTlOS9qdA76ARc
+	zt7dKCvUF+ttDpIzf2rPQqrHHqOGHTtc5f1mBviCNNTDL56QgrDaCnQgQmtE5YmUywIo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u2EJc-008ROo-5S; Tue, 08 Apr 2025 21:08:56 +0200
+Date: Tue, 8 Apr 2025 21:08:56 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Boon Khai Ng <boon.khai.ng@altera.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Matthew Gerlach <matthew.gerlach@altera.com>,
+	Tien Sung Ang <tien.sung.ang@altera.com>,
+	Mun Yew Tham <mun.yew.tham@altera.com>,
+	G Thomas Rohan <rohan.g.thomas@altera.com>
+Subject: Re: [PATCH net-next v3 2/2] net: stmmac: dwxgmac2: Add support for
+ HW-accelerated VLAN stripping
+Message-ID: <c65bfe99-a6e1-4485-90ee-aee0b8e0984d@lunn.ch>
+References: <20250408081354.25881-1-boon.khai.ng@altera.com>
+ <20250408081354.25881-3-boon.khai.ng@altera.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250408081354.25881-3-boon.khai.ng@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_120651_705969_695DBF74 
-X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-CacheID: sfid-20250408_200858_409498_087C4C28 
+X-CRM114-Status: UNSURE (   8.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,30 +100,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +static u16 dwxgmac2_wrback_get_rx_vlan_tci(struct dma_desc *p)
+> +{
+> +	return (le32_to_cpu(p->des0) & XGMAC_RDES0_VLAN_TAG_MASK);
+> +}
 
-On Wed, 02 Apr 2025 16:17:29 +0100, Peter Griffin wrote:
-> This series fixes support for correctly saving and restoring fltcon0
-> and fltcon1 registers on gs101 for non-alive banks where the fltcon
-> register offset is not at a fixed offset (unlike previous SoCs).
-> This is done by adding a eint_fltcon_offset and providing GS101
-> specific pin macros that take an additional parameter (similar to
-> how exynosautov920 handles it's eint_con_offset).
-> 
-> [...]
+This appears to be identical to dwmac4_wrback_get_rx_vlan_tci() ?
 
-Applied, thanks!
+Can it be moved into the shared code, or am i missing something?
 
-[1/4] pinctrl: samsung: refactor drvdata suspend & resume callbacks
-      https://git.kernel.org/pinctrl/samsung/c/3ade961e97f3b05dcdd9a4fabfe179c9e75571e0
-[2/4] pinctrl: samsung: add dedicated SoC eint suspend/resume callbacks
-      https://git.kernel.org/pinctrl/samsung/c/77ac6b742eba063a5b6600cda67834a7a212281a
-[3/4] pinctrl: samsung: add gs101 specific eint suspend/resume callbacks
-      https://git.kernel.org/pinctrl/samsung/c/bdbe0a0f71003b997d6a2dbe4bc7b5b0438207c7
-[4/4] pinctrl: samsung: Add filter selection support for alive bank on gs101
-      https://git.kernel.org/pinctrl/samsung/c/a30692b4f81ba864cf880d57e9cc6cf6278a2943
-
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+	Andrew
 
