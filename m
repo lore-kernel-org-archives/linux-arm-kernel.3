@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B0E6C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45EA2C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zKhG9qiEMRLJS/mGX8jO8pyM5ReATHHbxqdxWWXsPx8=; b=PBSdRKeePEHCRxmAh6Q3IMKE/L
-	aX8idjXv2+stGw+s0tmVupi+/w9bfgiI6DiR86ndU0xRcYMV47/ow6gx1k3hvw+xHAxsc5FvJIAWJ
-	Nl+zMqbsF2spm7lpwB3hYOwWJLkuxjqs9OsMVFPqMxUTXGBXxqvP4YV2dfTZlljDo+DTuuz14oWrh
-	Vk0mhfj9PFtVtxgF8e77bv1gfuhCF7mvGoqU5HbBIFuu8Ja0Vq+c4FkFFcvG7MH7/qbyrnG0cV8s4
-	02LRXL/TaVmrkr4VxtD2m6GdPsjuZxTozYl3rTnmamIPDvxX2kbdf3O2w/SinVJahfAmZKDDnjbgp
-	PpUb2bgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EX8O9GUiQXDOVnnCfEUUoy1S2R645G+JPW2DXHbIF1Y=; b=lFL5W8IIti7iELAUqzw3fECT2O
+	UApSUI98EEl/SUnYlhJJKJdgNZ91UTCYo+WMvkuAtjCjmwcbF54Y5rX7zRNW6AdrU/sj/BZYClV54
+	KFPjjr08qUQ99bAaHsChtgpbi4C7Mld6q9EsuQMcnWOTYDWmvk3iIH/+o10MZl7BebtEmqlVYONOL
+	jIltKgQIPkGPJABJ7Yb2AkYabGAmNLeC0Thi9qQNngryra00Hsd5jmPERVfohuN8Apbw7RiKIxDeZ
+	QCzVvP7I1ejoXxE+b414DgQczMy89Z5zJx4Vwj0s0S3u7WWT1I5C50G1J6KOhXCQG+A0ojKgk+g/2
+	Nt0WhGxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u252i-00000003P5C-2NeW;
-	Tue, 08 Apr 2025 09:14:52 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u24nE-00000003LtW-2yVW
+	id 1u254X-00000003PRe-3YlK;
+	Tue, 08 Apr 2025 09:16:45 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u24ok-00000003MJO-1LwE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 08:58:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=zKhG9
-	qiEMRLJS/mGX8jO8pyM5ReATHHbxqdxWWXsPx8=; b=DZ5qJ+c0PnOUua2pWcX9w
-	MAkfLRn2tolNjzPPBDRwOJ/120UmLBKlssIdgsWiCq1umm/otz5XdwNI/7UuOqk+
-	vo7XJPCRlnBwwkRmiUkM3XWUhfPqmuHgXBSpc4W5uJ3P5SxJboDpkQmPLNr8xsmA
-	xl/yBB/UfBP2cuGTFh5E0g=
-Received: from localhost (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wCHF00m5fRnQGxPEw--.37725S2;
-	Tue, 08 Apr 2025 16:58:14 +0800 (CST)
-From: Xavier <xavier_qy@163.com>
-To: dev.jain@arm.com,
-	akpm@linux-foundation.org,
-	baohua@kernel.org,
-	ryan.roberts@arm.com,
-	catalin.marinas@arm.com,
-	ioworker0@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	will@kernel.org,
-	xavier_qy@163.com
-Subject: [PATCH v2 1/1] mm/contpte: Optimize loop to reduce redundant operations
-Date: Tue,  8 Apr 2025 16:58:09 +0800
-Message-Id: <20250408085809.2217618-2-xavier_qy@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250408085809.2217618-1-xavier_qy@163.com>
-References: <027cc666-a562-46fa-bca5-1122ea00ec0e@arm.com>
- <20250408085809.2217618-1-xavier_qy@163.com>
+	Tue, 08 Apr 2025 09:00:28 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1u24nS-0001k3-Nf; Tue, 08 Apr 2025 10:59:06 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1u24nR-003tta-2c;
+	Tue, 08 Apr 2025 10:59:05 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1u24nR-0003e6-2L;
+	Tue, 08 Apr 2025 10:59:05 +0200
+Message-ID: <710569e305924a0a84e9792bc779d37a24011477.camel@pengutronix.de>
+Subject: Re: [PATCH v8 3/7] memory: Add STM32 Octo Memory Manager driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Patrice Chotard <patrice.chotard@foss.st.com>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>
+Cc: christophe.kerello@foss.st.com, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org
+Date: Tue, 08 Apr 2025 10:59:05 +0200
+In-Reply-To: <20250407-upstream_ospi_v6-v8-3-7b7716c1c1f6@foss.st.com>
+References: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
+	 <20250407-upstream_ospi_v6-v8-3-7b7716c1c1f6@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCHF00m5fRnQGxPEw--.37725S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Ww18ZFWxZrykJw17ZFy3twb_yoW8Xw4xpr
-	y8CwnIqr17JFnxG393Jw1rJry5Jws3tFW7ArnIya1UJryF9rn5u34Fk34a9rWUGrZ5X3y8
-	Zw1UtrnruFW7CF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piXyCJUUUUU=
-X-Originating-IP: [101.132.132.191]
-X-CM-SenderInfo: 50dyxvpubt5qqrwthudrp/1tbiTQwpEGf03i7+0gAAs3
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_015853_081084_C36A272D 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250408_020026_362419_89A3FD10 
+X-CRM114-Status: GOOD (  23.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +83,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit optimizes the contpte_ptep_get function by adding early
- termination logic. It checks if the dirty and young bits of orig_pte
- are already set and skips redundant bit-setting operations during
- the loop. This reduces unnecessary iterations and improves performance.
+On Mo, 2025-04-07 at 15:27 +0200, Patrice Chotard wrote:
+> Octo Memory Manager driver (OMM) manages:
+>   - the muxing between 2 OSPI busses and 2 output ports.
+>     There are 4 possible muxing configurations:
+>       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI=
+2
+>         output is on port 2
+>       - OSPI1 and OSPI2 are multiplexed over the same output port 1
+>       - swapped mode (no multiplexing), OSPI1 output is on port 2,
+>         OSPI2 output is on port 1
+>       - OSPI1 and OSPI2 are multiplexed over the same output port 2
+>   - the split of the memory area shared between the 2 OSPI instances.
+>   - chip select selection override.
+>   - the time between 2 transactions in multiplexed mode.
+>   - check firewall access.
+>=20
+> Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> ---
+>  drivers/memory/Kconfig     |  17 ++
+>  drivers/memory/Makefile    |   1 +
+>  drivers/memory/stm32_omm.c | 474 +++++++++++++++++++++++++++++++++++++++=
+++++++
+>  3 files changed, 492 insertions(+)
+>=20
+[...]
+> diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..db50aeffb0aa32a9d51a205d8=
+ba30ab2299e1c34
+> --- /dev/null
+> +++ b/drivers/memory/stm32_omm.c
+> @@ -0,0 +1,474 @@
+[...]
+> +static int stm32_omm_disable_child(struct device *dev)
+> +{
+> +	static const char * const resets_name[] =3D {"ospi1", "ospi2"};
+> +	struct stm32_omm *omm =3D dev_get_drvdata(dev);
+> +	struct reset_control *reset;
+> +	int ret;
+> +	u8 i;
+> +
+> +	ret =3D stm32_omm_toggle_child_clock(dev, true);
+> +	if (!ret)
+> +		return ret;
+> +
+> +	for (i =3D 0; i < omm->nb_child; i++) {
+> +		reset =3D reset_control_get_exclusive(dev, resets_name[i]);
+> +		if (IS_ERR(reset)) {
+> +			dev_err(dev, "Can't get %s reset\n", resets_name[i]);
+> +			return PTR_ERR(reset);
+> +		};
+> +
+> +		/* reset OSPI to ensure CR_EN bit is set to 0 */
+> +		reset_control_assert(reset);
+> +		udelay(2);
+> +		reset_control_deassert(reset);
+> +
+> +		reset_control_put(reset);
 
-Signed-off-by: Xavier <xavier_qy@163.com>
----
- arch/arm64/mm/contpte.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+With this reset_control_put(), you are effectively stating that you
+don't care about the state of the reset line after this point. To
+guarantee the reset line stays deasserted, the driver should keep the
+reset control around.
 
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-index bcac4f55f9c1..034d153d7d19 100644
---- a/arch/arm64/mm/contpte.c
-+++ b/arch/arm64/mm/contpte.c
-@@ -152,6 +152,18 @@ void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
- }
- EXPORT_SYMBOL_GPL(__contpte_try_unfold);
- 
-+#define CHECK_CONTPTE_FLAG(start, ptep, orig_pte, flag) \
-+	do { \
-+		int _start = start; \
-+		pte_t *_ptep = ptep; \
-+		while (_start++ < CONT_PTES) { \
-+			if (pte_##flag(__ptep_get(_ptep++))) { \
-+				orig_pte = pte_mk##flag(orig_pte); \
-+				break; \
-+			} \
-+		} \
-+	} while (0)
-+
- pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
- {
- 	/*
-@@ -169,11 +181,17 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
- 	for (i = 0; i < CONT_PTES; i++, ptep++) {
- 		pte = __ptep_get(ptep);
- 
--		if (pte_dirty(pte))
-+		if (pte_dirty(pte)) {
- 			orig_pte = pte_mkdirty(orig_pte);
-+			CHECK_CONTPTE_FLAG(i, ptep, orig_pte, young);
-+			break;
-+		}
- 
--		if (pte_young(pte))
-+		if (pte_young(pte)) {
- 			orig_pte = pte_mkyoung(orig_pte);
-+			CHECK_CONTPTE_FLAG(i, ptep, orig_pte, dirty);
-+			break;
-+		}
- 	}
- 
- 	return orig_pte;
--- 
-2.34.1
+Are you requesting and dropping the reset controls here so the child
+drivers can request them at some point? If so, there is an
+acquire/relase mechanism for this:
 
+https://docs.kernel.org/driver-api/reset.html#c.reset_control_acquire
+
+Either way, reset_control_get/put() belong in probe/remove.
+
+regards
+Philipp
 
