@@ -4,69 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A904C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC10C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lz0nDWE/MWTEK1X0DsIbkkCXu4OgXjfr1/ShLbo5HCo=; b=cFFxnddZMutcb1EP49W1a1lwDQ
-	OUwLqLShEWLyVaQuvnlvDx5xDwhZTieOGX0IPCss5nXfX5oIfCBmIuJBLSc/NA8IpddpJHtPjHk2/
-	kr6L8NQlderVe6RBwzahT2cnXP+PsaM8J1dxwUhQZrpx8g+v5Xj5x8QxItMEFtj8lbqMQSwgTUNvt
-	C3zlnrpzXz4OfepxsBrjzjvqRiMFxaow1iomYdCm7fAcyFJOpwUc9/rZmcEJKua/xjtceIC8u1qZ7
-	px3rxIv7CRNRpR/4voWrSdkgtLxLPkTFcHPXZrN2bdJU4+lOw0XgpNQPPiVTCOnO+sSJAvlgh1jOi
-	HB+Ufnjw==;
+	bh=dQ/uJ1YXZ/MgsQSXujGVNyOEVFC+pBj/sEr0S7mcVZs=; b=42MAEBuu9Qh+LEJdA8om7Bflx0
+	Vl6x8/v8HCGavUUAfynLroVx2ZgI6Ov9ootOoPnBXJS6aaCJgHu74pVtNTmKADliwkmwD5/jC2Aa2
+	3pJN167HrVb29HdG93txbN3cBAqq0SUqasirS7EwfJsiCjt+wZ1gFNxCkUmmhUP4MkyrbmnorGDMc
+	4jp3sfVl8vQ3k1jug9yzsXQ+xFRC/1w/uHfWE8xMYyjeXLi1pZlWBZATck+Vl+C8lk7LWX4FfaUnM
+	BHXhRW+jDrmXnqhOm0liCRg/ro5qMIlK45Pp4yFfVr6CHl2gJyVAQA4cAGDuyGkw0w/e+8bs3Id31
+	SfZdkACQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2BYD-00000004lR7-1kbv;
-	Tue, 08 Apr 2025 16:11:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u2BZy-00000004lrv-25gZ;
+	Tue, 08 Apr 2025 16:13:38 +0000
+Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2BUt-00000004kkX-0KPv;
-	Tue, 08 Apr 2025 16:08:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 745A5614FE;
-	Tue,  8 Apr 2025 16:08:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E3A6C4CEEB;
-	Tue,  8 Apr 2025 16:08:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744128502;
-	bh=ckOi7tqsSO7KvykycTRL9CtPqRv/ASq7uban+AGPlrM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XhMp3L959j1gmsrQtuaA2pU6O+vcxsQ/GjFmQORiv/4t1XmucuB7D9c0aUFv9TbSt
-	 VY3TCIbQE/LjfJf6JlhJyXxAZgdzluIjdA5uRcXEgsUX5xCirJbir8FOJKtcA0DfGz
-	 DY/YyD0h9wkh3f+VC8iLjwQGTwdx1+rZsVe5twn+03E+pSYbmopQVZ3Ys/mUL7PyCZ
-	 JiG6D+DytWxgwDz80/bHD6oPKL2JUycQFvU9/P2xnaKkpSKeq52cXxqil2x3FuiHQ0
-	 REmgxqP3yXoxXJk2IlcM2w9dMmMZqfZcGAo9v5GFLVGZsket2LnU2tXpy41zCX5nNE
-	 BDbvVNHd8Qhkg==
-Date: Tue, 8 Apr 2025 17:08:16 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+	id 1u2BWh-00000004l8F-10gA
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 16:10:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B8zP1sPw2Lolktp5oB6LbIeDSV2ERUQyK2aL43qR36hZpC4OSGzgPHXRSZzVl4S2p9CodivoOLbcLmXfdygJhYDyfn48Yl5llv+QASXg3slUwrO+hbIHlWNhrRa6tmobwze7EfQP9Lq+fixr7ri5D3EC/EhhUW7k4199o9vmv6u3OV6tIN9kPspzWLa1maBMBX+xV+mcTVjVbs8BllQfagb24MpVwYk3s0QixLOAqqQ4+x7LrD0pF/ORKSTFX2sQiJzogcj7zWim1n4E5Ut4KHsBF2bIURClvYVREWKT8FbohaXmPjkSit7uCr56VnjLOA6peeIcqo//iLGeCaH7uA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dQ/uJ1YXZ/MgsQSXujGVNyOEVFC+pBj/sEr0S7mcVZs=;
+ b=lupq55zOHb8XpwdLTYrYpZKLGIUbPkC6gex3aycY3cEk8Te7twtWSgD7cxCnfZJ34I5u1oPn+rB+jIRNZO8mgpO7zuWND0BJV1oau61u1pArm6zba14HzP+S7mqQm31jNOA47iweQpIfLKPlMZC+caBJ+o/yO+6lguY3HtPnL6w5BHnybYdsAcR4yrIBUbcVZlOFhWpfnKnKcFUFX8RWex505ToPwXQWdXqXwqvStpafX5A6lv1GemyRxX8iXTg6NHTkg3+EuefR8isswPXNM+BLGaBHymNSEl75/8BwRC2SSBfaOVmuB4OvUnU/jcxsTu8XiX4SGsnlYZ0tAVjkWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dQ/uJ1YXZ/MgsQSXujGVNyOEVFC+pBj/sEr0S7mcVZs=;
+ b=B1g8Rtnh0WTomIYGR0c6e+nYrajrDlpQlzRJzCq/53ThNaiMLwiIMOyHRTM49lqhOmevUfRnsLjTbZYd/DhoywE9oqlbTzHjw++KuRrPjdsBPFevR4pRYS/nXo6Iyyam4AOJ/9JnH8DRIqeq2VzniEL9XMFtxfebqAxnLdI/94Ux1A50QisRW0wcc50YyUyrU9dc1cWtlGKrenwk4zO7/L++yFsM6hrFaTdNPBOU0Pe58PEzdWt2WkClpUqGZHIfRIbEUERTIzi90fbANyMO+RegelNuwFBSXTUJOekI5TVnjwyKSDyAZrVIBMfQaBzdpgVW8so3TDYeMoqzowJPdQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB9PR04MB8378.eurprd04.prod.outlook.com (2603:10a6:10:25f::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Tue, 8 Apr
+ 2025 16:10:08 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Tue, 8 Apr 2025
+ 16:10:08 +0000
+Date: Tue, 8 Apr 2025 12:09:29 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	William Breathitt Gray <wbg@kernel.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Kever Yang <kever.yang@rock-chips.com>, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org, linux-iio@vger.kernel.org,
-	kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Subject: Re: [PATCH 1/7] dt-bindings: pinctrl: rockchip: increase max amount
- of device functions
-Message-ID: <20250408-deviate-common-7846a921ddaa@spud>
-References: <20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com>
- <20250408-rk3576-pwm-v1-1-a49286c2ca8e@collabora.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="3HY2P3D0tNzBUcfu"
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev
+Subject: Re: [PATCH v2 4/7] ARM: dts: ls1021a-tqmals1021a: Add LVDS overlay
+ for Tianma TM070JVGH33
+Message-ID: <Z/VKOVMssWrENITt@lizhi-Precision-Tower-5810>
+References: <20250408093059.551700-1-alexander.stein@ew.tq-group.com>
+ <20250408093059.551700-5-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250408-rk3576-pwm-v1-1-a49286c2ca8e@collabora.com>
+In-Reply-To: <20250408093059.551700-5-alexander.stein@ew.tq-group.com>
+X-ClientProxiedBy: BY1P220CA0001.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:59d::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB8378:EE_
+X-MS-Office365-Filtering-Correlation-Id: 056439b1-62a4-4760-263c-08dd76b7d43b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|1800799024|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SrfXcvCY852TD+dfjws4gxupX3iKNynEPRNn8s8KWUz2EJHM+5VtdL9GcVkW?=
+ =?us-ascii?Q?M4pYNZ5hpnaU6I0VAFIfe8zksGZb5K30PFk0G0TLEqblodMiETCNH9y9pAwC?=
+ =?us-ascii?Q?S9TaXT22dmgPRrqYTG+cuki3/xLPX2iDWlRk9LbyZMm09dzHUHUJuz1S3mjO?=
+ =?us-ascii?Q?e8ithsHcyXsk4id7Tl4AAqHIqvQsfBK9EoTS6gNkj7/uMBLe06RKZUq10fiZ?=
+ =?us-ascii?Q?ZkMEHh0XGE1bMEFG7OZsPmRI36m+IDh/efZwgX2QzV9V+MdkVCjVGH7bIV2o?=
+ =?us-ascii?Q?WqwpRNaWt6zOGEbp4S28dF+pD3xy9VNHUJ9D3NYUyxumO3Bj8/Og0biNIgBu?=
+ =?us-ascii?Q?AhIKZSaos/fPzLWNa+MAhKx1uv3j9weuQMauikzxzKKuvakwAAxDAngCmqdw?=
+ =?us-ascii?Q?m7r4TcRwVW6b4/k4be3rvsdnZ58loAC9e3mSdf5shVcuR8qWw+zuQR0vd2gW?=
+ =?us-ascii?Q?YiE/bA8j9cDcwk/FTzjEAJRdh7ojXuLPwK68GkrbN80pZ+x9eTXg2/krMqr5?=
+ =?us-ascii?Q?uwPEkTgR1rpMpg7zQ9dAc+ASO98TBA1goXK26VHjZKKeBsbM9lkCKza2Rvpx?=
+ =?us-ascii?Q?nDzrZykRLGkee9DSBoo/MkK95kuPFzZX5YzAmMPDoNCmmskBTKX131puReYM?=
+ =?us-ascii?Q?uKqVVahSq91Z7bfQy2toruITRM3xeLv4nMTC2R1Y+DKX+Do1sx6TiaT4BmwN?=
+ =?us-ascii?Q?gPh/TM1aqqhCpdBQdVkUE9PTf+pgKyysx3hpFDA4bWowdDXZKVp7BqhG62rw?=
+ =?us-ascii?Q?n2NFpCELDxhjpq8qC8b6sAV1VZz0RYdDExNJKVQpE6SZWgZ3NQ21h6UpoPzq?=
+ =?us-ascii?Q?IEYdUvfBa6/2JdTfSgftdFeb5z1THLh04MQJL8SRKb0wK1STzXNNPk7EEMyf?=
+ =?us-ascii?Q?b+QQuBAj5+wXGdZ5SCHwrqW+eOcDQwLcTzVHMcFlnji2tki5ZdZ2ktXkcMSn?=
+ =?us-ascii?Q?DOglT8nkuQdFAEXd/NdxJzP2NlLqdUk4TGjcHKi17k289L+v7HgOvc27CSfO?=
+ =?us-ascii?Q?w2vGUdo8ireigd7mpecEMdsXnBjx7B8tSH1RDG6GaigF01PMSrwEaFpPq7dP?=
+ =?us-ascii?Q?xyj+m3Nav8vFGPsG0kJWUaZ/py1/J0lgV//Nh0iz6GLYgHMI+NQr+hPztbaQ?=
+ =?us-ascii?Q?MhPaUX0dgfBEpFbEEb9FZmVZuWX+fP/Os05/rfGO9wQsIJ0i+tukJSdx+Sck?=
+ =?us-ascii?Q?CC/eoSck6BUpEhhy/UULUgZHPlT7i6uwWBATLlWVHzFV7jGReR9ifiguAgw6?=
+ =?us-ascii?Q?pzjERTUxeV6uwhpRv2DT0sZQ3PpprWe7NHTf4BWL5nJdo2AHAIJwAlgJhMq9?=
+ =?us-ascii?Q?h1CybRvbynpJ9UOfYnk2I5lRQBGdQm95DyfAoQthuC21asOItsfXz/9FDY5d?=
+ =?us-ascii?Q?wo+ZFbbWiXm3nN3U9FBqkN8jo4oucwfX6DSMsJt7hN7Qvyg+7qRupd7mxX/j?=
+ =?us-ascii?Q?dmy8DWhyURQHULP/rkmNKC/krwMgox2z?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jUpqmOHGzFanVX5f5/CU5ZyECkzcdznahjB6obFZFlcdTan4XMCW2ZxQGWMO?=
+ =?us-ascii?Q?tDJG89hoKTgWggV6dGEHHLTqhUaVFB6xBF/AdiPBZ6ox4JJ5/RunANKxEXOY?=
+ =?us-ascii?Q?TCd80qHT3Ijb3D6cKtjZWQY1Odq6olyASKW6RBwi1OBxQ2Goxp9bFp0NuLaP?=
+ =?us-ascii?Q?0BBkT72ti5clkzz7lqyfQg9NdPIgp8pWSyt3m7aXkPgxac34yR7ty3M4kVRq?=
+ =?us-ascii?Q?rWQqLQ1jVA+b/D/qPEMqHuRENQnYAxhjPjD/gbKDpoIsXVTllEnDI2NPwVjB?=
+ =?us-ascii?Q?JVBIo1HkAm5qbPEkGpuZ6MKrg3RipBeD/mNpY81zxERnxlnGGmjHHaHQWexE?=
+ =?us-ascii?Q?polJT443Ydkuoq9lxbAHoigJx4eyFF4k6GYDzpuoUq6iPLzYR1lTM8De30lB?=
+ =?us-ascii?Q?n0zD7kGgs3ReJcOwAJ5dhSNJ9I0TElYPuEP935O2ClPKDjxgShsIr/s048Ih?=
+ =?us-ascii?Q?ryHQJTtSMa0U6L5zKEvhiG+/9cJFHyFi9K4EMOVvx8/EQLo2SnWYwQakLeAa?=
+ =?us-ascii?Q?BYy+eGUVT/5Ogf23NkMdaPKA+hcSiJoCUSdcO9GQqzat/3pcBprns5aGGH3w?=
+ =?us-ascii?Q?UTW5INoKCd++ABqVdNR1s/UxsZJiRCftod3tTdDziDzqPZwM2k72mUHO7Vfk?=
+ =?us-ascii?Q?vabo1kkS60+NYgI5/NpmtNmgRkIbsQsoqaBcb93DkegJDUSTKXlS+yC0lTPH?=
+ =?us-ascii?Q?wKXjtEe2lwgrn5NBYqVwEh0PdXSLNpYKByv1c6fXIdh1uQif4fl1rYp9ytlC?=
+ =?us-ascii?Q?tnCfKRRibyF0Kj2EfZBJTx0jSFXDnTHqcRW33pfLYtfH2bQX25X/9G6kll6a?=
+ =?us-ascii?Q?sbmudpGOB87PwxPCyM6pLDFk4BidXKLP5p3IgAlqFNnGIEx7UaXjMlnat2KW?=
+ =?us-ascii?Q?4r3UStMxr5UaUy34s/gUsSBLR3W6xwnpRW3uxm4UZrt3bLcnEbGqSxNGgkNf?=
+ =?us-ascii?Q?yFlP7TPIynRbQUfxse5M3wblDJGDq6koonx230VKANDK9mPz9iubHUFCvqfY?=
+ =?us-ascii?Q?pdqgWju3knZn7ShY4XYUXh9DZYiZsFRE5Zs2MWsBujt9D42JwTKGQsqfItME?=
+ =?us-ascii?Q?ZEJank6iXvFJt/P5tZdM5xpmp4+Hmbff0s478NEC/oxWF5rna/epjiaSrJTT?=
+ =?us-ascii?Q?YR025tm6A9QXW0BdH24NqHX+z+pI9dUnu0geXIie4OYVv/H5xVTp/K0D3eE+?=
+ =?us-ascii?Q?EdHm9p3dxwQC0gtYp7ATUnPhVkgkBjmIjvO9fnI2FURsuEy7voTgrVx7E1iU?=
+ =?us-ascii?Q?sO3wIr6ib9gsWkXupTao/i71yrNjVgH0AKwN1iZ7/PjMdGAaQ/QbXG37iM/G?=
+ =?us-ascii?Q?pIG2Ig5xEtzCJlp2HAmBYU58P8zyM3tl/9K2tnKET5UUAdTMO5Y6sbXSn61M?=
+ =?us-ascii?Q?O5ZI7sBLk7KWdIeC1TyncRMUwAeFP/4+rrAM6WegcfLyV9BxGJ7sGVM7O+qR?=
+ =?us-ascii?Q?UlZccvZxDNow4XeMiD99PnVdB3LOccR2NtQ5Dh11exgjfzqwzJA3MkCMumQk?=
+ =?us-ascii?Q?Ugczi6dhsyUUU70CcMWh5PEiQ3Rc7WZihBBOkg5kAjDqLYOlEmDYg0yQ1FEI?=
+ =?us-ascii?Q?tlYltmmkGVC0PjSU+OU10TuQ81ABh/xOvlT6R9UJ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 056439b1-62a4-4760-263c-08dd76b7d43b
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 16:10:08.5647
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mPj9RzEQhCXhv6nwVbT6ZspZ5CxAjUWHgsdywiOBt2kWqmEcfZIDTVghvepGn+ahSiimxaglotf6Y5BQMa5gfA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8378
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250408_091015_294212_134C0CA7 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,62 +160,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---3HY2P3D0tNzBUcfu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Apr 08, 2025 at 02:32:13PM +0200, Nicolas Frattaroli wrote:
-> With the introduction of the RK3576, the maximum device function ID used
-> increased to 14, as anyone can easily verify for themselves with:
->=20
->   rg -g '*-pinctrl.dtsi' '<\d+\s+RK_P..\s+(?<func>\d+)\s.*>;$' --trim \
->   -NI -r '$func' arch/arm64/boot/dts/rockchip/ | sort -g | uniq
->=20
-> Unfortunately, this wasn't caught by dt-validate as those pins are
-> omit-if-no-ref and we had no reference to them in any tree so far.
->=20
-> Once again kick the can down the road by increasing the limit to 14.
->=20
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
+On Tue, Apr 08, 2025 at 11:30:51AM +0200, Alexander Stein wrote:
+> This adds an overlay for the supported LVDS display tianma tm070jvhg33.
+> The on-board RGB-to-LVDS encoder and DCU graphics chain are configured
+> accordingly. Add power supply as well, which had been missing all the time.
+>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 > ---
->  Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.y=
-aml b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
-> index 960758dc417f7405010fab067bfbf6f5c4704179..125af766b99297dc229db1588=
-46daea974dda28e 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
-> @@ -135,7 +135,7 @@ additionalProperties:
->                description:
->                  Pin bank index.
->              - minimum: 0
-> -              maximum: 13
-> +              maximum: 14
->                description:
->                  Mux 0 means GPIO and mux 1 to N means
->                  the specific device function.
->=20
-> --=20
-> 2.49.0
->=20
 
---3HY2P3D0tNzBUcfu
-Content-Type: application/pgp-signature; name="signature.asc"
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ/VJ8AAKCRB4tDGHoIJi
-0o+cAQC++yhzDEA1pD75hj4YsKzIeFWFw+DrbpYLeNqyLfXtlgEA/5+i3Yju2VbF
-KzvzOSVA72JUCgJJIxDgw7JYzYv+HQc=
-=xuix
------END PGP SIGNATURE-----
-
---3HY2P3D0tNzBUcfu--
+>  arch/arm/boot/dts/nxp/ls/Makefile             |  2 +
+>  ...tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtso | 47 +++++++++++++++++++
+>  .../nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts   |  1 +
+>  3 files changed, 50 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtso
+>
+> diff --git a/arch/arm/boot/dts/nxp/ls/Makefile b/arch/arm/boot/dts/nxp/ls/Makefile
+> index 225a7665b8ad1..7f96de6f80224 100644
+> --- a/arch/arm/boot/dts/nxp/ls/Makefile
+> +++ b/arch/arm/boot/dts/nxp/ls/Makefile
+> @@ -8,4 +8,6 @@ dtb-$(CONFIG_SOC_LS1021A) += \
+>  	ls1021a-twr.dtb
+>
+>  ls1021a-tqmls1021a-mbls1021a-hdmi-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-hdmi.dtbo
+> +ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtbo
+>  dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-hdmi.dtb
+> +dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtb
+> diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtso b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtso
+> new file mode 100644
+> index 0000000000000..e9708f3c67403
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtso
+> @@ -0,0 +1,47 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright 2013-2014 Freescale Semiconductor, Inc.
+> + * Copyright 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
+> + * D-82229 Seefeld, Germany.
+> + * Author: Alexander Stein
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&backlight_dcu {
+> +	status = "okay";
+> +};
+> +
+> +&dcu {
+> +	status = "okay";
+> +
+> +	port {
+> +		dcu_out: endpoint {
+> +			remote-endpoint = <&lvds_encoder_in>;
+> +		};
+> +	};
+> +};
+> +
+> +&display {
+> +	compatible = "tianma,tm070jvhg33";
+> +	status = "okay";
+> +};
+> +
+> +&lvds_encoder {
+> +	status = "okay";
+> +};
+> +
+> +&lvds_encoder_in {
+> +	remote-endpoint = <&dcu_out>;
+> +};
+> +
+> +&lvds_encoder_out {
+> +	remote-endpoint = <&panel_in>;
+> +};
+> +
+> +&panel_in {
+> +	remote-endpoint = <&lvds_encoder_out>;
+> +};
+> diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
+> index 27a55fa638128..80dae0c09542d 100644
+> --- a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
+> +++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
+> @@ -147,6 +147,7 @@ hdmi_in: endpoint {
+>  	display: panel {
+>  		backlight = <&backlight_dcu>;
+>  		enable-gpios = <&pca9554_1 3 GPIO_ACTIVE_HIGH>;
+> +		power-supply = <&reg_3p3v>;
+>  		status = "disabled";
+>
+>  		port {
+> --
+> 2.43.0
+>
 
