@@ -4,87 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 296EBC3600C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308E5C36010
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 11:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NRu5VEWAgUj7SCiDTK/gXnFvCKSyajFgcf/tgq1fgrU=; b=EgzztGZX3/tTYO6FEXBc5z4gwo
-	DGFvW0PYhDlhBmkhLywX4Sga9NhF0yvAJZiL6DUC40dyk86B7ZbseQWfI7QleleLuQ7RJWIYL8pXe
-	PaDMpnSHvWJyW79ni/5Fmr9QnwI1ub94cB0PpuwKk+tJs53plyMVcxSjL9sI1FUuj55mHpDMoSxNt
-	GjHYjssNRpYGmZ7M8K2dxEv/SUhmqLueSFE8mMaDhoI/mzo9IKuQyg9dnz7jVyKN7k84IfDeCeJQS
-	NRC3mYUm4rJ6/RjobIyBtaMYhC6c2tD29G+NHpDH673gjX7yv+oVWbLdfpiFkfdz9FZPi1zBew0/u
-	lS06VWLw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7EJi+ZuhZowHiCbZufnU+eePBnn+fZT6fo+kvEqiL/s=; b=bpyIi1BY4Oep2qVVlrAcpTBWxy
+	7oMSnggPfvIBE7NQK9JS0StGPzn4ggtk6AuJsODSmxcru0l6wlOMlhWrZYXr1CH12IcVFxCrgibIg
+	XUDSfPM5k+oclPf/J9+AFm92MXfSxV81JPoQMQTGRW1Ut4trYGgw8vNlo1eDM7t+aV7EC+VKmvOcn
+	5Nbl60+kbPRqS6WsWEGBRPyKPYQm1rn4EilFGYJC12AzYAxWVQfNAZliphiE1aHWtZSRO9dD/Oee6
+	D6Ge9o9q0v4XMZxczfFRzYOlmHjlkojFl0wisT0IeaAL+XBDfU1AtPzTrFPEMwogquShB9lo6H79r
+	cIPFguPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u27aQ-00000003uuD-04bA;
+	id 1u27aQ-00000003uuo-2wcF;
 	Tue, 08 Apr 2025 11:57:50 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25nY-00000003Yxz-1fEc
+	id 1u2617-00000003cPV-4A9W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 10:03:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1744106596; x=1775642596;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=NRu5VEWAgUj7SCiDTK/gXnFvCKSyajFgcf/tgq1fgrU=;
-  b=Y5lgJREws9kZS2KvvVZb5zJtVE3x/5y6sRJavX8sTl4seiDFpxpEqbur
-   oDiI/YPH5dY9O3H6rwFBwXz+E4n9iwttV25NM7kbqxLYq4jiIrcpf63LX
-   CUT7qiealjpl3oTT8OL3/o/OqDqO5lqflY2m2v8fhm+ZQEd7MhUe0cF+m
-   LyI1AM0Zv2ESFbtc/3EUttYSAvf7lozC8uuGUwaqrCILDa8oL9Yxx+d+X
-   ejcSEABs/Luw7zdeVj2fE2OoBE5vApNKqrf+WsSlMBGr5Ws8tyVfwe9IT
-   Y4B4gKRjnB0T+s9BflzprCDaglvCIs1p4wHzCgkn3lgfcKQKE3JSs5nq9
-   A==;
-X-CSE-ConnectionGUID: ro84a8UtRg+nnfyWNlRU3A==
-X-CSE-MsgGUID: bDfvC6sCQ2Kpg3otsM4lRA==
-X-IronPort-AV: E=Sophos;i="6.15,197,1739833200"; 
-   d="scan'208";a="43398465"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 08 Apr 2025 12:03:13 +0200
-X-CheckPoint: {67F4F461-4A-B1D34AC3-DEA5B19F}
-X-MAIL-CPID: BE892603A1D2EC333F5B88991BFBD7E4_4
-X-Control-Analysis: str=0001.0A006376.67F4F464.006A,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B32AA168E33;
-	Tue,  8 Apr 2025 12:03:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1744106589;
+	Tue, 08 Apr 2025 10:17:23 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 56B6F441FE;
+	Tue,  8 Apr 2025 10:17:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744107434;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=NRu5VEWAgUj7SCiDTK/gXnFvCKSyajFgcf/tgq1fgrU=;
-	b=k00Fyls/m3KgLE78hcX0bEq5oEHb8Gr95YN8sD62t2wdIHHvcWNow22U+tSsihSlt33/dw
-	kHCHIOIOyPhnuGPnmH4pogzbiRM0upVGyySZqVQ9ni5FJjWECfLRb2/Rjm/ztbWzXMOc23
-	s/yKOcEJoHkmrK1qZZmGkv/9qXZSjMVyE5kIKd85QeZ+135uUlhcTe7ou4BI2+o1fz2dcM
-	gVg/Lg4ixlcothZ3vL8QGyXDkJswfzwWLC1m1VruUKt91Cf11Y/10V1Ox1IANPOCRpmn3a
-	9lG6Tk+ZRpRGA+S6VNPk0NwzzB5Tf9UtDhqSpZC13+KvGO/9Mne3Fnd++4UCoQ==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v2 1/1] i2c: imx: add some dev_err_probe calls
-Date: Tue,  8 Apr 2025 12:02:59 +0200
-Message-ID: <20250408100300.556703-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7EJi+ZuhZowHiCbZufnU+eePBnn+fZT6fo+kvEqiL/s=;
+	b=GI0V/SKAsO35ZWDwGAfhEesNMakWysFGWJ4QTbZxAqAJJ0b1kNMghx58bk8Gl0z+1VY1wU
+	kJfKX7aMWiGs51h+rkpopeRcFN+hTylkpy0WOSbm9Z+BSpwSi6Tne1W1Ev/otmPSiOzr2a
+	QrO7UMWkNGTMxUGh0LHFoO/+n5n3CWQjxZqGV7wJ+IMldDefYyDPetl7dvz9yDj2e9Vomp
+	OT9diWAl2mg2dnFtADrgHVXNhxzQKk/YVtGCMZVztHstkQpk7WUrDunFsaBhnalLVvQ095
+	V/6g8QLaq+MmjdstxHuqSQmuW3X1dC6u0u112TYwnZy6qLgowk5oLq65LcVDQw==
+Date: Tue, 8 Apr 2025 12:17:08 +0200
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang
+ <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, Derek
+ Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
+ Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana
+ Kannan <saravanak@google.com>, Bjorn Helgaas <bhelgaas@google.com>, Mark
+ Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus
+ <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, Geert
+ Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, Allan Nielsen
+ <allan.nielsen@microchip.com>, Horatiu Vultur
+ <horatiu.vultur@microchip.com>, Steen Hegelund
+ <steen.hegelund@microchip.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 02/16] driver core: Rename get_dev_from_fwnode() wrapper
+ to get_device_from_fwnode()
+Message-ID: <20250408121708.6b436b2c@booty>
+In-Reply-To: <20250407145546.270683-3-herve.codina@bootlin.com>
+References: <20250407145546.270683-1-herve.codina@bootlin.com>
+	<20250407145546.270683-3-herve.codina@bootlin.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddvkedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnheptdeljeejuddvudetffdtudelfedugfduledtueffuedufefgudegkeegtdeihedunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegtddprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhop
+ ehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomh
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_030316_924393_5DCEE08B 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20250408_031718_498367_FB9C15CF 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,58 +101,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add corresponding error messages if DMA channels are not available during
-probe. Using dev_err_probe adds deferred probe messages as well.
+On Mon,  7 Apr 2025 16:55:31 +0200
+Herve Codina <herve.codina@bootlin.com> wrote:
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
-Changes in v2:
-* Improved commit message
-* Collected Frank's R-b
-* Put error message into a single line
+> get_dev_from_fwnode() calls get_device() and so it acquires a reference
+> on the device returned.
+> 
+> In order to be more obvious that this wrapper is a get_device() variant,
+> rename it to get_device_from_fwnode().
+> 
+> Suggested-by: Mark Brown <broonie@kernel.org>
+> Link: https://lore.kernel.org/lkml/CAGETcx97QjnjVR8Z5g0ndLHpK96hLd4aYSV=iEkKPNbNOccYmA@mail.gmail.com/
+> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 
- drivers/i2c/busses/i2c-imx.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index 9e5d454d8318e..de01dfecb16e6 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -1711,11 +1711,11 @@ static int i2c_imx_probe(struct platform_device *pdev)
- 
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0)
--		return irq;
-+		return dev_err_probe(&pdev->dev, irq, "can't get IRQ\n");
- 
- 	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(base))
--		return PTR_ERR(base);
-+		return dev_err_probe(&pdev->dev, PTR_ERR(base), "can't get IO memory\n");
- 
- 	phy_addr = (dma_addr_t)res->start;
- 	i2c_imx = devm_kzalloc(&pdev->dev, sizeof(*i2c_imx), GFP_KERNEL);
-@@ -1810,13 +1810,15 @@ static int i2c_imx_probe(struct platform_device *pdev)
- 	 */
- 	ret = i2c_imx_dma_request(i2c_imx, phy_addr);
- 	if (ret) {
--		if (ret == -EPROBE_DEFER)
-+		if (ret == -EPROBE_DEFER) {
-+			dev_err_probe(&pdev->dev, ret, "can't get DMA channels\n");
- 			goto clk_notifier_unregister;
--		else if (ret == -ENODEV)
-+		} else if (ret == -ENODEV) {
- 			dev_dbg(&pdev->dev, "Only use PIO mode\n");
--		else
-+		} else {
- 			dev_warn(&pdev->dev, "Failed to setup DMA (%pe), only use PIO mode\n",
- 				 ERR_PTR(ret));
-+		}
- 	}
- 
- 	/* Add I2C adapter */
 -- 
-2.43.0
-
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
