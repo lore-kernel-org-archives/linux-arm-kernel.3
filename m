@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D0CC369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A809EC369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T6AUPajIn+F2nfpZeAdCDfLBKZuZZ8TRAyr9PXK5qRA=; b=IFPRQePn+Bzotk7/dnJ3OgRXFX
-	DQ179ela3nRA+7/FkEH5SvyNrp+0cF0o1TwV7r4hnMMluV63RvhRq1ljxNcS5lv5BPDULRoLXCd+V
-	gruy3wvBtvCfiEg4LzxUZFo9kcJENc3ZAcp/50k9DUzRrGcUGYTJwBGtS4V4i4zGNCRINptgzWnOu
-	JdCpDjtXL4//9HeHtOBOUHLRRZojU+jn+vcX4Jv2NVyBMEdCBeo6SMo3VKFdchY2fekfT22b6uSTE
-	xoHiinIW5GrsE6l7vqoQ+O2onZ0QXl8bazcJWmmHtTlEEfNnonsf+9WydJwfWYGZWdpmNe0OmKqW7
-	glBhZswA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EvZTf+A2Tig+IRGHQAjPjWtgFVFDb9fydbEYyz2o1UM=; b=vfc7QDrKO5BHQc9S9A8YGIQise
+	2JwDPpzqxpyyGqJ19zG0vz5TBLdHV6JIGbukg5+apajopEuylaSbFQLJe0WFNF6rJbuYoErfrusx/
+	Ymgf1Q0FE6bi+st57mudxOVrXQSXJxpT9Hc0IfMkLN69yMtQMqqQIZeY0T9deGpd8Ydz5oHydgUiA
+	ojRek31F0vNmbqnYydIJAcJJp9RjSDLU17ScHTq2Dk2TsVCbWTGUZ4jKip9VJUEZeO48fLwivD+Hl
+	0yaBD9xTYGz3h6NT8hr6SrdXFH7Sq9a4e+MYLAnmkQLEfa1+zoClIgQNC6lofG2ldMB4Qgk/HNYX8
+	9DOaCzLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u29vW-00000004NW9-42Io;
-	Tue, 08 Apr 2025 14:27:47 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1u29vW-00000004NVW-0tbC;
+	Tue, 08 Apr 2025 14:27:46 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u27oY-00000003xCW-1IEA
+	id 1u27lZ-00000003wmm-3V9C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 12:12:32 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-54996d30bfbso2608511e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 05:12:25 -0700 (PDT)
+	Tue, 08 Apr 2025 12:09:28 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-477296dce76so47793041cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 05:09:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744114344; x=1744719144; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T6AUPajIn+F2nfpZeAdCDfLBKZuZZ8TRAyr9PXK5qRA=;
-        b=iBPbDuCwZhx6/cOSUwI4hVNrEG4NM6iUVSSt6I29DJmmAQpZ2XBuzCwfGA8A9+Dkjo
-         Stu+maGX/EOuQQ6uC/ASZLq5suqJDVXY+HU6NBKfR9RSYcGqd83r/5QbAoBN97FjIT7z
-         2r56IuBdOUjxBLIexPgi70W9DmFNeJWHyMjhS95/9GMMnG/IcWkPezHA1EB3gYNmokpr
-         C4MejBelhd8JyuuYsWoUSVLUw+fWbMuGlCDj2/lkGKYRbQfhsTx93mJqUfYqaLlCiLoj
-         rsGjOlXALhLXsv7Pz3B3WNCzlJdhQlhfmgS22l5kTujSieKGGyzZROhRFcbnCu7VFPBI
-         ia+Q==
+        d=ziepe.ca; s=google; t=1744114160; x=1744718960; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=EvZTf+A2Tig+IRGHQAjPjWtgFVFDb9fydbEYyz2o1UM=;
+        b=Lyz0D9yUC10sMEoga2cy45nNYWxJQBOugW1I5kS9g6aoW6yigZFI/XHGF4UHtOLd8I
+         KdBUKNwpuO0ukeBgPj8mo94DJ0JjDYVxpI1wtGvzDJD8iWlytDxrf1GksDNEGCXbMgOd
+         feyLoEb3AgLhSJ66PPXHc/O5k4izfXkwtnY04TP4EhtU/aaljAHhSfgZ7AMZWlYYYNuE
+         WCg1e3IzSG9uhUOneFbch7FxXYJgXUsFS62j5xwn91SFXG32Ei4tfZ4ADMj+bV8bm+vX
+         j11zkSgxSmX7siMsfpjonGv2wqBYvax97ViMDaHD8OXHsaOM3MGDijm8VUFdlLLyYU8S
+         I2/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744114344; x=1744719144;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=T6AUPajIn+F2nfpZeAdCDfLBKZuZZ8TRAyr9PXK5qRA=;
-        b=iWjZ0gk91Y9DQOGEy+8iPozqEE+WSNiBv4WAub/3ZczMBmI3tOOfJ60jNwNTwBOz4+
-         sywVzsQUJZMiTA4TLooEn9UZvLNhR0sU0hSwqwzjjItmZdycsRYzzl7RGZBf+aTvhi5m
-         PgsRgxxxn7J6OAeNNYOYtYxqganHk/gKXWxQKeZ6I99Sx85ttmms1aazvXhXrcTgi2iR
-         FcgthOKH9q9inhunClQWhjwOAXGNrkcFt88vIrdk11EKp+HKXE7CHdUfhaOn0PZyJflw
-         2oDKtNefxkpQ6N5D6/apVzWGroqlNlirA7gIPQ/jZDjdLqn8vCjOA/hKb6KmTjeiCAE5
-         LNlg==
-X-Forwarded-Encrypted: i=1; AJvYcCWPQLytWD12UvJDEaTVOTWGS1XV1F+BYrHVTd2OZhiVZIkiuG2oZ6mlAcDPQDJfFRcZGLK+uyrUeHAT74dXO+PP@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywg9dZPXIE7sUYVNJ05HDTVDh4IDyxzQliyK/o+e51ssAmamWSI
-	0xLO8e4JsFDzOBrVIRB02j8Kyd75dbu2WO4OoeZ6J3HizYCVbCCSjjnmpwd4pmdgcZSli4ZUhu3
-	pVCVTInVNMXYUgH5sb0tZRcDTYYIG94JwxF+CLg==
-X-Gm-Gg: ASbGncv74KG+9I3Ywk4D8W7TaEEOh56mNhQ7+i8GyRiRtpxZvDpn/nXxzbDavDRjUUq
-	m8eTJp3Rebz6cLymW9Rq0xjViCP55cFzJrbwkyrpKRrdqubkYCZtWVcpJ4xPzz5zaRvaVDYemT6
-	VFNWg7Xw0kbEnDi4j2v7wf/fQipCK8T0ovZ6LvDxvJAxrr0O4qrbR0uUSpUjbKb03mK3nG
-X-Google-Smtp-Source: AGHT+IENthHAV5l+KymW3LDJPEDbaINTNIXvJ8Gl40s2FDrufFFpjg080dzcRguD7FiAlFgnXWdvad3pq/qk4qOQGO0=
-X-Received: by 2002:a05:6512:3b24:b0:549:8675:c388 with SMTP id
- 2adb3069b0e04-54c22808b63mr4893242e87.52.1744114343947; Tue, 08 Apr 2025
- 05:12:23 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1744114160; x=1744718960;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EvZTf+A2Tig+IRGHQAjPjWtgFVFDb9fydbEYyz2o1UM=;
+        b=uN49hldu+vPxoG9fyl998yLGohI34Zf/1DgqPrGxP8bw9k75LZY5hSbV+BMH+qXXDd
+         Oo/B5CTEhZGnNsfamG/yWPLAiU7OiQ+e0ESVtciWhqBICcliWnYhgf7/IpqdAea5j+FV
+         BAoYjhIdRZxVejEd1tN9hmwEtw6My/Zmdr16bIYuGpyzU2ssyVKpw9ihSYC2752JV4kC
+         bmUoFHDjV1OArNRel/zR3XPdji1bP8yujFo2n4xPbUOCUn6LfNGPu+Wyg/ksBpU/7nCW
+         hQP2lW7f7dTk7lV7GCArey8c2qvXHXMJpkGmH8OJm5anr4qU2tlOfaFSadp4GhkALd4g
+         rM5A==
+X-Forwarded-Encrypted: i=1; AJvYcCXx4EQpdIhL9zV8gUfO7DVzeXHQpMB3vkjZr8EUgqednrTghFrsK1ZkYDnnrOL7rG2Dfwh9lzpxv/L+qB+FxatZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGRX49Dfar17wTLLQ0M4ibD6vn07VMwYfz3Lk3qGMl2FuZSMCj
+	ZD6cRRTO+2FoKX+AXBd6VWohPsFGa7YCfhwVPsT6hVULZpMjUZaZLFrSmaQIoRE=
+X-Gm-Gg: ASbGncunqRcOtNugxSf95rSIBTG6c1TayCXqLHwDMkfi3muKVUxnPhjlsC8F8+Ax7B9
+	mJFkV7K7kbKV9Ne2ZF9ge8V1ED4bokFgEGJw1R1AozWkPDy8qZlaLEOnpEO/WyoyrbrLVbWTxYn
+	WudQJZ/TFBaPj/qVYin3XjqDZhuR5+7xopZMYy7+lLvz7pZtkFZX9MFKb46n8rHIxRnt/uO4Ixz
+	L4eiv+Tj39w69q99SExlWaL8dYEcZvuKAn9D8KqTee6NtTfABKbth9dgjPOEOiQOmn61P1ypdi0
+	GOPZUZH0yTW4tQqz2qJD86hZhovDhOasQzGZxaX/NOCUXBT0E0YAqIOWsTAfkDVJpsKa4y2ST5Q
+	iVFU+Im6BGamIhxMBLc7oF5zxyZjM+NLVtw==
+X-Google-Smtp-Source: AGHT+IElwz6ZYvtcmCNJZ23hEjFuxJMkyHm7q2gsXSKL95/zDdGVqmGJmKoKERZUukK8jrmOAgtPdw==
+X-Received: by 2002:a05:622a:394:b0:476:77a5:3104 with SMTP id d75a77b69052e-47930f6f3e1mr204130021cf.11.1744114160142;
+        Tue, 08 Apr 2025 05:09:20 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-167-219-86.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.219.86])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4791b088544sm77395201cf.45.2025.04.08.05.09.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Apr 2025 05:09:19 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1u27lX-00000007fyn-0hJN;
+	Tue, 08 Apr 2025 09:09:19 -0300
+Date: Tue, 8 Apr 2025 09:09:19 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, will@kernel.org,
+	robin.murphy@arm.com, nicolinc@nvidia.com, jsnitsel@redhat.com,
+	praan@google.com, kevin.tian@intel.com, ddutile@redhat.com
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Add missing S2FWB feature detection
+Message-ID: <20250408120919.GB1727154@ziepe.ca>
+References: <20250408033351.1012411-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-References: <20250407-gpiochip-set-rv-arm-v1-0-9e4a914c7fd4@linaro.org>
- <20250407-gpiochip-set-rv-arm-v1-1-9e4a914c7fd4@linaro.org> <b032eea6-96c9-4511-8085-da9f5655c252@lunn.ch>
-In-Reply-To: <b032eea6-96c9-4511-8085-da9f5655c252@lunn.ch>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 8 Apr 2025 14:12:11 +0200
-X-Gm-Features: ATxdqUGj5_DJHO53tE5rgfz-8N3LeX0iU314_nS5WJM402uEpv_AgAzVCN_GOkY
-Message-ID: <CAMRc=MfC7GukR5ZidkZJA8LMZaVXyqeygdUBz9v3oDmw8k+OPA@mail.gmail.com>
-Subject: Re: [PATCH 1/4] ARM: orion/gpio: use new line value setter callbacks
-To: Andrew Lunn <andrew@lunn.ch>, Arnd Bergmann <arnd@kernel.org>
-Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
-	Gregory Clement <gregory.clement@bootlin.com>, Russell King <linux@armlinux.org.uk>, 
-	Linus Walleij <linus.walleij@linaro.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250408033351.1012411-1-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_051226_609443_3F95C14C 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20250408_050922_045511_244EC7F6 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,28 +103,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 8, 2025 at 2:03=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Mon, Apr 07, 2025 at 09:09:18AM +0200, Bartosz Golaszewski wrote:
-> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> >
-> > struct gpio_chip now has callbacks for setting line values that return
-> > an integer, allowing to indicate failures. Convert the driver to using
-> > them.
-> >
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> What is you intended merge path for these? Have arm-soc take them as a
-> whole?
->
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->
+On Tue, Apr 08, 2025 at 09:03:51AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> Commit 67e4fe398513 ("iommu/arm-smmu-v3: Use S2FWB for NESTED domains")
+> introduced S2FWB usage but omitted the corresponding feature detection.
+> As a result, vIOMMU allocation fails on FVP in arm_vsmmu_alloc(), due to
+> the following check:
+> 
+> 	if (!arm_smmu_master_canwbs(master) &&
+> 	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
+> 		return ERR_PTR(-EOPNOTSUPP);
+> 
+> This patch adds the missing detection logic to prevent allocation
+> failure when S2FWB is supported.
+> 
+> Fixes: 67e4fe398513 ("iommu/arm-smmu-v3: Use S2FWB for NESTED domains")
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 2 ++
+>  1 file changed, 2 insertions(+)
 
-That would be best, yes. I'm not sure how many of these platforms are
-actively maintained.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Arnd: you were not Cc'ed on this (get_maintainer.pl didn't show your
-address) but could you take this through the arm-soc tree?
+This should go to rc
 
-Bart
+Jason
 
