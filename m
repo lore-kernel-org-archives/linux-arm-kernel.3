@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC51C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 20:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 488E1C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 20:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rbuSfZMlCXke2NoxpZ7BBY2YV7E+cslEawa7Eg1inps=; b=qVPoSNWzZ7cxRjbH1H7bA91Ilq
-	1J8BKqYCazolpAxzC4d9KP6ElU7VEnI4GnPwVyJhTQYvFLhRsPDhC/YsCOkFOrRj4ZDGkvUbrtKU0
-	FgMmwZUEwHEX4tfNon+1zSA9xYi2c77HSMlU+EfMLE0H7+Yi3H3xqj0eDMzZu0Ptd6Gdsy8zLn/8j
-	rfXbOohbbtAgmzYdgQowdcZZimNOLcFK8ejo0zdfyyEKETI//gvFYvWqVOunA9PCiSRK/c4bZo1zJ
-	bG+4rUBYaWrbR3DrNmn3Wl6aAPkJ7rdFzegcXKFEYXdrkPdjcUtfi8Ctf+UOMOGWASEuAXSEsnB0/
-	jQi+7Rvg==;
+	bh=qfgWLRBolkHkDVKstg0SDAzftES3+Ba6uH8UeszjsEA=; b=z+6Z64TA4H+E/Rm6ItyM9qd152
+	pf1OIZSCGQ0sOMwEMjqCEeTvskkfQ/xZEyBHhWS/99r35EnLBh09AgpOFga8E26wBQGAImZPJDw/2
+	mzoubKcUFRyDaY6KNBFWtEs4n6Z+aW8/eesUy3PPdfR4EbaKrqzCFofXxbGJKsAel0Cy8L1HQOc6w
+	GFo9jvxrBOTno6y+zkn4tVVRtrg05WPwqpmTT9/QH4L3IGlyed+IbhKhHlpGFKLZkXhRl0zcJy+w9
+	Y+a3hE85/VLdPSgcox/bOKH0rhJvkm7a8LNt4TO2nmsAE9ure7e+EoZ4SFSgp4EyH1oUEZUbdkdkp
+	LlDhU/Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2FdQ-00000005MEO-3k9j;
-	Tue, 08 Apr 2025 20:33:28 +0000
+	id 1u2FfA-00000005MMT-2rdD;
+	Tue, 08 Apr 2025 20:35:16 +0000
 Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2FZu-00000005LaU-0Po0
+	id 1u2FZv-00000005Laj-1Zi5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 20:29:51 +0000
+	Tue, 08 Apr 2025 20:29:52 +0000
 Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 2C21A1FB4D;
+	by mail11.truemail.it (Postfix) with ESMTPA id F40941FB54;
 	Tue,  8 Apr 2025 22:29:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1744144188;
-	bh=rbuSfZMlCXke2NoxpZ7BBY2YV7E+cslEawa7Eg1inps=; h=From:To:Subject;
-	b=ut9D8oqqEa1vpgS5PSz1kbV2wc06nIfi82YWIsTv0FjqSt71rgT3p6SG4H08IOT4r
-	 KawO7DDxIwL10JRd35ptLd/neiOBlEkflY1VbMaaaWxFR3svE0e+X6MtP19CfYmENY
-	 KN71ApBFsCOAEgxrHv6PECIfPQEXBHYt2gceODjyw26NudOj41xxewsyFqzzx2m7j8
-	 qxRxbM6Ykpj1BA0Sm2d2O+zmfRmptjZdYMns8Hek0ExAXauAcB6XsVMEnyz3OD5jg4
-	 TKhzhBr0g0dR/UtC9SJVTM00a800zGApo6VSjXWGwDMd1x29Bn+GTKzjE7wDTtPEog
-	 7qIV3HfODdjvQ==
+	s=default; t=1744144189;
+	bh=qfgWLRBolkHkDVKstg0SDAzftES3+Ba6uH8UeszjsEA=; h=From:To:Subject;
+	b=OvHslTzOP5/V/+c/cQ1/XP3c710Pc4o34JCi79Ofpf87b7SOAdw2g+Lzein9UGd+Z
+	 bzrgVqmuswVEqav83nnMaKU7uDqagVNXyHCARkqXtk0w4SGz4xV+ttNUaVsuAht8Ud
+	 3Zl5eUoahWvKw1JZgiRE6oUk3s/eYKQafni+1auAk/1tHVoAWgNTyC3bACVqmUl8Vl
+	 qrQ9N5hjbaYRV1yx9n07o1T/YGp1oIl+0zV4i1MaasPvcmAdI36vFH+BC7+kXbjKc6
+	 FKQnRVQYZCm5PWvrPm+CHw6pu4olvqs/OKTNq09rBugLl7gs0bHzKAW0nipouyRjmR
+	 MZvXTcnNB1xXQ==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -52,17 +52,17 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 1/2] arm64: dts: freescale: imx8mp-verdin: Add EEPROM compatible fallback
-Date: Tue,  8 Apr 2025 22:29:38 +0200
-Message-Id: <20250408202939.6887-2-francesco@dolcini.it>
+Subject: [PATCH v1 2/2] arm64: dts: freescale: imx8mm-verdin: Add EEPROM compatible fallback
+Date: Tue,  8 Apr 2025 22:29:39 +0200
+Message-Id: <20250408202939.6887-3-francesco@dolcini.it>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250408202939.6887-1-francesco@dolcini.it>
 References: <20250408202939.6887-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_132950_294346_7E18FAC2 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20250408_132951_604252_530CEC9C 
+X-CRM114-Status: UNSURE (   9.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,14 +88,14 @@ Add the atmel compatible fallback accordingly.
 
 Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi | 6 +++---
+ arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
-index e3869efe4fd0..d43ba0087126 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
-@@ -657,7 +657,7 @@ channel@7 {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+index 7251ad3a0017..d3d3ebf035db 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+@@ -528,7 +528,7 @@ channel@7 {
  	};
  
  	eeprom@50 {
@@ -104,7 +104,7 @@ index e3869efe4fd0..d43ba0087126 100644
  		pagesize = <16>;
  		reg = <0x50>;
  	};
-@@ -770,7 +770,7 @@ hwmon_temp: sensor@4f {
+@@ -633,7 +633,7 @@ hwmon_temp: sensor@4f {
  
  	/* EEPROM on display adapter (MIPI DSI Display Adapter) */
  	eeprom_display_adapter: eeprom@50 {
@@ -113,7 +113,7 @@ index e3869efe4fd0..d43ba0087126 100644
  		pagesize = <16>;
  		reg = <0x50>;
  		status = "disabled";
-@@ -778,7 +778,7 @@ eeprom_display_adapter: eeprom@50 {
+@@ -641,7 +641,7 @@ eeprom_display_adapter: eeprom@50 {
  
  	/* EEPROM on carrier board */
  	eeprom_carrier_board: eeprom@57 {
