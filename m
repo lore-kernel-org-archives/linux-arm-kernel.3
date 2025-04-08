@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01263C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 17:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19508C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 17:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VwcgnOMOTP8PgRLFeZ46VJ78kiUR0GDqWl3t9VdHT88=; b=sZq+3SvhpYGcJT+J5PJWosy543
-	k885Dbu1SYV0retp6VNyipZC8RmObdGyoXu1X6swnsDqqU6Hwq9/PE0iv60S4GLsAc7K7FAb6JDDG
-	i8/lA3ekJzcel6O8NuywDbgq0eTvqTz8zHyiFAkH+l0O5WT+ZaODHPjoQfMmMB0cBGiKroxiaUHQs
-	6eNokMdhLSyrtJP02/Uo7etAziTkuwoh87+EEjGg7nsz2BaHGY2fiES41alVXnJrzaJQ/RRCRnZIc
-	Svs9/lu70N4FDuHcSVSA9v63sKkt0bnOp4VEr9+2Y64fSGB9Zg+LyKzO1oHPpp4nuBleXQn2/vwjc
-	epo1Q4pA==;
+	bh=m6Zahi0sarElgNiROhFmUN7IZ3Qj0JsjaKqp3OqQl2s=; b=hq1VE0iPznjzTy1Szx4vqd24Bp
+	FQkyQHpCPRlN56Q4OIqRxp/8V1JkcgeIBNHTfySsF7xeutSNenIn4OgkkOl+EDxQRy9mhEMuIC+jW
+	gW4ZYeji+CeLLlOVmwTpR2AtOsE7ppNZPDP7Y95JzYBQNV43xD4jdsJRvDvRqUStueFS/etWodgh6
+	wmtLWZmoKyWI015I9ejaAcyVWubtJmI6QPQsp0WhC0FiIdFFBgWF5LJEe0VMYBvF4vyPaVxowsehV
+	bbREHSU2KSq85APHhDgUHQ8AP+nB7cg6pTGzzpY8UO45yxHIMX2MkYh5PkKxceyMgF9UqGdUlSbJr
+	TKmw925A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Ckb-00000004ylk-452a;
-	Tue, 08 Apr 2025 17:28:41 +0000
+	id 1u2CmL-00000004z2n-2wRa;
+	Tue, 08 Apr 2025 17:30:29 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2CNg-00000004udv-3Npc;
-	Tue, 08 Apr 2025 17:05:02 +0000
+	id 1u2CQo-00000004vF8-1hDH;
+	Tue, 08 Apr 2025 17:08:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=VwcgnOMOTP8PgRLFeZ46VJ78kiUR0GDqWl3t9VdHT88=; b=xhBn5V3I6DknS5ads80OZP+U3f
-	g8ewGVzEZO5lTOAKSbIblE5crUh8wqAaguBsEundAk2BZGM+W5MRMugpOuBXId9v6rngQOkKqdY26
-	ETgbVmydMZJjCRvntgAxJjM4C4W4vym6+ynig4CB56uR38iEv70P3C83mX8WqI5qpPUA=;
+	bh=m6Zahi0sarElgNiROhFmUN7IZ3Qj0JsjaKqp3OqQl2s=; b=WN85ll5GnP8jm4E5CPBNiYzgcw
+	Nv//yxrxKFc0F5lxcSLQv23LrGyGOuzPv5ortcl1X5SXrJtaoEfCjwvmA5DWY81euYVe2P5nvI/Ph
+	Frgbh6motOShBQOA+igX6ZZT+N3HCHRS6g4pOeTuLjHYsbBka1YP1pNeP3D27uZ+Hymo=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1u2CNS-008QV9-TG; Tue, 08 Apr 2025 19:04:46 +0200
-Date: Tue, 8 Apr 2025 19:04:46 +0200
+	id 1u2CQb-008QXY-97; Tue, 08 Apr 2025 19:08:01 +0200
+Date: Tue, 8 Apr 2025 19:08:01 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: Christian Marangi <ansuelsmth@gmail.com>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -55,17 +55,18 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.or
-Subject: Re: [net-next PATCH 1/2] net: phy: mediatek: permit to compile test
- GE SOC PHY driver
-Message-ID: <bd1fe1f2-897e-4b26-9202-9300eeef480a@lunn.ch>
+Subject: Re: [net-next PATCH 2/2] net: phy: mediatek: add Airoha PHY ID to
+ SoC driver
+Message-ID: <7e60d851-1b70-4084-a63f-c8ff7bf81425@lunn.ch>
 References: <20250408155321.613868-1-ansuelsmth@gmail.com>
+ <20250408155321.613868-2-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250408155321.613868-1-ansuelsmth@gmail.com>
+In-Reply-To: <20250408155321.613868-2-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_100500_847078_ED9F7BD5 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20250408_100814_438312_EEF5E231 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,15 +81,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 05:53:13PM +0200, Christian Marangi wrote:
-> When commit 462a3daad679 ("net: phy: mediatek: fix compile-test
-> dependencies") fixed the dependency, it should have also introduced
-> an or on COMPILE_TEST to permit this driver to be compile-tested even if
-> NVMEM_MTK_EFUSE wasn't selected. The driver makes use of NVMEM API that
-> are always compiled (return error) so the driver can actually be
-> compiled even without that config.
+On Tue, Apr 08, 2025 at 05:53:14PM +0200, Christian Marangi wrote:
+> Airoha AN7581 SoC ship with a Switch based on the MT753x Switch embedded
+> in other SoC like the MT7581 and the MT7988. Similar to these they
+> require configuring some pin to enable LED PHYs.
 > 
-> Fixes: 462a3daad679 ("net: phy: mediatek: fix compile-test dependencies")
+> Add support for the PHY ID for the Airoha embedded Switch and define a
+> simple probe function to toggle these pins. Also fill the LED functions
+> and add dedicated function to define LED polarity.
+> 
 > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
