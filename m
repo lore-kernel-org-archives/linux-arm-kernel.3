@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E8BC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 10:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4393C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 10:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s3/BY8PYvNQdk6fZrNkLE1hVwik+/X8XgJnJ+/zsRwY=; b=A0FrCO9rAYCu9CjZ3hbB5Vq7/d
-	OkAdK+dzAwy87uVVzwUxl6l74sRyczsY6j2te4MFBK5+c6B81F+QR8aziGSqYS+37/YEoaMaaokb3
-	Rn0QS1CCJXHkbZU74x6TWPBNwP8UYi9M3WhwnoXUp7byFwipRWhlsu7LDaSS6hij6A0FXoGrd9QvT
-	6bYZFy6OaJgnrMqxO5rgx+kHkC/UyJR5TkZZfl8vjXCpcLapI3nwPGAC1y8ui3Y2yJBzJMeluJiwL
-	oAaHRuFe2A4d5wNMHpfGi7he76WhcVmEhaZEY1wUELIM70DntGwyQKyYrsba7RiP8KN2W4P2b8i/f
-	OXXh1DBw==;
+	bh=d6eFHR/+HwP+QVEyAdkJj9R1VCVx1cbNXlZ7PvgU5mg=; b=hpbw+pRCsxWTmJQsy+qP6s3zGX
+	XkpjqvYuxra/BHnGf9u9oim2CmtzDwkquz9y4EPWVFPiD6IC1rpvje/SpWap2cIJUbJaDfDBJ1mbz
+	YxLjDZeUICJ0h0OkjK+VVV+jSom/KSXpeKeU75QmZMcAGOMAtJtDbeVM9yBg6l8s6wklJyelF2TX2
+	D8zh0pucKfKauxiJRvuO2LowBTITGF2riw+9RpxteAySwGLxFddRX3/RzNF2de/DTzsyxtAbXymOA
+	kNWawQOQL6+dn85aE2QdsXoYmoWpwO9pJYghPqYjloTI/Mf9evWLjUqlATI4q94OyOmomqhAtRkaB
+	6ct0MHiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25zF-00000003c5z-0H1y;
-	Tue, 08 Apr 2025 10:15:21 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1u2612-00000003cOL-1aIx;
+	Tue, 08 Apr 2025 10:17:12 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25d7-00000003WAE-3DPJ;
-	Tue, 08 Apr 2025 09:52:31 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39c14016868so4709233f8f.1;
-        Tue, 08 Apr 2025 02:52:29 -0700 (PDT)
+	id 1u25d9-00000003WBS-0wAw;
+	Tue, 08 Apr 2025 09:52:32 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cf3192f3bso52714325e9.1;
+        Tue, 08 Apr 2025 02:52:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744105948; x=1744710748; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744105950; x=1744710750; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=s3/BY8PYvNQdk6fZrNkLE1hVwik+/X8XgJnJ+/zsRwY=;
-        b=bc8QMoIRu82/HL4NC+XT2RaeXNpHdOgYpmuqMjlWbBnyt6I4xJj/SH04oUJOCx3gJS
-         LK0LUM+IaIAOujrg7mKKc2wSOPei0JB7ZWSe0Z9ls17dp06PTHYPBgKfafxX6dXtnTGl
-         s9y/t48UM3pCfoUnhjtsDmFKlp7rKDLSI6WWAdYtKQYqWFXvXAV4Jp7MT5CWAZGcGIVI
-         YBHl6sMvdaISBR8ON2FVL/rvIQiM7BmrVceDFtnCJAQD0JYjNkqWBPIgmxqZpU1CZKYO
-         gbOBWga8wljIF0G+7ZCQLAlEk4JtAz1ww6fQI/hysiKsifN7O7bDPp3a/dTuCG30DTJq
-         /NcQ==
+        bh=d6eFHR/+HwP+QVEyAdkJj9R1VCVx1cbNXlZ7PvgU5mg=;
+        b=ITlrogVnnhhmMdS1hZ//quBpWuIEnmY76zP1YKPGtxJBQVpkDtivSVRvssnp6NqCZd
+         Id2QnGdZHbuPaSSwFpypcwORNEN5RTM7Q7NBxL7LQX6dGe6d3qthIslbHyNvNxQ4HUCj
+         YgBgMXiu1jEfj9DZuCIGv6M4hvdr/fNf4yei/C/zAHjLKTCXCYodkhcUKTXnoMkQSwfq
+         AKIzEBLp5miPjcCIEYN8m4sBLKADgF3xwvCmOhUq5yaVNedC95g4SUsK7S7/hJUj45Cd
+         x5BBymf9lTbqW8edEu96cqKFysNbdYcsSCsETU3FuLBowOwNz57eNTUw1Nzr5ySnzXzJ
+         Vb4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744105948; x=1744710748;
+        d=1e100.net; s=20230601; t=1744105950; x=1744710750;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=s3/BY8PYvNQdk6fZrNkLE1hVwik+/X8XgJnJ+/zsRwY=;
-        b=QdlTe0bEQ+ysE+XQGttU7LNqlO8cEE6eVRF5hRWL+Z+/iWzyhWRIQlxW8/E5UG4ddq
-         WICc1rY6IZ8e9fQ3vGRnVJASApx6mbsr7lfQedRVhsv6TMB2JRSzS7+W4HE6uO1PFBuE
-         eXTpr82vBIbzTpOgQTd0hmZBoPqGXUmp2hwjWuwbE2Nv5msNGLQPPHsWFR4VdCNPfcxC
-         QdCWzU193x4YGgA4xKlnEJdX0cmuW6rcdTaeOs74IH+aC8uIMZOk4MAaqfAua3hM0mVh
-         1P5Z2d5Cgs0UPZP2fwyUd3pLzHaEnz2hdSbLzAVboJjHwXgecG901Zqtsav8EfZvMOCF
-         K47g==
-X-Forwarded-Encrypted: i=1; AJvYcCUFr8eTfJzlPneHpwMkm4COLh5qOvlddq71UcoDo6AzQ7fIcN3fVJi/e3NhwjkTgErJaXziFFfB2IEtdh7HrqAZ@lists.infradead.org, AJvYcCV+FnXW0eTN9PsqZdwnrJzD0/5CVr7X2dBjXx22iTIPzBidWfCtVGqlKc7jdwGeaffQY7M1f9KocIl/rTslpv4=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiFabQemuGbNhPRAwpoY43ERHijRtSuFeqm8v/VekV2muibIVM
-	gMHO0vUfszxq5Uoz4cKCwA7w/Vt8n3eNvWJXtkQyFN2Su9ynaS/3
-X-Gm-Gg: ASbGncsIdqoppjXfqVZdjwT5gxpF/F7kt5bzud/sf/9dipM93s21dGCcWn6hQaX+NCt
-	pvZmcfSttk1SYk+cnRgf+VOEtFMAmS324+oTEv/w49mxdguf17CejcVAnkXHD2nce66l2cR6qrT
-	XFCWAdUSHuRvPh6BOahrIOaNHT74qBhbyQVrKypfUyGR9Z05dM75/GMJqOhI6jeVTAOTogMqOZj
-	5GBYF0tLuAaYBYw9JxomexkvKwWM+NiemwElmDNL6yA8qSK8x4RHRFtS0fpg2wr9CvedwIoKgfH
-	xum2E7Fdvfrg789qmd55LZnx6eiasvmqQzr9cW6AGqFhMmu3p+tT4x8JG7+qmNXLOLHfT/ZXDCM
-	PS2YO2qnk438MTA==
-X-Google-Smtp-Source: AGHT+IGk6lh9oHKBenBhQXCD5vvAz3tN3/0sAx6/S8ROb2EOxvICxmB1O37yZcrWQXZCVWyacHoQ1g==
-X-Received: by 2002:a5d:584e:0:b0:39c:dfa:d33e with SMTP id ffacd0b85a97d-39d0de2567dmr13218213f8f.23.1744105948149;
-        Tue, 08 Apr 2025 02:52:28 -0700 (PDT)
+        bh=d6eFHR/+HwP+QVEyAdkJj9R1VCVx1cbNXlZ7PvgU5mg=;
+        b=xA4YfdHjZI2UG3GPdt2FADHJzT/Va+WufoAEN4YCAGvPzd9mWqEgfyKgv8DHVlUiqv
+         eMXE45ndfFN7zxd9uPEnGZQZQ05bnPlxBP2ZMNqrKOc7g+o1P2nPEKmWk41HX2PJP5Yz
+         zPN9tHDjx4kZKv6iFqX9OBRsQsAxyW0W/sqNZtdqE0pc9MhdRlma/SqNwewbsmeoEe2t
+         po7z4UmUT9t1Qe6ocGxCdurz2ml1l4wwKlvor9zaw6lC10rN2lGT18wy/xle9GkGaaas
+         5ICv6/InWC3xvv6zQLCVzXLtOk0vkXFppal+/uKcxLksiKldflVSVk/gzugwZlDju+VG
+         oQkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVNm24pLQDPcZ7tsQzosAMgxtdKKypL8H52rCvMAMlCA0KJTvg1rWy/KRvfHD9BnTNMu/YnbVITFDVy8nLVp8s=@lists.infradead.org, AJvYcCXL+38IXLLsjn7whP8wuGaraGM1fyc8EsYurYNAM1eAElNWNkVPyrIqJcvcXMrcQzlpdjbC2bWdPC0NyY7b1f7V@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6khmSYboNw64mY2ntrbisGMXaRsP1rfKxlZDo0ThC2tZy2tKe
+	cxG0jysJh2YnijqRjgNk2EVVMnkCaEJiNEP4sBPQz9+1JGuT4+tm
+X-Gm-Gg: ASbGnctj4MXBhs+F32BWSRD34T5chUer2vCBBlGrG4NOCAZP1pwk4GUpqcQXSM4TIqW
+	IndAW6KRoB03b4uYnQyBieRUopva0JuKY68zxRnb37nOcJoLoy0AtCD66/a5x7shCePpjwkv0b7
+	rGOLLjuD47e2hoG0+ENCiY8UqS7L1rAHM7tjmuFm3kKnlPwfhT7KZCEC4qXdMOM3J+bxanW+L3I
+	M9Vcq4rbpEZde04Gn7EqunfA9z/5saIaW0O44YVpD/DqPk5nTi6nrVLDeQHU/phi5NDf49PQoRP
+	Y2MOY3HOHli3OFqLqzUwgDnKZA5cUdc7HykXQ5sDixigJSuXP+YY8gKt5KuRsKyp8QDabL/RsKy
+	uZRIr8TWf9eT8U6+LAfEGHXHU
+X-Google-Smtp-Source: AGHT+IGnYUhJy/g8TudXJhkOLcfaktByFDYkfaf3ydBwVqRyzcsHcERQeIuA1I+0QEB3ctl78R0VKg==
+X-Received: by 2002:a05:6000:4203:b0:399:7f43:b3a4 with SMTP id ffacd0b85a97d-39d0de28771mr13511876f8f.24.1744105949782;
+        Tue, 08 Apr 2025 02:52:29 -0700 (PDT)
 Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39c3020dacfsm14493310f8f.72.2025.04.08.02.52.26
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39c3020dacfsm14493310f8f.72.2025.04.08.02.52.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 02:52:27 -0700 (PDT)
+        Tue, 08 Apr 2025 02:52:29 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Christian Marangi <ansuelsmth@gmail.com>,
 	Lee Jones <lee@kernel.org>,
@@ -97,17 +97,17 @@ To: Christian Marangi <ansuelsmth@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	upstream@airoha.com
-Subject: [net-next PATCH v14 11/16] net: mdio: Add Airoha AN8855 Switch MDIO Passtrough
-Date: Tue,  8 Apr 2025 11:51:18 +0200
-Message-ID: <20250408095139.51659-12-ansuelsmth@gmail.com>
+Subject: [net-next PATCH v14 12/16] nvmem: an8855: Add support for Airoha AN8855 Switch EFUSE
+Date: Tue,  8 Apr 2025 11:51:19 +0200
+Message-ID: <20250408095139.51659-13-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250408095139.51659-1-ansuelsmth@gmail.com>
 References: <20250408095139.51659-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_025229_817166_649D668A 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20250408_025231_269627_7B95F0A8 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,108 +122,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Airoha AN8855 Switch driver to register a MDIO passtrough as switch
-address is shared with the internal PHYs and require additional page
-handling.
-
-This requires the upper Switch MFD to be probed and init to actually
-work.
+Add support for Airoha AN8855 Switch EFUSE. These EFUSE might be used
+for calibration data for the internal switch PHYs.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- drivers/net/mdio/Kconfig       | 10 +++++++
- drivers/net/mdio/Makefile      |  1 +
- drivers/net/mdio/mdio-an8855.c | 49 ++++++++++++++++++++++++++++++++++
- 3 files changed, 60 insertions(+)
- create mode 100644 drivers/net/mdio/mdio-an8855.c
+ drivers/nvmem/Kconfig        | 11 +++++++
+ drivers/nvmem/Makefile       |  2 ++
+ drivers/nvmem/an8855-efuse.c | 63 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 76 insertions(+)
+ create mode 100644 drivers/nvmem/an8855-efuse.c
 
-diff --git a/drivers/net/mdio/Kconfig b/drivers/net/mdio/Kconfig
-index 4a7a303be2f7..e31a37064934 100644
---- a/drivers/net/mdio/Kconfig
-+++ b/drivers/net/mdio/Kconfig
-@@ -61,6 +61,16 @@ config MDIO_XGENE
- 	  This module provides a driver for the MDIO busses found in the
- 	  APM X-Gene SoC's.
+diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+index 8671b7c974b9..ca96c6ea685a 100644
+--- a/drivers/nvmem/Kconfig
++++ b/drivers/nvmem/Kconfig
+@@ -28,6 +28,17 @@ source "drivers/nvmem/layouts/Kconfig"
  
-+config MDIO_AN8855
-+	tristate "Airoha AN8855 Switch MDIO bus controller"
-+	depends on MFD_AIROHA_AN8855
-+	depends on OF_MDIO
-+	select MDIO_REGMAP
+ # Devices
+ 
++config NVMEM_AN8855_EFUSE
++	tristate "Airoha AN8855 eFuse support"
++	depends on MFD_AIROHA_AN8855 || COMPILE_TEST
 +	help
-+	  This module provides a driver for the Airoha AN8855 Switch
-+	  that requires a MDIO passtrough as switch address is shared
-+	  with the internal PHYs and requires additional page handling.
++	  Say y here to enable support for reading eFuses on Airoha AN8855
++	  Switch. These are e.g. used to store factory programmed
++	  calibration data required for the PHY.
 +
- config MDIO_ASPEED
- 	tristate "ASPEED MDIO bus controller"
- 	depends on ARCH_ASPEED || COMPILE_TEST
-diff --git a/drivers/net/mdio/Makefile b/drivers/net/mdio/Makefile
-index 1015f0db4531..546c4e55b475 100644
---- a/drivers/net/mdio/Makefile
-+++ b/drivers/net/mdio/Makefile
-@@ -5,6 +5,7 @@ obj-$(CONFIG_ACPI_MDIO)		+= acpi_mdio.o
- obj-$(CONFIG_FWNODE_MDIO)	+= fwnode_mdio.o
- obj-$(CONFIG_OF_MDIO)		+= of_mdio.o
++	  This driver can also be built as a module. If so, the module will
++	  be called nvmem-an8855-efuse.
++
+ config NVMEM_APPLE_EFUSES
+ 	tristate "Apple eFuse support"
+ 	depends on ARCH_APPLE || COMPILE_TEST
+diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
+index 5b77bbb6488b..c732132c0e45 100644
+--- a/drivers/nvmem/Makefile
++++ b/drivers/nvmem/Makefile
+@@ -10,6 +10,8 @@ nvmem_layouts-y			:= layouts.o
+ obj-y				+= layouts/
  
-+obj-$(CONFIG_MDIO_AN8855)		+= mdio-an8855.o
- obj-$(CONFIG_MDIO_ASPEED)		+= mdio-aspeed.o
- obj-$(CONFIG_MDIO_BCM_IPROC)		+= mdio-bcm-iproc.o
- obj-$(CONFIG_MDIO_BCM_UNIMAC)		+= mdio-bcm-unimac.o
-diff --git a/drivers/net/mdio/mdio-an8855.c b/drivers/net/mdio/mdio-an8855.c
+ # Devices
++obj-$(CONFIG_NVMEM_AN8855_EFUSE)	+= nvmem-an8855-efuse.o
++nvmem-an8855-efuse-y 			:= an8855-efuse.o
+ obj-$(CONFIG_NVMEM_APPLE_EFUSES)	+= nvmem-apple-efuses.o
+ nvmem-apple-efuses-y 			:= apple-efuses.o
+ obj-$(CONFIG_NVMEM_BCM_OCOTP)		+= nvmem-bcm-ocotp.o
+diff --git a/drivers/nvmem/an8855-efuse.c b/drivers/nvmem/an8855-efuse.c
 new file mode 100644
-index 000000000000..22d199942f1c
+index 000000000000..cd1564379098
 --- /dev/null
-+++ b/drivers/net/mdio/mdio-an8855.c
-@@ -0,0 +1,49 @@
-+// SPDX-License-Identifier: GPL-2.0+
++++ b/drivers/nvmem/an8855-efuse.c
+@@ -0,0 +1,63 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * MDIO passthrough driver for Airoha AN8855 Switch
++ *  Airoha AN8855 Switch EFUSE Driver
 + */
 +
-+#include <linux/mdio/mdio-regmap.h>
++#include <linux/mod_devicetable.h>
 +#include <linux/module.h>
++#include <linux/nvmem-provider.h>
 +#include <linux/platform_device.h>
 +#include <linux/regmap.h>
 +
-+static int an8855_mdio_probe(struct platform_device *pdev)
++#define AN8855_EFUSE_CELL		50
++
++#define AN8855_EFUSE_DATA0		0x1000a500
++#define   AN8855_EFUSE_R50O		GENMASK(30, 24)
++
++static int an8855_efuse_read(void *context, unsigned int offset,
++			     void *val, size_t bytes)
 +{
-+	struct mdio_regmap_config mrc = { };
-+	struct device *dev = &pdev->dev;
-+	struct mii_bus *bus;
++	struct regmap *regmap = context;
 +
-+	mrc.regmap = dev_get_regmap(dev->parent, "phy");
-+	mrc.parent = dev;
-+	mrc.valid_addr_mask = GENMASK(31, 0);
-+	mrc.support_encoded_addr = true;
-+	mrc.autoscan = true;
-+	mrc.np = dev->of_node;
-+	snprintf(mrc.name, MII_BUS_ID_SIZE, KBUILD_MODNAME);
-+
-+	bus = devm_mdio_regmap_register(dev, &mrc);
-+	if (IS_ERR(bus))
-+		return dev_err_probe(dev, PTR_ERR(bus), "failed to register MDIO bus\n");
-+
-+	return 0;
++	return regmap_bulk_read(regmap, AN8855_EFUSE_DATA0 + offset,
++				val, bytes / sizeof(u32));
 +}
 +
-+static const struct of_device_id an8855_mdio_of_match[] = {
-+	{ .compatible = "airoha,an8855-mdio", },
++static int an8855_efuse_probe(struct platform_device *pdev)
++{
++	struct nvmem_config an8855_nvmem_config = {
++		.name = "an8855-efuse",
++		.size = AN8855_EFUSE_CELL * sizeof(u32),
++		.stride = sizeof(u32),
++		.word_size = sizeof(u32),
++		.reg_read = an8855_efuse_read,
++	};
++	struct device *dev = &pdev->dev;
++	struct nvmem_device *nvmem;
++
++	/* Assign NVMEM priv to MFD regmap */
++	an8855_nvmem_config.priv = dev_get_regmap(dev->parent, "switch");
++	an8855_nvmem_config.dev = dev;
++	nvmem = devm_nvmem_register(dev, &an8855_nvmem_config);
++
++	return PTR_ERR_OR_ZERO(nvmem);
++}
++
++static const struct of_device_id an8855_efuse_of_match[] = {
++	{ .compatible = "airoha,an8855-efuse", },
 +	{ /* sentinel */ }
 +};
-+MODULE_DEVICE_TABLE(of, an8855_mdio_of_match);
++MODULE_DEVICE_TABLE(of, an8855_efuse_of_match);
 +
-+static struct platform_driver an8855_mdio_driver = {
-+	.probe	= an8855_mdio_probe,
++static struct platform_driver an8855_efuse_driver = {
++	.probe = an8855_efuse_probe,
 +	.driver = {
-+		.name = "an8855-mdio",
-+		.of_match_table = an8855_mdio_of_match,
++		.name = "an8855-efuse",
++		.of_match_table = an8855_efuse_of_match,
 +	},
 +};
-+module_platform_driver(an8855_mdio_driver);
++module_platform_driver(an8855_efuse_driver);
 +
 +MODULE_AUTHOR("Christian Marangi <ansuelsmth@gmail.com>");
-+MODULE_DESCRIPTION("Driver for AN8855 MDIO passthrough");
++MODULE_DESCRIPTION("Driver for AN8855 Switch EFUSE");
 +MODULE_LICENSE("GPL");
 -- 
 2.48.1
