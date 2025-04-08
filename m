@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3173CC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F41C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VsPKq5bnz+xbuaDXmAIW+FHBSb1rIYp7s4cZKf3qJFI=; b=wlJC7k6Ka6LcoQdPncXKAhHeVq
-	bx4JUZGDIJwTY8i9VW3vfHNBCMW0n181ojRTnmEKisRKNn+va8jyncM6o5Qsjs/RazmWSn66lR5qf
-	80wAf69+zMD6oRb3efuC6mJbUt2NQXEYWPZ4BxFL3KCqUwNnxJcf9meVkF0/USW4d1Xx0gt0ps2AI
-	ZuuuVgPjTNt0nRKz42yDjIsm/nUy9vT3PwoGPlh2Qwe18PqAPS1sVhjITI0WXudBusxepiM+9g3v6
-	kuOLUc9JR+93398texiEBZCJR7qphJazEsOWRH+iMJOn2Ujw8e6n24IVvjqPGBzFBlPAEiicuqTK9
-	V+hlH5Jw==;
+	bh=BC+kwoVAr3DKkerz52sg03mJQPqBZjjq89g1vIcQW6U=; b=1eDsfL5YR11DzciaMT1iaBc7R8
+	QUQi2mUkzYEHGK6O1KXCDOqMSd+Jrv2GtKTM4mTMr7csX92t0sgTXG4fnuhsIU14Zi7oGtlPwYyoK
+	JkdVkSrEct0Y5Nw5w/2UjpWtld5p05jrRepR+c7a85L7bRf9xRYqAFD8pwX/NJkF7G1n6yV33dm8S
+	CP4dpFH8qVqm9qyD/JPA6UR5dLZU02D8wlV3g8qOXpIcmqlhEHYEYNjv9OFy6POpnw6a9OrrIHjsT
+	IgnFa09JIsPx07kUxfYJEGkajtwJsDWMfboRBQdayIzEYd06ex6Kbtf3vKOlK28PM9uAzKCh2DM39
+	y0u7R76A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25WJ-00000003UuU-3a2t;
-	Tue, 08 Apr 2025 09:45:27 +0000
+	id 1u25Y7-00000003VEv-3ZNd;
+	Tue, 08 Apr 2025 09:47:19 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25J2-00000003SBw-1xaC
+	id 1u25J8-00000003SH5-3Ig1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 09:31:45 +0000
+	Tue, 08 Apr 2025 09:31:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1744104704; x=1775640704;
+  t=1744104710; x=1775640710;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=VsPKq5bnz+xbuaDXmAIW+FHBSb1rIYp7s4cZKf3qJFI=;
-  b=EvYkBj82gLIV3LtT6bghyd36Jwi1oE24IvEsOih8iNplkjeYqAvFMzZR
-   XWybhwk04MvZNcuGbowy3GbZP6Sp2wDVenkh6BA6Fk4D5+a56EEUPMhdd
-   OAaRE3hZJCLu9dndW0GAzmfXJ7HkdTaL+v8RnaAqDhP41iWbxjX+ZQapQ
-   1hdP4+zHAA4s+cjMgbCHihszxkP2qOVvXIe8/3BE5/bCbTG0DLoG9G/bW
-   nAs0+CGMn+sL9uFYjK+fHqknwBS1OO0HI8tMmpSnKpiLxqJ4LlIvYFMSO
-   F3k8juOs6na6EQK+r7A4MbV2fxz1iMcu3GJZ3M5kWBp+3bD009SZH9tX7
-   g==;
-X-CSE-ConnectionGUID: UPST+TY/SJSRBb7D3z36Bg==
-X-CSE-MsgGUID: qKK9JvXZTw2J7t8o/Yputw==
+  bh=BC+kwoVAr3DKkerz52sg03mJQPqBZjjq89g1vIcQW6U=;
+  b=A2BogLqqrkKXTewcWcHrcF6ahe23N4TA4eSfiomRhK/A7Wi/7tGU8sDa
+   QKPl52R6uedF3y1nH7GFvrj9izOBXOs+8ikuivFt34966KPvDtFevvvJH
+   p+zyZoI+xA9SQn8lbInHe7TDVjBwUtRMiaXbOs7MDdhJ7bbBmifwhN6Nq
+   L2Mx6StdIFMshEPC/XuX2FZ5xgAvxxW58L2GlIoYLQGZZ9DgEvYdtxAhU
+   BCUVsLHB3m5wRukIjA1JPLSUwtW9b91ZwCsQr3/0oP22rnklITLOkTUjx
+   bR18rI9yjcWvsQFG8MK3VHgqxT4xHK1qWjyHBEXBFwVbOZlYjeEArODew
+   w==;
+X-CSE-ConnectionGUID: JbgMUJd8SQ6ivHccM5rvSA==
+X-CSE-MsgGUID: 7BUzCS2bQDaaKFPDC9awTw==
 X-IronPort-AV: E=Sophos;i="6.15,197,1739833200"; 
-   d="scan'208";a="43397388"
+   d="scan'208";a="43397405"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 08 Apr 2025 11:31:43 +0200
-X-CheckPoint: {67F4ECFF-4-7141A0B0-E6EDEC14}
-X-MAIL-CPID: 46C47596A6C7CF91E3972AD22E8C7313_3
-X-Control-Analysis: str=0001.0A006368.67F4ED09.0035,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 822A31694DE;
-	Tue,  8 Apr 2025 11:31:38 +0200 (CEST)
+  by mx1.tq-group.com with ESMTP; 08 Apr 2025 11:31:48 +0200
+X-CheckPoint: {67F4ED04-1C-7141A0B0-E6EDEC14}
+X-MAIL-CPID: 85B7DA6F25BE624F0F4F2E5BBE0CCC1C_3
+X-Control-Analysis: str=0001.0A006368.67F4ED0E.0042,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D264C1697D9;
+	Tue,  8 Apr 2025 11:31:43 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1744104698;
+	s=dkim; t=1744104704;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VsPKq5bnz+xbuaDXmAIW+FHBSb1rIYp7s4cZKf3qJFI=;
-	b=dxm4gcWCz6QFFVoVUkHCY1OmHIvGwbZI5a+YpBbGuTXma5oeqELZizngS841P0D6FdA3+K
-	kT+ohXvUU0TsNmssN4D3bxMeSVtrVsMAfovyrwn3i4fdujPl5FXyTMmbACYcnAfSol79W6
-	sDd+dXm271AVTrZeO0Pgpt0Qwme74D48QD1OjNq2KUe2FcRzim//gqGCe2Z3n8kDD4uFtJ
-	nJycUkA1ElejR1co+EqBQocVgVQDyOffwaPGUTivBcRuhtmHHiYOulskeWIO2i6r6NCc6u
-	hUQ7aNsfi9ngQTfP7gBxQm77KI2VL7GpjtmOl7bkRdXBMZeSUeNsoD/d61Z+xg==
+	bh=BC+kwoVAr3DKkerz52sg03mJQPqBZjjq89g1vIcQW6U=;
+	b=ZK7O/PK17MX11bWsdyyzDZzuHy+szGat4TYZHWGlxd8QLQnUIashucVz7o94TFlHe41cDO
+	Llnp/Wcg3boWVKI3eKdnWcggisPVWBgw46OZQBrPgWUnaR9B/ZItpzAoBNJK1KesGG6i6b
+	OLC8ZPNBaciSkxN6knrArsuT+c+FY4RoU4yNuZCGWdaJU/6Noz0HcU3dglzWNcBxySKjL4
+	rTFzuILD/cYyf+NN9qzwlpUB9MO5169C2h58uLexXinYZPEU0mKviBgai0FoccGwwuo/F0
+	HN4Nk69O7a+2Q5bl0yGd+lVKOS6KX7M9dxmMmzE0//kgNpKnuk+dIfSwvOH9gg==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Shawn Guo <shawnguo@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -74,9 +74,9 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v2 5/7] ARM: dts: ls1021a-tqmals1021a: Add overlay for CDTech FC21 RGB display
-Date: Tue,  8 Apr 2025 11:30:52 +0200
-Message-ID: <20250408093059.551700-6-alexander.stein@ew.tq-group.com>
+Subject: [PATCH v2 6/7] ARM: dts: ls1021a-tqmals1021a: Add overlay for CDTech DC44 RGB display
+Date: Tue,  8 Apr 2025 11:30:53 +0200
+Message-ID: <20250408093059.551700-7-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250408093059.551700-1-alexander.stein@ew.tq-group.com>
 References: <20250408093059.551700-1-alexander.stein@ew.tq-group.com>
@@ -84,8 +84,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_023144_803209_FC296CE8 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20250408_023151_182531_DA0AB66B 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +100,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds an overlay for the supported RGB display CDTech FC21.
+This adds an overlay for the supported RGB display CDTech DC44.
 DCU graphics chain is configured accordingly.
 
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
  arch/arm/boot/dts/nxp/ls/Makefile             |  2 +
- ...-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso | 56 +++++++++++++++++++
- 2 files changed, 58 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso
+ ...-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso | 55 +++++++++++++++++++
+ 2 files changed, 57 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso
 
 diff --git a/arch/arm/boot/dts/nxp/ls/Makefile b/arch/arm/boot/dts/nxp/ls/Makefile
-index 7f96de6f80224..7b97b718ebc16 100644
+index 7b97b718ebc16..53240b04c9688 100644
 --- a/arch/arm/boot/dts/nxp/ls/Makefile
 +++ b/arch/arm/boot/dts/nxp/ls/Makefile
-@@ -9,5 +9,7 @@ dtb-$(CONFIG_SOC_LS1021A) += \
+@@ -9,7 +9,9 @@ dtb-$(CONFIG_SOC_LS1021A) += \
  
  ls1021a-tqmls1021a-mbls1021a-hdmi-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-hdmi.dtbo
  ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtbo
-+ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtbo
++ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtbo
+ ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21-dtbs += ls1021a-tqmls1021a-mbls1021a.dtb ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtbo
  dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-hdmi.dtb
  dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtb
-+dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtb
-diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso
++dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtb
+ dtb-$(CONFIG_SOC_LS1021A) += ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtb
+diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso
 new file mode 100644
-index 0000000000000..31494d9d09f8f
+index 0000000000000..146d45601f693
 --- /dev/null
-+++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso
-@@ -0,0 +1,56 @@
++++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso
+@@ -0,0 +1,55 @@
 +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
 +/*
 + * Copyright 2013-2014 Freescale Semiconductor, Inc.
@@ -158,7 +160,7 @@ index 0000000000000..31494d9d09f8f
 +};
 +
 +&display {
-+	compatible = "cdtech,s070pws19hp-fc21";
++	compatible = "cdtech,s070swv29hg-dc44";
 +	status = "okay";
 +};
 +
@@ -184,7 +186,6 @@ index 0000000000000..31494d9d09f8f
 +&panel_in {
 +	remote-endpoint = <&dcu_out>;
 +};
-+
 -- 
 2.43.0
 
