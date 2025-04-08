@@ -4,59 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D188C369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E9DC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p+aAEnDrXTgDWYTPHU9KYsqfv+w0l39eBf+C/ArRuWg=; b=LCpGaMMeaxkXLGyMplgCpJnsen
-	Oezr+t6OugJExVat30OPjT/agel1z99IJtc+k1zhjZMXcCO1sC7BozUpbfXk4EHytcZLkqNA9MCIc
-	kFreyjPohuVAJdU5OlMZAsUr5DbDZazXXepwgn1qN2PbjpJ3ojKCGEoo35Ib94vFyE3pF32WxT56c
-	ozwBBLkzexZ32e3R2sgtkjCH6z/2x4r7x6JkRetuFE/vCdh2gHbg/DjxWzCl3X5peMacHmEPRtDNt
-	jqRlOaSjnCYgY0JhjtbQxT/H8+1tyT33iCqqFaCavaUowFyAzyrzWMCfrH274bZbjtssRfmu1usLt
-	1MSb+Xgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xVjYy0AFck/5OYj8jfDXaAADSmurcdQMlbFlGcMYBhY=; b=RkCEkAKn0l9uvtXcER0GiH5aO4
+	qIb7jusB465uWsAZOG9l7/cWTUEEvITrLvnG/s8x8j62l5c0yuEyx9v0rw8izBHaXbyIreLL3dKKX
+	rSd9Wdir6SM5rUGduQGgOpVw34AOaMyLkOmQyp6AjFNher6grxrX76ySArD/fUfQwk/6sVPFPSK+D
+	T5lP3Syk4OuUaJv6jDWpviAQ8pvyHMCUZM/67A611fO7vFdvitW01GmsHxLccmiNXcVBLtkdY3idP
+	hizdZldeWCNv/mWWnyjYBSMD4ITA/9u51PsIO1TewNErJysEztQUZdIFBE6+iEG3qS+TtJWICe1+s
+	fMJ2kFsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28mH-000000046rb-3YwE;
-	Tue, 08 Apr 2025 13:14:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u275z-00000003qAh-0djk
+	id 1u28mK-000000046wj-2EfF;
+	Tue, 08 Apr 2025 13:14:12 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u27FK-00000003rjF-2LNg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 11:26:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E392106F;
-	Tue,  8 Apr 2025 04:26:21 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 36AB03F59E;
-	Tue,  8 Apr 2025 04:26:18 -0700 (PDT)
-Date: Tue, 8 Apr 2025 12:26:11 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 16/24] arm64: cpucaps: Add GCIE capability
-Message-ID: <Z_UH0808dGkS3v7-@J2N7QTR9R3.cambridge.arm.com>
-References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
- <20250408-gicv5-host-v1-16-1f26db465f8d@kernel.org>
+	Tue, 08 Apr 2025 11:36:06 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 538AjAQF029440;
+	Tue, 8 Apr 2025 11:35:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	xVjYy0AFck/5OYj8jfDXaAADSmurcdQMlbFlGcMYBhY=; b=V4KGGcxFQaBxMuUX
+	QcXfI2RDg1wj2bsNZEeQdxqbuWDyoBBRpF6s9N1i+uIF+/Zq9W2FniQFRJ0aeNxC
+	s+kqFJpfFXy2sJ1wyloOR/JnQM2EPlyHruYgSnJA3NBvz4vgfF6xsRjhExkA2jPB
+	UXbkIqqjAxjXj1FXMff06BvyLcP7AGHZUv3nxfJDajpc1LC7ucGYwtbFlA032PCe
+	yJ7ttgatui0P42Kg70H/LiS4pVVK0lR1+Rc6wqSmtx0RZHknqY+vwEr81LSKYlr3
+	I9Cv6SbuUFOJpSSsXF1xjd8b18UuhNN+FAno2RlYf2nKAWv/115WW8qBdAojczs4
+	Dmm0VA==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45twcrfm99-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 08 Apr 2025 11:35:52 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 538BZpY2016210
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 8 Apr 2025 11:35:51 GMT
+Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 8 Apr 2025
+ 04:35:45 -0700
+Message-ID: <b8a4a950-1f66-4698-ba86-8c5939978fa3@quicinc.com>
+Date: Tue, 8 Apr 2025 19:35:42 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250408-gicv5-host-v1-16-1f26db465f8d@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] coresight: add coresight Trace NOC driver
+To: Mike Leach <mike.leach@linaro.org>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        James Clark
+	<james.clark@linaro.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, <kernel@quicinc.com>,
+        <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <kernel@oss.qualcomm.com>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
+References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
+ <20250226-trace-noc-driver-v2-2-8afc6584afc5@quicinc.com>
+ <CAJ9a7Vhkp2xBZmjGO9iqCVkJJAt2+Dh+QkRH-BaCMUZ=6G+t4g@mail.gmail.com>
+Content-Language: en-US
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+In-Reply-To: <CAJ9a7Vhkp2xBZmjGO9iqCVkJJAt2+Dh+QkRH-BaCMUZ=6G+t4g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: uXVBf0_DWcLDzD7f_36LWkjcd3zmrtA8
+X-Authority-Analysis: v=2.4 cv=QuVe3Uyd c=1 sm=1 tr=0 ts=67f50a18 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=cxkefC2O0rBfbOjTquQA:9 a=QEXdDO2ut3YA:10
+ a=RVmHIydaz68A:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: uXVBf0_DWcLDzD7f_36LWkjcd3zmrtA8
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-08_04,2025-04-08_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 adultscore=0
+ spamscore=0 malwarescore=0 mlxlogscore=999 bulkscore=0 priorityscore=1501
+ clxscore=1015 phishscore=0 impostorscore=0 suspectscore=0
+ lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504080082
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_042623_234511_EA5C0695 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20250408_043602_763199_91B05CBB 
+X-CRM114-Status: GOOD (  32.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,50 +112,351 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 12:50:15PM +0200, Lorenzo Pieralisi wrote:
-> Implement the GCIE capability as a strict boot cpu capability to
-> detect whether architectural GICv5 support is available in HW.
+
+
+On 4/7/2025 11:47 PM, Mike Leach wrote:
+> Hi,
 > 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-
-This looks good; I have a minor consistency/bikeshedding concern below.
-
-> ---
->  arch/arm64/kernel/cpufeature.c | 7 +++++++
->  arch/arm64/tools/cpucaps       | 1 +
->  2 files changed, 8 insertions(+)
+> On Wed, 26 Feb 2025 at 11:06, Yuanfang Zhang <quic_yuanfang@quicinc.com> wrote:
+>>
+>> Add driver to support Coresight device Trace NOC(Network On Chip).
+>> Trace NOC is an integration hierarchy which is a replacement of
+>> Dragonlink configuration. It brings together debug components like
+>> TPDA, funnel and interconnect Trace Noc.
+>>
+>> It sits in the different subsystem of SOC and aggregates the trace
+>> and transports to QDSS trace bus.
+>>
+>> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+>> ---
+>>  drivers/hwtracing/coresight/Kconfig          |  13 ++
+>>  drivers/hwtracing/coresight/Makefile         |   1 +
+>>  drivers/hwtracing/coresight/coresight-tnoc.c | 190 +++++++++++++++++++++++++++
+>>  drivers/hwtracing/coresight/coresight-tnoc.h |  53 ++++++++
+>>  4 files changed, 257 insertions(+)
+>>
+>> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+>> index 06f0a7594169c5f03ca5f893b7debd294587de78..6cfd160f09d383ab5f5aa276fa57496a52c8f961 100644
+>> --- a/drivers/hwtracing/coresight/Kconfig
+>> +++ b/drivers/hwtracing/coresight/Kconfig
+>> @@ -247,4 +247,17 @@ config CORESIGHT_DUMMY
+>>
+>>           To compile this driver as a module, choose M here: the module will be
+>>           called coresight-dummy.
+>> +
+>> +config CORESIGHT_TNOC
+>> +       tristate "Coresight Trace Noc driver"
+>> +       help
+>> +         This driver provides support for Trace NoC component.
+>> +         Trace NoC is a interconnect that is used to collect trace from
+>> +         various subsystems and transport it QDSS trace sink.It sits in
+>> +         the different tiles of SOC and aggregates the trace local to the
+>> +         tile and transports it another tile or to QDSS trace sink eventually.
+>> +
+>> +         To compile this driver as a module, choose M here: the module will be
+>> +         called coresight-tnoc.
+>> +
+>>  endif
+>> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+>> index 4ba478211b318ea5305f9f98dda40a041759f09f..60b729979f19c8f8848c77c290605132dba1a991 100644
+>> --- a/drivers/hwtracing/coresight/Makefile
+>> +++ b/drivers/hwtracing/coresight/Makefile
+>> @@ -34,6 +34,7 @@ obj-$(CONFIG_CORESIGHT_SINK_TPIU) += coresight-tpiu.o
+>>  obj-$(CONFIG_CORESIGHT_SINK_ETBV10) += coresight-etb10.o
+>>  obj-$(CONFIG_CORESIGHT_LINKS_AND_SINKS) += coresight-funnel.o \
+>>                                            coresight-replicator.o
+>> +obj-$(CONFIG_CORESIGHT_TNOC) += coresight-tnoc.o
+>>  obj-$(CONFIG_CORESIGHT_SOURCE_ETM3X) += coresight-etm3x.o
+>>  coresight-etm3x-y := coresight-etm3x-core.o coresight-etm-cp14.o \
+>>                      coresight-etm3x-sysfs.o
+>> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..fad8e61f05ef25989aba1be342c547f835e8953a
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+>> @@ -0,0 +1,190 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+>> + */
+>> +
+>> +#include <linux/kernel.h>
+>> +#include <linux/module.h>
+>> +#include <linux/device.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/amba/bus.h>
+>> +#include <linux/io.h>
+>> +#include <linux/coresight.h>
+>> +#include <linux/of.h>
+>> +
+>> +#include "coresight-priv.h"
+>> +#include "coresight-tnoc.h"
+>> +#include "coresight-trace-id.h"
+>> +
+>> +static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
+>> +{
+>> +       u32 val;
+>> +
+>> +       /* Set ATID */
+>> +       writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
+>> +
+>> +       /* Config sync CR */
+>> +       writel_relaxed(0xffff, drvdata->base + TRACE_NOC_SYNCR);
+>> +
+>> +       /* Set frequency value */
+>> +       writel_relaxed(drvdata->freq_req_val, drvdata->base + TRACE_NOC_FREQVAL);
+>> +
+>> +       /* Set Ctrl register */
+>> +       val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
+>> +
+>> +       if (drvdata->flag_type == FLAG_TS)
+>> +               val = val | TRACE_NOC_CTRL_FLAGTYPE;
+>> +       else
+>> +               val = val & ~TRACE_NOC_CTRL_FLAGTYPE;
+>> +
+>> +       if (drvdata->freq_type == FREQ_TS)
+>> +               val = val | TRACE_NOC_CTRL_FREQTYPE;
+>> +       else
+>> +               val = val & ~TRACE_NOC_CTRL_FREQTYPE;
+>> +
+>> +       val = val | TRACE_NOC_CTRL_PORTEN;
+>> +       writel_relaxed(val, drvdata->base + TRACE_NOC_CTRL);
+>> +
+>> +       dev_dbg(drvdata->dev, "Trace NOC is enabled\n");
+>> +}
+>> +
+>> +static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
+>> +                           struct coresight_connection *outport)
+>> +{
+>> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +
+>> +       spin_lock(&drvdata->spinlock);
+>> +       if (csdev->refcnt == 0)
+>> +               trace_noc_enable_hw(drvdata);
+>> +
+>> +       csdev->refcnt++;
+>> +       spin_unlock(&drvdata->spinlock);
+>> +
+>> +       return 0;
+>> +}
+>> +
+>> +static void trace_noc_disable_hw(struct trace_noc_drvdata *drvdata)
+>> +{
+>> +       writel_relaxed(0x0, drvdata->base + TRACE_NOC_CTRL);
+>> +       dev_dbg(drvdata->dev, "Trace NOC is disabled\n");
+>> +}
+>> +
+>> +static void trace_noc_disable(struct coresight_device *csdev, struct coresight_connection *inport,
+>> +                             struct coresight_connection *outport)
+>> +{
+>> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +
+>> +       spin_lock(&drvdata->spinlock);
+>> +       if (--csdev->refcnt == 0)
+>> +               trace_noc_disable_hw(drvdata);
+>> +
+>> +       spin_unlock(&drvdata->spinlock);
+>> +       dev_info(drvdata->dev, "Trace NOC is disabled\n");
+>> +}
+>> +
+>> +static const struct coresight_ops_link trace_noc_link_ops = {
+>> +       .enable         = trace_noc_enable,
+>> +       .disable        = trace_noc_disable,
+>> +};
+>> +
+>> +static const struct coresight_ops trace_noc_cs_ops = {
+>> +       .link_ops       = &trace_noc_link_ops,
+>> +};
+>> +
+>> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
+>> +{
+>> +       int atid;
+>> +
+>> +       atid = coresight_trace_id_get_system_id();
+>> +       if (atid < 0)
+>> +               return atid;
+>> +
+>> +       drvdata->atid = atid;
+>> +
+>> +       drvdata->freq_type = FREQ_TS;
+>> +       drvdata->flag_type = FLAG;
+>> +       drvdata->freq_req_val = 0;
+>> +
+>> +       return 0;
+>> +}
+>> +
+>> +static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+>> +{
+>> +       struct device *dev = &adev->dev;
+>> +       struct coresight_platform_data *pdata;
+>> +       struct trace_noc_drvdata *drvdata;
+>> +       struct coresight_desc desc = { 0 };
+>> +       int ret;
+>> +
+>> +       desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
+>> +       if (!desc.name)
+>> +               return -ENOMEM;
+>> +       pdata = coresight_get_platform_data(dev);
+>> +       if (IS_ERR(pdata))
+>> +               return PTR_ERR(pdata);
+>> +       adev->dev.platform_data = pdata;
+>> +
+>> +       drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+>> +       if (!drvdata)
+>> +               return -ENOMEM;
+>> +
+>> +       drvdata->dev = &adev->dev;
+>> +       dev_set_drvdata(dev, drvdata);
+>> +
+>> +       drvdata->base = devm_ioremap_resource(dev, &adev->res);
+>> +       if (!drvdata->base)
+>> +               return -ENOMEM;
+>> +
+>> +       spin_lock_init(&drvdata->spinlock);
+>> +
+>> +       ret = trace_noc_init_default_data(drvdata);
+>> +       if (ret)
+>> +               return ret;
+>> +
+>> +       desc.ops = &trace_noc_cs_ops;
+>> +       desc.type = CORESIGHT_DEV_TYPE_LINK;
+>> +       desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
+>> +       desc.pdata = adev->dev.platform_data;
+>> +       desc.dev = &adev->dev;
+>> +       desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
+>> +       drvdata->csdev = coresight_register(&desc);
+>> +       if (IS_ERR(drvdata->csdev))
+>> +               return PTR_ERR(drvdata->csdev);
+>> +
+>> +       pm_runtime_put(&adev->dev);
+>> +
+>> +       return 0;
+>> +}
+>> +
+>> +static void trace_noc_remove(struct amba_device *adev)
+>> +{
+>> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+>> +
+>> +       coresight_trace_id_put_system_id(drvdata->atid);
+>> +       coresight_unregister(drvdata->csdev);
+>> +}
+>> +
+>> +static struct amba_id trace_noc_ids[] = {
+>> +       {
+>> +               .id     = 0x000f0c00,
+>> +               .mask   = 0x000fff00,
+>> +       },
+>> +       {},
+>> +};
+>> +MODULE_DEVICE_TABLE(amba, trace_noc_ids);
+>> +
+>> +static struct amba_driver trace_noc_driver = {
+>> +       .drv = {
+>> +               .name   = "coresight-trace-noc",
+>> +               .owner  = THIS_MODULE,
+>> +               .suppress_bind_attrs = true,
+>> +       },
+>> +       .probe          = trace_noc_probe,
+>> +       .remove         = trace_noc_remove,
+>> +       .id_table       = trace_noc_ids,
+>> +};
+>> +
+>> +module_amba_driver(trace_noc_driver);
+>> +
+>> +MODULE_LICENSE("GPL");
+>> +MODULE_DESCRIPTION("Trace NOC driver");
+>> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..b6bd1ef659897d8e0994c5e8514e8cbdd16eebd8
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/coresight/coresight-tnoc.h
+>> @@ -0,0 +1,53 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+>> + */
+>> +
+>> +#define TRACE_NOC_CTRL 0x008
+>> +#define TRACE_NOC_XLD  0x010
+>> +#define TRACE_NOC_FREQVAL      0x018
+>> +#define TRACE_NOC_SYNCR        0x020
+>> +
+>> +/* Enable generation of output ATB traffic.*/
 > 
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 9c4d6d552b25cb3a31d1fb267bd73d3f82513e69..8c60591633f3d435ad9b80a10e484f26af328964 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -3041,6 +3041,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->  		.matches = has_pmuv3,
->  	},
->  #endif
-> +	{
-> +		.desc = "GCIE",
-> +		.type = ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE,
-> +		.capability = ARM64_HAS_GCIE,
-> +		.matches = has_cpuid_feature,
-> +		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, GCIE, IMP)
-> +	},
+> 
+> 
+>> +#define TRACE_NOC_CTRL_PORTEN  BIT(0)
+>> +/* Writing 1 to issue a FREQ or FREQ_TS packet*/
+>> +#define TRACE_NOC_CTRL_FREQTSREQ       BIT(5)
+>> +/* Sets the type of issued ATB FLAG packets. 0: 'FLAG' packets; 1: 'FLAG_TS' packets.*/
+>> +#define TRACE_NOC_CTRL_FLAGTYPE                BIT(7)
+>> +/* sets the type of issued ATB FREQ packets. 0: 'FREQ' packets; 1: 'FREQ_TS' packets.*/
+>> +#define TRACE_NOC_CTRL_FREQTYPE                BIT(8)
+>> +DEFINE_CORESIGHT_DEVLIST(trace_noc_devs, "traceNoc");
+> 
+> Coresight links do not generate their own packets - please explain
+> what these are.
+> 
+> As far as I am aware, frequency and flag packets are not part of the
+> ATB specification.
+> 
+> If the output bus for this device is not in fact an ATB bus, then it
+> should not be referred to as such.
+> 
+> Thanks and regards
+> 
+>  Mike
+> 
+Hi Mike
 
-I reckon it's worth making the desc a bit clearer, e.g. "GICv5 CPU
-interface".
+Frequency and flag packets are STPV2 packet formats, they are generated by FREQ,
+FLAG & Sysnc Request Packet interface which is a component of Trace NOC.
+ 
+TNOC is not just a link, it is an integrator that includes TPDA interface,
+FREQ, FLAG & Sysnc Request Packet interface, etc. The data generated by these
+interfaces will be packaged in STPV2 format and then output through ATB bus.
 
-It might be worth cleaning up the existing ARM64_HAS_GIC_CPUIF_SYSREGS
-feature, e.g. making that have "GICv3 CPU interface" as its desc.
+thanks,
+Yuanfang.
+>> +
+>> +/**
+>> + * struct trace_noc_drvdata - specifics associated to a trace noc component
+>> + * @base:      memory mapped base address for this component.
+>> + * @dev:       device node for trace_noc_drvdata.
+>> + * @csdev:     component vitals needed by the framework.
+>> + * @spinlock:  only one at a time pls.
+>> + * @atid:      id for the trace packet.
+>> + * @freqtype:  0: 'FREQ' packets; 1: 'FREQ_TS' packets.
+>> + * @flagtype:  0: 'FLAG' packets; 1: 'FLAG_TS' packets.
+>> + * @freq_req_val:       set frequency values carried by 'FREQ' and 'FREQ_TS' packets.
+>> + */
+>> +struct trace_noc_drvdata {
+>> +       void __iomem            *base;
+>> +       struct device           *dev;
+>> +       struct coresight_device *csdev;
+>> +       spinlock_t              spinlock; /* lock for the drvdata. */
+>> +       u32                     atid;
+>> +       u32                     freq_type;
+>> +       u32                     flag_type;
+>> +       u32                     freq_req_val;
+>> +};
+>> +
+>> +/* freq type */
+>> +enum freq_type {
+>> +       FREQ,
+>> +       FREQ_TS,
+>> +};
+>> +
+>> +/* flag type */
+>> +enum flag_type {
+>> +       FLAG,
+>> +       FLAG_TS,
+>> +};
+>>
+>> --
+>> 2.34.1
+>>
+> 
+> 
 
-Likewise, could make the names consistent, e.g. have:
-
-	ARM64_HAS_GICV3_CPUIF
-	ARM64_HAS_GICV5_CPUIF
-
-... ?
-
-Mark.
 
