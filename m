@@ -4,44 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19508C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 17:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D40CC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 17:32:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m6Zahi0sarElgNiROhFmUN7IZ3Qj0JsjaKqp3OqQl2s=; b=hq1VE0iPznjzTy1Szx4vqd24Bp
-	FQkyQHpCPRlN56Q4OIqRxp/8V1JkcgeIBNHTfySsF7xeutSNenIn4OgkkOl+EDxQRy9mhEMuIC+jW
-	gW4ZYeji+CeLLlOVmwTpR2AtOsE7ppNZPDP7Y95JzYBQNV43xD4jdsJRvDvRqUStueFS/etWodgh6
-	wmtLWZmoKyWI015I9ejaAcyVWubtJmI6QPQsp0WhC0FiIdFFBgWF5LJEe0VMYBvF4vyPaVxowsehV
-	bbREHSU2KSq85APHhDgUHQ8AP+nB7cg6pTGzzpY8UO45yxHIMX2MkYh5PkKxceyMgF9UqGdUlSbJr
-	TKmw925A==;
+	bh=WgUBUMAXSrDiu5o1PcM1WV7OFPo/LLnKaP5zQX3z7uw=; b=0NRuZ0maFKzbQV7hbfwQ8ow+9r
+	iVt30VzhW5ODzeA13AR6/lgEoFZy++dTz2uqFbZ7mBiX6fIP53zSCxhdEJ3dgn4uJinkSlUa2gYDx
+	pWL9DI6LCBPTTztjhSOncneQf4N6JhnOv2lrM5aDdyoVp8gld2rw3pICKnzkoU7tGm2QvVyVZv5eH
+	/VoCVL+yQIEWS3uGNGeBks3QAm0Q04YJzk5yPx+4qd7uxi9lvbvmStvYwZIWjLQsxDObd3ZgR6FpH
+	N1h3C1Ke1sUi8DTGtTkogWQ9HWBIhEDflPEtyS2sV80mi9YxSMAUyvnBqsm/fJsTLkWoEz9j83IJW
+	YaDW+xjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2CmL-00000004z2n-2wRa;
-	Tue, 08 Apr 2025 17:30:29 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1u2Co5-00000004zKj-2Ew7;
+	Tue, 08 Apr 2025 17:32:17 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2CQo-00000004vF8-1hDH;
-	Tue, 08 Apr 2025 17:08:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=m6Zahi0sarElgNiROhFmUN7IZ3Qj0JsjaKqp3OqQl2s=; b=WN85ll5GnP8jm4E5CPBNiYzgcw
-	Nv//yxrxKFc0F5lxcSLQv23LrGyGOuzPv5ortcl1X5SXrJtaoEfCjwvmA5DWY81euYVe2P5nvI/Ph
-	Frgbh6motOShBQOA+igX6ZZT+N3HCHRS6g4pOeTuLjHYsbBka1YP1pNeP3D27uZ+Hymo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u2CQb-008QXY-97; Tue, 08 Apr 2025 19:08:01 +0200
-Date: Tue, 8 Apr 2025 19:08:01 +0200
-From: Andrew Lunn <andrew@lunn.ch>
+	id 1u2CUf-00000004vs3-1Ep2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 17:12:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=WgUBUMAXSrDiu5o1PcM1WV7OFPo/LLnKaP5zQX3z7uw=; b=Thl8a6CF3918v/aF9zFB5adZio
+	Upx9kX6X2TGqbZOlrrEmkO6BbcUr7dWBRiNlWgiawdpfa923pKwRYHCSWWHEOXSnvQzq3WbQ6qSfD
+	GbagT2QFnh+i6cS1cElBnPsHV+rxjX4co/eLCmZmiITUij6kOEb8tMF4A6KfDNjjCX3NHGe2wk9wV
+	SuGf+tir2ovNEk+zEAdnPMc5joE/htmKH+7pzMEy/idMRyMuxfim2+bczBiG+JbFlpVC563IsYWT/
+	yWyJuUgJa1xG0GJTiiW7BvtMLMJPLJZOIf/rHLH05LG3NwfsWYakW1RriNeVVjPEAXUOLgBNJbQOL
+	jLkBJ4cg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36344)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1u2CUH-0007o5-37;
+	Tue, 08 Apr 2025 18:11:50 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1u2CUB-0001bM-2D;
+	Tue, 08 Apr 2025 18:11:43 +0100
+Date: Tue, 8 Apr 2025 18:11:43 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
@@ -57,7 +68,7 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	linux-mediatek@lists.infradead.or
 Subject: Re: [net-next PATCH 2/2] net: phy: mediatek: add Airoha PHY ID to
  SoC driver
-Message-ID: <7e60d851-1b70-4084-a63f-c8ff7bf81425@lunn.ch>
+Message-ID: <Z_VYz6InC1p4vwku@shell.armlinux.org.uk>
 References: <20250408155321.613868-1-ansuelsmth@gmail.com>
  <20250408155321.613868-2-ansuelsmth@gmail.com>
 MIME-Version: 1.0
@@ -65,8 +76,9 @@ Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <20250408155321.613868-2-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_100814_438312_EEF5E231 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20250408_101213_606646_385331EB 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,17 +94,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Tue, Apr 08, 2025 at 05:53:14PM +0200, Christian Marangi wrote:
-> Airoha AN7581 SoC ship with a Switch based on the MT753x Switch embedded
-> in other SoC like the MT7581 and the MT7988. Similar to these they
-> require configuring some pin to enable LED PHYs.
-> 
-> Add support for the PHY ID for the Airoha embedded Switch and define a
-> simple probe function to toggle these pins. Also fill the LED functions
-> and add dedicated function to define LED polarity.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+>  config MEDIATEK_GE_SOC_PHY
+>  	tristate "MediaTek SoC Ethernet PHYs"
+> -	depends on (ARM64 && ARCH_MEDIATEK) || COMPILE_TEST
+> -	depends on NVMEM_MTK_EFUSE || COMPILE_TEST
+> +	depends on (ARM64 && (ARCH_MEDIATEK || ARCH_AIROHA)) || COMPILE_TEST
+> +	depends on (ARCH_MEDIATEK && NVMEM_MTK_EFUSE) || ARCH_AIROHA || COMPILE_TEST
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+So...
+COMPILE_TEST	ARM64	ARCH_AIROHA	ARCH_MEDIATEK	NVMEM_MTK_EFUSE	result
+N		N	x		x		x		N
+N		Y	N		N		x		N
+N		Y	N		Y		N		N
+N		Y	N		Y		Y		Y
+N		Y	Y		x		x		Y
+Y		x	x		x		x		Y
 
-    Andrew
+Hence this simplifies to:
+
+	depends on ARM64 || COMPILE_TEST
+	depends on ARCH_AIROHA || (ARCH_MEDIATEK && NVMEM_MTK_EFUSE) || \
+		   COMPILE_TEST
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
