@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19266C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9914BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s/WjN8Qr9aQHD0ucNMPA8YXauZwdz7L+HtyPQl0gBcw=; b=dYkaGyVSHFNohJkkBCNd+qTtM7
-	d1fvrheKpOsM9mOXDnTRBmOGydn9YUiXIcKaopsObmztompkwawN6y1c1++rO0w0K9tb/XJmFOGiv
-	MywOZFBjFfMgyJLHyqhu0szScM76sl06D34suJZxo6JPWW6hx3EwTeIvCELGke7mBI4dyKUUCpNlY
-	kaLdnx1mwkZYux6IUR1jJudXxdsP5re6s3mTTJEVI61TMtJbzclRQ5bq51aTLnfvOtM20/JQAr52I
-	wyweaDV8HJsqXy8NYZfpDKg5BZI7NshrzpK0t1urI2EmHuOAVyaELKgEops18IE+zCub0uWj351mq
-	BbWl7uMQ==;
+	bh=tPaU6rqs1+LcoYxQsU9r6svewsgP725uz2JN6EbiZ7o=; b=hgka9HTXoSZ7a8iciqv6CJWOlC
+	WDkAzh7UA6arBpdZB6Pr24G4TR3Z3YVIx9RNH1SxxvLFwIJQ0V+FAt2Cvw4aJm7UETVwVGQUwjDqf
+	YLsA8HO9zNSBR41ERTp31YufiZZywlIaadxnHU8eg+ThF/YBVNtdivqC32TKRE6o4KqF686aPre53
+	AHPa45LIhr3qN/Sk3Oi0xEHvLijku6xKS5ZuQo9AcS9GuYutK0SWEhZNEaj6aLVMVF7CZwIhzJdyM
+	Xn6RdYViFBOQ8YNtGjrbd2cNSRIWkljvcrldXIcEUUkOjnAXZUDlSrGCJOCKAlDmTkpIJS+vs+DCS
+	kxEACTpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28lu-0000000469Q-06Y2;
+	id 1u28lu-000000046Af-3eQu;
 	Tue, 08 Apr 2025 13:13:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26ZR-00000003kaV-2y4V
+	id 1u26ZT-00000003kb8-0tt8
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Apr 2025 10:52:45 +0000
+	Tue, 08 Apr 2025 10:52:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=s/WjN8Qr9aQHD0ucNMPA8YXauZwdz7L+HtyPQl0gBcw=; b=JDxYkoU3/DcqR08HPiSqwmjJn4
-	iyCefQ1zto9VbNkZZwYraVwEL9VJVW5IutiFtmoq9mk+3nyIM6PC+9cyeFc5FXnM+CbCKXEYFTL1F
-	lqL9gwq7AwZwyhQvZUBzORijqR3phjnEwWSjA0ssjIGRuPobsnYx7kAVbX0w03zhGl6CNOGmaie+M
-	VTk0bvDBV5Hy+yN6AtHJOcBYbe4u2XeByZ9VIpxj7r36a73YoeLHF54kB/Vu2NsOZfjK7k3mKliVZ
-	rQ1dtvz64o65B3GTQpogMRsc8XS0fPCZS4AiOaigBW8z/VUonTDdexHgJokOY2sLKS3rfBceHwdtL
-	YVqJ0tyA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	bh=tPaU6rqs1+LcoYxQsU9r6svewsgP725uz2JN6EbiZ7o=; b=GS8HUr0ddotjGGGtXK1XIiqwNt
+	ey70hMGbsN5vdZgNr9GgpOIJ9suNjb5WT++IqyHvUQbuhBXMnEsJQf/fvqNPUBjo0jGkDM+azqMNl
+	B8/2Bk1p+qQs71tWkQtGwrCXC6fNZRWsGXogNm4uohE0LaUJ2QFZKKFUhuYdM9a0BBqHVVIjvTMHV
+	LWS4l5H7r/WwosnF62MjtKOoB9Y0cc6gtBjbOCj4Shp8Cwa26N9XVyYJpU5Nw8g3VvN2rOr9nSX6K
+	c0hgsiqQUijYf54jATymeVT9gFXtdU7HsjObR5yDUN1uu+mMLqhaVXn1HbUWE4M1prHGQac98VlhR
+	UykqmuzQ==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26ZO-00000008GRc-3IBa
+	id 1u26ZP-00000008GRa-1eYu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 10:52:44 +0000
+	Tue, 08 Apr 2025 10:52:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3B7DF5C5C6B;
-	Tue,  8 Apr 2025 10:50:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECCB8C4CEEC;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 43A745C5548;
+	Tue,  8 Apr 2025 10:50:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 018A2C4CEEB;
 	Tue,  8 Apr 2025 10:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744109561;
-	bh=GZFvuOp7F5b/p4wbdhkNUZbcbM062HzxRDlGZgd/He8=;
+	s=k20201202; t=1744109560;
+	bh=DMiRL11JjPSJeeXI/o7QWutOd3dtKmaSpTXC8NGHW0g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CBNlM/NiOZ5oFyi+8pn1ivPQmUIiqH8A9CyiabubLSfl6a/lXiYlNh9YTjG3NyGgi
-	 4RMuHObQeevvfvJ0VulOrNlCoqmh32ocbTPywJBF97cII0jnh9ncLuXItnQjVAbTjU
-	 5Nt6S3D1j0hV6Qty6vhcIFJxfNnjCGBjrxZRwElO1lj4an9qF8UqoVW3YUYSzLL2HG
-	 kz9TmNS/k7Hbk9N3MiUp+sDr5y2hFomESWuFmMaKG3QBhpAnqcaqohrKF48KZOqKKL
-	 tm/8qYelGM5gVBvT+4pwc20OypPLduRb7ise0YXNIYQ6gC+x2adXpo1feA8tqVAEhR
-	 tq9eA0Xl8XxMw==
+	b=STtPEmclauFnOFuFQXtOPbDyE+QuNRMw6kmc3NBMw/Q0GqSxYcmYGCVIqCI58nImq
+	 r1VAAbYFi06Dp7iyjmjhM3rcp+EM+86nZ2PI2rszcEG5iXrNfk0I5uG8Zwo17eFAMF
+	 u2XNTHkzFksNcVLNZUJHsqs+9kl7dlEtfoEJf1L3+Cu0b5Kz59/5UK309FeRlKXpX3
+	 n4dRB2KpvneEjJtxSEinKRimmkyzF22PWVCTf33wKS2EQaCbHuNNVy8QZZBF960KlU
+	 5uBl31BQdeh62kAOJclLE5LMfm+ErHHmc5HPZ32Tj8E7KRsGPsq2vggPQvXi4LpkR3
+	 eMgDeN9vFbV9w==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u26ZL-003QX2-5S;
-	Tue, 08 Apr 2025 11:52:39 +0100
+	id 1u26ZK-003QX2-5y;
+	Tue, 08 Apr 2025 11:52:38 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -72,9 +72,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v2 11/17] KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU notifiers
-Date: Tue,  8 Apr 2025 11:52:19 +0100
-Message-Id: <20250408105225.4002637-12-maz@kernel.org>
+Subject: [PATCH v2 06/17] KVM: arm64: nv: Don't adjust PSTATE.M when L2 is nesting
+Date: Tue,  8 Apr 2025 11:52:14 +0100
+Message-Id: <20250408105225.4002637-7-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250408105225.4002637-1-maz@kernel.org>
 References: <20250408105225.4002637-1-maz@kernel.org>
@@ -85,8 +85,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_115243_086510_6DB9A0CF 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20250408_115243_798799_90519441 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,128 +101,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During an invalidation triggered by an MMU notifier, we need to
-make sure we can drop the *host* mapping that would have been
-translated by the stage-2 mapping being invalidated.
+We currently check for HCR_EL2.NV being set to decide whether we
+need to repaint PSTATE.M to say EL2 instead of EL1 on exit.
 
-For the moment, the invalidation is pretty brutal, as we nuke
-the full IPA range, and therefore any VNCR_EL2 mapping.
+However, this isn't correct when L2 is itself a hypervisor, and
+that L1 as set its own HCR_EL2.NV. That's because we "flatten"
+the state and inherit parts of the guest's own setup. In that case,
+we shouldn't adjust PSTATE.M, as this is really EL1 for both us
+and the guest.
 
-At some point, we'll be more light-weight, and the code is able
-to deal with something more targetted.
+Instead of trying to try and work out how we ended-up with HCR_EL2.NV
+being set by introspecting both the host and guest states, use
+a per-CPU flag to remember the context (HYP or not), and use that
+information to decide whether PSTATE needs tweaking.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/nested.c | 75 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 75 insertions(+)
+ arch/arm64/include/asm/kvm_host.h |  1 +
+ arch/arm64/kvm/hyp/vhe/switch.c   | 21 +++++++++++++++++++--
+ 2 files changed, 20 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 06db2097eae58..c1572fe60555f 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -433,6 +433,30 @@ static unsigned int ttl_to_size(u8 ttl)
- 	return max_size;
- }
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index e98cfe7855a62..12adab97e7f25 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -654,6 +654,7 @@ struct kvm_host_data {
+ #define KVM_HOST_DATA_FLAG_HAS_TRBE			1
+ #define KVM_HOST_DATA_FLAG_TRBE_ENABLED			4
+ #define KVM_HOST_DATA_FLAG_EL1_TRACING_CONFIGURED	5
++#define KVM_HOST_DATA_FLAG_VCPU_IN_HYP_CONTEXT		6
+ 	unsigned long flags;
  
-+static u8 pgshift_level_to_ttl(u16 shift, u8 level)
-+{
-+	u8 ttl;
-+
-+	switch(shift) {
-+	case 12:
-+		ttl = TLBI_TTL_TG_4K;
-+		break;
-+	case 14:
-+		ttl = TLBI_TTL_TG_16K;
-+		break;
-+	case 16:
-+		ttl = TLBI_TTL_TG_64K;
-+		break;
-+	default:
-+		BUG();
-+	}
-+
-+	ttl <<= 2;
-+	ttl |= level & 3;
-+
-+	return ttl;
-+}
-+
- /*
-  * Compute the equivalent of the TTL field by parsing the shadow PT.  The
-  * granule size is extracted from the cached VTCR_EL2.TG0 while the level is
-@@ -783,6 +807,53 @@ int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2)
- 	return kvm_inject_nested_sync(vcpu, esr_el2);
- }
+ 	struct kvm_cpu_context host_ctxt;
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index 731a0378ed132..220dee8a45e0d 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -53,13 +53,23 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
+ 	if (!vcpu_has_nv(vcpu))
+ 		return hcr;
  
-+static void invalidate_vncr(struct vncr_tlb *vt)
-+{
-+	vt->valid = false;
-+	if (vt->cpu != -1)
-+		clear_fixmap(vncr_fixmap(vt->cpu));
-+}
++	/*
++	 * We rely on the invariant that a vcpu entered from HYP
++	 * context must also exit in the same context, as only an ERET
++	 * instruction can kick us out of it, and we obviously trap
++	 * that sucker. PSTATE.M will get fixed-up on exit.
++	 */
+ 	if (is_hyp_ctxt(vcpu)) {
++		host_data_set_flag(VCPU_IN_HYP_CONTEXT);
 +
-+static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
-+{
-+	struct kvm_vcpu *vcpu;
-+	unsigned long i;
-+
-+	lockdep_assert_held_write(&kvm->mmu_lock);
-+
-+	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
-+		return;
-+
-+	kvm_for_each_vcpu(i, vcpu, kvm) {
-+		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
-+		u64 ipa_start, ipa_end, ipa_size;
-+
-+		/*
-+		 * Careful here: We end-up here from an MMU notifier,
-+		 * and this can race against a vcpu not being onlined
-+		 * yet, without the pseudo-TLB being allocated.
-+		 *
-+		 * Skip those, as they obviously don't participate in
-+		 * the invalidation at this stage.
-+		 */
-+		if (!vt)
-+			continue;
-+
-+		if (!vt->valid)
-+			continue;
-+
-+		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
-+							    vt->wr.level));
-+		ipa_start = vt->wr.pa & (ipa_size - 1);
-+		ipa_end = ipa_start + ipa_size;
-+
-+		if (ipa_end <= start || ipa_start >= end)
-+			continue;
-+
-+		invalidate_vncr(vt);
-+	}
-+}
-+
- void kvm_nested_s2_wp(struct kvm *kvm)
- {
- 	int i;
-@@ -795,6 +866,8 @@ void kvm_nested_s2_wp(struct kvm *kvm)
- 		if (kvm_s2_mmu_valid(mmu))
- 			kvm_stage2_wp_range(mmu, 0, kvm_phys_size(mmu));
+ 		hcr |= HCR_NV | HCR_NV2 | HCR_AT | HCR_TTLB;
+ 
+ 		if (!vcpu_el2_e2h_is_set(vcpu))
+ 			hcr |= HCR_NV1;
+ 
+ 		write_sysreg_s(vcpu->arch.ctxt.vncr_array, SYS_VNCR_EL2);
++	} else {
++		host_data_clear_flag(VCPU_IN_HYP_CONTEXT);
  	}
-+
-+	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
- }
  
- void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
-@@ -809,6 +882,8 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
- 		if (kvm_s2_mmu_valid(mmu))
- 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+ 	return hcr | (__vcpu_sys_reg(vcpu, HCR_EL2) & ~NV_HCR_GUEST_EXCLUDE);
+@@ -568,9 +578,12 @@ static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 
+ 	/*
+ 	 * If we were in HYP context on entry, adjust the PSTATE view
+-	 * so that the usual helpers work correctly.
++	 * so that the usual helpers work correctly. This enforces our
++	 * invariant that the guest's HYP context status is preserved
++	 * across a run.
+ 	 */
+-	if (vcpu_has_nv(vcpu) && (read_sysreg(hcr_el2) & HCR_NV)) {
++	if (vcpu_has_nv(vcpu) &&
++	    unlikely(host_data_test_flag(VCPU_IN_HYP_CONTEXT))) {
+ 		u64 mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
+ 
+ 		switch (mode) {
+@@ -586,6 +599,10 @@ static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 		*vcpu_cpsr(vcpu) |= mode;
  	}
+ 
++	/* Apply extreme paranoia! */
++	BUG_ON(vcpu_has_nv(vcpu) &&
++	       !!host_data_test_flag(VCPU_IN_HYP_CONTEXT) != is_hyp_ctxt(vcpu));
 +
-+	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+ 	return __fixup_guest_exit(vcpu, exit_code, hyp_exit_handlers);
  }
  
- void kvm_nested_s2_flush(struct kvm *kvm)
 -- 
 2.39.2
 
