@@ -4,57 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCAECC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6942C3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xl9pdrn/7oTYvr0o5FBrDZetLCGU9w8F4g1xpUfQX3M=; b=Kceu7IF6koMjmqwlsQx2vhHdmc
-	HWWaaAyzFZvTI02akkpi3KvgNPqYeRPTzSb5kn0GtIGEF7w1oxc6/GjFSVuCfAFXB5d4tUkSsMiyB
-	+YctFwEmVwyOAcK44DknJlKTOJka4MeUvoEjVA5ROgKGPoUNRkn4wTdwNYjdQosLQ79bi1ghHbIlo
-	Zhsg8ivFvoqXZgGLoA3b5MozvK7n9NUrTAyCJvrqN0AY+4wQcIHZqKDiQZexA6USn5Mlwoj/5U/5w
-	SeYTGF0CikZLbhEXNkfE5zt/svhjjcClsE2UA/GE1KL99MB/djLNDqpKoNV4XPyLbkKX1ua/y2r4l
-	mFP+nt8g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h0s4IqDHUQpz6TfVrnkRbMHalEDSFjPrTCmzN+0kbD4=; b=BHns7ECZNLSAonEWHSlErcFfqN
+	pGmt+DJRCxuBZV7CHDM0C3lk8WUTfYqbzCNR3ImwYF3DRF7J/j8GnE8cuAzwj+UrnLNYDLLUseF6l
+	1+spayBmP/KJIY1uxuozL88Z1tK2caUItJfcOUt3L8RTq0OzC9ICXMdKCdbG82xCMG4tBpqD6tT8P
+	hnYP+XbaAHRFb2pk/ZeUVdKQT9uK8KKLPRxuiy6t0MAIl6iXCEy59cMOQTVPaaOZPLpN8hMPntIYM
+	cWArjF5cQJX152uZig6nMFcJTT0uvCVbQxxOMgWH/laUuc5tgxunwOGtGzo46Ulkij+2/+HKTfdWe
+	LWqGjcOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25LU-00000003ShT-0tLn;
-	Tue, 08 Apr 2025 09:34:16 +0000
-Received: from mx3.molgen.mpg.de ([141.14.17.11])
+	id 1u25NJ-00000003TBh-1cXK;
+	Tue, 08 Apr 2025 09:36:09 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25El-00000003RDL-0tV3
+	id 1u25Ie-00000003S9L-30T3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 09:27:21 +0000
-Received: from [141.14.220.43] (g43.guest.molgen.mpg.de [141.14.220.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id AD33E61E647BB;
-	Tue, 08 Apr 2025 11:26:48 +0200 (CEST)
-Message-ID: <a8e7171b-d859-4611-9681-e4c614f29d64@molgen.mpg.de>
-Date: Tue, 8 Apr 2025 11:26:47 +0200
+	Tue, 08 Apr 2025 09:31:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1744104680; x=1775640680;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=h0s4IqDHUQpz6TfVrnkRbMHalEDSFjPrTCmzN+0kbD4=;
+  b=erkJfk6JgoXpb/nvKe+D77MXihotwK9sihTz85veVDvDQcOo6en41gGQ
+   5mZOvIk51eAa3svOc2mgKjFgt1PdIj8qUgEmwwPLUcJtGoKOXNOYSs3ud
+   0xS4Rd5js+HypetJJqwTlTiNqhWjjaL24vM/ian3e7DJ1X8vZG84CPBy/
+   ijM77trLEWycljH9SQfCVEqxr18RPkbW+4k7IKlW4WSa6jN0+1IM6v4j4
+   s6LXbeSokXmY51uPz5+txakLqIjSNuHMTdukpii6WA3ZiNs/485rWwEWg
+   kNFzlzZop7gMHAageMJ9+r/eUkAP3z8MqIbld/6MGvms4fZXh5WKkQviz
+   Q==;
+X-CSE-ConnectionGUID: Ymv1WK9lSly4UKeBKvybJA==
+X-CSE-MsgGUID: HWgAOVYaRLCxkl4aLQqe3g==
+X-IronPort-AV: E=Sophos;i="6.15,197,1739833200"; 
+   d="scan'208";a="43397353"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 08 Apr 2025 11:31:16 +0200
+X-CheckPoint: {67F4ECE4-5A-F35B2447-E1635CDE}
+X-MAIL-CPID: 96E221BC38795281C901158DDE387570_1
+X-Control-Analysis: str=0001.0A006375.67F4ECDF.0015,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A08A169020;
+	Tue,  8 Apr 2025 11:31:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1744104671;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=h0s4IqDHUQpz6TfVrnkRbMHalEDSFjPrTCmzN+0kbD4=;
+	b=iGXz8xae2/wlseztSWhSU6whTtTSf8ioEbT7mfr7TRKJyPMmeecP6L8AC0bS9TQnBn9DZB
+	2vlbySxAwLnEmM13PhtILfn6Pvvb01fQiJJFuweYoYucwuTbMzaHMxdGyASdc4QA2xAo2q
+	NkYnjf+GbVPFoU6dgsCalSelPncnE4JW+HxComIWC9+kS753cVGHNLzfy+IQrwcgixtay1
+	1bIT22tmQikU8uIacV/81aI0DEz67bxk/71lHz/p7/4BVSGdSbHx1EeP1JZ3TSSWyhLX3R
+	lZv9y0Emz6euI9WWVygnzUfmYsbn3WmlAYy+3VryBX9ivOiffAhdcsuYG4YeQg==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev
+Subject: [PATCH v2 0/7] TQMLS102xA: New display overlays and small fixes
+Date: Tue,  8 Apr 2025 11:30:47 +0200
+Message-ID: <20250408093059.551700-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Kernel WARNING (RCU) with btnxpuart on TI AM62 platform
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Amitkumar Karwar <amitkumar.karwar@nxp.com>,
- Neeraj Kale <neeraj.sanjaykale@nxp.com>, Nishanth Menon <nm@ti.com>,
- Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-serial@vger.kernel.org, regressions@lists.linux.dev
-References: <20250408083512.GA26035@francesco-nb>
-Content-Language: en-US
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-In-Reply-To: <20250408083512.GA26035@francesco-nb>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_022719_537171_940A666B 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20250408_023121_245376_BD94AF5F 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,85 +96,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Cc: +regressions@]
+Hi,
 
-#regzbot introduced: v6.14..v6.15-rc1
+this series adds several display overlays for HDMI, LVDS and RGB displays.
+Additionally it fixes the license header and updates the sound card model
+name similar to i.MX based platforms by TQ.
 
+Changes in v2:
+* Collected Frank's R-b
+* Improved commit message on patch 4
+* CC'ed imx@lists.linux.dev as well
 
-Dear Francesco,
+Best regards,
+Alexander
 
+Alexander Stein (7):
+  ARM: dts: ls1021a-tqmals1021a: Fix license
+  ARM: dts: ls1021a-tqmals1021a: Add vcc-supply for spi-nor
+  ARM: dts: ls1021a-tqmals1021a: Add HDMI overlay
+  ARM: dts: ls1021a-tqmals1021a: Add LVDS overlay for Tianma TM070JVGH33
+  ARM: dts: ls1021a-tqmals1021a: Add overlay for CDTech FC21 RGB display
+  ARM: dts: ls1021a-tqmals1021a: Add overlay for CDTech DC44 RGB display
+  ARM: dts: ls1021a-tqmals1021a: change sound card model name
 
-Thank you for your report.
+ arch/arm/boot/dts/nxp/ls/Makefile             |  9 +++
+ .../ls/ls1021a-tqmls1021a-mbls1021a-hdmi.dtso | 32 +++++++++++
+ ...tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtso | 47 ++++++++++++++++
+ ...-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso | 55 ++++++++++++++++++
+ ...-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso | 56 +++++++++++++++++++
+ .../nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts   |  5 +-
+ .../boot/dts/nxp/ls/ls1021a-tqmls1021a.dtsi   |  3 +-
+ 7 files changed, 204 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-hdmi.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-lvds-tm070jvhg33.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso
 
-Am 08.04.25 um 10:35 schrieb Francesco Dolcini:
+-- 
+2.43.0
 
-> I do have the following kernel warning with 6.15-rc1, on a TI AM62
-> platform (arm64), single CPU core, using btnxpuart driver, any idea?
-> PREEMPT_RT is enabled, if it matters.
-> 
-> Either the issue is not systematic, or multi cores SoCs are not affected
-> (no error on the exact same image on a dual nor on quad core TI AM62).
-> 
-> 
-> [   23.139080] Voluntary context switch within RCU read-side critical section!
-> [   23.139119] WARNING: CPU: 0 PID: 61 at /kernel/rcu/tree_plugin.h:332 rcu_note_context_switch+0x3c4/0x430
-> [   23.139172] Modules linked in: uas onboard_usb_dev optee_rng dwc3 evdev btnxpuart spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils optee spi_cadence_quadspi tee gpio_keys usb_conn_gpio display_connector roles dwc3_am62 mwifiex_sdio k3_j72xx_bandgap mwifiex rtc_ti_k3 cfg80211 tidss sa2ul sha512_generic snd_soc_davinci_mcasp authenc drm_display_helper snd_soc_ti_udma crypto_null snd_soc_ti_edma sha1_generic snd_soc_ti_sdma omap_hwspinlock lontium_lt8912b ina2xx snd_soc_wm8904 ti_ads1015 industrialio_triggered_buffer kfifo_buf lm75 tpm_tis_i2c tps65219_pwrbutton crc_ccitt tpm_tis_core tpm rng_core tc358768 m_can_platform pwm_tiehrpwm m_can spi_omap2_mcspi can_dev bluetooth ecdh_generic ecc rfkill libaes loop fuse ipv6 autofs4
-> [   23.139459] CPU: 0 UID: 0 PID: 61 Comm: kworker/u5:0 Not tainted 6.15.0-rc1-0.0.0-devel #1 PREEMPT_RT
-> [   23.139471] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
-> [   23.139478] Workqueue: hci0 hci_power_off [bluetooth]
-> [   23.139615] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [   23.139625] pc : rcu_note_context_switch+0x3c4/0x430
-> [   23.139647] lr : rcu_note_context_switch+0x3c4/0x430
-> [   23.139658] sp : ffff8000819fb740
-> [   23.139661] x29: ffff8000819fb740 x28: 0000000000000000 x27: ffff0000079d2010
-> [   23.139673] x26: ffff0000011e7810 x25: ffff000001c2c200 x24: 0000000000000000
-> [   23.139688] x23: 0000000000000000 x22: ffff000001c2c200 x21: ffff000001c2c200
-> [   23.139700] x20: ffff800081083ec0 x19: ffff00001da9fec0 x18: fffffffffffe7e78
-> [   23.139712] x17: ffff7fff9ca1c000 x16: ffff800080000000 x15: ffff00001da9f8c0
-> [   23.139726] x14: fffffffffffc7e77 x13: 216e6f6974636573 x12: 206c616369746972
-> [   23.139738] x11: 6320656469732d64 x10: 6165722055435220 x9 : 206e696874697720
-> [   23.139750] x8 : ffff80008113f040 x7 : ffff8000819fb4e0 x6 : 000000000000000c
-> [   23.139761] x5 : ffff00001da95888 x4 : 0000000000000000 x3 : 0000000000000027
-> [   23.139775] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff000001c2c200
-> [   23.139788] Call trace:
-> [   23.139793]  rcu_note_context_switch+0x3c4/0x430 (P)
-> [   23.139813]  __schedule+0xa0/0x7dc
-> [   23.139830]  schedule+0x34/0x11c
-> [   23.139841]  schedule_timeout+0x8c/0x110
-> [   23.139861]  wait_for_completion_timeout+0x78/0x14c
-> [   23.139873]  ti_sci_set_device_state+0x120/0x1fc
-> [   23.139886]  ti_sci_cmd_get_device_exclusive+0x18/0x30
-> [   23.139899]  ti_sci_pd_power_on+0x28/0x54
-> [   23.139916]  _genpd_power_on+0x98/0x188
-> [   23.139927]  genpd_power_on+0xa8/0x168
-> [   23.139940]  genpd_runtime_resume+0xc0/0x298
-> [   23.139957]  __rpm_callback+0x48/0x1a4
-> [   23.139974]  rpm_callback+0x74/0x80
-> [   23.139987]  rpm_resume+0x3b0/0x698
-> [   23.140000]  __pm_runtime_resume+0x48/0x88
-> [   23.140012]  omap8250_set_mctrl+0x2c/0xbc
-> [   23.140030]  serial8250_set_mctrl+0x20/0x40
-> [   23.140046]  uart_update_mctrl+0x80/0x110
-> [   23.140062]  uart_dtr_rts+0x104/0x118
-> [   23.140079]  tty_port_shutdown+0xd4/0xe0
-> [   23.140092]  tty_port_close+0x3c/0xb8
-> [   23.140103]  uart_close+0x34/0x98
-> [   23.140116]  ttyport_close+0x50/0xa0
-> [   23.140137]  serdev_device_close+0x40/0x5c
-> [   23.140150]  btnxpuart_close+0x1c/0xa0 [btnxpuart]
-> [   23.140175]  hci_dev_close_sync+0x304/0x7cc [bluetooth]
-> [   23.140243]  hci_dev_do_close+0x2c/0x70 [bluetooth]
-> [   23.140309]  hci_power_off+0x20/0x64 [bluetooth]
-> [   23.140379]  process_one_work+0x148/0x284
-> [   23.140403]  worker_thread+0x2c8/0x3dc
-> [   23.140414]  kthread+0x12c/0x208
-> [   23.140426]  ret_from_fork+0x10/0x20
-
-As I understood, that it’s a regression, and you can reproduce it, would 
-it be possible, that you bisected the issue?
-
-
-Kind regards,
-
-Paul
 
