@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 520B8C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D8AC369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6HfW0vkjtlkAm7uksKgsKqVu9qIf8mOl8bnZ7ef7cg=; b=l1f/Nx6xU5c7YcDqJLTyhr9N0p
-	65epfywERhNflcjFXpQt3nvvKhHq5monNz8HkfnoVgUXYN3CiWmzTd5cIcRkF/rcq0kLSmmIWRj+I
-	qc1wWLcpzXYrnKCwVvF9zEIHTTR4aeigNCgbkzgp6LRio9O2kzFR4cWv/1jrA+EnOlibQASsjrWkA
-	R2nX18CnKXCDaL3g3onp7cKzMziRc5AWJosAgrYHu703c0yq5gScBauadQVxNi+/WElyiyne3Y47X
-	1lLyKFh6DQjDEg4qxeMNnI2qlNBFfuvvjgaGHGnbXrszHST12ikKSFJbjf4PvdWi8RkUoW2jPUsjj
-	H3wd4pXQ==;
+	bh=maYeBHyukcD41Ok36kPrsdL9APyex77i93BMZAgSjDY=; b=K1cbigGeDsSX40wXkFrc5QWo0M
+	//FLuHUxiw//w12WS6FCgxHetqRkbGU8DB3XpFRF9IC7c/AX3f10WqjJl5Rh6HmiaFRIpDy+RKBuV
+	8eSO79quDIGbnkWcXnap+BpZbcoj1xChyL6QLiNGZHxQw1ZsoHIBO9dAJIorpstQ6zK4xWmgUquKR
+	j/eDRtzMp9TyliL3TrgrOH6fZQOU21LFC72zdWX7iVrcH32gPkKlTyPryL/0+qYng8fJtZ7IFd4UE
+	1Zr53+rwP4FbKnMO2tau4n9IQDLtI4ScBC1vZZPsZ48mypmNO982i3XevNxsMzsLz5CeIARfyPWof
+	let0MgNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u29xW-00000004OAJ-2a53;
-	Tue, 08 Apr 2025 14:29:50 +0000
-Received: from mail-wm1-f49.google.com ([209.85.128.49])
+	id 1u29zH-00000004OVi-0iOs;
+	Tue, 08 Apr 2025 14:31:39 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u29vS-00000004NUD-1Zjj
+	id 1u29vZ-00000004NXJ-2X51
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 14:27:44 +0000
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-43ce70f9afbso61496205e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 07:27:41 -0700 (PDT)
+	Tue, 08 Apr 2025 14:27:52 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43ed8d32a95so33327125e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 07:27:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744122460; x=1744727260; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1744122468; x=1744727268; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=F6HfW0vkjtlkAm7uksKgsKqVu9qIf8mOl8bnZ7ef7cg=;
-        b=vGybNqhmbby6gM9mPhNcOCl+BjcSwqfW2NVQAoKAm+vcqxVqHreQJaSA/ShRVScniO
-         eUZovLngOR1gwRP0DunN0H8LzMM3cweEY8ic4VNjND1dVsl1NR2yjzK1H/uaypKXpJ/r
-         OEwK1anSzY5HfSMZks11J+pshAeuN7KoSINgp9skr89+lZsuzw8BRYgYe3zNxGnxcV3+
-         00LHjkSqdJSUH6BF9Qvk6I/ACkZR71mZ92V2gmjQ/FGDD/E9EnmAk3rJjH22NDQF1HBK
-         FZNqqG5jwjBpaYU1WcEvRVW8HIMDr8OInHwwBUMqmbjVvrygLwwkeJxDxh+8f6G5L/Th
-         yoOA==
+        bh=maYeBHyukcD41Ok36kPrsdL9APyex77i93BMZAgSjDY=;
+        b=pWySzRZko8EwBW+fGLiXe36yid3b9Qx5r50vuD+xwl4wNLeM1H3Ot4jSQDUE0QmGrz
+         M+af7ufhbr5nADwbZa/ArC4aukrfn3CZoxGZC9EfyOZgDt62bzBFll6dQTr9QUFsU875
+         JcUU+jAqYe0gpQhguFehimTh19JJ9FLyW0UrLqegVmK+ttNoXcaBxs3SKoXtWr656zoA
+         em2bjBzIKeplJ8+zMO/ag29aIRXTqL+c7kvspJHRlf54wF6WqHVKy6OR8eHxfH3V9cAe
+         NOCsYc88vgvSqYsPwRAHsLYieEaP+lIw1rD8nmXSzzqLZyeQgGNU/T1L7+v1RqYiFCJM
+         TIYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744122460; x=1744727260;
+        d=1e100.net; s=20230601; t=1744122468; x=1744727268;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=F6HfW0vkjtlkAm7uksKgsKqVu9qIf8mOl8bnZ7ef7cg=;
-        b=vl0/NKHdKgsHPOjX7eOen8CbJd/rp//WcMgjgQl7kcpL8i3Va52rJG1kQ5l2PZGWTf
-         XUeljpUx3YC9oM6PDiflaTfJvr6Dm5yy5xZ8u46G2jTDHj+nmkJyZXc92k324J8Amn3S
-         peAymcizH2+I9fG+/Gy1vT0v7Jk6WrdkjqA615NJ8zWtcVHZAPUmjT31Ye171y+obHGK
-         VpbdfrI0kHfVvHhTwKZGZdSCoTWOnEXVpzLBWehZOLv6I1JU9nOKOVCOPAcRA5NwCKMI
-         M0m1JlU+5K9CVJGfynGlTFWBW9DnoYektz+/pA48nV7c8xpbem6CopHFfROdCaeQ8sft
-         J9Og==
-X-Gm-Message-State: AOJu0YwGP0/SXao3n7bWT00GsksUkeiuxsDmAeChlo69VcOlBzDWQ1MW
-	Fw83WBZm7i8b+ozqeQjI8pRgALC7ihfuk5QJTmXaVuRzQqY4/+5vq2XTdQ8/kyk=
-X-Gm-Gg: ASbGnctEF9kwhdDMWFUPOCq6eJWkGovanmcq8nCiz15cEvDNTFc4btT0w1Ae9lgb0TK
-	s1f+zFXl3aYmHScNVQJgQoqMhqx7mFWQgFz65EVcSd+2FgEJze1WqUHPmmkIzw4Jzopt+9FwDwK
-	Wr5aORrW/DciQCi4dIJVIeyuz+4gyBdAfjJApkH7TE012rrDUwuHtZR1A2IsG1vKsK5nU/ZyIfk
-	DWu8lrYphvYqNRaNCYrvg2O6Hvk5itnh7RSNXY1OPAlA0L5DyIqk6Zm++gsqC3hwENOyNLkh1SY
-	QYxwi4X2oGP+CR89LJx5VkGoCEj2y03qbxGXRDnSOqJXe5u1SvC8PqJ1UbPjfGqLL29YU/avlLT
-	d6MHG6lJCP6dnmKLdgIYo2Q==
-X-Google-Smtp-Source: AGHT+IEFzSlrXkuwJ4BeZNVJDc79m98CBMUnaDEEBTa0PE1ADYZ4JU0DGBnfFovWynU4GuvtS6T8sQ==
-X-Received: by 2002:a05:600c:5346:b0:43c:f597:d582 with SMTP id 5b1f17b1804b1-43eda5d8460mr90477265e9.1.1744122460377;
-        Tue, 08 Apr 2025 07:27:40 -0700 (PDT)
+        bh=maYeBHyukcD41Ok36kPrsdL9APyex77i93BMZAgSjDY=;
+        b=Z2HKHcpkglGmRVc7ayrrhJsBG62LKbxbM+fbTgaud5o1usLElBmAB8Alp5gWQxzaXm
+         H0UhttinbehcSaqNpBSkk4YDgBcJtMfF34VG8p9HOST/o7eiL5bmpYhQ68eGvo5FhLlM
+         mIXxFCtvzItj5FyI4hFOgYygGnPdeD/Ca+awP3icVyF2bDBP/e/0PT4Zo9TEjFwQvgCi
+         VYeqR14E/LygU+lhjiHawJHMZMQf8H04n83yPTBnxwLfvnhsrtwUNaw45txJUiFh0YsM
+         c++CfDzqbhIcfuRbZJisU3sd1UjWf+W8IMPOK9MuxlDYYp/h6hemNprORo5L/bGSa95F
+         oKyw==
+X-Gm-Message-State: AOJu0YwWC26GaFNPHuLthBLokxE1dUzSzTfRDV+pL4/cFvsjFLDHEtoJ
+	YkY8RBoDZVyPOmSQysOjRIEXs9wtblEKGfSU85XT27fOfb8QfvhjX9DZpy64Vsw=
+X-Gm-Gg: ASbGnct6PbuUdnwxIw1BLB3PxHWfJdKdUY7vOTHPTeD4im7+MqVyCmLSPC8UXqJqkNT
+	gqbmahM4bYlkwRccwHMZ5BP6+vH98pTwabMbhmwqGEMcIbDL4snkIRxn+G7lqNeTC+kRn0fahJL
+	UnV0ybwT+R6/I5fs7CvAz8KalkumTYz9ygZHG/C09VZoCXxA6b8LZaCV2DBQEVBkRMjmj34rpRG
+	64RTegxsKX+IVpNkq63p/4lzpx5ScjQBmhWQagKsDvsk9hRGJ4KTBhjT0MgygaRd6ynC/myEp1R
+	9H8hkr6fS0/7Cg+jaoz4eOJ7FNhDOgtG/ImSFVjNLoU2MSwxrxO+LtsY0MC7Be/om2feD0nJcAY
+	dp1tn3A1L8+h72endXRvaVQ==
+X-Google-Smtp-Source: AGHT+IHOQl3NOqzgesmZMaye/+jS53HYFNcdFr4mTBR4HNItRvuMdvVuoVoOZXlrImVcJ2UxCZ7isA==
+X-Received: by 2002:a05:6000:4011:b0:391:31f2:b99a with SMTP id ffacd0b85a97d-39cb35b2527mr16291235f8f.5.1744122467955;
+        Tue, 08 Apr 2025 07:27:47 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:3d9:2080:3daa:5b6d:6ccb:4c71? ([2a01:e0a:3d9:2080:3daa:5b6d:6ccb:4c71])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec3429f67sm169744825e9.7.2025.04.08.07.27.39
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec34be2f4sm161009595e9.19.2025.04.08.07.27.47
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Apr 2025 07:27:40 -0700 (PDT)
-Message-ID: <ba7e31ff-5744-4409-921f-e2014f23151b@linaro.org>
-Date: Tue, 8 Apr 2025 16:27:39 +0200
+        Tue, 08 Apr 2025 07:27:47 -0700 (PDT)
+Message-ID: <81d462fb-b118-4354-82b5-92c33d870b44@linaro.org>
+Date: Tue, 8 Apr 2025 16:27:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 08/10] pinctrl: sx150x: use new GPIO line value setter
- callbacks
+Subject: Re: [PATCH 07/10] pinctrl: sx150x: enable building modules with
+ COMPILE_TEST=y
 To: Bartosz Golaszewski <brgl@bgdev.pl>,
  Ludovic Desroches <ludovic.desroches@microchip.com>,
  Linus Walleij <linus.walleij@linaro.org>,
@@ -91,7 +91,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org,
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 References: <20250408-gpiochip-set-rv-pinctrl-part1-v1-0-c9d521d7c8c7@linaro.org>
- <20250408-gpiochip-set-rv-pinctrl-part1-v1-8-c9d521d7c8c7@linaro.org>
+ <20250408-gpiochip-set-rv-pinctrl-part1-v1-7-c9d521d7c8c7@linaro.org>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -118,12 +118,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20250408-gpiochip-set-rv-pinctrl-part1-v1-8-c9d521d7c8c7@linaro.org>
+In-Reply-To: <20250408-gpiochip-set-rv-pinctrl-part1-v1-7-c9d521d7c8c7@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_072742_422837_2EE45772 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20250408_072749_712095_B6A68BAF 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,72 +142,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 08/04/2025 09:17, Bartosz Golaszewski wrote:
 > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > 
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
+> Increase the build coverage by enabling the sx150x modules with
+> COMPILE_TEST=y.
 > 
 > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > ---
->   drivers/pinctrl/pinctrl-sx150x.c | 23 ++++++++++++-----------
->   1 file changed, 12 insertions(+), 11 deletions(-)
+>   drivers/pinctrl/Kconfig | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/pinctrl/pinctrl-sx150x.c b/drivers/pinctrl/pinctrl-sx150x.c
-> index 98262b8ce43a..d3a12c1c0de2 100644
-> --- a/drivers/pinctrl/pinctrl-sx150x.c
-> +++ b/drivers/pinctrl/pinctrl-sx150x.c
-> @@ -432,24 +432,25 @@ static int sx150x_gpio_oscio_set(struct sx150x_pinctrl *pctl,
->   			    (value ? 0x1f : 0x10));
->   }
+> diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
+> index 464cc9aca157..94eb41bb9cf2 100644
+> --- a/drivers/pinctrl/Kconfig
+> +++ b/drivers/pinctrl/Kconfig
+> @@ -541,7 +541,7 @@ config PINCTRL_STMFX
 >   
-> -static void sx150x_gpio_set(struct gpio_chip *chip, unsigned int offset,
-> -			    int value)
-> +static int sx150x_gpio_set(struct gpio_chip *chip, unsigned int offset,
-> +			   int value)
->   {
->   	struct sx150x_pinctrl *pctl = gpiochip_get_data(chip);
->   
->   	if (sx150x_pin_is_oscio(pctl, offset))
-> -		sx150x_gpio_oscio_set(pctl, value);
-> -	else
-> -		__sx150x_gpio_set(pctl, offset, value);
-> +		return sx150x_gpio_oscio_set(pctl, value);
-> +
-> +	return __sx150x_gpio_set(pctl, offset, value);
->   }
->   
-> -static void sx150x_gpio_set_multiple(struct gpio_chip *chip,
-> -				     unsigned long *mask,
-> -				     unsigned long *bits)
-> +static int sx150x_gpio_set_multiple(struct gpio_chip *chip,
-> +				    unsigned long *mask,
-> +				    unsigned long *bits)
->   {
->   	struct sx150x_pinctrl *pctl = gpiochip_get_data(chip);
->   
-> -	regmap_write_bits(pctl->regmap, pctl->data->reg_data, *mask, *bits);
-> +	return regmap_write_bits(pctl->regmap, pctl->data->reg_data, *mask,
-> +				 *bits);
->   }
->   
->   static int sx150x_gpio_direction_input(struct gpio_chip *chip,
-> @@ -1175,7 +1176,7 @@ static int sx150x_probe(struct i2c_client *client)
->   	pctl->gpio.direction_input = sx150x_gpio_direction_input;
->   	pctl->gpio.direction_output = sx150x_gpio_direction_output;
->   	pctl->gpio.get = sx150x_gpio_get;
-> -	pctl->gpio.set = sx150x_gpio_set;
-> +	pctl->gpio.set_rv = sx150x_gpio_set;
->   	pctl->gpio.set_config = gpiochip_generic_config;
->   	pctl->gpio.parent = dev;
->   	pctl->gpio.can_sleep = true;
-> @@ -1190,7 +1191,7 @@ static int sx150x_probe(struct i2c_client *client)
->   	 * would require locking that is not in place at this time.
->   	 */
->   	if (pctl->data->model != SX150X_789)
-> -		pctl->gpio.set_multiple = sx150x_gpio_set_multiple;
-> +		pctl->gpio.set_multiple_rv = sx150x_gpio_set_multiple;
->   
->   	/* Add Interrupt support if an irq is specified */
->   	if (client->irq > 0) {
+>   config PINCTRL_SX150X
+>   	bool "Semtech SX150x I2C GPIO expander pinctrl driver"
+> -	depends on I2C=y
+> +	depends on I2C=y || COMPILE_TEST
+>   	select PINMUX
+>   	select PINCONF
+>   	select GENERIC_PINCONF
 > 
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
