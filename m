@@ -4,135 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0723C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 22:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E6DC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 22:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=daTWqN3jpxe4gC1xN/OLC1sxScqhKfxGORcCNJ0vXEk=; b=tfEDWJhsL3pv1PHlegqnaA6qSY
-	tku/dGxacIoV5EjHRrWY9bAsKbxh32GKs20UyA9TouP+UlTDeCkAEldAf1szsPo68lqm64g+1E0DM
-	pbbEXpXgYMVq9Dsrvt1fB7B2xiJjBKObVd+C55S9drAqO20S3K9W4vQmeAe+wC+bYzprVkH2CXtbd
-	tgpmChBSYodC6hDCvJ+tGcGp77vKvYnhKI7US9z5j6btbjAI1K7ADTPHwK7gbjM7EKIYuzauwaFjR
-	rLTPW5wqjmEncCgqg5/+E3maGLY7JNDU2sS78D22jYT0a2gMJI/63BnskxdEKfbCEiSU1h1cU7rVn
-	5Jv+dWdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j8EVmgn2Z4wK0oIRWCTYDXGo1chuiloeDCezR7/IMto=; b=vhpfRHby5p+G8j1K5pebXvnjuZ
+	+yuv97DxJD8qCBKn102gn+ppFU8xlyep7QUf3r9SqSPdgFJLA8/uoqDqNlQlhWKe4SJX2kGOlGsvf
+	Mv4bi63R1Tps7F71Y4dAY7eNgFjQ3jY9N/lIuiLnki7fbQ0A2MajUtvZh0OQpVW/RX1fS3iXVA3gx
+	GrMgpEr1pFMVASxr30L5Z3jccoJlIiTU3/Z8X1htYjx6sHyLPJ4sL/yKE3Ch22YI/2z+gqET7rC6X
+	YZJVfMd0eFx3OuYJ3rXrNczDvz0n+4ctzpOCkzz3HN0w8orqylM2JYvwOWo7uuE+RO5qLvtkH6OjW
+	EFXCvcsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2HUb-00000005acl-17sT;
-	Tue, 08 Apr 2025 22:32:29 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1u2Heb-00000005c8t-3oJA;
+	Tue, 08 Apr 2025 22:42:50 +0000
+Received: from out-188.mta1.migadu.com ([2001:41d0:203:375::bc])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2HSl-00000005aJT-1HE9
+	id 1u2GSY-00000005RW0-0C6X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 22:30:39 +0000
-Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250408223028epoutp0119f0b7d557532c71eb7d210a4b90b8bb~0eHvNM0FF3021430214epoutp01T
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Apr 2025 22:30:28 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250408223028epoutp0119f0b7d557532c71eb7d210a4b90b8bb~0eHvNM0FF3021430214epoutp01T
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1744151428;
-	bh=daTWqN3jpxe4gC1xN/OLC1sxScqhKfxGORcCNJ0vXEk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=O54uKXscZZFj6S40bjZeiRkp9xtVaYplzZ0rjYc44afw6JGLy+MNK4KUuJLuHYDqK
-	 HisCgC1y73+rZN+uvY3N1/HCTvJAhvPGApfB6DKOIV4mb0gjoRdcqEw7F7bFX6+eG8
-	 Pl3pXZZLUZWhaJiv2AXo0aYXgRUtoYv7cfL/tVPg=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250408223028epcas2p25b57e53d0407f0b8150567e1286aeb93~0eHun056R1115911159epcas2p2w;
-	Tue,  8 Apr 2025 22:30:28 +0000 (GMT)
-Received: from epsmges2p1.samsung.com (unknown [182.195.36.101]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZXLPb3VQJz3hhTF; Tue,  8 Apr
-	2025 22:30:27 +0000 (GMT)
-Received: from epcas2p2.samsung.com ( [182.195.41.54]) by
-	epsmges2p1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	A7.E0.09787.383A5F76; Wed,  9 Apr 2025 07:30:27 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250408223026epcas2p220582f5c0401b442921cda2571c595ec~0eHtfGNlY1108211082epcas2p2y;
-	Tue,  8 Apr 2025 22:30:26 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250408223026epsmtrp190cac27ccbda6e1095b0d3de9988e5fc~0eHtdet3W2762627626epsmtrp1L;
-	Tue,  8 Apr 2025 22:30:26 +0000 (GMT)
-X-AuditID: b6c32a45-9d3ff7000000263b-d8-67f5a38312dc
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	9D.C1.19478.283A5F76; Wed,  9 Apr 2025 07:30:26 +0900 (KST)
-Received: from tiffany (unknown [10.229.95.142]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250408223026epsmtip179dd352b2cf00b65b0d651d4cc0deb9c~0eHtRIngR2246222462epsmtip1D;
-	Tue,  8 Apr 2025 22:30:26 +0000 (GMT)
-Date: Wed, 9 Apr 2025 07:28:51 +0900
-From: Donghyeok Choe <d7271.choe@samsung.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Youngmin Nam <youngmin.nam@samsung.com>, Sudeep Holla
-	<sudeep.holla@arm.com>, Thomas Gleixner <tglx@linutronix.de>, Saravana
-	Kannan <saravanak@google.com>, Ulf Hansson <ulf.hansson@linaro.org>, Vincent
-	Guittot <vincent.guittot@linaro.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@android.com,
-	hajun.sung@samsung.com, joonki.min@samsung.com, ne.yoo@samsung.com,
-	Donghyeok Choe <d7271.choe@samsung.com>
-Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in
- GICv3 ITS driver
-Message-ID: <20250408222851.GB2187207@tiffany>
+	Tue, 08 Apr 2025 21:26:19 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1744147574;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=j8EVmgn2Z4wK0oIRWCTYDXGo1chuiloeDCezR7/IMto=;
+	b=Lc6glUYriu6t8DRbnJjBKzUmx47WCtf0msz0Fz7bdoxmmIVYbPoTN4KBuaa1jE/Xc1OSul
+	+kE1ZXcH6Na28NdBGLO3zaEXkK8P7X5JspchKKo9DPdz8n6Fdpyad+J6p0PJ0uQpvTJAj+
+	O6xP+8Zuh2VioswhiSmeBk4qbuzCRJ3TIKigInxTPKO2g030yS0QVvN6UUpg8VhnGFSugs
+	jkkEtL3K45MKFK3b61d5Wxya7YvDiNuY3R5dcggCzTmikBGjSLgYmtfsghia6ivAjqgHQ0
+	RginvRMRKRJ0orS2X41Jg9RzbtAa+GR6obNYQIadRs7eFAJL3tHR4gkEKewJbg==
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <benno.lossin@proton.me>, 
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>, 
+ Faith Ekstrand <faith.ekstrand@collabora.com>, Janne Grunau <j@jannau.net>, 
+ Sven Peter <sven@svenpeter.dev>, Jonathan Corbet <corbet@lwn.net>, 
+ Sergio Lopez Pascual <slp@sinrega.org>, 
+ Ryan Houdek <sonicadvance1@gmail.com>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Cc: linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ rust-for-linux@vger.kernel.org, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ Asahi Lina <lina@asahilina.net>, Simona Vetter <simona.vetter@ffwll.ch>, 
+ Neal Gompa <neal@gompa.dev>
+In-Reply-To: <20250408-agx-uapi-v7-1-ad122d4f7324@rosenzweig.io>
+References: <20250408-agx-uapi-v7-1-ad122d4f7324@rosenzweig.io>
+Subject: Re: [PATCH v7] drm: Add UAPI for the Asahi driver
+Message-Id: <174414756927.683934.14858043560945639869.b4-ty@rosenzweig.io>
+Date: Tue, 08 Apr 2025 17:26:09 -0400
 MIME-Version: 1.0
-In-Reply-To: <86tt6zkux7.wl-maz@kernel.org>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrKJsWRmVeSWpSXmKPExsWy7bCmmW7z4q/pBjsXi1pc2zuR3aJp/yVm
-	i6u73zFb7NguYrHp8TVWi8u75rBZ7JxzktVi2fEuVouuQ3/ZLJaf2sFisXnTVGaL42vDLTqO
-	fGO2WHzgE7sDn8e23dtYPdbMW8PosWBTqcemVZ1sHneu7WHzeHfuHLvH5iX1Hn1bVjF6fN4k
-	F8AZlW2TkZqYklqkkJqXnJ+SmZduq+QdHO8cb2pmYKhraGlhrqSQl5ibaqvk4hOg65aZA3S5
-	kkJZYk4pUCggsbhYSd/Opii/tCRVISO/uMRWKbUgJafAvECvODG3uDQvXS8vtcTK0MDAyBSo
-	MCE74/zNxIIzvBVTdzWyNjDO5O5i5OCQEDCR2LletYuRi0NIYAejxLSGX8xdjJxAzidGiTv/
-	kiASQPa9hxPYQRIgDb1v/7FCJHYyStyYPp0VouMpo8SVaREgNouAisSa1TuYQGw2AV2JSZ3b
-	2EBsEQFFiU8XTjKCNDMLnGCWmDe9lxHkDGGBKInH7XEgNbwCehJ/5u9hg7AFJU7OfMICUsIp
-	oC0x7WwJxNFHOCT+uEOc4yJxdet6qNOEJV4d3wJlS0m87G9jB9kkIdDMKDHpxmsmCGcG0JmT
-	PzNBVBlLzHrWzghiMwtkSKyado4VYoGyxJFbLBBhPomOw3/ZIcK8Eh1tQhCdKhLn+x4wwuza
-	MPct1EQPiXUTLzJCgucqs8T+64fYJjDKzULyzSwk22YBjWUW0JRYv0sfIiwv0bx1NjNEWFpi
-	+T8OJBULGNlWMYqlFhTnpqcWGxUYwuM5OT93EyM4PWu57mCc/PaD3iFGJg7GQ4wSHMxKIrxv
-	J35JF+JNSaysSi3Kjy8qzUktPsRoCoylicxSosn5wAyRVxJvaGJpYGJmZmhuZGpgriTOe+jj
-	03QhgfTEktTs1NSC1CKYPiYOTqkGpj3/4v/+vHr93Rtx3d1pkaycfy8lKe7+ccdHjjvA58P8
-	6UKv9QLdtCZPqpkt8dz/ld8f5rR7yc6s/zjyyr3fTotWDpvQfUjlcUyicIct36TVeZOuLLk/
-	rWLT7OPf+k0vZavND362O6f9eb/bFI3U9N1eB/zPfDfSmt2ku3Lh2rmTunLElrzlOiSYqeH6
-	Yz8fW3SYtEliypONtd82HfbZ9ih2RvRu973MQsHWHvNf1rg4nujenrRYfv0ah59ZP5UdZ0bv
-	nepy7YGYht8u9k/imh+2if0XkeZ6PdHhw+Ibj784lMl4F/70nnwj+Z/H2zXOorPMovk9J6dx
-	rfpn0pbrmdw4U13YTuT/2kfMjkn65kosxRmJhlrMRcWJAKgQJA1YBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprJIsWRmVeSWpSXmKPExsWy7bCSnG7T4q/pBnOfmVhc2zuR3aJp/yVm
-	i6u73zFb7NguYrHp8TVWi8u75rBZ7JxzktVi2fEuVouuQ3/ZLJaf2sFisXnTVGaL42vDLTqO
-	fGO2WHzgE7sDn8e23dtYPdbMW8PosWBTqcemVZ1sHneu7WHzeHfuHLvH5iX1Hn1bVjF6fN4k
-	F8AZxWWTkpqTWZZapG+XwJWxcv8atoJ3XBX7fjSxNjBe5+hi5OSQEDCR6H37j7WLkYtDSGA7
-	o8TEGTNZIRJSEu1bZjJB2MIS91uOQBU9ZpRo/fMArIhFQEVizeodYEVsAroSkzq3sYHYIgKK
-	Ep8unGQEaWAWOMcscfbqXmaQhLBAlMSet9PAGngF9CT+zN/DBjG1nVni8Pk2VoiEoMTJmU9Y
-	QGxmAXWJP/MuATVzANnSEsv/cUCE5SWat84GC3MKaEtMO1sygVFwFpLmWUiaZyE0z0LSvICR
-	ZRWjaGpBcW56bnKBoV5xYm5xaV66XnJ+7iZGcOxpBe1gXLb+r94hRiYOxkOMEhzMSiK8byd+
-	SRfiTUmsrEotyo8vKs1JLT7EKM3BoiTOq5zTmSIkkJ5YkpqdmlqQWgSTZeLglGpgKpt1keuD
-	1pSlXJNtAo7+bDle1Mj+0Ph31kqGyg4Rpl8lCfw9r/Wc+vvu7xM2tmaO+pjWHm379MTVgqCG
-	+CbVb1O2eptx2mfITXOXsplcOfNckOqFv32Rs9fE8HaF3fbtvSh5LvQVW72PVOCr6Xeszp84
-	6+Zh0hjwkyPpgjzHiudenVMdPePlfpavcVkbKlF/PcDwfRPXOv+DW3kyS/rTAmJabHKCuurz
-	Jl0VcVmosMXojq4zd/qUvAN2W+1+ty/wtxDp/fVairdGlIXvvPji4DSB37mSuz582SVe4ur0
-	ut7i5LmY/++DX/zRfZNmcV0i78OPEukPcVHCtwtj7jgcvnT7sjTz76dHp6gd+a/EUpyRaKjF
-	XFScCAANXZsKLAMAAA==
-X-CMS-MailID: 20250408223026epcas2p220582f5c0401b442921cda2571c595ec
-X-Msg-Generator: CA
-Content-Type: multipart/mixed;
-	boundary="----ieZh69edyBxzv2Y5Ggo8207PwRbI2z7mQ5FWfU8PsFoZKj2n=_bae2f_"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250408223026epcas2p220582f5c0401b442921cda2571c595ec
-References: <Z+Nv8U/4P3taDpUq@perf> <8634f0mall.wl-maz@kernel.org>
-	<Z+TEa8CVAYnbD/Tu@perf> <20250402-messy-wild-squid-7b4da9@sudeepholla>
-	<Z+3kwsesiXyC0hbO@perf>
-	<20250403-rare-wasp-of-management-9bce59@sudeepholla>
-	<20250404041323.GA685160@tiffany>
-	<20250407-amiable-perfect-hummingbird-06ad83@sudeepholla>
-	<20250407225146.GA2858456@tiffany> <86tt6zkux7.wl-maz@kernel.org>
-	<CGME20250408223026epcas2p220582f5c0401b442921cda2571c595ec@epcas2p2.samsung.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_153037_580372_A597408B 
-X-CRM114-Status: GOOD (  23.03  )
+X-CRM114-CacheID: sfid-20250408_142618_369221_DD2B4922 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,45 +87,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------ieZh69edyBxzv2Y5Ggo8207PwRbI2z7mQ5FWfU8PsFoZKj2n=_bae2f_
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Content-Disposition: inline
 
-On Tue, Apr 08, 2025 at 07:51:32AM +0100, Marc Zyngier wrote:
-> On Mon, 07 Apr 2025 23:51:46 +0100,
-> Donghyeok Choe <d7271.choe@samsung.com> wrote:
-> > 
-> > [1  <text/plain; us-ascii (7bit)>]
-> > On Mon, Apr 07, 2025 at 10:17:43AM +0100, Sudeep Holla wrote:
+On Tue, 08 Apr 2025 16:54:14 -0400, Alyssa Rosenzweig wrote:
+> This adds the UAPI for the Asahi driver targeting the GPU in the Apple
+> M1 and M2 series systems on chip. The UAPI design is based on other
+> modern Vulkan-capable drivers, including Xe and Panthor. Memory
+> management is based on explicit VM management. Synchronization is
+> exclusively explicit sync.
 > 
-> > > Do you use any suspend/resume logic in drivers/irqchip/irq-gic-pm.c ?
-> > No, there are parts of the GIC that require secure access, so the
-> > GIC save/restore is performed by the firmware.
-> > Since the GIC-ITS is entirely controlled as a non-secure IP,
-> > I think it is more efficient to perform save/restore in the kernel.
+> This UAPI is validated against our open source Mesa stack, which is
+> fully conformant to the OpenGL 4.6, OpenGL ES 3.2, OpenCL 3.0, and
+> Vulkan 1.4 standards. The Vulkan driver supports sparse, exercising the
+> VM_BIND mechanism.
 > 
-> More efficient? Give me *one* aspect of this save/restore sequence
-> that is done in a more efficiently way in the kernel. Dumping MMIO
-> accesses into memory has the exact same cost at EL1, El2 or EL3, and
-> splitting things along an arbitrary line to paper over bad firmware is
-> not a valid argument.
+> [...]
 
-If I had to highlight just one efficiency gain — it's that I get to
-reuse well-tested and well-written save/restore code without
-reinventing the wheel (or worse, reinventing a square one).
-And as for bad firmware... I guess it deserves the punishment
-of handling GIC ITS save/restore.
+Applied, thanks!
 
-That said, I truly appreciate your insight, and I’ll make an effort
-to avoid relying on such suboptimal kernel usage going forward.
+[1/1] drm: Add UAPI for the Asahi driver
+      commit: 12a2bf6765c2a61eb7f20870452bb915eb28fdcc
 
-Best regards,  
-Donghyeok Choe
+Best regards,
+-- 
+Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-------ieZh69edyBxzv2Y5Ggo8207PwRbI2z7mQ5FWfU8PsFoZKj2n=_bae2f_
-Content-Type: text/plain; charset="utf-8"
-
-
-------ieZh69edyBxzv2Y5Ggo8207PwRbI2z7mQ5FWfU8PsFoZKj2n=_bae2f_--
 
