@@ -4,112 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B019C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 08:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E145EC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 08:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+UWgpwscQp73PyDMRD5EZKbcQGdo2l2UKgmDSHNPifY=; b=IgjnKoV1kBqRdqPlB4FC0+nYe+
-	XowXda5PzByMlPc2/yty8ivHcNWfptqqrw+B+/VvApKVj84FvIB2R7LGAiesV5u4sb4VjcxWZE7N+
-	CDJLMwq392bmP1WNJffUv5NJDiSXXOLyN5NYs6ucIFnY2au7i0X6yjgMfYLp4ziuWjPY4YANgJgd4
-	wmIdgjDvVBMVyxa2oJb5sL0Lpq2SujPDC7yEUsLv5kNfFKUFQVVG6aRWL/+K6kntKXNlm6PpZ17uK
-	aYl4+pBuP2DfZhnlaVWWQRdlnRp5Aoh2uGrm7K/neJFIlOuBcjsEUTU12hnkdz4tZZJJYK/nwaZCS
-	ovBxI4WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RMIaEj3zohUGYvvm32lDbkghJh7svLhWp2HrTir4CEQ=; b=G58BpOCB4pjIJrD1eaIItxfIYC
+	tAYN2FomPccbp3ZgDgSVRhBUKnoA9YMeIFqqCT8PFCw2OfevvlSNIAOQLNV1L6c5S6PBw4W8gcx4d
+	HK+Pd9w0c3Cp/dV3CXtiyiAkrgTJFA+/paR1Ft9PIc/c/N7HdJtuxch63Rfx+UgOnqEXbBXfqrzlm
+	U67M9oPMxIYzjq5hYDp3gXNyA0yWyul7YvxG3BBzW9NcYho7hbsAOiASyNVyYcWQ7s+AHWl7XOQMc
+	rN9yH1f4Va9utg+v+wxqMOwAykAqL/ZUZtkm0eL8I5oOtjcovyWqOR5AidMnwdVZKlwp+JcvhX2F+
+	nuhgg0WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u24Xr-00000003I0Q-1Tua;
-	Tue, 08 Apr 2025 08:42:59 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u24Za-00000003IN7-05yD;
+	Tue, 08 Apr 2025 08:44:46 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u24PC-00000003Gmh-35iJ
+	id 1u24QQ-00000003GwZ-0SMk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 08:34:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744101241;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+UWgpwscQp73PyDMRD5EZKbcQGdo2l2UKgmDSHNPifY=;
-	b=EdxWNWdr+AOmq8b27m/XhjKFIWG56DjPuFTvke8kIJhUEYoELm3jxfunAP2BQIXZ8REM+R
-	MyWMfREUqa/7iDKWQ7gFpQdZpIrcJfBrATri4KyvYQq5dcc3b9CYi3ciKtWed2F2HUwN74
-	QghO72VqP5CMBzmhUhMBgDf5OKuwn04=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-635-t4FCZdp_OZycC4qmVk0dOg-1; Tue, 08 Apr 2025 04:32:32 -0400
-X-MC-Unique: t4FCZdp_OZycC4qmVk0dOg-1
-X-Mimecast-MFC-AGG-ID: t4FCZdp_OZycC4qmVk0dOg_1744101151
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43eea5a5d80so16031815e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 01:32:32 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744101151; x=1744705951;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+UWgpwscQp73PyDMRD5EZKbcQGdo2l2UKgmDSHNPifY=;
-        b=J9G2sRUvorURDfET5OPKFIsVpE4/HK+9F60HSoifUPdLmAYPbXIRWeL6J0B5RszKNs
-         xPGN91R1eSg/a5DabLW7p8LzpCuXIIK7N9ZnUadbzJaY/VmLQ2qhUAVTcuDE9W67xCZz
-         +/NgqUHc00KbxsDZVcrwkCIuhH6BN7f5SlGWmC0D6XIqK2FCQbv/LgfScW0V24jQvuYl
-         U6UnJe2/b+Or72CMNzu3qpzYZ7NkSDqx4MQusmDrhvVrp/JwmTSv/DOjsjbwp3ZE0/R9
-         TMyuaM0El2YnCsC3JXOqxbz9kKmOKfAzb3SlQUG/4Gug2wUgPIWh8nveOdKdkCdhYnpE
-         eLfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWPABjPAirZdnZjDYUREDtGzySnuZvbXsmB7dmAbXXb5mJESycKrC5QrBKC45+47yDaFRRhqCwyAlOyysUyFkMg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEXcThVuhDTw8duulP1ABr0DkYDXr2LHt45xIv13TzMRlwTgdd
-	tQfax85g0A/H9jm6RccCJggdJw2QTdVV0ZABApfb639E19Um0Gwt0+nZfQmMwOJuVraII9SKm+b
-	1USBbf9c5aSVKk2ddd70BB0/JHigvF072S3M5msTpjUGlED1VY9Y7p9nwaODAJrKaqiIuhtuW
-X-Gm-Gg: ASbGncunvkt/+puVJRaho/ey5q8WwEFk3vuOz4qo+GRqwKF/hMA3+FV3LkIy4Bj+R/u
-	+pC43NoZWUsKaf9Xsg5VSGmrwWY1q5m00BPQg9D+L5CYb8K4Xripj8xJiC4pTbsVingGacDN2iz
-	/t0qSB9sFij0TTIFyrQHo9gWOeW/EYbXJlatwcwpir1ZsQ4louw2TzDOmqQWDZR2sHJ8ZeI/VXV
-	GM9WSq5vzA6Bgb09uXe/xdyOj7fHUuLTDJ4ae+gxjRskLiRHAm7dUH0E7uHSmL6mGfHAxzN8RQP
-	MBlu3VR6bHEyQ62jfhbBs8E+UT2GaDLbOrhNMdzlGMdkK1RVTKn/bEJToKTcs2guVQ==
-X-Received: by 2002:a05:600c:1384:b0:43c:fffc:7886 with SMTP id 5b1f17b1804b1-43ecf85f216mr158235395e9.8.1744101151413;
-        Tue, 08 Apr 2025 01:32:31 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHz2ZKXaEi+HUCetPqQ0pAcpS8InkZmoD9d7JUgJGma+dknJFHnGD8z9oUR2s/51/65NGDLdw==
-X-Received: by 2002:a05:600c:1384:b0:43c:fffc:7886 with SMTP id 5b1f17b1804b1-43ecf85f216mr158235025e9.8.1744101150843;
-        Tue, 08 Apr 2025 01:32:30 -0700 (PDT)
-Received: from stex1.redhat.com (host-79-53-30-213.retail.telecomitalia.it. [79.53.30.213])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec17b1352sm154886505e9.37.2025.04.08.01.32.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 01:32:30 -0700 (PDT)
-From: Stefano Garzarella <sgarzare@redhat.com>
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	linux-kernel@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	linuxppc-dev@lists.ozlabs.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-integrity@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Naveen N Rao <naveen@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	James Bottomley <James.Bottomley@HansenPartnership.com>,
-	Stefano Garzarella <sgarzare@redhat.com>
-Subject: [PATCH v2 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
-Date: Tue,  8 Apr 2025 10:32:08 +0200
-Message-ID: <20250408083208.43512-5-sgarzare@redhat.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250408083208.43512-1-sgarzare@redhat.com>
-References: <20250408083208.43512-1-sgarzare@redhat.com>
+	Tue, 08 Apr 2025 08:35:19 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 0C34C1F91A;
+	Tue,  8 Apr 2025 10:35:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1744101316;
+	bh=RMIaEj3zohUGYvvm32lDbkghJh7svLhWp2HrTir4CEQ=; h=From:To:Subject;
+	b=OgsHMGm2+PdrrEV5mCfAE5oP8QO9XF80IvOK/cePrdbUc1u7QirAzxIElhvqqSurv
+	 xgjRl6LWAnMuBoGM445fM1P5mISbMmP8TE2tzBX0lyV1GiZ8SL5KdDkClLXCc37drb
+	 x4PJ34ty2EArVKWLt4wU53U7kidEhueahDsrNkBrFdYRIla3V6IxzyHRR6ak4yIF9f
+	 VWx/ZqKh7T6nySZZruwG4thmNiaWTTJpChd3MPoQ02oUURwQD52N6iVSJv/pck16Ku
+	 ULblTiDOAdwF5gcIf1H/nnRQ6FLO1TQEddIP8hkv+QFeS7kRHPhKwj3ECF4f0AsiIY
+	 6LQ5VtWHAmIGw==
+Date: Tue, 8 Apr 2025 10:35:12 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Amitkumar Karwar <amitkumar.karwar@nxp.com>,
+	Neeraj Kale <neeraj.sanjaykale@nxp.com>, Nishanth Menon <nm@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>
+Cc: linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-serial@vger.kernel.org
+Subject: Kernel WARNING (RCU) with btnxpuart on TI AM62 platform
+Message-ID: <20250408083512.GA26035@francesco-nb>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: vqOP0ArbGQ6HAwTQBqUiLzgaB5VOemwz7xQ82HUSJyE_1744101151
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_013402_846129_5795F131 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20250408_013518_302626_A8F738BB 
+X-CRM114-Status: UNSURE (   5.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,86 +71,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Garzarella <sgarzare@redhat.com>
+Hello,
+I do have the following kernel warning with 6.15-rc1, on a TI AM62
+platform (arm64), single CPU core, using btnxpuart driver, any idea?
+PREEMPT_RT is enabled, if it matters.
 
-This driver does not support interrupts, and receiving the response is
-synchronous with sending the command.
+Either the issue is not systematic, or multi cores SoCs are not affected
+(no error on the exact same image on a dual nor on quad core TI AM62).
 
-So we can set TPM_CHIP_FLAG_SYNC to support synchronous send() and
-return responses in the same buffer used for commands. This way we
-don't need to implement recv() op.
 
-Keep using the same pre-allocated buffer to avoid having to allocate
-it for each command. We need the buffer to have the header required by
-the SVSM protocol and the command contiguous in memory.
+[   23.139080] Voluntary context switch within RCU read-side critical section!
+[   23.139119] WARNING: CPU: 0 PID: 61 at /kernel/rcu/tree_plugin.h:332 rcu_note_context_switch+0x3c4/0x430
+[   23.139172] Modules linked in: uas onboard_usb_dev optee_rng dwc3 evdev btnxpuart spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils optee spi_cadence_quadspi tee gpio_keys usb_conn_gpio display_connector roles dwc3_am62 mwifiex_sdio k3_j72xx_bandgap mwifiex rtc_ti_k3 cfg80211 tidss sa2ul sha512_generic snd_soc_davinci_mcasp authenc drm_display_helper snd_soc_ti_udma crypto_null snd_soc_ti_edma sha1_generic snd_soc_ti_sdma omap_hwspinlock lontium_lt8912b ina2xx snd_soc_wm8904 ti_ads1015 industrialio_triggered_buffer kfifo_buf lm75 tpm_tis_i2c tps65219_pwrbutton crc_ccitt tpm_tis_core tpm rng_core tc358768 m_can_platform pwm_tiehrpwm m_can spi_omap2_mcspi can_dev bluetooth ecdh_generic ecc rfkill libaes loop fuse ipv6 autofs4
+[   23.139459] CPU: 0 UID: 0 PID: 61 Comm: kworker/u5:0 Not tainted 6.15.0-rc1-0.0.0-devel #1 PREEMPT_RT
+[   23.139471] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
+[   23.139478] Workqueue: hci0 hci_power_off [bluetooth]
+[   23.139615] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[   23.139625] pc : rcu_note_context_switch+0x3c4/0x430
+[   23.139647] lr : rcu_note_context_switch+0x3c4/0x430
+[   23.139658] sp : ffff8000819fb740
+[   23.139661] x29: ffff8000819fb740 x28: 0000000000000000 x27: ffff0000079d2010
+[   23.139673] x26: ffff0000011e7810 x25: ffff000001c2c200 x24: 0000000000000000
+[   23.139688] x23: 0000000000000000 x22: ffff000001c2c200 x21: ffff000001c2c200
+[   23.139700] x20: ffff800081083ec0 x19: ffff00001da9fec0 x18: fffffffffffe7e78
+[   23.139712] x17: ffff7fff9ca1c000 x16: ffff800080000000 x15: ffff00001da9f8c0
+[   23.139726] x14: fffffffffffc7e77 x13: 216e6f6974636573 x12: 206c616369746972
+[   23.139738] x11: 6320656469732d64 x10: 6165722055435220 x9 : 206e696874697720
+[   23.139750] x8 : ffff80008113f040 x7 : ffff8000819fb4e0 x6 : 000000000000000c
+[   23.139761] x5 : ffff00001da95888 x4 : 0000000000000000 x3 : 0000000000000027
+[   23.139775] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff000001c2c200
+[   23.139788] Call trace:
+[   23.139793]  rcu_note_context_switch+0x3c4/0x430 (P)
+[   23.139813]  __schedule+0xa0/0x7dc
+[   23.139830]  schedule+0x34/0x11c
+[   23.139841]  schedule_timeout+0x8c/0x110
+[   23.139861]  wait_for_completion_timeout+0x78/0x14c
+[   23.139873]  ti_sci_set_device_state+0x120/0x1fc
+[   23.139886]  ti_sci_cmd_get_device_exclusive+0x18/0x30
+[   23.139899]  ti_sci_pd_power_on+0x28/0x54
+[   23.139916]  _genpd_power_on+0x98/0x188
+[   23.139927]  genpd_power_on+0xa8/0x168
+[   23.139940]  genpd_runtime_resume+0xc0/0x298
+[   23.139957]  __rpm_callback+0x48/0x1a4
+[   23.139974]  rpm_callback+0x74/0x80
+[   23.139987]  rpm_resume+0x3b0/0x698
+[   23.140000]  __pm_runtime_resume+0x48/0x88
+[   23.140012]  omap8250_set_mctrl+0x2c/0xbc
+[   23.140030]  serial8250_set_mctrl+0x20/0x40
+[   23.140046]  uart_update_mctrl+0x80/0x110
+[   23.140062]  uart_dtr_rts+0x104/0x118
+[   23.140079]  tty_port_shutdown+0xd4/0xe0
+[   23.140092]  tty_port_close+0x3c/0xb8
+[   23.140103]  uart_close+0x34/0x98
+[   23.140116]  ttyport_close+0x50/0xa0
+[   23.140137]  serdev_device_close+0x40/0x5c
+[   23.140150]  btnxpuart_close+0x1c/0xa0 [btnxpuart]
+[   23.140175]  hci_dev_close_sync+0x304/0x7cc [bluetooth]
+[   23.140243]  hci_dev_do_close+0x2c/0x70 [bluetooth]
+[   23.140309]  hci_power_off+0x20/0x64 [bluetooth]
+[   23.140379]  process_one_work+0x148/0x284
+[   23.140403]  worker_thread+0x2c8/0x3dc
+[   23.140414]  kthread+0x12c/0x208
+[   23.140426]  ret_from_fork+0x10/0x20
 
-Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
----
- drivers/char/tpm/tpm_svsm.c | 27 +++++++++++----------------
- 1 file changed, 11 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/char/tpm/tpm_svsm.c b/drivers/char/tpm/tpm_svsm.c
-index b8aa7eb567de..547d4c4f7a53 100644
---- a/drivers/char/tpm/tpm_svsm.c
-+++ b/drivers/char/tpm/tpm_svsm.c
-@@ -25,38 +25,32 @@ struct tpm_svsm_priv {
- 	void *buffer;
- };
- 
--static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t len,
-+static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t cmd_len,
- 			 size_t buf_size)
- {
- 	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
- 	int ret;
- 
--	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, len);
-+	ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, cmd_len);
- 	if (ret)
- 		return ret;
- 
- 	/*
- 	 * The SVSM call uses the same buffer for the command and for the
--	 * response, so after this call, the buffer will contain the response
--	 * that can be used by .recv() op.
-+	 * response, so after this call, the buffer will contain the response.
-+	 *
-+	 * Note: we have to use an internal buffer because the device in SVSM
-+	 * expects the svsm_vtpm header + data to be physically contiguous.
- 	 */
--	return snp_svsm_vtpm_send_command(priv->buffer);
--}
--
--static int tpm_svsm_recv(struct tpm_chip *chip, u8 *buf, size_t len)
--{
--	struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
-+	ret = snp_svsm_vtpm_send_command(priv->buffer);
-+	if (ret)
-+		return ret;
- 
--	/*
--	 * The internal buffer contains the response after we send the command
--	 * to SVSM.
--	 */
--	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, len);
-+	return svsm_vtpm_cmd_response_parse(priv->buffer, buf, buf_size);
- }
- 
- static struct tpm_class_ops tpm_chip_ops = {
- 	.flags = TPM_OPS_AUTO_STARTUP,
--	.recv = tpm_svsm_recv,
- 	.send = tpm_svsm_send,
- };
- 
-@@ -88,6 +82,7 @@ static int __init tpm_svsm_probe(struct platform_device *pdev)
- 
- 	dev_set_drvdata(&chip->dev, priv);
- 
-+	chip->flags |= TPM_CHIP_FLAG_SYNC;
- 	err = tpm2_probe(chip);
- 	if (err)
- 		return err;
--- 
-2.49.0
+Francesco
 
 
