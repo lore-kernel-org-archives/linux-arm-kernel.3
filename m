@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A46C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 11:57:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2571BC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 11:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/xCdomzVQ9UKIUqSV0nOR1Orsi3U0kam6TrHTVmoiR4=; b=X0vneST8xjO2IRzlUqS8dsNF2w
-	xMDIQC35Y02F8jnGHat3RjHEprz/Uqycjke2C51pQWarjp0GCcDNc+dLeAvfXAFjPD1BRT6glWhkv
-	meRyyWhmSlbiir0+VWeWfyO/Cx6nO5KW8Iz4xevoJmD/1TADfjoGipCpX1u5mYkBtAhBv4xnuCxLg
-	FTL/sglsSit33dXnEOybV+NJs3kmzIJrln9Y1LrCnjVogAC1jN+pouu9b3vWo4IKXaweqYD8NEz3w
-	cEUtT050iXsRvnYPPmv4zUzNjEo6RYa+AAv3W8YrMNPmGPr+vMnvQzKX7aq0/kok8M1YIzQB0d/nT
-	bn8I6M1A==;
+	bh=XuzX/2B1C//+iENy5p338mtpUdEXVW/pOaBatY9uies=; b=GKTfwkKsQJrQVVdyn4z3gq6YJ6
+	zOnli2heQUopRJa/kI9Zv2IoJwU5NYWxJE2UN1MTeZOMVD98L0k8ER8e+WCRWiNnrUVEUmwfqSfcc
+	MqEAAQWWv/QyKsgkERRNjFnJ+qeflsaFEMrXbvZTI5dgBopMtPqkcU8QGBFlm6PBUXjd2JXfxZZp4
+	RQ0sdU1jGGfeW2yrYSnNSTp0Eym3yU8XJ5Ao2PAH59VYpYFvjxX5633g3zYOqs7A2tNtxbj2lntk7
+	VbUIc4UkLfp1vfOcsFG30O4zbpW3Wfmb3d2DztRxNlQt9rvGwlS4QL0+mNEWFWt1hP/XWAzk3rL8p
+	DQUnni/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u27aN-00000003urJ-1h97;
-	Tue, 08 Apr 2025 11:57:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25eX-00000003WpA-3bGU;
-	Tue, 08 Apr 2025 09:53:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D48D16A3;
-	Tue,  8 Apr 2025 02:53:58 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DCDA3F6A8;
-	Tue,  8 Apr 2025 02:53:52 -0700 (PDT)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	linux-arch@vger.kernel.org,
+	id 1u27aM-00000003uqp-2lMw;
+	Tue, 08 Apr 2025 11:57:46 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u25Ig-00000003S9L-3l8N
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 09:31:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1744104682; x=1775640682;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=XuzX/2B1C//+iENy5p338mtpUdEXVW/pOaBatY9uies=;
+  b=mTA+h/uQcK3QDCzSyvPgem/ioTXS2Tp1ALgstZO1Vf7YPbxVXlkPrNdL
+   Vtrkp66R3IUwE4AO1QHkmGtwovn0QcfROgUgRAoowRvvGCAerV0k73qre
+   0dP/d4sBMIt2m6W+IbJY6kUe+/XF8AeWZDFqIazo+JZvURfzyaxUeQvr/
+   YqWLmXxYKnVCGOvTzPjMBkm/jEYkVGL7pheQ8ooBXSmhHAL0VEDW8F5sj
+   O9HGSS6yttpf3rmQzm56l2K7YG1+JvDmA5CH9cvT27D+CYfifoDlkBCvg
+   T45DurPMjcuTzBK/KESiUuE/N34xpUyWjLLe0Qgz1xAv+iEPDnmvN9eSH
+   w==;
+X-CSE-ConnectionGUID: VfUTMTCzT3OxDhSHcKVeSA==
+X-CSE-MsgGUID: ZU9egV78T3OwARYeZLf/nQ==
+X-IronPort-AV: E=Sophos;i="6.15,197,1739833200"; 
+   d="scan'208";a="43397361"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 08 Apr 2025 11:31:21 +0200
+X-CheckPoint: {67F4ECE9-41-2417938-F0170C2B}
+X-MAIL-CPID: 347FCE5F84C88B12D126220E1586B139_2
+X-Control-Analysis: str=0001.0A006375.67F4ECE4.0018,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4CFE3169020;
+	Tue,  8 Apr 2025 11:31:17 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1744104677;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XuzX/2B1C//+iENy5p338mtpUdEXVW/pOaBatY9uies=;
+	b=R3gfoDmaIlSg78xQmb6zDI7KMcTVk6P53HNG+DINOEY+pO8oVe3RHOzCu64+dnexA43FhE
+	+NeGPiM7AM62JELdyX2D1+04eV14hW4Iwdc1Y9kOzD/LdPC+b/Kv9IT/nsM46VFdBmiVkl
+	gIn9beq05AaPU4FpTjt8dV9ju47CIQq3wXLIU8UEt2y7rDOv/BRNwz0eyLbXSx1JNGoYK1
+	smp3vWI+xY3d3a+5PNg/Q7TocgcRQDJBwjSQdfGdqSas/179RX8lwqxLdx763x/uY9uj5l
+	CF4iUFfhLaPHpp/rXoJtKhe2aPNtzeg1jmiJ3PLzuvEUE94B7kPUSLknKWdbFg==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-openrisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v2 10/12] riscv: mm: Clarify ctor mm argument in alloc_{pte,pmd}_late
-Date: Tue,  8 Apr 2025 10:52:20 +0100
-Message-ID: <20250408095222.860601-11-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250408095222.860601-1-kevin.brodsky@arm.com>
-References: <20250408095222.860601-1-kevin.brodsky@arm.com>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2 1/7] ARM: dts: ls1021a-tqmals1021a: Fix license
+Date: Tue,  8 Apr 2025 11:30:48 +0200
+Message-ID: <20250408093059.551700-2-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250408093059.551700-1-alexander.stein@ew.tq-group.com>
+References: <20250408093059.551700-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_025357_953760_95240E6B 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20250408_023123_235075_864E1FDA 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,49 +100,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pagetable_{pte,pmd}_ctor(mm, ptdesc) skip the ptlock initialisation
-if mm is &init_mm. To avoid unnecessary overhead, it is therefore
-preferable to pass the actual mm associated to the PTE/PMD.
+With commit 784bdc6f2697c ("ARM: dts: ls1021a: change to use SPDX
+identifiers") the SoC .dtsi specifies the license using SPDX tags.
+Fix license according to the ls1021a.dtsi this platform DT files
+are based on.
 
-Unfortunately, this proves challenging for alloc_{pte,pmd}_late() as
-the associated mm is not available at the point where they are
-called - in fact not even top-level functions like
-create_pgd_mapping() are passed the mm. As a result they both call
-the ctor with NULL as mm; this is safe but potentially wasteful.
-
-This is not a new situation, but let's add a couple of comments to
-clarify it.
-
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/riscv/mm/init.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts | 2 +-
+ arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a.dtsi          | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index e5ef693fc778..59a982f88908 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -442,6 +442,11 @@ static phys_addr_t __meminit alloc_pte_late(uintptr_t va)
- {
- 	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL & ~__GFP_HIGHMEM, 0);
- 
-+	/*
-+	 * We do not know which mm the PTE page is associated to at this point.
-+	 * Passing NULL to the ctor is the safe option, though it may result
-+	 * in unnecessary work (e.g. initialising the ptlock for init_mm).
-+	 */
- 	BUG_ON(!ptdesc || !pagetable_pte_ctor(NULL, ptdesc));
- 	return __pa((pte_t *)ptdesc_address(ptdesc));
- }
-@@ -522,6 +527,7 @@ static phys_addr_t __meminit alloc_pmd_late(uintptr_t va)
- {
- 	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL & ~__GFP_HIGHMEM, 0);
- 
-+	/* See comment in alloc_pte_late() regarding NULL passed the ctor */
- 	BUG_ON(!ptdesc || !pagetable_pmd_ctor(NULL, ptdesc));
- 	return __pa((pmd_t *)ptdesc_address(ptdesc));
- }
+diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
+index 34636fcdfd6ad..27a55fa638128 100644
+--- a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
++++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
+@@ -1,4 +1,4 @@
+-// SPDX-License-Identifier: (GPL-2.0-or-later OR X11)
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+ /*
+  * Copyright 2013-2014 Freescale Semiconductor, Inc.
+  * Copyright 2018-2023 TQ-Systems GmbH <linux@ew.tq-group.com>,
+diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a.dtsi b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a.dtsi
+index 1b13851ad9970..f7fe8581a23fa 100644
+--- a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a.dtsi
++++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a.dtsi
+@@ -1,4 +1,4 @@
+-// SPDX-License-Identifier: (GPL-2.0-or-later OR X11)
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+ /*
+  * Copyright 2013-2014 Freescale Semiconductor, Inc.
+  * Copyright 2018-2023 TQ-Systems GmbH <linux@ew.tq-group.com>,
 -- 
-2.47.0
+2.43.0
 
 
