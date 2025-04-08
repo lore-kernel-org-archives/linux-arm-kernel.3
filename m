@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F9DC369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D9ECC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=97+PgD8FzLfLLOMcNonn+uaxaz0XSMxd81fdr1VR+4c=; b=mkSgIChWImVSIxCaTZg94ZFOQu
-	YeaOGDwCBCr7130ziauJZg8/67Syp5AKDsa3AUD+9ydicI3NBxn+ySdzYw5OSQ0silfTlaJ4SUQ4X
-	EYx9XUIKu3NWAjDekkSws6v/et62BeCmapoxjSwmnsUtkvKaDyKn5rwT9/I4RsUvk0O9eEXHNbaDO
-	makFpZaekfNjc6kgYAV4Z6Jv62nfmfTpI+wt4jU2Dr9q8cjNV1d7Ik2KEF8vPTh18Y5FYpaNhi+X9
-	bvhorp9XOgdByua4uAP1hZ24Tuv7j+qI68j/tU9Q5E+mZgwu67aasZsCZRK/Zb6skSqA9IDM0Uuz2
-	8RNATX8Q==;
+	bh=rB/dIvd7bU6zo6n9YdzMajIzzeCmS1EwGXtnalG5tYI=; b=bLemSODuz57gJL31+scGTXnvVZ
+	8yVPvOozZXXeWz4tgOrI8SeU7NQRho1JVZrfFcKaLCyNQSjIk7uxTywqN4AC285OkL45qnI7XEhwz
+	9LwxD3tiklDozMsRsYlhS3Fw9UK49lKy/q+Rxw5hxNfkcW4mNVdO3sYfAM99YMhh0DySRONfBwvw5
+	NzQxUF6PYfjxYNj8X0mDGbidjO9uB/4H+bTScg2LYEu7aikcRtDTcAPrjmp9/E5K6IfA/qd1bUVXZ
+	JbL84ymRcCuxWcsieU35JRM4wW1GELNNHbFZF3XcJe2VdbDsRjpDIUtR+X5ISemGBDHJ7abnFycYZ
+	Ie2Bp1Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2AA3-00000004RDn-0f9U;
-	Tue, 08 Apr 2025 14:42:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u2AA3-00000004REJ-2z5y;
+	Tue, 08 Apr 2025 14:42:48 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u282Z-00000003z0O-2AfP
+	id 1u28ch-000000044Ui-0ShA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 12:26:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BADA16842A;
-	Tue,  8 Apr 2025 12:26:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DC91C4CEE5;
-	Tue,  8 Apr 2025 12:26:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744115214;
-	bh=F1wj3qpVgo1qr1BveM6Zq/QNOkaTsdEvxE8GsgIH80g=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=m/gJTstgQA1my9A3PxtSag5ErhPe+ieuCHFi+wlAw/Jpczvrzw12lI+xmMQpfEMST
-	 7BjqvM0rhlJ8QlBD4fVh41Gz6+00Go3c7jLSjASzAqoS1WU4vTf1DFtdeEyPh2dil5
-	 zwrZzxuwQwqZt775I4uU9MTU0L/bac5d8QL6O5fj/ZwsGXR4JIoCo8pBNRzfVveZkc
-	 tLTmrdfbsK936NHN8dFk6o8QqHDWmUVGw3R4imaWpPw4jF0bi/G4zYwbhEppdgtyW/
-	 AnwqWFfvEK5vK8bCcEEWQBpr/F2JmmQwbpWXMmelLSJKSLrPEJfx31AOgyCSKRc9HT
-	 Tp0VWYCg+vhYg==
-Date: Tue, 08 Apr 2025 07:26:53 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 08 Apr 2025 13:04:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=rB/dIvd7bU6zo6n9YdzMajIzzeCmS1EwGXtnalG5tYI=; b=Qdnrm8BEZBNy23lYC19M1XF7Et
+	Kp+5vAHIJY07hxFNlG2cyzxI82LuGlxAdpnBCSX1HCcmFT4O2k4peaJQhTQDULdEaO6iZa8YuYRla
+	OJ/P5KfclV+qVRbN3/GE5+LzbjNWkeAwXt8MPqNdiJPCdno71A5qqo/rDuqQXh6GCksQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u28cc-008OFV-52; Tue, 08 Apr 2025 15:04:10 +0200
+Date: Tue, 8 Apr 2025 15:04:10 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH net-next 2/2] net: stmmac: dwc-qos: use
+ stmmac_pltfr_find_clk()
+Message-ID: <0f370f79-6221-48e4-a700-86fc26547f95@lunn.ch>
+References: <Z_Qbw0tZ2ktgBf7c@shell.armlinux.org.uk>
+ <E1u1rMv-0013ON-TJ@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Sascha Bischoff <sascha.bischoff@arm.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
- linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-In-Reply-To: <20250408-gicv5-host-v1-1-1f26db465f8d@kernel.org>
-References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
- <20250408-gicv5-host-v1-1-1f26db465f8d@kernel.org>
-Message-Id: <174411521311.1639476.6777663294037851144.robh@kernel.org>
-Subject: Re: [PATCH 01/24] Documentation: devicetree: bindings: Add GICv5
- DT bindings
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1u1rMv-0013ON-TJ@rmk-PC.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250408_060415_144004_16D79022 
+X-CRM114-Status: UNSURE (   6.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,67 +80,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Apr 07, 2025 at 07:38:49PM +0100, Russell King (Oracle) wrote:
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-On Tue, 08 Apr 2025 12:50:00 +0200, Lorenzo Pieralisi wrote:
-> The GICv5 interrupt controller architecture is composed of:
-> 
-> - one or more Interrupt Routing Service (IRS)
-> - zero or more Interrupt Translation Service (ITS)
-> - zero or more Interrupt Wire Bridge (IWB)
-> 
-> Describe a GICv5 implementation by specifying a top level node
-> corresponding to the GICv5 system component.
-> 
-> IRS nodes are added as GICv5 system component children.
-> 
-> An ITS is associated with an IRS so ITS nodes are described
-> as IRS children - use the hierarchy explicitly in the device
-> tree to define the association.
-> 
-> IWB nodes are described as GICv5 system component children - to make it
-> explicit that are part of the GICv5 system component; an IWB is
-> connected to a single ITS but the connection is made explicit through
-> the msi-parent property and therefore is not required to be explicit
-> through a parent-child relationship in the device tree.
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  .../bindings/interrupt-controller/arm,gic-v5.yaml  | 268 +++++++++++++++++++++
->  MAINTAINERS                                        |   7 +
->  2 files changed, 275 insertions(+)
-> 
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-Error: Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.example.dts:43.27-28 syntax error
-FATAL ERROR: Unable to parse input tree
-make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1522: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250408-gicv5-host-v1-1-1f26db465f8d@kernel.org
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+    Andrew
 
