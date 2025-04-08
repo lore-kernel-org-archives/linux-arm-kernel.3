@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A19DCC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E80BC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AckmueFcdt0W23SueItleJPhRc4kKUpsswgxRfizL5o=; b=yQoLpJpq/WNeSOVFFctvVY+Gvq
-	ZVWTumco+Lihn9UsAw7UPZKmPO6mU2JaGXMzBvybhywmYR04264bqOOVTLgzGPWQ1vcxI8v1HvGBX
-	rMIDZqg1O8lQcJkAWvLwnX8foxp0mynGY9ILM2n0luvJBj2uLSKvIwjs0Zkj3ZuEk9vQYQPyb+Am7
-	MaM7Iu7CYMWp05VIOFGXKPw0CAUeZp/GQ74NsLPn9yqVmSn0JygdxBmisE2AhvwioiuOTcvWRk0dD
-	uhaUG/o7eTOpo6zHfWV9JrX7FnyvmD8rBI1sIHjJ7qbktFGA68gndLNTVw2bbiC/2TQL3+qsDVHX7
-	9MMn9sMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=epFMM6E3b5n0AAjQqhCMwFutqLu+axl/bDlyBr62jpM=; b=AXBk5n624I0XWnYVHCFBF1meFj
+	2zW3V0YKvcZOcJnOZbjD9DMrYgDPEVJruwdyan3t67dntjEe6617X+3CUWfaL6wt5QlVyYujpm6mP
+	13YE4+wFbXlMrC9kkne/hLycEo/ekrJD7yNDTnB7WCjjeOprbvSIOdDMGFoFt7a+aWSff3ChIeWgR
+	bHGtggxxncnUM7QZp1gHB+CcRJSjn4pH3QZnOd9nKmDbtnl7zkjmxvEjoJYtgooGMtkS4kfyKEqda
+	4zslcHk8iWQgsc6WvtO2cQz2H2lr9IrxQkl1k6KQlQEfTkGVshTGoTLmzpmBSEGdO+aZ+g2m0Ewpr
+	0S3gvV6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25Zv-00000003VaI-2Jzv;
-	Tue, 08 Apr 2025 09:49:11 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1u25bj-00000003Vmo-1Rep;
+	Tue, 08 Apr 2025 09:51:03 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25JC-00000003SH5-1b1x
+	id 1u25Mn-00000003T5R-3Wdu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 09:31:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1744104714; x=1775640714;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=AckmueFcdt0W23SueItleJPhRc4kKUpsswgxRfizL5o=;
-  b=NNPnQ4DwkLVVdCTXtf5isgUKQwJ6s5IpqkbL77jSh4cKDnqYy+6PVWER
-   G5Y9t0G7alFKmI1U+HtJtrHqf5kvzuAwLtYSR9YHAxpAf/25PaBv6MMLH
-   ioIibIygLBLgsVEKUQpAEe+n4nD3pfOMGeeTGqH2wP5tPVURd5waC40pY
-   fJrToLG1xbsY1olFJQSc6nkLS84bDKRoetzLw0EJhiHkOAerKK9VY8RWI
-   yiKwp0RQkZv6aBY7uO+8l1N4QDAud9oaYgjR4zWM+MFrAkqgQ941VkQed
-   7EeIc7FeLSxIf+QXPlUUiBwPXxHDEvonXAxZs+tASU9FBy3VcJXLpQ3Qd
-   g==;
-X-CSE-ConnectionGUID: 4FoT1ObOQFGxPd2lIWTCQg==
-X-CSE-MsgGUID: EskZjJRaQdGXBz0LN5/6qg==
-X-IronPort-AV: E=Sophos;i="6.15,197,1739833200"; 
-   d="scan'208";a="43397420"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 08 Apr 2025 11:31:53 +0200
-X-CheckPoint: {67F4ED09-1E-903EAEAC-E04C76C8}
-X-MAIL-CPID: 98DAD71A01D231204733A360F0E25679_5
-X-Control-Analysis: str=0001.0A006368.67F4ED13.004F,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E9ADC1697CE;
-	Tue,  8 Apr 2025 11:31:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1744104709;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AckmueFcdt0W23SueItleJPhRc4kKUpsswgxRfizL5o=;
-	b=Ra5PtcIJL3Nr2bC0BZs7PGuW1Nrg7fnXJbAbgemcTjfit61ZJX2gQKIAOcGuxpFqUNvIO1
-	SEGBMWGIe4e+9xoxmNhRxKWXXST6nGkRcP//hokUWpk+0aJO209salYAu5eHAbCBVrp1YG
-	aHXvwyjFLj4k6v1Mvw5CID1pzCNNAlTrwv4Omfc6IXgPOTBimeaufw9GjxE9NdlXvc2mET
-	wfhcnXxKY7yam0Q5ZLQIgW6ClqTauGTZncbpXepVjd31l45ssZ4PzIKYR8urK15of3TI7v
-	XpQxl/mpcku8MZjLxD4qLNF1xjtNLQnuEyoWh34Q4oU72n1IvmCSizeix0CDFw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v2 7/7] ARM: dts: ls1021a-tqmals1021a: change sound card model name
-Date: Tue,  8 Apr 2025 11:30:54 +0200
-Message-ID: <20250408093059.551700-8-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250408093059.551700-1-alexander.stein@ew.tq-group.com>
-References: <20250408093059.551700-1-alexander.stein@ew.tq-group.com>
+	Tue, 08 Apr 2025 09:35:39 +0000
+Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 7B98F1F9BC;
+	Tue,  8 Apr 2025 11:35:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1744104935;
+	bh=epFMM6E3b5n0AAjQqhCMwFutqLu+axl/bDlyBr62jpM=;
+	h=Received:From:To:Subject;
+	b=kRPeka47FL9mUb/LiDd/KpngGvLjxHugS25K7j24KcMayZUKVJPhJdJic4fXTaRVi
+	 fPOKGwxQ9qqLyl/6RhA+Mkw+mSUUotd/VLHTPRETb8/UwuMohmuRXW2/8U1bs6f4VH
+	 Oi86j2bfeCOn5i5AOeFvnjiAxLLKcY1NZFy8sbaYmOVOVxEuQogIE6orN3NX/x1J8h
+	 YqBnKXKQ9DHpF+MV9LJeyRylGN9US8ePAGtJBC4+Ph1R1G+T1m6qPROnW/SZtOPqNl
+	 HOkkaWNeoZ7K7vLm7xW/IvqQLofWQOA+ODX83FJvJAcIHsqOYm8yU5rO7K+M2NBmFz
+	 tJS0d65nIZHLw==
+Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
+	id 328987F8D5; Tue,  8 Apr 2025 11:35:35 +0200 (CEST)
+Date: Tue, 8 Apr 2025 11:35:35 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Paul Menzel <pmenzel@molgen.mpg.de>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	Amitkumar Karwar <amitkumar.karwar@nxp.com>,
+	Neeraj Kale <neeraj.sanjaykale@nxp.com>, Nishanth Menon <nm@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-serial@vger.kernel.org, regressions@lists.linux.dev
+Subject: Re: Kernel WARNING (RCU) with btnxpuart on TI AM62 platform
+Message-ID: <Z_Tt58Ar9TAUy4gB@gaggiata.pivistrello.it>
+References: <20250408083512.GA26035@francesco-nb>
+ <a8e7171b-d859-4611-9681-e4c614f29d64@molgen.mpg.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <a8e7171b-d859-4611-9681-e4c614f29d64@molgen.mpg.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_023154_720714_764D001A 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20250408_023538_035064_F0572CB5 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +79,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The card name for ALSA is generated from the model name string and
-is limited to 16 characters. Use a shorter name to prevent cutting the
-name.
-MBLS1021A uses the same audio codec as most i.MX based starter kits
-by TQ-Systems. Adjust the sound card model to i.MX based platforms,
-as done by commit e6303798b6ac4 ("arm64: dts: imx8mp-tqma8mpql-mba8mpxl:
-change sound card model name"). This allows sharing a default asound.conf
-in BSP over all the kits.
+Hello,
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Tue, Apr 08, 2025 at 11:26:47AM +0200, Paul Menzel wrote:
+> [Cc: +regressions@]
+> 
+> #regzbot introduced: v6.14..v6.15-rc1
+> 
+> 
+> Thank you for your report.
+> 
+> Am 08.04.25 um 10:35 schrieb Francesco Dolcini:
+> 
+> > I do have the following kernel warning with 6.15-rc1, on a TI AM62
+> > platform (arm64), single CPU core, using btnxpuart driver, any idea?
+> > PREEMPT_RT is enabled, if it matters.
+> > 
+> > Either the issue is not systematic, or multi cores SoCs are not affected
+> > (no error on the exact same image on a dual nor on quad core TI AM62).
+> > 
+> > 
+> > [   23.139080] Voluntary context switch within RCU read-side critical section!
+> > [   23.139119] WARNING: CPU: 0 PID: 61 at /kernel/rcu/tree_plugin.h:332 rcu_note_context_switch+0x3c4/0x430
 
-diff --git a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
-index 80dae0c09542d..5606585dd5607 100644
---- a/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
-+++ b/arch/arm/boot/dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a.dts
-@@ -157,7 +157,7 @@ port {
- 
- 	sound {
- 		compatible = "fsl,imx-audio-tlv320aic32x4";
--		model = "ls1021a-mbls1021a-tlv320aic32";
-+		model = "tqm-tlv320aic32";
- 		ssi-controller = <&sai1>;
- 		audio-codec = <&tlv320aic32x4>;
- 	};
--- 
-2.43.0
+...
+
+> As I understood, that it’s a regression, and you can reproduce it, would it
+> be possible, that you bisected the issue?
+
+I am not sure if this is a regression. It's possible that the issue is not new,
+and it is just non systematic. For sure it was reproduced by our CI on v6.15-rc1.
+
+Francesco
 
 
