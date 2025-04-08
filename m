@@ -4,65 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E5CC369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA53C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iHamA6MmAQln3g+ph5RzN9L5CgRNW7XpNoZqh01YomM=; b=cmGSDAUCG7FiFguzaAxyP6oVMk
-	qioSduhC2Zv3l0Mm40scSXeHrJCMhBGH2yrDOCgBXiSmUQo6kuX9sbB8GXPnbaBpAeynifVPe+fjn
-	6sOmYyIJzr1qZkJYpFfiNbTVRZcGtb8jO5dHzXFK6IJG+EfdBWpM2hQskfIRLQRDm2ISRd1EKVVOG
-	gDf81qCsEaKjy4OqFekwhhG7qgSxGA76tFQRmiTOwi81l6RJV8if/0tNWDHzD+NFcy5/Yf8xnK6n2
-	dHuWOe5FBuYTy4gxBHdXLJ4kTW3olPoekcqAytURh76MKiyr1tm2LGwyfRW/GxfyMpAALzPKr57VO
-	RDZKXKPQ==;
+	bh=GLUm+tjBf/b5M34mbMWpPPE+C3PjkDJS4BNYGL4lMl8=; b=FRjfE3pHuaKL/qIzRUh4SWeQ+O
+	HgU7snqrwcllq5GTCIncykbaQDXXDdkbPVsqz5gTAZfgyOIuMH6JEQyHtC2+NDvFPyEcFj74aD9z3
+	crg5bSIcE3qwIoIj2nCn7Q6zOeKzUYXLTxFogUTYVeb8yOlCNCmUTc0XAU25zgtUj29wgpjPT5kKT
+	RQC7O7fu+76vrORuJSUbKMfDj4li5pEUqc5SWRaAjC2Vd8YNUUL7VXvR3WWGcPs6cVvMp6lXlPXj0
+	ICfEQoXmlcc0VlpmJObNCLJKJVNm8Rlpe29sbUQO8TuQICxXfOjko0Y/1nc90qs/3oxKkaW5Bpo2P
+	xu66Gi9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Bbi-00000004mG9-10ha;
-	Tue, 08 Apr 2025 16:15:26 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1u2BdS-00000004mdL-1T4C;
+	Tue, 08 Apr 2025 16:17:14 +0000
+Received: from mail-bn8nam12on20629.outbound.protection.outlook.com ([2a01:111:f403:2418::629] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2BZf-00000004lnf-3aui
+	id 1u2Bb5-00000004m7V-3L2s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 16:13:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=iHamA6MmAQln3g+ph5RzN9L5CgRNW7XpNoZqh01YomM=; b=xQHDKD9ZXptDaSK+dQASAxx790
-	Ybh87tS1nZ3FusAZGh77bUylZwpxjm6ICZWRNMCCbeK3BDFf+XrZwIaTUeNHNl2mncQZsxLkl7Acq
-	FR96apk9s3xS4f0APOr0XRJuOag3yS2jFyDzyK/zpm+y9Y37zDhSdhTY1OCd/dS4J8es=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u2BZW-008QBU-Ty; Tue, 08 Apr 2025 18:13:10 +0200
-Date: Tue, 8 Apr 2025 18:13:10 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Martyn Welch <martyn.welch@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, kernel <kernel@collabora.com>,
-	devicetree <devicetree@vger.kernel.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	imx <imx@lists.linux.dev>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2] arm64: dts: imx8mp: Add device tree for Nitrogen8M
- Plus ENC Carrier Board
-Message-ID: <22e7df8e-51a2-4549-ad80-0e7fd256de0a@lunn.ch>
-References: <20250327123907.542132-1-martyn.welch@collabora.com>
- <cf525617-b895-4d58-8455-a5c7fa9bbeab@lunn.ch>
- <196162332ff.b61ad5b5564260.8672918780815538746@collabora.com>
-MIME-Version: 1.0
+	Tue, 08 Apr 2025 16:14:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PYEK9f2zl2PTkV+c3JYv07HiLYGBCVJG82mwV9wH4ZWpL5DmyxEG6zqaPMw25KRto4TNbMBUWzbnU7XxehScavC8Apxo0gfVsVTQ2rp6BJlo/VghqeRbu1GhZdIBd7Qr5+jAYbHnra0DoiBG94BcLjCcqJW0cD71RHOLTpertgOY+EO54ntSNXVZv74lSeNPdnFUQqjM5VGLqPlQgu+TcpdfRdSk1a3PUfQ2W/tSswwggSttTZlt+0NrujOykgWxluACQTugr5IHLezt8nqyUsgjAH4boAIltwFjVtzOW8XW7Dr4hrRnCqO0g/pGpUwrxLLr9CjgvIIXLV4VTkMRUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GLUm+tjBf/b5M34mbMWpPPE+C3PjkDJS4BNYGL4lMl8=;
+ b=vzkEqCS4r+nkJ2uzgFu6oEMHaLW0qceU+vZcLbodDzCfaj6HdV29NT0fBHYfsGfjnXlxXi60v5Ua+EV+YDLLXK0voUZkaVRRStBy7Aoah1o1SEvtc629yrnbeZ/Ng9fcDQE2vO3isaxUgXxUPgKkcVuF+m7cJHoerSj3w361akknmS1GqelNSy/Jomb9lFcvLTmqUqxsJX/j89t1c3FFEiWy8TR5L7TZjFC1odRTsL/dpfHn4L+ntSKyskUoHNQDDZNawp8QeW0DSvApCZK/C4G99DNjfQ4RRaR5MiC1Y9S0D1/xn8ZrwczOoEu9dxxI1PviOnMCPfaMaOBeK0z+UA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GLUm+tjBf/b5M34mbMWpPPE+C3PjkDJS4BNYGL4lMl8=;
+ b=kYNS5G/ow/NpvBq+hxV7HT3DZ+POtCGf1Gw8CqkslXH0AAAYVDT56SGpsmfZR/ZA8tHa1No5EzwY2XhHdQ/dMAfGecP5QQtzQQ/a0gxuLe3HDRgRHbLxvjafjhRA4yj0zIdqF3glPfUKI3sEamkwG0RNRyl/fuF+5t9AbgdAA3k9rN22etYMeIHYbTi7dQHFi8zUhfxHgG2ojVej6uKJSTgivJ/IAXar4KbOl5v0xLRpfuY2Bafam4Uts0egtRPbh+lS1Aq5zGsKE3cJo1hFn5bkZ7BN0qifLJhbbfrITEzFTUZ9lh+TyXIx0ycq6qMulN2xMJERMq5FKU6XVolk8Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by PH8PR12MB7303.namprd12.prod.outlook.com (2603:10b6:510:220::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.43; Tue, 8 Apr
+ 2025 16:14:38 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Tue, 8 Apr 2025
+ 16:14:38 +0000
+Date: Tue, 8 Apr 2025 13:14:37 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, thierry.reding@gmail.com, vdumpa@nvidia.com,
+	robin.murphy@arm.com, joro@8bytes.org, jonathanh@nvidia.com,
+	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH rc v2] iommu/tegra241-cmdqv: Fix warnings due to
+ dmam_free_coherent()
+Message-ID: <20250408161437.GF1778492@nvidia.com>
+References: <20250407201908.172225-1-nicolinc@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <196162332ff.b61ad5b5564260.8672918780815538746@collabora.com>
+In-Reply-To: <20250407201908.172225-1-nicolinc@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0407.namprd13.prod.outlook.com
+ (2603:10b6:208:2c2::22) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH8PR12MB7303:EE_
+X-MS-Office365-Filtering-Correlation-Id: ebd7c2c9-3ec0-417d-38b6-08dd76b87632
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KUTTmu0urGoQa6UVrTXIgB7sj8iMQQO5FpYSIi7AHBnq8sNQA35+tjdGg6/k?=
+ =?us-ascii?Q?h22SOdU2NyuuYnh2filXHs6Jn1tbOpZa/LYNjCYfF77P7w406s4NWUm1D18I?=
+ =?us-ascii?Q?/kt3OXWzKuunMGY8630i0jbZYleHsWsJkas/jtZ8EAAnA3wr6dlkR64/Ngrm?=
+ =?us-ascii?Q?ifQcyZ223lB9If6KRyNXxVhPVtEqkD3JRgBqFQFy6NmQML7EVxgFTjrvVm0j?=
+ =?us-ascii?Q?D7LoTf2XH9/ObtSOO5wkjlrKz3H6rGsWLqoJ+Ouziqg7lckOrXoc4epRx45Y?=
+ =?us-ascii?Q?29ozfFYLLdKYSldiKbQdJTzUdQRmU3ODzRZGUAy7REGMBUWHreUCzufeWvVx?=
+ =?us-ascii?Q?GcD6KknhQZwhceUTee8jD5a86WEs5HMo7jgiYvn6BsRcvbHwXA00LOQpLw4G?=
+ =?us-ascii?Q?tlCpg0i0XXQvs9jRbN0uEAL+tCOSrfvXiItrR/knnc3e7M3/DT3yf2H0R6sO?=
+ =?us-ascii?Q?ovtjMAQo4icrnuxuuu3scpvPMJp2/XyulMATjaVpNXJg+XdQKUllvTx5/ngp?=
+ =?us-ascii?Q?1kZA7QRgrTbZP9z/xaQg3F7bJ82rCeQnRVRSBy2Jirxt0GwXC+NVuAXusTjY?=
+ =?us-ascii?Q?pPSn8rtbaeqNgfOTBmmNbaD36d9LxhlrBoEwdSwkIfgTbGMpjWwWcyX0SSYS?=
+ =?us-ascii?Q?u31H2J1d0MfM8q7QlblJN7TDxdY8/KX7510WO83rPpL3rNKI9T42TpdphKot?=
+ =?us-ascii?Q?lBGraZy146WVMeWyV+STR7SF02FqBPZVwjSQ2fFXIqfuOCP39qDKCY/5tn9G?=
+ =?us-ascii?Q?9znZiu85wH2Z4sIFSk9pmofgClV/4r9ctJ7KPHTEneCMx9VZYgvO4RAaVrIj?=
+ =?us-ascii?Q?vCsXtg5jLLFbEpJ0ItXzcRMXoJ9n8dQgsGzNAnBnYQMMfnqRHkKBVC6u6/1T?=
+ =?us-ascii?Q?CkDrvPe/7SXOxof7/UaT5V+DO2XwvmssKsK0NssBBHsKPXYMQ4j2LfIJyBpy?=
+ =?us-ascii?Q?AKSy+8KR8G6ngztPFqycRIkeWSqnx4bocE44t683mbqSe5/euNJjFD5uvW7b?=
+ =?us-ascii?Q?M7AsggCQ4l1LcLpvQ0CXzzwKALbhX3NxSCWpb/+55jbYn38sA7SWB6UQppnW?=
+ =?us-ascii?Q?jyA2boBLfG+S6kf+Wlot0UKANhg8igWWtZqPDOFYRpE7RRZ36svcSPB+Y84U?=
+ =?us-ascii?Q?7widY6Ush89PQq5ZVF8rTxZdxG8XhqZFcp7RajQ/HGDYqUtnfMy0BWMEJ2W5?=
+ =?us-ascii?Q?0ye5posCpyNss9iielg+PQDgitHWKaQUxdC78iao1kVq7zajz3MG4EbrVt/N?=
+ =?us-ascii?Q?S1DjacRqh6L0YFqmIDntKte1ziRqgOUQRMQvnnfB7xr/RfwQjQ/SyJmysfkw?=
+ =?us-ascii?Q?V4yNmfW68L5VPIBuN/7OCtbMvXiO40zqUKLDhIv9CaSOc5utP+aRZynW/y0n?=
+ =?us-ascii?Q?ICGAu6JU3y2CXvMl5ococ0xVmmTw?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9hdrYhvYQJieNSb9r/QfsTuJVrMpl6NefXdIlxWJ7P5ryktrTWKm+cHqcJtl?=
+ =?us-ascii?Q?y3NBfwMj2BDy4GPoIhSJ82idGgoYz2k4vpMwpO0RIXf5rtPIqyhfS3L6Z2cT?=
+ =?us-ascii?Q?J/lhgU0PLBG1MzGd/B0K54+oiSodH8aahRFlLv7DcMpsWl9BRPyBavW8Tidx?=
+ =?us-ascii?Q?ZJtfssQq8R0dcaXaRA5G+v64PetYAKicT9qHg4BClBIzfQBQW5Y9jrewjAs0?=
+ =?us-ascii?Q?pzwTKnQWhCTnHiJV0CPPj/o5QjD2SJA03klmqp3GiLwfapeTq4+X27ufeq0T?=
+ =?us-ascii?Q?+/7I2UnPgGURN2l2i+P4YyNECmfr+dFxvKZzKRsTRfKEMR6DZlsdV8l85Xf4?=
+ =?us-ascii?Q?U5HvuProQBeylDe7vkqTUtUvLKg+VXaGHpWhyx7/BbuxR69Fii5N8X29g+2R?=
+ =?us-ascii?Q?tN2SxEn1rQU6Hkp5dShsp9SRCEEeI0/DQ9vjzTtzkRErLy+fqYOVqSStadFT?=
+ =?us-ascii?Q?xt5Urcozqln3mj8ZeAzHGaaqdREhzjYsg45mGk+ljwqh8iA5VdDHZo/xDpAE?=
+ =?us-ascii?Q?XV79y6LVBZPWLWuCmzzgR2TEJOv/qBVAWEOoYttlYXQJ1hVdMqwhT1Eo5R3Q?=
+ =?us-ascii?Q?rQWrJlrPxvU4Vr0/1R5k6eoR80V4RtbDfSgwlANgzq6t3Ag9b4a4QAByRCXK?=
+ =?us-ascii?Q?1U3mex3EwTLKyOB36atQP1EihNfHSD7gFcysGLaRC96Qn9UbbPQoRk1IhpuN?=
+ =?us-ascii?Q?FXsOfrUJx4664DdigzBZes+uYJTufpGRnRma5FrMOWfvX85rx9041+nLiDFC?=
+ =?us-ascii?Q?5u1pgsuKMWV+Fh0z9swgIWnuqGN0WvAHqc9ZOYw7TTlo6pk9U5lNGn5pVUDX?=
+ =?us-ascii?Q?broa5R6bLJq9yppaRJq6rmiHimjSv4eF40gPu1BpddpjUnVc8PE60rJehcSi?=
+ =?us-ascii?Q?K/V4U5sbfDyRosNH6n0/RY51D6gLgcTDdLUybAHOVAyETvxaD1v+b/kK8j33?=
+ =?us-ascii?Q?Kv9DRc2nAygL2d3a2BaiT2q4QJ2V0y5PaxaAsgiteDx5xKMAWGdX/oG7jVLS?=
+ =?us-ascii?Q?TjE8kCqu0uqTcA6p/7h4vkHZ8ufVb3VIMRxSYzYjWLtwpxs8VS2MYJNClewf?=
+ =?us-ascii?Q?sAIHCEU9JCC5FCXYFmE6HQjJirE1Hu+6UHesCUcoe7R6s7gkuRc6+rzl/mN4?=
+ =?us-ascii?Q?iTR1xb+bs9vuKGP/LJnNuLUxMNxrQH5+qcyabd+2orkqJAj6LYw8NoKcyWxV?=
+ =?us-ascii?Q?VFxnMhIITzbZvetk655yuF/Ku7ll0kg2JvvsrNjkFUZqmCkpYyZkUd+LtvUH?=
+ =?us-ascii?Q?zD0x1HPXnhJZ0YTsCRAfzxSuK9sLBV4UfLW0eyZwOAq/jrz479FZ+8h1fFwS?=
+ =?us-ascii?Q?p/P9cGTFcW9gpadQ/YirXaq9XgvPdfC3reQGUzBqtWIwkZMWc1DHK86pB3GL?=
+ =?us-ascii?Q?PL6eQ4ESeTMx07IgR+0eHLkOjnWqZlhVvuFQ8YcfSFCGRwVjwGu37a54hJUx?=
+ =?us-ascii?Q?nUHuQpL109Vz6lA6Z4ANFZLNA85xZxF2Mugbtksz5CvuSPFI4FheS8fQwbtK?=
+ =?us-ascii?Q?1KfGxw91sVjTxASfQ3fMDxtNNNdMx7QbyHtHlpaKh/+yaYNblAIbC/hE2qTM?=
+ =?us-ascii?Q?Vp7Qmt9W1a0nE4MnfalocRMz3sDC/RqpBWB1nPK/?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ebd7c2c9-3ec0-417d-38b6-08dd76b87632
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 16:14:38.7530
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5fmlkG6HRRsI/h2sObPFyrCwQLRiyuaNOp4TEtyGdFu7p39jzQ0KtNFoXXl+MSKq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7303
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_091319_894184_8287A2D7 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250408_091447_837076_2E3322BC 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +158,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 05:02:07PM +0100, Martyn Welch wrote:
->  ---- On Thu, 27 Mar 2025 14:25:38 +0000  Andrew Lunn <andrew@lunn.ch> wrote --- 
->  > > +++ b/arch/arm64/boot/dts/freescale/imx8mp-nitrogen-som.dtsi
->  > > @@ -0,0 +1,415 @@
->  > > +&eqos {
->  > > +    pinctrl-names = "default";
->  > > +    pinctrl-0 = <&pinctrl_eqos>;
->  > > +    phy-handle = <&ethphy0>;
->  > > +    phy-mode = "rgmii-id";
->  > > +    status = "okay";
->  > > +
->  > > +    mdio {
->  > > +        compatible = "snps,dwmac-mdio";
->  > > +        #address-cells = <1>;
->  > > +        #size-cells = <0>;
->  > > +
->  > > +        ethphy0: ethernet-phy@4 {
->  > 
->  > Just conformation, the PHY is on the SOM? Are the magnetics and RJ45
->  > socket on the SOM, or the carrier?
->  > 
+On Mon, Apr 07, 2025 at 01:19:08PM -0700, Nicolin Chen wrote:
+> Two WARNINGs are observed when SMMU driver rolls back upon failure:
+>  arm-smmu-v3.9.auto: Failed to register iommu
+>  arm-smmu-v3.9.auto: probe with driver arm-smmu-v3 failed with error -22
+>  ------------[ cut here ]------------
+>  WARNING: CPU: 5 PID: 1 at kernel/dma/mapping.c:74 dmam_free_coherent+0xc0/0xd8
+>  Call trace:
+>   dmam_free_coherent+0xc0/0xd8 (P)
+>   tegra241_vintf_free_lvcmdq+0x74/0x188
+>   tegra241_cmdqv_remove_vintf+0x60/0x148
+>   tegra241_cmdqv_remove+0x48/0xc8
+>   arm_smmu_impl_remove+0x28/0x60
+>   devm_action_release+0x1c/0x40
+>  ------------[ cut here ]------------
+>  128 pages are still in use!
+>  WARNING: CPU: 16 PID: 1 at mm/page_alloc.c:6902 free_contig_range+0x18c/0x1c8
+>  Call trace:
+>   free_contig_range+0x18c/0x1c8 (P)
+>   cma_release+0x154/0x2f0
+>   dma_free_contiguous+0x38/0xa0
+>   dma_direct_free+0x10c/0x248
+>   dma_free_attrs+0x100/0x290
+>   dmam_free_coherent+0x78/0xd8
+>   tegra241_vintf_free_lvcmdq+0x74/0x160
+>   tegra241_cmdqv_remove+0x98/0x198
+>   arm_smmu_impl_remove+0x28/0x60
+>   devm_action_release+0x1c/0x40
 > 
-> The PHY is on the SOM, the magnetics and RJ45 socket are on the carrier.
+> This is because the LVCMDQ queue memory are managed by devres, while that
+> dmam_free_coherent() is called in the context of devm_action_release().
 
-Thanks. So phy-mode is in the right place.
-
+> Jason pointed out that "arm_smmu_impl_probe() has mis-ordered the devres
+> callbacks if ops->device_remove() is going to be manually freeing things
+> that probe allocated":
+> https://lore.kernel.org/linux-iommu/20250407174408.GB1722458@nvidia.com/
 > 
->  > > +            compatible = "ethernet-phy-ieee802.3-c22";
->  > > +            reg = <4>;
+> In fact, tegra241_cmdqv_init_structures() only allocates memory resources
+> which means any failure that it generates would be similar to -ENOMEM, so
+> there is no point in having that "falling back to standard SMMU" routine,
+> as the standard SMMU would likely fail to allocate memory too.
+> 
+> Remove the unwind part in tegra241_cmdqv_init_structures(), and return a
+> proper error code to ask SMMU driver to call tegra241_cmdqv_remove() via
+> impl_ops->device_remove(). Then, drop tegra241_vintf_free_lvcmdq() since
+> devres will take care of that.
+> 
+> Fixes: 483e0bd8883a ("iommu/tegra241-cmdqv: Do not allocate vcmdq until dma_set_mask_and_coherent")
+> Cc: stable@vger.kernel.org
+> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+> Changelog
+> v2
+>  * Fail tegra241_cmdqv_init_structures() and let devres take care of the
+>    lvcmdq queue memory space
+> v1
+>  https://lore.kernel.org/all/cover.1744014481.git.nicolinc@nvidia.com/
+> 
+>  .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 32 +++----------------
+>  1 file changed, 5 insertions(+), 27 deletions(-)
 
-and the reg value is fixed.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-    Andrew
+Jason
 
