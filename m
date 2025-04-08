@@ -4,93 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21A87C369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B269C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=idy7unnjHF724gRlX6xdG7LoWiV2Db9Z6YWr6CtXLEw=; b=a0R7lfy9pWKbcsC/zjACjSKKYi
-	3T2HJUQBf4YkdO8MFWPp8PzNrwZxvB9gziU7iKqGw17nyvQYtnmRdFBzZy8/GpsomDtRjS2le3gRn
-	k+GCDym5mJjQ9y6H3sxS0GEzeE1ZeKzhWn7v2rsTRhG+taWyTY37xipPMgy2Ot2oxSEjSlnA9Y8aI
-	Fu01JzfVOngWg8Kq7LGsu1medcrqV0DvcugPYDgjYK66Gr9CY/dgcqFFCp30mwPJav3qW/WVhXubD
-	CfU14OLGJZUHyAo+7fnVNYJO/R125/foSpU7uwxFHTzvQKKaxAe/6DhND33Wktn7lUpo4odwtlYjY
-	xoTw7+vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XbgewCf1aPu6a/OvrU1OzXiSrJPGli1RsDcGc+DA04A=; b=bJxTmGcEVBxo+DeiCJoXysbBSj
+	2XwsbP6gdc4U0bw+oxMQyf0uHhE7TkaRiO68p2uIY7z8baqLGFgeX8LJmvnQw6TV9AyS6sRp/ZfBm
+	87cmybibmJNJloWHGAzxbQdu1IWMUvKzG9rwoOcz5PgfKPZzaLJVsP49E4Fy5ilB66earggNGOJXs
+	frl3BQOwx9ma+vyc/OV5S06rNU6el5c/DCjDRhcNcc9TVWXJ5ahZy16p0XH5N0vrqxANzX6Wa/LmV
+	JtFuXKFPNMn0ef6PzdTN52bHsjGK7E9BFnBU+uTtXke08GycAyTrUNmqfc+Cuj3zZC/LllaXxzj6G
+	6K5UZYAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u29QE-00000004HFc-2SK9;
-	Tue, 08 Apr 2025 13:55:26 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1u29SP-00000004I5I-0z87;
+	Tue, 08 Apr 2025 13:57:41 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28rT-00000004AlQ-2DFt
+	id 1u29J7-00000004GEx-2aNW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 13:19:33 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 538AxRwX008721;
-	Tue, 8 Apr 2025 15:19:06 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	idy7unnjHF724gRlX6xdG7LoWiV2Db9Z6YWr6CtXLEw=; b=SnPhGGZ4sX07yhN4
-	4MXSfSo/N5BcZyt3zL9A+tmFTt1eZ9BObWHhjYPK+KrbsG9Bt/9mDh7E1QiqoAVC
-	C0qlRdPJnKp0byut2kxVtwPJQrmxbqTjj0SmaBwDxXUr+CQgPFXKAmVaaogJ+zEN
-	3CDvdvcxQM/oLtYXa7MTp6mxlLDhge4YG9vi4/XG/jD5tpatwvH+z7TxtD3I+4xw
-	kMR7S2YwOscP/L7aDDp2U5uBGXzDtea/vtYQ7lkzttpfy8Mx7A3rgY2t77Ai3vfZ
-	eG5OA7zOXLsF1tIaunn/UcXQE7gElQfhe1OCo09Mdt+vqBzfQ8C71RkZdYCrpm+Y
-	UF+Ogg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw2gw664-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 08 Apr 2025 15:19:06 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B6C9740047;
-	Tue,  8 Apr 2025 15:17:57 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D64E59A469C;
-	Tue,  8 Apr 2025 15:16:32 +0200 (CEST)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 8 Apr
- 2025 15:16:32 +0200
-Message-ID: <1f737628-6a0b-4265-96bc-4ddacd244e7a@foss.st.com>
-Date: Tue, 8 Apr 2025 15:16:31 +0200
+	Tue, 08 Apr 2025 13:48:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744120085; x=1775656085;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=QZAL+S5YzRwLwlwsMXd2zOLO+f+OKUqCHKeJeegQlnk=;
+  b=Cmkh94ja/J8o92/5HXBnkYuJeCqp4QEtuaDrw3sZogjaB5R+GSDTicjF
+   N2BuIvVR0R0ZoxYmPMnjKaGKN2QRO+1FdZ6J9IeF94lIvsNsI3uPYx9XY
+   jXIDZxnzmlxwX2UwYeTdMgRnh/c5eBgyRpA96EjnUkGH1q4iY261rDzYG
+   Qh/1q/0pVuRdbFirsMader3kxKtl//gS9LyRjk8ZQ6JpMgHIvcepvGzB6
+   EDo5qRycX2ikduD+aqM7CLDdM0uA5uI5kuyVG7bdLrjrkTo5G8ocMemvZ
+   rA/VukMwkXB+uDEoS6h4Hd4OBvIWrmnkNtF4+Nzp0A4z7RUQN2uY1Kizr
+   w==;
+X-CSE-ConnectionGUID: yNGLuc6PTmSvxxl75CNweA==
+X-CSE-MsgGUID: X+6AzY/ST8Cs+0p2mY3+AQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="45687605"
+X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
+   d="scan'208";a="45687605"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 06:48:04 -0700
+X-CSE-ConnectionGUID: iAYgxfehTbaEoToFMmJRlA==
+X-CSE-MsgGUID: iqkx9wdbSa+Z+aMmj20O9g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
+   d="scan'208";a="128794917"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 06:47:56 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1u29It-0000000APvn-2CjO;
+	Tue, 08 Apr 2025 16:47:51 +0300
+Date: Tue, 8 Apr 2025 16:47:51 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 08/16] i2c: core: Introduce i2c_get_adapter_supplier()
+Message-ID: <Z_UpB1cgU_99JHdF@smile.fi.intel.com>
+References: <20250407145546.270683-1-herve.codina@bootlin.com>
+ <20250407145546.270683-9-herve.codina@bootlin.com>
+ <Z_Puy8eEBc6tubEx@smile.fi.intel.com>
+ <20250408150836.327a337d@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/7] dt-bindings: memory-controllers: Add STM32 Octo
- Memory Manager controller
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <christophe.kerello@foss.st.com>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
- <20250407-upstream_ospi_v6-v8-2-7b7716c1c1f6@foss.st.com>
- <20250408-magic-arrogant-hound-0f2de5@shite>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20250408-magic-arrogant-hound-0f2de5@shite>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-08_05,2025-04-08_02,2024-11-22_01
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250408150836.327a337d@bootlin.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_061932_146935_47CAB93B 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20250408_064805_725482_AFAFB92A 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,41 +121,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 08, 2025 at 03:08:36PM +0200, Herve Codina wrote:
+> On Mon, 7 Apr 2025 18:27:07 +0300
+> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+> > On Mon, Apr 07, 2025 at 04:55:37PM +0200, Herve Codina wrote:
 
+...
 
-On 4/8/25 08:45, Krzysztof Kozlowski wrote:
-> On Mon, Apr 07, 2025 at 03:27:33PM GMT, Patrice Chotard wrote:
->> +  st,syscfg-amcr:
->> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->> +    description: |
->> +      The Address Mapping Control Register (AMCR) is used to split the 256MB
->> +      memory map area shared between the 2 OSPI instance. The Octo Memory
->> +      Manager sets the AMCR depending of the memory-region configuration.
->> +      The memory split bitmask description is:
->> +        - 000: OCTOSPI1 (256 Mbytes), OCTOSPI2 unmapped
->> +        - 001: OCTOSPI1 (192 Mbytes), OCTOSPI2 (64 Mbytes)
->> +        - 010: OCTOSPI1 (128 Mbytes), OCTOSPI2 (128 Mbytes)
->> +        - 011: OCTOSPI1 (64 Mbytes), OCTOSPI2 (192 Mbytes)
->> +        - 1xx: OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
->> +    items:
->> +      items:
+> > > +	return get_device(adapter->supplier ?: adapter->dev.parent);  
+> > 
+> > What will be the meaning when both are set? Why dev.parent is not the same
+> > as supplier in this case?  Looking at the commit message example, it seems
+> > like you want to provide a physdev or sysdev (as term supplier seems more
+> > devlink:ish), like it's done elsewhere. And in the same way _always_ initialise
+> > it. In such a case, the ambiguity will be gone.
 > 
-> That's not what Rob asked. Are we goign to repeat the story of Benjamin
-> and VD55G1? You got the exact code to use, which only need corrections
-> in indentation probably. Why not using it?
+> When both are set (this is case for i2c muxes), the adapter->supplier the
+> device that register the I2C adapter using i2c_add_adapter() or variant.
+> In other word, the device that creates the I2C adapter.
 > 
-> You miss here '-'.
-
-Hi Krzysztof
-
-Sorry but Errare humanum est and dtbs_check didn't detect this.
-I will fix it. 
-
-Thanks
-Patrice
-
+> The adapter->dev.parent is most of the time the device that register the
+> I2C adapter except for i2c muxes. For I2C muxes, this adapter->dev.parent
+> is the adapter the i2c mux is connected to.
 > 
-> Best regards,
-> Krzysztof
-> 
+> Between physdev and sysdev, I really prefer physdev and, if renaming from
+> supplier to physdev is still needed (and wanted), I will rename it. Let me
+> know.
+
+The terms supplier/consumer are widely used in terms of power and devlink.
+I think here should not be used the term supplier.
+
+> For initialization, I don't want to modify all the I2C controller drivers.
+> What I can do is to initialize adapter->supplier using adapter->dev.parent
+> during the i2c_register_adapter() call if it was not already initialize by
+> the caller (i.e. the I2C controller driver).
+
+This can be done in the I²C core, but I'm not insisting on this part.
+We can start from your function only and then decide later on how to
+proceed (depending on how many users of that field appear and what
+they want to do with it).
+
+> Does it make sense ?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
