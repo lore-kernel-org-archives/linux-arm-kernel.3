@@ -4,93 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68ADBC369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2789CC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:15:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=40zPUQrlcr8Vw5CjXjou4ckrp+WYfHtg2mzzQ/p+6/0=; b=zPRXzC656VNjH5Eho4OwHRXSrn
-	I9tIfWMs8EtKzdyP6NYCV562kTrdtWy5ge+ePuZ6JhXI6RmNpM6QZxP5ZPm0DR37UAxwfNqVCOEoz
-	7yKaZw8+PVJBeVNL3YCCGqbTk6LprmDhKLmNHFki0lQjDFamgoconAItcneXdeyNpuWYg/F+QO3bL
-	pGb0eFNWV62uwuW0lJYcw5G+uj5WrjazOHIApEAtBWbCl4yUSPEGub5AGV1zYfPCix/xCxpZY74GA
-	X0AIBk/DaVS41Eel0kELtRCVRZMc0XEXC26XrmfesCqMzxVUeagt/bET+79B3RPQKjjRRH/DhAqa/
-	CVn5V4PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GyJGnAiLJATURszHLyZHKp4AdvagGFsBzE31iQawxg8=; b=cd8MkFpf+l3YQJ
+	J2BXmPeBnStipcdLLYO7//byT9D0Du+tIp5dzCJ/uPW9axY2N5CNqB9oeEwURrc0j8z4FluboW5EY
+	qUXnIPYZkIE6iG06Yp9I4Nh6EvnqtwywPMNaD80estuijeS+FPbgH03LfCj9flq3BLdUmEhk1r0Pz
+	aXKnBuhc4CpSqidfIP+MGhn41eyBE726LOivfi68wv7qdyz8/94Y8JgUKVicTDVO7bPa4CdR1USpj
+	u5d04OmO2uL21hZtdtLIliaF4CeI2smid52wc/7I4DxlrV5eWXMCgU5ZmwQXvye0PEoa89Fa90vIg
+	7JM1GPefrUhZBlV8U+cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28nY-000000048y6-0XGt;
-	Tue, 08 Apr 2025 13:15:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u28nm-000000049J0-1UWo;
+	Tue, 08 Apr 2025 13:15:42 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u27tj-00000003xn2-0jBJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Apr 2025 12:17:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=40zPUQrlcr8Vw5CjXjou4ckrp+WYfHtg2mzzQ/p+6/0=; b=VGR/YxEzKmckMuWJwncdl5sYhH
-	BcsnjqHztSj+EXq9IXmn7iWQHV/pvnoZDtXO3T28coJutxb1SQSsl/ouewkm43E3ooyy54D8Dsemy
-	Jni6uYPjSKy3XStH68IuoBI9dL1Y5AzZyDDLdvH27Fp29X5u8MOLwz7Y8uWSlGWn/kTVxE4vEQpY8
-	G5tAvg4SxhHnop95aiIweULlwZmuyeFcMesA/pe59rdd57rJPJOA4oF4QX64PJvKvT3NDjuKFHvWr
-	Pd4rNOCEMXrN35e9dGTnwF41PwWiChAsMI4Bw+4aVEBgSN8ewpbmiwVBl+FroPUz1UAQcptEiUmcY
-	BaZXyPtw==;
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u27te-00000008I93-1l9l
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 12:17:45 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 538CHNdb673137
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 8 Apr 2025 07:17:23 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744114643;
-	bh=40zPUQrlcr8Vw5CjXjou4ckrp+WYfHtg2mzzQ/p+6/0=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=Z+pTG+24QgYuVGeEyiu+Krg6vZD7z7igJ9ynRkHU8gV8Jm+rk/alFJXJ6xgz/x1Ze
-	 a4AtgTKrrLmHMtSXF4MfZwIp5riKITAoI2dWKwHf1d/oOE7WISSopWkXw9bHWnU1/X
-	 FSaUIkDrIXCw+FmbzQOfgnR4PAZo73uoIGk5pqJg=
-Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 538CHN4S008016
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 8 Apr 2025 07:17:23 -0500
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 8
- Apr 2025 07:17:23 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 8 Apr 2025 07:17:23 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 538CHNA4001367;
-	Tue, 8 Apr 2025 07:17:23 -0500
-Date: Tue, 8 Apr 2025 07:17:23 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <vaishnav.a@ti.com>,
-        <jai.luthra@linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-Subject: Re: [PATCH 3/5] arm64: dts: ti: k3-j721e-sk: Fix dtbs_check warnings
- in IMX219 overlay
-Message-ID: <20250408121723.ksjtilh4hxl2wh34@derail>
-References: <20250401114053.229534-1-y-abhilashchandra@ti.com>
- <20250401114053.229534-4-y-abhilashchandra@ti.com>
- <20250407134523.d56rjpydflmkw2ze@privatize>
- <c1762c69-6a76-4f89-ab64-e6d9215e1be2@ti.com>
+	id 1u289G-00000003zrL-1t3b;
+	Tue, 08 Apr 2025 12:33:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1744115617; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ZYdZHsQWauVJFkK7qg6+RgBlLgyiABGPxVdHm555/dNCpsiQuHDmtJS0PGlBfLMVG+Z1toIMKsLzcFE0QVKSLOIYxN8MHEPen9GG0Wojzdv9zphwkNLliR9xBIDpZ3CU2EbnsBSYTKHeY08Fvj5O8LuFAT9KHIxnUf2ACNlOrVI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1744115617; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=GyJGnAiLJATURszHLyZHKp4AdvagGFsBzE31iQawxg8=; 
+	b=BrCl2g2+yDARhyVbUAkXOeI01yjdLv6BCvyjgfIfqbhsS75bWwWcpQPxaT6aUYZxQUssYUxlKqkmeEDtDSmAuchh45jKNOWJNmZa8KU7+6fv5h7sADigfkthL57ulQtaGUvV/dpEWli/efk9cp5jKeOjaCDrYcMZ+srpQo73pNY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744115617;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=GyJGnAiLJATURszHLyZHKp4AdvagGFsBzE31iQawxg8=;
+	b=WTSx/mxDxaSj28VfD1S4FZM5AAxWO0sKE81fXFn1RNC6YLlZaLLFPXVtbdesZtRP
+	NAveoxtpcFCGgRZTx9y8oqhIIUYFNJqxhVr9YmMpvsZ33voaskcUlGD8voaOPT5NJc3
+	EQwQcevK4jKtqSYd1prTmBkRkntDScUWemxipBfY=
+Received: by mx.zohomail.com with SMTPS id 17441156160471018.3332658311127;
+	Tue, 8 Apr 2025 05:33:36 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH 0/7] Add Rockchip RK3576 PWM Support Through MFPWM
+Date: Tue, 08 Apr 2025 14:32:12 +0200
+Message-Id: <20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <c1762c69-6a76-4f89-ab64-e6d9215e1be2@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEwX9WcC/yXMQQrCMBCF4auEWTuS1CaBXkW6SJNRB0lbJ7UKp
+ Xc32OX34P0bFBKmAp3aQGjlwtNYYU4K4iOMd0JO1dDoxupWe5TnxXqH8ydj67wzQ9KJQoB6mIV
+ u/P3Hrv1hode7NpdjhCEUwjjlzEunVnc2FiUa6Pf9BzpTEBeJAAAA
+X-Change-ID: 20250407-rk3576-pwm-46761bd0deaa
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ William Breathitt Gray <wbg@kernel.org>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Kever Yang <kever.yang@rock-chips.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
+ linux-iio@vger.kernel.org, kernel@collabora.com, 
+ Jonas Karlman <jonas@kwiboo.se>, 
+ Detlev Casanova <detlev.casanova@collabora.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_131742_960704_D017D814 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20250408_053350_562184_327B5D1A 
+X-CRM114-Status: GOOD (  34.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,40 +89,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14:31-20250408, Yemike Abhilash Chandra wrote:
-> Hi Nishanth,
-> 
-> On 07/04/25 19:15, Nishanth Menon wrote:
-> > $subject - the patch adds description for the supplies for the sensor.
-> > Please fix the description.
-> > 
-> 
-> In this patch, I am addressing all dtbs_check warnings generated from this
-> overlay:
-> 
-> 1. Adding the missing regulator node
-> 2. Removing the incorrectly added clock-names property
-> 
-> Due to the inclusion of both changes, I opted for a more generic commit
-> title.
-> Please let me know if you want me to split this patch into two separate
-> patches
-> with specific commit titles and commit messages.
+This series introduces support for some of the functions of the new PWM
+silicon found on Rockchip's RK3576 SoC. Due to the wide range of
+functionalities offered by it, including many parts which this series'
+first iteration does not attempt to implement for now, it uses multiple
+drivers hanging on a platform bus on which the parent "mfpwm" driver
+registers them.
 
-subject line should indicate what we are fixing here. If the commit
-message indicates two different problems that were to be fixed, it is
-better to do that in two different commits. Generic subject line is hard
-to gork to understand if it is critical or not.
+Here's some of the features of the hardware:
+- Continuous PWM output (implemented in this series)
+- One-shot/Finite repetition PWM output
+- PWM capture by counting high/low cycles (implemented in this series)
+- Sending IR transmissions in several TV remote protocols
+- Generating an interrupt based on the input being one of 16
+  user-specified values ("Power key capture")
+- Biphasic counter support
+- Using the hardware to measure a clock signal's frequency
+- Using the hardware to count a clock signal's pulses
+- Generating PWM output waveforms through a user-specified lookup table
 
-Do not forget ./Documentation/process/stable-kernel-rules.rst and use
-fixes: tag as appropriate to indicate the original problem patch
-which is being fixed.
+As you can tell, there's a lot. I've focused on continuous PWM output
+for now as the most important one for things like controlling fans. The
+PWM capture driver is an added bonus, because I needed at least two
+drivers to test things. Anyone doing consumer electronic devices like
+tablets based on the RK3576 may need to do the power key stuff at some
+stage, but I'm still not entirely clear on what that'd look like in a
+schematic. The IR transmission stuff may be a funny weekend project for
+someone at some point; I assume it's there so TV boxes can turn on and
+off TVs without needing the HDMI control stuff.
 
+At first, I considered simply integrating support for this new IP into
+the old pwm-rockchip driver, as the downstream vendor kernel did.
+However, the IP is significantly different from previous iterations.
+Especially if the goal is to support some of the additional
+functionality that the new silicon brings, doing it all in a single pwm
+driver would be untenable. Especially one that already supports other
+hardware with a way different set of registers.
 
-[...]
+Hence, the mfpwm pattern: each device functionality is its own driver,
+and they all get registered as platform drivers by the parent mfpwm
+driver, which is the one that binds to the DT compatible. Each device
+function driver then has to _acquire and _release the hardware when it
+needs control of it. If some other device function is using the device
+already, -EBUSY is returned, which the device function driver can then
+forward to the user and everyone is happy.
 
+The PWM output driver, pwm-rockchip-v4, uses the new waveform APIs. I
+thought while writing a new driver that I might as well use the new
+APIs.
+
+The PWM capture driver, implemented as a counter driver, is somewhat
+primitive, in that it doesn't make use of things like the biphasic
+counter support or clock measuring, but it serves as a good way to
+showcase and test the mutual exclusion that the mfpwm framework tries to
+achieve. It also goes one step beyond just exposing the raw LPC/HPC
+counts and actually makes them usable in a non-theoretically-racey way
+by turning them into nanosecond period/duty cycle values based on the
+clock's rate. Shoutouts to the counter subsystem's documentation by the
+way, it is some of the best subsystem documentation I've come across so
+far, and was a great help.
+
+Some instances of the PWM silicon allow switching between a fixed
+crystal oscillator as the PWM clock, and the default PLL clock, which is
+just a mux between that very same crystal oscillator and two other fixed
+oscillators on RK3576. The downstream vendor driver does not implement
+this feature, but I did because it seemed funny, so now there's a sysfs
+interface to switch between them and it makes sure you don't
+accidentally ruin any PWM user's day while switching. The potential
+benefit is that this switching is per-PWM-channel, but aside from that
+it doesn't seem super useful and should've probably just been some
+per-channel clock muxes in the hardware's CRU instead.
+
+Along the way, I also finally took the time to give us The One True
+HIWORD_UPDATE macro, which aims to replace all other copies of the
+HIWORD_UPDATE macro, except it's not called HIWORD_UPDATE because all of
+them have slightly different semantics and I don't want to introduce
+even more confusion. It does, however, do some compile-time checking of
+the function-like macro parameters.
+
+This series went through two substantial rewrites, because after I
+realised it needed to be multiple drivers (first rewrite) I then first
+wrote it as a couple of auxiliary bus drivers, until I became unsure
+about whether this should be auxiliary bus drivers at all, so it became
+a bunch of platform bus drivers instead. If anything looks like a weird
+vestigial leftover in the code, then that's probably why, but I made
+sure to get rid of all the ones I could find before submitting this.
+
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+Nicolas Frattaroli (7):
+      dt-bindings: pinctrl: rockchip: increase max amount of device functions
+      dt-bindings: pwm: Add a new binding for rockchip,rk3576-pwm
+      soc: rockchip: add utils header for things shared across drivers
+      soc: rockchip: add mfpwm driver
+      pwm: Add rockchip PWMv4 driver
+      counter: Add rockchip-pwm-capture driver
+      arm64: dts: rockchip: add PWM nodes to RK3576 SoC dtsi
+
+ .../bindings/pinctrl/rockchip,pinctrl.yaml         |   2 +-
+ .../bindings/pwm/rockchip,rk3576-pwm.yaml          |  94 ++++
+ MAINTAINERS                                        |  11 +
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 192 +++++++
+ drivers/counter/Kconfig                            |  13 +
+ drivers/counter/Makefile                           |   1 +
+ drivers/counter/rockchip-pwm-capture.c             | 341 ++++++++++++
+ drivers/pwm/Kconfig                                |  13 +
+ drivers/pwm/Makefile                               |   1 +
+ drivers/pwm/pwm-rockchip-v4.c                      | 336 ++++++++++++
+ drivers/soc/rockchip/Kconfig                       |  13 +
+ drivers/soc/rockchip/Makefile                      |   1 +
+ drivers/soc/rockchip/mfpwm.c                       | 608 +++++++++++++++++++++
+ include/soc/rockchip/mfpwm.h                       | 505 +++++++++++++++++
+ include/soc/rockchip/utils.h                       |  76 +++
+ 15 files changed, 2206 insertions(+), 1 deletion(-)
+---
+base-commit: 64e9fdfc89a76fed38d8ddeed72d42ec71957ed9
+change-id: 20250407-rk3576-pwm-46761bd0deaa
+
+Best regards,
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
 
