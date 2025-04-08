@@ -4,157 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D65BBC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 03:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F8C1C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 03:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dqGfTcLo1ZA8us0nOXevDpp5WaCbag6gRfiVsdF4Lus=; b=MvjNbWshjlU9xTioKvQsnFAXq1
-	GiNeOwyrXaPTlfMQXVAwbWQQsPFR4qUDitobHIgqZ/ypy4FEvFGRK5WTpM4ngqgPw8q711900ZZgo
-	PGrmuJAOiApxxivZjFr8ftSicOeiDNsxCS1VLzKPlIXx0ANgBHJ62NEwoa8hir7ZCho88yXqE+lFD
-	2gkoYcoKddOLMniP1e2HPvkgPq6RE3reU+WBJr5Q+gzZMosYBzL02dytIgqVMEAsFljeX2zZ+VYwG
-	99x/WGCiiZR8lviFJZzSkrlUahWWpQq7K5M0e2EUwaHBxIUbwV/LTxO3MwVhxnNaLmWgS0+yuOQLq
-	eznWSRZw==;
+	bh=SLSSxNg3dTpdPXjgZLIOhqnXXot5F10MyjFb2gUR874=; b=ZXO+jMLR2Tn/dkrsmu/j0BNTca
+	U03X022Tzxo5xpV2xETXSMwYZXSeDOde13LaFa9gnwikQinPmVPm2GYNpq1hqckVO6cSn0aKIcq6W
+	g1Bdl/eouL2EPbKTI/XKPj6AtCEBQYaAokvfPhzj/Md2N+HvHxPF2V4A3EVwXMqQNe02xrhXB3o5I
+	N3W0TlCkDhcePY0oKRtimVkfJpCYph3PX+lAXAs1OLSnJJ9qw5MZ/sHNoWs5bdIvXzYspgrGUK87a
+	B2FzzZAyRDv55tPAv4C1PuyaFdrGRHESyr+2th4/IDDT4iOXNzA4TIze7BfY4fUh81Bec3cXrMOyt
+	kIi5a4EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1zV4-00000002bvL-1TYG;
-	Tue, 08 Apr 2025 03:19:46 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1u1zWn-00000002c6E-1zXW;
+	Tue, 08 Apr 2025 03:21:33 +0000
+Received: from mail-m8317.xmail.ntesmail.com ([156.224.83.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1zDH-00000002ZgU-0SRd
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 03:01:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wgnGnJOBtgJARiL6nhmOgwHN6yvqpLVCmf257s0maWYo89dH0MiAPLNrQtif1uwIwJ/Gau+wG33ExT8F9F+MGBzO/JchtLzeHgS11YFjQEP33SppVGpnKibcdYzVxZJmFcYxJXqcB5CrdLXXNrfoabHvC8yDMUSMO6llNbPhs0A1d3y69WsKzsHe8/hJO1irddVo4vuhk63PMl5OV0ThynDVQsldTLTKA30wcQdpVAqB7pKwZn+ApeaCn9Z/v5Z2iaPUhHbscwc4MZ2fE7X+aBz9WCyA5AreQ1Amega3+lgm9Gj/2nTAah/Px6IDFMC1rABKw5jwImmhrmZI6HP8nw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dqGfTcLo1ZA8us0nOXevDpp5WaCbag6gRfiVsdF4Lus=;
- b=IX5Z26baOdNVX5A5Hv//sDU6UbWy0jqDbdwoqk0b0B8zsml2dWVjvYVsVjxzHHul8cDEdGFHJ32GjQWhJXNGK1RA0WpBqWS6PtwDp10XvkE7Sl390QAzuKtlKSwfdyTS0wDwGp7oMQzDF0FvlP6Pw6aoq9CvJP7B3G4oklxL+HV1i4TOW/t9k1F6nwuuiTu9FzAUKnqNhYJBltW3seriZB7sx8rSg/tbxluiq3722SJnB/oGpqWAckokvXoM2AJRlPI7/rT28mvXO812Y9lP8y/h7tAThmASx99gdrcpx8YlQmQePK3pzejeJSW62L31fhsDmcAM3LMMQmfYbHBhBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dqGfTcLo1ZA8us0nOXevDpp5WaCbag6gRfiVsdF4Lus=;
- b=TDgqghYSQx4Klszk6BSf9RIvuyEpbywXyL+sw+XEDtoCDZZcLaGMCUgfmYL8TQ0Xxj06ISzzv7BgL8bXMCcszX5dYlw6wLiv9Cn37pIJsRl8QY3wGefehHxaFlgu5OOK2OsEqx3n+8MkbkOiaV4CtmH/hjeElUb5IhSVJo8ebkP/xtI3LLg6gUaXOZPuYFWHz0A2ylk77WxZMcuaqovK4WxgOl15otEPkIJbf27TFEqAfkUkDB67VM3YRkG4JJec33oDJXTNjEl+vgm5/qyN5aUZagwWtI85naYF0mFeMPBXPecZPQen5Zt9RHb/3UMV3D/PWn5wW56P6RZ1QAcxcw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
- by PA4PR04MB7536.eurprd04.prod.outlook.com (2603:10a6:102:e1::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.31; Tue, 8 Apr
- 2025 03:01:21 +0000
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93%4]) with mapi id 15.20.8606.033; Tue, 8 Apr 2025
- 03:01:21 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	manivannan.sadhasivam@linaro.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v5 6/7] PCI: imx6: Add PLL clock lock check for i.MX95 PCIe
-Date: Tue,  8 Apr 2025 10:59:29 +0800
-Message-Id: <20250408025930.1863551-7-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250408025930.1863551-1-hongxing.zhu@nxp.com>
-References: <20250408025930.1863551-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2P153CA0051.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::20)
- To AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+	id 1u1zDI-00000002ZgS-3G9V;
+	Tue, 08 Apr 2025 03:01:26 +0000
+Received: from [172.16.12.129] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 110100f9f;
+	Tue, 8 Apr 2025 11:01:19 +0800 (GMT+08:00)
+Message-ID: <6ccfc126-b009-4ee9-0a2c-3e7faf512751@rock-chips.com>
+Date: Tue, 8 Apr 2025 11:01:04 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|PA4PR04MB7536:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec84bdd2-4be3-4501-5c9a-08dd7649a3a7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IssO0hZ3IL7f+9OKVAywxZrGfTE0U6KLkIopgnpNBliVSEdIgJgPa3ZyfcaP?=
- =?us-ascii?Q?AYXAk6Rm2sMWD9cTrpGM16wbH7+3XdDoKKJLuSgF73i5FzAq11UhvDGVHRaF?=
- =?us-ascii?Q?RHvCwEf7Ym3INy5PdpJZ74b/HCc6gt9vo9ZYewm57VsscIoj2FPnHkPuMBz+?=
- =?us-ascii?Q?I5EkIgPIzDw5DbvqEEBfC9j5AKUD04+cdjntJLPZkHR9+fxj+zYaI/9tFgHb?=
- =?us-ascii?Q?0IrkPtn3TlgjiRL41GlZ+IxOXB2ua/qU3k27GNtkCf/u/xVbL5ekgOXEBDpX?=
- =?us-ascii?Q?00dPrMGg1Du5Az0myTkY6Z3xDD79w1DkuIifiMkoiQvU8tc2IIBjQI9yv2Dn?=
- =?us-ascii?Q?EcZdEmZrp/hmp9HGoo0RT0DR6ETynKisYGmdL/UNCYizuAJSbVf3QYsJalIO?=
- =?us-ascii?Q?oJeODMLPU1rpQtw+0n/sz2IYSZKNQqbUyMPINZgFjUdZXrGnM9Qj6QqrSRrp?=
- =?us-ascii?Q?HsCunQisYSMzgcx2dyR+Zr1IfHj1GdAwcFAnWtgSRwS6pehwqIT3zY86NPu+?=
- =?us-ascii?Q?sLkWZYoCf8R+xEUUN73fybikC9IdH+uXacpCRTTE0Qbg4/fvMXdlR/tGn71c?=
- =?us-ascii?Q?SFdf+EVvlM35P9EVxFFnPuFaDnkpBGLGlkjYDMtSXoV3vIB0PbUzFLex78Uy?=
- =?us-ascii?Q?fKi2Ei/7y/9Fh4fzX9+8xivDICdAD8OzC0zBhwVTiYpejOjW+SR+O0MfzzDM?=
- =?us-ascii?Q?IxQY1Fa+2F5ZYvWErgPC45lIWcP8LIZIjJo6SG6lBzYr0PFYRAGGyrLKuJTl?=
- =?us-ascii?Q?VAT7GCB/aDkB9pISbFfFz1ffF5EMwTNkQ5klxqeQ6tp/BwHSa9wPD1ZPUmM4?=
- =?us-ascii?Q?xxchlP0MgbvxZt5FlqXLLFBDLvYarBZGoFOLmblDaIMxzWkuf6uAjBo7E9Ke?=
- =?us-ascii?Q?8pcQaoUWQt3U0zc7EYFFJXHj0CjdcbUdauSFKzSKkYW3hlPZv7tNj2EPsFAJ?=
- =?us-ascii?Q?SE+ywy3WdyC5hpcSXqkoJ7+7CFOOVuL35ZWeYV2GRdXIXgDhMOok2O9RR4ic?=
- =?us-ascii?Q?Q3Gi8nddfjy3PcpfaDejQGWdpzYdwFSyZj2EKTaX8RmVPLq5WULiGmiLhZs+?=
- =?us-ascii?Q?7i4sGRBQMkZPPuyGR24YZK1p0ZvNvz2t3fYDOQVG8DaVdes9+eEa0QTvg727?=
- =?us-ascii?Q?Tb4xFrF/s9yUwapwlig8DnwQWg9wCkTe9tSz0b24gApkmFzzQ8Sc07LN20bN?=
- =?us-ascii?Q?DbnYk3zxRwHlVh+68M/wZo3jkpMrdIxTc7ieG+EKc/eJ07C0cgIeUiEqD4If?=
- =?us-ascii?Q?hiIWZGyjmSZjGKAsPqb4zp7tfayEtLIKq5FIUl7QjRX+cYBvU/I4VK2fCU4p?=
- =?us-ascii?Q?5+8D8FDr963USinXG7r6pJ8szAgWPulZcqE46/zCYM6ttAeIKEtENONmzMnt?=
- =?us-ascii?Q?U31XzaPWDyQ+aZfkGap/hX3LzCRQdZPSEY3XVkWRvEjB31ia4VFYqpmyBoSd?=
- =?us-ascii?Q?MVAsbWmnsSQ7Vc3QfmxZmHb7taeBRFaxsaOYnGDqLgZo2RpsSxro0g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?21JhnP7NEM/9UZhZCpYEVmjnSUbFdWcgosQ+girPnn6UuxaH27vRoYI9SKqI?=
- =?us-ascii?Q?BVbSFafP/1UuA/W+JYTa34hCQArJOni1w4cpYqjodcthmEzxJZ+4EhXeiFWx?=
- =?us-ascii?Q?4IroE0e6xPem4adXmSlhL+biInZnFaeTW+hC3TxU3xpV2KfYNH4365eyJVjb?=
- =?us-ascii?Q?S1WPK1QqbaR1a+J399GrA3VsM9tPvXqFsOGBIIyB4QzNezyXL5gSxfSiNly0?=
- =?us-ascii?Q?2vlNU3985bJRvwm2uemWf1NqJbC4WoKW+izvNnl7o6bcSwEmhTzj6pG1LFWk?=
- =?us-ascii?Q?YJHi4IYzA8yhUUZBGwG8i7zZ+gFkd42sw7XY/Tt2+cfR4aPo3lMuLbqkCw6j?=
- =?us-ascii?Q?bp+vznArIdceAvwSrTLRTaLD2MV2mhOcgB2BwKICtxaANln1C117U0Vyyunb?=
- =?us-ascii?Q?iOL6wPGQHxk08MZ21Zq1sR/1qxx7Qs2kYH19udnqbpsarYXAVcNWbg8rzloQ?=
- =?us-ascii?Q?P08iu1QDjfRw4OX0MNHJv3yNZjtTZCzU8wH/zhmG3rZI9IjAiqyKxnJNxOqh?=
- =?us-ascii?Q?NDK8cqxE2m6emon3BuprwqEGjgXPQ/dFBiGUDuoakCzqLoa548FXUWmYAWEd?=
- =?us-ascii?Q?2laHNgTnW7lNRqUarAKfbfPvkP1Mm5bGN4JaKo49Su5mWwMYFfQb6Ig6yB8m?=
- =?us-ascii?Q?/aompSFJzkR+NQJbk9OzBkjFm/Roin++1yu0HjVOsj0n6I/EKB29jAvopx9F?=
- =?us-ascii?Q?Vyv0GB/0KAojWS3sjV4fY0ZpDMqgLNbXE6SWAhLkaFe+5pAOxBAke2Wojvh4?=
- =?us-ascii?Q?cD8NvLix2mXA+iCLBn78l4fYhCdM1g5jINFt/dj7Jc3pRzYLLJ45eCObYob7?=
- =?us-ascii?Q?ruy+V4ly4pn+SWu2em+M0crVnoh4YMVUBAypCoA75yLqJ8SNpuu9rUOZe60B?=
- =?us-ascii?Q?+Ol4mw6PSQY24qdI/l264+yJlihvY4fHzyAYQ2w+ii7FnOqT+/SAjuFPH8nQ?=
- =?us-ascii?Q?v5L1afcTtTjMVnTxvt5ME9kKLVAeFCKvROf1yop0qZvmKyF6SED4h/CrOf47?=
- =?us-ascii?Q?0EdwXIPY15BoHfy1CuYYKXt43XGkuMR18/YHGSww35Jxy0TYjP/P8ZW0wLLk?=
- =?us-ascii?Q?2p74jgp6GHgsVdKhigE3UCVpXxSwbSWZUksFFtNUcb0+0usJQVuCgCeN0mHh?=
- =?us-ascii?Q?8kYxnFhs4eE51XpHAwx+zZLT8I8J/jxtTIVbECp6SpWUwWRIlaiABi5mg6sh?=
- =?us-ascii?Q?UtgGSd8Vl7bLRoNen+OrYwyg8cxiRyv4TwlRSw5SwuIhUt1+3tpARX5zNx/u?=
- =?us-ascii?Q?kWZEDNZ+IcnhtJP8UtrBZNCO7t+Z9VSzZJv520PJ45IMWh3lA9pDKHRWllhl?=
- =?us-ascii?Q?rmTuA5srYjZ/We0Jj1PX7m9Lbmjju/fxfYVVre8UBOpmFp2GZvda47TPjPcD?=
- =?us-ascii?Q?I9JajJkN2YXbo+1/Jo0xZ6mWeRgIeBoqED8LlDx/cQJWxvUwps/MWCNUHauj?=
- =?us-ascii?Q?bYQTIXud6YSZOGsACB26yReLqwz8Z5qLPChYXsABQW7CfLiswD8jpuVfQNCB?=
- =?us-ascii?Q?npZgAlMqDQmTJmnX34vMepmvEbuEsHpbzyusbwXZGxCDe81V2G8qdBQIoBHD?=
- =?us-ascii?Q?1P2grbD/m5XmYZl+n+lbv71m+22F/CPiAnOJXIdb?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec84bdd2-4be3-4501-5c9a-08dd7649a3a7
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 03:01:20.9707
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bX/zw8pwwrJd2VjBBf/R4uTHj51MzXAVlC5fqFYXKwdhaQwqwhrGP58Y9zHEE5Twlp3NqTEf37x+SIa41kdL1A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7536
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Cc: shawn.lin@rock-chips.com, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Finley Xiao <finley.xiao@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>,
+ Liang Chen <cl@rock-chips.com>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Yifeng Zhao <yifeng.zhao@rock-chips.com>,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 2/2] arm64: dts: rockchip: Add rk3576 pcie nodes
+To: Kever Yang <kever.yang@rock-chips.com>, heiko@sntech.de
+References: <20250225102611.2096462-1-kever.yang@rock-chips.com>
+ <20250225102611.2096462-2-kever.yang@rock-chips.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20250225102611.2096462-2-kever.yang@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkwYTVYZSEtOGEpLGUxCGUlWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a9613585a7e09cckunm110100f9f
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OSo6OBw*TzJCNUJKKR4eLioX
+	FzMaFElVSlVKTE9PS0NKSUNKSUNOVTMWGhIXVQgTGgwVVRcSFTsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQU1MQ0s3Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=ZzFcx253Iawa95Ut/zueBk6AOjK/JxZoWLnmw0TH6KDZc8RlQ7YnUlOpTHMHsFffAR/USMj5zUBT2BYglrMvPvoLWOjH7W3Vymu+m1vLvUPHOxBaS5zm/hHV9ejb3E099jnZ3QdUWJospg6rNBs/UVdBG+6V1U/jJHt8Cwql21Y=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=SLSSxNg3dTpdPXjgZLIOhqnXXot5F10MyjFb2gUR874=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_200123_149718_78D147B5 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20250407_200125_409523_D231E10B 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,86 +81,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PLL clock lock check for i.MX95 PCIe.
+在 2025/02/25 星期二 18:26, Kever Yang 写道:
+> rk3576 has two pcie controllers, both are pcie2x1 work with
+> naneng-combphy.
+> 
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> ---
+> 
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 28 +++++++++++++++++++++++++--
- 1 file changed, 26 insertions(+), 2 deletions(-)
+One thing need to be mentioned, defconfig set:
+CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=m
+CONFIG_PHY_ROCKCHIP_PCIE=m
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 7dcc9d88740d..c1d128ec255d 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -45,6 +45,9 @@
- #define IMX95_PCIE_PHY_GEN_CTRL			0x0
- #define IMX95_PCIE_REF_USE_PAD			BIT(17)
- 
-+#define IMX95_PCIE_PHY_MPLLA_CTRL		0x10
-+#define IMX95_PCIE_PHY_MPLL_STATE		BIT(30)
-+
- #define IMX95_PCIE_SS_RW_REG_0			0xf0
- #define IMX95_PCIE_REF_CLKEN			BIT(23)
- #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
-@@ -479,6 +482,23 @@ static void imx7d_pcie_wait_for_phy_pll_lock(struct imx_pcie *imx_pcie)
- 		dev_err(dev, "PCIe PLL lock timeout\n");
- }
- 
-+static int imx95_pcie_wait_for_phy_pll_lock(struct imx_pcie *imx_pcie)
-+{
-+	u32 val;
-+	struct device *dev = imx_pcie->pci->dev;
-+
-+	if (regmap_read_poll_timeout(imx_pcie->iomuxc_gpr,
-+				     IMX95_PCIE_PHY_MPLLA_CTRL, val,
-+				     val & IMX95_PCIE_PHY_MPLL_STATE,
-+				     PHY_PLL_LOCK_WAIT_USLEEP_MAX,
-+				     PHY_PLL_LOCK_WAIT_TIMEOUT)) {
-+		dev_err(dev, "PCIe PLL lock timeout\n");
-+		return -ETIMEDOUT;
-+	}
-+
-+	return 0;
-+}
-+
- static int imx_setup_phy_mpll(struct imx_pcie *imx_pcie)
- {
- 	unsigned long phy_rate = 0;
-@@ -824,6 +844,8 @@ static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
- 		regmap_read_bypassed(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
- 				     &val);
- 		udelay(10);
-+	} else {
-+		return imx95_pcie_wait_for_phy_pll_lock(imx_pcie);
- 	}
- 
- 	return 0;
-@@ -843,11 +865,13 @@ static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
- 
- static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
- {
-+	int ret = 0;
-+
- 	reset_control_deassert(imx_pcie->pciephy_reset);
- 	reset_control_deassert(imx_pcie->apps_reset);
- 
- 	if (imx_pcie->drvdata->core_reset)
--		imx_pcie->drvdata->core_reset(imx_pcie, false);
-+		ret = imx_pcie->drvdata->core_reset(imx_pcie, false);
- 
- 	/* Some boards don't have PCIe reset GPIO. */
- 	if (imx_pcie->reset_gpiod) {
-@@ -857,7 +881,7 @@ static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
- 		msleep(100);
- 	}
- 
--	return 0;
-+	return ret;
- }
- 
- static int imx_pcie_wait_for_speed_change(struct imx_pcie *imx_pcie)
--- 
-2.37.1
+So the phy is missing leads deferred probe pending.
 
+With setting CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=y,
+pcie works fine, so
+
+Tested-by: Shawn Lin <Shawn.lin@rock-chips.com>
+
+> Changes in v7:
+> - re-order the properties.
+> 
+> Changes in v6: None
+> Changes in v5: None
+> Changes in v4: None
+> Changes in v3:
+> - Update the subject
+> 
+> Changes in v2:
+> - Update clock and reset names and sequence to pass DTB check
+> 
+>   arch/arm64/boot/dts/rockchip/rk3576.dtsi | 108 +++++++++++++++++++++++
+>   1 file changed, 108 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> index 4dde954043ef..79e24b2c3c60 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> @@ -1127,6 +1127,114 @@ qos_npu_m1ro: qos@27f22100 {
+>   			reg = <0x0 0x27f22100 0x0 0x20>;
+>   		};
+>   
+> +		pcie0: pcie@2a200000 {
+> +			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
+> +			reg = <0x0 0x22000000 0x0 0x00400000>,
+> +			      <0x0 0x2a200000 0x0 0x00010000>,
+> +			      <0x0 0x20000000 0x0 0x00100000>;
+> +			reg-names = "dbi", "apb", "config";
+> +			bus-range = <0x0 0xf>;
+> +			clocks = <&cru ACLK_PCIE0_MST>, <&cru ACLK_PCIE0_SLV>,
+> +				 <&cru ACLK_PCIE0_DBI>, <&cru PCLK_PCIE0>,
+> +				 <&cru CLK_PCIE0_AUX>;
+> +			clock-names = "aclk_mst", "aclk_slv",
+> +				      "aclk_dbi", "pclk",
+> +				      "aux";
+> +			device_type = "pci";
+> +			interrupts = <GIC_SPI 281 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 282 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 279 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 280 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 278 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 283 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
+> +			#interrupt-cells = <1>;
+> +			interrupt-map-mask = <0 0 0 7>;
+> +			interrupt-map = <0 0 0 1 &pcie0_intc 0>,
+> +					<0 0 0 2 &pcie0_intc 1>,
+> +					<0 0 0 3 &pcie0_intc 2>,
+> +					<0 0 0 4 &pcie0_intc 3>;
+> +			linux,pci-domain = <0>;
+> +			max-link-speed = <2>;
+> +			num-ib-windows = <8>;
+> +			num-viewport = <8>;
+> +			num-ob-windows = <2>;
+> +			num-lanes = <1>;
+> +			phys = <&combphy0_ps PHY_TYPE_PCIE>;
+> +			phy-names = "pcie-phy";
+> +			power-domains = <&power RK3576_PD_PHP>;
+> +			ranges = <0x01000000 0x0 0x20100000 0x0 0x20100000 0x0 0x00100000
+> +				  0x02000000 0x0 0x20200000 0x0 0x20200000 0x0 0x00e00000
+> +				  0x03000000 0x9 0x00000000 0x9 0x00000000 0x0 0x80000000>;
+> +			resets = <&cru SRST_PCIE0_POWER_UP>, <&cru SRST_P_PCIE0>;
+> +			reset-names = "pwr", "pipe";
+> +			#address-cells = <3>;
+> +			#size-cells = <2>;
+> +			status = "disabled";
+> +
+> +			pcie0_intc: legacy-interrupt-controller {
+> +				interrupt-controller;
+> +				#address-cells = <0>;
+> +				#interrupt-cells = <1>;
+> +				interrupt-parent = <&gic>;
+> +				interrupts = <GIC_SPI 280 IRQ_TYPE_EDGE_RISING>;
+> +			};
+> +		};
+> +
+> +		pcie1: pcie@2a210000 {
+> +			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
+> +			reg = <0x0 0x22400000 0x0 0x00400000>,
+> +			      <0x0 0x2a210000 0x0 0x00010000>,
+> +			      <0x0 0x21000000 0x0 0x00100000>;
+> +			reg-names = "dbi", "apb", "config";
+> +			bus-range = <0x20 0x2f>;
+> +			clocks = <&cru ACLK_PCIE1_MST>, <&cru ACLK_PCIE1_SLV>,
+> +				 <&cru ACLK_PCIE1_DBI>, <&cru PCLK_PCIE1>,
+> +				 <&cru CLK_PCIE1_AUX>;
+> +			clock-names = "aclk_mst", "aclk_slv",
+> +				      "aclk_dbi", "pclk",
+> +				      "aux";
+> +			device_type = "pci";
+> +			interrupts = <GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 269 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
+> +			#interrupt-cells = <1>;
+> +			interrupt-map-mask = <0 0 0 7>;
+> +			interrupt-map = <0 0 0 1 &pcie1_intc 0>,
+> +					<0 0 0 2 &pcie1_intc 1>,
+> +					<0 0 0 3 &pcie1_intc 2>,
+> +					<0 0 0 4 &pcie1_intc 3>;
+> +			linux,pci-domain = <0>;
+> +			max-link-speed = <2>;
+> +			num-ib-windows = <8>;
+> +			num-viewport = <8>;
+> +			num-ob-windows = <2>;
+> +			num-lanes = <1>;
+> +			phys = <&combphy1_psu PHY_TYPE_PCIE>;
+> +			phy-names = "pcie-phy";
+> +			power-domains = <&power RK3576_PD_SUBPHP>;
+> +			ranges = <0x01000000 0x0 0x21100000 0x0 0x21100000 0x0 0x00100000
+> +				  0x02000000 0x0 0x21200000 0x0 0x21200000 0x0 0x00e00000
+> +				  0x03000000 0x9 0x80000000 0x9 0x80000000 0x0 0x80000000>;
+> +			resets = <&cru SRST_PCIE1_POWER_UP>, <&cru SRST_P_PCIE1>;
+> +			reset-names = "pwr", "pipe";
+> +			#address-cells = <3>;
+> +			#size-cells = <2>;
+> +			status = "disabled";
+> +
+> +			pcie1_intc: legacy-interrupt-controller {
+> +				interrupt-controller;
+> +				#address-cells = <0>;
+> +				#interrupt-cells = <1>;
+> +				interrupt-parent = <&gic>;
+> +				interrupts = <GIC_SPI 266 IRQ_TYPE_EDGE_RISING>;
+> +			};
+> +		};
+> +
+>   		gmac0: ethernet@2a220000 {
+>   			compatible = "rockchip,rk3576-gmac", "snps,dwmac-4.20a";
+>   			reg = <0x0 0x2a220000 0x0 0x10000>;
 
