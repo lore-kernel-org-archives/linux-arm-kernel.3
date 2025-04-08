@@ -4,78 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D80B4C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE94C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 09:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jjYN1q3Ms1tSUdQDQ/wwfCGr5RGocV911yRQJir+ALo=; b=NMxPPaaXGvPOcWFDv89LEuRLGO
-	l/u+ZXmaXqf4puBrcYkvaZFbbosBI/Bx5OVPZFKlr9noKbwzqCjN3058D4mPiOvE5nLFf+LTzpvyy
-	exISdXLU5v/6dJE6SYuaYMqXBKPf0+gPhu43rNFRg3DCdc4oV1Pyt8yEdKlJQtrV+VK+RUSUOlihL
-	Bx7AroB1mQ0zus9eYm0CZICLST1Q8xLCYuGcK9kK4QIKvKzs9fJbyjd5aeQ0LoMUEPf0bRLwpYHlP
-	HIyAFz2Zn68UfM8ad9LPGcz+6m3RzAIkqt3asfjZApEWFxeewJTJOB3MaQ9Ar0nQIcBu/HsNqrisj
-	hLMs1hrg==;
+	bh=B9jOtwj6zr/UlgyzehUvwRXcqVoFIXeaFAL8YGh83i0=; b=TOUGX/enq3XM2P/xTsIUp6eKi7
+	duKnkIjUNpbpJovTZU1/K/eJ5Glp9fQe2caze8+4MHpZOGg7Mle29FazVGukPV6s+twDBzMxuT5zV
+	BLSYF+woUwsdX1QrlyQ27yw86YjT2r8xtewDobPhJGGzK2PR1hKsabIf73u8A2ufyZ0sEnLAWO2tT
+	GksmWU8uJ6yLG8z5JNk/6+/OpRLaaxlmHrHSFm5NeICNHrhnhj+M0qPR+0z89puZr6vYmlkKIWoje
+	KwFXuWIcQbgAmbriFRr4GyAeOp2n8m+ueM8NOekuOeuYyDMMSJJMt4OCjMPaQU/vQbjVZ+6U9bGh/
+	lr8oVMOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25dW-00000003WJI-2enU;
-	Tue, 08 Apr 2025 09:52:54 +0000
-Received: from ewsoutbound.kpnmail.nl ([195.121.94.184])
+	id 1u25fM-00000003X4N-0m8t;
+	Tue, 08 Apr 2025 09:54:48 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25Qy-00000003Tla-3zOw
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 09:39:59 +0000
-X-KPN-MessageId: 7cae0a4c-145d-11f0-8ec8-005056994fde
-Received: from smtp.kpnmail.nl (unknown [10.31.155.7])
-	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
-	id 7cae0a4c-145d-11f0-8ec8-005056994fde;
-	Tue, 08 Apr 2025 11:40:20 +0200 (CEST)
+	id 1u25cs-00000003W2k-2B73;
+	Tue, 08 Apr 2025 09:52:15 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-39bf44be22fso3555927f8f.0;
+        Tue, 08 Apr 2025 02:52:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xs4all.nl; s=xs4all01;
-	h=content-type:from:to:subject:mime-version:date:message-id;
-	bh=jjYN1q3Ms1tSUdQDQ/wwfCGr5RGocV911yRQJir+ALo=;
-	b=OTcxFdqdrVrN5CKLasySyCr1E0onpVrt4+3D6iDdkZN7WH5QloXmDgPo2eS+0s8w4bVqwwtTj5bLJ
-	 mR93N7qPJA9u7oq3pdMMDEfEJrO1QbCpuaA6kSYOCQgkyZuChnXUIYV5yj5tXKuegHEouOAf+o9ejq
-	 l3ftXLefZ//iXFncCHdby0VE8Qi4AYVuwQEv1mavirc4F5MYaoZQRusoPdTB6vK6Xm3pi3dJOcIJ8J
-	 LE5+zo6SmRMHJ4M9UFd8hQ20szlrwtuqN2yj5wzcMyyYEdFb4Ene3m5I9R+RSM68UcVP8XzwLLTNXv
-	 949EdBRcfHAZ0l7GpMflv8VrXLlIsjw==
-X-KPN-MID: 33|g+xnS26cNzt8wErNkdEFALrZe2Mu+m0s0xvGObYCBXJEo3puK9g1wlRrHW4pDjT
- gvhLhNNCuh0fZXVrqsVTereT1iDJ9cWBA+qHazu9TAq0=
-X-KPN-VerifiedSender: Yes
-X-CMASSUN: 33|u76Tcj/Ul03SflLAUVahVOQyELJUfw8e1vzqjd7qYMyIVNJ+32FEb+F2UerQ9BN
- MCH7HmYiMOHd6pEDt03Wx6Q==
-X-Originating-IP: 173.38.220.43
-Received: from [10.47.75.249] (unknown [173.38.220.43])
-	by smtp.xs4all.nl (Halon) with ESMTPSA
-	id 6bb6836a-145d-11f0-af99-005056998788;
-	Tue, 08 Apr 2025 11:39:52 +0200 (CEST)
-Message-ID: <d2a1a4d2-dbce-40e2-9cca-fe2fbf1d6daa@xs4all.nl>
-Date: Tue, 8 Apr 2025 11:39:51 +0200
+        d=gmail.com; s=20230601; t=1744105933; x=1744710733; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=B9jOtwj6zr/UlgyzehUvwRXcqVoFIXeaFAL8YGh83i0=;
+        b=RfuMNjOzp77glFYYJc5oZLw+oD/XXiE/+SLUwIiKfZMo+cfDWlc5IGoiuDJ7+9K+qy
+         Wi/Sp7B/IsbIE2AyApnqlHm5QtLARz4MVpAmNIsREEm/8iKsMHo45cUE3dCjRYtAeiYG
+         B67NYWfx5rAsGlNplqur2YtezPyp8O/CnrqnClv6ojAuAHPZeYj+09q1W8qeRvKEwr27
+         00n572sLfZztsYm8GMdTJjJVcqBzGI4+A4dpFysZGG4AZMts6XNNOOcn7of6J6s0Oa2q
+         tqX1mQpkgu1eDAbH9YiNo17RsbprrMfYcB592TCuCZ2V03j06xgV1ksxuScgPj2TaA6l
+         Ecvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744105933; x=1744710733;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=B9jOtwj6zr/UlgyzehUvwRXcqVoFIXeaFAL8YGh83i0=;
+        b=vPKgDAKBEe/cTWe7bWYmvEnAv0DRrzlUXEbRUYnDvk2515RGlF0bEDcosLPn1aZzqu
+         +yed69MtA6iUOzHtRG/B0ILyFeVAtR12YKTC/03KfR+T3bS/Jq55de/jjAxib3lLxzb5
+         kqo7zrS6SKYKsISuYOMckMxORQ2AQ8FdGHelavb7EZLn95qxrrJwUGEqL6+JKLSF4vBL
+         TPMDLGJzBReoYUtdipNl8Jg/CGYWWHpJ1qQfEw6GB4DssvktyZm/MVQQ1fE3QhKFjnOh
+         YP8NeBQ1+OnyDl5V5ljcWHyUPxB2fzx+KZLo2uCFX9GUgb5BdQgJ5lgfxD2jURhiWKZu
+         KlWg==
+X-Forwarded-Encrypted: i=1; AJvYcCVRkB3Lg/HHzxEL5lIXEBZeSzrVg46thmY0hf1JEBZAgawvbs3E4qRzhi0vT3Smd2UhjEdWhXprF6rBTg1Vq3Q=@lists.infradead.org, AJvYcCVzS+Lkm7qwtZXf5V50aa2PtAC03eZJOB/g6od2xoIiffOm5N7V2d6IysKdJubPG0ri/VdEXiR0PGUmFnm/c18I@lists.infradead.org
+X-Gm-Message-State: AOJu0YzY6RrUEjsV9DoCOvBffGD47Rjc/Hc7eRPU5PWvgWccyMDVCbAS
+	Fzt9mN3bhJ4YS6dknPBYxtHMSukmh21VNCKPdpsrPcxaZpNJ1GpV
+X-Gm-Gg: ASbGncsF4J9kHdP53DqWU1v1J2WfK/T8usbq5uKT/R6vKAwgDm9NowY/MEanrgpc4+l
+	nNb8wZaMk+i/AuH1kRRBpnhamIN8g7/S9V8cLB74SEktYj1mpFvBTCmbACF2hpNRJpJFJYLoY2V
+	liZ824/cVUFHEOkEkFuVtOZsPzORFijqyKd9/2l298ESVVZCa5pm8DMl5b6rbEHT6laYZhuxCky
+	FHaRSDMMPgOVWUBQ134SmMdMy+f83KC+jgSGdGp4AfFfRyLc7C2zxtRZ0C23cYQh/DbSTuYyBxJ
+	29gCmUK60tHi/HxoBbggBrpTAodCn8OIwCtwj1Nal9n1L2LtWp+ATk74F7FJ+AZ27U7DdB7WUUy
+	wxCWnZWOHT7/22A==
+X-Google-Smtp-Source: AGHT+IFwQXlkEkiv59tTOoBNbBWxAd5ev/Yt4wKxTnHPQXrrp31uVElCwlox+riOCqLgnYPJvB/0CA==
+X-Received: by 2002:a05:6000:1862:b0:39c:12ce:1054 with SMTP id ffacd0b85a97d-39d6fc00e59mr9843048f8f.8.1744105932837;
+        Tue, 08 Apr 2025 02:52:12 -0700 (PDT)
+Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39c3020dacfsm14493310f8f.72.2025.04.08.02.52.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Apr 2025 02:52:12 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Simon Horman <horms@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: [net-next PATCH v14 01/16] dt-bindings: nvmem: Document support for Airoha AN8855 Switch EFUSE
+Date: Tue,  8 Apr 2025 11:51:08 +0200
+Message-ID: <20250408095139.51659-2-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250408095139.51659-1-ansuelsmth@gmail.com>
+References: <20250408095139.51659-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] media: v4l: dev-decoder: Add source change
- V4L2_EVENT_SRC_CH_COLORSPACE
-Content-Language: en-US
-To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>, mchehab@kernel.org
-Cc: nicolas@ndufresne.ca, shawnguo@kernel.org, robh+dt@kernel.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- linux-imx@nxp.com, xiahong.bao@nxp.com, eagle.zhou@nxp.com,
- tao.jiang_2@nxp.com, imx@lists.linux.dev, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250117061938.3923516-1-ming.qian@oss.nxp.com>
- <3e5f003a-f689-4f5a-ac75-6bf95379637b@xs4all.nl>
- <50ce67b7-ef06-4e8e-bf4f-f4b0d5e40961@oss.nxp.com>
- <d5a8988f-1038-4a8b-8478-968ceca37879@xs4all.nl>
- <c9aef3f6-43cd-48fb-8aba-0abd33c4e263@oss.nxp.com>
-From: Hans Verkuil <hverkuil-cisco@xs4all.nl>
-In-Reply-To: <c9aef3f6-43cd-48fb-8aba-0abd33c4e263@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_023957_412153_C1A5683A 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20250408_025214_558566_525B666C 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,157 +122,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/8/25 10:45, Ming Qian(OSS) wrote:
-> Hi Hans,
-> 
-> On 2025/4/8 16:30, Hans Verkuil wrote:
->> On 08/04/2025 08:34, Ming Qian(OSS) wrote:
->>> Hi Hans,
->>>
->>> On 2025/4/7 17:54, Hans Verkuil wrote:
->>>> On 17/01/2025 07:19, Ming Qian wrote:
->>>>> Add a new source change V4L2_EVENT_SRC_CH_COLORSPACE that
->>>>> indicates colorspace change in the stream.
->>>>> The change V4L2_EVENT_SRC_CH_RESOLUTION will always affect
->>>>> the allocation, but V4L2_EVENT_SRC_CH_COLORSPACE won't.
->>>>>
->>>>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
->>>>> ---
->>>>>    Documentation/userspace-api/media/v4l/vidioc-dqevent.rst | 9 +++++++++
->>>>>    .../userspace-api/media/videodev2.h.rst.exceptions       | 1 +
->>>>>    include/uapi/linux/videodev2.h                           | 1 +
->>>>>    3 files changed, 11 insertions(+)
->>>>>
->>>>> diff --git a/Documentation/userspace-api/media/v4l/vidioc-dqevent.rst b/Documentation/userspace-api/media/v4l/vidioc-dqevent.rst
->>>>> index 8db103760930..91e6b86c976d 100644
->>>>> --- a/Documentation/userspace-api/media/v4l/vidioc-dqevent.rst
->>>>> +++ b/Documentation/userspace-api/media/v4l/vidioc-dqevent.rst
->>>>> @@ -369,6 +369,15 @@ call.
->>>>>    	loss of signal and so restarting streaming I/O is required in order for
->>>>>    	the hardware to synchronize to the video signal.
->>>>>    
->>>>> +    * - ``V4L2_EVENT_SRC_CH_COLORSPACE``
->>>>> +      - 0x0002
->>>>> +      - This event gets triggered when a colorsapce change is detected at
->>>>
->>>> colorsapce -> colorspace
->>>>
->>>
->>> Will fix in v3
->>>
->>>>> +	an input. This can come from a video decoder. Applications will query
->>>>
->>>> It can also come from a video receiver. E.g. an HDMI source changes colorspace
->>>> signaling, but not the resolution.
->>>>
->>>>> +	the new colorspace information (if any, the signal may also have been
->>>>> +	lost)
->>>>
->>>> Missing . at the end. Also, if the signal is lost, then that is a CH_RESOLUTION
->>>> change, not CH_COLORSPACE.
->>>>
->>> OK, will fix in v3
->>>>> +
->>>>> +	For stateful decoders follow the guidelines in :ref:`decoder`.
->>>>
->>>> I think this should emphasize that if CH_COLORSPACE is set, but not CH_RESOLUTION,
->>>> then only the colorspace changed and there is no need to reallocate buffers.
->>>>
->>>
->>> OK, will add in v3
->>>
->>>> I also wonder if the description of CH_RESOLUTION should be enhanced to explain
->>>> that this might also imply a colorspace change. I'm not sure what existing codec
->>>> drivers do if there is a colorspace change but no resolution change.
->>>
->>> I think there is no uniform behavior at the moment, it depends on the
->>> behavior of the decoder. Maybe most decoders ignore this.
->>
->> Can you try to do a quick analysis of this? Don't spend too much time on this,
->> but it is helpful to have an idea of how existing codecs handle this.
->>
->> Regards,
->>
->> 	Hans
->>
-> 
-> I checked the vpu used in our platforms,
-> 1. amphion vpu, it will ignore the colorspace change.
-> 2. hantro g1/g2 decoder, it also ignore the colorspace change.
-> 3. chipsnmedia wave6 decoder, the firmware detect the colorspace change
-> for HEVC format, but ignore for AVC format. But its driver just ignore
-> it.
-> 4. chipsnmedia wave511 decoder, same as wave6.
+Document support for Airoha AN8855 Switch EFUSE used to calibrate
+internal PHYs and store additional configuration info.
 
-I meant stateful codec drivers that are in mainline. Out-of-tree drivers do not
-concern me.
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/nvmem/airoha,an8855-efuse.yaml   | 123 ++++++++++++++++++
+ 1 file changed, 123 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
 
-Regards,
-
-	Hans
-
-> 
-> Regards,
-> Ming
-> 
->>>
->>>>
->>>> I'm a bit concerned about backwards compatibility issues: if a userspace application
->>>> doesn't understand this new flag and just honors CH_RESOLUTION, then it would
->>>> never react to just a colorspace change.
->>>>
->>>> Nicolas, does gstreamer look at these flags?
->>>
->>> I checked the gstreamer code, it does check this flag:
->>>
->>> if (event.type == V4L2_EVENT_SOURCE_CHANGE &&
->>>       (event.u.src_change.changes & V4L2_EVENT_SRC_CH_RESOLUTION)) {
->>>     GST_DEBUG_OBJECT (v4l2object->dbg_obj,
->>>         "Can't streamon capture as the resolution have changed.");
->>>     ret = GST_V4L2_FLOW_RESOLUTION_CHANGE;
->>> }
->>>
->>> Currently the gstreamer can't handle the CH_COLORSPACE flag.
->>>
->>> Thanks,
->>> Ming
->>>
->>>>
->>>> Regards,
->>>>
->>>> 	Hans
->>>>
->>>>> +
->>>>>    Return Value
->>>>>    ============
->>>>>    
->>>>> diff --git a/Documentation/userspace-api/media/videodev2.h.rst.exceptions b/Documentation/userspace-api/media/videodev2.h.rst.exceptions
->>>>> index 35d3456cc812..ac47c6d9448b 100644
->>>>> --- a/Documentation/userspace-api/media/videodev2.h.rst.exceptions
->>>>> +++ b/Documentation/userspace-api/media/videodev2.h.rst.exceptions
->>>>> @@ -526,6 +526,7 @@ replace define V4L2_EVENT_CTRL_CH_RANGE ctrl-changes-flags
->>>>>    replace define V4L2_EVENT_CTRL_CH_DIMENSIONS ctrl-changes-flags
->>>>>    
->>>>>    replace define V4L2_EVENT_SRC_CH_RESOLUTION src-changes-flags
->>>>> +replace define V4L2_EVENT_SRC_CH_COLORSPACE src-changes-flags
->>>>>    
->>>>>    replace define V4L2_EVENT_MD_FL_HAVE_FRAME_SEQ :c:type:`v4l2_event_motion_det`
->>>>>    
->>>>> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
->>>>> index c8cb2796130f..242242c8e57b 100644
->>>>> --- a/include/uapi/linux/videodev2.h
->>>>> +++ b/include/uapi/linux/videodev2.h
->>>>> @@ -2559,6 +2559,7 @@ struct v4l2_event_frame_sync {
->>>>>    };
->>>>>    
->>>>>    #define V4L2_EVENT_SRC_CH_RESOLUTION		(1 << 0)
->>>>> +#define V4L2_EVENT_SRC_CH_COLORSPACE		(1 << 1)
->>>>>    
->>>>>    struct v4l2_event_src_change {
->>>>>    	__u32 changes;
->>>>
->>>
->>
-> 
+diff --git a/Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml b/Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
+new file mode 100644
+index 000000000000..9802d9ea2176
+--- /dev/null
++++ b/Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
+@@ -0,0 +1,123 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/nvmem/airoha,an8855-efuse.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Airoha AN8855 Switch EFUSE
++
++maintainers:
++  - Christian Marangi <ansuelsmth@gmail.com>
++
++description:
++  Airoha AN8855 EFUSE used to calibrate internal PHYs and store additional
++  configuration info.
++
++$ref: nvmem.yaml#
++
++properties:
++  compatible:
++    const: airoha,an8855-efuse
++
++  '#nvmem-cell-cells':
++    const: 0
++
++required:
++  - compatible
++  - '#nvmem-cell-cells'
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    efuse {
++        compatible = "airoha,an8855-efuse";
++
++        #nvmem-cell-cells = <0>;
++
++        nvmem-layout {
++            compatible = "fixed-layout";
++            #address-cells = <1>;
++            #size-cells = <1>;
++
++            shift_sel_port0_tx_a: shift-sel-port0-tx-a@c {
++               reg = <0xc 0x4>;
++            };
++
++            shift_sel_port0_tx_b: shift-sel-port0-tx-b@10 {
++                reg = <0x10 0x4>;
++            };
++
++            shift_sel_port0_tx_c: shift-sel-port0-tx-c@14 {
++                reg = <0x14 0x4>;
++            };
++
++            shift_sel_port0_tx_d: shift-sel-port0-tx-d@18 {
++               reg = <0x18 0x4>;
++            };
++
++            shift_sel_port1_tx_a: shift-sel-port1-tx-a@1c {
++               reg = <0x1c 0x4>;
++            };
++
++            shift_sel_port1_tx_b: shift-sel-port1-tx-b@20 {
++               reg = <0x20 0x4>;
++            };
++
++            shift_sel_port1_tx_c: shift-sel-port1-tx-c@24 {
++               reg = <0x24 0x4>;
++            };
++
++            shift_sel_port1_tx_d: shift-sel-port1-tx-d@28 {
++               reg = <0x28 0x4>;
++            };
++
++            shift_sel_port2_tx_a: shift-sel-port2-tx-a@2c {
++                reg = <0x2c 0x4>;
++            };
++
++            shift_sel_port2_tx_b: shift-sel-port2-tx-b@30 {
++                reg = <0x30 0x4>;
++            };
++
++            shift_sel_port2_tx_c: shift-sel-port2-tx-c@34 {
++                reg = <0x34 0x4>;
++            };
++
++            shift_sel_port2_tx_d: shift-sel-port2-tx-d@38 {
++                reg = <0x38 0x4>;
++            };
++
++            shift_sel_port3_tx_a: shift-sel-port3-tx-a@4c {
++                reg = <0x4c 0x4>;
++            };
++
++            shift_sel_port3_tx_b: shift-sel-port3-tx-b@50 {
++                reg = <0x50 0x4>;
++            };
++
++            shift_sel_port3_tx_c: shift-sel-port3-tx-c@54 {
++               reg = <0x54 0x4>;
++            };
++
++            shift_sel_port3_tx_d: shift-sel-port3-tx-d@58 {
++               reg = <0x58 0x4>;
++            };
++
++            shift_sel_port4_tx_a: shift-sel-port4-tx-a@5c {
++                reg = <0x5c 0x4>;
++            };
++
++            shift_sel_port4_tx_b: shift-sel-port4-tx-b@60 {
++                reg = <0x60 0x4>;
++            };
++
++            shift_sel_port4_tx_c: shift-sel-port4-tx-c@64 {
++                reg = <0x64 0x4>;
++            };
++
++            shift_sel_port4_tx_d: shift-sel-port4-tx-d@68 {
++                reg = <0x68 0x4>;
++            };
++        };
++    };
+-- 
+2.48.1
 
 
