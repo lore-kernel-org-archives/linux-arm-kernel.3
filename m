@@ -4,113 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC863C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 06:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D44C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 06:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oo+vNBz6jEsiKjb63zXVQ6UhZa9LQg13RIyxKH2Wp2U=; b=pgrPuH98k0fy0wLaj599YdVaaU
-	Y+PJxyimGNAMYp/SIpGH9NL9c8UzvZ6Ih6thF2JZI4zrMgO585Nf9uI7gwEwLRhqRpHJiinjK1B98
-	ZreQbe4cfwT4tDTpnVEp3GTIDltd48GtsKyvI8KBSF1IxPYQA+MEi4+oUYuJQlgmigD/Mpf3dl8wT
-	juUSbxDAn5qwaV9B9/effsrICQ/hd8gv49ntBl1dkYSHtNYImY3jNBXx4lpGCSfrZm70DH9S55YAg
-	t5GCosTjT8yaxPd6dUTv/WS2A1lHmU3H3fNh14aRye4v3wkOU4yEvd+p3Dr2AyZxe05Si3QUkg2RI
-	Binjh6nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DFBV6Yc7yAoNdiMBu71/EuLePU7j1NLfoVrLHBXuwk0=; b=EPFiQBe/KpA5cRXBH7cS19Ab6f
+	E6Nhxkko6aD7F0IohYJ3TijWifUaBljVyoDFO+EW9DlPI8/YlVvy6irYxNI2A/KZnJUruqv0jSt5R
+	SRzaYNPaypmgiYYdmuU/qcY2mH36q+5eEP9vzVJzgJTVQq3I37rm6Uhm4H/qbVCfeBZQLz5KkRute
+	IN+OKiZSP/oiaYrU1QtQwfb4dJf8sGMUtSV8TtqGshZZJAAxyvEP63f3SiYcHACjyvV1maQ1OepOh
+	D1293OUVuGlqmgVzHGTqJNjcYaomE7DE46FavxXPc0a4vGjZj1DRvaV9aTOKvaJUlS7wylIF2Paru
+	GDA/WO1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u22fy-00000002wOL-2J6z;
-	Tue, 08 Apr 2025 06:43:14 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1u22je-00000002x02-1dcp;
+	Tue, 08 Apr 2025 06:47:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u22c7-00000002w1V-1vyZ
+	id 1u22hs-00000002wbW-33O9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 06:39:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744094354;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oo+vNBz6jEsiKjb63zXVQ6UhZa9LQg13RIyxKH2Wp2U=;
-	b=cAvhgW3NPcK+I51CEnAIUQVzMhXbsaTT1HL5TIZHT3lFcHSdY1Vg5sdpfZ04/CgydnVZRL
-	oMTY0dZAT8sJP5BmDhikpCzVlJ0qF2fk0ne3WfFjSQinyrnrYfwEcXwWCdls8wTk4YyQVs
-	fye4YUetTUOOIm1ISkygo/MAOKFBL1c=
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com
- [209.85.210.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-52-884sPUPUN1uppqBu9wAqrg-1; Tue, 08 Apr 2025 02:39:13 -0400
-X-MC-Unique: 884sPUPUN1uppqBu9wAqrg-1
-X-Mimecast-MFC-AGG-ID: 884sPUPUN1uppqBu9wAqrg_1744094352
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-72f3b4c0305so6459318b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Apr 2025 23:39:13 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744094352; x=1744699152;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oo+vNBz6jEsiKjb63zXVQ6UhZa9LQg13RIyxKH2Wp2U=;
-        b=JNHFOFD3ND5gL2taFcVHeYm4esI9fLXWmXX8530Tkmxp6kGA2ZJzxUoPb7UC9AdjCf
-         G+b+gFqQoBlUfl5c60HQuURfNHM4w+d2z0vM0CwaRwEeiXEUYR0QcjxE7xr0t2/MenS1
-         hPU30Atzm6Ng1SNKR12DxdWhycP33vxWGQINuxW7W2WiJ+THZjBv9oejMGguPd5bSPXe
-         gaZs3UsuPcZr9R5Tq/RSR5mfPTygnTCLRP7Nmm3uRgBDdoISbbHfZAcd9UAUHNqRr+PM
-         gr2IETxn6/raPRe/uyi6xV583zY7D1zhV58wDJMbIZxIaIWsNNFoSDU2mnrCHjtozPDo
-         VYHw==
-X-Forwarded-Encrypted: i=1; AJvYcCWCVyOsLlsnCGTQZc1tDMMeMmCfPfAaxDECEqoeLu0cZVoH4MuqR7beeFiMt3oZ+Gb0GzZU8TwZUBk8xPL4bdc4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7Txtzg3EG5by7OVdDIYVrfAcE604jUzoNoD6c6wzFFX7pl6uj
-	tOYDbz1RBlYgGJbajyg4TDfBE/gw5qUdXOZ+Juto4Lf2gIPU1tStbMlmj0ANwzlVBMI6g4E2I0A
-	Sm6h38DWSdOJj715roEbi8/3gZWipfLsR2w3ev7Lu0NQmpsL67u3P54brlWLK81uBHPSz0V2p
-X-Gm-Gg: ASbGncux7jfbyaEpOIWdCKtteQCbMYo1cEvKEF+KrNsQc6JlCMDLPQiZrvrJwMHmUNZ
-	dTRoj7DMwdY2NjHkkLeQnlKwD8K8mF3LCep0NTgNFfxJDPMLVS7087IjCyT7pLvZUONbJ8kyXVP
-	MhMDsEtJ23lCWE3HoETsFiZ6/sAw6X7xqYSYxaczI4hyKp0oxk2dqYhfYYczdMX5G1L7zNtHsM6
-	85kpu8KEV9Qxy34rwx6Fj1Zeed+6ZBz3sG6m7bKPc0qOvqh9uoriorE0epfJQfXYpoteTAUkvne
-	sIsA+BrWWE/Sipd+
-X-Received: by 2002:a05:6a00:2393:b0:736:52d7:daca with SMTP id d2e1a72fcca58-73b6b8c3084mr14619975b3a.18.1744094352228;
-        Mon, 07 Apr 2025 23:39:12 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHCluDWzP6aX2PyZk9at9nI1CqMZ/cLW37DfwKCDqyszydjKUwNSMY0//3epUtYWIjDAxF0tw==
-X-Received: by 2002:a05:6a00:2393:b0:736:52d7:daca with SMTP id d2e1a72fcca58-73b6b8c3084mr14619954b3a.18.1744094351805;
-        Mon, 07 Apr 2025 23:39:11 -0700 (PDT)
-Received: from [192.168.68.55] ([180.233.125.65])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739d9ea15d6sm9712319b3a.89.2025.04.07.23.39.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Apr 2025 23:39:11 -0700 (PDT)
-Message-ID: <cda1db80-4b4d-471f-87f0-d978278a4b6c@redhat.com>
-Date: Tue, 8 Apr 2025 16:39:02 +1000
+	Tue, 08 Apr 2025 06:45:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A4AEE42B6C;
+	Tue,  8 Apr 2025 06:45:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DA3AC4CEE5;
+	Tue,  8 Apr 2025 06:45:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744094712;
+	bh=mOv+HvzRrxAHJGRbI+qsfBmoBE1QErM9V08wm89ZPdo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=knKVOs6tQaE1iv88Hyq4JBbX/wpDy/tGlgs+QemkXkB+9bADFBEpf8YN+O+rQqOp0
+	 x/E114SgTJiJ+Qlve/r7TS7jBBRBayeexEQ6H/i0SNUVssM2gjbKDVJPC8G5CodVUe
+	 T3yrGPfVvJt+kQ+bjwpPH5RqHZW86KfiSAHjtGBl2VFA1HFNIfeFSS5+/21zULDYh5
+	 WMn9w58KUj5fb0tEm1fq4x3ETD6UJL0yxkD2EbnbeLqiiPGL0i7sn6kukOR0paBtIQ
+	 /M5bpqJnPyJX/bZkSMTz+OQxuKfdYaeXD2UiZkMdn0SKNc295OPZ0zItxyX/+2ZjRy
+	 7uqyprPyh3o8Q==
+Date: Tue, 8 Apr 2025 08:45:09 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, christophe.kerello@foss.st.com, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 2/7] dt-bindings: memory-controllers: Add STM32 Octo
+ Memory Manager controller
+Message-ID: <20250408-magic-arrogant-hound-0f2de5@shite>
+References: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
+ <20250407-upstream_ospi_v6-v8-2-7b7716c1c1f6@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 35/45] arm64: RME: Propagate number of breakpoints and
- watchpoints to userspace
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-36-steven.price@arm.com>
- <c8af8a7f-5ee4-460b-aec4-959f688db628@redhat.com>
- <adbca476-7d0f-473d-a2a2-0a29a497dbca@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <adbca476-7d0f-473d-a2a2-0a29a497dbca@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 1z4qLfnz-gZ00JkdTjAN584iYLQgabBPL7-cbbJcvnE_1744094352
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250407-upstream_ospi_v6-v8-2-7b7716c1c1f6@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_233915_568316_46743720 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20250407_234512_791542_19B8A387 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,111 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/8/25 2:35 AM, Steven Price wrote:
-> On 04/03/2025 23:45, Gavin Shan wrote:
->> On 2/14/25 2:14 AM, Steven Price wrote:
->>> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
->>>
->>> The RMM describes the maximum number of BPs/WPs available to the guest
->>> in the Feature Register 0. Propagate those numbers into ID_AA64DFR0_EL1,
->>> which is visible to userspace. A VMM needs this information in order to
->>> set up realm parameters.
->>>
->>> Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
->>> Signed-off-by: Steven Price <steven.price@arm.com>
->>> ---
->>>    arch/arm64/include/asm/kvm_rme.h |  2 ++
->>>    arch/arm64/kvm/rme.c             | 22 ++++++++++++++++++++++
->>>    arch/arm64/kvm/sys_regs.c        |  2 +-
->>>    3 files changed, 25 insertions(+), 1 deletion(-)
->>>
->>
->> With the following one nitpick addressed:
->>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->>
->>> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
->>> asm/kvm_rme.h
->>> index d684b30493f5..67ee38541a82 100644
->>> --- a/arch/arm64/include/asm/kvm_rme.h
->>> +++ b/arch/arm64/include/asm/kvm_rme.h
->>> @@ -85,6 +85,8 @@ void kvm_init_rme(void);
->>>    u32 kvm_realm_ipa_limit(void);
->>>    u32 kvm_realm_vgic_nr_lr(void);
->>>    +u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu,
->>> u64 val);
->>> +
->>>    bool kvm_rme_supports_sve(void);
->>>      int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap
->>> *cap);
->>> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
->>> index f83f34358832..8c426f575728 100644
->>> --- a/arch/arm64/kvm/rme.c
->>> +++ b/arch/arm64/kvm/rme.c
->>> @@ -87,6 +87,28 @@ u32 kvm_realm_vgic_nr_lr(void)
->>>        return u64_get_bits(rmm_feat_reg0,
->>> RMI_FEATURE_REGISTER_0_GICV3_NUM_LRS);
->>>    }
->>>    +u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu,
->>> u64 val)
->>> +{
->>> +    u32 bps = u64_get_bits(rmm_feat_reg0,
->>> RMI_FEATURE_REGISTER_0_NUM_BPS);
->>> +    u32 wps = u64_get_bits(rmm_feat_reg0,
->>> RMI_FEATURE_REGISTER_0_NUM_WPS);
->>> +    u32 ctx_cmps;
->>> +
->>> +    if (!kvm_is_realm(vcpu->kvm))
->>> +        return val;
->>> +
->>> +    /* Ensure CTX_CMPs is still valid */
->>> +    ctx_cmps = FIELD_GET(ID_AA64DFR0_EL1_CTX_CMPs, val);
->>> +    ctx_cmps = min(bps, ctx_cmps);
->>> +
->>> +    val &= ~(ID_AA64DFR0_EL1_BRPs_MASK | ID_AA64DFR0_EL1_WRPs_MASK |
->>> +         ID_AA64DFR0_EL1_CTX_CMPs);
->>> +    val |= FIELD_PREP(ID_AA64DFR0_EL1_BRPs_MASK, bps) |
->>> +           FIELD_PREP(ID_AA64DFR0_EL1_WRPs_MASK, wps) |
->>> +           FIELD_PREP(ID_AA64DFR0_EL1_CTX_CMPs, ctx_cmps);
->>> +
->>> +    return val;
->>> +}
->>> +
->>
->> The chunk of code can be squeezed to
->> sys_reg.c::sanitise_id_aa64dfr0_el1() since
->> sys_reg.c has been plumbed for realm, no reason to keep a separate
->> helper in rme.c
->> because it's only called by sys_reg.c::sanitise_id_aa64dfr0_el1()
-> 
-> The issue here is the rmm_feat_reg0 variable - it's currently static in
-> rme.c - so I can't just shift the code over. I could obviously provide
-> helpers to get the necessary information but this seemed cleaner.
-> 
+On Mon, Apr 07, 2025 at 03:27:33PM GMT, Patrice Chotard wrote:
+> +  st,syscfg-amcr:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description: |
+> +      The Address Mapping Control Register (AMCR) is used to split the 256MB
+> +      memory map area shared between the 2 OSPI instance. The Octo Memory
+> +      Manager sets the AMCR depending of the memory-region configuration.
+> +      The memory split bitmask description is:
+> +        - 000: OCTOSPI1 (256 Mbytes), OCTOSPI2 unmapped
+> +        - 001: OCTOSPI1 (192 Mbytes), OCTOSPI2 (64 Mbytes)
+> +        - 010: OCTOSPI1 (128 Mbytes), OCTOSPI2 (128 Mbytes)
+> +        - 011: OCTOSPI1 (64 Mbytes), OCTOSPI2 (192 Mbytes)
+> +        - 1xx: OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
+> +    items:
+> +      items:
 
-Ack.
+That's not what Rob asked. Are we goign to repeat the story of Benjamin
+and VD55G1? You got the exact code to use, which only need corrections
+in indentation probably. Why not using it?
 
-Thanks,
-Gavin
+You miss here '-'.
 
-> Thanks,
-> Steve
-> 
->>>    static int get_start_level(struct realm *realm)
->>>    {
->>>        return 4 - ((realm->ia_bits - 8) / (RMM_PAGE_SHIFT - 3));
->>> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
->>> index ed881725eb64..5618eff33155 100644
->>> --- a/arch/arm64/kvm/sys_regs.c
->>> +++ b/arch/arm64/kvm/sys_regs.c
->>> @@ -1820,7 +1820,7 @@ static u64 sanitise_id_aa64dfr0_el1(const struct
->>> kvm_vcpu *vcpu, u64 val)
->>>        /* Hide BRBE from guests */
->>>        val &= ~ID_AA64DFR0_EL1_BRBE_MASK;
->>>    -    return val;
->>> +    return kvm_realm_reset_id_aa64dfr0_el1(vcpu, val);
->>>    }
->>>      static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
-
+Best regards,
+Krzysztof
 
 
