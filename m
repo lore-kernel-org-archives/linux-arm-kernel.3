@@ -4,52 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E715C369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3AEFC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=goyKAgXUXthVObEnOPcUswn0d1o7CZyZz+Py4yVkqho=; b=0xr2w/dZB8hJIz8afWaW9af5Dz
-	XtDMzSCx2X+PcDGvf59CuVY2dVbzIzkXJIqoVlo47Vg8055yVEtqd0TR6Wrrt8F7i/xFIVZ8UupIN
-	Nw6O8jeY8q+1TPocVbuQ4hRlJ7bivES/bHhYpXbDnfZvwNs1Q3msuYB828fUoLP/QgM6YMODOXcTU
-	P8jdMTVlL7I2PJeibCxJJpoFeHMNmGtyvi2UX54BAil5sq6jXEpZ3s7b6SasPRdcr1CZQX70JM05N
-	YlmoiKvy0Pv3quKy75IyzHhuWfvHgmzMTm6r3Noh2jem17Ny6KaXGRby1j8Ekj0BG85boytslbcpT
-	1VptgviQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MT039/hhuMMp5IO2JcEWxMC4o3y8QemyuoMvfE2SUFc=; b=ncNzJ40KUoXEi0J1eWQzaD0Hoa
+	4pmCAaqoNqrII0Qw5PrhMG7VwlS/v4l+oHVIoWAPZzpT/CGSttGbVE7Z5tskFdYYlyrR/UEBaPrqe
+	1dBEcIWJZGHmmXv1S3XfsMMOhH/b6et+VhrIot5b8dZ4Vexw25P2j1p761fKdY7zwvE8CrPPQMVMT
+	51FW63p5NmxbOooiGmot0DbhiLoLH9w4lX1jAx1fjKtGfzFOngph4W/HZkEK6sdFWpa6vfwlN+cyn
+	Gm5kjPq95G1YF3MDjMjQVr/zrOeFktuzSMz2pbE0CIrWoPbFCHn4PwLm/YSEBN/QveVtOIdmMMsLu
+	ROp7gWug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u29E5-00000004FKj-3VeY;
-	Tue, 08 Apr 2025 13:42:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28cC-000000044NF-2VX8
+	id 1u29Fp-00000004Fdn-2ITR;
+	Tue, 08 Apr 2025 13:44:41 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u28h3-000000045AO-0PU4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 13:03:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B15A1688;
-	Tue,  8 Apr 2025 06:03:44 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 29B3F3F59E;
-	Tue,  8 Apr 2025 06:03:42 -0700 (PDT)
-Date: Tue, 8 Apr 2025 14:03:39 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, ardb@kernel.org,
-	catalin.marinas@arm.com, maz@kernel.org, will@kernel.org
-Subject: Re: [PATCH 03/14] arm64/fpsimd: Remove redundant clearing of TIF_SVE
-Message-ID: <Z_Ueq4ezJyCPEJ6m@J2N7QTR9R3.cambridge.arm.com>
-References: <20250404174435.3288106-1-mark.rutland@arm.com>
- <20250404174435.3288106-4-mark.rutland@arm.com>
- <4b256092-ccee-45c8-aeb0-8af85cd43171@sirena.org.uk>
+	Tue, 08 Apr 2025 13:08:46 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B982944326;
+	Tue,  8 Apr 2025 13:08:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744117721;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MT039/hhuMMp5IO2JcEWxMC4o3y8QemyuoMvfE2SUFc=;
+	b=CoGtiJjrd6pJSrynxk4Ww042keQh9u8acYoWopM/7RJrx9UjShh6+u7Qo3SEoi01uF1T+3
+	7JYdjRmu+B/pSRo5pKCLoCR+Wnw9v1QhZDuWoasw9JAzB1/hEkC6kEYTs1u6jXCFCSypsd
+	8EYWRBvHIoQB0sde8vSCwIyu2OYFXap+fsygdNhAOjLPHZ+ljCPsdEa9Tb3Zh19j7+9RMU
+	5Bg5gS0f5LoXYD55neip1umz/F8gxUf2aVGhUaz63FSOKcaLxWUsac7ZoMUZgsTu5lm97u
+	tV9Df778F4P+kiMOoJZJ/CJRrnkEnStg22TSuJc7wvqBsbmT23vNx5hI6wdulA==
+Date: Tue, 8 Apr 2025 15:08:36 +0200
+From: Herve Codina <herve.codina@bootlin.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang
+ <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, Derek
+ Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
+ Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana
+ Kannan <saravanak@google.com>, Bjorn Helgaas <bhelgaas@google.com>, Mark
+ Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, Daniel Scally
+ <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, Allan Nielsen
+ <allan.nielsen@microchip.com>, Horatiu Vultur
+ <horatiu.vultur@microchip.com>, Steen Hegelund
+ <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 08/16] i2c: core: Introduce i2c_get_adapter_supplier()
+Message-ID: <20250408150836.327a337d@bootlin.com>
+In-Reply-To: <Z_Puy8eEBc6tubEx@smile.fi.intel.com>
+References: <20250407145546.270683-1-herve.codina@bootlin.com>
+	<20250407145546.270683-9-herve.codina@bootlin.com>
+	<Z_Puy8eEBc6tubEx@smile.fi.intel.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4b256092-ccee-45c8-aeb0-8af85cd43171@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdefudejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveeiffefgeeitdelleeigefhjeelueeuveekveetgeffheeltdekgeduiefggfdvnecukfhppedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgdphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegtddprhgtphhtthhopegrnhgurhhihidrshhhvghvtghhvghnkhhosehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
+ egurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhm
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_060344_727185_EC0B3E06 
-X-CRM114-Status: GOOD (  27.04  )
+X-CRM114-CacheID: sfid-20250408_060845_282669_77D8BC75 
+X-CRM114-Status: GOOD (  26.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,69 +99,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 04, 2025 at 08:27:21PM +0100, Mark Brown wrote:
-> On Fri, Apr 04, 2025 at 06:44:24PM +0100, Mark Rutland wrote:
+Hi Andy,
+
+On Mon, 7 Apr 2025 18:27:07 +0300
+Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+
+> On Mon, Apr 07, 2025 at 04:55:37PM +0200, Herve Codina wrote:
+> > The supplier device of an I2C adapter is the device that calls
+> > i2c_add_adapter() or variants and i2c_del_adapter().
+> > 
+> > Most of the time this supplier device is the parent of the adapter dev.
+> > 
+> > Exceptions exist with i2c muxes. Indeed, in case of i2c muxes, the
+> > parent of the adapter dev points to the adapter dev the mux is connected  
 > 
-> > TIF_SVE implies that sve_state has been allocated. Barring specific
-> > transient periods (e.g. during changes to SVE/SME vector lengths), it is
-> > not valid for a task to have TIF_SVE set while sve_state is NULL.
+> dev --> device (in both cases)
+
+Will be updated in the newt iteration.
+
 > 
-> > This was not taken into account in commit:
+> > to instead of the supplier of this adapter.
+> > 
+> > Introduce i2c_get_adapter_supplier() and a new supplier field in the
+> > adapter structure in order to ease the adapter supplier retrieval.  
 > 
-> >   7559b7d7d651d397 ("arm64/sve: Better handle failure to allocate SVE register storage")
+> ...
 > 
-> > As of that commit, sve_set_common() and restore_sve_fpsimd_context()
-> > clear TIF_SVE if sve_alloc() fails to allocate memory. In these cases
-> > TIF_SVE cannot legitimately have been set to begin with, and clearing
-> > TIF_SVE only serves to complicate the code. No other code paths clear
-> > TIF_SVE if sve_alloc() fails to allocate memory.
+> > +/**
+> > + * i2c_get_adapter_supplier() - Get the supplier of an adapter
+> > + * @adapter: the adapter to get the supplier from
+> > + *
+> > + * return:  
 > 
-> The OOM handling is all rather unfortunate, it's inconsistent and
-> there's definite issues.
+> Return:
 
-Agreed; it's a mess.
+Will be updated.
 
-> In the case of sve_set_common() we might be changing the vector length,
-> in which case vec_set_vector_length() will have attempted to reallocate
-> the SVE state buffer.  It does not check that the buffer was allocated
-> so won't return an error, and the sve_alloc() we do in sve_set_common()
-> to flush the prior state would then actually try to do an allocation
-> rather than flushing and so could potentially fail.  We should handle
-> this in vec_set_vector_length() and/or sve_alloc() itself though which
-> would mean that this change would be fine.
-
-Yes; we really must handle this consistently at the point the allocation
-fails. It's rather annoying that unchecked allocations got introduced
-since commit:
-
-  7559b7d7d651d397d ("arm64/sve: Better handle failure to allocate SVE register storage")
-
-... since after that point we really should have known better.
-
-Note that today it's possible to get to vec_set_vector_length() via
-other means, e.g. via prctl(PR_SVE_SET_VL, ...), so even without this
-patch, that logic is broken.
-
-For the moment I'll drop this patch from this series and send a more
-complete fix as part of a follow-up.
-
-> In the case of restore_sve_fpsimd_context() we don't support vector
-> length changes via sigreturn so there's no issue, if the user is
-> enabling SVE for the first time we won't set TIF_SVE until later.
 > 
-> > Remove the unnecessary and confusing clearing of TIF_SVE, and remove the
-> > similarly unnecessary and confusing update of the saved fp_type.
+> > + * Look up and return the &struct device corresponding to the device supplying
+> > + * this adapter.  
 > 
-> The update to the saved fp_type should go into the called functions too,
-> if we ended up in a situation where we don't have a SVE state buffer we
-> should ensure we don't try to load from it.
+> @adapter
 
-Maybe.
+Will be updated.
 
-TBH, I don't think we should *ever* change the stored representation as
-a result of failing to allocate memory. We should be able to allocate
-the new buffer before freeing the old one, and if we cannot allocate the
-new buffer we can return -ENOMEM without discarding the old state.
+> 
+> > + * The user must call put_device() once done with the supplier returned.
+> > + */
+> > +struct device *i2c_get_adapter_supplier(struct i2c_adapter *adapter)
+> > +{
+> > +	return get_device(adapter->supplier ?: adapter->dev.parent);  
+> 
+> What will be the meaning when both are set? Why dev.parent is not the same
+> as supplier in this case?  Looking at the commit message example, it seems
+> like you want to provide a physdev or sysdev (as term supplier seems more
+> devlink:ish), like it's done elsewhere. And in the same way _always_ initialise
+> it. In such a case, the ambiguity will be gone.
 
-Mark.
+When both are set (this is case for i2c muxes), the adapter->supplier the
+device that register the I2C adapter using i2c_add_adapter() or variant.
+In other word, the device that creates the I2C adapter.
+
+The adapter->dev.parent is most of the time the device that register the
+I2C adapter except for i2c muxes. For I2C muxes, this adapter->dev.parent
+is the adapter the i2c mux is connected to.
+
+Between physdev and sysdev, I really prefer physdev and, if renaming from
+supplier to physdev is still needed (and wanted), I will rename it. Let me
+know.
+
+For initialization, I don't want to modify all the I2C controller drivers.
+What I can do is to initialize adapter->supplier using adapter->dev.parent
+during the i2c_register_adapter() call if it was not already initialize by
+the caller (i.e. the I2C controller driver).
+
+Does it make sense ?
+
+Best regards,
+Hervé
 
