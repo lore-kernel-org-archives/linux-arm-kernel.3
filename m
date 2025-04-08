@@ -4,79 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0857FC36010
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B7FAC369A1
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 19:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/3xJoKdM3gyie4Vp+Pn4E86xGTE8T5kp+MMMBUjTDI=; b=TAI38232amxn9RKhqMVzRHyj3v
-	/rd2e16dAiqy1c7VkbZHNE0X5tzRL55ZekkWC2VqghaIRVDQGLeEP9M/+0C6otRv6hHagg7/fP/cV
-	tMtrJoAz0aSI7f8nviGqnbhzo00ahgtIcbk5NJATjxH0P4WxUWeqYiYqkAOnMFlS7uOnzfkzFgxG5
-	4W26iXu+07YDe8EkZI5c6OtSiYHfx4dazvS7TtzdHl0EflvxdGHTp4ZE9BzFtsrVvcbsC3yR3q4+h
-	3za0Tba5CkiiK1lB1+3ud/0/xhwELR928BTlLm5SLjSqLoWAQgrRp9ZwqWPfqY/ZukH5dSdIdmKrq
-	B27C++sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4ZR2UVpqmeFDPx4PfDo4Uk4g9Hsu2oDRhSNi1KzWe7k=; b=nQlhoNXZm+RStdsDJ8yiIioj0L
+	/fTF3HOLInEtZwS3W0A8wQIcPYOJsQolFNrX6xpmkvk7jbFfF18oJQg/hRUIyARxwZcVAR1PkveL+
+	s/7yimtLQmsu1bwjTUlvmLMSUs9UKzIF+uwrDcvRUe9tX1prH3+AMF7GObMwXG+abzLbgi8NW+Jue
+	IoqBhh9dC/I+yy3XVPcrUqLrm7rcyMjHR51vB+8ht/wI+9x2EVSDHQbqK3O7dq7wr8AKJ61gRSsLx
+	QXCcQj+Jb7k5mWky+vSAzuXiPu9ac0cGKSN50N9a5y0fIuPE7TmjliOWeymGNJmOfphgbVpYJiwLL
+	Lqlb4BNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ENM-00000005DGB-1OiF;
-	Tue, 08 Apr 2025 19:12:48 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u2ENN-00000005DGr-0v1X;
+	Tue, 08 Apr 2025 19:12:49 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2D38-000000050tc-20oN;
-	Tue, 08 Apr 2025 17:47:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BCCFCA48F86;
-	Tue,  8 Apr 2025 17:42:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D13BFC4CEE5;
-	Tue,  8 Apr 2025 17:47:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744134469;
-	bh=R0H4qB2DWVusKSacLmBvQoYOkD35Q2qxSrY8UFIpCvI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g6gm00BSrUC9a67VqfO6wzWEjAiHCtHL+S0ONbWlZMdtU1RGAA1v7JyzyXBXm7oSF
-	 KWVxyk524MPRmVUAXoOjqyy4XmLat4bzEnXeICTAI7M/iXAG/DfNTO5TZZKyaz4YsX
-	 Bo3rtDRoRI1SfJkbJ4gFnuNg4WKEKp1x7kJcK4QbPLDo5ycUvUouZonsO/zCJvwPpZ
-	 ldDNwn1Tb4+9MCZVY8ms0z8w+ON0h4iyZ/frlBQjdm7lWsEf1EGE16myKTLJthgtqJ
-	 T7L+/DmJH52x5aDEygZvRGYbYNULH/VQ3VuFk71ev3vNdUzfF/xwpP5V77GJG3c5NX
-	 l+GMF4NLDc27g==
-Date: Tue, 8 Apr 2025 12:47:47 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, netdev@vger.kernel.org,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, upstream@airoha.com,
-	linux-kernel@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	id 1u2D4W-00000005121-0aP5;
+	Tue, 08 Apr 2025 17:49:17 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43d07ca6a80so30591535e9.1;
+        Tue, 08 Apr 2025 10:49:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744134554; x=1744739354; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4ZR2UVpqmeFDPx4PfDo4Uk4g9Hsu2oDRhSNi1KzWe7k=;
+        b=O0/YERsuNXF3w+hxdST/u57k97xBpQllQRdLNRkUBdsSRk4aEn+15skJy7Qm0D2abp
+         A+Dx64A8asF//LoMwvIYMkxyTz/lrl9SHfNKGt/sC1sBeCfxQsN8gMduK7PhLMLCBBYJ
+         xEAue2X36mC/uRrgx6TeCIOj+Zcf9onSjM9MZNC8S0nJyqePqkqOuVbE9BfN5kwHLBrM
+         wWyho/+8USlEN2sDgBqUvHYSxdfpKo8T20t2vDnjcdkB3hxIKaLlonjNhZudNux5skJ+
+         6mibIOt890W0PwtkJORgG4QhdSCwMQsB3ZmkpJEky1aZjxi+I2Va94TfB2EYM5MocHya
+         H5wQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744134554; x=1744739354;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4ZR2UVpqmeFDPx4PfDo4Uk4g9Hsu2oDRhSNi1KzWe7k=;
+        b=wYgPrXw4rOFbs5yrzJX5gwHBdQ5odJXwiG8UzeCOYsB1QxN6y0XqQmzMlX3fyHCQuv
+         EmbJa8T4yr9s+oWwDjYPOW0xbUmnw8ihIwih4gfQbA7aFsjHYNshGASZMPzBU2AjqZ5q
+         rq0G8g0CVhKeM+S6X9R/rb/oOhQD8I4BHVLCFRr3MgC30bAO6+tbwCeWfirn+9nPS39n
+         wtpeBH5n7Yntetxm9p4olKNFbo9Qbv7oVtYBmHQNwPmogGI1WXWr6MTLCGgYyJkXUbVc
+         JEqvXWHMKJoJBLuWfmK7WLFN0VJUESnby9mSva1YRS91YqI33i3/OHVNGuiHUi6BiL6X
+         NnmA==
+X-Forwarded-Encrypted: i=1; AJvYcCU6F1iNygVtWFJnhZKRbpUppD107ij9+wNRyXOEx7fyxPofVgWoGUFNSI0rpNvOHOcbR+LP1R/Sog7XEVEq2KQ=@lists.infradead.org, AJvYcCXQunD9QuPV1iF5QbgHs5mpWxKBOyV9ueDOag5gK9EHDMurlCxX/AZYLfL9ae/RpTvgqvXDoztTn6lpQupnXgwm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrPwaas8LvbTR67qKuHMIIm6/ZbobN6ZTu9aKbp7qbbN5mpAJL
+	MX5IRmHiir0gVRWo2NE7qFSwS/9R6loa11Z6OEgDbOIaIPevj49L5NouYg==
+X-Gm-Gg: ASbGncs83Tmage9xJHko5gIwn18zuPIC5dVF0BW8wrlFBRczAR2tSlCMAxvk9SAYpYA
+	Sk2BjLW68ufHNz+kLrkTCDrFaNbdMhJbFdu9VZq6i8NzcVTat/4nHq5WmdyHdsZ7epw9iCTLKu0
+	15damAC1kIIjSviU7csNZ8Lp7aCmkcVBMd6ztwCwuvCov89pGk8FW1EJU8dRr8Xz7Yd6iIRHo83
+	sQalnAH9wpScCqybVJcs+Gy7cxntAyoN834+H9Rpylsmy38Rxx0jPz4ZPVC5FfG3T6dG276JiBx
+	zBwCdYubSTT2M5qdPz1Y9DCmxnf9YCq1jHDsqAoAbXJWsA==
+X-Google-Smtp-Source: AGHT+IEZ3U5D/EEyRNJJA0h121CkODT3waTKE0XhCx7gpizhS9Xryu5e5ySB2/sFUv+P+fwP9Vnchg==
+X-Received: by 2002:a05:600c:1e20:b0:43b:d0fe:b8ac with SMTP id 5b1f17b1804b1-43f1ed6727bmr189225e9.30.1744134553902;
+        Tue, 08 Apr 2025 10:49:13 -0700 (PDT)
+Received: from qasdev.Home ([2a02:c7c:6696:8300:5b45:5642:beb0:688f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec16a5776sm173535645e9.22.2025.04.08.10.49.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Apr 2025 10:49:13 -0700 (PDT)
+From: Qasim Ijaz <qasdev00@gmail.com>
+To: nbd@nbd.name,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	shayne.chen@mediatek.com,
+	sean.wang@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chui-hao.chiu@mediatek.com,
+	Bo.Jiao@mediatek.com
+Cc: linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-mediatek@lists.infradead.org,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Simon Horman <horms@kernel.org>, devicetree@vger.kernel.org,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Daniel Golle <daniel@makrotopia.org>
-Subject: Re: [net-next PATCH v14 03/16] dt-bindings: net: dsa: Document
- support for Airoha AN8855 DSA Switch
-Message-ID: <174413446086.2421916.12520938934401150643.robh@kernel.org>
-References: <20250408095139.51659-1-ansuelsmth@gmail.com>
- <20250408095139.51659-4-ansuelsmth@gmail.com>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2 RESEND] wifi: mt76: mt7996: prevent uninit return in mt7996_mac_sta_add_links
+Date: Tue,  8 Apr 2025 18:48:58 +0100
+Message-Id: <20250408174858.15847-1-qasdev00@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250408095139.51659-4-ansuelsmth@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_104750_584791_37F8CDFA 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20250408_104916_193438_B988192D 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,31 +103,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+If link_conf_dereference_protected() or mt7996_vif_link()
+or link_sta_dereference_protected() fail the code jumps to
+the error_unlink label and returns ret which is uninitialised.
 
-On Tue, 08 Apr 2025 11:51:10 +0200, Christian Marangi wrote:
-> Document support for Airoha AN8855 5-port Gigabit Switch.
-> 
-> It does expose the 5 Internal PHYs on the MDIO bus and each port
-> can access the Switch register space by configurting the PHY page.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  .../net/dsa/airoha,an8855-switch.yaml         | 86 +++++++++++++++++++
->  1 file changed, 86 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
-> 
+Fix this by setting err before jumping to error_unlink.
+ 
+Fixes: c7e4fc362443 ("wifi: mt76: mt7996: Update mt7996_mcu_add_sta to MLO support")
+Fixes: dd82a9e02c05 ("wifi: mt76: mt7996: Rely on mt7996_sta_link in sta_add/sta_remove callbacks")
+Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
+---
+v2:
+- Added missing semi-colon as pointed out by Jonas Gorski
 
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-Please add Acked-by/Reviewed-by tags when posting new versions. However,
-there's no need to repost patches *only* to add the tags. The upstream
-maintainer will do that for acks received on the version they apply.
-
-If a tag was not added on purpose, please state why and what changed.
-
-Missing tags:
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
-
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 91c64e3a0860..70823bbb165c 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -998,16 +998,22 @@ mt7996_mac_sta_add_links(struct mt7996_dev *dev, struct ieee80211_vif *vif,
+ 			continue;
+ 
+ 		link_conf = link_conf_dereference_protected(vif, link_id);
+-		if (!link_conf)
++		if (!link_conf) {
++			err = -EINVAL;
+ 			goto error_unlink;
++		}
+ 
+ 		link = mt7996_vif_link(dev, vif, link_id);
+-		if (!link)
++		if (!link) {
++			err = -EINVAL;
+ 			goto error_unlink;
++		}
+ 
+ 		link_sta = link_sta_dereference_protected(sta, link_id);
+-		if (!link_sta)
++		if (!link_sta) {
++			err = -EINVAL;
+ 			goto error_unlink;
++		}
+ 
+ 		err = mt7996_mac_sta_init_link(dev, link_conf, link_sta, link,
+ 					       link_id);
+-- 
+2.39.5
 
 
