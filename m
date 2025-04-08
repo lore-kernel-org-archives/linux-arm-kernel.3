@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F03C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F03C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+rW1nft2KeiSORoydTAn0hLCw79lVCSFTkWZQ86orPg=; b=3oMC2EgmIYRG13eqDPTSsR5dD1
-	Ne5H05L7TslK7fPdrcE9rIA+f0KotVFwgQ9ZEr1RO8dER6VVolI72gUSXAwHteL3uEFtU+N8EVzph
-	49GC6X2F1gUviFFglovzHfSp3FtgbMXyrEr+ba645o4dzLeCCioJoWINTJnXHJh/RlCGa8KI+qDu+
-	bKvUCyIQkJUpP6eYX7TKpc+VQja+/bieyClv2vS3GDQ6pssmsJwJa1UoqM93Qj18etu6RPJxSUM/T
-	ZeQsTiY4xKZ/glumCxHOA7iMZNRk9RrHxHFsynkdeGABtSJ/qdaNmo57SvfQQUm2Fo0wjZ0Bs7Ec/
-	ktXNodkA==;
+	bh=jqmCsVUjJlD3dGXgbMYfERZW2Z7z1Ods5mDyPQ7k7JM=; b=pA+fUMGaR5mbkmDiOVtUEaCGcY
+	WtCgjBKhiv6rkuzmGAFwz9XwqibCb/BL/gYg7QOR1SyLh5u4h29UNQt+fRiegNewKJVw7mQLYvBWo
+	I5ALDji72/z4lKFQWYhlgYdFLo0/Vt0jFZ/UWvVTYBWbzZum9Hd5JQY8c2U7pdhp2V4HNaim/gIaQ
+	pLtQ4BudMphajpvVaj8Yx9sT/ijJsdR8chZmAzCmsBAMV/8ojZqtjDsOqKdHCIZuux3Gv2EUCUBRw
+	qaurpmAWl0aAegwqdqjXdNNUV1pFpdYx1IdDnjWW53YEx0/Pk6uJHUrcPe9Y/F4qQjIL2A4vMb8TD
+	tSLA8FXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28lm-00000004600-30Jc;
-	Tue, 08 Apr 2025 13:13:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u28lt-0000000468M-1Ybv;
+	Tue, 08 Apr 2025 13:13:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26Yi-00000003kNB-0lu5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Apr 2025 10:52:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=+rW1nft2KeiSORoydTAn0hLCw79lVCSFTkWZQ86orPg=; b=eevJL878Jhu1mFYNe1KNne9Hc0
-	Fv/n4YRKniUtDWo5vGbFoez6JLFvGiECWuenYOHcGRSNsoL5hp9pxzbU+o4jlb34j6rZoHYn9w3/C
-	1eNM6PVn8fwQU5+Gx3IrxzURXh0+A/vpizk9Fj22+Frfp2SylJsguYEKB6Rzx5PohiZvQMNQ0qbZ6
-	Mevr9VSRvw0ZA8EWz7yxcY2PvqldCBkUJFWVI/n0G+35Tk0unRhBajAFxoZNuK7WKVWXfCB6ocTGG
-	Esm3CgiPMKF3hBV2y7RPlXJgqDmM1bIvE7nIf3J/TYJ6P9te3hWbSP/cyytlSxes2hoQn2YMvZq0M
-	dPoz8iig==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26Yf-00000008GNw-03S1
+	id 1u26ZM-00000003kX6-1vIO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 10:51:59 +0000
+	Tue, 08 Apr 2025 10:52:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5056349D41;
-	Tue,  8 Apr 2025 10:51:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D12BDC4CEE7;
-	Tue,  8 Apr 2025 10:51:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C66195C47CC;
+	Tue,  8 Apr 2025 10:50:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 836C1C4CEEB;
+	Tue,  8 Apr 2025 10:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744109514;
-	bh=nJ8ExirTmfRpxgLbitQ00fQuZneCF/UWvT0+5dUuNfw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ec8YIM7uRax3tcIOQg7yxBAd1I377q0V4FSE+Iz6kfPqYhJw+vIG1lmjqNZqtvcMQ
-	 vkbKWLApMguARbdzTlawwtdhTweTw0w9dAE0lt80Fw7D+yuFZ249OkXhnR5lqS962N
-	 G6bJk9W+M9aUgpzlCZL15LPDrBMOGwSC+GtU7dPEvfQXFVVeFH2QIjsZctseebYR+3
-	 IWp0Fzno5d3UrIm2kak4O4UznXxzJmvfXAPTTtVjZEaLIQDhd8ZTI0vqPSR+haipQ5
-	 KLBJuefZF5IIutkO8RCFeAgFkEWz1xVuNJEw8UdxX4CDtCjWMCElHSDJeFNWsIUdxT
-	 reTkt+fyrslNw==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 08 Apr 2025 12:50:17 +0200
-Subject: [PATCH 18/24] irqchip/gic-v5: Add GICv5 PPI support
+	s=k20201202; t=1744109559;
+	bh=SYD6thAU4YhsuRfrEjI6mcpdzWaukNuKKyQAnLgGfHs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=l+UTcX1O6OHTISdpTg0oCc/VZNlOK3yzbXKqOCTTBkRzrsAYx9eZF2rLYK4uLQv8m
+	 MSSyeRxj3fI9jbPmMfDRidtLnKzGmZPT+xY0Xqs1ZaxTuvC68YWxRyi8JiR/vhpcVR
+	 subv53J2M4pEvS+k0xkhyLx6VrJxKW1su+wlLnCSuAJuetUrHjppD8WkrU+faynkiP
+	 Ek9eadizRF9T400bt+RZMnfBOr3i6Gxvic1QiKk1nyqPmHmLrBqT4/SqU7bAZWhwbK
+	 7tbsebKwxOBuzHHib6T7h61LzmIkOBkyaOhYqaHPxX2VgN+kZvk1Qqd/Nl92h8pOjD
+	 nGWC9yt1nH6PQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u26ZJ-003QX2-AY;
+	Tue, 08 Apr 2025 11:52:37 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: [PATCH v2 01/17] arm64: sysreg: Add layout for VNCR_EL2
+Date: Tue,  8 Apr 2025 11:52:09 +0100
+Message-Id: <20250408105225.4002637-2-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250408105225.4002637-1-maz@kernel.org>
+References: <20250408105225.4002637-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250408-gicv5-host-v1-18-1f26db465f8d@kernel.org>
-References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
-In-Reply-To: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Sascha Bischoff <sascha.bischoff@arm.com>, 
- Timothy Hayes <timothy.hayes@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_115157_566377_ADA00B02 
-X-CRM114-Status: GOOD (  24.88  )
+X-CRM114-CacheID: sfid-20250408_035240_559513_CBBEA6F2 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,661 +86,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GICv5 CPU interface implements support for PE-Private Peripheral
-Interrupts (PPI), that are handled (enabled/prioritized/delivered)
-entirely within the CPU interface hardware.
+Now that we're about to emulate VNCR_EL2, we need its full layout.
+Add it to the sysreg file.
 
-To enable PPI interrupts, implement the baseline GICv5 host kernel
-driver infrastructure required to handle interrupts on a GICv5 system.
-
-Add the exception handling code path and definitions for GICv5
-instructions.
-
-Add GICv5 PPI handling code as a specific IRQ domain to:
-
-- Set-up PPI priority
-- Manage PPI configuration and state
-- Manage IRQ flow handler
-- IRQs allocation/free
-- Hook-up a PPI specific IRQchip to provide the relevant methods
-
-PPI IRQ priority is chosen as the minimum allowed priority by the
-system design (after probing the number of priority bits implemented
-by the CPU interface).
-
-Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Co-developed-by: Timothy Hayes <timothy.hayes@arm.com>
-Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- MAINTAINERS                         |   2 +
- arch/arm64/include/asm/arch_gicv5.h |  38 +++
- drivers/irqchip/Kconfig             |   5 +
- drivers/irqchip/Makefile            |   1 +
- drivers/irqchip/irq-gic-v5.c        | 497 ++++++++++++++++++++++++++++++++++++
- drivers/irqchip/irq-gic-v5.h        |  19 ++
- 6 files changed, 562 insertions(+)
+ arch/arm64/include/asm/sysreg.h | 1 -
+ arch/arm64/tools/sysreg         | 6 ++++++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f3ed84466da19906953b5396a5f4b50e878c376e..cdeceb6782355a4a18609135bf7f03249d8b0bb5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -1907,6 +1907,8 @@ M:	Marc Zyngier <maz@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.yaml
-+F:	arch/arm64/include/asm/arch_gicv5.h
-+F:	drivers/irqchip/irq-gic-v5*.[ch]
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 2639d3633073d..b8842e092014a 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -521,7 +521,6 @@
+ #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
+ #define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
  
- ARM HDLCD DRM DRIVER
- M:	Liviu Dudau <liviu.dudau@arm.com>
-diff --git a/arch/arm64/include/asm/arch_gicv5.h b/arch/arm64/include/asm/arch_gicv5.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..e86cda5e5b3295c4f9c784d92adad1c6df6dbc34
---- /dev/null
-+++ b/arch/arm64/include/asm/arch_gicv5.h
-@@ -0,0 +1,38 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2025 ARM Ltd.
-+ */
-+#ifndef __ASM_ARCH_GICV5_H
-+#define __ASM_ARCH_GICV5_H
-+
-+#include <asm/sysreg.h>
-+
-+#ifndef __ASSEMBLY__
-+
-+#define GICV5_OP_GIC_CDDI		sys_insn(1, 0, 12, 2, 0)
-+#define GICV5_OP_GIC_CDEOI		sys_insn(1, 0, 12, 1, 7)
-+#define GICV5_OP_GICR_CDIA		sys_insn(1, 0, 12, 3, 0)
-+
-+#define gicr_insn(insn)			read_sysreg_s(insn)
-+#define gic_insn(v, insn)		write_sysreg_s(v, insn)
-+
-+#define GSB_ACK				__emit_inst(0xd5000000 | sys_insn(1, 0, 12, 0, 1) | 31)
-+
-+#define gsb_ack()			asm volatile(GSB_ACK : : : "memory")
-+
-+/* Shift and mask definitions for GIC CDDI */
-+#define GICV5_GIC_CDDI_TYPE_MASK	GENMASK_ULL(31, 29)
-+#define GICV5_GIC_CDDI_TYPE(r)		FIELD_GET(GICV5_GIC_CDDI_TYPE_MASK, r)
-+#define GICV5_GIC_CDDI_ID_MASK		GENMASK_ULL(23, 0)
-+#define GICV5_GIC_CDDI_ID(r)		FIELD_GET(GICV5_GIC_CDDI_ID_MASK, r)
-+
-+/* Shift and mask definitions for GICR CDIA */
-+#define GICV5_GIC_CDIA_VALID_MASK	BIT_ULL(32)
-+#define GICV5_GIC_CDIA_VALID(r)		FIELD_GET(GICV5_GIC_CDIA_VALID_MASK, r)
-+#define GICV5_GIC_CDIA_TYPE_MASK	GENMASK_ULL(31, 29)
-+#define GICV5_GIC_CDIA_TYPE(r)		FIELD_GET(GICV5_GIC_CDIA_TYPE_MASK, r)
-+#define GICV5_GIC_CDIA_ID_MASK		GENMASK_ULL(23, 0)
-+#define GICV5_GIC_CDIA_ID(r)		FIELD_GET(GICV5_GIC_CDIA_ID_MASK, r)
-+
-+#endif /* __ASSEMBLY__ */
-+#endif /* __ASM_ARCH_GICV5_H */
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index cec05e443083b8982b3e72f4212d808a22883914..160a4761d5d85f6dbf36f3142fd619c114733e36 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -54,6 +54,11 @@ config ARM_GIC_V3_ITS_FSL_MC
- 	depends on FSL_MC_BUS
- 	default ARM_GIC_V3_ITS
+-#define SYS_VNCR_EL2			sys_reg(3, 4, 2, 2, 0)
+ #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
+ #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
+ #define SYS_ELR_EL2			sys_reg(3, 4, 4, 0, 1)
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index f9476848a2edf..8f3fa39838132 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2971,6 +2971,12 @@ Sysreg	SMCR_EL2	3	4	1	2	6
+ Fields	SMCR_ELx
+ EndSysreg
  
-+config ARM_GIC_V5
-+	bool
-+	select IRQ_DOMAIN_HIERARCHY
-+	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
-+
- config ARM_NVIC
- 	bool
- 	select IRQ_DOMAIN_HIERARCHY
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index 365bcea9a61ff89e2cb41034125b3fc8cd494d81..3f8225bba5f0f9ce5dbb629b6d4782eacf85da44 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -35,6 +35,7 @@ obj-$(CONFIG_ARM_GIC_V3)		+= irq-gic-v3.o irq-gic-v3-mbi.o irq-gic-common.o
- obj-$(CONFIG_ARM_GIC_V3_ITS)		+= irq-gic-v3-its.o irq-gic-v4.o irq-gic-v3-its-msi-parent.o
- obj-$(CONFIG_ARM_GIC_V3_ITS_FSL_MC)	+= irq-gic-v3-its-fsl-mc-msi.o
- obj-$(CONFIG_PARTITION_PERCPU)		+= irq-partition-percpu.o
-+obj-$(CONFIG_ARM_GIC_V5)		+= irq-gic-v5.o
- obj-$(CONFIG_HISILICON_IRQ_MBIGEN)	+= irq-mbigen.o
- obj-$(CONFIG_ARM_NVIC)			+= irq-nvic.o
- obj-$(CONFIG_ARM_VIC)			+= irq-vic.o
-diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..996e2c992ef33e5ec8d2680ad4026b725ca39b04
---- /dev/null
-+++ b/drivers/irqchip/irq-gic-v5.c
-@@ -0,0 +1,497 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2024-2025 ARM Limited, All Rights Reserved.
-+ */
-+
-+#define pr_fmt(fmt)	"GICv5: " fmt
-+
-+#include <linux/irqchip.h>
-+#include <linux/irqdomain.h>
-+#include <linux/wordpart.h>
-+
-+#include <asm/cpufeature.h>
-+#include <asm/exception.h>
-+
-+#include "irq-gic-v5.h"
-+
-+static u8 pri_bits = 5;
-+#define GICV5_IRQ_PRIORITY_MASK 0x1f
-+#define GICV5_IRQ_PRIORITY_MI \
-+		(GICV5_IRQ_PRIORITY_MASK & GENMASK(4, 5 - pri_bits))
-+
-+static bool gicv5_cpuif_has_gcie(void)
-+{
-+	return this_cpu_has_cap(ARM64_HAS_GCIE);
-+}
-+
-+struct gicv5_chip_data {
-+	struct fwnode_handle *fwnode;
-+	struct irq_domain *ppi_domain;
-+};
-+
-+static struct gicv5_chip_data gicv5_global_data __read_mostly;
-+
-+static void gicv5_ppi_priority_init(void)
-+{
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR0_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR1_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR2_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR3_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR4_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR5_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR6_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR7_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR8_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR9_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR10_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR11_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR12_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR13_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR14_EL1);
-+	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
-+				 SYS_ICC_PPI_PRIORITYR15_EL1);
-+
-+	/*
-+	 * Context syncronization required to make sure system
-+	 * register writes effects are synchronized
-+	 */
-+	isb();
-+}
-+
-+static void gicv5_ppi_irq_mask(struct irq_data *d)
-+{
-+	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
-+
-+	if (d->hwirq < 64)
-+		sysreg_clear_set_s(SYS_ICC_PPI_ENABLER0_EL1, hwirq_id_bit, 0);
-+	else
-+		sysreg_clear_set_s(SYS_ICC_PPI_ENABLER1_EL1, hwirq_id_bit, 0);
-+
-+	/*
-+	 * Ensure that the disable takes effect
-+	 */
-+	isb();
-+}
-+
-+static void gicv5_ppi_irq_unmask(struct irq_data *d)
-+{
-+	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
-+
-+	if (d->hwirq < 64)
-+		sysreg_clear_set_s(SYS_ICC_PPI_ENABLER0_EL1, 0, hwirq_id_bit);
-+	else
-+		sysreg_clear_set_s(SYS_ICC_PPI_ENABLER1_EL1, 0, hwirq_id_bit);
-+}
-+
-+static void gicv5_hwirq_eoi(u32 hwirq_id, u32 hwirq_type)
-+{
-+	u64 cddi = hwirq_id | FIELD_PREP(GICV5_GIC_CDDI_TYPE_MASK, hwirq_type);
-+
-+	gic_insn(cddi, GICV5_OP_GIC_CDDI);
-+
-+	gic_insn(0, GICV5_OP_GIC_CDEOI);
-+}
-+
-+static void gicv5_ppi_irq_eoi(struct irq_data *d)
-+{
-+	gicv5_hwirq_eoi(d->hwirq, GICV5_HWIRQ_TYPE_PPI);
-+}
-+
-+static int gicv5_ppi_set_type(struct irq_data *d, unsigned int type)
-+{
-+	/*
-+	 * The PPI trigger mode is not configurable at runtime,
-+	 * therefore this function simply confirms that the `type`
-+	 * parameter matches what is present.
-+	 */
-+	u64 hmr;
-+
-+	if (d->hwirq < 64)
-+		hmr = read_sysreg_s(SYS_ICC_PPI_HMR0_EL1);
-+	else
-+		hmr = read_sysreg_s(SYS_ICC_PPI_HMR1_EL1);
-+
-+	switch (type) {
-+	case IRQ_TYPE_LEVEL_HIGH:
-+	case IRQ_TYPE_LEVEL_LOW:
-+		if (((hmr >> (d->hwirq % 64)) & 0x1) != GICV5_PPI_HM_LEVEL)
-+			return -EINVAL;
-+		break;
-+	case IRQ_TYPE_EDGE_RISING:
-+	case IRQ_TYPE_EDGE_FALLING:
-+		if (((hmr >> (d->hwirq % 64)) & 0x1) != GICV5_PPI_HM_EDGE)
-+			return -EINVAL;
-+		break;
-+	default:
-+		pr_debug("Unexpected PPI trigger mode");
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int gicv5_ppi_irq_get_irqchip_state(struct irq_data *d,
-+					   enum irqchip_irq_state which,
-+					   bool *val)
-+{
-+	u64 pendr, activer, enabler, hwirq_id_bit = BIT_ULL(d->hwirq % 64);
-+
-+	switch (which) {
-+	case IRQCHIP_STATE_PENDING:
-+		if (d->hwirq < 64)
-+			pendr = read_sysreg_s(SYS_ICC_PPI_SPENDR0_EL1);
-+		else
-+			pendr = read_sysreg_s(SYS_ICC_PPI_SPENDR1_EL1);
-+
-+		*val = !!(pendr & hwirq_id_bit);
-+
-+		return 0;
-+	case IRQCHIP_STATE_ACTIVE:
-+		if (d->hwirq < 64)
-+			activer = read_sysreg_s(SYS_ICC_PPI_SACTIVER0_EL1);
-+		else
-+			activer = read_sysreg_s(SYS_ICC_PPI_SACTIVER1_EL1);
-+
-+		*val = !!(activer & hwirq_id_bit);
-+
-+		return 0;
-+	case IRQCHIP_STATE_MASKED:
-+		if (d->hwirq < 64)
-+			enabler = read_sysreg_s(SYS_ICC_PPI_ENABLER0_EL1);
-+		else
-+			enabler = read_sysreg_s(SYS_ICC_PPI_ENABLER1_EL1);
-+
-+		*val = !(enabler & hwirq_id_bit);
-+
-+		return 0;
-+	default:
-+		pr_debug("Unexpected PPI irqchip state\n");
-+		return -EINVAL;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int gicv5_ppi_irq_set_irqchip_state(struct irq_data *d,
-+					   enum irqchip_irq_state which,
-+					   bool val)
-+{
-+	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
-+
-+	switch (which) {
-+	case IRQCHIP_STATE_PENDING:
-+		if (val) {
-+			if (d->hwirq < 64)
-+				write_sysreg_s(hwirq_id_bit,
-+					       SYS_ICC_PPI_SPENDR0_EL1);
-+			else
-+				write_sysreg_s(hwirq_id_bit,
-+					       SYS_ICC_PPI_SPENDR1_EL1);
-+
-+		} else {
-+			if (d->hwirq < 64)
-+				write_sysreg_s(hwirq_id_bit,
-+					       SYS_ICC_PPI_CPENDR0_EL1);
-+			else
-+				write_sysreg_s(hwirq_id_bit,
-+					       SYS_ICC_PPI_CPENDR1_EL1);
-+		}
-+
-+		return 0;
-+	case IRQCHIP_STATE_ACTIVE:
-+		if (val) {
-+			if (d->hwirq < 64)
-+				write_sysreg_s(hwirq_id_bit,
-+					       SYS_ICC_PPI_SACTIVER0_EL1);
-+			else
-+				write_sysreg_s(hwirq_id_bit,
-+					       SYS_ICC_PPI_SACTIVER1_EL1);
-+		} else {
-+			if (d->hwirq < 64)
-+				write_sysreg_s(hwirq_id_bit,
-+					       SYS_ICC_PPI_CACTIVER0_EL1);
-+			else
-+				write_sysreg_s(hwirq_id_bit,
-+					       SYS_ICC_PPI_CACTIVER1_EL1);
-+		}
-+
-+		return 0;
-+	case IRQCHIP_STATE_MASKED:
-+		if (val)
-+			gicv5_ppi_irq_mask(d);
-+		else
-+			gicv5_ppi_irq_unmask(d);
-+		return 0;
-+	default:
-+		pr_debug("Unexpected PPI irqchip state\n");
-+		return -EINVAL;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static const struct irq_chip gicv5_ppi_irq_chip = {
-+	.name			= "GICv5-PPI",
-+	.irq_mask		= gicv5_ppi_irq_mask,
-+	.irq_unmask		= gicv5_ppi_irq_unmask,
-+	.irq_eoi		= gicv5_ppi_irq_eoi,
-+	.irq_set_type		= gicv5_ppi_set_type,
-+	.irq_get_irqchip_state	= gicv5_ppi_irq_get_irqchip_state,
-+	.irq_set_irqchip_state	= gicv5_ppi_irq_set_irqchip_state,
-+	.flags			= IRQCHIP_SET_TYPE_MASKED |
-+				  IRQCHIP_SKIP_SET_WAKE	  |
-+				  IRQCHIP_MASK_ON_SUSPEND
-+};
-+
-+static int gicv5_irq_ppi_domain_translate(struct irq_domain *d,
-+					  struct irq_fwspec *fwspec,
-+					  irq_hw_number_t *hwirq,
-+					  unsigned int *type)
-+{
-+	if (is_of_node(fwspec->fwnode)) {
-+		if (fwspec->param_count < 3)
-+			return -EINVAL;
-+
-+		if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI)
-+			return -EINVAL;
-+
-+		*hwirq = fwspec->param[1];
-+		*type = fwspec->param[2] & IRQ_TYPE_SENSE_MASK;
-+
-+		return 0;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int gicv5_irq_ppi_domain_alloc(struct irq_domain *domain,
-+				      unsigned int virq, unsigned int nr_irqs,
-+				      void *arg)
-+{
-+	unsigned int type = IRQ_TYPE_NONE;
-+	struct irq_fwspec *fwspec = arg;
-+	irq_hw_number_t hwirq;
-+	int ret;
-+
-+	if (WARN_ON(nr_irqs != 1))
-+		return -EINVAL;
-+
-+	ret = gicv5_irq_ppi_domain_translate(domain, fwspec, &hwirq, &type);
-+	if (ret)
-+		return ret;
-+
-+	irq_set_percpu_devid(virq);
-+	irq_domain_set_info(domain, virq, hwirq, &gicv5_ppi_irq_chip, NULL,
-+			    handle_percpu_devid_irq, NULL, NULL);
-+
-+	return 0;
-+}
-+
-+static void gicv5_irq_ppi_domain_free(struct irq_domain *domain,
-+				      unsigned int virq, unsigned int nr_irqs)
-+{
-+	struct irq_data *d;
-+
-+	if (WARN_ON(nr_irqs != 1))
-+		return;
-+
-+	d = irq_domain_get_irq_data(domain, virq);
-+
-+	irq_set_handler(virq, NULL);
-+	irq_domain_reset_irq_data(d);
-+}
-+
-+static int gicv5_irq_ppi_domain_select(struct irq_domain *d,
-+				       struct irq_fwspec *fwspec,
-+				       enum irq_domain_bus_token bus_token)
-+{
-+	/* Not for us */
-+	if (fwspec->fwnode != d->fwnode)
-+		return 0;
-+
-+	if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI) {
-+		// only handle PPIs
-+		return 0;
-+	}
-+
-+	return (d == gicv5_global_data.ppi_domain);
-+}
-+
-+static const struct irq_domain_ops gicv5_irq_ppi_domain_ops = {
-+	.translate	= gicv5_irq_ppi_domain_translate,
-+	.alloc		= gicv5_irq_ppi_domain_alloc,
-+	.free		= gicv5_irq_ppi_domain_free,
-+	.select		= gicv5_irq_ppi_domain_select
-+};
-+
-+static inline void handle_irq_per_domain(u32 hwirq)
-+{
-+	u32 hwirq_id;
-+	struct irq_domain *domain = NULL;
-+	u8 hwirq_type = FIELD_GET(GICV5_HWIRQ_TYPE, hwirq);
-+
-+	hwirq_id = FIELD_GET(GICV5_HWIRQ_ID, hwirq);
-+
-+	if (hwirq_type == GICV5_HWIRQ_TYPE_PPI)
-+		domain = gicv5_global_data.ppi_domain;
-+
-+	if (generic_handle_domain_irq(domain, hwirq_id)) {
-+		pr_err("Could not handle, hwirq = 0x%x", hwirq_id);
-+		gicv5_hwirq_eoi(hwirq_id, hwirq_type);
-+	}
-+}
-+
-+static asmlinkage void __exception_irq_entry
-+gicv5_handle_irq(struct pt_regs *regs)
-+{
-+	u64 ia;
-+	bool valid;
-+	u32 hwirq;
-+
-+	ia = gicr_insn(GICV5_OP_GICR_CDIA);
-+	valid = GICV5_GIC_CDIA_VALID(ia);
-+
-+	if (!valid)
-+		return;
-+
-+	/*
-+	 * Ensure that the CDIA instruction effects (ie IRQ activation) are
-+	 * completed before handling the interrupt.
-+	 */
-+	gsb_ack();
-+
-+	/*
-+	 * Ensure instruction ordering between an acknowledgment and subsequent
-+	 * instructions in the IRQ handler using an ISB.
-+	 */
-+	isb();
-+
-+	hwirq = FIELD_GET(GICV5_HWIRQ_INTID, ia);
-+
-+	handle_irq_per_domain(hwirq);
-+}
-+
-+/*
-+ * Disable IRQs for the executing CPU
-+ */
-+static void gicv5_cpu_disable_interrupts(void)
-+{
-+	u64 cr0;
-+
-+	// Disable interrupts for the Interrupt Domain
-+	cr0 = FIELD_PREP(ICC_CR0_EL1_EN, 0);
-+	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
-+}
-+
-+/*
-+ * Enable IRQs for the executing CPU
-+ */
-+static void gicv5_cpu_enable_interrupts(void)
-+{
-+	u64 cr0, pcr;
-+
-+	write_sysreg_s(0, SYS_ICC_PPI_ENABLER0_EL1);
-+	write_sysreg_s(0, SYS_ICC_PPI_ENABLER1_EL1);
-+
-+	gicv5_ppi_priority_init();
-+
-+	// Explicitly set the physical interrupt priority of the CPU
-+	pcr = FIELD_PREP(ICC_PCR_EL1_PRIORITY, GICV5_IRQ_PRIORITY_MI);
-+	write_sysreg_s(pcr, SYS_ICC_PCR_EL1);
-+
-+	// Enable interrupts for the Interrupt Domain
-+	cr0 = FIELD_PREP(ICC_CR0_EL1_EN, 1);
-+	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
-+}
-+
-+static int gicv5_starting_cpu(unsigned int cpu)
-+{
-+	if (WARN(!gicv5_cpuif_has_gcie(),
-+	    "GICv5 system components present but CPU does not have FEAT_GCIE"))
-+		return -ENODEV;
-+
-+	gicv5_cpu_enable_interrupts();
-+
-+	return 0;
-+}
-+
-+static void __init gicv5_free_domains(void)
-+{
-+	if (gicv5_global_data.ppi_domain)
-+		irq_domain_remove(gicv5_global_data.ppi_domain);
-+}
-+
-+static int __init gicv5_init_domains(struct fwnode_handle *handle)
-+{
-+	gicv5_global_data.fwnode = handle;
-+	gicv5_global_data.ppi_domain = irq_domain_create_linear(
-+		handle, 128, &gicv5_irq_ppi_domain_ops, NULL);
-+
-+	if (WARN_ON(!gicv5_global_data.ppi_domain))
-+		return -ENOMEM;
-+	irq_domain_update_bus_token(gicv5_global_data.ppi_domain,
-+				    DOMAIN_BUS_WIRED);
-+
-+	return 0;
-+}
-+
-+static void gicv5_set_cpuif_pribits(void)
-+{
-+	u64 icc_idr0 = read_sysreg_s(SYS_ICC_IDR0_EL1);
-+
-+	switch (FIELD_GET(ICC_IDR0_EL1_PRI_BITS, icc_idr0)) {
-+	case ICC_IDR0_EL1_PRI_BITS_4BITS:
-+		pri_bits = 4;
-+		break;
-+	case ICC_IDR0_EL1_PRI_BITS_5BITS:
-+		pri_bits = 5;
-+		break;
-+	default:
-+		pr_err("Unexpected ICC_IDR0_EL1_PRI_BITS value, default to 4");
-+		pri_bits = 4;
-+		break;
-+	}
-+}
-+
-+static int __init gicv5_of_init(struct device_node *node,
-+				struct device_node *parent)
-+{
-+	int ret;
-+
-+	ret = gicv5_init_domains(&node->fwnode);
-+	if (ret)
-+		return ret;
-+
-+	gicv5_set_cpuif_pribits();
-+
-+	ret = gicv5_starting_cpu(smp_processor_id());
-+	if (ret) {
-+		gicv5_free_domains();
-+		return ret;
-+	}
-+
-+	ret = set_handle_irq(gicv5_handle_irq);
-+	if (ret) {
-+		gicv5_free_domains();
-+		gicv5_cpu_disable_interrupts();
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+IRQCHIP_DECLARE(gic_v5, "arm,gic-v5", gicv5_of_init);
-diff --git a/drivers/irqchip/irq-gic-v5.h b/drivers/irqchip/irq-gic-v5.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..d8b797cdea2f786646fd88d9c8f60d483380991c
---- /dev/null
-+++ b/drivers/irqchip/irq-gic-v5.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2025 ARM Limited, All Rights Reserved.
-+ */
-+#ifndef __LINUX_IRQCHIP_GIC_V5_H
-+#define __LINUX_IRQCHIP_GIC_V5_H
-+
-+#include <asm/arch_gicv5.h>
-+
-+#define GICV5_HWIRQ_ID			GENMASK(23, 0)
-+#define GICV5_HWIRQ_TYPE		GENMASK(31, 29)
-+#define GICV5_HWIRQ_INTID		GENMASK_ULL(31, 0)
-+
-+#define GICV5_HWIRQ_TYPE_PPI		UL(0x1)
-+
-+#define GICV5_PPI_HM_EDGE		UL(0x0)
-+#define GICV5_PPI_HM_LEVEL		UL(0x1)
-+
-+#endif
-
++Sysreg	VNCR_EL2	3	4	2	2	0
++Field	63:57	RESS
++Field	56:12	BADDR
++Res0	11:0
++EndSysreg
++
+ Sysreg	GCSCR_EL2	3	4	2	5	0
+ Fields	GCSCR_ELx
+ EndSysreg
 -- 
-2.48.0
+2.39.2
 
 
