@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DA0C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:40:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4313CC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mC0NXmwp3hUFyxgYzqhl2oziOdKHiyicw+7VAZXZeac=; b=PsAxBjPt7M4PZZoBOAWjgGGqC9
-	zQhJIcA7poBIdTn4QLZnmO+s8cDFwWRSMP2ox49FQ+qz7Sf+XltQcRp9T5ndHa0uCxE0+jWao7hGE
-	pVZUj4f0fUpaOUzVvAVlufxipoyNVWT0WBiILvSagVlNG0XJH4VWLoZmJeJhzMsFSAbXYdx4qQCPq
-	STKLM9UpMbaTbbwsKjHc25QFAuEKSoSnoPgvm9Eeyfr1wIK3kZRzHOOEpDr1E8B7pfefwSHhpl8Fb
-	4BerwlYFuig2OfQ1Wy1FLespqRTO/bcjWDJNkYSsf9evr93ljMJCET2Bq2h31OClnVyaLK4knHrhh
-	hnTaKgvw==;
+	bh=k2VE7zoH3MmhPr8zA0L/+afRi2fRMyCxx8RSJzgatXg=; b=w6HZ5DV8Fc38+Hy6+jP5nZ3P6j
+	JZabCn4xeZcbDI4FfeZUYP3kjP1IaN+kJKMGAGtx4Qj1pGkFVnYeuDQdeZJVQCX7DGtljGEI3GJe/
+	T5lda4l0mwt4fjSTF6oO0/DQb7CBHUkHZKfJ9ZM8alWpDh9cu6liy1abRqWPVbyEfnV5d8GwlbTlZ
+	dr08OdCCu79ir//N0I7qBs4qVBCdt2zhlNVoakTKZb6hycX9nWye6uzjn0lAK/93THubrP1NRVHiN
+	JHjadRSdtCi3gRi7rH6Xb4zgn/hhNnBWCXa7UKkoAxUZk8j2JCRtUFUpnkqq/1MDV5cla6dn0gKvU
+	bN+Dh5gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Drw-000000058X5-0WUi;
-	Tue, 08 Apr 2025 18:40:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u2DuL-000000058ld-2aMS;
+	Tue, 08 Apr 2025 18:42:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Dax-000000055xB-0GBT
+	id 1u2CYX-00000004weS-3Ypm
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Apr 2025 17:16:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=k2VE7zoH3MmhPr8zA0L/+afRi2fRMyCxx8RSJzgatXg=; b=EbjSYsIY7ZNSf26yioWVYQLKAa
+	b4SKhlJMZ7JlQDcc1O+KHvuuFCC2cRqblW1HDzZROlkoQSUffoBGAq6/CVyPSQQ3oNsDoKH9/8Uz5
+	A42Yuj48STZNV1SJZ42l3A3Ou7jPxj5Q7x9jW67ZbcVdCXS/6pLsIIi6wQW7bBexzf3m8vmb5/Y7a
+	6PyGtZSQlKFJJsoSoqJF+CFhu3IniwtiIoOvNTZXGCueE+66FAxsunuN2OTed59/0n7qcIwVqJBQf
+	aoChT/ra42BlDMI3fIo4hbXVO56fU3KyxOcUJ3RIs54FWz2ONS6VKqpPfsYDY2BNnTSZK1vh+AT8u
+	BmuFLhUw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2CYU-00000008LZe-1NhJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 18:22:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B7D71A48FE6;
-	Tue,  8 Apr 2025 18:17:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 447B5C4CEE9;
-	Tue,  8 Apr 2025 18:22:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744136566;
-	bh=94B73exkvxZIp7PjZglkCZBY40cUsa7OpOScJsLUoog=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=PqvFcV7MB/OV15mYLd+gHbJSSGEFznA0DxuB2PBVbE7W4085ugfWvdYgDdqylxt0D
-	 5Qf8xVh99HLh+fKnd2NjKZhzt+EWmXLHwyigsSDpr15dXYkK61Z1L0wpkS+63S3UIX
-	 VDmmarfGl2Rew/V8277bDGLIJhb8WcQTFMbR+lKVFoJt6GJyUgSPufX2MdteB94LdM
-	 k8/Xr+4PPugCU8ewDKtPgqt4dfjQXSu+ahYrKUlAz5YxyztryMEG92aO2m+3jBS/0p
-	 VJOjQSlPKG/bRt/8FgZkC/Ecp1b5NjOKiVIhaVKd8jIPWIY2F2jf/Q4A3RXFhGe/91
-	 sDMg42jnTHkDg==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 08 Apr 2025 19:10:04 +0100
-Subject: [PATCH 5.15 v3 09/11] KVM: arm64: Remove VHE host restore of
- CPACR_EL1.ZEN
+	Tue, 08 Apr 2025 17:16:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA4BC1688;
+	Tue,  8 Apr 2025 10:16:09 -0700 (PDT)
+Received: from e128066.cambridge.arm.com (e128066.cambridge.arm.com [10.1.26.81])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 71F743F59E;
+	Tue,  8 Apr 2025 10:16:05 -0700 (PDT)
+From: mark.barnett@arm.com
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	irogers@google.com
+Cc: ben.gainey@arm.com,
+	deepak.surti@arm.com,
+	ak@linux.intel.com,
+	will@kernel.org,
+	james.clark@arm.com,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	adrian.hunter@intel.com,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Mark Barnett <mark.barnett@arm.com>
+Subject: [PATCH v4 1/5] perf: Record sample last_period before updating
+Date: Tue,  8 Apr 2025 18:15:26 +0100
+Message-Id: <20250408171530.140858-2-mark.barnett@arm.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250408171530.140858-1-mark.barnett@arm.com>
+References: <20250408171530.140858-1-mark.barnett@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250408-stable-sve-5-15-v3-9-ca9a6b850f55@kernel.org>
-References: <20250408-stable-sve-5-15-v3-0-ca9a6b850f55@kernel.org>
-In-Reply-To: <20250408-stable-sve-5-15-v3-0-ca9a6b850f55@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Oleg Nesterov <oleg@redhat.com>, Oliver Upton <oliver.upton@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Fuad Tabba <tabba@google.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3514; i=broonie@kernel.org;
- h=from:subject:message-id; bh=z0T8Mw2Gv92zuKeVWJq8mDeqr184OynN7N95pkdbt3E=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn9WlSA5GbnGtX3RsCslIUJ3vjbvkc54JHy7pM4Ogz
- TkYpdP2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ/VpUgAKCRAk1otyXVSH0IPdB/
- 9qgLuVL0XNOu2uxbW9SdLR/JkjAJ1tmBtaOhOGfqkAa2zW4epsXR3iVIJeSj2NMMTJJ4mC5NMC4zk4
- HBymsKA7vqRIQQ/RCtlTpNj2B6hpg+ZvYPgZr//O0LXVN1G7iI7KtBRocC3zDiYwLPe+qrsosUbTjD
- LcfEnXdqe/J6yRBkmo1GdiC1K1OEG8YNK6CmQmLTG7PKwv/3tf8VqL97zm+qKb5FGxXwD5qsoow7WU
- qXzvZOdEnMYa7hJF2oUd6ZWsJoQvzrZYHQ7nm7XoOzfDAx7oO5QQcw3/4kxOvHwNzK3Ypzw3liOMYQ
- 5qZaSqkTIyH7q5lHnF3Q1Jh5h/8J2o
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_112247_240977_6943A7E5 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20250408_181610_863008_16F7B9FD 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,92 +92,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mark Rutland <mark.rutland@arm.com>
+From: Mark Barnett <mark.barnett@arm.com>
 
-[ Upstream commit 459f059be702056d91537b99a129994aa6ccdd35 ]
+This change alters the PowerPC and x86 driver implementations to record
+the last sample period before the event is updated for the next period.
 
-When KVM is in VHE mode, the host kernel tries to save and restore the
-configuration of CPACR_EL1.ZEN (i.e. CPTR_EL2.ZEN when HCR_EL2.E2H=1)
-across kvm_arch_vcpu_load_fp() and kvm_arch_vcpu_put_fp(), since the
-configuration may be clobbered by hyp when running a vCPU. This logic is
-currently redundant.
+A common pattern in PMU driver implementations is to have a
+"*_event_set_period" function which takes care of updating the various
+period-related fields in a perf_event structure. In most cases, the
+drivers choose to call this function after initializing a sample data
+structure with perf_sample_data_init. The x86 and PowerPC drivers
+deviate from this, choosing to update the period before initializing the
+sample data. When using an event with an alternate sample period, this
+causes an incorrect period to be written to the sample data that gets
+reported to userspace.
 
-The VHE hyp code unconditionally configures CPTR_EL2.ZEN to 0b01 when
-returning to the host, permitting host kernel usage of SVE.
-
-Now that the host eagerly saves and unbinds its own FPSIMD/SVE/SME
-state, there's no need to save/restore the state of the EL0 SVE trap.
-The kernel can safely save/restore state without trapping, as described
-above, and will restore userspace state (including trap controls) before
-returning to userspace.
-
-Remove the redundant logic.
-
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Tested-by: Mark Brown <broonie@kernel.org>
-Acked-by: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Link: https://lore.kernel.org/r/20250210195226.1215254-4-mark.rutland@arm.com
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-[Rework for refactoring of where the flags are stored -- broonie]
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Link: https://lore.kernel.org/r/20240515193610.2350456-4-yabinc@google.com
+Signed-off-by: Mark Barnett <mark.barnett@arm.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  1 -
- arch/arm64/kvm/fpsimd.c           | 15 ---------------
- 2 files changed, 16 deletions(-)
+ arch/powerpc/perf/core-book3s.c  | 3 ++-
+ arch/powerpc/perf/core-fsl-emb.c | 3 ++-
+ arch/x86/events/core.c           | 4 +++-
+ arch/x86/events/intel/core.c     | 5 ++++-
+ arch/x86/events/intel/knc.c      | 4 +++-
+ 5 files changed, 14 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 06e8d4645ecd..3d4e2396a2d7 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -421,7 +421,6 @@ struct kvm_vcpu_arch {
- #define KVM_ARM64_DEBUG_DIRTY		(1 << 0)
- #define KVM_ARM64_FP_ENABLED		(1 << 1) /* guest FP regs loaded */
- #define KVM_ARM64_FP_HOST		(1 << 2) /* host FP regs loaded */
--#define KVM_ARM64_HOST_SVE_ENABLED	(1 << 4) /* SVE enabled for EL0 */
- #define KVM_ARM64_GUEST_HAS_SVE		(1 << 5) /* SVE exposed to guest */
- #define KVM_ARM64_VCPU_SVE_FINALIZED	(1 << 6) /* SVE config completed */
- #define KVM_ARM64_GUEST_HAS_PTRAUTH	(1 << 7) /* PTRAUTH exposed to guest */
-diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index 1ef9d6cb91ee..1360ddd4137b 100644
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -83,9 +83,6 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
- 	 */
- 	fpsimd_save_and_flush_cpu_state();
- 	vcpu->arch.flags &= ~KVM_ARM64_FP_HOST;
--
--	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
--		vcpu->arch.flags |= KVM_ARM64_HOST_SVE_ENABLED;
- }
+diff --git a/arch/powerpc/perf/core-book3s.c b/arch/powerpc/perf/core-book3s.c
+index b906d28f74fd..42ff4d167acc 100644
+--- a/arch/powerpc/perf/core-book3s.c
++++ b/arch/powerpc/perf/core-book3s.c
+@@ -2239,6 +2239,7 @@ static void record_and_restart(struct perf_event *event, unsigned long val,
+ 			       struct pt_regs *regs)
+ {
+ 	u64 period = event->hw.sample_period;
++	const u64 last_period = event->hw.last_period;
+ 	s64 prev, delta, left;
+ 	int record = 0;
  
- /*
-@@ -142,18 +139,6 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
- 		}
+@@ -2320,7 +2321,7 @@ static void record_and_restart(struct perf_event *event, unsigned long val,
+ 	if (record) {
+ 		struct perf_sample_data data;
  
- 		fpsimd_save_and_flush_cpu_state();
--	} else if (has_vhe() && system_supports_sve()) {
--		/*
--		 * The FPSIMD/SVE state in the CPU has not been touched, and we
--		 * have SVE (and VHE): CPACR_EL1 (alias CPTR_EL2) has been
--		 * reset to CPACR_EL1_DEFAULT by the Hyp code, disabling SVE
--		 * for EL0.  To avoid spurious traps, restore the trap state
--		 * seen by kvm_arch_vcpu_load_fp():
--		 */
--		if (vcpu->arch.flags & KVM_ARM64_HOST_SVE_ENABLED)
--			sysreg_clear_set(CPACR_EL1, 0, CPACR_EL1_ZEN_EL0EN);
--		else
--			sysreg_clear_set(CPACR_EL1, CPACR_EL1_ZEN_EL0EN, 0);
- 	}
+-		perf_sample_data_init(&data, ~0ULL, event->hw.last_period);
++		perf_sample_data_init(&data, ~0ULL, last_period);
  
- 	local_irq_restore(flags);
-
+ 		if (event->attr.sample_type & PERF_SAMPLE_ADDR_TYPE)
+ 			perf_get_data_addr(event, regs, &data.addr);
+diff --git a/arch/powerpc/perf/core-fsl-emb.c b/arch/powerpc/perf/core-fsl-emb.c
+index 1a53ab08447c..d2ffcc7021c5 100644
+--- a/arch/powerpc/perf/core-fsl-emb.c
++++ b/arch/powerpc/perf/core-fsl-emb.c
+@@ -590,6 +590,7 @@ static void record_and_restart(struct perf_event *event, unsigned long val,
+ 			       struct pt_regs *regs)
+ {
+ 	u64 period = event->hw.sample_period;
++	const u64 last_period = event->hw.last_period;
+ 	s64 prev, delta, left;
+ 	int record = 0;
+ 
+@@ -632,7 +633,7 @@ static void record_and_restart(struct perf_event *event, unsigned long val,
+ 	if (record) {
+ 		struct perf_sample_data data;
+ 
+-		perf_sample_data_init(&data, 0, event->hw.last_period);
++		perf_sample_data_init(&data, 0, last_period);
+ 
+ 		if (perf_event_overflow(event, &data, regs))
+ 			fsl_emb_pmu_stop(event, 0);
+diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+index 6866cc5acb0b..4ccf44943370 100644
+--- a/arch/x86/events/core.c
++++ b/arch/x86/events/core.c
+@@ -1683,6 +1683,7 @@ int x86_pmu_handle_irq(struct pt_regs *regs)
+ 	struct cpu_hw_events *cpuc;
+ 	struct perf_event *event;
+ 	int idx, handled = 0;
++	u64 last_period;
+ 	u64 val;
+ 
+ 	cpuc = this_cpu_ptr(&cpu_hw_events);
+@@ -1702,6 +1703,7 @@ int x86_pmu_handle_irq(struct pt_regs *regs)
+ 			continue;
+ 
+ 		event = cpuc->events[idx];
++		last_period = event->hw.last_period;
+ 
+ 		val = static_call(x86_pmu_update)(event);
+ 		if (val & (1ULL << (x86_pmu.cntval_bits - 1)))
+@@ -1715,7 +1717,7 @@ int x86_pmu_handle_irq(struct pt_regs *regs)
+ 		if (!static_call(x86_pmu_set_period)(event))
+ 			continue;
+ 
+-		perf_sample_data_init(&data, 0, event->hw.last_period);
++		perf_sample_data_init(&data, 0, last_period);
+ 
+ 		perf_sample_save_brstack(&data, event, &cpuc->lbr_stack, NULL);
+ 
+diff --git a/arch/x86/events/intel/core.c b/arch/x86/events/intel/core.c
+index 09d2d66c9f21..9c0afdbf9d78 100644
+--- a/arch/x86/events/intel/core.c
++++ b/arch/x86/events/intel/core.c
+@@ -3132,6 +3132,7 @@ static int handle_pmi_common(struct pt_regs *regs, u64 status)
+ 
+ 	for_each_set_bit(bit, (unsigned long *)&status, X86_PMC_IDX_MAX) {
+ 		struct perf_event *event = cpuc->events[bit];
++		u64 last_period;
+ 
+ 		handled++;
+ 
+@@ -3159,10 +3160,12 @@ static int handle_pmi_common(struct pt_regs *regs, u64 status)
+ 		if (is_pebs_counter_event_group(event))
+ 			x86_pmu.drain_pebs(regs, &data);
+ 
++		last_period = event->hw.last_period;
++
+ 		if (!intel_pmu_save_and_restart(event))
+ 			continue;
+ 
+-		perf_sample_data_init(&data, 0, event->hw.last_period);
++		perf_sample_data_init(&data, 0, last_period);
+ 
+ 		if (has_branch_stack(event))
+ 			intel_pmu_lbr_save_brstack(&data, cpuc, event);
+diff --git a/arch/x86/events/intel/knc.c b/arch/x86/events/intel/knc.c
+index 034a1f6a457c..3e8ec049b46d 100644
+--- a/arch/x86/events/intel/knc.c
++++ b/arch/x86/events/intel/knc.c
+@@ -241,16 +241,18 @@ static int knc_pmu_handle_irq(struct pt_regs *regs)
+ 
+ 	for_each_set_bit(bit, (unsigned long *)&status, X86_PMC_IDX_MAX) {
+ 		struct perf_event *event = cpuc->events[bit];
++		u64 last_period;
+ 
+ 		handled++;
+ 
+ 		if (!test_bit(bit, cpuc->active_mask))
+ 			continue;
+ 
++		last_period = event->hw.last_period;
+ 		if (!intel_pmu_save_and_restart(event))
+ 			continue;
+ 
+-		perf_sample_data_init(&data, 0, event->hw.last_period);
++		perf_sample_data_init(&data, 0, last_period);
+ 
+ 		if (perf_event_overflow(event, &data, regs))
+ 			x86_pmu_stop(event, 0);
 -- 
-2.39.5
+2.43.0
 
 
