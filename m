@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7FEBC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 10:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E60C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 10:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+0pYQ1qH+UpfJYLoe9vNgfctFN5Ww4sCZmrF9jkxtoc=; b=kVNRnLAAbBXGKbi+bTH4hGLQvN
-	4Z6iRsnE+MBrrm3G77WXL+i2jSEOjV8Wrws0V4v4KEV5KQplfN2vF87KjNpiLM057UMbJcn/uU2kW
-	q/sG6ObCJd7aqkVI3xQrg+lAAay2EuM/5WehY2TLaPu9ZS80kO+KhlTYJP1lIDgpDjsVC+LMQd2w2
-	HVLDOu7Zr+zVWAps5OMZPVKcutYwgTwds3ZxKoFf9/fh3BJcZ6eJsVjoIl30ZOFZf4pQyXiCX3NH/
-	Q7kk/nRLqJu7Kuln5f3fbt+VbsWH9QTdCpHY6rkayj01geJSvHl1I9faId3Y/Q0h9BdYaOHpqfYK7
-	WvlRHhgg==;
+	bh=k9E8JC26wdK4bPf2nrNh902XnvK5CWhMXm2sdNweAJc=; b=UPjUgs+ACyg13MZyfWPlPt0Chg
+	5pXJCNhmKbmvyF2cogT12uL7zcf0XrdBQspvX88RflL8p4pnI/noEtcqpDwiPi3Ntw+b0PsJVX74R
+	8gNksOhgd47FBLBijP858tVpo8jisPd63tzS+YOMuoYdvguUq35Ybh7nK5wHpM2XtTgQH1SgbmCM/
+	4AyyKzyUsJRHAhyF1STVbPJvtSBOnk7Jbkhnj9H6Z1SeNLQFGVOGlYpDHdO4bWQLHIS1iep86fTzP
+	1fXeVFntt2bKpk8G6mgwIbPLcwkrEctd4k+aE4c1qPLuvliCYnWxF9A0I2BrD4KbQPAzL1MIt9G/h
+	3OrzYihw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26Mf-00000003hhb-3aP5;
-	Tue, 08 Apr 2025 10:39:33 +0000
+	id 1u26OU-00000003i3B-0hPm;
+	Tue, 08 Apr 2025 10:41:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25eO-00000003Wiq-1uE3;
-	Tue, 08 Apr 2025 09:53:49 +0000
+	id 1u25eT-00000003WlY-0bak;
+	Tue, 08 Apr 2025 09:53:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC0D71688;
-	Tue,  8 Apr 2025 02:53:48 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4D9F1691;
+	Tue,  8 Apr 2025 02:53:53 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ABBF53F6A8;
-	Tue,  8 Apr 2025 02:53:43 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 64C983F6A8;
+	Tue,  8 Apr 2025 02:53:48 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -66,17 +66,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v2 08/12] arm64: mm: Use enum to identify pgtable level instead of *_SHIFT
-Date: Tue,  8 Apr 2025 10:52:18 +0100
-Message-ID: <20250408095222.860601-9-kevin.brodsky@arm.com>
+Subject: [PATCH v2 09/12] arm64: mm: Always call PTE/PMD ctor in __create_pgd_mapping()
+Date: Tue,  8 Apr 2025 10:52:19 +0100
+Message-ID: <20250408095222.860601-10-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250408095222.860601-1-kevin.brodsky@arm.com>
 References: <20250408095222.860601-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_025348_586630_47224507 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20250408_025353_311280_DA0F870D 
+X-CRM114-Status: GOOD (  23.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,205 +91,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 90292aca9854 ("arm64: mm: use appropriate ctors for page
-tables") introduced pgtable ctor calls in pgd_pgtable_alloc(). To
-identify the pgtable level and call the appropriate ctor, the
-*_SHIFT value associated with the pgtable level is used. However,
-those values do not unambiguously identify a level, because if a
-given level is folded, the *_SHIFT value will be equal to that of
-the upper level (e.g. PMD_SHIFT == PUD_SHIFT if PMD is folded).
+TL;DR: always call the PTE/PMD ctor, passing the appropriate mm to
+skip ptlock_init() if unneeded.
 
-As things stand, there is probably not much damaged done by calling
-the ctor for a different level, and ARCH_ENABLE_SPLIT_PMD_PTLOCK is
-only selected if PMD isn't folded (so we don't needlessly initialise
-pmd_ptlock). Still, this is pretty confusing, and it would get even
-more confusing when adding ctor calls for the remaining levels.
+__create_pgd_mapping() is used for creating different kinds of
+mappings, and may allocate page table pages if passed an allocator
+callback. There are currently three such cases:
 
-Let's simplify all this by using an enum to identify the pgtable
-level instead; this way folding becomes irrelevant. This is inspired
-by one of the m68k pgtable allocators
-(arch/m68k/include/asm/motorola_pgalloc.h).
+1. create_pgd_mapping(), which is used to create the EFI mapping
+2. arch_add_memory()
+3. map_entry_trampoline()
+
+1. uses pgd_pgtable_alloc() as allocator callback, which calls the
+PTE/PMD ctor, while 2. and 3. use __pgd_pgtable_alloc(), which does
+not. The rationale is most likely that pgtables associated with
+init_mm do not make use of split page table locks, and it is
+therefore unnecessary to initialise them by calling the ctor. 2.
+operates on swapper_pg_dir so the allocated pgtables are clearly
+associated with init_mm, this is arguably the case for 3. too (the
+trampoline mapping is never modified so ptlocks are anyway
+irrelevant). 1. corresponds to efi_mm so ptlocks need to be
+initialised in that case.
+
+We are now moving towards calling the ctor for all page tables, even
+those associated with init_mm. pagetable_{pte,pmd}_ctor() have
+become aware of the associated mm so that the ptlock initialisation
+can be skipped for init_mm. This patch therefore amends the
+allocator callbacks so that the PTE/PMD ctor are always called, with
+an appropriate mm pointer to avoid unnecessary ptlock overhead.
+
+Modifying the prototype of the allocator callbacks to take the mm
+and propagating that pointer all the way down would be pretty
+invasive. Instead:
+
+* __pgd_pgtable_alloc() (cases 2. and 3. above) is replaced with
+  pgd_pgtable_alloc_init_mm(), resulting in the ctors being called
+  with &init_mm. This is the main functional change in this patch;
+  the ptlock still isn't initialised, but other ctor actions (e.g.
+  accounting-related) are now carried out for those allocated
+  pgtables.
+
+* pgd_pgtable_alloc() (case 1. above) is replaced with
+  pgd_pgtable_alloc_special_mm(), resulting in the ctors being
+  called with NULL as mm. No functional change here; NULL
+  essentially means "not init_mm", and the ptlock is still
+  initialised.
+
+__pgd_pgtable_alloc() is now the common implementation of those two
+helpers. While at it we switch it to using pagetable_alloc() like
+standard pgtable allocator functions and remove the comment
+regarding ctor calls (ctors are now always expected to be called).
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/mm/mmu.c | 54 +++++++++++++++++++++++++++------------------
- 1 file changed, 33 insertions(+), 21 deletions(-)
+ arch/arm64/mm/mmu.c | 43 +++++++++++++++++++++++--------------------
+ 1 file changed, 23 insertions(+), 20 deletions(-)
 
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 8c5c471cfb06..eca324b3a6fc 100644
+index eca324b3a6fc..51cfc891f6a1 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -46,6 +46,13 @@
- #define NO_CONT_MAPPINGS	BIT(1)
- #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
- 
-+enum pgtable_type {
-+	TABLE_PTE,
-+	TABLE_PMD,
-+	TABLE_PUD,
-+	TABLE_P4D,
-+};
-+
- u64 kimage_voffset __ro_after_init;
- EXPORT_SYMBOL(kimage_voffset);
- 
-@@ -107,7 +114,7 @@ pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
- }
- EXPORT_SYMBOL(phys_mem_access_prot);
- 
--static phys_addr_t __init early_pgtable_alloc(int shift)
-+static phys_addr_t __init early_pgtable_alloc(enum pgtable_type pgtable_type)
- {
- 	phys_addr_t phys;
- 
-@@ -192,7 +199,7 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
- static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 				unsigned long end, phys_addr_t phys,
- 				pgprot_t prot,
--				phys_addr_t (*pgtable_alloc)(int),
-+				phys_addr_t (*pgtable_alloc)(enum pgtable_type),
- 				int flags)
- {
- 	unsigned long next;
-@@ -207,7 +214,7 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 		if (flags & NO_EXEC_MAPPINGS)
- 			pmdval |= PMD_TABLE_PXN;
- 		BUG_ON(!pgtable_alloc);
--		pte_phys = pgtable_alloc(PAGE_SHIFT);
-+		pte_phys = pgtable_alloc(TABLE_PTE);
- 		ptep = pte_set_fixmap(pte_phys);
- 		init_clear_pgtable(ptep);
- 		ptep += pte_index(addr);
-@@ -243,7 +250,7 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 
- static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
- 		     phys_addr_t phys, pgprot_t prot,
--		     phys_addr_t (*pgtable_alloc)(int), int flags)
-+		     phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags)
- {
- 	unsigned long next;
- 
-@@ -277,7 +284,8 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
- static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- 				unsigned long end, phys_addr_t phys,
- 				pgprot_t prot,
--				phys_addr_t (*pgtable_alloc)(int), int flags)
-+				phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-+				int flags)
- {
- 	unsigned long next;
- 	pud_t pud = READ_ONCE(*pudp);
-@@ -294,7 +302,7 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- 		if (flags & NO_EXEC_MAPPINGS)
- 			pudval |= PUD_TABLE_PXN;
- 		BUG_ON(!pgtable_alloc);
--		pmd_phys = pgtable_alloc(PMD_SHIFT);
-+		pmd_phys = pgtable_alloc(TABLE_PMD);
- 		pmdp = pmd_set_fixmap(pmd_phys);
- 		init_clear_pgtable(pmdp);
- 		pmdp += pmd_index(addr);
-@@ -325,7 +333,7 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- 
- static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 			   phys_addr_t phys, pgprot_t prot,
--			   phys_addr_t (*pgtable_alloc)(int),
-+			   phys_addr_t (*pgtable_alloc)(enum pgtable_type),
- 			   int flags)
- {
- 	unsigned long next;
-@@ -339,7 +347,7 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 		if (flags & NO_EXEC_MAPPINGS)
- 			p4dval |= P4D_TABLE_PXN;
- 		BUG_ON(!pgtable_alloc);
--		pud_phys = pgtable_alloc(PUD_SHIFT);
-+		pud_phys = pgtable_alloc(TABLE_PUD);
- 		pudp = pud_set_fixmap(pud_phys);
- 		init_clear_pgtable(pudp);
- 		pudp += pud_index(addr);
-@@ -383,7 +391,7 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 
- static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
- 			   phys_addr_t phys, pgprot_t prot,
--			   phys_addr_t (*pgtable_alloc)(int),
-+			   phys_addr_t (*pgtable_alloc)(enum pgtable_type),
- 			   int flags)
- {
- 	unsigned long next;
-@@ -397,7 +405,7 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
- 		if (flags & NO_EXEC_MAPPINGS)
- 			pgdval |= PGD_TABLE_PXN;
- 		BUG_ON(!pgtable_alloc);
--		p4d_phys = pgtable_alloc(P4D_SHIFT);
-+		p4d_phys = pgtable_alloc(TABLE_P4D);
- 		p4dp = p4d_set_fixmap(p4d_phys);
- 		init_clear_pgtable(p4dp);
- 		p4dp += p4d_index(addr);
-@@ -427,7 +435,7 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
- static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
- 					unsigned long virt, phys_addr_t size,
- 					pgprot_t prot,
--					phys_addr_t (*pgtable_alloc)(int),
-+					phys_addr_t (*pgtable_alloc)(enum pgtable_type),
- 					int flags)
- {
- 	unsigned long addr, end, next;
-@@ -455,7 +463,7 @@ static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
- static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
- 				 unsigned long virt, phys_addr_t size,
- 				 pgprot_t prot,
--				 phys_addr_t (*pgtable_alloc)(int),
-+				 phys_addr_t (*pgtable_alloc)(enum pgtable_type),
- 				 int flags)
- {
- 	mutex_lock(&fixmap_lock);
-@@ -468,10 +476,11 @@ static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
- extern __alias(__create_pgd_mapping_locked)
- void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
- 			     phys_addr_t size, pgprot_t prot,
--			     phys_addr_t (*pgtable_alloc)(int), int flags);
-+			     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-+			     int flags);
+@@ -480,31 +480,22 @@ void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+ 			     int flags);
  #endif
  
--static phys_addr_t __pgd_pgtable_alloc(int shift)
-+static phys_addr_t __pgd_pgtable_alloc(enum pgtable_type pgtable_type)
+-static phys_addr_t __pgd_pgtable_alloc(enum pgtable_type pgtable_type)
++static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
++				       enum pgtable_type pgtable_type)
  {
  	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
- 	void *ptr = (void *)__get_free_page(GFP_PGTABLE_KERNEL & ~__GFP_ZERO);
-@@ -480,23 +489,26 @@ static phys_addr_t __pgd_pgtable_alloc(int shift)
- 	return __pa(ptr);
- }
+-	void *ptr = (void *)__get_free_page(GFP_PGTABLE_KERNEL & ~__GFP_ZERO);
++	struct ptdesc *ptdesc = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO, 0);
++	phys_addr_t pa;
  
--static phys_addr_t pgd_pgtable_alloc(int shift)
-+static phys_addr_t pgd_pgtable_alloc(enum pgtable_type pgtable_type)
- {
--	phys_addr_t pa = __pgd_pgtable_alloc(shift);
-+	phys_addr_t pa = __pgd_pgtable_alloc(pgtable_type);
- 	struct ptdesc *ptdesc = page_ptdesc(phys_to_page(pa));
+-	BUG_ON(!ptr);
+-	return __pa(ptr);
+-}
+-
+-static phys_addr_t pgd_pgtable_alloc(enum pgtable_type pgtable_type)
+-{
+-	phys_addr_t pa = __pgd_pgtable_alloc(pgtable_type);
+-	struct ptdesc *ptdesc = page_ptdesc(phys_to_page(pa));
++	BUG_ON(!ptdesc);
++	pa = page_to_phys(ptdesc_page(ptdesc));
  
- 	/*
- 	 * Call proper page table ctor in case later we need to
- 	 * call core mm functions like apply_to_page_range() on
- 	 * this pre-allocated page table.
--	 *
--	 * We don't select ARCH_ENABLE_SPLIT_PMD_PTLOCK if pmd is
--	 * folded, and if so pagetable_pte_ctor() becomes nop.
- 	 */
--	if (shift == PAGE_SHIFT)
-+	switch (pgtable_type) {
-+	case TABLE_PTE:
- 		BUG_ON(!pagetable_pte_ctor(NULL, ptdesc));
--	else if (shift == PMD_SHIFT)
-+		break;
-+	case TABLE_PMD:
- 		BUG_ON(!pagetable_pmd_ctor(NULL, ptdesc));
-+		break;
-+	default:
-+		break;
-+	}
- 
+-	/*
+-	 * Call proper page table ctor in case later we need to
+-	 * call core mm functions like apply_to_page_range() on
+-	 * this pre-allocated page table.
+-	 */
+ 	switch (pgtable_type) {
+ 	case TABLE_PTE:
+-		BUG_ON(!pagetable_pte_ctor(NULL, ptdesc));
++		BUG_ON(!pagetable_pte_ctor(mm, ptdesc));
+ 		break;
+ 	case TABLE_PMD:
+-		BUG_ON(!pagetable_pmd_ctor(NULL, ptdesc));
++		BUG_ON(!pagetable_pmd_ctor(mm, ptdesc));
+ 		break;
+ 	default:
+ 		break;
+@@ -513,6 +504,18 @@ static phys_addr_t pgd_pgtable_alloc(enum pgtable_type pgtable_type)
  	return pa;
  }
+ 
++static phys_addr_t __maybe_unused
++pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
++{
++	return __pgd_pgtable_alloc(&init_mm, pgtable_type);
++}
++
++static phys_addr_t
++pgd_pgtable_alloc_special_mm(enum pgtable_type pgtable_type)
++{
++	return __pgd_pgtable_alloc(NULL, pgtable_type);
++}
++
+ /*
+  * This function can only be used to modify existing table entries,
+  * without allocating new levels of table. Note that this permits the
+@@ -542,7 +545,7 @@ void __init create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
+ 		flags = NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+ 
+ 	__create_pgd_mapping(mm->pgd, phys, virt, size, prot,
+-			     pgd_pgtable_alloc, flags);
++			     pgd_pgtable_alloc_special_mm, flags);
+ }
+ 
+ static void update_mapping_prot(phys_addr_t phys, unsigned long virt,
+@@ -756,7 +759,7 @@ static int __init map_entry_trampoline(void)
+ 	memset(tramp_pg_dir, 0, PGD_SIZE);
+ 	__create_pgd_mapping(tramp_pg_dir, pa_start, TRAMP_VALIAS,
+ 			     entry_tramp_text_size(), prot,
+-			     __pgd_pgtable_alloc, NO_BLOCK_MAPPINGS);
++			     pgd_pgtable_alloc_init_mm, NO_BLOCK_MAPPINGS);
+ 
+ 	/* Map both the text and data into the kernel page table */
+ 	for (i = 0; i < DIV_ROUND_UP(entry_tramp_text_size(), PAGE_SIZE); i++)
+@@ -1362,7 +1365,7 @@ int arch_add_memory(int nid, u64 start, u64 size,
+ 		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+ 
+ 	__create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+-			     size, params->pgprot, __pgd_pgtable_alloc,
++			     size, params->pgprot, pgd_pgtable_alloc_init_mm,
+ 			     flags);
+ 
+ 	memblock_clear_nomap(start, size);
 -- 
 2.47.0
 
