@@ -4,136 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29ACCC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 22:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0723C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 22:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98nLlPYT+VTzspfa339eHkagfVUGyHyGGsVV5kY2nSQ=; b=021rpdpE5c0iGhm4cJnDNB6EAw
-	KvgKriqo8fJUz6L8O9Jl6bWAp9Zi+txs1RNREbMF0PDR8O2nmawdGDc3kpcqBGLyuyA5BVx8QTPZc
-	T7qXMXncswaIMwvt/pp3n4uby0wSNwXZYeCXqnYj0Tki8zLF+whpynGKhGnLXy2uTeMY4VV6k6bbU
-	ke4MZHStJ7gpK5dYaUTRYi0ss9JgRMJP/uhbaG+BT9Znl8jAsUEf00ZpTSZ16vA9X3Swb/kJMpzvQ
-	oUazsVPou9cTJlM9MS+8eUNa5HSjzE6wV6MPKoRlqNmAkLvFvTCTzTj3Ue//TEkz9w5PR0J623H/D
-	DkWeF11Q==;
+	bh=daTWqN3jpxe4gC1xN/OLC1sxScqhKfxGORcCNJ0vXEk=; b=tfEDWJhsL3pv1PHlegqnaA6qSY
+	tku/dGxacIoV5EjHRrWY9bAsKbxh32GKs20UyA9TouP+UlTDeCkAEldAf1szsPo68lqm64g+1E0DM
+	pbbEXpXgYMVq9Dsrvt1fB7B2xiJjBKObVd+C55S9drAqO20S3K9W4vQmeAe+wC+bYzprVkH2CXtbd
+	tgpmChBSYodC6hDCvJ+tGcGp77vKvYnhKI7US9z5j6btbjAI1K7ADTPHwK7gbjM7EKIYuzauwaFjR
+	rLTPW5wqjmEncCgqg5/+E3maGLY7JNDU2sS78D22jYT0a2gMJI/63BnskxdEKfbCEiSU1h1cU7rVn
+	5Jv+dWdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2HJX-00000005Yc1-25E2;
-	Tue, 08 Apr 2025 22:21:03 +0000
+	id 1u2HUb-00000005acl-17sT;
+	Tue, 08 Apr 2025 22:32:29 +0000
 Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2HCK-00000005XYh-1Axm
+	id 1u2HSl-00000005aJT-1HE9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 22:13:38 +0000
-Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250408221328epoutp015470c792cc870337c81f04a43c0076bb~0d45HkKk21592015920epoutp01p
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Apr 2025 22:13:28 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250408221328epoutp015470c792cc870337c81f04a43c0076bb~0d45HkKk21592015920epoutp01p
+	Tue, 08 Apr 2025 22:30:39 +0000
+Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250408223028epoutp0119f0b7d557532c71eb7d210a4b90b8bb~0eHvNM0FF3021430214epoutp01T
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  8 Apr 2025 22:30:28 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250408223028epoutp0119f0b7d557532c71eb7d210a4b90b8bb~0eHvNM0FF3021430214epoutp01T
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1744150408;
-	bh=98nLlPYT+VTzspfa339eHkagfVUGyHyGGsVV5kY2nSQ=;
+	s=mail20170921; t=1744151428;
+	bh=daTWqN3jpxe4gC1xN/OLC1sxScqhKfxGORcCNJ0vXEk=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Tq/1zFm5e6HXdip/B1Uqg5Q5mO9QC52Stzg95+Fw8Gs0Xgllmd6ZgUJMFEZjsghNC
-	 uIWWFPKj7aRS6iahiv/ln0fyFJqJCJAWnvvZenA04F/A9ZjfDB8vLby5f9e979UaBA
-	 /tYyjzroN2YZ+C4SJWGUg9Tzy/bbZyiCsaP68mmw=
+	b=O54uKXscZZFj6S40bjZeiRkp9xtVaYplzZ0rjYc44afw6JGLy+MNK4KUuJLuHYDqK
+	 HisCgC1y73+rZN+uvY3N1/HCTvJAhvPGApfB6DKOIV4mb0gjoRdcqEw7F7bFX6+eG8
+	 Pl3pXZZLUZWhaJiv2AXo0aYXgRUtoYv7cfL/tVPg=
 Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250408221327epcas2p4d4199845dd58741a72b446173060bd0a~0d44YY62L0708307083epcas2p40;
-	Tue,  8 Apr 2025 22:13:27 +0000 (GMT)
-Received: from epsmgec2p1-new.samsung.com (unknown [182.195.36.97]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZXL1z1l5lz3hhT3; Tue,  8 Apr
-	2025 22:13:27 +0000 (GMT)
-Received: from epcas2p3.samsung.com ( [182.195.41.55]) by
-	epsmgec2p1-new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	0D.FD.37303.78F95F76; Wed,  9 Apr 2025 07:13:27 +0900 (KST)
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250408223028epcas2p25b57e53d0407f0b8150567e1286aeb93~0eHun056R1115911159epcas2p2w;
+	Tue,  8 Apr 2025 22:30:28 +0000 (GMT)
+Received: from epsmges2p1.samsung.com (unknown [182.195.36.101]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZXLPb3VQJz3hhTF; Tue,  8 Apr
+	2025 22:30:27 +0000 (GMT)
+Received: from epcas2p2.samsung.com ( [182.195.41.54]) by
+	epsmges2p1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	A7.E0.09787.383A5F76; Wed,  9 Apr 2025 07:30:27 +0900 (KST)
 Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
 	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250408221326epcas2p24b455e5a9f65dff52807a3a0010eff9a~0d43GJ9xt1382213822epcas2p2M;
-	Tue,  8 Apr 2025 22:13:26 +0000 (GMT)
+	20250408223026epcas2p220582f5c0401b442921cda2571c595ec~0eHtfGNlY1108211082epcas2p2y;
+	Tue,  8 Apr 2025 22:30:26 +0000 (GMT)
 Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
 	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250408221326epsmtrp15bda4a714b1657db260153597e377797~0d43Fb2SQ1774717747epsmtrp16;
-	Tue,  8 Apr 2025 22:13:26 +0000 (GMT)
-X-AuditID: b6c32a4d-541ff700000091b7-34-67f59f87d99c
+	20250408223026epsmtrp190cac27ccbda6e1095b0d3de9988e5fc~0eHtdet3W2762627626epsmtrp1L;
+	Tue,  8 Apr 2025 22:30:26 +0000 (GMT)
+X-AuditID: b6c32a45-9d3ff7000000263b-d8-67f5a38312dc
 Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
 	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	51.41.19478.68F95F76; Wed,  9 Apr 2025 07:13:26 +0900 (KST)
+	9D.C1.19478.283A5F76; Wed,  9 Apr 2025 07:30:26 +0900 (KST)
 Received: from tiffany (unknown [10.229.95.142]) by epsmtip1.samsung.com
 	(KnoxPortal) with ESMTPA id
-	20250408221326epsmtip184585f5a670a2dd4bd418068c2ee1230~0d4229ybz1185811858epsmtip1E;
-	Tue,  8 Apr 2025 22:13:26 +0000 (GMT)
-Date: Wed, 9 Apr 2025 07:11:47 +0900
+	20250408223026epsmtip179dd352b2cf00b65b0d651d4cc0deb9c~0eHtRIngR2246222462epsmtip1D;
+	Tue,  8 Apr 2025 22:30:26 +0000 (GMT)
+Date: Wed, 9 Apr 2025 07:28:51 +0900
 From: Donghyeok Choe <d7271.choe@samsung.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Youngmin Nam <youngmin.nam@samsung.com>, Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Saravana Kannan
-	<saravanak@google.com>, Sudeep Holla <sudeep.holla@arm.com>, Ulf Hansson
-	<ulf.hansson@linaro.org>, Vincent Guittot <vincent.guittot@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com, hajun.sung@samsung.com, joonki.min@samsung.com,
-	ne.yoo@samsung.com, Donghyeok Choe <d7271.choe@samsung.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Youngmin Nam <youngmin.nam@samsung.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, Thomas Gleixner <tglx@linutronix.de>, Saravana
+	Kannan <saravanak@google.com>, Ulf Hansson <ulf.hansson@linaro.org>, Vincent
+	Guittot <vincent.guittot@linaro.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com,
+	hajun.sung@samsung.com, joonki.min@samsung.com, ne.yoo@samsung.com,
+	Donghyeok Choe <d7271.choe@samsung.com>
 Subject: Re: [GICv3 ITS]S2IDLE framework does not invoke syscore_ops in
  GICv3 ITS driver
-Message-ID: <20250408221147.GA2187207@tiffany>
+Message-ID: <20250408222851.GB2187207@tiffany>
 MIME-Version: 1.0
-In-Reply-To: <20250408-transparent-daft-dog-ec2a74@sudeepholla>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrHJsWRmVeSWpSXmKPExsWy7bCmuW77/K/pBrv6OC2u7Z3IbtG0/xKz
-	xdXd75gtdmwXsdj0+BqrxeVdc9gsds45yWqx7HgXq0XXob9sFstP7WCx2LxpKrPF8bXhFh1H
-	vjFbLD7wid2Bz2Pb7m2sHmvmrWH0WLCp1GPTqk42jzvX9rB5vDt3jt1j85J6j74tqxg9Pm+S
-	C+CMyrbJSE1MSS1SSM1Lzk/JzEu3VfIOjneONzUzMNQ1tLQwV1LIS8xNtVVy8QnQdcvMAbpc
-	SaEsMacUKBSQWFyspG9nU5RfWpKqkJFfXGKrlFqQklNgXqBXnJhbXJqXrpeXWmJlaGBgZApU
-	mJCdMetcD2tBi3LFzx17WRsYl0h3MXJwSAiYSJxabtTFyMUhJLCHUeLan/2MEM4nRomfSyaw
-	wTkzf09l6mLkBOt49mADO0RiJ6PExdd7WSCcp0DO4sXsIFUsAioSpze8ZQSx2QR0JSZ1bmMD
-	sUUE1CWWnN0CFmcWeM4s0fCmEuQOYYEoicftcSBhXgE9iTl/FrFB2IISJ2c+YQGxOQXsJdrn
-	zgVbLCFwhENi64TZbBAXuUgcftcFdZ2wxKvjW9ghbCmJl/1tUA3NjBKTbrxmgnBmMEpcmfwZ
-	qsNYYtazdqiLMiSuntrJAgkZZYkjt1ggwnwSHYf/skOEeSU62oQgOlUkzvc9YITZtWHuW6iJ
-	HhK3T59nhQTKa2aJn21TmSYwys1C8tAsJNtmAY1lFtCUWL9LHyIsL9G8dTYzRFhaYvk/DiQV
-	CxjZVjFKpRYU56anJhsVGOrmpZbDIzw5P3cTIzhha/nuYHy9/q/eIUYmDsZDjBIczEoivG8n
-	fkkX4k1JrKxKLcqPLyrNSS0+xGgKjKuJzFKiyfnAnJFXEm9oYmlgYmZmaG5kamCuJM576OPT
-	dCGB9MSS1OzU1ILUIpg+Jg5OqQamaJXPiz6dnxSwhLkmLlx44eoZFRy3amSWC4pwXPXe5+k+
-	ZUXOW+5/k/IOPrQ43qi4ImZ1W+a1F+84nfJk2D82xh6/e+9NrOJkieMctfsFuy9MM//9XCB3
-	ntuZY1/mXK63urtycsXThV0b3Rf3n1JUk684sm03kz/jbP0tTnz2/4zfmj+4UzHn/LonodH7
-	rsSzfnLvq7bd02j45vk7of8Ore+kVQtvJeWYfnjMHrG6Sl+3I+ANS+1tqcquP4odK++wHTu1
-	5k25+0Nm29kP1a77sW32nXy8XHlx7Bw1vpk7/tS+azq/Kt7g31FbL/nZe3vPmyy3nHVqgkDY
-	I24X53jzv5MtmuytF9w/fEg7TvbnZyWW4oxEQy3mouJEADxurJJhBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprBIsWRmVeSWpSXmKPExsWy7bCSnG7b/K/pBhfniFtc2zuR3aJp/yVm
+In-Reply-To: <86tt6zkux7.wl-maz@kernel.org>
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrKJsWRmVeSWpSXmKPExsWy7bCmmW7z4q/pBjsXi1pc2zuR3aJp/yVm
 	i6u73zFb7NguYrHp8TVWi8u75rBZ7JxzktVi2fEuVouuQ3/ZLJaf2sFisXnTVGaL42vDLTqO
 	fGO2WHzgE7sDn8e23dtYPdbMW8PosWBTqcemVZ1sHneu7WHzeHfuHLvH5iX1Hn1bVjF6fN4k
-	F8AZxWWTkpqTWZZapG+XwJUxdeUdxoJlChVvLm5kbGB8JNHFyMkhIWAi8ezBBnYQW0hgO6NE
-	90EHiLiURPuWmUwQtrDE/ZYjrF2MXEA1jxkl2npOgiVYBFQkTm94ywhiswnoSkzq3MYGYosI
-	qEssObsFLM4s8JZZ4umMABBbWCBKYs/baWC9vAJ6EnP+LGKDGDqbWeLn/nvMEAlBiZMzn7BA
-	NKtL/Jl3CSjOAWRLSyz/xwERlpdo3jobrJxTwF6ife5c9gmMgrOQdM9C0j0LoXsWku4FjCyr
-	GEVTC4pz03OTCwz1ihNzi0vz0vWS83M3MYIjTytoB+Oy9X/1DjEycTAeYpTgYFYS4X078Uu6
-	EG9KYmVValF+fFFpTmrxIUZpDhYlcV7lnM4UIYH0xJLU7NTUgtQimCwTB6dUA1PZlYSbdYEh
-	fjmH1HbFW67mXbTELFvUyXDFkytea5f07bw74QrfoV1cLgt/qeSv2Ze63uqB+r7LF5jqBU/c
-	vb64KP7845cH93L43C0Le7Ol9ebDN3UhX69/m8DktTA+zvaDfZbsHH++3MOKnYXPJ/a2zphh
-	MU1NW4BzuoGr2Nkz9+X+mXj9Ub4htqhd+fHnM2+br7JeWfv/icFKzYpQzvzG+Cns/LvO/Pey
-	l/fdbntkuQ/HWR6LtIZF8466hbeeLrtQebDB4s4cvz9+obza827xT75xn2G38ssfuTs8p++1
-	8jG2MUyu1Hif+ddUY9UWQfs8zbJY2eeVTkdb85T6sjMVfqo8vWZ9+G/IO5ZzT7SUWIozEg21
-	mIuKEwFvcbiBKwMAAA==
-X-CMS-MailID: 20250408221326epcas2p24b455e5a9f65dff52807a3a0010eff9a
+	F8AZlW2TkZqYklqkkJqXnJ+SmZduq+QdHO8cb2pmYKhraGlhrqSQl5ibaqvk4hOg65aZA3S5
+	kkJZYk4pUCggsbhYSd/Opii/tCRVISO/uMRWKbUgJafAvECvODG3uDQvXS8vtcTK0MDAyBSo
+	MCE74/zNxIIzvBVTdzWyNjDO5O5i5OCQEDCR2LletYuRi0NIYAejxLSGX8xdjJxAzidGiTv/
+	kiASQPa9hxPYQRIgDb1v/7FCJHYyStyYPp0VouMpo8SVaREgNouAisSa1TuYQGw2AV2JSZ3b
+	2EBsEQFFiU8XTjKCNDMLnGCWmDe9lxHkDGGBKInH7XEgNbwCehJ/5u9hg7AFJU7OfMICUsIp
+	oC0x7WwJxNFHOCT+uEOc4yJxdet6qNOEJV4d3wJlS0m87G9jB9kkIdDMKDHpxmsmCGcG0JmT
+	PzNBVBlLzHrWzghiMwtkSKyado4VYoGyxJFbLBBhPomOw3/ZIcK8Eh1tQhCdKhLn+x4wwuza
+	MPct1EQPiXUTLzJCgucqs8T+64fYJjDKzULyzSwk22YBjWUW0JRYv0sfIiwv0bx1NjNEWFpi
+	+T8OJBULGNlWMYqlFhTnpqcWGxUYwuM5OT93EyM4PWu57mCc/PaD3iFGJg7GQ4wSHMxKIrxv
+	J35JF+JNSaysSi3Kjy8qzUktPsRoCoylicxSosn5wAyRVxJvaGJpYGJmZmhuZGpgriTOe+jj
+	03QhgfTEktTs1NSC1CKYPiYOTqkGpj3/4v/+vHr93Rtx3d1pkaycfy8lKe7+ccdHjjvA58P8
+	6UKv9QLdtCZPqpkt8dz/ld8f5rR7yc6s/zjyyr3fTotWDpvQfUjlcUyicIct36TVeZOuLLk/
+	rWLT7OPf+k0vZavND362O6f9eb/bFI3U9N1eB/zPfDfSmt2ku3Lh2rmTunLElrzlOiSYqeH6
+	Yz8fW3SYtEliypONtd82HfbZ9ih2RvRu973MQsHWHvNf1rg4nujenrRYfv0ah59ZP5UdZ0bv
+	nepy7YGYht8u9k/imh+2if0XkeZ6PdHhw+Ibj784lMl4F/70nnwj+Z/H2zXOorPMovk9J6dx
+	rfpn0pbrmdw4U13YTuT/2kfMjkn65kosxRmJhlrMRcWJAKgQJA1YBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprJIsWRmVeSWpSXmKPExsWy7bCSnG7T4q/pBnOfmVhc2zuR3aJp/yVm
+	i6u73zFb7NguYrHp8TVWi8u75rBZ7JxzktVi2fEuVouuQ3/ZLJaf2sFisXnTVGaL42vDLTqO
+	fGO2WHzgE7sDn8e23dtYPdbMW8PosWBTqcemVZ1sHneu7WHzeHfuHLvH5iX1Hn1bVjF6fN4k
+	F8AZxWWTkpqTWZZapG+XwJWxcv8atoJ3XBX7fjSxNjBe5+hi5OSQEDCR6H37j7WLkYtDSGA7
+	o8TEGTNZIRJSEu1bZjJB2MIS91uOQBU9ZpRo/fMArIhFQEVizeodYEVsAroSkzq3sYHYIgKK
+	Ep8unGQEaWAWOMcscfbqXmaQhLBAlMSet9PAGngF9CT+zN/DBjG1nVni8Pk2VoiEoMTJmU9Y
+	QGxmAXWJP/MuATVzANnSEsv/cUCE5SWat84GC3MKaEtMO1sygVFwFpLmWUiaZyE0z0LSvICR
+	ZRWjaGpBcW56bnKBoV5xYm5xaV66XnJ+7iZGcOxpBe1gXLb+r94hRiYOxkOMEhzMSiK8byd+
+	SRfiTUmsrEotyo8vKs1JLT7EKM3BoiTOq5zTmSIkkJ5YkpqdmlqQWgSTZeLglGpgKpt1keuD
+	1pSlXJNtAo7+bDle1Mj+0Ph31kqGyg4Rpl8lCfw9r/Wc+vvu7xM2tmaO+pjWHm379MTVgqCG
+	+CbVb1O2eptx2mfITXOXsplcOfNckOqFv32Rs9fE8HaF3fbtvSh5LvQVW72PVOCr6Xeszp84
+	6+Zh0hjwkyPpgjzHiudenVMdPePlfpavcVkbKlF/PcDwfRPXOv+DW3kyS/rTAmJabHKCuurz
+	Jl0VcVmosMXojq4zd/qUvAN2W+1+ty/wtxDp/fVairdGlIXvvPji4DSB37mSuz582SVe4ur0
+	ut7i5LmY/++DX/zRfZNmcV0i78OPEukPcVHCtwtj7jgcvnT7sjTz76dHp6gd+a/EUpyRaKjF
+	XFScCAANXZsKLAMAAA==
+X-CMS-MailID: 20250408223026epcas2p220582f5c0401b442921cda2571c595ec
 X-Msg-Generator: CA
 Content-Type: multipart/mixed;
-	boundary="----JAxyHCgdtJ96A8.Ok.gYWmZQmsTOHaTnMoXq.aDuWNAvXzgf=_baefa_"
+	boundary="----ieZh69edyBxzv2Y5Ggo8207PwRbI2z7mQ5FWfU8PsFoZKj2n=_bae2f_"
 X-Sendblock-Type: AUTO_CONFIDENTIAL
 CMS-TYPE: 102P
 DLP-Filter: Pass
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250408221326epcas2p24b455e5a9f65dff52807a3a0010eff9a
+X-CMS-RootMailID: 20250408223026epcas2p220582f5c0401b442921cda2571c595ec
 References: <Z+Nv8U/4P3taDpUq@perf> <8634f0mall.wl-maz@kernel.org>
 	<Z+TEa8CVAYnbD/Tu@perf> <20250402-messy-wild-squid-7b4da9@sudeepholla>
 	<Z+3kwsesiXyC0hbO@perf>
 	<20250403-rare-wasp-of-management-9bce59@sudeepholla>
 	<20250404041323.GA685160@tiffany>
 	<20250407-amiable-perfect-hummingbird-06ad83@sudeepholla>
-	<20250407225146.GA2858456@tiffany>
-	<20250408-transparent-daft-dog-ec2a74@sudeepholla>
-	<CGME20250408221326epcas2p24b455e5a9f65dff52807a3a0010eff9a@epcas2p2.samsung.com>
+	<20250407225146.GA2858456@tiffany> <86tt6zkux7.wl-maz@kernel.org>
+	<CGME20250408223026epcas2p220582f5c0401b442921cda2571c595ec@epcas2p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_151336_938209_C05FE158 
-X-CRM114-Status: GOOD (  42.77  )
+X-CRM114-CacheID: sfid-20250408_153037_580372_A597408B 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,126 +147,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------JAxyHCgdtJ96A8.Ok.gYWmZQmsTOHaTnMoXq.aDuWNAvXzgf=_baefa_
+------ieZh69edyBxzv2Y5Ggo8207PwRbI2z7mQ5FWfU8PsFoZKj2n=_bae2f_
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 Content-Disposition: inline
 
-On Tue, Apr 08, 2025 at 11:46:40AM +0100, Sudeep Holla wrote:
-> On Tue, Apr 08, 2025 at 07:51:46AM +0900, Donghyeok Choe wrote:
+On Tue, Apr 08, 2025 at 07:51:32AM +0100, Marc Zyngier wrote:
+> On Mon, 07 Apr 2025 23:51:46 +0100,
+> Donghyeok Choe <d7271.choe@samsung.com> wrote:
+> > 
+> > [1  <text/plain; us-ascii (7bit)>]
 > > On Mon, Apr 07, 2025 at 10:17:43AM +0100, Sudeep Holla wrote:
-> > > On Fri, Apr 04, 2025 at 01:13:23PM +0900, Donghyeok Choe wrote:
-> > > > On Thu, Apr 03, 2025 at 10:18:54AM +0100, Sudeep Holla wrote:
-> > > > > /me more confused.
-> > > > > 
-> > > > > Are you saying you have some cpuidle platform specific logic inside
-> > > > > trace_android_vh_cpuidle_psci_enter(). I would assume it was just to
-> > > > > trace the entry into the state and nothing more.
-> > > > 
-> > > > If you have any further questions, feel free to reach out.
-> > > > 
-> > > 
-> > > I was trying to understand the difference in behaviour between normal
-> > > cpuidle entering the same deepest state that is entered in s2idle state.
-> > > I assume GIC doesn't loose power and no need for GIC ITS save/restore
-> > > in normal cpuidle path ?
-> > >
-> > > If so, what triggers the GIC suspend in s2idle path if syscore_ops is
-> > > not getting called ?
-> > >
-> > > Why would the firmware pull the plug on GIC ?
-> > 
-> > The GIC loses power. It is powered down to the same level as during suspend.
-> > Therefore, it became necessary to perform GIC ITS save/restore through
-> > a method other than the GIC ITS syscore path.
-> > To help with better understanding, I will write a pseudo code.
-> > 
-> > void mimic_syscore_suspend()
-> > {
-> > 	/* Perform the actions required to power off all cores. */
-> > 	...
-> > 	its_save_disable();
-> > }
-> > 
-> > void android_vh_cpuidle_psci_enter_handler(... bool s2idle)
-> > {
-> > 
-> > 	if (!s2idle)
-> > 		return;
-> > 
-> > 	set_cpu_powerdown_mark();
-> > 
-> > 	if (cpu != booting core)
-> > 		return;
-> > 
-> > 	/* only booting core here */
-> > 	mimic_syscore_suspend()
-> > }
-> > 
-> > void mimic_syscore_resume()
-> > {
-> > 	...
-> > 	its_restore_enable();
-> > }
-> > 
-> > void android_vh_cpuidle_psci_exit_handler(... bool s2idle)
-> > {
-> > 	if (!s2idle)
-> > 		return;
-> > 
-> > 	if (cpu == booting core)
-> > 		mimic_syscore_resume();
-> > 
-> > 	set_cpu_poweron_mark();
-> > }
-> > 
-> > All cores will be marked as powered down when the HVC/SMC call for
-> > CPU suspend is invoked. When all cores call the suspend function,
-> > the firmware will recognize the powerdown mark and transition
-> > the system into suspend. At this point, the entire GIC will also
-> > be powered off.
-> > In a cpuidle situation that is not s2idle, the cores do not mark
-> > CPU powerdown, so the GIC ITS save/restore operation is neither
-> > performed nor necessary.
-> > 
-> 
-> OK, I understood. In short, you create problems by hacking up or misusing
-> your trace handlers in ways it shouldn't be, and now you are t/crying to
-> solve those problems.
 > 
 > > > Do you use any suspend/resume logic in drivers/irqchip/irq-gic-pm.c ?
 > > No, there are parts of the GIC that require secure access, so the
 > > GIC save/restore is performed by the firmware.
 > > Since the GIC-ITS is entirely controlled as a non-secure IP,
 > > I think it is more efficient to perform save/restore in the kernel.
-> > 
 > 
-> I can understand that part, but my hacking up things the way you have
-> shown above, though you may think you have achieved some feature very
-> smartly, you have just dug up the hole with issues you are facing now.
-> 
-> The only reason IIUC s2idle info is used is to identify when the RPM
-> is disabled. You are using that info to manage GIC power state.
-> 
-> The CPU deepest idle states entered in the normal and s2idle must be
-> same. If you want to still achieve extra power save with GIC powerdown
-> make it completely transparent to the OS.
+> More efficient? Give me *one* aspect of this save/restore sequence
+> that is done in a more efficiently way in the kernel. Dumping MMIO
+> accesses into memory has the exact same cost at EL1, El2 or EL3, and
+> splitting things along an arbitrary line to paper over bad firmware is
+> not a valid argument.
 
-First of all, thank you.
-You're clearly pointing out the painful truth.
-I’m well aware that this approach isn’t ideal.
+If I had to highlight just one efficiency gain — it's that I get to
+reuse well-tested and well-written save/restore code without
+reinventing the wheel (or worse, reinventing a square one).
+And as for bad firmware... I guess it deserves the punishment
+of handling GIC ITS save/restore.
 
-Following your advice, I’ll do my best to keep things
-as clear and transparent as possible.
-My goal was to explain the situation we’re facing, and I feel
-like I’ve managed to do that — so I’m glad about that.
+That said, I truly appreciate your insight, and I’ll make an effort
+to avoid relying on such suboptimal kernel usage going forward.
 
 Best regards,  
 Donghyeok Choe
 
-------JAxyHCgdtJ96A8.Ok.gYWmZQmsTOHaTnMoXq.aDuWNAvXzgf=_baefa_
+------ieZh69edyBxzv2Y5Ggo8207PwRbI2z7mQ5FWfU8PsFoZKj2n=_bae2f_
 Content-Type: text/plain; charset="utf-8"
 
 
-------JAxyHCgdtJ96A8.Ok.gYWmZQmsTOHaTnMoXq.aDuWNAvXzgf=_baefa_--
+------ieZh69edyBxzv2Y5Ggo8207PwRbI2z7mQ5FWfU8PsFoZKj2n=_bae2f_--
 
