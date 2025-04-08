@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87424C369A4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19266C3600C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f3Q51sZ60y2IRit4uwnvdvwQuRZcBvSxnxMj6vQGFPQ=; b=HEcvegcKOcSNy5r5dOuSSQluOW
-	aKA0sr9Xdjwd8xNf+62X1L9Ib3hGFATUWeqVN3c3RNsRhA4S3LGND5p8fnQ2s7fbf0kWCHBUl6xPT
-	VPWsxps75xqmqAtfuCuC6lk6vIg+9S8ODy16i1uU+je3525skL+OqQutlWnlcoUWSL38gCK6ni4s4
-	mGRs9SQ6xEm1IAwxNzxYIOa330KRVmZACwJLegT774Kvux+Go5fcmIKAkomKJvo+JXhKQmj1Yi9Tm
-	5v1aUOhFuMqcp7bHaU1Tws+uxi48GR84iTrlHufqFkQiotfBMPO4uCQG8koR/XL0SyW0Ki4zPfVCj
-	Yt0dsRRg==;
+	bh=s/WjN8Qr9aQHD0ucNMPA8YXauZwdz7L+HtyPQl0gBcw=; b=dYkaGyVSHFNohJkkBCNd+qTtM7
+	d1fvrheKpOsM9mOXDnTRBmOGydn9YUiXIcKaopsObmztompkwawN6y1c1++rO0w0K9tb/XJmFOGiv
+	MywOZFBjFfMgyJLHyqhu0szScM76sl06D34suJZxo6JPWW6hx3EwTeIvCELGke7mBI4dyKUUCpNlY
+	kaLdnx1mwkZYux6IUR1jJudXxdsP5re6s3mTTJEVI61TMtJbzclRQ5bq51aTLnfvOtM20/JQAr52I
+	wyweaDV8HJsqXy8NYZfpDKg5BZI7NshrzpK0t1urI2EmHuOAVyaELKgEops18IE+zCub0uWj351mq
+	BbWl7uMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28lj-000000045yc-2cOg;
-	Tue, 08 Apr 2025 13:13:35 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1u28lu-0000000469Q-06Y2;
+	Tue, 08 Apr 2025 13:13:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26XC-00000003k2L-2dyc;
-	Tue, 08 Apr 2025 10:50:31 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7369ce5d323so4212271b3a.1;
-        Tue, 08 Apr 2025 03:50:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744109426; x=1744714226; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f3Q51sZ60y2IRit4uwnvdvwQuRZcBvSxnxMj6vQGFPQ=;
-        b=fNDDCxfFKS+u6xnRWloRwmD2LMSN45Ncq9cojY2sB2QplWeydpuF07qUgcfheHu2Rt
-         EehK7ZhvWOoHB7F2dh3mDQHcWnH9jNDh7hvbBe6usedJCLmH9T6QUdBhhfYVSZ7Joylz
-         PpQ8+g3r6NuAVz+u9I0nXWRhFH+ooWCxtwdRb3XdKACxoM6kh8VxSxJHzTp2JANHwxF1
-         zxY0xB+SP9VFdK7btvWqQbERz3LJhOKeQP79Zv2QBln3asQ9h+Kvegx11+rYir9qiA+Z
-         5gotKdyzyj/IUR3BoknXwc8Zm6piTqFx7fpPLj/u8rc2sodJn1nD8CP3m3dnVEtSn49M
-         sdaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744109426; x=1744714226;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f3Q51sZ60y2IRit4uwnvdvwQuRZcBvSxnxMj6vQGFPQ=;
-        b=G5VOaE1iV6/JC+l5j7YMViL4PDwQNfkWBnX9LotUgWt4p01BYkzwJrxPYI9Snb/EIQ
-         P2g+S9eCJXVRmSuMFF/y7sQfHjJdnZksbGyLT2o94Nib7WD7mIXuzqGN7Gdu597jhjRB
-         oNKVQYELqr9IJEe2rcQNk5y2LMpj+q1CMcNCG6Y51vTG97l0jOC7nE3x+NbncpFC0VwU
-         9u9Dxe8FW6vvj0ivOSzr+HgHWEr2PlbqQ3D9hJTu1Vppti+YP1Bdbs9oq8zQ5p0fMP1/
-         /zxbq9S0vz53tcGSe4f85eKda2xhe12B3CoSszrbsyU0PACquwFu1P70k/8TIbegukOP
-         kfgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWN+PVbgla6NIqDdX5X9ItksqJlLcnrvBmajk5ZjhTDyGNsHxPIUt23agG3K/m4Op9/T6a5U0US0V2hlhHUvTwN@lists.infradead.org
-X-Gm-Message-State: AOJu0YygPwdUDEFb0oBVJBLEVq9T/C2UqtihiDJVWMzxr+S1K/nSVFaT
-	c3tLyIhp9d3V6awNrSaFiVx6NDARewRt171zXRL9yh2vw6n2zkh+P9EBbpivxj7dLUish3TI/ZT
-	mRcawtXm7ss5MnpC6L4MhUCl1GyE=
-X-Gm-Gg: ASbGncvNhj/NM7fuuZMIhuq4Lx/7NvL5seUwC7nK9tpsAp4K7ufNZHntH0LHpN0SgAi
-	oaR8ownhbdWpkgdzT4875TFCztMybGpcO2PAGOQonMNEM6ZYSIoF2G2EM7gY+t2GTu2NwMa12uX
-	AuSh5BxuXCGpUolDjstcgD8gMoiaegw5Q/424FwQ==
-X-Google-Smtp-Source: AGHT+IFSFb+27H971KbXVzz4EA/pQ4KZ6RM/00kknTpi6QdSo41B8akPVUKL+TDvHdXUVTdc2mjINkgXv5Uk3yDpFHE=
-X-Received: by 2002:a17:90b:350f:b0:2fc:ec7c:d371 with SMTP id
- 98e67ed59e1d1-306a60e4acbmr19761690a91.3.1744109425696; Tue, 08 Apr 2025
- 03:50:25 -0700 (PDT)
+	id 1u26ZR-00000003kaV-2y4V
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Apr 2025 10:52:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=s/WjN8Qr9aQHD0ucNMPA8YXauZwdz7L+HtyPQl0gBcw=; b=JDxYkoU3/DcqR08HPiSqwmjJn4
+	iyCefQ1zto9VbNkZZwYraVwEL9VJVW5IutiFtmoq9mk+3nyIM6PC+9cyeFc5FXnM+CbCKXEYFTL1F
+	lqL9gwq7AwZwyhQvZUBzORijqR3phjnEwWSjA0ssjIGRuPobsnYx7kAVbX0w03zhGl6CNOGmaie+M
+	VTk0bvDBV5Hy+yN6AtHJOcBYbe4u2XeByZ9VIpxj7r36a73YoeLHF54kB/Vu2NsOZfjK7k3mKliVZ
+	rQ1dtvz64o65B3GTQpogMRsc8XS0fPCZS4AiOaigBW8z/VUonTDdexHgJokOY2sLKS3rfBceHwdtL
+	YVqJ0tyA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u26ZO-00000008GRc-3IBa
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 10:52:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3B7DF5C5C6B;
+	Tue,  8 Apr 2025 10:50:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECCB8C4CEEC;
+	Tue,  8 Apr 2025 10:52:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744109561;
+	bh=GZFvuOp7F5b/p4wbdhkNUZbcbM062HzxRDlGZgd/He8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=CBNlM/NiOZ5oFyi+8pn1ivPQmUIiqH8A9CyiabubLSfl6a/lXiYlNh9YTjG3NyGgi
+	 4RMuHObQeevvfvJ0VulOrNlCoqmh32ocbTPywJBF97cII0jnh9ncLuXItnQjVAbTjU
+	 5Nt6S3D1j0hV6Qty6vhcIFJxfNnjCGBjrxZRwElO1lj4an9qF8UqoVW3YUYSzLL2HG
+	 kz9TmNS/k7Hbk9N3MiUp+sDr5y2hFomESWuFmMaKG3QBhpAnqcaqohrKF48KZOqKKL
+	 tm/8qYelGM5gVBvT+4pwc20OypPLduRb7ise0YXNIYQ6gC+x2adXpo1feA8tqVAEhR
+	 tq9eA0Xl8XxMw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u26ZL-003QX2-5S;
+	Tue, 08 Apr 2025 11:52:39 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: [PATCH v2 11/17] KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU notifiers
+Date: Tue,  8 Apr 2025 11:52:19 +0100
+Message-Id: <20250408105225.4002637-12-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250408105225.4002637-1-maz@kernel.org>
+References: <20250408105225.4002637-1-maz@kernel.org>
 MIME-Version: 1.0
-References: <20250408063126.38904-1-eagle.alexander923@gmail.com> <3871892.kQq0lBPeGt@diego>
-In-Reply-To: <3871892.kQq0lBPeGt@diego>
-From: Alexander Shiyan <eagle.alexander923@gmail.com>
-Date: Tue, 8 Apr 2025 13:50:12 +0300
-X-Gm-Features: ATxdqUFHAHiaqii7LVTJPA3SVoeUA4jgiLCR4gVUptoIYcrxzRz4O4py-gVNqIc
-Message-ID: <CAP1tNvQtNY2GZ3HKUtaqKeMY-g7ie2CejDhbTZNYuipgXwif8Q@mail.gmail.com>
-Subject: Re: [PATCH 1/2] clk: rockchip: clk-pll: Fix CRU_xx_CON2 register usage
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: linux-rockchip@lists.infradead.org, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Kever Yang <kever.yang@rock-chips.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_035026_670947_83AB0729 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20250408_115243_086510_6DB9A0CF 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,72 +101,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello.
+During an invalidation triggered by an MMU notifier, we need to
+make sure we can drop the *host* mapping that would have been
+translated by the stage-2 mapping being invalidated.
 
-Yes, everything works as expected:
+For the moment, the invalidation is pretty brutal, as we nuke
+the full IPA range, and therefore any VNCR_EL2 mapping.
 
-# mw 0xfd7c01a8 0x00001234
-# md 0xfd7c01a8+4
-fd7c01a8: 00001234
-# mw 0xfd7c01a8 0x00005678
-# md 0xfd7c01a8+4
-fd7c01a8: 00005678
+At some point, we'll be more light-weight, and the code is able
+to deal with something more targetted.
 
-=D0=B2=D1=82, 8 =D0=B0=D0=BF=D1=80. 2025=E2=80=AF=D0=B3. =D0=B2 10:31, Heik=
-o St=C3=BCbner <heiko@sntech.de>:
->
-> Hi Alexander,
->
-> Am Dienstag, 8. April 2025, 08:31:25 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Alexander Shiyan:
-> > According to RK3588 TRM, CRU_(CPLL/GPLL/etc)_CON2 register
-> > (rate-k value) does not use highword write enable mask.
-> > Lets fix this.
-> >
-> > Signed-off-by: Alexander Shiyan <eagle.alexander923@gmail.com>
->
-> The commit message doesn't say, but did you check this on actual
-> hardware too?
->
-> Sometimes there is a disconnect between the TRM and actual hardware,
-> so the actual real-life situation should be checked.
->
->
-> As for a test-case, any write without write-mask to a register that
-> would require a write-mask would not come through.
-> So with your patch applied, does the register value change after
-> the write below when reading it back again?
->
->
-> Thanks
-> Heiko
->
->
-> > ---
-> >  drivers/clk/rockchip/clk-pll.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/clk/rockchip/clk-pll.c b/drivers/clk/rockchip/clk-=
-pll.c
-> > index 2c2abb3b4210..77ba4d6e7b5f 100644
-> > --- a/drivers/clk/rockchip/clk-pll.c
-> > +++ b/drivers/clk/rockchip/clk-pll.c
-> > @@ -959,7 +959,7 @@ static int rockchip_rk3588_pll_set_params(struct ro=
-ckchip_clk_pll *pll,
-> >                      HIWORD_UPDATE(rate->s, RK3588_PLLCON1_S_MASK, RK35=
-88_PLLCON1_S_SHIFT),
-> >                      pll->reg_base + RK3399_PLLCON(1));
-> >
-> > -     writel_relaxed(HIWORD_UPDATE(rate->k, RK3588_PLLCON2_K_MASK, RK35=
-88_PLLCON2_K_SHIFT),
-> > +     writel_relaxed((rate->k & RK3588_PLLCON2_K_MASK) << RK3588_PLLCON=
-2_K_SHIFT,
-> >                      pll->reg_base + RK3399_PLLCON(2));
-> >
-> >       /* set pll power up */
-> >
->
->
->
->
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/nested.c | 75 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 75 insertions(+)
+
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 06db2097eae58..c1572fe60555f 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -433,6 +433,30 @@ static unsigned int ttl_to_size(u8 ttl)
+ 	return max_size;
+ }
+ 
++static u8 pgshift_level_to_ttl(u16 shift, u8 level)
++{
++	u8 ttl;
++
++	switch(shift) {
++	case 12:
++		ttl = TLBI_TTL_TG_4K;
++		break;
++	case 14:
++		ttl = TLBI_TTL_TG_16K;
++		break;
++	case 16:
++		ttl = TLBI_TTL_TG_64K;
++		break;
++	default:
++		BUG();
++	}
++
++	ttl <<= 2;
++	ttl |= level & 3;
++
++	return ttl;
++}
++
+ /*
+  * Compute the equivalent of the TTL field by parsing the shadow PT.  The
+  * granule size is extracted from the cached VTCR_EL2.TG0 while the level is
+@@ -783,6 +807,53 @@ int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2)
+ 	return kvm_inject_nested_sync(vcpu, esr_el2);
+ }
+ 
++static void invalidate_vncr(struct vncr_tlb *vt)
++{
++	vt->valid = false;
++	if (vt->cpu != -1)
++		clear_fixmap(vncr_fixmap(vt->cpu));
++}
++
++static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
++{
++	struct kvm_vcpu *vcpu;
++	unsigned long i;
++
++	lockdep_assert_held_write(&kvm->mmu_lock);
++
++	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
++		return;
++
++	kvm_for_each_vcpu(i, vcpu, kvm) {
++		struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
++		u64 ipa_start, ipa_end, ipa_size;
++
++		/*
++		 * Careful here: We end-up here from an MMU notifier,
++		 * and this can race against a vcpu not being onlined
++		 * yet, without the pseudo-TLB being allocated.
++		 *
++		 * Skip those, as they obviously don't participate in
++		 * the invalidation at this stage.
++		 */
++		if (!vt)
++			continue;
++
++		if (!vt->valid)
++			continue;
++
++		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
++							    vt->wr.level));
++		ipa_start = vt->wr.pa & (ipa_size - 1);
++		ipa_end = ipa_start + ipa_size;
++
++		if (ipa_end <= start || ipa_start >= end)
++			continue;
++
++		invalidate_vncr(vt);
++	}
++}
++
+ void kvm_nested_s2_wp(struct kvm *kvm)
+ {
+ 	int i;
+@@ -795,6 +866,8 @@ void kvm_nested_s2_wp(struct kvm *kvm)
+ 		if (kvm_s2_mmu_valid(mmu))
+ 			kvm_stage2_wp_range(mmu, 0, kvm_phys_size(mmu));
+ 	}
++
++	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+ }
+ 
+ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+@@ -809,6 +882,8 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+ 		if (kvm_s2_mmu_valid(mmu))
+ 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+ 	}
++
++	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+ }
+ 
+ void kvm_nested_s2_flush(struct kvm *kvm)
+-- 
+2.39.2
+
 
