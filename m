@@ -4,86 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B44EC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B1F2C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BSpgxXLMANXcW8laCmKazh3ekOKF8ilrQOxJBNSQTdM=; b=T8sa99biB28uqcnC8NJwOSRId5
-	FZG4D++9LKKFizbwi1D0Sd+14bHCJHt3e8MEAGC4qaIBEqvUm4wmrma6S9jkTesvpx0jo+tmO+b6R
-	+mE1LHg34SHb/Y7Xsek5Icmlpqzl77Sr7Eny4LEwUnorAbBZMjItLqgoCst2eHTaBXFw+H/mMcANJ
-	Asm/xjt67bombaCEMEXThEUEtC+s7o1bjY5rTlX97jc56wRSjy/vRKSp3+z4aiDZoKIZfHl3091dz
-	+iqk5D57EPQlkIWuZa+1LpyBzIYuThnGV9+VDCYA3M+IvTFyuFxT2dhfYeQZUHnsEpXjvjYF2+e44
-	WesJoUyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5tE/97qDLNInhrSv41O24hz6k5it7lrWx1B8nzMlNNY=; b=uD9DmFyzNzCWRaxgAp9WGsFzvE
+	fH7fuPU9zdGCAeAJHs26r585vgkZPzQwZWzdcAMHCEv6FsIl0736SjxEFuXr/Z6wS+fARPA92ryTK
+	qyozSlyTKvT4/HvWtjJydKTu8eQhv4Lf1UTDY2ujPBNrj2osG/86cCrj03/9bO2siJkYLXY8ZP6AB
+	DA3t9ZAD+lzva4cSJMKgZBRIlSrUccM7ZXmlqbucZZhL4Ka8LRUn6MAoYSt0MDig5Pzxc4FIvx4Pe
+	JOsru/+8xKkjLqGnpotX1wt4QKECpCBPSQmfNLuoGDvRoZluo6y3B3coKdnGcwZic80FHRONoy8Tf
+	tzndxdgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2DJO-000000053Z0-3T7E;
-	Tue, 08 Apr 2025 18:04:38 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1u2DL8-000000053iS-2KaR;
+	Tue, 08 Apr 2025 18:06:26 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Cpe-00000004zbP-1gCN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 17:33:56 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 538FcJde010582;
-	Tue, 8 Apr 2025 19:33:31 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=BSpgxXLMANXcW8laCmKazh
-	3ekOKF8ilrQOxJBNSQTdM=; b=pzUQsvSdd1H325dJLtBv52epiz3ayfXvbitZoS
-	03SQway4Ao8Hb3N+Jl+vazZMZNF4VG8ebAaaa8edBmMhYrV4PSKqNIzsKXjZ6S7o
-	39VSqR+v6wqnZ4sNbMSULN403M4C/ON5hZrkuyIeGN8EKxbmfYk9WeX5OS6qaR8p
-	M2fBfEtWIM50doYCxIRNWh2RNAvS5oJLs01A03SnoJt66jZmW7bcS2Y7tAs5ntTf
-	ehSxb5JIWiRjkXFQcR7i9C/dqqEbKip4ow8ZZxLRIjj+uOZOFI5qP8VkVIy1Yevq
-	kmC9yxvj3X0xAmRis4Bixv12l/Zyod3G5xMtMOVQ1HhYawCQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45ue344775-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 08 Apr 2025 19:33:31 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 41E1D40047;
-	Tue,  8 Apr 2025 19:32:21 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 16CB196AD38;
-	Tue,  8 Apr 2025 19:31:42 +0200 (CEST)
-Received: from localhost (10.252.11.77) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 8 Apr
- 2025 19:31:41 +0200
-From: Olivier Moysan <olivier.moysan@foss.st.com>
-To: Jonathan Cameron <jic23@kernel.org>,
-        David Lechner
-	<dlechner@baylibre.com>,
-        =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-        Andy Shevchenko <andy@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: Olivier Moysan <olivier.moysan@foss.st.com>,
-        Fabrice Gasnier
-	<fabrice.gasnier@foss.st.com>,
-        <linux-iio@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3] iio: adc: stm32: add oversampling support
-Date: Tue, 8 Apr 2025 19:30:53 +0200
-Message-ID: <20250408173054.1567523-1-olivier.moysan@foss.st.com>
-X-Mailer: git-send-email 2.25.1
+	id 1u2Cvm-0000000509b-3htb;
+	Tue, 08 Apr 2025 17:40:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=5tE/97qDLNInhrSv41O24hz6k5it7lrWx1B8nzMlNNY=; b=KOx/f5UyipuUZDxVD5jHE+qtD2
+	eu74DLpYFMC1h+xs/K+Yc3/IGk3Plq8aRYPYtEobrVYMeFJvoXpTOtoRRqrUJBUPtc/oY9cvtp/lD
+	gKRIIV5K3Ay5rO73pxFfgDEaeM4l+kvMJBV/UxCy4LKTUvAXPVBmtE0chmbr9c2fpSmrm4V1I0bvt
+	qVHlSwz6Tx3BeDuT4Zh7G7fi3wuMGEI1XTtoz+ESpsT2mM38529r1gpY1IKCfBTHF7RDItD5mxBJ7
+	Wah2MxhHtGeY0sW+tFM+xPtnysJSl7HjGpXBzLxKQwN1mbRbcboMHLNFuI3tvLHMlCUzQg23htLGm
+	jl0FA5PQ==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2Cvg-00000000Iq7-25G6;
+	Tue, 08 Apr 2025 17:40:08 +0000
+Date: Tue, 8 Apr 2025 18:40:08 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+	Yang Shi <yang@os.amperecomputing.com>, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v2 02/12] x86: pgtable: Always use pte_free_kernel()
+Message-ID: <Z_VfeFgrj23Oa0fX@casper.infradead.org>
+References: <20250408095222.860601-1-kevin.brodsky@arm.com>
+ <20250408095222.860601-3-kevin.brodsky@arm.com>
+ <409d2019-a409-4e97-a16f-6b345b0f5a38@intel.com>
+ <Z_VQxyqkU8DV7QGy@casper.infradead.org>
+ <9247436d-ae01-4eb8-bd5d-370b2fb2eebc@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.11.77]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-08_07,2025-04-08_04,2024-11-22_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_103354_955852_647ADC27 
-X-CRM114-Status: GOOD (  26.19  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9247436d-ae01-4eb8-bd5d-370b2fb2eebc@intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,387 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add oversampling support for STM32H7, STM32MP15 & STM32MP13.
-STM32F4 ADC has no oversampling feature.
+On Tue, Apr 08, 2025 at 09:54:42AM -0700, Dave Hansen wrote:
+> On 4/8/25 09:37, Matthew Wilcox wrote:
+> > On Tue, Apr 08, 2025 at 08:22:47AM -0700, Dave Hansen wrote:
+> >> Are there any tests for folio_test_pgtable() at free_page() time? If we
+> >> had that, it would make it less likely that another free_page() user
+> >> could sneak in without calling the destructor.
+> > It's hidden, but yes:
+> > 
+> > static inline bool page_expected_state(struct page *page,
+> >                                         unsigned long check_flags)
+> > {
+> >         if (unlikely(atomic_read(&page->_mapcount) != -1))
+> >                 return false;
+> > 
+> > PageTable uses page_type which aliases with mapcount, so this check
+> > covers "PageTable is still set when the last refcount to it is put".
+> 
+> Huh, so shouldn't we have ended up in bad_page() for these, other than:
+> 
+>         pagetable_dtor(virt_to_ptdesc(pmd));
+>         free_page((unsigned long)pmd);
 
-The current support of the oversampling feature aims at increasing
-the data SNR, without changing the data resolution.
-As the oversampling by itself increases data resolution,
-a right shift is applied to keep initial resolution.
-Only the oversampling ratio corresponding to a power of two are
-supported here, to get a direct link between right shift and
-oversampling ratio. (2exp(n) ratio <=> n right shift)
-
-The oversampling ratio is shared by all channels, whatever channel type.
-(e.g. single ended or differential).
-
-Oversampling can be configured using IIO ABI:
-- oversampling_ratio_available
-- oversampling_ratio
-
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-
----
-Changes in v2:
-- Remove useless header files
-- Use FIELD_PREP macro
-- Reorder stm32_adc_write_raw() function
-
-Changes in v3:
-- Update commit message
-- Replace direct_mode API
-- Add some comments
----
- drivers/iio/adc/stm32-adc-core.h |  14 +++
- drivers/iio/adc/stm32-adc.c      | 151 +++++++++++++++++++++++++++++++
- 2 files changed, 165 insertions(+)
-
-diff --git a/drivers/iio/adc/stm32-adc-core.h b/drivers/iio/adc/stm32-adc-core.h
-index 73b2c2e91c08..bfd42c5456bf 100644
---- a/drivers/iio/adc/stm32-adc-core.h
-+++ b/drivers/iio/adc/stm32-adc-core.h
-@@ -91,6 +91,7 @@
- #define STM32H7_ADC_IER			0x04
- #define STM32H7_ADC_CR			0x08
- #define STM32H7_ADC_CFGR		0x0C
-+#define STM32H7_ADC_CFGR2		0x10
- #define STM32H7_ADC_SMPR1		0x14
- #define STM32H7_ADC_SMPR2		0x18
- #define STM32H7_ADC_PCSEL		0x1C
-@@ -160,6 +161,13 @@
- #define STM32H7_DMNGT_SHIFT		0
- #define STM32H7_DMNGT_MASK		GENMASK(1, 0)
- 
-+/* STM32H7_ADC_CFGR2 bit fields */
-+#define STM32H7_OVSR_MASK		GENMASK(25, 16) /* Correspond to OSVR field in datasheet */
-+#define STM32H7_OVSR(v)			FIELD_PREP(STM32H7_OVSR_MASK, v)
-+#define STM32H7_OVSS_MASK		GENMASK(8, 5)
-+#define STM32H7_OVSS(v)			FIELD_PREP(STM32H7_OVSS_MASK, v)
-+#define STM32H7_ROVSE			BIT(0)
-+
- enum stm32h7_adc_dmngt {
- 	STM32H7_DMNGT_DR_ONLY,		/* Regular data in DR only */
- 	STM32H7_DMNGT_DMA_ONESHOT,	/* DMA one shot mode */
-@@ -226,6 +234,12 @@ enum stm32h7_adc_dmngt {
- #define STM32MP13_RES_SHIFT		3
- #define STM32MP13_RES_MASK		GENMASK(4, 3)
- 
-+/* STM32MP13_ADC_CFGR2 bit fields */
-+#define STM32MP13_OVSR_MASK		GENMASK(4, 2)
-+#define STM32MP13_OVSR(v)		FIELD_PREP(STM32MP13_OVSR_MASK, v)
-+#define STM32MP13_OVSS_MASK		GENMASK(8, 5)
-+#define STM32MP13_OVSS(v)		FIELD_PREP(STM32MP13_OVSS_MASK, v)
-+
- /* STM32MP13_ADC_DIFSEL - bit fields */
- #define STM32MP13_DIFSEL_MASK		GENMASK(18, 0)
- 
-diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
-index 5dbf5f136768..7ae77c3ee9d9 100644
---- a/drivers/iio/adc/stm32-adc.c
-+++ b/drivers/iio/adc/stm32-adc.c
-@@ -6,6 +6,7 @@
-  * Author: Fabrice Gasnier <fabrice.gasnier@st.com>.
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/debugfs.h>
- #include <linux/delay.h>
-@@ -202,11 +203,13 @@ struct stm32_adc;
-  * @has_boostmode:	boost mode support flag
-  * @has_linearcal:	linear calibration support flag
-  * @has_presel:		channel preselection support flag
-+ * @has_oversampling:	oversampling support flag
-  * @prepare:		optional prepare routine (power-up, enable)
-  * @start_conv:		routine to start conversions
-  * @stop_conv:		routine to stop conversions
-  * @unprepare:		optional unprepare routine (disable, power-down)
-  * @irq_clear:		routine to clear irqs
-+ * @set_ovs:		routine to set oversampling configuration
-  * @smp_cycles:		programmable sampling time (ADC clock cycles)
-  * @ts_int_ch:		pointer to array of internal channels minimum sampling time in ns
-  */
-@@ -219,11 +222,13 @@ struct stm32_adc_cfg {
- 	bool has_boostmode;
- 	bool has_linearcal;
- 	bool has_presel;
-+	bool has_oversampling;
- 	int (*prepare)(struct iio_dev *);
- 	void (*start_conv)(struct iio_dev *, bool dma);
- 	void (*stop_conv)(struct iio_dev *);
- 	void (*unprepare)(struct iio_dev *);
- 	void (*irq_clear)(struct iio_dev *indio_dev, u32 msk);
-+	void (*set_ovs)(struct iio_dev *indio_dev, u32 ovs_idx);
- 	const unsigned int *smp_cycles;
- 	const unsigned int *ts_int_ch;
- };
-@@ -255,6 +260,7 @@ struct stm32_adc_cfg {
-  * @num_diff:		number of differential channels
-  * @int_ch:		internal channel indexes array
-  * @nsmps:		number of channels with optional sample time
-+ * @ovs_idx:		current oversampling ratio index (in oversampling array)
-  */
- struct stm32_adc {
- 	struct stm32_adc_common	*common;
-@@ -282,6 +288,7 @@ struct stm32_adc {
- 	u32			num_diff;
- 	int			int_ch[STM32_ADC_INT_CH_NB];
- 	int			nsmps;
-+	int			ovs_idx;
- };
- 
- struct stm32_adc_diff_channel {
-@@ -293,12 +300,24 @@ struct stm32_adc_diff_channel {
-  * struct stm32_adc_info - stm32 ADC, per instance config data
-  * @max_channels:	Number of channels
-  * @resolutions:	available resolutions
-+ * @oversampling:	available oversampling ratios
-  * @num_res:		number of available resolutions
-+ * @num_ovs:		number of available oversampling ratios
-  */
- struct stm32_adc_info {
- 	int max_channels;
- 	const unsigned int *resolutions;
-+	const unsigned int *oversampling;
- 	const unsigned int num_res;
-+	const unsigned int num_ovs;
-+};
-+
-+static const unsigned int stm32h7_adc_oversampling_avail[] = {
-+	1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
-+};
-+
-+static const unsigned int stm32mp13_adc_oversampling_avail[] = {
-+	1, 2, 4, 8, 16, 32, 64, 128, 256
- };
- 
- static const unsigned int stm32f4_adc_resolutions[] = {
-@@ -322,14 +341,18 @@ static const unsigned int stm32h7_adc_resolutions[] = {
- static const struct stm32_adc_info stm32h7_adc_info = {
- 	.max_channels = STM32_ADC_CH_MAX,
- 	.resolutions = stm32h7_adc_resolutions,
-+	.oversampling = stm32h7_adc_oversampling_avail,
- 	.num_res = ARRAY_SIZE(stm32h7_adc_resolutions),
-+	.num_ovs = ARRAY_SIZE(stm32h7_adc_oversampling_avail),
- };
- 
- /* stm32mp13 can have up to 19 channels */
- static const struct stm32_adc_info stm32mp13_adc_info = {
- 	.max_channels = 19,
- 	.resolutions = stm32f4_adc_resolutions,
-+	.oversampling = stm32mp13_adc_oversampling_avail,
- 	.num_res = ARRAY_SIZE(stm32f4_adc_resolutions),
-+	.num_ovs = ARRAY_SIZE(stm32mp13_adc_oversampling_avail),
- };
- 
- /*
-@@ -889,6 +912,56 @@ static void stm32mp13_adc_start_conv(struct iio_dev *indio_dev, bool dma)
- 	stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADSTART);
- }
- 
-+static void stm32h7_adc_set_ovs(struct iio_dev *indio_dev, u32 ovs_idx)
-+{
-+	struct stm32_adc *adc = iio_priv(indio_dev);
-+	u32 ovsr_bits, bits, msk;
-+
-+	msk = STM32H7_ROVSE | STM32H7_OVSR_MASK | STM32H7_OVSS_MASK;
-+	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR2, msk);
-+
-+	if (!ovs_idx)
-+		return;
-+
-+	/*
-+	 * Only the oversampling ratios corresponding to 2*exp(ovs_idx) are exposed in sysfs.
-+	 * Oversampling ratios [2,3,...,1024] are mapped on OVSR register values [1,2,...,1023].
-+	 * OVSR = 2 exp(ovs_idx) - 1
-+	 * These ratio increase the resolution by ovs_idx bits. Apply a right shift to keep initial
-+	 * resolution given by "assigned-resolution-bits" property.
-+	 * OVSS = ovs_idx
-+	 */
-+	ovsr_bits = (1 << ovs_idx) - 1;
-+	bits = STM32H7_ROVSE | STM32H7_OVSS(ovs_idx) | STM32H7_OVSR(ovsr_bits);
-+
-+	stm32_adc_set_bits(adc, STM32H7_ADC_CFGR2, bits & msk);
-+}
-+
-+static void stm32mp13_adc_set_ovs(struct iio_dev *indio_dev, u32 ovs_idx)
-+{
-+	struct stm32_adc *adc = iio_priv(indio_dev);
-+	u32 bits, msk;
-+
-+	msk = STM32H7_ROVSE | STM32MP13_OVSR_MASK | STM32MP13_OVSS_MASK;
-+	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR2, msk);
-+
-+	if (!ovs_idx)
-+		return;
-+
-+	/*
-+	 * The oversampling ratios [2,4,8,..,256] are mapped on OVSR register values [0,1,...,7].
-+	 * OVSR = ovs_idx - 1
-+	 * These ratio increase the resolution by ovs_idx bits. Apply a right shift to keep initial
-+	 * resolution given by "assigned-resolution-bits" property.
-+	 * OVSS = ovs_idx
-+	 */
-+	bits = STM32H7_ROVSE | STM32MP13_OVSS(ovs_idx);
-+	if (ovs_idx - 1)
-+		bits |= STM32MP13_OVSR(ovs_idx - 1);
-+
-+	stm32_adc_set_bits(adc, STM32H7_ADC_CFGR2, bits & msk);
-+}
-+
- static int stm32h7_adc_exit_pwr_down(struct iio_dev *indio_dev)
- {
- 	struct stm32_adc *adc = iio_priv(indio_dev);
-@@ -1461,6 +1534,68 @@ static int stm32_adc_single_conv(struct iio_dev *indio_dev,
- 	return ret;
- }
- 
-+static int stm32_adc_write_raw(struct iio_dev *indio_dev,
-+			       struct iio_chan_spec const *chan,
-+			       int val, int val2, long mask)
-+{
-+	struct stm32_adc *adc = iio_priv(indio_dev);
-+	struct device *dev = indio_dev->dev.parent;
-+	int nb = adc->cfg->adc_info->num_ovs;
-+	u32 idx;
-+	int ret;
-+
-+	switch (mask) {
-+	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
-+		if (val2)
-+			return -EINVAL;
-+
-+		for (idx = 0; idx < nb; idx++)
-+			if (adc->cfg->adc_info->oversampling[idx] == val)
-+				break;
-+
-+		if (idx >= nb)
-+			return -EINVAL;
-+
-+		if (!iio_device_claim_direct(indio_dev))
-+			return -EBUSY;
-+
-+		ret = pm_runtime_resume_and_get(dev);
-+		if (ret < 0)
-+			goto err;
-+
-+		adc->cfg->set_ovs(indio_dev, idx);
-+
-+		pm_runtime_mark_last_busy(dev);
-+		pm_runtime_put_autosuspend(dev);
-+
-+		adc->ovs_idx = idx;
-+
-+err:
-+		iio_device_release_direct(indio_dev);
-+
-+		return ret;
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+static int stm32_adc_read_avail(struct iio_dev *indio_dev,
-+				struct iio_chan_spec const *chan,
-+				const int **vals, int *type, int *length, long m)
-+{
-+	struct stm32_adc *adc = iio_priv(indio_dev);
-+
-+	switch (m) {
-+	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
-+		*type = IIO_VAL_INT;
-+		*length = adc->cfg->adc_info->num_ovs;
-+		*vals = adc->cfg->adc_info->oversampling;
-+		return IIO_AVAIL_LIST;
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
- static int stm32_adc_read_raw(struct iio_dev *indio_dev,
- 			      struct iio_chan_spec const *chan,
- 			      int *val, int *val2, long mask)
-@@ -1502,6 +1637,10 @@ static int stm32_adc_read_raw(struct iio_dev *indio_dev,
- 			*val = 0;
- 		return IIO_VAL_INT;
- 
-+	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
-+		*val = adc->cfg->adc_info->oversampling[adc->ovs_idx];
-+		return IIO_VAL_INT;
-+
- 	default:
- 		return -EINVAL;
- 	}
-@@ -1678,6 +1817,8 @@ static int stm32_adc_debugfs_reg_access(struct iio_dev *indio_dev,
- 
- static const struct iio_info stm32_adc_iio_info = {
- 	.read_raw = stm32_adc_read_raw,
-+	.write_raw = stm32_adc_write_raw,
-+	.read_avail = stm32_adc_read_avail,
- 	.validate_trigger = stm32_adc_validate_trigger,
- 	.hwfifo_set_watermark = stm32_adc_set_watermark,
- 	.update_scan_mode = stm32_adc_update_scan_mode,
-@@ -1971,6 +2112,10 @@ static void stm32_adc_chan_init_one(struct iio_dev *indio_dev,
- 		chan->info_mask_separate = BIT(IIO_CHAN_INFO_RAW);
- 	chan->info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE) |
- 					 BIT(IIO_CHAN_INFO_OFFSET);
-+	if (adc->cfg->has_oversampling) {
-+		chan->info_mask_shared_by_all |= BIT(IIO_CHAN_INFO_OVERSAMPLING_RATIO);
-+		chan->info_mask_shared_by_all_available = BIT(IIO_CHAN_INFO_OVERSAMPLING_RATIO);
-+	}
- 	chan->scan_type.sign = 'u';
- 	chan->scan_type.realbits = adc->cfg->adc_info->resolutions[adc->res];
- 	chan->scan_type.storagebits = 16;
-@@ -2587,6 +2732,7 @@ static const struct stm32_adc_cfg stm32h7_adc_cfg = {
- 	.has_boostmode = true,
- 	.has_linearcal = true,
- 	.has_presel = true,
-+	.has_oversampling = true,
- 	.start_conv = stm32h7_adc_start_conv,
- 	.stop_conv = stm32h7_adc_stop_conv,
- 	.prepare = stm32h7_adc_prepare,
-@@ -2594,6 +2740,7 @@ static const struct stm32_adc_cfg stm32h7_adc_cfg = {
- 	.smp_cycles = stm32h7_adc_smp_cycles,
- 	.irq_clear = stm32h7_adc_irq_clear,
- 	.ts_int_ch = stm32_adc_min_ts_h7,
-+	.set_ovs = stm32h7_adc_set_ovs,
- };
- 
- static const unsigned int stm32_adc_min_ts_mp1[] = { 100, 100, 100, 4300, 9800 };
-@@ -2607,6 +2754,7 @@ static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
- 	.has_boostmode = true,
- 	.has_linearcal = true,
- 	.has_presel = true,
-+	.has_oversampling = true,
- 	.start_conv = stm32h7_adc_start_conv,
- 	.stop_conv = stm32h7_adc_stop_conv,
- 	.prepare = stm32h7_adc_prepare,
-@@ -2614,6 +2762,7 @@ static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
- 	.smp_cycles = stm32h7_adc_smp_cycles,
- 	.irq_clear = stm32h7_adc_irq_clear,
- 	.ts_int_ch = stm32_adc_min_ts_mp1,
-+	.set_ovs = stm32h7_adc_set_ovs,
- };
- 
- static const unsigned int stm32_adc_min_ts_mp13[] = { 100, 0, 0, 4300, 9800 };
-@@ -2623,6 +2772,7 @@ static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
- 	.regs = &stm32mp13_adc_regspec,
- 	.adc_info = &stm32mp13_adc_info,
- 	.trigs = stm32h7_adc_trigs,
-+	.has_oversampling = true,
- 	.start_conv = stm32mp13_adc_start_conv,
- 	.stop_conv = stm32h7_adc_stop_conv,
- 	.prepare = stm32h7_adc_prepare,
-@@ -2630,6 +2780,7 @@ static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
- 	.smp_cycles = stm32mp13_adc_smp_cycles,
- 	.irq_clear = stm32h7_adc_irq_clear,
- 	.ts_int_ch = stm32_adc_min_ts_mp13,
-+	.set_ovs = stm32mp13_adc_set_ovs,
- };
- 
- static const struct of_device_id stm32_adc_of_match[] = {
--- 
-2.25.1
-
+I think at this point in Kevin's series, we don't call the ctor for
+these pages, so we never set PageTable() on them.  I could be wrong;
+as Kevin says, this is all very twisty and confusing with exceptions and
+exceptions to exceptions.  This series should reduce the confusion.
 
