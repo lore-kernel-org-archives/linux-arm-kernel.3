@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAC4CC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270C8C369A9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtkeFnj7OUO0U4bnqYDUPhFLm3B9Pqw2DU045e21LFw=; b=dD65k3+eJiNOHmWotAp+Qtg/3l
-	1/ivhx+TsWN0nfXZBSeA2dtfXhezMiqYFCjYCYU3B9DK0kTkWX7ikECIMGguV/qmpx4lu8D/ax08P
-	kwDNq2chkvH1jwEl7PXWP8r6dNSiLhH7O6AVNKkHkljJ3SjFHh57w9Yp7tqYdA8bRfLhlVbAd54QV
-	SIpueIKOsnALVK4nyCnvEreilsEWuiDKRFAZ6R0Xrl/w8hu0sz3qkGgE7xaRgbdTmAZDpSovKnDm0
-	PCZzS4EiZYZvOvCal4SmHFC1tAkWkzy0LhJoDqdctb0Cl2RFzl5OvshtBPYdpgQ5RVUQpKkFSRnjR
-	P1Uoi8iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P7mNqkUOK8Yje/n35wpDhg4Q/cnuqqTj/JMEW7ivpNE=; b=HivHMJ7HjlLXFSqHTpn0JlqyIH
+	DMpU9TFAiEvA/41DeK2XXjOZLzQjO0y/6LkubwHXbuOGx9RvI3Rh6BPNqJn6Ve40KWhmRBTYXDUcP
+	uEBfljLWYJvRmnM4iUhc/d7Ncqm0UnQC61Aftr849SpKLATXY69gfWcQpWycB3BiBZ1pPUIjQaDUe
+	+3cg0epZ9EhsXcZugFf6bMXBYZLsaFVJQE0HOoPlDir/2JTOEUkMVGxTbju7AZblttxO1PyCE1Brd
+	ybT45M91v7QbxTUl/VEp4PAYuF5v626GehbU9LhiLhmgC3205FhTFgcDRxzm/wKYedNcIx7JbiQmC
+	mQNt5I7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28li-000000045y8-2ApF;
-	Tue, 08 Apr 2025 13:13:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u28lr-0000000465B-00Df;
+	Tue, 08 Apr 2025 13:13:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26Jg-00000003h3S-1x1V
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Apr 2025 10:36:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=gtkeFnj7OUO0U4bnqYDUPhFLm3B9Pqw2DU045e21LFw=; b=SpsHA/SMQcapxBby63wXRj7QIX
-	D4sJB2LQcpUQGP+gIXw3yifnAvQzpT7gmT9Cr6EGJARgNXX43kqUyXA2DhcA+IPoMcQs6m1fixbO+
-	OJDtAa1Hrg4v92FSL3HkGkwa/Ua59lm7GB4Zb13pwwU+cVSGooRwQ/yvT82w0j6hxZbLp+bPt/u/V
-	b1PbXt31qbRWoKXrETxS2SwwC/yz5RfRALJRKpNjKBM2MmD0NggKSLEUjEwPo3hfreUyxNn7eAS/p
-	nHpSTf0kFOzy1l0TSDGS6AWy0Qy/lrOSuIBjPdeYi9GI0+eh60GkNdD9XN5cGbNQ8s3fQS3WaLS1Q
-	8Fz0bjJw==;
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26Jd-00000008FVK-0gET
+	id 1u26ZO-00000003kYY-01MN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 10:36:27 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 538AaJOq655532
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 8 Apr 2025 05:36:19 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744108579;
-	bh=gtkeFnj7OUO0U4bnqYDUPhFLm3B9Pqw2DU045e21LFw=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=XFZ62dW87X2NQzHQhPUVXfYGm5xqGL/cHTCRS7A07FvCznkHYnOFNXzrMykRWTI8F
-	 10zxxAV3HOLmOrzOvQybFb9XSWERmWLJwLmJDafAzQpWoGEsu/TSZoaGRNNqjikr3z
-	 4rWeAIP0DP4Sgg59Xb9R2lNrhwKvgjGrwMjdwHRU=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 538AaJYf079656
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 8 Apr 2025 05:36:19 -0500
-Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 8
- Apr 2025 05:36:18 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 8 Apr 2025 05:36:18 -0500
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 538Aa6T9016171;
-	Tue, 8 Apr 2025 05:36:15 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <rogerq@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH v2 2/2] arm64: dts: ti: k3-j722s-main: Disable "serdes_wiz0" and "serdes_wiz1"
-Date: Tue, 8 Apr 2025 16:06:06 +0530
-Message-ID: <20250408103606.3679505-3-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250408103606.3679505-1-s-vadapalli@ti.com>
-References: <20250408103606.3679505-1-s-vadapalli@ti.com>
+	Tue, 08 Apr 2025 10:52:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EDD344A04B;
+	Tue,  8 Apr 2025 10:52:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87A46C4CEE7;
+	Tue,  8 Apr 2025 10:52:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744109561;
+	bh=QXWML07vMieaqb/obaP1emEXNEc9cWHjd/dRppNxB+A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Y+ZzXhxchoWJB2PKp3+h2HO0OF7y9jp0RKXgduzeu9qtG1GZNAR9R3X5T1FTWzkIW
+	 y8LhepDG+oOdMrsswQhBjfsI654hcfLVIeNrjCNjUct0qz/J4hHnI6a78gZ2+zhe5M
+	 bFQq8V7VemQhvm888bC+lNAzP0s4bqOczelxP9bBnLL1mu9da0pVLAeFZVX/L662Zs
+	 w3bJX3ky3wq+xv0pnor5wCqdfDvu0S/dGV4MRaW8QWyAhVWPJGHqCSD95lalpcKGNl
+	 p4M3b5H89e+7Wm1/WDuwQu3JN1lr7anNhLZnUqKIpN8paXCg6K2tvwFIyA0LHYneB+
+	 ZBeTTjK2HfxZA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u26ZL-003QX2-Nx;
+	Tue, 08 Apr 2025 11:52:39 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: [PATCH v2 14/17] KVM: arm64: nv: Plumb TLBI S1E2 into system instruction dispatch
+Date: Tue,  8 Apr 2025 11:52:22 +0100
+Message-Id: <20250408105225.4002637-15-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250408105225.4002637-1-maz@kernel.org>
+References: <20250408105225.4002637-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_113625_554554_B5D44EEA 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20250408_035242_106192_870DBCFB 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,62 +86,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since "serdes0" and "serdes1" which are the sub-nodes of "serdes_wiz0"
-and "serdes_wiz1" respectively, have been disabled in the SoC file already,
-and, given that these sub-nodes will only be enabled in a board file if the
-board utilizes any of the SERDES instances and the peripherals bound to
-them, we end up in a situation where the board file doesn't explicitly
-disable "serdes_wiz0" and "serdes_wiz1". As a consequence of this, the
-following errors show up when booting Linux:
+Now that we have to handle TLBI S1E2 in the core code, plumb the
+sysinsn dispatch code into it, so that these instructions don't
+just UNDEF anymore.
 
-  wiz bus@f0000:phy@f000000: probe with driver wiz failed with error -12
-  ...
-  wiz bus@f0000:phy@f010000: probe with driver wiz failed with error -12
-
-To not only fix the above, but also, in order to follow the convention of
-disabling device-tree nodes in the SoC file and enabling them in the board
-files for those boards which require them, disable "serdes_wiz0" and
-"serdes_wiz1" device-tree nodes.
-
-Fixes: 628e0a0118e6 ("arm64: dts: ti: k3-j722s-main: Add SERDES and PCIe support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
+ arch/arm64/kvm/sys_regs.c | 87 +++++++++++++++++++++++++++------------
+ 1 file changed, 61 insertions(+), 26 deletions(-)
 
-v1 of this patch is at:
-https://lore.kernel.org/r/20250408060636.3413856-3-s-vadapalli@ti.com/
-Changes since v1:
-- Added "Fixes" tag and updated commit message accordingly.
-
-Regards,
-Siddharth.
-
- arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-index 6850f50530f1..beda9e40e931 100644
---- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-@@ -32,6 +32,8 @@ serdes_wiz0: phy@f000000 {
- 		assigned-clocks = <&k3_clks 279 1>;
- 		assigned-clock-parents = <&k3_clks 279 5>;
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 204470283ccc3..de954524b7870 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -3628,11 +3628,22 @@ static void s2_mmu_tlbi_s1e1(struct kvm_s2_mmu *mmu,
+ 	WARN_ON(__kvm_tlbi_s1e2(mmu, info->va.addr, info->va.encoding));
+ }
  
-+		status = "disabled";
++static bool handle_tlbi_el2(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
++			    const struct sys_reg_desc *r)
++{
++	u32 sys_encoding = sys_insn(p->Op0, p->Op1, p->CRn, p->CRm, p->Op2);
 +
- 		serdes0: serdes@f000000 {
- 			compatible = "ti,j721e-serdes-10g";
- 			reg = <0x0f000000 0x00010000>;
-@@ -70,6 +72,8 @@ serdes_wiz1: phy@f010000 {
- 		assigned-clocks = <&k3_clks 280 1>;
- 		assigned-clock-parents = <&k3_clks 280 5>;
++	if (!kvm_supported_tlbi_s1e2_op(vcpu, sys_encoding))
++		return undef_access(vcpu, p, r);
++
++	kvm_handle_s1e2_tlbi(vcpu, sys_encoding, p->regval);
++	return true;
++}
++
+ static bool handle_tlbi_el1(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 			    const struct sys_reg_desc *r)
+ {
+ 	u32 sys_encoding = sys_insn(p->Op0, p->Op1, p->CRn, p->CRm, p->Op2);
+-	u64 vttbr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
  
-+		status = "disabled";
+ 	/*
+ 	 * If we're here, this is because we've trapped on a EL1 TLBI
+@@ -3643,6 +3654,13 @@ static bool handle_tlbi_el1(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	 * - HCR_EL2.E2H == 0 : a non-VHE guest
+ 	 * - HCR_EL2.{E2H,TGE} == { 1, 0 } : a VHE guest in guest mode
+ 	 *
++	 * Another possibility is that we are invalidating the EL2 context
++	 * using EL1 instructions, but that we landed here because we need
++	 * additional invalidation for structures that are not held in the
++	 * CPU TLBs (such as the VNCR pseudo-TLB and its EL2 mapping). In
++	 * that case, we are guaranteed that HCR_EL2.{E2H,TGE} == { 1, 1 }
++	 * as we don't allow an NV-capable L1 in a nVHE configuration.
++	 *
+ 	 * We don't expect these helpers to ever be called when running
+ 	 * in a vEL1 context.
+ 	 */
+@@ -3652,7 +3670,13 @@ static bool handle_tlbi_el1(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	if (!kvm_supported_tlbi_s1e1_op(vcpu, sys_encoding))
+ 		return undef_access(vcpu, p, r);
+ 
+-	kvm_s2_mmu_iterate_by_vmid(vcpu->kvm, get_vmid(vttbr),
++	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu)) {
++		kvm_handle_s1e2_tlbi(vcpu, sys_encoding, p->regval);
++		return true;
++	}
 +
- 		serdes1: serdes@f010000 {
- 			compatible = "ti,j721e-serdes-10g";
- 			reg = <0x0f010000 0x00010000>;
++	kvm_s2_mmu_iterate_by_vmid(vcpu->kvm,
++				   get_vmid(__vcpu_sys_reg(vcpu, VTTBR_EL2)),
+ 				   &(union tlbi_info) {
+ 					   .va = {
+ 						   .addr = p->regval,
+@@ -3774,16 +3798,21 @@ static struct sys_reg_desc sys_insn_descs[] = {
+ 	SYS_INSN(TLBI_IPAS2LE1IS, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1IS, handle_ripas2e1is),
+ 
+-	SYS_INSN(TLBI_ALLE2OS, undef_access),
+-	SYS_INSN(TLBI_VAE2OS, undef_access),
++	SYS_INSN(TLBI_ALLE2OS, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2OS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_ALLE1OS, handle_alle1is),
+-	SYS_INSN(TLBI_VALE2OS, undef_access),
++	SYS_INSN(TLBI_VALE2OS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_VMALLS12E1OS, handle_vmalls12e1is),
+ 
+-	SYS_INSN(TLBI_RVAE2IS, undef_access),
+-	SYS_INSN(TLBI_RVALE2IS, undef_access),
++	SYS_INSN(TLBI_RVAE2IS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2IS, handle_tlbi_el2),
++	SYS_INSN(TLBI_ALLE2IS, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2IS, handle_tlbi_el2),
+ 
+ 	SYS_INSN(TLBI_ALLE1IS, handle_alle1is),
++
++	SYS_INSN(TLBI_VALE2IS, handle_tlbi_el2),
++
+ 	SYS_INSN(TLBI_VMALLS12E1IS, handle_vmalls12e1is),
+ 	SYS_INSN(TLBI_IPAS2E1OS, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_IPAS2E1, handle_ipas2e1is),
+@@ -3793,11 +3822,17 @@ static struct sys_reg_desc sys_insn_descs[] = {
+ 	SYS_INSN(TLBI_IPAS2LE1, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1, handle_ripas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1OS, handle_ripas2e1is),
+-	SYS_INSN(TLBI_RVAE2OS, undef_access),
+-	SYS_INSN(TLBI_RVALE2OS, undef_access),
+-	SYS_INSN(TLBI_RVAE2, undef_access),
+-	SYS_INSN(TLBI_RVALE2, undef_access),
++	SYS_INSN(TLBI_RVAE2OS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2OS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVAE2, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2, handle_tlbi_el2),
++	SYS_INSN(TLBI_ALLE2, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2, handle_tlbi_el2),
++
+ 	SYS_INSN(TLBI_ALLE1, handle_alle1is),
++
++	SYS_INSN(TLBI_VALE2, handle_tlbi_el2),
++
+ 	SYS_INSN(TLBI_VMALLS12E1, handle_vmalls12e1is),
+ 
+ 	SYS_INSN(TLBI_IPAS2E1ISNXS, handle_ipas2e1is),
+@@ -3805,19 +3840,19 @@ static struct sys_reg_desc sys_insn_descs[] = {
+ 	SYS_INSN(TLBI_IPAS2LE1ISNXS, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1ISNXS, handle_ripas2e1is),
+ 
+-	SYS_INSN(TLBI_ALLE2OSNXS, undef_access),
+-	SYS_INSN(TLBI_VAE2OSNXS, undef_access),
++	SYS_INSN(TLBI_ALLE2OSNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2OSNXS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_ALLE1OSNXS, handle_alle1is),
+-	SYS_INSN(TLBI_VALE2OSNXS, undef_access),
++	SYS_INSN(TLBI_VALE2OSNXS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_VMALLS12E1OSNXS, handle_vmalls12e1is),
+ 
+-	SYS_INSN(TLBI_RVAE2ISNXS, undef_access),
+-	SYS_INSN(TLBI_RVALE2ISNXS, undef_access),
+-	SYS_INSN(TLBI_ALLE2ISNXS, undef_access),
+-	SYS_INSN(TLBI_VAE2ISNXS, undef_access),
++	SYS_INSN(TLBI_RVAE2ISNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2ISNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_ALLE2ISNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2ISNXS, handle_tlbi_el2),
+ 
+ 	SYS_INSN(TLBI_ALLE1ISNXS, handle_alle1is),
+-	SYS_INSN(TLBI_VALE2ISNXS, undef_access),
++	SYS_INSN(TLBI_VALE2ISNXS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_VMALLS12E1ISNXS, handle_vmalls12e1is),
+ 	SYS_INSN(TLBI_IPAS2E1OSNXS, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_IPAS2E1NXS, handle_ipas2e1is),
+@@ -3827,14 +3862,14 @@ static struct sys_reg_desc sys_insn_descs[] = {
+ 	SYS_INSN(TLBI_IPAS2LE1NXS, handle_ipas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1NXS, handle_ripas2e1is),
+ 	SYS_INSN(TLBI_RIPAS2LE1OSNXS, handle_ripas2e1is),
+-	SYS_INSN(TLBI_RVAE2OSNXS, undef_access),
+-	SYS_INSN(TLBI_RVALE2OSNXS, undef_access),
+-	SYS_INSN(TLBI_RVAE2NXS, undef_access),
+-	SYS_INSN(TLBI_RVALE2NXS, undef_access),
+-	SYS_INSN(TLBI_ALLE2NXS, undef_access),
+-	SYS_INSN(TLBI_VAE2NXS, undef_access),
++	SYS_INSN(TLBI_RVAE2OSNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2OSNXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVAE2NXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_RVALE2NXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_ALLE2NXS, handle_tlbi_el2),
++	SYS_INSN(TLBI_VAE2NXS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_ALLE1NXS, handle_alle1is),
+-	SYS_INSN(TLBI_VALE2NXS, undef_access),
++	SYS_INSN(TLBI_VALE2NXS, handle_tlbi_el2),
+ 	SYS_INSN(TLBI_VMALLS12E1NXS, handle_vmalls12e1is),
+ };
+ 
 -- 
-2.34.1
+2.39.2
 
 
