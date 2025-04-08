@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D87AC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94087C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2TlbJsVg7ADUXbeqN4HViqbS/v7ZZAnjfGTYi4tNQpg=; b=iTyPOva4NvSnON65/+UfQtRP44
-	aa9DhNgiqO6RpPPNCqoP+rqDpC55hKp6sUeX5tkvoB16xXbPQgySwkjNTpkuJvvhcby2rIb11RKje
-	0dRmU0z1/ShLOnRg+y7Kb35wwnliUOfZydTl1HC/s1/bwRkWY5RrWFZnHL2cCYEeGgyFgzYvmJX3l
-	7UcwwyIn5eY2PBdJ/VxUhkZOEEdtR/FWUMTvWEdFZ3SV+ccAlihp6FPwmoJiQ1d3HXFpJ6GV86Ebp
-	ed8WlFp2w+hrFVVvDHnJfpgVtDFFGqEzm/FlXS/sKb8UkO1SL12fz888+ND16naFC8a8q66xZaHQj
-	/SVkDiew==;
+	bh=WBk7j3k/f4GdJZMcjeeZIIR6kWDG+6or3YZicsD0Sn4=; b=FSd4O+QiRl+Zd/nEnCnL84eZOF
+	1VybbJ5QEY46dChs16okVRNIm3BW+XtzcuzlJ1hIPMavBwlhpXi1/I13jTH+IkeoM5xoDUvXQDY/b
+	3GsGt7xVg+jzrWHb/uikYRIAzsv8Q4X2VVPYnisRph7DN1YWWPM9u+jJfUo7bLE/iLq4JamMCMr/u
+	Alnww9/9y0mHGcSgKx6e71olMxuYbB9PfH4Prb0T/WU+94N/NyGq/Qp/YdWIMw85oaadS2QDj1buQ
+	0TlnRgQM2/ZNdyjagkSuG4zoApUjenG7g+f9FFGsNyGNjl3qBcGvxyjaRNRQCxk8hQc7Ac05gX076
+	1LbjZPeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2DhV-000000057IC-3jbw;
-	Tue, 08 Apr 2025 18:29:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u2Dkz-000000057gm-3T09;
+	Tue, 08 Apr 2025 18:33:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Dad-000000055sF-0QsS
+	id 1u2Dai-000000055tx-3H4L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 18:22:28 +0000
+	Tue, 08 Apr 2025 18:22:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C8FFAA48FDE;
-	Tue,  8 Apr 2025 18:16:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88A7CC4CEE8;
-	Tue,  8 Apr 2025 18:22:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A2B554A1B3;
+	Tue,  8 Apr 2025 18:22:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F179C4CEE5;
+	Tue,  8 Apr 2025 18:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744136546;
-	bh=ROS5jr/XnGZ06dtqqkVH5FTegaK3TD2euUktm9dfK+A=;
+	s=k20201202; t=1744136552;
+	bh=tZlWo93wGbEj8iC3H71eb10+hrSLcFB1nwvaPgD4lfo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=u4vKl6rvmfLdqWK4Kul+5+fDibO2yJ5yWaJFerR5uj8Kwks3J+wPO2DeDJgasR4cs
-	 ls8MaNp8Ezu/I27KvuyKHIDmv9ucOgh0tYWU6FroXMZY8VJneGO6tvMXElp4X9cHPL
-	 UyJ7sqxzMC2IPlEfnmbZD/KsEwNgve1ICU9l+AUg3iH6PqYUaj+r5fKov7uPb22Fgj
-	 j30dXXdkGUnBEsXBqQpgp9mgEOJfDpqfCqensolvXKIFXZtOJto16LITogSgwqmbFU
-	 oOaDomzF+9fw5c4ik5e14pmgZfq3CCsgrTrIss4+vQ7k4++Qdt7t6aSMrCO43QU7Wm
-	 HJ29r5B5BebpA==
+	b=vNzR5YL5P0z1bamMipf0BYlgJAzt1U2E/5qgXbeEpiwbSYL73UkaNKMiTdqeQgNhG
+	 aUwXelCawHbRmNcwBvE9xYNWaWqe3x2cu+vrL99spJ0QIob5xVa6xVVd518X87+m9k
+	 xI9kMV/s1T/c3/ZoooHd5PJxJyvgkF37OL0VbSoCNDNhHdfPYmLSIoFrjvspQmqs6L
+	 DdYMQMSFfmzjPHruVoRYVR9Zss80HcUcrxFnYQdcBBxj6d+rhMlDHAsP5hGv5M+f9O
+	 O9c1tmSVWo0gf51HqBYoqO6Q/1gALlHRAxrEysJHvxJhpv9S6Lzh8LX1Bezdk+X6DC
+	 +c5yOJuGuRd8g==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 08 Apr 2025 19:09:58 +0100
-Subject: [PATCH 5.15 v3 03/11] KVM: arm64: Discard any SVE state when
- entering KVM guests
+Date: Tue, 08 Apr 2025 19:10:00 +0100
+Subject: [PATCH 5.15 v3 05/11] arm64/fpsimd: Have KVM explicitly say which
+ FP registers to save
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250408-stable-sve-5-15-v3-3-ca9a6b850f55@kernel.org>
+Message-Id: <20250408-stable-sve-5-15-v3-5-ca9a6b850f55@kernel.org>
 References: <20250408-stable-sve-5-15-v3-0-ca9a6b850f55@kernel.org>
 In-Reply-To: <20250408-stable-sve-5-15-v3-0-ca9a6b850f55@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -61,20 +61,20 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
  linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3562; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ROS5jr/XnGZ06dtqqkVH5FTegaK3TD2euUktm9dfK+A=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn9WlN98cQ/PSAdnjHKGF2x/DeH/D/JoC7PCjo5IQz
- vy8RWU+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ/VpTQAKCRAk1otyXVSH0DySB/
- 9phxVh+yQ1r2/VJPq78DO5XvJd9IID/lMbU4lEYeOwXylwsQWtN43or0QjkjMPjnX2pyBGCaE1T+AD
- Neht04TMqS+Fdrg8Y8jvuEtFY0KBT2S9a4ioZdpnaVeCXhvtPGXsCajBGJtwiLvJt8oSbrvt0gAVyk
- MG4krlmzmmn7+GffR1EAg+OTuoy/6w1atZldRfrh/mkWDIAHLLiu6tz4nrTD47CKo6s4IJrJCkrLmY
- I7X8/7muNEluxJXGX/X7CWtUEYbZ1c5TrpFc8J1tVVKSqZilOVWguyQ1a5zmLP3BMOFipST4qrd54f
- PKIGN/lgN76BgMMPzN5B6tnZcR3Ys8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8729; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=tZlWo93wGbEj8iC3H71eb10+hrSLcFB1nwvaPgD4lfo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn9WlPtpFa1cQjm4fP2KNKn8f+hZHWbeyQslbRyIdT
+ wAzyGJeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ/VpTwAKCRAk1otyXVSH0BsaB/
+ 0WMH/sw2XY/drWFoW3Lrk2GbED0ARVYWPEqYBSIcH7wpRHExlpGANP/X44C0PihwFavlMObgsu0J0P
+ AD/+Mhjg6ZGg2u1ubiH4sEn2zgcL828xwfFfV0/7YClzhsAFbXyzaOEE+VAf43VO3nVe+IwMBfT4KU
+ Ge3i0xoO5qjU5uuptYi9whbU7OZ6569Jlcpf5fjpPJqnANRP+CjRRvG6AdMKAnteLD6qiVaR3OPBJH
+ YgmM+tbyGxB/TSfVCUciGKzH3Gaj3+Nt4dIWzpW/DpYksGMFyNcjVNonyMOvAxQectWxz05iFeMbF6
+ PLBslF3o2az3jnS3WY/yUNMB+TP2FI
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_112227_273780_4D9228AF 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20250408_112232_869298_9C8C7A17 
+X-CRM114-Status: GOOD (  31.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,98 +89,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[ Upstream commit 93ae6b01bafee8fa385aa25ee7ebdb40057f6abe ]
+[ Upstream commit deeb8f9a80fdae5a62525656d65c7070c28bd3a4 ]
 
-Since 8383741ab2e773a99 (KVM: arm64: Get rid of host SVE tracking/saving)
-KVM has not tracked the host SVE state, relying on the fact that we
-currently disable SVE whenever we perform a syscall. This may not be true
-in future since performance optimisation may result in us keeping SVE
-enabled in order to avoid needing to take access traps to reenable it.
-Handle this by clearing TIF_SVE and converting the stored task state to
-FPSIMD format when preparing to run the guest.  This is done with a new
-call fpsimd_kvm_prepare() to keep the direct state manipulation
-functions internal to fpsimd.c.
+In order to avoid needlessly saving and restoring the guest registers KVM
+relies on the host FPSMID code to save the guest registers when we context
+switch away from the guest. This is done by binding the KVM guest state to
+the CPU on top of the task state that was originally there, then carefully
+managing the TIF_SVE flag for the task to cause the host to save the full
+SVE state when needed regardless of the needs of the host task. This works
+well enough but isn't terribly direct about what is going on and makes it
+much more complicated to try to optimise what we're doing with the SVE
+register state.
+
+Let's instead have KVM pass in the register state it wants saving when it
+binds to the CPU. We introduce a new FP_STATE_CURRENT for use
+during normal task binding to indicate that we should base our
+decisions on the current task. This should not be used when
+actually saving. Ideally we might want to use a separate enum for
+the type to save but this enum and the enum values would then
+need to be named which has problems with clarity and ambiguity.
+
+In order to ease any future debugging that might be required this patch
+does not actually update any of the decision making about what to save,
+it merely starts tracking the new information and warns if the requested
+state is not what we would otherwise have decided to save.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 Reviewed-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/20221115094640.112848-2-broonie@kernel.org
+Link: https://lore.kernel.org/r/20221115094640.112848-4-broonie@kernel.org
 Signed-off-by: Will Deacon <will@kernel.org>
-[ Mark: trivial backport to v6.1 ]
+[ Mark: trivial backport ]
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/fpsimd.h |  1 +
- arch/arm64/kernel/fpsimd.c      | 23 +++++++++++++++++++++++
- arch/arm64/kvm/fpsimd.c         |  4 +++-
- 3 files changed, 27 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/fpsimd.h    |  2 +-
+ arch/arm64/include/asm/processor.h |  1 +
+ arch/arm64/kernel/fpsimd.c         | 79 +++++++++++++++++++++++++++-----------
+ arch/arm64/kvm/fpsimd.c            | 13 ++++++-
+ 4 files changed, 70 insertions(+), 25 deletions(-)
 
 diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index 9a62884183e5..f7faf0f4507c 100644
+index 9912bfd020be..7a407c3767b6 100644
 --- a/arch/arm64/include/asm/fpsimd.h
 +++ b/arch/arm64/include/asm/fpsimd.h
-@@ -44,6 +44,7 @@ extern void fpsimd_signal_preserve_current_state(void);
- extern void fpsimd_preserve_current_state(void);
- extern void fpsimd_restore_current_state(void);
- extern void fpsimd_update_current_state(struct user_fpsimd_state const *state);
-+extern void fpsimd_kvm_prepare(void);
+@@ -48,7 +48,7 @@ extern void fpsimd_kvm_prepare(void);
  
  extern void fpsimd_bind_state_to_cpu(struct user_fpsimd_state *state,
- 				     void *sve_state, unsigned int sve_vl);
+ 				     void *sve_state, unsigned int sve_vl,
+-				     enum fp_type *type);
++				     enum fp_type *type, enum fp_type to_save);
+ 
+ extern void fpsimd_flush_task_state(struct task_struct *target);
+ extern void fpsimd_save_and_flush_cpu_state(void);
+diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+index d5c11a994291..1da032444dac 100644
+--- a/arch/arm64/include/asm/processor.h
++++ b/arch/arm64/include/asm/processor.h
+@@ -116,6 +116,7 @@ struct debug_info {
+ };
+ 
+ enum fp_type {
++	FP_STATE_CURRENT,	/* Save based on current task state. */
+ 	FP_STATE_FPSIMD,
+ 	FP_STATE_SVE,
+ };
 diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index e22571e57ae1..57e89361edcb 100644
+index 4e702ff0d196..105b8aa0c038 100644
 --- a/arch/arm64/kernel/fpsimd.c
 +++ b/arch/arm64/kernel/fpsimd.c
-@@ -1108,6 +1108,29 @@ void fpsimd_signal_preserve_current_state(void)
- 		sve_to_fpsimd(current);
- }
+@@ -118,6 +118,7 @@ struct fpsimd_last_state_struct {
+ 	void *sve_state;
+ 	unsigned int sve_vl;
+ 	enum fp_type *fp_type;
++	enum fp_type to_save;
+ };
  
-+/*
-+ * Called by KVM when entering the guest.
-+ */
-+void fpsimd_kvm_prepare(void)
-+{
-+	if (!system_supports_sve())
+ static DEFINE_PER_CPU(struct fpsimd_last_state_struct, fpsimd_last_state);
+@@ -269,7 +270,8 @@ static void sve_free(struct task_struct *task)
+  *    but userspace is discouraged from relying on this.
+  *
+  *    task->thread.sve_state does not need to be non-NULL, valid or any
+- *    particular size: it must not be dereferenced.
++ *    particular size: it must not be dereferenced and any data stored
++ *    there should be considered stale and not referenced.
+  *
+  *  * SVE state - FP_STATE_SVE:
+  *
+@@ -282,7 +284,9 @@ static void sve_free(struct task_struct *task)
+  *    task->thread.uw.fpsimd_state should be ignored.
+  *
+  *    task->thread.sve_state must point to a valid buffer at least
+- *    sve_state_size(task) bytes in size.
++ *    sve_state_size(task) bytes in size. The data stored in
++ *    task->thread.uw.fpsimd_state.vregs should be considered stale
++ *    and not referenced.
+  *
+  *  * FPSR and FPCR are always stored in task->thread.uw.fpsimd_state
+  *    irrespective of whether TIF_SVE is clear or set, since these are
+@@ -321,32 +325,57 @@ static void fpsimd_save(void)
+ 	struct fpsimd_last_state_struct const *last =
+ 		this_cpu_ptr(&fpsimd_last_state);
+ 	/* set by fpsimd_bind_task_to_cpu() or fpsimd_bind_state_to_cpu() */
++	bool save_sve_regs = false;
++	unsigned long vl;
+ 
+ 	WARN_ON(!system_supports_fpsimd());
+ 	WARN_ON(!have_cpu_fpsimd_context());
+ 
+-	if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
+-		if (IS_ENABLED(CONFIG_ARM64_SVE) &&
+-		    test_thread_flag(TIF_SVE)) {
+-			if (WARN_ON(sve_get_vl() != last->sve_vl)) {
+-				/*
+-				 * Can't save the user regs, so current would
+-				 * re-enter user with corrupt state.
+-				 * There's no way to recover, so kill it:
+-				 */
+-				force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
+-				return;
+-			}
+-
+-			sve_save_state((char *)last->sve_state +
+-						sve_ffr_offset(last->sve_vl),
+-				       &last->st->fpsr);
+-			*last->fp_type = FP_STATE_SVE;
+-		} else {
+-			fpsimd_save_state(last->st);
+-			*last->fp_type = FP_STATE_FPSIMD;
++	if (test_thread_flag(TIF_FOREIGN_FPSTATE))
 +		return;
 +
++	if (IS_ENABLED(CONFIG_ARM64_SVE) &&
++	    test_thread_flag(TIF_SVE)) {
++		if (WARN_ON(sve_get_vl() != last->sve_vl)) {
++			/*
++			 * Can't save the user regs, so current would
++			 * re-enter user with corrupt state.
++			 * There's no way to recover, so kill it:
++			 */
++			force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
++			return;
+ 		}
+ 	}
++
++	if (test_thread_flag(TIF_SVE)) {
++		save_sve_regs = true;
++		vl = last->sve_vl;
++	}
++
 +	/*
-+	 * KVM does not save host SVE state since we can only enter
-+	 * the guest from a syscall so the ABI means that only the
-+	 * non-saved SVE state needs to be saved.  If we have left
-+	 * SVE enabled for performance reasons then update the task
-+	 * state to be FPSIMD only.
++	 * Validate that an explicitly specified state to save is
++	 * consistent with the task state.
 +	 */
-+	get_cpu_fpsimd_context();
++	switch (last->to_save) {
++	case FP_STATE_CURRENT:
++		break;
++	case FP_STATE_FPSIMD:
++		WARN_ON_ONCE(save_sve_regs);
++		break;
++	case FP_STATE_SVE:
++		WARN_ON_ONCE(!save_sve_regs);
++		break;
++	}
 +
-+	if (test_and_clear_thread_flag(TIF_SVE))
-+		sve_to_fpsimd(current);
-+
-+	put_cpu_fpsimd_context();
-+}
-+
++	if (IS_ENABLED(CONFIG_ARM64_SVE) && save_sve_regs) {
++		sve_save_state((char *)last->sve_state +
++			       sve_ffr_offset(last->sve_vl),
++			       &last->st->fpsr);
++		*last->fp_type = FP_STATE_SVE;
++	} else {
++		fpsimd_save_state(last->st);
++		*last->fp_type = FP_STATE_FPSIMD;
++	}
+ }
+ 
  /*
-  * Associate current's FPSIMD context with this cpu
-  * The caller must have ownership of the cpu FPSIMD context before calling
+@@ -987,6 +1016,7 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
+ 	} else {
+ 		fpsimd_to_sve(current);
+ 		fpsimd_flush_task_state(current);
++		current->thread.fp_type = FP_STATE_SVE;
+ 	}
+ 
+ 	put_cpu_fpsimd_context();
+@@ -1172,6 +1202,7 @@ static void fpsimd_bind_task_to_cpu(void)
+ 	last->sve_state = current->thread.sve_state;
+ 	last->sve_vl = current->thread.sve_vl;
+ 	last->fp_type = &current->thread.fp_type;
++	last->to_save = FP_STATE_CURRENT;
+ 	current->thread.fpsimd_cpu = smp_processor_id();
+ 
+ 	if (system_supports_sve()) {
+@@ -1186,7 +1217,8 @@ static void fpsimd_bind_task_to_cpu(void)
+ }
+ 
+ void fpsimd_bind_state_to_cpu(struct user_fpsimd_state *st, void *sve_state,
+-			      unsigned int sve_vl, enum fp_type *type)
++			      unsigned int sve_vl, enum fp_type *type,
++			      enum fp_type to_save)
+ {
+ 	struct fpsimd_last_state_struct *last =
+ 		this_cpu_ptr(&fpsimd_last_state);
+@@ -1198,6 +1230,7 @@ void fpsimd_bind_state_to_cpu(struct user_fpsimd_state *st, void *sve_state,
+ 	last->sve_state = sve_state;
+ 	last->sve_vl = sve_vl;
+ 	last->fp_type = type;
++	last->to_save = to_save;
+ }
+ 
+ /*
 diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index 24734bfcfaa0..16e29f03dcbf 100644
+index f1aaad9e14bc..54a31c97eb7a 100644
 --- a/arch/arm64/kvm/fpsimd.c
 +++ b/arch/arm64/kvm/fpsimd.c
-@@ -70,12 +70,14 @@ int kvm_arch_vcpu_run_map_fp(struct kvm_vcpu *vcpu)
- void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+@@ -90,13 +90,24 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+  */
+ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu)
  {
- 	BUG_ON(!current->mm);
--	BUG_ON(test_thread_flag(TIF_SVE));
- 
- 	vcpu->arch.flags &= ~KVM_ARM64_FP_ENABLED;
- 	vcpu->arch.flags |= KVM_ARM64_FP_HOST;
- 
-+	fpsimd_kvm_prepare();
++	enum fp_type fp_type;
 +
- 	vcpu->arch.flags &= ~KVM_ARM64_HOST_SVE_ENABLED;
+ 	WARN_ON_ONCE(!irqs_disabled());
+ 
+ 	if (vcpu->arch.flags & KVM_ARM64_FP_ENABLED) {
++		if (vcpu_has_sve(vcpu))
++			fp_type = FP_STATE_SVE;
++		else
++			fp_type = FP_STATE_FPSIMD;
 +
- 	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
- 		vcpu->arch.flags |= KVM_ARM64_HOST_SVE_ENABLED;
- }
++		/*
++		 * Currently we do not support SME guests so SVCR is
++		 * always 0 and we just need a variable to point to.
++		 */
+ 		fpsimd_bind_state_to_cpu(&vcpu->arch.ctxt.fp_regs,
+ 					 vcpu->arch.sve_state,
+ 					 vcpu->arch.sve_max_vl,
+-					 &vcpu->arch.fp_type);
++					 &vcpu->arch.fp_type, fp_type);
+ 
+ 		clear_thread_flag(TIF_FOREIGN_FPSTATE);
+ 		update_thread_flag(TIF_SVE, vcpu_has_sve(vcpu));
 
 -- 
 2.39.5
