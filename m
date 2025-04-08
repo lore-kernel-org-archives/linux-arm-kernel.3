@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D44C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 06:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 284F1C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 06:49:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DFBV6Yc7yAoNdiMBu71/EuLePU7j1NLfoVrLHBXuwk0=; b=EPFiQBe/KpA5cRXBH7cS19Ab6f
-	E6Nhxkko6aD7F0IohYJ3TijWifUaBljVyoDFO+EW9DlPI8/YlVvy6irYxNI2A/KZnJUruqv0jSt5R
-	SRzaYNPaypmgiYYdmuU/qcY2mH36q+5eEP9vzVJzgJTVQq3I37rm6Uhm4H/qbVCfeBZQLz5KkRute
-	IN+OKiZSP/oiaYrU1QtQwfb4dJf8sGMUtSV8TtqGshZZJAAxyvEP63f3SiYcHACjyvV1maQ1OepOh
-	D1293OUVuGlqmgVzHGTqJNjcYaomE7DE46FavxXPc0a4vGjZj1DRvaV9aTOKvaJUlS7wylIF2Paru
-	GDA/WO1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P1ZXUlXFpxCk76Zskk3n3ZWQ72WfXAgt8H3OlOtqE54=; b=gXKrbLZGeVj/oKqodLHKhM2IBs
+	a+VuR/Oo78yjiPhvG4KnicQ9/syH2GJx9HgqLovjeggITls61Uwwweb5JXsBCOhOT3lqJaWBYZw45
+	cMnpAXGIOIaq9/OOz3AYRQRf8jogaKQJh3loQjOEFKebP+eH6y59teOCHURK37B3W2SO4ZNCrwLQM
+	abJ7NGrEomD5vbdRK0N1UGnMt0DPJM8/ilSv68a2W9QO2H0QvBglhL2Ui0Rux82HDOvzSPXrPahHZ
+	TyE6AidU3ZYoucQ8YsYh8LqRJAfUipBmTJXlGyZod4zK7lucU52u5qlppy0wDqPuueNamP1p016kY
+	sgpi+iyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u22je-00000002x02-1dcp;
-	Tue, 08 Apr 2025 06:47:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u22lQ-00000002xL1-1xt3;
+	Tue, 08 Apr 2025 06:48:52 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u22hs-00000002wbW-33O9
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 06:45:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A4AEE42B6C;
-	Tue,  8 Apr 2025 06:45:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DA3AC4CEE5;
-	Tue,  8 Apr 2025 06:45:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744094712;
-	bh=mOv+HvzRrxAHJGRbI+qsfBmoBE1QErM9V08wm89ZPdo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=knKVOs6tQaE1iv88Hyq4JBbX/wpDy/tGlgs+QemkXkB+9bADFBEpf8YN+O+rQqOp0
-	 x/E114SgTJiJ+Qlve/r7TS7jBBRBayeexEQ6H/i0SNUVssM2gjbKDVJPC8G5CodVUe
-	 T3yrGPfVvJt+kQ+bjwpPH5RqHZW86KfiSAHjtGBl2VFA1HFNIfeFSS5+/21zULDYh5
-	 WMn9w58KUj5fb0tEm1fq4x3ETD6UJL0yxkD2EbnbeLqiiPGL0i7sn6kukOR0paBtIQ
-	 /M5bpqJnPyJX/bZkSMTz+OQxuKfdYaeXD2UiZkMdn0SKNc295OPZ0zItxyX/+2ZjRy
-	 7uqyprPyh3o8Q==
-Date: Tue, 8 Apr 2025 08:45:09 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, christophe.kerello@foss.st.com, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 2/7] dt-bindings: memory-controllers: Add STM32 Octo
- Memory Manager controller
-Message-ID: <20250408-magic-arrogant-hound-0f2de5@shite>
-References: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
- <20250407-upstream_ospi_v6-v8-2-7b7716c1c1f6@foss.st.com>
+	id 1u22j6-00000002wz4-1AJW;
+	Tue, 08 Apr 2025 06:46:29 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-54acc04516fso4861507e87.0;
+        Mon, 07 Apr 2025 23:46:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744094786; x=1744699586; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=P1ZXUlXFpxCk76Zskk3n3ZWQ72WfXAgt8H3OlOtqE54=;
+        b=jKolJHIEsnGcHNsCxWQOptt85WidIW7k1NGD2rsfAalmmpDatQZg9Mz40F/q5L+K0g
+         sryObjRNncqR9auxoF0bCx6MgFwTqolBbSZxFubKo/VSiHBTbMWqWiDssGRnN2a2gFyO
+         lF/q822BBP1cQnyfMSiffzJovu9XwLqv/bDFz90xiSnIVxfwMnyqHgHmy7UpHHm8pY/+
+         i8u2IhPQdKcW4ToGBKW1ZoTbgSc03scPO3c3giFpIHcyVy03h1VYG3gpU5KzsQx+XuqZ
+         Zewgcxl9sDPMCuaiTzZ4z/2Crf00U+bTImHBpvZ12yuWo1a+jQqbvOnkSRqid+OSYOZD
+         ouhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744094786; x=1744699586;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=P1ZXUlXFpxCk76Zskk3n3ZWQ72WfXAgt8H3OlOtqE54=;
+        b=pJzHGdTNCfO+UBDhTG6TbCim/p95CVddzdijF1BPZSswmGDMuwAuTSDHqMUxLATa50
+         rAvFLTALczRKkkKYzgG5yAAPPGv2tOFt+yRQPNbIyC1lXf/Q4UQamsp5oITD+5Et7XVA
+         LvyIkgZ/I1Hdj0DWD9MYwDrzVzju7legQJaUdDEAeLaRJYUg5162c83kUD9I2H2Pddhq
+         XI5KwUTtWrix62k0vyeMZ4tre7nP6vRN+2QrmEztmrhnMZnpzcn4h1BJxzxH13obEwDL
+         JWpWPj09h0BIYgG3kG/XTakXs1GUmFcZ1jFEaKfoMYBksbG8fOp3B5jn+6xYH1sYF+I2
+         fcAw==
+X-Forwarded-Encrypted: i=1; AJvYcCVhTicpZCk2Al5YPMza03KVmI5NzA8qp0B7hdqpqR5sZQo2m7CbFEhRpdnaZVax4Dw7fEZ5B7X0txOUg/sSRQg4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnaLseUQL+r8TQ2uMqZJSW2SDq1v6p21nxQ8f8byT+QlfPKJOD
+	p9k9w5uBR7sII/gBdSp2UOfhtaZNp/hrxHUUsoR5Zw1fd2J/i4lgO67xFZhU
+X-Gm-Gg: ASbGncvzUsrpg7mkX406WPQLZizjn/x7N1v0id6HMYlbOrJf/kREeV5nOkVF20/3W6I
+	g0uOTX75O2uOyb04zbDY/WLKRLADowZf0/yIWhmYeBqlqyRTDj4+17XxCdXwIqyNjFlUrKP1eFU
+	BU5PsJ2QCEIhqObY5d2u3F0yQZo8hvZeNMCK+0AunmBCJ7J3AuoMC6dtnK+KxjjCFI930Kq2Ud+
+	5CuBI6lBaRBNEkQeAPUn640c6rUALgtABfmndNQ66K+c3n+ZBD9j0M11EGHNBoPt4xRMRdW7jED
+	f4DYAkW3Iy48/0t83nyFv+kKTyizJSrzXO9HIVbns+laQ3EeqnzVxWHWBVgJ71wJUm4=
+X-Google-Smtp-Source: AGHT+IHgHWsakrfLfhmmiWC4HHmMMPaI4hd/D/q0s+PSgcAGf6f/l/AVumjrJcERbVfKlMMm58iWIg==
+X-Received: by 2002:a05:6512:110e:b0:54a:fa47:b2a5 with SMTP id 2adb3069b0e04-54c232ddfbcmr4204887e87.23.1744094785709;
+        Mon, 07 Apr 2025 23:46:25 -0700 (PDT)
+Received: from localhost.localdomain ([188.243.23.53])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54c1e63709asm1440800e87.145.2025.04.07.23.46.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Apr 2025 23:46:24 -0700 (PDT)
+From: Alexander Shiyan <eagle.alexander923@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Alexander Shiyan <eagle.alexander923@gmail.com>
+Subject: [PATCH] clk: rockchip: rk3588: Add PLL rate for 1500 MHz
+Date: Tue,  8 Apr 2025 09:46:12 +0300
+Message-Id: <20250408064612.41359-1-eagle.alexander923@gmail.com>
+X-Mailer: git-send-email 2.39.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250407-upstream_ospi_v6-v8-2-7b7716c1c1f6@foss.st.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_234512_791542_19B8A387 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250407_234628_312837_FF29EBDF 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +97,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 03:27:33PM GMT, Patrice Chotard wrote:
-> +  st,syscfg-amcr:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    description: |
-> +      The Address Mapping Control Register (AMCR) is used to split the 256MB
-> +      memory map area shared between the 2 OSPI instance. The Octo Memory
-> +      Manager sets the AMCR depending of the memory-region configuration.
-> +      The memory split bitmask description is:
-> +        - 000: OCTOSPI1 (256 Mbytes), OCTOSPI2 unmapped
-> +        - 001: OCTOSPI1 (192 Mbytes), OCTOSPI2 (64 Mbytes)
-> +        - 010: OCTOSPI1 (128 Mbytes), OCTOSPI2 (128 Mbytes)
-> +        - 011: OCTOSPI1 (64 Mbytes), OCTOSPI2 (192 Mbytes)
-> +        - 1xx: OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
-> +    items:
-> +      items:
+At least one RK3588 clock (CPLL) uses 1.5 GHz, so let's add
+that frequency to the PLL table.
 
-That's not what Rob asked. Are we goign to repeat the story of Benjamin
-and VD55G1? You got the exact code to use, which only need corrections
-in indentation probably. Why not using it?
+Signed-off-by: Alexander Shiyan <eagle.alexander923@gmail.com>
+---
+ drivers/clk/rockchip/clk-rk3588.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-You miss here '-'.
-
-Best regards,
-Krzysztof
+diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk-rk3588.c
+index 4031733def4e..1694223f4f84 100644
+--- a/drivers/clk/rockchip/clk-rk3588.c
++++ b/drivers/clk/rockchip/clk-rk3588.c
+@@ -64,6 +64,7 @@ static struct rockchip_pll_rate_table rk3588_pll_rates[] = {
+ 	RK3588_PLL_RATE(1560000000, 2, 260, 1, 0),
+ 	RK3588_PLL_RATE(1536000000, 2, 256, 1, 0),
+ 	RK3588_PLL_RATE(1512000000, 2, 252, 1, 0),
++	RK3588_PLL_RATE(1500000000, 2, 250, 1, 0),
+ 	RK3588_PLL_RATE(1488000000, 2, 248, 1, 0),
+ 	RK3588_PLL_RATE(1464000000, 2, 244, 1, 0),
+ 	RK3588_PLL_RATE(1440000000, 2, 240, 1, 0),
+-- 
+2.39.1
 
 
