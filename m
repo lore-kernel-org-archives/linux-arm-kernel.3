@@ -4,61 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB020C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E715C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0qpNvuTjpveT4Gfc7BYxeg5RsNAfPdAh9A7H2M87pQs=; b=stfpUAN3GeEgHE0onmw/umNZOs
-	I+Lq47qe2unosqPvC9BTGwtsJgCCEfJPChB0XCvKfXcdlw55+4db5iBZcDsAELEbVJlQKKXMePLmM
-	2XYB4yjux8TSzhBA6dKXCrhIiMpf6oWMizXTyXiWDg+IZuYM1LD8fDwNmh/VO0C88pfszcntqjN/l
-	1xaaKfoNPYpsSoXpsB/nEpbUgQYB1HAvILe55QGOd5YhgbjRtVwE6/M4IavydlKQxE1D1J0eEdlzU
-	arDKJbMvo9QnO8dMj225vDTSgMxp52ThY3h14vxHYpvfCsLUDIL98MKnuz9IQmBqxGefauFjNbXL8
-	uoKUNHVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=goyKAgXUXthVObEnOPcUswn0d1o7CZyZz+Py4yVkqho=; b=0xr2w/dZB8hJIz8afWaW9af5Dz
+	XtDMzSCx2X+PcDGvf59CuVY2dVbzIzkXJIqoVlo47Vg8055yVEtqd0TR6Wrrt8F7i/xFIVZ8UupIN
+	Nw6O8jeY8q+1TPocVbuQ4hRlJ7bivES/bHhYpXbDnfZvwNs1Q3msuYB828fUoLP/QgM6YMODOXcTU
+	P8jdMTVlL7I2PJeibCxJJpoFeHMNmGtyvi2UX54BAil5sq6jXEpZ3s7b6SasPRdcr1CZQX70JM05N
+	YlmoiKvy0Pv3quKy75IyzHhuWfvHgmzMTm6r3Noh2jem17Ny6KaXGRby1j8Ekj0BG85boytslbcpT
+	1VptgviQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u29CM-00000004F3x-0lP9;
-	Tue, 08 Apr 2025 13:41:06 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
-	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u283o-00000003zAi-0vjs
+	id 1u29E5-00000004FKj-3VeY;
+	Tue, 08 Apr 2025 13:42:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u28cC-000000044NF-2VX8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 12:28:14 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4ZX4yB0QwbzCsDR;
-	Tue,  8 Apr 2025 20:24:18 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id BC8E11400DC;
-	Tue,  8 Apr 2025 20:28:02 +0800 (CST)
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 8 Apr 2025 20:28:01 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <acme@kernel.org>, <namhyung@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <peterz@infradead.org>, <mingo@redhat.com>,
-	<mark.rutland@arm.com>, <jolsa@kernel.org>, <john.g.garry@oracle.com>,
-	<james.clark@linaro.org>, <leo.yan@linux.dev>, <irogers@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>
-CC: <jonathan.cameron@huawei.com>, <hejunhao3@huawei.com>,
-	<linuxarm@huawei.com>, <wangyushan12@huawei.com>, <caijingtao@huawei.com>,
-	<xueshan2@huawei.com>, <prime.zeng@hisilicon.com>, <yangyicong@hisilicon.com>
-Subject: [PATCH] perf arm-spe: Add support for SPE Data Source packet on HiSilicon HIP12
-Date: Tue, 8 Apr 2025 20:28:09 +0800
-Message-ID: <20250408122809.37884-1-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
+	Tue, 08 Apr 2025 13:03:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B15A1688;
+	Tue,  8 Apr 2025 06:03:44 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 29B3F3F59E;
+	Tue,  8 Apr 2025 06:03:42 -0700 (PDT)
+Date: Tue, 8 Apr 2025 14:03:39 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, ardb@kernel.org,
+	catalin.marinas@arm.com, maz@kernel.org, will@kernel.org
+Subject: Re: [PATCH 03/14] arm64/fpsimd: Remove redundant clearing of TIF_SVE
+Message-ID: <Z_Ueq4ezJyCPEJ6m@J2N7QTR9R3.cambridge.arm.com>
+References: <20250404174435.3288106-1-mark.rutland@arm.com>
+ <20250404174435.3288106-4-mark.rutland@arm.com>
+ <4b256092-ccee-45c8-aeb0-8af85cd43171@sirena.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4b256092-ccee-45c8-aeb0-8af85cd43171@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_052812_815451_5F19C268 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20250408_060344_727185_EC0B3E06 
+X-CRM114-Status: GOOD (  27.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,211 +64,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+On Fri, Apr 04, 2025 at 08:27:21PM +0100, Mark Brown wrote:
+> On Fri, Apr 04, 2025 at 06:44:24PM +0100, Mark Rutland wrote:
+> 
+> > TIF_SVE implies that sve_state has been allocated. Barring specific
+> > transient periods (e.g. during changes to SVE/SME vector lengths), it is
+> > not valid for a task to have TIF_SVE set while sve_state is NULL.
+> 
+> > This was not taken into account in commit:
+> 
+> >   7559b7d7d651d397 ("arm64/sve: Better handle failure to allocate SVE register storage")
+> 
+> > As of that commit, sve_set_common() and restore_sve_fpsimd_context()
+> > clear TIF_SVE if sve_alloc() fails to allocate memory. In these cases
+> > TIF_SVE cannot legitimately have been set to begin with, and clearing
+> > TIF_SVE only serves to complicate the code. No other code paths clear
+> > TIF_SVE if sve_alloc() fails to allocate memory.
+> 
+> The OOM handling is all rather unfortunate, it's inconsistent and
+> there's definite issues.
 
-Add data source encoding for HiSilicon HIP12 and coresponding mapping
-to the perf's memory data source. This will help to synthesize the data
-and support upper layer tools like perf-mem and perf-c2c.
+Agreed; it's a mess.
 
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- arch/arm64/include/asm/cputype.h              |   2 +
- tools/arch/arm64/include/asm/cputype.h        |   2 +
- .../util/arm-spe-decoder/arm-spe-decoder.h    |  17 +++
- tools/perf/util/arm-spe.c                     | 101 ++++++++++++++++++
- 4 files changed, 122 insertions(+)
+> In the case of sve_set_common() we might be changing the vector length,
+> in which case vec_set_vector_length() will have attempted to reallocate
+> the SVE state buffer.  It does not check that the buffer was allocated
+> so won't return an error, and the sve_alloc() we do in sve_set_common()
+> to flush the prior state would then actually try to do an allocation
+> rather than flushing and so could potentially fail.  We should handle
+> this in vec_set_vector_length() and/or sve_alloc() itself though which
+> would mean that this change would be fine.
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index d1cc0571798b..36c5bbfbb6e9 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -133,6 +133,7 @@
- 
- #define HISI_CPU_PART_TSV110		0xD01
- #define HISI_CPU_PART_HIP09			0xD02
-+#define HISI_CPU_PART_HIP12		0xD06
- 
- #define APPLE_CPU_PART_M1_ICESTORM	0x022
- #define APPLE_CPU_PART_M1_FIRESTORM	0x023
-@@ -220,6 +221,7 @@
- #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
- #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
- #define MIDR_HISI_HIP09 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP09)
-+#define MIDR_HISI_HIP12 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP12)
- #define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
- #define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
- #define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
-diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
-index 488f8e751349..9a5d85cfd1fb 100644
---- a/tools/arch/arm64/include/asm/cputype.h
-+++ b/tools/arch/arm64/include/asm/cputype.h
-@@ -129,6 +129,7 @@
- #define FUJITSU_CPU_PART_A64FX		0x001
- 
- #define HISI_CPU_PART_TSV110		0xD01
-+#define HISI_CPU_PART_HIP12		0xD06
- 
- #define APPLE_CPU_PART_M1_ICESTORM	0x022
- #define APPLE_CPU_PART_M1_FIRESTORM	0x023
-@@ -202,6 +203,7 @@
- #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
- #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
- #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
-+#define MIDR_HISI_HIP12 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP12)
- #define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
- #define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
- #define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-index 5d232188643b..0410abed5009 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-@@ -82,6 +82,23 @@ enum arm_spe_ampereone_data_source {
- 	ARM_SPE_AMPEREONE_L2D                           = 0x9,
- };
- 
-+enum arm_spe_hisi_hip_data_source {
-+	ARM_SPE_HISI_HIP_PEER_CPU		= 0,
-+	ARM_SPE_HISI_HIP_PEER_CPU_HITM		= 1,
-+	ARM_SPE_HISI_HIP_L3			= 2,
-+	ARM_SPE_HISI_HIP_L3_HITM		= 3,
-+	ARM_SPE_HISI_HIP_PEER_CLUSTER		= 4,
-+	ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM	= 5,
-+	ARM_SPE_HISI_HIP_REMOTE_SOCKET		= 6,
-+	ARM_SPE_HISI_HIP_REMOTE_SOCKET_HITM	= 7,
-+	ARM_SPE_HISI_HIP_LOCAL			= 8,
-+	ARM_SPE_HISI_HIP_REMOTE			= 9,
-+	ARM_SPE_HISI_HIP_NC_DEV			= 13,
-+	ARM_SPE_HISI_HIP_L2			= 16,
-+	ARM_SPE_HISI_HIP_L2_HITM		= 17,
-+	ARM_SPE_HISI_HIP_L1			= 18,
-+};
-+
- struct arm_spe_record {
- 	enum arm_spe_sample_type type;
- 	int err;
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 2a9775649cc2..eceae4219601 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -571,6 +571,11 @@ static const struct midr_range ampereone_ds_encoding_cpus[] = {
- 	{},
- };
- 
-+static const struct midr_range hisi_hip_ds_encoding_cpus[] = {
-+	MIDR_ALL_VERSIONS(MIDR_HISI_HIP12),
-+	{},
-+};
-+
- static void arm_spe__sample_flags(struct arm_spe_queue *speq)
- {
- 	const struct arm_spe_record *record = &speq->decoder->record;
-@@ -718,9 +723,105 @@ static void arm_spe__synth_data_source_ampereone(const struct arm_spe_record *re
- 	arm_spe__synth_data_source_common(&common_record, data_src);
- }
- 
-+static void arm_spe__synth_data_source_hisi_hip(const struct arm_spe_record *record,
-+						union perf_mem_data_src *data_src)
-+{
-+	/* Use common synthesis method to handle store operations */
-+	if (record->op & ARM_SPE_OP_ST) {
-+		arm_spe__synth_data_source_common(record, data_src);
-+		return;
-+	}
-+
-+	switch (record->source) {
-+	case ARM_SPE_HISI_HIP_PEER_CPU:
-+		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_PEER_CPU_HITM:
-+		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_L3:
-+		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		break;
-+	case ARM_SPE_HISI_HIP_L3_HITM:
-+		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_PEER_CLUSTER:
-+		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM:
-+		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_REMOTE_SOCKET:
-+		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE2;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
-+		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_REMOTE_SOCKET_HITM:
-+		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE2;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_LOCAL:
-+		data_src->mem_lvl = PERF_MEM_LVL_LOC_RAM | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_RAM;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		break;
-+	case ARM_SPE_HISI_HIP_REMOTE:
-+		data_src->mem_lvl = PERF_MEM_LVL_REM_RAM1 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_RAM;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
-+		break;
-+	case ARM_SPE_HISI_HIP_NC_DEV:
-+		data_src->mem_lvl = PERF_MEM_LVL_IO | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_IO;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		break;
-+	case ARM_SPE_HISI_HIP_L2:
-+		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		break;
-+	case ARM_SPE_HISI_HIP_L2_HITM:
-+		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_L1:
-+		data_src->mem_lvl = PERF_MEM_LVL_L1 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L1;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		break;
-+	default:
-+		break;
-+	}
-+}
-+
- static const struct data_source_handle data_source_handles[] = {
- 	DS(common_ds_encoding_cpus, data_source_common),
- 	DS(ampereone_ds_encoding_cpus, data_source_ampereone),
-+	DS(hisi_hip_ds_encoding_cpus, data_source_hisi_hip),
- };
- 
- static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
--- 
-2.24.0
+Yes; we really must handle this consistently at the point the allocation
+fails. It's rather annoying that unchecked allocations got introduced
+since commit:
 
+  7559b7d7d651d397d ("arm64/sve: Better handle failure to allocate SVE register storage")
+
+... since after that point we really should have known better.
+
+Note that today it's possible to get to vec_set_vector_length() via
+other means, e.g. via prctl(PR_SVE_SET_VL, ...), so even without this
+patch, that logic is broken.
+
+For the moment I'll drop this patch from this series and send a more
+complete fix as part of a follow-up.
+
+> In the case of restore_sve_fpsimd_context() we don't support vector
+> length changes via sigreturn so there's no issue, if the user is
+> enabling SVE for the first time we won't set TIF_SVE until later.
+> 
+> > Remove the unnecessary and confusing clearing of TIF_SVE, and remove the
+> > similarly unnecessary and confusing update of the saved fp_type.
+> 
+> The update to the saved fp_type should go into the called functions too,
+> if we ended up in a situation where we don't have a SVE state buffer we
+> should ensure we don't try to load from it.
+
+Maybe.
+
+TBH, I don't think we should *ever* change the stored representation as
+a result of failing to allocate memory. We should be able to allocate
+the new buffer before freeing the old one, and if we cannot allocate the
+new buffer we can return -ENOMEM without discarding the old state.
+
+Mark.
 
