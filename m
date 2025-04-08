@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CEFC3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 11:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA2CC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 11:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o15CI+vxxZcLoEcn2vbhrpaY247kAhk2S/bYBOyfbsk=; b=eLh4lEQIYofPGHVURAEswCAobQ
-	7Lpo0FV+tZkk/HwMH39laLDnUNDSiPAPmJX8sDWFIXM7EfChcvDT52nhMYH9HQMl4uGWFadL9zJbn
-	wcWpj5+ivkQFZ2HpSbn//oE6y+GzXfqaURCJo7gf6Vbd5IMM547S3/isqABgQs4wpm5lzkTUHtYt7
-	9t7oj8SmAQTBhTepKIx3rc8UffdN23AkZ6kBMDp3pHdlskhHHCo3O1YakvO8Cp9J0/nHEfxFnhea2
-	GWaFegq5c5w7cIFtjFSA9oVJYL00S4ojp5j8fL+S2p4yKvsIXPTIpWtWQJhRTPCvc5pUC/rkVKAUn
-	0QrSeuCQ==;
+	bh=fOEpHYzEysW5kxRY9j3WHILnDlJSRYlZLuzyoNWGI+c=; b=JC1XMB+0WSgCvZY4yZIRtavbd2
+	3LNpB8sNCFS1mhaKBy22xnYlqCqRtX+of8m3JI/lLki4PtX27J2gRzNR54glzribuC5alGh0suaxT
+	cZd/LJetGXnrPMYicmrkGejlIL5cPqypBZUjGCfqwRQ+hbwqjhsn0OSvo5Uu04mkgRcXe7kvzuyoQ
+	d9RWNTOkrCMqBDr4A1LrubrC31KHMMNiuSaiaT4axDXtmWGtQpW7DZyY7kJlmb46WsiMVHnJqZ7qp
+	zAXlXmC1jX2riq/FKPvl0at9I0yTkWB8c1kiJUvfFBrZPypqANotQkTbgcCJt6lNWITkk9dcO3Ehy
+	u1cE+S4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26xt-00000003p9p-2wam;
-	Tue, 08 Apr 2025 11:18:01 +0000
+	id 1u26ze-00000003pLM-1d5e;
+	Tue, 08 Apr 2025 11:19:50 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26Xf-00000003k7Z-1JcY
+	id 1u26Xm-00000003k95-1Bjr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 10:50:55 +0000
+	Tue, 08 Apr 2025 10:51:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B4D3B6115B;
-	Tue,  8 Apr 2025 10:50:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A611C4CEE7;
-	Tue,  8 Apr 2025 10:50:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CC3FD6115B;
+	Tue,  8 Apr 2025 10:50:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DE57C4CEE5;
+	Tue,  8 Apr 2025 10:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744109454;
-	bh=Vrm1y9HqogqdHdZx/otTpwpDwGxKKMfsXeVRsPHkIPM=;
+	s=k20201202; t=1744109461;
+	bh=TEy69hatB9WvAQZk1Qj5SRXNdR02N3m6osQeJAFrqRk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=tzLcawWQATZ8Pi02Ek0c2w0JiKTdVzqmJ54DWu0iKI0Gl5Brf3ZBf3fX11s+6QPTd
-	 OGJwxrcYaz+q92XkrM/e8SeVbHC9J0/65GJoXDYDoZfuUWUA+kkj6lAQosjUgHNoef
-	 OsfH114c8EbIXYH5wSyqemtTcPK5i48qBTQauMsw6SO/rLDao6U1obS29zNl1uY2Tn
-	 unxasP/FOsML1WcMa0R6+QvvhntPOc5zL6jib6GS5pEolEXEMTB8tJPHYeJy906PGt
-	 qOmq89+/xT9P0JBU7s+dMPTfowqpQp47v1vMM1Br1srI7DCkbEpO5QEPl46qfWhN8i
-	 +qGogvLi8gDcA==
+	b=YUCkX0ulvIxZ4N51xRAyWmVK7w0m0lvL2hCAQJaaQcN+Y4TXiug/Sw+Hhn6p5wCfK
+	 jT1lYHerOEPk+LPgEqRevmpsOq7aPBvLc76gH9Z1abKqSOJLtMQieQeZtFbl0VNhQb
+	 TgVYAT8x4jHasXDH8l33BJQW5Q/z/7E69bGHqO981KMv/wslZmQCLOJFsOIEZVDomc
+	 gFP2/sgRrg+viz5wx60caX1rXZokKMH2MzsXb2gooSViFvIEStGyl9VJxoueX0lrT9
+	 qSttCm6VKP5rWV2yhLkjGDPKnYYa4Zljt/AQfUuSBTzVg9Rl2o5mqVh7GObxW20H9S
+	 cx2x2lJqaAv+Q==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 08 Apr 2025 12:50:00 +0200
-Subject: [PATCH 01/24] Documentation: devicetree: bindings: Add GICv5 DT
- bindings
+Date: Tue, 08 Apr 2025 12:50:02 +0200
+Subject: [PATCH 03/24] arm64/sysreg: Add ICC_PPI_PRIORITY<n>_EL1
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250408-gicv5-host-v1-1-1f26db465f8d@kernel.org>
+Message-Id: <20250408-gicv5-host-v1-3-1f26db465f8d@kernel.org>
 References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
 In-Reply-To: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -75,329 +74,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GICv5 interrupt controller architecture is composed of:
-
-- one or more Interrupt Routing Service (IRS)
-- zero or more Interrupt Translation Service (ITS)
-- zero or more Interrupt Wire Bridge (IWB)
-
-Describe a GICv5 implementation by specifying a top level node
-corresponding to the GICv5 system component.
-
-IRS nodes are added as GICv5 system component children.
-
-An ITS is associated with an IRS so ITS nodes are described
-as IRS children - use the hierarchy explicitly in the device
-tree to define the association.
-
-IWB nodes are described as GICv5 system component children - to make it
-explicit that are part of the GICv5 system component; an IWB is
-connected to a single ITS but the connection is made explicit through
-the msi-parent property and therefore is not required to be explicit
-through a parent-child relationship in the device tree.
+Add ICC_PPI_PRIORITY<n>_EL1 sysreg description.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
 ---
- .../bindings/interrupt-controller/arm,gic-v5.yaml  | 268 +++++++++++++++++++++
- MAINTAINERS                                        |   7 +
- 2 files changed, 275 insertions(+)
+ arch/arm64/tools/sysreg | 83 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 83 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.yaml b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..5c78375c298a0115c55872f439eb04d4171c4381
---- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.yaml
-@@ -0,0 +1,268 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/arm,gic-v5.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ARM Generic Interrupt Controller, version 5
-+
-+maintainers:
-+  - Lorenzo Pieralisi <lpieralisi@kernel.org>
-+  - Marc Zyngier <maz@kernel.org>
-+
-+description: |
-+  The GICv5 architecture defines the guidelines to implement GICv5
-+  compliant interrupt controllers for AArch64 systems.
-+
-+  The GICv5 specification can be found at
-+  https://developer.arm.com/documentation/aes0070
-+
-+  The GICv5 architecture is composed of multiple components:
-+    - one or more IRS (Interrupt Routing Service)
-+    - zero or more ITS (Interrupt Translation Service)
-+    - zero or more IWB (Interrupt Wire Bridge)
-+
-+  The architecture defines:
-+    - PE-Private Peripheral Interrupts (PPI)
-+    - Shared Peripheral Interrupts (SPI)
-+    - Logical Peripheral Interrupts (LPI)
-+
-+allOf:
-+  - $ref: /schemas/interrupt-controller.yaml#
-+
-+properties:
-+  compatible:
-+    const: arm,gic-v5
-+
-+  interrupt-controller: true
-+
-+  "#address-cells":
-+    enum: [ 1, 2 ]
-+  "#size-cells":
-+    enum: [ 1, 2 ]
-+
-+  ranges: true
-+
-+  "#interrupt-cells":
-+    description: |
-+      Specifies the number of cells needed to encode an interrupt source.
-+      Must be a single cell with a value 3.
-+
-+      The 1st cell corresponds to the INTID.Type field in the INTID; 1 for PPI,
-+      3 for SPI. LPI interrupts must not be described in the bindings since
-+      they are allocated dynamically by the software component managing them.
-+
-+      The 2nd cell contains the interrupt INTID.ID field.
-+
-+      The 3rd cell is the flags, encoded as follows:
-+      bits[3:0] trigger type and level flags.
-+
-+        1 = low-to-high edge triggered
-+        2 = high-to-low edge triggered
-+        4 = active high level-sensitive
-+        8 = active low level-sensitive
-+
-+      Cells 4 and beyond are reserved for future use and must have a value
-+      of 0 if present.
-+    const: 3
-+
-+  interrupts:
-+    description:
-+      Interrupt source of the VGIC maintenance interrupt.
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+
-+patternProperties:
-+  "^irs@[0-9a-f]+$":
-+    type: object
-+    description:
-+      GICv5 has one or more Interrupt Routing Services (IRS) that are
-+      responsible for handling IRQ state and routing.
-+
-+    additionalProperties: false
-+    properties:
-+      compatible:
-+        const: arm,gic-v5-irs
-+
-+      "#address-cells":
-+        enum: [ 1, 2 ]
-+      "#size-cells":
-+        enum: [ 1, 2 ]
-+
-+      ranges: true
-+
-+      dma-noncoherent:
-+        description:
-+          Present if the GIC IRS permits programming shareability and
-+          cacheability attributes but is connected to a non-coherent
-+          downstream interconnect.
-+
-+      reg:
-+        minItems: 1
-+        items:
-+          - description: IRS control frame
-+          - description: IRS setlpi frame
-+
-+      cpus:
-+        $ref: /schemas/types.yaml#/definitions/phandle-array
-+        description:
-+          Should be a list of phandles to CPU nodes (as described in
-+          Documentation/devicetree/bindings/arm/cpus.yaml) corresponding to
-+          CPUs managed by the IRS.
-+
-+      arm,iaffids:
-+        $ref: /schemas/types.yaml#/definitions/uint16-array
-+        description:
-+          Should be a list of u16 values representing IAFFID IDs associated
-+          with the CPU whose CPU node phandle is at the same index in the
-+          cpus array.
-+
-+    patternProperties:
-+      "^msi-controller@[0-9a-f]+$":
-+        type: object
-+        description:
-+          GICv5 has zero or more Interrupt Translation Services (ITS) that are
-+          used to route Message Signalled Interrupts (MSI) to the CPUs. Each
-+          ITS is connected to an IRS.
-+        additionalProperties: false
-+        properties:
-+          compatible:
-+            const: arm,gic-v5-its
-+
-+          dma-noncoherent:
-+            description:
-+              Present if the GIC ITS permits programming shareability and
-+              cacheability attributes but is connected to a non-coherent
-+              downstream interconnect.
-+
-+          msi-controller: true
-+
-+          "#msi-cells":
-+            description:
-+              The single msi-cell is the DeviceID of the device which will
-+              generate the MSI.
-+            const: 1
-+
-+          reg:
-+            items:
-+              - description: ITS control frame
-+              - description: ITS translate frame
-+
-+        required:
-+          - compatible
-+          - msi-controller
-+          - "#msi-cells"
-+          - reg
-+
-+    required:
-+      - compatible
-+      - reg
-+      - cpus
-+      - arm,iaffids
-+
-+  "^interrupt-controller@[0-9a-f]+$":
-+    type: object
-+    description:
-+      GICv5 has zero or more Interrupt Wire Bridges (IWB) that are responsible
-+      for translating wire signals into interrupt messages to the ITS.
-+
-+    additionalProperties: false
-+    properties:
-+      compatible:
-+        const: arm,gic-v5-iwb
-+
-+      interrupt-controller: true
-+
-+      "#address-cells":
-+        const: 0
-+
-+      "#interrupt-cells":
-+        description: |
-+          Specifies the number of cells needed to encode an interrupt source.
-+          Must be a single cell with a value 2.
-+
-+          The 1st cell corresponds to the IWB wire.
-+
-+          The 2nd cell is the flags, encoded as follows:
-+          bits[3:0] trigger type and level flags.
-+
-+          1 = low-to-high edge triggered
-+          2 = high-to-low edge triggered
-+          4 = active high level-sensitive
-+          8 = active low level-sensitive
-+
-+          Cells 3 and beyond are reserved for future use and must have a value
-+          of 0 if present.
-+        const: 2
-+
-+      reg:
-+        items:
-+          - description: IWB control frame
-+
-+      msi-parent: true
-+
-+    required:
-+      - compatible
-+      - reg
-+      - msi-parent
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    interrupt-controller {
-+      compatible = "arm,gic-v5";
-+      #interrupt-cells = <3>;
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+      ranges;
-+
-+      interrupt-controller;
-+
-+      interrupts = <1 25 4>;
-+
-+      irs@2f1a0000 {
-+        compatible = "arm,gic-v5-irs";
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+        ranges;
-+
-+        reg = <0x0 0x2f1a0000 0x0 0x10000>;  // IRS_CONFIG_FRAME for NS
-+
-+        arm,iaffids = /bits 16 <0 1 2 3 4 5 6 7>;
-+        cpus = <&{/cpus/cpu@0}>, <&{/cpus/cpu@100}>, <&{/cpus/cpu@200}>,
-+               <&{/cpus/cpu@300}>, <&{/cpus/cpu@10000}>, <&{/cpus/cpu@10100}>,
-+               <&{/cpus/cpu@10200}>, <&{/cpus/cpu@10300}>;
-+
-+        msi-controller@2f120000 {
-+          compatible = "arm,gic-v5-its";
-+
-+          msi-controller;
-+          #msi-cells = <1>;
-+
-+          reg = <0x0 0x2f120000 0x0 0x10000    // ITS_CONFIG_FRAME for NS
-+                 0x0 0x2f130000 0x0 0x10000>;  // ITS_TRANSLATE_FRAME
-+        };
-+      };
-+
-+      interrupt-controller@2f000000 {
-+        compatible = "arm,gic-v5-iwb";
-+        #address-cells = <0>;
-+
-+        interrupt-controller;
-+        #interrupt-cells = <2>;
-+
-+        reg = <0x0 0x2f000000 0x0 0x10000>;
-+
-+        msi-parent = <&its0 64>;
-+      };
-+    };
-+
-+    device@0 {
-+      reg = <0 4>;
-+      interrupts = <3 115 4>;
-+    };
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 96b82704950184bd71623ff41fc4df31e4c7fe87..f3ed84466da19906953b5396a5f4b50e878c376e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -1901,6 +1901,13 @@ F:	drivers/irqchip/irq-gic*.[ch]
- F:	include/linux/irqchip/arm-gic*.h
- F:	include/linux/irqchip/arm-vgic-info.h
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 06e1fb5e126b41b7e41fffa0a00553d73197ac3c..0cc1268c0bfad8266da47b441e80c603e46c00ae 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2310,6 +2310,89 @@ Field	31	C
+ Field	30:0	P
+ EndSysreg
  
-+ARM GENERIC INTERRUPT CONTROLLER V5 DRIVERS
-+M:	Lorenzo Pieralisi <lpieralisi@kernel.org>
-+M:	Marc Zyngier <maz@kernel.org>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.yaml
++SysregFields	ICC_PPI_PRIORITYRx_EL1
++Res0	63:61
++Field	60:56	Priority7
++Res0	55:53
++Field	52:48	Priority6
++Res0	47:45
++Field	44:40	Priority5
++Res0	39:37
++Field	36:32	Priority4
++Res0	31:29
++Field	28:24	Priority3
++Res0	23:21
++Field	20:16	Priority2
++Res0	15:13
++Field	12:8	Priority1
++Res0	7:5
++Field	4:0	Priority0
++EndSysregFields
 +
- ARM HDLCD DRM DRIVER
- M:	Liviu Dudau <liviu.dudau@arm.com>
- S:	Supported
++Sysreg	ICC_PPI_PRIORITYR0_EL1	3	0	12	14	0
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR1_EL1	3	0	12	14	1
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR2_EL1	3	0	12	14	2
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR3_EL1	3	0	12	14	3
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR4_EL1	3	0	12	14	4
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR5_EL1	3	0	12	14	5
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR6_EL1	3	0	12	14	6
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR7_EL1	3	0	12	14	7
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR8_EL1	3	0	12	15	0
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR9_EL1	3	0	12	15	1
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR10_EL1	3	0	12	15	2
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR11_EL1	3	0	12	15	3
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR12_EL1	3	0	12	15	4
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR13_EL1	3	0	12	15	5
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR14_EL1	3	0	12	15	6
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
++Sysreg	ICC_PPI_PRIORITYR15_EL1	3	0	12	15	7
++Fields	ICC_PPI_PRIORITYRx_EL1
++EndSysreg
++
+ Sysreg	PMSELR_EL0	3	3	9	12	5
+ Res0	63:5
+ Field	4:0	SEL
 
 -- 
 2.48.0
