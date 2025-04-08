@@ -4,66 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158EDC369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAC4CC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9zxld5MK5nl7RVPnOXXCg5A1OmUF2muw/uPgyMfoYRo=; b=sQMh1nJN5IWNWVkewzCm1j5rZL
-	eZ8U52KxrH0KMZ9JLltU3NdNprNx8v6zIzNDqF2ziIwBsrQQrMNpVIuScEX5TUpQXfoagt0xk6Nt1
-	cvO4HCaV3J9sEMJThcPkeoaghcbtAFkTBQDKBEYaAntlXhjEBLnMJ6AMMQ00HBJkVgnHOF5b4u4Pt
-	EPPpvixkj919qjF3S+wy9GMoA372yzGlgkjOt5SrVBlnnqtL9OJPDABsFyRpowH/9bQ29SEYbbv8k
-	b1VAd58xUptKwQgWsfHkMjCRG5C4DeSWSeqtn66tZumPHGnl5FOSIDFbim7XGmBCS18U8jeGVjw9f
-	eFjCDdkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gtkeFnj7OUO0U4bnqYDUPhFLm3B9Pqw2DU045e21LFw=; b=dD65k3+eJiNOHmWotAp+Qtg/3l
+	1/ivhx+TsWN0nfXZBSeA2dtfXhezMiqYFCjYCYU3B9DK0kTkWX7ikECIMGguV/qmpx4lu8D/ax08P
+	kwDNq2chkvH1jwEl7PXWP8r6dNSiLhH7O6AVNKkHkljJ3SjFHh57w9Yp7tqYdA8bRfLhlVbAd54QV
+	SIpueIKOsnALVK4nyCnvEreilsEWuiDKRFAZ6R0Xrl/w8hu0sz3qkGgE7xaRgbdTmAZDpSovKnDm0
+	PCZzS4EiZYZvOvCal4SmHFC1tAkWkzy0LhJoDqdctb0Cl2RFzl5OvshtBPYdpgQ5RVUQpKkFSRnjR
+	P1Uoi8iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28lk-000000045yg-1ary;
-	Tue, 08 Apr 2025 13:13:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u28li-000000045y8-2ApF;
+	Tue, 08 Apr 2025 13:13:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26YP-00000003kIh-2Urx
+	id 1u26Jg-00000003h3S-1x1V
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Apr 2025 10:36:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=gtkeFnj7OUO0U4bnqYDUPhFLm3B9Pqw2DU045e21LFw=; b=SpsHA/SMQcapxBby63wXRj7QIX
+	D4sJB2LQcpUQGP+gIXw3yifnAvQzpT7gmT9Cr6EGJARgNXX43kqUyXA2DhcA+IPoMcQs6m1fixbO+
+	OJDtAa1Hrg4v92FSL3HkGkwa/Ua59lm7GB4Zb13pwwU+cVSGooRwQ/yvT82w0j6hxZbLp+bPt/u/V
+	b1PbXt31qbRWoKXrETxS2SwwC/yz5RfRALJRKpNjKBM2MmD0NggKSLEUjEwPo3hfreUyxNn7eAS/p
+	nHpSTf0kFOzy1l0TSDGS6AWy0Qy/lrOSuIBjPdeYi9GI0+eh60GkNdD9XN5cGbNQ8s3fQS3WaLS1Q
+	8Fz0bjJw==;
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u26Jd-00000008FVK-0gET
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 10:51:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 454CCA4391D;
-	Tue,  8 Apr 2025 10:46:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96949C4CEE5;
-	Tue,  8 Apr 2025 10:51:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744109500;
-	bh=9zWp7WGj091+ZG2FSlP0T7J3sn+1tw+UEtNEfbmUjxQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nqlpQpc1SEMWis8VXKD3OnJH1X5KYSi+9N9gfPHksaZ6ekQ2RN6rNygsuiZpMx5Bb
-	 SX/sGi0Os0mb8ZDQC3ickjOESKwD4P5gzt98oAbOovsDGLK11Z4WnlS/l4Z9Aa8dTU
-	 vqK7cx686WtbvVdn4cEjU36P44gVnD8ThbKS7w63kBc7qUcqUDbA/SwbKliM79DsWQ
-	 bHHMFgS2HeNh1hi1FH1fR8Oa4Q+ZyGYQQgOI9oO2aIWGaHWP/IdPMe814VFjMcnfj4
-	 Aw+P09xsa3MKaZw9yq1sQoLh8aHPjC4KTo/GPWaB2j+g/ZIBXY3ZANsmfrjbEo+Ph0
-	 /QnSwZbk7PuwA==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 08 Apr 2025 12:50:13 +0200
-Subject: [PATCH 14/24] arm64/sysreg: Add ICH_HFGITR_EL2
+	Tue, 08 Apr 2025 10:36:27 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 538AaJOq655532
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 8 Apr 2025 05:36:19 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744108579;
+	bh=gtkeFnj7OUO0U4bnqYDUPhFLm3B9Pqw2DU045e21LFw=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=XFZ62dW87X2NQzHQhPUVXfYGm5xqGL/cHTCRS7A07FvCznkHYnOFNXzrMykRWTI8F
+	 10zxxAV3HOLmOrzOvQybFb9XSWERmWLJwLmJDafAzQpWoGEsu/TSZoaGRNNqjikr3z
+	 4rWeAIP0DP4Sgg59Xb9R2lNrhwKvgjGrwMjdwHRU=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 538AaJYf079656
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 8 Apr 2025 05:36:19 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 8
+ Apr 2025 05:36:18 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 8 Apr 2025 05:36:18 -0500
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 538Aa6T9016171;
+	Tue, 8 Apr 2025 05:36:15 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <rogerq@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH v2 2/2] arm64: dts: ti: k3-j722s-main: Disable "serdes_wiz0" and "serdes_wiz1"
+Date: Tue, 8 Apr 2025 16:06:06 +0530
+Message-ID: <20250408103606.3679505-3-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250408103606.3679505-1-s-vadapalli@ti.com>
+References: <20250408103606.3679505-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250408-gicv5-host-v1-14-1f26db465f8d@kernel.org>
-References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
-In-Reply-To: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Sascha Bischoff <sascha.bischoff@arm.com>, 
- Timothy Hayes <timothy.hayes@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_035141_701165_9FF382AD 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250408_113625_554554_B5D44EEA 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +101,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ICH_HFGITR_EL2 register description to sysreg.
+Since "serdes0" and "serdes1" which are the sub-nodes of "serdes_wiz0"
+and "serdes_wiz1" respectively, have been disabled in the SoC file already,
+and, given that these sub-nodes will only be enabled in a board file if the
+board utilizes any of the SERDES instances and the peripherals bound to
+them, we end up in a situation where the board file doesn't explicitly
+disable "serdes_wiz0" and "serdes_wiz1". As a consequence of this, the
+following errors show up when booting Linux:
 
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
+  wiz bus@f0000:phy@f000000: probe with driver wiz failed with error -12
+  ...
+  wiz bus@f0000:phy@f010000: probe with driver wiz failed with error -12
+
+To not only fix the above, but also, in order to follow the convention of
+disabling device-tree nodes in the SoC file and enabling them in the board
+files for those boards which require them, disable "serdes_wiz0" and
+"serdes_wiz1" device-tree nodes.
+
+Fixes: 628e0a0118e6 ("arm64: dts: ti: k3-j722s-main: Add SERDES and PCIe support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 ---
- arch/arm64/tools/sysreg | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 1b519e35000be328acfe26d51e098059f9cf9ef2..5af0dea6e775ea680686dbe4bc836b5f5b69fbc7 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -3616,6 +3616,21 @@ Res0	1
- Field	0	ICC_APR_EL1
- EndSysreg
+v1 of this patch is at:
+https://lore.kernel.org/r/20250408060636.3413856-3-s-vadapalli@ti.com/
+Changes since v1:
+- Added "Fixes" tag and updated commit message accordingly.
+
+Regards,
+Siddharth.
+
+ arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+index 6850f50530f1..beda9e40e931 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+@@ -32,6 +32,8 @@ serdes_wiz0: phy@f000000 {
+ 		assigned-clocks = <&k3_clks 279 1>;
+ 		assigned-clock-parents = <&k3_clks 279 5>;
  
-+Sysreg	ICH_HFGITR_EL2	3	4	12	9	7
-+Res0	63:11
-+Field	10	GICRCDNMIA
-+Field	9	GICRCDIA
-+Field	8	GICCDDI
-+Field	7	GICCDEOI
-+Field	6	GICCDHM
-+Field	5	GICCRDRCFG
-+Field	4	GICCDPEND
-+Field	3	GICCDAFF
-+Field	2	GICCDPRI
-+Field	1	GICCDDIS
-+Field	0	GICCDEN
-+EndSysreg
++		status = "disabled";
 +
- Sysreg	ICH_HCR_EL2	3	4	12	11	0
- Res0	63:32
- Field	31:27	EOIcount
-
+ 		serdes0: serdes@f000000 {
+ 			compatible = "ti,j721e-serdes-10g";
+ 			reg = <0x0f000000 0x00010000>;
+@@ -70,6 +72,8 @@ serdes_wiz1: phy@f010000 {
+ 		assigned-clocks = <&k3_clks 280 1>;
+ 		assigned-clock-parents = <&k3_clks 280 5>;
+ 
++		status = "disabled";
++
+ 		serdes1: serdes@f010000 {
+ 			compatible = "ti,j721e-serdes-10g";
+ 			reg = <0x0f010000 0x00010000>;
 -- 
-2.48.0
+2.34.1
 
 
