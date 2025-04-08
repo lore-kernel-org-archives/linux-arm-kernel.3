@@ -4,115 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68CB7C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E01C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 19:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y9FEiJ6GtO3x4AiYlszABTIXDcZSRIh+gOJoUIjbzrc=; b=GITGoO2T5UwEyLsypXqif47xwU
-	MgWMuO8fG0vJnVv+w2hIxlumn03CWhX2TGRK9Ys3M7gNb4WIlCfIgiGiYszSKbyAfj9w064j8vFNy
-	gYlW9o1zIoqLxUY84L4TROeOVkfnkKkuQIjQkeEoo6ZZ2KezI8KUc7gKfDpW5Q1U3xQIjPJf14pIx
-	P9HmRko0zDZGFikwGQ55pkxmlc4gCtnUd9Bt974gt9mgYqEI0SKCaaM03SCGazz4n8MrnWFwHGah+
-	MSTx7FTnZcwuXzaAUpAUAWbr3VMaY34PvhMWZ3RIaj3siQfIlIcXkSAil9ApSAY+b1pOXER3s9jIL
-	ssIqx5qQ==;
+	bh=Kxhy/MU+jM2mvtkwqYk+GNtd8TQv1qCRiZaPwKzXy6w=; b=vrWWXSbhhKwBE74YaxYKrTD4Fo
+	MM0mrbWibPkzMEA12OSbjU+X9S5gwrEHzI+m6HLx0XCw5BWGwB/LSLHMK7+IGjmclGMjnpvGch7DW
+	xaP/cyzgF+Equ0y/YRCCTnL+5fk8pOM+qT/eT8oH7AEoyCGh4mZ8uJBuQyYIctUmYlUyPk6VSISSi
+	5aJy4rEiSSMK5DXiwjMj2SxJiFaFxL1i992RJ21ldAdmOZXFMPXH1KRat05bg8RXUO+toPsMGIt8+
+	/V0xdjB44uX5MZkEPYQIZrGwDDx//dvWKxB+kBYAW/DKuKUO/BuZKYu+Zuy+UEIYOXy/fZQGV/E0q
+	/hijvGZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2E8q-00000005AmR-2lCB;
-	Tue, 08 Apr 2025 18:57:48 +0000
+	id 1u2EBM-00000005BH2-3BeY;
+	Tue, 08 Apr 2025 19:00:24 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2CaB-00000004x1G-2HKH
+	id 1u2E8P-00000005Ah6-0ano
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 08 Apr 2025 17:17:55 +0000
+	Tue, 08 Apr 2025 18:57:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=y9FEiJ6GtO3x4AiYlszABTIXDcZSRIh+gOJoUIjbzrc=; b=lKlPP+vvdkPFrauu01E4+k0tVu
-	JuVb68DFfkPw6//MDf2t/QDQ8Evx3m+k3vgc+mm5pJh3jsSMCxE5TJMfvMswnqsilyA88d5OXeCkY
-	uZGL5zmjXC9Nz4j5TtGNeDj6Cma9M3czW97sCAiyQWEFy7zhWBj0V2RKh5b3vu++fWSdEMUelEcKd
-	ckdl9B6l605ceO5zpmjdoqH8MB6hMqYLd94iUoHoqaruMbIkJirmwzgF6ozMSU5PZNS/pPfyqERXK
-	3BnvEwVVfrwz4xR79TsySpR1ljXObTG1u1pDMsv0pM6+A1uGLhogJQRhMDtGJl+19V2F+qfvy2CPY
-	RxFDY24A==;
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	bh=Kxhy/MU+jM2mvtkwqYk+GNtd8TQv1qCRiZaPwKzXy6w=; b=iwrfULz+lquE3FMR//UQfUMsMq
+	nOAOrygYocaIxzvCpeAkBsB8+1Rn/8O8jGibSu58Vs9pHdvvqigMVybklJvYlWyinU8Fx5Pvky/Wu
+	lNMAM4vHQW5HrVXImtWenHArsLbAcZMICpZ+umtdn/FRSk3LpZhDpNJrhlrlIeMAc+lHK2jzLGCjI
+	vC3ht0QGiLDjEKolbujD0pKw42XHD8kcNu67GbrLOAUCrFhhFzeWfbQVBhnpUEa1rtLRpXegfHcLS
+	kfeGIZC6QUuuo8JsnDmlb73Q+iaBOd//qiPeQ59/YnU9wOSwtrl3M21nzXMCHFprWNETjpdwlBaVF
+	XZ8r6EGw==;
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2Ca8-00000008LkV-261K
+	id 1u2E8M-00000008Ova-1L3h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 17:17:54 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43ce70f9afbso63522995e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 10:17:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744132670; x=1744737470; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=y9FEiJ6GtO3x4AiYlszABTIXDcZSRIh+gOJoUIjbzrc=;
-        b=cJYNKO1NI2X8pt1BbYNG0F7DmRJtFm1/XiYPiaJPkErmTrzqqWe83YEvIKtFERQIM2
-         3JOtfviFUsprE4gG2gvk57iWvo7YmWtYMYZOeSpVPPPi7u6utzgqEb3nWBRYWojPplcX
-         3Wx0RM3iQ5jtRwYh6mNJBOlaNvKOroAo11ByerYXaWN6ebBfGwYKAL21NxDJqK+6v760
-         hKZAPzhBMK2M5qVVgZdrkn9bcrOXIB+JBXjW7atJrgkPNlF5CLXk23sSTYPHhacBPWCM
-         fQ2iUiDmcTY5BOMvGcxSJdK5YYxpT2snT1Id42oyx42VvWE3uvUaixMtIHd2yzf4N7PA
-         yntg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744132670; x=1744737470;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y9FEiJ6GtO3x4AiYlszABTIXDcZSRIh+gOJoUIjbzrc=;
-        b=opc+uXLKb7c8eePni9YzTgEZIejyhtDpJkiHmEyPFBHC1OTDGPRFGKlg/xEqEyvMUn
-         rT66EQl3OR6gURoM5TAGMHAru0BOmscAE7ATgLCLaTsW8tBuuVX9+VFgM/MmJ5GZ8TDk
-         lZZCTYQro9RQvW+mEgVpuomhlnhSK0vkfyRogwQpzSVD/Pyk41ZvXhhx9fy/yMF0cQIB
-         3aXdj6LkM045VREDtu11Y1FEmMl0d364pUPg82KfNpO3TaztOd/IhHQO9rzpg7MUVPn6
-         ceOkEWe5COVXDCf6pgaofyBTLXV3LQnEFxM7nH0xy0d7i9df9KzmtL5XmiBBqH/mstE+
-         S5Qw==
-X-Forwarded-Encrypted: i=1; AJvYcCUbnKhRnk5WJpCI9ygzfG4EQtjyRRg3rHP/A/+FC2m5UVal9Njb+phqm2nSSfCTMBedn3lJzjWS15JNW03uVzD5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4iRri9K/SN4wV05rdBQ9hkV9iHG945CNZMpOhh+OmZvOH6Bu8
-	wE7L2OKkSlUWzo9J54ZL2bveqACy39qVe7WeycgYT0CY2qWkuqTa
-X-Gm-Gg: ASbGncuMoh/ESQDusJZIiI6gWZDBuL1Ncv32eDL5TQ2l318C+CvHt2a9LdXJFzujwLe
-	vJ6la53hXPDTs/C3eeXGmmdNFiEzD91auYOm9lI2f8Ia/bqEqT0lD5PbdK2aRis/tbfShtBdcJS
-	IyhzSixMbd5A9KmQOitOiYTT4qEMnvfj2aL4vldVc77mg1jHCt7D0QO0iHOGUb2f+pvVsGjmK9A
-	649/KYdm+NIfy/aJGuWKy1OYgoUjGtYPUsgYymsm0taU7kqZB/t8RsFvXA6A3dXVNomCPoE1dV1
-	0Dk1uAUbRW91okPdlzKyY8QKfZfVYqZkiBf3Zt8qux7rHw==
-X-Google-Smtp-Source: AGHT+IGMxsDZ68vfGvY6rmtQL+9u8l96JpsI36c7dOT+rCUWPpt8G0b9GVy/azT74f17G5UjIxKHow==
-X-Received: by 2002:a05:600c:34c2:b0:43c:fdbe:43be with SMTP id 5b1f17b1804b1-43ed0da05c8mr146186625e9.27.1744132669487;
-        Tue, 08 Apr 2025 10:17:49 -0700 (PDT)
-Received: from Ansuel-XPS. ([109.52.104.145])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c2fe9875dsm15443812f8f.0.2025.04.08.10.17.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 10:17:49 -0700 (PDT)
-Message-ID: <67f55a3d.050a0220.f3f61.8550@mx.google.com>
-X-Google-Original-Message-ID: <Z_VaN2iATWh7sipi@Ansuel-XPS.>
-Date: Tue, 8 Apr 2025 19:17:43 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Tue, 08 Apr 2025 18:57:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Kxhy/MU+jM2mvtkwqYk+GNtd8TQv1qCRiZaPwKzXy6w=; b=f7wmzVm0yENgf1jtAMnXqOppa6
+	4dZG4oHrxR6uv7oY3lW8PbQKQAvxaioN1VCv+qC6zGfiazdj0xWav37licIejUgUbni5gFnB8o+HP
+	ssAe+bQFfAwO7ta0oOB4iF+0mfbHq7hwDOqvIKUI8F5Sh5+E/sTPmNxd61oAMqvBTGNk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u2E8I-008RG0-Cp; Tue, 08 Apr 2025 20:57:14 +0200
+Date: Tue, 8 Apr 2025 20:57:14 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Qingfang Deng <dqfext@gmail.com>,
-	SkyLake Huang <SkyLake.Huang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Simon Horman <horms@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Jakub Kicinski <kuba@kernel.org>, Jon Hunter <jonathanh@nvidia.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.or
-Subject: Re: [net-next PATCH 2/2] net: phy: mediatek: add Airoha PHY ID to
- SoC driver
-References: <20250408155321.613868-1-ansuelsmth@gmail.com>
- <20250408155321.613868-2-ansuelsmth@gmail.com>
- <Z_VYz6InC1p4vwku@shell.armlinux.org.uk>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH net-next 2/5] net: stmmac: intel: remove eee_usecs_rate
+ and hardware write
+Message-ID: <f8fe981e-3351-469b-9d76-803eb4563932@lunn.ch>
+References: <Z_QgOTC1hOSkIdur@shell.armlinux.org.uk>
+ <E1u1rgO-0013gj-5r@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z_VYz6InC1p4vwku@shell.armlinux.org.uk>
+In-Reply-To: <E1u1rgO-0013gj-5r@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_181752_654152_46D51F57 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250408_195718_515551_BE054E8B 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,35 +95,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 06:11:43PM +0100, Russell King (Oracle) wrote:
-> On Tue, Apr 08, 2025 at 05:53:14PM +0200, Christian Marangi wrote:
-> >  config MEDIATEK_GE_SOC_PHY
-> >  	tristate "MediaTek SoC Ethernet PHYs"
-> > -	depends on (ARM64 && ARCH_MEDIATEK) || COMPILE_TEST
-> > -	depends on NVMEM_MTK_EFUSE || COMPILE_TEST
-> > +	depends on (ARM64 && (ARCH_MEDIATEK || ARCH_AIROHA)) || COMPILE_TEST
-> > +	depends on (ARCH_MEDIATEK && NVMEM_MTK_EFUSE) || ARCH_AIROHA || COMPILE_TEST
+On Mon, Apr 07, 2025 at 07:58:56PM +0100, Russell King (Oracle) wrote:
+> Remove the write to GMAC_1US_TIC_COUNTER for two reasons:
 > 
-> So...
-> COMPILE_TEST	ARM64	ARCH_AIROHA	ARCH_MEDIATEK	NVMEM_MTK_EFUSE	result
-> N		N	x		x		x		N
-> N		Y	N		N		x		N
-> N		Y	N		Y		N		N
-> N		Y	N		Y		Y		Y
-> N		Y	Y		x		x		Y
-> Y		x	x		x		x		Y
+> 1. during initialisation or reinitialisation of the DWMAC core, the
+>    core is reset, which sets this register back to its default value.
+>    Writing it prior to stmmac_dvr_probe() has no effect.
 > 
-> Hence this simplifies to:
+> 2. Since commit 8efbdbfa9938 ("net: stmmac: Initialize
+>    MAC_ONEUS_TIC_COUNTER register"), GMAC4/5 core code will set
+>    this register based on the rate of plat->stmmac_clk. This clock
+>    is created by the same code which initialises plat->eee_usecs_rate,
+>    which is also created to run at this same rate. Since Marek's
+>    commit, this will set this register appropriately using the
+>    rate of this clock.
 > 
-> 	depends on ARM64 || COMPILE_TEST
-> 	depends on ARCH_AIROHA || (ARCH_MEDIATEK && NVMEM_MTK_EFUSE) || \
-> 		   COMPILE_TEST
->
+> Therefore, dwmac-intel.c writing GMAC_1US_TIC_COUNTER serves no
+> useful purpose and can be removed.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Right, I will update in v2.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Hope Andrew is OK with keeping the review tag.
-
--- 
-	Ansuel
+    Andrew
 
