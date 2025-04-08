@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD96C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 23:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E0A6C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 23:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mVV68PHDm9sZPpv0AeWGwHdRTQpJ6jjSm73Ky8+JDCk=; b=AcudbHP6kcPMs1xkXUhc69wF+Y
-	jLnxsWE598ZfOGBfPpGpN5vEQUFuK1R/dhdDqqDYImDMNw3rm6r39Glbs7kd0dzCQsqK/V6xjTS0U
-	PZIpKW3sB58sk7wF5Ilqs/tBqph18HlcNwDlH6EWCkgkv1KZ1/tWwSmDnn4mA0mkiFr/6qW3UZ8Ur
-	sT1bhCk4vRz6DT+QYzRT6RuJOQJsGrkwKhY0z6MJPD8gH3qX2Quwm/CyHJ7HtZ0Cv0A7qvhgMwZkB
-	+wfJ9sQ9HbnaFpsEUDJT20bFkUkB4s8Slls7F0wT5LhPTzJUaenWT5G86IaYLYw1STjtUKjek0oV1
-	YjyiiZog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jSfFK6BUAK+Qxfp2fpBiU7pkFHlfyZI9MOMS3C7WUDQ=; b=cyTbRmY762HIZLNN2WQVXXwtjy
+	MC1XMCmKSNkW5Tyq9X+nc2GIbfCIKQx2bElkOvQeltD1YeSk9jYH5n0/BxplNeWLyxqUgOWZgD1kv
+	e8S05STIhdUpyxYFQBEPMuKdP8VzZWg3NqiTgIZpM+0yT2A5Gr5ECghd/IAByev0fjmIHScbYIlnx
+	nfTwuRFipa6gs81PqljGfJyhISOFA4E9wGUw75mGrqwYXjH0SuObR8rfO1PjI+m108Uuv9TqfdBFq
+	hgyybOSG+H2X6o7OpDxtAYjzuN4/eB5zPvSo2gtyHtpLWaP+dXx9RZ8ecRb5CLUTnIteiXA2t8rA5
+	RQAQFiEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ICf-00000005flT-2X53;
-	Tue, 08 Apr 2025 23:18:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u2IEt-00000005g4W-3UUD;
+	Tue, 08 Apr 2025 23:20:19 +0000
+Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2IAs-00000005ff7-46sm;
-	Tue, 08 Apr 2025 23:16:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 05A9049E1C;
-	Tue,  8 Apr 2025 23:16:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B44AC4CEE5;
-	Tue,  8 Apr 2025 23:16:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744154169;
-	bh=NkE2yEK6/Yb6VqEYmf2tDKIftCX7oKGJyegUJzkwfKA=;
-	h=From:Date:Subject:To:Cc:From;
-	b=eAFkAzwZpybfWRmo//r6tWWUewpcZQptX/tGmN76N0mSbCoSGQy7n/OafY/ZOx3Xq
-	 DurhATgxHPwzaEenwoynQVIzOEz4FT8cct5xhwbOG/JHB+EUIWLbGWeQfFa4u0acxL
-	 5qjtdp3mku/i7KevD2p8xRVfAs230APpvjk8XvbsAL+yHhfdprnP7XlaIikRBEwiFJ
-	 Bya4P69m6qieOrWNt3h4Z1Ov5qvImaqrq7nL3a4zYHV+TUR8102FKWcLRnOWfsxkjH
-	 vB27RkYKz9vebVyVShgCG/Q2T83gj7WS9+hRW1yMWYG7DG9jUfmN8cq5wZzQdrIJRf
-	 WzzdXKDrMcGhg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 09 Apr 2025 01:15:32 +0200
-Subject: [PATCH net-next v2] net: airoha: Add matchall filter offload
- support
+	id 1u2ID7-00000005fpc-1ECI
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 23:18:30 +0000
+Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-85e15dc801aso475881739f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 16:18:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744154307; x=1744759107; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jSfFK6BUAK+Qxfp2fpBiU7pkFHlfyZI9MOMS3C7WUDQ=;
+        b=EDNaetON5oVkGYPtDYAb6PfQdTaESBUuWYes78Y8SHqfRf3rSOAXtZtHu3WUtcZskv
+         uGZznK8OpIg/zhHUDHV94etPnqX1WcpxRDmFRZtI9E6to/i0akcSyOFjwi1GQhaBww7Z
+         BLZ5BHt2TMA/JMvB04HErZuf6bsMLDwngBfwjs2Ld/1UGge5hTfGAzoasrQKO0m6zOyb
+         9AYq8Oew7bETjj+PKsoV0yzyT4HZWC7EE7iCBpzN04TLs1YlUiMF3CcbqRKfx/OeGY9Z
+         uLFn3FWXBF3zG+t7e2pegld+fBYNSenQgs0MFN8supcTNf0cMalWUj/fWYbeTGz+/LMv
+         TvRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744154307; x=1744759107;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jSfFK6BUAK+Qxfp2fpBiU7pkFHlfyZI9MOMS3C7WUDQ=;
+        b=ECAw+tEFyD6jEPC/wM16iyWxlaeq+5FVGUPh5APgcIjQpzUKDPPqX8BjUsX+aec3zf
+         wrn0UZJHLPt1kdd4YHz6ZH5xmFJF3bdwLciXVdL7ox75vUfuOhGW8THD1jl+dhygM7l9
+         NReqBYOERfRzABoRaGxRGCFTDO6z+WrCgZalJlwH3/GJpwt2e5O2gsMJtQQTHgw0kF7g
+         r+jbV9uJ1KFB+j2cTi/KnU4PGP6Ae3f+3PZSJ21nDChC0AFW/JCnbww8jLPLXyEO01XX
+         Ih1BwrCIBUvOq54CKPww83c41ccn7JT9ax6OPxEVmO3SDDct+ftHHSMCAm8rvN+2yXK/
+         bKlA==
+X-Gm-Message-State: AOJu0YxwxgEK5VMzxY5G+ntnt0eoYCtDDfgW85JH2vKcZCwzPGB70rFU
+	5MrWf5s/wvagDmUu8c8wNrZ5soXqZp9nrj/sLleElRPHtbc2Rc9jte5GLw==
+X-Gm-Gg: ASbGncsskd4JUluEcwroZEuSBrtZliAUqu7phVoQ6kprXfCxSc1dG0c1PssUI/3O8Y+
+	lSEvLWCOAqdvMFgGoSvilgVxWEczFkP/73Q6UvT6uQJakAi/2uZ6rJy9DtmCY21Ci7J7/rz2f4s
+	12GDrwfeZz1094tXISI/phI4YUlxjli8d5IhrGRRoqe9RpBx+XORArKQXWOq3mbigIjoFPf6gWo
+	pe7KvCDbmy/ujmyOpD+VAsAIi7JSL/6Fg8oSaXJ7JKaPVyieVavct75snf6Wklutd7Meo7ouqwl
+	Fqvu37PnqhKNS3qkXBO9rvj/w+3jxecQu1R3PfV+RVJP+4BsFCIuSlZQnJSJKnfwwGwxn/N4NtU
+	pVlEF
+X-Google-Smtp-Source: AGHT+IHYg4dISZi5MgFUiEYdRjYsvIUqdiL+bhUuYp/Fy7sbHYzH9I/h1mFQvjX09fR0NQhMOw2CjA==
+X-Received: by 2002:a05:6602:408d:b0:85b:5564:2d51 with SMTP id ca18e2360f4ac-86161265dfamr143772739f.11.1744154307543;
+        Tue, 08 Apr 2025 16:18:27 -0700 (PDT)
+Received: from hestia.. (24-220-158-153-dynamic.midco.net. [24.220.158.153])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f4f44e2759sm724244173.128.2025.04.08.16.18.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Apr 2025 16:18:26 -0700 (PDT)
+From: Robert Nelson <robertcnelson@gmail.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: Robert Nelson <robertcnelson@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Davis <afd@ti.com>,
+	Andrei Aldea <a-aldea@ti.com>,
+	Dhruva Gole <d-gole@ti.com>,
+	Jason Kridner <jkridner@beagleboard.org>,
+	Deepak Khatri <lorforlinux@beagleboard.org>,
+	Ayush Singh <ayush@beagleboard.org>
+Subject: [PATCH v2 1/2] dt-bindings: arm: ti: Add PocketBeagle2
+Date: Tue,  8 Apr 2025 18:18:22 -0500
+Message-ID: <20250408231823.826163-1-robertcnelson@gmail.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250409-airoha-hw-rx-ratelimit-v2-1-694e4fda5c91@kernel.org>
-X-B4-Tracking: v=1; b=H4sIABOu9WcC/3WNQQ6CMBBFr0Jm7Zi2ik1deQ/DorEDnYjUTAliC
- He34trl+8l7f4FMwpThXC0gNHHmNBQwuwpu0Q8dIYfCYJSp1UE79CwpeowvlBnFj9Tzg0fUIRy
- VJWudqaHIT6GW5y18bQpHzmOS9/Yz6e/6SxbpX3LSqNFpG5QzoT614XInGajfJ+mgWdf1A1b+h
- 4O9AAAA
-X-Change-ID: 20250319-airoha-hw-rx-ratelimit-1dd407e77925
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Davide Caratti <dcaratti@redhat.com>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_161611_088379_CF4234A5 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20250408_161829_334124_09ED5E1A 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,423 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce tc matchall filter offload support in airoha_eth driver.
-Matchall hw filter is used to implement hw rate policing via tc action
-police:
+This board is based on ti,am625 family using the am6232 and am6254 variations.
 
-$tc qdisc add dev eth0 handle ffff: ingress
-$tc filter add dev eth0 parent ffff: matchall action police \
- rate 100mbit burst 1000k drop
+https://www.beagleboard.org/boards/pocketbeagle-2
+https://openbeagle.org/pocketbeagle/pocketbeagle-2
 
-The current implementation supports just drop/accept as exceed/notexceed
-actions. Moreover, rate and burst are the only supported configuration
-parameters.
-
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+CC: Nishanth Menon <nm@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Conor Dooley <conor+dt@kernel.org>
+CC: Andrew Davis <afd@ti.com>
+CC: Andrei Aldea <a-aldea@ti.com>
+CC: Dhruva Gole <d-gole@ti.com>
+CC: Jason Kridner <jkridner@beagleboard.org>
+CC: Deepak Khatri <lorforlinux@beagleboard.org>
+CC: Ayush Singh <ayush@beagleboard.org>
 ---
-Changes in v2:
-- Validate act police mtu parameter
-- Link to v1: https://lore.kernel.org/r/20250407-airoha-hw-rx-ratelimit-v1-1-917d092d56fd@kernel.org
+Changes since v1:
+ - Apply acked-by from Conor Dooley
 ---
- drivers/net/ethernet/airoha/airoha_eth.c  | 275 +++++++++++++++++++++++++++++-
- drivers/net/ethernet/airoha/airoha_eth.h  |   8 +-
- drivers/net/ethernet/airoha/airoha_ppe.c  |   9 +-
- drivers/net/ethernet/airoha/airoha_regs.h |   7 +
- 4 files changed, 288 insertions(+), 11 deletions(-)
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index d748dc6de92367365db9f9548f9af52a7fdac187..aa56cbf0c6d3ad8b41422e7714c4f15470457ad0 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -527,6 +527,27 @@ static int airoha_fe_init(struct airoha_eth *eth)
- 	/* disable IFC by default */
- 	airoha_fe_clear(eth, REG_FE_CSR_IFC_CFG, FE_IFC_EN_MASK);
- 
-+	airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(0),
-+		     FIELD_PREP(DFT_CPORT_MASK(7), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(6), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(5), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(3), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(2), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(1), FE_PSE_PORT_CDM1) |
-+		     FIELD_PREP(DFT_CPORT_MASK(0), FE_PSE_PORT_CDM1));
-+	airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(1),
-+		     FIELD_PREP(DFT_CPORT_MASK(7), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(6), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(5), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(3), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(2), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(1), FE_PSE_PORT_CDM2) |
-+		     FIELD_PREP(DFT_CPORT_MASK(0), FE_PSE_PORT_CDM2));
-+
- 	/* enable 1:N vlan action, init vlan table */
- 	airoha_fe_set(eth, REG_MC_VLAN_EN, MC_VLAN_EN_MASK);
- 
-@@ -1631,7 +1652,6 @@ static void airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
- 
- 	if (port->id == 3) {
- 		/* FIXME: handle XSI_PCE1_PORT */
--		airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(0),  0x5500);
- 		airoha_fe_rmw(eth, REG_FE_WAN_PORT,
- 			      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
- 			      FIELD_PREP(WAN0_MASK, HSGMII_LAN_PCIE0_SRCPORT));
-@@ -2109,6 +2129,125 @@ static int airoha_tc_setup_qdisc_ets(struct airoha_gdm_port *port,
- 	}
- }
- 
-+static int airoha_qdma_get_rl_param(struct airoha_qdma *qdma, int queue_id,
-+				    u32 addr, enum trtcm_param_type param,
-+				    u32 *val_low, u32 *val_high)
-+{
-+	u32 idx = QDMA_METER_IDX(queue_id), group = QDMA_METER_GROUP(queue_id);
-+	u32 val, config = FIELD_PREP(RATE_LIMIT_PARAM_TYPE_MASK, param) |
-+			  FIELD_PREP(RATE_LIMIT_METER_GROUP_MASK, group) |
-+			  FIELD_PREP(RATE_LIMIT_PARAM_INDEX_MASK, idx);
-+
-+	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-+	if (read_poll_timeout(airoha_qdma_rr, val,
-+			      val & RATE_LIMIT_PARAM_RW_DONE_MASK,
-+			      USEC_PER_MSEC, 10 * USEC_PER_MSEC, true, qdma,
-+			      REG_TRTCM_CFG_PARAM(addr)))
-+		return -ETIMEDOUT;
-+
-+	*val_low = airoha_qdma_rr(qdma, REG_TRTCM_DATA_LOW(addr));
-+	if (val_high)
-+		*val_high = airoha_qdma_rr(qdma, REG_TRTCM_DATA_HIGH(addr));
-+
-+	return 0;
-+}
-+
-+static int airoha_qdma_set_rl_param(struct airoha_qdma *qdma, int queue_id,
-+				    u32 addr, enum trtcm_param_type param,
-+				    u32 val)
-+{
-+	u32 idx = QDMA_METER_IDX(queue_id), group = QDMA_METER_GROUP(queue_id);
-+	u32 config = RATE_LIMIT_PARAM_RW_MASK |
-+		     FIELD_PREP(RATE_LIMIT_PARAM_TYPE_MASK, param) |
-+		     FIELD_PREP(RATE_LIMIT_METER_GROUP_MASK, group) |
-+		     FIELD_PREP(RATE_LIMIT_PARAM_INDEX_MASK, idx);
-+
-+	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
-+	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-+
-+	return read_poll_timeout(airoha_qdma_rr, val,
-+				 val & RATE_LIMIT_PARAM_RW_DONE_MASK,
-+				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
-+				 qdma, REG_TRTCM_CFG_PARAM(addr));
-+}
-+
-+static int airoha_qdma_set_rl_config(struct airoha_qdma *qdma, int queue_id,
-+				     u32 addr, bool enable, u32 enable_mask)
-+{
-+	u32 val;
-+	int err;
-+
-+	err = airoha_qdma_get_rl_param(qdma, queue_id, addr, TRTCM_MISC_MODE,
-+				       &val, NULL);
-+	if (err)
-+		return err;
-+
-+	val = enable ? val | enable_mask : val & ~enable_mask;
-+
-+	return airoha_qdma_set_rl_param(qdma, queue_id, addr, TRTCM_MISC_MODE,
-+					val);
-+}
-+
-+static int airoha_qdma_set_rl_token_bucket(struct airoha_qdma *qdma,
-+					   int queue_id, u32 rate_val,
-+					   u32 bucket_size)
-+{
-+	u32 val, config, tick, unit, rate, rate_frac;
-+	int err;
-+
-+	err = airoha_qdma_get_rl_param(qdma, queue_id, REG_INGRESS_TRTCM_CFG,
-+				       TRTCM_MISC_MODE, &config, NULL);
-+	if (err)
-+		return err;
-+
-+	val = airoha_qdma_rr(qdma, REG_INGRESS_TRTCM_CFG);
-+	tick = FIELD_GET(INGRESS_FAST_TICK_MASK, val);
-+	if (config & TRTCM_TICK_SEL)
-+		tick *= FIELD_GET(INGRESS_SLOW_TICK_RATIO_MASK, val);
-+	if (!tick)
-+		return -EINVAL;
-+
-+	unit = (config & TRTCM_PKT_MODE) ? 1000000 / tick : 8000 / tick;
-+	if (!unit)
-+		return -EINVAL;
-+
-+	rate = rate_val / unit;
-+	rate_frac = rate_val % unit;
-+	rate_frac = FIELD_PREP(TRTCM_TOKEN_RATE_MASK, rate_frac) / unit;
-+	rate = FIELD_PREP(TRTCM_TOKEN_RATE_MASK, rate) |
-+	       FIELD_PREP(TRTCM_TOKEN_RATE_FRACTION_MASK, rate_frac);
-+
-+	err = airoha_qdma_set_rl_param(qdma, queue_id, REG_INGRESS_TRTCM_CFG,
-+				       TRTCM_TOKEN_RATE_MODE, rate);
-+	if (err)
-+		return err;
-+
-+	val = bucket_size;
-+	if (!(config & TRTCM_PKT_MODE))
-+		val = max_t(u32, val, MIN_TOKEN_SIZE);
-+	val = min_t(u32, __fls(val), MAX_TOKEN_SIZE_OFFSET);
-+
-+	return airoha_qdma_set_rl_param(qdma, queue_id, REG_INGRESS_TRTCM_CFG,
-+					TRTCM_BUCKETSIZE_SHIFT_MODE, val);
-+}
-+
-+static int airoha_qdma_init_rl_config(struct airoha_qdma *qdma, int queue_id,
-+				      bool enable, enum trtcm_unit_type unit)
-+{
-+	bool tick_sel = queue_id == 0 || queue_id == 2 || queue_id == 8;
-+	enum trtcm_param mode = TRTCM_METER_MODE;
-+	int err;
-+
-+	mode |= unit == TRTCM_PACKET_UNIT ? TRTCM_PKT_MODE : 0;
-+	err = airoha_qdma_set_rl_config(qdma, queue_id, REG_INGRESS_TRTCM_CFG,
-+					enable, mode);
-+	if (err)
-+		return err;
-+
-+	return airoha_qdma_set_rl_config(qdma, queue_id, REG_INGRESS_TRTCM_CFG,
-+					 tick_sel, TRTCM_TICK_SEL);
-+}
-+
- static int airoha_qdma_get_trtcm_param(struct airoha_qdma *qdma, int channel,
- 				       u32 addr, enum trtcm_param_type param,
- 				       enum trtcm_mode_type mode,
-@@ -2273,10 +2412,142 @@ static int airoha_tc_htb_alloc_leaf_queue(struct airoha_gdm_port *port,
- 	return 0;
- }
- 
-+static int airoha_qdma_set_rx_meter(struct airoha_gdm_port *port,
-+				    u32 rate, u32 bucket_size,
-+				    enum trtcm_unit_type unit_type)
-+{
-+	struct airoha_qdma *qdma = port->qdma;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-+		int err;
-+
-+		if (!qdma->q_rx[i].ndesc)
-+			continue;
-+
-+		err = airoha_qdma_init_rl_config(qdma, i, !!rate, unit_type);
-+		if (err)
-+			return err;
-+
-+		err = airoha_qdma_set_rl_token_bucket(qdma, i, rate,
-+						      bucket_size);
-+		if (err)
-+			return err;
-+	}
-+
-+	return 0;
-+}
-+
-+static int airoha_tc_matchall_act_validate(struct tc_cls_matchall_offload *f)
-+{
-+	const struct flow_action *actions = &f->rule->action;
-+	const struct flow_action_entry *act;
-+
-+	if (!flow_action_has_entries(actions)) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "filter run with no actions");
-+		return -EINVAL;
-+	}
-+
-+	if (!flow_offload_has_one_action(actions)) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "only once action per filter is supported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	act = &actions->entries[0];
-+	if (act->id != FLOW_ACTION_POLICE) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack, "unsupported action");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (act->police.exceed.act_id != FLOW_ACTION_DROP) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "invalid exceed action id");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (act->police.notexceed.act_id != FLOW_ACTION_ACCEPT) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "invalid notexceed action id");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (act->police.notexceed.act_id == FLOW_ACTION_ACCEPT &&
-+	    !flow_action_is_last_entry(actions, act)) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "action accept must be last");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (act->police.peakrate_bytes_ps || act->police.avrate ||
-+	    act->police.overhead || act->police.mtu) {
-+		NL_SET_ERR_MSG_MOD(f->common.extack,
-+				   "peakrate/avrate/overhead/mtu unsupported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	return 0;
-+}
-+
-+static int airoha_dev_tc_matchall(struct net_device *dev,
-+				  struct tc_cls_matchall_offload *f)
-+{
-+	enum trtcm_unit_type unit_type = TRTCM_BYTE_UNIT;
-+	struct airoha_gdm_port *port = netdev_priv(dev);
-+	u32 rate = 0, bucket_size = 0;
-+
-+	switch (f->command) {
-+	case TC_CLSMATCHALL_REPLACE: {
-+		const struct flow_action_entry *act;
-+		int err;
-+
-+		err = airoha_tc_matchall_act_validate(f);
-+		if (err)
-+			return err;
-+
-+		act = &f->rule->action.entries[0];
-+		if (act->police.rate_pkt_ps) {
-+			rate = act->police.rate_pkt_ps;
-+			bucket_size = act->police.burst_pkt;
-+			unit_type = TRTCM_PACKET_UNIT;
-+		} else {
-+			rate = div_u64(act->police.rate_bytes_ps, 1000);
-+			rate = rate << 3; /* Kbps */
-+			bucket_size = act->police.burst;
-+		}
-+		fallthrough;
-+	}
-+	case TC_CLSMATCHALL_DESTROY:
-+		return airoha_qdma_set_rx_meter(port, rate, bucket_size,
-+						unit_type);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static int airoha_dev_setup_tc_block_cb(enum tc_setup_type type,
-+					void *type_data, void *cb_priv)
-+{
-+	struct net_device *dev = cb_priv;
-+
-+	if (!tc_can_offload(dev))
-+		return -EOPNOTSUPP;
-+
-+	switch (type) {
-+	case TC_SETUP_CLSFLOWER:
-+		return airoha_ppe_setup_tc_block_cb(dev, type_data);
-+	case TC_SETUP_CLSMATCHALL:
-+		return airoha_dev_tc_matchall(dev, type_data);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
- static int airoha_dev_setup_tc_block(struct airoha_gdm_port *port,
- 				     struct flow_block_offload *f)
- {
--	flow_setup_cb_t *cb = airoha_ppe_setup_tc_block_cb;
-+	flow_setup_cb_t *cb = airoha_dev_setup_tc_block_cb;
- 	static LIST_HEAD(block_cb_list);
- 	struct flow_block_cb *block_cb;
- 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index ec8908f904c61988c3dc973e187596c49af139fb..31ebb46be454c26ec789ed692a2f968c6c1ace03 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -127,6 +127,11 @@ enum tx_sched_mode {
- 	TC_SCH_WRR2,
- };
- 
-+enum trtcm_unit_type {
-+	TRTCM_BYTE_UNIT,
-+	TRTCM_PACKET_UNIT,
-+};
-+
- enum trtcm_param_type {
- 	TRTCM_MISC_MODE, /* meter_en, pps_mode, tick_sel */
- 	TRTCM_TOKEN_RATE_MODE,
-@@ -536,8 +541,7 @@ bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 			      struct airoha_gdm_port *port);
- 
- void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash);
--int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
--				 void *cb_priv);
-+int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data);
- int airoha_ppe_init(struct airoha_eth *eth);
- void airoha_ppe_deinit(struct airoha_eth *eth);
- struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index f10dab935cab6fad747fdfaa70b67903904c1703..3b14ad1c126ab11ee103de6448c3640244cf7f7f 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -822,18 +822,13 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
- 	return err;
- }
- 
--int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
--				 void *cb_priv)
-+int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data)
- {
--	struct flow_cls_offload *cls = type_data;
--	struct net_device *dev = cb_priv;
- 	struct airoha_gdm_port *port = netdev_priv(dev);
-+	struct flow_cls_offload *cls = type_data;
- 	struct airoha_eth *eth = port->qdma->eth;
- 	int err = 0;
- 
--	if (!tc_can_offload(dev) || type != TC_SETUP_CLSFLOWER)
--		return -EOPNOTSUPP;
--
- 	mutex_lock(&flow_offload_mutex);
- 
- 	if (!eth->npu)
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 8146cde4e8ba370e79b9b1bd87bb66a2caf7649a..29c8f046b9910c371ab4edc34b01f58d7383ae8d 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -283,6 +283,7 @@
- #define PPE_HASH_SEED				0x12345678
- 
- #define REG_PPE_DFT_CPORT0(_n)			(((_n) ? PPE2_BASE : PPE1_BASE) + 0x248)
-+#define DFT_CPORT_MASK(_n)			GENMASK(3 + ((_n) << 2), ((_n) << 2))
- 
- #define REG_PPE_DFT_CPORT1(_n)			(((_n) ? PPE2_BASE : PPE1_BASE) + 0x24c)
- 
-@@ -691,6 +692,12 @@
- #define REG_TRTCM_DATA_LOW(_n)		((_n) + 0x8)
- #define REG_TRTCM_DATA_HIGH(_n)		((_n) + 0xc)
- 
-+#define RATE_LIMIT_PARAM_RW_MASK	BIT(31)
-+#define RATE_LIMIT_PARAM_RW_DONE_MASK	BIT(30)
-+#define RATE_LIMIT_PARAM_TYPE_MASK	GENMASK(29, 28)
-+#define RATE_LIMIT_METER_GROUP_MASK	GENMASK(27, 26)
-+#define RATE_LIMIT_PARAM_INDEX_MASK	GENMASK(23, 16)
-+
- #define REG_TXWRR_MODE_CFG		0x1020
- #define TWRR_WEIGHT_SCALE_MASK		BIT(31)
- #define TWRR_WEIGHT_BASE_MASK		BIT(3)
-
----
-base-commit: 0f681b0ecd190fb4516bb34cec227296b10533d1
-change-id: 20250319-airoha-hw-rx-ratelimit-1dd407e77925
-
-Best regards,
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index 18f155cd06c8..b7f6cd8d4b9e 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -46,6 +46,7 @@ properties:
+       - description: K3 AM625 SoC
+         items:
+           - enum:
++              - beagle,am62-pocketbeagle2
+               - beagle,am625-beagleplay
+               - ti,am625-sk
+               - ti,am62-lp-sk
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.47.2
 
 
