@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73866C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE911C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YcOUVWVG1AAUU/kF4IJvSl+9zDVrwqBtFVUW2rq0rjY=; b=Xpi1/PNHhFw7KAMgjiYm/PGAW8
-	PhTgsjHjAsGtZu+Aq63M6gZxO9DbAPQXFjD0xx9kq4K1PU08k/snSl+QuoXjExFC3812qEtNVR4mq
-	2q1F9bUJ3Uyo8pk7OqbiEPxxTOortKm0ApG/u1rtem2fH++/ompKalhedRttJ512DCEWBIlC5UI/l
-	7nQoWv3GW1zAt93enLR6Ac2OvJtVQSbXFx7qezu3ONuIglKF3vz6zL6ZTx/k0Wr7pmHIb1AHkyPn+
-	7BujHpXc7wl3dSPL3kxXiGV4WVMSBnwOJd3jfku94ffKqcGfDdcYZJ6ifqWiI2AI0vnABCTAScrMz
-	XKGGm61w==;
+	bh=KrpT+jmLuV0pMig4xoM27D18t14gkY3tPjFQzNc4T6g=; b=ibnmYw2E6NRKhGM62OeWUxrqJp
+	NLRASTFeFT72CWJl7oXXsmRAZnQxN3YQLTvFE5O/CMnOipKnWlNlmbyX2OahuqPEoua1JmnV0Gbzs
+	+PBc/eENFJMK6WoDwbUmkEmqVrWZJPauujg2hicakYoZAnJl8/R86u9JOFYeCeKGk6CO2vbI4ynq8
+	y6vkI7RPbUpgWzxft6C+qY7Anh31BuvVzPIi4MfmW+cwi+qtC0+1fsTIQX2FvmtR7gQPiERewrC1e
+	IZDAP8I/bQbcdY72k1v1UaBAR3zqNsH2CAwW/yFRJc+IhAmt1cQqis9MDk9cW7q/5B0mfx9xToakq
+	50zUc3/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2DW0-0000000557A-3mWQ;
-	Tue, 08 Apr 2025 18:17:40 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1u2DXk-000000055JZ-2aoB;
+	Tue, 08 Apr 2025 18:19:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2DJd-000000053bC-1N3u;
-	Tue, 08 Apr 2025 18:04:54 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3913d129c1aso4055829f8f.0;
-        Tue, 08 Apr 2025 11:04:52 -0700 (PDT)
+	id 1u2DNS-0000000546f-0OuH;
+	Tue, 08 Apr 2025 18:08:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=KrpT+jmLuV0pMig4xoM27D18t14gkY3tPjFQzNc4T6g=; b=qMde5UPV9VyuD8krnXJZ2h+eVG
+	41YqqH4FYRiok9UwjLVNr3Bhuwl3RCROMnpSQjAfaGmIl3UYIqv6A3zFo3zt0eKPsGy/OHxmIO+nf
+	3G4wygcUqsc0dY6V4OPhCRzkd3zrb2JipsFTHf5M59OLUtLKbjdcQQGloRTiC2icn9n8CS93znjse
+	o26wliWVzpb7MmkRdXwrnylcauM/YshXk9Pm8WfN4nayzV9t/+RNKp3+UPSwmikrPSBiyfRaJ8QJ+
+	444gW5RQEWVQVZnRIN78KSi1ADZUTxAP1XurnGDFw1TK7KGscrjK2VlNeK5XGbRYMARmyve3GIWYi
+	HM0VXwag==;
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2DNO-00000008NdZ-465L;
+	Tue, 08 Apr 2025 18:08:48 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43cfebc343dso39787995e9.2;
+        Tue, 08 Apr 2025 11:08:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744135492; x=1744740292; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744135724; x=1744740524; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YcOUVWVG1AAUU/kF4IJvSl+9zDVrwqBtFVUW2rq0rjY=;
-        b=Vhfa217rJoQVYTRIKaOi5FEfVDs3t/OJiouvsUqY+tgwVBvoMKGfwGvFmJwgUGlRGb
-         wDPg+SJt2biCKnDezjmLJeKgmh9OyRagAY1tUXuuGMs9gNySiXelDPo0muUg/4P/3Nj9
-         YSQO76n6JNGu5nGX7CojPS/gmeJ1P9RtxpV1fIW9IqhrlW5spB3Tnc9qkeO1AINRqu46
-         72fZO/xTm50tHucTNVn8ytj0rUR0t7FdmZAIGxTG500Z1kDdgMiapClFfpnRnuT/mRRa
-         DCfMtpog8UTfMr4ibiBOmLimt5IzORWgdqagHxcfqfgr+2EAilLbm80FhYoLa+a1bvHX
-         H+nw==
+        bh=KrpT+jmLuV0pMig4xoM27D18t14gkY3tPjFQzNc4T6g=;
+        b=mb3FHvdxI7W+CJiMtFTzpNFZvIj1omXkfL573LEk4h1S2AVLc2kJ1ydiQcosTt+G9M
+         C2BUKqunQez5lhGYy2m5gNUVbOOv4Zjt5B2GkKGV0NN8/mYzRpOD4uFAeRuYb0/hM0Tf
+         m/uAAK3gPwH0hmx565vWoilMsK5ZAbOzKrHVGBixTGmIcSt7ypZ6heisiZLCEPp3MCZq
+         2ByB+C7pwzb8CjwUjr4ifUzv/Pk/dTi55aLeKVrw7KQjn+vCwBzsVC52Bl4+Wp8ufT9H
+         Bx49zprwHBFJWIK0Ig68ELVRHDsTQ0ZygjZcxCBV2HoRwyY4qRIRTjYCAFE9ka0s6y0v
+         NIkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744135492; x=1744740292;
+        d=1e100.net; s=20230601; t=1744135724; x=1744740524;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YcOUVWVG1AAUU/kF4IJvSl+9zDVrwqBtFVUW2rq0rjY=;
-        b=cV+WeL62ApJGuR9IUKto75Dz55wtAXEwnOKdg51UNgQhIlFu510mx4J82uTfd9nGBh
-         QEN0IDewAfoRQs1alFdcMg1uNpzfeqhQmyISzyJe6pikAqo6oW2v/r2p9TbnTyZEgUOS
-         gourTC2/98PQN6epZetcHGx0dVZldvBJOZ4OjGQGzYyWidsZEwa/g6iTkSoCzrkXT3zv
-         4B2u3t+XurhYwfwAiF1FWFghe40epHkcdATtD4S0TsqIK/nBeFRyMrXpFXzn+Gmf9RVT
-         DFQ4RIJa3ABWfeI2kihTKe6XgvRP+EUJVVI3qHssa3FYoOYd2AFNWTvW371JsUeqgzub
-         TD8A==
-X-Forwarded-Encrypted: i=1; AJvYcCU2inEx8QK33YgYaFmlVHq8REL4Lxw3a6FH0XGkKdGXQnt8vv7V7p+xe+LgcxCmB6EM4l3uaEHWwP/P9dt+3nY=@lists.infradead.org, AJvYcCUuGdWt7Dqu//TJugHVQTZLs+XvECKmsHqSgRBBMXuWjnY1Ts0pcLj2NUoCdesfq/dsgdggfmLsNWvzlsf/RprZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5dtgiNB7iMyfJh0S/HG0JB1OkOSbMl44ppA4LUxA8JFdnwM5k
-	boOyQubmzupMll1GbNlyea5jFdQQ9ag4p/OVqytyqBOTxANb/enc6Dk/fA==
-X-Gm-Gg: ASbGncvsqP+bLffVSEihsCL1gk7SAZLUutqL2Q4rcSvs20d95myjzcBnHVX5bW7aivJ
-	g0DcRO7qNskYy2mmbYrPIL3HwZSPBve6CtjvdBH4JZgPfWUkNV4sUlR6k0JVzefqc0l8D80Rs3U
-	aiFfFTnpcBgs2lWNMhJFxS0iPOCqVqu4RJY3C9HSa+nQH9NJVothHDufDUrF4J36H9ep03w5yVw
-	/M+8YxKFJvXTuIv9GJQ2S0SIAN5x+R4vlwXMcFN1b23r5d5X/Nh9hL3QsyxiXCoSHY32MgE83gt
-	1czg8OGW4nc08qOKC+cQMme1bE68mMF1un2WXlKUcEKsaw==
-X-Google-Smtp-Source: AGHT+IFW4ID2IVLIJJSO6AIqnzG5sx6n8ibzh5IQ9vxzEszMDqEO1Q5l1iqmcRSrWTuGE6wSfEs9sg==
-X-Received: by 2002:a05:6000:2289:b0:39c:30f7:a599 with SMTP id ffacd0b85a97d-39d820f7f4emr4042317f8f.18.1744135491468;
-        Tue, 08 Apr 2025 11:04:51 -0700 (PDT)
+        bh=KrpT+jmLuV0pMig4xoM27D18t14gkY3tPjFQzNc4T6g=;
+        b=C5ZiIYgzLyd9yiHLZurCKqAUyKXS0Rst7pwOSJmr12dLnEfRxjWeqsUMTFSLP42K09
+         /0F7dnXzpNlkz+zMiyA6kPtdM86INzVZOkJPA1JwIcqOX8t1DsibiBZ/THfATtaKCKCk
+         uxov1Bv7DW8Q77jGS6bn0AuuJQUdxLoX/PQ+sArUD2vaB1QoRDvRiHf56j8DhG39u6HR
+         qI3EHna9Tco1RT5wyfMa6w0mEjtkwRT0DMjDlyJMbxtoNTXXdg1MzPQGaZDnE3qI/NAP
+         iphaJod6ubV3oaujTr8mkApWsRXkBxn+d8uPhNJHwdGUvHKlDRqpdVi7d2flrru+1/b8
+         r8vQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV1kzid3XAmxrOsBNJDeSRqjxX7LtLzvt/b881u0t+Ch6zSvqvHcsONwDty0cDczAp++uf8ID1qhZKIf8mWkDIT@lists.infradead.org, AJvYcCX0/9ooWQ12HX8k9zCYdsITghshUmoBv7yxqcM2g0dsdd9UfiYzZB+etBnbVFD3A8ZgrXFzVRd7pE/1w4Z7RX8=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzf70na5Ykesv84E5gKQDUgU9iv+ESD9iogsKwL/1FrcfZmsQGw
+	Eqihzec7JfW4EQX3KkyjmrCtKSR1b5Z9ZHwWN9sYiuaTpOrPiRAN
+X-Gm-Gg: ASbGncsboH7oy6vCwEQf8ViVNtGjFMc6nxYhASrxpnDSiH6WlCXgZfCQhHEmmkpnTck
+	y7nj/47f6APNuVoumU98aHcRqoPeHYH75hGhE3Cdha0IQrzj/Focd1xJzvljaVawdKoh2towzXt
+	TcU3j2wiDdUhQc92ih5WjPvBxN98sJKDky4N9rEC2ybeCocboZE7H1Za1zxikUy+go5iy50gEJw
+	GNcFOW1/zXDpD5TU5qOy1OuYU/b5N47vqi7o8vExCJN/VQdsu367ZuBxN+Rp4Vw6gw1rya9jaix
+	FlkyuHHHG970APEYyHjznG6SVAzZulstpXm7nL3AgwWGoqziFqHGOAmg
+X-Google-Smtp-Source: AGHT+IGyH8xe4Xn7pdARQCUYSDd+37MKMCz08gGeVjeUKpJyPaAluAtZl33+vtBRvWnulgqkjovgyQ==
+X-Received: by 2002:a05:600c:5104:b0:43d:ed:ad07 with SMTP id 5b1f17b1804b1-43f1ed671edmr789965e9.29.1744135724433;
+        Tue, 08 Apr 2025 11:08:44 -0700 (PDT)
 Received: from qasdev.Home ([2a02:c7c:6696:8300:5b45:5642:beb0:688f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec147c9dbsm176684525e9.0.2025.04.08.11.04.50
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c30226dfesm15864058f8f.97.2025.04.08.11.08.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 11:04:51 -0700 (PDT)
+        Tue, 08 Apr 2025 11:08:44 -0700 (PDT)
 From: Qasim Ijaz <qasdev00@gmail.com>
 To: nbd@nbd.name,
 	lorenzo@kernel.org,
@@ -80,15 +94,15 @@ Cc: linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH RESEND] wifi: mt76: mt7996: avoid null deref in mt7996_stop_phy()
-Date: Tue,  8 Apr 2025 19:04:48 +0100
-Message-Id: <20250408180448.19274-1-qasdev00@gmail.com>
+Subject: [PATCH RESEND] wifi: mt76: mt7996: avoid NULL pointer dereference in mt7996_set_monitor()
+Date: Tue,  8 Apr 2025 19:08:39 +0100
+Message-Id: <20250408180839.19997-1-qasdev00@gmail.com>
 X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_110453_367356_D3DCB5D9 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250408_190847_091980_7498E03A 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,12 +117,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In mt7996_stop_phy() the mt7996_phy structure is 
-dereferenced before the null sanity check which could 
-lead to a null deref.
+The function mt7996_set_monitor() dereferences phy before 
+the NULL sanity check.
 
-Fix by moving the dereference operation after the 
-sanity check.
+Fix this to avoid NULL pointer dereference by moving the 
+dereference after the check.
 
 Fixes: 69d54ce7491d ("wifi: mt76: mt7996: switch to single multi-radio wiphy")
 Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
@@ -117,24 +130,24 @@ Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 66575698aef1..88e013577c0d 100644
+index 91c64e3a0860..66575698aef1 100644
 --- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
 +++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -68,11 +68,13 @@ static int mt7996_start(struct ieee80211_hw *hw)
+@@ -414,11 +414,13 @@ static void mt7996_phy_set_rxfilter(struct mt7996_phy *phy)
  
- static void mt7996_stop_phy(struct mt7996_phy *phy)
+ static void mt7996_set_monitor(struct mt7996_phy *phy, bool enabled)
  {
 -	struct mt7996_dev *dev = phy->dev;
 +	struct mt7996_dev *dev;
  
- 	if (!phy || !test_bit(MT76_STATE_RUNNING, &phy->mt76->state))
+ 	if (!phy)
  		return;
  
 +	dev = phy->dev;
-+
- 	cancel_delayed_work_sync(&phy->mt76->mac_work);
++	
+ 	if (enabled == !(phy->rxfilter & MT_WF_RFCR_DROP_OTHER_UC))
+ 		return;
  
- 	mutex_lock(&dev->mt76.mutex);
 -- 
 2.39.5
 
