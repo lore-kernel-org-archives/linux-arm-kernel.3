@@ -4,106 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 916DDC369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 21:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A498C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 21:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jjAX2sNBU3681HCQX4kVcY41KRirctMYti/FTqvGf3w=; b=LIo03IMfLZxy8U6wmJYCsWAKe9
-	aUbY1y23LoX1sYyBUORZuCO9jY2IozT40FsT7PqGm4kh0bzEFZwHsAunVf0sKRqs9KnGtvmxnyj2r
-	K8SXdnwi4z/lYNKCYxwAF5nq65uxSVdSSFUUXDP0TsTVw4FA+3dqpcjk399gIBqobJooncpY1M4en
-	Wcy//iPnKp25OBmHaZ24Soks4dsFH8sVj2r4sX2DqV+gRk08AyMz5paRrn0zSCPNxEhy7i+Vraz8e
-	tQlV3hUR3xfgiQ4WEcfhkSDT6E6vu7KXBRRHvWLktqM1dLVW7bPJ5oHLlFuhHcoz2uT+TJWFgNBAF
-	c+yYHEcQ==;
+	bh=vh84+CBhMGtpOXwlmBr5bpr2Gm/sSPvGOTBORXK3kdk=; b=0UGMdYB3Daid6yoWhHghQwbJUF
+	bHvNC6NfqJO16/dDXyGwWHvt6ZBA4/2qN1lNpn0uSbaYpbLpC2KTP5It/bhfWVqntDbABMp6GxSmF
+	xpaHa/XgUEsxXeErV7mSplKPl906DILQH/JNDoliT9ReziacFyJO2D+zI0Ei4jJJFVklQrtfoUmk2
+	Aott/CMS1criQhWzS1bea6Eg/cYKLgCp6fyM6MnfE6Dx7v8QAXNV3zCQBs/uL2J1sA3bXZR3dcFWw
+	oUkzNMR3rqfbvuFFXZJPIwlHXQzTRWD37sYhucp75VXnMbtSb8z6+wUr3vICFYXbdKayGVGhU15mF
+	/YrUCCDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2GFV-00000005QBt-2eLX;
-	Tue, 08 Apr 2025 21:12:49 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1u2GFW-00000005QBx-0aGl;
+	Tue, 08 Apr 2025 21:12:50 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2F4E-00000005HWM-15Sw
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 19:57:07 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-227cf12df27so380785ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 12:57:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744142224; x=1744747024; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=jjAX2sNBU3681HCQX4kVcY41KRirctMYti/FTqvGf3w=;
-        b=Aw2OSVECaytzhNlAkxpNULKNacoh6oOjmirgqNcISmJ876IM1JYLuyNNDiaoWOPQE4
-         m4iGGC1psf5dodzV34RId007yfwhs1jc3oShwvDJMXE7rYU1w8dHUvo+od8tdMV9lwS4
-         cSR+KvBRoUW8i0j3m+jcUdu6kLQB9fCgbZNheQaWwWA7v/SSb9GtVH2wh31HNQMrRzqX
-         3y3ijky3gY8VaurCIOM+q2C7uaw99NzaDkJ46O9n2Hc+nUmbHA24wSApDTDdMx18lxWV
-         J+7eJL/LyZB4B79+3DqhHYGCi2Q3LjSrDkIarO832Xgh8vR2or8mlGqqGXBq6WxrVz5g
-         nJ+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744142224; x=1744747024;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jjAX2sNBU3681HCQX4kVcY41KRirctMYti/FTqvGf3w=;
-        b=Cm9U1Yq/u3CysgR8etDGcgHbH06H20t4JaVaLUYWVjy5DHKOupZ9bp7HScV3uzp/24
-         0j1YgESfNkhFXaG2esqICOcljk85APbideCypvR7urZFso4M7vKh5KLGzakcNrJaUaeF
-         bfTOkQQ1GqFsKldC7dtYnuNpt8Q5ICcAVApLgRVQSJhfM5QGbECpXKvwYGp6+j0puOlv
-         uvFBjDSl0i1cB+BVwmO4ZJGhIbvvrkB3ICO9tUPB1qkWHcow7MbNPh+AOPQ3kZfEquUx
-         qvxklkJqp3ClGGk8QMOgH+NYHIYH46sPE7HLgpkRZbheXGGmJUpRL/1d4IfGHj/eesnz
-         OWAw==
-X-Forwarded-Encrypted: i=1; AJvYcCWHLwK8uedgQk+PEkKewPO9l38q91p56yU1o3H7L3q3NG2AAu5J+cvE6yU6A7SdIs0YWHG8JdQ8VwiD6bJ0g71P@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLYgIuFgnp0na5VNwhIxomFdqVFHq2mLM0PxDI+KuqLYjXbrzI
-	rSaznTy/Hc460oKk4Bw+qdqrst95wqcK4C9wY7aSrcXDQVbGWzhXO+sIw8ukNg==
-X-Gm-Gg: ASbGncvJAzuw7ho1i2tL2aXYZ0Mq7z1Y6uyZmsrcCdBndTIcTFP82J1/nc6eGdLViaL
-	sMHVi4T447MTITyIGbRv/5eN+/NMk7QD19zB4iaWAxBUh21evEgp2Pw1r0spD8MpDKuDO3Vc/5N
-	d+jhQsPK+qxgKTLsaqmPqX/B8tas0WqpPWZ9qnXWVt4DeV/uX3vANujC6fRlV3em4Nwy7RW0NSx
-	wdOxu/G05eXgBob+/EXsqO8usfK7g+uPEgRSK2eoMitMBqHdTUCRlF+NHOOO9XnbpRG1hhYNEKK
-	3QoKxeca+MtLqSLYVlpj0+6jo6b644OkI89CRQXL7Blj8ZK/Pra3M13lnJ3OkSSf7HcdJmWerx+
-	quMvqJGCD8Ujhfig=
-X-Google-Smtp-Source: AGHT+IG/aixR6L8wT+D56lcGE9b7SLefmOG0gGQfiOnOqHm+lRiKkcPryTAOxW4tpKPSv5Ftu+jjDw==
-X-Received: by 2002:a17:902:ef02:b0:223:4d5e:7592 with SMTP id d9443c01a7336-22ab5eaa24emr63238645ad.21.1744142224358;
-        Tue, 08 Apr 2025 12:57:04 -0700 (PDT)
-Received: from google.com (198.103.247.35.bc.googleusercontent.com. [35.247.103.198])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739da0b2f71sm11294568b3a.130.2025.04.08.12.57.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 12:57:03 -0700 (PDT)
-Date: Tue, 8 Apr 2025 12:57:00 -0700
-From: William McVicker <willmcvicker@google.com>
-To: John Stultz <jstultz@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Donghoon Yu <hoony.yu@samsung.com>,
-	Hosung Kim <hosung0.kim@samsung.com>, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Youngmin Nam <youngmin.nam@samsung.com>,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 2/7] clocksource/drivers/exynos_mct: Don't register as
- a sched_clock on arm64
-Message-ID: <Z_V_jKD0CekA41po@google.com>
-References: <20250402233407.2452429-1-willmcvicker@google.com>
- <20250402233407.2452429-3-willmcvicker@google.com>
- <CANDhNCpGxedaxjZ=6Trai3exbQGf7WRJUeTC1jqoHOhup2mNLg@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	id 1u2F4r-00000005HaM-2i8a;
+	Tue, 08 Apr 2025 19:57:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744142266; x=1775678266;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=Jiqv8SEpFYX6SwxxyhOkYs0CHLQ0g093Sa6h7LN4I1E=;
+  b=C01l13exIzbzJamIY5EiPxblVGvIX2IQqrY3Wmh0Su+qdE4ZkMvkkV15
+   NtqC0GfwzqriIB1yO7NoLJgazdQrohfWrwtzeHEyvUz7mOKtoMLBbNodc
+   sBecKr3dHdhrDsQeRugJ61Gh+6UMDG1W/wkYJkIftcIbYKD+qOwtmMLBh
+   ik/FiXC9nzkxF9XIc0h2eHAlNkI2aqqFaE/7a/vlSYJBJ2tnIOBs5iTKZ
+   r5erSBGl4hFrT95End11ZMdCWrPOWM4cCZBneymzRrGtnb5tgwiVeVETH
+   V9cLG+uQ6gU94obPHz7azqjAIi8cEIvUT/jDPiwCBBhWOVRzunZPGtitX
+   A==;
+X-CSE-ConnectionGUID: kukTQXsuS1yLij/Jq2FicA==
+X-CSE-MsgGUID: wy2dP4P+Rc6P6XxpgTO7PQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="45312062"
+X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
+   d="scan'208";a="45312062"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 12:57:44 -0700
+X-CSE-ConnectionGUID: aNXhpWl6TNuniGsJ5XQBdg==
+X-CSE-MsgGUID: rzLXN1pBT7+5ugywKxrLiw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
+   d="scan'208";a="133236145"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 12:57:44 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Tue, 8 Apr 2025 12:57:43 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Tue, 8 Apr 2025 12:57:43 -0700
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.42) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Tue, 8 Apr 2025 12:57:43 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=d1NeTJrCTHMHDFwJQyChmlcYeVl76MUhuOFUhLtH2KM5OEXA2hNYG9GqE3xkXyAYYZ/4lJYAsDvBhfDmwK7LYBAyuVaTR1G57TZpgdz4JGj4XPr54cxaMZdKPIseq5yO70cpINJ1+QVsYafxZQ0OQsPskxLM/DywGXy+DLb9jPIbhODeIO+exULOLw7EyTjzpcQR8Td5LpuUP6SWQwi7TggUJD+w5DpsEjNtcOl28l0LgFYmuC+IEZBg6maBM5LdZeI6CzUSDXDMQJvmWeR67loe9v1XFNwBetD+HKmreZVZs5kL4eYKfgILWVUyBUVM0xvG5AMZMCCh+wEdkKo/8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vh84+CBhMGtpOXwlmBr5bpr2Gm/sSPvGOTBORXK3kdk=;
+ b=gI84wRiqJx4qhjVOEPfoqiO98GykEliIGQQDzfyAgf6DlnZucTzSo58c+zb8RaAKvs/c/MCu/4vpggFceeJA9isi4qELknBcpku3gj0NYrBMy1KGIcRh74uycfeW0XPsaJ7nuwiOksp25LhICI9TbrBBkEsUGOhs0vVbrTcsAC9WK338VLyp5LU5EP32QhM+wx9RzxaWIT3yhePYzhCMLQXDe5AiTvoc7QmfZEv/QuemjMlULkMAGi9lielYo4c7lLBUK/p7Qal1mEp2pQeP+bvbBzKo8vmawa3BIBbyoiiEnAmJSsHa/oKM9G2isMlB7ke9Y+B8zIlgtGOv4zW5rg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB8665.namprd11.prod.outlook.com (2603:10b6:8:1b8::6) by
+ CYXPR11MB8663.namprd11.prod.outlook.com (2603:10b6:930:da::21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8606.34; Tue, 8 Apr 2025 19:57:12 +0000
+Received: from DS0PR11MB8665.namprd11.prod.outlook.com
+ ([fe80::8e7e:4f8:f7e4:3955]) by DS0PR11MB8665.namprd11.prod.outlook.com
+ ([fe80::8e7e:4f8:f7e4:3955%5]) with mapi id 15.20.8632.021; Tue, 8 Apr 2025
+ 19:57:12 +0000
+Date: Tue, 8 Apr 2025 21:56:58 +0200
+From: Michal Kubiak <michal.kubiak@intel.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<netdev@vger.kernel.org>
+Subject: Re: [PATCH net-next 3/3] net: airoha: Add L2 hw acceleration support
+Message-ID: <Z/V/ip/dA+aw+dCW@localhost.localdomain>
+References: <20250407-airoha-flowtable-l2b-v1-0-18777778e568@kernel.org>
+ <20250407-airoha-flowtable-l2b-v1-3-18777778e568@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CANDhNCpGxedaxjZ=6Trai3exbQGf7WRJUeTC1jqoHOhup2mNLg@mail.gmail.com>
+In-Reply-To: <20250407-airoha-flowtable-l2b-v1-3-18777778e568@kernel.org>
+X-ClientProxiedBy: ZR0P278CA0122.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:20::19) To DS0PR11MB8665.namprd11.prod.outlook.com
+ (2603:10b6:8:1b8::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR11MB8665:EE_|CYXPR11MB8663:EE_
+X-MS-Office365-Filtering-Correlation-Id: e166eca3-1554-492a-7670-08dd76d78d74
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5dyEwpJ3t2WVzR/R1qSWt0Bi0f+AQaBH6gTjqoHmNF+bHaHJWixxEqkHQx87?=
+ =?us-ascii?Q?U5QBA7d0OTUKphR2dH2Z3ifisB54Ta9HTNxqiw/W5tWS3FHpJqH66uyA1dih?=
+ =?us-ascii?Q?G7XdesSKmVfvzFlM0h8GaYFHjif6Ny5oO0PytxkcWrYwsxvGbgNrvBKkCo8t?=
+ =?us-ascii?Q?bcb1luRfnifH2xR+bzK0MpNCAgiTiOvZTzZ37SGpnJiiblNbUhNsuJ0BZRit?=
+ =?us-ascii?Q?wjSaZbQcSI2s83reJjfPNVSCDiM20SQKmy7731k1/eiRp5XaqOOnTOI8TBJk?=
+ =?us-ascii?Q?79nR/fdSIt9Yz3CsEPZLfqqw/qnPvt9uevfGfnBjqJ+NwFfdE5Pl+grxRStf?=
+ =?us-ascii?Q?faFwjXv6OeedPVQ6FeOhJc4a8rgngHJlfF22o9QgiCpVDNw+MkXKNACxR7Ma?=
+ =?us-ascii?Q?zHdHoLKNTPk4d+Fc+T/vHDd3VJOFYT3LQZS/RiVHgo+kjdx5DaabGAsRvtrs?=
+ =?us-ascii?Q?KGCXoCygHUlesuhhKmYOgjs7DwTnqjr1KmGiRtZXg0XQG0SGITOHYWdQx8oh?=
+ =?us-ascii?Q?JjCVlzLxQvFKzXE8oyCAntjsaBxPfJP01sEbmt8/yoURHUgBNMr1LYWKW4KW?=
+ =?us-ascii?Q?ZTofzfosUSLJutsmWnMgNg4iYdVv/xIwkF9EqQcCq1lJqjRnHgApzcid0M5A?=
+ =?us-ascii?Q?f7VLaMdpJip9mpJFUgXHczexIDZZtKBSE0RKfVdkCFeUAYaF2ciuY4R9fBkW?=
+ =?us-ascii?Q?PvEOk8WQ43ELrB5fjVymhB0I7McgCgdE8JQPy6TY+SvD1sW1FY2/AJgxoWRb?=
+ =?us-ascii?Q?8k+sXjizTpMqDwC49I/HDksfBqbNESaBObmp+Jy6dJkdJUHwQySQ1Wc/KqLe?=
+ =?us-ascii?Q?TCdNfFQbTubMBTumPIWukPgvbyVdIyDThEGK0eNky0Ms7qfGWtflqtsRfyi1?=
+ =?us-ascii?Q?ssW2OTV8IZLIJNzrd38T2mo+/4fFt/k/KoXKRBM0oIP9xFAdBhh6Tlm8MQZF?=
+ =?us-ascii?Q?5xif6UDtumL18DxxOJJBTIHhQAUAzQxKFQuls0cg6A1ZxE7ZACFDKM8K2XCA?=
+ =?us-ascii?Q?V0jVzJ8KxrpxNnOoSYJvfIqel66z5NUJbMqcvtJQdx2RpW+4XFuGLykYDsDG?=
+ =?us-ascii?Q?FJh90LKOZxSgysSmU8dGhBYB1vlMIHSQB5z9/Ggl13k9HyUG0w5kcABfHijc?=
+ =?us-ascii?Q?QE/qBqXQabT1skCy3ZmIetSLnZ2s+pIisBVRjjCA8aN37oLQ1O/GIQZsEEZR?=
+ =?us-ascii?Q?8Zg6amqDc94lWPFw2P+0eCbnNXT+M4SGQBi2xmKRfKhGKNnYXCKTKB9Zqs9k?=
+ =?us-ascii?Q?mw6kkKnseihim9rTU1HJqOcXjgO6obtQv0bFk6ZHGk70ZUSzVknH2pwzYsIn?=
+ =?us-ascii?Q?PpaVTKcvIecKaRNxO3K76ArNjwlIrHKw7C4B2+Nco0P38wXLsNM8GdTehSd5?=
+ =?us-ascii?Q?y9uCL6VgiDeidljjTnRgdJQsxadG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8665.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lkbo5SDRNs4/ZF8vK4u5rER4CxZh18z9d0qg6dVbiZp3c/6Y7pAIdC2Wb3IE?=
+ =?us-ascii?Q?G1om+gz288+sW75FFCAaVY8u/jTozefTMQZwmFMjLStUCQO/1hPMui/LOwgt?=
+ =?us-ascii?Q?vM6lDx/f1uZnOSxrkoNhIk4XVaVanpGT3Ut1kKXTnumShgwxnaOy2FJ1tjFv?=
+ =?us-ascii?Q?1p03wfrPI+K5E5Gl/NkDQDIYQ2pTg7cDohh7fOP75pr0MLIP3aPQlxqrQsAh?=
+ =?us-ascii?Q?nt1ofFWe9jq9QWhDwFUte8IPmoKLyTUamWAorBU822CgAIzuwHK7h7D5Sfkc?=
+ =?us-ascii?Q?64xpIOaxZTGzqzpejIFYfqLfRjJO+xdH1oJFGSuBudyWc6yl5dby/POauvXN?=
+ =?us-ascii?Q?ya5UTQo0mZDabGQo86SKTxNb/+718xuXRKIHE8AbJUWbBPX/cIn4FOElHjU7?=
+ =?us-ascii?Q?7LTrOfX0HXcKHSCtHDCksM9s4pveskq3wi7sqUPXqILL/NlKvGPuHaPfgOJ6?=
+ =?us-ascii?Q?qJd8S3+CL21oPhzCNMXI04UWsvRdQY6ZqoZ1GjPfPFfLnRZUZLh143u/oX+W?=
+ =?us-ascii?Q?hPb1NHc7L0UvBy6H1B741KrDiO820onqOAUVch+VczfPqCpQ6nKpAAwFEEmY?=
+ =?us-ascii?Q?99HDqjDNANcGH8O15GtqpuAneW3ucJwy0TpdOjQBIeJLHS2Y9ZcmPYOmDyvG?=
+ =?us-ascii?Q?VE6rv9ePhX0A5lb0Z6N1eR0W/6V2mRcFsNpFkLXm6Bo8UNTYML74yMP7w+kt?=
+ =?us-ascii?Q?tRvo2HMgO2e0kq3vHp216ggkkaJMbJEkuwNpYww+G8l6XyvCRaW3IMzTS5GA?=
+ =?us-ascii?Q?hvEnCF45jOcg3rQ2oY3FVVOPOcDzahiLLH4gnGmTnLz9Do+BJ/c1S3HqYhT7?=
+ =?us-ascii?Q?KtdlqImQ6qz+2tN1pnY5d4opXVT78yxpJdczBORX4jVa8yU73LAaZtL0igTr?=
+ =?us-ascii?Q?wbm/JAGUxOCEZFw1svzLwd7GV3ViTu7Ls/G2Wa3vl6yxflhkn0NeoyVS1fZa?=
+ =?us-ascii?Q?DoWlvSHm0b40xVVK0KM33eelbi2GJyKoSjpDR+Bq3xEA3/J7Y6Ejr+WaSaam?=
+ =?us-ascii?Q?WsVK5C6VZfwmOwfqptXu6EWpCB7ZV2SZrqTwPlBEnwGL/ZddCVR/d5sJ2J8Y?=
+ =?us-ascii?Q?fLwOWicCJ6mqERfyLmjjHzSOIISc3XZKtI8OZY029SMb/Lv1UAVUrTPtTdwO?=
+ =?us-ascii?Q?gERvAYFsFLHsb4ZCvKo+ewuCTc/di+3SwZtk6k9wqKnsx0qaJjv432pbZKJv?=
+ =?us-ascii?Q?PjGpQLj9XF57a3gO1kFcp+eVvHdaPQ/hEB6k2pF2KMWlq8uPuLSxj0SDf4tt?=
+ =?us-ascii?Q?9VEbvBnxCZIQEFZtqoctajjZaVfD1m4yu2iHmcPB+0Y7XPuw+RYaQxV8UqyB?=
+ =?us-ascii?Q?K08FT+1Kbv2P76vF9QxVUye5bP2YnMjGrJn52PAlMQZimemws+eZTEVBBUqZ?=
+ =?us-ascii?Q?aqI8T54yk96FJoowksM+HHiLnR4ZgxIdsMcWR1W4+sP+cDjgUDdVj6MnG0bE?=
+ =?us-ascii?Q?D40fmaAT+1LVCCCQR0NU7nmw+LUqxCuL/W+AuQ8e6yfI6I2RIQVgIY5h6d6G?=
+ =?us-ascii?Q?53co7t/62vByYFCh1DL4dQ1N63YHTrHds49DVX4WZdjuO5SVuwjtNyzMC95i?=
+ =?us-ascii?Q?KwsrP5E9yrCqPNxc72Iz+B5JLMdXPjMMeMgG7I+UYxYlgf9Z4C0NB70Ru9BR?=
+ =?us-ascii?Q?3g=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: e166eca3-1554-492a-7670-08dd76d78d74
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8665.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 19:57:12.1091
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7njl+Q2HjfDElvfZBgk4wlv5981sjX1akXI5gGM/g9WlGDBJoUHEyha4gZMZX0XTVIkSGYQ9rjgkqN1uSs3ikA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYXPR11MB8663
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_125706_297220_5B3D01DD 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20250408_125745_735368_29509336 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,56 +193,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/02/2025, John Stultz wrote:
-> On Wed, Apr 2, 2025 at 4:34 PM 'Will McVicker' via kernel-team
-> <kernel-team@android.com> wrote:
-> >
-> > To use the MCT as a sched_clock, the timer value has to be accessed vi
-> > an MCT register which is extremely slow. To improve performance on Arm64
-> > SoCs, use the Arm architected timer as the default clocksource. Note, we
+On Mon, Apr 07, 2025 at 04:18:32PM +0200, Lorenzo Bianconi wrote:
+> Similar to mtk driver, introduce the capability to offload L2 traffic
+> defining flower rules in the PSE/PPE engine available on EN7581 SoC.
+> Since the hw always reports L2/L3/L4 flower rules, link all L2 rules
+> sharing the same L2 info (with different L3/L4 info) in the L2 subflows
+> list of a given L2 PPE entry.
 > 
-> Nit:  sched_clock is sort of separate from the "default clocksource",
-> and after this patch we still register MCT as a clocksource, so this
-> doesn't sound quite right.
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c |   2 +-
+>  drivers/net/ethernet/airoha/airoha_eth.h |  11 ++-
+>  drivers/net/ethernet/airoha/airoha_ppe.c | 162 +++++++++++++++++++++++++------
+>  3 files changed, 144 insertions(+), 31 deletions(-)
 > 
-> I'd probably reword this slightly to:
-> "The MCT register is unfortunately very slow to access, but importantly
-> does not halt in the c2 idle state.  So for ARM64, we can improve
-> performance by not registering the MCT for sched_clock, allowing the
-> system to use the faster ARM architected timer for sched_clock instead.
-> 
-> The MCT is still registered as a clocksource, and a clockevent in order
-> to be a wakeup source for the arch_timer to exit the "c2" idle state.
-> 
-> Since ARM32 SoCs don't have an architected timer, the MCT must continue
-> to be used for sched_clock. Detailed discussion on this topic can be
-> found at [1]. "
 
-Thanks John for the suggestion! I'll give more time for review feedback before
-sending the v3 with this update.
+[...]
 
-Regards,
-Will
+> +static void airoha_ppe_foe_remove_flow(struct airoha_ppe *ppe,
+> +				       struct airoha_flow_table_entry *e)
+> +{
+> +	lockdep_assert_held(&ppe_lock);
+> +
+> +	hlist_del_init(&e->list);
+> +	if (e->hash != 0xffff) {
+> +		e->data.ib1 &= ~AIROHA_FOE_IB1_BIND_STATE;
+> +		e->data.ib1 |= FIELD_PREP(AIROHA_FOE_IB1_BIND_STATE,
+> +					  AIROHA_FOE_STATE_INVALID);
+> +		airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash);
+> +		e->hash = 0xffff;
+> +	}
+> +	if (e->type == FLOW_TYPE_L2_SUBFLOW) {
+> +		hlist_del_init(&e->l2_subflow_node);
+> +		kfree(e);
+> +	}
+> +}
+> +
+> +static void airoha_ppe_foe_remove_l2_flow(struct airoha_ppe *ppe,
+> +					  struct airoha_flow_table_entry *e)
+> +{
+> +	struct hlist_head *head = &e->l2_flows;
+> +	struct hlist_node *n;
+> +
+> +	lockdep_assert_held(&ppe_lock);
+> +
+> +	rhashtable_remove_fast(&ppe->l2_flows, &e->l2_node,
+> +			       airoha_l2_flow_table_params);
+> +	hlist_for_each_entry_safe(e, n, head, l2_subflow_node)
+> +		airoha_ppe_foe_remove_flow(ppe, e);
+> +}
+> +
+>  static void airoha_ppe_foe_flow_remove_entry(struct airoha_ppe *ppe,
+>  					     struct airoha_flow_table_entry *e)
+>  {
+>  	lockdep_assert_held(&ppe_lock);
+>  
+> -	if (e->type == FLOW_TYPE_L2) {
+> -		rhashtable_remove_fast(&ppe->l2_flows, &e->l2_node,
+> -				       airoha_l2_flow_table_params);
+> -	} else {
+> -		hlist_del_init(&e->list);
+> -		if (e->hash != 0xffff) {
+> -			e->data.ib1 &= ~AIROHA_FOE_IB1_BIND_STATE;
+> -			e->data.ib1 |= FIELD_PREP(AIROHA_FOE_IB1_BIND_STATE,
+> -						  AIROHA_FOE_STATE_INVALID);
+> -			airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash);
+> -			e->hash = 0xffff;
+> -		}
+> -	}
+> +	if (e->type == FLOW_TYPE_L2)
+> +		airoha_ppe_foe_remove_l2_flow(ppe, e);
+> +	else
+> +		airoha_ppe_foe_remove_flow(ppe, e);
 
-> 
-> > can't completely disable the MCT on Arm64 since it needs to be used as
-> > the wakeup source for the arch_timer to exit the "c2" idle state.
-> >
-> > Since ARM SoCs don't have an architectured timer, the MCT will continue
-> > to be the default clocksource. Detailed discussion on this topic can be
-> > found at [1].
-> >
-> > [1] https://lore.kernel.org/linux-samsung-soc/1400188079-21832-1-git-send-email-chirantan@chromium.org/
-> >
-> > Signed-off-by: Donghoon Yu <hoony.yu@samsung.com>
-> > Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
-> > [Original commit from https://android.googlesource.com/kernel/gs/+/630817f7080e92c5e0216095ff52f6eb8dd00727
-> > Signed-off-by: Will McVicker <willmcvicker@google.com>
-> > Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
-> 
-> Otherwise, looks good.
-> Acked-by: John Stultz <jstultz@google.com>
-> 
-> thanks
-> -john
+It's not a hard request, more of a question: wouldn't it be better to
+introduce "airoha_ppe_foe_remove_l2_flow()" and
+"airoha_ppe_foe_remove_flow()" in the patch #2?
+It looks like reorganizing the code can be part of the preliminary
+patch and the current patch can just add the feature, e.g. L2_SUBFLOW.
+
+Thanks,
+Michal
+
 
