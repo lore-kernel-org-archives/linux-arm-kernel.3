@@ -4,88 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95FB5C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 06:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0163CC3600C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 06:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0/j7X89O9xO0mUxcRUMJWfkgUvGR1hQnYHcZiDSC8zs=; b=k3tib1T528z6Sremf6UkfKxmfu
-	/cizk37ZgYuRoXbBjs4oy7FupQ/KJtCO05PHpJ/3JK+ZErLZtlw4onXCiL9/l61jht67qHT5ojmhj
-	sDOa6Kt+iPleQXyShZ67icOzCZys3OZ6bIrcv0AJxcfz91rasjWk6zUB9F4sCKv2bvy6HT2NSeF7s
-	1ZrI6GOMXeK06+WhdUJQHFIS1S6fMqXDV1IQ6cPVbnVY7eE4vJ0g1zWv42VC8YBkwkY5rYSrBYlyA
-	EUXtjf/+BWtuZhljWfPspZoVk8Kmj+MEBl3yKOrfrdseH7LW4YONXRWqqeE2UCyDv4fQ7l/g2Y2zN
-	ZHCdDfTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4jX+lbuYeXoWVhxC28kaWBWxj8p1+Asz32xTT26tf64=; b=zfl2mkPGnDmJO7ajzVkfctRhHr
+	rLi8YfFlajduLmLO4HWFhQkouqiIzhlykQSVWRd0BweCDFQn0C5WzfQRkZ5MqadUZRKrUB9T/SIp8
+	par2mnr72qv2bMNVOSNdVmFWKhuGcAvwvV9cUavS/b0JDVmcnnB8Vm6hZzSdy2WMKW2v7laypQ6NH
+	xcuOIOsKPkJVFVTI5P03FW8bxEtsTFVSuWzOJiI11RfCf48vy/yLJLCiBDt8PlUPW/Ihg5YrByV5k
+	OIAEo1rqo+jQmHT6vHOLF0qGp0SPuim8VBRZyft+K21mwJQUDlMGecZsOOnUPOD4zkLR7XFagpXZb
+	LB/iqBBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u22YL-00000002vRT-2dgF;
-	Tue, 08 Apr 2025 06:35:21 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1u22aS-00000002vit-1r3X;
+	Tue, 08 Apr 2025 06:37:32 +0000
+Received: from mail-dbaeur03on20618.outbound.protection.outlook.com ([2a01:111:f403:260d::618] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u22Us-00000002uy7-38vz;
-	Tue, 08 Apr 2025 06:31:48 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54963160818so6485257e87.2;
-        Mon, 07 Apr 2025 23:31:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744093904; x=1744698704; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0/j7X89O9xO0mUxcRUMJWfkgUvGR1hQnYHcZiDSC8zs=;
-        b=EXxSUEN8a/1h7wE7eVtcBWpaFO0FNMuYJZWQ82GYJ1coweaV8rwe1+MQI/9+FKPaKI
-         cIvu57Ed/Fy5KbGZnPPxjsJ/ItUsE+E7WXNuMV8plPOshiX08Fw215zKBuRORYuEqHTy
-         6L2LQe14tUQIqkns2PWC5bnlWRa2fRvGJHMXEtJFzrNDMQgveCJF64HCPDMftzfSNx2R
-         z4/eMd+ziYroomEcEke//t/qL0nIbdMjRRxCl2vRiInaV78zuBLtpWkwj8z0VLvdrLl4
-         Ipr8L0mbPe/N8Q4l1XxYlaTHGVEBIZ8q1qtmhvWi/HnaikMLGlu5VTVpbQ8605vjXEKW
-         MhZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744093904; x=1744698704;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0/j7X89O9xO0mUxcRUMJWfkgUvGR1hQnYHcZiDSC8zs=;
-        b=UofSc6aoakDOCsgd/aZeuAif8KkhxyYWU+3RDl3CkORJ9EkKikO0p10B2+JtaOoRui
-         ZMZ82Wb47jNkWNHEN0Jp+ghjA2W1d+1RuiuSaoajgUWkMJfF6ZV0BuvPcJvvm3ny0uYm
-         /Hty6GG3CB2voBL+SwJaknXMIq3MtihU07bZru+Eon/W1wegeQyERskGEgQp1pRaUnCD
-         6tVNVM1otk/kwa531pOS1EmjDbDDaF3lQSbKfnHlLJ+/yfkbAeQNpNkXvdJrF+NKWrEK
-         p1b8HlGIEfRkCWWVRbtdeT7WfpgLH7X1rPsfoAuxzkNL09lBXjJTZHGSwpmlKreQ9yCl
-         0itg==
-X-Forwarded-Encrypted: i=1; AJvYcCUQujSSXd8FOs8EFy+U8v6ls+c1ywSsSPPwch7WPTDNMEXij7GTpzv6ZKqCScBawj/RBsiOZYPWeLvCbbzVjJM7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2uYb65BCqYMnOF4Rrv6vTUluEhL6axfGn6G0ckCcQX1k9PT4c
-	pyiXWFiaA2SSht5jTA408XdLwgVaGXvbExmGnY90l5ntnbngy4mNaaPX66Vs
-X-Gm-Gg: ASbGncs5j2i1QS+Cwfyt5oRrYLcuuBmQDk69+vtUaD2tgC5aRwySPS1hSEf68jjsfNz
-	W1gBOnMThc7YVFluAbja11lmg0jSrsmYClgukTE8PbpjGrNrQcBKCmaZUqrHjnmKFAnRQwnpyE6
-	iFByHO5kqOz4s918k9pX4Rel8N7+0OmQWmMNBY1yDE9RS5yvVNFaArsmtOqL1AHsEsV6/ITcOYc
-	TYZHnRy+yhTLNGKkO3bLHTFHRAqga99otNsjruQ2udu+yJnjVGzu/AtZ9jwTF9EpuE/m28xY5Oo
-	7pDlFTqUtYbT/5xWSlxaXi0CAeJ6JpuVp9tXc1kfGrgIiu7j15Oj1dBs61xwmOBZc/8=
-X-Google-Smtp-Source: AGHT+IFFROvjnZfAxfoyPcg5HrxbhQFOC3CDl1CKWR3dFbmCGB2xIAFGBL6OygaC+l2LUb1NElNYeQ==
-X-Received: by 2002:a05:651c:221a:b0:30d:e104:9ad3 with SMTP id 38308e7fff4ca-30f0c064a24mr33615061fa.40.1744093903907;
-        Mon, 07 Apr 2025 23:31:43 -0700 (PDT)
-Received: from localhost.localdomain ([188.243.23.53])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30f03125862sm19141801fa.3.2025.04.07.23.31.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Apr 2025 23:31:42 -0700 (PDT)
-From: Alexander Shiyan <eagle.alexander923@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexander Shiyan <eagle.alexander923@gmail.com>
-Subject: [PATCH 2/2] clk: rockchip: clk-pll: Typo fix
-Date: Tue,  8 Apr 2025 09:31:26 +0300
-Message-Id: <20250408063126.38904-2-eagle.alexander923@gmail.com>
-X-Mailer: git-send-email 2.39.1
-In-Reply-To: <20250408063126.38904-1-eagle.alexander923@gmail.com>
-References: <20250408063126.38904-1-eagle.alexander923@gmail.com>
+	id 1u22Yg-00000002vUN-143z
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 06:35:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SYVlnvPb4GjIsfww5ZWqcagp539muG09a0tc1l5y4cfxcG4S6cB7nBac7vQeLt7UnBQegbLZ1ENCawC0r5nDkf4G5kDap72/6X9IV9pwf6JoHgwZvluJatrnVtR9fvM2X9030wc9u6k9rSbRAPQBRjde8W2PhWgvQq2IJz1hennQ+3prYABV5jJe4JooOyz37dB7azSxzul6eVkIq1PInOWLtUrscSG/69C/DjYJx/W8I9HrboTDaWTkTnH0OdWFMh14gFbUnArNXrA9SM34C8x4sFxy7yCiC/3UcU+CPrbUJi6VEjW1c0h7ta3AdiEEE2pjbI0Jqg/yMn1M2K980A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4jX+lbuYeXoWVhxC28kaWBWxj8p1+Asz32xTT26tf64=;
+ b=gHaZ4LPqEkrwGDgpdG51HBgXUhLME00x8/H/UIR59nzfQt4ArYu4u3nsyPwGtV9ZTXiRl85qmn1mwiuqwhLBNRu6e3QG4cIsOSTkQr210tMyw29Lt+mCgaB5N84Bxv3ATrE4l6jgMOcZj8c9eXE33f29RKLkRcHn652076xFLbNwmkwlw0qC/PRn8wBQJ8Urfojya9p37NUtg2Sbcars5PB859tBzfNAjLFnY9BEWZoHzwrbtE+LKPjoPF1QXVUtO22CUVaH4u+7HJa9AihQlkzckBPDZTCwKDNFL/35v5FTNr8kyvlDI5OzyD45Y5AzchF+/4x9PAAz9wCMlLXrzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4jX+lbuYeXoWVhxC28kaWBWxj8p1+Asz32xTT26tf64=;
+ b=gLk1h8oxp6ZzrCNCCiVqko9YqrAUkCVD965BiES/XDej9CrY+7GJdExmSGSS2zRwnHzAlUMRiS3vBzm5VSQtZDvGW+3Z5ok0alY5f7kyeaqwgAtNFOo66ri+3mNkLO3p3YXtfkz2rQqDiIAjwwpx+COBqoi44FpWum+EWbXc158UfKIHsuiSOJ2LeS/LUcyZ3DixLb2YhUI1TI2cJLFX6Bs69VE+YRrgoR3uNftpmd79yCJxMsZrJaXrBwduvviItC25fYtOehaxzGsd5a2u3mlaEnOs0hwt2EjdxdJx08qQutbQZNK3j9tfo6UObOlmweMF4ST/VjzATMSjTei43A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by PAWPR04MB9717.eurprd04.prod.outlook.com (2603:10a6:102:380::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.32; Tue, 8 Apr
+ 2025 06:35:36 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8606.033; Tue, 8 Apr 2025
+ 06:35:36 +0000
+Message-ID: <50ce67b7-ef06-4e8e-bf4f-f4b0d5e40961@oss.nxp.com>
+Date: Tue, 8 Apr 2025 14:34:44 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] media: v4l: dev-decoder: Add source change
+ V4L2_EVENT_SRC_CH_COLORSPACE
+To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, mchehab@kernel.org
+Cc: nicolas@ndufresne.ca, shawnguo@kernel.org, robh+dt@kernel.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ linux-imx@nxp.com, xiahong.bao@nxp.com, eagle.zhou@nxp.com,
+ tao.jiang_2@nxp.com, imx@lists.linux.dev, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250117061938.3923516-1-ming.qian@oss.nxp.com>
+ <3e5f003a-f689-4f5a-ac75-6bf95379637b@xs4all.nl>
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+In-Reply-To: <3e5f003a-f689-4f5a-ac75-6bf95379637b@xs4all.nl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI1PR02CA0005.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::13) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PAWPR04MB9717:EE_
+X-MS-Office365-Filtering-Correlation-Id: c4dbb050-7027-4dc5-fd68-08dd76679222
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Rit5QXArKzl4Y3gxT0hsWTA1RHMxTUZ6NXRkcm5vbGxKZkZRY3JMbHFkQVhB?=
+ =?utf-8?B?K2NyUlBBc3FFanViR1JXZEpUWkFQcmVhQWVLeVM0SkVOVTdwWEFBakJFNnFx?=
+ =?utf-8?B?aEdIVmFmOE5yVDZvM3JjVXU0LzBRUmVjS283RTlpNGtCNys5YXEzSnBMbHNC?=
+ =?utf-8?B?akZ4L0w3WENsTkNkZ0ZFY2RnZkU0bGZsRHNyMDdwSkhGV1dVZnV6ZFUvZ2tq?=
+ =?utf-8?B?bDdybml4MlgvdkxIY09yWU4wY0MraExtdjVoTjV0QWt1ZkY3UFdZRi95ME1a?=
+ =?utf-8?B?MFhsTDFZZHRjSS9mWmt0RkZraUI1VlV6a3dyRkk5eTBORlFCNDN0REhlcExr?=
+ =?utf-8?B?cm0vMWNGa0pNOW5qUVZNZjl3QmlDSkJaZU45eXRmcEdMMmJBYllJYTNwNDhH?=
+ =?utf-8?B?VmR3OTJ5bjlIMW52eStwWGZJNzZqOEx2VEdKajJobkIrNXU2THB1OEg2TXpW?=
+ =?utf-8?B?bExWYUpqQ243YUxaUWZERTJ4ZnZpS3huaW13dlMrQXd4LzhXUGt0S2RkeVJG?=
+ =?utf-8?B?cUN5bmhocWhneEVrWVRxaFhGZUtndW11Q3VDeEswM1kvbzFYL2g4ZHV6L1dJ?=
+ =?utf-8?B?b3BqT1d3bVhCZWFDNHZmS3QzVG1RUjBwNFVXY2hjTjA3Z3poV2xIQVJteGRI?=
+ =?utf-8?B?c1Fndnl0ZmIyeGRQNFlqUDZ6bHFxbnE2NWN6YThzczFINkNsRVViRUlKRGJr?=
+ =?utf-8?B?SG52bkFGNS9TQ2wzRG1pWjNtSDVON3ZTTDRzWnZ5UnJlODBtZ0ZhMFRMQnMv?=
+ =?utf-8?B?T2tSZSs1eXdpSldIWG9acHBlbWNWNmFyME9LdXFGZlVtby9URGZFbDM5Y0pV?=
+ =?utf-8?B?aU42blR1dFIwTE42d09sNUQ3MFRzNDh2VkJIdDYvUGp6eXkzSGFXSTJxSHN6?=
+ =?utf-8?B?SUk2YVBRSWZzWWtYTU14akxncU1TSGVrWEcrVkt0azM4Z0RyOHRQYnZuNi9j?=
+ =?utf-8?B?SHVrWnhIYVVnRTlhNlo5T052Skk4N05meSs2N3lpbkV6dHAvamdTUldDbjBn?=
+ =?utf-8?B?TU9la2lPeUo5dnNMeVYwb0U3dmcvSlBmM01tTG1MRklrb2VjNkJ5Ny9FcDRE?=
+ =?utf-8?B?YnlRNndKa2ZZYnhZWXQwWHNGYy82QTJJb1VhY0Z0c1hPT2NLMWxMUFQrQlJ2?=
+ =?utf-8?B?N3lYSTZpamNOenZqV0Rmd25yOGZkNGF2NjdrVVg4eXBZQ3k4ZmY5ak5qWTdY?=
+ =?utf-8?B?WW1DbXNZMUNFMGdRekc5aW1DaytudjlmNkFmZmVWU3FwNnhsODZUeTdOVFRY?=
+ =?utf-8?B?N1hSazU1a2JwZGZ1ZjR4MlVyTzJnY3F2eEw5ZU9OSVAxVWJvVXg1WURtWXhB?=
+ =?utf-8?B?NWY1WlBDNVNZN2pzTThRWkkzeHNGMkxlTXRHV3kvYlFVWDdNQXQzbTNwZW1P?=
+ =?utf-8?B?THY2ZTIwY2Y0Ryt0N0RQNzZIcUc5aW1Wamk0RjdvdlNTdC9XaWF5ZzBaR2JE?=
+ =?utf-8?B?Qi90cjQ4VElKV2JCSzZwS1ZtUWpGOTExTWNmRXg5UnNjbXl6Z1RsalJuUG5S?=
+ =?utf-8?B?Uld6bHgvZ0FVNzNRTmhHMGZEYlM0NGtVUkwwTHcvYmlsbUVVcjk0NXl1RXBt?=
+ =?utf-8?B?WjNacXZUeElsdDdOclJKcUFnN1h6UHgrS1VNdmdaTW4ybXN2NFJOWkRUcy9T?=
+ =?utf-8?B?UUVyeDRtL0JjNUdNSGU3MEFoU2JCdmpDQmhmcWRncTVZT04zQ3lvRVRldlJN?=
+ =?utf-8?B?VUdYZkZHWWUrVXZ1eEhVY2UrWkIwdFc2UURRc2U3L1JaRmRwYWRuNXVhb3Rr?=
+ =?utf-8?B?c2kraVZRemUzczVjK2N4ZFpsQjUyZUJNWGFwV1NiQWVVUGV6TERTMnJtRlVI?=
+ =?utf-8?B?VzBVRlVjajRpUEl1Y3FjanNGaFFWSkdqQXNqUHVuREFNaWxJQVhlVWxKQzZm?=
+ =?utf-8?B?TWhyY2dQbTkxelRmUkF6SDBEbkZXOWtoQnp2U0d4U2l4ZWhtZjdEOVFRd0gv?=
+ =?utf-8?Q?VQ7a23Bm8HU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RmNGamlYNHBqekxTcWhIZ3ZPamF3VXJqeUFYbGpaeFpycU1EZ2xPRmVncmxY?=
+ =?utf-8?B?QVhuSEo1WGlrNjhabEcwNDdrVW5vVjNIUGNVUDkrenJGZ0hoRE84OHJhVzRx?=
+ =?utf-8?B?TVZoZVdzaVVrWjZYMkt2Nm41aWcrN2E3Q01XTHpKUExBREpjekllWDBWMUJh?=
+ =?utf-8?B?ODFVcVBpaUZKc3dyZmVWaGFNM1hGamJqL1UyNThBM2hNc3hDTGUxa3dta3ps?=
+ =?utf-8?B?b2Y5RDJyVHN0VmU2OU9mSFg4Nmw5eEhwYkIvVCsrZzBTUk94dGJBQVpWRXBG?=
+ =?utf-8?B?M0F2Rm14UUcrM3V1eUVYb0F6Z2JBVytsanNyajBtUVhXYi9OTEkvV2FmbGZL?=
+ =?utf-8?B?UzU4SkV3eDg3VVB1QzRmU2QxUzJDc24wSk1zOHllTURjUEFRRzVSd1RjVWFD?=
+ =?utf-8?B?MWsrZ3o4UDU1WUhTUGhNVHRxZXQ4RUFQenNYL3NzT25tVkpmYWp3a0U3WGE5?=
+ =?utf-8?B?bFA3eGJHbHRXaklHeEg4V3BRckUyaW5WYnBTY2o3WXI5a1p6eFlvWjk5blRV?=
+ =?utf-8?B?czNmNHBXdEgrS1hjNmJaenBCYlRFbmZHeTVoTi91ZWhMekFYdVpkdmVaM1lX?=
+ =?utf-8?B?dVcySnNoSFc5N3o2SzlUVXd1ZjNKWEdPUkZ0QlhFZXlpeU5VVWZJd0hrS2tP?=
+ =?utf-8?B?OVlFN3VJTHg1N08xRFJBV01qV2hSWVFjRGlSK3dBa1gwWGtLb0s0M2FvdjFH?=
+ =?utf-8?B?V21KWVhmdktxdXhuVGRVSnhJNFRua0c2dzFBdkxza0dXbDNRVVhibUYwcE5K?=
+ =?utf-8?B?UEpmcTI1QnNPTzNFSCs1OHAzUi8rYzIzRGlqaEgya2tXa3hXUlZzajFhbi9y?=
+ =?utf-8?B?T2cvWmZjQ0k3cVBsamxGRTIxbkdIQkpjNHNsbEZxcHVPSHNibUh0S3ZrbWU5?=
+ =?utf-8?B?Z0hreUdYU1lVZU1nNUpPL1FEOHBKQmloVmR5YXZWT1haVUxqdFY5bGdGS1N3?=
+ =?utf-8?B?MWlaRjF2VWU0emtIOWhMY2V2dURHMFFTNUF3bEhMOERJS3UrMVd6WlV5TEZB?=
+ =?utf-8?B?UEc2QzBETGpaNkJxd0taQ1ZqWmRXb3kycWE4ZW5TeHFsTmdabUZzdWI4UkRV?=
+ =?utf-8?B?Y09FV2JqbWtrYjlqVmgxTjl0aHIrVlo1MVM0NDE4Z0Q3ZkJJdGdlbkZRcERY?=
+ =?utf-8?B?bllTbWhieTBOTFR3aThXT3FiQ3BlZnRUMzVQR2hOcHF1NEt5QUNSQS9UcUYr?=
+ =?utf-8?B?TlRWTk1JdkFlcXhSd2xpN0JqL0x5S0ZEQ0lDOUR3eFV6b1NscEVPWEJMeTZ4?=
+ =?utf-8?B?REJ1MkUwWEs0N0lnczNQc0FxTkg4VlpqbnNyemQwb2ZhMEo2OVlLSnpncXU4?=
+ =?utf-8?B?QXl2NHNQMXpYVmFjNExDS3N6RXZGS3FPR2xnaS9YanBIeVltT0QzMzQ4SzBN?=
+ =?utf-8?B?T3oxU0tTQmM5NUZVS2ZkTVhOQmdIZlBJdlplQ0hEZDhCNldXd0d4K3FoYXBn?=
+ =?utf-8?B?VFFlUmg1MFRaK3RCaFNlb3d3Qk5GSXdKaVlFWnMvNFpUMUIxUTlubWNtSFMv?=
+ =?utf-8?B?TDR2bW4vQnc4S0RNV1R2NURJRzY4cjl1V3hXTUxLOFdJRFVBNlBWeDBDeDUv?=
+ =?utf-8?B?TEhLSDcxZktaUEo4TC9rQVkyZzZ2bVdDQVhJZjJQUEgzbFVXT3ZjVUxzcXU0?=
+ =?utf-8?B?MTRUcGI0RTFCWGsyYkZ0T3ZSc2xCMGJrZjRyNXlQUXFxTTlmUDljVE1XSEVF?=
+ =?utf-8?B?SGVzaGVhMUY4TForR3JjNFZCeVFKMU9lYStmdzh1RWVGM3BSY0dlQzFGOFQw?=
+ =?utf-8?B?MHZmRTd0TUdVaHo4aEtQKzE3M2ViV1dUL0ZZbnBlVjkweHZycW5aeFZzanN0?=
+ =?utf-8?B?MS9idlZJWGNkMWJsZGpxeE9IWWVtdFJIS0NnRjZFcC96cmFtM3VISitZTGFQ?=
+ =?utf-8?B?L2lWR2tUZmI0Q1RhNFVFV0kwVndvMVQ5d0dkVmlla0UzaG54ZDY5VXZZdTU2?=
+ =?utf-8?B?YTA0cVFPeXhCVW8vb1l0cndpc0hQbXVGbnhUVmdST3ZyYXZ3Q0E4dm45ek9U?=
+ =?utf-8?B?Q2pkd29yUzdlQXF3Z0ZpRy9YUDBWWVpJTnc3K2FNNGgzM0pNOTZBTmhlN2Z1?=
+ =?utf-8?B?MzBwc2NkbE1STUF2Ny9ia2NpVnVLN2RvZy9aelpOanNOcGd2dEJzczBtQnFX?=
+ =?utf-8?Q?wIgQ+vGrpwM9Q8zMKTIFeIrcM?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4dbb050-7027-4dc5-fd68-08dd76679222
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 06:35:36.6538
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3AAL7IXIWEb1adhK7Ju8UIjPN206/u9A9m+BQ4pu5uwAJlTcZjMFThde3BCv306BKb+RLnNAkYPRfcczlR8WPw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9717
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_233146_786320_6CE68C8F 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250407_233542_311020_5987CB9C 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,42 +181,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fixed RK3399 -> RK3588 typo.
-No functional changes.
+Hi Hans,
 
-Signed-off-by: Alexander Shiyan <eagle.alexander923@gmail.com>
----
- drivers/clk/rockchip/clk-pll.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+On 2025/4/7 17:54, Hans Verkuil wrote:
+> On 17/01/2025 07:19, Ming Qian wrote:
+>> Add a new source change V4L2_EVENT_SRC_CH_COLORSPACE that
+>> indicates colorspace change in the stream.
+>> The change V4L2_EVENT_SRC_CH_RESOLUTION will always affect
+>> the allocation, but V4L2_EVENT_SRC_CH_COLORSPACE won't.
+>>
+>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>> ---
+>>   Documentation/userspace-api/media/v4l/vidioc-dqevent.rst | 9 +++++++++
+>>   .../userspace-api/media/videodev2.h.rst.exceptions       | 1 +
+>>   include/uapi/linux/videodev2.h                           | 1 +
+>>   3 files changed, 11 insertions(+)
+>>
+>> diff --git a/Documentation/userspace-api/media/v4l/vidioc-dqevent.rst b/Documentation/userspace-api/media/v4l/vidioc-dqevent.rst
+>> index 8db103760930..91e6b86c976d 100644
+>> --- a/Documentation/userspace-api/media/v4l/vidioc-dqevent.rst
+>> +++ b/Documentation/userspace-api/media/v4l/vidioc-dqevent.rst
+>> @@ -369,6 +369,15 @@ call.
+>>   	loss of signal and so restarting streaming I/O is required in order for
+>>   	the hardware to synchronize to the video signal.
+>>   
+>> +    * - ``V4L2_EVENT_SRC_CH_COLORSPACE``
+>> +      - 0x0002
+>> +      - This event gets triggered when a colorsapce change is detected at
+> 
+> colorsapce -> colorspace
+> 
 
-diff --git a/drivers/clk/rockchip/clk-pll.c b/drivers/clk/rockchip/clk-pll.c
-index 77ba4d6e7b5f..6c5039bd661f 100644
---- a/drivers/clk/rockchip/clk-pll.c
-+++ b/drivers/clk/rockchip/clk-pll.c
-@@ -949,18 +949,18 @@ static int rockchip_rk3588_pll_set_params(struct rockchip_clk_pll *pll,
- 	/* set pll power down */
- 	writel(HIWORD_UPDATE(RK3588_PLLCON1_PWRDOWN,
- 			     RK3588_PLLCON1_PWRDOWN, 0),
--	       pll->reg_base + RK3399_PLLCON(1));
-+	       pll->reg_base + RK3588_PLLCON(1));
- 
- 	/* update pll values */
- 	writel_relaxed(HIWORD_UPDATE(rate->m, RK3588_PLLCON0_M_MASK, RK3588_PLLCON0_M_SHIFT),
--		       pll->reg_base + RK3399_PLLCON(0));
-+		       pll->reg_base + RK3588_PLLCON(0));
- 
- 	writel_relaxed(HIWORD_UPDATE(rate->p, RK3588_PLLCON1_P_MASK, RK3588_PLLCON1_P_SHIFT) |
- 		       HIWORD_UPDATE(rate->s, RK3588_PLLCON1_S_MASK, RK3588_PLLCON1_S_SHIFT),
--		       pll->reg_base + RK3399_PLLCON(1));
-+		       pll->reg_base + RK3588_PLLCON(1));
- 
- 	writel_relaxed((rate->k & RK3588_PLLCON2_K_MASK) << RK3588_PLLCON2_K_SHIFT,
--		       pll->reg_base + RK3399_PLLCON(2));
-+		       pll->reg_base + RK3588_PLLCON(2));
- 
- 	/* set pll power up */
- 	writel(HIWORD_UPDATE(0, RK3588_PLLCON1_PWRDOWN, 0),
--- 
-2.39.1
+Will fix in v3
 
+>> +	an input. This can come from a video decoder. Applications will query
+> 
+> It can also come from a video receiver. E.g. an HDMI source changes colorspace
+> signaling, but not the resolution.
+> 
+>> +	the new colorspace information (if any, the signal may also have been
+>> +	lost)
+> 
+> Missing . at the end. Also, if the signal is lost, then that is a CH_RESOLUTION
+> change, not CH_COLORSPACE.
+> 
+OK, will fix in v3
+>> +
+>> +	For stateful decoders follow the guidelines in :ref:`decoder`.
+> 
+> I think this should emphasize that if CH_COLORSPACE is set, but not CH_RESOLUTION,
+> then only the colorspace changed and there is no need to reallocate buffers.
+> 
+
+OK, will add in v3
+
+> I also wonder if the description of CH_RESOLUTION should be enhanced to explain
+> that this might also imply a colorspace change. I'm not sure what existing codec
+> drivers do if there is a colorspace change but no resolution change.
+
+I think there is no uniform behavior at the moment, it depends on the
+behavior of the decoder. Maybe most decoders ignore this.
+
+> 
+> I'm a bit concerned about backwards compatibility issues: if a userspace application
+> doesn't understand this new flag and just honors CH_RESOLUTION, then it would
+> never react to just a colorspace change.
+> 
+> Nicolas, does gstreamer look at these flags?
+
+I checked the gstreamer code, it does check this flag:
+
+if (event.type == V4L2_EVENT_SOURCE_CHANGE &&
+     (event.u.src_change.changes & V4L2_EVENT_SRC_CH_RESOLUTION)) {
+   GST_DEBUG_OBJECT (v4l2object->dbg_obj,
+       "Can't streamon capture as the resolution have changed.");
+   ret = GST_V4L2_FLOW_RESOLUTION_CHANGE;
+}
+
+Currently the gstreamer can't handle the CH_COLORSPACE flag.
+
+Thanks,
+Ming
+
+> 
+> Regards,
+> 
+> 	Hans
+> 
+>> +
+>>   Return Value
+>>   ============
+>>   
+>> diff --git a/Documentation/userspace-api/media/videodev2.h.rst.exceptions b/Documentation/userspace-api/media/videodev2.h.rst.exceptions
+>> index 35d3456cc812..ac47c6d9448b 100644
+>> --- a/Documentation/userspace-api/media/videodev2.h.rst.exceptions
+>> +++ b/Documentation/userspace-api/media/videodev2.h.rst.exceptions
+>> @@ -526,6 +526,7 @@ replace define V4L2_EVENT_CTRL_CH_RANGE ctrl-changes-flags
+>>   replace define V4L2_EVENT_CTRL_CH_DIMENSIONS ctrl-changes-flags
+>>   
+>>   replace define V4L2_EVENT_SRC_CH_RESOLUTION src-changes-flags
+>> +replace define V4L2_EVENT_SRC_CH_COLORSPACE src-changes-flags
+>>   
+>>   replace define V4L2_EVENT_MD_FL_HAVE_FRAME_SEQ :c:type:`v4l2_event_motion_det`
+>>   
+>> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+>> index c8cb2796130f..242242c8e57b 100644
+>> --- a/include/uapi/linux/videodev2.h
+>> +++ b/include/uapi/linux/videodev2.h
+>> @@ -2559,6 +2559,7 @@ struct v4l2_event_frame_sync {
+>>   };
+>>   
+>>   #define V4L2_EVENT_SRC_CH_RESOLUTION		(1 << 0)
+>> +#define V4L2_EVENT_SRC_CH_COLORSPACE		(1 << 1)
+>>   
+>>   struct v4l2_event_src_change {
+>>   	__u32 changes;
+> 
 
