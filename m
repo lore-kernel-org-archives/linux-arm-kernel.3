@@ -4,149 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED5FC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49ABC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 16:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yjiU1jGWY/rNNiz7dw7xsADmeUAhF9YX6eQ31yBIdI4=; b=YrQ1hnedl2rxWDF8zv0qtpU0FB
-	R8qxJVz6zfnE8JpHywYhzVBdQTs80tsudpkTnVC8U6lyZrVcpktk+FP2CTij/f2Qh3E+Lr8RMPtqI
-	uIbp91hulSeKjFASTU3lKdoz0qWTzEPD9CSHdtURqqF8rbkC7RdSY3zwdfl44tD5tYss/K+rwsTgV
-	XRF8FWreaNDPd64QBpY+9MpNUY+M/eO9HHLuHF45gV6+bQ94EnxOicDpVI0SlpnzQ+V1D946bCkTg
-	aegyWy/AxfIxN7aIAnFDQLB27yn36oHHFYh5SkBYZiQ4gYQ2bvqeUlPyuhBmPrVtHL+Mm/jpmshdo
-	9rAFGjoQ==;
+	bh=lzpeBjhQqjKTv5LhjTuLZBeC/RINwYUMzDyi+e++4VE=; b=B1hszahg2eIFcGYRFGk4gR4kip
+	gWmjqGYrwA7z3n4Hvrjc/8lbtrrXjRfOeO931cXf8ym7kmpsnIXpj1uit6Va0VOuEHcSW3DMwAaWf
+	e19keEab4g+rcuIcEjl5JBx2D5oYxIIwm7NzbR8zTMVhwT1kbbGMaWx7ghSMHTrLDdtyHMUtVp13y
+	3W5s7x217QLX3X9mLRc6UAklfcYiu3oCD1rayu57YPB6TRddbp+sK2eo3buozsbeTHeiO8qXkv52R
+	8Z+vgoNvcJ/CdSby+hdMe6E4EZ+K+rifeI9WaJFvgRL1zsjkIEC03JVRd0XcWd1diS4GbLRp7pe5o
+	p3Un8lNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2BUj-00000004khf-2PpR;
-	Tue, 08 Apr 2025 16:08:13 +0000
-Received: from mail-db8eur05on20631.outbound.protection.outlook.com ([2a01:111:f403:2614::631] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1u2BWU-00000004l4t-1l0P;
+	Tue, 08 Apr 2025 16:10:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2BSN-00000004k9d-06kP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 16:05:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tSBYlGsYryAzpOqkPBz8EpEtYnyTZvS8Xz+lmzZ+xghRTWmV/BOZfAjdyTI5CnxjfmReurjyGl8L5dqA6MXJ+9ieD6vn6ZjsTjx+A2lrD0JDt5GyYZPivBhItJ0poFw7imPdDqJehflg3l5b1QHqiKPUou9lgRs746GVWwoE0tftC1UbGfX+7Lhda6FDr9N/tLNeQ6Eg3WEGKjyfgyeXvQSh/phaH7/dGzhCojHtGw/HceGpvLzD4RO7YFHqRBtqDtZ4UJUVmwdcNzY0lCrqpQnlmUMlob3ltEql7qMiSpM/16St7R2s/Zx+b5NuXWQ6iq13jIpHDSqHc3kIsqfNGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yjiU1jGWY/rNNiz7dw7xsADmeUAhF9YX6eQ31yBIdI4=;
- b=Yoedv0v+0nPoQJV2M1N9ShENxyEk6lSn+iohQAlTOp4AaidFf6umD3y/g4XhAlKcNPYXSyeElScf3r0bCCZlaOCXcGV4wA9+nVKHBco+o2wHZT3fIvTzje5OAGEfBeuAU+Dwo6qLlaHH2jh7OVJOIewWwwQlraUMNZipjvkRoGKoq9yIkqQm+KI3gGRtKad8s4xOlk0oSX7NfqvE7+VyGdMpk6kt4NgoB7RtPM3J9R274Pdt5acsSxUAGoKS7d/4SnNvu7Os3vkVqM8zzNRL4uwjUHQKY5VSqitNDvleQaVWoO4RoA1XkrmAAXc8lqgKBr2yo8s9bEwD8UOuUT9N5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yjiU1jGWY/rNNiz7dw7xsADmeUAhF9YX6eQ31yBIdI4=;
- b=OSllZqlovZ1I+LKtaXeRt2YRgYIFKszlj/fiUpARVAHPEEvkZtO1ipx4lU/tGycqSv5lsFJ/bltDH6wPttG0PRwGJLqHFL3HsOpZXtbNqRknASNCzJBTKkXJVb7UhTei89ItLegeHO/kAVnGeMv19nBE4H+D8s5zE7YRn/bf14qA5ccsJWMHiGz5XBJ8dWoJWiOf3hsTUJGaMO+lX7LOVCU4Jlmf2fzRKytfDXcPVXsep5GaZQRLLiH8riV1oAxOHnuQeK9tRBOp8GxDDIGQkQdqpVoRrZbQb5WgeZ6sZ7VGikSobNJxxENje4puMaaMCFRR9+kzFI3K+6Rlw1naug==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM7PR04MB6984.eurprd04.prod.outlook.com (2603:10a6:20b:de::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Tue, 8 Apr
- 2025 16:05:35 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Tue, 8 Apr 2025
- 16:05:35 +0000
-Date: Tue, 8 Apr 2025 12:05:26 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	id 1u2BUW-00000004keY-0vVs;
+	Tue, 08 Apr 2025 16:08:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 12C445C05E2;
+	Tue,  8 Apr 2025 16:05:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B628C4CEE5;
+	Tue,  8 Apr 2025 16:07:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744128478;
+	bh=lzpeBjhQqjKTv5LhjTuLZBeC/RINwYUMzDyi+e++4VE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OyLqtvNt3uo49sXmzsO/X6m+Zm0NwzwtMrSOp3iDAplnzf1boXsd6IaggyeX8dnsQ
+	 +MCD0To/C9JGz07JeAoSJlwidfegqkkqiUcfv+/RaZW6XXPyismKIvOl9t3Ug0yLpt
+	 1UBzkv5S5FQ8cUQps3M7tDN+xDN/BxUUo2Z6yXP47XX3qZ3S1ST6C0r1FLzlUdX6SL
+	 BDjEEtGqjefpz4rTwexrt/ipf13elsC2SaFHxC2kjVkZZOZ1QEQMwX/9EgHkO17fuy
+	 QyK3sRQK+YGvaW4/eCV5B+i53tQHvoXHVTLt5I4ZJOZCJ9gIxL1FZ+nVzUeC1fEA1K
+	 8wM/enLNTWrsg==
+Date: Tue, 8 Apr 2025 17:07:52 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux@ew.tq-group.com
-Subject: Re: [PATCH 1/1] arm64: dts: tqma8mpql-mba8mpxl-lvds: Rename overlay
- to include display name
-Message-ID: <Z/VJRsjZF6Tsbnx0@lizhi-Precision-Tower-5810>
-References: <20250408140856.1143290-1-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250408140856.1143290-1-alexander.stein@ew.tq-group.com>
-X-ClientProxiedBy: PH8PR02CA0032.namprd02.prod.outlook.com
- (2603:10b6:510:2da::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	William Breathitt Gray <wbg@kernel.org>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Kever Yang <kever.yang@rock-chips.com>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, linux-iio@vger.kernel.org,
+	kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+	Detlev Casanova <detlev.casanova@collabora.com>
+Subject: Re: [PATCH 2/7] dt-bindings: pwm: Add a new binding for
+ rockchip,rk3576-pwm
+Message-ID: <20250408-drivable-hypnotize-062fd7cec903@spud>
+References: <20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com>
+ <20250408-rk3576-pwm-v1-2-a49286c2ca8e@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM7PR04MB6984:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9496320-ee26-4581-0c7f-08dd76b7321a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1u3Z/ApxrjhXK+pxME62cv2AwASjSJiJvsO2CjarRrpv5NcfkVq6gLqiH+JW?=
- =?us-ascii?Q?4VZ5O2780sKIcISWUMUQRZ9OAXgXFFFFPYpLY4KFyZMUxQS8XkyMABMD1g5n?=
- =?us-ascii?Q?fNdq23kSoYurbinNxfeU9st0v771BWqBRNwUcB27igA2RhQjeR32zV88aahk?=
- =?us-ascii?Q?13Kx757tm7CetkJr8g+vn2Q0ovmaxeRaylsDiRj8uygghpfqzhcbM6s/yRmY?=
- =?us-ascii?Q?iyF000e5PzTueUzmk1dhIRnx8olV5Qn6nUHQxT5csErMKAwf1BDIpc6yYe/m?=
- =?us-ascii?Q?YX3DLtDi0r6AthZNJN8ZaqW/hjic8E8OIJfF7qkj+LQpFfFdGdqWGbfkAV6E?=
- =?us-ascii?Q?3oj+wQk6pK5CnqRDSTHgqQdSmyz25LSlOtWK8S16hcvNnaLFvCSE0o7S967u?=
- =?us-ascii?Q?8EGnb6Zx8nnzHOVr3u0+/QrzWoPUTbiVOrSXHgvWqztr9zJWcNkKtFvYMRrO?=
- =?us-ascii?Q?Gg/DY5pkyYAGxI6FYDIU8JOW4uwHCjvkPRbmUl/a+lst+eIWGnLYiZM4bGUN?=
- =?us-ascii?Q?plgZXHXgyCU2ssPaNAAtHaHYQ9eo+aRuGjPUx7wrrwL0YG4Wsx/+sQpFWCfZ?=
- =?us-ascii?Q?HCFDE3qS8BoBiwUt7um6BhCHd9JYFapKcGxhMlSsGHtsCTxrPwlSu8CxxU+/?=
- =?us-ascii?Q?Q7E8eWt5TA2AueNvKoDpRxQvcJjfk/kMH3bIcPHs36RQ8azaiTl4XoZ6xj57?=
- =?us-ascii?Q?I6wnFeJ/N2buMEYdpNT1lpmbfTRA/diA7Y9oETCWYY7zSVEPsrBcscbYQsFU?=
- =?us-ascii?Q?YoSctMcqWixfTB0vAkqhCjgzrFTHNjSIL91pL5gAS4knSuKsMrDFZKLshy9i?=
- =?us-ascii?Q?qLi7c/A1jn8Zkd9Np9wDUKiw8Iue03ezAlQardhSEQ+4uxgiAtt0zDaoDMiA?=
- =?us-ascii?Q?hK0e/hzOpIOC6SjmbvYoI+yrdG5M/43MVYHqggBzBFqQDWpZPuzmgfscxe39?=
- =?us-ascii?Q?RSUdICUBSfAr0zNmIHqYW6l8dzKYvYhQBU7wMZHo1MIS6nIxyiFYw8FxITcd?=
- =?us-ascii?Q?k3OnOpRl3HdOCX3b3fas6oJPEdk3dUfBfSWJEa5gvPt9fGlqYujZQi4mLEce?=
- =?us-ascii?Q?AP3oerdggviE2OjSAHaK8fUpPlL77AcGYHQWiclLvySeicIiM/5EksM7aoYg?=
- =?us-ascii?Q?9G5yFFaSXg7DaZAMi40Cf2HyAZPM10W13Bf45wwQ+we4pncLD0Efh4guBIqp?=
- =?us-ascii?Q?2pruE8watp0zUTY+kglNCp7MEdQJIEub8y7YWHYp4rQtpYmQ3TxdrWB+G9uK?=
- =?us-ascii?Q?Tev0GozgL8n0xvmiXFmciin9GGz5VTIIUdDaHCXoGQEQS5PIhUJNO97dgpfn?=
- =?us-ascii?Q?zFxtfnD79PJspxTvzBCV5a2kOZ9Y0ulxgAYHT0xmvzt27RZxpYPnb+HRJsnQ?=
- =?us-ascii?Q?Xttdd3whbAdDBGjK4EONUgW79hdRV4mDQd2TmcdtoNI6jFrxlitWUoKJeie8?=
- =?us-ascii?Q?feVgjQ6jTg+qP6chyito8/jy12u/4kWP83JiHE0V5hFbrjDcpD1BRA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zL9ySrOA19Ge7OQz1qBcb8EfZ4gfw5Q3QmTnMrSh7XjhQkhvNyKdpibkSNBu?=
- =?us-ascii?Q?gtXXYR2lSfx+vC9Vx0S6gMJtOWpRX6TqRr8XuGacph2CkqeF4JAZOh3xWspE?=
- =?us-ascii?Q?hS2LtIu4b/aMDYlzqlZy3bwlegfr38OoCX0l0IqcjVnOTiNqO171jO8R+4Ti?=
- =?us-ascii?Q?EJo1HDbKePFE8AzTX016Nxb4UjEFiHV6OQ+yKoCNyh907Np3vp+HKtTcPtyh?=
- =?us-ascii?Q?ltYCWbjpHvxRPUy+qXeVh75iIXUUzD5df/yZsSRMECtC4N2ZYZFZpa0vsVJI?=
- =?us-ascii?Q?D0ngQxlsxOGKgOz46TqbfYbDSGOVNscnkttuDRXk7I1cgozxEO1F5uMJ02wh?=
- =?us-ascii?Q?qe8U8MXBD+ciVwEDPYjduItxyC+0HSctxwnvYXcYoUxReRK9/D8Tqev9PBm2?=
- =?us-ascii?Q?FrMa77z37xZg2Jeb2PoUtfMyTRXWzZIbfXUjS3BF7FudeCtNhTddRUfac3Ui?=
- =?us-ascii?Q?pM/y/FgLGTuUhSckQvvvwLKd83uqq7di19S/cowBbmb5NuMiJ3uYHk3oqPzI?=
- =?us-ascii?Q?ggK8r9CYEKWEfyNLlCH9PORlF3xWVv683xR9IheZ7ErVAStvPSM/cKIbMY3s?=
- =?us-ascii?Q?JxAk5KpCQWkURbKSsRttvkGjhBmjvWubyHqfC4gnJljdl+u0dJ/y/ZO5ooYo?=
- =?us-ascii?Q?lUzZG534MqLkb4SFDE8MKL/E5eMM8YzB7pL2uLvzJ4KMvAINg+QOEhxC2onB?=
- =?us-ascii?Q?hCtSeSzt7hKSXgjBFwjR5rFbbUVHq9tHVvKDwmSdWmbKlwAC5D0myboED+bp?=
- =?us-ascii?Q?uA0FSdwL17b5ehirj5E7zJaTG1Z6CTSuoVfhqlfou7aGRzVGA3UqF/jCJftx?=
- =?us-ascii?Q?B5zd/njeTGXvfV/wF8qVPTIEuAa7CQSq57IW8tr2Zrxiyn36vBwu5Tm5GfX1?=
- =?us-ascii?Q?JoFx4TRrJ3NTHiaJCxfTYvYh7N3xO607dVXdJ/sYwapMUGnD/FAl9jV7lxM/?=
- =?us-ascii?Q?w9s/MDkvO17B/R9SWiT4QyJfsJ1Csjof+xIwefahU4mFg8sM8WhBqTIZpx2u?=
- =?us-ascii?Q?c4gFM+5oz0+MM/Cjo4j1nvjTTvj4cNIadV1eT3A/Qf02Qxk/+GGwaBVJlP1e?=
- =?us-ascii?Q?KczjrnulE4E+40swwlib4/+El+3065NxV4Wce3VV/DEF7fUkcp1NPV4JHYi4?=
- =?us-ascii?Q?3Jngu4ZZxLXby6jCJwY7BDk1wQnd4lW4M16D6V922cxkjKAwtKW6VVn977cD?=
- =?us-ascii?Q?2VC/jYpNHmJ4wzACwElq2Ut6P98p91mPvIW0HobQCFx2ahVMLvw6Sufrzmne?=
- =?us-ascii?Q?Tz8XuDvyZEpkZCFimEzObxbiN14iJxGg8gJclKJfRKu9ffTwEMu1s6A58pOk?=
- =?us-ascii?Q?XPraqlMG8tiW+XLSNKWQACAw9VXSSpUz2Wib0jmKhwkIxr+1UFnFS59+TEHD?=
- =?us-ascii?Q?Rdl5DENvSi4bdjSSJOab2hCWA7NonNRNvOhSnnzjmyPW5sWogZXw/tHBCWyr?=
- =?us-ascii?Q?3W7lxAg68JcsqTjcw7FA1ZA4tPoJru4ZMaB6pYAnXjzGIzD91YllU1JOTaSG?=
- =?us-ascii?Q?9IElLv+0v5KK2gNYiirH4u3tqfVSS4Xp5r2U4pvUnwceDP+F0j+joLI02xm5?=
- =?us-ascii?Q?aHyddYRR6yYKTS+Z/SWpRdZ5gyv722clzuv05Y+c?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9496320-ee26-4581-0c7f-08dd76b7321a
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 16:05:34.9860
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GX89F5suO8+ZC5/d4VekeKp715qXjezaEE2c7voGs1tqrMn7lVl1LhoiPU59tTGh1U94dFNFGE54oDOpQQf9ag==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6984
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="P4Hq9KC+O/IONcbS"
+Content-Disposition: inline
+In-Reply-To: <20250408-rk3576-pwm-v1-2-a49286c2ca8e@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_090547_087499_B5A220D2 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250408_090800_301618_9EF08D0D 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,48 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 04:08:55PM +0200, Alexander Stein wrote:
-> This platform supports several displays, so rename the overlay to reflect
-> the actual display being used. This also aligns the name to the other
-> TQMa8M* modules.
->
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+--P4Hq9KC+O/IONcbS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->  arch/arm64/boot/dts/freescale/Makefile                        | 4 ++--
->  ...s.dtso => imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtso} | 0
->  2 files changed, 2 insertions(+), 2 deletions(-)
->  rename arch/arm64/boot/dts/freescale/{imx8mp-tqma8mpql-mba8mpxl-lvds.dtso => imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtso} (100%)
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 93cbd8d5081b3..38ce3d1c41c10 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -263,7 +263,7 @@ imx8mp-tqma8mpql-mba8mpxl-imx327-isp1-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb imx8
->  imx8mp-tqma8mpql-mba8mpxl-imx327-isp2-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb imx8mp-isp2.dtbo imx8mp-tqma8mpql-mba8mpxl-imx327.dtbo
->  imx8mp-tqma8mpql-mba8mpxl-imx327-isi1-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb imx8mp-isi1.dtbo imx8mp-tqma8mpql-mba8mpxl-imx327.dtbo
->  imx8mp-tqma8mpql-mba8mpxl-imx415-isp1-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb imx8mp-isp1.dtbo imx8mp-tqma8mpql-mba8mpxl-imx415.dtbo
-> -imx8mp-tqma8mpql-mba8mpxl-lvds-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb imx8mp-tqma8mpql-mba8mpxl-lvds.dtbo
-> +imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtbo
->  imx8mp-tqma8mpql-mba8mpxl-lvds-g133han01-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb imx8mp-tqma8mpql-mba8mpxl-lvds-g133han01.dtbo
->  imx8mp-tqma8mpql-mba8mpxl-lvds-lb070wv8-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb imx8mp-tqma8mpql-mba8mpxl-lvds-lb070wv8.dtbo
->  imx8mp-tqma8mpql-mba8mpxl-ov9281-isi1-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb  imx8mp-isi1.dtbo imx8mp-tqma8mpql-mba8mpxl-ov9281.dtbo
-> @@ -277,7 +277,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-imx327-isp1.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-imx327-isp2.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-imx327-isi1.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-imx415-isp1.dtb
-> -dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-lvds.dtb
-> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-lvds-g133han01.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-lvds-lb070wv8.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-ov9281-isi1.dtb
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl-lvds.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtso
-> similarity index 100%
-> rename from arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl-lvds.dtso
-> rename to arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtso
-> --
-> 2.43.0
->
+On Tue, Apr 08, 2025 at 02:32:14PM +0200, Nicolas Frattaroli wrote:
+> The Rockchip RK3576 SoC has a newer PWM controller IP revision than
+> previous Rockchip SoCs. This IP, called "PWMv4" by Rockchip, introduces
+> several new features, and consequently differs in its bindings.
+>=20
+> Instead of expanding the ever-growing rockchip-pwm binding that already
+> has an if-condition, add an entirely new binding to handle this.
+>=20
+> The "osc" clock is an optional clock available on some instances of the
+> PWM controller. If present, it allows the controller to switch between
+> either the "pwm" clock or the "osc" clock for deriving its PWM signal
+> on a per-channel basis, through a hardware register write.
+>=20
+> However, not all instances have this feature, and the hardware copes
+> just fine without this additional clock, so it's optional.
+>=20
+> The PWM controller also comes with an interrupt now. This interrupt is
+> used to signal various conditions.
+>=20
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+--P4Hq9KC+O/IONcbS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ/VJ2AAKCRB4tDGHoIJi
+0jZqAPwOQu41aopdoBSSIQdKHqz2RJ+dwLSozN2+YDI1wW8y7AEAjS2GhaRyfF96
+3GHeudBuxceUrbBxoPB8hzmTAP7etQQ=
+=yLZr
+-----END PGP SIGNATURE-----
+
+--P4Hq9KC+O/IONcbS--
 
