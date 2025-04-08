@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62FBCC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 14:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3212CC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 15:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mS8xOrDiWisPJFT5MvNta6x5S/8S777SjEClilc+s6A=; b=XEdLoKLlfqp9j+WRMux5y77pjC
-	2Kdy2BRg7ifwuk2fxEUFEh5MA9YNYzfjPKKZIGZostV4KOWzs+y55dJOnJauSOPjM+Q1pwA6M/0vy
-	RjKC6trf6tHpURCsotklX5NmZJWgr2EvYJO2l3/IRHc6MRoGQ8nx+DCSOTxwrrfHnRx22xtUQx63p
-	xNxXkznXyjyPQe1Xch7I1QkXuM3EZIHX/MUzw/WyaPnCCp6S/hvmHpi3s8WM5XzjgzeJxFFbDhkXB
-	WTcyOcQCcLqQXQdi4P+BVQ14BI0dD9pTWNQ48QV+DmGJbW1NUIP7XsNDNlOamTK3a9R73jzH0/zy8
-	7vph3zeg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=FGNBxXoMYTu6R2OiEjtloPIeLQk3ONnnCAwoymG47rc=; b=ZnLsgYqaGHHynk
+	9PSH1fPovdkzvXBM7KztsOdC/OEM+UOSYvwgrl+TPMUHgCbQZSExV6tE6BQNtYyIsdwAvQnMtHEBe
+	mQaMXowYnhmBIWlHmPiUevYAJdXlne3AKCKlftRMs/oBTdZJvrt6Fhq5RuL15g9G4c4ZM10ahHHk3
+	9Tgl64ZMN9ItTPrFtz+AfL3pYeGjZLN/D39Kmb7LCN8kxoNgRdPEiBo5IqQlNZw9NI12JO8OWXDBV
+	lDKG8BzYzZBm6yTeCbCiWfx/cUiMDXCNeKtf7+IroUmsGIRuvYDJ7MrCGayQQd4HY0PDFqrpxSQcJ
+	XDvTR4gv36pOd2nmiFOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2AN7-00000004To1-1ekQ;
-	Tue, 08 Apr 2025 14:56:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u2ARG-00000004UUo-1CGf;
+	Tue, 08 Apr 2025 15:00:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2AKU-00000004TBE-33P4
+	id 1u2APU-00000004U8V-2PAG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 14:53:35 +0000
+	Tue, 08 Apr 2025 14:58:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F52C4A130;
-	Tue,  8 Apr 2025 14:53:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CEB8C4CEE5;
-	Tue,  8 Apr 2025 14:53:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E63D143B4B;
+	Tue,  8 Apr 2025 14:58:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 514B8C4CEE7;
+	Tue,  8 Apr 2025 14:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744124013;
-	bh=h30ID7kxAkmaXcFv2JMEhNrmrJvCiO3BqwN0uwK9abY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BTyQICnxjgIsAKn2JgZ0kPR14XWipwaBY/rRQ78fgkaMpYDaye2le7nVWMaTAN7kG
-	 0SKpDf8WbXUQ1jAkM1T1ff01w5TPdTvq1JT74TfgQ+xEIQMDijDkTRQQFWltyNawlQ
-	 wNjfaJFbgxPg6/mfzy8Go9xHJoleqSsLSuzHXeHm9gbcrjDsJkkHpZ2Kl4ST/azKl6
-	 TO73uOiPNTLpj/MYaRhO9Z0MX3BFG6BxUVkQbqIND6WlLgdeidSI7uSAlB64IQzLuJ
-	 +Scd87R3s9DW1+eEsIN9PPmTJ0ct19pMHlYd9xvqFzHbi9LGaWHZSM0JG0/fADvM+H
-	 bbEO8bQwlxNgw==
-Date: Tue, 8 Apr 2025 15:53:29 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, ardb@kernel.org,
-	catalin.marinas@arm.com, maz@kernel.org, will@kernel.org
-Subject: Re: [PATCH 03/14] arm64/fpsimd: Remove redundant clearing of TIF_SVE
-Message-ID: <d74ed5c6-4298-4613-a4a4-894aca2663b2@sirena.org.uk>
-References: <20250404174435.3288106-1-mark.rutland@arm.com>
- <20250404174435.3288106-4-mark.rutland@arm.com>
- <4b256092-ccee-45c8-aeb0-8af85cd43171@sirena.org.uk>
- <Z_Ueq4ezJyCPEJ6m@J2N7QTR9R3.cambridge.arm.com>
+	s=k20201202; t=1744124322;
+	bh=5qALSFBZ7L1tAKOyN1L/oKlk3jA7LDA7goT+jZYqeQE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=K4GkieZEjPaQUxrBjrfFf+HbVXS8mw+BEAtGOYNOXTvf4VF8m3MCpnlZPMPOSRlfH
+	 8vYR05N6YB7ZEJ5MQ87vjONWAfQkVD6jETSGWA2UFuQ/szVITaH3AIVNLrcoGCj003
+	 87PFmhZtVwUET57ZIpb/XhgdSo4xkltqb1f9Zj3ylSM9NY6sqLG6A0EH2344ToQiuD
+	 KEgwjURPS77QNjkzaQIq3IlTuPLSVd2U8mTP3DjYmhIOMPV9v8vLBzcvzI8rGj1Y6D
+	 9mZLYg6pM+BxUWkElUqJrUaxNif2yaFj/pmr0rTbAPnFBQy4FK5AqLp/ut01PAtYPr
+	 T3bEU0hrhAEGA==
+Date: Tue, 8 Apr 2025 09:58:40 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: jingoohan1@gmail.com, frank.li@nxp.com, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/4] PCI: dwc: Add quirk to fix hang issue in L2 poll
+ of suspend
+Message-ID: <20250408145840.GA231894@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="YjRsCf4c48N041z5"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z_Ueq4ezJyCPEJ6m@J2N7QTR9R3.cambridge.arm.com>
-X-Cookie: Meester, do you vant to buy a duck?
+In-Reply-To: <20250408065221.1941928-2-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_075334_792004_B9488379 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20250408_075844_653413_A142439C 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,50 +76,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 08, 2025 at 02:52:18PM +0800, Richard Zhu wrote:
+> i.MX6QP PCIe is hang in L2 poll during suspend when one endpoint device is
+> connected, for example the Intel e1000e network card.
+> 
+> Refer to Figure5-1 Link Power Management State Flow Diagram of PCI
+> Express Base Spec Rev6.0. L0 can be transferred to LDn directly.
 
---YjRsCf4c48N041z5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Please include the section number.  Section numbers are easy to find
+because they're in the spec PDF contents, but figures are not.  E.g.,
+"PCIe r6.0, sec 5.2, fig 5-1"
 
-On Tue, Apr 08, 2025 at 02:03:39PM +0100, Mark Rutland wrote:
+> It's harmless to let dw_pcie_suspend_noirq() proceed suspend after the
+> PME_Turn_Off is sent out, whatever the ltssm state is in L2 or L3 on
+> some PME_Turn_Off handshake broken platforms.
 
-> Yes; we really must handle this consistently at the point the allocation
-> fails. It's rather annoying that unchecked allocations got introduced
-> since commit:
+Maybe we don't need to poll for these LTSSM states on *any* platform,
+and we could just remove the poll and timeout completely?
 
->   7559b7d7d651d397d ("arm64/sve: Better handle failure to allocate SVE re=
-gister storage")
+If not, we need to explain why it is safe to skip the poll on some
+platforms.  "Skipping the poll avoids a hang" is not a sufficient
+explanation.
 
-> ... since after that point we really should have known better.
+s/ltssm/LTSSM/
 
-Yes, indeed.  That whole API being written the way it is really helps
-nothing here, we should have a return value we check directly on the
-function.
-=20
-> TBH, I don't think we should *ever* change the stored representation as
-> a result of failing to allocate memory. We should be able to allocate
-> the new buffer before freeing the old one, and if we cannot allocate the
-> new buffer we can return -ENOMEM without discarding the old state.
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -947,7 +947,7 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  {
+>  	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+>  	u32 val;
+> -	int ret;
+> +	int ret = 0;
+>  
+>  	/*
+>  	 * If L1SS is supported, then do not put the link into L2 as some
+> @@ -964,15 +964,17 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  			return ret;
+>  	}
+>  
+> -	ret = read_poll_timeout(dw_pcie_get_ltssm, val,
+> -				val == DW_PCIE_LTSSM_L2_IDLE ||
+> -				val <= DW_PCIE_LTSSM_DETECT_WAIT,
+> -				PCIE_PME_TO_L2_TIMEOUT_US/10,
+> -				PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
+> -	if (ret) {
+> -		/* Only log message when LTSSM isn't in DETECT or POLL */
+> -		dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
+> -		return ret;
+> +	if (!dwc_check_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
+> +		ret = read_poll_timeout(dw_pcie_get_ltssm, val,
+> +					val == DW_PCIE_LTSSM_L2_IDLE ||
+> +					val <= DW_PCIE_LTSSM_DETECT_WAIT,
+> +					PCIE_PME_TO_L2_TIMEOUT_US/10,
+> +					PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
+> +		if (ret) {
+> +			/* Only log message when LTSSM isn't in DETECT or POLL */
+> +			dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
+> +			return ret;
+> +		}
+>  	}
+>  
+>  	/*
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index 56aafdbcdaca..05fe654d7761 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -282,6 +282,9 @@
+>  /* Default eDMA LLP memory size */
+>  #define DMA_LLP_MEM_SIZE		PAGE_SIZE
+>  
+> +#define QUIRK_NOL2POLL_IN_PM		BIT(0)
+> +#define dwc_check_quirk(pci, val)	(pci->quirk_flag & val)
 
-That's probably the one thing we can do consistently.  There are the
-cases where we're only doing the allocation as an optimisation but I've
-never been able to convince myself it's worth the complexity.
+Maybe just my personal preference, but I don't like things named
+"check" because that just means "look at"; it doesn't give any hint
+about how to interpret the result of looking at it.
 
---YjRsCf4c48N041z5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmf1OGgACgkQJNaLcl1U
-h9B96Qf/aSWM1JEw87nbJVPtzV9GvjXsXhCdrjpwRrcVCE1W5sOcvEoBiv0A9m/L
-OwNJsE+6XPaWNWWkXGPXrmjnQLTlYJl6gTRpZrD4zFubVKNDms36JiuKHZnX1021
-M1mG6cBw0jfEBZaJmoAIJ6Svkms+srrN+HMWalrPZSbldnv+8LW3r9fWkFDGq3Iy
-10b1pDYZh5GYWbDsyBdWMKnfFRBQk2hcD0xxLf8rIQET/5A6v9r72uJrt/Od1VMw
-dYFA5zxillxCiRWsThZ0hzOVrQdjpkn7xrDSqiH3Kr/I0D8+EOE9edyxqZEDqK6H
-M2onyudStuqkxFPBgZRM9yVf1KATDA==
-=2ccc
------END PGP SIGNATURE-----
-
---YjRsCf4c48N041z5--
+>  struct dw_pcie;
+>  struct dw_pcie_rp;
+>  struct dw_pcie_ep;
+> @@ -491,6 +494,7 @@ struct dw_pcie {
+>  	const struct dw_pcie_ops *ops;
+>  	u32			version;
+>  	u32			type;
+> +	u32			quirk_flag;
+>  	unsigned long		caps;
+>  	int			num_lanes;
+>  	int			max_link_speed;
+> -- 
+> 2.37.1
+> 
 
