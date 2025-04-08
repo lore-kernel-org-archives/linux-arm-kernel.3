@@ -4,77 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C723CC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A96C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 18:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GNOyp6GigbpFbkWc21TYYEkbgjhm7GRBbYgFaFWOY4A=; b=qHjwAyO4fEvg99o9ri+6HGEVWD
-	9OThRemOat33i11LCLX6+0ASeKVtmMy1DkHZ0Ia5pWYqY2+qLrSSsJBT7daqaAfPVjdkuR6TKdZkX
-	LZhivsuTOk6/bhp3l7Pczztit6klLPU0WO1Nkx4QOhc0hpIfOV2RMrstZsPJQ+jC1v+mrXgGhtRZY
-	GhB3mEHx75ZcOMFP9T2tD+vR3rRaWezlmxcdIireP82GjVkbeT/k6ShFDHRLMXUwoW61/1hotnwmY
-	r5+0WAg6oyYlarLQy4c2rtREe+ikL14Nwv23CYBO5jdCjZC8gGHYOtSdFMeXcTP4fkJ3/e4z6CC4A
-	FVPGrlFw==;
+	bh=Yf/Pr0fr2khnS4hv4SvLXkOE7AZdAyq2yMFC5hBQsMI=; b=hPEngf+QCKOuqG0dDQaZosNl2O
+	a2sRdxCJvsF+wcP2a0wqgU3GsqaZzATA0xda7H4pzy3ExInTl9FRz8O6E4awUUWRfR/iEEqhAXqrC
+	S7OwADgAmOIO8selGIfcfyqsVpIMuNhjuXHhRZJD0OY54Ker4opZKjtqHsM4lYhdg5CD+9fvwAHoq
+	unYhcDIKbxsNEpgNzGZa1AgfmXvZEU4Ix6DQm/6K3krUfwTQD60lxDVByUHHk1B1cGiBUxatZpwVR
+	DxeYHIpgpwtphUeMRXXEr4+uzT21JCWOXPFp9fEGCxK/3PsFdtFz+vAmZbxAAbHuDYrKDDOgpEn6z
+	CbbdTZZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Dfk-000000056jz-1n6b;
-	Tue, 08 Apr 2025 18:27:44 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u2Dfo-000000056lT-2B93;
+	Tue, 08 Apr 2025 18:27:48 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Daa-000000055rj-1gdl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 18:22:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BDF39A48D1E;
-	Tue,  8 Apr 2025 18:16:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B3DCC4CEE5;
-	Tue,  8 Apr 2025 18:22:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744136543;
-	bh=DHaryj/zCLrbSQFZpiYi3QKZgzGIpgsLSnX9179Q5K8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=D2Ppd5i4W+A1WmJFUyd6uuPQjtTKicLwsVf6YDcZAmC0qV9YADvJS0dMIvEEMk0y3
-	 ee/K+LWSRm9iZefWkk8E41WYxUGP35gfjJG1sB0WLEmwLv1USasIyy1AsfKoTyI/VD
-	 ebC0DVs5R9OrDKB/1o6pzg9lOrtYN8iIO+vBtqcPNYj3rZpKx2aYY6igrF5burginR
-	 4etQQDuyBSAKGMo1vlLGfp+lhi0t+AwySNsnxpcXsVvJMXzBDtBEfEOTPzxPB70GJ3
-	 llpDSQZTS5h8eVaV8DW3tTr9dr1O/f1o5+46sZaj7fx6fLYma0G6lBCgNKcm++Lvd9
-	 ttRNNwZzvTtSQ==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 08 Apr 2025 19:09:57 +0100
-Subject: [PATCH 5.15 v3 02/11] KVM: arm64: Always start with clearing SVE
- flag on load
+	id 1u2CDm-00000004sRU-3CUK;
+	Tue, 08 Apr 2025 16:54:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744131287; x=1775667287;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=C287iv3eHy79w9UxvCRDpeM64RhD3G9TV81JyzlSMXs=;
+  b=eCUKA4TUjAQmMESOGtNZaTWOGcrv4eaTDSwFxqgOCPkSasFvHcIccPqe
+   OCh8iNAPvNtQPjZb8VcVynaUoKfqQVVmPU1Yz+gltt9JCypr5bc2mRKcF
+   MxKbgHaXoFNDbiEq+paaIjjWHYItm++5mjrtoSlY2BzjQv8yeBlbZ2sC/
+   EvlqRfCpfubnDVQcfMAN9fDAGz7qJhHZU4q5CvKwgDSxL3XStfuEcDaYL
+   y19sqhzaRmPiXiXkGnmYKOmWHl9ulzkcmqEhH8Or/Pqh1Tw9mLke6EE2o
+   gQTqDQuzFgaYMHrNdOMnkPdWof/er8YO8yJOb1Ra2AU4cuuYfw1VMhVHr
+   g==;
+X-CSE-ConnectionGUID: 0zFYHKwKRZGpTNi4eIw12g==
+X-CSE-MsgGUID: rRY9PyMaSbybWop1kfYlrA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="45465971"
+X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
+   d="scan'208";a="45465971"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 09:54:46 -0700
+X-CSE-ConnectionGUID: +/qjbYu/SrKkWwBlcraWog==
+X-CSE-MsgGUID: zp1PqoycS1aF3v1GJ550SA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
+   d="scan'208";a="128328574"
+Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.124.220.83]) ([10.124.220.83])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 09:54:44 -0700
+Message-ID: <9247436d-ae01-4eb8-bd5d-370b2fb2eebc@intel.com>
+Date: Tue, 8 Apr 2025 09:54:42 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 02/12] x86: pgtable: Always use pte_free_kernel()
+To: Matthew Wilcox <willy@infradead.org>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Peter Zijlstra <peterz@infradead.org>, Qi Zheng
+ <zhengqi.arch@bytedance.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-openrisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, x86@kernel.org
+References: <20250408095222.860601-1-kevin.brodsky@arm.com>
+ <20250408095222.860601-3-kevin.brodsky@arm.com>
+ <409d2019-a409-4e97-a16f-6b345b0f5a38@intel.com>
+ <Z_VQxyqkU8DV7QGy@casper.infradead.org>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <Z_VQxyqkU8DV7QGy@casper.infradead.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250408-stable-sve-5-15-v3-2-ca9a6b850f55@kernel.org>
-References: <20250408-stable-sve-5-15-v3-0-ca9a6b850f55@kernel.org>
-In-Reply-To: <20250408-stable-sve-5-15-v3-0-ca9a6b850f55@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Oleg Nesterov <oleg@redhat.com>, Oliver Upton <oliver.upton@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1451; i=broonie@kernel.org;
- h=from:subject:message-id; bh=06yjEiaT5GfiKOx7oXipPxuoURJltRxjW1MKje5sij8=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBn9WlNXXxeqvd2CLOCotpZJXbf0hekyj7Jzjju625g
- ZKOXEd+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ/VpTQAKCRAk1otyXVSH0GqCB/
- 9TF13fM9RkX5iTdLahTVsnI3XOcb3c0bGqgpF8O+KkzOMaAI66sl6Nz6qF74i4If+djyJKwLGCWQ1y
- +euvFe60hGhhzlnbmJ7SMhI7M+hi1hjadiWuTCRq7uHK3zof4ibjJl3Iq6I/Ip8N9Njc5J+m9iHN89
- 90cQRwvyugmwyTcWgd4vNSixakvZM8Egmedt6+rlf6IwRw2EGvbCro8sfT618cHmw4N1jcU00TQ3b3
- z9HM4hsi9a6l8HQ5w6Pulh5oOBpFarhX7r+TcG50k24Fc3sFEtn2CrPM9dVxEUmsi4lZlKnF8Gj/NH
- Hwwvql2qocwQt9XzF+6B55eXicY3ay
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_112224_572125_7E17178F 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20250408_095446_817148_9E4D79E7 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +149,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Zyngier <maz@kernel.org>
+On 4/8/25 09:37, Matthew Wilcox wrote:
+> On Tue, Apr 08, 2025 at 08:22:47AM -0700, Dave Hansen wrote:
+>> Are there any tests for folio_test_pgtable() at free_page() time? If we
+>> had that, it would make it less likely that another free_page() user
+>> could sneak in without calling the destructor.
+> It's hidden, but yes:
+> 
+> static inline bool page_expected_state(struct page *page,
+>                                         unsigned long check_flags)
+> {
+>         if (unlikely(atomic_read(&page->_mapcount) != -1))
+>                 return false;
+> 
+> PageTable uses page_type which aliases with mapcount, so this check
+> covers "PageTable is still set when the last refcount to it is put".
 
-[ Upstream commit d52d165d67c5aa26c8c89909003c94a66492d23d ]
+Huh, so shouldn't we have ended up in bad_page() for these, other than:
 
-On each vcpu load, we set the KVM_ARM64_HOST_SVE_ENABLED
-flag if SVE is enabled for EL0 on the host. This is used to restore
-the correct state on vpcu put.
+        pagetable_dtor(virt_to_ptdesc(pmd));
+        free_page((unsigned long)pmd);
 
-However, it appears that nothing ever clears this flag. Once
-set, it will stick until the vcpu is destroyed, which has the
-potential to spuriously enable SVE for userspace.
-
-We probably never saw the issue because no VMM uses SVE, but
-that's still pretty bad. Unconditionally clearing the flag
-on vcpu load addresses the issue.
-
-Fixes: 8383741ab2e7 ("KVM: arm64: Get rid of host SVE tracking/saving")
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Link: https://lore.kernel.org/r/20220528113829.1043361-2-maz@kernel.org
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/kvm/fpsimd.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index 2d15e1d6e214..24734bfcfaa0 100644
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -75,6 +75,7 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
- 	vcpu->arch.flags &= ~KVM_ARM64_FP_ENABLED;
- 	vcpu->arch.flags |= KVM_ARM64_FP_HOST;
- 
-+	vcpu->arch.flags &= ~KVM_ARM64_HOST_SVE_ENABLED;
- 	if (read_sysreg(cpacr_el1) & CPACR_EL1_ZEN_EL0EN)
- 		vcpu->arch.flags |= KVM_ARM64_HOST_SVE_ENABLED;
- }
-
--- 
-2.39.5
-
+?
 
