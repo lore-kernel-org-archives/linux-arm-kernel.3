@@ -4,92 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE995C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 15:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99341C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 15:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hW0uMB23s6rTN+79K6wuOhxoVdGvng8abYobjgd2dY0=; b=Gxi39py2/9fb+Kq5ZiRh4U3f4l
-	CWozQ60kGkSum0/CsjoIYyzenhbihDhhSSlcJD8dnMYKzL07X31VgJswp0MJxE3GhDscpO50g7IgB
-	nofWHBqVj46bug2k3g5/wTEokFhGjcQvcHg0DcgHRz6EdjvEBjm3EGTYeacPe0jZ4MnhoCR8Eh6Qe
-	w38/6FHVwdQUWZofsz98dyuG3KobnN6drqqcl9IqSliTKBhXKQ2QuYMqr533nDfVyO2AGiUFQvOn1
-	/PUQuQfLPwrXZPjUi7chj0cTIeayot1Jzj3buejP5a2GPyer7rZkXAVgTKywPUHXa/LaX8pu8hmib
-	gb+u8VsQ==;
+	bh=ez4gDIlBBH+Xt/jxlym+6D8PrFcPq4pA7m+d0k6jmiY=; b=Ic10yoJznSM5IQESgfAxbmTuad
+	6DP4LOQtt5DKuZw6IIXzPaCREqGjXJKy9OrzhdNrmKNTcl9ZLFd/tf5FzWT9JBT4jjwg4z/G3doP9
+	JzLGrWdMhhyGJQKrDJduPTto1ShLX7u6a/udGHtaUPRLeIYNhrsAN/mIUh1m8Dewjulzqc9frsIxC
+	KNKDjUyvaqkpAvHKncuEY1EJ7n73TmJMk3eeUoeVu8ZqwOPs7O/WTj0ya2kZ4mBJpovNgNX6Fdgwq
+	CwJFTV8QGOR/GkoZUq56p2B2P6U2wETEfouiJyVWLXd+ZqDx36CTBgBBuNEialfV4rRviE5XM/wg6
+	fuy1ZTUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2Aab-00000004WHs-0Xfg;
-	Tue, 08 Apr 2025 15:10:13 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1u2AcL-00000004Wal-23s2;
+	Tue, 08 Apr 2025 15:12:01 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2AUx-00000004VJD-3Es6
+	id 1u2AXN-00000004VjQ-3HjB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 15:04:24 +0000
-Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-7399838db7fso5134959b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 08:04:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744124663; x=1744729463; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hW0uMB23s6rTN+79K6wuOhxoVdGvng8abYobjgd2dY0=;
-        b=k6KFgvKQYRYg2y62YzjMAvCTbBi9sBg1Js0feqyWFbr1wvKCh2FFJBa7A32wkQ8/hg
-         bEWcNUyTpjFh1oMXEG/l5IoojBPXo6dar+f1d+2jhVpY/dIj8FJ1Djoqk6fcTbZBrB83
-         FGQmG+1vhltfq3INq6fTRY1QyX44wQqjFjU4vZMRnN+LXhKBNpCnOCJS4WmVKB2LSf9P
-         FXvmQZVzoA9Zp82UywFpCJ5PyR+/6u128ENZ9FW4t1ephzJb63ZRj0yaApQpCYhq+mTM
-         2REU7hyC69n2jSAqgyijfknQPM7cGo2hw8UmHp5Wd5zzw7QFb/Tihc/nrXsUevEHetVq
-         Ck2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744124663; x=1744729463;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hW0uMB23s6rTN+79K6wuOhxoVdGvng8abYobjgd2dY0=;
-        b=RP2up+ipb0SAtofqMyneLSCRt0zNP4CZpVSlKCbYu8j7nxoforTEScj9FjEkjwuFyD
-         eIpYB6xe9/WUcMWT1sTczxeRSIrs15T6s2Jjlh1zRFRoHfqsi9bKWfn6+3RA3LhfbCo0
-         QbSiEv0oeGk/ou5sG0RBw5xR/IijRxaMw4FJGnXil80QwW7PU5HviqPYWZH3z3/IWe5w
-         1dQ3IaA2tL7AgMrvRc3RCFxHptBWdAtz8R33KWs878wiQdx4xpfHfVn8kyugZp9SSME6
-         ykbNBJ0X1xunp6ifpkNu4ZW7PynccmMh70//wT/ZoACiWuGFCyPcF2TUrEqiFq+R1VlH
-         RvOw==
-X-Forwarded-Encrypted: i=1; AJvYcCWJPa4qjkJjflunCtK9zmNsSY8i4qvpENNWkalzL6mDgfLe5RcYSb5zjhe6OAD1Oxx2at7erka/sVt87j1/jF6s@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6zFJJsR03pdk9EXetbmLKqk+UWcRUAG2srpVE5fRfajMmjUhE
-	EhE0OWjrpXuUTTTZpmj5kv+XDvwahCJMZj0UzTqZ4veRGdOHw9lLbCcs9t+URaw=
-X-Gm-Gg: ASbGncuxHwK6g19cyPbSoKV2EbERNn2tDijgItg3bW21cJIZw0nwV4WVrqPjyYIHZ9M
-	Ua+WsT6+7M8PqRob3+RqltZgFEVP2ECulbJWfY2SpC3ylbD+lSWujqi3iVtV9GzWM7YXtwIpvNs
-	xuduNU/mRZP3920PzxDfN+tPtO+DNgBSU5bsRRYhANRQ0YSWuh5bLCd4bbBV2KSL+he2TAWaqt9
-	EfRpHxr52AnSktDbA4XQW7QKgnobUbBIpG7r9VVCTEzlwRv9eAUk/jfbPEYs7eS2HIY9xcPMEgx
-	BPDcwbFBhBNsHpIclLGCUJ1mowr99eum3xGdwY4IKFeY3Rxl8f2OnbBZk48leHxW0p5YjH2VgKP
-	jJMuMQA==
-X-Google-Smtp-Source: AGHT+IFcrw32IadEZbTZ2yTefdbGLJ4deVn8ImGq3fcHBOxM9j/Ojp5mMqxmgwQ1EbK8z0e1SyOJQw==
-X-Received: by 2002:aa7:875a:0:b0:736:b3cb:5db with SMTP id d2e1a72fcca58-73b9d4019ddmr4916731b3a.11.1744124663010;
-        Tue, 08 Apr 2025 08:04:23 -0700 (PDT)
-Received: from henry.localdomain ([111.202.148.133])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739d9ea097asm11068474b3a.90.2025.04.08.08.04.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 08:04:22 -0700 (PDT)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: sudeep.holla@arm.com,
-	cristian.marussi@arm.com,
-	rafael@kernel.org,
-	viresh.kumar@linaro.org
-Cc: arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>
-Subject: [PATCH v2 2/2] cpufreq: scpi: Fix null-ptr-deref in scpi_cpufreq_get_rate()
-Date: Tue,  8 Apr 2025 23:03:54 +0800
-Message-Id: <20250408150354.104532-3-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250408150354.104532-1-bsdhenrymartin@gmail.com>
-References: <20250408150354.104532-1-bsdhenrymartin@gmail.com>
+	Tue, 08 Apr 2025 15:06:55 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 538AP600020633;
+	Tue, 8 Apr 2025 17:06:46 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	ez4gDIlBBH+Xt/jxlym+6D8PrFcPq4pA7m+d0k6jmiY=; b=BjuefYLAsLMzeKdd
+	Y5l/I7U8eNDKmsvtftIAVwH/NUGcuqzYXugQdSUYX14C+PcgJn2PLnVz+9k0G+Q0
+	JqWnYAs+BcOWl0JCm5s89sb9/jg/Br9YFaSQ3+FGUCd9zoIoXF1b+NNAYuOGIhL2
+	YpP/PumnrfpNcAwqrW9wKo7WxzZycYLgTpoURmMicwZmD6AYnEhkrSNukXytOhLo
+	6KsdMJMIkBvRScSNBbA/Z0x0uUJZOd4AoBjlZFAdrEAKfWiBuRPunMl63PidS68v
+	hVcl684xOiaXg6L07W1w0zZwpl9y+EUAHWXDs91aDdrBEWAKyJuXHM0NrxDdFHME
+	ZC2psA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45uffmk9rg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 08 Apr 2025 17:06:45 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A6BD740046;
+	Tue,  8 Apr 2025 17:05:35 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 862DD9353D9;
+	Tue,  8 Apr 2025 17:04:46 +0200 (CEST)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 8 Apr
+ 2025 17:04:45 +0200
+Message-ID: <b1398416-3391-474b-9944-1d0995639a0e@foss.st.com>
+Date: Tue, 8 Apr 2025 17:04:45 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 3/7] memory: Add STM32 Octo Memory Manager driver
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+        Krzysztof Kozlowski
+	<krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>
+CC: <christophe.kerello@foss.st.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
+ <20250407-upstream_ospi_v6-v8-3-7b7716c1c1f6@foss.st.com>
+ <710569e305924a0a84e9792bc779d37a24011477.camel@pengutronix.de>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <710569e305924a0a84e9792bc779d37a24011477.camel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-08_06,2025-04-08_03,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_080423_805727_09150544 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20250408_080654_111697_CB2327CC 
+X-CRM114-Status: GOOD (  23.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +107,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cpufreq_cpu_get_raw() can return NULL when the target CPU is not present
-in the policy->cpus mask. scpi_cpufreq_get_rate() does not check for
-this case, which results in a NULL pointer dereference.
 
-Fixes: 343a8d17fa8d ("cpufreq: scpi: remove arm_big_little dependency")
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
-V1 -> V2: Use `if (unlikely(!policy))` instead of `if (!policy)`
 
- drivers/cpufreq/scpi-cpufreq.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+On 4/8/25 10:59, Philipp Zabel wrote:
+> On Mo, 2025-04-07 at 15:27 +0200, Patrice Chotard wrote:
+>> Octo Memory Manager driver (OMM) manages:
+>>   - the muxing between 2 OSPI busses and 2 output ports.
+>>     There are 4 possible muxing configurations:
+>>       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
+>>         output is on port 2
+>>       - OSPI1 and OSPI2 are multiplexed over the same output port 1
+>>       - swapped mode (no multiplexing), OSPI1 output is on port 2,
+>>         OSPI2 output is on port 1
+>>       - OSPI1 and OSPI2 are multiplexed over the same output port 2
+>>   - the split of the memory area shared between the 2 OSPI instances.
+>>   - chip select selection override.
+>>   - the time between 2 transactions in multiplexed mode.
+>>   - check firewall access.
+>>
+>> Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
+>> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+>> ---
+>>  drivers/memory/Kconfig     |  17 ++
+>>  drivers/memory/Makefile    |   1 +
+>>  drivers/memory/stm32_omm.c | 474 +++++++++++++++++++++++++++++++++++++++++++++
+>>  3 files changed, 492 insertions(+)
+>>
+> [...]
+>> diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..db50aeffb0aa32a9d51a205d8ba30ab2299e1c34
+>> --- /dev/null
+>> +++ b/drivers/memory/stm32_omm.c
+>> @@ -0,0 +1,474 @@
+> [...]
+>> +static int stm32_omm_disable_child(struct device *dev)
+>> +{
+>> +	static const char * const resets_name[] = {"ospi1", "ospi2"};
+>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+>> +	struct reset_control *reset;
+>> +	int ret;
+>> +	u8 i;
+>> +
+>> +	ret = stm32_omm_toggle_child_clock(dev, true);
+>> +	if (!ret)
+>> +		return ret;
+>> +
+>> +	for (i = 0; i < omm->nb_child; i++) {
+>> +		reset = reset_control_get_exclusive(dev, resets_name[i]);
+>> +		if (IS_ERR(reset)) {
+>> +			dev_err(dev, "Can't get %s reset\n", resets_name[i]);
+>> +			return PTR_ERR(reset);
+>> +		};
+>> +
+>> +		/* reset OSPI to ensure CR_EN bit is set to 0 */
+>> +		reset_control_assert(reset);
+>> +		udelay(2);
+>> +		reset_control_deassert(reset);
+>> +
+>> +		reset_control_put(reset);
+> 
+> With this reset_control_put(), you are effectively stating that you
+> don't care about the state of the reset line after this point. To
+> guarantee the reset line stays deasserted, the driver should keep the
+> reset control around.
+> 
+> Are you requesting and dropping the reset controls here so the child
+> drivers can request them at some point? If so, there is an
+> acquire/relase mechanism for this:
+> 
+> https://docs.kernel.org/driver-api/reset.html#c.reset_control_acquire
 
-diff --git a/drivers/cpufreq/scpi-cpufreq.c b/drivers/cpufreq/scpi-cpufreq.c
-index 17cda84f00df..dcbb0ae7dd47 100644
---- a/drivers/cpufreq/scpi-cpufreq.c
-+++ b/drivers/cpufreq/scpi-cpufreq.c
-@@ -29,9 +29,16 @@ static struct scpi_ops *scpi_ops;
- 
- static unsigned int scpi_cpufreq_get_rate(unsigned int cpu)
- {
--	struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
--	struct scpi_data *priv = policy->driver_data;
--	unsigned long rate = clk_get_rate(priv->clk);
-+	struct cpufreq_policy *policy;
-+	struct scpi_data *priv;
-+	unsigned long rate;
-+
-+	policy = cpufreq_cpu_get_raw(cpu);
-+	if (unlikely(!policy))
-+		return 0;
-+
-+	priv = policy->driver_data;
-+	rate = clk_get_rate(priv->clk);
- 
- 	return rate / 1000;
- }
--- 
-2.34.1
+Hi Philipp,
 
+Yes, that's my point, children will request these resets during their
+initialization.
+I will have a look at reset acquire/release.
+
+Thanks
+Patrice
+
+> 
+> Either way, reset_control_get/put() belong in probe/remove.
+> 
+> regards
+> Philipp
 
