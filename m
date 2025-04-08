@@ -4,184 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC33C369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 19:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045F9C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 19:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RhL2YrjMKxaUnD8X/6aCC8IQGlaTmOpW1KhEPSIW8IU=; b=uhVVdN/q8I4AVGjzUk9zpdmUYb
-	zJmr8bxpVUTpBSeDZLP2Ixs1cwCN1KCeOAJU5+TFMYua3h4l8mi/E8MLaIP9l7TpOfScdTP1oA1Nc
-	p+ho+wjJAzai9sizDIaWsH4ljLlUnPcjdwEjhLSwOwZQfe0bBJLvDeZnn071diC3QPKwuQO4Ggmp0
-	VSR9ese3q1k+IkZl/XmgReqNnPg4es6HPaewGHLn3Act8cEV7avSpWcyUtKy+rHCiA06PWh+1QxKq
-	2AKORqR9pQb5BrLkgMDctHobcTt331NL0CD+L6gijE9UdzsKnDwxcC4u/E02Y8ZJPmX32T4kcPtUl
-	921S58Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jH8n5W9FtQCucqwn7kk9UM2XjlBjxjzZZRg7DH4uLLE=; b=GZwrJxbwi6kIZPGs75GeBY5l6V
+	xcbEocUCayc+Ult7LGb2JmXAmPkaOlNUBNpZ8YbYIESF9fCoVdwyyZJ3fIaSTUsdLiCaRBJHnMccV
+	e+8L+EYziRyBg8o/ShY1B83FLw8CxTfMEAs25vpvm4JnOgECRhmXYLDURpeGy/6s6Hwo/wQbYxmI0
+	oAa09v0sb+qiUlC0r5lvKqCEBhkgnz3YIvhY2z1rKOanW33CZWJh5cfJ2+gBtvNKPm2xrPVL3MqkS
+	mwOSGxj0421z3CjGC5MgleS4f3Z8CrxodGrjXsQzctyFsuEvOHCKhSuvW76WZfkJY5jjhlIDUK4zK
+	CmXABgmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2F4w-00000005Hav-0ZNX;
-	Tue, 08 Apr 2025 19:57:50 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1u2F4v-00000005Hap-17Ot;
+	Tue, 08 Apr 2025 19:57:49 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Dtd-000000058gV-3PaF;
-	Tue, 08 Apr 2025 18:42:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744137726; x=1775673726;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=i935mpS9m2UDQ85K22cGt91uEusK6mvyPY9SabX1d6g=;
-  b=XIeWN0JlYqZl75jcL8x2NhWVGWS/XCYLLjCYoJy4F588EWCot582B6vd
-   cHcZktfLKmr7THTm8cJRW+zZntDeM2PL/M93KmnlkXgqB1EYC1UC0JfIr
-   wIyldEq+2vyYnho6MAxJSFl4qP+mx+pVuX45KAfVhmkGXYBN+F931lDU/
-   aV4xSB1SiZauUeORM7QR+qT2m+eikhnM9WkB9+nLp68WW9Kb31kPeV9Be
-   mHXxrh/su9EzmpJ2ziKFgEIw4gN53ZALqLrfOTD3e4HCGcGkWjiA65tDA
-   306BW3q0oEHUvxv58D+Ro9x8NRnZi7SuEPty2OfNZrW5TfCd15Gx+HqaE
-   Q==;
-X-CSE-ConnectionGUID: jX579kd6RgyHkdVe9YI3sQ==
-X-CSE-MsgGUID: AzrUX5YFTiC0eNUzjV+d7g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="44731485"
-X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
-   d="scan'208";a="44731485"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 11:42:04 -0700
-X-CSE-ConnectionGUID: UfV1DaRDS7CGwtkiG564AQ==
-X-CSE-MsgGUID: hxOBJvn4TNa3FFNPzzNPjQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
-   d="scan'208";a="128854500"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 08 Apr 2025 11:42:03 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 8 Apr 2025 11:42:03 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Tue, 8 Apr 2025 11:42:03 -0700
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.169)
- by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 8 Apr 2025 11:42:02 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uQwBdYErEsBt3LglDVRTEaLJH6W7oA1V5p6/ZF7rrmGSyzGqRDpxSw4xhhJ8eUXU1WbjYM4jYKjSC2zuBd//cjQp2nRo1A9+LnfoAk7kd/Fb4wqolPqPX59aaIXs6ShlaOOM1bKd/fSEsZJD5YawcdW1gyK6TziyRliuh/9yQI7vMgHjdWXxdJfxAmWg3zNSDmHrOw97UFsmLMqzWLYGVUHaN9zdmvEt6+Lptk5CEv/ZiQ8iclFN5+RZThM2AlL6xLCEBmM+EOSmKbHdZIXZvAssYwcPW+drxsFxXYdla5zzM+nzPDDWkmYZeqFEEsWDnZr/thPXO9vQyvFh0pCYbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RhL2YrjMKxaUnD8X/6aCC8IQGlaTmOpW1KhEPSIW8IU=;
- b=Z/oTGBJhSizXgEP4/4xtBMKMXcsVD2StC/jLKMXGC67Lr1+GIO/dpQ1Wt+zMDF21JzTyd1/O/wQBGI8lEk1+6rq1lacAqvWKPPPhDeHh5+Xne5socQr0aTk/LhX4GBnOfpT3iym1aN5wDxE0YnXUmhawbsPzXDl9QQ7riCJ+U5pV8YS2GSsKiR0y7xJXa4f0i3vildEuA2y/XNA/W//c8HPjeIMnxX5gijv2XkTiSUo+k1DF/wMFzAbdR4TsTYRjY3R/nn4e69Jz1myixdDHls58DHPbTLytvwzBEXMdDST6KLt6j496T6z5k2BwuANnyO//xGgjNWMdT0lmbJMLOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB8665.namprd11.prod.outlook.com (2603:10b6:8:1b8::6) by
- MW3PR11MB4716.namprd11.prod.outlook.com (2603:10b6:303:53::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8606.34; Tue, 8 Apr 2025 18:41:57 +0000
-Received: from DS0PR11MB8665.namprd11.prod.outlook.com
- ([fe80::8e7e:4f8:f7e4:3955]) by DS0PR11MB8665.namprd11.prod.outlook.com
- ([fe80::8e7e:4f8:f7e4:3955%5]) with mapi id 15.20.8632.021; Tue, 8 Apr 2025
- 18:41:57 +0000
-Date: Tue, 8 Apr 2025 20:41:51 +0200
-From: Michal Kubiak <michal.kubiak@intel.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<netdev@vger.kernel.org>
-Subject: Re: [PATCH net-next 1/3] net: airoha: Add l2_flows rhashtable
-Message-ID: <Z/Vt7xTrf8/o8Pv7@localhost.localdomain>
-References: <20250407-airoha-flowtable-l2b-v1-0-18777778e568@kernel.org>
- <20250407-airoha-flowtable-l2b-v1-1-18777778e568@kernel.org>
- <Z/VCYwQS5hWqe/y0@localhost.localdomain>
- <Z_VTpBhntxXPncsv@lore-desk>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <Z_VTpBhntxXPncsv@lore-desk>
-X-ClientProxiedBy: ZRAP278CA0010.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:10::20) To DS0PR11MB8665.namprd11.prod.outlook.com
- (2603:10b6:8:1b8::6)
+	id 1u2Dmq-0000000581Z-42BK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 08 Apr 2025 18:35:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1744137304;
+ bh=jH8n5W9FtQCucqwn7kk9UM2XjlBjxjzZZRg7DH4uLLE=;
+ b=RRKCebzvsbPX9fHfzNTftIi9IH9dwcTc+BkdQP6UTOO2H7D1dRHjomDNCOlH9kaG5/9QRfhkZ
+ uRUjXaAPYHwxrLuYf+lUEctidfsjHVGNTj2danpqXLbiPrhnEF+Atq1ln85w90tLdn4003W9tKn
+ aS4pWb6CDMqr0oHgHtn9InC5ejK2ETZ2weC1UhntdHAxIm4ed3GVAXsy+DdmyvoXnHX+6nIhAfF
+ sqaOSU5zmX7QzThZTUpV0gKGsw5oQ2A3QBBiSFKpEG4fhwbzV5G99p4T0lrycxWuKaPfFFYeEhS
+ 67BG4ElgJo5liZgPP6CslGx6aH8broHFSzwHlgBJO8IQ==
+X-Forward-Email-ID: 67f56c38b078e0f2662e7659
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.0.1
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <c73a32b0-cc58-4d07-a0e5-719e5434adc3@kwiboo.se>
+Date: Tue, 8 Apr 2025 20:34:23 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB8665:EE_|MW3PR11MB4716:EE_
-X-MS-Office365-Filtering-Correlation-Id: 20db9ab2-8939-4437-d3c0-08dd76cd0a28
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0ItE2xbBFsP7+keyBNU9UMgPDI4mt/1llFREL96DqzzgNymokbXURzKox6fW?=
- =?us-ascii?Q?F4e+wgdG/YDFvQQptYUz246Gw63aPFkv4pAHrf9p7qzhxBjUnv6J5eyWpMnc?=
- =?us-ascii?Q?FNqExklPpdXindiGcl+D5ydfX/LyLOUKRPWDBM+NGzc1mrLeDB0DuQoZZVNn?=
- =?us-ascii?Q?fWcTTVhs65PN5q18QoVTjFRnvb8A+PFHUcyEXA7sEoBetZDRwU1Hwazp9PJ9?=
- =?us-ascii?Q?kB7PS184av15PdU7X12wce86mP7TWBOwsoMj73jpu95turt+VOgWW9NtdHT3?=
- =?us-ascii?Q?UArxK019EGPBLVz8IAneOrjouIDbWg23ICDsbU97UQsMlhkr6V3dzlThuG8Y?=
- =?us-ascii?Q?4KajwKVRLteYctzcs5rEs09qzonsUJNMvbk67RMug2XpHtN32RacmQwz9Txp?=
- =?us-ascii?Q?SOSwHZTcTpI+hBwIN/J/682z1BqlUg8ED9zAY3FCqslulbV9vUT9vuIwVRLy?=
- =?us-ascii?Q?NasxUl+iIDXHS7OTHYomsJZTv2yMlwgBQcZ83MA9UgxLXmm9x9H9R+TtDekR?=
- =?us-ascii?Q?neVrfHOIyVIu9kdPH1YKbM52inJUuWMQnLnPj2b0icF8Gyb4PkvWopR8tdD0?=
- =?us-ascii?Q?jL5T7yktxZC/L1zqBZpx1mo6CmyVciIa8TD0ukp8yX7fsNLE4vnv4jqxQZ8f?=
- =?us-ascii?Q?RNdiFgUcTtFTZ4ikchoEsdauGSzM9NTv2PTt/M54vKIboXK8EE69O/1CQINj?=
- =?us-ascii?Q?LX1bOYuQbvmM/x64e+WFxZapnBxvJiSveBh/cX1WVBvWJ5fVDWPQKvk3bh4C?=
- =?us-ascii?Q?+XDFSlhVggdJH2ygzN1AcXokjXVkLhXTrd0WFdNNz5Rx1zkNjoaBMZvPTTwx?=
- =?us-ascii?Q?bMuyZjri0JApqdxY08dT0NO0rJ5w7nU68fN0Jqjtc580uPedmym3CWiuGqY4?=
- =?us-ascii?Q?Wl06j6SSEfoSHUnO1Ot4sD1rxr2PnYB/HcCnPEng02DGxob83g2J7Gb7J3fN?=
- =?us-ascii?Q?uyFLoQ/y6Nh5qAs25FRiWOr1+UdNA2jRGvBzUQn7CbFapjt98FOm7lziBtdJ?=
- =?us-ascii?Q?CweiOkVVfioRaa1oCF503jDHJAtwJ+yFEn4K8WOKDaufhSaAaotl3rSSukVQ?=
- =?us-ascii?Q?C1H/rLwaOts887i0f/27qfIozKdEn2uS3pbgRerhx1cmHyo3NRNic/wEsROH?=
- =?us-ascii?Q?Vdm/H5woUH5RuRZoVDJ64kej2j4It4Jg9FHsc1CDIQkpWQYGaqDMff/IZI5H?=
- =?us-ascii?Q?CUVaOqxFar7v5mlXBOS+WyNQpxFKVGBnBlt1OS9QeBsFdBuzlUNHWh8A7R+G?=
- =?us-ascii?Q?G6e45eKMQf3NtNu+5bqceoyJNOAuoA2GJ+15MP8OuEiOF+Bb9Y0lRCdz2Vzw?=
- =?us-ascii?Q?Z+myXiiKAHXKXNqe4ofBRTd98ZMvZnXUVzi0fwD5jupQpt9gFx4waTesVXsD?=
- =?us-ascii?Q?2JXKXwFphRRwnfXvoSgGnlhwZIw2Al9OZP7uBeC0EyFylWOy7qOh2xg1Nla9?=
- =?us-ascii?Q?TnouQWki94w=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8665.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RBL7EWafmjtq5zAFyBLxkGZhzqAlufjd7VyroCQGhylPZRQ9YflnWK0Udu5H?=
- =?us-ascii?Q?zr5tzTYrqUNRyNzHscQ0w3+edGovlOPT9RJVX/TBhM5e8JRDhLZSYOGKf2Ng?=
- =?us-ascii?Q?xIqMhlRev/FD6qZlJW+LfSEdybFquTtmOQuiz95F3R6QC++QgauxySFTh0GK?=
- =?us-ascii?Q?SDfekdgSwkge8j19aYQiL+AmsteFd/Pe55BOeXl+qMiP6pVTWBLozd2beFB0?=
- =?us-ascii?Q?FbCf6/YGyGraGd0vmHO+BcejJDDJelhaclmjMS4ekxGcWVJRqRQdkDFOv42q?=
- =?us-ascii?Q?V7p/qSxLNttgmpMcojZE0zBk+65tuY/AznwIs1U4YTxO0/QEPHinlIUPRxEP?=
- =?us-ascii?Q?NgoHk+gE1i7mmdiG8Amf/zWjvbJ+sVKyAJ02zy0UaxRycYctY9gvRFLutt4p?=
- =?us-ascii?Q?N3NjG/BZwXBj7SPuX2iwxOSQuCD83kBwFQynPwzOOa3udmJiKioGNjS2hR0b?=
- =?us-ascii?Q?NxC1PntAaEki1s9IBeilrZVslJdgzooVSOuKcBXhuo9bzdvuA1vYmxtZzX/K?=
- =?us-ascii?Q?2k7VIlfOiwUT36xhS+Eru5Qj7g+ypsl1eKOf6Tq41KIZp6uFWJyy5awYYZYM?=
- =?us-ascii?Q?ObW4v32a+rW1fdSbtjVU7AHqNjZRYLq3q3ibp7xc5oeDQqKLhXzyyqK3y46g?=
- =?us-ascii?Q?G+MruMPHo0RysGhS89knv+CkDtEys8xNGAgwiZf3camNZT1u5lUrpqOu/Tsu?=
- =?us-ascii?Q?Uwb0W9KFvuqwvXlf/CSQOtb9ZbkXX595Azi78d+raQEOVR86rDGVVkVRxYAE?=
- =?us-ascii?Q?nFL9MkHZ332iPP/4Fkbxgo9Ek7cX55S6HC5qVmu2Ej/Q/xZsyce08R6V2P5p?=
- =?us-ascii?Q?j1t5/QiSxgwNGCWIVgtdHCeCcxAVnwx9g5U3hK71JXbQnDZ2JLXzBwuC5u4F?=
- =?us-ascii?Q?Zt5Gx+JXKnNIF07QzclMjSt7I88RdkToROvg4iAt70kVoxzNih/3drVhy7RI?=
- =?us-ascii?Q?AjaMOVjLQi2bszx4rfYijS6dtaiHKKkSM9+6vj3AUdP37w70RkH/T6YICy79?=
- =?us-ascii?Q?NVxpMjHxT0SbvHg2/oeIYXFblPajSqLR7KSTbZy7quVNBYeTtMews8s+pPjD?=
- =?us-ascii?Q?AREmI73GTcH6JtfOho2qkpERFQDvGR/2o2RVC9JzfmZzsTykFKg8w5pG+Vw8?=
- =?us-ascii?Q?ISpFFtUJvhMsXv8g7pqyuDkEsHql/rLFX3L/a2RN/BXGaHE24Ifqxt2OeeOz?=
- =?us-ascii?Q?61ArEkAY/FDRHkdCgdeSboO/f37RV3gjPg1k0692sZt1vEaq7m5/t6qjao/3?=
- =?us-ascii?Q?kGfzvMPEoMoiF422h3x4ivPNk1TpKN2fCr/iF+lYNvoCd2ZL92ExnK4FNuZi?=
- =?us-ascii?Q?Tbo4GdQvThZSbk4DDB6EX/B7uEZ6Yv8iHjY3/2I6HLbusZHngsKMHwALcjc2?=
- =?us-ascii?Q?xuTy4TK3Hc9Tf0/39Id6T6E1SqW4ceUYbzPHO4qbLrZTd4dQHc5126YDGU7u?=
- =?us-ascii?Q?IREeZHZ36Rv1LMcw5MGvsg+fFz6KcYwkyS9NZ20WeBWtLe/7uzqGDG6ZWfTo?=
- =?us-ascii?Q?MdKMmYWc3HOdmZEQjq93wSwUQNA6OvGykWgxaNYG2nsyFz4UWGKKmA8E6tb2?=
- =?us-ascii?Q?1GCyUcnbVnYrMPKNQy08Ynj31beQnHYQKNOHzonfRyn8bEwbh4dmMLNIXbBP?=
- =?us-ascii?Q?+g=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 20db9ab2-8939-4437-d3c0-08dd76cd0a28
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8665.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 18:41:56.9481
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: I2tRniBZDiT9RnaLHn5hBx93Kxa9skLSd4+JpJmeAhBx1+7W8sLMhvAjqE+vdRo0ZZn6HrVCpn6U1ujNR/xTcA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR11MB4716
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/6] arm64: dts: rockchip: Add rkvdec2 Video Decoder on
+ rk3588(s)
+To: Detlev Casanova <detlev.casanova@collabora.com>
+Cc: linux-kernel@vger.kernel.org,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Hans Verkuil <hverkuil@xs4all.nl>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Andrzej Pietrasiewicz <andrzej.p@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Niklas Cassel <cassel@kernel.org>, Alexey Charkov <alchark@gmail.com>,
+ Dragan Simic <dsimic@manjaro.org>, Jianfeng Liu <liujianfeng1994@gmail.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Umang Jain <umang.jain@ideasonboard.com>,
+ Naushir Patuck <naush@raspberrypi.com>,
+ Jean-Michel Hautbois <jeanmichel.hautbois@ideasonboard.com>,
+ Dmitry Perchanov <dmitry.perchanov@intel.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-staging@lists.linux.dev, kernel@collabora.com
+References: <20250325213303.826925-1-detlev.casanova@collabora.com>
+ <20250325213303.826925-7-detlev.casanova@collabora.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250325213303.826925-7-detlev.casanova@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_114205_865105_1E8E5B3E 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20250408_113505_040729_4FA757AC 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,53 +100,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 06:49:40PM +0200, Lorenzo Bianconi wrote:
-> > On Mon, Apr 07, 2025 at 04:18:30PM +0200, Lorenzo Bianconi wrote:
-> > > Introduce l2_flows rhashtable in airoha_ppe struct in order to
-> > > store L2 flows committed by upper layers of the kernel. This is a
-> > > preliminary patch in order to offload L2 traffic rules.
-> > > 
-> > > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > 
-> > The patch logic and coding style looks OK to me.
-> > Just one question inline.
-> > 
-> > Thanks,
-> > Michal
-> > 
-> > > ---
-> > >  drivers/net/ethernet/airoha/airoha_eth.h | 15 ++++++-
-> > >  drivers/net/ethernet/airoha/airoha_ppe.c | 67 +++++++++++++++++++++++++++-----
-> > >  2 files changed, 72 insertions(+), 10 deletions(-)
-> > > 
-> > > diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-> > > index ec8908f904c61988c3dc973e187596c49af139fb..57925648155b104021c10821096ba267c9c7cef6 100644
-> > > --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> > > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> > > @@ -422,12 +422,23 @@ struct airoha_flow_data {
-> > >  	} pppoe;
-> > >  };
-> > >  
-> > > +enum airoha_flow_entry_type {
-> > > +	FLOW_TYPE_L4,
-> > 
-> > I didn't find any usage of L4 flow type in the series.
-> > Is that reserved for future series? Shouldn't it be added together with
-> > its usage then?
-> 
-> Hi Michal,
-> 
-> FLOW_TYPE_L4 is equal to 0 so it is the default value for
-> airoha_flow_table_entry type when not set explicitly.
-> It is done this way to reduce code changes.
-> 
-> Regards,
-> Lorenzo
->
+Hi Detlev,
 
-Thanks, Lorenzo! I'm OK with that.
+On 2025-03-25 22:22, Detlev Casanova wrote:
+> Add the rkvdec2 Video Decoder to the RK3588s devicetree.
+> 
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 74 +++++++++++++++++++
+>  1 file changed, 74 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> index c3abdfb04f8f4..636c287b94e0a 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+> @@ -1237,6 +1237,70 @@ vepu121_3_mmu: iommu@fdbac800 {
+>  		#iommu-cells = <0>;
+>  	};
+>  
+> +	vdec0: video-decoder@fdc38000 {
+
+All other Rockchip decoder/encoder nodes use the video-codec nodename,
+e.g. see the av1d related node below. Is there any special reason why
+this cannot follow that pattern for nodename consistency?
+
+This was something I tried to bring up in v3 [1], however only the reg
+range part was addressed in v4.
+
+My main concern is that I want to send an updated U-Boot RK3582 support
+series [2][3] that will need to mark one or both of the two rkvdec cores
+as status=fail depending on a value in OTP. This is done in a DT fixup
+and uses the nodename for simplicity.
+
+[1] https://lore.kernel.org/r/311770c3-d3ea-4650-ae11-7c278e043d0a@kwiboo.se/
+[2] https://patchwork.ozlabs.org/patch/2020972/
+[3] https://github.com/Kwiboo/u-boot-rockchip/commit/0d748524aa67ce0debdb87c6e4a0df0f041b1618
+
+> +		compatible = "rockchip,rk3588-vdec";
+> +		reg = <0x0 0xfdc38000 0x0 0x100>,
+> +		      <0x0 0xfdc38100 0x0 0x500>,
+> +		      <0x0 0xfdc38600 0x0 0x100>;
+> +		reg-names = "link", "function", "cache";
+> +		interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH 0>;
+> +		clocks = <&cru ACLK_RKVDEC0>, <&cru HCLK_RKVDEC0>, <&cru CLK_RKVDEC0_CA>,
+> +			 <&cru CLK_RKVDEC0_CORE>, <&cru CLK_RKVDEC0_HEVC_CA>;
+> +		clock-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
+> +		assigned-clocks = <&cru ACLK_RKVDEC0>, <&cru CLK_RKVDEC0_CORE>,
+> +				  <&cru CLK_RKVDEC0_CA>, <&cru CLK_RKVDEC0_HEVC_CA>;
+> +		assigned-clock-rates = <800000000>, <600000000>,
+> +				       <600000000>, <1000000000>;
+> +		iommus = <&vdec0_mmu>;
+> +		power-domains = <&power RK3588_PD_RKVDEC0>;
+> +		resets = <&cru SRST_A_RKVDEC0>, <&cru SRST_H_RKVDEC0>, <&cru SRST_RKVDEC0_CA>,
+> +			 <&cru SRST_RKVDEC0_CORE>, <&cru SRST_RKVDEC0_HEVC_CA>;
+> +		reset-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
+> +		sram = <&vdec0_sram>;
+> +	};
+> +
+> +	vdec0_mmu: iommu@fdc38700 {
+> +		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
+> +		reg = <0x0 0xfdc38700 0x0 0x40>, <0x0 0xfdc38740 0x0 0x40>;
+> +		interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH 0>;
+> +		clocks = <&cru ACLK_RKVDEC0>, <&cru HCLK_RKVDEC0>;
+> +		clock-names = "aclk", "iface";
+> +		power-domains = <&power RK3588_PD_RKVDEC0>;
+> +		#iommu-cells = <0>;
+> +	};
+> +
+> +	vdec1: video-decoder@fdc40000 {
+
+Same here :)
 
 Regards,
-Reviewed-by: Michal Kubiak <michal.kubiak@intel.com>
+Jonas
+
+> +		compatible = "rockchip,rk3588-vdec";
+> +		reg = <0x0 0xfdc40000 0x0 0x100>,
+> +		      <0x0 0xfdc40100 0x0 0x500>,
+> +		      <0x0 0xfdc40600 0x0 0x100>;
+> +		reg-names = "link", "function", "cache";
+> +		interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH 0>;
+> +		clocks = <&cru ACLK_RKVDEC1>, <&cru HCLK_RKVDEC1>, <&cru CLK_RKVDEC1_CA>,
+> +			 <&cru CLK_RKVDEC1_CORE>, <&cru CLK_RKVDEC1_HEVC_CA>;
+> +		clock-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
+> +		assigned-clocks = <&cru ACLK_RKVDEC1>, <&cru CLK_RKVDEC1_CORE>,
+> +				  <&cru CLK_RKVDEC1_CA>, <&cru CLK_RKVDEC1_HEVC_CA>;
+> +		assigned-clock-rates = <800000000>, <600000000>,
+> +				       <600000000>, <1000000000>;
+> +		iommus = <&vdec1_mmu>;
+> +		power-domains = <&power RK3588_PD_RKVDEC1>;
+> +		resets = <&cru SRST_A_RKVDEC1>, <&cru SRST_H_RKVDEC1>, <&cru SRST_RKVDEC1_CA>,
+> +			 <&cru SRST_RKVDEC1_CORE>, <&cru SRST_RKVDEC1_HEVC_CA>;
+> +		reset-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
+> +		sram = <&vdec1_sram>;
+> +	};
+> +
+> +	vdec1_mmu: iommu@fdc40700 {
+> +		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
+> +		reg = <0x0 0xfdc40700 0x0 0x40>, <0x0 0xfdc40740 0x0 0x40>;
+> +		interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH 0>;
+> +		clocks = <&cru ACLK_RKVDEC0>, <&cru HCLK_RKVDEC0>;
+> +		clock-names = "aclk", "iface";
+> +		power-domains = <&power RK3588_PD_RKVDEC0>;
+> +		#iommu-cells = <0>;
+> +	};
+> +
+>  	av1d: video-codec@fdc70000 {
+>  		compatible = "rockchip,rk3588-av1-vpu";
+>  		reg = <0x0 0xfdc70000 0x0 0x800>;
+> @@ -2883,6 +2947,16 @@ system_sram2: sram@ff001000 {
+>  		ranges = <0x0 0x0 0xff001000 0xef000>;
+>  		#address-cells = <1>;
+>  		#size-cells = <1>;
+> +
+> +		vdec0_sram: codec-sram@0 {
+> +			reg = <0x0 0x78000>;
+> +			pool;
+> +		};
+> +
+> +		vdec1_sram: codec-sram@78000 {
+> +			reg = <0x78000 0x77000>;
+> +			pool;
+> +		};
+>  	};
+>  
+>  	pinctrl: pinctrl {
 
 
