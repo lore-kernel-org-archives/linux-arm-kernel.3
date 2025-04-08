@@ -4,65 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B659C3600C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CD5C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  8 Apr 2025 13:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWlQGKvS5S/DIKdngVLDDvHLv5rD+FZpfPi8nDiTNK0=; b=yaA9cLrooUCKOzV3rlfSa/yVjq
-	qIhRf4nGkGVEMYbAIXks0n1OGDYzFVbjP7jIbQbH42oUMn97sr+OfXOGJqgXfIlRE1o+xUj+otlnw
-	oiw7fnNY8rUgmCdt+14VkL6X5Pwbg5AzirWVF2WVSk+2KAbad9/f0xN5zmGah8NzVM508zYng1I31
-	+0CTvGh7wJMOHpXeNAeFYUGcp4Q40gQvvvXn+1YzO4zjIz38UYTMTIvdnk5ARP3RwmRYG7cK0340k
-	vG+5xp56TUck+ac0xMzR8Br/JQYcUP4bhBl7bNJQy4Z3p3UT915JqhsXmi4Lr428poVd4teFyHalp
-	/EX3sUkQ==;
+	bh=snedp9LqjYUcVrsRKi8+X+MSTwa49WHHLcTFyeAGbNA=; b=jpT9l65XjfBouvToL95SWOFGJa
+	B9gP1MJa9zgXFy7sylH9M2msRerwlH05iwu4HhOJUabfzuOCdJrQq5i0e/o6of7fXzkfD02XR25R8
+	LjtRVPnGNnhcd/S3d4NCvU0IyIsuyipmovAsdA9Z2/pAQJGCnbSAKcLZvcPbAkepArbz1q66IvQ0F
+	GR+POb6XvVKSsV5h3P/Juu9D6ILI3KTMaBreGFUTREqUvCy62mnwjCLOJU26jTfTPp3ZjBc6wxKAV
+	BL88g0Zkrpt58atvSGP7tFM/Y6K/P0R3pnRDiTc3nP5pfhZPY+TnlfB8hyUtd3Kv7E8DRThJ/iY6Z
+	rh1W2peQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28ll-000000045zf-2KCP;
-	Tue, 08 Apr 2025 13:13:37 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u28m0-000000046KF-1ELA;
+	Tue, 08 Apr 2025 13:13:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26YW-00000003kKC-3DVS
+	id 1u26ZU-00000003kcX-45P4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 08 Apr 2025 10:52:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=snedp9LqjYUcVrsRKi8+X+MSTwa49WHHLcTFyeAGbNA=; b=fGVPxzzNmPda6TJfot4fOj+bIe
+	2wt6eBiDXfEilRay+Ldu3hgnyLP4OOcu9vPprmx/rCo6F6dDgn4jXHgxalRDGcWfFqrzKjmgc+FEN
+	6u8ytRc1qBeNo2yyhMkWEBC1l5AFnyze9umOoY/kyRIwge4e8xFEJ4cqSFCvBdEvpXL+xyZnj/hSv
+	T0hqqdda+QRCiyZji0o5Mxvi59s5SpuRDGV364mlWP6+s24LxuvsbMI8LxbjD//zn0E3PHTxxFeVB
+	4bo8MsSdO+hrZx2yWKU8eVytAMXZTOIyS/mTPGiZhcRpWvT9DF3vJvJW5bg/At999wl+V98nYl0qj
+	VJ62BxkQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u26ZQ-00000008GRZ-0NDS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 08 Apr 2025 10:51:49 +0000
+	Tue, 08 Apr 2025 10:52:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6481CA4914A;
-	Tue,  8 Apr 2025 10:46:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6190C4CEEB;
-	Tue,  8 Apr 2025 10:51:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C2E5744AAF;
+	Tue,  8 Apr 2025 10:52:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BBAAC4CEE5;
+	Tue,  8 Apr 2025 10:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744109507;
-	bh=1VFamCW1T2hwFfR2ldmMdvGBnFem7jd3W15avtomy2U=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lgJttQ21RqeRYvVhAbo24CKebPI5FCVfbMYp9EbD9S+MI+0FUXTp0a0oeKcj+HME8
-	 Kzbfjmn3j+Uy6zK50WSb/JzseS9GhkPGN1Qbgbn+0ZmamCI766tI4gvDtiPc9TaMBy
-	 d6SfBaFlBCNSTNeZD0HsvJvRvbTSbbx9iyFBBU61jjqEhnNKIxFhHIj3+B0OoD7UvB
-	 LMdJcwHvdBPceX2HYypOaoI3b9GhrmJaWgtWllLFQSic8J7Pdb+LUOck1CrBlXFv05
-	 y3mj2N0kMk7cBaev6wi//xxB4pP8Znu/CtQB3RF37EM2m+eP5S9SIYVZZI71oWNVsc
-	 F0rhD8OoMj4gQ==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 08 Apr 2025 12:50:15 +0200
-Subject: [PATCH 16/24] arm64: cpucaps: Add GCIE capability
+	s=k20201202; t=1744109560;
+	bh=ox/3bavjWe4Urj4KJgy8T6adfW0I17p/fF305WdODVw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=OmSLDzKBe/oDWFACC5PKrCObtcW7B5JpybJLmPlxrqoHlrgL2BXpvlX/qy+1ceiMz
+	 tryd2sDw3eGihcCvrwmB3+ZV2hiLGcqibxeE+GvqGD48iuWOmSJoqYkIkONl7zSHla
+	 iHqFd77LxmOD0Dq1KYfFsVHrfOGLbnMKoKvjPIxpMTT7dg4IxBJdLLSpPpo/8Xw3zl
+	 AcZtlZKn+W27f9uT006gtg4/kwE6QU0raJKzv1jmGsGj0ltFWhC+kyC6kzbXZ4Ptdd
+	 zYrry9Csrp92X0ydjYrccxl0EUBas8xdghNGdHKmTKTjcI1mtqKioo/65FowgtVjaj
+	 MmzBLE8jShX/w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u26ZK-003QX2-Ce;
+	Tue, 08 Apr 2025 11:52:38 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: [PATCH v2 07/17] KVM: arm64: nv: Add pseudo-TLB backing VNCR_EL2
+Date: Tue,  8 Apr 2025 11:52:15 +0100
+Message-Id: <20250408105225.4002637-8-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250408105225.4002637-1-maz@kernel.org>
+References: <20250408105225.4002637-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250408-gicv5-host-v1-16-1f26db465f8d@kernel.org>
-References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
-In-Reply-To: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Sascha Bischoff <sascha.bischoff@arm.com>, 
- Timothy Hayes <timothy.hayes@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_035148_886007_E97474CB 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250408_115244_486135_5E7EA54D 
+X-CRM114-Status: GOOD (  28.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,50 +101,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the GCIE capability as a strict boot cpu capability to
-detect whether architectural GICv5 support is available in HW.
+FEAT_NV2 introduces an interesting problem for NV, as VNCR_EL2.BADDR
+is a virtual address in the EL2&0 (or EL2, but we thankfully ignore
+this) translation regime.
 
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
+As we need to replicate such mapping in the real EL2, it means that
+we need to remember that there is such a translation, and that any
+TLBI affecting EL2 can possibly affect this translation.
+
+It also means that any invalidation driven by an MMU notifier must
+be able to shoot down any such mapping.
+
+All in all, we need a data structure that represents this mapping,
+and that is extremely close to a TLB. Given that we can only use
+one of those per vcpu at any given time, we only allocate one.
+
+No effort is made to keep that structure small. If we need to
+start caching multiple of them, we may want to revisit that design
+point. But for now, it is kept simple so that we can reason about it.
+
+Oh, and add a braindump of how things are supposed to work, because
+I will definitely page this out at some point. Yes, pun intended.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kernel/cpufeature.c | 7 +++++++
- arch/arm64/tools/cpucaps       | 1 +
- 2 files changed, 8 insertions(+)
+ arch/arm64/include/asm/kvm_host.h   |  5 ++
+ arch/arm64/include/asm/kvm_nested.h |  3 ++
+ arch/arm64/kvm/arm.c                |  4 ++
+ arch/arm64/kvm/nested.c             | 72 +++++++++++++++++++++++++++++
+ arch/arm64/kvm/reset.c              |  1 +
+ 5 files changed, 85 insertions(+)
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9c4d6d552b25cb3a31d1fb267bd73d3f82513e69..8c60591633f3d435ad9b80a10e484f26af328964 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -3041,6 +3041,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_pmuv3,
- 	},
- #endif
-+	{
-+		.desc = "GCIE",
-+		.type = ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE,
-+		.capability = ARM64_HAS_GCIE,
-+		.matches = has_cpuid_feature,
-+		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, GCIE, IMP)
-+	},
- 	{},
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 12adab97e7f25..c762919a2072d 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -731,6 +731,8 @@ struct vcpu_reset_state {
+ 	bool		reset;
  };
  
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 772c1b008e437ed34cedb1c0f663c4dcea8f6759..e87e4bc2501f6b86352c03bd35adf33c160a577c 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -29,6 +29,7 @@ HAS_EVT
- HAS_FPMR
- HAS_FGT
- HAS_FPSIMD
-+HAS_GCIE
- HAS_GCS
- HAS_GENERIC_AUTH
- HAS_GENERIC_AUTH_ARCH_QARMA3
-
++struct vncr_tlb;
++
+ struct kvm_vcpu_arch {
+ 	struct kvm_cpu_context ctxt;
+ 
+@@ -825,6 +827,9 @@ struct kvm_vcpu_arch {
+ 
+ 	/* Per-vcpu CCSIDR override or NULL */
+ 	u32 *ccsidr;
++
++	/* Per-vcpu TLB for VNCR_EL2 -- NULL when !NV */
++	struct vncr_tlb	*vncr_tlb;
+ };
+ 
+ /*
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index 9d56fd946e5ef..98b3d6b589668 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -333,4 +333,7 @@ struct s1_walk_result {
+ int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+ 		       struct s1_walk_result *wr, u64 va);
+ 
++/* VNCR management */
++int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu);
++
+ #endif /* __ARM64_KVM_NESTED_H */
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 68fec8c95feef..5287435873609 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -843,6 +843,10 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+ 		return ret;
+ 
+ 	if (vcpu_has_nv(vcpu)) {
++		ret = kvm_vcpu_allocate_vncr_tlb(vcpu);
++		if (ret)
++			return ret;
++
+ 		ret = kvm_vgic_vcpu_nv_init(vcpu);
+ 		if (ret)
+ 			return ret;
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 884b3e25795c4..fb09598b78e3c 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -16,6 +16,24 @@
+ 
+ #include "sys_regs.h"
+ 
++struct vncr_tlb {
++	/* The guest's VNCR_EL2 */
++	u64			gva;
++	struct s1_walk_info	wi;
++	struct s1_walk_result	wr;
++
++	u64			hpa;
++
++	/* -1 when not mapped on a CPU */
++	int			cpu;
++
++	/*
++	 * true if the TLB is valid. Can only be changed with the
++	 * mmu_lock held.
++	 */
++	bool			valid;
++};
++
+ /*
+  * Ratio of live shadow S2 MMU per vcpu. This is a trade-off between
+  * memory usage and potential number of different sets of S2 PTs in
+@@ -810,6 +828,60 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+ 	kvm_uninit_stage2_mmu(kvm);
+ }
+ 
++/*
++ * Dealing with VNCR_EL2 exposed by the *guest* is a complicated matter:
++ *
++ * - We introduce an internal representation of a vcpu-private TLB,
++ *   representing the mapping between the guest VA contained in VNCR_EL2,
++ *   the IPA the guest's EL2 PTs point to, and the actual PA this lives at.
++ *
++ * - On translation fault from a nested VNCR access, we create such a TLB.
++ *   If there is no mapping to describe, the guest inherits the fault.
++ *   Crucially, no actual mapping is done at this stage.
++ *
++ * - On vcpu_load() in a non-HYP context with HCR_EL2.NV==1, if the above
++ *   TLB exists, we map it in the fixmap for this CPU, and run with it. We
++ *   have to respect the permissions dictated by the guest, but not the
++ *   memory type (FWB is a must).
++ *
++ * - Note that we usually don't do a vcpu_load() on the back of a fault
++ *   (unless we are preempted), so the resolution of a translation fault
++ *   must go via a request that will map the VNCR page in the fixmap.
++ *   vcpu_load() might as well use the same mechanism.
++ *
++ * - On vcpu_put() in a non-HYP context with HCR_EL2.NV==1, if the TLB was
++ *   mapped, we unmap it. Yes it is that simple. The TLB still exists
++ *   though, and may be reused at a later load.
++ *
++ * - On permission fault, we simply forward the fault to the guest's EL2.
++ *   Get out of my way.
++ *
++ * - On any TLBI for the EL2&0 translation regime, we must find any TLB that
++ *   intersects with the TLBI request, invalidate it, and unmap the page
++ *   from the fixmap. Because we need to look at all the vcpu-private TLBs,
++ *   this requires some wide-ranging locking to ensure that nothing races
++ *   against it. This may require some refcounting to avoid the search when
++ *   no such TLB is present.
++ *
++ * - On MMU notifiers, we must invalidate our TLB in a similar way, but
++ *   looking at the IPA instead. The funny part is that there may not be a
++ *   stage-2 mapping for this page if L1 hasn't accessed it using LD/ST
++ *   instructions.
++ */
++
++int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu)
++{
++	if (!kvm_has_feat(vcpu->kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
++		return 0;
++
++	vcpu->arch.vncr_tlb = kzalloc(sizeof(*vcpu->arch.vncr_tlb),
++				      GFP_KERNEL_ACCOUNT);
++	if (!vcpu->arch.vncr_tlb)
++		return -ENOMEM;
++
++	return 0;
++}
++
+ /*
+  * Our emulated CPU doesn't support all the possible features. For the
+  * sake of simplicity (and probably mental sanity), wipe out a number
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index 965e1429b9f6e..959532422d3a3 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -159,6 +159,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
+ 		kvm_unshare_hyp(sve_state, sve_state + vcpu_sve_state_size(vcpu));
+ 	kfree(sve_state);
+ 	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
++	kfree(vcpu->arch.vncr_tlb);
+ 	kfree(vcpu->arch.ccsidr);
+ }
+ 
 -- 
-2.48.0
+2.39.2
 
 
