@@ -4,82 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 098C4C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E87DAC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xh0jzWhIK2jUVVufVq9o55tcfWLrZrkAZaOHhOyKGPc=; b=a22qZm8S8kru3uWe5M55DCfpMo
-	TqrmwNmm8YRg9BmQX5aCYGXz3GqZm4UktwDYBIa1DmWUlIVwiAOrcIHWboJPM3x6AYe80YzoyZJx7
-	nZtIJdTRn7zJ+/lgeff+2ZbxTdHJitE5F66sqhgrvO2AGUHuc7JPSHOaF3r+uamI8VmUn176US9cc
-	uAvU/BhEwLeWmqKexkmytStzkAWMPm1phyrKCzRs0m5xxQJIhjSzGZwSzdhk95YsivN5+/mNT2Ij0
-	A6o1/Se6szKyh2snWXAPff4LY9xZAlmHZpvae4lzqNaAh4d31k2Zxlhd4fofi0mXS8v2UtRAqoUQZ
-	SH4knivQ==;
+	bh=rn66NnkilZXfuiRtb5Hp8Gpq/yaS/GRssladrbCquGs=; b=Ffcs1qVULo4PB7VpGIAYMK0lNQ
+	wHfOMr3UtX2NXZtFxQ9SX/4yV7+FUA82V1F6KZ0BbE4uYpIeL/LGyMICb0Dt0Z1NgbMJHJ0lyTQLz
+	c8RRcGq4nqsbw1LljiNtxOrzBdZqF4Vrh9kulqtO4602DTOGb0h6Y/EqgLQfxrmEaD7r1VJRsynRf
+	sfhu3sbBMhGmn8u3NXSSsung2Oe1ZMEJEyuJaPLdRHnCAKGVcQdQ0/H0NMNVbzjwvrehzhBsUn5L4
+	m4Fl9naVA/fdkkHzGEqtPjEwA4SAQB3/Z+Y4iFyorQdfm46aXVIlvnEWlEfD61lGzs0sWR/u900gW
+	/Ok8tTPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2WbA-00000007Upi-2OA9;
-	Wed, 09 Apr 2025 14:40:16 +0000
+	id 1u2Wcv-00000007VVO-3iDP;
+	Wed, 09 Apr 2025 14:42:05 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Vwm-00000007N0f-2Ol2;
-	Wed, 09 Apr 2025 13:58:33 +0000
+	id 1u2W2J-00000007Ny7-0e5W
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Apr 2025 14:04:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 518EB43765;
-	Wed,  9 Apr 2025 13:58:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50B3DC4CEE3;
-	Wed,  9 Apr 2025 13:58:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DE1864A24F;
+	Wed,  9 Apr 2025 14:04:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 866C6C4CEE3;
+	Wed,  9 Apr 2025 14:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744207112;
-	bh=gIkLtXkAowaebWcKuGF3J/51U/7JSeR5c3yViLJLL4o=;
+	s=k20201202; t=1744207454;
+	bh=HcsrtxcBfrTGd4om7Qx2pPfzoIlpON5iTTrTwya39ng=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T1VeRjHXhAndr2FEdfdTBw7zDINMDJBNTNJsqgRB/P4dNoIRMJkjhIpi+Ndt+VKbl
-	 5knulbs8t68ZJQHEp3hJv5wnnKxfXT2xpJgI4Y01LoSQ6J0O9ODJHFL+a6ZB2fD/7Y
-	 XyYJQLnlRpI4+S5i695i7kjZgppq3h65TarholFW8Mm48fbw7ydwLNF5J0ihqwKrUw
-	 MzbENnQOyp5QuEtSgrfp/kQGFSwq7IGGzquR7XDOt5FCpPnHUlRpXON38mlmlRyT5X
-	 UlXxUCxhI1fUM5v/ElnapHBZclh8oC1FD4nKTc/xqaush+YDOdYrH0o/nPxRtcfmEZ
-	 kywhG25Ha9vWQ==
-Date: Wed, 9 Apr 2025 16:58:16 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Pratyush Yadav <ptyadav@amazon.de>,
-	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <Z_Z8-BLWMkiWpaDY@kernel.org>
-References: <Z--sUYCvP3Q8nT8e@kernel.org>
- <20250404124729.GH342109@nvidia.com>
- <Z-_kSXrHWU5Bf3sV@kernel.org>
- <20250404143031.GB1336818@nvidia.com>
- <Z_KnovvW7F2ZyzhX@kernel.org>
- <20250407141626.GB1557073@nvidia.com>
- <Z_P92UCbNCV0TbiA@kernel.org>
- <20250407170305.GI1557073@nvidia.com>
- <Z_Y4k4rDO-BbMjqs@kernel.org>
- <20250409125630.GI1778492@nvidia.com>
+	b=S8UNhrHn7rhtr8XgDlour0jm5WNeS37YzYZj1/QvEAnSBn/4Vr4Ev02vPFY9lOpRO
+	 GryoW3AT/cDrxQy6gRv4LKbDwqeHjPDJGIJPevauC0SDkpb8te9kCeLRjp4Zyo4/fC
+	 /zhNKx+eObZ0AZC0SGWVAPHPtktS5zzLHF9ryeCLPfLmBGbmCipMj7/NHToaEsmWKH
+	 2Sqc5sC6ZqYORNZQ7Yi/44mnQSvzYLKOuiTAGf3rtw+0QnVH3pu/Ws1fHu8yrkJElv
+	 i7gq3qnk1Ix6lOz98q9/Z1YcHdE8NphXmVkS0pq4gvIEGynmcG4ugUgBnN7CJMsQIP
+	 MoTkZYznsf3wA==
+Date: Wed, 9 Apr 2025 16:04:06 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: kernel test robot <lkp@intel.com>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, llvm@lists.linux.dev,
+	oe-kbuild-all@lists.linux.dev,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 24/24] arm64: Kconfig: Enable GICv5
+Message-ID: <Z/Z+VtK96h1yezE7@lpieralisi>
+References: <20250408-gicv5-host-v1-24-1f26db465f8d@kernel.org>
+ <202504092127.YaPW3UWk-lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250409125630.GI1778492@nvidia.com>
+In-Reply-To: <202504092127.YaPW3UWk-lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_065832_650440_03E65947 
-X-CRM114-Status: GOOD (  25.40  )
+X-CRM114-CacheID: sfid-20250409_070415_240394_63BBE567 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,66 +81,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 09:56:30AM -0300, Jason Gunthorpe wrote:
-> On Wed, Apr 09, 2025 at 12:06:27PM +0300, Mike Rapoport wrote:
+On Wed, Apr 09, 2025 at 09:44:42PM +0800, kernel test robot wrote:
+> Hi Lorenzo,
 > 
-> > Now we've settled with terminology, and given that currently memdesc ==
-> > struct page, I think we need kho_preserve_folio(struct *folio) for actual
-> > struct folios and, apparently other high order allocations, and
-> > kho_preserve_pages(struct page *, int nr) for memblock, vmalloc and
-> > alloc_pages_exact.
+> kernel test robot noticed the following build errors:
 > 
-> I'm not sure that is consistent with what Matthew is trying to build,
-> I think we are trying to remove 'struct page' usage, especially for
-> compound pages. Right now, though it is confusing, folio is the right
-> word to encompass both page cache memory and random memdescs from
-> other subsystems.
-
-A disagree about random memdescs, just take a look at struct folio.
- 
-> Maybe next year we will get a memdesc API that will clarify this
-> substantially.
+> [auto build test ERROR on 0af2f6be1b4281385b618cb86ad946eded089ac8]
 > 
-> > On the restore path kho_restore_folio() will recreate multi-order thingy by
-> > doing parts of what prep_new_page() does. And kho_restore_pages() will
-> > recreate order-0 pages as if they were allocated from buddy.
+> url:    https://github.com/intel-lab-lkp/linux/commits/Lorenzo-Pieralisi/Documentation-devicetree-bindings-Add-GICv5-DT-bindings/20250408-190630
+> base:   0af2f6be1b4281385b618cb86ad946eded089ac8
+> patch link:    https://lore.kernel.org/r/20250408-gicv5-host-v1-24-1f26db465f8d%40kernel.org
+> patch subject: [PATCH 24/24] arm64: Kconfig: Enable GICv5
+> config: arm64-randconfig-001-20250409 (https://download.01.org/0day-ci/archive/20250409/202504092127.YaPW3UWk-lkp@intel.com/config)
+> compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 92c93f5286b9ff33f27ff694d2dc33da1c07afdd)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250409/202504092127.YaPW3UWk-lkp@intel.com/reproduce)
 > 
-> I don't see we need two functions, folio should handle 0 order pages
-> just fine, and callers should generally be either not using struct
-> page at all or using their own memdesc/folio.
-
-struct folio is 4 struct pages. I don't see it suitable for order-0 pages
-at all. 
- 
-> If we need a second function it would be a void * function that is for
-> things that need memory but have no interest in the memdesc. Arguably
-> this should be slab preservation. There is a corner case of preserving
-> slab allocations >= PAGE_SIZE that is much simpler than general slab
-> preservation, maybe that would be interesting..
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202504092127.YaPW3UWk-lkp@intel.com/
 > 
-> I think we still don't really know what will be needed, so I'd stick
-> with folio only as that allows building the memfd and a potential slab
-> preservation system.
-
-void * seems to me much more reasonable than folio one as the starting
-point because it allows preserving folios with the right order but it's not
-limited to it. 
-
-I don't mind having kho_preserve_folio() from day 1 and even stretching the
-use case we have right now to use it to preserve FDT memory.
-
-But kho_preserve_folio() does not make sense for reserve_mem and it won't
-make sense for vmalloc.
-
-The weird games slab does with casting back and forth to folio also seem to
-me like transitional and there won't be that folios in slab later.
- 
-> Then we can see where we get to with further patches doing
-> serialization of actual things.
+> All errors (new ones prefixed by >>):
 > 
-> Jason
+> >> drivers/irqchip/irq-gic-v5-iwb.c:298:3: error: cannot jump from this goto statement to its label
+>      298 |                 goto out_free;
+>          |                 ^
+>    drivers/irqchip/irq-gic-v5-iwb.c:300:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
+>      300 |         guard(mutex)(&its->dev_alloc_lock);
 
--- 
-Sincerely yours,
-Mike.
+This is clearly wrong, will update code in the IWB (if we are keeping
+the current IWB driver) and ITS by removing the guard where misused and
+keeping the mutex_lock/unlock().
+
+Lorenzo
+
+>          |         ^
+>    include/linux/cleanup.h:319:15: note: expanded from macro 'guard'
+>      319 |         CLASS(_name, __UNIQUE_ID(guard))
+>          |                      ^
+>    include/linux/compiler.h:166:29: note: expanded from macro '__UNIQUE_ID'
+>      166 | #define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_, prefix), __COUNTER__)
+>          |                             ^
+>    include/linux/compiler_types.h:84:22: note: expanded from macro '__PASTE'
+>       84 | #define __PASTE(a,b) ___PASTE(a,b)
+>          |                      ^
+>    include/linux/compiler_types.h:83:23: note: expanded from macro '___PASTE'
+>       83 | #define ___PASTE(a,b) a##b
+>          |                       ^
+>    <scratch space>:82:1: note: expanded from here
+>       82 | __UNIQUE_ID_guard576
+>          | ^
+>    drivers/irqchip/irq-gic-v5-iwb.c:288:3: error: cannot jump from this goto statement to its label
+>      288 |                 goto out_free;
+>          |                 ^
+>    drivers/irqchip/irq-gic-v5-iwb.c:300:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
+>      300 |         guard(mutex)(&its->dev_alloc_lock);
+>          |         ^
+>    include/linux/cleanup.h:319:15: note: expanded from macro 'guard'
+>      319 |         CLASS(_name, __UNIQUE_ID(guard))
+>          |                      ^
+>    include/linux/compiler.h:166:29: note: expanded from macro '__UNIQUE_ID'
+>      166 | #define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_, prefix), __COUNTER__)
+>          |                             ^
+>    include/linux/compiler_types.h:84:22: note: expanded from macro '__PASTE'
+>       84 | #define __PASTE(a,b) ___PASTE(a,b)
+>          |                      ^
+>    include/linux/compiler_types.h:83:23: note: expanded from macro '___PASTE'
+>       83 | #define ___PASTE(a,b) a##b
+>          |                       ^
+>    <scratch space>:82:1: note: expanded from here
+>       82 | __UNIQUE_ID_guard576
+>          | ^
+>    2 errors generated.
+> 
+> 
+> vim +298 drivers/irqchip/irq-gic-v5-iwb.c
+> 
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  247  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  248  static struct gicv5_iwb_chip_data *
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  249  __init gicv5_iwb_init_bases(void __iomem *iwb_base,
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  250  			     struct fwnode_handle *handle,
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  251  			     struct irq_domain *parent_domain, u32 device_id)
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  252  {
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  253  	u32 nr_wires, idr0, cr0;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  254  	struct gicv5_iwb_chip_data *iwb_node;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  255  	struct msi_domain_info *msi_info;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  256  	struct gicv5_its_chip_data *its;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  257  	struct gicv5_its_dev *its_dev;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  258  	int ret;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  259  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  260  	msi_info = msi_get_domain_info(parent_domain);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  261  	its = msi_info->data;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  262  	if (!its) {
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  263  		pr_warn("IWB %pOF can't find parent ITS, bailing\n",
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  264  			to_of_node(handle));
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  265  		return ERR_PTR(-ENODEV);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  266  	}
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  267  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  268  	iwb_node = kzalloc(sizeof(*iwb_node), GFP_KERNEL);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  269  	if (!iwb_node)
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  270  		return ERR_PTR(-ENOMEM);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  271  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  272  	iwb_node->iwb_base = iwb_base;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  273  	iwb_node->device_id = device_id;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  274  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  275  	idr0 = iwb_readl(iwb_node, GICV5_IWB_IDR0);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  276  	nr_wires = (FIELD_GET(GICV5_IWB_IDR0_IW_RANGE, idr0) + 1) * 32;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  277  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  278  	iwb_node->domain = irq_domain_create_hierarchy(parent_domain, 0,
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  279  			   nr_wires, handle, &gicv5_iwb_irq_domain_ops,
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  280  			   iwb_node);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  281  	irq_domain_update_bus_token(iwb_node->domain, DOMAIN_BUS_WIRED);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  282  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  283  	cr0 = iwb_readl(iwb_node, GICV5_IWB_CR0);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  284  	if (!FIELD_GET(GICV5_IWB_CR0_IWBEN, cr0)) {
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  285  		pr_err("IWB %s must be enabled in firmware\n",
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  286  		       fwnode_get_name(handle));
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  287  		ret = -EINVAL;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  288  		goto out_free;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  289  	}
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  290  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  291  	iwb_node->nr_regs = FIELD_GET(GICV5_IWB_IDR0_IW_RANGE, idr0) + 1;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  292  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  293  	for (unsigned int n = 0; n < iwb_node->nr_regs; n++)
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  294  		iwb_writel(iwb_node, 0, GICV5_IWB_WENABLER + (sizeof(u32) * n));
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  295  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  296  	ret = gicv5_iwb_wait_for_wenabler(iwb_node);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  297  	if (ret)
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08 @298  		goto out_free;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  299  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  300  	guard(mutex)(&its->dev_alloc_lock);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  301  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  302  	its_dev = gicv5_its_alloc_device(its, roundup_pow_of_two(nr_wires),
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  303  					 device_id, true);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  304  	if (IS_ERR(its_dev)) {
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  305  		ret = -ENODEV;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  306  		goto out_free;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  307  	}
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  308  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  309  	return iwb_node;
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  310  out_free:
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  311  	irq_domain_remove(iwb_node->domain);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  312  	kfree(iwb_node);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  313  
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  314  	return ERR_PTR(ret);
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  315  }
+> 6b60a5125729caf Lorenzo Pieralisi 2025-04-08  316  
+> 
+> -- 
+> 0-DAY CI Kernel Test Service
+> https://github.com/intel/lkp-tests/wiki
 
