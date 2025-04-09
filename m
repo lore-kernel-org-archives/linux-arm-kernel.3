@@ -4,109 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2FFFC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA0CC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GT+e0rgk5at2BiS7exBI3n9s8/eUZISH0DmawBVE9Ck=; b=NdE4FPoOrrKxx9s3O6QokXkLaD
-	lASa8vKfOWCXE1hIb1EZz0mqmluqKORGeYxIrVplWq2rZTClhQrvFw6+CKsiXvR6CGC6nzEvvxYpV
-	W3+oXOB2OhDp1W6nUk9Lcuy+OKWjnVKPzlLIZbCQH0YFAQBpxEbktKyLrthmJmVPtOlWoc4Rr2IIW
-	fey7JjOSgAeig59uivnQ3Pe9KVXr/iOqsrDtVPeC7PUgPK1HdJGsBQrEml4ilsCkM5HlDsIFem3D7
-	ya7I5g/ubDplyxf6T5KfoKceVo/Obxm+luKGyjyuJxIzA9s3QucfQSkJWBhcwLhjOgILVT8EPbAqZ
-	pwJJsReA==;
+	bh=csncnQxkT4isvaEGr/OMhIXO14/T9F2TP3E/Vu2E0LI=; b=HyRvFDEvUg2dh0fizYN2ntmOF/
+	hi+Grc46SxrdvaV8w8it4ogfyUyG68IalddeFl24aF6zAcnjQ+C74b7q80pEvmkLdG8mQW3YI+1KZ
+	9y/tUDlu5MMohlivfK+V/wX2sTTN3x+3SK1fIWKGwsUM4KWpQeMjw0DfI8xrvLYEZ/SZtCwm4hdAz
+	QK6cQ6qEhy2Qr2JSnkx0cAENNVKMAH98kWejXdFshJVhYNTAPyv7y+mNQkZvAQDLNF5QRwM3g1Ygb
+	xD1Tordlgn12xJrCcesu/eq1PzmpSckN9LKMKvvL4UAvg6o6+1beON+DfpzgUmeDKlse9FuSReJf3
+	9l5d4uug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Y5g-00000007r7U-3KqV;
-	Wed, 09 Apr 2025 16:15:52 +0000
-Received: from mout.gmx.net ([212.227.17.21])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2XsA-00000007oVd-0QcA
+	id 1u2Y7R-00000007rNi-24kP;
+	Wed, 09 Apr 2025 16:17:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2XtV-00000007ok5-35eq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 16:01:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1744214503; x=1744819303; i=wahrenst@gmx.net;
-	bh=GT+e0rgk5at2BiS7exBI3n9s8/eUZISH0DmawBVE9Ck=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=uh1XqO9m44OLywMw5J3jhDWcs77Cz+bVQp+9fgKs3nfx5wbZmNJez6sm+T/kVtkS
-	 alfyOcM/+iU91cSeARDCZGgzPUc+bVs+lsW32UzaNYxE0zMGh9b4h7tvMzmclJLtf
-	 haSAQlZhWqAdWsE91HBq5CZpRLjMeLgKyiuEQjRf5/o8USje8g/l5Rg4SE/ue1JBC
-	 +UfhFwR92XIAB4MJwQdxWIhpn/DEKKX2JjQWfwsEkI+DXwGaSVj6YuFOw/qIXutpS
-	 LLQvA4h3kI1L2ra0dRdMhQ704HyFhrKk5EWP57DnbIuRrWCQUwqrxuDyhRlBBeJsk
-	 okdS0xNFonCPsLoUMA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MQe5u-1texFJ1NfK-00Nnw3; Wed, 09
- Apr 2025 18:01:43 +0200
-Message-ID: <c67ad9fa-6255-48e8-9537-2fceb0510127@gmx.net>
-Date: Wed, 9 Apr 2025 18:01:40 +0200
+	Wed, 09 Apr 2025 16:03:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52CC115A1;
+	Wed,  9 Apr 2025 09:03:15 -0700 (PDT)
+Received: from [10.57.72.20] (unknown [10.57.72.20])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A4F93F59E;
+	Wed,  9 Apr 2025 09:03:07 -0700 (PDT)
+Message-ID: <0eb87302-fae8-4708-aaf8-d16e836e727f@arm.com>
+Date: Wed, 9 Apr 2025 17:03:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next v4 5/5] ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW
- to support MTIP L2 switch
-To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250407145157.3626463-1-lukma@denx.de>
- <20250407145157.3626463-6-lukma@denx.de>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250407145157.3626463-6-lukma@denx.de>
+Subject: Re: [PATCH hyperv-next 5/6] arch, drivers: Add device struct bitfield
+ to not bounce-buffer
+To: Roman Kisel <romank@linux.microsoft.com>, aleksander.lobakin@intel.com,
+ andriy.shevchenko@linux.intel.com, arnd@arndb.de, bp@alien8.de,
+ catalin.marinas@arm.com, corbet@lwn.net, dakr@kernel.org,
+ dan.j.williams@intel.com, dave.hansen@linux.intel.com, decui@microsoft.com,
+ gregkh@linuxfoundation.org, haiyangz@microsoft.com, hch@lst.de,
+ hpa@zytor.com, James.Bottomley@HansenPartnership.com,
+ Jonathan.Cameron@huawei.com, kys@microsoft.com, leon@kernel.org,
+ lukas@wunner.de, luto@kernel.org, m.szyprowski@samsung.com,
+ martin.petersen@oracle.com, mingo@redhat.com, peterz@infradead.org,
+ quic_zijuhu@quicinc.com, tglx@linutronix.de, wei.liu@kernel.org,
+ will@kernel.org, iommu@lists.linux.dev, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-scsi@vger.kernel.org, x86@kernel.org
+Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com, Suzuki K Poulose <suzuki.poulose@arm.com>
+References: <20250409000835.285105-1-romank@linux.microsoft.com>
+ <20250409000835.285105-6-romank@linux.microsoft.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250409000835.285105-6-romank@linux.microsoft.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:C+u//MOKrD6OdwvSME77qybiBXe8adc+njD77MBHM1ou1SB80g9
- CfCohUvsktjxjtntt5js9Ty3COdHeULgaRnhBHHLgQIAwUJwW5jpBMHhH/y28PpuTcVa0Xt
- NUZzHDi8osc+iFVGUZEnfhgcpRZmvQO63hb/o9UYD2DifW+ODJqnrPlxGgcKLL5f4D8l72r
- DnIvoB9kQQrjxQQ6QPh0A==
-UI-OutboundReport: notjunk:1;M01:P0:h0HaSYSRWiA=;9+RUTCpsfpjtjY9+/fAxrUKZlov
- en9y0HFgHTqcg/tTomRJXXnKDodyPsrawVBHjmREAT+vi9nezDT1o3dXhmnjyrPzCGbiAYqO9
- m5aTfBilljd+4GP8Fd0eiBknFpE/RW2JUKOr7PDqsfZO39RqdMTugoZMcb+KwBN678RNijbUz
- ZadVP+Pagi9G3ek4w6BJ0sJBpNsinoPp9gQXJd9D1E6py+KrLqQ1DCiQBrAGzA2csvJKNocLy
- 2JMgJrGWuEvii3JW/QsZFeyA5tUaOzSr88pHzmb7ppaRdfCnIV14yl4eQInAiz2WoDxkhQJTH
- s1gpWGw0nJPKlNmO96ZOHI6s6UqiITzy++DGlf90aTN83+rW3b8i91D+ZemFvMZSYX5pNIfrD
- l8E5FngLmD/fJ8ZUAgzSN6HEip1IrKv5kjgKjck9bmkl2JAdS+vc0pfmAbpKzY5riUNv156BV
- s8hWUkxFU6hYV+uNK0TcG4akL3K9J/w/XEjWxg44kCZtnvbNCcu8cXY5TA1S/OWtbpr9ph5AP
- SGzz37iNu9PFdnOj6Rxg1tuEwqw0nVe3Hy162pyMiyA+NcEcIwo/0OPRN+iwyLKqjwH8WsgRA
- NRpX6GSN8kW004v22qYLKQmCCltpdN/qSkl+4ZNnTAlixCrnM6kXtyUV9IaVmGRCh/MM8bFgc
- mmdzQz54c6SjBRkFpn4CYW3k2Phw6eqw+VR+9x+8TMRuudOHlE9uf2W+gT6kFv3xMre/HhfQc
- I8/n44itpdaTDiH6SUOGux/r2p3oGL1UVHesvkgZ3YIsO74hU4v/w15PAYJEXOHdZffIsBhnt
- QwjNy7Sst1rMF5e4IwhjH3jQn2JDApo+6FebR8YvrAwocR3e6UNgbHJ4No1rin7af0mjDbB3K
- 6rlODNmQoHCA7fVsqR+gHAUkrBKn/PnPTgfqONjwJPyKnVKK73VUPAdDL3MGcT4wYbH2VRk+j
- J0g1VFdQYwYWj+3gXragNVb8UPO9sVbb/JhMC7lldzzNmeKdPazCtQRqdJiKWlwcJwQBjj5t2
- kHMaXhvqHWkFKxidP1pWXy8xaTgWgBq4iDy4+fsjslurKS1+ImyhEd3WjKeks49/R8rbfjHfx
- 4vdDSHAFYmkbmVXMFlqPYoSq5QPRADXqca+YtIk9s4Ji8KM2fj2ORaO6XwG/DbZrZTPhdZs3C
- +83/UadyftJ02TTSh67jc2cDyhcXfJVQv4tOpefzok3wJ4/J+NbqwIY5/aeGRyrbV9FjJCGzy
- DBTnUeC7Ax/ObUIJxQKeUXFFl0A0RaYDlyRw+sV0iIel4IRQXpFic/v/JrOS72KTUF0MbuIkG
- 7z6szCO/Vdawq8BcPZKS3BigX3DEyDNeEFxkT4wyDMXe9/vas9OF0m/C2wPoqgQwuBJhzivvS
- Rhsm6/vWInQLqWIZhomLfqsRSqrWqaVeYkwCLvzqv7y/wPtGjqw/jTyJ8i+eHSc6S+lW/FtJM
- SMMWrrp2+Er+POSLNtsK24LHUW94=
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_090154_513902_A176FF57 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20250409_090317_868343_E4DDDA2F 
+X-CRM114-Status: GOOD (  25.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,98 +79,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lukasz,
+On 2025-04-09 1:08 am, Roman Kisel wrote:
+> Bounce-buffering makes the system spend more time copying
+> I/O data. When the I/O transaction take place between
+> a confidential and a non-confidential endpoints, there is
+> no other way around.
+> 
+> Introduce a device bitfield to indicate that the device
+> doesn't need to perform bounce buffering. The capable
+> device may employ it to save on copying data around.
 
-Am 07.04.25 um 16:51 schrieb Lukasz Majewski:
-> This patch enables support for More Than IP switch available on some
-> imx28[7] devices.
->
-> Signed-off-by: Lukasz Majewski <lukma@denx.de>
-thanks adding the driver to mxs_defconfig. Unfortunately it's not
-possible for reviewers to identify the relevant changes, also the commit
-messages doesn't provide further information.
+It's not so much about bounce buffering, it's more fundamentally about 
+whether the device is trusted and able to access private memory at all 
+or not. And performance is hardly the biggest concern either - if you do 
+trust a device to operate on confidential data in private memory, then 
+surely it is crucial to actively *prevent* that data ever getting into 
+shared SWIOTLB pages where anyone else could also get at it. At worst 
+that means CoCo VMs might need an *additional* non-shared SWIOTLB to 
+support trusted devices with addressing limitations (and/or 
+"swiotlb=force" debugging, potentially).
 
-In general there are two approaches to solves this:
-1) prepend an additional patch which synchronizes mxs_defconfig with
-current mainline
-2) manually create the relevant changes against mxs_defconfig
+Also whatever we do for this really wants to tie in with the nascent 
+TDISP stuff as well, since we definitely don't want to end up with more 
+than one notion of whether a device is in a trusted/locked/private/etc. 
+vs. unlocked/shared/etc. state with respect to DMA (or indeed anything 
+else if we can avoid it).
 
-The decision about the approaches is up to the maintainer.
+Thanks,
+Robin.
 
-Btw driver review will follow ...
-
-Regards
+> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 > ---
-> Changes for v4:
-> - New patch
-> ---
->   arch/arm/configs/mxs_defconfig | 14 +++-----------
->   1 file changed, 3 insertions(+), 11 deletions(-)
->
-> diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defco=
-nfig
-> index d8a6e43c401e..4dc4306c035f 100644
-> --- a/arch/arm/configs/mxs_defconfig
-> +++ b/arch/arm/configs/mxs_defconfig
-> @@ -32,11 +32,10 @@ CONFIG_INET=3Dy
->   CONFIG_IP_PNP=3Dy
->   CONFIG_IP_PNP_DHCP=3Dy
->   CONFIG_SYN_COOKIES=3Dy
-> -# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
-> -# CONFIG_INET_XFRM_MODE_TUNNEL is not set
-> -# CONFIG_INET_XFRM_MODE_BEET is not set
->   # CONFIG_INET_DIAG is not set
->   # CONFIG_IPV6 is not set
-> +CONFIG_BRIDGE=3Dy
-> +CONFIG_NET_SWITCHDEV=3Dy
->   CONFIG_CAN=3Dm
->   # CONFIG_WIRELESS is not set
->   CONFIG_DEVTMPFS=3Dy
-> @@ -45,7 +44,6 @@ CONFIG_MTD=3Dy
->   CONFIG_MTD_CMDLINE_PARTS=3Dy
->   CONFIG_MTD_BLOCK=3Dy
->   CONFIG_MTD_DATAFLASH=3Dy
-> -CONFIG_MTD_M25P80=3Dy
->   CONFIG_MTD_SST25L=3Dy
->   CONFIG_MTD_RAW_NAND=3Dy
->   CONFIG_MTD_NAND_GPMI_NAND=3Dy
-> @@ -56,11 +54,11 @@ CONFIG_EEPROM_AT24=3Dy
->   CONFIG_SCSI=3Dy
->   CONFIG_BLK_DEV_SD=3Dy
->   CONFIG_NETDEVICES=3Dy
-> +CONFIG_FEC_MTIP_L2SW=3Dy
->   CONFIG_ENC28J60=3Dy
->   CONFIG_ICPLUS_PHY=3Dy
->   CONFIG_MICREL_PHY=3Dy
->   CONFIG_REALTEK_PHY=3Dy
-> -CONFIG_SMSC_PHY=3Dy
->   CONFIG_CAN_FLEXCAN=3Dm
->   CONFIG_USB_USBNET=3Dy
->   CONFIG_USB_NET_SMSC95XX=3Dy
-> @@ -77,13 +75,11 @@ CONFIG_SERIAL_AMBA_PL011=3Dy
->   CONFIG_SERIAL_AMBA_PL011_CONSOLE=3Dy
->   CONFIG_SERIAL_MXS_AUART=3Dy
->   # CONFIG_HW_RANDOM is not set
-> -# CONFIG_I2C_COMPAT is not set
->   CONFIG_I2C_CHARDEV=3Dy
->   CONFIG_I2C_MXS=3Dy
->   CONFIG_SPI=3Dy
->   CONFIG_SPI_GPIO=3Dm
->   CONFIG_SPI_MXS=3Dy
-> -CONFIG_GPIO_SYSFS=3Dy
->   # CONFIG_HWMON is not set
->   CONFIG_WATCHDOG=3Dy
->   CONFIG_STMP3XXX_RTC_WATCHDOG=3Dy
-> @@ -138,10 +134,6 @@ CONFIG_PWM_MXS=3Dy
->   CONFIG_NVMEM_MXS_OCOTP=3Dy
->   CONFIG_EXT4_FS=3Dy
->   # CONFIG_DNOTIFY is not set
-> -CONFIG_NETFS_SUPPORT=3Dm
-> -CONFIG_FSCACHE=3Dy
-> -CONFIG_FSCACHE_STATS=3Dy
-> -CONFIG_CACHEFILES=3Dm
->   CONFIG_VFAT_FS=3Dy
->   CONFIG_TMPFS=3Dy
->   CONFIG_TMPFS_POSIX_ACL=3Dy
+>   arch/x86/mm/mem_encrypt.c  | 3 +++
+>   include/linux/device.h     | 8 ++++++++
+>   include/linux/dma-direct.h | 3 +++
+>   include/linux/swiotlb.h    | 3 +++
+>   4 files changed, 17 insertions(+)
+> 
+> diff --git a/arch/x86/mm/mem_encrypt.c b/arch/x86/mm/mem_encrypt.c
+> index 95bae74fdab2..6349a02a1da3 100644
+> --- a/arch/x86/mm/mem_encrypt.c
+> +++ b/arch/x86/mm/mem_encrypt.c
+> @@ -19,6 +19,9 @@
+>   /* Override for DMA direct allocation check - ARCH_HAS_FORCE_DMA_UNENCRYPTED */
+>   bool force_dma_unencrypted(struct device *dev)
+>   {
+> +	if (dev->use_priv_pages_for_io)
+> +		return false;
+> +
+>   	/*
+>   	 * For SEV, all DMA must be to unencrypted addresses.
+>   	 */
+> diff --git a/include/linux/device.h b/include/linux/device.h
+> index 80a5b3268986..4aa4a6fd9580 100644
+> --- a/include/linux/device.h
+> +++ b/include/linux/device.h
+> @@ -725,6 +725,8 @@ struct device_physical_location {
+>    * @dma_skip_sync: DMA sync operations can be skipped for coherent buffers.
+>    * @dma_iommu: Device is using default IOMMU implementation for DMA and
+>    *		doesn't rely on dma_ops structure.
+> + * @use_priv_pages_for_io: Device is using private pages for I/O, no need to
+> + *		bounce-buffer.
+>    *
+>    * At the lowest level, every device in a Linux system is represented by an
+>    * instance of struct device. The device structure contains the information
+> @@ -843,6 +845,7 @@ struct device {
+>   #ifdef CONFIG_IOMMU_DMA
+>   	bool			dma_iommu:1;
+>   #endif
+> +	bool			use_priv_pages_for_io:1;
+>   };
+>   
+>   /**
+> @@ -1079,6 +1082,11 @@ static inline bool dev_removable_is_valid(struct device *dev)
+>   	return dev->removable != DEVICE_REMOVABLE_NOT_SUPPORTED;
+>   }
+>   
+> +static inline bool dev_priv_pages_for_io(struct device *dev)
+> +{
+> +	return dev->use_priv_pages_for_io;
+> +}
+> +
+>   /*
+>    * High level routines for use by the bus drivers
+>    */
+> diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
+> index d7e30d4f7503..b096369f847e 100644
+> --- a/include/linux/dma-direct.h
+> +++ b/include/linux/dma-direct.h
+> @@ -94,6 +94,9 @@ static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
+>    */
+>   static inline dma_addr_t phys_to_dma(struct device *dev, phys_addr_t paddr)
+>   {
+> +	if (dev_priv_pages_for_io(dev))
+> +		return phys_to_dma_unencrypted(dev, paddr);
+> +
+>   	return __sme_set(phys_to_dma_unencrypted(dev, paddr));
+>   }
+>   
+> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+> index 3dae0f592063..35ee10641b42 100644
+> --- a/include/linux/swiotlb.h
+> +++ b/include/linux/swiotlb.h
+> @@ -173,6 +173,9 @@ static inline bool is_swiotlb_force_bounce(struct device *dev)
+>   {
+>   	struct io_tlb_mem *mem = dev->dma_io_tlb_mem;
+>   
+> +	if (dev_priv_pages_for_io(dev))
+> +		return false;
+> +
+>   	return mem && mem->force_bounce;
+>   }
+>   
 
 
