@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB4FC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9864C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+yFrp1ZF+hh0yGP7lCVX/QPwHtVXDJncz8wZnIlRW68=; b=HsaMxFhX6oKihZ6ImN2Tfifdme
-	AY2EAmCZ2bo68PduUIOIyW0ChsgYXdDWIdhxL//jElNTVdJvP3yTCBHFEfglNseHXLwlNwOV3k1G2
-	1HBq7qlu5pB8lQxQ08Sm7Uqlv9XFOpUy6XNuniUKFS0K6+hk9+gigmVJoa9w9pZViQ6zV9o5fQflV
-	om2XPmohGg1+yQ+BAmX97Eh9p9PmN1XW47uYiKqjA5f7iv8Spn2sPY7FutbPIAr8OMX3J3hvO+oRl
-	Gtv3JSLYo10eedlPWlRLonA3N3sECpgMIRHsVAY5h5ZkX8efo3FNHDkB5G6n5vdeBhcdIJOgbazs+
-	41WBKRVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j1/b7+TVrutN92xs8KsOkwkVcL24fjCmrWSOXpwIFtw=; b=LbnISTQi8tbKMW+ndYpwh+fNaY
+	0MKTl5ytrrGvfVSCmJ5IuX9tiXS+TaulJpS8mQRJpkrKboo+csMpfhY/6ehCUoxJ6EslcswABP0mL
+	k3qK5GWDbl7nV66iePCOxbaHPG3IBwCLlDRnlMkVYt4Q5ETFnWt83NBt8teU+Sv7tmHvcS256uSqN
+	VJ6ZtAJE/e4NObZOLfscuunfKzxNeppOZW0j2eBH0dDaX8hy27W3ChoyOOo1uA0JY0Tbc4OMAwl7N
+	txGmlW8t41c78I3c7BWXsMbin0P5a2k3XFqaMddJsvoqTSdQg3VShn2ugpZhQUq+yJFGcxQBZT1RY
+	wsmmHTww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2WAw-00000007PDC-2zDw;
-	Wed, 09 Apr 2025 14:13:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u2WCh-00000007Phq-1ZnX;
+	Wed, 09 Apr 2025 14:14:59 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2VKl-00000007GrO-1Th0
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 13:19:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D2DA2A4994D;
-	Wed,  9 Apr 2025 13:13:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F353CC4CEE7;
-	Wed,  9 Apr 2025 13:19:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744204754;
-	bh=ny9pPvFJ5Zid+zmKB7nDp5AE59k+FfvC0LsxKtkgDto=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oYiPNUPNRquxwDEcnEDR0gurvjOXJDwRrKViTi0bTN9MxKlniyZtOTGFdtzWnBV1N
-	 cxa7dyL3PCVMjnMAnkUQwFkXKbSDqstnaWgawP9OjCBvqdOZFKw4ZkBz6hPax0VboI
-	 A7T1OHaAOOXkXNB1CbHV1gxRb7JDlBHSCZQ6fuVw6tMJSbFWpB7TN208lKOod0eTA9
-	 pP7gU8drcOYoeLCgLTU8LZ3BdLL9gkJC/vEyM/tF/0WIwXIpAzNaSYzBvWZnTDDI8b
-	 dqX6UPu6kuS3f6ion31atJwZTjavkTM4EmHwnSgbRQspC6GP6JXrA5W6ULuQ/mxonY
-	 7T8sIy5WIw/dQ==
-Date: Wed, 9 Apr 2025 18:49:03 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: Jens Wiklander <jens.wiklander@linaro.org>, akpm@linux-foundation.org,
-	rppt@linux.ibm.com, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org, op-tee@lists.trustedfirmware.org,
+	id 1u2VFG-00000007FDN-32RC;
+	Wed, 09 Apr 2025 13:13:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744204413;
+	bh=9NpPxWWGyAUD2TssDUyW8MljteCI2ab810JCD1PfJ4E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=iN8PPwfBebxXIg/zYI8sbL9S4bDXwWR10HWXIMtZXZyBgYfVcgV/OLe08jZ+3IIg1
+	 VqhxJ/CbsET0dzFL0nw+0XQy56hkufuWAfdsk84DUkpgjW5npviAwYLKC1FGjiR++5
+	 dlQpq9nM2vRrGZeVpG+7Fy1EL4NqPNgwht2ejyEPgWSRFcsJgz5VLdnbyN3MGoLxF3
+	 Uu8UeYjuGPNvbxn4/Gtf+hHRIMWHMpE8ykZGyhdy4qGsFrMlxMfF/hcdePSBnmlOJ1
+	 857soJ3zF1JGUKNNnKXUoEj2d7jkK7gQtVHfWwYekGKRwZORDpXeLhOLef5gHhkmBH
+	 UOkpKFlBNKfaw==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E1FA117E14E7;
+	Wed,  9 Apr 2025 15:13:31 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	ck.hu@mediatek.com,
+	jitao.shi@mediatek.com,
+	jie.qiu@mediatek.com,
+	junzhi.zhao@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>, linux-mm@kvack.org
-Subject: Re: [PATCH v6 09/10] optee: FF-A: dynamic restricted memory
- allocation
-Message-ID: <Z_Zzx8ixuCs2Ste1@sumit-X1>
-References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
- <20250305130634.1850178-10-jens.wiklander@linaro.org>
- <Z-JePo6yGlUgrZkw@sumit-X1>
- <CAHUa44H1MzBLBM+Oeawca52C8PF3uAT0ggbL-zRdnBqj4LYrZg@mail.gmail.com>
- <Z-u8MWNVNy9lLbkK@sumit-X1>
- <561d6050-e24f-4643-806f-8a520e324d11@redhat.com>
+	kernel@collabora.com,
+	dmitry.baryshkov@linaro.org,
+	lewis.liao@mediatek.com,
+	ives.chenjh@mediatek.com,
+	tommyyl.chen@mediatek.com,
+	jason-jh.lin@mediatek.com
+Subject: [PATCH v8 07/23] drm/mediatek: mtk_hdmi: Disgregate function mtk_hdmi_audio_set_param()
+Date: Wed,  9 Apr 2025 15:13:02 +0200
+Message-ID: <20250409131318.108690-8-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250409131318.108690-1-angelogioacchino.delregno@collabora.com>
+References: <20250409131318.108690-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <561d6050-e24f-4643-806f-8a520e324d11@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_061915_526866_26964AA9 
-X-CRM114-Status: GOOD (  50.33  )
+X-CRM114-CacheID: sfid-20250409_061334_905685_82813763 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,155 +96,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks David for your response.
+As a cleanup, and in preparation for splitting common bits of this
+driver, disgregate the code in function mtk_hdmi_audio_set_param()
+to the beginning and end of function mtk_hdmi_audio_hw_params().
 
-On Wed, Apr 09, 2025 at 12:01:21PM +0200, David Hildenbrand wrote:
-> On 01.04.25 12:13, Sumit Garg wrote:
-> > + MM folks to seek guidance here.
-> > 
-> > On Thu, Mar 27, 2025 at 09:07:34AM +0100, Jens Wiklander wrote:
-> > > Hi Sumit,
-> > > 
-> > > On Tue, Mar 25, 2025 at 8:42 AM Sumit Garg <sumit.garg@kernel.org> wrote:
-> > > > 
-> > > > On Wed, Mar 05, 2025 at 02:04:15PM +0100, Jens Wiklander wrote:
-> > > > > Add support in the OP-TEE backend driver dynamic restricted memory
-> > > > > allocation with FF-A.
-> > > > > 
-> > > > > The restricted memory pools for dynamically allocated restrict memory
-> > > > > are instantiated when requested by user-space. This instantiation can
-> > > > > fail if OP-TEE doesn't support the requested use-case of restricted
-> > > > > memory.
-> > > > > 
-> > > > > Restricted memory pools based on a static carveout or dynamic allocation
-> > > > > can coexist for different use-cases. We use only dynamic allocation with
-> > > > > FF-A.
-> > > > > 
-> > > > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > > > > ---
-> > > > >   drivers/tee/optee/Makefile        |   1 +
-> > > > >   drivers/tee/optee/ffa_abi.c       | 143 ++++++++++++-
-> > > > >   drivers/tee/optee/optee_private.h |  13 +-
-> > > > >   drivers/tee/optee/rstmem.c        | 329 ++++++++++++++++++++++++++++++
-> > > > >   4 files changed, 483 insertions(+), 3 deletions(-)
-> > > > >   create mode 100644 drivers/tee/optee/rstmem.c
-> > > > > 
-> > 
-> > <snip>
-> > 
-> > > > > diff --git a/drivers/tee/optee/rstmem.c b/drivers/tee/optee/rstmem.c
-> > > > > new file mode 100644
-> > > > > index 000000000000..ea27769934d4
-> > > > > --- /dev/null
-> > > > > +++ b/drivers/tee/optee/rstmem.c
-> > > > > @@ -0,0 +1,329 @@
-> > > > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > > > +/*
-> > > > > + * Copyright (c) 2025, Linaro Limited
-> > > > > + */
-> > > > > +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-> > > > > +
-> > > > > +#include <linux/errno.h>
-> > > > > +#include <linux/genalloc.h>
-> > > > > +#include <linux/slab.h>
-> > > > > +#include <linux/string.h>
-> > > > > +#include <linux/tee_core.h>
-> > > > > +#include <linux/types.h>
-> > > > > +#include "optee_private.h"
-> > > > > +
-> > > > > +struct optee_rstmem_cma_pool {
-> > > > > +     struct tee_rstmem_pool pool;
-> > > > > +     struct gen_pool *gen_pool;
-> > > > > +     struct optee *optee;
-> > > > > +     size_t page_count;
-> > > > > +     u16 *end_points;
-> > > > > +     u_int end_point_count;
-> > > > > +     u_int align;
-> > > > > +     refcount_t refcount;
-> > > > > +     u32 use_case;
-> > > > > +     struct tee_shm *rstmem;
-> > > > > +     /* Protects when initializing and tearing down this struct */
-> > > > > +     struct mutex mutex;
-> > > > > +};
-> > > > > +
-> > > > > +static struct optee_rstmem_cma_pool *
-> > > > > +to_rstmem_cma_pool(struct tee_rstmem_pool *pool)
-> > > > > +{
-> > > > > +     return container_of(pool, struct optee_rstmem_cma_pool, pool);
-> > > > > +}
-> > > > > +
-> > > > > +static int init_cma_rstmem(struct optee_rstmem_cma_pool *rp)
-> > > > > +{
-> > > > > +     int rc;
-> > > > > +
-> > > > > +     rp->rstmem = tee_shm_alloc_cma_phys_mem(rp->optee->ctx, rp->page_count,
-> > > > > +                                             rp->align);
-> > > > > +     if (IS_ERR(rp->rstmem)) {
-> > > > > +             rc = PTR_ERR(rp->rstmem);
-> > > > > +             goto err_null_rstmem;
-> > > > > +     }
-> > > > > +
-> > > > > +     /*
-> > > > > +      * TODO unmap the memory range since the physical memory will
-> > > > > +      * become inaccesible after the lend_rstmem() call.
-> > > > > +      */
-> > > > 
-> > > > What's your plan for this TODO? I think we need a CMA allocator here
-> > > > which can allocate un-mapped memory such that any cache speculation
-> > > > won't lead to CPU hangs once the memory restriction comes into picture.
-> > > 
-> > > What happens is platform-specific. For some platforms, it might be
-> > > enough to avoid explicit access. Yes, a CMA allocator with unmapped
-> > > memory or where memory can be unmapped is one option.
-> > 
-> > Did you get a chance to enable real memory protection on RockPi board?
-> > This will atleast ensure that mapped restricted memory without explicit
-> > access works fine. Since otherwise once people start to enable real
-> > memory restriction in OP-TEE, there can be chances of random hang ups
-> > due to cache speculation.
-> > 
-> > MM folks,
-> > 
-> > Basically what we are trying to achieve here is a "no-map" DT behaviour
-> > [1] which is rather dynamic in  nature. The use-case here is that a memory
-> > block allocated from CMA can be marked restricted at runtime where we
-> > would like the Linux not being able to directly or indirectly (cache
-> > speculation) access it. Once memory restriction use-case has been
-> > completed, the memory block can be marked as normal and freed for
-> > further CMA allocation.
-> > 
-> > It will be apprciated if you can guide us regarding the appropriate APIs
-> > to use for un-mapping/mamping CMA allocations for this use-case.
-> 
-> Can we get some more information why that is even required, so we can decide
-> if that is even the right thing to do? :)
+In a later commit, the hw_params callback function will also be
+disgregated so that the code will get two functions: one that
+performs the generic hdmi_audio_param copy, and one that performs
+IP specific setup, both of which will be called in the callback,
+allowing all of the non IP version specific code to get moved in
+a common file.
 
-The main reason which I can see is for memory re-use. Although we should
-be able to carve out memory during boot and then mark it restricted for
-the entire boot cycle but without re-use. Especially for secure media
-pipeline use-case where the video buffers can be sufficiently large
-enough which will benefit from memory re-use.
+Reviewed-by: CK Hu <ck.hu@mediatek.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 26 +++++++++++---------------
+ 1 file changed, 11 insertions(+), 15 deletions(-)
 
-> 
-> Who would mark the memory block as restricted and for which purpose?
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+index 190334aa7624..a707d101b33c 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+@@ -1045,20 +1045,6 @@ static void mtk_hdmi_audio_disable(struct mtk_hdmi *hdmi)
+ 	hdmi->audio_enable = false;
+ }
+ 
+-static int mtk_hdmi_audio_set_param(struct mtk_hdmi *hdmi,
+-				    struct hdmi_audio_param *param)
+-{
+-	if (!hdmi->audio_enable) {
+-		dev_err(hdmi->dev, "hdmi audio is in disable state!\n");
+-		return -EINVAL;
+-	}
+-	dev_dbg(hdmi->dev, "codec:%d, input:%d, channel:%d, fs:%d\n",
+-		param->aud_codec, param->aud_input_type,
+-		param->aud_input_chan_type, param->codec_params.sample_rate);
+-	memcpy(&hdmi->aud_param, param, sizeof(*param));
+-	return mtk_hdmi_aud_output_config(hdmi, &hdmi->mode);
+-}
+-
+ static int mtk_hdmi_output_set_display_mode(struct mtk_hdmi *hdmi,
+ 					    struct drm_display_mode *mode)
+ {
+@@ -1476,6 +1462,11 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
+ 	struct hdmi_audio_param hdmi_params;
+ 	unsigned int chan = params->cea.channels;
+ 
++	if (!hdmi->audio_enable) {
++		dev_err(hdmi->dev, "hdmi audio is in disable state!\n");
++		return -EINVAL;
++	}
++
+ 	dev_dbg(hdmi->dev, "%s: %u Hz, %d bit, %d channels\n", __func__,
+ 		params->sample_rate, params->sample_width, chan);
+ 
+@@ -1536,8 +1527,13 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
+ 
+ 	memcpy(&hdmi_params.codec_params, params,
+ 	       sizeof(hdmi_params.codec_params));
++	memcpy(&hdmi->aud_param, &hdmi_params, sizeof(hdmi_params));
++
++	dev_dbg(hdmi->dev, "codec:%d, input:%d, channel:%d, fs:%d\n",
++		hdmi_params.aud_codec, hdmi_params.aud_input_type,
++		hdmi_params.aud_input_chan_type, hdmi_params.codec_params.sample_rate);
+ 
+-	mtk_hdmi_audio_set_param(hdmi, &hdmi_params);
++	mtk_hdmi_aud_output_config(hdmi, &hdmi->mode);
+ 
+ 	return 0;
+ }
+-- 
+2.49.0
 
-It will be the higher privileged firmware/Trusted OS which can either be
-the running on same CPU with higher privileges like Arm TrustZone or a
-separate co-processor like AMD-TEE etc. The purpose is for secure media
-pipeline, trusted UI or secure crypto use-cases where essentially the
-motivation is that the Linux kernel shouldn't be able to access
-decrypted content or key material in plain format but rather only the
-allowed peripherals like media pipeline, crypto accelerators etc. able to
-access them.
-
-> 
-> In arch/powerpc/platforms/powernv/memtrace.c we have some arch-specific code
-> to remove the directmap after alloc_contig_pages(). See
-> memtrace_alloc_node(). But it's very arch-specific ...
-
-Thanks for the reference, we are looking for something like that but
-with generic code along with capability to remap when the restricted
-memory block is freed and available for normal kernel usage.
-
--Sumit
 
