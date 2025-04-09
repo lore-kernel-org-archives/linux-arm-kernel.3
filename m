@@ -4,63 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A705C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 09:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD175C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 09:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JbZfGnrvBueNORnoSftkfcnFH2EaJcpNVy3WYXrCzaA=; b=S1P3ssNIfOXIcY863nmr2UcISM
-	3ksJ3kFxcOzfzTj4AuKXJIXehXxhnvxgeF/ITd4xtGnhIqy9ruqVraN97OAWkXY2KziqB/JSbtX8q
-	j8b0yzXAY4vvHCey28qx1tkAA/1Wrthb6I/+6Mad9uZnX9QisGTVFiAgOMJ0s5TCMJ/vOMZOMHyb9
-	SGnTJ6ZNfizCvZ+9X2Tc/3jw1tC2V4gO0529415eVrPi+maiYpaYtj5jbQDBuGI83tAIXiSSZ+pHD
-	nC1D0b9ql1E0PQ3d7XeHDyg4NMr0qA/jkV1X9XFTbK0vnTT9OyXdorfEuODI26OLSeGx8AO3qd1Be
-	9BTAmicw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BwJ4JjVuW0owDIj4lhQZlNw78vzSAnna/M+1aYgN5Ps=; b=dy1781McL/ET6tzAwZwru2MdGN
+	PFKnaz7mSy9jSmRfALOOQ+FHFxj6rvXziMowN2ipqZFj1YOrrAjXrmQ/q0GIjLGJxqv9wVZu9EUaL
+	sMqOkGTapKQBSTOItJ+8DENYJmi3rGAtJI+hmtXFX+g7th1huW1oXaI0DQD4G1qiK7fjZXNexX3Ob
+	0clb16GAei45Sk+kC0tnnq++gbDd2CC+SUyQ51gRi8CWHz/ITFfYkxXQ2oWXkdJLekHp/5JCNi4YC
+	1uyLgOonMLQfYIVfMYEEb12YcY2Wr2rusONAb0B46cUv/GiHjDG97b2+bDoPx1lt6aQ8ItCUFBImt
+	0yGIhZ8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2S7G-00000006kon-1ays;
-	Wed, 09 Apr 2025 09:53:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u2S91-00000006lCI-1PPI;
+	Wed, 09 Apr 2025 09:54:55 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2S24-00000006kDD-1BQ6;
-	Wed, 09 Apr 2025 09:47:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A07C25C4B8C;
-	Wed,  9 Apr 2025 09:45:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3018C4CEE3;
-	Wed,  9 Apr 2025 09:47:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744192063;
-	bh=/2IpQ7sVRJq6Vf3T0EIcS5Weg2qoJKPSVQKt4cZ1a14=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qQ+/zyZ8TKmTQ1l+wh6SWcb0ujI26BF4IEFofB5LG+keabefs3I5xbHInKVg0CudT
-	 R66hwF/0dK0eYYtZnqFyswRUmzBB8n2V/uY/p4gUKZ1KFn6Ua9UBZt1shJ8zdDrD/i
-	 GkUdbPi3hyJMjvutyOl4u0F9CbKhJqfBboCe0fP+L5fjBPyjtnV3z0TmpNhk/IMUzV
-	 JXM/9yZ/HMLem2/VIrsIUBEF7h7k0dBud535g+CtqPHCQrpogy4Nfwk94P53ZJXUnC
-	 3sT7dlj/h74ImezgslNtxpC6+qeOI+0pSZRVwR5Z7jDPrCUg393PYO/MGXC60/eSJK
-	 Oe3MJ6kKtGrwA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 09 Apr 2025 11:47:15 +0200
-Subject: [PATCH net-next v2 2/2] net: airoha: Add L2 hw acceleration
- support
+	id 1u2S6I-00000006kiN-313g
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Apr 2025 09:52:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1744192326; x=1775728326;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=BwJ4JjVuW0owDIj4lhQZlNw78vzSAnna/M+1aYgN5Ps=;
+  b=LtDM+OtTEXWu75O265vqtEdTepPWxlecFxciDJTtk4JB+8PuDGZLzYWV
+   9Iy/RRPG3yoDS4r8x5z/GUh7ojoFT3IVJJI8r/yWVOpQud5oRHzaXv5r6
+   UfRPRyVvqVjivs2avHWYyjtF9AKRXCKz97Sl3MWdWMwGBpj8/LvExKrD9
+   BbZx1TbPaC250RLnXYBqZuVqmDDSMKKKwWXmtPoWTo3qxz6jfydebxGPa
+   mX8PFyqA19XCBluuKm7p7KAGNdpiEaJkSZYTS257l8d9jtvTbDf4Cwt9Q
+   dOk+db926hIlfzQvEVxBRoNeTJwR99iwlI91NH4yNfLFGxXrXdMeCyBgM
+   Q==;
+X-CSE-ConnectionGUID: Oz1g1cdlSxCyk3H/RQxwwg==
+X-CSE-MsgGUID: s+m6D76ZTvW8PCwplIMQ+g==
+X-IronPort-AV: E=Sophos;i="6.15,200,1739833200"; 
+   d="scan'208";a="43425007"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 09 Apr 2025 11:52:01 +0200
+X-CheckPoint: {67F64341-30-DC4DC9A0-F4F29281}
+X-MAIL-CPID: 40F2E6F11F590AF8BB2A12417A0B3E0A_0
+X-Control-Analysis: str=0001.0A006376.67F64345.0015,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EC7421654E8;
+	Wed,  9 Apr 2025 11:51:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1744192316;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BwJ4JjVuW0owDIj4lhQZlNw78vzSAnna/M+1aYgN5Ps=;
+	b=m3kLtg1vBRoGo0pR0MXT0M8ZSUwba+jbDz1IMwSPGBjId/gF8IE86yru8BpBXkk+DIt85W
+	SDKLZeyBByFKQBs7E9gNrPJtx0PmM2bd+RipFes0x8kzB4iqxfjRFcNU2qYksVPuerP1/N
+	+ZgTIKD7AikoGY0utgvP5QXoHrce8loqv2mRPVx6qY5fywABfYzUhgO+/BMWVmN8I3wMHd
+	aL+tJV7ZL5TDTAG2+ztEVXSkCCu2QJgJHpZDEDw0c1XPODc3H8zmpXFzk4bHxlHnPMcly7
+	0gjDCZziULkjEV9Xau0kEXJqNHbyVdXgabnndPDhUGPXv1uxTXwFg9jyFe2e3A==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
+ kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org,
+ bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+ Richard Zhu <hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v5 3/7] PCI: imx6: Toggle the cold reset for i.MX95 PCIe
+Date: Wed, 09 Apr 2025 11:51:53 +0200
+Message-ID: <2989817.e9J7NaK4W3@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250408025930.1863551-4-hongxing.zhu@nxp.com>
+References: <20250408025930.1863551-1-hongxing.zhu@nxp.com>
+ <20250408025930.1863551-4-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250409-airoha-flowtable-l2b-v2-2-4a1e3935ea92@kernel.org>
-References: <20250409-airoha-flowtable-l2b-v2-0-4a1e3935ea92@kernel.org>
-In-Reply-To: <20250409-airoha-flowtable-l2b-v2-0-4a1e3935ea92@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_024744_415271_563659C3 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20250409_025207_275768_70690F36 
+X-CRM114-Status: GOOD (  22.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,259 +101,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to mtk driver, introduce the capability to offload L2 traffic
-defining flower rules in the PSE/PPE engine available on EN7581 SoC.
-Since the hw always reports L2/L3/L4 flower rules, link all L2 rules
-sharing the same L2 info (with different L3/L4 info) in the L2 subflows
-list of a given L2 PPE entry.
+Hi,
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c |   2 +-
- drivers/net/ethernet/airoha/airoha_eth.h |   9 ++-
- drivers/net/ethernet/airoha/airoha_ppe.c | 121 +++++++++++++++++++++++++++----
- 3 files changed, 115 insertions(+), 17 deletions(-)
+Am Dienstag, 8. April 2025, 04:59:26 CEST schrieb Richard Zhu:
+> Add the cold reset toggle for i.MX95 PCIe to align PHY's power up sequenc=
+y.
+>=20
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 42 +++++++++++++++++++++++++++
+>  1 file changed, 42 insertions(+)
+>=20
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controll=
+er/dwc/pci-imx6.c
+> index c5871c3d4194..7c60b712480a 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -71,6 +71,9 @@
+>  #define IMX95_SID_MASK				GENMASK(5, 0)
+>  #define IMX95_MAX_LUT				32
+> =20
+> +#define IMX95_PCIE_RST_CTRL			0x3010
+> +#define IMX95_PCIE_COLD_RST			BIT(0)
+> +
+>  #define to_imx_pcie(x)	dev_get_drvdata((x)->dev)
+> =20
+>  enum imx_pcie_variants {
+> @@ -773,6 +776,43 @@ static int imx7d_pcie_core_reset(struct imx_pcie *im=
+x_pcie, bool assert)
+>  	return 0;
+>  }
+> =20
+> +static int imx95_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+> +{
+> +	u32 val;
+> +
+> +	if (assert) {
+> +		/*
+> +		 * From i.MX95 PCIe PHY perspective, the COLD reset toggle
+> +		 * should be complete after power-up by the following sequence.
+> +		 *                 > 10us(at power-up)
+> +		 *                 > 10ns(warm reset)
+> +		 *               |<------------>|
+> +		 *                ______________
+> +		 * phy_reset ____/              \________________
+> +		 *                                   ____________
+> +		 * ref_clk_en_______________________/
+> +		 * Toggle COLD reset aligned with this sequence for i.MX95 PCIe.
+> +		 */
+> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
+> +				IMX95_PCIE_COLD_RST);
+> +		/*
+> +		 * Make sure the write to IMX95_PCIE_RST_CTRL is flushed to the
+> +		 * hardware by doing a read. Otherwise, there is no guarantee
+> +		 * that the write has reached the hardware before udelay().
+> +		 */
+> +		regmap_read_bypassed(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
+> +				     &val);
+> +		udelay(15);
+> +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
+> +				  IMX95_PCIE_COLD_RST);
+> +		regmap_read_bypassed(imx_pcie->iomuxc_gpr, IMX95_PCIE_RST_CTRL,
+> +				     &val);
+> +		udelay(10);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+>  	reset_control_assert(imx_pcie->pciephy_reset);
+> @@ -1739,6 +1779,7 @@ static const struct imx_pcie_drvdata drvdata[] =3D {
+>  		.ltssm_mask =3D IMX95_PCIE_LTSSM_EN,
+>  		.mode_off[0]  =3D IMX95_PE0_GEN_CTRL_1,
+>  		.mode_mask[0] =3D IMX95_PCIE_DEVICE_TYPE,
+> +		.core_reset =3D imx95_pcie_core_reset,
+>  		.init_phy =3D imx95_pcie_init_phy,
+>  	},
+>  	[IMX8MQ_EP] =3D {
+> @@ -1792,6 +1833,7 @@ static const struct imx_pcie_drvdata drvdata[] =3D {
+>  		.mode_off[0]  =3D IMX95_PE0_GEN_CTRL_1,
+>  		.mode_mask[0] =3D IMX95_PCIE_DEVICE_TYPE,
+>  		.init_phy =3D imx95_pcie_init_phy,
+> +		.core_reset =3D imx95_pcie_core_reset,
+>  		.epc_features =3D &imx95_pcie_epc_features,
+>  		.mode =3D DW_PCIE_EP_TYPE,
+>  	},
+>=20
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index d748dc6de92367365db9f9548f9af52a7fdac187..723eba7cfa0cf405dc2ef9248b34bf6af897ceed 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -694,7 +694,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 
- 		reason = FIELD_GET(AIROHA_RXD4_PPE_CPU_REASON, msg1);
- 		if (reason == PPE_CPU_REASON_HIT_UNBIND_RATE_REACHED)
--			airoha_ppe_check_skb(eth->ppe, hash);
-+			airoha_ppe_check_skb(eth->ppe, q->skb, hash);
- 
- 		done++;
- 		napi_gro_receive(&q->napi, q->skb);
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 86e08832246dfdc4fc448a8aeceb7032d633e812..e82abfc1a67bda7f675342327ae07601d81f2b8f 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -431,10 +431,14 @@ enum airoha_flow_entry_type {
- struct airoha_flow_table_entry {
- 	union {
- 		struct hlist_node list; /* PPE L3 flow entry */
--		struct rhash_head l2_node; /* L2 flow entry */
-+		struct {
-+			struct rhash_head l2_node;  /* L2 flow entry */
-+			struct hlist_head l2_flows; /* PPE L2 subflows list */
-+		};
- 	};
- 
- 	struct airoha_foe_entry data;
-+	struct hlist_node l2_subflow_node; /* PPE L2 subflow entry */
- 	u32 hash;
- 
- 	enum airoha_flow_entry_type type;
-@@ -548,7 +552,8 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val);
- bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 			      struct airoha_gdm_port *port);
- 
--void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash);
-+void airoha_ppe_check_skb(struct airoha_ppe *ppe, struct sk_buff *skb,
-+			  u16 hash);
- int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
- 				 void *cb_priv);
- int airoha_ppe_init(struct airoha_eth *eth);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 7219125ade134614d12bfad3f02b48392962d88f..d4969c2a03524253ace346dd6d862981ebfb44ed 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -204,6 +204,15 @@ static int airoha_get_dsa_port(struct net_device **dev)
- #endif
- }
- 
-+static void airoha_ppe_foe_set_bridge_addrs(struct airoha_foe_bridge *br,
-+					    struct ethhdr *eh)
-+{
-+	br->dest_mac_hi = get_unaligned_be32(eh->h_dest);
-+	br->dest_mac_lo = get_unaligned_be16(eh->h_dest + 4);
-+	br->src_mac_hi = get_unaligned_be16(eh->h_source);
-+	br->src_mac_lo = get_unaligned_be32(eh->h_source + 2);
-+}
-+
- static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
- 					struct airoha_foe_entry *hwe,
- 					struct net_device *dev, int type,
-@@ -254,13 +263,7 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
- 
- 	qdata = FIELD_PREP(AIROHA_FOE_SHAPER_ID, 0x7f);
- 	if (type == PPE_PKT_TYPE_BRIDGE) {
--		hwe->bridge.dest_mac_hi = get_unaligned_be32(data->eth.h_dest);
--		hwe->bridge.dest_mac_lo =
--			get_unaligned_be16(data->eth.h_dest + 4);
--		hwe->bridge.src_mac_hi =
--			get_unaligned_be16(data->eth.h_source);
--		hwe->bridge.src_mac_lo =
--			get_unaligned_be32(data->eth.h_source + 2);
-+		airoha_ppe_foe_set_bridge_addrs(&hwe->bridge, &data->eth);
- 		hwe->bridge.data = qdata;
- 		hwe->bridge.ib2 = val;
- 		l2 = &hwe->bridge.l2.common;
-@@ -385,6 +388,19 @@ static u32 airoha_ppe_foe_get_entry_hash(struct airoha_foe_entry *hwe)
- 		hv3 = hwe->ipv6.src_ip[1] ^ hwe->ipv6.dest_ip[1];
- 		hv3 ^= hwe->ipv6.src_ip[0];
- 		break;
-+	case PPE_PKT_TYPE_BRIDGE: {
-+		struct airoha_foe_mac_info *l2 = &hwe->bridge.l2;
-+
-+		hv1 = l2->common.src_mac_hi & 0xffff;
-+		hv1 = hv1 << 16 | l2->src_mac_lo;
-+
-+		hv2 = l2->common.dest_mac_lo;
-+		hv2 = hv2 << 16;
-+		hv2 = hv2 | ((l2->common.src_mac_hi & 0xffff0000) >> 16);
-+
-+		hv3 = l2->common.dest_mac_hi;
-+		break;
-+	}
- 	case PPE_PKT_TYPE_IPV4_DSLITE:
- 	case PPE_PKT_TYPE_IPV6_6RD:
- 	default:
-@@ -496,15 +512,24 @@ static void airoha_ppe_foe_remove_flow(struct airoha_ppe *ppe,
- 		airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash);
- 		e->hash = 0xffff;
- 	}
-+	if (e->type == FLOW_TYPE_L2_SUBFLOW) {
-+		hlist_del_init(&e->l2_subflow_node);
-+		kfree(e);
-+	}
- }
- 
- static void airoha_ppe_foe_remove_l2_flow(struct airoha_ppe *ppe,
- 					  struct airoha_flow_table_entry *e)
- {
-+	struct hlist_head *head = &e->l2_flows;
-+	struct hlist_node *n;
-+
- 	lockdep_assert_held(&ppe_lock);
- 
- 	rhashtable_remove_fast(&ppe->l2_flows, &e->l2_node,
- 			       airoha_l2_flow_table_params);
-+	hlist_for_each_entry_safe(e, n, head, l2_subflow_node)
-+		airoha_ppe_foe_remove_flow(ppe, e);
- }
- 
- static void airoha_ppe_foe_flow_remove_entry(struct airoha_ppe *ppe,
-@@ -520,10 +545,56 @@ static void airoha_ppe_foe_flow_remove_entry(struct airoha_ppe *ppe,
- 	spin_unlock_bh(&ppe_lock);
- }
- 
--static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe, u32 hash)
-+static int
-+airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
-+				    struct airoha_flow_table_entry *e,
-+				    u32 hash)
-+{
-+	u32 mask = AIROHA_FOE_IB1_BIND_PACKET_TYPE | AIROHA_FOE_IB1_BIND_UDP;
-+	struct airoha_foe_entry *hwe_p, hwe;
-+	struct airoha_flow_table_entry *f;
-+	struct airoha_foe_mac_info *l2;
-+	int type;
-+
-+	hwe_p = airoha_ppe_foe_get_entry(ppe, hash);
-+	if (!hwe_p)
-+		return -EINVAL;
-+
-+	f = kzalloc(sizeof(*f), GFP_ATOMIC);
-+	if (!f)
-+		return -ENOMEM;
-+
-+	hlist_add_head(&f->l2_subflow_node, &e->l2_flows);
-+	f->type = FLOW_TYPE_L2_SUBFLOW;
-+	f->hash = hash;
-+
-+	memcpy(&hwe, hwe_p, sizeof(*hwe_p));
-+	hwe.ib1 = (hwe.ib1 & mask) | (e->data.ib1 & ~mask);
-+	l2 = &hwe.bridge.l2;
-+	memcpy(l2, &e->data.bridge.l2, sizeof(*l2));
-+
-+	type = FIELD_GET(AIROHA_FOE_IB1_BIND_PACKET_TYPE, hwe.ib1);
-+	if (type == PPE_PKT_TYPE_IPV4_HNAPT)
-+		memcpy(&hwe.ipv4.new_tuple, &hwe.ipv4.orig_tuple,
-+		       sizeof(hwe.ipv4.new_tuple));
-+	else if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T &&
-+		 l2->common.etype == ETH_P_IP)
-+		l2->common.etype = ETH_P_IPV6;
-+
-+	hwe.bridge.ib2 = e->data.bridge.ib2;
-+	airoha_ppe_foe_commit_entry(ppe, &hwe, hash);
-+
-+	return 0;
-+}
-+
-+static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
-+					struct sk_buff *skb,
-+					u32 hash)
- {
- 	struct airoha_flow_table_entry *e;
-+	struct airoha_foe_bridge br = {};
- 	struct airoha_foe_entry *hwe;
-+	bool commit_done = false;
- 	struct hlist_node *n;
- 	u32 index, state;
- 
-@@ -539,12 +610,33 @@ static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe, u32 hash)
- 
- 	index = airoha_ppe_foe_get_entry_hash(hwe);
- 	hlist_for_each_entry_safe(e, n, &ppe->foe_flow[index], list) {
--		if (airoha_ppe_foe_compare_entry(e, hwe)) {
--			airoha_ppe_foe_commit_entry(ppe, &e->data, hash);
--			e->hash = hash;
--			break;
-+		if (e->type == FLOW_TYPE_L2_SUBFLOW) {
-+			state = FIELD_GET(AIROHA_FOE_IB1_BIND_STATE, hwe->ib1);
-+			if (state != AIROHA_FOE_STATE_BIND) {
-+				e->hash = 0xffff;
-+				airoha_ppe_foe_remove_flow(ppe, e);
-+			}
-+			continue;
-+		}
-+
-+		if (commit_done || !airoha_ppe_foe_compare_entry(e, hwe)) {
-+			e->hash = 0xffff;
-+			continue;
- 		}
-+
-+		airoha_ppe_foe_commit_entry(ppe, &e->data, hash);
-+		commit_done = true;
-+		e->hash = hash;
- 	}
-+
-+	if (commit_done)
-+		goto unlock;
-+
-+	airoha_ppe_foe_set_bridge_addrs(&br, eth_hdr(skb));
-+	e = rhashtable_lookup_fast(&ppe->l2_flows, &br,
-+				   airoha_l2_flow_table_params);
-+	if (e)
-+		airoha_ppe_foe_commit_subflow_entry(ppe, e, hash);
- unlock:
- 	spin_unlock_bh(&ppe_lock);
- }
-@@ -899,7 +991,8 @@ int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
- 	return err;
- }
- 
--void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash)
-+void airoha_ppe_check_skb(struct airoha_ppe *ppe, struct sk_buff *skb,
-+			  u16 hash)
- {
- 	u16 now, diff;
- 
-@@ -912,7 +1005,7 @@ void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash)
- 		return;
- 
- 	ppe->foe_check_time[hash] = now;
--	airoha_ppe_foe_insert_entry(ppe, hash);
-+	airoha_ppe_foe_insert_entry(ppe, skb, hash);
- }
- 
- int airoha_ppe_init(struct airoha_eth *eth)
+This change introduces an invalid memory access on my platform. There is not
+even a PCIe device attached to it.
 
--- 
-2.49.0
+> imx6q-pcie 4c380000.pcie: host bridge /soc/pcie@4c380000 ranges:
+> imx6q-pcie 4c300000.pcie: host bridge /soc/pcie@4c300000 ranges:
+> imx6q-pcie 4c380000.pcie:       IO 0x088ff00000..0x088fffffff -> 0x000000=
+0000
+> imx6q-pcie 4c300000.pcie:       IO 0x006ff00000..0x006fffffff -> 0x000000=
+0000
+> imx6q-pcie 4c380000.pcie:      MEM 0x0a10000000..0x0a1fffffff -> 0x001000=
+0000
+> imx6q-pcie 4c300000.pcie:      MEM 0x0910000000..0x091fffffff -> 0x001000=
+0000
+> imx6q-pcie 4c380000.pcie: config reg[1] 0x880100000 =3D=3D cpu 0x880100000
+> ; no fixup was ever needed for this devicetree
+> imx6q-pcie 4c300000.pcie: config reg[1] 0x60100000 =3D=3D cpu 0x60100000
+> ; no fixup was ever needed for this devicetree
+> Unable to handle kernel paging request at virtual address ffff800081dc5010
+> Unable to handle kernel paging request at virtual address ffff8000821bd010
+> Mem abort info:
+>=20
+> Mem abort info:
+>   ESR =3D 0x0000000096000007
+>   ESR =3D 0x0000000096000007
+>   EC =3D 0x25: DABT (current EL), IL =3D 32 bits
+>   EC =3D 0x25: DABT (current EL), IL =3D 32 bits
+>=20
+> fsl_enetc_mdio 0003:01:00.0: enabling device (0000 -> 0002)
+>=20
+>   SET =3D 0, FnV =3D 0
+>   SET =3D 0, FnV =3D 0
+>   EA =3D 0, S1PTW =3D 0
+>   EA =3D 0, S1PTW =3D 0
+>   FSC =3D 0x07: level 3 translation fault
+>   FSC =3D 0x07: level 3 translation fault
+>=20
+> Data abort info:
+>=20
+> Data abort info:
+>   ISV =3D 0, ISS =3D 0x00000007, ISS2 =3D 0x00000000
+>   ISV =3D 0, ISS =3D 0x00000007, ISS2 =3D 0x00000000
+>   CM =3D 0, WnR =3D 0, TnD =3D 0, TagAccess =3D 0
+>   CM =3D 0, WnR =3D 0, TnD =3D 0, TagAccess =3D 0
+>   GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, Xs =3D 0
+>   GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, Xs =3D 0
+>=20
+> swapper pgtable: 4k pages, 48-bit VAs, pgdp=3D0000000091a47000
+> swapper pgtable: 4k pages, 48-bit VAs, pgdp=3D0000000091a47000
+> [ffff800081dc5010] pgd=3D1000000092002003
+> [ffff8000821bd010] pgd=3D1000000092002003
+> , p4d=3D1000000092002003
+> , p4d=3D1000000092002003
+> , pud=3D1000000092003003
+> , pud=3D1000000092003003
+> , pmd=3D1000000092008003
+> , pmd=3D100000009299f403
+> , pte=3D0000000000000000
+> , pte=3D0000000000000000
+>=20
+>=20
+> Internal error: Oops: 0000000096000007 [#1]  SMP
+> Modules linked in:
+> CPU: 0 UID: 0 PID: 63 Comm: kworker/u24:4 Tainted: G                T =20
+> 6.15.0-rc1-next-20250409+ #3009 PREEMPT=20
+> f6bd3cc6346487744ae55f6115e728ff2bc7088b Tainted: [T]=3DRANDSTRUCT
+> Hardware name: TQ-Systems i.MX95 TQMa95xxSA on MB-SMARC-2 (DT)
+> Workqueue: async async_run_entry_fn
+> pstate: 204000c9 (nzCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
+> pc : regmap_mmio_read32le+0x1c/0x3c
+> lr : regmap_mmio_read+0x40/0x68
+> sp : ffff80008223b860
+> x29: ffff80008223b860 x28: ffff00001000c800 x27: ffff8000818679c0
+> x26: ffff000013340410 x25: 0000000000000001 x24: 0000000000000000
+> x23: ffff000012f5e400 x22: ffff80008223b934 x21: ffff80008223b934
+> x20: ffff000012fc4900 x19: 0000000000003010 x18: 00000000a7aa953f
+> x17: 3e2d206666666666 x16: 666631393078302e x15: 2e30303030303030
+> x14: 3139307830204d45 x13: 3030303030303031 x12: 30307830203e2d20
+> x11: 6666666666666631 x10: 393078302e2e3030 x9 : 4d2020202020203a
+> x8 : 656963702e303030 x7 : 205d313236353838 x6 : ffff0000134e0000
+> x5 : 0000000000000000 x4 : 0000000000000000 x3 : ffff8000809bf028
+> x2 : ffff8000809bfb0c x1 : 0000000000003010 x0 : ffff800081dc5010
+>=20
+> Call trace:
+>  regmap_mmio_read32le+0x1c/0x3c (P)
+>  regmap_mmio_read+0x40/0x68
+>  _regmap_bus_reg_read+0x58/0x9c
+>  _regmap_read+0x70/0x1c4
+>  _regmap_update_bits+0xe4/0x174
+>  regmap_update_bits_base+0x60/0x90
+>  imx95_pcie_core_reset+0x78/0xd0
+>  imx_pcie_assert_core_reset+0x38/0x50
+>  imx_pcie_host_init+0x68/0x4a0
+>  dw_pcie_host_init+0x16c/0x500
+>  imx_pcie_probe+0x2f4/0x71c
+>  platform_probe+0x64/0x100
+>  really_probe+0xc8/0x3bc
+>  __driver_probe_device+0x84/0x16c
+>  driver_probe_device+0x40/0x160
+>  __device_attach_driver+0xcc/0x1a0
+>  bus_for_each_drv+0x88/0xe4
+>  __device_attach_async_helper+0xac/0x108
+>  async_run_entry_fn+0x30/0x144
+>  process_one_work+0x14c/0x3e0
+>  worker_thread+0x2f0/0x3fc
+>  kthread+0x128/0x1ec
+>  ret_from_fork+0x10/0x20
+>=20
+> Code: aa0003f4 2a0103f3 f9400280 8b334000 (b9400000)
+> ---[ end trace 0000000000000000 ]---
+> note: kworker/u24:4[63] exited with irqs disabled
+> Internal error: Oops: 0000000096000007 [#2]  SMP
+> Modules linked in:
+> note: kworker/u24:4[63] exited with preempt_count 1
+>=20
+> CPU: 4 UID: 0 PID: 52 Comm: kworker/u24:1 Tainted: G      D         T =20
+> 6.15.0-rc1-next-20250409+ #3009 PREEMPT=20
+> f6bd3cc6346487744ae55f6115e728ff2bc7088b Tainted: [D]=3DDIE, [T]=3DRANDST=
+RUCT
+> Hardware name: TQ-Systems i.MX95 TQMa95xxSA on MB-SMARC-2 (DT)
+> Workqueue: async async_run_entry_fn
+> pstate: 204000c9 (nzCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
+> pc : regmap_mmio_read32le+0x1c/0x3c
+> lr : regmap_mmio_read+0x40/0x68
+> mmc0: new HS400 Enhanced strobe MMC card at address 0001
+> sp : ffff8000821e3860
+> mmcblk0: mmc0:0001 DG4016 14.7 GiB
+> x29: ffff8000821e3860 x28: ffff00001000c800 x27: ffff8000818679c0
+> mmcblk0boot0: mmc0:0001 DG4016 4.00 MiB
+> x26: ffff00001333fc10 x25: 0000000000000001 x24: 0000000000000000
+> x23: ffff000013895400 x22: ffff8000821e3934 x21: ffff8000821e3934
+> x20: ffff0000134672c0
+> mmcblk0boot1: mmc0:0001 DG4016 4.00 MiB
+>=20
+>  x19: 0000000000003010 x18: 0000000038868210
+>=20
+> x17: 3038387830207570 x16: 63203d3d20303030 x15: 3030313038387830
+> x14: 205d315b67657220
+> mmcblk0rpmb: mmc0:0001 DG4016 4.00 MiB, chardev (237:0)
+>=20
+>  x13: 6565727465636976 x12: 6564207369687420
+>=20
+> x11: 726f662064656465 x10: 656e207265766520 x9 : 7420726f66206465
+> x8 : 6465656e20726576 x7 : 205d303033353938 x6 : ffff000013371280
+> x5 : 0000000000000000 x4 : 0000000000000000 x3 : ffff8000809bf028
+> x2 : ffff8000809bfb0c x1 : 0000000000003010 x0 : ffff8000821bd010
+>=20
+> Call trace:
+>  regmap_mmio_read32le+0x1c/0x3c (P)
+>  regmap_mmio_read+0x40/0x68
+>  _regmap_bus_reg_read+0x58/0x9c
+>  _regmap_read+0x70/0x1c4
+>  _regmap_update_bits+0xe4/0x174
+>  regmap_update_bits_base+0x60/0x90
+>  imx95_pcie_core_reset+0x78/0xd0
+>  imx_pcie_assert_core_reset+0x38/0x50
+>  imx_pcie_host_init+0x68/0x4a0
+>  dw_pcie_host_init+0x16c/0x500
+>  imx_pcie_probe+0x2f4/0x71c
+>  platform_probe+0x64/0x100
+>  really_probe+0xc8/0x3bc
+>  __driver_probe_device+0x84/0x16c
+>  driver_probe_device+0x40/0x160
+>  __device_attach_driver+0xcc/0x1a0
+>  bus_for_each_drv+0x88/0xe4
+>  __device_attach_async_helper+0xac/0x108
+>  async_run_entry_fn+0x30/0x144
+>  process_one_work+0x14c/0x3e0
+>  worker_thread+0x2f0/0x3fc
+>  kthread+0x128/0x1ec
+>  ret_from_fork+0x10/0x20
+>=20
+> Code: aa0003f4 2a0103f3 f9400280 8b334000 (b9400000)
+> ---[ end trace 0000000000000000 ]---
+
+Is this series dependent on any other series/patches?
+
+Best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
