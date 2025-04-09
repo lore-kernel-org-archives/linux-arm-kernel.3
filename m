@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15259C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 13:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D6AC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 13:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dQmdIIlt9r/GZLCILOdox93bldAsqIfsL0O0x+W+s9E=; b=26vx18NwIwoBfqYAwtYoKeaRJx
-	DbXrrB+dP4DXoUPOKh3vVX98/exLsFhAAaOj94H3sM6iGf4bbtmNISwewEGomsivfkA2fr9BxzQz7
-	W2QSA85kPCCEuyXzc4fkVEqt+VL6Pm8+Gr0iT3ff1lePaPb9f1TIMgl6DcfXI9g5TRwQIb2ch4Hp0
-	SV1l1aTHmPQz9k72fWIL46GpKrXv3/yBcMSLClUqJbhxlzzTodFJA2im8tGT5knI2j7xeN1QYhjX6
-	0og5BeQ5L1LXH5EyAmb5eQs1rlKjS8V1aNmDLwcV9341eSckNgNHl8CdNB1h9tD/bMzwg3Nrzz+95
-	si+ByJGg==;
+	bh=4vd/QL7cwGQw2Ko+m2PLEuUmLdJIwKboxMrJQhQQxqU=; b=DbGXRFuvsWyF7Nt2TIH9mpqSZ5
+	gg2/ZHd/wE8tuNjytyCQUZ8oTy8f8l4EK880rX0mRrjjs0wNtDgsdfaIqqLt/kRRGgem4PhLTxRJe
+	hvov4cvl/HP2s2jueBpkwMMVna3p0K4730n/YqSSit8CY9En9nHAfpCdFcllOT0KpkF10v5ac3zA+
+	/Bg8GDNU0eny+GUd4Ou3/SzV20VcpJ6ZzGdmDGYzdTMuKEte4k8hxEpk1N6JhzJ62q86wsrQRTFdV
+	UJ8bY6XR7rPPBc1lyFpaaGgS7MpMTadaQ8g48ElbtjJkWDGG006DZiErEYy5PPT4UCRVsVqAr9Rut
+	8kuymWDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2VNm-00000007HeH-0dnK;
-	Wed, 09 Apr 2025 13:22:22 +0000
+	id 1u2VPW-00000007HzZ-0SMl;
+	Wed, 09 Apr 2025 13:24:10 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2VEz-00000007F3C-3tvs;
-	Wed, 09 Apr 2025 13:13:19 +0000
+	id 1u2VF1-00000007F49-0pfS;
+	Wed, 09 Apr 2025 13:13:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744204396;
-	bh=CG25b6n9nGE5IFWaYyW41HSL8jKv0tYuhZeoxo8nyso=;
+	s=mail; t=1744204397;
+	bh=NEuXEAf0EoHvdi3tLgzyhmCbJUmfqZDU6pN1X9AaFMs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BQ8IdTx/bzMVxrkWX9HLnu4rDqwHKJQYA4imHPW5DQjX66I/fl5HCsan8xLQAxCmq
-	 kenreOatWfPVLEAJgMRj7GPjUmTtq3mxLrPwLDLb5do2aITAOpix/vwvBpGJRV0kf1
-	 72G8CFSbx+sPds2SyO6AIB676JkHBjCpE6oBqHo8/ISb/tzNOnXDWVZZxVGQs12Jn4
-	 6vRxS/BCFs4iSCxkQ3DJPembhutsoj1Uj5TMYO40c7JsOVXxj0brYccqj/3l0LL/sI
-	 A/w3/tXdBT/8PyIGC47ct/4VzWtZXnqf1My0ge1vqjorFY3Q8nIpsQv7609tWtH9Xv
-	 hK/z3EkJOyi8Q==
+	b=AALbTqykzgOFJwXwrfudo7uMKkPLpsGgttDFYQ/SHqOVCdGLvIuMr+OiI0f3r7s3l
+	 cT4p7GxNdHYQ1+z57QywB+fSapcg2pUN8qIyEZ5nMwhbS6yl2rUUUWlBcp2h6jXVmW
+	 f1myxybJ6YqDKKos0Cg6YGg7TNBn3CnAj/ET46w3wSGG+CGdghGPZAs30hoZ0Ho2BB
+	 hJqa3pbv0LKe2+BGG3L+7ibaoDI2GVXnw1W3yylMmwIvBhwBVCnMPE0QC21SoJwvp9
+	 BjmmC0qUeyIx3JVSkgOHiCb8FbRQ9iReaBMg098MnjgoA1UkGauCZg4S1fC/ESO32U
+	 V3H25MdeUH0SQ==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C857D17E0F85;
-	Wed,  9 Apr 2025 15:13:15 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C775917E0FC1;
+	Wed,  9 Apr 2025 15:13:16 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -59,17 +59,18 @@ Cc: p.zabel@pengutronix.de,
 	ives.chenjh@mediatek.com,
 	tommyyl.chen@mediatek.com,
 	jason-jh.lin@mediatek.com
-Subject: [PATCH v1 4/5] drm/mediatek: mtk_dpi: Allow additional output formats on MT8195/88
-Date: Wed,  9 Apr 2025 15:13:05 +0200
-Message-ID: <20250409131306.108635-5-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v1 5/5] drm/mediatek: mtk_dpi: Rename output fmts array for MT8195 DP_INTF
+Date: Wed,  9 Apr 2025 15:13:06 +0200
+Message-ID: <20250409131306.108635-6-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250409131306.108635-1-angelogioacchino.delregno@collabora.com>
 References: <20250409131306.108635-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_061318_121916_1884E416 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20250409_061319_918624_80B730AE 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,68 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow additional output formats in both DPI and DP_INTF blocks of
-the MT8195 and MT8188 SoCs (as the latter is fully compatible with,
-hence reuses, the former's platform data for both blocks) by adding:
+For the sake of increasing human readability and avoid possible
+confusion between DPI and DP_INTF output formats (as the two are
+ever so slightly different), rename the mt8195_output_fmts array
+to mt8195_dp_intf_output_fmts.
 
-1. New formats to the `mt8195_output_fmts` array for dp_intf,
-   lacking YUV422 12-bits support, and adding RGB888 2X12_LE/BE
-   (8-bits), BGR888 (8-bits) RGB101010 1x30 (10-bits), and YUV
-   formats, including YUV422 8/10 bits, and YUV444 8/10 bits; and
-2. A new `mt8195_dpi_output_fmts` array for DPI only, with all of
-   for formats added to dp_intf and with the addition of the
-   YUYV12_1X24 (YUV422 12-bits) output format.
+This commit brings no functional changes.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_dpi.c | 24 ++++++++++++++++++++++--
- 1 file changed, 22 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_dpi.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
-index a9e8113a1618..9de537a77493 100644
+index 9de537a77493..0b7f91fb519f 100644
 --- a/drivers/gpu/drm/mediatek/mtk_dpi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
-@@ -1093,9 +1093,29 @@ static const u32 mt8183_output_fmts[] = {
- 	MEDIA_BUS_FMT_RGB888_2X12_BE,
+@@ -1106,7 +1106,7 @@ static const u32 mt8195_dpi_output_fmts[] = {
+ 	MEDIA_BUS_FMT_YUV10_1X30,
  };
  
-+static const u32 mt8195_dpi_output_fmts[] = {
-+	MEDIA_BUS_FMT_RGB888_1X24,
-+	MEDIA_BUS_FMT_RGB888_2X12_LE,
-+	MEDIA_BUS_FMT_RGB888_2X12_BE,
-+	MEDIA_BUS_FMT_RGB101010_1X30,
-+	MEDIA_BUS_FMT_YUYV8_1X16,
-+	MEDIA_BUS_FMT_YUYV10_1X20,
-+	MEDIA_BUS_FMT_YUYV12_1X24,
-+	MEDIA_BUS_FMT_BGR888_1X24,
-+	MEDIA_BUS_FMT_YUV8_1X24,
-+	MEDIA_BUS_FMT_YUV10_1X30,
-+};
-+
- static const u32 mt8195_output_fmts[] = {
+-static const u32 mt8195_output_fmts[] = {
++static const u32 mt8195_dp_intf_output_fmts[] = {
  	MEDIA_BUS_FMT_RGB888_1X24,
-+	MEDIA_BUS_FMT_RGB888_2X12_LE,
-+	MEDIA_BUS_FMT_RGB888_2X12_BE,
-+	MEDIA_BUS_FMT_RGB101010_1X30,
- 	MEDIA_BUS_FMT_YUYV8_1X16,
-+	MEDIA_BUS_FMT_YUYV10_1X20,
-+	MEDIA_BUS_FMT_BGR888_1X24,
-+	MEDIA_BUS_FMT_YUV8_1X24,
-+	MEDIA_BUS_FMT_YUV10_1X30,
- };
- 
- static const struct mtk_dpi_factor dpi_factor_mt2701[] = {
-@@ -1208,8 +1228,8 @@ static const struct mtk_dpi_conf mt8192_conf = {
- 
- static const struct mtk_dpi_conf mt8195_conf = {
- 	.max_clock_khz = 594000,
--	.output_fmts = mt8183_output_fmts,
--	.num_output_fmts = ARRAY_SIZE(mt8183_output_fmts),
-+	.output_fmts = mt8195_dpi_output_fmts,
-+	.num_output_fmts = ARRAY_SIZE(mt8195_dpi_output_fmts),
- 	.pixels_per_iter = 1,
- 	.is_ck_de_pol = true,
- 	.swap_input_support = true,
+ 	MEDIA_BUS_FMT_RGB888_2X12_LE,
+ 	MEDIA_BUS_FMT_RGB888_2X12_BE,
+@@ -1248,8 +1248,8 @@ static const struct mtk_dpi_conf mt8195_dpintf_conf = {
+ 	.dpi_factor = dpi_factor_mt8195_dp_intf,
+ 	.num_dpi_factor = ARRAY_SIZE(dpi_factor_mt8195_dp_intf),
+ 	.max_clock_khz = 600000,
+-	.output_fmts = mt8195_output_fmts,
+-	.num_output_fmts = ARRAY_SIZE(mt8195_output_fmts),
++	.output_fmts = mt8195_dp_intf_output_fmts,
++	.num_output_fmts = ARRAY_SIZE(mt8195_dp_intf_output_fmts),
+ 	.pixels_per_iter = 4,
+ 	.dimension_mask = DPINTF_HPW_MASK,
+ 	.hvsize_mask = DPINTF_HSIZE_MASK,
 -- 
 2.49.0
 
