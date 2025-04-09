@@ -4,89 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBE3C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 11:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42526C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 11:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wn9sfkYCA+8MMuqi9mezFTLeTidX43wgbJn8YfW6qA4=; b=Sxb/kCil+pRuOkPF1s9GvBAdCv
-	+1/wYbC6aZnloOByn5K/McJR9KWaW7tQYBLDj3cSCwOjQmrMJ2hOgE2HH2FkLhdcW3r1n6rZKwrMR
-	eR98brfueY/de0Jplq3QJRBYKmeKhV1cuNcQZOSMDa5J11SaCTzvp0fFt1r1s6/XOqOwPGn0S3tLV
-	WEg0PTntRYzrt55FQ7dsTJ8jXgRtWON2Ru0/3zJsJEqQAoUyZjjepO7irF+sD5jgvOObKktTnoacy
-	trB5UlHrckEcpLWGmdqMaTHA8m1Esd8OUnU7Dlmy27kYKbsm00y08p4C3wXZ/qD/HTm+QMQQ6L1NX
-	BrHj/5aw==;
+	bh=6TScqo80eZaMMPIBH9WFVBR21I1NfztlTIn/vGVlXWc=; b=Bjvhg7FH8psG4RD3VzBcKlT6h8
+	gSkMHpLG2wU5KYe115/ax45QmtSSiHD11j+zv2W/zXZlYsDwPjjy4V9cb2rbBo71kSaHS1CIRYubM
+	jLi8L8T3GCif452puBsroLCajYEeScG+V2u5KW2rZDk+uKxWJAiWlphTMa1DZaAuxPZoTOCPz2coe
+	hzImjBlb10TedrCECTnvwGYM4Gt441MYOFN6sCe9vexsnt712VhLu53G/1p08MhsI1LZvbePPxnWU
+	+w1yJu4epOcYr4rx+HSuDbfXyMb+mLG3bLsSBllfuj8nrDFeeFzZ30WUIcskXG00C+bBif8Q7uTnL
+	UZt82WFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2TRH-00000006yQu-2SUv;
-	Wed, 09 Apr 2025 11:17:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2TNi-00000006xkW-3uGx
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Apr 2025 11:14:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wn9sfkYCA+8MMuqi9mezFTLeTidX43wgbJn8YfW6qA4=; b=fETCgVcSH/yuoYbENH9ve81uGu
-	6FPFaiixa20sPe9Sqm3Ums/lmoG3VTbcTc6Pa33OGCikDAytHSsMlKkYxwf/9wBGnsDLS9TFuXCkV
-	Bi6YOllbOXpIJqwwmbV3IqZtBeHSjBTdDN/9JLA05NWbhvkjQOP0cqcvf3qGy35pDwfU87GV6y70R
-	ujZAbWKhWcnSOCadnvNcMbFzElvaB4VSAvT0eshoGrzsGtZlvS+Ij8h4OOKtafn1nsFpfBhjZEQXb
-	2TEr3mZzAtBG36IV9ntlRRnhKD5ETbrZIB2i5X1N5XWGkiL9ASkKffPl4GFFIx6MHGYq7jPpKfrM8
-	FrxFOS+g==;
+	id 1u2TVk-00000006z2y-1rH1;
+	Wed, 09 Apr 2025 11:22:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2TNf-00000008bPl-1VZp
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2TTy-00000006yn1-1bCz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 11:14:09 +0000
+	Wed, 09 Apr 2025 11:20:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01B081595;
-	Wed,  9 Apr 2025 04:14:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 548221595;
+	Wed,  9 Apr 2025 04:20:36 -0700 (PDT)
 Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 947573F694;
-	Wed,  9 Apr 2025 04:14:03 -0700 (PDT)
-Date: Wed, 9 Apr 2025 12:14:00 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 202F63F694;
+	Wed,  9 Apr 2025 04:20:33 -0700 (PDT)
+Date: Wed, 9 Apr 2025 12:20:31 +0100
 From: Sudeep Holla <sudeep.holla@arm.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>,
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: Henry Martin <bsdhenrymartin@gmail.com>, arm-scmi@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@arm.com>, linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	LKML <linux-kernel@vger.kernel.org>,
 	Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Aisheng Dong <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
- scmi cpufreq
-Message-ID: <20250409-incredible-attentive-scorpion-fa9def@sudeepholla>
-References: <DB9PR04MB84614FBF96E7BC0D125D97F688D62@DB9PR04MB8461.eurprd04.prod.outlook.com>
- <Z87UJdhiTWhssnbl@bogus>
- <Z87sGF_jHKau_FMe@bogus>
- <PAXPR04MB8459EA5C7898393E51C246AD88D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <PAXPR04MB8459A73179FFF0ED0C9A51E488D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z9AdICiyaCmzKh-N@bogus>
- <Z9FnZzBQuZ1j5k3I@bogus>
- <Z9Fv9JPdF5OWUHfk@bogus>
- <20250313052309.GA11131@nxa18884-linux>
- <20250409035029.GC27988@nxa18884-linux>
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>
+Subject: Re: [PATCH v2 0/2] cpufreq: scmi/scpi: Fix NULL pointer dereference
+ in get_rate()
+Message-ID: <20250409-merry-gay-lemur-8288cf@sudeepholla>
+References: <20250408150354.104532-1-bsdhenrymartin@gmail.com>
+ <0558b7f7-8c69-4664-afc6-bae4fdc6f071@web.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250409035029.GC27988@nxa18884-linux>
+In-Reply-To: <0558b7f7-8c69-4664-afc6-bae4fdc6f071@web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_121407_939288_9C9F398C 
-X-CRM114-Status: GOOD (  24.51  )
+X-CRM114-CacheID: sfid-20250409_042038_517183_468BBDBF 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,55 +70,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 11:50:29AM +0800, Peng Fan wrote:
-> Hi Sudeep, Cristian
+On Tue, Apr 08, 2025 at 09:23:35PM +0200, Markus Elfring wrote:
+> > This series fixes potential NULL pointer dereferences in scmi_cpufreq_get_rate()
+> > and scpi_cpufreq_get_rate() when cpufreq_cpu_get_raw() returns NULL.
+> >
+> > Henry Martin (2):
+> >   cpufreq: scmi: Fix null-ptr-deref in scmi_cpufreq_get_rate()
+> >   cpufreq: scpi: Fix null-ptr-deref in scpi_cpufreq_get_rate()
 > 
-> On Thu, Mar 13, 2025 at 01:23:27PM +0800, Peng Fan wrote:
-> >On Wed, Mar 12, 2025 at 11:28:52AM +0000, Sudeep Holla wrote:
-> >>On Wed, Mar 12, 2025 at 10:52:23AM +0000, Sudeep Holla wrote:
-> >>> On Tue, Mar 11, 2025 at 11:23:12AM +0000, Sudeep Holla wrote:
-> >>> > On Tue, Mar 11, 2025 at 11:12:45AM +0000, Peng Fan wrote:
-> >>> > >
-> >>> > > So it is clear that wrong fw_devlink is created, it is because scmi cpufreq device is
-> >>> > > created earlier and when device_add, the below logic makes the fwnode pointer points
-> >>> > > to scmi cpufreq device.
-> >>> > >         if (dev->fwnode && !dev->fwnode->dev) {
-> >>> > >                 dev->fwnode->dev = dev;
-> >>> > >                 fw_devlink_link_device(dev);
-> >>> > >         }
-> >>> > >
-> >>> >
-> >>> > Thanks, looks like simple way to reproduce the issue. I will give it a try.
-> >>> >
-> >>> 
-> >>> I could reproduce but none of my solution solved the problem completely
-> >>> or properly. And I don't like the DT proposal you came up with. I am
-> >>> not inclined to just drop this fwnode setting in the scmi devices and
-> >>> just use of_node.
-> >>>
-> >>
-> >>Sorry for the typo that changes the meaning: s/not/now
-> >>
-> >>I meant "I am now inclined ..", until we figure out a way to make this
-> >>work with devlinks properly.
-> >
-> >when you have time, please give a look at
-> >https://github.com/MrVan/linux/commit/b500c29cb7f6f32a38b1ed462e333db5a3e301e4
-> >
-> >The upper patch was to follow Cristian's and Dan's suggestion in V2[1] to use
-> >a flag SCMI_DEVICE_NO_FWNODE for scmi device.
-> >
-> >I could post out the upper patch as V3 if it basically looks no design flaw.
-> >I will drop the pinctrl patch in v3, considering we are first going
-> >to resolve the fw_devlink issue for cpufreq/devfreq.
-> >
-> >[1] https://lore.kernel.org/all/Z6SgFGb4Z88v783c@pluto/
-> 
-> Not sure you gave a look on this or not. I am thinking to bring this V3
-> out to mailing list later this week. Please raise if you have any concern.
+> Can any other summary phrase variants become more desirable accordingly?
 > 
 
-Yes I had some thoughts. I will take a look and refresh my memories first.
+This is meaningless, sorry can't parse. Ignoring it as others in the
+community are doing already.
 
 -- 
 Regards,
