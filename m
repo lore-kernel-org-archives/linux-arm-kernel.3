@@ -4,77 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA6CC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 12:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD019C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 12:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OAVZ/6PMd5CIYGP1LffsV13Ct6MPa7aS43NNYUi9Muc=; b=bPAGJcqURh1H2iiO0/3Z0TLQOS
-	OiWLH+CSV6rPs9iq/0A+04T6AkpAz0+qabmiW3Wjm+uKypf9BVXsEySYeTbfBoEQr6BjyTtiwsU9d
-	072cg2q8l4PSL8nK2N5OmYHBPcGAxozeA1HqvUMmsN7LkDPSl+otrJS1eVLxwucFW8RbsHo4eSbLH
-	/hIRvOA2e8u+amcZtLG2D6TalnQPMqHlC7PoRzQafblyujDYYP0ni+CKge1T1Q4zHKXIYOrmjqCGc
-	kUriVzTVp7YHca9dkuaAR97s0QyLEUIialQAlYuiK9A1oZxVEGNfF6k6o5FyFnN8Y2WTqei5rjQRb
-	Pw2gxm0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZF61D1zgf5uvwdlETmP573qsak5BS/v4GCDSXSf87IY=; b=YD+rM3vhxKkEitCS9LCXub5JNO
+	Is5RtOpBVbg4RgOE+1p9hFVhoV8HCX7OtjRlg2MvUXv+QIqBGsj/wl+8G6KqwTKOe6HrafkmZGOrd
+	4yukQ2FnclkrysBPxPrKu0/bxO2wyhAbElitx8PCF7qKj+ixjw5BST/gSO4u+7At+nTKitZfZzxpD
+	9eHeR1rVI4XoULYhEMW1ZXw0MwUV1YCiBZSm2mxLrAbFkn3zlkyeY9aXqPr/jlvvrisvrcHi0AvIJ
+	/9fxBdPSwJslO6anRe7kptcIhDOnGbRV2+5Pv+ZRg120hq1gZLIXBO9wvEQ4LgMHixKzyeldcSO7L
+	gEwKKLpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2UCQ-000000075lo-2Awo;
-	Wed, 09 Apr 2025 12:06:34 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1u2USw-000000077x4-25cn;
+	Wed, 09 Apr 2025 12:23:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2UAd-000000075Mv-2h3T
+	id 1u2URA-000000077hb-1mit
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 12:04:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=OAVZ/6PMd5CIYGP1LffsV13Ct6MPa7aS43NNYUi9Muc=; b=Do2eW7o21PD63tUeD1m2JPMF3Y
-	GA5PJ2TY9XpQdy9chWaHuYljs1HgVw6p5M9TaxjWcsYXPcY68Nmh+BBlqBEFfjV182S1AM0QCVxcE
-	Mg97XRoHA317XEdNLGpJRIrwHtQCfQNRRgkRtx6Y8UULja95mNyri9hyyr5XhP3K1DcA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u2UAX-008X2W-Vg; Wed, 09 Apr 2025 14:04:37 +0200
-Date: Wed, 9 Apr 2025 14:04:37 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Ng, Boon Khai" <boon.khai.ng@altera.com>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Wed, 09 Apr 2025 12:21:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8212561364;
+	Wed,  9 Apr 2025 12:21:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C74ABC4CEE3;
+	Wed,  9 Apr 2025 12:21:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744201306;
+	bh=4t4Wq5bMUS44d/UJ61XjcweeMUI0dgxkR3h8v0acrhI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=l2vDAyU7JVulITVyTZqYR1Pj8WUo/5DgHVTiooGnrvirjqxu+CDAVux+rqjtFMR5j
+	 vFcg9KmzA8x7AUxwcZcdmYUTnbugXXdYK5A9Ebq06Rdr5fy3jnnM7rK1lYd5t93rru
+	 F+BY7RbPTG13EpGd3f1bEOnoLqra8nmNXresuF90QazZARU+OlsiJt33DsgcfsUEyr
+	 CxB6rYRae5Hv5vXHqY1gnkks/fS5k04Aa5NY873rE/NUyIqjo1ADwxEwktbxJAjzFO
+	 diLG3vQwwIE8ZZlCATWo+T16oYgxm2kF85ifEqATMlwVhDeB7gbS2XG+i4LYHkHq7E
+	 sl9g4tGHgM3Ag==
+From: Arnd Bergmann <arnd@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Russell King <linux@armlinux.org.uk>,
+	Jiri Kosina <jikos@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ian Abbott <abbotti@mev.co.uk>,
+	H Hartley Sweeten <hsweeten@visionengravers.com>,
+	Frank Binns <frank.binns@imgtec.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	"Gerlach, Matthew" <matthew.gerlach@altera.com>,
-	"Ang, Tien Sung" <tien.sung.ang@altera.com>,
-	"Tham, Mun Yew" <mun.yew.tham@altera.com>,
-	"G Thomas, Rohan" <rohan.g.thomas@altera.com>
-Subject: Re: [PATCH net-next v3 2/2] net: stmmac: dwxgmac2: Add support for
- HW-accelerated VLAN stripping
-Message-ID: <3eb3bb21-eee9-44b6-b680-4c629df29d34@lunn.ch>
-References: <20250408081354.25881-1-boon.khai.ng@altera.com>
- <20250408081354.25881-3-boon.khai.ng@altera.com>
- <c65bfe99-a6e1-4485-90ee-aee0b8e0984d@lunn.ch>
- <BN8PR03MB5073B710F5040EAC06595AE2B4B42@BN8PR03MB5073.namprd03.prod.outlook.com>
+	Peter Rosin <peda@axentia.se>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Will Deacon <will@kernel.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Waiman Long <longman@redhat.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-input@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	iommu@lists.linux.dev
+Subject: [PATCH 00/10] -Wunused-const-variable warning fixes
+Date: Wed,  9 Apr 2025 14:21:31 +0200
+Message-Id: <20250409122131.2766719-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <BN8PR03MB5073B710F5040EAC06595AE2B4B42@BN8PR03MB5073.namprd03.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_050443_681050_1D6211BE 
-X-CRM114-Status: GOOD (  14.67  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,45 +104,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 03:12:53AM +0000, Ng, Boon Khai wrote:
-> > This appears to be identical to dwmac4_wrback_get_rx_vlan_tci() ?
-> > 
-> > Can it be moved into the shared code, or am i missing something?
-> > 
-> >         Andrew
-> 
-> Hi Andrew thanks for the quick response.
-> 
-> For the dwmac4 IP it has the following format at the 
-> Receive Normal Descriptor 0 (RDES0)
-> 
->            31                                                                                                0
->               ------------------------------------- -----------------------------------
-> RDES0 |   Inner VLAN TAG [31:16]   | Outer VLAN TAG [31:16   |
->               ------------------------------------- -----------------------------------
-> 
-> While for dwxgmac2 IP it has the following format at the RDES0
-> Depending on the Tunneled Frame bit (TNP)
-> 
-> For Non-Tunneled Frame (TNP=0)
->            31                                                                                                0
->               ------------------------------------- -----------------------------------
-> RDES0 |   Inner VLAN TAG [31:16 ]  | Outer VLAN TAG [31:16]   |
->               ------------------------------------- -----------------------------------
-> 
-> For Tunneled Frame (TNP=1)
->            31                                        8 7                          3 2                  0
->               -------------------------------- ----------------------- ----------------
-> RDES0 |   VNID/VSID                    |    Reserved         | OL2L3         |
->               -------------------------------- ----------------------- ----------------
-> 
-> While the logic for handling Tunneled Frame and Non-Tunneled
-> Frame is not yet implemented in the 
-> dwxgmac2_wrback_get_rx_vlan_tci() function, I believe it is
-> prudent to maintain separate functions within their respective
-> descriptor driver files, (dwxgmac2_descs.c and dwmac4_descs.c)
+From: Arnd Bergmann <arnd@arndb.de>
 
-Please add a comment, or describe this in the commit message.
+Most patches I sent during the previous kernel cycle have made it in, these 
+ten still remain for the moment. Please apply.
 
-	Andrew
+Arnd Bergmann (10):
+  drm/imagination: avoid unused-const-variable warning
+  [v2] clocksource: atmel_tcb: fix kconfig dependency
+  [v2] Input: stmpe-ts - use module alias instead of device table
+  [RESEND] mux: adg792a: remove incorrect of_match_ptr annotation
+  [RESEND] sched: open-code max_rt_runtime definition
+  [RESEND] lockdep: change 'static const' variables to enum values
+  [RESEND] ARM: fixmap: make __end_of_early_ioremap_region an enum value
+  [RESEND 2] comedi: ni_atmio: avoid warning for unused device_ids[] table
+  [RESEND 2] apm-emulation: hide an unused variable
+  [RESEND 3] dma/contiguous: avoid warning about unused size_bytes
+
+ arch/arm/include/asm/fixmap.h              |  9 ++++-----
+ drivers/char/apm-emulation.c               |  5 ++---
+ drivers/clocksource/Kconfig                |  4 ++--
+ drivers/comedi/drivers/ni_atmio.c          |  2 +-
+ drivers/gpu/drm/imagination/pvr_fw_trace.c |  8 ++++----
+ drivers/gpu/drm/imagination/pvr_fw_trace.h |  2 --
+ drivers/input/touchscreen/stmpe-ts.c       |  7 +------
+ drivers/mux/adg792a.c                      |  2 +-
+ kernel/dma/contiguous.c                    |  3 +--
+ kernel/locking/lockdep_internals.h         | 18 ++++++++++--------
+ kernel/sched/rt.c                          |  6 ++----
+ 11 files changed, 28 insertions(+), 38 deletions(-)
+
+-- 
+2.39.5
+
+Cc: Russell King <linux@armlinux.org.uk> (maintainer:ARM PORT)
+Cc: Jiri Kosina <jikos@kernel.org> (maintainer:APM DRIVER)
+Cc: Arnd Bergmann <arnd@arndb.de> (maintainer:CHAR and MISC DRIVERS,commit_signer:2/2=100%,authored:2/2=100%,added_lines:8/8=100%,removed_lines:10/10=100%,commit_signer:2/3=67%,authored:2/3=67%,added_lines:2/11=18%,removed_lines:2/2=100%,commit_signer:2/4=50%,blamed_fixes:1/1=100%)
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org> (maintainer:CHAR and MISC DRIVERS,commit_signer:1/3=33%)
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org> (maintainer:CLOCKSOURCE, CLOCKEVENT DRIVERS)
+Cc: Thomas Gleixner <tglx@linutronix.de> (maintainer:CLOCKSOURCE, CLOCKEVENT DRIVERS)
+Cc: Ian Abbott <abbotti@mev.co.uk> (maintainer:COMEDI DRIVERS,commit_signer:1/3=33%,authored:1/3=33%,added_lines:9/11=82%)
+Cc: H Hartley Sweeten <hsweeten@visionengravers.com> (maintainer:COMEDI DRIVERS)
+Cc: Frank Binns <frank.binns@imgtec.com> (maintainer:IMGTEC POWERVR DRM DRIVER)
+Cc: Matt Coster <matt.coster@imgtec.com> (maintainer:IMGTEC POWERVR DRM DRIVER)
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com> (maintainer:DRM DRIVERS AND MISC GPU PATCHES)
+Cc: Maxime Ripard <mripard@kernel.org> (maintainer:DRM DRIVERS AND MISC GPU PATCHES)
+Cc: Thomas Zimmermann <tzimmermann@suse.de> (maintainer:DRM DRIVERS AND MISC GPU PATCHES)
+Cc: David Airlie <airlied@gmail.com> (maintainer:DRM DRIVERS)
+Cc: Simona Vetter <simona@ffwll.ch> (maintainer:DRM DRIVERS)
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com> (maintainer:INPUT (KEYBOARD, MOUSE, JOYSTICK, TOUCHSCREEN)...,commit_signer:2/4=50%)
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com> (maintainer:ARM/STM32 ARCHITECTURE)
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com> (maintainer:ARM/STM32 ARCHITECTURE)
+Cc: Peter Rosin <peda@axentia.se> (maintainer:MULTIPLEXER SUBSYSTEM)
+Cc: Marek Szyprowski <m.szyprowski@samsung.com> (maintainer:DMA MAPPING HELPERS,blamed_fixes:1/1=100%)
+Cc: Robin Murphy <robin.murphy@arm.com> (reviewer:DMA MAPPING HELPERS)
+Cc: Peter Zijlstra <peterz@infradead.org> (maintainer:LOCKING PRIMITIVES)
+Cc: Ingo Molnar <mingo@redhat.com> (maintainer:LOCKING PRIMITIVES)
+Cc: Will Deacon <will@kernel.org> (maintainer:LOCKING PRIMITIVES)
+Cc: Boqun Feng <boqun.feng@gmail.com> (maintainer:LOCKING PRIMITIVES)
+Cc: Waiman Long <longman@redhat.com> (reviewer:LOCKING PRIMITIVES)
+Cc: Juri Lelli <juri.lelli@redhat.com> (maintainer:SCHEDULER)
+Cc: Vincent Guittot <vincent.guittot@linaro.org> (maintainer:SCHEDULER)
+Cc: Dietmar Eggemann <dietmar.eggemann@arm.com> (reviewer:SCHEDULER)
+Cc: Steven Rostedt <rostedt@goodmis.org> (reviewer:SCHEDULER)
+Cc: Ben Segall <bsegall@google.com> (reviewer:SCHEDULER)
+Cc: Mel Gorman <mgorman@suse.de> (reviewer:SCHEDULER)
+Cc: Valentin Schneider <vschneid@redhat.com> (reviewer:SCHEDULER)
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> (commit_signer:2/4=50%,authored:2/4=50%,added_lines:2/5=40%,removed_lines:2/5=40%)
+Cc: linux-arm-kernel@lists.infradead.org (moderated list:ARM PORT)
+Cc: linux-kernel@vger.kernel.org (open list)
+Cc: dri-devel@lists.freedesktop.org (open list:DRM DRIVERS)
+Cc: linux-input@vger.kernel.org (open list:INPUT (KEYBOARD, MOUSE, JOYSTICK, TOUCHSCREEN)...)
+Cc: linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE)
+Cc: iommu@lists.linux.dev (open list:DMA MAPPING HELPERS)
+
+
 
