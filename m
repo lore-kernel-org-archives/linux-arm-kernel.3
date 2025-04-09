@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBC1C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 21:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF32CC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 21:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Tko9Q41qFv+8nesmuDU9NZCq/qixhZ39CbmNgrGnKgY=; b=daZ40guVQGxalRjQGlnzCDF87B
-	93xntjL1ka13+TGVyWh6EMZxAy9UplBUoKwOtOH5TLAcl7zVfgvAGc+12GKTZlT1VkxFqoalhpuSS
-	EtVGhYJzMg0GN4GeBRWKa8FdvvNNLI8EBR0mLchu7jegAAca2EWHPX5NiPOCks6oO6OhsQT9tTbOi
-	PAMFDsPV0Pi162UPmgtfxJR4wLNR2jPblQp1pTTPaAqAqXPOtu2DGvt0GqLav/IaSQmPCt089Ucds
-	MqFLPng7GB8s4e1vLuWhDCDf5+h5zyVIMIUIGvlDcwAPJFIcAQ6f6IfjGxb2Foj5o14QEePjYXU22
-	Crs7XC8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iay7Qa9sHNdJmcKXfDHG/I+AIXVYDO+D/QQZnAThWT4=; b=AyGERIni7g1ObeL+Ylb3iZb6Vp
+	OJrwUk0BoHzR/ocBu4SZLZyVw77irQo8lf/2Rdk8V/sN7TOD4MLFy0UjQMy2Gu8ISxWmDU7WgrQb0
+	dvmJq6qGZSrSoAOfcgRs5D0QU2rTtLUVlUQs9buTrxpkD/hO3SsEJHyehhg3wI1xNgqIdaHQUVGm2
+	eoGcWT3H8c4Y/7BZi+wgHeNPfCrK70QzhXV1Ank+ULEyOvFpdrbcTI9GJS4oVyqbcouLjmNPbecB/
+	prUdUgn3R5cM3TPXsTLDFiTTwB/jUvVCIpEcmBhS8750XGpycQsYNsBmvREZWelNmtDOF8n4tztU3
+	X5Xlm9MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2dJy-00000008dDT-1Gn5;
-	Wed, 09 Apr 2025 21:50:58 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1u2dLj-00000008dXE-01he;
+	Wed, 09 Apr 2025 21:52:47 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2cZi-00000008WTb-0tpa
+	id 1u2cdC-00000008Wu6-1Pf2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 21:03:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744232589;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Tko9Q41qFv+8nesmuDU9NZCq/qixhZ39CbmNgrGnKgY=;
-	b=a7wkx158McHF/VdoVEO7WhtL7rhnxvTEzWatMkHpMZuC6DHBJ54RRwAluFErVMh7xWFnhR
-	olHEiFV0vQs6Xih+LA2V05mnMEg03sdNVIVQg/N66yUe0PZ9uqUpRHM2DGW8EwZdvAWdHB
-	L5Q/r9n/A7FUuUIAFkRLna/jJ11fzdo=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-248-PvRV79_lOumwXpaE8I1a1w-1; Wed,
- 09 Apr 2025 17:03:07 -0400
-X-MC-Unique: PvRV79_lOumwXpaE8I1a1w-1
-X-Mimecast-MFC-AGG-ID: PvRV79_lOumwXpaE8I1a1w_1744232586
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 804C31955DCD;
-	Wed,  9 Apr 2025 21:03:06 +0000 (UTC)
-Received: from [172.20.65.13] (unknown [10.30.44.73])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id AEA45180175D;
-	Wed,  9 Apr 2025 21:03:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.15.0-rc1,
- upstream-arm-next, 2fe2b96c)
-Date: Wed, 09 Apr 2025 21:03:04 -0000
-To: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com
+	Wed, 09 Apr 2025 21:06:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=iay7Qa9sHNdJmcKXfDHG/I+AIXVYDO+D/QQZnAThWT4=; b=qba/6MvMpUVqbjjCqTUqeAW+ne
+	H+o9Nsni77/pVeMjpWzHLi5WCNgJevjaPJ8xhwIIpr0YtybM40VTypQ3eX82igMkWUYgClhYpK1w5
+	UEcDIHOHgdzBuEgbIJ3FO7uvz6bRITBehc+JonQGPEZLyr8vyyJCzuTZSWiOfRfo992w=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u2ccw-008azr-2R; Wed, 09 Apr 2025 23:06:30 +0200
+Date: Wed, 9 Apr 2025 23:06:30 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: Re: [net-next v4 3/5] ARM: dts: nxp: mxs: Adjust XEA board's DTS to
+ support L2 switch
+Message-ID: <b380c764-5a46-49e8-9241-675a6b9d85b6@lunn.ch>
+References: <20250407145157.3626463-1-lukma@denx.de>
+ <20250407145157.3626463-4-lukma@denx.de>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-Message-Id: <15492.125040917030701453@us-mta-248.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: jtFiB0NegaFJfeoJbq9jJdtb5YEEDpzeIF-vtIorCL0_1744232586
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250407145157.3626463-4-lukma@denx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_140310_318217_31141C62 
-X-CRM114-Status: UNSURE (   6.45  )
+X-CRM114-CacheID: sfid-20250409_140646_371741_BC55D4DD 
+X-CRM114-Status: UNSURE (   8.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,39 +81,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Mon, Apr 07, 2025 at 04:51:55PM +0200, Lukasz Majewski wrote:
+> The description is similar to the one used with the new CPSW driver.
+> 
+> Signed-off-by: Lukasz Majewski <lukma@denx.de>
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Tested-by: CKI Project <cki-project@redhat.com>
-
-Kernel information:
-    Commit message: arm64/fpsimd: signal: Simplify preserve_tpidr2_context(=
-)
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1760918513
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+    Andrew
 
