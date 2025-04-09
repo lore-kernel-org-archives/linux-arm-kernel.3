@@ -4,150 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFDECC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 22:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34111C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 22:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vc96rNeKQVG8g/Ok0ws+D5wkSdQOaTAoc3N10NJhWe8=; b=HKVhS5ggU0uOVCXALqH8MkUtdQ
-	3yhKHz2uff8r2mRVe624SmL4Sh7atow/ynkPj8wN5zq0F7KcUxPCAX3ola+okfIXRZODlw2HRRacb
-	7XjSBN048kd2fl/jB5vDDAG5QQTi433NY0mXLp2DpYdMFL8PQOksVvsuGie4CjE8OGSVzHX/Naixl
-	7dW81Z8ZpZ8Lpug0taL+W3R86glrBAdqAYvEkzdLisxfNSwgLMWEMOM9vTjG7tD5C5XJpirtj0wOz
-	0YttSmQrIOU0prnhFmLs+dttdVbgKT6BVtciQZOct/CthtL8rwWnQuSk9tda3XQRvIO7d4qoF7Qtt
-	trD74aFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F2DUGq4PpnA0mRyUvzOtXn7CGfV1K5I0ALvoIWAGTP0=; b=iEUaQNdUqvnqBQTHWqag1cLQBT
+	szTse1vgQ3N5+ljjR6JLij2Ay2bFHsYLAANpXsLJKjt7vD2LZBLbAA8EBj3XFgndfStXoSaBurLe0
+	XyfYgaBe2KPdnRJj8JhPJhjt2YnPQ0cPBE+0ivqWgZOdPJqpINRxJ+VYLfjTfasl8Otti5PJb6xUv
+	ojaNWip063OB/mYqfYIXVVavwQypWSYo5YQt03dVIH+b8szdkQhVPwYFp0/h9D7U2sI3EFmOFyn6u
+	RF9++8bLeHToCiYYWoeFnc5rTH+vmqryeuK8zdIHpzeb0nhN9/kncZp1EJkMpNzoxSvg5smon3fgY
+	WK1mk8eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2dmy-00000008gfR-1ETC;
-	Wed, 09 Apr 2025 22:20:56 +0000
-Received: from mail-am6eur05on20631.outbound.protection.outlook.com ([2a01:111:f403:2612::631] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1u2dzx-00000008hXT-0Eo4;
+	Wed, 09 Apr 2025 22:34:21 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2dlB-00000008gW6-47ko
+	id 1u2dy9-00000008hN5-2KWC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 22:19:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aoPtBOW+03UtBGCzX/gB2pX+v7TLohBqIbHYLMYTdIWX6h5LeQIVtKbLf7bbnrBlcdvGgVVhGQasEHz8Io9qDWDntdkmcUaGUsgQZa4kjCdnymFcqhOcZv55iQvxM4dv0SZw7vyoh+x5Xj1yMnqxRRvxpkCRlxmqj8pp+aflw0p8O8V63UX/7nX4QsxaLuU9Suy/M0iL87zqXVK1EsaNRsQVcPjsL5qgjDViA26MeuYm5Dqjv0X4A7yv8vTjdBq7xIqX/3CSTdtzJJawrnt2HdgCDnTBSJQludkhE9BBkfKEbdcRVntKXSRVHeCyBAwo3LJ4FR53rXC8G6iIaaxaXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Vc96rNeKQVG8g/Ok0ws+D5wkSdQOaTAoc3N10NJhWe8=;
- b=kn7eheD3XyrabTvqxDzDB4njLXKt6TbqLh7ERfvNqAZwEcNu0tmmqhLso7WRi4QH7DXEapq6cLPhZSHigPv0JhwWm8jLzcoEaXkCEFhHbY6u7WvCEsEn+z3vjj96+hox2H85MfCwtEjJ8HotwcomtUX45KpRFPSw2S3Mhos3izFM4la1vZ5jzi53ZIWTIVQ3I3AUIrqOPKnrf7QhNDtVxKRoiyp1CcbaYWTh6uxYx1mjihtp66Ukiu4SFV1Ir+bPwUVEw30L6TADwZFFGJfHgg0fMDclRMlPQVH7Yrhr9pdNv2EMZcpz7DbfYhbjQiH0giYJTEm4zuU3rPBh9jvO7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Vc96rNeKQVG8g/Ok0ws+D5wkSdQOaTAoc3N10NJhWe8=;
- b=A0USBPGQELk/CQ6O5l7uRqr7soci6pTfVGyC4qAjWLg+LqI+R9lmnYQ9oSKtMZ0Q61P7+WbOlvluy0Y+VeuAhjM8eVWikZRxyuPCn24cMn16bt2O+bp0m6kn3YvBIRqAU5rXvCKfuw/smRQlWnIG/JDaqEKSo1EIgojOCaRosiyPq6Yg7/+qLeKLZcNf/RVk9iGHK1Sv/7ZXBXIM1Ew9/ji5fYPyOT/1Vz/We1QDnqodCNS5dtlxBKPWtoh5VHPMQrbYIHySYjXUPdpr9Tl8l9Vjmm8db7ZJzOf/VLiSqFyARn62gryydEFMPnQHNT8vVHnQSMxbVh4a9u0ibKQ/sQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA2PR04MB10423.eurprd04.prod.outlook.com (2603:10a6:102:41c::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.32; Wed, 9 Apr
- 2025 22:19:02 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Wed, 9 Apr 2025
- 22:19:01 +0000
-Date: Wed, 9 Apr 2025 18:18:56 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: ming.qian@oss.nxp.com
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
-	mirela.rabulea@oss.nxp.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	xiahong.bao@nxp.com, eagle.zhou@nxp.com, linux-imx@nxp.com,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 4/4] media: imx-jpeg: Check decoding is ongoing for
- motion-jpeg
-Message-ID: <Z/byUMYsbw2KXr9Z@lizhi-Precision-Tower-5810>
-References: <20250408025725.1244-1-ming.qian@oss.nxp.com>
- <20250408025725.1244-5-ming.qian@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250408025725.1244-5-ming.qian@oss.nxp.com>
-X-ClientProxiedBy: AS4P250CA0029.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:20b:5e3::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 09 Apr 2025 22:32:31 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 539MWMnZ1602107
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 9 Apr 2025 17:32:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744237943;
+	bh=F2DUGq4PpnA0mRyUvzOtXn7CGfV1K5I0ALvoIWAGTP0=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=BHkvd6t4u0ETPPoqD59yPKVttkp1xjIwR36DmTsiR6+Pcvt5W1ITb6cbaDP0vqQf0
+	 XmQ4s/9vtrT5foUApEyyObbMLGq49bn2PGUfRismcohq6IKzD5KrTagCVqGQzRF/D1
+	 IHC7RSMTGK2s2sJ7t2WhbqELNFJVs78OzU5OdRIo=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 539MWMUG006103
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 9 Apr 2025 17:32:22 -0500
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 9
+ Apr 2025 17:32:22 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 9 Apr 2025 17:32:22 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 539MWMgB116920;
+	Wed, 9 Apr 2025 17:32:22 -0500
+Message-ID: <fe735242-4643-432a-adaf-27e29719948a@ti.com>
+Date: Wed, 9 Apr 2025 17:32:22 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA2PR04MB10423:EE_
-X-MS-Office365-Filtering-Correlation-Id: 028eb851-d6cc-4155-1ed9-08dd77b48806
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UTbXtyMJmWLo6cwT9Tkk0rwdkv2JC1w5RvFmHQXpftHo+kk7MNNPdq/rHtHs?=
- =?us-ascii?Q?wZwwRD1a5ax1B1yD0ptRuwmKYqwvEEG8qqNW4tVZqChksmaHs7ftZ9/1201f?=
- =?us-ascii?Q?mL7OtHn3TtSP8cP33/fQyezyWQOp/twk1AECYCL46kLsIjGZ9bJzIRzOTrtj?=
- =?us-ascii?Q?kWOG8cSC7nRziR3X3QH3c+ln380gbA1sajm8cfIkndkbSMk5AgjG8ifFfzBy?=
- =?us-ascii?Q?AiJYFbemgwdAVLy5cDir92b7yMEpPqq3zM1cMN637HEgx+Dm8u8seb1/PPPY?=
- =?us-ascii?Q?u0+40iEzh47BxXfXWCgmsLa/a3Ut8H2vcrP9UDwO9DXxPk207uh9jpesZh1S?=
- =?us-ascii?Q?UhXW74Qco6JoO8kNA8SvJukkzWV5jd6YRyqiax+ih2148dJ4Jb9+eYzfxDER?=
- =?us-ascii?Q?KpZCYKQyBnXeovX+2/p40p3we8y/yM2RcPU8VjkuatfgYARJ9nLl/dWtDpTj?=
- =?us-ascii?Q?zMc0L2RuTxT2XlP1+XPlhOvj1cGo+O6fiNtaNVBt/nAIA2kqQQGBggiTk8Ri?=
- =?us-ascii?Q?/vu4nxT8pfclMxvjjYG1h5x2ZIQgX+ePjz6Ul64ccnomlp8K7XtuKFHQm6df?=
- =?us-ascii?Q?IsQy9UnyFP1Hmqjx+lG0QszzTMLc5PYUoq/ln1sQbVlAqFEM2EO9aJi45RAC?=
- =?us-ascii?Q?5mwT50F7fSZsujD472n+BWwe28DWFOh65Q0mlW+DQbtKhTIgMiPaWcybrMev?=
- =?us-ascii?Q?egACA0R9hmbCTIldofdk4e6j7UUreBrP/cp4EnIyNINGYnXmZgTKhSxGO9GT?=
- =?us-ascii?Q?3sJphS/0Hk9Od826xdRDP+CPhTnnovCQBmj0i594ju+GXu8vZOBzHG1YRbzA?=
- =?us-ascii?Q?mIe4mmbPUK1Qndl+UMrygnSDByo5HRxvez7IbPYzzjV5gLi9hZ3UOOqs/yTD?=
- =?us-ascii?Q?PpKqrmZtmRts+cgZXVw+L/iQ1DjyfxG2dNe8yCL4cMAFD6SRjjv9ZxQL6Ehq?=
- =?us-ascii?Q?46YhN8npIQVZ799NleD2YFIl1jQJo41DOu1ecghNivMSPw8WczDQ0P/pV9sd?=
- =?us-ascii?Q?0/kT0xIEqq2VdzWDqhAUfSr/BAHJnQvqH1SJkDN/Rg51m95fSxSHjLCjXQuV?=
- =?us-ascii?Q?Qmz5yu1qz/B/OxATGI7Xm3Qmww+9GMatAQELFOV33k/+a2Wb1t8mU6SviaRA?=
- =?us-ascii?Q?C/yFgN8Er0JAdHUEputTgbjtEflhhuj/X2TbJ7cYHnuj9gZdihjEfwkXyiql?=
- =?us-ascii?Q?HsnF88oECessjxJ477uaZMYeGKFe30DGXoxXgVqbiybfQqtnhNIYNhvX9WeO?=
- =?us-ascii?Q?zBXRQECzCdJFo4Fjfm0HZOf5SH8AoCVmMV1I+/9vxL+Xx1Uce7lsVTQUNbA8?=
- =?us-ascii?Q?EtOP/gbOoASVAKkWbuF37JFoAQ4BD0/gzvFFN9SeJTF/M0FaQLZA+3dM4Ii6?=
- =?us-ascii?Q?Tv5sRlI2CB6R7yu/zarTfSN0+hYKCjwtnFizjvgElFQLYXZhIXGQ0t7Ucone?=
- =?us-ascii?Q?bTNhxYiLJtYDO5ObAtuE4cD7MQld9uBmbLd0F4pdrMWPgUrmdjCh3Au6D3T8?=
- =?us-ascii?Q?IFA6IhDJxAixR8Q=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Xn/xI/kEHSuA7QULctlgBuaiPt9rkdiulP1BjGY439TRr7sqjXwRvpjvzfwH?=
- =?us-ascii?Q?TpdniGiL1B2/7xACJNS5pwsUkn02S1J5hHoO8qD/y2zg7BA703QcI2JCvBbO?=
- =?us-ascii?Q?1rGeObHOxslaziVckaDIGGnXhaCKlzgLB7bWXO4WdjYxX1YtMG4XX70IzR8d?=
- =?us-ascii?Q?NNLiaThc8pgvFr4EUTWif4aP1HrWgyZukmUG1UuUgAOzEXj9fesHvQcMJgVE?=
- =?us-ascii?Q?Ia0XACAlA6s531WMHyImwIRcIGRnZr+7o8Ujgh1RVx910AZaX1bprvIkKghc?=
- =?us-ascii?Q?LGYKuzIqbDYfnvt8Po2wj7nE85/RPoFsYFRoBICnBgr8q3Gwtn814Fhxifg2?=
- =?us-ascii?Q?cuWwm1eqAOdqdZ20O49wC/4lC2/yMCqgIrNZP1SQeMoByRQlRJrrVncrRpkZ?=
- =?us-ascii?Q?tD02nK3i4dbYOb95Nvmx0f1RDVOEnzKEBqKJUDYIGoXz7eyzVAQD70YYIGMR?=
- =?us-ascii?Q?B0aYtLEPdkUkIpmNL0zJH01dIxkV3PilCPHlNRURHVhYhffCTYKqvYeTeTT1?=
- =?us-ascii?Q?aUr/rPF/j/Igme6OgQ7mfbFUswbE8xBObPxtetrwKrWcDmxdOe3Wva3WrqUv?=
- =?us-ascii?Q?UQgzMzKhoMG2gn6N8OKZN3kLC+mAGuOLIBuU5LFq6B58Bze3td2gl8REpan/?=
- =?us-ascii?Q?A9nXyQaZV9CgVxtpjajyw0kg4ORAmVS2G0FJmaBRajy4D937YGDIQ+UoILfg?=
- =?us-ascii?Q?QfHn66RZWy7mzdoRKMoI3QHWSiDH5yvwZ0pufqfkdaV5Dg7rE7JQJI0t4JSK?=
- =?us-ascii?Q?H8lVA1RV8Os0KBuF17t16QCFVBDhdr6TFXTBdd3duuuaEizNH636HV5GJW/7?=
- =?us-ascii?Q?7a4d85Abtiy19PrmHa1Ss1Ua0RBLhJMenJopd6aqayoK8IRGAkWi/rGjDS20?=
- =?us-ascii?Q?+qSQgeno1KPA85QYUg45UmmxFL5tT6riz6ngaH/0VkxST6aDJPK+bWiMZwJm?=
- =?us-ascii?Q?XwlQTCj8OHRY5A7tDdw6qwnDgyXFX2rzES0WRmchuZQUNF5o/Qm2V8L9VLRU?=
- =?us-ascii?Q?ee/IDHwOu4GQ3EzT0a+6HpfFHnan+aG59BxcETTNzZIKCyq2mtqXrBQwZc9X?=
- =?us-ascii?Q?2gsxb8Vv/tSMepdeMx+eCj7nrghtdZhHThFoIlQT5DkldTQRHEXsjCupKmhO?=
- =?us-ascii?Q?YWCP1inbuIxfYLHSUofV89q+M4XqLEeXr0hrxxX2dnT0wanafWnTUmlcpLiI?=
- =?us-ascii?Q?ji9Yq4BhADOTg84VHkNYG23mNPZWCooXAmuxmmr2bisNlZFNyFHaVyKRaGHG?=
- =?us-ascii?Q?Xvwl5ON4keSUOVg4n3+nawNOjn91KxwwA00QPmw+tSHEaR1/TcCr/+3vO2lo?=
- =?us-ascii?Q?Skz6MhUJtLDz4nO8Z2jzt1RgUwGLdEgiNnBVwnou7/W1IwlwfafGrykA1bEM?=
- =?us-ascii?Q?HN7xqZsGxv/5wbuvP1FPV6f43ReoTiam+kJWAcCQEHEWRfzOqoBhXCsNzd54?=
- =?us-ascii?Q?CYpyT0FpAb8ShD3Wh4OeU/DUqLNkWK4KkkE6WV4GVQRQ4165GOhxhiMAZUxC?=
- =?us-ascii?Q?CJH2apBBD/XquPSywZw97naNqVxfDAO94D/Reb5UsX8+2iFGtLJfNH+LA4P8?=
- =?us-ascii?Q?f07Xk/oC+NrMAWrklCk=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 028eb851-d6cc-4155-1ed9-08dd77b48806
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 22:19:01.8138
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BS5R/DrdNHkLXCDeeefmvTCFQNTpMXrZYtCCvTPVfZSK23FvPWAGYRcEy5mfXtEpA02i6Pv0VrKD60DM0EW/fw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10423
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
+ remote processors
+To: Beleswar Prasad Padhi <b-padhi@ti.com>,
+        Devarsh Thakkar
+	<devarsht@lewv0571a.ent.ti.com>,
+        Nishanth Menon <nm@ti.com>, Andrew Davis
+	<afd@ti.com>,
+        Hari Nagalla <hnagalla@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Markus
+ Schneider-Pargmann <msp@baylibre.com>
+References: <20250405001518.1315273-1-jm@ti.com>
+ <20250405001518.1315273-7-jm@ti.com>
+ <6868f593-0728-4e92-a57b-87db6a0037f6@ti>
+ <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
+ <f8f1d877-3d13-4ba7-90e1-455923458c11@ti.com>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <f8f1d877-3d13-4ba7-90e1-455923458c11@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_151906_026625_3A0F270F 
-X-CRM114-Status: GOOD (  36.86  )
+X-CRM114-CacheID: sfid-20250409_153229_690075_6D4A6FD5 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,135 +101,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 10:57:20AM +0800, ming.qian@oss.nxp.com wrote:
-> From: Ming Qian <ming.qian@oss.nxp.com>
->
-> As the first frame in "repeat-mode" is the pattern, the first interrupt
+Hi Beleswar,
 
-Can you name first irq as actual function, such as "pattern done" irq.
+On 4/7/25 11:00 PM, Beleswar Prasad Padhi wrote:
+> Hi Judith, Andrew,
+> 
+> On 07/04/25 19:43, Judith Mendez wrote:
+>> Hi Devarsh,
+>>
+>> On 4/7/25 8:54 AM, Devarsh Thakkar wrote:
+>>> Hi Judith,
+>>>
+>>> On 05/04/25 05:45, Judith Mendez wrote:
+>>>  > From: Devarsh Thakkar <devarsht@ti.com>
+>>>>
+>>>
+>>> Thanks for the patch.
+>>>
+>>>> For each remote proc, reserve memory for IPC and bind the mailbox
+>>>> assignments. Two memory regions are reserved for each remote processor.
+>>>> The first region of 1MB of memory is used for Vring shared buffers
+>>>> and the second region is used as external memory to the remote 
+>>>> processor
+>>>> for the resource table and for tracebuffer allocations.
+>>>>
+>>>> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+>>>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+>>>> Signed-off-by: Judith Mendez <jm@ti.com>
+>>>> ---
+>>>>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 96 
+>>>> +++++++++++++++++++++++--
+>>>>   1 file changed, 90 insertions(+), 6 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts 
+>>>> b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>>>> index 1c9d95696c839..7d817b447c1d0 100644
+>>>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>>>> @@ -52,6 +52,42 @@ linux,cma {
+>>>>               linux,cma-default;
+>>>>           };
+>>>> +        c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
+>>>> +            compatible = "shared-dma-pool";
+>>>> +            reg = <0x00 0x99800000 0x00 0x100000>;
+>>>> +            no-map;
+>>>> +        };
+>>>> +
+>>>> +        c7x_0_memory_region: c7x-memory@99900000 {
+>>>> +            compatible = "shared-dma-pool";
+>>>> +            reg = <0x00 0x99900000 0x00 0xf00000>;
+>>>> +            no-map;
+>>>> +        };
+>>>> +
+>>>> +        mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
+>>>> +            compatible = "shared-dma-pool";
+>>>> +            reg = <0x00 0x9b800000 0x00 0x100000>;
+>>>> +            no-map;
+>>>> +        };
+>>>> +
+>>>> +        mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
+>>>> +            compatible = "shared-dma-pool";
+>>>> +            reg = <0x00 0x9b900000 0x00 0xf00000>;
+>>>> +            no-map;
+>>>> +        };
+>>>> +
+>>>> +        wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+>>>> +            compatible = "shared-dma-pool";
+>>>> +            reg = <0x00 0x9c800000 0x00 0x100000>;
+>>>> +            no-map;
+>>>> +        };
+>>>> +
+>>>> +        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>>>> +            compatible = "shared-dma-pool";
+>>>> +            reg = <0x00 0x9c900000 0x00 0xf00000>;
+>>>> +            no-map;
+>>>> +        };
+>>>> +
+>>>>           secure_tfa_ddr: tfa@9e780000 {
+>>>>               reg = <0x00 0x9e780000 0x00 0x80000>;
+>>>>               alignment = <0x1000>;
+>>>> @@ -63,12 +99,6 @@ secure_ddr: optee@9e800000 {
+>>>>               alignment = <0x1000>;
+>>>>               no-map;
+>>>>           };
+>>>> -
+>>>> -        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>>>> -            compatible = "shared-dma-pool";
+>>>> -            reg = <0x00 0x9c900000 0x00 0x01e00000>;
+>>>> -            no-map;
+>>>> -        };
+>>>>       };
+>>>
+>>> This is missing the edgeAI specific remote-core carveouts and 
+>>> RTOS-to-RTOS IPC memory regions [1] being used by edgeAI firmwares 
+>>> which come as pre-packaged in the official SDK release for AM62A.
+>>>
+>>> There is only one official SDK release for AM62A (which is edgeAI 
+>>> based) [2] which packages these edgeAI remoteproc firmwares and in my 
+>>> view it is a fair expectation that remote core careveouts in 
+>>> device-tree should align with firmwares released in SDK.
+>>>
+>>> This is because most developers (including me) and vendors download 
+>>> this official SDK release and use it with latest upstream kernel and 
+>>> modules (right now we are applying required patches locally) and this 
+>>> patch won't suffice for this, in-fact it won't work since the 
+>>> remoteproc firmwares are already using regions beyond the 
+>>> reserved-regions from this patch.
+>>
+>> I understand your point, currently with this patch remoteproc loading
+>> will not work for some cores. However, the goal here is to standardize
+>> as much as possible the memory carveout sizes, push the "demo firmware"
+>> to request resources the correct way from resource table, 
+> 
+> 
+> It is indeed more suitable if the memory carveouts are called out in the 
+> resource table of the firmware. But you will still need to reserve that 
+> memory sections in the Device Tree so that Kernel does not map that 
+> memory for anything else. So I am thinking how moving to resource table 
+> will help solve this problem?
 
-> is ignored by the driver. With small resolution bitstreams, the
-> interrupts might fire too quickly and thus the driver might miss the
-> second interrupt from the first actual frame.
+The point is that our default FW is doing things incorrectly. We want to
+push the existing FW to
+1. Request resources via resource table.
+2. Fix their memory requirements (recent offline discussion proved that
+FW is requesting more than it needs)
+3. FW should adapt to Linux not Linux adapt to FW
 
-"second interrupt" look like "frame decode done irq"?
+If not, then then we should try to move to Zephyr firmware or other/
+better options.
 
-It is not "missed" second irq. hardware combine two irqs to once because
-irq handle have latency.
+Hope I am able to explain myself better this time around.
 
->
-> In order to avoid the driver wait for the missed second interrupt,
-> driver will check the curr_desc and slot_status registers to figure out
-> if the decoding of actual frame is finished or not.
->
-> Firstly we check the curr_desc register,
-> if it is still pointing to the pattern descripor, the second actual
-                                         ^^^ typo
-run ./script/checkpatch --codespell
+~ Judith
 
-> frame is not started, we can wait for its frame-doen interrupt.
-> if the curr_desc has pointed to the frame descriptor, then we check the
-> ongoing bit of slot_status register.
-> if the ongoing bit is set to 1, the decoding of the actual frame is not
-> finished, we can wait for its frame-doen interrupt.
-> if the ongoing bit is set to 0, the decoding of the actual frame is
-> finished, we can't wait for the second interrupt, but mark it as done.
+> 
+> Thanks,
+> Beleswar
+> 
+>> and move away
+>> from this dependency and limitations that we have with our firmware. We
+>> should soon be able to generate our own firmware using Zephyr, which
+>> Andrew is pioneering, so with this firmware we should move to the
+>> correct direction upstream. Downstream we are still using the memory
+>> carveout sizes that the firmware folk want so desperately to keep, for
+>> now..
+>>
+>> ~ Judith
+>>
+>>>
+>>> [1]: 
+>>> https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=ti-linux-6.6.y-cicd#n103
+>>> [2]: https://www.ti.com/tool/PROCESSOR-SDK-AM62A
+>>>
+>>> Regards
+>>> Devarsh
+>>>
+>>>>       opp-table {
+>>>> @@ -741,3 +771,57 @@ dpi1_out: endpoint {
+>>>>           };
+>>>>       };
+>>>>   };
+>>>> +
+>>>> +&mailbox0_cluster0 {
+>>>> +    status = "okay";
+>>>> +
+>>>> +    mbox_r5_0: mbox-r5-0 {
+>>>> +        ti,mbox-rx = <0 0 0>;
+>>>> +        ti,mbox-tx = <1 0 0>;
+>>>> +    };
+>>>> +};
+>>>> +
+>>>> +&mailbox0_cluster1 {
+>>>> +    status = "okay";
+>>>> +
+>>>> +    mbox_c7x_0: mbox-c7x-0 {
+>>>> +        ti,mbox-rx = <0 0 0>;
+>>>> +        ti,mbox-tx = <1 0 0>;
+>>>> +    };
+>>>> +};
+>>>> +
+>>>> +&mailbox0_cluster2 {
+>>>> +    status = "okay";
+>>>> +
+>>>> +    mbox_mcu_r5_0: mbox-mcu-r5-0 {
+>>>> +        ti,mbox-rx = <0 0 0>;
+>>>> +        ti,mbox-tx = <1 0 0>;
+>>>> +    };
+>>>> +};
+>>>> +
+>>>> +&wkup_r5fss0 {
+>>>> +    status = "okay";
+>>>> +};
+>>>> +
+>>>> +&wkup_r5fss0_core0 {
+>>>> +    mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
+>>>> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+>>>> +            <&wkup_r5fss0_core0_memory_region>;
+>>>> +};
+>>>> +
+>>>> +&mcu_r5fss0 {
+>>>> +    status = "okay";
+>>>> +};
+>>>> +
+>>>> +&mcu_r5fss0_core0 {
+>>>> +    mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
+>>>> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+>>>> +            <&mcu_r5fss0_core0_memory_region>;
+>>>> +};
+>>>> +
+>>>> +&c7x_0 {
+>>>> +    mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
+>>>> +    memory-region = <&c7x_0_dma_memory_region>,
+>>>> +            <&c7x_0_memory_region>;
+>>>> +    status = "okay";
+>>>> +};
+>>>
+>>
 
-Firstly check the curr_desc register
-  - if point to the pattern descriptor, ...
-  - if point to the frame descriptor,
-  ....
-
->
-> But there is still a small problem, that the curr_desc and slot_status
-> registers are not synchronous. curr_desc is updated when the
-> next_descpt_ptr is loaded, but the ongoing bit of slot_status is set
-> after the 32 bytes descriptor is loaded, there will be a short time
-> interval in between, which may cause fake false.
-...
-> Reading slot_status
-> twice can basically reduce the probability of fake false to 0.
-
-Consider read register is quite slow compared with IP read 32byte from
-memory, read twice slot_status can avoid this situation.
-
->
-> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> ---
-> v3
-> - Read the slot_status register twice
-> - Improve commit message
->
->  .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |  1 +
->  .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 30 ++++++++++++++++++-
->  2 files changed, 30 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-> index d579c804b047..adb93e977be9 100644
-> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-> @@ -89,6 +89,7 @@
->  /* SLOT_STATUS fields for slots 0..3 */
->  #define SLOT_STATUS_FRMDONE			(0x1 << 3)
->  #define SLOT_STATUS_ENC_CONFIG_ERR		(0x1 << 8)
-> +#define SLOT_STATUS_ONGOING			(0x1 << 31)
->
->  /* SLOT_IRQ_EN fields TBD */
->
-> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> index 45705c606769..85795ac4cc71 100644
-> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> @@ -910,6 +910,33 @@ static u32 mxc_jpeg_get_plane_size(struct mxc_jpeg_q_data *q_data, u32 plane_no)
->  	return size;
->  }
->
-> +static bool mxc_dec_is_ongoing(struct mxc_jpeg_ctx *ctx)
-> +{
-> +	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
-> +	u32 curr_desc;
-> +	u32 slot_status;
-> +
-> +	curr_desc = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_CUR_DESCPT_PTR));
-> +	if (curr_desc == jpeg->slot_data.cfg_desc_handle)
-> +		return true;
-> +
-> +	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
-> +	if (slot_status & SLOT_STATUS_ONGOING)
-> +		return true;
-> +
-> +	/*
-> +	 * The curr_desc register is updated when next_descpt_ptr is loaded,
-> +	 * the ongoing bit of slot_status is set when the 32 bytes descriptor is loaded.
-> +	 * So there will be a short time interval in between, which may cause fake false.
-> +	 * Reading slot_status twice can basically reduce the probability of fake false to 0.
-
-Don't use uncertain words.
-
-Frank
-
-> +	 */
-> +	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
-> +	if (slot_status & SLOT_STATUS_ONGOING)
-> +		return true;
-> +
-> +	return false;
-> +}
-> +
->  static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
->  {
->  	struct mxc_jpeg_dev *jpeg = priv;
-> @@ -979,7 +1006,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
->  		mxc_jpeg_enc_mode_go(dev, reg, mxc_jpeg_is_extended_sequential(q_data->fmt));
->  		goto job_unlock;
->  	}
-> -	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed) {
-> +	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed &&
-> +	    mxc_dec_is_ongoing(ctx)) {
->  		jpeg_src_buf->dht_needed = false;
->  		dev_dbg(dev, "Decoder DHT cfg finished. Start decoding...\n");
->  		goto job_unlock;
-> --
-> 2.43.0-rc1
->
 
