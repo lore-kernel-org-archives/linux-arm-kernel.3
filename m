@@ -4,97 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F91C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DACC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:53:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hRA2bol7CVgZJUQFgMKwhvWv9PIe4ppoMKeOpu6pZuY=; b=lyUkJ5rRPawXExQAP8l0NGZmSS
-	oFv2YsAYVQ0Qx7fuhZZDmNKgCzqESMpMm7mvXPYnT7/E2zON5HS07RUx4pxdgYOS7tzKWX4Cp3Czo
-	39prsMDF+swSeHRiQn8G/C/g8F+EnL1DKCec4vRcvdhyFU5ssyXdOqeuN5jDNna7C9OCSr0+sXnE6
-	eQEVJHj5h9KPwcDa3kNZaMI5giGTrXHrC3Rj2AmaLHTbjsNUL56ybZeyyNP2Xt8hLPWcB25Gx96uy
-	TFL18StKhR9b/G9IZ/RdI0vFgbDn7NUM12OVDDgTcd7RgDXLuwz8dZHLO166PRQlpuuAhN1yKX1jj
-	mcjnAAyg==;
+	bh=FEX86ieQtTjcsMrvm61w0FN/i4G3RKlhYgTWDNp/5kQ=; b=Yomvix8LXbMiesQVTx1KbnohLO
+	Kzv9kbn02TkDCaeeCpepWKqaKzX/6WsGhV72JAU9dlt51lwL4d7EH9VGDQKKZ8abJbsDw4+WQEyid
+	Ve0WJF5Pz8Q+RVZNS26OGu+4dxfCDfmjrnuZqU3c4LUng7CAEUAf6vT7HkMtm/LRRQyXUltKA3T6O
+	vMUa3+UD6/KmICrkSYCpg+Rgg3+c5IuzxMljZTo3gqaNzBdw4E0Nr8KX3y+T+cu2MCdoy8cOcYF2W
+	JHbcykQ0aeRGnqJqeTVuYfw+4lF1rdM65x0UTATcFxzWhyDuQxph3LeXgPb+aGw8paOFMMMdeaz9d
+	ONXOgwJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Wlh-00000007XsJ-2DxX;
-	Wed, 09 Apr 2025 14:51:09 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u2WnS-00000007YOC-3PUA;
+	Wed, 09 Apr 2025 14:52:58 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2WDt-00000007Pzo-3zxt
+	id 1u2WLd-00000007RHV-0lel
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 14:16:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744208172;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hRA2bol7CVgZJUQFgMKwhvWv9PIe4ppoMKeOpu6pZuY=;
-	b=O2zOsdf63Ofj0bVNFQudLIDuKF/0WbQz7dQPtR1ZptH8F+lfqTsy79zLeBd4sdWsqtE8iY
-	zdMDLZP7JjBUvqUl13XpQ7iDmrfspZBL5KZDSgdA2M9kgYNeyy/DfP35yDGgPD8icHsnaA
-	E66yuKe++qfueATEQBzrEZJnMgVgQzw=
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com
- [209.85.210.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-210-vQGZajMdM-eS8CxFa_xQfA-1; Wed, 09 Apr 2025 10:14:38 -0400
-X-MC-Unique: vQGZajMdM-eS8CxFa_xQfA-1
-X-Mimecast-MFC-AGG-ID: vQGZajMdM-eS8CxFa_xQfA_1744208077
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-72b7c2161ceso1499887a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 07:14:38 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744208077; x=1744812877;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hRA2bol7CVgZJUQFgMKwhvWv9PIe4ppoMKeOpu6pZuY=;
-        b=vNVsY4Iu2Lq1uL0thz9gkYUMdfxw/zcLKwcv9xS0YoGO3+4iD2XAMF2+SNdQGw+7aT
-         dSoMDqB+cNVGEMxPNmmiWxMzwLlkPmrxvgTWjbMhE779p4taOsXmgrMKGUeJuIAS1uIy
-         mbYYc5KZBjkR3E4l3UNPjSycW+179uXgWDilF92fdz0V5jVUB2kCGudLfNFvGk43JBNO
-         0GV8kTEIWBpnUKn/2h5BXDA6sqq5pZzfLYgsSfQUi1ZY6o1wkjLj+iiwhCloQC65OJaE
-         EUckZjm43m9NTKxzSkQzXn2U77NkgRgZMGoIxpfGpfRVV//lDixRiFrYPRgPTu/XWJBg
-         mJ7g==
-X-Forwarded-Encrypted: i=1; AJvYcCUPb+8xlgAKxj5FQXcgiJanuuZII6pt2UyJRxLMu2EQZ2/2p38RaHTHX1T+rdgu4M8fV0Mw3qP3Vsvx4kf5CxS6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmurohbHtQXqRIbcGaz3IxoLlKLEb/Lg2CLnraJljrWbi9yKgp
-	q2Eib/0sMEA9hpN+a2pMSY6baMf99PtR+LNf+OF3/3que15QmNdZrgry295N7TY64wR5YSz8Ms6
-	XnslJ18bY1dcriS4CmkXMBL5ve5pvkYG5xDWtExy1q1d+RyceojybEtrDsh+dn5js8cqDukAB6H
-	o5Uw61EWXWH1qBffqQ/ZvAIwLZrBDlqvySzU243tR4wYWzaNXk8tTGlNEwFw==
-X-Gm-Gg: ASbGncvmUpzJji7rH13O4pLf/y2DnkLX8gwZXYPqDjH0uM2XVVnwxy2lkCQ5k4N1PmN
-	GLEPT71EDZzusT6/Tl0IdVX1m7/tzIazgsy3xs/e20+5/7Z1p4xJvYdRhoqg6GD14It4b
-X-Received: by 2002:a05:6830:6986:b0:728:b605:4bf9 with SMTP id 46e09a7af769-72e70a6c11fmr602590a34.6.1744208077003;
-        Wed, 09 Apr 2025 07:14:37 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG8We1v7H1YXXHcTe4r82NeXUnbmCj2a53c2mHYVm+T0QDbNFq1zQ5A9xv0j7oEeljEa0SlAbwYViIR3d18hco=
-X-Received: by 2002:a05:6830:6986:b0:728:b605:4bf9 with SMTP id
- 46e09a7af769-72e70a6c11fmr602562a34.6.1744208076493; Wed, 09 Apr 2025
- 07:14:36 -0700 (PDT)
+	Wed, 09 Apr 2025 14:24:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1744208642; x=1744813442; i=markus.elfring@web.de;
+	bh=FEX86ieQtTjcsMrvm61w0FN/i4G3RKlhYgTWDNp/5kQ=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=olLEdyb9QhIEe2b+MMOQ4sF0MMbx/vSk6E0kv0p/w8KYLIRB+hh10n9pgxgXrCCW
+	 4L2MKYie4uGqRcHAIM/ZQhpAXAGJCcdO5mDjcGX3usmqxxv7m7mBXGg+NVwNBo5Zh
+	 s+eD8sa/OWxwPimDUTb/2x5kJyoQGrquMaX7pKmYypVYq/JlFkVo36NlEfIQG3aLA
+	 KzdzYdd8cVLBpnUn2T/gxI8ltQ+++AQjaRsJhJt0SM7CVDOs0PQHMyYU8J2t7UJ0q
+	 RZJLPe8mEIQHZnKI/PXfDCKSsjqx/aBeE/jzvSi+AhBKxtWBqEJbFgNY+BUr30k5N
+	 QHwsjl9lDp0HzE+KBA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.27]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MVrft-1tbP7f0J4X-00MPqE; Wed, 09
+ Apr 2025 16:24:02 +0200
+Message-ID: <daf7934a-17f7-4e41-ba00-cec155437c7e@web.de>
+Date: Wed, 9 Apr 2025 16:24:01 +0200
 MIME-Version: 1.0
-References: <20250403103346.3064895-1-ciprianmarian.costea@oss.nxp.com> <20250403103346.3064895-3-ciprianmarian.costea@oss.nxp.com>
-In-Reply-To: <20250403103346.3064895-3-ciprianmarian.costea@oss.nxp.com>
-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Date: Wed, 9 Apr 2025 16:14:18 +0200
-X-Gm-Features: ATxdqUH7rS1qWUoy_nANMGkewNuQb7W94-m97IMC2vi0evvhLP76vyrc8q4HKDc
-Message-ID: <CALE0LRs3VA9kLy4QSEOBCixZbptW4B4DVjZqbN=GDoONHq2oeA@mail.gmail.com>
-Subject: Re: [PATCH v9 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-rtc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, NXP S32 Linux <s32@nxp.com>, imx@lists.linux.dev, 
-	Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>, 
-	Eric Chanudet <echanude@redhat.com>, Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, 
-	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>, Frank Li <Frank.Li@nxp.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: dRe1sQT9JO0TqmRsxsYnmBAr7s23VeiNONDrmjXbpmI_1744208077
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v2 0/2] cpufreq: scmi/scpi: Fix NULL pointer dereference in
+ get_rate()
+To: Sudeep Holla <sudeep.holla@arm.com>,
+ Cristian Marussi <cristian.marussi@arm.com>,
+ Henry Martin <bsdhenrymartin@gmail.com>, arm-scmi@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>
+References: <20250408150354.104532-1-bsdhenrymartin@gmail.com>
+ <0558b7f7-8c69-4664-afc6-bae4fdc6f071@web.de>
+ <20250409-merry-gay-lemur-8288cf@sudeepholla>
+ <52aa52a5-7081-41ee-872e-f1728c06daf1@web.de> <Z_Zhp38o9KiicPVw@pluto>
+ <3f5662dc-7547-4585-a396-4546fa98d34f@web.de>
+ <20250409-glistening-hasty-ape-c9c7e9@sudeepholla>
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250409-glistening-hasty-ape-c9c7e9@sudeepholla>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:t5v7mMZJZZsS+n267hBMyKvP4/+RVlchh+BOFxAknfqwRji+4RW
+ GJJCwak089+mygl9TaQLJxO9SecKQ83EoLnNIHTGpv9rSZpYMCue7oc0vULqJ9F+ieswSng
+ f+7k0YST3xTps3fs4RFvL63F7eSU9mXjPNa/XvLH4V1/ZscD4ROaJeAiar6rNCu9Yr24NLs
+ UOVKQTdttGjcIsLTP0rkA==
+UI-OutboundReport: notjunk:1;M01:P0:HOIHOb3bGZ4=;1rP3BcuxMDYjjaUCQBgbe3i9IxE
+ wM4gO39oEm9HdYKzPTnx3fUD9f3EKCGO7sUMwuU7Qp+WSJetes3zhWBpXv9lbLbcU/fjOXQ0D
+ yiGMi/1DeSgyjxJdS9kcjrLdpj1DsevuYXD9rSV83BjV69c1952DNdJgyvKeNnJsQ2A9F1Qi/
+ RijB94SnsfaFiJPj6piqdgOxlLkMRjAc3RcqiuHel4fALDVeC9Lt2DR8qBzsvUllU6VlLTUif
+ w/g3L8YfTIcrQbWoWv89Hxj1d2mDeOmCYYMoghgEJEZ4ZSaG8QSnH9solSeS4QMy1E7XgLjBC
+ 2w14jmra2DMHyD9BMR/pOKHtaZltpQQUcoB4MMur2Pt/tVvXSoIpfb3n1t1Jd7CaeS10qwsRA
+ XH6hEv+5gDAIHLk9dJik7AKsXUUs/c3c9iXrgCel+T/pT62ibsSrAEPfW7VrwRQIhDiLviIaT
+ xRqLv3I+ek/Dpk5E9GtQttd6SYefM+e8pCGvh/UL9zBPgKpNr0yUnSe9lWEFrh+PToa45egSw
+ aEzv8F3nnexauzHHt2Y3fCrodKO8NFpP7UAEzCmbOVuLk9fWwwaVR6okh8PnuFKYxnpgjWPP5
+ ccLUE8WA+K0qHr1OJ3NL7FIe9XpQ5IIahARNb8o3UcAYjqtHB5h72U/EHmiSAfl1U8GfcotKt
+ VnYT9QQ74TVYlong1Pgw9fHZg0jFWygUqCbCPTvjk9Mai9/svhdflEmvM5J+ggDIUS2zDrhkY
+ T8ochudKdXJ1rzDV+d3GF2q3gGrm5LiaxlSuzxnQ4+MrSULS3m1jyUIbe84JtOFFu3nhvGFO4
+ PhGuATu2NExKNmbp5YBVuWrwy2EjWYMGIu83bfvnG/js933lPfGnn/BpK3MOIjSqqqw97WTWc
+ 0VdDbGGkYBQdgfmcdqermzaVwCnl3pG5z9s3nI+wA+afG07MmsnIM81P6Tkeo77t3T1+8mWGf
+ wE91b6jim3eE0/zfs7SzG1GLU/E3PupDO4VJFnvGOQ5IFTXmjtB/YB4blaJw3FgGHM9zS8H8q
+ qLQKhltSWHqsAbTUNUpFLVOXL9JMTWE77xpcdHBI2krJDv+iEe8NH51cUJIl3PBwhFMg8itkN
+ H9veGeDqDZWkytci/7eq7xeI7jyN9i6OMDRy/gukxF713zHW/UV/d5EQMRMykJ0LW6Zc7UI9X
+ ap6naO/L6B5MXmzTxV6w66dn0c8dccsgA5UMtTeeEDlFCBlrG0uBc271sPwFW/n1iCt4FLQwT
+ 3ltqpcxa7Ou8rx+TfUHcjZ03IjtP+AKlJbScxWRLEZDNL92XlJGYM+tkO/aylCmMuazNTxQQ2
+ 6ha2SjasrUxa1eZ6UgBoATbpyzL88CryofWpBNPO8Ee9O6/q8i5wU20Zrhe4fcsmL1wezrIYw
+ ifCsR77pR6BhHYL6bQbk2nA8zq+9/DocHITIfp3lTDgKKFvlQCn5UaQkHGySXiwarQSl3Kyqt
+ 3weslyYFLRKXYMcHcwNTIJtPHFoMcLT+bBBPvhTUftCmEjUruqQRAldHrebKfqBwpimqB0KY5
+ JzaegFLNIz5sitxTED8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_071614_143821_F1494B9C 
-X-CRM114-Status: GOOD (  41.88  )
+X-CRM114-CacheID: sfid-20250409_072413_586068_2950B879 
+X-CRM114-Status: UNSURE (   4.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,535 +113,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ciprian,
-
-Many thanks for your patch.
-
-On Thu, Apr 3, 2025 at 12:34=E2=80=AFPM Ciprian Costea
-<ciprianmarian.costea@oss.nxp.com> wrote:
+>> May the usage of abbreviations be reconsidered once more also for such =
+messages
+>> (in presented update steps)?
 >
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->
-> Add a RTC driver for NXP S32G2/S32G3 SoCs.
->
-> RTC tracks clock time during system suspend. It can be a wakeup source
-> for the S32G2/S32G3 SoC based boards.
->
-> The RTC module from S32G2/S32G3 is not battery-powered and it is not kept
-> alive during system reset.
->
-> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Still can't understand you. Sorry for that. =E2=80=A6
 
-I went through the code and it looks good to me, so:
+Will any communication challenges need further clarifications also accordi=
+ng to
+wordings like the following?
+* null-ptr-deref
+* null pointer dereference
 
-However, I did a basic rtctest selftest in my S32G-VNP-RDB3 board,
-and some tests failed (it shows a small deviation), any idea what
-could be wrong?
-
-This is the output of the test:
-
-# ./rtctest
-TAP version 13
-1..8
-# Starting 8 tests from 1 test cases.
-#  RUN           rtc.date_read ...
-# rtctest.c:59:date_read:Current RTC date/time is 28/01/2025 00:17:49.
-#            OK  rtc.date_read
-ok 1 rtc.date_read
-#  RUN           rtc.date_read_loop ...
-# rtctest.c:124:date_read_loop:Continuously reading RTC time for 30s
-(with 11ms breaks after every read).
-# rtctest.c:151:date_read_loop:Performed 2638 RTC time reads.
-#            OK  rtc.date_read_loop
-ok 2 rtc.date_read_loop
-#  RUN           rtc.uie_read ...
-#            OK  rtc.uie_read
-ok 3 rtc.uie_read
-#  RUN           rtc.uie_select ...
-#            OK  rtc.uie_select
-ok 4 rtc.uie_select
-#  RUN           rtc.alarm_alm_set ...
-# rtctest.c:262:alarm_alm_set:Alarm time now set to 00:18:31.
-# rtctest.c:282:alarm_alm_set:data: 1a0
-#            OK  rtc.alarm_alm_set
-ok 5 rtc.alarm_alm_set
-#  RUN           rtc.alarm_wkalm_set ...
-# rtctest.c:334:alarm_wkalm_set:Alarm time now set to 28/01/2025 00:18:34.
-# rtctest.c:353:alarm_wkalm_set:Expected new (1738023515) =3D=3D secs (1738=
-023514)
-# alarm_wkalm_set: Test terminated by assertion
-#          FAIL  rtc.alarm_wkalm_set
-not ok 6 rtc.alarm_wkalm_set
-#  RUN           rtc.alarm_alm_set_minute ...
-# rtctest.c:394:alarm_alm_set_minute:Alarm time now set to 00:19:00.
-# rtctest.c:414:alarm_alm_set_minute:data: 1a0
-# rtctest.c:420:alarm_alm_set_minute:Expected new (1738023541) =3D=3D secs
-(1738023540)
-# alarm_alm_set_minute: Test terminated by assertion
-#          FAIL  rtc.alarm_alm_set_minute
-not ok 7 rtc.alarm_alm_set_minute
-#  RUN           rtc.alarm_wkalm_set_minute ...
-# rtctest.c:464:alarm_wkalm_set_minute:Alarm time now set to
-28/01/2025 00:20:00.
-# rtctest.c:483:alarm_wkalm_set_minute:Expected new (1738023601) =3D=3D
-secs (1738023600)
-# alarm_wkalm_set_minute: Test terminated by assertion
-#          FAIL  rtc.alarm_wkalm_set_minute
-not ok 8 rtc.alarm_wkalm_set_minute
-# FAILED: 5 / 8 tests passed.
-# Totals: pass:5 fail:3 xfail:0 xpass:0 skip:0 error:0
-
-Best regards,
-  Enric
-
-> ---
->  drivers/rtc/Kconfig    |  11 ++
->  drivers/rtc/Makefile   |   1 +
->  drivers/rtc/rtc-s32g.c | 385 +++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 397 insertions(+)
->  create mode 100644 drivers/rtc/rtc-s32g.c
->
-> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-> index 0bbbf778ecfa..510dc2db745d 100644
-> --- a/drivers/rtc/Kconfig
-> +++ b/drivers/rtc/Kconfig
-> @@ -2103,4 +2103,15 @@ config RTC_DRV_AMLOGIC_A4
->           This driver can also be built as a module. If so, the module
->           will be called "rtc-amlogic-a4".
->
-> +config RTC_DRV_S32G
-> +       tristate "RTC driver for S32G2/S32G3 SoCs"
-> +       depends on ARCH_S32 || COMPILE_TEST
-> +       depends on COMMON_CLK
-> +       help
-> +         Say yes to enable RTC driver for platforms based on the
-> +         S32G2/S32G3 SoC family.
-> +
-> +         This RTC module can be used as a wakeup source.
-> +         Please note that it is not battery-powered.
-> +
->  endif # RTC_CLASS
-> diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-> index 489b4ab07068..e4b616ecd5ce 100644
-> --- a/drivers/rtc/Makefile
-> +++ b/drivers/rtc/Makefile
-> @@ -161,6 +161,7 @@ obj-$(CONFIG_RTC_DRV_RX8111)        +=3D rtc-rx8111.o
->  obj-$(CONFIG_RTC_DRV_RX8581)   +=3D rtc-rx8581.o
->  obj-$(CONFIG_RTC_DRV_RZN1)     +=3D rtc-rzn1.o
->  obj-$(CONFIG_RTC_DRV_RENESAS_RTCA3)    +=3D rtc-renesas-rtca3.o
-> +obj-$(CONFIG_RTC_DRV_S32G)     +=3D rtc-s32g.o
->  obj-$(CONFIG_RTC_DRV_S35390A)  +=3D rtc-s35390a.o
->  obj-$(CONFIG_RTC_DRV_S3C)      +=3D rtc-s3c.o
->  obj-$(CONFIG_RTC_DRV_S5M)      +=3D rtc-s5m.o
-> diff --git a/drivers/rtc/rtc-s32g.c b/drivers/rtc/rtc-s32g.c
-> new file mode 100644
-> index 000000000000..3a0818e972eb
-> --- /dev/null
-> +++ b/drivers/rtc/rtc-s32g.c
-> @@ -0,0 +1,385 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Copyright 2025 NXP
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/clk.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/of_irq.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/rtc.h>
-> +
-> +#define RTCC_OFFSET    0x4ul
-> +#define RTCS_OFFSET    0x8ul
-> +#define APIVAL_OFFSET  0x10ul
-> +
-> +/* RTCC fields */
-> +#define RTCC_CNTEN                             BIT(31)
-> +#define RTCC_APIEN                             BIT(15)
-> +#define RTCC_APIIE                             BIT(14)
-> +#define RTCC_CLKSEL_MASK               GENMASK(13, 12)
-> +#define RTCC_DIV512EN                  BIT(11)
-> +#define RTCC_DIV32EN                   BIT(10)
-> +
-> +/* RTCS fields */
-> +#define RTCS_INV_API   BIT(17)
-> +#define RTCS_APIF              BIT(13)
-> +
-> +#define APIVAL_MAX_VAL         GENMASK(31, 0)
-> +#define RTC_SYNCH_TIMEOUT      (100 * USEC_PER_MSEC)
-> +
-> +/*
-> + * S32G2 and S32G3 SoCs have RTC clock source1 reserved and
-> + * should not be used.
-> + */
-> +#define RTC_CLK_SRC1_RESERVED          BIT(1)
-> +
-> +/*
-> + * S32G RTC module has a 512 value and a 32 value hardware frequency
-> + * divisors (DIV512 and DIV32) which could be used to achieve higher
-> + * counter ranges by lowering the RTC frequency.
-> + */
-> +enum {
-> +       DIV1 =3D 1,
-> +       DIV32 =3D 32,
-> +       DIV512 =3D 512,
-> +       DIV512_32 =3D 16384
-> +};
-> +
-> +static const char *const rtc_clk_src[] =3D {
-> +       "source0",
-> +       "source1",
-> +       "source2",
-> +       "source3"
-> +};
-> +
-> +struct rtc_priv {
-> +       struct rtc_device *rdev;
-> +       void __iomem *rtc_base;
-> +       struct clk *ipg;
-> +       struct clk *clk_src;
-> +       const struct rtc_soc_data *rtc_data;
-> +       u64 rtc_hz;
-> +       time64_t sleep_sec;
-> +       int irq;
-> +       u32 clk_src_idx;
-> +};
-> +
-> +struct rtc_soc_data {
-> +       u32 clk_div;
-> +       u32 reserved_clk_mask;
-> +};
-> +
-> +static const struct rtc_soc_data rtc_s32g2_data =3D {
-> +       .clk_div =3D DIV512_32,
-> +       .reserved_clk_mask =3D RTC_CLK_SRC1_RESERVED,
-> +};
-> +
-> +static irqreturn_t s32g_rtc_handler(int irq, void *dev)
-> +{
-> +       struct rtc_priv *priv =3D platform_get_drvdata(dev);
-> +       u32 status;
-> +
-> +       status =3D readl(priv->rtc_base + RTCS_OFFSET);
-> +
-> +       if (status & RTCS_APIF) {
-> +               writel(0x0, priv->rtc_base + APIVAL_OFFSET);
-> +               writel(status | RTCS_APIF, priv->rtc_base + RTCS_OFFSET);
-> +       }
-> +
-> +       rtc_update_irq(priv->rdev, 1, RTC_IRQF | RTC_AF);
-> +
-> +       return IRQ_HANDLED;
-> +}
-> +
-> +/*
-> + * The function is not really getting time from the RTC since the S32G R=
-TC
-> + * has several limitations. Thus, to setup alarm use system time.
-> + */
-> +static int s32g_rtc_read_time(struct device *dev,
-> +                             struct rtc_time *tm)
-> +{
-> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> +       time64_t sec;
-> +
-> +       if (check_add_overflow(ktime_get_real_seconds(),
-> +                              priv->sleep_sec, &sec))
-> +               return -ERANGE;
-> +
-> +       rtc_time64_to_tm(sec, tm);
-> +
-> +       return 0;
-> +}
-> +
-> +static int s32g_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *al=
-rm)
-> +{
-> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> +       u32 rtcc, rtcs;
-> +
-> +       rtcc =3D readl(priv->rtc_base + RTCC_OFFSET);
-> +       rtcs =3D readl(priv->rtc_base + RTCS_OFFSET);
-> +
-> +       alrm->enabled =3D rtcc & RTCC_APIIE;
-> +       if (alrm->enabled)
-> +               alrm->pending =3D !(rtcs & RTCS_APIF);
-> +
-> +       return 0;
-> +}
-> +
-> +static int s32g_rtc_alarm_irq_enable(struct device *dev, unsigned int en=
-abled)
-> +{
-> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> +       u32 rtcc;
-> +
-> +       /* RTC API functionality is used both for triggering interrupts
-> +        * and as a wakeup event. Hence it should always be enabled.
-> +        */
-> +       rtcc =3D readl(priv->rtc_base + RTCC_OFFSET);
-> +       rtcc |=3D RTCC_APIEN | RTCC_APIIE;
-> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
-> +
-> +       return 0;
-> +}
-> +
-> +static int s32g_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alr=
-m)
-> +{
-> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> +       unsigned long long cycles;
-> +       long long t_offset;
-> +       time64_t alrm_time;
-> +       u32 rtcs;
-> +       int ret;
-> +
-> +       alrm_time =3D rtc_tm_to_time64(&alrm->time);
-> +       t_offset =3D alrm_time - ktime_get_real_seconds() - priv->sleep_s=
-ec;
-> +       if (t_offset < 0)
-> +               return -ERANGE;
-> +
-> +       cycles =3D t_offset * priv->rtc_hz;
-> +       if (cycles > APIVAL_MAX_VAL)
-> +               return -ERANGE;
-> +
-> +       /* APIVAL could have been reset from the IRQ handler.
-> +        * Hence, we wait in case there is a synchronization process.
-> +        */
-> +       ret =3D read_poll_timeout(readl, rtcs, !(rtcs & RTCS_INV_API),
-> +                               0, RTC_SYNCH_TIMEOUT, false, priv->rtc_ba=
-se + RTCS_OFFSET);
-> +       if (ret)
-> +               return ret;
-> +
-> +       writel(cycles, priv->rtc_base + APIVAL_OFFSET);
-> +
-> +       return read_poll_timeout(readl, rtcs, !(rtcs & RTCS_INV_API),
-> +                               0, RTC_SYNCH_TIMEOUT, false, priv->rtc_ba=
-se + RTCS_OFFSET);
-> +}
-> +
-> +/*
-> + * Disable the 32-bit free running counter.
-> + * This allows Clock Source and Divisors selection
-> + * to be performed without causing synchronization issues.
-> + */
-> +static void s32g_rtc_disable(struct rtc_priv *priv)
-> +{
-> +       u32 rtcc =3D readl(priv->rtc_base + RTCC_OFFSET);
-> +
-> +       rtcc &=3D ~RTCC_CNTEN;
-> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
-> +}
-> +
-> +static void s32g_rtc_enable(struct rtc_priv *priv)
-> +{
-> +       u32 rtcc =3D readl(priv->rtc_base + RTCC_OFFSET);
-> +
-> +       rtcc |=3D RTCC_CNTEN;
-> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
-> +}
-> +
-> +static int rtc_clk_src_setup(struct rtc_priv *priv)
-> +{
-> +       u32 rtcc;
-> +
-> +       rtcc =3D FIELD_PREP(RTCC_CLKSEL_MASK, priv->clk_src_idx);
-> +
-> +       switch (priv->rtc_data->clk_div) {
-> +       case DIV512_32:
-> +               rtcc |=3D RTCC_DIV512EN;
-> +               rtcc |=3D RTCC_DIV32EN;
-> +               break;
-> +       case DIV512:
-> +               rtcc |=3D RTCC_DIV512EN;
-> +               break;
-> +       case DIV32:
-> +               rtcc |=3D RTCC_DIV32EN;
-> +               break;
-> +       case DIV1:
-> +               break;
-> +       default:
-> +               return -EINVAL;
-> +       }
-> +
-> +       rtcc |=3D RTCC_APIEN | RTCC_APIIE;
-> +       /*
-> +        * Make sure the CNTEN is 0 before we configure
-> +        * the clock source and dividers.
-> +        */
-> +       s32g_rtc_disable(priv);
-> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
-> +       s32g_rtc_enable(priv);
-> +
-> +       return 0;
-> +}
-> +
-> +static const struct rtc_class_ops rtc_ops =3D {
-> +       .read_time =3D s32g_rtc_read_time,
-> +       .read_alarm =3D s32g_rtc_read_alarm,
-> +       .set_alarm =3D s32g_rtc_set_alarm,
-> +       .alarm_irq_enable =3D s32g_rtc_alarm_irq_enable,
-> +};
-> +
-> +static int rtc_clk_dts_setup(struct rtc_priv *priv,
-> +                            struct device *dev)
-> +{
-> +       u32 i;
-> +
-> +       priv->ipg =3D devm_clk_get_enabled(dev, "ipg");
-> +       if (IS_ERR(priv->ipg))
-> +               return dev_err_probe(dev, PTR_ERR(priv->ipg),
-> +                               "Failed to get 'ipg' clock\n");
-> +
-> +       for (i =3D 0; i < ARRAY_SIZE(rtc_clk_src); i++) {
-> +               if (priv->rtc_data->reserved_clk_mask & BIT(i))
-> +                       return -EOPNOTSUPP;
-> +
-> +               priv->clk_src =3D devm_clk_get_enabled(dev, rtc_clk_src[i=
-]);
-> +               if (!IS_ERR(priv->clk_src)) {
-> +                       priv->clk_src_idx =3D i;
-> +                       break;
-> +               }
-> +       }
-> +
-> +       if (IS_ERR(priv->clk_src))
-> +               return dev_err_probe(dev, PTR_ERR(priv->clk_src),
-> +                               "Failed to get rtc module clock source\n"=
-);
-> +
-> +       return 0;
-> +}
-> +
-> +static int s32g_rtc_probe(struct platform_device *pdev)
-> +{
-> +       struct device *dev =3D &pdev->dev;
-> +       struct rtc_priv *priv;
-> +       unsigned long rtc_hz;
-> +       int ret;
-> +
-> +       priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +       if (!priv)
-> +               return -ENOMEM;
-> +
-> +       priv->rtc_data =3D of_device_get_match_data(dev);
-> +       if (!priv->rtc_data)
-> +               return -ENODEV;
-> +
-> +       priv->rtc_base =3D devm_platform_ioremap_resource(pdev, 0);
-> +       if (IS_ERR(priv->rtc_base))
-> +               return PTR_ERR(priv->rtc_base);
-> +
-> +       device_init_wakeup(dev, true);
-> +
-> +       ret =3D rtc_clk_dts_setup(priv, dev);
-> +       if (ret)
-> +               return ret;
-> +
-> +       priv->rdev =3D devm_rtc_allocate_device(dev);
-> +       if (IS_ERR(priv->rdev))
-> +               return PTR_ERR(priv->rdev);
-> +
-> +       ret =3D rtc_clk_src_setup(priv);
-> +       if (ret)
-> +               return ret;
-> +
-> +       priv->irq =3D platform_get_irq(pdev, 0);
-> +       if (priv->irq < 0) {
-> +               ret =3D priv->irq;
-> +               goto disable_rtc;
-> +       }
-> +
-> +       rtc_hz =3D clk_get_rate(priv->clk_src);
-> +       if (!rtc_hz) {
-> +               dev_err(dev, "Failed to get RTC frequency\n");
-> +               ret =3D -EINVAL;
-> +               goto disable_rtc;
-> +       }
-> +
-> +       priv->rtc_hz =3D DIV_ROUND_UP(rtc_hz, priv->rtc_data->clk_div);
-> +
-> +       platform_set_drvdata(pdev, priv);
-> +       priv->rdev->ops =3D &rtc_ops;
-> +
-> +       ret =3D devm_request_irq(dev, priv->irq,
-> +                              s32g_rtc_handler, 0, dev_name(dev), pdev);
-> +       if (ret) {
-> +               dev_err(dev, "Request interrupt %d failed, error: %d\n",
-> +                       priv->irq, ret);
-> +               goto disable_rtc;
-> +       }
-> +
-> +       ret =3D devm_rtc_register_device(priv->rdev);
-> +       if (ret)
-> +               goto disable_rtc;
-> +
-> +       return 0;
-> +
-> +disable_rtc:
-> +       s32g_rtc_disable(priv);
-> +       return ret;
-> +}
-> +
-> +static int s32g_rtc_suspend(struct device *dev)
-> +{
-> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> +       u32 apival =3D readl(priv->rtc_base + APIVAL_OFFSET);
-> +
-> +       if (check_add_overflow(priv->sleep_sec, div64_u64(apival, priv->r=
-tc_hz),
-> +                              &priv->sleep_sec)) {
-> +               dev_warn(dev, "Overflow on sleep cycles occurred. Resetti=
-ng to 0.\n");
-> +               priv->sleep_sec =3D 0;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static int s32g_rtc_resume(struct device *dev)
-> +{
-> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> +
-> +       /* The transition from resume to run is a reset event.
-> +        * This leads to the RTC registers being reset after resume from
-> +        * suspend. It is uncommon, but this behaviour has been observed
-> +        * on S32G RTC after issuing a Suspend to RAM operation.
-> +        * Thus, reconfigure RTC registers on the resume path.
-> +        */
-> +       return rtc_clk_src_setup(priv);
-> +}
-> +
-> +static const struct of_device_id rtc_dt_ids[] =3D {
-> +       { .compatible =3D "nxp,s32g2-rtc", .data =3D &rtc_s32g2_data },
-> +       { /* sentinel */ },
-> +};
-> +
-> +static DEFINE_SIMPLE_DEV_PM_OPS(s32g_rtc_pm_ops,
-> +                        s32g_rtc_suspend, s32g_rtc_resume);
-> +
-> +static struct platform_driver s32g_rtc_driver =3D {
-> +       .driver =3D {
-> +               .name =3D "s32g-rtc",
-> +               .pm =3D pm_sleep_ptr(&s32g_rtc_pm_ops),
-> +               .of_match_table =3D rtc_dt_ids,
-> +       },
-> +       .probe =3D s32g_rtc_probe,
-> +};
-> +module_platform_driver(s32g_rtc_driver);
-> +
-> +MODULE_AUTHOR("NXP");
-> +MODULE_DESCRIPTION("NXP RTC driver for S32G2/S32G3");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.45.2
->
-
+Regards,
+Markus
 
