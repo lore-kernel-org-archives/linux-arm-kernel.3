@@ -4,81 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55ADCC369A8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF917C369A9
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 23:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RjYyeeJ1C7Ead4xJ/V/B/z+tInM1CiHIfdZh8l6zN7Y=; b=sjkAeGHe2RwYzZElq2y3QF1+k8
-	31CPPDmSCHPG0ksOz+3Fhsw2cslPNfp4Z3oQVBUNNC9vGYxvpaqdgIcO/gGcmqwl/9Vab7nEbPbOH
-	dxTiXpKlJvYdGpiqHvasQr+q09e+oCKgyxfxGRiV25bbOIOzhYMMh0tN6YI44IGx2t1JvGqzkCjz/
-	p/fmF+Dhe9xA+RYk2v+l+kIg3UWh/QQJTnOoIdSktH4lTudVfvlPy9YO/W1JAHUXLlae1eQ0ppNIZ
-	ffmRLOHF6HYW/k2LTsj7opzE3jBEozCVoztlYGulXRRzi8yKkUR1ycgH5oiNXyIORKQnKIovbk+Rj
-	VLINdEvg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dE7Ejlxf8q0J/BZ5z6iQWNyuDuJ9jQ6ZfZCC5puf/AI=; b=Kiqu0FMH8OqLYRgtSzAqJ1DOD1
+	4+IshMMYtqMRj8vmFcEX9oK8MeiPCQtGwjAuZbviFSetIvwf+HyMt8cCzi/fCRToMtrErZIxt68Sm
+	PYGbRWv1Vi1HA+xbqFx/EHvrn5DqzsYg9QUdgUugX1PTa6TMr8Vz0Eojf7pagRyNB9cd/cosi3Ql6
+	EoOkAL3PuM/yceAjd0irYCF1HaEreixdPGlMFyvs9j3H+PkTzbs0YHJjoD8d9wz2OQQyu90EObXlJ
+	ZEhsTSePyjMqLBPH09fyYIaYoJlrZ56EJHW2rEfeG0q2M1KEBi+a88Vyb227F9z39rFpRQfJ1lk72
+	ZXTqqgJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ebP-00000008jyT-2Neh;
-	Wed, 09 Apr 2025 23:13:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u2ebO-00000008jxK-0Ikr;
+	Wed, 09 Apr 2025 23:13:02 +0000
+Received: from mail-dbaeur03on2061c.outbound.protection.outlook.com ([2a01:111:f403:260d::61c] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2dLX-00000008dTj-1l8e
+	id 1u2dJp-00000008dBq-2Q88
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 21:52:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 260D45C48F6;
-	Wed,  9 Apr 2025 21:50:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C563AC4CEE8;
-	Wed,  9 Apr 2025 21:52:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744235553;
-	bh=CXl1nA0gkeV3YEJmr8NWq0DTje/v81qqIMYYeDNAeDU=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=XHDuLYqjrOWOMRNWHG6AeY5Mtn8ADaRdFFep9MMuj1N9uaB/BgbZI4KPzxFWhuwoy
-	 bG3tsj944PcXJi24qOgjbWL9ALH5ICZQMgpcNIXPum4q/PzAi6+hKwGyDHcDWS5gwN
-	 BwyzRCrYikMxDu23jqoBWSSBvzLCIakPChgIuUqVEMhk9m4AX1d305gAiczPTzSmkS
-	 lJbuAofZZ7HQ9QOcDe60mG8X5W7V1ICac96vDoFdnQeVEaXcoW/h0AdCbaS73d4T+H
-	 ZBUQxF1m+ZfxKq5Tmq6b5My7QPmACzIUM+1AchxTPUXY+WLq3Br9ppKTRQhBbjY/po
-	 xu7FyM2SEAHSA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ADA93C36002;
-	Wed,  9 Apr 2025 21:52:33 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Subject: [PATCH v4 0/3] Driver for the Apple SPMI controller
-Date: Wed, 09 Apr 2025 23:52:11 +0200
-Message-Id: <20250409-spmi-v4-0-eb81ecfd1f64@gmail.com>
+	Wed, 09 Apr 2025 21:50:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QPkceb0ZUMJcwr0RbfSyhIUB617IRms5b9NEsKEm5xsNHozG33pk8uBMyQNp7EkFiHT8vdPOR9M682ZXveIgnJK0CoHrCTzT258tSu3/TU1/DZYQ9Foukb1P/82uS+oluWTwW8CPPXsHPRSzfGoRR8Erc0VvT6OtPhlGyG38l3mc8n0D++ETZZFLMgZXuw+GXgJwTezWsZO0u12W8YWCZwoZ6oTziaasn4i9cG8HuL91ZLAIFbzVpzewcynSHuPKHiDm9D0BlON8cjqIIhaow99oM0JMTSZzNnA3RAj6fRadLOxhIQPhvtjRLH5CGGw+Q1rmhA9b2edFo8SwwTzaQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dE7Ejlxf8q0J/BZ5z6iQWNyuDuJ9jQ6ZfZCC5puf/AI=;
+ b=g1IywOUdxgpyeWEsXczXfttGSEhE+FPQzfecjK076gD6WXKCM0eddCI+8tPjZudcdylvGI7mx7VME5VDA4rj2lx1EZg/ke01ySs9Ttv41tWMHvBB6h5w4ksBoJwFpz7ofYqI+BHBFkVW9jv+JyYp4nWEjbK/e2cXxrkp7GQSinV1z09SsyAMXf0y6PFoBhph2+CW2F6jbqrHILCRhisZkFQTxjyZeB4MnKKJRUV/fvKOx86YF8PT0tgbUlE8QWfNRaH3+W9yG5l3yBrkkkszN7NgDOuUDDZW8mIXBepbyWyPVKpUryXtmc8x4b7hbloO2d0bu27E0HGJC1dZn+eC7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dE7Ejlxf8q0J/BZ5z6iQWNyuDuJ9jQ6ZfZCC5puf/AI=;
+ b=MZDRpsS3swEK6Ck2IygUq8yWvGjx7HA/ZVMnpPjM87zInrJUCfTA+79GHnWZwmB0NmchoPNlYRdsJznzbuLh8hDmyhw5xY1FJSD4UEhmd2vA/C3ID21Px2xG53bc8zusfrvblphR63douWH+6ixOgx38cqM01VGOYf1ZuGJIt9O7yCFrTzpMWdPGbPbOSSVOtXnza4QB7zSuVrxhPDUpSjDTe5ax8SZ3tK6ZfBfuCPalOtQ+cP31zRkmN6JItc6jRTzCZ/3nj/jq1MSYARAK+J4i2aczBJEMXXQGBejueH/PQdsnNhGcBhjsHfrkv9WWg5Duun/fv1iM3nk/IjpiLg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU4PR04MB10984.eurprd04.prod.outlook.com (2603:10a6:10:586::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.35; Wed, 9 Apr
+ 2025 21:50:44 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Wed, 9 Apr 2025
+ 21:50:44 +0000
+Date: Wed, 9 Apr 2025 17:50:37 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: ming.qian@oss.nxp.com
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
+	mirela.rabulea@oss.nxp.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	xiahong.bao@nxp.com, eagle.zhou@nxp.com, linux-imx@nxp.com,
+	imx@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/4] media: imx-jpeg: Move mxc_jpeg_free_slot_data()
+ ahead
+Message-ID: <Z/brrZN4lYDP2Djh@lizhi-Precision-Tower-5810>
+References: <20250408025725.1244-1-ming.qian@oss.nxp.com>
+ <20250408025725.1244-2-ming.qian@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250408025725.1244-2-ming.qian@oss.nxp.com>
+X-ClientProxiedBy: AM0PR02CA0002.eurprd02.prod.outlook.com
+ (2603:10a6:208:3e::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAvs9mcC/13MywrCMBCF4VcpWRuZJL2NK99DXKS5tAF7IZGgl
- L67aa1QXJ5hvn8mwXhnArlkM/EmuuDGIY38lBHVyaE11Om0CQdegICchql3tNRC8bxB4JUk6XX
- yxrrXlrnd0+5ceI7+vVUjW6+/QPENREaBKqxtUTIrEe217aV7nNXYkzUQ+RFVO+IJGaV0A6W0D
- eI/EgfEYEciIeSy5qbSaEEf0bIsH2wPcXQCAQAA
-X-Change-ID: 20250304-spmi-6d3c24b9027a
-To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Stephen Boyd <sboyd@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Neal Gompa <neal@gompa.dev>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>, 
- Jean-Francois Bortolotti <jeff@borto.fr>, Nick Chan <towinchenmi@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744235551; l=1649;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=CXl1nA0gkeV3YEJmr8NWq0DTje/v81qqIMYYeDNAeDU=;
- b=XaQhaaJwxWHZCyL0KjusE3kB1Cm7zwrQ5Xz6uFE0AeD50bT/9JjX1VrQy+u4VWeDkY50nLAPX
- baXS3qrjf/BBHGmLCoCIkp68qo0X+nI92t2lj1YDpAIHXpBgv0S4QhT
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10984:EE_
+X-MS-Office365-Filtering-Correlation-Id: d1994546-08f1-430f-48d6-08dd77b0942f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pVKj8XtQI0/+sN8m3g08or2fQpZ6JpkV93KHDInOfTInTdi0hLv+s/58jcgZ?=
+ =?us-ascii?Q?U80qmcalkeMRmttuwhhrS17tEYTdN/3sX3AU/Ycmi+AuZ4Vwldjzw874eYtT?=
+ =?us-ascii?Q?kpWiXnClBDJ+rY398jh4accwqZy5ScKPSPy3gCVVSkYEV9Sqg0fnlNiiZkGj?=
+ =?us-ascii?Q?6ftwR22rhHdMv4eyf7PjRD1T84TTUxfALTDbFqbyAaVgyohDaC4UEi+B5vlZ?=
+ =?us-ascii?Q?3omflteh5L7mU+Jx0/PCWUgwN1LIZ7Aj1GUpn+8GqfZ7xxoG4sCq8Tri1P5C?=
+ =?us-ascii?Q?S4ONoCVJrouq2mUmQky+cJPIKRchpp2em1S3SCYWL+eAwVvX6yGa+o1AEDiF?=
+ =?us-ascii?Q?iOCuSedruaLCMQQIJEKvy3dr9yg3Hw+TOtM4PvciFJ3J5CIC40VhSCnDV6PG?=
+ =?us-ascii?Q?rMAHkQtPDN026VOHFzFmdAnnPiv+3UN09PLzcUnparbmuzdQ78pKwmEHC1K/?=
+ =?us-ascii?Q?n0b1REUGPZ/R7hvFbm1tdn5IB53+Bh6UV8uMzKHcY6IUHmbgXnwkhHUig69t?=
+ =?us-ascii?Q?YIvpijAihexO58MMYBdrFvHx31wcYhaxFgTJGQ0beW1KTZc8eg6SuZ0wiDso?=
+ =?us-ascii?Q?9xzg5SjTXWX4Cd80/JQXAcCLAGGA8KkTOIqt7rAs1se0AmNG7kyeHwDGI+Is?=
+ =?us-ascii?Q?ojJTRhXTAMwapMBZWRgvK73hX/yEzyW2zyLPme/oGzI68lPdgD0daYvMFlTH?=
+ =?us-ascii?Q?2nKJOg/IVdBUyaXkKCEIOeUuUntF68a8R+F968SW43rrRd4E0NKYLktqYbGE?=
+ =?us-ascii?Q?2e+/fxFNFc6xLDhmNcRCxVXSExf53JUumFJRj2lGTMpKvehNGKUDCM3zZlrd?=
+ =?us-ascii?Q?IxEw3H0I2EOEPistKnmO92WyMzcTmjV+OlfqdXe4XgN2U7LCQeXeyFTy1yJA?=
+ =?us-ascii?Q?zH5bLdROWRni9X28d/PO04cRKXgSnpR1LHhbya1MimCLZ8Iv6JGSjPdYBjh9?=
+ =?us-ascii?Q?rwLyZ2eTPNesElKOq+QIR/hpWOBMY5h3msPOhUKipAaRQPsnuzX/+so8AySn?=
+ =?us-ascii?Q?ByRgYCHISlme4GVwG2w4uOQpCzWd2nxs6hgqpFO1LJNqOX44sICRSw7f5F47?=
+ =?us-ascii?Q?iNh2hDJ6zsZbyj4R/dSS1I+JeaShEH9z+U30jCMOp9leE+Hw9A4dJ/q47P9K?=
+ =?us-ascii?Q?NONf/jURTCD5mixQHSzz7DovFlhOCUjj6E5bcGVmVqDBH7NUJ+J53o/33xkb?=
+ =?us-ascii?Q?ssyoWLbhboMLjXuUec4UhNd3teL+EUPk2oB+S+Bbxqj+XKUT+TBU/fEbA22P?=
+ =?us-ascii?Q?pN4mWDOrD4o3KnPtGmR4yFv5sPJhY5nniE29ObJdgQam0IhB+BsP/583f1eG?=
+ =?us-ascii?Q?oHdJvwHaMX8B/ixob/5YPKmM/6p8Nnz+cRlfU59GDPjN2RVCGHMHq+5UpO9t?=
+ =?us-ascii?Q?zSDC38IgK5i3e17g6XouLY70IC07w1bdR7HXY96QBuzqx98onUX0LfskkrHv?=
+ =?us-ascii?Q?YBJINsAd4zz20/pmDcm5ER/Fxwr8QYh5?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KGZ2UaBNy1zGL4wTmMTix26VJFZdKpc3ObWqHXvR4Lj5YvNs66Z2Oco9blDi?=
+ =?us-ascii?Q?Hck9XpyxsAd+OQ4f3oerJ8+AxB0W6GYBlCU/eyo/xItPgWZZBid8XGLrkHgn?=
+ =?us-ascii?Q?oM06v6g1/VUBpPCijxoSxfAcQYSnx2gu97kyIHoPxL2yUXohMbv+tqDzvKE7?=
+ =?us-ascii?Q?Si25xXj7IZwvGmyoYC5AirnayxhfAz7NSjbfaA85MWhrzYnjNVs7wXT4Y1Ik?=
+ =?us-ascii?Q?n4PNMvxJngiwxbEocW9Hk8Q00HMcisZTLZG7Dv8bDhrFAJydi//eM5ZDxKtT?=
+ =?us-ascii?Q?QfhljrM7pJnEIa08WH+xmbhchDArSqb5FXgQG3KA+tqjJByEaeVmA+EJZ2KG?=
+ =?us-ascii?Q?hf0GurZEOND7SFQF9hfOy6q47JbkwjzZslZrFfu4KNV435Iyq9wh585GI2Wv?=
+ =?us-ascii?Q?xr7+U+bca9Ic+dTxvwpNuO1uo1+Z5TEG8NKKvYxzIVFia92JV/GaOrbRFF5d?=
+ =?us-ascii?Q?XW0pnNSeYXbILzv7bEcV1NkoxRlmhufqRyPJH/hpxYXsGiIQRGcZGTwWjAJJ?=
+ =?us-ascii?Q?SRwjWcbMCrmKwvG+cMhXrtnOw7xqNbhwTbbwKPWxkUV/W+rFKuXdaxxkUzEc?=
+ =?us-ascii?Q?y4+Of/jGMyLWAcJr6ZPOJivC88ipMPI1HeCkxD7/gErqpq23ZTXT9sVWGLUE?=
+ =?us-ascii?Q?7jsFE1Rx3uuQaMf64h3s7x3HxahsxZbNe9Ppi3/rpU9KDuM082dcVdRj/GEH?=
+ =?us-ascii?Q?G9vAd08CtB1SNLEsvj8OKPgMOkzvbZwqrJNJvtwN51qryMt8aQcOZYqgJXE2?=
+ =?us-ascii?Q?2JE95mK612sJ/YGOPfKPxYILMV5p176xittzA8YvjOXUQxhsvimMUBvE4aue?=
+ =?us-ascii?Q?M5LgpVdtyymPovuP01wq4FSpqdpi/gOPT3JWRRg1+gJYs54BSHGVtNfReWfB?=
+ =?us-ascii?Q?pnRltIRO2ZaGi1G4Y0ytPUv25/Mr5x64Ss+HA9+R723b6rtQ9SP7jQj18c2R?=
+ =?us-ascii?Q?f1S3SgyTHFbBS7MQalSTPI7aZoaCS80f28OntWXiMP/GIGr1Z+rDx7+vZdpB?=
+ =?us-ascii?Q?BL2rPv/9cKXOaJrYmg6Lm6SrDycLKPdfzqJIt/GlDE+VGh25Eb9v5Edz9PL0?=
+ =?us-ascii?Q?38MNteCh7b5DYYucT53nYGEPfhIFTF39pCmT0RUj/bGZVY1Bzm8j361ZxRer?=
+ =?us-ascii?Q?BDSvKKn+dBrTpjpRaWIC22/+Kz5MNIoIXOhHQ4GhbYUPA/o3ER582LoQCLfQ?=
+ =?us-ascii?Q?08cRETTaR1hQtsuaPjpwVC7LaGqlnYj9GTCPEYM4VMEd7nLvuG325fxY6sIm?=
+ =?us-ascii?Q?55Xyhssh3eI6o5v4w2glNcgu+Uq33sqS+8JX7WuAMbiJtdjcb+PLKc/t3Cri?=
+ =?us-ascii?Q?9fW7SFdaqvg/TYHRakq4TFnaTlnIFPcqIloT44pEvQPmwqD8bgsAVt1Pt/vm?=
+ =?us-ascii?Q?hErK6o875lFT+CvG8fyxvh9/Ue05hLj10n7Fx/BHNA3HnH3z45kNzuWhloBd?=
+ =?us-ascii?Q?xj12QiIrDJL92iYb2SzmxW1P9Fd/APfvzrvm7TyE/cfJCkWP8RUtexRGXyuW?=
+ =?us-ascii?Q?h+/irdneoIBtjYBK/f7f4p65zyQ8dHGx235i0GtYbldTRZ2BjaR83c4sIuSZ?=
+ =?us-ascii?Q?Ld2IxKeEdq6+b4TVALk=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d1994546-08f1-430f-48d6-08dd77b0942f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 21:50:44.2666
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wT+WuPXMhgW4OmjnfqBtdtAmRU5X3pgt1BVRgsq1cvFt03gZiGqU4r8Ixa80RANt/+puTolfHAoJh2f9o9tH7Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10984
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_145235_568505_37E90E14 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20250409_145049_634113_D8755D48 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,56 +158,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi.
+On Tue, Apr 08, 2025 at 10:57:17AM +0800, ming.qian@oss.nxp.com wrote:
+> From: Ming Qian <ming.qian@oss.nxp.com>
+>
+> Move function mxc_jpeg_free_slot_data() ahead of
+> mxc_jpeg_alloc_slot_data(). Then when allocation fails,
+> can call it to clean up erros accordingly.
 
-This patch series adds support for the SPMI controller persent in most
-Apple SoCs. The drivers for the attached PMU and subdevices will be in
-further patch series.
+Move mxc_jpeg_free_slot_data() ahead of mxc_jpeg_alloc_slot_data(). Allow
+cleanup on allocation failure by calling mxc_jpeg_free_slot_data().
 
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
----
-Changes in v4:
-- Rebase on 6.14
-- Link to v3: https://lore.kernel.org/r/20250310-spmi-v3-0-92a82e7d9f0d@gmail.com
+No function change.
 
-Changes in v3:
-- Inlined helpers, dropped unneccesary error prefixes
-- Link to v2: https://lore.kernel.org/r/20250307-spmi-v2-0-eccdb06afb99@gmail.com
+>
+> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> ---
+> v3
+> - Split the moving of code into a separate patch
+>
+>  .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 46 +++++++++++--------
+>  1 file changed, 26 insertions(+), 20 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> index 0e6ee997284b..b2f7e9ad1885 100644
+> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> @@ -752,6 +752,32 @@ static int mxc_get_free_slot(struct mxc_jpeg_slot_data *slot_data)
+>  	return -1;
+>  }
+>
+> +static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
+> +{
+> +	/* free descriptor for decoding/encoding phase */
+> +	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+> +			  jpeg->slot_data.desc,
+> +			  jpeg->slot_data.desc_handle);
+> +	jpeg->slot_data.desc = NULL;
+> +	jpeg->slot_data.desc_handle = 0;
 
-Changes in v2:
-- Removed redundant error prints
-- Various style fixes
-- Better explanation of why the driver is needed
-- Link to v1: https://lore.kernel.org/r/20250305-spmi-v1-0-c98f561fa99f@gmail.com
+Here is additional change. If this patch just move function, need keep
+the exact the same as original part.
 
----
-Jean-Francois Bortolotti (1):
-      spmi: add a spmi driver for Apple SoC
+Frank
 
-Sasha Finkelstein (2):
-      dt-bindings: spmi: Add Apple SPMI controller
-      arm64: dts: apple: Add SPMI controller nodes
-
- .../devicetree/bindings/spmi/apple,spmi.yaml       |  49 ++++++
- MAINTAINERS                                        |   2 +
- arch/arm64/boot/dts/apple/t600x-die0.dtsi          |   7 +
- arch/arm64/boot/dts/apple/t8103.dtsi               |   8 +
- arch/arm64/boot/dts/apple/t8112.dtsi               |   7 +
- drivers/spmi/Kconfig                               |   8 +
- drivers/spmi/Makefile                              |   1 +
- drivers/spmi/spmi-apple-controller.c               | 168 +++++++++++++++++++++
- 8 files changed, 250 insertions(+)
----
-base-commit: a24588245776dafc227243a01bfbeb8a59bafba9
-change-id: 20250304-spmi-6d3c24b9027a
-
-Best regards,
--- 
-Sasha Finkelstein <fnkl.kernel@gmail.com>
-
-
+> +
+> +	/* free descriptor for encoder configuration phase / decoder DHT */
+> +	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+> +			  jpeg->slot_data.cfg_desc,
+> +			  jpeg->slot_data.cfg_desc_handle);
+> +	jpeg->slot_data.cfg_desc_handle = 0;
+> +	jpeg->slot_data.cfg_desc = NULL;
+> +
+> +	/* free configuration stream */
+> +	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
+> +			  jpeg->slot_data.cfg_stream_vaddr,
+> +			  jpeg->slot_data.cfg_stream_handle);
+> +	jpeg->slot_data.cfg_stream_vaddr = NULL;
+> +	jpeg->slot_data.cfg_stream_handle = 0;
+> +
+> +	jpeg->slot_data.used = false;
+> +}
+> +
+>  static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
+>  {
+>  	struct mxc_jpeg_desc *desc;
+> @@ -798,26 +824,6 @@ static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
+>  	return false;
+>  }
+>
+> -static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
+> -{
+> -	/* free descriptor for decoding/encoding phase */
+> -	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+> -			  jpeg->slot_data.desc,
+> -			  jpeg->slot_data.desc_handle);
+> -
+> -	/* free descriptor for encoder configuration phase / decoder DHT */
+> -	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
+> -			  jpeg->slot_data.cfg_desc,
+> -			  jpeg->slot_data.cfg_desc_handle);
+> -
+> -	/* free configuration stream */
+> -	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
+> -			  jpeg->slot_data.cfg_stream_vaddr,
+> -			  jpeg->slot_data.cfg_stream_handle);
+> -
+> -	jpeg->slot_data.used = false;
+> -}
+> -
+>  static void mxc_jpeg_check_and_set_last_buffer(struct mxc_jpeg_ctx *ctx,
+>  					       struct vb2_v4l2_buffer *src_buf,
+>  					       struct vb2_v4l2_buffer *dst_buf)
+> --
+> 2.43.0-rc1
+>
 
