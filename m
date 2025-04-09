@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E881AC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 23:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55ADCC369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 23:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UatZs2lwYqLlJ9t5o1zxpDwYTZ+/+YcUeqqfWWLkd1M=; b=HZhKljcd3uoP6pKTpcqQDvOBvm
-	X03QOa4EYqq/V9iMkMVVs17eDDhVXWsWXTQiLy6KzwR3wCtN0wztmnbKcwyY9kAYectWJ7ELtX1F1
-	0vGjsjX5++4PLlCAAAQ2zy3fLnCY0myAFhB5YtehTlcuDFPxEE9zoYcoHDPMmzV7FVvwFrXjs0M5v
-	nHjrvl2nl/r3Y8XwpaxUawALMDIpdtweUF94KO0fuESWMqUcV8nNm15UDxAPf/+x0PID1j7fm6Ipt
-	E+x8igIcORG3UaDeJGMX9I7Xoz2a5fcu9kWUttIECpL6akQsCwq2L4zi229tjhi6soGQAiQeh3gKK
-	VTEgxkoA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RjYyeeJ1C7Ead4xJ/V/B/z+tInM1CiHIfdZh8l6zN7Y=; b=sjkAeGHe2RwYzZElq2y3QF1+k8
+	31CPPDmSCHPG0ksOz+3Fhsw2cslPNfp4Z3oQVBUNNC9vGYxvpaqdgIcO/gGcmqwl/9Vab7nEbPbOH
+	dxTiXpKlJvYdGpiqHvasQr+q09e+oCKgyxfxGRiV25bbOIOzhYMMh0tN6YI44IGx2t1JvGqzkCjz/
+	p/fmF+Dhe9xA+RYk2v+l+kIg3UWh/QQJTnOoIdSktH4lTudVfvlPy9YO/W1JAHUXLlae1eQ0ppNIZ
+	ffmRLOHF6HYW/k2LTsj7opzE3jBEozCVoztlYGulXRRzi8yKkUR1ycgH5oiNXyIORKQnKIovbk+Rj
+	VLINdEvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ebM-00000008jwb-2gJJ;
-	Wed, 09 Apr 2025 23:13:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u2ebP-00000008jyT-2Neh;
+	Wed, 09 Apr 2025 23:13:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2cxl-00000008aMQ-1og9;
-	Wed, 09 Apr 2025 21:28:02 +0000
+	id 1u2dLX-00000008dTj-1l8e
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Apr 2025 21:52:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 449F14A337;
-	Wed,  9 Apr 2025 21:28:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22201C4CEE2;
-	Wed,  9 Apr 2025 21:27:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 260D45C48F6;
+	Wed,  9 Apr 2025 21:50:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C563AC4CEE8;
+	Wed,  9 Apr 2025 21:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744234080;
-	bh=HUTQnj8ze1LT1u9H7w0DR7fWczDhTekCkEVOqJ0i1/Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ADwuJth9M0hdHJZG+35SnORU9RYiqTVDynMPbdNtlLsNOag3ucrglPu79fZryBqwp
-	 9cyunJIQNhhWCP5jFCABOwEktUVGkU8SRcv/YFzCRzCffPnVEcUxztr88pwv4mgkcO
-	 TLoP73hMAMQLHxXe/8UfX11zcUSr+0i9/kiCT2QvirANdYIZAj/iEbNXyVMjh/dn7m
-	 neDBA6kFMRRFI1IUFHZj7n4N174CNHbP+WBCjPefDyt4zMZoEjoYEbrGjMsDa0jPRG
-	 wG7+n/gRll5Mf8iSy7FZFmD5cIP2ll1lO9bN/38fZpsy4K0uRgSUE2hNTnTPcnRLnj
-	 n4Kmcm5pP/LzQ==
-Date: Wed, 9 Apr 2025 22:27:55 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: =?utf-8?Q?=C5=81ukasz?= Czechowski <lukasz.czechowski@thaumatec.com>,
-	Matthias Kaehlcke <mka@chromium.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Benjamin Bara <benjamin.bara@skidata.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Klaus Goger <klaus.goger@theobroma-systems.com>,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 2/5] dt-bindings: usb: cypress,hx3: Add support for all
- variants
-Message-ID: <20250409-glorified-crouch-837870b4d443@spud>
-References: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
- <20250326-onboard_usb_dev-v1-2-a4b0a5d1b32c@thaumatec.com>
- <20250326-fanatic-onion-5f6bf8ec97e3@spud>
- <CABd623tEGh=qtpF0h7PkRBBrR7V9EaxUv9HregqbPcLU_2Exbg@mail.gmail.com>
- <20250409-commend-brewing-7c541aec26a9@spud>
- <cc49276b-f64f-42a8-b4b4-61bde17b61e3@cherry.de>
+	s=k20201202; t=1744235553;
+	bh=CXl1nA0gkeV3YEJmr8NWq0DTje/v81qqIMYYeDNAeDU=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=XHDuLYqjrOWOMRNWHG6AeY5Mtn8ADaRdFFep9MMuj1N9uaB/BgbZI4KPzxFWhuwoy
+	 bG3tsj944PcXJi24qOgjbWL9ALH5ICZQMgpcNIXPum4q/PzAi6+hKwGyDHcDWS5gwN
+	 BwyzRCrYikMxDu23jqoBWSSBvzLCIakPChgIuUqVEMhk9m4AX1d305gAiczPTzSmkS
+	 lJbuAofZZ7HQ9QOcDe60mG8X5W7V1ICac96vDoFdnQeVEaXcoW/h0AdCbaS73d4T+H
+	 ZBUQxF1m+ZfxKq5Tmq6b5My7QPmACzIUM+1AchxTPUXY+WLq3Br9ppKTRQhBbjY/po
+	 xu7FyM2SEAHSA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ADA93C36002;
+	Wed,  9 Apr 2025 21:52:33 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Subject: [PATCH v4 0/3] Driver for the Apple SPMI controller
+Date: Wed, 09 Apr 2025 23:52:11 +0200
+Message-Id: <20250409-spmi-v4-0-eb81ecfd1f64@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="siX/JzAbfY5Bb/0r"
-Content-Disposition: inline
-In-Reply-To: <cc49276b-f64f-42a8-b4b4-61bde17b61e3@cherry.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAvs9mcC/13MywrCMBCF4VcpWRuZJL2NK99DXKS5tAF7IZGgl
+ L67aa1QXJ5hvn8mwXhnArlkM/EmuuDGIY38lBHVyaE11Om0CQdegICchql3tNRC8bxB4JUk6XX
+ yxrrXlrnd0+5ceI7+vVUjW6+/QPENREaBKqxtUTIrEe217aV7nNXYkzUQ+RFVO+IJGaV0A6W0D
+ eI/EgfEYEciIeSy5qbSaEEf0bIsH2wPcXQCAQAA
+X-Change-ID: 20250304-spmi-6d3c24b9027a
+To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Neal Gompa <neal@gompa.dev>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sasha Finkelstein <fnkl.kernel@gmail.com>, 
+ Jean-Francois Bortolotti <jeff@borto.fr>, Nick Chan <towinchenmi@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744235551; l=1649;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=CXl1nA0gkeV3YEJmr8NWq0DTje/v81qqIMYYeDNAeDU=;
+ b=XaQhaaJwxWHZCyL0KjusE3kB1Cm7zwrQ5Xz6uFE0AeD50bT/9JjX1VrQy+u4VWeDkY50nLAPX
+ baXS3qrjf/BBHGmLCoCIkp68qo0X+nI92t2lj1YDpAIHXpBgv0S4QhT
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_142801_512754_1EBFFCF7 
-X-CRM114-Status: GOOD (  36.83  )
+X-CRM114-CacheID: sfid-20250409_145235_568505_37E90E14 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,179 +90,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi.
 
---siX/JzAbfY5Bb/0r
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This patch series adds support for the SPMI controller persent in most
+Apple SoCs. The drivers for the attached PMU and subdevices will be in
+further patch series.
 
-On Wed, Apr 09, 2025 at 06:26:43PM +0200, Quentin Schulz wrote:
-> Hi Conor,
->=20
-> On 4/9/25 6:18 PM, Conor Dooley wrote:
-> > On Tue, Apr 08, 2025 at 06:36:04PM +0200, =C5=81ukasz Czechowski wrote:
-> > > Hello,
-> > >=20
-> > > =C5=9Br., 26 mar 2025 o 18:58 Conor Dooley <conor@kernel.org> napisa=
-=C5=82(a):
-> > > >=20
-> > > > On Wed, Mar 26, 2025 at 05:22:57PM +0100, Lukasz Czechowski wrote:
-> > > > > The Cypress HX3 hubs use different default PID value depending
-> > > > > on the variant. Update compatibles list.
-> > > > >=20
-> > > > > Fixes: 1eca51f58a10 ("dt-bindings: usb: Add binding for Cypress H=
-X3 USB 3.0 family")
-> > > > > Cc: stable@vger.kernel.org # 6.6
-> > > > > Cc: stable@vger.kernel.org # Backport of the patch in this series=
- fixing product ID in onboard_dev_id_table and onboard_dev_match in drivers=
-/usb/misc/onboard_usb_dev.{c,h} driver
-> > > > > Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
-> > > > > ---
-> > > > >   Documentation/devicetree/bindings/usb/cypress,hx3.yaml | 6 ++++=
-++
-> > > > >   1 file changed, 6 insertions(+)
-> > > > >=20
-> > > > > diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.ya=
-ml b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
-> > > > > index 1033b7a4b8f9..f0b93002bd02 100644
-> > > > > --- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
-> > > > > +++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
-> > > > > @@ -15,8 +15,14 @@ allOf:
-> > > > >   properties:
-> > > > >     compatible:
-> > > > >       enum:
-> > > > > +      - usb4b4,6500
-> > > > > +      - usb4b4,6502
-> > > > > +      - usb4b4,6503
-> > > > >         - usb4b4,6504
-> > > > >         - usb4b4,6506
-> > > > > +      - usb4b4,6507
-> > > > > +      - usb4b4,6508
-> > > > > +      - usb4b4,650a
-> > > >=20
-> > > > All these devices seem to have the same match data, why is a fallba=
-ck
-> > > > not suitable?
-> > > >=20
-> > >=20
-> > > Thank you for the suggestion. Indeed the fallback compatible appears
-> > > to work fine in this case,
-> > > and I am able to avoid additional entries in onboard_dev_match table
-> > > as added in the first patch in this series.
-> > >=20
-> > > However, after I've updated the cypress,hx3.yaml schema file and
-> > > rk3399-puma.dtsi file,
-> > > I get the following warnings, when running "make dtbs_check":
-> > >=20
-> > > linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1:
-> > > compatible: ['usb4b4,6502', 'usb4b4,6506'] is too long
-> > > =E2=80=83=E2=80=83from schema $id: http://devicetree.org/schemas/usb/=
-cypress,hx3.yaml#
-> > > linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2:
-> > > compatible: ['usb4b4,6500', 'usb4b4,6504'] is too long
-> > > =E2=80=83=E2=80=83from schema $id: http://devicetree.org/schemas/usb/=
-cypress,hx3.yaml#
-> > >=20
-> > > Below is the diff of my changes:
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
-> > > b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
-> > > index f0b93002bd02..d6eac1213228 100644
-> > > --- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
-> > > +++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
-> > > @@ -14,15 +14,22 @@ allOf:
-> > >=20
-> > >   properties:
-> > >     compatible:
-> > > -    enum:
-> > > -      - usb4b4,6500
-> > > -      - usb4b4,6502
-> > > -      - usb4b4,6503
-> > > -      - usb4b4,6504
-> > > -      - usb4b4,6506
-> > > -      - usb4b4,6507
-> > > -      - usb4b4,6508
-> > > -      - usb4b4,650a
-> > > +    oneOf:
-> > > +      - enum:
-> > > +          - usb4b4,6504
-> > > +          - usb4b4,6506
-> > > +      - items:
-> > > +          - enum:
-> > > +              - usb4b4,6500
-> > > +              - usb4b4,6508
-> > > +          - const: usb4b4,6504
-> > > +      - items:
-> > > +          - enum:
-> > > +              - usb4b4,6502
-> > > +              - usb4b4,6503
-> > > +              - usb4b4,6507
-> > > +              - usb4b4,650a
-> > > +          - const: usb4b4,6506
-> > >=20
-> > >     reg: true
-> > >=20
-> > > diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-> > > b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-> > > index d0d867374b3f..7fac61f95fc6 100644
-> > > --- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-> > > +++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-> > > @@ -594,14 +594,14 @@ &usbdrd_dwc3_1 {
-> > >          #size-cells =3D <0>;
-> > >=20
-> > >          hub_2_0: hub@1 {
-> > > -               compatible =3D "usb4b4,6502";
-> > > +               compatible =3D "usb4b4,6502", "usb4b4,6506";
-> > >                  reg =3D <1>;
-> > >                  peer-hub =3D <&hub_3_0>;
-> > >                  reset-gpios =3D <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
-> > >          };
-> > >=20
-> > >          hub_3_0: hub@2 {
-> > > -               compatible =3D "usb4b4,6500";
-> > > +               compatible =3D "usb4b4,6500", "usb4b4,6504";
-> > >                  reg =3D <2>;
-> > >                  peer-hub =3D <&hub_2_0>;
-> > >                  reset-gpios =3D <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
-> > >=20
-> > >=20
-> > > Do you have any suggestions on how I can properly update the schema
-> > > files to avoid the above warnings?
-> >=20
-> > The diffs you have here look okay, not really sure what you're asking
-> > for.
->=20
-> It fails dtbs_check:
->=20
-> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1:
-> compatible: ['usb4b4,6502', 'usb4b4,6506'] is too long
-> =E2=80=83=E2=80=83from schema $id: http://devicetree.org/schemas/usb/cypr=
-ess,hx3.yaml#
-> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2:
-> compatible: ['usb4b4,6500', 'usb4b4,6504'] is too long
-> =E2=80=83=E2=80=83from schema $id: http://devicetree.org/schemas/usb/cypr=
-ess,hx3.yaml#
->=20
-> I'm not sure we're allowed to add new errors with dtbs_check (and would l=
-ike
-> to avoid it in any case).
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+---
+Changes in v4:
+- Rebase on 6.14
+- Link to v3: https://lore.kernel.org/r/20250310-spmi-v3-0-92a82e7d9f0d@gmail.com
 
-Ah, the restriction I think comes from the usb-device binding. Maybe
-just leave it as you had it?
+Changes in v3:
+- Inlined helpers, dropped unneccesary error prefixes
+- Link to v2: https://lore.kernel.org/r/20250307-spmi-v2-0-eccdb06afb99@gmail.com
 
---siX/JzAbfY5Bb/0r
-Content-Type: application/pgp-signature; name="signature.asc"
+Changes in v2:
+- Removed redundant error prints
+- Various style fixes
+- Better explanation of why the driver is needed
+- Link to v1: https://lore.kernel.org/r/20250305-spmi-v1-0-c98f561fa99f@gmail.com
 
------BEGIN PGP SIGNATURE-----
+---
+Jean-Francois Bortolotti (1):
+      spmi: add a spmi driver for Apple SoC
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ/bmWwAKCRB4tDGHoIJi
-0t8XAQDCNdCD4zh7JrShscGp2cZzh9+XhRC1yUwBkP1mgikpJAD/UgJNyrT10N/J
-5bTLDt8O/UvBlsOZQcNilW6mXhfNhgU=
-=II5O
------END PGP SIGNATURE-----
+Sasha Finkelstein (2):
+      dt-bindings: spmi: Add Apple SPMI controller
+      arm64: dts: apple: Add SPMI controller nodes
 
---siX/JzAbfY5Bb/0r--
+ .../devicetree/bindings/spmi/apple,spmi.yaml       |  49 ++++++
+ MAINTAINERS                                        |   2 +
+ arch/arm64/boot/dts/apple/t600x-die0.dtsi          |   7 +
+ arch/arm64/boot/dts/apple/t8103.dtsi               |   8 +
+ arch/arm64/boot/dts/apple/t8112.dtsi               |   7 +
+ drivers/spmi/Kconfig                               |   8 +
+ drivers/spmi/Makefile                              |   1 +
+ drivers/spmi/spmi-apple-controller.c               | 168 +++++++++++++++++++++
+ 8 files changed, 250 insertions(+)
+---
+base-commit: a24588245776dafc227243a01bfbeb8a59bafba9
+change-id: 20250304-spmi-6d3c24b9027a
+
+Best regards,
+-- 
+Sasha Finkelstein <fnkl.kernel@gmail.com>
+
+
 
