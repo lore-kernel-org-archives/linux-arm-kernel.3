@@ -4,199 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B76C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 05:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C987AC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 06:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3+csfxrxVm4HuIT7S5HVyaEDcgCRyMhLE+g5QRaz+kw=; b=jZ8jrKQa7RmKqWwCrzbBJ+4jUV
-	/xIPN6wCF6lpoY4TCr6kEuMESpvppk7Im6vnZGgwzjT7DMXHapehbp7dE7Nws5TqHqk0IHn8LoLJy
-	hR1CQjJ9tbV7aBL/7x2TXYsetoip+0A9+QKN65GxIih71xRdaEF/NNOjbA0auuRjpqk1PMKtwtAbJ
-	v1tp8cLncl9FzzI0AVEfGGOUllhUmxrpMpC0m0A/nAOe9BThKnz6D+XmiVzxm5NMlVSPYZCEcrLmZ
-	gU8uuDDV8uHvnVmgIt+yFVPF2qWNwvOJprlqz9bBUYpinZ59/U0qN0QtXIodeN0hy+MGhJQ/sP4XV
-	+SQc4pqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hqkD9ChGuw+ckK+k+UWT4R3vyEJ/sUT2SFvwzHHrzYQ=; b=P/Nb8/FwYwDr/cqWsQN1GT6lPj
+	L1+Hpi776ilUoXXV9yK4SkEH3gayqFqGDHxppwS3oqQ8vhF65yfXNsbGSJALC1+xbM0su+9ktGh5M
+	kfMFgZ6pJjeJ1U5UpgQs1rUXbxsbHVdnX8VA57Gkxz66O8+aa/aD7oVJ2tygGyvRPlnm2cmV37HpT
+	52UjH4Ktsca7Jhu6CkHHwHXUv93jFYa7fcYlBVfyfxuExZhJtOeB0XvKdaNnvm7Q8+LnUlPi1SIW6
+	+v0txt+/zvw93iEl8BRMYCjUriMaqkRkLDmr6rT4pWQH71j6X9UX4G2B4+m9Y2qVT4kxJYARC0ojM
+	iM/quw5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2O8b-00000006Aa1-0P4A;
-	Wed, 09 Apr 2025 05:38:13 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1u2OYe-00000006DMg-2PdM;
+	Wed, 09 Apr 2025 06:05:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2O6o-00000006AA1-0iKp
+	id 1u2OWr-00000006D3j-27uw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 05:36:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744176982; x=1775712982;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=VnEUf+FhXX9ey4ODXNvoHC1+Ak0nlHu+vyLERKIEflI=;
-  b=isfHze+XpNziN3aty18CidsJt6DEVUduNW8pKhilvYFELMclwJBB6bUM
-   i4kTXARARbLxYY2emqyLKAKwKMdv3Q7gcxu8ilJWdgZYiLVWQhSi3Jtbe
-   0zRjAooKtzqysvHMF3nYnvEtoAEIKP5Zp5FwyWM5gjG9bj9rDyefcCDMV
-   hFvVqvb/aydd+pX1x1MACqHcj1/WjlxqRP2kLGf1T4CyMl/0GoGfVXycX
-   1wVALvZR2pIiCr5oSByCkQdOslwDoAZegOqfl/T1Qovd1R4WOOATeJ27y
-   wFLkLOrfhOXj9fSL5mUAytf50NL1dJabzRm8/2JwTspbj0JGUH8XtpGLt
-   g==;
-X-CSE-ConnectionGUID: Z4T4MtcLQuexCgAGdkmeiA==
-X-CSE-MsgGUID: 7w6FK+XpQWOmnp2qPJmj6Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="49478012"
-X-IronPort-AV: E=Sophos;i="6.15,199,1739865600"; 
-   d="scan'208";a="49478012"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 22:36:18 -0700
-X-CSE-ConnectionGUID: xbf6mbQNRrCtw0s0jMPkjw==
-X-CSE-MsgGUID: zyRlpK1kQsSW94aF2vGWAQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,199,1739865600"; 
-   d="scan'208";a="129427380"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 22:36:17 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 8 Apr 2025 22:36:17 -0700
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Tue, 8 Apr 2025 22:36:17 -0700
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.47) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 8 Apr 2025 22:35:48 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BlUSXkdrhfDL/a6G5cdkmKBBAdbEDJ30dMlNkbVFOsid4fUVFsBakJtETzOP5eNqwm5GhuCeduVPdvvbdoQNh7ugUMVgbSam2n8uMpeAIo/f5aXUH+M54RyMiJIkEf7bDMhbPqU46ZW1+HwQsq32gsurfrIFJPZd5GEwjjMHnAMvzRy5gEUUD0Z2PnZlGJsfAMhehuaen8/gc8ET6MkYwz/V/1SrjzJgmj2NpazqZFB3tzVHPYFdVHuzdi5+e53eO2vxOHLJ22cz4hdpn61rWTfSJHhsrOe2BhVkghKpvY0zPGe0I6VqgRBU/jWd5QCp+Iq+UsBOihvzBCrPRV5xCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3+csfxrxVm4HuIT7S5HVyaEDcgCRyMhLE+g5QRaz+kw=;
- b=Mb0i+ZwTK4+2ZgMDKqpzuceJljRNuz3veJL1EF6V0TGfAGOSUtvrvW9MiSqIzFEbEbsWHxeHmbredKbM4ddiyKgc3DELoYwfzU9zHCH661uS6gDfg245O8Dbd+9giuw4tffDfbWNRnqYijdO5a8awgI9SR5BeZl3X9k8HycRgg2PFQwbvGcDspHD6mNhq3tojM8JseNKfxnwQSFYJzY4hsqOodYxs4EVsxBPBvBaO/3aVFuK1X51l+G2VebPH8VTZNIGWGm48B1sU9LUu58q6tW2hKCauVJWt94vPxAiK488gIXUBIw4pFvVpxH3fhlPHm+hrjhmI8HtDS8CO/SxPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from BYAPR11MB3605.namprd11.prod.outlook.com (2603:10b6:a03:f5::33)
- by DS7PR11MB8805.namprd11.prod.outlook.com (2603:10b6:8:254::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.21; Wed, 9 Apr
- 2025 05:35:11 +0000
-Received: from BYAPR11MB3605.namprd11.prod.outlook.com
- ([fe80::1c0:cc01:1bf0:fb89]) by BYAPR11MB3605.namprd11.prod.outlook.com
- ([fe80::1c0:cc01:1bf0:fb89%3]) with mapi id 15.20.8606.033; Wed, 9 Apr 2025
- 05:35:09 +0000
-Message-ID: <6ac3472f-13d4-4637-8a13-f8b98a90c3e4@intel.com>
-Date: Wed, 9 Apr 2025 08:35:00 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mmc: host: sdhci-esdhc-imx: save tuning value for the
- card which keep power in suspend
-To: <ziniu.wang_1@nxp.com>, <ulf.hansson@linaro.org>, <haibo.chen@nxp.com>
-CC: <frank.li@nxp.com>, <shawnguo@kernel.org>, <s.hauer@pengutronix.de>,
-	<kernel@pengutronix.de>, <festevam@gmail.com>, <imx@lists.linux.dev>,
-	<linux-mmc@vger.kernel.org>, <s32@nxp.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250328112517.2624806-1-ziniu.wang_1@nxp.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
- Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-In-Reply-To: <20250328112517.2624806-1-ziniu.wang_1@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1P190CA0046.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:800:1bb::11) To BYAPR11MB3605.namprd11.prod.outlook.com
- (2603:10b6:a03:f5::33)
+	Wed, 09 Apr 2025 06:03:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0B0BD5C4C52;
+	Wed,  9 Apr 2025 06:00:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74033C4CEE3;
+	Wed,  9 Apr 2025 06:03:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744178595;
+	bh=PC2Cvk3hQ6ILTfs1axrdvZeQZiDqDu4ODKLySChbf7c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bNCGTpwNtqhjwkBxrcKicZtLgSQCrTSimburI1kUZbPyPgyf0m2Fuv02WDFw9A0KV
+	 Z/pZhHtEX7NzXilgoFDSWa9P10SddYfY/u5lrPCsf8gTLEytItl/2+IYQN66CPaVXv
+	 jG2+TNYvonlnFICwqePiGdmuP+oJcuOZy48bjyLKHz+S8qDcyIY89KIwrH/xix9mHU
+	 eN1YS7Zv4tSJbB5THHFVdjI0BSjYf4n2l/XBbh8b/i+N83F7z2e4l0BgEG5gP1YCjC
+	 C/bAkZ6YJGA54WRj93qGXuqhdZ2kpSY3qije0fA8t2yoWOstMIr9tCmS1jZyzYX67W
+	 2oyyiT2p1Rxhg==
+Message-ID: <018b15a8-4f5b-4752-b865-06608b82e7d5@kernel.org>
+Date: Wed, 9 Apr 2025 08:03:10 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BYAPR11MB3605:EE_|DS7PR11MB8805:EE_
-X-MS-Office365-Filtering-Correlation-Id: 159e9519-f5de-4a16-363e-08dd77284a8f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NnNkRVZPd0tyOUxGVUR2VDJqSXo5UjJLOWc2MTNwQ0ZKRHhLRmhEeFhBVWYv?=
- =?utf-8?B?TWdhYmpLYzVleGNiNGJrYWhldm11K0V4NSsyNi9YRmt4cXpFWk1NVlBUTjMw?=
- =?utf-8?B?SnUzSEh2dHlFd3F2T0RvcjJFczg4Yjk0eDVFeE5IMjlPanV6Q0oxTkxtYTAx?=
- =?utf-8?B?MHQ4aHBPWTZUZ2RKQWJYazRZY05ZSWRtNGhDWWhYYkhYNE12SXNHRDVWZUpD?=
- =?utf-8?B?bFIxcy95VUZjckU5UGx1R1ZTa0ptdExudk8xZDl2c0hzLzZUWVh2WWxwb01p?=
- =?utf-8?B?WWtQL1RNOTlsUldZTG41VzZnM1c2ZERianRXaWg2R1VrbTcyVnZYRWZzNVNw?=
- =?utf-8?B?N21Zc29XL0lWV1B4NjNzRjZKdC9vdkFYb2JwTmlFZk9WS3ZadHVjemRMRDZz?=
- =?utf-8?B?ZTZST0tGcEd5UG9PajFyaldpTGpweVMzR0JOOWw0YU42eEpLK09BTHdTbVFE?=
- =?utf-8?B?RmsyQnRZM2Q4N3dyMHFMTk9WVnNlaUVKblZmUHhkN1RYQTRJNFhhenJUcFA3?=
- =?utf-8?B?Yk05RUVDMmRsV1dxUlRKbUNFUzhDME4xak9MWHFsSEcvYVRIdFFVZE5pU3hY?=
- =?utf-8?B?UExJdjlLcEE4a3YrcTQzTXpnaEdRWTFRbFE3eDlEWkdDT0hiNldUbTJiOG5p?=
- =?utf-8?B?UVZ2Rk5VY2lNdFBBeHdFTko3aDVBZlUxdWpDLzBZeFp0Rlk5Y1R0NFJUZUl4?=
- =?utf-8?B?UXRLeGxkMmtMQkl3WXJqaGl3SmxydFNpUE11T1ptcGhoTU53MHZVQzJSOXlI?=
- =?utf-8?B?cWFiSmxsOU5uZ0hKYlYxUUpzNmo3MzJUSXNtczhPNVowb0NwZEljOWVtQndm?=
- =?utf-8?B?UHdXRlp3RGUraDFSdkFjRU8xRVlrdnU2djFScmduazBYYTFoQXgrSGVFQlFk?=
- =?utf-8?B?cjZOR0lTSG9aNWY2alo3OUJkcGNlTWJUaFFjMHhyNmJTbmVBTkVsV0NUL2hK?=
- =?utf-8?B?TStlSHk4Z2ZGYjh4TW1mc0RYSGF3aHU1cDZ5eEcwaFg3TlVsQlJ3Ym1ib05R?=
- =?utf-8?B?VURFUG02MVhmN28wTVVBM05Wd3BMd0pRZEpTQjhiaWhiZU9jVEVFZTliMlZZ?=
- =?utf-8?B?bjIwVmlPSlBHNmwvc2RYYjNoTlMrVk9TeFZYR2pWT3dpUFdFVTZqdWpqdElK?=
- =?utf-8?B?dHVPeVBobFZWK0M4aG5MbzhUMllodFl0NkoyVEN0N243OTJpcEk1UlROalI4?=
- =?utf-8?B?emRGUXIzeUNLOTNFSkJWd29YazMrd1phckZwNEp4VWJRRDU5NUMyTU91Y3Bh?=
- =?utf-8?B?d0VYTXBDNWRGelA1eUNmYlVPVzZxaWgxNnZNMW14NFluZlU2VVF1Z3g3QUNV?=
- =?utf-8?B?OGQ1L0x2QjUzdDIxSlovZWxBcjN2aEhZN0Q1akpMcEJXMzNJMkpMUkxtdHBS?=
- =?utf-8?B?Uzk5QVd4cnpCSE5QOURVUkhoYnQyaGYwYzZiV0RYaVhPcmRvOCt6Wk9GakE0?=
- =?utf-8?B?Q1B1OEhSaXBCSm9IYTlnSTJnOXpxbldZUUErb1AxVnhneEIvWU5iR1dnSGpq?=
- =?utf-8?B?UUNOU1JWSWdlRkd2dkhVYWp2WlJQTXhhTmxkL3pWT1JlV0V0TkIraVQyMmJ4?=
- =?utf-8?B?UGtOazl6ZW9wR1p2V0Z3UmxCNW91a1A1UjFxaWNmZ0ZMTzhtSzg0YlcvSnZ0?=
- =?utf-8?B?SHROVWJvWTFGaXk5ckhid3dQUGsrbE10dTRmcGFaSk1vL1NRM1A4RlFmbVdm?=
- =?utf-8?Q?IBVLWnKEzppwWv9HOZ/V?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR11MB3605.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y3JtRFRQanZIY0QvVE41U2lSUkJEdzBVYTJnN2dHQUs0RE1OWjFRNUJUU3Mv?=
- =?utf-8?B?SnFOMEhsRDhwSlBaN3NpNERmU09qNkxDR1NVRjNOVDlSRytBU1E3MGNUcDll?=
- =?utf-8?B?VG8vcmRXMHFQTVUycGs5TEJZV2NoNHFEOHNlbEFmdENKSHRHbkNBMzAzcTFC?=
- =?utf-8?B?REVUb29OaDhNL2hqUHNpVUdubGhBR3VPT3JzZklnSTNBbFJqL21DaTA5Rkp5?=
- =?utf-8?B?RVdNNXBZU2cyWHZFYjFUMmZKVzhoemtaY0o4bjJhOHhyQ1pOdnB1dStnWVRa?=
- =?utf-8?B?NkVUQUZJWktqbTlSbTJDenY4eWFsbHJ5d3E2dWhOQk1ZN0lUOCtiVEZwak1K?=
- =?utf-8?B?a3Jnd1M5ZnFQVk9PWmFUOHpldzFnMnJXVGNNcEdUd0NTYWRTZnZ0Vm1JSVdw?=
- =?utf-8?B?b2FyaytBeVljSFAzVElHT0hYR1VSQWY2b21TeDFQZlZZcHIrWWtCQWpHWnlW?=
- =?utf-8?B?OGFDdlpZTVR4S0Z5MkI2S1l6WHdBSXVuSkNuSm5NMlpGa1RHVFdTZFFjQkZN?=
- =?utf-8?B?QWNYOW0xaTlGZFhIQjI5Q2tIWVNFMG8yTk9rMXMrcTZhVUNuVzhUd2JKMnlo?=
- =?utf-8?B?NmRTUExpWXRQSGlsVEpmcWQvWmRPb2Q5VDhZUEtRUlhpdDV2RW1tRjdLbkJK?=
- =?utf-8?B?cmxNUWJnd2JUcExPbTlZbWowYTIrekptL0NmNzJnR2dTTU5aeHFhRFZhaHhY?=
- =?utf-8?B?MXdhREdmcEUzbFhncXVTNzk4WXFVRzNuWkVuYjNJbjNDQUIxMytUWEpPVXA0?=
- =?utf-8?B?YTFaNUZVYjhpRm80ZlQxalY5bUIvV0hIejhCTFlEcDN4U2MyQlprbDlIMitT?=
- =?utf-8?B?OHVyVGRYVmdQQ0pJRVFjQlpKczYvMkRaTDhNOVdvQktyakpCWVphZFFjRXI4?=
- =?utf-8?B?Tm5jYk9vd2lFd1cxUi8xdWgyQ3hPU3FSZmhxL1NnZXdmWHliQTBxc1VudU5h?=
- =?utf-8?B?aDc5Q1lqQTNCUFc1Rm9Zb2FFNG81SmF6cDVWMHB3MTdsRTVuM3RaSENyK2Jt?=
- =?utf-8?B?SGNub3B3cG4wRTZjQTZ1d1BDT1JSbEZtYU9kQmdNSUh1NlBzQUZzMTl5clFw?=
- =?utf-8?B?M0F1L0J3b0pBUnVxR3VqNnFBcytGaXFGQjNlRVBNVGcxRDdObE9WZ3d3VmdD?=
- =?utf-8?B?Y1BKRVQ0bitoRjNuSVZWakxLcWdIU3hPSkpCSk54aXBPdlJGcGdFWlBCQlVq?=
- =?utf-8?B?ejRzemtTS0VqVUMwLytWVWJET255S0xhV2xCbUFnam9KU1BFUmlYYXRmRWJa?=
- =?utf-8?B?RXI4VEpDSzRNNjkwWktQcFRUazJtcko2Mm5WU3UySzM2UkRZTEVoM2tQOXNP?=
- =?utf-8?B?YmZneDcwbjU5WStGWnFiM2Fud2R6WUNpN2lBM3cxbnBmenhhMGMrVnN4eXE1?=
- =?utf-8?B?ZVZiM0IzbUNGa01LamdjRHhtcGJjRUs0Vy96SUd5b2FSejdJTzlTZExzQjRX?=
- =?utf-8?B?eThBRmdxc0tUQ1VxOE1DRkZmcHdSNGQ3aHB6WDA5RFp4SFNIUHNqYzA2dDU0?=
- =?utf-8?B?bk94aENhNDlmUTZ2dlNvV2dQRjh3blBsYTBWVHlmbU1aczUyVnN5Sk0yRHU1?=
- =?utf-8?B?QjQ4THlFQ2RkQnpKZmxCY1VWN09aeXdMelRBTVVGQis5dWJXM1h4VEF2L0Jy?=
- =?utf-8?B?b3FoL24ySWdodTV3STZ1cjk0SEZ1dXBDMS9RaDBLa0tBN2JIY21XNktORTRx?=
- =?utf-8?B?N1UwU29CSDNrd1FZY3hJWHY1ckpVNnJwVy82NUNrTDVBOVRhTDhyaTB6YytN?=
- =?utf-8?B?YlRydnhvSzQ5a3lxdFFubi9vdnZVNGZCU2l0K3ltSS9VTW15V0V5ZS85MFU4?=
- =?utf-8?B?OEh4bmM4S2FsZktoTWZkV3gwd2p2STYxMEpBYkVZd21xSFNXNXZxU0dDM1FC?=
- =?utf-8?B?K3p6dDNKVU1keWdldjBxb3A4TEM3OVR2NmhnTEVudXRKd3ZlOEM0a2tTcm5j?=
- =?utf-8?B?OVBFTVg1RjVLdFFrclN5SVllbU5ZbW9MT09MeEJ1QllnVFJoVnR1akg2bUxY?=
- =?utf-8?B?ejljZnR5N3c3RlJXME5Qbk03U2Q0VUdxSyttbmhUME04ZDlyN3NvN2twalVB?=
- =?utf-8?B?NXJ5QzlPYWg3WVdyZ01CY1o2MjNNS1c2MEF3RC93QUpBbVRya0t5QThYWkxr?=
- =?utf-8?B?aUJvZ1hzbnIxc1B0RjJmOFp3OVEyQjhSaVZIUStwSXBwRWgrNWtvQ3pwT016?=
- =?utf-8?B?RHc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 159e9519-f5de-4a16-363e-08dd77284a8f
-X-MS-Exchange-CrossTenant-AuthSource: BYAPR11MB3605.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 05:35:09.3301
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: S51CbZmBNSc5wFT2z5co7g9zfMggdvzx7yUnjt+fOyPfabJkaI/uWtZINZK1FepH1fJZgnSgRAoSz0EiQ9YmpA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB8805
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: fpga: zynq: Document ICAP on boot
+To: Sam Winchenbach <sam.winchenbach@framepointer.org>
+Cc: linux-kernel@vger.kernel.org, mdf@kernel.org, hao.wu@intel.com,
+ yilun.xu@intel.com, trix@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, michal.simek@amd.com, linux-fpga@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Sam Winchenbach <swinchenbach@arka.org>
+References: <20250328141944.119504-1-sam.winchenbach@framepointer.org>
+ <02496a88-3d9c-49ee-93ab-8f1400fc0c6b@kernel.org>
+ <p4bujnmgkcvsu4qipmgh2j2loedepmwgp7zlaxrurhaveb6tbc@ibqtbjnbzdzj>
+ <14b12882-119d-4c24-9634-e4cc37a39212@kernel.org>
+ <2ccsnpv67gsu354uo7xe7syrxs265ncj6hl26v3cwf2dfm7hyu@ihkemyajuiag>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <2ccsnpv67gsu354uo7xe7syrxs265ncj6hl26v3cwf2dfm7hyu@ihkemyajuiag>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_223622_910783_BFDA97E6 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20250408_230317_660377_725ECDFF 
+X-CRM114-Status: GOOD (  23.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -211,190 +123,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/03/25 13:25, ziniu.wang_1@nxp.com wrote:
-> From: Luke Wang <ziniu.wang_1@nxp.com>
+On 31/03/2025 15:07, Sam Winchenbach wrote:
+>>> Before writing the fabric to the FPGA the driver disables the ICAP, enabling
+>>> the PCAP. Once writing is complete it unconditionally disables the PCAP,
+>>> enabling the ICAP. This patch just makes it so, depending on the use case,
+>>> the ICAP can be enabled at boot. This will not prevent the system from being
+>>> able to load a fabric through the driver. I added in this boolean so existing
+>>> behavior would be maintained.
+>>>
+>>> Do you recommend another approach such as writing to a sysfs attribute to
+>>> switch from PCAP to ICAP?
+>> Not sure yet. Can't you check the status of ICAP before programming and
+>> then enable it only if was enabled before?
 > 
-> For SoCs like i.MX6UL(L/Z) and i.MX7D, USDHC powers off completely during
-> system power management (PM), causing the internal tuning status to be
-> lost. To address this, save the tuning value when system suspend and
-> restore it for any command issued after system resume when re-tuning is
-> held.
+> I am having a bit of difficulty understanding this so let's talk about cases
+> where the ICAP is enabled/disabled -
 > 
-> A typical case involves SDIO WiFi devices with the MMC_PM_KEEP_POWER and
-> MMC_PM_WAKE_SDIO_IRQ flag, which retain power during system PM. To
-> conserve power, WiFi switches to 1-bit mode and restores 4-bit mode upon
-> resume. As per the specification, tuning commands are not supported in
-> 1-bit mode. When sending CMD52 to restore 4-bit mode, re-tuning must be
-> held. However, CMD52 still requires a correct sample point to avoid CRC
-> errors, necessitating preservation of the previous tuning value.
+> 1. When writing the fabric from the driver
+>    In this situation it might make sense to read the state of the ICAP
+>    interface when preparing the fabric, before enabling PCAP. When the write
+>    completes you could re-enable the ICAP if it was previously enabled.
 > 
-> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-
-> ---
-> v1->v2:
->  * Used GENMASK/FIELD_GET/FIELD_PREP macro
->  * Added check MMC_PM_WAKE_SDIO_IRQ for save/restore tuning value
->  * Fixed typo and tune commit message
-> ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 88 +++++++++++++++++++++++++++++-
->  1 file changed, 86 insertions(+), 2 deletions(-)
+>    This might be outside the scope of this change - and I am not comfortable
+>    enough with this use-case to understand potential side effects from doing
+>    this. Logically it makes sense, but there may be a very specific reason that
+>    the ICAP must be enabled after doing a fabric load or partial
+>    reconfiguration.
 > 
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index ff78a7c6a04c..7e8addaed697 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -81,6 +81,8 @@
->  #define  ESDHC_TUNE_CTRL_STEP		1
->  #define  ESDHC_TUNE_CTRL_MIN		0
->  #define  ESDHC_TUNE_CTRL_MAX		((1 << 7) - 1)
-> +#define  ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_MASK	GENMASK(30, 24)
-> +#define  ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK	GENMASK(14, 8)
->  
->  /* strobe dll register */
->  #define ESDHC_STROBE_DLL_CTRL		0x70
-> @@ -235,6 +237,7 @@ struct esdhc_platform_data {
->  	unsigned int tuning_step;       /* The delay cell steps in tuning procedure */
->  	unsigned int tuning_start_tap;	/* The start delay cell point in tuning procedure */
->  	unsigned int strobe_dll_delay_target;	/* The delay cell for strobe pad (read clock) */
-> +	unsigned int saved_tuning_delay_cell;	/* save the value of tuning delay cell */
->  };
->  
->  struct esdhc_soc_data {
-> @@ -1057,7 +1060,7 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
->  {
->  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
->  	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
-> -	u32 ctrl;
-> +	u32 ctrl, tuning_ctrl;
->  	int ret;
->  
->  	/* Reset the tuning circuit */
-> @@ -1071,6 +1074,16 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
->  			writel(0, host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
->  		} else if (imx_data->socdata->flags & ESDHC_FLAG_STD_TUNING) {
->  			writel(ctrl, host->ioaddr + ESDHC_MIX_CTRL);
-> +			/*
-> +			 * enable the std tuning just in case it cleared in
-> +			 * sdhc_esdhc_tuning_restore.
-> +			 */
-> +			tuning_ctrl = readl(host->ioaddr + ESDHC_TUNING_CTRL);
-> +			if (!(tuning_ctrl & ESDHC_STD_TUNING_EN)) {
-> +				tuning_ctrl |= ESDHC_STD_TUNING_EN;
-> +				writel(tuning_ctrl, host->ioaddr + ESDHC_TUNING_CTRL);
-> +			}
-> +
->  			ctrl = readl(host->ioaddr + SDHCI_AUTO_CMD_STATUS);
->  			ctrl &= ~ESDHC_MIX_CTRL_SMPCLK_SEL;
->  			ctrl &= ~ESDHC_MIX_CTRL_EXE_TUNE;
-> @@ -1149,7 +1162,8 @@ static void esdhc_prepare_tuning(struct sdhci_host *host, u32 val)
->  	reg |= ESDHC_MIX_CTRL_EXE_TUNE | ESDHC_MIX_CTRL_SMPCLK_SEL |
->  			ESDHC_MIX_CTRL_FBCLK_SEL;
->  	writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
-> -	writel(val << 8, host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-> +	writel(FIELD_PREP(ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK, val),
-> +	       host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
->  	dev_dbg(mmc_dev(host->mmc),
->  		"tuning with delay 0x%x ESDHC_TUNE_CTRL_STATUS 0x%x\n",
->  			val, readl(host->ioaddr + ESDHC_TUNE_CTRL_STATUS));
-> @@ -1569,6 +1583,57 @@ static void sdhci_esdhc_imx_hwinit(struct sdhci_host *host)
->  	}
->  }
->  
-> +static void sdhc_esdhc_tuning_save(struct sdhci_host *host)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
-> +	u32 reg;
-> +
-> +	/*
-> +	 * SD/eMMC do not need this tuning save because it will re-init
-> +	 * after system resume back.
-> +	 * Here save the tuning delay value for SDIO device since it may
-> +	 * keep power during system PM. And for usdhc, only SDR50 and
-> +	 * SDR104 mode for SDIO device need to do tuning, and need to
-> +	 * save/restore.
-> +	 */
-> +	if (host->timing == MMC_TIMING_UHS_SDR50 ||
-> +	    host->timing == MMC_TIMING_UHS_SDR104) {
-> +		reg = readl(host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-> +		reg = FIELD_GET(ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_MASK, reg);
-> +		imx_data->boarddata.saved_tuning_delay_cell = reg;
-> +	}
-> +}
-> +
-> +static void sdhc_esdhc_tuning_restore(struct sdhci_host *host)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
-> +	u32 reg;
-> +
-> +	if (host->timing == MMC_TIMING_UHS_SDR50 ||
-> +	    host->timing == MMC_TIMING_UHS_SDR104) {
-> +		/*
-> +		 * restore the tuning delay value actually is a
-> +		 * manual tuning method, so clear the standard
-> +		 * tuning enable bit here. Will set back this
-> +		 * ESDHC_STD_TUNING_EN in esdhc_reset_tuning()
-> +		 * when trigger re-tuning.
-> +		 */
-> +		reg = readl(host->ioaddr + ESDHC_TUNING_CTRL);
-> +		reg &= ~ESDHC_STD_TUNING_EN;
-> +		writel(reg, host->ioaddr + ESDHC_TUNING_CTRL);
-> +
-> +		reg = readl(host->ioaddr + ESDHC_MIX_CTRL);
-> +		reg |= ESDHC_MIX_CTRL_SMPCLK_SEL | ESDHC_MIX_CTRL_FBCLK_SEL;
-> +		writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
-> +
-> +		writel(FIELD_PREP(ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK,
-> +				  imx_data->boarddata.saved_tuning_delay_cell),
-> +		       host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-> +	}
-> +}
-> +
->  static void esdhc_cqe_enable(struct mmc_host *mmc)
->  {
->  	struct sdhci_host *host = mmc_priv(mmc);
-> @@ -1900,6 +1965,15 @@ static int sdhci_esdhc_suspend(struct device *dev)
->  	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
->  		mmc_retune_needed(host->mmc);
->  
-> +	/*
-> +	 * For the device need to keep power during system PM, need
-> +	 * to save the tuning delay value just in case the usdhc
-> +	 * lost power during system PM.
-> +	 */
-> +	if (mmc_card_keep_power(host->mmc) && mmc_card_wake_sdio_irq(host->mmc) &&
-> +	    esdhc_is_usdhc(imx_data))
-> +		sdhc_esdhc_tuning_save(host);
-> +
->  	ret = sdhci_suspend_host(host);
->  	if (ret)
->  		return ret;
-> @@ -1916,6 +1990,8 @@ static int sdhci_esdhc_suspend(struct device *dev)
->  static int sdhci_esdhc_resume(struct device *dev)
->  {
->  	struct sdhci_host *host = dev_get_drvdata(dev);
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
->  	int ret;
->  
->  	ret = pinctrl_pm_select_default_state(dev);
-> @@ -1929,6 +2005,14 @@ static int sdhci_esdhc_resume(struct device *dev)
->  	if (ret)
->  		return ret;
->  
-> +	/*
-> +	 * restore the saved tuning delay value for the device which keep
-> +	 * power during system PM.
-> +	 */
-> +	if (mmc_card_keep_power(host->mmc) && mmc_card_wake_sdio_irq(host->mmc) &&
-> +	    esdhc_is_usdhc(imx_data))
-> +		sdhc_esdhc_tuning_restore(host);
-> +
->  	if (host->mmc->caps2 & MMC_CAP2_CQE)
->  		ret = cqhci_resume(host->mmc);
->  
-
+> 2. When the FPGA driver loads and is probed by the DTS
+>    In this situation, which is covered by this patch, the FPGA is loaded by
+>    BootROM/FSBL but contains functionality that requires the ICAP. Unless the
+>    user has made modifications to the FSBL or 3rd stage bootloader there is no
+>    clear way to enable the ICAP interface. Checking to see if it had been
+>    enabled prior to loading this driver does not (in my opinion) make a lot of
+>    sense here.
+> 
+>    Perhaps the name of the DTS is confusing? The suffix '-on-load' was meant to
+>    indicate when the driver was loaded, not the fabric. Would the suffix
+>    '-on-probe' be more clear?
+None of these two, because you refer to software. Property is fine but
+you need to describe the actual state of hardware or system or entire
+stack, e.g. "fpga-with-sem".
+Best regards,
+Krzysztof
 
