@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C8BC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 17:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA09C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 18:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VagdqhLUqQ/cHTS3wCaLxpv5RxPWVf0KWqzjzsj4gTk=; b=a9njkje6vgsMPKIsBp0eZBXY62
-	g+idJFcrf+VDvuwtLut5ukDEmWzmF3upSsGajFF64r/QL4tUhI9b6UgtJvYh8D/guVQkK0qEmfNGi
-	aB+lZVfgIwf/0F8LbIoK5wuixi4SwN7kPhrhxipqNlvaN6l822UUYwhx9gsUs1I7LWu/8ZCvslHyL
-	dd4gUWaz2u3/bw5mGouGlNjEnzs6pCWLXzQnXtDim41UlFoqR7W06kwXwaZd6/wwxvlEUaVShyR+P
-	YWJabQgYG+clDxMc1YQLCuK5Kb7BVzFxUD1yTpFhMLJbgAQ2gP7WCOOwY/WQHfyVi8YkDeqj8UbXQ
-	yEiiFipQ==;
+	bh=0Cq1x27Xb080vPWwBHPB1XFQzGMAz5YVTJ2PxzM1Hqw=; b=R77XZDVtFESkkwJEizYNps9YBD
+	g/LU3W7h06MwmTvIhJEVHie/dINYgTa7Z1k7P5ONyG5M75REAi5EYkKKNRT8lPpBiTcs1O4bj+0dT
+	d7BcCck5297f3t5U+KJrhIYKgxYzdg3tNfKcbRhVyUGSxCsi8sI0SzuVNIggWu1FjpouyFHKiPTly
+	UTbFR5V9rlrt+/rJfrxBiSO1F6QphP3A40pmyfBtLf6xfT7lMswzqFbnbtCv3YgyMKk/XBkBZLqPu
+	NEc8HHEAVNe+X4IqD5cKuWMgwNSkdnnoq54DS0we2gXg3iSopEVry4kQkHKw7OwjSNgdgEHkTOY7i
+	jAlZjgvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Zho-000000086Z1-0brp;
-	Wed, 09 Apr 2025 17:59:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u2ZjZ-000000086pl-1IW9;
+	Wed, 09 Apr 2025 18:01:09 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ZXP-0000000852s-2ZCu
+	id 1u2ZXQ-0000000853s-45SZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 17:48:37 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 539H0JfZ006744
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Apr 2025 17:48:35 GMT
+	Wed, 09 Apr 2025 17:48:38 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5398apBQ010468
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 9 Apr 2025 17:48:36 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	VagdqhLUqQ/cHTS3wCaLxpv5RxPWVf0KWqzjzsj4gTk=; b=VvUtVBGptRZErBVd
-	8QANgRJCQNYcuAXAdwJDUKfBGephgEpA963ww4JlR+B3FBzaHpmhHNGBTNz96/ei
-	EdCNiP8WCd8YOzxxCWNfkLrbVCBAbi8x9Pybt7oE/hT/DxeENB1pS9Jo76n7ST8b
-	4mQcZpEb7UOUARmq2CFT+zAS8e4JdhKyLsKRphzhg7FoQSFlI1mATjf3up+WsStd
-	unXkGp7A9bLo+pXwvH/2ZhthA7B+kHrUoPZMV7j8l4tLuBtBMCXwbrQAU3WZH6H4
-	yyhDzs2iht09oZfJkRGfUvVpJkiPu5LSmvRukh0jpMfho9UEBHD1FmK4TL9ceZib
-	+ExFDw==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45twg3m8ge-1
+	0Cq1x27Xb080vPWwBHPB1XFQzGMAz5YVTJ2PxzM1Hqw=; b=MMDnHxN6h0NpB33n
+	vigdiDhTa6WgPmatzqWt1mXtZ2zcdHKj/FmvSVPx4ETbCx2H1atWhQs+hG3W7muu
+	qniMHCxD1SsKVD0sghk0aHkhvsOsk4jgQaUvzwUZHtCg5z0RS9U0hTKQxe3YNOju
+	xG7bAUMsfM+ZZgQRUeEc9h+r0dgxnxO3ESPeyUz/tqGamGahqsCfOTcZWGDmzwEt
+	HxrVBcrNmEYWnUVcle82/f4YJavOzUDuYiPod+VI5Co9ZjByt5GQxZ0wx2x2pYD2
+	+oGZMo5/SYSflvKK5NkyRzOwOZL7q4oaZNemHeOni4ZGPSC/Kk0z1UeIYeEHub+F
+	bPhfUA==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45twftm3xn-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 17:48:34 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-223fd6e9408so6865925ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 10:48:34 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 17:48:35 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-af5cd71de6aso4570771a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 10:48:35 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744220913; x=1744825713;
+        d=1e100.net; s=20230601; t=1744220915; x=1744825715;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VagdqhLUqQ/cHTS3wCaLxpv5RxPWVf0KWqzjzsj4gTk=;
-        b=Ua3oWHiG/yx6e4vsXMDcdv3lj2tlOLdV/uQcrhQ8dPTf3bQ6G4rMSjF+zMbe/Rwqfl
-         XF4o+hXeUewqTxw77e6m9EtCUfsyCbeaerWaqqXVB49lrtMYP06EIg6FXaQvRB3GcXBR
-         Ke3wWLNPgkwkm/HHg0T3tDHgcKcOknOFocvph8XGqKzlk/prmTL3gNX809fE2HQhZQ58
-         KVZVnH37KKrUJ/YF9uz1XewiW4kNzKE2croN25lYYEcWFY/iWgBYQjdUC0um7JwHGhOC
-         XLPKKUfnd8WBJANIhCZW2gSNSTvzXo+xfsWuaeqHU98MD5TwXmWsBZD3Xm2Q2tModSRx
-         hRoA==
-X-Forwarded-Encrypted: i=1; AJvYcCXpAbDqPDaHHRrTa9ht+FogChHL6z+fIDcSea9OAC8o+jUg8g0hJ0Pt6EBQkCAiaX8sATIQP3PDU+oIER304MMS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMIb5j2NhrjzNkTINPpx/5y5auQq9fLks5Y2sfOXoVXNQ9OFy+
-	2t1ltSQ4ElpYPzQmGkCNnzyQ5m/d6QOQiUBf2Gzz7yRLZQ3M1cn1CHtzbmmfRz67OrMDxdQEKU8
-	HEi0HwUMCYBoHgfg18ZPv2yWRHfa0xwTa4p+dCqE9lA1teQOjAbZTvKn1vYSQEcr2nZO+c1olFw
+        bh=0Cq1x27Xb080vPWwBHPB1XFQzGMAz5YVTJ2PxzM1Hqw=;
+        b=pUoKW2r1vaKoGq6dflRXTsCH7xwJoTD60JwSrpZTcb4vDzcs3q6vWxpfTVdiedicSi
+         6tuGTbO3CMlvBtnmHM5/AZfL4+rz5lHUpna2cuGv70Ty5F5TxxljReDFmL3UV/iGeIrR
+         Nmlyr/uL2pEFg/Q9Dtsehd9aynyNnSSj4CW3+zHjXYZnMq8IYB5KbPZ4nuty2i08c6dA
+         yvBiWMlkJgs9FgkgMdli7VzfwDyoWE7m1w2QKOqXzloh6JkFNUNumf0/Zpn7Md+l0G6N
+         FS3nFECTYjt7b4sOxTuQgQfd5Faor6l3WyVYg5zCsCsVUIU78pcJyLoaMxRTkKFebV5g
+         Yezg==
+X-Forwarded-Encrypted: i=1; AJvYcCVepeexJWJkyGKuzEJXhVY14YyZd3qksBb6ZCQ/HRzefCf11smYEKcKOdd5yJusfkYMgB0dLWWDYwryBPfYPVH0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuOYDtzTzl2zKDLTeTd+n7eQ1M5J0Z/hpbIWWbIpSgBbHhx7hY
+	wOmr9P6pFutrL0sOCYKEsE0SAygpETzYxZ2tkaKF92ktv8Db5bVnghoMh04iht3R27LM2+TXt8Y
+	hqgBXEk+/oZ+nD6tQhaanUqHSMV5djTFAzHj+HPKJqm3zwyYj5QF0BqmnqwZD4MsRGQIh69jHuA
 	==
-X-Gm-Gg: ASbGncvZ4dmeDDqDgYM5wS6xFtV8fdd/+SKAVBalfPBfY//8mVTEGuvzg7gfUVvkZT/
-	X+gIcFb88RqFWSAeV+sg+EuWkbIWNU5T784qpoiIj8tw7Zez7VmjBSHPXr3RGxUwiapayQTpGYO
-	PgKrp06vMBxiz7PHOQwAbJF6rX6AirKByj40A+m3f0ix0XEMS2KCGme8UEQ8BkQ1BEZYh3XI1pX
-	kTmO+zz0Z5ycITVFzEd5hq7FfoBcYULLW6A2LB5+0/OtHO4tH1OcMgzKEQaY2OuPP+2FCy2t3BZ
-	kF8RD0L4OIf4gCbwHylOY8OSBudUZqHsz19NLms86zYr7ljdx4zTwEsfC72nDunQ5qY=
-X-Received: by 2002:a17:903:90d:b0:224:7a4:b31 with SMTP id d9443c01a7336-22acfe92581mr4893845ad.6.1744220913243;
-        Wed, 09 Apr 2025 10:48:33 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFsG92ws/nA3ox5Fmzps6PGoWhZkEoMYDBBjXWPelVVnEe90k6uZhmPJS67No7KaKKDplowIQ==
-X-Received: by 2002:a17:903:90d:b0:224:7a4:b31 with SMTP id d9443c01a7336-22acfe92581mr4893535ad.6.1744220912893;
-        Wed, 09 Apr 2025 10:48:32 -0700 (PDT)
+X-Gm-Gg: ASbGncsA9SBf/T+/SyBnjiSuunrQuMDHRZl1MdcHHp701B9ahCMX01Sgo0jH42pRi9F
+	p7cgj8YXViIw5H5xkNMqJkBEL+mWUXrTKEgn0BzvxrXB7QYn88W1bK6shH6jyk9RQbbP+2CRCf8
+	F6S5cezI+KiPCH9vtQ0n2Yx1T1tBZmBptyO+VnVZlmGdv6JWxrLi1DY+hGDjvrqC5pMh5GhA8HK
+	MniV3/3gMvLyqS9KpOgMB/4PoBcBDqsIIASGv2T2jvrkAasy48zsVDKZ7ggPMfWLKgtmmNUSsyp
+	YUCn4f69AQ51nJiAA5uqyLbIwniYdhWMbqB+ygXFCNLp7Z8XmCW3/lEfAC6ZOABPmRo=
+X-Received: by 2002:a17:903:1cd:b0:21f:5638:2d8 with SMTP id d9443c01a7336-22ac402bb78mr43593425ad.53.1744220914854;
+        Wed, 09 Apr 2025 10:48:34 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH+ZVA1ONKWnzurUX8UZNgsvK+vAr6jY72ypSUNywSNL4iqaH5vuPwMSGspQ/cL8lCuU6Uq6g==
+X-Received: by 2002:a17:903:1cd:b0:21f:5638:2d8 with SMTP id d9443c01a7336-22ac402bb78mr43593075ad.53.1744220914409;
+        Wed, 09 Apr 2025 10:48:34 -0700 (PDT)
 Received: from hu-molvera-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7c97a1bsm14964005ad.148.2025.04.09.10.48.31
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7c97a1bsm14964005ad.148.2025.04.09.10.48.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 10:48:32 -0700 (PDT)
+        Wed, 09 Apr 2025 10:48:33 -0700 (PDT)
 From: Melody Olvera <melody.olvera@oss.qualcomm.com>
-Date: Wed, 09 Apr 2025 10:48:16 -0700
-Subject: [PATCH v4 05/10] phy: qcom: Update description for QCOM based
- eUSB2 repeater
+Date: Wed, 09 Apr 2025 10:48:17 -0700
+Subject: [PATCH v4 06/10] phy: qcom: Add M31 based eUSB2 PHY driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250409-sm8750_usb_master-v4-5-6ec621c98be6@oss.qualcomm.com>
+Message-Id: <20250409-sm8750_usb_master-v4-6-6ec621c98be6@oss.qualcomm.com>
 References: <20250409-sm8750_usb_master-v4-0-6ec621c98be6@oss.qualcomm.com>
 In-Reply-To: <20250409-sm8750_usb_master-v4-0-6ec621c98be6@oss.qualcomm.com>
 To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -101,33 +100,31 @@ To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
 Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Melody Olvera <melody.olvera@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>
+        Melody Olvera <melody.olvera@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744220903; l=1432;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744220903; l=11750;
  i=melody.olvera@oss.qualcomm.com; s=20241204; h=from:subject:message-id;
- bh=4Pr6BN52SExwCz3h8ri0CiEwnp4b1SW1BiobceI7Ft8=;
- b=i23jhzeTsiK6PFNrYUYQ3S3HJO3uyNXokW2Ua3kOkY4OMdtdhsrt5b9CWvZvlUzzMpMndpmv5
- GwelesiEFTmDYEuIhlfB//FgZH094PA+hyNHpjmeAVxwODgJLkQiumU
+ bh=yWjc+HFXUdBtYJLFLIbhg33gnxAzLGomUUX2AcQGlBg=;
+ b=mSts8LxiqIj+19b7mzS3w0Dajn66CX6BsYbyVtUiOTq8oS5Wl0xonbErM6HHnNs7q08TDhE1l
+ sLncC7iv2hIDPeeAqlS4lYHGFqDPkic5yEUBhkljTwL6MGR9UcQtwn8
 X-Developer-Key: i=melody.olvera@oss.qualcomm.com; a=ed25519;
  pk=1DGLp3zVYsHAWipMaNZZTHR321e8xK52C9vuAoeca5c=
-X-Proofpoint-GUID: UXetDOYZ3nKrIEthP6DFaf7EaJVUUf0K
-X-Proofpoint-ORIG-GUID: UXetDOYZ3nKrIEthP6DFaf7EaJVUUf0K
-X-Authority-Analysis: v=2.4 cv=I/9lRMgg c=1 sm=1 tr=0 ts=67f6b2f2 cx=c_pps a=JL+w9abYAAE89/QcEU+0QA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=2IHzoM5ujN45o2WKKn0A:9
- a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22 a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
+X-Authority-Analysis: v=2.4 cv=B5+50PtM c=1 sm=1 tr=0 ts=67f6b2f3 cx=c_pps a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=SaPFg9MOAsmIOgfY5tUA:9 a=QEXdDO2ut3YA:10
+ a=RVmHIydaz68A:10 a=x9snwWr2DeNwDh03kgHS:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: zUo2d4WbcM5BPT2xBXM7S6uwKrFAkuAJ
+X-Proofpoint-ORIG-GUID: zUo2d4WbcM5BPT2xBXM7S6uwKrFAkuAJ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-04-09_06,2025-04-08_04,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 mlxscore=0
- phishscore=0 suspectscore=0 mlxlogscore=926 lowpriorityscore=0 spamscore=0
- clxscore=1015 malwarescore=0 adultscore=0 priorityscore=1501
- impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
+ suspectscore=0 malwarescore=0 bulkscore=0 phishscore=0 spamscore=0
+ priorityscore=1501 adultscore=0 impostorscore=0 lowpriorityscore=0
+ mlxscore=0 clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
  definitions=main-2504090116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_104835_777284_67CE5A4A 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20250409_104837_019676_9DE72FFD 
+X-CRM114-Status: GOOD (  25.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,38 +141,384 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Wesley Cheng <quic_wcheng@quicinc.com>
 
-The eUSB2 repeater that exists in the QCOM PMICs are utilized for several
-different eUSB2 PHY vendors, such as M31 or Synopsys.  Hence, the wording
-needs to be updated to remove associations to a specific vendor.
+SM8750 utilizes an eUSB2 PHY from M31.  Add the initialization
+sequences to bring it out of reset and into an operational state.  This
+differs to the M31 USB driver, in that the M31 eUSB2 driver will
+require a connection to an eUSB2 repeater.  This PHY driver will handle
+the initialization of the associated eUSB2 repeater when required.
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
 Signed-off-by: Melody Olvera <melody.olvera@oss.qualcomm.com>
 ---
- drivers/phy/qualcomm/Kconfig | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/phy/qualcomm/Kconfig              |  10 +
+ drivers/phy/qualcomm/Makefile             |   1 +
+ drivers/phy/qualcomm/phy-qcom-m31-eusb2.c | 325 ++++++++++++++++++++++++++++++
+ 3 files changed, 336 insertions(+)
 
 diff --git a/drivers/phy/qualcomm/Kconfig b/drivers/phy/qualcomm/Kconfig
-index c1e0a11ddd76c2056eb2e72a287ece4def2cf5d8..3cfb4c9d3d10dce49bb93b241f9b56c75b934601 100644
+index 3cfb4c9d3d10dce49bb93b241f9b56c75b934601..5d55ed0bd198d786d31d5dbee8f32e6fbed875a9 100644
 --- a/drivers/phy/qualcomm/Kconfig
 +++ b/drivers/phy/qualcomm/Kconfig
-@@ -135,12 +135,12 @@ config PHY_QCOM_SNPS_EUSB2
- 	  on Qualcomm SOCs.
+@@ -167,6 +167,16 @@ config PHY_QCOM_UNIPHY_PCIE_28LP
+ 	  handles PHY initialization, clock management required after
+ 	  resetting the hardware and power management.
  
- config PHY_QCOM_EUSB2_REPEATER
--	tristate "Qualcomm SNPS eUSB2 Repeater Driver"
-+	tristate "Qualcomm PMIC eUSB2 Repeater Driver"
- 	depends on OF && (ARCH_QCOM || COMPILE_TEST)
- 	select GENERIC_PHY
- 	help
--	  Enable support for the USB high-speed SNPS eUSB2 repeater on Qualcomm
--	  PMICs. The repeater is paired with a Synopsys eUSB2 Phy
-+	  Enable support for the USB high-speed eUSB2 repeater on Qualcomm
-+	  PMICs. The repeater can be paired with a Synopsys or M31 eUSB2 Phy
- 	  on Qualcomm SOCs.
++config PHY_QCOM_M31_EUSB
++	tristate "Qualcomm M31 eUSB2 PHY driver support"
++	depends on USB && (ARCH_QCOM || COMPILE_TEST)
++	select GENERIC_PHY
++	help
++	  Enable this to support M31 EUSB2 PHY transceivers on Qualcomm
++	  chips with DWC3 USB core. It supports initializing and cleaning
++	  up of the associated USB repeater that is paired with the eUSB2
++	  PHY.
++
+ config PHY_QCOM_USB_HS
+ 	tristate "Qualcomm USB HS PHY module"
+ 	depends on USB_ULPI_BUS
+diff --git a/drivers/phy/qualcomm/Makefile b/drivers/phy/qualcomm/Makefile
+index 42038bc30974a376bb2e3749d57d0518a82c35fe..4a5907816c65ec15b85e1fa5d22003ee8e2a3e97 100644
+--- a/drivers/phy/qualcomm/Makefile
++++ b/drivers/phy/qualcomm/Makefile
+@@ -5,6 +5,7 @@ obj-$(CONFIG_PHY_QCOM_EDP)		+= phy-qcom-edp.o
+ obj-$(CONFIG_PHY_QCOM_IPQ4019_USB)	+= phy-qcom-ipq4019-usb.o
+ obj-$(CONFIG_PHY_QCOM_IPQ806X_SATA)	+= phy-qcom-ipq806x-sata.o
+ obj-$(CONFIG_PHY_QCOM_M31_USB)		+= phy-qcom-m31.o
++obj-$(CONFIG_PHY_QCOM_M31_EUSB)		+= phy-qcom-m31-eusb2.o
+ obj-$(CONFIG_PHY_QCOM_PCIE2)		+= phy-qcom-pcie2.o
  
- config PHY_QCOM_M31_USB
+ obj-$(CONFIG_PHY_QCOM_QMP_COMBO)	+= phy-qcom-qmp-combo.o phy-qcom-qmp-usbc.o
+diff --git a/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..8746218914afbd814ca90639edd8e2cf47ff99f1
+--- /dev/null
++++ b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
+@@ -0,0 +1,325 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/reset.h>
++#include <linux/slab.h>
++
++#include <linux/regulator/consumer.h>
++
++#define USB_PHY_UTMI_CTRL0		(0x3c)
++#define SLEEPM				BIT(0)
++
++#define USB_PHY_UTMI_CTRL5		(0x50)
++#define POR				BIT(1)
++
++#define USB_PHY_HS_PHY_CTRL_COMMON0	(0x54)
++#define SIDDQ_SEL			BIT(1)
++#define SIDDQ				BIT(2)
++#define FSEL				GENMASK(6, 4)
++#define FSEL_38_4_MHZ_VAL		(0x6)
++
++#define USB_PHY_HS_PHY_CTRL2		(0x64)
++#define USB2_SUSPEND_N			BIT(2)
++#define USB2_SUSPEND_N_SEL		BIT(3)
++
++#define USB_PHY_CFG0			(0x94)
++#define UTMI_PHY_CMN_CTRL_OVERRIDE_EN	BIT(1)
++
++#define USB_PHY_CFG1			(0x154)
++#define PLL_EN				BIT(0)
++
++#define USB_PHY_FSEL_SEL		(0xb8)
++#define FSEL_SEL			BIT(0)
++
++#define USB_PHY_XCFGI_39_32		(0x16c)
++#define HSTX_PE				GENMASK(3, 2)
++
++#define USB_PHY_XCFGI_71_64		(0x17c)
++#define HSTX_SWING			GENMASK(3, 0)
++
++#define USB_PHY_XCFGI_31_24		(0x168)
++#define HSTX_SLEW			GENMASK(2, 0)
++
++#define USB_PHY_XCFGI_7_0		(0x15c)
++#define PLL_LOCK_TIME			GENMASK(1, 0)
++
++#define M31_EUSB_PHY_INIT_CFG(o, b, v)	\
++{				\
++	.off = o,		\
++	.mask = b,		\
++	.val = v,		\
++}
++
++struct m31_phy_tbl_entry {
++	u32 off;
++	u32 mask;
++	u32 val;
++};
++
++struct m31_eusb2_priv_data {
++	const struct m31_phy_tbl_entry	*setup_seq;
++	unsigned int			setup_seq_nregs;
++	const struct m31_phy_tbl_entry	*override_seq;
++	unsigned int			override_seq_nregs;
++	const struct m31_phy_tbl_entry	*reset_seq;
++	unsigned int			reset_seq_nregs;
++	unsigned int			fsel;
++};
++
++static const struct m31_phy_tbl_entry m31_eusb2_setup_tbl[] = {
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG0, UTMI_PHY_CMN_CTRL_OVERRIDE_EN, 1),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL5, POR, 1),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG1, PLL_EN, 1),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_FSEL_SEL, FSEL_SEL, 1),
++};
++
++static const struct m31_phy_tbl_entry m31_eusb_phy_override_tbl[] = {
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_39_32, HSTX_PE, 0),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_71_64, HSTX_SWING, 7),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_31_24, HSTX_SLEW, 0),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_7_0, PLL_LOCK_TIME, 0),
++};
++
++static const struct m31_phy_tbl_entry m31_eusb_phy_reset_tbl[] = {
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL2, USB2_SUSPEND_N_SEL, 1),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL2, USB2_SUSPEND_N, 1),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL0, SLEEPM, 1),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL_COMMON0, SIDDQ_SEL, 1),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL_COMMON0, SIDDQ, 0),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL5, POR, 0),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL2, USB2_SUSPEND_N_SEL, 0),
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG0, UTMI_PHY_CMN_CTRL_OVERRIDE_EN, 0),
++};
++
++static const struct regulator_bulk_data m31_eusb_phy_vregs[] = {
++	{ .supply = "vdd" },
++	{ .supply = "vdda12" },
++};
++
++#define M31_EUSB_NUM_VREGS		ARRAY_SIZE(m31_eusb_phy_vregs)
++
++struct m31eusb2_phy {
++	struct phy			 *phy;
++	void __iomem			 *base;
++	const struct m31_eusb2_priv_data *data;
++	enum phy_mode			 mode;
++
++	struct regulator_bulk_data	 *vregs;
++	struct clk			 *clk;
++	struct reset_control		 *reset;
++
++	struct phy			 *repeater;
++};
++
++static int m31eusb2_phy_write_readback(void __iomem *base, u32 offset,
++					const u32 mask, u32 val)
++{
++	u32 write_val;
++	u32 tmp;
++
++	tmp = readl_relaxed(base + offset);
++	tmp &= ~mask;
++	write_val = tmp | val;
++
++	writel_relaxed(write_val, base + offset);
++
++	tmp = readl_relaxed(base + offset);
++	tmp &= mask;
++
++	if (tmp != val) {
++		pr_err("write: %x to offset: %x FAILED\n", val, offset);
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static int m31eusb2_phy_write_sequence(struct m31eusb2_phy *phy,
++				       const struct m31_phy_tbl_entry *tbl,
++				       int num)
++{
++	int i;
++	int ret;
++
++	for (i = 0 ; i < num; i++, tbl++) {
++		dev_dbg(&phy->phy->dev, "Offset:%x BitMask:%x Value:%x",
++			tbl->off, tbl->mask, tbl->val);
++
++		ret = m31eusb2_phy_write_readback(phy->base,
++						   tbl->off, tbl->mask,
++						   tbl->val << __ffs(tbl->mask));
++		if (ret < 0)
++			return ret;
++	}
++
++	return 0;
++}
++
++static int m31eusb2_phy_set_mode(struct phy *uphy, enum phy_mode mode, int submode)
++{
++	struct m31eusb2_phy *phy = phy_get_drvdata(uphy);
++
++	phy->mode = mode;
++
++	return phy_set_mode_ext(phy->repeater, mode, submode);
++}
++
++static int m31eusb2_phy_init(struct phy *uphy)
++{
++	struct m31eusb2_phy *phy = phy_get_drvdata(uphy);
++	const struct m31_eusb2_priv_data *data = phy->data;
++	int ret;
++
++	ret = regulator_bulk_enable(M31_EUSB_NUM_VREGS, phy->vregs);
++	if (ret) {
++		dev_err(&uphy->dev, "failed to enable regulator, %d\n", ret);
++		return ret;
++	}
++
++	ret = phy_init(phy->repeater);
++	if (ret) {
++		dev_err(&uphy->dev, "repeater init failed. %d\n", ret);
++		goto disable_vreg;
++	}
++
++	ret = clk_prepare_enable(phy->clk);
++	if (ret) {
++		dev_err(&uphy->dev, "failed to enable cfg ahb clock, %d\n", ret);
++		goto disable_repeater;
++	}
++
++	/* Perform phy reset */
++	reset_control_assert(phy->reset);
++	udelay(5);
++	reset_control_deassert(phy->reset);
++
++	m31eusb2_phy_write_sequence(phy, data->setup_seq, data->setup_seq_nregs);
++	m31eusb2_phy_write_readback(phy->base,
++				     USB_PHY_HS_PHY_CTRL_COMMON0, FSEL,
++				     FIELD_PREP(FSEL, data->fsel));
++	m31eusb2_phy_write_sequence(phy, data->override_seq, data->override_seq_nregs);
++	m31eusb2_phy_write_sequence(phy, data->reset_seq, data->reset_seq_nregs);
++
++	return 0;
++
++disable_repeater:
++	phy_exit(phy->repeater);
++disable_vreg:
++	regulator_bulk_disable(M31_EUSB_NUM_VREGS, phy->vregs);
++
++	return 0;
++}
++
++static int m31eusb2_phy_exit(struct phy *uphy)
++{
++	struct m31eusb2_phy *phy = phy_get_drvdata(uphy);
++
++	clk_disable_unprepare(phy->clk);
++	regulator_bulk_disable(M31_EUSB_NUM_VREGS, phy->vregs);
++	phy_exit(phy->repeater);
++
++	return 0;
++}
++
++static const struct phy_ops m31eusb2_phy_gen_ops = {
++	.init		= m31eusb2_phy_init,
++	.exit		= m31eusb2_phy_exit,
++	.set_mode	= m31eusb2_phy_set_mode,
++	.owner		= THIS_MODULE,
++};
++
++static int m31eusb2_phy_probe(struct platform_device *pdev)
++{
++	struct phy_provider *phy_provider;
++	const struct m31_eusb2_priv_data *data;
++	struct device *dev = &pdev->dev;
++	struct m31eusb2_phy *phy;
++	int ret;
++
++	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
++	if (!phy)
++		return -ENOMEM;
++
++	data = device_get_match_data(dev);
++	if (IS_ERR(data))
++		return -EINVAL;
++	phy->data = data;
++
++	phy->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(phy->base))
++		return PTR_ERR(phy->base);
++
++	phy->reset = devm_reset_control_get_exclusive(dev, NULL);
++	if (IS_ERR(phy->reset))
++		return PTR_ERR(phy->reset);
++
++	phy->clk = devm_clk_get(dev, NULL);
++	if (IS_ERR(phy->clk))
++		return dev_err_probe(dev, PTR_ERR(phy->clk),
++				     "failed to get clk\n");
++
++	phy->phy = devm_phy_create(dev, NULL, &m31eusb2_phy_gen_ops);
++	if (IS_ERR(phy->phy))
++		return dev_err_probe(dev, PTR_ERR(phy->phy),
++				     "failed to create phy\n");
++
++	ret = devm_regulator_bulk_get_const(dev, M31_EUSB_NUM_VREGS,
++					    m31_eusb_phy_vregs, &phy->vregs);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				"failed to get regulator supplies\n");
++
++	phy_set_drvdata(phy->phy, phy);
++
++	phy->repeater = devm_of_phy_get_by_index(dev, dev->of_node, 0);
++	if (IS_ERR(phy->repeater))
++		return dev_err_probe(dev, PTR_ERR(phy->repeater),
++				     "failed to get repeater\n");
++
++	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
++	if (!IS_ERR(phy_provider))
++		dev_info(dev, "Registered M31 USB phy\n");
++
++	return PTR_ERR_OR_ZERO(phy_provider);
++}
++
++static const struct m31_eusb2_priv_data m31_eusb_v1_data = {
++	.setup_seq = m31_eusb2_setup_tbl,
++	.setup_seq_nregs = ARRAY_SIZE(m31_eusb2_setup_tbl),
++	.override_seq = m31_eusb_phy_override_tbl,
++	.override_seq_nregs = ARRAY_SIZE(m31_eusb_phy_override_tbl),
++	.reset_seq = m31_eusb_phy_reset_tbl,
++	.reset_seq_nregs = ARRAY_SIZE(m31_eusb_phy_reset_tbl),
++	.fsel = FSEL_38_4_MHZ_VAL,
++};
++
++static const struct of_device_id m31eusb2_phy_id_table[] = {
++	{ .compatible = "qcom,sm8750-m31-eusb2-phy", .data = &m31_eusb_v1_data },
++	{ },
++};
++MODULE_DEVICE_TABLE(of, m31eusb2_phy_id_table);
++
++static struct platform_driver m31eusb2_phy_driver = {
++	.probe = m31eusb2_phy_probe,
++	.driver = {
++		.name = "qcom-m31eusb2-phy",
++		.of_match_table = m31eusb2_phy_id_table,
++	},
++};
++
++module_platform_driver(m31eusb2_phy_driver);
++
++MODULE_AUTHOR("Wesley Cheng <quic_wcheng@quicinc.com>");
++MODULE_DESCRIPTION("eUSB2 Qualcomm M31 HSPHY driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.48.1
