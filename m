@@ -4,85 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3350C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE2FC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:38:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ollXESlfLkIw+uN5g6J/HukBe6p0ozTGK2V3fCr6bus=; b=MUR1Hlxe+bNJS5COcJ62foPIFD
-	//U8qvaoEOdONvj/33bgXHMp0Kl3LbU+Ee0p3cLSpAgAUu/wZRz32Ln2lxDB2PwDqnOc0I0eG8wff
-	9NakJ3Fdfz0AigrB4+HKw629LNyr4FZykEo51ZBkMt6kqSL9DafwBdHVzUG1Y5MYjf2CSfz1m6Mg4
-	l8GODv/SSpjII/3kWZEKQRzU+tvT1Go+/weEJ68CGfi/p2m0VdAnDKq/sRpFBp6IMl2BdgncS3Kxq
-	5lz/uyAwnpJiJWM/5nQkdOt7PpmOeHEBGe4iTzbiT9kvAaXDBo4ffOZIeVQF6yf83ifJNHkxiYDaE
-	EJ/mEOlg==;
+	bh=C8sFG62uIhWcCDnsK+TitF7g9YvTTNhbdnhc8bS11xU=; b=YoKxth8GRBCR4l9yQHjgDK1z5x
+	CrJbpGlftp8m3Tle7IG+hyDr0LJCacFBZ/YbL6jEaCjMUkPCAOE1oji4GT2VV8qEAYnXwg0X7ITU7
+	siCL9/3Yv22+8JU8TrV3+OYK+YCJ8cdP6pVOJ3K9crLpliFjZJ0bb+LirExvJrs8uMTIwNGuWL8NL
+	V8thajVLaSFHYbgp2ql5yzwvBN4MW+PtZc5KWe/+shRk+1xAmDJE2/8BwfrOnS1nKLE422lqBph8d
+	cRcZU9l829pqnG8xtRqbRYduA+X0MXA71xuBfWJXkzsOEdjffkh/4RskkWCCNcSiyHi019Ucf1aZl
+	jlaqftgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2WXe-00000007TvB-3iIJ;
-	Wed, 09 Apr 2025 14:36:38 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1u2WZP-00000007UIF-2rLA;
+	Wed, 09 Apr 2025 14:38:27 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Vjp-00000007L6I-1PEO
+	id 1u2Vlx-00000007LSf-09dd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 13:45:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744206309; x=1775742309;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=XRXZVaaIKpLxs1YQiTVdMowxNrf5xQjhz6daXuKTH7o=;
-  b=JWmTSkYRNN2pCg1wXqV/E/wDiOvJ+QX2mpD2SnRHwYBbcfgsn58xyv/k
-   1RrOsrrKRqmpixl/ODQHASpipEOPhOP0ROybk4k8agyPYrhE0jjqEaBFe
-   9DBwIjFTbLSibErbP3mlXNHpoDt1w3G7BmFKgLKHdg1Aw2BbQWRvB7C9P
-   pFV4nAB+zN4a7C7pljGfIvocqa1T5OWXvCTWVb8pqRQhGRv/POYlIBhTd
-   QWkNGmec3tv7UhsZ0TyMonWD3oxhuCSjT1rRBB8ssb20WOqcSHg5wrwLp
-   SGc9mNvKeFRxu9XGRvTJlhBwZhKeymFkWOSmLlASlnzY8W3bOjWWV1A/7
-   w==;
-X-CSE-ConnectionGUID: 9sohL9igTLybO2JMCYCJmQ==
-X-CSE-MsgGUID: U48zdUShSLmhfpTt3qJF9g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="56316992"
-X-IronPort-AV: E=Sophos;i="6.15,200,1739865600"; 
-   d="scan'208";a="56316992"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2025 06:45:05 -0700
-X-CSE-ConnectionGUID: Q7HdWu6oSqycABrrsRjOzQ==
-X-CSE-MsgGUID: Iwd85F9iTKGgugmgI/sJBQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,200,1739865600"; 
-   d="scan'208";a="133463845"
-Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 09 Apr 2025 06:45:01 -0700
-Received: from kbuild by b207828170a5 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u2Vjf-0008uF-10;
-	Wed, 09 Apr 2025 13:44:59 +0000
-Date: Wed, 9 Apr 2025 21:44:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH 24/24] arm64: Kconfig: Enable GICv5
-Message-ID: <202504092127.YaPW3UWk-lkp@intel.com>
-References: <20250408-gicv5-host-v1-24-1f26db465f8d@kernel.org>
+	Wed, 09 Apr 2025 13:47:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1744206438;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=C8sFG62uIhWcCDnsK+TitF7g9YvTTNhbdnhc8bS11xU=;
+	b=gDyA5YtgAXPqyKBAdnNS+zLSHt3uM1sygaf5tMiifSvEt9eFYxa6aGoQliGzlZFtVt0LaP
+	nLXiAOht+4wxse13aqE56zU0+tCLxIi6lQu+47Fn6ToZoPVfFW2OMiAoax4dbCwhK5TZXW
+	BY/3Qg5gtPxa/Jrtt/hn243g+b0oCdc=
+Received: from mail-il1-f200.google.com (mail-il1-f200.google.com
+ [209.85.166.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-67-S3GbPJRKMlmqEFYdgQwoVQ-1; Wed, 09 Apr 2025 09:47:17 -0400
+X-MC-Unique: S3GbPJRKMlmqEFYdgQwoVQ-1
+X-Mimecast-MFC-AGG-ID: S3GbPJRKMlmqEFYdgQwoVQ_1744206436
+Received: by mail-il1-f200.google.com with SMTP id e9e14a558f8ab-3d4423d0c49so62983715ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 06:47:17 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744206436; x=1744811236;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=C8sFG62uIhWcCDnsK+TitF7g9YvTTNhbdnhc8bS11xU=;
+        b=PmdVHBSGCxC5t13XASmYi3swxe1qnmXY6MYJ1RuEvOsItv16sYS9IhdwF791V3hfMq
+         NW843ro5xv3yjTmXl8sG8lFXvF6eAAC9VAEZ+Wow/QqHMxqaOPYtHHL6ZY4dsptRA+aw
+         8o4G+weGsvj8YLlg8Bm5BR3JvWX7gVp0FJ+Yjgo1+3lFVg2UiOZLuX1pke81w2APvjoN
+         91dNdWnJMJZD6pqaBqLcbr/Hl+2+jFahybEkFWtvf6H0Bek6owU5fEa1u/O0r1to7/Iy
+         c5pVuVfmEpDxiS1OHMQELODSNxTUr25w0z5iD32lWeIbeUgdajb3MGrg8ZezLdw5WEv2
+         2BBg==
+X-Forwarded-Encrypted: i=1; AJvYcCVJwb/RGXXfmS1VKdfEVeVDnbA7IgiyJUwu4k0q3R8MspGwQu6munPkjpesbvzKJRz6HlJHkSlqwWLvTU5lrdw6@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPZLrmJw+N7Y6UzbfcJyiQwsMXfW30dLbvccWH8fI8brvlW555
+	MctVEBHDVMtVcPQbfTDSdq8xpE8b9UK531NqVlzOU53vgUkutDHjcefPcSNT8w9tOxutyjqKAPl
+	7AKk95Tj7AtL7DWYCHuwnBacbJibzNo4MwUYkMyPvzlZzwJ8XSwnr3KHH19ZFJUxDBm07nkLq
+X-Gm-Gg: ASbGncsm3SUhE1NFI0eUWDT7izXOfwSaabVAwlvebynAKwAqTsHpsjlaRGDKAgv0ZK/
+	glJiccGXDHuOCzjohIdPavLQ4QG/aQK8d19Ii1eiQOF1bvZoewbctZVmrUQ16TPPBYoNdLsdMKQ
+	kgyF0FAubvy3ypPJ6rYguDTC3uSEGbaNug7fB5FZNDj8inU9c0X+2pTbAPbDJjV9WzowMX6Vv1q
+	yTdtiBehmdmRSiG3Z13I5b2nF7rgroO5joI+7t8xefcdqEHvgE5Nyq6mohbJfTUft8wajyH1oRx
+	CTRqYFcVxD8RPcwKDM+eH2aDWZyJFP1UDlU3iLEd+f0u14ZTFOkhs10VCg==
+X-Received: by 2002:a05:6e02:1c0e:b0:3d5:dec0:7c03 with SMTP id e9e14a558f8ab-3d77c27fb00mr27400595ab.12.1744206436337;
+        Wed, 09 Apr 2025 06:47:16 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGY11cU0INBe/qnf4e7hQqyG5TAgNSTBjToXX6S3PDZH7tI5Cb3FdlfnkGTFvFeZrlBBTdq0A==
+X-Received: by 2002:a05:6e02:1c0e:b0:3d5:dec0:7c03 with SMTP id e9e14a558f8ab-3d77c27fb00mr27400065ab.12.1744206435834;
+        Wed, 09 Apr 2025 06:47:15 -0700 (PDT)
+Received: from ?IPV6:2601:188:c100:5710:315f:57b3:b997:5fca? ([2601:188:c100:5710:315f:57b3:b997:5fca])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3d7dba85487sm2698105ab.23.2025.04.09.06.47.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 09 Apr 2025 06:47:15 -0700 (PDT)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <b0fe0707-faae-4e0b-b873-9a80e39471fc@redhat.com>
+Date: Wed, 9 Apr 2025 09:47:11 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250408-gicv5-host-v1-24-1f26db465f8d@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] KVM: x86: move sev_lock/unlock_vcpus_for_migration
+ to kvm_main.c
+To: Maxim Levitsky <mlevitsk@redhat.com>, kvm@vger.kernel.org
+Cc: Alexander Potapenko <glider@google.com>, "H. Peter Anvin"
+ <hpa@zytor.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ kvm-riscv@lists.infradead.org, Oliver Upton <oliver.upton@linux.dev>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Jing Zhang <jingzhangos@google.com>, x86@kernel.org,
+ Kunkun Jiang <jiangkunkun@huawei.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Zenghui Yu <yuzenghui@huawei.com>, Borislav Petkov <bp@alien8.de>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+ Sebastian Ott <sebott@redhat.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Atish Patra <atishp@atishpatra.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Randy Dunlap <rdunlap@infradead.org>,
+ Will Deacon <will@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Andre Przywara <andre.przywara@arm.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Sean Christopherson <seanjc@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Bjorn Helgaas <bhelgaas@google.com>
+References: <20250409014136.2816971-1-mlevitsk@redhat.com>
+ <20250409014136.2816971-3-mlevitsk@redhat.com>
+In-Reply-To: <20250409014136.2816971-3-mlevitsk@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: j9reu1a1GXNhp1jnZNZ-kgxm0fWysuPfuRHUAAzq9eI_1744206436
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_064509_386030_416795F0 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250409_064721_160417_5105337D 
+X-CRM114-Status: GOOD (  28.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,146 +132,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
 
-kernel test robot noticed the following build errors:
+On 4/8/25 9:41 PM, Maxim Levitsky wrote:
+> Move sev_lock/unlock_vcpus_for_migration to kvm_main and call the
+> new functions the kvm_lock_all_vcpus/kvm_unlock_all_vcpus
+> and kvm_lock_all_vcpus_nested.
+>
+> This code allows to lock all vCPUs without triggering lockdep warning
+> about reaching MAX_LOCK_DEPTH depth by coercing the lockdep into
+> thinking that we release all the locks other than vcpu'0 lock
+> immediately after we take them.
+>
+> No functional change intended.
+>
+> Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
+> Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+> ---
+>   arch/x86/kvm/svm/sev.c   | 65 +++---------------------------------
+>   include/linux/kvm_host.h |  6 ++++
+>   virt/kvm/kvm_main.c      | 71 ++++++++++++++++++++++++++++++++++++++++
+>   3 files changed, 81 insertions(+), 61 deletions(-)
+>
+> diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+> index 0bc708ee2788..7adc54b1f741 100644
+> --- a/arch/x86/kvm/svm/sev.c
+> +++ b/arch/x86/kvm/svm/sev.c
+> @@ -1889,63 +1889,6 @@ enum sev_migration_role {
+>   	SEV_NR_MIGRATION_ROLES,
+>   };
+>   
+> -static int sev_lock_vcpus_for_migration(struct kvm *kvm,
+> -					enum sev_migration_role role)
+> -{
+> -	struct kvm_vcpu *vcpu;
+> -	unsigned long i, j;
+> -
+> -	kvm_for_each_vcpu(i, vcpu, kvm) {
+> -		if (mutex_lock_killable_nested(&vcpu->mutex, role))
+> -			goto out_unlock;
+> -
+> -#ifdef CONFIG_PROVE_LOCKING
+> -		if (!i)
+> -			/*
+> -			 * Reset the role to one that avoids colliding with
+> -			 * the role used for the first vcpu mutex.
+> -			 */
+> -			role = SEV_NR_MIGRATION_ROLES;
+> -		else
+> -			mutex_release(&vcpu->mutex.dep_map, _THIS_IP_);
+> -#endif
+> -	}
+> -
+> -	return 0;
+> -
+> -out_unlock:
+> -
+> -	kvm_for_each_vcpu(j, vcpu, kvm) {
+> -		if (i == j)
+> -			break;
+> -
+> -#ifdef CONFIG_PROVE_LOCKING
+> -		if (j)
+> -			mutex_acquire(&vcpu->mutex.dep_map, role, 0, _THIS_IP_);
+> -#endif
+> -
+> -		mutex_unlock(&vcpu->mutex);
+> -	}
+> -	return -EINTR;
+> -}
+> -
+> -static void sev_unlock_vcpus_for_migration(struct kvm *kvm)
+> -{
+> -	struct kvm_vcpu *vcpu;
+> -	unsigned long i;
+> -	bool first = true;
+> -
+> -	kvm_for_each_vcpu(i, vcpu, kvm) {
+> -		if (first)
+> -			first = false;
+> -		else
+> -			mutex_acquire(&vcpu->mutex.dep_map,
+> -				      SEV_NR_MIGRATION_ROLES, 0, _THIS_IP_);
+> -
+> -		mutex_unlock(&vcpu->mutex);
+> -	}
+> -}
+> -
+>   static void sev_migrate_from(struct kvm *dst_kvm, struct kvm *src_kvm)
+>   {
+>   	struct kvm_sev_info *dst = to_kvm_sev_info(dst_kvm);
+> @@ -2083,10 +2026,10 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
+>   		charged = true;
+>   	}
+>   
+> -	ret = sev_lock_vcpus_for_migration(kvm, SEV_MIGRATION_SOURCE);
+> +	ret = kvm_lock_all_vcpus_nested(kvm, false, SEV_MIGRATION_SOURCE);
+>   	if (ret)
+>   		goto out_dst_cgroup;
+> -	ret = sev_lock_vcpus_for_migration(source_kvm, SEV_MIGRATION_TARGET);
+> +	ret = kvm_lock_all_vcpus_nested(source_kvm, false, SEV_MIGRATION_TARGET);
+>   	if (ret)
+>   		goto out_dst_vcpu;
+>   
+> @@ -2100,9 +2043,9 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
+>   	ret = 0;
+>   
+>   out_source_vcpu:
+> -	sev_unlock_vcpus_for_migration(source_kvm);
+> +	kvm_unlock_all_vcpus(source_kvm);
+>   out_dst_vcpu:
+> -	sev_unlock_vcpus_for_migration(kvm);
+> +	kvm_unlock_all_vcpus(kvm);
+>   out_dst_cgroup:
+>   	/* Operates on the source on success, on the destination on failure.  */
+>   	if (charged)
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index 1dedc421b3e3..30cf28bf5c80 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -1015,6 +1015,12 @@ static inline struct kvm_vcpu *kvm_get_vcpu_by_id(struct kvm *kvm, int id)
+>   
+>   void kvm_destroy_vcpus(struct kvm *kvm);
+>   
+> +int kvm_lock_all_vcpus_nested(struct kvm *kvm, bool trylock, unsigned int role);
+> +void kvm_unlock_all_vcpus(struct kvm *kvm);
+> +
+> +#define kvm_lock_all_vcpus(kvm, trylock) \
+> +	kvm_lock_all_vcpus_nested(kvm, trylock, 0)
+> +
+>   void vcpu_load(struct kvm_vcpu *vcpu);
+>   void vcpu_put(struct kvm_vcpu *vcpu);
+>   
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 69782df3617f..71c0d8c35b4b 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -1368,6 +1368,77 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
+>   	return 0;
+>   }
+>   
+> +
+> +/*
+> + * Lock all VM vCPUs.
+> + * Can be used nested (to lock vCPUS of two VMs for example)
+> + */
+> +int kvm_lock_all_vcpus_nested(struct kvm *kvm, bool trylock, unsigned int role)
+> +{
+> +	struct kvm_vcpu *vcpu;
+> +	unsigned long i, j;
+> +
+> +	lockdep_assert_held(&kvm->lock);
+> +
+> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+> +
+> +		if (trylock && !mutex_trylock_nested(&vcpu->mutex, role))
+> +			goto out_unlock;
+> +		else if (!trylock && mutex_lock_killable_nested(&vcpu->mutex, role))
+> +			goto out_unlock;
+> +
+> +#ifdef CONFIG_PROVE_LOCKING
+> +		if (!i)
+> +			/*
+> +			 * Reset the role to one that avoids colliding with
+> +			 * the role used for the first vcpu mutex.
+> +			 */
+> +			role = MAX_LOCK_DEPTH - 1;
+> +		else
+> +			mutex_release(&vcpu->mutex.dep_map, _THIS_IP_);
+> +#endif
 
-[auto build test ERROR on 0af2f6be1b4281385b618cb86ad946eded089ac8]
+Lockdep supports up to 8 subclasses, but MAX_LOCK_DEPTH is 48. I believe 
+it is OK to add a mutex_trylock_nested(), but can you just use 0 and 1 
+for the subclasses?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Lorenzo-Pieralisi/Documentation-devicetree-bindings-Add-GICv5-DT-bindings/20250408-190630
-base:   0af2f6be1b4281385b618cb86ad946eded089ac8
-patch link:    https://lore.kernel.org/r/20250408-gicv5-host-v1-24-1f26db465f8d%40kernel.org
-patch subject: [PATCH 24/24] arm64: Kconfig: Enable GICv5
-config: arm64-randconfig-001-20250409 (https://download.01.org/0day-ci/archive/20250409/202504092127.YaPW3UWk-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 92c93f5286b9ff33f27ff694d2dc33da1c07afdd)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250409/202504092127.YaPW3UWk-lkp@intel.com/reproduce)
+Cheers,
+Longman
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504092127.YaPW3UWk-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/irqchip/irq-gic-v5-iwb.c:298:3: error: cannot jump from this goto statement to its label
-     298 |                 goto out_free;
-         |                 ^
-   drivers/irqchip/irq-gic-v5-iwb.c:300:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
-     300 |         guard(mutex)(&its->dev_alloc_lock);
-         |         ^
-   include/linux/cleanup.h:319:15: note: expanded from macro 'guard'
-     319 |         CLASS(_name, __UNIQUE_ID(guard))
-         |                      ^
-   include/linux/compiler.h:166:29: note: expanded from macro '__UNIQUE_ID'
-     166 | #define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_, prefix), __COUNTER__)
-         |                             ^
-   include/linux/compiler_types.h:84:22: note: expanded from macro '__PASTE'
-      84 | #define __PASTE(a,b) ___PASTE(a,b)
-         |                      ^
-   include/linux/compiler_types.h:83:23: note: expanded from macro '___PASTE'
-      83 | #define ___PASTE(a,b) a##b
-         |                       ^
-   <scratch space>:82:1: note: expanded from here
-      82 | __UNIQUE_ID_guard576
-         | ^
-   drivers/irqchip/irq-gic-v5-iwb.c:288:3: error: cannot jump from this goto statement to its label
-     288 |                 goto out_free;
-         |                 ^
-   drivers/irqchip/irq-gic-v5-iwb.c:300:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
-     300 |         guard(mutex)(&its->dev_alloc_lock);
-         |         ^
-   include/linux/cleanup.h:319:15: note: expanded from macro 'guard'
-     319 |         CLASS(_name, __UNIQUE_ID(guard))
-         |                      ^
-   include/linux/compiler.h:166:29: note: expanded from macro '__UNIQUE_ID'
-     166 | #define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_, prefix), __COUNTER__)
-         |                             ^
-   include/linux/compiler_types.h:84:22: note: expanded from macro '__PASTE'
-      84 | #define __PASTE(a,b) ___PASTE(a,b)
-         |                      ^
-   include/linux/compiler_types.h:83:23: note: expanded from macro '___PASTE'
-      83 | #define ___PASTE(a,b) a##b
-         |                       ^
-   <scratch space>:82:1: note: expanded from here
-      82 | __UNIQUE_ID_guard576
-         | ^
-   2 errors generated.
-
-
-vim +298 drivers/irqchip/irq-gic-v5-iwb.c
-
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  247  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  248  static struct gicv5_iwb_chip_data *
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  249  __init gicv5_iwb_init_bases(void __iomem *iwb_base,
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  250  			     struct fwnode_handle *handle,
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  251  			     struct irq_domain *parent_domain, u32 device_id)
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  252  {
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  253  	u32 nr_wires, idr0, cr0;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  254  	struct gicv5_iwb_chip_data *iwb_node;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  255  	struct msi_domain_info *msi_info;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  256  	struct gicv5_its_chip_data *its;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  257  	struct gicv5_its_dev *its_dev;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  258  	int ret;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  259  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  260  	msi_info = msi_get_domain_info(parent_domain);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  261  	its = msi_info->data;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  262  	if (!its) {
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  263  		pr_warn("IWB %pOF can't find parent ITS, bailing\n",
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  264  			to_of_node(handle));
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  265  		return ERR_PTR(-ENODEV);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  266  	}
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  267  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  268  	iwb_node = kzalloc(sizeof(*iwb_node), GFP_KERNEL);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  269  	if (!iwb_node)
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  270  		return ERR_PTR(-ENOMEM);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  271  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  272  	iwb_node->iwb_base = iwb_base;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  273  	iwb_node->device_id = device_id;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  274  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  275  	idr0 = iwb_readl(iwb_node, GICV5_IWB_IDR0);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  276  	nr_wires = (FIELD_GET(GICV5_IWB_IDR0_IW_RANGE, idr0) + 1) * 32;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  277  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  278  	iwb_node->domain = irq_domain_create_hierarchy(parent_domain, 0,
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  279  			   nr_wires, handle, &gicv5_iwb_irq_domain_ops,
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  280  			   iwb_node);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  281  	irq_domain_update_bus_token(iwb_node->domain, DOMAIN_BUS_WIRED);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  282  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  283  	cr0 = iwb_readl(iwb_node, GICV5_IWB_CR0);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  284  	if (!FIELD_GET(GICV5_IWB_CR0_IWBEN, cr0)) {
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  285  		pr_err("IWB %s must be enabled in firmware\n",
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  286  		       fwnode_get_name(handle));
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  287  		ret = -EINVAL;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  288  		goto out_free;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  289  	}
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  290  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  291  	iwb_node->nr_regs = FIELD_GET(GICV5_IWB_IDR0_IW_RANGE, idr0) + 1;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  292  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  293  	for (unsigned int n = 0; n < iwb_node->nr_regs; n++)
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  294  		iwb_writel(iwb_node, 0, GICV5_IWB_WENABLER + (sizeof(u32) * n));
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  295  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  296  	ret = gicv5_iwb_wait_for_wenabler(iwb_node);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  297  	if (ret)
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08 @298  		goto out_free;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  299  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  300  	guard(mutex)(&its->dev_alloc_lock);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  301  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  302  	its_dev = gicv5_its_alloc_device(its, roundup_pow_of_two(nr_wires),
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  303  					 device_id, true);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  304  	if (IS_ERR(its_dev)) {
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  305  		ret = -ENODEV;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  306  		goto out_free;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  307  	}
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  308  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  309  	return iwb_node;
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  310  out_free:
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  311  	irq_domain_remove(iwb_node->domain);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  312  	kfree(iwb_node);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  313  
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  314  	return ERR_PTR(ret);
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  315  }
-6b60a5125729caf Lorenzo Pieralisi 2025-04-08  316  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
