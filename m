@@ -4,87 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24355C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2FFFC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3aVbkVNhxYHlYXphDsNPgHjvQlt2dPh9HCkGNdiiPok=; b=ji/Kn7vuUvha1lAYUuVh7y0eUe
-	2eO930hGJdhW1BwhyjycztCmcijZBqG7RJ2AYcG203E1/9AVp5ww17QyB3zTvwmkOB1C+57zOExdz
-	uijPzm5jfJ+bUruSzD6SBQJfRNCiymWl6deb32YA5wUpoItQImJp2f5U0zW5g8f53FFlfSxXsWGUV
-	rGLST/NziL55CtmUif1eVMFermDjgqq931FKhdfyFnCdsPRXq98rj9nwtaPGgcFa2UZA31n1aR6WK
-	lmHR7NdP+FTg2gbo7y2X1RIpLo0Rg6HmnIYDcM9xNwjAJhX0S7xfBrGNZDJuVi49RRRHMrLGRxyCy
-	6uFPQD4g==;
+	bh=GT+e0rgk5at2BiS7exBI3n9s8/eUZISH0DmawBVE9Ck=; b=NdE4FPoOrrKxx9s3O6QokXkLaD
+	lASa8vKfOWCXE1hIb1EZz0mqmluqKORGeYxIrVplWq2rZTClhQrvFw6+CKsiXvR6CGC6nzEvvxYpV
+	W3+oXOB2OhDp1W6nUk9Lcuy+OKWjnVKPzlLIZbCQH0YFAQBpxEbktKyLrthmJmVPtOlWoc4Rr2IIW
+	fey7JjOSgAeig59uivnQ3Pe9KVXr/iOqsrDtVPeC7PUgPK1HdJGsBQrEml4ilsCkM5HlDsIFem3D7
+	ya7I5g/ubDplyxf6T5KfoKceVo/Obxm+luKGyjyuJxIzA9s3QucfQSkJWBhcwLhjOgILVT8EPbAqZ
+	pwJJsReA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Y3x-00000007qoj-0SEH;
-	Wed, 09 Apr 2025 16:14:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u2Y5g-00000007r7U-3KqV;
+	Wed, 09 Apr 2025 16:15:52 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Xrl-00000007oTG-2xtj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Apr 2025 16:01:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=3aVbkVNhxYHlYXphDsNPgHjvQlt2dPh9HCkGNdiiPok=; b=G5IakAVzMgsF/qBXLysMnHY25l
-	ZUKxrXlbiJYkONmIVXmQCO2Nsh1NIynswUJrIb969/OHtTHj4qxTHI4UCc2b5NvDWrIg2bHKSWkeJ
-	5XJfPmJdxXYEs9crp/tlXgNRwb4ckO3Yl5N47nK/lOsVRCtpVESCNS9FBsOAq52y4FHOduKkHLY6p
-	QOWqrTV7CeUkIET730e2Dkt3/fZbiiuAZMMfjsN7IUSxOqJIu30eE2vJSEuLvhYXe974N4Z7zhnGW
-	iW9CkJOx0yV6RTNIxsAdRzCTbPDUaXuaeODj4FiPVjhMdbIujsr1/n3aDKx6OQWlpFlkS5712DL1o
-	6tNvXrzA==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2Xri-00000008eH1-2ts0
+	id 1u2XsA-00000007oVd-0QcA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 16:01:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B43EBA42F31;
-	Wed,  9 Apr 2025 15:55:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06FE3C4CEE2;
-	Wed,  9 Apr 2025 16:01:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744214483;
-	bh=rYySAFkrUl3rwkTZVsA1ukPFpQ8n71LCbrbnKAflhS4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=igF6mfntyVeu9ndFC0ATZNSViG9A+1J9Oryak/8aIUQmx+yWfdJFJzEUnmdzyEUPz
-	 mA2jxM0Q1D0TEt+iGJKaqMnqX6esuR+ek/DiY6ZrSfEl1R3WTFuBX3XA1oIaDlFVZR
-	 Sjm9ALCsG0jJ0GG6Zjq1khMnEGDuiTHLJ8Op5Q5qSUh4+fRLFzQrmhtseO/LperUZc
-	 lIDBo7nErKGjuDSqbYkKJAdb686T0Lm5KgqAuowccdxXlLgyI19Qju/hey4hjZuMjG
-	 e+j0iGEiYU/AZv5rhVauXE2KcxmuiPWI2VMKXpF/2Z0L3xa0IFXl5Yl5iqoO8pQky+
-	 +BP5pHtqxVWUg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u2Xrd-003vQT-7f;
-	Wed, 09 Apr 2025 17:01:21 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 6/6] KVM: arm64: Let kvm_vcpu_read_pmcr() return an EL-dependent value for PMCR_EL0.N
-Date: Wed,  9 Apr 2025 17:01:06 +0100
-Message-Id: <20250409160106.6445-7-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250409160106.6445-1-maz@kernel.org>
-References: <20250409160106.6445-1-maz@kernel.org>
+	Wed, 09 Apr 2025 16:01:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1744214503; x=1744819303; i=wahrenst@gmx.net;
+	bh=GT+e0rgk5at2BiS7exBI3n9s8/eUZISH0DmawBVE9Ck=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=uh1XqO9m44OLywMw5J3jhDWcs77Cz+bVQp+9fgKs3nfx5wbZmNJez6sm+T/kVtkS
+	 alfyOcM/+iU91cSeARDCZGgzPUc+bVs+lsW32UzaNYxE0zMGh9b4h7tvMzmclJLtf
+	 haSAQlZhWqAdWsE91HBq5CZpRLjMeLgKyiuEQjRf5/o8USje8g/l5Rg4SE/ue1JBC
+	 +UfhFwR92XIAB4MJwQdxWIhpn/DEKKX2JjQWfwsEkI+DXwGaSVj6YuFOw/qIXutpS
+	 LLQvA4h3kI1L2ra0dRdMhQ704HyFhrKk5EWP57DnbIuRrWCQUwqrxuDyhRlBBeJsk
+	 okdS0xNFonCPsLoUMA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.107] ([37.4.251.153]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MQe5u-1texFJ1NfK-00Nnw3; Wed, 09
+ Apr 2025 18:01:43 +0200
+Message-ID: <c67ad9fa-6255-48e8-9537-2fceb0510127@gmx.net>
+Date: Wed, 9 Apr 2025 18:01:40 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next v4 5/5] ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW
+ to support MTIP L2 switch
+To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250407145157.3626463-1-lukma@denx.de>
+ <20250407145157.3626463-6-lukma@denx.de>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250407145157.3626463-6-lukma@denx.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:C+u//MOKrD6OdwvSME77qybiBXe8adc+njD77MBHM1ou1SB80g9
+ CfCohUvsktjxjtntt5js9Ty3COdHeULgaRnhBHHLgQIAwUJwW5jpBMHhH/y28PpuTcVa0Xt
+ NUZzHDi8osc+iFVGUZEnfhgcpRZmvQO63hb/o9UYD2DifW+ODJqnrPlxGgcKLL5f4D8l72r
+ DnIvoB9kQQrjxQQ6QPh0A==
+UI-OutboundReport: notjunk:1;M01:P0:h0HaSYSRWiA=;9+RUTCpsfpjtjY9+/fAxrUKZlov
+ en9y0HFgHTqcg/tTomRJXXnKDodyPsrawVBHjmREAT+vi9nezDT1o3dXhmnjyrPzCGbiAYqO9
+ m5aTfBilljd+4GP8Fd0eiBknFpE/RW2JUKOr7PDqsfZO39RqdMTugoZMcb+KwBN678RNijbUz
+ ZadVP+Pagi9G3ek4w6BJ0sJBpNsinoPp9gQXJd9D1E6py+KrLqQ1DCiQBrAGzA2csvJKNocLy
+ 2JMgJrGWuEvii3JW/QsZFeyA5tUaOzSr88pHzmb7ppaRdfCnIV14yl4eQInAiz2WoDxkhQJTH
+ s1gpWGw0nJPKlNmO96ZOHI6s6UqiITzy++DGlf90aTN83+rW3b8i91D+ZemFvMZSYX5pNIfrD
+ l8E5FngLmD/fJ8ZUAgzSN6HEip1IrKv5kjgKjck9bmkl2JAdS+vc0pfmAbpKzY5riUNv156BV
+ s8hWUkxFU6hYV+uNK0TcG4akL3K9J/w/XEjWxg44kCZtnvbNCcu8cXY5TA1S/OWtbpr9ph5AP
+ SGzz37iNu9PFdnOj6Rxg1tuEwqw0nVe3Hy162pyMiyA+NcEcIwo/0OPRN+iwyLKqjwH8WsgRA
+ NRpX6GSN8kW004v22qYLKQmCCltpdN/qSkl+4ZNnTAlixCrnM6kXtyUV9IaVmGRCh/MM8bFgc
+ mmdzQz54c6SjBRkFpn4CYW3k2Phw6eqw+VR+9x+8TMRuudOHlE9uf2W+gT6kFv3xMre/HhfQc
+ I8/n44itpdaTDiH6SUOGux/r2p3oGL1UVHesvkgZ3YIsO74hU4v/w15PAYJEXOHdZffIsBhnt
+ QwjNy7Sst1rMF5e4IwhjH3jQn2JDApo+6FebR8YvrAwocR3e6UNgbHJ4No1rin7af0mjDbB3K
+ 6rlODNmQoHCA7fVsqR+gHAUkrBKn/PnPTgfqONjwJPyKnVKK73VUPAdDL3MGcT4wYbH2VRk+j
+ J0g1VFdQYwYWj+3gXragNVb8UPO9sVbb/JhMC7lldzzNmeKdPazCtQRqdJiKWlwcJwQBjj5t2
+ kHMaXhvqHWkFKxidP1pWXy8xaTgWgBq4iDy4+fsjslurKS1+ImyhEd3WjKeks49/R8rbfjHfx
+ 4vdDSHAFYmkbmVXMFlqPYoSq5QPRADXqca+YtIk9s4Ji8KM2fj2ORaO6XwG/DbZrZTPhdZs3C
+ +83/UadyftJ02TTSh67jc2cDyhcXfJVQv4tOpefzok3wJ4/J+NbqwIY5/aeGRyrbV9FjJCGzy
+ DBTnUeC7Ax/ObUIJxQKeUXFFl0A0RaYDlyRw+sV0iIel4IRQXpFic/v/JrOS72KTUF0MbuIkG
+ 7z6szCO/Vdawq8BcPZKS3BigX3DEyDNeEFxkT4wyDMXe9/vas9OF0m/C2wPoqgQwuBJhzivvS
+ Rhsm6/vWInQLqWIZhomLfqsRSqrWqaVeYkwCLvzqv7y/wPtGjqw/jTyJ8i+eHSc6S+lW/FtJM
+ SMMWrrp2+Er+POSLNtsK24LHUW94=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_170126_885568_4E1D2141 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20250409_090154_513902_A176FF57 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +121,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When EL2 is present, PMCR_EL0.N is the effective value of MDCR_EL2.HPMN
-when accessed from EL1 or EL0.
+Hi Lukasz,
 
-Make sure we honor this requirement.
+Am 07.04.25 um 16:51 schrieb Lukasz Majewski:
+> This patch enables support for More Than IP switch available on some
+> imx28[7] devices.
+>
+> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+thanks adding the driver to mxs_defconfig. Unfortunately it's not
+possible for reviewers to identify the relevant changes, also the commit
+messages doesn't provide further information.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/pmu-emul.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+In general there are two approaches to solves this:
+1) prepend an additional patch which synchronizes mxs_defconfig with
+current mainline
+2) manually create the relevant changes against mxs_defconfig
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 01fda19b0c825..f9edd0a2427c2 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -1295,8 +1295,12 @@ u8 kvm_arm_pmu_get_pmuver_limit(void)
- u64 kvm_vcpu_read_pmcr(struct kvm_vcpu *vcpu)
- {
- 	u64 pmcr = __vcpu_sys_reg(vcpu, PMCR_EL0);
-+	u64 n = vcpu->kvm->arch.pmcr_n;
- 
--	return u64_replace_bits(pmcr, vcpu->kvm->arch.pmcr_n, ARMV8_PMU_PMCR_N);
-+	if (vcpu_has_nv(vcpu) && !vcpu_is_el2(vcpu))
-+		n = FIELD_GET(MDCR_EL2_HPMN, __vcpu_sys_reg(vcpu, MDCR_EL2));
-+
-+	return u64_replace_bits(pmcr, n, ARMV8_PMU_PMCR_N);
- }
- 
- void kvm_pmu_nested_transition(struct kvm_vcpu *vcpu)
--- 
-2.39.2
+The decision about the approaches is up to the maintainer.
+
+Btw driver review will follow ...
+
+Regards
+> ---
+> Changes for v4:
+> - New patch
+> ---
+>   arch/arm/configs/mxs_defconfig | 14 +++-----------
+>   1 file changed, 3 insertions(+), 11 deletions(-)
+>
+> diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defco=
+nfig
+> index d8a6e43c401e..4dc4306c035f 100644
+> --- a/arch/arm/configs/mxs_defconfig
+> +++ b/arch/arm/configs/mxs_defconfig
+> @@ -32,11 +32,10 @@ CONFIG_INET=3Dy
+>   CONFIG_IP_PNP=3Dy
+>   CONFIG_IP_PNP_DHCP=3Dy
+>   CONFIG_SYN_COOKIES=3Dy
+> -# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
+> -# CONFIG_INET_XFRM_MODE_TUNNEL is not set
+> -# CONFIG_INET_XFRM_MODE_BEET is not set
+>   # CONFIG_INET_DIAG is not set
+>   # CONFIG_IPV6 is not set
+> +CONFIG_BRIDGE=3Dy
+> +CONFIG_NET_SWITCHDEV=3Dy
+>   CONFIG_CAN=3Dm
+>   # CONFIG_WIRELESS is not set
+>   CONFIG_DEVTMPFS=3Dy
+> @@ -45,7 +44,6 @@ CONFIG_MTD=3Dy
+>   CONFIG_MTD_CMDLINE_PARTS=3Dy
+>   CONFIG_MTD_BLOCK=3Dy
+>   CONFIG_MTD_DATAFLASH=3Dy
+> -CONFIG_MTD_M25P80=3Dy
+>   CONFIG_MTD_SST25L=3Dy
+>   CONFIG_MTD_RAW_NAND=3Dy
+>   CONFIG_MTD_NAND_GPMI_NAND=3Dy
+> @@ -56,11 +54,11 @@ CONFIG_EEPROM_AT24=3Dy
+>   CONFIG_SCSI=3Dy
+>   CONFIG_BLK_DEV_SD=3Dy
+>   CONFIG_NETDEVICES=3Dy
+> +CONFIG_FEC_MTIP_L2SW=3Dy
+>   CONFIG_ENC28J60=3Dy
+>   CONFIG_ICPLUS_PHY=3Dy
+>   CONFIG_MICREL_PHY=3Dy
+>   CONFIG_REALTEK_PHY=3Dy
+> -CONFIG_SMSC_PHY=3Dy
+>   CONFIG_CAN_FLEXCAN=3Dm
+>   CONFIG_USB_USBNET=3Dy
+>   CONFIG_USB_NET_SMSC95XX=3Dy
+> @@ -77,13 +75,11 @@ CONFIG_SERIAL_AMBA_PL011=3Dy
+>   CONFIG_SERIAL_AMBA_PL011_CONSOLE=3Dy
+>   CONFIG_SERIAL_MXS_AUART=3Dy
+>   # CONFIG_HW_RANDOM is not set
+> -# CONFIG_I2C_COMPAT is not set
+>   CONFIG_I2C_CHARDEV=3Dy
+>   CONFIG_I2C_MXS=3Dy
+>   CONFIG_SPI=3Dy
+>   CONFIG_SPI_GPIO=3Dm
+>   CONFIG_SPI_MXS=3Dy
+> -CONFIG_GPIO_SYSFS=3Dy
+>   # CONFIG_HWMON is not set
+>   CONFIG_WATCHDOG=3Dy
+>   CONFIG_STMP3XXX_RTC_WATCHDOG=3Dy
+> @@ -138,10 +134,6 @@ CONFIG_PWM_MXS=3Dy
+>   CONFIG_NVMEM_MXS_OCOTP=3Dy
+>   CONFIG_EXT4_FS=3Dy
+>   # CONFIG_DNOTIFY is not set
+> -CONFIG_NETFS_SUPPORT=3Dm
+> -CONFIG_FSCACHE=3Dy
+> -CONFIG_FSCACHE_STATS=3Dy
+> -CONFIG_CACHEFILES=3Dm
+>   CONFIG_VFAT_FS=3Dy
+>   CONFIG_TMPFS=3Dy
+>   CONFIG_TMPFS_POSIX_ACL=3Dy
 
 
