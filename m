@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFE1C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 07:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4368FC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 07:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4aQnP8Tce3VgN1IZuBW3oPTwtH0vocVZNoFX2eGQ6Fo=; b=Ap5hsGLueRD8tad1k/cdoKGiGG
-	VS37U+PJQvyVVup7bX7kYs23WuxX/ZmGwKqAyViMhvCRF3niJa+h+PAVB7lCUZd4h51lbQ/cAQ5B8
-	9GlKhIdjnPVKbB0VyY01NZ75ldjgoZQbuNabc3AKXIiqTns9rTygnN9tOhHOo3XNKzCV+2K56ouWu
-	4Uaqs1GExonZSrvuVSQvTZQ+FxPErWOeTt9NjouXivBGnD8oYrjKNfB+kMyjkqHrp2j2SH2+W1w6D
-	V8sH6FhugcdkA7P/cNoWKb0car0Zv70daXeYJAMfWTy8c0SZmUsl2ldovJDmOhjEcbsS5MyTw1N5v
-	OTQTSI4g==;
+	bh=+oFe8u9FxKBuH4K/iHPol/vApb7aiLAQIa3mJ+POQHI=; b=HLiQww6xJbGGh7GzmZIVB07kK2
+	gwmdQnpXB2TAznRe7yd52FwbPZ2C5w0u/UNMV4FMno/513+uXwUnCgBtFdYmypb1/qwoXvnVGH+yk
+	CUpQt3LfFr7I8BeRiUM35PsRtM1S0fTDWOEmkIi6fCsxBS+fbgukBPbk42XiC7q3cCFIbzT3xxJUZ
+	Q8egG1VDJuD7W97H8rmkKlAdulNKCZTwi2jH8rcq5R1A6umxVk0z5P6hnRsrY9qXlKZXwRLO3YxPu
+	aySiYTZYYj1NH6nTS484HY+9SD6HYeqiE8TvRmO0k1ZKLIfqo8qqpeAlioBRaneJOm8vxpbAnbBcM
+	5tr221Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Q1a-00000006Rea-3O1M;
-	Wed, 09 Apr 2025 07:39:06 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1u2Q4g-00000006S9U-3pMk;
+	Wed, 09 Apr 2025 07:42:19 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Pzo-00000006RRK-1VKN
+	id 1u2Q2t-00000006Rv5-3S2h
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 07:37:17 +0000
-X-CSE-ConnectionGUID: xYIxt7+7SbqQWhrVN/DY3Q==
-X-CSE-MsgGUID: +a7cSpzwR92/eZL45Hb9ZA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="56310949"
-X-IronPort-AV: E=Sophos;i="6.15,200,1739865600"; 
-   d="scan'208";a="56310949"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2025 00:37:14 -0700
-X-CSE-ConnectionGUID: Q3KlOjALRHGGFN+CYJn+Pw==
-X-CSE-MsgGUID: Zy41ur7VQgi4lh34jJl58w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,200,1739865600"; 
-   d="scan'208";a="129451172"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2025 00:37:11 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andy@kernel.org>)
-	id 1u2Pzg-0000000AeY9-3ZGw;
-	Wed, 09 Apr 2025 10:37:08 +0300
-Date: Wed, 9 Apr 2025 10:37:08 +0300
-From: Andy Shevchenko <andy@kernel.org>
-To: Olivier Moysan <olivier.moysan@foss.st.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] iio: adc: stm32: add oversampling support
-Message-ID: <Z_YjpEFhBXgrWATp@smile.fi.intel.com>
-References: <20250408173054.1567523-1-olivier.moysan@foss.st.com>
+	Wed, 09 Apr 2025 07:40:29 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2ff6cf448b8so7652325a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 00:40:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744184427; x=1744789227; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+oFe8u9FxKBuH4K/iHPol/vApb7aiLAQIa3mJ+POQHI=;
+        b=OIVISscKWCbgQ6FKwwt3R6SxG3RRNhmuknzHMy9k9dwLVP1pZ8CbKw01ba307Jbtd3
+         XUWaEOHrB+v6dp04RXDF6gnDbZJU7DpC9XfeJ9aGHPxGk/FHqRUt7O9QC/7hnT0i8to6
+         fOw90hYsAaSuVrW1vfslWL7HRaxkgTlsSz09Qp23FHCc7eiEO/Ma/C9vMjUnSo/CJkkP
+         2+yTDA/eG/T1imOJtG20cOcjxRFmwmOtB7fsrQ2+utNzMeQVTdstqjyuw14FuRRR86Rw
+         xsmacpuG+2Owj1jsoFZT9NoxUU2f41b3I5hpzgmruXV0W7i9qXDECIAHnGOM+julbc8F
+         UClg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744184427; x=1744789227;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+oFe8u9FxKBuH4K/iHPol/vApb7aiLAQIa3mJ+POQHI=;
+        b=T2CHEkTZcTFmjjFonI1oUkFrNFU3NCMRp8mWXKrQS4AAM6keL56XxIVTGOxbkSXyjo
+         mRBOXulp+brU9lvjuk4Vtp3bXZLjxnW4g9zNdBP5bV7vkRnW5QvM31zQfxe29hUX89mh
+         M8HN5b3yhjKDh+MoiqV2cSHOEmb4reF4V3qvSIQXDXq/279LWAMAGT+TpCFvaZTmmD+j
+         5Q/Zd2cY6bA8+WLq8sQZF7qyay0xKmB6gKixPOmE1q8eUf0seT/5qDet6O9i/bMaLTMx
+         LPalRK0fHjfwt6Z41mDsotrrHABKvEw9WT31jmIgZe+XlT7G5DSgTiRq980+KvngxwR8
+         pskw==
+X-Forwarded-Encrypted: i=1; AJvYcCWFufnu4T/G/JyYcu2G0q2UdgEHD/RrnpP0kiOp+dH2BZwEpWvsAnQtpgZPgRXj6oWV8VE8OfyxpaYhIFZZsrBc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUjlTm8k3uyjk0I9ITL8yvvmaNgEIOL7qZSV3bNtvier/P6fLZ
+	KtzPWTNp97Ti5LIiFuSB4IQuOWAntOP//7xKYD7c1jl8NVOGRzwSTUd9E54WfA==
+X-Gm-Gg: ASbGncuQy04KqtSnMiniQ90L04vuza/gIhsDj1x7d4+knmJG57nlq3mylRRVzL+BKyl
+	8ASygQbnGQ3Kq4DNlmRPAjrqQsm4ArQcD0yCD4BqjVkr301f9v+P5WZvBka4Tz97LhIAZju+GCi
+	DZGZPmdo1O2DrtageocbFiSyeu+klUvH8Meob9RGHN6/K7N12iqKf6t3+pQAOgAANdPKbn0vVR6
+	m7RM+1objkPqv5TnenC0vwnHtMIK5DtjaSFEmwB5n9GEhE0T18PN0+bVqxOkC+D6qvu3aZ2bgNm
+	eWBpnJfYrcimTL28r7S8SVhGLpSemVIGLi/GIMFt0sqIsJ41AmE=
+X-Google-Smtp-Source: AGHT+IFzdnJzxhvhrD0BDt0+1Tqyf41zBSU8dtNoZbiYIb/yvsvm6G4GtmJ26GxqNSWOJa1ka3OoZQ==
+X-Received: by 2002:a17:90b:2811:b0:2ea:bf1c:1e3a with SMTP id 98e67ed59e1d1-306dbbb0b9bmr3596481a91.12.1744184426800;
+        Wed, 09 Apr 2025 00:40:26 -0700 (PDT)
+Received: from thinkpad ([120.56.198.53])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-306dd11e79fsm880237a91.19.2025.04.09.00.40.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Apr 2025 00:40:25 -0700 (PDT)
+Date: Wed, 9 Apr 2025 13:10:17 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, 
+	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, p.zabel@pengutronix.de, 
+	johan+linaro@kernel.org, cassel@kernel.org, quic_schintav@quicinc.com, 
+	fabrice.gasnier@foss.st.com, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/9 RESEND] PCI: stm32: Add PCIe host support for
+ STM32MP25
+Message-ID: <bfwrsby7okn3huuwijfkeurtldr2xszfkpvzzc5m72bzj3mdmj@ypcwl5chipbx>
+References: <20250325065935.908886-1-christian.bruel@foss.st.com>
+ <20250325065935.908886-3-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250408173054.1567523-1-olivier.moysan@foss.st.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250325065935.908886-3-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_003716_426520_CB12CE23 
-X-CRM114-Status: GOOD (  23.48  )
+X-CRM114-CacheID: sfid-20250409_004027_888767_82AA40EB 
+X-CRM114-Status: GOOD (  31.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,171 +105,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 07:30:53PM +0200, Olivier Moysan wrote:
-> Add oversampling support for STM32H7, STM32MP15 & STM32MP13.
-> STM32F4 ADC has no oversampling feature.
+On Tue, Mar 25, 2025 at 07:59:28AM +0100, Christian Bruel wrote:
+> Add driver for the STM32MP25 SoC PCIe Gen1 2.5 GT/s and Gen2 5GT/s
+> controller based on the DesignWare PCIe core.
 > 
-> The current support of the oversampling feature aims at increasing
-> the data SNR, without changing the data resolution.
-> As the oversampling by itself increases data resolution,
-> a right shift is applied to keep initial resolution.
-> Only the oversampling ratio corresponding to a power of two are
-> supported here, to get a direct link between right shift and
-> oversampling ratio. (2exp(n) ratio <=> n right shift)
+> Supports MSI via GICv2m, Single Virtual Channel, Single Function
 > 
-> The oversampling ratio is shared by all channels, whatever channel type.
-> (e.g. single ended or differential).
+> Supports WAKE# GPIO.
 > 
-> Oversampling can be configured using IIO ABI:
-> - oversampling_ratio_available
-> - oversampling_ratio
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> ---
+>  drivers/pci/controller/dwc/Kconfig      |  12 +
+>  drivers/pci/controller/dwc/Makefile     |   1 +
+>  drivers/pci/controller/dwc/pcie-stm32.c | 367 ++++++++++++++++++++++++
+>  drivers/pci/controller/dwc/pcie-stm32.h |  15 +
+>  4 files changed, 395 insertions(+)
+>  create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
+>  create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
+> 
+> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> index b6d6778b0698..0c18879b604c 100644
+> --- a/drivers/pci/controller/dwc/Kconfig
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -389,6 +389,18 @@ config PCIE_SPEAR13XX
+>  	help
+>  	  Say Y here if you want PCIe support on SPEAr13XX SoCs.
+>  
+> +config PCIE_STM32
 
-...
+PCIE_STM32_HOST since you are adding the PCIE_STM32_EP Kconfig.
 
-> --- a/drivers/iio/adc/stm32-adc-core.h
-> +++ b/drivers/iio/adc/stm32-adc-core.h
-
-Does this include bitfield.h and bits.h already?
-
-...
-
-> +static const unsigned int stm32h7_adc_oversampling_avail[] = {
-> +	1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
-
-Leave trailing comma.
-
+> +	tristate "STMicroelectronics STM32MP25 PCIe Controller (host mode)"
+> +	depends on ARCH_STM32 || COMPILE_TEST
+> +	depends on PCI_MSI
+> +	select PCIE_DW_HOST
+> +	help
+> +	  Enables support for the DesignWare core based PCIe host controller
+> +	  found in STM32MP25 SoC.
+> +
+> +	  This driver can also be built as a module. If so, the module
+> +	  will be called pcie-stm32.
+> +
+>  config PCI_DRA7XX
+>  	tristate
+>  
+> diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+> index a8308d9ea986..576d99cb3bc5 100644
+> --- a/drivers/pci/controller/dwc/Makefile
+> +++ b/drivers/pci/controller/dwc/Makefile
+> @@ -28,6 +28,7 @@ obj-$(CONFIG_PCIE_UNIPHIER) += pcie-uniphier.o
+>  obj-$(CONFIG_PCIE_UNIPHIER_EP) += pcie-uniphier-ep.o
+>  obj-$(CONFIG_PCIE_VISCONTI_HOST) += pcie-visconti.o
+>  obj-$(CONFIG_PCIE_RCAR_GEN4) += pcie-rcar-gen4.o
+> +obj-$(CONFIG_PCIE_STM32) += pcie-stm32.o
+>  
+>  # The following drivers are for devices that use the generic ACPI
+>  # pci_root.c driver but don't support standard ECAM config access.
+> diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
+> new file mode 100644
+> index 000000000000..3937777d9eb9
+> --- /dev/null
+> +++ b/drivers/pci/controller/dwc/pcie-stm32.c
+> @@ -0,0 +1,367 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * STMicroelectronics STM32MP25 PCIe root complex driver.
+> + *
+> + * Copyright (C) 2025 STMicroelectronics
+> + * Author: Christian Bruel <christian.bruel@foss.st.com>
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/pinctrl/devinfo.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/pm_wakeirq.h>
+> +#include <linux/regmap.h>
+> +#include <linux/reset.h>
+> +#include "pcie-designware.h"
+> +#include "pcie-stm32.h"
+> +#include "../../pci.h"
+> +
+> +struct stm32_pcie {
+> +	struct dw_pcie pci;
+> +	struct regmap *regmap;
+> +	struct reset_control *rst;
+> +	struct phy *phy;
+> +	struct clk *clk;
+> +	struct gpio_desc *perst_gpio;
+> +	struct gpio_desc *wake_gpio;
 > +};
 > +
-> +static const unsigned int stm32mp13_adc_oversampling_avail[] = {
-> +	1, 2, 4, 8, 16, 32, 64, 128, 256
-
-As well.
-
->  };
-
-...
-
-> +	.oversampling = stm32h7_adc_oversampling_avail,
->  	.num_res = ARRAY_SIZE(stm32h7_adc_resolutions),
-> +	.num_ovs = ARRAY_SIZE(stm32h7_adc_oversampling_avail),
-
-+ array_size.h
-
-...
-
-> +static void stm32h7_adc_set_ovs(struct iio_dev *indio_dev, u32 ovs_idx)
+> +static void stm32_pcie_deassert_perst(struct stm32_pcie *stm32_pcie)
 > +{
-> +	struct stm32_adc *adc = iio_priv(indio_dev);
-> +	u32 ovsr_bits, bits, msk;
-> +
-> +	msk = STM32H7_ROVSE | STM32H7_OVSR_MASK | STM32H7_OVSS_MASK;
-> +	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR2, msk);
-> +
-> +	if (!ovs_idx)
-> +		return;
-> +
-> +	/*
-> +	 * Only the oversampling ratios corresponding to 2*exp(ovs_idx) are exposed in sysfs.
-> +	 * Oversampling ratios [2,3,...,1024] are mapped on OVSR register values [1,2,...,1023].
-> +	 * OVSR = 2 exp(ovs_idx) - 1
-> +	 * These ratio increase the resolution by ovs_idx bits. Apply a right shift to keep initial
-> +	 * resolution given by "assigned-resolution-bits" property.
-> +	 * OVSS = ovs_idx
-> +	 */
-> +	ovsr_bits = (1 << ovs_idx) - 1;
 
-Why not GENMASK(ovs_idx - 1, 0)?
+You should add a delay of PCIE_T_PVPERL_MS to satisfy the PERST# deassertion
+requirement as per the spec.
 
-> +	bits = STM32H7_ROVSE | STM32H7_OVSS(ovs_idx) | STM32H7_OVSR(ovsr_bits);
+> +	gpiod_set_value(stm32_pcie->perst_gpio, 0);
 > +
-> +	stm32_adc_set_bits(adc, STM32H7_ADC_CFGR2, bits & msk);
+> +	if (stm32_pcie->perst_gpio)
+> +		msleep(PCIE_T_RRS_READY_MS);
 > +}
 > +
-> +static void stm32mp13_adc_set_ovs(struct iio_dev *indio_dev, u32 ovs_idx)
+> +static void stm32_pcie_assert_perst(struct stm32_pcie *stm32_pcie)
 > +{
-> +	struct stm32_adc *adc = iio_priv(indio_dev);
-> +	u32 bits, msk;
-> +
-> +	msk = STM32H7_ROVSE | STM32MP13_OVSR_MASK | STM32MP13_OVSS_MASK;
-> +	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR2, msk);
-> +
-> +	if (!ovs_idx)
-> +		return;
-> +
-> +	/*
-> +	 * The oversampling ratios [2,4,8,..,256] are mapped on OVSR register values [0,1,...,7].
-> +	 * OVSR = ovs_idx - 1
-> +	 * These ratio increase the resolution by ovs_idx bits. Apply a right shift to keep initial
-> +	 * resolution given by "assigned-resolution-bits" property.
-> +	 * OVSS = ovs_idx
-> +	 */
-> +	bits = STM32H7_ROVSE | STM32MP13_OVSS(ovs_idx);
-> +	if (ovs_idx - 1)
-> +		bits |= STM32MP13_OVSR(ovs_idx - 1);
-> +
-> +	stm32_adc_set_bits(adc, STM32H7_ADC_CFGR2, bits & msk);
+> +	gpiod_set_value(stm32_pcie->perst_gpio, 1);
 > +}
-
-...
-
-> +static int stm32_adc_write_raw(struct iio_dev *indio_dev,
-> +			       struct iio_chan_spec const *chan,
-> +			       int val, int val2, long mask)
+> +
+> +static int stm32_pcie_start_link(struct dw_pcie *pci)
 > +{
-> +	struct stm32_adc *adc = iio_priv(indio_dev);
-> +	struct device *dev = indio_dev->dev.parent;
-> +	int nb = adc->cfg->adc_info->num_ovs;
-> +	u32 idx;
-
-Why this strange type for loop iterator? Shouldn't be as simple as unsigned int?
-
+> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> +
+> +	return regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> +				  STM32MP25_PCIECR_LTSSM_EN,
+> +				  STM32MP25_PCIECR_LTSSM_EN);
+> +}
+> +
+> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
+> +{
+> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> +
+> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> +			   STM32MP25_PCIECR_LTSSM_EN, 0);
+> +}
+> +
+> +static int stm32_pcie_suspend_noirq(struct device *dev)
+> +{
+> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
 > +	int ret;
 > +
-> +	switch (mask) {
-> +	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
-> +		if (val2)
-> +			return -EINVAL;
-> +
-> +		for (idx = 0; idx < nb; idx++)
-> +			if (adc->cfg->adc_info->oversampling[idx] == val)
-> +				break;
-
-> +
-
-Unneeded blank line as this two are coupled well together.
-
-> +		if (idx >= nb)
-> +			return -EINVAL;
-> +
-> +		if (!iio_device_claim_direct(indio_dev))
-> +			return -EBUSY;
-> +
-> +		ret = pm_runtime_resume_and_get(dev);
-> +		if (ret < 0)
-> +			goto err;
-> +
-> +		adc->cfg->set_ovs(indio_dev, idx);
-> +
-> +		pm_runtime_mark_last_busy(dev);
-> +		pm_runtime_put_autosuspend(dev);
-> +
-> +		adc->ovs_idx = idx;
-
-> +err:
-
-
-
-> +		iio_device_release_direct(indio_dev);
-> +
+> +	ret = dw_pcie_suspend_noirq(&stm32_pcie->pci);
+> +	if (ret) {
+> +		stm32_pcie_deassert_perst(stm32_pcie);
 > +		return ret;
-> +	default:
-> +		return -EINVAL;
 > +	}
+> +
+> +	stm32_pcie_assert_perst(stm32_pcie);
+> +	
+> +	clk_disable_unprepare(stm32_pcie->clk);
+> +
+> +	if (!device_wakeup_path(dev))
+> +		phy_exit(stm32_pcie->phy);
+> +
+> +	return pinctrl_pm_select_sleep_state(dev);
 > +}
+> +
+> +static int stm32_pcie_resume_noirq(struct device *dev)
+> +{
+> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	/*
+> +	 * The core clock is gated with CLKREQ# from the COMBOPHY REFCLK,
+> +	 * thus if no device is present, must force it low with an init pinmux
+> +	 * to be able to access the DBI registers.
+> +	 */
+> +	if (!IS_ERR(dev->pins->init_state))
+> +		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
+> +	else
+> +		ret = pinctrl_pm_select_default_state(dev);
+> +
+> +	if (ret) {
+> +		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	if (!device_wakeup_path(dev)) {
+> +		ret = phy_init(stm32_pcie->phy);
+> +		if (ret) {
+> +			pinctrl_pm_select_default_state(dev);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	ret = clk_prepare_enable(stm32_pcie->clk);
+> +	if (ret)
+> +		goto err_phy_exit;
+> +
+> +	stm32_pcie_deassert_perst(stm32_pcie);
+> +
+> +	ret = dw_pcie_resume_noirq(&stm32_pcie->pci);
+> +	if (ret)
+> +		goto err_disable_clk;
+> +
+> +	pinctrl_pm_select_default_state(dev);
+> +
+> +	return 0;
+> +
+> +err_disable_clk:
+> +	stm32_pcie_assert_perst(stm32_pcie);
+> +	clk_disable_unprepare(stm32_pcie->clk);
+> +
+> +err_phy_exit:
+> +	phy_exit(stm32_pcie->phy);
+> +	pinctrl_pm_select_default_state(dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct dev_pm_ops stm32_pcie_pm_ops = {
+> +	NOIRQ_SYSTEM_SLEEP_PM_OPS(stm32_pcie_suspend_noirq,
+> +				  stm32_pcie_resume_noirq)
+> +};
+> +
+> +static const struct dw_pcie_host_ops stm32_pcie_host_ops = {
+> +};
+> +
+> +static const struct dw_pcie_ops dw_pcie_ops = {
+> +	.start_link = stm32_pcie_start_link,
+> +	.stop_link = stm32_pcie_stop_link
+> +};
+> +
+> +static int stm32_add_pcie_port(struct stm32_pcie *stm32_pcie,
+> +			       struct platform_device *pdev)
+> +{
+> +	struct device *dev = stm32_pcie->pci.dev;
+> +	unsigned int wake_irq;
+> +	int ret;
+> +
+> +	/* Start to enable resources with PERST# asserted from GPIO */
+> +
+
+'Start to enable resources with PERST# asserted'
+
+> +	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = phy_init(stm32_pcie->phy);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> +				 STM32MP25_PCIECR_TYPE_MASK,
+> +				 STM32MP25_PCIECR_RC);
+> +	if (ret)
+> +		goto err_phy_exit;
+> +
+> +	stm32_pcie_deassert_perst(stm32_pcie);
+> +
+> +	if (stm32_pcie->wake_gpio) {
+> +		wake_irq = gpiod_to_irq(stm32_pcie->wake_gpio);
+> +		ret = dev_pm_set_dedicated_wake_irq(dev, wake_irq);
+> +		if (ret) {
+> +			dev_info(dev, "Failed to enable wake# %d\n", ret);
+> +			goto err_disable_clk;
+
+err_assert_perst
+
+Reset LGTM!
+
+- Mani
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+மணிவண்ணன் சதாசிவம்
 
