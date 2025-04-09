@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF95C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E0FC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aAzktJ/0XlnB3gGEY/g9nF8A2Lqw4IqxaUM2olb9mzY=; b=E/yYydgEU7HQo+d9MsnJnDcLw3
-	5D5bNyUDWfcJCyPhnsQTq76f1KN9GawyWzLX47nVwU177vNJmgMGGNHjo7Vj03whlZOrgL4HrWKth
-	vUO4mcGS8euGbjytTqxpuUU4m14XdrHCwC6PgTStAZ/Z80n0sZdpfaQFRQEUZD39T7I5Avz7s9KH9
-	H4JMqOPKEk7I49BOuGwTsxuV1w6S7HKEvd58rw3StdiuBvZPpU9R1W2Io5i+/Slj26QlZ925sgXEQ
-	6JlrrQFQZSY+ha3LXZhYtW0dRalv76gHvZRE0SoS9AHXpugQ9A9D9fusowXhOQlI7tH9s36AJIPJl
-	ol5EJd3g==;
+	bh=HB/KeedHIcYBQwAdtlGj8UPJK3krx+Z6vyhXvdjuxV0=; b=L8DgeX0Av9wj1ETIbj48Fg5p3U
+	OIxg4OLndAmFgYEN/5ZFWv++BQzT+ccvKJtgR1ftUj6nWChIVtb3TqBnSbhxmLqJ1X9wO4MXNGdCR
+	b5p/Evp4wmxqiX8MK4oFQ2JyjXLx5vmuKPQYFhzT1hDD3EhIVSwC+Avvsnmve3qbKTVYw1v/+zyku
+	FOdeo3zc4iwJn0VvJeAqfFXOnEBHFcWN7X5nhHPuj6X1tYvg89xpdVJrujnXWn7QPNCsLFgV5rFB7
+	tw7LifK7KMBtAvQVzyo76bJeIuTdxsXwi+CF7bTNOFls5L5squlm3wOuKeJgpVnMKV0YmfBlWeo8n
+	hgFiuA0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Y0R-00000007qBs-2cHI;
-	Wed, 09 Apr 2025 16:10:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u2Y2C-00000007qVY-1J22;
+	Wed, 09 Apr 2025 16:12:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Xrf-00000007oQt-1aAm
+	id 1u2Xrf-00000007oQy-1wHa
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 09 Apr 2025 16:01:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 96F6F4A0DF;
-	Wed,  9 Apr 2025 16:01:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 486B4C4CEEC;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5AE5D4A241;
 	Wed,  9 Apr 2025 16:01:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07B9AC4CEE8;
+	Wed,  9 Apr 2025 16:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744214482;
-	bh=DHz376aawgvSsxJ0B6qhnTizqqNaXEuRGrIx/tSGW18=;
+	s=k20201202; t=1744214483;
+	bh=8mEdxvOC5T+jehc1hdND2pdEUIdwpcqKS0/iY/34BZ8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AMQXwYudUx6ShJLREac/0zMnj7zJOIiGAGOk6oNMfi+XrKJGjizhGDHjnJToym3qa
-	 DHErx8QYMBarPGokHjnLDT0jQDQLiGPvJURpcvox9I34IlALY8Clfl6uQToah/V0ea
-	 38vk/UhIBA3zfsQNbZmunRx9yvIGIuyQRDEOaXWCxP0E2Xq4aWDdpRghQ8+1ZylPDQ
-	 wde9OIGb3boDO1QeeVCBajP08JBsuAmIOLB5oQUlVanHusy1vv51GFn+Yn20MOvkGc
-	 zSAdnJTsQhyh1A03XiiWAvO2bA6IPnOYXkMiJYsLpeW+LjnwiNsgZ/WoeUDVY9LF1v
-	 OXc2nXE9rjj8g==
+	b=tbWfuTFT99xv6dy2IOfih3K2bOu/CSuaV96aTfpFZU+bGshZwqU7pu76gXrmO4RXH
+	 bQslf8dJbkbNzI9vaOVfz0SZMZNnsPRxLl1MAFuVmaPa+Rq/X30aTX+BEAV/qLnLhc
+	 NfMTFQpGOZG4RgogeABhJfRhP57nKI5qyxfpLklyAOjFcuoRVU2rzsckUbHa000nOy
+	 W5HNCJVjgt/BINfJWk4rjh71LHTv/UzJJTUAMgtUpzUmRRX81YMF2sQxtIa1ir6FpL
+	 xT1EKtTj0vbhtnRHY7yi/12sGr2EY/ZDgT9H1gr93z5O69+XCGug3PYj/e52JcekvH
+	 uawdQb6y7/biA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u2Xrc-003vQT-CS;
-	Wed, 09 Apr 2025 17:01:20 +0100
+	id 1u2Xrd-003vQT-15;
+	Wed, 09 Apr 2025 17:01:21 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -55,9 +55,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 2/6] KVM: arm64: Contextualise the handling of PMCR_EL0.P writes
-Date: Wed,  9 Apr 2025 17:01:02 +0100
-Message-Id: <20250409160106.6445-3-maz@kernel.org>
+Subject: [PATCH v2 5/6] KVM: arm64: Handle out-of-bound write to HDCR_EL2.HPMN
+Date: Wed,  9 Apr 2025 17:01:05 +0100
+Message-Id: <20250409160106.6445-6-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250409160106.6445-1-maz@kernel.org>
 References: <20250409160106.6445-1-maz@kernel.org>
@@ -68,8 +68,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_090123_441896_42F40277 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20250409_090123_524251_BF114255 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,54 +84,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Contrary to what the comment says in kvm_pmu_handle_pmcr(),
-writing PMCR_EL0.P==1 has the following effects:
+We don't really pay attention to what gets written to MDCR_EL2.HPMN,
+and funky guests could play ugly games on us.
 
-<quote>
-The event counters affected by this field are:
-  * All event counters in the first range.
-  * If any of the following are true, all event counters in the second
-    range:
-    - EL2 is disabled or not implemented in the current Security state.
-    - The PE is executing at EL2 or EL3.
-</quote>
+Restrict what gets written there, and limit the number of counters
+to what the PMU is allowed to have.
 
-where the "first range" represent the counters in the [0..HPMN-1]
-range, and the "second range" the counters in the [HPMN..MAX] range.
-
-It so appears that writing P from EL2 should nuke all counters,
-and not just the "guest" view. Just do that, and nuke the misleading
-comment.
-
-Reported-by: Joey Gouly <joey.gouly@arm.com>
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/pmu-emul.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+ arch/arm64/kvm/sys_regs.c | 34 +++++++++++++++++++++++++---------
+ 1 file changed, 25 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 4dc4f3a473c3f..f3650f2f2d468 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -608,14 +608,12 @@ void kvm_pmu_handle_pmcr(struct kvm_vcpu *vcpu, u64 val)
- 		kvm_pmu_set_counter_value(vcpu, ARMV8_PMU_CYCLE_IDX, 0);
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 00b5396492d51..e53b8f82ca7f8 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2571,17 +2571,33 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
+ 			struct sys_reg_params *p,
+ 			const struct sys_reg_desc *r)
+ {
+-	u64 old = __vcpu_sys_reg(vcpu, MDCR_EL2);
++	if (!p->is_write) {
++		p->regval = __vcpu_sys_reg(vcpu, MDCR_EL2);
++	} else {
++		u64 hpmn = FIELD_GET(MDCR_EL2_HPMN, p->regval);
++		u64 old = __vcpu_sys_reg(vcpu, MDCR_EL2);
++		u64 val = p->regval;
  
- 	if (val & ARMV8_PMU_PMCR_P) {
--		/*
--		 * Unlike other PMU sysregs, the controls in PMCR_EL0 always apply
--		 * to the 'guest' range of counters and never the 'hyp' range.
--		 */
- 		unsigned long mask = kvm_pmu_implemented_counter_mask(vcpu) &
--				     ~kvm_pmu_hyp_counter_mask(vcpu) &
- 				     ~BIT(ARMV8_PMU_CYCLE_IDX);
+-	if (!access_rw(vcpu, p, r))
+-		return false;
++		/*
++		 * If HPMN is out of bounds, limit it to what we actually
++		 * support. This matches the UNKNOWN definition of the field
++		 * in that case, and keeps the emulation simple. Sort of.
++		 */
++		if (hpmn > vcpu->kvm->arch.pmcr_n) {
++			hpmn = vcpu->kvm->arch.pmcr_n;
++			u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
++		}
  
-+		if (!vcpu_is_el2(vcpu))
-+			mask &= ~kvm_pmu_hyp_counter_mask(vcpu);
+-	/*
+-	 * Request a reload of the PMU to enable/disable the counters affected
+-	 * by HPME.
+-	 */
+-	if ((old ^ __vcpu_sys_reg(vcpu, MDCR_EL2)) & MDCR_EL2_HPME)
+-		kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
++		vcpu_write_sys_reg(vcpu, val, r->reg);
 +
- 		for_each_set_bit(i, &mask, 32)
- 			kvm_pmu_set_pmc_value(kvm_vcpu_idx_to_pmc(vcpu, i), 0, true);
- 	}
++		/*
++		 * Request a reload of the PMU to enable/disable the
++		 * counters affected by HPME.
++		 */
++
++		if ((old ^ __vcpu_sys_reg(vcpu, MDCR_EL2)) & MDCR_EL2_HPME)
++			kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
++	}
+ 
+ 	return true;
+ }
 -- 
 2.39.2
 
