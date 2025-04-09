@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D51C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 20:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60EB4C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 20:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rhw9TvczlbAheyT06wRwF+HH2SWlYEwVk/yXlXJVQrg=; b=qgCjRL2A72YvqZ1fM1fGHz2WdE
-	xdNgEo1nflxuqF8vVGYXNpV3B5sL+j3hUqVg00kz1xJcmWycrXy7zPCMfyB43f30XiwFx7Tq9JgvB
-	Vj1Xx1D22gEkkjXfBVIkc3ihDkbN3eKMUIt2EPRhIjNbeCJh0m/ikc+GUFdIozioMiNlPOAp93iOB
-	Tk0HwF+V4Gdq3xmCZDvJRaEzh5hTnxb/8mnSyZUTgmT7AEfxwQ32ysHeZCPK98jV/nIAiMY7gy+gB
-	uHwAB4HVKD5R4t7dobo9QDCxd9OToJRhDKOQ4aQhTb8VoHLkegnQZwDHrEhF/pQjmhfxxNSZK43nq
-	A4nYh+2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=awPxdW7QrOZOE82KuaixkROaCo7nOUdU2biny0ObNVI=; b=E8SPPfRwEZBZtFKu94fyOIAZDk
+	6DseZili3uSawn8/llIHL/L71iHd6mZKGphYiqABKA187Erfq5NY+JI0qs5Rv4sV5sQFX75jubn3c
+	+7jwMyXL43mpBTro9z90S47hnn3uoO6OhCLiE8+RpfR9YMpuW6yolE5N/Nc4Dfk95bgs4ozw550MT
+	5BBzXEW5AN3QqvPOD95fXUTYg8iNOFXJywbNOJ9wgEGyYMZG1NtixLy6EN+YsbNQfXKxYL7fE89ZL
+	Csv35jnomLz9AKetc6QzigFUlC3Hy9NdPoeiAzrXBb5tiYgq0QUGQ5XT/06VtJg+fsiu1xiY1+jws
+	m6wOwo5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2c8F-00000008SIg-44zR;
-	Wed, 09 Apr 2025 20:34:47 +0000
-Received: from out-174.mta1.migadu.com ([95.215.58.174])
+	id 1u2cBs-00000008Sr0-2c4d;
+	Wed, 09 Apr 2025 20:38:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2c5K-00000008RbI-1PtU
+	id 1u2cA6-00000008SUr-0bKq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 20:31:47 +0000
-Date: Wed, 9 Apr 2025 13:31:31 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1744230704;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rhw9TvczlbAheyT06wRwF+HH2SWlYEwVk/yXlXJVQrg=;
-	b=uEUF9c5zkX+7RdtwK/w0O4sdsZGGNmkkqqFNHLWnNPdBGMKRyxkobxWJN3Ov84aamXiiub
-	f/UoLB780UMgm5YhkKcdHuhhstUPowErJDYoRvEiQeBwccAhfmDdLE7HowIbB5ltmspM5g
-	U34Igxld3DjndeF0Q7H5Yo93j+CjBcA=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 0/6] KVM: arm64: EL2 PMU handling fixes
-Message-ID: <Z_bZI5GQh91Vm-6G@linux.dev>
-References: <20250409160106.6445-1-maz@kernel.org>
+	Wed, 09 Apr 2025 20:36:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 81FE861127;
+	Wed,  9 Apr 2025 20:36:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C768C4CEE2;
+	Wed,  9 Apr 2025 20:36:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744231000;
+	bh=xJwJ3ShUG3Jlgyn6wMt/Wseu2u4t82y4o7Ga/V6vaWA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MKnvLt4cioOilD9bPLdftibKOo/l5OcBBcn/L+Fk0sULUO/YNuPcjArKphQSXG7q9
+	 LzlHpAJMW4sxuhiCi3Y1AUM1svhqYxcka9M2Uf4WrTngF1yAzS1z4bKSvSazUb0TmV
+	 alOnnLjgANZjqwxTUJ90W+M4aackwzJ6I2tKJYwVPZU63VRVAtSIw2nP8avE0M2FSJ
+	 HP4vODCJpihvkkUUhCoaSgKP20mVcg0NkDrca3F/Ct9Fz7fRfNtFf6oifmdvv+t/UK
+	 6KgDH5eE2WcSPYCkDTSKim89D4TzswUi9sWhFA4vAME+MFUCNPXY8ESH1K8Xuzcjld
+	 Kf99XhzaN7H2A==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm/arm64: dts: allwinner: Use preferred node names for cooling maps
+Date: Wed,  9 Apr 2025 15:36:12 -0500
+Message-ID: <20250409203613.1506047-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250409160106.6445-1-maz@kernel.org>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_133146_527169_655E2DFE 
-X-CRM114-Status: GOOD (  16.75  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,38 +72,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 05:01:00PM +0100, Marc Zyngier wrote:
-> Joey reports that some of his PMU tests do not behave quite as
-> expected:
-> 
-> - MDCR_EL2.HPMN is set to 0 out of reset
-> 
-> - PMCR_EL0.P should reset all the counters when written from EL2
-> 
-> Oliver points out that setting PMCR_EL0.N from userspace by writing to
-> the register is silly with NV, and that we need a new PMU attribute
-> instead.
-> 
-> On top of that, I figured out that we had a number of little gotchas:
-> 
-> - It is possible for a guest to write an HPMN value that is out of
->   bound, and it seems valuable to limit it
-> 
-> - PMCR_EL0.N should be the maximum number of counters when read from
->   EL2, and MDCR_EL2.HPMN when read from EL0/EL1
-> 
-> - Prevent userspace from updating PMCR_EL0.N when EL2 is available
-> 
-> I haven't added any Cc stable, as NV is not functional upstream yet.
+The preferred node name for cooling map nodes is a 'map' prefix. Use
+'map0' like most other platforms.
 
-Similarly, I don't see a compelling reason for this to go in as a fix
-for 6.15, especially since you're adding new UAPI. Do you mind grabbing
-it for the next merge window?
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi  | 4 ++--
+ arch/arm/boot/dts/allwinner/sun8i-h3.dtsi    | 2 +-
+ arch/arm/boot/dts/allwinner/sun8i-r40.dtsi   | 2 +-
+ arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi | 2 +-
+ 4 files changed, 5 insertions(+), 5 deletions(-)
 
-With the comments addressed:
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi b/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi
+index addf0cb0f465..6f88d8764e6a 100644
+--- a/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi
++++ b/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi
+@@ -1225,7 +1225,7 @@ cpu0_very_hot: cpu-very-hot {
+ 			};
+ 
+ 			cooling-maps {
+-				cpu-hot-limit {
++				map0 {
+ 					trip = <&cpu0_hot>;
+ 					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+ 							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+@@ -1255,7 +1255,7 @@ cpu1_very_hot: cpu-very-hot {
+ 			};
+ 
+ 			cooling-maps {
+-				cpu-hot-limit {
++				map0 {
+ 					trip = <&cpu1_hot>;
+ 					cooling-device = <&cpu100 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+ 							 <&cpu101 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-h3.dtsi b/arch/arm/boot/dts/allwinner/sun8i-h3.dtsi
+index eac2349a2380..cfd039840b43 100644
+--- a/arch/arm/boot/dts/allwinner/sun8i-h3.dtsi
++++ b/arch/arm/boot/dts/allwinner/sun8i-h3.dtsi
+@@ -262,7 +262,7 @@ cpu_very_hot_trip: cpu-very-hot {
+ 			};
+ 
+ 			cooling-maps {
+-				cpu-hot-limit {
++				map0 {
+ 					trip = <&cpu_hot_trip>;
+ 					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+ 							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi b/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
+index a5b1f1e3900d..fa162f7fa9f0 100644
+--- a/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
++++ b/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
+@@ -146,7 +146,7 @@ cpu_very_hot_trip: cpu-very-hot {
+ 			};
+ 
+ 			cooling-maps {
+-				cpu-hot-limit {
++				map0 {
+ 					trip = <&cpu_hot_trip>;
+ 					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+ 							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi
+index d3caf27b6a55..51b61f0d2f44 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi
+@@ -207,7 +207,7 @@ cpu_very_hot_trip: cpu-very-hot {
+ 			};
+ 
+ 			cooling-maps {
+-				cpu-hot-limit {
++				map0 {
+ 					trip = <&cpu_hot_trip>;
+ 					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+ 							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+-- 
+2.47.2
 
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-
-Thanks,
-Oliver
 
