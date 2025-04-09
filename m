@@ -4,92 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A60C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 06:43:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D6CC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 06:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyLHBKKtBdcGeGPsMw3f6Qv4QssdQHR7Pid6EQwgQ8w=; b=v1OpT+7SPxkH2S2/AhfnAXWKVH
-	/Z77NnuE/oxa3J2Z3Cuy9Moy3LgCXmNh58ZwQv2yWz1aJrg4rt5A0AYcNuPRurVkbtfwk5DdMBrgB
-	jsWjt6YAFEHYz/QCRR/fBxvEnilBejzxRcTd/yj51lT/EL1TFOybXSi/wc4c7frKxHhvD6ZI01PSW
-	ISGXnH9W0KxmKWrw/GDFtieh6OydNeBJE+3KBqLmutH/217au9t0E2gsvvYnlRgVCC61m5KYPDP+W
-	9nuBnw4hpXWioHfPYvnoPKJK7AvbZkRaEP766CBQAS1hBkMW+Po0av5+4xugzCQDP4+ODwIQzb2tc
-	x65IdNFQ==;
+	bh=qJlH0uCyNdCamX/IUN9/rVRRurzX4p3FPwRZylrB1DA=; b=5EYJdxt6/wtvd1R3kI1ik5KODc
+	xHvXIUTKspToGDhvA2MklL7yahS7QftWBh98ISc1lsbIl/GDz96D9fC0P2TcYQkkFrgDq9e27y5SO
+	SgJPmQgtaO/3QxjQfdAEoaCOvegREBYAs1At2yTWIr7KZ17LnRNs24wZwfZjqHoapgxqG0MFIFxoQ
+	1aQMoAn1dXrbmV+imYXgQ6uMoK2RHKv5ldkMoshdqQM39BFIFHFwRsH0G1GxhBC4IawP6Ic5LVnl5
+	dmYnjcvrY0NflrLS+d69aqE5z5kGlECJQkkSCPdcRAQGWbNaTIAAI/W3BcXZhRofjM2BTWyaEfzO8
+	oKtNUo4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2P9Z-00000006JIr-3uXW;
-	Wed, 09 Apr 2025 06:43:17 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1u2PBJ-00000006JZQ-2oNg;
+	Wed, 09 Apr 2025 06:45:07 +0000
+Received: from mail-westcentralusazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c112::] helo=CY4PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2P3C-00000006IDA-0y7r
+	id 1u2P54-00000006IO7-0OjY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 06:36:43 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-736e52948ebso7459440b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 23:36:41 -0700 (PDT)
+	Wed, 09 Apr 2025 06:38:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t6bEHmXR4hsKSydf9mMtsLfzD3oJTGRwaakCRHqsDW6IrP0yksFbmTf0+GAKQFq3umSWYJOPbYsrmwZeaY8EEuvWHSQ3Lg6qZ/6Jd/q97M9sNi1GBXJUHht3afkAK/i0DNMtI5W9k7QtxNOECbgO157m1J3oDXsih39W2rlCDGGRbc3c1oGBHYvbsXJRk57rAYLCeh/tza5hHwgVSXINtoWAyYRiRnXSTDUXCyuL06qBatBZ5Wnaulnvs2Zk1BV6TXMuZ49oDv8ssGTJsz0IEBMVLiHUFh8fJDjdO7/rXQo8yGFcC+gFlGMzDkx5j6O5JhFGqULRJau+LXrIGnaiQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qJlH0uCyNdCamX/IUN9/rVRRurzX4p3FPwRZylrB1DA=;
+ b=hMnVXvQveVU6SnsCWC/oIFijUnD3p8psAPQIzypfHPu1pPeHFeCbWIiJi8aNJdzdxjAhCv+0rjuzorsuc/wwlkWu/llv2+J1tKDnEsocBOcwrSxodsaAMJ48/zYOf/mlwt3bHElAQRq45DO3xQ0BxGMy/qpVkxBgfxM10B6lQ869UHh2hPUA590woGqRFwodQt8h9mrRmMawV22NHXY5TAqLv+1DayD9JFqPB0mMgywhRTGnozP4DH4D6EmY7+XccHQiDH1o9iwHuW/e5eQOKS7bVS2En/rCvAPCK+wWtPXrMlB+2Nu0W5FwiJytmYDqSyZQoShBhChGu9QSzvG39w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744180601; x=1744785401; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=JyLHBKKtBdcGeGPsMw3f6Qv4QssdQHR7Pid6EQwgQ8w=;
-        b=wodYQ9n6bqOjvt9T//OHfhcN5o1QvmE7sP+f1hCmyRSEefVzjpw2FGYFWVn1vu85hJ
-         IwwcxpctK34NHDS4KwcVD3brCmxwFQ/tw8Mo/ltdiSn6vQzuYTv9/Hg2DNCjrFNZdkZs
-         pk6yg5hgUte+a4474ietDVBg/HaBN8N3whm4OWfsVfl0vOdZ6wik5Z1ASVXINjI1l75O
-         L5xPsU1rn6g7v5sq11DpJziuCI+0V2sp72r87P27ax9TiM0kBuf7/NuiOk/KRANYE0t1
-         Ptq65kq+2akYCI3k3VD19nLj0tKo2xCn9hIAT9GI/yNFTVl4TuORAiLxLnI853txVH0F
-         D/9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744180601; x=1744785401;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JyLHBKKtBdcGeGPsMw3f6Qv4QssdQHR7Pid6EQwgQ8w=;
-        b=au6zFomNc5l9LAUefFsS9XG6A5VcMlf3sYjfm72087fyBEt53RQT2G6++b/RH7D9oA
-         r22lvxuOtYPxiXa3C2R258DZHnkdSwXIVtTAIQ5sS+lMyMgW0jb1R/Nx3tHDkw0LlVZ9
-         lxd+ov+q7Dy1a1A5IoU8vLXQxUoBmgPqIz/IyZ8YCRQSXZmXptRRzNDtaeApg09Thofv
-         EIU0q8KSxaYLrQOoC6jhsIappkQKzlRQz4WRVAgZ968ivUmYsH1VuoxNP6c/KumPfHrF
-         g48NkgwkfLc93uL40VB+wIDhOaBljiG9addPKz6L1SN5DrLY/jwBqQ8Bgx5GVPBvya+A
-         IJDw==
-X-Forwarded-Encrypted: i=1; AJvYcCX0UTUk27Gz43MKSdOMyUIjsz/EfyOw/AtJdL5kMEKyJgEPySOMK0qJMwydb2PoX6MwwpZTwbNbl9VUe5/rKCks@lists.infradead.org
-X-Gm-Message-State: AOJu0YwybU9a4nu5XnvuRQ7m7ip9P/NZHOrpYRRM0zAZrL1Z/US9o27e
-	M0nQLLgHZcBaLlEVg6UD/HQBgf729QXEu1OlvnQAMy7OiSJ1YXiK20VhiT0myg==
-X-Gm-Gg: ASbGncu5DwMWtMveJS7zB2S4VKGNbsv+1mnlFyGYlaio0jfJGzOXEP7hWyd1hgEpjOT
-	u9z9BQji128Ftl2S/U9XpVYp6mgy8rhFqiMB6Vxv47AxmkQNuAyAp/yeZCSxzL01HtByJ1Jc3aI
-	KO2/6YpFIYgx38V18tFcezFZPNE4zTm/tC5XhkThiHoDRrkXjHOucwZZiztKCcU1u+YZI25+f8F
-	aYKN6dItunhxd2BltZSooUS8CstJCnijm8iXzVp35bW05GXzh30aRpaBid+X9wruJH+8tHd1LZA
-	rZKQz1zC1TdrxcMmzKxhNdgDjeSxmsMlah6SR7rgYtYcHpXzBWc=
-X-Google-Smtp-Source: AGHT+IHsJVrpDdInYLAhJaCNmHpq2veRp8h4bN1zX1HiVkJrECPermHzrundQFT6RfXaFpJfsW7aQw==
-X-Received: by 2002:a05:6a20:9f8e:b0:1f5:7eee:bb10 with SMTP id adf61e73a8af0-201591580c4mr2941076637.8.1744180601350;
-        Tue, 08 Apr 2025 23:36:41 -0700 (PDT)
-Received: from thinkpad ([120.56.198.53])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bb1e382a4sm510787b3a.96.2025.04.08.23.36.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 23:36:40 -0700 (PDT)
-Date: Wed, 9 Apr 2025 12:06:35 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, 
-	bhelgaas@google.com, vigneshr@ti.com, kishon@kernel.org, 18255117159@163.com, 
-	cassel@kernel.org, wojciech.jasko-EXT@continental-corporation.com, 
-	thomas.richard@bootlin.com, bwawrzyn@cisco.com, linux-pci@vger.kernel.org, 
-	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH v2 4/4] PCI: j721e: Add support to build as a loadable
- module
-Message-ID: <zsxnx7biwogov5dw5yiafkgk6tsrtspac75bjbrca5uevweaim@ly67hwfyk7qh>
-References: <20250330083914.529222-1-s-vadapalli@ti.com>
- <20250330083914.529222-5-s-vadapalli@ti.com>
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qJlH0uCyNdCamX/IUN9/rVRRurzX4p3FPwRZylrB1DA=;
+ b=n4WjGcmiJne8QcmtdT+c20Fv6oCcePLh4vSQN4LbtknUxFjD+YL2GkbtbHPRjwHzf/toUaxsH+ufPuaFpTu3Ttli4H1w/m30Jr6b31u19Vzi7zxA5gnPaM5ADi4b+GuJnLjVUPAE63n3C3oPd6MawBHlhKhs5dMg6Jtnbs00OPk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
+ SN4PR01MB7405.prod.exchangelabs.com (2603:10b6:806:1e8::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8583.46; Wed, 9 Apr 2025 06:38:32 +0000
+Received: from SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9%4]) with mapi id 15.20.8583.041; Wed, 9 Apr 2025
+ 06:38:31 +0000
+Message-ID: <7ea61a71-27f9-4b2c-8477-c2067c7219f8@os.amperecomputing.com>
+Date: Wed, 9 Apr 2025 12:08:24 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 16/17] KVM: arm64: Allow userspace to request
+ KVM_ARM_VCPU_EL2*
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, Eric Auger <eric.auger@redhat.com>
+References: <20250408105225.4002637-1-maz@kernel.org>
+ <20250408105225.4002637-17-maz@kernel.org>
+Content-Language: en-US
+From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+In-Reply-To: <20250408105225.4002637-17-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0120.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:11d::9) To SJ2PR01MB8101.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250330083914.529222-5-s-vadapalli@ti.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|SN4PR01MB7405:EE_
+X-MS-Office365-Filtering-Correlation-Id: d41f4bb0-a37d-49c6-66f8-08dd773124c7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?b1R1Wi9tY2R2NjBOSFlweU1pbFRNSStTQ1FHOWREN1owajg2UEtjdHJZSXE3?=
+ =?utf-8?B?eXF3NkVJNGR1YkQ1R1Z3M09IZ29KMHRoVW9DSXpwQUdwMnk5cE1taVVwSUhM?=
+ =?utf-8?B?OGJ4bW5uTVpmUkxzVmt0cE93bTBJRTM4RExnYVZlM0VNQ0ZVRWl2Z3BvM1dy?=
+ =?utf-8?B?MkU3Wk9Zdk9hRStqZmRMU3pMbUFKQUpwc3lOSWRxbzNDRHZQbWlTc1FNaTJN?=
+ =?utf-8?B?dEpPSHRmZFRmRi9kMmEyNDVBblBVa3hlR095R3VBYVFMaEFmS3ZKQTk0REVL?=
+ =?utf-8?B?QVZVQlJvNFpzY29Cc2FnYXYzMDRyZDB5ZGFaeWxPUFlocWZHMDF6aURHUnA0?=
+ =?utf-8?B?c0V4WTFCbklwdFVvWjZEeDl5clFlSm5sM1VwZ2pXeUFUd1FVUlI5R3U1WmVz?=
+ =?utf-8?B?KzVOdy9iMkhGdzZJQlFRVUtqM0s1QnVPWU5IaDUwekJrR0lpOUlSaFVjWmlY?=
+ =?utf-8?B?eFJjN29ObGZJUTdCTFVmOXhmUDRBTlBERklnUXB2TkVBc1lyYUw4c1V3ZEJO?=
+ =?utf-8?B?ckx1TGdBYjlMMWh4NXhwbjcreDdZSTl2Rm8ybzZZVGg2N0ZadUNpWE45My84?=
+ =?utf-8?B?SHJDMzNZbFhtR0FUZmtENVNEdDNFRzdZSC9hOE9Va0ZEemlnOEFiOTcxQSs2?=
+ =?utf-8?B?cG03dHlYbHlNZitjdTR4SkVUbld4RzJVbFo2MSsvTjZzblVUMEJLazNxK1E5?=
+ =?utf-8?B?WFV6dVBlQjNMcnFCYWkvU0hOalpwZVNPdXBXM2MxdTlUeHdTaUNWRW5vbG40?=
+ =?utf-8?B?bExuaWpFU2szNnB3UVJha3JlZHJsRzB2aGFSTUlEM1ZlbW03bStXUkRneThW?=
+ =?utf-8?B?R1c0Ym1rNzRpZmc4N1k2dGlDc2ZmU3dLekNuU3VHejVBUWxjVytXK2U4QTVm?=
+ =?utf-8?B?NnNFblBPeXNPTnZzc3pyY0ZYZWxDMEFjMEN1MnpxSkphYUMyTUNuVUJMZktw?=
+ =?utf-8?B?ZGxmY2p1RkJ6ZXZVM2h6WEloZUdXWHFOdmsweEQ5NUZ2NGhFM3dON2tsbVdQ?=
+ =?utf-8?B?ODI0cG9tWkhYeENCZ2VJZDQ2MWplRjlIalpIVk1RdDdKWmFYSFp3UlpaME05?=
+ =?utf-8?B?RVhKeXdKdkZTUHV1ZFpNNWY4TUN1UXJiUDY4RGdpbW5MU1FEL1QyMUhZZDNJ?=
+ =?utf-8?B?TEtZcGkrVUhKbEFkVEt1aGs2ejRDN1pRY3JFTktORkVHYkxPdy92NDFIZktW?=
+ =?utf-8?B?U1RlS1hKYnZ6TTdRUkdiSmduY3FqREpPK3FvUlFZRmU3Lzl6N0tTdDBPcERT?=
+ =?utf-8?B?WVNYOVJVRmU2bTBidHNRdExFbEpBbnJEWmd2NDNHUERvemluc0dhNlZmaldG?=
+ =?utf-8?B?STE0b3UvZUhhcDh5OUVKMFZRZFQ0Sm5zN3hPcGlLdnE3bWYxUy9hT0JHWUw0?=
+ =?utf-8?B?b002NFdBVXVvU1pnRjJtZDZhc0xPQktjcXl4c1RUaW9waVozNjgzRWlEWi80?=
+ =?utf-8?B?SFNEcmNCbzV4bFVLVnlTOUZQcHlhenplSkZ5bmo3SVRIOUpHMmFuREQrWXZY?=
+ =?utf-8?B?a2pzVTlSTHY2VnQ2TDYrL1NHSDF3SlVhNksyOEd4dTMwTlhGV1piUlJVNS8x?=
+ =?utf-8?B?dXVvM0Zvb252YjhjZUdTcFhrQStDaWNRMGF0dFlGeFdvc3J1NnQ0RzNpSlAv?=
+ =?utf-8?B?UkFaMCtiWTZFVXV0U0t6RDFycVhYcmxEMU51Wlg0clVIdjdYbVRvSjJNWHRB?=
+ =?utf-8?B?SjNCRmx3TXlKZlpjT1lRRHNzVVNrZVViQjFBQUd6MTZSY2dFK3pVSUhuQ0pU?=
+ =?utf-8?B?V004bWk4Vk5iUWdnNHVVMWFTOTRCQXh6ZE5nZWozT0w2U2JIZzhPOGVhUkhw?=
+ =?utf-8?B?bndIR2VBNEs2M294WGRlUlhoSkErcHA5cUQrVm0rNnpLTnF1SllVNjlRZ0Y1?=
+ =?utf-8?Q?nJE9HZTI3+hHN?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MDJzTU1mQ2oyMTlObm5VZ0RQYVV1bkwyMC8ybWZJMlp5MFc0am13WktYWnhH?=
+ =?utf-8?B?bHkzVUw5L1NRWDFEd0pvMDNjaDZ5eisyaXJHejVjSUNVZmw0TGI0VHRnMWVs?=
+ =?utf-8?B?NWdhODFlcnJ3REowTUgzRkF0Z0dZNlVWeTVtMGdmbXN5NnRBMnUwK052OGlE?=
+ =?utf-8?B?N3QrYWxrWXhBOWN5SFg1V1htR1BrYUlzalY4Vmg0N2UwLzlGOUdub2NxRW1j?=
+ =?utf-8?B?a3MzeE02Vkl2QnMyaGx6Y2ZqbmlpUW1sSmlWZGt4Sm81OVNrRkJhMTA1ZEZh?=
+ =?utf-8?B?OUxCL1BSR2dpQXBDK0xNRXQ1cUxxSCt1VUhqSWJSMHhXVWYyelROYUtkRDJs?=
+ =?utf-8?B?dGtYSExjUmhGQzZXb3pxYVZZK0s0Q2QyYjUwNWtlM2doeFI5Y1JBNGJGVWx2?=
+ =?utf-8?B?ME5qUU05WUxRZWdYbStXNUhZZnF4VVpwMUdVd0pmdWlTcFFnUVF5eDY1ekcr?=
+ =?utf-8?B?aURjWE9OYno5Uk9VNzFBOXZ3bGtaUDJPMUkzbVZCZ2xUWEZaRnRWRUtpTWRQ?=
+ =?utf-8?B?T050Q3B4QW96ZXVtc0FLd28rVWtucVhhb3JVZDNoOFBrQ1hrcWlibTJRQWtM?=
+ =?utf-8?B?Zm5vVlZqOHZQNElpaHliNzFzZWgzS1FVL01yWUl0N2dqcDJjVGNNSzU4UnVj?=
+ =?utf-8?B?NVlFZFFkeTNVSWFZSFJ4YWJXU3lWZWllMXZDUllhWGdzSlh1MWlWYVIvM3hM?=
+ =?utf-8?B?dk5TVDJMU0NOdGZldDJMeDExUk5UanRsME8rWFBxQ0trZE9KYldES3FORG5k?=
+ =?utf-8?B?MWdmSGs0d1VRSVZSaGsyNmZiSVJabnQwQVZ1L2pXQnE1Y0tBd3hQamJZc1lG?=
+ =?utf-8?B?dEFQT2NjUjhMV2pXMjlQcEkwbkpsMHp3aGwxVnJxSEZNWEtVcWtNUXBrNUlp?=
+ =?utf-8?B?Z25pSEdLUGtXNnFpS1RxR0Z1K2V1SEN2TDE4a1FnTDhCakg4TG5EeXRpZXZB?=
+ =?utf-8?B?VmEyRDJwR1B1OVNKVnYyNHorWHl0Z0IzZ2ZZNitZellOMDBjT0pXQ2pwREFj?=
+ =?utf-8?B?dHlQVnpDVHhRVGlHbnpGT1JBL0QyRHcwZDZxT20rUGZKT3gzZi9qQm56MThn?=
+ =?utf-8?B?WkF3TXVuQ3dPVEVJWUZzbmxTODh4amxoRHJnY0lBbnJsM1Q2S0J6bUtQb3JM?=
+ =?utf-8?B?ZWNmUWRJNUs1QnROQ3RzRGhjYi9JWk53cjR2a1pEc0JRWGVjckNLZXFnMEdP?=
+ =?utf-8?B?RGJCRFZSQWFGWk4vck9aK1VxTzhkS0piNzE3ZkFoeDA4Y3BOR1hNSVM0ODdy?=
+ =?utf-8?B?RWVCRnhLQkUzaU0wbWFxakhOVVV4dTRLeUtQNjl0SnU0WXgrbGQva0VOdzZC?=
+ =?utf-8?B?cDRHenZ5dGFLNlp1cWFkT2lSNzdLRnBxSFh0eXlNa3JrcExWV3NPUmRXSGRB?=
+ =?utf-8?B?VmZudDlBY25vZVVvTG43N0xIRUZIUVZrdmNpY0hKTldOMHRwV2hJSytSQ0pH?=
+ =?utf-8?B?RGNuS3NKSkNVaHJTcnFNTkF6UEFGL29KdERyMkVWNDNERXA0Rlh5QXc3cU1G?=
+ =?utf-8?B?NCt0b3FUaVR5WE4wNEVRaVZvTTlNaFliZlRqclhodDV4SXpKNjY5Kys3UTlT?=
+ =?utf-8?B?MEVnbWhtRlpzS0NKQ3JaRHRXNGs5ZnpKeVB1am5GYTNDM0hpR3JDTkdHb0Z5?=
+ =?utf-8?B?MDh6czBQOXZjRWM0UmRVSlBha0NHMVZnN1hmQjR0Z3EwUExMTmFPbG0rdTVE?=
+ =?utf-8?B?THNEd2FZZGFMQlpDWXZXdFo2aWpBbG50eVBTeXI0UUk4YWVua1huSUtHdTN4?=
+ =?utf-8?B?SlBHME1rNHBER2s2Z3RYL0Nna2E3dE5jd1ZmSkxaTU15M1J4MlA3UHUxYmdz?=
+ =?utf-8?B?bUhnVGxGSkJEekxUWkkrOENLVVpMZ29oamFBdncyNWZWWmxyZ3pzeWxZMk5S?=
+ =?utf-8?B?SXZySDBTVzFCc2txeGJxNm5QVytMcEYzbUx3MkYyODlUS0FobWJxNjh1SDZr?=
+ =?utf-8?B?NHUzR1lZQlVBa1JmZFh1V2MwRXdibldyK2l0Wk5XK25DZFlMSEttV3d2QTdY?=
+ =?utf-8?B?MlAxaVZlTXpBR3hUcmc4TmNXc1FYK1cyS3RiM21Tc2dRVDB6Sm5VdDRCK3Zy?=
+ =?utf-8?B?RmxJbHVMbFg1TTJiZFNwUFNsT2xBbmhuWnRpWnJmWEdmQXpPRStMY3Zreno0?=
+ =?utf-8?B?SlBIbDJXV29OK0Nvc2IvY0lMUjBiYTg0bktncEc2VlN3WXZZVWpDUWlEamF5?=
+ =?utf-8?Q?f4QfCEaxQWwdEf9Up/ZMUcZUxba1jlnN3LuEUoTCwoEN?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d41f4bb0-a37d-49c6-66f8-08dd773124c7
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 06:38:31.3983
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rUdsFMRlNOdV8x1sQPYXMDLFcimS+ZALEj4U34TL3U6QTa3Wz2R9eWdqIScrPEI7a88WeX4UzE8uGTYP8VhQW4eiX3x4HAQch4WKk9a30cbLx3HAlrBk7FvQyVTzmw1z
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR01MB7405
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_233642_305479_4C0DC306 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20250408_233838_165366_59CCA356 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,117 +179,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 30, 2025 at 02:09:14PM +0530, Siddharth Vadapalli wrote:
-> The 'pci-j721e.c' driver is the application/glue/wrapper driver for the
-> Cadence PCIe Controllers on TI SoCs. Implement support for building it as a
-> loadable module.
+
+Hi Marc,
+
+On 08-04-2025 04:22 pm, Marc Zyngier wrote:
+> Since we're (almost) feature complete, let's allow userspace to
+> request KVM_ARM_VCPU_EL2* by bumping KVM_VCPU_MAX_FEATURES up.
 > 
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> We also now advertise the features to userspace with new capabilities.
+> 
+> It's going to be great...
+> 
+> Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
+>   arch/arm64/include/asm/kvm_host.h | 2 +-
+>   arch/arm64/kvm/arm.c              | 6 ++++++
+>   include/uapi/linux/kvm.h          | 2 ++
+>   3 files changed, 9 insertions(+), 1 deletion(-)
 > 
-> v1:
-> https://lore.kernel.org/r/20250307103128.3287497-5-s-vadapalli@ti.com/
-> Changes since v1:
-> - Based on feedback from Thomas at:
->   https://lore.kernel.org/r/88b3ecbe-32b6-4310-afb9-da19a2d0506a@bootlin.com/
->   the "check" for a non-NULL "pcie-refclk" in j721e_pcie_remove() has been
->   dropped.
-> 
-> Regards,
-> Siddharth.
-> 
->  drivers/pci/controller/cadence/Kconfig     |  6 ++--
->  drivers/pci/controller/cadence/pci-j721e.c | 33 +++++++++++++++++++++-
->  2 files changed, 35 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
-> index 82b58096eea0..72d7d264d6c3 100644
-> --- a/drivers/pci/controller/cadence/Kconfig
-> +++ b/drivers/pci/controller/cadence/Kconfig
-> @@ -43,10 +43,10 @@ config PCIE_CADENCE_PLAT_EP
->  	  different vendors SoCs.
->  
->  config PCI_J721E
-> -	bool
-> +	tristate
->  
->  config PCI_J721E_HOST
-> -	bool "TI J721E PCIe controller (host mode)"
-> +	tristate "TI J721E PCIe controller (host mode)"
->  	depends on ARCH_K3 || COMPILE_TEST
->  	depends on OF
->  	select PCIE_CADENCE_HOST
-> @@ -57,7 +57,7 @@ config PCI_J721E_HOST
->  	  core.
->  
->  config PCI_J721E_EP
-> -	bool "TI J721E PCIe controller (endpoint mode)"
-> +	tristate "TI J721E PCIe controller (endpoint mode)"
->  	depends on ARCH_K3 || COMPILE_TEST
->  	depends on OF
->  	depends on PCI_ENDPOINT
-> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-> index ef1cfdae33bb..8bffcd31729c 100644
-> --- a/drivers/pci/controller/cadence/pci-j721e.c
-> +++ b/drivers/pci/controller/cadence/pci-j721e.c
-> @@ -15,6 +15,7 @@
->  #include <linux/irqchip/chained_irq.h>
->  #include <linux/irqdomain.h>
->  #include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/pci.h>
->  #include <linux/platform_device.h>
-> @@ -27,6 +28,7 @@
->  #define cdns_pcie_to_rc(p) container_of(p, struct cdns_pcie_rc, pcie)
->  
->  #define ENABLE_REG_SYS_2	0x108
-> +#define ENABLE_CLR_REG_SYS_2	0x308
->  #define STATUS_REG_SYS_2	0x508
->  #define STATUS_CLR_REG_SYS_2	0x708
->  #define LINK_DOWN		BIT(1)
-> @@ -116,6 +118,15 @@ static irqreturn_t j721e_pcie_link_irq_handler(int irq, void *priv)
->  	return IRQ_HANDLED;
->  }
->  
-> +static void j721e_pcie_disable_link_irq(struct j721e_pcie *pcie)
-> +{
-> +	u32 reg;
-> +
-> +	reg = j721e_pcie_intd_readl(pcie, ENABLE_CLR_REG_SYS_2);
-> +	reg |= pcie->linkdown_irq_regfield;
-> +	j721e_pcie_intd_writel(pcie, ENABLE_CLR_REG_SYS_2, reg);
-> +}
-> +
->  static void j721e_pcie_config_link_irq(struct j721e_pcie *pcie)
->  {
->  	u32 reg;
-> @@ -633,9 +644,25 @@ static void j721e_pcie_remove(struct platform_device *pdev)
->  	struct j721e_pcie *pcie = platform_get_drvdata(pdev);
->  	struct cdns_pcie *cdns_pcie = pcie->cdns_pcie;
->  	struct device *dev = &pdev->dev;
-> +	struct cdns_pcie_ep *ep;
-> +	struct cdns_pcie_rc *rc;
-> +
-> +	if (pcie->mode == PCI_MODE_RC) {
-> +		rc = container_of(cdns_pcie, struct cdns_pcie_rc, pcie);
-> +		cdns_pcie_host_disable(rc);
-> +	} else {
-> +		ep = container_of(cdns_pcie, struct cdns_pcie_ep, pcie);
-> +		cdns_pcie_ep_disable(ep);
-> +	}
-> +
-> +	if (pcie->reset_gpio) {
-> +		msleep(PCIE_T_PVPERL_MS);
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index b2c535036a06b..79e175a16d356 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -39,7 +39,7 @@
+>   
+>   #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
+>   
+> -#define KVM_VCPU_MAX_FEATURES 7
+> +#define KVM_VCPU_MAX_FEATURES 9
+>   #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
+>   
+>   #define KVM_REQ_SLEEP \
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 5287435873609..b021ce1e42c5c 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -368,6 +368,12 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>   	case KVM_CAP_ARM_EL1_32BIT:
+>   		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
+>   		break;
+> +	case KVM_CAP_ARM_EL2:
+> +		r = cpus_have_final_cap(ARM64_HAS_NESTED_VIRT);
+> +		break;
+> +	case KVM_CAP_ARM_EL2_E2H0:
+> +		r = cpus_have_final_cap(ARM64_HAS_HCR_NV1);
+> +		break;
+>   	case KVM_CAP_GUEST_DEBUG_HW_BPS:
+>   		r = get_num_brps();
+>   		break;
+> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> index b6ae8ad8934b5..c9d4a908976e8 100644
+> --- a/include/uapi/linux/kvm.h
+> +++ b/include/uapi/linux/kvm.h
+> @@ -930,6 +930,8 @@ struct kvm_enable_cap {
+>   #define KVM_CAP_X86_APIC_BUS_CYCLES_NS 237
+>   #define KVM_CAP_X86_GUEST_MODE 238
+>   #define KVM_CAP_ARM_WRITABLE_IMP_ID_REGS 239
+> +#define KVM_CAP_ARM_EL2 240
+> +#define KVM_CAP_ARM_EL2_E2H0 241
+>   
+>   struct kvm_irq_routing_irqchip {
+>   	__u32 irqchip;
 
-There is no point in adding a delay before PERST# assertion.
+After applying PATCH 16/17 (this patch) and PATCH 2/17 on top of
+6.15-rc1, I could boot L1 then L2.
+Glad to see that the majority of NV patches are merged upstream!!.
 
-> +		gpiod_set_value_cansleep(pcie->reset_gpio, 1);
-
-This is not PERST# assert, isn't it? Typo?
-
-- Mani
+Please feel free to add,
+Reviewed-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Thanks,
+Ganapat/GK
+
 
