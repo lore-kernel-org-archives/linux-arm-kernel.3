@@ -4,166 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92775C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 06:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F92C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 06:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UYpFXORb+/GVbn3kStZC7Gz4w/Q0hHWgUzGZWzOInQI=; b=yyQTGKCz/Gc9gMANkxd1S/S/n8
-	7wyxs/MVtfjPY2kftZ9gryk8KechRQcwW6Sv4GlYKhHDdmAA7E4UGErCrey85cPxpltPsbIkf8qPn
-	FzLZ0AViOqzZDcQnie1TKNamVjkFSMDzTUmDrujTS5khjzQp+gc+SS6qyaIc4Ajy1ah+jZCMtUtq9
-	GsvDTCCPhaZR9NIUB72X0ydki+deDAHtdGxm25MCEs6JNdO7l6LZMcoIzDI6axPb7ZAO5mvboOt5v
-	Bz6mDJcXZwLHdPqzBb0ZF16FHgaytbI5R98sj6q7rsHtT5DkiAzPRPWx7mlVoWsbAiUYZoUJLFgit
-	5fzCMVPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T0/jrC7FZZ98ygzWU8GAHQggpQ/PREzbQQ0mhaLXRTE=; b=kj9+bkU+dUREwteQWx2CtfT+Z1
+	C9On1mNXXtr+HHr5uxltTYOSQuBP4L+fL/GmO9f3EOdxBRIQPIbWQUzmXOCq575yfOzFID3WkhQZV
+	950IJZWFic7BTh6lB0nPLJaNS5UgJqHdeYgY+kjTaAM2E3UJiSfA5xwy1H8lMUSTr3oy5uC875Zz7
+	NBfV187wXzsEKFPJialjfl5hnPqiqIKik89hgA6L/AR2dB2drJ9jyU8zZSbT6DQoZaQGPVaqbmdG8
+	ZGPON7+w6iqtWr3nF4LZXn7kz+qn2CtkLklrr8RtwNyfAeQlVN9LMagSLw5OOsJs41QMThc5PWIgR
+	Ageuz+JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2PD4-00000006Jpm-09HX;
-	Wed, 09 Apr 2025 06:46:54 +0000
-Received: from mail-eastus2azlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c110::2] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1u2PEo-00000006K5z-0yZQ;
+	Wed, 09 Apr 2025 06:48:42 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2P5f-00000006IRZ-0i1x
+	id 1u2P6V-00000006Ieu-1usn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 06:39:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T3oa/rpjoYSIQuJ0zdFQxBUHu6TQtu5iBYENM+1lbm8Q1dEh6DT5YVn/+dn/NVw7dN5rUAkoOW5cJ00J5eA4nRxWG5gl3HSCtcEFNsDW3rTwqZ9Ppkc1nfX1H0xd2pwFr9F8wCEoC1mlQJXaZtTnInekQoEwNro8PuS3y+pF5v4HWjdtHJkiJYeseLXapsQVk6DETKPBES3nVPeXXhO/4QOFKAl35t1vKy4EjYYrE3+kVL5DDRr306qpvhZ3bFxoI7Whw507JYnqPDfr3uTdN+KhjnZh5q4DMUF2zwsTS+MNRkxfBBn8nZyZysmRTakLOAwwi7J1r1wUNN0S8eLRoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UYpFXORb+/GVbn3kStZC7Gz4w/Q0hHWgUzGZWzOInQI=;
- b=TQ1Ya/THTVd6cucsAmYnIE/RwW5NMA0x93rgz+JFbeL348W4tBjBQNi0JHLyxeLq6Un5pfdosSFkzfdRGKnz7eiInHVM+oHUUJq2rEVok4bsaDBLS0Rg8RDpDafKKLvHyDZK1ysMC6crYm+QGmz0WIwI3FiIvy+G4AeIqZW2er1WBnbt8DRfaOiVmTCseR7OUXpeCdGEY2y0El7H8Dvzg46AfjyOEhmCWRDHUPKypPdQHufoFi+aBR7TWvajmZ/oZZB6/Bi0BRubZdYyJ1mMmBmON7gBb20yQVsqYD2Fc+XmXzJnOaluqdcWA8O662P0UPLB2lpX8Ky/TPWUyGmArg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Wed, 09 Apr 2025 06:40:09 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3913b539aabso3813036f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 23:40:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UYpFXORb+/GVbn3kStZC7Gz4w/Q0hHWgUzGZWzOInQI=;
- b=RnD4z9mI1NckSf5oO3t8FhmELiYm77v/42dzb8FuiivStErO7/eP149CodobNWHkNBIEGrJipbXDcRq9k0DjpE54C7c83Jud4u6MwmoVNyen4nvVgQaHMAi2vhRj5j853GaTJCcYJh86FBhNgL+YvS7YedP2dYTBNkxS9eM6i5Y=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
- SN4PR01MB7405.prod.exchangelabs.com (2603:10b6:806:1e8::19) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8583.46; Wed, 9 Apr 2025 06:39:10 +0000
-Received: from SJ2PR01MB8101.prod.exchangelabs.com
- ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
- ([fe80::292:6d9c:eb9a:95c9%4]) with mapi id 15.20.8583.041; Wed, 9 Apr 2025
- 06:39:10 +0000
-Message-ID: <2fd5c211-1f1a-4539-8b47-81d91bbab991@os.amperecomputing.com>
-Date: Wed, 9 Apr 2025 12:09:04 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/17] KVM: arm64: nv: Allocate VNCR page when required
-To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, Eric Auger <eric.auger@redhat.com>
-References: <20250408105225.4002637-1-maz@kernel.org>
- <20250408105225.4002637-3-maz@kernel.org>
-Content-Language: en-US
-From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-In-Reply-To: <20250408105225.4002637-3-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA0PR01CA0123.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:11d::6) To SJ2PR01MB8101.prod.exchangelabs.com
- (2603:10b6:a03:4f6::10)
+        d=linaro.org; s=google; t=1744180805; x=1744785605; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=T0/jrC7FZZ98ygzWU8GAHQggpQ/PREzbQQ0mhaLXRTE=;
+        b=DXNnTgImyliXzXkHjlzMBbm0eFWkX4+fgbUkV9u4Wb/7luByWyELY95YwJ+aJ+rEhD
+         sYthiPuRR7nyM/GpvNiuz1wEgSCpl6Jt2eia+qwRDi/eouYvaabLZ73Qs0UxXKkV2pC3
+         JGiPXuC36ifNrMf+K96hL88kXoKplZlQeUwOwECDsd7JBD4uyiLAd2h6DPtyD1/tnEvm
+         qGTPx24GxrmdYO19i2Fe9ELRLGuWwGpjtbu+tDOTgu+n1nUHYaqsTtBW4EIPkhXmnxgQ
+         cJphr+PvTILnY53zRSq6yniN10lvWTNkXF36gqSKY8i8xxbN6qIbrUydgxPlzc2QrJ6f
+         5G9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744180805; x=1744785605;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T0/jrC7FZZ98ygzWU8GAHQggpQ/PREzbQQ0mhaLXRTE=;
+        b=mF/Y/k2VQ3MFhFA/1JcSh96O03Kag3ChqQsI/aNSzo+Xa3tKbGuhWJF+8k7VPcM1Ki
+         YDoQsJ2nYSz0R1yaTY4BJvTvWGKW9fO+Oh8m8bb0KTkISE/Qh7qij9fXWIFdLwNm+d9V
+         BjaakSdBETIS7uoiF5uBit+Nf6Y/ZcLQX7huGPzxXbMLriqTPSl83jvpEsjXA7dpyEb1
+         gUdX5TcD2GNTGrbmt1ayrM3eub+cNgOu/qSGC75Y+HzBPJ7rWIrxxhKBo3Kfjy1jzTVT
+         TPxh5XDr6BkN+qyJ96VKFuLNviFMkwnqdvRhhdlGl8OLP2Ger7CfUizf6fyN/Ix8TdNr
+         bxqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX0O1stZcJtljJ0bWOnG1ulFdvgsxMOlaKw+mFuvynVcz5k2dV3Y9+iq/hbclCC/NYjvs/rQ1A0QzsIJxfpqq6h@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHs/HDR9EEw60Hq/VL/xXasVXLWK/IiwoxY3hJgAhKAhKQkkdx
+	wDIvOrdq0xemB20sSn0jQP8p6yzWDwGgThaxQPFWpBRSvRGAJM8yBsHKfPnAbyM=
+X-Gm-Gg: ASbGncua2VQkP5aC8J1/0k8lxTXpFIJ7juv/D4BtFmx4pJchgn7NozQKL1ydHgFy/fm
+	bpkFp00EAUdrrFcyhBGzUZ5FraM5i40U73NDHy9hHfmYJ4Zq4134wE+KEzsz3Nn9BUhVofq85kP
+	3/OVGm/zr1eBksbzbj36TLashsR7PDpKRwS5kWFmVzHIEh9Ot9Vld2YJbErfYn0OP8KpymvCee0
+	WiSD7X+3m7pOvnnSjHIVC8JgeRdVs8FwB9BbJ1gu7aA9hPuPAu3GmmqSChZb+Qc0/wwzWBYXTbB
+	YHAmaMZ9SXMk3yF4I5UBqALxVXA0Paw+uaOrd/sWMdjOVwMpPw==
+X-Google-Smtp-Source: AGHT+IHCjOF2n7U6I7R2utWFFOdC4xw3Tp0UOai+Gccs70xrtthldzaitRhsqdFKtmXADIH6VPcoAQ==
+X-Received: by 2002:a05:6000:2204:b0:391:2fe3:24ec with SMTP id ffacd0b85a97d-39d885313bamr1150097f8f.14.1744180805462;
+        Tue, 08 Apr 2025 23:40:05 -0700 (PDT)
+Received: from [10.11.12.107] ([82.76.212.167])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39d8940e29csm661397f8f.101.2025.04.08.23.40.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Apr 2025 23:40:05 -0700 (PDT)
+Message-ID: <76e3915a-e69c-4858-bc94-6eff64deeed5@linaro.org>
+Date: Wed, 9 Apr 2025 07:40:01 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|SN4PR01MB7405:EE_
-X-MS-Office365-Filtering-Correlation-Id: 64d96150-3cb9-4528-0e5d-08dd77313bf1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VURWeXJqTU9UTjdKMkdkUTJvUlBNa2ErZ3ZrWURRSGdrZEo1UDJLU2tTUVNZ?=
- =?utf-8?B?NW5SSnFtTjBlMjJ4aHlNY2lrZW5YbzJvQUphSHB0dE1xOFlUKytLb3BXZ2t5?=
- =?utf-8?B?N0VLTU5BNHE5dS9kZ3dod2hCRUJhaG5LWk5zbXVnUHBwSlFPWmdISDIyR1RP?=
- =?utf-8?B?QjRCU2dtSVpOdDg5ZmFGOTFEQkpRL3BpV2JhcHB4MEV4L09BNmhPQlYxaTRl?=
- =?utf-8?B?ZVB2dWhyckNhSG9YTkpRT2IvTUtqcnA1OWRCYm1ZUHhRTjhld2ZBdmZKdHZq?=
- =?utf-8?B?NXI5RTJvcHI3K3daTFVZcEZsOFdMbW92SkVCWDY5MEpFNGhMZjFtMllvTkJP?=
- =?utf-8?B?dGhOeU9NS3UybFJsRHBDS3hSaDNwclh6MnhqY1RCZGNPSmdZdUJobE53MU9E?=
- =?utf-8?B?UEZpTEcxWHFpTytxMlJkbGxNZ215c0R0bHJCZFJZQTNaL1QraWl1bStCelM3?=
- =?utf-8?B?bUEvc1VnNmJNSXM1VE92bDF3RFlNQnB2UTdCVVpGSmRvTWw4eUhEalQwNkdZ?=
- =?utf-8?B?bDJsSXlWSDhCVE5XRmNlMVZ3Um16L0xSZERLbGkyZDdOdThLcmJDMFdtenVE?=
- =?utf-8?B?OHNRVnlYb2hZbkN4OEdoQWtvVlBzZFpVTkVKZG9tRmdDNUlVSWFRNmdqbFI5?=
- =?utf-8?B?cFduMWZYTGpHTFNTQ1YwT3VmYUdXbVJiTldjNFU2SnVPbU9lZ3hCcHdLZWJG?=
- =?utf-8?B?aVNCKzJJbjZ3THJOQ2VhN2dFbDRKNklVc2c4aWY1N0owWlpYRG5qTysyckIz?=
- =?utf-8?B?OUFXTnM4OTBqUnRNaUluQ2RvbDY0c29ZUFhUalZaZTlpZGVRQnFDaVI1eSsv?=
- =?utf-8?B?TkU3RjV2cXd2ZHVNS2ExTjU4UHVRNkFqR3ZlRklkV2xqMnNXZVg4YzI3aWxt?=
- =?utf-8?B?SEZwcGVjcUI3OUp5YWtJUzVZbk5JRnBnY2pMekF0KzlkOHdRS2pYck5tc2li?=
- =?utf-8?B?cUtZSSt2ZHBBMW5oZ3E2NEZHcmJWbnRrV2pvL1FxRjVJWi85Q29NbUl5Y21L?=
- =?utf-8?B?SWJTSktHaHNiNHFlbkdocnNaRXJiRnJlaGh4UitpN0Fidk9TRGkzcWN6MDJ1?=
- =?utf-8?B?aUVMSWtmMmIxNGxIcWdnZDdSWGFudTI2a1QxVldTNERiOE13Z2tjSHBRK21E?=
- =?utf-8?B?dEFBWlpjMXNIM05JL2hLZVJNR0pTd0N2NCs3a2NMZk40RVlENlhHZ0syVjNn?=
- =?utf-8?B?eE1MaU9Bb0RLaUZOb3ZBbWQ5bWg4dURtcGhvcnZUSWlzR1VHcGhjQVQ2UGtF?=
- =?utf-8?B?UUFHaExOY0FuS2JXaDNpbzNVWnF2S3F2ekdlQ1JPZFN0MW5IeEw4akQwWk8z?=
- =?utf-8?B?a3ExVGJnbVJraTNNYlBVbE9TdURaYVhIRWNmL3dRbCtsSGZHZUtiUEUrSVFM?=
- =?utf-8?B?cUI0TXVDTDFrMHdRS2p2c2w5bkwvclpsM0o4aStsZGJMMHJ0enRMVDdxSFZI?=
- =?utf-8?B?RkY3M1RJejNyNEYra1ZvVjFzZUhocEpOVWlhNkw2dDJzRVZSVVBGYXZOWThB?=
- =?utf-8?B?VUtZTXZmVm9XdFRhVGtlYStFK3lGMU1SSjJycHRqbVF1Nm5MSUdjVVFwaWk1?=
- =?utf-8?B?eXBNZ00xbmpoRHlvUjd1bkRjT1hRaEJvNEhvMjgrdm5TUUhrMUF5bWFPMUlm?=
- =?utf-8?B?L1JZME9XWlBFS3FFeHNFRzExZ1FaOHpaelZqOXA3MG9wVmRTeWY5VGNhd05p?=
- =?utf-8?B?aEorM0J4WUhDcXl5Rk96YmpPaU50aGM4T0tSYlFIeEFmRlhmeHJJdGxlNzBs?=
- =?utf-8?B?TGV2UWprYnhCVXV3YkVhc3ZBRGMycElqTkk1YUxkeitNU2lJdmxiSjloSmhm?=
- =?utf-8?B?c3dyK3lhbU5RT0dYQW0rN1NnYXcvR0lCYTU4YWxEMUdPTWJ6Mzc3SThLcVp3?=
- =?utf-8?Q?SaHVPCvvERQHj?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TTYva3puUU5NM01FOXgyQnB2ZkFEaGtrZ0dhbG9Ca1NONTNPSWxoQ1BkK1cr?=
- =?utf-8?B?ZDBIMFF1M3o1cHFMVFZFQzVyQmRFRTJ6Zyt0RnN4MHdUUUV1RTRHSHk4Zmxv?=
- =?utf-8?B?eGorb3F3bjFWY3B3UTZXdzl2aHQ2VkdxZ1U3cFBNK243WGs4YnhiYTNXRFJ4?=
- =?utf-8?B?VGN4Rnk2dkx2bXVSSjlYay96b1NRMnlpNkcxWlF6bTNFaDQ2MnQ0ckFVRktw?=
- =?utf-8?B?N0txdUEyNHdwdWdlN1dIV0EvQkR5Skk0eXEwNnZwQnZmVGpGWUtLeFIvUU82?=
- =?utf-8?B?SlVURjMxY2VyeWJpano5aEE3K21IWmd6S3FXaXJwL0ZVenY0UDJSQjQ4NXpC?=
- =?utf-8?B?ZW9tOCtVWjJGUWNLZXErWGwyTzhnczZGV0YvazMvQkliaU1YbC9KUVZhT3Z2?=
- =?utf-8?B?aHE5aWpaOFNiUWdjcXRtdHgzdEh6QlJxOFZaQmcwd3Z0eUFOTDdmTkhpWTFU?=
- =?utf-8?B?UVBIYjNlVGlobVJSenduRGlyczI3MnlGdldvK0F0WjdGN1k0aGJ4OFY1ajJv?=
- =?utf-8?B?ZXJmdTFzMGtaZlBIa3UwalZleXpodW5hZDRvS213UzQyZjFacjZibDBYYlVk?=
- =?utf-8?B?L2VZMVZ1VkZRdE9pRGVzWUxzamwvSEVUbXlRR0xEQ1BXZzJPcy9VZ2NLSi9O?=
- =?utf-8?B?UUROa2FIQmx3bWdpTU04QXdkWTB1N2VreE0wTXRXVEhXdDJjaHAzdUlxMkZI?=
- =?utf-8?B?dmFtVGVLY2cxakNIaXpkWmtqYVBQS1NtdXd0V2lBMExLWm1YRmg5cStCU3dW?=
- =?utf-8?B?NHFCUGZxUktSbU9NWnNJbHJQMEs4MUc1RTR5U3FXZ29xVk1IejQ0TzdKUTlB?=
- =?utf-8?B?MlNDOE5nMXp6YTQwOThMb0dlS1pWYU9tTnkramxOaFRRaW9uekRaWUlkVUlj?=
- =?utf-8?B?VUZIOVlnVkVoOW9kNGVac0FwMmVkamx0QVYrMkNONmg0MG5ZYmFLamNYSnp4?=
- =?utf-8?B?SEQ4TnZHeFpXM0k1Mm9wSlFMMm4wZEJGeTB1MjNPK1VlRFNzTjIzdnRYM0I2?=
- =?utf-8?B?RmJZM1pFWWVXQjhSZDBxWTJIdWI3bFVablEwSVlYeERndHFoVzhnV3MyWUdT?=
- =?utf-8?B?aDF0TXlSOW1Ld0J5ZnFaTk51aEFDeTJXZDlaOGhuWEV6YkswdEo0d0pyL0ln?=
- =?utf-8?B?MUpRSlU0Qk9ibGxRcFBJcElvS0RjRWN0Wm9LVyttemwzRkJ4K3hQd2RjcTFZ?=
- =?utf-8?B?aGJ3UTEwc3RwUXZuSmdwWTdBL1dvZC9UN25UaUJvNXNNaUFvb21EQTFZVksy?=
- =?utf-8?B?TWdLUkF5NHpTTzI5ckl4TFFqVTBFa3Q4RW9vZGM5ek5qcy9QNGp6TmhXS25P?=
- =?utf-8?B?U0VEM1FSdGpkbWdnUXFNbE9MWW0waVJ0S1BoWXRKZ2orKzZKNENva2oxeFY2?=
- =?utf-8?B?dk90bXpYaTMzc0ZoajRHSzlJQllzWEI3RE1LOElGV3VaK2x1UnBvTUY5cVI5?=
- =?utf-8?B?SHF3ck82eGJmTVNEQ3A3V0toZjJlTFl5dnVBZStMd25XRURzcDUvdi81V3RV?=
- =?utf-8?B?SjBPaHZ5U1VTd0tyMGJ4bG1FcDR1TENaU2tXaDVOaktOdUMzdG50YS93TmMy?=
- =?utf-8?B?N2RqaG9PMmFzanAyVjlnTGpNbWdzeG9kMGxRaGhmWkMzSEE4VVV3NnEwZ3Iy?=
- =?utf-8?B?bTBYV3I5MFhyM1JyVUI5ZGRCK08weVNEaGxQUkZyaUNEZlZENml0TWhBeDlZ?=
- =?utf-8?B?M2N0M0NVMG5xRWxaNEdGVGVBaGNaQ0hPV29hbEo2WDRiREp1VWdPdHR2MlBj?=
- =?utf-8?B?VFNNUWVwTkFMNGN1TGZqY3VuTWxqS25OUzdTSklzL2tmbDQyeTlGK2FLRFRF?=
- =?utf-8?B?SmNPNDdqLy9NMENtcitxMHRiR2hJMTdMRXRGOEV0bTNUZURLa2RqdGxLNGQ1?=
- =?utf-8?B?OG5BS3pka2V5aFdKRnpxb2EwVGVFWVNkd0l1NHY1NkpKcUFZd2hWeG14UHkv?=
- =?utf-8?B?NzNvZ1RtZzlsSFE5MzN4TnU2SU4vaWFkSWFJSW55eEd5YmlYTWo5NjBMNkE0?=
- =?utf-8?B?QmZKekRXeC9UKzhDNU5qVHo3ZEw1WExmU1lqaW1KK1hiUklGYytza3NPKzdF?=
- =?utf-8?B?Q09HcVZVMGFMcitjUDlLNk45SmFrN1JRWDdoOU45Njg2T1o5bVlpSjk1VUIy?=
- =?utf-8?B?K3lwTTN1U1YrYS94d243enR2cEI4Y3ZCdzdubEdkZDdyeWNwd3cveW15MmJx?=
- =?utf-8?Q?wzssMeMtwQKOuSY4A6CThR9RHe21z5qUycG03r3/TmVc?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 64d96150-3cb9-4528-0e5d-08dd77313bf1
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 06:39:10.2118
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TOPfxNjdQhMmBv6OmlLpxoKu4nbHiorOR61h+jnL62tdyLXIYOdJfQ7cWa3bETOXx7Vj4nkfItGsO2BBM1FX+dNYJeLWufI9R/pRzkx2KqMuk0xQOGmny23mGOouWlm+
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR01MB7405
+User-Agent: Mozilla Thunderbird
+Subject: Re: sama5d27_wlsom1_ek : Maximum QSPI frequency
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, claudiu.beznea@tuxon.dev,
+ "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ Eugen Hristev <eugen.hristev@linaro.org>,
+ linux-mtd <linux-mtd@lists.infradead.org>
+References: <CAOMZO5DyuMv7fQbTz33MvswfDKvpWsTCSX7FGJ4T7hkMsyX-Kg@mail.gmail.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <CAOMZO5DyuMv7fQbTz33MvswfDKvpWsTCSX7FGJ4T7hkMsyX-Kg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_233915_224238_C4F98DDA 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20250408_234007_499524_4C39A82F 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,62 +104,86 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 08-04-2025 04:22 pm, Marc Zyngier wrote:
-> If running a NV guest on an ARMv8.4-NV capable system, let's
-> allocate an additional page that will be used by the hypervisor
-> to fulfill system register accesses.
+On 4/9/25 3:56 AM, Fabio Estevam wrote:
+> Hi Tudor,
+
+Hi, Fabio,
+
 > 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->   arch/arm64/kvm/nested.c | 9 +++++++++
->   arch/arm64/kvm/reset.c  | 1 +
->   2 files changed, 10 insertions(+)
+> On a sama5d27_wlsom1_ek running 6.12 or today's linux-next the QSPI
+> fails to probe:
 > 
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 4a3fc11f7ecf3..884b3e25795c4 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -55,6 +55,12 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
->   	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
->   		return -EINVAL;
->   
-> +	if (!vcpu->arch.ctxt.vncr_array)
-> +		vcpu->arch.ctxt.vncr_array = (u64 *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
-> +
-> +	if (!vcpu->arch.ctxt.vncr_array)
-> +		return -ENOMEM;
-> +
->   	/*
->   	 * Let's treat memory allocation failures as benign: If we fail to
->   	 * allocate anything, return an error and keep the allocated array
-> @@ -85,6 +91,9 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
->   		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
->   			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
->   
-> +		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
-> +		vcpu->arch.ctxt.vncr_array = NULL;
-> +
->   		return ret;
->   	}
->   
-> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-> index f82fcc614e136..965e1429b9f6e 100644
-> --- a/arch/arm64/kvm/reset.c
-> +++ b/arch/arm64/kvm/reset.c
-> @@ -158,6 +158,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
->   	if (sve_state)
->   		kvm_unshare_hyp(sve_state, sve_state + vcpu_sve_state_size(vcpu));
->   	kfree(sve_state);
-> +	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
->   	kfree(vcpu->arch.ccsidr);
->   }
->   
+>  # dmesg | grep spi
+>  spi-nor spi0.0: unrecognized JEDEC id bytes: ff ff ff ff ff ff
 
-Please feel free to add.
-Reviewed-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+It seems the read id operation fails.
 
--- 
-Thanks,
-Ganapat/GK
+>  # cat /proc/mtd
+>  dev:    size   erasesize  name
+>  #
+> 
+> If I revert your commit 417e58ea41ab ("ARM: dts: at91-sama5d27_wlsom1:
+> Set sst26vf064b SPI NOR flash at its maximum frequency") then the
+> probe succeeds:
+> 
+>  # dmesg | grep spi
+>  6 fixed-partitions partitions found on MTD device spi0
+>  Creating 6 MTD partitions on "spi0":
+>  # cat /proc/mtd
+>  dev:    size   erasesize  name
+>  mtd0: 00040000 00001000 "at91bootstrap"
+>  mtd1: 000c0000 00001000 "bootloader"
+>  mtd2: 00040000 00001000 "bootloader env redundant"
+>  mtd3: 00040000 00001000 "bootloader env"
+>  mtd4: 00080000 00001000 "device tree"
+>  mtd5: 00600000 00001000 "kernel"
+> 
+> In U-Boot, the maximum sama5d27_wlsom1_ek SPI clock is 50MHz.
+> 
+> at91-sama5d2_xplained is populated with an N25Q128A QSPI that can be
+> clocked up to 104MHz. However, its dts limits it to 80MHz.
+> 
+> at91-ama5d29_curiosity is also populated with an SST26VF064B QSPI
+> and also restrict the maximum SPI clock to 80MHz.
+> 
+> Any suggestions?
+> 
 
+It's been a while since I did that patch, it was brought to life from
+downstream by Nicolas, but I trust myself I tested it. I don't have
+access easily to the board, but I can give some hints:
+
+1/ for the jedec,spi-nor compatible one shall set the maximum frequency
+supported by the flash. Then the SPI controller will get that and use
+the min(flash-max-speed, controller-max-speed). Be aware that even if
+104MHz is passed to the controller, because of the atmel-qspi internal
+clock divider, you may set in the SPI controller a speed smaller than that.
+
+My assumption is that 80 MHz was chosen for other boards because it was
+close to what the internal clock divider can output. Even so,
+jedec,spi-nor shall specify its maximum supported frequency, it
+shouldn't care about what the controller uses in the end.
+
+U-boot and 50 MHz is a mistake. 50MHz is the read SFDP (serial flash
+discoverable parameters) jesd216 standard requirement, so maybe the
+spi-max-freq = 50 MHz comes from there. All the flashes that I've seen
+up to now support read SFDP at their max supported frequency. So what
+linux and u-boot SPI NOR does is to issue read SFDP command at the
+flash's max frequency. It worked fine. Ideally we shall introduce per
+operation frequency, but nobody worked on that.
+
+2/ I'd check the statements that I made in the commit message.
+Flash's datasheet says that:
+• High-Speed Clock Frequency:
+- 2.7V-3.6V: 104 MHz maximum
+- 2.3V-3.6V: 80 MHz maximum
+
+Is the flash operated at 3.3V on wlsom1 ek as I mentioned?
+Does increasing/decreasing of spi-cs-setup-ns help?
+
+I rely on Nicolas for further investigation. Or maybe he can add someone
+in cc that can help.
+
+Cheers,
+ta
 
