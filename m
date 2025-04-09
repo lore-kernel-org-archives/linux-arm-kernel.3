@@ -4,149 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF917C369A9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 23:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C386C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 23:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dE7Ejlxf8q0J/BZ5z6iQWNyuDuJ9jQ6ZfZCC5puf/AI=; b=Kiqu0FMH8OqLYRgtSzAqJ1DOD1
-	4+IshMMYtqMRj8vmFcEX9oK8MeiPCQtGwjAuZbviFSetIvwf+HyMt8cCzi/fCRToMtrErZIxt68Sm
-	PYGbRWv1Vi1HA+xbqFx/EHvrn5DqzsYg9QUdgUugX1PTa6TMr8Vz0Eojf7pagRyNB9cd/cosi3Ql6
-	EoOkAL3PuM/yceAjd0irYCF1HaEreixdPGlMFyvs9j3H+PkTzbs0YHJjoD8d9wz2OQQyu90EObXlJ
-	ZEhsTSePyjMqLBPH09fyYIaYoJlrZ56EJHW2rEfeG0q2M1KEBi+a88Vyb227F9z39rFpRQfJ1lk72
-	ZXTqqgJg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HY4yyxD6oHjFuxG1SolbAN8LrKw9E/46qxstJnUyq+U=; b=v3yyMBC2wJmThn9UqwNC1eZm9b
+	r2/7toGyXm4hYCb/ymQeO35V+83ksCRkDwrY1I8nVf7SUWgR4YNmJ2wP8NZp3vY1FnK5//qqHfZRq
+	MyEHwNTCKoKWhDN+3CbQIBvW9QhVUE7L4PR/xqDm2TZmgFh/beCBp2o8dzGvbcaluy67/7CCysYQm
+	Ow+vkJk5GA6jQ6oT6QS7QAG0uQI6puYOHhKNFSlXI+pu5ZMTRoZsR2BKWLSS4qmXAYOP0mVdool3P
+	fa+NvV2YDXG/C50+LDX5dHu9OiAsmiJcZdDlTO5z9h4LwdRQpdDe/2tx46BsPeeoWnExUywG+VRqK
+	vRUr+gdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ebO-00000008jxK-0Ikr;
+	id 1u2ebO-00000008jxz-46sk;
 	Wed, 09 Apr 2025 23:13:02 +0000
-Received: from mail-dbaeur03on2061c.outbound.protection.outlook.com ([2a01:111:f403:260d::61c] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2dJp-00000008dBq-2Q88
+	id 1u2dLX-00000008dTi-1l1j
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 21:50:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QPkceb0ZUMJcwr0RbfSyhIUB617IRms5b9NEsKEm5xsNHozG33pk8uBMyQNp7EkFiHT8vdPOR9M682ZXveIgnJK0CoHrCTzT258tSu3/TU1/DZYQ9Foukb1P/82uS+oluWTwW8CPPXsHPRSzfGoRR8Erc0VvT6OtPhlGyG38l3mc8n0D++ETZZFLMgZXuw+GXgJwTezWsZO0u12W8YWCZwoZ6oTziaasn4i9cG8HuL91ZLAIFbzVpzewcynSHuPKHiDm9D0BlON8cjqIIhaow99oM0JMTSZzNnA3RAj6fRadLOxhIQPhvtjRLH5CGGw+Q1rmhA9b2edFo8SwwTzaQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dE7Ejlxf8q0J/BZ5z6iQWNyuDuJ9jQ6ZfZCC5puf/AI=;
- b=g1IywOUdxgpyeWEsXczXfttGSEhE+FPQzfecjK076gD6WXKCM0eddCI+8tPjZudcdylvGI7mx7VME5VDA4rj2lx1EZg/ke01ySs9Ttv41tWMHvBB6h5w4ksBoJwFpz7ofYqI+BHBFkVW9jv+JyYp4nWEjbK/e2cXxrkp7GQSinV1z09SsyAMXf0y6PFoBhph2+CW2F6jbqrHILCRhisZkFQTxjyZeB4MnKKJRUV/fvKOx86YF8PT0tgbUlE8QWfNRaH3+W9yG5l3yBrkkkszN7NgDOuUDDZW8mIXBepbyWyPVKpUryXtmc8x4b7hbloO2d0bu27E0HGJC1dZn+eC7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dE7Ejlxf8q0J/BZ5z6iQWNyuDuJ9jQ6ZfZCC5puf/AI=;
- b=MZDRpsS3swEK6Ck2IygUq8yWvGjx7HA/ZVMnpPjM87zInrJUCfTA+79GHnWZwmB0NmchoPNlYRdsJznzbuLh8hDmyhw5xY1FJSD4UEhmd2vA/C3ID21Px2xG53bc8zusfrvblphR63douWH+6ixOgx38cqM01VGOYf1ZuGJIt9O7yCFrTzpMWdPGbPbOSSVOtXnza4QB7zSuVrxhPDUpSjDTe5ax8SZ3tK6ZfBfuCPalOtQ+cP31zRkmN6JItc6jRTzCZ/3nj/jq1MSYARAK+J4i2aczBJEMXXQGBejueH/PQdsnNhGcBhjsHfrkv9WWg5Duun/fv1iM3nk/IjpiLg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU4PR04MB10984.eurprd04.prod.outlook.com (2603:10a6:10:586::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.35; Wed, 9 Apr
- 2025 21:50:44 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8606.029; Wed, 9 Apr 2025
- 21:50:44 +0000
-Date: Wed, 9 Apr 2025 17:50:37 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: ming.qian@oss.nxp.com
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
-	mirela.rabulea@oss.nxp.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	xiahong.bao@nxp.com, eagle.zhou@nxp.com, linux-imx@nxp.com,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] media: imx-jpeg: Move mxc_jpeg_free_slot_data()
- ahead
-Message-ID: <Z/brrZN4lYDP2Djh@lizhi-Precision-Tower-5810>
-References: <20250408025725.1244-1-ming.qian@oss.nxp.com>
- <20250408025725.1244-2-ming.qian@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250408025725.1244-2-ming.qian@oss.nxp.com>
-X-ClientProxiedBy: AM0PR02CA0002.eurprd02.prod.outlook.com
- (2603:10a6:208:3e::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 09 Apr 2025 21:52:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 379BE5C4976;
+	Wed,  9 Apr 2025 21:50:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E3BD7C4CEEB;
+	Wed,  9 Apr 2025 21:52:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744235554;
+	bh=tMapkNaQp8ltazzf638sydyhIw8s6HEffDjTUKejwr4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Npw/B+DNkAP58uVwMRMsDnDCWFwsIURmrBB11VYEvtDcFT3Kx2cXGeUI14S5tApa8
+	 jMzWdUVFKAWH5Gf9YlibzMnUbFfRdEfyCETHJUIUs8RyBOtScIEKtlGsZnOUIHWxaA
+	 /vumrnN+aO0aY35FAf9Guvc/sRqxH0HmG1gidrKOSmNdYUR3wagJKqrrNbi0aqgR2c
+	 FRILcDx0pUnVeonNCtceVQ168tbrq8bvq7E2LVaYnbRqbwg1Z8diguJnNf+t7Q+XKh
+	 oM9kl1ItjFK09BI6u3IyFhogLNpMzwWRbb7C2f8tPKuBVF2tLmjPy2DYb7a9odhIHW
+	 0TkPfrA6elyQA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D2A99C369A6;
+	Wed,  9 Apr 2025 21:52:33 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Date: Wed, 09 Apr 2025 23:52:13 +0200
+Subject: [PATCH v4 2/3] spmi: add a spmi driver for Apple SoC
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10984:EE_
-X-MS-Office365-Filtering-Correlation-Id: d1994546-08f1-430f-48d6-08dd77b0942f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pVKj8XtQI0/+sN8m3g08or2fQpZ6JpkV93KHDInOfTInTdi0hLv+s/58jcgZ?=
- =?us-ascii?Q?U80qmcalkeMRmttuwhhrS17tEYTdN/3sX3AU/Ycmi+AuZ4Vwldjzw874eYtT?=
- =?us-ascii?Q?kpWiXnClBDJ+rY398jh4accwqZy5ScKPSPy3gCVVSkYEV9Sqg0fnlNiiZkGj?=
- =?us-ascii?Q?6ftwR22rhHdMv4eyf7PjRD1T84TTUxfALTDbFqbyAaVgyohDaC4UEi+B5vlZ?=
- =?us-ascii?Q?3omflteh5L7mU+Jx0/PCWUgwN1LIZ7Aj1GUpn+8GqfZ7xxoG4sCq8Tri1P5C?=
- =?us-ascii?Q?S4ONoCVJrouq2mUmQky+cJPIKRchpp2em1S3SCYWL+eAwVvX6yGa+o1AEDiF?=
- =?us-ascii?Q?iOCuSedruaLCMQQIJEKvy3dr9yg3Hw+TOtM4PvciFJ3J5CIC40VhSCnDV6PG?=
- =?us-ascii?Q?rMAHkQtPDN026VOHFzFmdAnnPiv+3UN09PLzcUnparbmuzdQ78pKwmEHC1K/?=
- =?us-ascii?Q?n0b1REUGPZ/R7hvFbm1tdn5IB53+Bh6UV8uMzKHcY6IUHmbgXnwkhHUig69t?=
- =?us-ascii?Q?YIvpijAihexO58MMYBdrFvHx31wcYhaxFgTJGQ0beW1KTZc8eg6SuZ0wiDso?=
- =?us-ascii?Q?9xzg5SjTXWX4Cd80/JQXAcCLAGGA8KkTOIqt7rAs1se0AmNG7kyeHwDGI+Is?=
- =?us-ascii?Q?ojJTRhXTAMwapMBZWRgvK73hX/yEzyW2zyLPme/oGzI68lPdgD0daYvMFlTH?=
- =?us-ascii?Q?2nKJOg/IVdBUyaXkKCEIOeUuUntF68a8R+F968SW43rrRd4E0NKYLktqYbGE?=
- =?us-ascii?Q?2e+/fxFNFc6xLDhmNcRCxVXSExf53JUumFJRj2lGTMpKvehNGKUDCM3zZlrd?=
- =?us-ascii?Q?IxEw3H0I2EOEPistKnmO92WyMzcTmjV+OlfqdXe4XgN2U7LCQeXeyFTy1yJA?=
- =?us-ascii?Q?zH5bLdROWRni9X28d/PO04cRKXgSnpR1LHhbya1MimCLZ8Iv6JGSjPdYBjh9?=
- =?us-ascii?Q?rwLyZ2eTPNesElKOq+QIR/hpWOBMY5h3msPOhUKipAaRQPsnuzX/+so8AySn?=
- =?us-ascii?Q?ByRgYCHISlme4GVwG2w4uOQpCzWd2nxs6hgqpFO1LJNqOX44sICRSw7f5F47?=
- =?us-ascii?Q?iNh2hDJ6zsZbyj4R/dSS1I+JeaShEH9z+U30jCMOp9leE+Hw9A4dJ/q47P9K?=
- =?us-ascii?Q?NONf/jURTCD5mixQHSzz7DovFlhOCUjj6E5bcGVmVqDBH7NUJ+J53o/33xkb?=
- =?us-ascii?Q?ssyoWLbhboMLjXuUec4UhNd3teL+EUPk2oB+S+Bbxqj+XKUT+TBU/fEbA22P?=
- =?us-ascii?Q?pN4mWDOrD4o3KnPtGmR4yFv5sPJhY5nniE29ObJdgQam0IhB+BsP/583f1eG?=
- =?us-ascii?Q?oHdJvwHaMX8B/ixob/5YPKmM/6p8Nnz+cRlfU59GDPjN2RVCGHMHq+5UpO9t?=
- =?us-ascii?Q?zSDC38IgK5i3e17g6XouLY70IC07w1bdR7HXY96QBuzqx98onUX0LfskkrHv?=
- =?us-ascii?Q?YBJINsAd4zz20/pmDcm5ER/Fxwr8QYh5?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KGZ2UaBNy1zGL4wTmMTix26VJFZdKpc3ObWqHXvR4Lj5YvNs66Z2Oco9blDi?=
- =?us-ascii?Q?Hck9XpyxsAd+OQ4f3oerJ8+AxB0W6GYBlCU/eyo/xItPgWZZBid8XGLrkHgn?=
- =?us-ascii?Q?oM06v6g1/VUBpPCijxoSxfAcQYSnx2gu97kyIHoPxL2yUXohMbv+tqDzvKE7?=
- =?us-ascii?Q?Si25xXj7IZwvGmyoYC5AirnayxhfAz7NSjbfaA85MWhrzYnjNVs7wXT4Y1Ik?=
- =?us-ascii?Q?n4PNMvxJngiwxbEocW9Hk8Q00HMcisZTLZG7Dv8bDhrFAJydi//eM5ZDxKtT?=
- =?us-ascii?Q?QfhljrM7pJnEIa08WH+xmbhchDArSqb5FXgQG3KA+tqjJByEaeVmA+EJZ2KG?=
- =?us-ascii?Q?hf0GurZEOND7SFQF9hfOy6q47JbkwjzZslZrFfu4KNV435Iyq9wh585GI2Wv?=
- =?us-ascii?Q?xr7+U+bca9Ic+dTxvwpNuO1uo1+Z5TEG8NKKvYxzIVFia92JV/GaOrbRFF5d?=
- =?us-ascii?Q?XW0pnNSeYXbILzv7bEcV1NkoxRlmhufqRyPJH/hpxYXsGiIQRGcZGTwWjAJJ?=
- =?us-ascii?Q?SRwjWcbMCrmKwvG+cMhXrtnOw7xqNbhwTbbwKPWxkUV/W+rFKuXdaxxkUzEc?=
- =?us-ascii?Q?y4+Of/jGMyLWAcJr6ZPOJivC88ipMPI1HeCkxD7/gErqpq23ZTXT9sVWGLUE?=
- =?us-ascii?Q?7jsFE1Rx3uuQaMf64h3s7x3HxahsxZbNe9Ppi3/rpU9KDuM082dcVdRj/GEH?=
- =?us-ascii?Q?G9vAd08CtB1SNLEsvj8OKPgMOkzvbZwqrJNJvtwN51qryMt8aQcOZYqgJXE2?=
- =?us-ascii?Q?2JE95mK612sJ/YGOPfKPxYILMV5p176xittzA8YvjOXUQxhsvimMUBvE4aue?=
- =?us-ascii?Q?M5LgpVdtyymPovuP01wq4FSpqdpi/gOPT3JWRRg1+gJYs54BSHGVtNfReWfB?=
- =?us-ascii?Q?pnRltIRO2ZaGi1G4Y0ytPUv25/Mr5x64Ss+HA9+R723b6rtQ9SP7jQj18c2R?=
- =?us-ascii?Q?f1S3SgyTHFbBS7MQalSTPI7aZoaCS80f28OntWXiMP/GIGr1Z+rDx7+vZdpB?=
- =?us-ascii?Q?BL2rPv/9cKXOaJrYmg6Lm6SrDycLKPdfzqJIt/GlDE+VGh25Eb9v5Edz9PL0?=
- =?us-ascii?Q?38MNteCh7b5DYYucT53nYGEPfhIFTF39pCmT0RUj/bGZVY1Bzm8j361ZxRer?=
- =?us-ascii?Q?BDSvKKn+dBrTpjpRaWIC22/+Kz5MNIoIXOhHQ4GhbYUPA/o3ER582LoQCLfQ?=
- =?us-ascii?Q?08cRETTaR1hQtsuaPjpwVC7LaGqlnYj9GTCPEYM4VMEd7nLvuG325fxY6sIm?=
- =?us-ascii?Q?55Xyhssh3eI6o5v4w2glNcgu+Uq33sqS+8JX7WuAMbiJtdjcb+PLKc/t3Cri?=
- =?us-ascii?Q?9fW7SFdaqvg/TYHRakq4TFnaTlnIFPcqIloT44pEvQPmwqD8bgsAVt1Pt/vm?=
- =?us-ascii?Q?hErK6o875lFT+CvG8fyxvh9/Ue05hLj10n7Fx/BHNA3HnH3z45kNzuWhloBd?=
- =?us-ascii?Q?xj12QiIrDJL92iYb2SzmxW1P9Fd/APfvzrvm7TyE/cfJCkWP8RUtexRGXyuW?=
- =?us-ascii?Q?h+/irdneoIBtjYBK/f7f4p65zyQ8dHGx235i0GtYbldTRZ2BjaR83c4sIuSZ?=
- =?us-ascii?Q?Ld2IxKeEdq6+b4TVALk=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d1994546-08f1-430f-48d6-08dd77b0942f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 21:50:44.2666
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wT+WuPXMhgW4OmjnfqBtdtAmRU5X3pgt1BVRgsq1cvFt03gZiGqU4r8Ixa80RANt/+puTolfHAoJh2f9o9tH7Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10984
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250409-spmi-v4-2-eb81ecfd1f64@gmail.com>
+References: <20250409-spmi-v4-0-eb81ecfd1f64@gmail.com>
+In-Reply-To: <20250409-spmi-v4-0-eb81ecfd1f64@gmail.com>
+To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Neal Gompa <neal@gompa.dev>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sasha Finkelstein <fnkl.kernel@gmail.com>, 
+ Jean-Francois Bortolotti <jeff@borto.fr>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744235551; l=7005;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=y7ztBnWxx1KkNiqatI7+yAmSN/osNp2F29pacyZI0ng=;
+ b=sQaOqIQSxrFUAVClscndXBEx8y0BQf4BomXth1k5aR3dau75uqmBjMy02UklTIoJwJel+U/5e
+ yS3Sz62KVyQBejv0Y6yGqlRtQbAuD+fx1ez0s8AB4glkMV8/TUDMdcv
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_145049_634113_D8755D48 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20250409_145235_559238_2F0793D5 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,101 +87,248 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 10:57:17AM +0800, ming.qian@oss.nxp.com wrote:
-> From: Ming Qian <ming.qian@oss.nxp.com>
->
-> Move function mxc_jpeg_free_slot_data() ahead of
-> mxc_jpeg_alloc_slot_data(). Then when allocation fails,
-> can call it to clean up erros accordingly.
+From: Jean-Francois Bortolotti <jeff@borto.fr>
 
-Move mxc_jpeg_free_slot_data() ahead of mxc_jpeg_alloc_slot_data(). Allow
-cleanup on allocation failure by calling mxc_jpeg_free_slot_data().
+The connected PMU contains several useful nvmem cells such as RTC offset,
+boot failure counters, reboot/shutdown selector, and a few others.
+In addition M3+ machines have their USB-PD controller connected via SPMI.
 
-No function change.
+Signed-off-by: Jean-Francois Bortolotti <jeff@borto.fr>
+Reviewed-by: Sven Peter <sven@svenpeter.dev>
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Co-developed-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+---
+ MAINTAINERS                          |   1 +
+ drivers/spmi/Kconfig                 |   8 ++
+ drivers/spmi/Makefile                |   1 +
+ drivers/spmi/spmi-apple-controller.c | 168 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 178 insertions(+)
 
->
-> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> ---
-> v3
-> - Split the moving of code into a separate patch
->
->  .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 46 +++++++++++--------
->  1 file changed, 26 insertions(+), 20 deletions(-)
->
-> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> index 0e6ee997284b..b2f7e9ad1885 100644
-> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> @@ -752,6 +752,32 @@ static int mxc_get_free_slot(struct mxc_jpeg_slot_data *slot_data)
->  	return -1;
->  }
->
-> +static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
-> +{
-> +	/* free descriptor for decoding/encoding phase */
-> +	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
-> +			  jpeg->slot_data.desc,
-> +			  jpeg->slot_data.desc_handle);
-> +	jpeg->slot_data.desc = NULL;
-> +	jpeg->slot_data.desc_handle = 0;
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5f348736ea0bbdb83fe541c872103ce4835de40b..2bf1c547bd0ab366b343260a93f04d4a9df7e078 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2302,6 +2302,7 @@ F:	drivers/pinctrl/pinctrl-apple-gpio.c
+ F:	drivers/pwm/pwm-apple.c
+ F:	drivers/soc/apple/*
+ F:	drivers/spi/spi-apple.c
++F:	drivers/spmi/spmi-apple-controller.c
+ F:	drivers/video/backlight/apple_dwi_bl.c
+ F:	drivers/watchdog/apple_wdt.c
+ F:	include/dt-bindings/interrupt-controller/apple-aic.h
+diff --git a/drivers/spmi/Kconfig b/drivers/spmi/Kconfig
+index 73780204631463631cabcbad5bf83e8dbbee94ce..9005fa91d9f4e541403ccc7bf84e0592402ac41e 100644
+--- a/drivers/spmi/Kconfig
++++ b/drivers/spmi/Kconfig
+@@ -11,6 +11,14 @@ menuconfig SPMI
+ 
+ if SPMI
+ 
++config SPMI_APPLE
++	tristate "Apple SoC SPMI Controller platform driver"
++	depends on ARCH_APPLE || COMPILE_TEST
++	help
++	  If you say yes to this option, support will be included for the
++	  SPMI controller present on many Apple SoCs, including the
++	  t8103 (M1) and t600x (M1 Pro/Max).
++
+ config SPMI_HISI3670
+ 	tristate "Hisilicon 3670 SPMI Controller"
+ 	select IRQ_DOMAIN_HIERARCHY
+diff --git a/drivers/spmi/Makefile b/drivers/spmi/Makefile
+index 7f152167bb05b2c24a0f9669f60278152898eebb..38ac635645ba65aa46cb5e8a50072ed9771e229b 100644
+--- a/drivers/spmi/Makefile
++++ b/drivers/spmi/Makefile
+@@ -4,6 +4,7 @@
+ #
+ obj-$(CONFIG_SPMI)	+= spmi.o spmi-devres.o
+ 
++obj-$(CONFIG_SPMI_APPLE)	+= spmi-apple-controller.o
+ obj-$(CONFIG_SPMI_HISI3670)	+= hisi-spmi-controller.o
+ obj-$(CONFIG_SPMI_MSM_PMIC_ARB)	+= spmi-pmic-arb.o
+ obj-$(CONFIG_SPMI_MTK_PMIF)	+= spmi-mtk-pmif.o
+diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..697b3e8bb023566f17911fc222666d84f5e14c91
+--- /dev/null
++++ b/drivers/spmi/spmi-apple-controller.c
+@@ -0,0 +1,168 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Apple SoC SPMI device driver
++ *
++ * Copyright The Asahi Linux Contributors
++ *
++ * Inspired by:
++ *		OpenBSD support Copyright (c) 2021 Mark Kettenis <kettenis@openbsd.org>
++ *		Correllium support Copyright (C) 2021 Corellium LLC
++ *		hisi-spmi-controller.c
++ *		spmi-pmic-arb.c Copyright (c) 2021, The Linux Foundation.
++ */
++
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/module.h>
++#include <linux/mod_devicetable.h>
++#include <linux/platform_device.h>
++#include <linux/spmi.h>
++
++/* SPMI Controller Registers */
++#define SPMI_STATUS_REG 0
++#define SPMI_CMD_REG 0x4
++#define SPMI_RSP_REG 0x8
++
++#define SPMI_RX_FIFO_EMPTY BIT(24)
++
++#define REG_POLL_INTERVAL_US 10000
++#define REG_POLL_TIMEOUT_US (REG_POLL_INTERVAL_US * 5)
++
++struct apple_spmi {
++	void __iomem *regs;
++};
++
++#define poll_reg(spmi, reg, val, cond) \
++	readl_poll_timeout((spmi)->regs + (reg), (val), (cond), \
++			   REG_POLL_INTERVAL_US, REG_POLL_TIMEOUT_US)
++
++static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 saddr, size_t len)
++{
++	return opc | sid << 8 | saddr << 16 | (len - 1) | (1 << 15);
++}
++
++/* Wait for Rx FIFO to have something */
++static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
++{
++	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
++	int ret;
++	u32 status;
++
++	ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
++	if (ret) {
++		dev_err(&ctrl->dev,
++			"failed to wait for RX FIFO not empty\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			 u16 saddr, u8 *buf, size_t len)
++{
++	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
++	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
++	u32 rsp;
++	size_t len_read = 0;
++	u8 i;
++	int ret;
++
++	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++
++	ret = apple_spmi_wait_rx_not_empty(ctrl);
++	if (ret)
++		return ret;
++
++	/* Discard SPMI reply status */
++	readl(spmi->regs + SPMI_RSP_REG);
++
++	/* Read SPMI data reply */
++	while (len_read < len) {
++		rsp = readl(spmi->regs + SPMI_RSP_REG);
++		i = 0;
++		while ((len_read < len) && (i < 4)) {
++			buf[len_read++] = ((0xff << (8 * i)) & rsp) >> (8 * i);
++			i += 1;
++		}
++	}
++
++	return 0;
++}
++
++static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			  u16 saddr, const u8 *buf, size_t len)
++{
++	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
++	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
++	size_t i = 0, j;
++	int ret;
++
++	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++
++	while (i < len) {
++		j = 0;
++		spmi_cmd = 0;
++		while ((j < 4) & (i < len))
++			spmi_cmd |= buf[i++] << (j++ * 8);
++
++		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++	}
++
++	ret = apple_spmi_wait_rx_not_empty(ctrl);
++	if (ret)
++		return ret;
++
++	/* Discard */
++	readl(spmi->regs + SPMI_RSP_REG);
++
++	return 0;
++}
++
++static int apple_spmi_probe(struct platform_device *pdev)
++{
++	struct apple_spmi *spmi;
++	struct spmi_controller *ctrl;
++	int ret;
++
++	ctrl = devm_spmi_controller_alloc(&pdev->dev, sizeof(*spmi));
++	if (IS_ERR(ctrl))
++		return -ENOMEM;
++
++	spmi = spmi_controller_get_drvdata(ctrl);
++
++	spmi->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(spmi->regs))
++		return PTR_ERR(spmi->regs);
++
++	ctrl->dev.of_node = pdev->dev.of_node;
++
++	ctrl->read_cmd = spmi_read_cmd;
++	ctrl->write_cmd = spmi_write_cmd;
++
++	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "spmi_controller_add failed\n");
++
++	return 0;
++}
++
++static const struct of_device_id apple_spmi_match_table[] = {
++	{ .compatible = "apple,spmi", },
++	{}
++};
++MODULE_DEVICE_TABLE(of, apple_spmi_match_table);
++
++static struct platform_driver apple_spmi_driver = {
++	.probe		= apple_spmi_probe,
++	.driver		= {
++		.name	= "apple-spmi",
++		.of_match_table = apple_spmi_match_table,
++	},
++};
++module_platform_driver(apple_spmi_driver);
++
++MODULE_AUTHOR("Jean-Francois Bortolotti <jeff@borto.fr>");
++MODULE_DESCRIPTION("Apple SoC SPMI driver");
++MODULE_LICENSE("GPL");
 
-Here is additional change. If this patch just move function, need keep
-the exact the same as original part.
+-- 
+2.49.0
 
-Frank
 
-> +
-> +	/* free descriptor for encoder configuration phase / decoder DHT */
-> +	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
-> +			  jpeg->slot_data.cfg_desc,
-> +			  jpeg->slot_data.cfg_desc_handle);
-> +	jpeg->slot_data.cfg_desc_handle = 0;
-> +	jpeg->slot_data.cfg_desc = NULL;
-> +
-> +	/* free configuration stream */
-> +	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
-> +			  jpeg->slot_data.cfg_stream_vaddr,
-> +			  jpeg->slot_data.cfg_stream_handle);
-> +	jpeg->slot_data.cfg_stream_vaddr = NULL;
-> +	jpeg->slot_data.cfg_stream_handle = 0;
-> +
-> +	jpeg->slot_data.used = false;
-> +}
-> +
->  static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
->  {
->  	struct mxc_jpeg_desc *desc;
-> @@ -798,26 +824,6 @@ static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
->  	return false;
->  }
->
-> -static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
-> -{
-> -	/* free descriptor for decoding/encoding phase */
-> -	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
-> -			  jpeg->slot_data.desc,
-> -			  jpeg->slot_data.desc_handle);
-> -
-> -	/* free descriptor for encoder configuration phase / decoder DHT */
-> -	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
-> -			  jpeg->slot_data.cfg_desc,
-> -			  jpeg->slot_data.cfg_desc_handle);
-> -
-> -	/* free configuration stream */
-> -	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
-> -			  jpeg->slot_data.cfg_stream_vaddr,
-> -			  jpeg->slot_data.cfg_stream_handle);
-> -
-> -	jpeg->slot_data.used = false;
-> -}
-> -
->  static void mxc_jpeg_check_and_set_last_buffer(struct mxc_jpeg_ctx *ctx,
->  					       struct vb2_v4l2_buffer *src_buf,
->  					       struct vb2_v4l2_buffer *dst_buf)
-> --
-> 2.43.0-rc1
->
 
