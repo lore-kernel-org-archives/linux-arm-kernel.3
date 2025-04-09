@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5BF8C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3350C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sM6plPBWAZIFYns+UdwR7yCI3bmNKDmbRwLMz5wetM0=; b=Ll7i3IuXobRERYiQNVEHEQ0skk
-	G4n8zEQ9rNdlOMaA9joEl4mIa3XuXErEyIO7G3xOZEaOQU2h0OwZKam95AFr8qstewYC80iYrWSxi
-	r9NcInrYG3Tn2sQa1q79P1KAzzjiWxr+SwuCKsYstZmvd86jvJUhRsGRddNraamidRm6wn3DOwqg6
-	RGGz6yeFrRazaGNb+bZ7tU19Jyz0TTwkG3Q3ta7yfhMWJAM6cuGt0QNl++h+B7hMLN4uzRgidRO1y
-	bjvTxko0yhUCy6KZlmWHXL/XD4gS0ylcphd7ox2uNO59Zmf/04D6I6guvx3o1ufHFikgrnjW6zvCH
-	BycuC5oQ==;
+	bh=ollXESlfLkIw+uN5g6J/HukBe6p0ozTGK2V3fCr6bus=; b=MUR1Hlxe+bNJS5COcJ62foPIFD
+	//U8qvaoEOdONvj/33bgXHMp0Kl3LbU+Ee0p3cLSpAgAUu/wZRz32Ln2lxDB2PwDqnOc0I0eG8wff
+	9NakJ3Fdfz0AigrB4+HKw629LNyr4FZykEo51ZBkMt6kqSL9DafwBdHVzUG1Y5MYjf2CSfz1m6Mg4
+	l8GODv/SSpjII/3kWZEKQRzU+tvT1Go+/weEJ68CGfi/p2m0VdAnDKq/sRpFBp6IMl2BdgncS3Kxq
+	5lz/uyAwnpJiJWM/5nQkdOt7PpmOeHEBGe4iTzbiT9kvAaXDBo4ffOZIeVQF6yf83ifJNHkxiYDaE
+	EJ/mEOlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2WVu-00000007TVj-0t7F;
-	Wed, 09 Apr 2025 14:34:50 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u2WXe-00000007TvB-3iIJ;
+	Wed, 09 Apr 2025 14:36:38 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2VhM-00000007KZ5-3UpE
+	id 1u2Vjp-00000007L6I-1PEO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 13:42:38 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 539DgOhb843577
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 9 Apr 2025 08:42:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744206144;
-	bh=sM6plPBWAZIFYns+UdwR7yCI3bmNKDmbRwLMz5wetM0=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=k2rxdcqQOD+x3sBIAqmwBGUQ5MQV++JHLYefjqBUZgyKn/dtaRffij8gXQPxvYBfb
-	 mzem86dP7HxbUn1fKhB/9c1Qje5BASc/IsLue44faC5sHnTh/OV24SNIwlxWWSx4TN
-	 Z1p9pq5u6LXhb2jA/XeBtOpQf7+VDpz0ZTW87JNs=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 539DgO9U018884
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 9 Apr 2025 08:42:24 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 9
- Apr 2025 08:42:24 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 9 Apr 2025 08:42:23 -0500
-Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 539DfZvt122297;
-	Wed, 9 Apr 2025 08:42:20 -0500
-From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-        <u-kumar1@ti.com>, Yemike Abhilash Chandra <y-abhilashchandra@ti.com>,
-        <stable@vger.kernel.org>
-Subject: [PATCH v2 7/7] arm64: dts: ti: k3-am62x: Rename I2C switch to I2C mux in OV5640 overlay
-Date: Wed, 9 Apr 2025 19:11:28 +0530
-Message-ID: <20250409134128.2098195-8-y-abhilashchandra@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
-References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
+	Wed, 09 Apr 2025 13:45:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744206309; x=1775742309;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=XRXZVaaIKpLxs1YQiTVdMowxNrf5xQjhz6daXuKTH7o=;
+  b=JWmTSkYRNN2pCg1wXqV/E/wDiOvJ+QX2mpD2SnRHwYBbcfgsn58xyv/k
+   1RrOsrrKRqmpixl/ODQHASpipEOPhOP0ROybk4k8agyPYrhE0jjqEaBFe
+   9DBwIjFTbLSibErbP3mlXNHpoDt1w3G7BmFKgLKHdg1Aw2BbQWRvB7C9P
+   pFV4nAB+zN4a7C7pljGfIvocqa1T5OWXvCTWVb8pqRQhGRv/POYlIBhTd
+   QWkNGmec3tv7UhsZ0TyMonWD3oxhuCSjT1rRBB8ssb20WOqcSHg5wrwLp
+   SGc9mNvKeFRxu9XGRvTJlhBwZhKeymFkWOSmLlASlnzY8W3bOjWWV1A/7
+   w==;
+X-CSE-ConnectionGUID: 9sohL9igTLybO2JMCYCJmQ==
+X-CSE-MsgGUID: U48zdUShSLmhfpTt3qJF9g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="56316992"
+X-IronPort-AV: E=Sophos;i="6.15,200,1739865600"; 
+   d="scan'208";a="56316992"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2025 06:45:05 -0700
+X-CSE-ConnectionGUID: Q7HdWu6oSqycABrrsRjOzQ==
+X-CSE-MsgGUID: Iwd85F9iTKGgugmgI/sJBQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,200,1739865600"; 
+   d="scan'208";a="133463845"
+Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 09 Apr 2025 06:45:01 -0700
+Received: from kbuild by b207828170a5 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u2Vjf-0008uF-10;
+	Wed, 09 Apr 2025 13:44:59 +0000
+Date: Wed, 9 Apr 2025 21:44:42 +0800
+From: kernel test robot <lkp@intel.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH 24/24] arm64: Kconfig: Enable GICv5
+Message-ID: <202504092127.YaPW3UWk-lkp@intel.com>
+References: <20250408-gicv5-host-v1-24-1f26db465f8d@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250408-gicv5-host-v1-24-1f26db465f8d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_064236_960031_4FBAD601 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20250409_064509_386030_416795F0 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,46 +97,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The OV5640 device tree overlay incorrectly defined an I2C switch instead
-of an I2C mux. According to the DT bindings, the correct terminology and
-node definition should use "i2c-mux" instead of "i2c-switch". Hence,
-update the same to avoid dtbs_check warnings.
+Hi Lorenzo,
 
-Fixes: 635ed9715194 ("arm64: dts: ti: k3-am62x: Add overlays for OV5640")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso      | 2 +-
- arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+kernel test robot noticed the following build errors:
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
-index ccc7f5e43184..7fc7c95f5cd5 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
-@@ -22,7 +22,7 @@ &main_i2c2 {
- 	#size-cells = <0>;
- 	status = "okay";
- 
--	i2c-switch@71 {
-+	i2c-mux@71 {
- 		compatible = "nxp,pca9543";
- 		#address-cells = <1>;
- 		#size-cells = <0>;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
-index 4eaf9d757dd0..b6bfdfbbdd98 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
-@@ -22,7 +22,7 @@ &main_i2c2 {
- 	#size-cells = <0>;
- 	status = "okay";
- 
--	i2c-switch@71 {
-+	i2c-mux@71 {
- 		compatible = "nxp,pca9543";
- 		#address-cells = <1>;
- 		#size-cells = <0>;
+[auto build test ERROR on 0af2f6be1b4281385b618cb86ad946eded089ac8]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Lorenzo-Pieralisi/Documentation-devicetree-bindings-Add-GICv5-DT-bindings/20250408-190630
+base:   0af2f6be1b4281385b618cb86ad946eded089ac8
+patch link:    https://lore.kernel.org/r/20250408-gicv5-host-v1-24-1f26db465f8d%40kernel.org
+patch subject: [PATCH 24/24] arm64: Kconfig: Enable GICv5
+config: arm64-randconfig-001-20250409 (https://download.01.org/0day-ci/archive/20250409/202504092127.YaPW3UWk-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 92c93f5286b9ff33f27ff694d2dc33da1c07afdd)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250409/202504092127.YaPW3UWk-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504092127.YaPW3UWk-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/irqchip/irq-gic-v5-iwb.c:298:3: error: cannot jump from this goto statement to its label
+     298 |                 goto out_free;
+         |                 ^
+   drivers/irqchip/irq-gic-v5-iwb.c:300:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
+     300 |         guard(mutex)(&its->dev_alloc_lock);
+         |         ^
+   include/linux/cleanup.h:319:15: note: expanded from macro 'guard'
+     319 |         CLASS(_name, __UNIQUE_ID(guard))
+         |                      ^
+   include/linux/compiler.h:166:29: note: expanded from macro '__UNIQUE_ID'
+     166 | #define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_, prefix), __COUNTER__)
+         |                             ^
+   include/linux/compiler_types.h:84:22: note: expanded from macro '__PASTE'
+      84 | #define __PASTE(a,b) ___PASTE(a,b)
+         |                      ^
+   include/linux/compiler_types.h:83:23: note: expanded from macro '___PASTE'
+      83 | #define ___PASTE(a,b) a##b
+         |                       ^
+   <scratch space>:82:1: note: expanded from here
+      82 | __UNIQUE_ID_guard576
+         | ^
+   drivers/irqchip/irq-gic-v5-iwb.c:288:3: error: cannot jump from this goto statement to its label
+     288 |                 goto out_free;
+         |                 ^
+   drivers/irqchip/irq-gic-v5-iwb.c:300:2: note: jump bypasses initialization of variable with __attribute__((cleanup))
+     300 |         guard(mutex)(&its->dev_alloc_lock);
+         |         ^
+   include/linux/cleanup.h:319:15: note: expanded from macro 'guard'
+     319 |         CLASS(_name, __UNIQUE_ID(guard))
+         |                      ^
+   include/linux/compiler.h:166:29: note: expanded from macro '__UNIQUE_ID'
+     166 | #define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_, prefix), __COUNTER__)
+         |                             ^
+   include/linux/compiler_types.h:84:22: note: expanded from macro '__PASTE'
+      84 | #define __PASTE(a,b) ___PASTE(a,b)
+         |                      ^
+   include/linux/compiler_types.h:83:23: note: expanded from macro '___PASTE'
+      83 | #define ___PASTE(a,b) a##b
+         |                       ^
+   <scratch space>:82:1: note: expanded from here
+      82 | __UNIQUE_ID_guard576
+         | ^
+   2 errors generated.
+
+
+vim +298 drivers/irqchip/irq-gic-v5-iwb.c
+
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  247  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  248  static struct gicv5_iwb_chip_data *
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  249  __init gicv5_iwb_init_bases(void __iomem *iwb_base,
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  250  			     struct fwnode_handle *handle,
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  251  			     struct irq_domain *parent_domain, u32 device_id)
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  252  {
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  253  	u32 nr_wires, idr0, cr0;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  254  	struct gicv5_iwb_chip_data *iwb_node;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  255  	struct msi_domain_info *msi_info;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  256  	struct gicv5_its_chip_data *its;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  257  	struct gicv5_its_dev *its_dev;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  258  	int ret;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  259  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  260  	msi_info = msi_get_domain_info(parent_domain);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  261  	its = msi_info->data;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  262  	if (!its) {
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  263  		pr_warn("IWB %pOF can't find parent ITS, bailing\n",
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  264  			to_of_node(handle));
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  265  		return ERR_PTR(-ENODEV);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  266  	}
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  267  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  268  	iwb_node = kzalloc(sizeof(*iwb_node), GFP_KERNEL);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  269  	if (!iwb_node)
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  270  		return ERR_PTR(-ENOMEM);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  271  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  272  	iwb_node->iwb_base = iwb_base;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  273  	iwb_node->device_id = device_id;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  274  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  275  	idr0 = iwb_readl(iwb_node, GICV5_IWB_IDR0);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  276  	nr_wires = (FIELD_GET(GICV5_IWB_IDR0_IW_RANGE, idr0) + 1) * 32;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  277  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  278  	iwb_node->domain = irq_domain_create_hierarchy(parent_domain, 0,
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  279  			   nr_wires, handle, &gicv5_iwb_irq_domain_ops,
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  280  			   iwb_node);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  281  	irq_domain_update_bus_token(iwb_node->domain, DOMAIN_BUS_WIRED);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  282  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  283  	cr0 = iwb_readl(iwb_node, GICV5_IWB_CR0);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  284  	if (!FIELD_GET(GICV5_IWB_CR0_IWBEN, cr0)) {
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  285  		pr_err("IWB %s must be enabled in firmware\n",
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  286  		       fwnode_get_name(handle));
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  287  		ret = -EINVAL;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  288  		goto out_free;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  289  	}
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  290  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  291  	iwb_node->nr_regs = FIELD_GET(GICV5_IWB_IDR0_IW_RANGE, idr0) + 1;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  292  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  293  	for (unsigned int n = 0; n < iwb_node->nr_regs; n++)
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  294  		iwb_writel(iwb_node, 0, GICV5_IWB_WENABLER + (sizeof(u32) * n));
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  295  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  296  	ret = gicv5_iwb_wait_for_wenabler(iwb_node);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  297  	if (ret)
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08 @298  		goto out_free;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  299  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  300  	guard(mutex)(&its->dev_alloc_lock);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  301  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  302  	its_dev = gicv5_its_alloc_device(its, roundup_pow_of_two(nr_wires),
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  303  					 device_id, true);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  304  	if (IS_ERR(its_dev)) {
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  305  		ret = -ENODEV;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  306  		goto out_free;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  307  	}
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  308  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  309  	return iwb_node;
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  310  out_free:
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  311  	irq_domain_remove(iwb_node->domain);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  312  	kfree(iwb_node);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  313  
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  314  	return ERR_PTR(ret);
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  315  }
+6b60a5125729caf Lorenzo Pieralisi 2025-04-08  316  
+
 -- 
-2.34.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
