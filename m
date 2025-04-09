@@ -4,158 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD9AC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 11:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC95EC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 11:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Zyg719+41IwB6jnSWRbXqv0hayXVw2TQyGuShVbpDM=; b=Wr6ugLaOGv0KRdXNsugoAIohbn
-	63QfCmH4Ef/8XULjHnsG6mvp7IwTmWXoCxVhJuJeqDpzqPlUIqF/Qeo1DJD+3t6Pw+AqVc7jAB2UE
-	vdvTC04DkRnHJduOrWvN4+lGzDGI8tvA6PjUcMhRv0s4h0MpdTNbSqPiIuMla7SqwSvTNiz3DDKzW
-	s1/hGRTgoiexJztHKUEL2ECrNUZPhOysXrpcWDIF5N4m4/cEZ0DevjFRY36ID7T+YEUoY5IqZWaEk
-	YR8n+ij9XfBAdeRLejlyjYXf4cnjyPx75T9NSn7LpYkeoqD+P1HLKvlPPjd1Fau7gwaMmqvQJ5gzM
-	HK+Ujkew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O9x28Y5AbjM6yYXZlQn4SlIiLCf7EY5dyHNwgSYuHwc=; b=C+SEvLLdOcNTVDVTzGB4U+qXog
+	eh2A2NeOSAOwp9WQf3/wnFFlYr/DjTNLn42iE56ZOx7DM4XKNv/7XO+mPSdpjW5R7Fl7qt+KqZoUy
+	0J/ykOyPozXLwbrZXZzp6sq5Y/eV1Kqp2YlmzXjyv7cXrZHj5k6/yBjbCfqr5XQB0UJdVaLzsPgEE
+	2pltV36TvSVF3tGRjfRINmWd1RMjxlPBN3F2kszvbuzr55tzq3shqSij4SrCDUJF1pE+DGIdMgCmZ
+	adeMlsT2P34vTyw/Is0onpzMIV8g40HU/On5THEnAIsBdY6ycTRSJsyhOXStqsViMHmxwTpxwUowW
+	eb12DQpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2TLk-00000006xDA-0UFY;
-	Wed, 09 Apr 2025 11:12:08 +0000
-Received: from mail-vi1eur05on20608.outbound.protection.outlook.com ([2a01:111:f403:2613::608] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1u2TMX-00000006xOC-2V3r;
+	Wed, 09 Apr 2025 11:12:57 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2TJw-00000006wwz-3idE
+	id 1u2SMg-00000006nLK-2giH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 11:10:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iM2cXWED99cE235Q2vs2cTk2IB57R+bVMeJ4me0KU3L/a4b0ig6VrAB3nlmwqFd2ZawSfoqqpRwYdBQohUDGIc65LgY2JVfZrK542s221a8sXALl/QxIHCcz39SWJZ2aw3ajjnKcHceclgVJ+2tPn+BhFGZubCW/Kq2gZL8LegmpBimxAJN1BubfSwyFW+Y1Z/cx6rrULHPqNXTnBysd1YvXKud5paVRNduJRYmqvRnO5HNMPcS5g986X4pUubCKZ/RSSXtw7KyEu4Qyj3AQNlnfIVSUqAXMhtYFaWgZ3x3cI+wHI96gbKkyrU4JjMhVGaNZZHCKW7zsJ4Yd0zKx6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7E9FVa0K47+HDQKIbUpJWgE89GWZbHOkNOSTh7MB87k=;
- b=H5Ek+PIZ7tXtJeRFP/81uDduNFo2MOAcogDZsTbaZi/x2YiDtreUimcMFJRdWvWoPUtolD9D/RDJNr02lS4KPMY9DP5cXm/1ih+tAUyqM0fNiD75yRgSJdCbes+qPZgrDfIwgRD2sv76kEVJoV/tbpxHyP2w5C7iZv+h75u1WmjIe/wzPjfmnfixPqfST0roqduHzzAzH6dLekc7zDT2sTTOV4yJIk7GILMlU/Qg/X0PO7x2GowWYsmu8qdVO7PpnblOGU88hojfiOryjnlk93axRgtXGF47R9W3OoP2BxluUMbM8hwDISUcxWfbqq9MNpNswTvqzB1FdH3NHnFTWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7E9FVa0K47+HDQKIbUpJWgE89GWZbHOkNOSTh7MB87k=;
- b=usdfmZLvZQTP4rW+FiXAyg59c8Ly+VGivN9bw8XX8+ZEQXsBJwVLgcLmtw3bn5VpUv2HkGAiyLuIp4w5Ia9jJKgYNkta72JjD4Sv/OV6B6PjwWMWIe2rWwkAlmcpb1r5WsrQ83M1MnbX+qFQyziw6B/n45hsox8WqQAdSOrai9cXeRCYtjo+1nHNQLzaNiT+vRofNtEiFBrQ6ot+aWb4SlhaHThWLOZRC5imaLehmx+c9leZMlW1DArobCJzEL+8Rc/VAokam1Q8+fhAe6s8tjHKx91ddpDqcTM43rFfUNN0exj+/V1Vdw1yUlctu78XKKVejAjrQAYW3CWzIrTN9g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DU4PR04MB10458.eurprd04.prod.outlook.com (2603:10a6:10:565::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Wed, 9 Apr
- 2025 11:10:05 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%6]) with mapi id 15.20.8606.033; Wed, 9 Apr 2025
- 11:10:05 +0000
-Date: Wed, 9 Apr 2025 20:18:29 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/1] dt-bindings: firmware: imx95-scmi: Allow
- linux,code for protocol@81
-Message-ID: <20250409121829.GA11949@nxa18884-linux>
-References: <20241104085622.177781-1-alexander.stein@ew.tq-group.com>
- <2003940.PYKUYFuaPT@steina-w>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2003940.PYKUYFuaPT@steina-w>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI2P153CA0007.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::8)
- To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+	Wed, 09 Apr 2025 10:09:04 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 539A8vZl945757
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 9 Apr 2025 05:08:58 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744193338;
+	bh=O9x28Y5AbjM6yYXZlQn4SlIiLCf7EY5dyHNwgSYuHwc=;
+	h=From:To:CC:Subject:Date;
+	b=mYZA6sjDV7yk/N2K3p2Mj+NGSZUryvkiZQNBCfq8W9h851Z8MyqHAEvecLgMGipDt
+	 dwE4QQUfRvV+CJHbLqELLNXf+6qkWuVlIRwoIbH2T/nYbGAOdj2pIpb2JBHOkaVfOa
+	 nYzq38olecT0krI1QidCR0ERaY+uz2pgpd9oa2gU=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 539A8vj9123149
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 9 Apr 2025 05:08:57 -0500
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 9
+ Apr 2025 05:08:57 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 9 Apr 2025 05:08:57 -0500
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 539A8rNd000485;
+	Wed, 9 Apr 2025 05:08:54 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v3] arm64: dts: ti: k3-j784s4-j742s2-evm: Add overlay to enable USB0 Type-A
+Date: Wed, 9 Apr 2025 15:38:53 +0530
+Message-ID: <20250409100853.4179934-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DU4PR04MB10458:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1d57a2d8-5517-4aa5-9491-08dd775714ba
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?5BtatGmVUWRa5GdgPhGdELDiWh6a5KhGZ8H78WQovkZ3OZCC0p8cuJr/Z5?=
- =?iso-8859-1?Q?WRo9wm4cGDfuBE9sBO+d9OXJRIFL2mKygbrPdjeEyQgX3/vOHJaW7WVd/G?=
- =?iso-8859-1?Q?Va2+ovZGWI+rytf/bmsj4Z3Km6gy+IC4nGs5UhhLO17cJ4nKW1VI7MVAId?=
- =?iso-8859-1?Q?nlpiKzUdLnU2UV8VFIX7QK1RtrTgmkT3/RCEfZF/Bjif9wASth2AkJtOqK?=
- =?iso-8859-1?Q?osX1RXyz8oCl730zb2GJm4nsNmKf7P04I7pP6iyx87qbOm2n0DNkzzvqob?=
- =?iso-8859-1?Q?5my1F6p7Fd1Y0X4dYBsCPk8ilNgcRkdSfgS0zb+yFMG8U1Z/Sf9d+nxpPL?=
- =?iso-8859-1?Q?RlmdSbq8/VBoAFZUquL+ySTy8Ykq0+iCB04lOfFL2AVZvOweO7P8G2AFgx?=
- =?iso-8859-1?Q?/VDDBnaYRMe5R+XCvecP3TIxEYELOD4u3hf85osssnaPwKmVoaEtnO1qbd?=
- =?iso-8859-1?Q?z6Z5lLLKLWtJPmSB1oT5FbwrDdspwAjCQXN8SQmDyuFSgnAYzM48oeQJGA?=
- =?iso-8859-1?Q?1n7rjfxyGFoxGeTn4ujvmysogayiXC1c70r4DtBdI63YuS8dwM+aIxzLXj?=
- =?iso-8859-1?Q?uGtukg6Z0UCDZLMgxkBj/bbNErijMJH/sNOOeT5rn+JVpZE2+Eko59TqcC?=
- =?iso-8859-1?Q?4QmXu9bIBVMwZd2oMd/MCJhcp0UT+tmFTkZX78f/Ov6wEBEV8JnwUcQnIW?=
- =?iso-8859-1?Q?XAfII0/NtArrZcJXzS9jdgHUdeLJ7B61ysYSYdZHBVI90eO/EoZiJz+wR+?=
- =?iso-8859-1?Q?QwRzr5j75ohYqlQgNzHtP+Ynv3FHu+bOdmwakoYLH9f2T6lYioyc3m/4Mr?=
- =?iso-8859-1?Q?g+fELyYdWcD1LB5ehjTub1tDJtSmfCbrn162049+gqiqWzHiohlc5k2MO+?=
- =?iso-8859-1?Q?VxDk59rMpZuYtXlQxVqyiO65eF8YwpMbYIlOKykd6bmdsm9DhI5qwY/49h?=
- =?iso-8859-1?Q?IiHSBSoUxi1OS0ba07Aia/T9lwVEzqZWIi7b4RB/vs+GYLaTkBE/u0Krhf?=
- =?iso-8859-1?Q?axqifFq9LpZN2fyYXWY1O0766PFVrC041DCmcgoOe+hrXmtN2/mCCFX/cq?=
- =?iso-8859-1?Q?M3HPVXXzlb71r6CbmG9nsDE3XQQTmtW9og6gUztEJWNxO3wpB47+mHlKyC?=
- =?iso-8859-1?Q?ILB6Ndn14n0NryBHaH7lB8uPSuyitL7bP4Y7hxk98nGDt8HK9EFMHzIVpP?=
- =?iso-8859-1?Q?tp1t9/4BUVuvBkBYsN3Q5V56p4D5HVAQkT28hlDkL/UE+U1eNyFgW9l8Fm?=
- =?iso-8859-1?Q?IWlZbaj/k5j/hbbyqBockfiR1w3+refPta77LiYgrn42CpJgjuBwl+YQzv?=
- =?iso-8859-1?Q?PtTlphp7ENLXaSCFL5FRKDRfh5OQpflGD786k6Tq7AZx1v0k3qiUFOHbXd?=
- =?iso-8859-1?Q?xn2afyLaso4tCCiJRoPbv1VYj4HUEDrIkx6FPRyEz5p/UuS25zVlORXcze?=
- =?iso-8859-1?Q?MA3NJoSAsE1pj4JvVhjKYm5BLGbI/FAIR/7ySSCOU2cz+UajlZBUX8OdNZ?=
- =?iso-8859-1?Q?Y=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?B40i31NHxMi6gF3jF3gkFVhlO0rbfHDfQaq4Sg0DAOtJjCOkj+Ah63NiuW?=
- =?iso-8859-1?Q?eNsIeTxLiHUS0ESSLZIZbhN+SaOX8EUFtw73I6bNE1594/2kTbX50gDEf2?=
- =?iso-8859-1?Q?ICl/D6yqIfeZXIV3qhxoiMUUCUDDmP5o2+EI254T+tW06jr02rk1/E3L20?=
- =?iso-8859-1?Q?YgNkWgc7/ZukUNHIZEGpxDwQ5UnJvarTM07or/X3snnUrQX+9Tvzlu6tlM?=
- =?iso-8859-1?Q?tA8dajZ3DQZiCA7vRzRMYTju/OtxACus+zso2cN35aP5StRnoh3NlRWG0I?=
- =?iso-8859-1?Q?4sBgLmvXC19h2LzW+LDEoXUxUfNKhiSbMVS2G2czA4lnWqvPWkI/+332sP?=
- =?iso-8859-1?Q?Ujn+TFNUk4Gt/+grxQcD5uck5OdOnOSwqoCvvj8Epx1iEo17hbBIEo5yuj?=
- =?iso-8859-1?Q?/H1HZVRKG0Yvd1PIq6q7hDUWWQ8622IEKUHGPaSeSut4TeA23R+Ivlf95L?=
- =?iso-8859-1?Q?ArXNZ7MCxfK0xuB7djE03BSWnqK9ZmhA/x+7yfMj8cSYVVfNzpBFwlYTa+?=
- =?iso-8859-1?Q?ovGY+qK9zdwbhl+mQ6Ioq7uYBKz7vYCBFptbbwxS87pIfjk5bCa66Cu2wN?=
- =?iso-8859-1?Q?JRvKac2D58yBH63fDIVSUJQ8Q+vFeYsi9rtu9JZjKnDwffkb33vnqFLWGi?=
- =?iso-8859-1?Q?qxcrmZwxT0/nUnYTcOODtbn8XiPZ39Hq3tSz5A1J1Cnt61MHAQCe3yIH8e?=
- =?iso-8859-1?Q?+9JV7NkFL5aEEnW9ERI5jNaIt2oX2/l7fiW1T13p969+Kz17mXfkSnH8/p?=
- =?iso-8859-1?Q?mxrw81Oqx2+xhM+1RoAQVgVuMOqpIoIEIYe+Mv6FaMHCK979CGc/9a/H4I?=
- =?iso-8859-1?Q?hS44FX4dPKS9LLWYilp/xZPjs6upMwMlGu4OV7YT+XDCAEygngx43jqj49?=
- =?iso-8859-1?Q?lrQB2A1d06sbdWO9rv78+M7gWUSzaJJOBAchMHVjUc3mZLKMhrsEOvwtrY?=
- =?iso-8859-1?Q?75gcTbSJdF5klzPGVqm/DcS1fudhJJtL8pYn3T8VogSp8Iw/eakMmJnRa4?=
- =?iso-8859-1?Q?gaX73lXjLIAnMSl+x2QD+Ly+ndRLXEqXll31oRQ6hV1HKd8jT2aueqq14l?=
- =?iso-8859-1?Q?Od2WXPYFCXuoLpZcEUzrjRWg37CckrjzsU7/m1MPC4jA55qdmj9aj0w9UW?=
- =?iso-8859-1?Q?EI66JHA2eHwk203uBzTMR4k0LvNxyjOaloED0qr+5c5jN3WMtrmZvSoHFI?=
- =?iso-8859-1?Q?EFcT9K/S2S76qWGirqlkoWD9mO0gRnyuuXL4F+ZaQKA2twrqm8NmIvm8I9?=
- =?iso-8859-1?Q?y9kbgUO2eO2f1r1VKeT6XYqjUg9R+q34ecQXQ8Iosqhij6mtFLAV0sL3B7?=
- =?iso-8859-1?Q?a7trccxtaj/Xx3Lp0cQXtpsjnbHm4wQXXovlDxutT9uOOUWxVepPkyYXO/?=
- =?iso-8859-1?Q?+tGBZdGjAiN4KMXI0OcU4YPe9ChBSUQlUuSDZEofBUMr1vooXKR5nFkUvx?=
- =?iso-8859-1?Q?8omJZGTAtPhYCW0TCDxQiV9CfjUoFBngGT757GlqFlKZYERbNqRrPrw51f?=
- =?iso-8859-1?Q?krhPksk2pNF3yueUYE+7HmYRLLSzzksRtTIhyP3DiPIuSdprS/Hp2z0Sqk?=
- =?iso-8859-1?Q?TuoxrM6+iAiMu+tDUaOw3q4leEjwRFgJSld836CxCsAB0WvFII0UHtfTCZ?=
- =?iso-8859-1?Q?g2XgGyqpoGeFMsf4GjwZVzL+NrYWKyABdz?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d57a2d8-5517-4aa5-9491-08dd775714ba
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 11:10:05.2940
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XIcdi8VJcloFnyDRXiVIm/b0zsLccvmunsGukmkHKqbvvZVxePhZcxwlZZj0Zs/f/GRBlll/negHdc5u3Skm9w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10458
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_041016_939109_57C3129B 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20250409_030902_835357_57D900BB 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,74 +84,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ SCMI maintainer, Sudeep and Cristian
+The USB0 instance of the USB controller on both the J742S2 EVM and the
+J784S4 EVM supports a single USB interface at a time among the following:
+1. USB3.1 Gen1 Type C interface
+2. Two USB2.0 Type A interfaces via an on-board USB Hub.
 
-On Wed, Apr 09, 2025 at 12:59:50PM +0200, Alexander Stein wrote:
->Hi,
->
->Am Montag, 4. November 2024, 09:56:21 CEST schrieb Alexander Stein:
->> BBM protocol supports a single power button, supported by driver
->> imx-sm-bbm-key.c. By default this is KEY_POWER, but can also be overwritten
->> using linux,code. Add a reference to this schema and add linux,code as a
->> supported property.
->> 
->> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
->
->Is there any other feedback or things to do here?
+By default, the USB3.1 Gen1 Type C interface is supported on both of the
+EVMs. Enable the USB2.0 Type A interface by configuring the USB2.0_MUX_SEL
+mux. Additionally, set the Dual-Role Mode to Host since a Type-A interface
+is only associated with the Host Mode of operation.
 
-I see Rob already gave R-b.
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
 
-Not sure this should go through Shawn's or Sudeep's tree.
+Hello,
+
+This patch is based on linux-next tagged next-20250409.
+
+v2 of this patch is at:
+https://lore.kernel.org/r/20250226124245.9856-4-s-vadapalli@ti.com/
+Changes since v2:
+- Rebased patch on next-20250409 and dropped other patches which were
+  present in the v2 series.
 
 Regards,
-Peng
+Siddharth.
 
->
->Thanks
->Alexander
->
->> ---
->> Changes in v2:
->> * Added default value
->> 
->>  .../devicetree/bindings/firmware/nxp,imx95-scmi.yaml   | 10 ++++++++--
->>  1 file changed, 8 insertions(+), 2 deletions(-)
->> 
->> diff --git a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
->> index 1a95010a546b1..c1b7140ee0098 100644
->> --- a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
->> +++ b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
->> @@ -12,13 +12,19 @@ maintainers:
->>  
->>  properties:
->>    protocol@81:
->> -    $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
->> -    unevaluatedProperties: false
->> +    type: object
->> +    allOf:
->> +      - $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
->> +      - $ref: /schemas/input/input.yaml#
->> +    additionalProperties: false
->>  
->>      properties:
->>        reg:
->>          const: 0x81
->>  
->> +      linux,code:
->> +        default: 116  # KEY_POWER
->> +
->>    protocol@84:
->>      $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
->>      unevaluatedProperties: false
->> 
->
->
->-- 
->TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
->Amtsgericht München, HRB 105018
->Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
->http://www.tq-group.com/
->
->
->
+ arch/arm64/boot/dts/ti/Makefile               |  7 +++++
+ .../ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso  | 29 +++++++++++++++++++
+ 2 files changed, 36 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso
+
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 03d4cecfc001..c7f23fbce660 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -128,6 +128,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-pcie0-pcie1-ep.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-quad-port-eth-exp1.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-usxgmii-exp1-exp2.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-j784s4-j742s2-evm-usb0-type-a.dtbo
+ 
+ # Boards with J742S2 SoC
+ dtb-$(CONFIG_ARCH_K3) += k3-j742s2-evm.dtb
+@@ -212,10 +213,14 @@ k3-j721e-sk-csi2-dual-imx219-dtbs := k3-j721e-sk.dtb \
+ 	k3-j721e-sk-csi2-dual-imx219.dtbo
+ k3-j721s2-evm-pcie1-ep-dtbs := k3-j721s2-common-proc-board.dtb \
+ 	k3-j721s2-evm-pcie1-ep.dtbo
++k3-j742s2-evm-usb0-type-a-dtbs := k3-j742s2-evm.dtb \
++	k3-j784s4-j742s2-evm-usb0-type-a.dtbo
+ k3-j784s4-evm-pcie0-pcie1-ep-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-evm-pcie0-pcie1-ep.dtbo
+ k3-j784s4-evm-quad-port-eth-exp1-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-evm-quad-port-eth-exp1.dtbo
++k3-j784s4-evm-usb0-type-a-dtbs := k3-j784s4-evm.dtb \
++	k3-j784s4-j742s2-evm-usb0-type-a.dtbo
+ k3-j784s4-evm-usxgmii-exp1-exp2-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-evm-usxgmii-exp1-exp2.dtbo
+ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+@@ -246,8 +251,10 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-j721e-evm-pcie1-ep.dtb \
+ 	k3-j721e-sk-csi2-dual-imx219.dtb \
+ 	k3-j721s2-evm-pcie1-ep.dtb \
++	k3-j742s2-evm-usb0-type-a.dtb \
+ 	k3-j784s4-evm-pcie0-pcie1-ep.dtb \
+ 	k3-j784s4-evm-quad-port-eth-exp1.dtb \
++	k3-j784s4-evm-usb0-type-a.dtb \
+ 	k3-j784s4-evm-usxgmii-exp1-exp2.dtb
+ 
+ # Enable support for device-tree overlays
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso
+new file mode 100644
+index 000000000000..ba15d72d86d6
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-usb0-type-a.dtso
+@@ -0,0 +1,29 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/**
++ * DT Overlay for enabling USB0 instance of USB on J784S4 and J742S2 EVMs for
++ * Host Mode of operation with the Type-A Connector.
++ *
++ * J784S4 EVM Product Link: https://www.ti.com/tool/J784S4XEVM
++ * J742S2 EVM Product Link: https://www.ti.com/tool/J742S2XH01EVM
++ *
++ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++
++&exp2 {
++	p12-hog {
++		/* P12 - USB2.0_MUX_SEL */
++		gpio-hog;
++		gpios = <12 GPIO_ACTIVE_HIGH>;
++		output-high;
++		line-name = "USB2.0_MUX_SEL";
++	};
++};
++
++&usb0 {
++	dr_mode = "host";
++};
+-- 
+2.34.1
+
 
