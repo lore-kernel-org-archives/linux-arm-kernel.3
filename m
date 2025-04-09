@@ -4,63 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3239C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 01:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E4EBC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 01:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:CC:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WNVwdXPj/1B40o8xTHzuDKtJ6KL1jH9nAfC27tC0/44=; b=D9H9BtJgL/4xcPH97AMg56WXAY
-	zefLkPraSa8kW2LeWFRAP6ksHodLQHEUpFAjS5kiDUD97+npwWmwCznM70Wg+jsMVPclecNEEjyS/
-	E8oolHjwt0MqzCJP7NMfPT+QKPt3pTjFJxMiNfNVZiL4oDxj5tv1wSFLThufhHFtq6LXMZrYZkR+n
-	PsguX4GTP4XP5180OFXZ/1nMKu9QbtK34kymeIhZ7rkSF5TIeeH100youKwyL3v4ZNeR/OdXCa7i9
-	mLZNr7rTszP1GFu9H7NsXwKUaEgORWCWtfc/onM7utaEgRD4/OuD6CLKvxremNs1kDMJ1opZcGGjn
-	4Nx7yEGQ==;
+	MIME-Version:Content-Type:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aQ15qGlUaptB7o2KXAcGTjz0KUPJ/e9c4/mMMMjkWT0=; b=WepsVVv+wmAva/8dP1OtRvc9Jc
+	FtP+jQgRaxLW80xAWD9ozdBxLtcic6+W7V/dwUss01m5OPAatRnLo2WCdq5fYCmn88yu4Qq+ULI3l
+	wWFpFuDvk1mqo1p/vfDQkngm0K5WgqjRL3R2dBxOA1QPCeWrMC7p4IoHEn3B5vKIkdEn8CYzWKh0q
+	E6Y4bQSaadf1YYE7f9AtXKP5Y5NtU8onVz4b4qj7j5Kc1js9GjgVTL7tSvNnfbsAWi/u1BroDO+ph
+	2DWdt8ih9BHlPjXoI12WSvVLJEaKVUPGm1dSDjafdsYsUiVw1QWCpUNW8gyY2Q4H1lXJN/jNqtd+V
+	83PFTmBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2JxT-00000005pIs-1fBx;
-	Wed, 09 Apr 2025 01:10:27 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1u2KVF-00000005s34-2d5W;
+	Wed, 09 Apr 2025 01:45:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Jvf-00000005p8l-3ZjQ
+	id 1u2KTR-00000005rZ6-0ulM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 01:08:38 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4ZXPqc1cGWz5vMX;
-	Wed,  9 Apr 2025 09:04:44 +0800 (CST)
-Received: from kwepemg100017.china.huawei.com (unknown [7.202.181.58])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2BCDE1402C4;
-	Wed,  9 Apr 2025 09:08:29 +0800 (CST)
-Received: from [10.174.178.114] (10.174.178.114) by
- kwepemg100017.china.huawei.com (7.202.181.58) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 9 Apr 2025 09:08:27 +0800
-Message-ID: <be0dac24-8a04-436a-85c7-4d0780903fbf@huawei.com>
-Date: Wed, 9 Apr 2025 09:08:27 +0800
+	Wed, 09 Apr 2025 01:43:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1744163007;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=aQ15qGlUaptB7o2KXAcGTjz0KUPJ/e9c4/mMMMjkWT0=;
+	b=QbR060xgVP+aYZjO1MyUo/iWWZzLuP+9zpnrATKzPzGoXWkLV+Q/pDDujvAbI7R8xgqkuk
+	wBcz62eKtWat7jcdh48YnlxrAUt174vTS2/+PhAnXSrdCYzuQ5OhwErkgTJTObagluaJWv
+	RdRyYCJfJJeNlKxcHX2U9CBcHpZiKsM=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-22-BxhD3ttkMn6I5gCM8qizgw-1; Tue,
+ 08 Apr 2025 21:41:55 -0400
+X-MC-Unique: BxhD3ttkMn6I5gCM8qizgw-1
+X-Mimecast-MFC-AGG-ID: BxhD3ttkMn6I5gCM8qizgw_1744162908
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 67A651800259;
+	Wed,  9 Apr 2025 01:41:45 +0000 (UTC)
+Received: from starship.lan (unknown [10.22.65.191])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 22646180175B;
+	Wed,  9 Apr 2025 01:41:37 +0000 (UTC)
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: kvm@vger.kernel.org
+Cc: Alexander Potapenko <glider@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	kvm-riscv@lists.infradead.org,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	Waiman Long <longman@redhat.com>,
+	x86@kernel.org,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Sebastian Ott <sebott@redhat.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Will Deacon <will@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sean Christopherson <seanjc@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Maxim Levitsky <mlevitsk@redhat.com>,
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: [PATCH v2 0/4] KVM: extract lock_all_vcpus/unlock_all_vcpus
+Date: Tue,  8 Apr 2025 21:41:32 -0400
+Message-Id: <20250409014136.2816971-1-mlevitsk@redhat.com>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-CC: <mawupeng1@huawei.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<ryan.roberts@arm.com>, <anshuman.khandual@arm.com>,
-	<akpm@linux-foundation.org>, <peterx@redhat.com>, <joey.gouly@arm.com>,
-	<yangyicong@hisilicon.com>, <ioworker0@gmail.com>, <baohua@kernel.org>,
-	<jack@suse.cz>, <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] arm64: dax: add devmap check for pmd_trans_huge
-To: <apopple@nvidia.com>
-References: <20250408085914.1946183-1-mawupeng1@huawei.com>
- <qzqanugi6qbbucxp2fn2456t4n7q4lj2enhzf4z767jpcbgacu@37cowlipfmgo>
-From: mawupeng <mawupeng1@huawei.com>
-In-Reply-To: <qzqanugi6qbbucxp2fn2456t4n7q4lj2enhzf4z767jpcbgacu@37cowlipfmgo>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.114]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemg100017.china.huawei.com (7.202.181.58)
+Content-Transfer-Encoding: quoted-printable
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_180836_773161_F728BC30 
-X-CRM114-Status: GOOD (  23.81  )
+X-CRM114-CacheID: sfid-20250408_184329_367696_CE6A6CF0 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,102 +117,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/4/9 7:05, Alistair Popple wrote:
-> On Tue, Apr 08, 2025 at 04:59:14PM +0800, Wupeng Ma wrote:
->> During our test in ext4 dax linux-v5.10 on arm64. A BUG_ON is trigger in
->> follow_invalidate_pte as follow since this pmd is seem as pmd_trans_huge.
->> However this page is really a dax-pmds rather than a pmd trans huge.
->>
->> Call trace is shown as follow:
->>
->>   ------------[ cut here ]------------
->>   kernel BUG at mm/memory.c:5185!
->>   CPU: 0 PID: 150 Comm: kworker/u8:10 Not tainted 5.10.0-01678-g1e62aad66bbc-dirty #36
-> 
-> This is an old kernel, and I couldn't correlate the line number of the BUG_ON()
-> probably because you have patches applied. But I assume this is the VM_BUG_ON()
-> in follow_invalidate_pte()? Does this issue reproduce on more recent kernel
-
-Yes.
-
-> versions (eg. v6.13)? Or some other upstream kernel version?
-
-Since Commit 06083a0921fd ("dax: fix missing writeprotect the pte entry"),
-the same issue can not be trigger in the same call trace. However the same
-issue may still exist in current kernel.
-
-> 
->>   pc : follow_invalidate_pte+0xdc/0x5e0
->>   lr : follow_invalidate_pte+0xc4/0x5e0
->>   sp : ffffa00012997110
->>   Call trace:
->>    follow_invalidate_pte+0xdc/0x5e0
->>    dax_entry_mkclean+0x250/0x870
->>    dax_writeback_one+0xac/0x380
->>    dax_writeback_mapping_range+0x22c/0x704
->>    ext4_dax_writepages+0x234/0x6e4
->>    do_writepages+0xc8/0x1c0
->>    __writeback_single_inode+0xb8/0x560
->>    writeback_sb_inodes+0x344/0x7a0
->>    wb_writeback+0x1f8/0x6b0
->>    wb_do_writeback+0x194/0x3cc
->>    wb_workfn+0x14c/0x590
->>    process_one_work+0x470/0xa30
->>    worker_thread+0xac/0x510
->>    kthread+0x1e0/0x220
->>    ret_from_fork+0x10/0x18
->>   ---[ end trace 0f479050bd4b1818 ]---
->>   Kernel panic - not syncing: Oops - BUG: Fatal exception
->>   ---[ end Kernel panic - not syncing: Oops - BUG: Fatal exception ]---
->>
->> Commit 5c7fb56e5e3f ("mm, dax: dax-pmd vs thp-pmd vs hugetlbfs-pmd") and
->> commit 36b78402d97a ("powerpc/hash64/devmap: Use H_PAGE_THP_HUGE when
->> setting up huge devmap PTE entries") already check pmd_devmap during
->> checking pmd_trans_huge. Since pmd_devmap() is used to distinguish dax-pmds,
->> add the same check for arm64 to fix this problem.
-> 
-> That seems correct to me. In practice most callers of pmd_trans_huge() that can
-> see a dax-pmd already check for it explicitly with vma_is_dax(), but there are a
-> few cases that don't.
-> 
->> Add PTE_DEVMAP in pte_modify as commit 4628a64591e6 ("mm: Preserve
->> _PAGE_DEVMAP across mprotect() calls") does to avoid the same issue in
->> mprotect.
->>
->> Fixes: 73b20c84d42d ("arm64: mm: implement pte_devmap support")
->> Signed-off-by: Wupeng Ma <mawupeng1@huawei.com>
->> ---
->>  arch/arm64/include/asm/pgtable.h | 5 +++--
->>  1 file changed, 3 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index d3b538be1500b..b9a618127c01b 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -740,7 +740,7 @@ static inline int pmd_trans_huge(pmd_t pmd)
->>  	 * as a table, so force the valid bit for the comparison.
->>  	 */
->>  	return pmd_val(pmd) && pmd_present(pmd) &&
->> -	       !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
->> +	       !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID)) && !pmd_devmap(pmd);
->>  }
->>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->>  
->> @@ -1186,7 +1186,8 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
->>  	 */
->>  	const pteval_t mask = PTE_USER | PTE_PXN | PTE_UXN | PTE_RDONLY |
->>  			      PTE_PRESENT_INVALID | PTE_VALID | PTE_WRITE |
->> -			      PTE_GP | PTE_ATTRINDX_MASK | PTE_PO_IDX_MASK;
->> +			      PTE_GP | PTE_ATTRINDX_MASK | PTE_PO_IDX_MASK |
->> +			      PTE_DEVMAP;
->>  
->>  	/* preserve the hardware dirty information */
->>  	if (pte_hw_dirty(pte))
->> -- 
->> 2.43.0
->>
->>
+Implement Paolo's suggestion of reusing=0D
+sev_lock/unlock_vcpus_for_migration in arm and riscv code=0D
+for the purpose of taking vcpu->mutex of all vcpus of a VM.=0D
+=0D
+Because sev_lock/unlock_vcpus_for_migration already have a workaround=0D
+for lockdep max lock depth, this fixes the lockdep warnings on arm=0D
+which were the inspiration for this refactoring.=0D
+=0D
+This patch series was only compile tested on all 3 architectures.=0D
+=0D
+V2: added trylock option to kvm_lock_all_vcpus to be better compatible=0D
+with the orginal code.=0D
+=0D
+Best regards,=0D
+	Maxim Levitsky=0D
+=0D
+Maxim Levitsky (4):=0D
+  locking/mutex: implement mutex_trylock_nested=0D
+  KVM: x86: move sev_lock/unlock_vcpus_for_migration to kvm_main.c=0D
+  KVM: arm64: switch to using kvm_lock/unlock_all_vcpus=0D
+  RISC-V: KVM: switch to kvm_lock/unlock_all_vcpus=0D
+=0D
+ arch/arm64/include/asm/kvm_host.h     |  3 --=0D
+ arch/arm64/kvm/arch_timer.c           |  4 +-=0D
+ arch/arm64/kvm/arm.c                  | 43 ----------------=0D
+ arch/arm64/kvm/vgic/vgic-init.c       |  4 +-=0D
+ arch/arm64/kvm/vgic/vgic-its.c        |  8 +--=0D
+ arch/arm64/kvm/vgic/vgic-kvm-device.c | 12 ++---=0D
+ arch/riscv/kvm/aia_device.c           | 34 +------------=0D
+ arch/x86/kvm/svm/sev.c                | 65 ++----------------------=0D
+ include/linux/kvm_host.h              |  6 +++=0D
+ include/linux/mutex.h                 |  8 +++=0D
+ kernel/locking/mutex.c                | 14 ++++--=0D
+ virt/kvm/kvm_main.c                   | 71 +++++++++++++++++++++++++++=0D
+ 12 files changed, 116 insertions(+), 156 deletions(-)=0D
+=0D
+-- =0D
+2.26.3=0D
+=0D
 
 
