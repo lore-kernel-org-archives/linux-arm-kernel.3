@@ -4,174 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE78C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 06:18:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43BDC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 06:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fk6L7QqEvJ0JoNUKpQGTzYniBYcYpSIPGTAFXEe8lBQ=; b=ad6lh9vOzy8gLTG2sHMGJFFEmP
-	uzAnYrAipRjneqeygm81KxDm+wNzpF9SJ3zM+jOws3xivuGNur69s3+Z4lQs9pr+A22Ca61w1Gzo0
-	CC1KLxduhotchOcviqG4q4rplnCg1LAO3SwjPryAfw8OByZfzSSHxKI4H0Zq+K9YnUxV/xMu+0ydS
-	/8aOzDM6NNR7xNySk+C//5jTZvqclmhzxRx3Be0A9+npqoPCWokTSFa5ALo8Nim+hrwH+1ZOBKXsy
-	Pw1js2mZ5D+hm8Neg6p3X8eXKyCBsEqIcEfftqzo4crTKqBXWtBnFg8cSvzSTlbPOwRXCbaSZp/5l
-	9cLpcVTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xPFx8UgUAY0xlIDn/x5aIYb1lovd1B9jsWSk1FiXXns=; b=jT5A7e8bf1nxTfmn92rT5sXrSl
+	cZK/kn6teLAcPKqGJNGwO5tM66EE3wruh6x0uiXPfcHMnrtFgU6bL5q4i3UMmydp2lnc++7gaTMhA
+	7utsxUyg1nTwoivRT7EZUovIVi6EvuPvbJtGbuJScs+F0kMUeC3vlMDgllbQWc3Ld4BrMUeAOGsA4
+	YkyrQGbMsoIV50404a4FAmSO7pOxzNGa2nQDrNjfg/WtpNUN9KLNQER96sCkaJyXPD0ARzWPkBLyd
+	DKgvyvipOMzjEN0PQsqqZSpHWMFapr0jKk5NlmcYVa/wm/gUCQ0xL3lEGA9j8U4bIJ9nB0ObDNbCk
+	kjUXjAEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Olf-00000006GSI-0YbS;
-	Wed, 09 Apr 2025 06:18:35 +0000
-Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1u2Ood-00000006Gpe-1KyQ;
+	Wed, 09 Apr 2025 06:21:39 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Oi8-00000006Fda-2vHh
+	id 1u2Omq-00000006Gel-0BJJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 06:14:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tRxckq2eHYv2czdYNV7egL7YMLRUX1gp+eqyjSb4E/oPsXwgJAC+uNREOhIxmSqtWlu3yMw/5kPDV9l3zz3dr7U1EbyqposSYr9m+vd60GNwiYVdIzhL/BCgCHPkeQs67Bhm/BcMdlvBka2RsfJf5ZuUFqAgPGJUS6D32sMMc9RvRrq2CmX3iIfbBVnW4AnigaJgKV6LsgFTp57GfYYAOE6jU44VsbdkMKXl7w6vGMom/3i4N/N5SsQ/6Jz2iGS5YRocNuRBumZMhCrhtdlaeaI6UvswHot22QFO08ghPzt08U9FqJY0NYHIJzDgX6KAuDAxYZkfsBlYdPC2ciq1Xw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Fk6L7QqEvJ0JoNUKpQGTzYniBYcYpSIPGTAFXEe8lBQ=;
- b=xxdHvy93cfLBedEsrXGSA5Klagy6qk77gwi+KPHwkOQGIpI1gywa4aYejhV66H+sNtUJrf5hMEC8lxk3RUNfuvu4BCJfDIYHjzo8qdayjEsLeSNzZwtIYE1Ab7mDUlkenfWEXg/6K8eeitFmMY1ZwkVk1muZFcEujl7IAOA5n91Upbj7gzNvFr/Nx3Cjt8vIOKaYZzHVGt/HJHTRmaN8Y+c58u1uR9hvGIysKUlIx/ztWo2sKw0M57BaIGdEnlGl37Ac/S/62Mu9JzeBZd6TLwWaMnzQKmMVIZXDVZ+26UaJ3MMevm3K458FkROhSF2ja5J+v4sXdN7CIXOn19oeeA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Fk6L7QqEvJ0JoNUKpQGTzYniBYcYpSIPGTAFXEe8lBQ=;
- b=C1ZmlKYhOigHEPzKlq9U0CQTcr+voxXl53LfxS+KTN8NRY4PssAqgaPkEO8RA+NHkNhT6uOiT2g30G2bC7QEytT+6pAUgPGkDEgnuLfpVx3M+1m9X/xb/iYCehqwEANDnABRk7YYvKUngxOyjWjC/MLyaon0Yhjd42x8/ym+e2CbfLS73vzQ/SumNwSiyoVaWFOWW8KOwrHFzTstJdx92hoKr130cYrNCL0vkWHen8DZ1yyCHpAel/WJlYZPLCHJ4OLWuSl+KV4fL70aqtDa5+aAJ6mIPrN7caGg1fnOrmuGMyapix6FA+y/tNRaDXVMTLqdaCpW4HVF4YxDds2Rmw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
- by VI1PR04MB6864.eurprd04.prod.outlook.com (2603:10a6:803:138::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Wed, 9 Apr
- 2025 06:14:54 +0000
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827%6]) with mapi id 15.20.8606.033; Wed, 9 Apr 2025
- 06:14:54 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-Date: Wed, 09 Apr 2025 17:07:47 +0530
-Subject: [PATCH v16 6/7] arm64: dts: imx8ulp: add secure enclave node
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250409-imx-se-if-v16-6-5394e5f3417e@nxp.com>
-References: <20250409-imx-se-if-v16-0-5394e5f3417e@nxp.com>
-In-Reply-To: <20250409-imx-se-if-v16-0-5394e5f3417e@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744198674; l=1416;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=b5EN1vvCgfqjlHT+5VH7c4yGnSmxvujde1lZ5PK9oOE=;
- b=2P+7DqE/b3BacRkIsPGPAA1k0N+dVswGYKKP6dBAEvuscYvrWJoAWEOHg4W+NszLw85YqvQ5v
- 1oo8g+uwBsADKFBkMLV7rdHCzIM/hTI0QvcncO4jrVSCqOKuug2efH9
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SI2PR01CA0052.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::11) To AM9PR04MB8604.eurprd04.prod.outlook.com
- (2603:10a6:20b:43b::21)
+	Wed, 09 Apr 2025 06:19:49 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-549967c72bcso7814252e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 23:19:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1744179586; x=1744784386; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xPFx8UgUAY0xlIDn/x5aIYb1lovd1B9jsWSk1FiXXns=;
+        b=PIwlUrjzSMhEGxKh/QXu9XUbe6lwYmX/9oycvx94itGqXx7/LxWF+JDACHMeZPvlEQ
+         tBthxITb2bDN6HeRWGwOV5a/Sl5FNAhsKgwib8OUJoproGv+m9zEZD8M5Xdmqr9FuRiN
+         EPk/+nLCUNYhAPNPkPDyxWt+SKv14/EhERynE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744179586; x=1744784386;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xPFx8UgUAY0xlIDn/x5aIYb1lovd1B9jsWSk1FiXXns=;
+        b=kNmUCBBCY+xqXsGPtP6JW4x+PaDrdLkBpAZFG4JkTWmdYf4TJLNcuOA61sD1LmS1LV
+         bcQOdgHfK6NMWV4yLkoJy0P1K8LArbI5M1fmw04mEWFOFkgvxpHPzN0PH6Ph9I2CfyIR
+         ktNfN9OEVyo7lsjEYQD/fyiF6a3qWU5IVz4LHHeGhPuXdZzPXXjmjHCqDk72yNKI1JqW
+         6DNxHAWyg51aZBc4wrI7Q0OFzjfuPKIT3FAoFDm64i//4/qG95Qc9M/uLg7fFkKi0oWq
+         E29fGorZ7TuB4NVUd6QBHnMZK1Us65a4igb/bScQAmjtGaY7SqCY8C6R56YUcd3FeGtX
+         u7hw==
+X-Forwarded-Encrypted: i=1; AJvYcCV0APbMofk7J2bR9SB+weA+BGBmpm0ovEZPgDfHLvYBw9hnHhvpFikEVsHKG5nD9o+u4ORvrGPOfmEP9FNHjHj+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGcDP9X4wne+UB0/KMJT7HAhq17gVqfZFAAMhDL34HsoSczbz8
+	PRPdgu0q7OepAJu0gidy3WATTeVd+zi3dz7iNEPI5hbQUMAMQpUvSFO8A4NOMx9X5VYMMNz+Y0X
+	R27XP+ffZqtIdSsPWYI3yZRl47pfVMpLsmDKP
+X-Gm-Gg: ASbGnct+jLWjX/BI3ymtyy7zJUPUvCnqQkrsYk3hZzQSc0htdKNYmycbOnXlEybp88U
+	SljktgVuILCUg9mgZN6f8GhnH1/marhLY2VKCbZHhWx7Fbl33n+EVWLtsPrv1X24iZD6SEu+6oP
+	vxzaUJVM+O9SPe2ogGXhylaQapU/Bj2/D7bdn56+x2w/kbBQeTCw==
+X-Google-Smtp-Source: AGHT+IF6USYpAM9lg3k8+AOqxfZjq6iN1XgABgZ7lN+hrkpyKB/hsy6JujD3QodyEr1gyD8+wAk4r3Qa2Kqqw1r74QQ=
+X-Received: by 2002:a05:6512:1103:b0:545:49d:5474 with SMTP id
+ 2adb3069b0e04-54c4370f307mr358171e87.20.1744179585702; Tue, 08 Apr 2025
+ 23:19:45 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8604:EE_|VI1PR04MB6864:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2c5fe1cf-b055-4947-6f5b-08dd772dd874
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?R29KS0FkeStCY00vNDl1bWVDYnAzdWM3OHV2aVZkNHhyY08rM2czVnlKUm11?=
- =?utf-8?B?T2x3Q2wyMis4cEljTHp3a093eEZ5UlZJb29Pb0VBTkRxQTJWaFYzMnZDQnh0?=
- =?utf-8?B?a2haNlo3MFJGQXFpajh5cXNhcWFtblEzNDM3V3N1UVpIN2tYaDgwK3JOUXNZ?=
- =?utf-8?B?cnpNak85aDI5cGVWQXhPTFBYY3loR1ArSXp1aG1ycEsveGxnK2FXTHJJV3oy?=
- =?utf-8?B?b2tJN0IvU0VNdDA1RFlJZCsxQ0tOblFJdUo3cWRVWjRqUTQrZFVCT0pTVWY3?=
- =?utf-8?B?OGJEK2QwWmoxT2sxSUFRVDkzVk9FZnI3bktaZE9xd0I1VkQrMlVuNTBLSHFP?=
- =?utf-8?B?TmR3OUpqcllIamN3bzlvL2NkSkRicHRLV0hxWnlWWXplTmJ5Yy8vTTA5UjI5?=
- =?utf-8?B?SG9kL3RLVW5mdWNPd3k3RWIxNGoxZmlJRFhnRFhNNEpJdFFycUxXTjEwRFE0?=
- =?utf-8?B?VlpieS9IVHV5Rm5INkJnT1V5TjFqeDJvNW1wai9zaGF3ZWR2c2RJNFc2QWlt?=
- =?utf-8?B?QnJEeERlTTRWdEcrcTNWOFpjVGxYbnI4eDAxMlFJZjJYNEliNFpTTS9zU2pR?=
- =?utf-8?B?NDJHQlRydi9pM0Rnb2toRStPVlM4dlNmb1FHeTVmTDYvTUh2TEJxMVZpZlo3?=
- =?utf-8?B?MkJJa0o4L3JiVCtXZlZDeFJpbFFZRE5XZ3hEZE51Nk9KTXFKVllkbHhSdkpw?=
- =?utf-8?B?RmR4anJJVVRVUzFDdzZYV3JBaktlSkRmYTNmOVFVNDVxY0ZKdFUxTjJSdnNT?=
- =?utf-8?B?WEQ0ekV0aG80TEltcmFYbDhuOGhLQ2RLZm9wVGJqdkppbGk3NlJQazhvdzFo?=
- =?utf-8?B?d29OVDl0UGtyRTRONmJVMXJNWlpxeDVkRU1Rejc2UStRTkozcVYyUzRFOExw?=
- =?utf-8?B?N2t6a1VmVmlHVTVpc3RvYnhmNGc1V1hXOU90VTkxMTBNZW9keFFINCtBVUFu?=
- =?utf-8?B?TWozaGQrcUUxUmVLaEh0bTNtb1Y1NXVjVDhpVENqKzJqanpjdWlOZzgwWDIv?=
- =?utf-8?B?NEh2dE41bnFUR0hTQThITFpub1BwVG1WTWordE9RM1pRb3E0OXRDWWlpQnJW?=
- =?utf-8?B?bWFrZ1lCaTU4MDlGd0JZOG9IOUFZc0YwMkxDVWs3bXg0WStKNHRwQjRYVEgw?=
- =?utf-8?B?RVpYb2haRWxDR0JXWG90dllpTjBtSU51VVJCMmkzVkxMVEgrQjdRcXc5NFdV?=
- =?utf-8?B?VXVWNCtaazkzREhKVDlQWWh5ZFdpbDhqdDlwVVV4enJFTHBQRHBhQjNYTVg1?=
- =?utf-8?B?eE4yMDFQbEx3QTd0b1gyVVM0L2JUbk5Vd3NGUGlVOE5nQWJzV3IwWVRDQTZB?=
- =?utf-8?B?VUpySWhaU1V5RkN6YS9tRDJ6dG0rYmwxNVdVQjRzZ3NyQjRFUU1CMGRwTTZi?=
- =?utf-8?B?dUJaSzZGRVpOQ2xJWHRLeUgvTE1BZkhOeFNlTXZXZWs0cnY5UnUrUFVxQWtW?=
- =?utf-8?B?MS8yVUZDMmxCc1lCR29Ua3lrNU9zR2taaW9zR2t6d2xYQkFzdnlLZGJtUUJs?=
- =?utf-8?B?NElOZER3di90SG5zcTNQNXpWc2x6bS9FSjE2Qmw3b1BZR2t3a3ZSWjd6dC9y?=
- =?utf-8?B?SEY2UU1Jc3lBVWJCYnA5L0hvdWtoVjh0UysvQjBXQWNEWkt3b0xQcDYzNlpU?=
- =?utf-8?B?d1U1ak8vaXRUSW9KWFgzTUszdWhWMDI2TUJrcWVrdnFraE9oMHhMR0dqTFpq?=
- =?utf-8?B?RTJMRTdrdkwxZHNqZk1pTWZoVXZLK2pEL0YwZ1NJaXRKamV1OUw3NHEvdTZV?=
- =?utf-8?B?Y2dBRG0vREFEa0hTTlRQMGhxZmhDTlZia204c0U2QXRwS210NXRqZ21wQlkr?=
- =?utf-8?B?d0tiZ0poSjdpYnZ6TTRuYTVCRk43VHJONnAybkpVcCtaWisvUlBEbVI0R3pj?=
- =?utf-8?B?ZEtBRUpHLzh6SFh6Z0NGZVVLa0Y5VkkwZzFoeXRackJZRi8vbUkreXR0VVBS?=
- =?utf-8?Q?SuoHYC3r4DLiwnepOdHaYsSj1XlfeGQi?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Zm5ZRVk4UnBVTy9pampZcFo2OUpDcUdhaEY0c0QvbitlRUh3aWJzMlU1WVhq?=
- =?utf-8?B?N2dnaFVCOTFtV2JMR0d1VVlQT0xCRXE0aWtHUHZ1eExHZ25BWnRQcm5sa3lu?=
- =?utf-8?B?bGZ6eElDeHVCZXA4NTVJOThPek1jVlcwTlBPUGdVSkxJeVRnelNnNjRiS1My?=
- =?utf-8?B?NWJmTm8wdmI0eDQyVHREamFYelY4ZDlhVGVYNEJGM1RCRkhZbFpqcmlKa3Aw?=
- =?utf-8?B?NW5zRU9TWkZMUjk2K0ltbncwb0NOdWx1Vkp4c3hOVWFwQWRrZ3VHQ0tPRGNv?=
- =?utf-8?B?eU1FWG1jaGVkVE14bll1dFN4bHkvSTRsdUsrdjEyR2pGb0pmZ09GRkVEQ0k4?=
- =?utf-8?B?elVNbUpSM0FadFVkZGlRdDZkejR5STZBOU9VZXVQZkJoa0RaaEp2SFloZDZH?=
- =?utf-8?B?R2RpK2MrU0tkSkRMR1NCdGw5Mng2aytMWTlOVU5OV0FDOHVVYXlNaW5keUxv?=
- =?utf-8?B?azhBWHlUQzA0ZmVWdGpvYXl4TkpuclN2ZSsyNkJlRkxZcG4ybUdmMlB0RDBW?=
- =?utf-8?B?UUgydkxyeng3QjFpQzhnd3UzeDhhZ3JMZUFIZ0gxOEtUL0xzbmVzSllqVnFq?=
- =?utf-8?B?U2VjdU9CWnVQT3hzemU4djNsaXVJbWY3TGJEbEtoajZwRm1BYnBhYTE3RUlC?=
- =?utf-8?B?RXVrakJhaFVlQnF5Y2ZDUVhyYnZZVXltY1RSWG5YZFBSUTRNTURmbWxOR0Qz?=
- =?utf-8?B?UzFmYzEyK2pIZjZkQ0N3VUJqcjVhUHRpS2ttM1Q1K280c3FpZ01BTnZHQXdq?=
- =?utf-8?B?UGVRRXliZUliZFhYQWIyY05CODZkRVNZS1ljZFFTbjlzbmYyWnBmdzNwQi81?=
- =?utf-8?B?UVNRd3hFeEpWTERIQUFSQTZpb29kNWpnRFVWaFo3ajZLOVE2bTdUMzU5ck1o?=
- =?utf-8?B?QkpqeE5GYWNkams0WDFkRStlaTNLRWwzV3VhdkpXMkh4c0N4eCtEdVJ3aVFh?=
- =?utf-8?B?dHg3aTVEaVlqWWRtNlNiRTNCZHQ0MEFHZzdNb0dmaTdCVkJVeTc1Rzg1NGZS?=
- =?utf-8?B?b21FVmtUc2gzUlY5bVBvdy8rNksvcnkwVFN3c2N5QUhJalZvSzUxRFBidWhK?=
- =?utf-8?B?V0ZIaWJBbkFqMVVmMEloU05OZkNIN1pxZWZKL00rdWQ5QXk4dDlYSHJzYkQv?=
- =?utf-8?B?TE52Q3gxOTIwcEx1alQwZjNTckNvUHc5T01aVUJBY05SSk11SG1xLzAxbjBO?=
- =?utf-8?B?RlEybnp1THJWNWp5cEZ6eThrM1FLOFFsb2tIaHF6NlF6N0FlVGI3YXhnUVM3?=
- =?utf-8?B?UWJNZERaY25qMURadXJ4RGJTT3NEVXFlUHBUL2FEM3BQVWszZmVEMnRMb1l1?=
- =?utf-8?B?aHZEWVJzNWVMTFFEbDNCcnpOTWlSQjM0TTA0SHp4NUNCeUdMUGZMcjB5TE1p?=
- =?utf-8?B?S0x2WXJ6WUYzaEdWYmdJa0QwSlpFU3dKTW9zeDlyRDIwUXpEczJldkxBMWtF?=
- =?utf-8?B?NHBuWW00aUFZOFB6V3d4dmREczVzbTFEbVRKNUJNbzV0ZmRWL2NFSVhpNUti?=
- =?utf-8?B?bGxYS2pOdkxsNG9PQit4SEROeG8zTm9GN3EyOUpsa0pLVm45MFoxVll2UGdH?=
- =?utf-8?B?M0wxRkFVdERCZnhjc3ZrejRaRWJvV0l4MnNCZGtUT3R3ajNTVFdZS0Q0Qmp0?=
- =?utf-8?B?Y3NPcG1lQTdCdjVRVEtxb1RWNFFZQWs4bkFibUVvTXNrV0c4eHVrNkVyT1hs?=
- =?utf-8?B?OENaeHBhdkt5Zkd2VXczQ3RjanVJbDc2QXE5R1g1VTZQWTh3NlJVaDQ0OW9Z?=
- =?utf-8?B?NExLTmpsRWh4WThyZ2FkQSthNnU2dFZxbXM1ZTE4UWZtd0U3LytHdXY3K25p?=
- =?utf-8?B?U0RQcS80Q0trbldFYzJjVFNrOFBnNU9lYUR0VzVKeGNFTG9tY0xUZWVDMVVw?=
- =?utf-8?B?REx4bUN3dG9lZStaRTBvU1pQSW5UUGlYYzVZK2h0UWpLR1M3RmpXam5GaTNh?=
- =?utf-8?B?NUt4N0N1RXEzNlBIeWlhL3FjcVU5SDd4Z0thRW5aMzlJK0laMkw0Yk9pU1hQ?=
- =?utf-8?B?d1VGY2hGendPNVh2YVZ2anFtOWEzY3hCbnkwRiszNjJJaGwydWZRYkV5eUNW?=
- =?utf-8?B?ckZPS09ZYVpUd2JFdWMwYUJkNVVPOXlxM0xleDFHb2pkUGlzMEE4RG9ydVRI?=
- =?utf-8?Q?p2DwH2OKZjNk/RfJkiiaRcgVX?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2c5fe1cf-b055-4947-6f5b-08dd772dd874
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 06:14:54.6398
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Y/nKyrEb7aY05V9eW9nC22BQcmVbJbYYXKsn6MyWns6g1SJboVLI70JfaKiDAnbd5YXZkRG0n5n6Wu9u+gv37Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6864
+References: <20250403110915.75322-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250403110915.75322-1-angelogioacchino.delregno@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 9 Apr 2025 14:19:34 +0800
+X-Gm-Features: ATxdqUGA8j7J3cMwwhvKkgHKxtLogzcNaUx9TtG6kN-tP3TulVKQHf_ux6bE6j8
+Message-ID: <CAGXv+5G8kUg87+JzuCW5sZKHTBA3-CnwSFdrucn_k1rgcpJHOg@mail.gmail.com>
+Subject: Re: [PATCH] drm/mediatek: mtk_dp: Fix hdmi codec and phy driver unregistration
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, matthias.bgg@gmail.com, nancy.lin@mediatek.com, 
+	ck.hu@mediatek.com, djkurtz@chromium.org, littlecvr@chromium.org, 
+	bibby.hsieh@mediatek.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_231456_740977_6F057260 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20250408_231948_207432_5FDD2901 
+X-CRM114-Status: GOOD (  25.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,58 +95,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for NXP secure enclave called EdgeLock Enclave firmware (se-fw)
-for imx8ulp-evk.
+On Thu, Apr 3, 2025 at 7:09=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> During probe, this driver is registering two platform devices: one
+> for the HDMI Codec driver and one for the DisplayPort PHY driver.
+>
+> In the probe function, none of the error cases are unregistering
+> any of the two platform devices and this may cause registration
+> of multiple instances of those in case this driver returns one or
+> more probe deferral(s) in the "wrong" spots.
+>
+> In order to fix this, add devm actions to unregister those and
+> remove the manual calls to platform_device_unregister in the
+> mtk_dp_remove() function, as those would otherwise be redundant.
+>
+> Fixes: e71a8ebbe086 ("drm/mediatek: dp: Audio support for MT8195")
+> Fixes: caf2ae486742 ("drm/mediatek: dp: Add support for embedded DisplayP=
+ort aux-bus")
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> ---
+>  drivers/gpu/drm/mediatek/mtk_dp.c | 30 ++++++++++++++++++++++++++----
+>  1 file changed, 26 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek=
+/mtk_dp.c
+> index 3d4648d2e15f..3eb685a46d99 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_dp.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+> @@ -2648,6 +2648,13 @@ static const struct hdmi_codec_ops mtk_dp_audio_co=
+dec_ops =3D {
+>         .hook_plugged_cb =3D mtk_dp_audio_hook_plugged_cb,
+>  };
+>
+> +static void mtk_dp_unregister_pdevs(void *data)
+> +{
+> +       struct platform_device *ext_pdev =3D data;
+> +
+> +       platform_device_unregister(ext_pdev);
+> +}
+> +
+>  static int mtk_dp_register_audio_driver(struct device *dev)
+>  {
+>         struct mtk_dp *mtk_dp =3D dev_get_drvdata(dev);
+> @@ -2658,18 +2665,29 @@ static int mtk_dp_register_audio_driver(struct de=
+vice *dev)
+>                 .data =3D mtk_dp,
+>                 .no_capture_mute =3D 1,
+>         };
+> +       int ret;
+>
+>         mtk_dp->audio_pdev =3D platform_device_register_data(dev,
+>                                                            HDMI_CODEC_DRV=
+_NAME,
+>                                                            PLATFORM_DEVID=
+_AUTO,
+>                                                            &codec_data,
+>                                                            sizeof(codec_d=
+ata));
+> -       return PTR_ERR_OR_ZERO(mtk_dp->audio_pdev);
+> +       if (IS_ERR(mtk_dp->audio_pdev))
+> +               return PTR_ERR(mtk_dp->audio_pdev);
+> +
+> +       ret =3D devm_add_action_or_reset(dev, mtk_dp_unregister_pdevs, mt=
+k_dp->phy_dev);
 
-Add label sram0 for sram@2201f000 and add secure-enclave node
+Wrong platform device given here. You want audio_pdev instead.
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
 
-changes from v15 to v16
-- commit message body is wrapped arround 75.
+Having briefly looked at this driver, I think it needs more cleanup. :o
 
-Note: copied the change logs for v14 to v15, to cover letter.
----
- arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-index 2562a35286c2..05db47668b7e 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
- 
- #include <dt-bindings/clock/imx8ulp-clock.h>
-@@ -154,7 +154,7 @@ sosc: clock-sosc {
- 		#clock-cells = <0>;
- 	};
- 
--	sram@2201f000 {
-+	sram0: sram@2201f000 {
- 		compatible = "mmio-sram";
- 		reg = <0x0 0x2201f000 0x0 0x1000>;
- 
-@@ -186,6 +186,13 @@ scmi_sensor: protocol@15 {
- 				#thermal-sensor-cells = <1>;
- 			};
- 		};
-+
-+		hsm0: secure-enclave {
-+			 compatible = "fsl,imx8ulp-se-ele-hsm";
-+			 mbox-names = "tx", "rx";
-+			 mboxes = <&s4muap 0 0>, <&s4muap 1 0>;
-+			 sram = <&sram0>;
-+		 };
- 	};
- 
- 	cm33: remoteproc-cm33 {
+ChenYu
 
--- 
-2.43.0
-
+> +       if (ret) {
+> +               platform_device_unregister(mtk_dp->audio_pdev);
+> +               return dev_err_probe(dev, ret,
+> +                                    "Failed to add codec unregister devm=
+ action");
+> +       }
+> +       return 0;
+>  }
+>
+>  static int mtk_dp_register_phy(struct mtk_dp *mtk_dp)
+>  {
+>         struct device *dev =3D mtk_dp->dev;
+> +       int ret;
+>
+>         mtk_dp->phy_dev =3D platform_device_register_data(dev, "mediatek-=
+dp-phy",
+>                                                         PLATFORM_DEVID_AU=
+TO,
+> @@ -2679,6 +2697,13 @@ static int mtk_dp_register_phy(struct mtk_dp *mtk_=
+dp)
+>                 return dev_err_probe(dev, PTR_ERR(mtk_dp->phy_dev),
+>                                      "Failed to create device mediatek-dp=
+-phy\n");
+>
+> +       ret =3D devm_add_action_or_reset(dev, mtk_dp_unregister_pdevs, mt=
+k_dp->phy_dev);
+> +       if (ret) {
+> +               platform_device_unregister(mtk_dp->phy_dev);
+> +               return dev_err_probe(dev, ret,
+> +                                    "Failed to add phy unregister devm a=
+ction");
+> +       }
+> +
+>         mtk_dp_get_calibration_data(mtk_dp);
+>
+>         mtk_dp->phy =3D devm_phy_get(&mtk_dp->phy_dev->dev, "dp");
+> @@ -2848,9 +2873,6 @@ static void mtk_dp_remove(struct platform_device *p=
+dev)
+>         pm_runtime_disable(&pdev->dev);
+>         if (mtk_dp->data->bridge_type !=3D DRM_MODE_CONNECTOR_eDP)
+>                 del_timer_sync(&mtk_dp->debounce_timer);
+> -       platform_device_unregister(mtk_dp->phy_dev);
+> -       if (mtk_dp->audio_pdev)
+> -               platform_device_unregister(mtk_dp->audio_pdev);
+>  }
+>
+>  #ifdef CONFIG_PM_SLEEP
+> --
+> 2.48.1
+>
 
