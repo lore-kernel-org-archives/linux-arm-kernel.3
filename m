@@ -4,82 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0719C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70530C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W+rzVntm5p2Upg2kRDHuwQQd262xO4O+7g2Yr15egZc=; b=LTIML+rRpNy/xZK3bFnE49QZWB
-	5+aqEl5J8U+gJPWbQkET10YAXEe6BjlDVDxhJKJRTk8SFQP2TfFZCzXQM4kkutNr/hfa7F/6zM0SD
-	kfESsLDGyK7uFzncGnSjXwAoXIvyKKeY4+b8rz8/VQAUyi8UrOMDibjCoN4mE1SFnpwsbk7LvSp92
-	xX1+8Kf2NxZhy+96nMlu9q2YuH4A/nUgCXQ0qvy7cCI4BBGKIojjT0pNqjdHMZW8XljmGUEBsOdR7
-	ZNg3ayHn0PErhlu6TDhiZR6voVZL8xvqiPGrmSC9t/pNdJh8G8Bf3rb6Ru2i74nJ7zhROsOfrkFBw
-	hfwTt8bQ==;
+	bh=dUw+jU74cJsaVH4d80pif1Y0IVb4Mcv9ya38QnS46+s=; b=TTggJFuBxP1byG4T/WLMTkJ9+z
+	gEQFGswe6ziRdYP84vfmUZKZEQcidDpBhtmC54K3Np/kUBJ4NDlEqFt9otmPN0FBTnUwhBKln7eaH
+	xW0cTqqK0+K8cinCnCuiUoo3krr5QbC9W35yDf/X2MpfEsAVkpVamEjur5tSYgZUEEHLw8azICEV3
+	j3lviPWUqZxtlYYutIVm6eWSnog+8KHcM6bFs+R2hcaayeOYGIzt2z2dNWyl7OTEC3sSYpaRzx1Uf
+	/NlQRUdSlELSm6ICVctdgrKKkCMVx/BQYHRkz1wMtG6BVu7sueQ7Pqj7XNTUnDM6it6SX1ir4UZoD
+	LrOULF/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2YJs-00000007tMR-26Cs;
-	Wed, 09 Apr 2025 16:30:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u2YLc-00000007taf-1sW6;
+	Wed, 09 Apr 2025 16:32:20 +0000
+Received: from mail-am0eur02on20601.outbound.protection.outlook.com ([2a01:111:f403:2606::601] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Y9T-00000007re1-17ys;
-	Wed, 09 Apr 2025 16:19:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 668755C0E69;
-	Wed,  9 Apr 2025 16:17:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6114CC4CEE7;
-	Wed,  9 Apr 2025 16:19:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744215586;
-	bh=O547vvi8wN4fNcefZC+j8pm7sBawXkTtl7ULJh5r69Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VztxvMqXxrpm841YCPlRs5HxRWtyQCzteRRbsExjaVh5HQZx45QxpYyiLBSJuv3X2
-	 MN7vgPzgclauypOQrUuLMro0cb2A0r82+RdvOdFbdWLfEEJnlIKYXhzyYcrWqjWDQY
-	 Q2bNXiFlR1BufsnZpfyjBbXsf215Q3IWHCFYnUYB2UaCy9B+xsxoGFnRP/J8guSrrR
-	 tE+UzMvqzhuoQsiyE/Fb8/shQw2OD0K6GR+ygi9Kvnxt8ywUgCPvZUdDJ+rdXobs4P
-	 AmIZmTueujQ0kDezDalKcjSW/fDLL+xKB1kEOBg1cCPtZwRGJQ0wI8e45idxGkET1w
-	 JGcNybozD2e9A==
-Date: Wed, 9 Apr 2025 19:19:30 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Pratyush Yadav <ptyadav@amazon.de>,
-	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <Z_aeEn7hKqGOG3Cf@kernel.org>
-References: <Z-_kSXrHWU5Bf3sV@kernel.org>
- <20250404143031.GB1336818@nvidia.com>
- <Z_KnovvW7F2ZyzhX@kernel.org>
- <20250407141626.GB1557073@nvidia.com>
- <Z_P92UCbNCV0TbiA@kernel.org>
- <20250407170305.GI1557073@nvidia.com>
- <Z_Y4k4rDO-BbMjqs@kernel.org>
- <20250409125630.GI1778492@nvidia.com>
- <Z_Z8-BLWMkiWpaDY@kernel.org>
- <20250409153714.GK1778492@nvidia.com>
+	id 1u2YGM-00000007sjm-3Mu4;
+	Wed, 09 Apr 2025 16:26:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p54TNEg1zUfrj+II1+VRUeAjXIaafuiXoD4ysAJGkcehGHkw2tw8ODCi62Qd8cFiiTdFLIWPtRpPQkel/sIk5cTjVVh/l0X4iVB3Z0R3EahfsUv8OFCJm82aS6OOTQJoTWEboA1ZXOkQj1H+8aybLp2z+is0RQZ8UlhaSmiJWXCR+P9uE1tDFvlCG++zUnFpalEGQAVZnfseIUnL3YziiGsBgC6ocQA16kQT4AKH2YP0cFh/CAZgMHBdrZjlt6MQaSOBF38K/ls5bCniyHFveaUepFuKIqzbcTDT0kypEe7mn9i8xM0w6VckceN6KwkGEpkhV/TB1gj2KQXvx0+18g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dUw+jU74cJsaVH4d80pif1Y0IVb4Mcv9ya38QnS46+s=;
+ b=r9Y9DFKuE/XxC3IfI5xNkzJF+NFZ0X78jf9EdAotGK4XmtFMs+sx1F3qtHhRYTA9AHd+vZqsPejdqT7bcBq0vIYjoUDjtzkmVRWpp/uJA6xzeckzkIk2nJcL4vnD7RBFZK2ZSv/H5HxgSK1dqSmifIIDG+nbPs98LNiK9X2RGoIOPELkhofnE41sWqtuhI+wKAkOhex97eXBDD/J3NPUeJgQvOK5oeAaNYAMGVtbu+wAFTJUPoPzfOiYgMmq9g8tk6LeMZO0pvssonvj12TPjdyNKMakLRLVUwkdkIkpc+mhJtlKtzxT6skH9sJfylXlNO8OxFIF7j88URF0ycmdJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dUw+jU74cJsaVH4d80pif1Y0IVb4Mcv9ya38QnS46+s=;
+ b=SmVhTG3ZcaeyV0dElTy7ZFsavwLG8p/BgyP0tVOjZJ3TzBpEhPWkcxTLRKBD1WKeSpOF/DuLJNXtnrDApmpYSjwse5HlFrchQAoFuIR+FpLiveuzKqH/2f0oERGtelMLehX4I33kH6qtaWyghAWTBCubrDelOE3NOdJXKT5bTzc=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by AS8PR04MB7815.eurprd04.prod.outlook.com (2603:10a6:20b:28a::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Wed, 9 Apr
+ 2025 16:26:45 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8606.033; Wed, 9 Apr 2025
+ 16:26:45 +0000
+Message-ID: <cc49276b-f64f-42a8-b4b4-61bde17b61e3@cherry.de>
+Date: Wed, 9 Apr 2025 18:26:43 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] dt-bindings: usb: cypress,hx3: Add support for all
+ variants
+To: Conor Dooley <conor@kernel.org>,
+ =?UTF-8?Q?=C5=81ukasz_Czechowski?= <lukasz.czechowski@thaumatec.com>
+Cc: Matthias Kaehlcke <mka@chromium.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Benjamin Bara <benjamin.bara@skidata.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Klaus Goger <klaus.goger@theobroma-systems.com>, linux-usb@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
+ <20250326-onboard_usb_dev-v1-2-a4b0a5d1b32c@thaumatec.com>
+ <20250326-fanatic-onion-5f6bf8ec97e3@spud>
+ <CABd623tEGh=qtpF0h7PkRBBrR7V9EaxUv9HregqbPcLU_2Exbg@mail.gmail.com>
+ <20250409-commend-brewing-7c541aec26a9@spud>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20250409-commend-brewing-7c541aec26a9@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR0P281CA0270.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b5::16) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250409153714.GK1778492@nvidia.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AS8PR04MB7815:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3d6b4b00-33f5-42d4-23e6-08dd77835176
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|13003099007|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cjRqZmovVHhYbFI2VTRrb3NXQ0lSaDlvK3B6QVE2am9vQnNWclVmdC9sWWQy?=
+ =?utf-8?B?OWszdEp2ZkViUkFrbUVzRDNoeTRnTW1uYUllNzB3NGlvSlBOa1FiR3Zpdm9E?=
+ =?utf-8?B?VXZneCsvbWVaM1ZWQmtHSmh1UEhXQTVhTnJyeExwZ2lVRnp1cnZmSUNjWWgy?=
+ =?utf-8?B?T0RWYk8vL2VWKzAxMEJtaEhDNExKM3laa0EyRVhlVlNtVmc5ZmszSnpJN0x3?=
+ =?utf-8?B?MVF6emxFMlp2MHc3dE1nNXJjSk5QcjZhdEQwVUZuUTBGRVJxTjcvYnJxVTFX?=
+ =?utf-8?B?Wk92RzJxMmVVdlFTaTAxck9PcmNmZ2pkQ1MwZGYzMHFuSXg0MVVaY0tyeExm?=
+ =?utf-8?B?T255ell5NFI0akVLVkY5SWZGUlQvODd4cHFSQ3NsaE5ob3FZTGJWdUdEY21S?=
+ =?utf-8?B?NHBCYXpvUnEydWY3dDRVdkJrWG5QcHRGV0U1R0JnazNJOGVURHBjOVRpa2JK?=
+ =?utf-8?B?dW1hNGNNQ2xhZGE5T0duNnMrZ0VjT1BadGtxVUs0Zy9WekdNVm1hWEJrRyt6?=
+ =?utf-8?B?TzQ1b2psVUlKVEM3azJicVBRR0VwSisxNmFSMURrUUJZVUlqWnhVTEZnNStj?=
+ =?utf-8?B?YlIraXZzUG04MGdTQXFDRDI0VlR3MTliaVY2NThXUDZYbnFuS29tQzEyUGxh?=
+ =?utf-8?B?c25HUXU4L2xabTRxZzd5bGs2L3dhNEFEV0ZLSDFEY1B3Y0Npb0tHL3QvTUZl?=
+ =?utf-8?B?OFp4M0NZeHh5RHAydGhiNFM0eE13RG04NTkzNnNwcEg1aTdmSGpvREFCZ0RX?=
+ =?utf-8?B?VkRUYmtVZEpuUURTRlpQUDRmbXBHWXlBV1VGNXpxK3dXaGYycXBMeHVnY1pW?=
+ =?utf-8?B?RUJaMFY2bjVpckIveDZIYnErZERPcnBSQmZzekpwRkEwQUlURjBRWUdFWHlh?=
+ =?utf-8?B?ZmRYOTVGc3kxazNnMUVRRVhTL243cU5rbEtJOVozNDByRGtDOEViS1JGejFF?=
+ =?utf-8?B?Z0JyMFhINHhXVExuM3lIb0Q3ZHVmanl1QWVmaHFQYjcrdEdkVFBzWXRjUFFm?=
+ =?utf-8?B?UnJVTGhwQnpZY28zOWdZbGIzSVpZczZBMGcyU2ZlQ1p3U3FDbkpvY3hUMmNQ?=
+ =?utf-8?B?UXZuQkRvWnR4ZXp2WEk5M1NzN1o3bHpOZGhWdFcwTDNnblBkUUpGa3lTb1JW?=
+ =?utf-8?B?c2dybjBFbkFvSWZnanYyUmxoWEt2Q2J1WmJzWWlrRmdjSFBaNEE5N05FQzE2?=
+ =?utf-8?B?UmdDSFRRY1piWHo3NEpMdGUwdkx2WVZXTTVCMU1vQ2k5Qzc0T1MvU3VIZFBC?=
+ =?utf-8?B?NnpKNTllNWVtRlpWOFVYYzc1bDBSd1Uvd3hPZC9HWXJQMXFBUkY5N1hZMDlh?=
+ =?utf-8?B?Q2pTVjBMdE5sTWp0RHU4TW81ZXVsaUlFdXpPWHUvWTVVWDlXOEJZSVJBbnZj?=
+ =?utf-8?B?Yk5Eczczb1dGSzdNcHRhaHlQb0k0T1FPaUprS0JvUnBWa29lRU0zVEZKZGpT?=
+ =?utf-8?B?QytJb1dJeXN2T3hUcXpqZzJ4NFJDUnVKcGI2N21aUXE3em9OaW1uMlRQMVZ3?=
+ =?utf-8?B?R3VRbmxvU28zeUxjTVF6S1l2MGdEM3ZlQVhMM05PZm9IMWN0eDk0RmtwaENU?=
+ =?utf-8?B?b1BTa25sSWZ3Z3NiSlVjWE1UMllzeW5YaWZlM2o2cGltUDlMbTVlQnZLMnFx?=
+ =?utf-8?B?WTdhdGk2Qmc2RlRyd1Y1SHdXRVVmSklZUDBnanduSWpub3RMRzNKOHpXaW9m?=
+ =?utf-8?B?Z3NyeTBRZTY1dWdVb1VubzNyaWk5NEw5ems1eEd4TjdlRE1jd2VacXdvSEpD?=
+ =?utf-8?B?TU1BdEwzTnE3bThtZnJFQTM1OWJpUG12dU5ZaERKNEc3T1BLcXY3UlVXTnQz?=
+ =?utf-8?Q?GK89hVQ5ti+mMOMX2E5PKSmPf2XkVzZ471yG0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(13003099007)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eWtKVHBxdzNTMUVpMURTNVduQnh3SmZUNEcxekNuUkszWjVHMkVYbXUvYTZZ?=
+ =?utf-8?B?UkIvd1VRNkdZV2phdERtZ0JYQ2NDWmNqWmp0cVJRNFBXbGJBaG9NTm04cFlI?=
+ =?utf-8?B?UVhPaG1HNDNrYVd0MHY2aDRZM3dqVWptK3EreEdvc0Q2TWVoK1BsUjUxdDVP?=
+ =?utf-8?B?VnlvVitmdlp3TzhJTmZzL3lLa0JOaWwxMUFRWDJ5Z2taTmN5bm84VkgyM2w2?=
+ =?utf-8?B?M0lpdThEbjd5YmV2VXl5SFJ3LzVwTHF3Rk1sMitZSFFqTG82YzU5MEFBVTBk?=
+ =?utf-8?B?M0luRFgxOVVNTGNoY0NrUmRmYkVzcTlmVHpQR2JZT1pReXNZeXNuTTcvVVg0?=
+ =?utf-8?B?WThTdVZzbDI0SUhkcnZMcjY2RU5sSlpBWWQwajZTMWVIejB5SUFUU0l3TWFE?=
+ =?utf-8?B?R1htU1pML3d3NmozWnBiMTBCM1NJU01FNWU3aWdFTG5EVFZQVE84ekZNQThR?=
+ =?utf-8?B?ZGUrT3paNWJncnNtaWlYY1NHR25yT3NjL1NaYXhFcDFVMnVHOUdZWVUwNDhT?=
+ =?utf-8?B?OFB6ZmR1U2tDM1d5UUtUUzBrOHo0Z0R6T0I5dW4zT2tOaC92YllhWGVzV3Zt?=
+ =?utf-8?B?Y3lLempjQ3Z4YjBSRG9QNWVPZ0ZGditYSWlPQ0NoK2N3YXVDMlhKUytQMUx1?=
+ =?utf-8?B?Zlg0MWo0eGdWMWIvdlZxMk9hRmtRWHNXY0tSamttM3ZOWG4rMDlpN3EvS1p5?=
+ =?utf-8?B?K2xEL2hvVXRvR1pISzMvcXlEY28zc1ZldkhlZ01wVUY2cDVSR0RzL2hEZjNz?=
+ =?utf-8?B?WFFYbEswMlBhWjltK2ZwY2lXMERWU1VENnNmOHRvWGQwSEh1bjRCUVlsTlM4?=
+ =?utf-8?B?aWFSNThkbWZ5K1pwS2FWOFV0enI3TzZJVE5RVzhvWkFqajVnN01qWm5UUVd1?=
+ =?utf-8?B?M1V1bTU4MW54d1VqL3dNZkQwM2ljdUx5aFF3bi9CL2dmQkpFOEpnZkJ6VG9I?=
+ =?utf-8?B?aU4ra05IM3hXaUhwRkUzQmNZcHErdEp5ek9JRUw3S2RNRzJMZ012ZUJRVll2?=
+ =?utf-8?B?TW1PRmV3VXFkRHhTQ1pSOW1DS2JtdVpFdUxNQ2hycVA1YVViRXRGTTYzb1Vr?=
+ =?utf-8?B?b2YxTTdpdEE2Tm90QnFWczYvcFZXVXJUWDJ1RURjQXZTTmN5WW5aVENWdWFm?=
+ =?utf-8?B?eWVMdFJ3QnFGdGxiMkhpWDJIWmQxNlJkWVhJcTdTVnJoT01sNTFQNHk5QWVM?=
+ =?utf-8?B?R08zdGl6T1FlZjN1VjVURzRHMitXdVc2eHJpWExYbUkvV1U3WEx4MHlaWC9r?=
+ =?utf-8?B?MjlPTDU2emFuaVcyMUl5SEsyeFZSYngyaTEwSVNxV3kwd1RxQnN5dWhCLysw?=
+ =?utf-8?B?SmM3WEg2QmF0U2U3VlVHVzZheHZnOWxpai9ucFBWQnUxTUJ2Qi9mWVNzeDVj?=
+ =?utf-8?B?dVhockpVM2tzakk3eDhWbDVrc0hDRmVLbUlOYUNlMVNBbGI2K0lwYks5WkF1?=
+ =?utf-8?B?WThIVzBacWdiZnBaU3AydC84ZTZlcEd0VTBjaGE1d0hyT1pYYU5wMjhZWGRu?=
+ =?utf-8?B?NGNhUVB3Nkg4SGNyV0pjMnZkM3N6eG04RHBYRitBRkdYZi9nb2xxOXgzaVFX?=
+ =?utf-8?B?eFl2UTI0d2xEaGxjaHR5cUJlczRZOVJuemxGeTdTOC85b2RPOUNsTEM3Nnhr?=
+ =?utf-8?B?NWtjYXMxQ2p5NWZzWlRYOTNTUWY5MDVhT1JSOVVPRUpRZmRORUtqZ2ZPRVhK?=
+ =?utf-8?B?NE9wb2VFOFQ4blZjQzBTbUc4NHowd0JDVDVJVEJsQXFzaU4yQ0xMSUIrdUFu?=
+ =?utf-8?B?aEx0d2J4a2ZHOXdiV1VreUcxUjlUNzhhUzZYa0xCK2k1ZjJDbHd0aFowUHFn?=
+ =?utf-8?B?T1FoazZlOUZpdDlTVUFDYjY2M1RxaDNGTHFHZGJjWlVKRGgwbUV3ajU4dWRO?=
+ =?utf-8?B?SkRMWFlJYmh2OU5tc05EaEhBVU5GZnZkRzVVU2ZtdVhLTXVUdTd6a3hxeDIx?=
+ =?utf-8?B?QzJiQUdQdTBuSzBna3JEWVlPbVZadUw5Z3NKMTFYbXhKbHcrN09YQ3FZZ3Bq?=
+ =?utf-8?B?RzUxY3ZIUzV3eG5Xckd6MEloUW5BQ0ZOTXVwTEVaWXZER0IxWjYzTzZsdkVT?=
+ =?utf-8?B?a2dMUGRjK3pKSktFNmd5YnNVSEgyUmQvM282SzMrRHE2WldKa2FRRG95akJp?=
+ =?utf-8?B?czRpb0hPNm8yVld2c1ljcGhwOHYrRG4yZGZIL05Yb2paaVhkYW9JMjdnYmkz?=
+ =?utf-8?B?ZFE9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d6b4b00-33f5-42d4-23e6-08dd77835176
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 16:26:45.0445
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bWHy0IeI6FCp1OYrNWJL8W7xRZTnG40NhVuVZ1L/wehHu4AS5XcvI2sQjl2UWJoNXwoeoK9X9X2dF0oyZlz5XoTt8HXQaZBJhq5F1AX7JvA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7815
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_091947_409975_30238373 
-X-CRM114-Status: GOOD (  21.06  )
+X-CRM114-CacheID: sfid-20250409_092654_998840_830F224C 
+X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,66 +185,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 12:37:14PM -0300, Jason Gunthorpe wrote:
-> On Wed, Apr 09, 2025 at 04:58:16PM +0300, Mike Rapoport wrote:
-> > >
-> > > I think we still don't really know what will be needed, so I'd stick
-> > > with folio only as that allows building the memfd and a potential slab
-> > > preservation system.
-> > 
-> > void * seems to me much more reasonable than folio one as the starting
-> > point because it allows preserving folios with the right order but it's not
-> > limited to it. 
+Hi Conor,
+
+On 4/9/25 6:18 PM, Conor Dooley wrote:
+> On Tue, Apr 08, 2025 at 06:36:04PM +0200, Łukasz Czechowski wrote:
+>> Hello,
+>>
+>> śr., 26 mar 2025 o 18:58 Conor Dooley <conor@kernel.org> napisał(a):
+>>>
+>>> On Wed, Mar 26, 2025 at 05:22:57PM +0100, Lukasz Czechowski wrote:
+>>>> The Cypress HX3 hubs use different default PID value depending
+>>>> on the variant. Update compatibles list.
+>>>>
+>>>> Fixes: 1eca51f58a10 ("dt-bindings: usb: Add binding for Cypress HX3 USB 3.0 family")
+>>>> Cc: stable@vger.kernel.org # 6.6
+>>>> Cc: stable@vger.kernel.org # Backport of the patch in this series fixing product ID in onboard_dev_id_table and onboard_dev_match in drivers/usb/misc/onboard_usb_dev.{c,h} driver
+>>>> Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+>>>> ---
+>>>>   Documentation/devicetree/bindings/usb/cypress,hx3.yaml | 6 ++++++
+>>>>   1 file changed, 6 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>>>> index 1033b7a4b8f9..f0b93002bd02 100644
+>>>> --- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>>>> +++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>>>> @@ -15,8 +15,14 @@ allOf:
+>>>>   properties:
+>>>>     compatible:
+>>>>       enum:
+>>>> +      - usb4b4,6500
+>>>> +      - usb4b4,6502
+>>>> +      - usb4b4,6503
+>>>>         - usb4b4,6504
+>>>>         - usb4b4,6506
+>>>> +      - usb4b4,6507
+>>>> +      - usb4b4,6508
+>>>> +      - usb4b4,650a
+>>>
+>>> All these devices seem to have the same match data, why is a fallback
+>>> not suitable?
+>>>
+>>
+>> Thank you for the suggestion. Indeed the fallback compatible appears
+>> to work fine in this case,
+>> and I am able to avoid additional entries in onboard_dev_match table
+>> as added in the first patch in this series.
+>>
+>> However, after I've updated the cypress,hx3.yaml schema file and
+>> rk3399-puma.dtsi file,
+>> I get the following warnings, when running "make dtbs_check":
+>>
+>> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1:
+>> compatible: ['usb4b4,6502', 'usb4b4,6506'] is too long
+>>   from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+>> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2:
+>> compatible: ['usb4b4,6500', 'usb4b4,6504'] is too long
+>>   from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+>>
+>> Below is the diff of my changes:
+>>
+>> diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>> b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>> index f0b93002bd02..d6eac1213228 100644
+>> --- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>> +++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>> @@ -14,15 +14,22 @@ allOf:
+>>
+>>   properties:
+>>     compatible:
+>> -    enum:
+>> -      - usb4b4,6500
+>> -      - usb4b4,6502
+>> -      - usb4b4,6503
+>> -      - usb4b4,6504
+>> -      - usb4b4,6506
+>> -      - usb4b4,6507
+>> -      - usb4b4,6508
+>> -      - usb4b4,650a
+>> +    oneOf:
+>> +      - enum:
+>> +          - usb4b4,6504
+>> +          - usb4b4,6506
+>> +      - items:
+>> +          - enum:
+>> +              - usb4b4,6500
+>> +              - usb4b4,6508
+>> +          - const: usb4b4,6504
+>> +      - items:
+>> +          - enum:
+>> +              - usb4b4,6502
+>> +              - usb4b4,6503
+>> +              - usb4b4,6507
+>> +              - usb4b4,650a
+>> +          - const: usb4b4,6506
+>>
+>>     reg: true
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+>> b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+>> index d0d867374b3f..7fac61f95fc6 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+>> @@ -594,14 +594,14 @@ &usbdrd_dwc3_1 {
+>>          #size-cells = <0>;
+>>
+>>          hub_2_0: hub@1 {
+>> -               compatible = "usb4b4,6502";
+>> +               compatible = "usb4b4,6502", "usb4b4,6506";
+>>                  reg = <1>;
+>>                  peer-hub = <&hub_3_0>;
+>>                  reset-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
+>>          };
+>>
+>>          hub_3_0: hub@2 {
+>> -               compatible = "usb4b4,6500";
+>> +               compatible = "usb4b4,6500", "usb4b4,6504";
+>>                  reg = <2>;
+>>                  peer-hub = <&hub_2_0>;
+>>                  reset-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
+>>
+>>
+>> Do you have any suggestions on how I can properly update the schema
+>> files to avoid the above warnings?
 > 
-> It would just call kho_preserve_folio() under the covers though.
+> The diffs you have here look okay, not really sure what you're asking
+> for.
 
-How that will work for memblock and 1G pages?
- 
-> > I don't mind having kho_preserve_folio() from day 1 and even stretching the
-> > use case we have right now to use it to preserve FDT memory.
-> > 
-> > But kho_preserve_folio() does not make sense for reserve_mem and it won't
-> > make sense for vmalloc.
-> 
-> It does for vmalloc too, just stop thinking about it as a
-> folio-for-pagecache and instead as an arbitary order handle to buddy
-> allocator memory that will someday be changed to a memdesc :|
+It fails dtbs_check:
 
-But we have memdesc today, it's struct page. It will be shrinked and maybe
-renamed, it will contain a pointer rather than data, but that's what basic
-memdesc is.
-And when the data structure that memdesc points to will be allocated
-separately folios won't make sense for order-0 allocations.
- 
-> > The weird games slab does with casting back and forth to folio also seem to
-> > me like transitional and there won't be that folios in slab later.
-> 
-> Yes transitional, but we are at the transitional point and KHO should
-> fit in.
-> 
-> The lowest allocator primitive returns folios, which can represent any
-> order, and the caller casts to their own memdesc.
+linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1: 
+compatible: ['usb4b4,6502', 'usb4b4,6506'] is too long
+  from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2: 
+compatible: ['usb4b4,6500', 'usb4b4,6504'] is too long
+  from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
 
-The lowest allocation primitive returns pages. 
+I'm not sure we're allowed to add new errors with dtbs_check (and would 
+like to avoid it in any case).
 
-struct folio *__folio_alloc_noprof(gfp_t gfp, unsigned int order, int preferred_nid,
-		nodemask_t *nodemask)
-{
-	struct page *page = __alloc_pages_noprof(gfp | __GFP_COMP, order,
-					preferred_nid, nodemask);
-	return page_rmappable_folio(page);
-}
-EXPORT_SYMBOL(__folio_alloc_noprof);
-
-And page_rmappable_folio() clues about folio-for-pagecache very clearly.
-
-And I don't think folio will be a lowest primitive buddy returns anytime
-soon if ever.
- 
-> Jason
-> 
-
--- 
-Sincerely yours,
-Mike.
+Cheers,
+Quentin
 
