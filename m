@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6060AC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:11:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB4FC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 14:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ka9hjeap1NKqTha20px19WrHRhWWEkQMo/L0tguYGWk=; b=1zFAS3x2EMjDWAHpZ8DiuVZokf
-	5lc9zqIg6Q+iYBLXYFD7NJLC8YOV5dyAP+MaXDvLY6OE2gZ6Y823+EhF6zo1kvyIMOuvB7c3zYaXm
-	eXXT6VNqLsqucTPEE57TY/9LTeBN4zkI4P4NFVExaIT2A1NIbrjO5ynAn9axr9WwGmFr2ym/nEh8G
-	ZdvC1N2zWnmI7124zXhzgNYq8+hTzRJXwWBQZBGEvBLi4TB4fi/NMD/C3bFs/FCe6aMfp/P8lbRC/
-	AdwjSXo+4HqNTLl0q6LvI1QXE/q64I1Mj6MHVzVeRZHIQ8z7jiRbTWUwEHLnoh1D8yjyiooonaJ4C
-	TMCU2p9g==;
+	bh=+yFrp1ZF+hh0yGP7lCVX/QPwHtVXDJncz8wZnIlRW68=; b=HsaMxFhX6oKihZ6ImN2Tfifdme
+	AY2EAmCZ2bo68PduUIOIyW0ChsgYXdDWIdhxL//jElNTVdJvP3yTCBHFEfglNseHXLwlNwOV3k1G2
+	1HBq7qlu5pB8lQxQ08Sm7Uqlv9XFOpUy6XNuniUKFS0K6+hk9+gigmVJoa9w9pZViQ6zV9o5fQflV
+	om2XPmohGg1+yQ+BAmX97Eh9p9PmN1XW47uYiKqjA5f7iv8Spn2sPY7FutbPIAr8OMX3J3hvO+oRl
+	Gtv3JSLYo10eedlPWlRLonA3N3sECpgMIRHsVAY5h5ZkX8efo3FNHDkB5G6n5vdeBhcdIJOgbazs+
+	41WBKRVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2W9C-00000007OzS-2wAl;
-	Wed, 09 Apr 2025 14:11:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u2WAw-00000007PDC-2zDw;
+	Wed, 09 Apr 2025 14:13:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2VGt-00000007Fw9-1dks
+	id 1u2VKl-00000007GrO-1Th0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 13:15:15 +0000
+	Wed, 09 Apr 2025 13:19:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 16C64615F1;
-	Wed,  9 Apr 2025 13:15:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08D98C4CEE7;
-	Wed,  9 Apr 2025 13:15:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D2DA2A4994D;
+	Wed,  9 Apr 2025 13:13:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F353CC4CEE7;
+	Wed,  9 Apr 2025 13:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744204514;
-	bh=S15u78BKbSHh1fzKUfpf0wJOK432GkMnYgwe1vKsInk=;
+	s=k20201202; t=1744204754;
+	bh=ny9pPvFJ5Zid+zmKB7nDp5AE59k+FfvC0LsxKtkgDto=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tDc6J0t0EzQjucGrX0fYRnnbfFGbB+cQfpVivNIqSiL01iuj2QPaABZ1DsziZ/82I
-	 I6tINz1dLf/clN00vw8sip9ev7esPsaoolLYjDetj4uyzgSWXOmxSavofpNhG1nFIn
-	 MXHCBwJ1OUdbhdlFyjKkl5e1VTl/n2L6570ywcTvSNbLKE2MAKtp0TCbb2XYpN44lH
-	 WY10uAbIMfK5RJ0BWApbSGkqBDEB5Fkbc/eadVmdDdrnEwVpy7SR2yD/08pKdzANuv
-	 UtxUDo8h2EsD9fsoBU0zNDgzqjjqP5WFXkdhn6DxNIDvOKCDTeCK2UqjzX48QmRpBL
-	 wzwuim9Kzmb2A==
-Date: Wed, 9 Apr 2025 15:15:07 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 20/24] irqchip/gic-v5: Add GICv5 LPI/IPI support
-Message-ID: <Z/Zy2zxD33/7sRrx@lpieralisi>
-References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
- <20250408-gicv5-host-v1-20-1f26db465f8d@kernel.org>
- <ed63bb91-e9ac-409a-a9a0-25b233fe2e15@app.fastmail.com>
- <Z/ZH5IBQAZ8rc9Cz@lpieralisi>
- <e7e4e9f0-a9e4-48d4-9bed-a4c52453ee8e@app.fastmail.com>
+	b=oYiPNUPNRquxwDEcnEDR0gurvjOXJDwRrKViTi0bTN9MxKlniyZtOTGFdtzWnBV1N
+	 cxa7dyL3PCVMjnMAnkUQwFkXKbSDqstnaWgawP9OjCBvqdOZFKw4ZkBz6hPax0VboI
+	 A7T1OHaAOOXkXNB1CbHV1gxRb7JDlBHSCZQ6fuVw6tMJSbFWpB7TN208lKOod0eTA9
+	 pP7gU8drcOYoeLCgLTU8LZ3BdLL9gkJC/vEyM/tF/0WIwXIpAzNaSYzBvWZnTDDI8b
+	 dqX6UPu6kuS3f6ion31atJwZTjavkTM4EmHwnSgbRQspC6GP6JXrA5W6ULuQ/mxonY
+	 7T8sIy5WIw/dQ==
+Date: Wed, 9 Apr 2025 18:49:03 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: Jens Wiklander <jens.wiklander@linaro.org>, akpm@linux-foundation.org,
+	rppt@linux.ibm.com, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org, op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org,
+	Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>, linux-mm@kvack.org
+Subject: Re: [PATCH v6 09/10] optee: FF-A: dynamic restricted memory
+ allocation
+Message-ID: <Z_Zzx8ixuCs2Ste1@sumit-X1>
+References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
+ <20250305130634.1850178-10-jens.wiklander@linaro.org>
+ <Z-JePo6yGlUgrZkw@sumit-X1>
+ <CAHUa44H1MzBLBM+Oeawca52C8PF3uAT0ggbL-zRdnBqj4LYrZg@mail.gmail.com>
+ <Z-u8MWNVNy9lLbkK@sumit-X1>
+ <561d6050-e24f-4643-806f-8a520e324d11@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <e7e4e9f0-a9e4-48d4-9bed-a4c52453ee8e@app.fastmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <561d6050-e24f-4643-806f-8a520e324d11@redhat.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250409_061915_526866_26964AA9 
+X-CRM114-Status: GOOD (  50.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,167 +94,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 12:56:52PM +0200, Arnd Bergmann wrote:
-> On Wed, Apr 9, 2025, at 12:11, Lorenzo Pieralisi wrote:
-> > On Wed, Apr 09, 2025 at 10:23:57AM +0200, Arnd Bergmann wrote:
-> >> On Tue, Apr 8, 2025, at 12:50, Lorenzo Pieralisi wrote:
-> >> > +static void irs_writeq(struct gicv5_irs_chip_data *irs_data, const u64 
-> >> > val,
-> >> > +		       const u64 reg_offset)
-> >> > +{
-> >> > +	writeq_relaxed(val, irs_data->irs_base + reg_offset);
-> >> > +}
-> >> 
-> >> I think the use of _relaxed memory accessors needs some code
-> >> comments here. The definition of these is that you don't care
-> >> about ordering relative to DMA master accesses, yet you seem to
-> >> very much have accesses to the 'ist' from the GIC, as well as
-> >> DMA accesses from an MSI device, and I would expect both to
-> >> require ordering.
-> >
-> > For the 1-level (linear) IST we allocate it in one go, write
-> > the base address through relaxed access (that sets the IST
-> > valid) and poll completion with a relaxed access. Memory is
-> > cleaned and invalidated from the cache (if the IRS is not
-> > coherent) before the MMIO sequence above, which implies a
-> > dsb().
-> >
-> > After that memory is handed over to the GIC.
-> >
-> > For a 2-level IST, the code that updates L1 entries already add
-> > a dma_rmb() barrier (ie gicv5_irs_iste_alloc()) to make sure we
-> > order MMIO wait completion with the subsequent cache invalidate
-> > (again, in the yet hypothetical case where the IRS is not coherent).
-> >
-> > I think I can add comments where the sequence to initialize the
-> > tables is executed more than here, given that these helpers are
-> > used for other purposes too.
+Thanks David for your response.
+
+On Wed, Apr 09, 2025 at 12:01:21PM +0200, David Hildenbrand wrote:
+> On 01.04.25 12:13, Sumit Garg wrote:
+> > + MM folks to seek guidance here.
+> > 
+> > On Thu, Mar 27, 2025 at 09:07:34AM +0100, Jens Wiklander wrote:
+> > > Hi Sumit,
+> > > 
+> > > On Tue, Mar 25, 2025 at 8:42 AM Sumit Garg <sumit.garg@kernel.org> wrote:
+> > > > 
+> > > > On Wed, Mar 05, 2025 at 02:04:15PM +0100, Jens Wiklander wrote:
+> > > > > Add support in the OP-TEE backend driver dynamic restricted memory
+> > > > > allocation with FF-A.
+> > > > > 
+> > > > > The restricted memory pools for dynamically allocated restrict memory
+> > > > > are instantiated when requested by user-space. This instantiation can
+> > > > > fail if OP-TEE doesn't support the requested use-case of restricted
+> > > > > memory.
+> > > > > 
+> > > > > Restricted memory pools based on a static carveout or dynamic allocation
+> > > > > can coexist for different use-cases. We use only dynamic allocation with
+> > > > > FF-A.
+> > > > > 
+> > > > > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > > > > ---
+> > > > >   drivers/tee/optee/Makefile        |   1 +
+> > > > >   drivers/tee/optee/ffa_abi.c       | 143 ++++++++++++-
+> > > > >   drivers/tee/optee/optee_private.h |  13 +-
+> > > > >   drivers/tee/optee/rstmem.c        | 329 ++++++++++++++++++++++++++++++
+> > > > >   4 files changed, 483 insertions(+), 3 deletions(-)
+> > > > >   create mode 100644 drivers/tee/optee/rstmem.c
+> > > > > 
+> > 
+> > <snip>
+> > 
+> > > > > diff --git a/drivers/tee/optee/rstmem.c b/drivers/tee/optee/rstmem.c
+> > > > > new file mode 100644
+> > > > > index 000000000000..ea27769934d4
+> > > > > --- /dev/null
+> > > > > +++ b/drivers/tee/optee/rstmem.c
+> > > > > @@ -0,0 +1,329 @@
+> > > > > +// SPDX-License-Identifier: GPL-2.0-only
+> > > > > +/*
+> > > > > + * Copyright (c) 2025, Linaro Limited
+> > > > > + */
+> > > > > +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+> > > > > +
+> > > > > +#include <linux/errno.h>
+> > > > > +#include <linux/genalloc.h>
+> > > > > +#include <linux/slab.h>
+> > > > > +#include <linux/string.h>
+> > > > > +#include <linux/tee_core.h>
+> > > > > +#include <linux/types.h>
+> > > > > +#include "optee_private.h"
+> > > > > +
+> > > > > +struct optee_rstmem_cma_pool {
+> > > > > +     struct tee_rstmem_pool pool;
+> > > > > +     struct gen_pool *gen_pool;
+> > > > > +     struct optee *optee;
+> > > > > +     size_t page_count;
+> > > > > +     u16 *end_points;
+> > > > > +     u_int end_point_count;
+> > > > > +     u_int align;
+> > > > > +     refcount_t refcount;
+> > > > > +     u32 use_case;
+> > > > > +     struct tee_shm *rstmem;
+> > > > > +     /* Protects when initializing and tearing down this struct */
+> > > > > +     struct mutex mutex;
+> > > > > +};
+> > > > > +
+> > > > > +static struct optee_rstmem_cma_pool *
+> > > > > +to_rstmem_cma_pool(struct tee_rstmem_pool *pool)
+> > > > > +{
+> > > > > +     return container_of(pool, struct optee_rstmem_cma_pool, pool);
+> > > > > +}
+> > > > > +
+> > > > > +static int init_cma_rstmem(struct optee_rstmem_cma_pool *rp)
+> > > > > +{
+> > > > > +     int rc;
+> > > > > +
+> > > > > +     rp->rstmem = tee_shm_alloc_cma_phys_mem(rp->optee->ctx, rp->page_count,
+> > > > > +                                             rp->align);
+> > > > > +     if (IS_ERR(rp->rstmem)) {
+> > > > > +             rc = PTR_ERR(rp->rstmem);
+> > > > > +             goto err_null_rstmem;
+> > > > > +     }
+> > > > > +
+> > > > > +     /*
+> > > > > +      * TODO unmap the memory range since the physical memory will
+> > > > > +      * become inaccesible after the lend_rstmem() call.
+> > > > > +      */
+> > > > 
+> > > > What's your plan for this TODO? I think we need a CMA allocator here
+> > > > which can allocate un-mapped memory such that any cache speculation
+> > > > won't lead to CPU hangs once the memory restriction comes into picture.
+> > > 
+> > > What happens is platform-specific. For some platforms, it might be
+> > > enough to avoid explicit access. Yes, a CMA allocator with unmapped
+> > > memory or where memory can be unmapped is one option.
+> > 
+> > Did you get a chance to enable real memory protection on RockPi board?
+> > This will atleast ensure that mapped restricted memory without explicit
+> > access works fine. Since otherwise once people start to enable real
+> > memory restriction in OP-TEE, there can be chances of random hang ups
+> > due to cache speculation.
+> > 
+> > MM folks,
+> > 
+> > Basically what we are trying to achieve here is a "no-map" DT behaviour
+> > [1] which is rather dynamic in  nature. The use-case here is that a memory
+> > block allocated from CMA can be marked restricted at runtime where we
+> > would like the Linux not being able to directly or indirectly (cache
+> > speculation) access it. Once memory restriction use-case has been
+> > completed, the memory block can be marked as normal and freed for
+> > further CMA allocation.
+> > 
+> > It will be apprciated if you can guide us regarding the appropriate APIs
+> > to use for un-mapping/mamping CMA allocations for this use-case.
 > 
-> Usually my recommendation is to have abstractions like this
-> provide both relaxed and normal variants, and then only
-> use the relaxed ones where it really matters for performance.
+> Can we get some more information why that is even required, so we can decide
+> if that is even the right thing to do? :)
+
+The main reason which I can see is for memory re-use. Although we should
+be able to carve out memory during boot and then mark it restricted for
+the entire boot cycle but without re-use. Especially for secure media
+pipeline use-case where the video buffers can be sufficiently large
+enough which will benefit from memory re-use.
+
 > 
-> That way you can keep relatively short explanations where
-> you call irs_writeq_relaxed() and use irs_writeq() without
-> any code comments any place that doesn't care about saving
-> a few cycles per call.
+> Who would mark the memory block as restricted and for which purpose?
 
-I will review and update accordingly.
+It will be the higher privileged firmware/Trusted OS which can either be
+the running on same CPU with higher privileges like Arm TrustZone or a
+separate co-processor like AMD-TEE etc. The purpose is for secure media
+pipeline, trusted UI or secure crypto use-cases where essentially the
+motivation is that the Linux kernel shouldn't be able to access
+decrypted content or key material in plain format but rather only the
+allowed peripherals like media pipeline, crypto accelerators etc. able to
+access them.
 
-> >> > +/* Wait for completion of an IST change */
-> >> > +static int gicv5_irs_ist_wait_for_idle(struct gicv5_irs_chip_data 
-> >> > *irs_data)
-> >> > +{
-> >> > +	int ret;
-> >> > +	u32 val;
-> >> > +
-> >> > +	ret = readl_relaxed_poll_timeout_atomic(
-> >> > +			irs_data->irs_base + GICV5_IRS_IST_STATUSR, val,
-> >> > +			FIELD_GET(GICV5_IRS_IST_STATUSR_IDLE, val), 1,
-> >> > +			USEC_PER_SEC);
-> >> > +
-> >> 
-> >> What is the significance of the 1 second timeout? This is probably
-> >> a million times longer than I would expect any hardware interaction
-> >> to be specified to take. Are you waiting for another thread here?
-> >
-> > It is arbitrary, agreed.
 > 
-> Can you make either much shorter, or non-atomic then?
+> In arch/powerpc/platforms/powernv/memtrace.c we have some arch-specific code
+> to remove the directmap after alloc_contig_pages(). See
+> memtrace_alloc_node(). But it's very arch-specific ...
 
-Yes sure (and try to consolidate them as Thomas correctly pointed out).
+Thanks for the reference, we are looking for something like that but
+with generic code along with capability to remap when the restricted
+memory block is freed and available for normal kernel usage.
 
-> >> > +	l2istsz = BIT(n + 1);
-> >> > +	if (l2istsz > KMALLOC_MAX_SIZE) {
-> >> > +		u8 lpi_id_cap = ilog2(KMALLOC_MAX_SIZE) - 2 + istsz;
-> >> > +
-> >> > +		pr_warn("Limiting LPI ID bits from %u to %u\n",
-> >> > +			lpi_id_bits, lpi_id_cap);
-> >> > +		lpi_id_bits = lpi_id_cap;
-> >> > +		l2istsz = KMALLOC_MAX_SIZE;
-> >> > +	}
-> >> 
-> >> The use of KMALLOC_MAX_SIZE seem arbitrary here. I remember discussing
-> >> this in the past and concluding that this is fine for all cases
-> >> that may be relevant, but it would be good to explain the reasoning
-> >> in a comment.
-> >
-> > We need contiguous physical memory that can be < PAGE_SIZE or larger.
-> >
-> > For allocations larger than the allocator caches kmalloc hands over to
-> > the page allocator, MAX_ORDER is reflected into KMALLOC_MAX_SIZE AFAIU.
-> >
-> > That's the reasoning. Does it make sense ?
-> 
-> I'm more worried about what happens when KMALLOC_MAX_SIZE is
-> really small -- did you show that the allocation is still
-> going to work, or is this likely to cause runtime problems?
-
-Are you referring to KMALLOC_MAX_CACHE_SIZE or KMALLOC_MAX_SIZE ?
-
-KMALLOC_MAX_SIZE is set according to MAX_PAGE_ORDER, that should
-be fine for most set-ups (well, obviously implementations that
-only support a 1-level IST can't expect a very large number of
-IRQs -  we set that to 12 bits worth of IDs deliberately but
-given the current memory allocation limits it can be much higher).
-
-A 2-level IST can easily manage 24-bits worth of IDs split into
-two-level tables with the current kmalloc() limits.
-
-For the ITS DT and ITT the same reasoning goes, so the capping
-is the (rare) exception not the rule and I don't expect this to be a
-problem at all or I am missing something.
-
-> >> > +	if (irs_data->flags & IRS_FLAGS_NON_COHERENT)
-> >> > +		dcache_clean_inval_poc((unsigned long)ist,
-> >> > +				       (unsigned long)ist + l2istsz);
-> >> > +	else
-> >> > +		dsb(ishst);
-> >> ...
-> >> > +	baser = (virt_to_phys(ist) & GICV5_IRS_IST_BASER_ADDR_MASK) |
-> >> > +		FIELD_PREP(GICV5_IRS_IST_BASER_VALID, 0x1);
-> >> 
-> >> Here it seems like you are open-coding the DMA mapping interface
-> >> details, in particular the mapping of the 'ist' memory area into
-> >> the gic's DMA master space, the coherency and the barrier that is
-> >> normally part of a (non-relaxed) writeq().  Is there a reason
-> >> you can't use the normal interfaces here, using dma_alloc_coherent()
-> >> or dma_alloc_noncoherent()?
-> >
-> > The GIC IRS must be brought up early, it is not a struct device.
-> 
-> Right, that is rather unfortunate.
-> 
-> >> Do you expect actual implementation to not be cache-coherent?
-> >
-> > It is allowed by the architecture - I don't have a crystal ball
-> > but if I want to add support for a non-coherent IRS the DMA mapping
-> > like sequence above has to be there - alternatives are welcome.
-> 
-> I see that we have a few GICv3 implementations that are marked
-> as non-coherent in DT. I don't understand why they'd do that,
-> but I guess there is not much to be done about it.
-
-You don't understand why the GIC HW is not coherent or why we set it
-up as such in the driver ?
-
-> The only other idea I have would be to use an uncached allocation
-> for the non-coherent case, the same way that dma_alloc_coherent()
-> or maybe dma_alloc_wc() does. This still has the same problem
-> with bypassing the dma-mapping.h interface because of the lack
-> of a device pointer, but it would at least avoid the cache flushes
-> at runtime. If I read this code right, the data in here is only
-> written by the CPU and read by the GIC, so a WC buffer wouldn't
-> be more expensive, right?
-
-The IST is also written by the GIC, the CPU reads it (explicity, with a
-memory read rather than through instructions) only if the table is two
-level and we are allocating L2 entries on demand to check whether an
-L2 entry is valid.
-
-I am not sure the CMOs are that bad given that's what we do
-for GICv3 already but it is worth looking into it.
-
-Thanks,
-Lorenzo
+-Sumit
 
