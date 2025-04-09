@@ -4,74 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DAAC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 03:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C756C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 04:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/ldIfw+IopvBD+8WtZqHSYb8hrJIJMbhoye5hb+79cI=; b=HKogcNNEsz3L/W1Px2nhDqGJyz
-	iytiTXKMTg+aHxTG5+XDg2pszp92VyAjkgmx0v+gGhWOAroIZ6904IfBoXfeSY2nubfcQAgeJEU+x
-	b4kL2q4FnMmUb/3SaAsedc4qZVcQuP9snJ6xtP0p7fRc8gzBiPpB6G+yWwdyfvldvMnIAEHFMqNwA
-	PwzCg/AQtDy6x5wkTxfVl4z8DUY7boiUt1DIzE/6nD3do/0bXMBsON8KRU/8HDkLEwC7Bk82Xz75H
-	lMSkWH1P83rDOGzQWa3v8xGSuk540JS+B1siT8r+8/MRj+QRsoiejU9LWf55yJQIXZ7D5Jfjjx3bX
-	5yVo0TZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mSI3UNKYofTp543q1/Qr6IAWFz5MtsY1nglzBATd4M4=; b=scistyvAbAPsS6Fzkl3YtzOyBz
+	6BZRQNcieCk3WOaJaUsx7BK3p/ebbslWRsNr/mkvdGCVM8Er6TbOs8CL6AtwFunrIpqF/ALaqyr1R
+	1Ti1wnPK64hBKGQvO65gOpgyQI3GODPR6pDcK8QO/wylaA3TLoLoUeZdRf3re7D1oLl0vMrqt8MEl
+	L2yKcfhOu7Nv4sJwUNaMhb9f9GKWQgWD0tMGZW91b062Y2lV7U6ca8/2eZdcymmhJs2urs8bOCbA/
+	js6a2/UogC/GzBvdiBZNszZcnDeg11elws6SHHaQeM5GbMHBEHpi+KFVPUp6qqe8Aj6y1QZv6wuLX
+	OgnIKtBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2M9j-000000061bX-2UDw;
-	Wed, 09 Apr 2025 03:31:16 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u2Mmy-000000064Pm-3yzB;
+	Wed, 09 Apr 2025 04:11:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2M7x-000000061Rg-0BKd;
-	Wed, 09 Apr 2025 03:29:26 +0000
-X-UUID: d460181414f211f0a1e849db4cc18d44-20250408
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=/ldIfw+IopvBD+8WtZqHSYb8hrJIJMbhoye5hb+79cI=;
-	b=J0/TFlWoPiF7AcKLYkuJgpkA7U0DRzQd+w/yx3GdBK2A9QeeKJfz6ptT07OHix7+DwxatVwqvpmjlfHk8KkUClIIDsI+f7tUrj19eFVGjpWYI3ck/oIRWFt/2jnPBn4/WMin4U6BjboEe0hJ6TYNFupbSPicpDtk8Ma5aqOLj1U=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:97d5e442-f3dd-482d-8860-fbf53b9d449c,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:651d59c7-16da-468a-87f7-8ca8d6b3b9f7,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: d460181414f211f0a1e849db4cc18d44-20250408
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <yiru.zhang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 794477129; Tue, 08 Apr 2025 20:29:22 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 9 Apr 2025 11:29:19 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Wed, 9 Apr 2025 11:29:19 +0800
-From: yiru zhang <yiru.zhang@mediatek.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
-	<mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, Alexander
- Shishkin <alexander.shishkin@linux.intel.com>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>, yiru
- zhang <yiru.zhang@mediatek.com>
-Subject: [PATCH] [Patch v2]Add ETE devarch condition in etm4_init_iomem_access
-Date: Wed, 9 Apr 2025 11:29:12 +0800
-Message-ID: <20250409032917.7580-1-yiru.zhang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1u2MlC-000000064J2-2obJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Apr 2025 04:10:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1744171797;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mSI3UNKYofTp543q1/Qr6IAWFz5MtsY1nglzBATd4M4=;
+	b=JaN4Ti/wuIMV2O6LrniomctCa+cmsNzXFpD/3piWJP1uTRGuITEhexjN8EG+JXks5A5qIj
+	nT87/wU1wWWWMrs4nNSHj3X+UQqd2lFOPeUe/ZLpxVKI6WAEXnV8A3tHHWRP8sgtZu/qnq
+	lWFvE/+nlTDzF3vdPGUTAwJoU88TfHc=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-64-P5EIm_IeM3O2lMUA_Baixg-1; Wed, 09 Apr 2025 00:09:55 -0400
+X-MC-Unique: P5EIm_IeM3O2lMUA_Baixg-1
+X-Mimecast-MFC-AGG-ID: P5EIm_IeM3O2lMUA_Baixg_1744171794
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-224347aef79so87291715ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 21:09:55 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744171794; x=1744776594;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mSI3UNKYofTp543q1/Qr6IAWFz5MtsY1nglzBATd4M4=;
+        b=sLx3AeMaVhIuaVgAehi0omh+4ZEiS8YZZrun05hOI0t4PZtU1T8HzhIQeag/9IizCd
+         0igbT+50N11KcdAxFXXhBeW223m0kz9vUm5LYPY6c17J2TDWDJUQvNt05/VBx/B6mTss
+         QR5Yt+kslu9eMCIi0B9dGpPaUIA3Qoke6lkFvstk6a+P6bKsxbem2xzpltwR/5jvAx51
+         TR9Ksas7XQhf5OIPF/4oy1JYerE4qQ2PO4vJ+TBNsQrcNa/LA75IVcsrZ0uMf2Lfizxh
+         7QgnoGQ5hgJZpziUTX7iGjpJaSb+yXJnGFgpWgAis4O2DcJuj+WIPgTt43CPFpiMCre7
+         RAhg==
+X-Gm-Message-State: AOJu0YzcP7zgtnOlwho9tcl9JKmteFyYxrDjIdfV7zqFDZUnG580ToOB
+	6LEO5KW4XGDHYRL+/eSm66EbAqfqRCIU51XdgofM5gohxx+eMM8kPjxhb0b6VkYAU7UWuYSbk+w
+	A+UZnDKp1cOKG/a7q01BTAPHsYjn8RDlyRQjyzwZgfMCw71i7mWqDtSMQ4ZiERNGGN9GdGnAQ
+X-Gm-Gg: ASbGncurhQ+A4HE6ze+s0wCOeiEsrpBnuocVuxBdy7sr2AjHeOweJz3dQSABrLk8N7L
+	0g327iWq8pH2+WDL0X/NivSotSoaOIoNiBru3WTUwYVGyD3AWJ0vliGiOkUfY+weizGmk9XaiN3
+	Cv4TkTfdp5TJxRtSv+LrTr1F3zM9FWmo1nZLckUfFqqpm5MnP8+dTNAIBtC4uVadLOv4AHIPkL3
+	OdrAPlK17JANdI7cCd6ABeV0fGaJ9F+xgMsItz8VtZrmKTGiWF7fOmpmQMGarqYvZJEPFedbU/E
+	a4Q8XRRwuu4V9RLt
+X-Received: by 2002:a17:902:fc50:b0:223:397f:46be with SMTP id d9443c01a7336-22ac2c27a77mr26295035ad.47.1744171794387;
+        Tue, 08 Apr 2025 21:09:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHmv6DnXKtojfENv0odMP0dosLKhvs41f17wSDjBrU54GG/MO60a3AtYyuTyksYyTBRpOZlUQ==
+X-Received: by 2002:a17:902:fc50:b0:223:397f:46be with SMTP id d9443c01a7336-22ac2c27a77mr26294775ad.47.1744171794048;
+        Tue, 08 Apr 2025 21:09:54 -0700 (PDT)
+Received: from [192.168.68.55] ([180.233.125.65])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7ccb344sm1556945ad.216.2025.04.08.21.09.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Apr 2025 21:09:53 -0700 (PDT)
+Message-ID: <34a4bf01-6324-482b-a011-32974d68e02f@redhat.com>
+Date: Wed, 9 Apr 2025 14:09:48 +1000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/1] mm/contpte: Optimize loop to reduce redundant
+ operations
+To: Xavier <xavier_qy@163.com>, dev.jain@arm.com, akpm@linux-foundation.org,
+ baohua@kernel.org, ryan.roberts@arm.com, catalin.marinas@arm.com,
+ ioworker0@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ will@kernel.org
+References: <027cc666-a562-46fa-bca5-1122ea00ec0e@arm.com>
+ <20250408085809.2217618-1-xavier_qy@163.com>
+ <20250408085809.2217618-2-xavier_qy@163.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250408085809.2217618-2-xavier_qy@163.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 31szoqE9WB1yEz0_19Bt964bak_HLp_yvRV44dtBcVA_1744171794
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_202925_094444_139C3869 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250408_210958_780593_0E85658E 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,38 +113,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Due to ETE supported, so add ETE devarch condition in etm4_init_iomem_access.
-Signed-off-by: yiru zhang <yiru.zhang@mediatek.com>
+Hi Xavier,
 
-v1->v2: use switch case way
----
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+On 4/8/25 6:58 PM, Xavier wrote:
+> This commit optimizes the contpte_ptep_get function by adding early
+>   termination logic. It checks if the dirty and young bits of orig_pte
+>   are already set and skips redundant bit-setting operations during
+>   the loop. This reduces unnecessary iterations and improves performance.
+> 
+> Signed-off-by: Xavier <xavier_qy@163.com>
+> ---
+>   arch/arm64/mm/contpte.c | 22 ++++++++++++++++++++--
+>   1 file changed, 20 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> index bcac4f55f9c1..034d153d7d19 100644
+> --- a/arch/arm64/mm/contpte.c
+> +++ b/arch/arm64/mm/contpte.c
+> @@ -152,6 +152,18 @@ void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
+>   }
+>   EXPORT_SYMBOL_GPL(__contpte_try_unfold);
+>   
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 2b8f10463840..366d11e038de 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1135,11 +1135,15 @@ static bool etm4_init_iomem_access(struct etmv4_drvdata *drvdata,
- 	 * with MMIO. But we cannot touch the OSLK until we are
- 	 * sure this is an ETM. So rely only on the TRCDEVARCH.
- 	 */
--	if ((devarch & ETM_DEVARCH_ID_MASK) != ETM_DEVARCH_ETMv4x_ARCH) {
--		pr_warn_once("TRCDEVARCH doesn't match ETMv4 architecture\n");
-+	switch (devarch & ETM_DEVARCH_ID_MASK) {
-+	case ETM_DEVARCH_ETMv4x_ARCH:
-+	case ETM_DEVARCH_ETE_ARCH:
-+		break;
-+	default:
-+		pr_warn_once("Unknown ETM architecture: %x\n",
-+			     devarch & ETM_DEVARCH_ID_MASK);
- 		return false;
- 	}
--
- 	drvdata->arch = etm_devarch_to_arch(devarch);
- 	*csa = CSDEV_ACCESS_IOMEM(drvdata->base);
- 	return true;
--- 
-2.46.0
+I'm wandering how it can work. More details are given below.
+
+> +#define CHECK_CONTPTE_FLAG(start, ptep, orig_pte, flag) \
+> +	do { \
+> +		int _start = start; \
+> +		pte_t *_ptep = ptep; \
+> +		while (_start++ < CONT_PTES) { \
+> +			if (pte_##flag(__ptep_get(_ptep++))) { \
+> +				orig_pte = pte_mk##flag(orig_pte); \
+> +				break; \
+> +			} \
+> +		} \
+> +	} while (0)
+> +
+
+CONT_PTES is 16 with the assumption of 4KB base page size. CHECK_CONTPTE_FLAG()
+collects the flag for ptep[start, CONT_PTES].
+
+>   pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+>   {
+>   	/*
+> @@ -169,11 +181,17 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+>   	for (i = 0; i < CONT_PTES; i++, ptep++) {
+>   		pte = __ptep_get(ptep);
+>   
+> -		if (pte_dirty(pte))
+> +		if (pte_dirty(pte)) {
+>   			orig_pte = pte_mkdirty(orig_pte);
+> +			CHECK_CONTPTE_FLAG(i, ptep, orig_pte, young);
+> +			break;
+> +		}
+>   
+> -		if (pte_young(pte))
+> +		if (pte_young(pte)) {
+>   			orig_pte = pte_mkyoung(orig_pte);
+> +			CHECK_CONTPTE_FLAG(i, ptep, orig_pte, dirty);
+> +			break;
+> +		}
+>   	}
+>   
+>   	return orig_pte;
+
+There are two issues as I can see: (1) The loop stops on any dirty or young flag. Another
+flag can be missed when one flag is seen. For example, when ptep[0] has both dirty/young
+flag, only the dirty flag is collected. (2) CHECK_CONTPTE_FLAG() iterates ptep[i, CONT_PTES],
+conflicting to the outer loop, which iterates ptep[0, CONT_PTES].
+
+Besides, I also doubt how much performance can be gained by bailing early on (dirty | young).
+However, it's avoided to cross the L1D cache line boundary if possible. With 4KB base page
+size, 128 bytes are needed for ptep[CONT_PTES], equal to two cache lines. If we can bail
+early with luck, we don't have to step into another cache line. Note that extra checks needs
+more CPU cycles.
+
+Thanks,
+Gavin
 
 
