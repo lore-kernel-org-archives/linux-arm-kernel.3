@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CF8C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 07:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4291FC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 07:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bjtp5uxq5PJR8SPbumJFOhR6APtRTEBkqcgJtZZs/yI=; b=yCMvbJDySJa+SRpI8tUWgtiHPz
-	A4jhxbwM6BfXNbHlz4+V8/YgG6tVb7MzQEKOOeTZ+h14tT9RRMDt9Mvww9gU6Xgb6QZbvU5ggBgsd
-	hyra+TCCtKZxWx862JuGDToQtzNGcs3c0d3wWKnR6k5gNIRPYz1bJwKG4Md7l3CoMLivJvW2n/Q1n
-	Gu1Bz93PGuHCP2Vg3+3BdH2LorSqj7Phq0KC5FNFnLN8HxvKEAF37kdzP64dVCRR4OnrPh7qUG4wD
-	r8/g4oJAK6Y/G/cqIdben/WCEWtIT1xw6VFtZ1iwQNZ/Tf34PMk3uTeaSSxzGajCoojL/1ybqQFTP
-	8C2OZRww==;
+	bh=VylQ7k8yohnNcjotAcWmjWSVKpnetqoHH5hY+v4seCw=; b=pxC5+LTIDVHlgbkXMNiEuWhNLe
+	HrlRfbqietGa1qudUhWap7UDHhjXvFH1jgJGJB4TqDgJBhXMpGw9bqSE8zLB7tvBRCNfXsSBQZ79b
+	FD1oxlZy+UaO8uf9sa7CgKulspNumcIo3Li4a7YhabNUs/poHYyjZJMYZRD8Bw32ABBJ/XYWK59uu
+	MsIxCjMvNqw45OyuBCKpLj7IanjcD8USNKOg8O0G09AZPKrBtKxGvO83BxRKPN2Fxt4RKpZaxtNYd
+	UGTFUT4VvuLUDcERtCnjXjoWoTlf7NfAwiLhumtGf6ySKfLdXhnvDZtIlzssKBVPreDJXA/Sswgso
+	ct22ao8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2PsZ-00000006QcN-0KXd;
-	Wed, 09 Apr 2025 07:29:47 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1u2PvV-00000006R1Z-08x4;
+	Wed, 09 Apr 2025 07:32:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Pq6-00000006QLA-1YTd
+	id 1u2Ptk-00000006QqD-19CR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 07:27:15 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-739525d4e12so5822349b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 00:27:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744183633; x=1744788433; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=bjtp5uxq5PJR8SPbumJFOhR6APtRTEBkqcgJtZZs/yI=;
-        b=yAnZ3913J7RiEhmliqR2WE50KTsotx4LLj2HdQPmwMmB+iECokVcIz+ITXLMECs7ES
-         7miU9rmBJ7IBFLk3x7qGm5p1lbioutfJYFm0aKu807S42rWkNmaLRLzDnCJ4gIKIPJNB
-         CzfHYqsu8ivvk93ntBKaAQ0/H6J0GJCao1J2vbz8+RiJR2xXW6ZNRLUK1XeslI8CASmQ
-         nnI/ypwlAmRrL8i6ImDJzjnN6UEZZ7/Upn4YfHknmPxBDGnERUtMoHQJfLa3mLS2Pz2K
-         tPfG2pgwzx5LmaU+PrUVCJ/J/7W3HieNa99FYSyWVI5BNrkvQzvUKi6YWfSrA1l08hMl
-         6qGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744183633; x=1744788433;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bjtp5uxq5PJR8SPbumJFOhR6APtRTEBkqcgJtZZs/yI=;
-        b=Nvk2WtGEl/R45SjZxOJzlIZUI45povGQMMfHCdcnsRpkrywXicXRI0vYCYOx4q3m0Q
-         tDil8G3TvzCtWtBQH8Kr1j/sI/oNoud44lcScQl1cqZZKD9OPhAsuC4RlWKbjspeCDny
-         r33qhTEH/Mn4KkRSb42da08BZ9I7RlXyquEp6pNvs1yT3gHFfxWlRhI56gz7aDzfTVO3
-         gI04VuT02oqOZ4OBtHuj/GemBhebih9p3Fpv4oQ/I5Xd16gLWjOdRua2bzh1SspxT0xd
-         4ly2la1n7nfurRxuxCDLjQIskMkl5CkZnuILBF6qXo7hI80cvd7nS2MOHY/SFkGSuNKT
-         lH5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXKd7V/b06ava0KxpDDfunBnxjSuoqjaHliHypH336C5tf0Q72O9XHAEhVNroEqUR+FXtnh+h1FHx3XtgmSG/Pb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJUDvVDOY9I68QlKcPXjH4dsUAGJCYHVB636YPtmvhLPkY62oS
-	m+EBs5zLsyrBD0KQJn0Fz/dgziUGHY1sz2L61gtw/QbPtzJ4594+WHqRPiqzWQ==
-X-Gm-Gg: ASbGncv6kSho92dM7+eXdSgLvBrvMk8U/4z5WXJcZuzPPnCwKxFXWin+HEs2DmFzxKN
-	w+egQOhR/U8otnh91pjIhfTuej8OYMEfEqHp1+baLl+7V2uxjS5EIZPrZaQaY8JBC2kUMoNWIUq
-	6MIaRjRmFrtkDcqD0ceo5Rdvd6hXbrlLBs+hgcaEbt/MdiXAlHBcnaBBnmKAVN2WL7IvCHgIFyz
-	zJWgZjHnSr6eRHhcvu6tyZVlyN68/Ozq7p4SnGqatgkl2GOUkBTKu6U9jIztjrYByzCgyBXe8yy
-	YipyWYtC2GTfC6fxyHK2k97C08KQAciVCCwZ8jsAedtf4GFZ50lYTIBYqLmrDQ==
-X-Google-Smtp-Source: AGHT+IFJNOB7FQRc/Tw1WyrEz0Y4erL5DJ65iCK7Rvye19VpLIDU8oQWce0axOQ4lCLAH8Qrt4ZW7g==
-X-Received: by 2002:a05:6a20:c88f:b0:1f5:6d00:ba05 with SMTP id adf61e73a8af0-201592e1b96mr2765473637.38.1744183633456;
-        Wed, 09 Apr 2025 00:27:13 -0700 (PDT)
-Received: from thinkpad ([120.56.198.53])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b02a322117bsm469422a12.64.2025.04.09.00.27.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 00:27:12 -0700 (PDT)
-Date: Wed, 9 Apr 2025 12:57:05 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, 
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, p.zabel@pengutronix.de, 
-	johan+linaro@kernel.org, cassel@kernel.org, quic_schintav@quicinc.com, 
-	fabrice.gasnier@foss.st.com, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/9 RESEND] dt-bindings: PCI: Add STM32MP25 PCIe Root
- Complex bindings
-Message-ID: <ku3lsolnbbwwlngi54lpe4j6s476rhxi662vqvlwwua4sos4du@b6j6zofrpuuy>
-References: <20250325065935.908886-1-christian.bruel@foss.st.com>
- <20250325065935.908886-2-christian.bruel@foss.st.com>
+	Wed, 09 Apr 2025 07:31:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 085DB68432;
+	Wed,  9 Apr 2025 07:30:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BC10C4CEE3;
+	Wed,  9 Apr 2025 07:30:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744183859;
+	bh=v3n5JgwpE6270eRrZMtFhK0CZ0KtsCC90coVUAGG9aE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Oq9TuK38hrQocohwoPsnURn+ULs/oGCy9Y9IBcW4pjU6px6xjpvUzanY9a+Tahu3l
+	 afwfMQxG3wf0pGQizMQWWc2tiywjUWmISG1LCARkEV9qODEgWCj4Wffh0dPFnrUpRA
+	 aazDJpiwoq6Pl3PHRspEk+yrYY4DgZ2x5t1hF+osaryN5AyEz/fG+AEJr8EtnWpmKH
+	 xUYQ3GqH4GUAi1T0xDEQyw3fEeewIt7TX3JUOy0kXCNSdmOyY3jO8B6MY9fz9wFJcd
+	 62VyS6lK9aXKHvfN4dxeL62ZShJWS68w2CKXBWRNgDFJ2/OoAkQG0LriOrsl8ABqvb
+	 NZ/KJlsP8jQ8Q==
+Date: Wed, 9 Apr 2025 09:30:52 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 18/24] irqchip/gic-v5: Add GICv5 PPI support
+Message-ID: <Z/YiLNzRvXUgcHFc@lpieralisi>
+References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
+ <20250408-gicv5-host-v1-18-1f26db465f8d@kernel.org>
+ <877c3uuy7u.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250325065935.908886-2-christian.bruel@foss.st.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_002714_413194_67C3DCDF 
-X-CRM114-Status: GOOD (  14.74  )
+In-Reply-To: <877c3uuy7u.ffs@tglx>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,65 +77,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 25, 2025 at 07:59:27AM +0100, Christian Bruel wrote:
-> Document the bindings for STM32MP25 PCIe Controller configured in
-> root complex mode with one root port.
+On Tue, Apr 08, 2025 at 11:42:29PM +0200, Thomas Gleixner wrote:
+> On Tue, Apr 08 2025 at 12:50, Lorenzo Pieralisi wrote:
+> > +
+> > +static void gicv5_ppi_priority_init(void)
+> > +{
+> > +	write_sysreg_s(REPEAT_BYTE(GICV5_IRQ_PRIORITY_MI),
+> > +				 SYS_ICC_PPI_PRIORITYR0_EL1);
 > 
-> Supports 4 INTx and MSI interrupts from the ARM GICv2m controller.
+> Just let stick it out. You have 100 characters. All over the place...
+
+I will do.
+
+> > +static int gicv5_ppi_irq_set_irqchip_state(struct irq_data *d,
+> > +					   enum irqchip_irq_state which,
+> > +					   bool val)
+> > +{
+> > +	u64 hwirq_id_bit = BIT_ULL(d->hwirq % 64);
+> > +
+> > +	switch (which) {
+> > +	case IRQCHIP_STATE_PENDING:
+> > +		if (val) {
+> > +			if (d->hwirq < 64)
+> > +				write_sysreg_s(hwirq_id_bit,
+> > +					       SYS_ICC_PPI_SPENDR0_EL1);
+> > +			else
+> > +				write_sysreg_s(hwirq_id_bit,
+> > +					       SYS_ICC_PPI_SPENDR1_EL1);
+> > +
+> > +		} else {
+> > +			if (d->hwirq < 64)
+> > +				write_sysreg_s(hwirq_id_bit,
+> > +					       SYS_ICC_PPI_CPENDR0_EL1);
+> > +			else
+> > +				write_sysreg_s(hwirq_id_bit,
+> > +					       SYS_ICC_PPI_CPENDR1_EL1);
+> > +		}
+> > +
+> > +		return 0;
+> > +	case IRQCHIP_STATE_ACTIVE:
+> > +		if (val) {
+> > +			if (d->hwirq < 64)
+> > +				write_sysreg_s(hwirq_id_bit,
+> > +					       SYS_ICC_PPI_SACTIVER0_EL1);
+> > +			else
+> > +				write_sysreg_s(hwirq_id_bit,
+> > +					       SYS_ICC_PPI_SACTIVER1_EL1);
+> > +		} else {
+> > +			if (d->hwirq < 64)
+> > +				write_sysreg_s(hwirq_id_bit,
+> > +					       SYS_ICC_PPI_CACTIVER0_EL1);
+> > +			else
+> > +				write_sysreg_s(hwirq_id_bit,
+> > +					       SYS_ICC_PPI_CACTIVER1_EL1);
+> > +		}
 > 
-> STM32 PCIe may be in a power domain which is the case for the STM32MP25
-> based boards.
+> You already precalculate hwirq_id_bit. Can't you do something similar
+> for the registers?
 > 
-> Supports WAKE# from wake-gpios
+> 	case IRQCHIP_STATE_PENDING:
+>         	u32 reg = val ? SYS_ICC_PPI_SPENDR1_EL1 : SYS_ICC_PPI_SPENDR0_EL1;
 > 
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+>                 write_sysreg_s(hwirq_id_bit, reg);
+>                 return 0;
+> 	case IRQCHIP_STATE_ACTIVE:
+>                 ....
+> 
+> Ditto in the get_state() function.
+> 
+> No?
 
-Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Yes, more readable.
 
-One comment below.
+> > +static int gicv5_irq_ppi_domain_translate(struct irq_domain *d,
+> > +					  struct irq_fwspec *fwspec,
+> > +					  irq_hw_number_t *hwirq,
+> > +					  unsigned int *type)
+> > +{
+> > +	if (is_of_node(fwspec->fwnode)) {
+> 
+> It'd be way more readable to invert this check
+> 
+>      if (!is_of_node(...))
+>      	return -EINVAL;
+> 
+> so that the subsequent checks are just a read through.
 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  .../bindings/pci/st,stm32-pcie-common.yaml    |  33 ++++++
->  .../bindings/pci/st,stm32-pcie-host.yaml      | 112 ++++++++++++++++++
->  2 files changed, 145 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
->  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+Will do.
+
+> > +		if (fwspec->param_count < 3)
+> > +			return -EINVAL;
+> > +
+> > +		if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI)
+> > +			return -EINVAL;
+> > +
+> > +		*hwirq = fwspec->param[1];
+> > +		*type = fwspec->param[2] & IRQ_TYPE_SENSE_MASK;
+> > +
+> > +		return 0;
+> > +	}
+> > +
+> > +	return -EINVAL;
+> > +}
+> 
+> > +static void gicv5_irq_ppi_domain_free(struct irq_domain *domain,
+> > +				      unsigned int virq, unsigned int nr_irqs)
+> > +{
+> > +	struct irq_data *d;
+> > +
+> > +	if (WARN_ON(nr_irqs != 1))
+> 
+> WARN_ON_ONCE ?
+
+Yes.
+
+> > +		return;
+> > +
+> > +	d = irq_domain_get_irq_data(domain, virq);
+> > +
+> > +	irq_set_handler(virq, NULL);
+> > +	irq_domain_reset_irq_data(d);
+> > +}
+> > +
+> > +static int gicv5_irq_ppi_domain_select(struct irq_domain *d,
+> > +				       struct irq_fwspec *fwspec,
+> > +				       enum irq_domain_bus_token bus_token)
+> > +{
+> > +	/* Not for us */
+> > +	if (fwspec->fwnode != d->fwnode)
+> > +		return 0;
+> > +
+> > +	if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI) {
+> > +		// only handle PPIs
+> 
+> Commenting the obvious?
 > 
 
-[...]
+Will remove it.
 
-> +    pcie@48400000 {
-> +        compatible = "st,stm32mp25-pcie-rc";
-> +        device_type = "pci";
-> +        reg = <0x48400000 0x400000>,
-> +              <0x10000000 0x10000>;
-> +        reg-names = "dbi", "config";
-> +        #interrupt-cells = <1>;
-> +        interrupt-map-mask = <0 0 0 7>;
-> +        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
-> +                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
-> +        #address-cells = <3>;
-> +        #size-cells = <2>;
-> +        ranges = <0x01000000 0x0 0x00000000 0x10010000 0x0 0x10000>,
-> +                 <0x02000000 0x0 0x10020000 0x10020000 0x0 0x7fe0000>,
-> +                 <0x42000000 0x0 0x18000000 0x18000000 0x0 0x8000000>;
-> +        dma-ranges = <0x42000000 0x0 0x80000000 0x80000000 0x0 0x80000000>;
-> +        clocks = <&rcc CK_BUS_PCIE>;
-> +        resets = <&rcc PCIE_R>;
-> +        msi-parent = <&v2m0>;
-> +        access-controllers = <&rifsc 68>;
-> +        power-domains = <&CLUSTER_PD>;
-> +
-> +        pcie@0,0 {
-> +          device_type = "pci";
+> > +		return 0;
+> > +	}
+> > +
+> > +	return (d == gicv5_global_data.ppi_domain);
+> > +}
+> > +
+> > +static const struct irq_domain_ops gicv5_irq_ppi_domain_ops = {
+> > +	.translate	= gicv5_irq_ppi_domain_translate,
+> > +	.alloc		= gicv5_irq_ppi_domain_alloc,
+> > +	.free		= gicv5_irq_ppi_domain_free,
+> > +	.select		= gicv5_irq_ppi_domain_select
+> > +};
+> > +
+> > +static inline void handle_irq_per_domain(u32 hwirq)
+> > +{
+> > +	u32 hwirq_id;
+> > +	struct irq_domain *domain = NULL;
+> > +	u8 hwirq_type = FIELD_GET(GICV5_HWIRQ_TYPE, hwirq);
+> 
+> So far you managed to comply with the documented reverse fir tree
+> ordering.
+> 
+>   https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#variable-declarations
+> 
+> Why are you changing coding style in the middle of the code?
 
-Indentation is off by 2 spaces.
+Mea culpa, don't bother commenting on this further, point taken.
 
-- Mani
+> > +	hwirq_id = FIELD_GET(GICV5_HWIRQ_ID, hwirq);
+> > +
+> > +	if (hwirq_type == GICV5_HWIRQ_TYPE_PPI)
+> > +		domain = gicv5_global_data.ppi_domain;
+> > +
+> > +	if (generic_handle_domain_irq(domain, hwirq_id)) {
+> > +		pr_err("Could not handle, hwirq = 0x%x", hwirq_id);
+> 
+> pr_err_once() perhaps?
+> 
+> > +		gicv5_hwirq_eoi(hwirq_id, hwirq_type);
+> > +	}
+> > +}
+> > +
+> > +static asmlinkage void __exception_irq_entry
+> > +gicv5_handle_irq(struct pt_regs *regs)
+> > +{
+> > +	u64 ia;
+> > +	bool valid;
+> > +	u32 hwirq;
+> 
+> See above
+> 
+> > +	ia = gicr_insn(GICV5_OP_GICR_CDIA);
+> > +	valid = GICV5_GIC_CDIA_VALID(ia);
+> 
+> And please move that to the declaration lines
+> 
+> > +static int __init gicv5_init_domains(struct fwnode_handle *handle)
+> > +{
+> > +	gicv5_global_data.fwnode = handle;
+> > +	gicv5_global_data.ppi_domain = irq_domain_create_linear(
+> > +		handle, 128, &gicv5_irq_ppi_domain_ops, NULL);
+> 
+> The ever changing choice of coding styles across functions is really
+> interesting. Obviously the length of 'gicv5_global_data.ppi_domain'
+> forces ugly, but that does not mean it needs to be that way:
+> 
+>        struct irqdomain *d;
+> 
+>        d = irq_domain_create_linear(handle, 128, &gicv5_irq_ppi_domain_ops, NULL);
+>        if (!d)
+>        		return - ENOMEM;
+> 
+>        irq_domain_update_bus_token(d, DOMAIN_BUS_WIRED);
+>        gicv5_global_data.fwnode = handle;
+>        gicv5_global_data.ppi_domain = d;
+>        return 0;
+> 
+> No?
 
--- 
-மணிவண்ணன் சதாசிவம்
+Yes it is better.
+
+> > +static int __init gicv5_of_init(struct device_node *node,
+> > +				struct device_node *parent)
+> > +{
+> > +	int ret;
+> > +
+> > +	ret = gicv5_init_domains(&node->fwnode);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	gicv5_set_cpuif_pribits();
+> > +
+> > +	ret = gicv5_starting_cpu(smp_processor_id());
+> 
+> You invoke the CPU hotplug callback for the boot CPU explicitly, but
+> what the heck installs the actual hotplug callback for the secondary
+> CPUs?
+
+That comes with a subsequent patch[21]. I mentioned in the cover letter
+that I tried to split the functionality into interrupt types to ease
+review (well, it does not look like I succeeded, sorry) and then in
+patch [21] (when LPIs backing IPIs are implemented), enable SMP.
+
+The point is, we need patches [18-21] to enable SMP booting.
+
+I can squash [18-21] all together or I can enable the hotplug callback
+here but this patch stand alone is not functional for the reasons
+above, let me know please what's best in your opinion and I will do.
+
+Above all, thank you very much for reviewing the series.
+
+Lorenzo
 
