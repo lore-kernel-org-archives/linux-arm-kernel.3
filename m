@@ -4,68 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FF7C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 08:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F0BFC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 08:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=beqSCrthJJ96ffNv3VxFRcPOEYbKMeCzBJvR9ZAwmRo=; b=RAX2rCcJQt2eb58xOZzXgD+UOQ
-	tLbfbnM5A0tV/n3KsZSqpIzkJ4pvelvi3CpxSLBDR6ncXhJkZlavWZQdUcA5voOpHdvcsWUf71IAQ
-	F2ZThdNkux4+JRMPXfO5dOEQo2N7wlXjqG9C9ATcY7nE8O4wjm0bExytVa+YrRQf0Edz/s8O1XZXd
-	C5+t9dhXITcixH1W1FlEZEEXwFogttqfsHzKoxDzz2s5tqhC38MiZL+El51F6V6Fxdzs/XSl2lqQa
-	5AKSogZYRKIH07KSbKVutUfmn8h9XDnz1rw3E5vsCF5dNodSGM/LNF86mkMcf29lmVVgRfi/nmt+D
-	GBbs1esQ==;
+	bh=GV/VIz9Dal9GidNfi3rZQigxcHcKa0Red1OY/otJy2Q=; b=XQ5XwQFDEHJzMFFXbWT/W163jj
+	twdZE7UKBXaaLuwBZlOoJp9BgvDB3At7/9ZVCEL9AmQDWfCws1G9m6El4jE3QMNJiYAWkeh7Glo+j
+	uyb1+dmurrqGLkSie4UsXxB/L37r39uSaksQiEuJq8Fkyci/2aagOTUU0iy59IyHwWsevrMFR04gS
+	CpoSQp6BCY0JVMEGHIovSAh7BovB3NibFQD3Eb0I6FvohQ/Yid604lMEL76fFjH/sjpHWrHGDbR69
+	yb5ciqWcrwb3+QUZpRQ6YsdMwlqd1Eu3SFv3/F781TnIw80F2NjvNMZXOrJ2JeYXrXCe051CjL+/E
+	1m8fMAjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Qox-00000006aKb-3IOS;
-	Wed, 09 Apr 2025 08:30:07 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1u2Qqh-00000006add-0sfG;
+	Wed, 09 Apr 2025 08:31:55 +0000
+Received: from mail-ua1-f45.google.com ([209.85.222.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2QmM-00000006Zj0-381s
+	id 1u2QmQ-00000006Zjm-2YJT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 08:27:27 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1744187244;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=beqSCrthJJ96ffNv3VxFRcPOEYbKMeCzBJvR9ZAwmRo=;
-	b=cEqbhwTougUpomdumFtZLkpuEa6pFWI8Ce4+URMRNQwDpvuX3iLQ8D95jsn1TrL5ApN57d
-	s1fYke81i0ORSg+/67l8P4xSEqb7rhdxujU9Bp3YZEu/f5hMjEsM4I9JkyHmN++E9hItRZ
-	+ySNNZ+9reK6a7EE7/86AA3JVJF4vxB5uoOq56lNgr0cxWBKG6SBfRnTceifjiA5ur9g66
-	DiDLKEZTqEHSBzdnUgYnrLClugiJPfiLuKzjrDo2xwnSEWtg5xbEE+2OL7VpIYN2NgkQUt
-	H017FlRcZE7RaUO0hsf2lS7H/1ElA0H7QcejDvgA3ugefNS8X0uhKZcZ/pODlA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1744187244;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=beqSCrthJJ96ffNv3VxFRcPOEYbKMeCzBJvR9ZAwmRo=;
-	b=XU06grseNXk6NF5fs+KuOxKTjWZFrN7EUjv1zo7cX9FSdrHcycwpYCk0dxAwjpUSKQ9GQC
-	PEVl8g+1LE5EuGDQ==
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier
- <maz@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Sascha Bischoff <sascha.bischoff@arm.com>, Timothy Hayes
- <timothy.hayes@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Lorenzo
- Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH 20/24] irqchip/gic-v5: Add GICv5 LPI/IPI support
-In-Reply-To: <20250408-gicv5-host-v1-20-1f26db465f8d@kernel.org>
-References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
- <20250408-gicv5-host-v1-20-1f26db465f8d@kernel.org>
-Date: Wed, 09 Apr 2025 10:27:24 +0200
-Message-ID: <87wmbtu4cz.ffs@tglx>
+	Wed, 09 Apr 2025 08:27:31 +0000
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-86b9d9b02cbso2741988241.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 01:27:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744187249; x=1744792049;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GV/VIz9Dal9GidNfi3rZQigxcHcKa0Red1OY/otJy2Q=;
+        b=Nqro2vAzQxKIZYP2jth8tk4+ISzflSHFo/0e6rIDMJVdUr2c3w6kQ4HDtnyvtxoNlC
+         4eAuJHjh9zfbyLVeiJmA4n++8onbEb2mx171i8tbQRC8yiiu29yLTSfiCfHfh2KDh2hC
+         sPUmwa2nNjBNc8J9PhRGZBFK7Orb59A3IZ9EuqE6GoDfeBk7+9R2wfRe03wmZE3B2WEx
+         TYooe3WjNz9vO6tiXOEbJzebNaxpGTXPcoZWQMBWX9pAhPY1caYzIou3EY2GZ8Ys99FI
+         RpBOZxjPST7idIkPG/6EUC+bFbmSbmbI6X0kdkpl1RVt+VmlVRbeKyyZ+DjQ/KYwXmZs
+         rlxg==
+X-Forwarded-Encrypted: i=1; AJvYcCUjqYNR0xguZUGLW6jmyogdPXfyNirvRwjVAR1J5hj+VQ+nWKoU5bB9XfsOknPr9rYuzR7s2y0HQ8mVHCT4jGDV@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywyhs5g3Bon5goFeCnDPHsS6OY7NWME1ANPCFf/u82pX612uU+V
+	1AcqB5y6Sq9Z7S0HgNJvcTfI1HYNo5+gEusQXYI5ZAUsP/VspQinZ9atteK7uDw=
+X-Gm-Gg: ASbGncuSJVkevXxswgOAliIbMNjUWKfcEiGD5qJzUjX7rdaYwm5rgiV07LMU7c7mS8d
+	fFj71HPbExZMs5NzWibDBAg4NxsSwvS4i8ZMWRX/0g4XSx4Rp+yU88BprUeo692xNgvHfYi7OIo
+	Glk0Op5/NhN5gwjJWv1M6Z4BLTeknLXmsMeUz44DyvaIkeiSzSEJE5hsOAqhnOsQG9bWpwAW9+f
+	N7O3Ilop0BGer79GBjBebqxSaLkVjPUWpxkuMNrpr0iy4hRVqof0QBjALBAzw/Fct1I7s9JVzQg
+	JLvgHq9ylhoFzAx9SYgpEko19yekdMKf1lWO/jOwt4xRZ+IbwYCPHU4s2MSn9Np0OEOYtQ05vUz
+	6JYTzX4U=
+X-Google-Smtp-Source: AGHT+IHq5StiljLWEUv3NVn+f6suaA5QuCRfj772lDNDCFiMKcN2BqjyZDlwL2RUFoF4tomXWQy+6A==
+X-Received: by 2002:a05:6102:3e28:b0:4c4:e3c7:cc8e with SMTP id ada2fe7eead31-4c9c6b85c1dmr741937137.24.1744187248884;
+        Wed, 09 Apr 2025 01:27:28 -0700 (PDT)
+Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com. [209.85.221.171])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-875572b6989sm143155241.32.2025.04.09.01.27.18
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 09 Apr 2025 01:27:22 -0700 (PDT)
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-52413efd0d3so2815548e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 01:27:18 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUg5zWueQKv8k8cBQLuES/JWyPivUs8asz1PVE74AHE2l6JHWAL2HwvGJHdCOjfuVc2LQm+h8XGr7OlbzXAHqJY@lists.infradead.org
+X-Received: by 2002:a05:6102:801b:b0:4bb:e8c5:b149 with SMTP id
+ ada2fe7eead31-4c9c6a728e2mr725401137.7.1744187236860; Wed, 09 Apr 2025
+ 01:27:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20250407145546.270683-1-herve.codina@bootlin.com>
+ <20250407145546.270683-16-herve.codina@bootlin.com> <19f1a382-1b6b-42bd-a548-a1a5644c9a1b@lunn.ch>
+ <20250408162603.02d6c3a1@bootlin.com> <D91CSNC07NYM.3KC467K0OZ4GG@bootlin.com>
+ <c14dd5c6-2dae-4398-89a9-342e7a25bb30@lunn.ch> <D91XV1I4CY37.20T12FMZ5QLQ5@bootlin.com>
+In-Reply-To: <D91XV1I4CY37.20T12FMZ5QLQ5@bootlin.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 9 Apr 2025 10:27:05 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVtrmh207usW45c0v5EmxgM+JgfQ=m55tXXNT0m4o5aGg@mail.gmail.com>
+X-Gm-Features: ATxdqUFWOu-H2GpmZpjc1_rOXM2aP80PMBbJa2DlVS33R9lalUc2jSOHZ1dg-j8
+Message-ID: <CAMuHMdVtrmh207usW45c0v5EmxgM+JgfQ=m55tXXNT0m4o5aGg@mail.gmail.com>
+Subject: Re: [PATCH 15/16] misc: lan966x_pci: Add dtso nodes in order to
+ support SFPs
+To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Herve Codina <herve.codina@bootlin.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, 
+	Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, Allan Nielsen <allan.nielsen@microchip.com>, 
+	Horatiu Vultur <horatiu.vultur@microchip.com>, 
+	Steen Hegelund <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_012726_921887_256AA410 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20250409_012730_666951_C641E735 
+X-CRM114-Status: GOOD (  29.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,81 +116,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08 2025 at 12:50, Lorenzo Pieralisi wrote:
-> +/* Wait for completion of an IST change */
-> +static int gicv5_irs_ist_wait_for_idle(struct gicv5_irs_chip_data *irs_data)
-> +{
-> +	int ret;
-> +	u32 val;
-> +
-> +	ret = readl_relaxed_poll_timeout_atomic(
-> +			irs_data->irs_base + GICV5_IRS_IST_STATUSR, val,
-> +			FIELD_GET(GICV5_IRS_IST_STATUSR_IDLE, val), 1,
-> +			USEC_PER_SEC);
-> +
-> +	if (ret == -ETIMEDOUT)
-> +		pr_err_ratelimited("IST_STATUSR.IDLE timeout...\n");
-> +
-> +	return ret;
+On Wed, 9 Apr 2025 at 09:44, Thomas Petazzoni
+<thomas.petazzoni@bootlin.com> wrote:
+> On Tue Apr 8, 2025 at 5:38 PM CEST, Andrew Lunn wrote:
+> > "HW blocks inside an SoC." That would be the SoC .dtsi file. Anything
+> > outside of the SoC is in the .dts file. OEM vendors take the SoC,
+> > build a board around it, and name there .dts file after the board,
+> > describing how the board components are connected to the SoC.
+> >
+> > So..
+> >
+> > So by PCI endpoint, you mean the PCIe chip? So it sounds like there
+> > should be a .dtsi file describing the chip.
+> >
+> > Everything outside of the chip, like the SFP cages, are up to the
+> > vendor building the board. I would say that should be described in a
+> > .dtso file, which describes how the board components are connected to
+> > the PCIe chip? And that .dtso file should be named after the board,
+> > since there are going to many of them, from different OEM vendors.
+>
+> Indeed, that makes sense. So if I get correctly your suggestion,
+> instead of having a .dtso that describes everything, it should be
+> split between:
+>
+>  - A .dtsi that describes what's inside the LAN996x when used in PCI
+>    endpoint mode
+>
+>  - A .dtso that includes the above .dtsi, and that describes what on
+>    the PCI board around the LAN966x.
+>
+> Correct?
 
-I'm sure I've seen that code before and without looking I'm sure the
-diff between the two functions is ~2 lines.
+Sounds good to me!
 
-> +
-> +	mtree_lock(&lpi_mt);
-> +	ret = mas_empty_area(&mas, 0, num_lpis - 1, lpis);
-> +	if (ret) {
-> +		pr_err("Failed to perform a dynamic alloc in the LPI MT!\n");
-> +		return ret;
-> +	}
-> +
-> +	lpi_base = mas.index;
-> +
-> +	/*
-> +	 * We don't really care about the entry itself, only about
-> +	 * allocation of a maple tree ranges describing in use LPIs.
-> +	 * That's why, upon allocation, we try to merge slots adjacent
-> +	 * with the empty one we are allocating to minimize the number
-> +	 * of slots we take from maple tree nodes for nothing, all
-> +	 * we need to keep track of is in use ranges.
-> +	 */
+Gr{oetje,eeting}s,
 
-I'm really not convinced that you need a maple tree and the code
-complexity for this. What's wrong with a simple bitmap other than that
-it might need 1MB memory?
+                        Geert
 
-> +static int gicv5_irq_lpi_domain_alloc(struct irq_domain *domain,
-> +				      unsigned int virq, unsigned int nr_irqs,
-> +				      void *arg)
-> +{
-> +	irq_hw_number_t hwirq;
-> +	struct irq_data *irqd;
-> +	u32 *base_lpi = arg;
-> +	int i, ret;
-> +
-> +	hwirq = *base_lpi;
-> +
-> +	for (i = 0; i < nr_irqs; i++) {
-> +		irqd = irq_desc_get_irq_data(irq_to_desc(virq + i));
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-irq_get_irq_data() and irq_domain_get_irq_data() exist for a reason.
-
-> +
-> +		irq_domain_set_info(domain, virq + i, hwirq + i,
-> +				    &gicv5_lpi_irq_chip, NULL,
-> +				    handle_fasteoi_irq, NULL, NULL);
-> +		irqd_set_single_target(irqd);
-> +static int gicv5_irq_ipi_domain_alloc(struct irq_domain *domain,
-> +				      unsigned int virq, unsigned int nr_irqs,
-> +				      void *arg)
-> +{
-> +	int ret, i;
-> +	u32 lpi;
-> +	struct irq_data *irqd = irq_desc_get_irq_data(irq_to_desc(virq));
-
-Again. Zero reason to fiddle with irq_desc.
-
-Thanks,
-
-        tglx
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
