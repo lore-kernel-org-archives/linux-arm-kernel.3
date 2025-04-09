@@ -4,150 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 734AFC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 07:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CF8C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 07:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hF8MKQcSY4Mlq6HXWy3F4CGIbMETGMBpgAkMLBXVYQ0=; b=uk4oHdsc6qOIaYTkbfSyUu8uEt
-	0w7unBV8TgpxOvkExhhwxTTZp4pdtboUg/eBaP0h4fA3NbIr054uYp59P7oFV2enCgCHtUgCq5lqc
-	DYaicHM5kWRZUXZ1uKiwn3D/8cuDufr179YaDdGl6JaIZi7ebtL/MpeoSelqMjdXDWWkWvo5t/OwK
-	mxdOc5qAl13J9WROL1qjIrdyxTJtA53IAEMeyyFydasDuqOMsuucmYqhlQI56okm1LXm+/DcQzqH+
-	8rTwMu5Q8/vPj/mUONcVdP0yj5xeuQHUzOakI7sPptw4SbBokUmlUHPmua2LTc/XftI4Q8l0wftA3
-	vSYU/x9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bjtp5uxq5PJR8SPbumJFOhR6APtRTEBkqcgJtZZs/yI=; b=yCMvbJDySJa+SRpI8tUWgtiHPz
+	A4jhxbwM6BfXNbHlz4+V8/YgG6tVb7MzQEKOOeTZ+h14tT9RRMDt9Mvww9gU6Xgb6QZbvU5ggBgsd
+	hyra+TCCtKZxWx862JuGDToQtzNGcs3c0d3wWKnR6k5gNIRPYz1bJwKG4Md7l3CoMLivJvW2n/Q1n
+	Gu1Bz93PGuHCP2Vg3+3BdH2LorSqj7Phq0KC5FNFnLN8HxvKEAF37kdzP64dVCRR4OnrPh7qUG4wD
+	r8/g4oJAK6Y/G/cqIdben/WCEWtIT1xw6VFtZ1iwQNZ/Tf34PMk3uTeaSSxzGajCoojL/1ybqQFTP
+	8C2OZRww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Pqo-00000006QSC-2dkM;
-	Wed, 09 Apr 2025 07:27:58 +0000
-Received: from mail-vi1eur05on2060e.outbound.protection.outlook.com ([2a01:111:f403:2613::60e] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1u2PsZ-00000006QcN-0KXd;
+	Wed, 09 Apr 2025 07:29:47 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Po1-00000006Q43-3KTN
+	id 1u2Pq6-00000006QLA-1YTd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 07:25:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=leNvDf0UMbAlh/6DNSRxo4silRevojBX4onkiIDxWPtZjSU3xAzruKjBJXqCokCukF3uesz3zjtvTmaH8WMYmVWtsIQ/leFHJOklX5Q/AthG/E+5wamxuTBtpq7zFQiJFIhLqrfriQosRd7OLfUlOrzUC2+37nxATPIekn+p/eNhxLRAk18vmjS50tfLCkMJ+x157sTUmNF0PC123aErJl93Vj4Y3Xi7o0AazCiG+a/OowlFHsBtnH9i9bixcpSTEcUsWOr6pOc6wvQsXjgSFfzBPJ/SwNXH4wTfsi8Dx06aqqcmvpvVeQyqA+s5hIGKX0TKaZEgXChch40PB83Whg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hF8MKQcSY4Mlq6HXWy3F4CGIbMETGMBpgAkMLBXVYQ0=;
- b=Lrg3zVT2cFhaASWelmyUJCu0lmElgNRYXPxpeYZAyOyo80CHUjTZ/eYwiTNofwGTve5FmSqYFlTXLNL9bCjrLadOoq9MwNFcFXU5AqQmImXAjm6OIQae9nTeTzHf/rflHLNVEkAbDJGJrrcLpSIBWKPmfe0il4gWfc4cL9UpMRydVe1c9lsj3kJ28OJehgBannsWnRDlNJRElpdlw5A8oGz5RqO9IwyyDZEFrLbrTug5d7sVwJQprpoQ0WClO3xM52b3Zal21gYeJUpY0OoL3ftkaRC7+M0Z47K0y/HCaqEL8i1q5JZPNCtZEczb/5J9dORb0uB7cXfKI1pQop9CJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hF8MKQcSY4Mlq6HXWy3F4CGIbMETGMBpgAkMLBXVYQ0=;
- b=J1Lkavx87hz1f+DzaR/WChtsDwQFplEgPipZ02ZXaLLRptHIwgicV0ZKOpy78nfE7+EjRgqg8Ole0U/XrtH0XFXkRo6unG8m1/az41M/eCyU5n6bm549V9UyrMKeOi0iVX1fjvT+Xn4wCeRUOg9kWEuvloC4JeVnLesa8xfZ4CDQ9OnNfFnWaLBYkjWKBy32wB2ssQDVaa108UmUU6b1pM59NuWHeKuu9xU0YWEqI15Z0mzTG77bprmzZUIEzDUEiEqzY1LLS3/VhLbXrtbOLe1l6fg0GdRlgBTeb21XGDcchvH+eFv1w7wQrVKjySSRvWhwNP+VZ7B9AbCJzl9lGw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com (2603:10a6:10:2d6::21)
- by AS8PR04MB8835.eurprd04.prod.outlook.com (2603:10a6:20b:42e::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.33; Wed, 9 Apr
- 2025 07:24:57 +0000
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::4db:3dc0:c292:493a]) by DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::4db:3dc0:c292:493a%5]) with mapi id 15.20.8606.033; Wed, 9 Apr 2025
- 07:24:57 +0000
-From: ziniu.wang_1@nxp.com
-To: adrian.hunter@intel.com,
-	ulf.hansson@linaro.org,
-	haibo.chen@nxp.com
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-mmc@vger.kernel.org,
-	s32@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
+	Wed, 09 Apr 2025 07:27:15 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-739525d4e12so5822349b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 00:27:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744183633; x=1744788433; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bjtp5uxq5PJR8SPbumJFOhR6APtRTEBkqcgJtZZs/yI=;
+        b=yAnZ3913J7RiEhmliqR2WE50KTsotx4LLj2HdQPmwMmB+iECokVcIz+ITXLMECs7ES
+         7miU9rmBJ7IBFLk3x7qGm5p1lbioutfJYFm0aKu807S42rWkNmaLRLzDnCJ4gIKIPJNB
+         CzfHYqsu8ivvk93ntBKaAQ0/H6J0GJCao1J2vbz8+RiJR2xXW6ZNRLUK1XeslI8CASmQ
+         nnI/ypwlAmRrL8i6ImDJzjnN6UEZZ7/Upn4YfHknmPxBDGnERUtMoHQJfLa3mLS2Pz2K
+         tPfG2pgwzx5LmaU+PrUVCJ/J/7W3HieNa99FYSyWVI5BNrkvQzvUKi6YWfSrA1l08hMl
+         6qGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744183633; x=1744788433;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bjtp5uxq5PJR8SPbumJFOhR6APtRTEBkqcgJtZZs/yI=;
+        b=Nvk2WtGEl/R45SjZxOJzlIZUI45povGQMMfHCdcnsRpkrywXicXRI0vYCYOx4q3m0Q
+         tDil8G3TvzCtWtBQH8Kr1j/sI/oNoud44lcScQl1cqZZKD9OPhAsuC4RlWKbjspeCDny
+         r33qhTEH/Mn4KkRSb42da08BZ9I7RlXyquEp6pNvs1yT3gHFfxWlRhI56gz7aDzfTVO3
+         gI04VuT02oqOZ4OBtHuj/GemBhebih9p3Fpv4oQ/I5Xd16gLWjOdRua2bzh1SspxT0xd
+         4ly2la1n7nfurRxuxCDLjQIskMkl5CkZnuILBF6qXo7hI80cvd7nS2MOHY/SFkGSuNKT
+         lH5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXKd7V/b06ava0KxpDDfunBnxjSuoqjaHliHypH336C5tf0Q72O9XHAEhVNroEqUR+FXtnh+h1FHx3XtgmSG/Pb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJUDvVDOY9I68QlKcPXjH4dsUAGJCYHVB636YPtmvhLPkY62oS
+	m+EBs5zLsyrBD0KQJn0Fz/dgziUGHY1sz2L61gtw/QbPtzJ4594+WHqRPiqzWQ==
+X-Gm-Gg: ASbGncv6kSho92dM7+eXdSgLvBrvMk8U/4z5WXJcZuzPPnCwKxFXWin+HEs2DmFzxKN
+	w+egQOhR/U8otnh91pjIhfTuej8OYMEfEqHp1+baLl+7V2uxjS5EIZPrZaQaY8JBC2kUMoNWIUq
+	6MIaRjRmFrtkDcqD0ceo5Rdvd6hXbrlLBs+hgcaEbt/MdiXAlHBcnaBBnmKAVN2WL7IvCHgIFyz
+	zJWgZjHnSr6eRHhcvu6tyZVlyN68/Ozq7p4SnGqatgkl2GOUkBTKu6U9jIztjrYByzCgyBXe8yy
+	YipyWYtC2GTfC6fxyHK2k97C08KQAciVCCwZ8jsAedtf4GFZ50lYTIBYqLmrDQ==
+X-Google-Smtp-Source: AGHT+IFJNOB7FQRc/Tw1WyrEz0Y4erL5DJ65iCK7Rvye19VpLIDU8oQWce0axOQ4lCLAH8Qrt4ZW7g==
+X-Received: by 2002:a05:6a20:c88f:b0:1f5:6d00:ba05 with SMTP id adf61e73a8af0-201592e1b96mr2765473637.38.1744183633456;
+        Wed, 09 Apr 2025 00:27:13 -0700 (PDT)
+Received: from thinkpad ([120.56.198.53])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b02a322117bsm469422a12.64.2025.04.09.00.27.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Apr 2025 00:27:12 -0700 (PDT)
+Date: Wed, 9 Apr 2025 12:57:05 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, 
+	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, p.zabel@pengutronix.de, 
+	johan+linaro@kernel.org, cassel@kernel.org, quic_schintav@quicinc.com, 
+	fabrice.gasnier@foss.st.com, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] mmc: sdhci-esdhc-imx: calculate data timeout value based on clock
-Date: Wed,  9 Apr 2025 15:26:04 +0800
-Message-Id: <20250409072604.3410459-1-ziniu.wang_1@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2P153CA0022.APCP153.PROD.OUTLOOK.COM (2603:1096:4:190::8)
- To DU2PR04MB8567.eurprd04.prod.outlook.com (2603:10a6:10:2d6::21)
+Subject: Re: [PATCH v5 1/9 RESEND] dt-bindings: PCI: Add STM32MP25 PCIe Root
+ Complex bindings
+Message-ID: <ku3lsolnbbwwlngi54lpe4j6s476rhxi662vqvlwwua4sos4du@b6j6zofrpuuy>
+References: <20250325065935.908886-1-christian.bruel@foss.st.com>
+ <20250325065935.908886-2-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8567:EE_|AS8PR04MB8835:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7904a30f-8ff5-47e3-c7e9-08dd7737a189
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?o3DDOw7RHuZm7LyMKLeNTZgw5P0gsgzEu98FTtV1icmcqmJA0Eutgy/36gNF?=
- =?us-ascii?Q?PF4htWPlE3+SNzWR6fXIJW53JhbLvvMWwRjthtGKvb/mBw1lRpDYT9I2+hCg?=
- =?us-ascii?Q?LNb/blhBhY+US5DnIYadBdyT/q/B/MNhE0aQ0QbxmvtDuVc6TLVcdJOklLRQ?=
- =?us-ascii?Q?BtZ1N+DW5zjPGscXuuXGKufJiIMR+FzGzJpl+4yW13CgotaFuXG/JJEhCwTf?=
- =?us-ascii?Q?Twml89iTWJ0tvSKr69SZJLyJ5fIw33A4B6WCqnF/S7CGobgHJwudyjYbydom?=
- =?us-ascii?Q?94o/2hY6j9/+Ih4S5yrXnqUGHJW62nFJmLe5Q1CGbXuAoYc4tiO6YMZy7FpZ?=
- =?us-ascii?Q?IiW1wpsX1uaSxnDNK/B+6b5motaRCd8tQUcD/r+sidD8l3lA/CsYqiea2krN?=
- =?us-ascii?Q?HyNOkv9Zcvlzzh0qwrfh2xRU++YwhN+WT4DrSvoPls66kT5H/8h4244xWX2I?=
- =?us-ascii?Q?lkLfW5sbgwM8SOIZ6xR2ryRahaYsUxr+oK0Iw1GnJnoVLeJOqUmP1nDMJTgJ?=
- =?us-ascii?Q?UHaNbqg1SwK82qtFEBLdQdMlrWUsjEuinYeQajzaBGj95lfHLUkAZnuP9TNG?=
- =?us-ascii?Q?8Vj2JLULR5nGboR51mRTtyu/rbP1IsWXTuUVmOPOpXVYwygWDqpVh7TKyXoo?=
- =?us-ascii?Q?YtPvo17fSzhnMYMHVnOMU+TDmFBSm7xH5N770V3DjWCKlYELhYih9A5YRfvD?=
- =?us-ascii?Q?2ZnbJ2spuyu6y7XB+NzCwAUu0zui2u1LbgJnd1AADYChR7oTsWNliZJ/qf8z?=
- =?us-ascii?Q?VOfSAgT3lzf0WtHB0dhAPAfPsJCJSA6whtVs+BQrfV/pnaNlVaFk7MkL+qyD?=
- =?us-ascii?Q?emVh55Iwuj+rxAcf0nRJbErVPov1QKEaYBmQJGSPpk5RlNRyC3O3B02TwFm/?=
- =?us-ascii?Q?A+OPTEJFcaVj0Ppv8wsAMHs9NmXRTabbl1bzbD2IdmiIu5OJeMgl12FBXoWy?=
- =?us-ascii?Q?Rj5bEm1iKGHTThhV3TrcztqnJL7rLLySmU/pQEJ1IWdTBfz5qYBubWibG0Fd?=
- =?us-ascii?Q?ydF4vfiQ3lE8EVxdk4UcTRGKLliBPuL7Uf/gMjHwCih4tyMuusVEAxf/R9D8?=
- =?us-ascii?Q?aYESSO2io3JX67V2s8QUgqTf6w3D9gk3wlvpFcVgavKlTnDnlZ/CrXplqKA0?=
- =?us-ascii?Q?rihwGxV5CpRdMfY7fkcHUzL1Ee5ADDljw5KTvM231EWPzUttELfugaef1j/I?=
- =?us-ascii?Q?ua6cF+zlBhnvW7yqeFlcfv5HOklyxvLntsfkursrOnFRBb8cUduBWZXwdTdR?=
- =?us-ascii?Q?BQcLcGIdFE7vyz9h5v50uXWMuVPgw8hfyWIL+yBNSLtRxid9h2B3cIj3GvM0?=
- =?us-ascii?Q?inXiZaLIwJHnm5TVAc31F4jUllmt2dcF0wmX2X+be6cxWl9rxFeohuBdEqxo?=
- =?us-ascii?Q?zzJErVgNwBuGr+9gybZ9zCnKQLkJyYi4aBMvPvAJKKzwUgrEx+ASTZDAQ7UO?=
- =?us-ascii?Q?xMbzn1Rr21gwObKuCHKBTHHzloJsuwuo?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8567.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VX86rDscp6//wy5hU4p0mricOMGoS6J7KC6s6yV7IfZiEPc2Zz1Vadqy+A1N?=
- =?us-ascii?Q?XV5UCeStzufajrGaZo/kbN+ucEozoLFIIKHj2Vb1OFEmqGHRObuEy0uzbs3R?=
- =?us-ascii?Q?LGK9lnid9lBRhRxAI2q26N8AnuxAhb/tnBeciCf9vVzZ5AEo/OklvvfojivA?=
- =?us-ascii?Q?tbp11Pmvty/OSqu8qUluv8rf7x6BA2N7udwnENmZM6i/bxiz6W8NDw7Drtvu?=
- =?us-ascii?Q?lR2gnwjAGgU5cRpkOVNDUwMZdYkl5lfZ+iQA5+x1etOtpSYgjAULbG7y2vQj?=
- =?us-ascii?Q?eyek8v3EM0dcvIqWGHrJNgoZwdGuqNQhjKtsP7SAGEac9qxoCqSlyixzk/3t?=
- =?us-ascii?Q?AS3PInvonCGQKFt3s+7DfFzwf+M5GNINn87P7hSoS4OSZ9tvUlWpbx17PYNY?=
- =?us-ascii?Q?Vzy2PrDUG1Eglq8OiE0CXlyjMa2Bv4Bq10gBQF4YZ9EHtH6CCI9+Q1cUY0X3?=
- =?us-ascii?Q?l0f+tSnUEfQj7esq+TJOWlaVKR6+wxdVHU2f5u/VZGRWFm5ItPoUlbPMAjVY?=
- =?us-ascii?Q?qDx9Bbtv0kMHE8RkX9iZe3IGuJD6igHwEGp6X4ah2YMpkPaHGmpxg369PpUR?=
- =?us-ascii?Q?Y2jA0otSxCWsiNJ61lRnwcAQUq2mjTVMwTGY4Nl1EMmWYYmdeCEWPsOryiu9?=
- =?us-ascii?Q?v2P01aDXtIED/DqbQZXhexY4F9gf10wNL73B2Q0ZIu3Kyy6Ar2+Kh/2PDcUn?=
- =?us-ascii?Q?BDjrS/JzsXgSvY1jzTPv+Elt8tJA8UNBAJrlCQ5FrBW0e2Z45s4EdHBZeIxc?=
- =?us-ascii?Q?RzRiFqDMBAsYCmdS9JrLtFhoO8RloITLMouuLDLKc26NDNmUODvIcSveTyF6?=
- =?us-ascii?Q?Lg7INn9l8lz2cLPHPFX89c66TZDPsH76w2Da2m9mm4WwBAkkKU2LV357XYEE?=
- =?us-ascii?Q?111hYvLR4Ijxubr+jFvzdxQonZ6g0QCDEE7kiTjnnFvlBzyFhue0fDjpWDGp?=
- =?us-ascii?Q?D/nuxLbIZJhKr82NzNfpxbT1cPAOjZCoD/nrkilB4pW973GGp1rDKGWQfWKu?=
- =?us-ascii?Q?RLEF7+TcgsdBF5lCA7G+KyW0h79jKAxRADB4QL8U9Bjke+CFgysXLicvSH7h?=
- =?us-ascii?Q?d2I+jEEfCS8apmHoSVch9rHw+/zTrR6CWenVky01dNvk3ZKIvHovd3LkEEhh?=
- =?us-ascii?Q?jZleNcxjavfX7LTD9klOZbRbXHOHxXfcdd9zC/UHengk1E3ptHUyYTfGDcJ+?=
- =?us-ascii?Q?EkgMwZ1XJEshDRe1A+lsQLZGKM0PUx06tMpCQlVUiETOBrtOtlhM5IpZZ/FF?=
- =?us-ascii?Q?ny2grKdAQmcW7hUNdZmthJkTUjkbpmFlafYztQuZ9YKFgytLJhsL2JmtAn1q?=
- =?us-ascii?Q?oMp9pmgQ80dmUBrN7WO+BcIPhHx0gyjl+GYzMXrzU+aCa2SMoj80dUrRh0P2?=
- =?us-ascii?Q?HgU12NxYjZmU0e+9U3Oje1ajYaRNtVSLy4GCeBI+9dPTE2FGgaNW7ROhN7JY?=
- =?us-ascii?Q?mxjj+1FKftRapqYL4Buag1GEoqbyR1tigm0m7WTCHjKnCby2mT4t72GYbbBE?=
- =?us-ascii?Q?fiXu6OQ5MGa82Qd+R503uzccXPKyKj19YfOm/gw0eHaKMztEK42ktNbSSvWf?=
- =?us-ascii?Q?qblEU6bTqWY7lRqfD570LbWY4xu10OOkOBHSLndG?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7904a30f-8ff5-47e3-c7e9-08dd7737a189
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8567.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 07:24:57.6828
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: T+8AXaoqFGS1q8vUIZSxNWkW8291q/VfMfsZdh/bW1zA8Aerj4FzCrqrVxcR5rBmmzc0+QZwfa68sOuYF+94LA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8835
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250325065935.908886-2-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_002505_850095_3DD5A683 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20250409_002714_413194_67C3DCDF 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,76 +105,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luke Wang <ziniu.wang_1@nxp.com>
+On Tue, Mar 25, 2025 at 07:59:27AM +0100, Christian Bruel wrote:
+> Document the bindings for STM32MP25 PCIe Controller configured in
+> root complex mode with one root port.
+> 
+> Supports 4 INTx and MSI interrupts from the ARM GICv2m controller.
+> 
+> STM32 PCIe may be in a power domain which is the case for the STM32MP25
+> based boards.
+> 
+> Supports WAKE# from wake-gpios
+> 
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
 
-Calculate data timeout value based on clock instead of using max value.
+Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
----
-v1->v2:
- * Added SDHCI_TIMEOUT_CONTROL to esdhc_writeb_le()
- * Removed esdhc_set_timeout() to use common __sdhci_set_timeout().
----
- drivers/mmc/host/sdhci-esdhc-imx.c | 24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+One comment below.
 
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index ff78a7c6a04c..a34cabee5916 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -870,6 +870,16 @@ static void esdhc_writeb_le(struct sdhci_host *host, u8 val, int reg)
- 
- 		esdhc_clrset_le(host, mask, new_val, reg);
- 		return;
-+	case SDHCI_TIMEOUT_CONTROL:
-+		/*
-+		 * ESDHC_SYSTEM_CONTROL bit[23] used to control hardware reset
-+		 * pin of the card. Write 0 to bit[23] will reset the card.
-+		 * Only write DTOCV field here.
-+		 */
-+		esdhc_clrset_le(host, ESDHC_SYS_CTRL_DTOCV_MASK,
-+				FIELD_PREP(ESDHC_SYS_CTRL_DTOCV_MASK, val),
-+				ESDHC_SYSTEM_CONTROL);
-+		return;
- 	case SDHCI_SOFTWARE_RESET:
- 		if (val & SDHCI_RESET_DATA)
- 			new_val = readl(host->ioaddr + SDHCI_HOST_CONTROL);
-@@ -1385,17 +1395,6 @@ static unsigned int esdhc_get_max_timeout_count(struct sdhci_host *host)
- 	return esdhc_is_usdhc(imx_data) ? 1 << 29 : 1 << 27;
- }
- 
--static void esdhc_set_timeout(struct sdhci_host *host, struct mmc_command *cmd)
--{
--	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
--	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
--
--	/* use maximum timeout counter */
--	esdhc_clrset_le(host, ESDHC_SYS_CTRL_DTOCV_MASK,
--			esdhc_is_usdhc(imx_data) ? 0xF0000 : 0xE0000,
--			ESDHC_SYSTEM_CONTROL);
--}
--
- static u32 esdhc_cqhci_irq(struct sdhci_host *host, u32 intmask)
- {
- 	int cmd_error = 0;
-@@ -1432,7 +1431,6 @@ static struct sdhci_ops sdhci_esdhc_ops = {
- 	.get_min_clock = esdhc_pltfm_get_min_clock,
- 	.get_max_timeout_count = esdhc_get_max_timeout_count,
- 	.get_ro = esdhc_pltfm_get_ro,
--	.set_timeout = esdhc_set_timeout,
- 	.set_bus_width = esdhc_pltfm_set_bus_width,
- 	.set_uhs_signaling = esdhc_set_uhs_signaling,
- 	.reset = esdhc_reset,
-@@ -1777,6 +1775,8 @@ static int sdhci_esdhc_imx_probe(struct platform_device *pdev)
- 		 * to distinguish the card type.
- 		 */
- 		host->mmc_host_ops.init_card = usdhc_init_card;
-+
-+		host->max_timeout_count = 0xF;
- 	}
- 
- 	if (imx_data->socdata->flags & ESDHC_FLAG_MAN_TUNING)
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../bindings/pci/st,stm32-pcie-common.yaml    |  33 ++++++
+>  .../bindings/pci/st,stm32-pcie-host.yaml      | 112 ++++++++++++++++++
+>  2 files changed, 145 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
+>  create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+> 
+
+[...]
+
+> +    pcie@48400000 {
+> +        compatible = "st,stm32mp25-pcie-rc";
+> +        device_type = "pci";
+> +        reg = <0x48400000 0x400000>,
+> +              <0x10000000 0x10000>;
+> +        reg-names = "dbi", "config";
+> +        #interrupt-cells = <1>;
+> +        interrupt-map-mask = <0 0 0 7>;
+> +        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
+> +                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
+> +        #address-cells = <3>;
+> +        #size-cells = <2>;
+> +        ranges = <0x01000000 0x0 0x00000000 0x10010000 0x0 0x10000>,
+> +                 <0x02000000 0x0 0x10020000 0x10020000 0x0 0x7fe0000>,
+> +                 <0x42000000 0x0 0x18000000 0x18000000 0x0 0x8000000>;
+> +        dma-ranges = <0x42000000 0x0 0x80000000 0x80000000 0x0 0x80000000>;
+> +        clocks = <&rcc CK_BUS_PCIE>;
+> +        resets = <&rcc PCIE_R>;
+> +        msi-parent = <&v2m0>;
+> +        access-controllers = <&rifsc 68>;
+> +        power-domains = <&CLUSTER_PD>;
+> +
+> +        pcie@0,0 {
+> +          device_type = "pci";
+
+Indentation is off by 2 spaces.
+
+- Mani
+
 -- 
-2.34.1
-
+மணிவண்ணன் சதாசிவம்
 
