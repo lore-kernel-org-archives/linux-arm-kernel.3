@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 053F4C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 10:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F596C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 10:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XfJBdscMAuy5EECJZSerJxBpkDTViYEqbsATQalfosg=; b=gDvMKF+mxq793xEJIDGXtNELEo
-	zuluYUaca6Wzpl3JMoo/1ixart506ne200vDsqTLVuKBRkydHjRmXr0IvQ5Vv47c55sjliSVEgAiM
-	pSlTEdCc/HUEvj/QOEuz1h0g5cY7aPdoCXXKA2MfF/DmAeSoy7oXKZWu2ft0ueA1uMmyQ7Wled7zM
-	po+RUw6rJwNo51VeI/vmYZXVxjyU5+ZsJbvAHo6e6MWQdPsoLGg0iXRz5u7a4VIcAIZh5gYTtxw2F
-	eHMuKpgRgjp1/bxsKMNoHovFlPqczPqlnQYocqzEjIIexRwmVsLqwhpcFbUcN05x+8ekS16oZ//ms
-	7P7qsFLA==;
+	bh=CdanhhwoJQXFk6JeXS8F6vwZ9u4aPPztMzpjTS0BSP8=; b=qphx3ApcAFjZFbRcIQskQxYfHw
+	M52s6reuG7aDosiZKA3zeWO9KwF6TB9lPVKSQjK0ZVB2km5g7QPK5rycJGmxeZ3DE6XfK1K0ykMlG
+	y5B/6jgEA1VyY33Tjh9QHe5hA3ZdV/rZZNvu51wjs4+EILcVcSwGZj5/bOSRuVM+NFTSWfEoJaRir
+	t0dn5MQYrxRCP0REqXQFKxPIEiP3hvB1m8AMZWjxLfcJOJ/qA7U7fhe6EQ2X57xrA9/yld/CxpX4v
+	9b9vprhwuf/1uQHoq7vABQg1adp+xK4XdTVgf/jtOqEFBj/YCUquV4kMJiZ/WJfPdFPtDekQoBL11
+	PfPVJvdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Slp-00000006qoP-2qL5;
-	Wed, 09 Apr 2025 10:35:01 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u2T4c-00000006uTr-0B93;
+	Wed, 09 Apr 2025 10:54:26 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Sk2-00000006qOe-0WON
+	id 1u2T2o-00000006u9U-0zIi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 10:33:11 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 539AX57Y953872
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 9 Apr 2025 05:33:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744194785;
-	bh=XfJBdscMAuy5EECJZSerJxBpkDTViYEqbsATQalfosg=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=npCcLBSEFWz4wtrE6nTraC7XfFfo6JTsKc9LjoUpIkuthwzoCXpb+MVSiMPU97sSr
-	 bnBoi9STFfjYSD5W0s6pgr2cU1HStCmC9nIuIE0Bzd/7CX6BSG9tyw1lBBgzg18dIC
-	 8Nih9YBBgJCY5nD776dTh+WbAgtmh3UMVbGVKm/A=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 539AX5ih094021
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 9 Apr 2025 05:33:05 -0500
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 9
- Apr 2025 05:33:04 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 9 Apr 2025 05:33:04 -0500
-Received: from localhost (uda0497581-hp.dhcp.ti.com [172.24.227.253])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 539AX45A026841;
-	Wed, 9 Apr 2025 05:33:04 -0500
-Date: Wed, 9 Apr 2025 16:03:03 +0530
-From: Manorit Chawdhry <m-chawdhry@ti.com>
-To: Michael Walle <mwalle@kernel.org>
-CC: "Kumar, Udit" <u-kumar1@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s: add rng node
-Message-ID: <20250409103303.dkrrvp7mdctx32pd@uda0497581-HP>
-References: <20250313144155.2382316-1-mwalle@kernel.org>
- <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
- <D8UECOJ2NMCU.3ALYIKSODJ479@kernel.org>
- <1ad2d8c2-6a0d-419d-984d-4974adb0e1f0@ti.com>
- <D8V323NBB32P.3P8H103L83HZK@kernel.org>
- <e2a37e72-d9c8-4329-8a5a-f2c9865cdb5d@ti.com>
- <ea82dc29e93d53b659916f2fed10982b@kernel.org>
+	Wed, 09 Apr 2025 10:52:35 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 689A368AA6; Wed,  9 Apr 2025 12:52:29 +0200 (CEST)
+Date: Wed, 9 Apr 2025 12:52:29 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Roman Kisel <romank@linux.microsoft.com>
+Cc: aleksander.lobakin@intel.com, andriy.shevchenko@linux.intel.com,
+	arnd@arndb.de, bp@alien8.de, catalin.marinas@arm.com,
+	corbet@lwn.net, dakr@kernel.org, dan.j.williams@intel.com,
+	dave.hansen@linux.intel.com, decui@microsoft.com,
+	gregkh@linuxfoundation.org, haiyangz@microsoft.com, hch@lst.de,
+	hpa@zytor.com, James.Bottomley@HansenPartnership.com,
+	Jonathan.Cameron@huawei.com, kys@microsoft.com, leon@kernel.org,
+	lukas@wunner.de, luto@kernel.org, m.szyprowski@samsung.com,
+	martin.petersen@oracle.com, mingo@redhat.com, peterz@infradead.org,
+	quic_zijuhu@quicinc.com, robin.murphy@arm.com, tglx@linutronix.de,
+	wei.liu@kernel.org, will@kernel.org, iommu@lists.linux.dev,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org,
+	x86@kernel.org, apais@microsoft.com, benhill@microsoft.com,
+	bperkins@microsoft.com, sunilmut@microsoft.com
+Subject: Re: [PATCH hyperv-next 5/6] arch, drivers: Add device struct
+ bitfield to not bounce-buffer
+Message-ID: <20250409105229.GA5721@lst.de>
+References: <20250409000835.285105-1-romank@linux.microsoft.com> <20250409000835.285105-6-romank@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ea82dc29e93d53b659916f2fed10982b@kernel.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250409000835.285105-6-romank@linux.microsoft.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_033310_269996_9A449408 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20250409_035234_465023_0C0DA11E 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,61 +74,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
-
-On 13:09-20250401, Michael Walle wrote:
-> Hi Udit,
+On Tue, Apr 08, 2025 at 05:08:34PM -0700, Roman Kisel wrote:
+> Bounce-buffering makes the system spend more time copying
+> I/O data. When the I/O transaction take place between
+> a confidential and a non-confidential endpoints, there is
+> no other way around.
 > 
-> > > > > > > --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> > > > > > > [..]
-> > > > > > For completeness , this is ok to add this node but
-> > > > > > should be kept disabled
-> > > > > Shouldn't it be "reserved" then, see [1].
-> > > > yes, should be reserved.
-> > > > 
-> > > > With marking status as reserved.
-> > > > 
-> > > > Please use Reviewed-by: Udit Kumar <u-kumar1@ti.com>
-> > > Thanks.
-> > > 
-> > > > > > similar to
-> > > > > > 
-> > > > > > https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi#L662
-> > > > > j784s4, j721e and j721s2 have them enabled. What is the rule here?
-> > > > J784s4, j721e and j721s2 SOCs has two TRNG blocks,
-> > > > 
-> > > > example for j721e, one is used by kernel [0] and another by
-> > > > optee [1].
-> > > > 
-> > > > 
-> > > > > You also disable the hwrng in optee in your evm according to [2]:
-> > > > > CFG_WITH_SOFTWARE_PRNG=y
-> > > > We are planning to use this hardware block by secure firmware.
-> > > > 
-> > > > Therefore request not to use by optee as well
-> > > How will you be able to access the RNG from linux and u-boot? I'm
-> > > asking because I'll need it in u-boot for the lwip stack and the
-> > > HTTPS protocol.
-> > 
-> > For now,  If you need TRNG then I can suggest to use optee TRNG (ie
-> > build
-> > optee with HW TRNG).
-> 
-> I'll be using an uboot TRNG driver. But how will that work in
-> the future if the RNG is used by the secure firmware?
+> Introduce a device bitfield to indicate that the device
+> doesn't need to perform bounce buffering. The capable
+> device may employ it to save on copying data around.
 
-Wondering if this would be of interest to you [0]. I think since this
-device only has one TRNG, there has to be a master around and we can
-mitigate that from OP-TEE as of now, incase anything changes in future
-then the communication channel between OP-TEE and the secure firmware
-can be established but currently it's still at work. I think the best
-way to go forward is to get the numbers from OP-TEE atm IMHO.
+I have no idea what this is supposed to mean, you need to explain it
+much better.
 
-[0]: https://github.com/u-boot/u-boot/blob/master/drivers/rng/optee_rng.c
-
-Regards,
-Manorit
-
-> 
-> -michael
 
