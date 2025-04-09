@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4910CC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:49:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A60C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3pQGQTbc7NI3RtV8/96ZBrzkPcmhyUfEd59r7Ax4MQc=; b=xn6k37vaRObVie620LiE0q8VKa
-	eFPf+xjecUzEYGpsCaHtqUZxhfBNC/D62Z9ukSCplTVByX77Hn/L7sq0zAxN+4X5lrnu1X4DSqn82
-	JYg1/P+xuBVAAZfXiMNKame+xdH1FYm3VvWex+JXUgdlFox8tBvjOOpI8F/z+Ma98zJk1xUTX2w+A
-	5uvO2l+aUaHV801uYsrWz8wVeY8w7az+bp+X44dfFkzINSlqdqEibuY2aF3RdRN2TLKnajNVQQUZX
-	WvUCIdjA+sE5eKb3XimFob4Mhtjdsp0Me7ELFxS1lrCTtG7F+3akC/XqzmkiPGjkDg8X0TsReDmFi
-	RGwCFhtQ==;
+	bh=JHA8jKZbxyVmnYMLzHVWyd6qL64Gcvo0HCQVPnx3SDs=; b=1lCWNQ4gyXvRvYYC6NNQxaCimA
+	BZN2eRGWcZd327C9+CXyJAi/zkkQ0R8lN4s8xn0rFL1vTDgdwp+76UMau56UbTsnXaA7CyoDjidBp
+	GtIY9H5pxNIJjUj8M4i4TBf9+B+BtM4DYeVE8tE29sDrAgvbKAkp3vezSLINHPSdAQ0JCcwc15l/i
+	7joTCMZPHUb/4MSnrq8O44zDAUh95IMuYNvmmets7SaRYOmTNFYRndlb6rv4TTM0ts6hZ2oHqATeT
+	MobWfry93FAZ2SyKZey62j/3jw3djqJkchtAgdkprZVhRl8UgghSN8ebNr3KMnqZLk9EXCINCsX32
+	a2GPV5FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Yc9-00000007wDr-2Qct;
-	Wed, 09 Apr 2025 16:49:25 +0000
+	id 1u2Ydu-00000007wY7-14ge;
+	Wed, 09 Apr 2025 16:51:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2YTb-00000007uvZ-3WgO
+	id 1u2YTd-00000007uvu-3oDN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 16:40:37 +0000
+	Wed, 09 Apr 2025 16:40:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E27E21C25;
-	Wed,  9 Apr 2025 09:40:35 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1F4C1D6F;
+	Wed,  9 Apr 2025 09:40:37 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3B3443F59E;
-	Wed,  9 Apr 2025 09:40:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4AEAC3F59E;
+	Wed,  9 Apr 2025 09:40:36 -0700 (PDT)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: ardb@kernel.org,
@@ -41,17 +41,17 @@ Cc: ardb@kernel.org,
 	mark.rutland@arm.com,
 	maz@kernel.org,
 	will@kernel.org
-Subject: [PATCH v2 04/13] arm64/fpsimd: Remove opportunistic freeing of SME state
-Date: Wed,  9 Apr 2025 17:40:01 +0100
-Message-Id: <20250409164010.3480271-5-mark.rutland@arm.com>
+Subject: [PATCH v2 05/13] arm64/fpsimd: Discard stale CPU state when handling SME traps
+Date: Wed,  9 Apr 2025 17:40:02 +0100
+Message-Id: <20250409164010.3480271-6-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20250409164010.3480271-1-mark.rutland@arm.com>
 References: <20250409164010.3480271-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_094035_922826_2C79288D 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250409_094038_076980_AB096A9D 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,65 +66,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a task's SVE vector length (NSVL) is changed, and the task happens
-to have SVCR.{SM,ZA}=={0,0}, vec_set_vector_length() opportunistically
-frees the task's sme_state and clears TIF_SME.
+From: Mark Brown <broonie@kernel.org>
 
-The opportunistic freeing was added with no rationale in commit:
+The logic for handling SME traps manipulates saved FPSIMD/SVE/SME state
+incorrectly, and a race with preemption can result in a task having
+TIF_SME set and TIF_FOREIGN_FPSTATE clear even though the live CPU state
+is stale (e.g. with SME traps enabled). This can result in warnings from
+do_sme_acc() where SME traps are not expected while TIF_SME is set:
 
-  d4d5be94a8787242 ("arm64/fpsimd: Ensure SME storage is allocated after SVE VL changes")
+|        /* With TIF_SME userspace shouldn't generate any traps */
+|        if (test_and_set_thread_flag(TIF_SME))
+|                WARN_ON(1);
 
-That commit fixed an unrelated problem where the task's sve_state was
-freed while it could be used to store streaming mode register state,
-where the fix was to re-allocate the task's sve_state.
+This is very similar to the SVE issue we fixed in commit:
 
-There is no need to free and/or reallocate the task's sme_state when the
-SVE vector length changes, and there is no need to clear TIF_SME. Given
-the SME vector length (SVL) doesn't change, the task's sme_state remains
-correctly sized.
+  751ecf6afd6568ad ("arm64/sve: Discard stale CPU state when handling SVE traps")
 
-Remove the unnecessary opportunistic freeing of the task's sme_state
-when the task's SVE vector length is changed. The task's sme_state is
-still freed when the SME vector length is changed.
+The race can occur when the SME trap handler is preempted before and
+after manipulating the saved FPSIMD/SVE/SME state, starting and ending on
+the same CPU, e.g.
 
+| void do_sme_acc(unsigned long esr, struct pt_regs *regs)
+| {
+|         // Trap on CPU 0 with TIF_SME clear, SME traps enabled
+|         // task->fpsimd_cpu is 0.
+|         // per_cpu_ptr(&fpsimd_last_state, 0) is task.
+|
+|         ...
+|
+|         // Preempted; migrated from CPU 0 to CPU 1.
+|         // TIF_FOREIGN_FPSTATE is set.
+|
+|         get_cpu_fpsimd_context();
+|
+|         /* With TIF_SME userspace shouldn't generate any traps */
+|         if (test_and_set_thread_flag(TIF_SME))
+|                 WARN_ON(1);
+|
+|         if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
+|                 unsigned long vq_minus_one =
+|                         sve_vq_from_vl(task_get_sme_vl(current)) - 1;
+|                 sme_set_vq(vq_minus_one);
+|
+|                 fpsimd_bind_task_to_cpu();
+|         }
+|
+|         put_cpu_fpsimd_context();
+|
+|         // Preempted; migrated from CPU 1 to CPU 0.
+|         // task->fpsimd_cpu is still 0
+|         // If per_cpu_ptr(&fpsimd_last_state, 0) is still task then:
+|         // - Stale HW state is reused (with SME traps enabled)
+|         // - TIF_FOREIGN_FPSTATE is cleared
+|         // - A return to userspace skips HW state restore
+| }
+
+Fix the case where the state is not live and TIF_FOREIGN_FPSTATE is set
+by calling fpsimd_flush_task_state() to detach from the saved CPU
+state. This ensures that a subsequent context switch will not reuse the
+stale CPU state, and will instead set TIF_FOREIGN_FPSTATE, forcing the
+new state to be reloaded from memory prior to a return to userspace.
+
+Note: this was originallly posted as [1].
+
+Fixes: 8bd7f91c03d8 ("arm64/sme: Implement traps and syscall handling for SME")
+Reported-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Link: https://lore.kernel.org/linux-arm-kernel/20241204-arm64-sme-reenable-v2-1-bae87728251d@kernel.org/ # [1]
+[ Rutland: rewrite commit message ]
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>
-Reviewed-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kernel/fpsimd.c | 17 ++++-------------
- 1 file changed, 4 insertions(+), 13 deletions(-)
+ arch/arm64/kernel/fpsimd.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 757445d72e5b7..128774015772a 100644
+index 128774015772a..b4858d85292b4 100644
 --- a/arch/arm64/kernel/fpsimd.c
 +++ b/arch/arm64/kernel/fpsimd.c
-@@ -868,19 +868,10 @@ int vec_set_vector_length(struct task_struct *task, enum vec_type type,
- 		task->thread.fp_type = FP_STATE_FPSIMD;
+@@ -1435,6 +1435,8 @@ void do_sme_acc(unsigned long esr, struct pt_regs *regs)
+ 		sme_set_vq(vq_minus_one);
+ 
+ 		fpsimd_bind_task_to_cpu();
++	} else {
++		fpsimd_flush_task_state(current);
  	}
  
--	if (system_supports_sme()) {
--		if (type == ARM64_VEC_SME ||
--		    !(task->thread.svcr & (SVCR_SM_MASK | SVCR_ZA_MASK))) {
--			/*
--			 * We are changing the SME VL or weren't using
--			 * SME anyway, discard the state and force a
--			 * reallocation.
--			 */
--			task->thread.svcr &= ~(SVCR_SM_MASK |
--					       SVCR_ZA_MASK);
--			clear_tsk_thread_flag(task, TIF_SME);
--			free_sme = true;
--		}
-+	if (system_supports_sme() && type == ARM64_VEC_SME) {
-+		task->thread.svcr &= ~(SVCR_SM_MASK | SVCR_ZA_MASK);
-+		clear_tsk_thread_flag(task, TIF_SME);
-+		free_sme = true;
- 	}
- 
- 	if (task == current)
+ 	put_cpu_fpsimd_context();
 -- 
 2.30.2
 
