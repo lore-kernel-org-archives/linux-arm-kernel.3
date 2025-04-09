@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7278AC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 15:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C4CC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 15:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=a4rOkj+8ODiN6aFJOkrpJ5u9uUZgS6Ohizq3fPpH08s=; b=gflOojQcrXB2al
-	UVRgzJrobK2D+IkeWQ6nJBNV8+JaDZjk7lICOZxsDGHnjWRw4Ce5+d7X/8dEj4EvbeY0Laerko66K
-	4HeKRBAuCXUldP86fJof7psOlyYR18WJb29qxM81UDlHoSLyEEDHAefkOQwsT+FoxUH0kgBCfGgVT
-	lp204uK11UigyxXK8OjAPJiiptWtZ/zd9Xka24cEIpPJ8yEUP/iXo6R14cxaG3LIJ/wmhDVDopQHl
-	jtFhP6mqhdYY0KX6bQIeM9kBbQIGYS3Ckr8r9/9eVIgeUNumNNMKg/m2B/irJmtTjr9qEhkQtzElc
-	AthN9qBu2xGnBOdxzCrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UjQX7nAQGu8VWkUrRyRpYAcZbBxisvkDjd3TARXNRv0=; b=JMdm8kwhUGQQMdYmVjQUW0qH2T
+	N5939OkSjKUrUIoMSfjDjkUR5N39oIHtuw6nuPCH5SoVOjFtM3tuhCIhm/hL92PH2q8uoGocCRAwB
+	F6TZi2RrV+WjjRuEuwcC+TXB8iGmogv9RM6o0LxZTfiTnJ+cvyTzGer8H2KRoaovzsc7LDSuG2UF2
+	xAf9zjfktxBxFZHW74u+MV6eJLStBFGyYRBcsfrf4/pMiiHRrRRP3e2bxZPnnyu4iZ/inHmJhkno0
+	RLH2cIAHb4QcDwYVKU/HO/ma9DF85zdi6Ihsbi6ifA9Icd5mek76jp7bk5VM/hyqZamxRv1pir8f3
+	KYxHuZgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2XKi-00000007gEi-4AB3;
-	Wed, 09 Apr 2025 15:27:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2XBc-00000007e6O-3oOU
+	id 1u2XQ6-00000007hIL-1Hf7;
+	Wed, 09 Apr 2025 15:32:54 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2XKm-00000007gI4-3SbZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 15:17:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 912AC61127;
-	Wed,  9 Apr 2025 15:17:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC3CEC4CEE2;
-	Wed,  9 Apr 2025 15:17:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744211876;
-	bh=B6CnZZxOmRj9WjoB7zj7+BLt3gdS8mqjcbG4sbdSz5k=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=ZudEVGyVTVqKJEXjfUOMN0q53Rs+fb13Tyxnu5nKHUFpP5TjefHF4RyfHZM37oiJJ
-	 UceMCe6PkFwazZdBel2mQOUdPca4uD6UVROcd7d8f1vtTmheTsaSrT4EtIWm3VcAcb
-	 VVD7GQWgIC+ik/IS36cIuxepH8887a/8oGw/05u1+mJaqv1FoXhjHJOMaMOLPAqxXn
-	 o7HwhF8ncBwsZZkoG+2nLTPyTVA+S6r9CAXkFIxDLgZ8pdM58/3qdhpzOsjnkxgNxy
-	 /ZaDUlnwEHRNOAUb3Od2Al/G8bGB1kxsGdiM9rgJ3wIh+SibyOfiglTRJebyEIToCh
-	 1bIzHBi1eRplQ==
-Date: Wed, 9 Apr 2025 10:17:54 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Mike Looijmans <mike.looijmans@topic.nl>
-Cc: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] pcie-xilinx: Wait for link-up status during
- initialization
-Message-ID: <20250409151754.GA283974@bhelgaas>
+	Wed, 09 Apr 2025 15:27:26 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 0A0262114D8A;
+	Wed,  9 Apr 2025 08:27:23 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 0A0262114D8A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1744212443;
+	bh=UjQX7nAQGu8VWkUrRyRpYAcZbBxisvkDjd3TARXNRv0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HiVZXeJWF7w0t2l/4IF8J5ryv6/ZPUKUQ5aYykBziIutp4bcub2znNWPE/Y1Dh/Ge
+	 wPcrUU54yJBi/OX2udWa8QfGVA5UwpUJ3rEDsQtkbu2LYD/m1xFmP6y1gt8crnOdXG
+	 kECFhb2Vi1RaczcV6Pkxw/I1DktSimbBtg4Gwcdg=
+Message-ID: <b56eef68-367d-4b7b-98c4-f5d1291d7993@linux.microsoft.com>
+Date: Wed, 9 Apr 2025 08:27:22 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250409144930.10402-1-mike.looijmans@topic.nl>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next 5/6] arch, drivers: Add device struct bitfield
+ to not bounce-buffer
+To: Christoph Hellwig <hch@lst.de>
+Cc: aleksander.lobakin@intel.com, andriy.shevchenko@linux.intel.com,
+ arnd@arndb.de, bp@alien8.de, catalin.marinas@arm.com, corbet@lwn.net,
+ dakr@kernel.org, dan.j.williams@intel.com, dave.hansen@linux.intel.com,
+ decui@microsoft.com, gregkh@linuxfoundation.org, haiyangz@microsoft.com,
+ hpa@zytor.com, James.Bottomley@HansenPartnership.com,
+ Jonathan.Cameron@huawei.com, kys@microsoft.com, leon@kernel.org,
+ lukas@wunner.de, luto@kernel.org, m.szyprowski@samsung.com,
+ martin.petersen@oracle.com, mingo@redhat.com, peterz@infradead.org,
+ quic_zijuhu@quicinc.com, robin.murphy@arm.com, tglx@linutronix.de,
+ wei.liu@kernel.org, will@kernel.org, iommu@lists.linux.dev,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org, x86@kernel.org,
+ apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com
+References: <20250409000835.285105-1-romank@linux.microsoft.com>
+ <20250409000835.285105-6-romank@linux.microsoft.com>
+ <20250409105229.GA5721@lst.de>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <20250409105229.GA5721@lst.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250409_082724_899115_53480E5C 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,61 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Please make the subject line match previous changes to this driver.
-See "git log --oneline drivers/pci/controller/pcie-xilinx.c"
 
-On Wed, Apr 09, 2025 at 04:49:24PM +0200, Mike Looijmans wrote:
-> When the driver loads, the transceiver may still be in the state of
-> setting up a link. Wait for that to complete before continuing. This
-> fixes that the PCIe core does not work when loading the PL bitstream
-> from userspace. There's only milliseconds between the FPGA boot and the
-> core initializing in that case, and the link won't be up yet. The design
-> only worked when the FPGA was programmed in the bootloader, as that will
-> give the system hundreds of milliseconds to boot.
+
+On 4/9/2025 3:52 AM, Christoph Hellwig wrote:
+> On Tue, Apr 08, 2025 at 05:08:34PM -0700, Roman Kisel wrote:
+>> Bounce-buffering makes the system spend more time copying
+>> I/O data. When the I/O transaction take place between
+>> a confidential and a non-confidential endpoints, there is
+>> no other way around.
+>>
+>> Introduce a device bitfield to indicate that the device
+>> doesn't need to perform bounce buffering. The capable
+>> device may employ it to save on copying data around.
 > 
-> As the PCIe spec allows up to 100 ms time to establish a link, we'll
-> allow up to 200ms before giving up.
+> I have no idea what this is supposed to mean, you need to explain it
+> much better.
 
-This sounds like there's still a race between userspace loading the PL
-bitstream and the driver waiting for link up, but we're just waiting
-longer in the kernel so userspace has more chance of winning the race.
-Is that true?
+Thanks for reviewing! I'll fix the description.
 
-> @@ -126,6 +127,19 @@ static inline bool xilinx_pcie_link_up(struct xilinx_pcie *pcie)
->  		XILINX_PCIE_REG_PSCR_LNKUP) ? 1 : 0;
->  }
->  
-> +static int xilinx_pci_wait_link_up(struct xilinx_pcie *pcie)
-> +{
-> +	u32 val;
-> +
-> +	/*
-> +	 * PCIe r6.0, sec 6.6.1 provides 100ms timeout. Since this is FPGA
-> +	 * fabric, we're more lenient and allow 200 ms for link training.
-> +	 */
-> +	return readl_poll_timeout(pcie->reg_base + XILINX_PCIE_REG_PSCR, val,
-> +			(val & XILINX_PCIE_REG_PSCR_LNKUP), 2 * USEC_PER_MSEC,
-> +			200 * USEC_PER_MSEC);
+> 
 
-There should be a #define in drivers/pci/pci.h for this 100ms value
-that you can use here to connect this more closely with the spec.
+-- 
+Thank you,
+Roman
 
-Maybe there's a way to use read_poll_timeout(), readx_poll_timeout(),
-or something similar so we can use xilinx_pcie_link_up() directly
-instead of reimplementing it here?
-
-> +}
-> +
->  /**
->   * xilinx_pcie_clear_err_interrupts - Clear Error Interrupts
->   * @pcie: PCIe port information
-> @@ -493,7 +507,7 @@ static void xilinx_pcie_init_port(struct xilinx_pcie *pcie)
->  {
->  	struct device *dev = pcie->dev;
->  
-> -	if (xilinx_pcie_link_up(pcie))
-> +	if (!xilinx_pci_wait_link_up(pcie))
->  		dev_info(dev, "PCIe Link is UP\n");
->  	else
->  		dev_info(dev, "PCIe Link is DOWN\n");
 
