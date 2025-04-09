@@ -4,74 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA13C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 11:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B9DC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 11:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yGxv71ejS+K97A0uahwgS0PlPW90qUV+YpggV5/RT/w=; b=kYJIcGIi8d8gM76mnEVG1Xqiks
-	WsW3fY4gFYeHHhaSkeL3hJ3uTi2v64VcHSKkxNnh3ad90Qr1oUPExJND4p/owxKlMVIEi1iTh4UpH
-	3YRkcOloj8ziB/N4oBy/l67UJXW1UFlWmYlyPtGKSsnVPWAghZ9neWChQPRUINAYrf407PSKexW0L
-	9m1SURg15XYJGXJX77Jv3VauyGBT3yIWnXg71GZwWw0QJzYOrT+G+SWvKcx4Vkmt/Wl8YIemvL8KL
-	5+78Xgfrww7JG7f7lOX8BZ1yj0AD2mc0/LD8e/6SNVHIgQx0g1equILpBi8eolddBlhEXSJdp22VB
-	fNqLQMrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uWm2NE/IuMCfn/DQORBBNK2WOS92lOJvjTCw/zxxtHA=; b=GIzOo6/npvd2So+6YeMXhQMAOz
+	+hwaW2uie2hUekF1Xqzp1mAGnjCxORql7URF9hNQGv9tbrtqluktjR2p0l4DRahC9tvNwtQIbAAbq
+	/gaKoDmxVzZOY3qN8f4fpWwpELFDcc2MMHdpRaugJoIN8XBWqCsVJqxcrin7/8q/mRWvfINzIhijy
+	yaGPn2zPh5h5GuLYLr6aWozQWn1mCVmhwjcrK1Z1zeyvIEDk+Oh/9u7dOzAZBLwbMi+AIPNqCIhAU
+	NE4ItnbHBxGroz/vXM7HEbCM/xqyBV3k8MvV0t3XH27bJaKsAJFhHjSUXBfPo5CHh7REXQ9KpWT5U
+	8JCvgukQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2TBc-00000006vaQ-0MMc;
-	Wed, 09 Apr 2025 11:01:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u2TDM-00000006vrz-3Hlj;
+	Wed, 09 Apr 2025 11:03:28 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2T56-00000006ubf-0mkv
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Apr 2025 10:54:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yGxv71ejS+K97A0uahwgS0PlPW90qUV+YpggV5/RT/w=; b=DF3ngnnSwZbxB9p+i82ZRqSc5I
-	739twhXmG/8ztCTKygmU5cHJ1j5II/5E1HqpKocxVDBYWcg9J3EvR9XSPDa+QvgMIN8O5pRqr2B2p
-	eWsIw4S/wmRx9b+G+yg6tbcIC17ijsuaFL7zBXBP3oDdvv4BmUME7D83v8wr9WBdysn+SY0Oz2G22
-	95uozuolWnmxQa41OhRc7rpdE3unOKY02VZjL6wSS2yRO6eMWHUsLSMP7U6z2biLgAzEirk6UoSz+
-	ytNzadyLrPTOWCGJFHDXj97EZlRgc62vHrl8+zdAX87Jd1aBDHI4zPCs/u0FT4qu1LIm7K923HSIi
-	DTpvoTCQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2T52-00000008b3v-3I3N
+	id 1u2T7N-00000006v0L-1kVI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 10:54:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3CFC81595;
-	Wed,  9 Apr 2025 03:54:50 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 533103F694;
-	Wed,  9 Apr 2025 03:54:48 -0700 (PDT)
-Date: Wed, 9 Apr 2025 11:54:34 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Matthew Bystrin <dev.mbstr@gmail.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, arm-scmi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Philipp Zabel <p.zabel@pengutronix.de>, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH] firmware: arm_scmi: add timeout in
- do_xfer_with_response()
-Message-ID: <Z_ZR2WNBwfQqLQMd@pluto>
-References: <20250402104254.149998-1-dev.mbstr@gmail.com>
- <20250402-hidden-unyielding-carp-7ee32d@sudeepholla>
- <Z-1gY8mQLznSg5Na@pluto>
- <D8X9JJGPGDNL.1OTKIJODRFKNN@gmail.com>
- <D91JD15NY3Y0.23E428W332D@gmail.com>
- <Z_ZRXBed2WVZ_O8Q@pluto>
+	Wed, 09 Apr 2025 10:57:19 +0000
+Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id D60F5114002D;
+	Wed,  9 Apr 2025 06:57:15 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-12.internal (MEProxy); Wed, 09 Apr 2025 06:57:15 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1744196235;
+	 x=1744282635; bh=uWm2NE/IuMCfn/DQORBBNK2WOS92lOJvjTCw/zxxtHA=; b=
+	OFkm2Wy7p07VJ0jHAgwUbZ1WqR2AT10rZ2moBuYAcqAWCsWPwsVwWO73mP4KRaeV
+	BnnwhOmh7s1fCHEObRoY500jEVTkQVyTdsufpPaeDGcugCq9d0vG5y9GQK0LR4k7
+	Hm6Qr0xPu3UPe3V5FYySP7od4JyFEQ4eVxsySmw9i+6W3qpuO1VPo6D+PknS6JuJ
+	IXnLA/5qF2tP9Ygi8JkCjwXxVtEirGdWzLIG0wsDlL36+4PCw9iMeEmFcBUPoSxZ
+	EXNgp/t+fD6zYaMC8SmETSKsiDkI4gAgV7AYuAzKnlF/HHeoTvL2WphFzwe7dyPo
+	M5cmOoMXVsu5E/0rzvp8/A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1744196235; x=
+	1744282635; bh=uWm2NE/IuMCfn/DQORBBNK2WOS92lOJvjTCw/zxxtHA=; b=d
+	PBKFJ4zjIxK/rtsgaUGu82JGMk1gQ6GOOdO/eJSWvgiGcq6Bx/zqOLgaCw2L2LIy
+	KPbJeHcMtebgEnqr2DNP9Ddb+zYesi8UKyo8n4md8QSTensmh7BUpOt16AybMn5L
+	xrm3cd3kBYKfYvBvdCUziAYVMiv07vsZv7DkxvLfoh36SzpfoVgTf8lFeWIi/hsi
+	xJqPuEqf5eTwpFEjiYEDtBaup5Pu5BiiCJIgyftHCLcntUrNLjnrBiXF6ZTs4iLb
+	I0U/WjMpkdY9CNE2zou2vO5Fz5PvSezORPkcA6o3OoDEE7SwTpnfMHvFFaZI3Zmt
+	muHaq2nHzcWKtDWR/vE4g==
+X-ME-Sender: <xms:i1L2Z1HCHzGQT13IRupI9t1a4tSG2cUwXxCcjvahFjxCzQpH1McToQ>
+    <xme:i1L2Z6WevBv7h8kw8DO9g-k2quKOjikdF_S7xWGLMk7igtWQeYnjwJdMahB3Vkgt1
+    wGkAkKseVnwvEFSPoM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdehkeduucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    udefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrih
+    hnrghssegrrhhmrdgtohhmpdhrtghpthhtohepshgrshgthhgrrdgsihhstghhohhffhes
+    rghrmhdrtghomhdprhgtphhtthhopehtihhmohhthhihrdhhrgihvghssegrrhhmrdgtoh
+    hmpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthho
+    pehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlphhivghrrghlih
+    hsiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgriieskhgvrhhnvghlrdhorhhg
+    pdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllh
+    eskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:i1L2Z3IiVJP-N-x9HB5gq2ubKKGUv2n_Xl2zeM0wytbi0tReHMXbxA>
+    <xmx:i1L2Z7GCwDPglZxkaouRtfLqXrnVo26z_G0kgpi1QpotBZg59GIwWg>
+    <xmx:i1L2Z7Vv0jMlEJ4Vga8HQKVgyhvG6C9fM2R4mwBxP2cjAbXj6JSAiA>
+    <xmx:i1L2Z2PKuJICfQge-i7dIThPzjCRg3fGNDul7WF8DGrrzoeBiQ0ItQ>
+    <xmx:i1L2Z7BFFsTNsp4ZounQ-w-YcwJ-BIi5OQ4zdzB7zpegWfAgQDzGXTA2>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 6226A2220073; Wed,  9 Apr 2025 06:57:15 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z_ZRXBed2WVZ_O8Q@pluto>
+X-ThreadId: T274101974a25e0dd
+Date: Wed, 09 Apr 2025 12:56:52 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Lorenzo Pieralisi" <lpieralisi@kernel.org>
+Cc: "Marc Zyngier" <maz@kernel.org>, "Thomas Gleixner" <tglx@linutronix.de>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Sascha Bischoff" <sascha.bischoff@arm.com>,
+ "Timothy Hayes" <timothy.hayes@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+Message-Id: <e7e4e9f0-a9e4-48d4-9bed-a4c52453ee8e@app.fastmail.com>
+In-Reply-To: <Z/ZH5IBQAZ8rc9Cz@lpieralisi>
+References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
+ <20250408-gicv5-host-v1-20-1f26db465f8d@kernel.org>
+ <ed63bb91-e9ac-409a-a9a0-25b233fe2e15@app.fastmail.com>
+ <Z/ZH5IBQAZ8rc9Cz@lpieralisi>
+Subject: Re: [PATCH 20/24] irqchip/gic-v5: Add GICv5 LPI/IPI support
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_115453_021710_8749C1AF 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250409_035717_789618_AB51085C 
+X-CRM114-Status: GOOD (  44.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,25 +123,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 11:52:12AM +0100, Cristian Marussi wrote:
-> On Tue, Apr 08, 2025 at 11:22:38PM +0300, Matthew Bystrin wrote:
-> > Sudeep, Cristian,
-> > 
-> 
-> Hi,
-> 
-> > Gentle ping.
-> >
-> 
-> we replied already...both of us :P
-> 
-> https://lore.kernel.org/arm-scmi/20250402104254.149998-1-dev.mbstr@gmail.com/
-> 
-> Maybe in your spam folder ?
+On Wed, Apr 9, 2025, at 12:11, Lorenzo Pieralisi wrote:
+> On Wed, Apr 09, 2025 at 10:23:57AM +0200, Arnd Bergmann wrote:
+>> On Tue, Apr 8, 2025, at 12:50, Lorenzo Pieralisi wrote:
+>> > +static void irs_writeq(struct gicv5_irs_chip_data *irs_data, const u64 
+>> > val,
+>> > +		       const u64 reg_offset)
+>> > +{
+>> > +	writeq_relaxed(val, irs_data->irs_base + reg_offset);
+>> > +}
+>> 
+>> I think the use of _relaxed memory accessors needs some code
+>> comments here. The definition of these is that you don't care
+>> about ordering relative to DMA master accesses, yet you seem to
+>> very much have accesses to the 'ist' from the GIC, as well as
+>> DMA accesses from an MSI device, and I would expect both to
+>> require ordering.
+>
+> For the 1-level (linear) IST we allocate it in one go, write
+> the base address through relaxed access (that sets the IST
+> valid) and poll completion with a relaxed access. Memory is
+> cleaned and invalidated from the cache (if the IRS is not
+> coherent) before the MMIO sequence above, which implies a
+> dsb().
+>
+> After that memory is handed over to the GIC.
+>
+> For a 2-level IST, the code that updates L1 entries already add
+> a dma_rmb() barrier (ie gicv5_irs_iste_alloc()) to make sure we
+> order MMIO wait completion with the subsequent cache invalidate
+> (again, in the yet hypothetical case where the IRS is not coherent).
+>
+> I think I can add comments where the sequence to initialize the
+> tables is executed more than here, given that these helpers are
+> used for other purposes too.
 
-Wait...I have just seen Peng's reply mentioning some reply of yours,
-which I never saw ..  maybe MY spam folder :P ....jeezzz...
+Usually my recommendation is to have abstractions like this
+provide both relaxed and normal variants, and then only
+use the relaxed ones where it really matters for performance.
 
-Thanks,
-Cristian
+That way you can keep relatively short explanations where
+you call irs_writeq_relaxed() and use irs_writeq() without
+any code comments any place that doesn't care about saving
+a few cycles per call.
+
+>> > +/* Wait for completion of an IST change */
+>> > +static int gicv5_irs_ist_wait_for_idle(struct gicv5_irs_chip_data 
+>> > *irs_data)
+>> > +{
+>> > +	int ret;
+>> > +	u32 val;
+>> > +
+>> > +	ret = readl_relaxed_poll_timeout_atomic(
+>> > +			irs_data->irs_base + GICV5_IRS_IST_STATUSR, val,
+>> > +			FIELD_GET(GICV5_IRS_IST_STATUSR_IDLE, val), 1,
+>> > +			USEC_PER_SEC);
+>> > +
+>> 
+>> What is the significance of the 1 second timeout? This is probably
+>> a million times longer than I would expect any hardware interaction
+>> to be specified to take. Are you waiting for another thread here?
+>
+> It is arbitrary, agreed.
+
+Can you make either much shorter, or non-atomic then?
+
+>> > +	l2istsz = BIT(n + 1);
+>> > +	if (l2istsz > KMALLOC_MAX_SIZE) {
+>> > +		u8 lpi_id_cap = ilog2(KMALLOC_MAX_SIZE) - 2 + istsz;
+>> > +
+>> > +		pr_warn("Limiting LPI ID bits from %u to %u\n",
+>> > +			lpi_id_bits, lpi_id_cap);
+>> > +		lpi_id_bits = lpi_id_cap;
+>> > +		l2istsz = KMALLOC_MAX_SIZE;
+>> > +	}
+>> 
+>> The use of KMALLOC_MAX_SIZE seem arbitrary here. I remember discussing
+>> this in the past and concluding that this is fine for all cases
+>> that may be relevant, but it would be good to explain the reasoning
+>> in a comment.
+>
+> We need contiguous physical memory that can be < PAGE_SIZE or larger.
+>
+> For allocations larger than the allocator caches kmalloc hands over to
+> the page allocator, MAX_ORDER is reflected into KMALLOC_MAX_SIZE AFAIU.
+>
+> That's the reasoning. Does it make sense ?
+
+I'm more worried about what happens when KMALLOC_MAX_SIZE is
+really small -- did you show that the allocation is still
+going to work, or is this likely to cause runtime problems?
+
+>> > +	if (irs_data->flags & IRS_FLAGS_NON_COHERENT)
+>> > +		dcache_clean_inval_poc((unsigned long)ist,
+>> > +				       (unsigned long)ist + l2istsz);
+>> > +	else
+>> > +		dsb(ishst);
+>> ...
+>> > +	baser = (virt_to_phys(ist) & GICV5_IRS_IST_BASER_ADDR_MASK) |
+>> > +		FIELD_PREP(GICV5_IRS_IST_BASER_VALID, 0x1);
+>> 
+>> Here it seems like you are open-coding the DMA mapping interface
+>> details, in particular the mapping of the 'ist' memory area into
+>> the gic's DMA master space, the coherency and the barrier that is
+>> normally part of a (non-relaxed) writeq().  Is there a reason
+>> you can't use the normal interfaces here, using dma_alloc_coherent()
+>> or dma_alloc_noncoherent()?
+>
+> The GIC IRS must be brought up early, it is not a struct device.
+
+Right, that is rather unfortunate.
+
+>> Do you expect actual implementation to not be cache-coherent?
+>
+> It is allowed by the architecture - I don't have a crystal ball
+> but if I want to add support for a non-coherent IRS the DMA mapping
+> like sequence above has to be there - alternatives are welcome.
+
+I see that we have a few GICv3 implementations that are marked
+as non-coherent in DT. I don't understand why they'd do that,
+but I guess there is not much to be done about it.
+
+The only other idea I have would be to use an uncached allocation
+for the non-coherent case, the same way that dma_alloc_coherent()
+or maybe dma_alloc_wc() does. This still has the same problem
+with bypassing the dma-mapping.h interface because of the lack
+of a device pointer, but it would at least avoid the cache flushes
+at runtime. If I read this code right, the data in here is only
+written by the CPU and read by the GIC, so a WC buffer wouldn't
+be more expensive, right?
+
+       Arnd
 
