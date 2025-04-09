@@ -4,175 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC920C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 06:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A60C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 06:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0GdE9/juU29x7EiabbFBcIghv9x7bN4+uj5hi4s49z0=; b=l8oyB15n9cU7kYu9nEu2vV36UP
-	urVJSInzbDUblg69YF93sIW+DZTwtvBPE5YSCG9QOI2XFVWzW7qPpR2eT3mPHV3+IZ6lhQFVtLT98
-	+y/A7mR94WviytCRIAao+vy0mRkxuFPwUpeqM3QvS/GjM3zSCc64CvO9e0pQf6tlBXUNmL4i0eJt5
-	y1MJlOZ4DOc3mTCftV7sgG7Aj010A/EbULEWUJuPtInpRPg5rKvo3bvLv4RG0lveaEOgc2UHIFXlQ
-	FeTYCKRe6BZZQg/cgmngrbrVqwAUs3KIfTi5C44HPuQjl7f90x+022C1X6SgjhDtq6EDzh5M+UitA
-	bg+ZTVGA==;
+	bh=JyLHBKKtBdcGeGPsMw3f6Qv4QssdQHR7Pid6EQwgQ8w=; b=v1OpT+7SPxkH2S2/AhfnAXWKVH
+	/Z77NnuE/oxa3J2Z3Cuy9Moy3LgCXmNh58ZwQv2yWz1aJrg4rt5A0AYcNuPRurVkbtfwk5DdMBrgB
+	jsWjt6YAFEHYz/QCRR/fBxvEnilBejzxRcTd/yj51lT/EL1TFOybXSi/wc4c7frKxHhvD6ZI01PSW
+	ISGXnH9W0KxmKWrw/GDFtieh6OydNeBJE+3KBqLmutH/217au9t0E2gsvvYnlRgVCC61m5KYPDP+W
+	9nuBnw4hpXWioHfPYvnoPKJK7AvbZkRaEP766CBQAS1hBkMW+Po0av5+4xugzCQDP4+ODwIQzb2tc
+	x65IdNFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2P7p-00000006Iyc-0jgW;
-	Wed, 09 Apr 2025 06:41:29 +0000
-Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1u2P9Z-00000006JIr-3uXW;
+	Wed, 09 Apr 2025 06:43:17 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Oxm-00000006HjW-43A5
+	id 1u2P3C-00000006IDA-0y7r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 06:31:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZV2U2gO0eXtHEWwYsRvITwTGi6/RtqLuoIbcJqIRS+KAZZME4nGRqkZnOGjSIFWjx9+RDpvZJJ1bujlAiILJblpjbZRqS2Fga76ht5u8ZkpcK6XIg84bLP2V/r+ge5QOxGduHauC6tV/FAzIfcItU3/b0fEOBEKPo9MM2uiGlmgjc4TQb1h0uIp7odRcR3eyGRSsaJ1RpOAzhyinUPdV4UlBf7bv263Y8KYzbb53M0kZX5CrHOQZ3zW/JVnuJRIUDxDVsrB44TbSdsDrJ020yU8NTlRzyl+pAXEs9loLIdbCOoJn6Rg9RXyubN+5aHHAKM0ViCm55Y29EH7XIJgD2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0GdE9/juU29x7EiabbFBcIghv9x7bN4+uj5hi4s49z0=;
- b=Fqwxe96/GvRWgzgaLa8lWMZmCor2VEy4N6Airs+RTSgxPBcf7LcETYhPwDokhLWN3li/Q+MzooNN8qtoeQsr8uC5x7c3QSbXOF5zwJyA79fjqM6kFaFldqgX1+5HmEkcU9dfgVtSuhgY/9U/OZwGVd1hNcueuweVvVXxXWyFrBSaxgkIY8pj4kAV+86Q1bfIX2c8DlgisKR8F4BXmxp9cOgvydEwPjYFfTb8nBzBDZgW/W7facd21JSyvp8wOrX9hm4lTUsZzdefhmCrNNNcsVFkqY6ByS4+0SO5Y2jL0hbUZtA9EV+VECGoo+zoWS4vW26fxsPwhBsw1R0ms+oYYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0GdE9/juU29x7EiabbFBcIghv9x7bN4+uj5hi4s49z0=;
- b=k02+54DUkeJgWlE8fMXwfCy84uBmbSFNWXQx6Vgth9Jb4kQoghtLZ6SXNDFVpopDCjvohVuvrlxDrmSY4o1drA+xzwSBqADdSGCZyymjByxbI2wdvybQyOeSqxY6vOu9ohTZS6QXkdyM4z1Lmz1Pm4BRuTdxaELc8zamXWneLp45ECmBhP/NrXqJqR8Z2M/7IIi2Z2HCCE4RK4JhfHQggNUsJuuzNGk71VX9Mz8O6rfvshrZdSzu3+VtYjx9UeItSQSJp8hkXeuzA3TFcfaJS3Pjd1PA+2iBJZOFF3SDmcvcImfmx0yP3hycvnLd98ekzRE6EAAlsD6zIUkK3SUXJQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
- by VI1PR04MB6864.eurprd04.prod.outlook.com (2603:10a6:803:138::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Wed, 9 Apr
- 2025 06:14:59 +0000
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827%6]) with mapi id 15.20.8606.033; Wed, 9 Apr 2025
- 06:14:59 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-Date: Wed, 09 Apr 2025 17:07:48 +0530
-Subject: [PATCH v16 7/7] arm64: dts: imx8ulp-evk: add reserved memory
- property
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250409-imx-se-if-v16-7-5394e5f3417e@nxp.com>
-References: <20250409-imx-se-if-v16-0-5394e5f3417e@nxp.com>
-In-Reply-To: <20250409-imx-se-if-v16-0-5394e5f3417e@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744198674; l=1341;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=YzhYqFJe6UZXhpq8PbsSekpK+8sbVDUzk+LTdh3FPlQ=;
- b=MzbCVU33KA4tb3ifrmn+LOTnHiwLsl/yMRjtn/pFFR2QLg7weZttPA0LLwpexTO2DtXkCmQ5g
- h+q1ptzI9nkA4OM/5TPXVcBD6pHOuXY0kzY5fD7ITiS/634dcPUJHEL
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SI2PR01CA0052.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::11) To AM9PR04MB8604.eurprd04.prod.outlook.com
- (2603:10a6:20b:43b::21)
+	Wed, 09 Apr 2025 06:36:43 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-736e52948ebso7459440b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 08 Apr 2025 23:36:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744180601; x=1744785401; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=JyLHBKKtBdcGeGPsMw3f6Qv4QssdQHR7Pid6EQwgQ8w=;
+        b=wodYQ9n6bqOjvt9T//OHfhcN5o1QvmE7sP+f1hCmyRSEefVzjpw2FGYFWVn1vu85hJ
+         IwwcxpctK34NHDS4KwcVD3brCmxwFQ/tw8Mo/ltdiSn6vQzuYTv9/Hg2DNCjrFNZdkZs
+         pk6yg5hgUte+a4474ietDVBg/HaBN8N3whm4OWfsVfl0vOdZ6wik5Z1ASVXINjI1l75O
+         L5xPsU1rn6g7v5sq11DpJziuCI+0V2sp72r87P27ax9TiM0kBuf7/NuiOk/KRANYE0t1
+         Ptq65kq+2akYCI3k3VD19nLj0tKo2xCn9hIAT9GI/yNFTVl4TuORAiLxLnI853txVH0F
+         D/9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744180601; x=1744785401;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JyLHBKKtBdcGeGPsMw3f6Qv4QssdQHR7Pid6EQwgQ8w=;
+        b=au6zFomNc5l9LAUefFsS9XG6A5VcMlf3sYjfm72087fyBEt53RQT2G6++b/RH7D9oA
+         r22lvxuOtYPxiXa3C2R258DZHnkdSwXIVtTAIQ5sS+lMyMgW0jb1R/Nx3tHDkw0LlVZ9
+         lxd+ov+q7Dy1a1A5IoU8vLXQxUoBmgPqIz/IyZ8YCRQSXZmXptRRzNDtaeApg09Thofv
+         EIU0q8KSxaYLrQOoC6jhsIappkQKzlRQz4WRVAgZ968ivUmYsH1VuoxNP6c/KumPfHrF
+         g48NkgwkfLc93uL40VB+wIDhOaBljiG9addPKz6L1SN5DrLY/jwBqQ8Bgx5GVPBvya+A
+         IJDw==
+X-Forwarded-Encrypted: i=1; AJvYcCX0UTUk27Gz43MKSdOMyUIjsz/EfyOw/AtJdL5kMEKyJgEPySOMK0qJMwydb2PoX6MwwpZTwbNbl9VUe5/rKCks@lists.infradead.org
+X-Gm-Message-State: AOJu0YwybU9a4nu5XnvuRQ7m7ip9P/NZHOrpYRRM0zAZrL1Z/US9o27e
+	M0nQLLgHZcBaLlEVg6UD/HQBgf729QXEu1OlvnQAMy7OiSJ1YXiK20VhiT0myg==
+X-Gm-Gg: ASbGncu5DwMWtMveJS7zB2S4VKGNbsv+1mnlFyGYlaio0jfJGzOXEP7hWyd1hgEpjOT
+	u9z9BQji128Ftl2S/U9XpVYp6mgy8rhFqiMB6Vxv47AxmkQNuAyAp/yeZCSxzL01HtByJ1Jc3aI
+	KO2/6YpFIYgx38V18tFcezFZPNE4zTm/tC5XhkThiHoDRrkXjHOucwZZiztKCcU1u+YZI25+f8F
+	aYKN6dItunhxd2BltZSooUS8CstJCnijm8iXzVp35bW05GXzh30aRpaBid+X9wruJH+8tHd1LZA
+	rZKQz1zC1TdrxcMmzKxhNdgDjeSxmsMlah6SR7rgYtYcHpXzBWc=
+X-Google-Smtp-Source: AGHT+IHsJVrpDdInYLAhJaCNmHpq2veRp8h4bN1zX1HiVkJrECPermHzrundQFT6RfXaFpJfsW7aQw==
+X-Received: by 2002:a05:6a20:9f8e:b0:1f5:7eee:bb10 with SMTP id adf61e73a8af0-201591580c4mr2941076637.8.1744180601350;
+        Tue, 08 Apr 2025 23:36:41 -0700 (PDT)
+Received: from thinkpad ([120.56.198.53])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bb1e382a4sm510787b3a.96.2025.04.08.23.36.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Apr 2025 23:36:40 -0700 (PDT)
+Date: Wed, 9 Apr 2025 12:06:35 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, 
+	bhelgaas@google.com, vigneshr@ti.com, kishon@kernel.org, 18255117159@163.com, 
+	cassel@kernel.org, wojciech.jasko-EXT@continental-corporation.com, 
+	thomas.richard@bootlin.com, bwawrzyn@cisco.com, linux-pci@vger.kernel.org, 
+	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v2 4/4] PCI: j721e: Add support to build as a loadable
+ module
+Message-ID: <zsxnx7biwogov5dw5yiafkgk6tsrtspac75bjbrca5uevweaim@ly67hwfyk7qh>
+References: <20250330083914.529222-1-s-vadapalli@ti.com>
+ <20250330083914.529222-5-s-vadapalli@ti.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8604:EE_|VI1PR04MB6864:EE_
-X-MS-Office365-Filtering-Correlation-Id: ba6e3020-2bf5-4006-fdb0-08dd772ddb14
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?KzBQQlhJbm83NHBJa0NneGdHQ1ZxWStaNkJNaUxSclExZGlxRFkvYkpvTHFp?=
- =?utf-8?B?dWNMek1HR2FYV0djQjFMMVRxS3RieGNIVnZXTnUxa09LVFRnRmtMSVM5Mk9N?=
- =?utf-8?B?QnZaRjRpZmMvUFlNZ1VLOWJIY05Sa1VmZUtoZTlYSEZpRFNNS3Y4L3ZlNjRS?=
- =?utf-8?B?RXFHQ0xBbnpFck1lN1NOQ0F1RW5Ic2N1azFKQlJxdFRzeGo2Z1QyU2N0KzA5?=
- =?utf-8?B?aDNBcXdneWNHaGpNVWFobWF2QmhWbkoxc1Z0QjlUVEV0OE5RZ2RhTXczRFR1?=
- =?utf-8?B?R1dLYVRnZ0VTS0NhQlJhZ0F3QmRTbi9zOHFJcThQOTI3MjVvRCtDaS9JSUJk?=
- =?utf-8?B?YlM5NDhXUy9PRmN1OGExeXFJUW1lRDBSbkNFa1A4MXdrUE9sdXlIdm5UTFpi?=
- =?utf-8?B?L3ZKTnNsR29TbzExd1JFNUxPQWVQTDZPTjRab1VmenlCUFR0aEQ4ZFk1R1JY?=
- =?utf-8?B?VGhQS3ZVbUorcFdReTJ0ODhNZXpRZGQzcG10Vm5JNTZ5WUluV0pFNmM3UzIv?=
- =?utf-8?B?S2ZCek44ck9ZOXF2QVVSbjR1ZW9yTVVkTkFUMHRmeW5EelVlVlFVaXZveUd1?=
- =?utf-8?B?dG1OQ0doOXU0UEgvOE1nc1pYVzBOemZ0VjkvZkdpWmNoNmovREpZcEF1NlVJ?=
- =?utf-8?B?OGJ0cDVKQzVUbnFUdjh5NVZOR3pJNlgyVk9JVk9zUmdkRGVBTlNNWWNYMjQ0?=
- =?utf-8?B?VklSYzlqSEpGMkxhOXd1M25RSU40UnlwRmtpOFNtSlAvZS9nT0NHM1pmb3BC?=
- =?utf-8?B?ZGp2RDM4aDdybkZWaWlYM2xCUDhJazRkaFJSS3RrU09MRXJqcjdWaVJnWlpW?=
- =?utf-8?B?c3pKam9kSk0reG1jZ1hhaVhJSDl3UzN2bllRMGF6YUU3Z0l6VHE2VXlGckh0?=
- =?utf-8?B?THJHcUM4VWhVMXN4N2VjMWVQcjYrdmpxTWN5NytWc2tQeVdYZFJIYWdlT0Z6?=
- =?utf-8?B?TEtXQkROaGpSZ1RWQjRvOUF2ZkFubkIwaERLNUFaK0ptcElSbUg0MWJBdWc3?=
- =?utf-8?B?SlFibURwMjVMc0t3RTZPQXgrNE14S04vUitrUlZLdjVpbEpMN0dNbTZvL0lk?=
- =?utf-8?B?WVJVRU0wNnh5UHZ2VVVlSk1hbklCR3E1YVIzUFhpZTVvWTgxUi9ZVmhOSDJp?=
- =?utf-8?B?ajEzVTM4dUtxYmtQM0p4NHI2OVNWbm54M1E0eUFmcmtNN1VpbDRJUEZ4Qkpl?=
- =?utf-8?B?bDdIdzNrODNhczltUzBFaE1xUDdkWEN2RmlUck14UEU2VS9TcXJKSDU3TXlG?=
- =?utf-8?B?TkhDRmFkMHdadXpsTkN0a29Bc04yd1FEMDZoRVFmRHlSSWljc3RKaTFSR0Fm?=
- =?utf-8?B?N3FZRHZiWXF2Q1p6TGJzYk1QUm8rMTBHNkUzY0h0dnB5dGQzNjArYWZYU2pv?=
- =?utf-8?B?dWt5aTJza3d4Y0R6bVJ1MkdXTTIxcWF0L2NpNEFYY0YrRDZJT29aTy85SFFr?=
- =?utf-8?B?MEFMdXcvWjhpUDI1N2YzbHNaYzhFclNyUy8rWEE4M3ZNMWd6dnlOa20yUytS?=
- =?utf-8?B?SXIwZ01OVDhBQ04wanlRUXNqcnNFRVVyZHVpT0djZ0s0eFlRancwNlE2ZTlX?=
- =?utf-8?B?QjJGVHR2NmIvYjZvM0JDODd1MlViYkZIOThNQXZpejI4bVI3VDZKM3hFRlVY?=
- =?utf-8?B?TXRzR1JMeC85UkF3QzhrYVBKWkM0Q2pzNk1xRytRNW5MV1RxSWRWQkxBUjhn?=
- =?utf-8?B?M055SzR3VHdSMHIwKy9CZEwxQ3hQVmpPb1ZnUVVNbWl1OVUyN3BidldBcnVs?=
- =?utf-8?B?eWg5aTg0eVRIQzdwVFJKWjc0RXpkR2lpNSs2cjFRdnRHdjAyNmYvTFZxUmZo?=
- =?utf-8?B?SlJMWVR1blVDc1pIV1JGR1hmWGphcVJUZGJLMEsyZTdWWmNleDNxWGc5aG9z?=
- =?utf-8?B?cTVQWkFMN2FZZitSeHNMMi8wZ0wzRGNzc3drNXFUaFBtQVp5T2V5LzZoM3VZ?=
- =?utf-8?Q?/KsokzcaIpGhRyzT+8x7+IQLddyOmQI6?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZTFvTXFFM05hNy9YbnZiemRVTXgyWnFLM0Q2TCt0L3FaYW1MY0dZdmF5T1pt?=
- =?utf-8?B?SU9PTnFYQ0N2RVErUXRVcUpMN3VLV1lwM3NsSlRaNXhJYXprSm5LY0F0dFlP?=
- =?utf-8?B?Wm1TRGt0d0t3TWV3SXVDUE9PNHJNOXViQi9vT1k1WjE5cDZOZjd0eFl1R2Rv?=
- =?utf-8?B?d1d6aHNPbktDMDJXVzBDVW9EZTl1MWZGUkNCVXdiU0g5bEUvek9mVmJBbjZQ?=
- =?utf-8?B?L0cybklXeG9CbytuL3owNUFLNVc5TFRLMWJ0a0RaTXpmclNTcERhMEdvWXMy?=
- =?utf-8?B?cGhucVBIZFd4RkFpbUUzSlRWeDhqQndKQ1ltU2ZIOTF6Z09MdGdRVDl0Ukd1?=
- =?utf-8?B?MEVKbXR5SGVhVC9sRHZ2KytsYS9rSGVXa3d1SUVYVnpReExQTmorblp5YzVy?=
- =?utf-8?B?cHpQRGlzYUZrOXdWK1A5K21qdWFMN01nWStlaE52b3JIeENuQ1lzM2R1NGxx?=
- =?utf-8?B?cE13NW9GM1MyczNiY3l1UmFDS2pMM2JFM3IyZG03TXBvUlp0WXVLbWxtVVF1?=
- =?utf-8?B?QnF5VnFPOGNVU0tJTXBrTEIwK1VMSk5yNWcyQ1JZSGZaTHNaWTVSL3BnblNF?=
- =?utf-8?B?RE15K3o0L2NHNXVDR0llcWRicXowaGtVajNUazBBUEw2cFlUK2NURmpENG9N?=
- =?utf-8?B?WlVwQlNQVElmSExuZzJ3RUtUeHlzZ0J6TERoWjNocjVDbzZZbk1wY01MTXhW?=
- =?utf-8?B?UGpxVDl1TDJ4QW1SZURXZWp1UzBPMlFXZkQzSnhoZ0RCL1M4ODhZTG1iUzFq?=
- =?utf-8?B?d3JnSmNVS0xCTDBqZDF6VzZYUW1DMEpWOENBcnE2REpYajBjc2JlWU9Bblc4?=
- =?utf-8?B?UnlHLzg5WWtQTllTNXAxSitZM1lzZDREaGRadkdNbGNqK3RSV08vSjhabnBS?=
- =?utf-8?B?T254MXZCNVNOSzl4VFdjUTVMWktkQkxSc2NNRWMrQnAxKzREUTRkRktmZmh5?=
- =?utf-8?B?dEZSRTRxTHdXM1plY3VySzRkQlVGWjFCb1h6Y2g0a1duK3dhUnM2UVE3dzIy?=
- =?utf-8?B?aUpzMW51eHhseEJkbFE2b2graTBTRGgzNlhLVnQrcUowd3ZTYU9jMlVKd0d3?=
- =?utf-8?B?VGVjV0J0eXlHREhmUlJoT1F5dE1NUS9IRjEzMUlOeVpHVTZxOXB1a08yWFk4?=
- =?utf-8?B?dDZ2aUJPbkRsV1h0UlpjREV2YVdYcmJwR0o1MUtONktGYVdleU4zbXY0UXd0?=
- =?utf-8?B?MVhyelRCQlhnMUR5OVNSSFQ3N0c3QitxNXlXbmR4YmFCWnFBZzhxWWdJbHNN?=
- =?utf-8?B?N1NtdFBDbEN2eVVRUGxlZjJhV2RCSzdaZWs5VWlTS2czdDl3R1lWR1NFUGtU?=
- =?utf-8?B?cGRsdHUveG0rVXZucFl1WWlQM0RoQ2tTNTNra1VGVDlHVmlZYWd1d1h2M3Jh?=
- =?utf-8?B?WlEzdmJlb2JSUEJSTXdsaXdoeGJnM0c5OTN1YlMxMm1zN0JwNkRURXhsRk9x?=
- =?utf-8?B?UC9IaDA3dU9qQThwOXVwc1lxRXIwazJrdlpSaC91ait0VEVING9qVnMvV3dY?=
- =?utf-8?B?blRtVW9hc2tYcWtUZW9jMCtmRllqR200MUlsY0xjOUczcllTdlAwOE5Pb0li?=
- =?utf-8?B?OVJuOVBWZTJCRDQwM0tBVjRVZW0vK09VOE4xS2w4dThnVXU4MmI0UHpjdGVV?=
- =?utf-8?B?bGw0c2NrRGs4L1k3U0k0T240YVgwN2RUU1E4MEpHTmVsZTk1cG9aOGFGVWp1?=
- =?utf-8?B?byt1MGFSQzRERDVmNitteHc4ZEdGNVlIMDRldnNWejZhdWRZVWc1cVRNS1lt?=
- =?utf-8?B?ODJRWDB6V1BNQVRGOVdpbGdtU3VmeFVna05OT2ZXeG5FeFI0TTBKN080eThO?=
- =?utf-8?B?cGxERENqYlQ3cWVVSGJZMkVrRUhPUFgvUVJpWkdwV05WNnJGQXFtZ2N1UzBn?=
- =?utf-8?B?RzJZRkx3MnlsR0U0NDN6U0FJbTBUN1pHbmJ3Nmk2OGZuWUR3TUlpOHgyZ0Jm?=
- =?utf-8?B?emRPTUo0NE1hQmxwMExXNzBlU3VnUVBwcWR2VVlMYWtUMUdDUjhUVGlnMmpY?=
- =?utf-8?B?MkNWM0c0d0lMV1ZGY3YzYU1sVlRITGtFMENpS2dSa0Z4ckxRVjlTRk9ZM2JP?=
- =?utf-8?B?MWcyQ29Tb2JVRHVGRHkxRFBOZ1NNc00yaytEQUVpUnhBR2t6MzR0b2JUYTBG?=
- =?utf-8?Q?nIaVImVKaAW3LeQ63r/oxSdkZ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ba6e3020-2bf5-4006-fdb0-08dd772ddb14
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 06:14:59.0581
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KrNeCTeTuBYxfay1S17PVDMMdQmzoOo4x9QWoCHz6Ia87sow24DHy9DdO9uQoE9k/lE1Wl0VX15y2+e9Sm59XQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6864
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250330083914.529222-5-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_233107_000461_E727AF01 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20250408_233642_305479_4C0DC306 
+X-CRM114-Status: GOOD (  25.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,58 +104,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reserve 1MB of DDR memory region due to EdgeLock Enclave's hardware
-limitation restricting access to DDR addresses from 0x80000000
-to 0xafffffff.
+On Sun, Mar 30, 2025 at 02:09:14PM +0530, Siddharth Vadapalli wrote:
+> The 'pci-j721e.c' driver is the application/glue/wrapper driver for the
+> Cadence PCIe Controllers on TI SoCs. Implement support for building it as a
+> loadable module.
+> 
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> ---
+> 
+> v1:
+> https://lore.kernel.org/r/20250307103128.3287497-5-s-vadapalli@ti.com/
+> Changes since v1:
+> - Based on feedback from Thomas at:
+>   https://lore.kernel.org/r/88b3ecbe-32b6-4310-afb9-da19a2d0506a@bootlin.com/
+>   the "check" for a non-NULL "pcie-refclk" in j721e_pcie_remove() has been
+>   dropped.
+> 
+> Regards,
+> Siddharth.
+> 
+>  drivers/pci/controller/cadence/Kconfig     |  6 ++--
+>  drivers/pci/controller/cadence/pci-j721e.c | 33 +++++++++++++++++++++-
+>  2 files changed, 35 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
+> index 82b58096eea0..72d7d264d6c3 100644
+> --- a/drivers/pci/controller/cadence/Kconfig
+> +++ b/drivers/pci/controller/cadence/Kconfig
+> @@ -43,10 +43,10 @@ config PCIE_CADENCE_PLAT_EP
+>  	  different vendors SoCs.
+>  
+>  config PCI_J721E
+> -	bool
+> +	tristate
+>  
+>  config PCI_J721E_HOST
+> -	bool "TI J721E PCIe controller (host mode)"
+> +	tristate "TI J721E PCIe controller (host mode)"
+>  	depends on ARCH_K3 || COMPILE_TEST
+>  	depends on OF
+>  	select PCIE_CADENCE_HOST
+> @@ -57,7 +57,7 @@ config PCI_J721E_HOST
+>  	  core.
+>  
+>  config PCI_J721E_EP
+> -	bool "TI J721E PCIe controller (endpoint mode)"
+> +	tristate "TI J721E PCIe controller (endpoint mode)"
+>  	depends on ARCH_K3 || COMPILE_TEST
+>  	depends on OF
+>  	depends on PCI_ENDPOINT
+> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+> index ef1cfdae33bb..8bffcd31729c 100644
+> --- a/drivers/pci/controller/cadence/pci-j721e.c
+> +++ b/drivers/pci/controller/cadence/pci-j721e.c
+> @@ -15,6 +15,7 @@
+>  #include <linux/irqchip/chained_irq.h>
+>  #include <linux/irqdomain.h>
+>  #include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/pci.h>
+>  #include <linux/platform_device.h>
+> @@ -27,6 +28,7 @@
+>  #define cdns_pcie_to_rc(p) container_of(p, struct cdns_pcie_rc, pcie)
+>  
+>  #define ENABLE_REG_SYS_2	0x108
+> +#define ENABLE_CLR_REG_SYS_2	0x308
+>  #define STATUS_REG_SYS_2	0x508
+>  #define STATUS_CLR_REG_SYS_2	0x708
+>  #define LINK_DOWN		BIT(1)
+> @@ -116,6 +118,15 @@ static irqreturn_t j721e_pcie_link_irq_handler(int irq, void *priv)
+>  	return IRQ_HANDLED;
+>  }
+>  
+> +static void j721e_pcie_disable_link_irq(struct j721e_pcie *pcie)
+> +{
+> +	u32 reg;
+> +
+> +	reg = j721e_pcie_intd_readl(pcie, ENABLE_CLR_REG_SYS_2);
+> +	reg |= pcie->linkdown_irq_regfield;
+> +	j721e_pcie_intd_writel(pcie, ENABLE_CLR_REG_SYS_2, reg);
+> +}
+> +
+>  static void j721e_pcie_config_link_irq(struct j721e_pcie *pcie)
+>  {
+>  	u32 reg;
+> @@ -633,9 +644,25 @@ static void j721e_pcie_remove(struct platform_device *pdev)
+>  	struct j721e_pcie *pcie = platform_get_drvdata(pdev);
+>  	struct cdns_pcie *cdns_pcie = pcie->cdns_pcie;
+>  	struct device *dev = &pdev->dev;
+> +	struct cdns_pcie_ep *ep;
+> +	struct cdns_pcie_rc *rc;
+> +
+> +	if (pcie->mode == PCI_MODE_RC) {
+> +		rc = container_of(cdns_pcie, struct cdns_pcie_rc, pcie);
+> +		cdns_pcie_host_disable(rc);
+> +	} else {
+> +		ep = container_of(cdns_pcie, struct cdns_pcie_ep, pcie);
+> +		cdns_pcie_ep_disable(ep);
+> +	}
+> +
+> +	if (pcie->reset_gpio) {
+> +		msleep(PCIE_T_PVPERL_MS);
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+There is no point in adding a delay before PERST# assertion.
 
----
-changes from v15 to v16
-- Collected Frank's R-b tag.
----
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+> +		gpiod_set_value_cansleep(pcie->reset_gpio, 1);
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 290a49bea2f7..10aaf02f8ea7 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
- 
- /dts-v1/;
-@@ -37,6 +37,12 @@ linux,cma {
- 			linux,cma-default;
- 		};
- 
-+		ele_reserved: memory@90000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x90000000 0 0x100000>;
-+			no-map;
-+		};
-+
- 		m33_reserved: noncacheable-section@a8600000 {
- 			reg = <0 0xa8600000 0 0x1000000>;
- 			no-map;
-@@ -259,6 +265,10 @@ &usdhc0 {
- 	status = "okay";
- };
- 
-+&hsm0 {
-+	memory-region = <&ele_reserved>;
-+};
-+
- &fec {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&pinctrl_enet>;
+This is not PERST# assert, isn't it? Typo?
+
+- Mani
 
 -- 
-2.43.0
-
+மணிவண்ணன் சதாசிவம்
 
