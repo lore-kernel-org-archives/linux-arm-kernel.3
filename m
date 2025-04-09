@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6681AC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 15:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D4B7C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 15:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5+/OyG161XLiJCGU/kD1VVaHgi3XUfffUqBX65XuhLY=; b=ewJUjjcUMNAubyPY9moKUmfupT
-	HeFuDks5gXxrrEVsvSHRMPMO9qjBtsPZ0HMGrPwDvrjFJUTIVC5u1yCZnrxXPbyw/YZYIKvJvzRKY
-	ZLK/QhgBf0obQmZkV3GkB4DG+9pGnW0rQB2rRlGIIm2VeHH9dYf8uqa/cT+D4cuSzwDzkDlNbsKxr
-	ZcYLcz0ax1Zct6ZiItUHD61CsptNRVzU6/xB4VInHC9wSahOj+3/o9h94/vxFYjlMDKo52gp7UVJL
-	z3lYKR/QAn3o9AFM3TFusE2dBbEmNE391HDyNzeAZPGXWsboxI6iXiHlIxkebuKiOAjNPULkQBuS6
-	r0+SPqFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QDUIJBUfUWetOQ9XbfKqZntOyLdSRCgncZqRn4gs3n8=; b=sGvzxnDtfvw65i5bbwyjN+4Yj9
+	NrjLNGA5idQq8+iJFs1Up1wajbyAY4kt83f4H68e/XHDEQCiUDEK+f2Ev1Cr7eS6xIdyk0rKctHY8
+	A5Fhsxn9yl50SbAtZk72r5dpimL67LKzLVv+VHsx2dfAv1uCjRTRS6z5LniyhehOQpUw+LoIk8cQO
+	Y59Am7fz0LwnyfAzWrLYbwh6M8jvSZxdCEv4IKnSBmbq9b8swmYyzwEUgxVoP1AbqIOzn+HVexTfy
+	r+Jaby8LsBvEB2s827D8Tcl1pwoqz0QAWd2pJGlXloLr7A29MI+4lrqCoLqfERgvH1f5VzYrvF8oQ
+	pUcZfF4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Xk8-00000007mlZ-2dPq;
-	Wed, 09 Apr 2025 15:53:36 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1u2XoM-00000007nfk-0rwf;
+	Wed, 09 Apr 2025 15:57:58 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Xha-00000007mHQ-3sSx;
-	Wed, 09 Apr 2025 15:51:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744213856;
-	bh=bvozvL+Ka3UE57hADrHygiEEqNN6MU5nlJ3B+28IPjg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=d/QSwyj6A/GsoV1lb0JMMaH1EXGZRVDAAH/pa/Fy+Vzkgi5vrgyalGshHWTccvu2T
-	 eH7NBGQrxOZhgkW2FTWZ1fmBoPA/hG8GdyAGGg7ePKqln76v5bafr9JTsQRd5OnQJr
-	 BpFdUtAlooojoZJ97HPjV5MN9Tcr3v0fKsYV7JfOz/qb6UXYoOKiVEgPvZep4kAM59
-	 B0j9BiMIdGbzUl2HoROUyJijk+zTKxegWlSan6vy74mKleqdX0Fq2XLmOz1FDbW+YT
-	 zVaK+shJ3ZNBWq8JkyAkoX14HLQQODhOwBJDcQjOTTTY3AGhXEMuOMLukiPFy2TDkC
-	 ID2JcQzQ31ceA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F07EC17E0657;
-	Wed,  9 Apr 2025 17:50:55 +0200 (CEST)
-Message-ID: <399f89fb-092e-4fb3-8a0b-987dea129554@collabora.com>
-Date: Wed, 9 Apr 2025 17:50:55 +0200
+	id 1u2WLk-00000007RJt-2Dpu
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Apr 2025 14:24:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=QDUIJBUfUWetOQ9XbfKqZntOyLdSRCgncZqRn4gs3n8=; b=KTfCf3c8JRBefviFsqU+m7kWm+
+	Sj2845Sdimp6jX0y275HopAZl44AeT36Kjv54ltI5NyUHgLevjKv43NxpThdXzfcHo9dRVHegRGjQ
+	e/NE9h96bkM/Acyq8fczLJQEcOuUn97dkCTfXG7hTbEcDIhuthdHfH8dcoL/N71Q5wLDKb57buzIq
+	rmobayGJc8GuAB2UIBPg3FxlodVRwWvCuyM98e+l/VJZv+EofA0bHMU/Lf57RjzSGKeyV1ToEDRQt
+	g/dwSgYjVfT5pI3LFuniTt+fzZBU460QxhVZO9GC26rF8xXLanqYRkDxKjzG9h80H4yPgiXsdtSBh
+	ODPFq3BQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2WLh-00000001ZhH-3Axy;
+	Wed, 09 Apr 2025 14:24:18 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id E9B433003FA; Wed,  9 Apr 2025 16:24:17 +0200 (CEST)
+Date: Wed, 9 Apr 2025 16:24:17 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: mark.barnett@arm.com
+Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+	irogers@google.com, ben.gainey@arm.com, deepak.surti@arm.com,
+	ak@linux.intel.com, will@kernel.org, james.clark@arm.com,
+	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, adrian.hunter@intel.com,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 3/5] perf: Allow adding fixed random jitter to the
+ sampling period
+Message-ID: <20250409142417.GC9833@noisy.programming.kicks-ass.net>
+References: <20250408171530.140858-1-mark.barnett@arm.com>
+ <20250408171530.140858-4-mark.barnett@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/3] memory: mtk-smi: mt8188: Use
- devm_pm_runtime_enable
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Friday Yang <friday.yang@mediatek.com>
-Cc: Yong Wu <yong.wu@mediatek.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20250408033206.12176-1-friday.yang@mediatek.com>
- <20250408033206.12176-4-friday.yang@mediatek.com>
- <20250408-woodoo-quick-worm-bf82b4@shite>
- <e777f95c-c21f-4a91-b044-5fc19eb22c3d@collabora.com>
- <258c8fda-70cc-4624-aef6-7cbef3cdbde6@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <258c8fda-70cc-4624-aef6-7cbef3cdbde6@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_085059_116457_5D5CBDF7 
-X-CRM114-Status: GOOD (  15.39  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250408171530.140858-4-mark.barnett@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +76,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 09/04/25 11:56, Krzysztof Kozlowski ha scritto:
-> On 09/04/2025 10:26, AngeloGioacchino Del Regno wrote:
->> Il 08/04/25 08:29, Krzysztof Kozlowski ha scritto:
->>> On Tue, Apr 08, 2025 at 11:31:56AM GMT, Friday Yang wrote:
->>>> Replace pm_runtime_enable with the devres-enabled version which
->>>> can trigger pm_runtime_disable.
->>>>
->>>> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
->>>> ---
->>>>    drivers/memory/mtk-smi.c | 16 +++++++++-------
->>>>    1 file changed, 9 insertions(+), 7 deletions(-)
->>>>
->>>> diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
->>>> index f25d46d2ef33..daef6d350419 100644
->>>> --- a/drivers/memory/mtk-smi.c
->>>> +++ b/drivers/memory/mtk-smi.c
->>>> @@ -713,16 +713,17 @@ static int mtk_smi_larb_probe(struct platform_device *pdev)
->>>>    	if (ret)
->>>>    		goto err_link_remove;
->>>>
->>>> -	pm_runtime_enable(dev);
->>>> +	ret = devm_pm_runtime_enable(dev);
->>>> +	if (ret)
->>>> +		goto err_link_remove;
->>>> +
->>>>    	platform_set_drvdata(pdev, larb);
->>>>    	ret = component_add(dev, &mtk_smi_larb_component_ops);
->>>>    	if (ret)
->>>> -		goto err_pm_disable;
->>>> +		goto err_link_remove;
->>>>
->>>>    	return 0;
->>>>
->>>> -err_pm_disable:
->>>> -	pm_runtime_disable(dev);
->>>
->>> You now broke/changed the order of cleanup without any explanation.
->>>
->>> Best regards,
->>> Krzysztof
->>>
->>
->> I agree some comment in the commit description saying that the cleanup reordering
->> doesn't matter in this specific case would've been nice to have, but anyway IMO
->> it's not a big deal - he didn't break anything, anyway :-)
-> 
-> Cleanup orderings are tricky, so are you sure nothing got here called in
-> incorrect moment?
+On Tue, Apr 08, 2025 at 06:15:28PM +0100, mark.barnett@arm.com wrote:
+> @@ -10224,6 +10227,19 @@ static int __perf_event_overflow(struct perf_event *event,
+>  	 *
+>  	 * By ignoring the HF samples, we measure the actual period.
+>  	 */
+> +
+> +	/*
+> +	 * Apply optional jitter to the overall sample period
+> +	 */
+> +	if (hwc->sample_period_state & PERF_SPS_HF_RAND
+> +			&& !(hwc->sample_period_state & PERF_SPS_HF_SAMPLE)) {
 
-Yes.
+Coding style nit: when breaking lines, the operator goes on the end of
+the preceding line.
 
- >> I see that runtime PM will be disabled much later and
-> what certainty you have that device won't get resumed that time?
-> 
-How can a device that failed to probe be resumed?! Who's going to resume it?! :-)
-
-Also, in the remove phase, all users get removed first, there's no ISR (implies
-that there's no isr that will resume this device inadvertently, and other than
-no isr - there's no kthread/queue/this/that that could do this), and no nothing.
-
-Moreover, SMI-LARB cannot be removed unless all of the components are unbound;
-SMI-Common (be it a common or a sub-common) cannot be removed if SMI-LARB is still
-using it.
-
-No I don't see anything that can resume it before devm does its job.
-
-If you do see something though, I'm curious to understand what I'm missing here :-)
-
-Cheers!
-Angelo
+> +		struct rnd_state *state = &get_cpu_var(sample_period_jitter_rnd);
+> +		u64 rand_period = 1 << event->attr.hf_sample_rand;
+> +
+> +		sample_period -= rand_period / 2;
+> +		sample_period += prandom_u32_state(state) & (rand_period - 1);
+> +	}
+> +
+>  	if (hwc->sample_period_state & PERF_SPS_HF_ON) {
+>  		u64 hf_sample_period = event->attr.hf_sample_period;
+>  
 
