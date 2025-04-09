@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDDBFC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 12:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06EBEC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 12:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eV7uMxmQxza+uYat1QLq0Yj1SFJalpcpZZ5M97JbmTE=; b=1ZPs2+YfTbx8KRGlP9m4VjUvra
-	JTxOvstIHu3nODaPgvxQMo8fbe3vMHGnpcZ4E2Kxvx53GWBpa/fHjVoO3EsMZ+q22sJw4e8OJ2IWR
-	OIHNG1DXYLeoguO6hNyS0A2ko/lx+9MO5VjpvRmVtxP521j0diwbGhzjbvvovqECg8dhJT2aTUMc8
-	Nz3IBpWhJSU+tvUUA2Zyneln3594W95v5kMwoxHSDdrqIjuMpoDI9q2RJtLAQ0MeiVhKRTNtw28aS
-	vdVK44UWzP9NlOLUAmT2zHHwqoEffEhrMQlvffUMQ8u8XFc2qas3APSuc4W9SHLx1DIGiqW4pJTrv
-	CnlIm6ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vnbe48AO71vHxLIqa6wKoIQjII3SgOedEce7jQxnB1c=; b=D5ugnKDyCbu+XN1iHfLOhSOyJs
+	9qFgEfbbQCnR7rWopITkXtXUoJcxbDjLPC2dqWTwkbZa4PgrONT8bbSb7U/GoDgQqcuhgMrTiEGFl
+	kJE/9004oWXzF31wdgBsbo+DZW1yxf8NG/fq+elEiwQUNpyJjTCaeuoofYiwv2qEAexVIxHfIbblR
+	BDp3HFIK5Q33aK60nWAoJm2eJB22var0zDO9uvpZFGDjvzn42IlsXuoEhAVIQgZ1b0q572iRcPm0c
+	obT1SrNKgaqIjvZQwfA2Ah5d3l/NPNP6xj9Jw6uXmGBjnyqwcElg9TrLxgoAdHMTiQwf66gAPhfGM
+	u7a3JFPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2UvY-00000007Cwb-3YJh;
-	Wed, 09 Apr 2025 12:53:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u2UxI-00000007DEl-2P94;
+	Wed, 09 Apr 2025 12:55:00 +0000
+Received: from mail-lj1-x244.google.com ([2a00:1450:4864:20::244])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Usz-00000007CSv-2LSW
+	id 1u2Uui-00000007Cot-43Pm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 12:50:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 524D15C117C;
-	Wed,  9 Apr 2025 12:48:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1F78C4CEE3;
-	Wed,  9 Apr 2025 12:50:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744203032;
-	bh=/jW9B44kyqNV8gjRORD3bHRgIUAe308jn00yw2IwXDM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MnoGH7/So9vd/9bpPO03vMLSZNhWbekAYvl+BCmmbTLqGQSlJFJqS1PdM3P8y5Wyy
-	 yu16DR8o9W8yUb7HCTLY/WAx7vMerpZygbwYzDGFD6QyfzHi7sAzFYVNni2gxOjuLA
-	 nh2oLbhT54uQPNQtanuMpZEbkqyQx2bpm/8foNQEyaAl0ZegA32hKwCncxgV0d/MFj
-	 W3UUEG9gYWm2vYrBhZz19jSvTXA/PU6n0qvnRXatLAbwWyDpCCuI0JwJcvD02O3Rzd
-	 JCNLumTwG0/c3mNIXIvMwQtuJGhgODmSlZABTMFyzs7WmdY5KjjuHHmubf7rnF26iD
-	 VaIWwvtYKojGg==
-Date: Wed, 9 Apr 2025 18:20:21 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>
-Subject: Re: [PATCH v6 05/10] tee: implement restricted DMA-heap
-Message-ID: <Z_ZtDQQY4eouqBh8@sumit-X1>
-References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
- <20250305130634.1850178-6-jens.wiklander@linaro.org>
- <Z-JOPgcWlpTlskgd@sumit-X1>
- <CAHUa44GjpHT5Nqo+Ar5jNYNPV-YJQYpLTCf=7oJ1o0VjP-t0nA@mail.gmail.com>
- <Z-ucuPzwz4IqVTgb@sumit-X1>
- <CAHUa44FpsCVrbwj1=nsJVJFVJSF1kzKdWAkAMXRu6EdLrLvh8g@mail.gmail.com>
- <Z_To9V-JOKZ7ChhE@sumit-X1>
- <CAHUa44EGWuVPjoxpG-S66he=6dkvkwzxNewaGKVKXUxrO41ztg@mail.gmail.com>
+	Wed, 09 Apr 2025 12:52:22 +0000
+Received: by mail-lj1-x244.google.com with SMTP id 38308e7fff4ca-30bfb6ab47cso61536991fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 05:52:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744203139; x=1744807939; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vnbe48AO71vHxLIqa6wKoIQjII3SgOedEce7jQxnB1c=;
+        b=G6V02pie2Kx3oXIrxgeyLu80CWbKq6VypAHEgSJq3VxRDsdI9MTx476/hUzuyW5nHo
+         Zos1op//E0QwKPXLFAdiiVCSKmHW7InWVvYVXt2Yamp7nK+hIgpCyq8EOi6L/IU4ILMm
+         3jSOrXZmfRxOe1sUwEdfCp/ZRA2+nsHz/r9RSDIqZClOnA4id347oSJrDL3iwZEEeW1i
+         7wPzcyEnNxVd6FVNB+qPJHmUqQMQZauXciFuJiPcRtjr6jQNmSF6acTc6/9uSVNW96Al
+         eZt0mXQqQMkPHQ41cw9etgjaQb/dFHz/c/GiHPQHBBQbhLIczHna9pYi/6MkdVYEazbi
+         hj1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744203139; x=1744807939;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vnbe48AO71vHxLIqa6wKoIQjII3SgOedEce7jQxnB1c=;
+        b=cjbSf2G23Zxv7JVaF/RQoAOMFaHrWZsmWpiHJuh7AvnDxu/dXo51sRHjuwGQHW6R9l
+         W0jAGT2QpurPIHDaEm77ZCPEW98UA4oFFVZe2vhG9M6pcQlFHtKYsZO3dGFEXHAUJhsW
+         3hd323TYBMMDyp1chAt1Va1NPmZwZo4J9ZxhAom7NAEeoYLbRoiqt3VRXhBDGWPkWLVf
+         R2VU0/FZDd/F2uBijYNgR0xX9HYMJp62M5jb7CmVlBpz5lqwtzRM+D90/ak2w2viFAwa
+         JS4mou4tzXC7s7vnkeYIRcNqadwXnV7qU9tkHlFFguFkTIGOlVSc/gKuvCa0rCL9b82W
+         r3sA==
+X-Forwarded-Encrypted: i=1; AJvYcCX3BQzrKN9WlDn32QFdIDdJNJaPh64oa8+EZ9qOWlm7oNTi3Y/TxfIRP7hk8AP+MyS5SsqoUd9oIFZC2YLHrCN3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyqqyjb1cFjONKU+lFgKOAzQj3jwSNobu5Im6o7lhwuqpvIRtvG
+	xRYqfmET6saWgFHCEpetdHZQeuV5E546AmJ02yO9S6FyRtNw5JPPFiVOcMzqEPowPwqRrcx2Mcn
+	cR4wTJDxxHiig4QkxxKok8kRxSZo=
+X-Gm-Gg: ASbGncuUYOdw/sh0jO06H9pPudYyDTBwK3p4kvmQ+a6Nzm3lvzM0OwCHAiEtIjDBMmG
+	hebhPfBOyqDre0NiNYNg4gucGjDJgyPkELqHq41GJ1Pe/p8GWnToLf9i/lWWvph4OHaDJqpzFVU
+	9WSJOEw3mVjWKEQtinV7YSdw==
+X-Google-Smtp-Source: AGHT+IGdHNOtvdCerY9pg8Q3eWXZ6Xsli0U3CirBEEFOA4oaaLZ/9WuOnbKqs9UCWS6SuAwXiGwGa9XbIxRoeJv+6i8=
+X-Received: by 2002:a05:651c:54f:b0:30d:e104:a942 with SMTP id
+ 38308e7fff4ca-30f45078046mr7055251fa.38.1744203138983; Wed, 09 Apr 2025
+ 05:52:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHUa44EGWuVPjoxpG-S66he=6dkvkwzxNewaGKVKXUxrO41ztg@mail.gmail.com>
+References: <20250409124542.47166-1-bsdhenrymartin@gmail.com>
+In-Reply-To: <20250409124542.47166-1-bsdhenrymartin@gmail.com>
+From: henry martin <bsdhenrymartin@gmail.com>
+Date: Wed, 9 Apr 2025 20:52:08 +0800
+X-Gm-Features: ATxdqUHAqov07ZrNPtI7qo4io2YYdsdoXQrB8Z46RMN6AaIBAh08vSDcMkMStwY
+Message-ID: <CAEnQdOoMBvm_T813t_1uuNsQxqro=zXwM6d2b=NOiihicUNHcg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] cpufreq: scpi: Fix null-ptr-deref in scpi_cpufreq_get_rate()
+To: sven@svenpeter.dev, j@jannau.net, alyssa@rosenzweig.io, neal@gompa.dev, 
+	rafael@kernel.org, viresh.kumar@linaro.org
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_055033_706547_2745E987 
-X-CRM114-Status: GOOD (  35.35  )
+X-CRM114-CacheID: sfid-20250409_055221_003013_2D266F06 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,111 +95,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 03:28:45PM +0200, Jens Wiklander wrote:
-> On Tue, Apr 8, 2025 at 11:14 AM Sumit Garg <sumit.garg@kernel.org> wrote:
-> >
-> > On Tue, Apr 01, 2025 at 10:33:04AM +0200, Jens Wiklander wrote:
-> > > On Tue, Apr 1, 2025 at 9:58 AM Sumit Garg <sumit.garg@kernel.org> wrote:
-> > > >
-> > > > On Tue, Mar 25, 2025 at 11:55:46AM +0100, Jens Wiklander wrote:
-> > > > > Hi Sumit,
-> > > > >
-> > > >
-> > > > <snip>
-> > > >
-> > > > >
-> > > > > >
-> > > > > > > +
-> > > > > > > +#include "tee_private.h"
-> > > > > > > +
-> > > > > > > +struct tee_dma_heap {
-> > > > > > > +     struct dma_heap *heap;
-> > > > > > > +     enum tee_dma_heap_id id;
-> > > > > > > +     struct tee_rstmem_pool *pool;
-> > > > > > > +     struct tee_device *teedev;
-> > > > > > > +     /* Protects pool and teedev above */
-> > > > > > > +     struct mutex mu;
-> > > > > > > +};
-> > > > > > > +
-> > > > > > > +struct tee_heap_buffer {
-> > > > > > > +     struct tee_rstmem_pool *pool;
-> > > > > > > +     struct tee_device *teedev;
-> > > > > > > +     size_t size;
-> > > > > > > +     size_t offs;
-> > > > > > > +     struct sg_table table;
-> > > > > > > +};
-> > > > > > > +
-> > > > > > > +struct tee_heap_attachment {
-> > > > > > > +     struct sg_table table;
-> > > > > > > +     struct device *dev;
-> > > > > > > +};
-> > > > > > > +
-> > > > > > > +struct tee_rstmem_static_pool {
-> > > > > > > +     struct tee_rstmem_pool pool;
-> > > > > > > +     struct gen_pool *gen_pool;
-> > > > > > > +     phys_addr_t pa_base;
-> > > > > > > +};
-> > > > > > > +
-> > > > > > > +#if !IS_MODULE(CONFIG_TEE) && IS_ENABLED(CONFIG_DMABUF_HEAPS)
-> > > > > >
-> > > > > > Can this dependency rather be better managed via Kconfig?
-> > > > >
-> > > > > This was the easiest yet somewhat flexible solution I could find. If
-> > > > > you have something better, let's use that instead.
-> > > > >
-> > > >
-> > > > --- a/drivers/tee/optee/Kconfig
-> > > > +++ b/drivers/tee/optee/Kconfig
-> > > > @@ -5,6 +5,7 @@ config OPTEE
-> > > >         depends on HAVE_ARM_SMCCC
-> > > >         depends on MMU
-> > > >         depends on RPMB || !RPMB
-> > > > +       select DMABUF_HEAPS
-> > > >         help
-> > > >           This implements the OP-TEE Trusted Execution Environment (TEE)
-> > > >           driver.
-> > >
-> > > I wanted to avoid that since there are plenty of use cases where
-> > > DMABUF_HEAPS aren't needed.
-> >
-> > Yeah, but how the users will figure out the dependency to enable DMA
-> > heaps with TEE subsystem.
-> 
-> I hope, without too much difficulty. They are after all looking for a
-> way to allocate memory from a DMA heap.
-> 
-> > So it's better we provide a generic kernel
-> > Kconfig which enables all the default features.
-> 
-> I disagree, it should be possible to configure without DMABUF_HEAPS if desired.
+Sorry for the noise - please disregard this patch as it was sent in error.
 
-It's hard to see a use-case for that additional compile time option. If
-you are worried about kernel size then those can be built as modules. On
-the other hand the benifit is that we avoid ifdefery and providing sane
-TEE defaults where features can be detected and enabled at runtime
-instead.
-
-> 
-> >
-> > > This seems to do the job:
-> > > +config TEE_DMABUF_HEAP
-> > > + bool
-> > > + depends on TEE = y && DMABUF_HEAPS
-> > >
-> > > We can only use DMABUF_HEAPS if the TEE subsystem is compiled into the kernel.
-> >
-> > Ah, I see. So we aren't exporting the DMA heaps APIs for TEE subsystem
-> > to use. We should do that such that there isn't a hard dependency to
-> > compile them into the kernel.
-> 
-> I was saving that for a later patch set as a later problem. We may
-> save some time by not doing it now.
+Henry Martin <bsdhenrymartin@gmail.com> =E4=BA=8E2025=E5=B9=B44=E6=9C=889=
+=E6=97=A5=E5=91=A8=E4=B8=89 20:45=E5=86=99=E9=81=93=EF=BC=9A
 >
-
-But I think it's not a correct way to just reuse internal APIs from DMA
-heaps subsystem without exporting them. It can be seen as a inter
-subsystem API contract breach. I hope it won't be an issue with DMA heap
-maintainers regarding export of those APIs.
-
--Sumit
+> cpufreq_cpu_get_raw() can return NULL when the target CPU is not present
+> in the policy->cpus mask. scpi_cpufreq_get_rate() does not check for
+> this case, which results in a NULL pointer dereference.
+>
+> Fixes: 343a8d17fa8d ("cpufreq: scpi: remove arm_big_little dependency")
+> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> ---
+> V1 -> V2: Use `if (unlikely(!policy))` instead of `if (!policy)`
+>
+>  drivers/cpufreq/scpi-cpufreq.c | 13 ++++++++++---
+>  1 file changed, 10 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/cpufreq/scpi-cpufreq.c b/drivers/cpufreq/scpi-cpufre=
+q.c
+> index 17cda84f00df..dcbb0ae7dd47 100644
+> --- a/drivers/cpufreq/scpi-cpufreq.c
+> +++ b/drivers/cpufreq/scpi-cpufreq.c
+> @@ -29,9 +29,16 @@ static struct scpi_ops *scpi_ops;
+>
+>  static unsigned int scpi_cpufreq_get_rate(unsigned int cpu)
+>  {
+> -       struct cpufreq_policy *policy =3D cpufreq_cpu_get_raw(cpu);
+> -       struct scpi_data *priv =3D policy->driver_data;
+> -       unsigned long rate =3D clk_get_rate(priv->clk);
+> +       struct cpufreq_policy *policy;
+> +       struct scpi_data *priv;
+> +       unsigned long rate;
+> +
+> +       policy =3D cpufreq_cpu_get_raw(cpu);
+> +       if (unlikely(!policy))
+> +               return 0;
+> +
+> +       priv =3D policy->driver_data;
+> +       rate =3D clk_get_rate(priv->clk);
+>
+>         return rate / 1000;
+>  }
+> --
+> 2.34.1
+>
 
