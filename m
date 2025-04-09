@@ -4,100 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BADC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 21:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB55CC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 21:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Ow5hOPbiIZXZpWZ6Uu6oQmw7CcTYqg39bQG6yedoPQ=; b=pRkGyMYVa8PnCpohTUiIYtESU3
-	ishq5+IpZd5Klnn3Cnpjj8Tno6fE6W07yr6VBU9gbGUQ7LfEZvpoGed23n5UrMd2N7g90julcA1gG
-	sbeHwwy/BkBiQKDn2mtwN0xLffexSXIozAqE0nPW63QV5fdWY1jbTzG3k5t0JeXKk8yw+LiuXRBgo
-	zupAYxVhpEhJoh8mKArY1gxTCzLB7CLUC3sB0WzHiN1oEPBDl5J0Q5I4A86Kv63l3vAyU43wxWkjm
-	DNDr7APy+aI7+1wxF80XWTuz8KE6lWRsbUw2NJ4gXGQAaMHCZtG/ts49V/S5NXEYocrc7ww4Qui1g
-	WMlIxejw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ENOcZPIItp2JvszVxj/GE2Qd8ZKfpfM4JflKxCvjNwk=; b=SfamGS9/VLXvS9hdzbFpvK3Iy7
+	nXUnmMiXhMHeXLsYKikxgIZlgWx8GA3q+A3JCuarnprE+eo2QN4UQTyH+81ZTx6+MFD9oP+3MLhbb
+	oyghCYXfhAwZWO8A9xO1XJd3bWvgPqdkJen0jSmlOMXmh0yvVWSHmrpaopSBIITmQXyNZTwiQOv4u
+	W8dy1VWdysPm9vvgiNppXqo2UigEZqlZ459xAu39E30ToHJAbRQ+jXp6PBKjhSdzQ3AI+euJxLQ/v
+	HOmCGcAeDVcHkhoFh2gaaIZ5XxhnXLPrFmF2b2Z4iB85Od4yosUNYYM0jc3V812W+NRieJHTQUXaK
+	JQby2hOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2d7l-00000008beF-0TUJ;
-	Wed, 09 Apr 2025 21:38:21 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1u2d9V-00000008brJ-1V0Q;
+	Wed, 09 Apr 2025 21:40:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2cB9-00000008Sjt-1y7j
+	id 1u2cIu-00000008UQU-1qeQ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Apr 2025 20:45:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ENOcZPIItp2JvszVxj/GE2Qd8ZKfpfM4JflKxCvjNwk=; b=pAEp2xWNacZq32/pBQ1Z+sftZU
+	JP5+AQRyaNByMLaCTLcVcL0dfGnUDe5zXBT7TRq0wlWzcRkDHUTzEIkm9yiBYU+njth0GZWgaU75q
+	jlTlWeOnBU7iFGVPLIKrkV3GIXgAyiVN3vqEJQkWnsM6Y6vvxVnGezSznYZUv2eH9+lMd98kHHvlD
+	ZIyqxqop/1PAYyxAwtMw+HBqeaLdKu6Wc7k9Eb7gLerCsZTNzH2NzD6RcC2kRIqXypetQXwaZKXDn
+	AGwRRqE9OBhA3LiX7OFz9HNbcIYnbPJdZNfR5vWXUCnuifKs5zohs0qynlnAWwOCsFR1s9b/1IdK/
+	ZppQPR1w==;
+Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2cIp-00000008gln-3wza
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 20:37:48 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ab78e6edb99so13304866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 13:37:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744231066; x=1744835866; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+Ow5hOPbiIZXZpWZ6Uu6oQmw7CcTYqg39bQG6yedoPQ=;
-        b=ypcSKwXgFzwYtmFINm2YH9/zjTVZ0cyPet/bV7tRvLXW/RvNupgelYc9J1WMXnbco3
-         jXGD0nYY5ItIad+FeTNLD/ryug97/ub6eNrn6sKwicm0a1fEGg4+mlzDa6WLmrK7TFI8
-         R46k4Br4tUmjYt+xN95Qkq90IMxCm1lJTjg93Dg7TbbMiFjjs2yPNXn1WlU+UXGRBIIa
-         uEiof1PlfddRGXGyjficJ0xbGIVwPYcJf19XUDSunk7eoCtJVbZ3Yja08tNMAaSdWEFR
-         NI5WAo515+UVw3wU4HLr+UdNmurhhD1qiTTrLvEjmeL0PQjJReja3OnDyrCzIhW3Z82g
-         dVIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744231066; x=1744835866;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+Ow5hOPbiIZXZpWZ6Uu6oQmw7CcTYqg39bQG6yedoPQ=;
-        b=krDNnggmCO59SYtqKh5xcMHz1M4RB8sNhN0zKSxVC9Nk18T131CS5i6kdjva/BN5bH
-         KbG1pWiuAaXSIm9GtEXm364saC6mKEnMA03gDFOZdqPPtzNCYSok/7PyFcNiAp8gRsWl
-         SHjoUw811YwRvTXCotxkdBV00PBVUmSsFkDnXdp++VzcmVvoQSF/JzjBVMcEwGL8peFs
-         7hwmRgGwFofKYX1oRDbVKcDGSrulb0djtENmNOXTD6Cerk6k6EnyG0jehkBw63KzEF2S
-         JqNTCaqvsaz8OVaWy3iY7sJRrNcY0rfvPGVmJnNedftRIXJuY7HX1OKdBS1Gkh2nKyEj
-         CbLg==
-X-Forwarded-Encrypted: i=1; AJvYcCWH2iX6jI6PvTP3qBE5hUSzB5njAqVYhw1nMcG44TDcVEgbINm/VfFCx8woXzXawXfierlA8bdPGBKGySGY1gm8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx90Hawu7tfOBByNNBJ/lwpFt3pH5pBxfItcIOTgtae26OYabcp
-	j9tQv/PZha392G8X9u92YAKi6PKkzATvhb/94b3f3z81MsvoOxO8qLdTRNOGMFw=
-X-Gm-Gg: ASbGncuZp07jpsGwwd9Dvu0gQBJa89TN9bsKsNbilK6r0pxIdWK+RHAe8mmFXzGCYro
-	ku6Kq/LvZm4wH44RMlYPmieWbYnK5xdb7Ej1//d0ioSc/fuSufLjIxETz5Sioa5jqu7Qj4hriJ/
-	xMhd0Ey8fuA/EHg0frB1opyb4O/QyhXt/nA9VauSlnBwL2GKa87pkPAAKOqpS+vylUHvzfZ5uah
-	h/GDjBKz5SYKRe8lPkKrzH38Uywfa88VvIr+is4IjOjVseYyhnUvCjddIzvDsL7kefK7EZeMFsS
-	OHAlphVtki/xR7iSeBLiwV/R5MQMcv1uuJnqpH287sy1bgwz5BqG+cPpjbhNSNpjFUY++Xp1Gzf
-	Au9XCSVjZ1Z1wt8fsbhwXWuPEAps=
-X-Google-Smtp-Source: AGHT+IHIxFKwjUo5uFV6Jyj3wWXPZsF8lPwam2ydOiylWhWcuYhWeTd4XU5X8ZDB51XZhRzJ2FSu4w==
-X-Received: by 2002:a17:907:7d8b:b0:ac7:9acf:4ef with SMTP id a640c23a62f3a-acabd4d7131mr6904366b.56.1744231066055;
-        Wed, 09 Apr 2025 13:37:46 -0700 (PDT)
-Received: from puffmais.c.googlers.com (40.162.204.35.bc.googleusercontent.com. [35.204.162.40])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acaa1ccc001sm145850366b.126.2025.04.09.13.37.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 13:37:45 -0700 (PDT)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Wed, 09 Apr 2025 21:37:53 +0100
-Subject: [PATCH v4 32/32] MAINTAINERS: add myself as reviewer for Samsung
- S2M MFD
+	Wed, 09 Apr 2025 20:45:47 +0000
+Date: Wed, 9 Apr 2025 13:45:12 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1744231523;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ENOcZPIItp2JvszVxj/GE2Qd8ZKfpfM4JflKxCvjNwk=;
+	b=xC8aSKQfjMqodNcjkUTLUjs/zqCFYnuOpjbh5P9WpT5NQV26kzbmBYXpCKWYi7kZGBKsxL
+	gZW41lEMVPwc0O3ZChQyXo3FcMfH90y50iz05hYThAcZmGJ8iVYi08BYw8+X5iWzs50Hx2
+	w3VkprowZiWZQ4RRthwlJQvvZgV2B04=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Maxim Levitsky <mlevitsk@redhat.com>
+Cc: kvm@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	kvm-riscv@lists.infradead.org,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	Waiman Long <longman@redhat.com>, x86@kernel.org,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Anup Patel <anup@brainfault.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Zenghui Yu <yuzenghui@huawei.com>,
+	Borislav Petkov <bp@alien8.de>, Alexandre Ghiti <alex@ghiti.fr>,
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Sebastian Ott <sebott@redhat.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sean Christopherson <seanjc@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v2 2/4] KVM: x86: move
+ sev_lock/unlock_vcpus_for_migration to kvm_main.c
+Message-ID: <Z_bcWBfhoUZfRzek@linux.dev>
+References: <20250409014136.2816971-1-mlevitsk@redhat.com>
+ <20250409014136.2816971-3-mlevitsk@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250409-s2mpg10-v4-32-d66d5f39b6bf@linaro.org>
-References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
-In-Reply-To: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250409014136.2816971-3-mlevitsk@redhat.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_133747_509684_0D421C83 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20250409_214545_247117_D9C8EA4A 
+X-CRM114-Status: GOOD (  25.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,29 +111,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I'm working on a Samsung device which includes this MFD and would like
-to be Cc'ed to further contributions and help on reviewing them. Add me
-as reviewer.
+On Tue, Apr 08, 2025 at 09:41:34PM -0400, Maxim Levitsky wrote:
+> Move sev_lock/unlock_vcpus_for_migration to kvm_main and call the
+> new functions the kvm_lock_all_vcpus/kvm_unlock_all_vcpus
+> and kvm_lock_all_vcpus_nested.
+> 
+> This code allows to lock all vCPUs without triggering lockdep warning
+> about reaching MAX_LOCK_DEPTH depth by coercing the lockdep into
+> thinking that we release all the locks other than vcpu'0 lock
+> immediately after we take them.
+> 
+> No functional change intended.
+> 
+> Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
+> Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+> ---
+>  arch/x86/kvm/svm/sev.c   | 65 +++---------------------------------
+>  include/linux/kvm_host.h |  6 ++++
+>  virt/kvm/kvm_main.c      | 71 ++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 81 insertions(+), 61 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+> index 0bc708ee2788..7adc54b1f741 100644
+> --- a/arch/x86/kvm/svm/sev.c
+> +++ b/arch/x86/kvm/svm/sev.c
+> @@ -1889,63 +1889,6 @@ enum sev_migration_role {
+>  	SEV_NR_MIGRATION_ROLES,
+>  };
+>  
+> -static int sev_lock_vcpus_for_migration(struct kvm *kvm,
+> -					enum sev_migration_role role)
+> -{
+> -	struct kvm_vcpu *vcpu;
+> -	unsigned long i, j;
+> -
+> -	kvm_for_each_vcpu(i, vcpu, kvm) {
+> -		if (mutex_lock_killable_nested(&vcpu->mutex, role))
+> -			goto out_unlock;
+> -
+> -#ifdef CONFIG_PROVE_LOCKING
+> -		if (!i)
+> -			/*
+> -			 * Reset the role to one that avoids colliding with
+> -			 * the role used for the first vcpu mutex.
+> -			 */
+> -			role = SEV_NR_MIGRATION_ROLES;
+> -		else
+> -			mutex_release(&vcpu->mutex.dep_map, _THIS_IP_);
+> -#endif
+> -	}
+> -
+> -	return 0;
+> -
+> -out_unlock:
+> -
+> -	kvm_for_each_vcpu(j, vcpu, kvm) {
+> -		if (i == j)
+> -			break;
+> -
+> -#ifdef CONFIG_PROVE_LOCKING
+> -		if (j)
+> -			mutex_acquire(&vcpu->mutex.dep_map, role, 0, _THIS_IP_);
+> -#endif
+> -
+> -		mutex_unlock(&vcpu->mutex);
+> -	}
+> -	return -EINTR;
+> -}
+> -
+> -static void sev_unlock_vcpus_for_migration(struct kvm *kvm)
+> -{
+> -	struct kvm_vcpu *vcpu;
+> -	unsigned long i;
+> -	bool first = true;
+> -
+> -	kvm_for_each_vcpu(i, vcpu, kvm) {
+> -		if (first)
+> -			first = false;
+> -		else
+> -			mutex_acquire(&vcpu->mutex.dep_map,
+> -				      SEV_NR_MIGRATION_ROLES, 0, _THIS_IP_);
+> -
+> -		mutex_unlock(&vcpu->mutex);
+> -	}
+> -}
+> -
+>  static void sev_migrate_from(struct kvm *dst_kvm, struct kvm *src_kvm)
+>  {
+>  	struct kvm_sev_info *dst = to_kvm_sev_info(dst_kvm);
+> @@ -2083,10 +2026,10 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
+>  		charged = true;
+>  	}
+>  
+> -	ret = sev_lock_vcpus_for_migration(kvm, SEV_MIGRATION_SOURCE);
+> +	ret = kvm_lock_all_vcpus_nested(kvm, false, SEV_MIGRATION_SOURCE);
+>  	if (ret)
+>  		goto out_dst_cgroup;
+> -	ret = sev_lock_vcpus_for_migration(source_kvm, SEV_MIGRATION_TARGET);
+> +	ret = kvm_lock_all_vcpus_nested(source_kvm, false, SEV_MIGRATION_TARGET);
+>  	if (ret)
+>  		goto out_dst_vcpu;
+>  
+> @@ -2100,9 +2043,9 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
+>  	ret = 0;
+>  
+>  out_source_vcpu:
+> -	sev_unlock_vcpus_for_migration(source_kvm);
+> +	kvm_unlock_all_vcpus(source_kvm);
+>  out_dst_vcpu:
+> -	sev_unlock_vcpus_for_migration(kvm);
+> +	kvm_unlock_all_vcpus(kvm);
+>  out_dst_cgroup:
+>  	/* Operates on the source on success, on the destination on failure.  */
+>  	if (charged)
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index 1dedc421b3e3..30cf28bf5c80 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -1015,6 +1015,12 @@ static inline struct kvm_vcpu *kvm_get_vcpu_by_id(struct kvm *kvm, int id)
+>  
+>  void kvm_destroy_vcpus(struct kvm *kvm);
+>  
+> +int kvm_lock_all_vcpus_nested(struct kvm *kvm, bool trylock, unsigned int role);
+> +void kvm_unlock_all_vcpus(struct kvm *kvm);
+> +
+> +#define kvm_lock_all_vcpus(kvm, trylock) \
+> +	kvm_lock_all_vcpus_nested(kvm, trylock, 0)
+> +
 
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+Can you instead add lock / trylock variants of this?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d4d577b54d798938b7a8ff0c2bdbd0b61f87650f..9f05af52b062d8cab0f8b48b2625432108604c3e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21397,6 +21397,7 @@ F:	drivers/platform/x86/samsung-laptop.c
- 
- SAMSUNG MULTIFUNCTION PMIC DEVICE DRIVERS
- M:	Krzysztof Kozlowski <krzk@kernel.org>
-+R:	André Draszik <andre.draszik@linaro.org>
- L:	linux-kernel@vger.kernel.org
- L:	linux-samsung-soc@vger.kernel.org
- S:	Maintained
+kvm_trylock_all_vcpus(kvm) seems a bit more obvious in the calling code.
 
--- 
-2.49.0.604.gff1f9ca942-goog
-
+Thanks,
+Oliver
 
