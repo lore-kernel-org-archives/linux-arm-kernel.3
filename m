@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A0FC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:58:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0EB8C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 17:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MsGU0SjXzJ8Ulc1X82M9BUGZ3S7li6bCgR5TheURalk=; b=f4Lznuutwo4yC33h9ARkaHoriB
-	BVxT79y72+/4ZFzknW+lWO9KzyPHdXeFxPk73cViOs4IiB8jdcdh4TJpsaczE0MgasKZHr5vtBn9u
-	mdbuqs7+bafI+LeFletn40K1fG0wU+cmUGj9ADfyBEy6DXRWG1cEamyG9Znw7w1dEWy1CWVxdvZTZ
-	zlutQeVTbBxgiBj31J0wYqIjvX9VgPD/Tc4VbU78EyaHRB3aZwcQtJDTBr6KdpAA56e2Ywu84NK8a
-	zc4NHL8Bh7D7i/4WOC60OHdIAqD3Ni7VeWIcrwTzuF6W89g5wR+i8ivXLQ5czZ/vMu3Plygqygy3P
-	aLdl0Adg==;
+	bh=q/PesWFiFWYwPkZ2EjD1UNDJj9JOpGyOHc1Nt710qb4=; b=OBMcRDxnaEbKWjgysYgcKN5hJo
+	YWsGUmFs6iJwmWmTXr3MQits3DltxkySiCNWSacsqGFixPG1BHiEqgvx/5c/eKrlN3rUz0+VR3SUw
+	sTyo2EekkhySo7G/PaVh9coLy5DhrI2rA3DBPP3a/0c526uv8TE7p7CP+E3rX8hoFh1PlooiUu6iL
+	AIpq7KiA5NfM8XNyAFBaB6bjAvMuEuYlevkuPP4Cl0nMuPhyUUZcpRJ5E3J9SQZXR1ZDpMMB9ORU1
+	1jTyuVV9GxRGtHtQ9MINBQPBGiTaRanIEGMCGYbGwQtEKBn6YYpTGATtcPw8VMGxgu28gIzXlbVg5
+	ZQLvUGxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Yku-00000007xrw-28Tp;
-	Wed, 09 Apr 2025 16:58:28 +0000
+	id 1u2Ymf-00000007yBw-0ztS;
+	Wed, 09 Apr 2025 17:00:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2YTm-00000007uxN-1b4f
+	id 1u2YTo-00000007uxh-0uks
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 16:40:47 +0000
+	Wed, 09 Apr 2025 16:40:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 603921C25;
-	Wed,  9 Apr 2025 09:40:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52F761C25;
+	Wed,  9 Apr 2025 09:40:48 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 979AB3F59E;
-	Wed,  9 Apr 2025 09:40:44 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A04FF3F59E;
+	Wed,  9 Apr 2025 09:40:46 -0700 (PDT)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: ardb@kernel.org,
@@ -41,17 +41,17 @@ Cc: ardb@kernel.org,
 	mark.rutland@arm.com,
 	maz@kernel.org,
 	will@kernel.org
-Subject: [PATCH v2 09/13] arm64/fpsimd: Fix merging of FPSIMD state during signal return
-Date: Wed,  9 Apr 2025 17:40:06 +0100
-Message-Id: <20250409164010.3480271-10-mark.rutland@arm.com>
+Subject: [PATCH v2 10/13] arm64/fpsimd: Add fpsimd_save_and_flush_current_state()
+Date: Wed,  9 Apr 2025 17:40:07 +0100
+Message-Id: <20250409164010.3480271-11-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20250409164010.3480271-1-mark.rutland@arm.com>
 References: <20250409164010.3480271-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_094046_556397_E2CCDA79 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20250409_094048_297966_A0EA096A 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,74 +66,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For backwards compatibility reasons, when a signal return occurs which
-restores SVE state, the effective lower 128 bits of each of the SVE
-vector registers are restored from the corresponding FPSIMD vector
-register in the FPSIMD signal frame, overriding the values in the SVE
-signal frame. This is intended to be the case regardless of streaming
-mode.
+When the current task's FPSIMD/SVE/SME state may be live on *any* CPU in
+the system, special care must be taken when manipulating that state, as
+this manipulation can race with preemption and/or asynchronous usage of
+FPSIMD/SVE/SME (e.g. kernel-mode NEON in softirq handlers).
 
-To make this happen, restore_sve_fpsimd_context() uses
-fpsimd_update_current_state() to merge the lower 128 bits from the
-FPSIMD signal frame into the SVE register state. Unfortunately,
-fpsimd_update_current_state() performs this merging dependent upon
-TIF_SVE, which is not always correct for streaming SVE register state:
+Even when manipulation is is protected with get_cpu_fpsimd_context() and
+get_cpu_fpsimd_context(), the logic necessary when the state is live on
+the current CPU can be wildly different from the logic necessary when
+the state is not live on the current CPU. A number of historical and
+extant issues result from failing to handle these cases consistetntly
+and/or correctly.
 
-* When restoring non-streaming SVE register state there is no observable
-  problem, as the signal return code configures TIF_SVE and the saved
-  fp_type to match before calling fpsimd_update_current_state(), which
-  observes either:
+To make it easier to get such manipulation correct, add a new
+fpsimd_save_and_flush_current_state() helper function, which ensures
+that the current task's state has been saved to memory and any stale
+state on any CPU has been "flushed" such that is not live on any CPU in
+the system. This will allow code to safely manipulate the saved state
+without risk of races.
 
-  - TIF_SVE set    AND  fp_type == FP_STATE_SVE
-  - TIF_SVE clear  AND  fp_type == FP_STATE_FPSIMD
+Subsequent patches will use the new function.
 
-* On systems which have SME but not SVE, TIF_SVE cannot be set. Thus the
-  merging will never happen for the streaming SVE register state.
-
-* On systems which have SVE and SME, TIF_SVE can be set and cleared
-  independently of PSTATE.SM. Thus the merging may or may not happen for
-  streaming SVE register state.
-
-  As TIF_SVE can be cleared non-deterministically during syscalls
-  (including at the start of sigreturn()), the merging may occur
-  non-deterministically from the perspective of userspace.
-
-This logic has been broken since its introduction in commit:
-
-  85ed24dad2904f7c ("arm64/sme: Implement streaming SVE signal handling")
-
-... at which point both fpsimd_signal_preserve_current_state() and
-fpsimd_update_current_state() only checked TIF SVE. When PSTATE.SM==1
-and TIF_SVE was clear, signal delivery would place stale FPSIMD state
-into the FPSIMD signal frame, and signal return would not merge this
-into the restored register state.
-
-Subsequently, signal delivery was fixed as part of commit:
-
-  61da7c8e2a602f66 ("arm64/signal: Don't assume that TIF_SVE means we saved SVE state")
-
-... but signal restore was not given a corresponding fix, and when
-TIF_SVE was clear, signal restore would still fail to merge the FPSIMD
-state into the restored SVE register state. The 'Fixes' tag did not
-indicate that this had been broken since its introduction.
-
-Fix this by merging the FPSIMD state dependent upon the saved fp_type,
-matching what we (currently) do during signal delivery.
-
-As described above, when backporting this commit, it will also be
-necessary to backport commit:
-
-  61da7c8e2a602f66 ("arm64/signal: Don't assume that TIF_SVE means we saved SVE state")
-
-... and prior to commit:
-
-  baa8515281b30861 ("arm64/fpsimd: Track the saved FPSIMD state type separately to TIF_SVE")
-
-... it will be necessary for fpsimd_signal_preserve_current_state() and
-fpsimd_update_current_state() to consider both TIF_SVE and
-thread_sm_enabled(&current->thread), in place of the saved fp_type.
-
-Fixes: 85ed24dad2904f7c ("arm64/sme: Implement streaming SVE signal handling")
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Marc Zyngier <maz@kernel.org>
@@ -141,22 +94,44 @@ Cc: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 Reviewed-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kernel/fpsimd.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/include/asm/fpsimd.h |  1 +
+ arch/arm64/kernel/fpsimd.c      | 11 +++++++++++
+ 2 files changed, 12 insertions(+)
 
+diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+index 9c3e88ec873ab..1a18f851b6144 100644
+--- a/arch/arm64/include/asm/fpsimd.h
++++ b/arch/arm64/include/asm/fpsimd.h
+@@ -96,6 +96,7 @@ struct cpu_fp_state {
+ extern void fpsimd_bind_state_to_cpu(struct cpu_fp_state *fp_state);
+ 
+ extern void fpsimd_flush_task_state(struct task_struct *target);
++extern void fpsimd_save_and_flush_current_state(void);
+ extern void fpsimd_save_and_flush_cpu_state(void);
+ 
+ static inline bool thread_sm_enabled(struct thread_struct *thread)
 diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 0b6fda5b7bad5..11f21809d3b7d 100644
+index 11f21809d3b7d..ea07c4577f17e 100644
 --- a/arch/arm64/kernel/fpsimd.c
 +++ b/arch/arm64/kernel/fpsimd.c
-@@ -1781,7 +1781,7 @@ void fpsimd_update_current_state(struct user_fpsimd_state const *state)
- 	get_cpu_fpsimd_context();
+@@ -1819,6 +1819,17 @@ void fpsimd_flush_task_state(struct task_struct *t)
+ 	barrier();
+ }
  
- 	current->thread.uw.fpsimd_state = *state;
--	if (test_thread_flag(TIF_SVE))
-+	if (current->thread.fp_type == FP_STATE_SVE)
- 		fpsimd_to_sve(current);
- 
- 	task_fpsimd_load();
++void fpsimd_save_and_flush_current_state(void)
++{
++	if (!system_supports_fpsimd())
++		return;
++
++	get_cpu_fpsimd_context();
++	fpsimd_save_user_state();
++	fpsimd_flush_task_state(current);
++	put_cpu_fpsimd_context();
++}
++
+ /*
+  * Save the FPSIMD state to memory and invalidate cpu view.
+  * This function must be called with preemption disabled.
 -- 
 2.30.2
 
