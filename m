@@ -4,159 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01501C369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 15:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93730C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 15:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XujLaNdrw93KFdiOiNGjP0lp30k5KJiYzBpoyIi4TO0=; b=h4CMuuyZS5XGwB14vLJxNenodQ
-	z/NHmaZwXOm2erVdxb4/T7xRFvX1ZKeLsQn4pGsMZrH/mYshKqngL/CJKhVAILy9I9cgLl+VBgC2e
-	D+QJ3WUwFyp36qffveQW1w6Zd5fIGvIIItnt8cb52baNw8QkjXJuxEZcPfXVmhnhZcX1EglRP85NN
-	fuyC4GeB/OiYcG+fasHLWNEuZtSErliEgT0b1DP3ny1gkG1fYJ44bw1DF9yYH6Q5MyoatLdMdcLOa
-	8QkItttPj2SExAnxHYfU7RYB8zEN0ischS/m9xtXDqFPFhdtnGrWaTvixezbZ9VZGBqoK5LFz1aCh
-	Av6vErBw==;
+	bh=Q2yzikvxBitch/WE/XzY4P6IVqHEQubOAm9BFK3IPX0=; b=EC9E2kkZWa2Dxt+70df+RDX908
+	7Wqatl7V9GmSYfj1EiP5wV/PWSsNjMsqUice3vN6AYe9q2kMd9WF7MS0Ph3G9qPkK3K7oa/9BEp7n
+	WAFkP1mvvwdnUUinYsJY9Apq5Ll7fNrPFIFH4gCTsXWmhox7u+bc4AcKCCTcG/dKRcvdB/LIc0bcn
+	fxbt3YbnngSWW2j1r42KKgKHb8Uzm7ajHxL3pFMi2DfQreeAbAYpTVPKgYVD7XIJTkdSVDCZd7LK8
+	3e34z7PIewKjqwyNzQ+JXuk+Ke5BxR1RxxDj3av+qP9pScOs6DPhJMGQ7uSf9E4c+4ZTO7mRvg98T
+	pSM22w0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2X4z-00000007cWv-2ly6;
-	Wed, 09 Apr 2025 15:11:05 +0000
-Received: from mail-am6eur05on20626.outbound.protection.outlook.com ([2a01:111:f403:2612::626] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1u2X6k-00000007d0N-1dwZ;
+	Wed, 09 Apr 2025 15:12:54 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Wmd-00000007YBt-143y
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 14:52:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ry/BHCfhA1C4jmhUFo2T4ocN4M/aS/SlMfRlB0ZWdBKnFj9FvrvppQBs2++B+Ck2/2f+ZMVuBQSjPDssWEwgMarMqRoIAhyk5bgkzwiNa4XO8s58vL6PX9cEfocneq4xcJ4H9zg9SZOp9YzCEDfoF3K1lM/Kx2mmTMrzVvYP5ICYWgP5XRhAgBQaQ2k/N38fqCFq0XfSsjIpzosDJ/HH+HObmrT8Zsom4GXUAQeLvpDe0zkw/WRhqAjP80AFwLaD7BAar5TAU4H+RFXfDSN/q5FKpUjN58LCIkQCxptoUA6bf95DE/sI6OH7Is77f62fHZ/7MhtxRJwNMBNfUQ2Hmw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XujLaNdrw93KFdiOiNGjP0lp30k5KJiYzBpoyIi4TO0=;
- b=TiCTuEqmVkUpxfI6dNn0nuN0cx8KGDk4H9FrW0VjGyRzl8RTuhpb6BLgI1jh95gghBlU/FwaURxE2Vq094kifVMigF0X3eSjTa+zgy8vMLId4Nl8cyC/vfYrNjtP4w6UGd3P2Qdgq+ANsbxQU8BanK6Q4v/dQgv1lEYeENEVJQhBpp2+IfMHcTSLbNZuI4T5Imz2eeqMol8fsNc7KCGeid9xs++K0JnRbg+KV1XECy7ri9mNcxUndgrs9AmbIOk9IOpdfH63YshJf7tblww9m1JyNZ/UWcBKt0kqcrzn8DgsrXvSbsAAODtK0D/kkQjGCJLJDCy9YELcP0BTiO/rJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XujLaNdrw93KFdiOiNGjP0lp30k5KJiYzBpoyIi4TO0=;
- b=ezMVi0SoxEVB/BFQCo9YvAWnpFgjmLYKuGi3N1P5Hoop9EAXjHFDx2+WCSy8Zq5GkX+fbZ/98CqBcj2xwmW2pmyKGNRw23PNpJfymHh3nzkPpyG11nxXK1m2dykqbCFUriGOFAsyYaSEboyt8Rgf0Kj2QrfnEjN7pUdU2ofkpkEZphXRyMAedPU44B+4V5vX0GD6Qc7gk2lO7YntPYCnpAOQr/PhgDS75yAwHZex7GC6NwHVcNBYHMj/SGP6qjgDI6owQfJIxyC6RPwTDXjYppHMwKulOxYS/BvqYzbVEqHDdZQyV9e3SJQsE8kpnn68mKKC72bgYRlrv8szHNmyvA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS8PR04MB7495.eurprd04.prod.outlook.com (2603:10a6:20b:295::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Wed, 9 Apr
- 2025 14:52:03 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%6]) with mapi id 15.20.8606.033; Wed, 9 Apr 2025
- 14:52:03 +0000
-Date: Thu, 10 Apr 2025 00:00:29 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/1] dt-bindings: firmware: imx95-scmi: Allow
- linux,code for protocol@81
-Message-ID: <20250409160029.GE27988@nxa18884-linux>
-References: <20241104085622.177781-1-alexander.stein@ew.tq-group.com>
- <2003940.PYKUYFuaPT@steina-w>
- <20250409121829.GA11949@nxa18884-linux>
- <20250409-heavenly-sceptical-ara-bceeb9@sudeepholla>
+	id 1u2WoZ-00000007Ydx-29V3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 09 Apr 2025 14:54:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Q2yzikvxBitch/WE/XzY4P6IVqHEQubOAm9BFK3IPX0=; b=YFdbsn17w2z4V+CT7FPgQEEsu/
+	VE4ar0H0DZxgvypexjbNzyq/5bQfSSW0N0gK1h2U7jkrRwR6JY56bxDoy4eAXbRmcivdeoEhW0RSK
+	8b3rjYHGq3lyFgGDS7aYAfmTZCaCmMqnJQ4sfAQUPd45QcjD0vtAnkzbckg70rPhZRrSy0JXcpN+j
+	Yk1StE1G6UtbOjmY/p0WhTcFN0QKaj0r2aLpWD8R1b//0op84G4VZftxaJmd12NipIgsiBRTyzT8F
+	Iyq2eKcvU/HQFjs5VLZvETglCp2NErW2hcYrpsxU95eYdpMAx2o6Ulvx2VmEIIQU1UX2IPf2qaRu3
+	XhF43ynw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2WoW-00000001cFx-0c2a;
+	Wed, 09 Apr 2025 14:54:04 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 50F253003FA; Wed,  9 Apr 2025 16:54:04 +0200 (CEST)
+Date: Wed, 9 Apr 2025 16:54:04 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: "Paul E. McKenney" <paulmck@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>,
+	linux-kernel <linux-kernel@vger.kernel.org>, frederic@kernel.org,
+	Steven Rostedt <rostedt@goodmis.org>
+Subject: Re: [GIT PULL] Generic entry for ARM
+Message-ID: <20250409145404.GH9833@noisy.programming.kicks-ass.net>
+References: <CACRpkdZCiiMTwf7eGJJ9aCKFOC3_xTGv1JKQUijjyp+_++cZ_A@mail.gmail.com>
+ <1277cefd-b080-42a5-bfe5-57296e7ccc3e@paulmck-laptop>
+ <CACRpkdaYQx8gBnkjW0zy=-FNS-P+TtjXoNBsBR2D4FTWo28R1Q@mail.gmail.com>
+ <4157fe23-8be8-4fd1-a69a-c59383b9516d@paulmck-laptop>
+ <xgj3in4cuy3k2phafttxb4cwz6rn6vuj5tvwjioqbrl4hxivkt@wkr5pi6zfrv7>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250409-heavenly-sceptical-ara-bceeb9@sudeepholla>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI2PR01CA0011.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::6) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB7495:EE_
-X-MS-Office365-Filtering-Correlation-Id: e66ac35f-8581-4ec9-dcd8-08dd777616e6
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XcsF9CZyFZ4m6wM68tO4IcK2/D6JbKcilYPf9tZbaYhYnVNeHe1OGNOSSHgv?=
- =?us-ascii?Q?mbcKPk+F8hVy05R7l/PxVqp+tiv3XkkclNA6duJq80YJxbJytxB+nXq8aa+l?=
- =?us-ascii?Q?H1+rzJPoI7trbrItQLX9gQ/+Bq4zhGePbU2JAEXPpoch3wtF0WgXRHu1mtab?=
- =?us-ascii?Q?aIrbm0cybt3pngzop1bkvxVkZWJ0HMGKbmBJ0tCVAgSN3C6LgI6CoaxciV48?=
- =?us-ascii?Q?X+BTqCDv4AZpIeia7eoOql6cNK0svt9W0Gl0KEZCWCWs/FoOueRIYk+cYUO3?=
- =?us-ascii?Q?ftkmfHbpsxYP+l17qpj0qGs4M5LlIDgtf2zYFxyOsYzKPxz/xUPxrbeTx2ci?=
- =?us-ascii?Q?GjEJF4CA0HFnALwS1hZ9EICzvkutIdyJYRcho0MCt/XQWkRR7HLFmszqrdrD?=
- =?us-ascii?Q?gdCuq9d7Hz1779hDkKDzDMLAKrIbe7qNXQ0FEZlNdipcfpYg7m3pupX/suwx?=
- =?us-ascii?Q?bw3gD/fJfNwhBIyBPmmXMc0FrFBortncdrjBIO7D1YviEHWKMuQ1OaZN6JaW?=
- =?us-ascii?Q?AUDJQshhExe600HD1RhR5cz6KVmt68QX4gif8ov631/Eo5Ri3z3g5AbLpgbs?=
- =?us-ascii?Q?9MJYhlE4an1Pk7UgD9g0yqpLnlXvhJ6QFmA6NhCS4xp/ZNKM3pdz6RSJu0Mf?=
- =?us-ascii?Q?DegGMqUQzzU3/4AYIx/YznVS+lKh6xbF63qZ5SN8sSyrASlNQngSue876izy?=
- =?us-ascii?Q?ZB+MIOJry5zlQ3fuc+2XbdK2p2KQvyH5cf3XC+twVA9lxT4aX6ik/IIRkBjV?=
- =?us-ascii?Q?TWY8t5GUN0U/XR7WEXd1c7r1Jh2WJrSmdtxCi6OcLLCjCD3LtEBZnJbj/GIu?=
- =?us-ascii?Q?/bZPDffk/ygYC66DNoQSuQSV4Ics2K1YqI+eGvOJqKoZpM1vjMxwsDMz+6tL?=
- =?us-ascii?Q?GZygAi2t7yV8n5nedHQsOFXGNa0KNZEbfQynmn21LxREK7WxywGDSgLIAqUs?=
- =?us-ascii?Q?MD9TW06D2xPs9DfXRzDgMO5yfFSLby/ohpNCcv/dAYLY4X7TS6d061XIhbiw?=
- =?us-ascii?Q?d9OhjwVtjlbq+h55F7eA722FMdkbID1yNgxFcLDSQNMPUFwtzI9OMHGgQiC/?=
- =?us-ascii?Q?reOER+TmEAGoexRkM6eaQLEhAuQHxqCet0PJg4U36RfaI+xp/9JD6bG31NZ8?=
- =?us-ascii?Q?SjvCfgrRMEWhamBhT7W8D7fKrglMkaJhzdXxc7UxXS74wSlqzdWHKaym/6d+?=
- =?us-ascii?Q?vn5kibM1GsbpRJZAPZRk6gUGUe2ELTEi/qaiJLHAbpAPF5awsY4oYhv9d1GY?=
- =?us-ascii?Q?7CmmOOs9qljQb7yYUGtiF0RCucnTHh82771DQeHZJOEj9O2FI9Kso5VpEhvY?=
- =?us-ascii?Q?dflf4CKzR3JXdCmUNrUbNG/FOvkRrJczEklQ9wcKg9D+J743d1KpFYsMC4M1?=
- =?us-ascii?Q?F7M16HHlC2+TSWZAfX1McT6Pk5kZp25x61LNWFyqHvaA2bUCfgn6JOyB6qHK?=
- =?us-ascii?Q?01bM+j0vHPdN8bctqyWhy5Yg+3YpEvhg2lHu2Yo10KPrE+ekXD+Y1Q=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eDPzDfq9w/JOvOR86CGmmY/091knrRtHCuF4sYUZ5S+xjV2JG7fDDv9nDtUi?=
- =?us-ascii?Q?bWYhgeJ4a01kIIFo8d4dtt4JZVDjw3Qbs+HUiNfRvmTIQFo1gKpBXRjkFAb1?=
- =?us-ascii?Q?C/JM716S4TyT2dQ8PlCK86P/D4jgijrqzIcqsK45UvLOSuGoS+lo3YK0uDop?=
- =?us-ascii?Q?uTB82TJqcOJpe8vb/W5EdAScvoPUJV4I8hbveaDc7mHa7OgQ/P6OJmG6JvcP?=
- =?us-ascii?Q?PhgDnG/2pcpaQJowySFgFaM0T05euuOrsj6pdjIJ0jfJhl6DA+/ZwZ0u0cQY?=
- =?us-ascii?Q?7/AUr3B4B5NRD1R2nJGpbZwYj+qVxM/FOfw5zJp0KuT7R8JUHzis30fhmQTU?=
- =?us-ascii?Q?gIseDEcrGRKjpYjyaIXLNeGuDBprcQdNlmJ+VCtXKWgHzO3i0U54OsnhbRQM?=
- =?us-ascii?Q?RZHI0vEmSd7pfIuLXXwiWSDqEx0uNi7c56hdlslDG+nD3m+KFI7YS/OihtyG?=
- =?us-ascii?Q?RmMFAjcBc0CCNGX5o2AIpe45EtF6eoHBMpuarVK8R6mSMcNwCP/v9nXRFAhT?=
- =?us-ascii?Q?abZ2xAJtBNZe7wJqz/kk9SeA7HkObNMx7dzGMpIpbvl2K6eY2IBxNfk3YMWc?=
- =?us-ascii?Q?g4Blv6rNTQa4JaAk4YH4LV+bgnJNoNyWoTQA0dvxCIgxXaNSOUCzu+B7+vGP?=
- =?us-ascii?Q?e62dW8xCFaIQULpAoBAV7E3kABqGFjJyawrsUeN65nMpnp9yTuL3KUhKIwFH?=
- =?us-ascii?Q?lI8qt/VnnbJk7eVGxEaM0vCyFITIcCL2uGgWfsFC82YLaz78fbKZvff5aS20?=
- =?us-ascii?Q?yBW2qlZNU4QyOVzzSwdPcyVvOwtLqzEvNm1jqXhAszaCKbbeSORwVSqX9NGT?=
- =?us-ascii?Q?Wdou9UOOwBYzGvp78OFLP0osAARW0k6uflrVLbYQstuD4mOfF05466RTGTrz?=
- =?us-ascii?Q?FXB0D5CYIuW3DGC+dDCvfJ5RAPj/T4BAIsymMmHVrPfqOU27wfONZQmMKLy6?=
- =?us-ascii?Q?+HTpKUCI+x77/2XVDJDE4JXyOn4lN282/84zYyGbgnyFsnzbR63edThzzXcG?=
- =?us-ascii?Q?MM+EhoajjrXh8+XfZS5lONxBCFdbCU3J1h0R8yQfTI6i8NXlORpeqU9+7qLt?=
- =?us-ascii?Q?xHAMcycWjsH5roGp63fQBpPc+ic4pG0Z0hg6hFfGj1Bf84ieASvLGE8TnW04?=
- =?us-ascii?Q?BDxeUE5ofR9z873wYQexXKbFtlXqW5QbE90WSH0yKE++anG7q26CKDmHzz30?=
- =?us-ascii?Q?WbpBrfx9F9UHLeY4XZUXNu+z1r7VUkMXy5tG+mrdUDeJcEe2SAoPoAtfXdIH?=
- =?us-ascii?Q?syYeUbzJ/8fTdpK7Ll+v4vcxoc7tyUr7+5MLeFdEqHqLEML4Aj+iqHp2KhkY?=
- =?us-ascii?Q?3iJx7hj+xrey+f/IE5oxaFbxDqITxL/eOBs04QDSEAIzxkVRBMd1vgUAXMKP?=
- =?us-ascii?Q?WydccU4UV9JS5V+gVypaUFennN++uxIYUQefLlFXTg6X6AKIVbmcZdQJJagC?=
- =?us-ascii?Q?t1y8+mGFydwLA6D4nrz617i3iS9tN0zRhp6g/P/VaFYjFS6b1pXIE0R4zuVI?=
- =?us-ascii?Q?Hc96uNquoCXvgAmHSIPZxOY1/jkkKAHxETI5GSLOpkF01NjRDyhXW9UoO5ZA?=
- =?us-ascii?Q?WkyVwVShlbfxBIitkGNqQZ+pgKoaxQcKEZrtrYWh?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e66ac35f-8581-4ec9-dcd8-08dd777616e6
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 14:52:03.2537
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FSKCi9HpH0nqHyH3wLMklRHV392ygVSjg0U3c+mk8yhTSsjaETHRoEJmSnPb19yoeUUNThcga9gjqOLXEyeevg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7495
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_075207_291289_82498469 
-X-CRM114-Status: GOOD (  14.62  )
+In-Reply-To: <xgj3in4cuy3k2phafttxb4cwz6rn6vuj5tvwjioqbrl4hxivkt@wkr5pi6zfrv7>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,45 +78,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+On Mon, Apr 07, 2025 at 04:47:05PM -0700, Josh Poimboeuf wrote:
+> I think Thomas, Peter and Steven are the experts here, but I'll give my
+> limited understanding.
+> 
+> On Mon, Apr 07, 2025 at 10:00:54AM -0700, Paul E. McKenney wrote:
+> > > cpu_init() is called from e.g.:
+> > > asmlinkage void secondary_start_kernel(struct task_struct *task)
+> > > OK should this also be noinstr? Or is that just implied because
+> > > of asmlinkage?
+> > >
+> > > <linux/compiler_types.h> will resolve to:
+> > > 
+> > > #if defined(CC_USING_HOTPATCH)
+> > > #define notrace                 __attribute__((hotpatch(0, 0)))
+> > > #elif defined(CC_USING_PATCHABLE_FUNCTION_ENTRY)
+> > > #define notrace                 __attribute__((patchable_function_entry(0, 0)))
+> > > #else
+> > > #define notrace                 __attribute__((__no_instrument_function__))
+> > > #endif
+> > > 
+> > > which I read as three different ways of saying "don't patch here".
+> > > 
+> > > Which is confusingly similar or identical to what noinstr does, I do see that
+> > > noinstr pushes the code to separate section but that in turn might
+> > > be what __attribute__((__no_instrument_function__)) and
+> > > friends does?
+> > > 
+> > > Are they equivalent?
+> 
+> noinstr is much broader than notrace.  No instrumentation of any kind
+> (ftrace, kprobes, sanitizers, profilers, etc), in the prologue or body
+> of the function or its callees, except for regions marked by
+> instrumentation_{begin,end}().
 
-On Wed, Apr 09, 2025 at 01:31:58PM +0100, Sudeep Holla wrote:
->On Wed, Apr 09, 2025 at 08:18:29PM +0800, Peng Fan wrote:
->> + SCMI maintainer, Sudeep and Cristian
->> 
->> On Wed, Apr 09, 2025 at 12:59:50PM +0200, Alexander Stein wrote:
->> >Hi,
->> >
->> >Am Montag, 4. November 2024, 09:56:21 CEST schrieb Alexander Stein:
->> >> BBM protocol supports a single power button, supported by driver
->> >> imx-sm-bbm-key.c. By default this is KEY_POWER, but can also be overwritten
->> >> using linux,code. Add a reference to this schema and add linux,code as a
->> >> supported property.
->> >> 
->> >> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
->> >
->> >Is there any other feedback or things to do here?
->> 
->> I see Rob already gave R-b.
->> 
->> Not sure this should go through Shawn's or Sudeep's tree.
->> 
->
->I am fine either way. Peng, just let me know if you want to pick this up.
+Note that noinstr code goes into its own section and various probing
+mechanisms (HW breakpoints, kprobes etc..) are explicitly excluded from
+touching code in this section.
 
-Not my patch :)
+> noinstr is needed in early/late entry code before/after RCU transitions,
+> as instrumentation code might depend on RCU.  Also, entry code tends to
+> be sensitive and unable to handle random instrumentation code.
 
-Since scmi driver changes go through your tree, the binding changes
-should follow same.
+Not strictly RCU, but including RCU. Some of the early entry code might
+not have a sane stack or anything much a 'C' environment relies on,
+could even not have normal page-tables set up.
 
-It would be good that if you could pick it up. 
+noinstr is very much an attempt to stretch the whole 'C-as-assember'
+ethos. Only emit the code I write, don't play silly buggers.
 
-Thanks,
-Peng
+Current noinstr usage is indeed interrupt/exception/syscall entry but
+also idle loops. Various idle routines disable RCU (which then
+prohibits tracing) but some go even further and dismantle much of what a
+normal C environment would expect.
 
->
->-- 
->Regards,
->Sudeep
->
+> I believe noinstr is not typically needed for boot code, at least for
+> the primary CPU.  RCU isn't present yet, and many instrumentations might
+> not yet be available.  Or their handlers can detect whether they've been
+> initialized yet.  Or they're disabled in .init sections.
+> 
+> Whether noinstr is needed for *secondary* boot code, I don't know.  It
+> may be dependent on the instrumentation implementations, e.g., whether
+> they're enabled globally or per-CPU.  At least on x86, start_secondary()
+> is notrace.  I don't know enough to say whether that's sufficient.
+
+There might be a case for noinstr there, but as of yet, nobody went and
+audited all that. Thus far, I've been the idiot doing all the auditing,
+but I think I'll pass on this one for now :-)
 
