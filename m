@@ -4,90 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 746CCC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 12:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD0AC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 12:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hW0uMB23s6rTN+79K6wuOhxoVdGvng8abYobjgd2dY0=; b=H6QS2jVxcMb4SADdNPwizCTh60
-	5AdIIJYEIk++vpbYeWK8Vaz1PtTsQ2HnRgCmyUvbdtU9BHSaH1w9M+wdjR5AGnW9cKt3W9LGCt237
-	Gujoe1cZgsUY62CjonhM6qqbm97vUsKu8jdaGJbjadUc7uJasEf8AKyWCODZ+RSx5cHn2XrH6osq2
-	dpEfAAZChAH0w49km+pOzkr8FLdgktoME8yTRyc1G0cCmeFTG/mEdEiK+d2hYQLEUB9X+SstTUnn+
-	+4BAp6diuoGWuEjFha6nJ+WfDRHkM+J2UZ+iqr9YcyEvk8qChkWIH4Hgu6bCvNTNJ8QUrqAVTWoBM
-	hK1m3bIQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MeWWBGTjlUvvFQ2dwgcDW5DN0xlT820wyIW0MjZrGlE=; b=zVMn7edb9JKLDa8dmpaWwMp1Bm
+	gM9YkOWlmxsMUMfBjLY3SximlJ8XAB6PIOnPq8LdobxZ8ynbtcc36rjD9EpBdd7hkmXi4zZ9c12dT
+	N+MJRm6nXm/wWZRnwgIm1pHYPpcA9YvV2T9iyYZM/MRj+XBuvrEU5Wh3hs09Qdaobi/TUqof6aZGo
+	TuNy4O4OiVGuMeBU71npNHZML2XQWEg3F/p3AHsFBXTR+whdl2W1e4y2O6aQnCgix7pnUbOO2mhbO
+	fevLbirhIXLPOT14YE7yZfCk/H3garS0qAxVp76msFFXcEoO7/79tT952YGopqJw/1VAirH/ij+XQ
+	hBMLJZ9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2UqJ-00000007C2d-2lte;
-	Wed, 09 Apr 2025 12:47:47 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1u2Us4-00000007CGx-1ODk;
+	Wed, 09 Apr 2025 12:49:36 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2UoX-00000007Bqe-1bY7
+	id 1u2Upg-00000007Bxf-3tSb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 12:45:58 +0000
-Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-2243803b776so94035905ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 05:45:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744202757; x=1744807557; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hW0uMB23s6rTN+79K6wuOhxoVdGvng8abYobjgd2dY0=;
-        b=dDrgxBSztybArz2l7yuny0YJl+6BHFe6wH/TFWMXGfucOKWJRImptFPvg4rwQ2ahGd
-         9IIT/ZwVvd157mioyw4DRlf5tv+M5kW1A3EEKj/M7b8aBKVqFuV2GuOoXaDKhCdmUZ6N
-         aEm+A+8Xro+bYuUUfWh00L3KS60ohSiVpZytKf+CFpoxFuUyt1QR78EtSq92tnm4jnnj
-         AObZrdV5dzVinEenEsxZ6qPEAcdlwpVpqochhVxO+6BHv30/Hc+PInc/mY5Z5DaNf+w6
-         d+QjtkNSICngo7zKrBvyWeE8+Ll/pBQdbq9QjrD//G5nlT9/BSNXOjbk7Ruv1TThrZ8y
-         fv6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744202757; x=1744807557;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hW0uMB23s6rTN+79K6wuOhxoVdGvng8abYobjgd2dY0=;
-        b=eQQsZ8rPcCt5c4E78x1JcBBdsdXNZL/6oh6VLbqgRS6TlkCnuLAGOlj+lU6jtf70SU
-         x1EXXjdVVo46g99DrCVn50H3z3EeweWGlrA/Bxf7LEDMKfMAILbhOqtHCvbsqrNtgEEi
-         d3ECSANBgk5qgcr5/ASu7X0A4PSMX84/Xb+cFQPyqIceYz6sa+eSVunfxkbFnMqmm2d5
-         W2BciFTBe9YlP5uCzwip1GEBloexYgwx8aFG3PiZFaK2ruKgOzQ2yct4c62DtqFZf/oy
-         VigMuSruHqc/GiaJRFRwD4OCSrrTQj5b4ao/rI5S9pFaj6kJHPtL3DIO6qgtMLo9YuDW
-         uRwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWYizUEcViU6t8w0ZRdWBzff9r7Yy31bUFtN8SwJkkvh8ic7W5vYRO6jumVuT6bi1UWjHu48wRVtkfNKW6mZAdy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLx9j2UAY66bOSrg2bxfswyP5GB8EysciuprGQXWKBc26ueHJH
-	S/1TJ0vSK8+l2PMLpzcsx2ADaJ/OXuoHiaYuwm+CKIvzkT21cYjW
-X-Gm-Gg: ASbGncsP0YFPqSCkq09kuuyMXhhxQx3YTFWbZ+9+QJUuDGPG1ZzeBUQXS9gkVJHgcGK
-	+FzGCUpVi9uuPHmWYPo9dFprIB2Okb3d1sjOPrbdC9uB9W1JPBJjroizSY1SQX2mserLOl2+ddA
-	W1MUqCd5hEmu7pzODYHOpH1277I83Ze0vwn8fmQrS4cPgI/zCywuY1A9Eqduos9Bw723VC6Yoyy
-	nIeuegKrAbKCI0LYTuLO8n2pa1hbGYhstSrzA7DdYkQ3Dv4fvLZOJ2QF5QZlhWjosq66+oEswC5
-	XGsGnTzCy16UVWKwwesDklukWU901gF8I2AazDDipyUT1PoLiJSLaE9Gk22ZVpPrNKQ=
-X-Google-Smtp-Source: AGHT+IGmBiCflS+dqQ9MaoOZ8ceeMEIKcTocd1UAk+LlHaQn3WAQwStGaWQzSH4vbgk2NAKmvL6ilg==
-X-Received: by 2002:a17:902:ecce:b0:220:d078:eb33 with SMTP id d9443c01a7336-22ac2a1df21mr41865715ad.36.1744202756563;
-        Wed, 09 Apr 2025 05:45:56 -0700 (PDT)
-Received: from henry.localdomain ([111.202.148.133])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7c971e4sm10531465ad.136.2025.04.09.05.45.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 05:45:56 -0700 (PDT)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: sven@svenpeter.dev,
-	j@jannau.net,
-	alyssa@rosenzweig.io,
-	neal@gompa.dev,
-	rafael@kernel.org,
-	viresh.kumar@linaro.org
-Cc: asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>
-Subject: [PATCH v2 2/2] cpufreq: scpi: Fix null-ptr-deref in scpi_cpufreq_get_rate()
-Date: Wed,  9 Apr 2025 20:45:42 +0800
-Message-Id: <20250409124542.47166-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 09 Apr 2025 12:47:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1744202790; x=1744807590; i=markus.elfring@web.de;
+	bh=MeWWBGTjlUvvFQ2dwgcDW5DN0xlT820wyIW0MjZrGlE=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=KOC8Czrkj4FVNXeoWnAAhjtN367USJpwt1kZYmG/65l3/Ew+NnabXSYJLN36/ZJB
+	 SZafwzsNrP02DPMfY23b5IZ5Y3XkwESHF3ONKvGvQzC23Z/zoQfBvldxf7NaeTNXJ
+	 UKgUwpcaen4U/liTzUZAi8lJP8/f5f+fPx4771cbdhF0F8UGxgnIhNVD2ikymPiVC
+	 bIHL58LaMAFAQUGArD9Plkygfa2JHjkh7ohjgjhxoKiASOMBZ2goAgFa3F4FnamFl
+	 U2/ymC8IQbGSb9cWRlIkLZIzm2hWqVJbm0wASgaxusPLZJ0GUYc1T6RVhT1eiov53
+	 B4dXTWCNSP35fhAS4w==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.27]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MW9ra-1tZFvQ36Mc-00Lc4g; Wed, 09
+ Apr 2025 14:46:30 +0200
+Message-ID: <e10ecbe1-d8c3-444d-92cb-647a1c54675f@web.de>
+Date: Wed, 9 Apr 2025 14:46:28 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: crypto: sun8i-ce-hash - Refine exception handling in
+ sun8i_ce_hash_run()
+To: Andre Przywara <andre.przywara@arm.com>,
+ Ovidiu Panait <ovidiu.panait.oss@gmail.com>, linux-sunxi@lists.linux.dev,
+ linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Chen-Yu Tsai <wens@csie.org>, Corentin Labbe <clabbe.montjoie@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, LKML <linux-kernel@vger.kernel.org>,
+ Julia Lawall <julia.lawall@inria.fr>
+References: <3727de04-7993-4b81-80c0-adb40b847307@web.de>
+ <20250409133610.59d42bec@donnerap.manchester.arm.com>
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250409133610.59d42bec@donnerap.manchester.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:fGRJhLFb/+v0O2mafP9QCc0EviHzvpX5ikoqmmYcIiWSJhKDnDY
+ fjojfNZCKBcliE5Cmge9pM4cqDNVFNDHzBofT//KsNmyshdeZPDLItuLsHCvUVWc5cZ3G1L
+ CaUjYAi2hu2A37x9JQTjlm9d1152fqk24dPLQFMnYSyV/f7pSncretj0sJdj5thPnr+uJue
+ EWh45MonlU0WyMkJT5X8g==
+UI-OutboundReport: notjunk:1;M01:P0:2PalMa3QEWk=;gLr3Yt97VScssGDAYWAG6YNzSG1
+ 8QkarCyeTXM9UGR3C4b8kQiGX7QN9CLLSJoZa31hEhIc/WpFat1dMp51bwZ8In4f7TEhJIk+6
+ lDqousHP2E5M6YP1chKxQa2vDyLIQeS2ZvmrwUVJtsE7OHpXDbLo9/lon6GCjQs0Fs8nokXWI
+ i1oYak0FYJanAx7gtDgrZfeqt4g04RqxuhS1Qb6C9aU85nbkFaKCLpxd70Wdph1xh916zkE0n
+ xLMvP23xXJcoP5AKie1j4N2sXkiwSNHCCmM2bS0s6BI8l9FIhdbznWAlr7CdmAMPxtLE+9NQX
+ UBH2lGVX38QXskZ8li5EmyzxLGIprh0JBxERToxZon66z6CTHxfYx1UFFkByD8UUkWzltxr5j
+ ZbQSj2uvptUIOfOLEIw2FJbsQjPgbFhqYx98AsCE4P3COjKDP+i98d39JzApMTt2a9XcFKEU5
+ zXMBM0TdSY/gTFPOZccfPEXOAMb5OsBAh6ICtGvLBOIlMDolk9PmuVIPAGZGjOLxlZ0+d2KZm
+ jeKbsvuxkvA737dOS5IF1GoEIqKZCuxoG+L4P12bWGyKtURmLZXiLB2pevRCmcmtq4I+vsq+J
+ q6RMzE4xXtYzyJoi86LJuLOgvvXPpHfaOnvV0HXsKondRNOv8VBk5QUMqywL5fkEygaNBZtK8
+ S2Y4JeiCE+aa+QWjrZ+eRtmLA0Q001UNULWBH30kLclzkSeOG9nQw4b9EMMW+0wGHKXVtwdN9
+ 1vK5bUFLcGFHvZqut+gNv4mZAF38Fki48GwLfbeFD8pHC+GRBHI4M3ej+raH9o4HGtjq5vU3v
+ eY4APlCk8OZgFOMSvW8WPO+7dX9OD9eRIJ0yyTZH/PsfKhaPI1oSMp2Ml37ETGxPtdTTaNpmk
+ OJyRh+Qo973VajckcNMeU/jEuOAKvgmh+nBleGJvogSIFZt+h41BBGPFtLub55ZpB4uKDkRjL
+ vCogFtoAs9PvwY+AqMVUbfNEjdUgKThgh4MQKaYk7z35a2gnrGGiyTJER8/KqoyQ7wjCvK8Ua
+ zVsKQYtkjUN49WD8IO47NY7/xD7h1zPzWTb+dhSVzvHuVCYbd0sBWRtpf/B7ZQ+izDfCwMUSU
+ +SfQKcGI5+FFt16oSHMPnvWFobp/QEZNouXfxn/F5kyIi/QCVddxVV5Abu1oNrD2n+VNCoR4E
+ YZTjxGnGVMsa6RpGB0CvhmBPMBAuApFTYf3EhaSHskeZ7Og8sWT1JTSojzpOonDtnMOh/pump
+ Iytgv/pKSQsqPsqWrpjZykzGl4w9kKJWaFqKQQOs4GgwwMtJ84h1lrbuBVoqO+8NP52rWwZRd
+ sDqBd6xEOoahcmZOpFe4xIH/yZDpnAaQnI6GeUzi/n5vmp+c7vav9qLE4sb3PRf9jWcpGURmo
+ J+sJr7TC6WBjAmuaf7oUJBuc8nDc+qbpawoC98NszBB1slMhhbiSDSGNGFNMc/Sa3/h7Ahz7y
+ 68vdnKhJgrhJcdk3B3lp1d99it1pmjb5+nCMuKIQYpsRB7D/IJ+XapwyMmcu9CGQG/Sc29whU
+ 4j2msyib3Ks2uSfAyBM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_054557_419961_CC3E1421 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250409_054709_254052_AE95E0F8 
+X-CRM114-Status: UNSURE (   5.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,43 +112,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cpufreq_cpu_get_raw() can return NULL when the target CPU is not present
-in the policy->cpus mask. scpi_cpufreq_get_rate() does not check for
-this case, which results in a NULL pointer dereference.
+>> Two if branches contained duplicate source code.
+>> Thus avoid the specification of repeated error code assignments by usin=
+g
+>> additional labels instead.
+=E2=80=A6
+> Now there is one rather opaque label it goes to, so a reader doesn't see
+> the error code immediately. And it really just saves one line per case
+> here. =E2=80=A6
+I imagine that such a code refinement can occasionally matter.
 
-Fixes: 343a8d17fa8d ("cpufreq: scpi: remove arm_big_little dependency")
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
-V1 -> V2: Use `if (unlikely(!policy))` instead of `if (!policy)`
-
- drivers/cpufreq/scpi-cpufreq.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/cpufreq/scpi-cpufreq.c b/drivers/cpufreq/scpi-cpufreq.c
-index 17cda84f00df..dcbb0ae7dd47 100644
---- a/drivers/cpufreq/scpi-cpufreq.c
-+++ b/drivers/cpufreq/scpi-cpufreq.c
-@@ -29,9 +29,16 @@ static struct scpi_ops *scpi_ops;
- 
- static unsigned int scpi_cpufreq_get_rate(unsigned int cpu)
- {
--	struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
--	struct scpi_data *priv = policy->driver_data;
--	unsigned long rate = clk_get_rate(priv->clk);
-+	struct cpufreq_policy *policy;
-+	struct scpi_data *priv;
-+	unsigned long rate;
-+
-+	policy = cpufreq_cpu_get_raw(cpu);
-+	if (unlikely(!policy))
-+		return 0;
-+
-+	priv = policy->driver_data;
-+	rate = clk_get_rate(priv->clk);
- 
- 	return rate / 1000;
- }
--- 
-2.34.1
-
+Regards,
+Markus
 
