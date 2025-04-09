@@ -4,79 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C59C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62E7C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Op4uME76G6UMaRr2ln07MEne4xFeGkJi8pLfnJFAkJQ=; b=VYK0+3ojHtvQdTO4eDt00zy3U/
-	P4kjWxjGT+lx7sabV6xiWQf7UYQGav1SRxHPZ+ULM+lppwiNAHCvIAJO1G4E0WVGZrMNNuCJ9+wzq
-	Nys8Zo8y2ma6BeUJsZzfa54U+7L4zwzYcHF9D24qnRwam89bpJ6p3eBl8U5IawfTi2bliHDxuBZO1
-	GJfPZ6CfX+3WmHPMiJmgmgzs0P4ilR3W1t+yGLD+VSiZZdJpoSxw+8YSdJVR1Yki/Ar1BiZvFA6yh
-	6bkmJtQ45I32dCIvSRLUKjFCHpA+3Kcc3BDR7DTD0qI2YswK+jQFXJENqc+BZuyYs7+r/yU9qLEOj
-	eibSgwtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=33jataLKOMrDl7oW0kqbiVVzQKavk3L6wvJAXox3arE=; b=T42EVCGKjQWZeHfg2ph19opAVs
+	DKNxOdKFO2VKLmZzi00M073oIxAAHvqJ9BwFIkkLXzxt43VxbSGjmkldgs4b9HCAca4xfp4DaA5ZE
+	jJ26gyIAPcRh0OIs/XY1Afeso7L7OEWXdy8SmFxFfAVVSg+3DFodDeImCzAKRaYPAAohmhGGKOo1P
+	BgG2by/XYQreeunoA5FZPMGMP+U7ABlaIgx1OWFb/73amrJlHWmJA+tr4inMw3UunkzLrLEoFgLH9
+	YW4vLeM0NWHZ5MSEJYo8te2sijaxElQxNxRP8g6Nax9I9tsl2or7nqC5G3s2pI5E9AzmIvbucI3sM
+	AwMhc8TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2YAv-00000007rpc-3rph;
-	Wed, 09 Apr 2025 16:21:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u2YCr-00000007sBv-05XG;
+	Wed, 09 Apr 2025 16:23:17 +0000
+Received: from flow-b8-smtp.messagingengine.com ([202.12.124.143])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Xyc-00000007pjG-1i7D
+	id 1u2Y2t-00000007qeK-3Zvi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 16:08:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0CEBF4A2C2
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  9 Apr 2025 16:08:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62109C4CEF0
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  9 Apr 2025 16:08:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744214913;
-	bh=UeISwS9y3lU/oQu7T7xyKZsM9KiV5qGEixeP6JETyEU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=n/jgB6Gsjv1i0qlLY1nBumLDo98W9dCINpuwbo/duD0w6nTdDewzI5cFEioHm2zoo
-	 RYlHiq9ouIS7iDlrc4vWOpdCA2A6M06RB0d1G6CtkTKk9u5Iy2jqBhnvtUyCZ7y91F
-	 8Z04d+/8kY5i8f2uQBGCcIdEV9HpRywc6MPeViv6oJ1IYFNVhMIEeZoeHa3U+R/vus
-	 ulkcI77SaSR6wf+IWdfF9P7NbKRX4eKFC9tSZ3V5yhh8hLsCfNy16eMfWfH6Q3CaRi
-	 AYo+jA9iCT+I4ChFdshLKonVCpj+a+YIOArQ6NyYS5Lhoa+NHpnwzqA+BrDLZOo8Nn
-	 WtO+/V90GuWzA==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-30db3f3c907so63101771fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 09:08:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVRJWws6iQNU20ypvtDzrMsZo2bCFCdD20TGyImF/tuJrrBizYdrTABPRl3tQYlEmu554ltM9FVAYLha1v+arRs@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVSH+ENMZ4fizq/CmHgLLU7ckGpeOEPM43gwhTnsuwQlCcN8kj
-	gKDJyUFQvg/uWS94lHutq4E0aEKzao5hxEhuYKghU4r38uD9NFEFlDyImgwWvpEqjBVkJJNokl4
-	3b7CWe8C07WUDL4nJ3ytYeC+H97U=
-X-Google-Smtp-Source: AGHT+IH1f90QFFxZc7443QxPxjRfbyPZM2F/wtr8cixknUNRSj+QhdIqvEVXWa56LSQzmNQ3nhi5t+kOxBzbECfTATo=
-X-Received: by 2002:a2e:bcc5:0:b0:30d:dad4:e06f with SMTP id
- 38308e7fff4ca-30f44f4b784mr11569621fa.2.1744214911615; Wed, 09 Apr 2025
- 09:08:31 -0700 (PDT)
+	Wed, 09 Apr 2025 16:13:01 +0000
+Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
+	by mailflow.stl.internal (Postfix) with ESMTP id BDFB91D40378;
+	Wed,  9 Apr 2025 12:12:57 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-12.internal (MEProxy); Wed, 09 Apr 2025 12:12:58 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1744215177;
+	 x=1744222377; bh=33jataLKOMrDl7oW0kqbiVVzQKavk3L6wvJAXox3arE=; b=
+	Sf9N7x9+592spj2w4NNDK8DtL3spi5xwI2nbpr/pMDEQ7Lenz94gJddRGkxKPJCd
+	dxmat3ZDeyFSH/Z7Dl6Jp9DfbjS8kEY9kJN1riq4740H7cNcxmnBTaplX+hyvRjE
+	DkA7ealGvq25awf+4agXajLLLcPGVDQvYHRQFbe8lAJGmAllko4J/11Kfnip48dT
+	xlx/Bk/ZiK3aPWlvPbxMoqZoln02HfAbvScwfwtzlTNLSFOWcJymaz9jX/ZyaVjG
+	0E6DiN7uJmFOLhCDjt6zSog9WoffVL8fGYYaCz/RMKuOrtz1YFKwGpDJ4Iozjh9J
+	szqvIOSXe0zIGR100jkiOg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1744215177; x=
+	1744222377; bh=33jataLKOMrDl7oW0kqbiVVzQKavk3L6wvJAXox3arE=; b=w
+	4jf9RrYg4MM5owPrOa4DT6jv3N1l91Yu4GO1QlERQ+SMDVQAyKmHGZiX+Db3faDE
+	IhNLd3+8fbLy7AspKB+5YG6/wIQY6Xmc6aMqFiw+zvJnZb6rNOOCBGdhyus+uFZn
+	P8A9+xez6PLjbt+ieWYeC2Cz9C0krrpgg17oF0SMkYjWkC/Mnr9VU1GscuUhfVYG
+	0kqBdl4/6vPwcdltUJzuNftlFIrsY8ttt6MUcOlz0oPDLCkOmB5SGotmrzrDzsvl
+	sYOXaUt89J21qTGkdHMkBzUDAW3Ke7+Pv2RA2759ZjHnucWUh3SjPX6oBGNIqYCI
+	uHeaYM6uTncr0j6e9WCRA==
+X-ME-Sender: <xms:h5z2Z8KHSoVXEffdwRcJgSRi8DSBQzY1RtX891upV9s3lgmUI8fwmw>
+    <xme:h5z2Z8I1gmGW-Ei2-vrmdTZioXTfQxxD2AoXWBL3t2PIMur3C7gcvmPQ5mTCqkkTl
+    09xfb8_7etFlMG9lBQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdeigeehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhepfefhheetffduvdfgieeghfejtedvkeetkeej
+    feekkeelffejteevvdeghffhiefhnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenuc
+    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnuges
+    rghrnhgusgdruggvpdhnsggprhgtphhtthhopedvfedpmhhouggvpehsmhhtphhouhhtpd
+    hrtghpthhtoheptghhrhhishdrphgrtghkhhgrmhesrghllhhivgguthgvlhgvshhishdr
+    tghordhniidprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpd
+    hrtghpthhtoheprhhmkhdokhgvrhhnvghlsegrrhhmlhhinhhugidrohhrghdruhhkpdhr
+    tghpthhtohepughirghnuggvrhhssegthhhrohhmihhumhdrohhrghdprhgtphhtthhope
+    hnihgtohhlrghssehfjhgrshhlvgdrvghupdhrtghpthhtohepghgvvghrthdorhgvnhgv
+    shgrshesghhlihguvghrrdgsvgdprhgtphhtthhopegvsghighhgvghrshesghhoohhglh
+    gvrdgtohhmpdhrtghpthhtoheplhhiuhihuhhnthgrohduvdeshhhurgifvghirdgtohhm
+    pdhrtghpthhtoheprhhurghnjhhinhhjihgvsehhuhgrfigvihdrtghomh
+X-ME-Proxy: <xmx:h5z2Z8uH9UIIzQnIliicFwHgsOXHjzdCs4Ex5QgLPr22gZQc2YCcYw>
+    <xmx:h5z2Z5afkpjYXabgkSsHiAciTMBD6ajkQSbDxosFYTcLBn6CkU3Qgg>
+    <xmx:h5z2ZzZ7WiCmp4sZvdoocklgHZiXZXbt_i2LvM6eWrCg8y2RcF5eRQ>
+    <xmx:h5z2Z1CW5_uxueBOV24t9UGGki1NZ76N5o6InHz9Kk6Y6SHvEjWyHw>
+    <xmx:iZz2Z3z_uLxm7F_ZG070Y08vLseOaj9es3758GkaThsd27sU5h0BuLLi>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id BBAC22220073; Wed,  9 Apr 2025 12:12:55 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+X-ThreadId: T1a2df1155f45051f
+Date: Wed, 09 Apr 2025 18:12:15 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ard Biesheuvel" <ardb@kernel.org>, "Kees Cook" <kees@kernel.org>
+Cc: "Chris Packham" <chris.packham@alliedtelesis.co.nz>,
+ "Doug Anderson" <dianders@chromium.org>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Masahiro Yamada" <masahiroy@kernel.org>,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Nicolas Schier" <nicolas@fjasle.eu>,
+ "Russell King" <rmk+kernel@armlinux.org.uk>,
+ "Linus Walleij" <linus.walleij@linaro.org>, "Andrew Davis" <afd@ti.com>,
+ "Seung-Woo Kim" <sw0312.kim@samsung.com>, "Xin Li" <xin3.li@intel.com>,
+ "Ruan Jinjie" <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ "Eric Biggers" <ebiggers@google.com>, "Yuntao Liu" <liuyuntao12@huawei.com>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ "Dave Vasilevsky" <dave@vasilevsky.ca>,
+ "Geert Uytterhoeven" <geert+renesas@glider.be>, linux-kernel@vger.kernel.org
+Message-Id: <b5a57fd6-ceae-45b7-b8eb-1ea85001dd45@app.fastmail.com>
+In-Reply-To: <CAMj1kXHks1_eC=cAmkPC45deMp3_VdxckjyRoWvMovdBekg2bQ@mail.gmail.com>
 References: <20250409160409.work.168-kees@kernel.org>
-In-Reply-To: <20250409160409.work.168-kees@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Wed, 9 Apr 2025 18:08:19 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHks1_eC=cAmkPC45deMp3_VdxckjyRoWvMovdBekg2bQ@mail.gmail.com>
-X-Gm-Features: ATxdqUGTZiuSmGYhSGBrMgZkO_TFJf73mCS8XUbFOLk-qWt97OZAcKf2VyJwGh8
-Message-ID: <CAMj1kXHks1_eC=cAmkPC45deMp3_VdxckjyRoWvMovdBekg2bQ@mail.gmail.com>
+ <CAMj1kXHks1_eC=cAmkPC45deMp3_VdxckjyRoWvMovdBekg2bQ@mail.gmail.com>
 Subject: Re: [PATCH] gcc-plugins: Remove ARM_SSP_PER_TASK plugin
-To: Kees Cook <kees@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Chris Packham <chris.packham@alliedtelesis.co.nz>, 
-	Douglas Anderson <dianders@chromium.org>, Russell King <linux@armlinux.org.uk>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nicolas@fjasle.eu>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
-	Linus Walleij <linus.walleij@linaro.org>, Andrew Davis <afd@ti.com>, 
-	Seung-Woo Kim <sw0312.kim@samsung.com>, Xin Li <xin3.li@intel.com>, 
-	Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	Eric Biggers <ebiggers@google.com>, Yuntao Liu <liuyuntao12@huawei.com>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Dave Vasilevsky <dave@vasilevsky.ca>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_090834_487880_0074D3BB 
-X-CRM114-Status: GOOD (  28.96  )
+X-CRM114-CacheID: sfid-20250409_091259_954625_0B82C5D8 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,217 +130,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Apr 2025 at 18:04, Kees Cook <kees@kernel.org> wrote:
+On Wed, Apr 9, 2025, at 18:08, Ard Biesheuvel wrote:
+> On Wed, 9 Apr 2025 at 18:04, Kees Cook <kees@kernel.org> wrote:
+>>
+>> As part of trying to remove GCC plugins from Linux, drop the
+>> ARM_SSP_PER_TASK plugin. The feature is available upstream since GCC
+>> 12, so anyone needing newer kernels with per-task ssp can update their
+>> compiler[1].
+>>
+>> Suggested-by: Arnd Bergmann <arnd@arndb.de>
+>> Link: https://lore.kernel.org/all/08393aa3-05a3-4e3f-8004-f374a3ec4b7e@app.fastmail.com/ [1]
+>> Signed-off-by: Kees Cook <kees@kernel.org>
 >
-> As part of trying to remove GCC plugins from Linux, drop the
-> ARM_SSP_PER_TASK plugin. The feature is available upstream since GCC
-> 12, so anyone needing newer kernels with per-task ssp can update their
-> compiler[1].
->
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> Link: https://lore.kernel.org/all/08393aa3-05a3-4e3f-8004-f374a3ec4b7e@app.fastmail.com/ [1]
-> Signed-off-by: Kees Cook <kees@kernel.org>
-> ---
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Chris Packham <chris.packham@alliedtelesis.co.nz>
-> Cc: Douglas Anderson <dianders@chromium.org>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Masahiro Yamada <masahiroy@kernel.org>
-> Cc: Nathan Chancellor <nathan@kernel.org>
-> Cc: Nicolas Schier <nicolas@fjasle.eu>
-> Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-> Cc: Linus Walleij <linus.walleij@linaro.org>
-> Cc: Andrew Davis <afd@ti.com>
-> Cc: Seung-Woo Kim <sw0312.kim@samsung.com>
-> Cc: Xin Li <xin3.li@intel.com>
-> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-hardening@vger.kernel.org
-> Cc: linux-kbuild@vger.kernel.org
-> ---
->  arch/arm/Kconfig                              |   3 +-
->  arch/arm/boot/compressed/Makefile             |   2 +-
->  scripts/Makefile.gcc-plugins                  |   6 -
->  scripts/gcc-plugins/Kconfig                   |   4 -
->  scripts/gcc-plugins/arm_ssp_per_task_plugin.c | 107 ------------------
->  5 files changed, 2 insertions(+), 120 deletions(-)
->  delete mode 100644 scripts/gcc-plugins/arm_ssp_per_task_plugin.c
->
+> Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Acked-by: Arnd Bergmann <arnd@arndb.de>
 
+I was going to send the same patch and double-checked it to
+make sure they are actually identical.
 
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index 835b5f100e92..6f037edf0f41 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -1379,8 +1379,7 @@ config CC_HAVE_STACKPROTECTOR_TLS
->  config STACKPROTECTOR_PER_TASK
->         bool "Use a unique stack canary value for each task"
->         depends on STACKPROTECTOR && CURRENT_POINTER_IN_TPIDRURO && !XIP_DEFLATED_DATA
-> -       depends on GCC_PLUGINS || CC_HAVE_STACKPROTECTOR_TLS
-> -       select GCC_PLUGIN_ARM_SSP_PER_TASK if !CC_HAVE_STACKPROTECTOR_TLS
-> +       depends on CC_HAVE_STACKPROTECTOR_TLS
->         default y
->         help
->           Due to the fact that GCC uses an ordinary symbol reference from
-> diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
-> index 945b5975fce2..d61369b1eabe 100644
-> --- a/arch/arm/boot/compressed/Makefile
-> +++ b/arch/arm/boot/compressed/Makefile
-> @@ -96,7 +96,7 @@ KBUILD_CFLAGS += -DDISABLE_BRANCH_PROFILING
->
->  ccflags-y := -fpic $(call cc-option,-mno-single-pic-base,) -fno-builtin \
->              -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
-> -            -I$(obj) $(DISABLE_ARM_SSP_PER_TASK_PLUGIN)
-> +            -I$(obj)
->  ccflags-remove-$(CONFIG_FUNCTION_TRACER) += -pg
->  asflags-y := -DZIMAGE
->
-> diff --git a/scripts/Makefile.gcc-plugins b/scripts/Makefile.gcc-plugins
-> index 6da109d563a5..194122d969a8 100644
-> --- a/scripts/Makefile.gcc-plugins
-> +++ b/scripts/Makefile.gcc-plugins
-> @@ -36,12 +36,6 @@ ifdef CONFIG_GCC_PLUGIN_STACKLEAK
->  endif
->  export DISABLE_STACKLEAK_PLUGIN
->
-> -gcc-plugin-$(CONFIG_GCC_PLUGIN_ARM_SSP_PER_TASK) += arm_ssp_per_task_plugin.so
-> -ifdef CONFIG_GCC_PLUGIN_ARM_SSP_PER_TASK
-> -    DISABLE_ARM_SSP_PER_TASK_PLUGIN += -fplugin-arg-arm_ssp_per_task_plugin-disable
-> -endif
-> -export DISABLE_ARM_SSP_PER_TASK_PLUGIN
-> -
->  # All the plugin CFLAGS are collected here in case a build target needs to
->  # filter them out of the KBUILD_CFLAGS.
->  GCC_PLUGINS_CFLAGS := $(strip $(addprefix -fplugin=$(objtree)/scripts/gcc-plugins/, $(gcc-plugin-y)) $(gcc-plugin-cflags-y))
-> diff --git a/scripts/gcc-plugins/Kconfig b/scripts/gcc-plugins/Kconfig
-> index ba868d1eef3d..6b34ba19358d 100644
-> --- a/scripts/gcc-plugins/Kconfig
-> +++ b/scripts/gcc-plugins/Kconfig
-> @@ -36,8 +36,4 @@ config GCC_PLUGIN_LATENT_ENTROPY
->            * https://grsecurity.net/
->            * https://pax.grsecurity.net/
->
-> -config GCC_PLUGIN_ARM_SSP_PER_TASK
-> -       bool
-> -       depends on GCC_PLUGINS && ARM
-> -
->  endif
-> diff --git a/scripts/gcc-plugins/arm_ssp_per_task_plugin.c b/scripts/gcc-plugins/arm_ssp_per_task_plugin.c
-> deleted file mode 100644
-> index 7328d037f975..000000000000
-> --- a/scripts/gcc-plugins/arm_ssp_per_task_plugin.c
-> +++ /dev/null
-> @@ -1,107 +0,0 @@
-> -// SPDX-License-Identifier: GPL-2.0
-> -
-> -#include "gcc-common.h"
-> -
-> -__visible int plugin_is_GPL_compatible;
-> -
-> -static unsigned int canary_offset;
-> -
-> -static unsigned int arm_pertask_ssp_rtl_execute(void)
-> -{
-> -       rtx_insn *insn;
-> -
-> -       for (insn = get_insns(); insn; insn = NEXT_INSN(insn)) {
-> -               const char *sym;
-> -               rtx body;
-> -               rtx current;
-> -
-> -               /*
-> -                * Find a SET insn involving a SYMBOL_REF to __stack_chk_guard
-> -                */
-> -               if (!INSN_P(insn))
-> -                       continue;
-> -               body = PATTERN(insn);
-> -               if (GET_CODE(body) != SET ||
-> -                   GET_CODE(SET_SRC(body)) != SYMBOL_REF)
-> -                       continue;
-> -               sym = XSTR(SET_SRC(body), 0);
-> -               if (strcmp(sym, "__stack_chk_guard"))
-> -                       continue;
-> -
-> -               /*
-> -                * Replace the source of the SET insn with an expression that
-> -                * produces the address of the current task's stack canary value
-> -                */
-> -               current = gen_reg_rtx(Pmode);
-> -
-> -               emit_insn_before(gen_load_tp_hard(current), insn);
-> -
-> -               SET_SRC(body) = gen_rtx_PLUS(Pmode, current,
-> -                                            GEN_INT(canary_offset));
-> -       }
-> -       return 0;
-> -}
-> -
-> -#define PASS_NAME arm_pertask_ssp_rtl
-> -
-> -#define NO_GATE
-> -#include "gcc-generate-rtl-pass.h"
-> -
-> -#if BUILDING_GCC_VERSION >= 9000
-> -static bool no(void)
-> -{
-> -       return false;
-> -}
-> -
-> -static void arm_pertask_ssp_start_unit(void *gcc_data, void *user_data)
-> -{
-> -       targetm.have_stack_protect_combined_set = no;
-> -       targetm.have_stack_protect_combined_test = no;
-> -}
-> -#endif
-> -
-> -__visible int plugin_init(struct plugin_name_args *plugin_info,
-> -                         struct plugin_gcc_version *version)
-> -{
-> -       const char * const plugin_name = plugin_info->base_name;
-> -       const int argc = plugin_info->argc;
-> -       const struct plugin_argument *argv = plugin_info->argv;
-> -       int i;
-> -
-> -       if (!plugin_default_version_check(version, &gcc_version)) {
-> -               error(G_("incompatible gcc/plugin versions"));
-> -               return 1;
-> -       }
-> -
-> -       for (i = 0; i < argc; ++i) {
-> -               if (!strcmp(argv[i].key, "disable"))
-> -                       return 0;
-> -
-> -               /* all remaining options require a value */
-> -               if (!argv[i].value) {
-> -                       error(G_("no value supplied for option '-fplugin-arg-%s-%s'"),
-> -                             plugin_name, argv[i].key);
-> -                       return 1;
-> -               }
-> -
-> -               if (!strcmp(argv[i].key, "offset")) {
-> -                       canary_offset = atoi(argv[i].value);
-> -                       continue;
-> -               }
-> -               error(G_("unknown option '-fplugin-arg-%s-%s'"),
-> -                     plugin_name, argv[i].key);
-> -               return 1;
-> -       }
-> -
-> -       PASS_INFO(arm_pertask_ssp_rtl, "expand", 1, PASS_POS_INSERT_AFTER);
-> -
-> -       register_callback(plugin_info->base_name, PLUGIN_PASS_MANAGER_SETUP,
-> -                         NULL, &arm_pertask_ssp_rtl_pass_info);
-> -
-> -#if BUILDING_GCC_VERSION >= 9000
-> -       register_callback(plugin_info->base_name, PLUGIN_START_UNIT,
-> -                         arm_pertask_ssp_start_unit, NULL);
-> -#endif
-> -
-> -       return 0;
-> -}
-> --
-> 2.34.1
->
+        Arnd
 
