@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98619C369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 11:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBE3C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 11:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8vqlpYKbN2ZGEQc2typSaRsAJ9F84vvJPakp1FJPjg=; b=Y9ymZWrzUPyqnnx46TWFlrJk7a
-	x9U3F1z+IvuDOsyzmJoaSVROXaiB92rESnqQ2NE/3zzgJSjcFHlzOauCXMbcDwHgZS9b8VV6oNJu9
-	tcEWUI35fwXt5kXlnbbSPdY6cb0tHIbhpbl67kOsZbtTDDW4+asly8YBeAjDexZRs6mnzyUeh7pga
-	0eTWLjN0nEklFQ2DuXhcOQ4TO/uR0xaixbnnvqZ8EutVHSV0VMbtgGPWru/2A5yd6DlFq1mGXKp40
-	cil/akVxfZFaJHZAoyutqfrNgxIocbCNx3palPQ3koLv+AAw5EIdP/TurqgLZqtxfNqC5PpK1xtQl
-	V73Iyxgg==;
+	bh=wn9sfkYCA+8MMuqi9mezFTLeTidX43wgbJn8YfW6qA4=; b=Sxb/kCil+pRuOkPF1s9GvBAdCv
+	+1/wYbC6aZnloOByn5K/McJR9KWaW7tQYBLDj3cSCwOjQmrMJ2hOgE2HH2FkLhdcW3r1n6rZKwrMR
+	eR98brfueY/de0Jplq3QJRBYKmeKhV1cuNcQZOSMDa5J11SaCTzvp0fFt1r1s6/XOqOwPGn0S3tLV
+	WEg0PTntRYzrt55FQ7dsTJ8jXgRtWON2Ru0/3zJsJEqQAoUyZjjepO7irF+sD5jgvOObKktTnoacy
+	trB5UlHrckEcpLWGmdqMaTHA8m1Esd8OUnU7Dlmy27kYKbsm00y08p4C3wXZ/qD/HTm+QMQQ6L1NX
+	BrHj/5aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2TNm-00000006xlp-2FkB;
-	Wed, 09 Apr 2025 11:14:14 +0000
+	id 1u2TRH-00000006yQu-2SUv;
+	Wed, 09 Apr 2025 11:17:51 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2TM0-00000006xHo-1RTw
+	id 1u2TNi-00000006xkW-3uGx
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Apr 2025 11:12:24 +0000
+	Wed, 09 Apr 2025 11:14:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=C8vqlpYKbN2ZGEQc2typSaRsAJ9F84vvJPakp1FJPjg=; b=QNgh6JBkNZ9HdKaDCSw3VykukQ
-	6oVeGf2cN/DBGiSNsBjTJ/ZSu6KD7fhaVyz53Yz6Aph7A6mdmulyZkLVqYKKlhBXQFVPvIzyGcSDP
-	RG0uJ5Yv3lvltpzPVoS5VaXJAuvHMZ1lw3gvStaF1r3bPjnrW3kggBA4I1FWTFotxk85oNCQkKetg
-	FQjk4uARjIMh+1/kE9YvNvr5Mh3CoWoHpKppEH5lh13B1qDeuvBUizgQEmIzJWJ1XaqVjKvpM53qv
-	ks6gsr/QTgpiucj6WfGkcvqslv3vs6WI8xAzrIPgYoniZVLqvHhQgsbqx4CKkaERPbMF6Q4DD0Eac
-	6knzJbOg==;
+	bh=wn9sfkYCA+8MMuqi9mezFTLeTidX43wgbJn8YfW6qA4=; b=fETCgVcSH/yuoYbENH9ve81uGu
+	6FPFaiixa20sPe9Sqm3Ums/lmoG3VTbcTc6Pa33OGCikDAytHSsMlKkYxwf/9wBGnsDLS9TFuXCkV
+	Bi6YOllbOXpIJqwwmbV3IqZtBeHSjBTdDN/9JLA05NWbhvkjQOP0cqcvf3qGy35pDwfU87GV6y70R
+	ujZAbWKhWcnSOCadnvNcMbFzElvaB4VSAvT0eshoGrzsGtZlvS+Ij8h4OOKtafn1nsFpfBhjZEQXb
+	2TEr3mZzAtBG36IV9ntlRRnhKD5ETbrZIB2i5X1N5XWGkiL9ASkKffPl4GFFIx6MHGYq7jPpKfrM8
+	FrxFOS+g==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2TLw-00000008bNT-49ad
+	id 1u2TNf-00000008bPl-1VZp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 11:12:23 +0000
+	Wed, 09 Apr 2025 11:14:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B186B1595;
-	Wed,  9 Apr 2025 04:12:18 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01B081595;
+	Wed,  9 Apr 2025 04:14:07 -0700 (PDT)
 Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C69193F694;
-	Wed,  9 Apr 2025 04:12:16 -0700 (PDT)
-Date: Wed, 9 Apr 2025 12:12:13 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 947573F694;
+	Wed,  9 Apr 2025 04:14:03 -0700 (PDT)
+Date: Wed, 9 Apr 2025 12:14:00 +0100
 From: Sudeep Holla <sudeep.holla@arm.com>
-To: "Matthew Bystrin" <dev.mbstr@gmail.com>
-Cc: "Cristian Marussi" <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, <arm-scmi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	"Philipp Zabel" <p.zabel@pengutronix.de>,
-	"Peng Fan" <peng.fan@nxp.com>
-Subject: Re: [PATCH] firmware: arm_scmi: add timeout in
- do_xfer_with_response()
-Message-ID: <20250409-fierce-astonishing-bug-dd2adb@sudeepholla>
-References: <20250402104254.149998-1-dev.mbstr@gmail.com>
- <20250402-hidden-unyielding-carp-7ee32d@sudeepholla>
- <Z-1gY8mQLznSg5Na@pluto>
- <D8X9JJGPGDNL.1OTKIJODRFKNN@gmail.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Aisheng Dong <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Message-ID: <20250409-incredible-attentive-scorpion-fa9def@sudeepholla>
+References: <DB9PR04MB84614FBF96E7BC0D125D97F688D62@DB9PR04MB8461.eurprd04.prod.outlook.com>
+ <Z87UJdhiTWhssnbl@bogus>
+ <Z87sGF_jHKau_FMe@bogus>
+ <PAXPR04MB8459EA5C7898393E51C246AD88D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <PAXPR04MB8459A73179FFF0ED0C9A51E488D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z9AdICiyaCmzKh-N@bogus>
+ <Z9FnZzBQuZ1j5k3I@bogus>
+ <Z9Fv9JPdF5OWUHfk@bogus>
+ <20250313052309.GA11131@nxa18884-linux>
+ <20250409035029.GC27988@nxa18884-linux>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <D8X9JJGPGDNL.1OTKIJODRFKNN@gmail.com>
+In-Reply-To: <20250409035029.GC27988@nxa18884-linux>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_121221_473971_94770676 
-X-CRM114-Status: GOOD (  33.95  )
+X-CRM114-CacheID: sfid-20250409_121407_939288_9C9F398C 
+X-CRM114-Status: GOOD (  24.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,99 +101,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 10:50:17PM +0300, Matthew Bystrin wrote:
-> Hi Sudeep, Cristian,
+On Wed, Apr 09, 2025 at 11:50:29AM +0800, Peng Fan wrote:
+> Hi Sudeep, Cristian
 > 
-> Thanks for having a look on the patch.
-> 
-> Cristian Marussi, Apr 02, 2025 at 19:05:
-> > > Please post this patch along with the vendor specific protocols mentioned
-> > > above and with the reasoning as why 2s is not sufficient.
+> On Thu, Mar 13, 2025 at 01:23:27PM +0800, Peng Fan wrote:
+> >On Wed, Mar 12, 2025 at 11:28:52AM +0000, Sudeep Holla wrote:
+> >>On Wed, Mar 12, 2025 at 10:52:23AM +0000, Sudeep Holla wrote:
+> >>> On Tue, Mar 11, 2025 at 11:23:12AM +0000, Sudeep Holla wrote:
+> >>> > On Tue, Mar 11, 2025 at 11:12:45AM +0000, Peng Fan wrote:
+> >>> > >
+> >>> > > So it is clear that wrong fw_devlink is created, it is because scmi cpufreq device is
+> >>> > > created earlier and when device_add, the below logic makes the fwnode pointer points
+> >>> > > to scmi cpufreq device.
+> >>> > >         if (dev->fwnode && !dev->fwnode->dev) {
+> >>> > >                 dev->fwnode->dev = dev;
+> >>> > >                 fw_devlink_link_device(dev);
+> >>> > >         }
+> >>> > >
+> >>> >
+> >>> > Thanks, looks like simple way to reproduce the issue. I will give it a try.
+> >>> >
+> >>> 
+> >>> I could reproduce but none of my solution solved the problem completely
+> >>> or properly. And I don't like the DT proposal you came up with. I am
+> >>> not inclined to just drop this fwnode setting in the scmi devices and
+> >>> just use of_node.
+> >>>
+> >>
+> >>Sorry for the typo that changes the meaning: s/not/now
+> >>
+> >>I meant "I am now inclined ..", until we figure out a way to make this
+> >>work with devlinks properly.
 > >
-> > Ack on this, it would be good to understand why a huge 2 secs is not
-> > enough...and also...
-> 
-> I've been working on firmware update using SCMI vendor/platform-specific
-> extension on FPGA prototype, so not posted it initially. I'm open to share the
-> details if needed, but need some extra time for preparations. For now I'm
-> posting a brief description of the extension. It has 2 commands:
-> 
-> - Obtain firmware version number.
-> - Update firmware. Firmware image is placed into shared physically contiguous
->   memory, Agent sends to platform micro controller (PuC) physical address and
->   size of the update image to start update procedure. After update is completed
->   (successfully or not) PuC sends delayed response.
-> 
-> 	Agent ----     start update         ---> Platform uC
-> 	Agent <--- update procedure started ---- Platform uC
-> 	...
-> 	Agent <--- (async) update completed ---- Platform uC
-> 
-> I've faced timeout problem with the async completion response. And update can't
-> be done faster than 10s due to SPI flash write speed limit.
-> 
-
-Understood.
-
-> Why not to use notifications?
-> 
-> First of all, semantics. IIUC notifications can be sent by PuC in any time. This
-> is not suitable for updates, because procedure is initiated by an agent, not by
-> a platform.
-> 
-
-The start update should retain as soon as Platform uC acks the request.
-And 2 notifications can be sent out for update procedure started and
-completed. I don't see any issue there. What is the semantics you are
-talking about ?
-
-> Secondly, code implementing  notification waiting duplicates delayed response
-> code. I had implemented it as a proof-of-concept before I prepared this patch.
-> 
-
-Even delayed response as some timeout so I would rather prefer to use
-notifications in your usecase as it is completely async.
-
-> > > Also instead of churning up existing users/usage, we can explore to had
-> > > one with this timeout as alternative if you present and convince the
-> > > validity of your use-case and the associated timing requirement.
-> > > 
+> >when you have time, please give a look at
+> >https://github.com/MrVan/linux/commit/b500c29cb7f6f32a38b1ed462e333db5a3e301e4
 > >
-> > ...with the proposed patch (and any kind of alternative API proposed
-> > by Sudeep) the delayed response timeout becomes a parameter of the method
-> > do_xfer_with_response() and so, as a consequence, this timoeut becomes
-> > effectively configurable per-transaction, while usually a timeout is
-> > commonly configurable per-channel,
-> 
-> Totally agree, usually it is. And that's why I didn't change do_xfer() call.
-> Here is the thing I want to pay attention to.
-> 
-> Let's focus on delayed responses. I think delayed response timeout should not be
-> defined by transport but rather should be defined by _function_ PuC providing.
-> And of course platform and transport could influence on the timeout value.
-> 
-
-I think in your case, it is not even transport specific. It is more operation
-specific and hence I prefer notifications.
-
-> > so valid as a whole for any protocol
-> > on that channel across the whole platform, AND optionally describable as
-> > different from the default standard value via DT props (like max-rx-timeout).
+> >The upper patch was to follow Cristian's and Dan's suggestion in V2[1] to use
+> >a flag SCMI_DEVICE_NO_FWNODE for scmi device.
 > >
-> > Is this what we want ? (a per-transaction configurable timeout ?)
+> >I could post out the upper patch as V3 if it basically looks no design flaw.
+> >I will drop the pinctrl patch in v3, considering we are first going
+> >to resolve the fw_devlink issue for cpufreq/devfreq.
 > >
-> > If not, it could be an option to make instead this a per-channel optional
-> > new DT described property so that you can configure globally a different
-> > delayed timeout.
+> >[1] https://lore.kernel.org/all/Z6SgFGb4Z88v783c@pluto/
 > 
-> Taking into account my previous comment, I don't think that having a per-channel
-> timeout for delayed response would solve the problem in the right way. What
-> about having a per-protocol timeout at least?
+> Not sure you gave a look on this or not. I am thinking to bring this V3
+> out to mailing list later this week. Please raise if you have any concern.
 > 
 
-Yes neither per-transport nor per-protocol timeout will suffice in your case.
-This 10s timeout is specific to the update operation and hence use
-notification. All other solution is just workarounds not generic solution.
+Yes I had some thoughts. I will take a look and refresh my memories first.
 
 -- 
 Regards,
