@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50502C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 21:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F61C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 21:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJnt4X6YdY/BFyT2FERwCeV5jxdImTZ9iH94rwv0lzU=; b=js1svGaf9r9hlawhv2ziX1J3DN
-	ZBn210hkAzOxZT/AHDW9PdVQHuGeJy+FQvJXpamt/Y5ZCSIIGWADcHC3PpA37E1pGinb1tGYgS+Xx
-	Sd6e5d9lHahWH1HqNLO5wKtyWKhQIqdcNausl6GKFjkOQe6xHVREkI62dUwqftA/RXrzJqtv+Pbj5
-	cdXLC1RSFXbg7B8kydakh6tpsK+5BvFBS39dI1zZSFRFDgKKKCYZmkQSOMMTR/NZJsnfkjAeAvo2a
-	X+QEOxxM0JZQhGa94hzM9FDziEt0+cse3vWp1aqTDhL3+E6pCh2Yt0RKtBNejJJaARMuQl3ESzNRy
-	8C2szdhQ==;
+	bh=Yvl4l0Ok5PkRG0EWi21Y82ldA8DtM3z/BsTax0kidDk=; b=a4VQ7Otps4bZYqqoobqgfdLV7I
+	gVG24I4MYU5ajveSVnbIEq08jayJw/VU3L2MhsZxwit//jOH+V2zp/T569X84VKVnX4tKGTuPw/0f
+	poqh25TOAZ/fW7wJzRYu68aBmBSzzWkB+Ql2SQKyX+mV83X0xKWIi2wgsVdppFvAP9umE4ef5RJqD
+	Jf8MGnJv9vKitTGKnzs+sEQjTZdfxdKA/q98kaUlzK8OFyT513fANY7p4nR9cQKzQd9kQSOk7+Wzi
+	6SuEfsUsJhzQxBWjAmEYeTjvMUHx81+P3rOVtcup6IpMqyyvOwTzn03EVoG52jsh/OAcwPiGtzJ7c
+	C4ImQ2qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2cto-00000008ZfC-1ZuI;
-	Wed, 09 Apr 2025 21:23:56 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1u2cvY-00000008Zv2-0HHJ;
+	Wed, 09 Apr 2025 21:25:44 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2cB5-00000008Sgy-14Aj
+	id 1u2cB6-00000008ShW-0JUg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 20:37:44 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aaf0f1adef8so16968366b.3
+	Wed, 09 Apr 2025 20:37:45 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e5e8274a74so178516a12.1
         for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 13:37:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google; t=1744231062; x=1744835862; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=PJnt4X6YdY/BFyT2FERwCeV5jxdImTZ9iH94rwv0lzU=;
-        b=XlcMJ0sNCmQKW1Gy6BaQflZdxLDECyxs6Qgl1Q46imCnN4TIRADy21xkBmRG/j/jFZ
-         /AMJCJqtYoDgkY58f9kt3eJvdO4iX6FQ5eRxyRptV5tRe9LCzlfp6UD8aHCnRiecjaNq
-         nOFjIHT/qgOq2IRJUjIR7hY45e63MpauUbJ5NugfeB/Lmrpr3jI3CdmVCJqE6ZGXcwRl
-         l31DIO1s3JjKGkWcQD7uJsixbxjgkrbdmPPe0P/FIJu24DF60+2YlrIwU2jSQZCZucu4
-         Six8OFSdDHegpDQZLjf8diaxW4A55PrvChvrdI6RCk6FdNLa0wbprXGu1NdhpbvmsQvj
-         7Q/Q==
+        bh=Yvl4l0Ok5PkRG0EWi21Y82ldA8DtM3z/BsTax0kidDk=;
+        b=J0CMYV0hc0yw/R0j1IxiGbKXoZjV4zf38lArHrFVB6bDFuQ+V8lP9iQRmq1g7RgR4/
+         I7G/m4h5l7azJsZ1e/u8UVjupG1buyC7P1GPM5zNti7bG0viL2r2YYyXKzYo81wahSWh
+         qHP+dMg09T188Xdpl9/NkeWMcJyqwSW3LjjK6BI7QaHdtRkI91Jut3uE6hRp5EMUgUiq
+         cuwN2vQz0onDb30b0TyNz1S6PgTg46u2wYEDmLMQv2gTXI2yb/s9aBwDo8FxT8zA4yPb
+         xyTHgIrvLqvNY5z0Bp8RjQzehBQQk54Oc6fUKl29QjhQIqc120uBAj/XeZSRmXuzg5xX
+         9i2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1744231062; x=1744835862;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=PJnt4X6YdY/BFyT2FERwCeV5jxdImTZ9iH94rwv0lzU=;
-        b=L5MJoDofFJbsPkP1IQV5WaL3KK8ehLm+tcT6kJk8VGoy6XxYCAbiC7WS2ToH5ywIHS
-         p+64+JC3fZOnhtD6Al3CV5zh7/92w9mWYmoWLG7BH1smy78WwIDgn3xyLBP0KZItkNYQ
-         kWByhafVQJRzaw+bGvO/iUE7rJz8VygS1U2qn399zRDSXrwklKjaBHAT3l9sa+XQMaZZ
-         wry06aLonZHw8z2CtOOqBPhgRU83Ui0t8tzUCMleZ7sKFaLv872Wz/A7GH/BvdVeIGlQ
-         nziVCJpqieS5XvXbq1/emI1g+OEbPvp28XZo+fcsEnhyuMz9hHYmaSwSqk6XZucCQX6A
-         wZPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUPd5dQ2g7srSUz7mD39vGGLFKT4v8ZgolMnomU3BaSrGfa7FqUWgrIJdHm2fmqB9bCW4NJoCci0pHANE/ggeZ+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDQiRd1vhQw5Zqje0fD7ePH+eHSlRlPNv7/1DjWxMkHq58FxRA
-	5zuEgic4jS+FWenFm/eul+t/lmTe92W6TNhA47Wqou8n2DNek3kXk/zRgMTBNFQ=
-X-Gm-Gg: ASbGncuCR4KE1SJ6Vo7YVz6q6PzgfmELSL731W1W7cPbhaLGTAcb2l8wX+Guyl5Gcs4
-	18ysaLqre0KwJ1ARJ7XkqlNajBNJE7Ti8K1MgPeJmb1YlbF+3OvpESlPE0o/dwREAJGvgJXuoBQ
-	6/TgcoU+JSUAIuOBNMctFgXCUOWycaiN/R8csCZQ+MD8N69btxHPRgx4krYAwVmXy8kIg3t9fpk
-	LxkAKhRJzGXM8hbFCJer+VADgQH1zIpBH9Zs1FBbS+3IqeiCs95sMY0KineI0PtuF8TuzXAfXak
-	zv1cFC5HBqkNuR7TkDf5O74SPX5tboEuS1GhBuBPiN1IS3vR2bmPFjlJx/paoYdaBLKMoI5/uFk
-	vbo0mDB/4VZKAnQVp1BpGVc6zWXI=
-X-Google-Smtp-Source: AGHT+IGcGvyBEozGeWIYo1Wmu1QpRypnZWsnec23s92Whxrsp0WWnRhv1muM1X5KK7DjvKkeOCkkGA==
-X-Received: by 2002:a17:907:7248:b0:ac2:9093:6856 with SMTP id a640c23a62f3a-acabd4db31bmr9024966b.54.1744231061967;
-        Wed, 09 Apr 2025 13:37:41 -0700 (PDT)
+        bh=Yvl4l0Ok5PkRG0EWi21Y82ldA8DtM3z/BsTax0kidDk=;
+        b=mvE0CIRovSvIPZgTxmXNxFRnkJVFQgCMxbjwtDlARYrXeRsKoIKwNAPG/jMfqTy2nG
+         pzy5mQY5cCdt69kl+K2vnUWVGbm7eYo4SHj7lHQynPBeuMd6egMCANKX9HW+vS7PX7j4
+         wLZB4oR+DW73IrWwvssK776VUHLaeoW3E79S3kR4Ev7hKW21l20HKnTFgTHH/2qSkoTV
+         zzUCHQclrr79Eoa7JKAKEl0pKve3290tB4CYTf9SFbMmQS8G4y0ty4H3SA4u3ARVcoCs
+         rUaotDgDQ9SH/AFMVwKYOZl45D32KERZlh7vX/c08fpBxm4k5kf0geN9BnAC8AnXATPG
+         ykXA==
+X-Forwarded-Encrypted: i=1; AJvYcCXM1ff722fan+IDpW477hljK+1M5GY2L05a29Xoaz8/qhgCqqB8Xnlp3lkpP/VKqnVkUh+XRwdArGRV2Dp9Pkch@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoA/f+SPu3XuWTUwyDKFYjhXsUo4Yv+LL5Y9XutwnlL+wOR9/7
+	W6WYDKNZwGwSaXtP++bgBMt947hmyEJ7k1Akz5dUJHcITaWemKolt8+GhNSR4nk=
+X-Gm-Gg: ASbGncsvsXC5qPu5l1v6xQvomidYVj1uG2316kH7c9BZeVwL0NO9hQBSTesJH4hSnPi
+	4+iuomM5tSesJn1WkKgJQ+B4485iCjRbb8SyafGg/sCI5/g9lJoZ9EuONLuXCUTggIV5whCimoo
+	PhVPwWjpq3HoxaGqlBYT1+lWlxDX+T1L2IeripsMo34l9lXwYAepbAE/YnD4pS4oYi9eUq7hESE
+	xzro6RrKacxc1yTInRrGLz0mMWkLd6Oif6Hb4GDRrXJ/ujXslS9kN0ha9YbSfOCbnE5eHFrbmi0
+	8hiYEeo/oC2E8bhgcbhUKwipYuZFk7Dqwv9aUv9RY9y8q9kt15faTCCLdZXRu7uNvC4P0V8TMnT
+	pJw8fLUqI7ElOETs9+vWpH6yqRD0=
+X-Google-Smtp-Source: AGHT+IHbuLfVklw/YEV595LIDXkT6NJfGZ8tsFxVvFej7hgAnnMJK0l8IFDXzmywh/fHAbSmWr9RuQ==
+X-Received: by 2002:a17:906:dc89:b0:aaf:103a:e6e3 with SMTP id a640c23a62f3a-acabd3c36a7mr7622566b.43.1744231062434;
+        Wed, 09 Apr 2025 13:37:42 -0700 (PDT)
 Received: from puffmais.c.googlers.com (40.162.204.35.bc.googleusercontent.com. [35.204.162.40])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acaa1ccc001sm145850366b.126.2025.04.09.13.37.41
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acaa1ccc001sm145850366b.126.2025.04.09.13.37.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 13:37:41 -0700 (PDT)
+        Wed, 09 Apr 2025 13:37:42 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Wed, 09 Apr 2025 21:37:45 +0100
-Subject: [PATCH v4 24/32] clk: s2mps11: add support for S2MPG10 PMIC clock
+Date: Wed, 09 Apr 2025 21:37:46 +0100
+Subject: [PATCH v4 25/32] rtc: s5m: cache device type during probe
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250409-s2mpg10-v4-24-d66d5f39b6bf@linaro.org>
+Message-Id: <20250409-s2mpg10-v4-25-d66d5f39b6bf@linaro.org>
 References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
 In-Reply-To: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, 
@@ -92,12 +92,11 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_133743_290596_3C216B01 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20250409_133744_111375_E6E99155 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,58 +111,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Samsung's S2MPG10 PMIC clock, which is similar to the
-existing PMIC clocks supported by this driver.
+platform_get_device_id() is called mulitple times during probe to
+retrieve the device type. This makes the code harder to read than
+necessary.
 
-S2MPG10 has three clock outputs @ 32kHz: AP, peri1 and peri2.
+Just get the type once, which also trims the lengths of the lines
+involved.
 
-Acked-by: Stephen Boyd <sboyd@kernel.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- drivers/clk/clk-s2mps11.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/clk/clk-s2mps11.c b/drivers/clk/clk-s2mps11.c
-index 8ddf3a9a53dfd5bb52a05a3e02788a357ea77ad3..92c8d36dafcf8a448873567fb3541a1b90cd9837 100644
---- a/drivers/clk/clk-s2mps11.c
-+++ b/drivers/clk/clk-s2mps11.c
-@@ -11,6 +11,7 @@
- #include <linux/regmap.h>
- #include <linux/clk-provider.h>
- #include <linux/platform_device.h>
-+#include <linux/mfd/samsung/s2mpg10.h>
- #include <linux/mfd/samsung/s2mps11.h>
- #include <linux/mfd/samsung/s2mps13.h>
- #include <linux/mfd/samsung/s2mps14.h>
-@@ -140,6 +141,9 @@ static int s2mps11_clk_probe(struct platform_device *pdev)
- 	clk_data->num = S2MPS11_CLKS_NUM;
+---
+v4:
+- cache the driver data, i.e. the enum type (Krzysztof)
+---
+ drivers/rtc/rtc-s5m.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/rtc/rtc-s5m.c b/drivers/rtc/rtc-s5m.c
+index db5c9b641277213aa1371776c63e2eda3f223465..c7636738b797b8087a0ed6844df62d47427e33b8 100644
+--- a/drivers/rtc/rtc-s5m.c
++++ b/drivers/rtc/rtc-s5m.c
+@@ -637,6 +637,8 @@ static int s5m8767_rtc_init_reg(struct s5m_rtc_info *info)
+ static int s5m_rtc_probe(struct platform_device *pdev)
+ {
+ 	struct sec_pmic_dev *s5m87xx = dev_get_drvdata(pdev->dev.parent);
++	enum sec_device_type device_type =
++		platform_get_device_id(pdev)->driver_data;
+ 	struct s5m_rtc_info *info;
+ 	struct i2c_client *i2c;
+ 	const struct regmap_config *regmap_cfg;
+@@ -646,7 +648,7 @@ static int s5m_rtc_probe(struct platform_device *pdev)
+ 	if (!info)
+ 		return -ENOMEM;
  
- 	switch (hwid) {
-+	case S2MPG10:
-+		s2mps11_reg = S2MPG10_PMIC_RTCBUF;
-+		break;
- 	case S2MPS11X:
- 		s2mps11_reg = S2MPS11_REG_RTC_CTRL;
+-	switch (platform_get_device_id(pdev)->driver_data) {
++	switch (device_type) {
+ 	case S2MPS15X:
+ 		regmap_cfg = &s2mps14_rtc_regmap_config;
+ 		info->regs = &s2mps15_rtc_regs;
+@@ -669,8 +671,8 @@ static int s5m_rtc_probe(struct platform_device *pdev)
  		break;
-@@ -221,6 +225,7 @@ static void s2mps11_clk_remove(struct platform_device *pdev)
- }
+ 	default:
+ 		return dev_err_probe(&pdev->dev, -ENODEV,
+-				     "Device type %lu is not supported by RTC driver\n",
+-				     platform_get_device_id(pdev)->driver_data);
++				     "Device type %d is not supported by RTC driver\n",
++				     device_type);
+ 	}
  
- static const struct platform_device_id s2mps11_clk_id[] = {
-+	{ "s2mpg10-clk", S2MPG10},
- 	{ "s2mps11-clk", S2MPS11X},
- 	{ "s2mps13-clk", S2MPS13X},
- 	{ "s2mps14-clk", S2MPS14X},
-@@ -241,6 +246,9 @@ MODULE_DEVICE_TABLE(platform, s2mps11_clk_id);
-  */
- static const struct of_device_id s2mps11_dt_match[] __used = {
- 	{
-+		.compatible = "samsung,s2mpg10-clk",
-+		.data = (void *)S2MPG10,
-+	}, {
- 		.compatible = "samsung,s2mps11-clk",
- 		.data = (void *)S2MPS11X,
- 	}, {
+ 	i2c = devm_i2c_new_dummy_device(&pdev->dev, s5m87xx->i2c->adapter,
+@@ -686,7 +688,7 @@ static int s5m_rtc_probe(struct platform_device *pdev)
+ 
+ 	info->dev = &pdev->dev;
+ 	info->s5m87xx = s5m87xx;
+-	info->device_type = platform_get_device_id(pdev)->driver_data;
++	info->device_type = device_type;
+ 
+ 	if (s5m87xx->irq_data) {
+ 		info->irq = regmap_irq_get_virq(s5m87xx->irq_data, alarm_irq);
 
 -- 
 2.49.0.604.gff1f9ca942-goog
