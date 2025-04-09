@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0F9C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCEC1C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CxjdOwdJ7SNh53Og2MxYLJTmOtZ3kMTySkgEXWMk7NA=; b=J1S8rmTR6KCOkN4qAlgneOOJEi
-	osTqohi3SAp5WRbs9Rq4x+CGaM2zCHNQEzvLXgflzFN0ZKDqY/9UYo3m3G9Cud+y2Vym6NQMvy/Qi
-	olGkAlOdxaxTz2lf3E1N+BDS9y7pnEBYaSzXkiA2hHp9anF03IQmjp0UNRzgwwnn8PO63Y1MWc1HI
-	KpvMIzjD2Fo/F7E0vagDX60au/Iz1KKMhT76pi6DAOAFugerhD35HaUTWZOB94hTjc2CpzZ1ndi39
-	yQSWFtkeDNTCXzspg/9RzlmX0icM2Hn/2ROz45ROkbu4Y9oySa4ffTXwAlWVxRMG7kju2Q6C9hpPo
-	yiy/y+EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dtXVWSJhTmHh+rkhuCBss9wlnUadwaKmLwho+4WhXcs=; b=JbTTL5QcIxMvWHtWjCrwHC0m2x
+	cUkWTPMdoD6RNHEtFUU1PLo9ir/h81X6QSdVPHbvfCljNMX3pUPNbNQbrsefX8dgoN2z5UokCxBKf
+	FmX+NxMc5fF6MsrfI81WqiLCCTzqSGFzQDT6av5Updw0L8fnxf17Dh6UIFUt1CyumZhUEmvDs9332
+	vecwDWAsH1bmMXq2yIcdtp8cOp7oY/604yN3Kicaqbcx17mSdUF1Uv9rt6zo9Bz61gn80kSM3icim
+	vGVLNV3pJaNT45cTevqhfEDWVdMli+PPg5qhikeeuy1h+uqlJ6Wj8fIkowC9FIn+XGamzUnqlMWKC
+	oJMOaUqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2YGN-00000007sk6-0wm0;
-	Wed, 09 Apr 2025 16:26:55 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1u2YI7-00000007t2q-3wM3;
+	Wed, 09 Apr 2025 16:28:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Y5P-00000007r6A-0qt5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 16:15:36 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 539D8pcO024589;
-	Wed, 9 Apr 2025 18:15:19 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	CxjdOwdJ7SNh53Og2MxYLJTmOtZ3kMTySkgEXWMk7NA=; b=s0HBnx6aYrH7URD1
-	9rIHNVf/u4zhS2t2tpW+MRwR8oNeNa/0rIITljFzMAsyXB/SbwrGjPmfJHEyHKQA
-	bYGWUxN/EYpGjHTHcgJOsaGXca38hSQQLzV4/8SRs4lGgiWupDvp6gfylvxTNpkq
-	ohMmCkkJSvBvnGrppBa8CPzptC8JNfiNU7UsMLvNQqdtQgOWGODUjyAEEOm1FrDf
-	/yBnjpi0FLWI+Z1Wmwxovzzm2yRsdHlpKEWVdZC/tw3s2aUEQQegDbntxvf1Lyck
-	YTVJqzl61ATPzXCIEUu8nGDMNnFGTRjPmW+edF5/kgxI45JMktPcrNn4QtEhTK05
-	EeNVIw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw6eknuk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 09 Apr 2025 18:15:19 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0AB524002D;
-	Wed,  9 Apr 2025 18:14:09 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 25BEE9FD18D;
-	Wed,  9 Apr 2025 18:13:21 +0200 (CEST)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 9 Apr
- 2025 18:13:20 +0200
-Message-ID: <d32208f0-b3ec-4a57-86cb-0c53a1dd798a@foss.st.com>
-Date: Wed, 9 Apr 2025 18:13:19 +0200
+	id 1u2Y8g-00000007rYV-0HUA;
+	Wed, 09 Apr 2025 16:18:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 44B2FA49AB4;
+	Wed,  9 Apr 2025 16:13:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE6C7C4CEE7;
+	Wed,  9 Apr 2025 16:18:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744215536;
+	bh=wWoauvV634omXVvTO1Ej24sCxgOZyiirFlXx4Z2Ipk8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hFeVn/Wkb1sbnJfDSzEGTuZnMRG1DiweCjLGfSLKjgWLuVPEZmqN2F0h2n3ZR/okW
+	 CbXNw/Wragqiyls2y2/k1araxJNZJoh5vpU/lHQYkPz8SHwT1WPinbk1ujAEf+uscN
+	 nGtNUseYHkvLvuBrLMvEIEKjYUJMwoPrPAgwbyjS7VIDhiYvzxaenx/H3HczTabFm1
+	 jn6hDQIDfjSGKRQVLb95UDIAQ4Y2M2hqDk+ac6gDpEV4zSZKE+nxAYZ3PQAeVl9wKN
+	 LfMOtTfhKMOvvnBI8eOw+F4AKkaflgYrD7fFl0/mYMzFBoG3Bse9GIAFMQMVRtytSD
+	 KLUc20VvdkE4g==
+Date: Wed, 9 Apr 2025 17:18:51 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?utf-8?Q?=C5=81ukasz?= Czechowski <lukasz.czechowski@thaumatec.com>
+Cc: Matthias Kaehlcke <mka@chromium.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Benjamin Bara <benjamin.bara@skidata.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Klaus Goger <klaus.goger@theobroma-systems.com>,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, quentin.schulz@cherry.de
+Subject: Re: [PATCH 2/5] dt-bindings: usb: cypress,hx3: Add support for all
+ variants
+Message-ID: <20250409-commend-brewing-7c541aec26a9@spud>
+References: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
+ <20250326-onboard_usb_dev-v1-2-a4b0a5d1b32c@thaumatec.com>
+ <20250326-fanatic-onion-5f6bf8ec97e3@spud>
+ <CABd623tEGh=qtpF0h7PkRBBrR7V9EaxUv9HregqbPcLU_2Exbg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH v8 0/7] Add STM32MP25 SPI NOR support
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        <devicetree@vger.kernel.org>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        <linux-kernel@vger.kernel.org>,
-        Philipp
- Zabel <p.zabel@pengutronix.de>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Will Deacon <will@kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
- <20250408-opal-pillbug-of-acumen-0fbb68@shite>
- <9c9172b8-508c-4855-9299-aab72ac2fae6@foss.st.com>
-Content-Language: en-US
-In-Reply-To: <9c9172b8-508c-4855-9299-aab72ac2fae6@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-09_05,2025-04-08_04,2024-11-22_01
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="X2pwzW2tJYBQHmm7"
+Content-Disposition: inline
+In-Reply-To: <CABd623tEGh=qtpF0h7PkRBBrR7V9EaxUv9HregqbPcLU_2Exbg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_091535_537173_062AD4EA 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20250409_091858_248613_54916534 
+X-CRM114-Status: GOOD (  30.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,81 +85,151 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--X2pwzW2tJYBQHmm7
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 4/9/25 17:54, Patrice CHOTARD wrote:
-> 
-> 
-> On 4/8/25 08:38, Krzysztof Kozlowski wrote:
->> On Mon, Apr 07, 2025 at 03:27:31PM GMT, Patrice Chotard wrote:
->>> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
->>> ---
->>> Patrice Chotard (7):
->>>       MAINTAINERS: add entry for STM32 OCTO MEMORY MANAGER driver
->>>       dt-bindings: memory-controllers: Add STM32 Octo Memory Manager controller
->>>       memory: Add STM32 Octo Memory Manager driver
->>>       arm64: dts: st: Add OMM node on stm32mp251
->>>       arm64: dts: st: Add ospi port1 pinctrl entries in stm32mp25-pinctrl.dtsi
->>>       arm64: dts: st: Add SPI NOR flash support on stm32mp257f-ev1 board
->>>       arm64: defconfig: Enable STM32 Octo Memory Manager and OcstoSPI driver
->>>
->>>  .../memory-controllers/st,stm32mp25-omm.yaml       | 226 ++++++++++
->>>  MAINTAINERS                                        |   6 +
->>>  arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi      |  51 +++
->>>  arch/arm64/boot/dts/st/stm32mp251.dtsi             |  54 +++
->>>  arch/arm64/boot/dts/st/stm32mp257f-ev1.dts         |  32 ++
->>>  arch/arm64/configs/defconfig                       |   2 +
->>>  drivers/memory/Kconfig                             |  17 +
->>>  drivers/memory/Makefile                            |   1 +
->>>  drivers/memory/stm32_omm.c                         | 474 +++++++++++++++++++++
->>>  9 files changed, 863 insertions(+)
->>> ---
->>> base-commit: 88424abd55ab36c3565898a656589a0a25ecd92f
->>
->> That's unknown commit.
->>
->> b4 diff '20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com'
->> Using cached copy of the lookup
->> ---
->> Analyzing 81 messages in the thread
->> Preparing fake-am for v7: MAINTAINERS: add entry for STM32 OCTO MEMORY MANAGER driver
->> ERROR: Could not write fake-am tree
->> ---
->> Could not create fake-am range for lower series v7
->>
->> I tried on latest next, on some March next, on latest mainline. It seems
->> you use some weird base here, so anyway I won't be able to apply it.
-> 
-> It was based on next-20250317 plus the 2 ospi patches already merged 
-> by Mark Brown, that's why.
-> 
->>
->> Please split the patchset per subsystem and send something based on
->> maintainer tree (so for me my for-next branch), mainline (which is the
->> same as for-next currently) or linux-next.... which would be the same as
->> my for-next branch currently.
-> 
-> ok
+On Tue, Apr 08, 2025 at 06:36:04PM +0200, =C5=81ukasz Czechowski wrote:
+> Hello,
+>=20
+> =C5=9Br., 26 mar 2025 o 18:58 Conor Dooley <conor@kernel.org> napisa=C5=
+=82(a):
+> >
+> > On Wed, Mar 26, 2025 at 05:22:57PM +0100, Lukasz Czechowski wrote:
+> > > The Cypress HX3 hubs use different default PID value depending
+> > > on the variant. Update compatibles list.
+> > >
+> > > Fixes: 1eca51f58a10 ("dt-bindings: usb: Add binding for Cypress HX3 U=
+SB 3.0 family")
+> > > Cc: stable@vger.kernel.org # 6.6
+> > > Cc: stable@vger.kernel.org # Backport of the patch in this series fix=
+ing product ID in onboard_dev_id_table and onboard_dev_match in drivers/usb=
+/misc/onboard_usb_dev.{c,h} driver
+> > > Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+> > > ---
+> > >  Documentation/devicetree/bindings/usb/cypress,hx3.yaml | 6 ++++++
+> > >  1 file changed, 6 insertions(+)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml b=
+/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> > > index 1033b7a4b8f9..f0b93002bd02 100644
+> > > --- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> > > +++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> > > @@ -15,8 +15,14 @@ allOf:
+> > >  properties:
+> > >    compatible:
+> > >      enum:
+> > > +      - usb4b4,6500
+> > > +      - usb4b4,6502
+> > > +      - usb4b4,6503
+> > >        - usb4b4,6504
+> > >        - usb4b4,6506
+> > > +      - usb4b4,6507
+> > > +      - usb4b4,6508
+> > > +      - usb4b4,650a
+> >
+> > All these devices seem to have the same match data, why is a fallback
+> > not suitable?
+> >
+>=20
+> Thank you for the suggestion. Indeed the fallback compatible appears
+> to work fine in this case,
+> and I am able to avoid additional entries in onboard_dev_match table
+> as added in the first patch in this series.
+>=20
+> However, after I've updated the cypress,hx3.yaml schema file and
+> rk3399-puma.dtsi file,
+> I get the following warnings, when running "make dtbs_check":
+>=20
+> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1:
+> compatible: ['usb4b4,6502', 'usb4b4,6506'] is too long
+> =E2=80=83=E2=80=83from schema $id: http://devicetree.org/schemas/usb/cypr=
+ess,hx3.yaml#
+> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2:
+> compatible: ['usb4b4,6500', 'usb4b4,6504'] is too long
+> =E2=80=83=E2=80=83from schema $id: http://devicetree.org/schemas/usb/cypr=
+ess,hx3.yaml#
+>=20
+> Below is the diff of my changes:
+>=20
+> diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> index f0b93002bd02..d6eac1213228 100644
+> --- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> +++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> @@ -14,15 +14,22 @@ allOf:
+>=20
+>  properties:
+>    compatible:
+> -    enum:
+> -      - usb4b4,6500
+> -      - usb4b4,6502
+> -      - usb4b4,6503
+> -      - usb4b4,6504
+> -      - usb4b4,6506
+> -      - usb4b4,6507
+> -      - usb4b4,6508
+> -      - usb4b4,650a
+> +    oneOf:
+> +      - enum:
+> +          - usb4b4,6504
+> +          - usb4b4,6506
+> +      - items:
+> +          - enum:
+> +              - usb4b4,6500
+> +              - usb4b4,6508
+> +          - const: usb4b4,6504
+> +      - items:
+> +          - enum:
+> +              - usb4b4,6502
+> +              - usb4b4,6503
+> +              - usb4b4,6507
+> +              - usb4b4,650a
+> +          - const: usb4b4,6506
+>=20
+>    reg: true
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> index d0d867374b3f..7fac61f95fc6 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> @@ -594,14 +594,14 @@ &usbdrd_dwc3_1 {
+>         #size-cells =3D <0>;
+>=20
+>         hub_2_0: hub@1 {
+> -               compatible =3D "usb4b4,6502";
+> +               compatible =3D "usb4b4,6502", "usb4b4,6506";
+>                 reg =3D <1>;
+>                 peer-hub =3D <&hub_3_0>;
+>                 reset-gpios =3D <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
+>         };
+>=20
+>         hub_3_0: hub@2 {
+> -               compatible =3D "usb4b4,6500";
+> +               compatible =3D "usb4b4,6500", "usb4b4,6504";
+>                 reg =3D <2>;
+>                 peer-hub =3D <&hub_2_0>;
+>                 reset-gpios =3D <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
+>=20
+>=20
+> Do you have any suggestions on how I can properly update the schema
+> files to avoid the above warnings?
 
-For memory-controller subsystem i will include:
- _ memory controller dt-bindings
- _ memory controller driver
- _ defconfig update
- _ Maintainers file update
+The diffs you have here look okay, not really sure what you're asking
+for.
 
-Are you ok with this proposal ?
+--X2pwzW2tJYBQHmm7
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Patrice
+-----BEGIN PGP SIGNATURE-----
 
-> 
-> Thanks
-> Patrice
-> 
->>
->> Best regards,
->> Krzysztof
->>
-> _______________________________________________
-> Linux-stm32 mailing list
-> Linux-stm32@st-md-mailman.stormreply.com
-> https://st-md-mailman.stormreply.com/mailman/listinfo/linux-stm32
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ/ad6wAKCRB4tDGHoIJi
+0jrNAP4tzAb9G6tOUw4KN0R7QQ40SNApkGvNQB/Fxx52uf8a9wD+MLdRTeLTe7tm
+0ktgPhNJ+lKYFUSGXf/Y8ONOODNY4w4=
+=0FDn
+-----END PGP SIGNATURE-----
+
+--X2pwzW2tJYBQHmm7--
 
