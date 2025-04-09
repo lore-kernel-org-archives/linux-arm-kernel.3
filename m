@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A08C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 12:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA6CC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 12:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPUV8FgJegitXiVQUTfiLM1o0/uBOnP4q0gwO7/J0sw=; b=HyAUjr3wfnmC9jC4PZqynI2o+M
-	NO5tuIanMo5XoqPqp2r553u7rKphIy3Vg25tc/CFqmSpb0tj15pRAvHLacDtN2KPFOH8TuE3aOfNJ
-	L0YWMHQsMyUg5h9nbCL/1QqhP6lOe5r6TxQmPy30usytWwXJ3B4wkhohKAz3RyYnouatVM3unvBl8
-	pYUwdh/y/j0k8M4SU8BA+2e8zamYiksX53N2AY37u3dcYjjGZP4b7dCLq++xjjO/5KyHsEPjolOA5
-	bna6DahKmhM/fV11ZVy5+Qi1v8CMYEqlwCji3d+h2AknIs/9vLcOhGWE+Vrh4xHpUlSzWp2aFQFE8
-	TGL6IwLg==;
+	bh=OAVZ/6PMd5CIYGP1LffsV13Ct6MPa7aS43NNYUi9Muc=; b=bPAGJcqURh1H2iiO0/3Z0TLQOS
+	OiWLH+CSV6rPs9iq/0A+04T6AkpAz0+qabmiW3Wjm+uKypf9BVXsEySYeTbfBoEQr6BjyTtiwsU9d
+	072cg2q8l4PSL8nK2N5OmYHBPcGAxozeA1HqvUMmsN7LkDPSl+otrJS1eVLxwucFW8RbsHo4eSbLH
+	/hIRvOA2e8u+amcZtLG2D6TalnQPMqHlC7PoRzQafblyujDYYP0ni+CKge1T1Q4zHKXIYOrmjqCGc
+	kUriVzTVp7YHca9dkuaAR97s0QyLEUIialQAlYuiK9A1oZxVEGNfF6k6o5FyFnN8Y2WTqei5rjQRb
+	Pw2gxm0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2U9k-000000075Aw-329i;
-	Wed, 09 Apr 2025 12:03:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2U7y-000000074yF-0SIY
+	id 1u2UCQ-000000075lo-2Awo;
+	Wed, 09 Apr 2025 12:06:34 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2UAd-000000075Mv-2h3T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 12:01:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B351715A1;
-	Wed,  9 Apr 2025 05:01:57 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81AC03F59E;
-	Wed,  9 Apr 2025 05:01:55 -0700 (PDT)
-Date: Wed, 9 Apr 2025 13:01:43 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Henry Martin <bsdhenrymartin@gmail.com>, arm-scmi@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	LKML <linux-kernel@vger.kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>
-Subject: Re: [PATCH v2 0/2] cpufreq: scmi/scpi: Fix NULL pointer dereference
- in get_rate()
-Message-ID: <Z_Zhp38o9KiicPVw@pluto>
-References: <20250408150354.104532-1-bsdhenrymartin@gmail.com>
- <0558b7f7-8c69-4664-afc6-bae4fdc6f071@web.de>
- <20250409-merry-gay-lemur-8288cf@sudeepholla>
- <52aa52a5-7081-41ee-872e-f1728c06daf1@web.de>
+	Wed, 09 Apr 2025 12:04:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=OAVZ/6PMd5CIYGP1LffsV13Ct6MPa7aS43NNYUi9Muc=; b=Do2eW7o21PD63tUeD1m2JPMF3Y
+	GA5PJ2TY9XpQdy9chWaHuYljs1HgVw6p5M9TaxjWcsYXPcY68Nmh+BBlqBEFfjV182S1AM0QCVxcE
+	Mg97XRoHA317XEdNLGpJRIrwHtQCfQNRRgkRtx6Y8UULja95mNyri9hyyr5XhP3K1DcA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u2UAX-008X2W-Vg; Wed, 09 Apr 2025 14:04:37 +0200
+Date: Wed, 9 Apr 2025 14:04:37 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Ng, Boon Khai" <boon.khai.ng@altera.com>
+Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	"Gerlach, Matthew" <matthew.gerlach@altera.com>,
+	"Ang, Tien Sung" <tien.sung.ang@altera.com>,
+	"Tham, Mun Yew" <mun.yew.tham@altera.com>,
+	"G Thomas, Rohan" <rohan.g.thomas@altera.com>
+Subject: Re: [PATCH net-next v3 2/2] net: stmmac: dwxgmac2: Add support for
+ HW-accelerated VLAN stripping
+Message-ID: <3eb3bb21-eee9-44b6-b680-4c629df29d34@lunn.ch>
+References: <20250408081354.25881-1-boon.khai.ng@altera.com>
+ <20250408081354.25881-3-boon.khai.ng@altera.com>
+ <c65bfe99-a6e1-4485-90ee-aee0b8e0984d@lunn.ch>
+ <BN8PR03MB5073B710F5040EAC06595AE2B4B42@BN8PR03MB5073.namprd03.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <52aa52a5-7081-41ee-872e-f1728c06daf1@web.de>
+In-Reply-To: <BN8PR03MB5073B710F5040EAC06595AE2B4B42@BN8PR03MB5073.namprd03.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_050158_185008_825A7EB3 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250409_050443_681050_1D6211BE 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,21 +89,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 01:48:33PM +0200, Markus Elfring wrote:
-> >> Can any other summary phrase variants become more desirable accordingly?
+On Wed, Apr 09, 2025 at 03:12:53AM +0000, Ng, Boon Khai wrote:
+> > This appears to be identical to dwmac4_wrback_get_rx_vlan_tci() ?
+> > 
+> > Can it be moved into the shared code, or am i missing something?
+> > 
+> >         Andrew
+> 
+> Hi Andrew thanks for the quick response.
+> 
+> For the dwmac4 IP it has the following format at the 
+> Receive Normal Descriptor 0 (RDES0)
+> 
+>            31                                                                                                0
+>               ------------------------------------- -----------------------------------
+> RDES0 |   Inner VLAN TAG [31:16]   | Outer VLAN TAG [31:16   |
+>               ------------------------------------- -----------------------------------
+> 
+> While for dwxgmac2 IP it has the following format at the RDES0
+> Depending on the Tunneled Frame bit (TNP)
+> 
+> For Non-Tunneled Frame (TNP=0)
+>            31                                                                                                0
+>               ------------------------------------- -----------------------------------
+> RDES0 |   Inner VLAN TAG [31:16 ]  | Outer VLAN TAG [31:16]   |
+>               ------------------------------------- -----------------------------------
+> 
+> For Tunneled Frame (TNP=1)
+>            31                                        8 7                          3 2                  0
+>               -------------------------------- ----------------------- ----------------
+> RDES0 |   VNID/VSID                    |    Reserved         | OL2L3         |
+>               -------------------------------- ----------------------- ----------------
+> 
+> While the logic for handling Tunneled Frame and Non-Tunneled
+> Frame is not yet implemented in the 
+> dwxgmac2_wrback_get_rx_vlan_tci() function, I believe it is
+> prudent to maintain separate functions within their respective
+> descriptor driver files, (dwxgmac2_descs.c and dwmac4_descs.c)
 
-I agree with Sudeep, the above sentence is completely incomprehensible
-to me
+Please add a comment, or describe this in the commit message.
 
-> >
-> > This is meaningless, sorry can't parse. Ignoring it as others in the
-> > community are doing already.
-> Do you care if the term “null pointer dereference” would be used in consistent ways?
->
-
-...this is more comprehensible, but again I cannot grasp what's yor advice
-specifically on this commit message.
-
-Thanks,
-Cristian
+	Andrew
 
