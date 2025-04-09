@@ -4,99 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB55CC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 21:40:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B5CC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 21:42:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ENOcZPIItp2JvszVxj/GE2Qd8ZKfpfM4JflKxCvjNwk=; b=SfamGS9/VLXvS9hdzbFpvK3Iy7
-	nXUnmMiXhMHeXLsYKikxgIZlgWx8GA3q+A3JCuarnprE+eo2QN4UQTyH+81ZTx6+MFD9oP+3MLhbb
-	oyghCYXfhAwZWO8A9xO1XJd3bWvgPqdkJen0jSmlOMXmh0yvVWSHmrpaopSBIITmQXyNZTwiQOv4u
-	W8dy1VWdysPm9vvgiNppXqo2UigEZqlZ459xAu39E30ToHJAbRQ+jXp6PBKjhSdzQ3AI+euJxLQ/v
-	HOmCGcAeDVcHkhoFh2gaaIZ5XxhnXLPrFmF2b2Z4iB85Od4yosUNYYM0jc3V812W+NRieJHTQUXaK
-	JQby2hOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cs0oHYIDLw+NXvNiplcD3L/abgVKbtu5qf/+1OmonH8=; b=RRcMgC2SsLUCgDNbvAl7R7k++E
+	66gTCulPhzRbczKJIUpb9gy82IKdqhwNl9t5vIuhN2Sefnm4UIz55n4t3M2fLcw/q0rFlcaed3EC4
+	3NCTwdHKK6EzI4J86TPSSzdATz8aVZWNHQc9YKnv4+d5zTACXiuZoS7j0GGXTiRKn3Ts/byZPH4A7
+	XyVTLzAj/RClyScZG5vCZ6Xy366SPRGWpnSirmVADlPahHAH9PF4orsLH8/8zYL9tJuxgIkIk4AWr
+	MHPMUax8rjVAWBnyFutz2u10vLtVs8t84a7furig9UnqAZBS938YC8hRpnDVIEzD064mbxs+gqE2a
+	5Oq/wGSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2d9V-00000008brJ-1V0Q;
-	Wed, 09 Apr 2025 21:40:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u2dBF-00000008c0F-3fpB;
+	Wed, 09 Apr 2025 21:41:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2cIu-00000008UQU-1qeQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Apr 2025 20:45:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ENOcZPIItp2JvszVxj/GE2Qd8ZKfpfM4JflKxCvjNwk=; b=pAEp2xWNacZq32/pBQ1Z+sftZU
-	JP5+AQRyaNByMLaCTLcVcL0dfGnUDe5zXBT7TRq0wlWzcRkDHUTzEIkm9yiBYU+njth0GZWgaU75q
-	jlTlWeOnBU7iFGVPLIKrkV3GIXgAyiVN3vqEJQkWnsM6Y6vvxVnGezSznYZUv2eH9+lMd98kHHvlD
-	ZIyqxqop/1PAYyxAwtMw+HBqeaLdKu6Wc7k9Eb7gLerCsZTNzH2NzD6RcC2kRIqXypetQXwaZKXDn
-	AGwRRqE9OBhA3LiX7OFz9HNbcIYnbPJdZNfR5vWXUCnuifKs5zohs0qynlnAWwOCsFR1s9b/1IdK/
-	ZppQPR1w==;
-Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2cIp-00000008gln-3wza
+	id 1u2cMj-00000008Urg-3cBI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 20:45:47 +0000
-Date: Wed, 9 Apr 2025 13:45:12 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1744231523;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ENOcZPIItp2JvszVxj/GE2Qd8ZKfpfM4JflKxCvjNwk=;
-	b=xC8aSKQfjMqodNcjkUTLUjs/zqCFYnuOpjbh5P9WpT5NQV26kzbmBYXpCKWYi7kZGBKsxL
-	gZW41lEMVPwc0O3ZChQyXo3FcMfH90y50iz05hYThAcZmGJ8iVYi08BYw8+X5iWzs50Hx2
-	w3VkprowZiWZQ4RRthwlJQvvZgV2B04=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Maxim Levitsky <mlevitsk@redhat.com>
-Cc: kvm@vger.kernel.org, Alexander Potapenko <glider@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	kvm-riscv@lists.infradead.org,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Waiman Long <longman@redhat.com>, x86@kernel.org,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Anup Patel <anup@brainfault.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Zenghui Yu <yuzenghui@huawei.com>,
-	Borislav Petkov <bp@alien8.de>, Alexandre Ghiti <alex@ghiti.fr>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Sebastian Ott <sebott@redhat.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Sean Christopherson <seanjc@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v2 2/4] KVM: x86: move
- sev_lock/unlock_vcpus_for_migration to kvm_main.c
-Message-ID: <Z_bcWBfhoUZfRzek@linux.dev>
-References: <20250409014136.2816971-1-mlevitsk@redhat.com>
- <20250409014136.2816971-3-mlevitsk@redhat.com>
+	Wed, 09 Apr 2025 20:49:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 34CE961127;
+	Wed,  9 Apr 2025 20:49:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62C6CC4CEE2;
+	Wed,  9 Apr 2025 20:49:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744231784;
+	bh=NozBD7uf0mEfFz72Q+HWrklJjBxU4koxeAHUjP0UPPw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=vPEFewp/CEcOJm4xepNr29RV9Rod7H/Ms9KcO6fUCblcJOCu/YMbBG+0m1TJ7FDNx
+	 GMpWrvRPy+b3LIXhad4p9gSDtnXzK5xeJLwHpcIk59o0wNqrctHMFenwNr4c8dvXcS
+	 AXg4ZnGvbXVRXRIis9CseshHE0kaftyQY62TrEY2P/4g/fl4ZRWZxZ7uDaEEFiH2WZ
+	 f7ODITtnT+Q4KcVeN/n4GhrKjOUE3mYj3bgfEcDg8ca82jvGUKflz/wKW3KpOivKEf
+	 N3MnePIr1K/d9o04u35mVI85M5ci4hkZy+1aGPmzp3g8nPVfZUUvrpPoV/0UB72vt9
+	 ZzkdbHE5kgowQ==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: marvell: Drop unused "pinctrl-names"
+Date: Wed,  9 Apr 2025 15:49:35 -0500
+Message-ID: <20250409204936.1521405-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250409014136.2816971-3-mlevitsk@redhat.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_214545_247117_D9C8EA4A 
-X-CRM114-Status: GOOD (  25.48  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,138 +71,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 09:41:34PM -0400, Maxim Levitsky wrote:
-> Move sev_lock/unlock_vcpus_for_migration to kvm_main and call the
-> new functions the kvm_lock_all_vcpus/kvm_unlock_all_vcpus
-> and kvm_lock_all_vcpus_nested.
-> 
-> This code allows to lock all vCPUs without triggering lockdep warning
-> about reaching MAX_LOCK_DEPTH depth by coercing the lockdep into
-> thinking that we release all the locks other than vcpu'0 lock
-> immediately after we take them.
-> 
-> No functional change intended.
-> 
-> Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
-> Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
-> ---
->  arch/x86/kvm/svm/sev.c   | 65 +++---------------------------------
->  include/linux/kvm_host.h |  6 ++++
->  virt/kvm/kvm_main.c      | 71 ++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 81 insertions(+), 61 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
-> index 0bc708ee2788..7adc54b1f741 100644
-> --- a/arch/x86/kvm/svm/sev.c
-> +++ b/arch/x86/kvm/svm/sev.c
-> @@ -1889,63 +1889,6 @@ enum sev_migration_role {
->  	SEV_NR_MIGRATION_ROLES,
->  };
->  
-> -static int sev_lock_vcpus_for_migration(struct kvm *kvm,
-> -					enum sev_migration_role role)
-> -{
-> -	struct kvm_vcpu *vcpu;
-> -	unsigned long i, j;
-> -
-> -	kvm_for_each_vcpu(i, vcpu, kvm) {
-> -		if (mutex_lock_killable_nested(&vcpu->mutex, role))
-> -			goto out_unlock;
-> -
-> -#ifdef CONFIG_PROVE_LOCKING
-> -		if (!i)
-> -			/*
-> -			 * Reset the role to one that avoids colliding with
-> -			 * the role used for the first vcpu mutex.
-> -			 */
-> -			role = SEV_NR_MIGRATION_ROLES;
-> -		else
-> -			mutex_release(&vcpu->mutex.dep_map, _THIS_IP_);
-> -#endif
-> -	}
-> -
-> -	return 0;
-> -
-> -out_unlock:
-> -
-> -	kvm_for_each_vcpu(j, vcpu, kvm) {
-> -		if (i == j)
-> -			break;
-> -
-> -#ifdef CONFIG_PROVE_LOCKING
-> -		if (j)
-> -			mutex_acquire(&vcpu->mutex.dep_map, role, 0, _THIS_IP_);
-> -#endif
-> -
-> -		mutex_unlock(&vcpu->mutex);
-> -	}
-> -	return -EINTR;
-> -}
-> -
-> -static void sev_unlock_vcpus_for_migration(struct kvm *kvm)
-> -{
-> -	struct kvm_vcpu *vcpu;
-> -	unsigned long i;
-> -	bool first = true;
-> -
-> -	kvm_for_each_vcpu(i, vcpu, kvm) {
-> -		if (first)
-> -			first = false;
-> -		else
-> -			mutex_acquire(&vcpu->mutex.dep_map,
-> -				      SEV_NR_MIGRATION_ROLES, 0, _THIS_IP_);
-> -
-> -		mutex_unlock(&vcpu->mutex);
-> -	}
-> -}
-> -
->  static void sev_migrate_from(struct kvm *dst_kvm, struct kvm *src_kvm)
->  {
->  	struct kvm_sev_info *dst = to_kvm_sev_info(dst_kvm);
-> @@ -2083,10 +2026,10 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
->  		charged = true;
->  	}
->  
-> -	ret = sev_lock_vcpus_for_migration(kvm, SEV_MIGRATION_SOURCE);
-> +	ret = kvm_lock_all_vcpus_nested(kvm, false, SEV_MIGRATION_SOURCE);
->  	if (ret)
->  		goto out_dst_cgroup;
-> -	ret = sev_lock_vcpus_for_migration(source_kvm, SEV_MIGRATION_TARGET);
-> +	ret = kvm_lock_all_vcpus_nested(source_kvm, false, SEV_MIGRATION_TARGET);
->  	if (ret)
->  		goto out_dst_vcpu;
->  
-> @@ -2100,9 +2043,9 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
->  	ret = 0;
->  
->  out_source_vcpu:
-> -	sev_unlock_vcpus_for_migration(source_kvm);
-> +	kvm_unlock_all_vcpus(source_kvm);
->  out_dst_vcpu:
-> -	sev_unlock_vcpus_for_migration(kvm);
-> +	kvm_unlock_all_vcpus(kvm);
->  out_dst_cgroup:
->  	/* Operates on the source on success, on the destination on failure.  */
->  	if (charged)
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index 1dedc421b3e3..30cf28bf5c80 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -1015,6 +1015,12 @@ static inline struct kvm_vcpu *kvm_get_vcpu_by_id(struct kvm *kvm, int id)
->  
->  void kvm_destroy_vcpus(struct kvm *kvm);
->  
-> +int kvm_lock_all_vcpus_nested(struct kvm *kvm, bool trylock, unsigned int role);
-> +void kvm_unlock_all_vcpus(struct kvm *kvm);
-> +
-> +#define kvm_lock_all_vcpus(kvm, trylock) \
-> +	kvm_lock_all_vcpus_nested(kvm, trylock, 0)
-> +
+"pinctrl-names" depends on "pinctrl-[0-9]" properties, but none are
+present for the pca9555 nodes.
 
-Can you instead add lock / trylock variants of this?
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ arch/arm64/boot/dts/marvell/armada-7040-db.dts | 1 -
+ arch/arm64/boot/dts/marvell/armada-8040-db.dts | 2 --
+ arch/arm64/boot/dts/marvell/cn9130-db.dtsi     | 1 -
+ 3 files changed, 4 deletions(-)
 
-kvm_trylock_all_vcpus(kvm) seems a bit more obvious in the calling code.
+diff --git a/arch/arm64/boot/dts/marvell/armada-7040-db.dts b/arch/arm64/boot/dts/marvell/armada-7040-db.dts
+index 2b5e45d2c5a6..3add6506ff20 100644
+--- a/arch/arm64/boot/dts/marvell/armada-7040-db.dts
++++ b/arch/arm64/boot/dts/marvell/armada-7040-db.dts
+@@ -124,7 +124,6 @@ &cp0_i2c0 {
+ 
+ 	expander0: pca9555@21 {
+ 		compatible = "nxp,pca9555";
+-		pinctrl-names = "default";
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 		reg = <0x21>;
+diff --git a/arch/arm64/boot/dts/marvell/armada-8040-db.dts b/arch/arm64/boot/dts/marvell/armada-8040-db.dts
+index 9d45e881a97d..21ecb9c12505 100644
+--- a/arch/arm64/boot/dts/marvell/armada-8040-db.dts
++++ b/arch/arm64/boot/dts/marvell/armada-8040-db.dts
+@@ -122,7 +122,6 @@ &cp0_i2c0 {
+ 	/* U31 */
+ 	expander0: pca9555@21 {
+ 		compatible = "nxp,pca9555";
+-		pinctrl-names = "default";
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 		reg = <0x21>;
+@@ -131,7 +130,6 @@ expander0: pca9555@21 {
+ 	/* U25 */
+ 	expander1: pca9555@25 {
+ 		compatible = "nxp,pca9555";
+-		pinctrl-names = "default";
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 		reg = <0x25>;
+diff --git a/arch/arm64/boot/dts/marvell/cn9130-db.dtsi b/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
+index be56a2336265..50e9e0724828 100644
+--- a/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
++++ b/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
+@@ -209,7 +209,6 @@ i2c@1 {
+ 			/* U12 */
+ 			cp0_module_expander1: pca9555@21 {
+ 				compatible = "nxp,pca9555";
+-				pinctrl-names = "default";
+ 				gpio-controller;
+ 				#gpio-cells = <2>;
+ 				reg = <0x21>;
+-- 
+2.47.2
 
-Thanks,
-Oliver
 
