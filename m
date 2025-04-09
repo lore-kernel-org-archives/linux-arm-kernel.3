@@ -4,113 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93894C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 07:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFE1C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 07:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YsorEk35lOgfh5YI70JSA+A7tI7g35S1x3UhmGl4g/0=; b=42EAOPihI8L+SvLRpd/3M9UPoh
-	4U7hoiNkR9kA5YPpwzlsv1aaMkZoqcw0xwPNP3KoGQdpNBGlWG5kgDRhwiSlR3LzTrLgRWQ2YMNrn
-	1XCTSM4UGF94biXbUFzXbTEIdhRPK9lAtjKfhWI8eb71/LYcjeret8bZeqtnWJsIix6UHDjc08q1Q
-	QgzFm88/RKw7/H8E0wlgT6fxPmg7cqEumOUcqhvsw9jDMueYEVuSDP74YNEPOrHD887oCP52V/RM4
-	X4RjnfviIp5Z8rjd3prKlb6GFsCWbWO60imniDCDK+hmfcSqBTYb0Nl6wRN/WSdL+rvyr/CF7xxJY
-	N11lTotA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4aQnP8Tce3VgN1IZuBW3oPTwtH0vocVZNoFX2eGQ6Fo=; b=Ap5hsGLueRD8tad1k/cdoKGiGG
+	VS37U+PJQvyVVup7bX7kYs23WuxX/ZmGwKqAyViMhvCRF3niJa+h+PAVB7lCUZd4h51lbQ/cAQ5B8
+	9GlKhIdjnPVKbB0VyY01NZ75ldjgoZQbuNabc3AKXIiqTns9rTygnN9tOhHOo3XNKzCV+2K56ouWu
+	4Uaqs1GExonZSrvuVSQvTZQ+FxPErWOeTt9NjouXivBGnD8oYrjKNfB+kMyjkqHrp2j2SH2+W1w6D
+	V8sH6FhugcdkA7P/cNoWKb0car0Zv70daXeYJAMfWTy8c0SZmUsl2ldovJDmOhjEcbsS5MyTw1N5v
+	OTQTSI4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2PyA-00000006RGY-3dGg;
-	Wed, 09 Apr 2025 07:35:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u2Q1a-00000006Rea-3O1M;
+	Wed, 09 Apr 2025 07:39:06 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2PwO-00000006R74-3EZl;
-	Wed, 09 Apr 2025 07:33:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73BB768432;
-	Wed,  9 Apr 2025 07:33:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DC08C4CEE3;
-	Wed,  9 Apr 2025 07:33:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744184023;
-	bh=TbjocJ7oJ1wE3teiuUGsEIirnON9GZPBxazhTpNsjqw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oW73w/TsFr0FI4Nb5NBVXBMLKDRdct1Vd9vmmIUIlj9K2WHxNSt7WHJSQ329866Qo
-	 NifXrmT9lNFgsxuTKdNI9dk1AbnOTu1Y1mSkysC/T0r094cl3hTH78GZr0m8Fc3EB7
-	 ++07A2yv5AYaXYag9RR5C+eUZgZkvn/HKMoTkk1vf3KbmoYhTr9Xvg94plqka26gM7
-	 zB3Aw6CUSUR02TTgqGU4YAm2N3+ZU/M3aHdXSUHXW/Y4IjOh47KUBL4SRgeaV3b/iu
-	 g06d6+I5XtAnQxRu+WBi74SydfBtiERzaAy2OP7O9Q3AcIw2EiZlRnhDLYmVp6FkOm
-	 kecHwhnyKc8Qg==
-Message-ID: <f26c71f4-3a17-4335-943c-90e3671c9266@kernel.org>
-Date: Wed, 9 Apr 2025 09:33:39 +0200
+	id 1u2Pzo-00000006RRK-1VKN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 09 Apr 2025 07:37:17 +0000
+X-CSE-ConnectionGUID: xYIxt7+7SbqQWhrVN/DY3Q==
+X-CSE-MsgGUID: +a7cSpzwR92/eZL45Hb9ZA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="56310949"
+X-IronPort-AV: E=Sophos;i="6.15,200,1739865600"; 
+   d="scan'208";a="56310949"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2025 00:37:14 -0700
+X-CSE-ConnectionGUID: Q3KlOjALRHGGFN+CYJn+Pw==
+X-CSE-MsgGUID: Zy41ur7VQgi4lh34jJl58w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,200,1739865600"; 
+   d="scan'208";a="129451172"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2025 00:37:11 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andy@kernel.org>)
+	id 1u2Pzg-0000000AeY9-3ZGw;
+	Wed, 09 Apr 2025 10:37:08 +0300
+Date: Wed, 9 Apr 2025 10:37:08 +0300
+From: Andy Shevchenko <andy@kernel.org>
+To: Olivier Moysan <olivier.moysan@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] iio: adc: stm32: add oversampling support
+Message-ID: <Z_YjpEFhBXgrWATp@smile.fi.intel.com>
+References: <20250408173054.1567523-1-olivier.moysan@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] dt-bindings: memory-controllers: Add MediaTek DRAM
- controller interface
-To: =?UTF-8?B?Q3J5c3RhbCBHdW8gKOmDreaZtik=?= <Crystal.Guo@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-References: <20250403065030.22761-1-crystal.guo@mediatek.com>
- <20250403065030.22761-2-crystal.guo@mediatek.com>
- <20250406-hasty-saffron-flamingo-5c1dae@shite>
- <bf1f44c34097d090894303cf6e3a9f017f4d5b38.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <bf1f44c34097d090894303cf6e3a9f017f4d5b38.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250408173054.1567523-1-olivier.moysan@foss.st.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250409_003716_426520_CB12CE23 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,34 +81,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/04/2025 09:16, Crystal Guo (郭晶) wrote:
-> On Sun, 2025-04-06 at 14:35 +0200, Krzysztof Kozlowski wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> On Thu, Apr 03, 2025 at 02:48:47PM GMT, Crystal Guo wrote:
->>> +maintainers:
->>> +  - Crystal Guo <crystal.guo@mediatek.com>
->>> +
->>> +description:
->>> +  A MediaTek DRAM controller interface to provide the current data
->>> rate of DRAM.
->>
->> DRAM controller does not offer scaling? Or PHY/timing configuration?
->> This binding looks pretty incomplete.
->>
+On Tue, Apr 08, 2025 at 07:30:53PM +0200, Olivier Moysan wrote:
+> Add oversampling support for STM32H7, STM32MP15 & STM32MP13.
+> STM32F4 ADC has no oversampling feature.
 > 
-> The PHY/timing configuration is completed during the bootloader stage.
-> In the kernel, we currently only need to provide an interface to
-> retrieve the current DDR data rate.
-Not really, that's what you currently want to do in kernel, but not what
-you for example will want next days. Binding is supposed to be complete,
-so if you do not have any scaling/interconnect then extend the
-description of hardware and explain that memory controller is non
-configurable, cannot scale and it exposes only read interface. Or
-something similar.
+> The current support of the oversampling feature aims at increasing
+> the data SNR, without changing the data resolution.
+> As the oversampling by itself increases data resolution,
+> a right shift is applied to keep initial resolution.
+> Only the oversampling ratio corresponding to a power of two are
+> supported here, to get a direct link between right shift and
+> oversampling ratio. (2exp(n) ratio <=> n right shift)
+> 
+> The oversampling ratio is shared by all channels, whatever channel type.
+> (e.g. single ended or differential).
+> 
+> Oversampling can be configured using IIO ABI:
+> - oversampling_ratio_available
+> - oversampling_ratio
 
-Best regards,
-Krzysztof
+...
+
+> --- a/drivers/iio/adc/stm32-adc-core.h
+> +++ b/drivers/iio/adc/stm32-adc-core.h
+
+Does this include bitfield.h and bits.h already?
+
+...
+
+> +static const unsigned int stm32h7_adc_oversampling_avail[] = {
+> +	1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
+
+Leave trailing comma.
+
+> +};
+> +
+> +static const unsigned int stm32mp13_adc_oversampling_avail[] = {
+> +	1, 2, 4, 8, 16, 32, 64, 128, 256
+
+As well.
+
+>  };
+
+...
+
+> +	.oversampling = stm32h7_adc_oversampling_avail,
+>  	.num_res = ARRAY_SIZE(stm32h7_adc_resolutions),
+> +	.num_ovs = ARRAY_SIZE(stm32h7_adc_oversampling_avail),
+
++ array_size.h
+
+...
+
+> +static void stm32h7_adc_set_ovs(struct iio_dev *indio_dev, u32 ovs_idx)
+> +{
+> +	struct stm32_adc *adc = iio_priv(indio_dev);
+> +	u32 ovsr_bits, bits, msk;
+> +
+> +	msk = STM32H7_ROVSE | STM32H7_OVSR_MASK | STM32H7_OVSS_MASK;
+> +	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR2, msk);
+> +
+> +	if (!ovs_idx)
+> +		return;
+> +
+> +	/*
+> +	 * Only the oversampling ratios corresponding to 2*exp(ovs_idx) are exposed in sysfs.
+> +	 * Oversampling ratios [2,3,...,1024] are mapped on OVSR register values [1,2,...,1023].
+> +	 * OVSR = 2 exp(ovs_idx) - 1
+> +	 * These ratio increase the resolution by ovs_idx bits. Apply a right shift to keep initial
+> +	 * resolution given by "assigned-resolution-bits" property.
+> +	 * OVSS = ovs_idx
+> +	 */
+> +	ovsr_bits = (1 << ovs_idx) - 1;
+
+Why not GENMASK(ovs_idx - 1, 0)?
+
+> +	bits = STM32H7_ROVSE | STM32H7_OVSS(ovs_idx) | STM32H7_OVSR(ovsr_bits);
+> +
+> +	stm32_adc_set_bits(adc, STM32H7_ADC_CFGR2, bits & msk);
+> +}
+> +
+> +static void stm32mp13_adc_set_ovs(struct iio_dev *indio_dev, u32 ovs_idx)
+> +{
+> +	struct stm32_adc *adc = iio_priv(indio_dev);
+> +	u32 bits, msk;
+> +
+> +	msk = STM32H7_ROVSE | STM32MP13_OVSR_MASK | STM32MP13_OVSS_MASK;
+> +	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR2, msk);
+> +
+> +	if (!ovs_idx)
+> +		return;
+> +
+> +	/*
+> +	 * The oversampling ratios [2,4,8,..,256] are mapped on OVSR register values [0,1,...,7].
+> +	 * OVSR = ovs_idx - 1
+> +	 * These ratio increase the resolution by ovs_idx bits. Apply a right shift to keep initial
+> +	 * resolution given by "assigned-resolution-bits" property.
+> +	 * OVSS = ovs_idx
+> +	 */
+> +	bits = STM32H7_ROVSE | STM32MP13_OVSS(ovs_idx);
+> +	if (ovs_idx - 1)
+> +		bits |= STM32MP13_OVSR(ovs_idx - 1);
+> +
+> +	stm32_adc_set_bits(adc, STM32H7_ADC_CFGR2, bits & msk);
+> +}
+
+...
+
+> +static int stm32_adc_write_raw(struct iio_dev *indio_dev,
+> +			       struct iio_chan_spec const *chan,
+> +			       int val, int val2, long mask)
+> +{
+> +	struct stm32_adc *adc = iio_priv(indio_dev);
+> +	struct device *dev = indio_dev->dev.parent;
+> +	int nb = adc->cfg->adc_info->num_ovs;
+> +	u32 idx;
+
+Why this strange type for loop iterator? Shouldn't be as simple as unsigned int?
+
+> +	int ret;
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
+> +		if (val2)
+> +			return -EINVAL;
+> +
+> +		for (idx = 0; idx < nb; idx++)
+> +			if (adc->cfg->adc_info->oversampling[idx] == val)
+> +				break;
+
+> +
+
+Unneeded blank line as this two are coupled well together.
+
+> +		if (idx >= nb)
+> +			return -EINVAL;
+> +
+> +		if (!iio_device_claim_direct(indio_dev))
+> +			return -EBUSY;
+> +
+> +		ret = pm_runtime_resume_and_get(dev);
+> +		if (ret < 0)
+> +			goto err;
+> +
+> +		adc->cfg->set_ovs(indio_dev, idx);
+> +
+> +		pm_runtime_mark_last_busy(dev);
+> +		pm_runtime_put_autosuspend(dev);
+> +
+> +		adc->ovs_idx = idx;
+
+> +err:
+
+
+
+> +		iio_device_release_direct(indio_dev);
+> +
+> +		return ret;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
