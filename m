@@ -4,99 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F7CC36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 15:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2272FC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 15:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FBzh9m8+oPUUQvWSoswATxO2uOiNer3sMvjryLu7D8s=; b=P9qFIBjgLteJC5khu1P6MAhElx
-	rX2xQiM+ijTaW/TOl47g5os4elKCuUjmUyc20/bS29JWnChPK8Fs+8E4oyL8vSwYUXB4E+aGtpjod
-	99gOjMAxilyVwXEhSYxHqBZmWFg3zzHE2ddEftxKoNKQiFLZuvV9GbgwO7dk3jISom4rhnrU+DWzd
-	IZPTgqphUklPPxXWElB8U3OJFHOKkxORWWGaxq6mMsSYrKw2Fy4EVjyqN03wSG9DDDcO8VSz/0cJb
-	C6OjQyR6pNwxPVxwq73z9aff0GBXvxnWTEzc9KtyENh0sFs8ls5kXUcEEYlx0N1pXLa2W5CpzGlfH
-	LDl5i7Yg==;
+	bh=uFsojQkjE5+qLRt4ZFFghJ+cfJmKYX9alhI5Zh/AySg=; b=mtqM9GxbkT5Baui9/blxtzjnCI
+	hK0jAPHg4zf2v2TVxdieb02TgDkxtxTXy//urUumv+QlO5XVupGwY6Dv2wdR83pyHrf7Ent3HTkZ/
+	pbpQ0X6XgITb51tb0G3Vzy79yhEkxNIDHw7s9PLJtx5nFcGkTOQ/TSffvKJEGDqlQ/sjLLMKbF3tG
+	Zd6KJFGSgI16TYrQF/vyQd/ilR2edLyMZP7XNOgUmYUS37favT2uHxZ8Srbxzn3ksVyeWglY+lqd6
+	p87DRTko0YOGC4zL7Nr724zWjW/Mv75u0oZM3Fc4MIC3BxAqlOhF2fxhfrPofIFItfdgz0ePewMX/
+	6+a5WN1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Wxy-00000007avr-49TS;
-	Wed, 09 Apr 2025 15:03:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1u2Wzj-00000007bKd-3SCf;
+	Wed, 09 Apr 2025 15:05:39 +0000
+Received: from mail-vi1eur05on2071f.outbound.protection.outlook.com ([2a01:111:f403:2613::71f] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Wds-00000007VhU-2XDZ
+	id 1u2WkN-00000007XSR-012g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 14:43:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744209783;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FBzh9m8+oPUUQvWSoswATxO2uOiNer3sMvjryLu7D8s=;
-	b=dk2d07BfY5cZEtspgFy7w/siURCzIkKJDzlXzF0XvzGU7PvRRpN5e1ZC8ie2klnrGC67lL
-	7J7aKJ9hOuNOhCvxMblkyMYKYi3JuiqkUMdvYCg4Q1WyCz0TwK21XBx/jE/mp/bEnsov9y
-	tOOaCvpEkqRfVEcCPFjOuXY7/dZHAEQ=
-Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com
- [209.85.210.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-620-tieoI3MsMViDg5sdmUb_Ng-1; Wed, 09 Apr 2025 10:43:02 -0400
-X-MC-Unique: tieoI3MsMViDg5sdmUb_Ng-1
-X-Mimecast-MFC-AGG-ID: tieoI3MsMViDg5sdmUb_Ng_1744209781
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-72ba436039fso1440156a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 07:43:02 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744209781; x=1744814581;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FBzh9m8+oPUUQvWSoswATxO2uOiNer3sMvjryLu7D8s=;
-        b=n2b+pm7UrePsfUq3V8nsRyCOFf713kGzuV02J2dM4xIVz49UURjtEWHLJx5q/l0B0M
-         17KEyEZAbhwlQum/r0ZtcuBmy3WcAjrgxke7xwl19LhlJeNdQIShHiA10OE6axQvqIVZ
-         9uI63Olt/a6tB+bZtv+Lpf6bHv5dKmzMom0fuHD9UJ1b6rd6AdW4X3Lg1ZLKyqxDv94c
-         CrUQsl2SWv5HuM6Kn0xZpxB2gEUe67f+PiIzAMot9Iqb2N4WQOuc2+OW1LNadp0RL/hp
-         ism8Qml3KPnr+1NplLUx8BDFb/tQJc5EyYX3RfnRAYc++iApNzCPzMq1B2kOnSaSMHNh
-         05yQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUDxLtQ35+tFF4RtZgAgSiEgRDo55lBdC7sNXXTEV+HqzMIteOaRTa5IGh/FJot1Atm30ZPYq54W0DS8G/6WHtR@lists.infradead.org
-X-Gm-Message-State: AOJu0YybzMQSH5VupnaS0x10sjo8Ei8QlPg6o5WPS2xV4/CYfzR99Iah
-	Guw4MqMNlUl06ueodCYEYoSj3+78WTseziYb4g126XJrO0i4C4ZNTgnwwsbaYMCd6i6j2kA+slm
-	BMQLo8uVkXE+8l483FH1TCXSAR/l8a0kXWUARZJu3eMaTqONMdwAdHm+kiZNeVq3NS56ZBXWBMB
-	N0eKg9MgeAPomk4VYne+CpQFlENdt2mAI74UaaxNdcYSqZmSw=
-X-Gm-Gg: ASbGncvB363NKOf3Vvc5S+z92jNlscLP4SXPvPHNTvNAQYw89Kzv5aRK7T8O1HuSLEG
-	LLsDVhMq/SEy5aV0lO0yFzd0VYeFUBcq2H7OJghs1ixrCMsTN6qVD3CFe0Cf0/odmBih7
-X-Received: by 2002:a05:6871:6184:b0:29e:32e7:5f0d with SMTP id 586e51a60fabf-2d08df909f5mr642537fac.10.1744209780450;
-        Wed, 09 Apr 2025 07:43:00 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGApVycFXLA33WutJbpBhx4nSh+CXKIPC5cnoVy/fYFi1IZlOU1pJTkk3QJsKZO6umZS00ITlR4BdxBkCEIWz8=
-X-Received: by 2002:a05:6871:6184:b0:29e:32e7:5f0d with SMTP id
- 586e51a60fabf-2d08df909f5mr642526fac.10.1744209780017; Wed, 09 Apr 2025
- 07:43:00 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250403103346.3064895-1-ciprianmarian.costea@oss.nxp.com>
- <20250403103346.3064895-3-ciprianmarian.costea@oss.nxp.com>
- <CALE0LRs3VA9kLy4QSEOBCixZbptW4B4DVjZqbN=GDoONHq2oeA@mail.gmail.com> <9f982548-c5e3-45ed-963a-afb5256acf31@oss.nxp.com>
-In-Reply-To: <9f982548-c5e3-45ed-963a-afb5256acf31@oss.nxp.com>
-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Date: Wed, 9 Apr 2025 16:42:42 +0200
-X-Gm-Features: ATxdqUEgoAWfMgDFcZlbfMhcsj22Kmqswg_pQpic3Jn2zzDP7oHN4-n6ClGoZcs
-Message-ID: <CALE0LRvUXck_FSP0jCZ1Ene-LCEa8MDFQWVCHGpOzd_yGk+v4g@mail.gmail.com>
-Subject: Re: [PATCH v9 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
-To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-rtc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, NXP S32 Linux <s32@nxp.com>, imx@lists.linux.dev, 
-	Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>, 
-	Eric Chanudet <echanude@redhat.com>, Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, 
-	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>, Frank Li <Frank.Li@nxp.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Gp-X_iIEO_Rr1nf3hmCt4zOv5PdfMEK9Px-KNCXjMYQ_1744209781
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 09 Apr 2025 14:49:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ADhO7a3sTtFVKWUtorxabs4FYJOq9k9EQfTBXN1Zoa8oDdea6GuCiGMV/zISXzDj0fuWKMngB5sI5rlxvNtH/75GLTA+XdbIHzL7WtEkSheqo75iiVXld7HAmjI/rCGy9yMN8Y9Nj5r8s0vZGEuWYlqMbsbLCMycsFTWlthW8b6BTwDEihckLODNVashIiOiGABZBeyb1uCm/iiil2NYd358p756AXuGxpbKnX4GsiFEVxVofZJWcxCode/IeyplpMjRWBNmNLkD1QRhk9b3COM6btzIsJNHt7KJlT7Ut/hO5uqmWaTlHPwKGpkFqODzRZLDGk2RsX5SbdeSqulpBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uFsojQkjE5+qLRt4ZFFghJ+cfJmKYX9alhI5Zh/AySg=;
+ b=Yn2IilHTHWSFIjTyeGLNMxdoO3rjQ60JDnkMaUoyzPTbZFHdJu6dzzR2KJtHV8VTNqO8HtTNAr/dtNJtBTDeiQjfcTaDeizjAqBWq3aAhndQM7ubcucZf5jxAxACSTLcKmMIj9UbIWnkEhDZLAHV9vxr/CuGGPehcqEe5ONEEey7rbyN9iBXW6i72nuhpTr4pxilVZ3vuzRDPDenZ2LF5xud4I+3Nj2CKJue8XXA4PNGox7Av0n8viqIu6/ag/4hIQYz5qprHiMZxacZp6MtEqnHAIggd93mWG94BqSBVpklDCVfJ+tOPx8Eso0bXMLBiOs24VuwgCu9DP3BG/259g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 13.93.42.39) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=topic.nl;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=topic.nl;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uFsojQkjE5+qLRt4ZFFghJ+cfJmKYX9alhI5Zh/AySg=;
+ b=QQ9nnEN6q0uK7hJSOQ62syej6xQwLZSsWuVej1wzhbp7ZFe+GExE2gKJv0bYqWk6mR0kfE/LEgq1KPc3q9sGvsZQLmnluzEXNLDQdu9L94jrw5ltztLC/kNRiZp1gXPVQ3210/BQYukcBZfxGBXqXl7Ld1Irp3385/2xcUSAPO1tpqbiilahaCQD4ICYW1pL9pu4tIqT3VXaJN1HehC9lr7qWpv2uP4Jfv+jO1ObtKqJ4MpEZka/HmE8aseRrNCd2Ty0mEifmvzPfRPM1dvdmjEXIwUsNYpqGG1g6f/QxQV6EaCqXkCDhGDB+FFhb0mbPSL5KaIWv7E5Svtd8lJnPA==
+Received: from DUZPR01CA0216.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b4::14) by PA1PR04MB10916.eurprd04.prod.outlook.com
+ (2603:10a6:102:483::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8583.46; Wed, 9 Apr
+ 2025 14:49:41 +0000
+Received: from DU2PEPF00028D0E.eurprd03.prod.outlook.com
+ (2603:10a6:10:4b4:cafe::29) by DUZPR01CA0216.outlook.office365.com
+ (2603:10a6:10:4b4::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8606.36 via Frontend Transport; Wed,
+ 9 Apr 2025 14:49:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
+ smtp.mailfrom=topic.nl; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=topic.nl;
+Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
+ 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
+ client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
+Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
+ DU2PEPF00028D0E.mail.protection.outlook.com (10.167.242.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8606.22 via Frontend Transport; Wed, 9 Apr 2025 14:49:40 +0000
+Received: from EUR05-AM6-obe.outbound.protection.outlook.com (104.47.18.104) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Wed, 09 Apr 2025 14:49:39 +0000
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=topic.nl;
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
+ by AM0PR04MB7155.eurprd04.prod.outlook.com (2603:10a6:208:194::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Wed, 9 Apr
+ 2025 14:49:38 +0000
+Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
+ ([fe80::e86d:f110:534e:480a%5]) with mapi id 15.20.8606.033; Wed, 9 Apr 2025
+ 14:49:37 +0000
+From: Mike Looijmans <mike.looijmans@topic.nl>
+To: linux-pci@vger.kernel.org
+CC: Mike Looijmans <mike.looijmans@topic.nl>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Rob Herring <robh@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 2/2] pcie-xilinx: Support reset GPIO for PERST#
+Date: Wed, 9 Apr 2025 16:49:25 +0200
+Message-ID: <20250409144930.10402-2-mike.looijmans@topic.nl>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250409144930.10402-1-mike.looijmans@topic.nl>
+References: <20250409144930.10402-1-mike.looijmans@topic.nl>
+ <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.7d136b9c-d113-4bfd-af7b-10cf34f20342@emailsignatures365.codetwo.com>
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-ClientProxiedBy: AM9P195CA0028.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21f::33) To AS8PR04MB8644.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::12)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|AM0PR04MB7155:EE_|DU2PEPF00028D0E:EE_|PA1PR04MB10916:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78a11ace-7d23-49d7-e7c7-08dd7775c218
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?Dy7znNuRh5ZeFNfJE1MhYz05f5MYzxG36yXXr1MQqnb/EvMi0YmsvI3BdLq5?=
+ =?us-ascii?Q?r5uqiBSsGlhjZ5jB2gIVjh3j3mD7DjuK+dXayQgERNL0wuyHjf8J6hYziwSs?=
+ =?us-ascii?Q?Hug8DExzhaiCndpjiL+sDvFZdu9t8ZUtEW20tyy5EhAQwAW3EbhhYYgjhx4Z?=
+ =?us-ascii?Q?FlKkXOLtL45NxrwFFJ8OTEgOWZzyUkUP38NZuWHLHGhKKTkrUAaM0JUOoGwB?=
+ =?us-ascii?Q?80a/FRw5e+GWlZY6fVzu2eihdQJElkpPZptnReHywoK1tJaHcjQB1+IADz3s?=
+ =?us-ascii?Q?6TWUZkdnifExKA3uXEGVfPKZGmZBNqdfcn/Bic3JI/RjOnZ89AMPOP6ljbdm?=
+ =?us-ascii?Q?zSddynBzss7Q1p03N4NWRoYaWYbceAyOOI0dt+MFRaB1HXYirG9Alt2wvpCx?=
+ =?us-ascii?Q?bDELG93xYPCLmJRy1zuVyp5KbAHbunm9v9tf4u8K9zJhXN8LA9mxB1BNfB4w?=
+ =?us-ascii?Q?h90a2P6e1LNCgxnbTSwabSX29svC7EsoI371zkY/9aiD77u+h7AIBEwamDPR?=
+ =?us-ascii?Q?j7kZh3U6oIZxt3kniRxVbsA4U3xrDmlbQXImnoHuHmP3fFv2U1DCAV1qyTIk?=
+ =?us-ascii?Q?0ZyS81cwFGiMfFwhLnRXmrTEE+CPCPEy4+cwXWimDFYMSWDbRaO/PjcsryP9?=
+ =?us-ascii?Q?wrw6NWjkmnUMcjKjt5OrKy3MggfFbkDc0ZFhctuwjM9ayJ+6RreTg/0ZaHts?=
+ =?us-ascii?Q?qAXP1eoklXZvbvTXu/YM+Vd4tMcC1DmT9TOvF/UhNkzAHyKO1C4NWi0AocWc?=
+ =?us-ascii?Q?KVYhcfFB/JD6rFmYw18+SxhrK+ipBAaCpJY61d5k9DzR9g7OMebA7fJ1gUx8?=
+ =?us-ascii?Q?TlvxOlPbRg5zlrx6A28NNyHvMwLNZxmRzOh1fj07U0dG9jXqSmc+It6d4vf+?=
+ =?us-ascii?Q?xbQKneTMYvDcMYiKH02esypio6ODbF8DcSXSV3YL/ULrX4Blsswb3bdKa0Bo?=
+ =?us-ascii?Q?/+1f9+DARwuZpYJqKm/D4bdukSxkpO271J95UoN7HUAiXcYf10lrb6d7Nw/D?=
+ =?us-ascii?Q?wO+Xbcz6C7kWF6DY7+l2vqzAEKdh5+lbAcZ/UMcWFMWcmNdZgVywWHhz6TCq?=
+ =?us-ascii?Q?s4KPnT/Ihh+m+ljlWKQXALU6C9ceajnvBWxFLoH6/pdZnxQeP7YtWaHt/1iw?=
+ =?us-ascii?Q?lci9ckKoiqMmrjRGL3EIVJKeVya6V4PFyVxAHm5vab0LAngsUDTLZcu/qDNh?=
+ =?us-ascii?Q?JKdIT8AEkKFRR1H7v8+jJU5fOPWdqq9tP9Nn5e8z28omB9zdX6iVmX82gjOR?=
+ =?us-ascii?Q?OFk6Sv5h/MJZotf09b9e0e+139lXohpIVBRcl+d+AJNCPjRvz8JNzhq3kwc4?=
+ =?us-ascii?Q?zy3FPJG4YwlN34XSVFy0LXnemWl+4ssZIayE2FIhjjnX1nxz0j/EW6FTeJuL?=
+ =?us-ascii?Q?JmU1MAkZo8K4XHssCmUnPSuaedbFAUrKuC6SCteXYGMuDH3z3Rs5FlyHif4I?=
+ =?us-ascii?Q?we1nQ26UdZv8sLDvZqH90B3MDUn9Bptcn/3lb6sQWbnITStOerUrRg=3D=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7155
+X-CodeTwo-MessageID: 6f0a156c-86a5-4acb-a589-074aeb2c224c.20250409144939@westeu12-emailsignatures-cloud.codetwo.com
+X-CodeTwoProcessed: true
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D0E.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 8628d9b9-84c7-40c2-64ec-08dd7775c00c
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|36860700013|1800799024|82310400026|376014|35042699022;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dri9XwrusMxcvrCezs7e3Xt8aOS7Cy1xJuwnORx/z2DS8R6NMpEG5rxHXcYS?=
+ =?us-ascii?Q?nqIKXv3VJqafN+ZUEZZhQ7K/6zIaqCQ3iXV/kLcOAsyyB4/DG4W6bd2CIkQo?=
+ =?us-ascii?Q?Sew30/NPZDsgAA75FOoKFrVJ7kpPLnY0tcjxkLRyk2y0L0F1jre1eN6fRUY+?=
+ =?us-ascii?Q?92bExXJvFFHbhoTZBfbQC2FMF2hJYk0BaHuX9TCLy36OjTzsJX/51Hjd/l5u?=
+ =?us-ascii?Q?oRsQZ69VWUE8KTOoud2kH/kb2ogSgPm+555AhX5XKW+odkdcNPP3leuXGPeC?=
+ =?us-ascii?Q?i+gA3FeEzX3Huvlhd9AZo7mgKsWUalW56MOgw9IEDbM+6thfd0BtShdr5AMG?=
+ =?us-ascii?Q?AEub5xPwSgJlG9xCf4oSVOJX96Y/Qsn1h7acZjwS+lOD7lMDLmR7KEG5wkrj?=
+ =?us-ascii?Q?w9dJkGGK8lyIWHk7oCwZY/IpJOmku0aeok4Kz4Bm5y/KLZdQ6LTfGUQI+CQQ?=
+ =?us-ascii?Q?Q76n+purtKU+uv3GkClgF5pBFX1ewbtQ04O4VFCbUumdkdQPH4RJlFCl0b8g?=
+ =?us-ascii?Q?6CwlKxdUx4y28M7ITkrMebe/v+oAJX2Y/bC9S9Purn3JpDqDytUG4kWtdzcA?=
+ =?us-ascii?Q?ZLQP/I69a9ycEGDhhe36e0zwV4GnjiR5Xoeu7pWtRBgpwasMojh2G/hPyLzb?=
+ =?us-ascii?Q?br3W923ws3I+KUmWjA86fK+6f3Bfy2Wzw/artx5FRuOY3vSIU8Z5TAS95Fsb?=
+ =?us-ascii?Q?xyNshla0ChAs/krG0i2lo2gKsR3b0gLyb3av62lOuuXZv3n9zOQ4InQtPe10?=
+ =?us-ascii?Q?9g7OpSJda/aEz95zHP/+gFe3J3UcRW8BnRTnX4pTmXe1cvyFfJpFLX8tlCnK?=
+ =?us-ascii?Q?4Lb1p1uTxf73TMgFBdKxCAImImHZf8nW3igHtBFtc234qNBv+shzJYxHI7QC?=
+ =?us-ascii?Q?gT495rRMi4dqjiiCYJxelrNdwlR245pgMA5I+FCVdPBBiFy+tRqQBzxlgjnb?=
+ =?us-ascii?Q?dq4cws3TxPgwsg3bVQswCwmSQxdLo3NidQpiYv6NQs8UhAIc08gNhI4o4Wl8?=
+ =?us-ascii?Q?BiYbzq7pSUdOYORXCBXoT8nunGNkSvhvtTI7rJPS/MKQQTkd0EvB/REjjsqq?=
+ =?us-ascii?Q?D91GmwI0ivYEiuexIzza9iSJJQNhSJtumP4xRFb4Ys+hxy0UWLcqe2vsJT/J?=
+ =?us-ascii?Q?Zy4vXEMnbkG6zECHDm0woOjkUMOWWDZA/9B7ZZc9GPOheHTOHZdAT8Lcbbxc?=
+ =?us-ascii?Q?eKL7lUSvcWfcUpQMd6Wrf1/rQnVUHhoZT4cP1bRNMEvc555c5B0m2B4fvio1?=
+ =?us-ascii?Q?kHbNqZaiTXHcp9WTBhaGZkES5jDbIyylwRyeWZz44FJ9NpvoILdLYFArc8Hg?=
+ =?us-ascii?Q?7mULWHiBVodGgEBlCBeKYJjZ+MT/EpCn1yjRl6uSUrJAG71zMt2p+JPCuaQw?=
+ =?us-ascii?Q?fGMJtprIA2621oegyrwHYQ0y6w0fEU6E1QYlYljaR113KujiUBRjiKDNdmQ1?=
+ =?us-ascii?Q?WIT4sqUFDz0=3D?=
+X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(14060799003)(36860700013)(1800799024)(82310400026)(376014)(35042699022);DIR:OUT;SFP:1102;
+X-OriginatorOrg: topic.nl
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2025 14:49:40.6050
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78a11ace-7d23-49d7-e7c7-08dd7775c218
+X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0E.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10916
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_074304_789265_62E94DBD 
-X-CRM114-Status: GOOD (  46.68  )
+X-CRM114-CacheID: sfid-20250409_074947_262594_8513A3B0 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,620 +190,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ciprian,
+Support providing the PERST# reset signal through a devicetree binding.
+Thus the system no longer relies on external components to perform the
+bus reset.
+
+Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+---
+
+Changes in v3:
+Include linux/gpio/consumer.h
+Message "Failed to request reset GPIO"
+Use PCIE_T_PVPERL_MS and PCIE_T_RRS_READY_MS
+Dropped dt-bindings patch, not needed
+
+Changes in v2:
+Split into "reset GPIO" and "wait for link" patches
+Handle GPIO defer and/or errors
+
+ drivers/pci/controller/pcie-xilinx.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/=
+pcie-xilinx.c
+index 2e59b91f43e0..8e8ca9891b36 100644
+--- a/drivers/pci/controller/pcie-xilinx.c
++++ b/drivers/pci/controller/pcie-xilinx.c
+@@ -10,6 +10,7 @@
+  * ARM PCI Host generic driver.
+  */
+=20
++#include <linux/gpio/consumer.h>
+ #include <linux/interrupt.h>
+ #include <linux/irq.h>
+ #include <linux/irqdomain.h>
+@@ -577,11 +578,17 @@ static int xilinx_pcie_probe(struct platform_device *=
+pdev)
+ 	struct device *dev =3D &pdev->dev;
+ 	struct xilinx_pcie *pcie;
+ 	struct pci_host_bridge *bridge;
++	struct gpio_desc *perst_gpio;
+ 	int err;
+=20
+ 	if (!dev->of_node)
+ 		return -ENODEV;
+=20
++	perst_gpio =3D devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
++	if (IS_ERR(perst_gpio))
++		return dev_err_probe(dev, PTR_ERR(perst_gpio),
++				     "Failed to request reset GPIO\n");
++
+ 	bridge =3D devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
+ 	if (!bridge)
+ 		return -ENODEV;
+@@ -596,6 +603,13 @@ static int xilinx_pcie_probe(struct platform_device *p=
+dev)
+ 		return err;
+ 	}
+=20
++	if (perst_gpio) {
++		msleep(PCIE_T_PVPERL_MS); /* Minimum assertion time */
++		gpiod_set_value_cansleep(perst_gpio, 0);
++		/* Initial delay to provide endpoint time to initialize */
++		msleep(PCIE_T_RRS_READY_MS);
++	}
++
+ 	xilinx_pcie_init_port(pcie);
+=20
+ 	err =3D xilinx_pcie_init_irq_domain(pcie);
+--=20
+2.43.0
 
 
-On Wed, Apr 9, 2025 at 4:26=E2=80=AFPM Ciprian Marian Costea
-<ciprianmarian.costea@oss.nxp.com> wrote:
->
-> On 4/9/2025 5:14 PM, Enric Balletbo i Serra wrote:
-> > Hi Ciprian,
-> >
-> > Many thanks for your patch.
-> >
-> > On Thu, Apr 3, 2025 at 12:34=E2=80=AFPM Ciprian Costea
-> > <ciprianmarian.costea@oss.nxp.com> wrote:
-> >>
-> >> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> >>
-> >> Add a RTC driver for NXP S32G2/S32G3 SoCs.
-> >>
-> >> RTC tracks clock time during system suspend. It can be a wakeup source
-> >> for the S32G2/S32G3 SoC based boards.
-> >>
-> >> The RTC module from S32G2/S32G3 is not battery-powered and it is not k=
-ept
-> >> alive during system reset.
-> >>
-> >> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> >> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> >> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> >> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> >> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com=
->
-> >> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> >
-> > I went through the code and it looks good to me, so:
-> >
-> > However, I did a basic rtctest selftest in my S32G-VNP-RDB3 board,
-> > and some tests failed (it shows a small deviation), any idea what
-> > could be wrong?
-> >
-> > This is the output of the test:
-> >
-> > # ./rtctest
-> > TAP version 13
-> > 1..8
-> > # Starting 8 tests from 1 test cases.
-> > #  RUN           rtc.date_read ...
-> > # rtctest.c:59:date_read:Current RTC date/time is 28/01/2025 00:17:49.
-> > #            OK  rtc.date_read
-> > ok 1 rtc.date_read
-> > #  RUN           rtc.date_read_loop ...
-> > # rtctest.c:124:date_read_loop:Continuously reading RTC time for 30s
-> > (with 11ms breaks after every read).
-> > # rtctest.c:151:date_read_loop:Performed 2638 RTC time reads.
-> > #            OK  rtc.date_read_loop
-> > ok 2 rtc.date_read_loop
-> > #  RUN           rtc.uie_read ...
-> > #            OK  rtc.uie_read
-> > ok 3 rtc.uie_read
-> > #  RUN           rtc.uie_select ...
-> > #            OK  rtc.uie_select
-> > ok 4 rtc.uie_select
-> > #  RUN           rtc.alarm_alm_set ...
-> > # rtctest.c:262:alarm_alm_set:Alarm time now set to 00:18:31.
-> > # rtctest.c:282:alarm_alm_set:data: 1a0
-> > #            OK  rtc.alarm_alm_set
-> > ok 5 rtc.alarm_alm_set
-> > #  RUN           rtc.alarm_wkalm_set ...
-> > # rtctest.c:334:alarm_wkalm_set:Alarm time now set to 28/01/2025 00:18:=
-34.
-> > # rtctest.c:353:alarm_wkalm_set:Expected new (1738023515) =3D=3D secs (=
-1738023514)
-> > # alarm_wkalm_set: Test terminated by assertion
-> > #          FAIL  rtc.alarm_wkalm_set
-> > not ok 6 rtc.alarm_wkalm_set
-> > #  RUN           rtc.alarm_alm_set_minute ...
-> > # rtctest.c:394:alarm_alm_set_minute:Alarm time now set to 00:19:00.
-> > # rtctest.c:414:alarm_alm_set_minute:data: 1a0
-> > # rtctest.c:420:alarm_alm_set_minute:Expected new (1738023541) =3D=3D s=
-ecs
-> > (1738023540)
-> > # alarm_alm_set_minute: Test terminated by assertion
-> > #          FAIL  rtc.alarm_alm_set_minute
-> > not ok 7 rtc.alarm_alm_set_minute
-> > #  RUN           rtc.alarm_wkalm_set_minute ...
-> > # rtctest.c:464:alarm_wkalm_set_minute:Alarm time now set to
-> > 28/01/2025 00:20:00.
-> > # rtctest.c:483:alarm_wkalm_set_minute:Expected new (1738023601) =3D=3D
-> > secs (1738023600)
-> > # alarm_wkalm_set_minute: Test terminated by assertion
-> > #          FAIL  rtc.alarm_wkalm_set_minute
-> > not ok 8 rtc.alarm_wkalm_set_minute
-> > # FAILED: 5 / 8 tests passed.
-> > # Totals: pass:5 fail:3 xfail:0 xpass:0 skip:0 error:0
-> >
-> > Best regards,
-> >    Enric
-> >
->
-> Hello Enric,
->
-> In order to obtain a better resolution/precision you could try to only
-> use DIV512 hardware divisor instead of both DIV32 and DIV512.
->
-
-That makes the tests pass, so I'm wondering if by default you should
-set DIV512 in platform data instead. With that change you can add my
-
-Tested-by: Enric Balletbo i Serra <eballetbo@kernel.org>
-
-# ./rtctest
-TAP version 13
-1..8
-# Starting 8 tests from 1 test cases.
-#  RUN           rtc.date_read ...
-# rtctest.c:59:date_read:Current RTC date/time is 28/01/2025 00:00:34.
-#            OK  rtc.date_read
-ok 1 rtc.date_read
-#  RUN           rtc.date_read_loop ...
-# rtctest.c:124:date_read_loop:Continuously reading RTC time for 30s
-(with 11ms breaks after every read).
-# rtctest.c:151:date_read_loop:Performed 2656 RTC time reads.
-#            OK  rtc.date_read_loop
-ok 2 rtc.date_read_loop
-#  RUN           rtc.uie_read ...
-#            OK  rtc.uie_read
-ok 3 rtc.uie_read
-#  RUN           rtc.uie_select ...
-#            OK  rtc.uie_select
-ok 4 rtc.uie_select
-#  RUN           rtc.alarm_alm_set ...
-# rtctest.c:262:alarm_alm_set:Alarm time now set to 00:01:14.
-# rtctest.c:282:alarm_alm_set:data: 1a0
-#            OK  rtc.alarm_alm_set
-ok 5 rtc.alarm_alm_set
-#  RUN           rtc.alarm_wkalm_set ...
-# rtctest.c:334:alarm_wkalm_set:Alarm time now set to 28/01/2025 00:01:17.
-#            OK  rtc.alarm_wkalm_set
-ok 6 rtc.alarm_wkalm_set
-#  RUN           rtc.alarm_alm_set_minute ...
-# rtctest.c:394:alarm_alm_set_minute:Alarm time now set to 00:02:00.
-# rtctest.c:414:alarm_alm_set_minute:data: 1a0
-#            OK  rtc.alarm_alm_set_minute
-ok 7 rtc.alarm_alm_set_minute
-#  RUN           rtc.alarm_wkalm_set_minute ...
-# rtctest.c:464:alarm_wkalm_set_minute:Alarm time now set to
-28/01/2025 00:03:00.
-#            OK  rtc.alarm_wkalm_set_minute
-ok 8 rtc.alarm_wkalm_set_minute
-# PASSED: 8 / 8 tests passed.
-# Totals: pass:8 fail:0 xfail:0 xpass:0 skip:0 error:0
-
-
-Thanks,
- Enric
-
-> Regards,
-> Ciprian
->
-> >> ---
-> >>   drivers/rtc/Kconfig    |  11 ++
-> >>   drivers/rtc/Makefile   |   1 +
-> >>   drivers/rtc/rtc-s32g.c | 385 +++++++++++++++++++++++++++++++++++++++=
-++
-> >>   3 files changed, 397 insertions(+)
-> >>   create mode 100644 drivers/rtc/rtc-s32g.c
-> >>
-> >> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-> >> index 0bbbf778ecfa..510dc2db745d 100644
-> >> --- a/drivers/rtc/Kconfig
-> >> +++ b/drivers/rtc/Kconfig
-> >> @@ -2103,4 +2103,15 @@ config RTC_DRV_AMLOGIC_A4
-> >>            This driver can also be built as a module. If so, the modul=
-e
-> >>            will be called "rtc-amlogic-a4".
-> >>
-> >> +config RTC_DRV_S32G
-> >> +       tristate "RTC driver for S32G2/S32G3 SoCs"
-> >> +       depends on ARCH_S32 || COMPILE_TEST
-> >> +       depends on COMMON_CLK
-> >> +       help
-> >> +         Say yes to enable RTC driver for platforms based on the
-> >> +         S32G2/S32G3 SoC family.
-> >> +
-> >> +         This RTC module can be used as a wakeup source.
-> >> +         Please note that it is not battery-powered.
-> >> +
-> >>   endif # RTC_CLASS
-> >> diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-> >> index 489b4ab07068..e4b616ecd5ce 100644
-> >> --- a/drivers/rtc/Makefile
-> >> +++ b/drivers/rtc/Makefile
-> >> @@ -161,6 +161,7 @@ obj-$(CONFIG_RTC_DRV_RX8111)        +=3D rtc-rx811=
-1.o
-> >>   obj-$(CONFIG_RTC_DRV_RX8581)   +=3D rtc-rx8581.o
-> >>   obj-$(CONFIG_RTC_DRV_RZN1)     +=3D rtc-rzn1.o
-> >>   obj-$(CONFIG_RTC_DRV_RENESAS_RTCA3)    +=3D rtc-renesas-rtca3.o
-> >> +obj-$(CONFIG_RTC_DRV_S32G)     +=3D rtc-s32g.o
-> >>   obj-$(CONFIG_RTC_DRV_S35390A)  +=3D rtc-s35390a.o
-> >>   obj-$(CONFIG_RTC_DRV_S3C)      +=3D rtc-s3c.o
-> >>   obj-$(CONFIG_RTC_DRV_S5M)      +=3D rtc-s5m.o
-> >> diff --git a/drivers/rtc/rtc-s32g.c b/drivers/rtc/rtc-s32g.c
-> >> new file mode 100644
-> >> index 000000000000..3a0818e972eb
-> >> --- /dev/null
-> >> +++ b/drivers/rtc/rtc-s32g.c
-> >> @@ -0,0 +1,385 @@
-> >> +// SPDX-License-Identifier: GPL-2.0-or-later
-> >> +/*
-> >> + * Copyright 2025 NXP
-> >> + */
-> >> +
-> >> +#include <linux/bitfield.h>
-> >> +#include <linux/clk.h>
-> >> +#include <linux/iopoll.h>
-> >> +#include <linux/of_irq.h>
-> >> +#include <linux/platform_device.h>
-> >> +#include <linux/rtc.h>
-> >> +
-> >> +#define RTCC_OFFSET    0x4ul
-> >> +#define RTCS_OFFSET    0x8ul
-> >> +#define APIVAL_OFFSET  0x10ul
-> >> +
-> >> +/* RTCC fields */
-> >> +#define RTCC_CNTEN                             BIT(31)
-> >> +#define RTCC_APIEN                             BIT(15)
-> >> +#define RTCC_APIIE                             BIT(14)
-> >> +#define RTCC_CLKSEL_MASK               GENMASK(13, 12)
-> >> +#define RTCC_DIV512EN                  BIT(11)
-> >> +#define RTCC_DIV32EN                   BIT(10)
-> >> +
-> >> +/* RTCS fields */
-> >> +#define RTCS_INV_API   BIT(17)
-> >> +#define RTCS_APIF              BIT(13)
-> >> +
-> >> +#define APIVAL_MAX_VAL         GENMASK(31, 0)
-> >> +#define RTC_SYNCH_TIMEOUT      (100 * USEC_PER_MSEC)
-> >> +
-> >> +/*
-> >> + * S32G2 and S32G3 SoCs have RTC clock source1 reserved and
-> >> + * should not be used.
-> >> + */
-> >> +#define RTC_CLK_SRC1_RESERVED          BIT(1)
-> >> +
-> >> +/*
-> >> + * S32G RTC module has a 512 value and a 32 value hardware frequency
-> >> + * divisors (DIV512 and DIV32) which could be used to achieve higher
-> >> + * counter ranges by lowering the RTC frequency.
-> >> + */
-> >> +enum {
-> >> +       DIV1 =3D 1,
-> >> +       DIV32 =3D 32,
-> >> +       DIV512 =3D 512,
-> >> +       DIV512_32 =3D 16384
-> >> +};
-> >> +
-> >> +static const char *const rtc_clk_src[] =3D {
-> >> +       "source0",
-> >> +       "source1",
-> >> +       "source2",
-> >> +       "source3"
-> >> +};
-> >> +
-> >> +struct rtc_priv {
-> >> +       struct rtc_device *rdev;
-> >> +       void __iomem *rtc_base;
-> >> +       struct clk *ipg;
-> >> +       struct clk *clk_src;
-> >> +       const struct rtc_soc_data *rtc_data;
-> >> +       u64 rtc_hz;
-> >> +       time64_t sleep_sec;
-> >> +       int irq;
-> >> +       u32 clk_src_idx;
-> >> +};
-> >> +
-> >> +struct rtc_soc_data {
-> >> +       u32 clk_div;
-> >> +       u32 reserved_clk_mask;
-> >> +};
-> >> +
-> >> +static const struct rtc_soc_data rtc_s32g2_data =3D {
-> >> +       .clk_div =3D DIV512_32,
-> >> +       .reserved_clk_mask =3D RTC_CLK_SRC1_RESERVED,
-> >> +};
-> >> +
-> >> +static irqreturn_t s32g_rtc_handler(int irq, void *dev)
-> >> +{
-> >> +       struct rtc_priv *priv =3D platform_get_drvdata(dev);
-> >> +       u32 status;
-> >> +
-> >> +       status =3D readl(priv->rtc_base + RTCS_OFFSET);
-> >> +
-> >> +       if (status & RTCS_APIF) {
-> >> +               writel(0x0, priv->rtc_base + APIVAL_OFFSET);
-> >> +               writel(status | RTCS_APIF, priv->rtc_base + RTCS_OFFSE=
-T);
-> >> +       }
-> >> +
-> >> +       rtc_update_irq(priv->rdev, 1, RTC_IRQF | RTC_AF);
-> >> +
-> >> +       return IRQ_HANDLED;
-> >> +}
-> >> +
-> >> +/*
-> >> + * The function is not really getting time from the RTC since the S32=
-G RTC
-> >> + * has several limitations. Thus, to setup alarm use system time.
-> >> + */
-> >> +static int s32g_rtc_read_time(struct device *dev,
-> >> +                             struct rtc_time *tm)
-> >> +{
-> >> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> >> +       time64_t sec;
-> >> +
-> >> +       if (check_add_overflow(ktime_get_real_seconds(),
-> >> +                              priv->sleep_sec, &sec))
-> >> +               return -ERANGE;
-> >> +
-> >> +       rtc_time64_to_tm(sec, tm);
-> >> +
-> >> +       return 0;
-> >> +}
-> >> +
-> >> +static int s32g_rtc_read_alarm(struct device *dev, struct rtc_wkalrm =
-*alrm)
-> >> +{
-> >> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> >> +       u32 rtcc, rtcs;
-> >> +
-> >> +       rtcc =3D readl(priv->rtc_base + RTCC_OFFSET);
-> >> +       rtcs =3D readl(priv->rtc_base + RTCS_OFFSET);
-> >> +
-> >> +       alrm->enabled =3D rtcc & RTCC_APIIE;
-> >> +       if (alrm->enabled)
-> >> +               alrm->pending =3D !(rtcs & RTCS_APIF);
-> >> +
-> >> +       return 0;
-> >> +}
-> >> +
-> >> +static int s32g_rtc_alarm_irq_enable(struct device *dev, unsigned int=
- enabled)
-> >> +{
-> >> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> >> +       u32 rtcc;
-> >> +
-> >> +       /* RTC API functionality is used both for triggering interrupt=
-s
-> >> +        * and as a wakeup event. Hence it should always be enabled.
-> >> +        */
-> >> +       rtcc =3D readl(priv->rtc_base + RTCC_OFFSET);
-> >> +       rtcc |=3D RTCC_APIEN | RTCC_APIIE;
-> >> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
-> >> +
-> >> +       return 0;
-> >> +}
-> >> +
-> >> +static int s32g_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *=
-alrm)
-> >> +{
-> >> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> >> +       unsigned long long cycles;
-> >> +       long long t_offset;
-> >> +       time64_t alrm_time;
-> >> +       u32 rtcs;
-> >> +       int ret;
-> >> +
-> >> +       alrm_time =3D rtc_tm_to_time64(&alrm->time);
-> >> +       t_offset =3D alrm_time - ktime_get_real_seconds() - priv->slee=
-p_sec;
-> >> +       if (t_offset < 0)
-> >> +               return -ERANGE;
-> >> +
-> >> +       cycles =3D t_offset * priv->rtc_hz;
-> >> +       if (cycles > APIVAL_MAX_VAL)
-> >> +               return -ERANGE;
-> >> +
-> >> +       /* APIVAL could have been reset from the IRQ handler.
-> >> +        * Hence, we wait in case there is a synchronization process.
-> >> +        */
-> >> +       ret =3D read_poll_timeout(readl, rtcs, !(rtcs & RTCS_INV_API),
-> >> +                               0, RTC_SYNCH_TIMEOUT, false, priv->rtc=
-_base + RTCS_OFFSET);
-> >> +       if (ret)
-> >> +               return ret;
-> >> +
-> >> +       writel(cycles, priv->rtc_base + APIVAL_OFFSET);
-> >> +
-> >> +       return read_poll_timeout(readl, rtcs, !(rtcs & RTCS_INV_API),
-> >> +                               0, RTC_SYNCH_TIMEOUT, false, priv->rtc=
-_base + RTCS_OFFSET);
-> >> +}
-> >> +
-> >> +/*
-> >> + * Disable the 32-bit free running counter.
-> >> + * This allows Clock Source and Divisors selection
-> >> + * to be performed without causing synchronization issues.
-> >> + */
-> >> +static void s32g_rtc_disable(struct rtc_priv *priv)
-> >> +{
-> >> +       u32 rtcc =3D readl(priv->rtc_base + RTCC_OFFSET);
-> >> +
-> >> +       rtcc &=3D ~RTCC_CNTEN;
-> >> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
-> >> +}
-> >> +
-> >> +static void s32g_rtc_enable(struct rtc_priv *priv)
-> >> +{
-> >> +       u32 rtcc =3D readl(priv->rtc_base + RTCC_OFFSET);
-> >> +
-> >> +       rtcc |=3D RTCC_CNTEN;
-> >> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
-> >> +}
-> >> +
-> >> +static int rtc_clk_src_setup(struct rtc_priv *priv)
-> >> +{
-> >> +       u32 rtcc;
-> >> +
-> >> +       rtcc =3D FIELD_PREP(RTCC_CLKSEL_MASK, priv->clk_src_idx);
-> >> +
-> >> +       switch (priv->rtc_data->clk_div) {
-> >> +       case DIV512_32:
-> >> +               rtcc |=3D RTCC_DIV512EN;
-> >> +               rtcc |=3D RTCC_DIV32EN;
-> >> +               break;
-> >> +       case DIV512:
-> >> +               rtcc |=3D RTCC_DIV512EN;
-> >> +               break;
-> >> +       case DIV32:
-> >> +               rtcc |=3D RTCC_DIV32EN;
-> >> +               break;
-> >> +       case DIV1:
-> >> +               break;
-> >> +       default:
-> >> +               return -EINVAL;
-> >> +       }
-> >> +
-> >> +       rtcc |=3D RTCC_APIEN | RTCC_APIIE;
-> >> +       /*
-> >> +        * Make sure the CNTEN is 0 before we configure
-> >> +        * the clock source and dividers.
-> >> +        */
-> >> +       s32g_rtc_disable(priv);
-> >> +       writel(rtcc, priv->rtc_base + RTCC_OFFSET);
-> >> +       s32g_rtc_enable(priv);
-> >> +
-> >> +       return 0;
-> >> +}
-> >> +
-> >> +static const struct rtc_class_ops rtc_ops =3D {
-> >> +       .read_time =3D s32g_rtc_read_time,
-> >> +       .read_alarm =3D s32g_rtc_read_alarm,
-> >> +       .set_alarm =3D s32g_rtc_set_alarm,
-> >> +       .alarm_irq_enable =3D s32g_rtc_alarm_irq_enable,
-> >> +};
-> >> +
-> >> +static int rtc_clk_dts_setup(struct rtc_priv *priv,
-> >> +                            struct device *dev)
-> >> +{
-> >> +       u32 i;
-> >> +
-> >> +       priv->ipg =3D devm_clk_get_enabled(dev, "ipg");
-> >> +       if (IS_ERR(priv->ipg))
-> >> +               return dev_err_probe(dev, PTR_ERR(priv->ipg),
-> >> +                               "Failed to get 'ipg' clock\n");
-> >> +
-> >> +       for (i =3D 0; i < ARRAY_SIZE(rtc_clk_src); i++) {
-> >> +               if (priv->rtc_data->reserved_clk_mask & BIT(i))
-> >> +                       return -EOPNOTSUPP;
-> >> +
-> >> +               priv->clk_src =3D devm_clk_get_enabled(dev, rtc_clk_sr=
-c[i]);
-> >> +               if (!IS_ERR(priv->clk_src)) {
-> >> +                       priv->clk_src_idx =3D i;
-> >> +                       break;
-> >> +               }
-> >> +       }
-> >> +
-> >> +       if (IS_ERR(priv->clk_src))
-> >> +               return dev_err_probe(dev, PTR_ERR(priv->clk_src),
-> >> +                               "Failed to get rtc module clock source=
-\n");
-> >> +
-> >> +       return 0;
-> >> +}
-> >> +
-> >> +static int s32g_rtc_probe(struct platform_device *pdev)
-> >> +{
-> >> +       struct device *dev =3D &pdev->dev;
-> >> +       struct rtc_priv *priv;
-> >> +       unsigned long rtc_hz;
-> >> +       int ret;
-> >> +
-> >> +       priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> >> +       if (!priv)
-> >> +               return -ENOMEM;
-> >> +
-> >> +       priv->rtc_data =3D of_device_get_match_data(dev);
-> >> +       if (!priv->rtc_data)
-> >> +               return -ENODEV;
-> >> +
-> >> +       priv->rtc_base =3D devm_platform_ioremap_resource(pdev, 0);
-> >> +       if (IS_ERR(priv->rtc_base))
-> >> +               return PTR_ERR(priv->rtc_base);
-> >> +
-> >> +       device_init_wakeup(dev, true);
-> >> +
-> >> +       ret =3D rtc_clk_dts_setup(priv, dev);
-> >> +       if (ret)
-> >> +               return ret;
-> >> +
-> >> +       priv->rdev =3D devm_rtc_allocate_device(dev);
-> >> +       if (IS_ERR(priv->rdev))
-> >> +               return PTR_ERR(priv->rdev);
-> >> +
-> >> +       ret =3D rtc_clk_src_setup(priv);
-> >> +       if (ret)
-> >> +               return ret;
-> >> +
-> >> +       priv->irq =3D platform_get_irq(pdev, 0);
-> >> +       if (priv->irq < 0) {
-> >> +               ret =3D priv->irq;
-> >> +               goto disable_rtc;
-> >> +       }
-> >> +
-> >> +       rtc_hz =3D clk_get_rate(priv->clk_src);
-> >> +       if (!rtc_hz) {
-> >> +               dev_err(dev, "Failed to get RTC frequency\n");
-> >> +               ret =3D -EINVAL;
-> >> +               goto disable_rtc;
-> >> +       }
-> >> +
-> >> +       priv->rtc_hz =3D DIV_ROUND_UP(rtc_hz, priv->rtc_data->clk_div)=
-;
-> >> +
-> >> +       platform_set_drvdata(pdev, priv);
-> >> +       priv->rdev->ops =3D &rtc_ops;
-> >> +
-> >> +       ret =3D devm_request_irq(dev, priv->irq,
-> >> +                              s32g_rtc_handler, 0, dev_name(dev), pde=
-v);
-> >> +       if (ret) {
-> >> +               dev_err(dev, "Request interrupt %d failed, error: %d\n=
-",
-> >> +                       priv->irq, ret);
-> >> +               goto disable_rtc;
-> >> +       }
-> >> +
-> >> +       ret =3D devm_rtc_register_device(priv->rdev);
-> >> +       if (ret)
-> >> +               goto disable_rtc;
-> >> +
-> >> +       return 0;
-> >> +
-> >> +disable_rtc:
-> >> +       s32g_rtc_disable(priv);
-> >> +       return ret;
-> >> +}
-> >> +
-> >> +static int s32g_rtc_suspend(struct device *dev)
-> >> +{
-> >> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> >> +       u32 apival =3D readl(priv->rtc_base + APIVAL_OFFSET);
-> >> +
-> >> +       if (check_add_overflow(priv->sleep_sec, div64_u64(apival, priv=
-->rtc_hz),
-> >> +                              &priv->sleep_sec)) {
-> >> +               dev_warn(dev, "Overflow on sleep cycles occurred. Rese=
-tting to 0.\n");
-> >> +               priv->sleep_sec =3D 0;
-> >> +       }
-> >> +
-> >> +       return 0;
-> >> +}
-> >> +
-> >> +static int s32g_rtc_resume(struct device *dev)
-> >> +{
-> >> +       struct rtc_priv *priv =3D dev_get_drvdata(dev);
-> >> +
-> >> +       /* The transition from resume to run is a reset event.
-> >> +        * This leads to the RTC registers being reset after resume fr=
-om
-> >> +        * suspend. It is uncommon, but this behaviour has been observ=
-ed
-> >> +        * on S32G RTC after issuing a Suspend to RAM operation.
-> >> +        * Thus, reconfigure RTC registers on the resume path.
-> >> +        */
-> >> +       return rtc_clk_src_setup(priv);
-> >> +}
-> >> +
-> >> +static const struct of_device_id rtc_dt_ids[] =3D {
-> >> +       { .compatible =3D "nxp,s32g2-rtc", .data =3D &rtc_s32g2_data }=
-,
-> >> +       { /* sentinel */ },
-> >> +};
-> >> +
-> >> +static DEFINE_SIMPLE_DEV_PM_OPS(s32g_rtc_pm_ops,
-> >> +                        s32g_rtc_suspend, s32g_rtc_resume);
-> >> +
-> >> +static struct platform_driver s32g_rtc_driver =3D {
-> >> +       .driver =3D {
-> >> +               .name =3D "s32g-rtc",
-> >> +               .pm =3D pm_sleep_ptr(&s32g_rtc_pm_ops),
-> >> +               .of_match_table =3D rtc_dt_ids,
-> >> +       },
-> >> +       .probe =3D s32g_rtc_probe,
-> >> +};
-> >> +module_platform_driver(s32g_rtc_driver);
-> >> +
-> >> +MODULE_AUTHOR("NXP");
-> >> +MODULE_DESCRIPTION("NXP RTC driver for S32G2/S32G3");
-> >> +MODULE_LICENSE("GPL");
-> >> --
-> >> 2.45.2
-> >>
-> >
->
-
+Met vriendelijke groet / kind regards,=0A=
+=0A=
+Mike Looijmans=0A=
+System Expert=0A=
+=0A=
+=0A=
+TOPIC Embedded Products B.V.=0A=
+Materiaalweg 4, 5681 RJ Best=0A=
+The Netherlands=0A=
+=0A=
+T: +31 (0) 499 33 69 69=0A=
+E: mike.looijmans@topic.nl=0A=
+W: www.topic.nl=0A=
+=0A=
+Please consider the environment before printing this e-mail=0A=
 
