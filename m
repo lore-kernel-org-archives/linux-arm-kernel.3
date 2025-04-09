@@ -4,58 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1187C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 12:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48A1AC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 12:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mCjeZMqKJxtiBc4rJcXjoO7Y+O15qi+77d8VNLPqbAU=; b=FBfLP0xDWFHWT4HKisi1V54YjJ
-	VXXMETpkFuTNetwRMrUbogy9YfTciPh4LFon9prhgLlM0fyULNqcPZ6UwKhtZoJ82CgVJkKREAHtS
-	uDGNelN7q1fWCyY/JHrwRvr7nJue8cKX8SWw1cUyP3JXiFSRUM8J5AlyMP2I/3RweO0mO7ffNgZmv
-	N63PZ5VKSRwc3wXnlZyjhzBuj2uME6J86T/ULukwzPQs+mNVHd/5573xpZ2ZwZuBlEf25usT2/Fs1
-	B/UQsx8/lTVWTD5bB2dO8V8jc+fVpqJWi2oPc5v5ZtnXWFmdWZ9xLKtsA18SZ25ZmKA9+PnOYoOFt
-	RA8uK0LA==;
+	bh=MgzTuHYI4UmC3fqcBItcn74v49a1rM9SvhzQvrF6Hss=; b=E87CsAwsl/s/FlLhpjd7FN+OUa
+	kYDOuBQaNigaU2xHYEtY2ILDhL5kAmyL1eTGyChh/UruRYAMYFDkeBaEozDdbbvcKesDmojFckwvv
+	kSbKoIyvzeE39EfbmFcIp5AB1sDdw41aO1vq97ZUCAxjF2DKanUCCS5i5+8WBIVetSaVUwsHyVfSP
+	isQjGrHY6ak/forwqCWp17g4zPkSH5HrOJBEC5AwXzSqIUrr2nlosrSVcPMVQCZWKQV8vIfrOHm8D
+	HGnN+ywvMXx5fLj0NWPEkxXTjGNDQTOtIkqEA2W29PLDU3oZO4PDeuyIaeUeF57cmvUas06sSQwGC
+	y2d/61DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2UkR-00000007BKg-2CmM;
-	Wed, 09 Apr 2025 12:41:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2UfC-00000007AW3-1xTy
+	id 1u2UmB-00000007Bdo-3CY6;
+	Wed, 09 Apr 2025 12:43:31 +0000
+Received: from mail-lf1-x141.google.com ([2a00:1450:4864:20::141])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2UjG-00000007B7J-0pXJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 12:36:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F11715A1;
-	Wed,  9 Apr 2025 05:36:16 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B53D63F59E;
-	Wed,  9 Apr 2025 05:36:13 -0700 (PDT)
-Date: Wed, 9 Apr 2025 13:36:10 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: linux-sunxi@lists.linux.dev, linux-crypto@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>,
- Corentin Labbe <clabbe.montjoie@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Herbert Xu <herbert@gondor.apana.org.au>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Ovidiu Panait
- <ovidiu.panait.oss@gmail.com>, Samuel Holland <samuel@sholland.org>, LKML
- <linux-kernel@vger.kernel.org>, Julia Lawall <julia.lawall@inria.fr>
-Subject: Re: [PATCH] crypto: sun8i-ce-hash - Refine exception handling in
- sun8i_ce_hash_run()
-Message-ID: <20250409133610.59d42bec@donnerap.manchester.arm.com>
-In-Reply-To: <3727de04-7993-4b81-80c0-adb40b847307@web.de>
-References: <3727de04-7993-4b81-80c0-adb40b847307@web.de>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Wed, 09 Apr 2025 12:40:31 +0000
+Received: by mail-lf1-x141.google.com with SMTP id 2adb3069b0e04-54954fa61c9so4956088e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 05:40:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744202427; x=1744807227; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MgzTuHYI4UmC3fqcBItcn74v49a1rM9SvhzQvrF6Hss=;
+        b=ceqJEbNVt7l50XXzVoJX75c54eXjrr0iqSthubUMoZXpIG7x1TeTOR6grhLexmLyCy
+         zjLKR3BV5Ec+z3ud5vd7Cz1EtNW4IhrG/i4Blu/47fjyl4mh0eqxqVR5PZ+M0N8ff9Zq
+         RHdkOtZzgjx5l7HasTGDibKiP5ircV0BIfM9YioFtEkeTsRC6SaT5CNleey7CcmMmRN/
+         rtAiRR4pWKZDQ/Pe/CtvzDMpfdtRUayZZkjaACzOHOzUbvKzLGnWDjSyixDd387JhDy3
+         6d8WLECrzBi+a7OdNoS4xXS/Ble8Gc9d0hYXI3uydl478OXhzKBjXUHkLhEMGr4v/0Zj
+         B+Bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744202427; x=1744807227;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MgzTuHYI4UmC3fqcBItcn74v49a1rM9SvhzQvrF6Hss=;
+        b=VQi6neMDwymzn0QQ8SYR5tP6czDVXCHxx7gGr6b9S9nOO7JZdhpwXi4P/YCc+UWQRR
+         oyU/hc6qMdkTO4+CsyGksVSlWepC9HhlMtEHSDOfjpJlUIFA9nxRmQgUGKBeIol38tQN
+         9PiwFtfFX5aFaOKc443Q8eZBMFc1VqXxkG5FdpuaNBhqhx02qEvYRFTYbQb1igAVLMeS
+         44ygiu/TPXCOzW/MiYXX4BD7OQHbXQS3DLdxGJngDKRO7okrecDM4ji6fdptS/8X3Vjy
+         Gxb1xxvYcd66aWdhX/NrZrVojD6yhYsge52xwFY+hfL0bsY79h7wmxRmOhWZCYYEe0mo
+         zn8w==
+X-Forwarded-Encrypted: i=1; AJvYcCUzyjBJy6tfbCzHesSRYZPjPcHQFRPCUNQTeK4926E1ug4qDRpAw9A8scNd1MPkBY/YYznSLito66olMq3Ur4JO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyO7ZhEjpqrrzvhGChaTaZ9oQz+66FHhfXFox8mmzXAf2pqjRaH
+	1terwmZCBQvypQQvo8ffSAmomFIMsyj73vgqpT+lnHDFNWwGXkcWuMFWftDrUcPOmN+XiJTzMLy
+	3uZ2Ke/CdOVJDtCe/k02OvCs21+U=
+X-Gm-Gg: ASbGnctIXXHUiwyIA9eVmERzjpEr3A1U88c/4VYzETh0tsm+/7PXk/s+2hO9oroDmzD
+	GEc0RArEVbJZVFiHBtxBU/XCwIc+Yl8dSk6WTkyTcKfyTWz4Uxao2Xz4BBqSlWkMlIHlmh5cqkr
+	jAjG7aa3x4lo0EqanEbX7+WA==
+X-Google-Smtp-Source: AGHT+IEaNKg3tEK+ftLM1o2sum0aaJx+lvdbNATu/ADIsB6bKVblLteROIO/hxkPHNChjpDjGBoqBy7PxCbTeETlzVM=
+X-Received: by 2002:a05:651c:2220:b0:30d:e104:a943 with SMTP id
+ 38308e7fff4ca-30f4507af4cmr7485621fa.39.1744202426703; Wed, 09 Apr 2025
+ 05:40:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20250408150354.104532-1-bsdhenrymartin@gmail.com> <20250409-manipulative-tall-alligator-5e6c4a@sudeepholla>
+In-Reply-To: <20250409-manipulative-tall-alligator-5e6c4a@sudeepholla>
+From: henry martin <bsdhenrymartin@gmail.com>
+Date: Wed, 9 Apr 2025 20:40:15 +0800
+X-Gm-Features: ATxdqUFPmZ6qtNKORMOownapcwDPbW_QqjjVvOf8Je_dGx5LIfMAlL8dMmVUm2A
+Message-ID: <CAEnQdOpS8xETvQE-TuyffDXCcNDa7jNCefpjR2MNX18xAx-WOQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] cpufreq: scmi/scpi: Fix NULL pointer dereference
+ in get_rate()
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: cristian.marussi@arm.com, rafael@kernel.org, viresh.kumar@linaro.org, 
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_053618_600750_7417E0B6 
-X-CRM114-Status: GOOD (  21.36  )
+X-CRM114-CacheID: sfid-20250409_054030_235438_0AEA8D16 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,79 +96,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Apr 2025 13:43:39 +0200
-Markus Elfring <Markus.Elfring@web.de> wrote:
+> I think unlikely is needed even in this patch[1] and thats what Viresh
+> meant when he mention all similar changes under one series and consistent
+> change.
+Thanks for reviewing. I'll send v2 of patch[1] soon.
 
-> From: Markus Elfring <elfring@users.sourceforge.net>
-> Date: Wed, 9 Apr 2025 13:26:55 +0200
-> 
-> Two if branches contained duplicate source code.
-> Thus avoid the specification of repeated error code assignments by using
-> additional labels instead.
-
-Is that really useful? I think the current code reads easier, with the
-usual pattern of setting the error code and the goto'ing out.
-Now there is one rather opaque label it goes to, so a reader doesn't see
-the error code immediately. And it really just saves one line per case
-here. Plus the added danger that future changes might break this again.
-
-And then there is the oddity that it jumps *into* an "if" branch, which
-looks odd, I think typically we goto the end of the function, outside of
-any other statements.
-
-Cheers,
-Andre
-
-> This issue was transformed by using the Coccinelle software.
-> 
-> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-> ---
->  drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 11 +++++------
->  1 file changed, 5 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-> index ba13fb75c05d..7d31e190bb6a 100644
-> --- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-> +++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-> @@ -399,14 +399,14 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
->  	}
->  	if (len > 0) {
->  		dev_err(ce->dev, "remaining len %d\n", len);
-> -		err = -EINVAL;
-> -		goto err_unmap_src;
-> +		goto e_inval_src;
->  	}
->  	addr_res = dma_map_single(ce->dev, result, digestsize, DMA_FROM_DEVICE);
->  	cet->t_dst[0].addr = desc_addr_val_le32(ce, addr_res);
->  	cet->t_dst[0].len = cpu_to_le32(digestsize / 4);
->  	if (dma_mapping_error(ce->dev, addr_res)) {
->  		dev_err(ce->dev, "DMA map dest\n");
-> +e_inval_src:
->  		err = -EINVAL;
->  		goto err_unmap_src;
->  	}
-> @@ -428,16 +428,15 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
->  		j = hash_pad(bf, 2 * bs, j, byte_count, false, bs);
->  		break;
->  	}
-> -	if (!j) {
-> -		err = -EINVAL;
-> -		goto err_unmap_result;
-> -	}
-> +	if (!j)
-> +		goto e_inval_result;
-> 
->  	addr_pad = dma_map_single(ce->dev, buf, j * 4, DMA_TO_DEVICE);
->  	cet->t_src[i].addr = desc_addr_val_le32(ce, addr_pad);
->  	cet->t_src[i].len = cpu_to_le32(j);
->  	if (dma_mapping_error(ce->dev, addr_pad)) {
->  		dev_err(ce->dev, "DMA error on padding SG\n");
-> +e_inval_result:
->  		err = -EINVAL;
->  		goto err_unmap_result;
->  	}
+Sudeep Holla <sudeep.holla@arm.com> =E4=BA=8E2025=E5=B9=B44=E6=9C=889=E6=97=
+=A5=E5=91=A8=E4=B8=89 19:30=E5=86=99=E9=81=93=EF=BC=9A
+>
+> On Tue, Apr 08, 2025 at 11:03:52PM +0800, Henry Martin wrote:
+> > This series fixes potential NULL pointer dereferences in scmi_cpufreq_g=
+et_rate()
+> > and scpi_cpufreq_get_rate() when cpufreq_cpu_get_raw() returns NULL.
+> >
+>
+> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+>
+> I think unlikely is needed even in this patch[1] and thats what Viresh
+> meant when he mention all similar changes under one series and consistent
+> change.
+>
+> Also I just happened to notice similar patches posted while ago[2][3].
+> Not sure how to handle the situation though.
+>
 > --
-> 2.49.0
-> 
-
+> Regards,
+> Sudeep
+>
+> [1] https://lore.kernel.org/all/20250405061927.75485-1-bsdhenrymartin@gma=
+il.com/
+> [2] https://lore.kernel.org/all/20241230093159.258813-1-hanchunchao@inspu=
+r.com
+> [3] https://lore.kernel.org/all/20241230090137.243825-1-hanchunchao@inspu=
+r.com
 
