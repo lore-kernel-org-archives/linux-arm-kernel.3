@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51831C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 22:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E881AC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 23:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E/MX9avaogn96WadiZO2Oqso/YPMCh/5um7QBJv0kHw=; b=JI18Ry6BgnLLvST7dSfRXFSNFf
-	q0VAp3fjkynIuRI3hiJfzyTKJiDRdxAv1ZYHhViieQQLW2E9j1kUZHB6eMGHH9ymgWMlwCaMQXPrH
-	Qgprc8qzrW64SSs8IauqOP1Zxo6VYY4AK2XACqzMlpr4jc4TSrQRG1bS7dGO+1fojfe8k/cmy01iL
-	aaD1lryXZnvGgwFed1/ug14m39lz2NpoXRaBFTFvLIDeyGLnKGvlOKlY0D7GfYB5l6xP7ZtIHdwYo
-	MUJtcIs0NGfdqmXHc7ZjanKqItAiQ/1wojG5CCY60SzK6L1gezBuZTyu/ZEnmiaxr2axvwCC5WYnX
-	DRlVhpFw==;
+	bh=UatZs2lwYqLlJ9t5o1zxpDwYTZ+/+YcUeqqfWWLkd1M=; b=HZhKljcd3uoP6pKTpcqQDvOBvm
+	X03QOa4EYqq/V9iMkMVVs17eDDhVXWsWXTQiLy6KzwR3wCtN0wztmnbKcwyY9kAYectWJ7ELtX1F1
+	0vGjsjX5++4PLlCAAAQ2zy3fLnCY0myAFhB5YtehTlcuDFPxEE9zoYcoHDPMmzV7FVvwFrXjs0M5v
+	nHjrvl2nl/r3Y8XwpaxUawALMDIpdtweUF94KO0fuESWMqUcV8nNm15UDxAPf/+x0PID1j7fm6Ipt
+	E+x8igIcORG3UaDeJGMX9I7Xoz2a5fcu9kWUttIECpL6akQsCwq2L4zi229tjhi6soGQAiQeh3gKK
+	VTEgxkoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2eMr-00000008j38-0795;
-	Wed, 09 Apr 2025 22:58:01 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1u2ebM-00000008jwb-2gJJ;
+	Wed, 09 Apr 2025 23:13:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2cw5-00000008a1q-2wry
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 21:26:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=E/MX9avaogn96WadiZO2Oqso/YPMCh/5um7QBJv0kHw=; b=WK7GO7rwpGDxsAOictNGBcT49S
-	QMp9vX/ibb/xLjVw8hKqAmC0QTtJRz1I0s9PS0DteFgDvqAT+KUunoRP1mJWNUa+wqyPL7QRVyad1
-	YMwdGitlQgnq1kL+JdmSTav2OmngAkPzVPqagj83eIpJJA9OJeCh6NF5CtaGbyNcof+w=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u2cvw-008b6l-9k; Wed, 09 Apr 2025 23:26:08 +0200
-Date: Wed, 9 Apr 2025 23:26:08 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	id 1u2cxl-00000008aMQ-1og9;
+	Wed, 09 Apr 2025 21:28:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 449F14A337;
+	Wed,  9 Apr 2025 21:28:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22201C4CEE2;
+	Wed,  9 Apr 2025 21:27:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744234080;
+	bh=HUTQnj8ze1LT1u9H7w0DR7fWczDhTekCkEVOqJ0i1/Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ADwuJth9M0hdHJZG+35SnORU9RYiqTVDynMPbdNtlLsNOag3ucrglPu79fZryBqwp
+	 9cyunJIQNhhWCP5jFCABOwEktUVGkU8SRcv/YFzCRzCffPnVEcUxztr88pwv4mgkcO
+	 TLoP73hMAMQLHxXe/8UfX11zcUSr+0i9/kiCT2QvirANdYIZAj/iEbNXyVMjh/dn7m
+	 neDBA6kFMRRFI1IUFHZj7n4N174CNHbP+WBCjPefDyt4zMZoEjoYEbrGjMsDa0jPRG
+	 wG7+n/gRll5Mf8iSy7FZFmD5cIP2ll1lO9bN/38fZpsy4K0uRgSUE2hNTnTPcnRLnj
+	 n4Kmcm5pP/LzQ==
+Date: Wed, 9 Apr 2025 22:27:55 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: =?utf-8?Q?=C5=81ukasz?= Czechowski <lukasz.czechowski@thaumatec.com>,
+	Matthias Kaehlcke <mka@chromium.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Benjamin Bara <benjamin.bara@skidata.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: Re: [net-next v4 4/5] net: mtip: The L2 switch driver for imx287
-Message-ID: <cab89673-6126-43ff-b7eb-1f311fa4498b@lunn.ch>
-References: <20250407145157.3626463-1-lukma@denx.de>
- <20250407145157.3626463-5-lukma@denx.de>
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Klaus Goger <klaus.goger@theobroma-systems.com>,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 2/5] dt-bindings: usb: cypress,hx3: Add support for all
+ variants
+Message-ID: <20250409-glorified-crouch-837870b4d443@spud>
+References: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
+ <20250326-onboard_usb_dev-v1-2-a4b0a5d1b32c@thaumatec.com>
+ <20250326-fanatic-onion-5f6bf8ec97e3@spud>
+ <CABd623tEGh=qtpF0h7PkRBBrR7V9EaxUv9HregqbPcLU_2Exbg@mail.gmail.com>
+ <20250409-commend-brewing-7c541aec26a9@spud>
+ <cc49276b-f64f-42a8-b4b4-61bde17b61e3@cherry.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="siX/JzAbfY5Bb/0r"
 Content-Disposition: inline
-In-Reply-To: <20250407145157.3626463-5-lukma@denx.de>
+In-Reply-To: <cc49276b-f64f-42a8-b4b4-61bde17b61e3@cherry.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_142617_739635_09CEDF98 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20250409_142801_512754_1EBFFCF7 
+X-CRM114-Status: GOOD (  36.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +87,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static int mtip_ndev_port_link(struct net_device *ndev,
-> +			       struct net_device *br_ndev,
-> +			       struct netlink_ext_ack *extack)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(ndev), *other_priv;
-> +	struct switch_enet_private *fep = priv->fep;
-> +	struct net_device *other_ndev;
-> +
-> +	/* Check if one port of MTIP switch is already bridged */
-> +	if (fep->br_members && !fep->br_offload) {
-> +		/* Get the second bridge ndev */
-> +		other_ndev = fep->ndev[fep->br_members - 1];
-> +		other_priv = netdev_priv(other_ndev);
-> +		if (other_priv->master_dev != br_ndev) {
-> +			NL_SET_ERR_MSG_MOD(extack,
-> +					   "L2 offloading only possible for the same bridge!");
-> +			return notifier_from_errno(-EOPNOTSUPP);
 
-This is not an error condition as such. The switch cannot do it, so
--EOPNOTSUPP is correct, but the Linux software bridge can, and it
-will. So there is no need to use NL_SET_ERR_MSG_MOD().
+--siX/JzAbfY5Bb/0r
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Wed, Apr 09, 2025 at 06:26:43PM +0200, Quentin Schulz wrote:
+> Hi Conor,
+>=20
+> On 4/9/25 6:18 PM, Conor Dooley wrote:
+> > On Tue, Apr 08, 2025 at 06:36:04PM +0200, =C5=81ukasz Czechowski wrote:
+> > > Hello,
+> > >=20
+> > > =C5=9Br., 26 mar 2025 o 18:58 Conor Dooley <conor@kernel.org> napisa=
+=C5=82(a):
+> > > >=20
+> > > > On Wed, Mar 26, 2025 at 05:22:57PM +0100, Lukasz Czechowski wrote:
+> > > > > The Cypress HX3 hubs use different default PID value depending
+> > > > > on the variant. Update compatibles list.
+> > > > >=20
+> > > > > Fixes: 1eca51f58a10 ("dt-bindings: usb: Add binding for Cypress H=
+X3 USB 3.0 family")
+> > > > > Cc: stable@vger.kernel.org # 6.6
+> > > > > Cc: stable@vger.kernel.org # Backport of the patch in this series=
+ fixing product ID in onboard_dev_id_table and onboard_dev_match in drivers=
+/usb/misc/onboard_usb_dev.{c,h} driver
+> > > > > Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+> > > > > ---
+> > > > >   Documentation/devicetree/bindings/usb/cypress,hx3.yaml | 6 ++++=
+++
+> > > > >   1 file changed, 6 insertions(+)
+> > > > >=20
+> > > > > diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.ya=
+ml b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> > > > > index 1033b7a4b8f9..f0b93002bd02 100644
+> > > > > --- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> > > > > +++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> > > > > @@ -15,8 +15,14 @@ allOf:
+> > > > >   properties:
+> > > > >     compatible:
+> > > > >       enum:
+> > > > > +      - usb4b4,6500
+> > > > > +      - usb4b4,6502
+> > > > > +      - usb4b4,6503
+> > > > >         - usb4b4,6504
+> > > > >         - usb4b4,6506
+> > > > > +      - usb4b4,6507
+> > > > > +      - usb4b4,6508
+> > > > > +      - usb4b4,650a
+> > > >=20
+> > > > All these devices seem to have the same match data, why is a fallba=
+ck
+> > > > not suitable?
+> > > >=20
+> > >=20
+> > > Thank you for the suggestion. Indeed the fallback compatible appears
+> > > to work fine in this case,
+> > > and I am able to avoid additional entries in onboard_dev_match table
+> > > as added in the first patch in this series.
+> > >=20
+> > > However, after I've updated the cypress,hx3.yaml schema file and
+> > > rk3399-puma.dtsi file,
+> > > I get the following warnings, when running "make dtbs_check":
+> > >=20
+> > > linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1:
+> > > compatible: ['usb4b4,6502', 'usb4b4,6506'] is too long
+> > > =E2=80=83=E2=80=83from schema $id: http://devicetree.org/schemas/usb/=
+cypress,hx3.yaml#
+> > > linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2:
+> > > compatible: ['usb4b4,6500', 'usb4b4,6504'] is too long
+> > > =E2=80=83=E2=80=83from schema $id: http://devicetree.org/schemas/usb/=
+cypress,hx3.yaml#
+> > >=20
+> > > Below is the diff of my changes:
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> > > b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> > > index f0b93002bd02..d6eac1213228 100644
+> > > --- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> > > +++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+> > > @@ -14,15 +14,22 @@ allOf:
+> > >=20
+> > >   properties:
+> > >     compatible:
+> > > -    enum:
+> > > -      - usb4b4,6500
+> > > -      - usb4b4,6502
+> > > -      - usb4b4,6503
+> > > -      - usb4b4,6504
+> > > -      - usb4b4,6506
+> > > -      - usb4b4,6507
+> > > -      - usb4b4,6508
+> > > -      - usb4b4,650a
+> > > +    oneOf:
+> > > +      - enum:
+> > > +          - usb4b4,6504
+> > > +          - usb4b4,6506
+> > > +      - items:
+> > > +          - enum:
+> > > +              - usb4b4,6500
+> > > +              - usb4b4,6508
+> > > +          - const: usb4b4,6504
+> > > +      - items:
+> > > +          - enum:
+> > > +              - usb4b4,6502
+> > > +              - usb4b4,6503
+> > > +              - usb4b4,6507
+> > > +              - usb4b4,650a
+> > > +          - const: usb4b4,6506
+> > >=20
+> > >     reg: true
+> > >=20
+> > > diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> > > b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> > > index d0d867374b3f..7fac61f95fc6 100644
+> > > --- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> > > +++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+> > > @@ -594,14 +594,14 @@ &usbdrd_dwc3_1 {
+> > >          #size-cells =3D <0>;
+> > >=20
+> > >          hub_2_0: hub@1 {
+> > > -               compatible =3D "usb4b4,6502";
+> > > +               compatible =3D "usb4b4,6502", "usb4b4,6506";
+> > >                  reg =3D <1>;
+> > >                  peer-hub =3D <&hub_3_0>;
+> > >                  reset-gpios =3D <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
+> > >          };
+> > >=20
+> > >          hub_3_0: hub@2 {
+> > > -               compatible =3D "usb4b4,6500";
+> > > +               compatible =3D "usb4b4,6500", "usb4b4,6504";
+> > >                  reg =3D <2>;
+> > >                  peer-hub =3D <&hub_2_0>;
+> > >                  reset-gpios =3D <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
+> > >=20
+> > >=20
+> > > Do you have any suggestions on how I can properly update the schema
+> > > files to avoid the above warnings?
+> >=20
+> > The diffs you have here look okay, not really sure what you're asking
+> > for.
+>=20
+> It fails dtbs_check:
+>=20
+> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1:
+> compatible: ['usb4b4,6502', 'usb4b4,6506'] is too long
+> =E2=80=83=E2=80=83from schema $id: http://devicetree.org/schemas/usb/cypr=
+ess,hx3.yaml#
+> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2:
+> compatible: ['usb4b4,6500', 'usb4b4,6504'] is too long
+> =E2=80=83=E2=80=83from schema $id: http://devicetree.org/schemas/usb/cypr=
+ess,hx3.yaml#
+>=20
+> I'm not sure we're allowed to add new errors with dtbs_check (and would l=
+ike
+> to avoid it in any case).
 
-> +		}
-> +
-> +		fep->br_offload = 1;
-> +		mtip_switch_dis_port_separation(fep);
-> +		mtip_clear_atable(fep);
-> +	}
-> +
-> +	if (!priv->master_dev)
-> +		priv->master_dev = br_ndev;
-> +
-> +	fep->br_members |= BIT(priv->portnum - 1);
-> +
-> +	dev_dbg(&ndev->dev,
-> +		"%s: ndev: %s br: %s fep: 0x%x members: 0x%x offload: %d\n",
-> +		__func__, ndev->name,  br_ndev->name, (unsigned int)fep,
-> +		fep->br_members, fep->br_offload);
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static void mtip_netdevice_port_unlink(struct net_device *ndev)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(ndev);
-> +	struct switch_enet_private *fep = priv->fep;
-> +
-> +	dev_dbg(&ndev->dev, "%s: ndev: %s members: 0x%x\n", __func__,
-> +		ndev->name, fep->br_members);
-> +
-> +	fep->br_members &= ~BIT(priv->portnum - 1);
-> +	priv->master_dev = NULL;
-> +
-> +	if (!fep->br_members) {
-> +		fep->br_offload = 0;
-> +		mtip_switch_en_port_separation(fep);
-> +		mtip_clear_atable(fep);
-> +	}
+Ah, the restriction I think comes from the usb-device binding. Maybe
+just leave it as you had it?
 
-This does not look quite correct. So you disable port separation once
-both ports are a member of the same bridge. So you should enable port
-separation as soon as one leaves. So if fep->br_members has 0 or 1
-bits set, you need to enable port separation.
+--siX/JzAbfY5Bb/0r
+Content-Type: application/pgp-signature; name="signature.asc"
 
-	Andrew
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ/bmWwAKCRB4tDGHoIJi
+0t8XAQDCNdCD4zh7JrShscGp2cZzh9+XhRC1yUwBkP1mgikpJAD/UgJNyrT10N/J
+5bTLDt8O/UvBlsOZQcNilW6mXhfNhgU=
+=II5O
+-----END PGP SIGNATURE-----
+
+--siX/JzAbfY5Bb/0r--
 
