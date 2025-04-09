@@ -4,81 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD0B1C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 17:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3BB6C36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 17:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UM4m3Mde9o4vidOLzyc1GO4s3Gjx0tsMS/RFuPy221Q=; b=jQU/qAB35GPJGp8WxkDgJ0CUlP
-	SX2Io79IKwy+vjO7+GsKz+PwAN28dLLG3MeySlzzOHs4i1js/xK96gTAMfQAp7s3GAQ4Jjfrm17Pb
-	jgyONzry54OAthbNUvzm80IOn14U6+pKtjPLLCjtVd6MjFq897sMzvlctQyu9RRuOFfVB1jvptjwG
-	V7WyvXOV9XlT/3Z6EDipa7T1UNkDFBdAlAwcVFQt1kb6hqd9en4JS+WZ/7JAjYBOCohUE6rYQktXD
-	xd+H0PPhXTFzEmftIL3d+YhjssLTga9fzkH9oY9R3Fsp9EF5urL5RLB0NegW/0W5u34YvUKxNd8oo
-	28g4qqGA==;
+	bh=k+/H0ybkUq7HVu5uBj7V7TDncclF2UN1EMmyx3scUCw=; b=MNCJUOZ2QoNSvGT3dJwwi5IWw0
+	Wcae8eAYBh+JxLzw8RWPZya4ZShFWC1BR3TK0dTW9TxWwDfnF7sXrti3E8yKBX66BGqDlGlTzq/Tv
+	zDVMv4RzEBe20HnuDHLuvTQTQFyDnZH+DRhH5G7fVTAtUQkmPe2cc5NfWTwzY9TSnrZTxdUDKXDLI
+	85WS5B6nKm1pJChBkHZNVqv1ZXgrkuqjOnAwUvaROu50qjR9ZDDhPAdH9rm8PQWsWwYU3Wjzq+KOu
+	wBjKWO0hJmqspIorLk2yzgDV7bginXt1rzrU9u32ebGW16Q7bHZg0F3t7uOs9itkD3TYIf2id5Z9A
+	7Ulsveqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Yx8-0000000807B-3tiB;
-	Wed, 09 Apr 2025 17:11:07 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1u2Yyt-000000080U4-3Eps;
+	Wed, 09 Apr 2025 17:12:55 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2YhH-00000007x7E-2MUE
+	id 1u2YjH-00000007xX2-01Un
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 16:54:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744217683; x=1775753683;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=CkdD8WTawyvkMWA0pApt7fupfnySbd1tQnhqBqLJ26E=;
-  b=e48ndtjeNHNlSB6MWXWPfvijft3KGTjk9a81YpCse9iFBFqQ26uY3ATI
-   CZIguJlUyt0EKlzmnqwJjbUsq01sgNprgNdGKKJ2o3cZxNhD3Y67G8Sxa
-   aQ/D9HGvxeW7m7feWAo4Ig8VKrStG67Q8qftd55hDIsKUXpHZpixqcrsu
-   5p9u/zTiLqCyb/c41Kshbik6vd1Z3LQ0pdEk/shGpGSi/44KhpPoY/U9r
-   NUTJqk4CDndQk8SiqG7jrP4WcO6pC/AkXMyoxf54ssP5ao+7k0+6sPN05
-   pUjcivIddPby0vEW3RN4LZ1xZvnlBf+1Z6IzxtHxx9FOxsA5O8sP0/WnK
-   g==;
-X-CSE-ConnectionGUID: gdMq0S7ZRrq1VQ96BKgtSw==
-X-CSE-MsgGUID: n6AJUOioTN2/9iqFv0alyA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11399"; a="45720632"
-X-IronPort-AV: E=Sophos;i="6.15,201,1739865600"; 
-   d="scan'208";a="45720632"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2025 09:54:42 -0700
-X-CSE-ConnectionGUID: yGzfegqHS0aj8hVI6JO4zg==
-X-CSE-MsgGUID: EwcFTrDiRBushl/Lyvubkw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,201,1739865600"; 
-   d="scan'208";a="133623790"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2025 09:54:41 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1u2YhC-0000000Anhq-0o0A;
-	Wed, 09 Apr 2025 19:54:38 +0300
-Date: Wed, 9 Apr 2025 19:54:37 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 07/10] [RESEND] ARM: fixmap: make
- __end_of_early_ioremap_region an enum value
-Message-ID: <Z_amTf35QzLdHirV@smile.fi.intel.com>
-References: <20250409122131.2766719-1-arnd@kernel.org>
- <20250409122314.2848028-1-arnd@kernel.org>
- <20250409122314.2848028-7-arnd@kernel.org>
+	Wed, 09 Apr 2025 16:56:48 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-22401f4d35aso82126705ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 09:56:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744217806; x=1744822606; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=k+/H0ybkUq7HVu5uBj7V7TDncclF2UN1EMmyx3scUCw=;
+        b=jnSdPnXX+D6R7M/OrGEnXN7Gdan85E9etvfEEw86kIauhtX834mMNbfKeZRumn/iDX
+         HIbHxDymY9xUh1eDXIP3OHYbw6L1liAagDMt5Uzue6IWlvYmpKGcpOw5/uept+71z6yQ
+         dFob8dGsMVzeb+lPpzeSa9MHIBQPh0hUZaMSsAH6bHum/Bt8XMsQN6LIeotgWZ4+EFCE
+         /r328PSp84AuHm8UmYBEp4e47XdS3UGKmIKBWeGhiMIw57Zb9W42pEaHjQEu3Uim9G9B
+         WWe4cF5LIhtE0z+Ix5xhWwfRroKPUfKFTs198kVc3aHFhA8GQ7qQr4S4y8UrM5hsYl9X
+         aaTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744217806; x=1744822606;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=k+/H0ybkUq7HVu5uBj7V7TDncclF2UN1EMmyx3scUCw=;
+        b=J2I2yu1GlKWY7jApjNzio6koD4OSQENmq37WnvvdjCvIg4qcSLwehgB4u6io6mkEf+
+         UCdrUQNJIV65rU8txhz12qqp/ttUl7YQXcki5YzFe07VpyPCDGy+N1ZLYlEuQhhJ3qOw
+         lwVeS622A0nsS/Yjqn5gN2bwkexkCW356Mj1xb1+aJ1luBML7I4WznwzsLkW0/RHb81z
+         q9wJ4O7urJWK+l/1ICil2BbRgZ1BfdUmtwh6fFK9JIiwKxrnIbGkywUntJwwMcMKBoag
+         c9xnqmTiy0pN6Jx0aLj71pHUue3ZSoq/AqthbF2kjs1EKXOwLxOtcoXIHt2oxpkoH8Gt
+         NhfA==
+X-Forwarded-Encrypted: i=1; AJvYcCUDnwOIg7Mh/ZRS2lUZgNJn7GSXh6e/NlofNJnZZ0B5qBfHfaJBHtgW3tfPmv+U/qBysJOWz4jcFNIsW2zwLE4j@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOwqqYQffNz6NOnpFlIs5mDM5uaQC1y4CCz8CTDQBNQ7g709vq
+	G1nENdZuGfa4oApLD5r/u1Q/PBkCTfPkQP4jY9Rtld7e3d3IZ8g8KhlH7I8fVA==
+X-Gm-Gg: ASbGncuatZQElO2anD65OEY1a6fMSyLNaXNKm21ywdBCB/BuW+sbJj5n3652R3UDFmM
+	UwoksBaQ7EPbDnrjDm8+TrnapEDFQOIUWhAtVD+847UfP4t4kqSFxDHAU/Cwf5ol/gFJgYoyzQg
+	6PhKnYcfEn7bx3fp4zHock3wi7F1/67ULT/N5sJq/S8I4+cl8bcf0foOgJNuJZd6fYA1Vu+f2s7
+	rFpAO3n3iVR6cll8fYjlgf47SYL6Z/CO6xiiblQ4QxMNIdh7rszDbWCI+zVhQZej3DrHYfNIloo
+	ZHiteo8TBVnFINx6SsTROku2bf7AO6fqtAI300ySUGaysKALORw=
+X-Google-Smtp-Source: AGHT+IFz5w1COIo2PYC62wmrQx0adK5Tc3rBe8Psp1oZp/1xQGb6NWLXzX+rUW4TKFX3JOsAMmmtsQ==
+X-Received: by 2002:a17:903:1787:b0:224:1220:7f40 with SMTP id d9443c01a7336-22ac298441fmr50556105ad.3.1744217806079;
+        Wed, 09 Apr 2025 09:56:46 -0700 (PDT)
+Received: from thinkpad ([120.56.198.53])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7cda517sm14384085ad.250.2025.04.09.09.56.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Apr 2025 09:56:45 -0700 (PDT)
+Date: Wed, 9 Apr 2025 22:26:39 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, lpieralisi@kernel.org, 
+	kw@linux.com, robh@kernel.org, bhelgaas@google.com, vigneshr@ti.com, 
+	kishon@kernel.org, wojciech.jasko-EXT@continental-corporation.com, 
+	thomas.richard@bootlin.com, bwawrzyn@cisco.com, linux-pci@vger.kernel.org, 
+	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com, dlemoal@kernel.org
+Subject: Re: [PATCH 3/4] PCI: cadence-ep: Introduce cdns_pcie_ep_disable
+ helper for cleanup
+Message-ID: <itmjxj5kuy7cloeplhwqxyumcx7rrzvdudxilg6fswrtxqcl7l@oa2uvswe2ups>
+References: <20250307103128.3287497-1-s-vadapalli@ti.com>
+ <20250307103128.3287497-4-s-vadapalli@ti.com>
+ <20250318080304.jsmrxqil6pn74nzh@thinkpad>
+ <20250318081239.rvbk3rqud7wcj5pj@uda0492258>
+ <20250319103217.aaoxpzk2baqna5vc@thinkpad>
+ <Z-vN8_-HJ0K1-1mH@ryzen>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250409122314.2848028-7-arnd@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z-vN8_-HJ0K1-1mH@ryzen>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_095443_664074_224538D6 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20250409_095647_050103_D71576E6 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +108,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 02:22:59PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Tue, Apr 01, 2025 at 01:28:51PM +0200, Niklas Cassel wrote:
+> Hello Mani,
 > 
-> Building with W=1 shows warnings for the __end_of_fixed_addresses
-> definition:
+> On Wed, Mar 19, 2025 at 04:02:17PM +0530, Manivannan Sadhasivam wrote:
+> > > 
+> > > While I don't intend to justify dropping pci_epc_deinit_notify() in the
+> > > cleanup path, I wanted to check if this should be added to
+> > > dw_pcie_ep_deinit() as well. Or is it the case that dw_pcie_ep_deinit()
+> > > is different from cdns_pcie_ep_disable()? Please let me know.
+> > > 
+> > 
+> > Reason why it was not added to dw_pcie_ep_deinit() because, deinit_notify() is
+> > supposed to be called while performing the resource cleanup with active refclk.
+> > 
+> > Some plaforms (Tegra, Qcom) depend on refclk from host. So if deinit_notify() is
+> > called when there is no refclk, it will crash the endpoint SoC. But since
+> > cadence endpoint platforms seem to generate their own refclk, you can call
+> > deinit_notify() during deinit phase.
+> > 
+> > That said, I noticed some issues in the DWC cleanup path while checking the code
+> > now. Will submit fixes for them.
 > 
->     In file included from mm/early_ioremap.c:18:
->     arch/arm/include/asm/fixmap.h:39:35: error: '__end_of_fixed_addresses' defined but not used [-Werror=unused-const-variable=]
+> Could you please elaborate quickly what issues you found?
 > 
-> Move the calculation slightly up in the file into the enum that
-> contains __end_of_fixmap_region and __end_of_early_ioremap_region.
 
-...
+(1)
 
+dw_pcie_ep_deinit()
+	-> dw_pcie_ep_cleanup()
+		-> dw_pcie_edma_remove()
 
-Maybe format it
+But dw_pcie_ep_init() is not calling dw_pcie_edma_detect(). It is called by
+dw_pcie_ep_init_registers(). So dw_pcie_ep_init() and dw_pcie_ep_deinit() not
+symmetrical.
 
-> +	__end_of_fixed_addresses = __end_of_fixmap_region > __end_of_early_ioremap_region ?
-> +				   __end_of_fixmap_region : __end_of_early_ioremap_region,
+(2)
 
-as
+We are not calling pci_epc_deinit_notify() in non-PREST# supported controller
+drivers. I think this could be fixed by moving it inside dw_pcie_ep_cleanup().
 
-	__end_of_fixed_addresses =
-		__end_of_fixmap_region > __end_of_early_ioremap_region ?
-		__end_of_fixmap_region : __end_of_early_ioremap_region,
-
-?
+- Mani
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+மணிவண்ணன் சதாசிவம்
 
