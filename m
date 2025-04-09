@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F7C7C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF95C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 16:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q5sS2eh3btJ446kmMhh3DLSUPGeul7+47Pg1GqffRzk=; b=HHnnKR005aBfzFft5NdtbeITzn
-	w7X2HUKTyyE+bKJuR0agiBxgiUMp703bYL1JkIPGEFsxHY3N5NjP49Z9WTZOeUX0TYZgbbtKBW0Ld
-	RLlbNE6WaoWSvAE8uYNnvz2HiKDDT6/7Ateuj9SUrVFA10TxnZAw5kkuXPlkWfn0UrE/J/VTbmRVo
-	LEhsuKbUn3Ogy8Fq7/HjZiDczINVUSy+R4R7FTOwjhEUl2juQncU+55JMVpgxJc52SgXTLziwMUpI
-	tQwcgajWS8T7UoCuc0KiPWjLqZTz6Pp3rpGdtc9gEPT72Hl09k4FA2Zy2wwhPvXJfE6tgSzfMHFsT
-	sWMEosMw==;
+	bh=aAzktJ/0XlnB3gGEY/g9nF8A2Lqw4IqxaUM2olb9mzY=; b=E/yYydgEU7HQo+d9MsnJnDcLw3
+	5D5bNyUDWfcJCyPhnsQTq76f1KN9GawyWzLX47nVwU177vNJmgMGGNHjo7Vj03whlZOrgL4HrWKth
+	vUO4mcGS8euGbjytTqxpuUU4m14XdrHCwC6PgTStAZ/Z80n0sZdpfaQFRQEUZD39T7I5Avz7s9KH9
+	H4JMqOPKEk7I49BOuGwTsxuV1w6S7HKEvd58rw3StdiuBvZPpU9R1W2Io5i+/Slj26QlZ925sgXEQ
+	6JlrrQFQZSY+ha3LXZhYtW0dRalv76gHvZRE0SoS9AHXpugQ9A9D9fusowXhOQlI7tH9s36AJIPJl
+	ol5EJd3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Xyg-00000007pkn-3e5b;
-	Wed, 09 Apr 2025 16:08:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u2Y0R-00000007qBs-2cHI;
+	Wed, 09 Apr 2025 16:10:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Xrf-00000007oQv-1Plj
+	id 1u2Xrf-00000007oQt-1aAm
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 09 Apr 2025 16:01:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D8B8E4A2B4;
+	by sea.source.kernel.org (Postfix) with ESMTP id 96F6F4A0DF;
 	Wed,  9 Apr 2025 16:01:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86EDBC4CEE7;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 486B4C4CEEC;
 	Wed,  9 Apr 2025 16:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1744214482;
-	bh=mb8s/MzbKBQB17RzAzQ/S/4pMWUcDmms5theZIKN8/A=;
+	bh=DHz376aawgvSsxJ0B6qhnTizqqNaXEuRGrIx/tSGW18=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bms5SEz83xdYSqY00L1AJHIos4q33k/pFvSvwOgjEXu5aPcK7IiWx+jIdUO/G6FKN
-	 zVEwnp6fe8g21uIMJoeTJdIABMnO5mQSfaF+z4V14vCH+IICZyepyAHsfBFWgaSWYW
-	 TJgcAnmvHpxT/lTI0XktJBbAxfndKpBYmb6wYVZyaZGGYKdBMcnbaqy1HYtgpuSMun
-	 ovoll88/zudVvzyzvI/+BBy/KlBwmkPud8iAZUqv2xzSouAkRsmbCWe//A33eWT5Du
-	 DmbuLSYQEmoCdWdQozwNksoHLFewb8J2uPQdTh8mIhW9H1tQx1OAv75Atfj0wXderq
-	 ugxkPw5qvHwZw==
+	b=AMQXwYudUx6ShJLREac/0zMnj7zJOIiGAGOk6oNMfi+XrKJGjizhGDHjnJToym3qa
+	 DHErx8QYMBarPGokHjnLDT0jQDQLiGPvJURpcvox9I34IlALY8Clfl6uQToah/V0ea
+	 38vk/UhIBA3zfsQNbZmunRx9yvIGIuyQRDEOaXWCxP0E2Xq4aWDdpRghQ8+1ZylPDQ
+	 wde9OIGb3boDO1QeeVCBajP08JBsuAmIOLB5oQUlVanHusy1vv51GFn+Yn20MOvkGc
+	 zSAdnJTsQhyh1A03XiiWAvO2bA6IPnOYXkMiJYsLpeW+LjnwiNsgZ/WoeUDVY9LF1v
+	 OXc2nXE9rjj8g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u2Xrc-003vQT-J6;
+	id 1u2Xrc-003vQT-CS;
 	Wed, 09 Apr 2025 17:01:20 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -55,9 +55,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 3/6] KVM: arm64: Allow userspace to limit the number of PMU counters for EL2 VMs
-Date: Wed,  9 Apr 2025 17:01:03 +0100
-Message-Id: <20250409160106.6445-4-maz@kernel.org>
+Subject: [PATCH v2 2/6] KVM: arm64: Contextualise the handling of PMCR_EL0.P writes
+Date: Wed,  9 Apr 2025 17:01:02 +0100
+Message-Id: <20250409160106.6445-3-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250409160106.6445-1-maz@kernel.org>
 References: <20250409160106.6445-1-maz@kernel.org>
@@ -68,8 +68,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_090123_425415_F129FDA0 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20250409_090123_441896_42F40277 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,127 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As long as we had purely EL1 VMs, we could easily update the number
-of guest-visible counters by letting userspace write to PMCR_EL0.N.
+Contrary to what the comment says in kvm_pmu_handle_pmcr(),
+writing PMCR_EL0.P==1 has the following effects:
 
-With VMs started at EL2, PMCR_EL1.N only reflects MDCR_EL2.HPMN,
-and we don't have a good way to limit it.
+<quote>
+The event counters affected by this field are:
+  * All event counters in the first range.
+  * If any of the following are true, all event counters in the second
+    range:
+    - EL2 is disabled or not implemented in the current Security state.
+    - The PE is executing at EL2 or EL3.
+</quote>
 
-For this purpose, introduce a new PMUv3 attribute that allows
-limiting the maximum number of counters. This requires the explicit
-selection of a PMU.
+where the "first range" represent the counters in the [0..HPMN-1]
+range, and the "second range" the counters in the [HPMN..MAX] range.
 
-Suggested-by: Oliver Upton <oliver.upton@linux.dev>
+It so appears that writing P from EL2 should nuke all counters,
+and not just the "guest" view. Just do that, and nuke the misleading
+comment.
+
+Reported-by: Joey Gouly <joey.gouly@arm.com>
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- Documentation/virt/kvm/devices/vcpu.rst | 24 ++++++++++++++++++++++++
- arch/arm64/include/uapi/asm/kvm.h       |  9 +++++----
- arch/arm64/kvm/pmu-emul.c               | 24 ++++++++++++++++++++++++
- 3 files changed, 53 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/pmu-emul.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-index 31a9576c07afa..6eef154a2e396 100644
---- a/Documentation/virt/kvm/devices/vcpu.rst
-+++ b/Documentation/virt/kvm/devices/vcpu.rst
-@@ -137,6 +137,30 @@ exit_reason = KVM_EXIT_FAIL_ENTRY and populate the fail_entry struct by setting
- hardare_entry_failure_reason field to KVM_EXIT_FAIL_ENTRY_CPU_UNSUPPORTED and
- the cpu field to the processor id.
- 
-+1.5 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_SET_PMCR_N
-+---------------------------------------------
-+
-+:Parameters: in kvm_device_attr.addr the address to an unsigned int
-+	     representing the maximum value taken by PMCR_EL0.N
-+
-+:Returns:
-+
-+	 =======  ====================================================
-+	 -EBUSY   PMUv3 already initialized, a VCPU has already run or
-+                  an event filter has already been set
-+	 -EFAULT  Error accessing the value pointed to by addr
-+	 -ENODEV  PMUv3 not supported or GIC not initialized
-+	 -EINVAL  No PMUv3 explicitly selected, or value of N out of
-+	 	  range
-+	 =======  ====================================================
-+
-+Update the maximum value allowed in PMCR_EL0.N, defining the number of
-+counters visible to the guest. This mandates that a PMU has
-+explicitly been selected via KVM_ARM_VCPU_PMU_V3_SET_PMU, and will
-+fail when no PMU has been explicitly selected, or the number of
-+counters is out of range for the selected PMU. Selecting a new PMU
-+cancels the effect of setting this attribute.
-+
- 2. GROUP: KVM_ARM_VCPU_TIMER_CTRL
- =================================
- 
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-index af9d9acaf9975..a1b106780cf9d 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -431,10 +431,11 @@ enum {
- 
- /* Device Control API on vcpu fd */
- #define KVM_ARM_VCPU_PMU_V3_CTRL	0
--#define   KVM_ARM_VCPU_PMU_V3_IRQ	0
--#define   KVM_ARM_VCPU_PMU_V3_INIT	1
--#define   KVM_ARM_VCPU_PMU_V3_FILTER	2
--#define   KVM_ARM_VCPU_PMU_V3_SET_PMU	3
-+#define   KVM_ARM_VCPU_PMU_V3_IRQ		0
-+#define   KVM_ARM_VCPU_PMU_V3_INIT		1
-+#define   KVM_ARM_VCPU_PMU_V3_FILTER		2
-+#define   KVM_ARM_VCPU_PMU_V3_SET_PMU		3
-+#define   KVM_ARM_VCPU_PMU_V3_SET_PMCR_N	4
- #define KVM_ARM_VCPU_TIMER_CTRL		1
- #define   KVM_ARM_VCPU_TIMER_IRQ_VTIMER		0
- #define   KVM_ARM_VCPU_TIMER_IRQ_PTIMER		1
 diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index f3650f2f2d468..01fda19b0c825 100644
+index 4dc4f3a473c3f..f3650f2f2d468 100644
 --- a/arch/arm64/kvm/pmu-emul.c
 +++ b/arch/arm64/kvm/pmu-emul.c
-@@ -1099,6 +1099,20 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
- 	return ret;
- }
+@@ -608,14 +608,12 @@ void kvm_pmu_handle_pmcr(struct kvm_vcpu *vcpu, u64 val)
+ 		kvm_pmu_set_counter_value(vcpu, ARMV8_PMU_CYCLE_IDX, 0);
  
-+static int kvm_arm_pmu_v3_set_pmcr_n(struct kvm_vcpu *vcpu, unsigned int n)
-+{
-+	struct kvm *kvm = vcpu->kvm;
-+
-+	if (!kvm->arch.arm_pmu)
-+		return -EINVAL;
-+
-+	if (n > kvm_arm_pmu_get_max_counters(kvm))
-+		return -EINVAL;
-+
-+	kvm->arch.pmcr_n = n;
-+	return 0;
-+}
-+
- int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
- {
- 	struct kvm *kvm = vcpu->kvm;
-@@ -1195,6 +1209,15 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ 	if (val & ARMV8_PMU_PMCR_P) {
+-		/*
+-		 * Unlike other PMU sysregs, the controls in PMCR_EL0 always apply
+-		 * to the 'guest' range of counters and never the 'hyp' range.
+-		 */
+ 		unsigned long mask = kvm_pmu_implemented_counter_mask(vcpu) &
+-				     ~kvm_pmu_hyp_counter_mask(vcpu) &
+ 				     ~BIT(ARMV8_PMU_CYCLE_IDX);
  
- 		return kvm_arm_pmu_v3_set_pmu(vcpu, pmu_id);
- 	}
-+	case KVM_ARM_VCPU_PMU_V3_SET_PMCR_N: {
-+		unsigned int __user *uaddr = (unsigned int __user *)(long)attr->addr;
-+		unsigned int n;
++		if (!vcpu_is_el2(vcpu))
++			mask &= ~kvm_pmu_hyp_counter_mask(vcpu);
 +
-+		if (get_user(n, uaddr))
-+			return -EFAULT;
-+
-+		return kvm_arm_pmu_v3_set_pmcr_n(vcpu, n);
-+	}
- 	case KVM_ARM_VCPU_PMU_V3_INIT:
- 		return kvm_arm_pmu_v3_init(vcpu);
- 	}
-@@ -1233,6 +1256,7 @@ int kvm_arm_pmu_v3_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
- 	case KVM_ARM_VCPU_PMU_V3_INIT:
- 	case KVM_ARM_VCPU_PMU_V3_FILTER:
- 	case KVM_ARM_VCPU_PMU_V3_SET_PMU:
-+	case KVM_ARM_VCPU_PMU_V3_SET_PMCR_N:
- 		if (kvm_vcpu_has_pmu(vcpu))
- 			return 0;
+ 		for_each_set_bit(i, &mask, 32)
+ 			kvm_pmu_set_pmc_value(kvm_vcpu_idx_to_pmc(vcpu, i), 0, true);
  	}
 -- 
 2.39.2
