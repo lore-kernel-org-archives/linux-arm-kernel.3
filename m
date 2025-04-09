@@ -4,109 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A29A0C36002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 15:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B6AAC36002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  9 Apr 2025 15:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lhtq1pefqTUVYOAkJzIOHqWiVsfsbUWsRek0JSSJoaM=; b=ND3ExT65OFGV+uymVvmw7UYfR1
-	Eo4cy8V6dpTSFNBqhJUoljzW29NHswfl6WeCqMx7mg4ME8oxU5xQ94+Fei6D9tzmV3jYnUM8bZ8DM
-	Oy2qVHhlY/oDy1FZEUhuMfR2e/dFGepYTkS7W6JgHClTTsn6B0LZRauow1W/ABBLgrkXAmXIrML/i
-	eWYa/vIk1wBjqudY+eLo+Qgfj97LG1pmQl7FeYQRWQLRNCQe1QMkLrxuT30F0TrJ+qh0ggihzEtxS
-	zWYBPAw5xJt5Ai4syvEyQh8KqWEYVquOfgyT7HNxVIrkh+q3vM9zaBgrSGqHV54zNROzFdS/BFeMt
-	yC4BwEYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AePvhI2SXWmJLqUoOjPYK90Odz11O+/6J4DVCQO4bY4=; b=B06rTUe/SgSnwXQpKdzxIkBPCh
+	i04lxFMzX9nF1GSTLmbiEJNJ5Fqiqh3+/VogsLM8D0TYRXnVwqN6PMvV9KeViM8NkS8aBu1YMHgJ3
+	BSoEIs5Oz/pVSy5jVFcr1dgipN61zsovUKSWvMMImJI24WZ4hdTZth/9rK5ypE8UvJHd5rFPP9u7j
+	de7GC3Qhd6h8y58/cIdUBnoCMhO7AAxzDORo4KKXB4XM3p4n7QLjxPUjdx8Xe/lj+/NPqvSp07/mf
+	TYASUhM512wGhLEUH/pUX5bt/w4XV6n4dr+Nmtq5xzTFKIDx3BTAqbjlOuaod9yZPWkWRDtnwr1WX
+	3U2Pjmqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2XDj-00000007eYl-44Ni;
-	Wed, 09 Apr 2025 15:20:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2WyO-00000007b44-3vCp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 09 Apr 2025 15:04:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Lhtq1pefqTUVYOAkJzIOHqWiVsfsbUWsRek0JSSJoaM=; b=ZNuTEhtVdUCIDP2WCjWFCDa3Vj
-	yyI9nRj/7gj7jwXEwvnLlL0jDs7gTUsaOmGWFRwwQAVtj4IXTRDGRJf/JBHWTYFHpzE66nSO0N0D3
-	PL01xYILElcRZD7OTWF3JNZOOhpi87LLY/+RfqLdgtw/m47koVWgDkzWPxlHI1hXNhgVt/rkL0SdJ
-	cBKkVhMTttPASnoicPOyOJ2Agpw+rEYRXOGZvm80bOz/Mg5XvqXX1Rx6GhFEGmLegVG4YQYyIzhUU
-	SlvV0zj+H0eBVWPvjbGZAeS7LVFnCNfA7p/R652CdDIUoeUAggyWyFdwclrbzOZpEDNLaOyoDEYz0
-	11bzGmlQ==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2WyL-00000008ddk-14cR
+	id 1u2XFT-00000007erT-3nmr;
+	Wed, 09 Apr 2025 15:21:55 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2X4k-00000007cSb-1Mhc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 09 Apr 2025 15:04:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Lhtq1pefqTUVYOAkJzIOHqWiVsfsbUWsRek0JSSJoaM=; b=EDb9t9ug3VAuhsP2v5wV6dRtb9
-	iS7Wnq8zgIJ18meTszE5HNwkmgb/DJWG2rzHMpIlo2YO2DjOhaxa1Afh/x+VSB6uO5Dtr7QEl5l6y
-	CTgeIulElJ7lZgvn0u/oTdY7ogOeKQ9FUbXWyrwgM8EocLlJ/LQT6+wOPKMDD0UK5Eds=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u2Wxt-008Ymd-Uk; Wed, 09 Apr 2025 17:03:45 +0200
-Date: Wed, 9 Apr 2025 17:03:45 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Cc: Herve Codina <herve.codina@bootlin.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 15/16] misc: lan966x_pci: Add dtso nodes in order to
- support SFPs
-Message-ID: <c6257afe-36bb-46d8-8c22-da3b85028105@lunn.ch>
-References: <20250407145546.270683-1-herve.codina@bootlin.com>
- <20250407145546.270683-16-herve.codina@bootlin.com>
- <19f1a382-1b6b-42bd-a548-a1a5644c9a1b@lunn.ch>
- <20250408162603.02d6c3a1@bootlin.com>
- <D91CSNC07NYM.3KC467K0OZ4GG@bootlin.com>
- <c14dd5c6-2dae-4398-89a9-342e7a25bb30@lunn.ch>
- <D91XV1I4CY37.20T12FMZ5QLQ5@bootlin.com>
- <b1b33000-4c10-43cd-bcf4-d24fc73902b1@lunn.ch>
- <20250409161444.6158d388@windsurf>
+	Wed, 09 Apr 2025 15:10:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=nsBLPsTvN38zqZ7XLV3XXpP451e6QwNbgp2j43yn7Vs=; b=G
+	UkKmlg49Qai7KCvxxafh6vTCGInchXnp22q/mHTJCVznnB9wswN6gktrvJAOyy6n
+	1i6lwoT/pcmWAzCFOP2CDhj/IE0poU3pQA2Hww3DJcRlfrJncauM4Z0Ozz9kwzG6
+	2mOV8KfbooJhpxPEpb35j4lkw5w3Dt7obUyVqp31Mk=
+Received: from xavier_qy$163.com ( [2408:820c:340b:d070:c540:cde:b0c8:b3ab]
+ ) by ajax-webmail-wmsvr-40-117 (Coremail) ; Wed, 9 Apr 2025 23:10:17 +0800
+ (CST)
+X-Originating-IP: [2408:820c:340b:d070:c540:cde:b0c8:b3ab]
+Date: Wed, 9 Apr 2025 23:10:17 +0800 (CST)
+From: Xavier  <xavier_qy@163.com>
+To: "Gavin Shan" <gshan@redhat.com>
+Cc: dev.jain@arm.com, akpm@linux-foundation.org, baohua@kernel.org,
+	ryan.roberts@arm.com, catalin.marinas@arm.com, ioworker0@gmail.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	will@kernel.org
+Subject: Re:Re: [PATCH v2 1/1] mm/contpte: Optimize loop to reduce redundant
+ operations
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
+ Copyright (c) 2002-2025 www.mailtech.cn 163com
+In-Reply-To: <34a4bf01-6324-482b-a011-32974d68e02f@redhat.com>
+References: <027cc666-a562-46fa-bca5-1122ea00ec0e@arm.com>
+ <20250408085809.2217618-1-xavier_qy@163.com>
+ <20250408085809.2217618-2-xavier_qy@163.com>
+ <34a4bf01-6324-482b-a011-32974d68e02f@redhat.com>
+X-NTES-SC: AL_Qu2fBv6avkwq4SieY+kfmk4QgeY+WMW1vP4m34NSN5FwjD/pywkgQGVSIETq9eO0NCSzmgmGehVR0OBiRbhaTaA3b0gv6O+zHMLliZXa4jTDGA==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250409161444.6158d388@windsurf>
+Message-ID: <711cf430.b25d.1961b1a1b0e.Coremail.xavier_qy@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: dSgvCgCXv2vZjfZnXrSSAA--.27650W
+X-CM-SenderInfo: 50dyxvpubt5qqrwthudrp/1tbiTgcqEGf18hkl0QAGs4
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_160413_377148_BCBD7973 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20250409_081050_687575_A8CB9D07 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,29 +80,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 04:14:44PM +0200, Thomas Petazzoni wrote:
-> On Wed, 9 Apr 2025 16:04:51 +0200
-> Andrew Lunn <andrew@lunn.ch> wrote:
-> 
-> > And you need some way to map the PCI ID to the correct .dtso file.
-> > Maybe that is just a lookup table in the driver, or maybe you can pack
-> > the .dtso file into a kernel module with the correct
-> > MODULE_DEVICE_TABLE(pci, ...) so that PCI probing pulls in the
-> > specific driver module with the .dtso, which via dependencies pulls in
-> > the core driver which can actually make use of the .dtso?
-> 
-> Well, check the already upstream driver:
-> 
->   https://elixir.bootlin.com/linux/v6.13.7/source/drivers/misc/lan966x_pci.c
-> 
-> It indeed binds on the PCI ID, and the driver bundles the .dtbo.
-
-So it only supports a single .dtbo. In its current form it does not
-scale to multiple .dtso files for multiple different boards built
-around the PCIe chip.
-
-At the moment, that is not really an issue, but when the second board
-comes along, some refactoring will be needed.
-
-      Andrew
+CgpIaSBHYXZpbiwKClRoYW5rIHlvdSBmb3IgY2FyZWZ1bGx5IHJldmlld2luZyB0aGlzIHBhdGNo
+IGFuZCByYWlzaW5nIHlvdXIgcXVlc3Rpb25zLiAKSSdsbCB0cnkgdG8gZXhwbGFpbiBhbmQgYW5z
+d2VyIHRoZW0gYmVsb3cuCgoKQXQgMjAyNS0wNC0wOSAxMjowOTo0OCwgIkdhdmluIFNoYW4iIDxn
+c2hhbkByZWRoYXQuY29tPiB3cm90ZToKPkhpIFhhdmllciwKPgo+T24gNC84LzI1IDY6NTggUE0s
+IFhhdmllciB3cm90ZToKPj4gVGhpcyBjb21taXQgb3B0aW1pemVzIHRoZSBjb250cHRlX3B0ZXBf
+Z2V0IGZ1bmN0aW9uIGJ5IGFkZGluZyBlYXJseQo+PiAgIHRlcm1pbmF0aW9uIGxvZ2ljLiBJdCBj
+aGVja3MgaWYgdGhlIGRpcnR5IGFuZCB5b3VuZyBiaXRzIG9mIG9yaWdfcHRlCj4+ICAgYXJlIGFs
+cmVhZHkgc2V0IGFuZCBza2lwcyByZWR1bmRhbnQgYml0LXNldHRpbmcgb3BlcmF0aW9ucyBkdXJp
+bmcKPj4gICB0aGUgbG9vcC4gVGhpcyByZWR1Y2VzIHVubmVjZXNzYXJ5IGl0ZXJhdGlvbnMgYW5k
+IGltcHJvdmVzIHBlcmZvcm1hbmNlLgo+PiAKPj4gU2lnbmVkLW9mZi1ieTogWGF2aWVyIDx4YXZp
+ZXJfcXlAMTYzLmNvbT4KPj4gLS0tCj4+ICAgYXJjaC9hcm02NC9tbS9jb250cHRlLmMgfCAyMiAr
+KysrKysrKysrKysrKysrKysrKy0tCj4+ICAgMSBmaWxlIGNoYW5nZWQsIDIwIGluc2VydGlvbnMo
+KyksIDIgZGVsZXRpb25zKC0pCj4+IAo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9tbS9jb250
+cHRlLmMgYi9hcmNoL2FybTY0L21tL2NvbnRwdGUuYwo+PiBpbmRleCBiY2FjNGY1NWY5YzEuLjAz
+NGQxNTNkN2QxOSAxMDA2NDQKPj4gLS0tIGEvYXJjaC9hcm02NC9tbS9jb250cHRlLmMKPj4gKysr
+IGIvYXJjaC9hcm02NC9tbS9jb250cHRlLmMKPj4gQEAgLTE1Miw2ICsxNTIsMTggQEAgdm9pZCBf
+X2NvbnRwdGVfdHJ5X3VuZm9sZChzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWduZWQgbG9uZyBh
+ZGRyLAo+PiAgIH0KPj4gICBFWFBPUlRfU1lNQk9MX0dQTChfX2NvbnRwdGVfdHJ5X3VuZm9sZCk7
+Cj4+ICAgCj4KPkknbSB3YW5kZXJpbmcgaG93IGl0IGNhbiB3b3JrLiBNb3JlIGRldGFpbHMgYXJl
+IGdpdmVuIGJlbG93Lgo+Cj4+ICsjZGVmaW5lIENIRUNLX0NPTlRQVEVfRkxBRyhzdGFydCwgcHRl
+cCwgb3JpZ19wdGUsIGZsYWcpIFwKPj4gKwlkbyB7IFwKPj4gKwkJaW50IF9zdGFydCA9IHN0YXJ0
+OyBcCj4+ICsJCXB0ZV90ICpfcHRlcCA9IHB0ZXA7IFwKPj4gKwkJd2hpbGUgKF9zdGFydCsrIDwg
+Q09OVF9QVEVTKSB7IFwKPj4gKwkJCWlmIChwdGVfIyNmbGFnKF9fcHRlcF9nZXQoX3B0ZXArKykp
+KSB7IFwKPj4gKwkJCQlvcmlnX3B0ZSA9IHB0ZV9tayMjZmxhZyhvcmlnX3B0ZSk7IFwKPj4gKwkJ
+CQlicmVhazsgXAo+PiArCQkJfSBcCj4+ICsJCX0gXAo+PiArCX0gd2hpbGUgKDApCj4+ICsKPgo+
+Q09OVF9QVEVTIGlzIDE2IHdpdGggdGhlIGFzc3VtcHRpb24gb2YgNEtCIGJhc2UgcGFnZSBzaXpl
+LiBDSEVDS19DT05UUFRFX0ZMQUcoKQo+Y29sbGVjdHMgdGhlIGZsYWcgZm9yIHB0ZXBbc3RhcnQs
+IENPTlRfUFRFU10uCj4KPj4gICBwdGVfdCBjb250cHRlX3B0ZXBfZ2V0KHB0ZV90ICpwdGVwLCBw
+dGVfdCBvcmlnX3B0ZSkKPj4gICB7Cj4+ICAgCS8qCj4+IEBAIC0xNjksMTEgKzE4MSwxNyBAQCBw
+dGVfdCBjb250cHRlX3B0ZXBfZ2V0KHB0ZV90ICpwdGVwLCBwdGVfdCBvcmlnX3B0ZSkKPj4gICAJ
+Zm9yIChpID0gMDsgaSA8IENPTlRfUFRFUzsgaSsrLCBwdGVwKyspIHsKPj4gICAJCXB0ZSA9IF9f
+cHRlcF9nZXQocHRlcCk7Cj4+ICAgCj4+IC0JCWlmIChwdGVfZGlydHkocHRlKSkKPj4gKwkJaWYg
+KHB0ZV9kaXJ0eShwdGUpKSB7Cj4+ICAgCQkJb3JpZ19wdGUgPSBwdGVfbWtkaXJ0eShvcmlnX3B0
+ZSk7Cj4+ICsJCQlDSEVDS19DT05UUFRFX0ZMQUcoaSwgcHRlcCwgb3JpZ19wdGUsIHlvdW5nKTsK
+Pj4gKwkJCWJyZWFrOwo+PiArCQl9Cj4+ICAgCj4+IC0JCWlmIChwdGVfeW91bmcocHRlKSkKPj4g
+KwkJaWYgKHB0ZV95b3VuZyhwdGUpKSB7Cj4+ICAgCQkJb3JpZ19wdGUgPSBwdGVfbWt5b3VuZyhv
+cmlnX3B0ZSk7Cj4+ICsJCQlDSEVDS19DT05UUFRFX0ZMQUcoaSwgcHRlcCwgb3JpZ19wdGUsIGRp
+cnR5KTsKPj4gKwkJCWJyZWFrOwo+PiArCQl9Cj4+ICAgCX0KPj4gICAKPj4gICAJcmV0dXJuIG9y
+aWdfcHRlOwo+Cj5UaGVyZSBhcmUgdHdvIGlzc3VlcyBhcyBJIGNhbiBzZWU6ICgxKSBUaGUgbG9v
+cCBzdG9wcyBvbiBhbnkgZGlydHkgb3IgeW91bmcgZmxhZy4gQW5vdGhlcgo+ZmxhZyBjYW4gYmUg
+bWlzc2VkIHdoZW4gb25lIGZsYWcgaXMgc2Vlbi4gRm9yIGV4YW1wbGUsIHdoZW4gcHRlcFswXSBo
+YXMgYm90aCBkaXJ0eS95b3VuZwo+ZmxhZywgb25seSB0aGUgZGlydHkgZmxhZyBpcyBjb2xsZWN0
+ZWQuICgyKSBDSEVDS19DT05UUFRFX0ZMQUcoKSBpdGVyYXRlcyBwdGVwW2ksIENPTlRfUFRFU10s
+Cj5jb25mbGljdGluZyB0byB0aGUgb3V0ZXIgbG9vcCwgd2hpY2ggaXRlcmF0ZXMgcHRlcFswLCBD
+T05UX1BURVNdLgoKTm8gZmxhZ3Mgd2lsbCBiZSBtaXNzZWQuIFRoZSBvdXRlciBsb29wIGlzIHVz
+ZWQgdG8gY2hlY2sgZm9yIHRoZSBmaXJzdCBmbGFnLAp3aGljaCBjb3VsZCBiZSBlaXRoZXIgdGhl
+IGRpcnR5IG9yIHlvdW5nIGZsYWcuCk9uY2UgdGhpcyBmbGFnIChsZXQncyBhc3N1bWUgaXQncyB0
+aGUgZGlydHkgZmxhZykgaXMgZm91bmQgaW4gdGhlIGktdGggUFRFLAp0aGUgZGlydHkgZmxhZyBv
+ZiBvcmlnX3B0ZSB3aWxsIGJlIHNldCwgYW5kIHRoZSBjb2RlIHdpbGwgaW1tZWRpYXRlbHkgZW50
+ZXIKdGhlIGlubmVyIGxvb3AsIG5hbWVseSBDSEVDS19DT05UUFRFX0ZMQUcuIFRoaXMgaW5uZXIg
+bG9vcCB3aWxsIGNvbnRpbnVlCnRvIGNoZWNrIG9ubHkgZm9yIHRoZSB5b3VuZyBmbGFnIHN0YXJ0
+aW5nIGZyb20gdGhlIGktdGggcG9zaXRpb24sIGFuZCB3ZSBuZWVkbid0CmNvbmNlcm4gYWJvdXQg
+dGhlIGRpcnR5IGZsYWcgYW55bW9yZS4KSWYgQ0hFQ0tfQ09OVFBURV9GTEFHIGZpbmRzIHRoZSB5
+b3VuZyBmbGFnIGluIHRoZSBqLXRoIFBURSwgdGhlIHlvdW5nIGZsYWcKb2Ygb3JpZ19wdGUgd2ls
+bCBiZSBzZXQuIEF0IHRoaXMgcG9pbnQsIGJvdGggdGhlIHlvdW5nIGFuZCBkaXJ0eSBmbGFncyBv
+ZgpvcmlnX3B0ZSBoYXZlIGJlZW4gc2V0LCBhbmQgdGhlcmUncyBubyBuZWVkIGZvciBmdXJ0aGVy
+IGxvb3AganVkZ21lbnRzLCBzbwp0aGUgYm90aCB0aGUgaW5uZXIgYW5kIG91dGVyIGxvb3BzIGNh
+biBiZSBleGl0ZWQgZGlyZWN0bHkuIFRoaXMgYXBwcm9hY2gKcmVkdWNlcyB1bm5lY2Vzc2FyeSBy
+ZXBlYXRlZCB0cmF2ZXJzYWxzIGFuZCBqdWRnbWVudHMuCgo+Cj5CZXNpZGVzLCBJIGFsc28gZG91
+YnQgaG93IG11Y2ggcGVyZm9ybWFuY2UgY2FuIGJlIGdhaW5lZCBieSBiYWlsaW5nIGVhcmx5IG9u
+IChkaXJ0eSB8IHlvdW5nKS4KPkhvd2V2ZXIsIGl0J3MgYXZvaWRlZCB0byBjcm9zcyB0aGUgTDFE
+IGNhY2hlIGxpbmUgYm91bmRhcnkgaWYgcG9zc2libGUuIFdpdGggNEtCIGJhc2UgcGFnZQo+c2l6
+ZSwgMTI4IGJ5dGVzIGFyZSBuZWVkZWQgZm9yIHB0ZXBbQ09OVF9QVEVTXSwgZXF1YWwgdG8gdHdv
+IGNhY2hlIGxpbmVzLiBJZiB3ZSBjYW4gYmFpbAo+ZWFybHkgd2l0aCBsdWNrLCB3ZSBkb24ndCBo
+YXZlIHRvIHN0ZXAgaW50byBhbm90aGVyIGNhY2hlIGxpbmUuIE5vdGUgdGhhdCBleHRyYSBjaGVj
+a3MgbmVlZHMKPm1vcmUgQ1BVIGN5Y2xlcy4KCkNvbXBhcmVkIHRvIHRoZSBwcmV2aW91cyBmdW5j
+dGlvbiwgdGhpcyBjb2RlIGRvZXNuJ3QgYWRkIGFueSBleHRyYSBjaGVja3MuCkV2ZW4gaW4gdGhl
+IHdvcnN0LWNhc2Ugc2NlbmFyaW8sIHdoZXJlIG5laXRoZXIgYSBkaXJ0eSBub3IgYSB5b3VuZyBm
+bGFnIGlzCmZvdW5kIGFtb25nIHRoZSAxNiBQVEVzLCB0aGUgbnVtYmVyIG9mIGNoZWNrcyBpcyB0
+aGUgc2FtZSBhcyBpbiB0aGUgb3JpZ2luYWwKZnVuY3Rpb24uIElmIGFueSBmbGFnIGlzIGZvdW5k
+IGVhcmxpZXIsIHRoZSBvcHRpbWl6ZWQgcGF0Y2ggd2lsbCByZWR1Y2UgdGhlCm51bWJlciBvZiBz
+dWJzZXF1ZW50IGNoZWNrcyBmb3IgdGhhdCBmbGFnIGNvbXBhcmVkIHRvIHRoZSBvcmlnaW5hbCBj
+b2RlLgoKSSdtIG5vdCBzdXJlIGlmIG15IGV4cGxhbmF0aW9uIGlzIGNsZWFyLiBJZiB5b3UgaGF2
+ZSBhbnkgZnVydGhlciBxdWVzdGlvbnMsCmZlZWwgZnJlZSB0byBjb21tdW5pY2F0ZSB3aXRoIG1l
+IGFnYWluLgoKLS0KVGhhbmtzLApYYXZpZXI=
 
