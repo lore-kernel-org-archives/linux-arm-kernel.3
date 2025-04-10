@@ -4,111 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AAAFC369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 12:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DFFC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 12:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
-	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CYYB8xWXXp3NrY8EvpLd9vo2DOULWKf7nlbTH+Fs28E=; b=zCyaNEHskPdW9AeDvSTc0WDOYz
-	bvkhg4AewQZEUFFQAfUudKIqTKLPwNalHqcr13rjVajRZjZE+UUGonrMfmBp1rDynFtZJcF2PG3QZ
-	fD6GTEJNcIzPWBC/hJzWzJXkXP2YQL9Cu/YUoEyYqUQzX1eABZolqYxBN19d0ry4NmEuybqp3bSVn
-	8Sk4EDRUJ15etp+Y2zYzpENl1ar8vj9cOY8l/ve6of9IGDGL1CblazuntXOMCWH8ZP1pcdmyev894
-	B8ZDqOJIJKrMvY5Eolm1OZwbFUaUstlmlofd3MZk2YNRavgBcgvowwW4R+i1eE1b87e/j62jUFonO
-	8FzGaJ2A==;
+	MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TxmrNFbL2Mf3iCnWo/UlNLWbVT+0p7I04rEFWKwTskA=; b=QgCAE0bCX7h5o7IPF6PhIDomob
+	gATyuUkDRdsYYGXl91al6I5Tg9fkMwOfGab1HcBLUSK8MSr/7uI+eVQ6DEvG3NNBzTe7jUwOwywED
+	1hWlgkvlD2soDfAk0QIVUyt6Xn95Qb2fdKtHMhRYjYnVbNSVQdgl145kuZOGkvuejyVDs0VjroSru
+	x2HcO8qHE3Pza1C5Ackooubpuvqkot/6Se2L0/6qPEBi5u3+CoVZ1vybbUm5GJp9vSu4B1tYsKccF
+	i8Z6Wn+qy7rSz7zGOjNnI6ljIF7L16cgU3psHrtyD6y/6Pepl193Wzh0uasE4738zlzCN6Ysy5Ws6
+	dGSMEuMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rH3-0000000AY2I-3sUt;
-	Thu, 10 Apr 2025 12:44:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u2rIp-0000000AYUC-1SeB;
+	Thu, 10 Apr 2025 12:46:43 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2r6w-0000000AW3M-3VUR;
-	Thu, 10 Apr 2025 12:34:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:Message-Id:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=CYYB8xWXXp3NrY8EvpLd9vo2DOULWKf7nlbTH+Fs28E=; b=nK0DnfDDUiA3Tb7q1byWfz8RVW
-	TFUZopMk9Jp57KtvPZPxMaiMvKzOtBJB7bLMQ9kKyDk/hHLu+I4JEv1xPq116oEUNnTc5OyjAFvAv
-	uG1S2z6VCaatnHGZvKbyAaWVT6pAZ9pJuvannmI4H48IbjkfdIXrrxgWeee/0zQ7/YRNmEAQ+8LGb
-	s1WvVnjteY3Ba3bVEqmKvCxwjVpYOHLxOMjXvi4EiNjrW195PexqacFi4kiojai7ydHc5aIgOxIvU
-	T9waxj/Vqjk6U4/5OPE/mVbPab98hX7g60Fda6H9il+NtAnHhYuIaPKE+AW2mJROPeiBikv1qvH4M
-	cUdGVNIw==;
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2r6t-00000008obo-1HXA;
-	Thu, 10 Apr 2025 12:34:25 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7398d65476eso568074b3a.1;
-        Thu, 10 Apr 2025 05:34:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744288460; x=1744893260; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CYYB8xWXXp3NrY8EvpLd9vo2DOULWKf7nlbTH+Fs28E=;
-        b=haWJjeUQKcg1OZViQWOfPSFaBa6A++zV4pAltRPN3fb4aO46zMHp77VtVoYEmRNnw7
-         2aYGd6EE6pnnPe/PdV5qi2J7TqA94K+C9U+AUBZIRO8SeZHmFop4FA6MR2flPkjZ2ype
-         mkv1JLN0le3q9yqZ70dKDRgLp68vyQpIkeT2/SpyoxC9Ih6mQN+6tIpiNe0Bgz4MOdXm
-         MQ2zRD92g/FzMKIrkom16TLVrUmXEjjjqwUaw1eEYZItcG28oI2gt48aYsoKEJM2Xbve
-         xWSvbwmYV3L7IplbkRj/Q9lz+QmNAp364G+dAV9KnVR1rUQirkSgoJbJ51uYuxRNYCWt
-         ywsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744288460; x=1744893260;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=CYYB8xWXXp3NrY8EvpLd9vo2DOULWKf7nlbTH+Fs28E=;
-        b=vmmdUaDr0kPJMnL9JQq6NjS50H+dAepQa75vZh6Z+k2fA7Con9O4rQPFnuH6gEfAhQ
-         783pUzZts5blAic2qPlHAqpceM2XxUHGgePezfsuPUGPsHhn/DCzNA71oFzOdoA2TwM6
-         rRTueygBBUa4iCAM5VWu/uEBhgSNV9Iqcf1CpR42K9ah5YivUpQVVY4HPW/wbNmHpiyq
-         VSgQRllkSLqVOMZO+cjVs+4V9J5uR3WBNNCSq62gYwPtaSOWWvIERtSGSyD0r9p2AMXX
-         Xun2U4uzpH1MQCu1SBFI53FYFEQ9xuZ//L8TM2IItT8k42foeVxyjL5uaaGN8yJqnVCJ
-         E1Ug==
-X-Forwarded-Encrypted: i=1; AJvYcCW6QcO9xKTGH7wS2yUDwEZ6F30pxwN2ko9ioeQIfYbPEKPHbHGJcgCh1pVvso4rHgBVkCesaPbx2tGgbPdkfazI@lists.infradead.org, AJvYcCXMEVIKYJ3YDeWpMYm143jOhphXWVBnK3h2GN0Ymm02V0s8F6OwCFtpUPPrAz9T0V6D08uFnU4xf4mTWsE=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwezGZ5CPHiu5QnjAFhrEfiGPDLPHu/mDV7/sevOzj/AfwxnwHy
-	U9rQN8nHjwWp5cM1lv2+2JGgrludAN48xyKFrGu4lrjgbbsjtTQN
-X-Gm-Gg: ASbGncsiwGA/oPkPfmwswHGqz/zOFUE+PwNymKXisFihB4A7UFdZzfDutDHZgLfDjiB
-	i6thYEWPyMlKTKZEey8AYfNVvTR6lXht5pU9AUtz+5yhO5XXCQGdYVWZHbOeFIq70ZqZav/mpWq
-	U3bcJ9nnLyFfNpP7nH1oM2jMxIgZsKuBMHnjMZkVaKj9pcfzAcjllY2pnnbUXIjGAXuHHN+dhas
-	vzLcrKmxXCDyOd2CeIErmNsREDAWnyJOyGiqfcVaw1uWIsTz7Ll4OOFNi3raKKxkJO/U/dvMO1V
-	1ci0sU4JFL4oovc3pmeVcxI6/Ht4CM3kgCUrVfDnhPq41JGaZLdOR1hcpHOm/NLGfvhbJDPj6Nw
-	8nunW4gd/fTsVt+5YCiD9Glg=
-X-Google-Smtp-Source: AGHT+IGl2utS2unvYHRMdT2RP9ueZqQhdCzDP3jwZyYMjQoG9MrpSlL23CvVNg2kZbwezJItYp/l0w==
-X-Received: by 2002:a05:6a00:1487:b0:732:1ce5:4a4c with SMTP id d2e1a72fcca58-73bbf869048mr3236065b3a.1.1744288459852;
-        Thu, 10 Apr 2025 05:34:19 -0700 (PDT)
-Received: from localhost (p4204131-ipxg22701hodogaya.kanagawa.ocn.ne.jp. [153.160.176.131])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bb1e69ae9sm3206479b3a.173.2025.04.10.05.34.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 05:34:19 -0700 (PDT)
-Date: Thu, 10 Apr 2025 21:34:02 +0900 (JST)
-Message-Id: <20250410.213402.1373597003035091247.fujita.tomonori@gmail.com>
-To: aliceryhl@google.com
-Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, x86@kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
- hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
- chenhuacai@kernel.org, kernel@xen0n.name, tangyouling@loongson.cn,
- hejinyang@loongson.cn, yangtiezhu@loongson.cn, ojeda@kernel.org,
- alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
- bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
- tmgross@umich.edu
-Subject: Re: [PATCH v5 4/4] rust: Add warn_on macro
-From: FUJITA Tomonori <fujita.tomonori@gmail.com>
-In-Reply-To: <Z_d1xAAptnfzqg1l@google.com>
-References: <20250409065802.136971-1-fujita.tomonori@gmail.com>
-	<20250409065802.136971-5-fujita.tomonori@gmail.com>
-	<Z_d1xAAptnfzqg1l@google.com>
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+	id 1u2r8w-0000000AWRS-3U6c;
+	Thu, 10 Apr 2025 12:36:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744288588;
+	bh=iOvQI6EwbSdrSHz2v4SF2Sz7AgGUQWBFbOMGYLPwJD4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=pBYxLsAXqIXGPUL8Tu5XYtlI0ztS9+E+rorYyx6kk2oBGd2pfY7TX18Zm+P6bFY0O
+	 5SupPcr8QzIChkXO0HAnJ6bBvwVCwa9CTcAO2cQjm6fAH/qRtQflPMxBy/RWy3JurX
+	 Pzk00jGBvplmTR1yR9xAkw439iAQynvMwWhi48j0Vq/eYTdpeUQ3NTGtJOIppBMeHL
+	 yBYvgLSprVDhTyUekJEQt5D1LAYsaZ0Igu2KW4kVLq5XriN0h16kLbjUwg22nDNWEO
+	 gx9zBegrB4Oq7EvqWtB5lyJAkTlaCMhh2Mlxqp1LjBYYdW5Brax18kodCSpnb+dyYG
+	 n7D0T12Xk/DYA==
+Received: from [IPv6:2606:6d00:11:e976::5ac] (unknown [IPv6:2606:6d00:11:e976::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A13B617E0C8D;
+	Thu, 10 Apr 2025 14:36:27 +0200 (CEST)
+Message-ID: <bf9a744df3aa34ea02237b10900431c18f87d7cc.camel@collabora.com>
+Subject: Re: [PATCH] media: verisilicono: Enable NV15 support for Rockchip
+ VDPU981
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Andy Yan <andyshrk@163.com>
+Cc: Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel	
+ <p.zabel@pengutronix.de>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko
+ Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	kernel@collabora.com
+Date: Thu, 10 Apr 2025 08:36:26 -0400
+In-Reply-To: <7b70a71a.448.1961d1808e5.Coremail.andyshrk@163.com>
+References: <20250409-b4-hantro-nv15-support-v1-1-7e11e47fd0c9@collabora.com>
+	 <7b70a71a.448.1961d1808e5.Coremail.andyshrk@163.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mQGiBEUQN0MRBACQYceNSezSdMjx7sx6gwKkMghrrODgl3B0eXBTgNp6c431IfOOEsdvk
+ oOh1kwoYcQgbg4MXw6beOltysX4e8fFWsiRkc2nvvRW9ir9kHDm49MkBLqaDjTqOkYKNMiurFW+go
+ zpr/lUW15QqT6v68RYe0zRdtwGZqeLzX2LVuukGwCg4AISzswrrYHNV7vQLcbaUhPgIl0D+gILYT9
+ TJgAEK4YHW+bFRcY+cgUFoLQqQayECMlctKoLOE69nIYOc/hDr9uih1wxrQ/yL0NJvQCohSPyoyLF
+ 9b2EuIGhQVp05XP7FzlTxhYvGO/DtO08ec85+bTfVBMV6eeY4MS3ZU+1z7ObD7Pf29YjyTehN2Dan
+ 6w1g2rBk5MoA/9nDocSlk4pbFpsYSFmVHsDiAOFje3+iY4ftVDKunKYWMhwRVBjAREOByBagmRau0
+ cLEcElpf4hX5f978GoxSGIsiKoDAlXX+ICDOWC1/EXhEEmBR1gL0QJgiVviNyLfGJlZWnPjw6xhhm
+ tHYWTDxBOP5peztyc2PqeKsLsLWzAr7QnTmljb2xhcyBEdWZyZXNuZSA8bmljb2xhc0BuZHVmcmVz
+ bmUuY2E+iGIEExECACIFAlXA3CACGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sB
+ qgcJngAnRDBTr8bhzuH0KQwFP1nEYtfgpKdAKCrQ/sJfuG/8zsd7J8wVl7y3e8ARbRDTmljb2xhcy
+ BEdWZyZXNuZSAoQi4gU2MuIEluZm9ybWF0aXF1ZSkgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29
+ tPohgBBMRAgAgBQJFlCyOAhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQcVMCLawGqBwhLQCg
+ zYlrLBj6KIAZ4gmsfjXD6ZtddT8AoIeGDicVq5WvMHNWign6ApQcZUihtElOaWNvbGFzIER1ZnJlc
+ 25lIChCLiBTYy4gSW5mb3JtYXRpcXVlKSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY28udW
+ s+iGIEExECACIFAkuzca8CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sBqgcQX8
+ An2By6LDEeMxi4B9hUbpvRnzaaeNqAJ9Rox8rfqHZnSErw9bCHiBwvwJZ77QxTmljb2xhcyBEdWZy
+ ZXNuZSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY29tPohiBBMRAgAiBQJNzZzPAhsDBgsJC
+ AcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRBxUwItrAaoHLlxAKCYAGf4JL7DYDLs/188CPMGuwLypw
+ CfWKc9DorA9f5pyYlD5pQo6SgSoiC0R05pY29sYXMgRHVmcmVzbmUgKEIgU2MuIEluZm9ybWF0aXF
+ 1ZSkgPG5pY29sYXMuZHVmcmVzbmVAdXNoZXJicm9va2UuY2E+iGAEExECACAFAkUQN0MCGwMGCwkI
+ BwMCBBUCCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHPTnAJ0WGgJJVspoctAvEcI00mtp5WAFGgCgr
+ +E7ItOqZEHAs+xabBgknYZIFPU=
+Organization: Collabora Canada
+Content-Type: text/plain; charset="UTF-8"
+User-Agent: Evolution 3.56.0 (3.56.0-1.fc42) 
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_133423_487984_FBC2DE5D 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250410_053631_020014_A2ECE7F8 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,50 +102,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Apr 2025 07:39:48 +0000
-Alice Ryhl <aliceryhl@google.com> wrote:
+Hey,
 
->> diff --git a/rust/kernel/bug.rs b/rust/kernel/bug.rs
->> new file mode 100644
->> index 000000000000..761f0c49ae04
->> --- /dev/null
->> +++ b/rust/kernel/bug.rs
->> @@ -0,0 +1,114 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +
->> +// Copyright (C) 2024, 2025 FUJITA Tomonori <fujita.tomonori@gmail.com>
->> +
->> +//! Support for BUG and WARN functionality.
->> +//!
->> +//! C header: [`include/asm-generic/bug.h`](srctree/include/asm-generic/bug.h)
->> +
->> +#[macro_export]
->> +#[doc(hidden)]
->> +#[cfg(all(CONFIG_BUG, not(CONFIG_UML), not(CONFIG_LOONGARCH), not(CONFIG_ARM)))]
->> +#[cfg(CONFIG_DEBUG_BUGVERBOSE)]
->> +macro_rules! warn_flags {
->> +    ($flags:expr) => {
->> +        const FLAGS: u32 = $crate::bindings::BUGFLAG_WARNING | $flags;
->> +        const _FILE: &[u8] = file!().as_bytes();
->> +        // Plus one for null-terminator.
->> +        static FILE: [u8; _FILE.len() + 1] = {
->> +            let mut bytes = [0; _FILE.len() + 1];
->> +            let mut i = 0;
->> +            while i < _FILE.len() {
->> +                bytes[i] = _FILE[i];
->> +                i += 1;
->> +            }
->> +            bytes
->> +        };
->> +        // SAFETY: Just an FFI call.
+Le jeudi 10 avril 2025 à 08:27 +0800, Andy Yan a écrit :
 > 
-> Safety comments could be improved. This being an FFI call is not the
-> reason why it's okay. Furthermore, it's not an FFI call.
+> Hi Nicolas，
+>       Typo in subject？ s/verisilicono/verisilicon/      
+
+I noticed few seconds after that email went, fixed locally.
+
+thanks,
+Nicolas
+
 > 
-> Otherwise, this series LGTM.
+> At 2025-04-10 03:30:09, "Nicolas Dufresne"
+> <nicolas.dufresne@collabora.com> wrote:
+> > This is a "customer" format, though on Rockchip RK3588 it has been
+> > verified to be NV15 format, which matches what the GPU and display
+> > handles has 10bit pixel formats.
+> > 
+> > Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> > ---
+> > drivers/media/platform/verisilicon/hantro_v4l2.c           |  1 +
+> > .../platform/verisilicon/rockchip_vpu981_hw_av1_dec.c      |  4
+> > ++++
+> > drivers/media/platform/verisilicon/rockchip_vpu_hw.c       | 14
+> > ++++++++++++++
+> > 3 files changed, 19 insertions(+)
+> > 
+> > diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c
+> > b/drivers/media/platform/verisilicon/hantro_v4l2.c
+> > index
+> > 2bce940a58227c2bfef2bc3343992e4588ab36a4..7c3515cf7d64a090adfb8d8af
+> > f368f9a617f8c8a 100644
+> > --- a/drivers/media/platform/verisilicon/hantro_v4l2.c
+> > +++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
+> > @@ -77,6 +77,7 @@ int hantro_get_format_depth(u32 fourcc)
+> > 	switch (fourcc) {
+> > 	case V4L2_PIX_FMT_P010:
+> > 	case V4L2_PIX_FMT_P010_4L4:
+> > +	case V4L2_PIX_FMT_NV15:
+> > 	case V4L2_PIX_FMT_NV15_4L4:
+> > 		return 10;
+> > 	default:
+> > diff --git
+> > a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> > b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> > index
+> > 69b5d9e12926fb408c08f8ba2139d05ba44389b7..e4703bb6be7c175a89c0b8868
+> > cf2eafb84a872ed 100644
+> > ---
+> > a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> > +++
+> > b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> > @@ -2202,6 +2202,10 @@ static void
+> > rockchip_vpu981_postproc_enable(struct hantro_ctx *ctx)
+> > 	case V4L2_PIX_FMT_NV12:
+> > 		hantro_reg_write(vpu, &av1_pp_out_format, 3);
+> > 		break;
+> > +	case V4L2_PIX_FMT_NV15:
+> > +		/* this mapping is RK specific */
+> > +		hantro_reg_write(vpu, &av1_pp_out_format, 10);
+> > +		break;
+> > 	default:
+> > 		hantro_reg_write(vpu, &av1_pp_out_format, 0);
+> > 	}
+> > diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+> > b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+> > index
+> > 964122e7c355934cd80eb442219f6ba51bba8b71..f7c4a176167b40fe79ec5a675
+> > 9dff8a77e849ae3 100644
+> > --- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+> > +++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+> > @@ -92,6 +92,20 @@ static const struct hantro_fmt
+> > rockchip_vpu981_postproc_fmts[] = {
+> > 			.step_height = MB_DIM,
+> > 		},
+> > 	},
+> > +	{
+> > +		.fourcc = V4L2_PIX_FMT_NV15,
+> > +		.codec_mode = HANTRO_MODE_NONE,
+> > +		.match_depth = true,
+> > +		.postprocessed = true,
+> > +		.frmsize = {
+> > +			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
+> > +			.max_width = FMT_4K_WIDTH,
+> > +			.step_width = MB_DIM,
+> > +			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
+> > +			.max_height = FMT_4K_HEIGHT,
+> > +			.step_height = MB_DIM,
+> > +		},
+> > +	},
+> > 	{
+> > 		.fourcc = V4L2_PIX_FMT_P010,
+> > 		.codec_mode = HANTRO_MODE_NONE,
+> > 
+> > ---
+> > base-commit: 9ddc3d6c16ea2587898a315f20f7b8fbd791dc1b
+> > change-id: 20250403-b4-hantro-nv15-support-07def4e7a537
+> > 
+> > Best regards,
+> > -- 
+> > Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> > 
 
-SAFETY: It's always safe to embed metadata such as the source file
-name, line number, and flags into the .bug_table ELF section.
-
-Looks good?
+-- 
+Nicolas Dufresne
+Principal Engineer at Collabora
 
