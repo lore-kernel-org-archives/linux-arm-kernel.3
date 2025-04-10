@@ -4,92 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3691C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42495C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ppfroywA/WF+8dvpxb3LW0A1l9sdjedjaaEGMEvs0rQ=; b=nmth4qBJpKPbdHE0c4cFDqdiYN
-	/xj+Teo0KE9lAb6Zuxf9Wm/LStmahMUXLJFzmTvvPuczq+xh/5oTGrF+ptJNpFXW0XLfZi3d8Y0u8
-	CwceLPercG/MdjCTC2Exp3Svl16Pf3iUMwe23q/KmauZe7zMGoAvne9jOhM+gwMpwdkE/hYIUeOiB
-	AFEsBpFvNoHTVkmCN531aZh4wsUkK0nNKF19yOaDI7t+BitHBbXbQhMePPNx7cQgZe9OuTPX2jEu/
-	jBzjIpzYuWO4fx8pHeXnFH6ddNzXzYwvHOOLh7ylPs+tUdQVUaL8BifvFHn/ZG5EPY9fQIi84gMrF
-	KpLWvw3w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J0xfKWJdyD9XFTZn8w86QT52Zuy8b8gkwIkU+lw2+nc=; b=vkV1f9fNwl7RnmfsR/A+AflkGQ
+	YfnEzosIIhE6yHCzwoYyYvydkIrgnUFFXFj/APAh1+kPQzJGoJhfL/bOq3baCwSacwZjE5T3TQ5HF
+	Z6ie28GkPZ7nGUiO/nPXz72fBXI0uiR7RwlSAZrG1xXEOCo6ylAzpqi/gAb/xbiwWI5m8gVvxidx/
+	J6SKNvb3NN55Eqz02UxAtP/K8A+4KMcGXsiOKzGOUsdhUW+Ytqzia5KNxhX+YaO/pCGbLdU12efqe
+	BMlf31mDDxjza+X71lezHAbm6ar4BqZPSD4mTZzvNwqOqAcyBnPowzj4RJ3Fa1O0nt/6n6WDrWJn8
+	kQHdYfRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2sA0-0000000Ai21-1Aba;
-	Thu, 10 Apr 2025 13:41:40 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1u2sBN-0000000AiPt-3kTQ;
+	Thu, 10 Apr 2025 13:43:06 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2s2f-0000000AgSC-1bVv;
-	Thu, 10 Apr 2025 13:34:06 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b03bc416962so521754a12.0;
-        Thu, 10 Apr 2025 06:34:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744292044; x=1744896844; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ppfroywA/WF+8dvpxb3LW0A1l9sdjedjaaEGMEvs0rQ=;
-        b=TQlR7u5+45u80st/vy5xolMwPF9/Ow/bF9d9oxBquwxBulCmlh6On7LfcmRVf5AReE
-         dJOdL4Ca0mhkTiIQ8dKBkTUiDQBAhJ/eoVzM9TQTtTqa/yMN80WxN+7UCacTcpcYdoNm
-         xTTi/9tVBXN7laGTcmlfxXoahYe10TwmFk/1UcLXDl347TCs710L/qEN8J/AEbkYpFt8
-         L8Mb924scFhFJgHfd/Kz6dXRUpUcGAfCjwzQugtXRzjsdLi1LEWE8NnVuT2LD5p8RTbk
-         QApZCyzqLLWMwx7af+tDtjoabEGUsUbOf1AKtNoFbZ5OJg+oT1dg6jW63szjCQ2QRCC4
-         1KHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744292044; x=1744896844;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ppfroywA/WF+8dvpxb3LW0A1l9sdjedjaaEGMEvs0rQ=;
-        b=FC2Is+2+4Fj/KOu2KZhdDFd1L4E49Xikubs6mgepaZM/vc8xYBCP+wYSNE8C+rmcP+
-         qeSS5J4HrDz2ZmBiLsZurggpPbnY6SXbiUSoYEHbpOcDUB5pW49Lmaq2EhEA9wCuc0A/
-         qON1r4ZgLq623+V22la7fUaXMsLJ/wiJOcneS3GEt6eCArvw7i/J/siHnSAhnLSyxymc
-         m0g+5ISA1ePuWjE04VcM4CgFDy9NX4Ls4jKR3IyDAIoGgTs/CrXTPfJHbdFjolko2Mmx
-         mqleMSTPbzMSfx+iCUj6D1muQSI5Xh/kbOjMIK8q4gzsMx3n5OdoN7BgicYPv2vvE4gL
-         4DIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV1V6rksMQLN2zK2gUbYp7DizIyv8JOEMywHP33Viidqb6qP9589JXxGnYYDBJfWEg0AarTSRfsUMTTVBUZ@lists.infradead.org, AJvYcCVsQ8FHMVXbZY+W8vqC1KVBoar0NDkaBB+N4t1xNTfjB5UXnny8bTMuIgSaKJbko9j2dbpyZXGPkIW+@lists.infradead.org, AJvYcCWytRJHpDBPNp2T6xlFQgnqzCMvIs1W2AwaHHRNqIWtVBFfrLHDrDUrEaheYnqAh1SW5fJ3duPOQEc7MlkanUV+Ew==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHKoHj4G+MTv3GGUXPXxjDQEJQwunU8sx4SvcYiDOTACXjsMP5
-	TlU4DkSxdQO/HVeYgDUICkrN7AXuJ/mnJlT9N8UNwu4hrkIddCbl
-X-Gm-Gg: ASbGncuHS42a3ybPsKHr11BhYy//ViZm3tOiUBbzI7bGxPBQ1e3lZrUtG4+9JmqHSA0
-	wu+hlzAfvCbE5wbjy10euOknWU6/PkGPUY40R/1ELcQdgFg6M7bxh668RWtBZZZ174g6i9ywzZu
-	ka39kW5XrZT66Myr2vkklXUMAPxnlNfsxIgc2VToMtw8lBZb1zaz4M8qMehCoQjhaTos2CVKZKQ
-	aHIB8ylog0cWSy4KNB7Ig+JBfjwf939CFop9t98WZxOGbJoXSW6nEmoh/F9OkP3ocFDAKgGd7av
-	TGQewu+efazzGk4A3h4VGIPK79C0wQfUxV+/2ulbOauMJsTwFtazBIg=
-X-Google-Smtp-Source: AGHT+IEx7fjFPOwJFBqQcxYwcNEjjXqC0n7A40gc7RBPd72Er1kad1UbyK8eNmLCNZzCP+fmYv0iMg==
-X-Received: by 2002:a17:902:db01:b0:216:53fa:634f with SMTP id d9443c01a7336-22b42c44052mr47156885ad.48.1744292044230;
-        Thu, 10 Apr 2025 06:34:04 -0700 (PDT)
-Received: from localhost.localdomain ([103.221.69.50])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7cb0400sm30121475ad.160.2025.04.10.06.34.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 06:34:03 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-phy@lists.infradead.org (open list:GENERIC PHY FRAMEWORK),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
-	linux-amlogic@lists.infradead.org (open list:ARM/Amlogic Meson SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v1 3/6] phy: amlogic: phy-meson-axg-mipi-pcie-analog: Simplify error handling with dev_err_probe()
-Date: Thu, 10 Apr 2025 19:03:18 +0530
-Message-ID: <20250410133332.294556-4-linux.amoon@gmail.com>
+	id 1u2r6T-0000000AVtD-0SC3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 12:33:59 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4C7F744338;
+	Thu, 10 Apr 2025 12:33:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744288434;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=J0xfKWJdyD9XFTZn8w86QT52Zuy8b8gkwIkU+lw2+nc=;
+	b=Ns/nFH0meYjUnfZ6aFnwUXXVjhbmQhnCcJzMpeYSb7SkfHQANZ7jPJ8qfS4EIcA+diHfk1
+	mvBkfa9WZ9pxLNZnDNoT8bIcWJDJM0P4m+yL4ePHELl6SIHHiHQAwSoll1jMtViJhkfBXZ
+	GT9C39c+yPje86a7+Wr1R1DrUwkQdRgpJqIBElVcxk6qghRXOPBPQgbGrSDbZp2XStYKM+
+	May/3B2SpPslljc7nOZ3S6GqIK+jwxolIdKkVsypwZ61aqu1X5nzNAC68aDtjVz1HVmr44
+	P6tCOWsp1wBo+gpTjD+yf3WUTBa8DjnJF5IeE9N5gMwSz6DFsz/Dutmum/l8Jw==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Simon Horman <horms@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
+Subject: [PATCH net-next v5 0/4] net: ethtool: Introduce ethnl dump helpers
+Date: Thu, 10 Apr 2025 14:33:45 +0200
+Message-ID: <20250410123350.174105-1-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250410133332.294556-1-linux.amoon@gmail.com>
-References: <20250410133332.294556-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdekledvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjefhleeihefgffeiffdtffeivdehfeetheekudekgfetffetveffueeujeeitdevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvl
+ hdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_063405_419545_7EA98A5F 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20250410_053357_469099_16ADDB26 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +90,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dev_err_probe() for phy resources to indicate the deferral
-reason when waiting for the resource to come up.
+Hi everyone,
 
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
- drivers/phy/amlogic/phy-meson-axg-mipi-pcie-analog.c | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
+Here's another approach to get a better handling for ethnl dump when we
+have phy-targetting commands.
 
-diff --git a/drivers/phy/amlogic/phy-meson-axg-mipi-pcie-analog.c b/drivers/phy/amlogic/phy-meson-axg-mipi-pcie-analog.c
-index ae898f93f97b2..c0ba2852dbb8e 100644
---- a/drivers/phy/amlogic/phy-meson-axg-mipi-pcie-analog.c
-+++ b/drivers/phy/amlogic/phy-meson-axg-mipi-pcie-analog.c
-@@ -200,7 +200,6 @@ static int phy_axg_mipi_pcie_analog_probe(struct platform_device *pdev)
- 	struct phy_axg_mipi_pcie_analog_priv *priv;
- 	struct device_node *np = dev->of_node, *parent_np;
- 	struct regmap *map;
--	int ret;
- 
- 	priv = devm_kmalloc(dev, sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
-@@ -219,12 +218,9 @@ static int phy_axg_mipi_pcie_analog_probe(struct platform_device *pdev)
- 	priv->regmap = map;
- 
- 	priv->phy = devm_phy_create(dev, np, &phy_axg_mipi_pcie_analog_ops);
--	if (IS_ERR(priv->phy)) {
--		ret = PTR_ERR(priv->phy);
--		if (ret != -EPROBE_DEFER)
--			dev_err(dev, "failed to create PHY\n");
--		return ret;
--	}
-+	if (IS_ERR(priv->phy))
-+		return dev_err_probe(dev, PTR_ERR(priv->phy),
-+				     "failed to create PHY\n");
- 
- 	phy_set_drvdata(priv->phy, priv);
- 	dev_set_drvdata(dev, priv);
+Previous versions of that series introduced new ethnl ops for DUMP, but
+only useful for PHY dump.
+
+This series takes a step back and implements new perphy ops at the genl
+level :
+ ->start()
+ ->dumpit()
+ ->done()
+
+This avoids having to flag commands that use filtered DUMPs, as this is
+handled directly in the custom ->start(), and we can use our own dump
+context without using dynamic allocs.
+
+The drawback though is that this duplicates some logic from the
+ethnl_default_xxx dump ops.
+
+Patch 2 reworks the whole net/ethtool/phy.c to fallback to ethnl ops,
+while patches 3 and 4 convert pse-pd and plca to this new dump method.
+
+Let me know what you think,
+
+Maxime
+
+Changes in V5:
+ - Move to a less generic approach, focusing only on the PHY case.
+
+Changes in V4:
+ - Don't grab rcu_read_lock when we already have a refcounter netdev on
+   the filtered dump path (Paolo)
+ - Move the dump_all stuff in a dedicated helper (Paolo)
+ - Added patch 1 to set the dev in ctx->req_info
+
+Changes in V3:
+ - Fixed some typos and xmas tree issues
+ - Added a missing check for EOPNOTSUPP in patch 1
+ - Added missing kdoc
+ - Added missing comments in phy_reply_size
+
+Changes in V2:
+ - Rebased on the netdev_lock work by Stanislav and the fixes from Eric
+ - Fixed a bissectability issue
+ - Fixed kdoc for the new ethnl ops and fields
+
+V1: https://lore.kernel.org/netdev/20250305141938.319282-1-maxime.chevallier@bootlin.com/
+V2: https://lore.kernel.org/netdev/20250308155440.267782-1-maxime.chevallier@bootlin.com/
+V3: https://lore.kernel.org/netdev/20250313182647.250007-1-maxime.chevallier@bootlin.com/
+V4: https://lore.kernel.org/netdev/20250324104012.367366-1-maxime.chevallier@bootlin.com/
+
+Maxime Chevallier (4):
+  net: ethtool: Introduce per-PHY DUMP operations
+  net: ethtool: phy: Convert the PHY_GET command to generic phy dump
+  net: ethtool: plca: Use per-PHY DUMP operations
+  net: ethtool: pse-pd: Use per-PHY DUMP operations
+
+ net/ethtool/netlink.c | 189 +++++++++++++++++++++--
+ net/ethtool/netlink.h |   4 -
+ net/ethtool/phy.c     | 342 ++++++++++++------------------------------
+ 3 files changed, 272 insertions(+), 263 deletions(-)
+
 -- 
 2.49.0
 
