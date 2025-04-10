@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E9EC369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 23:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0834FC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 23:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dr2zDigygCC2C4GSdx8OOUFZ1CPNnNchXON92zqlKB0=; b=kKZX8FFGQD6kyQNzT51aD4rTAy
-	NEDk8O/pqUf4mNQe98q+d7qTa2uA4haFn/007ErByi3Vlj18+5xP+aVRt+/S3seX4bX5WTFYn30wV
-	+7Cv+U89IRpFet8dLhPacTm8nHYpB+XDlpIcXH4MJ8o6j+anjdw3szxwQnUrapzZCPaiVJvGUIiKG
-	yhgC1QCItsVYrAcYbrQdllToFuLZ3VmxYlS4kWzsk7oKy0yF+xwZq5stIR2r2KVnJc6ceV9TfBxmc
-	8wG3LNtAn3Hvoc4n8QYZhZiPP6j0LHz5cpnqrR9i1Ao4JFOuirgBMOS2aM6JnZtOnVdpkW54D7dwV
-	nx1nE46A==;
+	bh=JpO2S4wctyk68CVyOkNnoYhQpTc8ULQAveyt4WbuIOg=; b=q6sNFPJ2aIbzoXKY7WV0S7DPtt
+	rBERxAHaHhP9jULyf5TFedMmSlIiWxJpJfTDPL7RoTjFCH6nHFlmNSFZSxcZoTmDsUiK1LuPoP3+B
+	XwymKe3dbAZIGc/tDK/18DPkv2h49kj2Z2o7Otinv6/A/ELZR+FPzor30vmlcg7hRF0ltxdMY8vzd
+	pk6z9yf4Q+pkpgAk6mcx9y0S+sqAxzUjA0Fe5Xzd2UHUusvuyEpLVFvKuR36UKVd+UKKiazZ2Sydq
+	uoAAjfOJU5ud9jIxV6ON/dQDHevHkr6jxZggy77pNxMjxmJnRy6pfiA3+AHtP/gcCdGJtMmAyyGYc
+	9rRFRc5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u30sD-0000000C11P-1mtq;
-	Thu, 10 Apr 2025 22:59:53 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u30uK-0000000C1DN-0Vjc;
+	Thu, 10 Apr 2025 23:02:04 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u30lf-0000000BzoU-46lX
+	id 1u30sV-0000000C14q-3lv4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 22:53:09 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53AMr2W71399307
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 10 Apr 2025 17:53:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744325582;
-	bh=dr2zDigygCC2C4GSdx8OOUFZ1CPNnNchXON92zqlKB0=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=urVlRqb483spdKodj3Dr9LKvkfWZLWEpOvAwJDLkxZ+kqD2WowvYXrkOaLUMxsn2F
-	 OzMfcUl7wK7ZksHrxPKiIuskTG0fcUVwPDw9QqU2t1QVEtkLPv5GfdB4RvZmF8gv8y
-	 li2mK6eGrEklD1UR6RccLcVK7O6duK/T/4Lo6uJ4=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53AMr2AV125532
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 10 Apr 2025 17:53:02 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 10
- Apr 2025 17:53:02 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 10 Apr 2025 17:53:01 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53AMr1Sm093211;
-	Thu, 10 Apr 2025 17:53:01 -0500
-Date: Thu, 10 Apr 2025 17:53:01 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Jason Kridner <jkridner@beagleboard.org>
-CC: Robert Nelson <robertcnelson@gmail.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Vignesh
- Raghavendra" <vigneshr@ti.com>, Andrew Davis <afd@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>,
-        Siddharth Vadapalli <s-vadapalli@ti.com>, Judith Mendez
-	<jm@ti.com>,
-        Andrei Aldea <a-aldea@ti.com>, Dhruva Gole <d-gole@ti.com>,
-        Deepak Khatri <lorforlinux@beagleboard.org>,
-        Ayush Singh
-	<ayush@beagleboard.org>,
-        <michael.opdenacker@rootcommit.com>
-Subject: Re: [PATCH v2 2/2] arm64: dts: ti: Add k3-am62-pocketbeagle2
-Message-ID: <20250410225301.orsurkanor52ovmk@native>
-References: <20250408231823.826163-1-robertcnelson@gmail.com>
- <20250408231823.826163-2-robertcnelson@gmail.com>
- <20250410161509.yviucf36uhox4wvm@unedited>
- <CA+T6QPm2gVSa_+-vj5EA=RAs_sZFjq0LJKYVKPf_LN9Xc9uQQQ@mail.gmail.com>
+	Thu, 10 Apr 2025 23:00:13 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c5e39d1e0eso132066385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 16:00:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1744326010; x=1744930810; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JpO2S4wctyk68CVyOkNnoYhQpTc8ULQAveyt4WbuIOg=;
+        b=QIOGAShBHfZvaYK/SJq9b7UaiyTdLynr4INBqCR4a9QDRE8GwIRhs0bZGc5U249cky
+         /tNoJ8kYZNBvRZJDyAGB4oNSvXeF1++zujjDJs3QP+c4wMFcdkJ4QimD8QRVApmbZe3K
+         auuv13yWJvRl/0hX2ujW6ZQWqg91ctHXURXuifopwCxbeIzWxk7X35Ipt2SasExneg8u
+         mLdKPbf7kTLWyAdiZcnOcOaGX54y0VONdc4x8j596RPN03vUMQOdYVnzc2B5YTtnPDPI
+         4+04jUs9Hnlb/wuhb3mzlII+IrTDQjEVOgMBsTs5BAG7RLC8apLOI5QqD4152wEp03mx
+         N7Qg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744326010; x=1744930810;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JpO2S4wctyk68CVyOkNnoYhQpTc8ULQAveyt4WbuIOg=;
+        b=gCHOWF8sG+qiLqeA4CQTU7tuBceXd7okQN7o3qAGuwjDCaZCV0Z796/jj8aOXTPniX
+         62vLbM2ziKqSzCAqMS23kupL+/G7zRYoz0tWcWfI/JX9PBuqCH9XUt00qq5JmuULjjNX
+         tL8eMOfwSO4gxnh7Zxi2C1izAD2QNPjuM6cw0RfHGVk/vtLhRuZAJZAmsMo6uGn25jAO
+         AagkMUzIHbyDaV+cq6jY0QxsjsVAn1NqveVPDHnQHhhqrJWpZv4KVk2GotIkgghapCKM
+         BFFxvxiw2ayCkvBf14PiMe2nUjEJDviCZ+2G1vM/Ix51EwRMgNVAajmjzUnAVwqWZSmW
+         SeCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXH+g+RlwVdqR2n9DUN7wZfedi58yc0yxk0C5LxscRcMu4x5q/hTWqN9xBw5gMxH0GlGLi+wMjPOl7GG4GRIygf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0Ppt2TP+9OebkE+iQUoQMKZfMFEw4B1/pItBbztYQHGb/Fjxj
+	tJB4qPq2LLsLM2ueb1+oR71G4RLNVEpU8b6KdSSaWazol/zGR4n0cCkDcTkgTVc=
+X-Gm-Gg: ASbGncsnsLkTR9wovHWKIsSr0bwFDg9uht4Sl/00F450RTHBu4MLvUEbdPF25hO0r3B
+	bAFdRicU4Qmd8jk7hhpMOC0vUx8NvFClK9PJVWiw2s24R4XYBwVH+7MotcQrBvnlp12mTZQtq6j
+	9WxY72T2Kvh6ST8NkDA1IrGFO3l9wp5Ap/5YEN9jcIqnGobv1ruSY/DkgWbVR+7zPf3c6FURVQK
+	3pe+liDXQKv5tfztrHC3KljjmLNp9oD4Wm01ZKXRBVRM3YTR4dtW4eRYZg0o4nO9+E5M31/gqJ+
+	9wbBN23gzQK7//fsr/WEsa1goZDR5axGbBWiMjl2+qA8QEeaUY1PDnFpaZlUizcPhNvoPXwgZER
+	CVVMb5rwwWEalmQPHSn0=
+X-Google-Smtp-Source: AGHT+IHr0/WY2Rqb4JC2JVZGgAH4AixNta9jAPZvPdjOUO1pv6CI6b5DlSO9IE1VF0/bDnrgXDRKew==
+X-Received: by 2002:a05:620a:4306:b0:7c5:5cc4:ca5c with SMTP id af79cd13be357-7c7af12e6ebmr102606285a.14.1744326010083;
+        Thu, 10 Apr 2025 16:00:10 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-167-219-86.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.219.86])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c7a89437a4sm164415585a.23.2025.04.10.16.00.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Apr 2025 16:00:09 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1u30sS-00000000GRz-4851;
+	Thu, 10 Apr 2025 20:00:08 -0300
+Date: Thu, 10 Apr 2025 20:00:08 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Shyam Saini <shyamsaini@linux.microsoft.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
+	will@kernel.org, jacob.pan@linux.microsoft.com,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
+Subject: Re: [PATCH v2 0/3] arm-smmu: select suitable IOVA
+Message-ID: <20250410230008.GA6905@ziepe.ca>
+References: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+T6QPm2gVSa_+-vj5EA=RAs_sZFjq0LJKYVKPf_LN9Xc9uQQQ@mail.gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_155308_117362_B930D2F1 
-X-CRM114-Status: GOOD (  34.57  )
+X-CRM114-CacheID: sfid-20250410_160012_118075_EDB4E736 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,112 +104,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13:26-20250410, Jason Kridner wrote:
-[...]
-> > > +&usb1 {
-> > > +     dr_mode = "host";
-> > > +     pinctrl-names = "default";
-> > > +     pinctrl-0 = <&usb1_pins_default>;
-> > > +};
-> >
-> > is'nt this over https://www.beagleboard.org/boards/techlab or
-> > https://www.beagleboard.org/boards/pocketbeagle-gamepup-cape or
-> > https://github.com/mwelling/pocket-bob ?
-> >
-> > I think it is better as an overlay? Let us not enable something that
-> > will add power for no benefit :)
-> > Further USB1.ID has options for PRU as well. Let the daughter overlay
-> > deal with it.
-> >
-> > On the flip side, we could work the other way - since majority of
-> > daughter cards use USB host, it could be that the other overlays can
-> > just disable usbss1 and usb1
-> >
-> > Thoughts?
+On Thu, Apr 10, 2025 at 03:50:27PM -0700, Shyam Saini wrote:
 > 
-> Since you asked, Being the somewhat unique state of PocketBeagle 2 and
-> other Beagle
-> single-board computers as rapid-prototyping development platforms, my
-> personal general
-> preference is to see all the stuff turned on by default and then to
-> provide some clear direction
-> on what is not necessary such that it lives as documentation forhow to
-> enable it and simplify
-> the development of overlays. Some of the rationale for this was
-> discussed a couple
-> of years back in a series of blog posts by Michael Opdenacker. [1][2][3]
-
-OK - Let us document that in the device tree then. For the i2c ports and
-usb ports that are implemented in the cape, just add a documentation
-note saying enabled for cape header or something for that effect. all
-these main USB pins are dedicated functions anyways, so it is unlikely
-to see capes that can even attempt to reuse the generic USB data pins
-for alternate functions.
-
-If folks do not use that header in some specific overlay, they can
-disable the node based on at least some guidance from the documentation.
-
+> Hi,
 > 
-> My perspective is that the interfaces need to be enabled to define the
-> header connector to
-> the device tree and that the muxes should further be fully described
-> to the system, rather than
-> leaving those bits of metadata regarding the running system as an
-> exercise for the reader.
+> Currently, the MSI_IOVA_BASE address is hard-coded to 0x80000000,
+> assuming that all platforms have this address available for MSI IOVA
+> reservation. However, this is not always the case, as some platforms
+> reserve this address for other purposes. Consequently, these platforms
+> cannot reserve the MSI_IOVA_BASE address for MSI.
 > 
-> The aforementioned approach of removing all the "dead bits" is great
-> until someone is left with
-> the challenge of figuring out how to turn them on and/or select
-> between them. Providing an
-> overlay that disables all the unnecessary bits seems reasonable to me.
-
-I understand the rationale, but, we as Linux community came to this
-guideline:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/dts-coding-style.rst#n207
-"
-Hardware components that are present on the board shall be placed in the
-board DTS, not in the SoC or SoM DTSI
-"
-
-PB2 being an partial "SOM".
-
-It is a trade-off unfortunately.
-
+> There was an [1] attempt to fix this problem by passing the MSI IOVA
+> base as a kernel command line parameter.
 > 
-> Otherwise, I think we can put the entirety of the header description
-> into an overlay for
-> cape-specific overlays to use, but I find the lack of an upstream
-> definition to make it difficult to
-> enable cape makers to define overlays that are likely to actually work.
+> This patch series aims to address the issue by introducing a new DTS
+> property, "arm,smmu-faulty-msi-iova" which can be used to hold faulty
+> MSI IOVA address. This property can be passed to ARM SMMU drivers
+> via device tree so that the drivers can select appropriate MSI IOVA base
+> address which doesn't intersect with the faulty MSI IOVA address.
 
-This is not an unknown problem, though not something pleasant to
-live with. Linux community is always happy to review options around
-this, there has been attempts to help standardize these daughter card
-ecosystems in the past, but none have achieved acceptance.
+I thought we already talked about this and you were not going to be
+doing a DT proposal for a software knob?
 
-What we have today is the scheme where we have dts and overlays and
-ability to generate a dtb that stitches the two together in a specific
-order. That is usually requested to be demonstrated to work prior to
-acceptance in upstream. That provides folks at least one specific
-combination of things that is known to work. (testing is a case of
-effort spent by the community to test things - including overlay,
-which is no different from the core dtb). But, yes, there is no do what
-you want and it will just work option today.
+And then you didn't even link to the recent discussion :(
 
-> 
-> Just my $0.0000002.
-> 
-> [1] https://www.beagleboard.org/blog/2022-02-15-using-device-tree-overlays-example-on-beaglebone-cape-add-on-boards
-> [2] https://www.beagleboard.org/blog/2022-03-31-device-tree-supporting-similar-boards-the-beaglebone-example
-> [3] https://www.beagleboard.org/blog/2022-06-06-using-the-u-boot-extension-board-manager-beaglebone-boards-example
+https://lore.kernel.org/linux-iommu/20250403232619.GA681099@ziepe.ca/
 
+It is easily solved in the smmuv3 driver without out any DT. Please
+do that.
 
-Thank you for sharing your thoughts.
-
-[...]
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Jason
 
