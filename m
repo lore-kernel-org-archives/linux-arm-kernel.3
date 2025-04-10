@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF2FC369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 335CCC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UtA5gEjIdlbSvKgOUXHBQThchBGfso4/X0OKyeayV/w=; b=SDvsf8lGUnQpTNuJPAfbl+0UJr
-	xxC/fh99KgsnPZWZgfzHMB6Upl3skzARfZQMcdHseauWoirtCwbtNqaH6XDWA34jAywn1iLLJeGcN
-	Txh9F+AT/ONrUGoc5i9zJm8MdsgYigwzrm8icJb6LSdylk5PMxwOELGbMLqVUK7KcY0j2wKzbrkYm
-	oub4JjrNoGl/Fi2vP8Yj9jT5hbnSc8ZsvQlocLI8+bzCZpXPSuhXOckOApjOOtCCTPdzErShAgLko
-	Z4cY6WZ6Vxmk33wAkN9keO+BLfUdiUub393Uq02RvoRZ3jn0EVaQLbjo7KPLYfBSSCXw4/XP2Rgth
-	MbGjcy+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wMQZClxt/r11IMD+9AiWAlz3lBENpTb7OT4Ug6+9SZk=; b=qFtWsBcbYIom0wX1Dt5pOxV/re
+	JNICwHjOoepXCkOda3MjfvjTBHXUFLdcaUNg5RjdlAvzLTUU40/Uf+Je/x1Y3KUXY+j+o/FQ4K0x4
+	CDNDeGgQaJryimNbwBuInVsSmw6tfRxgZvTwu0sJelmyNKVvZ6tj9zZrBTKroxSdDnptwXucYj1kV
+	XArvCdhguEnJBllxuJDZ1fyC9RJrHtXT54touVT7D+Hs3l4331YPuj8X9YU0FUDN+uFHiQ+iNscNX
+	SZc8e8cG7D6b3JZXnh6lbzTxvIlcY0oQCYFd60EhBz+Tm5r7th1x4ZLTkmHjU9Dhns0YdvasVO+jC
+	zQEAbfXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rrM-0000000AeFP-42mo;
-	Thu, 10 Apr 2025 13:22:24 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u2rt8-0000000Aeb2-1GrL;
+	Thu, 10 Apr 2025 13:24:14 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rpZ-0000000AdpS-2ngM
+	id 1u2rqp-0000000Ae7O-1bDT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 13:20:35 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53ADKRQo1297586
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 10 Apr 2025 08:20:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744291227;
-	bh=UtA5gEjIdlbSvKgOUXHBQThchBGfso4/X0OKyeayV/w=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=OuKGFnMMx+MGvEHE8CmdC489iJJG7mN1JssoJ3A6Ftsa1C46guZVqrplScEry3sZ+
-	 WV6gHSc4YDhfyhpYR4RMQv1vHqnLs4/PpxH2vWGi+iZ/P6opqIhfbJVofEKKnFdW91
-	 67pce3rXPZgG3jXXfI+1U4MLYMck6OvLWw2VU/WY=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53ADKRAK029560
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 10 Apr 2025 08:20:27 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 10
- Apr 2025 08:20:26 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 10 Apr 2025 08:20:26 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53ADKMAE056004;
-	Thu, 10 Apr 2025 08:20:23 -0500
-Message-ID: <acd087a1-c10d-43dd-8900-d05591b0c4b0@ti.com>
-Date: Thu, 10 Apr 2025 18:50:22 +0530
+	Thu, 10 Apr 2025 13:21:52 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-73712952e1cso694446b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 06:21:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744291310; x=1744896110; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=wMQZClxt/r11IMD+9AiWAlz3lBENpTb7OT4Ug6+9SZk=;
+        b=WEEygWfLnfyQ/GHqAyZpvLFjVCJdmu3x1FlSZ/pSLd5fmxYQkaGywxCDskyxitaG42
+         wHMptZzJC6/PHrpRwWvwDqpj9UYn/LAhOWGywfU1EBS/ZYu7pTA+pEq+BniK1W3aQvEd
+         HTkzaOlNUdR6MKwPkOW9wt67sD47Ae3llQA2C1XWDVxzx5CTSEs/VUvBL9T4Qu0OERpt
+         iQkdQDExpU8T255NW8GELRD5iUZQpOPCdw+AiSsimtYJFQWOvlKl2OX0n2Jeo9qNEqES
+         ICX10Wi98/Nk6rqwG0iN5Dp9JPx0DxcuH9H3spucRjGtTivIh0J6mKGVrjm26qnW/cgQ
+         B9kQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744291310; x=1744896110;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wMQZClxt/r11IMD+9AiWAlz3lBENpTb7OT4Ug6+9SZk=;
+        b=RNKD8oV+LRCIQ0wINsxVP7rutsllF1+D/55Kqjlhkkdn4M6wvOn9R6ML4TzWaaagjL
+         TXywHcO+smQdXTOu+XNJoYguB/vhi7dUOIvxzg5ctxF1FI/ge7nHWuQrqFfFevJQ1C9n
+         0kJ59D7EHg3U6VezDwLhbJz3nkNzZXSQhkgw0Iw/geiSD4B5PR7vKepn22Ku0lbQUVDv
+         rnKCGx8fQqdCmsa3Zog7fp2Wo4BWwPBulsNt0Joxlhnc6KZAmHQU9ioaJXdyDixyKxDF
+         BfL1KkJMOrRw5aE+QhhAqrGxDd/n/9pNX6gEgnyHaEPkJ0J8nc0NfhcLtT4NG6dniONR
+         Ek1g==
+X-Forwarded-Encrypted: i=1; AJvYcCUe0HxD8j0afxttKTqvkbxR1i1Q70Z0m/Of+SXU6CMSBgTiI0XYt64fWd+GmG3C0Zu4y0FtUc9oB6fOseW+X3fp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvYNczI+VXstTGohhDPsWyu9idv5CLxVcMZNREaL0JOA/XtMai
+	mkFkFhS9D5CaJY4qqqx+Yeomah8CMUoaSy5hewvJmIdru6MDF41E8kFkdjgFxVT/nACQcG+f0P5
+	XspjI1ibbGYnkGELsC45Jgdddc80C8I51e3rgWw==
+X-Gm-Gg: ASbGncu+U4vz7yqdGa7CsZjbCgxIv38iDGk6ye9FFYmfOZ2BmnY2snkS+0qmsXpWrcS
+	aiEox74zSgjva1bhyXwGSl3enV5H18iE4Rl8WK9vr0TG9GDBQyeuyzqze4EYqNjpCo1KPlTt52J
+	4B3VCxCxYrsSRSc9gNDUug7nY=
+X-Google-Smtp-Source: AGHT+IEL3aq17l9YVyu03lvnUk5C6k7qYVWUuIutjM7+77MtfedWhhLez/73fsO+lOMiT2oK1ZOolvmazkYHCs2MYjA=
+X-Received: by 2002:a05:6a20:d48d:b0:1fe:90c5:7ceb with SMTP id
+ adf61e73a8af0-201695d9c45mr5523489637.40.1744291310083; Thu, 10 Apr 2025
+ 06:21:50 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s: add rng node
-To: Michael Walle <mwalle@kernel.org>, Manorit Chawdhry <m-chawdhry@ti.com>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20250313144155.2382316-1-mwalle@kernel.org>
- <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
- <D8UECOJ2NMCU.3ALYIKSODJ479@kernel.org>
- <1ad2d8c2-6a0d-419d-984d-4974adb0e1f0@ti.com>
- <D8V323NBB32P.3P8H103L83HZK@kernel.org>
- <e2a37e72-d9c8-4329-8a5a-f2c9865cdb5d@ti.com>
- <ea82dc29e93d53b659916f2fed10982b@kernel.org>
- <20250409103303.dkrrvp7mdctx32pd@uda0497581-HP>
- <D92X7T33NU3T.VSZM5K7U602S@kernel.org>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <D92X7T33NU3T.VSZM5K7U602S@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250409032917.7580-1-yiru.zhang@mediatek.com> <20250410095158.8966-1-yiru.zhang@mediatek.com>
+In-Reply-To: <20250410095158.8966-1-yiru.zhang@mediatek.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 10 Apr 2025 14:21:39 +0100
+X-Gm-Features: ATxdqUF3Uhi02-Atot1ZYsCo3BPZFPm0ByTzdzbrh7QkbsgdDvRRnbSTXsdXDf4
+Message-ID: <CAJ9a7Vjr+O7wueNc1kmFt-Up2qzFXcSabgoBeb5e+rW8Z3_3Qw@mail.gmail.com>
+Subject: Re: [PATCH] [Patch v3]Add ETE devarch condition in etm4_init_iomem_access
+To: yiru zhang <yiru.zhang@mediatek.com>
+Cc: alexander.shishkin@linux.intel.com, 
+	angelogioacchino.delregno@collabora.com, coresight@lists.linaro.org, 
+	james.clark@linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	matthias.bgg@gmail.com, suzuki.poulose@arm.com, 
+	kernel test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_062033_871960_A6FDC5C7 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250410_062151_421666_102FD0A6 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,71 +96,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+Hi,
 
-On 4/10/2025 4:56 PM, Michael Walle wrote:
-> Hi Manorit,
+Please stop using the unusual title format of [PATCH}[Patch v3] - use
+the git command line options to ensure the format is e.g. [PATCH v3]
+
+What is the reason that your device cannot use the system instructions
+to access the ETE? Using a memory interface, if implemented, is only
+recommended for external debuggers, or on systems where the
+implementation of system register access is not working.
+
+On Thu, 10 Apr 2025 at 10:52, yiru zhang <yiru.zhang@mediatek.com> wrote:
 >
->>>>>>>>> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->>>>>>>>> [..]
->>>>>>>> For completeness , this is ok to add this node but
->>>>>>>> should be kept disabled
->>>>>>> Shouldn't it be "reserved" then, see [1].
->>>>>> yes, should be reserved.
->>>>>>
->>>>>> With marking status as reserved.
->>>>>>
->>>>>> Please use Reviewed-by: Udit Kumar <u-kumar1@ti.com>
->>>>> Thanks.
->>>>>
->>>>>>>> similar to
->>>>>>>>
->>>>>>>> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi#L662
->>>>>>> j784s4, j721e and j721s2 have them enabled. What is the rule here?
->>>>>> J784s4, j721e and j721s2 SOCs has two TRNG blocks,
->>>>>>
->>>>>> example for j721e, one is used by kernel [0] and another by
->>>>>> optee [1].
->>>>>>
->>>>>>
->>>>>>> You also disable the hwrng in optee in your evm according to [2]:
->>>>>>> CFG_WITH_SOFTWARE_PRNG=y
->>>>>> We are planning to use this hardware block by secure firmware.
->>>>>>
->>>>>> Therefore request not to use by optee as well
->>>>> How will you be able to access the RNG from linux and u-boot? I'm
->>>>> asking because I'll need it in u-boot for the lwip stack and the
->>>>> HTTPS protocol.
->>>> For now,  If you need TRNG then I can suggest to use optee TRNG (ie
->>>> build
->>>> optee with HW TRNG).
->>> I'll be using an uboot TRNG driver. But how will that work in
->>> the future if the RNG is used by the secure firmware?
->> Wondering if this would be of interest to you [0]. I think since this
->> device only has one TRNG, there has to be a master around and we can
->> mitigate that from OP-TEE as of now, incase anything changes in future
->> then the communication channel between OP-TEE and the secure firmware
->> can be established but currently it's still at work. I think the best
->> way to go forward is to get the numbers from OP-TEE atm IMHO.
-> I saw the optee rng. But as of now, the instructions are to use a
-> software PRNG for optee. Thus, if someone compiles optee by
-> following the instructions, it's unlikely to work.
+> Due to ETE supported, so add ETE devarch condition in etm4_init_iomem_access.
 >
-> Would TI willing to agree to change the building docs and enable the
-> TRNG in optee and then work on moving the TRNG into the secure
-> firmware and build a channel between optee and that firmware? Right
-> now, the TRNG seems pretty useless as we cannot use it neither from
-> u-boot or linux (and being future proof).
-
-Thanks for note,
-
-I agree to update doc two times
-
-1) with current state ie use optee based trng
-
-2) When fw based trng is available,
-
-
+> Signed-off-by: yiru zhang <yiru.zhang@mediatek.com>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202504101759.7Ls0Uy4o-lkp@intel.com/
 >
-> -michael
+> v1->v2: use switch case way
+> v2->v3: clean build warning
+> ---
+>  drivers/hwtracing/coresight/coresight-etm4x-core.c | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 2b8f10463840..4002a2823fd0 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -1135,11 +1135,15 @@ static bool etm4_init_iomem_access(struct etmv4_drvdata *drvdata,
+>          * with MMIO. But we cannot touch the OSLK until we are
+>          * sure this is an ETM. So rely only on the TRCDEVARCH.
+>          */
+> -       if ((devarch & ETM_DEVARCH_ID_MASK) != ETM_DEVARCH_ETMv4x_ARCH) {
+> -               pr_warn_once("TRCDEVARCH doesn't match ETMv4 architecture\n");
+> +       switch (devarch & ETM_DEVARCH_ID_MASK) {
+> +       case ETM_DEVARCH_ETMv4x_ARCH:
+> +       case ETM_DEVARCH_ETE_ARCH:
+> +               break;
+> +       default:
+> +               pr_warn_once("Unknown ETM architecture: 0x%lx\n",
+> +                            devarch & ETM_DEVARCH_ID_MASK);
+>                 return false;
+>         }
+> -
+>         drvdata->arch = etm_devarch_to_arch(devarch);
+>         *csa = CSDEV_ACCESS_IOMEM(drvdata->base);
+>         return true;
+> --
+> 2.46.0
+>
+
+Otherwise -
+
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
