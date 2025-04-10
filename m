@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02D4C369A6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC80C369AB
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,39 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=auMZjdpxCvKTX4lfbE8M58UMBkU5s6BuRcALq6wShSQ=; b=vthlxla7zeGTTkGsn7nGGlPCCU
-	La3FBspkd/zsOngVnjZ9lC9Jv9roc7dfIxjuLfb5e37kNyUxOZS4ipqcWY/Ztrdy/Vnv487xrW12U
-	ptd35LfrYLG6jtPTSJ1b9eTfFZw/PAFHFMOfsLh91/LoPHKdTEB2VyQW09G0o7Xr6a0Rd33+ekCuY
-	vI2p2Dnqk0sU/NGYn0G49D81YcmCeLA8e0Rdx3NmQssTaZJ/N7gIcElgies6Jhi2icugq6VjmXJHB
-	aUEkT8GRVFcPnwuYe9ySFbqfk+8zmUKfK8GslaLJc7LnaUJ3Z8o2RgFwg0F8VIN4k8Kcep0Dxlulc
-	znycRArA==;
+	bh=nKmaXQ3UFu+nSFWbeJhZzch8svzvXdM2x6AWlzQyZ1s=; b=3g64gMT6Vi+kASppI7diZBspsy
+	e/xmp/zvpoWXsAhWYUZIpIdm9p68le3s/kQh3bRqg71++1LRwfuT28RCUH0qd/OkLYhYto2jlXBTA
+	3Ea9JL4JEWu1NjXNm4mImr9UxFQZTrSM0aDPD78+8fxLObCIeg7nK5JrufH9NuNxZVhwqUUer5GPf
+	CL7ItsOR5iaC3GV3eJsB5Ar15roRt68c2jQQL0nfbPDk5iTNfXBFBjq05aXzqRPQYsJaMeiRiyhRM
+	uxb4Y6CaXtTYw405tTo2Lsoj3MppivpUeYRCV1z6qaA886Ir1Sye33tlBwIxXBiqNCpwpM7bpU2dI
+	COpDf0Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2psx-0000000ABDT-0bSb;
-	Thu, 10 Apr 2025 11:15:55 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1u2psz-0000000ABHI-2HER;
+	Thu, 10 Apr 2025 11:15:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2noQ-00000009rJl-1m9t
+	id 1u2noY-00000009rMk-2waJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Apr 2025 09:03:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=nKmaXQ3UFu+nSFWbeJhZzch8svzvXdM2x6AWlzQyZ1s=; b=ZHrKmiozt9jY8sP7XulJW6q76X
+	bJVs2pwqaXcA8jvY76Ug8w85MA3k6Sma0vPFH1oGgV0LP56Wbmk4RI3QM+P1dVb8qOBC6KUhIhlMT
+	xFZAR5UnjwQn3wH/5bVxfJ6SgCb4hYP9s7ds6g4SqM32mdzKEciOq0vbwLU2PKgm/CPP+fXTIo279
+	jFdmjVBJcJagiVk5eUag9HLWPLWEqYj7AA9T0j+wsQ0wRC++4dW8S5e2iImzOLWoyEaAEzlKISdqn
+	t11LZeqi8n7tNVtpDICfc4NeCWNzwLxPaewfif0QexXD+9qiJx9oLrvqrNZvt/pMbuPQNWkLcTSCX
+	T1yTSfRg==;
+Received: from cpanel.siel.si ([46.19.9.99])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2noV-00000008mgB-14Un
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:03:07 +0000
+	Thu, 10 Apr 2025 09:03:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
 	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=auMZjdpxCvKTX4lfbE8M58UMBkU5s6BuRcALq6wShSQ=; b=apt/Z0kmof7VIyQ53HOV9KOhtu
-	4fdr3Dc5ZeX+Ccwbf2UoFV8odqT65BbMzcg3JKzdvqvukUQxasGmdgMlnDJBSxU34DkKkK9/XOgSc
-	QoqSX8Oq0DuWyiUDFIQm614p+DWQV4ZUZOpg8SmTHVewu4v0Xp8ogUXPhjJlFmUNH8pJ6TK1+gXRo
-	RJV+UuUZmzYVgkFLKoYDQbw/2uGaT+noVdq8ubRDI9pb/N0ofAMfLzarbk5JeD9iEtjhQgyJ+HsI0
-	XVZAcWtOiLGVwfMVD1Yc27V2BAqe2aNGWNQ/tdRR+o5Z0tHfpoMuwO5tmrCU5AYPK/CoyVryh+JFP
-	jYcFHVvw==;
+	bh=nKmaXQ3UFu+nSFWbeJhZzch8svzvXdM2x6AWlzQyZ1s=; b=iLAOBNDKuCAZ4fSOF87pM46hHx
+	AKlMfpAF8YT1TKll0/ZqfRUClyyn6faAxaNk+EakbsPEzxG9C9RXdIds4Uo+xlSq4EYN6Y+yWtlJn
+	ztUG+Ln629m4+0T4zl3ZZ4TK0eCltdIiLMc2BLdfH3AysbTVoUrA6P6EHvfH+NwzU+bW0oIOnjlEI
+	pPR0LPQ46CyY8Oc5TGr44AbErU06VT6oRIOIa05wv/kFfQDbMeYD5uefMB/xsnn440DgGw/F55d+p
+	ebOMKPqdjM6if9EjPxVqjang77xfq5E8u+YbQi0S5Dmaw9BQwqbsA6LuYwnJXGmVpJKn5KFyumROK
+	fKnKtLZA==;
 Received: from [89.212.21.243] (port=41926 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1u2noP-000Djj-39;
-	Thu, 10 Apr 2025 11:03:05 +0200
+	id 1u2noV-000Djj-2B;
+	Thu, 10 Apr 2025 11:03:10 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,9 +73,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH 09/13] arm64: dts: freescale: imx93-phyboard-segin: Add RTC support
-Date: Thu, 10 Apr 2025 11:02:47 +0200
-Message-Id: <20250410090251.1103979-10-primoz.fiser@norik.com>
+Subject: [PATCH 13/13] arm64: dts: freescale: imx93-phyboard-segin: Add EQOS Ethernet
+Date: Thu, 10 Apr 2025 11:02:51 +0200
+Message-Id: <20250410090251.1103979-14-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250410090251.1103979-1-primoz.fiser@norik.com>
 References: <20250410090251.1103979-1-primoz.fiser@norik.com>
@@ -77,8 +92,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_020306_621477_A01552C4 
-X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-CacheID: sfid-20250410_100311_608888_99739742 
+X-CRM114-Status: UNSURE (   6.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,82 +109,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for RTC clock connected via I2C on phyBOARD-Segin-i.MX93.
-Make I2C RTC the default clock by configuring the aliases.
+Add support for the carrier-board Micrel KSZ8081 Ethernet PHY. This is a
+10/100Mbit PHY connected to the EQOS interface and shares MDIO bus with
+the Ethernet PHY located on the SoM (FEC interface).
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
- .../dts/freescale/imx93-phyboard-segin.dts    | 36 +++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ .../dts/freescale/imx93-phyboard-segin.dts    | 35 +++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-index 525f52789f8b..38b89398e646 100644
+index 08574b146400..92f0cb6eca26 100644
 --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
 +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-@@ -17,6 +17,11 @@ /{
- 	compatible = "phytec,imx93-phyboard-segin", "phytec,imx93-phycore-som",
- 		     "fsl,imx93";
- 
-+	aliases {
-+		rtc0 = &i2c_rtc;
-+		rtc1 = &bbnsm_rtc;
-+	};
-+
- 	chosen {
- 		stdout-path = &lpuart1;
- 	};
-@@ -33,6 +38,24 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
+@@ -91,6 +91,28 @@ dailink_master: simple-audio-card,codec {
  	};
  };
  
-+/* I2C2 */
-+&lpi2c2 {
-+	clock-frequency = <400000>;
++/* Ethernet */
++&eqos {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lpi2c2>;
++	pinctrl-0 = <&pinctrl_eqos>;
++	phy-mode = "rmii";
++	phy-handle = <&ethphy2>;
++	assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
++				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>;
++	assigned-clock-rates = <100000000>, <50000000>;
 +	status = "okay";
++};
 +
-+	/* RTC */
-+	i2c_rtc: rtc@68 {
-+		compatible = "microcrystal,rv4162";
-+		reg = <0x68>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_rtc>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <26 IRQ_TYPE_LEVEL_LOW>;
++&mdio {
++	ethphy2: ethernet-phy@2 {
++		compatible = "ethernet-phy-id0022.1561";
++		reg = <2>;
++		clocks = <&clk IMX93_CLK_ENET_REF_PHY>;
++		clock-names = "rmii-ref";
++		micrel,led-mode = <1>;
 +	};
 +};
 +
- /* Console */
- &lpuart1 {
+ /* CAN */
+ &flexcan1 {
  	pinctrl-names = "default";
-@@ -56,6 +79,13 @@ &usdhc2 {
+@@ -176,6 +198,19 @@ &usdhc2 {
  };
  
  &iomuxc {
-+	pinctrl_lpi2c2: lpi2c2grp {
++	pinctrl_eqos: eqosgrp {
 +		fsl,pins = <
-+			MX93_PAD_I2C2_SCL__LPI2C2_SCL		0x40000b9e
-+			MX93_PAD_I2C2_SDA__LPI2C2_SDA		0x40000b9e
++			MX93_PAD_ENET1_TD2__CCM_ENET_QOS_CLOCK_GENERATE_REF_CLK	0x4000050e
++			MX93_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0		0x57e
++			MX93_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1		0x57e
++			MX93_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0		0x50e
++			MX93_PAD_ENET1_TD1__ENET_QOS_RGMII_TD1		0x50e
++			MX93_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL	0x57e
++			MX93_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL	0x50e
++			MX93_PAD_ENET1_RXC__ENET_QOS_RX_ER		0x57e
 +		>;
 +	};
 +
- 	pinctrl_uart1: uart1grp {
+ 	pinctrl_flexcan1: flexcan1grp {
  		fsl,pins = <
- 			MX93_PAD_UART1_RXD__LPUART1_RX		0x31e
-@@ -69,6 +99,12 @@ MX93_PAD_SD2_RESET_B__GPIO3_IO07	0x31e
- 		>;
- 	};
- 
-+	pinctrl_rtc: rtcgrp {
-+		fsl,pins = <
-+			MX93_PAD_ENET2_RD2__GPIO4_IO26		0x31e
-+		>;
-+	};
-+
- 	pinctrl_usdhc2_cd: usdhc2cdgrp {
- 		fsl,pins = <
- 			MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
+ 			MX93_PAD_PDM_BIT_STREAM0__CAN1_RX	0x139e
 -- 
 2.34.1
 
