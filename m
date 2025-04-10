@@ -4,104 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C04B0C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 17:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D8AC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 17:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ndabrpg/uS3Lnpl8Uw5uYxKcz35CM6hCckBuN6uznzA=; b=3eFFPrOfuYbqb1nxGFIcSSTpRY
-	dsx5c+9XplsM/a0ctnLtgAW7ZQQcJ5JD4rNco6XtKapINYY+eorFBs3++ZMZgVrVOiNTgUJwsgbyQ
-	30RAaPqba0YBdjbEqlgeKSrmJz2wCJvr61lfwh5buvxsE9UtIRv0Ra4NkXqXNlA+HaIXRuK4WcV9J
-	pQMMDu0K0KLTXrjk9hhloIFc4Mrctzw7X3udPoL2IWv8qVRcIk9WmZ/dtwmqvN4Nge+6mIx9bM2qk
-	xyi79gt4zcxOMD+3R1XFELU9xPmVXkuFn6jCXTKZdTdr8w2AFDAQaeqM0nx24i8gLs9HCHzcHCPE4
-	TksPpRrA==;
+	bh=SqId5nzfmhffmtmm8tBobcXZ5ESa+eTDXrX9l7/+SaA=; b=2WKX1NveKiRd2pBDRZEhyUspPp
+	j/pQL6NZKEcw+/uu6AJnJzkmEJw0e2ey7Fm7rTYUqSGd+DzTVEo7oNYLPwld9VptjM9bVaJIrHggI
+	u3L+kH//tsuwCXHCUzK4KJgEIrX/OoQ0PMgPN9DjN3JvY5F1zVsVG9Ynh5JoQSLhBVj4enGQkM1WG
+	NKYvlvfQ5SqpksTNth1TMnw7vN3t7Y5w9BvuOiOTb/ThOuYdZciIdLM2HJTUHxcPEQYDFFuNvRSYd
+	Hl/dkbRoTHyN+rmLOchZmZQ3gG8kDZTBbzOiNJCIyEbct1krWO3fWRBHjxBbsuIZl3hGKgElQHaQZ
+	mkcICK/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2vey-0000000BMrN-2hct;
-	Thu, 10 Apr 2025 17:25:52 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1u2vgj-0000000BNJ8-1dhE;
+	Thu, 10 Apr 2025 17:27:41 +0000
+Received: from mail-am6eur05on20628.outbound.protection.outlook.com ([2a01:111:f403:2612::628] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2uR5-0000000B83x-1bAw
+	id 1u2uR7-0000000B84F-34PX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 16:07:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744301247; x=1775837247;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=vKTeQFFCmt46JdP7DyCiIVywztk+IaK0aYIzzD8T+Jo=;
-  b=CEeRep//SjH5f5e+KsMp8vFUy07roUp82Dv3reR6+ixF/qG733JFv0wb
-   9nD/OSNeXTjU8x9ixncVryqMhj97YDoa8pCjf3wx2ZCqzof+kFLFDCv2K
-   igGl4IublyvEJG4zYUSj1u0p2Sf2NKmohog8ibHzLKAWkXn3X7F3E1++m
-   wEvEUfB1z5JbdYSxAlehZThVUmxJrfCMGccAG7ppZMLMYx8OEgoSycGTr
-   7tCOzsQE9WofjjuaTEva4HEbKyhTeZ3pIfeJK0NjDM+3+Mk1GwOjZwQGL
-   DQBH5aKUpqdzYqVSob+3Idgeq0OYj80iX+rJYA0MbKzUhgvXZGeLT3cYS
-   w==;
-X-CSE-ConnectionGUID: bar5koQBTxu8NpXAp24JmQ==
-X-CSE-MsgGUID: Vgg8hzdaSWieLBHPCkj4xA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11400"; a="68321262"
-X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
-   d="scan'208";a="68321262"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 09:07:22 -0700
-X-CSE-ConnectionGUID: G2NMB3yxTr6Jlw4dDbGdvQ==
-X-CSE-MsgGUID: hjUqUviBT8C0/8Ovewh4ww==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
-   d="scan'208";a="129286470"
-Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com) ([10.237.72.44])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 09:07:15 -0700
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 349EB11F74E;
-	Thu, 10 Apr 2025 19:07:12 +0300 (EEST)
-Date: Thu, 10 Apr 2025 16:07:12 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Thu, 10 Apr 2025 16:07:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GsRyg0M6iKVUy5zsqe4C2c9NjJbV1s+upirVnz84gsYKH/lYHUh6VjZ35rFrO2lbx+RitNYI537HPa7fWesYMeKxQAQndiMWpXrcPbAn6uDIilOvg9HQUsHmugE7B7egBq1FtoL6/5Wr5LvEHwA7ZqLM0qinW9t6/r6zSsUFOWCRRl1EomgjPRE2l39QZuOi12+VPj2NJT72AHOp1AcEpjGc9c/NnrlYLv/CiqNHq5y2NVdsUwdRAtAqb2Ve+ToHCZKz740+Rp/NQIbEGX/MqmyGA03hFw2iS6lMP2QeqcrOK1pdULPefep2zeaA0izUtD2z1EjVrB9CCmsYgR1a7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SqId5nzfmhffmtmm8tBobcXZ5ESa+eTDXrX9l7/+SaA=;
+ b=kXqrd9vxjDmhu6Blpxg/XHFSEW2grp66r9r1hmFfXaOlB/UUorTMCgiRHqKuH+obghe2etMLxCk5Q33z4UwFV4iV9c7sqEABBqT69BqAKraumvnkU1rONE6d+WzStl4eBB1A7nfuDYBk+Kn6UHEbO9er8lBH8gp6hRz2o06Wzfn4wJ4OiH8udy4tWkWNcXxCH/5kIza44FUqMEmFQqTU4XmPhSJIB8b0Ux4ybkQ27N+HLDIbf+7nEnDNZsfgwOyZMo22MFfBewQOTaGVn9HohH7ouILORWyHdo7KsW6jBRQ88K7chNzkMeismSAClPouRvp5tFw/dU2Cn2wnK1AN5g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SqId5nzfmhffmtmm8tBobcXZ5ESa+eTDXrX9l7/+SaA=;
+ b=F6KjeHVqiejPESTIqlVcGxX8I+ae2SqDnX1IjU4UR2xhMdToOBM9vnNH/WAgU8ZIwslIUlJmY42qqQkzJSYqD6k/dayefEkDKWQS8H1hoZwJI+rQNaNnZyzHeE8IQF3PpiXCNHXoEMjN1JvWOJiT0+uvPiDNQg7ofTL8JnH8QFgFrbNie6UT+ANafY59iqyvksKL8ZpV9T75zpMpvNKp7FkuhjC/lrqc6wf3yTTeGgbEGDkZfbPhemugyO1NGxt/9aJ9M0CAMvYVPMuMJ3chNFMYmKhDJEQ/Xa+zXqFfZLwhpHO7KCHjZsJAcuTlWGFt4qzBTSABs3NUg8PFsO0TmQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB9006.eurprd04.prod.outlook.com (2603:10a6:102:20e::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.35; Thu, 10 Apr
+ 2025 16:07:26 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.021; Thu, 10 Apr 2025
+ 16:07:26 +0000
+Date: Thu, 10 Apr 2025 12:07:19 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Adam Ford <aford173@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, aford@beaconembedded.com,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
-	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v10 2/8] property: Add functions to iterate named child
-Message-ID: <Z_fssEg3QZXyaTzx@kekkonen.localdomain>
-References: <cover.1742560649.git.mazziesaccount@gmail.com>
- <2767173b7b18e974c0bac244688214bd3863ff06.1742560649.git.mazziesaccount@gmail.com>
-MIME-Version: 1.0
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/9] arm64: dts: imx8mm-beacon: Fix HDMI sound output
+Message-ID: <Z/fst7AzAJ3q0iDi@lizhi-Precision-Tower-5810>
+References: <20250410005912.118732-1-aford173@gmail.com>
+ <20250410005912.118732-4-aford173@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2767173b7b18e974c0bac244688214bd3863ff06.1742560649.git.mazziesaccount@gmail.com>
+In-Reply-To: <20250410005912.118732-4-aford173@gmail.com>
+X-ClientProxiedBy: PH7PR17CA0017.namprd17.prod.outlook.com
+ (2603:10b6:510:324::13) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB9006:EE_
+X-MS-Office365-Filtering-Correlation-Id: 35a3ee3f-7437-41be-27e6-08dd7849c946
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dUlSzBxCRmH8Fzi+6Js/vkfFBTFfRaAtxU1q7/dbCmqOSG2v7K0+LfPOSnro?=
+ =?us-ascii?Q?BEs8DO7TwFj33hhUK/Gj2G2dJOe8isdYNMbBYw1sI6Uqnp/0iFMwsf/89zoC?=
+ =?us-ascii?Q?0ak+9Wpks1pgxWHcXYBsM+sotrGCpbEMaaZl9uMatwuXWQ/Rgxg0bsDmltTZ?=
+ =?us-ascii?Q?qHocvKYPWPnwDnbyVCNqGcBBBpkuRosmE025+RXwtkVxoZ7iNy7nJ3spzjmy?=
+ =?us-ascii?Q?4ls6zmTh6Nd9SXX6P4wizQM+qizzpKYmMUgWa4SZoVSaTrJJLtkedbNOVLMS?=
+ =?us-ascii?Q?TiK3u58lBJcXLp+lqmAIDZzqupAd1CiYSEkNE7SpL3fo5yqojqDj6hFPcxLC?=
+ =?us-ascii?Q?ZsWfNBX71bGrdwCJcr3FNOb6enomdogkAalrAPTE0+jW+KQMrnkIQ7C+/i7e?=
+ =?us-ascii?Q?aSwwqpVfoZkorJBWDhnzPct957+kc0XyAeIWZtMSoiZoJ+xetnwT+c3sXYD4?=
+ =?us-ascii?Q?fij08ftPUOpIoT6Z719nWHBvX86yLDKoRWCrRDNUZbS8FREOT1gP9rmIbr5h?=
+ =?us-ascii?Q?hKD4n4fX9SUdNu0ai/4vt1X3SLwJOYr6wc89q1EpwVrfFviq66sH3oNMz7II?=
+ =?us-ascii?Q?IrJjvYBw3t/gQ4jf5DWgBYGz7WLr8L0sezXNaT1jx/G7wjAuwSFWDPeKbpVK?=
+ =?us-ascii?Q?923QQT0znxQtT1+QUX0G/pje/1EViEyImzcVqGnmxDF7K9vse6EUL1vaCGkF?=
+ =?us-ascii?Q?tBgqkktr6ENZf0wTtq9lxydlObFEWjzaKq+LrVu5vYaHzFzPHBRY8M8+VzFB?=
+ =?us-ascii?Q?VqxIK+o/9FFNElaDPXRb+JtUBDSXIucoY/DT/VVpx3nasuAS22DizpJUI7Gc?=
+ =?us-ascii?Q?ZU2i4YUYYvIKICrcXRNsy5KxxVCSBvNruGN/xGBfPmAbZNokTY3UuYvp4deu?=
+ =?us-ascii?Q?0ng1D2D/j1QSXMFJftQut+gtd66a6HeEhfQJOzyuURdCsY7QksqtFoZWUGq3?=
+ =?us-ascii?Q?zAiL+pzyTqhG4m1YTmQov6n1nRxLyG8Qe38r4c0XgtbBQYlE78KBQldIZfLO?=
+ =?us-ascii?Q?B4L9k8ElAvFqR1FfiAFnujAVkBUeOXVbyW+c91cwvRy8pI4nwq02bby0K0CO?=
+ =?us-ascii?Q?nNe6I01GKDJwb2N4pe3RMqHT15Q7Mn1a+akzVrXxfG67GklqOn5Aq6W+8drg?=
+ =?us-ascii?Q?KtbwG/pZ1bMV1Oe19ysKYAamx6wO0t15hYJHuhyS/W4xl8sVlgtMrpKSjgd/?=
+ =?us-ascii?Q?LiZaeWLkpzzvijvf98fS0N5cay8Zk8gxhrcqTk66gjj1ejTFPmTh9KhE47ZH?=
+ =?us-ascii?Q?O6+ERBMjqceW05p7mrB7dDEzMEQmlx65/nivhQaX3KKNSoUQ+/GigwOBfNP4?=
+ =?us-ascii?Q?x4RIXCfIiB3MuRMW+Qdcp2StU7CZI5cCSYntBA0MxVWwYZs15ci9oxByuKoW?=
+ =?us-ascii?Q?izQyb/PqNfJ+to4FF+6Y9+5Fy5SC1c5kFXvg0slAdsXJhSqIgnbrM/h1vToL?=
+ =?us-ascii?Q?n+B5+1pcKjud/NvWSXttF5X8VNm4QTGs?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CZawudBxVF2qCJnw88LVNUKx0ovZT5+DM5pc34qLdT1sJ+pxFX1YzzlsxSQj?=
+ =?us-ascii?Q?qg3Xmr9/H/GAkw9EJdDX2BrXBAHBDKLyP55IEstsCD918ikCLOAtxW61oDRY?=
+ =?us-ascii?Q?HiPthcC4flpohiIWRBjIK5FTmQ/6IPGy7n9tmn6P0OyrOOlGIu9gLNxyoY6n?=
+ =?us-ascii?Q?59W/hSIWHy5BBlVJCcQN/VBcgoPYwPN/kOsrFVPXzd6tR8C01DesHCwan39j?=
+ =?us-ascii?Q?2MHwCyVV1wpWKFyQwWX8KaxUcRvE+FLkwE7g8Lh+jLyx05Lv2zrTZd5A2huX?=
+ =?us-ascii?Q?1iFTjyd8yDyu69QV1/oq5Jhg/UGL5j6o6GJHQgI5rgyV7crrG6fkEC8s8Nfm?=
+ =?us-ascii?Q?kHXMpUoxIgocchJs5JO8SDSvPqw+emyq/N4euJH7xctkmwTjLD3npRbYuUaK?=
+ =?us-ascii?Q?8G9g6/e1TMcHwbqMluszcFSrzrpoj1206xBDSSAmpjGMZg1Wg3ovNHQ5hrag?=
+ =?us-ascii?Q?OQmyJdel9COSo5F3xhSpsRT5RYQ0nM9jkhDhKov8dUWvkGwZvs9QPZ0G9rkR?=
+ =?us-ascii?Q?gpFluWHIVMmxP17sMLrnB9sURGsR+4vMfLqoyVrk3q3PO+uqt8BfEYQxRARQ?=
+ =?us-ascii?Q?ITPYMAsLd9Ok8j01kyD01UEkPZNFrQLk5pgVGds1gADug3nA6fAj4mlgsfC5?=
+ =?us-ascii?Q?yDl4uYNryW+5fkPU55f7QQ5fedCJPlaoGGFBP4jHpUja7iBAazOIwho+KXPw?=
+ =?us-ascii?Q?nYhcOHkgyC/ZOMvCwm4TNp0gmvIoPp6mmKaU7Rz6d7pl3nrCz3D0xXQx8sXm?=
+ =?us-ascii?Q?RIgfMMMWCSNE4lz4BhmXbQNPW2rpAx6Cd2OSI2LXejvq4NbOKlsOZQQUWWg/?=
+ =?us-ascii?Q?l2q4I9XukV/blVqhugaRJfIMVNOOgwE/5MgFOHGIkW5EuG6eeJ+XPttMgHmJ?=
+ =?us-ascii?Q?ioLp3h/e5TNmzkEsUD3r4DqDaCZwye3cmVo0xuaOXlayq9PYLyX6iCaissV1?=
+ =?us-ascii?Q?/33yFNwMLZujsg4lfYmqOuSsEL6YgKewLf1Gu9Ve85oO9c0hOcs/SZUN3mZt?=
+ =?us-ascii?Q?ivozQQwWa3Ai6CwV6TQcZp61H7JaQW0oYONIlQmky1vJlvdjAOAe8rYmUw0S?=
+ =?us-ascii?Q?Xw80zMuh+i2UiKUSe/LepaVgwQIPwt9wvHZcJTExqiEzIx129lkJYJJ52WTW?=
+ =?us-ascii?Q?EsK2mIXma/KLsyxyOXO1McV5gNgoZHlLwx4Bv/jjgT66uEQr1ZlvOum+TsrZ?=
+ =?us-ascii?Q?SDf/e8TJ/Izl1wbFTGwoPDjn51nWB2LzygokdFSEpWx3ZqlUBvwtXrhCLtOW?=
+ =?us-ascii?Q?ObR0jYpc+XZP3YVbX/QgUiFzw1gp7dtmtsVd1Bk+9snm9I7v8Zdd/9SZxLZb?=
+ =?us-ascii?Q?6Pkwk8Tzta1wXMx7tda589oSJC5AY6BcjSk+ttaC7JpgQHLypEibk0kGfGVm?=
+ =?us-ascii?Q?h18e6vgIz8zM4Nyci2HqvlpCMB0Y8FNOcRZ6qPvd0Z7CQ60fGRa1lynzs5AX?=
+ =?us-ascii?Q?kdtgXunsdjvEpkUHHUoBSJeD7G1N+4YjRKtRq2eQ0rJSUacO/9AKsqpFmnvN?=
+ =?us-ascii?Q?I3julATNYaVUZ+/glWnOqSYSfmQUrwW1dkA0IiLfQKHwpOr26LH36lcbrfFw?=
+ =?us-ascii?Q?sXxBIbxTxhF/En1g1vIMNCXBZOUX37yzap2ke7kC?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 35a3ee3f-7437-41be-27e6-08dd7849c946
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2025 16:07:26.2998
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: G7PPRQYMqirWoMmPWdmBhA4b3Bobvjt5zP7DcFX4BHxoW4/VPVX91SX9V9XJxIWlSGLUOS44y4lxk0fqVYIeTA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9006
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_090727_471538_40F0E2C7 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20250410_090729_775597_BED37E7F 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,34 +162,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 24, 2025 at 09:12:50AM +0200, Matti Vaittinen wrote:
-> There are a few use-cases where child nodes with a specific name need to
-> be parsed. Code like:
-> 
-> fwnode_for_each_child_node()
-> 	if (fwnode_name_eq())
-> 		...
-> 
-> can be found from a various drivers/subsystems. Adding a macro for this
-> can simplify things a bit.
-> 
-> In a few cases the data from the found nodes is later added to an array,
-> which is allocated based on the number of found nodes. One example of
-> such use is the IIO subsystem's ADC channel nodes, where the relevant
-> nodes are named as channel[@N].
-> 
-> Add helpers for iterating and counting device's sub-nodes with certain
-> name instead of open-coding this in every user.
-> 
-> Suggested-by: Jonathan Cameron <jic23@kernel.org>
-> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Reviewed-by: Marcelo Schmitt <marcelo.schmitt1@gmail.com>
+On Wed, Apr 09, 2025 at 07:58:58PM -0500, Adam Ford wrote:
+> The HDMI bridge chip's sound card enumerates, but it does not generate
+> sound. This is because the sai5 node is missing the flag telling it
+> to set the mclk as output.
+>
+Suggest commit message:
 
-Kiitos!
+arm64: dts: imx8mm-beacon: Set SAI5 MCLK direction to output for HDMI audio
 
-Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+The HDMI bridge chip fails to generate an audio source due to the SAI5
+master clock (MCLK) direction not being set to output. This prevents proper
+clocking of the HDMI audio interface.
 
--- 
-Sakari Ailus
+Add the `fsl,sai-mclk-direction-output` property to the SAI5 node to ensure
+the MCLK is driven by the SoC, resolving the HDMI sound issue.
+
+Frank
+
+> Fixes: 8ad7d14d99f3 ("arm64: dts: imx8mm-beacon: Add HDMI video with sound")
+> Signed-off-by: Adam Ford <aford173@gmail.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mm-beacon-kit.dts | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-beacon-kit.dts b/arch/arm64/boot/dts/freescale/imx8mm-beacon-kit.dts
+> index 97ff1ddd6318..734a75198f06 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-beacon-kit.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-beacon-kit.dts
+> @@ -124,6 +124,7 @@ &sai5 {
+>  	assigned-clock-parents = <&clk IMX8MM_AUDIO_PLL1_OUT>;
+>  	assigned-clock-rates = <24576000>;
+>  	#sound-dai-cells = <0>;
+> +	fsl,sai-mclk-direction-output;
+>  	status = "okay";
+>  };
+>
+> --
+> 2.48.1
+>
 
