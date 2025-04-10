@@ -4,55 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E786FC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 06:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E71C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 06:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qnxZ4kBmuRm7gDreVa/AjIZXika4Tkfo67gvc+L29sY=; b=S6ai4+dxbdu8Ed37rXF/hHL5Bp
-	B4ZDCCwfwSlzZ1TZw9ZvtZy/YIl8qd+dP/gqTuYdWAvU44pQl8gYScMxItdK3IwjTGCVe/cyHvC1y
-	DzWiAmGjz5TjLhq6DtCnd44nQAjTsAKGCq3x4PpZPIkjjuLinGzRtAVNTkfQ1L+EB1sMNC8XvCNpl
-	UycYKug7y6brrJX1+JrRXMzlYWrZ14pk/IuyWnRKJsLqEcN/ilCuRVOmbv5rOsaeh4FKSy1vFS4iP
-	r7pCf1E4FkUZuX5b42mANg71rgyR7ZFO6ywbI08e9TaVncgMYNva9Qr9c6Ib85dEw/5tlnh8oZiLB
-	0zUWrprA==;
+	bh=P9NDd20YzB0bwdZ1W4YGjAjkAqoGK6aOQubB/QLFnRU=; b=kSuVjzZnv0O2UMo9il1ugcPNak
+	O5OaVjAjDHilblcC3FvBK+qBUvX+dU8YCzOUiZShe56hYp8o+hqqZJvD5TmdVi88nTPwb6sVoFAeD
+	6XP6bY5eALlof5VWLmiqQHBVQ9KpJJKz9TevB1k4bcaeqcJBIV2AsIsvw9XdrOGmwPynSMjV+M5KV
+	hT3fjPP/AHuJRrAlGUSBtmA//8Dto2ECV66TbtTwbYHGbYLlyxsyyvGSosvDML5xqTd+EkoosyIek
+	YapV5sKh7DNNRcfhAfHGBzmnDps75JB3oJOYBdKVQKVsTGS2OVHNLtYw2XqxSTLhfq9Ia37E7QJ0r
+	cZKBQeHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lkp-00000009QfS-1HDV;
-	Thu, 10 Apr 2025 06:51:15 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1u2lmb-00000009R0U-0Qgm;
+	Thu, 10 Apr 2025 06:53:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lQl-00000009NAL-26Qb;
-	Thu, 10 Apr 2025 06:30:37 +0000
-X-UUID: 4855897e15d511f083f2a1c9db70dae0-20250409
+	id 1u2lQz-00000009NDS-1u5D
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 10 Apr 2025 06:30:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=P9NDd20YzB0bwdZ1W4YGjAjkAqoGK6aOQubB/QLFnRU=; b=jOSbho0ug+7cXz+F0pOixCBey8
+	Ux0D9yRZsAJz6KO3nFF7QZQ/5/TGCXewfSVEPq6UT695+pWdCeLiKxQDiL4cSkEp8kP9YzEBkDOuf
+	7AX/r1xff3E5foF53ycZUICf2nuduAn2iJ+MXT6o925bGFUUUn80BM9pmMtrVotZGtQ0otKgkBnTi
+	XPygoYSpYWfP8jxuGbgk6IWsKHojPwYnklv+mFQYb7G/VUtrhf1wB8cCDFlxKeLkIQxDgEfOfUWKn
+	f4HFAwrKDutb/7cRdGDJWkh2/HcgXDt31DqNU7iatKISDMaC1xyq+d4FrZroHxAv6ZWtYkTseUe3F
+	Q2of0ZKA==;
+Received: from mailgw01.mediatek.com ([216.200.240.184])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2lQv-00000008lbr-2uCw
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 06:30:44 +0000
+X-UUID: 48ed969c15d511f083f2a1c9db70dae0-20250409
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=qnxZ4kBmuRm7gDreVa/AjIZXika4Tkfo67gvc+L29sY=;
-	b=B+RPwGJs0fDaChb25mKUc4l8BL4lX43ekzR/O1Wro1kQr/IV7bLuh62YXHIDYqNAreHLnmKW1F5rt/2OG+2gX8hbEBC/Et+SfJIb2PmaRXQHRBigx3/a7pq4eQGSupKKo2/s9rDk/xaWVVYzvi2UtDrdX2Qh52+enRJLtJSR37Q=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=P9NDd20YzB0bwdZ1W4YGjAjkAqoGK6aOQubB/QLFnRU=;
+	b=KCVvYI3UTT+imhBxnKw5P8B5p5dAg35KKAtcKhl05uqwTWHJ/qUqWhfyszEuHoxgVpPO0wkhu30ublQZQYEnpW7fI3NqrMTvmMsJ6U2HtmRWXuW0xwxNsDmeWR2VCoZ/3CvKwVdX1s7iCjiwbRmjp1BCuvFeEpJ7POPXnkzxGKo=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:6b637f38-00c7-46ad-b881-d0e2e4d6b0bd,IP:0,UR
+X-CID-O-INFO: VERSION:1.2.1,REQID:872b60f9-03af-45f2-a69c-0cad0747e3da,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:2b9c138b-0afe-4897-949e-8174746b1932,B
+X-CID-META: VersionHash:0ef645f,CLOUDID:151a67c7-16da-468a-87f7-8ca8d6b3b9f7,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 5,DFT
-X-CID-BAS: 5,DFT,0,_
+X-CID-BVR: 5,DFT|NGT
+X-CID-BAS: 5,DFT|NGT,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 4855897e15d511f083f2a1c9db70dae0-20250409
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+X-UUID: 48ed969c15d511f083f2a1c9db70dae0-20250409
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
 	(envelope-from <kyrie.wu@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 735138540; Wed, 09 Apr 2025 23:30:23 -0700
+	with ESMTP id 4843431; Wed, 09 Apr 2025 23:30:24 -0700
 Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 10 Apr 2025 14:30:20 +0800
+ 15.2.1258.39; Thu, 10 Apr 2025 14:30:21 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 10 Apr 2025 14:30:20 +0800
+ 15.2.1258.39 via Frontend Transport; Thu, 10 Apr 2025 14:30:21 +0800
 From: kyrie.wu <kyrie.wu@mediatek.com>
 To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
 	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
@@ -63,9 +79,9 @@ To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
 CC: kyrie.wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v2 11/12] media: mediatek: jpeg: refactor decoding resolution change operation
-Date: Thu, 10 Apr 2025 14:30:04 +0800
-Message-ID: <20250410063006.5313-12-kyrie.wu@mediatek.com>
+Subject: [PATCH v2 12/12] media: mediatek: jpeg: fix remove buffer operation for multi-core
+Date: Thu, 10 Apr 2025 14:30:05 +0800
+Message-ID: <20250410063006.5313-13-kyrie.wu@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20250410063006.5313-1-kyrie.wu@mediatek.com>
 References: <20250410063006.5313-1-kyrie.wu@mediatek.com>
@@ -74,8 +90,9 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_233031_601007_04A05CCA 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20250410_073042_146571_8097A38A 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +107,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For multi-core:
-1.if there are only two src buffers, hw0 and hw1 are decoding
-at the same time. When resolution change occurred on one hw,
-the src buffer cannot be got in the stop streaming function,
-which will cause a crash.
-2.When a resolution change occurs, immediately set the new
-resolution parameter to save the new resolution;
-3.After a resolution change occurred, decoding should not continue,
-needs to wait until new buffers are ready and the state machine
-changed.
+move remove buffer code to spinlock protect area for multi-core
 
 Signed-off-by: kyrie.wu <kyrie.wu@mediatek.com>
 ---
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 4c5e47b678d4..0a4a503ecbd8 100644
+index 0a4a503ecbd8..46debd754cd3 100644
 --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
 +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -890,7 +890,8 @@ static void mtk_jpeg_dec_stop_streaming(struct vb2_queue *q)
- 
- 		vb = v4l2_m2m_next_src_buf(ctx->fh.m2m_ctx);
- 		src_buf = mtk_jpeg_vb2_to_srcbuf(&vb->vb2_buf);
--		mtk_jpeg_set_queue_data(ctx, &src_buf->dec_param);
-+		if (!IS_ERR_OR_NULL(src_buf))
-+			mtk_jpeg_set_queue_data(ctx, &src_buf->dec_param);
- 		ctx->state = MTK_JPEG_RUNNING;
- 	} else if (V4L2_TYPE_IS_OUTPUT(q->type)) {
- 		ctx->state = MTK_JPEG_INIT;
-@@ -1781,11 +1782,15 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 
- 	if (mtk_jpeg_check_resolution_change(ctx,
- 					     &jpeg_src_buf->dec_param)) {
--		mtk_jpeg_queue_src_chg_event(ctx);
-+		mtk_jpeg_set_queue_data(ctx, &jpeg_src_buf->dec_param);
- 		ctx->state = MTK_JPEG_SOURCE_CHANGE;
-+		mtk_jpeg_queue_src_chg_event(ctx);
- 		goto getbuf_fail;
+@@ -1681,9 +1681,6 @@ static void mtk_jpegenc_worker(struct work_struct *work)
+ 		goto enc_end;
  	}
  
-+	if (ctx->state == MTK_JPEG_SOURCE_CHANGE)
-+		goto getbuf_fail;
-+
- 	mtk_jpegdec_set_hw_param(ctx, hw_id, src_buf, dst_buf);
- 	ret = pm_runtime_resume_and_get(comp_jpeg[hw_id]->dev);
- 	if (ret < 0) {
+-	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
+-	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
+-
+ 	schedule_delayed_work(&comp_jpeg[hw_id]->job_timeout_work,
+ 			      msecs_to_jiffies(MTK_JPEG_HW_TIMEOUT_MSEC));
+ 
+@@ -1705,6 +1702,8 @@ static void mtk_jpegenc_worker(struct work_struct *work)
+ 			     &src_buf->vb2_buf);
+ 	mtk_jpeg_set_enc_params(ctx, comp_jpeg[hw_id]->reg_base);
+ 	mtk_jpeg_enc_start(comp_jpeg[hw_id]->reg_base);
++	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
++	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
+ 	jpeg_buf_queue_inc(ctx);
+ 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
+ 	spin_unlock_irqrestore(&comp_jpeg[hw_id]->hw_lock, flags);
+@@ -1799,9 +1798,6 @@ static void mtk_jpegdec_worker(struct work_struct *work)
+ 		goto dec_end;
+ 	}
+ 
+-	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
+-	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
+-
+ 	mtk_jpeg_set_dec_src(ctx, &src_buf->vb2_buf, &bs);
+ 	if (mtk_jpeg_set_dec_dst(ctx,
+ 				 &jpeg_src_buf->dec_param,
+@@ -1830,6 +1826,8 @@ static void mtk_jpegdec_worker(struct work_struct *work)
+ 				jpeg_src_buf->bs_size,
+ 				&bs,
+ 				&fb);
++	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
++	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
+ 	mtk_jpeg_dec_start(comp_jpeg[hw_id]->reg_base);
+ 	jpeg_buf_queue_inc(ctx);
+ 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
 -- 
 2.46.0
 
