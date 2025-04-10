@@ -4,84 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 335CCC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:24:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9D1C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wMQZClxt/r11IMD+9AiWAlz3lBENpTb7OT4Ug6+9SZk=; b=qFtWsBcbYIom0wX1Dt5pOxV/re
-	JNICwHjOoepXCkOda3MjfvjTBHXUFLdcaUNg5RjdlAvzLTUU40/Uf+Je/x1Y3KUXY+j+o/FQ4K0x4
-	CDNDeGgQaJryimNbwBuInVsSmw6tfRxgZvTwu0sJelmyNKVvZ6tj9zZrBTKroxSdDnptwXucYj1kV
-	XArvCdhguEnJBllxuJDZ1fyC9RJrHtXT54touVT7D+Hs3l4331YPuj8X9YU0FUDN+uFHiQ+iNscNX
-	SZc8e8cG7D6b3JZXnh6lbzTxvIlcY0oQCYFd60EhBz+Tm5r7th1x4ZLTkmHjU9Dhns0YdvasVO+jC
-	zQEAbfXQ==;
+	bh=hw6qWiOQz7qnL3QPfL/pX0Wf6VztGnHKDpSJiDKfQIE=; b=gOJI5AgXqEcu5uxAZ+w+IwhgGC
+	rUquJiS8oj/zErpyiemyoAZyPdPWwUlBEkYWquadcxkX2ieacJhtySv2gvqXorMb5N/OLuGCVF+93
+	RXKwfn8tNJl0qGeK4pXANy1fqlMqPlQ7C9csCuAdLtk1S+01kxXAvb2nQvIg//ind2Y970mmqGcp6
+	3NEpeB8bg5GGcAnQs8B1IiPhhOuBpnZjAIt8wWWyzx371CuExqwHTq8795kuMIecuytVELRYCkw9j
+	fah77/jbY6xym+tEkzltz7G4NNBygPwW+brVnAUGlZGiOt8V8yx4/q4aqV8gBVJ40fCfcfd6MjiWf
+	XRnq2klg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rt8-0000000Aeb2-1GrL;
-	Thu, 10 Apr 2025 13:24:14 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1u2rut-0000000Aeuk-0GhR;
+	Thu, 10 Apr 2025 13:26:03 +0000
+Received: from mail-eastus2azlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c110::2] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rqp-0000000Ae7O-1bDT
+	id 1u2rry-0000000AeOv-2tWD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 13:21:52 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-73712952e1cso694446b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 06:21:50 -0700 (PDT)
+	Thu, 10 Apr 2025 13:23:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eogUi1M2uZmkOj09acLg/mz8u7/XUdgKc7Z6wcDFihvF2xYmoj/kjRGDAECDb+HePMi3JjbJYeytSQIQUSuo3uBUe7rwFEsOQPjbGYjpT3v7mz1q0eGv1OpjYrv0nJg6CNJ+dOEsqWzo+7ACrUYZXakHkkRx7qZ0WKrAzwBFTbhNUWm23u3jBIg7pb6v4sTbVufWOKYKojy1oRL6vptxAbvqEQsYrceWAP/NKVDfm6g6wAuBwEsHayEjH5VRbjgRebfCqICnrPPgJSkZtsWFfngQKcUoAF/ux780siwkyxdcDqFAWpSETQcsZRyKOk/zqoLaRjrVDafc/euZUI8ilQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hw6qWiOQz7qnL3QPfL/pX0Wf6VztGnHKDpSJiDKfQIE=;
+ b=jWJJyK/X+UiiMq3uO0DvbB21WdXrmw5TFRFJkQ+RXW6WHqnJtgQ3cNAzxI70owMFUXPFs9yib6II2LP9N6zZQ+Je3y5yqkkBEq9HwcJVkC/1D78C9jBrfrh0pw8Ob2FUluaSTywAo/ocE0KGwXgnUkGhbZyyrFwZie8HgdJHHEu5/RpYNHIC+8Ja4UJyJ4JIUvWvF72IUhbQf+DmT8Bqe0+Bja/atfrQ8KhiMBTnkwyIPK/FtJW26uwwzNnXFfFGCraph6zqjeJYHpcWp31g4b7ouMbbuuLleI/XqrbTApgOB3N3BCYjlDJ7Htb+us88GiOUydlWP9/U8GuMaUgLdA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744291310; x=1744896110; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=wMQZClxt/r11IMD+9AiWAlz3lBENpTb7OT4Ug6+9SZk=;
-        b=WEEygWfLnfyQ/GHqAyZpvLFjVCJdmu3x1FlSZ/pSLd5fmxYQkaGywxCDskyxitaG42
-         wHMptZzJC6/PHrpRwWvwDqpj9UYn/LAhOWGywfU1EBS/ZYu7pTA+pEq+BniK1W3aQvEd
-         HTkzaOlNUdR6MKwPkOW9wt67sD47Ae3llQA2C1XWDVxzx5CTSEs/VUvBL9T4Qu0OERpt
-         iQkdQDExpU8T255NW8GELRD5iUZQpOPCdw+AiSsimtYJFQWOvlKl2OX0n2Jeo9qNEqES
-         ICX10Wi98/Nk6rqwG0iN5Dp9JPx0DxcuH9H3spucRjGtTivIh0J6mKGVrjm26qnW/cgQ
-         B9kQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744291310; x=1744896110;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wMQZClxt/r11IMD+9AiWAlz3lBENpTb7OT4Ug6+9SZk=;
-        b=RNKD8oV+LRCIQ0wINsxVP7rutsllF1+D/55Kqjlhkkdn4M6wvOn9R6ML4TzWaaagjL
-         TXywHcO+smQdXTOu+XNJoYguB/vhi7dUOIvxzg5ctxF1FI/ge7nHWuQrqFfFevJQ1C9n
-         0kJ59D7EHg3U6VezDwLhbJz3nkNzZXSQhkgw0Iw/geiSD4B5PR7vKepn22Ku0lbQUVDv
-         rnKCGx8fQqdCmsa3Zog7fp2Wo4BWwPBulsNt0Joxlhnc6KZAmHQU9ioaJXdyDixyKxDF
-         BfL1KkJMOrRw5aE+QhhAqrGxDd/n/9pNX6gEgnyHaEPkJ0J8nc0NfhcLtT4NG6dniONR
-         Ek1g==
-X-Forwarded-Encrypted: i=1; AJvYcCUe0HxD8j0afxttKTqvkbxR1i1Q70Z0m/Of+SXU6CMSBgTiI0XYt64fWd+GmG3C0Zu4y0FtUc9oB6fOseW+X3fp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvYNczI+VXstTGohhDPsWyu9idv5CLxVcMZNREaL0JOA/XtMai
-	mkFkFhS9D5CaJY4qqqx+Yeomah8CMUoaSy5hewvJmIdru6MDF41E8kFkdjgFxVT/nACQcG+f0P5
-	XspjI1ibbGYnkGELsC45Jgdddc80C8I51e3rgWw==
-X-Gm-Gg: ASbGncu+U4vz7yqdGa7CsZjbCgxIv38iDGk6ye9FFYmfOZ2BmnY2snkS+0qmsXpWrcS
-	aiEox74zSgjva1bhyXwGSl3enV5H18iE4Rl8WK9vr0TG9GDBQyeuyzqze4EYqNjpCo1KPlTt52J
-	4B3VCxCxYrsSRSc9gNDUug7nY=
-X-Google-Smtp-Source: AGHT+IEL3aq17l9YVyu03lvnUk5C6k7qYVWUuIutjM7+77MtfedWhhLez/73fsO+lOMiT2oK1ZOolvmazkYHCs2MYjA=
-X-Received: by 2002:a05:6a20:d48d:b0:1fe:90c5:7ceb with SMTP id
- adf61e73a8af0-201695d9c45mr5523489637.40.1744291310083; Thu, 10 Apr 2025
- 06:21:50 -0700 (PDT)
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hw6qWiOQz7qnL3QPfL/pX0Wf6VztGnHKDpSJiDKfQIE=;
+ b=iAfLYpDSgNe0gsOUeBsToSE/IgdxmTn24U31pR2LP71dZG5eBWIUVbys0HPsikhzb6B2RalBdFl+zoNZjexq0ZKzYkSLOwtzWzk0fonR6IWzoKZoylm1+bY29YUcd7/r1xG8aRLCoPxXmoaP/tTfitO5uW1MDGnPjnLi6fevBqM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
+ BL3PR01MB7073.prod.exchangelabs.com (2603:10b6:208:35c::23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8632.23; Thu, 10 Apr 2025 13:22:54 +0000
+Received: from SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9%3]) with mapi id 15.20.8632.024; Thu, 10 Apr 2025
+ 13:22:52 +0000
+Message-ID: <91339d4d-38d7-4512-9fda-339bb4c2a3f4@os.amperecomputing.com>
+Date: Thu, 10 Apr 2025 18:52:45 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: nv: Forward hvc traps if originated from
+ nested VM
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com
+References: <20250410070743.1072583-1-gankulkarni@os.amperecomputing.com>
+ <86mscolc0b.wl-maz@kernel.org>
+ <4d1bdea5-43c3-4ca9-9275-feadf158e86e@os.amperecomputing.com>
+ <86jz7sl25r.wl-maz@kernel.org>
+Content-Language: en-US
+From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+In-Reply-To: <86jz7sl25r.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI1PR02CA0010.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::17) To SJ2PR01MB8101.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::10)
 MIME-Version: 1.0
-References: <20250409032917.7580-1-yiru.zhang@mediatek.com> <20250410095158.8966-1-yiru.zhang@mediatek.com>
-In-Reply-To: <20250410095158.8966-1-yiru.zhang@mediatek.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 10 Apr 2025 14:21:39 +0100
-X-Gm-Features: ATxdqUF3Uhi02-Atot1ZYsCo3BPZFPm0ByTzdzbrh7QkbsgdDvRRnbSTXsdXDf4
-Message-ID: <CAJ9a7Vjr+O7wueNc1kmFt-Up2qzFXcSabgoBeb5e+rW8Z3_3Qw@mail.gmail.com>
-Subject: Re: [PATCH] [Patch v3]Add ETE devarch condition in etm4_init_iomem_access
-To: yiru zhang <yiru.zhang@mediatek.com>
-Cc: alexander.shishkin@linux.intel.com, 
-	angelogioacchino.delregno@collabora.com, coresight@lists.linaro.org, 
-	james.clark@linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	matthias.bgg@gmail.com, suzuki.poulose@arm.com, 
-	kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|BL3PR01MB7073:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad574ee4-e8a0-4753-30d7-08dd7832cbd7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bDZkQVZHMUQ0ZXZKRVJ6NG9XSnUyNkJpSERFd2ZZemcvbzZGQlpSNFkxQlUw?=
+ =?utf-8?B?UStvYmlCcXBrNUpTcWFNbGlhcVlzYU1XUXJLaWd0ajRxSjNIeEdWeUowUVh0?=
+ =?utf-8?B?UEFxbjJrMmRWM2drN1lrSzFnRGt0OUt3YVRjRWw1U3Q0M1ByS2ZVZS9NMGw3?=
+ =?utf-8?B?aWMvUFR3ZXFERFVDWlplK2RRTUJIODlDeVFPVUlPR09PcWgwVTNLVlJ4Wk1n?=
+ =?utf-8?B?YjVod2daNW1nWG1wZlFOcDZqaTY4bE5PcllSTFF5TE9VVHZlQnZrbCt6b242?=
+ =?utf-8?B?M3ZxbldmWjRqZkFvYU1PWnVQZEwwQ2UzeXUrdGJNUHV2OUZEejhoUjZjdE9P?=
+ =?utf-8?B?eHRDSW1aSWhGcm1ZcnpuL2VJM21RVDZJYnk1YnRtK09IOHcrY2I2UVVzYmVt?=
+ =?utf-8?B?RzBuSE12ejNOVHN3N2RvR3ZESGpLcWRFVU5pOWs0S0pwVWduQmJTZVJFaWhH?=
+ =?utf-8?B?dG5WVjZZSDMzc3NQTEVybENOSXlYWWhvQjBpYmhLZmpTbGNEMmZPSE1XNi8y?=
+ =?utf-8?B?ZXg5ZG5XdHVKL1dpRDU4WDdXVi9HdFROdEgwa1p4VXphV3BVZWdGWVVKRmlR?=
+ =?utf-8?B?akhrSDdmN3QzeC8xcnhBcGpsYm95d21jUHNZaXVUZDZvZEh0dTg2Q0I4bitp?=
+ =?utf-8?B?N2NIdGNxL2VGczJmR3V5clpPYTdOcFBTbURVRkN0bnV3SW0vYTVYaVFsS2da?=
+ =?utf-8?B?Tm04ZnlDdG9vVGJQT2dNUThURUFHRy9DVFZHdkdWOWt0U084MmpFS2R0dVlq?=
+ =?utf-8?B?UW1vY2N6aURSbXYwTS85bWNvK2xhTDZ0aStORjZxQ051RUZyamZaNmlsK0ZL?=
+ =?utf-8?B?blI0YTdPTDJqVEM4QzVRamIvVmhsMDVzY1Vlc3JjQUFkTkFwa2M0NVNQV3J4?=
+ =?utf-8?B?eUN0Nmhyb3VWYzk3Rlprd0pNQWxHWERKWWxNZVBTbGZlUHdEVDU1a0JydjRI?=
+ =?utf-8?B?a1BPZWk5VjllRVU2bDNONjFSNzc1N0ZGZFhaMWE1S0NhKzJlNGJRV0ttb1E2?=
+ =?utf-8?B?NVJGR1JoakZFb3RUa2xYQThVaTNtSnd3MnYzai9vZjZBTmUwSWQxdWY0bEZr?=
+ =?utf-8?B?MHBnN1BJYVJYWUEvNm5CT0dLR0Z2eGNSZW84YlRUZ2lRK3pMclZxM1FOdVlW?=
+ =?utf-8?B?SkphOFdYSFQ4aGd2bmRYVzloMVBSMG1qRVl0cGcvOGRFOFB4M01qSXZSOGdM?=
+ =?utf-8?B?ek9ZaUc4MzhRMVFKYXJsU3lpcC9DeTdOblo3R1NSU09jZUo0QlpTUWtJREVR?=
+ =?utf-8?B?bFRrOFpXUXNlR2xodmFzbmczbTRhVE43Ti83OGd1N2k2SG5MbmQ2TWlYZjBv?=
+ =?utf-8?B?RFgwWHZrSm5OakJ2MXV4N0dMOE1DVnd0L3RnNHhHM1J1cTZld3k0enEzWHRp?=
+ =?utf-8?B?WlVia1ZTbzFkRVVyWm56MFdFR0R1WXQ1ejFxU0dNR1RiZ0RHWnZwRURScTVs?=
+ =?utf-8?B?RUFpOFpHWFp2U3VsemRrd1ZIc1lXSmI1Mi9wRGJPRmdOeGdXajI5RmFId0d2?=
+ =?utf-8?B?VXNLV2Y0Ty9YdmxaZFpmUjV3QlV6aUFQUlFUdHdNTzJPRXJSK1ZrWkFkbklY?=
+ =?utf-8?B?cnRxcm1PWE1pdGE1b1o0SStaUjZKZTA2K1lWZFJydmxQb2lodUlPa2s2SUhq?=
+ =?utf-8?B?dE9DN1dkMnJETUphbTZ3VDkzYmdUd1lOUHMyMnZRc1ZXYWZTam1IYUcxbUFZ?=
+ =?utf-8?B?bUxMRUVqcjFBZkU5OElwUGlEODUrZzhETVFtVTN3aGxjUStaK21VTEt1MFJG?=
+ =?utf-8?B?L2pSSEpOQ3U5TVo2djdzSWNpYkdYbkJnek5rWldiTlBhQnBDeXIyUWN4bGht?=
+ =?utf-8?B?blJENVFiMU1PVGJBMHFheGJOWGVXWENkOFN2cEJHWjVOQi9Xc2llRHBsb1hQ?=
+ =?utf-8?Q?NnqF8+x0QVt0w?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NVZjeE9sUzVicWJOR3FidUVCWWRwUXRYZGhDQ2JsZlAzM2tKaVNMb3Y1dVN4?=
+ =?utf-8?B?THZRU1ErNWdxVTBUQkRUV0JXeEF2ZFBYR3htbW5iYlh3L1c2QUhaUThXeTht?=
+ =?utf-8?B?cmkvbStaNUdHZ1dkU3lDL29yeWJ4bGMva01xYkVZMXVLZmsxOG9DSkxvY1Nh?=
+ =?utf-8?B?cEh1dWYzYmxPQUFPTjBvRDBkczRQTjg3WWZTZ0VUcFArRVNvUGRQNVJwdU15?=
+ =?utf-8?B?Rzk4YUEvbnQvQ0U4YTEwQ1IrM3RNQUxHZ2NyVlAvWlhyc0pNbnlYMTRRTHZl?=
+ =?utf-8?B?NDJyakdEenlOZTk5bzczT04rYjA1eFJUUlpBbnpNVDNKejBxdENYR1ZQa0lH?=
+ =?utf-8?B?VjRLSno4cnJqMnRqelFHWjFCM0VnT08rR0RIcW4zU2pFUGVxQU50eE5JdFdv?=
+ =?utf-8?B?ZlRFTW5Kc2E4ZDdBRi9MQldWWUUyRDN2MlZJQTE0SlZhdml5ODMvRFhZQ0hj?=
+ =?utf-8?B?S3QyYzN6MjRrN3pEWjFoVnZpZlNNLzR6dW9NamZ4UU1oUXV4SEpKeitsMVY3?=
+ =?utf-8?B?eGxWQ2NXcGo2NXA5bDRGTWhJUUU4NHRiVG5LTy8zbDhtQ0pmaGQxdUVSTVlP?=
+ =?utf-8?B?NDliM1F0dm1aazNPN05mbFlFdGNWSFpiZzR1NWQwUmpMV05WMnA4dGtVM3R6?=
+ =?utf-8?B?d09GempITlpiVk5JTFB2VU16dzVXVzN5di91WGpuclhvd3FTdWdXVmZabWRh?=
+ =?utf-8?B?UUt0aGI0cVdxWk1SanVxMjNrZE5OcE80TWpnQXkyQW5oNlZ6cEt3NWY5a1JY?=
+ =?utf-8?B?T2l3NXhHOWxCeTMvRk8vRnpFUm1uSVZydE0yWVpMN0tzV2hrWi84d0tFZ1hC?=
+ =?utf-8?B?L1hjUSs1ZTI3NlJJdk5kT3B4ait4aEE3aDlxTHFBNmNjdU5sUTRrMDg0QmhI?=
+ =?utf-8?B?K01xT0MyKy9YNFhHdHNyMzZ5cHAwbld6bW45Y0pCcWY2WUE4eUlaYlBVemlZ?=
+ =?utf-8?B?N2Q1eUNKK2g0L0VDNzlQU0xIeUZEejV5dU5YYldPOFlDNy9ZS3ZpcjNiRlox?=
+ =?utf-8?B?UVQ4WVJVZjJnaUdwZjN2U2ZGMjhrV1pGM3JEYkdGelVERmtyaG5QZzMzVzZr?=
+ =?utf-8?B?LzBveCt0SUxQZWR1T0RnN0UzMWQyZXFrOU1vYkdpOFV1WnpwaVRyLzRXeXJt?=
+ =?utf-8?B?MmxCY0dpOVcvaWdHMkVBbkNGUE9TMFJVdHRJREpZTTEvVjFZOXNLWlpoYkVB?=
+ =?utf-8?B?c2I0cGxIekxOaSsvdyszckUyMEV6YjgzWkZTeitqTFdtNUtZMjlFZ0VUL09S?=
+ =?utf-8?B?SnVpNWpOa0p3a01rZVRnUDVuM0VMQ3F6WkdhalpaK1hLMTN3MlFzWnBXM3h4?=
+ =?utf-8?B?ZzNEOGNZSmhuaVJyUkxwNHAzV1BXejZiSG5oRnNWaTVaNmREVUVTRkhkUVYv?=
+ =?utf-8?B?Q3ZhaGZBNEhUTUhRSTZrYmlQTHcrMUltV3JldWd0ZFdTOHU1YVBqQjFoa1dD?=
+ =?utf-8?B?S0ZDZlVVRW8wUENmbXlKVnpNK1hXRjVjMWVvTHRTMUdmVUpHQzhDK2NoU1gx?=
+ =?utf-8?B?YXdUWnFqZVZlNXg0K0xwTXJUMmYxQi82Q1dyQk5KWTdqQUk4NEtTQTJaYW1B?=
+ =?utf-8?B?dVJrejNocnhnZFNBbDJBK3YwRGkwc1RhQ21YVkpOanhSK2p3SDVDNUhRWlVJ?=
+ =?utf-8?B?d0Fsckl3SjJPV055ejdVRy83UFEyNGE5RCswUEIzUldaRWozNDcxZTZCRXIv?=
+ =?utf-8?B?Y0NyZDMyakpyQnV0V1lycXFJWWorMzFlL244a1FQYllrVFRsbVZ5UGhhck5a?=
+ =?utf-8?B?S2wrdmV1Q1RySmZqRklTSFFkTmJWL3ZQN3JUN1doYUl2ZmRHcVhsdU5uTUx6?=
+ =?utf-8?B?QytEVmp0SDdFQkZpYkU2eWc1RUluZmVaWlBMbGVkQ2JJbzdFQnNZMzlzeWh6?=
+ =?utf-8?B?Vm9NV3Zta3BYK09YMUREUEN2QW03bXZNSGI4YUxzK1cxbEJGdjJjRldzeEtZ?=
+ =?utf-8?B?Q1NtTmVERVBYV29zMm9PUllzUGxwclptQXU2SjJzUkFFOUZHUnYzd2dWYmxL?=
+ =?utf-8?B?R0ZTaVRNYkM5Z1FGWTVwS2h2ek92clIrR1pydCs3MjZHQUxRS2dJOWpBWWdz?=
+ =?utf-8?B?Z0tVbG1YUzJLWE9aRHdWa0k2enlQdVplQWZUd2hNNzRPeTQ2K1VwaFg0ckJY?=
+ =?utf-8?B?UWFZOWdhUk96aTB4dEJGbFdHK1M2YStqajRseno0V2xodS9xNUJmamhnaVE1?=
+ =?utf-8?Q?HD10yIz6WPuLhN+cTM+jH+E=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad574ee4-e8a0-4753-30d7-08dd7832cbd7
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2025 13:22:52.3084
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3kDUzgbkQI/02XbIzaAaZA8Nafko9joDY1h4hpjNXtHmMWFp4n9y94hxLNhua3RDvqCC5DxKtaItPYafPUNnl6YQkGVx/KdhHEGZ240ZnazrPnXXC8mrTh0/q1C+AIUF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR01MB7073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_062151_421666_102FD0A6 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20250410_062302_751586_D25338C9 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +180,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Please stop using the unusual title format of [PATCH}[Patch v3] - use
-the git command line options to ensure the format is e.g. [PATCH v3]
 
-What is the reason that your device cannot use the system instructions
-to access the ETE? Using a memory interface, if implemented, is only
-recommended for external debuggers, or on systems where the
-implementation of system register access is not working.
+On 10-04-2025 04:22 pm, Marc Zyngier wrote:
+> On Thu, 10 Apr 2025 11:20:24 +0100,
+> Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+>>
+>>
+>>
+>> On 10-04-2025 12:49 pm, Marc Zyngier wrote:
+>>> On Thu, 10 Apr 2025 08:07:43 +0100,
+>>> Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+>>>>
+>>>> It was discovered while trying selftest(smccc_filter) that the
+>>>> hvc trap is getting forwarded to guest hypervisor even if it is
+>>>> originated from itself.
+>>>>
+>>>> HVC traps from guest hypervisor should be handled by the host
+>>>> hypervisor and traps originating from nested VM should be
+>>>> forwarded. Adding check to forward only if the hvc is trapped
+>>>> from the nested VM.
+>>>
+>>> I disagree. HVC from EL2 must be routed to the same EL2. HVC from EL1
+>>> must be routed to the EL2 controlling EL1.
+>>
+>> Thanks, Understood, In NV case, hvc has to be forwarded to L1
+>> irrespective of it origin (L1 or L2). Need to add hvc handler in the
+>> smccc_filter.c for the vm (when run as L1), so that it is handled and
+>> returns with required args set.
+> 
+> Why? This test checks under which conditions an HVC/SMC gets routed to
+> userspace. What does it even mean to test HVC if it doesn't make it
+> outside of the guest itself?
 
-On Thu, 10 Apr 2025 at 10:52, yiru zhang <yiru.zhang@mediatek.com> wrote:
->
-> Due to ETE supported, so add ETE devarch condition in etm4_init_iomem_access.
->
-> Signed-off-by: yiru zhang <yiru.zhang@mediatek.com>
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202504101759.7Ls0Uy4o-lkp@intel.com/
->
-> v1->v2: use switch case way
-> v2->v3: clean build warning
-> ---
->  drivers/hwtracing/coresight/coresight-etm4x-core.c | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 2b8f10463840..4002a2823fd0 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -1135,11 +1135,15 @@ static bool etm4_init_iomem_access(struct etmv4_drvdata *drvdata,
->          * with MMIO. But we cannot touch the OSLK until we are
->          * sure this is an ETM. So rely only on the TRCDEVARCH.
->          */
-> -       if ((devarch & ETM_DEVARCH_ID_MASK) != ETM_DEVARCH_ETMv4x_ARCH) {
-> -               pr_warn_once("TRCDEVARCH doesn't match ETMv4 architecture\n");
-> +       switch (devarch & ETM_DEVARCH_ID_MASK) {
-> +       case ETM_DEVARCH_ETMv4x_ARCH:
-> +       case ETM_DEVARCH_ETE_ARCH:
-> +               break;
-> +       default:
-> +               pr_warn_once("Unknown ETM architecture: 0x%lx\n",
-> +                            devarch & ETM_DEVARCH_ID_MASK);
->                 return false;
->         }
-> -
->         drvdata->arch = etm_devarch_to_arch(devarch);
->         *csa = CSDEV_ACCESS_IOMEM(drvdata->base);
->         return true;
-> --
-> 2.46.0
->
+smccc_filter.c has 2 tests (test_filter_denied and 
+test_filter_fwd_to_user), which runs the vm(guest_code).
 
-Otherwise -
+I was trying to modify test_filter_denied to run in vEL2, which led to 
+this patch/discussion. I agree, it does not makes sense to run this test 
+for vEL2.
 
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
+test_filter_fwd_to_user is not feasible to run in vEL2.
+Thanks for the feedback.
+
+BTW, I could add hvc handler and run test_filter_denied in vEL2.
+
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Thanks,
+Ganapat/GK
+
 
