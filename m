@@ -4,167 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCDBC369AA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EAEC369A9
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 18:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYONiAGkTkBGWoWJJk0A8omSuAFUeAl9g1ESBwPrYBY=; b=Iq8sjMj/Tu/RYgu3KzN3Y6VF6f
-	KmMABOg/yvG+xQHxKLGIpyfERgJxiznrq8EXksg6EZG1okzcHxJ+0vs8/Wm8FTADBvqxTcGfj9kHE
-	vvtbquVWEinN+iXnFMjs1s5wHS5sqxMVff8tQCk/pOqkaHXaesmcmg1eIciWrSdM0Avpswcrkkp99
-	DPp+Ewp9/RnAjyV630K6hKxY+UjYXkAjqgY4++2WGeMij36K7sBlqpcj1kdnnt5qXgAtUElQ6KWOw
-	t61ei/wf0BgIP76b4EcFpJq2Zl20F4oTj0vNhdzbWwEklpp3vjY9bLMyX0KhVnaNJrbuEvGlr9pTg
-	S61K0vHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RmSI5Hp6z7In3hySWV6JWjhLWH0PiTDbWbtlvv+Fw0Q=; b=iNYvvQP44VQfoZnJ9lSa2j2J1R
+	0WC23m81jxS3Ct6lnLFVBGumimFy1nbzE9n4KEekp5+lKXB4b5w0jFm3QlG+COgbf7jtbnjPmFTE6
+	HW12okjJ/AkhEcMIFWUvATpAZmKV9qvMsS4DguV2fzRrKbt0FFuxpaqBY24Vbxu19/YZ8u3tbiRN/
+	mMRilZP9sqNl2olkThA9qW6SYiMR6aNtMdMdKdMisHDCgmbliSvn8p2sk0oiMPerv7170iyhJr8RV
+	t5GuJBM0C22VfN3jnC/4yLrt7FnnOdBcZfXNcUU/LnBc0rD6U7vMnZ9LaX739KfHuMj1MaNh75Jk0
+	v3jdD9og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2wgK-0000000BWNB-2Mc2;
-	Thu, 10 Apr 2025 18:31:20 +0000
-Received: from mail-bn8nam04on2061a.outbound.protection.outlook.com ([2a01:111:f403:2408::61a] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1u2wgJ-0000000BWM7-0sQ0;
+	Thu, 10 Apr 2025 18:31:19 +0000
+Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2vkV-0000000BO4T-2mp3;
-	Thu, 10 Apr 2025 17:31:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VJ58L1fOrHgDchugkxoGqF/vtLQafqaQ1UB2lkaouC11ogAScouEGXMOwKxxvCORuAvx3dkvXPI2xHLMh1vb71IqxkJqgKRxpz8t+lW7N3iWiwJD36oHxhB6SPxO0XgVoRyWfkuiZY1Y9wQn4Hg40p8oUG0iDBkC+j8/cRBhCP3wzvR1CFu2IAGTHyV1vdPVSIctVRTvc6V4vWaXGFv685AnR4YOUyM3EKmotlHyc7pirWskcOCiK7VhZE2Vpii3j8eOqttpCxta5l17mPceIywJtuUgjYzNQsrM342pz1uJWZLloc9nKw9xpmq5vjHFN3Sq5fiKh7gO9xbFu1kgWg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XYONiAGkTkBGWoWJJk0A8omSuAFUeAl9g1ESBwPrYBY=;
- b=cwTmRMK9Tg5RJgM099rReyyX4ITffDXuIbirHhQLaMw4ia0coqQdudOPkfT5QplY5s9vpYQqM8HYDUxyntCV7QA0ixdHArbJZOIj8mBiGTb9FQJgMbsqW3SA/tfIUZ4xcsa4Fg74Ab0+OxI4LUJAZ3tlxmK8o7BL0P0FRMGwHckq0fNiKwWdFHEiImPAwoV8ZyJcjsSdSmO8P9BUnhRZmYTzRtC3pgFNBQf4ztrl9etRmef0ZhkEVkQpOpB/Ef0+w5gxddP3aUUUtgHpiaHeza2AjVDVj2eEmCQG38GmjmkvCZlU1cY7tiS5dwiL3FVAg2ClU1vvM/ZdJufDiROfRA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XYONiAGkTkBGWoWJJk0A8omSuAFUeAl9g1ESBwPrYBY=;
- b=bdf2ny/It7Ewi7QZJtZkD/aXSUnp/GjZVtMwdsvU+LCHGkywIt3CTD8H4nKe7LOeOspjKG6oIj2BYdc6KvNwtjxCCtBuIoWpfj/PFq0Rhp/8oVc3a6qx+9X9i5kP2XxXv/Qggk5labrXdgPzCQ90iIrcvX4Y1Bdd1Qf9HiGAjCpH/Onxe8GOrTFZyw38iyvDHD1mPwYIiH9uRxW5h88X0e3+ZVi109ZTygHApA25Us/JNHtQtilVYtcsE4Syqr7WCBUEeC92ZmM+ra9TjIqf0wUPOD6rgIsrtY2pXR5A/o4B8cqR59BGdy7ZcO/XG5qNi0Py3tMjS+VivQht9rf5TA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY5PR12MB6203.namprd12.prod.outlook.com (2603:10b6:930:24::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.21; Thu, 10 Apr
- 2025 17:31:26 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Thu, 10 Apr 2025
- 17:31:26 +0000
-Date: Thu, 10 Apr 2025 14:31:25 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <ptyadav@amazon.de>,
-	Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, luto@kernel.org,
-	anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com,
-	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com, dwmw2@infradead.org,
-	ebiederm@xmission.com, mingo@redhat.com, jgowans@amazon.com,
-	corbet@lwn.net, krzk@kernel.org, mark.rutland@arm.com,
-	pbonzini@redhat.com, pasha.tatashin@soleen.com, hpa@zytor.com,
-	peterz@infradead.org, robh+dt@kernel.org, robh@kernel.org,
-	saravanak@google.com, skinsburskii@linux.microsoft.com,
-	rostedt@goodmis.org, tglx@linutronix.de, thomas.lendacky@amd.com,
-	usama.arif@bytedance.com, will@kernel.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v5 09/16] kexec: enable KHO support for memory
- preservation
-Message-ID: <20250410173125.GA5121@nvidia.com>
-References: <20250407141626.GB1557073@nvidia.com>
- <Z_P92UCbNCV0TbiA@kernel.org>
- <20250407170305.GI1557073@nvidia.com>
- <Z_Y4k4rDO-BbMjqs@kernel.org>
- <20250409125630.GI1778492@nvidia.com>
- <Z_Z8-BLWMkiWpaDY@kernel.org>
- <20250409153714.GK1778492@nvidia.com>
- <Z_aeEn7hKqGOG3Cf@kernel.org>
- <20250409162837.GN1778492@nvidia.com>
- <Z_f3Jyac_o308ws-@casper.infradead.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z_f3Jyac_o308ws-@casper.infradead.org>
-X-ClientProxiedBy: BN9PR03CA0569.namprd03.prod.outlook.com
- (2603:10b6:408:138::34) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u2vgA-0000000BNAQ-2uCZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 17:27:08 +0000
+Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-72c1419f73eso1107106a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 10:27:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=beagleboard-org.20230601.gappssmtp.com; s=20230601; t=1744306025; x=1744910825; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RmSI5Hp6z7In3hySWV6JWjhLWH0PiTDbWbtlvv+Fw0Q=;
+        b=c5WhXzfDLW8957ZII/Xsvq07tglepLqK9QM9LJrUIMaCYsJ1ZVt6SnOTX2h+q4RWb1
+         Y8/5KvLeFn3BSQ2LQldg+6lai7V8grm2HAb+vZis4d5Epkr9u7uceBEsGrJxIh9+DEek
+         J37SbaPhb2cRkxtVO1NLm9x0YAVooqSpW4PUFGWEw8WR4/tcNlSoywtSWase6dG6JO9R
+         VGq88eu3p3LQmXrsA9Ef0NyEt5r0TWfAZ/abppfVAhh9irOZnCP++Y7LxvsYa6HjrTjD
+         ruFGw6A7Pu6mg4TWu8IPurpemW28V2LOnrho0eZrpnjHZP0dA/9edX0zo5Tn7M/hPELi
+         G3rQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744306025; x=1744910825;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RmSI5Hp6z7In3hySWV6JWjhLWH0PiTDbWbtlvv+Fw0Q=;
+        b=K/mZ/fUji6FMI6Wn+21siAa+pXOwFnh4y9itr9a4c4qokxgY0GBF2PKMmHm/WyQkon
+         ZNFy4yYj3FH2VgcYRrze3IYgJeCJWEyl7iuFsmTUVI3iq/XMJwVuZSznY1Wl/bkkL7VN
+         2ESwIzbzpGEVguLnrjUa8mD87ZyJwit6MmLnYfTHjQWLi63Kz3SNup9wnxvRgOaogAga
+         pTBeozqWNlPjk+ZbpvHN0W3VByod3fBf3oPX2DvO9m9lLXdfdqh3TjkzOzARsZ2nlcnO
+         ot3ev9i+84cVpc6cCoh+St4xz0spWAuOquEih83ecOJNXMk9SkkxvQ23Lmya5O6YYstk
+         SUDg==
+X-Forwarded-Encrypted: i=1; AJvYcCXVuud8dPiOxArmXoQeDRdgFXtGY+2sZVg8S+RO9JAc1tlzXsXUS2sFkOewBw9jhN4u6fWEfSsWPNdMWux/Za9s@lists.infradead.org
+X-Gm-Message-State: AOJu0YzK6kKsW3Y/LbsGd5Gi39JdWpT0HJvUJGEbCKSaX1//1fePnfaP
+	e7v6zqlR6pG4xohKW9T4zTolIbPRVtdXU6XdwvzluSEFgq//HxMysudDQRBGnV/cthd0kyzJNye
+	h2iOj81K9v/EkbeDQ93HESYAk2aA=
+X-Gm-Gg: ASbGnct2kY3XpwEpxC5Xu1QKJ9vEPtlZjl3s4WX6njwJxvK3e1BWrg3MnQ+TyzuDUkd
+	Fi8aUIfmfsqqNJHKvMVEQ7B3PlI+49aChUlgnRkNuUWm9eEDvuWJVJgFTAIlkKYW6B/A+wRwpKk
+	g8fpIekDr5CZB/L17ODyP1eyDfySfKBzb9
+X-Google-Smtp-Source: AGHT+IF/gqY5vzWk8FW+ZHvKo0tNdrbYUafaxIcozVbpJ42nzEMGZgVQi051SxXs4z0sThDq69je51dX4tnyVgEEXLU=
+X-Received: by 2002:a05:6808:17aa:b0:3f9:176a:3958 with SMTP id
+ 5614622812f47-4007bfe4d70mr2077459b6e.11.1744306024906; Thu, 10 Apr 2025
+ 10:27:04 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY5PR12MB6203:EE_
-X-MS-Office365-Filtering-Correlation-Id: 147ac8da-7d0a-4020-fdb5-08dd78558564
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?o4GLPGFx4V66knVi7LRDGimd/NLZfp3nBUbmUdahNTcszRfpr2N0Gd0CDclE?=
- =?us-ascii?Q?bGVqapDO3tHlgCT3vVqcC0ism8jEUWJzOcMiMXIW3cGOY2r3+IivQ3MyXyk3?=
- =?us-ascii?Q?yz3uLOS/liwwqrLpblJujnYeMfN4TjVxD61mUP44na7MnWrPWAw5WnaMQ3Ms?=
- =?us-ascii?Q?9UGKVDD/avuO+6bXgiocM64fXGICD40lN/7TIMqChPkAB7BjbebJSCnQmYXn?=
- =?us-ascii?Q?hJma1ZmoDQ5PxAkSkyguKsxjYdojku1XDUvnk52pNg5+2AE9Tr2WEkbUCwvJ?=
- =?us-ascii?Q?1sToyPhnuGiEQxYIyE2hJBbs02HYFQ9E0K5/xSQe202FzUooBFjYG0RxWUkY?=
- =?us-ascii?Q?u0i4wf/TAKlCGIk9UNuxSlRreUvRagF2JWOPSYb4tvMRzvTGB6hN0fWle+Ra?=
- =?us-ascii?Q?7dg3Mkk+1hqHMYzs0y4kjeKXhKHoh6bAMk65WAVWaXxzEp9Op/srwf6zEQi7?=
- =?us-ascii?Q?Co9w/CB2QTBanYDX4DT0OETuYGamKWZOuPnry3dj5f2fkSqKucqp7kPTUyEp?=
- =?us-ascii?Q?Uw9Ff8bGJiIAG8l3aIxsvfuXPq7/3e1/Ig5vjc9IoP+/XubnOH6euuatbpYA?=
- =?us-ascii?Q?WNp8+1Vtk68Gvayag9rcAWs280w6K9xrfNyPWAYFuEuF2HKzG6Xi5vwIIQM8?=
- =?us-ascii?Q?JxFQt0n0JC9ZihYoSXOcotGNl+RcQ6ZMRCa0Ga+s58BouR1fKKg10bv1UARv?=
- =?us-ascii?Q?4r3f6JBB3BN/GXbWPhveNVPmjEOj/mI1oPY0ezQ4QEHvCtPiydvcO9Cghyyi?=
- =?us-ascii?Q?GckJ+yrq9dPb9iVcNZMHboQL4FVqjW2x3RoCBWeBgW22gD1T75cEuozNqr67?=
- =?us-ascii?Q?JTpXJLe/6eK/BUAXbBt3l59oSompdHHf0vOQ+xAoWqMboYzDFczCGw+aVkmi?=
- =?us-ascii?Q?MpSLFlRFC3aFGIDjwkJyntU+YuDkYniJXcG+ojsVi6+AR6W1SKqVtxoyjuXP?=
- =?us-ascii?Q?UiDyB8uEeBK/6zkXVHFaUJrQv3N5RcZfx2Fmk03JG8F3OovLLoDG/Kbpyilb?=
- =?us-ascii?Q?NpvcYCzfKn1fqHalsLRna9CPHaL9WTXgFpduCWNjkPtlBCOvDmVdk9a2Plx7?=
- =?us-ascii?Q?REOIibmOisS0HTS/jBoe6Op7mBj1WrmaO4A6rXhkLkWSp1P4kXyfhtA9/LBD?=
- =?us-ascii?Q?I1PrGsVsE1xkyAFR9OEQ54u4iiegRLTNAYfJNKeY0z9cEkM3rLXZOzfeJPJS?=
- =?us-ascii?Q?qFKi9hMYJD4DQI/vp0W9F91CzxkoWMrAR1FPz7I2P1Ho+NUDBnIwgq4rk101?=
- =?us-ascii?Q?Otj8eFS1cDbgXs/AA8+bJEH7w2zjb3kz4rwYQZoUEtANHFiiYMyVg7uAnFId?=
- =?us-ascii?Q?+LEry/rrRSV5sEmJTHHA3ybTaq09ZESDynkA1pIs3UN95+iabXlyxejkpZ7V?=
- =?us-ascii?Q?uMatU1TQ6emLgjaYQu+kHNXgmpb0VGU7i7vt8iTIJWAK3K9gbvvxDiVgBPcN?=
- =?us-ascii?Q?wH1JujHDo2A=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B5KI3BZiaxJjPGcU15DIb40oHbim0MZMh6y5x14+Jt3RlZo0kNN3Fe8DBJL3?=
- =?us-ascii?Q?Oijd/9+rPTabZDAVTDZaI6KY3AwDAVRfkL82dGF+1yI+gGkF8ErDCpkxH6Qu?=
- =?us-ascii?Q?ntcf2K7cuRcYVOWDHFS9Luql70ja+dmOQXJiniVJkYfijQJ/Wx3mKCTtFx+F?=
- =?us-ascii?Q?FfuJ1woZbXlOFfsFwrMazjgUTJcXlCKVSCHTb5hREk784G8dIlq7NFphu4Wa?=
- =?us-ascii?Q?JeI/8Cojmf5BoddXIXSOAvEL+a/k0T3jlxSnf9bC3icemwTUDQDWMVtA0CtO?=
- =?us-ascii?Q?6H1WU28KsgTra44GVSwnfex1a6KzszUqr9EOBlTXUGZYZOHBsyQDBtCbtGg7?=
- =?us-ascii?Q?nc/bJypbl9sOqy3WzT/QOUcuI/4Eobi+eUXlzL9MPtUMzkCB7MfW/p/vJVfg?=
- =?us-ascii?Q?J5lCq4VmvE0JwYHOZB/yCxAyqcoJJ21Y0tXUyYcHyJPehGYlaqbKUTd7FNpA?=
- =?us-ascii?Q?k0Rk3ZeNJji7WHQP82Uq0WQ+ZhFRZcEJxx+omWIPXmOexS4wGgswDM7lPYiY?=
- =?us-ascii?Q?IooVRLgv/YqEh9DHt2mCtWwVs7St9I6z0k9Mj04aOqTXOpI6xY/FiAIOKQJq?=
- =?us-ascii?Q?4GzRnpIJtRe2PvpJRUEHMK43CpOOi5fkP24qlsGjB2N96iyoy7EsWmMMUS8q?=
- =?us-ascii?Q?t4G3yBybITr6rUKdax+PkR4xfLMcbObm6IFSF4hXITbvvt0tZ4vNiREPCWBA?=
- =?us-ascii?Q?OubbERncBJWvG6eicnRqsXQ49EhO9glOWFHAHA2WQxyJIP8umDO2no+Vb3gQ?=
- =?us-ascii?Q?fH5zap307O599y1LgBBffSyzg966n9gPn3BGwhr6xuaeqoB7KI9YRDvEvigN?=
- =?us-ascii?Q?GAsm5p4uXL5wztHHycdf5msH2SpAC4Lg1AsSHO+ypDbgSdvwnyadTfr4IdbP?=
- =?us-ascii?Q?IjmYeIFsBQ18wakbZSHV383JdZAvExpYnQ9Clb5RSeqZuhziIPgPuSAog3Y1?=
- =?us-ascii?Q?f9MSjSCVtB29+lclEml0YRLxD85dSfN/HUvdJNLCpvQP/T3Llum3dC5XW1Sq?=
- =?us-ascii?Q?mTqbiov58aOrdMQiXoTmYXFdMc2+UiWArw/Z6GlIRJ3yC36fktDQiqx64tsA?=
- =?us-ascii?Q?bJn/5u0R2LTQLQvyvgd8t811ywlUw8bLPcl8XBrhANq2SV1uwW6+b6kC93nf?=
- =?us-ascii?Q?p2znYWR2PGDpf3s8FtuYY809mWgsOr+STWJXut/jCRgrtKCA1Jj3TRNzOKwc?=
- =?us-ascii?Q?tV+5PHv+cfyhw6ULWLKLu/aSNBjbUG0fD9+xeobqWbi4WBaHZTaoYf5YSjQv?=
- =?us-ascii?Q?2pQAXF2hLwBXxtAhSTpB0Wji/I6WWqDvngIrdG+0avNgUlkXj0/I0MqBP8XA?=
- =?us-ascii?Q?mrXKYwIWnzQTE2zjcjmKlWQFe1GzN5zF/TaGBgidXhyzGwir24UJTebYKnEW?=
- =?us-ascii?Q?Jd5AGQ7dmcw+e0r8Z7U+Max3m1wIN+6bKYtv2MlbOlIZT55zEvOfgNO714wm?=
- =?us-ascii?Q?TGrSek9cIUeK2/MnRsbUrr/ptZGFmE4lpx83aSDwLvEwh56dTgB03KQW2hDI?=
- =?us-ascii?Q?YPp7peEkbFg+Ma1FPRDBbPODiLXLKP+5x6Qknr8bAmRsMuW8aNHD4XsQL6f8?=
- =?us-ascii?Q?uBNTq0pHyLh92czgXMzX/QURNUZ8wJfKz96I4k0B?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 147ac8da-7d0a-4020-fdb5-08dd78558564
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2025 17:31:26.4986
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NgrG/qf8QuIb0KP87a8a/OYSG0OUOeqpMjyoQ2mbBeWrEcO7uxtgURymQxEBDc65
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6203
+References: <20250408231823.826163-1-robertcnelson@gmail.com>
+ <20250408231823.826163-2-robertcnelson@gmail.com> <20250410161509.yviucf36uhox4wvm@unedited>
+In-Reply-To: <20250410161509.yviucf36uhox4wvm@unedited>
+From: Jason Kridner <jkridner@beagleboard.org>
+Date: Thu, 10 Apr 2025 13:26:53 -0400
+X-Gm-Features: ATxdqUHHjNAS42ycco6oiJlHl6So4Ajtw4evYG_P_SEbuwcFuKEXLrqG0KE478o
+Message-ID: <CA+T6QPm2gVSa_+-vj5EA=RAs_sZFjq0LJKYVKPf_LN9Xc9uQQQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: ti: Add k3-am62-pocketbeagle2
+To: Nishanth Menon <nm@ti.com>
+Cc: Robert Nelson <robertcnelson@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Andrew Davis <afd@ti.com>, Roger Quadros <rogerq@kernel.org>, 
+	Siddharth Vadapalli <s-vadapalli@ti.com>, Judith Mendez <jm@ti.com>, Andrei Aldea <a-aldea@ti.com>, 
+	Dhruva Gole <d-gole@ti.com>, Deepak Khatri <lorforlinux@beagleboard.org>, 
+	Ayush Singh <ayush@beagleboard.org>, michael.opdenacker@rootcommit.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_103135_702473_43BAF773 
-X-CRM114-Status: GOOD (  23.19  )
+X-CRM114-CacheID: sfid-20250410_102707_007695_612E7DBA 
+X-CRM114-Status: GOOD (  25.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,79 +100,747 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 05:51:51PM +0100, Matthew Wilcox wrote:
-> On Wed, Apr 09, 2025 at 01:28:37PM -0300, Jason Gunthorpe wrote:
-> > On Wed, Apr 09, 2025 at 07:19:30PM +0300, Mike Rapoport wrote:
-> > > But we have memdesc today, it's struct page.
-> > 
-> > No, I don't think it is. struct page seems to be turning into
-> > something legacy that indicates the code has not been converted to the
-> > new stuff yet.
-> 
-> No, struct page will be with us for a while.  Possibly forever.  I have
-> started reluctantly talking about a future in which there aren't struct
-> pages, but it's really premature at this point.  That's a 2030 kind
-> of future.
+On Thu, Apr 10, 2025 at 12:15=E2=80=AFPM Nishanth Menon <nm@ti.com> wrote:
+>
+> On 18:18-20250408, Robert Nelson wrote:
+> > BeagleBoard.org PocketBeagle 2 is an upgraded version of the popular
+> > PocketBeagle.  It is based on Texas Instruments AM6232 or AM6254 SoC.
+> > Its dual or quad A53 cores can provide higher performance than classic
+> > PocketBeagle. The new design comes with pre-soldered headers, a 3-pin
+> > JST-SH 1.00mm UART debug port, a USB-C port, Texas Instruments
+> > MSPM0L1105 Cortex-M0+ MCU for ADC, 512MB RAM, and a LiPo Battery charge=
+r.
+> >
+> > https://www.beagleboard.org/boards/pocketbeagle-2
+> > https://openbeagle.org/pocketbeagle/pocketbeagle-2
+> >
+> > Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+> > CC: Rob Herring <robh@kernel.org>
+> > CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> > CC: Conor Dooley <conor+dt@kernel.org>
+> > CC: Vignesh Raghavendra <vigneshr@ti.com>
+> > CC: Nishanth Menon <nm@ti.com>
+> > CC: Andrew Davis <afd@ti.com>
+> > CC: Roger Quadros <rogerq@kernel.org>
+> > CC: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > CC: Judith Mendez <jm@ti.com>
+> > CC: Andrei Aldea <a-aldea@ti.com>
+> > CC: Dhruva Gole <d-gole@ti.com>
+> > CC: Jason Kridner <jkridner@beagleboard.org>
+> > CC: Deepak Khatri <lorforlinux@beagleboard.org>
+> > CC: Ayush Singh <ayush@beagleboard.org>
+> > ---
+> > Changes since v1:
+> >  - fix '_' in main-i2c2-default-pins
+> >  - aliases i2c match original pocketbeagle
+> >  - add mcu_m4fss with reseved memory and mailbox
+> >  - drop unused main_gpio0_pins_default pinmux
+> >  - drop unused main_gpio1_pins_default pinmux
+> >  - drop unused main_spi2_pins_gpio pinmux
+> >  - Reserve 128MiB of global CMA
+> > ---
+> >  arch/arm64/boot/dts/ti/Makefile               |   1 +
+> >  .../boot/dts/ti/k3-am62-pocketbeagle2.dts     | 528 ++++++++++++++++++
+> >  2 files changed, 529 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+> >
+> > diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/M=
+akefile
+> > index 03d4cecfc001..4f8fcb69a2c1 100644
+> > --- a/arch/arm64/boot/dts/ti/Makefile
+> > +++ b/arch/arm64/boot/dts/ti/Makefile
+> > @@ -27,6 +27,7 @@ dtb-$(CONFIG_ARCH_K3) +=3D k3-am625-verdin-wifi-yavia=
+.dtb
+> >  dtb-$(CONFIG_ARCH_K3) +=3D k3-am62x-phyboard-lyra-gpio-fan.dtbo
+> >  dtb-$(CONFIG_ARCH_K3) +=3D k3-am62-lp-sk.dtb
+> >  dtb-$(CONFIG_ARCH_K3) +=3D k3-am62-lp-sk-nand.dtbo
+> > +dtb-$(CONFIG_ARCH_K3) +=3D k3-am62-pocketbeagle2.dtb
+> >
+> >  # Boards with AM62Ax SoC
+> >  dtb-$(CONFIG_ARCH_K3) +=3D k3-am62a7-sk.dtb
+> > diff --git a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts b/arch/ar=
+m64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+> > new file mode 100644
+> > index 000000000000..65000ed8196f
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+> > @@ -0,0 +1,528 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> > +/*
+> > + * https://www.beagleboard.org/boards/pocketbeagle-2
+> > + *
+> > + * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.=
+com/
+> > + * Copyright (C) 2025 Robert Nelson, BeagleBoard.org Foundation
+> > + */
+> > +
+> > +/dts-v1/;
+> > +
+> > +#include <dt-bindings/leds/common.h>
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +#include <dt-bindings/input/input.h>
+> > +#include "k3-am625.dtsi"
+> > +
+> > +/ {
+> > +     compatible =3D "beagle,am62-pocketbeagle2", "ti,am625";
+> > +     model =3D "BeagleBoard.org PocketBeagle2";
+> > +
+> > +     aliases {
+> > +             serial0 =3D &wkup_uart0;
+> > +             serial1 =3D &main_uart1;
+> > +             serial2 =3D &main_uart6;
+> > +             serial3 =3D &main_uart3;
+> > +             serial4 =3D &main_uart4;
+> > +             serial5 =3D &main_uart5;
+> > +             serial6 =3D &main_uart2;
+> > +             serial7 =3D &main_uart0;
+>
+>
+> We just seem to have 3 uarts pinned out. so why alias the rest? those
+> seem unused?
+>
+> > +             mmc0 =3D &sdhci0;
+> Same - unused?
+> > +             mmc1 =3D &sdhci1;
+> > +             usb0 =3D &usb0;
+> > +             usb1 =3D &usb1;
+> > +             i2c1 =3D &main_i2c1;
+>
+> same - unused?
+>
+> > +             i2c2 =3D &main_i2c2;
+> > +             i2c3 =3D &wkup_i2c0;
+> > +     };
+> > +
+> > +     chosen {
+> > +             stdout-path =3D &main_uart6;
+> > +     };
+> > +
+> > +     memory@80000000 {
+> > +             /* 512MB RAM */
+> > +             reg =3D <0x00000000 0x80000000 0x00000000 0x20000000>;
+> > +             device_type =3D "memory";
+> > +             bootph-pre-ram;
+> > +     };
+> > +
+> > +     reserved_memory: reserved-memory {
+> > +             #address-cells =3D <2>;
+> > +             #size-cells =3D <2>;
+> > +             ranges;
+> > +
+> > +             /* global cma region */
+> > +             linux,cma {
+> > +                     compatible =3D "shared-dma-pool";
+> > +                     reusable;
+> > +                     size =3D <0x00 0x8000000>;
+> > +                     linux,cma-default;
+> > +             };
+> > +
+> > +             mcu_m4fss_dma_memory_region: m4f-dma-memory@9cb00000 {
+> > +                     compatible =3D "shared-dma-pool";
+> > +                     reg =3D <0x00 0x9cb00000 0x00 0x100000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             mcu_m4fss_memory_region: m4f-memory@9cc00000 {
+> > +                     compatible =3D "shared-dma-pool";
+> > +                     reg =3D <0x00 0x9cc00000 0x00 0xe00000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             secure_tfa_ddr: tfa@9e780000 {
+> > +                     reg =3D <0x00 0x9e780000 0x00 0x80000>;
+> > +                     alignment =3D <0x1000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             secure_ddr: optee@9e800000 {
+> > +                     reg =3D <0x00 0x9e800000 0x00 0x01800000>;
+> > +                     alignment =3D <0x1000>;
+> > +                     no-map;
+> > +             };
+> > +
+> > +             wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9db00=
+000 {
+> > +                     compatible =3D "shared-dma-pool";
+> > +                     reg =3D <0x00 0x9db00000 0x00 0xc00000>;
+> > +                     no-map;
+> > +             };
+> > +     };
+> > +
+> > +     vsys_5v0: regulator-1 {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-name =3D "vsys_5v0";
+> > +             regulator-min-microvolt =3D <5000000>;
+> > +             regulator-max-microvolt =3D <5000000>;
+> > +             regulator-always-on;
+> > +             regulator-boot-on;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     vdd_3v3: regulator-2 {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-name =3D "vdd_3v3";
+> > +             regulator-min-microvolt =3D <3300000>;
+> > +             regulator-max-microvolt =3D <3300000>;
+> > +             vin-supply =3D <&vsys_5v0>;
+> > +             regulator-always-on;
+> > +             regulator-boot-on;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     vdd_mmc1: regulator-3 {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-name =3D "vdd_mmc1";
+> > +             pinctrl-names =3D "default";
+> > +             pinctrl-0 =3D <&vdd_3v3_sd_pins_default>;
+> > +             regulator-min-microvolt =3D <3300000>;
+> > +             regulator-max-microvolt =3D <3300000>;
+> > +             regulator-boot-on;
+> > +             enable-active-high;
+> > +             regulator-always-on;
+> > +             vin-supply =3D <&vdd_3v3>;
+> > +             gpio =3D <&main_gpio0 0 GPIO_ACTIVE_HIGH>;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     vdd_sd_dv: regulator-4 {
+> > +             compatible =3D "regulator-gpio";
+> > +             regulator-name =3D "sd_hs200_switch";
+> > +             pinctrl-names =3D "default";
+> > +             pinctrl-0 =3D <&vdd_sd_dv_pins_default>;
+> > +             regulator-min-microvolt =3D <1800000>;
+> > +             regulator-max-microvolt =3D <3300000>;
+> > +             regulator-boot-on;
+> > +             vin-supply =3D <&vdd_3v3>;
+> > +             gpios =3D <&main_gpio1 49 GPIO_ACTIVE_HIGH>;
+> > +             states =3D <1800000 0x0>,
+> > +                      <3300000 0x1>;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     adc_vref: regulator-5 {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-name =3D "default";
+> > +             regulator-min-microvolt =3D <3300000>;
+> > +             regulator-max-microvolt =3D <3300000>;
+> > +             regulator-boot-on;
+> > +     };
+> > +
+> > +     leds {
+> > +             bootph-all;
+> > +             compatible =3D "gpio-leds";
+> > +             pinctrl-names =3D "default";
+> > +             pinctrl-0 =3D <&led_pins_default>;
+> bootph-all here?
+> Please check Documentation/devicetree/bindings/dts-coding-style.rst
+>
+> 1. "compatible"
+> 2. "reg"
+> 3. "ranges"
+> 4. Standard/common properties (defined by common bindings, e.g. without
+>    vendor-prefixes)
+>
+> ^^ bootph property last one here.
+>
+> 5. Vendor-specific properties
+> 6. "status" (if applicable)
+> 7. Child nodes, where each node is preceded with a blank line
+>
+> Could you make sure that all the nodes follow the convention?
+>
+> > +
+> > +             led-1 {
+> > +                     bootph-all;
+> > +                     gpios =3D <&main_gpio0 6 GPIO_ACTIVE_HIGH>;
+> > +                     color =3D <LED_COLOR_ID_GREEN>;
+> > +                     linux,default-trigger =3D "heartbeat";
+> > +                     function =3D LED_FUNCTION_HEARTBEAT;
+> > +                     default-state =3D "on";
+> Same
+> > +             };
+> > +
+> > +             led-2 {
+> > +                     bootph-all;
+> > +                     gpios =3D <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
+> > +                     color =3D <LED_COLOR_ID_GREEN>;
+> > +                     function =3D LED_FUNCTION_DISK_ACTIVITY;
+> > +                     linux,default-trigger =3D "mmc1";
+> > +             };
+> > +
+> > +             led-3 {
+> > +                     bootph-all;
+> > +                     gpios =3D <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
+> > +                     color =3D <LED_COLOR_ID_GREEN>;
+> > +             };
+> > +
+> > +             led-4 {
+> > +                     bootph-all;
+> > +                     gpios =3D <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
+> > +                     color =3D <LED_COLOR_ID_GREEN>;
+> > +                     function =3D LED_FUNCTION_INDICATOR;
+> > +                     default-state =3D "off";
+> > +             };
+> > +     };
+> > +};
+> > +
+> > +&main_pmx0 {
+> > +     led_pins_default: led-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x000c, PIN_OUTPUT, 7) /* (E25) OSPI0=
+_D0.GPIO0_3 */
+> > +                     AM62X_IOPAD(0x0010, PIN_OUTPUT, 7) /* (G24) OSPI0=
+_D1.GPIO0_4 */
+> > +                     AM62X_IOPAD(0x0014, PIN_OUTPUT, 7) /* (F25) OSPI0=
+_D2.GPIO0_5 */
+> > +                     AM62X_IOPAD(0x0018, PIN_OUTPUT, 7) /* (F24) OSPI0=
+_D3.GPIO0_6 */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     main_i2c0_pins_default: main-i2c0-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (B16)=
+ I2C0_SCL */
+> > +                     AM62X_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (A16)=
+ I2C0_SDA */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     main_i2c2_pins_default: main-i2c2-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (K22)=
+ GPMC0_CSn2.I2C2_SCL */
+> > +                     AM62X_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (K24)=
+ GPMC0_CSn3.I2C2_SDA */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     main_uart0_pins_default: main-uart0-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x1c8, PIN_INPUT, 0) /* (D14/A13) UAR=
+T0_RXD */
+> > +                     AM62X_IOPAD(0x1cc, PIN_OUTPUT, 0) /* (E14/E11) UA=
+RT0_TXD */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     main_uart1_pins_default: main-uart1-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x194, PIN_INPUT, 2) /* (B19/B18) MCA=
+SP0_AXR3.UART1_CTSn */
+> > +                     AM62X_IOPAD(0x198, PIN_OUTPUT, 2) /* (A19/B17) MC=
+ASP0_AXR2.UART1_RTSn */
+> > +                     AM62X_IOPAD(0x1ac, PIN_INPUT, 2) /* (E19/D15) MCA=
+SP0_AFSR.UART1_RXD */
+> > +                     AM62X_IOPAD(0x1b0, PIN_OUTPUT, 2) /* (A20/D16) MC=
+ASP0_ACLKR.UART1_TXD */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     main_uart6_pins_default: main-uart6-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x001c, PIN_INPUT, 3) /* (J23) OSPI0_=
+D4.UART6_RXD */
+> > +                     AM62X_IOPAD(0x0020, PIN_OUTPUT, 3) /* (J25) OSPI0=
+_D5.UART6_TXD */
+> > +             >;
+> > +     };
+> > +
+> > +     main_mmc1_pins_default: main-mmc1-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x23c, PIN_INPUT, 0) /* (A21/C18) MMC=
+1_CMD */
+> > +                     AM62X_IOPAD(0x234, PIN_INPUT, 0) /* (B22/A20) MMC=
+1_CLK */
+> > +                     AM62X_IOPAD(0x230, PIN_INPUT, 0) /* (A22/A19) MMC=
+1_DAT0 */
+> > +                     AM62X_IOPAD(0x22c, PIN_INPUT, 0) /* (B21/B19) MMC=
+1_DAT1 */
+> > +                     AM62X_IOPAD(0x228, PIN_INPUT, 0) /* (C21/B20) MMC=
+1_DAT2 */
+> > +                     AM62X_IOPAD(0x224, PIN_INPUT, 0) /* (D22/C19) MMC=
+1_DAT3 */
+> > +                     AM62X_IOPAD(0x240, PIN_INPUT, 7) /* (D17/C15) MMC=
+1_SDCD.GPIO1_48 */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x0244, PIN_OUTPUT, 7) /* (P25) GPMC0=
+_CLK.GPIO1_49 */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     pmic_irq_pins_default: pmic-irq-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x01f4, PIN_INPUT_PULLUP, 0) /* (D16)=
+ EXTINTn */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     vdd_3v3_sd_pins_default: vdd-3v3-sd-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x0000, PIN_OUTPUT, 7) /* (H24) OSPI0=
+_CLK.GPIO0_0 */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     usb1_pins_default: usb1-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x0258, PIN_INPUT, 0) /* (F18) USB1_D=
+RVVBUS */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     epwm2_pins_default: epwm2-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_IOPAD(0x01e8, PIN_OUTPUT, 8) /* (B17) I2C1_=
+SCL.EHRPWM2_A */
+> > +             >;
+> > +     };
+> > +};
+> > +
+> > +&cpsw3g {
+> > +     status =3D "disabled";
+> > +};
+>
+> This should have been disabled at am62-main.dtsi level (like it was done
+> in j784s4) - lets fix that then apply the pb2 without these disabled
+> nodes.
+> > +
+> > +&cpsw_port1 {
+> > +     status =3D "disabled";
+> > +};
+> > +
+> > +&cpsw_port2 {
+> > +     status =3D "disabled";
+> > +};
+> > +
+> > +&epwm2 {
+> > +     status =3D "okay";
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&epwm2_pins_default>;
+> > +};
+> > +
+> > +&mailbox0_cluster0 {
+> > +     mbox_m4_0: mbox-m4-0 {
+> > +             ti,mbox-rx =3D <0 0 0>;
+> > +             ti,mbox-tx =3D <1 0 0>;
+> > +     };
+> > +};
+> > +
+> > +&main_uart0 {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&main_uart0_pins_default>;
+> > +     bootph-all;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&main_uart1 {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&main_uart1_pins_default>;
+> > +     bootph-pre-ram;
+> > +     status =3D "reserved";
+> > +};
+> > +
+> > +&main_uart6 {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&main_uart6_pins_default>;
+> > +     bootph-all;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&main_i2c0 {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&main_i2c0_pins_default>;
+> > +     clock-frequency =3D <400000>;
+> > +     bootph-all;
+> > +     status =3D "okay";
+> > +
+> > +     ad7291: adc@20 {
+> > +             compatible =3D "adi,ad7291";
+>
+> I think the commit message says MSPM0L1105 ? is this in emulation mode?
+> if so, we should document this.
+>
+> > +             reg =3D <0x20>;
+> > +             vref-supply =3D <&adc_vref>;
+> > +     };
+> > +
+> > +     eeprom: eeprom@50 {
+> > +             compatible =3D "atmel,24c32";
+>
+> is this the same? MSPM0L1105 doing eeprom? if so, please document.
+> > +             reg =3D <0x50>;
+> > +     };
+> > +};
+> > +
+> > +&main_i2c2 {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&main_i2c2_pins_default>;
+> > +     clock-frequency =3D <400000>;
+> > +     bootph-all;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&mcu_m4fss {
+> > +     mboxes =3D <&mailbox0_cluster0 &mbox_m4_0>;
+> > +     memory-region =3D <&mcu_m4fss_dma_memory_region>,
+> > +                     <&mcu_m4fss_memory_region>;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&mcu_pmx0 {
+> > +     wkup_uart0_pins_default: wkup-uart0-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_MCU_IOPAD(0x02c, PIN_INPUT, 0)    /* (C6/A7=
+) WKUP_UART0_CTSn */
+> > +                     AM62X_MCU_IOPAD(0x030, PIN_OUTPUT, 0)   /* (A4/B4=
+) WKUP_UART0_RTSn */
+> > +                     AM62X_MCU_IOPAD(0x024, PIN_INPUT, 0)    /* (B4/B5=
+) WKUP_UART0_RXD */
+> > +                     AM62X_MCU_IOPAD(0x028, PIN_OUTPUT, 0)   /* (C5/C6=
+) WKUP_UART0_TXD */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +
+> > +     wkup_i2c0_pins_default: wkup-i2c0-default-pins {
+> > +             pinctrl-single,pins =3D <
+> > +                     AM62X_MCU_IOPAD(0x004c, PIN_INPUT_PULLUP, 0)    /=
+* (B9) WKUP_I2C0_SCL */
+> > +                     AM62X_MCU_IOPAD(0x0050, PIN_INPUT_PULLUP, 0)    /=
+* (A9) WKUP_I2C0_SDA */
+> > +             >;
+> > +             bootph-all;
+> > +     };
+> > +};
+> > +
+> > +&sdhci1 {
+> > +     /* SD/MMC */
+> > +     vmmc-supply =3D <&vdd_mmc1>;
+> > +     vqmmc-supply =3D <&vdd_sd_dv>;
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&main_mmc1_pins_default>;
+> > +     disable-wp;
+> > +     cd-gpios =3D <&main_gpio1 48 GPIO_ACTIVE_LOW>;
+> > +     cd-debounce-delay-ms =3D <100>;
+> > +     bootph-all;
+> > +     ti,fails-without-test-cd;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&usbss0 {
+> > +     bootph-all;
+> > +     ti,vbus-divider;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&usb0 {
+> > +     bootph-all;
+> > +     dr_mode =3D "peripheral";
+>
+> Can this operate in "otg" instead? maybe use a type-c dock?
+>
+> > +};
+> > +
+> > +&usbss1 {
+> > +     ti,vbus-divider;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&usb1 {
+> > +     dr_mode =3D "host";
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&usb1_pins_default>;
+> > +};
+>
+> is'nt this over https://www.beagleboard.org/boards/techlab or
+> https://www.beagleboard.org/boards/pocketbeagle-gamepup-cape or
+> https://github.com/mwelling/pocket-bob ?
+>
+> I think it is better as an overlay? Let us not enable something that
+> will add power for no benefit :)
+> Further USB1.ID has options for PRU as well. Let the daughter overlay
+> deal with it.
+>
+> On the flip side, we could work the other way - since majority of
+> daughter cards use USB host, it could be that the other overlays can
+> just disable usbss1 and usb1
+>
+> Thoughts?
 
-I was trying to say that code that uses struct page type might be
-thought of as 'old code' and maybe in drivers that have been updated
-to use KHO we can also insist they be modernized away from struct
-page?
+Since you asked, Being the somewhat unique state of PocketBeagle 2 and
+other Beagle
+single-board computers as rapid-prototyping development platforms, my
+personal general
+preference is to see all the stuff turned on by default and then to
+provide some clear direction
+on what is not necessary such that it lives as documentation forhow to
+enable it and simplify
+the development of overlays. Some of the rationale for this was
+discussed a couple
+of years back in a series of blog posts by Michael Opdenacker. [1][2][3]
 
-> For 2025-2029, we will still have alloc_page(s)().  It's just that
-> the size of struct page will be gradually shrinking over that time.
+My perspective is that the interfaces need to be enabled to define the
+header connector to
+the device tree and that the muxes should further be fully described
+to the system, rather than
+leaving those bits of metadata regarding the running system as an
+exercise for the reader.
 
-For instance while we still have alloc_pages(), yes, but we could say
-that KHO enabled drivers should not use it and be migrated to
-folio_alloc or slab instead.
+The aforementioned approach of removing all the "dead bits" is great
+until someone is left with
+the challenge of figuring out how to turn them on and/or select
+between them. Providing an
+overlay that disables all the unnecessary bits seems reasonable to me.
 
-> > I don't want some weird KHO interface that doesn't align with using
-> > __folio_alloc_node() and folio_put() as the lowest level allocator
-> > interface.
-> 
-> I think it's fine to say "the KHO interface doesn't support bare pages;
-> you must have a memdesc".  But I'm not sure that's the right approach.
+Otherwise, I think we can put the entirety of the header description
+into an overlay for
+cape-specific overlays to use, but I find the lack of an upstream
+definition to make it difficult to
+enable cape makers to define overlays that are likely to actually work.
 
-The KHO interface needs to know how to initialize the memdesc. So if
-the very lowest allocator function is:
+Just my $0.0000002.
 
-        page = alloc_page_desc(gfp, order, MEMDESC_TYPE_FOLIO(folio));
+[1] https://www.beagleboard.org/blog/2022-02-15-using-device-tree-overlays-=
+example-on-beaglebone-cape-add-on-boards
+[2] https://www.beagleboard.org/blog/2022-03-31-device-tree-supporting-simi=
+lar-boards-the-beaglebone-example
+[3] https://www.beagleboard.org/blog/2022-06-06-using-the-u-boot-extension-=
+board-manager-beaglebone-boards-example
 
-Then we need a KHO 'restore' version of that that also accepts the
-MEMDESC_TYPE_XX() too.
+>
+> > +
+> > +&wkup_uart0 {
+> > +     /* WKUP UART0 is used by Device Manager firmware */
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&wkup_uart0_pins_default>;
+> > +     bootph-all;
+> > +     status =3D "reserved";
+> > +};
+> > +
+> > +&wkup_i2c0 {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&wkup_i2c0_pins_default>;
+> > +     clock-frequency =3D <100000>;
+> > +     bootph-all;
+> > +     status =3D "okay";
+> > +
+> > +     tps65219: pmic@30 {
+> > +             compatible =3D "ti,tps65219";
+> > +             reg =3D <0x30>;
+> > +             buck1-supply =3D <&vsys_5v0>;
+> > +             buck2-supply =3D <&vsys_5v0>;
+> > +             buck3-supply =3D <&vsys_5v0>;
+> > +             ldo1-supply =3D <&vdd_3v3>;
+> > +             ldo2-supply =3D <&buck2_reg>;
+> > +             ldo3-supply =3D <&vdd_3v3>;
+> > +             ldo4-supply =3D <&vdd_3v3>;
+> > +
+> > +             pinctrl-names =3D "default";
+> > +             pinctrl-0 =3D <&pmic_irq_pins_default>;
+> > +             interrupt-parent =3D <&gic500>;
+> > +             interrupts =3D <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>;
+> > +             interrupt-controller;
+> > +             #interrupt-cells =3D <1>;
+> > +
+> > +             bootph-all;
+> > +             system-power-controller;
+> > +             ti,power-button;
+> > +
+> > +             regulators {
+> > +                     buck1_reg: buck1 {
+> > +                             regulator-name =3D "VDD_CORE";
+> > +                             regulator-min-microvolt =3D <850000>;
+> > +                             regulator-max-microvolt =3D <850000>;
+> > +                             regulator-boot-on;
+> > +                             regulator-always-on;
+> > +                     };
+> > +
+> > +                     buck2_reg: buck2 {
+> > +                             regulator-name =3D "VDD_1V8";
+> > +                             regulator-min-microvolt =3D <1800000>;
+> > +                             regulator-max-microvolt =3D <1800000>;
+> > +                             regulator-boot-on;
+> > +                             regulator-always-on;
+> > +                     };
+> > +
+> > +                     buck3_reg: buck3 {
+> > +                             regulator-name =3D "VDD_1V2";
+> > +                             regulator-min-microvolt =3D <1200000>;
+> > +                             regulator-max-microvolt =3D <1200000>;
+> > +                             regulator-boot-on;
+> > +                             regulator-always-on;
+> > +                     };
+> > +
+> > +                     ldo1_reg: ldo1 {
+> > +                             /*
+> > +                              * Regulator is left as is unused, vdd_sd
+> > +                              * is controlled via GPIO with bypass con=
+fig
+> > +                              * as per the NVM configuration
+> > +                              */
+> > +                             regulator-name =3D "VDD_SD_3V3";
+> > +                             regulator-min-microvolt =3D <3300000>;
+> > +                             regulator-max-microvolt =3D <3300000>;
+> > +                             regulator-allow-bypass;
+> > +                             regulator-boot-on;
+> > +                             regulator-always-on;
+> > +                     };
+> > +
+> > +                     ldo2_reg: ldo2 {
+> > +                             regulator-name =3D "VDDA_0V85";
+> > +                             regulator-min-microvolt =3D <850000>;
+> > +                             regulator-max-microvolt =3D <850000>;
+> > +                             regulator-boot-on;
+> > +                             regulator-always-on;
+> > +                     };
+> > +
+> > +                     ldo3_reg: ldo3 {
+> > +                             regulator-name =3D "VDDA_1V8";
+> > +                             regulator-min-microvolt =3D <1800000>;
+> > +                             regulator-max-microvolt =3D <1800000>;
+> > +                             regulator-boot-on;
+> > +                             regulator-always-on;
+> > +                     };
+> > +
+> > +                     ldo4_reg: ldo4 {
+> > +                             regulator-name =3D "VDD_2V5";
+> > +                             regulator-min-microvolt =3D <2500000>;
+> > +                             regulator-max-microvolt =3D <2500000>;
+> > +                             regulator-boot-on;
+> > +                             regulator-always-on;
+> > +                     };
+> > +             };
+> > +     };
+> > +};
+> > --
+> > 2.47.2
+> >
+>
+> --
+> Regards,
+> Nishanth Menon
+> Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DD=
+B5 849D 1736 249D
 
-Bare pages would be built on top of that layering and supply a memdesc
-that is equivalent to whatever a normal allocation of a a bare page
-would get, so that normal freeing of a bare page works properly.
 
-IOW the KHO preserve/restore APIs should mirror alloc/free APIs.
 
- struct folio *folio = folio_alloc()
- kho_folio_preserve(folio)
- folio = kho_folio_restore()
- folio_put()
-
- void *vmem = kvmalloc(PAGE_SIZE * N);
- kho_vmalloc_preserve(vmem)
- vmem = kho_vmalloc_restore()
- kvfree(vmem)
-
- void *mem = kmalloc(PAGE_SIZE)
- kho_slab_preserve(mem)
- mem = kho_slab_restore()
- kfree(mem)
-
-The point of the restore function being to put everything back so that
-the matching free function works.
-
-I'm guessing if we imagine the above 3 options, then in a memdesc
-world they will all be implemented under the covers by doing some
-internal kho_restore_page_desc() which will be the lowest level
-primitive.
-
-So, I'm not sure what the API should be for bare pages (ie not use of
-the memdesc). kmalloc(PAGE_SIZE) would certainly be nice if we can
-make it work.
-
-Jason
+--=20
+Learn about me and setup a meeting at
+https://beagleboard.org/about/jkridner - a 501c3 non-profit educating
+around open hardware computing
 
