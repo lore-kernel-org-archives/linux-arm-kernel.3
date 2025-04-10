@@ -4,59 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50853C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E67A2C369AC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CNiqWei6bVR2lcSyh/W3av+DrOCPLtgDwruDBvw5w8o=; b=l1ZjYL8sFY69HsWNMoP+xYUrmD
-	gYzuF5Vh+SuNXnKNjM3Th7veCa15bg3mOsTGBUbi+l/dlh4U3FGpncw/2SYY7vB/BJg5HG3vKOwOy
-	dwswmlrQZ4jUF6KejoXO6luZLyKmt9oQmtky2b/aCFodURymw+gQw5aqXmrR1SvGoaf0T0CFpGSAS
-	a9HQG2mWRa1Unlsm2xdd7PBvqT4HW7Mx7DqLkmN+qRm+S9CNX+X2lq1Uel2RC2CtQdGV6avpVE8Dl
-	U0QU16VdW0DXxu50L1MRgiLu4Dk1xHyQRSPxbIxu96uBjW0heGUrt7moZge5BiElC7HrfIPQKHD7V
-	3nPsQO/Q==;
+	bh=88FWnO6OP9o3e2nyjX5Mpo3H7em8u+tWlmZrcX//5aI=; b=n7WZgReWJ66bODG97LMJEKQJr+
+	u0Fg4lB33oR64brsnQhBxaA8jXh7kH8ho8PN2FJMp3xmGqQvkHZBqHzKIwB4yw/VI5I+2m4VET14R
+	EfZZVh01qqX2bUSFDJ8iIFzpQcFAYNsD+tR0ffViXGHuddoFt+QnIggkJo+oIENch5ctd4rftKu+n
+	g/zTuEVWAK+c21lwzXWs+f9K410c2W4kI3b4TyL6j/FZYugz0TyMiG1wpvQxMJPTSSzqHGsBr/dN3
+	8hsPnSB34Gh06e/x1sKtDNvcfcUUHFwpXKZxzwnLtRV3xwUsneDabrN3S4wl9uEHBEZQvYLVTxGB0
+	TKjf20HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2uo1-0000000BCqX-3OR8;
-	Thu, 10 Apr 2025 16:31:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u2upo-0000000BDHq-2CNE;
+	Thu, 10 Apr 2025 16:33:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2trX-0000000B1oj-3jZg;
-	Thu, 10 Apr 2025 15:30:43 +0000
+	id 1u2twB-0000000B2dT-2YP1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 15:35:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CECFE68448;
-	Thu, 10 Apr 2025 15:30:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22F3DC4CEDD;
-	Thu, 10 Apr 2025 15:30:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 83DFA68449;
+	Thu, 10 Apr 2025 15:35:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88F59C4CEDD;
+	Thu, 10 Apr 2025 15:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744299042;
-	bh=5zcV/CG8AMLAy9luku1LD5mAKplEIFPVlXKn8cKy+bQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sQLDv9fwNtDQlftYK63Xa1crTz3K3Nb0427ADYfWdru0Tigrvr36sJaABKHPdTC71
-	 hAp8Y5dINwauilTu0E+12AsgghiralaNUR0SqRMla/1XR/Ktnr2GgVfjGCjXazY6Xq
-	 Y7M4I6Nt3PGeHCu7f682d50yN1rMzvvC3ahQQOn5VdhdpUM0FtdCTKwDoc5AI4J5+d
-	 eL4wHuU93NEBJxoRY5BTPkGCUTnuAAUG8EffgU3+4o+wsHrcZiu+yQ25ZPtJD+Txap
-	 N804kSYEPBb14q0T8oF6BfXE0OW1ni0A27NHMAVJn2HBYw5X2aNpf4LTyXG9AUtlK8
-	 VnQbMhmImmIGA==
-Date: Thu, 10 Apr 2025 16:30:38 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	s=k20201202; t=1744299330;
+	bh=0y4gnFMp8pKcQHp3nb3/Gcb5CV00QdElZjckQWOpCrA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cLOHj+nUbI21KS7NP4BXotCDjCsR8thGDgcwBKYzN3HcDddiPWnBvFzR0APfWmknA
+	 Gw9FBzvAyWSd/9AYooMu8lcGvjgPz3jws6d/TnECyoD7cpV43Kh9gvlV9g3pekfNvS
+	 5XZF1cIvo2/BBnlJ0nWlEl/ZZS/BANvnZ6F7fJerqQznzLKKENVxpJYK7rT5P+VQYb
+	 Ap+lPO0Firgk05DtjKM5kVjhGLVqmORltO6r1xfDIKo9OBV5GdZrNxEVvqzTMsktSk
+	 D5wLJmt8tjxpSk8FlwpOxjl/cYrtcB03TXQRrVkVX8ATe6isqE5QkrSPFuEOEvPCAC
+	 xSWlRHC1HuM8w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u2tw7-004HIw-Uw;
+	Thu, 10 Apr 2025 16:35:28 +0100
+Date: Thu, 10 Apr 2025 16:35:27 +0100
+Message-ID: <86h62wkp1c.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Add matchall filter offload support
-Message-ID: <20250410153038.GT395307@horms.kernel.org>
-References: <20250407-airoha-hw-rx-ratelimit-v1-1-917d092d56fd@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250407-airoha-hw-rx-ratelimit-v1-1-917d092d56fd@kernel.org>
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: arch_timer_edge_cases failures on ampere-one
+In-Reply-To: <ac1de1d2-ef2b-d439-dc48-8615e121b07b@redhat.com>
+References: <ac1de1d2-ef2b-d439-dc48-8615e121b07b@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sebott@redhat.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,23 +88,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 09:59:04PM +0200, Lorenzo Bianconi wrote:
-> Introduce tc matchall filter offload support in airoha_eth driver.
-> Matchall hw filter is used to implement hw rate policing via tc action
-> police:
+On Thu, 10 Apr 2025 16:10:43 +0100,
+Sebastian Ott <sebott@redhat.com> wrote:
 > 
-> $tc qdisc add dev eth0 handle ffff: ingress
-> $tc filter add dev eth0 parent ffff: matchall action police \
->  rate 100mbit burst 1000k drop
+> Hey,
 > 
-> Curennet implementation supports just drop/accept as exceed/notexceed
-
-nit: Current
-
-> actions. Moreover, rate and burst are the only supported configuration
-> parameters.
+> I'm seeing consistent failures for the arch_timer_edge_cases
+> selftest one ampere-one(x):
+> ==== Test Assertion Failure ====
+>   arm64/arch_timer_edge_cases.c:170: timer_condition == istatus
+>   pid=6277 tid=6277 errno=4 - Interrupted system call
+>      1  0x0000000000403bcf: test_run at arch_timer_edge_cases.c:962
+>      2  0x0000000000401f1f: main at arch_timer_edge_cases.c:1083
+>      3  0x0000ffffa8b2625b: ?? ??:0
+>      4  0x0000ffffa8b2633b: ?? ??:0
+>      5  0x000000000040202f: _start at ??:?
+>   0x1 != 0x0 (timer_condition != istatus)
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> The (first) test that's failing is from test_timers_in_the_past():
+>     /* Set a timer to counter=0 (in the past) */
+>     test_timer_cval(timer, 0, wm, true, DEF_CNT);
+> 
+> If I understand this correctly then the timer condition is met, an
+> irq should be raised with the istatus bit from SYS_CNTV_CTL_EL0 set.
+> 
+> What the guest gets for SYS_CNTV_CTL_EL0 is 1 (only the enable bit
+> set). KVM also reads 1 in timer_save_state() via
+> read_sysreg_el0(SYS_CNTV_CTL). Is this a HW/FW issue?
 
-...
+My hunch is that this is related to AC03_CPU_14 in [1] (now archived
+locally for future reference...).
+
+> 
+> These machines have FEAT_ECV (as a test I disabled that in the kernel
+> but with the same result).
+> 
+> As a hack I set ARCH_TIMER_CTRL_IT_STAT in timer_save_state() when
+> the timer condition is met and set up traps for the register - this
+> lets the testcase succeed.
+> 
+> All with the current upstream kernel - but this is not new, I saw
+> this a couple of months ago but lost access to the machine before
+> I could debug..
+> 
+> Any hints what to do here?
+
+Not a lot to do, assuming this is the actual cause. Similar things
+happen on my QC box, which has a "remarkable" timer implementation and
+a bunch of terrible hacks to keep it alive.
+
+On the other hand, I'm not even convinced that this test-case is
+legit. It seems to rely on the counter being 64bit wide, which is not
+always the case.
+
+	M.
+
+[1] https://amperecomputing.com/assets/AmpereOne_Developer_ER_v0_80_20240823_28945022f4.pdf
+
+-- 
+Without deviation from the norm, progress is not possible.
 
