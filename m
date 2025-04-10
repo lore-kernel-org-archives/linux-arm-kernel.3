@@ -4,83 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED7A3C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0319C369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ee6LsVDDTHsvKI/YOpZeHH6mP+kh8OeNoQudrAcoQfA=; b=zm35gaooSQGiZBn/kN4l3KGXEk
-	ha80/9ch3yHjVMj4mwkDBelFTf9AIdgBGLEuwqGiPdvEug0f0ur4gq9DA+Pqa/5Ffn4xLvPcLEBdH
-	L64xqydp0tiz524NNdqTc4CQVArNA5g509RZndOun9c+uOB/3yiF5Xy/ZZAHKZWIqrVA8J1VqFwKq
-	Fl5X/Faz67VWq0P+js60izD/REwea7VJsuZFUBAOp8CMiWVqRSvEiCM1E7idN2zwxFrqqirsbWVql
-	Rp0hrrQXIwVBrhKeUYPsJRAuYL/xxBZ9LDRTychLz1hbr553sobTKNLCSvcGRtqWzcrA6DFxMZJM4
-	SuQdAlOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hJlHhbxitP8LDlQxS4M+ZJIc/lDJOqTIWiKvF63v4os=; b=FFDkCYnldn2A6/8t7iMT+rSqaD
+	zR7PmLaJuQMLIIFtLHHuDbea95UKVcnarogn4Dzuh3uvY6yw3CIVrHqZyAkPfCW6sMG/iI3QDc81+
+	3YM4/IWpGHet2uasjqJTwC/D7NFDxHiMMIe8sKodEg6U4xpwU0Uy67i4BaeQIAe0RnB+uh19UJ7Nf
+	z9TuOh01R+bUSWfRHA7gixlxFlDFMkttWjx9vp7p1yRxDU3xUabAFVZI1pOoMNWDlx7TZaC2Fq95D
+	F7UsEJAfGtlZgns951JAKx9O2AO9sbCnWJ/E2F8Z+nTW6X2NV5j7jRUo8kcCIqUMHXLs6GDt+fbUv
+	IXF/CX7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ptb-0000000ACSN-2Mkb;
-	Thu, 10 Apr 2025 11:16:35 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1u2ptd-0000000ACWe-2MIw;
+	Thu, 10 Apr 2025 11:16:37 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2oD4-00000009wQg-42R8;
-	Thu, 10 Apr 2025 09:28:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744277315; x=1775813315;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=grsUTpdnhqvjd0Hm7iEVppv5u0om2yQPbXAfzbCduKs=;
-  b=mlQDxoIhehzkUmFzOf/0/yMuiFQiCrGYUn6FCcsi1Wnov6BEcWmejwbb
-   3FZbYbACsF175OprtXjItzI+PUORJP19VmIBMwKJwe5tu/NQpb6Wz5f0Q
-   uAJMnaZU6Ig9FwhtLT3N4JMt8LowEhKTVfoOr4iMQFNfMMZbmtQJ8yvQF
-   +6/jaYa5uKvEFHGOkfqL+FwqFXXY9UC7M4IIDSGSv14S6NrCAuittt/Ea
-   OUYNpcLTYa/pHXtRmVeJj/3g/C2vV2FXtrKzX8pjsWVGfSvMDeHUTBsl3
-   nEfer02PQOL9UuaiIwIjDCRjiWKDuWoduJIicu1Sx4HJvyiTFb1tgehSx
-   w==;
-X-CSE-ConnectionGUID: q9xwGGC1T26wbZ+a0jpgXA==
-X-CSE-MsgGUID: oL+Sr9HsQzef4uUmZQj5PQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11399"; a="57154701"
-X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
-   d="scan'208";a="57154701"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 02:28:33 -0700
-X-CSE-ConnectionGUID: HTOMgKl7QMKOdgpykKC3QQ==
-X-CSE-MsgGUID: aWnZQ6t4QfuhR77cbVIRBA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
-   d="scan'208";a="133968976"
-Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 10 Apr 2025 02:28:30 -0700
-Received: from kbuild by b207828170a5 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u2oCy-0009s3-03;
-	Thu, 10 Apr 2025 09:28:28 +0000
-Date: Thu, 10 Apr 2025 17:28:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: yiru zhang <yiru.zhang@mediatek.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	yiru zhang <yiru.zhang@mediatek.com>
-Subject: Re: [PATCH] [Patch v2]Add ETE devarch condition in
- etm4_init_iomem_access
-Message-ID: <202504101759.7Ls0Uy4o-lkp@intel.com>
-References: <20250409032917.7580-1-yiru.zhang@mediatek.com>
+	id 1u2oEL-00000009wem-1ryE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 09:29:55 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A6W10I025695;
+	Thu, 10 Apr 2025 11:29:41 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	hJlHhbxitP8LDlQxS4M+ZJIc/lDJOqTIWiKvF63v4os=; b=EL459TaFDja+X1hu
+	RLsh+oeSI8eFue8E1CMOqDPtV6pCd0rzBmKC9ndvg9x0nFeo3gm1QRYOpU7+ikNK
+	LhZ0vcXrcR8xeRHeLcXCM4VzD2UELhu4nhfSk/OBr5sSxJl0fWLwYLJlxMPyLERE
+	UXsWIljsR+SQREIIGpohPzW0HEuVFOeeImjTQhA6Dm+OLXLrjZRNRdb4FEcG8Jn1
+	zTXMk0gRSQjfnpk6UdH1HafDTZIbfmd4jjVhFL/TTgVD56wNx9LK96Ljcxoqb+Si
+	SLsSWU7ocW/Xi3vOcT5AgJ/Nz66vSjcCdX0o7pbycCzK9hXmbdq5k36ZILC/IJhu
+	2YAHdg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw2h6wg1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Apr 2025 11:29:41 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DC34240048;
+	Thu, 10 Apr 2025 11:28:39 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3329B9A69FC;
+	Thu, 10 Apr 2025 11:27:51 +0200 (CEST)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 10 Apr
+ 2025 11:27:50 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Thu, 10 Apr 2025 11:27:44 +0200
+Subject: [PATCH v9 3/3] MAINTAINERS: add entry for STM32 OCTO MEMORY
+ MANAGER driver
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250409032917.7580-1-yiru.zhang@mediatek.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250410-upstream_ospi_v6-v9-3-cf119508848a@foss.st.com>
+References: <20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com>
+In-Reply-To: <20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>
+CC: <christophe.kerello@foss.st.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Patrice Chotard
+	<patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-10_01,2025-04-08_04,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_022835_038115_76B987A5 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20250410_022953_969109_229A404C 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,93 +106,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi yiru,
+Add myself as STM32 OCTO MEMORY MANAGER maintainer.
 
-kernel test robot noticed the following build warnings:
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+---
+ MAINTAINERS | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-[auto build test WARNING on soc/for-next]
-[also build test WARNING on linus/master v6.15-rc1 next-20250410]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/yiru-zhang/Add-ETE-devarch-condition-in-etm4_init_iomem_access/20250409-113037
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-patch link:    https://lore.kernel.org/r/20250409032917.7580-1-yiru.zhang%40mediatek.com
-patch subject: [PATCH] [Patch v2]Add ETE devarch condition in etm4_init_iomem_access
-config: arm64-randconfig-002-20250410 (https://download.01.org/0day-ci/archive/20250410/202504101759.7Ls0Uy4o-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 92c93f5286b9ff33f27ff694d2dc33da1c07afdd)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250410/202504101759.7Ls0Uy4o-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504101759.7Ls0Uy4o-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/hwtracing/coresight/coresight-etm4x-core.c:1144:9: warning: format specifies type 'unsigned int' but the argument has type 'unsigned long' [-Wformat]
-    1143 |                 pr_warn_once("Unknown ETM architecture: %x\n",
-         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                                                         %lx
-    1144 |                              devarch & ETM_DEVARCH_ID_MASK);
-         |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/printk.h:659:42: note: expanded from macro 'pr_warn_once'
-     659 |         printk_once(KERN_WARNING pr_fmt(fmt), ##__VA_ARGS__)
-         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
-   include/linux/printk.h:640:30: note: expanded from macro 'printk_once'
-     640 |         DO_ONCE_LITE(printk, fmt, ##__VA_ARGS__)
-         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
-   include/linux/once_lite.h:11:32: note: expanded from macro 'DO_ONCE_LITE'
-      11 |         DO_ONCE_LITE_IF(true, func, ##__VA_ARGS__)
-         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
-   include/linux/once_lite.h:31:9: note: expanded from macro 'DO_ONCE_LITE_IF'
-      31 |                         func(__VA_ARGS__);                              \
-         |                         ~~~~~^~~~~~~~~~~~
-   include/linux/printk.h:501:60: note: expanded from macro 'printk'
-     501 | #define printk(fmt, ...) printk_index_wrap(_printk, fmt, ##__VA_ARGS__)
-         |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
-   include/linux/printk.h:473:19: note: expanded from macro 'printk_index_wrap'
-     473 |                 _p_func(_fmt, ##__VA_ARGS__);                           \
-         |                         ~~~~    ^~~~~~~~~~~
-   1 warning generated.
-
-
-vim +1144 drivers/hwtracing/coresight/coresight-etm4x-core.c
-
-  1121	
-  1122	static bool etm4_init_iomem_access(struct etmv4_drvdata *drvdata,
-  1123					   struct csdev_access *csa)
-  1124	{
-  1125		u32 devarch = readl_relaxed(drvdata->base + TRCDEVARCH);
-  1126	
-  1127		if (!is_coresight_device(drvdata->base) || !is_devtype_cpu_trace(drvdata->base))
-  1128			return false;
-  1129	
-  1130		/*
-  1131		 * All ETMs must implement TRCDEVARCH to indicate that
-  1132		 * the component is an ETMv4. Even though TRCIDR1 also
-  1133		 * contains the information, it is part of the "Trace"
-  1134		 * register and must be accessed with the OSLK cleared,
-  1135		 * with MMIO. But we cannot touch the OSLK until we are
-  1136		 * sure this is an ETM. So rely only on the TRCDEVARCH.
-  1137		 */
-  1138		switch (devarch & ETM_DEVARCH_ID_MASK) {
-  1139		case ETM_DEVARCH_ETMv4x_ARCH:
-  1140		case ETM_DEVARCH_ETE_ARCH:
-  1141			break;
-  1142		default:
-  1143			pr_warn_once("Unknown ETM architecture: %x\n",
-> 1144				     devarch & ETM_DEVARCH_ID_MASK);
-  1145			return false;
-  1146		}
-  1147		drvdata->arch = etm_devarch_to_arch(devarch);
-  1148		*csa = CSDEV_ACCESS_IOMEM(drvdata->base);
-  1149		return true;
-  1150	}
-  1151	
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 96b82704950184bd71623ff41fc4df31e4c7fe87..32abd09c0e4309709998f91882c7983d1b53a80c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22881,6 +22881,12 @@ L:	linux-i2c@vger.kernel.org
+ S:	Maintained
+ F:	drivers/i2c/busses/i2c-stm32*
+ 
++ST STM32 OCTO MEMORY MANAGER
++M:	Patrice Chotard <patrice.chotard@foss.st.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
++F:	drivers/memory/stm32_omm.c
++
+ ST STM32 SPI DRIVER
+ M:	Alain Volmat <alain.volmat@foss.st.com>
+ L:	linux-spi@vger.kernel.org
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.25.1
+
 
