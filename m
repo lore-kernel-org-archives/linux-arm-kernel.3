@@ -4,53 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2920C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 08:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444A4C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 08:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I6mNDhp7QyDfWyI/PUcsqonBamtQiZPuaY2iqOdxRqg=; b=maqpbkbZvD2KNVLrMLIQPsHaS9
-	aIiZk7Gs3OUOcFNLQtdN8GOu9beigLPLbk4XOisyoQPaPplYEK6gXntzz95M+osyxSCeK+HBXFqEx
-	vY2eiFrZhHKBzcBFGDlgP1rAPPUERVSUGmJ9SKJBsPc0aHUwgUXDAoiCsB3EMmr9llG+NIYWEe6DS
-	P/OxfTjyKPhwQlubtxqyPd7oSwYq/qLGabHrezXlt2zpiZmC7orTtbQkLfeWIcMsI6Sp7wOLjV80w
-	lpPKVZqrBwasPWAd5fo14owepVTMJo0bR4BnH2az/VOwUMJPdVnKdvPft8NOrrpj1/OX/XwTXWKcj
-	BU1gsVUQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EEaIv+Hi76rasf64bdQJwGs7atfBV9pno+CUMgL0TfY=; b=NP7R2Z98NlzTSHSHriQi5ySUor
+	KhYNmhw97DFqZAwzWfd4Ny25CPq70mbR0P/rqdeXGYPDlF+bHx5a2GSEx8DwmPscupRJtEBYQ0wrj
+	JQ9Vc6t0sjpABSbYNYaO+0nDMCHr2oRCNGpr6r6OskEBo/Mmk0jduoE+/ophQj+U9XQQoMxnXqH/i
+	B39iaw4FDB/9KL90R83M3a/Pz+uARmfKkM9OPJU2hjNRijibT50Mo3ZBTP9YHgwEzpndhC55vAiBh
+	lKbPAYgt8b751SAyvoOsJxmCp9J+gl3kuVXx4XMtatYND7KRV/p9st2KG7PQmhe7jt0q7rdvH9VW5
+	YM18/IRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2n0c-00000009gyN-2C67;
-	Thu, 10 Apr 2025 08:11:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2mWX-00000009bSI-2Wh7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 07:40:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADADF152B;
-	Thu, 10 Apr 2025 00:40:32 -0700 (PDT)
-Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.40.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 915DC3F6A8;
-	Thu, 10 Apr 2025 00:40:29 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64/mm: Re-organise setting up FEAT_S1PIE registers PIRE0_EL1 and PIR_EL1
-Date: Thu, 10 Apr 2025 13:10:24 +0530
-Message-Id: <20250410074024.1545768-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
+	id 1u2n2O-00000009hFI-0szQ;
+	Thu, 10 Apr 2025 08:13:28 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2mXH-00000009bYG-0hkH;
+	Thu, 10 Apr 2025 07:41:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744270877;
+	bh=T0rl6mtqXz5LmV5LLiBAssGxQHXvEWWXL3EDzwmnWEk=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=aot9COSTnnKvgbGAq80PH5OkL2BX7fTgqBgoPPT/KOmtsS0JQ3I5AnxJ2kkahytDZ
+	 RMauBQEs4WXQ/fG7+K7cGkem33n5Afdt7mMk2Z3tQBcxJdlFLLdbTUO5xgN1I85hyL
+	 AIUiTLipV5O01P4BySbn1VtLc+LOJFa+/qrPh/OkaN3DE5U5Y6ySrwh5nM3/4QHcR7
+	 al3BIoEy24HMwNHPcIYwwHGTTMZsVpVWxlPq8HYjOi+LycGoj+BuWGykl3AB3Haem0
+	 jt6Om8U14QSdNDNd9ADCaxME29oX/M67NRdEOcbR6F4FvC1LUKphUd1T86EmUifUX3
+	 /XxVPg5vq0Z6Q==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C03ED17E0904;
+	Thu, 10 Apr 2025 09:41:16 +0200 (CEST)
+Message-ID: <58b3bbe7-c036-45c6-b6e9-e2fc150a9256@collabora.com>
+Date: Thu, 10 Apr 2025 09:41:16 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] dt-bindings: pinctrl: mediatek: Correct indentation
+ and style in DTS example
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Sean Wang <sean.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Andy Teng <andy.teng@mediatek.com>,
+ linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250324125105.81774-1-krzysztof.kozlowski@linaro.org>
+ <20250324125105.81774-2-krzysztof.kozlowski@linaro.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250324125105.81774-2-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_004033_729279_15459763 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250410_004119_372977_48221AD2 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,97 +81,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mov_q cannot really move PIE_E[0|1] macros into a general purpose register
-as expected if those macro constants contain some 128 bit layout elements,
-required for D128 page tables. Fix this problem via first loading up these
-macro constants into a given memory location and then subsequently setting
-up registers PIRE0_EL1 and PIR_EL1 by retrieving the memory stored values.
+Il 24/03/25 13:51, Krzysztof Kozlowski ha scritto:
+> DTS example in the bindings should be indented with 2- or 4-spaces and
+> aligned with opening '- |', so correct any differences like 3-spaces or
+> mixtures 2- and 4-spaces in one binding.
+> 
+> No functional changes here, but saves some comments during reviews of
+> new patches built on existing code.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>   .../pinctrl/mediatek,mt65xx-pinctrl.yaml      | 83 +++++++------------
+>   .../pinctrl/mediatek,mt7622-pinctrl.yaml      | 48 +++++------
+>   .../pinctrl/mediatek,mt8183-pinctrl.yaml      | 68 +++++++--------
+>   .../pinctrl/mediatek,mt8192-pinctrl.yaml      | 76 ++++++++---------
+>   4 files changed, 127 insertions(+), 148 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml
+> index 5f2808212f39..b9680b896f12 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml
+> @@ -137,64 +137,43 @@ examples:
+>           #size-cells = <2>;
+>   
+>           pinctrl@1c20800 {
+> -          compatible = "mediatek,mt8135-pinctrl";
+> -          reg = <0 0x1000B000 0 0x1000>;
+> -          mediatek,pctl-regmap = <&syscfg_pctl_a>, <&syscfg_pctl_b>;
+> -          gpio-controller;
+> -          #gpio-cells = <2>;
+> -          interrupt-controller;
+> -          #interrupt-cells = <2>;
+> -          interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
+> -              <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>,
+> -              <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>;
+> +            compatible = "mediatek,mt8135-pinctrl";
+> +            reg = <0 0x1000B000 0 0x1000>;
+> +            mediatek,pctl-regmap = <&syscfg_pctl_a>, <&syscfg_pctl_b>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            interrupt-controller;
+> +            #interrupt-cells = <2>;
+> +            interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
+> +                         <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>,
+> +                         <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>;
+>   
+> -          i2c0_pins_a: i2c0-pins {
+> -            pins1 {
+> -              pinmux = <MT8135_PIN_100_SDA0__FUNC_SDA0>,
+> -                <MT8135_PIN_101_SCL0__FUNC_SCL0>;
+> -              bias-disable;
+> -            };
+> -          };
+> -
+> -          i2c1_pins_a: i2c1-pins {
+> -            pins {
+> -              pinmux = <MT8135_PIN_195_SDA1__FUNC_SDA1>,
+> -                <MT8135_PIN_196_SCL1__FUNC_SCL1>;
+> -              bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
+> -            };
+> -          };
+> -
+> -          i2c2_pins_a: i2c2-pins {
+> -            pins1 {
+> -              pinmux = <MT8135_PIN_193_SDA2__FUNC_SDA2>;
+> -              bias-pull-down;
+> +            i2c0_pins_a: i2c0-pins {
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This patch applies on v6.15-rc1
+Agreeing with Rob - if you can please also remove the labels while at it,
+that'd be great, but regardless of that...
 
- arch/arm64/kernel/head.S         | 3 +++
- arch/arm64/kernel/pi/map_range.c | 6 ++++++
- arch/arm64/kernel/pi/pi.h        | 1 +
- arch/arm64/mm/mmu.c              | 1 +
- arch/arm64/mm/proc.S             | 5 +++--
- 5 files changed, 14 insertions(+), 2 deletions(-)
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 2ce73525de2c..4950d9cc638a 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -126,6 +126,9 @@ SYM_CODE_START(primary_entry)
- 	 * On return, the CPU will be ready for the MMU to be turned on and
- 	 * the TCR will have been set.
- 	 */
-+	adr_l	x0, pir_data
-+	bl      __pi_load_pir_data
-+
- 	bl	__cpu_setup			// initialise processor
- 	b	__primary_switch
- SYM_CODE_END(primary_entry)
-diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-index 81345f68f9fc..cd9d24e73046 100644
---- a/arch/arm64/kernel/pi/map_range.c
-+++ b/arch/arm64/kernel/pi/map_range.c
-@@ -103,3 +103,9 @@ asmlinkage u64 __init create_init_idmap(pgd_t *pg_dir, pteval_t clrmask)
- 
- 	return ptep;
- }
-+
-+asmlinkage void __init load_pir_data(u64 pir_data[])
-+{
-+	pir_data[0] = PIE_E0;
-+	pir_data[1] = PIE_E1;
-+}
-diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
-index c91e5e965cd3..ae61df4fdb77 100644
---- a/arch/arm64/kernel/pi/pi.h
-+++ b/arch/arm64/kernel/pi/pi.h
-@@ -34,3 +34,4 @@ void map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
- asmlinkage void early_map_kernel(u64 boot_status, void *fdt);
- 
- asmlinkage u64 create_init_idmap(pgd_t *pgd, pteval_t clrmask);
-+asmlinkage void load_pir_data(u64 pir_data[]);
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index ea6695d53fb9..762e81ff4e85 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -58,6 +58,7 @@ static bool rodata_is_rw __ro_after_init = true;
-  * with MMU turned off.
-  */
- long __section(".mmuoff.data.write") __early_cpu_boot_status;
-+unsigned long __section(".mmuoff.data.write") pir_data[2];
- 
- /*
-  * Empty_zero_page is a special page that is used for zero-initialized data
-diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-index fb30c8804f87..7dd28cf101c2 100644
---- a/arch/arm64/mm/proc.S
-+++ b/arch/arm64/mm/proc.S
-@@ -524,9 +524,10 @@ alternative_else_nop_endif
- #define PTE_MAYBE_NG		0
- #define PTE_MAYBE_SHARED	0
- 
--	mov_q	x0, PIE_E0
-+	adr_l	x1, pir_data
-+	ldr	x0, [x1, #0]
- 	msr	REG_PIRE0_EL1, x0
--	mov_q	x0, PIE_E1
-+	ldr	x0, [x1, #8]
- 	msr	REG_PIR_EL1, x0
- 
- #undef PTE_MAYBE_NG
--- 
-2.25.1
 
 
