@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D332C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 18:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984E5C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 19:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jE8rDnvy1JsbxyXI0ST4MR7QmWEmACLz23hTtIu4bio=; b=KWImgjzGR0eBE4VH385UAMKm3e
-	Ek2FxRP5OrbFhz+9ydVWH6+69XLIDpuTT4m/X3EiQhEfYZkhrS+HftK1VvsdP+GTglWM/J7PYJ3QL
-	dkmWP6VIFqHfXCUXPu+M5D0o9UX4Fazr4FyeKZxGLMOPP2kQQe87XxtRGxkeyHHY5p+W2Tv3Sd1SZ
-	UXLqoOI7sCwmMBj+iu7ImWaC4iyPg68kEK/Fa+LgJptcLhN3f6o1qYA27wu4uX4BtClpEBIITxRL4
-	PO5Kzbz9iTXM6i4xKVaQx2zi5Xyd3DTnbuyINm6Z2GLN+OnfdyH2iVClcelSUqwDVDPVEi2MwqnDK
-	D6H+FtLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rt1ErKnDB0kDVVHNETVlsGiMEC8PF7ts5OL+LvM5MZE=; b=sM9Pu9ycKpGBhtW5xk2d+8mYjs
+	ThlLtBl0GCuEymDL8lSSEO/YYeg00BSSkmVqkosPIvrmV+kX24rgkCrhiKng9rDevQH7xqVXT7t2G
+	+jSYTng9eq7sGkvQivjkJvBbmRAzIYbail3lytvpYwLVsIeJnwUeLNJwkUp662/GbaJIkzvcmBcNG
+	P5131VVoAAtzaxfudqmvFVGhqLVEXikzEbOgL4LkcRzjdHFQV0yJEgGlEqDFYVJuPE3YjE3ndIczO
+	53nvPVPDrJD4McZmEncxJuk5ntvWYlkvbqU3Wjd3ezYWlgssXFf6vhNSl/jO6hCjRM9Q1cm+4ZvYo
+	hAHGXaBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2wxC-0000000BZPx-1eR8;
-	Thu, 10 Apr 2025 18:48:46 +0000
-Received: from mail.mvand.net ([185.229.52.35])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2wvN-0000000BZCP-0uQT;
-	Thu, 10 Apr 2025 18:46:54 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by mail.mvand.net (Postfix) with ESMTPSA id 34FEA1FFBE;
-	Thu, 10 Apr 2025 20:46:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=martijnvandeventer.nl; s=default; t=1744310809;
-	bh=35f6PssSUk82gUbtI8PktIZ3m65teiiSAGKD5LD8TgM=;
-	h=From:To:Cc:References:In-Reply-To:Subject:Date:From;
-	b=ESQ/pJWIaR4uTXdP/9KMB45vWyGoLXrT8WlK1orbSkbIqAHvcP9cblEE93RxWKMW7
-	 pDKCBk0Wonc4PdiqukPYmRaHs+VEC7yRcT5iBukWDuc2diig4ExCA+/w3lA0fPECDe
-	 1yh8FHyhEGyuXdVguaVK0FUI3A4++JsXiUn3ujriGcNL3eQEIy2N0773GJqnK8hgrb
-	 Iu6wh8XzKbBulaaIhbqokXsH2arfjT65kq4cPGm7AVIStExiJ9XpsJt4TYEwZSNTiW
-	 r34hjcKsvfVLa9G3vXHymZPksKs0ma0JYE4aYXhnEDeEGfwWDgg7p1k94++TC+8ygx
-	 qXSY54OVqzP8w==
-From: <linux@martijnvandeventer.nl>
-To: "'Martin Blumenstingl'" <martin.blumenstingl@googlemail.com>,
-	<linux-amlogic@lists.infradead.org>,
-	<dri-devel@lists.freedesktop.org>
-Cc: <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<jbrunet@baylibre.com>,
-	<neil.armstrong@linaro.org>,
-	"'Furkan Kardame'" <f.kardame@manjaro.org>
-References: <20250409214422.1751825-1-martin.blumenstingl@googlemail.com>
-In-Reply-To: <20250409214422.1751825-1-martin.blumenstingl@googlemail.com>
-Subject: RE: [PATCH] drm/meson: fix resource cleanup in meson_drv_bind_master() on error
-Date: Thu, 10 Apr 2025 20:46:48 +0200
-Message-ID: <001d01dbaa48$ead66d10$c0834730$@martijnvandeventer.nl>
-Mime-Version: 1.0
-Content-Type: text/plain;
-	charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Content-Language: en-us
-Thread-Index: AQHanRYIlb/sWKyzPMx9MZcpgEt53rOfTIcg
+	id 1u2xFU-0000000BbEL-1yrU;
+	Thu, 10 Apr 2025 19:07:40 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2xDg-0000000Bb4h-1HH5;
+	Thu, 10 Apr 2025 19:05:49 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D584C352;
+	Thu, 10 Apr 2025 21:03:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1744311826;
+	bh=vYdv1sVZtCqHJ1wS/BMmb7wbFQHJ09S7g/Am+7Bju3Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n0mPLmb6VHt5+S1gTRqRercYFGK0nm80K2leTqRv7zdbUHYZ1HJ5Sh90M2YdC5I5t
+	 rudXg1QkFxfngTi3w3ZbhYz2EJZQ+VM/5roNrPGS5QT34j/Kf3gjIChajtATlAGv8i
+	 +A6KwvjTDkLpCf4s1ghRpi6auq3e+TeGtZlPLvjE=
+Date: Thu, 10 Apr 2025 22:05:18 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel@collabora.com,
+	linux-media@vger.kernel.org,
+	Sebastian Fricke <sebastian.fricke@collabora.com>
+Subject: Re: [PATCH v2 1/5] media: mc: add manual request completion
+Message-ID: <20250410190518.GG27870@pendragon.ideasonboard.com>
+References: <20250410-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v2-0-5b99ec0450e6@collabora.com>
+ <20250410-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v2-1-5b99ec0450e6@collabora.com>
+ <20250410175010.GF27870@pendragon.ideasonboard.com>
+ <f6cd46032970dd696bbdb087b203b3bd49e7a161.camel@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <f6cd46032970dd696bbdb087b203b3bd49e7a161.camel@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_114653_458524_FEB3C5DC 
-X-CRM114-Status: GOOD (  29.84  )
+X-CRM114-CacheID: sfid-20250410_120548_490054_D57C501E 
+X-CRM114-Status: GOOD (  59.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,252 +79,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Martin,
+On Thu, Apr 10, 2025 at 02:41:36PM -0400, Nicolas Dufresne wrote:
+> Le jeudi 10 avril 2025 à 20:50 +0300, Laurent Pinchart a écrit :
+> > On Thu, Apr 10, 2025 at 11:39:56AM -0400, Nicolas Dufresne wrote:
+> > > From: Hans Verkuil <hverkuil@xs4all.nl>
+> > > 
+> > > By default when the last request object is completed, the whole
+> > > request completes as well.
+> > > 
+> > > But sometimes you want to manually complete a request in a driver,
+> > > so add a manual complete mode for this.
+> > 
+> > I didn't immediately understand this was about delaying completion of
+> > the request. It would be nice to make that more explicit in the commit
+> > message and in the documentation of
+> > media_request_mark_manual_completion(). A sample use case would also
+> > help.
+> 
+> I have never considered this a "delay", but an explicit completion
+> function. In short you want to use that if you are not satisfied with
+> the existing implicit logic that currently delays and complete the
+> request based on the media_request_object attachments.
 
-Thank you for the patch.
+But you can only delay completion with this mechanism, not complete the
+request earlier, right ? As far as I understand, this mechanism is about
+telling the framework that the driver holds an extra "reference" to the
+request, and that the request shouldn't be completed until that
+"reference" is released.
 
-I encountered this issue some time ago as well and had a possible fix in =
-my tree (see
-below).=20
-My apologies for not upstreaming it earlier.
+If we think about this as an extra reference, do we need to forbid
+dropping it while there are still objects in the request ? Could there
+be use cases where driver may want to drop their "reference" earlier ?
 
-While my fix is not as symmetric as yours=E2=80=94I like =
-symmetry=E2=80=94it is somewhat simpler. It
-did make the assumption that only  calling component_unbind_all() was at =
-fault and the the rest of the=20
-code was correct. Therefore, calling one of the following functions:
-meson_encoder_dsi_remove()
-meson_encoder_hdmi_remove()
-meson_encoder_cvbs_remove()
-in case their counterpart was not called, should not result in any =
-issues.
+> We can add this multi-core CODEC use case as an example.
+> 
+> The only alternative to that would have been to allocate a driver
+> specific media_request_object and store it in request. This is a rather
+> expensive and complicated way to do this. I even got to a point I
+> considered having a media_request_object in the driver specific
+> media_request, so avoid the runtime allocs, but found the explicit
+> completion a lot easier to read and think about.
 
-I just verified, and, as far as I understand, all of these functions do =
-a check to confirm
-whether the encoder was initialized before proceeding with cleanup.
+I agree that handling this with a "fake" media_request_object is
+probably not nice solution, but that's an implementation detail anyway.
+API-wise, I think it would be best to document the behaviour, and hide
+the fact that it's implementated with an extra boolean flag.
+media_request_mark_manual_completion() shouldn't mention
+manual_completion, and drivers should never touch that field, so the
+implementation could be reworked later if needed.
 
------------------------------------------------------
-diff --git a/drivers/gpu/drm/meson/meson_drv.c =
-b/drivers/gpu/drm/meson/meson_drv.c
-index 81d2ee37e773..4e2d45a271c2 100644
---- a/drivers/gpu/drm/meson/meson_drv.c
-+++ b/drivers/gpu/drm/meson/meson_drv.c
-@@ -184,6 +184,7 @@ static int meson_drv_bind_master(struct device *dev, =
-bool has_components)
-        const struct meson_drm_match_data *match;
-        struct meson_drm *priv;
-        struct drm_device *drm;
-+       bool do_unbind =3D false;
-        struct resource *res;
-        void __iomem *regs;
-        int ret, i;
-@@ -312,10 +313,9 @@ static int meson_drv_bind_master(struct device =
-*dev, bool has_components)
-                ret =3D component_bind_all(dev, drm);
-                if (ret) {
-                        dev_err(drm->dev, "Couldn't bind all =
-components\n");
--                       /* Do not try to unbind */
--                       has_components =3D false;
-                        goto exit_afbcd;
-                }
-+               do_unbind =3D true;
-        }
+> My only remaining thought, is why do we keep the complicated explicit
+> completion in the first place, perhaps because its a lot of work to
+> undo ? The request_object still have a purpose, since we still need to
+> store data in the request. And it has some benefit, that instead of
+> silently never completing, the complete() call will warn if you have
+> left over objects at an unexpected point in time.
 
-        ret =3D meson_encoder_hdmi_probe(priv);
-@@ -378,7 +378,7 @@ static int meson_drv_bind_master(struct device *dev, =
-bool has_components)
-        meson_encoder_hdmi_remove(priv);
-        meson_encoder_cvbs_remove(priv);
+I'm not following you when you write "keep the complicated explcit
+completion". media_request_manual_complete() is the explicit completion,
+isn't it ?
 
--       if (has_components)
-+       if (do_unbind)
-                component_unbind_all(dev, drm);
+> > > In req_queue the driver marks the request for manual completion by
+> > > calling media_request_mark_manual_completion, and when the driver
+> > > wants to manually complete the request it calls
+> > > media_request_manual_complete().
+> > > 
+> > > Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+> > > Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> > > ---
+> > >  drivers/media/mc/mc-request.c | 38 ++++++++++++++++++++++++++++++++++++--
+> > >  include/media/media-request.h | 36 +++++++++++++++++++++++++++++++++++-
+> > >  2 files changed, 71 insertions(+), 3 deletions(-)
+> > > 
+> > > diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
+> > > index 5edfc2791ce7c7485def5db675bbf53ee223d837..398d0806d1d274eb8c454fc5c37b77476abe1e74 100644
+> > > --- a/drivers/media/mc/mc-request.c
+> > > +++ b/drivers/media/mc/mc-request.c
+> > > @@ -54,6 +54,7 @@ static void media_request_clean(struct media_request *req)
+> > >  	req->access_count = 0;
+> > >  	WARN_ON(req->num_incomplete_objects);
+> > >  	req->num_incomplete_objects = 0;
+> > > +	req->manual_completion = false;
+> > >  	wake_up_interruptible_all(&req->poll_wait);
+> > >  }
+> > >  
+> > > @@ -313,6 +314,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
+> > >  	req->mdev = mdev;
+> > >  	req->state = MEDIA_REQUEST_STATE_IDLE;
+> > >  	req->num_incomplete_objects = 0;
+> > > +	req->manual_completion = false;
+> > >  	kref_init(&req->kref);
+> > >  	INIT_LIST_HEAD(&req->objects);
+> > >  	spin_lock_init(&req->lock);
+> > > @@ -459,7 +461,7 @@ void media_request_object_unbind(struct media_request_object *obj)
+> > >  
+> > >  	req->num_incomplete_objects--;
+> > >  	if (req->state == MEDIA_REQUEST_STATE_QUEUED &&
+> > > -	    !req->num_incomplete_objects) {
+> > > +	    !req->num_incomplete_objects && !req->manual_completion) {
+> > >  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+> > >  		completed = true;
+> > >  		wake_up_interruptible_all(&req->poll_wait);
+> > > @@ -488,7 +490,7 @@ void media_request_object_complete(struct media_request_object *obj)
+> > >  	    WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
+> > >  		goto unlock;
+> > >  
+> > > -	if (!--req->num_incomplete_objects) {
+> > > +	if (!--req->num_incomplete_objects && !req->manual_completion) {
+> > >  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+> > >  		wake_up_interruptible_all(&req->poll_wait);
+> > >  		completed = true;
+> > > @@ -499,3 +501,35 @@ void media_request_object_complete(struct media_request_object *obj)
+> > >  		media_request_put(req);
+> > >  }
+> > >  EXPORT_SYMBOL_GPL(media_request_object_complete);
+> > > +
+> > > +void media_request_manual_complete(struct media_request *req)
+> > > +{
+> > > +	unsigned long flags;
+> > > +	bool completed = false;
+> > > +
+> > > +	if (WARN_ON(!req))
+> > > +		return;
+> > > +	if (WARN_ON(!req->manual_completion))
+> > > +		return;
+> > > +
+> > > +	spin_lock_irqsave(&req->lock, flags);
+> > > +	if (WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
+> > > +		goto unlock;
+> > > +
+> > > +	req->manual_completion = false;
+> > > +	/*
+> > > +	 * It is expected that all other objects in this request are
+> > > +	 * completed when this function is called. WARN if that is
+> > > +	 * not the case.
+> > > +	 */
+> > > +	if (!WARN_ON(req->num_incomplete_objects)) {
+> > > +		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+> > > +		wake_up_interruptible_all(&req->poll_wait);
+> > > +		completed = true;
+> > > +	}
+> > > +unlock:
+> > > +	spin_unlock_irqrestore(&req->lock, flags);
+> > > +	if (completed)
+> > > +		media_request_put(req);
+> > > +}
+> > > +EXPORT_SYMBOL_GPL(media_request_manual_complete);
+> > > diff --git a/include/media/media-request.h b/include/media/media-request.h
+> > > index d4ac557678a78372222704400c8c96cf3150b9d9..645d18907be7148ca50dcc9248ff06bd8ccdf953 100644
+> > > --- a/include/media/media-request.h
+> > > +++ b/include/media/media-request.h
+> > > @@ -56,6 +56,10 @@ struct media_request_object;
+> > >   * @access_count: count the number of request accesses that are in progress
+> > >   * @objects: List of @struct media_request_object request objects
+> > >   * @num_incomplete_objects: The number of incomplete objects in the request
+> > > + * @manual_completion: if true, then the request won't be marked as completed
+> > > + * when @num_incomplete_objects reaches 0. Call media_request_manual_complete()
+> > > + * to set this field to false and complete the request
+> > 
+> > I'd drop "set this field to false and " here.
+> > 
+> > > + * if @num_incomplete_objects == 0.
+> > 
+> >  * after @num_incomplete_objects reaches 0.
+> > 
+> > >   * @poll_wait: Wait queue for poll
+> > >   * @lock: Serializes access to this struct
+> > >   */
+> > > @@ -68,6 +72,7 @@ struct media_request {
+> > >  	unsigned int access_count;
+> > >  	struct list_head objects;
+> > >  	unsigned int num_incomplete_objects;
+> > > +	bool manual_completion;
+> > >  	wait_queue_head_t poll_wait;
+> > >  	spinlock_t lock;
+> > >  };
+> > > @@ -218,6 +223,35 @@ media_request_get_by_fd(struct media_device *mdev, int request_fd);
+> > >  int media_request_alloc(struct media_device *mdev,
+> > >  			int *alloc_fd);
+> > >  
+> > > +/**
+> > > + * media_request_mark_manual_completion - Set manual_completion to true
+> > > + *
+> > > + * @req: The request
+> > > + *
+> > > + * Mark that the request has to be manually completed by calling
+> > > + * media_request_manual_complete().
+> > > + *
+> > > + * This function should be called in the req_queue callback.
+> > 
+> > s/should/shall/ unless it's not a hard requirement. Any way to catch
+> > incorrect call patterns ?
+> > 
+> > > + */
+> > > +static inline void
+> > > +media_request_mark_manual_completion(struct media_request *req)
+> > > +{
+> > > +	req->manual_completion = true;
+> > > +}
+> > > +
+> > > +/**
+> > > + * media_request_manual_complete - Set manual_completion to false
+> > 
+> > The main purpose of the function is to complete the request, not setting
+> > manual_completion to false.
+> > 
+> > > + *
+> > > + * @req: The request
+> > > + *
+> > > + * Set @manual_completion to false, and if @num_incomplete_objects
+> > > + * is 0, then mark the request as completed.
+> > > + *
+> > > + * If there are still incomplete objects in the request, then
+> > > + * WARN for that since that suggests a driver error.
+> > 
+> > If that's an error then I'd document it more explicitly, as the first
+> > sentence makes it sound that both cases are valid. Maybe
+> > 
+> >  * This function completes a request that was marked for manual completion by an
+> >  * earlier call to media_request_mark_manual_completion(). The request's
+> >  * @manual_completion flag is reset to false.
+> >  *
+> >  * All objects contained in the request must have been completed previously. It
+> >  * is an error to call this function otherwise. The request will not be
+> >  * completed in that case, and the function will WARN.
+> > 
+> > > + */
+> > > +void media_request_manual_complete(struct media_request *req);
+> > > +
+> > >  #else
+> > >  
+> > >  static inline void media_request_get(struct media_request *req)
+> > > @@ -336,7 +370,7 @@ void media_request_object_init(struct media_request_object *obj);
+> > >   * @req: The media request
+> > >   * @ops: The object ops for this object
+> > >   * @priv: A driver-specific priv pointer associated with this object
+> > > - * @is_buffer: Set to true if the object a buffer object.
+> > > + * @is_buffer: Set to true if the object is a buffer object.
+> > >   * @obj: The object
+> > >   *
+> > >   * Bind this object to the request and set the ops and priv values of
 
-        return ret;
------------------------------
+-- 
+Regards,
 
-This patch has somewhat less code redundancy. I don=E2=80=99t have a =
-strong
-preference for either patch, so please feel free to choose whichever you =
-
-prefer.=20
-
-If you decide to go with yours, I=E2=80=99ve provided one minor comment =
-inline
-for your consideration.
-
-> -----Original Message-----
-> From: linux-amlogic <linux-amlogic-bounces@lists.infradead.org> On =
-Behalf
-> Of Martin Blumenstingl
-> Sent: Wednesday, April 9, 2025 11:44 PM
-> To: linux-amlogic@lists.infradead.org; dri-devel@lists.freedesktop.org
-> Cc: linux-kernel@vger.kernel.org; =
-linux-arm-kernel@lists.infradead.org;
-> jbrunet@baylibre.com; neil.armstrong@linaro.org; Martin Blumenstingl
-> <martin.blumenstingl@googlemail.com>; Furkan Kardame
-> <f.kardame@manjaro.org>
-> Subject: [PATCH] drm/meson: fix resource cleanup in
-> meson_drv_bind_master() on error
->=20
-> meson_drv_bind_master() does not free resources in the order they are
-> allocated. This can lead to crashes such as:
->     Unable to handle kernel NULL pointer dereference at virtual =
-address
-> 00000000000000c8
->     [...]
->     Hardware name: Beelink GT-King Pro (DT)
->     pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
->     pc : meson_dw_hdmi_unbind+0x10/0x24 [meson_dw_hdmi]
->     lr : component_unbind+0x38/0x60
->     [...]
->     Call trace:
->      meson_dw_hdmi_unbind+0x10/0x24 [meson_dw_hdmi]
->      component_unbind+0x38/0x60
->      component_unbind_all+0xb8/0xc4
->      meson_drv_bind_master+0x1ec/0x514 [meson_drm]
->      meson_drv_bind+0x14/0x20 [meson_drm]
->      try_to_bring_up_aggregate_device+0xa8/0x160
->      __component_add+0xb8/0x1a8
->      component_add+0x14/0x20
->      meson_dw_hdmi_probe+0x1c/0x28 [meson_dw_hdmi]
->      platform_probe+0x68/0xdc
->      really_probe+0xc0/0x39c
->      __driver_probe_device+0x7c/0x14c
->      driver_probe_device+0x3c/0x120
->      __driver_attach+0xc4/0x200
->      bus_for_each_dev+0x78/0xd8
->      driver_attach+0x24/0x30
->      bus_add_driver+0x110/0x240
->      driver_register+0x68/0x124
->      __platform_driver_register+0x24/0x30
->      meson_dw_hdmi_platform_driver_init+0x20/0x1000 [meson_dw_hdmi]
->      do_one_initcall+0x50/0x1bc
->      do_init_module+0x54/0x1fc
->      load_module+0x788/0x884
->      init_module_from_file+0x88/0xd4
->      __arm64_sys_finit_module+0x248/0x340
->      invoke_syscall+0x48/0x104
->      el0_svc_common.constprop.0+0x40/0xe0
->      do_el0_svc+0x1c/0x28
->      el0_svc+0x30/0xcc
->      el0t_64_sync_handler+0x120/0x12c
->      el0t_64_sync+0x190/0x194
->=20
-> Clean up resources in the error path in the same order and under the
-> same conditions as they were allocated to fix this.
->=20
-> Reported-by: Furkan Kardame <f.kardame@manjaro.org>
-> Signed-off-by: Martin Blumenstingl =
-<martin.blumenstingl@googlemail.com>
-> ---
-> This issue was reported off-list so I'm unable to provide a link to =
-the
-> report.
->=20
-> I'm not sure which Fixes tag fits best. My preference so far is
-> Fixes: 6a044642988b ("drm/meson: fix unbind path if HDMI fails to =
-bind")
-> but I'll happily take other suggestions as well.
->=20
->=20
->  drivers/gpu/drm/meson/meson_drv.c | 31 =
-+++++++++++++++++--------------
->  1 file changed, 17 insertions(+), 14 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/meson/meson_drv.c
-> b/drivers/gpu/drm/meson/meson_drv.c
-> index 81d2ee37e773..031686fd4104 100644
-> --- a/drivers/gpu/drm/meson/meson_drv.c
-> +++ b/drivers/gpu/drm/meson/meson_drv.c
-> @@ -314,35 +314,35 @@ static int meson_drv_bind_master(struct device
-> *dev, bool has_components)
->  			dev_err(drm->dev, "Couldn't bind all
-> components\n");
->  			/* Do not try to unbind */
->  			has_components =3D false;
-
-Above two lines are no longer used, so can be removed.
-
-> -			goto exit_afbcd;
-> +			goto cvbs_encoder_remove;
->  		}
->  	}
->=20
->  	ret =3D meson_encoder_hdmi_probe(priv);
->  	if (ret)
-> -		goto exit_afbcd;
-> +		goto unbind_components;
->=20
->  	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A)) {
->  		ret =3D meson_encoder_dsi_probe(priv);
->  		if (ret)
-> -			goto exit_afbcd;
-> +			goto hdmi_encoder_remove;
->  	}
->=20
->  	ret =3D meson_plane_create(priv);
->  	if (ret)
-> -		goto exit_afbcd;
-> +		goto dsi_encoder_remove;
->=20
->  	ret =3D meson_overlay_create(priv);
->  	if (ret)
-> -		goto exit_afbcd;
-> +		goto dsi_encoder_remove;
->=20
->  	ret =3D meson_crtc_create(priv);
->  	if (ret)
-> -		goto exit_afbcd;
-> +		goto dsi_encoder_remove;
->=20
->  	ret =3D request_irq(priv->vsync_irq, meson_irq, 0, =
-drm->driver->name,
-> drm);
->  	if (ret)
-> -		goto exit_afbcd;
-> +		goto dsi_encoder_remove;
->=20
->  	drm_mode_config_reset(drm);
->=20
-> @@ -360,6 +360,16 @@ static int meson_drv_bind_master(struct device
-> *dev, bool has_components)
->=20
->  uninstall_irq:
->  	free_irq(priv->vsync_irq, drm);
-> +dsi_encoder_remove:
-> +	if (meson_vpu_is_compatible(priv, VPU_COMPATIBLE_G12A))
-> +		meson_encoder_dsi_remove(priv);
-> +hdmi_encoder_remove:
-> +	meson_encoder_hdmi_remove(priv);
-> +unbind_components:
-> +	if (has_components)
-> +		component_unbind_all(dev, drm);
-> +cvbs_encoder_remove:
-> +	meson_encoder_cvbs_remove(priv);
->  exit_afbcd:
->  	if (priv->afbcd.ops)
->  		priv->afbcd.ops->exit(priv);
-> @@ -374,13 +384,6 @@ static int meson_drv_bind_master(struct device
-> *dev, bool has_components)
->  free_drm:
->  	drm_dev_put(drm);
->=20
-> -	meson_encoder_dsi_remove(priv);
-> -	meson_encoder_hdmi_remove(priv);
-> -	meson_encoder_cvbs_remove(priv);
-> -
-> -	if (has_components)
-> -		component_unbind_all(dev, drm);
-> -
->  	return ret;
->  }
->=20
- --
-Best regards,
-
-Martijn
-
-
+Laurent Pinchart
 
