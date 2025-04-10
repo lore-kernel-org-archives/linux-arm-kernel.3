@@ -4,57 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA88C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 01:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B063C369A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 01:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6pkHqf4bn8O0thSatfpaOrYevzMw4DixaFZnfOik4EI=; b=VBnIMNvBwUnHh7
-	hghmJJy76KQhcvL+RO9i4EXNNnrjKv30BzvvVEuVdQ2bf5aWheVn5O1dWvr9yOPMSOW+EAadnp6B3
-	3+DYoyuqK0VbKsxsLi50eRkzmQs6ohRLNT3j4w3ZwWCXeOI0LkhTUsYtQR5LtYRqhDR856sW6EF/k
-	7NH5YRWp1BnIBpo8lxQgZuUVp76CZ0Y4CdJMPKHWdJUyMPiqaNjIVkYlh/Lc9Ahs3BvE4mA6hQKsD
-	esKlzEqpNwXhtWJoUueBeuuIg6D10hfYJpitXEQ7oDzemVSvhle8VQPYFUxkzLpwFedCnBPk5cmK6
-	krKq3+KdqeTVJjvL1EiA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o4YCBs8FmN8c+rLkfX0n/GYc/hIsRtQHN306R9U8pDs=; b=0PhAwIcP3dhAayMOIyRPWLUDKD
+	0XtwCjNChbFj3YyG9v82iBshY8n34V2+A+P+7InB2D1JVSfIlOVoB/N7B2J/i3rcX3CEaSAfLAPDa
+	Ob3bH1c/O22xvRzxHyudUfjkTHEslkGWF7/zcMW6S8SVw3aVSGRBOTRur1DKguA/7ErbgzUe6P3s5
+	64/6gIBrlMRsWSgfkmySvMZG5DX3waPjsSSs3u7fSXC+7+T7hCTzfheSh30rTGsra64IGjbjHF0NW
+	NwoGugq1ZGG7CDID6V4qJ7QbbLKl0e5/XoYfFpGk3iEkUFiyvD+HmOLvSwCttH7JubXyUQIxGyEhj
+	ViS46CEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2gks-00000008wSk-0jqW;
-	Thu, 10 Apr 2025 01:30:58 +0000
-Received: from qmt20.citechco.net ([203.191.33.192])
+	id 1u2gpL-00000008wz8-0LrU;
+	Thu, 10 Apr 2025 01:35:35 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2gj4-00000008wN7-29ef
+	id 1u2gnX-00000008wcc-44qF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 01:29:08 +0000
-DomainKey-Signature: a=rsa-sha1; c=nofws; d=jf-bd.net; h=reply-to:from
-	:to:subject:date:message-id:mime-version:content-type
-	:content-transfer-encoding; q=dns; s=dkim1; b=cLypbbM1mRhyviY07Z
-	8X3AlZXPoAcEgwUMqic+8QlFaQG9CXidc6WyRgeq3Q9QnMq7Tc7Te6FoZSEJS87j
-	RpOS5ZMFLugnJWsNz463xaW0PihA6JXkoQoAzaFI02PfP2YdH8mNC+SsQj0hXNg7
-	O5vJizL8He3tpebRwsQrIE+tg=
-DKIM-Signature: v=1; a=rsa-sha1; c=simple; d=jf-bd.net; h=reply-to:from
-	:to:subject:date:message-id:mime-version:content-type
-	:content-transfer-encoding; s=dkim1; bh=BQ4VYQ759GlRs1a2EUBRjVDV
-	aZ8=; b=Hu3ibf+t0uWoMBbuMkDzObwnobVgxx3NWgTnuMp7sx+CElM2bdouB92y
-	jjDKVEnA1h5PUYFp99Dgww7J3CvNmUpGafrhmY7Md2Y71xwCdfEuwoUaxhjWbB+m
-	YzgP6aNEfxuX72IAzvXLxtTZKsJk5rd6E+xqt7BAbDBXX1Th39c=
-Received: (qmail 7255 invoked by uid 89); 10 Apr 2025 01:29:00 -0000
-Received: from unknown (HELO 179-190-173-23.cable.cabotelecom.com.br) (commercial@jf-bd.net@154.205.144.222)
-  by qmt20.citechco.net with ESMTPA; 10 Apr 2025 01:29:00 -0000
-From: Winston Taylor <commercial@jf-bd.net>
-To: linux-arm-kernel@lists.infradead.org
-Subject: WTS
-Date: 9 Apr 2025 20:28:53 -0500
-Message-ID: <20250409202852.7E54B170E97E7F55@jf-bd.net>
+	Thu, 10 Apr 2025 01:33:45 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 539HEAr2028988
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 01:33:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=o4YCBs8FmN8c+rLkfX0n/GYc/hIsRtQHN30
+	6R9U8pDs=; b=EQep3k1dgrfwrP4L4bmrmLVvxPPZjS3+YIeMB+dHQN0VE0/ohvn
+	MG+Frm8EO62lESL7ctAgwGEfDgoiLY4ivlXv4htAOhiQHS8TsPldcIz52ZKjwA/p
+	FLIZKW2pPRY94W7U9NvtgjLEETqwSdfXOaEC/SgxabTWmt3bKc+u/Bv/JlfQP0jk
+	YWYS6dlxVZL2w03o4SYALNDc6084IpYZn+TpLo3729kD6Q5rzzRar7Mgftaz/Fll
+	nEAGGjZ6iE9YESgs4nGstNqv1Ydf4t5HxX6gT94C06tzPKuRERUzf9CtusyAEi/r
+	hNlCSF1zHH9ZNdW+PQQHoWhCB1GqsDO/nNA==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45twpmd5nb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 01:33:42 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-227e2faab6dso2429405ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 18:33:42 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744248822; x=1744853622;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o4YCBs8FmN8c+rLkfX0n/GYc/hIsRtQHN306R9U8pDs=;
+        b=ZY9OymGfPVGc4jACcH+YjlWPyikXBqr6q3JVbHS2MU7ZE4ToleL5o+ztAdenHF/3lp
+         TnkNyrAi8K7QnyL46wv/g+xUPbXM9T1mEUK47Hrw90epR1GmpSVP/bgkDWmOQvsoJLMu
+         D3VGehSNC2DbFD96d6DA/VU/AmQYLKN9zWrnwhLukDHPmOfpSVxLIOr4MIw9k4vw/XiE
+         uhdYLEOWxKG09lirHr5+rjebSsJ6v4lfheXAe79535Izu1d1SNgYLNoBq3s/VB5WHVf2
+         KFDUtt2iUG4/O/N0Ieqn+xywhOiU+NVIf3XAR3NcKdNcl8BH/3/ZZjfuOinSth9HcSs2
+         BWcg==
+X-Forwarded-Encrypted: i=1; AJvYcCUVqaphav0r3FXVH08YmZUEb+OkPpt9Z0376JeZXQyoVPQikvrbaGRqjpQmLeHzSggp6jlbPvrIl0tZWWOhgxIN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXRbv7eEHIqjpU/u7xeV74SxSb8T2TLu5DG/ZW1/Jai5r/ZSak
+	YE9xTYKrGzEwJiQYTxF6L1rB3LrzL/I6T8aGDpVjCIboV5ESEuTm5ZXlIlmXhUKAN8s8faKDFt4
+	CjRKeipF352Otc8Jr1m2t7SiAUwRxjgHJZ+TCa7KOp8qeppr8MVcKzDYdFal7tKupT89AmgADWA
+	==
+X-Gm-Gg: ASbGncuDSFflLXNQnND0fjDXz4Hoovk+XQQxpGRGcA7c3GaNwiDEs33/TGajdYpJ8tI
+	rS6DoNTSXma1COQlhdWmY+ThPaRoMjUVY4zHulI6sVUklyyDoxTrtLuNZFNJVfKBsRxv3mcgy9M
+	rY2cCvr4uhT5zZ2ht4pJBvzesMNM3NaupHYcmK8oGJ/WdUWloeQZKUtTmO5MHgNMcbHK0gNjJCe
+	jsFhfWjb7iKMZyznmJC5ZWqJrEQg2K2g3vz4cY2ojchrEbtzV5Aupnt7EEIPieCgw2OCcqyMOhB
+	yW4kuBOW5/1TlPqr/RR430NvrWCVK+tb12AMYTDv7OTSQYoWSHpFDH5zcPnDmTcEuuRQzXs=
+X-Received: by 2002:a17:903:2341:b0:21f:61a9:be7d with SMTP id d9443c01a7336-22b42c43ec6mr17770825ad.49.1744248821384;
+        Wed, 09 Apr 2025 18:33:41 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFrJkqX4uEGOsPxZGHknz/7ZYzO+UEvc0pWxjPjlCLTKvbNT3cRK56FqUF1D3OsFviQrio7Tw==
+X-Received: by 2002:a17:903:2341:b0:21f:61a9:be7d with SMTP id d9443c01a7336-22b42c43ec6mr17770205ad.49.1744248820641;
+        Wed, 09 Apr 2025 18:33:40 -0700 (PDT)
+Received: from jiegan-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7ccb596sm18801815ad.220.2025.04.09.18.33.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Apr 2025 18:33:39 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH v2 0/5] coresight: ctcu: Enable byte-cntr function for TMC ETR
+Date: Thu, 10 Apr 2025 09:33:25 +0800
+Message-Id: <20250410013330.3609482-1-jie.gan@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: qmj3p8RjSTqwxnNYTLlhhsRriN7GsZWy
+X-Proofpoint-ORIG-GUID: qmj3p8RjSTqwxnNYTLlhhsRriN7GsZWy
+X-Authority-Analysis: v=2.4 cv=MpRS63ae c=1 sm=1 tr=0 ts=67f71ff6 cx=c_pps a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=ZTg50iMYVFS0dohvRPoA:9 a=GvdueXVYPmCkWapjIL-Q:22
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-09_06,2025-04-08_04,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ mlxlogscore=999 clxscore=1015 priorityscore=1501 impostorscore=0
+ spamscore=0 bulkscore=0 suspectscore=0 malwarescore=0 adultscore=0
+ phishscore=0 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504100010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_182907_174569_7164100A 
-X-CRM114-Status: UNSURE (   2.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250409_183344_032020_B2A08BAE 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,70 +126,139 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: winstontaylor@theleadingone.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello ,
-These are available for sale. If you=E2=80=99re interested in purchasing=20=
+The byte-cntr function provided by the CTCU device is used to transfer data
+from the ETR buffer to the userspace. An interrupt is tiggered if the data
+size exceeds the threshold set in the BYTECNTRVAL register. The interrupt
+handler counts the number of triggered interruptions and the read function
+will read the data from the ETR buffer if the IRQ count is greater than 0.
+The read work will be conducted ASAP after the byte-cntr is started.
+Each successful read process will decrement the IRQ count by 1.
 
-these, please email me
+The byte cntr function will start when the device node is opened for reading,
+and the IRQ count will reset when the byte cntr function has stopped. When
+the file node is opened, the w_offset of the ETR buffer will be read and
+stored in byte_cntr_data, serving as the original r_offset (indicating
+where reading starts) for the byte counter function.
 
-brand new and original
-Brand New ST8000NM017B  $70 EA
-Brand New ST20000NM007D   $100 EACH
-Brand New ST4000NM000A   $30 EA
-Brand New WD80EFPX   $60 EA
- Brand New WD101PURZ    $70 EA
+The work queue for the read operation will wake up once when ETR is stopped,
+ensuring that the remaining data in the ETR buffer has been flushed based on
+the w_offset read at the time of stopping.
 
-Brand New CISCO C9300-48UXM-E
-Available 5
-$21800 EACH
+The byte-cntr read work has integrated with the file node tmc_etr, e.g.
+/dev/tmc_etr0
+/dev/tmc_etr1
 
-Intel Xeon Gold 5418Y Processors
-QTY28 $780 each
+There are two scenarios for the ETR file nodes with byte-cntr function:
+1. BYTECNTRVAL register has configured -> byte-cntr read
+2. BYTECNTRVAL register is disabled -> original behavior, flush the etr_buf
 
-Brand New C9200L-48T-4X-E  $1000 EAC
+We still can flush the etr buffer once after the byte-cntr function has
+triggered.
+1. Enable byte-cntr
+2. Byte-cntr read
+3. Disable byte-cntr
+4. Flush etr buffer
 
+Since the ETR operates in circular buffer mode, we cannot fully guarantee
+that no overwrites occur when the byte-cntr read function reads the data.
+The read function will read the data ASAP when the interrupt is
+triggered and we should not configure a threshold greater than the
+buffer size of the ETR buffer.
 
- Brand New N9K-C93108TC-FX-24 Nexus
-9300-FX w/ 24p 100M/1/10GT & 6p 40/100G
-Available 4
-$3000 each
+The following shell commands write threshold to BYTECNTRVAL registers.
 
-Brand New NVIDIA GeForce RTX 4090 Founders
-Edition 24GB - QTY: 56 - $700 each
+Only enable byte-cntr for ETR0:
+echo 0x10000 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
 
-Brand new Palit NVIDIA GeForce RTX 5080
-GamingPro OC card with full manufacturer
-QTY 48 $750 EAC
+Enable byte-cntr for both ETR0 and ETR1(support both hex and decimal values):
+echo 0x10000 4096 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
 
-BRAND NEW - ASUS TUF Gaming GeForce RTX =E2=84=A2 5080 16GB
-GDDR7 OC Edition Gaming Graphics Card SEALED
-QTY50  $700 EACH
+Setting the BYTECNTRVAL registers to 0 disables the byte-cntr function.
+Disable byte-cntr for ETR0:
+echo 0 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
 
-Condition: Grade A
-Used HP EliteBook 840 G7 i7-10610U 16GB RAM 512GB
-SSD Windows 11 Pro TOUCH Screen
-QTY 30 USD 100 each
+Disable byte-cntr for both ETR0 and ETR1:
+echo 0 0 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
 
-Condition: Grade A
-Used HP EliteBook 850 G8 15.6" FHD,
-INTEL I7, 256GB SSD, 8GB RAM Win11
- QTY50 $240 EACH
+There is a minimum threshold to prevent generating too many interrupts.
+The minimum threshold is 4096 bytes. The write process will fail if user try
+to set the BYTECNTRVAL registers to a value less than 4096 bytes(except
+for 0).
 
-SK Hynix 48GB DDR5 4800 1Rx4 PC5-4800B-
-PF0-1010-XT 288pin Server EC4 RDIMM RAM
-QTY 239 $50 EACH
+Way to enable and start byte-cntr for ETR0:
+echo 0x10000 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+echo 1 > /sys/bus/coresight/devices/etm0/enable_source
+cat /dev/tmc_etr0
 
+Testing case has conducted for the byte-cntr read work:
+1. Setting the buffer_size of the ETR as large as possile, here is for ETR0
+   echo 0x1000000 > /sys/bus/coresight/devices/tmc_etr0/buffer_size
+2. Setting the threshold for the ETR0 to 0x10000
+   echo 0x10000 > /sys/bus/coresight/devices/ctcu0/byte_cntr_val
+3. Enable ETR0
+   echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+4. Enable ETM0 as source and enable byte-cntr to read data
+   echo 1 > /sys/bus/coresight/devices/etm0/enable_source;
+   cat /dev/tmc_etr0 > /tmp/file_byte_cntr.bin &
+5. Disable ETM0
+   echo 0 > /sys/bus/coresight/devices/etm0/enable_source
+6. Disable byte-cntr and flush the etr buffer
+   echo 0 > /sys/bus/coresight/devices/ctcu0/byte_cntr_val;
+   cat /dev/tmc_etr0 > /tmp/file_etr0.bin
+   ls -l /tmp
 
------------------------------------------------------------------
----------------
+-rw-r--r--    1 root     root      12628960 Apr 28 17:44 file_byte_cntr.bin
+-rw-r--r--    1 root     root      12669296 Apr 28 17:45 file_etr0.bin
 
-Best Regards,
-Winston Taylor
-300 Laird St, Wilkes-Barre, PA 18702, USA
-Mobile: +1 (570) 890-5512
-Email: winstontaylor@theleadingone.net
-www.theleadingone.net
+7. Deal with the file_etr0.bin with following command:
+   dd if=/tmp/file_etr0.bin of=/tmp/file_etr0_aligned.bin bs=1
+count=12628960 skip=40336
+   ls -l /tmp
+
+-rw-r--r--    1 root     root      12628960 Apr 28 17:44 file_byte_cntr.bin
+-rw-r--r--    1 root     root      12669296 Apr 28 17:45 file_etr0.bin
+-rw-r--r--    1 root     root      12628960 Apr 28 17:49 file_etr0_aligned.bin
+
+8. Compared file_byte_cntr.bin with file_etr0_aligned.bin and identified
+they are competely same.
+   diff file_byte_cntr.bin file_etr0_aligned.bin
+
+=======================
+Changes in V2:
+1. Removed the independent file node /dev/byte_cntr.
+2. Integrated the byte-cntr's file operations with current ETR file
+   node.
+3. Optimized the driver code of the CTCU that associated with byte-cntr.
+4. Add kernel document for the export API tmc_etr_get_rwp_offset.
+5. Optimized the way to read the rwp_offset according to Mike's
+   suggestion.
+6. Removed the dependency of the dts patch.
+Link to V1 - https://lore.kernel.org/all/20250310090407.2069489-1-quic_jiegan@quicinc.com/
+
+Jie Gan (5):
+  coresight: tmc: Introduce new APIs to get the RWP offset of ETR buffer
+  dt-bindings: arm: Add an interrupt property for Coresight CTCU
+  coresight: ctcu: Enable byte-cntr for TMC ETR devices
+  coresight: tmc: add functions for byte-cntr operation
+  arm64: dts: qcom: sa8775p: Add interrupts to CTCU device
+
+ .../bindings/arm/qcom,coresight-ctcu.yaml     |  17 ++
+ arch/arm64/boot/dts/qcom/sa8775p.dtsi         |   5 +
+ drivers/hwtracing/coresight/Makefile          |   2 +-
+ .../coresight/coresight-ctcu-byte-cntr.c      | 119 ++++++++++++
+ .../hwtracing/coresight/coresight-ctcu-core.c |  88 ++++++++-
+ drivers/hwtracing/coresight/coresight-ctcu.h  |  49 ++++-
+ .../hwtracing/coresight/coresight-tmc-core.c  |  29 ++-
+ .../hwtracing/coresight/coresight-tmc-etr.c   | 175 ++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tmc.h   |  10 +-
+ 9 files changed, 483 insertions(+), 11 deletions(-)
+ create mode 100644 drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c
+
+-- 
+2.34.1
+
 
