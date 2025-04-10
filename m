@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B026C369AC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 210D3C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8E5OMclE49NpSxhJUw4MVgS4Jclo+X9yzYdNQ+PlmCc=; b=HTK0hVF5Fb292MLKV1/QAikeV4
-	bAYPDJKG1/hbZ4TVC46emz7c/K5wOZC31WxV6swG0MdZYEkSDhgbjCN6oxg9+Ju/K7l/aUnew/EnS
-	Ao2T8oI4QzE1vyR8QDwBdIQyYSBbakK2WLURqkQvbmyF7TK8HosjNBGdNY6zYO87qDPJgy1IS6il4
-	2HeCKS0Wwsh821KgYIx31CNMteBHCmSTZguPIDC1MYqFFZzkiwKwhqRJ0XfhaIEbVsu02AW/+5YpI
-	hBfr16UgSKlA4H0y9tEtA3rqzsn92PbxrdAA77AzBArZpZw/09BmApmHKUj1BtBYepfuXrfV1Rn5G
-	dvgGHqsQ==;
+	bh=DHBSu1KngsiVRF76updGFY5IFNjCsj5epMsSJtNhjQk=; b=P9VFU/ySdivAW7EsCb2qKD3MQ5
+	xkmafIElmIlJ2sRLFCMGK0rhFX54pl99e9Y8I93AnpiW0e2Hl2Ou9+tg09dlQ1V51EFF7WlGoQKbC
+	zXA900s+a/UmYOmFX9sgEUDmtWyw14uSCfpaFQiT3uaHquEconkw0mVv+BtGx0QgKbryWKKOloBZj
+	UETlXrp+NLK7KwbeUalsFfpQ5Vzo39dXxoTLtwBIi2Ia/xLwcW8jYbYhhSrXtAAh3SJDlrtwFQueX
+	k/+ukqXcDnUOfMZUo0LcMoo+bKP4f7CuKF0Wg8iKIer/OG0GxA7Yq7ldGk6uvZzca5sYyR9Sf0iYx
+	CzOoXGqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2v7U-0000000BGh9-1D1w;
-	Thu, 10 Apr 2025 16:51:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u2v9G-0000000BGzJ-16k1;
+	Thu, 10 Apr 2025 16:53:06 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2u85-0000000B4y2-35Ns;
-	Thu, 10 Apr 2025 15:47:51 +0000
+	id 1u2u87-0000000B4yq-1o52;
+	Thu, 10 Apr 2025 15:47:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B54AA4A44B;
-	Thu, 10 Apr 2025 15:47:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33747C4CEE9;
-	Thu, 10 Apr 2025 15:47:47 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1942FA4A928;
+	Thu, 10 Apr 2025 15:42:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16781C4CEDD;
+	Thu, 10 Apr 2025 15:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744300067;
-	bh=17E6AqFYyreXuXiCUMrel7kiiXcdT5b24ICEL4rFA+A=;
+	s=k20201202; t=1744300070;
+	bh=iDeiMpH2/KxFQOc/7AuYydAb8NCVCSm+fEB6mcijRro=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=EO3eS51Ey9S8GJDcQAD6Rr1t3w6p6SAFWhoWkQ3W2bG6/AQW4FOhZwWpfKl+Wa2CX
-	 rjHhnrPIfNDzvsNPhaHlwKdZoeWSmw4nX1LiK+OVHzZwvwGzoEcL5T6BrmVVYaChhw
-	 P89evcQIT5K7fAHjnq9wbIjJ7jWx+ciBKRTcDqM2aZmRBv/n3LnYH+n9JuvVJQap9w
-	 3F9BCpDxC9gZjNGhRtDyqme2YIWauF1tC7B4P4JU0v2WqsTaDPyhu83pmJz++H32z/
-	 4GL746Vd9s/tc+V5Y4TK6nVcNQK/xh15HP+fsn0Oks0zVeOoxrV/b/vl3RxLG+kHyZ
-	 8GAJNzuFYqX6A==
+	b=N3WR9nvbHwdU8OqfFIc/mAfEz0Nmc09RDoFYeBK7Cd1q4dU8AiGidDCnyDh2Yd6Ff
+	 khtIEZeAm5b3jsSSJCwlepHT5Cjj7NPKSZRHCw+YnxgdCh+KREBBp8Lv14VEFi4Dwi
+	 RlYARWcnQS1qsk7DPNfsjiBO0DHdhlse12UYxFM9X2jY8w8vYAu8NxrNxkiG4smfD2
+	 K+u7CqTDULdw+eay4gEuHbdO4mN6JROOW/+cMc8jwjY3mdH4cOIFRIqM2LD4ggstNg
+	 XT+EhJsutbL2iP7y0ydVIsOgAupR55qA+AUnocPW19n1khPPot918ofQg6cvjhRrCs
+	 aMHf0ORhxZLHg==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 10 Apr 2025 10:47:22 -0500
-Subject: [PATCH v2 01/17] arm64: dts: allwinner: h5/h6: Drop spurious
- 'clock-latency-ns' properties
+Date: Thu, 10 Apr 2025 10:47:24 -0500
+Subject: [PATCH v2 03/17] arm64: dts: microchip: sparx5: Fix CPU node
+ "enable-method" property dependencies
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250410-dt-cpu-schema-v2-1-63d7dc9ddd0a@kernel.org>
+Message-Id: <20250410-dt-cpu-schema-v2-3-63d7dc9ddd0a@kernel.org>
 References: <20250410-dt-cpu-schema-v2-0-63d7dc9ddd0a@kernel.org>
 In-Reply-To: <20250410-dt-cpu-schema-v2-0-63d7dc9ddd0a@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -83,12 +83,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
  linux-rockchip@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  linux-renesas-soc@vger.kernel.org, linux-mips@vger.kernel.org, 
- linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- Andre Przywara <andre.przywara@arm.com>
+ linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_084749_828395_AF5B3BC5 
-X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-CacheID: sfid-20250410_084751_608385_C8B1DB96 
+X-CRM114-Status: UNSURE (   8.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,89 +103,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-'clock-latency-ns' is not a valid property for CPU nodes. It belongs in
-OPP table (which has it). Drop them from the CPU nodes.
+The "spin-table" enable-method requires "cpu-release-addr" property,
+so add a dummy entry. It is assumed the bootloader will fill in the
+correct values.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+Tested-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi | 4 ----
- arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi | 4 ----
- 2 files changed, 8 deletions(-)
+ arch/arm64/boot/dts/microchip/sparx5_pcb_common.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi
-index d3caf27b6a55..48802bf02f3b 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi
-@@ -16,7 +16,6 @@ cpu0: cpu@0 {
- 			reg = <0>;
- 			enable-method = "psci";
- 			clocks = <&ccu CLK_CPUX>;
--			clock-latency-ns = <244144>; /* 8 32k periods */
- 			#cooling-cells = <2>;
- 		};
+diff --git a/arch/arm64/boot/dts/microchip/sparx5_pcb_common.dtsi b/arch/arm64/boot/dts/microchip/sparx5_pcb_common.dtsi
+index 32bb76b3202a..83bf5c81b5f7 100644
+--- a/arch/arm64/boot/dts/microchip/sparx5_pcb_common.dtsi
++++ b/arch/arm64/boot/dts/microchip/sparx5_pcb_common.dtsi
+@@ -12,10 +12,12 @@ &psci {
  
-@@ -26,7 +25,6 @@ cpu1: cpu@1 {
- 			reg = <1>;
- 			enable-method = "psci";
- 			clocks = <&ccu CLK_CPUX>;
--			clock-latency-ns = <244144>; /* 8 32k periods */
- 			#cooling-cells = <2>;
- 		};
+ &cpu0 {
+ 	enable-method = "spin-table";
++	cpu-release-addr = /bits/ 64 <0>;
+ };
  
-@@ -36,7 +34,6 @@ cpu2: cpu@2 {
- 			reg = <2>;
- 			enable-method = "psci";
- 			clocks = <&ccu CLK_CPUX>;
--			clock-latency-ns = <244144>; /* 8 32k periods */
- 			#cooling-cells = <2>;
- 		};
+ &cpu1 {
+ 	enable-method = "spin-table";
++	cpu-release-addr = /bits/ 64 <0>;
+ };
  
-@@ -46,7 +43,6 @@ cpu3: cpu@3 {
- 			reg = <3>;
- 			enable-method = "psci";
- 			clocks = <&ccu CLK_CPUX>;
--			clock-latency-ns = <244144>; /* 8 32k periods */
- 			#cooling-cells = <2>;
- 		};
- 	};
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
-index 2301c59b41b1..73e8604315c5 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
-@@ -27,7 +27,6 @@ cpu0: cpu@0 {
- 			reg = <0>;
- 			enable-method = "psci";
- 			clocks = <&ccu CLK_CPUX>;
--			clock-latency-ns = <244144>; /* 8 32k periods */
- 			#cooling-cells = <2>;
- 			i-cache-size = <0x8000>;
- 			i-cache-line-size = <64>;
-@@ -44,7 +43,6 @@ cpu1: cpu@1 {
- 			reg = <1>;
- 			enable-method = "psci";
- 			clocks = <&ccu CLK_CPUX>;
--			clock-latency-ns = <244144>; /* 8 32k periods */
- 			#cooling-cells = <2>;
- 			i-cache-size = <0x8000>;
- 			i-cache-line-size = <64>;
-@@ -61,7 +59,6 @@ cpu2: cpu@2 {
- 			reg = <2>;
- 			enable-method = "psci";
- 			clocks = <&ccu CLK_CPUX>;
--			clock-latency-ns = <244144>; /* 8 32k periods */
- 			#cooling-cells = <2>;
- 			i-cache-size = <0x8000>;
- 			i-cache-line-size = <64>;
-@@ -78,7 +75,6 @@ cpu3: cpu@3 {
- 			reg = <3>;
- 			enable-method = "psci";
- 			clocks = <&ccu CLK_CPUX>;
--			clock-latency-ns = <244144>; /* 8 32k periods */
- 			#cooling-cells = <2>;
- 			i-cache-size = <0x8000>;
- 			i-cache-line-size = <64>;
+ &uart0 {
 
 -- 
 2.47.2
