@@ -4,95 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B53C369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 01:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE502C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 01:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=21NBbHnJEvc3EKg8F1yzaK/H/yAjd0XIMDAW7xtC5ew=; b=tLMHJHq2kslhYHT8YNmOlZ+ZwV
-	tE6OXFnnKwgI1sSKPlp8ruRD6av3XDNA/5iI2Iv3i33UNZEPOZ40l8foXntWQQd4nUV0BFSy8kzHT
-	f/NEC138Nsm3+WAqMjjQg3pO7NtNiTpQOq8P+OuU25hUgWNtyteUYi9o2z2oKtJKOov8Ztv8p4P2n
-	1fsAks+9mIFiJXCMbEkGCWOflCWvcSJeIYCf0SrxngIwqQBbx1aaBvPguWvnYPbOWGQSrVPDuYfxo
-	wuT6o8BQKWj7bJvtSU6KHOH/FqboS1xxTnp3qN7rYO+yfR++Ap373GH96Zr2cmzKgGz9hs3VYXPvN
-	6UBeZtHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fMGZMkZqAbTj2f77VjkweA0Ni3qZz9aOtsXiich+/5g=; b=KVMRhzjItbtKvfHYQw0c3ik3QQ
+	ULhLxwBhkZHYhofJbF74CJRIBQOBS+sCZLZqEQkBqu7AvhAnXJjOHdSAPijber/0N7HHFU7c002Qj
+	a6PiB8710wKRB+JXzcqI0jy6llqovGupt7Zk4S0KXax+4bdHcd3x1ngt6O60bzlt5nYsk6R3rkcVE
+	26xUS3uWUhEqEZdJo3gQOT5IgdHeiA70at7muuelz87mSZNZSnqrTa/1F1S3D4jN19z9jDVaSCYBd
+	2+eEsw1ahhNWieXp8Ofmck8KeBatSVdPmRpccRcTsC2jhPfSXrJT1s28amFLkM9z0vbop45cuLlip
+	1R9wp5og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2gXV-00000008umn-2vgT;
-	Thu, 10 Apr 2025 01:17:09 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1u2gZb-00000008vBH-2Pvc;
+	Thu, 10 Apr 2025 01:19:19 +0000
+Received: from mail-northcentralusazolkn190120002.outbound.protection.outlook.com ([2a01:111:f403:d111::2] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2gGd-00000008sCw-3lgZ
+	id 1u2gWk-00000008uf4-2Eb9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 00:59:45 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c56a3def84so30972385a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 17:59:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744246783; x=1744851583; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=21NBbHnJEvc3EKg8F1yzaK/H/yAjd0XIMDAW7xtC5ew=;
-        b=a/Ocg2SEO9kjROaUO4Lr8e+gK8WmzLnW7PkGgbkl3vDim32Cloee8oacdO68miCDAS
-         C/uZQjN7DjJ1n1M2GtgVZfXOYPvF1NrzWZHWS7U1DZr7yQYWkzhbdkHROPRkZu8OdZH8
-         bEz2tjIdnsYz3UkjsVZhnfrpSxeA4PYM25cdz79pfrMEeYz+yEQkZJeyEm53LAkcJ8sb
-         ek86AJYxdMWmffFaI9qEBU95rCNprDBQqyefo8LscSgE/+JXyJdBGOLfCzdeM1aAV6MP
-         u+jtRlvVsEHq+LlUGDo9r4IaUB5yz85jGLTFwp5mzbh/POrTsrxA3QNXzBBQVTyACF60
-         2z+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744246783; x=1744851583;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=21NBbHnJEvc3EKg8F1yzaK/H/yAjd0XIMDAW7xtC5ew=;
-        b=fDvRJuOmsOucVJq07IgLg66qAoaVq4zte0QO3p59SZRl5aAoQFdZ1J5ybRd/qRWYzc
-         vAabjGOdS9B+KHZWI7tktXGnp/EhzjlSni/8EAz90uyjDzptIDAc7YgzZnLb+WF4xP7s
-         XjOydjidBskzl8TdeNUQSVP29Yo7HkB/L8aUN2FLY7wUhVO8vZG7YVxI3yhzb2WtAIoJ
-         lk+wdeXrmY0SFP0/OW4vpOCRFscjRpl1k2Wlxc94jfgKfmcwVtbQXQwFl8gVsPLlgPYg
-         RTY5h4X/AqnwmURhxI4zntsiN2+OGfgoiHQopu+eXSKaapUhLLu2WZ66tqTaUz1zd1V8
-         NpCQ==
-X-Gm-Message-State: AOJu0Ywe3xnlYEvOXLBfIIcjpFwkt23ZyXoRw6O8Izs0R7Uj9RvKZvrI
-	pPV9D9uEDpoWAD9gU022HlPoeHIMWOzSMkgY+RZ14G2LolUj0HfHtVcCjQ==
-X-Gm-Gg: ASbGncvwTYgISknv2ebEkYFaKTuvJ15D6R+JvGJ0Ys1ixRFcYJ2nARpMOI/L/J1iCXC
-	i0wjBLgv0zRWYrxK71yAiPrJ2Agk+ZYy/rG88tNadKKVpmWcb9XpLfFDGsTA4Frpv8sKChFH3GS
-	nXEXfDH4J+mGYYPttWtFO7oYXc/Co91uaP5sagvXkC/QX9SZzcQgnMW9vAwAWmxWNPnHdfDkkcR
-	xz2ynkife1MxiCNYTUHWP2ah1RkVhFgJhb4nLgKMoEDQUBBOldr/iwDaPMBSmDyjUss+DuNHtsp
-	BfL2s+U6rIqdjrKZst4cZgvZgQLtKmxMaQg64y4wrQxwxxCQetAwFvoE76Rxc9YF/K4aWmC7lDN
-	buBozaenQBvqHBJQ=
-X-Google-Smtp-Source: AGHT+IGkn5DN9CLotIyJwd+pEk5Z4mTZgh2X4YBP62+cyvObhjex171ZLRHaadE2Sva4HkX98HZhxA==
-X-Received: by 2002:a05:620a:2988:b0:7c5:a542:10f with SMTP id af79cd13be357-7c7a76bf8c0mr139525485a.35.1744246782717;
-        Wed, 09 Apr 2025 17:59:42 -0700 (PDT)
-Received: from aford-System-Version.. (c-75-72-162-184.hsd1.mn.comcast.net. [75.72.162.184])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c7a895180esm9590685a.46.2025.04.09.17.59.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 17:59:42 -0700 (PDT)
-From: Adam Ford <aford173@gmail.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: aford@beaconembedded.com,
-	Adam Ford <aford173@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 9/9] arm64: dts: imx8mn-beacon: Enable RTC interrupt and wakeup-source
-Date: Wed,  9 Apr 2025 19:59:03 -0500
-Message-ID: <20250410005912.118732-9-aford173@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250410005912.118732-1-aford173@gmail.com>
-References: <20250410005912.118732-1-aford173@gmail.com>
+	Thu, 10 Apr 2025 01:16:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gy0GA0FKChiJme8FjuQvLBCN4qGZHFW6BUeSpsAv/ciCLIxvr5mPUDXjEboOktM8H3z42UMSQj8UOQ6R+eDiKFxFxXtAeD6cqBEB7kIale7SdHN0Alc4xr+je2UdkBTULdVCquRJkFI2ZmXv9jpf4VzCpW68Yo1gxLpZhdKrKmw0y7iBTwsbR0DL+TmxIr/SZUgns780vXamtcW8vDfaErALzXsoL8bd0os2TNAah+Yg8nESFeIkjE3rTabig4LthSRNHb5GG/Pdl2V0apvkj7BGhChHStOnTbiB/3sAkGhPbMhT9xspyEpV2LHwBHAXwyD289jujG7whmCjDpbj5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fMGZMkZqAbTj2f77VjkweA0Ni3qZz9aOtsXiich+/5g=;
+ b=HQcmQM95rQ8rrqgCOnWyoRscOYcHkYsImI4WWOH0Nhj8raOnHs/QQn4zmHBAmz14tP2e/QNgb9ykJCtoLml7/yqzZnJzR3oSkwUK67nVtS4QNqbYnJSM6QCU9DBWX+jgwN3OjHm2kldjUtpizYQ+xI9v9D7CVghApEMx2HHNyvYo2qApHvdpybxz7I5Jz4hus27+lOZeRk3r+WTBfdWAoOBL9Av7GPP4H3qRVF7M0NlpBYBbbUmSpVvkoctbhNA4T3pqCzOwJyaw82pm4NGduUMQ9WdQQDgtKsac1YzQkfw07XPqmLijYSmS/EGXs/sjaQa99kPK0xTYyxfUrPUAtQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fMGZMkZqAbTj2f77VjkweA0Ni3qZz9aOtsXiich+/5g=;
+ b=LdfDVBIoB8lH3oPtSNhP/ER1xhJFD6ouukywVzG7gNZ2ARIlm+Upl8ieTEdAf13TuugYn4JMCo2VXzPaGB+VIGAdqEdrAfrJ+lRwhSDLirMnVSw0rBsCduF464m1Gj1QEHzpdqU5baDcWmOSRB1cRFODmShMja0MrtKemAzRuM3BiQejB4sOo7A0ZF519pO6ms5vJM37qntLOL9d+TVkFCeOg5bApUzsab7E0gLu4JALWVDyDhp8xZkonPjK3EEIrFGuiV9SwPRGszsbTFI0fWu9S6eXvfFGA42C70AKjGqUkRpooqO1hhJpkBXZhsu/KWAU3Gc9IFOnNFfykBUIwg==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by CY8PR02MB10188.namprd02.prod.outlook.com (2603:10b6:930:55::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.31; Thu, 10 Apr
+ 2025 01:16:15 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df%5]) with mapi id 15.20.8632.021; Thu, 10 Apr 2025
+ 01:16:15 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Dan Williams <dan.j.williams@intel.com>, Roman Kisel
+	<romank@linux.microsoft.com>, Robin Murphy <robin.murphy@arm.com>,
+	"aleksander.lobakin@intel.com" <aleksander.lobakin@intel.com>,
+	"andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+	"arnd@arndb.de" <arnd@arndb.de>, "bp@alien8.de" <bp@alien8.de>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "corbet@lwn.net"
+	<corbet@lwn.net>, "dakr@kernel.org" <dakr@kernel.org>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"decui@microsoft.com" <decui@microsoft.com>, "gregkh@linuxfoundation.org"
+	<gregkh@linuxfoundation.org>, "haiyangz@microsoft.com"
+	<haiyangz@microsoft.com>, "hch@lst.de" <hch@lst.de>, "hpa@zytor.com"
+	<hpa@zytor.com>, "James.Bottomley@hansenpartnership.com"
+	<James.Bottomley@hansenpartnership.com>, "Jonathan.Cameron@huawei.com"
+	<Jonathan.Cameron@huawei.com>, "kys@microsoft.com" <kys@microsoft.com>,
+	"leon@kernel.org" <leon@kernel.org>, "lukas@wunner.de" <lukas@wunner.de>,
+	"luto@kernel.org" <luto@kernel.org>, "m.szyprowski@samsung.com"
+	<m.szyprowski@samsung.com>, "martin.petersen@oracle.com"
+	<martin.petersen@oracle.com>, "mingo@redhat.com" <mingo@redhat.com>,
+	"peterz@infradead.org" <peterz@infradead.org>, "quic_zijuhu@quicinc.com"
+	<quic_zijuhu@quicinc.com>, "tglx@linutronix.de" <tglx@linutronix.de>,
+	"wei.liu@kernel.org" <wei.liu@kernel.org>, "will@kernel.org"
+	<will@kernel.org>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-scsi@vger.kernel.org"
+	<linux-scsi@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
+CC: "apais@microsoft.com" <apais@microsoft.com>, "benhill@microsoft.com"
+	<benhill@microsoft.com>, "bperkins@microsoft.com" <bperkins@microsoft.com>,
+	"sunilmut@microsoft.com" <sunilmut@microsoft.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, "linux-coco@lists.linux.dev"
+	<linux-coco@lists.linux.dev>
+Subject: RE: [PATCH hyperv-next 5/6] arch, drivers: Add device struct bitfield
+ to not bounce-buffer
+Thread-Topic: [PATCH hyperv-next 5/6] arch, drivers: Add device struct
+ bitfield to not bounce-buffer
+Thread-Index: AQHbqOPfbMEO/VxdVECSYxt0gRTVfbObf/mAgAALcoCAAHGBgIAAGRsQ
+Date: Thu, 10 Apr 2025 01:16:14 +0000
+Message-ID: <SN6PR02MB4157328CAB1EBD021093DD3FD4B72@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20250409000835.285105-1-romank@linux.microsoft.com>
+ <20250409000835.285105-6-romank@linux.microsoft.com>
+ <0eb87302-fae8-4708-aaf8-d16e836e727f@arm.com>
+ <0ab2849a-5c03-4a8c-891e-3cb89b20b0e4@linux.microsoft.com>
+ <67f703099f124_71fe2949e@dwillia2-xfh.jf.intel.com.notmuch>
+In-Reply-To: <67f703099f124_71fe2949e@dwillia2-xfh.jf.intel.com.notmuch>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CY8PR02MB10188:EE_
+x-ms-office365-filtering-correlation-id: b87c3ce7-142a-4f6e-7470-08dd77cd4a0d
+x-microsoft-antispam: BCL:0;ARA:14566002|12121999004|19110799003|8060799006|15080799006|8062599003|461199028|3412199025|440099028|102099032|12091999003|41001999003;
+x-microsoft-antispam-message-info: =?us-ascii?Q?PwhT/Fia8E1U9ChqRNjhYc0D4Kdv/TKebzYsECN/XuX3OQ90MjMj0s8mQFl0?=
+ =?us-ascii?Q?G2NL4BqhvVf2o9MYBaKXOAwAIo7oZXbvPkifDlBYI4h9wMulaCIy3z++nYzx?=
+ =?us-ascii?Q?W8X+Lk9rFz5mdVw1ipUdQ+Jjp7/I6d32wMo+xGc0Dxmyr5/qLoC1ma3HV7nz?=
+ =?us-ascii?Q?tIZsb+L9e/HW15k2llnGIAcRjpKbzngfG5fGQlQcKB6un15fsiKpfvkidVxy?=
+ =?us-ascii?Q?8fi+Hzxr2efe68oy6199EfPuGnCL63GtYZaFkxfwiVf7kQaQaLBf+ncSVidq?=
+ =?us-ascii?Q?P8DLtHw+Zn4TvuxEdqZ+Kw75JUO8Wu59GlEPXv5Ecv0rktbAPbK7rRXvELZw?=
+ =?us-ascii?Q?BE6pHl7kpIvJj5ADijwvtFmc0gI7bX6G/ltxixINPgxgvtObNAH2FkLZZydD?=
+ =?us-ascii?Q?QGgHPZBA6eatx9UrQIa3B+RcHXKu4toYdE6+TnDOuiEbCfRFSadNyKv85ggx?=
+ =?us-ascii?Q?+WB44LLXB9CwDdiOi3tEdEnvGPtx1HI6jtZZb7cTIQT2cRSqm65OTA8PcjME?=
+ =?us-ascii?Q?gVfOWsJYwW+yuvgoyLccXuuur/+mYQC2QHa1IUeOAxMcIjLwTLxVdAXpDXrX?=
+ =?us-ascii?Q?2zNTCRA+kR4Nizi2kgOp3svmKd6WmtQzvYM9J4XQMiGzQ5x6BOD7a54ym+i3?=
+ =?us-ascii?Q?ZxP/UTAGmCfZjKLOYv5DsUuBXTAMH04iaDQ5hWM7T/Ec/ZIa89BmlyTq0NbL?=
+ =?us-ascii?Q?P2Gf+mZWrumVQeYUl85jKyWLLlfMv/VcOg5LLINoyU71QcHsBaP7o/og/pYr?=
+ =?us-ascii?Q?EZo8SJR1/xbtWJ/YExiQgpwLcP2RhgwpYOk0Ov/lvBiz4G7QJtucOGxygka3?=
+ =?us-ascii?Q?CommPqHfFDic1n/AKACGP7+ryxaOiA0Dvxr4Qo5m3L4nSpUGgBxRTVKvZS+5?=
+ =?us-ascii?Q?9cS4uuAQT8rvncWIvHX+PZxEltWdPtbbPJ07gd/R0qn+3DxUv6GYfPEF+tpH?=
+ =?us-ascii?Q?lJUafXsb7Jhs8i+pCcLgcQfJNq1PyVhkizd9/AHPa7iMSXEq7Wb8p8wwoCOy?=
+ =?us-ascii?Q?WyAuGHZ9+D7S9Lc2krzp9ZNP55+AxtcpJnXYdGb/Y1RCeMxBPw3tlDM9Gi8w?=
+ =?us-ascii?Q?EKwD2ksl2iypypFj3HiTVu9MLg2Et0uXxDWHnawNbELogU0yaMtj7e+4rs02?=
+ =?us-ascii?Q?WTa9AXFCqltytWUhMXj/L8LhP1sSJ6nuzevhBnfA/iFZr5gCVBECpYE=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?A6+vKqkKYS6vsuywgRRj1BjJwmC1LUQzu38UEzsPfdKavvuqBwUIWPHbid3x?=
+ =?us-ascii?Q?Olfk7HGKKzHFmcOBNqgIo9FM52tlMJ6CiNtAt8oVhm/mBvywPAa8aJe4gxvR?=
+ =?us-ascii?Q?/NuAoY6ylNNc75kOcFwDsBuAPdO7k2d/MxTLq7xkL52sDMiykkYcsgWRP86m?=
+ =?us-ascii?Q?a9mRW27nAd6YjyOBhdvdgl4tIIR3KkTnvqSfngG6gtsUzBnfkjXUjU5iYL0j?=
+ =?us-ascii?Q?9ouVI0w6nYl4sdy3tVQ2hLJMMZjT3S034oHkFj6jd7aHsQNeKG40FNU7YGl6?=
+ =?us-ascii?Q?yiocbnqXJTbJx+EV+IqKdPjBuYj5+hh2zx6+3T3hbdTSCTiuiwPhFT5KaLjh?=
+ =?us-ascii?Q?tsltZLHCgF6k1BBS/uHz8Nalp2nJgDTjaZp3m5tP5eQ6nezLilAkd6gk53iV?=
+ =?us-ascii?Q?5NMhJ3YRdzAOmkbLQuXwRsj/nlqMpSKfmNyQDNfQNCh6+z63pYk587/7ppod?=
+ =?us-ascii?Q?1wgdIvZ+snQocc4+qGUy1CdlNCk9SYQLiJ1B+AhHO25Z4BZthUHUv4VwADDC?=
+ =?us-ascii?Q?Zi4AjRVlSLBMqiw32G+0fiFIY0nth1xhx0PFkc3SITWvv8k8v1KlVf7ZtwVh?=
+ =?us-ascii?Q?PZnRoVoOC8qiHAXraBw0Ck1pfBALuBNlr6gNuzYmV7dFbxK1i2KgjxlS52vf?=
+ =?us-ascii?Q?LK+8wOD9T7STg5MgJE9pUGMAuO/OSl2+C76+jIggf88gO2wMjKZlXj3ncj0G?=
+ =?us-ascii?Q?8NDrB7Y5E1hqRdbZfKJYybJXP45qF0lsvAe4fG8g1nOLjSyc+XtA1SD5i89t?=
+ =?us-ascii?Q?Aq418ijrIGGzlHfboQbxUCZxqup3yh+m4qj9d5f9HbDslzVFk7lBvhkc96vj?=
+ =?us-ascii?Q?1XJTmQ9e7acJAoB1ZScQ/IbmfDk6xsKcF3Xn6uiJmsvXpWmstv8X5ny2BXcV?=
+ =?us-ascii?Q?mnPbAlHV69SgcIC8gJrl2pSbMkyt/OQRtTuYGcKahg5gKkTsGkhj/WnMSoPd?=
+ =?us-ascii?Q?nMoNTV36RaTK1CjVe/4lltYWQSebRg171MXm/ucUajIogwk4jwiOBDlkkVvZ?=
+ =?us-ascii?Q?YiswCCbILpkLZD30txSmah9E9aE+esEtnY1JrYxXhvyGAlMeRUi+Cho+RRIT?=
+ =?us-ascii?Q?pWjt+RGl+xPBQSD2d+mTl58Iq42MFU0iYIX2lQDUFMWb+hJrhleU2i4pqqBa?=
+ =?us-ascii?Q?8fXCs5iN2YWw1c48NenljDC67CrPKEkoT1nO51bmLr5w9xI/ZQqpdoggM5NB?=
+ =?us-ascii?Q?22ZWla+xh95VGVweGDZbhKCqQGprMRpVdFLMZG9skIg8Y/OFFka4KQMbKgY?=
+ =?us-ascii?Q?=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: b87c3ce7-142a-4f6e-7470-08dd77cd4a0d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Apr 2025 01:16:15.0620
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR02MB10188
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_175943_951518_8131B5CA 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20250409_181622_642950_D120B5CB 
+X-CRM114-Status: GOOD (  47.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,45 +180,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The external RTC has the ability to be used as an alarm when
-interrupts are enabled and configured as a wakeup-source.
+From: Dan Williams <dan.j.williams@intel.com> Sent: Wednesday, April 9, 202=
+5 4:30 PM
+>=20
+> [ add linux-coco ]
+>=20
+> Roman Kisel wrote:
+> >
+> >
+> > On 4/9/2025 9:03 AM, Robin Murphy wrote:
+> > > On 2025-04-09 1:08 am, Roman Kisel wrote:
+> > >> Bounce-buffering makes the system spend more time copying
+> > >> I/O data. When the I/O transaction take place between
+> > >> a confidential and a non-confidential endpoints, there is
+> > >> no other way around.
+> > >>
+> > >> Introduce a device bitfield to indicate that the device
+> > >> doesn't need to perform bounce buffering. The capable
+> > >> device may employ it to save on copying data around.
+> > >
+> > > It's not so much about bounce buffering, it's more fundamentally abou=
+t
+> > > whether the device is trusted and able to access private memory at al=
+l
+> > > or not. And performance is hardly the biggest concern either - if you=
+ do
+> > > trust a device to operate on confidential data in private memory, the=
+n
+> > > surely it is crucial to actively *prevent* that data ever getting int=
+o
+> > > shared SWIOTLB pages where anyone else could also get at it. At worst
+> > > that means CoCo VMs might need an *additional* non-shared SWIOTLB to
+> > > support trusted devices with addressing limitations (and/or
+> > > "swiotlb=3Dforce" debugging, potentially).
+> >
+> > Thanks, I should've highlighted that facet most certainly!
+>=20
+> One would hope that no one is building a modern device with trusted I/O
+> capability, *and* with a swiotlb addressing dependency. However, I agree
+> that a non-shared swiotlb would be needed in such a scenario.
+>=20
+> Otherwise the policy around "a device should not even be allowed to
+> bounce buffer any private page" is a userspace responsibility to either
+> not load the driver, not release secrets to this CVM, or otherwise make
+> sure the device is only ever bounce buffering private memory that does
+> not contain secrets.
+>=20
+> > > Also whatever we do for this really wants to tie in with the nascent
+> > > TDISP stuff as well, since we definitely don't want to end up with mo=
+re
+> > > than one notion of whether a device is in a trusted/locked/private/et=
+c.
+> > > vs. unlocked/shared/etc. state with respect to DMA (or indeed anythin=
+g
+> > > else if we can avoid it).
+> >
+> > Wouldn't TDISP be per-device as well? In which case, a flag would be
+> > needed just as being added in this patch.
+> >
+> > Although, there must be a difference between a device with TDISP where
+> > the flag would be the indication of the feature, and this code where th=
+e
+> > driver may flip that back and forth...
+> >
+> > Do you feel this is shoehorned in `struct device`? I couldn't find an
+> > appropriate private (=3D=3D opaque pointer) part in the structure to st=
+ore
+> > that bit (`struct device_private` wouldn't fit the bill) and looked lik=
+e
+> > adding it to the struct itself would do no harm. However, my read of th=
+e
+> > room is that folks see that as dubious :)
+> >
+> > What would be your opinion on where to store that flag to tie together
+> > its usage in the Hyper-V SCSI and not bounce-buffering?
+>=20
+> The name and location of a flag bit is not the issue, it is the common
+> expectation of how and when that flag is set.
+>=20
+> tl;dr Linux likely needs a "private_accepted" flag for devices
+>=20
+> Like Christoph said, a driver really has no business opting itself into
+> different DMA addressing domains. For TDISP we are also being careful to
+> make sure that flipping a device from shared to private is a suitably
+> violent event. This is because the Linux DMA layer does not have a
+> concept of allowing a device to have mappings from two different
+> addressing domains simultaneously.
+>=20
+> In the current TDISP proposal, a device starts in shared mode and only
+> after validating all of the launch state of the CVM, device
+> measurements, and a device interface report is it granted access to
+> private memory. Without dumping a bunch of golden measurement data into
+> the kernel that validation can really only be performed by userspace.
+>=20
+> Enter this vmbus proposal that wants to emulate devices with a paravisor
+> that is presumably within the TCB at launch, but the kernel can not
+> really trust that until a "launch state of the CVM + paravisor"
+> attestation event.
+>=20
+> Like PCIe TDISP the capability of this device to access private memory
+> is a property of the bus and the iommu. However, acceptance of the
+> device into private operation is a willful policy action. It needs to
+> validate not only the device provenance and state, but also the Linux
+> DMA layer requirements of not holding shared or swiotlb mappings over
+> the "entry into private mode operation" event.
 
-Signed-off-by: Adam Ford <aford173@gmail.com>
----
- arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+To flesh this out the swiotlb aspect a bit, once a TDISP device has
+gone private, how does it prevent the DMA layer from ever doing
+bounce buffering through the swiotlb? My understanding is that
+the DMA layer doesn't make any promises to not do bounce buffering.
+Given the vagaries of memory alignment, perhaps add in a virtual
+IOMMU, etc., it seems like a device driver can't necessarily predict
+what DMA operations might result in bounce buffering. Does TDISP
+anticipate needing a formal way to tell the DMA layer "don't bounce
+buffer"? (and return an error instead?) Or would there be a separate
+swiotlb memory pool that is private memory so that bounce buffer
+could be done when necessary and still maintain confidentiality?
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-index b3692b367a42..987c14d3af9d 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-@@ -245,7 +245,12 @@ eeprom@50 {
- 	rtc: rtc@51 {
- 		compatible = "nxp,pcf85263";
- 		reg = <0x51>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_rtc>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
- 		quartz-load-femtofarads = <12500>;
-+		wakeup-source;
- 	};
- };
- 
-@@ -365,6 +370,12 @@ MX8MN_IOMUXC_GPIO1_IO03_GPIO1_IO3		0x141
- 		>;
- 	};
- 
-+	pinctrl_rtc: rtcgrp {
-+		fsl,pins = <
-+			MX8MN_IOMUXC_GPIO1_IO13_GPIO1_IO13	0x146
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX8MN_IOMUXC_UART1_RXD_UART1_DCE_RX	0x140
--- 
-2.48.1
+Just wondering if there's any thinking on this topic ...
 
+Thanks,
+
+Michael
 
