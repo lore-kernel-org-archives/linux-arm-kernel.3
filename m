@@ -4,92 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0834FC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 23:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5B8C369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 23:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JpO2S4wctyk68CVyOkNnoYhQpTc8ULQAveyt4WbuIOg=; b=q6sNFPJ2aIbzoXKY7WV0S7DPtt
-	rBERxAHaHhP9jULyf5TFedMmSlIiWxJpJfTDPL7RoTjFCH6nHFlmNSFZSxcZoTmDsUiK1LuPoP3+B
-	XwymKe3dbAZIGc/tDK/18DPkv2h49kj2Z2o7Otinv6/A/ELZR+FPzor30vmlcg7hRF0ltxdMY8vzd
-	pk6z9yf4Q+pkpgAk6mcx9y0S+sqAxzUjA0Fe5Xzd2UHUusvuyEpLVFvKuR36UKVd+UKKiazZ2Sydq
-	uoAAjfOJU5ud9jIxV6ON/dQDHevHkr6jxZggy77pNxMjxmJnRy6pfiA3+AHtP/gcCdGJtMmAyyGYc
-	9rRFRc5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DxfrHIKr4pwivHK9IzaAxcryOCdtLP544AfKBfDxWo0=; b=BxiVbqb1VPMceTJl5LXJ2Cjke3
+	GQPgo/juXkA+DU5LK0ntvxpO+pTUzh28FRSrpxXtvzF/NteXL+dwT2fPIoyXRvN9J2Q4qVGS3uvKo
+	8Oe0xW+5hwsQ4S9894mcQfse1QWwXFJhWpcsVIqLQ0md90DG6G8zbFaxlPxj8jOCzs0h3RovVg4pV
+	R7UvBjIf3/YFUvxX3UGCeIpOsA9J4XfoG7c10oKbOgpSILxeqkQC732AdVNh+f+5qAnwoQIkQg8Fr
+	fzSG36jXcsr9oGoeSXK2YipX2QjH2TdOj5jQGnluQQQ+y46dkrkeCHGqXQbzb9IQsuDyO/7Hr8W6S
+	szRK3/QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u30uK-0000000C1DN-0Vjc;
-	Thu, 10 Apr 2025 23:02:04 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1u31GS-0000000C2fS-0zVn;
+	Thu, 10 Apr 2025 23:24:56 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u30sV-0000000C14q-3lv4
+	id 1u31Ed-0000000C2PN-3UQ8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 23:00:13 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c5e39d1e0eso132066385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 16:00:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1744326010; x=1744930810; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JpO2S4wctyk68CVyOkNnoYhQpTc8ULQAveyt4WbuIOg=;
-        b=QIOGAShBHfZvaYK/SJq9b7UaiyTdLynr4INBqCR4a9QDRE8GwIRhs0bZGc5U249cky
-         /tNoJ8kYZNBvRZJDyAGB4oNSvXeF1++zujjDJs3QP+c4wMFcdkJ4QimD8QRVApmbZe3K
-         auuv13yWJvRl/0hX2ujW6ZQWqg91ctHXURXuifopwCxbeIzWxk7X35Ipt2SasExneg8u
-         mLdKPbf7kTLWyAdiZcnOcOaGX54y0VONdc4x8j596RPN03vUMQOdYVnzc2B5YTtnPDPI
-         4+04jUs9Hnlb/wuhb3mzlII+IrTDQjEVOgMBsTs5BAG7RLC8apLOI5QqD4152wEp03mx
-         N7Qg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744326010; x=1744930810;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JpO2S4wctyk68CVyOkNnoYhQpTc8ULQAveyt4WbuIOg=;
-        b=gCHOWF8sG+qiLqeA4CQTU7tuBceXd7okQN7o3qAGuwjDCaZCV0Z796/jj8aOXTPniX
-         62vLbM2ziKqSzCAqMS23kupL+/G7zRYoz0tWcWfI/JX9PBuqCH9XUt00qq5JmuULjjNX
-         tL8eMOfwSO4gxnh7Zxi2C1izAD2QNPjuM6cw0RfHGVk/vtLhRuZAJZAmsMo6uGn25jAO
-         AagkMUzIHbyDaV+cq6jY0QxsjsVAn1NqveVPDHnQHhhqrJWpZv4KVk2GotIkgghapCKM
-         BFFxvxiw2ayCkvBf14PiMe2nUjEJDviCZ+2G1vM/Ix51EwRMgNVAajmjzUnAVwqWZSmW
-         SeCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXH+g+RlwVdqR2n9DUN7wZfedi58yc0yxk0C5LxscRcMu4x5q/hTWqN9xBw5gMxH0GlGLi+wMjPOl7GG4GRIygf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0Ppt2TP+9OebkE+iQUoQMKZfMFEw4B1/pItBbztYQHGb/Fjxj
-	tJB4qPq2LLsLM2ueb1+oR71G4RLNVEpU8b6KdSSaWazol/zGR4n0cCkDcTkgTVc=
-X-Gm-Gg: ASbGncsnsLkTR9wovHWKIsSr0bwFDg9uht4Sl/00F450RTHBu4MLvUEbdPF25hO0r3B
-	bAFdRicU4Qmd8jk7hhpMOC0vUx8NvFClK9PJVWiw2s24R4XYBwVH+7MotcQrBvnlp12mTZQtq6j
-	9WxY72T2Kvh6ST8NkDA1IrGFO3l9wp5Ap/5YEN9jcIqnGobv1ruSY/DkgWbVR+7zPf3c6FURVQK
-	3pe+liDXQKv5tfztrHC3KljjmLNp9oD4Wm01ZKXRBVRM3YTR4dtW4eRYZg0o4nO9+E5M31/gqJ+
-	9wbBN23gzQK7//fsr/WEsa1goZDR5axGbBWiMjl2+qA8QEeaUY1PDnFpaZlUizcPhNvoPXwgZER
-	CVVMb5rwwWEalmQPHSn0=
-X-Google-Smtp-Source: AGHT+IHr0/WY2Rqb4JC2JVZGgAH4AixNta9jAPZvPdjOUO1pv6CI6b5DlSO9IE1VF0/bDnrgXDRKew==
-X-Received: by 2002:a05:620a:4306:b0:7c5:5cc4:ca5c with SMTP id af79cd13be357-7c7af12e6ebmr102606285a.14.1744326010083;
-        Thu, 10 Apr 2025 16:00:10 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-167-219-86.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.219.86])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c7a89437a4sm164415585a.23.2025.04.10.16.00.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 16:00:09 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1u30sS-00000000GRz-4851;
-	Thu, 10 Apr 2025 20:00:08 -0300
-Date: Thu, 10 Apr 2025 20:00:08 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Shyam Saini <shyamsaini@linux.microsoft.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
-	will@kernel.org, jacob.pan@linux.microsoft.com,
-	eric.auger@redhat.com, code@tyhicks.com,
-	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
-Subject: Re: [PATCH v2 0/3] arm-smmu: select suitable IOVA
-Message-ID: <20250410230008.GA6905@ziepe.ca>
-References: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
+	Thu, 10 Apr 2025 23:23:05 +0000
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.felsch@pengutronix.de>)
+	id 1u31EV-0003vb-7N; Fri, 11 Apr 2025 01:22:55 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: kernel@pengutronix.de,
+	"vkoul@kernel.org, shawnguo@kernel.org, Sascha Hauer" <s.hauer@pengutronix.de>
+Cc: dmaengine@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 02/10] dmaengine: imx-sdma: sdma_remove minor cleanups
+Date: Fri, 11 Apr 2025 01:22:37 +0200
+Message-Id: <20250410232247.1434659-3-m.felsch@pengutronix.de>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250410232247.1434659-1-m.felsch@pengutronix.de>
+References: <20250410232247.1434659-1-m.felsch@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
+X-SA-Exim-Mail-From: m.felsch@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_160012_118075_EDB4E736 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20250410_162303_871302_1F618789 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +67,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 03:50:27PM -0700, Shyam Saini wrote:
-> 
-> Hi,
-> 
-> Currently, the MSI_IOVA_BASE address is hard-coded to 0x80000000,
-> assuming that all platforms have this address available for MSI IOVA
-> reservation. However, this is not always the case, as some platforms
-> reserve this address for other purposes. Consequently, these platforms
-> cannot reserve the MSI_IOVA_BASE address for MSI.
-> 
-> There was an [1] attempt to fix this problem by passing the MSI IOVA
-> base as a kernel command line parameter.
-> 
-> This patch series aims to address the issue by introducing a new DTS
-> property, "arm,smmu-faulty-msi-iova" which can be used to hold faulty
-> MSI IOVA address. This property can be passed to ARM SMMU drivers
-> via device tree so that the drivers can select appropriate MSI IOVA base
-> address which doesn't intersect with the faulty MSI IOVA address.
+We don't need to set the pdev driver data to NULL since the device will
+be freed anyways.
 
-I thought we already talked about this and you were not going to be
-doing a DT proposal for a software knob?
+Also drop the tasklet_kill() since this is done by the virt-dma driver
+during the vchan_synchronize().
 
-And then you didn't even link to the recent discussion :(
+Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+---
+ drivers/dma/imx-sdma.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-https://lore.kernel.org/linux-iommu/20250403232619.GA681099@ziepe.ca/
+diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+index 699f0c6b5ae5..9e634cbc1173 100644
+--- a/drivers/dma/imx-sdma.c
++++ b/drivers/dma/imx-sdma.c
+@@ -2424,11 +2424,8 @@ static void sdma_remove(struct platform_device *pdev)
+ 	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
+ 		struct sdma_channel *sdmac = &sdma->channel[i];
+ 
+-		tasklet_kill(&sdmac->vc.task);
+ 		sdma_free_chan_resources(&sdmac->vc.chan);
+ 	}
+-
+-	platform_set_drvdata(pdev, NULL);
+ }
+ 
+ static struct platform_driver sdma_driver = {
+-- 
+2.39.5
 
-It is easily solved in the smmuv3 driver without out any DT. Please
-do that.
-
-Jason
 
