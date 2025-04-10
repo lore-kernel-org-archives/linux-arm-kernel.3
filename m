@@ -4,70 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC1CC369A1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 02:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2407DC369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 02:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=biN0C+2l0VExJ+f1rTo8OpzH4p0QGSr9IQnzoATN/V8=; b=j7xwPilxpcd5SvsLxP0Q0+iw3v
-	OERMU6dkUQxsCRJpo1DdmWwsVFHf2+wQ580uUARqyIyQXolzEJ8gPo6Gxw1xvXxalNv9tTaw1Ndq4
-	DbNlF7Wm8Sz/HV4ScEDOX82ZVDtEw7POISJ9z34ZYSxdmom8QYEBjI16oDewYKG1hxXSZ/+Wkkfsy
-	6+5NQegryyld1tyvGhP7FjoNdNiFD5Re557FR5TEmMZBWQSn/qGn5TKDtqDxJ5X7+TqVswW+tYcsc
-	5F1WfYTwqdc+zTYi5lTNNHzJF4MIfKV8+2hjNYz/g2ycyBx+TaNOdJ4GCB9QBMMdEzlsSn8hSdAc8
-	wELhx+6g==;
+	bh=aOUfpzBpEBLqMGdVlNi5mq7PS9MEaRaq9ISi+BCZu2M=; b=3K7Z+ZNbJ6ftFHP7g6GnVFL0ZE
+	dTu/RhSjzdmOjnJe6Mj98+OLtaWG+pa+cXVgA9nJK7quKv/aw8yNu7hxO0s/72mJsMIeFv5Qclv6m
+	Lh+htYRkEsKDLAvJ7IYckz7jsR+jIaxkHARhTObk95h8I2cDiYh2zffZM6+IX+1eHykhU7kDNBCbB
+	sFI2IQnThTQeR/nlFZHO3/8sjAC5XmBSqmBZvn2ZpTbYW9xplEucYMfwqJwpKOwTJGFEDlL0DY0Nt
+	TxWZY4zndL9aMMhEnXyTc1+wr/bp4fNPI4OF4SFNsTaadxcKoq+YXP9nLBv99+Ku2mNbnjEVuyv/a
+	PkHZ8c9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2i5J-0000000952r-2w7q;
-	Thu, 10 Apr 2025 02:56:09 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2i3V-000000094mq-26KA
+	id 1u2i74-000000095El-1syn;
+	Thu, 10 Apr 2025 02:57:58 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2i4i-000000094xr-0qpP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 02:54:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=n+sXWRdGVa/aunyd3iOIXwsdKekXlRAP45jc8f8GDGY=; b=Q
-	unpbgu2nQGtzs6rzh3Vjh/aQtRT1JT/FwHTaAEM13D1R3oTQaHAgaJ0ZcPaZcQHU
-	8GcXPuytmxPBqOxXoqZjtakpGvTaNu6H4v1YrHHs+TWugpYLNFz3/Hq7cq9auk5W
-	0MVxd8aKFHa/ljByRJASa4no5lpMyOQp+q4F5llyKM=
-Received: from xavier_qy$163.com ( [120.133.229.44] ) by
- ajax-webmail-wmsvr-40-116 (Coremail) ; Thu, 10 Apr 2025 10:53:51 +0800
- (CST)
-X-Originating-IP: [120.133.229.44]
-Date: Thu, 10 Apr 2025 10:53:51 +0800 (CST)
-From: Xavier  <xavier_qy@163.com>
-To: "Gavin Shan" <gshan@redhat.com>
-Cc: dev.jain@arm.com, akpm@linux-foundation.org, baohua@kernel.org,
-	ryan.roberts@arm.com, catalin.marinas@arm.com, ioworker0@gmail.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	will@kernel.org
-Subject: Re:Re: [PATCH v2 1/1] mm/contpte: Optimize loop to reduce redundant
- operations
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <3a9c1db1-7598-4f71-be62-f6005e3fec72@redhat.com>
-References: <027cc666-a562-46fa-bca5-1122ea00ec0e@arm.com>
- <20250408085809.2217618-1-xavier_qy@163.com>
- <20250408085809.2217618-2-xavier_qy@163.com>
- <34a4bf01-6324-482b-a011-32974d68e02f@redhat.com>
- <711cf430.b25d.1961b1a1b0e.Coremail.xavier_qy@163.com>
- <3a9c1db1-7598-4f71-be62-f6005e3fec72@redhat.com>
-X-NTES-SC: AL_Qu2fBv6evE4o5yafY+kfmkgWgus/WcW2u/Qj3IRSO5FwjD3pxhEtZHZKGHf23t2KMjKhvRGebzZx4P9Fe6BbQrsL1PXGYfqJnrbq9uve5E21kw==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	Thu, 10 Apr 2025 02:55:33 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 539HD7rj015755;
+	Thu, 10 Apr 2025 02:55:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	aOUfpzBpEBLqMGdVlNi5mq7PS9MEaRaq9ISi+BCZu2M=; b=MLTPgqYIOfz4h+56
+	qBOT8nRabD+vMj1hGdnUHtpTHCuM+EaBwffzqVvSjWxzZosHWj/pSk/XRvJbqINL
+	2XrJ7B44BqELBCRboF9VGmOe6+IPcP/xSs5w366IqocpHks3d0qC+TzxhEGA82Ns
+	GTkQfkNeeerB704I5SZUg8r6a+VD4OEMT+Sf2kQfVz7S9zQqzctNTIDGUYdycnF/
+	J7cDXKq6CkU380LkIZMUiIq2uDwDLyvrCsaCvAtPOog9cFNx7+erOVCHeIzG1RfU
+	Orunix6Ekw44u7EZ/J11/SkxA9DqU0JifEpmVjnyRLJpHzNlxPv+nGbuYpXq2Vst
+	Y94yog==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45twd2wc5q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Apr 2025 02:55:22 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53A2tLFu005847
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Apr 2025 02:55:21 GMT
+Received: from [10.239.133.242] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 9 Apr 2025
+ 19:55:18 -0700
+Message-ID: <66688163-90c5-4b8f-a5a4-dfeed6c8428b@quicinc.com>
+Date: Thu, 10 Apr 2025 10:55:13 +0800
 MIME-Version: 1.0
-Message-ID: <32828be7.3220.1961d9e3cc3.Coremail.xavier_qy@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: dCgvCgAHTh6_MvdnMjySAA--.26160W
-X-CM-SenderInfo: 50dyxvpubt5qqrwthudrp/1tbiwg8rEGf3FaRR7gACsq
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/7] coresight: Add coresight TGU driver
+To: Mike Leach <mike.leach@linaro.org>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        James Clark
+	<james.clark@arm.com>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Andy Gross <agross@kernel.org>,
+        Bjorn
+ Andersson <andersson@kernel.org>,
+        Rob Herring <robh+dt@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, <linux-kernel@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
+References: <20250227092640.2666894-1-quic_songchai@quicinc.com>
+ <20250227092640.2666894-3-quic_songchai@quicinc.com>
+ <CAJ9a7Vip6Dda1q7R_LoQjB4696Yi3iDv6512Vsy6aqdpiPTWgw@mail.gmail.com>
+Content-Language: en-US
+From: songchai <quic_songchai@quicinc.com>
+In-Reply-To: <CAJ9a7Vip6Dda1q7R_LoQjB4696Yi3iDv6512Vsy6aqdpiPTWgw@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: XB4LOz8nNDdSsl7ePGZQ90Y7HWbe8Gxw
+X-Proofpoint-GUID: XB4LOz8nNDdSsl7ePGZQ90Y7HWbe8Gxw
+X-Authority-Analysis: v=2.4 cv=NaLm13D4 c=1 sm=1 tr=0 ts=67f7331a cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=HIV3-2_vrN5VJYCJGFYA:9 a=QEXdDO2ut3YA:10
+ a=RVmHIydaz68A:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-09_06,2025-04-08_04,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 impostorscore=0
+ priorityscore=1501 adultscore=0 malwarescore=0 suspectscore=0
+ lowpriorityscore=0 bulkscore=0 mlxlogscore=999 clxscore=1015 phishscore=0
+ spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504100021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_195417_949930_D8E46F2B 
-X-CRM114-Status: GOOD (  30.40  )
+X-CRM114-CacheID: sfid-20250409_195532_293711_18F625CD 
+X-CRM114-Status: GOOD (  30.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,113 +115,371 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgpIaSBHYXZpbiwKCgpBdCAyMDI1LTA0LTEwIDA4OjU4OjQ2LCAiR2F2aW4gU2hhbiIgPGdzaGFu
-QHJlZGhhdC5jb20+IHdyb3RlOgo+SGkgWGF2aWVyLAo+Cj5PbiA0LzEwLzI1IDE6MTAgQU0sIFhh
-dmllciB3cm90ZToKPj4gCj4+IFRoYW5rIHlvdSBmb3IgY2FyZWZ1bGx5IHJldmlld2luZyB0aGlz
-IHBhdGNoIGFuZCByYWlzaW5nIHlvdXIgcXVlc3Rpb25zLgo+PiBJJ2xsIHRyeSB0byBleHBsYWlu
-IGFuZCBhbnN3ZXIgdGhlbSBiZWxvdy4KPj4gCj4KPk5vdCBhIHByb2JsZW0gOikKPgo+PiAKPj4g
-QXQgMjAyNS0wNC0wOSAxMjowOTo0OCwgIkdhdmluIFNoYW4iIDxnc2hhbkByZWRoYXQuY29tPiB3
-cm90ZToKPj4+IEhpIFhhdmllciwKPj4+Cj4+PiBPbiA0LzgvMjUgNjo1OCBQTSwgWGF2aWVyIHdy
-b3RlOgo+Pj4+IFRoaXMgY29tbWl0IG9wdGltaXplcyB0aGUgY29udHB0ZV9wdGVwX2dldCBmdW5j
-dGlvbiBieSBhZGRpbmcgZWFybHkKPj4+PiAgICB0ZXJtaW5hdGlvbiBsb2dpYy4gSXQgY2hlY2tz
-IGlmIHRoZSBkaXJ0eSBhbmQgeW91bmcgYml0cyBvZiBvcmlnX3B0ZQo+Pj4+ICAgIGFyZSBhbHJl
-YWR5IHNldCBhbmQgc2tpcHMgcmVkdW5kYW50IGJpdC1zZXR0aW5nIG9wZXJhdGlvbnMgZHVyaW5n
-Cj4+Pj4gICAgdGhlIGxvb3AuIFRoaXMgcmVkdWNlcyB1bm5lY2Vzc2FyeSBpdGVyYXRpb25zIGFu
-ZCBpbXByb3ZlcyBwZXJmb3JtYW5jZS4KPj4+Pgo+Pj4+IFNpZ25lZC1vZmYtYnk6IFhhdmllciA8
-eGF2aWVyX3F5QDE2My5jb20+Cj4+Pj4gLS0tCj4+Pj4gICAgYXJjaC9hcm02NC9tbS9jb250cHRl
-LmMgfCAyMiArKysrKysrKysrKysrKysrKysrKy0tCj4+Pj4gICAgMSBmaWxlIGNoYW5nZWQsIDIw
-IGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCj4+Pj4KPj4+PiBkaWZmIC0tZ2l0IGEvYXJj
-aC9hcm02NC9tbS9jb250cHRlLmMgYi9hcmNoL2FybTY0L21tL2NvbnRwdGUuYwo+Pj4+IGluZGV4
-IGJjYWM0ZjU1ZjljMS4uMDM0ZDE1M2Q3ZDE5IDEwMDY0NAo+Pj4+IC0tLSBhL2FyY2gvYXJtNjQv
-bW0vY29udHB0ZS5jCj4+Pj4gKysrIGIvYXJjaC9hcm02NC9tbS9jb250cHRlLmMKPj4+PiBAQCAt
-MTUyLDYgKzE1MiwxOCBAQCB2b2lkIF9fY29udHB0ZV90cnlfdW5mb2xkKHN0cnVjdCBtbV9zdHJ1
-Y3QgKm1tLCB1bnNpZ25lZCBsb25nIGFkZHIsCj4+Pj4gICAgfQo+Pj4+ICAgIEVYUE9SVF9TWU1C
-T0xfR1BMKF9fY29udHB0ZV90cnlfdW5mb2xkKTsKPj4+PiAgICAKPj4+Cj4+PiBJJ20gd2FuZGVy
-aW5nIGhvdyBpdCBjYW4gd29yay4gTW9yZSBkZXRhaWxzIGFyZSBnaXZlbiBiZWxvdy4KPj4+Cj4+
-Pj4gKyNkZWZpbmUgQ0hFQ0tfQ09OVFBURV9GTEFHKHN0YXJ0LCBwdGVwLCBvcmlnX3B0ZSwgZmxh
-ZykgXAo+Pj4+ICsJZG8geyBcCj4+Pj4gKwkJaW50IF9zdGFydCA9IHN0YXJ0OyBcCj4+Pj4gKwkJ
-cHRlX3QgKl9wdGVwID0gcHRlcDsgXAo+Pj4+ICsJCXdoaWxlIChfc3RhcnQrKyA8IENPTlRfUFRF
-UykgeyBcCj4+Pj4gKwkJCWlmIChwdGVfIyNmbGFnKF9fcHRlcF9nZXQoX3B0ZXArKykpKSB7IFwK
-Pj4+PiArCQkJCW9yaWdfcHRlID0gcHRlX21rIyNmbGFnKG9yaWdfcHRlKTsgXAo+Pj4+ICsJCQkJ
-YnJlYWs7IFwKPj4+PiArCQkJfSBcCj4+Pj4gKwkJfSBcCj4+Pj4gKwl9IHdoaWxlICgwKQo+Pj4+
-ICsKPgo+bml0OiB0aGUgdmFyaWFibGUgX3N0YXJ0IGFuZCBfcHRlcCBjYW4gYmUgZHJvcHBlZCBz
-aW5jZSB0aGUgY2FsbGVyIGlzIGdvaW5nIHRvCj5iYWlsIGFmdGVyIENIRUNLX0NPTlRQVEVfRkxB
-RygpLiBIb3dldmVyLCBJJ20gd2FuZGVyaW5nIGl0J3MgZ29pbmcgdG8gaW50cm9kdWNlCj5idXJk
-ZW4gdG8gY29udHB0ZV9wdGVwX2dldCgpIGZvciBpdHMgcmVhZGFiaWxpdHksIG11Y2ggbW9yZSBj
-b21wbGV4IHRoYW4gSQo+dGhvdWdodC4KCk5vdCBhZGRpbmcgdGhlc2UgdHdvIHZhcmlhYmxlcyBp
-biB0aGUgY3VycmVudCBjb2RlIGhhcyBubyBpbXBhY3QuIFRoZSBtYWluIHB1cnBvc2UKb2YgYWRk
-aW5nIHRoZW0gaXMgdG8gaW1wcm92ZSBtYWludGFpbmFiaWxpdHkgYW5kIHByZXZlbnQgdGhlIGV4
-dGVybmFsIGNvZGUgZnJvbQpjb250aW51aW5nIG9wZXJhdGlvbnMgdW5rbm93aW5nbHkgYWZ0ZXIg
-dGhlIG1hY3JvIGhhcyBtb2RpZmllZCB0aGUgdmFyaWFibGVzLgoKPgo+Pj4KPj4+IENPTlRfUFRF
-UyBpcyAxNiB3aXRoIHRoZSBhc3N1bXB0aW9uIG9mIDRLQiBiYXNlIHBhZ2Ugc2l6ZS4gQ0hFQ0tf
-Q09OVFBURV9GTEFHKCkKPj4+IGNvbGxlY3RzIHRoZSBmbGFnIGZvciBwdGVwW3N0YXJ0LCBDT05U
-X1BURVNdLgo+Pj4KPj4+PiAgICBwdGVfdCBjb250cHRlX3B0ZXBfZ2V0KHB0ZV90ICpwdGVwLCBw
-dGVfdCBvcmlnX3B0ZSkKPj4+PiAgICB7Cj4+Pj4gICAgCS8qCj4+Pj4gQEAgLTE2OSwxMSArMTgx
-LDE3IEBAIHB0ZV90IGNvbnRwdGVfcHRlcF9nZXQocHRlX3QgKnB0ZXAsIHB0ZV90IG9yaWdfcHRl
-KQo+Pj4+ICAgIAlmb3IgKGkgPSAwOyBpIDwgQ09OVF9QVEVTOyBpKyssIHB0ZXArKykgewo+Pj4+
-ICAgIAkJcHRlID0gX19wdGVwX2dldChwdGVwKTsKPj4+PiAgICAKPj4+PiAtCQlpZiAocHRlX2Rp
-cnR5KHB0ZSkpCj4+Pj4gKwkJaWYgKHB0ZV9kaXJ0eShwdGUpKSB7Cj4+Pj4gICAgCQkJb3JpZ19w
-dGUgPSBwdGVfbWtkaXJ0eShvcmlnX3B0ZSk7Cj4+Pj4gKwkJCUNIRUNLX0NPTlRQVEVfRkxBRyhp
-LCBwdGVwLCBvcmlnX3B0ZSwgeW91bmcpOwo+Pj4+ICsJCQlicmVhazsKPj4+PiArCQl9Cj4+Pj4g
-ICAgCj4+Pj4gLQkJaWYgKHB0ZV95b3VuZyhwdGUpKQo+Pj4+ICsJCWlmIChwdGVfeW91bmcocHRl
-KSkgewo+Pj4+ICAgIAkJCW9yaWdfcHRlID0gcHRlX21reW91bmcob3JpZ19wdGUpOwo+Pj4+ICsJ
-CQlDSEVDS19DT05UUFRFX0ZMQUcoaSwgcHRlcCwgb3JpZ19wdGUsIGRpcnR5KTsKPj4+PiArCQkJ
-YnJlYWs7Cj4+Pj4gKwkJfQo+Pj4+ICAgIAl9Cj4+Pj4gICAgCj4+Pj4gICAgCXJldHVybiBvcmln
-X3B0ZTsKPj4+Cj4+PiBUaGVyZSBhcmUgdHdvIGlzc3VlcyBhcyBJIGNhbiBzZWU6ICgxKSBUaGUg
-bG9vcCBzdG9wcyBvbiBhbnkgZGlydHkgb3IgeW91bmcgZmxhZy4gQW5vdGhlcgo+Pj4gZmxhZyBj
-YW4gYmUgbWlzc2VkIHdoZW4gb25lIGZsYWcgaXMgc2Vlbi4gRm9yIGV4YW1wbGUsIHdoZW4gcHRl
-cFswXSBoYXMgYm90aCBkaXJ0eS95b3VuZwo+Pj4gZmxhZywgb25seSB0aGUgZGlydHkgZmxhZyBp
-cyBjb2xsZWN0ZWQuICgyKSBDSEVDS19DT05UUFRFX0ZMQUcoKSBpdGVyYXRlcyBwdGVwW2ksIENP
-TlRfUFRFU10sCj4+PiBjb25mbGljdGluZyB0byB0aGUgb3V0ZXIgbG9vcCwgd2hpY2ggaXRlcmF0
-ZXMgcHRlcFswLCBDT05UX1BURVNdLgo+PiAKPj4gTm8gZmxhZ3Mgd2lsbCBiZSBtaXNzZWQuIFRo
-ZSBvdXRlciBsb29wIGlzIHVzZWQgdG8gY2hlY2sgZm9yIHRoZSBmaXJzdCBmbGFnLAo+PiB3aGlj
-aCBjb3VsZCBiZSBlaXRoZXIgdGhlIGRpcnR5IG9yIHlvdW5nIGZsYWcuCj4+IE9uY2UgdGhpcyBm
-bGFnIChsZXQncyBhc3N1bWUgaXQncyB0aGUgZGlydHkgZmxhZykgaXMgZm91bmQgaW4gdGhlIGkt
-dGggUFRFLAo+PiB0aGUgZGlydHkgZmxhZyBvZiBvcmlnX3B0ZSB3aWxsIGJlIHNldCwgYW5kIHRo
-ZSBjb2RlIHdpbGwgaW1tZWRpYXRlbHkgZW50ZXIKPj4gdGhlIGlubmVyIGxvb3AsIG5hbWVseSBD
-SEVDS19DT05UUFRFX0ZMQUcuIFRoaXMgaW5uZXIgbG9vcCB3aWxsIGNvbnRpbnVlCj4+IHRvIGNo
-ZWNrIG9ubHkgZm9yIHRoZSB5b3VuZyBmbGFnIHN0YXJ0aW5nIGZyb20gdGhlIGktdGggcG9zaXRp
-b24sIGFuZCB3ZSBuZWVkbid0Cj4+IGNvbmNlcm4gYWJvdXQgdGhlIGRpcnR5IGZsYWcgYW55bW9y
-ZS4KPj4gSWYgQ0hFQ0tfQ09OVFBURV9GTEFHIGZpbmRzIHRoZSB5b3VuZyBmbGFnIGluIHRoZSBq
-LXRoIFBURSwgdGhlIHlvdW5nIGZsYWcKPj4gb2Ygb3JpZ19wdGUgd2lsbCBiZSBzZXQuIEF0IHRo
-aXMgcG9pbnQsIGJvdGggdGhlIHlvdW5nIGFuZCBkaXJ0eSBmbGFncyBvZgo+PiBvcmlnX3B0ZSBo
-YXZlIGJlZW4gc2V0LCBhbmQgdGhlcmUncyBubyBuZWVkIGZvciBmdXJ0aGVyIGxvb3AganVkZ21l
-bnRzLCBzbwo+PiB0aGUgYm90aCB0aGUgaW5uZXIgYW5kIG91dGVyIGxvb3BzIGNhbiBiZSBleGl0
-ZWQgZGlyZWN0bHkuIFRoaXMgYXBwcm9hY2gKPj4gcmVkdWNlcyB1bm5lY2Vzc2FyeSByZXBlYXRl
-ZCB0cmF2ZXJzYWxzIGFuZCBqdWRnbWVudHMuCj4+IAo+Cj5UaGFua3MgZm9yIHRoZSBleHBsYW5h
-dGlvbi4gSSBtaXNzZWQgdGhhdCB0aGUgc3Vic2VxdWVudCB5b3VuZyBiaXQgaXMgY29sbGVjdGVk
-Cj5vbiBwdGVfZGlydHkoKS4gU2ltaWxhcmx5LCB0aGUgc3Vic2VxdWVudCBkaXJ0eSBiaXQgaXMg
-Y29sbGVjdGVkIG9uIHB0ZV95b3VuZygpLgo+Tm93IEkgY2FuIHNlZSBhbGwgKGRpcnR5IHwgeW91
-bmcpIGJpdHMgYXJlIGNvbGxlY3RlZCB3aXRoIGEgbG9zdC4KPgo+Pj4KPj4+IEJlc2lkZXMsIEkg
-YWxzbyBkb3VidCBob3cgbXVjaCBwZXJmb3JtYW5jZSBjYW4gYmUgZ2FpbmVkIGJ5IGJhaWxpbmcg
-ZWFybHkgb24gKGRpcnR5IHwgeW91bmcpLgo+Pj4gSG93ZXZlciwgaXQncyBhdm9pZGVkIHRvIGNy
-b3NzIHRoZSBMMUQgY2FjaGUgbGluZSBib3VuZGFyeSBpZiBwb3NzaWJsZS4gV2l0aCA0S0IgYmFz
-ZSBwYWdlCj4+PiBzaXplLCAxMjggYnl0ZXMgYXJlIG5lZWRlZCBmb3IgcHRlcFtDT05UX1BURVNd
-LCBlcXVhbCB0byB0d28gY2FjaGUgbGluZXMuIElmIHdlIGNhbiBiYWlsCj4+PiBlYXJseSB3aXRo
-IGx1Y2ssIHdlIGRvbid0IGhhdmUgdG8gc3RlcCBpbnRvIGFub3RoZXIgY2FjaGUgbGluZS4gTm90
-ZSB0aGF0IGV4dHJhIGNoZWNrcyBuZWVkcwo+Pj4gbW9yZSBDUFUgY3ljbGVzLgo+PiAKPj4gQ29t
-cGFyZWQgdG8gdGhlIHByZXZpb3VzIGZ1bmN0aW9uLCB0aGlzIGNvZGUgZG9lc24ndCBhZGQgYW55
-IGV4dHJhIGNoZWNrcy4KPj4gRXZlbiBpbiB0aGUgd29yc3QtY2FzZSBzY2VuYXJpbywgd2hlcmUg
-bmVpdGhlciBhIGRpcnR5IG5vciBhIHlvdW5nIGZsYWcgaXMKPj4gZm91bmQgYW1vbmcgdGhlIDE2
-IFBURXMsIHRoZSBudW1iZXIgb2YgY2hlY2tzIGlzIHRoZSBzYW1lIGFzIGluIHRoZSBvcmlnaW5h
-bAo+PiBmdW5jdGlvbi4gSWYgYW55IGZsYWcgaXMgZm91bmQgZWFybGllciwgdGhlIG9wdGltaXpl
-ZCBwYXRjaCB3aWxsIHJlZHVjZSB0aGUKPj4gbnVtYmVyIG9mIHN1YnNlcXVlbnQgY2hlY2tzIGZv
-ciB0aGF0IGZsYWcgY29tcGFyZWQgdG8gdGhlIG9yaWdpbmFsIGNvZGUuCj4+IAo+Cj5UaGVyZSBh
-cmUgMzIgY2hlY2tzIGluIHRoZSBvcmlnaW5hbCBjb2RlIChhc3N1bWluZyB3ZSBoYXZlIDRrYiBi
-YXNlIHBhZ2Ugc2l6ZQo+YW5kIENPTlRfUFRFUyA9PSAxNikgYW5kIHRoZSBudW1iZXIgb2YgY2hl
-Y2tzIGlzIGZpeGVkLiBXaXRoIHlvdXIgcGF0Y2ggYXBwbGllZCwKPnRoZSBudW1iZXIgYmVjb21l
-cyAzMiArIChudW1iZXIgZnJvbSBDSEVDS19DT05UUFRFX0ZMQUcpIGlmIGFsbCBQVEVzIGhhdmUK
-PnB0ZV9kaXJ0eSgpIGFuZCBub25lIG9mIHRoZW0gaGFzIHB0ZV95b3VuZygpLCBpZiBJIGRvbid0
-IG1pc3MgYW55dGhpbmcgaGVyZS4KPgoKSWYgYWxsIFBURXMgYXJlIGRpcnR5IGFuZCBub25lIGFy
-ZSB5b3VuZywgdGhlIGNvZGUgd2lsbCBlbnRlciBDSEVDS19DT05UUFRFX0ZMQUcKd2hlbiBpdCBl
-bmNvdW50ZXJzIHRoZSBmaXJzdCBkaXJ0eSBQVEUuIEluc2lkZSBDSEVDS19DT05UUFRFX0ZMQUcs
-IGl0IG9ubHkgY2hlY2tzCmZvciB0aGUgeW91bmcgYml0ICgxNiAtIDApIHRpbWVzIGFuZCB0aGVu
-IGV4aXRzIGFsbCBsb29wcy4gSW4gdGhpcyBjYXNlLCB0aGUgdG90YWwgbnVtYmVyCm9mIGNoZWNr
-cyBpcyAxICsgMTYsIHdoaWNoIGlzIGxlc3MgdGhhbiB0aGUgb3JpZ2luYWwgMzIuCgo+Cj4+IEkn
-bSBub3Qgc3VyZSBpZiBteSBleHBsYW5hdGlvbiBpcyBjbGVhci4gSWYgeW91IGhhdmUgYW55IGZ1
-cnRoZXIgcXVlc3Rpb25zLAo+PiBmZWVsIGZyZWUgdG8gY29tbXVuaWNhdGUgd2l0aCBtZSBhZ2Fp
-bi4KPj4gCj4KPlRoYW5rcyBmb3IgdGhlIGV4cGxhbmF0aW9uLCBoZWxwZWQgbWUgdG8gdW5kZXJz
-dGFuZCBob3cgYWxsIChkaXJ0eXx5b3VuZykgYml0cwo+YXJlIGNvbGxlY3RlZCB3aXRob3V0IGEg
-bG9zdC4KPgoKSWYgeW91IHN0aWxsIGhhdmUgYW55IHF1ZXN0aW9ucywgZmVlbCBmcmVlIHRvIGRp
-c2N1c3MuCgotLQpUaGFua3MsClhhdmllcgo=
+
+On 3/7/2025 12:57 AM, Mike Leach wrote:
+> Hi,
+>
+> On Thu, 27 Feb 2025 at 09:27, songchai <quic_songchai@quicinc.com> wrote:
+>> From: Songwei Chai <quic_songchai@quicinc.com>
+>>
+>> Add driver to support Coresight device TGU (Trigger Generation Unit).
+>> TGU is a Data Engine which can be utilized to sense a plurality of
+>> signals and create a trigger into the CTI or generate interrupts to
+>> processors. Add probe/enable/disable functions for tgu.
+>>
+>> Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
+>> Signed-off-by: songchai <quic_songchai@quicinc.com>
+>> ---
+>>   .../testing/sysfs-bus-coresight-devices-tgu   |   9 +
+>>   drivers/hwtracing/coresight/Kconfig           |  11 +
+>>   drivers/hwtracing/coresight/Makefile          |   1 +
+>>   drivers/hwtracing/coresight/coresight-tgu.c   | 218 ++++++++++++++++++
+>>   drivers/hwtracing/coresight/coresight-tgu.h   |  36 +++
+>>   5 files changed, 275 insertions(+)
+>>   create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+>>   create mode 100644 drivers/hwtracing/coresight/coresight-tgu.c
+>>   create mode 100644 drivers/hwtracing/coresight/coresight-tgu.h
+>>
+>> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+>> new file mode 100644
+>> index 000000000000..741bc9fd9df5
+>> --- /dev/null
+>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+>> @@ -0,0 +1,9 @@
+>> +What:          /sys/bus/coresight/devices/<tgu-name>/enable_tgu
+>> +Date:          February 2025
+>> +KernelVersion  6.15
+>> +Contact:       Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
+>> +Description:
+>> +               (RW) Set/Get the enable/disable status of TGU
+>> +               Accepts only one of the 2 values -  0 or 1.
+>> +               0 : disable TGU.
+>> +               1 : enable TGU.
+>> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+>> index 06f0a7594169..3fe59c745dd4 100644
+>> --- a/drivers/hwtracing/coresight/Kconfig
+>> +++ b/drivers/hwtracing/coresight/Kconfig
+>> @@ -247,4 +247,15 @@ config CORESIGHT_DUMMY
+>>
+>>            To compile this driver as a module, choose M here: the module will be
+>>            called coresight-dummy.
+>> +
+>> +config CORESIGHT_TGU
+>> +       tristate "CoreSight Trigger Generation Unit driver"
+>> +       help
+>> +         This driver provides support for Trigger Generation Unit that is
+>> +         used to detect patterns or sequences on a given set of signals.
+>> +         TGU is used to monitor a particular bus within a given region to
+>> +         detect illegal transaction sequences or slave responses. It is also
+>> +         used to monitor a data stream to detect protocol violations and to
+>> +         provide a trigger point for centering data around a specific event
+>> +         within the trace data buffer.
+>>   endif
+>> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+>> index 4ba478211b31..7c2b9e9cf1cd 100644
+>> --- a/drivers/hwtracing/coresight/Makefile
+>> +++ b/drivers/hwtracing/coresight/Makefile
+>> @@ -51,3 +51,4 @@ coresight-cti-y := coresight-cti-core.o       coresight-cti-platform.o \
+>>                     coresight-cti-sysfs.o
+>>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+>> +obj-$(CONFIG_CORESIGHT_TGU) += coresight-tgu.o
+>> diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtracing/coresight/coresight-tgu.c
+>> new file mode 100644
+>> index 000000000000..da4c04ac1097
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/coresight/coresight-tgu.c
+>> @@ -0,0 +1,218 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+>> + */
+>> +
+>> +#include <linux/amba/bus.h>
+>> +#include <linux/coresight.h>
+>> +#include <linux/device.h>
+>> +#include <linux/err.h>
+>> +#include <linux/io.h>
+>> +#include <linux/kernel.h>
+>> +#include <linux/module.h>
+>> +#include <linux/of.h>
+>> +
+>> +#include "coresight-priv.h"
+>> +#include "coresight-tgu.h"
+>> +
+>> +DEFINE_CORESIGHT_DEVLIST(tgu_devs, "tgu");
+>> +
+>> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+>> +{
+>> +       CS_UNLOCK(drvdata->base);
+>> +       /* Enable TGU to program the triggers */
+>> +       tgu_writel(drvdata, 1, TGU_CONTROL);
+>> +       CS_LOCK(drvdata->base);
+>> +}
+>> +
+>> +static int tgu_enable(struct coresight_device *csdev, enum cs_mode mode,
+>> +                     void *data)
+>> +{
+>> +       struct tgu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +
+>> +       spin_lock(&drvdata->spinlock);
+>> +
+>> +       if (drvdata->enable) {
+>> +               spin_unlock(&drvdata->spinlock);
+>> +               return -EBUSY;
+>> +       }
+>> +       tgu_write_all_hw_regs(drvdata);
+>> +       drvdata->enable = true;
+>> +
+>> +       spin_unlock(&drvdata->spinlock);
+>> +       return 0;
+>> +}
+>> +
+>> +static int tgu_disable(struct coresight_device *csdev, void *data)
+>> +{
+>> +       struct tgu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +
+>> +       spin_lock(&drvdata->spinlock);
+>> +
+>> +       if (!drvdata->enable) {
+> Could simplify by changing logic here -
+> if (enable) { do disable stuff }
+>
+> and have a single return point
+
+Done.
+
+>
+>> +               spin_unlock(&drvdata->spinlock);
+>> +               return 0;
+>> +       }
+>> +
+>> +       CS_UNLOCK(drvdata->base);
+>> +       tgu_writel(drvdata, 0, TGU_CONTROL);
+>> +       CS_LOCK(drvdata->base);
+>> +
+>> +       drvdata->enable = false;
+>> +       spin_unlock(&drvdata->spinlock);
+>> +       return 0;
+>> +}
+>> +
+>> +static ssize_t enable_tgu_show(struct device *dev,
+>> +                              struct device_attribute *attr, char *buf)
+>> +{
+>> +       bool enabled;
+>> +
+>> +       struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +
+>> +       spin_lock(&drvdata->spinlock);
+>> +       enabled = drvdata->enable;
+>> +       spin_unlock(&drvdata->spinlock);
+>> +
+>> +       return sprintf(buf, "%d\n", enabled);
+> sysfs_emit() should be used here.
+Done.
+>
+>> +}
+>> +
+>> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
+>> +static ssize_t enable_tgu_store(struct device *dev,
+>> +                               struct device_attribute *attr, const char *buf,
+>> +                               size_t size)
+>> +{
+>> +       int ret = 0;
+>> +       unsigned long val;
+>> +       struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +
+>> +       ret = kstrtoul(buf, 0, &val);
+>> +       if (ret)
+>> +               return ret;
+>> +
+>> +       if (val) {
+>> +               ret = pm_runtime_resume_and_get(dev->parent);
+>> +               if (ret)
+>> +                       return ret;
+>> +               ret = tgu_enable(drvdata->csdev, CS_MODE_SYSFS, NULL);
+>> +               if (ret)
+>> +                       pm_runtime_put(dev->parent);
+>> +       } else {
+>> +               ret = tgu_disable(drvdata->csdev, NULL);
+>> +               if (!ret)
+>
+> redundant - tgu_disable always returns 0.
+Done. Remove - "if(!ret)"
+>
+>> +                       pm_runtime_put(dev->parent);
+>> +       }
+>> +
+>> +       if (ret)
+>> +               return ret;
+>> +       return size;
+>> +}
+>> +static DEVICE_ATTR_RW(enable_tgu);
+>> +
+>> +static const struct coresight_ops_helper tgu_helper_ops = {
+>> +       .enable = tgu_enable,
+>> +       .disable = tgu_disable,
+>> +};
+>> +
+>> +static const struct coresight_ops tgu_ops = {
+>> +       .helper_ops = &tgu_helper_ops,
+>> +};
+>> +
+>> +static struct attribute *tgu_common_attrs[] = {
+>> +       &dev_attr_enable_tgu.attr,
+>> +       NULL,
+>> +};
+>> +
+>> +static const struct attribute_group tgu_common_grp = {
+>> +       .attrs = tgu_common_attrs,
+>> +       NULL,
+>> +};
+>> +
+>> +static const struct attribute_group *tgu_attr_groups[] = {
+>> +       &tgu_common_grp,
+>> +       NULL,
+>> +};
+>> +
+>> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+>> +{
+>> +       int ret = 0;
+>> +       struct device *dev = &adev->dev;
+>> +       struct coresight_desc desc = { 0 };
+>> +       struct coresight_platform_data *pdata;
+>> +       struct tgu_drvdata *drvdata;
+>> +
+>> +       desc.name = coresight_alloc_device_name(&tgu_devs, dev);
+>> +       if (!desc.name)
+>> +               return -ENOMEM;
+>> +
+>> +       pdata = coresight_get_platform_data(dev);
+>> +       if (IS_ERR(pdata))
+>> +               return PTR_ERR(pdata);
+>> +
+>> +       adev->dev.platform_data = pdata;
+>> +
+>> +       drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+>> +       if (!drvdata)
+>> +               return -ENOMEM;
+>> +
+>> +       drvdata->dev = &adev->dev;
+>> +       dev_set_drvdata(dev, drvdata);
+>> +
+>> +       drvdata->base = devm_ioremap_resource(dev, &adev->res);
+>> +       if (!drvdata->base)
+>> +               return -ENOMEM;
+>> +
+>> +       spin_lock_init(&drvdata->spinlock);
+>> +
+>> +       drvdata->enable = false;
+>> +       desc.type = CORESIGHT_DEV_TYPE_HELPER;
+>> +       desc.pdata = adev->dev.platform_data;
+>> +       desc.dev = &adev->dev;
+>> +       desc.ops = &tgu_ops;
+>> +       desc.groups = tgu_attr_groups;
+>> +
+>> +       drvdata->csdev = coresight_register(&desc);
+>> +       if (IS_ERR(drvdata->csdev)) {
+>> +               ret = PTR_ERR(drvdata->csdev);
+>> +               goto err;
+>> +       }
+>> +
+>> +       pm_runtime_put(&adev->dev);
+>> +       return 0;
+>> +err:
+>> +       pm_runtime_put(&adev->dev);
+>> +       return ret;
+>> +}
+>> +
+>> +static void tgu_remove(struct amba_device *adev)
+>> +{
+>> +       struct tgu_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+>> +
+>> +       coresight_unregister(drvdata->csdev);
+>> +}
+>> +
+>> +static const struct amba_id tgu_ids[] = {
+>> +       {
+>> +               .id = 0x000f0e00,
+>> +               .mask = 0x000fffff,
+>> +               .data = "TGU",
+>> +       },
+>> +       { 0, 0, NULL },
+>> +};
+>> +
+>> +MODULE_DEVICE_TABLE(amba, tgu_ids);
+>> +
+>> +static struct amba_driver tgu_driver = {
+>> +       .drv = {
+>> +               .name = "coresight-tgu",
+>> +               .suppress_bind_attrs = true,
+>> +       },
+>> +       .probe  = tgu_probe,
+>> +       .remove = tgu_remove,
+>> +       .id_table       = tgu_ids,
+>> +};
+>> +
+>> +module_amba_driver(tgu_driver);
+>> +
+>> +MODULE_LICENSE("GPL");
+>> +MODULE_DESCRIPTION("CoreSight TGU driver");
+>> diff --git a/drivers/hwtracing/coresight/coresight-tgu.h b/drivers/hwtracing/coresight/coresight-tgu.h
+>> new file mode 100644
+>> index 000000000000..380686f94130
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/coresight/coresight-tgu.h
+>> @@ -0,0 +1,36 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/*
+>> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+>> + */
+>> +
+>> +#ifndef _CORESIGHT_TGU_H
+>> +#define _CORESIGHT_TGU_H
+>> +
+>> +/* Register addresses */
+>> +#define TGU_CONTROL 0x0000
+>> +
+>> +/* Register read/write */
+>> +#define tgu_writel(drvdata, val, off) __raw_writel((val), drvdata->base + off)
+>> +#define tgu_readl(drvdata, off) __raw_readl(drvdata->base + off)
+>> +
+>> +/**
+>> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit) device
+>> + * @base: Memory-mapped base address of the TGU device
+>> + * @dev: Pointer to the associated device structure
+>> + * @csdev: Pointer to the associated coresight device
+>> + * @spinlock: Spinlock for handling concurrent access
+>> + * @enable: Flag indicating whether the TGU device is enabled
+>> + *
+>> + * This structure defines the data associated with a TGU device, including its base
+>> + * address, device pointers, clock, spinlock for synchronization, trigger data pointers,
+> I don't see any trigger data pointers or limits here. Comment on what
+> is there, if more is added later, expand the comment later.
+
+Setting the trigger generated by TGU(such as when to trigger and what 
+trigger to generate) is achieved
+
+by configuring the select/condition/timer/counter registers. Therefor, 
+it is not necessary to include trigger
+
+data in the struct.
+
+>
+>> + * maximum limits for various trigger-related parameters, and enable status.
+>> + */
+>> +struct tgu_drvdata {
+>> +       void __iomem *base;
+>> +       struct device *dev;
+>> +       struct coresight_device *csdev;
+>> +       spinlock_t spinlock;
+>> +       bool enable;
+>> +};
+>> +
+>> +#endif
+>>
+> Regards
+>
+> Mike
+>
 
