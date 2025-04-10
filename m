@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49220C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50495C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5hfVBN0wzaSeUQg5uDnoDTlQwoorDCBq715xUx2HVbo=; b=LyzpqvZe1pYcLZSuydKmJKn3Jq
-	NlMRhCTpXob16M/Zlxe8qqoB/4TMBU6OZEGMJxBVdHyaneO57aeE9b/FEzh/BT1zKZx7kxt2TP/wX
-	pFzKep8mYaYljakwxDn5FQQrnqt+wRUfZjjLtpR8HZU0nASU70DLiQyGW5aEcW/m8fPcz5Y8vgaHC
-	5aZMDW0s7kyepHElGJf7Kh0a8u1D8xJlwLJmbJTMdzewhgEbbfyF4iJXioVdXmvURX9clLY3FZeT3
-	CJk2m+9mwSv9uFrm5f2n89/OY2yuo2zFy+3YIPV+fpN1gcDURTrqZYbhnYPfTiNJZWzIxW/FyD4KI
-	ridOF1tw==;
+	bh=ciTMixDWtrmvfuyXx2qtE4AIaIJcXyTH+sbQarjhKAM=; b=n/UJh5glKGnLAkvjlau5sSVVIM
+	CQAkdoGtvWBuWpw8AVEFHot+dytS44RhlVONO2T5aY7WG2+miywboq3OrC+AnaT8zP1GEcuGenJ0F
+	zJ4awZmm1p0N6tfaexc8H8ZN+J/mRmaEMyxv5mWdnyOjQJl1lXYlDJ1+Enc0JlwO7E2hRAByVr9i8
+	b3K6eTtDGyWyRigZDUI8ykJnqSJT+IGIv6tl+WmnoHmh9TpciGbTuTaMEtyFdjqm5X2ETtK4PIMi8
+	x96eeHWwdfEj3K1YsrXJ1H62KTzq7rwDSg9xbQMsKWHYrDFcEUSqczU7N5+OtLUxWkBjDOrPUZIA/
+	OFBZEY/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ub3-0000000B9R6-1BLL;
-	Thu, 10 Apr 2025 16:17:45 +0000
+	id 1u2ucw-0000000B9dj-2kqE;
+	Thu, 10 Apr 2025 16:19:42 +0000
 Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2tk2-0000000AzqA-2Zv8;
+	id 1u2tk3-0000000AzqS-1wde;
 	Thu, 10 Apr 2025 15:23:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744298578; x=1775834578;
+  t=1744298579; x=1775834579;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=2nEmXOWj61EFby8lltYJVgmKKKLIgiCDNpDNWcMK21o=;
-  b=QCTUip+4XHMHqyTOLfYZWewRao0QsrGzciVsiDkIsK5d15YBgN4xF1Wp
-   oJ3rulOuthz3Olk0HMkKOXvIxlvyECBRfxwLSgkWf4oiCSva9UwpCWJW5
-   tx6UZBnZFjhgAQHNXF/IeWEUaeLYTP8VuzIQVh+5ONQvI+GplY9D+Q0/R
-   N2/ibxBI8ULnxjMgwfePW79WdYex4IPkX/NMMeY6UFK9l+BzkLDL9MZ9h
-   yAIcCTP1Brn+wZLrhme1vVBUjCc1zXy2BmeiHmUo5fBjapoJHZuDJcZc6
-   oEbHF5KULdGGSFvfSWA4lNuIdaGcpT8sO/wv88IzDhHj9n4nozBtta/Fd
-   w==;
-X-CSE-ConnectionGUID: rFn+g8GCT4yyjQBW87zGvQ==
-X-CSE-MsgGUID: ZQ7DQ3TxSCi21ViyIblMtQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11400"; a="45716286"
+  bh=1rmJxpqqkGXBWjcPvpAAKCZLWRdEQASHVQu+D1tpj9E=;
+  b=kdBlDrvyZwO8F5UloXKzgDVyOHzcbGBxmP+Q6e0rCiTPWxe7T6dT9Cd1
+   BT5KW/1OtJ81P7Xokby6Hf3pl9Aw7iorc6+jNK0h4KETp5M0hptI5a+q7
+   j8+tru5pI0cDqMeteE2z1mtjELVbo5/oGDHjSPvUlv2G5ELa4AgHDIqhm
+   GfJWuWwHAbTMlwG5jgG9/wH9tTrk83stwXGnbkiprCvUcjuiTLC69Jjnh
+   Pk9ze628R6/4F2gYJmglQfPhRgrb9B0N8XOpFVrU15GW8joVxfxWDjvx/
+   79HnJuWjgVJ5hy5ep+cwAS6AIWe/X0113k1VpISA6W3dCVcb5G0qs9zK0
+   g==;
+X-CSE-ConnectionGUID: j+F1L8vXQ56eAxxpq+8BkA==
+X-CSE-MsgGUID: J/FkM/L/Tpak3tLNfnci+g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11400"; a="45716297"
 X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
-   d="scan'208";a="45716286"
+   d="scan'208";a="45716297"
 Received: from orviesa005.jf.intel.com ([10.64.159.145])
   by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 08:22:56 -0700
-X-CSE-ConnectionGUID: xwrGhn4bQV2XQcBYOS31NQ==
-X-CSE-MsgGUID: 7SLwaDhESOSRn2bA8q196Q==
+X-CSE-ConnectionGUID: bC5JV7arSSy41yOILBG4rA==
+X-CSE-MsgGUID: VvkIrii3SNinWOPC6+RzqQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
-   d="scan'208";a="134108201"
+   d="scan'208";a="134108199"
 Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com) ([10.237.72.44])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 08:22:53 -0700
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 08:22:52 -0700
 Received: from punajuuri.localdomain (punajuuri.localdomain [192.168.240.130])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id E27B411FA2F;
+	by kekkonen.fi.intel.com (Postfix) with ESMTP id E87D411FB1F;
 	Thu, 10 Apr 2025 18:22:49 +0300 (EEST)
 Received: from sailus by punajuuri.localdomain with local (Exim 4.96)
 	(envelope-from <sakari.ailus@linux.intel.com>)
-	id 1u2tjt-00HObz-2s;
+	id 1u2tjt-00HOc3-30;
 	Thu, 10 Apr 2025 18:22:49 +0300
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 From: Sakari Ailus <sakari.ailus@linux.intel.com>
@@ -76,17 +76,17 @@ Cc: Olivia Mackall <olivia@selenic.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	openbmc@lists.ozlabs.org
-Subject: [PATCH v2 1/3] hwrng: atmel - Add struct device pointer to device context struct
-Date: Thu, 10 Apr 2025 18:22:37 +0300
-Message-Id: <20250410152239.4146166-2-sakari.ailus@linux.intel.com>
+Subject: [PATCH v2 2/3] hwrng: mtk - Add struct device pointer to device context struct
+Date: Thu, 10 Apr 2025 18:22:38 +0300
+Message-Id: <20250410152239.4146166-3-sakari.ailus@linux.intel.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250410152239.4146166-1-sakari.ailus@linux.intel.com>
 References: <20250410152239.4146166-1-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_082258_667533_430F4DCF 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20250410_082259_515373_CD65436B 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,55 +107,56 @@ remove that one as well.
 
 Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 ---
- drivers/char/hw_random/atmel-rng.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+ drivers/char/hw_random/mtk-rng.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/char/hw_random/atmel-rng.c b/drivers/char/hw_random/atmel-rng.c
-index 143406bc6939..d2b00458761e 100644
---- a/drivers/char/hw_random/atmel-rng.c
-+++ b/drivers/char/hw_random/atmel-rng.c
-@@ -37,6 +37,7 @@ struct atmel_trng {
- 	struct clk *clk;
+diff --git a/drivers/char/hw_random/mtk-rng.c b/drivers/char/hw_random/mtk-rng.c
+index 1e3048f2bb38..b7fa1bc1122b 100644
+--- a/drivers/char/hw_random/mtk-rng.c
++++ b/drivers/char/hw_random/mtk-rng.c
+@@ -36,6 +36,7 @@ struct mtk_rng {
  	void __iomem *base;
+ 	struct clk *clk;
  	struct hwrng rng;
 +	struct device *dev;
- 	bool has_half_rate;
  };
  
-@@ -59,9 +60,9 @@ static int atmel_trng_read(struct hwrng *rng, void *buf, size_t max,
- 	u32 *data = buf;
- 	int ret;
+ static int mtk_rng_init(struct hwrng *rng)
+@@ -85,7 +86,7 @@ static int mtk_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
+ 	struct mtk_rng *priv = to_mtk_rng(rng);
+ 	int retval = 0;
  
--	ret = pm_runtime_get_sync((struct device *)trng->rng.priv);
-+	ret = pm_runtime_get_sync(trng->dev);
- 	if (ret < 0) {
--		pm_runtime_put_sync((struct device *)trng->rng.priv);
-+		pm_runtime_put_sync(trng->dev);
- 		return ret;
+-	pm_runtime_get_sync((struct device *)priv->rng.priv);
++	pm_runtime_get_sync(priv->dev);
+ 
+ 	while (max >= sizeof(u32)) {
+ 		if (!mtk_rng_wait_ready(rng, wait))
+@@ -97,8 +98,8 @@ static int mtk_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
+ 		max -= sizeof(u32);
  	}
  
-@@ -79,8 +80,8 @@ static int atmel_trng_read(struct hwrng *rng, void *buf, size_t max,
- 	ret = 4;
+-	pm_runtime_mark_last_busy((struct device *)priv->rng.priv);
+-	pm_runtime_put_sync_autosuspend((struct device *)priv->rng.priv);
++	pm_runtime_mark_last_busy(priv->dev);
++	pm_runtime_put_sync_autosuspend(priv->dev);
  
- out:
--	pm_runtime_mark_last_busy((struct device *)trng->rng.priv);
--	pm_runtime_put_sync_autosuspend((struct device *)trng->rng.priv);
-+	pm_runtime_mark_last_busy(trng->dev);
-+	pm_runtime_put_sync_autosuspend(trng->dev);
- 	return ret;
+ 	return retval || !wait ? retval : -EIO;
  }
+@@ -112,13 +113,13 @@ static int mtk_rng_probe(struct platform_device *pdev)
+ 	if (!priv)
+ 		return -ENOMEM;
  
-@@ -134,9 +135,9 @@ static int atmel_trng_probe(struct platform_device *pdev)
- 		return -ENODEV;
- 
- 	trng->has_half_rate = data->has_half_rate;
-+	trng->dev = &pdev->dev;
- 	trng->rng.name = pdev->name;
- 	trng->rng.read = atmel_trng_read;
--	trng->rng.priv = (unsigned long)&pdev->dev;
- 	platform_set_drvdata(pdev, trng);
- 
++	priv->dev = &pdev->dev;
+ 	priv->rng.name = pdev->name;
  #ifndef CONFIG_PM
+ 	priv->rng.init = mtk_rng_init;
+ 	priv->rng.cleanup = mtk_rng_cleanup;
+ #endif
+ 	priv->rng.read = mtk_rng_read;
+-	priv->rng.priv = (unsigned long)&pdev->dev;
+ 	priv->rng.quality = 900;
+ 
+ 	priv->clk = devm_clk_get(&pdev->dev, "rng");
 -- 
 2.39.5
 
