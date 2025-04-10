@@ -4,102 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845D2C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0577C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CdUAxzWtLeB6HjxCg5m7G0qo3TL8BAYNXQpF7s4o0Vo=; b=yGCgamLNIp06X80BMfD/zmHWAN
-	pdkoq0yZw2SmGZTwM2YfLF0X0vnen4nDygO0DSuMmEW00/+u6oM8GxsAHmHgwLRSamr4/rQVMymQe
-	VusKpOR/sKFZYbAX7dxsuLcMYpAFdP3aeh0Iqg4S1PjwWFKtKzrtCSANCcXZEj5lm6GvoFpB+B6oA
-	oxFlkSuRIVx83OnCT2i5pOo5y6ZuZXxakDK0UrIceqn9Mvn1F8d4p9yyRhzSmnat9d31pmuxKHUnm
-	zA+N5OcovHwCEcOaXo0PJtn8NEPe5gt9W4nM7ageFSFKagjlPxAvRAOEGa4H8agM98mG3WK8oKp2U
-	JBwHsdlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M4fDmZRN7yquUeZo8bSMP2LmovWfrpFiqUhwN/ePUVc=; b=jKVSBaR5gowLMRwiIp3tZLF0Zp
+	w31ELQ8Ky3vO4+FMdpRmE4ZsmcIw8X1Y1EuAS6U/p2lbBee0Eq3CLj4eZMxmvbA/iyJqATU1RI4fI
+	Pl24hQkiB15BpsMAyyAdr8CB/vO3VSt8FEqdV8EmoX29ZfF2qLyLqrZib4QK1IrEYqZsV/WgMfr+k
+	M5j0qCNsCnTL/OA7e1HarzcI3Un9seIN67FLH0+t6ntMB4bXTpznM47GZyt/N4tkx6nwhRMkMtGAq
+	EZeDSsgjFSwgLm+NdGR738LCaQouD9TcnEkVvGM5dh3tXTrEpVfiEecMVgdHLFxl3wdqeEW6zVZO/
+	bR2E5+FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pvZ-0000000AFYA-28mX;
-	Thu, 10 Apr 2025 11:18:37 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1u2pvd-0000000AFdu-2U1r;
+	Thu, 10 Apr 2025 11:18:41 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2om1-0000000A28I-0mX6;
-	Thu, 10 Apr 2025 10:04:42 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43cebe06e9eso4610185e9.3;
-        Thu, 10 Apr 2025 03:04:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744279480; x=1744884280; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CdUAxzWtLeB6HjxCg5m7G0qo3TL8BAYNXQpF7s4o0Vo=;
-        b=UEBKXnRCc35MWvVAjh8/ZuR8Y7NOv5uGQeeyWxdwLR/goHYhbO0PIMqqjIpaljE6LW
-         ut/oaP9yV8DMyFjSCxSdTrdK6Oq2kIY2mrT8QZkoNLsc/mNF0WJ15D+RFsjrBbw7HcVV
-         V/nWvCl/x5wCF17UFgB6EvcguD/dgkBOfljJICqz9kogMoQu3Sk/3tQIXh3Kv5kxuR/y
-         nuSxEwsOb4SaTyT3s7+68JgKMwQRmkrbuZEMKZoCNvJOGEQd7I6dEpGpfKG/pT9e8B/7
-         +kcse/BUrcJu6iEoiVp7MIKi674tGGWx3fhuR4irrYO9gHB2uCUZZowIyNBzqqec33cx
-         xpPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744279480; x=1744884280;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CdUAxzWtLeB6HjxCg5m7G0qo3TL8BAYNXQpF7s4o0Vo=;
-        b=t1iDLeyN+nbrHCy5fiTfwz9iuo0BC1Q4ytzh8OAf451fcCmcuvuUICIHrQ8aZgSAa9
-         BZLteKoO/l7wWcOxVGu7lpb6/hgpurO7E+CS+qgzUVXL7sec8dRmcOF37NyIhKNrV+4P
-         nnDkfZAmLF1SwAxb/hVZodl55H6DXKY8G8y3K8zHCeE/i7XKiXkd1rDSwVU5+CzVaT/T
-         tDfo2yBVQ+y1dBITKTiCY3c7jkoWbq1JOMSxwnQYWh3ol3Mmquc5osFdaSSscO5XGpK/
-         yOI1+0Cb71OUm92W9rtBl6B/OL+mFS2wimYY3Rxs1jDR8uMHBZOPMwFnh6bnu4JOP2eS
-         l+0w==
-X-Forwarded-Encrypted: i=1; AJvYcCUGPGIAwHRUkKZq/Pkg7ba3NjqzPO2lOS/ivuqGxTBNJhxc5GWkBm+nti/QdTl5UB1VB+uOdKDU+p4Fz+ydDevf@lists.infradead.org, AJvYcCXe+e3mNESMpbYVqxoRgyRlDigfNqZVufAqsaQXeXTOMyYmbhKSQJtjAwh61hlKxZk9B1nCE3q3wVdNmFALFTc=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9pD5D47soR1B98/dIDej0fGITGgUp7PkRupTZAFklpYBcMfbV
-	V/ZaR1hW3DVfdm1exJ7GKUaTmovofsbM523aBRQozNCor3W09A6Z
-X-Gm-Gg: ASbGncsBkQ4ykI53ubGsEiQF9iQvp5KTjeTqSfuV4MLhvbYQsyc3GYPYEHqpO0gKeKX
-	+hvY6xc+QH6TE16gZXVxurWHkWF8H1Brzc61i/O9r7ADiMus4Be8Oz0pKnhwp9rQRCOfW7fq+Vf
-	HwE3X6QjlwqdIETJGCznXSmTaoyvS7AY93lDoXeXnFgPGsk7a+tcH/82gvsPx4knVVhnniTQ0r5
-	cHXXdGJrFrAG8vjlJ5l7+2Dsms5EZaSA1+iNYK1aRPcSBQm4xBBELbsPGKnp7HqPbPolcCXdwy5
-	hd+0DpzUmzBjOi2J6EVgmu5fqEMZDyznxYsaPxfFJDr3FgTZrQwORGfQEDBPRxePf4rkAI5fK3A
-	j9byZtDf+DQ==
-X-Google-Smtp-Source: AGHT+IGYoTyBBqFICuMkH3mR4Fg8hmdezzL5DfQ1KcqV7+Ty4VNQeL8aQBID3P+joTDw2WBxubY1eQ==
-X-Received: by 2002:a05:600c:4f4e:b0:43c:fae1:5151 with SMTP id 5b1f17b1804b1-43f2d9599efmr19305005e9.25.1744279479484;
-        Thu, 10 Apr 2025 03:04:39 -0700 (PDT)
-Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43f2066d109sm50193065e9.20.2025.04.10.03.04.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 03:04:39 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Qingfang Deng <dqfext@gmail.com>,
-	SkyLake Huang <SkyLake.Huang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Simon Horman <horms@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [net-next PATCH v2 2/2] net: phy: mediatek: add Airoha PHY ID to SoC driver
-Date: Thu, 10 Apr 2025 12:04:04 +0200
-Message-ID: <20250410100410.348-2-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250410100410.348-1-ansuelsmth@gmail.com>
-References: <20250410100410.348-1-ansuelsmth@gmail.com>
+	id 1u2or0-0000000A2yj-1Otq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 10:09:51 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A9VdUO019218;
+	Thu, 10 Apr 2025 12:09:42 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=M4fDmZRN7yquUeZo8bSMP2
+	LmovWfrpFiqUhwN/ePUVc=; b=Rw36P3kNlirCU28Pm6pzZAWogbk44Rv/+DqRGt
+	aYCfjH0IuScHFPkASc3gYpUQBn5Yxbi1GLOuoZqHJ/ZiacCoN3UccSbN+C78ebnB
+	tO1SySX1YvYUwdaqciJvufCIJ6nFofrMRlQUgXB/nSjZRrBfp0RU+o5pgTB37S+x
+	Nx4BrzHLj5uCjrjiWzVK16a8cOEMVsJTkjPEuJaVm54oW1rW8m028J6kf6WnbfwY
+	AyjPurNxsyqF9peYOtZAfW5ZYxZmks3gIN6/q8XcqMg7AJoVaGLPhSSY6ds62rfe
+	Uluzz5sRmE3QvmURzLNITYYKO/aw2thxJsh4qkCysJKWWY1g==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw6eq0y2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Apr 2025 12:09:42 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9298840045;
+	Thu, 10 Apr 2025 12:08:50 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 368899BC031;
+	Thu, 10 Apr 2025 12:08:14 +0200 (CEST)
+Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 10 Apr
+ 2025 12:08:13 +0200
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <maz@kernel.org>, Christian Bruel <christian.bruel@foss.st.com>
+Subject: [PATCH v1 1/2] arm64: dts: st: Adjust interrupt-controller for aarch64
+Date: Thu, 10 Apr 2025 12:07:57 +0200
+Message-ID: <20250410100758.1057170-1-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-10_01,2025-04-08_04,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_030441_223671_19079257 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20250410_030950_655003_1897B15F 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,137 +90,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Airoha AN7581 SoC ship with a Switch based on the MT753x Switch embedded
-in other SoC like the MT7581 and the MT7988. Similar to these they
-require configuring some pin to enable LED PHYs.
+Use gic-400 compatible and remove address-cells = <1>.
 
-Add support for the PHY ID for the Airoha embedded Switch and define a
-simple probe function to toggle these pins. Also fill the LED functions
-and add dedicated function to define LED polarity.
-
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Fixes: 5d30d03aaf785 ("arm64: dts: st: introduce stm32mp25 SoCs family")
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
 ---
-Changes v2:
-- Add Reviewed-by tag
-- Address suggested dependency from Russell
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
- drivers/net/phy/mediatek/Kconfig      |  4 +-
- drivers/net/phy/mediatek/mtk-ge-soc.c | 62 +++++++++++++++++++++++++++
- 2 files changed, 65 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/phy/mediatek/Kconfig b/drivers/net/phy/mediatek/Kconfig
-index 6a4c2b328c41..4308002bb82c 100644
---- a/drivers/net/phy/mediatek/Kconfig
-+++ b/drivers/net/phy/mediatek/Kconfig
-@@ -15,7 +15,9 @@ config MEDIATEK_GE_PHY
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index f3c6cdfd7008..379e290313dc 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -115,9 +115,8 @@ scmi_vdda18adc: regulator@7 {
+ 	};
  
- config MEDIATEK_GE_SOC_PHY
- 	tristate "MediaTek SoC Ethernet PHYs"
--	depends on (ARM64 && ARCH_MEDIATEK && NVMEM_MTK_EFUSE) || COMPILE_TEST
-+	depends on ARM64 || COMPILE_TEST
-+	depends on ARCH_AIROHA || (ARCH_MEDIATEK && NVMEM_MTK_EFUSE) || \
-+		   COMPILE_TEST
- 	select MTK_NET_PHYLIB
- 	help
- 	  Supports MediaTek SoC built-in Gigabit Ethernet PHYs.
-diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
-index 175cf5239bba..fd0e447ffce7 100644
---- a/drivers/net/phy/mediatek/mtk-ge-soc.c
-+++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
-@@ -11,8 +11,11 @@
- #include "../phylib.h"
- #include "mtk.h"
- 
-+#define MTK_PHY_MAX_LEDS			2
-+
- #define MTK_GPHY_ID_MT7981			0x03a29461
- #define MTK_GPHY_ID_MT7988			0x03a29481
-+#define MTK_GPHY_ID_AN7581			0x03a294c1
- 
- #define MTK_EXT_PAGE_ACCESS			0x1f
- #define MTK_PHY_PAGE_STANDARD			0x0000
-@@ -1406,6 +1409,53 @@ static int mt7981_phy_probe(struct phy_device *phydev)
- 	return mt798x_phy_calibration(phydev);
- }
- 
-+static int an7581_phy_probe(struct phy_device *phydev)
-+{
-+	struct mtk_socphy_priv *priv;
-+	struct pinctrl *pinctrl;
-+
-+	/* Toggle pinctrl to enable PHY LED */
-+	pinctrl = devm_pinctrl_get_select(&phydev->mdio.dev, "gbe-led");
-+	if (IS_ERR(pinctrl))
-+		dev_err(&phydev->mdio.bus->dev,
-+			"Failed to setup PHY LED pinctrl\n");
-+
-+	priv = devm_kzalloc(&phydev->mdio.dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	phydev->priv = priv;
-+
-+	return 0;
-+}
-+
-+static int an7581_phy_led_polarity_set(struct phy_device *phydev, int index,
-+				       unsigned long modes)
-+{
-+	u32 mode;
-+	u16 val;
-+
-+	if (index >= MTK_PHY_MAX_LEDS)
-+		return -EINVAL;
-+
-+	for_each_set_bit(mode, &modes, __PHY_LED_MODES_NUM) {
-+		switch (mode) {
-+		case PHY_LED_ACTIVE_LOW:
-+			val = MTK_PHY_LED_ON_POLARITY;
-+			break;
-+		case PHY_LED_ACTIVE_HIGH:
-+			val = 0;
-+			break;
-+		default:
-+			return -EINVAL;
-+		}
-+	}
-+
-+	return phy_modify_mmd(phydev, MDIO_MMD_VEND2, index ?
-+			      MTK_PHY_LED1_ON_CTRL : MTK_PHY_LED0_ON_CTRL,
-+			      MTK_PHY_LED_ON_POLARITY, val);
-+}
-+
- static struct phy_driver mtk_socphy_driver[] = {
- 	{
- 		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7981),
-@@ -1441,6 +1491,17 @@ static struct phy_driver mtk_socphy_driver[] = {
- 		.led_hw_control_set = mt798x_phy_led_hw_control_set,
- 		.led_hw_control_get = mt798x_phy_led_hw_control_get,
- 	},
-+	{
-+		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_AN7581),
-+		.name		= "Airoha AN7581 PHY",
-+		.probe		= an7581_phy_probe,
-+		.led_blink_set	= mt798x_phy_led_blink_set,
-+		.led_brightness_set = mt798x_phy_led_brightness_set,
-+		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
-+		.led_hw_control_set = mt798x_phy_led_hw_control_set,
-+		.led_hw_control_get = mt798x_phy_led_hw_control_get,
-+		.led_polarity_set = an7581_phy_led_polarity_set,
-+	},
- };
- 
- module_phy_driver(mtk_socphy_driver);
-@@ -1448,6 +1509,7 @@ module_phy_driver(mtk_socphy_driver);
- static const struct mdio_device_id __maybe_unused mtk_socphy_tbl[] = {
- 	{ PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7981) },
- 	{ PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7988) },
-+	{ PHY_ID_MATCH_EXACT(MTK_GPHY_ID_AN7581) },
- 	{ }
- };
- 
+ 	intc: interrupt-controller@4ac00000 {
+-		compatible = "arm,cortex-a7-gic";
++		compatible = "arm,gic-400";
+ 		#interrupt-cells = <3>;
+-		#address-cells = <1>;
+ 		interrupt-controller;
+ 		reg = <0x0 0x4ac10000 0x0 0x1000>,
+ 		      <0x0 0x4ac20000 0x0 0x2000>,
 -- 
-2.48.1
+2.34.1
 
 
