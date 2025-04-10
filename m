@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CE2C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 19:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5ACEC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 20:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9kRJjrJf/qsICsGCMHWFKhYH7GKP7YwXiHqeUICU6g=; b=zWqtLXynBQZmgCH5ww32G0cK2g
-	EXcHV/adMX3887Bn7IPIXGqnAcHb8LlXMsZXioWdOY9deSwaNRK/UTwh3HyHdRCEcdTF/WbDRSCeC
-	9YNp/1nnBFGOa3AfyIJdr5tuIFnmCU1Nz9Rhg8JnCGVqASgLtiRrV8N71Fsv70w7OT/dx6naBeQeO
-	17kEdrNDv/e0IM9zu4JTD0IQWh6ZBpCWbp5k+Y5TRwoXe5OSNK9/17a2tHpOcytdxG70nLvIpw5G3
-	N2D0XZuFi/uV4eFFYmw8DXfF4pLnDogPs7MLWf/VWyPjzB/siaKlUxvgABWArJ9uG/JSfN/zJxkDq
-	WHueGwaA==;
+	bh=P0cmV6UZVQw6LGqA8u7XzoRfDgQACF1SmL35zBKp97Q=; b=oG590AbI0A/7n0nkoIwehN4F2B
+	wi0qf6u1TH8FFuJC51Ouq/09/CO4WcyARgT4zxE7WIiPyS/XjegQZ6ZNyJq4BFALWB/Wz4zTHb4P2
+	7IDToSQ6ycjvA+QRwM7IbgkIdXsE60ErPqEUxGvVjQqOrFimHsreuRJt0aPFlBdcf9GOw4I4hLbUT
+	99OlAhM4bPjFyf+drroWXeAs9V4EsxZMbQrjoUsHzEFvr1zNMSEMLSmHtAzFkisRXL4jeY5F0Ys4K
+	LjSsoFiwrsd3BA4dRURcZT1zgxq3IGkgPrCZvxvVyPPyu8N623sISj/bW5R3bMhl4rlr7w5Ql3imq
+	GBWfWhBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2y30-0000000Biey-3oZL;
-	Thu, 10 Apr 2025 19:58:50 +0000
+	id 1u2y4l-0000000Bisb-3lOL;
+	Thu, 10 Apr 2025 20:00:39 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2xm2-0000000Bg1v-13Mu;
-	Thu, 10 Apr 2025 19:41:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1744314065; cv=none; 
+	id 1u2xm8-0000000Bg4H-07IT;
+	Thu, 10 Apr 2025 19:41:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1744314071; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=A1CKbZtIJUzRTJlzsQ/kya6yBho1WzuQO+SwhhKLWuTVxGQ+jbkdoEMYS4YP2IGWOna1fjgVRILyfz7h9hqMuegaPTdZM2v05PMxvt/geTDG3WkVmYJc67Y2WbKKPMzLdBCuXyvzWQMOetzYRFPjiUxWM8i2H0SN5AebJ3Ex6ZM=
+	b=npW3t2QfyVKFR6PHamSs5iAoGNvnTpEDIUFaHfgHjrhK93bDt1hoyatt/fVm83Fihgmmj8YWOvx4uXYrr2sQ0es9cGRs9xXxX49+oMEuZUgBwW7LMMTkUKPALDuQgdeRhLkzIEOcCkBwltpuA8a8yXO+suUMfyvpRx0klhFgU7k=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1744314065; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=C9kRJjrJf/qsICsGCMHWFKhYH7GKP7YwXiHqeUICU6g=; 
-	b=dXFH3VM2oKO8a973NWG5Ds8WLZAy1bv2V8yuPSaSHhd5fGn0JFFmkBVrKB9MDgxZovcQ94ktGj3PoAzKbZHIMlZ7r/947oId5U1/Q8u2lwXVeeySfr/8MVlKrCJ8jtWzzMhI4jSvF55fSbQCa1jv913szgG386dDNA6eMhq5x5E=
+	t=1744314071; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=P0cmV6UZVQw6LGqA8u7XzoRfDgQACF1SmL35zBKp97Q=; 
+	b=UxFrFWBta+1rMpAt1o1P3BvHk314sP+7pKveZ29fVTsjITILhHdUylfByeM5TevGU27ayWM5yt+NUTDiMdSIEsObv5DLeXHpPxQ4SoNhLiKKJ+3ZVidaCp/wTMnUn0b5OqzmS0qShQDDK/T9FL50PS2lK025aEHiEnKeb6UPtk8=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744314065;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744314071;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=C9kRJjrJf/qsICsGCMHWFKhYH7GKP7YwXiHqeUICU6g=;
-	b=EPCUcNGLFqSg7tsdV9XvUe3H48HXDhF75P6nOMDzOGTAxjv/WoDCgvydK12URhf0
-	/IGF7/TdFUrJ5ys2D/JuVNG5Y97+pboOBrhMvl1qTJInfIYSqfHSMsrM5SQlWQwZb+b
-	CXgoDhuF9cVqYj+wNNFZA1rDVXo3G0vTkdfBtbnQ=
-Received: by mx.zohomail.com with SMTPS id 1744314064280299.56447684337707;
-	Thu, 10 Apr 2025 12:41:04 -0700 (PDT)
+	bh=P0cmV6UZVQw6LGqA8u7XzoRfDgQACF1SmL35zBKp97Q=;
+	b=EqGHyRClpjHhzE2crq3wyxq54zEggbGq8YcFa90BYnW3aNEfX6TIuHKoxPayJVuF
+	EuCMEB+myYCONIppsHGd9gRuTbPcDY/UhRWvP3HAnTeVuar24UUA25ivKN2joobs2Pa
+	3xW5+xel4/3uUdHIlCmiuSftuitEfh6IvUwR9Cqo=
+Received: by mx.zohomail.com with SMTPS id 1744314069853161.3440582389277;
+	Thu, 10 Apr 2025 12:41:09 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 10 Apr 2025 21:40:01 +0200
-Subject: [PATCH v2 09/11] arm64: dts: rockchip: Add analog audio on RK3576
- Sige5
+Date: Thu, 10 Apr 2025 21:40:02 +0200
+Subject: [PATCH v2 10/11] arm64: dts: rockchip: Enable HDMI audio on Sige5
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250410-rk3576-sai-v2-9-c64608346be3@collabora.com>
+Message-Id: <20250410-rk3576-sai-v2-10-c64608346be3@collabora.com>
 References: <20250410-rk3576-sai-v2-0-c64608346be3@collabora.com>
 In-Reply-To: <20250410-rk3576-sai-v2-0-c64608346be3@collabora.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -73,8 +72,8 @@ Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_124118_382850_DBDB5731 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20250410_124124_129464_E66E9A73 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,118 +88,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ArmSoM Sige5 board features an Everest ES8388 codec to provide
-analog stereo audio output, as well as analog audio input. The codec
-hangs off the i2c2 bus and responds to address 0x10. It is connected to
-the SAI1 audio controller of the RK3576, with one SDO (output) lane and
-one SDI (input) lane.
+With the hdmi_sound node added to the base RK3576 SoC tree, we can now
+enable it on the Sige5 SBC.
 
-The codec has two sets of outputs. One set, LOUT1/ROUT1, is connected
-through a set of 22uF non-polarised coupling capacitors to a 3-position
-connector that appears to be a clone of the JST BM03B-SURS-TF header,
-and is capable of mating with a JST 03SUR-32S (or JST 03SUR-36L if you
-prefer lemon-lime) or compatible clone connector. The right headphone
-output is the one closest to the Type-C DC input connector, the left
-headphone output is the one in the middle, and the third position, the
-one closest to the USB3 Type-A host connector, is puzzingly labelled as
-"HP_GND" in the schematic but is in fact connected to the codecs RIN1
-input through a 1uF non-plarised coupling capacitor.
-
-LOUT2 and ROUT2 are routed to 1mm test pads T36 and T37 respectively.
-These are located on the bottom of the board, and do not go through any
-coupling capacitor. For use as line out, the ES8388 datasheet recommends
-adding 1uF coupling capacitor if one wishes to use it as a line-level
-output.
-
-There is also a pair of inputs for a stereo microphone, going from two
-1mm testpads T34 and T35, which are decoupled with a 100pF capacitor and
-pulled to 3.3v and ground respectively. These inputs then go through 1uF
-capacitors each and end up in the LINPUT2 and RINPUT2 pins of the
-ES8388 codec.
-
-The codec's power inputs are routed to receive 3.3V for both its analog
-and digital inputs, though from different supplies.
+Do this, and also enable the corresponding SAI6 audio controller node.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 56 ++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-index 828bde7fab68dc6bcbd13d75c8a72540b3666071..0979d1e0cee7a18a6bcbd08ed19cc835f2186960 100644
+index 0979d1e0cee7a18a6bcbd08ed19cc835f2186960..de63b053a06c05e02bfcfa03b96e9fc61de8782d 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-@@ -56,6 +56,34 @@ red_led: red-led {
- 		};
- 	};
- 
-+	es8388_sound: es8388-sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,mclk-fs = <256>;
-+		simple-audio-card,name = "On-board Analog ES8388";
-+		simple-audio-card,widgets = "Microphone", "Headphone Mic",
-+					    "Microphone", "Mic Pads",
-+					    "Headphone", "Headphone",
-+					    "Line Out", "Line Out";
-+		simple-audio-card,routing = "Headphone", "LOUT1",
-+					    "Headphone", "ROUT1",
-+					    "Line Out", "LOUT2",
-+					    "Line Out", "ROUT2",
-+					    "RINPUT1", "Headphone Mic",
-+					    "LINPUT2", "Mic Pads",
-+					    "RINPUT2", "Mic Pads";
-+		simple-audio-card,pin-switches = "Headphone", "Line Out";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&sai1>;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&es8388>;
-+			system-clock-frequency = <12288000>;
-+		};
-+	};
-+
- 	vcc_12v0_dcin: regulator-vcc-12v0-dcin {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc_12v0_dcin";
-@@ -618,6 +646,25 @@ hym8563: rtc@51 {
+@@ -269,6 +269,10 @@ hdmi_out_con: endpoint {
  	};
  };
  
-+&i2c3 {
++&hdmi_sound {
 +	status = "okay";
-+
-+	es8388: audio-codec@10 {
-+		compatible = "everest,es8388", "everest,es8328";
-+		reg = <0x10>;
-+		clocks = <&cru CLK_SAI1_MCLKOUT_TO_IO>;
-+		AVDD-supply = <&vcca_3v3_s0>;
-+		DVDD-supply = <&vcc_3v3_s0>;
-+		HPVDD-supply = <&vcca_3v3_s0>;
-+		PVDD-supply = <&vcc_3v3_s0>;
-+		assigned-clocks = <&cru CLK_SAI1_MCLKOUT_TO_IO>;
-+		assigned-clock-rates = <12288000>;
-+		#sound-dai-cells = <0>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sai1m0_mclk>;
-+	};
 +};
 +
- &mdio0 {
- 	rgmii_phy0: phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
-@@ -657,6 +704,15 @@ led_rgb_g: led-green-en {
- 	};
+ &hdptxphy {
+ 	status = "okay";
+ };
+@@ -713,6 +717,10 @@ &sai1m0_sdi0
+ 	status = "okay";
  };
  
-+&sai1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sai1m0_lrck
-+		     &sai1m0_sclk
-+		     &sai1m0_sdi0
-+		     &sai1m0_sdo0>;
++&sai6 {
 +	status = "okay";
 +};
 +
