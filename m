@@ -4,62 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB75C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FCAC369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TmPloMVvcX9dIlMiMSorzmTWIn416gy3v5oANvmoi+U=; b=F/1w+Md5zUoXD8k5r9xJuwzjw3
-	wGwPN10gGNZYUgahMrE5Lhpg1CIGfNv5VTy7Yg28IWpxHmL/w2FnOXuSG6SJGW6sqmOEuIa1lms5B
-	d4yEdetAhOfCBXjc1FaTtml/0w7PJFxAot6FLciMWharLVlfeQYRqL5dwOSVpicN0AW6WpIolr91A
-	7kvG720wB/MaIPPaphImvqCk4/gLhhgqY4T2EHsIAK51eocM831ZQt1ptPjmbGWwlgChmzfBEoVVD
-	nN5QPuzZKEwsEeDmwWlef+9Jth/dqCl06NJPyLhVSLmVF/Kx8uoporX/RBeVX6kFgq+xQduD14a5p
-	b66xcT+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JLyUxHiWG+Qb25pc2VnBWbaaEbMsWfKxOQ5/RWGEgSw=; b=Py2vesr5Kqhqc6oexV38ClMJQ7
+	78R4TzkWHQ2rSTZYECsa+6chGJHo4dd0oVq/pKE22NAX+lNQ6nJw8bqJecxC8oVZUy0KmeXnePZvO
+	6GEf9S2KV7Le0+stSx5brSG1klNS8ok1hf/BWVSST3ykzDFCu927Pm+JcTSnLT16B5+lxguxzGVze
+	b1PyFY6kOyMixkOzh64P5Rvf2RZJEEqu1Hh7NFCI1+X+K060PnVSBO2WTWbVt/Qu5tq+F0yAauXPr
+	DQJzz0vLn89iCI6XKJRGH+wdRdRne6Hr3ytBTNTQ+ZpZ1ZaQmQFSRvFT+0sKk34XMtTjoW4S+q/9S
+	VFAC5T6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2s2t-0000000AgVs-0XXe;
-	Thu, 10 Apr 2025 13:34:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u2s4e-0000000Agu7-1LiK;
+	Thu, 10 Apr 2025 13:36:08 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rzy-0000000AfxC-2dll
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 13:31:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8BB3D6844D;
-	Thu, 10 Apr 2025 13:31:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6940DC4CEDD;
-	Thu, 10 Apr 2025 13:31:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744291877;
-	bh=Kdl0DUcFLmDnZW83B2cgZn3vkVospaz2redPCQGfiao=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=EC9QCnIazZiRdAsg+uywSsOdSSb07TTH5+VyhiTQXjiMGNxZTJNrZy7vMS7VNeaeP
-	 nJpPUfytqa8XPX6G2G+C9h6CTx4Hq61itsQ5yW42e8LjP1vqwT2TWFfmZz+nyqsOCf
-	 CU1zj2Nc79UeYiq0PpiWV2LWYAsSCOFq1EVHZXr7MgCZAiTk1/uWcHKbKqtYelaTkY
-	 gmS9TRIdRxUTlc7E6qDuFactnPgKkHBcEbmANbB3ZIVYTHXfdH7f1Z4/ahtFNZzbd+
-	 fNy0EKcvL5uiRrR6/jTQDAnf49QN7uAQYEJx0NhLB03H7GLoBJUhnun+IDOURQcplD
-	 PFEhfTHYWMHVw==
-Date: Thu, 10 Apr 2025 08:31:16 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1u2s2O-0000000AgOf-2Xqq;
+	Thu, 10 Apr 2025 13:33:49 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-227d6b530d8so7155375ad.3;
+        Thu, 10 Apr 2025 06:33:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744292028; x=1744896828; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JLyUxHiWG+Qb25pc2VnBWbaaEbMsWfKxOQ5/RWGEgSw=;
+        b=I1awk4DDIRualUxXwO3wuAYVa+P180XSYJAcKXBtEm+PQ/+i4Tud8StQwiqdESALLh
+         ZVs0zPdUuEUZJRI8Mpuusms/lkeymdEdCDZrR/VnBP7iipT8tWM3+lQUB+DSqiNYn/7J
+         Z///gEHIaUJ+Hh+zuOmVAeymyoDEy6ujwaxZn14iM0YgokrD5qCd9hby9DQiY4qEHnO1
+         ZkPCrKTEY1s6cCs3rPoz71bZHlGKMFaVs+WR9fE/OsCZ+26VAiH30lsv+QnWDLvDR1gQ
+         ucXTH/xKTkp+ubKS/E0z7GKmQXlS+QXC8577d25PUaYS91IIP7KCC8pzghlvAL+DRiNJ
+         8n7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744292028; x=1744896828;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JLyUxHiWG+Qb25pc2VnBWbaaEbMsWfKxOQ5/RWGEgSw=;
+        b=q6tpeG2jTr4+rEysPBFc5k6eDxoNn5UvHA8aCj+mluD3eaEauNgx5FhX6dJERPbZSf
+         WTwruVmWCPoKBKWdgyxCQ7JQtIwXo+Piog/uxB9/ZEOtHPDsGfvdlIhqjwfRtrU/lz0q
+         6SfqkR0sfUvxQwgj3OwS3GgD+jURhheiW3m4xNsWxmtuX3GNocoOhHQ+imaIEU0+Sik0
+         5a4y4DCbqHKkjL41z/JmJ8KFokY2INfgePd1KveTzkMAv/+AKiiVJEPWmOnLdd69+la1
+         4pXY65QoMGx1+V3tzgvjQPehkgJEbWp6SkDlvDXtPNcGbY75KxfLBKdi5t0lfwZdZqtB
+         QtEA==
+X-Forwarded-Encrypted: i=1; AJvYcCURRDkNVo0gd9fSXkVRGjlwEVgoZCnjBPCUhyWtwq3hW2eUwbfadh0B+v2WpRTu4+xv5JvWARLoNlnznITA@lists.infradead.org, AJvYcCVszH+/QLQZSI/h6Bvw48zMjVg6KCW+wuQBt1EDD/bmMgE5YnTQkkL9eG2OeNXsO3Sn3vU+GQ2PbUpQ@lists.infradead.org, AJvYcCX2McIFNgYZ5sq0QfEuLs7ff++FH66SLbbU8otJGlWwFPJh3mwl/QZwhIHMEgkplWvq0Lim+5QSJ1oU4/3C8khU8g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiJHyM1UTfdwOvVI0ZAdxMQ/CT8ponuMiwS1WqwSssZjX7KSFu
+	ob4Jwe1+H3hgR+3DdcE8F2dKTix2BtJYDsLkFwnLvORBpv/9SQy1Qzw1Hg==
+X-Gm-Gg: ASbGncvH0msBdTc0Jtiq9jwZeHpD1psKwnA11xOeJWVTXDtHE3/XmlKgXOLV0TEdzvR
+	g9OcWIwPpfKI0wH2dMgTeEJJG5egg7ToASsFwcUbAM2Udnl3hbohztcheoShy4LnLP78b280oCv
+	1cGc/QjyDpMK9QEScb3i7gYOGfi36pUu2bC1ruuv4hxQbs0y7eluBbwO/inaCLku88IB4GgOgVv
+	Vx181uJhWpPhMKZtG5YoknnyFQVsMZLKzSEkcS7awXvJdLlufUV3iFiOchGyyE50OirHQB6GiNN
+	9yINOtBCbVaTSwbwlX/hcMTBzF0tG2vdr+qlFCKPnYBmdniPUd4iZrE=
+X-Google-Smtp-Source: AGHT+IGKx5ChlwcV+OyphM7aWOQy1ODyOjgSEu2ev4g++EZQWZ+gpROGMOj8P4ESA2R8jvzGplRRiw==
+X-Received: by 2002:a17:902:ea0e:b0:21a:8300:b9ce with SMTP id d9443c01a7336-22b42c511bcmr35919265ad.49.1744292027773;
+        Thu, 10 Apr 2025 06:33:47 -0700 (PDT)
+Received: from localhost.localdomain ([103.221.69.50])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7cb0400sm30121475ad.160.2025.04.10.06.33.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Apr 2025 06:33:47 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-phy@lists.infradead.org (open list:GENERIC PHY FRAMEWORK),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
+	linux-amlogic@lists.infradead.org (open list:ARM/Amlogic Meson SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v1 0/6] Messon: Simplify error handling with dev_err_probe()
+Date: Thu, 10 Apr 2025 19:03:15 +0530
+Message-ID: <20250410133332.294556-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- linux@ew.tq-group.com, linux-arm-kernel@lists.infradead.org, 
- Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Magnus Damm <magnus.damm@gmail.com>, Conor Dooley <conor+dt@kernel.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-In-Reply-To: <20250410113107.2057426-1-alexander.stein@ew.tq-group.com>
-References: <20250410113107.2057426-1-alexander.stein@ew.tq-group.com>
-Message-Id: <174429181469.3723423.3872724131863272335.robh@kernel.org>
-Subject: Re: [PATCH 1/2] dt: bindings: arm: add bindings for TQMa95xxSA
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250410_063348_646301_8A7042BC 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,54 +102,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi All,
 
-On Thu, 10 Apr 2025 13:31:02 +0200, Alexander Stein wrote:
-> TQMa95xxSA is a SOM using NXP i.MX95 CPU. MB-SMARC-2 is a carrier
-> reference design.
-> 
-> [1] https://www.tq-group.com/en/products/tq-embedded/arm-architecture/tqma95xxsa/
-> 
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
+Use dev_err_probe() for phy resources to indicate the deferral
+reason when waiting for the resource to come up.
 
+Note: The following patch for RTC:
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+phy: amlogic: phy-meson-axg-pcie: Fix PHY creation order in axg-pcie probe
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+has not been tested as I do not have access to the Amlogic AGX hardware.
+However, I have made improvements to this change based on my understanding
+of other code.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+Thanks
+-Anand
 
-  pip3 install dtschema --upgrade
+Anand Moon (6):
+  phy: amlogic: phy-meson-gxl-usb2: Simplify error handling with
+    dev_err_probe()
+  phy: amlogic: phy-meson-g12a-usb2: Simplify error handling with
+    dev_err_probe()
+  phy: amlogic: phy-meson-axg-mipi-pcie-analog: Simplify error handling
+    with dev_err_probe()
+  phy: amlogic: phy-meson-axg-mipi-dphy: Simplify error handling with
+    dev_err_probe()
+  phy: amlogic: phy-meson-axg-pcie: Simplify error handling with
+    dev_err_probe()
+  phy: amlogic: phy-meson-axg-pcie: Fix PHY creation order in axg-pcie
+    probe
 
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250410 (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250410113107.2057426-1-alexander.stein@ew.tq-group.com:
-
-arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dtb: scmi (arm,scmi): Unevaluated properties are not allowed ('linux,code' was unexpected)
-	from schema $id: http://devicetree.org/schemas/firmware/arm,scmi.yaml#
-arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dtb: scmi (arm,scmi): Unevaluated properties are not allowed ('protocol@81', 'protocol@84' were unexpected)
-	from schema $id: http://devicetree.org/schemas/firmware/arm,scmi.yaml#
-arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dtb: pcie@4c300000 (fsl,imx95-pcie): clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
-	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml#
-arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dtb: pcie@4c380000 (fsl,imx95-pcie): clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
-	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml#
+ drivers/phy/amlogic/phy-meson-axg-mipi-dphy.c      | 10 +++-------
+ .../phy/amlogic/phy-meson-axg-mipi-pcie-analog.c   | 10 +++-------
+ drivers/phy/amlogic/phy-meson-axg-pcie.c           | 14 +++++---------
+ drivers/phy/amlogic/phy-meson-g12a-usb2.c          | 10 +++-------
+ drivers/phy/amlogic/phy-meson-gxl-usb2.c           | 11 +++--------
+ 5 files changed, 17 insertions(+), 38 deletions(-)
 
 
-
-
+base-commit: 3b07108ada81a8ebcebf1fe61367b4e436c895bd
+-- 
+2.49.0
 
 
