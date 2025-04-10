@@ -4,62 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED6AC369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89664C369A9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=caYvtvJqNEqdShPosNv6lO8f+Vtj++Kp5DISf3ZYdDA=; b=gkze6u2nODb3HDAQjI+wXtLOdp
-	bMyUjgRuQlesFrg7Z93ILCxws2Xyw/dKXy2pW5xJ+KHBAMJ9xmjJUKQhGnsqpyc+yj5bh5c8Ka/hp
-	AHOPExnDhDwAzqrYD9oZ9/W4gG69jdZ6Bmo9DRX6sEghLWcmv9VqEJFZxohnUtRRZkwUvjyW++bX9
-	x61uG0bQsXUCgdJI9wdPhjDjLMD5Gg4zYBj2fZl9S1Qf3sX7ns7dX40xC2FfSW+iOzrnuEa3bXZzc
-	gy8mFsH6BiSqGXm5n7jWcpF/lj1aAqwmUpi2Oz8pV+L/VQontV+U7B+3nRC7hCGubyHdzhY7b9V5f
-	MFJm2trg==;
+	bh=VsLwM3GjTE+cMq4utkZa1cXt/uI0yHj5dF2fek5gyAo=; b=RQGmcAK9NC3hfqfa+IctJYhoUe
+	ty3/4IqYJ80kDAVJ8Q3/whvxBuryDDqQEjjpJ/n8RZMObtlaOUBCfXsvceO3Vex/WBNU/40o1YdH7
+	z+3PTq29GyfpFUlkFqyVnI6yIUjjjnt3j4rXQVbj5RqO862hTJd+0sWsviwd3R/f5yct0gVRCHmB0
+	uH6OB3ceWAW7xH++Bky0vJOmKjTl2LfkF3nfe25aTlgi8OcdohUaMvpNp4qdJVbu8IN4kFAFVWoEV
+	7P/gAxZqeKGVI73onMvB39t9ggw6fpfq1dXQDkHuAqozzUcqK7eIxY6pgFCcVdXvi4YKWRsBN7HrJ
+	8sMQzMIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2psv-0000000ABBQ-3Ree;
-	Thu, 10 Apr 2025 11:15:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2noN-00000009rJH-3JNN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Apr 2025 09:03:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=caYvtvJqNEqdShPosNv6lO8f+Vtj++Kp5DISf3ZYdDA=; b=qgNEx1wqkZBX7r8UWViBlJU0YR
-	2xzNRtAqzBK+kxBpR+123PEikSkZ7xQ7O/T197MPnC5d8RlvXRIGFc3k8tUIIF/emDZVVwYk3fX/1
-	xYtemvYfOVMHqLfSgIdGBuxGz0bGQu9K4SoqjHhMr8uaQSdrbPq+0YXvVHgN//QgTI9E7oTMc5W7w
-	+dY9AyX4XRV0mD9po8eRSDEFYFM2HHcaCqQt/JSjDF/hqECZgnNB2JQg8mq/6H56GumpI3D36itNq
-	PeL8dbPuoalc2hQK6LKc8dmNOg/fz5mna8slftzf0yJCeQwey+czscmrrNyY4t/Kb+52exmHRFODk
-	pvuTKPRA==;
+	id 1u2psx-0000000ABEX-3gtz;
+	Thu, 10 Apr 2025 11:15:55 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2noK-00000008mfL-2Nfb
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2noQ-00000009rJm-28K7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:03:02 +0000
+	Thu, 10 Apr 2025 09:03:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
 	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=caYvtvJqNEqdShPosNv6lO8f+Vtj++Kp5DISf3ZYdDA=; b=NY+vFVyQU7mS7bW90afhYAskNO
-	18+jk1PZNwbpDNhTYinjfjYj54qksCZkDPjEKpSGL0gxKTOZ1dxcVR0++ccpu7faKCzzLqwdE040Y
-	7G+SEm7UjWtle0rhGx5nsHO4tPq7jAd6deSLrwNW+Bj6CzZEDEPgsKCyMXVOfdQHHN/26gjvZQV2C
-	J8DFEoiKA2nV7Jzsh5SjtN1/7MOX8Y2d/+H4JDWXtn2cKaDnaUrKZzDe/bYLXTA1cD1cdZWZkIKlK
-	4mRmObxQgr1eYDg+NGX0rMMNMuAHmm8Wc/+xY2SgRxgB6YN9adRDc+6IYnydGpSATwy9/8k+Rr6iD
-	N8yJZRjA==;
+	bh=VsLwM3GjTE+cMq4utkZa1cXt/uI0yHj5dF2fek5gyAo=; b=hOz2zvqzENUnd8oPe5Fc0bmLuX
+	h+jhxH5j9PfCxGmubSZjFAoigq+2E+uZLw73K6BT2cMIxyEmlEgb9zoDvQcKFbzpET78ykC4yufnY
+	QjQjrwYOMci1kSRCUZdGiv2Z0yB/dIX56hJiM+6Er0MieHEJ0Or3ypLbh3DXOtnXqFMrkgS4OAfB6
+	bS5qMUKiAdeQoD1SHfhIsNDgt/NfAElpoZ9sYOvqGzdseXRKBDwZLft3/iCr86dYDrYhGHuAjmKks
+	owe9He2yFHP9x7Db0DodwpjUo5AqBEdrOSjK0hg2SszqxM0Io3CcK308VfXw+w2u9NmM7vevYF/J9
+	NTE4rbPw==;
 Received: from [89.212.21.243] (port=41926 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1u2noK-000Djj-27;
-	Thu, 10 Apr 2025 11:02:59 +0200
+	id 1u2noQ-000Djj-0G;
+	Thu, 10 Apr 2025 11:03:05 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -73,9 +58,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH 07/13] arm64: dts: freescale: imx93-phyboard-segin: Disable SD-card write-protect
-Date: Thu, 10 Apr 2025 11:02:45 +0200
-Message-Id: <20250410090251.1103979-8-primoz.fiser@norik.com>
+Subject: [PATCH 10/13] arm64: dts: freescale: imx93-phyboard-segin: Add CAN support
+Date: Thu, 10 Apr 2025 11:02:48 +0200
+Message-Id: <20250410090251.1103979-11-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250410090251.1103979-1-primoz.fiser@norik.com>
 References: <20250410090251.1103979-1-primoz.fiser@norik.com>
@@ -92,8 +77,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_100300_947377_00B39615 
-X-CRM114-Status: UNSURE (   5.73  )
+X-CRM114-CacheID: sfid-20250410_020306_702059_1769E80C 
+X-CRM114-Status: UNSURE (   6.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,31 +94,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add disable-wp flag (write-protect) to usdhc2 node (SD-card) to get rid
-of the following kernel boot warning:
-
-  host does not support reading read-only switch, assuming write-enable
-
-Micro SD cards can't be physically write-protected like full-sized
-cards. Thus disable this feature.
+Add support for CAN networking on phyBOARD-Segin-i.MX93 via the flexcan1
+interface. The CAN1_EN regulator enables the SN65HVD234 CAN transceiver
+chip.
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
- arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts | 1 +
- 1 file changed, 1 insertion(+)
+ .../dts/freescale/imx93-phyboard-segin.dts    | 32 +++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-index 902b523fc92c..3d5cd0561362 100644
+index 38b89398e646..027a34dbaf04 100644
 --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
 +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-@@ -48,6 +48,7 @@ &usdhc2 {
- 	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_cd>;
- 	bus-width = <4>;
- 	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
-+	disable-wp;
- 	no-mmc;
- 	no-sdio;
- 	vmmc-supply = <&reg_usdhc2_vmmc>;
+@@ -26,6 +26,17 @@ chosen {
+ 		stdout-path = &lpuart1;
+ 	};
+ 
++	reg_flexcan1_en: regulator-flexcan1-en {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&gpio4 16 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_reg_flexcan1_en>;
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++		regulator-name = "CAN1_EN";
++	};
++
+ 	reg_usdhc2_vmmc: regulator-usdhc2 {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+@@ -38,6 +49,14 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
+ 	};
+ };
+ 
++/* CAN */
++&flexcan1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_flexcan1>;
++	xceiver-supply = <&reg_flexcan1_en>;
++	status = "okay";
++};
++
+ /* I2C2 */
+ &lpi2c2 {
+ 	clock-frequency = <400000>;
+@@ -79,6 +98,19 @@ &usdhc2 {
+ };
+ 
+ &iomuxc {
++	pinctrl_flexcan1: flexcan1grp {
++		fsl,pins = <
++			MX93_PAD_PDM_BIT_STREAM0__CAN1_RX	0x139e
++			MX93_PAD_PDM_CLK__CAN1_TX		0x139e
++		>;
++	};
++
++	pinctrl_reg_flexcan1_en: regflexcan1engrp {
++		fsl,pins = <
++			MX93_PAD_ENET2_TD3__GPIO4_IO16		0x31e
++		>;
++	};
++
+ 	pinctrl_lpi2c2: lpi2c2grp {
+ 		fsl,pins = <
+ 			MX93_PAD_I2C2_SCL__LPI2C2_SCL		0x40000b9e
 -- 
 2.34.1
 
