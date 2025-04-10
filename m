@@ -4,150 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCFAC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 533F3C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7MqkOou0zInXdnTEJExy+0wM9MKk68f1n8GL7twhX7k=; b=2yleQxi6vZc9FIdNBtq/09HKSZ
-	yEM3EqtlIiKI9rXpBC+H7UCpnAyQXdFMH3tgpYMSUIjuCLpm1sfPitOEaG4Buqea9CV2yxTUdegFY
-	LyRIX/SwkWBNctGssiKrvhsno669kpevDDyBa2uKcMgUsnPPDD0V8AtYvANA59CITIQ6ERS4xb2ug
-	w4+U70zRSt3MKJGBWNKSbueL1ByTyhrXC25brYnuQvLie537zD7rPu1rlT+lzXhoDer63dA7E0rL5
-	8kxk64AxdYXszGt+eB2mRkBFjZlpO7aQW7toVHFP0/FKooHKtKBiCSPsQLqviOmI2LApw5XoiYTxB
-	HK3i/nvQ==;
+	bh=GGBRp/mJ44odAQ+DK3ZQeuktW6/k2UiJ6GrDt9QhUkQ=; b=S4pT7CJlWOJTUL54eJE+e5DzwU
+	nI6tcyITQCVuzcFLu/L4WS5TbJC99Utnsxc7ZdlntyjXC4AvFdNq2jrQXcwnWvTc6Q1L8hm9WHEqP
+	bCU04G+eFk2OMlSmxwMvecm7W1CKtGHd20/+Je5Ol6aGqkFBI2DLW5hsdcoTQMLsXYnrUViGN8ePc
+	WpvPUH4mqDTRi/kKK+my1wshNJwd2Cn7iF3p240x+ZiLvlTBz1Z8mwKpLarbmUZlXFMeHeV6upz9d
+	faU1/Dr1uXb19akPlR0hHAbspQIJNpg9KD/+pXXKQC3GI+KRFqnA7456uY9UsJ6dCVOWys0/O7t1r
+	jjqzrORg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2uNt-0000000B7du-0YEe;
-	Thu, 10 Apr 2025 16:04:09 +0000
-Received: from mail-westeuropeazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c201::7] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1u2uPm-0000000B7sM-3iwb;
+	Thu, 10 Apr 2025 16:06:06 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2taQ-0000000AyPs-0Wlm
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 15:13:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k0bdmCccemjNSjYUSbvmIN7ekhhKVhP6rIFswCvyZCL0WGglJ4FFDHMV89FZP1/WzoOiyWb1KI1WDEaunMyGILrceFzsYhkc3R7ON+Kx1+AZ8iscBqImA5bFR9cmO9QYsmrEKBoLSHiIVIRGDTuBYKfpAH9OoD7PEz22/Ik4aMwQpY5Q/+LXyGwj1VkRyRzI7yrRvEpikNvO/Gl/2MWjfqs3+nxNTIeKMpqTnBKAqEd7H7etTATvonDIY+KwUph3pHm9frRXVfaCC/may6ceBFWdZMPQS9hC/tyVENUYM6i/aLRuK/vwYISpdpVB+L8rW0pddGcqkDziOekkemMJXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7MqkOou0zInXdnTEJExy+0wM9MKk68f1n8GL7twhX7k=;
- b=nDRJ0LghrZG6Hs7BEHgqZc///38gr7txedp3wI4wNqK685vQXsP3QYVwwAXz2GrOeCwslO9KjQZnVpBSlV0rZbZyEtgw0uYZZ1lg3U8tMS7u/OobE0yzG0syVtMl6UxN/dtcdcwerCLzEV+Dh25GCNemehQagHUImhd2Av9oZxM+6wPHp0Km3k5I3A6TApCRohH9x31LeuKGWiKOax/mkytlIhPLVhaOIA8hKhu+YGb7IMeB+i5ran+jl+jnYL6j9X5GtramCdpvmgNJQIMdlbuGr/rMW9haDiLjD6cvnOXMd3JeCUw7guA6SmXKC3+NRtC+H4u8JMbnxmMC/hV/Bw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7MqkOou0zInXdnTEJExy+0wM9MKk68f1n8GL7twhX7k=;
- b=GZ4P3WAQ/pdQGCP+Zh4NkTB7N/TPi+yv7Qw/Ggo5ymywXMe5Jutsl0wg87F8hyiC+FlB1jldQkl6OD3Bkx9ZKbz9YNkLhVjZ5mYv44GvgmtPWp14X/MKQqSJR4cO/pAsnh20sVnH5dTEi16IMH8bpucS77O6otRf0UnwCgsF1lKz8tm1toHm9j7iJcSBDAv/IdpPQsLo7byyO5oNCh7KUZVpRo7vEsXNrjbVyzkOHc9soDQmWOWgTAA4rTruhPeMnnmosGDWf4J/K4S78D1uVq7GXKzW4AhfMXic9tpT2BaFUh9NrVOFEnPmpWsBHAJYXNxLd08sjNlccZVYHArYXA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB8PR04MB6858.eurprd04.prod.outlook.com (2603:10a6:10:113::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8632.24; Thu, 10 Apr
- 2025 15:12:58 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.021; Thu, 10 Apr 2025
- 15:12:58 +0000
-Date: Thu, 10 Apr 2025 11:12:50 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
-Subject: Re: [PATCH 09/13] arm64: dts: freescale: imx93-phyboard-segin: Add
- RTC support
-Message-ID: <Z/ff8rQ7wGzKiX+d@lizhi-Precision-Tower-5810>
-References: <20250410090251.1103979-1-primoz.fiser@norik.com>
- <20250410090251.1103979-10-primoz.fiser@norik.com>
+	id 1u2tce-0000000Aymv-1UtY;
+	Thu, 10 Apr 2025 15:15:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744298120; x=1775834120;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=V4GHZJ8ckeMnMp0rIGnPoc0LafTsnMm513zi7ZBVHVQ=;
+  b=CROV4MqHXSGRrysn0smbGdwbh+/D7iWjm6THt1yJxbQ/YVZ7YTPK55in
+   Dtd7hacN4FxRk/ng3DwDV5cfaRu7VnpKgAP5IWnBbuCOwCxOdyVYMeRYQ
+   Z64I1dwezzk3RMwcK0xGHLIqU15Tw5zrWFtOr2m9bQ01CasZPhGcaFCdu
+   l37do29E9a32b0LJXFqQXS1uCRp0A+QTNMTKlZLYfGWstAFn0C7M+Uj5q
+   om67Yduxrdb3lsb/XTr89ILMY7dgNrs2HueHdDxjcBpHPSzQ7fJEkrHyw
+   NdPxHrK8zXDoxigbQmZM2IkffjHWmES2WIQKxTgFMpDqdGQrR4zPlDcYV
+   w==;
+X-CSE-ConnectionGUID: PuDLA/e7TyalFsI+T7E1DA==
+X-CSE-MsgGUID: SbqTe0BXSTSM+xYDplzTwg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11400"; a="48534422"
+X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
+   d="scan'208";a="48534422"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 08:15:18 -0700
+X-CSE-ConnectionGUID: vQ7lhxf+QZ2w5KQxjMC4EQ==
+X-CSE-MsgGUID: XLyoK8lKQ9C7x/NfnQcgNg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
+   d="scan'208";a="128912597"
+Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com) ([10.237.72.44])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 08:15:15 -0700
+Received: from kekkonen.localdomain (localhost [127.0.0.1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id CE9BF11F74E;
+	Thu, 10 Apr 2025 18:15:12 +0300 (EEST)
+Date: Thu, 10 Apr 2025 15:15:12 +0000
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: linux-crypto@vger.kernel.org, Olivia Mackall <olivia@selenic.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, openbmc@lists.ozlabs.org
+Subject: Re: [PATCH 1/3] hwrng: atmel - Add a local variable for struct
+ device pointer
+Message-ID: <Z_fggNyPaotb2mYh@kekkonen.localdomain>
+References: <20250410070623.3676647-1-sakari.ailus@linux.intel.com>
+ <20250410070623.3676647-2-sakari.ailus@linux.intel.com>
+ <Z_d2fcuWPiel_OnT@gondor.apana.org.au>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250410090251.1103979-10-primoz.fiser@norik.com>
-X-ClientProxiedBy: BY5PR04CA0005.namprd04.prod.outlook.com
- (2603:10b6:a03:1d0::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB8PR04MB6858:EE_
-X-MS-Office365-Filtering-Correlation-Id: d8409a75-501d-462f-c107-08dd78422d6e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OcRT+LBgVKYpp8Jb6F6Cg9Jw7mOJmTmg9QwEDTRgQzVE1FUEs6LTnpOtg69t?=
- =?us-ascii?Q?iRIeNY5Njp7ltcd3CerQz2Me+bsja3ss1mfS7uojrWsjtr5rImgjyeuIzT18?=
- =?us-ascii?Q?vmwqsQykGXqjSMU5f4yabFNYr669x36qMtUX4wVCQ2PD4JWuaeadmnmHk0Pn?=
- =?us-ascii?Q?gUdURnK/g3T50rEBIo1/YVFQyR+AVaxQlmONsbHCOhYgSRw719EHPxX706qA?=
- =?us-ascii?Q?2weAHT5D3Kh3u+UNTJqmsAz66cWKuxkcTVyWtWL9WP3wgoOA4Rs8+RIt5/1p?=
- =?us-ascii?Q?1YwmVSZJuWZs6Q7PM6kXY5pWr3kncpd1ip1Vwy+1ZRjVUInZcCWYP6O/BOV3?=
- =?us-ascii?Q?Em5kcBJlatNuMWlDBlrySESETcC4DZo26YokbtPeXB063/2q71RTxBmWKJvu?=
- =?us-ascii?Q?04Mv5LGAeNhLLJOLuY3AaUTTr1HYZ5qvwfWZ5hqIey/C955hef6kQbav99hj?=
- =?us-ascii?Q?PP3z71lpqbGlWVOLkf44KwjXIOqeMiZySJvE4fpTSy8wcBUhQ4Q4V3Ykdhsl?=
- =?us-ascii?Q?Iosm7OTzXM4XxEayPSEVBv+9zPJOJws1GkF9iFUfKS47M0Ef3WqxvjCV6ROm?=
- =?us-ascii?Q?czKOnN5ZoN5PeLTJAmONWBVGR105QO5XNLJ5kWACh40pkml2imVhAXM1XdQe?=
- =?us-ascii?Q?LjKycM5UobuTb23i6bkEBlP8n93VSdS57xx6zGQY2wW2w3zE5YyZbMFx7fLr?=
- =?us-ascii?Q?2AZCUTa/YZNcgAWYfM++o9W430Brj8E1mu31Yscl1ooBKSep6RHkofeQzLhC?=
- =?us-ascii?Q?7upNizhZVOgiS3G0UJOSMOiMO9b1M+1KG2URgGrYn4zIk/3oerz3S7ekcIWO?=
- =?us-ascii?Q?TZMMgn3pl9UtVCW6fSDeV7sv2Gxz4kAfbeQbewwrfEcJz4P1AYh3abNneZlU?=
- =?us-ascii?Q?nbH/1dX8TTxBb8Di+UhK9eck0FQIiy0iB9aT2m+4K2x0p7NxGx54ZsBHySgx?=
- =?us-ascii?Q?RbCcoMs0HyUK6lb8fAclJ3EA+zGLt1LDIs7a7w7mLnVGs+4flQT9nWktDd/u?=
- =?us-ascii?Q?vxm7qgezKm0POSkBN84kFHrfnp2Fvga/NcEcijGdXWvWt+urA+pz9o2HipsN?=
- =?us-ascii?Q?2Nw8q7M/6SyJ/YCeFAX2udZgiGvqzlmSJwwGN+zz7Tg2DzPCTAa4vrpK1Hy9?=
- =?us-ascii?Q?SOGTH+AAimtGizkYhhHOfXAriROCeFqg5WMGZHWqjuM4Bg0uvw2m+Npzn7lA?=
- =?us-ascii?Q?zBAjbuY5MqmODZbD3Nl5cqgtuQnJP4x9g3gH0aH3ytigfLoPOIP47LXOo30g?=
- =?us-ascii?Q?qwjBz51QnCiM+B2xNlvdy/aJNBgpur3kjN+23jZwNtYNp7ggqdyJBMx9pGZ+?=
- =?us-ascii?Q?s6MPbmWBLwDBHgS01zm5MhQmCtaWvJ/6vSGnw0xtqeQqigh7dQYQFn2D/rfx?=
- =?us-ascii?Q?DZStlGcbk9m7TugpkG96v4jjEYHASTtrturlwwhItRguUs6ti4UTHSx45e9G?=
- =?us-ascii?Q?xauHy00IoiJDbi9B3ojSsD3uqUfxL2J+?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2GqtlRSScsmKlyUS309ZlSpCnIRDfQ477s97WBALX3efgr+VoGRsIg7foUIT?=
- =?us-ascii?Q?pj5aRh39AER/E5iyKzjeGP/m2wfu7Q7gmk2Q2b98XkxyhUz8pYJHHuiXRLmn?=
- =?us-ascii?Q?mWhEi7NzoMGhBGrIIld+d2DKUXb9VnXYZhiZlWutMxzr0Prqk5g44PWbceoQ?=
- =?us-ascii?Q?AmEdXzSDefMnbw7pps6iTXaIi3oqV5uAlyatl3E7vDyGeyIKNb8tZGmEVD35?=
- =?us-ascii?Q?PDFpcQHD2rbeykCmEinv2dFoN4evyui7qhfk59bv7v2TexlqMXju9bWcI6cy?=
- =?us-ascii?Q?cPMujLFhVqzQQXHA69YkouwDL8yDxfCrILmT1gYrZVCiDi9vlPVva4QjlvYq?=
- =?us-ascii?Q?ggXdCC4USjSzZuOsEYgaMUHIzdDXJ6Hp9wEts/HesQkJ0rTPvVA8LvOk12aG?=
- =?us-ascii?Q?vTs+EFfFEHURH6g/1VNE6+Hp5bDRLxtqb18v8aXg7Xgixf5VetRRRghF2UR0?=
- =?us-ascii?Q?8nofiChjzPnZSKfluwB7rBsnkXPLsn5BgZMB/2miTS4lvIYzFvfABO5MnL/2?=
- =?us-ascii?Q?6jZbz68hMo06iInJ+PchrJ8H8+Zla6UW52khxdbAfOvYNMCO2Su4Pz5a2m+6?=
- =?us-ascii?Q?oouYfkRdj0bppUUuY2RKLNf+WCsZu5iTJMNCtUIY265C9E/nouwV3IQcX4IE?=
- =?us-ascii?Q?OdFo35YOtLlA+zQ+Xb9dTDnWPYBn5TAYOxv/ise0HbeksSh+ydt/jQx/CTkf?=
- =?us-ascii?Q?D5sr32X97ML6+NkNIczbCxoQynccEPad7AaFT7WlEFA3nWs2Fbjrr8cGxJ9G?=
- =?us-ascii?Q?GMQqRVaUnfyKvKJAxU054uXDbEVCmbakDHuQvTHe7Icl6AJxrynTE+oeHYVu?=
- =?us-ascii?Q?y6k0RQt3AjfIvG/Ko9Ake2uJeJ87JC3HjY3l/V4NEVNco1+oTwkTzBDg2UW6?=
- =?us-ascii?Q?NNiA59z5LtV3dTbe5ltaEoKUJ/ETRy7Z2xMQFhHdHG21mP2kqloi6jEosTFp?=
- =?us-ascii?Q?9wWkbNeDSPdBNzvQkCZVmQozqfgSFC3rNjC0+JHM+zVu/uGl2aKKLicPW1UX?=
- =?us-ascii?Q?RIEj9s/EPoAVi329spUpRc8bOcGU5pDxM1Kbs2YWC+N90S9J4/iw6hJ8gERw?=
- =?us-ascii?Q?dV2xOKLx1jYMucVqlxSNsGD0FDJW3kUxamXD53D8sBWaEL0P1gGxsz90zPYH?=
- =?us-ascii?Q?i+afHKcOF2VgQvnyQR1jx+DCeWPqIHbHG271QWkb9oiCv16Eo0Sn0GQ2u+e7?=
- =?us-ascii?Q?Cf5fhME34lVwozAuKT/DrYLWcIaCdeEHRkHs9Yag+uZuUAirQ+qw9LMwqPjG?=
- =?us-ascii?Q?2c7VH0AbGgLrfdRalELxl3ofF6zb4/6JEAoQPxGwjIfXIq5xJx5seT7rzqZN?=
- =?us-ascii?Q?O9CKYq3fN2yFisvmMTlK3oK6qZK4TjUCsteyoFaQ0+vKbpsjhxQkOyRHB3kX?=
- =?us-ascii?Q?3S8S1vhe/40+YjvTtZyJdKEUlDRuREa04Gr3Mv1L+EOizZQav1bY5UbAzaA6?=
- =?us-ascii?Q?AylMfy40fm+trEEF/8NzpKQaZ2s4Aoz9huAP8Y501+XcDpwkrMRgDSG+bdLf?=
- =?us-ascii?Q?LePkvKX7k8PoCruPmiUQBJsac6Mw9tlwIR5fxMXftGRCVo9mH5dJrdzNqg6E?=
- =?us-ascii?Q?oSZuOjvltSoaDpa4hQb6VvhVdbYZxcFEHh5y8vni?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d8409a75-501d-462f-c107-08dd78422d6e
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2025 15:12:58.5235
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dKlFLQJZ5ZmzEbKFCoMt1Kr7D+Q2vmF8hTtwdEUPkvkGG9BASdwBoK30rhgxKWaA12BKgRpH1XJr14vs2PRaBQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6858
+In-Reply-To: <Z_d2fcuWPiel_OnT@gondor.apana.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_081302_170300_43E7305D 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20250410_081520_413032_BF75D5B4 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,93 +98,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 11:02:47AM +0200, Primoz Fiser wrote:
-> Add support for RTC clock connected via I2C on phyBOARD-Segin-i.MX93.
-> Make I2C RTC the default clock by configuring the aliases.
+Hi Herbert,
 
-"Add support for RTC connected via I2C on phyBOARD-Segin-i.MX93. Set
-default RTC by configuring the aliases."
+On Thu, Apr 10, 2025 at 03:42:53PM +0800, Herbert Xu wrote:
+> On Thu, Apr 10, 2025 at 10:06:21AM +0300, Sakari Ailus wrote:
+> > Add a local variable for a struct device pointer instead of obtaining the
+> > hwrng priv field and casting it as a struct device pointer whenever it's
+> > needed.
+> > 
+> > Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+> > ---
+> >  drivers/char/hw_random/atmel-rng.c | 9 +++++----
+> >  1 file changed, 5 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/char/hw_random/atmel-rng.c b/drivers/char/hw_random/atmel-rng.c
+> > index 143406bc6939..5192c39ebaeb 100644
+> > --- a/drivers/char/hw_random/atmel-rng.c
+> > +++ b/drivers/char/hw_random/atmel-rng.c
+> > @@ -56,12 +56,13 @@ static int atmel_trng_read(struct hwrng *rng, void *buf, size_t max,
+> >  			   bool wait)
+> >  {
+> >  	struct atmel_trng *trng = container_of(rng, struct atmel_trng, rng);
+> > +	struct device *dev = (struct device *)trng->rng.priv;
+> 
+> Please stop using the priv field and instead add a struct device
+> pointer to struct atmel_trng.
 
-Frank
->
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> ---
->  .../dts/freescale/imx93-phyboard-segin.dts    | 36 +++++++++++++++++++
->  1 file changed, 36 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> index 525f52789f8b..38b89398e646 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> @@ -17,6 +17,11 @@ /{
->  	compatible = "phytec,imx93-phyboard-segin", "phytec,imx93-phycore-som",
->  		     "fsl,imx93";
->
-> +	aliases {
-> +		rtc0 = &i2c_rtc;
-> +		rtc1 = &bbnsm_rtc;
-> +	};
-> +
->  	chosen {
->  		stdout-path = &lpuart1;
->  	};
-> @@ -33,6 +38,24 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
->  	};
->  };
->
-> +/* I2C2 */
-> +&lpi2c2 {
-> +	clock-frequency = <400000>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_lpi2c2>;
-> +	status = "okay";
-> +
-> +	/* RTC */
-> +	i2c_rtc: rtc@68 {
-> +		compatible = "microcrystal,rv4162";
-> +		reg = <0x68>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_rtc>;
-> +		interrupt-parent = <&gpio4>;
-> +		interrupts = <26 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +};
-> +
->  /* Console */
->  &lpuart1 {
->  	pinctrl-names = "default";
-> @@ -56,6 +79,13 @@ &usdhc2 {
->  };
->
->  &iomuxc {
-> +	pinctrl_lpi2c2: lpi2c2grp {
-> +		fsl,pins = <
-> +			MX93_PAD_I2C2_SCL__LPI2C2_SCL		0x40000b9e
-> +			MX93_PAD_I2C2_SDA__LPI2C2_SDA		0x40000b9e
-> +		>;
-> +	};
-> +
->  	pinctrl_uart1: uart1grp {
->  		fsl,pins = <
->  			MX93_PAD_UART1_RXD__LPUART1_RX		0x31e
-> @@ -69,6 +99,12 @@ MX93_PAD_SD2_RESET_B__GPIO3_IO07	0x31e
->  		>;
->  	};
->
-> +	pinctrl_rtc: rtcgrp {
-> +		fsl,pins = <
-> +			MX93_PAD_ENET2_RD2__GPIO4_IO26		0x31e
-> +		>;
-> +	};
-> +
+Thanks for the review. I'll do that in v2.
 
-keep order by node name.
+-- 
+Regards,
 
-Frank
->  	pinctrl_usdhc2_cd: usdhc2cdgrp {
->  		fsl,pins = <
->  			MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
-> --
-> 2.34.1
->
+Sakari Ailus
 
