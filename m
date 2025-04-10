@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95731C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7434C369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sMgLHhcvDmNSAlUbxNmHnAElslMGmB4NTmJSnYTseDM=; b=fAKT6yO2g+WDdeUbX1nmrAIM4Q
-	T0bkELLh59dbGkIaD/Nun9Qiyt4ThrCcjWO9oK3tEB63DFpNGI8+zQfpYd7mQuWpNIbw7EBwQGDNO
-	ZQNE98apQP8r7VbgVesZkVGfALUsTwAx/A3oeLBwuVfBFOZkEtUtxWOm6Zww33j+i9e5tCfv+f1yo
-	ApCEReT/UEuc0xxlSivIwT7hvgYeNxECskS4Oj5jChTSoG80s04OZISc/OGdPxyoADgRDX1EvFGyC
-	mjPAlkFHKgKyWRt8wlhxkShPBisxEn6/qlBHzb2Vf9oQP0w2bioYqOnPidM5EaYgihkGPoAKNMfpq
-	rJ4o/6uA==;
+	bh=dsVWrf0xzWyYwyghGB7xrazS0Xxr4ZxY8zXtzb8k0qA=; b=dZqtSbP068/DgZvSYai1lFLPMv
+	EoNilsPQpvi0g0aN5AB5J70DMfni1tIIcJtQiySKexivZc3HHOUe1fRNHfZO/pODNSXmjap3CvAxK
+	pxz1TeQUglOULoxURm5KqTRC9eD6ntXLPEXGhG6NxyLMqqsQegMkR4otbC3BbZtpEvBwCqsiw48yn
+	isWQHiUcaVjdKGpCg2L8o2xx3lzhb0/wkENXEFEZSdGN6gsPORbF8YJemD0chb4RWYnZ6XdNYWERX
+	DMPoTmBJkZyJp1tiDZJw+jz8qON4NxgHQUEAHz6HufX6KpR2JcN3ezpCd9hMRI+EA57+6rq8ZvO2+
+	q/s235DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pvh-0000000AFiW-46wg;
-	Thu, 10 Apr 2025 11:18:46 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1u2pvw-0000000AG1U-2pHJ;
+	Thu, 10 Apr 2025 11:19:00 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2or5-0000000A307-0U2p
+	id 1u2ozV-0000000A4Ld-0bS5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 10:09:57 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A9VcmO026175;
-	Thu, 10 Apr 2025 12:09:49 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	sMgLHhcvDmNSAlUbxNmHnAElslMGmB4NTmJSnYTseDM=; b=l1NPcm49QgyMDRnD
-	Urf7P2fHyxrmcHQIumQVNtRglqRTixeKCgSMJC6RqUIniDx+P3QjniF+8CQ8TBeU
-	XwEUlSWDlZ63+XoGvp6vk8pelnY3y8ptnv1fom3GO4GUJz/EijIprveScipabev8
-	uW6DIdin/BjGznkxGxpmgJJFl7HUcPKLH7OiSPmyiq6N2fbAynhK+e4wYmx3gVhi
-	op05N1zwKTszNx89mNzkFkfbin9Wk52dNVFgnS00ACRNtR5nkU7ZvOKIMhJLTozI
-	XUojyzWuiYz0fclNB9/RYl7euETTvUCJFYTo0Ql8KtFaqSjduvMdEn1zqpnaYAv0
-	yelNvw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw2h74mr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Apr 2025 12:09:49 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9250E40046;
-	Thu, 10 Apr 2025 12:08:59 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9E4BE9BCED8;
-	Thu, 10 Apr 2025 12:08:21 +0200 (CEST)
-Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 10 Apr
- 2025 12:08:21 +0200
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <maz@kernel.org>, Christian Bruel <christian.bruel@foss.st.com>
-Subject: [PATCH v1 2/2] arm64: dts: st: Use 128kB size or aliased GIC400 register access
-Date: Thu, 10 Apr 2025 12:07:58 +0200
-Message-ID: <20250410100758.1057170-2-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250410100758.1057170-1-christian.bruel@foss.st.com>
-References: <20250410100758.1057170-1-christian.bruel@foss.st.com>
+	Thu, 10 Apr 2025 10:18:39 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c68:389d:1fcb:c0f8:ff7c:208d])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 45F8F352;
+	Thu, 10 Apr 2025 12:16:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1744280191;
+	bh=dsVWrf0xzWyYwyghGB7xrazS0Xxr4ZxY8zXtzb8k0qA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T455zsZkqCtAYV7CEXOaCyxkmPXL6S7RjI6CqzMR5E6/1PRJQkRyadBCB5M/4UzZN
+	 iNwrbvCy1TIzOtyH/VopN+vkScWsWjLBQ3+fD3ukqSjFBti/AXPTYIyHax2HdMVWFq
+	 VrPL4r7Dyd27jjlHzRou0C/HSSCmBwy6LgPzcxFM=
+Date: Thu, 10 Apr 2025 15:48:25 +0530
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+To: Devarsh Thakkar <devarsht@ti.com>
+Cc: Andrew Davis <afd@ti.com>, Judith Mendez <jm@ti.com>, 
+	Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>, Nishanth Menon <nm@ti.com>, Hari Nagalla <hnagalla@ti.com>, 
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Beleswar Padhi <b-padhi@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Markus Schneider-Pargmann <msp@baylibre.com>, praneeth@ti.com, "Khasim, Syed Mohammed" <khasim@ti.com>, 
+	tomi.valkeinen@ideasonboard.com, v-krishnamoorthy@ti.com, s-tripathy@ti.com, s-tripathi1@ti.com, 
+	c-shilwant@ti.com
+Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
+ remote processors
+Message-ID: <czmir7yvss3oreveesyrjqfdcawyn2axtstomsj3yx5sntqwo2@r3udnsyrxvkp>
+References: <20250405001518.1315273-1-jm@ti.com>
+ <20250405001518.1315273-7-jm@ti.com>
+ <6868f593-0728-4e92-a57b-87db6a0037f6@ti>
+ <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
+ <e131298f-3713-482a-a740-ff89709270b4@ti.com>
+ <091c0869-525b-4b40-b5fe-a5c1907ec606@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-10_01,2025-04-08_04,2024-11-22_01
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="e3db444jyk2gutly"
+Content-Disposition: inline
+In-Reply-To: <091c0869-525b-4b40-b5fe-a5c1907ec606@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_030955_732194_0C938989 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250410_031837_673355_C2130B02 
+X-CRM114-Status: GOOD (  69.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,39 +80,430 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adjust the size of 8kB GIC regions to 128kB so that each 4kB is mapped 16 times
-over a 64kB region. The offset is then adjusted in the irq-gic driver.
 
-see commit 12e14066f4835 ("irqchip/GIC: Add workaround for aliased GIC400")
+--e3db444jyk2gutly
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
+ remote processors
+MIME-Version: 1.0
 
-Fixes: 5d30d03aaf785 ("arm64: dts: st: introduce stm32mp25 SoCs family")
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Acked-by: Marc Zyngier <maz@kernel.org>
----
-v1: Fixed patch comment.
+Hi Devarsh,
 
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Thanks for the cc here.
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index 379e290313dc..87110f91e489 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -119,9 +119,9 @@ intc: interrupt-controller@4ac00000 {
- 		#interrupt-cells = <3>;
- 		interrupt-controller;
- 		reg = <0x0 0x4ac10000 0x0 0x1000>,
--		      <0x0 0x4ac20000 0x0 0x2000>,
--		      <0x0 0x4ac40000 0x0 0x2000>,
--		      <0x0 0x4ac60000 0x0 0x2000>;
-+		      <0x0 0x4ac20000 0x0 0x20000>,
-+		      <0x0 0x4ac40000 0x0 0x20000>,
-+		      <0x0 0x4ac60000 0x0 0x20000>;
- 	};
- 
- 	psci {
--- 
-2.34.1
+On Apr 10, 2025 at 14:30:59 +0530, Devarsh Thakkar wrote:
+> Hi Andrew, Judith,
+>=20
+> Thanks for the quick revert.
+>=20
+> On 07/04/25 21:28, Andrew Davis wrote:
+> > On 4/7/25 9:13 AM, Judith Mendez wrote:
+> > > Hi Devarsh,
+> > >=20
+> > > On 4/7/25 8:54 AM, Devarsh Thakkar wrote:
+> > > > Hi Judith,
+> > > >=20
+> > > > On 05/04/25 05:45, Judith Mendez wrote:
+> > > > =C2=A0> From: Devarsh Thakkar <devarsht@ti.com>
+> > > > >=20
+> > > >=20
+> > > > Thanks for the patch.
+> > > >=20
+> > > > > For each remote proc, reserve memory for IPC and bind the mailbox
+> > > > > assignments. Two memory regions are reserved for each remote proc=
+essor.
+> > > > > The first region of 1MB of memory is used for Vring shared buffers
+> > > > > and the second region is used as external memory to the
+> > > > > remote processor
+> > > > > for the resource table and for tracebuffer allocations.
+> > > > >=20
+> > > > > Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+> > > > > Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+> > > > > Signed-off-by: Judith Mendez <jm@ti.com>
+> > > > > ---
+> > > > > =C2=A0 arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 96
+> > > > > +++++++++++++++++++++ ++--
+> > > > > =C2=A0 1 file changed, 90 insertions(+), 6 deletions(-)
+> > > > >=20
+> > > > > diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> > > > > b/arch/arm64/ boot/dts/ti/k3-am62a7-sk.dts
+> > > > > index 1c9d95696c839..7d817b447c1d0 100644
+> > > > > --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> > > > > +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> > > > > @@ -52,6 +52,42 @@ linux,cma {
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 linux,cma-default;
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 c7x_0_dma_memory_regi=
+on: c7x-dma-memory@99800000 {
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 compatible =3D "shared-dma-pool";
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 reg =3D <0x00 0x99800000 0x00 0x100000>;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 no-map;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > +
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 c7x_0_memory_region: =
+c7x-memory@99900000 {
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 compatible =3D "shared-dma-pool";
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 reg =3D <0x00 0x99900000 0x00 0xf00000>;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 no-map;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > +
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mcu_r5fss0_core0_dma_=
+memory_region: r5f-dma-memory@9b800000 {
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 compatible =3D "shared-dma-pool";
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 reg =3D <0x00 0x9b800000 0x00 0x100000>;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 no-map;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > +
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mcu_r5fss0_core0_memo=
+ry_region: r5f-dma-memory@9b900000 {
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 compatible =3D "shared-dma-pool";
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 reg =3D <0x00 0x9b900000 0x00 0xf00000>;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 no-map;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > +
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wkup_r5fss0_core0_dma=
+_memory_region: r5f-dma-memory@9c800000 {
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 compatible =3D "shared-dma-pool";
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 reg =3D <0x00 0x9c800000 0x00 0x100000>;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 no-map;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > +
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wkup_r5fss0_core0_mem=
+ory_region: r5f-dma-memory@9c900000 {
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 compatible =3D "shared-dma-pool";
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 reg =3D <0x00 0x9c900000 0x00 0xf00000>;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 no-map;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > +
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 secure_tfa=
+_ddr: tfa@9e780000 {
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 reg =3D <0x00 0x9e780000 0x00 0x80000>;
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 alignment =3D <0x1000>;
+> > > > > @@ -63,12 +99,6 @@ secure_ddr: optee@9e800000 {
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 alignment =3D <0x1000>;
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 no-map;
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > -
+> > > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wkup_r5fss0_core0_mem=
+ory_region: r5f-dma-memory@9c900000 {
+> > > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 compatible =3D "shared-dma-pool";
+> > > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 reg =3D <0x00 0x9c900000 0x00 0x01e00000>;
+> > > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 no-map;
+> > > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > >=20
+> > > > This is missing the edgeAI specific remote-core carveouts and
+> > > > RTOS- to-RTOS IPC memory regions [1] being used by edgeAI
+> > > > firmwares which come as pre-packaged in the official SDK release
+> > > > for AM62A.
+> > > >=20
+> > > > There is only one official SDK release for AM62A (which is
+> > > > edgeAI based) [2] which packages these edgeAI remoteproc
+> > > > firmwares and in my view it is a fair expectation that remote
+> > > > core careveouts in device- tree should align with firmwares
+> > > > released in SDK.
+> > > >=20
+> >=20
+> > Why should Linux upstream care about what we do in our current evil
+> > vendor SDKs?
+>=20
+> These carveouts are specific to remote-cores and so have to match with
+> firmwares running in these remote-cores. The debate is on which firmwares=
+ it
+> should match to. The firmwares being packaged in SDK are the most used-on=
+es
+> and so in my view it is safe to account them as the official ones, unless
+> of-course there is a major overhaul and re-architecture planned and accep=
+ted
+> for these firmwares in which case we should wait for it.
+>=20
+> > We change things around every cycle, and do all kinds of hacky things to
+> > just
+> > "make it work" for the current SDK release.
+> >=20
+>=20
+> I don't see any changes done in memory map for last set of releases, but
+> agreed if there is big architecture change planned for these firmwares th=
+en
+> we should rather wait for updated firmwares then adding bloated carve-out=
+s.
+>=20
+> > > > This is because most developers (including me) and vendors
+> > > > download this official SDK release and use it with latest
+> > > > upstream kernel and modules (right now we are applying required
+> > > > patches locally) and this patch won't suffice for this, in-fact
+> > > > it won't work since the remoteproc firmwares are already using
+> > > > regions beyond the reserved- regions from this patch.
+> >=20
+> > Then that firmware team should fix their firmware, Linux should not
+> > do things just because some builds of a firmware did the wrong thing.
+>=20
+> Maybe some optimizations would be missing, but carve-outs for lot of thin=
+gs
+> which these firm-wares do out-of-box (and not even related fully to AI) a=
+re
+> missing. For e.g. there is RTOS-to-RTOS IPC test which runs on startup and
+> there is no reserved region for same, this would lead to tricky failures.
+> The DM R5 remote core also controls ISP, but all required regions for same
+> are also not present either.
+>=20
+> >=20
+> > Just a random example from the top of my mind here, a while back
+> > someone on the codec firmware team decided to take the standard RPMSG
+> > name service structure and modify it to suit some specific usecase
+> > they had, suddenly all the firmware we made for AM57x devices stopped
+> > working on upstream kernels. Instead of fixing the firmware we just
+> > carried a hack for the same in our vendor kernel trees. Now customers
+> > have no path to use this old firmware on newer kernels as adding the
+> > hack to upstream Linux (rightly) failed [0].
+> >=20
+> > Let's not do that again, if we have firmware that doesn't follow
+> > upstream, then let's fix the firmware, not hack around it upstream.
+> >=20
+> > The edgeAI firmware folks have no issue ignoring existing upstream
+> > IPC carveouts and simply replacing them all with their own custom
+> > ones in their SDK[1], I see no reason they cannot continue doing that
+> > if they don't want to fix their firmware.
+> >=20
+>=20
+> There is no apples-to-apples comparison with TDA4VM, unlike AM62A7 it off=
+ers
+> SDK for both edgeAI and generic Linux [1], so if someone just uses latest
+> upstream kernel and device-tree with this generic linux SDK, that would
+> still work without any overlays applied or carveouts added. Same is not t=
+rue
+> for AM62A, as AM62A offers only edgeAI SDK with firmwares packaged for AI
+> use-cases. So if someone, just replaces latest upstream kernel and
+> device-tree with the patches from this series in edgeAI wic image, it won=
+'t
+> work cleanly due to missing carve-outs.
+>=20
+> Also even if we keep aside edgeAI, basic camera+ISP use-case won't work
+> without the carveouts and we would prefer not to clone another layer to g=
+rab
+> the overlay and apply it every-time we want to test run camera+ISP (and e=
+ven
+> the edgeAI use-case) on AM62A which would be a pain.
+>=20
 
+On the basic camera + ISP usecase, afaiu the downstream edgeAI SDK uses=20
+custom gstreamer elements that make calls to the aforementioned R5 core=20
+that controls the ISP. On top of that there are additional gstreamer=20
+patches that are not yet posted upstream for review from the community,=20
+so the userspace design isn't really set in stone, or upstream-friendly=20
+yet.=20
+
+IMO if that architecture is still under discussion, it might be better=20
+to keep the edgeAI specific carveouts out of the upstream DTs.. just in=20
+case the carevouts have to go away, or change significantly.
+
+If you are sure that the regions and firmware architecture is set in=20
+stone and won't be updated even if there is a complete redesign of the=20
+userspace/application level stack for accessing the ISP (let's say using=20
+libcamera), only then it makes sense to add the carveouts right now.
+
+> > >=20
+> > > I understand your point, currently with this patch remoteproc loading
+> > > will not work for some cores. However, the goal here is to standardize
+> > > as much as possible the memory carveout sizes, push the "demo firmwar=
+e"
+> > > to request resources the correct way from resource table, and move aw=
+ay
+> > > from this dependency and limitations that we have with our firmware.
+>=20
+> I understand this, but my view is that w.r.t firmware only goal should not
+> just be tp demonstrate correct way of requesting resources from
+> resource-tables, optimize the carve-outs etc but also to demonstrate the
+> primary use-cases (camera+ISP+edgeAI) which the device is capable of.
+>=20
+> > > should soon be able to generate our own firmware using Zephyr,=C2=A0 =
+which
+> > > Andrew is pioneering, so with this firmware we should move to the
+> > > correct direction upstream. Downstream we are still using the memory
+> > > carveout sizes that the firmware folk want so desperately to keep, for
+> > > now..
+> > >=20
+> >=20
+> > +1
+> >=20
+> > I have this Zephyr based firmware for AM62A working and it uses the
+> > standard IPC regions as specified in this patch. I'll be posting the PR
+> > for it in Zephyr upstream by the end of week.
+> >=20
+>=20
+> I understand this, but will this zephyr based firmware support vision +
+> edgeAI analytics ? Does it demonstrate all the unique capabilities of AM6=
+2A
+> SoC ? If not, then what would be utility of such firmware on AM62A where
+> these are the primary use-cases w.r.t AM62A ?
+>=20
+> Why should upstream device-tree use carve-outs which match to this demo
+> zephyr based firmware (which apparently not many are using and is not goi=
+ng
+> into any official SDK release) instead of official firmwares going into S=
+DK
+> ? SDK released firmwares are being used by so many customers and SDK
+> documentation maps to it, but zephyr firmware that is being pitched here,
+> who would be the potential users and what would be it's utility ?
+>=20
+> [1]: https://www.ti.com/tool/PROCESSOR-SDK-J721E
+>=20
+> Regards
+> Devarsh
+>=20
+> > For this patch as it is:
+> >=20
+> > Acked-by: Andrew Davis <afd@ti.com>
+> >=20
+>=20
+>=20
+> > Andrew
+> >=20
+> > [0] https://lore.kernel.org/lkml/20241011123922.23135-1-richard@nod.at/
+> > [1] https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-kernel/
+> > linux/linux-ti-staging/j721e-evm/0001-arm64-dts-ti-Add-DTB-overlays-for-
+> > vision-apps-and-ed.patch?h=3Dkirkstone
+> >=20
+> > > ~ Judith
+> > >=20
+> > > >=20
+> > > > [1]:
+> > > > https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/
+> > > > arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=3Dti-linux-6.6.y-cicd#n103
+> > > > [2]: https://www.ti.com/tool/PROCESSOR-SDK-AM62A
+> > > >=20
+> > > > Regards
+> > > > Devarsh
+> > > >=20
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 opp-table {
+> > > > > @@ -741,3 +771,57 @@ dpi1_out: endpoint {
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > =C2=A0 };
+> > > > > +
+> > > > > +&mailbox0_cluster0 {
+> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > +
+> > > > > +=C2=A0=C2=A0=C2=A0 mbox_r5_0: mbox-r5-0 {
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-rx =3D <0 0 0=
+>;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-tx =3D <1 0 0=
+>;
+> > > > > +=C2=A0=C2=A0=C2=A0 };
+> > > > > +};
+> > > > > +
+> > > > > +&mailbox0_cluster1 {
+> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > +
+> > > > > +=C2=A0=C2=A0=C2=A0 mbox_c7x_0: mbox-c7x-0 {
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-rx =3D <0 0 0=
+>;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-tx =3D <1 0 0=
+>;
+> > > > > +=C2=A0=C2=A0=C2=A0 };
+> > > > > +};
+> > > > > +
+> > > > > +&mailbox0_cluster2 {
+> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > +
+> > > > > +=C2=A0=C2=A0=C2=A0 mbox_mcu_r5_0: mbox-mcu-r5-0 {
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-rx =3D <0 0 0=
+>;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-tx =3D <1 0 0=
+>;
+> > > > > +=C2=A0=C2=A0=C2=A0 };
+> > > > > +};
+> > > > > +
+> > > > > +&wkup_r5fss0 {
+> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > +};
+> > > > > +
+> > > > > +&wkup_r5fss0_core0 {
+> > > > > +=C2=A0=C2=A0=C2=A0 mboxes =3D <&mailbox0_cluster0>, <&mbox_r5_0>;
+> > > > > +=C2=A0=C2=A0=C2=A0 memory-region =3D <&wkup_r5fss0_core0_dma_mem=
+ory_region>,
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 <&wkup_r5fss0_core0_memory_region>;
+> > > > > +};
+> > > > > +
+> > > > > +&mcu_r5fss0 {
+> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > +};
+> > > > > +
+> > > > > +&mcu_r5fss0_core0 {
+> > > > > +=C2=A0=C2=A0=C2=A0 mboxes =3D <&mailbox0_cluster2>, <&mbox_mcu_r=
+5_0>;
+> > > > > +=C2=A0=C2=A0=C2=A0 memory-region =3D <&mcu_r5fss0_core0_dma_memo=
+ry_region>,
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 <&mcu_r5fss0_core0_memory_region>;
+> > > > > +};
+> > > > > +
+> > > > > +&c7x_0 {
+> > > > > +=C2=A0=C2=A0=C2=A0 mboxes =3D <&mailbox0_cluster1>, <&mbox_c7x_0=
+>;
+> > > > > +=C2=A0=C2=A0=C2=A0 memory-region =3D <&c7x_0_dma_memory_region>,
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 <&c7x_0_memory_region>;
+> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > > +};
+> > > >=20
+> > >=20
+> >=20
+>=20
+>=20
+
+--=20
+Thanks,
+Jai
+
+--e3db444jyk2gutly
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAmf3mvEACgkQQ96R+SSa
+cUWkGhAAzCCnr4vaiqwl+eFE71335Drwwdm32P7PapSrveFwTaWYyVaAHV6ua/Cm
+sbvbJuHPgh9LIy2zNEq2EnsjfA513NovuM4yoGA5x1LBb2q/OtfhS8xDlxza0aJ4
+wN/jkJmTZJ7R+Oc3nvZBtLMLzlfhNFZFV92ob472rFGE9gS8V5KjcEJ5GAMAQqfd
+KMCdN3nqza9bVLnMDg8jTPJVR2K5ktonx3CyuIg44Q0Zgrxqj9otqm/QcF2Gt3gj
+jDQKMU9Ryowcm4SLoE/xlKOWQj1hwtY9HsegR4A7dzGDm//XIBo3iXCWsAMbWD1f
++enRtwycF96a1A/tei1yfNGj2yFVxamiUCtVA27i8XHr2Sfewl4zSSIhDYGJMU5o
+UxwjpKy4DGaPZuIH1h9TF1jFFouQgs9XZJBxk/IE6yzU1eU/W8eVgT6oBQCpVRL8
+FwAk4mUYNKiy4axTD1H5Xb8Z5JwpycuqZcp8j0GJPYDty2iYIxEZv55C7LciPfgA
+jL2Y/g7sx4rCPXTUGlKy4QnfJDm3pdxp6QbLnqsvgdjFA/6UGQyhGRolZCgoOkJy
+BANT1OM2ZN4B8OnIrcwrRcnecYsaTKqAU/ecEf1N/Zr6NQZNQbNbbC/KEoGrNH3G
+pRViFRX9b2Washmr6+9sy3XfKsFqbzz1p8OMsdQDLJSZnJaJW5s=
+=3GrP
+-----END PGP SIGNATURE-----
+
+--e3db444jyk2gutly--
 
