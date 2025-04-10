@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A133CC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B026C369AC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=raoUr8kouvU4cg0ySYDsdbJzGJScWBibH5QqrmnlZ/8=; b=j6QY2xpfe6BUEHSvrSEcAUBp7g
-	lF6hCy+J7dgttXHkcZmvZulcK63S8fX4sHkyYpuvn1ucYHqUSks2FVkwhaXC7jtR/tYPdIxttGlsr
-	jXbX4naoHdBqfCsi7xde/rcUGmo9/44gbaRjedVgXXtXOk38oRDLZ+w7u2ktjbyD6y0iTPREy8zA8
-	9ekNRmi6jR3XcITXHf+aubgpdA1jFdSN3lC/eu1izxB4USV1hFydF7FAhwC5taQZAHXF3pTZ5Httz
-	oAWvtMSza606r1c4dWeIlHve6KJwKRITtJEaeXXqIaHzJrSrOO/8LQjyOMvfE5Zzavy9a8OSFkA+a
-	y+hGlX0Q==;
+	bh=8E5OMclE49NpSxhJUw4MVgS4Jclo+X9yzYdNQ+PlmCc=; b=HTK0hVF5Fb292MLKV1/QAikeV4
+	bAYPDJKG1/hbZ4TVC46emz7c/K5wOZC31WxV6swG0MdZYEkSDhgbjCN6oxg9+Ju/K7l/aUnew/EnS
+	Ao2T8oI4QzE1vyR8QDwBdIQyYSBbakK2WLURqkQvbmyF7TK8HosjNBGdNY6zYO87qDPJgy1IS6il4
+	2HeCKS0Wwsh821KgYIx31CNMteBHCmSTZguPIDC1MYqFFZzkiwKwhqRJ0XfhaIEbVsu02AW/+5YpI
+	hBfr16UgSKlA4H0y9tEtA3rqzsn92PbxrdAA77AzBArZpZw/09BmApmHKUj1BtBYepfuXrfV1Rn5G
+	dvgGHqsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2v5j-0000000BGQV-2LMA;
-	Thu, 10 Apr 2025 16:49:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u2v7U-0000000BGh9-1D1w;
+	Thu, 10 Apr 2025 16:51:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2u85-0000000B4y1-2iXr;
-	Thu, 10 Apr 2025 15:47:50 +0000
+	id 1u2u85-0000000B4y2-35Ns;
+	Thu, 10 Apr 2025 15:47:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25C2E44EA3;
-	Thu, 10 Apr 2025 15:47:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95E14C4CEEA;
-	Thu, 10 Apr 2025 15:47:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B54AA4A44B;
+	Thu, 10 Apr 2025 15:47:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33747C4CEE9;
+	Thu, 10 Apr 2025 15:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744300068;
-	bh=MJ4WoqvhgC/aZjAy/ZTQhYcG1cI4RNuRYa6MzsWqQtk=;
+	s=k20201202; t=1744300067;
+	bh=17E6AqFYyreXuXiCUMrel7kiiXcdT5b24ICEL4rFA+A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hKfnqZneC+abzLvYTV6plSnmp6les52XSC3Xz9C7Rcp6J4l9nCVNuTwwlTUqDwC2q
-	 +72ANtmUuZvc/VC9/xocD3jWreOuzykzBrMs4XMQ+5mfaCArgkpCjWOGupDZjoz5Ow
-	 8UosB8hJqyiNrk+9DA7VvUzhvQIATUk+C0zQVQFDi+LPw+XTwEqa/nzR/JLtX1szDN
-	 PBgCNHvQouW1ck4kouSglDLfZtlrrW/w97heJkhLLQgWU5bkcf8/K4TkAhklO7XJAd
-	 vNyAf87yOvTzcn67GZHe95oSdT4xtwNHwsePQSTvc2Glij/FQIgwfTDE2C7PXQwh/o
-	 +h/3lbYv+BgBQ==
+	b=EO3eS51Ey9S8GJDcQAD6Rr1t3w6p6SAFWhoWkQ3W2bG6/AQW4FOhZwWpfKl+Wa2CX
+	 rjHhnrPIfNDzvsNPhaHlwKdZoeWSmw4nX1LiK+OVHzZwvwGzoEcL5T6BrmVVYaChhw
+	 P89evcQIT5K7fAHjnq9wbIjJ7jWx+ciBKRTcDqM2aZmRBv/n3LnYH+n9JuvVJQap9w
+	 3F9BCpDxC9gZjNGhRtDyqme2YIWauF1tC7B4P4JU0v2WqsTaDPyhu83pmJz++H32z/
+	 4GL746Vd9s/tc+V5Y4TK6nVcNQK/xh15HP+fsn0Oks0zVeOoxrV/b/vl3RxLG+kHyZ
+	 8GAJNzuFYqX6A==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 10 Apr 2025 10:47:23 -0500
-Subject: [PATCH v2 02/17] arm64: dts: broadcom: bcm2712: Use "l2-cache" for
- L2 cache node names
+Date: Thu, 10 Apr 2025 10:47:22 -0500
+Subject: [PATCH v2 01/17] arm64: dts: allwinner: h5/h6: Drop spurious
+ 'clock-latency-ns' properties
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250410-dt-cpu-schema-v2-2-63d7dc9ddd0a@kernel.org>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250410-dt-cpu-schema-v2-1-63d7dc9ddd0a@kernel.org>
 References: <20250410-dt-cpu-schema-v2-0-63d7dc9ddd0a@kernel.org>
 In-Reply-To: <20250410-dt-cpu-schema-v2-0-63d7dc9ddd0a@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -84,11 +84,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  linux-renesas-soc@vger.kernel.org, linux-mips@vger.kernel.org, 
  linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- =?utf-8?q?Philippe_Mathieu-Daud=C3=A9?= <philmd@linaro.org>
+ Andre Przywara <andre.przywara@arm.com>
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_084749_728676_CCC25C7D 
-X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-CacheID: sfid-20250410_084749_828395_AF5B3BC5 
+X-CRM114-Status: UNSURE (   9.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,56 +104,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There's no need include the CPU number in the L2 cache node names as
-the names are local to the CPU nodes. The documented node name is
-also just "l2-cache".
+'clock-latency-ns' is not a valid property for CPU nodes. It belongs in
+OPP table (which has it). Drop them from the CPU nodes.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Philippe Mathieu-Daudé <philmd@linaro.org>
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi | 4 ----
+ arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi | 4 ----
+ 2 files changed, 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-index 9e610a89a337..ad0cac8e4444 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-@@ -64,7 +64,7 @@ cpu0: cpu@0 {
- 			i-cache-sets = <256>; // 64KiB(size)/64(line-size)=1024ways/4-way set
- 			next-level-cache = <&l2_cache_l0>;
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi
+index d3caf27b6a55..48802bf02f3b 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h5.dtsi
+@@ -16,7 +16,6 @@ cpu0: cpu@0 {
+ 			reg = <0>;
+ 			enable-method = "psci";
+ 			clocks = <&ccu CLK_CPUX>;
+-			clock-latency-ns = <244144>; /* 8 32k periods */
+ 			#cooling-cells = <2>;
+ 		};
  
--			l2_cache_l0: l2-cache-l0 {
-+			l2_cache_l0: l2-cache {
- 				compatible = "cache";
- 				cache-size = <0x80000>;
- 				cache-line-size = <64>;
-@@ -88,7 +88,7 @@ cpu1: cpu@1 {
- 			i-cache-sets = <256>; // 64KiB(size)/64(line-size)=1024ways/4-way set
- 			next-level-cache = <&l2_cache_l1>;
+@@ -26,7 +25,6 @@ cpu1: cpu@1 {
+ 			reg = <1>;
+ 			enable-method = "psci";
+ 			clocks = <&ccu CLK_CPUX>;
+-			clock-latency-ns = <244144>; /* 8 32k periods */
+ 			#cooling-cells = <2>;
+ 		};
  
--			l2_cache_l1: l2-cache-l1 {
-+			l2_cache_l1: l2-cache {
- 				compatible = "cache";
- 				cache-size = <0x80000>;
- 				cache-line-size = <64>;
-@@ -112,7 +112,7 @@ cpu2: cpu@2 {
- 			i-cache-sets = <256>; // 64KiB(size)/64(line-size)=1024ways/4-way set
- 			next-level-cache = <&l2_cache_l2>;
+@@ -36,7 +34,6 @@ cpu2: cpu@2 {
+ 			reg = <2>;
+ 			enable-method = "psci";
+ 			clocks = <&ccu CLK_CPUX>;
+-			clock-latency-ns = <244144>; /* 8 32k periods */
+ 			#cooling-cells = <2>;
+ 		};
  
--			l2_cache_l2: l2-cache-l2 {
-+			l2_cache_l2: l2-cache {
- 				compatible = "cache";
- 				cache-size = <0x80000>;
- 				cache-line-size = <64>;
-@@ -136,7 +136,7 @@ cpu3: cpu@3 {
- 			i-cache-sets = <256>; // 64KiB(size)/64(line-size)=1024ways/4-way set
- 			next-level-cache = <&l2_cache_l3>;
- 
--			l2_cache_l3: l2-cache-l3 {
-+			l2_cache_l3: l2-cache {
- 				compatible = "cache";
- 				cache-size = <0x80000>;
- 				cache-line-size = <64>;
+@@ -46,7 +43,6 @@ cpu3: cpu@3 {
+ 			reg = <3>;
+ 			enable-method = "psci";
+ 			clocks = <&ccu CLK_CPUX>;
+-			clock-latency-ns = <244144>; /* 8 32k periods */
+ 			#cooling-cells = <2>;
+ 		};
+ 	};
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
+index 2301c59b41b1..73e8604315c5 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
+@@ -27,7 +27,6 @@ cpu0: cpu@0 {
+ 			reg = <0>;
+ 			enable-method = "psci";
+ 			clocks = <&ccu CLK_CPUX>;
+-			clock-latency-ns = <244144>; /* 8 32k periods */
+ 			#cooling-cells = <2>;
+ 			i-cache-size = <0x8000>;
+ 			i-cache-line-size = <64>;
+@@ -44,7 +43,6 @@ cpu1: cpu@1 {
+ 			reg = <1>;
+ 			enable-method = "psci";
+ 			clocks = <&ccu CLK_CPUX>;
+-			clock-latency-ns = <244144>; /* 8 32k periods */
+ 			#cooling-cells = <2>;
+ 			i-cache-size = <0x8000>;
+ 			i-cache-line-size = <64>;
+@@ -61,7 +59,6 @@ cpu2: cpu@2 {
+ 			reg = <2>;
+ 			enable-method = "psci";
+ 			clocks = <&ccu CLK_CPUX>;
+-			clock-latency-ns = <244144>; /* 8 32k periods */
+ 			#cooling-cells = <2>;
+ 			i-cache-size = <0x8000>;
+ 			i-cache-line-size = <64>;
+@@ -78,7 +75,6 @@ cpu3: cpu@3 {
+ 			reg = <3>;
+ 			enable-method = "psci";
+ 			clocks = <&ccu CLK_CPUX>;
+-			clock-latency-ns = <244144>; /* 8 32k periods */
+ 			#cooling-cells = <2>;
+ 			i-cache-size = <0x8000>;
+ 			i-cache-line-size = <64>;
 
 -- 
 2.47.2
