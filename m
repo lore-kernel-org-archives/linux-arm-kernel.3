@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF77FC369A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 09:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1941FC3DA4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZXCoP5L2J4BtwaEH2n2GCfyW7YWDh/4SAhqwGfBIa/Q=; b=0/XjtTxXUu3+vnz+rStjPZVPe4
-	H04ulJj7esztWCffIdcoWJFUjIEhsihlmkUfZfKje3s4P8rA0Rh2ICfrBj899vEg7E9C8fJ8aaxwC
-	JdI0IThgc5HCq/Fs5TClpFd9dojFuufAzzuIWP8b9Ip6XHMXp5jquLwhVeZ42/JYLt3yOHHBFSAjb
-	Qwrsi1lEQckn7hPT5Df0p4yBCG0Aozm/UVQP7jjDzLyh+SBGuqAUYOntNOVRGGUKTeRRkzQbfdnUp
-	nAz8RrTOYMvB9VuAkXHRsEyI0bEy2tWdpqJm+MmBiCOXpw/6P9Ynn9P0IPQfrE93CyrjRNnGeCJug
-	lCO4VdxA==;
+	bh=Z+eC249uRYkRdhzJpnJvyPrRUmUkEwuqtNVIRRPmw04=; b=S0vTYOTL20Axtry0v4iTKT0Rru
+	6slyAtp9E/zkgEffGneWRP2WGLh3/i6nmbKJTv56ejX136E4nc418qUZBLYNJu48GWhqMS85nB6Qz
+	VWPVxNnAoemZSC388E6OLU5tGX2B21cKP3ymc72/UZqUneX4XKoJJMHH6fAkGMSWwaGcNOvXEY+Z/
+	WoxmTPl1/ajfDqCek4yO5Jn/yhmZv/amHa8zaqJbeDSqamg6VbCgKj49+M27yT3BS/bKHvt8Yn0zk
+	+g9LiiwAfRCjRJB/EPL5U75OTedhVYKmcF2J3lmExkFPVTgXxPHpAaq+vfpCGZ5l07GmO+ZtjEIA2
+	0eiI6TZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2nwN-00000009tK1-37wH;
-	Thu, 10 Apr 2025 09:11:19 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1u2pss-0000000AB7Y-2CfN;
+	Thu, 10 Apr 2025 11:15:50 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2nfO-00000009pAN-1hLa;
-	Thu, 10 Apr 2025 08:53:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=ZXCoP5L2J4BtwaEH2n2GCfyW7YWDh/4SAhqwGfBIa/Q=; b=LMOo6+ICnSo9wd/0x+KdGHWkKq
-	UgRoQTSd6ftNQ2A3885oQ20jGkdFObG4rxEVQtA2/ql8+vxJsCjYsuq5C7VsleaICi/CHRrTgvz0o
-	F/J8eT0tGLFZa/REVQbL/ko/0ScVNyQi7eCydsEc29zJBUGjBuFu/Ou5NN8A2OxEY8/7iwe7oTCP1
-	PwLUH/PUkw/EcOskWbW83yCVv4iGmroK9jbUrFJwquqoY0WXHbWxrNyhDewufFLhy2kuI3C9WXO3a
-	minoMr0ucy2l9tO62kueLB8Yvq82UiDojWW+zajgua6aqtDGaGwPjPCrOX+lqK9+aYc1uCbJBuL0r
-	4YmpVI5A==;
-Received: from i53875b95.versanet.de ([83.135.91.149] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1u2nfH-00036h-1n; Thu, 10 Apr 2025 10:53:39 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Andy Yan <andyshrk@163.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	cristian.ciocaltea@collabora.com,
-	hjc@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
+	id 1u2noI-00000009rGV-45Eu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 09:03:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=Z+eC249uRYkRdhzJpnJvyPrRUmUkEwuqtNVIRRPmw04=; b=lOMm6c8XqARmWitxR2VMJkEtKO
+	fTBcVvBCV+1UxpirZGQYCwsae9oVKTj3MnpZUf5TwRHZ6AmBcEsO8JhDOrIFn3gTx3mXHH22PWygW
+	cIScXdj40jgdy3vtPg+pldR0RdzO6bxn9SNQyEcPtdIgVwflxQKr19o5FYGjmLbfr9v29mU/B+HcD
+	KSzAMFA3R9sL5CXd0shZvFrBkSjx/KvAfRF/vhoilQOL6IbuzW4f2FtSxGozBO3EVshgzjhKHPkTw
+	GfN7VEeIweOt9UID4CcLruOn3Sf+EIWfOfs4brmvYRp6ceNsy3Y5oZXIRbvztrIAyfo7HotuFNHPv
+	QZr4Ofsg==;
+Received: from [89.212.21.243] (port=41926 helo=localhost.localdomain)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1u2noF-000Djj-0M;
+	Thu, 10 Apr 2025 11:02:54 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH v2] drm/rockchip: dw_hdmi_qp: Fix io init for dw_hdmi_qp_rockchip_resume
-Date: Thu, 10 Apr 2025 10:53:28 +0200
-Message-ID: <174427520238.842175.9547277934386341429.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250317102757.565679-1-andyshrk@163.com>
-References: <20250317102757.565679-1-andyshrk@163.com>
+	upstream@lists.phytec.de
+Subject: [PATCH 02/13] arm64: dts: freescale: imx93-phycore-som: Add EEPROM support
+Date: Thu, 10 Apr 2025 11:02:40 +0200
+Message-Id: <20250410090251.1103979-3-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250410090251.1103979-1-primoz.fiser@norik.com>
+References: <20250410090251.1103979-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_015346_440864_66757B13 
-X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-CacheID: sfid-20250410_020259_168598_5F7CEBA7 
+X-CRM114-Status: UNSURE (   6.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,19 +94,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add support for the EEPROM chip available on I2C3 bus (address 0x50),
+used for the PHYTEC SOM detection.
 
-On Mon, 17 Mar 2025 18:27:53 +0800, Andy Yan wrote:
-> Use cfg->ctrl_ops->io_init callback make it work for all platform.
-> And it's also gets rid of code duplication
-> 
-> 
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+ arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Applied, thanks!
-
-[1/1] drm/rockchip: dw_hdmi_qp: Fix io init for dw_hdmi_qp_rockchip_resume
-      commit: 1d34597a1e23004c7dd0ab5f58ba1ef95fd9ded5
-
-Best regards,
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+index 507a71f9294b..442ee067a047 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+@@ -154,6 +154,14 @@ ldo5: LDO5 {
+ 			};
+ 		};
+ 	};
++
++	/* EEPROM */
++	eeprom@50 {
++		compatible = "atmel,24c32";
++		pagesize = <32>;
++		reg = <0x50>;
++		vcc-supply = <&buck4>;
++	};
+ };
+ 
+ /* eMMC */
 -- 
-Heiko Stuebner <heiko@sntech.de>
+2.34.1
+
 
