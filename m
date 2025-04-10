@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA3AC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 07:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9198BC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 07:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cb7IK28fqEaigcH00aeaSLMccq7nNJere64F79CGyO8=; b=ogSp86RwcJXvdvlFf/fANziA+8
-	bIkvw0p0o3gDc4X4ZJg+58ZemXdTLzVb8fRKY0/cqszWRwsIXaJ/EYLygc/ddaZ1AJX2O8Rn301K0
-	BsHVoy8LkDkFjdEpbe7KfgO/Rn489fvWzNP5xCx0QQDcXpuXttm85eY5Jl8t4DN95yo4/YW4baT04
-	x1YYU/Q4cA+5rN4Adrkufd+9WSwFf1m8rynym9FRJxIJaTjyEb6QkM4SlHcKtRZX3dgJScWHi0Dm/
-	8JR2ZsJSxfgXaW5swu46YhBgdVPQy5Hak/T8vxXGd+GjE06Y5C7cZDRg0gmljYGM2z/t1Qc9BvCUf
-	6rr+a5Rg==;
+	bh=FpF7wEE+1cJWx9zAtKf9QlygCmnNGJM9CNsxuBDedRk=; b=rZLsaL41rFIJXlnOkjli55Rs3R
+	N+giDCiPKYRyQXDl1SaPPoxxtoQOU9Q/kRwOBMvK/JTGtpSkfcRApUm8CnkRt25o1fRu4hT2bDIdT
+	67nl2seS5jSU3Y4iJKIV4q/W3Jf4/yK7JqvsSNZ6lAyC9Cp1bM/VNcWD7YgAxFrL/5G6XVGYYPu89
+	K4IhqLzMxzlZTJdgKu4YO6s71kuHlJyHXfaK5QMyGVcgcfw5Kp99bhCWQ8s2etUOFPqLcXcYZzvpN
+	g4i4RMmXuWYLCPz5EwAFVjFKA+kj0XalPMo0oecbPKZ9PZTo6UEBTkr/xkZ4PEuxp84SNfaNT+PKf
+	v9AiI1ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2mFf-00000009X1j-0DZc;
-	Thu, 10 Apr 2025 07:23:07 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1u2mHd-00000009XTO-0eQJ;
+	Thu, 10 Apr 2025 07:25:09 +0000
+Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lhy-00000009Q6W-3tCx
+	id 1u2ljU-00000009QOt-2sAS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 06:48:21 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 8B5F4433F1;
-	Thu, 10 Apr 2025 06:48:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744267694;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cb7IK28fqEaigcH00aeaSLMccq7nNJere64F79CGyO8=;
-	b=Mwkv66txch40E6HcDevxLYZTrvLuTp8ktqfEwmvtNg/7fATJe9Enq5Pl4FboeK0VzIrNA3
-	42gz3ZOndZbTsKbnCSq9uIQNaf0wt0lEtOkGJWkO2fqBLqrFyxDvS5GD2FBLfCZxj0URQD
-	gZ1QyODj5QmRHH1WQ/OwA+1UyCoY/MWGdd/wsd3BLh5Lobmsbs58f3VQJD1YnOtJGrhnvB
-	pqQC/Y6BGqq4QwCrX1TEUNCgimIX/wdjzqN4xOcBC+NWqijh5yLav3QVqI8VrZCYAJFaxu
-	bCUFbybtq2gwlHLAz0eU1h7vuZ+O3zuLe8GkHZMakPNnWzfnozRO/3gROFUD8w==
-Date: Thu, 10 Apr 2025 08:48:09 +0200
-From: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Herve Codina <herve.codina@bootlin.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Andi
- Shyti <andi.shyti@kernel.org>, Wolfram Sang
- <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, Derek
- Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
- Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana
- Kannan <saravanak@google.com>, Bjorn Helgaas <bhelgaas@google.com>, Mark
- Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus
- <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, Geert
- Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, Allan Nielsen
- <allan.nielsen@microchip.com>, Horatiu Vultur
- <horatiu.vultur@microchip.com>, Steen Hegelund
- <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 15/16] misc: lan966x_pci: Add dtso nodes in order to
- support SFPs
-Message-ID: <20250410084809.1829dc65@windsurf>
-In-Reply-To: <c6257afe-36bb-46d8-8c22-da3b85028105@lunn.ch>
-References: <20250407145546.270683-1-herve.codina@bootlin.com>
-	<20250407145546.270683-16-herve.codina@bootlin.com>
-	<19f1a382-1b6b-42bd-a548-a1a5644c9a1b@lunn.ch>
-	<20250408162603.02d6c3a1@bootlin.com>
-	<D91CSNC07NYM.3KC467K0OZ4GG@bootlin.com>
-	<c14dd5c6-2dae-4398-89a9-342e7a25bb30@lunn.ch>
-	<D91XV1I4CY37.20T12FMZ5QLQ5@bootlin.com>
-	<b1b33000-4c10-43cd-bcf4-d24fc73902b1@lunn.ch>
-	<20250409161444.6158d388@windsurf>
-	<c6257afe-36bb-46d8-8c22-da3b85028105@lunn.ch>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Thu, 10 Apr 2025 06:49:54 +0000
+Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-2d0a742df27so441277fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 23:49:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744267791; x=1744872591; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FpF7wEE+1cJWx9zAtKf9QlygCmnNGJM9CNsxuBDedRk=;
+        b=w08dLJbVjUwyJANpBguUx9T29g0DwhYGxz1Hiu2U/8HB680hmptqGW5djCf3ZUFjtI
+         zHAuDgoVvFVcz2+owotO8N4pW2ptTYir3V8iMefJ9YdPmQ749Jwqhgjuz1MSqXxuiCG6
+         p/V8DRGcK+RSOAmijlRa6Z66eAF35bFnkvwlLkO4ViQfBAn42cxfMTqYJLq7MlOKojJX
+         3emvbe+MGeu9uA0yiJm//gCYknpQ3J3hjNDT7DBYcGyQ602+ceBnqlscuqq2jHJ1PLBT
+         VCohOBGwfBJQiFoIOcj8Ay1wSHUo3mhvXPRUg9IrzPUQSC9XGQBlCrDs4F31flV7++XU
+         PFfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744267791; x=1744872591;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FpF7wEE+1cJWx9zAtKf9QlygCmnNGJM9CNsxuBDedRk=;
+        b=tmK5PJdfXpeY8OeYS8vtm1jC7QP9gwKD2P+Kmy2T+NxpNMyM1Gt23ZdCLUJBoYeZYY
+         CohTDOBJquM0iXRdPRuJMKS8mdgtZOgAaY5l1ap+imsbGUdSoPDba6fC0nZFcAOEL9BI
+         Nr5PAdW0JC5pcKkTLcadLx38oaAEeoa7ODshz16gTd1Zc1vEkKLT/cVcQ5odEHJAlltC
+         j+DB1tOtKgbZSa9+w99vmo8GkRp81cVU2bn2y4Sti6wopGkDe8ovfTp3TmefCdn9hB/Z
+         2U+y2AnAYMDk1q1LuaLlAq8fLTWpAMwT6x4crkxlaeg2dvHXRJhDBhrSfZyxhtHxqqMS
+         sYYw==
+X-Forwarded-Encrypted: i=1; AJvYcCXT9XxauVMs6HfeIZPYziRoUgJXIlqJtrltiDQ5UR9vJ6mk8lJ5l8tlabDmm7HFw4Y8EH5ig6sVBssBWisLmNeJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHj4i1OuGCyvLhRLj74MZnChCiXW0ZGQKXGBRijyMudML9QMqk
+	53EOMS//D+VsvGuE0YGH3G2mFxg7ozl9Fz0+NFz2zp31IbRJuotUU1M+PBbG6Ushup3VGvWQzfR
+	bwCiiaG9+WuOkOfcG6ytGmqLqPJ5ZjEgAo+sYCw==
+X-Gm-Gg: ASbGnctaFc0pGiYFhVcB/2WZfITi+grPGaCsim1QA92APYVz082e1I0EguqL2IxSGMy
+	IDyygnH31Z3yVkx/4WRIfSUBOZhz+WKtr6dRUEtgl97t/2oA76hSXw9R0dt5dWvPMT0RnpNULwn
+	d6DCfdWnPEz6VGiLl+ZLro7DQ=
+X-Google-Smtp-Source: AGHT+IHI4FgOoH6eOg0ztL2Lx7hiXdosqXiiUD+d8J9IOEiCubchzZoLqMtVD0Mmvo3sJz+QQ7r84CVnm0uFw++DJDA=
+X-Received: by 2002:a05:6871:4009:b0:2c4:1b1c:42c3 with SMTP id
+ 586e51a60fabf-2d0b3a2a298mr929589fac.9.1744267791101; Wed, 09 Apr 2025
+ 23:49:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdekvdduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefvhhhomhgrshcurfgvthgriiiiohhnihcuoehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepledtgedvjeehgeetgfeufffglefhkedvfeduveeiieelteeliedtfefguefggffhnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopeifihhnughsuhhrfhdpmhgrihhlfhhrohhmpehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedupdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
- egurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggv
-X-GND-Sasl: thomas.petazzoni@bootlin.com
+References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
+ <20250305130634.1850178-6-jens.wiklander@linaro.org> <Z-JOPgcWlpTlskgd@sumit-X1>
+ <CAHUa44GjpHT5Nqo+Ar5jNYNPV-YJQYpLTCf=7oJ1o0VjP-t0nA@mail.gmail.com>
+ <Z-ucuPzwz4IqVTgb@sumit-X1> <CAHUa44FpsCVrbwj1=nsJVJFVJSF1kzKdWAkAMXRu6EdLrLvh8g@mail.gmail.com>
+ <Z_To9V-JOKZ7ChhE@sumit-X1> <CAHUa44EGWuVPjoxpG-S66he=6dkvkwzxNewaGKVKXUxrO41ztg@mail.gmail.com>
+ <Z_ZtDQQY4eouqBh8@sumit-X1>
+In-Reply-To: <Z_ZtDQQY4eouqBh8@sumit-X1>
+From: Jens Wiklander <jens.wiklander@linaro.org>
+Date: Thu, 10 Apr 2025 08:49:39 +0200
+X-Gm-Features: ATxdqUEvXiuy3pdj5yJylN_i-qNjZAR_HHoPy2N2W57yI_8PinKhMCxfS6kRFGI
+Message-ID: <CAHUa44GFzG8dr1Kbapbjy77c-wJb4gQVVom24eLLueOK=gCq=A@mail.gmail.com>
+Subject: Re: [PATCH v6 05/10] tee: implement restricted DMA-heap
+To: Sumit Garg <sumit.garg@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_234819_309953_02EB0679 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20250409_234952_726430_1124CEBB 
+X-CRM114-Status: GOOD (  43.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,26 +108,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Apr 2025 17:03:45 +0200
-Andrew Lunn <andrew@lunn.ch> wrote:
+On Wed, Apr 9, 2025 at 2:50=E2=80=AFPM Sumit Garg <sumit.garg@kernel.org> w=
+rote:
+>
+> On Tue, Apr 08, 2025 at 03:28:45PM +0200, Jens Wiklander wrote:
+> > On Tue, Apr 8, 2025 at 11:14=E2=80=AFAM Sumit Garg <sumit.garg@kernel.o=
+rg> wrote:
+> > >
+> > > On Tue, Apr 01, 2025 at 10:33:04AM +0200, Jens Wiklander wrote:
+> > > > On Tue, Apr 1, 2025 at 9:58=E2=80=AFAM Sumit Garg <sumit.garg@kerne=
+l.org> wrote:
+> > > > >
+> > > > > On Tue, Mar 25, 2025 at 11:55:46AM +0100, Jens Wiklander wrote:
+> > > > > > Hi Sumit,
+> > > > > >
+> > > > >
+> > > > > <snip>
+> > > > >
+> > > > > >
+> > > > > > >
+> > > > > > > > +
+> > > > > > > > +#include "tee_private.h"
+> > > > > > > > +
+> > > > > > > > +struct tee_dma_heap {
+> > > > > > > > +     struct dma_heap *heap;
+> > > > > > > > +     enum tee_dma_heap_id id;
+> > > > > > > > +     struct tee_rstmem_pool *pool;
+> > > > > > > > +     struct tee_device *teedev;
+> > > > > > > > +     /* Protects pool and teedev above */
+> > > > > > > > +     struct mutex mu;
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +struct tee_heap_buffer {
+> > > > > > > > +     struct tee_rstmem_pool *pool;
+> > > > > > > > +     struct tee_device *teedev;
+> > > > > > > > +     size_t size;
+> > > > > > > > +     size_t offs;
+> > > > > > > > +     struct sg_table table;
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +struct tee_heap_attachment {
+> > > > > > > > +     struct sg_table table;
+> > > > > > > > +     struct device *dev;
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +struct tee_rstmem_static_pool {
+> > > > > > > > +     struct tee_rstmem_pool pool;
+> > > > > > > > +     struct gen_pool *gen_pool;
+> > > > > > > > +     phys_addr_t pa_base;
+> > > > > > > > +};
+> > > > > > > > +
+> > > > > > > > +#if !IS_MODULE(CONFIG_TEE) && IS_ENABLED(CONFIG_DMABUF_HEA=
+PS)
+> > > > > > >
+> > > > > > > Can this dependency rather be better managed via Kconfig?
+> > > > > >
+> > > > > > This was the easiest yet somewhat flexible solution I could fin=
+d. If
+> > > > > > you have something better, let's use that instead.
+> > > > > >
+> > > > >
+> > > > > --- a/drivers/tee/optee/Kconfig
+> > > > > +++ b/drivers/tee/optee/Kconfig
+> > > > > @@ -5,6 +5,7 @@ config OPTEE
+> > > > >         depends on HAVE_ARM_SMCCC
+> > > > >         depends on MMU
+> > > > >         depends on RPMB || !RPMB
+> > > > > +       select DMABUF_HEAPS
+> > > > >         help
+> > > > >           This implements the OP-TEE Trusted Execution Environmen=
+t (TEE)
+> > > > >           driver.
+> > > >
+> > > > I wanted to avoid that since there are plenty of use cases where
+> > > > DMABUF_HEAPS aren't needed.
+> > >
+> > > Yeah, but how the users will figure out the dependency to enable DMA
+> > > heaps with TEE subsystem.
+> >
+> > I hope, without too much difficulty. They are after all looking for a
+> > way to allocate memory from a DMA heap.
+> >
+> > > So it's better we provide a generic kernel
+> > > Kconfig which enables all the default features.
+> >
+> > I disagree, it should be possible to configure without DMABUF_HEAPS if =
+desired.
+>
+> It's hard to see a use-case for that additional compile time option. If
+> you are worried about kernel size then those can be built as modules. On
+> the other hand the benifit is that we avoid ifdefery and providing sane
+> TEE defaults where features can be detected and enabled at runtime
+> instead.
 
-> So it only supports a single .dtbo. In its current form it does not
-> scale to multiple .dtso files for multiple different boards built
-> around the PCIe chip.
-> 
-> At the moment, that is not really an issue, but when the second board
-> comes along, some refactoring will be needed.
+My primary concern isn't kernel size, even if it shouldn't be
+irrelevant. It doesn't seem right to enable features that are not
+asked for casually. In this case, it's not unreasonable or unexpected
+that DMABUF_HEAPS must be explicitly enabled in the config if a heap
+interface is needed. It's the same as before this patch set.
 
-Indeed, but that's really an implementation detail. It doesn't change
-anything to the overall approach. The only thing that would have to
-change is how the driver gets the .dtbo. We could bundle several .dtbos
-in the driver, we could fall back to request_firmware(), etc.
+>
+> >
+> > >
+> > > > This seems to do the job:
+> > > > +config TEE_DMABUF_HEAP
+> > > > + bool
+> > > > + depends on TEE =3D y && DMABUF_HEAPS
+> > > >
+> > > > We can only use DMABUF_HEAPS if the TEE subsystem is compiled into =
+the kernel.
+> > >
+> > > Ah, I see. So we aren't exporting the DMA heaps APIs for TEE subsyste=
+m
+> > > to use. We should do that such that there isn't a hard dependency to
+> > > compile them into the kernel.
+> >
+> > I was saving that for a later patch set as a later problem. We may
+> > save some time by not doing it now.
+> >
+>
+> But I think it's not a correct way to just reuse internal APIs from DMA
+> heaps subsystem without exporting them. It can be seen as a inter
+> subsystem API contract breach. I hope it won't be an issue with DMA heap
+> maintainers regarding export of those APIs.
 
-Best regards,
+Fair enough. I'll add a patch in the next patch set for that. I guess
+the same goes for CMA.
 
-Thomas
--- 
-Thomas Petazzoni, co-owner and CEO, Bootlin
-Embedded Linux and Kernel engineering and training
-https://bootlin.com
+Cheers,
+Jens
 
