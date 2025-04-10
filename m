@@ -4,93 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5232AC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 12:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE78C369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 12:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PpGCun6OnLyj/iO45IrhWhjo8NHmRNo/yGae+dtnKsQ=; b=tR1L6HZ6WW8dHSoJ+LjF2mMg0A
-	1kZeb/EjQK+wQy9iIoTgtkVmSj8yVm5VQzHl64gaawM7uq9CcOQeMSzVlyjy49ynKnGFmMOJWfrRE
-	UdMpgzKyrLWYyZbplB52slYygS8z4AzrHw56ZmqI741ze9FSyBQ9ekgm822CKy3PE1NzYKOSz7DrV
-	NrZW1xWxbLkeK5AgAkzV4KQ3N4JhgdkIn8HjFI8WvyHYXJrEQu3gZous3z2c5fpSjz2zwfypnTVhV
-	xQ42FSjVN0+9yEUPmro0R8qQ2trr9hQS8iOotjf8rcgU+P11iM6EbVtyXhRFW8KSboLd5/UEnNMgq
-	b1/C8twQ==;
+	bh=j3whygk/RlYZ76wCT9iuIKZGh9irSBykOVLGvkqBG2k=; b=4myIVj4ZnS3LC9olypUZU4pue6
+	XhyIan3LOh4ekwRWWO79OPccp/dl7ycGuzfXTTSYSAbP349JgC5S1lr4eh8WwAWD5gwo736FG2fTJ
+	cQHNs95GtYn/JqHDWHKjXhcDhr1mWvnKCy5EY6a3q54NhkXlNvDww4mpE2n8SFklUgA7mlk6yeaZr
+	/Cvqez8bbhqcnmM8gQDlp0Egry11ZVfm7ynh772Y87JoOxSJUKc3evzdT+E5wyfaq5FDvr4LV1GmY
+	WL1O7MZGFDXA+x30qW7bI8wdqMHS2McbhokgzCK8oX6CXASdnF/7aNWU8EDyJ4gu9NRhs159z+p8f
+	JjN1Wa8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2qyU-0000000AUST-42mI;
-	Thu, 10 Apr 2025 12:25:42 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1u2r0F-0000000AUlM-2Ztr;
+	Thu, 10 Apr 2025 12:27:31 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2qwh-0000000AUBi-0pBk
+	id 1u2qxw-0000000AULy-0TzM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 12:23:52 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cfdc2c8c9so4099705e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 05:23:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744287829; x=1744892629; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PpGCun6OnLyj/iO45IrhWhjo8NHmRNo/yGae+dtnKsQ=;
-        b=PTxNK55xxl1A9zknpHVLN0WAWs13ssl2SXnUI5Zw4XOlUda2M77rjLGjtj438xSY63
-         QW4nhtLxpiSynPLJRYRRXLRVZ/oLbI/YXyk+4m6qWewKau5oxcWWoJV96ZOiCW7QjB29
-         GvQSNQYXXAEbb+NBgu9uGC/EkGFK0XPViVCPH6pCpW1HCHRkuPmsnYDedtD0o23pFMMK
-         tN6PHHpneC+nzBOlgXFWwzppMBMkMsTyY0/J/DkaQede/xJeBSS2fQIffpnWlyjbBbWt
-         onQJt5AXy/cEfdk8eUU+4O+TOrOo14LtdB6fMiQ3JPrB11cSXzkEOg+ZRoWCfFEPCZNL
-         bmcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744287829; x=1744892629;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PpGCun6OnLyj/iO45IrhWhjo8NHmRNo/yGae+dtnKsQ=;
-        b=W4qHM4JRrG/kEYPSuVmR/nCtI1tAgOU2GjayZbBJcgtOIe2RLr4bgfrxNqtsSU0Jbd
-         atQcqxmFCa+DZFHMw7YqDGxim45GjOHwWK/pCWkPoi70TTb8wYr6AaqbcQlG+GTy7jYM
-         S7I2qDn/EvBNmOOTZXa3JaihDHMhbmaLDnKWZsLVsZj8ULilEqiSguL8HEcCwNUG0rE+
-         Rear665hHNS202pBNqBiAphw4cfIeIeauaBcQXB3sKx+S1KYJrlrDLGAADpkOnvqZIZd
-         l67CGimtynG+FK/7dilL6fSmH2lrOSMdYQ+x/X3yEmpz9UiN/Oelz7sW7gC1kYQp0tr9
-         hwFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV60Pxr8EeMRg7VsZiq/HEW/N5iYuM2CdIAoWsunxFq50ppOH8yfD9rDLnEjSqPhwe2+wgjWTMoZhNZ/Q1mT6Wp@lists.infradead.org
-X-Gm-Message-State: AOJu0YynHvNwDK/EEGqZi6X/MI3/grxemuyKiqWmGqrl7opYPW09UxD6
-	6whqOYnY5D4yiyGfgENU/z6XGvsivStTMSgYYtQuIyfGKhKvMKkb
-X-Gm-Gg: ASbGncvK47XVhtgmVj8G6PeclbDSv9z/dtpLQJ2pyoeRphk+WMx1ALpGciSN3LTqQ/0
-	uErzG0UsPxlAUi2wF7ZxEBxkcjlWHmmuuL8/cMI5PFGurui5sqkC3sXsP8RExhM+JHCK7sun23N
-	D9mxqtVU1VyS9x1NiQ1VoBLlgmPFrcnmqMmUszgNbDLl8Yijfr7pUiSUV/5uhg5LOlDo6ZPY6El
-	tlwSGnjjFDELm5sCANkTwV5Ev9zkuvBC34NfwcP/EnMHuigt23JPpFFiobEMmWjMbuAyKYAZW06
-	xhn/F0kqpeTQ88e/3C7YsbK3OMFLivz5SwRnNUkOBEqn6gLk1R2ETg0OXB/RYNUDCAYZug==
-X-Google-Smtp-Source: AGHT+IHJYqLm2bNlTIV0OaPKSdoxtU3W2Hk6krFGdZj7Augauu5oSQ67P5k0PX48vM11HcU7mHRvqw==
-X-Received: by 2002:a05:600c:3c91:b0:43c:fab3:4fad with SMTP id 5b1f17b1804b1-43f2d7e932emr33093865e9.16.1744287828716;
-        Thu, 10 Apr 2025 05:23:48 -0700 (PDT)
-Received: from [192.168.1.132] ([82.79.237.110])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43f206264a1sm54736005e9.9.2025.04.10.05.23.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Apr 2025 05:23:48 -0700 (PDT)
-Message-ID: <fb40d405-9f76-4117-88f9-423ea5fac3f0@gmail.com>
-Date: Thu, 10 Apr 2025 15:23:45 +0300
+	Thu, 10 Apr 2025 12:25:09 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A9Vcd9005154;
+	Thu, 10 Apr 2025 14:24:58 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	j3whygk/RlYZ76wCT9iuIKZGh9irSBykOVLGvkqBG2k=; b=Z2+VX8KWhkYoLhJ3
+	+WwT+RVMajJsw5ZympDzFiFPGYtx8inCj5BMPy8602sEWNSlY4wMtehVtCEa/ov3
+	nLj/tji8xO1U5/gPn4eKFu33+LX3xmfNofUthW2OmYS8zBqzmjEyF+CLuxo8jret
+	eFVZPcviTQcfEIuqIMeuC74N+Lv0mZQWS4l4NOV33hesNbmw3hFX1qJ2pGFwVZsp
+	2Ix/oEOjaB00GQh4oX7nzMAG1YvaNXaYop48YhYXRxrYx3R2aEI/9Eb/DsaWbLQ0
+	NpTqmGNYbqrnrCDeSFHfhdbhW+r05flFhI0cXoj20097/TI7Z1gqL2mbd9ubnzFF
+	hfwmGA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45uffmwdtk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 10 Apr 2025 14:24:58 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A568240047;
+	Thu, 10 Apr 2025 14:24:00 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1D5AB958201;
+	Thu, 10 Apr 2025 14:23:47 +0200 (CEST)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 10 Apr
+ 2025 14:23:46 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Thu, 10 Apr 2025 14:23:45 +0200
+Subject: [PATCH 2/2] spi: stm32-ospi: Make usage of
+ reset_control_acquire/release() API
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/5] Configure imx8mp dsp node for rproc usage
-Content-Language: en-US
-To: Daniel Baluta <daniel.baluta@nxp.com>, shawnguo@kernel.org,
- robh@kernel.org
-Cc: s.hauer@pengutronix.de, kernel@pengutronix.de, krzk+dt@kernel.org,
- conor+dt@kernel.org, festevam@gmail.com, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, frank.li@nxp.com, aisheng.dong@nxp.com,
- daniel.baluta@gmail.com, laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com,
- iuliana.prodan@nxp.com, a.fatoum@pengutronix.de, mathieu.poirier@linaro.org,
- linux-remoteproc@vger.kernel.org
-References: <20250320121004.2542314-1-daniel.baluta@nxp.com>
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <20250320121004.2542314-1-daniel.baluta@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250410-b4-upstream_ospi_reset_update-v1-2-74126a8ceb9c@foss.st.com>
+References: <20250410-b4-upstream_ospi_reset_update-v1-0-74126a8ceb9c@foss.st.com>
+In-Reply-To: <20250410-b4-upstream_ospi_reset_update-v1-0-74126a8ceb9c@foss.st.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Mark Brown <broonie@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Patrice Chotard
+	<patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-10_03,2025-04-08_04,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_052351_231713_2FFD8C97 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20250410_052508_659167_97C5A57A 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,56 +97,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+As ospi reset is consumed by both OMM and OSPI drivers, use the reset
+acquire/release mechanism which ensure exclusive reset usage.
 
+This avoid to call reset_control_get/put() in OMM driver each time
+we need to reset OSPI children and guarantee the reset line stays
+deasserted.
 
-On 3/20/2025 2:09 PM, Daniel Baluta wrote:
-> DSP found in i.MX8MP SOC can be used by multiple frameworks in order to
-> enable various applications:                                                                                                                                                            
->         - rproc/rpmsg framework, used to load for example Zephyr samples
->         - Sound Open Firmware, used to enable various audio processing
->           pipelines.
->
-> Current dsp node was configured with SOF in mind but it doesn't work
-> well with imx8mp-evk dts. SOF controls audio IPs from firmware side
-> while imx8mp-evk.dts preffers to control audio IPs from Linux side.
->
-> So, configure 'dsp' node to be used with rproc scenario and later will
-> add a separate dts or an overlay to configure the node for SOF.
->
-> This patch series configures and enables dsp node to be used with rproc.
->
-> Changes since v6:
-> 	- addressed Alexander Stein comments
-> 	- enable mu2 separately in patch 5/5
-> 	- put "status" always as the last in node definition
->
-> Changes since v5:
->        - do not enable mu2 node by default
->        - fix dt_bindings errors
->
-> Changes since v4:
-> (https://lore.kernel.org/linux-arm-kernel/Z6zGLn3B6SVXhTV1@lizhi-Precision-Tower-5810/T/)·······························································································
->        - after comments received on v4, we implemented the run/stall
->          bits using reset controller API (changes merged ->
-> https://patchwork.kernel.org/project/linux-arm-kernel/cover/20250311085812.1296243-1-daniel.baluta@nxp.com/)
->         - drop patches related to DSP run/stall/reset via syscon
->        - picked up patch related to using run_stall via reset
->          controller API.
->
->
-> Daniel Baluta (5):
->   arm64: dts: imx8mp: Use resets property
->   arm64: dts: imx8mp: Add mu2 root clock
->   arm64: dts: imx8mp: Configure dsp node for rproc usage
->   arm64: dts: imx8mp: Add DSP clocks
->   arm64: dts: Enable DSP node for remoteproc usage
->
->  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 14 +++++++++++++
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi    | 22 +++++++++++++-------
->  2 files changed, 29 insertions(+), 7 deletions(-)
->
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+---
+ drivers/spi/spi-stm32-ospi.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-For the whole series:
+diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
+index 668022098b1eac3628f0677e6d786e5a267346be..96fa362432f13c19e4dde63d964a0db64c8ade95 100644
+--- a/drivers/spi/spi-stm32-ospi.c
++++ b/drivers/spi/spi-stm32-ospi.c
+@@ -804,7 +804,7 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	ospi->rstc = devm_reset_control_array_get_optional_exclusive(dev);
++	ospi->rstc = devm_reset_control_array_get_exclusive_released(dev);
+ 	if (IS_ERR(ospi->rstc))
+ 		return dev_err_probe(dev, PTR_ERR(ospi->rstc),
+ 				     "Can't get reset\n");
+@@ -937,9 +937,11 @@ static int stm32_ospi_probe(struct platform_device *pdev)
+ 		goto err_pm_enable;
+ 
+ 	if (ospi->rstc) {
++		reset_control_acquire(ospi->rstc);
+ 		reset_control_assert(ospi->rstc);
+ 		udelay(2);
+ 		reset_control_deassert(ospi->rstc);
++		reset_control_release(ospi->rstc);
+ 	}
+ 
+ 	ret = spi_register_controller(ctrl);
 
-Reviewed-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+-- 
+2.25.1
+
 
