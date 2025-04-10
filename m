@@ -4,86 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAAAC369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:18:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B1E4C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Uo5er/uYGpDnrC4qdUdTQ+M350k6gcqOXroe0mMArE=; b=q/ylISHksUYHgMbe2qBDzc8ItP
-	pP7Mi6X7Q+TdWREA0W21MZOZAYSi9W/jFyB99+B/ukC3569aqYFrGwK2ee8zsOt8MIq6re5zmAu5/
-	ngIEd0y9fl5N1KAKDPeVDf01EE4/FRj0AB1DfMJ/2/QfhJhBjvO3gzrD/DDTk4sgkrRRCUlhUSJfm
-	fqNfGQIFGwB5OE+cV0EKq4QKJHeCRwtShg5QrOzIn7dpLpMf3wwJX3Jx6x8Blaco7Xf91ZjAa1MKS
-	GNdThyAQ3h1nqAG8DmGVRK3jv7RhAw98bXuNPHQcj1+qGtSmcnWZScBOHDEqGhNWOxqXlfhfPoERF
-	361lzRcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OSjX1b+D+//GtnfnALVS0VRTFNxvnCOVfJgFbEnwUWA=; b=q6BGG6TuILldWbTzu6BDEGCsD+
+	mCT0WrntMsmY0A1spu7vtvEBl6L/u0/1Jch6Ki3OtTdTDgcrwSTS9gy9AnZiWxeRCl/ZJ50tKGKH2
+	cmHlEgrhVL1PvxsJR4FAesbt1vO+lXnd134vNBc1ZlmjcHRH6WnP3HsDlY3Wzi4y/t9LjheGWCG+e
+	V3zddVYs1jSBdcV6OHeAfuXm+STmncMnkegEZNLojWPxzUX/8At+3rEKUUqJcUO5Uu6Ddq/XbKGu4
+	Bb6KejtB2nqJANpfS5pik1dtpLn0r7lVoH/3Xa690WVyGVZVu7Kss706H0mpvCXO3SzWgX7QqSWWo
+	/pK2vCBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pvK-0000000AFA5-43fL;
-	Thu, 10 Apr 2025 11:18:22 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1u2pvX-0000000AFTd-1V6S;
+	Thu, 10 Apr 2025 11:18:35 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2oi7-0000000A1U1-0nF2;
-	Thu, 10 Apr 2025 10:00:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744279239; x=1775815239;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ONUHM5dAa9V9tNPfQhvJhcJq9TbPfVh38gul5GwseA0=;
-  b=Fux1xUHgpwGhqjq7nNpdXhE4Ehm1haJXLUZaNBaROTOkpfC0JNxfAH5G
-   NPU68Ib+r3LHpsVu3aGD96o+n5ubWiYmX51LNA24XuBnNdyIn8WLmW3Za
-   6xPX126FhcQhrxc13S3qEtsIKXaRhE5/nqUg00ezxddTb38nHsVj1IUZK
-   NEI85xqZM8mLAcScRQz1kb5Xrkc/888Li7SVOMwKnw3DFtk3hnkv4Fd27
-   70RQeKYMx/qBLWJXDRbJVs81oLj1WQAYKmT/E5HrYODr86Nukmyl4C5cZ
-   91tliRmvKnEtOjv40l69u1UgOWf6HQRr21mTtKv9QW1i3ryP669bUkxyE
-   w==;
-X-CSE-ConnectionGUID: tfCAnchXSyCbWWZfS9fCnw==
-X-CSE-MsgGUID: dQ1hywIKR8yBs3juWinBMw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11399"; a="57159392"
-X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
-   d="scan'208";a="57159392"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 03:00:37 -0700
-X-CSE-ConnectionGUID: 05lbWpcNR3KWflc7G4CuNA==
-X-CSE-MsgGUID: YLZYCk0KSbOI90zQomq2Sw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
-   d="scan'208";a="133980819"
-Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 10 Apr 2025 03:00:34 -0700
-Received: from kbuild by b207828170a5 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u2ohz-0009tz-0B;
-	Thu, 10 Apr 2025 10:00:31 +0000
-Date: Thu, 10 Apr 2025 17:59:56 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-crypto@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Sean Wang <sean.wang@mediatek.com>,
+	id 1u2om0-0000000A27f-1cUk;
+	Thu, 10 Apr 2025 10:04:41 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43ed8d32a95so5518445e9.3;
+        Thu, 10 Apr 2025 03:04:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744279478; x=1744884278; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OSjX1b+D+//GtnfnALVS0VRTFNxvnCOVfJgFbEnwUWA=;
+        b=RxnfHav3RUYwszJPuOri2xJXbmv6Vdt0ry5xwX2EAMO8bEfGewBTF35sybSi1RANCy
+         5CF4QAzYwlm0dISgXNFY60xFbh/0w1b04H4KakeXWAbpy6fn67z8xRiiVTEpVSR21+Ht
+         7OdHGC0k6zKFRz5T8dKU8ZKEjvuhHzfgPC7QDT9Y/zi8L4BgJ+lw3+DOlHwHeuWsBjOz
+         FIW1141X0+7cwI6yIVMidqV/oF5702g5ykdBfQ0Cd4f49VqNnCbOJ5Yh1ccra8Wpueom
+         mF/lmtEGyuyDJ1TV5NmzlRoRDyiJnWGcDKaW6gy97Fqopbro9G4pAbV9Nl0HYFHt/uvi
+         rFZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744279478; x=1744884278;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OSjX1b+D+//GtnfnALVS0VRTFNxvnCOVfJgFbEnwUWA=;
+        b=TpO5ZfYZTRertGPz2w6N4LSan2dESFfbAqxvAPiMsXJk+uO3jpx9YAHlFkv5EHi8a5
+         MajahazzfOKRMxheDvvowz1BsfQ3WI5PC3qgZf8RHUMN97s1Aou1utUBHdVsiqW+buHG
+         EfGhT58tB7kpk1sGTo9Zfs10OnZLIW7F2FCIHAq4UdVZVKyBF/J4qsh/ZVfsrJjze5FV
+         9MOD2JazR8MKcwdAuYCmxOL1an3qRKBPSxet/WBYPdkQzJhuUmUJE0/mHe7krTjcCn/d
+         PFtUpkcCKZdgFMinumhaZM5603I3Eer9ImbjRVidt7l4ppN9cx3hbsTPMLmP3iZzpT3S
+         nmTg==
+X-Forwarded-Encrypted: i=1; AJvYcCUZvhF93qQL4m/Hm8g79XtWDyTF826idDEyCe9xmQjhsR+4lTU8OqgWU/zxnN+EgsANMD1pNOVeq0VAfiMSv3k=@lists.infradead.org, AJvYcCWmaHQQGYaxeraiAHpDvHIClonTxGMVHRiSKgKTefTQB1TnCFyHkPsXjhm6FSdeqpsVX0hOBZZK5x9QAMVbi5ex@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywa4av+1USKFhRxhy5nFDttF6DO5CF2WPZnvs4UMEkmcaoyBoOL
+	UWSjomFQx5324YO2XUyNjuzkefnTJMmU5gFY/+hf5eVGnnncIs4f
+X-Gm-Gg: ASbGncvLYki9+Du2c5w8xoTswppi3KK3bGvZpEpFZZUjRsp0XOQJp9bPdVSH5JsKcn5
+	lcXSmxegb5EOBbQAn9nu8ntHbtA/l5Tee7yGFiJ6GmSsCm3iaMIW8XaX/I6aUEpMGDNVBsrw3oA
+	DLRgLEmrhu13xmM3reoKny4FOlWe7PyDPvHcySw4rylhuyX3CjPYwZ2qck4UuZwY+4WDSb00T68
+	A0R+mqSPg2fCS3OTf+eb0QtAFZaFDV2+MxuxeTRoyGCknJcABU55j1jqFxSxOh0PNcWnlt9dyKx
+	R50SGNe3eDBsd/U4qr9MPBdrrVDyk7FDbsgu2qsrN1tT7FTafdAkiJ9yDKm3d8EfuLJcykKOxjG
+	3f1qgmasnbg==
+X-Google-Smtp-Source: AGHT+IE9rkx7s3lGoXoLv/0fYUbWZ4s7nji/vh3GglXy7KHxv51ZdIrScMmpN4ZbQ9rN1ZnOv01rZg==
+X-Received: by 2002:a05:600c:4ed0:b0:43d:7588:66a5 with SMTP id 5b1f17b1804b1-43f2d9a12bcmr24466125e9.31.1744279478201;
+        Thu, 10 Apr 2025 03:04:38 -0700 (PDT)
+Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43f2066d109sm50193065e9.20.2025.04.10.03.04.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Apr 2025 03:04:37 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Qingfang Deng <dqfext@gmail.com>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Horman <horms@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, openbmc@lists.ozlabs.org
-Subject: Re: [PATCH 3/3] hwrng: npcm - Add a local variable for struct device
- pointer
-Message-ID: <202504101705.PeW9QC3m-lkp@intel.com>
-References: <20250410070623.3676647-4-sakari.ailus@linux.intel.com>
+	linux-mediatek@lists.infradead.org
+Subject: [net-next PATCH v2 1/2] net: phy: mediatek: permit to compile test GE SOC PHY driver
+Date: Thu, 10 Apr 2025 12:04:03 +0200
+Message-ID: <20250410100410.348-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250410070623.3676647-4-sakari.ailus@linux.intel.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_030039_302890_95E67B51 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20250410_030440_414952_D06E161F 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,84 +110,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sakari,
+When commit 462a3daad679 ("net: phy: mediatek: fix compile-test
+dependencies") fixed the dependency, it should have also introduced
+an or on COMPILE_TEST to permit this driver to be compile-tested even if
+NVMEM_MTK_EFUSE wasn't selected. The driver makes use of NVMEM API that
+are always compiled (return error) so the driver can actually be
+compiled even without that config.
 
-kernel test robot noticed the following build errors:
+Fix and simplify the dependency condition of this kernel config.
 
-[auto build test ERROR on char-misc/char-misc-testing]
-[also build test ERROR on char-misc/char-misc-next char-misc/char-misc-linus herbert-cryptodev-2.6/master linus/master v6.15-rc1 next-20250410]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Fixes: 462a3daad679 ("net: phy: mediatek: fix compile-test dependencies")
+Acked-by: Daniel Golle <daniel@makrotopia.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+Changes v2:
+- Add Ack and Reviewed-by tag
+- Address suggested dependency from Russell
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sakari-Ailus/hwrng-atmel-Add-a-local-variable-for-struct-device-pointer/20250410-151223
-base:   char-misc/char-misc-testing
-patch link:    https://lore.kernel.org/r/20250410070623.3676647-4-sakari.ailus%40linux.intel.com
-patch subject: [PATCH 3/3] hwrng: npcm - Add a local variable for struct device pointer
-config: csky-randconfig-001-20250410 (https://download.01.org/0day-ci/archive/20250410/202504101705.PeW9QC3m-lkp@intel.com/config)
-compiler: csky-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250410/202504101705.PeW9QC3m-lkp@intel.com/reproduce)
+ drivers/net/phy/mediatek/Kconfig | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504101705.PeW9QC3m-lkp@intel.com/
-
-All error/warnings (new ones prefixed by >>):
-
-   drivers/char/hw_random/npcm-rng.c: In function 'npcm_rng_read':
->> drivers/char/hw_random/npcm-rng.c:58:9: error: expected ',' or ';' before 'int'
-      58 |         int retval = 0;
-         |         ^~~
->> drivers/char/hw_random/npcm-rng.c:78:17: error: 'retval' undeclared (first use in this function)
-      78 |                 retval++;
-         |                 ^~~~~~
-   drivers/char/hw_random/npcm-rng.c:78:17: note: each undeclared identifier is reported only once for each function it appears in
->> drivers/char/hw_random/npcm-rng.c:87:1: warning: control reaches end of non-void function [-Wreturn-type]
-      87 | }
-         | ^
-
-
-vim +58 drivers/char/hw_random/npcm-rng.c
-
-c98429297d8b25a Tomer Maimon 2019-09-12  53  
-c98429297d8b25a Tomer Maimon 2019-09-12  54  static int npcm_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
-c98429297d8b25a Tomer Maimon 2019-09-12  55  {
-c98429297d8b25a Tomer Maimon 2019-09-12  56  	struct npcm_rng *priv = to_npcm_rng(rng);
-11fd03b27c8824f Sakari Ailus 2025-04-10  57  	struct device *dev = (struct device *)priv->rng.priv
-c98429297d8b25a Tomer Maimon 2019-09-12 @58  	int retval = 0;
-c98429297d8b25a Tomer Maimon 2019-09-12  59  	int ready;
-c98429297d8b25a Tomer Maimon 2019-09-12  60  
-11fd03b27c8824f Sakari Ailus 2025-04-10  61  	pm_runtime_get_sync(dev);
-c98429297d8b25a Tomer Maimon 2019-09-12  62  
-c2fb644638ae45c Tomer Maimon 2020-09-24  63  	while (max) {
-c98429297d8b25a Tomer Maimon 2019-09-12  64  		if (wait) {
-c2fb644638ae45c Tomer Maimon 2020-09-24  65  			if (readb_poll_timeout(priv->base + NPCM_RNGCS_REG,
-c98429297d8b25a Tomer Maimon 2019-09-12  66  					       ready,
-c98429297d8b25a Tomer Maimon 2019-09-12  67  					       ready & NPCM_RNG_DATA_VALID,
-c98429297d8b25a Tomer Maimon 2019-09-12  68  					       NPCM_RNG_POLL_USEC,
-c98429297d8b25a Tomer Maimon 2019-09-12  69  					       NPCM_RNG_TIMEOUT_USEC))
-c98429297d8b25a Tomer Maimon 2019-09-12  70  				break;
-c98429297d8b25a Tomer Maimon 2019-09-12  71  		} else {
-c2fb644638ae45c Tomer Maimon 2020-09-24  72  			if ((readb(priv->base + NPCM_RNGCS_REG) &
-c98429297d8b25a Tomer Maimon 2019-09-12  73  			    NPCM_RNG_DATA_VALID) == 0)
-c98429297d8b25a Tomer Maimon 2019-09-12  74  				break;
-c98429297d8b25a Tomer Maimon 2019-09-12  75  		}
-c98429297d8b25a Tomer Maimon 2019-09-12  76  
-c2fb644638ae45c Tomer Maimon 2020-09-24  77  		*(u8 *)buf = readb(priv->base + NPCM_RNGD_REG);
-c2fb644638ae45c Tomer Maimon 2020-09-24 @78  		retval++;
-c2fb644638ae45c Tomer Maimon 2020-09-24  79  		buf++;
-c2fb644638ae45c Tomer Maimon 2020-09-24  80  		max--;
-c98429297d8b25a Tomer Maimon 2019-09-12  81  	}
-c98429297d8b25a Tomer Maimon 2019-09-12  82  
-11fd03b27c8824f Sakari Ailus 2025-04-10  83  	pm_runtime_mark_last_busy(dev);
-11fd03b27c8824f Sakari Ailus 2025-04-10  84  	pm_runtime_put_sync_autosuspend(dev);
-c98429297d8b25a Tomer Maimon 2019-09-12  85  
-c98429297d8b25a Tomer Maimon 2019-09-12  86  	return retval || !wait ? retval : -EIO;
-c98429297d8b25a Tomer Maimon 2019-09-12 @87  }
-c98429297d8b25a Tomer Maimon 2019-09-12  88  
-
+diff --git a/drivers/net/phy/mediatek/Kconfig b/drivers/net/phy/mediatek/Kconfig
+index 2a8ac5aed0f8..6a4c2b328c41 100644
+--- a/drivers/net/phy/mediatek/Kconfig
++++ b/drivers/net/phy/mediatek/Kconfig
+@@ -15,8 +15,7 @@ config MEDIATEK_GE_PHY
+ 
+ config MEDIATEK_GE_SOC_PHY
+ 	tristate "MediaTek SoC Ethernet PHYs"
+-	depends on (ARM64 && ARCH_MEDIATEK) || COMPILE_TEST
+-	depends on NVMEM_MTK_EFUSE
++	depends on (ARM64 && ARCH_MEDIATEK && NVMEM_MTK_EFUSE) || COMPILE_TEST
+ 	select MTK_NET_PHYLIB
+ 	help
+ 	  Supports MediaTek SoC built-in Gigabit Ethernet PHYs.
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.48.1
+
 
