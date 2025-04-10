@@ -4,107 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94B22C369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 12:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5232AC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 12:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OvwDMXr2IXJ7iFRJQt32DIAoJkSusQ8Y21n8KfEYtf0=; b=obCqXL9ypwcy+2K5nSUhFrQV65
-	V10Psb41eXYwDC77Y57ntb1LizO13Orsoq3A+72GZkSgYQ+VoXzBsuVlx2x56PbTh2cUyZKhlO7Vt
-	+bnfqrDWffbejUc9h0U0K+nXlfsluNmn/Vq6RSku+3RonBVXTx+ykaed7mAAlhMrCd4cA624t1Y7g
-	rXlVMGcQIctSNGIDfK8QVq12MTO0LdTYDzsgYTBcGMVnAU78gky2VQgvWdhtwSVcTFykZeofR3rcL
-	fp6yBG8jErSGwzl8M7Fi4uKXOWnY2maS00BvI7VhkEkZS2I4kIRn3F8HgUahVB0oROd5yz9H2RkbO
-	I5EW8iZQ==;
+	bh=PpGCun6OnLyj/iO45IrhWhjo8NHmRNo/yGae+dtnKsQ=; b=tR1L6HZ6WW8dHSoJ+LjF2mMg0A
+	1kZeb/EjQK+wQy9iIoTgtkVmSj8yVm5VQzHl64gaawM7uq9CcOQeMSzVlyjy49ynKnGFmMOJWfrRE
+	UdMpgzKyrLWYyZbplB52slYygS8z4AzrHw56ZmqI741ze9FSyBQ9ekgm822CKy3PE1NzYKOSz7DrV
+	NrZW1xWxbLkeK5AgAkzV4KQ3N4JhgdkIn8HjFI8WvyHYXJrEQu3gZous3z2c5fpSjz2zwfypnTVhV
+	xQ42FSjVN0+9yEUPmro0R8qQ2trr9hQS8iOotjf8rcgU+P11iM6EbVtyXhRFW8KSboLd5/UEnNMgq
+	b1/C8twQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2qre-0000000ASxQ-3tsn;
-	Thu, 10 Apr 2025 12:18:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u2qyU-0000000AUST-42mI;
+	Thu, 10 Apr 2025 12:25:42 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2qpr-0000000ASoG-3YUw
+	id 1u2qwh-0000000AUBi-0pBk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 12:16:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB754437C2;
-	Thu, 10 Apr 2025 12:16:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF1BDC4CEDD;
-	Thu, 10 Apr 2025 12:16:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744287407;
-	bh=kVly1EE2XeoTRvQPjdFp6oy1mrdHieGAoQT4jHkDYms=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PdU+r2Vq78gaAheELNKaEXxcKxp0M4hS7kXhKQhdLnQeOD4vkGJSxhDV3YcrbfBpF
-	 LBxAHKn+wdzjpTrDw1wGyUtZkNULCyg8Sr6UJEPOKpc2U4xtvsVP+UKcPbWD+E48IE
-	 wgFfPbImp6Emusduxq9/wtt/C894e9Bu4FPY54wbS9YlncqMkJxC3VYiA+1RczitWb
-	 wjXRKLSwxAYRmSkmtN7x8FuyLRxh0EBJF9lTIlVZoWRRaT0OALLaRo68WaFqp7xH3B
-	 3ZY/a2oTMf+0ZZdd3ENBPfUmRWk56+cTQvpdcuvNjPE6FpIb45hTBEyM4WcHRSbbLl
-	 7oaLiMLjTxKjQ==
-Message-ID: <9cc33c4b-05e6-4203-8762-205eb3d4e9df@kernel.org>
-Date: Thu, 10 Apr 2025 14:16:42 +0200
+	Thu, 10 Apr 2025 12:23:52 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cfdc2c8c9so4099705e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 05:23:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744287829; x=1744892629; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PpGCun6OnLyj/iO45IrhWhjo8NHmRNo/yGae+dtnKsQ=;
+        b=PTxNK55xxl1A9zknpHVLN0WAWs13ssl2SXnUI5Zw4XOlUda2M77rjLGjtj438xSY63
+         QW4nhtLxpiSynPLJRYRRXLRVZ/oLbI/YXyk+4m6qWewKau5oxcWWoJV96ZOiCW7QjB29
+         GvQSNQYXXAEbb+NBgu9uGC/EkGFK0XPViVCPH6pCpW1HCHRkuPmsnYDedtD0o23pFMMK
+         tN6PHHpneC+nzBOlgXFWwzppMBMkMsTyY0/J/DkaQede/xJeBSS2fQIffpnWlyjbBbWt
+         onQJt5AXy/cEfdk8eUU+4O+TOrOo14LtdB6fMiQ3JPrB11cSXzkEOg+ZRoWCfFEPCZNL
+         bmcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744287829; x=1744892629;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PpGCun6OnLyj/iO45IrhWhjo8NHmRNo/yGae+dtnKsQ=;
+        b=W4qHM4JRrG/kEYPSuVmR/nCtI1tAgOU2GjayZbBJcgtOIe2RLr4bgfrxNqtsSU0Jbd
+         atQcqxmFCa+DZFHMw7YqDGxim45GjOHwWK/pCWkPoi70TTb8wYr6AaqbcQlG+GTy7jYM
+         S7I2qDn/EvBNmOOTZXa3JaihDHMhbmaLDnKWZsLVsZj8ULilEqiSguL8HEcCwNUG0rE+
+         Rear665hHNS202pBNqBiAphw4cfIeIeauaBcQXB3sKx+S1KYJrlrDLGAADpkOnvqZIZd
+         l67CGimtynG+FK/7dilL6fSmH2lrOSMdYQ+x/X3yEmpz9UiN/Oelz7sW7gC1kYQp0tr9
+         hwFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV60Pxr8EeMRg7VsZiq/HEW/N5iYuM2CdIAoWsunxFq50ppOH8yfD9rDLnEjSqPhwe2+wgjWTMoZhNZ/Q1mT6Wp@lists.infradead.org
+X-Gm-Message-State: AOJu0YynHvNwDK/EEGqZi6X/MI3/grxemuyKiqWmGqrl7opYPW09UxD6
+	6whqOYnY5D4yiyGfgENU/z6XGvsivStTMSgYYtQuIyfGKhKvMKkb
+X-Gm-Gg: ASbGncvK47XVhtgmVj8G6PeclbDSv9z/dtpLQJ2pyoeRphk+WMx1ALpGciSN3LTqQ/0
+	uErzG0UsPxlAUi2wF7ZxEBxkcjlWHmmuuL8/cMI5PFGurui5sqkC3sXsP8RExhM+JHCK7sun23N
+	D9mxqtVU1VyS9x1NiQ1VoBLlgmPFrcnmqMmUszgNbDLl8Yijfr7pUiSUV/5uhg5LOlDo6ZPY6El
+	tlwSGnjjFDELm5sCANkTwV5Ev9zkuvBC34NfwcP/EnMHuigt23JPpFFiobEMmWjMbuAyKYAZW06
+	xhn/F0kqpeTQ88e/3C7YsbK3OMFLivz5SwRnNUkOBEqn6gLk1R2ETg0OXB/RYNUDCAYZug==
+X-Google-Smtp-Source: AGHT+IHJYqLm2bNlTIV0OaPKSdoxtU3W2Hk6krFGdZj7Augauu5oSQ67P5k0PX48vM11HcU7mHRvqw==
+X-Received: by 2002:a05:600c:3c91:b0:43c:fab3:4fad with SMTP id 5b1f17b1804b1-43f2d7e932emr33093865e9.16.1744287828716;
+        Thu, 10 Apr 2025 05:23:48 -0700 (PDT)
+Received: from [192.168.1.132] ([82.79.237.110])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43f206264a1sm54736005e9.9.2025.04.10.05.23.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Apr 2025 05:23:48 -0700 (PDT)
+Message-ID: <fb40d405-9f76-4117-88f9-423ea5fac3f0@gmail.com>
+Date: Thu, 10 Apr 2025 15:23:45 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] interconnect: samsung: Add NULL check in
- exynos_generic_icc_probe
-To: Charles Han <hanchunchao@inspur.com>, s.nawrocki@samsung.com,
- a.swigon@samsung.com, djakov@kernel.org, alim.akhtar@samsung.com,
- cw00.choi@samsung.com
-Cc: linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250410110421.77580-1-hanchunchao@inspur.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v7 0/5] Configure imx8mp dsp node for rproc usage
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250410110421.77580-1-hanchunchao@inspur.com>
+To: Daniel Baluta <daniel.baluta@nxp.com>, shawnguo@kernel.org,
+ robh@kernel.org
+Cc: s.hauer@pengutronix.de, kernel@pengutronix.de, krzk+dt@kernel.org,
+ conor+dt@kernel.org, festevam@gmail.com, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, frank.li@nxp.com, aisheng.dong@nxp.com,
+ daniel.baluta@gmail.com, laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com,
+ iuliana.prodan@nxp.com, a.fatoum@pengutronix.de, mathieu.poirier@linaro.org,
+ linux-remoteproc@vger.kernel.org
+References: <20250320121004.2542314-1-daniel.baluta@nxp.com>
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <20250320121004.2542314-1-daniel.baluta@nxp.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_051647_927024_8A9BD07D 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20250410_052351_231713_2FFD8C97 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,34 +105,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/04/2025 13:04, Charles Han wrote:
-> devm_kasprintf() can return a NULL pointer on failure,but this
-> returned value in exynos_generic_icc_probe() is not checked.
-> Add NULL check in exynos_generic_icc_probe(), to handle kernel NULL
-> pointer dereference error.
-> 
-> Fixes: 2f95b9d5cf0b ("interconnect: Add generic interconnect driver for Exynos SoCs")
-> Signed-off-by: Charles Han <hanchunchao@inspur.com>
-> ---
->  drivers/interconnect/samsung/exynos.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/interconnect/samsung/exynos.c b/drivers/interconnect/samsung/exynos.c
-> index 9e041365d909..f3568f0d92d1 100644
-> --- a/drivers/interconnect/samsung/exynos.c
-> +++ b/drivers/interconnect/samsung/exynos.c
-> @@ -134,6 +134,11 @@ static int exynos_generic_icc_probe(struct platform_device *pdev)
->  	priv->node = icc_node;
->  	icc_node->name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%pOFn",
->  					bus_dev->of_node);
-> +	if (!icc_node->name) {
-> +		devm_kfree(&pdev->dev, priv);
 
-Instead of doing some scripting changes you need to look at the code.
-Look at other error paths, how they are doing it.
 
-Otherwise please explain why you need to release a managed resource?
+On 3/20/2025 2:09 PM, Daniel Baluta wrote:
+> DSP found in i.MX8MP SOC can be used by multiple frameworks in order to
+> enable various applications:                                                                                                                                                            
+>         - rproc/rpmsg framework, used to load for example Zephyr samples
+>         - Sound Open Firmware, used to enable various audio processing
+>           pipelines.
+>
+> Current dsp node was configured with SOF in mind but it doesn't work
+> well with imx8mp-evk dts. SOF controls audio IPs from firmware side
+> while imx8mp-evk.dts preffers to control audio IPs from Linux side.
+>
+> So, configure 'dsp' node to be used with rproc scenario and later will
+> add a separate dts or an overlay to configure the node for SOF.
+>
+> This patch series configures and enables dsp node to be used with rproc.
+>
+> Changes since v6:
+> 	- addressed Alexander Stein comments
+> 	- enable mu2 separately in patch 5/5
+> 	- put "status" always as the last in node definition
+>
+> Changes since v5:
+>        - do not enable mu2 node by default
+>        - fix dt_bindings errors
+>
+> Changes since v4:
+> (https://lore.kernel.org/linux-arm-kernel/Z6zGLn3B6SVXhTV1@lizhi-Precision-Tower-5810/T/)·······························································································
+>        - after comments received on v4, we implemented the run/stall
+>          bits using reset controller API (changes merged ->
+> https://patchwork.kernel.org/project/linux-arm-kernel/cover/20250311085812.1296243-1-daniel.baluta@nxp.com/)
+>         - drop patches related to DSP run/stall/reset via syscon
+>        - picked up patch related to using run_stall via reset
+>          controller API.
+>
+>
+> Daniel Baluta (5):
+>   arm64: dts: imx8mp: Use resets property
+>   arm64: dts: imx8mp: Add mu2 root clock
+>   arm64: dts: imx8mp: Configure dsp node for rproc usage
+>   arm64: dts: imx8mp: Add DSP clocks
+>   arm64: dts: Enable DSP node for remoteproc usage
+>
+>  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 14 +++++++++++++
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi    | 22 +++++++++++++-------
+>  2 files changed, 29 insertions(+), 7 deletions(-)
+>
 
-Best regards,
-Krzysztof
+For the whole series:
+
+Reviewed-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
