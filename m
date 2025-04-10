@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BCB3C369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94721C369A9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XJhF12/fclwO6zAdWUTEZxX2hd6wFsf0dBXm6vlW0h8=; b=q2MH97FkeAamOGQ9yQGQV45z66
-	8O00PiCbtQWqp8txvGS0JyyKCeOJ0iqRFKSaCt53J2lkII5b4WsFfNo2mUttheoLWu7ij4uBwVYpm
-	8iFK4iCfMuyh0IDvkWXT+E1QC6+/576klZ9mzItj0VXGZDFnIXD7ZgKSKD0jUVL6AqPN/bBct7mEG
-	Ylvobs7n+0jbbiMTfVFwk/15VJyLYkqSy+FYdua1tllsP/TSasCnRkkldncYMnypCTd7mELSlACj4
-	0nFBjsaD9lrsvCE6ekQ2XOZeZyknSEP5AiwK6LjNLPIPkci6d5uVyZiTq/OliM8i9Kk8aNJo5DM3D
-	LTUFG9vQ==;
+	bh=azBeY/ABdzLCK2gCU3irIQ43T5ERKSG6fIfSiV5Z92s=; b=L3WKknBVj1XU2VBjGKVqM+PmZ/
+	ofI2mfaiwpJtgOPmHcUOvX7dghOq4LTYPxFwyobklfvHpaMtwV52s4VNrUk0sEpgkiUGT8w3fRScH
+	8v89QVpISfUy/lnmkjrgztpgxWoV+Kcjs5tojkF9lN5GJrpYAkGpIfwFwx+EfM1j97VpTWgKOQILU
+	SjfxSsZ4XElImjvtpmxuGfeVnVvv2Og2/DDpxEumQXfk24Q9naCXyK/RNAsKkgF3NvlU+EpCndXOV
+	9VHHmL04UyI88GkXbErrKb1U3J/xAxOR+iTMtGDVk0MxNNcAR7YSMOxDFYmlnTF3+6QJIwJttnVCh
+	l52tsL2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ptY-0000000ACMq-3Aoy;
-	Thu, 10 Apr 2025 11:16:32 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1u2pta-0000000ACPu-17ti;
+	Thu, 10 Apr 2025 11:16:34 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2o4t-00000009uh6-1nZS
+	id 1u2o8c-00000009vcR-4337
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:20:08 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1744276805;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XJhF12/fclwO6zAdWUTEZxX2hd6wFsf0dBXm6vlW0h8=;
-	b=A7yNQQtazyb9XPUZRf0jJSzzrIHi51lf5CjAjz6d9YBB4IoqBfDRyA8tQEV2/lnF+omWdj
-	ERVsVR/FZAFhAUXAxG7j+1Ig8+0zjZmINIMBQVpjU8LJQL561shJpy+DqqpDLoQTC6mJ9Z
-	oJvjTnDQDqC7hUifRGCwy61wyiRiWnAK9RF3sq6iWRZOymOjLnjE3L9I84Tx8ONmHfrVBB
-	//Ml62580CLywJmps4WxxNFHGe0DjKPPTsTed7CDJgBH1XBZPCkVOeyma4M0N8eiZPO9Qk
-	oQAJCNQkDtgDkZhhMLq3GGfUqRGV45X0w/lx/M+yJ9LSOPfjCrWLTXWFY2oZTQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1744276805;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XJhF12/fclwO6zAdWUTEZxX2hd6wFsf0dBXm6vlW0h8=;
-	b=VbKoGyMqlmME3/WtdvAyQPq0vCnxLJSBQjkbb6Qvq41UuyGSc2qOEwX7EqHcg5BD5r3uzl
-	2VmoSm5pfbpFg5Cg==
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Sascha Bischoff <sascha.bischoff@arm.com>, Timothy Hayes
- <timothy.hayes@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 22/24] irqchip/gic-v5: Add GICv5 ITS support
-In-Reply-To: <Z/d8bP9GceSVpJAU@lpieralisi>
-References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
- <20250408-gicv5-host-v1-22-1f26db465f8d@kernel.org> <87jz7ttb7l.ffs@tglx>
- <Z/d8bP9GceSVpJAU@lpieralisi>
-Date: Thu, 10 Apr 2025 11:20:05 +0200
-Message-ID: <878qo8tltm.ffs@tglx>
+	Thu, 10 Apr 2025 09:24:00 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0309A1034EAEC;
+	Thu, 10 Apr 2025 11:23:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1744277036; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=azBeY/ABdzLCK2gCU3irIQ43T5ERKSG6fIfSiV5Z92s=;
+	b=CI4cOCBPBMLylFiXGeRD7c3jrqxluWRjSNAlIVxYBRtfkxu65x+EH4XLY/RWNVQLhZosUf
+	SNRanfj363p0NmPSjDBbtK4Aa0/DGdWK1QYocBqQRsROGf+9BoyW+6BUpmDG3PEKT72AzW
+	Kt0PPuHmbSfEeymFfHcUdhia9ba74M+Bizo3HQVmUWtKhZT/AhaMEzY9AJ4/fJLJUAXNpY
+	4VbjZzMTsHkVRJjxPHOrMpaKk7G7pLhyYiuIE6wCsNy8CwGb2UNE/d5gH5CO/Bw5ahhDaN
+	a64VEcfrTUvWWIGW92YyCAn0cDiUW4xAL3k3/Y/X8EwEnICsbdvfcnGQmm3EIQ==
+Date: Thu, 10 Apr 2025 11:23:50 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Stefan Wahren <wahrenst@gmx.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [net-next v4 5/5] ARM: mxs_defconfig: Enable
+ CONFIG_FEC_MTIP_L2SW to support MTIP L2 switch
+Message-ID: <20250410112350.7dbb299c@wsk>
+In-Reply-To: <ea8cc94c-b212-4ae2-8c5b-7697e9b358aa@kernel.org>
+References: <20250407145157.3626463-1-lukma@denx.de>
+	<20250407145157.3626463-6-lukma@denx.de>
+	<c67ad9fa-6255-48e8-9537-2fceb0510127@gmx.net>
+	<20250410090122.0e4cadef@wsk>
+	<ea8cc94c-b212-4ae2-8c5b-7697e9b358aa@kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; boundary="Sig_/r5tjFsU34eWBYPJ.iEWYDwo";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_022007_603593_E8C517C4 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250410_022359_156355_E7BE6DE0 
+X-CRM114-Status: GOOD (  32.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,19 +82,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10 2025 at 10:08, Lorenzo Pieralisi wrote:
-> On Wed, Apr 09, 2025 at 08:57:02PM +0200, Thomas Gleixner wrote:
-> Anyway - as I mentioned in the cover letter, the current IWB driver
-> design, (patch 23 - where the guard(mutex) bug is and more readl_poll_*
-> boilerplate :), sorry), is a bit of a question (should I move it to
-> DOMAIN_BUS_WIRED_TO_MSI with the fixed eventid caveat to solve somehow),
-> or is it OK "as-is", treating it basically as an ITS hardcoded plugin ?
+--Sig_/r5tjFsU34eWBYPJ.iEWYDwo
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-I'm not sure whether DOMAIN_BUS_WIRED_TO_MSI buys much, but OTOH from a
-layering perspective it's more in line with the existing wire to MSI
-implementations. Marc might have an opinion there :)
+Hi Krzysztof,
 
-Thanks,
+> On 10/04/2025 09:01, Lukasz Majewski wrote:
+> > Hi Stefan,
+> >  =20
+> >> Hi Lukasz,
+> >>
+> >> Am 07.04.25 um 16:51 schrieb Lukasz Majewski: =20
+> >>> This patch enables support for More Than IP switch available on
+> >>> some imx28[7] devices.
+> >>>
+> >>> Signed-off-by: Lukasz Majewski <lukma@denx.de>   =20
+> >> thanks adding the driver to mxs_defconfig. Unfortunately it's not
+> >> possible for reviewers to identify the relevant changes, =20
+> >=20
+> > Could you be more specific here?
+> > As fair as I see - there is only 14 LOCs changed for review. =20
+>=20
+> Really, the comment was very specific. You make multiple independent,
+> looking irrelevant changes to the file.
+>=20
+> >=20
+> > Please also be aware that MTIP L2 switch driver has some
+> > dependencies - on e.g. SWITCHDEV and BRIDGE, which had to be
+> > enabled to allow the former one to be active.
+> >  =20
+> >> also the
+> >> commit messages doesn't provide further information.
+> >> =20
+> >=20
+> > What kind of extra information shall I provide? IMHO the patch is
+> > self-explaining. =20
+>=20
+> For example explain why do you think GPIO_SYSFS should be dropped.
+>=20
+> >  =20
+> >> In general there are two approaches to solves this:
+> >> 1) prepend an additional patch which synchronizes mxs_defconfig
+> >> with current mainline
+> >> 2) manually create the relevant changes against mxs_defconfig
+> >>
+> >> The decision about the approaches is up to the maintainer. =20
+> >=20
+> > I took the linux-next's (or net-next) mxs defconfig (cp it to be
+> > .config)
+> >=20
+> > Then run CROSS_COMPILE=3D ... make ARCH=3Darm menuconfig
+> > Enabled all the relevant Kconfig options and run
+> >=20
+> > CROSS_COMPILE=3D ... make ARCH=3Darm savedefconfig
+> > and copy defconfig to mxs_defconfig.
+> > Then I used git to prepare the patch.
+> >=20
+> > Isn't the above procedure correct? =20
+>=20
+> No, it is not correct. Do not make any changes in the "Enabled all the
+> relevant Kconfig options and run" step and check the result. Do you
+> see difference in result file? If yes, then why such difference
+> should be part of this commit?
 
-        tglx
+Ok, I get your point. Then I shall prepare a separate, pre-patch.
+Thanks for info.
+
+>=20
+> Best regards,
+> Krzysztof
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/r5tjFsU34eWBYPJ.iEWYDwo
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmf3jiYACgkQAR8vZIA0
+zr2DEgf+KE3yYGEwlrYyU8JplEso25aCWU0x5ENkFsHPsIds+J9TLbxooFsu53fP
+6Y2JsJPakI0iBlKqW55uuZWh20wPWTFpIoqAk77FautHOO3BcML3lov3upWRH273
+RGVQEJHRGURV/Q2w2jGM6fNH7JjWZjNHRS6WqNZnRm4WedNh5o3MJobE60k/yNOn
+0RFMSqPOegpWpEJQnSmcip2s66i50dy2ou8kqmUwpDX6OMwJP8sELshq2eJDgH2G
+z/p9pXjh5tfkJw3KO/LUktGgHfCdsjhP4pK3WNaLpSIHEMd1kDEnrrbhaQwMyVwt
+qfkJipgw2GEVOxmgaUF5g4GIJ92exQ==
+=Cxw1
+-----END PGP SIGNATURE-----
+
+--Sig_/r5tjFsU34eWBYPJ.iEWYDwo--
 
