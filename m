@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24646C369A8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02D4C369A6
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,39 +12,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/0LTiiIwYCUz51jk3BEmuOILoyyD8i0Rtc1e4HdJzUk=; b=3p8ehIa9KzMA5dFUGPi2AfC3Sk
-	jP9OQ0Efaj7KxYFNPJojM6pOtA/+TqW+sEWBojw6DPOSiTBUNoby+cnj1alP9WI0/h62JfJUHUgDc
-	1m8TKmukZJElsVCExxMqkJb+HeaHRGq2Evbq8GnqXXY7usQlVP5iFSbCMqYzG47L2MxDGFVRFvef7
-	n4+dgI8JPKkSqI+r4GQjxRcPxa84VQMX4aV4zillOmvryzyokmlTyO3VDBKJ+WDQHcdWQQ6xZWZ+a
-	oXGuPX1Q6aYar4ArRIbOg+94X0I2aZptDf7vJRm0PXxjvOfgS+tzi82zzoEaU8aLCzCVMEDcJV8G+
-	UVEkP/5w==;
+	bh=auMZjdpxCvKTX4lfbE8M58UMBkU5s6BuRcALq6wShSQ=; b=vthlxla7zeGTTkGsn7nGGlPCCU
+	La3FBspkd/zsOngVnjZ9lC9Jv9roc7dfIxjuLfb5e37kNyUxOZS4ipqcWY/Ztrdy/Vnv487xrW12U
+	ptd35LfrYLG6jtPTSJ1b9eTfFZw/PAFHFMOfsLh91/LoPHKdTEB2VyQW09G0o7Xr6a0Rd33+ekCuY
+	vI2p2Dnqk0sU/NGYn0G49D81YcmCeLA8e0Rdx3NmQssTaZJ/N7gIcElgies6Jhi2icugq6VjmXJHB
+	aUEkT8GRVFcPnwuYe9ySFbqfk+8zmUKfK8GslaLJc7LnaUJ3Z8o2RgFwg0F8VIN4k8Kcep0Dxlulc
+	znycRArA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2psu-0000000AB9H-23Sx;
-	Thu, 10 Apr 2025 11:15:52 +0000
+	id 1u2psx-0000000ABDT-0bSb;
+	Thu, 10 Apr 2025 11:15:55 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2noK-00000009rHX-3jlu
+	id 1u2noQ-00000009rJl-1m9t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:03:02 +0000
+	Thu, 10 Apr 2025 09:03:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
 	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=/0LTiiIwYCUz51jk3BEmuOILoyyD8i0Rtc1e4HdJzUk=; b=NPH4uHdbGrpHPyXC9pHEFvjzuE
-	nP7m0U2lMw3neJa7uzCjH+xUZYoXYRE/uTgvmPhwPntBCkmLm0hNLQ3hInZt1tAk+jhHdOhMsk0ET
-	nV1tmXNihMJquP6iyUgu1K/scCY+yAfGjn5AM2ZFk1dXlYRk4sJ/DJgzeazsps4ulV7LbXil3LvMo
-	pTDJ27UdRBN7z6vueGapYBKcinf2R5r1EmJdRe+7Rn0x7P13GYQE6TrRY2bgoAQzJfcnUnFUMJ4UR
-	nVJIK2s0F9nwBOYwDpPZ4hezShNcyGmAc47cNGdafqcAyUSc9BW5DISqpAuxu5DocK4SxLGPXx7Bo
-	9iuHCgqw==;
+	bh=auMZjdpxCvKTX4lfbE8M58UMBkU5s6BuRcALq6wShSQ=; b=apt/Z0kmof7VIyQ53HOV9KOhtu
+	4fdr3Dc5ZeX+Ccwbf2UoFV8odqT65BbMzcg3JKzdvqvukUQxasGmdgMlnDJBSxU34DkKkK9/XOgSc
+	QoqSX8Oq0DuWyiUDFIQm614p+DWQV4ZUZOpg8SmTHVewu4v0Xp8ogUXPhjJlFmUNH8pJ6TK1+gXRo
+	RJV+UuUZmzYVgkFLKoYDQbw/2uGaT+noVdq8ubRDI9pb/N0ofAMfLzarbk5JeD9iEtjhQgyJ+HsI0
+	XVZAcWtOiLGVwfMVD1Yc27V2BAqe2aNGWNQ/tdRR+o5Z0tHfpoMuwO5tmrCU5AYPK/CoyVryh+JFP
+	jYcFHVvw==;
 Received: from [89.212.21.243] (port=41926 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1u2noK-000Djj-1R;
-	Thu, 10 Apr 2025 11:02:59 +0200
+	id 1u2noP-000Djj-39;
+	Thu, 10 Apr 2025 11:03:05 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,9 +58,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH 05/13] arm64: dts: freescale: imx93-phycore-som: Add eMMC no-1-8-v by default
-Date: Thu, 10 Apr 2025 11:02:43 +0200
-Message-Id: <20250410090251.1103979-6-primoz.fiser@norik.com>
+Subject: [PATCH 09/13] arm64: dts: freescale: imx93-phyboard-segin: Add RTC support
+Date: Thu, 10 Apr 2025 11:02:47 +0200
+Message-Id: <20250410090251.1103979-10-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250410090251.1103979-1-primoz.fiser@norik.com>
 References: <20250410090251.1103979-1-primoz.fiser@norik.com>
@@ -77,8 +77,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_020301_084267_41037EDF 
-X-CRM114-Status: UNSURE (   5.31  )
+X-CRM114-CacheID: sfid-20250410_020306_621477_A01552C4 
+X-CRM114-Status: UNSURE (   7.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,27 +94,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add property 'no-1-8-v' by default to usdhc1 (eMMC) node. Bootloader
-will take care of deleting the property in case SOM supports HS400 mode
-(1.8V IO voltage feature flag has to be set in the EEPROM).
+Add support for RTC clock connected via I2C on phyBOARD-Segin-i.MX93.
+Make I2C RTC the default clock by configuring the aliases.
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
- arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+ .../dts/freescale/imx93-phyboard-segin.dts    | 36 +++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-index 3d84eed33074..d6589d26c875 100644
---- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-@@ -172,6 +172,7 @@ &usdhc1 {
- 	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
- 	bus-width = <8>;
- 	non-removable;
-+	no-1-8-v;
- 	status = "okay";
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+index 525f52789f8b..38b89398e646 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+@@ -17,6 +17,11 @@ /{
+ 	compatible = "phytec,imx93-phyboard-segin", "phytec,imx93-phycore-som",
+ 		     "fsl,imx93";
+ 
++	aliases {
++		rtc0 = &i2c_rtc;
++		rtc1 = &bbnsm_rtc;
++	};
++
+ 	chosen {
+ 		stdout-path = &lpuart1;
+ 	};
+@@ -33,6 +38,24 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
+ 	};
  };
  
++/* I2C2 */
++&lpi2c2 {
++	clock-frequency = <400000>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lpi2c2>;
++	status = "okay";
++
++	/* RTC */
++	i2c_rtc: rtc@68 {
++		compatible = "microcrystal,rv4162";
++		reg = <0x68>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_rtc>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <26 IRQ_TYPE_LEVEL_LOW>;
++	};
++};
++
+ /* Console */
+ &lpuart1 {
+ 	pinctrl-names = "default";
+@@ -56,6 +79,13 @@ &usdhc2 {
+ };
+ 
+ &iomuxc {
++	pinctrl_lpi2c2: lpi2c2grp {
++		fsl,pins = <
++			MX93_PAD_I2C2_SCL__LPI2C2_SCL		0x40000b9e
++			MX93_PAD_I2C2_SDA__LPI2C2_SDA		0x40000b9e
++		>;
++	};
++
+ 	pinctrl_uart1: uart1grp {
+ 		fsl,pins = <
+ 			MX93_PAD_UART1_RXD__LPUART1_RX		0x31e
+@@ -69,6 +99,12 @@ MX93_PAD_SD2_RESET_B__GPIO3_IO07	0x31e
+ 		>;
+ 	};
+ 
++	pinctrl_rtc: rtcgrp {
++		fsl,pins = <
++			MX93_PAD_ENET2_RD2__GPIO4_IO26		0x31e
++		>;
++	};
++
+ 	pinctrl_usdhc2_cd: usdhc2cdgrp {
+ 		fsl,pins = <
+ 			MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
 -- 
 2.34.1
 
