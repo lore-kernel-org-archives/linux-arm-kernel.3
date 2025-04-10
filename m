@@ -4,60 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F56C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C57C369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sN82NJUvEnlo4mUVhM2Hn6KBjDuL9mvbOe+ynpVv0lo=; b=FMKN32+2L8JPLp/f3I/CUK61My
-	oQroQEQ4oa+RAU+9k1AWPHTYIeIPJp5rU41PMJ/NmrdBpLqJO/5AGxrUa3mVMgGm+UT/uTVF4eueX
-	7wqtCOUEznwxPxrruOWyxEfmv3aMfbNOLVKSYrHdxxZlqKOU1SDpQPK56k0fRzMQxJDlOEvCGg2BI
-	psPtjYQpVpBtiV8nSXJ8BabYsz0Nfogf03vlsVR+yzvn1q239OuvbQFuijbfDg3PJzX1GZPjDakdU
-	nOJDQUCwd7xNqYAXmwZ2wiED9gYCg87ak2+dCZcKhaN6Q1N/YOFegbsBFRgLdnvPrECpy/+Cb4QsE
-	KA98eflw==;
+	bh=vuIom+FPWid16xa2Zd6WG2DHLqsqs5q3lkN6U8Dg2PI=; b=fZz9q0M0b9o5hZeWz1fZu6MBaC
+	caDQ+nJc4umW8nPx7F4HHcSWh+ZWcdMbQXnHZQcfVR0r/XXvdGo7EshfTxc5QvNq6IVW42x/I7Lew
+	b/8w4td6b/k5HUkQB18K8MCKOxd1SOv1rEJCS6DSMkWqwAmHXOb796Fy/MbKh94COJdauoQkms8rW
+	lz+Guuw1Ky5ZxT9pn6EcSotIpAiNq71elMnNPj3Ve0RC7gDWS+I6vNjb2WDn9c9JF8xIjc85TBiZa
+	6oK0EOzvsRijTnq1E7+ncagpd6TqZ8K00DXwg7v5wVJQft5G9pB45mg58GLuTHb8TS/vGSU60U7dn
+	APGTnjUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2qOq-0000000ANXL-3Fyf;
-	Thu, 10 Apr 2025 11:48:52 +0000
-Received: from mail-m19731119.qiye.163.com ([220.197.31.119])
+	id 1u2qWv-0000000AOj6-0c8F;
+	Thu, 10 Apr 2025 11:57:13 +0000
+Received: from unicorn.mansr.com ([2001:8b0:ca0d:1::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2qIs-0000000ALBL-0stS
+	id 1u2qTV-0000000AO75-11yL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 11:42:44 +0000
-Received: from localhost.localdomain (unknown [122.224.147.158])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 11665dc50;
-	Thu, 10 Apr 2025 19:42:24 +0800 (GMT+08:00)
-From: Shouping Wang <allen.wang@hj-micro.com>
-To: will@kernel.org
-Cc: robin.murphy@arm.com,
-	mark.rutland@arm.com,
+	Thu, 10 Apr 2025 11:53:42 +0000
+Received: from raven.mansr.com (raven.mansr.com [IPv6:2001:8b0:ca0d:1::3])
+	by unicorn.mansr.com (Postfix) with ESMTPS id D4E3C15360;
+	Thu, 10 Apr 2025 12:53:34 +0100 (BST)
+Received: by raven.mansr.com (Postfix, from userid 51770)
+	id C35A421A3DC; Thu, 10 Apr 2025 12:53:34 +0100 (BST)
+From: Mans Rullgard <mans@mansr.com>
+To: Mark Brown <broonie@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Pan Nan <pannan@allwinnertech.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	allen.wang@hj-micro.com,
-	peter.du@hj-micro.com,
-	andy.xu@hj-micro.com
-Subject: [PATCH 0/2] perf:arm-ni: support PMUs to share IRQs
-Date: Thu, 10 Apr 2025 19:42:12 +0800
-Message-ID: <20250410114214.1599777-1-allen.wang@hj-micro.com>
-X-Mailer: git-send-email 2.43.0
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] spi: sun4i: add support for GPIO chip select lines
+Date: Thu, 10 Apr 2025 12:53:03 +0100
+Message-ID: <20250410115303.5150-1-mans@mansr.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZHUxJVhlMGE1MTR5MT0IYSVYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSUlVSUlPVUpPTFVKTkNZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
-	tLVUpCS0tZBg++
-X-HM-Tid: 0a961f82225009d9kunm11665dc50
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PU06Ajo4PTJNMDceEEgMTD4U
-	OhVPCy9VSlVKTE9PSUNOSE9OSkNOVTMWGhIXVRoXFx4VVQwaFRw7ExFWFhIYCRRVGBQWRVlXWRIL
-	WUFZSklJVUlJT1VKT0xVSk5DWVdZCAFZQUpLTEw3Bg++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_044242_408620_0D5CB913 
-X-CRM114-Status: UNSURE (   5.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250410_045341_419364_6BF145C8 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,25 +66,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch mainly supports to share the interrupt on PMUS for different
-clock domains.
+Set use_gpio_descriptors to true so that GPIOs can be used for chip
+select in accordance with the DT binding.
 
-Dependency: The second patch depends on first one. It was already
-reviewed by robin.
+Signed-off-by: Mans Rullgard <mans@mansr.com>
+---
+ drivers/spi/spi-sun4i.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-thanks,
-Shouping
-
-Hongbo Yao (1):
-  perf: arm-ni: Unregister PMUs on probe failure
-
-Shouping Wang (1):
-  perf:arm-ni: support PMUs to share IRQs for different clock domains
-
- drivers/perf/arm-ni.c | 116 +++++++++++++++++++++++++++---------------
- 1 file changed, 74 insertions(+), 42 deletions(-)
-
+diff --git a/drivers/spi/spi-sun4i.c b/drivers/spi/spi-sun4i.c
+index 2ee6755b43f5..6645d218bcf3 100644
+--- a/drivers/spi/spi-sun4i.c
++++ b/drivers/spi/spi-sun4i.c
+@@ -462,6 +462,7 @@ static int sun4i_spi_probe(struct platform_device *pdev)
+ 	sspi->host = host;
+ 	host->max_speed_hz = 100 * 1000 * 1000;
+ 	host->min_speed_hz = 3 * 1000;
++	host->use_gpio_descriptors = true;
+ 	host->set_cs = sun4i_spi_set_cs;
+ 	host->transfer_one = sun4i_spi_transfer_one;
+ 	host->num_chipselect = 4;
 -- 
-2.43.0
+2.49.0
 
 
