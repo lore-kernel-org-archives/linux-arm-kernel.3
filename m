@@ -4,93 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143BBC369A9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87BCAC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cTp27Yks+IscoBmQevrAOG5V7SS9oSMITLUbLj1Q/Zw=; b=LXXSMflEESnplgTbsjFawWlXqV
-	TeGHF6NQwhq9n/0nGVuofHAI6H0eUPTvltGcbUuEdUZIhsawUHNx4edasUPDCB9/WTB9ULH4xgLoB
-	TWDBLgvgHSusaEtEjHA7kojqABhD0iDlPvtslXKFUiefTtdcQnKtqA0KmJtk3d+yNRGUDUJI1UzAz
-	WezXWZm5ekk8shTUJv6qfscnLty3hjSbKK1Mx6Uf3BXrEAxAVI0dqYsX7vrcF74dFumAmE29ds2d6
-	7Ojw/DzM9KKKYtVR5EeoeaAkVspNecxzA31BDbIFquvGCYq1yjWcBlfXQT9oCwqBv4pGtHmop5Qvj
-	jYmTQidA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gCsAtZaY7x+heiqr7TPgurGj4fXQsDSnlbYYIQ4pOlw=; b=4c0Q45TOWgWYrQu5Hixv1pds5r
+	tYjtF4Qo4b0R6JtcZKr91QIofMuK/etYFkX27hyspW7svJxuZ3W34Dy2WzGToKiPDIQ1Pt8ylFkvq
+	4UJUDisYvjofGAvjTCcHr1qJV4HLYlkPsRsRNafVHWWy7yGqdD1n/Ktl8esP2qbCHBGKQ1N2Ub51s
+	PeOe09J7/QOtkMOtstPZtXB+VWsedq8b1OEHjsMHVdhG+l3CRFE6u9wlI1CajzDJ6chgL7hUpMnAt
+	+WhAGT5SIhF7sSxrayUNiaLYLCBR3tqIMk6AbYEYe+2+2xe6ag+r84gfnRMdc9NyMugxN6652GCSh
+	05/oBf6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ptg-0000000ACbM-1HxX;
-	Thu, 10 Apr 2025 11:16:40 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1u2ptl-0000000ACls-2zib;
+	Thu, 10 Apr 2025 11:16:45 +0000
+Received: from mail-vi1eur02on20631.outbound.protection.outlook.com ([2a01:111:f403:2607::631] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2oEL-00000009weo-2403
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:29:55 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A6W6Eb017829;
-	Thu, 10 Apr 2025 11:29:41 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	cTp27Yks+IscoBmQevrAOG5V7SS9oSMITLUbLj1Q/Zw=; b=DVqv1cyBN7bFrwab
-	XtksEUPrCBIAcViMXuOTN695wWg4nFtkImzU/a4eZv/kNVmieArU9RYUpLCVHNTb
-	xQPRLfl+4KorwhgE5fN4on0j+lgN6aebIFQHYyO/YF5kYw2+dy+jzwJIhe44XKtL
-	KlPoZYy3wVFZkfYzuUF/tdxDIn62Llm+/926XwOy8JHY1t1gl/uXVJ0qwudysoZo
-	uuRl1+hVGMQp97S6U27pqL0WtF4Sz6N5S7FWXBj6nun9epSMYha+9s0at6OODnhk
-	LYY1iAsODc97z9glT2LK3lMICP9v4lCrU8Uwo2rcCQgM30kw82X3g7s7n2WHNLRD
-	YaWMcQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw6epsvg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Apr 2025 11:29:41 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2883340045;
-	Thu, 10 Apr 2025 11:28:39 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C08559A69F7;
-	Thu, 10 Apr 2025 11:27:49 +0200 (CEST)
-Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 10 Apr
- 2025 11:27:49 +0200
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Date: Thu, 10 Apr 2025 11:27:42 +0200
-Subject: [PATCH v9 1/3] dt-bindings: memory-controllers: Add STM32 Octo
- Memory Manager controller
+	id 1u2oLR-00000009y65-2B55;
+	Thu, 10 Apr 2025 09:37:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WXByWCuwLoGlfVPpiDqP8u+pHiD9zZQrtEO18aifla5JQcj2fy9dlvOipFJG2Dkb4HqvCvGdGVDFrLkq+OlODuIOfU/FW2LEnuM8T36PYeq2D1B/uGJEyn1SD2kTAQOnB+OtgzDpT89kWqPORjkDmF0HewkdXAUKNWZm+bPIFq3v9wVybA9+beLiOsBgJtG24jgGmEBE2eJKUWTcGUEEDhzwls8EzagxuixOvt3UCP+KmwN4PPQ0LV0F1BMeTDhEe+PS/7elXlaNlg55W0gagjQaUnBrADGPABlBVLela00QTDgTntlwr0197FzLvUEpl/dDR+I85hr/GILkXweaOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gCsAtZaY7x+heiqr7TPgurGj4fXQsDSnlbYYIQ4pOlw=;
+ b=R9j2dNejbVPtwhg8BqvOYAWTXeuOQDpqAFG00Xkp+PDmnEXjpotp5Yx2TPpHNnS0OIObksLu/xN1xkr9Z/khfi4CDs36QUSK9yAMqSVQKIqtFSrgLIfpu4zQO67hw3TY9Iqhgz/1OXA5s87r8/MM3bO8YfvTyDEUbWifCTGx0bL8qPGfyyFK8slh0Q8egNtfZLhBbFHicQargsZris3nXWEQ12XZaiyRUHb7COiTpax61EH1dOvGkd3/5GH0aALtDQ1NZhmYaukqzuAMDy6r8saAKqECgCorb0Kh1EO1GYStpn6jRf8LFh85pXiGmamwkfxPGSJF/mtOXu+iz2trEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gCsAtZaY7x+heiqr7TPgurGj4fXQsDSnlbYYIQ4pOlw=;
+ b=YY9dOodRmG8L8yXHGTFAJCt6ebRIP1uMjPCy5+rKebOx0FLzPXZ+SPmfrVOOpiWW66r3BOSfBg/84SWILaOc08o3C5M7+hiKOgE0Xk3nLlEQvg5PLS524o/E2OdN5HPyUqWwCVzhBedcvMqgpMYPwoCTHN7dfEDBWUJr0vSLVYY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by AS4PR04MB9575.eurprd04.prod.outlook.com (2603:10a6:20b:4fd::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.31; Thu, 10 Apr
+ 2025 09:37:03 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8606.033; Thu, 10 Apr 2025
+ 09:37:03 +0000
+Message-ID: <4784ca8c-b6b1-4337-b2af-e8992150ec7c@cherry.de>
+Date: Thu, 10 Apr 2025 11:37:02 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] dt-bindings: usb: cypress,hx3: Add support for all
+ variants
+To: Conor Dooley <conor@kernel.org>
+Cc: =?UTF-8?Q?=C5=81ukasz_Czechowski?= <lukasz.czechowski@thaumatec.com>,
+ Matthias Kaehlcke <mka@chromium.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Benjamin Bara <benjamin.bara@skidata.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Klaus Goger <klaus.goger@theobroma-systems.com>, linux-usb@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250326-onboard_usb_dev-v1-0-a4b0a5d1b32c@thaumatec.com>
+ <20250326-onboard_usb_dev-v1-2-a4b0a5d1b32c@thaumatec.com>
+ <20250326-fanatic-onion-5f6bf8ec97e3@spud>
+ <CABd623tEGh=qtpF0h7PkRBBrR7V9EaxUv9HregqbPcLU_2Exbg@mail.gmail.com>
+ <20250409-commend-brewing-7c541aec26a9@spud>
+ <cc49276b-f64f-42a8-b4b4-61bde17b61e3@cherry.de>
+ <20250409-glorified-crouch-837870b4d443@spud>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20250409-glorified-crouch-837870b4d443@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0091.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cb::20) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250410-upstream_ospi_v6-v9-1-cf119508848a@foss.st.com>
-References: <20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com>
-In-Reply-To: <20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>
-CC: <christophe.kerello@foss.st.com>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Patrice Chotard
-	<patrice.chotard@foss.st.com>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-10_01,2025-04-08_04,2024-11-22_01
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AS4PR04MB9575:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b74f858-38d3-4fc9-acfe-08dd7813401a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MmRaZ0JaUEpqRWtsY1YyOFZ5MUNFNnZNQVJiTjVrNm4yOFE4RHg2QUdxOE5j?=
+ =?utf-8?B?TUxIR3NlemRMK3U0d0NDbkJGbGRDM0xHV2hXNHNJdUZtWGJhRy9PcXNNdUhC?=
+ =?utf-8?B?YitEMkY4cm5PRlRPSUJORytYS0F5Y1VjMXZMRTNmanNXazh0QjdITHc1RDY1?=
+ =?utf-8?B?aUVkOFUzM3V4Tmx1ZXdCNTVadHAzNDdpTGlpMFhla2RQYUNZeHdTMjVZMEdo?=
+ =?utf-8?B?VHZPL3o1NVlIR3NuSUZNak9tTEM2T3NybFRQWWRxdldLUHZGY25RTENZR1Fs?=
+ =?utf-8?B?R0pETitPSlRoK0RyK0hReXQrN04vYTQrWUpOWSs4bEhQeXNraElsOTRqd2Zh?=
+ =?utf-8?B?cTE5bFR1ZS9wYlp0SjFoR1RkNnZtbDRsdzNPL29hazRqT2tzRUhIdXIzRmpr?=
+ =?utf-8?B?eUZwRWtjcXRWekFEWXF1N0JHNElySWZWQlZiOGxnOWpseURiaW1VUWMyYXMv?=
+ =?utf-8?B?RnBNbjg2bkF3cHBBZlEyTUtWQkNiRmxwdlZTbHBWbTZMZmQzeHNVQ3dma1ZP?=
+ =?utf-8?B?dTV4QVJKdVE2SmM4U1Fxbm1UWEo4NVZ4aExOSDN0MmlBUzdpOFpEY2ZLS2tx?=
+ =?utf-8?B?MUk5UlloUndIYklNNndPemMzYnFiR1NGTk9UVFMyeFd4aXRycldHUVdtRXdH?=
+ =?utf-8?B?VlFnS213ZTdwaWlkb3FTU2lPNjBMOC8yZ3pGZTVhSnl5ZTZGa0RHY0RaRHI3?=
+ =?utf-8?B?L09KVWlwRXRISENNRnFNOE9NVjdRNHlQYkxReEQvWHVnQ01Ydy9lUU1lUTly?=
+ =?utf-8?B?ZU91UmlCTkNZdEdsMStYU3FWd3Q5bjFWZFBkbWhqUFZVUHI0VnViaDhsYXZS?=
+ =?utf-8?B?RzBza3ZsZy8wZWNRVWFSaHBkZkpzM2RhY0RjSEhHNlBEaEZ1WWU4M3Vwa3BL?=
+ =?utf-8?B?UmtFdjV5UGxraFFLbWVicUtsbWhmLzhDd0M2QVl6ODVYQzVMa0NrUm5QTG82?=
+ =?utf-8?B?eWtDRUhneTNIQnR3UmZ2RFNmUzhkeFlaektZeS9udksycmhYZ01INlUyV0gx?=
+ =?utf-8?B?UW5vNzM1R1VWd0trVTlkUzB3amNkRE1yUStjRVhSZXFkNnJsL1M5R0U1ZkNl?=
+ =?utf-8?B?SWJqbFFzWWxzTFBhWWlxRXVzU1l5WTJGN2RNeW9FZVFZWWFSdjhlK3l6ZTlt?=
+ =?utf-8?B?MnV6Y3FJYU1qZEpBaUNFcGJhaHI3Vnk5MENyc3JVMFRKSjd3Rzk0YU1KY3d3?=
+ =?utf-8?B?WUs4dU53NnBIdG56elR6N1owUk1Qdm01d255WXlvTFlIMUdiTG1KMzljU0la?=
+ =?utf-8?B?bmJNTXc4MGYwaG1DVlVQcWhKc1F0UjRTWmo0K2dkb2VRYlVUY2NkUU9DT2hq?=
+ =?utf-8?B?bU1POWVZRUU1TkNhdVg3Z0dHMnpISE1qcGFrZkdYN3p5c1dxNWdMY2FNbWFm?=
+ =?utf-8?B?U1R5ME44bGxDa041a1VDUTNmNFpTcjNzRzFod21KUVQ4Y2dZVWZuMTVVbTNZ?=
+ =?utf-8?B?cUlKOEgvVFh4ZzN0MmF3SUtvQXhuTTZJdGNvdWZlbGNqZExMMFZFQ1BOeGNr?=
+ =?utf-8?B?a3FUTjRtbUh2ZkJueGFpd0ovVUw5WEdtRENFTllYeHZhSkhNRVZZTE9ObHpL?=
+ =?utf-8?B?T0FFTjhaN3QxQUN3YUtqUDcrTHR1Vk5XS3JGeVNYam8wb0JleHg2RHVieDhk?=
+ =?utf-8?B?NzVFb1BzeFZheXpGaGtVMVdZVnNqb3JxOXlYOE8wUVRwS2VXTk9udWorZElh?=
+ =?utf-8?B?M3BMSnRKTllPeWlwNUJZTUM3NnFlQzcybng1a1RLNDhITXpBM0RrQkNtTkpC?=
+ =?utf-8?B?UEM3MUh5dzlGZ3FXai9jSHFUR09ObktNUUVzeE1NQnRpaml3TFRWOXppWFc2?=
+ =?utf-8?Q?Tv45w+ahKfHvA6XqWmL692sIbLBhSyLW3yL2U=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZFhtR0JuY2NNSjJJQnNxeGpsL0tac05oSFZDcTVFb3JUZGtGZU1VU094Zmxn?=
+ =?utf-8?B?a25BKytSRGU3bm9kR3ZmM0FCeHVqNWExYVd0bWMzbWlHNjdSTnd0THZJdHBD?=
+ =?utf-8?B?cURTY2tlcTFxbWx5SEtBbGp0MGgzdnJaZzhYSE5jRzAzMldFaHBpMTJ1QmVI?=
+ =?utf-8?B?ZkZyaW4xUXBYakZqTExhOHVTbXVnUUJFY01kK0VrRmljeVVaTTd2MEg4dmJK?=
+ =?utf-8?B?SzVxT215NWdCWTNuamRwMUpXTGdpdzE0RDgzc09ITHdzN0VmT29iZExIYkw1?=
+ =?utf-8?B?UFgyRERSVXYwaXA5QUtRakhRNHVqZys5b1lYTHFuRzNzUjZja1lHeVFMd3Aw?=
+ =?utf-8?B?TFBvRUYzeWVzY1pXM21HNkw4MW1UY0Q3RGREdk5zQUdPYWpiU2ZZSHUwcVpr?=
+ =?utf-8?B?NEJSNjA3NlFtUGtSb0dsY1ZiajYzRU5WQXFHbGR1SHpCYU1pcTUvUDNWUjgr?=
+ =?utf-8?B?REQrZ3B2bVBEUmZtOURrUTZYZ2R0aEZnUGI3UldPQ0ZXUEJFZkYrcUxOYnlS?=
+ =?utf-8?B?bnpqb1VKeUZPMHZ2bzBEUDFlYnpNdWlROVo4NEJxZGJWU0QyaWN3NHNmNnRR?=
+ =?utf-8?B?NFhaaFJGNGkyQUU4VFJhMThOOW11aER6V0JYVmlUS0dYdTNmS3c0Z3Zod21L?=
+ =?utf-8?B?dEdTT3VjODVSdkFYSFpEQkxHZlppTzJKVURDTnBzWS9uR0hBYkxSVFYvejZM?=
+ =?utf-8?B?WDdLRzVyMUM3YlJDSUFQNC9yS2VrdHpvZ3ovRUl4SjFZaHlSajRyaDFqR2I0?=
+ =?utf-8?B?S0NnbFczY3NrWEJ5eHhTTHdlUDlBTCtvUC9iSkFkdHY0YUkxQmtDcVVFcndW?=
+ =?utf-8?B?dE5kdHFIc0dqMEFXN3dGRHdiblUzYVh6MVFpSkhLVnRVeWViT2lTNWNCYmxG?=
+ =?utf-8?B?cjNzeWFIcWtlSW1VbDBDSXdha3pqeXlMNEtaTDhYaEVCNnBXWG5UY081MlE3?=
+ =?utf-8?B?T05JLzFTakc2dUI5bmh2VUhXd2s5S21Ra3RXbk1JWEdCZSsveW9tS3l4VTda?=
+ =?utf-8?B?dE5WT3JCK3k4UGk3eCtQbEFQUlJndWdJTGRsRVh6Y293ajZyTWZVb1gramVD?=
+ =?utf-8?B?NCs2TkY5eUloektMbTJGTGhPWjFOQVN4VG9BTTY4allDWXRQYm0yeVRmd0Yy?=
+ =?utf-8?B?QWhDWkZjeUh4RWtZY2owN2tWbDNCbTBSYXJLaTNCRGMzMjU5SlExM211enZr?=
+ =?utf-8?B?TFY5eEFqUVBSSjEvZzdoNWVERkhMdXVmQzkycUZHLzB3andKeTZPZ2kvc0ZJ?=
+ =?utf-8?B?aExyTElOZ2pUa085V1ZsQlF0UzI0SDBHS0M5NTl3UlVuZFpwbjhJVThTSk5F?=
+ =?utf-8?B?VUR3djhnaWNEczZiR0dGRFV6VU90WkFCeFJ0d0VJTUhRcTNiSmhrRVFNTHBV?=
+ =?utf-8?B?THhxV2c2bDNlU2ZqQWZYN1pyOC91QU5nN0lYMkgzQ0RBYm1WWEZBUE0wbWtV?=
+ =?utf-8?B?ODZ2MHlBeWJVUU5VM09lbVBjaWJQd3djSVVSUzZ0WWx1eFJUNlBIaWpENENQ?=
+ =?utf-8?B?T2tRUExPeGlNdU9BZ1hnOFRGNzZBdUludW5iTG8wc1A3Y3FWQTNxSXU4cU1w?=
+ =?utf-8?B?ODVuZXZrbUwzUEZydTlsanV2SFpnMjVUS0paK29UQjVBRjNNVko3QnZ3eUhl?=
+ =?utf-8?B?V0dLQ2tTSUpvemgvd1dLUjk2dWNrRnowTWxrQnlEdDhpT2xuZTFYYjFHZVdQ?=
+ =?utf-8?B?N2NtbXhNWHY5VFp2REdlMHJxQlI5VGZlYkpnejNnQmh4d1dhNHpXbDR4bEF1?=
+ =?utf-8?B?dFZDOEZkbU9JQjN3cFgvU0kyV0V5bE5Sck1Jdk5FK0FIOGZQVUU2Z2RKTjMz?=
+ =?utf-8?B?bnlUa2cvS24wZ0c0S1puVm5LSS90aFNncDdkeXoyTm1TSjFFSjF5MnY0djVs?=
+ =?utf-8?B?SUlxbDBsZU5mMHc3eitzdk9FQUJJZThnUU1WZG44d3Vjcjl0MVg0T3dHb05p?=
+ =?utf-8?B?RDE0VWFWNC90N3U1UVNWUjlTdlErS3VhSkhmbFdndTdBWDByQlFTazFJOVUw?=
+ =?utf-8?B?N3pON2ZlTmt3Z3ZFN0EzQkpXcER1RFZMckhSVkJ3Z3JwcjlKdTBWckJZejVu?=
+ =?utf-8?B?U3FqYnA2Zkk4M2pwYkg5MS9JaUFEU3FSOC93OFhZbG9BcThzRGFLT0tqL05t?=
+ =?utf-8?B?Y0ZMZmRVWlVLWFRSZk1LVWVja0xWd3lJaU5UcVFSeS9wTGUxNEdDSlI5bDdz?=
+ =?utf-8?B?L1E9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b74f858-38d3-4fc9-acfe-08dd7813401a
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2025 09:37:03.3390
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: iCSi2heUil+4Dqxprl4lhiXf4oRfwnD2qjugMrEkx4sQA1YFlXTdfpD5wDV9JtUf9nprHswXIBbLXOVBQJMVfBjUZTS8iTmd2GwMei59RxU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9575
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_022953_959186_AB8A5F7B 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20250410_023713_734885_195E3FB9 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,260 +187,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add bindings for STM32 Octo Memory Manager (OMM) controller.
+Hi Conor, Krzysztof, Rob,
 
-OMM manages:
-  - the muxing between 2 OSPI busses and 2 output ports.
-    There are 4 possible muxing configurations:
-      - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
-        output is on port 2
-      - OSPI1 and OSPI2 are multiplexed over the same output port 1
-      - swapped mode (no multiplexing), OSPI1 output is on port 2,
-        OSPI2 output is on port 1
-      - OSPI1 and OSPI2 are multiplexed over the same output port 2
-  - the split of the memory area shared between the 2 OSPI instances.
-  - chip select selection override.
-  - the time between 2 transactions in multiplexed mode.
+On 4/9/25 11:27 PM, Conor Dooley wrote:
+> On Wed, Apr 09, 2025 at 06:26:43PM +0200, Quentin Schulz wrote:
+>> Hi Conor,
+>>
+>> On 4/9/25 6:18 PM, Conor Dooley wrote:
+>>> On Tue, Apr 08, 2025 at 06:36:04PM +0200, Łukasz Czechowski wrote:
+>>>> Hello,
+>>>>
+>>>> śr., 26 mar 2025 o 18:58 Conor Dooley <conor@kernel.org> napisał(a):
+>>>>>
+>>>>> On Wed, Mar 26, 2025 at 05:22:57PM +0100, Lukasz Czechowski wrote:
+>>>>>> The Cypress HX3 hubs use different default PID value depending
+>>>>>> on the variant. Update compatibles list.
+>>>>>>
+>>>>>> Fixes: 1eca51f58a10 ("dt-bindings: usb: Add binding for Cypress HX3 USB 3.0 family")
+>>>>>> Cc: stable@vger.kernel.org # 6.6
+>>>>>> Cc: stable@vger.kernel.org # Backport of the patch in this series fixing product ID in onboard_dev_id_table and onboard_dev_match in drivers/usb/misc/onboard_usb_dev.{c,h} driver
+>>>>>> Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
+>>>>>> ---
+>>>>>>    Documentation/devicetree/bindings/usb/cypress,hx3.yaml | 6 ++++++
+>>>>>>    1 file changed, 6 insertions(+)
+>>>>>>
+>>>>>> diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>>>>>> index 1033b7a4b8f9..f0b93002bd02 100644
+>>>>>> --- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>>>>>> +++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>>>>>> @@ -15,8 +15,14 @@ allOf:
+>>>>>>    properties:
+>>>>>>      compatible:
+>>>>>>        enum:
+>>>>>> +      - usb4b4,6500
+>>>>>> +      - usb4b4,6502
+>>>>>> +      - usb4b4,6503
+>>>>>>          - usb4b4,6504
+>>>>>>          - usb4b4,6506
+>>>>>> +      - usb4b4,6507
+>>>>>> +      - usb4b4,6508
+>>>>>> +      - usb4b4,650a
+>>>>>
+>>>>> All these devices seem to have the same match data, why is a fallback
+>>>>> not suitable?
+>>>>>
+>>>>
+>>>> Thank you for the suggestion. Indeed the fallback compatible appears
+>>>> to work fine in this case,
+>>>> and I am able to avoid additional entries in onboard_dev_match table
+>>>> as added in the first patch in this series.
+>>>>
+>>>> However, after I've updated the cypress,hx3.yaml schema file and
+>>>> rk3399-puma.dtsi file,
+>>>> I get the following warnings, when running "make dtbs_check":
+>>>>
+>>>> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1:
+>>>> compatible: ['usb4b4,6502', 'usb4b4,6506'] is too long
+>>>>   from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+>>>> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2:
+>>>> compatible: ['usb4b4,6500', 'usb4b4,6504'] is too long
+>>>>   from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+>>>>
+>>>> Below is the diff of my changes:
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>>>> b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>>>> index f0b93002bd02..d6eac1213228 100644
+>>>> --- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>>>> +++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
+>>>> @@ -14,15 +14,22 @@ allOf:
+>>>>
+>>>>    properties:
+>>>>      compatible:
+>>>> -    enum:
+>>>> -      - usb4b4,6500
+>>>> -      - usb4b4,6502
+>>>> -      - usb4b4,6503
+>>>> -      - usb4b4,6504
+>>>> -      - usb4b4,6506
+>>>> -      - usb4b4,6507
+>>>> -      - usb4b4,6508
+>>>> -      - usb4b4,650a
+>>>> +    oneOf:
+>>>> +      - enum:
+>>>> +          - usb4b4,6504
+>>>> +          - usb4b4,6506
+>>>> +      - items:
+>>>> +          - enum:
+>>>> +              - usb4b4,6500
+>>>> +              - usb4b4,6508
+>>>> +          - const: usb4b4,6504
+>>>> +      - items:
+>>>> +          - enum:
+>>>> +              - usb4b4,6502
+>>>> +              - usb4b4,6503
+>>>> +              - usb4b4,6507
+>>>> +              - usb4b4,650a
+>>>> +          - const: usb4b4,6506
+>>>>
+>>>>      reg: true
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+>>>> b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+>>>> index d0d867374b3f..7fac61f95fc6 100644
+>>>> --- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+>>>> @@ -594,14 +594,14 @@ &usbdrd_dwc3_1 {
+>>>>           #size-cells = <0>;
+>>>>
+>>>>           hub_2_0: hub@1 {
+>>>> -               compatible = "usb4b4,6502";
+>>>> +               compatible = "usb4b4,6502", "usb4b4,6506";
+>>>>                   reg = <1>;
+>>>>                   peer-hub = <&hub_3_0>;
+>>>>                   reset-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
+>>>>           };
+>>>>
+>>>>           hub_3_0: hub@2 {
+>>>> -               compatible = "usb4b4,6500";
+>>>> +               compatible = "usb4b4,6500", "usb4b4,6504";
+>>>>                   reg = <2>;
+>>>>                   peer-hub = <&hub_2_0>;
+>>>>                   reset-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
+>>>>
+>>>>
+>>>> Do you have any suggestions on how I can properly update the schema
+>>>> files to avoid the above warnings?
+>>>
+>>> The diffs you have here look okay, not really sure what you're asking
+>>> for.
+>>
+>> It fails dtbs_check:
+>>
+>> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@1:
+>> compatible: ['usb4b4,6502', 'usb4b4,6506'] is too long
+>>   from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+>> linux/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dtb: hub@2:
+>> compatible: ['usb4b4,6500', 'usb4b4,6504'] is too long
+>>   from schema $id: http://devicetree.org/schemas/usb/cypress,hx3.yaml#
+>>
+>> I'm not sure we're allowed to add new errors with dtbs_check (and would like
+>> to avoid it in any case).
+> 
+> Ah, the restriction I think comes from the usb-device binding. Maybe
+> just leave it as you had it?
 
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
- .../memory-controllers/st,stm32mp25-omm.yaml       | 226 +++++++++++++++++++++
- 1 file changed, 226 insertions(+)
+Thanks to some previous debugging done by Lukasz, I believe there's 
+something we can do to make everybody happy.
 
-diff --git a/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml b/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..344878db88188f5df5f9ee426335bed38a8fac5c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
-@@ -0,0 +1,226 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/memory-controllers/st,stm32mp25-omm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STM32 Octo Memory Manager (OMM)
-+
-+maintainers:
-+  - Patrice Chotard <patrice.chotard@foss.st.com>
-+
-+description: |
-+  The STM32 Octo Memory Manager is a low-level interface that enables an
-+  efficient OCTOSPI pin assignment with a full I/O matrix (before alternate
-+  function map) and multiplex of single/dual/quad/octal SPI interfaces over
-+  the same bus. It Supports up to:
-+    - Two single/dual/quad/octal SPI interfaces
-+    - Two ports for pin assignment
-+
-+properties:
-+  compatible:
-+    const: st,stm32mp25-omm
-+
-+  "#address-cells":
-+    const: 2
-+
-+  "#size-cells":
-+    const: 1
-+
-+  ranges:
-+    description: |
-+      Reflects the memory layout per OSPI instance.
-+      Format:
-+      <chip-select> 0 <registers base address> <size>
-+    minItems: 2
-+    maxItems: 2
-+
-+  reg:
-+    items:
-+      - description: OMM registers
-+      - description: OMM memory map area
-+
-+  reg-names:
-+    items:
-+      - const: regs
-+      - const: memory_map
-+
-+  memory-region:
-+    description:
-+      Memory region shared between the 2 OCTOSPI instance.
-+      One or two phandle to a node describing a memory mapped region
-+      depending of child number.
-+    minItems: 1
-+    maxItems: 2
-+
-+  memory-region-names:
-+    description:
-+      Identify to which OSPI instance the memory region belongs to.
-+    items:
-+      enum: [ospi1, ospi2]
-+    minItems: 1
-+    maxItems: 2
-+
-+  clocks:
-+    maxItems: 3
-+
-+  clock-names:
-+    items:
-+      - const: omm
-+      - const: ospi1
-+      - const: ospi2
-+
-+  resets:
-+    maxItems: 3
-+
-+  reset-names:
-+    items:
-+      - const: omm
-+      - const: ospi1
-+      - const: ospi2
-+
-+  access-controllers:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  st,syscfg-amcr:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description: |
-+      The Address Mapping Control Register (AMCR) is used to split the 256MB
-+      memory map area shared between the 2 OSPI instance. The Octo Memory
-+      Manager sets the AMCR depending of the memory-region configuration.
-+      The memory split bitmask description is:
-+        - 000: OCTOSPI1 (256 Mbytes), OCTOSPI2 unmapped
-+        - 001: OCTOSPI1 (192 Mbytes), OCTOSPI2 (64 Mbytes)
-+        - 010: OCTOSPI1 (128 Mbytes), OCTOSPI2 (128 Mbytes)
-+        - 011: OCTOSPI1 (64 Mbytes), OCTOSPI2 (192 Mbytes)
-+        - 1xx: OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
-+    items:
-+      - items:
-+          - description: phandle to syscfg
-+          - description: register offset within syscfg
-+          - description: register bitmask for memory split
-+
-+  st,omm-req2ack-ns:
-+    description:
-+      In multiplexed mode (MUXEN = 1), this field defines the time in
-+      nanoseconds between two transactions.
-+    default: 0
-+
-+  st,omm-cssel-ovr:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: |
-+      Configure the chip select selector override for the 2 OCTOSPIs.
-+      - 0: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS1
-+      - 1: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS1
-+      - 2: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS2
-+      - 3: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS2
-+    minimum: 0
-+    maximum: 3
-+    default: 0
-+
-+  st,omm-mux:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: |
-+      Configure the muxing between the 2 OCTOSPIs busses and the 2 output ports.
-+      - 0: direct mode
-+      - 1: mux OCTOSPI1 and OCTOSPI2 to port 1
-+      - 2: swapped mode
-+      - 3: mux OCTOSPI1 and OCTOSPI2 to port 2
-+    minimum: 0
-+    maximum: 3
-+    default: 0
-+
-+patternProperties:
-+  ^spi@[0-9]:
-+    type: object
-+    $ref: /schemas/spi/st,stm32mp25-ospi.yaml#
-+    description: Required spi child node
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#address-cells"
-+  - "#size-cells"
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - st,syscfg-amcr
-+  - ranges
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-+    ommanager@40500000 {
-+      compatible = "st,stm32mp25-omm";
-+      reg = <0x40500000 0x400>, <0x60000000 0x10000000>;
-+      reg-names = "regs", "memory_map";
-+      ranges = <0 0 0x40430000 0x400>,
-+               <1 0 0x40440000 0x400>;
-+      memory-region = <&mm_ospi1>, <&mm_ospi2>;
-+      memory-region-names = "ospi1", "ospi2";
-+      pinctrl-0 = <&ospi_port1_clk_pins_a
-+                   &ospi_port1_io03_pins_a
-+                   &ospi_port1_cs0_pins_a>;
-+      pinctrl-1 = <&ospi_port1_clk_sleep_pins_a
-+                   &ospi_port1_io03_sleep_pins_a
-+                   &ospi_port1_cs0_sleep_pins_a>;
-+      pinctrl-names = "default", "sleep";
-+      clocks = <&rcc CK_BUS_OSPIIOM>,
-+               <&scmi_clk CK_SCMI_OSPI1>,
-+               <&scmi_clk CK_SCMI_OSPI2>;
-+      clock-names = "omm", "ospi1", "ospi2";
-+      resets = <&rcc OSPIIOM_R>,
-+               <&scmi_reset RST_SCMI_OSPI1>,
-+               <&scmi_reset RST_SCMI_OSPI2>;
-+      reset-names = "omm", "ospi1", "ospi2";
-+      access-controllers = <&rifsc 111>;
-+      power-domains = <&CLUSTER_PD>;
-+      #address-cells = <2>;
-+      #size-cells = <1>;
-+      st,syscfg-amcr = <&syscfg 0x2c00 0x7>;
-+      st,omm-req2ack-ns = <0>;
-+      st,omm-mux = <0>;
-+      st,omm-cssel-ovr = <0>;
-+
-+      spi@0 {
-+        compatible = "st,stm32mp25-ospi";
-+        reg = <0 0 0x400>;
-+        memory-region = <&mm_ospi1>;
-+        interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
-+        dmas = <&hpdma 2 0x62 0x00003121 0x0>,
-+               <&hpdma 2 0x42 0x00003112 0x0>;
-+        dma-names = "tx", "rx";
-+        clocks = <&scmi_clk CK_SCMI_OSPI1>;
-+        resets = <&scmi_reset RST_SCMI_OSPI1>, <&scmi_reset RST_SCMI_OSPI1DLL>;
-+        access-controllers = <&rifsc 74>;
-+        power-domains = <&CLUSTER_PD>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        st,syscfg-dlyb = <&syscfg 0x1000>;
-+      };
-+
-+      spi@1 {
-+        compatible = "st,stm32mp25-ospi";
-+        reg = <1 0 0x400>;
-+        memory-region = <&mm_ospi1>;
-+        interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
-+        dmas = <&hpdma 3 0x62 0x00003121 0x0>,
-+               <&hpdma 3 0x42 0x00003112 0x0>;
-+        dma-names = "tx", "rx";
-+        clocks = <&scmi_clk CK_KER_OSPI2>;
-+        resets = <&scmi_reset RST_SCMI_OSPI2>, <&scmi_reset RST_SCMI_OSPI1DLL>;
-+        access-controllers = <&rifsc 75>;
-+        power-domains = <&CLUSTER_PD>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        st,syscfg-dlyb = <&syscfg 0x1000>;
-+      };
-+    };
+The issue is that the usb-device binding enforces a single pattern 
+string in the compatible property[1] but that isn't what usually is 
+expected by the dt-core[2].
 
--- 
-2.25.1
+I would suggest to patch the usb-device binding so that it can accept a 
+list of strings matching the given pattern.
 
+This is the diff I'm suggesting:
+
+"""
+diff --git a/Documentation/devicetree/bindings/usb/usb-device.yaml 
+b/Documentation/devicetree/bindings/usb/usb-device.yaml
+index c676956810331..42c2e8d6dc06d 100644
+--- a/Documentation/devicetree/bindings/usb/usb-device.yaml
++++ b/Documentation/devicetree/bindings/usb/usb-device.yaml
+@@ -28,7 +28,9 @@ description: |
+
+  properties:
+    compatible:
+-    pattern: "^usb[0-9a-f]{1,4},[0-9a-f]{1,4}$"
++    items:
++      pattern: "^usb[0-9a-f]{1,4},[0-9a-f]{1,4}$"
++
+      description: Device nodes or combined nodes.
+        "usbVID,PID", where VID is the vendor id and PID the product id.
+        The textual representation of VID and PID shall be in lower case
+"""
+
+I believe this should be a reasonable change except if we really are 
+only expecting the real VID PID in the compatible.
+
+What do you think?
+
+Cheers,
+Quentin
+
+[1] 
+https://elixir.bootlin.com/linux/v6.13.7/source/Documentation/devicetree/bindings/usb/usb-device.yaml#L31
+[2] 
+https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/dt-core.yaml#L21-L25
 
