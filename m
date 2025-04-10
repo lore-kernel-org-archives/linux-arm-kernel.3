@@ -4,51 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C59C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 05:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0A9C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 05:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9Ul1Hf9KWtkTYk1RK2QH2VyXIh9rEYPzAip0vxuW630=; b=n1vMtUkdQK3+t3W0/Ib+C1LIFi
-	yzfuiyjyG2Nw/JCgxVPxefSPLwNsbGdZbWgMADAs3Tojj9Kr9Q2IA5t7kHqwezB5Nl6ptoSEjJrJK
-	hEU9Oi2TPe7Z0lt98HS0tiaTfwPVluPkyVF9FKVebYxaU6EMoijI5rhldegmUHDUZ/2jfKgVAIS0y
-	gOEkoBGGY3kP9MO7+fz2M11Ks2rJbuyQR4AgrJ5PpcQOFekJM0MAYihjyQ25LFiTF5mS2Rq67ox4h
-	yogqwEBkyIn1t/bXeYIk2VhWNQCreQ2e6oB6ooCUQkgIlLri8zguUgvU/tumdceSiQDZIl9iUDOu5
-	IZm7cprg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l/4SpC3nZ5V9hW0QyF8Owkn6OTwkCw2z3Xt7osuNPMU=; b=Su/dJvqKra5O6MFfesqDtrkxW2
+	jTR1Mo/UiQkAI0B2zhxrVdiRvVY4eUz/hY03+vKkz6YYIUz6ACrQtVmg2CqgLa+ADnUswJEJbVrCy
+	drkAlwG7ZtPGFgIKidgEpZlJ3yDGsTuqNT3qw//g5VizFG+CftKqgupwkJQORQ0BEXcn9UNivCC3Z
+	HrZejysjRH/anxSQYzvS/FhZfslVYqhkPQnAVBm9YBMt3F1PWAV9wCkyE8TAePDfs7m7iIifSfb37
+	xUnV+inOMxpVFW1roFcILyHTkZWAPCMeheEJQTrVjN9sEmweAVZHjft+RCGMg2KMHQL4e/V2/Hzu4
+	yLfV+iAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2kN4-00000009Gmy-2Kf0;
-	Thu, 10 Apr 2025 05:22:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2kLF-00000009GaR-17Dn
+	id 1u2kZu-00000009I7b-3NGQ;
+	Thu, 10 Apr 2025 05:35:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2kY5-00000009Hr1-1gcX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 05:20:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A9069152B;
-	Wed,  9 Apr 2025 22:20:41 -0700 (PDT)
-Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.40.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 099943F694;
-	Wed,  9 Apr 2025 22:20:38 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: [PATCH] arm64/mm: Implement pte_po_index() for permission overlay index
-Date: Thu, 10 Apr 2025 10:50:21 +0530
-Message-Id: <20250410052021.1533180-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 10 Apr 2025 05:34:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 03AD34512E;
+	Thu, 10 Apr 2025 05:34:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0262C4CEE8;
+	Thu, 10 Apr 2025 05:33:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744263240;
+	bh=GPS82mTeZtzw0xHnBNnct7JzezRYlkvMXM9PwMq0aCg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=s7sscfxPqUHLiZk3JEVpvnZkTH7CosOB3JhHmKBpCtRSrXO0oYuOdD9k2kXaPD1KS
+	 TCgd3UjyO9bYJ43ByA3iFO9gHU4zc6IkhzKxW2DmaGGXVHNe7NRqT/tWSP3mhCwdGo
+	 2K7M2DPePmEEBtsGYszchEvUXc+J3VrHBxkW2cgKZUpl8l4pf6EBvwyyMwDGsFHyX5
+	 ufm6QMQaM2VEh5AslOA17Jm0WNBB3avrqh+G3l0JLvfRbjfHiVqCW7wXTfHu9lIHFc
+	 9SMx4JmfC9514bXy/Jp17PEen0X46mEEQotUOZ6Mvm9FBYBE92+9rGzyF6wFyqTGF0
+	 2e9JVex9IkAWQ==
+Message-ID: <fb075a0e-7496-480a-be61-bb114d90342f@kernel.org>
+Date: Thu, 10 Apr 2025 07:33:55 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Linux-stm32] [PATCH v8 0/7] Add STM32MP25 SPI NOR support
+To: Patrice CHOTARD <patrice.chotard@foss.st.com>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, devicetree@vger.kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Will Deacon <will@kernel.org>,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com>
+ <20250408-opal-pillbug-of-acumen-0fbb68@shite>
+ <9c9172b8-508c-4855-9299-aab72ac2fae6@foss.st.com>
+ <d32208f0-b3ec-4a57-86cb-0c53a1dd798a@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <d32208f0-b3ec-4a57-86cb-0c53a1dd798a@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_222045_349238_1D28848E 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20250409_223401_486722_2E764CB7 
+X-CRM114-Status: UNSURE (   6.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,67 +125,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Roberts <ryan.roberts@arm.com>
+On 09/04/2025 18:13, Patrice CHOTARD wrote:
+>>
+>>>
+>>> Please split the patchset per subsystem and send something based on
+>>> maintainer tree (so for me my for-next branch), mainline (which is the
+>>> same as for-next currently) or linux-next.... which would be the same as
+>>> my for-next branch currently.
+>>
+>> ok
+> 
+> For memory-controller subsystem i will include:
+>  _ memory controller dt-bindings
+>  _ memory controller driver
+>  _ defconfig update
+>  _ Maintainers file update
+defconfig should rather go to arm-soc. Rest is fine.
 
-Previously pte_access_permitted() used FIELD_GET() directly to retrieve
-the permission overlay index from the pte. However, FIELD_GET() doesn't
-work for 128 bit quanitites. Since we are about to add support for D128
-pgtables, let's create a specific helper, pte_po_index() which can do
-the required mask and shift regardless of the data type width.
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This patch applies on v6.15-rc1
-
- arch/arm64/include/asm/pgtable-hwdef.h | 1 +
- arch/arm64/include/asm/pgtable-prot.h  | 2 ++
- arch/arm64/include/asm/pgtable.h       | 2 +-
- 3 files changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-index f3b77deedfa2..028a164924df 100644
---- a/arch/arm64/include/asm/pgtable-hwdef.h
-+++ b/arch/arm64/include/asm/pgtable-hwdef.h
-@@ -211,6 +211,7 @@
- #define PTE_PO_IDX_2	(_AT(pteval_t, 1) << 62)
- 
- #define PTE_PO_IDX_MASK		GENMASK_ULL(62, 60)
-+#define PTE_PO_IDX_SHIFT	60
- 
- 
- /*
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index 7830d031742e..b53bc241e4e7 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -136,6 +136,8 @@ static inline bool __pure lpa2_is_enabled(void)
- 	((pte & BIT(PTE_PI_IDX_1)) >> (PTE_PI_IDX_1 - 1)) | \
- 	((pte & BIT(PTE_PI_IDX_0)) >> (PTE_PI_IDX_0 - 0)))
- 
-+#define pte_po_index(pte)	((pte_val(pte) & PTE_PO_IDX_MASK) >> PTE_PO_IDX_SHIFT)
-+
- /*
-  * Page types used via Permission Indirection Extension (PIE). PIE uses
-  * the USER, DBM, PXN and UXN bits to to generate an index which is used
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index d3b538be1500..41979c0e6c21 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -182,7 +182,7 @@ static inline bool por_el0_allows_pkey(u8 pkey, bool write, bool execute)
- 	(((pte_val(pte) & (PTE_VALID | PTE_USER)) == (PTE_VALID | PTE_USER)) && (!(write) || pte_write(pte)))
- #define pte_access_permitted(pte, write) \
- 	(pte_access_permitted_no_overlay(pte, write) && \
--	por_el0_allows_pkey(FIELD_GET(PTE_PO_IDX_MASK, pte_val(pte)), write, false))
-+	por_el0_allows_pkey(pte_po_index(pte), write, false))
- #define pmd_access_permitted(pmd, write) \
- 	(pte_access_permitted(pmd_pte(pmd), (write)))
- #define pud_access_permitted(pud, write) \
--- 
-2.25.1
-
+Best regards,
+Krzysztof
 
