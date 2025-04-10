@@ -4,97 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A5AC369AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D19E3C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hIYy9Ke7Cc+eZXigqwPX9MIqwRpMIX8vQUO7IRRYGPs=; b=oYaClzt1IWekXgwlnInSZDROWI
-	IbWRCUfwqlDL4GT4McZrzEI4HDAJZ10khKCKpXT3PuXwvPhQaIbyRTL9BzcgYC6xdr62vAKJPfoJw
-	Vj9rUwfb0GA4AInpO8X0UKRlnW9riv1QPr0NFAUmwmLjivCwndptVRqqvyUr6CCvo68t5JLfYOOaZ
-	gem90okcozlE5rLIzdjRu/UtP5z8Zt5EK4hbpGbZq2RE3Suj4wyu6REQymMWzfHPFKB9NLQkqkDrq
-	/bnt1GdidSmTwi7RH9OshUtiR7xHkdzF8T3EBVe3kGsRVGB3PmSniBoCW6ewFdr7tuJqIcHKBQfE3
-	H9hdgalQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZiKDRbjAkog4eiPRtLrT4hDU36Lq3aM0hIVm7ZQq450=; b=XS3qD1rtFgnU/7Xt+Tusi2sMJK
+	0LIXyeFhp0vyv4M0m93CLd3eEDFFJtsOGlc0wfnx09u1TwjivmC1WN2Sol+WWswMvtsYduTKM3Ze0
+	ceg6QcfupHzdtDF0Nc7bCIpY46ZoZ+tYGVTIE2GGtRWMACKR7N0a+4tNK/zHYpfvFBJl7fpIwguAS
+	uR2yFoNOcR2R9N5n3+HIEVVnhimBMRK2RVDdiHid0Fp5drb9Vbzlbuu6H9n1gzDt1uhOIhaKuj88L
+	CX159hrPEcSIULUZ8gtkGAQ+dPRoyqBls0Of+hWtddF5c/nATYvnrpoIY+5A5ch4j3fAsTrYzU6Yx
+	jqQ1pPGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pt0-0000000ABIj-1LgR;
-	Thu, 10 Apr 2025 11:15:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u2pt3-0000000ABOg-2LoS;
+	Thu, 10 Apr 2025 11:16:01 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2noc-00000009rMr-48fh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Apr 2025 09:03:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=hIYy9Ke7Cc+eZXigqwPX9MIqwRpMIX8vQUO7IRRYGPs=; b=M+wRtQc2XbttC34CpXDU5yJC0f
-	HQ3ll3eF9SFDkTmz7s9voolgWJ71vk8EjjJWuqAeVDpi8ezRW38xziQ2GikoaWFSI0iPM78Xbyq5c
-	5m1iPQseyVmw6/VdZl5YSqkaYg0OHPRSlwxLPmMNq3xQbDXo6zZQVDnMFHYn8lxJH21DRl7Y31evA
-	LcjxTXLd2W4ZqSInD0FBduvlBtCg3JFnYjPru5d5TAx2uehc+mdLm9lrVMNV+EOjf24XO2Vxm/nTT
-	7qonYjP2l70cBoOW2uBEnpx4vBV47g/cWhmj4Qc9XsdJ09iBXmikaTplo4b3HQW2bfsWy4YqvA2rT
-	MpQr6oyQ==;
-Received: from cpanel.siel.si ([46.19.9.99])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2noZ-00000008mgW-47EM
+	id 1u2ntb-00000009sdc-0sQK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:03:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=hIYy9Ke7Cc+eZXigqwPX9MIqwRpMIX8vQUO7IRRYGPs=; b=XaFk1VEH65U7K4dossMGscb1a7
-	Rq0MkXEnrx1UV+tyN74S1y2Zk6Qb/ff7/WsE/TN6h9VoZMECR0Fz0y2XlhZjdAwfHDrqXGX368GK/
-	Y5Ma9uuAP5TjVZmN+wwSPnUSVx1LIbpaLJgtfyOoJgAE2a9uhZin9GUl1K3IptFM5oV9DvFnd7Nfx
-	ufU/c+h4cTvoISInfuET4H1cXTiYKJ7zQuySVi9nYOyQwDm1uRX98lsr3GKaUWZtD86XxvHQTSW7R
-	kMkQr+faPV1vn4yu+8/U3k9uck0HmtsfMW/Fg1H4RINcTrTbqwTPG/+xUS88xVgIkWh+F611bhPDn
-	tAyr5tgg==;
-Received: from [89.212.21.243] (port=41926 helo=localhost.localdomain)
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1u2noQ-000Djj-11;
-	Thu, 10 Apr 2025 11:03:05 +0200
-From: Primoz Fiser <primoz.fiser@norik.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	upstream@lists.phytec.de
-Subject: [PATCH 12/13] arm64: dts: freescale: imx93-phyboard-segin: Add I2S audio
-Date: Thu, 10 Apr 2025 11:02:50 +0200
-Message-Id: <20250410090251.1103979-13-primoz.fiser@norik.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250410090251.1103979-1-primoz.fiser@norik.com>
-References: <20250410090251.1103979-1-primoz.fiser@norik.com>
+	Thu, 10 Apr 2025 09:08:29 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4ZYDT04LRNz1R7bH;
+	Thu, 10 Apr 2025 17:06:28 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 85CAB1401F0;
+	Thu, 10 Apr 2025 17:08:22 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Thu, 10 Apr 2025 17:08:21 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <hejunhao3@huawei.com>, <jonathan.cameron@huawei.com>,
+	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
+	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
+Subject: [PATCH v3 3/8] drivers/perf: hisi: Use ACPI driver_data to retrieve SLLC PMU information
+Date: Thu, 10 Apr 2025 17:08:20 +0800
+Message-ID: <20250410090825.13214-4-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250410090825.13214-1-yangyicong@huawei.com>
+References: <20250410090825.13214-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_100316_235544_FBC205BA 
-X-CRM114-Status: UNSURE (   7.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250410_020827_592367_6C429ED5 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,130 +72,411 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for I2S audio found on phyBOARD-Segin-i.MX93. Audio codec
-TLV320AIC3007 is connected to SAI1 interface as a DAI master. MCLK is
-provided from the SAI's internal audio PLL (19.2 MHz).
+From: Junhao He <hejunhao3@huawei.com>
 
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+Make use of struct acpi_device_id::driver_data for version specific
+information rather than judge the version register. This will help
+to simplify the probe process and also a bit easier for extension.
+
+Factor out SLLC register definition to struct hisi_sllc_pmu_regs.
+No functional changes intended.
+
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Signed-off-by: Junhao He <hejunhao3@huawei.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- .../dts/freescale/imx93-phyboard-segin.dts    | 75 +++++++++++++++++++
- 1 file changed, 75 insertions(+)
+ drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 178 ++++++++++++------
+ 1 file changed, 118 insertions(+), 60 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-index faad3c3e627c..08574b146400 100644
---- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-@@ -37,6 +37,20 @@ reg_flexcan1_en: regulator-flexcan1-en {
- 		regulator-name = "CAN1_EN";
- 	};
+diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+index dbd079016fc4..79327639ec17 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+@@ -41,6 +41,7 @@
+ #define SLLC_SRCID_CMD_SHIFT		1
+ #define SLLC_SRCID_MSK_SHIFT		12
+ #define SLLC_NR_EVENTS			0x80
++#define SLLC_EVENT_CNTn(cnt0, n)	((cnt0) + (n) * 8)
  
-+	reg_sound_1v8: regulator-sound-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-max-microvolt = <1800000>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-name = "VCC1V8_AUDIO";
-+	};
-+
-+	reg_sound_3v3: regulator-sound-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "VCC3V3_ANALOG";
-+	};
-+
- 	reg_usdhc2_vmmc: regulator-usdhc2 {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -47,6 +61,34 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
- 		regulator-max-microvolt = <3300000>;
- 		regulator-name = "VCC_SD";
- 	};
-+
-+	sound: sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "phyBOARD-Segin-TLV320AIC3007";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,bitclock-master = <&dailink_master>;
-+		simple-audio-card,frame-master = <&dailink_master>;
-+		simple-audio-card,widgets =
-+			"Line", "Line In",
-+			"Line", "Line Out",
-+			"Speaker", "Speaker";
-+		simple-audio-card,routing =
-+			"Line Out", "LLOUT",
-+			"Line Out", "RLOUT",
-+			"Speaker", "SPOP",
-+			"Speaker", "SPOM",
-+			"LINE1L", "Line In",
-+			"LINE1R", "Line In";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&sai1>;
-+		};
-+
-+		dailink_master: simple-audio-card,codec {
-+			sound-dai = <&audio_codec>;
-+			clocks = <&clk IMX93_CLK_SAI1>;
-+		};
-+	};
- };
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(tgtid_min, config1, 10, 0);
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(tgtid_max, config1, 21, 11);
+@@ -48,6 +49,23 @@ HISI_PMU_EVENT_ATTR_EXTRACTOR(srcid_cmd, config1, 32, 22);
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(srcid_msk, config1, 43, 33);
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(tracetag_en, config1, 44, 44);
  
- /* CAN */
-@@ -64,6 +106,18 @@ &lpi2c2 {
- 	pinctrl-0 = <&pinctrl_lpi2c2>;
- 	status = "okay";
- 
-+	/* Codec */
-+	audio_codec: audio-codec@18 {
-+		compatible = "ti,tlv320aic3007";
-+		reg = <0x18>;
-+		#sound-dai-cells = <0>;
-+
-+		AVDD-supply = <&reg_sound_3v3>;
-+		IOVDD-supply = <&reg_sound_3v3>;
-+		DRVDD-supply = <&reg_sound_3v3>;
-+		DVDD-supply = <&reg_sound_1v8>;
-+	};
-+
- 	/* RTC */
- 	i2c_rtc: rtc@68 {
- 		compatible = "microcrystal,rv4162";
-@@ -82,6 +136,17 @@ &lpuart1 {
- 	status = "okay";
- };
- 
-+/* Audio */
-+&sai1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sai1>;
-+	assigned-clocks = <&clk IMX93_CLK_SAI1>;
-+	assigned-clock-parents = <&clk IMX93_CLK_AUDIO_PLL>;
-+	assigned-clock-rates = <19200000>;
-+	fsl,sai-mclk-direction-output;
-+	status = "okay";
++struct hisi_sllc_pmu_regs {
++	u32 int_mask;
++	u32 int_clear;
++	u32 int_status;
++	u32 perf_ctrl;
++	u32 srcid_ctrl;
++	u32 srcid_cmd_shift;
++	u32 srcid_mask_shift;
++	u32 tgtid_ctrl;
++	u32 tgtid_min_shift;
++	u32 tgtid_max_shift;
++	u32 event_ctrl;
++	u32 event_type0;
++	u32 version;
++	u32 event_cnt0;
 +};
 +
- /* USB  */
- &usbotg1 {
- 	disable-over-current;
-@@ -150,6 +215,16 @@ MX93_PAD_ENET2_RD2__GPIO4_IO26		0x31e
- 		>;
- 	};
+ static bool tgtid_is_valid(u32 max, u32 min)
+ {
+ 	return max > 0 && max >= min;
+@@ -56,96 +74,104 @@ static bool tgtid_is_valid(u32 max, u32 min)
+ static void hisi_sllc_pmu_enable_tracetag(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 tt_en = hisi_get_tracetag_en(event);
  
-+	pinctrl_sai1: sai1grp {
-+		fsl,pins = <
-+			MX93_PAD_UART2_RXD__SAI1_MCLK		0x1202
-+			MX93_PAD_SAI1_TXFS__SAI1_TX_SYNC	0x1202
-+			MX93_PAD_SAI1_TXC__SAI1_TX_BCLK		0x1202
-+			MX93_PAD_SAI1_TXD0__SAI1_TX_DATA00	0x1402
-+			MX93_PAD_SAI1_RXD0__SAI1_RX_DATA00	0x1402
-+		>;
-+	};
+ 	if (tt_en) {
+ 		u32 val;
+ 
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val |= SLLC_TRACETAG_EN | SLLC_FILT_EN;
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+ static void hisi_sllc_pmu_disable_tracetag(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 tt_en = hisi_get_tracetag_en(event);
+ 
+ 	if (tt_en) {
+ 		u32 val;
+ 
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val &= ~(SLLC_TRACETAG_EN | SLLC_FILT_EN);
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+ static void hisi_sllc_pmu_config_tgtid(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 min = hisi_get_tgtid_min(event);
+ 	u32 max = hisi_get_tgtid_max(event);
+ 
+ 	if (tgtid_is_valid(max, min)) {
+-		u32 val = (max << SLLC_TGTID_MAX_SHIFT) | (min << SLLC_TGTID_MIN_SHIFT);
++		u32 val = (max << regs->tgtid_max_shift) |
++			  (min << regs->tgtid_min_shift);
+ 
+-		writel(val, sllc_pmu->base + SLLC_TGTID_CTRL);
++		writel(val, sllc_pmu->base + regs->tgtid_ctrl);
+ 		/* Enable the tgtid */
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val |= SLLC_TGTID_EN | SLLC_FILT_EN;
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+ static void hisi_sllc_pmu_clear_tgtid(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 min = hisi_get_tgtid_min(event);
+ 	u32 max = hisi_get_tgtid_max(event);
+ 
+ 	if (tgtid_is_valid(max, min)) {
+ 		u32 val;
+ 
+-		writel(SLLC_TGTID_NONE, sllc_pmu->base + SLLC_TGTID_CTRL);
++		writel(SLLC_TGTID_NONE, sllc_pmu->base + regs->tgtid_ctrl);
+ 		/* Disable the tgtid */
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val &= ~(SLLC_TGTID_EN | SLLC_FILT_EN);
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+ static void hisi_sllc_pmu_config_srcid(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 cmd = hisi_get_srcid_cmd(event);
+ 
+ 	if (cmd) {
+ 		u32 val, msk;
+ 
+ 		msk = hisi_get_srcid_msk(event);
+-		val = (cmd << SLLC_SRCID_CMD_SHIFT) | (msk << SLLC_SRCID_MSK_SHIFT);
+-		writel(val, sllc_pmu->base + SLLC_SRCID_CTRL);
++		val = (cmd << regs->srcid_cmd_shift) |
++		      (msk << regs->srcid_mask_shift);
++		writel(val, sllc_pmu->base + regs->srcid_ctrl);
+ 		/* Enable the srcid */
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val |= SLLC_SRCID_EN | SLLC_FILT_EN;
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+ static void hisi_sllc_pmu_clear_srcid(struct perf_event *event)
+ {
+ 	struct hisi_pmu *sllc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 cmd = hisi_get_srcid_cmd(event);
+ 
+ 	if (cmd) {
+ 		u32 val;
+ 
+-		writel(SLLC_SRCID_NONE, sllc_pmu->base + SLLC_SRCID_CTRL);
++		writel(SLLC_SRCID_NONE, sllc_pmu->base + regs->srcid_ctrl);
+ 		/* Disable the srcid */
+-		val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++		val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 		val &= ~(SLLC_SRCID_EN | SLLC_FILT_EN);
+-		writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++		writel(val, sllc_pmu->base + regs->perf_ctrl);
+ 	}
+ }
+ 
+@@ -167,29 +193,27 @@ static void hisi_sllc_pmu_clear_filter(struct perf_event *event)
+ 	}
+ }
+ 
+-static u32 hisi_sllc_pmu_get_counter_offset(int idx)
+-{
+-	return (SLLC_EVENT_CNT0_L + idx * 8);
+-}
+-
+ static u64 hisi_sllc_pmu_read_counter(struct hisi_pmu *sllc_pmu,
+ 				      struct hw_perf_event *hwc)
+ {
+-	return readq(sllc_pmu->base +
+-		     hisi_sllc_pmu_get_counter_offset(hwc->idx));
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
 +
- 	pinctrl_usdhc2_cd: usdhc2cdgrp {
- 		fsl,pins = <
- 			MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
++	return readq(sllc_pmu->base + SLLC_EVENT_CNTn(regs->event_cnt0, hwc->idx));
+ }
+ 
+ static void hisi_sllc_pmu_write_counter(struct hisi_pmu *sllc_pmu,
+ 					struct hw_perf_event *hwc, u64 val)
+ {
+-	writeq(val, sllc_pmu->base +
+-	       hisi_sllc_pmu_get_counter_offset(hwc->idx));
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
++
++	writeq(val, sllc_pmu->base + SLLC_EVENT_CNTn(regs->event_cnt0, hwc->idx));
+ }
+ 
+ static void hisi_sllc_pmu_write_evtype(struct hisi_pmu *sllc_pmu, int idx,
+ 				       u32 type)
+ {
+-	u32 reg, reg_idx, shift, val;
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
++	u32 reg, val;
+ 
+ 	/*
+ 	 * Select the appropriate event select register(SLLC_EVENT_TYPE0/1).
+@@ -198,96 +222,98 @@ static void hisi_sllc_pmu_write_evtype(struct hisi_pmu *sllc_pmu, int idx,
+ 	 * SLLC_EVENT_TYPE0 is chosen. For the latter 4 hardware counters,
+ 	 * SLLC_EVENT_TYPE1 is chosen.
+ 	 */
+-	reg = SLLC_EVENT_TYPE0 + (idx / 4) * 4;
+-	reg_idx = idx % 4;
+-	shift = 8 * reg_idx;
++	reg = regs->event_type0 + (idx / 4) * 4;
+ 
+ 	/* Write event code to SLLC_EVENT_TYPEx Register */
+ 	val = readl(sllc_pmu->base + reg);
+-	val &= ~(SLLC_EVTYPE_MASK << shift);
+-	val |= (type << shift);
++	val &= ~(SLLC_EVTYPE_MASK << HISI_PMU_EVTYPE_SHIFT(idx));
++	val |= (type << HISI_PMU_EVTYPE_SHIFT(idx));
+ 	writel(val, sllc_pmu->base + reg);
+ }
+ 
+ static void hisi_sllc_pmu_start_counters(struct hisi_pmu *sllc_pmu)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++	val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 	val |= SLLC_PERF_CTRL_EN;
+-	writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++	writel(val, sllc_pmu->base + regs->perf_ctrl);
+ }
+ 
+ static void hisi_sllc_pmu_stop_counters(struct hisi_pmu *sllc_pmu)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_PERF_CTRL);
++	val = readl(sllc_pmu->base + regs->perf_ctrl);
+ 	val &= ~(SLLC_PERF_CTRL_EN);
+-	writel(val, sllc_pmu->base + SLLC_PERF_CTRL);
++	writel(val, sllc_pmu->base + regs->perf_ctrl);
+ }
+ 
+ static void hisi_sllc_pmu_enable_counter(struct hisi_pmu *sllc_pmu,
+ 					 struct hw_perf_event *hwc)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_EVENT_CTRL);
+-	val |= 1 << hwc->idx;
+-	writel(val, sllc_pmu->base + SLLC_EVENT_CTRL);
++	val = readl(sllc_pmu->base + regs->event_ctrl);
++	val |= BIT_ULL(hwc->idx);
++	writel(val, sllc_pmu->base + regs->event_ctrl);
+ }
+ 
+ static void hisi_sllc_pmu_disable_counter(struct hisi_pmu *sllc_pmu,
+ 					  struct hw_perf_event *hwc)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_EVENT_CTRL);
+-	val &= ~(1 << hwc->idx);
+-	writel(val, sllc_pmu->base + SLLC_EVENT_CTRL);
++	val = readl(sllc_pmu->base + regs->event_ctrl);
++	val &= ~BIT_ULL(hwc->idx);
++	writel(val, sllc_pmu->base + regs->event_ctrl);
+ }
+ 
+ static void hisi_sllc_pmu_enable_counter_int(struct hisi_pmu *sllc_pmu,
+ 					     struct hw_perf_event *hwc)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_INT_MASK);
+-	/* Write 0 to enable interrupt */
+-	val &= ~(1 << hwc->idx);
+-	writel(val, sllc_pmu->base + SLLC_INT_MASK);
++	val = readl(sllc_pmu->base + regs->int_mask);
++	val &= ~BIT_ULL(hwc->idx);
++	writel(val, sllc_pmu->base + regs->int_mask);
+ }
+ 
+ static void hisi_sllc_pmu_disable_counter_int(struct hisi_pmu *sllc_pmu,
+ 					      struct hw_perf_event *hwc)
+ {
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 	u32 val;
+ 
+-	val = readl(sllc_pmu->base + SLLC_INT_MASK);
+-	/* Write 1 to mask interrupt */
+-	val |= 1 << hwc->idx;
+-	writel(val, sllc_pmu->base + SLLC_INT_MASK);
++	val = readl(sllc_pmu->base + regs->int_mask);
++	val |= BIT_ULL(hwc->idx);
++	writel(val, sllc_pmu->base + regs->int_mask);
+ }
+ 
+ static u32 hisi_sllc_pmu_get_int_status(struct hisi_pmu *sllc_pmu)
+ {
+-	return readl(sllc_pmu->base + SLLC_INT_STATUS);
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
++
++	return readl(sllc_pmu->base + regs->int_status);
+ }
+ 
+ static void hisi_sllc_pmu_clear_int_status(struct hisi_pmu *sllc_pmu, int idx)
+ {
+-	writel(1 << idx, sllc_pmu->base + SLLC_INT_CLEAR);
+-}
++	struct hisi_sllc_pmu_regs *regs = sllc_pmu->dev_info->private;
+ 
+-static const struct acpi_device_id hisi_sllc_pmu_acpi_match[] = {
+-	{ "HISI0263", },
+-	{}
+-};
+-MODULE_DEVICE_TABLE(acpi, hisi_sllc_pmu_acpi_match);
++	writel(BIT_ULL(idx), sllc_pmu->base + regs->int_clear);
++}
+ 
+ static int hisi_sllc_pmu_init_data(struct platform_device *pdev,
+ 				   struct hisi_pmu *sllc_pmu)
+ {
++	struct hisi_sllc_pmu_regs *regs;
++
+ 	hisi_uncore_pmu_init_topology(sllc_pmu, &pdev->dev);
+ 
+ 	/*
+@@ -304,13 +330,18 @@ static int hisi_sllc_pmu_init_data(struct platform_device *pdev,
+ 		return -EINVAL;
+ 	}
+ 
++	sllc_pmu->dev_info = device_get_match_data(&pdev->dev);
++	if (!sllc_pmu->dev_info)
++		return -ENODEV;
++
+ 	sllc_pmu->base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(sllc_pmu->base)) {
+ 		dev_err(&pdev->dev, "ioremap failed for sllc_pmu resource.\n");
+ 		return PTR_ERR(sllc_pmu->base);
+ 	}
+ 
+-	sllc_pmu->identifier = readl(sllc_pmu->base + SLLC_VERSION);
++	regs = sllc_pmu->dev_info->private;
++	sllc_pmu->identifier = readl(sllc_pmu->base + regs->version);
+ 
+ 	return 0;
+ }
+@@ -352,6 +383,27 @@ static const struct attribute_group *hisi_sllc_pmu_v2_attr_groups[] = {
+ 	NULL
+ };
+ 
++static struct hisi_sllc_pmu_regs hisi_sllc_v2_pmu_regs = {
++	.int_mask = SLLC_INT_MASK,
++	.int_clear = SLLC_INT_CLEAR,
++	.int_status = SLLC_INT_STATUS,
++	.perf_ctrl = SLLC_PERF_CTRL,
++	.srcid_ctrl = SLLC_SRCID_CTRL,
++	.srcid_cmd_shift = SLLC_SRCID_CMD_SHIFT,
++	.srcid_mask_shift = SLLC_SRCID_MSK_SHIFT,
++	.tgtid_ctrl = SLLC_TGTID_CTRL,
++	.tgtid_min_shift = SLLC_TGTID_MIN_SHIFT,
++	.tgtid_max_shift = SLLC_TGTID_MAX_SHIFT,
++	.event_ctrl = SLLC_EVENT_CTRL,
++	.event_type0 = SLLC_EVENT_TYPE0,
++	.version = SLLC_VERSION,
++	.event_cnt0 = SLLC_EVENT_CNT0_L,
++};
++
++static const struct hisi_pmu_dev_info hisi_sllc_v2 = {
++	.private = &hisi_sllc_v2_pmu_regs,
++};
++
+ static const struct hisi_uncore_ops hisi_uncore_sllc_ops = {
+ 	.write_evtype		= hisi_sllc_pmu_write_evtype,
+ 	.get_event_idx		= hisi_uncore_pmu_get_event_idx,
+@@ -443,6 +495,12 @@ static void hisi_sllc_pmu_remove(struct platform_device *pdev)
+ 					    &sllc_pmu->node);
+ }
+ 
++static const struct acpi_device_id hisi_sllc_pmu_acpi_match[] = {
++	{ "HISI0263", (kernel_ulong_t)&hisi_sllc_v2 },
++	{}
++};
++MODULE_DEVICE_TABLE(acpi, hisi_sllc_pmu_acpi_match);
++
+ static struct platform_driver hisi_sllc_pmu_driver = {
+ 	.driver = {
+ 		.name = "hisi_sllc_pmu",
 -- 
-2.34.1
+2.24.0
 
 
