@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0319C369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F88C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hJlHhbxitP8LDlQxS4M+ZJIc/lDJOqTIWiKvF63v4os=; b=FFDkCYnldn2A6/8t7iMT+rSqaD
-	zR7PmLaJuQMLIIFtLHHuDbea95UKVcnarogn4Dzuh3uvY6yw3CIVrHqZyAkPfCW6sMG/iI3QDc81+
-	3YM4/IWpGHet2uasjqJTwC/D7NFDxHiMMIe8sKodEg6U4xpwU0Uy67i4BaeQIAe0RnB+uh19UJ7Nf
-	z9TuOh01R+bUSWfRHA7gixlxFlDFMkttWjx9vp7p1yRxDU3xUabAFVZI1pOoMNWDlx7TZaC2Fq95D
-	F7UsEJAfGtlZgns951JAKx9O2AO9sbCnWJ/E2F8Z+nTW6X2NV5j7jRUo8kcCIqUMHXLs6GDt+fbUv
-	IXF/CX7A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kTOG8eGc/UiPuhhDKL6pWbV6teCbGXdd3K40AfCQxYo=; b=pTtvNq2egk4Pvh
+	98mlWpmlCSk3GPLHp4vzYy2o8t7LOm2tFpBcFVSGVPYZKawXWOvm2wNOE3iGFFWtguHGUvshHr+MA
+	AVznazmPZu++KfjgSGLat7tLvu/rVt6WzAmOHShsB/+wDUk9qwEosf9jP1gDyaUw7RMHPrv450DzG
+	WoO3krJTSAfDu6mBB047hOceSq2dpg0knGfIljPBTe6PT5Uax3MK/AOArPvi/U0CsItbDjWlXJwQ6
+	pCwgErmcA0E9QxIfFGYi4si3u1yceCJKGHgByYxc4weetJRZS8YTdnem0L+pNCup6AlU0mmBY+5pM
+	hTxNQU6/q3lTYjXvxe9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ptd-0000000ACWe-2MIw;
-	Thu, 10 Apr 2025 11:16:37 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1u2pth-0000000ACe2-24py;
+	Thu, 10 Apr 2025 11:16:41 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2oEL-00000009wem-1ryE
+	id 1u2oEL-00000009wes-2CgA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:29:55 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A6W10I025695;
+	Thu, 10 Apr 2025 09:29:56 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A6Vme3004222;
 	Thu, 10 Apr 2025 11:29:41 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	hJlHhbxitP8LDlQxS4M+ZJIc/lDJOqTIWiKvF63v4os=; b=EL459TaFDja+X1hu
-	RLsh+oeSI8eFue8E1CMOqDPtV6pCd0rzBmKC9ndvg9x0nFeo3gm1QRYOpU7+ikNK
-	LhZ0vcXrcR8xeRHeLcXCM4VzD2UELhu4nhfSk/OBr5sSxJl0fWLwYLJlxMPyLERE
-	UXsWIljsR+SQREIIGpohPzW0HEuVFOeeImjTQhA6Dm+OLXLrjZRNRdb4FEcG8Jn1
-	zTXMk0gRSQjfnpk6UdH1HafDTZIbfmd4jjVhFL/TTgVD56wNx9LK96Ljcxoqb+Si
-	SLsSWU7ocW/Xi3vOcT5AgJ/Nz66vSjcCdX0o7pbycCzK9hXmbdq5k36ZILC/IJhu
-	2YAHdg==
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=kTOG8eGc/UiPuhhDKL6pWb
+	V6teCbGXdd3K40AfCQxYo=; b=27t2+yJM9MrXnqLooQf7kQrcydBnKkFwrpLB2h
+	TlA4eRVx9inmR4S7KZXphfrRwHJG+5/b09rirSzIVKKqVGUxNUEpan9t1DoYxVYh
+	G5k4NfiwkRfQ4/J0a7aV+WcPfCZTFXZ18t9yTZ23ckWdf1WjVBF7YVVLbDIgA+hi
+	vc8FqJLpgL79w2BvvYGZ4IXdL3aA25SeF8os+9rmDvTfzUuky+8ffWy4KEQttV0s
+	JZMe2+x0ZTEV6uirShEshUzttlaIN1V62KRchz+1+N3l8lpjuku1wrI8Nf6vVqpv
+	wGRDzBKcjKZ537GlRnBwQF/10ooDH7LWrIkWGmylvCNe9xuw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45tw2h6wg1-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45uffmvkas-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Thu, 10 Apr 2025 11:29:41 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DC34240048;
-	Thu, 10 Apr 2025 11:28:39 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4AB094004C;
+	Thu, 10 Apr 2025 11:28:35 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3329B9A69FC;
-	Thu, 10 Apr 2025 11:27:51 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 110429A69EF;
+	Thu, 10 Apr 2025 11:27:49 +0200 (CEST)
 Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 10 Apr
- 2025 11:27:50 +0200
+ 2025 11:27:48 +0200
 From: Patrice Chotard <patrice.chotard@foss.st.com>
-Date: Thu, 10 Apr 2025 11:27:44 +0200
-Subject: [PATCH v9 3/3] MAINTAINERS: add entry for STM32 OCTO MEMORY
- MANAGER driver
+Subject: [PATCH v9 0/3] Add STM32MP25 SPI NOR support
+Date: Thu, 10 Apr 2025 11:27:41 +0200
+Message-ID: <20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250410-upstream_ospi_v6-v9-3-cf119508848a@foss.st.com>
-References: <20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com>
-In-Reply-To: <20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAA6P92cC/23NSwqDMBCA4atI1lXy0CR21XuUIibGmoVGMja0i
+ HdvFEpbFGbzD8w3MwLjrQF0TmbkTbBg3RCjPCVId/VwN6ltYiOKaYEZxeljhMmbuq8cjLYKPG1
+ yRmtJBCW4QPFs9Ka1z4283mJ3FibnX9uHwNftByN7LA5OmVBK1ypnOSsvrQPIYMq069HKBfElc
+ nxEiEhg01JZEGYaSfaE/CXEASEjIZQQhGuiScv/iWVZ3iBq3FI4AQAA
+X-Change-ID: 20250320-upstream_ospi_v6-d432a8172105
 To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
         Maxime Coquelin
@@ -89,9 +90,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-04-10_01,2025-04-08_04,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_022953_969109_229A404C 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250410_022953_971654_82F06CA4 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +106,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add myself as STM32 OCTO MEMORY MANAGER maintainer.
+This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
+
+On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
+the memory area split, the chip select override and the time constraint
+between its 2 Octo SPI children.
+
+Due to these depedencies, this series adds support for:
+  - Octo Memory Manager driver.
+  - Octo SPI driver.
+  - yaml schema for Octo Memory Manager and Octo SPI drivers.
+
+The device tree files adds Octo Memory Manager and its 2 associated Octo
+SPI chidren in stm32mp251.dtsi and adds SPI NOR support in stm32mp257f-ev1
+board.
+    
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+
+Changes in v9:
+  - split patchset by susbsystem, current one include only OMM related
+    patches.
+  - Update SPDX Identifiers to "GPL-2.0-only".
+  - Add of_node_put)() instm32_omm_set_amcr().
+  - Rework error path in stm32_omm_toggle_child_clock().
+  - Make usage of reset_control_acquire/release() in stm32_omm_disable_child()
+    and move reset_control_get in probe().
+  - Rename error label in stm32_omm_configure().
+  - Remove child compatible check in stm32_omm_probe().
+  - Make usage of devm_of_platform_populate().
+  - Link to v8: https://lore.kernel.org/r/20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com
+
+Changes in v8:
+  - update OMM's dt-bindings:
+    - Remove minItems for clocks and resets properties.
+    - Fix st,syscfg-amcr items declaration.
+    - move power-domains property before vendor specific properties.
+  - Update compatible check wrongly introduced during internal tests in
+    stm32_omm.c.
+  - Move ommanager's node outside bus@42080000's node in stm32mp251.dtsi.
+  - Link to v7: https://lore.kernel.org/r/20250401-upstream_ospi_v6-v7-0-0ef28513ed81@foss.st.com
+
+Changes in v7:
+  - update OMM's dt-bindings by updating :
+    - clock-names and reset-names properties.
+    - spi unit-address node.
+    - example.
+  - update stm32mp251.dtsi to match with OMM's bindings update.
+  - update stm32mp257f-ev1.dts to match with OMM's bindings update.
+  - Link to v6: https://lore.kernel.org/r/20250321-upstream_ospi_v6-v6-0-37bbcab43439@foss.st.com
+
+Changes in v6:
+  - Update MAINTAINERS file.
+  - Remove previous patch 1/8 and 2/8, merged by Mark Brown in spi git tree.
+  - Fix Signed-off-by order for patch 3.
+  - OMM driver:
+    - Add dev_err_probe() in error path.
+    - Rename stm32_omm_enable_child_clock() to stm32_omm_toggle_child_clock().
+    - Reorder initialised/non-initialized variable in stm32_omm_configure()
+          and stm32_omm_probe().
+    - Move pm_runtime_disable() calls from stm32_omm_configure() to
+      stm32_omm_probe().
+    - Update children's clocks and reset management.
+    - Use of_platform_populate() to probe children.
+    - Add missing pm_runtime_disable().
+    - Remove useless stm32_omm_check_access's first parameter.
+  - Update OMM's dt-bindings by adding OSPI's clocks and resets.
+  - Update stm32mp251.dtsi by adding OSPI's clock and reset in OMM's node.
+
+Changes in v5:
+  - Add Reviewed-by Krzysztof Kozlowski for patch 1 and 3.
+
+Changes in v4:
+  - Add default value requested by Krzysztof for st,omm-req2ack-ns,
+    st,omm-cssel-ovr and st,omm-mux properties in st,stm32mp25-omm.yaml
+  - Remove constraint in free form test for st,omm-mux property.
+  - Fix drivers/memory/Kconfig by replacing TEST_COMPILE_ by COMPILE_TEST.
+  - Fix SPDX-License-Identifier for stm32-omm.c.
+  - Fix Kernel test robot by fixing dev_err() format in stm32-omm.c.
+  - Add missing pm_runtime_disable() in the error handling path in
+    stm32-omm.c.
+  - Replace an int by an unsigned int in stm32-omm.c
+  - Remove uneeded "," after terminator in stm32-omm.c.
+  - Update cover letter description to explain dependecies between
+Octo Memory Manager and its 2 Octo SPI children.
+
+Changes in v3:
+  - Squash defconfig patches 8 and 9.
+  - Update STM32 Octo Memory Manager controller bindings.
+  - Rename st,stm32-omm.yaml to st,stm32mp25-omm.yaml.
+  - Update STM32 OSPI controller bindings.
+  - Reorder DT properties in .dtsi and .dts files.
+  - Replace devm_reset_control_get_optional() by
+    devm_reset_control_get_optional_exclusive() in stm32_omm.c.
+  - Reintroduce region-memory-names management in stm32_omm.c.
+  - Rename stm32_ospi_tx_poll() and stm32_ospi_tx() to respectively to
+    stm32_ospi_poll() and stm32_ospi_xfer() in spi-stm32-ospi.c.
+  - Set SPI_CONTROLLER_HALF_DUPLEX in controller flags in spi-stm32-ospi.c.
+
+Changes in v2:
+  - Move STM32 Octo Memory Manager controller driver and bindings from
+    misc to memory-controllers.
+  - Update STM32 OSPI controller bindings.
+  - Update STM32 Octo Memory Manager controller bindings.
+  - Update STM32 Octo Memory Manager driver to match bindings update.
+  - Update DT to match bindings update.
 
 Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
- MAINTAINERS | 6 ++++++
- 1 file changed, 6 insertions(+)
+Patrice Chotard (3):
+      dt-bindings: memory-controllers: Add STM32 Octo Memory Manager controller
+      memory: Add STM32 Octo Memory Manager driver
+      MAINTAINERS: add entry for STM32 OCTO MEMORY MANAGER driver
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 96b82704950184bd71623ff41fc4df31e4c7fe87..32abd09c0e4309709998f91882c7983d1b53a80c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22881,6 +22881,12 @@ L:	linux-i2c@vger.kernel.org
- S:	Maintained
- F:	drivers/i2c/busses/i2c-stm32*
- 
-+ST STM32 OCTO MEMORY MANAGER
-+M:	Patrice Chotard <patrice.chotard@foss.st.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
-+F:	drivers/memory/stm32_omm.c
-+
- ST STM32 SPI DRIVER
- M:	Alain Volmat <alain.volmat@foss.st.com>
- L:	linux-spi@vger.kernel.org
+ .../memory-controllers/st,stm32mp25-omm.yaml       | 226 ++++++++++
+ MAINTAINERS                                        |   6 +
+ drivers/memory/Kconfig                             |  17 +
+ drivers/memory/Makefile                            |   1 +
+ drivers/memory/stm32_omm.c                         | 468 +++++++++++++++++++++
+ 5 files changed, 718 insertions(+)
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250320-upstream_ospi_v6-d432a8172105
 
+Best regards,
 -- 
-2.25.1
+Patrice Chotard <patrice.chotard@foss.st.com>
 
 
