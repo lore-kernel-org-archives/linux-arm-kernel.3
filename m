@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DD17C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012B9C369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eLaWaf4WTpzRBoAENTouydfuolKBwKCilCb3vAcEa38=; b=GYLiBn1boC9ohTQWcGvpHucntL
-	XOEp0kslWCK8DNe61IrqEAPdBx2EX98aSx+HMmh7fWbZjfsXDr44AI7cqqcIA/CgAKaOLDPYVKasB
-	2L1Go7D82U6tSQY8yO8koylvH3l5gfz3sCljpDrF6uCRI7sQz/1zNVgqlD1J6pOEam5tVuLGASgfJ
-	drYqwYauHByqgtUNa75KaxVbRZpXKJrJRyG+kdeL9zxIwvh3jIIWWVipdItP6cUW/VnKDjGmxxbk/
-	fRvri/LLBa8I5cX2Y9e5JsAbitmXLFf5yrW7QkLtoqy/NXI/KfAX85rIP7Eh6b2xKz6g47gf/K32t
-	PkDNYfNQ==;
+	bh=Cz8/NjsEs5KVVgI4N7WorrpxxNvNLzQK7xFSucWJp0E=; b=t2tSxEG+XAZoO6eee1Ho5fdy/l
+	/4VM8adtbaAUgtvYVYK2p39LdMc6EN8v2VM2S0qPRPlt2GSdxAaaDz4l6t4zuYiOCT6sPqhyLPfH9
+	4wqZ4ZTbAL85GDFDtu3Z+Jdh9l5ZovqGtgppfnv0oV1q3EGZiqaamWIjh8XeqNOYecYWHAYyVI/rd
+	pq+tjolfRnGfOThmPEXE3ldWREGOWJVrlRJFywztI4PQg/T4QPJPC22ZVSPEAHvJ3CY2//0P8FbXL
+	r1BAOYEhLoHt2MaUj34O25QBCdI0+29MDjJ1PX9+UNhxxOdvkm+irY+fX2qLmbm1VIex+59fwY1C4
+	FitTB6wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2q8v-0000000AJNe-1tRO;
-	Thu, 10 Apr 2025 11:32:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u2qAg-0000000AJe7-0Rb5;
+	Thu, 10 Apr 2025 11:34:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pVt-0000000A93x-13Uf
+	id 1u2pYl-0000000A9NK-1hjP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 10:52:06 +0000
+	Thu, 10 Apr 2025 10:55:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 757FB4510A;
-	Thu, 10 Apr 2025 10:52:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2842DC4CEDD;
-	Thu, 10 Apr 2025 10:52:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 68D986843D;
+	Thu, 10 Apr 2025 10:54:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 469F7C4CEE3;
+	Thu, 10 Apr 2025 10:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744282324;
-	bh=hlovCCmgEdamdT8EztlgaIRBSh8lo89vsjhIHctmVUo=;
+	s=k20201202; t=1744282502;
+	bh=QQYiFDpEW1BxNEqhLEehjGxlVLQWML3v3QWCApvJReo=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HvZlJF5FsoBTWQN8RX/rjzTGvuLCmCB9WtTN6b5aR+OSHLP1UUvn6+puJt2Io5a+s
-	 QmfrbvD0eGcJNsuhUtqyKNtt4ofeqLiTu1hvr7RHN7lxB5Ifx23SG499XfND52AAb3
-	 X1ETe8UexSH6l7Sfh4rfHIHIxDnfo74/vIsn7WtfKddvUdnfH5Qp8WOpSF5ywnaSGN
-	 H71D4VA4zbRJH9Eivac8Z90Nu1PvgwSgJ76OR8NM0D3T5wkZMN+k6plK8XCQACnmW+
-	 Ymr0rmZI0/syf6cl+1Q3triaS7KgV72dK98ykoRvHileuHL21SHRg7o2YLR5wOJ6p5
-	 JYFTge5LhpUNg==
+	b=E5tjTuWXcfeWv750QRduV9PWV3j6THFJ0vktnckYsAuV8MCtcmoCE7T/qPsmjjDwv
+	 0QNP4xU+IITHuBZl/GnpIZOu9W1IUS9iazr3FUdFKXAcv/jCEkdV7fOCjzrUpZjW/v
+	 TGnxj1lDGm8J5izS/ko85NCXKMwRJChVr1CewJY9aJGAepHJZmHKtRlpyKXxKR85Zv
+	 VQwej8lTeyrWLSNnOIQm24Wk0BLRac4jFBZC0+3yCTur105Jw7flEuWrIPbFBvkUNI
+	 5IEYYXc3iLLMI4ovI6n/x/fvzR9VWott2YZ/w08sli3FlxtmiMPWZYy2Vrmh1N+sYm
+	 BWf9kMMDVkIxw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u2pVp-004Bdn-Ee;
-	Thu, 10 Apr 2025 11:52:01 +0100
-Date: Thu, 10 Apr 2025 11:52:00 +0100
-Message-ID: <86jz7sl25r.wl-maz@kernel.org>
+	id 1u2pYh-004Bhc-TR;
+	Thu, 10 Apr 2025 11:54:59 +0100
+Date: Thu, 10 Apr 2025 11:54:59 +0100
+Message-ID: <86ikncl20s.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	darren@os.amperecomputing.com
-Subject: Re: [PATCH] KVM: arm64: nv: Forward hvc traps if originated from nested VM
-In-Reply-To: <4d1bdea5-43c3-4ca9-9275-feadf158e86e@os.amperecomputing.com>
-References: <20250410070743.1072583-1-gankulkarni@os.amperecomputing.com>
-	<86mscolc0b.wl-maz@kernel.org>
-	<4d1bdea5-43c3-4ca9-9275-feadf158e86e@os.amperecomputing.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 1/6] KVM: arm64: Fix MDCR_EL2.HPMN reset value
+In-Reply-To: <Z_bWzRSgyom1_hvJ@linux.dev>
+References: <20250409160106.6445-1-maz@kernel.org>
+	<20250409160106.6445-2-maz@kernel.org>
+	<Z_bWzRSgyom1_hvJ@linux.dev>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_035205_305897_230AEDE2 
-X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,35 +85,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Apr 2025 11:20:24 +0100,
-Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+On Wed, 09 Apr 2025 21:21:33 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
 > 
-> 
-> 
-> On 10-04-2025 12:49 pm, Marc Zyngier wrote:
-> > On Thu, 10 Apr 2025 08:07:43 +0100,
-> > Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
-> >> 
-> >> It was discovered while trying selftest(smccc_filter) that the
-> >> hvc trap is getting forwarded to guest hypervisor even if it is
-> >> originated from itself.
-> >> 
-> >> HVC traps from guest hypervisor should be handled by the host
-> >> hypervisor and traps originating from nested VM should be
-> >> forwarded. Adding check to forward only if the hvc is trapped
-> >> from the nested VM.
+> On Wed, Apr 09, 2025 at 05:01:01PM +0100, Marc Zyngier wrote:
+> > The MDCR_EL2 documentation indicates that the HPMN field has
+> > the following behaviour:
 > > 
-> > I disagree. HVC from EL2 must be routed to the same EL2. HVC from EL1
-> > must be routed to the EL2 controlling EL1.
+> > "On a Warm reset, this field resets to the expression NUM_PMU_COUNTERS."
+> > 
+> > However, it appears we reset it to zero, which is not very useful.
+> > 
+> > Add a reset helper for MDCR_EL2, and handle the case where userspace
+> > changes the target PMU, which may force us to change HPMN again.
+> > 
+> > Reported-by: Joey Gouly <joey.gouly@arm.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/pmu-emul.c | 13 +++++++++++++
+> >  arch/arm64/kvm/sys_regs.c |  8 +++++++-
+> >  2 files changed, 20 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> > index a1bc10d7116a5..4dc4f3a473c3f 100644
+> > --- a/arch/arm64/kvm/pmu-emul.c
+> > +++ b/arch/arm64/kvm/pmu-emul.c
+> > @@ -1033,6 +1033,19 @@ static void kvm_arm_set_pmu(struct kvm *kvm, struct arm_pmu *arm_pmu)
+> >  
+> >  	kvm->arch.arm_pmu = arm_pmu;
+> >  	kvm->arch.pmcr_n = kvm_arm_pmu_get_max_counters(kvm);
 > 
-> Thanks, Understood, In NV case, hvc has to be forwarded to L1
-> irrespective of it origin (L1 or L2). Need to add hvc handler in the
-> smccc_filter.c for the vm (when run as L1), so that it is handled and
-> returns with required args set.
+> nit: Can we rename pmcr_n to nr_pmu_counters? The current name is misleading.
 
-Why? This test checks under which conditions an HVC/SMC gets routed to
-userspace. What does it even mean to test HVC if it doesn't make it
-outside of the guest itself?
+Fair enough.
+
+> > +
+> > +	/* Reset MDCR_EL2.HPMN behind the vcpus' back... */
+> > +	if (test_bit(KVM_ARM_VCPU_HAS_EL2, kvm->arch.vcpu_features)) {
+> > +		struct kvm_vcpu *vcpu;
+> > +		unsigned long i;
+> > +
+> > +		kvm_for_each_vcpu(i, vcpu, kvm) {
+> > +			u64 val = __vcpu_sys_reg(vcpu, MDCR_EL2);
+> > +			val &= ~MDCR_EL2_HPMN;
+> > +			val |= FIELD_PREP(MDCR_EL2_HPMN, kvm->arch.pmcr_n);
+> > +			__vcpu_sys_reg(vcpu, MDCR_EL2) = val;
+> > +		}
+> 
+> Shouldn't we be taking the vCPU mutex(es) here?
+
+If we needed to, it shouldn't be here. We hold the config_lock at this
+point, and taking a vcpu mutex would result in a locking inversion.
+
+One option is to punt this to a request, but that makes the updated
+HPMN un-observable from userspace until the vcpu has run. This already
+affects the default PMU, btw, since it is only assigned on first run.
+
+I'm also not convinced racing against userspace is a big problem here.
 
 	M.
 
