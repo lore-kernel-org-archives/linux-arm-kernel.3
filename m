@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9C8C369A9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD0DDC369AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hP7A51ZGmEl+JuwryXFcR2w+L8uJ0Ehg02qCclDNayk=; b=n3LGJ9IVU5jEloyei52PtVhu0l
-	21xSw0Ao9ZWa0bCdzNru7jwnKc3/D/+PTbA50aNepRIyaHmbspD7LLQQpFKoAa3shTrUw7QQs3gcN
-	ieo7/uhpBBMCA8KIre8g4gQitv1XHvAZEetxcFeBSeIkPTcjT98bfJYEWfX0jwpDF9kFG5YqEUIdG
-	Y0hsR3oBx7S5Dfspk9we+yxIdbqX1MY0Qkt5zlI07RVeRFq2kNkHkqHdefdO7h/assRxXrA6W7N+x
-	XmAQWiDn7yyQm9+z193jelbIprw6matbf/S5LwSPNzt3QsknOm+HeIi52/nyRA9bKwCrZ6Lt5PFuH
-	KmVAGCHQ==;
+	bh=UUluvWeckUAyIMO0n90rKe4B0+Hl1W+NbGV3iYYSIyM=; b=xzLhDC5DSRUJxK5vBAYO1/jq+Y
+	gkZk1MGdBNimsQxi6lUsGzJyqQIKKiky8v6UF5bShVWh0VGgdxH7m9vfkk+ifhWTXvb33b6EiS+uc
+	TEuluT28ix/8j0C4e7Us4BStruYTeQd5PKyNW2+90/quaw1zhXr1kumLMciAvHonlsLdHkUrCTnl1
+	nXnpIqLHQnea0UkYHoEwPgjm1HXfcKS9JOIEvbLB5kSaFPLNmAsfpDxR7pk9Vt23/TqhOhtym7ofp
+	GdHDBzqyPks9+E0x4IbjN82FEv01FbA6MnxwZTS9Sun4hkorA+0TgldwkRmK2bxrpPcXqZ28vQil3
+	dR4Wo7WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2psv-0000000ABAQ-0oQf;
-	Thu, 10 Apr 2025 11:15:53 +0000
+	id 1u2pst-0000000AB8O-3BKA;
+	Thu, 10 Apr 2025 11:15:51 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2noK-00000009rHY-46fL
+	id 1u2noK-00000009rHW-3VbT
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Apr 2025 09:03:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
@@ -33,18 +33,18 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=hP7A51ZGmEl+JuwryXFcR2w+L8uJ0Ehg02qCclDNayk=; b=PH6+5q+oIogZ5snkFG9x6zrHRW
-	4JXFUt0glyi36hgVfaJi1Y0SLGsLA43xXiIe4aUHfJBVKw1humqZz1thDrZEDtREw2G+aZC7cUk1A
-	gx6avGS7QjbRaI40Rp57tPoW6nd7E8mVPHodBYb5/ihf6H+Id7BWot0dfI8V1wAVwGJ17uGMhXeKK
-	DK7eugrd9iZ+kcs3QtCkROlZOVUs70c9C4u5sTXTKMB23pfMp74/GDTNOJ15nBdkq+PoDVBqLtCeh
-	0Bsy8IDB2LlEUJpkmLXRRivJaOT9uP6aiK1C4D7kQDz9UJToek0FmWoJ+FWb/jeKeaMzxGrN/Hf9I
-	6PMhOFVg==;
+	bh=UUluvWeckUAyIMO0n90rKe4B0+Hl1W+NbGV3iYYSIyM=; b=DFmHEiJEdIa64ZOPI25T66lyOz
+	fut4hhdpRI6AmW3u0pDmg3n+cyv5TvJSv2i4aOkbrnDfmXweowXwMNpIlKeEKodr3jOqC6aDqxbzo
+	0BNbSyKwlRpcvKicHfolrFTMhYH5vgv3v3Sz50osPd3OV1+8H+fZB0XVBKQLhepum6ypsKla0X5cG
+	hIgwXjmLZW9CqbnwEYD82LXuW9d49rV6Ex7DBQApmcEUIjeDkb9FMyi5wr9y/tSFNi+PBO1nNIRrl
+	2Orweu2cYOhLtHS76H9UQ3N5jR4bvxgy2FSM/trWmRFtiHJgoAnPww1plRFOWWvhcHHS+WkID3OZf
+	KPhpa0ew==;
 Received: from [89.212.21.243] (port=41926 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1u2noK-000Djj-1m;
-	Thu, 10 Apr 2025 11:02:59 +0200
+	id 1u2noF-000Djj-13;
+	Thu, 10 Apr 2025 11:02:54 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,9 +58,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH 06/13] arm64: dts: freescale: imx93-phyboard-segin: Drop eMMC no-1-8-v flag
-Date: Thu, 10 Apr 2025 11:02:44 +0200
-Message-Id: <20250410090251.1103979-7-primoz.fiser@norik.com>
+Subject: [PATCH 04/13] arm64: dts: freescale: imx93-phycore-som: Enhance eMMC pinctrl
+Date: Thu, 10 Apr 2025 11:02:42 +0200
+Message-Id: <20250410090251.1103979-5-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250410090251.1103979-1-primoz.fiser@norik.com>
 References: <20250410090251.1103979-1-primoz.fiser@norik.com>
@@ -77,8 +77,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_020301_196245_6DC85747 
-X-CRM114-Status: UNSURE (   5.04  )
+X-CRM114-CacheID: sfid-20250410_020301_031965_B8F6A07E 
+X-CRM114-Status: UNSURE (   6.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,30 +94,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop redundant 'no-1-8-v' flag from usdhc1 (eMMC) node. Flag is now set
-by default in the SOM include file (imx93-phycore-som.dtsi).
+Improve eMMC on phyCORE-i.MX93 SOM by adding 100MHz and 200MHz pinctrl
+modes. This enables to use eMMC at enhanced data rates (e.g. HS400).
+
+While at it, apply a workaround for the i.MX93 chip errata ERR052021.
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
- arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts | 5 -----
- 1 file changed, 5 deletions(-)
+ .../boot/dts/freescale/imx93-phycore-som.dtsi | 57 +++++++++++++++----
+ 1 file changed, 47 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-index 85fb188b057f..902b523fc92c 100644
---- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-@@ -40,11 +40,6 @@ &lpuart1 {
- 	status = "okay";
- };
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+index 82f680d891c2..3d84eed33074 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+@@ -166,8 +166,10 @@ eeprom@50 {
  
--/* eMMC */
--&usdhc1 {
--	no-1-8-v;
--};
--
- /* SD-Card */
- &usdhc2 {
- 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+ /* eMMC */
+ &usdhc1 {
+-	pinctrl-names = "default";
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+ 	pinctrl-0 = <&pinctrl_usdhc1>;
++	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
++	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
+ 	bus-width = <8>;
+ 	non-removable;
+ 	status = "okay";
+@@ -213,18 +215,53 @@ MX93_PAD_ENET2_RD3__GPIO4_IO27		0x31e
+ 		>;
+ 	};
+ 
++	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+ 	pinctrl_usdhc1: usdhc1grp {
+ 		fsl,pins = <
+ 			MX93_PAD_SD1_CLK__USDHC1_CLK		0x179e
+-			MX93_PAD_SD1_CMD__USDHC1_CMD		0x1386
+-			MX93_PAD_SD1_DATA0__USDHC1_DATA0	0x138e
+-			MX93_PAD_SD1_DATA1__USDHC1_DATA1	0x1386
+-			MX93_PAD_SD1_DATA2__USDHC1_DATA2	0x138e
+-			MX93_PAD_SD1_DATA3__USDHC1_DATA3	0x1386
+-			MX93_PAD_SD1_DATA4__USDHC1_DATA4	0x1386
+-			MX93_PAD_SD1_DATA5__USDHC1_DATA5	0x1386
+-			MX93_PAD_SD1_DATA6__USDHC1_DATA6	0x1386
+-			MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x1386
++			MX93_PAD_SD1_CMD__USDHC1_CMD		0x40001386
++			MX93_PAD_SD1_DATA0__USDHC1_DATA0	0x4000138e
++			MX93_PAD_SD1_DATA1__USDHC1_DATA1	0x40001386
++			MX93_PAD_SD1_DATA2__USDHC1_DATA2	0x4000138e
++			MX93_PAD_SD1_DATA3__USDHC1_DATA3	0x40001386
++			MX93_PAD_SD1_DATA4__USDHC1_DATA4	0x40001386
++			MX93_PAD_SD1_DATA5__USDHC1_DATA5	0x40001386
++			MX93_PAD_SD1_DATA6__USDHC1_DATA6	0x40001386
++			MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x40001386
++			MX93_PAD_SD1_STROBE__USDHC1_STROBE	0x179e
++		>;
++	};
++
++	/* need to config the SION for data and cmd pad, refer to ERR052021 */
++	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
++		fsl,pins = <
++			MX93_PAD_SD1_CLK__USDHC1_CLK		0x17be
++			MX93_PAD_SD1_CMD__USDHC1_CMD		0x4000139e
++			MX93_PAD_SD1_DATA0__USDHC1_DATA0	0x4000138e
++			MX93_PAD_SD1_DATA1__USDHC1_DATA1	0x4000139e
++			MX93_PAD_SD1_DATA2__USDHC1_DATA2	0x400013be
++			MX93_PAD_SD1_DATA3__USDHC1_DATA3	0x4000139e
++			MX93_PAD_SD1_DATA4__USDHC1_DATA4	0x4000139e
++			MX93_PAD_SD1_DATA5__USDHC1_DATA5	0x4000139e
++			MX93_PAD_SD1_DATA6__USDHC1_DATA6	0x4000139e
++			MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x4000139e
++			MX93_PAD_SD1_STROBE__USDHC1_STROBE	0x179e
++		>;
++	};
++
++	/* need to config the SION for data and cmd pad, refer to ERR052021 */
++	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
++		fsl,pins = <
++			MX93_PAD_SD1_CLK__USDHC1_CLK		0x17be
++			MX93_PAD_SD1_CMD__USDHC1_CMD		0x4000139e
++			MX93_PAD_SD1_DATA0__USDHC1_DATA0	0x4000139e
++			MX93_PAD_SD1_DATA1__USDHC1_DATA1	0x400013be
++			MX93_PAD_SD1_DATA2__USDHC1_DATA2	0x400013be
++			MX93_PAD_SD1_DATA3__USDHC1_DATA3	0x400013be
++			MX93_PAD_SD1_DATA4__USDHC1_DATA4	0x400013be
++			MX93_PAD_SD1_DATA5__USDHC1_DATA5	0x400013be
++			MX93_PAD_SD1_DATA6__USDHC1_DATA6	0x400013be
++			MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x400013be
+ 			MX93_PAD_SD1_STROBE__USDHC1_STROBE	0x179e
+ 		>;
+ 	};
 -- 
 2.34.1
 
