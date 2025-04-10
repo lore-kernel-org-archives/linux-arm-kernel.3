@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 533F3C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F735C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GGBRp/mJ44odAQ+DK3ZQeuktW6/k2UiJ6GrDt9QhUkQ=; b=S4pT7CJlWOJTUL54eJE+e5DzwU
-	nI6tcyITQCVuzcFLu/L4WS5TbJC99Utnsxc7ZdlntyjXC4AvFdNq2jrQXcwnWvTc6Q1L8hm9WHEqP
-	bCU04G+eFk2OMlSmxwMvecm7W1CKtGHd20/+Je5Ol6aGqkFBI2DLW5hsdcoTQMLsXYnrUViGN8ePc
-	WpvPUH4mqDTRi/kKK+my1wshNJwd2Cn7iF3p240x+ZiLvlTBz1Z8mwKpLarbmUZlXFMeHeV6upz9d
-	faU1/Dr1uXb19akPlR0hHAbspQIJNpg9KD/+pXXKQC3GI+KRFqnA7456uY9UsJ6dCVOWys0/O7t1r
-	jjqzrORg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b/USx7FyrAAP0KVFJIR3S9nGQoNXd7rpnvG6sRwEcjk=; b=iiZ8LGpXU3Vq6o2fDUtuWXLA54
+	L5xPKS7V3MiszBFnsNS80e/JHKqt+8XJa7kY2m5dWG0iYCmdF9YsB8rFZzcDRIRF2aVVkJrfsV5Cg
+	KFjtx2FlOcN6wjIAhSab/6x/Qwc6ugs4kpMtQ6tuDQc6S3X0TLKzDeBhpcXL6OadtFLkVs7lEmi8b
+	y+k5P1Jk8FAAdd3DpECVamBsmiUhEaeHS0gSz7hn+2yR8xT9IibkfB/6Ti3Zmr9W2rs84BMubavax
+	4I3lV7u6k8wPutPu5wxRaqZ/mJIDmI3OaHebSxEN99LK125Tw7UDc6NkVyaNQS2CCvXgmwbtlD+Jy
+	pAyf53/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2uPm-0000000B7sM-3iwb;
-	Thu, 10 Apr 2025 16:06:06 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2tce-0000000Aymv-1UtY;
-	Thu, 10 Apr 2025 15:15:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744298120; x=1775834120;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=V4GHZJ8ckeMnMp0rIGnPoc0LafTsnMm513zi7ZBVHVQ=;
-  b=CROV4MqHXSGRrysn0smbGdwbh+/D7iWjm6THt1yJxbQ/YVZ7YTPK55in
-   Dtd7hacN4FxRk/ng3DwDV5cfaRu7VnpKgAP5IWnBbuCOwCxOdyVYMeRYQ
-   Z64I1dwezzk3RMwcK0xGHLIqU15Tw5zrWFtOr2m9bQ01CasZPhGcaFCdu
-   l37do29E9a32b0LJXFqQXS1uCRp0A+QTNMTKlZLYfGWstAFn0C7M+Uj5q
-   om67Yduxrdb3lsb/XTr89ILMY7dgNrs2HueHdDxjcBpHPSzQ7fJEkrHyw
-   NdPxHrK8zXDoxigbQmZM2IkffjHWmES2WIQKxTgFMpDqdGQrR4zPlDcYV
-   w==;
-X-CSE-ConnectionGUID: PuDLA/e7TyalFsI+T7E1DA==
-X-CSE-MsgGUID: SbqTe0BXSTSM+xYDplzTwg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11400"; a="48534422"
-X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
-   d="scan'208";a="48534422"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 08:15:18 -0700
-X-CSE-ConnectionGUID: vQ7lhxf+QZ2w5KQxjMC4EQ==
-X-CSE-MsgGUID: XLyoK8lKQ9C7x/NfnQcgNg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
-   d="scan'208";a="128912597"
-Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com) ([10.237.72.44])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 08:15:15 -0700
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id CE9BF11F74E;
-	Thu, 10 Apr 2025 18:15:12 +0300 (EEST)
-Date: Thu, 10 Apr 2025 15:15:12 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: linux-crypto@vger.kernel.org, Olivia Mackall <olivia@selenic.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, openbmc@lists.ozlabs.org
-Subject: Re: [PATCH 1/3] hwrng: atmel - Add a local variable for struct
- device pointer
-Message-ID: <Z_fggNyPaotb2mYh@kekkonen.localdomain>
-References: <20250410070623.3676647-1-sakari.ailus@linux.intel.com>
- <20250410070623.3676647-2-sakari.ailus@linux.intel.com>
- <Z_d2fcuWPiel_OnT@gondor.apana.org.au>
+	id 1u2uRf-0000000B88V-40aL;
+	Thu, 10 Apr 2025 16:08:03 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2tdK-0000000AysB-3yw5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 15:16:08 +0000
+Received: from [10.137.184.60] (unknown [131.107.159.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id EA497203B86C;
+	Thu, 10 Apr 2025 08:16:00 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EA497203B86C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1744298161;
+	bh=b/USx7FyrAAP0KVFJIR3S9nGQoNXd7rpnvG6sRwEcjk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pPUwqlOBrIErhRnMenQuuETY6McFAU1X0L10gqqB+/k7VCThivMB270N9MVPVqKZv
+	 OKxIXSvIKMZxOqZulERNSc4wZJRTLL80Ml0pDUeMCwWwOhmkq4niN8+MWNU6gCLoNP
+	 iRC71M6wjwxVnS1zZO8WpZAJaxORmPm0mctceOLU=
+Message-ID: <e169cb52-8f2d-4ac5-b667-87c3357c11a7@linux.microsoft.com>
+Date: Thu, 10 Apr 2025 08:16:00 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z_d2fcuWPiel_OnT@gondor.apana.org.au>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next 5/6] arch, drivers: Add device struct bitfield
+ to not bounce-buffer
+To: Christoph Hellwig <hch@lst.de>
+Cc: Robin Murphy <robin.murphy@arm.com>, aleksander.lobakin@intel.com,
+ andriy.shevchenko@linux.intel.com, arnd@arndb.de, bp@alien8.de,
+ catalin.marinas@arm.com, corbet@lwn.net, dakr@kernel.org,
+ dan.j.williams@intel.com, dave.hansen@linux.intel.com, decui@microsoft.com,
+ gregkh@linuxfoundation.org, haiyangz@microsoft.com, hpa@zytor.com,
+ James.Bottomley@HansenPartnership.com, Jonathan.Cameron@huawei.com,
+ kys@microsoft.com, leon@kernel.org, lukas@wunner.de, luto@kernel.org,
+ m.szyprowski@samsung.com, martin.petersen@oracle.com, mingo@redhat.com,
+ peterz@infradead.org, quic_zijuhu@quicinc.com, tglx@linutronix.de,
+ wei.liu@kernel.org, will@kernel.org, iommu@lists.linux.dev,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org, x86@kernel.org,
+ apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com, Suzuki K Poulose <suzuki.poulose@arm.com>
+References: <20250409000835.285105-1-romank@linux.microsoft.com>
+ <20250409000835.285105-6-romank@linux.microsoft.com>
+ <0eb87302-fae8-4708-aaf8-d16e836e727f@arm.com>
+ <0ab2849a-5c03-4a8c-891e-3cb89b20b0e4@linux.microsoft.com>
+ <20250410072150.GA32563@lst.de>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <20250410072150.GA32563@lst.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_081520_413032_BF75D5B4 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20250410_081603_026131_C8760111 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,36 +87,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Herbert,
 
-On Thu, Apr 10, 2025 at 03:42:53PM +0800, Herbert Xu wrote:
-> On Thu, Apr 10, 2025 at 10:06:21AM +0300, Sakari Ailus wrote:
-> > Add a local variable for a struct device pointer instead of obtaining the
-> > hwrng priv field and casting it as a struct device pointer whenever it's
-> > needed.
-> > 
-> > Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> > ---
-> >  drivers/char/hw_random/atmel-rng.c | 9 +++++----
-> >  1 file changed, 5 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/drivers/char/hw_random/atmel-rng.c b/drivers/char/hw_random/atmel-rng.c
-> > index 143406bc6939..5192c39ebaeb 100644
-> > --- a/drivers/char/hw_random/atmel-rng.c
-> > +++ b/drivers/char/hw_random/atmel-rng.c
-> > @@ -56,12 +56,13 @@ static int atmel_trng_read(struct hwrng *rng, void *buf, size_t max,
-> >  			   bool wait)
-> >  {
-> >  	struct atmel_trng *trng = container_of(rng, struct atmel_trng, rng);
-> > +	struct device *dev = (struct device *)trng->rng.priv;
+
+On 4/10/2025 12:21 AM, Christoph Hellwig wrote:
+> On Wed, Apr 09, 2025 at 09:44:03AM -0700, Roman Kisel wrote:
+>> Do you feel this is shoehorned in `struct device`? I couldn't find an
+>> appropriate private (== opaque pointer) part in the structure to store
+>> that bit (`struct device_private` wouldn't fit the bill) and looked like
+>> adding it to the struct itself would do no harm. However, my read of the
+>> room is that folks see that as dubious :)
 > 
-> Please stop using the priv field and instead add a struct device
-> pointer to struct atmel_trng.
+> We'll need per-device information.  But it is much higher level than a
+> need bounce buffer flag.
+> 
 
-Thanks for the review. I'll do that in v2.
+I see, thanks for the explanation!
 
 -- 
-Regards,
+Thank you,
+Roman
 
-Sakari Ailus
 
