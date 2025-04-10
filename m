@@ -4,94 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15D1AC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 06:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27411C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 06:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dC+swCRK/KUh4UpmroT3tdqRkB1Za1ha1GQJntXx8y8=; b=duYvDqna3Cjpgq0KWNrg05QT9O
-	oWRyBSl5UM3xzOYeRPFQuLuD1AmQY8FSGf4z5QW+8XaK1xNAIkNfw2zip3ACDCUa7++shVwnEJC3y
-	LhDLLbX3f4hfMwcJ6KcQgysuMHl2Jbgg8WgrXngbOIAXHkUidrXlI91WGkPMOwDSJUaco+0EUKmKe
-	c1/9ghSNkYCyCEFIHHoMIqUVMVZyFLSoy/70dzhYqvHzkU/nlYNxtz0BKS0tGlk1Q7Sf0DOHbG4mh
-	QefLKqWR9mZbu1zBGBBNVa8FnSQDA/C88r6QrgdUet3xdsdWTKV7yVCViAgGfERKWa/QRkUlPMvUJ
-	YhR3GzTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uTJ7IUbdgRBTnTVyrjGDZ+/6vq5Fm9kja2TDV9yNNl8=; b=kSXHCdO5Dr2NgUhpdaZHw3mqiq
+	5CrC+ZT8n0PmxI8PjqGEeluDOgun+rlwCfwzdWNRlaG7EWcabvPgYyt01heeZt97tLGXpjJMtJdK+
+	ErBqr8cqhbxRhggsL99Id7wBZkaGMfNYDmV6T8ZwyKXLEijBhev96varv6s2AIPrhK6fTzvJQELql
+	EsoQf3qdKc1mzwJktweXJX2saW2w5PyIA9/Q4URv2sjrhc+SE0W3XI4OljcdpU2vQBP3O5ytEZQfu
+	OJm+yFl4O1ISDWrElzjQaFYPBWx1VQLuxmAJCuhDG2JwVG/a1aNZlViuF4RW78CYfT0u+q5yiJ+pA
+	JsAN4ssA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2loN-00000009RKE-3KZx;
-	Thu, 10 Apr 2025 06:54:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u2lqA-00000009Rcw-0oHm;
+	Thu, 10 Apr 2025 06:56:46 +0000
+Received: from mx3.molgen.mpg.de ([141.14.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lR1-00000009NDo-0j5o
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 10 Apr 2025 06:30:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=dC+swCRK/KUh4UpmroT3tdqRkB1Za1ha1GQJntXx8y8=; b=ct0ghSgYpY5YZcApptsY0QSxjc
-	0abxxOhCVuQxidHLMY+p+W9M+Jje5/sP76Go79PZRpJZGPZmiq9FPJc/mB3A8eKRX2c0NNMPuYDDh
-	NbXHF6IiGWlx+GUeZdt9GKuLpZpEQRZvhUXRpPJcEnW/TL9Xvwnxk8dQg8pkOZpavYO73M0zRcsQ8
-	U+I+lnA8hA3JGfxXeuLR5i/g4lLJtH5Vxcw4+gNJKlNjngg4CJsns+02Fxmh9kPOPDntQXdIlgj1D
-	dyaSmZJGu9u2ZjRYw4I2Sw8Rm4zp1onfVf6T30hEe1w0xfrWF8slhUrskEJuny9IgSA5TboARmlnW
-	PiFsoLsg==;
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2lQx-00000008lbn-3nUV
+	id 1u2lV3-00000009NxM-0cUU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 06:30:46 +0000
-X-UUID: 46e2539c15d511f083f2a1c9db70dae0-20250409
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=dC+swCRK/KUh4UpmroT3tdqRkB1Za1ha1GQJntXx8y8=;
-	b=sj2nyJ/NCX1GJWxBpyEaSwtajXZUaj7fnmYyArdlWSeiGRXgI27eKzCLlxxC/nqmeP5abIxI1s8XDEzQ5toxCBIZUmKg9qS4Us3uXVyAyynSki4eZ/mRbGiu6+FcUS89IYicO7wwHbVlb+l1Fx9gU6+WTaMO40D3WjOxA02Yi9U=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:cc0681af-1de0-47eb-9f32-44a0df2abf08,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:adc86f8d-f5b8-47d5-8cf3-b68fe7530c9a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 5,DFT
-X-CID-BAS: 5,DFT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 46e2539c15d511f083f2a1c9db70dae0-20250409
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 102164400; Wed, 09 Apr 2025 23:30:20 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 10 Apr 2025 14:30:18 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 10 Apr 2025 14:30:17 +0800
-From: kyrie.wu <kyrie.wu@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, kyrie wu
-	<kyrie.wu@mediatek.corp-partner.google.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: kyrie.wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v2 08/12] media: mediatek: jpeg: fix stop streaming flow for multi-core
-Date: Thu, 10 Apr 2025 14:30:01 +0800
-Message-ID: <20250410063006.5313-9-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250410063006.5313-1-kyrie.wu@mediatek.com>
-References: <20250410063006.5313-1-kyrie.wu@mediatek.com>
+	Thu, 10 Apr 2025 06:35:01 +0000
+Received: from [192.168.0.2] (ip5f5af743.dynamic.kabel-deutschland.de [95.90.247.67])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pmenzel)
+	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 3E89061E64783;
+	Thu, 10 Apr 2025 08:34:25 +0200 (CEST)
+Message-ID: <4107dda8-25fe-4f30-a0e6-906441f9b4c9@molgen.mpg.de>
+Date: Thu, 10 Apr 2025 08:34:23 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: Kernel WARNING (RCU) with btnxpuart on TI AM62 platform
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>,
+ Amitkumar Karwar <amitkumar.karwar@nxp.com>,
+ Neeraj Kale <neeraj.sanjaykale@nxp.com>, Nishanth Menon <nm@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+ linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ linux-serial@vger.kernel.org, Marcel Ziswiler <marcel.ziswiler@toradex.com>
+References: <20250408083512.GA26035@francesco-nb>
+ <24b28bda-e294-4680-bed5-c44efcb6c455@ti.com>
+ <20250410062006.GA7506@francesco-nb>
+Content-Language: en-US
+From: Paul Menzel <pmenzel@molgen.mpg.de>
+In-Reply-To: <20250410062006.GA7506@francesco-nb>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_073044_382377_D4A4468A 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20250409_233457_495568_5D798390 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,202 +72,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1. For multi-core jpegdec, the all hws may run at the same time,
-if one hw decoded firstly, the function of mtk_jpeg_dec_stop_streaming
-would be called, but others input buffers are decoding, this will
-cause some running buffers to be buffer done, causing errors;
-2. add a parameter to calculate the decoding buffer counts, it
-wil decrease to 0 until the all buffers decoded and the
-mtk_jpeg_dec_stop_streaming could continue to be executed.
+[Cc: +Marcel]
 
-Signed-off-by: kyrie.wu <kyrie.wu@mediatek.com>
----
- .../media/platform/mediatek/jpeg/mtk_jpeg_core.c | 16 ++++++++++++++++
- .../media/platform/mediatek/jpeg/mtk_jpeg_core.h |  2 ++
- .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c     |  9 +++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c     |  9 +++++++++
- 4 files changed, 36 insertions(+)
+Dear Francesco,
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 79a47a59caba..172a8aa80a2b 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -860,8 +860,12 @@ static struct vb2_v4l2_buffer *mtk_jpeg_buf_remove(struct mtk_jpeg_ctx *ctx,
- static void mtk_jpeg_enc_stop_streaming(struct vb2_queue *q)
- {
- 	struct mtk_jpeg_ctx *ctx = vb2_get_drv_priv(q);
-+	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
- 	struct vb2_v4l2_buffer *vb;
- 
-+	if (jpeg->variant->multi_core)
-+		wait_event(jpeg->hw_wq, (atomic_read(&ctx->buf_list_cnt) == 0));
-+
- 	while ((vb = mtk_jpeg_buf_remove(ctx, q->type)))
- 		v4l2_m2m_buf_done(vb, VB2_BUF_STATE_ERROR);
- }
-@@ -869,6 +873,7 @@ static void mtk_jpeg_enc_stop_streaming(struct vb2_queue *q)
- static void mtk_jpeg_dec_stop_streaming(struct vb2_queue *q)
- {
- 	struct mtk_jpeg_ctx *ctx = vb2_get_drv_priv(q);
-+	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
- 	struct vb2_v4l2_buffer *vb;
- 
- 	/*
-@@ -876,6 +881,9 @@ static void mtk_jpeg_dec_stop_streaming(struct vb2_queue *q)
- 	 * Before STREAMOFF, we still have to return the old resolution and
- 	 * subsampling. Update capture queue when the stream is off.
- 	 */
-+	if (jpeg->variant->multi_core)
-+		wait_event(jpeg->hw_wq, (atomic_read(&ctx->buf_list_cnt) == 0));
-+
- 	if (ctx->state == MTK_JPEG_SOURCE_CHANGE &&
- 	    V4L2_TYPE_IS_CAPTURE(q->type)) {
- 		struct mtk_jpeg_src_buf *src_buf;
-@@ -1185,6 +1193,7 @@ static int mtk_jpeg_open(struct file *file)
- 	v4l2_fh_init(&ctx->fh, vfd);
- 	file->private_data = &ctx->fh;
- 	v4l2_fh_add(&ctx->fh);
-+	atomic_set(&ctx->buf_list_cnt, 0);
- 
- 	ctx->jpeg = jpeg;
- 	ctx->fh.m2m_ctx = v4l2_m2m_ctx_init(jpeg->m2m_dev, ctx,
-@@ -1567,6 +1576,11 @@ static int mtk_jpegdec_set_hw_param(struct mtk_jpeg_ctx *ctx,
- 	return 0;
- }
- 
-+static void jpeg_buf_queue_inc(struct mtk_jpeg_ctx *ctx)
-+{
-+	atomic_inc(&ctx->buf_list_cnt);
-+}
-+
- static irqreturn_t mtk_jpeg_enc_done(struct mtk_jpeg_dev *jpeg)
- {
- 	struct mtk_jpeg_ctx *ctx;
-@@ -1691,6 +1705,7 @@ static void mtk_jpegenc_worker(struct work_struct *work)
- 			     &src_buf->vb2_buf);
- 	mtk_jpeg_set_enc_params(ctx, comp_jpeg[hw_id]->reg_base);
- 	mtk_jpeg_enc_start(comp_jpeg[hw_id]->reg_base);
-+	jpeg_buf_queue_inc(ctx);
- 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
- 	spin_unlock_irqrestore(&comp_jpeg[hw_id]->hw_lock, flags);
- 
-@@ -1822,6 +1837,7 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 				&bs,
- 				&fb);
- 	mtk_jpeg_dec_start(comp_jpeg[hw_id]->reg_base);
-+	jpeg_buf_queue_inc(ctx);
- 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
- 	spin_unlock_irqrestore(&comp_jpeg[hw_id]->hw_lock, flags);
- 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-index 25ba21d80de7..3e0a2e44ea1c 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-@@ -307,6 +307,7 @@ struct mtk_jpeg_q_data {
-  * @dst_done_queue:		encoded frame buffer queue
-  * @done_queue_lock:		encoded frame operation spinlock
-  * @last_done_frame_num:	the last encoded frame number
-+ * @buf_list_cnt:		the frame buffer count own by jpeg driver
-  */
- struct mtk_jpeg_ctx {
- 	struct mtk_jpeg_dev		*jpeg;
-@@ -325,6 +326,7 @@ struct mtk_jpeg_ctx {
- 	/* spinlock protecting the encode done buffer */
- 	spinlock_t done_queue_lock;
- 	u32 last_done_frame_num;
-+	atomic_t buf_list_cnt;
- };
- 
- #endif /* _MTK_JPEG_CORE_H */
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-index f59d86431295..ec4120ef9043 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-@@ -524,6 +524,11 @@ static void mtk_jpegdec_put_buf(struct mtk_jpegdec_comp_dev *jpeg)
- 	spin_unlock_irqrestore(&ctx->done_queue_lock, flags);
- }
- 
-+static void jpeg_buf_queue_dec(struct mtk_jpeg_ctx *ctx)
-+{
-+	atomic_dec(&ctx->buf_list_cnt);
-+}
-+
- static void mtk_jpegdec_timeout_work(struct work_struct *work)
- {
- 	enum vb2_buffer_state buf_state = VB2_BUF_STATE_ERROR;
-@@ -532,9 +537,11 @@ static void mtk_jpegdec_timeout_work(struct work_struct *work)
- 			     job_timeout_work.work);
- 	struct mtk_jpeg_dev *master_jpeg = cjpeg->master_dev;
- 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
-+	struct mtk_jpeg_ctx *ctx;
- 
- 	src_buf = cjpeg->hw_param.src_buffer;
- 	dst_buf = cjpeg->hw_param.dst_buffer;
-+	ctx = cjpeg->hw_param.curr_ctx;
- 	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
- 
- 	mtk_jpeg_dec_reset(cjpeg->reg_base);
-@@ -545,6 +552,7 @@ static void mtk_jpegdec_timeout_work(struct work_struct *work)
- 	wake_up(&master_jpeg->hw_wq);
- 	v4l2_m2m_buf_done(src_buf, buf_state);
- 	mtk_jpegdec_put_buf(cjpeg);
-+	jpeg_buf_queue_dec(ctx);
- }
- 
- static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq, void *priv)
-@@ -585,6 +593,7 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq, void *priv)
- 	buf_state = VB2_BUF_STATE_DONE;
- 	v4l2_m2m_buf_done(src_buf, buf_state);
- 	mtk_jpegdec_put_buf(jpeg);
-+	jpeg_buf_queue_dec(ctx);
- 	pm_runtime_put(ctx->jpeg->dev);
- 	clk_disable_unprepare(jpeg->jdec_clk.clks->clk);
- 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-index 73b99a5ea5da..cb6b9caeae2b 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-@@ -264,6 +264,11 @@ static void mtk_jpegenc_put_buf(struct mtk_jpegenc_comp_dev *jpeg)
- 	spin_unlock_irqrestore(&ctx->done_queue_lock, flags);
- }
- 
-+static void jpeg_buf_queue_dec(struct mtk_jpeg_ctx *ctx)
-+{
-+	atomic_dec(&ctx->buf_list_cnt);
-+}
-+
- static void mtk_jpegenc_timeout_work(struct work_struct *work)
- {
- 	struct delayed_work *dly_work = to_delayed_work(work);
-@@ -274,9 +279,11 @@ static void mtk_jpegenc_timeout_work(struct work_struct *work)
- 	struct mtk_jpeg_dev *master_jpeg = cjpeg->master_dev;
- 	enum vb2_buffer_state buf_state = VB2_BUF_STATE_ERROR;
- 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
-+	struct mtk_jpeg_ctx *ctx;
- 
- 	src_buf = cjpeg->hw_param.src_buffer;
- 	dst_buf = cjpeg->hw_param.dst_buffer;
-+	ctx = cjpeg->hw_param.curr_ctx;
- 	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
- 
- 	mtk_jpeg_enc_reset(cjpeg->reg_base);
-@@ -287,6 +294,7 @@ static void mtk_jpegenc_timeout_work(struct work_struct *work)
- 	wake_up(&master_jpeg->hw_wq);
- 	v4l2_m2m_buf_done(src_buf, buf_state);
- 	mtk_jpegenc_put_buf(cjpeg);
-+	jpeg_buf_queue_dec(ctx);
- }
- 
- static irqreturn_t mtk_jpegenc_hw_irq_handler(int irq, void *priv)
-@@ -320,6 +328,7 @@ static irqreturn_t mtk_jpegenc_hw_irq_handler(int irq, void *priv)
- 	buf_state = VB2_BUF_STATE_DONE;
- 	v4l2_m2m_buf_done(src_buf, buf_state);
- 	mtk_jpegenc_put_buf(jpeg);
-+	jpeg_buf_queue_dec(ctx);
- 	pm_runtime_put(ctx->jpeg->dev);
- 	clk_disable_unprepare(jpeg->venc_clk.clks->clk);
- 
--- 
-2.46.0
 
+Am 10.04.25 um 08:20 schrieb Francesco Dolcini:
+
+> On Tue, Apr 08, 2025 at 09:15:26PM +0530, Vignesh Raghavendra wrote:
+>> On 08/04/25 14:05, Francesco Dolcini wrote:
+>>> I do have the following kernel warning with 6.15-rc1, on a TI AM62
+>>> platform (arm64), single CPU core, using btnxpuart driver, any idea?
+>>> PREEMPT_RT is enabled, if it matters.
+>>>
+>>> Either the issue is not systematic, or multi cores SoCs are not affected
+>>> (no error on the exact same image on a dual nor on quad core TI AM62).
+>>>
+>>> [   23.139080] Voluntary context switch within RCU read-side critical section!
+>>> [   23.139119] WARNING: CPU: 0 PID: 61 at /kernel/rcu/tree_plugin.h:332 rcu_note_context_switch+0x3c4/0x430
+>>> [   23.139172] Modules linked in: uas onboard_usb_dev optee_rng dwc3 evdev btnxpuart spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils optee spi_cadence_quadspi tee gpio_keys usb_conn_gpio display_connector roles dwc3_am62 mwifiex_sdio k3_j72xx_bandgap mwifiex rtc_ti_k3 cfg80211 tidss sa2ul sha512_generic snd_soc_davinci_mcasp authenc drm_display_helper snd_soc_ti_udma crypto_null snd_soc_ti_edma sha1_generic snd_soc_ti_sdma omap_hwspinlock lontium_lt8912b ina2xx snd_soc_wm8904 ti_ads1015 industrialio_triggered_buffer kfifo_buf lm75 tpm_tis_i2c tps65219_pwrbutton crc_ccitt tpm_tis_core tpm rng_core tc358768 m_can_platform pwm_tiehrpwm m_can spi_omap2_mcspi can_dev bluetooth ecdh_generic ecc rfkill libaes loop fuse ipv6 autofs4
+>>> [   23.139459] CPU: 0 UID: 0 PID: 61 Comm: kworker/u5:0 Not tainted 6.15.0-rc1-0.0.0-devel #1 PREEMPT_RT
+>>> [   23.139471] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
+>>> [   23.139478] Workqueue: hci0 hci_power_off [bluetooth]
+>>> [   23.139615] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>>> [   23.139625] pc : rcu_note_context_switch+0x3c4/0x430
+>>> [   23.139647] lr : rcu_note_context_switch+0x3c4/0x430
+>>> [   23.139658] sp : ffff8000819fb740
+>>> [   23.139661] x29: ffff8000819fb740 x28: 0000000000000000 x27: ffff0000079d2010
+>>> [   23.139673] x26: ffff0000011e7810 x25: ffff000001c2c200 x24: 0000000000000000
+>>> [   23.139688] x23: 0000000000000000 x22: ffff000001c2c200 x21: ffff000001c2c200
+>>> [   23.139700] x20: ffff800081083ec0 x19: ffff00001da9fec0 x18: fffffffffffe7e78
+>>> [   23.139712] x17: ffff7fff9ca1c000 x16: ffff800080000000 x15: ffff00001da9f8c0
+>>> [   23.139726] x14: fffffffffffc7e77 x13: 216e6f6974636573 x12: 206c616369746972
+>>> [   23.139738] x11: 6320656469732d64 x10: 6165722055435220 x9 : 206e696874697720
+>>> [   23.139750] x8 : ffff80008113f040 x7 : ffff8000819fb4e0 x6 : 000000000000000c
+>>> [   23.139761] x5 : ffff00001da95888 x4 : 0000000000000000 x3 : 0000000000000027
+>>> [   23.139775] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff000001c2c200
+>>> [   23.139788] Call trace:
+>>> [   23.139793]  rcu_note_context_switch+0x3c4/0x430 (P)
+>>> [   23.139813]  __schedule+0xa0/0x7dc
+>>> [   23.139830]  schedule+0x34/0x11c
+>>> [   23.139841]  schedule_timeout+0x8c/0x110
+>>> [   23.139861]  wait_for_completion_timeout+0x78/0x14c
+>>> [   23.139873]  ti_sci_set_device_state+0x120/0x1fc
+>>> [   23.139886]  ti_sci_cmd_get_device_exclusive+0x18/0x30
+>>> [   23.139899]  ti_sci_pd_power_on+0x28/0x54
+>>> [   23.139916]  _genpd_power_on+0x98/0x188
+>>> [   23.139927]  genpd_power_on+0xa8/0x168
+>>> [   23.139940]  genpd_runtime_resume+0xc0/0x298
+>>> [   23.139957]  __rpm_callback+0x48/0x1a4
+>>> [   23.139974]  rpm_callback+0x74/0x80
+>>> [   23.139987]  rpm_resume+0x3b0/0x698
+>>> [   23.140000]  __pm_runtime_resume+0x48/0x88
+>>> [   23.140012]  omap8250_set_mctrl+0x2c/0xbc
+>>> [   23.140030]  serial8250_set_mctrl+0x20/0x40
+>>> [   23.140046]  uart_update_mctrl+0x80/0x110
+>>
+>> I think issue is that uart_update_mctrl() holds a spinlock:
+>>
+>> 	uart_port_lock_irqsave(port, &flags);
+>>
+>> and then omap8250_set_mctrl() calls pm_runtime APIs which on K3 SoC
+>> needs to talk to a Firmware to enable pd. This IPC call is a sleeping
+>> call leading to scheduling with IRQs disabled.
+>>
+>> I guess this is what RT linux is complaining? I dont have a solution
+>> though, maybe serdev delays pm_runtime_put till the port is closed?
+> 
+> Our CI reproduced what looks like the same issue also on current
+> torvalds/master (6.15-rc1+) branch, without PREEMPT_RT.
+> 
+> The call trace seems just the same, but attaching it here for
+> completeness.
+> 
+> 
+> [   20.931923] BUG: scheduling while atomic: kworker/u5:0/42/0x00000002
+> [   20.938429] Modules linked in: sd_mod uas onboard_usb_dev btnxpuart optee_rng dwc3 evdev spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils mwifiex_sdio mwifiex display_connector spi_cadence_quadspi optee usb_conn_gpio tee gpio_keys roles k3_j72xx_bandgap cfg80211 rtc_ti_k3 dwc3_am62 bluetooth ecdh_generic ecc sa2ul sha512_generic rfkill authenc tidss crypto_null libaes snd_soc_davinci_mcasp sha1_generic drm_display_helper snd_soc_ti_udma snd_soc_ti_edma snd_soc_ti_sdma omap_hwspinlock lontium_lt8912b ina2xx ti_ads1015 snd_soc_wm8904 industrialio_triggered_buffer kfifo_buf lm75 tpm_tis_i2c crc_ccitt tps65219_pwrbutton tpm_tis_core tpm m_can_platform m_can rng_core tc358768 can_dev pwm_tiehrpwm spi_omap2_mcspi loop fuse ipv6 autofs4
+> [   20.938865] CPU: 0 UID: 0 PID: 42 Comm: kworker/u5:0 Not tainted 6.15.0-rc1-0.0.0-devel #1 PREEMPT
+> [   20.938878] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
+> [   20.938895] Workqueue: hci0 hci_power_off [bluetooth]
+> [   20.939032] Call trace:
+> [   20.939037]  show_stack+0x2c/0x84 (C)
+> [   20.939063]  dump_stack_lvl+0x60/0x80
+> [   20.939084]  dump_stack+0x18/0x24
+> [   20.939096]  __schedule_bug+0x54/0x70
+> [   20.939116]  __schedule+0x628/0x7dc
+> [   20.939129]  schedule+0x34/0x11c
+> [   20.939138]  rpm_resume+0x17c/0x6a0
+> [   20.939155]  __pm_runtime_resume+0x50/0x9c
+> [   20.939168]  omap8250_set_mctrl+0x2c/0xc0
+> [   20.939183]  serial8250_set_mctrl+0x20/0x40
+> [   20.939193]  uart_update_mctrl+0x88/0x11c
+> [   20.939215]  uart_dtr_rts+0x104/0x120
+> [   20.939226]  tty_port_shutdown+0xd4/0xdc
+> [   20.939236]  tty_port_close+0x40/0xc0
+> [   20.939248]  uart_close+0x34/0x9c
+> [   20.939259]  ttyport_close+0x50/0xa0
+> [   20.939272]  serdev_device_close+0x40/0x5c
+> [   20.939283]  btnxpuart_close+0x1c/0xa0 [btnxpuart]
+> [   20.939309]  hci_dev_close_sync+0x304/0x7cc [bluetooth]
+> [   20.939376]  hci_dev_do_close+0x2c/0x70 [bluetooth]
+> [   20.939441]  hci_power_off+0x20/0x64 [bluetooth]
+> [   20.939508]  process_one_work+0x148/0x290
+> [   20.939528]  worker_thread+0x2c8/0x3e4
+> [   20.939541]  kthread+0x12c/0x204
+> [   20.939554]  ret_from_fork+0x10/0x20
+> [   20.943567] BUG: scheduling while atomic: kworker/u5:0/42/0x00000000
+> [   20.950126] Modules linked in: sd_mod uas onboard_usb_dev btnxpuart optee_rng dwc3 evdev spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils mwifiex_sdio mwifiex display_connector spi_cadence_quadspi optee usb_conn_gpio tee gpio_keys roles k3_j72xx_bandgap cfg80211 rtc_ti_k3 dwc3_am62 bluetooth ecdh_generic ecc sa2ul sha512_generic rfkill authenc tidss crypto_null libaes snd_soc_davinci_mcasp sha1_generic drm_display_helper snd_soc_ti_udma snd_soc_ti_edma snd_soc_ti_sdma omap_hwspinlock lontium_lt8912b ina2xx ti_ads1015 snd_soc_wm8904 industrialio_triggered_buffer kfifo_buf lm75 tpm_tis_i2c crc_ccitt tps65219_pwrbutton tpm_tis_core tpm m_can_platform m_can rng_core tc358768 can_dev pwm_tiehrpwm spi_omap2_mcspi loop fuse ipv6 autofs4
+> [   20.950550] CPU: 0 UID: 0 PID: 42 Comm: kworker/u5:0 Tainted: G        W           6.15.0-rc1-0.0.0-devel #1 PREEMPT
+> [   20.950566] Tainted: [W]=WARN
+> [   20.950570] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
+> [   20.950584] Workqueue: hci0 hci_power_off [bluetooth]
+> [   20.950721] Call trace:
+> [   20.950726]  show_stack+0x2c/0x84 (C)
+> [   20.950747]  dump_stack_lvl+0x60/0x80
+> [   20.950771]  dump_stack+0x18/0x24
+> [   20.950783]  __schedule_bug+0x54/0x70
+> [   20.950798]  __schedule+0x628/0x7dc
+> [   20.950815]  schedule+0x34/0x11c
+> [   20.950824]  schedule_timeout+0xd4/0x110
+> [   20.950838]  wait_for_completion+0x78/0x140
+> [   20.950853]  __flush_work+0x250/0x340
+> [   20.950868]  flush_work+0x14/0x20
+> [   20.950879]  omap_8250_shutdown+0x2c/0x1a4
+> [   20.950903]  serial8250_shutdown+0x18/0x40
+> [   20.950913]  uart_port_shutdown+0x40/0x58
+> [   20.950926]  uart_tty_port_shutdown+0x5c/0x178
+> [   20.950940]  tty_port_shutdown+0x84/0xdc
+> [   20.950950]  tty_port_close+0x40/0xc0
+> [   20.950958]  uart_close+0x34/0x9c
+> [   20.950969]  ttyport_close+0x50/0xa0
+> [   20.950990]  serdev_device_close+0x40/0x5c
+> [   20.951001]  btnxpuart_close+0x1c/0xa0 [btnxpuart]
+> [   20.951017]  hci_dev_close_sync+0x304/0x7cc [bluetooth]
+> [   20.951082]  hci_dev_do_close+0x2c/0x70 [bluetooth]
+> [   20.951149]  hci_power_off+0x20/0x64 [bluetooth]
+> [   20.951214]  process_one_work+0x148/0x290
+> [   20.951227]  worker_thread+0x2c8/0x3e4
+> [   20.951242]  kthread+0x12c/0x204
+> [   20.951258]  ret_from_fork+0x10/0x20
+
+CVE-2024-26959 [1] has the same trace, and supposedly was fixed by 
+Marcel’s commit 664130c0b030 (Bluetooth: btnxpuart: Fix btnxpuart_close) 
+present since v6.9-rc1, that is also signed off by you.
+
+
+Kind regards,
+
+Paul
+
+
+[1]: https://nvd.nist.gov/vuln/detail/cve-2024-26959
+[2]: 
+https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=664130c0b0309b360bc5bdd40a30604a9387bde8
 
