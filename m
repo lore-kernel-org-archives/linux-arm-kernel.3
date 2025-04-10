@@ -4,60 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27411C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 06:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2137C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 06:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uTJ7IUbdgRBTnTVyrjGDZ+/6vq5Fm9kja2TDV9yNNl8=; b=kSXHCdO5Dr2NgUhpdaZHw3mqiq
-	5CrC+ZT8n0PmxI8PjqGEeluDOgun+rlwCfwzdWNRlaG7EWcabvPgYyt01heeZt97tLGXpjJMtJdK+
-	ErBqr8cqhbxRhggsL99Id7wBZkaGMfNYDmV6T8ZwyKXLEijBhev96varv6s2AIPrhK6fTzvJQELql
-	EsoQf3qdKc1mzwJktweXJX2saW2w5PyIA9/Q4URv2sjrhc+SE0W3XI4OljcdpU2vQBP3O5ytEZQfu
-	OJm+yFl4O1ISDWrElzjQaFYPBWx1VQLuxmAJCuhDG2JwVG/a1aNZlViuF4RW78CYfT0u+q5yiJ+pA
-	JsAN4ssA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NcMLg0bVur6QOZIc0MU6CnnrjgCDYQKJccLlapmx/J0=; b=tSAaDOeil9jl5MwEgK5iGQqdvc
+	fqKC4qEuwk1PEZnGq93DHb7vbo+dXdArMgT8Cijso7icFboQROz5xsX+tYyB+YRJ1huSINhhw1ypR
+	dwXLw5A+b9PJaT4dbaSL7iSjFqqLc5pM78ckZeJFsU2BFo8dC4ho/rAx+iGvpfIfUuShOo+SE2gQe
+	lOAKK3AVrcrq6i78UetPZS3srV3KkB5Gsxr11JqA2HOBLbYmmFFcd6k3GnfLzB4KeVoIiFppjvFg2
+	qRefv3s3LoEoTj/5FkcQOqP7/e5zHBXqHEjtT/BRG72k7yE9bpAuS/rdqH0Li2slA2VjuCmxlQVzj
+	8bghYf2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lqA-00000009Rcw-0oHm;
-	Thu, 10 Apr 2025 06:56:46 +0000
-Received: from mx3.molgen.mpg.de ([141.14.17.11])
+	id 1u2lrw-00000009S2K-2hGn;
+	Thu, 10 Apr 2025 06:58:36 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lV3-00000009NxM-0cUU
+	id 1u2lYC-00000009OVG-0jix
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 06:35:01 +0000
-Received: from [192.168.0.2] (ip5f5af743.dynamic.kabel-deutschland.de [95.90.247.67])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 3E89061E64783;
-	Thu, 10 Apr 2025 08:34:25 +0200 (CEST)
-Message-ID: <4107dda8-25fe-4f30-a0e6-906441f9b4c9@molgen.mpg.de>
-Date: Thu, 10 Apr 2025 08:34:23 +0200
+	Thu, 10 Apr 2025 06:38:16 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-af579e46b5dso377475a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 23:38:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744267091; x=1744871891; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NcMLg0bVur6QOZIc0MU6CnnrjgCDYQKJccLlapmx/J0=;
+        b=RsmEr1b3/4Sirhh803ypsJ7WO8/UrIW2sPH5LWc/9FPm6QmwYPL81OzyFoUi94Oyaq
+         djCScaYzVTYHYljF+CmkqXyrvodtjMeeLCF8AFEsEP+P2Zy3YYCLnXVLjUiGP8mWfZRH
+         2fCpT2/nSbcaJxN8KjqkRzGBUigrK6DHGKeWPYiN5lSUbOPJqAJmh9iZaYkI7IWsBYFf
+         g61vFpHG+myVxJ9/0iQer0m/bY4evkL0oRTZ+N5Yr4VfAos+ktFGvhWEw+7xRLVCCjCo
+         Ck2oBza2s8dxY9EynweXq17jnFGNQ9VguTTH9tAyhPIm0oYO4SkztRQ5VIgiwK1NqKO8
+         oGCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744267091; x=1744871891;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NcMLg0bVur6QOZIc0MU6CnnrjgCDYQKJccLlapmx/J0=;
+        b=ftPuc6ZI0B/BwLQUuyIEDz48RrP9kzEg/MDKCCKU7OdpkLGLEf/CbQXMKc2VvZlfed
+         0df6uwuxx7eRTUe4tvWcbOY2/xrHmo3XflFgh+1PJOTTr9oH/A9WW3+EIQHZ9qffwUtT
+         5V5fJntv5t4J6IuY/cGpFNaHxspA84u5aXrCrKqY7MxVdTsPjddm3vJmjPkznL8KPndK
+         zQWWtSc4GEwnKoVzKr0lktdfzguLADdQvP4DDiBTkdN0uLTsMx5UWWTVfizG+/GO5UGl
+         DnmM4D5nRdIblDl7Vzy6iulZLxyUwogNvlGy5OYX/H6I7foxWtb+nIWJpZCHHOaCgD3v
+         jh2g==
+X-Forwarded-Encrypted: i=1; AJvYcCWTZkGrj+N/gmdJx1PyE4e/CfG8D+DPaQhK6nFiNMFwFyw/fX03LQxNA6H/fl9d24vnd8wWJH5R5P7RWRvUw/WD@lists.infradead.org
+X-Gm-Message-State: AOJu0YylNK+8yH5afCC3TnEVUt96GhsBkiEpPLRpRCz0TbwNZ57NSG/b
+	tQLDxBvJxBB12emw46otzCwxH278frIBgvjVS1ENv/aYL1FwjekF
+X-Gm-Gg: ASbGnctXIUQ3HoIndWoAa39G5+GzqtnOIiGpfK7GC5Bsu74lsGO1j5Cv8t0eaiuOuUp
+	csR2K6ePsYd8pTIqKHxXAutkXLX+KU/5BG2MyegBBuhq4yo++7ARavJMm1QdGZEvXkQHMA5DBAh
+	KYtD+5WzOVJAJ+OXH5a7M6QfjmUbgdyJweVt5hO3t4I5a4j6+CclqEEcuq8BfhUIQdtrGvfLZQ5
+	nPO6ct79Bfd1rPpiU2N1w8WxDg3y8eUabYToyhtG2J8lI4M/I0upuL6cPIlpCeIYqIAEIbpLcmL
+	ybY7JeHacKBihGFrnJs8Q2iWgjAnrRD8eaVwzZJdO3rMhMbNUu7h0T8a23+7KoVB/g==
+X-Google-Smtp-Source: AGHT+IEzlFiw9oXOTTn6w00Ry1p9p+Q6HRePqSFZX9x05obeKymI4HDix9H1LmUQm0dEJKoBbpGD3Q==
+X-Received: by 2002:a17:90b:37c4:b0:2ff:618c:a1e0 with SMTP id 98e67ed59e1d1-307e9b3cffcmr1923630a91.29.1744267090551;
+        Wed, 09 Apr 2025 23:38:10 -0700 (PDT)
+Received: from localhost.localdomain ([103.221.69.50])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-306dd57865csm973145a91.2.2025.04.09.23.38.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Apr 2025 23:38:09 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-pm@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+	linux-kernel@vger.kernel.org (open list),
+	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v5 0/3] Exynos Thermal code improvement
+Date: Thu, 10 Apr 2025 12:07:47 +0530
+Message-ID: <20250410063754.5483-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Kernel WARNING (RCU) with btnxpuart on TI AM62 platform
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- Amitkumar Karwar <amitkumar.karwar@nxp.com>,
- Neeraj Kale <neeraj.sanjaykale@nxp.com>, Nishanth Menon <nm@ti.com>,
- Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-serial@vger.kernel.org, Marcel Ziswiler <marcel.ziswiler@toradex.com>
-References: <20250408083512.GA26035@francesco-nb>
- <24b28bda-e294-4680-bed5-c44efcb6c455@ti.com>
- <20250410062006.GA7506@francesco-nb>
-Content-Language: en-US
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-In-Reply-To: <20250410062006.GA7506@francesco-nb>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_233457_495568_5D798390 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20250409_233812_214906_9F437AAF 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,157 +108,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Cc: +Marcel]
+Hi All,
 
-Dear Francesco,
+This patch series is a rework of my previous patch series [1],
+where the code changes were not adequately justified.
 
+In this new series, I have improved the commit subject
+and commit message to better explain the changes.
 
-Am 10.04.25 um 08:20 schrieb Francesco Dolcini:
+v5: Drop the guard mutex patch
+v4: Tried to address Lukasz review comments.
 
-> On Tue, Apr 08, 2025 at 09:15:26PM +0530, Vignesh Raghavendra wrote:
->> On 08/04/25 14:05, Francesco Dolcini wrote:
->>> I do have the following kernel warning with 6.15-rc1, on a TI AM62
->>> platform (arm64), single CPU core, using btnxpuart driver, any idea?
->>> PREEMPT_RT is enabled, if it matters.
->>>
->>> Either the issue is not systematic, or multi cores SoCs are not affected
->>> (no error on the exact same image on a dual nor on quad core TI AM62).
->>>
->>> [   23.139080] Voluntary context switch within RCU read-side critical section!
->>> [   23.139119] WARNING: CPU: 0 PID: 61 at /kernel/rcu/tree_plugin.h:332 rcu_note_context_switch+0x3c4/0x430
->>> [   23.139172] Modules linked in: uas onboard_usb_dev optee_rng dwc3 evdev btnxpuart spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils optee spi_cadence_quadspi tee gpio_keys usb_conn_gpio display_connector roles dwc3_am62 mwifiex_sdio k3_j72xx_bandgap mwifiex rtc_ti_k3 cfg80211 tidss sa2ul sha512_generic snd_soc_davinci_mcasp authenc drm_display_helper snd_soc_ti_udma crypto_null snd_soc_ti_edma sha1_generic snd_soc_ti_sdma omap_hwspinlock lontium_lt8912b ina2xx snd_soc_wm8904 ti_ads1015 industrialio_triggered_buffer kfifo_buf lm75 tpm_tis_i2c tps65219_pwrbutton crc_ccitt tpm_tis_core tpm rng_core tc358768 m_can_platform pwm_tiehrpwm m_can spi_omap2_mcspi can_dev bluetooth ecdh_generic ecc rfkill libaes loop fuse ipv6 autofs4
->>> [   23.139459] CPU: 0 UID: 0 PID: 61 Comm: kworker/u5:0 Not tainted 6.15.0-rc1-0.0.0-devel #1 PREEMPT_RT
->>> [   23.139471] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
->>> [   23.139478] Workqueue: hci0 hci_power_off [bluetooth]
->>> [   23.139615] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->>> [   23.139625] pc : rcu_note_context_switch+0x3c4/0x430
->>> [   23.139647] lr : rcu_note_context_switch+0x3c4/0x430
->>> [   23.139658] sp : ffff8000819fb740
->>> [   23.139661] x29: ffff8000819fb740 x28: 0000000000000000 x27: ffff0000079d2010
->>> [   23.139673] x26: ffff0000011e7810 x25: ffff000001c2c200 x24: 0000000000000000
->>> [   23.139688] x23: 0000000000000000 x22: ffff000001c2c200 x21: ffff000001c2c200
->>> [   23.139700] x20: ffff800081083ec0 x19: ffff00001da9fec0 x18: fffffffffffe7e78
->>> [   23.139712] x17: ffff7fff9ca1c000 x16: ffff800080000000 x15: ffff00001da9f8c0
->>> [   23.139726] x14: fffffffffffc7e77 x13: 216e6f6974636573 x12: 206c616369746972
->>> [   23.139738] x11: 6320656469732d64 x10: 6165722055435220 x9 : 206e696874697720
->>> [   23.139750] x8 : ffff80008113f040 x7 : ffff8000819fb4e0 x6 : 000000000000000c
->>> [   23.139761] x5 : ffff00001da95888 x4 : 0000000000000000 x3 : 0000000000000027
->>> [   23.139775] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff000001c2c200
->>> [   23.139788] Call trace:
->>> [   23.139793]  rcu_note_context_switch+0x3c4/0x430 (P)
->>> [   23.139813]  __schedule+0xa0/0x7dc
->>> [   23.139830]  schedule+0x34/0x11c
->>> [   23.139841]  schedule_timeout+0x8c/0x110
->>> [   23.139861]  wait_for_completion_timeout+0x78/0x14c
->>> [   23.139873]  ti_sci_set_device_state+0x120/0x1fc
->>> [   23.139886]  ti_sci_cmd_get_device_exclusive+0x18/0x30
->>> [   23.139899]  ti_sci_pd_power_on+0x28/0x54
->>> [   23.139916]  _genpd_power_on+0x98/0x188
->>> [   23.139927]  genpd_power_on+0xa8/0x168
->>> [   23.139940]  genpd_runtime_resume+0xc0/0x298
->>> [   23.139957]  __rpm_callback+0x48/0x1a4
->>> [   23.139974]  rpm_callback+0x74/0x80
->>> [   23.139987]  rpm_resume+0x3b0/0x698
->>> [   23.140000]  __pm_runtime_resume+0x48/0x88
->>> [   23.140012]  omap8250_set_mctrl+0x2c/0xbc
->>> [   23.140030]  serial8250_set_mctrl+0x20/0x40
->>> [   23.140046]  uart_update_mctrl+0x80/0x110
->>
->> I think issue is that uart_update_mctrl() holds a spinlock:
->>
->> 	uart_port_lock_irqsave(port, &flags);
->>
->> and then omap8250_set_mctrl() calls pm_runtime APIs which on K3 SoC
->> needs to talk to a Firmware to enable pd. This IPC call is a sleeping
->> call leading to scheduling with IRQs disabled.
->>
->> I guess this is what RT linux is complaining? I dont have a solution
->> though, maybe serdev delays pm_runtime_put till the port is closed?
-> 
-> Our CI reproduced what looks like the same issue also on current
-> torvalds/master (6.15-rc1+) branch, without PREEMPT_RT.
-> 
-> The call trace seems just the same, but attaching it here for
-> completeness.
-> 
-> 
-> [   20.931923] BUG: scheduling while atomic: kworker/u5:0/42/0x00000002
-> [   20.938429] Modules linked in: sd_mod uas onboard_usb_dev btnxpuart optee_rng dwc3 evdev spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils mwifiex_sdio mwifiex display_connector spi_cadence_quadspi optee usb_conn_gpio tee gpio_keys roles k3_j72xx_bandgap cfg80211 rtc_ti_k3 dwc3_am62 bluetooth ecdh_generic ecc sa2ul sha512_generic rfkill authenc tidss crypto_null libaes snd_soc_davinci_mcasp sha1_generic drm_display_helper snd_soc_ti_udma snd_soc_ti_edma snd_soc_ti_sdma omap_hwspinlock lontium_lt8912b ina2xx ti_ads1015 snd_soc_wm8904 industrialio_triggered_buffer kfifo_buf lm75 tpm_tis_i2c crc_ccitt tps65219_pwrbutton tpm_tis_core tpm m_can_platform m_can rng_core tc358768 can_dev pwm_tiehrpwm spi_omap2_mcspi loop fuse ipv6 autofs4
-> [   20.938865] CPU: 0 UID: 0 PID: 42 Comm: kworker/u5:0 Not tainted 6.15.0-rc1-0.0.0-devel #1 PREEMPT
-> [   20.938878] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
-> [   20.938895] Workqueue: hci0 hci_power_off [bluetooth]
-> [   20.939032] Call trace:
-> [   20.939037]  show_stack+0x2c/0x84 (C)
-> [   20.939063]  dump_stack_lvl+0x60/0x80
-> [   20.939084]  dump_stack+0x18/0x24
-> [   20.939096]  __schedule_bug+0x54/0x70
-> [   20.939116]  __schedule+0x628/0x7dc
-> [   20.939129]  schedule+0x34/0x11c
-> [   20.939138]  rpm_resume+0x17c/0x6a0
-> [   20.939155]  __pm_runtime_resume+0x50/0x9c
-> [   20.939168]  omap8250_set_mctrl+0x2c/0xc0
-> [   20.939183]  serial8250_set_mctrl+0x20/0x40
-> [   20.939193]  uart_update_mctrl+0x88/0x11c
-> [   20.939215]  uart_dtr_rts+0x104/0x120
-> [   20.939226]  tty_port_shutdown+0xd4/0xdc
-> [   20.939236]  tty_port_close+0x40/0xc0
-> [   20.939248]  uart_close+0x34/0x9c
-> [   20.939259]  ttyport_close+0x50/0xa0
-> [   20.939272]  serdev_device_close+0x40/0x5c
-> [   20.939283]  btnxpuart_close+0x1c/0xa0 [btnxpuart]
-> [   20.939309]  hci_dev_close_sync+0x304/0x7cc [bluetooth]
-> [   20.939376]  hci_dev_do_close+0x2c/0x70 [bluetooth]
-> [   20.939441]  hci_power_off+0x20/0x64 [bluetooth]
-> [   20.939508]  process_one_work+0x148/0x290
-> [   20.939528]  worker_thread+0x2c8/0x3e4
-> [   20.939541]  kthread+0x12c/0x204
-> [   20.939554]  ret_from_fork+0x10/0x20
-> [   20.943567] BUG: scheduling while atomic: kworker/u5:0/42/0x00000000
-> [   20.950126] Modules linked in: sd_mod uas onboard_usb_dev btnxpuart optee_rng dwc3 evdev spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils mwifiex_sdio mwifiex display_connector spi_cadence_quadspi optee usb_conn_gpio tee gpio_keys roles k3_j72xx_bandgap cfg80211 rtc_ti_k3 dwc3_am62 bluetooth ecdh_generic ecc sa2ul sha512_generic rfkill authenc tidss crypto_null libaes snd_soc_davinci_mcasp sha1_generic drm_display_helper snd_soc_ti_udma snd_soc_ti_edma snd_soc_ti_sdma omap_hwspinlock lontium_lt8912b ina2xx ti_ads1015 snd_soc_wm8904 industrialio_triggered_buffer kfifo_buf lm75 tpm_tis_i2c crc_ccitt tps65219_pwrbutton tpm_tis_core tpm m_can_platform m_can rng_core tc358768 can_dev pwm_tiehrpwm spi_omap2_mcspi loop fuse ipv6 autofs4
-> [   20.950550] CPU: 0 UID: 0 PID: 42 Comm: kworker/u5:0 Tainted: G        W           6.15.0-rc1-0.0.0-devel #1 PREEMPT
-> [   20.950566] Tainted: [W]=WARN
-> [   20.950570] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
-> [   20.950584] Workqueue: hci0 hci_power_off [bluetooth]
-> [   20.950721] Call trace:
-> [   20.950726]  show_stack+0x2c/0x84 (C)
-> [   20.950747]  dump_stack_lvl+0x60/0x80
-> [   20.950771]  dump_stack+0x18/0x24
-> [   20.950783]  __schedule_bug+0x54/0x70
-> [   20.950798]  __schedule+0x628/0x7dc
-> [   20.950815]  schedule+0x34/0x11c
-> [   20.950824]  schedule_timeout+0xd4/0x110
-> [   20.950838]  wait_for_completion+0x78/0x140
-> [   20.950853]  __flush_work+0x250/0x340
-> [   20.950868]  flush_work+0x14/0x20
-> [   20.950879]  omap_8250_shutdown+0x2c/0x1a4
-> [   20.950903]  serial8250_shutdown+0x18/0x40
-> [   20.950913]  uart_port_shutdown+0x40/0x58
-> [   20.950926]  uart_tty_port_shutdown+0x5c/0x178
-> [   20.950940]  tty_port_shutdown+0x84/0xdc
-> [   20.950950]  tty_port_close+0x40/0xc0
-> [   20.950958]  uart_close+0x34/0x9c
-> [   20.950969]  ttyport_close+0x50/0xa0
-> [   20.950990]  serdev_device_close+0x40/0x5c
-> [   20.951001]  btnxpuart_close+0x1c/0xa0 [btnxpuart]
-> [   20.951017]  hci_dev_close_sync+0x304/0x7cc [bluetooth]
-> [   20.951082]  hci_dev_do_close+0x2c/0x70 [bluetooth]
-> [   20.951149]  hci_power_off+0x20/0x64 [bluetooth]
-> [   20.951214]  process_one_work+0x148/0x290
-> [   20.951227]  worker_thread+0x2c8/0x3e4
-> [   20.951242]  kthread+0x12c/0x204
-> [   20.951258]  ret_from_fork+0x10/0x20
+Tested on Odroid U3 amd XU4 SoC boards.
+Build with clang with W=1 enable.
 
-CVE-2024-26959 [1] has the same trace, and supposedly was fixed by 
-Marcel’s commit 664130c0b030 (Bluetooth: btnxpuart: Fix btnxpuart_close) 
-present since v6.9-rc1, that is also signed off by you.
+[3] https://lore.kernel.org/all/20250310143450.8276-2-linux.amoon@gmail.com/
+[2] https://lore.kernel.org/all/20250216195850.5352-2-linux.amoon@gmail.com/
+[1] https://lore.kernel.org/all/20220515064126.1424-1-linux.amoon@gmail.com/
+[0] https://lore.kernel.org/lkml/CANAwSgS=08fVsqn95WHzSF71WTTyD2-=K2C6-BEz0tY0t6A1-g@mail.gmail.com/T/#m77e57120d230d57f34c29e1422d7fc5f5587ac30
+
+Thanks
+-Anand
+
+Anand Moon (3):
+  drivers/thermal/exynos: Refactor clk_sec initialization inside
+    SOC-specific case
+  drivers/thermal/exymos: Remove redundant IS_ERR() checks for clk_sec
+    clock
+  drivers/thermal/exymos: Fixed the efuse min max value for exynos5422
+
+ drivers/thermal/samsung/exynos_tmu.c | 62 ++++++++++++++++------------
+ 1 file changed, 35 insertions(+), 27 deletions(-)
 
 
-Kind regards,
+base-commit: 3b07108ada81a8ebcebf1fe61367b4e436c895bd
+-- 
+2.49.0
 
-Paul
-
-
-[1]: https://nvd.nist.gov/vuln/detail/cve-2024-26959
-[2]: 
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=664130c0b0309b360bc5bdd40a30604a9387bde8
 
