@@ -4,70 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28AF4C369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 310E7C369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xII/97dcDQDppFwmTFdjE+lkcwxiBTmdu4aYXUIv9Io=; b=OvrHoY+TJ5hGyTkDjeFCZVZ1m3
-	q5mhhUffW/PPPBhCtwvKxtj0IvrVaI9vdoF34PGAwYBh3k5FVKXKJdSQMZw9EFvYe8OORbvZmLELD
-	/AUV97wIkUyRIy13f8NfeDfjsl6YvJc3med+bXG0Ci6j6XYrlqu17VmJDJM1ZIUq9B4BHnencYpZB
-	AoW024o+TR3XVsyUBsWu73rtnaYPrw2/1Ge72FVtyaZ5HcuL+8wzf9QmYC3dnQm06EkWdQ9C0ZbaL
-	tzgBEUT/gvHVDYoyGngflkY91iJgFIQVvm62M7nK2g6xP2Yktmq8EwyJqvDJZJ0V7LEztSkhQJtwU
-	KUw7ztxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/gRolmKuKuolB7VbWZVEhNf4yILPrIiiDaqW3beae/o=; b=i8oovvL6uAsWw92KYw2AJfMTb2
+	xpkBIb97phO75nA7j+Zfh66hcUxVuaS6/Lryi7f1rPbNfDzFvC0XT7oawT16gSD/AO1RhU1QtbXXD
+	OVyCh/iBfdMh92OkTmwCRrV5rFg5uorasSqkRTvti+F/ucDSVfgF/GH6gfT79ir33OlfQQB5RwOMU
+	0rwNeiYFns0kGD3zZiB/6Ex2mSKaQstqBamT3X7dw1h//+HioNDq3b6klWNYyjgTE9Swq/ePfXv4i
+	KMxHSQas5MfGRVmrj9O70I/p1il2uB3b6IWE4Jwkztq7xZ+y5xar1S1qWo2eqKmrwdOfRQLTrmUgz
+	y+rVLpLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2puA-0000000ADUx-1Gkn;
-	Thu, 10 Apr 2025 11:17:10 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1u2puJ-0000000ADkl-1Yhc;
+	Thu, 10 Apr 2025 11:17:19 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ob5-0000000A0BO-2uwD
+	id 1u2odN-0000000A0SU-3Wia
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:53:25 +0000
-Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id CD1AC1F935;
-	Thu, 10 Apr 2025 11:53:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1744278800;
-	bh=xII/97dcDQDppFwmTFdjE+lkcwxiBTmdu4aYXUIv9Io=;
-	h=Received:From:To:Subject;
-	b=0IVZ+hC9lH6g+5zA81dvvjZS1vHnx4+NtZC5P3XFpsY4Q3VbUeaeESv/YICRw9kew
-	 tDkbf9+jg1Ut5WuIaFG7TpPvuasKCBNenLLE0j7BqU6P4Y0gpDYTPBdnrrS8/RVoYm
-	 ANiOYbIV4jPshhk397wbbOMPocE/OgsHzGkM+CP8k3I/qA8zj9D980cZ8Dx3ynTkFg
-	 AZd9yWvlQt8ncEajWkXqmKMscNsjU+fO/s2K/jAlRMkfwC9pNFlah/zZKr9I6UkulA
-	 Po30uDOQ/ezYkFfBRCYD8z573sbSb3oUtcTQU3sLeowy6Vx6CzNMM7FoLti23iUwRq
-	 oCfZuHo6Yl36A==
-Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
-	id 56D7D7F976; Thu, 10 Apr 2025 11:53:20 +0200 (CEST)
-Date: Thu, 10 Apr 2025 11:53:20 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Paul Menzel <pmenzel@molgen.mpg.de>
-Cc: Francesco Dolcini <francesco@dolcini.it>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Amitkumar Karwar <amitkumar.karwar@nxp.com>,
-	Neeraj Kale <neeraj.sanjaykale@nxp.com>, Nishanth Menon <nm@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	linux-serial@vger.kernel.org
-Subject: Re: Kernel WARNING (RCU) with btnxpuart on TI AM62 platform
-Message-ID: <Z_eVEKQn04-2nhpL@gaggiata.pivistrello.it>
-References: <20250408083512.GA26035@francesco-nb>
- <24b28bda-e294-4680-bed5-c44efcb6c455@ti.com>
- <20250410062006.GA7506@francesco-nb>
- <4107dda8-25fe-4f30-a0e6-906441f9b4c9@molgen.mpg.de>
+	Thu, 10 Apr 2025 09:55:48 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A62MMI009620;
+	Thu, 10 Apr 2025 10:55:22 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=/
+	gRolmKuKuolB7VbWZVEhNf4yILPrIiiDaqW3beae/o=; b=mcgmNnVkLNJH6IeXn
+	5QCWgxX6LVagh758D+Jx3iQSUwsyFA8v5lTjFrQASh2LrU8yvPneYTOQ6+gpeDa3
+	FNoaTJhzq8J7Oh6t9IOSe0uE3Em0uH1MoP6kJwggXjF28D1vWGRBzm1WtnDCQPPq
+	TVvju5EIMchQhieZnC8cczEfQSWqs8lfM4IWhI7BXACeOGmFEcAyht3laEHHbgjb
+	Qd5Q3z0rCppiA3dyGbo9B4/9B9N46mf75RGHCTdZRh9US/W0Cfb7f6sjjjmEgZdh
+	tO9gBVjSR/th/ZKSuQi8ASubrg4SocjcxMQVrgvT1ACVO7vcLStxM4mBmc+6+NYx
+	/N9/w==
+Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 45ttssbgdy-7
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Thu, 10 Apr 2025 10:55:21 +0100 (BST)
+Received: from
+ 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+ (172.25.6.134) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Thu, 10 Apr 2025 10:55:20 +0100
+From: Matt Coster <matt.coster@imgtec.com>
+Date: Thu, 10 Apr 2025 10:55:05 +0100
+Subject: [PATCH v6 06/18] drm/imagination: Mask GPU IRQs in threaded
+ handler
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4107dda8-25fe-4f30-a0e6-906441f9b4c9@molgen.mpg.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250410-sets-bxs-4-64-patch-v1-v6-6-eda620c5865f@imgtec.com>
+References: <20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com>
+In-Reply-To: <20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com>
+To: Frank Binns <frank.binns@imgtec.com>,
+        Matt Coster
+	<matt.coster@imgtec.com>,
+        David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+        "Vignesh
+ Raghavendra" <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
+        "Michal
+ Wilczynski" <m.wilczynski@samsung.com>,
+        Alessio Belle
+	<alessio.belle@imgtec.com>,
+        Alexandru Dadu <alexandru.dadu@imgtec.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2612;
+ i=matt.coster@imgtec.com; h=from:subject:message-id;
+ bh=vecjZhg7SN4KmIZe97DRW0T/wjjhYdfJmFTLlsweF5g=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaR/n9qYv36i0/WdOS/tFxTzhmyXlD/4wvjwswWqthZ/X
+ vqHHLl1vqOUhUGMg0FWTJFlxwrLFWp/1LQkbvwqhpnDygQyhIGLUwAmImbF8FdAlsknZf7C4MCC
+ m+3bXnLmfNY8d2Jtncgb240iu3/e5lnI8L+0rivyvmLYC/53gVeOJuhyz1G3/uGe7T/36S/ZhPA
+ p99gA
+X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
+ fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
+X-Originating-IP: [172.25.6.134]
+X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
+X-Proofpoint-ORIG-GUID: 7sSARk4LlDgG1MdWiATfLEs-WalYEdAH
+X-Authority-Analysis: v=2.4 cv=I7hlRMgg c=1 sm=1 tr=0 ts=67f79589 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=UtEzwyU9vMAA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=MXbv0OSQah28ATDbmwsA:9
+ a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: 7sSARk4LlDgG1MdWiATfLEs-WalYEdAH
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_025323_891255_2485E06F 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20250410_025546_226313_55E9E106 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +113,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 08:34:23AM +0200, Paul Menzel wrote:
-> Am 10.04.25 um 08:20 schrieb Francesco Dolcini:
-> 
-> > On Tue, Apr 08, 2025 at 09:15:26PM +0530, Vignesh Raghavendra wrote:
-> > > On 08/04/25 14:05, Francesco Dolcini wrote:
-> > > > I do have the following kernel warning with 6.15-rc1, on a TI AM62
-> > > > platform (arm64), single CPU core, using btnxpuart driver, any idea?
-> > > > PREEMPT_RT is enabled, if it matters.
-> > > > 
-> > > > Either the issue is not systematic, or multi cores SoCs are not affected
-> > > > (no error on the exact same image on a dual nor on quad core TI AM62).
+From: Alessio Belle <alessio.belle@imgtec.com>
 
-...
+Pass IRQF_ONESHOT flag to request_threaded_irq(), so that interrupts will
+be masked by the kernel until the end of the threaded IRQ handler. Since
+the calls to pvr_fw_irq_enable() and pvr_fw_irq_disable() are now
+redundant, remove them.
 
-> CVE-2024-26959 [1] has the same trace, and supposedly was fixed by Marcel’s
-> commit 664130c0b030 (Bluetooth: btnxpuart: Fix btnxpuart_close) present
-> since v6.9-rc1, that is also signed off by you.
+Interrupts to the host from the soon-to-be-added RISC-V firmware
+processors cannot be masked in hardware. This change allows us to continue
+using the threaded handler in GPUs with a RISC-V firmware.
 
-It seems that the conclusion at that time was just wrong, the real issue seems
-what Vignesh suggested.
+For simplicity, the same approach is taken for all firmware processors.
 
-Francesco
+Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+Reviewed-by: Frank Binns <frank.binns@imgtec.com>
+---
+Changes in v6:
+- Add Frank's Rb
+- Link to v5: https://lore.kernel.org/r/20250326-sets-bxs-4-64-patch-v1-v5-6-e4c46e8280a9@imgtec.com
+Changes in v5:
+- None
+- Link to v4: https://lore.kernel.org/r/20250320-sets-bxs-4-64-patch-v1-v4-6-d987cf4ca439@imgtec.com
+Changes in v4:
+- None
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-6-143b3dbef02f@imgtec.com
+Changes in v3:
+- Added
+---
+ drivers/gpu/drm/imagination/pvr_device.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+index 1704c0268589bdeb65fa6535f9ec63182b0a3e94..b6ce936f07c8bb26d240e50b72a1d991dbe4b045 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.c
++++ b/drivers/gpu/drm/imagination/pvr_device.c
+@@ -169,8 +169,6 @@ static irqreturn_t pvr_device_irq_thread_handler(int irq, void *data)
+ 		ret = IRQ_HANDLED;
+ 	}
+ 
+-	/* Unmask FW irqs before returning, so new interrupts can be received. */
+-	pvr_fw_irq_enable(pvr_dev);
+ 	return ret;
+ }
+ 
+@@ -181,10 +179,6 @@ static irqreturn_t pvr_device_irq_handler(int irq, void *data)
+ 	if (!pvr_fw_irq_pending(pvr_dev))
+ 		return IRQ_NONE; /* Spurious IRQ - ignore. */
+ 
+-	/* Mask the FW interrupts before waking up the thread. Will be unmasked
+-	 * when the thread handler is done processing events.
+-	 */
+-	pvr_fw_irq_disable(pvr_dev);
+ 	return IRQ_WAKE_THREAD;
+ }
+ 
+@@ -213,9 +207,13 @@ pvr_device_irq_init(struct pvr_device *pvr_dev)
+ 	pvr_fw_irq_clear(pvr_dev);
+ 	pvr_fw_irq_enable(pvr_dev);
+ 
++	/*
++	 * The ONESHOT flag ensures IRQs are masked while the thread handler is
++	 * running.
++	 */
+ 	return request_threaded_irq(pvr_dev->irq, pvr_device_irq_handler,
+ 				    pvr_device_irq_thread_handler,
+-				    IRQF_SHARED, "gpu", pvr_dev);
++				    IRQF_SHARED | IRQF_ONESHOT, "gpu", pvr_dev);
+ }
+ 
+ /**
+
+-- 
+2.49.0
 
 
