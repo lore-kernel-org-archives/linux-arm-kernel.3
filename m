@@ -4,75 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A585C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EBCBC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:17:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8aFqx7rBqmhAKUDz1EoI12kISFmiMl1zSnR1/LjpxZQ=; b=PhbzsvO1lajcB7Jl3/iA8T0j0C
-	K9mUUzuXxFlanbcNKwimryoXQTkSKCrNtwuwuiQBY8sRxgrl8EsjCSzxS9ZCfNvG0El6wsg9fRu+V
-	VMKqECucucvfL5KSlKJ2mQTclpXynT3dAo/lqeW68m17QrnUsAwJbHouDt8kxUUVnxrl4vR33j1RB
-	Ve1aqwCJHcRHrfLTIr0C0dnoxPh2QNZ4friQRXsjokl2iYwVb7MMzoYdgdrjBtxoR0NbjjzVqn9vl
-	0FK6ucWIHBi8nqU/XdrzBVjifViR3PoLu22OLNoF3E6LX2AjcDu535tgn+lazG5Ghbj1zXiR1YWAZ
-	UtDKs4LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OkW+rwQWS8KaZmfDvVvJf9o/iE03Y6Xg3NVxn7gNbh0=; b=lF5b4Ju/wXhftHhEdR3BIrDGUk
+	nPxKIjYnctvULocBceaOGDl39APWVuFXcMzatNXNEOdF0JUqH4n2Vhl3qR98h26iD6cgd+ZugEa51
+	zl8yL0QvG5WKWBJr2Lmt6kLKGhXM+++m5Tv88u24+HV4Acsule98ZXw1dIsUMdPHJOv+j2qlg7A7k
+	mi50dk2ny9BasLYS7JY7NPE7l/KIV8mghBmTYdbydDofgEEfmXrIvtZhwrgCFnFNcrihrqZtF2Yx5
+	PB84AMyKMfWrlhhU4amT7BCG4jHBxsGj39UjHQBjgT4hObYu52cjNTBS45JEbDPlK04ynJBUS1R4v
+	BS3XTaVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pu7-0000000ADNY-0i9G;
-	Thu, 10 Apr 2025 11:17:07 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u2puD-0000000ADbd-3DTc;
+	Thu, 10 Apr 2025 11:17:13 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2oZu-00000009zyF-3FrQ;
-	Thu, 10 Apr 2025 09:52:13 +0000
-X-UUID: 752df50a15f111f0a1e849db4cc18d44-20250410
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=8aFqx7rBqmhAKUDz1EoI12kISFmiMl1zSnR1/LjpxZQ=;
-	b=qVpx0/9ujT4wejx8Eup3Ts1ZQp7vwDUfTULzpdcRX6x/kAulk45sMSqERcQ7l6TUGGY7qv4QS6lGdTl2FAH2FvOQGWs1PfGEemxfynyJe4nC9TnjgwKkcGuOH3KBfgH3NDxQGzjRq23mkGIyJ/vlURAUqlIEtilDe7D8w4sNYDo=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:403a1ad4-d384-4781-82f6-7523bc88a566,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:265c728d-f5b8-47d5-8cf3-b68fe7530c9a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-UUID: 752df50a15f111f0a1e849db4cc18d44-20250410
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
-	(envelope-from <yiru.zhang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 95452777; Thu, 10 Apr 2025 02:52:04 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 10 Apr 2025 17:52:01 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 10 Apr 2025 17:52:01 +0800
-From: yiru zhang <yiru.zhang@mediatek.com>
-To: <yiru.zhang@mediatek.com>
-CC: <alexander.shishkin@linux.intel.com>,
-	<angelogioacchino.delregno@collabora.com>, <coresight@lists.linaro.org>,
-	<james.clark@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
-	<matthias.bgg@gmail.com>, <mike.leach@linaro.org>, <suzuki.poulose@arm.com>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] [Patch v3]Add ETE devarch condition in etm4_init_iomem_access
-Date: Thu, 10 Apr 2025 17:51:58 +0800
-Message-ID: <20250410095158.8966-1-yiru.zhang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250409032917.7580-1-yiru.zhang@mediatek.com>
-References: <20250409032917.7580-1-yiru.zhang@mediatek.com>
+	id 1u2odN-0000000A0SZ-3MnI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 09:55:47 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A62MME009620;
+	Thu, 10 Apr 2025 10:55:20 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=O
+	kW+rwQWS8KaZmfDvVvJf9o/iE03Y6Xg3NVxn7gNbh0=; b=x9Yd4GhuXV7+BZj6y
+	wljaLeyxUs+G+H5O+NiLrq5WTsdwNwr20/JL9mL3kv7L/mEMr81B677HhuDTi9Es
+	a/te8TcKI8qJu6yMhcyq+0jpMQDNdhrSeEGwRpoxJkhg4XiXjPtTnDPOfmUrIYJL
+	DIt3va6s8EzJsx3hAhW/0sYdXOjtLZvsV0P7qR4R4/gBuu3MOQDXqWYa4mxcx9kg
+	2zhe3hfvSrNr3OFI8NF4JBzA4mX7YYhjFwo7AXXlR/4rD5EfQBOPZk4DcQZu2iAR
+	doC2E/cw1QeUXF9HYP/C++we1BQii3y8mwbY6vRhDHlt2Selt1d8oGyhj00yXDID
+	iYDxg==
+Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 45ttssbgdy-4
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Thu, 10 Apr 2025 10:55:19 +0100 (BST)
+Received: from
+ 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+ (172.25.6.134) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Thu, 10 Apr 2025 10:55:18 +0100
+From: Matt Coster <matt.coster@imgtec.com>
+Date: Thu, 10 Apr 2025 10:55:02 +0100
+Subject: [PATCH v6 03/18] drm/imagination: Update register defs for newer
+ GPUs
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250410-sets-bxs-4-64-patch-v1-v6-3-eda620c5865f@imgtec.com>
+References: <20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com>
+In-Reply-To: <20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com>
+To: Frank Binns <frank.binns@imgtec.com>,
+        Matt Coster
+	<matt.coster@imgtec.com>,
+        David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+        "Vignesh
+ Raghavendra" <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
+        "Michal
+ Wilczynski" <m.wilczynski@samsung.com>,
+        Alessio Belle
+	<alessio.belle@imgtec.com>,
+        Alexandru Dadu <alexandru.dadu@imgtec.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11126;
+ i=matt.coster@imgtec.com; h=from:subject:message-id;
+ bh=Ygi+v45NF6cStTwGRvF6WcioU5/hBhmYlVo0k17OPN4=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaR/n9rIMO9ibLbBtj8rA5ad6fXfOVVC4diP8INnlzTI7
+ lIVO7XGuaOUhUGMg0FWTJFlxwrLFWp/1LQkbvwqhpnDygQ2hItTACay2ozhn8rNhplGrlmborRV
+ L9m8ZdtvYmIvKODmFZSolesn2dwax/BPY13dqoWNry5GmenkBRX0CHBc3XlRe84znXJ23edz7fa
+ xAwA=
+X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
+ fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
+X-Originating-IP: [172.25.6.134]
+X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
+X-Proofpoint-ORIG-GUID: jMfZn683PPaWgPKFHr_v4jfJB01C0Uew
+X-Authority-Analysis: v=2.4 cv=I7hlRMgg c=1 sm=1 tr=0 ts=67f79587 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=UtEzwyU9vMAA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=cj9k-Jd43VawDxvwHVkA:9
+ a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: jMfZn683PPaWgPKFHr_v4jfJB01C0Uew
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_025210_820291_4303B803 
-X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-CacheID: sfid-20250410_025546_194176_40983A6E 
+X-CRM114-Status: UNSURE (   8.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,42 +114,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Due to ETE supported, so add ETE devarch condition in etm4_init_iomem_access.
+From: Alessio Belle <alessio.belle@imgtec.com>
 
-Signed-off-by: yiru zhang <yiru.zhang@mediatek.com>
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202504101759.7Ls0Uy4o-lkp@intel.com/
+Update the register define header to a newer version that covers more
+recent GPUs, including BXS-4-64.
 
-v1->v2: use switch case way
-v2->v3: clean build warning
+Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+Reviewed-by: Frank Binns <frank.binns@imgtec.com>
 ---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+Changes in v6:
+- Add Frank's Rb
+- Link to v5: https://lore.kernel.org/r/20250326-sets-bxs-4-64-patch-v1-v5-3-e4c46e8280a9@imgtec.com
+Changes in v5:
+- None
+- Link to v4: https://lore.kernel.org/r/20250320-sets-bxs-4-64-patch-v1-v4-3-d987cf4ca439@imgtec.com
+Changes in v4:
+- None
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-3-143b3dbef02f@imgtec.com
+Changes in v3:
+- Added
+---
+ drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h | 153 +++++++++++++++++++++---
+ 1 file changed, 134 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 2b8f10463840..4002a2823fd0 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1135,11 +1135,15 @@ static bool etm4_init_iomem_access(struct etmv4_drvdata *drvdata,
- 	 * with MMIO. But we cannot touch the OSLK until we are
- 	 * sure this is an ETM. So rely only on the TRCDEVARCH.
- 	 */
--	if ((devarch & ETM_DEVARCH_ID_MASK) != ETM_DEVARCH_ETMv4x_ARCH) {
--		pr_warn_once("TRCDEVARCH doesn't match ETMv4 architecture\n");
-+	switch (devarch & ETM_DEVARCH_ID_MASK) {
-+	case ETM_DEVARCH_ETMv4x_ARCH:
-+	case ETM_DEVARCH_ETE_ARCH:
-+		break;
-+	default:
-+		pr_warn_once("Unknown ETM architecture: 0x%lx\n",
-+			     devarch & ETM_DEVARCH_ID_MASK);
- 		return false;
- 	}
+diff --git a/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h b/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
+index 2a90d02796d3e071b18e18dead105e29798bcddc..790c97f80a2ac03ac76b933d009a2f9cfc6003f7 100644
+--- a/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
++++ b/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
+@@ -827,6 +827,120 @@
+ #define ROGUE_CR_EVENT_STATUS_TLA_COMPLETE_CLRMSK 0xFFFFFFFEU
+ #define ROGUE_CR_EVENT_STATUS_TLA_COMPLETE_EN 0x00000001U
+ 
++/* Register ROGUE_CR_EVENT_CLEAR */
++#define ROGUE_CR_EVENT_CLEAR 0x0138U
++#define ROGUE_CR_EVENT_CLEAR__ROGUEXE__MASKFULL 0x00000000E01DFFFFULL
++#define ROGUE_CR_EVENT_CLEAR__SIGNALS__MASKFULL 0x00000000E007FFFFULL
++#define ROGUE_CR_EVENT_CLEAR_MASKFULL 0x00000000FFFFFFFFULL
++#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_SHIFT 31U
++#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_CLRMSK 0x7FFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_TDM_FENCE_FINISHED_EN 0x80000000U
++#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_SHIFT 30U
++#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_CLRMSK 0xBFFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_TDM_BUFFER_STALL_EN 0x40000000U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_SHIFT 29U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_CLRMSK 0xDFFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_SIGNAL_FAILURE_EN 0x20000000U
++#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_SHIFT 28U
++#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_CLRMSK 0xEFFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_DPX_OUT_OF_MEMORY_EN 0x10000000U
++#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_SHIFT 27U
++#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_CLRMSK 0xF7FFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_DPX_MMU_PAGE_FAULT_EN 0x08000000U
++#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_SHIFT 26U
++#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_CLRMSK 0xFBFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_RPM_OUT_OF_MEMORY_EN 0x04000000U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_SHIFT 25U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_CLRMSK 0xFDFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC3_FINISHED_EN 0x02000000U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_SHIFT 24U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_CLRMSK 0xFEFFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC2_FINISHED_EN 0x01000000U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_SHIFT 23U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_CLRMSK 0xFF7FFFFFU
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC1_FINISHED_EN 0x00800000U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_SHIFT 22U
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_CLRMSK 0xFFBFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_FBA_FC0_FINISHED_EN 0x00400000U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_SHIFT 21U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_CLRMSK 0xFFDFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC3_FINISHED_EN 0x00200000U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_SHIFT 20U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_CLRMSK 0xFFEFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC2_FINISHED_EN 0x00100000U
++#define ROGUE_CR_EVENT_CLEAR_SAFETY_SHIFT 20U
++#define ROGUE_CR_EVENT_CLEAR_SAFETY_CLRMSK 0xFFEFFFFFU
++#define ROGUE_CR_EVENT_CLEAR_SAFETY_EN 0x00100000U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_SHIFT 19U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_CLRMSK 0xFFF7FFFFU
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC1_FINISHED_EN 0x00080000U
++#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_SHIFT 19U
++#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_CLRMSK 0xFFF7FFFFU
++#define ROGUE_CR_EVENT_CLEAR_SLAVE_REQ_EN 0x00080000U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_SHIFT 18U
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_CLRMSK 0xFFFBFFFFU
++#define ROGUE_CR_EVENT_CLEAR_RDM_FC0_FINISHED_EN 0x00040000U
++#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_SHIFT 18U
++#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_CLRMSK 0xFFFBFFFFU
++#define ROGUE_CR_EVENT_CLEAR_TDM_CONTEXT_STORE_FINISHED_EN 0x00040000U
++#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_SHIFT 17U
++#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_CLRMSK 0xFFFDFFFFU
++#define ROGUE_CR_EVENT_CLEAR_SHG_FINISHED_EN 0x00020000U
++#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_SHIFT 17U
++#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_CLRMSK 0xFFFDFFFFU
++#define ROGUE_CR_EVENT_CLEAR_SPFILTER_SIGNAL_UPDATE_EN 0x00020000U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_SHIFT 16U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_CLRMSK 0xFFFEFFFFU
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_BUFFER_STALL_EN 0x00010000U
++#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_SHIFT 15U
++#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_CLRMSK 0xFFFF7FFFU
++#define ROGUE_CR_EVENT_CLEAR_USC_TRIGGER_EN 0x00008000U
++#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_SHIFT 14U
++#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_CLRMSK 0xFFFFBFFFU
++#define ROGUE_CR_EVENT_CLEAR_ZLS_FINISHED_EN 0x00004000U
++#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_SHIFT 13U
++#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_CLRMSK 0xFFFFDFFFU
++#define ROGUE_CR_EVENT_CLEAR_GPIO_ACK_EN 0x00002000U
++#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_SHIFT 12U
++#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_CLRMSK 0xFFFFEFFFU
++#define ROGUE_CR_EVENT_CLEAR_GPIO_REQ_EN 0x00001000U
++#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_SHIFT 11U
++#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_CLRMSK 0xFFFFF7FFU
++#define ROGUE_CR_EVENT_CLEAR_POWER_ABORT_EN 0x00000800U
++#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_SHIFT 10U
++#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_CLRMSK 0xFFFFFBFFU
++#define ROGUE_CR_EVENT_CLEAR_POWER_COMPLETE_EN 0x00000400U
++#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_SHIFT 9U
++#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_CLRMSK 0xFFFFFDFFU
++#define ROGUE_CR_EVENT_CLEAR_MMU_PAGE_FAULT_EN 0x00000200U
++#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_SHIFT 8U
++#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_CLRMSK 0xFFFFFEFFU
++#define ROGUE_CR_EVENT_CLEAR_PM_3D_MEM_FREE_EN 0x00000100U
++#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_SHIFT 7U
++#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_CLRMSK 0xFFFFFF7FU
++#define ROGUE_CR_EVENT_CLEAR_PM_OUT_OF_MEMORY_EN 0x00000080U
++#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_SHIFT 6U
++#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_CLRMSK 0xFFFFFFBFU
++#define ROGUE_CR_EVENT_CLEAR_TA_TERMINATE_EN 0x00000040U
++#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_SHIFT 5U
++#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_CLRMSK 0xFFFFFFDFU
++#define ROGUE_CR_EVENT_CLEAR_TA_FINISHED_EN 0x00000020U
++#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_SHIFT 4U
++#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_CLRMSK 0xFFFFFFEFU
++#define ROGUE_CR_EVENT_CLEAR_ISP_END_MACROTILE_EN 0x00000010U
++#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_SHIFT 3U
++#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_CLRMSK 0xFFFFFFF7U
++#define ROGUE_CR_EVENT_CLEAR_PIXELBE_END_RENDER_EN 0x00000008U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_SHIFT 2U
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_CLRMSK 0xFFFFFFFBU
++#define ROGUE_CR_EVENT_CLEAR_COMPUTE_FINISHED_EN 0x00000004U
++#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_SHIFT 1U
++#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_CLRMSK 0xFFFFFFFDU
++#define ROGUE_CR_EVENT_CLEAR_KERNEL_FINISHED_EN 0x00000002U
++#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_SHIFT 0U
++#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_CLRMSK 0xFFFFFFFEU
++#define ROGUE_CR_EVENT_CLEAR_TLA_COMPLETE_EN 0x00000001U
++
+ /* Register ROGUE_CR_TIMER */
+ #define ROGUE_CR_TIMER 0x0160U
+ #define ROGUE_CR_TIMER_MASKFULL 0x8000FFFFFFFFFFFFULL
+@@ -6031,25 +6145,6 @@
+ #define ROGUE_CR_MULTICORE_COMPUTE_CTRL_COMMON_GPU_ENABLE_SHIFT 0U
+ #define ROGUE_CR_MULTICORE_COMPUTE_CTRL_COMMON_GPU_ENABLE_CLRMSK 0xFFFFFF00U
+ 
+-/* Register ROGUE_CR_ECC_RAM_ERR_INJ */
+-#define ROGUE_CR_ECC_RAM_ERR_INJ 0xF340U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_MASKFULL 0x000000000000001FULL
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_SHIFT 4U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_CLRMSK 0xFFFFFFEFU
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_SLC_SIDEKICK_EN 0x00000010U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_SHIFT 3U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_CLRMSK 0xFFFFFFF7U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_USC_EN 0x00000008U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_SHIFT 2U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_CLRMSK 0xFFFFFFFBU
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_TPU_MCU_L0_EN 0x00000004U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_SHIFT 1U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_CLRMSK 0xFFFFFFFDU
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_RASCAL_EN 0x00000002U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_SHIFT 0U
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_CLRMSK 0xFFFFFFFEU
+-#define ROGUE_CR_ECC_RAM_ERR_INJ_MARS_EN 0x00000001U
 -
- 	drvdata->arch = etm_devarch_to_arch(devarch);
- 	*csa = CSDEV_ACCESS_IOMEM(drvdata->base);
- 	return true;
+ /* Register ROGUE_CR_ECC_RAM_INIT_KICK */
+ #define ROGUE_CR_ECC_RAM_INIT_KICK 0xF348U
+ #define ROGUE_CR_ECC_RAM_INIT_KICK_MASKFULL 0x000000000000001FULL
+@@ -6163,6 +6258,26 @@
+ #define ROGUE_CR_SAFETY_EVENT_CLEAR__ROGUEXE__GPU_PAGE_FAULT_CLRMSK 0xFFFFFFFEU
+ #define ROGUE_CR_SAFETY_EVENT_CLEAR__ROGUEXE__GPU_PAGE_FAULT_EN 0x00000001U
+ 
++/* Register ROGUE_CR_FAULT_FW_STATUS */
++#define ROGUE_CR_FAULT_FW_STATUS 0xF3B0U
++#define ROGUE_CR_FAULT_FW_STATUS_MASKFULL 0x0000000000010001ULL
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_SHIFT 16U
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_CLRMSK 0xFFFEFFFFU
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_CORRECT_EN 0x00010000U
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_SHIFT 0U
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_CLRMSK 0xFFFFFFFEU
++#define ROGUE_CR_FAULT_FW_STATUS_CPU_DETECT_EN 0x00000001U
++
++/* Register ROGUE_CR_FAULT_FW_CLEAR */
++#define ROGUE_CR_FAULT_FW_CLEAR 0xF3B8U
++#define ROGUE_CR_FAULT_FW_CLEAR_MASKFULL 0x0000000000010001ULL
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_SHIFT 16U
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_CLRMSK 0xFFFEFFFFU
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_CORRECT_EN 0x00010000U
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_SHIFT 0U
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_CLRMSK 0xFFFFFFFEU
++#define ROGUE_CR_FAULT_FW_CLEAR_CPU_DETECT_EN 0x00000001U
++
+ /* Register ROGUE_CR_MTS_SAFETY_EVENT_ENABLE */
+ #define ROGUE_CR_MTS_SAFETY_EVENT_ENABLE__ROGUEXE 0xF3D8U
+ #define ROGUE_CR_MTS_SAFETY_EVENT_ENABLE__ROGUEXE__MASKFULL 0x000000000000007FULL
+
 -- 
-2.46.0
+2.49.0
 
 
