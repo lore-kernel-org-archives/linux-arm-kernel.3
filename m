@@ -4,91 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99AB7C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 18:31:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F164C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 18:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=94xi9Bo5CmRSgLmyg0d2/0JDQ3NXv/QZQq3M2Xl5Q5w=; b=AIrALqT2IQEDJ/e7s2M/hoYF8I
-	eeYK89AGg4I86RgdVmh6Zf88MUSVojrWtZuhhtQjRL2MFvw2/Y6yu4iKZ1/MT9gWe/5cJre1dHQep
-	QigTCd1ZgXCxmAKF/k5qkhfdMYKlNRRapxF6oKvpg46Lo6yLyyNEv+LQH64KrMKIPydWNboBIFSru
-	YTDNSudeY7wvH0oYnVnq58wEmCzF+xZ/wc3oXZ6Om4c1hN1JCJ5dzE9stLUyma2rIbAmYemMaEf5V
-	hqShBd/hehCtnNmnx2kyJKPHB1EON6i8Q+3vj17hg0zak4Hu6cbjyqBX8y1SQ2Fp00OQkONzMo2PD
-	T/P4bcAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RVEmfdcIK+nAC24P6F8Ud5S0YAAGuFYjRvgCZ39ZrCQ=; b=ppQhJw/KYdnTuPsBN9C6W5r6eO
+	+NfTBYarSGiRZWOUmeXwYn/chHHWHxST9c7Ze0nBS2+nFH+EmHjeCJ0qkU6c2fLl9ht7zNJxId/lN
+	8hr36UqkC8/XBsHfqorKpPRgZ0U1LBpu3CgfAL0kKtKOi4ElxVPmKdtZFZ2dhVs/7LFA6DUpWEfv5
+	S0RmxkXSK/2XPWwagvvsKBuug5eys2CRQFJYbqF9rXr/hcyFP2moCh+6+LCFW0R7Aiw/CUbEadUpT
+	3anr6vl7pVpS1sj54O/MgKYxfy5NYgJBnJiVhfsHs5uP0+o7sFL7f5/isrhhVF/SLYvUwBcaPvarB
+	nFEsnMrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2wgP-0000000BWRD-01sO;
-	Thu, 10 Apr 2025 18:31:25 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u2wgH-0000000BWLq-3Mq2;
+	Thu, 10 Apr 2025 18:31:17 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2vxM-0000000BQWl-2tgW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 17:44:54 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53AHikBh1222574
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 10 Apr 2025 12:44:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744307086;
-	bh=94xi9Bo5CmRSgLmyg0d2/0JDQ3NXv/QZQq3M2Xl5Q5w=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=uQR/Zt5Qagj7bzkRdGwqmDOIMa3NguuN2TDKehYotgspt3ahyNw1pXV8yTEARagC6
-	 4dwSeku7Am4zoFYOUvWsxQ2UQ5a8ZrrmXDZAoYlyu+okBS+GNMj+dZo/a1saS8b4rF
-	 vn4r06HjiQjIX128BFguQH47dpFWgotTptc2PiKU=
-Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53AHik3U024406
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 10 Apr 2025 12:44:46 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 10
- Apr 2025 12:44:45 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 10 Apr 2025 12:44:45 -0500
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53AHijlU017859;
-	Thu, 10 Apr 2025 12:44:45 -0500
-Message-ID: <45e2c2bf-68af-4c78-8f85-e25f4e7ea3fd@ti.com>
-Date: Thu, 10 Apr 2025 12:44:45 -0500
+	id 1u2vd8-0000000BMa0-1K9W;
+	Thu, 10 Apr 2025 17:23:59 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-39c2688619bso665324f8f.1;
+        Thu, 10 Apr 2025 10:23:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744305836; x=1744910636; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=RVEmfdcIK+nAC24P6F8Ud5S0YAAGuFYjRvgCZ39ZrCQ=;
+        b=m9t/RrWfzN3ejrUcFLtu3NGpbdNof2lwVq6Ts7pt9fdrlw4rx7t+Lg9Ho2nxt9FxFu
+         Bw5ueHMh0hoG4UsCcBpY5b4njIeNAEqRXWAfBbKkN15OpLScPOLDF0TkmcoGN/S0Qiue
+         SKJRedAmgWo0FvfRg2n3Kz5Dqh8VLZKccOUZzq/Dw/otzoNwpYBONJn3oREe+nERxfdx
+         7DA+ACPx+vuQPuvfDO/7C3ytPl6Nx78LBZS6Ssp3uyo9roE+LCO7bdYPED3oy6nw0UJP
+         r2CQmeooIRyUSCWe6Tazom5kASNhhnIDB2v/EELc67vHsw1W8/CyEVdgkuKyUkGJf/4r
+         +l9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744305836; x=1744910636;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RVEmfdcIK+nAC24P6F8Ud5S0YAAGuFYjRvgCZ39ZrCQ=;
+        b=tKO/2gSRHbabXXvRAzhZIQaGIBSOtNlIlDx4nbT0YNUwv2gxG6o/iAmE4RXzmOl6um
+         J7CpJ0pXBQr7JfoFd8XQCQSB3rPnSYWESR0VIOyYyeFHAbMR/ILWp9wYdzobzx933fvJ
+         GBfdWCDe2AVTiJRgVU7cybPHO2RqE0qL4uJFI7auc7OZtS2Q0abpUu+ljvO/IIuSLYH0
+         mv/RnpaJv2Eyzzbzegzk3NVpMkRIvEIve/2pOj8/uHtPy6DoTyVY7aTtwOCtcbq6OzNA
+         m7zzIpq9gYAXC07YNIbYTEqD+SqYA5WCN+nHamv5gLIqc37jj29h/RGfi1ELrRJP1QM0
+         h6KQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVmjsQ8pjpB/jzN9cQPVLUGYbMV52SU+7tDbYtZLdfZvtT1W5YTDvGrbMlYtpUmdJtsj9wTuo8kKA6vFZNrnFfM@lists.infradead.org, AJvYcCWxX28uuZWXtmQzU13dS7t7srDT5B6aVTR+eYF6uMvYJl04YMQqDOFNi58ZyQBrBcvxgpBFUZHzrLqzwqZalds=@lists.infradead.org
+X-Gm-Message-State: AOJu0YweetLD3LNAp1qPXdNb1Smz7n1Hzn+WIslX5V3BLGnceUd4wVS3
+	H0TiXMamw+zSpJ/T3Wmyi+AM5XHzgCeoI9nz9UcYgUJ/R51S5dLo
+X-Gm-Gg: ASbGnctL4Aj4OCLCbpRJt+wc6JgmZUX5jyXBHAq6TgDNBYzz5S1/IacqvOFfhvJ0q/e
+	mwadNT4DcaryqLea6jjv3308pk+7xZOMC+jhQUajloO3I/DxQrUVmaW2nyicRhsZAqc3ixodLBQ
+	KIbIDX1HGXrMrYwAVAJqzO6Kv8oaVSaKOTc98h5HPa3R7RfUmNAu/y3JpwcHcb4zgr2yuw8s4WQ
+	2u1xMh9hzqpPgDWuYg461jPaPUBVUYgSNJTslKhbpvXiNsktu471v56BHdELnb/RIHctCgW28/q
+	Y5keXluCnrvDB5KZX4T8VOpxXhaWhuisQo5QvgzMIZrfQ2Kw/P+XqY1U4jeULJvDnGNl5fr8NN1
+	soTKFToE=
+X-Google-Smtp-Source: AGHT+IFqhoIbl8rG6Xm1pydrcNvSBmIecSBYlMaEofFIFMZzgUR9B34igWvZcOG2E52kzZjCqGGyAw==
+X-Received: by 2002:a05:6000:2586:b0:391:3aaf:1d5d with SMTP id ffacd0b85a97d-39d8f47497bmr3207232f8f.27.1744305836300;
+        Thu, 10 Apr 2025 10:23:56 -0700 (PDT)
+Received: from Ansuel-XPS. (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39d893f0a75sm5495874f8f.62.2025.04.10.10.23.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Apr 2025 10:23:55 -0700 (PDT)
+Message-ID: <67f7feab.df0a0220.40a6f.c911@mx.google.com>
+X-Google-Original-Message-ID: <Z_f-qflwHutRYS6_@Ansuel-XPS.>
+Date: Thu, 10 Apr 2025 19:23:53 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, Simon Horman <horms@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v14 06/16] net: mdio: regmap: prepare support
+ for multiple valid addr
+References: <20250408095139.51659-1-ansuelsmth@gmail.com>
+ <20250408095139.51659-7-ansuelsmth@gmail.com>
+ <6f29a01d-35da-4d51-b309-a1799950a707@lunn.ch>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
- remote processors
-To: Beleswar Prasad Padhi <b-padhi@ti.com>,
-        Devarsh Thakkar
-	<devarsht@lewv0571a.ent.ti.com>,
-        Nishanth Menon <nm@ti.com>, Andrew Davis
-	<afd@ti.com>,
-        Hari Nagalla <hnagalla@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Markus
- Schneider-Pargmann <msp@baylibre.com>
-References: <20250405001518.1315273-1-jm@ti.com>
- <20250405001518.1315273-7-jm@ti.com>
- <6868f593-0728-4e92-a57b-87db6a0037f6@ti>
- <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
- <f8f1d877-3d13-4ba7-90e1-455923458c11@ti.com>
- <fe735242-4643-432a-adaf-27e29719948a@ti.com>
- <bffd8489-1556-425d-b3f9-8fde8a7d34a7@ti.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <bffd8489-1556-425d-b3f9-8fde8a7d34a7@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6f29a01d-35da-4d51-b309-a1799950a707@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_104452_818406_A209C407 
-X-CRM114-Status: GOOD (  33.84  )
+X-CRM114-CacheID: sfid-20250410_102358_352031_D81C3030 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,264 +120,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Beleswar,
-
-On 4/10/25 3:55 AM, Beleswar Prasad Padhi wrote:
-> Hi Judith,
+On Thu, Apr 10, 2025 at 07:18:02PM +0200, Andrew Lunn wrote:
+> On Tue, Apr 08, 2025 at 11:51:13AM +0200, Christian Marangi wrote:
+> > Rework the valid_addr and convert it to a mask in preparation for mdio
+> > regmap to support multiple valid addr in the case the regmap can support
+> > it.
 > 
-> On 10/04/25 04:02, Judith Mendez wrote:
->> Hi Beleswar,
->>
->> On 4/7/25 11:00 PM, Beleswar Prasad Padhi wrote:
->>> Hi Judith, Andrew,
->>>
->>> On 07/04/25 19:43, Judith Mendez wrote:
->>>> Hi Devarsh,
->>>>
->>>> On 4/7/25 8:54 AM, Devarsh Thakkar wrote:
->>>>> Hi Judith,
->>>>>
->>>>> On 05/04/25 05:45, Judith Mendez wrote:
->>>>>  > From: Devarsh Thakkar <devarsht@ti.com>
->>>>>>
->>>>>
->>>>> Thanks for the patch.
->>>>>
->>>>>> For each remote proc, reserve memory for IPC and bind the mailbox
->>>>>> assignments. Two memory regions are reserved for each remote 
->>>>>> processor.
->>>>>> The first region of 1MB of memory is used for Vring shared buffers
->>>>>> and the second region is used as external memory to the remote 
->>>>>> processor
->>>>>> for the resource table and for tracebuffer allocations.
->>>>>>
->>>>>> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
->>>>>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
->>>>>> Signed-off-by: Judith Mendez <jm@ti.com>
->>>>>> ---
->>>>>>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 96 
->>>>>> +++++++++++++++++++++++--
->>>>>>   1 file changed, 90 insertions(+), 6 deletions(-)
->>>>>>
->>>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts 
->>>>>> b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>>>>> index 1c9d95696c839..7d817b447c1d0 100644
->>>>>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>>>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>>>>> @@ -52,6 +52,42 @@ linux,cma {
->>>>>>               linux,cma-default;
->>>>>>           };
->>>>>> +        c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
->>>>>> +            compatible = "shared-dma-pool";
->>>>>> +            reg = <0x00 0x99800000 0x00 0x100000>;
->>>>>> +            no-map;
->>>>>> +        };
->>>>>> +
->>>>>> +        c7x_0_memory_region: c7x-memory@99900000 {
->>>>>> +            compatible = "shared-dma-pool";
->>>>>> +            reg = <0x00 0x99900000 0x00 0xf00000>;
->>>>>> +            no-map;
->>>>>> +        };
->>>>>> +
->>>>>> +        mcu_r5fss0_core0_dma_memory_region: 
->>>>>> r5f-dma-memory@9b800000 {
->>>>>> +            compatible = "shared-dma-pool";
->>>>>> +            reg = <0x00 0x9b800000 0x00 0x100000>;
->>>>>> +            no-map;
->>>>>> +        };
->>>>>> +
->>>>>> +        mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
->>>>>> +            compatible = "shared-dma-pool";
->>>>>> +            reg = <0x00 0x9b900000 0x00 0xf00000>;
->>>>>> +            no-map;
->>>>>> +        };
->>>>>> +
->>>>>> +        wkup_r5fss0_core0_dma_memory_region: 
->>>>>> r5f-dma-memory@9c800000 {
->>>>>> +            compatible = "shared-dma-pool";
->>>>>> +            reg = <0x00 0x9c800000 0x00 0x100000>;
->>>>>> +            no-map;
->>>>>> +        };
->>>>>> +
->>>>>> +        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
->>>>>> +            compatible = "shared-dma-pool";
->>>>>> +            reg = <0x00 0x9c900000 0x00 0xf00000>;
->>>>>> +            no-map;
->>>>>> +        };
->>>>>> +
->>>>>>           secure_tfa_ddr: tfa@9e780000 {
->>>>>>               reg = <0x00 0x9e780000 0x00 0x80000>;
->>>>>>               alignment = <0x1000>;
->>>>>> @@ -63,12 +99,6 @@ secure_ddr: optee@9e800000 {
->>>>>>               alignment = <0x1000>;
->>>>>>               no-map;
->>>>>>           };
->>>>>> -
->>>>>> -        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
->>>>>> -            compatible = "shared-dma-pool";
->>>>>> -            reg = <0x00 0x9c900000 0x00 0x01e00000>;
->>>>>> -            no-map;
->>>>>> -        };
->>>>>>       };
->>>>>
->>>>> This is missing the edgeAI specific remote-core carveouts and 
->>>>> RTOS-to-RTOS IPC memory regions [1] being used by edgeAI firmwares 
->>>>> which come as pre-packaged in the official SDK release for AM62A.
->>>>>
->>>>> There is only one official SDK release for AM62A (which is edgeAI 
->>>>> based) [2] which packages these edgeAI remoteproc firmwares and in 
->>>>> my view it is a fair expectation that remote core careveouts in 
->>>>> device-tree should align with firmwares released in SDK.
->>>>>
->>>>> This is because most developers (including me) and vendors download 
->>>>> this official SDK release and use it with latest upstream kernel 
->>>>> and modules (right now we are applying required patches locally) 
->>>>> and this patch won't suffice for this, in-fact it won't work since 
->>>>> the remoteproc firmwares are already using regions beyond the 
->>>>> reserved-regions from this patch.
->>>>
->>>> I understand your point, currently with this patch remoteproc loading
->>>> will not work for some cores. However, the goal here is to standardize
->>>> as much as possible the memory carveout sizes, push the "demo firmware"
->>>> to request resources the correct way from resource table, 
->>>
->>>
->>> It is indeed more suitable if the memory carveouts are called out in 
->>> the resource table of the firmware. But you will still need to 
->>> reserve that memory sections in the Device Tree so that Kernel does 
->>> not map that memory for anything else. So I am thinking how moving to 
->>> resource table will help solve this problem?
->>
->> The point is that our default FW is doing things incorrectly. We want to
->> push the existing FW to
->> 1. Request resources via resource table.
->> 2. Fix their memory requirements (recent offline discussion proved that
->> FW is requesting more than it needs)
->> 3. FW should adapt to Linux not Linux adapt to FW
-> 
-> 
-> Thanks. I also agree with you on all of the above points for a standard 
-> firmware.
-> 
-> However, I was referring to this problem:
-> Can we get rid of static reserved memory carveouts in DT?
-> People using a custom firmware will have to patch the Device Tree to 
-> reserve larger/different memory regions. Is there some way where the 
-> firmware can dictate the "reserved" memory carveouts at runtime? Memory 
-> carveouts can be announced through Resource Table, but there is no 
-> guarantee we will be able to allocate it (it could be mapped by the 
-> Kernel for some other alloc), unless its pre-reserved in DT.
-> 
+> I think it would be good to pull these MDIO regmap patches out into a
+> series of their own. We know there is a user, so i'm happy for us the
+> accept it without that user. But this code needs further discusion,
+> which will be irrelevant for the switch.
+>
 
-Since we do not have an IOMMU for remote cores in K3, we cannot get rid
-of the static reserved memory carveouts, is my understanding. The linux
-driver would have programmed the IOMMU virtual and physical addresses
-and it would have been able to do the virtual to physical address
-translation on its own with only the requirement size from the FW
-resource table. Since we do not have this flexibility provided with
-IOMMU, we must have static reserved carveouts so that Linux will not
-touch these memory regions. The firmware virtual address to physical
-adress is atm a one to one mapping. So in summary, we must have these
-static reserved memory carveouts, but we should fix the default FW
-to use the "standardized" sizes and request SRAM via resource table.
+Ok so how you would like to proceed for the remaining patch? Repost as RFC?
 
-~ Judith
+Still waiting feedback for nvmem and mfd so I would love to get feedback
+for them (that are also irrelevant to the switch)
 
-
-> Thanks,
-> Beleswar
-> 
->>
->> If not, then then we should try to move to Zephyr firmware or other/
->> better options.
->>
->> Hope I am able to explain myself better this time around.
->>
->> ~ Judith
->>
->>>
->>> Thanks,
->>> Beleswar
->>>
->>>> and move away
->>>> from this dependency and limitations that we have with our firmware. We
->>>> should soon be able to generate our own firmware using Zephyr, which
->>>> Andrew is pioneering, so with this firmware we should move to the
->>>> correct direction upstream. Downstream we are still using the memory
->>>> carveout sizes that the firmware folk want so desperately to keep, for
->>>> now..
->>>>
->>>> ~ Judith
->>>>
->>>>>
->>>>> [1]: 
->>>>> https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=ti-linux-6.6.y-cicd#n103
->>>>> [2]: https://www.ti.com/tool/PROCESSOR-SDK-AM62A
->>>>>
->>>>> Regards
->>>>> Devarsh
->>>>>
->>>>>>       opp-table {
->>>>>> @@ -741,3 +771,57 @@ dpi1_out: endpoint {
->>>>>>           };
->>>>>>       };
->>>>>>   };
->>>>>> +
->>>>>> +&mailbox0_cluster0 {
->>>>>> +    status = "okay";
->>>>>> +
->>>>>> +    mbox_r5_0: mbox-r5-0 {
->>>>>> +        ti,mbox-rx = <0 0 0>;
->>>>>> +        ti,mbox-tx = <1 0 0>;
->>>>>> +    };
->>>>>> +};
->>>>>> +
->>>>>> +&mailbox0_cluster1 {
->>>>>> +    status = "okay";
->>>>>> +
->>>>>> +    mbox_c7x_0: mbox-c7x-0 {
->>>>>> +        ti,mbox-rx = <0 0 0>;
->>>>>> +        ti,mbox-tx = <1 0 0>;
->>>>>> +    };
->>>>>> +};
->>>>>> +
->>>>>> +&mailbox0_cluster2 {
->>>>>> +    status = "okay";
->>>>>> +
->>>>>> +    mbox_mcu_r5_0: mbox-mcu-r5-0 {
->>>>>> +        ti,mbox-rx = <0 0 0>;
->>>>>> +        ti,mbox-tx = <1 0 0>;
->>>>>> +    };
->>>>>> +};
->>>>>> +
->>>>>> +&wkup_r5fss0 {
->>>>>> +    status = "okay";
->>>>>> +};
->>>>>> +
->>>>>> +&wkup_r5fss0_core0 {
->>>>>> +    mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
->>>>>> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
->>>>>> +            <&wkup_r5fss0_core0_memory_region>;
->>>>>> +};
->>>>>> +
->>>>>> +&mcu_r5fss0 {
->>>>>> +    status = "okay";
->>>>>> +};
->>>>>> +
->>>>>> +&mcu_r5fss0_core0 {
->>>>>> +    mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
->>>>>> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
->>>>>> +            <&mcu_r5fss0_core0_memory_region>;
->>>>>> +};
->>>>>> +
->>>>>> +&c7x_0 {
->>>>>> +    mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
->>>>>> +    memory-region = <&c7x_0_dma_memory_region>,
->>>>>> +            <&c7x_0_memory_region>;
->>>>>> +    status = "okay";
->>>>>> +};
->>>>>
->>>>
->>
-
+-- 
+	Ansuel
 
