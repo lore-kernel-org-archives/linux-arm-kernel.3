@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B95C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 02:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2018C369A1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 03:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6pkHqf4bn8O0thSatfpaOrYevzMw4DixaFZnfOik4EI=; b=wbDrN2/VaLsBUK
-	fBWBujEezd6C/fdSigUVT1Skc9rjtoA4yUxgN/09sof1U8mf/jE2gNsrxwBSfKimjU1sjXfyHzyG/
-	nnMPLZvuyIpQ+97jdDs+eKh/NdcNjFJsnkOSnRgDpOSEESrl9vT8GF0HSRqIjSm8Z65bybAnpSnP7
-	cgn/atnwrre9Rub8OM2TmKOTbQnlB+LatxXF2kw5E2d+35x5DB/q35kNOpBoP/DUA0uAoEgt6oiyu
-	nDTJcqJ0PQ6MQAeJQqJR21nofzHLcmIf6IGNpaPmRbs6xigN+Q7rsRJJ5gLzx0Y0O/7iqjlsCUWBt
-	h93R1bReP3vJI572KtzA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m+KZZSikQDIaAJ5we61TNgyebN6cWkAPQY8BkFWR6dQ=; b=OEM2Qi5qG1DsZUZT+XtdPg15l0
+	l1KD2+W7IExBkakS5FKB7+PoCUpR7gCnZiTGB3LeIWOZdH/f5RigaSKuIqXhr3RQEcjWb6V6P8ANG
+	wTVBtXflYfkbtyyMl/J37kW/xGiJk5Ov+DDPjRL+P/uG6CzIbpt4Kub6+e4lQAuK99Klr5qGCPa9h
+	8DC9saEx/PZqdvyb0RWSQgbeL0C6Y5JydT8scRd98HR3NBY6gAm1SySZk+SpWgkvu6m4ku5YhjnBp
+	pHzKvGnp23hv/tzlDlR8T6hKRqHfUv2dHKZoexLiNUBkrvZ3cxE5kW4DlVRQF91NiREGNAvjpt72i
+	5aKtI3aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2i78-000000095Ff-0G8e;
-	Thu, 10 Apr 2025 02:58:02 +0000
-Received: from qmt20.citechco.net ([203.191.33.192])
+	id 1u2iFS-0000000962a-3eIt;
+	Thu, 10 Apr 2025 03:06:38 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2h7T-00000008ze5-2skY
+	id 1u2iDg-000000095qm-1C77
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 01:54:21 +0000
-DomainKey-Signature: a=rsa-sha1; c=nofws; d=jf-bd.net; h=reply-to:from
-	:to:subject:date:message-id:mime-version:content-type
-	:content-transfer-encoding; q=dns; s=dkim1; b=BuEcJ6ZHFAXjT9Va41
-	7TrCGib90IQZNPgpTkrzHtUU4BUeeeLEYO8WheLkVOxIMiu6Bbfe453H3EcnrKIS
-	fwaFVkSdAbrNJC5YXQKcdNIhv2Lf1Fj8nKjwPg/kPTqkv8nnjR9B1pedmzuIlTqZ
-	gobYKdSKQZy9zyowSisM7ToEI=
-DKIM-Signature: v=1; a=rsa-sha1; c=simple; d=jf-bd.net; h=reply-to:from
-	:to:subject:date:message-id:mime-version:content-type
-	:content-transfer-encoding; s=dkim1; bh=BQ4VYQ759GlRs1a2EUBRjVDV
-	aZ8=; b=vvnLu/j4CJfDgYe3R0GaLnVBZhhgGDtaEvbdU2TKMCvCmaY5Dy28nmqx
-	Mv0BTwQP7MR5YCogQSrHTqf0UBeSGWlNU6YaiQdHMPUzfvv3DE3ThCRltvfT05sf
-	sed+A3CPoS/hBb0OrRXMgrTeTut2vLBMRJ2xfKgXr5l6nj0BKU4=
-Received: (qmail 27850 invoked by uid 89); 10 Apr 2025 01:54:16 -0000
-Received: from unknown (HELO 179-190-173-23.cable.cabotelecom.com.br) (commercial@jf-bd.net@154.205.144.222)
-  by qmt20.citechco.net with ESMTPA; 10 Apr 2025 01:54:16 -0000
-From: Winston Taylor <commercial@jf-bd.net>
-To: linux-arm-kernel@lists.infradead.org
-Subject: WTS
-Date: 9 Apr 2025 20:54:13 -0500
-Message-ID: <20250409205411.E7490A3D51A5EB25@jf-bd.net>
+	Thu, 10 Apr 2025 03:04:49 +0000
+Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-73972a54919so236618b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 20:04:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744254287; x=1744859087; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=m+KZZSikQDIaAJ5we61TNgyebN6cWkAPQY8BkFWR6dQ=;
+        b=VfwtC6qcHKarzPK4OHMEwrxmnmxuIYZvzfCT8TstqSj6+xEdBbEUwfvmOSqpnPPL+u
+         VZAvltF8YgP+N4WqBic4Ha0hHuIbGlQDHTUxopzMdDPASCYlexq/QnbmosnAjdybl56f
+         pYnoylssdMnrgcEP6L9tNe5BOmK8tyq3LB6KDz3MjbJ1Req5kYrdhJef3/A5+rpaQgav
+         zkt+34s+lXRosnCDqQa11pssTgJQKvCeodK1R5qK8hfSa8YKN+HNFQjosoRz8G4F2pdw
+         rTtmp7po2Cln1J6FdQHf2TmbcCcd3LyVHDpsYPsLbvohH+dWvUvaSPTp2nA1x1DoIpdW
+         pFig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744254287; x=1744859087;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=m+KZZSikQDIaAJ5we61TNgyebN6cWkAPQY8BkFWR6dQ=;
+        b=daQ2jtx66vKFnsC7NAKiYJya/VBACFxkEWSBEHr/jEfdsSHNM/Jm+fiOK/wjp/5wcX
+         G+93hk9+Z/gha6/3eCDkywVuNX1r8AlkSPAdFzLBt1nYbkHUen2sN7ZnI6+k402EO2mj
+         fovBdD10gZo67A25gEwL4prqROicmOXjj5OWeOVP/plgF/st3dE5tBxOfISPAmNxf8Fe
+         +60KFKsv9T8rgWeF9uIWi4FeDXUWRv1tKVMVFqEZQRTplqaLFBqcJAmmXh3uoJ5E1E+z
+         NYIMS8nVpfCS9ept0OWmTED3CQYIGkHxYpS0KTMFF+s8tPg4f39lmutCrSbObZDk6Dkh
+         NNTw==
+X-Gm-Message-State: AOJu0YzL/iPtVHk0eQ7YQZSO2wC5ALzn4XaYRqhPwixDZP1YWJUci5Ge
+	7GadSjiG4ToBmSk0wNLZFLqY6a23kc7EhufEJJzlPjChu7uCA9mL
+X-Gm-Gg: ASbGncvWNoIuQWXjA09+L6QDXJATwMFeGAhrR4pV3HYcsffAraC+sP+S2hG/xEIu0Ox
+	vNFFBZpiUwLT3gugQ4VymJInwQLJtxWwsgWbIyv9rmYucVpEakO9kxE4ZMp6RigwmDAWeX/ji54
+	3UA1ztRxT0J0JAbcvlsgr6beerzYo/vsvSyw8cj39OUdxaBFcgGcL+wh+t00h43F6C5q//qJtiD
+	RgfsqN709HNtkJzJLF7IeX1hJdXIOQnk0XhZV3MSqfD5N6UUCo53xPwQPaFg+cpVvBKm0agMb4B
+	QcojnSX4cIle9HxexFcMA5QA9sw3rAxfuHZ5KtJ2OLjOrznd3PjavTR3/pvNcFsHKCgKAuFd63q
+	yvg==
+X-Google-Smtp-Source: AGHT+IHgtIqi32EvJvsz1zRRwYdM5Cbekj5LQFgEfYxdtthuDwvKdqfhaj0lrnhCh2dKYSmGj4BGsA==
+X-Received: by 2002:a05:6a20:9f92:b0:1f5:97c3:419c with SMTP id adf61e73a8af0-2016cc9a977mr935469637.6.1744254286836;
+        Wed, 09 Apr 2025 20:04:46 -0700 (PDT)
+Received: from henry.localdomain ([111.202.148.133])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b02a322115dsm1997405a12.69.2025.04.09.20.04.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Apr 2025 20:04:46 -0700 (PDT)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Henry Martin <bsdhenrymartin@gmail.com>
+Subject: [PATCH v1] ASoC: imx-card: Add NULL check in ap806_syscon_common_probe()
+Date: Thu, 10 Apr 2025 11:04:38 +0800
+Message-Id: <20250410030438.53232-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_185420_206837_279F4330 
-X-CRM114-Status: UNSURE (   2.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250409_200448_321577_B1F0741A 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,70 +97,93 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: winstontaylor@theleadingone.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello ,
-These are available for sale. If you=E2=80=99re interested in purchasing=20=
+devm_kasprintf() in ap_cp_unique_name() returns NULL when memory
+allocation fails. Currently, ap806_syscon_common_probe() does not check
+for this case, which results in a NULL pointer dereference.
 
-these, please email me
+Add NULL check after ap_cp_unique_name() to prevent this issue.
 
-brand new and original
-Brand New ST8000NM017B  $70 EA
-Brand New ST20000NM007D   $100 EACH
-Brand New ST4000NM000A   $30 EA
-Brand New WD80EFPX   $60 EA
- Brand New WD101PURZ    $70 EA
+Fixes: baf4c10f8878 ("clk: mvebu: ap806: Fix clock name for the cluster")
+Fixes: 33c0259092c8 ("clk: mvebu: add helper file for Armada AP and CP clocks")
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+---
+ drivers/clk/mvebu/ap806-system-controller.c | 24 +++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-Brand New CISCO C9300-48UXM-E
-Available 5
-$21800 EACH
+diff --git a/drivers/clk/mvebu/ap806-system-controller.c b/drivers/clk/mvebu/ap806-system-controller.c
+index 948bd1e71aea..1461922752e3 100644
+--- a/drivers/clk/mvebu/ap806-system-controller.c
++++ b/drivers/clk/mvebu/ap806-system-controller.c
+@@ -173,6 +173,10 @@ static int ap806_syscon_common_probe(struct platform_device *pdev,
+ 
+ 	/* CPU clocks depend on the Sample At Reset configuration */
+ 	name = ap_cp_unique_name(dev, syscon_node, "pll-cluster-0");
++	if (!name) {
++		ret = -ENOMEM;
++		goto fail0;
++	}
+ 	ap806_clks[0] = clk_register_fixed_rate(dev, name, NULL,
+ 						0, cpuclk_freq);
+ 	if (IS_ERR(ap806_clks[0])) {
+@@ -181,6 +185,10 @@ static int ap806_syscon_common_probe(struct platform_device *pdev,
+ 	}
+ 
+ 	name = ap_cp_unique_name(dev, syscon_node, "pll-cluster-1");
++	if (!name) {
++		ret = -ENOMEM;
++		goto fail1;
++	}
+ 	ap806_clks[1] = clk_register_fixed_rate(dev, name, NULL, 0,
+ 						cpuclk_freq);
+ 	if (IS_ERR(ap806_clks[1])) {
+@@ -190,6 +198,10 @@ static int ap806_syscon_common_probe(struct platform_device *pdev,
+ 
+ 	/* Fixed clock is always 1200 Mhz */
+ 	fixedclk_name = ap_cp_unique_name(dev, syscon_node, "fixed");
++	if (!name) {
++		ret = -ENOMEM;
++		goto fail2;
++	}
+ 	ap806_clks[2] = clk_register_fixed_rate(dev, fixedclk_name, NULL,
+ 						0, 1200 * 1000 * 1000);
+ 	if (IS_ERR(ap806_clks[2])) {
+@@ -199,6 +211,10 @@ static int ap806_syscon_common_probe(struct platform_device *pdev,
+ 
+ 	/* MSS Clock is fixed clock divided by 6 */
+ 	name = ap_cp_unique_name(dev, syscon_node, "mss");
++	if (!name) {
++		ret = -ENOMEM;
++		goto fail3;
++	}
+ 	ap806_clks[3] = clk_register_fixed_factor(NULL, name, fixedclk_name,
+ 						  0, 1, 6);
+ 	if (IS_ERR(ap806_clks[3])) {
+@@ -208,6 +224,10 @@ static int ap806_syscon_common_probe(struct platform_device *pdev,
+ 
+ 	/* SDIO(/eMMC) Clock is fixed clock divided by 3 */
+ 	name = ap_cp_unique_name(dev, syscon_node, "sdio");
++	if (!name) {
++		ret = -ENOMEM;
++		goto fail4;
++	}
+ 	ap806_clks[4] = clk_register_fixed_factor(NULL, name,
+ 						  fixedclk_name,
+ 						  0, 1, 3);
+@@ -218,6 +238,10 @@ static int ap806_syscon_common_probe(struct platform_device *pdev,
+ 
+ 	/* AP-DCLK(HCLK) Clock is DDR clock divided by 2 */
+ 	name = ap_cp_unique_name(dev, syscon_node, "ap-dclk");
++	if (!name) {
++		ret = -ENOMEM;
++		goto fail5;
++	}
+ 	ap806_clks[5] = clk_register_fixed_rate(dev, name, NULL, 0, dclk_freq);
+ 	if (IS_ERR(ap806_clks[5])) {
+ 		ret = PTR_ERR(ap806_clks[5]);
+-- 
+2.34.1
 
-Intel Xeon Gold 5418Y Processors
-QTY28 $780 each
-
-Brand New C9200L-48T-4X-E  $1000 EAC
-
-
- Brand New N9K-C93108TC-FX-24 Nexus
-9300-FX w/ 24p 100M/1/10GT & 6p 40/100G
-Available 4
-$3000 each
-
-Brand New NVIDIA GeForce RTX 4090 Founders
-Edition 24GB - QTY: 56 - $700 each
-
-Brand new Palit NVIDIA GeForce RTX 5080
-GamingPro OC card with full manufacturer
-QTY 48 $750 EAC
-
-BRAND NEW - ASUS TUF Gaming GeForce RTX =E2=84=A2 5080 16GB
-GDDR7 OC Edition Gaming Graphics Card SEALED
-QTY50  $700 EACH
-
-Condition: Grade A
-Used HP EliteBook 840 G7 i7-10610U 16GB RAM 512GB
-SSD Windows 11 Pro TOUCH Screen
-QTY 30 USD 100 each
-
-Condition: Grade A
-Used HP EliteBook 850 G8 15.6" FHD,
-INTEL I7, 256GB SSD, 8GB RAM Win11
- QTY50 $240 EACH
-
-SK Hynix 48GB DDR5 4800 1Rx4 PC5-4800B-
-PF0-1010-XT 288pin Server EC4 RDIMM RAM
-QTY 239 $50 EACH
-
-
------------------------------------------------------------------
----------------
-
-Best Regards,
-Winston Taylor
-300 Laird St, Wilkes-Barre, PA 18702, USA
-Mobile: +1 (570) 890-5512
-Email: winstontaylor@theleadingone.net
-www.theleadingone.net
 
