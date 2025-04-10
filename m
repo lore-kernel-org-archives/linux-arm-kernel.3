@@ -4,150 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD4DC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 15:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB9DC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 15:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1acRmQN4SgmcEnmaGp6f8GcFCZL5kUq+Y9IaE5qZMCI=; b=4WqnaCkzOhnxeFqKJvEPJA8mWL
-	M07pTboU9TbP7sZq5nh0rxBl6wRYJt3JZeAMb1M9htlER3QovKMXfaGl91ouQ0qocq/lC08QAVYdU
-	L9dWCJr8/ujBWWcnKubicNX1TGncRbTrctvN2qeszHv7zt/bJeveECjgtQPBI4niXP+vtn/5MZYBR
-	R+S/1+43jrGO7GPEeWQzSdJW5F9O74X8JhTYG0QUYPLEplsl6rjoKIaRIClXQdXj/2+O+EYyXNMmu
-	nfOXno8KH++CeqDOH8rFups9yVouY+16qbZpzRsHS2OAQcxyNjHCynFV7oWCahaHneJjqJYNQw+OR
-	2ACMNH9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WOVxH9t50z2mxC0bReHcwFEZS+zI/QXisi8z9/R9uFA=; b=aEmaQmTf1esMafyk+tE+EvyDDS
+	DkKOFmq/9tDqxr7CEDw163QqkETSRXOL4LDjwtS+8o1qbaOeKHorzmOn6/zto78UdDbCcg7nVZotf
+	XMgZ8DCIdQTQ3plJ6hvAz1g+075XmE70se+g9A0DF27H8jn/r5Nl44YIf77D3ZABBGhQxmZIVMBsY
+	HcTHnTKGfG5KB+5MCUX3DMQR+SgZ/PrUI9Ej9dcNyUR6tY9zPAjejsoUk3YJADR3IHSxQ38pErG4A
+	Op+iwaaNO7Y4P7kWIn5p3CcHaxjHZX0q2bcuF+2xGX0/kftURNYfoVq5TEa0pM0+8WIUyzsS2N1kD
+	5T4AZQeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2uGL-0000000B6Qu-0rIw;
-	Thu, 10 Apr 2025 15:56:21 +0000
-Received: from mail-vi1eur03on20614.outbound.protection.outlook.com ([2a01:111:f403:260c::614] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1u2uI2-0000000B6kN-3rko;
+	Thu, 10 Apr 2025 15:58:06 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2tQJ-0000000Awec-2ogD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 15:02:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B7Ni7VQLbqV8Z04NEIu51wyyrqsjwJdQXconOS/PziSvRP7h3oSDrU+QKDk3UAWqyUDnmqkVIq/frD7XZSD7UZBsGqa7Wekb5Xb6uianW6Uv+5wqrtMY0XAeNMd9ew4OKMOB327U/8u9zRFpPs/rqhUkA9hbw71jC8Z3iiMPYmV5/X0DiljbCJYIv0v73Mt5zPzQBjOzOI3bmOhZEltDcekmsKw0+XSHmGlRjTw/7WYYsTDGgnZc4f6S7f1lPyJReNHwaz69jBvFUHjp0QXfHkpbe61c7USHnSOqOkUQEQ8E7UQhtihpo6ThEDGbDK2LXKljgUeYIQnY56hScZXXUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1acRmQN4SgmcEnmaGp6f8GcFCZL5kUq+Y9IaE5qZMCI=;
- b=NocXDYVjAWGOgxbSNuBaviea9TPl29NB0nFhE8YTK9/pfsRH9ygRCNsX/ZWYaGhpsbz/HmfCN8i7jEIk+uQUzo/DQDnGdjNQo0BPapebhSAj7dPk2T79v8q4eyfjp9g02gM5/sI1lUhM7n/9sLN83yJ91lA2a/vZtpV5PTqU3wYz4DhFxYGZM8wYaoi+Y5LWBOuSXuY1adQ6YA2MavrRKWzF9AVCmUkkth45NqtD8KIPiC70TPiKTdaydXZ1MntjUghb98VAUHyoUc1BhQWYtB+I+GncCS4KohFlP93ZUhcWj0WgMVpLsDDqjq2bqKUi5ZznGWxAA85PIIlw8m+/xg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1acRmQN4SgmcEnmaGp6f8GcFCZL5kUq+Y9IaE5qZMCI=;
- b=g0pypsQXb1DQyOA66ylvJRB5xmqp0rwzjTwcN+CVTq+OyNYpY6upQ9NV3o4cVoJLiZLYOCIQ0M/2HT2w6LalxomqcMDI2iyQ3Zz1xGOt+Zt4POkkR4tj42LrdEBACXL0Yhy0ZusP23FO5//99ms6BCZgL6K90OdcoEOFUOsNTpm/nO8teWSqNtkDbmiiVIdc+OSUiDIjFn0bazyOq6dLq62w9IZj+XqkZYfYxtwp17zIVlpZHIQzZEpKlXnkwfne1zSATsK6rhlawhAFsmHmGvIgHNEGQNoiF75E6yqY0nXqKRpr4VwRwheuT0/70QfQ4jxOtugGxJLdmx+PhA+AZA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB9093.eurprd04.prod.outlook.com (2603:10a6:20b:444::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Thu, 10 Apr
- 2025 15:02:28 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.021; Thu, 10 Apr 2025
- 15:02:28 +0000
-Date: Thu, 10 Apr 2025 11:02:23 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
-Subject: Re: [PATCH 06/13] arm64: dts: freescale: imx93-phyboard-segin: Drop
- eMMC no-1-8-v flag
-Message-ID: <Z/fdfwPrPMCwgaaD@lizhi-Precision-Tower-5810>
-References: <20250410090251.1103979-1-primoz.fiser@norik.com>
- <20250410090251.1103979-7-primoz.fiser@norik.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250410090251.1103979-7-primoz.fiser@norik.com>
-X-ClientProxiedBy: AM0PR08CA0006.eurprd08.prod.outlook.com
- (2603:10a6:208:d2::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1u2t4M-0000000AsKC-2scO;
+	Thu, 10 Apr 2025 14:39:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744295993;
+	bh=UM8eRGMMrRlZ9igteIR0+9yJOLiReCR0kDQJdYbv4lA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ZmOQdVz9NGS7NtFcyLuTddjNxN/VL6lXI10K5TmTGBFSR+g4LggqeFGpH3bYffs96
+	 zCVbGjwNHHlKNUictGQELTvAUbebWiIf34aCRUGIuiInyxvI7NFmLqc8fE8A2ZMSSI
+	 0c+eqKx4Rv5aqtfEnVli1ceZntCv2/RbvJGr2e6kpuVbLbEjEz/cQHJNIWGU3ZhvmT
+	 Ls3Bb5mZnSEMQ6k5aHgu1BKThYHDFzd7cflyMd9pKMivsqHKi7zmvjPnaTQuG0AGZt
+	 BBZ0o6uVJpwK2WDqTzftQJrpY4Hsr6yss4Rr/hFGxiJuK17OYFDagSwog/J+/k0Kqt
+	 eVGcsYEuJNobg==
+Received: from IcarusMOD.eternityproject.eu (fi-19-199-243.service.infuturo.it [151.19.199.243])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 45AD717E0CA7;
+	Thu, 10 Apr 2025 16:39:51 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: robh@kernel.org
+Cc: krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ulf.hansson@linaro.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	fshao@chromium.org,
+	y.oudjana@protonmail.com,
+	wenst@chromium.org,
+	lihongbo22@huawei.com,
+	mandyjh.liu@mediatek.com,
+	mbrugger@suse.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH v1 1/3] dt-bindings: power: mediatek: Support Dimensity 1200 MT6893 MTCMOS
+Date: Thu, 10 Apr 2025 16:39:42 +0200
+Message-ID: <20250410143944.475773-2-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250410143944.475773-1-angelogioacchino.delregno@collabora.com>
+References: <20250410143944.475773-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB9093:EE_
-X-MS-Office365-Filtering-Correlation-Id: d75d5bef-4a7a-4470-69cf-08dd7840b5ab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|7416014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?00MtSS+hjNOvDvXSI9B+NwbmtisqkygYFoKUAviRY//Q1+nNASHclQYyfH96?=
- =?us-ascii?Q?mKj9F2EY7oQsVxHhqp1mjyVIAycUcQKXy/OuGVWzNDz85jNGlUjc6jDSgt2k?=
- =?us-ascii?Q?58WdUL/Ze8Teq5KKbp73iqZopgsGV6+y60yrzz8hfzwjlDq9nM6IVlNkKb3b?=
- =?us-ascii?Q?4LjYdjNSlPjvcNYS53pWd+UP4sZ/i/UePxUfXBEWWyfEwO5I2F8iIxnCcCaq?=
- =?us-ascii?Q?8Rw2C1U9spoyZRtXisf0/l+T1ShEP56DN8mE3cKOS90PI5bmm2uMrRidAq04?=
- =?us-ascii?Q?M0bj9XMx6ueCyqO92j+5o45FJikra8AYE6ruozvOOOPRuxXZW1iIdwvvXJui?=
- =?us-ascii?Q?SmmB/QGfNNa9cwGmKkU9Q2vPZuLRLrSrAFmJIsC0tsw8Pdt31+k3smyY/pW4?=
- =?us-ascii?Q?Jc8BD49Qhjz8ZV7ZYduqmmslJPlumEM2CvWRf+PMJpxkJJAYxFNIxTbPfJRa?=
- =?us-ascii?Q?k6WTanTpg14brnVSJfX8mXW68eXieeCQZ5+2/yEdv2rLNk4hran8CJdXSC6z?=
- =?us-ascii?Q?qxxqflAWGfh+iUTNojUlztSRAEgo6yddZOvGGpc5wHxrt1t8AojtFRhB+GDt?=
- =?us-ascii?Q?ZJlpdnlt5kb9le4YRGEYZh3ZjmdsNdk3qbhvZd0yuRgemWp1SyWKg1vK5UO/?=
- =?us-ascii?Q?CjjQ0GQfMJGl/J5kydm6VcGuDsMolGiYupra6SPqa6b5ApiFETN4kHBVT6EU?=
- =?us-ascii?Q?emFnB+sj6RiyxEGd7SW2L2a65kYiFrqD/IF/cK+CI3bHqRFxOy6q9q0AlMHu?=
- =?us-ascii?Q?xGENJCYAm6ciwjXqbNuYQhEY8n1fCUFA2YnzuzC86DDNZjhxv/L98jC/v7xa?=
- =?us-ascii?Q?7DVQsKE5UhpetpcUiZ1UJL4BMDhD8LdCXc57zd1/ZjOgeDnhNghB1y2vpiOp?=
- =?us-ascii?Q?IYlaXSS2pRtftsU0ly6o5VpZabqKG97HaHdr5l7UhcPg7ph7PLhCMlBGSVDd?=
- =?us-ascii?Q?ZuUGc2LHNiEpw12ZWkigaRWR9UowIZtdE/E+2LJt6eWvDsMPvHiXp3jbBXq1?=
- =?us-ascii?Q?slUFaj46SrQsEOq7bp8KwruMsc95K8mz5AIrZlKuoubr10dCZoZaqkNSJkSY?=
- =?us-ascii?Q?HMTtkfrrLQs2KFW9ucIUSntYyahbBYw1xJ11MLkQamk4wsQy7rqxCGS/qPRk?=
- =?us-ascii?Q?+TuM7OT3XDHBE+7jbmbyNrJbXaXZfbmQoEkomRf8giz9k3RRFSfGPwjeQaZf?=
- =?us-ascii?Q?bR48ljIC+vjsNCQR9oRgwMphAgTW5329HQQpHyqMy5IxsyqPMNHIDGMWCd92?=
- =?us-ascii?Q?fbMaWKwNWrSwp939/YikGJWTmEw2VBbvk/cyLnZZWFfTQp9YZsfpfgI8Jvfw?=
- =?us-ascii?Q?9+IxTLynq7gdlhrDlANa6E9wSVb3Qt1wl9qCD6MVig+vuuml9Zup82sTuha0?=
- =?us-ascii?Q?qC34d357VsheQBv+HsPfFQS8sC7f8xCsuSZomiy1beHbLsCvPb30lDSq13NX?=
- =?us-ascii?Q?1ri3bHCNAtDZflIy6qvs3x9Uz28xcSJN?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+Q0eVI9jzTZOs2UqdT3/0EhAG1fS7fffS/Jym7oO5GtCWa5NB1j/GLnB1G7B?=
- =?us-ascii?Q?mWn43RNQfqjuUqB3J8+jYx9novQFyGxd82Sc4OzNT0xhUVcPfdjQ6zlm5aJH?=
- =?us-ascii?Q?d4SjCiogXEkby5NlVgAAWdpJCRov8e9/qaFsFQjeAqf0DCmAJ40W2xcLP36/?=
- =?us-ascii?Q?uKmvU9HX2fFXDZF/nDre2fQ9gjka2X3yFeeo+dTlDlUw0JVK1qAcEAM2UE/Y?=
- =?us-ascii?Q?nHGp6+A5ng9aaY30knquN5ApodEBSM8R4+NNV42Dexe1aCaMdFQ6s4nD68J0?=
- =?us-ascii?Q?IwvKI848qMw2SNAPLL8/92qyhHO/1aaM3wXmYABtUBnGRp1QTPA5tJWyGcwo?=
- =?us-ascii?Q?fo2hPaLDmrfe9qg5W+F586TvDlJKrW/0jkD/4pxIADyibJKBk4/5y4sBYHiP?=
- =?us-ascii?Q?c2q5rOklLLyVRqwqbz0ORHHx8FYghzWThUjHCL1M8IbDcGsmdQu5DY9Y47Fo?=
- =?us-ascii?Q?dgqOxOPwYvp7hNq90xztmznFs/H9PR9JFQRvxI1vl71hk6mQVu2ye6KHBhtT?=
- =?us-ascii?Q?w0hED3tQQoRy4E9JZRzsziey/ipMd8GL341p+0QtWf4jBGLvw+MRje//Bq/9?=
- =?us-ascii?Q?PZtUGoqCThoZcbTyQfgYOibGtDww/uBPIYummkF+pnZ6N0+mgH5u73laBOJk?=
- =?us-ascii?Q?2dqR5sGb34ON4w6TvzIIc7qhmuf6C1/1v+Qi7V2NYzX4ysl7jP0nkLKgEk7T?=
- =?us-ascii?Q?VqYwzJyEx3n0xioFmvQGRPMyx5SpWIngSIG5xbl/DlNi1B/hEvPiUeKF7MLT?=
- =?us-ascii?Q?P22dox4/gFAgZNZHq+wpUWJ9Yml+6Avp1OufFmUBDfCqH2Vmw68sQ6ekQnsl?=
- =?us-ascii?Q?OBQdKTeC3zJTHZxdUkGbSzIhHuLstBrCOajELtUl0hnAra+7NV5BfT3MujzP?=
- =?us-ascii?Q?XgCUsTzgDfUYa5B4j9jrzLjraF1Cb5xb3lhw/mQ7T3vDfj03b1z6J8h5a8dE?=
- =?us-ascii?Q?mUIub49jlAtNJS235f+nYEnvMlWAbvT3XsK4P+vXkQPt7ajIXGw/cTSZzxTZ?=
- =?us-ascii?Q?r4h+KgHk2e4mO+h2FvRP9pdPg5PffqnBS5+/r56sh9Yw1zUUMQ6dP5XhVatz?=
- =?us-ascii?Q?bfRXLd5ljgL/4HeoYlBItoZRRFkqaDqiuaHqHQq+UluWu0QJspXPTPIsaeDZ?=
- =?us-ascii?Q?IFLyVogymJ97hYg9tmGJ0RXYcaSg+ryMbpBqpmBcB8E6Ka/pI3h1SBRG0o8U?=
- =?us-ascii?Q?3zAFKLOpU58AeRY7yl5FomKvYVVam7lmS8D/BDUn8rrOoKsx1Tn3aMlFoPa5?=
- =?us-ascii?Q?kHvWFG9ndEkr+jTmViQYcpGMI0b3cnD9wvETV6W75DC0orBsztqhmdehQYPx?=
- =?us-ascii?Q?rwbWqwcmwOpy4VZ2qXocrv8hvFEr7dfaaUtYaJZQUEIWxfq4yFCwmnzP0anI?=
- =?us-ascii?Q?0VEePknC/qnPEX+JpXypFV5irYOM18Cc0mux8ELIJMy7LFv0xO5VM1KC1opy?=
- =?us-ascii?Q?EhdTutw9AGWw9nVrnarOgN/7IyHlyRR8znP47R2Y6G6MuKKIX5ptKD37ytUN?=
- =?us-ascii?Q?ljddnu+LDAr9vmxrPPjmeMYH+k6/c5SogwkkUlkSsjUvCFtwJJ6079KjFB0L?=
- =?us-ascii?Q?0GbpG1oAtMJys/BHi1MLy1A71/UuLH6qhTE2c36Q?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d75d5bef-4a7a-4470-69cf-08dd7840b5ab
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2025 15:02:28.0217
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zQSEp0fvFSnPn2Fl6jZN2oLWQEwMTIXSBU57rnHyQSxbA6NUPLi3q50fmDXgLdVXcFLqbfogrRup8IpUV6Ad2Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9093
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_080235_712470_14AD921D 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20250410_073954_875136_B89CAB7C 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,35 +87,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 11:02:44AM +0200, Primoz Fiser wrote:
-> Drop redundant 'no-1-8-v' flag from usdhc1 (eMMC) node. Flag is now set
-> by default in the SOM include file (imx93-phycore-som.dtsi).
->
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> ---
+Add support for the Power Domains (MTCMOS) integrated into the
+MediaTek Dimensity 1200 (MT6893) SoC.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../power/mediatek,power-controller.yaml      |  2 ++
+ .../dt-bindings/power/mediatek,mt6893-power.h | 35 +++++++++++++++++++
+ 2 files changed, 37 insertions(+)
+ create mode 100644 include/dt-bindings/power/mediatek,mt6893-power.h
 
->  arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts | 5 -----
->  1 file changed, 5 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> index 85fb188b057f..902b523fc92c 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-> @@ -40,11 +40,6 @@ &lpuart1 {
->  	status = "okay";
->  };
->
-> -/* eMMC */
-> -&usdhc1 {
-> -	no-1-8-v;
-> -};
-> -
->  /* SD-Card */
->  &usdhc2 {
->  	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-> --
-> 2.34.1
->
+diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+index 591a080ca3ff..9c7cc632abee 100644
+--- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+@@ -25,6 +25,7 @@ properties:
+     enum:
+       - mediatek,mt6735-power-controller
+       - mediatek,mt6795-power-controller
++      - mediatek,mt6893-power-controller
+       - mediatek,mt8167-power-controller
+       - mediatek,mt8173-power-controller
+       - mediatek,mt8183-power-controller
+@@ -88,6 +89,7 @@ $defs:
+         description: |
+           Power domain index. Valid values are defined in:
+               "include/dt-bindings/power/mt6795-power.h" - for MT8167 type power domain.
++              "include/dt-bindings/power/mediatek,mt6893-power.h" - for MT6893 type power domain.
+               "include/dt-bindings/power/mt8167-power.h" - for MT8167 type power domain.
+               "include/dt-bindings/power/mt8173-power.h" - for MT8173 type power domain.
+               "include/dt-bindings/power/mt8183-power.h" - for MT8183 type power domain.
+diff --git a/include/dt-bindings/power/mediatek,mt6893-power.h b/include/dt-bindings/power/mediatek,mt6893-power.h
+new file mode 100644
+index 000000000000..aeab51bb2ad8
+--- /dev/null
++++ b/include/dt-bindings/power/mediatek,mt6893-power.h
+@@ -0,0 +1,35 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
++/*
++ * Copyright (c) 2025 Collabora Ltd
++ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++ */
++
++#ifndef _DT_BINDINGS_POWER_MT6893_POWER_H
++#define _DT_BINDINGS_POWER_MT6893_POWER_H
++
++#define MT6893_POWER_DOMAIN_CONN		0
++#define MT6893_POWER_DOMAIN_MFG0		1
++#define MT6893_POWER_DOMAIN_MFG1		2
++#define MT6893_POWER_DOMAIN_MFG2		3
++#define MT6893_POWER_DOMAIN_MFG3		4
++#define MT6893_POWER_DOMAIN_MFG4		5
++#define MT6893_POWER_DOMAIN_MFG5		6
++#define MT6893_POWER_DOMAIN_MFG6		7
++#define MT6893_POWER_DOMAIN_ISP			8
++#define MT6893_POWER_DOMAIN_ISP2		9
++#define MT6893_POWER_DOMAIN_IPE			10
++#define MT6893_POWER_DOMAIN_VDEC0		11
++#define MT6893_POWER_DOMAIN_VDEC1		12
++#define MT6893_POWER_DOMAIN_VENC0		13
++#define MT6893_POWER_DOMAIN_VENC1		14
++#define MT6893_POWER_DOMAIN_MDP			15
++#define MT6893_POWER_DOMAIN_DISP		16
++#define MT6893_POWER_DOMAIN_AUDIO		17
++#define MT6893_POWER_DOMAIN_ADSP		18
++#define MT6893_POWER_DOMAIN_CAM			19
++#define MT6893_POWER_DOMAIN_CAM_RAWA		20
++#define MT6893_POWER_DOMAIN_CAM_RAWB		21
++#define MT6893_POWER_DOMAIN_CAM_RAWC		22
++#define MT6893_POWER_DOMAIN_DP_TX		23
++
++#endif /* _DT_BINDINGS_POWER_MT6893_POWER_H */
+-- 
+2.49.0
+
 
