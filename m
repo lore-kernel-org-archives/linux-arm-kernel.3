@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F93C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 07:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A326CC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 07:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qFv2XQ9igY+nrtDKTp+ccSbyZIQ5/sCZbNRt3ca4mUs=; b=yhk4Z8Hiq0J5SigvqeQ27ulOF5
-	tTgE+zZtH/xUmhBiIQ0ua9GdsD9SaLUh3dslWc/9oEMUBuCCpk/KFFkagNmCvENN+x9jKYpn6T0Yq
-	8VlrLrEykgk78IYGL3jxrtAP25ndnav4aPNCEUfLXwrgAtDkwZ/VdQEwk3uy9n7kaIWxVgCrDEco5
-	BnQi7AQCTKie4cYb0f8C0qe44bboJioDWpqfvROMfHZwn/IQBKRGm+p1q2XrKLkw/4bcUGlJgOCx7
-	Pw1F57w9VG0hiv9puhY4LgKk30kijGD7gtdp8GXBS1q6HDhnBQ7jOCB+38vOpvtLRStMEMwU7oKy3
-	N6gl2JBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uHfbW2BwhNKtYp0DwDcnPQM1979WkjuSa3wL4YpUPVA=; b=1jcXju0vDRlAztOY43sAzZP6LC
+	niOex5Yn96pVTo0Y4fRekldCONrP84vzUi2Rosu8N9OHWwE+9awEXBuDjZwAhX7WvEDXQ8g6rZHGg
+	/Nj/DBCYV2om7K9DOfn5tsd3LK6wsqnd9vtzDenc5Oh8qD00DJ0oABibgMGODWVwfKRAQfp8GA2FD
+	dyyT3Qv2mW6IL04EVP9JHbtD58/qXdRa9zy8rA41pfIRPc040t1+/RV0W9tOQ2y1XD6+K//Bn+e8C
+	v5ow8cfhIwpIPr7QZKbi/wTJHWlw90yganjBGwmB/Ct6gg9c3v5H8K9Qgay371obAHHLVE7HNosQm
+	RPzhof0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2m8X-00000009VIR-3bWw;
-	Thu, 10 Apr 2025 07:15:45 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u2mAK-00000009Vm7-2zpE;
+	Thu, 10 Apr 2025 07:17:37 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lfS-00000009PlJ-2xV7;
-	Thu, 10 Apr 2025 06:45:43 +0000
-X-UUID: 4566dce015d511f0a1e849db4cc18d44-20250409
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=qFv2XQ9igY+nrtDKTp+ccSbyZIQ5/sCZbNRt3ca4mUs=;
-	b=UhKT2cPF8Z5XCw0ZhBpTmnrB8pEVRpqhGPthNxojG8Lt9AZGLP/pvKHGyrFfFaNX4ZaJJBCBR67zXhQ8k+N8ok7VqC0QSTtr3urbkAIaQDOh8t5XJTfMjpCVGPM01L2bCU7L9H+liVxP1egykWkKASoceonHw4Xqy1Iw/VMOngQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:aa15fb8e-c609-4b62-bf91-7ca1bbc4a9a5,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:cc9b138b-0afe-4897-949e-8174746b1932,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 5,DFT|NGT
-X-CID-BAS: 5,DFT|NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 4566dce015d511f0a1e849db4cc18d44-20250409
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1273542872; Wed, 09 Apr 2025 23:30:18 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 10 Apr 2025 14:30:15 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 10 Apr 2025 14:30:15 +0800
-From: kyrie.wu <kyrie.wu@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, kyrie wu
-	<kyrie.wu@mediatek.corp-partner.google.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: kyrie.wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v2 05/12] media: mediatek: jpeg: fix jpeg hw count setting
-Date: Thu, 10 Apr 2025 14:29:58 +0800
-Message-ID: <20250410063006.5313-6-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250410063006.5313-1-kyrie.wu@mediatek.com>
-References: <20250410063006.5313-1-kyrie.wu@mediatek.com>
+	id 1u2lgA-00000009PsW-3E1t;
+	Thu, 10 Apr 2025 06:46:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id CB5D64435C;
+	Thu, 10 Apr 2025 06:46:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1744267582;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uHfbW2BwhNKtYp0DwDcnPQM1979WkjuSa3wL4YpUPVA=;
+	b=Dj7FSe+kWXd23IvbZ+MSy+pec7Gjo7DJP4LDzOxce5VjGLvIS6UX7tnz07Fbv2sOsYGiH8
+	LsTB5QxV2U7fToDLGpA7wJFGJhr9oG3kvS4U0YoGuE2eAy+N/1zeJ/rsEVWSv79oZwbG46
+	DATvE87ImDnDaOjkUMUY2HtE36Fua6NoNfADlYSQV+t+UfdDkJJ+FfS3TKtdTNNj95VQzt
+	Pkuy1FlNsUg3hd3j9WRkD70FhN3TMGK0VDfGDFvFsH48rctlSY2SPuTK+ymns7AScMV43T
+	LQvaRoMg9v5qrS1z0EhaWPk7As1QOwqqTANPgzYzRSlI+8QDasNT/QNch3O15g==
+Date: Thu, 10 Apr 2025 08:46:18 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Vladimir Oltean <olteanv@gmail.com>, Srinivas
+ Kandagatla <srinivas.kandagatla@linaro.org>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, "Chester A.
+ Unal" <chester.a.unal@arinc9.com>, Daniel Golle <daniel@makrotopia.org>,
+ DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>, Simon
+ Horman <horms@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, upstream@airoha.com
+Subject: Re: [net-next PATCH v14 07/16] net: mdio: regmap: add support for
+ C45 read/write
+Message-ID: <20250410084618.43edc269@fedora.home>
+In-Reply-To: <67f620a1.050a0220.347fc7.1fee@mx.google.com>
+References: <20250408095139.51659-1-ansuelsmth@gmail.com>
+	<20250408095139.51659-8-ansuelsmth@gmail.com>
+	<20250409090751.6bc42b5b@fedora.home>
+	<67f620a1.050a0220.347fc7.1fee@mx.google.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdekvdduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdejpdhrtghpthhtoheprghnshhuvghlshhmthhhsehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhgvvgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkr
+ hiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_234542_768595_8889B2FC 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20250409_234627_443080_A60DCA20 
+X-CRM114-Status: GOOD (  43.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,102 +92,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1. different IC has different hw core;
-2. use a parameter to set jpeg hw count.
+On Wed, 9 Apr 2025 09:24:13 +0200
+Christian Marangi <ansuelsmth@gmail.com> wrote:
 
-Signed-off-by: kyrie.wu <kyrie.wu@mediatek.com>
----
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c   | 8 ++++----
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h   | 2 ++
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c | 1 +
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c | 1 +
- 4 files changed, 8 insertions(+), 4 deletions(-)
+> On Wed, Apr 09, 2025 at 09:07:51AM +0200, Maxime Chevallier wrote:
+> > Hi Christian,
+> > 
+> > On Tue,  8 Apr 2025 11:51:14 +0200
+> > Christian Marangi <ansuelsmth@gmail.com> wrote:
+> >   
+> > > Add support for C45 read/write for mdio regmap. This can be done
+> > > by enabling the support_encoded_addr bool in mdio regmap config and by
+> > > using the new API devm_mdio_regmap_init to init a regmap.
+> > > 
+> > > To support C45, additional info needs to be appended to the regmap
+> > > address passed to regmap OPs.
+> > > 
+> > > The logic applied to the regmap address value:
+> > > - First the regnum value (20, 16)
+> > > - Second the devnum value (25, 21)
+> > > - A bit to signal if it's C45 (26)
+> > > 
+> > > devm_mdio_regmap_init MUST be used to register a regmap for this to
+> > > correctly handle internally the encode/decode of the address.
+> > > 
+> > > Drivers needs to define a mdio_regmap_init_config where an optional regmap
+> > > name can be defined and MUST define C22 OPs (mdio_read/write).
+> > > To support C45 operation also C45 OPs (mdio_read/write_c45).
+> > > 
+> > > The regmap from devm_mdio_regmap_init will internally decode the encoded
+> > > regmap address and extract the various info (addr, devnum if C45 and
+> > > regnum). It will then call the related OP and pass the extracted values to
+> > > the function.
+> > > 
+> > > Example for a C45 read operation:
+> > > - With an encoded address with C45 bit enabled, it will call the
+> > >   .mdio_read_c45 and addr, devnum and regnum will be passed.
+> > >   .mdio_read_c45 will then return the val and val will be stored in the
+> > >   regmap_read pointer and will return 0. If .mdio_read_c45 returns
+> > >   any error, then the regmap_read will return such error.
+> > > 
+> > > With support_encoded_addr enabled, also C22 will encode the address in
+> > > the regmap address and .mdio_read/write will called accordingly similar
+> > > to C45 operation.  
+> > 
+> > This driver's orginal goal is to address the case where we have a
+> > PHY-like device that has the same register layout and behaviour as a
+> > C22 PHY, but where the registers are not accesses through MDIO (MMIO
+> > for example, as in altera-tse or dwmac-socfpga, or potentially SPI even
+> > though  there's no example upstream).
+> > 
+> > What is done here is quite different, I guess it could work if we have
+> > MMIO C45 phys that understand the proposed encoding, but I don't really
+> > understand the dance where C45 accesses are wrapped by this mdio-regmap
+> > driver into regmap accesss, but the regmap itself converts it back to
+> > C45 accesses. Is it just so that it fits well with MFD ?  
+> 
+> The main task of this wrapping is to remove from the dev side having to
+> handle the encode/decode part. regmap address is still a single value
+> but if a phy is mmio mapped is difficult to support c45 since you need 3
+> different values (phy id, mmd and addr)
+> 
+> With this implementation a c45 that is mmio mapped can implement
+> whatever way he wants to configure each parameter for read/write
+> operation.
+> 
+> Example the ecoding might be on different mask and with the additional
+> function it can be reorganized following the specific mask.
+> 
+> > 
+> > I'm not really against that, it still converts mdio access to regmap so
+> > there's that, but is there a way to elaborate or document somewhere why
+> > we need to do go through C45 -> regmap -> C45 instead of just
+> > writing a mii_bus driver in the first place ?  
+> 
+> This was askek to prevent creating additional ""trivial"" mdio driver
+> that would all do the same task. Since mdio-regmap was already in place
+> it could have been extended with a more generic approach.
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 97117f7babd9..0ea3851e0ab1 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1468,7 +1468,7 @@ static int mtk_jpegenc_get_hw(struct mtk_jpeg_ctx *ctx)
- 	int i;
- 
- 	spin_lock_irqsave(&jpeg->hw_lock, flags);
--	for (i = 0; i < MTK_JPEGENC_HW_MAX; i++) {
-+	for (i = 0; i < jpeg->max_hw_count; i++) {
- 		comp_jpeg = jpeg->enc_hw_dev[i];
- 		if (comp_jpeg->hw_state == MTK_JPEG_HW_IDLE) {
- 			hw_id = i;
-@@ -1515,7 +1515,7 @@ static int mtk_jpegdec_get_hw(struct mtk_jpeg_ctx *ctx)
- 	int i;
- 
- 	spin_lock_irqsave(&jpeg->hw_lock, flags);
--	for (i = 0; i < MTK_JPEGDEC_HW_MAX; i++) {
-+	for (i = 0; i < jpeg->max_hw_count; i++) {
- 		comp_jpeg = jpeg->dec_hw_dev[i];
- 		if (comp_jpeg->hw_state == MTK_JPEG_HW_IDLE) {
- 			hw_id = i;
-@@ -1610,7 +1610,7 @@ static void mtk_jpegenc_worker(struct work_struct *work)
- 		jpeg_work);
- 	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
- 
--	for (i = 0; i < MTK_JPEGENC_HW_MAX; i++)
-+	for (i = 0; i < jpeg->max_hw_count; i++)
- 		comp_jpeg[i] = jpeg->enc_hw_dev[i];
- 	i = 0;
- 
-@@ -1721,7 +1721,7 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 	struct mtk_jpeg_fb fb;
- 	unsigned long flags;
- 
--	for (i = 0; i < MTK_JPEGDEC_HW_MAX; i++)
-+	for (i = 0; i < jpeg->max_hw_count; i++)
- 		comp_jpeg[i] = jpeg->dec_hw_dev[i];
- 	i = 0;
- 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-index 17d2b9274469..cff156697603 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-@@ -231,6 +231,7 @@ struct mtk_jpegdec_comp_dev {
-  * @reg_decbase:	jpg decode register base addr
-  * @dec_hw_dev:	jpg decode hardware device
-  * @hw_index:		jpg hw index
-+ * @max_hw_count:	jpeg hw-core count
-  */
- struct mtk_jpeg_dev {
- 	struct mutex		lock;
-@@ -253,6 +254,7 @@ struct mtk_jpeg_dev {
- 	void __iomem *reg_decbase[MTK_JPEGDEC_HW_MAX];
- 	struct mtk_jpegdec_comp_dev *dec_hw_dev[MTK_JPEGDEC_HW_MAX];
- 	atomic_t hw_index;
-+	u32 max_hw_count;
- };
- 
- /**
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-index 1bc632f54bc2..f59d86431295 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-@@ -692,6 +692,7 @@ static int mtk_jpegdec_hw_probe(struct platform_device *pdev)
- 	master_dev->dec_hw_dev[i] = dev;
- 	master_dev->reg_decbase[i] = dev->reg_base;
- 	dev->master_dev = master_dev;
-+	master_dev->max_hw_count++;
- 
- 	mtk_jpegdec_smmu_init(dev);
- 	platform_set_drvdata(pdev, dev);
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-index db9b67830a72..73b99a5ea5da 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-@@ -426,6 +426,7 @@ static int mtk_jpegenc_hw_probe(struct platform_device *pdev)
- 	master_dev->enc_hw_dev[i] = dev;
- 	master_dev->reg_encbase[i] = dev->reg_base;
- 	dev->master_dev = master_dev;
-+	master_dev->max_hw_count++;
- 
- 	mtk_jpegenc_smmu_init(dev);
- 	platform_set_drvdata(pdev, dev);
--- 
-2.46.0
+Ah yes that's the point I was missing, I've browsed more in depth and
+indeed in V11 Vlad suggested to use this.
 
+> Any hint on where to better document this?
+
+Given the simplicity of the driver, I think this commit log is good
+enough then :)
+
+Let's go for it and hopefully this can be reused elsewhere !
+
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
 
