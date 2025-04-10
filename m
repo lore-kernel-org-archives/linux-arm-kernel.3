@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C76C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 08:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52360C369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 08:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/B6iAfkVFjx7sDfCWC2hIpuHaw1ArUQ8xKSTxqrriQ=; b=VV4I9HR5OLTcF9ubsrpBRqePMl
-	ARTFc4QfjZ4S49I52Xr6toQuc7OjlJagXJeEzzgVrP62RdpsLSFZGzRm/7FPz4/7ND1+xMoLeJd1b
-	MB3f8AiIRauiaZ64UezPPhyf8olixIBr1FaPCMhUqh4T2UuC9WWNKOOyBODM+ARt6IHZ6Kcx8u+87
-	5hOjcIWMUzHCSOfBvNeNnR78xqNs8ZMCDXDPf4eBlb0bfYltFMZtg94bWu2K0uM9ufXiAKBp8A8AU
-	ovxm4ZbLyFtYwm0XAL4YMuR1zydasQk+f4O6UGo9nLCR93oSjiTst4JZYqcAPNwVfpizSmMV6NUAK
-	ZEm2T92g==;
+	bh=uB+Z6x+VWnGWGieZgYK9ruFVlK20QbBkiLXO+vDsz2w=; b=LxhI6Pl6wPXvyybOYFTL5wXrGJ
+	lztmdIoI7/fCH3SDAQ9EF+gPfGet+JtQweIqhRh/YpxMb4CZaBxai8+O0NpIXPQW7Z+Rc4u5Ae4kp
+	VNX6N+yQ1RMLIZImyelnyfOdmX9MaZQUOuCe0aU9p9j9C9fO7oxzQCfuqFwlYkgYnzzsk2BhFZuL6
+	ocwArGJOY1Gexy9cBoSt/wEYjPlA9eED1lRqJPi9krVWKk+N5LBSstmGQcRZdGniW3eOiW4mLN6an
+	H1pxNaIAa0d+Uz8opWHJmyNoGr4QVgZsohYq8NRdK685AQvQkQ63UGiZzIaSwegjErnmeJptLlUbr
+	hSnEzv8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2nYU-00000009npC-1C71;
-	Thu, 10 Apr 2025 08:46:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u2naF-00000009o25-3Z9k;
+	Thu, 10 Apr 2025 08:48:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2mxQ-00000009gNO-1m5W
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 08:08:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 01A73A42C6A;
-	Thu, 10 Apr 2025 08:02:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 355EFC4CEDD;
-	Thu, 10 Apr 2025 08:08:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744272499;
-	bh=8ND6dqJylzytwK8QGY61NBtBW3bbGF9AnqUq6PCX2cA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=etC/ghh+hxK8w7jbzUsZMabc6XyIzS5CT4Mg7Fa7JrIL5CyE1k2PVwADgAFE9Vean
-	 /0aYjyCiEReq33iNmBth8wdQ2Nh5tYasEmVOc6J07KJ+LzQkWTqUyZs9Rl0TLenf2o
-	 riSY3QobJLrHdYdAGrHu8KJivKEY6d5RZfDXb7yzEC8GbDZVy1znKo4POOMqT+69gW
-	 rTR843N8sbkhlXfRYMPovrzBekXMQA+E3bajLciYq6oa8idjQRxqJK0DSNEDbSeW4S
-	 5blEih3PumxcILI8AMhng0P5Z/d7bzOb6KXm1VBfxZawaNRApNjonNqMHmcA7EhlaQ
-	 YuimoL7vdE6zA==
-Date: Thu, 10 Apr 2025 10:08:12 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	id 1u2n5Z-00000009hq5-2Uq4;
+	Thu, 10 Apr 2025 08:16:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=uB+Z6x+VWnGWGieZgYK9ruFVlK20QbBkiLXO+vDsz2w=; b=Wjg+PVCtrtNOWu7AUd4A4kKRMN
+	X7AvVDzvlWDxtYHCg+MYT4kRUd6r2iTn2US6oojoVMcGh033UfN5FIGcAqYYUqP+NBDE3tDrnS7TF
+	GV7+w43k6VmvfmY1+6cyqopPdH79oktWgRSTQJ4DlWPHTvguEb/+HIMC1S+uKwsyYOXfar3VoqMvw
+	/XMzNCdlye6wHEotel1CYkCZqH7xq/UZcXylgBuU52T2nKLvLUZmnlUb5gqOnHRsatb5ENs37fUYE
+	Mg2RdH/RUY2KrIjBO0Epbebx1Nw6eTo1iSv1bvWXCpfrONOKn5leUL4JR+WJaWfpiQ+YtZqzJznDa
+	XzdpvzRg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u2n5V-00000008mN2-1kUp;
+	Thu, 10 Apr 2025 08:16:41 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 00A143003C4; Thu, 10 Apr 2025 10:16:40 +0200 (CEST)
+Date: Thu, 10 Apr 2025 10:16:40 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Maxim Levitsky <mlevitsk@redhat.com>
+Cc: kvm@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	kvm-riscv@lists.infradead.org,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	Waiman Long <longman@redhat.com>, x86@kernel.org,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Anup Patel <anup@brainfault.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Zenghui Yu <yuzenghui@huawei.com>,
+	Borislav Petkov <bp@alien8.de>, Alexandre Ghiti <alex@ghiti.fr>,
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Sebastian Ott <sebott@redhat.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>, Ingo Molnar <mingo@redhat.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sean Christopherson <seanjc@google.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 22/24] irqchip/gic-v5: Add GICv5 ITS support
-Message-ID: <Z/d8bP9GceSVpJAU@lpieralisi>
-References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
- <20250408-gicv5-host-v1-22-1f26db465f8d@kernel.org>
- <87jz7ttb7l.ffs@tglx>
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v2 2/4] KVM: x86: move
+ sev_lock/unlock_vcpus_for_migration to kvm_main.c
+Message-ID: <20250410081640.GX9833@noisy.programming.kicks-ass.net>
+References: <20250409014136.2816971-1-mlevitsk@redhat.com>
+ <20250409014136.2816971-3-mlevitsk@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87jz7ttb7l.ffs@tglx>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_010820_531814_20112317 
-X-CRM114-Status: GOOD (  15.83  )
+In-Reply-To: <20250409014136.2816971-3-mlevitsk@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,49 +96,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 08:57:02PM +0200, Thomas Gleixner wrote:
-> On Tue, Apr 08 2025 at 12:50, Lorenzo Pieralisi wrote:
-> > +	guard(mutex)(&its->dev_alloc_lock);
-> > +
-> > +	its_dev = gicv5_its_find_device(its, device_id);
-> > +	if (IS_ERR(its_dev))
-> > +		return PTR_ERR(its_dev);
-> > +
-> > +	ret = gicv5_its_alloc_eventid(its_dev, nr_irqs, &event_id_base);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret = iommu_dma_prepare_msi(info->desc,
-> > +				    its->its_trans_phys_base);
-> > +	if (ret)
-> > +		goto out_eventid;
-> 
-> As 0-day already complained, guard() and goto does not mix. the simple
-> solution is to do
-> 
-> foo()
->         guard()
->         return __foo();
-> 
-> Then you can put the gotos into __foo()
+On Tue, Apr 08, 2025 at 09:41:34PM -0400, Maxim Levitsky wrote:
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 69782df3617f..71c0d8c35b4b 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -1368,6 +1368,77 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
+>  	return 0;
+>  }
+>  
+> +
+> +/*
+> + * Lock all VM vCPUs.
+> + * Can be used nested (to lock vCPUS of two VMs for example)
+> + */
+> +int kvm_lock_all_vcpus_nested(struct kvm *kvm, bool trylock, unsigned int role)
+> +{
+> +	struct kvm_vcpu *vcpu;
+> +	unsigned long i, j;
+> +
+> +	lockdep_assert_held(&kvm->lock);
+> +
+> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+> +
+> +		if (trylock && !mutex_trylock_nested(&vcpu->mutex, role))
+> +			goto out_unlock;
+> +		else if (!trylock && mutex_lock_killable_nested(&vcpu->mutex, role))
+> +			goto out_unlock;
+> +
+> +#ifdef CONFIG_PROVE_LOCKING
+> +		if (!i)
+> +			/*
+> +			 * Reset the role to one that avoids colliding with
+> +			 * the role used for the first vcpu mutex.
+> +			 */
+> +			role = MAX_LOCK_DEPTH - 1;
+> +		else
+> +			mutex_release(&vcpu->mutex.dep_map, _THIS_IP_);
+> +#endif
+> +	}
 
-Yes even though its usage in this function IIUC is technically fine,
-there are other kernel functions where the guard(mutex) is at the
-function entry with gotos that follow.
+This code is all sorts of terrible.
 
-Regardless, bad idea to mix them, as documented, thanks.
+Per the lockdep_assert_held() above, you serialize all these locks by
+holding that lock, this means you can be using the _nest_lock()
+annotation.
 
-Side note: the bug the bot caught is because I moved the guard(mutex)
-lower in the function and incidentally got past gotos (and gcc did not
-catch it, it has to go up to W=2 to barf).
+Also, the original code didn't have this trylock nonsense, and the
+Changelog doesn't mention this -- in fact the Changelog claims no
+change, which is patently false.
 
-Anyway - as I mentioned in the cover letter, the current IWB driver
-design, (patch 23 - where the guard(mutex) bug is and more readl_poll_*
-boilerplate :), sorry), is a bit of a question (should I move it to
-DOMAIN_BUS_WIRED_TO_MSI with the fixed eventid caveat to solve somehow),
-or is it OK "as-is", treating it basically as an ITS hardcoded plugin ?
+Anyway, please write like:
 
-Thank you very much for having a look.
+	kvm_for_each_vcpu(i, vcpu, kvm) {
+		if (mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock))
+			goto unlock;
+	}
 
-Lorenzo
+	return 0;
+
+unlock:
+
+	kvm_for_each_vcpu(j, vcpu, kvm) {
+		if (j == i)
+			break;
+
+		mutex_unlock(&vcpu->mutex);
+	}
+	return -EINTR;
+
+And yes, you'll have to add mutex_lock_killable_nest_lock(), but that
+should be trivial.
 
