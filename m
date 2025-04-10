@@ -4,51 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C1FC369A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C591BC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7r1Z7nwSVN8k1Y4f71LqMy9rbqSDtUaKem1EVRqZmyg=; b=V1LqjTLtrTRADS8n6iHctNCsw7
-	4ggalZ5/SzKMXpCt7eKhFeUIRowTIZxqOVn49WtYibfQDp9SDbdMZ+eMcNEe6NnQnGYxsTpwY2rVM
-	/WOEPME8M3j11Z2gKttDeGom8wtGPBDDLaB7+WE+FrVtG3H7lYTMn5fxEuAZ3de7wMuivD/TnFK56
-	6QZ3NyVzp89APNszyg141a3iQix/lG+idblo0ng609+lJpdsWweqFaYcEUGJrJJjDxuTkYui/C8yO
-	PfHXFRIVbCJj6ZaEpMJx0Og75Mw6wi5pVsASlV2X/6VZdiYpCan08JSTeF2/6HVNKazX4WCstefOt
-	fUWEO7zg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P0KOnasRrOuIOEP5VssO7QO2UuSAj5T35dXo6KrBp2c=; b=qttnFmMd6lZFLFM0FTAXCQpQOZ
+	9YMECCw8CABXxYQRW2+Y2IOPqjDk8nSNKcsGe0yHlBsnr/rGonHgS6blufvQiUDTXnGaaviP7N1CN
+	OY7YjhoNjYtxMEYmlyzS0CDoS0OFPReCrSMvo83vd3lQMD3QIw9+GbMIZASx9qnqL3Yfb3nwG6qC0
+	Eo5qnJlK3a2vNLTCKnwADhhCTOPHq48nI2IaqCg9Sw13LLjqFs+opEa6jM7iNR6IcmtrJ3m4jUHLO
+	qzfNYWOBPdf3fg/i0bAuyDBJw0nnjKwnA8GuASLr2NlqQ5Omi6baSOK1Rzl7xr8XK89Hm8K+DXRVZ
+	gTMe2d4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pt6-0000000ABVr-48IH;
-	Thu, 10 Apr 2025 11:16:04 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1u2pt5-0000000ABSP-1yFf;
+	Thu, 10 Apr 2025 11:16:03 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ntc-00000009sdd-0gPF
+	id 1u2ntb-00000009sdW-0sCV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:08:30 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4ZYDVP2QvNz13LbK;
-	Thu, 10 Apr 2025 17:07:41 +0800 (CST)
+	Thu, 10 Apr 2025 09:08:29 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4ZYDPQ6wWxz1j5wP;
+	Thu, 10 Apr 2025 17:03:22 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6EA301402E2;
-	Thu, 10 Apr 2025 17:08:23 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 3F0921A016C;
+	Thu, 10 Apr 2025 17:08:21 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Thu, 10 Apr 2025 17:08:22 +0800
+ 15.2.1748.10; Thu, 10 Apr 2025 17:08:20 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 CC: <hejunhao3@huawei.com>, <jonathan.cameron@huawei.com>,
 	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
 	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
-Subject: [PATCH v3 5/8] drivers/perf: hisi: Relax the event number check of v2 PMUs
-Date: Thu, 10 Apr 2025 17:08:22 +0800
-Message-ID: <20250410090825.13214-6-yangyicong@huawei.com>
+Subject: [PATCH v3 0/8] General updates and two new drivers for HiSilicon Uncore PMU
+Date: Thu, 10 Apr 2025 17:08:17 +0800
+Message-ID: <20250410090825.13214-1-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
-In-Reply-To: <20250410090825.13214-1-yangyicong@huawei.com>
-References: <20250410090825.13214-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -56,8 +54,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_020828_568119_0A6ACA33 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20250410_020827_414715_99418F02 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,91 +70,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Junhao He <hejunhao3@huawei.com>
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-The supported event number range of each Uncore PMUs is provided by
-each driver in hisi_pmu::check_event and out of range events
-will be rejected. A later version with expanded event number range
-needs to register the PMU with updated hisi_pmu::check_event
-even if it's the only update, which means the expanded events
-cannot be used unless the driver's updated. However the unsupported
-events won't be counted by the hardware so we can relax the event
-number check to allow the use the expanded events.
+Support new version of DDRC/SLLC PMU identified with updated ACPI HID and
+register definition. In order to support this, we do a preliminary refactor
+to initialize device of each version by using driver data of each HID
+rather than checking the version. This will also make the driver easier to
+maintain and extend, since only the HID specific information along
+with the new HID will be added to support the new version without touching
+the common logic.
 
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Signed-off-by: Junhao He <hejunhao3@huawei.com>
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 2 +-
- drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  | 6 +++---
- drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   | 2 +-
- drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 2 +-
- 4 files changed, 6 insertions(+), 6 deletions(-)
+Two new Uncore PMU drivers is also added to support the monitoring the
+events of the system bus (by NoC PMU) and the DVM operations (by MN PMU).
 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-index 26eaa6d20c00..21c494881ca0 100644
---- a/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c
-@@ -53,7 +53,7 @@
- #define DDRC_V1_PERF_CTRL_EN	0x2
- #define DDRC_V2_PERF_CTRL_EN	0x1
- #define DDRC_V1_NR_EVENTS	0x7
--#define DDRC_V2_NR_EVENTS	0x90
-+#define DDRC_V2_NR_EVENTS	0xFF
- 
- #define DDRC_EVENT_CNTn(base, n)	((base) + (n) * 8)
- #define DDRC_EVENT_TYPEn(base, n)	((base) + (n) * 4)
-diff --git a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-index ca609db86046..97cfaa586a87 100644
---- a/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_hha_pmu.c
-@@ -47,9 +47,9 @@
- #define HHA_SRCID_CMD		GENMASK(16, 6)
- #define HHA_SRCID_MSK		GENMASK(30, 20)
- #define HHA_DATSRC_SKT_EN	BIT(23)
--#define HHA_EVTYPE_NONE		0xff
-+#define HHA_EVTYPE_MASK		GENMASK(7, 0)
- #define HHA_V1_NR_EVENT		0x65
--#define HHA_V2_NR_EVENT		0xCE
-+#define HHA_V2_NR_EVENT		0xFF
- 
- HISI_PMU_EVENT_ATTR_EXTRACTOR(srcid_cmd, config1, 10, 0);
- HISI_PMU_EVENT_ATTR_EXTRACTOR(srcid_msk, config1, 21, 11);
-@@ -197,7 +197,7 @@ static void hisi_hha_pmu_write_evtype(struct hisi_pmu *hha_pmu, int idx,
- 
- 	/* Write event code to HHA_EVENT_TYPEx register */
- 	val = readl(hha_pmu->base + reg);
--	val &= ~(HHA_EVTYPE_NONE << shift);
-+	val &= ~(HHA_EVTYPE_MASK << shift);
- 	val |= (type << shift);
- 	writel(val, hha_pmu->base + reg);
- }
-diff --git a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-index a0142684e379..80108c63cb60 100644
---- a/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_pa_pmu.c
-@@ -440,7 +440,7 @@ static int hisi_pa_pmu_dev_probe(struct platform_device *pdev,
- 	pa_pmu->pmu_events.attr_groups = pa_pmu->dev_info->attr_groups;
- 	pa_pmu->num_counters = PA_NR_COUNTERS;
- 	pa_pmu->ops = &hisi_uncore_pa_ops;
--	pa_pmu->check_event = 0xB0;
-+	pa_pmu->check_event = PA_EVTYPE_MASK;
- 	pa_pmu->counter_bits = 64;
- 	pa_pmu->dev = &pdev->dev;
- 	pa_pmu->on_cpu = -1;
-diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-index 852114cfe3bf..cd32d606df05 100644
---- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-@@ -58,7 +58,7 @@
- #define SLLC_V3_SRCID_CMD_SHIFT		1
- #define SLLC_V3_SRCID_MSK_SHIFT		10
- 
--#define SLLC_NR_EVENTS			0x80
-+#define SLLC_NR_EVENTS			0xff
- #define SLLC_EVENT_CNTn(cnt0, n)	((cnt0) + (n) * 8)
- 
- HISI_PMU_EVENT_ATTR_EXTRACTOR(tgtid_min, config1, 10, 0);
+Change since v2:
+- Rebase on 6.15-rc1, add Jonathan's tag.
+Link: https://lore.kernel.org/linux-arm-kernel/20250321073846.23507-1-yangyicong@huawei.com/
+
+Change since v1:
+- Fold patch which extending the struct hisi_pmu_dev_info into its user
+- Use bit shift rather than bit mask for SLLC PMU registers configuration
+- Address other comments by Jonathan, thanks
+Link: https://lore.kernel.org/linux-arm-kernel/20250218092000.41641-1-yangyicong@huawei.com/
+
+Junhao He (6):
+  drivers/perf: hisi: Simplify the probe process for each DDRC version
+  drivers/perf: hisi: Add support for HiSilicon DDRC v3 PMU driver
+  drivers/perf: hisi: Use ACPI driver_data to retrieve SLLC PMU
+    information
+  drivers/perf: hisi: Add support for HiSilicon SLLC v3 PMU driver
+  drivers/perf: hisi: Relax the event number check of v2 PMUs
+  drivers/perf: hisi: Add support for HiSilicon MN PMU driver
+
+Yicong Yang (2):
+  drivers/perf: hisi: Support PMUs with no interrupt
+  drivers/perf: hisi: Add support for HiSilicon NoC PMU
+
+ Documentation/admin-guide/perf/hisi-pmu.rst   |  11 +
+ drivers/perf/hisilicon/Makefile               |   3 +-
+ drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 354 ++++++++--------
+ drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  |   6 +-
+ drivers/perf/hisilicon/hisi_uncore_mn_pmu.c   | 355 ++++++++++++++++
+ drivers/perf/hisilicon/hisi_uncore_noc_pmu.c  | 392 ++++++++++++++++++
+ drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   |   2 +-
+ drivers/perf/hisilicon/hisi_uncore_pmu.c      |  11 +-
+ drivers/perf/hisilicon/hisi_uncore_pmu.h      |   2 +
+ drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 220 +++++++---
+ 10 files changed, 1098 insertions(+), 258 deletions(-)
+ create mode 100644 drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
+ create mode 100644 drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
+
 -- 
 2.24.0
 
