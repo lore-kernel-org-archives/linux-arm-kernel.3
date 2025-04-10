@@ -4,93 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E803DC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193F7C369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cc5ekfHnrvOs+1pRJK1H7PbWsw3yfPpOvi2+tBhTZPA=; b=UaE+no8ro+ocblsiIdYiRZMHth
-	Bk4Aulk+TC4fFxHgZmtsPKNtn9JehhgZ1IryfsxhYW1GvBqQRZdVWU/VkbTcyWTeeszrTsORQZMTH
-	+MKuGWEiELaozHxP/IV+AN/GVlSidi/9mF99SMkd0s+7jDTWMXKPzf7c/eCZwiBCQwYaalDdZxyA3
-	KgDoXQBb2XM7gQSlOgO2QMoV9wMkBd0N790tKXYN1CvK6nC9RkkoKFl4FQmhwyfQpge6r5NtJKr3Q
-	hmiQnKm88Md+gBEiu8fCQZCR3+4ww7R5ZEOIV39IPM3TigoWkiTPORfsLiqFqyXxLxVdhAruRZOcC
-	Fa1Nfv0g==;
+	bh=PPW29SQXJzR0vrIgTW34aJ4jnnjbpwhhSIoTivBL8ag=; b=HBn/SF5l++iGqJSVZJY44sB3IC
+	nRNks3l9SFofxdKP1z4L/+3jsx+8Dzfdu96M04AH3VQdkWJ84TPWxVH467//0l0Dh8DSelf9grC6X
+	cx7zi7KV4IySeuQpe1HP/9YSc8/Bukx7uvBc3YJeVjPDahzE18Idm0uNvA/mJeX2T9cdxnOdOEchR
+	3FMgrAJyYNS8kFdoVRNJZlL7S/twjNobVd3LZnhHuF857JzwoTkxi4nzgsvfUYApfno3VGRRIB14F
+	qgVn9LdMTkIyZbHcqNMaYz+o30cSfng6H/Jqwrw/yOguMxmMaECx3IscMjjxI8YLlEP7fWv0RDsxX
+	8KUQLulw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2psm-0000000AB1h-1Aax;
-	Thu, 10 Apr 2025 11:15:44 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u2psq-0000000AB6Z-3epd;
+	Thu, 10 Apr 2025 11:15:49 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2nmi-00000009qti-2J0G
+	id 1u2noI-00000009rGU-439m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:01:22 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53A917Nf1235056
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 10 Apr 2025 04:01:07 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744275667;
-	bh=cc5ekfHnrvOs+1pRJK1H7PbWsw3yfPpOvi2+tBhTZPA=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=sTU+3k3WVae23FM08Du+C7ftUAUouanodcI3wm3NxOBYAdqtDond9x4M7Eya/fd41
-	 twzA1Nng8gjTqNpG93ro9HfZ5gwd0amI0Uv3xfjsHyqCBtnqZxYptKzae7QMNddZ8k
-	 4akG5U2EyGKS3CxCwR70RUTxzEjhcIwWXBRQaY70=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53A917wZ001564
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 10 Apr 2025 04:01:07 -0500
-Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 10
- Apr 2025 04:01:06 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 10 Apr 2025 04:01:06 -0500
-Received: from [172.24.227.193] (devarsh-precision-tower-3620.dhcp.ti.com [172.24.227.193])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53A910It043856;
-	Thu, 10 Apr 2025 04:01:00 -0500
-Message-ID: <091c0869-525b-4b40-b5fe-a5c1907ec606@ti.com>
-Date: Thu, 10 Apr 2025 14:30:59 +0530
+	Thu, 10 Apr 2025 09:03:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=PPW29SQXJzR0vrIgTW34aJ4jnnjbpwhhSIoTivBL8ag=; b=JYY1Sp/MOY/UGWBrv+0lzK1DPq
+	LiV6y05vgLz6iohBkgWOAwp80mv32I9lgDIIiaFH9ahmqC8VLWVXy5blBNLBN07pxd2v6kmkJC3GU
+	R+DKlKLQsxSl/LXFTYFrhqJ8BMXi7SSdbchNOLiuGRNIacEdS+4N+6Obezi5h14Jd7j4NNR3yhxCo
+	TJ1CXtRxDwVhA4PP2l7zshMSIOmIZk5Eqg3kls7iieabih/pI5D8xVRT3sXMqvSiKPAvF04pk6Ka7
+	7LnDlOQSdY52RyFFIaOYvSnCngEYB/W3jK6Tm7j4cQXtu48v3uC+Rjb3fDwqhmfC1ATd9LGU4v5oJ
+	kuiBRGyA==;
+Received: from [89.212.21.243] (port=41926 helo=localhost.localdomain)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1u2noE-000Djj-3C;
+	Thu, 10 Apr 2025 11:02:54 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH 01/13] arm64: dts: freescale: imx93-phycore-som: Add PMIC support
+Date: Thu, 10 Apr 2025 11:02:39 +0200
+Message-Id: <20250410090251.1103979-2-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250410090251.1103979-1-primoz.fiser@norik.com>
+References: <20250410090251.1103979-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
- remote processors
-To: Andrew Davis <afd@ti.com>, Judith Mendez <jm@ti.com>,
-        Devarsh Thakkar
-	<devarsht@lewv0571a.ent.ti.com>,
-        Nishanth Menon <nm@ti.com>, Hari Nagalla
-	<hnagalla@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Beleswar Padhi <b-padhi@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Markus Schneider-Pargmann <msp@baylibre.com>, <praneeth@ti.com>,
-        "Khasim, Syed Mohammed" <khasim@ti.com>,
-        <tomi.valkeinen@ideasonboard.com>, <jai.luthra@ideasonboard.com>,
-        <v-krishnamoorthy@ti.com>, <s-tripathy@ti.com>, <s-tripathi1@ti.com>,
-        <c-shilwant@ti.com>
-References: <20250405001518.1315273-1-jm@ti.com>
- <20250405001518.1315273-7-jm@ti.com>
- <6868f593-0728-4e92-a57b-87db6a0037f6@ti>
- <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
- <e131298f-3713-482a-a740-ff89709270b4@ti.com>
-Content-Language: en-US
-From: Devarsh Thakkar <devarsht@ti.com>
-In-Reply-To: <e131298f-3713-482a-a740-ff89709270b4@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_020120_684246_273715EC 
-X-CRM114-Status: GOOD (  46.92  )
+X-CRM114-CacheID: sfid-20250410_020259_158794_57FC03F7 
+X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,306 +94,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew, Judith,
+PMIC driver for PCA9451A used on phyCORE-i.MX93 SOM is available since
+commit 5edeb7d31262 ("regulator: pca9450: add pca9451a support"). Add
+support for it in the SOM device-tree.
 
-Thanks for the quick revert.
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+ .../boot/dts/freescale/imx93-phycore-som.dtsi | 97 +++++++++++++++++++
+ 1 file changed, 97 insertions(+)
 
-On 07/04/25 21:28, Andrew Davis wrote:
-> On 4/7/25 9:13 AM, Judith Mendez wrote:
->> Hi Devarsh,
->>
->> On 4/7/25 8:54 AM, Devarsh Thakkar wrote:
->>> Hi Judith,
->>>
->>> On 05/04/25 05:45, Judith Mendez wrote:
->>>  > From: Devarsh Thakkar <devarsht@ti.com>
->>>>
->>>
->>> Thanks for the patch.
->>>
->>>> For each remote proc, reserve memory for IPC and bind the mailbox
->>>> assignments. Two memory regions are reserved for each remote processor.
->>>> The first region of 1MB of memory is used for Vring shared buffers
->>>> and the second region is used as external memory to the remote 
->>>> processor
->>>> for the resource table and for tracebuffer allocations.
->>>>
->>>> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
->>>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
->>>> Signed-off-by: Judith Mendez <jm@ti.com>
->>>> ---
->>>>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 96 +++++++++++++++++++++ 
->>>> ++--
->>>>   1 file changed, 90 insertions(+), 6 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/ 
->>>> boot/dts/ti/k3-am62a7-sk.dts
->>>> index 1c9d95696c839..7d817b447c1d0 100644
->>>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
->>>> @@ -52,6 +52,42 @@ linux,cma {
->>>>               linux,cma-default;
->>>>           };
->>>> +        c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
->>>> +            compatible = "shared-dma-pool";
->>>> +            reg = <0x00 0x99800000 0x00 0x100000>;
->>>> +            no-map;
->>>> +        };
->>>> +
->>>> +        c7x_0_memory_region: c7x-memory@99900000 {
->>>> +            compatible = "shared-dma-pool";
->>>> +            reg = <0x00 0x99900000 0x00 0xf00000>;
->>>> +            no-map;
->>>> +        };
->>>> +
->>>> +        mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
->>>> +            compatible = "shared-dma-pool";
->>>> +            reg = <0x00 0x9b800000 0x00 0x100000>;
->>>> +            no-map;
->>>> +        };
->>>> +
->>>> +        mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
->>>> +            compatible = "shared-dma-pool";
->>>> +            reg = <0x00 0x9b900000 0x00 0xf00000>;
->>>> +            no-map;
->>>> +        };
->>>> +
->>>> +        wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
->>>> +            compatible = "shared-dma-pool";
->>>> +            reg = <0x00 0x9c800000 0x00 0x100000>;
->>>> +            no-map;
->>>> +        };
->>>> +
->>>> +        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
->>>> +            compatible = "shared-dma-pool";
->>>> +            reg = <0x00 0x9c900000 0x00 0xf00000>;
->>>> +            no-map;
->>>> +        };
->>>> +
->>>>           secure_tfa_ddr: tfa@9e780000 {
->>>>               reg = <0x00 0x9e780000 0x00 0x80000>;
->>>>               alignment = <0x1000>;
->>>> @@ -63,12 +99,6 @@ secure_ddr: optee@9e800000 {
->>>>               alignment = <0x1000>;
->>>>               no-map;
->>>>           };
->>>> -
->>>> -        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
->>>> -            compatible = "shared-dma-pool";
->>>> -            reg = <0x00 0x9c900000 0x00 0x01e00000>;
->>>> -            no-map;
->>>> -        };
->>>>       };
->>>
->>> This is missing the edgeAI specific remote-core carveouts and RTOS- 
->>> to-RTOS IPC memory regions [1] being used by edgeAI firmwares which 
->>> come as pre-packaged in the official SDK release for AM62A.
->>>
->>> There is only one official SDK release for AM62A (which is edgeAI 
->>> based) [2] which packages these edgeAI remoteproc firmwares and in my 
->>> view it is a fair expectation that remote core careveouts in device- 
->>> tree should align with firmwares released in SDK.
->>>
-> 
-> Why should Linux upstream care about what we do in our current evil 
-> vendor SDKs?
-
-These carveouts are specific to remote-cores and so have to match with 
-firmwares running in these remote-cores. The debate is on which 
-firmwares it should match to. The firmwares being packaged in SDK are 
-the most used-ones and so in my view it is safe to account them as the 
-official ones, unless of-course there is a major overhaul and 
-re-architecture planned and accepted for these firmwares in which case 
-we should wait for it.
-
-> We change things around every cycle, and do all kinds of hacky things to 
-> just
-> "make it work" for the current SDK release.
-> 
-
-I don't see any changes done in memory map for last set of releases, but 
-agreed if there is big architecture change planned for these firmwares 
-then we should rather wait for updated firmwares then adding bloated 
-carve-outs.
-
->>> This is because most developers (including me) and vendors download 
->>> this official SDK release and use it with latest upstream kernel and 
->>> modules (right now we are applying required patches locally) and this 
->>> patch won't suffice for this, in-fact it won't work since the 
->>> remoteproc firmwares are already using regions beyond the reserved- 
->>> regions from this patch.
-> 
-> Then that firmware team should fix their firmware, Linux should not
-> do things just because some builds of a firmware did the wrong thing.
-
-Maybe some optimizations would be missing, but carve-outs for lot of 
-things which these firm-wares do out-of-box (and not even related fully 
-to AI) are missing. For e.g. there is RTOS-to-RTOS IPC test which runs 
-on startup and there is no reserved region for same, this would lead to 
-tricky failures. The DM R5 remote core also controls ISP, but all 
-required regions for same are also not present either.
-
-> 
-> Just a random example from the top of my mind here, a while back
-> someone on the codec firmware team decided to take the standard RPMSG
-> name service structure and modify it to suit some specific usecase
-> they had, suddenly all the firmware we made for AM57x devices stopped
-> working on upstream kernels. Instead of fixing the firmware we just
-> carried a hack for the same in our vendor kernel trees. Now customers
-> have no path to use this old firmware on newer kernels as adding the
-> hack to upstream Linux (rightly) failed [0].
-> 
-> Let's not do that again, if we have firmware that doesn't follow
-> upstream, then let's fix the firmware, not hack around it upstream.
-> 
-> The edgeAI firmware folks have no issue ignoring existing upstream
-> IPC carveouts and simply replacing them all with their own custom
-> ones in their SDK[1], I see no reason they cannot continue doing that
-> if they don't want to fix their firmware.
-> 
-
-There is no apples-to-apples comparison with TDA4VM, unlike AM62A7 it 
-offers SDK for both edgeAI and generic Linux [1], so if someone just 
-uses latest upstream kernel and device-tree with this generic linux SDK, 
-that would still work without any overlays applied or carveouts added. 
-Same is not true for AM62A, as AM62A offers only edgeAI SDK with 
-firmwares packaged for AI use-cases. So if someone, just replaces latest 
-upstream kernel and device-tree with the patches from this series in 
-edgeAI wic image, it won't work cleanly due to missing carve-outs.
-
-Also even if we keep aside edgeAI, basic camera+ISP use-case won't work 
-without the carveouts and we would prefer not to clone another layer to 
-grab the overlay and apply it every-time we want to test run camera+ISP 
-(and even the edgeAI use-case) on AM62A which would be a pain.
-
->>
->> I understand your point, currently with this patch remoteproc loading
->> will not work for some cores. However, the goal here is to standardize
->> as much as possible the memory carveout sizes, push the "demo firmware"
->> to request resources the correct way from resource table, and move away
->> from this dependency and limitations that we have with our firmware.
-
-I understand this, but my view is that w.r.t firmware only goal should 
-not just be tp demonstrate correct way of requesting resources from 
-resource-tables, optimize the carve-outs etc but also to demonstrate the 
-primary use-cases (camera+ISP+edgeAI) which the device is capable of.
-
->> should soon be able to generate our own firmware using Zephyr,  which
->> Andrew is pioneering, so with this firmware we should move to the
->> correct direction upstream. Downstream we are still using the memory
->> carveout sizes that the firmware folk want so desperately to keep, for
->> now..
->>
-> 
-> +1
-> 
-> I have this Zephyr based firmware for AM62A working and it uses the
-> standard IPC regions as specified in this patch. I'll be posting the PR
-> for it in Zephyr upstream by the end of week.
-> 
-
-I understand this, but will this zephyr based firmware support vision + 
-edgeAI analytics ? Does it demonstrate all the unique capabilities of 
-AM62A SoC ? If not, then what would be utility of such firmware on AM62A 
-where these are the primary use-cases w.r.t AM62A ?
-
-Why should upstream device-tree use carve-outs which match to this demo 
-zephyr based firmware (which apparently not many are using and is not 
-going into any official SDK release) instead of official firmwares going 
-into SDK ? SDK released firmwares are being used by so many customers 
-and SDK documentation maps to it, but zephyr firmware that is being 
-pitched here, who would be the potential users and what would be it's 
-utility ?
-
-[1]: https://www.ti.com/tool/PROCESSOR-SDK-J721E
-
-Regards
-Devarsh
-
-> For this patch as it is:
-> 
-> Acked-by: Andrew Davis <afd@ti.com>
-> 
-
-
-> Andrew
-> 
-> [0] https://lore.kernel.org/lkml/20241011123922.23135-1-richard@nod.at/
-> [1] https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-kernel/ 
-> linux/linux-ti-staging/j721e-evm/0001-arm64-dts-ti-Add-DTB-overlays-for- 
-> vision-apps-and-ed.patch?h=kirkstone
-> 
->> ~ Judith
->>
->>>
->>> [1]: https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/ 
->>> arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=ti-linux-6.6.y-cicd#n103
->>> [2]: https://www.ti.com/tool/PROCESSOR-SDK-AM62A
->>>
->>> Regards
->>> Devarsh
->>>
->>>>       opp-table {
->>>> @@ -741,3 +771,57 @@ dpi1_out: endpoint {
->>>>           };
->>>>       };
->>>>   };
->>>> +
->>>> +&mailbox0_cluster0 {
->>>> +    status = "okay";
->>>> +
->>>> +    mbox_r5_0: mbox-r5-0 {
->>>> +        ti,mbox-rx = <0 0 0>;
->>>> +        ti,mbox-tx = <1 0 0>;
->>>> +    };
->>>> +};
->>>> +
->>>> +&mailbox0_cluster1 {
->>>> +    status = "okay";
->>>> +
->>>> +    mbox_c7x_0: mbox-c7x-0 {
->>>> +        ti,mbox-rx = <0 0 0>;
->>>> +        ti,mbox-tx = <1 0 0>;
->>>> +    };
->>>> +};
->>>> +
->>>> +&mailbox0_cluster2 {
->>>> +    status = "okay";
->>>> +
->>>> +    mbox_mcu_r5_0: mbox-mcu-r5-0 {
->>>> +        ti,mbox-rx = <0 0 0>;
->>>> +        ti,mbox-tx = <1 0 0>;
->>>> +    };
->>>> +};
->>>> +
->>>> +&wkup_r5fss0 {
->>>> +    status = "okay";
->>>> +};
->>>> +
->>>> +&wkup_r5fss0_core0 {
->>>> +    mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
->>>> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
->>>> +            <&wkup_r5fss0_core0_memory_region>;
->>>> +};
->>>> +
->>>> +&mcu_r5fss0 {
->>>> +    status = "okay";
->>>> +};
->>>> +
->>>> +&mcu_r5fss0_core0 {
->>>> +    mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
->>>> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
->>>> +            <&mcu_r5fss0_core0_memory_region>;
->>>> +};
->>>> +
->>>> +&c7x_0 {
->>>> +    mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
->>>> +    memory-region = <&c7x_0_dma_memory_region>,
->>>> +            <&c7x_0_memory_region>;
->>>> +    status = "okay";
->>>> +};
->>>
->>
-> 
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+index 88c2657b50e6..507a71f9294b 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+@@ -72,6 +72,90 @@ ethphy1: ethernet-phy@1 {
+ 	};
+ };
+ 
++/* I2C3 */
++&lpi2c3 {
++	clock-frequency = <400000>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lpi2c3>;
++	status = "okay";
++
++	pmic@25 {
++		compatible = "nxp,pca9451a";
++		reg = <0x25>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_pmic>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
++
++		regulators {
++			buck1: BUCK1 {
++				regulator-name = "VDD_SOC";
++				regulator-min-microvolt = <610000>;
++				regulator-max-microvolt = <950000>;
++				regulator-boot-on;
++				regulator-always-on;
++				regulator-ramp-delay = <3125>;
++			};
++
++			buck2: BUCK2 {
++				regulator-name = "VDDQ_0V6";
++				regulator-min-microvolt = <600000>;
++				regulator-max-microvolt = <600000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck4: BUCK4 {
++				regulator-name = "VDD_3V3_BUCK";
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck5: BUCK5 {
++				regulator-name = "VDD_1V8";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			buck6: BUCK6 {
++				regulator-name = "VDD_1V1";
++				regulator-min-microvolt = <1100000>;
++				regulator-max-microvolt = <1100000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo1: LDO1 {
++				regulator-name = "PMIC_SNVS_1V8";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo4: LDO4 {
++				regulator-name = "VDD_0V8";
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <800000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++
++			ldo5: LDO5 {
++				regulator-name = "NVCC_SD2";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++		};
++	};
++};
++
+ /* eMMC */
+ &usdhc1 {
+ 	pinctrl-names = "default";
+@@ -108,6 +192,19 @@ MX93_PAD_I2C1_SDA__GPIO1_IO01		0x31e
+ 		>;
+ 	};
+ 
++	pinctrl_lpi2c3: lpi2c3grp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO28__LPI2C3_SDA		0x40000b9e
++			MX93_PAD_GPIO_IO29__LPI2C3_SCL		0x40000b9e
++		>;
++	};
++
++	pinctrl_pmic: pmicgrp {
++		fsl,pins = <
++			MX93_PAD_ENET2_RD3__GPIO4_IO27		0x31e
++		>;
++	};
++
+ 	pinctrl_usdhc1: usdhc1grp {
+ 		fsl,pins = <
+ 			MX93_PAD_SD1_CLK__USDHC1_CLK		0x179e
+-- 
+2.34.1
 
 
