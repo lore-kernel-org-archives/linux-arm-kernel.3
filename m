@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9657FC369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB08C369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nh0VanLTR8k7JGV4ABz+/PnmlXleZHArR9ROXTfckbg=; b=OA4J4NNm9kdsz76umUTB0w/cKV
-	CgeeTCBUlVraOKPif0czxMnO/s0kaXDsLx5FrEJ58S8zGyUW97TFCoN8YgCzAjsJF/EenX65ZaywL
-	kruJ0ZSg8k0OH5h7xoBftUt/1qWQZmClD1udIbtqeW06YKsNdzv+8gGtCpyZhXrvFM5z4nPCLKaoL
-	IXrPHsaCktfpeDpuNzinCduOYalO+Ygp7/3i/C2Y7ZHUmrhyQReM/4k46cI0JPT4eGA2TLDnDG8fD
-	8bFb5v/DAzWedAKxjb8U6s8d51dUbkE4zSVs2k9YT1upDaFzua7XzFPL725T8xYyjvLwkfj39tjn8
-	UbqNM8QQ==;
+	bh=t7/MnhQ+XPTlJRR1H/JsR3WjkkF0jznVuDOQtTNzl7E=; b=y/jGPMMUNV8ZbBmL1o8uASPNyi
+	iLHegQxgpGaFFsMGMFRA0E8vHj5vSnINbzm1AoQazBLeVE2drRn8JNb3w859uMw4OqdwwL761DPHe
+	t3NgQhCf2FXT0mwlO8EowZpsom2Yb/B9lxzay5aszYJ1ax2JdCETVtcDFR11OW5zQsX1DnCM27Px+
+	Im35kpMSwBtTepI43vio41GAKgGVygDmWQCSTTWQ1xbzpyYnZ4XDtmO/HRiouRJan1wkbSemVd2HB
+	CtMRm/PtuZHZCAkaRius+ZbzCETHGOkkWYImHO1vCij3655si4hBJiNqTkgxBZRQRAZgpBoKO2FH7
+	cfhKggQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2s6T-0000000AhEC-2mlx;
-	Thu, 10 Apr 2025 13:38:01 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1u2s8E-0000000AhbG-3zo7;
+	Thu, 10 Apr 2025 13:39:50 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2s2U-0000000AgPg-0pnK;
-	Thu, 10 Apr 2025 13:33:55 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-22409077c06so10872025ad.1;
-        Thu, 10 Apr 2025 06:33:53 -0700 (PDT)
+	id 1u2s2Z-0000000AgR3-1nkm;
+	Thu, 10 Apr 2025 13:34:00 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22403cbb47fso7845955ad.0;
+        Thu, 10 Apr 2025 06:33:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744292033; x=1744896833; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744292039; x=1744896839; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nh0VanLTR8k7JGV4ABz+/PnmlXleZHArR9ROXTfckbg=;
-        b=SJr6NMSjR1B0STcQ4OGoPpU28UMgYJzZBW3QsPnYJ9zKrojDHaOreJ1Krg+UjfyAC5
-         ft4gYP4WXRB+Psn9ScESzAstfWh2PtPXgGkF+FgDe48dVq/qHFzJYMea2hcW6HH6rV53
-         Xtodg03/jqKS4hSvfyj+RygxilbKwTFSPgm4AjUZ7E5hmlV/qqV6sJBD5lNYXDbDr2NG
-         EX61yPfMi46DKahNSIB3B5Haf6RoPiBNjRIO/bYjvJABkz4g9u5YmtwBYyC3IRoxqduD
-         pvMpZdzmivI4eEQWIEqYcBmlNwDW0tMbkasN8SxtYqWmhf40mUFibCKPI4QLeWNB2JcV
-         JjzA==
+        bh=t7/MnhQ+XPTlJRR1H/JsR3WjkkF0jznVuDOQtTNzl7E=;
+        b=NPeHsg28U69JrxtoNpkwh0+L5/iIOr1Zs6yRblX3Aylzzem480O9bFbwMrPchyelzt
+         e9YEvDx1f5lqDrSsEflaBIjdbsvk26KjA7903WcktOD1/fvDZvPlWPApn0rNXSqVLlC2
+         aWccmE2RfyflwQ9/84TxTP1pY1wVufaQeWllEWmheH4oudrBmQqtt6RFTWVaWIKb/N/g
+         rIet8OzvjVzzdOiDTmjasRrQ9TnVxrshK9lfQ2Lv5gMlKJGl8ot+XFV7c3VnGGlJyog5
+         KCLRKgBj/1HKQYgof7p0bXe9Iad1c7M2To/j3gVj8DDujcXJuQpCYuwQMRDt5tZ/MWbk
+         etWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744292033; x=1744896833;
+        d=1e100.net; s=20230601; t=1744292039; x=1744896839;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=nh0VanLTR8k7JGV4ABz+/PnmlXleZHArR9ROXTfckbg=;
-        b=BHD3WbvLV6D8YPFbYh5wQnoEnJpMRRF00VKsUpMosjmVy2skXyGL8T3OD0J2tfwmQk
-         WxhNWG2qVtJPW8I3lRk/UaNJx934IZrzv2bN3TQE4O7k4EYH1OQDGp0ATOTKfwv3Qj2D
-         VnfvfIIXUHbtJhQt0OPHlSgglUXAbb3a08AsO8a8LmZS3LJL56ruu3p26ywzPjTJ8z9i
-         Qox4zDSKjZmJ7oYrnx7UYlO5XltGr93ada/RnHnfh3borfkUqOx9P6vsemz/RPJK1qz4
-         pdmaKJciDupzldXf1rUmCGoFUSkN3Eqk17jpROmch1+6LtgGGsusC5bNy0fSQ31Z8hd7
-         VORw==
-X-Forwarded-Encrypted: i=1; AJvYcCUfGLaMjHbWBoNPml3a9IEWaXfQwMPs3ZGvSvwd9mLL4EzXJY3IorIMMPagQYkQHWTGAEKxE9KwwjyLWd1vRQyQIQ==@lists.infradead.org, AJvYcCWN6iHG6V9CviOAhsYO0a5E5SY4bVTZZtKanSOjf3YObjd7aHS1YcTxRNWhCWYy5rI7tpKlXw4tI+T/@lists.infradead.org, AJvYcCXguXsxFJM1KDFO3sSlIxSV24p4EMf/ZIaEoEXGYOmOiF5wmpejlK7mPTT6uEnErvJgbEquEVF5EwmIcETO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnKm/MNnrvTE+uzFsNCPNsiAuhfK28YQL5voApE8FgormlzVJq
-	i5drqB34wZK4umiyel67ujeOrMcn19iifQTF+ieweSuiqJ5e8IIm
-X-Gm-Gg: ASbGncuQ7WDfofZjIY7TP2Y0U9n1pKUUlco8DEyn78MhAxKMOs0ZNJeuw87kWNJynLp
-	E+zzaLd58TtCYO88Zlbkgigmm2NQZWbwoAprCk+YtSv5xWKysdDgnc344nAOs0wa4w6ll0lj497
-	AvzydyxDEMS38zQuF7rb2wnvzzySpzI0KBF2g9O251SDSfFNzzEyWEvwdSovX1qIeqZOS5nsGef
-	4LjRzoY+cLI+VY3R2ZiVNPAs5bxOpzrEVe/XzsVQUBvYsdnksESctV5oX/Z460QndjTspss6o6s
-	Pe0Ib4gfaEqW09tZ0h4XZkXGCcrMfGLJLaYGceIXzzKK8AlH6PR2p3M=
-X-Google-Smtp-Source: AGHT+IEhJosZc1PPq47EzJpgLKAV0sW8OUksWP/T0By+TlgLPTsHhEsBRkYklsNnL3vMaEPTFuyMZg==
-X-Received: by 2002:a17:902:f686:b0:220:e655:d77 with SMTP id d9443c01a7336-22be03cf8d3mr28766255ad.36.1744292033274;
-        Thu, 10 Apr 2025 06:33:53 -0700 (PDT)
+        bh=t7/MnhQ+XPTlJRR1H/JsR3WjkkF0jznVuDOQtTNzl7E=;
+        b=Yeo10zaKK3XsM/vidXTUHz429E5XhP2gzlBpwiPnus4idXMvV28d6/FNBdum2s5/Cc
+         T6zu3pN3MM9hmrI/5ncfgl1TlnM6SRcvvB0e2Ei0ObKlnaUHXK5rCUPsJOmiP/xMG9dd
+         R3yITiq6mnCWxXKHOkckGmAh2Ui0LM/mVdFafTWBoK33RCQR1wyA4jieX/BSMSDnjXT4
+         nBOySdb0MzFjcTiy8Poi1vMHejZQ2Z5YQlxMR4sJ1hlFN2PIiqqOGplc+WOI/ZMy27Lx
+         YRmGMk9yL/uy2aaZEwLKRWlyAegAyzd/79hi9R36//ly9L3xYK36TxhhqoMOm62oieBN
+         H72Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU+UyZoSmSU6Sm1lsACBGs3zXhHssMo2eAnCPTkxdKW17wPGayV0AdjWqbyy23r3g0aYFclP0K9bJ+l@lists.infradead.org, AJvYcCW9TkuYxsRpz32oH5BjLkqaSupY5JkZssffMdrXZGUi6zvw4Gom06m3+WLYQgDib9LQyQicumbeX39Uu2OK@lists.infradead.org, AJvYcCWeuCp2ipkBIhybGVLDk8ph/BxtVg2kToLLPpaShyQrvYmY+ebcXKxKqrtvE+IzYf2fbTwgcVflKpqjlv8z7KCglA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXM0Wky34avLR8aSlEtphup+nf1wV1YfhQxnap74yIwcLbFf7M
+	8nRezdz98I8N8l/actmz+eKKbUo2cA4yvYFvWygqB6G3jKAfqk17
+X-Gm-Gg: ASbGncvxVzubgD0M8baVwFRR3Qy7TebaIcUKrNSvHlPNIZpq+u6LqkWO8jeOrpCziIM
+	/4qAKpWK1Xh4AoamGNTm6593dtsBPU9ieOeGK9n9vJw+tbgJAyQnKgKQkFixh+QvOPHlie8SKfp
+	a/XukpqAudik9ocusnodfHnBkouSaf3TWCba63Bp1VGfHixARO7NWnqPMbsmOjiwOi9F/dJFsyP
+	h3hmcuFSqiSDxMV8qoZjI2mqeWKPYGJfQnnkWTVOiCWA+VesaylrglzGfMZ2PSTNIOyE5XNna+M
+	1kxvTk4JYMZMN7K0lL57rafMfhu7Wt23jSG92Kc/ql5BACiYebAlehE=
+X-Google-Smtp-Source: AGHT+IG1oHEnhJcJPMpJXFVc2lblDNzFL0NCm1/z6pryHmDc/E60Sjg2zPGvf+IjlruZt6r44yNjmg==
+X-Received: by 2002:a17:903:46cb:b0:224:a74:28cd with SMTP id d9443c01a7336-22be03167bamr34974705ad.31.1744292038682;
+        Thu, 10 Apr 2025 06:33:58 -0700 (PDT)
 Received: from localhost.localdomain ([103.221.69.50])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7cb0400sm30121475ad.160.2025.04.10.06.33.49
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7cb0400sm30121475ad.160.2025.04.10.06.33.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 06:33:52 -0700 (PDT)
+        Thu, 10 Apr 2025 06:33:58 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -79,17 +79,17 @@ To: Vinod Koul <vkoul@kernel.org>,
 	linux-amlogic@lists.infradead.org (open list:ARM/Amlogic Meson SoC support),
 	linux-kernel@vger.kernel.org (open list)
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v1 1/6] phy: amlogic: phy-meson-gxl-usb2: Simplify error handling with dev_err_probe()
-Date: Thu, 10 Apr 2025 19:03:16 +0530
-Message-ID: <20250410133332.294556-2-linux.amoon@gmail.com>
+Subject: [PATCH v1 2/6] phy: amlogic: phy-meson-g12a-usb2: Simplify error handling with dev_err_probe()
+Date: Thu, 10 Apr 2025 19:03:17 +0530
+Message-ID: <20250410133332.294556-3-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250410133332.294556-1-linux.amoon@gmail.com>
 References: <20250410133332.294556-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_063354_234952_6A75E6C7 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20250410_063359_465150_543F092B 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,25 +109,17 @@ reason when waiting for the resource to come up.
 
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
- drivers/phy/amlogic/phy-meson-gxl-usb2.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+ drivers/phy/amlogic/phy-meson-g12a-usb2.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/phy/amlogic/phy-meson-gxl-usb2.c b/drivers/phy/amlogic/phy-meson-gxl-usb2.c
-index 14ea89927ab14..6b390304f723c 100644
---- a/drivers/phy/amlogic/phy-meson-gxl-usb2.c
-+++ b/drivers/phy/amlogic/phy-meson-gxl-usb2.c
-@@ -237,7 +237,6 @@ static int phy_meson_gxl_usb2_probe(struct platform_device *pdev)
- 	struct phy_meson_gxl_usb2_priv *priv;
- 	struct phy *phy;
- 	void __iomem *base;
--	int ret;
+diff --git a/drivers/phy/amlogic/phy-meson-g12a-usb2.c b/drivers/phy/amlogic/phy-meson-g12a-usb2.c
+index 0e0b5c00b676f..66bf0b7ef8ed3 100644
+--- a/drivers/phy/amlogic/phy-meson-g12a-usb2.c
++++ b/drivers/phy/amlogic/phy-meson-g12a-usb2.c
+@@ -339,13 +339,9 @@ static int phy_meson_g12a_usb2_probe(struct platform_device *pdev)
+ 		return ret;
  
- 	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
-@@ -266,13 +265,9 @@ static int phy_meson_gxl_usb2_probe(struct platform_device *pdev)
- 		return PTR_ERR(priv->reset);
- 
- 	phy = devm_phy_create(dev, NULL, &phy_meson_gxl_usb2_ops);
+ 	phy = devm_phy_create(dev, NULL, &phy_meson_g12a_usb2_ops);
 -	if (IS_ERR(phy)) {
 -		ret = PTR_ERR(phy);
 -		if (ret != -EPROBE_DEFER)
@@ -139,8 +131,8 @@ index 14ea89927ab14..6b390304f723c 100644
 +		return dev_err_probe(dev, PTR_ERR(phy),
 +				     "failed to create PHY\n");
  
+ 	phy_set_bus_width(phy, 8);
  	phy_set_drvdata(phy, priv);
- 
 -- 
 2.49.0
 
