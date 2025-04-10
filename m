@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2EFC369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23BECC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6WfJkonovfkEunMBDXC+DViM4ryLZzQzXSCf5RpGlQ=; b=WCBP6i/ujmOVwJLziMGGL26T6V
-	FOKS8dyiy4DGR1PGjl55D8Y5XKIZCI01kmcefG6x0PL1d1eX99cNf1Gg3cB3qtrNE5ErfUn3Y3Q+G
-	OCQlc8OQ6hQdlmFshp/FZgIiPNbjmhE357xxn0vO1Su9kQ6Uv/G98zorjCMkSp5xQApRWW0WvwNaY
-	k7YZsmSrj69xamdFJrs3GCFrcdorR3WtVb/5ehqAphu+0ZpuIZL1wKCXCoLxJ16RYy8rPaiGIz+JD
-	bV8USahX7T/Ixzcr+lNyWGPehE9SOeJ0CrF0T/MqyrBkpVxhMTbBCJJNkBCSOedquEahyh2NFXHVo
-	CqbhCMdw==;
+	bh=OPCc5bsUkhOjxSkKC0VEJsPaUv6CLcVy4YCCUXYPk5w=; b=vWNRUNlPOsKZ9Lh+gfojDZQ6hJ
+	By0n5EbZqIUUUvG1s8jBNyfrz957xOSd1tcNi2RJfsWg/Mka9QNwl2yaEcT2qEArE9+gHn45sqbbT
+	xwOBMWwXEAykFkBC2mGDJhqbaXyxnFBjxkW6kGBmFROkoTmVpyKP1fyD+YpVwolEBL5RRGYvQhAWK
+	nj8n6yIBErc5dypg0UhTkCZ6jIakdoglt6QjHgMveUVRtFicB63H0LUTgReKBI+Xl0iwXSFf85e3H
+	maHAW1dOztcR46b/tl4F1EBHjitvxFF35hhL3dJ8MpwEMElt5btELFJ5OB3xEIz9QKpgVU9fU4TZu
+	8TNajaPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pv7-0000000AElZ-0jpP;
-	Thu, 10 Apr 2025 11:18:09 +0000
+	id 1u2pv4-0000000AEi8-3q1B;
+	Thu, 10 Apr 2025 11:18:06 +0000
 Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2odP-0000000A0T4-2fbD
+	id 1u2odP-0000000A0Sz-25v7
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Apr 2025 09:55:52 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A60F8T032471;
-	Thu, 10 Apr 2025 10:55:26 +0100
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A60F8Z032471;
+	Thu, 10 Apr 2025 10:55:31 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=A
-	6WfJkonovfkEunMBDXC+DViM4ryLZzQzXSCf5RpGlQ=; b=BxbKICnJYDa8uXGun
-	iv+Hikwlk9A1hCiKKy8c2ddMmsTnU0Nb1yFr+FVGHhYR/pI4dOyApCUNOE6CfrTi
-	EnBBX5LGdTH+ZI9X91LqIyGNOcDHj6IjTxPknVRL9X4naExWu7wsQYQdzzGaL5Yv
-	RvIFZgOb6WFuplMt5w5ftP83k4jgpLDciHcZbhFsEMuZXQgnCL43YVo870ykpgn1
-	LZPwP/urasgrzOlgquf5OpQUS5IIAwWC7unny1YkWS4+Ib9WMp3fc9e7iJydgx3J
-	eG7209ra6AJi/zpyrH2qQcw1trGU/Um98KVk4+BAZMCx9IAaJ7VNgzv2MYJdVpRw
-	JwY1Q==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=O
+	PCc5bsUkhOjxSkKC0VEJsPaUv6CLcVy4YCCUXYPk5w=; b=nmt5ASDn9Cx8lIoML
+	Zsgf0DP213vnpN+Rrpo+C/SD9NYkGFeyvbtDvfNnhBYXz5lfNgRO6JV+AH2svy3D
+	bu4DnsZFnMuHBms7kiu6Sl7meFCQwyELj8bXLEN0GH9vL7qV+6BatVqhqSyTUADI
+	6HY0GSxy2QygBkOW9z8OFGBjqaHrQhUsO9mnNL966woicAF9WnR/N3oaGM2FhzD1
+	smW0F+BPq4o7ZqSv/dE31X/6c0mwJpX+UwO44GTVEYIVc5zuubl7a/Ri6V4N9f+E
+	iUG6sNaVCwHfwdlfMYXmuntpVmPQMII1Etc9XGxOYgUL3GslX6D24eQ8L2XU8Evz
+	JVjEw==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45w86h1d34-4
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45w86h1d34-10
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 10 Apr 2025 10:55:25 +0100 (BST)
+	Thu, 10 Apr 2025 10:55:31 +0100 (BST)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.6.134) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 10 Apr 2025 10:55:24 +0100
+ 15.1.2507.44; Thu, 10 Apr 2025 10:55:28 +0100
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 10 Apr 2025 10:55:09 +0100
-Subject: [PATCH v6 10/18] drm/imagination: Make has_fixed_data_addr a value
+Date: Thu, 10 Apr 2025 10:55:14 +0100
+Subject: [PATCH v6 15/18] drm/imagination: Use cached memory with
+ dma_coherent
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250410-sets-bxs-4-64-patch-v1-v6-10-eda620c5865f@imgtec.com>
+Message-ID: <20250410-sets-bxs-4-64-patch-v1-v6-15-eda620c5865f@imgtec.com>
 References: <20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com>
 In-Reply-To: <20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -80,24 +81,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<alessio.belle@imgtec.com>,
         Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5427;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5416;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=lVgoW/tYLbUSJeSjrZM2ND1gf7iusYbgwUXx0Gibi4A=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaR/n9q0MINb+cB2dSU3TXvjw+UhN3luvzj9YP+PhL6+t
- aozuD1cOkpZGMQ4GGTFFFl2rLBcofZHTUvixq9imDmsTCBDGLg4BWAi13MZ/rs697bVfZg5uWmJ
- z0tVj6MKWl5/fJZzajhovJz/UP/bvR5GhrXrpga9n+cZlm9Ud7FdfMvqVZmLM5P1WI0NdY7Etbs
- y8wEA
+ bh=oXgKG7puAsM6iPgFGgfa6QIBdh7qPncOh3LUqY7AuMg=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaR/n9o0wWM6p+r8yeVmTiuFefvDjRpm1t0O8G/XP/trX
+ oGULHN+RykLgxgHg6yYIsuOFZYr1P6oaUnc+FUMM4eVCWQIAxenAEykbx3D/2ibiGU/g80uTN51
+ 6xTnPOGNtkvDZq9o5W2Qa2f0Fd1rw8bwh3v/xmj9Qxe5d9Rp7at9csz+4DHnjS0BB/bOOi216PI
+ fETYA
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.6.134]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=MLNgmNZl c=1 sm=1 tr=0 ts=67f7958d cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=UtEzwyU9vMAA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=-4BdC3WIcRMaicUbabwA:9
+X-Authority-Analysis: v=2.4 cv=MLNgmNZl c=1 sm=1 tr=0 ts=67f79593 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=UtEzwyU9vMAA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=DhOxMJxG4ji0TGcJNekA:9
  a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: 7PYiT6dWKp4AvHwFIZrhrpypWp_mwwRz
-X-Proofpoint-ORIG-GUID: 7PYiT6dWKp4AvHwFIZrhrpypWp_mwwRz
+X-Proofpoint-GUID: lBKgYrHROR18R_-NbROR0Tg9GX12cm1b
+X-Proofpoint-ORIG-GUID: lBKgYrHROR18R_-NbROR0Tg9GX12cm1b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_025547_998855_071576CC 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20250410_025547_907531_0B8935C5 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,148 +113,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is currently a callback function which takes no parameters; there's
-no reason for this so let's make it a straightforward value in pvr_fw_defs.
+The TI k3-j721s2 platform does not allow us to use uncached memory
+(which is what the driver currently does) without disabling cache snooping
+on the AXI ACE-Lite interface, which would be too much of a performance
+hit.
+
+Given the platform is dma-coherent, we can simply force all
+device-accessible memory allocations through the CPU cache. In fact, this
+can be done whenever the dma_coherent attribute is present.
 
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 Reviewed-by: Frank Binns <frank.binns@imgtec.com>
 ---
 Changes in v6:
 - Add Frank's Rb
-- Link to v5: https://lore.kernel.org/r/20250326-sets-bxs-4-64-patch-v1-v5-10-e4c46e8280a9@imgtec.com
+- Link to v5: https://lore.kernel.org/r/20250326-sets-bxs-4-64-patch-v1-v5-15-e4c46e8280a9@imgtec.com
 Changes in v5:
 - None
-- Link to v4: https://lore.kernel.org/r/20250320-sets-bxs-4-64-patch-v1-v4-10-d987cf4ca439@imgtec.com
+- Link to v4: https://lore.kernel.org/r/20250320-sets-bxs-4-64-patch-v1-v4-15-d987cf4ca439@imgtec.com
 Changes in v4:
 - None
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-10-143b3dbef02f@imgtec.com
+- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-15-143b3dbef02f@imgtec.com
 Changes in v3:
-- None
-- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-11-3fd45d9fb0cf@imgtec.com
+- Change from a workaround to a regular codepath
+- Add missing <linux/property.h> include
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-19-3fd45d9fb0cf@imgtec.com
 Changes in v2:
 - None
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-12-4ed30e865892@imgtec.com
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-19-4ed30e865892@imgtec.com
 ---
- drivers/gpu/drm/imagination/pvr_fw.c      |  2 +-
- drivers/gpu/drm/imagination/pvr_fw.h      | 23 ++++++++---------------
- drivers/gpu/drm/imagination/pvr_fw_meta.c |  8 +-------
- drivers/gpu/drm/imagination/pvr_fw_mips.c |  8 +-------
- 4 files changed, 11 insertions(+), 30 deletions(-)
+ drivers/gpu/drm/imagination/pvr_gem.c | 10 +++++++---
+ drivers/gpu/drm/imagination/pvr_gem.h |  6 ++++--
+ drivers/gpu/drm/imagination/pvr_mmu.c |  8 +++++++-
+ 3 files changed, 18 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
-index 17c29b5081f417cccd28909ccca4f9ca9da1b9ca..3441c378d91c61df704bfbfee23488b89b1d4569 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw.c
-@@ -662,7 +662,7 @@ pvr_fw_process(struct pvr_device *pvr_dev)
- 		return PTR_ERR(fw_code_ptr);
+diff --git a/drivers/gpu/drm/imagination/pvr_gem.c b/drivers/gpu/drm/imagination/pvr_gem.c
+index f692a41875507232ee6e844ccb1f980425f2e9b7..a66cf082af2445044beb286c2d5350849512adb1 100644
+--- a/drivers/gpu/drm/imagination/pvr_gem.c
++++ b/drivers/gpu/drm/imagination/pvr_gem.c
+@@ -19,6 +19,7 @@
+ #include <linux/log2.h>
+ #include <linux/mutex.h>
+ #include <linux/pagemap.h>
++#include <linux/property.h>
+ #include <linux/refcount.h>
+ #include <linux/scatterlist.h>
+ 
+@@ -334,6 +335,7 @@ struct drm_gem_object *pvr_gem_create_object(struct drm_device *drm_dev, size_t
+ struct pvr_gem_object *
+ pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
+ {
++	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
+ 	struct drm_gem_shmem_object *shmem_obj;
+ 	struct pvr_gem_object *pvr_obj;
+ 	struct sg_table *sgt;
+@@ -343,7 +345,10 @@ pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
+ 	if (size == 0 || !pvr_gem_object_flags_validate(flags))
+ 		return ERR_PTR(-EINVAL);
+ 
+-	shmem_obj = drm_gem_shmem_create(from_pvr_device(pvr_dev), size);
++	if (device_get_dma_attr(drm_dev->dev) == DEV_DMA_COHERENT)
++		flags |= PVR_BO_CPU_CACHED;
++
++	shmem_obj = drm_gem_shmem_create(drm_dev, size);
+ 	if (IS_ERR(shmem_obj))
+ 		return ERR_CAST(shmem_obj);
+ 
+@@ -358,8 +363,7 @@ pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
+ 		goto err_shmem_object_free;
  	}
  
--	if (pvr_dev->fw_dev.defs->has_fixed_data_addr()) {
-+	if (pvr_dev->fw_dev.defs->has_fixed_data_addr) {
- 		u32 base_addr = private_data->base_addr & pvr_dev->fw_dev.fw_heap_info.offset_mask;
+-	dma_sync_sgtable_for_device(shmem_obj->base.dev->dev, sgt,
+-				    DMA_BIDIRECTIONAL);
++	dma_sync_sgtable_for_device(drm_dev->dev, sgt, DMA_BIDIRECTIONAL);
  
- 		fw_data_ptr =
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
-index eead744835726712622d5aba9b3480fe264a089f..180d310074e3585c641e540a9e2576b5ab2a5705 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.h
-+++ b/drivers/gpu/drm/imagination/pvr_fw.h
-@@ -166,21 +166,6 @@ struct pvr_fw_defs {
- 	 */
- 	int (*wrapper_init)(struct pvr_device *pvr_dev);
+ 	/*
+ 	 * Do this last because pvr_gem_object_zero() requires a fully
+diff --git a/drivers/gpu/drm/imagination/pvr_gem.h b/drivers/gpu/drm/imagination/pvr_gem.h
+index e0e5ea509a2e88a437b8d241ea13c7bab2220f56..c99f30cc62088c030bd8a806df79b738b62a968f 100644
+--- a/drivers/gpu/drm/imagination/pvr_gem.h
++++ b/drivers/gpu/drm/imagination/pvr_gem.h
+@@ -44,8 +44,10 @@ struct pvr_file;
+  * Bits not defined anywhere are "undefined".
+  *
+  * CPU mapping options
+- *    :PVR_BO_CPU_CACHED: By default, all GEM objects are mapped write-combined on the CPU. Set this
+- *       flag to override this behaviour and map the object cached.
++ *    :PVR_BO_CPU_CACHED: By default, all GEM objects are mapped write-combined on the CPU. Set
++ *       this flag to override this behaviour and map the object cached. If the dma_coherent
++ *       property is present in devicetree, all allocations will be mapped as if this flag was set.
++ *       This does not require any additional consideration at allocation time.
+  *
+  * Firmware options
+  *    :PVR_BO_FW_NO_CLEAR_ON_RESET: By default, all FW objects are cleared and reinitialised on hard
+diff --git a/drivers/gpu/drm/imagination/pvr_mmu.c b/drivers/gpu/drm/imagination/pvr_mmu.c
+index 4fe70610ed94cf707e631f8148af081a94f97327..450d476d183f0173d0ef03f0d8897fbeb04831a2 100644
+--- a/drivers/gpu/drm/imagination/pvr_mmu.c
++++ b/drivers/gpu/drm/imagination/pvr_mmu.c
+@@ -17,6 +17,7 @@
+ #include <linux/dma-mapping.h>
+ #include <linux/kmemleak.h>
+ #include <linux/minmax.h>
++#include <linux/property.h>
+ #include <linux/sizes.h>
  
--	/**
--	 * @has_fixed_data_addr:
--	 *
--	 * Called to check if firmware fixed data must be loaded at the address given by the
--	 * firmware layout table.
--	 *
--	 * This function is mandatory.
--	 *
--	 * Returns:
--	 *  * %true if firmware fixed data must be loaded at the address given by the firmware
--	 *    layout table.
--	 *  * %false otherwise.
--	 */
--	bool (*has_fixed_data_addr)(void);
--
- 	/**
- 	 * @irq: FW Interrupt information.
- 	 *
-@@ -205,6 +190,14 @@ struct pvr_fw_defs {
- 		/** @clear_mask: Value to write to the clear_reg in order to clear FW IRQs. */
- 		u32 clear_mask;
- 	} irq;
+ #define PVR_SHIFT_FROM_SIZE(size_) (__builtin_ctzll(size_))
+@@ -259,6 +260,7 @@ pvr_mmu_backing_page_init(struct pvr_mmu_backing_page *page,
+ 	struct device *dev = from_pvr_device(pvr_dev)->dev;
+ 
+ 	struct page *raw_page;
++	pgprot_t prot;
+ 	int err;
+ 
+ 	dma_addr_t dma_addr;
+@@ -268,7 +270,11 @@ pvr_mmu_backing_page_init(struct pvr_mmu_backing_page *page,
+ 	if (!raw_page)
+ 		return -ENOMEM;
+ 
+-	host_ptr = vmap(&raw_page, 1, VM_MAP, pgprot_writecombine(PAGE_KERNEL));
++	prot = PAGE_KERNEL;
++	if (device_get_dma_attr(dev) != DEV_DMA_COHERENT)
++		prot = pgprot_writecombine(prot);
 +
-+	/**
-+	 * @has_fixed_data_addr: Specify whether the firmware fixed data must be loaded at the
-+	 *                       address given by the firmware layout table.
-+	 *
-+	 * This value is mandatory.
-+	 */
-+	bool has_fixed_data_addr;
- };
- 
- /**
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-index 892823826bf235362d6ae12b34541cea1e10e1d0..41485769fc7cfb643ce7b0ac814d142fa7e15325 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-@@ -532,12 +532,6 @@ pvr_meta_vm_unmap(struct pvr_device *pvr_dev, struct pvr_fw_object *fw_obj)
- 			 fw_obj->fw_mm_node.start, fw_obj->fw_mm_node.size);
- }
- 
--static bool
--pvr_meta_has_fixed_data_addr(void)
--{
--	return false;
--}
--
- const struct pvr_fw_defs pvr_fw_defs_meta = {
- 	.init = pvr_meta_init,
- 	.fw_process = pvr_meta_fw_process,
-@@ -545,11 +539,11 @@ const struct pvr_fw_defs pvr_fw_defs_meta = {
- 	.vm_unmap = pvr_meta_vm_unmap,
- 	.get_fw_addr_with_offset = pvr_meta_get_fw_addr_with_offset,
- 	.wrapper_init = pvr_meta_wrapper_init,
--	.has_fixed_data_addr = pvr_meta_has_fixed_data_addr,
- 	.irq = {
- 		.status_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
- 		.clear_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
- 		.status_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN,
- 		.clear_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_CLRMSK,
- 	},
-+	.has_fixed_data_addr = false,
- };
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_mips.c b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-index 567251a663de1dd179159c27288308364619e8dc..5feae0dc85ab51cb3c4e67885bf53cf88d8fa531 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_mips.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-@@ -225,12 +225,6 @@ pvr_mips_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
- 	       ROGUE_FW_HEAP_MIPS_BASE;
- }
- 
--static bool
--pvr_mips_has_fixed_data_addr(void)
--{
--	return true;
--}
--
- const struct pvr_fw_defs pvr_fw_defs_mips = {
- 	.init = pvr_mips_init,
- 	.fini = pvr_mips_fini,
-@@ -239,11 +233,11 @@ const struct pvr_fw_defs pvr_fw_defs_mips = {
- 	.vm_unmap = pvr_vm_mips_unmap,
- 	.get_fw_addr_with_offset = pvr_mips_get_fw_addr_with_offset,
- 	.wrapper_init = pvr_mips_wrapper_init,
--	.has_fixed_data_addr = pvr_mips_has_fixed_data_addr,
- 	.irq = {
- 		.status_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS,
- 		.clear_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR,
- 		.status_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN,
- 		.clear_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR_EVENT_EN,
- 	},
-+	.has_fixed_data_addr = true,
- };
++	host_ptr = vmap(&raw_page, 1, VM_MAP, prot);
+ 	if (!host_ptr) {
+ 		err = -ENOMEM;
+ 		goto err_free_page;
 
 -- 
 2.49.0
