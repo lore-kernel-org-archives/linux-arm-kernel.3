@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94721C369A9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED7A3C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=azBeY/ABdzLCK2gCU3irIQ43T5ERKSG6fIfSiV5Z92s=; b=L3WKknBVj1XU2VBjGKVqM+PmZ/
-	ofI2mfaiwpJtgOPmHcUOvX7dghOq4LTYPxFwyobklfvHpaMtwV52s4VNrUk0sEpgkiUGT8w3fRScH
-	8v89QVpISfUy/lnmkjrgztpgxWoV+Kcjs5tojkF9lN5GJrpYAkGpIfwFwx+EfM1j97VpTWgKOQILU
-	SjfxSsZ4XElImjvtpmxuGfeVnVvv2Og2/DDpxEumQXfk24Q9naCXyK/RNAsKkgF3NvlU+EpCndXOV
-	9VHHmL04UyI88GkXbErrKb1U3J/xAxOR+iTMtGDVk0MxNNcAR7YSMOxDFYmlnTF3+6QJIwJttnVCh
-	l52tsL2Q==;
+	bh=ee6LsVDDTHsvKI/YOpZeHH6mP+kh8OeNoQudrAcoQfA=; b=zm35gaooSQGiZBn/kN4l3KGXEk
+	ha80/9ch3yHjVMj4mwkDBelFTf9AIdgBGLEuwqGiPdvEug0f0ur4gq9DA+Pqa/5Ffn4xLvPcLEBdH
+	L64xqydp0tiz524NNdqTc4CQVArNA5g509RZndOun9c+uOB/3yiF5Xy/ZZAHKZWIqrVA8J1VqFwKq
+	Fl5X/Faz67VWq0P+js60izD/REwea7VJsuZFUBAOp8CMiWVqRSvEiCM1E7idN2zwxFrqqirsbWVql
+	Rp0hrrQXIwVBrhKeUYPsJRAuYL/xxBZ9LDRTychLz1hbr553sobTKNLCSvcGRtqWzcrA6DFxMZJM4
+	SuQdAlOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pta-0000000ACPu-17ti;
-	Thu, 10 Apr 2025 11:16:34 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1u2ptb-0000000ACSN-2Mkb;
+	Thu, 10 Apr 2025 11:16:35 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2o8c-00000009vcR-4337
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:24:00 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0309A1034EAEC;
-	Thu, 10 Apr 2025 11:23:52 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1744277036; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=azBeY/ABdzLCK2gCU3irIQ43T5ERKSG6fIfSiV5Z92s=;
-	b=CI4cOCBPBMLylFiXGeRD7c3jrqxluWRjSNAlIVxYBRtfkxu65x+EH4XLY/RWNVQLhZosUf
-	SNRanfj363p0NmPSjDBbtK4Aa0/DGdWK1QYocBqQRsROGf+9BoyW+6BUpmDG3PEKT72AzW
-	Kt0PPuHmbSfEeymFfHcUdhia9ba74M+Bizo3HQVmUWtKhZT/AhaMEzY9AJ4/fJLJUAXNpY
-	4VbjZzMTsHkVRJjxPHOrMpaKk7G7pLhyYiuIE6wCsNy8CwGb2UNE/d5gH5CO/Bw5ahhDaN
-	a64VEcfrTUvWWIGW92YyCAn0cDiUW4xAL3k3/Y/X8EwEnICsbdvfcnGQmm3EIQ==
-Date: Thu, 10 Apr 2025 11:23:50 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Stefan Wahren <wahrenst@gmx.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [net-next v4 5/5] ARM: mxs_defconfig: Enable
- CONFIG_FEC_MTIP_L2SW to support MTIP L2 switch
-Message-ID: <20250410112350.7dbb299c@wsk>
-In-Reply-To: <ea8cc94c-b212-4ae2-8c5b-7697e9b358aa@kernel.org>
-References: <20250407145157.3626463-1-lukma@denx.de>
-	<20250407145157.3626463-6-lukma@denx.de>
-	<c67ad9fa-6255-48e8-9537-2fceb0510127@gmx.net>
-	<20250410090122.0e4cadef@wsk>
-	<ea8cc94c-b212-4ae2-8c5b-7697e9b358aa@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1u2oD4-00000009wQg-42R8;
+	Thu, 10 Apr 2025 09:28:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744277315; x=1775813315;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=grsUTpdnhqvjd0Hm7iEVppv5u0om2yQPbXAfzbCduKs=;
+  b=mlQDxoIhehzkUmFzOf/0/yMuiFQiCrGYUn6FCcsi1Wnov6BEcWmejwbb
+   3FZbYbACsF175OprtXjItzI+PUORJP19VmIBMwKJwe5tu/NQpb6Wz5f0Q
+   uAJMnaZU6Ig9FwhtLT3N4JMt8LowEhKTVfoOr4iMQFNfMMZbmtQJ8yvQF
+   +6/jaYa5uKvEFHGOkfqL+FwqFXXY9UC7M4IIDSGSv14S6NrCAuittt/Ea
+   OUYNpcLTYa/pHXtRmVeJj/3g/C2vV2FXtrKzX8pjsWVGfSvMDeHUTBsl3
+   nEfer02PQOL9UuaiIwIjDCRjiWKDuWoduJIicu1Sx4HJvyiTFb1tgehSx
+   w==;
+X-CSE-ConnectionGUID: q9xwGGC1T26wbZ+a0jpgXA==
+X-CSE-MsgGUID: oL+Sr9HsQzef4uUmZQj5PQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11399"; a="57154701"
+X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
+   d="scan'208";a="57154701"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 02:28:33 -0700
+X-CSE-ConnectionGUID: HTOMgKl7QMKOdgpykKC3QQ==
+X-CSE-MsgGUID: aWnZQ6t4QfuhR77cbVIRBA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
+   d="scan'208";a="133968976"
+Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
+  by fmviesa004.fm.intel.com with ESMTP; 10 Apr 2025 02:28:30 -0700
+Received: from kbuild by b207828170a5 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u2oCy-0009s3-03;
+	Thu, 10 Apr 2025 09:28:28 +0000
+Date: Thu, 10 Apr 2025 17:28:08 +0800
+From: kernel test robot <lkp@intel.com>
+To: yiru zhang <yiru.zhang@mediatek.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	yiru zhang <yiru.zhang@mediatek.com>
+Subject: Re: [PATCH] [Patch v2]Add ETE devarch condition in
+ etm4_init_iomem_access
+Message-ID: <202504101759.7Ls0Uy4o-lkp@intel.com>
+References: <20250409032917.7580-1-yiru.zhang@mediatek.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/r5tjFsU34eWBYPJ.iEWYDwo";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250409032917.7580-1-yiru.zhang@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_022359_156355_E7BE6DE0 
-X-CRM114-Status: GOOD (  32.90  )
+X-CRM114-CacheID: sfid-20250410_022835_038115_76B987A5 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,103 +95,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/r5tjFsU34eWBYPJ.iEWYDwo
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Hi yiru,
 
-Hi Krzysztof,
+kernel test robot noticed the following build warnings:
 
-> On 10/04/2025 09:01, Lukasz Majewski wrote:
-> > Hi Stefan,
-> >  =20
-> >> Hi Lukasz,
-> >>
-> >> Am 07.04.25 um 16:51 schrieb Lukasz Majewski: =20
-> >>> This patch enables support for More Than IP switch available on
-> >>> some imx28[7] devices.
-> >>>
-> >>> Signed-off-by: Lukasz Majewski <lukma@denx.de>   =20
-> >> thanks adding the driver to mxs_defconfig. Unfortunately it's not
-> >> possible for reviewers to identify the relevant changes, =20
-> >=20
-> > Could you be more specific here?
-> > As fair as I see - there is only 14 LOCs changed for review. =20
->=20
-> Really, the comment was very specific. You make multiple independent,
-> looking irrelevant changes to the file.
->=20
-> >=20
-> > Please also be aware that MTIP L2 switch driver has some
-> > dependencies - on e.g. SWITCHDEV and BRIDGE, which had to be
-> > enabled to allow the former one to be active.
-> >  =20
-> >> also the
-> >> commit messages doesn't provide further information.
-> >> =20
-> >=20
-> > What kind of extra information shall I provide? IMHO the patch is
-> > self-explaining. =20
->=20
-> For example explain why do you think GPIO_SYSFS should be dropped.
->=20
-> >  =20
-> >> In general there are two approaches to solves this:
-> >> 1) prepend an additional patch which synchronizes mxs_defconfig
-> >> with current mainline
-> >> 2) manually create the relevant changes against mxs_defconfig
-> >>
-> >> The decision about the approaches is up to the maintainer. =20
-> >=20
-> > I took the linux-next's (or net-next) mxs defconfig (cp it to be
-> > .config)
-> >=20
-> > Then run CROSS_COMPILE=3D ... make ARCH=3Darm menuconfig
-> > Enabled all the relevant Kconfig options and run
-> >=20
-> > CROSS_COMPILE=3D ... make ARCH=3Darm savedefconfig
-> > and copy defconfig to mxs_defconfig.
-> > Then I used git to prepare the patch.
-> >=20
-> > Isn't the above procedure correct? =20
->=20
-> No, it is not correct. Do not make any changes in the "Enabled all the
-> relevant Kconfig options and run" step and check the result. Do you
-> see difference in result file? If yes, then why such difference
-> should be part of this commit?
+[auto build test WARNING on soc/for-next]
+[also build test WARNING on linus/master v6.15-rc1 next-20250410]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Ok, I get your point. Then I shall prepare a separate, pre-patch.
-Thanks for info.
+url:    https://github.com/intel-lab-lkp/linux/commits/yiru-zhang/Add-ETE-devarch-condition-in-etm4_init_iomem_access/20250409-113037
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20250409032917.7580-1-yiru.zhang%40mediatek.com
+patch subject: [PATCH] [Patch v2]Add ETE devarch condition in etm4_init_iomem_access
+config: arm64-randconfig-002-20250410 (https://download.01.org/0day-ci/archive/20250410/202504101759.7Ls0Uy4o-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 92c93f5286b9ff33f27ff694d2dc33da1c07afdd)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250410/202504101759.7Ls0Uy4o-lkp@intel.com/reproduce)
 
->=20
-> Best regards,
-> Krzysztof
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504101759.7Ls0Uy4o-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/hwtracing/coresight/coresight-etm4x-core.c:1144:9: warning: format specifies type 'unsigned int' but the argument has type 'unsigned long' [-Wformat]
+    1143 |                 pr_warn_once("Unknown ETM architecture: %x\n",
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         |                                                         %lx
+    1144 |                              devarch & ETM_DEVARCH_ID_MASK);
+         |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/printk.h:659:42: note: expanded from macro 'pr_warn_once'
+     659 |         printk_once(KERN_WARNING pr_fmt(fmt), ##__VA_ARGS__)
+         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+   include/linux/printk.h:640:30: note: expanded from macro 'printk_once'
+     640 |         DO_ONCE_LITE(printk, fmt, ##__VA_ARGS__)
+         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+   include/linux/once_lite.h:11:32: note: expanded from macro 'DO_ONCE_LITE'
+      11 |         DO_ONCE_LITE_IF(true, func, ##__VA_ARGS__)
+         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+   include/linux/once_lite.h:31:9: note: expanded from macro 'DO_ONCE_LITE_IF'
+      31 |                         func(__VA_ARGS__);                              \
+         |                         ~~~~~^~~~~~~~~~~~
+   include/linux/printk.h:501:60: note: expanded from macro 'printk'
+     501 | #define printk(fmt, ...) printk_index_wrap(_printk, fmt, ##__VA_ARGS__)
+         |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+   include/linux/printk.h:473:19: note: expanded from macro 'printk_index_wrap'
+     473 |                 _p_func(_fmt, ##__VA_ARGS__);                           \
+         |                         ~~~~    ^~~~~~~~~~~
+   1 warning generated.
 
 
-Best regards,
+vim +1144 drivers/hwtracing/coresight/coresight-etm4x-core.c
 
-Lukasz Majewski
+  1121	
+  1122	static bool etm4_init_iomem_access(struct etmv4_drvdata *drvdata,
+  1123					   struct csdev_access *csa)
+  1124	{
+  1125		u32 devarch = readl_relaxed(drvdata->base + TRCDEVARCH);
+  1126	
+  1127		if (!is_coresight_device(drvdata->base) || !is_devtype_cpu_trace(drvdata->base))
+  1128			return false;
+  1129	
+  1130		/*
+  1131		 * All ETMs must implement TRCDEVARCH to indicate that
+  1132		 * the component is an ETMv4. Even though TRCIDR1 also
+  1133		 * contains the information, it is part of the "Trace"
+  1134		 * register and must be accessed with the OSLK cleared,
+  1135		 * with MMIO. But we cannot touch the OSLK until we are
+  1136		 * sure this is an ETM. So rely only on the TRCDEVARCH.
+  1137		 */
+  1138		switch (devarch & ETM_DEVARCH_ID_MASK) {
+  1139		case ETM_DEVARCH_ETMv4x_ARCH:
+  1140		case ETM_DEVARCH_ETE_ARCH:
+  1141			break;
+  1142		default:
+  1143			pr_warn_once("Unknown ETM architecture: %x\n",
+> 1144				     devarch & ETM_DEVARCH_ID_MASK);
+  1145			return false;
+  1146		}
+  1147		drvdata->arch = etm_devarch_to_arch(devarch);
+  1148		*csa = CSDEV_ACCESS_IOMEM(drvdata->base);
+  1149		return true;
+  1150	}
+  1151	
 
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/r5tjFsU34eWBYPJ.iEWYDwo
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmf3jiYACgkQAR8vZIA0
-zr2DEgf+KE3yYGEwlrYyU8JplEso25aCWU0x5ENkFsHPsIds+J9TLbxooFsu53fP
-6Y2JsJPakI0iBlKqW55uuZWh20wPWTFpIoqAk77FautHOO3BcML3lov3upWRH273
-RGVQEJHRGURV/Q2w2jGM6fNH7JjWZjNHRS6WqNZnRm4WedNh5o3MJobE60k/yNOn
-0RFMSqPOegpWpEJQnSmcip2s66i50dy2ou8kqmUwpDX6OMwJP8sELshq2eJDgH2G
-z/p9pXjh5tfkJw3KO/LUktGgHfCdsjhP4pK3WNaLpSIHEMd1kDEnrrbhaQwMyVwt
-qfkJipgw2GEVOxmgaUF5g4GIJ92exQ==
-=Cxw1
------END PGP SIGNATURE-----
-
---Sig_/r5tjFsU34eWBYPJ.iEWYDwo--
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
