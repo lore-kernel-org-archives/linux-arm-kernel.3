@@ -4,72 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDAEC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 15:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84CE1C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 15:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uG7worjrUd/kRWsz5aYnrW7agEwGMVpomOgwTssxggc=; b=ixZMY3gM6OYASM9trFt/F+jvou
-	lhpRqV8HanLEmQ1a9QDdxzQ0d61f78yNGUEQYgE/O67I9uLyheNahcXXPOIByX8f4T7qE5kJFFi+f
-	sOzZrAVcvSTgbLoe1S/S86+bhgrI+J097rlShdhkj6eXTJSzhB/iNfOne/KfGYWGPSPm72nd/6RlA
-	h4e5PuDa4OoV16/+Lu5yaQJ4vOWcILD2AvX4AxS1eKlEQ8tcTGfITsJPEtQrcm3BQbPxgs/dB99oA
-	cYtRRVsFFaAiPeNnx138UdH8y6NEmMB3XAYGfafFrS0Yl0UpC431I/Vr5K+7C8NShQ9wYOQy+f+Ay
-	pOoy4MLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/XqWDri4TTaMeD/D+sHa9cY43piPw+4PMJH2wpXQP9c=; b=ifFHgXE5Vcok7lJtYuZ3dFutO8
+	svs0XlNpKk8Hm3rRTbLX4xn7bllXxb6HsqHyv8rl+m2FxSQehE52WZIsrWRJe+steVzKI+GLbcLE4
+	FntH+yW+Xh0iK2ipwZGVMUpgveXSs794gOgiBvFFCziSijyIdCVD5SuPaW95RgEY1iNNHUiu7dnPv
+	qKn8IB3+mghryQMVCmPVRZb8un7ZVFPWSKHUn+6TnjFR1xyrvkykBid7KSe3lKZKalSumyuPNU5KA
+	oRKMxm0X7Fjux3tsWIfiPPY5wAzBMUw04vGA55HPIK54DQY7hv5xlIRhPC6bHBy5J1xcdGmxMJS1I
+	O9wu6rfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2tte-0000000B28u-3K70;
-	Thu, 10 Apr 2025 15:32:54 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1u2tvW-0000000B2VI-0Zaq;
+	Thu, 10 Apr 2025 15:34:50 +0000
+Received: from mail-vi1eur02on20608.outbound.protection.outlook.com ([2a01:111:f403:2607::608] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2tDW-0000000Au4G-3ANo;
-	Thu, 10 Apr 2025 14:49:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744296014;
-	bh=ctAClBe4yNGXbeekdfpWt8u5IX3moevD/pTzgxPO4iU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VYp4tA5PnvVZMHsChwt4C1rfOqI789kKaIjL6x+VU0CuZJsEG+7BF5lzAZMqPL1QX
-	 PcMluq3ynQClrCPxlPeDMK7TEQAg+GWsjlfduyExW4GEhFI8rsP6/Ro1NVxe0R/Q2U
-	 BA+QCzzIfA9ergzrXENA4SRhpuYln1PnRWEbYkMRKomBrwNXh84VSCp97yGIWNXTzB
-	 PHfAjQy5kQRA9TQnEurNCX0EbaaISvbgaVMC7Hl7BD8PGvtK9x03fg9opIJFZhIXRe
-	 FXYqyJ8m8dhMgsyurNVJvPTpFT2ramH44nXE2gjj1jvdXWwI6wMJtVq1cMa3LETsWS
-	 7R3SxbUus7DAA==
-Received: from IcarusMOD.eternityproject.eu (fi-19-199-243.service.infuturo.it [151.19.199.243])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2ECA317E0C8D;
-	Thu, 10 Apr 2025 16:40:13 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: yong.wu@mediatek.com
-Cc: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	iommu@lists.linux.dev,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v1 1/2] dt-bindings: iommu: mediatek: Add binding for MT6893 MM IOMMU
-Date: Thu, 10 Apr 2025 16:40:07 +0200
-Message-ID: <20250410144008.475888-2-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250410144008.475888-1-angelogioacchino.delregno@collabora.com>
-References: <20250410144008.475888-1-angelogioacchino.delregno@collabora.com>
+	id 1u2tDe-0000000Au5w-44iT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 14:49:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qplqzgkQXy7C1nlR6q2WkjlTPg3S5qw5tfP36+vvicSM5okV77kSPZG3bgUQBxRFeZYEi6XyOqtev25ZD2lOTOIXu9n1RM9Ydz1wlToizgZky9vk/JZmxgsQbo1bXfL0vqXFgZEp/K/n2TGq+vqInRLKT1sZeQgaaigmbkrvlQahPDWYLFXNTiuN8SWf8R4UraaWr0Reaap174VzrrRgZF+Cz5ACf5omO0NTYeiCjRVYbvBjS/1uzEhXc7i0nrwS3HGLn1q5TpRZNeoCW5VqS4psKHqFBN+av9rW+fj3KdmyyeDbkb3tdYgRdwrk46ApG/5h8J1tz7bPcQ+RvfrLjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/XqWDri4TTaMeD/D+sHa9cY43piPw+4PMJH2wpXQP9c=;
+ b=k2HFXvfd5odVsFyGr74sEAqE+ebsIseMcPHVvebk3qabuAkeBfb4T+I4zGgcAZQ2wXgS71H4Du7sxT+6u6SxYoE+qND7dJvHiznAiUcZwDtjiqSrFXZfsyVs5Y99cU+ZZPYcauvaiHURF/h81JUspcEIyoApcfRQ/FMell/s6IyY6IYkTNxTQRm6Gxtagu8e3UZWosV+0BBFRQAnFzke8I7zBRTLg5fvvr8q2QwCpQFIf3fgKvwhpk9FzSHJwMVsjEwJySzRnqUuoj9BBFUy4Xd2l0eGvVwN42Jj5VDDPX/QHhwX8uXI9wA/GV7aocR1zl+71Ggi+/SWoi9dfLcFtQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/XqWDri4TTaMeD/D+sHa9cY43piPw+4PMJH2wpXQP9c=;
+ b=m6ddbB6wviegcB3tHVA5+0dOIlziUkcJp0GIvG0L27pczy0hCkN2srGo7NFAyeEmdu6OzumrnCiA2Gx08bj7B8a8evG0DUE/KbiTxFBZMy54/xaT9cLslTgIHGqDhdNfkREISuOPbHzAzeG8PnQmHK42pLaO52ea13AcH715jfAR4EiOzOMzkOb1vWGg1BQZktUiMBZGz2RNfztN1yy+nyZGxBx97lmYYDE4nU5jDc9y+HBuNyU/4i9gpmxbETXyi91CT1oVisTpkqQETg8CScg+BQZ9e7dm7yQOuZDWJe6F+v+iVugz5Gtl0VdfSM18594iq8S5lIHin5bxy2Nzfw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by VI0PR04MB10830.eurprd04.prod.outlook.com (2603:10a6:800:260::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.29; Thu, 10 Apr
+ 2025 14:49:25 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.021; Thu, 10 Apr 2025
+ 14:49:25 +0000
+Date: Thu, 10 Apr 2025 10:49:18 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+Subject: Re: [PATCH 03/13] arm64: dts: freescale: imx93-phycore-som: Disable
+ LED pull-up
+Message-ID: <Z/fabrdNCCEMnlKQ@lizhi-Precision-Tower-5810>
+References: <20250410090251.1103979-1-primoz.fiser@norik.com>
+ <20250410090251.1103979-4-primoz.fiser@norik.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250410090251.1103979-4-primoz.fiser@norik.com>
+X-ClientProxiedBy: PH8PR02CA0049.namprd02.prod.outlook.com
+ (2603:10b6:510:2da::25) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI0PR04MB10830:EE_
+X-MS-Office365-Filtering-Correlation-Id: a4915f99-75fe-415e-b990-08dd783ee317
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|52116014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5YUJ8dn/z2GVCfINtoVx4OuYREnGE9WCUSYKObspvM4Rtgza57mPtRrU2X4G?=
+ =?us-ascii?Q?ioWbp1j/6y3xioDa33EdtSa/zkwR63JzD7TxuatkPJbB2Eo6FVMVkG1juhmV?=
+ =?us-ascii?Q?1kOzaADmzcdSz5+hPpehwwPmLiAt221GTujL5Oc3gM3eLV22CBkRhkNYsP9V?=
+ =?us-ascii?Q?RG9iG7mtrYr8NmJzdgB/59h1NeGvXIXYpTLD3qRuXDE2y4Znay46IPKTtD1u?=
+ =?us-ascii?Q?v7R8NKZTFsX01q7W44UtbLg2vX3Ur2GCiu0QC92zpfN1ZPYYMnBYeORHTiCv?=
+ =?us-ascii?Q?iQeRcLG0yid34MxNlCBCHCEz42SIkSOQPXuGrW3oOkCk1Z/pzvVKQXvS8YL3?=
+ =?us-ascii?Q?MMTseobbU2S7bosbNeq1ovgDZUsrQSqsM2PlwUWeEiqfk+otN+gEvM4mMVHp?=
+ =?us-ascii?Q?ZIeJC5FTOVWjDyVvnjfeb+NVTiOD86MBfgKV5T1eYoKNw+ViUbsgNlH7cOP5?=
+ =?us-ascii?Q?TXN1kneyiuh9e77ikr8on9m/sDtDas8S+Uzgt0Py9LLVkoXJcEVAZq1DynsG?=
+ =?us-ascii?Q?ZqdNIzN8OK6FZJ6VkHbNSeY0r9VHGT/U9IutdXdNs0XnTB5mNyAROqeGBkm+?=
+ =?us-ascii?Q?FKHGcW1dhI2XPTBRUmIlRHJ3xffigZaj/6Sz0ScimrvTkaB8Gx4aGOZCuqEg?=
+ =?us-ascii?Q?m9wKZAhrYibFIsyaK6HGMi4bWeLqS7mDUCFxODDoq6jNtntO9SMPybkSP3Q9?=
+ =?us-ascii?Q?+6pY4xqJIgojJY6STNN7GVH/9RrNeJ2THOInjM9KNfkPn0BhB/PevwCZHGbo?=
+ =?us-ascii?Q?cgAI4rsm7AXPQfauaxkWYkeCWz7D8RSoLDYlc6oX0cY+zZ14w7I58+858Er2?=
+ =?us-ascii?Q?WVbNDC3lxhU8MaBSeIpV1MNbCzn6oRCIgcCIAg/3BGwSMZ8MeZkA5ZkF/U1Y?=
+ =?us-ascii?Q?dAjbAd52tzZfB2ptaY+AH9Cq4bfW/7F9zFlOTklvmnGkK5yABRoc8EyMMI9B?=
+ =?us-ascii?Q?8KuFMRdtD0sTCb1yONw4p+35YZCNytw9N8DVUNL9Wxfge8mbGesDYMy36vzN?=
+ =?us-ascii?Q?H9KRxTalpD8VvwK0M7zxhC7K++nFcDtGtil4+awKTYtZPIH8ghvJkTFj1N3Q?=
+ =?us-ascii?Q?+KP3OLOiNRxTvrV1/NWTGrbc5whvG25lfBzsEPlBHLn/KIww6En/44BEn99v?=
+ =?us-ascii?Q?4mWsFdpsKHA7diEV23mzXHewraNzbuAlQwxXBF3v1r1apDCT9IQvllLlYQO3?=
+ =?us-ascii?Q?SUAwETKXIZvZ7IppYVN8UIjWXHiKPqLPvtNzKqfVLXPvzh202jC+BC14ldph?=
+ =?us-ascii?Q?Ddr0TQEbFU2LCEKMXf0LI+QBRh+4XAGFFMpFITwnrZIqYy/ckMtLjUNB5AiO?=
+ =?us-ascii?Q?tyYMirrq8vILDsN2/M+WXkDD/N/bRYgCvvKQqixSdH/Dk6gi2SEcQh4+1PtY?=
+ =?us-ascii?Q?28OsZjlz7VqdwfWIwjC4ingIiiNdvBxikukJz5UNIoKXjFzV66XjPL7iokHL?=
+ =?us-ascii?Q?VvnUuiU5DkrkiT4t2frRUwNuu9QljqzF8ybE4Xq65fEwrd5B4teW+A=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1ZWyqZOoTizCLNWcV3D5v11TxwpkQGyhgtn59cJNTfR6GeKUSBpS1pLUXqcs?=
+ =?us-ascii?Q?SgxVO43kRzVqEHM8n61k9Nj3hgdqkWByQRXowNFjm9tQZE1Ob+EZ3BIWyhz7?=
+ =?us-ascii?Q?xPzcM73ZsjPzKf8QP7ZR9e/5LTbFN9gCZwh9CoJYvbnSCR0dpkisjIALUdCt?=
+ =?us-ascii?Q?sRS5yBtEE8IvvhxdusuopibOr3Fm5VJL7mLeCWfJFaMdPk3Q7XJMJ2PvHqiJ?=
+ =?us-ascii?Q?qQ8TpFgS3gOxKrSU+hTXXHSGnUCAx9LYLSDZb8poUmPg4HNRQcQ47ES51cIh?=
+ =?us-ascii?Q?tyrs54QgfTnb7xWNgxzRXOrpZk1NeMZ5LHMtTjCVlp4of1PiPmf83Di4lWTh?=
+ =?us-ascii?Q?ZMXYHaASSvXVqDxhUejhvzTuWj03M1Ot/xqdYJ28wWEOvAAEP2gSVTrDqsB/?=
+ =?us-ascii?Q?I5WT7GQlNzrktvaNsRRtCPfb6Q5eDHoI9ykhaMl/vu7VmQE4dTmtDK4Rz1wJ?=
+ =?us-ascii?Q?81TKxl6LKw1CTZoReHgaHmhWXCqFmdvehdSgmTRZK/vfs0WZf+BJDUe3tpbp?=
+ =?us-ascii?Q?8C4s7JTRYANiwEELEZ9gl9ZV5AhoRpj3kUY1Pag+AE6cbLi4QI+Z+ngeFss3?=
+ =?us-ascii?Q?CiyF0e7VtWZfanjTzthCYTK1DWDk1aN5iveUil82ljslpt4HU1rHVEfCjNtW?=
+ =?us-ascii?Q?RrckxWc6ybqSfl5PJgfrRaVuVm/os5ge5Qzqahyy7XGX8Xt/AtWXpDunp9pI?=
+ =?us-ascii?Q?jCoVX11VaIjT8rR6FQtZuzFfW13QFoPlqJmztg2Rbt6RUF0NOq5loQ9KykXr?=
+ =?us-ascii?Q?nLztOF15DjoVhoABiMPd2ZnLtdW1ULGqSO8/5RCPcHke+2BzVTthy4GN+LH/?=
+ =?us-ascii?Q?Z//P1QYRedzbpKCWnlJMkAadfI7MztD12zxZEZubG22gVxW/l09mNSDifXPR?=
+ =?us-ascii?Q?bWUP5mdjVptKsilTSgbX9LnDYFhh7nfi9DfIegEP296pbQuohnE4XP2vOduK?=
+ =?us-ascii?Q?0fNn0JKD+o4EVONMzxSehCEViAOj7TcCdkRCJJZZ9y2LDlt+qfmPBhzla0Bs?=
+ =?us-ascii?Q?xOHxm2LKfUy/wDhNBD7DeQT6YHFFoW2VZ4T5FQROA9EbZd3DFixPNCguWyfl?=
+ =?us-ascii?Q?4pG1JRo8iATIfgrh9hiHqwLNqgVdtcfa2y8ESTGZ5gPlVVXAekwL+ThRCmWp?=
+ =?us-ascii?Q?JvOSiKrdl+SN6f3dHOLQASbqZpoWJpLTFIojtxE3eMpatPlZbmyaWzk0qeEG?=
+ =?us-ascii?Q?8hDVvCuh5NUvYSOZP53h7FFGEZ4SWFDy+Ae2wmTZ+M89GsScmgFW7DxLAna8?=
+ =?us-ascii?Q?KzZrFsOz9jvpyps9Mt+AvkBnLyy9TMcmBYTcEF4S0N7lEyGK+6LbIjEZWGhz?=
+ =?us-ascii?Q?pVogiyWCoam9oF/72De3+cnY0yVVuU3AcndLcILiomfa6ia+k6ga8gv89V/y?=
+ =?us-ascii?Q?xckHfHcSUR/iBm9OPG3mInMu54EfR2kx/8g7Im1nQcQJQS1uNV1Km4m7Q3A9?=
+ =?us-ascii?Q?wTQ7JAAHgnEj/o8e0ouHQiKQp60f+Y3sRjAKtwgBN62T/QiA/eRbQtFvp3gF?=
+ =?us-ascii?Q?8CXiZCTNuvS8a2UgeHzXtbxj8WcxvgCuzTlTO3C/fAA7k8uzSnbjWViw6K0+?=
+ =?us-ascii?Q?Nd+j0P0u7Q7dZqm/V6nD9rV7Hml3zF/xEVUgVoYs?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a4915f99-75fe-415e-b990-08dd783ee317
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2025 14:49:25.1802
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XWNNpyWzAQY8rfLIzxs+K7FeGeazMNzTPtXxUEYXnMmQdYEtsU8lAEor+go3CAEIdbcLwH72p9KHxkaBHDXx/Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10830
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_074923_137322_303B1C8E 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250410_074931_015117_1CF8EA9D 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,347 +162,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add binding for the MediaTek Dimensity 1200 (MT6893) SoC's
-MultiMedia (MM) IOMMU.
+On Thu, Apr 10, 2025 at 11:02:41AM +0200, Primoz Fiser wrote:
+> There is already an external pull-down resistor on the LED output line.
+> It makes no sense to have both pull-down and pull-up resistors enabled
+> at the same time. Thus disable the internal pull-down.
+>
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> ---
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../bindings/iommu/mediatek,iommu.yaml        |   4 +
- .../memory/mediatek,mt6893-memory-port.h      | 288 ++++++++++++++++++
- 2 files changed, 292 insertions(+)
- create mode 100644 include/dt-bindings/memory/mediatek,mt6893-memory-port.h
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-diff --git a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-index ea6b0f5f24de..75750c64157c 100644
---- a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-+++ b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-@@ -74,6 +74,7 @@ properties:
-           - mediatek,mt2712-m4u  # generation two
-           - mediatek,mt6779-m4u  # generation two
-           - mediatek,mt6795-m4u  # generation two
-+          - mediatek,mt6893-iommu-mm         # generation two
-           - mediatek,mt8167-m4u  # generation two
-           - mediatek,mt8173-m4u  # generation two
-           - mediatek,mt8183-m4u  # generation two
-@@ -131,6 +132,7 @@ properties:
-       dt-binding/memory/mt2712-larb-port.h for mt2712,
-       dt-binding/memory/mt6779-larb-port.h for mt6779,
-       dt-binding/memory/mt6795-larb-port.h for mt6795,
-+      dt-binding/memory/mediatek,mt6893-memory-port.h for mt6893,
-       dt-binding/memory/mt8167-larb-port.h for mt8167,
-       dt-binding/memory/mt8173-larb-port.h for mt8173,
-       dt-binding/memory/mt8183-larb-port.h for mt8183,
-@@ -157,6 +159,7 @@ allOf:
-               - mediatek,mt2701-m4u
-               - mediatek,mt2712-m4u
-               - mediatek,mt6795-m4u
-+              - mediatek,mt6893-iommu-mm
-               - mediatek,mt8173-m4u
-               - mediatek,mt8186-iommu-mm
-               - mediatek,mt8188-iommu-vdo
-@@ -173,6 +176,7 @@ allOf:
-       properties:
-         compatible:
-           enum:
-+            - mediatek,mt6893-iommu-mm
-             - mediatek,mt8186-iommu-mm
-             - mediatek,mt8188-iommu-vdo
-             - mediatek,mt8188-iommu-vpp
-diff --git a/include/dt-bindings/memory/mediatek,mt6893-memory-port.h b/include/dt-bindings/memory/mediatek,mt6893-memory-port.h
-new file mode 100644
-index 000000000000..acb89609ccc6
---- /dev/null
-+++ b/include/dt-bindings/memory/mediatek,mt6893-memory-port.h
-@@ -0,0 +1,288 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (c) 2020 MediaTek Inc.
-+ * Copyright (c) 2025 Collabora Ltd
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ */
-+#ifndef _DT_BINDINGS_MEMORY_MT6893_LARB_PORT_H_
-+#define _DT_BINDINGS_MEMORY_MT6893_LARB_PORT_H_
-+
-+#include <dt-bindings/memory/mtk-memory-port.h>
-+
-+/*
-+ * MM IOMMU supports 16GB dma address.
-+ *
-+ * The address will preassign like this:
-+ *
-+ * modules    dma-address-region	larbs-ports
-+ * disp         0 ~ 4G                  larb0/2
-+ * vcodec      4G ~ 8G                  larb4/5/7
-+ * cam/mdp     8G ~ 12G                 larb9/11/13/14/16/17/18/19/20
-+ * CCU0    0x4000_0000 ~ 0x43ff_ffff    larb13: port 9/10
-+ * CCU1    0x4400_0000 ~ 0x47ff_ffff    larb14: port 4/5
-+ *
-+ * larb3/6/8/10/12/15 are null.
-+ */
-+
-+/* larb0 */
-+#define M4U_PORT_L0_DISP_POSTMASK0		MTK_M4U_DOM_ID(0, 0)
-+#define M4U_PORT_L0_MDP_RDMA4			MTK_M4U_DOM_ID(0, 1)
-+#define M4U_PORT_L0_OVL_RDMA0_HDR		MTK_M4U_DOM_ID(0, 2)
-+#define M4U_PORT_L0_OVL_2L_RDMA1_HDR		MTK_M4U_DOM_ID(0, 3)
-+#define M4U_PORT_L0_OVL_2L_RDMA3_HDR		MTK_M4U_DOM_ID(0, 4)
-+#define M4U_PORT_L0_OVL_RDMA0			MTK_M4U_DOM_ID(0, 5)
-+#define M4U_PORT_L0_OVL_2L_RDMA1		MTK_M4U_DOM_ID(0, 6)
-+#define M4U_PORT_L0_OVL_2L_RDMA3		MTK_M4U_DOM_ID(0, 7)
-+#define M4U_PORT_L0_OVL_RDMA1_SYSRAM		MTK_M4U_DOM_ID(0, 8)
-+#define M4U_PORT_L0_OVL_2L_RDMA0_SYSRAM		MTK_M4U_DOM_ID(0, 9)
-+#define M4U_PORT_L0_OVL_2L_RDMA2_SYSRAM		MTK_M4U_DOM_ID(0, 10)
-+#define M4U_PORT_L0_DISP_WDMA0			MTK_M4U_DOM_ID(0, 11)
-+#define M4U_PORT_L0_DISP_RDMA0			MTK_M4U_DOM_ID(0, 12)
-+#define M4U_PORT_L0_DISP_UFBC_WDMA0		MTK_M4U_DOM_ID(0, 13)
-+#define M4U_PORT_L0_DISP_FAKE0			MTK_M4U_DOM_ID(0, 14)
-+
-+/* larb1 */
-+#define M4U_PORT_L1_DISP_POSTMASK1		MTK_M4U_DOM_ID(1, 0)
-+#define M4U_PORT_L1_MDP_RDMA5			MTK_M4U_DOM_ID(1, 1)
-+#define M4U_PORT_L1_OVL_RDMA1_HDR		MTK_M4U_DOM_ID(1, 2)
-+#define M4U_PORT_L1_OVL_2L_RDMA0_HDR		MTK_M4U_DOM_ID(1, 3)
-+#define M4U_PORT_L1_OVL_2L_RDMA2_HDR		MTK_M4U_DOM_ID(1, 4)
-+#define M4U_PORT_L1_OVL_RDMA1			MTK_M4U_DOM_ID(1, 5)
-+#define M4U_PORT_L1_OVL_2L_RDMA0		MTK_M4U_DOM_ID(1, 6)
-+#define M4U_PORT_L1_OVL_2L_RDMA2		MTK_M4U_DOM_ID(1, 7)
-+#define M4U_PORT_L1_OVL_RDMA0_SYSRAM		MTK_M4U_DOM_ID(1, 8)
-+#define M4U_PORT_L1_OVL_2L_RDMA1_SYSRAM		MTK_M4U_DOM_ID(1, 9)
-+#define M4U_PORT_L1_OVL_2L_RDMA3_SYSRAM		MTK_M4U_DOM_ID(1, 10)
-+#define M4U_PORT_L1_DISP_WDMA1			MTK_M4U_DOM_ID(1, 11)
-+#define M4U_PORT_L1_DISP_RDMA1			MTK_M4U_DOM_ID(1, 12)
-+#define M4U_PORT_L1_DISP_UFBC_WDMA1		MTK_M4U_DOM_ID(1, 13)
-+#define M4U_PORT_L1_DISP_FAKE1			MTK_M4U_DOM_ID(1, 14)
-+
-+/* larb2 */
-+#define M4U_PORT_L2_MDP_RDMA0			MTK_M4U_DOM_ID(2, 0)
-+#define M4U_PORT_L2_MDP_RDMA2			MTK_M4U_DOM_ID(2, 1)
-+#define M4U_PORT_L2_MDP_WROT0			MTK_M4U_DOM_ID(2, 2)
-+#define M4U_PORT_L2_MDP_WROT2			MTK_M4U_DOM_ID(2, 3)
-+#define M4U_PORT_L2_MDP_FILMGRAIN0		MTK_M4U_DOM_ID(2, 4)
-+#define M4U_PORT_L2_MDP_FAKE0			MTK_M4U_DOM_ID(2, 5)
-+
-+/* larb3: null */
-+
-+/* larb4 */
-+#define M4U_PORT_L4_VDEC_MC_EXT_MDP		MTK_M4U_DOM_ID(4, 0)
-+#define M4U_PORT_L4_VDEC_UFO_EXT_MDP		MTK_M4U_DOM_ID(4, 1)
-+#define M4U_PORT_L4_VDEC_PP_EXT_MDP		MTK_M4U_DOM_ID(4, 2)
-+#define M4U_PORT_L4_VDEC_PRED_RD_EXT_MDP	MTK_M4U_DOM_ID(4, 3)
-+#define M4U_PORT_L4_VDEC_PRED_WR_EXT_MDP	MTK_M4U_DOM_ID(4, 4)
-+#define M4U_PORT_L4_VDEC_PPWRAP_EXT_MDP		MTK_M4U_DOM_ID(4, 5)
-+#define M4U_PORT_L4_VDEC_TILE_EXT_MDP		MTK_M4U_DOM_ID(4, 6)
-+#define M4U_PORT_L4_VDEC_VLD_EXT_MDP		MTK_M4U_DOM_ID(4, 7)
-+#define M4U_PORT_L4_VDEC_VLD2_EXT_MDP		MTK_M4U_DOM_ID(4, 8)
-+#define M4U_PORT_L4_VDEC_AVC_MV_EXT_MDP		MTK_M4U_DOM_ID(4, 9)
-+#define M4U_PORT_L4_VDEC_RG_CTRL_DMA_EXT_MDP	MTK_M4U_DOM_ID(4, 10)
-+
-+/* larb5 */
-+#define M4U_PORT_L5_VDEC_LAT0_VLD_EXT_DISP	MTK_M4U_DOM_ID(5, 0)
-+#define M4U_PORT_L5_VDEC_LAT0_VLD2_EXT_DISP	MTK_M4U_DOM_ID(5, 1)
-+#define M4U_PORT_L5_VDEC_LAT0_AVC_MV_EXT_DISP	MTK_M4U_DOM_ID(5, 2)
-+#define M4U_PORT_L5_VDEC_LAT0_PRED_RD_EXT_DISP	MTK_M4U_DOM_ID(5, 3)
-+#define M4U_PORT_L5_VDEC_LAT0_TILE_EXT_DISP	MTK_M4U_DOM_ID(5, 4)
-+#define M4U_PORT_L5_VDEC_LAT0_WDMA_EXT_DISP	MTK_M4U_DOM_ID(5, 5)
-+#define M4U_PORT_L5_VDEC_LAT0_RG_CTRL_DMA_EXT_DISP MTK_M4U_DOM_ID(5, 6)
-+#define M4U_PORT_L5_VDEC_UFO_ENC_EXT_DISP	MTK_M4U_DOM_ID(5, 7)
-+
-+/* larb6: null */
-+
-+/* larb7 */
-+#define M4U_PORT_L7_VENC_RCPU_DISP		MTK_M4U_DOM_ID(7, 0)
-+#define M4U_PORT_L7_VENC_REC_DISP		MTK_M4U_DOM_ID(7, 1)
-+#define M4U_PORT_L7_VENC_BSDMA_DISP		MTK_M4U_DOM_ID(7, 2)
-+#define M4U_PORT_L7_VENC_SV_COMV_DISP		MTK_M4U_DOM_ID(7, 3)
-+#define M4U_PORT_L7_VENC_RD_COMV_DISP		MTK_M4U_DOM_ID(7, 4)
-+#define M4U_PORT_L7_VENC_NBM_RDMA_DISP		MTK_M4U_DOM_ID(7, 5)
-+#define M4U_PORT_L7_VENC_NBM_RDMA_LITE_DISP	MTK_M4U_DOM_ID(7, 6)
-+#define M4U_PORT_L7_JPGENC_Y_RDMA_DISP		MTK_M4U_DOM_ID(7, 7)
-+#define M4U_PORT_L7_JPGENC_C_RDMA_DISP		MTK_M4U_DOM_ID(7, 8)
-+#define M4U_PORT_L7_JPGENC_Q_TABLE_DISP		MTK_M4U_DOM_ID(7, 9)
-+#define M4U_PORT_L7_JPGENC_BSDMA_DISP		MTK_M4U_DOM_ID(7, 10)
-+#define M4U_PORT_L7_JPGENC_WDMA0_DISP		MTK_M4U_DOM_ID(7, 11)
-+#define M4U_PORT_L7_JPGENC_BSDMA0_DISP		MTK_M4U_DOM_ID(7, 12)
-+#define M4U_PORT_L7_VENC_NBM_WDMA_DISP		MTK_M4U_DOM_ID(7, 13)
-+#define M4U_PORT_L7_VENC_NBM_WDMA_LITE_DISP	MTK_M4U_DOM_ID(7, 14)
-+#define M4U_PORT_L7_VENC_CUR_LUMA_DISP		MTK_M4U_DOM_ID(7, 15)
-+#define M4U_PORT_L7_VENC_CUR_CHROMA_DISP	MTK_M4U_DOM_ID(7, 16)
-+#define M4U_PORT_L7_VENC_REF_LUMA_DISP		MTK_M4U_DOM_ID(7, 17)
-+#define M4U_PORT_L7_VENC_REF_CHROMA_DISP	MTK_M4U_DOM_ID(7, 18)
-+#define M4U_PORT_L7_VENC_SUB_R_LUMA_DISP	MTK_M4U_DOM_ID(7, 19)
-+#define M4U_PORT_L7_VENC_SUB_W_LUMA_DISP	MTK_M4U_DOM_ID(7, 20)
-+#define M4U_PORT_L7_VENC_FCS_NBM_RDMA_DISP	MTK_M4U_DOM_ID(7, 21)
-+#define M4U_PORT_L7_VENC_FCS_NBM_WDMA_DISP	MTK_M4U_DOM_ID(7, 22)
-+#define M4U_PORT_L7_JPGENC_WDMA1_DISP		MTK_M4U_DOM_ID(7, 23)
-+#define M4U_PORT_L7_JPGENC_BSDMA1_DISP		MTK_M4U_DOM_ID(7, 24)
-+#define M4U_PORT_L7_JPGENC_HUFF_OFFSET1_DISP	MTK_M4U_DOM_ID(7, 25)
-+#define M4U_PORT_L7_JPGENC_HUFF_OFFSET0_DISP	MTK_M4U_DOM_ID(7, 26)
-+
-+/* larb8: null */
-+
-+/* larb9 */
-+#define M4U_PORT_L9_IMG_IMGI_D1_MDP		MTK_M4U_DOM_ID(9, 0)
-+#define M4U_PORT_L9_IMG_IMGBI_D1_MDP		MTK_M4U_DOM_ID(9, 1)
-+#define M4U_PORT_L9_IMG_DMGI_D1_MDP		MTK_M4U_DOM_ID(9, 2)
-+#define M4U_PORT_L9_IMG_DEPI_D1_MDP		MTK_M4U_DOM_ID(9, 3)
-+#define M4U_PORT_L9_IMG_ICE_D1_MDP		MTK_M4U_DOM_ID(9, 4)
-+#define M4U_PORT_L9_IMG_SMTI_D1_MDP		MTK_M4U_DOM_ID(9, 5)
-+#define M4U_PORT_L9_IMG_SMTO_D2_MDP		MTK_M4U_DOM_ID(9, 6)
-+#define M4U_PORT_L9_IMG_SMTO_D1_MDP		MTK_M4U_DOM_ID(9, 7)
-+#define M4U_PORT_L9_IMG_CRZO_D1_MDP		MTK_M4U_DOM_ID(9, 8)
-+#define M4U_PORT_L9_IMG_IMG3O_D1_MDP		MTK_M4U_DOM_ID(9, 9)
-+#define M4U_PORT_L9_IMG_VIPI_D1_MDP		MTK_M4U_DOM_ID(9, 10)
-+#define M4U_PORT_L9_IMG_SMTI_D5_MDP		MTK_M4U_DOM_ID(9, 11)
-+#define M4U_PORT_L9_IMG_TIMGO_D1_MDP		MTK_M4U_DOM_ID(9, 12)
-+#define M4U_PORT_L9_IMG_UFBC_W0_MDP		MTK_M4U_DOM_ID(9, 13)
-+#define M4U_PORT_L9_IMG_UFBC_R0_MDP		MTK_M4U_DOM_ID(9, 14)
-+#define M4U_PORT_L9_IMG_WPE_RDMA1_MDP		MTK_M4U_DOM_ID(9, 15)
-+#define M4U_PORT_L9_IMG_WPE_RDMA0_MDP		MTK_M4U_DOM_ID(9, 16)
-+#define M4U_PORT_L9_IMG_WPE_WDMA_MDP		MTK_M4U_DOM_ID(9, 17)
-+#define M4U_PORT_L9_IMG_MFB_RDMA0_MDP		MTK_M4U_DOM_ID(9, 18)
-+#define M4U_PORT_L9_IMG_MFB_RDMA1_MDP		MTK_M4U_DOM_ID(9, 19)
-+#define M4U_PORT_L9_IMG_MFB_RDMA2_MDP		MTK_M4U_DOM_ID(9, 20)
-+#define M4U_PORT_L9_IMG_MFB_RDMA3_MDP		MTK_M4U_DOM_ID(9, 21)
-+#define M4U_PORT_L9_IMG_MFB_RDMA4_MDP		MTK_M4U_DOM_ID(9, 22)
-+#define M4U_PORT_L9_IMG_MFB_RDMA5_MDP		MTK_M4U_DOM_ID(9, 23)
-+#define M4U_PORT_L9_IMG_MFB_WDMA0_MDP		MTK_M4U_DOM_ID(9, 24)
-+#define M4U_PORT_L9_IMG_MFB_WDMA1_MDP		MTK_M4U_DOM_ID(9, 25)
-+#define M4U_PORT_L9_IMG_RESERVE6_MDP		MTK_M4U_DOM_ID(9, 26)
-+#define M4U_PORT_L9_IMG_RESERVE7_MDP		MTK_M4U_DOM_ID(9, 27)
-+#define M4U_PORT_L9_IMG_RESERVE8_MDP		MTK_M4U_DOM_ID(9, 28)
-+
-+/* larb10: null */
-+
-+/* larb11 */
-+#define M4U_PORT_L11_IMG_IMGI_D1_DISP		MTK_M4U_DOM_ID(11, 0)
-+#define M4U_PORT_L11_IMG_IMGBI_D1_DISP		MTK_M4U_DOM_ID(11, 1)
-+#define M4U_PORT_L11_IMG_DMGI_D1_DISP		MTK_M4U_DOM_ID(11, 2)
-+#define M4U_PORT_L11_IMG_DEPI_D1_DISP		MTK_M4U_DOM_ID(11, 3)
-+#define M4U_PORT_L11_IMG_ICE_D1_DISP		MTK_M4U_DOM_ID(11, 4)
-+#define M4U_PORT_L11_IMG_SMTI_D1_DISP		MTK_M4U_DOM_ID(11, 5)
-+#define M4U_PORT_L11_IMG_SMTO_D2_DISP		MTK_M4U_DOM_ID(11, 6)
-+#define M4U_PORT_L11_IMG_SMTO_D1_DISP		MTK_M4U_DOM_ID(11, 7)
-+#define M4U_PORT_L11_IMG_CRZO_D1_DISP		MTK_M4U_DOM_ID(11, 8)
-+#define M4U_PORT_L11_IMG_IMG3O_D1_DISP		MTK_M4U_DOM_ID(11, 9)
-+#define M4U_PORT_L11_IMG_VIPI_D1_DISP		MTK_M4U_DOM_ID(11, 10)
-+#define M4U_PORT_L11_IMG_SMTI_D5_DISP		MTK_M4U_DOM_ID(11, 11)
-+#define M4U_PORT_L11_IMG_TIMGO_D1_DISP		MTK_M4U_DOM_ID(11, 12)
-+#define M4U_PORT_L11_IMG_UFBC_W0_DISP		MTK_M4U_DOM_ID(11, 13)
-+#define M4U_PORT_L11_IMG_UFBC_R0_DISP		MTK_M4U_DOM_ID(11, 14)
-+#define M4U_PORT_L11_IMG_WPE_RDMA1_DISP		MTK_M4U_DOM_ID(11, 15)
-+#define M4U_PORT_L11_IMG_WPE_RDMA0_DISP		MTK_M4U_DOM_ID(11, 16)
-+#define M4U_PORT_L11_IMG_WPE_WDMA_DISP		MTK_M4U_DOM_ID(11, 17)
-+#define M4U_PORT_L11_IMG_MFB_RDMA0_DISP		MTK_M4U_DOM_ID(11, 18)
-+#define M4U_PORT_L11_IMG_MFB_RDMA1_DISP		MTK_M4U_DOM_ID(11, 19)
-+#define M4U_PORT_L11_IMG_MFB_RDMA2_DISP		MTK_M4U_DOM_ID(11, 20)
-+#define M4U_PORT_L11_IMG_MFB_RDMA3_DISP		MTK_M4U_DOM_ID(11, 21)
-+#define M4U_PORT_L11_IMG_MFB_RDMA4_DISP		MTK_M4U_DOM_ID(11, 22)
-+#define M4U_PORT_L11_IMG_MFB_RDMA5_DISP		MTK_M4U_DOM_ID(11, 23)
-+#define M4U_PORT_L11_IMG_MFB_WDMA0_DISP		MTK_M4U_DOM_ID(11, 24)
-+#define M4U_PORT_L11_IMG_MFB_WDMA1_DISP		MTK_M4U_DOM_ID(11, 25)
-+#define M4U_PORT_L11_IMG_RESERVE6_DISP		MTK_M4U_DOM_ID(11, 26)
-+#define M4U_PORT_L11_IMG_RESERVE7_DISP		MTK_M4U_DOM_ID(11, 27)
-+#define M4U_PORT_L11_IMG_RESERVE8_DISP		MTK_M4U_DOM_ID(11, 28)
-+
-+/* larb12: null */
-+
-+/* larb13 */
-+#define M4U_PORT_L13_CAM_MRAWI_MDP		MTK_M4U_DOM_ID(13, 0)
-+#define M4U_PORT_L13_CAM_MRAWO0_MDP		MTK_M4U_DOM_ID(13, 1)
-+#define M4U_PORT_L13_CAM_MRAWO1_MDP		MTK_M4U_DOM_ID(13, 2)
-+#define M4U_PORT_L13_CAM_CAMSV1_MDP		MTK_M4U_DOM_ID(13, 3)
-+#define M4U_PORT_L13_CAM_CAMSV2_MDP		MTK_M4U_DOM_ID(13, 4)
-+#define M4U_PORT_L13_CAM_CAMSV3_MDP		MTK_M4U_DOM_ID(13, 5)
-+#define M4U_PORT_L13_CAM_CAMSV4_MDP		MTK_M4U_DOM_ID(13, 6)
-+#define M4U_PORT_L13_CAM_CAMSV5_MDP		MTK_M4U_DOM_ID(13, 7)
-+#define M4U_PORT_L13_CAM_CAMSV6_MDP		MTK_M4U_DOM_ID(13, 8)
-+#define M4U_PORT_L13_CAM_CCUI_MDP		MTK_M4U_DOM_ID(13, 9)
-+#define M4U_PORT_L13_CAM_CCUO_MDP		MTK_M4U_DOM_ID(13, 10)
-+#define M4U_PORT_L13_CAM_FAKE_MDP		MTK_M4U_DOM_ID(13, 11)
-+
-+/* larb14 */
-+#define M4U_PORT_L14_CAM_MRAWI_DISP		MTK_M4U_DOM_ID(14, 0)
-+#define M4U_PORT_L14_CAM_MRAWO0_DISP		MTK_M4U_DOM_ID(14, 1)
-+#define M4U_PORT_L14_CAM_MRAWO1_DISP		MTK_M4U_DOM_ID(14, 2)
-+#define M4U_PORT_L14_CAM_CAMSV0_DISP		MTK_M4U_DOM_ID(14, 3)
-+#define M4U_PORT_L14_CAM_CCUI_DISP		MTK_M4U_DOM_ID(14, 4)
-+#define M4U_PORT_L14_CAM_CCUO_DISP		MTK_M4U_DOM_ID(14, 5)
-+
-+/* larb15: null */
-+
-+/* larb16 */
-+#define M4U_PORT_L16_CAM_IMGO_R1_A_MDP		MTK_M4U_DOM_ID(16, 0)
-+#define M4U_PORT_L16_CAM_RRZO_R1_A_MDP		MTK_M4U_DOM_ID(16, 1)
-+#define M4U_PORT_L16_CAM_CQI_R1_A_MDP		MTK_M4U_DOM_ID(16, 2)
-+#define M4U_PORT_L16_CAM_BPCI_R1_A_MDP		MTK_M4U_DOM_ID(16, 3)
-+#define M4U_PORT_L16_CAM_YUVO_R1_A_MDP		MTK_M4U_DOM_ID(16, 4)
-+#define M4U_PORT_L16_CAM_UFDI_R2_A_MDP		MTK_M4U_DOM_ID(16, 5)
-+#define M4U_PORT_L16_CAM_RAWI_R2_A_MDP		MTK_M4U_DOM_ID(16, 6)
-+#define M4U_PORT_L16_CAM_RAWI_R3_A_MDP		MTK_M4U_DOM_ID(16, 7)
-+#define M4U_PORT_L16_CAM_AAO_R1_A_MDP		MTK_M4U_DOM_ID(16, 8)
-+#define M4U_PORT_L16_CAM_AFO_R1_A_MDP		MTK_M4U_DOM_ID(16, 9)
-+#define M4U_PORT_L16_CAM_FLKO_R1_A_MDP		MTK_M4U_DOM_ID(16, 10)
-+#define M4U_PORT_L16_CAM_LCESO_R1_A_MDP		MTK_M4U_DOM_ID(16, 11)
-+#define M4U_PORT_L16_CAM_CRZO_R1_A_MDP		MTK_M4U_DOM_ID(16, 12)
-+#define M4U_PORT_L16_CAM_LTMSO_R1_A_MDP		MTK_M4U_DOM_ID(16, 13)
-+#define M4U_PORT_L16_CAM_RSSO_R1_A_MDP		MTK_M4U_DOM_ID(16, 14)
-+#define M4U_PORT_L16_CAM_AAHO_R1_A_MDP		MTK_M4U_DOM_ID(16, 15)
-+#define M4U_PORT_L16_CAM_LSCI_R1_A_MDP		MTK_M4U_DOM_ID(16, 16)
-+
-+/* larb17 */
-+#define M4U_PORT_L17_CAM_IMGO_R1_B_DISP		MTK_M4U_DOM_ID(17, 0)
-+#define M4U_PORT_L17_CAM_RRZO_R1_B_DISP		MTK_M4U_DOM_ID(17, 1)
-+#define M4U_PORT_L17_CAM_CQI_R1_B_DISP		MTK_M4U_DOM_ID(17, 2)
-+#define M4U_PORT_L17_CAM_BPCI_R1_B_DISP		MTK_M4U_DOM_ID(17, 3)
-+#define M4U_PORT_L17_CAM_YUVO_R1_B_DISP		MTK_M4U_DOM_ID(17, 4)
-+#define M4U_PORT_L17_CAM_UFDI_R2_B_DISP		MTK_M4U_DOM_ID(17, 5)
-+#define M4U_PORT_L17_CAM_RAWI_R2_B_DISP		MTK_M4U_DOM_ID(17, 6)
-+#define M4U_PORT_L17_CAM_RAWI_R3_B_DISP		MTK_M4U_DOM_ID(17, 7)
-+#define M4U_PORT_L17_CAM_AAO_R1_B_DISP		MTK_M4U_DOM_ID(17, 8)
-+#define M4U_PORT_L17_CAM_AFO_R1_B_DISP		MTK_M4U_DOM_ID(17, 9)
-+#define M4U_PORT_L17_CAM_FLKO_R1_B_DISP		MTK_M4U_DOM_ID(17, 10)
-+#define M4U_PORT_L17_CAM_LCESO_R1_B_DISP	MTK_M4U_DOM_ID(17, 11)
-+#define M4U_PORT_L17_CAM_CRZO_R1_B_DISP		MTK_M4U_DOM_ID(17, 12)
-+#define M4U_PORT_L17_CAM_LTMSO_R1_B_DISP	MTK_M4U_DOM_ID(17, 13)
-+#define M4U_PORT_L17_CAM_RSSO_R1_B_DISP		MTK_M4U_DOM_ID(17, 14)
-+#define M4U_PORT_L17_CAM_AAHO_R1_B_DISP		MTK_M4U_DOM_ID(17, 15)
-+#define M4U_PORT_L17_CAM_LSCI_R1_B_DISP		MTK_M4U_DOM_ID(17, 16)
-+
-+/* larb18 */
-+#define M4U_PORT_L18_CAM_IMGO_R1_C_MDP		MTK_M4U_DOM_ID(18, 0)
-+#define M4U_PORT_L18_CAM_RRZO_R1_C_MDP		MTK_M4U_DOM_ID(18, 1)
-+#define M4U_PORT_L18_CAM_CQI_R1_C_MDP		MTK_M4U_DOM_ID(18, 2)
-+#define M4U_PORT_L18_CAM_BPCI_R1_C_MDP		MTK_M4U_DOM_ID(18, 3)
-+#define M4U_PORT_L18_CAM_YUVO_R1_C_MDP		MTK_M4U_DOM_ID(18, 4)
-+#define M4U_PORT_L18_CAM_UFDI_R2_C_MDP		MTK_M4U_DOM_ID(18, 5)
-+#define M4U_PORT_L18_CAM_RAWI_R2_C_MDP		MTK_M4U_DOM_ID(18, 6)
-+#define M4U_PORT_L18_CAM_RAWI_R3_C_MDP		MTK_M4U_DOM_ID(18, 7)
-+#define M4U_PORT_L18_CAM_AAO_R1_C_MDP		MTK_M4U_DOM_ID(18, 8)
-+#define M4U_PORT_L18_CAM_AFO_R1_C_MDP		MTK_M4U_DOM_ID(18, 9)
-+#define M4U_PORT_L18_CAM_FLKO_R1_C_MDP		MTK_M4U_DOM_ID(18, 10)
-+#define M4U_PORT_L18_CAM_LCESO_R1_C_MDP		MTK_M4U_DOM_ID(18, 11)
-+#define M4U_PORT_L18_CAM_CRZO_R1_C_MDP		MTK_M4U_DOM_ID(18, 12)
-+#define M4U_PORT_L18_CAM_LTMSO_R1_C_MDP		MTK_M4U_DOM_ID(18, 13)
-+#define M4U_PORT_L18_CAM_RSSO_R1_C_MDP		MTK_M4U_DOM_ID(18, 14)
-+#define M4U_PORT_L18_CAM_AAHO_R1_C_MDP		MTK_M4U_DOM_ID(18, 15)
-+#define M4U_PORT_L18_CAM_LSCI_R1_C_MDP		MTK_M4U_DOM_ID(18, 16)
-+
-+/* larb19 */
-+#define M4U_PORT_L19_IPE_DVS_RDMA_DISP		MTK_M4U_DOM_ID(19, 0)
-+#define M4U_PORT_L19_IPE_DVS_WDMA_DISP		MTK_M4U_DOM_ID(19, 1)
-+#define M4U_PORT_L19_IPE_DVP_RDMA_DISP		MTK_M4U_DOM_ID(19, 2)
-+#define M4U_PORT_L19_IPE_DVP_WDMA_DISP		MTK_M4U_DOM_ID(19, 3)
-+
-+/* larb20 */
-+#define M4U_PORT_L20_IPE_FDVT_RDA_DISP		MTK_M4U_DOM_ID(20, 0)
-+#define M4U_PORT_L20_IPE_FDVT_RDB_DISP		MTK_M4U_DOM_ID(20, 1)
-+#define M4U_PORT_L20_IPE_FDVT_WRA_DISP		MTK_M4U_DOM_ID(20, 2)
-+#define M4U_PORT_L20_IPE_FDVT_WRB_DISP		MTK_M4U_DOM_ID(20, 3)
-+#define M4U_PORT_L20_IPE_RSC_RDMA0_DISP		MTK_M4U_DOM_ID(20, 4)
-+#define M4U_PORT_L20_IPE_RSC_WDMA_DISP		MTK_M4U_DOM_ID(20, 5)
-+
-+#endif
--- 
-2.49.0
-
+>  arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> index 442ee067a047..82f680d891c2 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> @@ -196,7 +196,7 @@ MX93_PAD_ENET2_TD2__ENET1_TX_CLK		0x4000050e
+>
+>  	pinctrl_leds: ledsgrp {
+>  		fsl,pins = <
+> -			MX93_PAD_I2C1_SDA__GPIO1_IO01		0x31e
+> +			MX93_PAD_I2C1_SDA__GPIO1_IO01		0x11e
+>  		>;
+>  	};
+>
+> --
+> 2.34.1
+>
 
