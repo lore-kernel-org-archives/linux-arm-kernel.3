@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DFFC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 12:46:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE70EC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 12:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TxmrNFbL2Mf3iCnWo/UlNLWbVT+0p7I04rEFWKwTskA=; b=QgCAE0bCX7h5o7IPF6PhIDomob
-	gATyuUkDRdsYYGXl91al6I5Tg9fkMwOfGab1HcBLUSK8MSr/7uI+eVQ6DEvG3NNBzTe7jUwOwywED
-	1hWlgkvlD2soDfAk0QIVUyt6Xn95Qb2fdKtHMhRYjYnVbNSVQdgl145kuZOGkvuejyVDs0VjroSru
-	x2HcO8qHE3Pza1C5Ackooubpuvqkot/6Se2L0/6qPEBi5u3+CoVZ1vybbUm5GJp9vSu4B1tYsKccF
-	i8Z6Wn+qy7rSz7zGOjNnI6ljIF7L16cgU3psHrtyD6y/6Pepl193Wzh0uasE4738zlzCN6Ysy5Ws6
-	dGSMEuMg==;
+	bh=0fjabhNZAh84MY2Ye2yT/jYKRYS78Z/TF6DR2MqSU1Q=; b=GlvTU1b/wsRgPSdQHw/JXAc5kr
+	GZLzS1sgRT2BnMpqgjj0oboOEAKHZQpwLTN2chklV0Tcg9D8nnjnNM7sRgh9oaLMniFVmzN1tmEEW
+	0JApsSrORXd7vknAcFmZuOZsE89ipqg7PBJqHIqZlnGa/gPqXHsZyfDtRpKnhmWp/vio6CN9yWza+
+	PbGLEkXTKG+MOwWCHdedSUiNhsPUi0QiOvJzIP+JEfw17owuwhSeuCXDlhZL2zT6p0G2Q4eebI6Qp
+	i8y/4JPVzdSSZ+otafVcQpDlVlLKUV1zCdC6XhXeIhIehj7fjDPiZ0+wPAPQ5JSJOBwWVUBd9Xwm/
+	F/0ZFEaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rIp-0000000AYUC-1SeB;
-	Thu, 10 Apr 2025 12:46:43 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2r8w-0000000AWRS-3U6c;
-	Thu, 10 Apr 2025 12:36:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744288588;
-	bh=iOvQI6EwbSdrSHz2v4SF2Sz7AgGUQWBFbOMGYLPwJD4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=pBYxLsAXqIXGPUL8Tu5XYtlI0ztS9+E+rorYyx6kk2oBGd2pfY7TX18Zm+P6bFY0O
-	 5SupPcr8QzIChkXO0HAnJ6bBvwVCwa9CTcAO2cQjm6fAH/qRtQflPMxBy/RWy3JurX
-	 Pzk00jGBvplmTR1yR9xAkw439iAQynvMwWhi48j0Vq/eYTdpeUQ3NTGtJOIppBMeHL
-	 yBYvgLSprVDhTyUekJEQt5D1LAYsaZ0Igu2KW4kVLq5XriN0h16kLbjUwg22nDNWEO
-	 gx9zBegrB4Oq7EvqWtB5lyJAkTlaCMhh2Mlxqp1LjBYYdW5Brax18kodCSpnb+dyYG
-	 n7D0T12Xk/DYA==
-Received: from [IPv6:2606:6d00:11:e976::5ac] (unknown [IPv6:2606:6d00:11:e976::5ac])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A13B617E0C8D;
-	Thu, 10 Apr 2025 14:36:27 +0200 (CEST)
-Message-ID: <bf9a744df3aa34ea02237b10900431c18f87d7cc.camel@collabora.com>
-Subject: Re: [PATCH] media: verisilicono: Enable NV15 support for Rockchip
- VDPU981
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel	
- <p.zabel@pengutronix.de>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko
- Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, 	linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	kernel@collabora.com
-Date: Thu, 10 Apr 2025 08:36:26 -0400
-In-Reply-To: <7b70a71a.448.1961d1808e5.Coremail.andyshrk@163.com>
-References: <20250409-b4-hantro-nv15-support-v1-1-7e11e47fd0c9@collabora.com>
-	 <7b70a71a.448.1961d1808e5.Coremail.andyshrk@163.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mQGiBEUQN0MRBACQYceNSezSdMjx7sx6gwKkMghrrODgl3B0eXBTgNp6c431IfOOEsdvk
- oOh1kwoYcQgbg4MXw6beOltysX4e8fFWsiRkc2nvvRW9ir9kHDm49MkBLqaDjTqOkYKNMiurFW+go
- zpr/lUW15QqT6v68RYe0zRdtwGZqeLzX2LVuukGwCg4AISzswrrYHNV7vQLcbaUhPgIl0D+gILYT9
- TJgAEK4YHW+bFRcY+cgUFoLQqQayECMlctKoLOE69nIYOc/hDr9uih1wxrQ/yL0NJvQCohSPyoyLF
- 9b2EuIGhQVp05XP7FzlTxhYvGO/DtO08ec85+bTfVBMV6eeY4MS3ZU+1z7ObD7Pf29YjyTehN2Dan
- 6w1g2rBk5MoA/9nDocSlk4pbFpsYSFmVHsDiAOFje3+iY4ftVDKunKYWMhwRVBjAREOByBagmRau0
- cLEcElpf4hX5f978GoxSGIsiKoDAlXX+ICDOWC1/EXhEEmBR1gL0QJgiVviNyLfGJlZWnPjw6xhhm
- tHYWTDxBOP5peztyc2PqeKsLsLWzAr7QnTmljb2xhcyBEdWZyZXNuZSA8bmljb2xhc0BuZHVmcmVz
- bmUuY2E+iGIEExECACIFAlXA3CACGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sB
- qgcJngAnRDBTr8bhzuH0KQwFP1nEYtfgpKdAKCrQ/sJfuG/8zsd7J8wVl7y3e8ARbRDTmljb2xhcy
- BEdWZyZXNuZSAoQi4gU2MuIEluZm9ybWF0aXF1ZSkgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29
- tPohgBBMRAgAgBQJFlCyOAhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQcVMCLawGqBwhLQCg
- zYlrLBj6KIAZ4gmsfjXD6ZtddT8AoIeGDicVq5WvMHNWign6ApQcZUihtElOaWNvbGFzIER1ZnJlc
- 25lIChCLiBTYy4gSW5mb3JtYXRpcXVlKSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY28udW
- s+iGIEExECACIFAkuzca8CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sBqgcQX8
- An2By6LDEeMxi4B9hUbpvRnzaaeNqAJ9Rox8rfqHZnSErw9bCHiBwvwJZ77QxTmljb2xhcyBEdWZy
- ZXNuZSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY29tPohiBBMRAgAiBQJNzZzPAhsDBgsJC
- AcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRBxUwItrAaoHLlxAKCYAGf4JL7DYDLs/188CPMGuwLypw
- CfWKc9DorA9f5pyYlD5pQo6SgSoiC0R05pY29sYXMgRHVmcmVzbmUgKEIgU2MuIEluZm9ybWF0aXF
- 1ZSkgPG5pY29sYXMuZHVmcmVzbmVAdXNoZXJicm9va2UuY2E+iGAEExECACAFAkUQN0MCGwMGCwkI
- BwMCBBUCCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHPTnAJ0WGgJJVspoctAvEcI00mtp5WAFGgCgr
- +E7ItOqZEHAs+xabBgknYZIFPU=
-Organization: Collabora Canada
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.56.0 (3.56.0-1.fc42) 
+	id 1u2rKa-0000000AYs8-2WHe;
+	Thu, 10 Apr 2025 12:48:32 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2r9U-0000000AWWq-0X3I;
+	Thu, 10 Apr 2025 12:37:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=rFnq27x4coNBtZepsly9PbTQ7APl0Mfwznlf1HossBM=; b=J
+	zcDa9w2v/7924RpIAuaZDDthRZokXLPF3GAbgzFxH/hFXltPmDjL9xclwJavLX1u
+	f7M7PZYDDeCM7Yu9pbFjHfchNb75+KhBgZh4CqJyzxUlt8v0FIFIF+cj51lYFVwG
+	2g2zOVJnf7r0t6KgVc3GHDmCPqnFMPWbuBNFIDSemE=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-107 (Coremail) ; Thu, 10 Apr 2025 20:36:07 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Thu, 10 Apr 2025 20:36:07 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Heiko Stuebner" <heiko.stuebner@cherry.de>
+Cc: heiko@sntech.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+	jernej.skrabec@gmail.com, dmitry.baryshkov@linaro.org,
+	dianders@chromium.org, sebastian.reichel@collabora.com,
+	cristian.ciocaltea@collabora.com, boris.brezillon@collabora.com,
+	l.stach@pengutronix.de, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	"Damon Ding" <damon.ding@rock-chips.com>
+Subject: Re:[PATCH v8 00/13] Add eDP support for RK3588
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
+ Copyright (c) 2002-2025 www.mailtech.cn 163com
+In-Reply-To: <20250310104114.2608063-1-damon.ding@rock-chips.com>
+References: <20250310104114.2608063-1-damon.ding@rock-chips.com>
+X-NTES-SC: AL_Qu2fBv6Tt00t4SafbOkfmkcVgOw9UcO5v/Qk3oZXOJF8jCHpwA4HTVlTAlzay/CDBgq2nQiHXjJ+zeFCZZJFRqM7aHKxRR/qKmeJ6RSE2yJXmA==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-ID: <f83f9e3.ae33.1961fb35185.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: aygvCgA3f6A3u_dnnVOTAA--.29407W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hErXmf3t3Jj+QAEs9
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_053631_020014_A2ECE7F8 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20250410_053704_549206_48F3E4DF 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,111 +84,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey,
-
-Le jeudi 10 avril 2025 à 08:27 +0800, Andy Yan a écrit :
-> 
-> Hi Nicolas，
->       Typo in subject？ s/verisilicono/verisilicon/      
-
-I noticed few seconds after that email went, fixed locally.
-
-thanks,
-Nicolas
-
-> 
-> At 2025-04-10 03:30:09, "Nicolas Dufresne"
-> <nicolas.dufresne@collabora.com> wrote:
-> > This is a "customer" format, though on Rockchip RK3588 it has been
-> > verified to be NV15 format, which matches what the GPU and display
-> > handles has 10bit pixel formats.
-> > 
-> > Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> > ---
-> > drivers/media/platform/verisilicon/hantro_v4l2.c           |  1 +
-> > .../platform/verisilicon/rockchip_vpu981_hw_av1_dec.c      |  4
-> > ++++
-> > drivers/media/platform/verisilicon/rockchip_vpu_hw.c       | 14
-> > ++++++++++++++
-> > 3 files changed, 19 insertions(+)
-> > 
-> > diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c
-> > b/drivers/media/platform/verisilicon/hantro_v4l2.c
-> > index
-> > 2bce940a58227c2bfef2bc3343992e4588ab36a4..7c3515cf7d64a090adfb8d8af
-> > f368f9a617f8c8a 100644
-> > --- a/drivers/media/platform/verisilicon/hantro_v4l2.c
-> > +++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
-> > @@ -77,6 +77,7 @@ int hantro_get_format_depth(u32 fourcc)
-> > 	switch (fourcc) {
-> > 	case V4L2_PIX_FMT_P010:
-> > 	case V4L2_PIX_FMT_P010_4L4:
-> > +	case V4L2_PIX_FMT_NV15:
-> > 	case V4L2_PIX_FMT_NV15_4L4:
-> > 		return 10;
-> > 	default:
-> > diff --git
-> > a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> > b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> > index
-> > 69b5d9e12926fb408c08f8ba2139d05ba44389b7..e4703bb6be7c175a89c0b8868
-> > cf2eafb84a872ed 100644
-> > ---
-> > a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> > +++
-> > b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> > @@ -2202,6 +2202,10 @@ static void
-> > rockchip_vpu981_postproc_enable(struct hantro_ctx *ctx)
-> > 	case V4L2_PIX_FMT_NV12:
-> > 		hantro_reg_write(vpu, &av1_pp_out_format, 3);
-> > 		break;
-> > +	case V4L2_PIX_FMT_NV15:
-> > +		/* this mapping is RK specific */
-> > +		hantro_reg_write(vpu, &av1_pp_out_format, 10);
-> > +		break;
-> > 	default:
-> > 		hantro_reg_write(vpu, &av1_pp_out_format, 0);
-> > 	}
-> > diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-> > b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-> > index
-> > 964122e7c355934cd80eb442219f6ba51bba8b71..f7c4a176167b40fe79ec5a675
-> > 9dff8a77e849ae3 100644
-> > --- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-> > +++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-> > @@ -92,6 +92,20 @@ static const struct hantro_fmt
-> > rockchip_vpu981_postproc_fmts[] = {
-> > 			.step_height = MB_DIM,
-> > 		},
-> > 	},
-> > +	{
-> > +		.fourcc = V4L2_PIX_FMT_NV15,
-> > +		.codec_mode = HANTRO_MODE_NONE,
-> > +		.match_depth = true,
-> > +		.postprocessed = true,
-> > +		.frmsize = {
-> > +			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
-> > +			.max_width = FMT_4K_WIDTH,
-> > +			.step_width = MB_DIM,
-> > +			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
-> > +			.max_height = FMT_4K_HEIGHT,
-> > +			.step_height = MB_DIM,
-> > +		},
-> > +	},
-> > 	{
-> > 		.fourcc = V4L2_PIX_FMT_P010,
-> > 		.codec_mode = HANTRO_MODE_NONE,
-> > 
-> > ---
-> > base-commit: 9ddc3d6c16ea2587898a315f20f7b8fbd791dc1b
-> > change-id: 20250403-b4-hantro-nv15-support-07def4e7a537
-> > 
-> > Best regards,
-> > -- 
-> > Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> > 
-
--- 
-Nicolas Dufresne
-Principal Engineer at Collabora
+CkhlbGxvIEhlaWtvLAogICBDb3VsZCB5b3UgdGFrZSB0aGlzIHNlcmllcyA/IFRoZXkgaGF2ZSBh
+bHJlYWR5IGdvdCB0aGUgbmVjZXNzYXJ5IFItQiBhbmQgQWNrLiAKSSB0aGluayBEYW1vbiBzdGls
+bCBoYXMgc29tZSBwYXRjaGVzIGZvciBjb25uZWN0b3IgZGVjb3VwbGluZy4gV2l0aCB0aGlzIHNl
+cmllcyBoYXZlIGJlZW4gbWVyZ2VkIGVhcmxpZXIuIApIaXMgbmV3IHBhdGNoZXMgY2FuIGhhdmUg
+ZmV3ZXIgZGVwZW5kZW5jaWVzLgogICAgCgpBdCAyMDI1LTAzLTEwIDE4OjQxOjAxLCAiRGFtb24g
+RGluZyIgPGRhbW9uLmRpbmdAcm9jay1jaGlwcy5jb20+IHdyb3RlOgo+UGlja2VkIGZyb206Cj5o
+dHRwczovL3BhdGNod29yay5rZXJuZWwub3JnL3Byb2plY3QvbGludXgtcm9ja2NoaXAvbGlzdC8/
+c2VyaWVzPTkzNjkzMgo+Cj5UaGVzZSBwYXRjaHMgaGF2ZSBiZWVuIHRlc3RlZCB3aXRoIGEgMTUz
+NngyMDQ4cDYwIGVEUCBwYW5lbCBvbgo+UkszNTg4UyBFVkIxIGJvYXJkLCBhbmQgSERNSSAxMDgw
+UC80SyBkaXNwbGF5IGFsc28gaGFzIGJlZW4gdmVyaWZpZWQKPm9uIFJLMzU4OCBFVkIxIGJvYXJk
+LiBGdXJ0aGVybW9yZSwgdGhlIGVEUCBkaXNwbGF5IGhhcyBiZWVuIHJlY2hlY2tlZAo+b24gUksz
+Mzk5IHNhcHBoaXJlIGV4Y2F2YXRvciBib2FyZC4KPgo+UGF0Y2ggMX4zICAgYXJlIHByZXBhcmF0
+aW9ucyBmb3IgdGhlIFJLMzU4OCBlRFAgc3VwcG9ydCBvbiBib3RoIEFuYWxvZ2l4Cj4gICAgICAg
+ICAgICBzaWRlLgo+UGF0Y2ggNH44ICAgYXJlIHRvIHN1cHBvcnQgdG8gZ2V0IHBhbmVsIGZyb20g
+dGhlIERQIEFVWCBidXMuCj5QYXRjaCA5fjExICBhcmUgdGhlIFJLMzU4OCBBbmFsb2dpeCBEUCBk
+cml2ZXIgc3VwcG9ydC4KPlBhdGNoIDEyICAgIGlzIHRoZSBhZGRpdGlvbiBvZiBSSzM1ODggZURQ
+MCBub2RlLgo+UGF0Y2ggMTMgICAgaXMgdG8gZW5hYmxlIHRoZSBlRFAwIGRpc3BsYXkgb24gUksz
+NTg4UyBFVkIxIGJvYXJkLgo+Cj5EYW1vbiBEaW5nICgxMyk6Cj4gIGRybS9icmlkZ2U6IGFuYWxv
+Z2l4X2RwOiBBZGQgaXJxIGZsYWcgSVJRRl9OT19BVVRPRU4gaW5zdGVhZCBvZgo+ICAgIGNhbGxp
+bmcgZGlzYWJsZV9pcnEoKQo+ICBkcm0vYnJpZGdlOiBhbmFsb2dpeF9kcDogUmVtb3ZlIENPTkZJ
+R19QTSByZWxhdGVkIGNoZWNrIGluCj4gICAgYW5hbG9naXhfZHBfYmluZCgpL2FuYWxvZ2l4X2Rw
+X3VuYmluZCgpCj4gIGRybS9icmlkZ2U6IGFuYWxvZ2l4X2RwOiBBZGQgc3VwcG9ydCBmb3IgcGh5
+IGNvbmZpZ3VyYXRpb24uCj4gIGR0LWJpbmRpbmdzOiBkaXNwbGF5OiByb2NrY2hpcDogYW5hbG9n
+aXgtZHA6IEFkZCBzdXBwb3J0IHRvIGdldCBwYW5lbAo+ICAgIGZyb20gdGhlIERQIEFVWCBidXMK
+PiAgZHJtL2JyaWRnZTogYW5hbG9naXhfZHA6IFN1cHBvcnQgdG8gZ2V0ICZhbmFsb2dpeF9kcF9k
+ZXZpY2UucGxhdF9kYXRhCj4gICAgYW5kICZhbmFsb2dpeF9kcF9kZXZpY2UuYXV4Cj4gIGRybS9i
+cmlkZ2U6IGFuYWxvZ2l4X2RwOiBBZGQgc3VwcG9ydCB0byBnZXQgcGFuZWwgZnJvbSB0aGUgRFAg
+QVVYIGJ1cwo+ICBkcm0vYnJpZGdlOiBhbmFsb2dpeF9kcDogQWRkIHN1cHBvcnQgZm9yCj4gICAg
+JmRybV9kcF9hdXgud2FpdF9ocGRfYXNzZXJ0ZWQoKQo+ICBkcm0vcm9ja2NoaXA6IGFuYWxvZ2l4
+X2RwOiBBZGQgc3VwcG9ydCB0byBnZXQgcGFuZWwgZnJvbSB0aGUgRFAgQVVYCj4gICAgYnVzCj4g
+IGR0LWJpbmRpbmdzOiBkaXNwbGF5OiByb2NrY2hpcDogYW5hbG9naXgtZHA6IEFkZCBzdXBwb3J0
+IGZvciBSSzM1ODgKPiAgZHJtL2JyaWRnZTogYW5hbG9naXhfZHA6IEFkZCBzdXBwb3J0IGZvciBS
+SzM1ODgKPiAgZHJtL3JvY2tjaGlwOiBhbmFsb2dpeF9kcDogQWRkIHN1cHBvcnQgZm9yIFJLMzU4
+OAo+ICBhcm02NDogZHRzOiByb2NrY2hpcDogQWRkIGVEUDAgbm9kZSBmb3IgUkszNTg4Cj4gIGFy
+bTY0OiBkdHM6IHJvY2tjaGlwOiBFbmFibGUgZURQMCBkaXNwbGF5IG9uIFJLMzU4OFMgRVZCMSBi
+b2FyZAo+Cj4gLi4uL3JvY2tjaGlwL3JvY2tjaGlwLGFuYWxvZ2l4LWRwLnlhbWwgICAgICAgIHwg
+IDI1ICsrKystCj4gYXJjaC9hcm02NC9ib290L2R0cy9yb2NrY2hpcC9yazM1ODgtYmFzZS5kdHNp
+IHwgIDI4ICsrKysrCj4gLi4uL2Jvb3QvZHRzL3JvY2tjaGlwL3JrMzU4OHMtZXZiMS12MTAuZHRz
+ICAgIHwgIDU1ICsrKysrKysrKysKPiAuLi4vZHJtL2JyaWRnZS9hbmFsb2dpeC9hbmFsb2dpeF9k
+cF9jb3JlLmMgICAgfCAgODUgKysrKysrKysrLS0tLS0tCj4gLi4uL2dwdS9kcm0vYnJpZGdlL2Fu
+YWxvZ2l4L2FuYWxvZ2l4X2RwX3JlZy5jIHwgIDUyICsrKysrKysrKwo+IGRyaXZlcnMvZ3B1L2Ry
+bS9yb2NrY2hpcC9LY29uZmlnICAgICAgICAgICAgICB8ICAgMSArCj4gLi4uL2dwdS9kcm0vcm9j
+a2NoaXAvYW5hbG9naXhfZHAtcm9ja2NoaXAuYyAgIHwgMTAzICsrKysrKysrKysrKysrKystLQo+
+IGluY2x1ZGUvZHJtL2JyaWRnZS9hbmFsb2dpeF9kcC5oICAgICAgICAgICAgICB8ICAgNyArLQo+
+IDggZmlsZXMgY2hhbmdlZCwgMzEwIGluc2VydGlvbnMoKyksIDQ2IGRlbGV0aW9ucygtKQo+Cj4t
+LSAKPjIuMzQuMQo+Cg==
 
