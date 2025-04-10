@@ -4,84 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1ECC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 22:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219C6C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 22:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wxm965eZNAy9BW5/MykKmQUsmb3umX7nRNXwA9XN5e4=; b=Cj9AGAX+/RQU9NhbujCKeEv7Pw
-	4qyVM/P/cK49qcyDo584WLSwVHf4zDjBps0uML5z/gGIA8I5HgBqxhsOBS1wJvDhEh9wH0kGrGuTZ
-	8s/zAJyFVuyMKssuoD5ksGk3VpG0XN0g/QT+9N337yMVrd1rJNee2007PqRGq34O3I3NWCkRIYu6L
-	Z+hEtZTvOhNu/H7OpLI6pSkVEWw3e5AvbauGju9ZtbHm2D6PfJ3FgNDTf6kkIaqP/r8O4hihGrjIl
-	m+4TpiFcLsK1pabP2L6P7O8LwFNjqTAjgWz0QnbkmgcHJl4aoSUdwhTMn/BP5fH40i5+GkOLqyI9K
-	JWf41gew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uAHWlrkGaGa/sJ3ZWC6puhhyYjNhD0uWw1WtiT3oZXA=; b=Uvk2ugpg8FtKC94kw3QSfI3hwE
+	1z+zXYVHb6XIsrjzxpUmTLY/pUxNYYpFWipJZzPCqv1BEmd+FfKC35rO24h9/4B3JWW+E9lTYXOJC
+	SbX4Fyfbz31gJ5tDDK+NqBQB3dbPFCa1EOIVnjAiC9T8bXMFBK5WkQVrXww7DOi9+WWUo2xRVNxPV
+	m0AAIeB3k64ImDjHrxSg9535q43qYv9svuq2z4tMXurjac+qoHMD8kIfQZvzNp2hKAd51wCBi+F8I
+	85kmWdWiyWtsyPUdBj2zyhQFxTsf1Kq3WBpVNGuwobB8uhtrcnHN6mIWrkVYSfKuP+tUleStTfifP
+	XL0JcdvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u30Vb-0000000ByVB-1Ujw;
-	Thu, 10 Apr 2025 22:36:31 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1u30XM-0000000Byey-02pg;
+	Thu, 10 Apr 2025 22:38:20 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u30Tn-0000000ByMf-1bAe
+	id 1u30Ux-0000000ByQ9-3D47
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 22:34:40 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-30db1bd3bebso12331871fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 15:34:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744324477; x=1744929277; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Wxm965eZNAy9BW5/MykKmQUsmb3umX7nRNXwA9XN5e4=;
-        b=LwBdbPLN7aAw3+3q4geTeSOu+eN6BJ5uhjLfszYLvcAsyWe8o6jkhzJrOMA7lTAn3I
-         zR/drT1vDAtIKxN40TOB4xxYOzk3enrDaso8Cy9mo7KCs+rRQZQSVjTSTRakf7Qetq7p
-         JYmz0LzIyb1qc6Fpdo5D4PijEe0/f0wclNK7YDkYSKfGZbItxmxxM4xUq+PV1sgEV+sT
-         mX7/3MPH+7/Iz8GRxpSMg6IsUCOmu+gyXR6liRrroOZ9JMYcQkwPM7zfU3uDxN/mlB+j
-         zYyixvfmaoGEIWA62mghz/CVZP+9hInasQf68gd2ia5rrX+uOvvyWIbPSozwLMRzAMeh
-         Ajzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744324477; x=1744929277;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Wxm965eZNAy9BW5/MykKmQUsmb3umX7nRNXwA9XN5e4=;
-        b=VurT6XvGF46oionT367ZQO2G/NkMHJ/olLdCerzBk8V6+ssi+CCPmrk9B56qAzxFqj
-         /3wApuMlKkrdxRZjsa7TwCxFuBV8JfeZUsBGwZJkk9vnFUtZnWQwNpV+Ie1b/WfOL5vA
-         EPxxS8WJjDKHCW0ce0oRwwjWWTkKgknbCUVSN7QpDW29GYb+1roqy1SdF893kX3eLzKe
-         N/i5TFgemqm2EmBVMRcYixVDagNfZNhx4N9/r+zyopE2oHOf4rY80DKGuZL3zCT4UhUz
-         Rbxqc96L199x70V7FCKMH5twbCCLM9AAj4HM3tI/56za0Rcl5GQ7lCJdTzhCs5zK1yV/
-         Ka6g==
-X-Forwarded-Encrypted: i=1; AJvYcCVCiJqvipmWOZifM4xR0diFtMocGm2aZCJMinHWpic8SBnPEGBUzZvHVyf31sCZ755rGjzSyv+b4+PMqLLVBQn9@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywg+MLIGHWy3N2F/vjL3JJy5pP62HXql3UhHcZReILMEhNJIH5a
-	g+rsR6orUc35yw+z/74VLLpn3rxYSva9sPU4XyydYZRuwIyq5Wi0lSL07oXr8rpFgeswkzQUjzF
-	svXDpK8wL4qBPb6Dav6hD6C31C4bzXLPKVGXbMQ==
-X-Gm-Gg: ASbGncsYR8r/ZSs+Auw/sBOMqt4n3LuTM0f8iYPMiWPCHMKz43DBFXdnGJGetqjb5E3
-	oVv8/+5at5XuvLb3F+RILi+UtfsfLsqo4EKC1vOlqgDZNsMsvFQfK68spPYYNpbNS7bnsOlMOlx
-	kRE68vHeHUY31oj8joSMw=
-X-Google-Smtp-Source: AGHT+IFQ5X/At+JSFNbUE1xnp5LyBwwxt4xHNs/nHrO41KOgi6pNuGUXCpYt2H8bLi1d5Neb0s+pA/F8NRLAxfh8kDo=
-X-Received: by 2002:a2e:ad92:0:b0:30b:d63c:ad20 with SMTP id
- 38308e7fff4ca-31049a25e74mr1251291fa.24.1744324477293; Thu, 10 Apr 2025
- 15:34:37 -0700 (PDT)
+	Thu, 10 Apr 2025 22:35:53 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53AMZkFm1933242
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 10 Apr 2025 17:35:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744324546;
+	bh=uAHWlrkGaGa/sJ3ZWC6puhhyYjNhD0uWw1WtiT3oZXA=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=aaP+8pzkOCSycvOOl74ognY5yyrUQJuhrNr4m55ZHqJ01ukyv5ozjXRCGOm926WrG
+	 5eezpEAJCii4xFBn5IOoXnZW3ewTO7w4JOb/HVcK3JFgT2Ije2Yy5C1fTQBgE844vy
+	 HgRCjcEIj2tS+cGXB5CVkXfeDoRCZz1Cm1ynwLoA=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53AMZjVJ017990
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 10 Apr 2025 17:35:46 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 10
+ Apr 2025 17:35:45 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 10 Apr 2025 17:35:45 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53AMZjPt092627;
+	Thu, 10 Apr 2025 17:35:45 -0500
+Date: Thu, 10 Apr 2025 17:35:45 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Robert Nelson <robertcnelson@gmail.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Vignesh
+ Raghavendra" <vigneshr@ti.com>, Andrew Davis <afd@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>,
+        Siddharth Vadapalli <s-vadapalli@ti.com>, Judith Mendez
+	<jm@ti.com>,
+        Andrei Aldea <a-aldea@ti.com>, Dhruva Gole <d-gole@ti.com>,
+        Jason Kridner <jkridner@beagleboard.org>,
+        Deepak Khatri
+	<lorforlinux@beagleboard.org>,
+        Ayush Singh <ayush@beagleboard.org>, <kamlesh@ti.com>,
+        <praneeth@ti.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: ti: Add k3-am62-pocketbeagle2
+Message-ID: <20250410223545.m747qkoqpwsz57ae@septum>
+References: <20250408231823.826163-1-robertcnelson@gmail.com>
+ <20250408231823.826163-2-robertcnelson@gmail.com>
+ <CAOCHtYhFKO=LRN8qp-w+rkTGKJ8t-LnqgqbQW9P6CO3=EeuufA@mail.gmail.com>
+ <20250409130918.d3cyzv3to65oktv2@vision>
+ <CAOCHtYgpkBXZmZEDz6gUCO2x+WGA_paKHFHS-Br=ypo+AFrBmw@mail.gmail.com>
+ <20250410120822.3vsrt42iyfs75h6q@spearhead>
+ <CAOCHtYh7LWhTBOSsua9_=wxSTNt9HmvUaAFCiVS6a8G6dV4AoA@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250318030717.781-1-vulab@iscas.ac.cn>
-In-Reply-To: <20250318030717.781-1-vulab@iscas.ac.cn>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 11 Apr 2025 00:34:26 +0200
-X-Gm-Features: ATxdqUFAOAmsanh_qMDDdICzYFdtcgmjMNVzfkr1X-a4RyLKP9cm2UhbygtlpGw
-Message-ID: <CACRpkdZ+VTCXudLC8L0zK6+Pwd+_NpFDfnR7nf16BXgEnXExeQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: at91: Add error handling for pinctrl_utils_add_map_mux()
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: ludovic.desroches@microchip.com, nicolas.ferre@microchip.com, 
-	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAOCHtYh7LWhTBOSsua9_=wxSTNt9HmvUaAFCiVS6a8G6dV4AoA@mail.gmail.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_153439_433455_E93A6B38 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20250410_153551_964894_434120F7 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,19 +105,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 4:07=E2=80=AFAM Wentao Liang <vulab@iscas.ac.cn> wr=
-ote:
+On 12:15-20250410, Robert Nelson wrote:
+> On Thu, Apr 10, 2025 at 7:08 AM Nishanth Menon <nm@ti.com> wrote:
+> >
+> > On 10:12-20250409, Robert Nelson wrote:
+> > [..]
+> >
+> > > > Any idea why we are crashing?
+> > > > https://gist.github.com/RobertCNelson/c68c96a8a1dc6e4d39d8c48fc13ca1c1#file-gistfile1-txt-L311
+> > > >
+> > > > I don't see the same crash in beagleplay:
+> > > > https://gist.github.com/nmenon/5709a8714d3ab31cac5c00b515d04752
+> > >
+> > > On 6.14.x i have a little more, info...
+> > >
+> > > I've got all the CRYPTO stuff enabled, pretty sure that comes from
+> > > CONFIG_CRYPTO_MANAGER
+> > >
+> > > CONFIG_CRYPTO_MANAGER=y
+> > > CONFIG_CRYPTO_MANAGER2=y
+> > > CONFIG_CRYPTO_USER=y
+> > > # CONFIG_CRYPTO_MANAGER_DISABLE_TESTS is not set
+> > > # CONFIG_CRYPTO_MANAGER_EXTRA_TESTS is not set
+> > >
+> > > https://openbeagle.org/RobertCNelson/arm64-multiplatform/-/blob/v6.15.x-arm64-k3/patches/defconfig?ref_type=heads#L9578
+> >
+> > OK this looks like to be a independent pre-existing bug then and needs
+> > to be investigated, but it is probably independent of this patch itself.
+> >
+> > Could you share a clean defconfig bootlog? I have no existing scheme to
+> > test this on my end. In the logs, please also print
+> > /sys/kernel/debug/devices_deferred to ensure we have nothing sticking
+> > out in our defconfig?
+> 
+> Okay stable v6.15-rc1 with arm64 defconfig..
+> 
+> https://gist.github.com/RobertCNelson/666638abac8eee4ed573997996362450
+> 
+> root@am6232-pb2-87:~# ls -lha /sys/kernel/debug/device_component/
 
-> In atmel_pctl_dt_subnode_to_map(), the return value of
-> pinctrl_utils_add_map_mux() needs to be checked, for the function
-> will fail to associate group when the group map is full. Add error
-> handling for pinctrl_utils_add_map_mux() to return immediately and
-> propagate the error code to caller function when the function fails.
->
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 
-Patch applied.
+umm..  It was cat /sys/kernel/debug/devices_deferred
 
-Yours,
-Linus Walleij
+> total 0
+> drwxr-xr-x  2 root root 0 Dec 31  1969 .
+> drwx------ 44 root root 0 Dec 31  1969 ..
+
+Thank you Robert. I will assume there are no deferred devices or
+additional defconfig components to enable.
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
