@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5909C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 01:13:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83D7C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 01:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AETJCm92Gaddp7KArrHx6Zkppk0IpRlpsUfZE9LW2t0=; b=d/9D8s21tNGRMXI7oXJw9gIbsf
-	nxGLxe5LcnKJmA//w5oN/XHQ7uR3vlAvO/l3mlXyweJJnMkhpSpuGPCrnaxWNYghOayozrsx5o7s/
-	sE1fF2s5R2Y/AWYsmZ/fRjEOt2ZHWY+IqZc9aP8Gzi2SMm09EduEfyHa0M/Jp3S7D5Trx+8oK4kv+
-	2pptTGyhmjJSdzITI9e5HsypkNFACiMQuIYCMsAIkDvRl5176v/v/7fAMqhDvDDDIGugSx5CuY2+U
-	jJnCthHyWvONMDLUuSoq+m7UXUwWNUTti7hE3j3Ox1QO2qHJrEwXw4Kzg/9y/2tvO/Rqw5UkUBrHC
-	yUKeiT1Q==;
+	bh=6qLNu/KtHI93/guQuNVzwPF3GfmNF+H57zE0YS1pFGc=; b=BUggXe47pKch6IrGotvjR0hUVj
+	sjX2zpOJZz4StI5W5V8eYDUqy16D5fJuzv5ci6iSZtu0h6yS4ZoinjNvRe7aKVQ4gsgiCoIaQmqvp
+	ju1jGzTtWUIW7MYQtrKwLPOSeoVq5F8A8eq8xFu+jB7mEtfjKLhdTsqPEGeBxi6ed/7kY3aIWkh3m
+	YsP2X3zgWgTBtYms+Z5DTVA6rj/aK/GRCOEANtSM24Yoe/usUUb/PUbZ67IPNqg5pdTNYYjnygMts
+	57Q/7qdBj30Y6LeskMgEyH1ZPw6wAJVI8caRp1IunAgnjCSpMlr0LkNCWnTc4dvqucNGcUShQWY9p
+	tzpuTdjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2gU0-00000008uIe-0Icx;
-	Thu, 10 Apr 2025 01:13:32 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1u2gVk-00000008uX1-3Z9A;
+	Thu, 10 Apr 2025 01:15:20 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2gGZ-00000008sBc-37iV
+	id 1u2gGb-00000008sCU-4BQo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 00:59:41 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7c55500d08cso28461085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 17:59:39 -0700 (PDT)
+	Thu, 10 Apr 2025 00:59:43 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7c560c55bc1so31397585a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 17:59:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744246778; x=1744851578; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744246780; x=1744851580; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AETJCm92Gaddp7KArrHx6Zkppk0IpRlpsUfZE9LW2t0=;
-        b=fsZsZOQw/0I7xnMFNO96PC2jDXSZq6NhTrAAvB2q6wtp4SpZXZd10N9LIQwHCiJQ0Y
-         QsHPcwHYfuybhyAxwhaI5V+hC9kpLBR4DXKYw5ul5Q93MvojkaJA9Xmqi8kxsul2PGQW
-         Ic0OCEDZJ8x+C6sxC4s/CCwBdM8c/aAjbIOxDRXbPaKWDntr3YgsnG+UY9gzr9CktV0w
-         K4fsaTdYxwMDF0QtcDAGXeZ0uKJj36oDb9JW40yVIdnvhjRqTi+YAkSemPPmaZCkcTWL
-         L5lXCo9B/qK/QUv7CHy6pPm/cqUVeXMSZX21YrAiS6s1N2Upv4zc/WK+jv/qBjBqe95X
-         +3vw==
+        bh=6qLNu/KtHI93/guQuNVzwPF3GfmNF+H57zE0YS1pFGc=;
+        b=VEUvvAQcCbCB3KV8/CZgvNcFa/54tpoFtmlZ2vbIvVlOChHdMT+4toHvTGog1Yjqqv
+         XjAI1skefzWR0TJTqy2YBKs8w/NwiklM/XAmDCc6r9OTv/Oqzw8FwtMLHsknq0PeuZ21
+         5thGcCIwCxb/y5O1G88pLXGjuWm7YOLMwUTvDdmOlDyCyoQFNJygI6evNoxDswG32e2E
+         5L8DcxI4GLXll3glpcQGJKyLZz7KD/1v4jXdK/odE0JyfQ19lMwK7tuAe59/UBXWzSKs
+         Zu3lz+UlH1wnp2v9203V/kelJc+W1/uD+zM3RhoYyQ2WWMmg9BFhq4EY6m/HHwTVeLvB
+         u/rA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744246778; x=1744851578;
+        d=1e100.net; s=20230601; t=1744246780; x=1744851580;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=AETJCm92Gaddp7KArrHx6Zkppk0IpRlpsUfZE9LW2t0=;
-        b=cHDWsrTBNy+Dcen91eKJ0G6+i5DkMDIyQC6uGUa4cWpnhGHjzBjXFx17v+VxQIfrUz
-         9ur8K/lM42GBnu39DASWz/O0AgNHirBAE65Id3kpjaJdxTLc/FFWy6zO0nHi/iHLkWPR
-         n2l4L+vwFLQuGcqCYB0TERIv+9mbcOeHJaAFL1G/NvYjzJciKtA7rtfBiVmxcg6WTJK2
-         hJWlx5ZvyKcihOfqncX8ZBYt/CeRakJx/xOX1umbC3hKU8N5shb+6zGXN4Ek36Cgwlhs
-         KgEp46wbVaAuQIFi8VfRJLAFKoMoK0eCOtG5XxEQ+NvQCm2kGsdED2UQwLahzlMs110P
-         8lUg==
-X-Gm-Message-State: AOJu0YyDosP3C8TvkdfSo/MQk2hJiE6Ppg3AYICoImSYdWwPdotc6SAl
-	DO8jr+FO9YEVpMpIQdhWPVDUxXNOTMkvGOm0NQ46nYgri3l5+C8foqCctA==
-X-Gm-Gg: ASbGncsjOR5D/IqKQT/QbvDPzmF8e6D0kPAo7q89mbG4al8PJDXCpHejcv2B3H/4hg8
-	U5Ssg5bbRO/tB0kxkpUz2VrU7k8qBV4aScR7KdBrO6iVvG3bOXGSSEQfnU5DxlVQ39guBMvPYsa
-	sN+2ZZevfAo1nDu1IGb6H/MqDQE7vXn+H3cLZzgW8/jxlhC4xrceBf/26JfVma5TuwLmCWykTMs
-	xyXkZ3i0xc3rDIplO4Wzkd7n90RSLo0exHFHshR050G+tiY7yniB93RvgkCLwLaZd74X4PdVYrb
-	F2KNmV8Btqd1HJrUheu0Q0rKzVCq6CNC26uHqhSB0GTwRlvcF6pqYu+aekrJsfa89T4oErhu6lB
-	ZJjdJ4Au8M3BVEdG3wLx9jUcOvA==
-X-Google-Smtp-Source: AGHT+IHuQHSJS//F0LBuhXq27KYoLsGaxUVz13ydAdOd20CQjtYTmWnqJXqodma0O0CBVkzHWRdo7A==
-X-Received: by 2002:a05:620a:4310:b0:7c7:9349:e468 with SMTP id af79cd13be357-7c7a765485fmr117923285a.12.1744246778340;
-        Wed, 09 Apr 2025 17:59:38 -0700 (PDT)
+        bh=6qLNu/KtHI93/guQuNVzwPF3GfmNF+H57zE0YS1pFGc=;
+        b=IloeNSLXiI7GQN2UG+dZMD1sxw3nhcveZK7mIXzsxLPgdiy5eUJsG0fqUC5+ZxWy0c
+         AfRwnna7hzAwyZrznxXer19WzWYc2nG0AalS6gaoUgKFAY7mUJU+J8lqpMJcY5Ozg7WG
+         kxZFdX7MgB1BDi9kQMs/nIpYVo6m9L1k57u6AHuIZX+CMFwJyiJaaeMxuM4HH+Hj+CNl
+         iKfAF4sdTb5HsxC+AzJ5XLVX28Pz70e6EN3P02enkTsMEL6JJooeVFkqcQtPggJ+/8kq
+         V6kj12VeTB2R1piK7a+escnf0ZlyHYZWzAd6oeCd0XGjfMtyXguj20DBKuhlC2Ee8ujB
+         skMA==
+X-Gm-Message-State: AOJu0Yw7UoBdKTHd42Odzsln7VnLjtYuV+583PRrktKunMgFJ70t81mx
+	RsCUZ2PVK9t0zKoRctiTVOrZe3qNAotaW+j6Lmz1tHRLA7MU5ixXhYeElg==
+X-Gm-Gg: ASbGnctWoKvnbTLQrSdbJHTH2jx0ArAjpaEulncb7swynEou4+YhiUQJiLMec7iTmxr
+	fbXt46SztbagnF8rqoKr0nGb+ulE7ZrktKuykbuhdN7aEJERyjquu5aUNBpwXGPa/4ucHniuRps
+	NslMpoX2vP6xfjcRuByLrvHPx/JrSS2n8gMxtkyOvIbmS8sxtFtrDQO4kMlS/2qOmRCM5jEBs4P
+	pxssYhQyl/HcGkXxC7TN3cUOL/Hcyh074F9nkmeRQA2f8j1JE/HwX9y90igc0NvfsoNggga3AJi
+	1A3b5jcIlU86aODHfaJBRHCXAZVEm1nfr8oHwnxX/Lx3iN063xzRPEbVUVZPt7x9CajjPHtUwj6
+	SaARESIu0M4W69dw=
+X-Google-Smtp-Source: AGHT+IHMaFesdbwBQ/9S3gzd2hrnklop5LrX3XvIYEQehAtXNRnm2BUKFiblv/IXgjxmg3TAsEYK4g==
+X-Received: by 2002:a05:620a:3903:b0:7c7:694e:1ba0 with SMTP id af79cd13be357-7c7a76bf77emr153611685a.44.1744246780532;
+        Wed, 09 Apr 2025 17:59:40 -0700 (PDT)
 Received: from aford-System-Version.. (c-75-72-162-184.hsd1.mn.comcast.net. [75.72.162.184])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c7a895180esm9590685a.46.2025.04.09.17.59.37
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c7a895180esm9590685a.46.2025.04.09.17.59.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 17:59:37 -0700 (PDT)
+        Wed, 09 Apr 2025 17:59:40 -0700 (PDT)
 From: Adam Ford <aford173@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: aford@beaconembedded.com,
@@ -82,17 +82,17 @@ Cc: aford@beaconembedded.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 7/9] arm64: dts: imx8mn-beacon: Configure Ethernet reset and IRQ GPIO
-Date: Wed,  9 Apr 2025 19:59:01 -0500
-Message-ID: <20250410005912.118732-7-aford173@gmail.com>
+Subject: [PATCH 8/9] arm64: dts: imx8mm-beacon: Enable RTC interrupt and wakeup-source
+Date: Wed,  9 Apr 2025 19:59:02 -0500
+Message-ID: <20250410005912.118732-8-aford173@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250410005912.118732-1-aford173@gmail.com>
 References: <20250410005912.118732-1-aford173@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_175939_886016_7F351D97 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20250409_175942_033171_5B25A394 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,38 +107,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ethernet PHY setup assumes the bootloader will pull the PHY out
-of reset,but it's not guaranteed.  The PHY is also currently
-setup to poll, because it does not configure the IRQ. Enable
-both GPIO settings for better optimal ethernet performance.
+The external RTC has the ability to be used as an alarm when
+interrupts are enabled and configured as a wakeup-source.
 
 Signed-off-by: Adam Ford <aford173@gmail.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-index bb11590473a4..b3692b367a42 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-@@ -88,6 +88,9 @@ mdio {
- 		ethphy0: ethernet-phy@0 {
- 			compatible = "ethernet-phy-ieee802.3-c22";
- 			reg = <0>;
-+			reset-gpios = <&gpio4 22 GPIO_ACTIVE_LOW>;
-+			interrupt-parent = <&gpio1>;
-+			interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
- 		};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
+index ed7a1be4a1a6..8d4d1c86ad71 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
+@@ -235,8 +235,13 @@ eeprom@50 {
+ 
+ 	rtc: rtc@51 {
+ 		compatible = "nxp,pcf85263";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_rtc>;
+ 		reg = <0x51>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
+ 		quartz-load-femtofarads = <12500>;
++		wakeup-source;
  	};
  };
-@@ -326,6 +329,7 @@ MX8MN_IOMUXC_ENET_TXC_ENET1_RGMII_TXC	0x1f
- 			MX8MN_IOMUXC_ENET_RXC_ENET1_RGMII_RXC	0x91
- 			MX8MN_IOMUXC_ENET_RX_CTL_ENET1_RGMII_RX_CTL	0x91
- 			MX8MN_IOMUXC_ENET_TX_CTL_ENET1_RGMII_TX_CTL	0x1f
-+			MX8MN_IOMUXC_GPIO1_IO10_GPIO1_IO10             0x146
- 			MX8MN_IOMUXC_SAI2_RXC_GPIO4_IO22	0x19
+ 
+@@ -354,6 +359,12 @@ MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3	0x141
  		>;
  	};
+ 
++	pinctrl_rtc: rtcgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_GPIO1_IO13_GPIO1_IO13	0x146
++		>;
++	};
++
+ 	pinctrl_uart1: uart1grp {
+ 		fsl,pins = <
+ 			MX8MM_IOMUXC_UART1_RXD_UART1_DCE_RX	0x140
 -- 
 2.48.1
 
