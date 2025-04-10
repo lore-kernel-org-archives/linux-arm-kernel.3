@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE879C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 22:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4687C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 22:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1L/lBwFs+AoYXX7M34lWjEC0yx+AYdjFCcZZm+bO1mg=; b=3b0EIK4Fr/GWN0wkB2JYxNnLcD
-	GUoG1fgKGSDOV0yS0HSdeZF1icjkfQQV/KtBUECXnDqGRGYmtsj38enTLsf3jMqDldlOVDCbxU56r
-	2yP7149DLeCERRaaThuGusBz1vcTJddYsfd2bgVk72pPxP+t3Me9RmkhTj0vuG23XThvBqlQyeh2r
-	6ZAs3rYQ/HNXbd+VyqUmIANORv1fjz/2wl4rjJlYuDJOJfSB0rtyIMlAZ9W/VnzFAhApz/a4NNlyM
-	ytHuajmMuLLk+qWvoL30Fuyynxw3XrSB+FhHzMfgq2tIaqNJEBcI4XXPGqmAIiZZGdf29dnIey+TE
-	pqCxNhwQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XQOB4P9tl5xP8BTMFQTkA/5MgocI9fZkIBoJhuuZIMM=; b=SSxJSoH6hCJf8SpDWoBmNCJzdK
+	QGBm7zYRmDZwnb8L+TEoxGUvxsRqFJuHhjRA9Wuq3IzfZcTvRZJPuTSbiAEFTgF/19whlC3eAZeDB
+	GtBprTt3uaTb7IGHu6JBXAQY3GgOsF2PLKfwoYv2XGNMoKhBav9LZmDhz8vZcc0vmmllE9RYPQk7Z
+	N9Czd4G2frsLvm6WHN6tKa5LKMWEMcl9LiqdElgsFCvIV2YQgtLel9P2T5RCsBPmF/TT4sdnOOXZg
+	31/PCjBpBN2M16cES8wdtaryy8NKkbFkTUJSpuw7zStSyQpfSvN2efg1e7i/GYzURiJFVOeSSyU2W
+	vFqcWgxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u30oc-0000000C0IU-44Ib;
-	Thu, 10 Apr 2025 22:56:10 +0000
+	id 1u30qQ-0000000C0hS-2y6g;
+	Thu, 10 Apr 2025 22:58:02 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u30jE-0000000BzJq-3Z3q
+	id 1u30jE-0000000BzJr-3saV
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Apr 2025 22:50:39 +0000
 Received: from thinkpad-p16sg1.corp.microsoft.com (unknown [20.236.10.206])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 470912114DAC;
-	Thu, 10 Apr 2025 15:50:35 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 470912114DAC
+	by linux.microsoft.com (Postfix) with ESMTPSA id EDD132114DAB;
+	Thu, 10 Apr 2025 15:50:34 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EDD132114DAB
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
 	s=default; t=1744325435;
-	bh=1L/lBwFs+AoYXX7M34lWjEC0yx+AYdjFCcZZm+bO1mg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ouD2J1M6Syc04G0BdVTKC6Tw5VlDo00LLQq/BPfc84OcOz77peQdCCw8Zqxt+neSn
-	 ABkg8kpYvzqIIkB0YtJe/KN823X2z7FYOJRUkv6fcU6UMSZ509smgkZkpOCGIt66tU
-	 ZD4JhUiztiVVO9ZcLBHA74sry1k76aapLHDrwEzQ=
+	bh=XQOB4P9tl5xP8BTMFQTkA/5MgocI9fZkIBoJhuuZIMM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=St9i/IlObVbj6pZJi6K4m05RyLTZHZvLujb+r7TY89ASvq7FBJpBLSi7ZjiU0ZVzN
+	 IIH1/NU3Qc0MZsjrX3TLCrd0llm3w8ouWNCkmNP/L6TKsEaf1MlbMoWtaALEDj9gRn
+	 damsdo3DPTHe1skB73yFsOhNmbZcL9NN6x3DkFBI=
 From: Shyam Saini <shyamsaini@linux.microsoft.com>
 To: iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -50,17 +50,15 @@ Cc: jgg@ziepe.ca,
 	code@tyhicks.com,
 	eahariha@linux.microsoft.com,
 	vijayb@linux.microsoft.com
-Subject: [PATCH v2 1/3] arm-smmu: move MSI_IOVA macro definitions
-Date: Thu, 10 Apr 2025 15:50:28 -0700
-Message-Id: <20250410225030.2528385-2-shyamsaini@linux.microsoft.com>
+Subject: [PATCH v2 0/3] arm-smmu: select suitable IOVA
+Date: Thu, 10 Apr 2025 15:50:27 -0700
+Message-Id: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
-References: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_155036_914397_B4CF9A24 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20250410_155036_986456_836254D3 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,73 +73,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MSI_IOVA* are common among different iommu/smu drivers,
-so move them to common iommu.h header file.
 
-Suggested-by: Jacob Pan <jacob.pan@linux.microsoft.com>
-Signed-off-by: Shyam Saini <shyamsaini@linux.microsoft.com>
+Hi,
+
+Currently, the MSI_IOVA_BASE address is hard-coded to 0x80000000,
+assuming that all platforms have this address available for MSI IOVA
+reservation. However, this is not always the case, as some platforms
+reserve this address for other purposes. Consequently, these platforms
+cannot reserve the MSI_IOVA_BASE address for MSI.
+
+There was an [1] attempt to fix this problem by passing the MSI IOVA
+base as a kernel command line parameter.
+
+This patch series aims to address the issue by introducing a new DTS
+property, "arm,smmu-faulty-msi-iova" which can be used to hold faulty
+MSI IOVA address. This property can be passed to ARM SMMU drivers
+via device tree so that the drivers can select appropriate MSI IOVA base
+address which doesn't intersect with the faulty MSI IOVA address.
+
+This approach accommodates platforms that do not have the default MSI base address
+available for MSI reservation.
+
+[1]: https://lore.kernel.org/lkml/20200914181307.117792-1-vemegava@linux.microsoft.com/
+
+Thanks,
+Shyam
+
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 3 ---
- drivers/iommu/arm/arm-smmu/arm-smmu.c       | 3 ---
- drivers/iommu/virtio-iommu.c                | 2 --
- include/linux/iommu.h                       | 3 +++
- 4 files changed, 3 insertions(+), 8 deletions(-)
+v2:
+- add new dts property to hold faulty MSI IOVA and select appropriate
+  MSI IOVA address
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index bd9d7c85576a..d1713f6bbe6d 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -502,9 +502,6 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
- #define ARM_SMMU_POLL_TIMEOUT_US	1000000 /* 1s! */
- #define ARM_SMMU_POLL_SPIN_COUNT	10
- 
--#define MSI_IOVA_BASE			0x8000000
--#define MSI_IOVA_LENGTH			0x100000
--
- enum pri_resp {
- 	PRI_RESP_DENY = 0,
- 	PRI_RESP_FAIL = 1,
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-index 8f439c265a23..a54dc4608c62 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-@@ -50,9 +50,6 @@
-  */
- #define QCOM_DUMMY_VAL -1
- 
--#define MSI_IOVA_BASE			0x8000000
--#define MSI_IOVA_LENGTH			0x100000
--
- static int force_stage;
- module_param(force_stage, int, S_IRUGO);
- MODULE_PARM_DESC(force_stage,
-diff --git a/drivers/iommu/virtio-iommu.c b/drivers/iommu/virtio-iommu.c
-index b85ce6310ddb..8c8783c8b31b 100644
---- a/drivers/iommu/virtio-iommu.c
-+++ b/drivers/iommu/virtio-iommu.c
-@@ -24,8 +24,6 @@
- 
- #include "dma-iommu.h"
- 
--#define MSI_IOVA_BASE			0x8000000
--#define MSI_IOVA_LENGTH			0x100000
- 
- #define VIOMMU_REQUEST_VQ		0
- #define VIOMMU_EVENT_VQ			1
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index cf8c16ba04a0..8d38d85f23f1 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -1530,6 +1530,9 @@ static inline void iommu_debugfs_setup(void) {}
- #endif
- 
- #ifdef CONFIG_IOMMU_DMA
-+#define MSI_IOVA_BASE        0x8000000
-+#define MSI_IOVA_LENGTH      0x100000
-+
- int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base);
- #else /* CONFIG_IOMMU_DMA */
- static inline int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base)
+v1:
+Link: https://lore.kernel.org/linux-iommu/20250116232307.1436693-1-shyamsaini@linux.microsoft.com/
+
+Shyam Saini (3):
+  arm-smmu: move MSI_IOVA macro definitions
+  arm-smmu: select suitable MSI IOVA
+  dt-bindings: iommu: add "arm,smmu-faulty-msi-iova" property
+
+ .../bindings/iommu/arm,smmu-v3.yaml           |  8 +++
+ .../devicetree/bindings/iommu/arm,smmu.yaml   |  8 +++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  9 +++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  3 --
+ drivers/iommu/arm/arm-smmu/arm-smmu.c         | 10 ++--
+ drivers/iommu/virtio-iommu.c                  |  2 -
+ include/linux/iommu.h                         | 52 +++++++++++++++++++
+ 7 files changed, 81 insertions(+), 11 deletions(-)
+
 -- 
 2.34.1
 
