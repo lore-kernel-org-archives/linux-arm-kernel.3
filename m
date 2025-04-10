@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97DCFC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 07:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06DC4C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 07:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0zVIHbiJYGOefo5LjvyO1/q53DhAvedWNN5OK/79x6s=; b=RV6bJP3kzegWEtlBsDv4bHyENQ
-	t3Lo9EjZdPcG9keErYSs7WXMu4exVf/h8AlMOywFgVjgIlEqyUUznrsiLX5hEN42BxA22l1395sm+
-	pyWOHkBy6J+D/HwG2UhZsZuEzU2EcPuU2lPNCij60qya60ob7gXykYVqWhUrgHHgKcZEm5xUE1sgp
-	xfkZ3ZOmtSzepyh18Jc+VoPqWMDqFSWfSRcHGrxjzHeUt1cZpmmHKaS3kWqjnYH/48aLEaf7m+E70
-	7M9kridVakNy2QS3pOeafHP7MNLOKwEpTKHxceN2X2Nwx6wjp7TMJskaVS3lAGGMoM+VoDraT7zCP
-	iYxHKNJg==;
+	bh=ecgAqb7wLdZ9jgAz3JzJBUzlZ/I61n/cxAdNmeoMVk8=; b=Bjde9l1PRX5/kcXIqtA7Fv7CK2
+	H+KS/wUb7lFeBa5EIt9KOTNHpADa/vVhZyreHmLvIRoWo9RBD5PmfVS/mBtfC72C15KfKujzcy6Gx
+	kiLHczDJXF+vc+/c7R/MFZXerPKtvbBw2l+/sgqmrU0YY7Muah/oXGCmytCC+73dSl97+TfYJgp5s
+	8J658OnTYuhJdHez8zZxWNllkGJOT6ki2cYVAI80icPBN0H9pOyrLK2Dqsh96Y+Q1vAmnJ4tqz/Ch
+	jI4cOJi7r5+sEqkd0vO97TEpjcGpfmG1rs9TTn/2IETCRjyYGhG/n4O5a5AehptfuCi9B+/ud7Ho4
+	ZLPAMtRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2mmB-00000009e1F-2WdW;
-	Thu, 10 Apr 2025 07:56:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u2mnx-00000009eH2-2Q0G;
+	Thu, 10 Apr 2025 07:58:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2m9R-00000009VaP-3BIv;
-	Thu, 10 Apr 2025 07:16:42 +0000
+	id 1u2mC0-00000009WC2-1VCK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 07:19:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9D5B95C4A15;
-	Thu, 10 Apr 2025 07:14:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B00AC4CEDD;
-	Thu, 10 Apr 2025 07:16:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C24515C4A54;
+	Thu, 10 Apr 2025 07:17:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B424C4CEDD;
+	Thu, 10 Apr 2025 07:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744269400;
-	bh=m6s8SJ1hYayKV7qLClv8Iavh8Zvv3LC6jgfJaiRLauE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Wyf/xc9C4YwqJzO2eIeXu8d//gsVeWCr8NmsGVxPywQvV+lNM9iS9kxKFUsU9miHa
-	 vuTwmsmecM3KeK8l4UL9nfWrVNCZy0rS/UkFXH8Y9mBSTFS/2JCSpeG2IUqFKLIgNh
-	 rahYuAvf6cEWHFm7nX7uqlx7rx/TAwVFGRymWuFqBf2jRSRcKRQtH5DEQ7hPtnfv1Y
-	 BkpxQz0KZzeOue22niXVLNNd5Yzvn5axbIMbSTSLYpUulevGXkKmnQjGTFAnrbAH3c
-	 +0J4/bTrLc/mKNeZ22UhEN4w69NXuV+pdjwcJbiFr8k92CXz618EmChpTtqgZ+R28Z
-	 O2Ug/HbTptx2A==
-Date: Thu, 10 Apr 2025 09:16:37 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Davide Caratti <dcaratti@redhat.com>
-Subject: Re: [PATCH net-next v2] net: airoha: Add matchall filter offload
- support
-Message-ID: <Z_dwVVEWJp_VFBB4@lore-desk>
-References: <20250409-airoha-hw-rx-ratelimit-v2-1-694e4fda5c91@kernel.org>
- <20250409163737.2b6c13e3@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vr9WzxqUsueq2Hu9"
-Content-Disposition: inline
-In-Reply-To: <20250409163737.2b6c13e3@kernel.org>
+	s=k20201202; t=1744269559;
+	bh=NnngEiqjBGBGhYGJlz+WHB7gQgc5fz37Z9qI5ZWYW1M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pM+2JjFQ7gMXZ0qjuDbNK9XuRgFbMW5OR9CqgD0NxXh7R4PGBKeTMeBrqMqYtO34s
+	 YWHJVI3upigxoQKVW5QGGhbl/hfFhEab9498Die68+hXJnJXCwmP5haAJj5EGv+MvG
+	 cDT9v6rscd+eM4tWM36hJb1oY/KZHN0UDTtJA7qA7kiEPVy+K7Im+qbnXpvtuhFyFm
+	 mJiJYYJAe+NTwa9lv/E0sELGAF/taVRqnZi4CxyOcxIjdW/nnEuXO7+XOYTg64IIRB
+	 W5aLTYi5SKoHwLouUYtwNW1LIadec94Fl4ZALVnoSGm3BcOCNDdVIrpkpM5T2rBH9x
+	 PdENWLQ9hzIyg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u2mBx-00476u-7y;
+	Thu, 10 Apr 2025 08:19:17 +0100
+Date: Thu, 10 Apr 2025 08:19:16 +0100
+Message-ID: <86mscolc0b.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Forward hvc traps if originated from nested VM
+In-Reply-To: <20250410070743.1072583-1-gankulkarni@os.amperecomputing.com>
+References: <20250410070743.1072583-1-gankulkarni@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_001641_855925_FC18242C 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250410_001920_460431_E0F8D127 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,57 +89,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 10 Apr 2025 08:07:43 +0100,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+> 
+> It was discovered while trying selftest(smccc_filter) that the
+> hvc trap is getting forwarded to guest hypervisor even if it is
+> originated from itself.
+> 
+> HVC traps from guest hypervisor should be handled by the host
+> hypervisor and traps originating from nested VM should be
+> forwarded. Adding check to forward only if the hvc is trapped
+> from the nested VM.
 
---vr9WzxqUsueq2Hu9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I disagree. HVC from EL2 must be routed to the same EL2. HVC from EL1
+must be routed to the EL2 controlling EL1.
 
-> On Wed, 09 Apr 2025 01:15:32 +0200 Lorenzo Bianconi wrote:
-> > +	airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(0),
-> > +		     FIELD_PREP(DFT_CPORT_MASK(7), FE_PSE_PORT_CDM1) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(6), FE_PSE_PORT_CDM1) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(5), FE_PSE_PORT_CDM1) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM1) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM1) |
->=20
-> Coccicheck spotted that the previous line is duplicated..
->=20
-> > +		     FIELD_PREP(DFT_CPORT_MASK(3), FE_PSE_PORT_CDM1) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(2), FE_PSE_PORT_CDM1) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(1), FE_PSE_PORT_CDM1) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(0), FE_PSE_PORT_CDM1));
-> > +	airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(1),
-> > +		     FIELD_PREP(DFT_CPORT_MASK(7), FE_PSE_PORT_CDM2) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(6), FE_PSE_PORT_CDM2) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(5), FE_PSE_PORT_CDM2) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM2) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM2) |
->=20
-> .. and here.
->=20
-> > +		     FIELD_PREP(DFT_CPORT_MASK(3), FE_PSE_PORT_CDM2) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(2), FE_PSE_PORT_CDM2) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(1), FE_PSE_PORT_CDM2) |
-> > +		     FIELD_PREP(DFT_CPORT_MASK(0), FE_PSE_PORT_CDM2));
-> --=20
-> pw-bot: cr
+In no circumstances should HVC from a NV guest be directly handled by
+the host hypervisor. That's what SMC is for.
 
-ack, I will fix them in v3.
+Please read the pseudocode for HVC.
 
-Regards,
-Lorenzo
+	M.
 
---vr9WzxqUsueq2Hu9
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ/dwVQAKCRA6cBh0uS2t
-rJJ3AQDcVrSpTTdSIus3bj+lu3WIoqb3wBPZz2xLxzFleoFWVgD/cu8WjRUgCIom
-wA3SRQG3EzL/ROFBeSPAzg7pV0UZRgY=
-=fX2L
------END PGP SIGNATURE-----
-
---vr9WzxqUsueq2Hu9--
+-- 
+Without deviation from the norm, progress is not possible.
 
