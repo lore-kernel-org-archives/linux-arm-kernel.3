@@ -4,94 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225BFC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 05:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C59C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 05:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d46airT75vHv8EXQAD6iB9DXsZw0o96cfAedDj25Jsg=; b=BqB1CcIpyzN5K6c5KepWrnxuC9
-	JETPqDV7wgts/gIXMsmzEM+7Fz0MhUN2RApwdQYZDx8/zGzcfIOkEzBH3mTk5s/sAgeR+puc7uTPa
-	rt6SNXPLpZrzjd9hKCRH9Rk8pJH6+4FraZwcxOihQRGtFnFACNAAX1e0OmMOrvUj/ohaAV8w1fMZL
-	0d7iXMuAzhIcllNyRAmr3k2fZOcP+04Up0noHffX2uhooDk6MgEupte7rrGqYcBTe1mCciXBUQ8aT
-	H3hUVU3fIr9/x5pKn45xYooZCE6UfyCjoiRUqFTtVmndIOtG3wlmhlYD4SEn82lLoJ81eTlE1+f9k
-	thnSTTVg==;
+	bh=9Ul1Hf9KWtkTYk1RK2QH2VyXIh9rEYPzAip0vxuW630=; b=n1vMtUkdQK3+t3W0/Ib+C1LIFi
+	yzfuiyjyG2Nw/JCgxVPxefSPLwNsbGdZbWgMADAs3Tojj9Kr9Q2IA5t7kHqwezB5Nl6ptoSEjJrJK
+	hEU9Oi2TPe7Z0lt98HS0tiaTfwPVluPkyVF9FKVebYxaU6EMoijI5rhldegmUHDUZ/2jfKgVAIS0y
+	gOEkoBGGY3kP9MO7+fz2M11Ks2rJbuyQR4AgrJ5PpcQOFekJM0MAYihjyQ25LFiTF5mS2Rq67ox4h
+	yogqwEBkyIn1t/bXeYIk2VhWNQCreQ2e6oB6ooCUQkgIlLri8zguUgvU/tumdceSiQDZIl9iUDOu5
+	IZm7cprg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2k9a-00000009Fap-3507;
-	Thu, 10 Apr 2025 05:08:42 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2k7l-00000009FSx-1r12
+	id 1u2kN4-00000009Gmy-2Kf0;
+	Thu, 10 Apr 2025 05:22:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2kLF-00000009GaR-17Dn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 05:06:50 +0000
-Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-7369ce5d323so294925b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 22:06:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744261609; x=1744866409; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=d46airT75vHv8EXQAD6iB9DXsZw0o96cfAedDj25Jsg=;
-        b=Lt/zo4rqU6v/8HpNPh/p6Pk206VkxtHG3o7WhW9KBa4QR8P316cICXZLhLirA0Xwzc
-         8iPt0FvH3pCo/VSQDdjwykVjSlCYPCFaVRVTxiVfsJHxF2yMCkaw2k9n+x3R3cmJQpWs
-         LjkDPz0iFS/CN18fmi+OeOtHEp3MThCpPPEKRJnVlTbcBCHzWL7ITYUvY6JaD1Zfgtlp
-         BAae27cMcrulHqb/SN38a2R3w0nbgOvhNWLxPUWO+63T/NC9Z6XP2M67tVw8YmRkupIi
-         tqs5aVPurOBHKSV+tVqQBYV7jgYyeM3/jjNrD+kfjDRxkcfdkdLq5MbyqNIfEBfQhXAJ
-         WEWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744261609; x=1744866409;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=d46airT75vHv8EXQAD6iB9DXsZw0o96cfAedDj25Jsg=;
-        b=xGafXCIXA3lwiEMSvMNL5KHYqsUburp+ilvYRmfW0l1KwS/ZuEuIdqGxHvisAbfWA1
-         CRXWrFJtYJyJ73Ji7jleqtFWWjK3j1OL5jiM/zFeYklpKIaMl1f482thajWaWvI05+7G
-         BIO5QQkcXEI77LizGcdZ7aTYK5380KHDF8HdMBZ/orLeDnLPwwD6Nd1Tsv+OsSyZkN0D
-         m4TwKOuNmxb0L9geUXDoi3x/KtNiezF7LM1H80tSwR099R+4AcPtXNkT4+3zw000Dn1y
-         8GxV+S6Cvv618cfGAlqHcZHlVLDV0yjlrL8K4zlQLhg9igQBX9mlhU0Of1vWRcik2WCw
-         cNnw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJkzTf5e6X5R7z6zrHnWpWNDZeCbZPw+6duGL3F4ImNHrRjOMGcrDpLC728AcsLb3oRUJcVAqSaTpHzt/PKdN1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy33jJgXGNNqfDe+M5rOK0JqiU1z4Ckp7pxIGa82GKPWcCGi0VB
-	LKg37Gm01w0hE94aAazSRyOmAk8PiMeDACqs+arG/mzA//1XVBeG5Fsb9OsrY8o=
-X-Gm-Gg: ASbGnctfFaeCLmf3/3n7fHHz/TGvwR5nmr/fkpkrYDvjkvPhD4ElY0Ev1SXCvuhKdqD
-	SVyY0RTeEzDijCylTl0bajdlaQ770F4bQYDos3S/oNj7auYYbmlR/JYb43Va1Y2Z80o0QHpbcF0
-	y03rQM5q6EK/xepJRByJUUZL8jp4/0e73zyTQ1XMxZFzHvTjU0J9t3GiASo498tcH6M9kYkWRep
-	lizvs5q3lYAptSkvFczOURfka787Mfa8uMjxwvP50G/orvU6cEm6MS8s2kV0YYQwbboJg3p+E1N
-	eJRP+0QfypQpg1GX+hEbxn8ewXnk5gyJiQ29oXn8muUDwOMFyObLSQXXN6Az
-X-Google-Smtp-Source: AGHT+IEyf/jfRZocce8XbsHKUc43T+JyTF/Sk4rwsW7yZtcHMwpngitvkGrHYV2zaS4TA5tWyxiyjA==
-X-Received: by 2002:a05:6a00:1310:b0:735:d89c:4b9f with SMTP id d2e1a72fcca58-73bc08129b6mr1309744b3a.0.1744261608589;
-        Wed, 09 Apr 2025 22:06:48 -0700 (PDT)
-Received: from sid-Inspiron-15-3525.. ([106.222.231.231])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bb1d6af12sm2320503b3a.80.2025.04.09.22.06.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 22:06:48 -0700 (PDT)
-From: Siddarth G <siddarthsgml@gmail.com>
-To: slongerbeam@gmail.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org,
-	gregkh@linuxfoundation.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+	Thu, 10 Apr 2025 05:20:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A9069152B;
+	Wed,  9 Apr 2025 22:20:41 -0700 (PDT)
+Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.40.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 099943F694;
+	Wed,  9 Apr 2025 22:20:38 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	skhan@linuxfoundation.org,
-	Siddarth G <siddarthsgml@gmail.com>
-Subject: [PATCH v2] media: imx: Fix NULL pointer dereference
-Date: Thu, 10 Apr 2025 10:35:43 +0530
-Message-ID: <20250410050543.6963-1-siddarthsgml@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: [PATCH] arm64/mm: Implement pte_po_index() for permission overlay index
+Date: Thu, 10 Apr 2025 10:50:21 +0530
+Message-Id: <20250410052021.1533180-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_220649_520894_78EB8236 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250409_222045_349238_1D28848E 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,50 +63,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cppcheck warnings:
+From: Ryan Roberts <ryan.roberts@arm.com>
 
-drivers/staging/media/imx/imx-media-fim.c:79:6:
-error: Null pointer dereference: fi [ctunullpointer]
-  if (fi->denominator == 0) {
+Previously pte_access_permitted() used FIELD_GET() directly to retrieve
+the permission overlay index from the pte. However, FIELD_GET() doesn't
+work for 128 bit quanitites. Since we are about to add support for D128
+pgtables, let's create a specific helper, pte_po_index() which can do
+the required mask and shift regardless of the data type width.
 
-drivers/staging/media/imx/imx-media-csi.c:795:27:
-note: Calling function imx_media_fim_set_stream, 2nd argument is null
-  imx_media_fim_set_stream(priv->fim, NULL, false);
-
-drivers/staging/media/imx/imx-media-fim.c:388:3:
-note: Calling function update_fim_nominal, 2nd argument is null
-  update_fim_nominal(fim, fi);
-
-drivers/staging/media/imx/imx-media-fim.c:79:6:
-note: Dereferencing argument fi that is null
-  if (fi->denominator == 0) {
-
-To fix the issue, add a check to validate that the 'fi' is not
-null before accessing its members.
-
-Signed-off-by: Siddarth G <siddarthsgml@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
-Changes since v1:
-- added "media:" prefix in subject
+This patch applies on v6.15-rc1
 
- drivers/staging/media/imx/imx-media-fim.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/include/asm/pgtable-hwdef.h | 1 +
+ arch/arm64/include/asm/pgtable-prot.h  | 2 ++
+ arch/arm64/include/asm/pgtable.h       | 2 +-
+ 3 files changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/staging/media/imx/imx-media-fim.c b/drivers/staging/media/imx/imx-media-fim.c
-index ccbc0371fba2..25f79d0f87b9 100644
---- a/drivers/staging/media/imx/imx-media-fim.c
-+++ b/drivers/staging/media/imx/imx-media-fim.c
-@@ -76,6 +76,9 @@ static bool icap_enabled(struct imx_media_fim *fim)
- static void update_fim_nominal(struct imx_media_fim *fim,
- 			       const struct v4l2_fract *fi)
- {
-+	if (!fi)
-+		return;
+diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
+index f3b77deedfa2..028a164924df 100644
+--- a/arch/arm64/include/asm/pgtable-hwdef.h
++++ b/arch/arm64/include/asm/pgtable-hwdef.h
+@@ -211,6 +211,7 @@
+ #define PTE_PO_IDX_2	(_AT(pteval_t, 1) << 62)
+ 
+ #define PTE_PO_IDX_MASK		GENMASK_ULL(62, 60)
++#define PTE_PO_IDX_SHIFT	60
+ 
+ 
+ /*
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index 7830d031742e..b53bc241e4e7 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -136,6 +136,8 @@ static inline bool __pure lpa2_is_enabled(void)
+ 	((pte & BIT(PTE_PI_IDX_1)) >> (PTE_PI_IDX_1 - 1)) | \
+ 	((pte & BIT(PTE_PI_IDX_0)) >> (PTE_PI_IDX_0 - 0)))
+ 
++#define pte_po_index(pte)	((pte_val(pte) & PTE_PO_IDX_MASK) >> PTE_PO_IDX_SHIFT)
 +
- 	if (fi->denominator == 0) {
- 		dev_dbg(fim->sd->dev, "no frame interval, FIM disabled\n");
- 		fim->enabled = false;
+ /*
+  * Page types used via Permission Indirection Extension (PIE). PIE uses
+  * the USER, DBM, PXN and UXN bits to to generate an index which is used
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index d3b538be1500..41979c0e6c21 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -182,7 +182,7 @@ static inline bool por_el0_allows_pkey(u8 pkey, bool write, bool execute)
+ 	(((pte_val(pte) & (PTE_VALID | PTE_USER)) == (PTE_VALID | PTE_USER)) && (!(write) || pte_write(pte)))
+ #define pte_access_permitted(pte, write) \
+ 	(pte_access_permitted_no_overlay(pte, write) && \
+-	por_el0_allows_pkey(FIELD_GET(PTE_PO_IDX_MASK, pte_val(pte)), write, false))
++	por_el0_allows_pkey(pte_po_index(pte), write, false))
+ #define pmd_access_permitted(pmd, write) \
+ 	(pte_access_permitted(pmd_pte(pmd), (write)))
+ #define pud_access_permitted(pud, write) \
 -- 
-2.43.0
+2.25.1
 
 
