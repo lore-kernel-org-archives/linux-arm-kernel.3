@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD876C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 19:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA3CC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 19:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7zvp77DVHsDdxeCL64RdzhlfSKqpDOoKg/3DLhfTCZk=; b=DgaxHMaRyH0H4O39NeTYNYh0cH
-	oQXI7oZNO+ME6ORcj4yrsQXrk09gZ6jkb7p+jDBJsSxVu7wVyzi+hHifd7gHvbjEC7Nw2FCZGbTda
-	8+wBSGww5XZgJnAfrDhCWTy7y9Hd5lXi6qRJ8uUNfORd2o4lJPK73hGiFe6ZGeEOUvK8eJfyDc6Qt
-	mWGn3BphPtr982oBjh1NoFIqOZdbmDbTlASaxtKGy4gczZvsGFIBnLE9M0HNoMogBoTJ7Lo/KD8Qp
-	zqA+xQatEGWeZtDU656mesDbEvEm0Pc4uk4amPfP1416mmLnmVfalzVCRGu0A/c5CX2mfQCB2xBN5
-	DcwYQNTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GIf52GlovbvkGrmF0yuwN/3vnWv6uH/x4VM7bLG+QCY=; b=PUtHGO/vBvp7eC5O0veSL6NDxO
+	HG6uaJHYXTH1qbIvo0ho+I04rFoYLWDcFBtGNG+HDsZRrCqrvgR0traKEDPxqs0VezULeWr4Ll4a0
+	NB/EMQ14bDDJUtqyGj/iAIctf/aD/p83WHtFP+n2W/w0WD7+//MUAzSCWm5GVRt/8xZAh9VoRVL3e
+	0f8/P9H3sOChTJPwmU8HOyudrUkGadGiEfKmmvXe7OXII7ualzHVRpOH1kltreXtqmbsQ125g88Q2
+	18PUhlOSvyYKoZA38q+bCa/SWiQD3b/Q/UTKCSK7vw7EVBivwM1lAQMYquGRHx/QmCDUaPhIUViBe
+	JRDzyJzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2xHK-0000000BbSM-1wsR;
-	Thu, 10 Apr 2025 19:09:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2xFV-0000000BbER-1Ysx;
-	Thu, 10 Apr 2025 19:07:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 401505C3ABF;
-	Thu, 10 Apr 2025 19:05:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB136C4CEDD;
-	Thu, 10 Apr 2025 19:07:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744312059;
-	bh=9LzDhagF1B/m2ytbn3Sp4CBEK7Ris0Pmu1ba2tDdU0Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XLopckpMOaw2ss8AP4md5j7yUBTlWXUYEVbolOQZATbdY3kBcAvYGq7IuSF/3ACav
-	 MC7Wn4ho2da//78A7fzeoumwGxh/FvbRF254J8mM24rIfoteD7S9mKnKZM5ZeUOoP2
-	 cdzBHrsbi+0CCfTDiaUZLJIl0uXZOVPOv5snv2REC4WbhH0Z0wcf3p8DLrk1lASXCB
-	 WVPwmmz7wTp3oXZzFl4q9MQJ2MTnQ7uYiaOK3hFcueSZkXSjqJItJEjBZW1GeacudA
-	 Sn/ocE8Islx6tS6l9qyuM10986xbqWFPYY/2cIO60HE3CeSG5oXNq+LjvN8DxIt4bO
-	 3OVSRNuXoCNLQ==
-Date: Thu, 10 Apr 2025 20:07:33 +0100
-From: Simon Horman <horms@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Qingfang Deng <dqfext@gmail.com>,
-	SkyLake Huang <SkyLake.Huang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Randy Dunlap <rdunlap@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [net-next PATCH v2 2/2] net: phy: mediatek: add Airoha PHY ID to
- SoC driver
-Message-ID: <20250410190733.GV395307@horms.kernel.org>
-References: <20250410100410.348-1-ansuelsmth@gmail.com>
- <20250410100410.348-2-ansuelsmth@gmail.com>
+	id 1u2xK6-0000000Bbvb-3xqy;
+	Thu, 10 Apr 2025 19:12:26 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2xIG-0000000BbfD-2H9E
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 19:10:34 +0000
+Received: from [10.137.184.60] (unknown [131.107.159.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id B95962114DA8;
+	Thu, 10 Apr 2025 12:10:30 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B95962114DA8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1744312231;
+	bh=GIf52GlovbvkGrmF0yuwN/3vnWv6uH/x4VM7bLG+QCY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=P7hSa02M3iPJfwyVRh9ul8Qqg3w3S9nzYdXt1Jguz+zzE2jU7vdU4NAeqNKF9CJpV
+	 SLgW6C2o4uN4t7kSkTROtIOX2QqjDT3/uXC+0yxmK45wBRqoJVxJonTcXFFAeY59o2
+	 mMrZ3NYMSyQOYMfz6rugX2MXe3gTtYW6AzauSq5U=
+Message-ID: <fb7de79c-100c-4423-a6f5-6f7b9acfccbc@linux.microsoft.com>
+Date: Thu, 10 Apr 2025 12:10:30 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250410100410.348-2-ansuelsmth@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next 1/6] Documentation: hyperv: Confidential VMBus
+To: ALOK TIWARI <alok.a.tiwari@oracle.com>, aleksander.lobakin@intel.com,
+ andriy.shevchenko@linux.intel.com, arnd@arndb.de, bp@alien8.de,
+ catalin.marinas@arm.com, corbet@lwn.net, dakr@kernel.org,
+ dan.j.williams@intel.com, dave.hansen@linux.intel.com, decui@microsoft.com,
+ gregkh@linuxfoundation.org, haiyangz@microsoft.com, hch@lst.de,
+ hpa@zytor.com, James.Bottomley@HansenPartnership.com,
+ Jonathan.Cameron@huawei.com, kys@microsoft.com, leon@kernel.org,
+ lukas@wunner.de, luto@kernel.org, m.szyprowski@samsung.com,
+ martin.petersen@oracle.com, mingo@redhat.com, peterz@infradead.org,
+ quic_zijuhu@quicinc.com, robin.murphy@arm.com, tglx@linutronix.de,
+ wei.liu@kernel.org, will@kernel.org, iommu@lists.linux.dev,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org, x86@kernel.org
+Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com
+References: <20250409000835.285105-1-romank@linux.microsoft.com>
+ <20250409000835.285105-2-romank@linux.microsoft.com>
+ <724f9f7d-137b-4cf5-aff5-bbb9727c23c1@oracle.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <724f9f7d-137b-4cf5-aff5-bbb9727c23c1@oracle.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_120741_453607_7BE600F8 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20250410_121032_602543_AF2B1E76 
+X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,58 +85,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 12:04:04PM +0200, Christian Marangi wrote:
-> Airoha AN7581 SoC ship with a Switch based on the MT753x Switch embedded
-> in other SoC like the MT7581 and the MT7988. Similar to these they
-> require configuring some pin to enable LED PHYs.
+
+
+On 4/10/2025 9:54 AM, ALOK TIWARI wrote:
 > 
-> Add support for the PHY ID for the Airoha embedded Switch and define a
-> simple probe function to toggle these pins. Also fill the LED functions
-> and add dedicated function to define LED polarity.
 > 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-...
+[...]
 
-> diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
+> 
+> typo trsuted  -> trusted
+> 
+>> +To support confidential communication with the paravisor, a VmBus client
+>> +will first attempt to use regular, non-isolated mechanisms for 
+>> communication.
+>> +To do this, it must:
+> 
 
-...
+Thanks for your help with this patch, and the other ones!! I'll make
+sure to use the spellchecker on the patches before sending another
+version out.
 
-> +static int an7581_phy_led_polarity_set(struct phy_device *phydev, int index,
-> +				       unsigned long modes)
-> +{
-> +	u32 mode;
-> +	u16 val;
-> +
-> +	if (index >= MTK_PHY_MAX_LEDS)
-> +		return -EINVAL;
-> +
-> +	for_each_set_bit(mode, &modes, __PHY_LED_MODES_NUM) {
-> +		switch (mode) {
-> +		case PHY_LED_ACTIVE_LOW:
-> +			val = MTK_PHY_LED_ON_POLARITY;
-> +			break;
-> +		case PHY_LED_ACTIVE_HIGH:
-> +			val = 0;
-> +			break;
-> +		default:
-> +			return -EINVAL;
-> +		}
-> +	}
-> +
-> +	return phy_modify_mmd(phydev, MDIO_MMD_VEND2, index ?
-> +			      MTK_PHY_LED1_ON_CTRL : MTK_PHY_LED0_ON_CTRL,
-> +			      MTK_PHY_LED_ON_POLARITY, val);
+> 
+> Thanks,
+> Alok
 
-Hi Christian,
+-- 
+Thank you,
+Roman
 
-Perhaps this cannot occur in practice, but if the for_each_set_bit
-loop iterates zero times then val will be used uninitialised here.
-
-Flagged by Smatch.
-
-> +}
-
-...
 
