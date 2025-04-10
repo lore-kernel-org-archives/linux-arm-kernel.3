@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065D9C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 20:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0570C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 20:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c5Qo8ekuq5ocvJn1ReWIleuKXhY0N45PFG+es/dkCQU=; b=J4OrFyEvRdOWq/k5Rn+5iN5/PS
-	yyAjvHdYOFzZyi2odDgCfj4j9Y66S9gsXfO9F0isNCDxJuAjRlodg5IQiIeB+qHLOb+rVSnvdDnHk
-	5nbWrWs0Iuz3uezsjft+VQ5BGW/vZHk/AoGZtE3Z6D6YlxlLMctL4u2WjUiQ9Q5bE4cKDcA60RMjf
-	nIwTsxjsKN/KSh1mN16g7FaLzG7TSlCRPJ0zP83lEPOFzya55P5B1ed85AZwKSZpgJYMZeoK9QaX6
-	+690Gdo2uJqcTmSLg6zt7TJTLQdG3HEU+m1+LHc+7VCh68kbSP6p0RRKPm1AugScAHIIsqc41rrbj
-	FJpJeS8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WRnzVLZ2mALBOhto1MDSmmKU9u5xJvvkLsi8w3JW6n4=; b=05VOB1K/tnh0/l25x+xNstdHEV
+	ObSL5ASugaMbTxO50Y01J3netN82LkIcDWDeEI1xZDA9UL6FrIZwCFgTRchzHMeD7ow1Te6iA8VVQ
+	MwH7sQouilwQG0+BKarkjxLnneo15XPiKa15qh1v0vZSwTyiLYQYqKz+UBODIF3497nAzMZLSlIcf
+	Y7xiECrHTyR+xuKpB/G2PWVv/Z5CSLeivYkd9IqSfCmhClq8YR4vMY8NXL4p/CzudhmLXu7eTsWGX
+	vLImxqzobMV+fl3pA/LPC+chkHgsxEf7svMrgkZ/qHmpnCJ4wfmUWngvOoGqLvmPm2SiYoPs0d6vi
+	WVg3TqVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2yag-0000000BnNW-213k;
-	Thu, 10 Apr 2025 20:33:38 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1u2yr8-0000000BpTX-2uFx;
+	Thu, 10 Apr 2025 20:50:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2yYt-0000000BnCp-0oRd;
-	Thu, 10 Apr 2025 20:31:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744317105;
-	bh=clGXEM3uV6arKybRtUtjay21pNyzBA3gbrojC+ubh68=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=KUOA3jlbOp2P0xkTTT/RAQPsasqyvXcQA5paDG4e4Db/qxLlSN6SqChJEqcuLBzNl
-	 kJV0tbmus95IVaRLtBJdQNkf/44eIQ7UAqOkinvlk9J6uXPieq6gIFSUtLp3bQx6fP
-	 8yXCrDGaJHIcyCv0l7f/eWYEo0K9xGhpFWK4p+u6FKlLCdXcVWfwYXBX7k2ph9vvyx
-	 0HuhBbjuqPzJRrB8jftF5WZWUMB/O9OCk5OHqQY+p1p/qyDpmot8mxA0wyNecj6ZKf
-	 FMfK9zgKeCowmJToW2FBEnw3TFrvtozm40cHB/64SFWaMQ1mtXcxiExXrXYWKFU5m3
-	 Zv+g8snVhrD9g==
-Received: from [IPv6:2606:6d00:11:e976::5ac] (unknown [IPv6:2606:6d00:11:e976::5ac])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C58B117E017D;
-	Thu, 10 Apr 2025 22:31:43 +0200 (CEST)
-Message-ID: <bb1f8d1581169bdf2e04be67883ee3ae03488680.camel@collabora.com>
-Subject: Re: [PATCH v2 1/5] media: mc: add manual request completion
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Hans Verkuil <hverkuil@xs4all.nl>, Tiffany Lin	
- <tiffany.lin@mediatek.com>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Yunfei Dong <yunfei.dong@mediatek.com>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	kernel@collabora.com, linux-media@vger.kernel.org, Sebastian Fricke	
- <sebastian.fricke@collabora.com>
-Date: Thu, 10 Apr 2025 16:31:42 -0400
-In-Reply-To: <20250410175010.GF27870@pendragon.ideasonboard.com>
-References: <20250410-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v2-0-5b99ec0450e6@collabora.com>
-	 <20250410-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v2-1-5b99ec0450e6@collabora.com>
-	 <20250410175010.GF27870@pendragon.ideasonboard.com>
-Organization: Collabora Canada
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.56.0 (3.56.0-1.fc42) 
+	id 1u2ypL-0000000Bp1m-21XF
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 20:48:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 60A944A47D;
+	Thu, 10 Apr 2025 20:48:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9BB1C4CEE7;
+	Thu, 10 Apr 2025 20:48:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744318127;
+	bh=eG+6Ol7t6Jj0rmtAVTf0NWu+4c3ZvYZT4LmvW2k3t+M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=k1YIhwyEzq71tlj7GHnadKh+rEg9ITWeOv8zeoZNsiU0nGaIob+u0Q2Jo8BE+TjkB
+	 prQ5Vdlv/gsCfYVrzjIZP8RQVzpASF8CQ/ONtjT2JY9yxLAfjvffjMj3TMhQNY2JzB
+	 nICPWXrNe+4kUK5Me79C/rcdmdF84K2CI4jTs336XzThQ/Qp/iVINPo3Kaiq21jQRR
+	 DlPRbD7Fh7mH0tzYrFss6IbV2hj32w3w4rX2qLIOz477Fbq02KuVpElNwX59tWQiPB
+	 QPPAje5HiyT3iyTPJvD4IndiDkQluWy6djxG2sQHEhHIOZv4K4Rh+uaMrKmB/TTS6I
+	 B74GPRvtmKlRw==
+Date: Thu, 10 Apr 2025 15:48:45 -0500
+From: Rob Herring <robh@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Aradhya Bhatia <a-bhatia1@ti.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Heiko Stuebner <heiko@sntech.de>, Junhao Xie <bigfoot@classfun.cn>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: PCI: rcar-gen4-pci-host: Document
+ optional aux clock
+Message-ID: <20250410204845.GA1027003-robh@kernel.org>
+References: <20250406144822.21784-1-marek.vasut+renesas@mailbox.org>
+ <20250406144822.21784-2-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250406144822.21784-2-marek.vasut+renesas@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_133147_385352_9E8DBB7F 
-X-CRM114-Status: GOOD (  50.60  )
+X-CRM114-CacheID: sfid-20250410_134847_556256_4EE88E7B 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,229 +91,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replying on the code comment, sorry for missing some bit earlier ...
+On Sun, Apr 06, 2025 at 04:45:21PM +0200, Marek Vasut wrote:
+> Document 'aux' clock which are used to supply the PCIe bus. This
+> is useful in case of a hardware setup, where the PCIe controller
+> input clock and the PCIe bus clock are supplied from the same
+> clock synthesiser, but from different differential clock outputs:
+> 
+>  ____________                    _____________
+> | R-Car PCIe |                  | PCIe device |
+> |            |                  |             |
+> |    PCIe RX<|==================|>PCIe TX     |
+> |    PCIe TX<|==================|>PCIe RX     |
+> |            |                  |             |
+> |   PCIe CLK<|======..  ..======|>PCIe CLK    |
+> '------------'      ||  ||      '-------------'
+>                     ||  ||
+>  ____________       ||  ||
+> |  9FGV0441  |      ||  ||
+> |            |      ||  ||
+> |   CLK DIF0<|======''  ||
+> |   CLK DIF1<|==========''
+> |   CLK DIF2<|
+> |   CLK DIF3<|
+> '------------'
+> 
+> The clock are named 'aux' because those are one of the clock listed in
+> Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml which
+> fit closest to the PCIe bus clock. According to that binding document,
+> the 'aux' clock describe clock which supply the PMC domain, which is
+> likely PCIe Mezzanine Card domain.
 
-Le jeudi 10 avril 2025 à 20:50 +0300, Laurent Pinchart a écrit :
-> Hi Nicolas,
-> 
-> Thank you for the patch.
-> 
-> On Thu, Apr 10, 2025 at 11:39:56AM -0400, Nicolas Dufresne wrote:
-> > From: Hans Verkuil <hverkuil@xs4all.nl>
-> > 
-> > By default when the last request object is completed, the whole
-> > request completes as well.
-> > 
-> > But sometimes you want to manually complete a request in a driver,
-> > so add a manual complete mode for this.
-> 
-> I didn't immediately understand this was about delaying completion of
-> the request. It would be nice to make that more explicit in the commit
-> message and in the documentation of
-> media_request_mark_manual_completion(). A sample use case would also
-> help.
-> 
-> > In req_queue the driver marks the request for manual completion by
-> > calling media_request_mark_manual_completion, and when the driver
-> > wants to manually complete the request it calls
-> > media_request_manual_complete().
-> > 
-> > Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
-> > Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> > ---
-> >  drivers/media/mc/mc-request.c | 38 ++++++++++++++++++++++++++++++++++++--
-> >  include/media/media-request.h | 36 +++++++++++++++++++++++++++++++++++-
-> >  2 files changed, 71 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
-> > index 5edfc2791ce7c7485def5db675bbf53ee223d837..398d0806d1d274eb8c454fc5c37b77476abe1e74 100644
-> > --- a/drivers/media/mc/mc-request.c
-> > +++ b/drivers/media/mc/mc-request.c
-> > @@ -54,6 +54,7 @@ static void media_request_clean(struct media_request *req)
-> >  	req->access_count = 0;
-> >  	WARN_ON(req->num_incomplete_objects);
-> >  	req->num_incomplete_objects = 0;
-> > +	req->manual_completion = false;
-> >  	wake_up_interruptible_all(&req->poll_wait);
-> >  }
-> >  
-> > @@ -313,6 +314,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
-> >  	req->mdev = mdev;
-> >  	req->state = MEDIA_REQUEST_STATE_IDLE;
-> >  	req->num_incomplete_objects = 0;
-> > +	req->manual_completion = false;
-> >  	kref_init(&req->kref);
-> >  	INIT_LIST_HEAD(&req->objects);
-> >  	spin_lock_init(&req->lock);
-> > @@ -459,7 +461,7 @@ void media_request_object_unbind(struct media_request_object *obj)
-> >  
-> >  	req->num_incomplete_objects--;
-> >  	if (req->state == MEDIA_REQUEST_STATE_QUEUED &&
-> > -	    !req->num_incomplete_objects) {
-> > +	    !req->num_incomplete_objects && !req->manual_completion) {
-> >  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
-> >  		completed = true;
-> >  		wake_up_interruptible_all(&req->poll_wait);
-> > @@ -488,7 +490,7 @@ void media_request_object_complete(struct media_request_object *obj)
-> >  	    WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
-> >  		goto unlock;
-> >  
-> > -	if (!--req->num_incomplete_objects) {
-> > +	if (!--req->num_incomplete_objects && !req->manual_completion) {
-> >  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
-> >  		wake_up_interruptible_all(&req->poll_wait);
-> >  		completed = true;
-> > @@ -499,3 +501,35 @@ void media_request_object_complete(struct media_request_object *obj)
-> >  		media_request_put(req);
-> >  }
-> >  EXPORT_SYMBOL_GPL(media_request_object_complete);
-> > +
-> > +void media_request_manual_complete(struct media_request *req)
-> > +{
-> > +	unsigned long flags;
-> > +	bool completed = false;
-> > +
-> > +	if (WARN_ON(!req))
-> > +		return;
-> > +	if (WARN_ON(!req->manual_completion))
-> > +		return;
-> > +
-> > +	spin_lock_irqsave(&req->lock, flags);
-> > +	if (WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
-> > +		goto unlock;
-> > +
-> > +	req->manual_completion = false;
-> > +	/*
-> > +	 * It is expected that all other objects in this request are
-> > +	 * completed when this function is called. WARN if that is
-> > +	 * not the case.
-> > +	 */
-> > +	if (!WARN_ON(req->num_incomplete_objects)) {
-> > +		req->state = MEDIA_REQUEST_STATE_COMPLETE;
-> > +		wake_up_interruptible_all(&req->poll_wait);
-> > +		completed = true;
-> > +	}
-> > +unlock:
-> > +	spin_unlock_irqrestore(&req->lock, flags);
-> > +	if (completed)
-> > +		media_request_put(req);
-> > +}
-> > +EXPORT_SYMBOL_GPL(media_request_manual_complete);
-> > diff --git a/include/media/media-request.h b/include/media/media-request.h
-> > index d4ac557678a78372222704400c8c96cf3150b9d9..645d18907be7148ca50dcc9248ff06bd8ccdf953 100644
-> > --- a/include/media/media-request.h
-> > +++ b/include/media/media-request.h
-> > @@ -56,6 +56,10 @@ struct media_request_object;
-> >   * @access_count: count the number of request accesses that are in progress
-> >   * @objects: List of @struct media_request_object request objects
-> >   * @num_incomplete_objects: The number of incomplete objects in the request
-> > + * @manual_completion: if true, then the request won't be marked as completed
-> > + * when @num_incomplete_objects reaches 0. Call media_request_manual_complete()
-> > + * to set this field to false and complete the request
-> 
-> I'd drop "set this field to false and " here.
+Pretty sure that PMC is "power management controller" given it talks 
+about low power states.
 
-I agree, it sounds like an invitation to write it directly, we don't
-really want this. If Hans is fine I'll drop it.
 
 > 
-> > + * if @num_incomplete_objects == 0.
-> 
->  * after @num_incomplete_objects reaches 0.
-> 
-> >   * @poll_wait: Wait queue for poll
-> >   * @lock: Serializes access to this struct
-> >   */
-> > @@ -68,6 +72,7 @@ struct media_request {
-> >  	unsigned int access_count;
-> >  	struct list_head objects;
-> >  	unsigned int num_incomplete_objects;
-> > +	bool manual_completion;
-> >  	wait_queue_head_t poll_wait;
-> >  	spinlock_t lock;
-> >  };
-> > @@ -218,6 +223,35 @@ media_request_get_by_fd(struct media_device *mdev, int request_fd);
-> >  int media_request_alloc(struct media_device *mdev,
-> >  			int *alloc_fd);
-> >  
-> > +/**
-> > + * media_request_mark_manual_completion - Set manual_completion to true
-> > + *
-> > + * @req: The request
-> > + *
-> > + * Mark that the request has to be manually completed by calling
-> > + * media_request_manual_complete().
-> > + *
-> > + * This function should be called in the req_queue callback.
-> 
-> s/should/shall/ unless it's not a hard requirement. Any way to catch
-> incorrect call patterns ?
+> Tested-by: Niklas S�derlund <niklas.soderlund+renesas@ragnatech.se>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
+> NOTE: Shall we patch Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+>       instead and add 'bus' clock outright ?
 
-I think we should be more strict, I can edit to shall.
+Based on the diagram, this has nothing to do with the specific 
+controller. It should also probably a root port property, not host 
+bridge.
 
-About ways to check, perhaps I can add a lockdep_assert_held() on the
-mdev->req_queue_mutex along with checking that the state is QUEUED. The
-state check would catch trying to do so in req_validate().
-
-> 
-> > + */
-> > +static inline void
-> > +media_request_mark_manual_completion(struct media_request *req)
-> > +{
-> > +	req->manual_completion = true;
-> > +}
-> > +
-> > +/**
-> > + * media_request_manual_complete - Set manual_completion to false
-> 
-> The main purpose of the function is to complete the request, not setting
-> manual_completion to false.
-
-Indeed, that's documenting an implementation detail.
-
-> 
-> > + *
-> > + * @req: The request
-> > + *
-> > + * Set @manual_completion to false, and if @num_incomplete_objects
-> > + * is 0, then mark the request as completed.
-> > + *
-> > + * If there are still incomplete objects in the request, then
-> > + * WARN for that since that suggests a driver error.
-> 
-> If that's an error then I'd document it more explicitly, as the first
-> sentence makes it sound that both cases are valid. Maybe
-
-Its a programming error, I should rephrase this in the next version.
-
-> 
->  * This function completes a request that was marked for manual completion by an
->  * earlier call to media_request_mark_manual_completion(). The request's
->  * @manual_completion flag is reset to false.
->  *
->  * All objects contained in the request must have been completed previously. It
->  * is an error to call this function otherwise. The request will not be
->  * completed in that case, and the function will WARN.
-> 
-> > + */
-> > +void media_request_manual_complete(struct media_request *req);
-> > +
-> >  #else
-> >  
-> >  static inline void media_request_get(struct media_request *req)
-> > @@ -336,7 +370,7 @@ void media_request_object_init(struct media_request_object *obj);
-> >   * @req: The media request
-> >   * @ops: The object ops for this object
-> >   * @priv: A driver-specific priv pointer associated with this object
-> > - * @is_buffer: Set to true if the object a buffer object.
-> > + * @is_buffer: Set to true if the object is a buffer object.
-> >   * @obj: The object
-> >   *
-> >   * Bind this object to the request and set the ops and priv values of
-
-thanks a lot for the review,
-
--- 
-Nicolas Dufresne
-Principal Engineer at Collabora
+Rob
 
