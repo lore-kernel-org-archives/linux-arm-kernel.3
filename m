@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E902C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 06:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B770C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 06:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYStztFya2y5gjqP02BNpybAW9yRhWvY1XlPanf+Ykc=; b=qND0Kfuz5nqNpPiX1XyS3pYZzc
-	a16Ey+NzpGKO/Xxbvr4p9uVg2mi75pOy3xyO48WYB/6VYH2iJ25se10xS8l75Fl4ib+zbDXuv+pri
-	LZmjMUEG6o8S3O+umBVQlQcOk/GueL6aHr66iU1liLNXSCWO/hR5r+Td0M/sMMztH/JsPSojlZPNj
-	VFU8wi+X/fWB4xBDa+6oljdmm4QQ+EMZBx4EIQ+jX+a7KK60gVJ/Y7+FCnb5vrxUNeVHEbWPmsvZv
-	c4FUJMEuq+OJfDItdmNQ4cTU317uwCzWexcam/Tkuz2+z04aJ6sfF5SgtNEKui1M2U9Wh2IZCegJh
-	xRDXrpNw==;
+	bh=N/Eq3oO6cAKqd4CF4xM3K5jQF+XUdMLxEdRDr+rjO6Y=; b=xIDpVo1v791CZv2J9qsW76s5Of
+	xuNI0bugk6P0JYGJTfSnwHXMJiTKJiZtnaL8IpBfwfLYydxYk0/AXOijc2Ao7/ANA2U7cgaIbTqJe
+	1L4CgGNqi2w6wMyw/anrdcGjPEK45JKnPV0trXENGAjB66JAvlJGabR0HTf9mWQrvFSiyKdXcSHYH
+	IH8+UNUMOySqxgMc3Qee/IxhnTHaEnN3mXss8KkmBYohoj4EWEDiPNeQmXH93f1PcJe1WN7upWgx+
+	btxwWp6kxnIyIYfm6diKHRQrRETy2aAPeUdEBqEFkiQuoqnwdAyJmE+dmglIrnEp1CLAytTNgUOL4
+	DnpPc2yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lGJ-00000009LnM-2owf;
-	Thu, 10 Apr 2025 06:19:43 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1u2lI5-00000009M2h-2RvH;
+	Thu, 10 Apr 2025 06:21:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lER-00000009Lax-0VCe
+	id 1u2lFK-00000009Lgb-43st
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 06:17:52 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-391342fc1f6so252784f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 23:17:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744265864; x=1744870664; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jYStztFya2y5gjqP02BNpybAW9yRhWvY1XlPanf+Ykc=;
-        b=uuDY1/qoz56Ok2BYvDCBg6adHmBXsn/Zc5Nqy5+M28h9bBJu8pbMTXYYEZG8HK/dJL
-         yok4nzO4PYUlmOcz/fiG3BJlsmL+wK2gIDfwcVjkskoJ926KU9WkFOwy5oWX1qYMOQWY
-         CSvQSINCp50EWGoUnn7mDVCuAgEl2147moLgmu0tXHN4xcwrfHY1bzR3YcoKZsk5QCtW
-         lCjbK8ILdkp2TBQxLIlQkes6yn5cZu1dLatoiDH8CyjqCyrvub/frV/y2GKd6SJNnAmp
-         DGPYp1LrqUk1UJrE4WObw2ZO7D7auGsQgfp5QqrOqJoGNLvId8XHlkQA3S47TNINKo0y
-         UFpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744265864; x=1744870664;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jYStztFya2y5gjqP02BNpybAW9yRhWvY1XlPanf+Ykc=;
-        b=RKAXK2Br3yZVaG57YoJOkhEAhmb/l8Msapgi94uYe4O3CneOQlr0rxHg8LVJ+5+Pli
-         egS4Qkfk5ByY5GSbzsRwbw/raidzB73mtquxK6yvoFLI1qFiJqrdKdcJ06BtzUhSS0up
-         c/jZ4gYivBf+7zPcwaK/Zl48xzQ1hp+ebKEUGErpyIbARp5p39kQR3WjRTfAYa+7aJlN
-         D/6ySWt/KkjasOsM1Q5H6l0GBlGOnYW8rU3e3/yBpuqdn2HYzX2eJuLefSBoOiH5Uyxm
-         eNeKlyINT2ne5DrB/1+nMnj1ZayptwCTUykxQfqB2lRLopxyZ0EbE4HiWvRWsr9MY1JB
-         p/NA==
-X-Forwarded-Encrypted: i=1; AJvYcCUZZA8Hhiy7DTAqpAOVbt0iBT2/YigReQcpgErv2mRYn+I4HibXZnvUWEg8KrHqWXt6CGDE2lj54CxLprtbSOmE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqW/F5HYjRL/ksHQ7VIw5BJAEZSUC8bbwuUZrXYEs0XNptxVH0
-	ZKbUoFQJAQxRcrKRglkI8q91bI1hNIoUUwKLfqmIE2JMOo+HboD3uyP4vh5W+Js=
-X-Gm-Gg: ASbGncu9ZPlobwBAjlbHBzjvq2fiJYaSdl5cWu25de2sCUWTf+K6rkG4e4t3NPHaSDx
-	iPxn/6Vx95DWFH7bbOQVtMxaVlET3bN8+o/TKfIRV7kikbrABgf3KydayB6WW2HymHCUC+E8n0n
-	8TtQStdMoBGfaOyQyqkDs22ZmR+65kpvfrxuATZiqOrxxG6NbSE3RsI67Mbo/Jym1Cvs3Sf5eMn
-	5FwDP6VockPlsLMiaE+pjOaC0K3cX3feeqj+cUneyh7+fQB55pmYWcJWPKXA0hbQ8bhyLtnZrwk
-	5Fc2Y5dEtfj9bkwTZjpU3uKstRZzF1eDV6VG3uD/Q+S9dQHkqg+li3Vv
-X-Google-Smtp-Source: AGHT+IGPf0mN33Z8VXMC6vHoEgIYPUGu+ettg097AataOUXjxz6bSk1dsUcrvcjBIRQZplQw7qTkLw==
-X-Received: by 2002:a05:6000:18ae:b0:39c:2692:425a with SMTP id ffacd0b85a97d-39d8fd63d92mr746462f8f.6.1744265864279;
-        Wed, 09 Apr 2025 23:17:44 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-39d893611d0sm3664353f8f.6.2025.04.09.23.17.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 23:17:43 -0700 (PDT)
-Date: Thu, 10 Apr 2025 09:17:40 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Siddarth G <siddarthsgml@gmail.com>
-Cc: slongerbeam@gmail.com, p.zabel@pengutronix.de, mchehab@kernel.org,
-	gregkh@linuxfoundation.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org
-Subject: Re: [PATCH] staging/media/imx: fix null pointer dereference
-Message-ID: <0d496695-ce20-4774-8e86-4d5c98dc220b@stanley.mountain>
-References: <20250409211727.62710-1-siddarthsgml@gmail.com>
+	Thu, 10 Apr 2025 06:18:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CF1CD5C2F22;
+	Thu, 10 Apr 2025 06:16:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF988C4CEDD;
+	Thu, 10 Apr 2025 06:18:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744265914;
+	bh=N/Eq3oO6cAKqd4CF4xM3K5jQF+XUdMLxEdRDr+rjO6Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OgzaIHlHHtE0k8XMPIzNNeKxfWMEWFu7Fb7zdKLcQserP3WkyzcrpRmhCueuk2Rlv
+	 M7RQlkWqOlBxJl/Okb0KGD1CfZyFjcANp0maFk15EgzE94lmCUe8QW6syR9i6rP/fs
+	 19IBb8kqDrFCAE4RnLNRegJp45caw01cAbwgibsXB8BlIEfE4i8QAmr/Pisxur8TqH
+	 c6ct+7hdJVB7RhLaqvRTePLViGfRT44QLIAY0bCnSGkedQ0vjy9MNTGiFeFWVkNZfD
+	 jCMG+6SVA/KaBUrW41KOowuiwPqc8AamB4drQgT1T2I0rnBUEY9YFuh68hERIRpzbt
+	 d9I4YXgKYqkkg==
+Date: Thu, 10 Apr 2025 08:18:31 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+Subject: Re: [PATCH v4 00/32] Samsung S2MPG10 PMIC MFD-based drivers
+Message-ID: <20250410-dancing-free-peacock-536c24@shite>
+References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250409211727.62710-1-siddarthsgml@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_231747_165193_20FAA785 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20250409_231843_169500_D28B5B45 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,64 +80,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 02:47:27AM +0530, Siddarth G wrote:
-> Cppcheck warnings:
-> 
-> drivers/staging/media/imx/imx-media-fim.c:79:6:
-> error: Null pointer dereference: fi [ctunullpointer]
->   if (fi->denominator == 0) {
-> 
-> drivers/staging/media/imx/imx-media-csi.c:795:27:
-> note: Calling function imx_media_fim_set_stream, 2nd argument is null
->   imx_media_fim_set_stream(priv->fim, NULL, false);
-                                              ^^^^^
-This is a false positive.  The false means that we don't call
-update_fim_nominal().  Btw, Smatch parses this one correctly.
+On Wed, Apr 09, 2025 at 09:37:21PM GMT, Andr=C3=A9 Draszik wrote:
+> This series adds initial support for the Samsung S2MPG10 PMIC using the
+> MFD framework. This is a PMIC for mobile applications and is used on
+> the Google Pixel 6 and 6 Pro (oriole / raven).
+>=20
+> *** dependency note ***
+>=20
+> To compile, this depends on the Samsung ACPM driver in Linux next with
 
-> 
-> drivers/staging/media/imx/imx-media-fim.c:388:3:
-> note: Calling function update_fim_nominal, 2nd argument is null
->   update_fim_nominal(fim, fi);
-> 
-> drivers/staging/media/imx/imx-media-fim.c:79:6:
-> note: Dereferencing argument fi that is null
->   if (fi->denominator == 0) {
-> 
-> To fix the issue, add a check to validate that the 'fi' is not
-> null before accessing its members.
-> 
-> Signed-off-by: Siddarth G <siddarthsgml@gmail.com>
+Are you sure these are build time dependencies? Do not look like. Also,
+if they are, the patchset will wait for quite some time.
 
-Don't resend because we just ignore false positives instead of
-trying to silence them.  But if this were a real bug then it
-would need a Fixes tag.
+> the following additional patches:
+> https://lore.kernel.org/all/20250324-acpm-atomic-v2-0-7d87746e1765@linaro=
+=2Eorg/
+> https://lore.kernel.org/all/20250319-acpm-fixes-v2-0-ac2c1bcf322b@linaro.=
+org/
+> https://lore.kernel.org/all/20250327-acpm-children-v1-0-0afe15ee2ff7@lina=
+ro.org/
+>=20
+> *** dependency note end ***
+>=20
+> +++ Kconfig update +++
+>=20
+> There is a Kconfig symbol update in this series, because the existing
+> Samsung S2M driver has been split into core and transport (I2C & ACPM)
+> parts. CONFIG_MFD_SEC_CORE is now truly a core driver, and
+> the I2C code that was part of it is now enabled via CONFIG_MFD_SEC_I2C.
+>=20
+> This was necessary because unlike the other S2M PMICs, S2MPG10 doesn't
+> talk via I2C, but via the Samsung ACPM firmware.
+>=20
+> +++ Kconfig update end +++
+>=20
+> This series must be applied in-order, due to interdependencies of some
+> of the patches. There are also various cleanup patches to the S2M
+> drivers. I've kept them ordered as:
 
-> ---
->  drivers/staging/media/imx/imx-media-fim.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/drivers/staging/media/imx/imx-media-fim.c b/drivers/staging/media/imx/imx-media-fim.c
-> index ccbc0371fba2..25f79d0f87b9 100644
-> --- a/drivers/staging/media/imx/imx-media-fim.c
-> +++ b/drivers/staging/media/imx/imx-media-fim.c
-> @@ -76,6 +76,9 @@ static bool icap_enabled(struct imx_media_fim *fim)
->  static void update_fim_nominal(struct imx_media_fim *fim,
->  			       const struct v4l2_fract *fi)
->  {
-> +	if (!fi)
-> +		return;
+They should not depend... although actually not my trees, except the
+firmware.
 
-If this were a real bug, then probably the NULL check would be better in
-the caller.
+Best regards,
+Krzysztof
 
-regards,
-dan carpenter
-
-> +
->  	if (fi->denominator == 0) {
->  		dev_dbg(fim->sd->dev, "no frame interval, FIM disabled\n");
->  		fim->enabled = false;
-> -- 
-> 2.43.0
-> 
 
