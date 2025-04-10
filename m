@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89664C369A9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B2E9C369AA
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,39 +12,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VsLwM3GjTE+cMq4utkZa1cXt/uI0yHj5dF2fek5gyAo=; b=RQGmcAK9NC3hfqfa+IctJYhoUe
-	ty3/4IqYJ80kDAVJ8Q3/whvxBuryDDqQEjjpJ/n8RZMObtlaOUBCfXsvceO3Vex/WBNU/40o1YdH7
-	z+3PTq29GyfpFUlkFqyVnI6yIUjjjnt3j4rXQVbj5RqO862hTJd+0sWsviwd3R/f5yct0gVRCHmB0
-	uH6OB3ceWAW7xH++Bky0vJOmKjTl2LfkF3nfe25aTlgi8OcdohUaMvpNp4qdJVbu8IN4kFAFVWoEV
-	7P/gAxZqeKGVI73onMvB39t9ggw6fpfq1dXQDkHuAqozzUcqK7eIxY6pgFCcVdXvi4YKWRsBN7HrJ
-	8sMQzMIw==;
+	bh=Z3n0JyWtgh3gpv9xdCgsiKZSLAi6fsNYv9gohVj91kA=; b=rWLzcDs9jYcTzmh8cOzy9hCKwi
+	29vdF4dm8JySidi77fsr482FyzPCTk7l6b+41X9/Rzn5reB/OhdTRB5Vt0vp55ZaZwolV6W0bHavX
+	zcf70f02PTlOMUG5InZPmPP+qN05dm9n3x+zjPCgMF+g48+gWUOWsuuJSLuGRndAdMHceDDFDD6Q5
+	nNTyFgdCClg3hexGDqWqMnh9evEe3sEkvRW8nsj64+gNPOpQ1gKdrCwEKlRI/EsuKnjHek/F13Axd
+	u1AXPfy/V8/T9gn/HlyKL/Y+9LmtaKotqTLInCuk20Ew26rMLalQUTzx20OBoIXs24rnD3n4dNb1W
+	B7oc5Zwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2psx-0000000ABEX-3gtz;
-	Thu, 10 Apr 2025 11:15:55 +0000
+	id 1u2psw-0000000ABC8-1whA;
+	Thu, 10 Apr 2025 11:15:54 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2noQ-00000009rJm-28K7
+	id 1u2noQ-00000009rJk-19tY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:03:08 +0000
+	Thu, 10 Apr 2025 09:03:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
 	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=VsLwM3GjTE+cMq4utkZa1cXt/uI0yHj5dF2fek5gyAo=; b=hOz2zvqzENUnd8oPe5Fc0bmLuX
-	h+jhxH5j9PfCxGmubSZjFAoigq+2E+uZLw73K6BT2cMIxyEmlEgb9zoDvQcKFbzpET78ykC4yufnY
-	QjQjrwYOMci1kSRCUZdGiv2Z0yB/dIX56hJiM+6Er0MieHEJ0Or3ypLbh3DXOtnXqFMrkgS4OAfB6
-	bS5qMUKiAdeQoD1SHfhIsNDgt/NfAElpoZ9sYOvqGzdseXRKBDwZLft3/iCr86dYDrYhGHuAjmKks
-	owe9He2yFHP9x7Db0DodwpjUo5AqBEdrOSjK0hg2SszqxM0Io3CcK308VfXw+w2u9NmM7vevYF/J9
-	NTE4rbPw==;
+	bh=Z3n0JyWtgh3gpv9xdCgsiKZSLAi6fsNYv9gohVj91kA=; b=jPylZqKUb3oaumtFSL2FOMl1yu
+	4WUwUVZeqhcRQ41U6WWnlZgcpgLdfa0QR2G861b0md00lWcPZWuN62Ey+cAui1FdeDqfj6x7kYOt5
+	bIVXJrqVCrWSoJttidAfwtHnxFawZJdCNZHrhD2iRah0f5CSFhLyKJCs5MxT2MZ4FU052uIxVhlx3
+	TFBikCcm7zG+M7zXHzDVpo/0TDMaWSZG1VvLsECkWT/AZwV3X/8V6wKTOObNbVWiOkWId0bV2pKhF
+	eRTMAabdu4igLvez318B0+tv9Uux3Qv4DuDVHIFkcyi1AAdte/e61LwK1H20upxfDUlYvt7LQC3pm
+	KO69DhDQ==;
 Received: from [89.212.21.243] (port=41926 helo=localhost.localdomain)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1u2noQ-000Djj-0G;
-	Thu, 10 Apr 2025 11:03:05 +0200
+	id 1u2noK-000Djj-2T;
+	Thu, 10 Apr 2025 11:02:59 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,9 +58,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH 10/13] arm64: dts: freescale: imx93-phyboard-segin: Add CAN support
-Date: Thu, 10 Apr 2025 11:02:48 +0200
-Message-Id: <20250410090251.1103979-11-primoz.fiser@norik.com>
+Subject: [PATCH 08/13] arm64: dts: freescale: imx93-phyboard-segin: Fix SD-card pinctrl
+Date: Thu, 10 Apr 2025 11:02:46 +0200
+Message-Id: <20250410090251.1103979-9-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250410090251.1103979-1-primoz.fiser@norik.com>
 References: <20250410090251.1103979-1-primoz.fiser@norik.com>
@@ -77,8 +77,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_020306_702059_1769E80C 
-X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-CacheID: sfid-20250410_020306_477772_31714532 
+X-CRM114-Status: UNSURE (   6.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,72 +94,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for CAN networking on phyBOARD-Segin-i.MX93 via the flexcan1
-interface. The CAN1_EN regulator enables the SN65HVD234 CAN transceiver
-chip.
+Until now, all usdhc2 (SD-card) pinctrl labels pointed to one pinctrl
+group "usdhc2grp" which was overwritten twice by the 100 and 200 MHz
+modes. Fix this by using unique pinctrl names.
+
+While at it, apply i.MX93 chip errata ERR052021 workaround and adjust
+pinctrl drive-strengths to improve signal integrity. Drive-strength
+values come from the downstream PHYTEC kernel and were devised and
+verified by the hardware department measurements.
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
- .../dts/freescale/imx93-phyboard-segin.dts    | 32 +++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ .../dts/freescale/imx93-phyboard-segin.dts    | 47 ++++++++++---------
+ 1 file changed, 25 insertions(+), 22 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-index 38b89398e646..027a34dbaf04 100644
+index 3d5cd0561362..525f52789f8b 100644
 --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
 +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
-@@ -26,6 +26,17 @@ chosen {
- 		stdout-path = &lpuart1;
+@@ -75,39 +75,42 @@ MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
+ 		>;
  	};
  
-+	reg_flexcan1_en: regulator-flexcan1-en {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio4 16 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_reg_flexcan1_en>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "CAN1_EN";
-+	};
-+
- 	reg_usdhc2_vmmc: regulator-usdhc2 {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -38,6 +49,14 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
- 	};
- };
- 
-+/* CAN */
-+&flexcan1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_flexcan1>;
-+	xceiver-supply = <&reg_flexcan1_en>;
-+	status = "okay";
-+};
-+
- /* I2C2 */
- &lpi2c2 {
- 	clock-frequency = <400000>;
-@@ -79,6 +98,19 @@ &usdhc2 {
- };
- 
- &iomuxc {
-+	pinctrl_flexcan1: flexcan1grp {
-+		fsl,pins = <
-+			MX93_PAD_PDM_BIT_STREAM0__CAN1_RX	0x139e
-+			MX93_PAD_PDM_CLK__CAN1_TX		0x139e
-+		>;
-+	};
-+
-+	pinctrl_reg_flexcan1_en: regflexcan1engrp {
-+		fsl,pins = <
-+			MX93_PAD_ENET2_TD3__GPIO4_IO16		0x31e
-+		>;
-+	};
-+
- 	pinctrl_lpi2c2: lpi2c2grp {
++	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+ 	pinctrl_usdhc2_default: usdhc2grp {
  		fsl,pins = <
- 			MX93_PAD_I2C2_SCL__LPI2C2_SCL		0x40000b9e
+-			MX93_PAD_SD2_CLK__USDHC2_CLK		0x179e
+-			MX93_PAD_SD2_CMD__USDHC2_CMD		0x139e
+-			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x138e
+-			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x138e
+-			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x138e
+-			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x139e
++			MX93_PAD_SD2_CLK__USDHC2_CLK		0x159e
++			MX93_PAD_SD2_CMD__USDHC2_CMD		0x4000139e
++			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x4000138e
++			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x4000138e
++			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x4000138e
++			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x4000139e
+ 			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+ 		>;
+ 	};
+ 
+-	pinctrl_usdhc2_100mhz: usdhc2grp {
++	/* need to config the SION for data and cmd pad, refer to ERR052021 */
++	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+ 		fsl,pins = <
+-			MX93_PAD_SD2_CLK__USDHC2_CLK            0x179e
+-			MX93_PAD_SD2_CMD__USDHC2_CMD            0x139e
+-			MX93_PAD_SD2_DATA0__USDHC2_DATA0        0x138e
+-			MX93_PAD_SD2_DATA1__USDHC2_DATA1        0x138e
+-			MX93_PAD_SD2_DATA2__USDHC2_DATA2        0x139e
+-			MX93_PAD_SD2_DATA3__USDHC2_DATA3        0x139e
+-			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT    0x51e
++			MX93_PAD_SD2_CLK__USDHC2_CLK		0x159e
++			MX93_PAD_SD2_CMD__USDHC2_CMD		0x4000139e
++			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x4000138e
++			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x4000138e
++			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x4000139e
++			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x4000139e
++			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+ 		>;
+ 	};
+ 
+-	pinctrl_usdhc2_200mhz: usdhc2grp {
++	/* need to config the SION for data and cmd pad, refer to ERR052021 */
++	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+ 		fsl,pins = <
+-			MX93_PAD_SD2_CLK__USDHC2_CLK            0x178e
+-			MX93_PAD_SD2_CMD__USDHC2_CMD            0x139e
+-			MX93_PAD_SD2_DATA0__USDHC2_DATA0        0x139e
+-			MX93_PAD_SD2_DATA1__USDHC2_DATA1        0x139e
+-			MX93_PAD_SD2_DATA2__USDHC2_DATA2        0x139e
+-			MX93_PAD_SD2_DATA3__USDHC2_DATA3        0x139e
+-			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT    0x51e
++			MX93_PAD_SD2_CLK__USDHC2_CLK		0x158e
++			MX93_PAD_SD2_CMD__USDHC2_CMD		0x4000139e
++			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x4000139e
++			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x4000139e
++			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x4000139e
++			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x4000139e
++			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+ 		>;
+ 	};
+ };
 -- 
 2.34.1
 
