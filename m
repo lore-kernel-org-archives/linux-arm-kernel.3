@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5B8C369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 23:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D17C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 23:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DxfrHIKr4pwivHK9IzaAxcryOCdtLP544AfKBfDxWo0=; b=BxiVbqb1VPMceTJl5LXJ2Cjke3
-	GQPgo/juXkA+DU5LK0ntvxpO+pTUzh28FRSrpxXtvzF/NteXL+dwT2fPIoyXRvN9J2Q4qVGS3uvKo
-	8Oe0xW+5hwsQ4S9894mcQfse1QWwXFJhWpcsVIqLQ0md90DG6G8zbFaxlPxj8jOCzs0h3RovVg4pV
-	R7UvBjIf3/YFUvxX3UGCeIpOsA9J4XfoG7c10oKbOgpSILxeqkQC732AdVNh+f+5qAnwoQIkQg8Fr
-	fzSG36jXcsr9oGoeSXK2YipX2QjH2TdOj5jQGnluQQQ+y46dkrkeCHGqXQbzb9IQsuDyO/7Hr8W6S
-	szRK3/QQ==;
+	bh=t08ml/GTP3jbV94tYG0GSMyPjqa0seSniKW4d+j89xI=; b=C0RDdxyxQy33IZS0vD7mZnJ4y4
+	BERkTBUxy/YA50OIAgh2OkizPR7YKQJYjuEpA04/0Jd6/M+PzGTbcatSfSNbiG/ojg4LjvH4pkKFD
+	nmYjbIu0aqJt8JwVP9EUVvEw6Y/KYPsKcC/n+dPxB0XtTyVDTPYfn5yu20Zvky2RazH0L62e7ihXZ
+	YFbDQ3ONoo/64DYebnZYUUYKYR9dluhHZhEABtZDkjee5ZdGgdswbABEXUBKDj0aLZATzmpydmfV7
+	MxvKvpMD/K+Yf63IzRMo2M1BVqxfbOyqg0vLW+5Wu3AcaJqeXauZS53uIfMQ49N7sIO97w+W+byw7
+	Dn/vIS+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u31GS-0000000C2fS-0zVn;
-	Thu, 10 Apr 2025 23:24:56 +0000
+	id 1u31IF-0000000C38k-46HE;
+	Thu, 10 Apr 2025 23:26:47 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u31Ed-0000000C2PN-3UQ8
+	id 1u31Ed-0000000C2PP-3dWO
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 10 Apr 2025 23:23:05 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1u31EV-0003vb-7N; Fri, 11 Apr 2025 01:22:55 +0200
+	id 1u31EU-0003vb-AG; Fri, 11 Apr 2025 01:22:54 +0200
 From: Marco Felsch <m.felsch@pengutronix.de>
 To: kernel@pengutronix.de,
 	"vkoul@kernel.org, shawnguo@kernel.org, Sascha Hauer" <s.hauer@pengutronix.de>
@@ -38,9 +38,9 @@ Cc: dmaengine@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 02/10] dmaengine: imx-sdma: sdma_remove minor cleanups
-Date: Fri, 11 Apr 2025 01:22:37 +0200
-Message-Id: <20250410232247.1434659-3-m.felsch@pengutronix.de>
+Subject: [PATCH 01/10] dmaengine: imx-sdma: drop legacy device_node np check
+Date: Fri, 11 Apr 2025 01:22:36 +0200
+Message-Id: <20250410232247.1434659-2-m.felsch@pengutronix.de>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250410232247.1434659-1-m.felsch@pengutronix.de>
 References: <20250410232247.1434659-1-m.felsch@pengutronix.de>
@@ -51,8 +51,8 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_162303_871302_1F618789 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20250410_162303_901754_09639704 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,33 +67,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We don't need to set the pdev driver data to NULL since the device will
-be freed anyways.
-
-Also drop the tasklet_kill() since this is done by the virt-dma driver
-during the vchan_synchronize().
+The legacy 'if (np)' was required in past where we had pdata and dt.
+Nowadays the driver binds only to dt platforms. So using a new kernel
+but still use pdata is not possible, therefore we can drop the legacy
+'if' code path.
 
 Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
- drivers/dma/imx-sdma.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/dma/imx-sdma.c | 32 ++++++++++++++------------------
+ 1 file changed, 14 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-index 699f0c6b5ae5..9e634cbc1173 100644
+index 3449006cd14b..699f0c6b5ae5 100644
 --- a/drivers/dma/imx-sdma.c
 +++ b/drivers/dma/imx-sdma.c
-@@ -2424,11 +2424,8 @@ static void sdma_remove(struct platform_device *pdev)
- 	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
- 		struct sdma_channel *sdmac = &sdma->channel[i];
- 
--		tasklet_kill(&sdmac->vc.task);
- 		sdma_free_chan_resources(&sdmac->vc.chan);
+@@ -2326,11 +2326,9 @@ static int sdma_probe(struct platform_device *pdev)
+ 			vchan_init(&sdmac->vc, &sdma->dma_device);
  	}
--
--	platform_set_drvdata(pdev, NULL);
- }
  
- static struct platform_driver sdma_driver = {
+-	if (np) {
+-		sdma->iram_pool = of_gen_pool_get(np, "iram", 0);
+-		if (sdma->iram_pool)
+-			dev_info(&pdev->dev, "alloc bd from iram.\n");
+-	}
++	sdma->iram_pool = of_gen_pool_get(np, "iram", 0);
++	if (sdma->iram_pool)
++		dev_info(&pdev->dev, "alloc bd from iram.\n");
+ 
+ 	ret = sdma_init(sdma);
+ 	if (ret)
+@@ -2370,21 +2368,19 @@ static int sdma_probe(struct platform_device *pdev)
+ 		goto err_init;
+ 	}
+ 
+-	if (np) {
+-		ret = of_dma_controller_register(np, sdma_xlate, sdma);
+-		if (ret) {
+-			dev_err(&pdev->dev, "failed to register controller\n");
+-			goto err_register;
+-		}
++	ret = of_dma_controller_register(np, sdma_xlate, sdma);
++	if (ret) {
++		dev_err(&pdev->dev, "failed to register controller\n");
++		goto err_register;
++	}
+ 
+-		spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
+-		ret = of_address_to_resource(spba_bus, 0, &spba_res);
+-		if (!ret) {
+-			sdma->spba_start_addr = spba_res.start;
+-			sdma->spba_end_addr = spba_res.end;
+-		}
+-		of_node_put(spba_bus);
++	spba_bus = of_find_compatible_node(NULL, NULL, "fsl,spba-bus");
++	ret = of_address_to_resource(spba_bus, 0, &spba_res);
++	if (!ret) {
++		sdma->spba_start_addr = spba_res.start;
++		sdma->spba_end_addr = spba_res.end;
+ 	}
++	of_node_put(spba_bus);
+ 
+ 	/*
+ 	 * Because that device tree does not encode ROM script address,
 -- 
 2.39.5
 
