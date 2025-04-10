@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00E0C369A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 01:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F275BC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 01:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R7lDTk+D2aN9K2o2aETqca5tZlWTc8yezMYzKKwzeFM=; b=wP5ITZu8gB/RXd28SDlnvgVPxA
-	/cixGZvQU4x2qpxW6zecFEI2veSTNhJGmekQt0UGm0I3rrcDK4XyTtPiHhq8hCUMoaWiUww9yVC2R
-	wp2kEZugCIZTsxtFHL+8S6dv/5fuNHCxKKurnLe6EYB/zOsmrpm6WeF7lL9VhkuxveKSHJi58nJZ5
-	XndtOKk3akRCYDxt0l3KGX3QCUzZkM8kyvff3N30GZW1jLeqqoLoQeNlMjQsikEW8im6QSiVDrhBq
-	BTaVdPTL707ES+lLBookICGi05sz5rIs4PVqtlbtcqNtHu5l7qOftO/BG/TvkJLYKzK8RO6vAe0rA
-	P1UFO4FA==;
+	bh=mujuAB2P5xapTkmLzG9rvA7e+z7OOYkqAyA+5+v8/uo=; b=Ktne1q+IKTB4DkKf2HA8sz1ubM
+	CH836BdNZdCYlhZeSm5lzt6CdWPiVGVXSNXC1YpuwkNveSZaazymWBakDhBOTN6euF+FR4PBosAHI
+	OC2zOTOUyElnrKCjCN+vqlVGVt2P5JKl8zJc7vbvdrlN+pRSA/9vFrkhWNAMD9vzjDcTU3KT3Fo7v
+	vBJrYBRLR1JV5Le0FsXhvMAERuxRRbOyvqyHnuphRLTXxkJLM8irLgE8h7PMW2kuFdSRgGxonFGyw
+	jMkujSYlfTbYRb9xRSzy3BipV+YYhP/zPuPwC4BONsqOx9dscgbGDS4A3+AVGW45bUlokMaO1QZol
+	Ftw8kFSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2gQU-00000008th9-2AjB;
-	Thu, 10 Apr 2025 01:09:54 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1u2gSF-00000008tzj-1J1m;
+	Thu, 10 Apr 2025 01:11:43 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2gGV-00000008sAD-3MW7
+	id 1u2gGX-00000008sAt-3NSP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 00:59:36 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c7913bab2cso30829385a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 17:59:35 -0700 (PDT)
+	Thu, 10 Apr 2025 00:59:39 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-7c597760323so28656785a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 09 Apr 2025 17:59:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744246774; x=1744851574; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744246776; x=1744851576; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=R7lDTk+D2aN9K2o2aETqca5tZlWTc8yezMYzKKwzeFM=;
-        b=LHXYfmG9Vfc+rA/I0QHtP4lQP3GuWZ1KaoiAFwylXuLawr1OpJsG5NImh+9/nOEvH5
-         cUS4xIuB2TIRESNPavQVbdqrT+srgVqgsWKqkdF02Oj01MhF/xo0VTeY7IuhfDUrfH5u
-         OCepgCdv5TavPG8JtilKuCBIffPiOCxd4vIIfcbk9+la3LFKWiGwjFFAM2HqqXFHmzp8
-         yeNUUTUZYo+jXUohwRLfi2MQHwwGlU89ObtRUFhCmKDP6ORCDv7jWe30saTodxPKqzgy
-         udOYTXm7ijEKvPO6m/7Qv/cG/SbF0SBO18yaSJjPzDl8XXN8Ikld5EyeqYHrQlpUklrU
-         rffw==
+        bh=mujuAB2P5xapTkmLzG9rvA7e+z7OOYkqAyA+5+v8/uo=;
+        b=W5znuazT3KYgQw8lHr72cEIj6jiZvKU0XebNC5gI7BPcg8+SYOg1mHb8r7h2pHIgp+
+         wg/U/BHVSALZeydaPIS5m56BG6RcvFaJ80hdPFKHq6uRH1bkffUR4F0HZA5UtEdK4zu4
+         ExaSMT+GRaEKegEUApG9QQVFK0JrhT6RtoKPIWMQ6/3sRMeBx+wFCwir5oVc9uxrU9CS
+         UyB8S++s0iUQoDGL9NeD5SGfX1Gk6XtCXutQpV80nO5oJzQqFLoHiglOQWlwprd+uUl/
+         IEdUIaks/dtJLGmhDAS1Uyb+1uPH83+1nFbe5qyAsgNryv7NshnY0HMuIcgJ+D/DZDDu
+         XEPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744246774; x=1744851574;
+        d=1e100.net; s=20230601; t=1744246776; x=1744851576;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=R7lDTk+D2aN9K2o2aETqca5tZlWTc8yezMYzKKwzeFM=;
-        b=W/VDL4xTLubsr8mQvfAqsKYvmKhK9ZQ3jX+bL+aX9UANiYqNz3XGfwZxwJnuFe+yj/
-         OsyCSZQmVqd3WTkXTA/gGCsPZQQcSMOzWbceQfIFnmrUKAISkt1RhUJsc4M3k4F4G948
-         9T420DCglz6KiHfVywuFOjSL50x/7KyikAHBIIA6+OGZ3u2l4pIVmRgkpVc1Nko57z9S
-         lnNIeZgzakU4yfqoPHonQfbBwET5tetuqzrRIQJwn1X6jB+ysOv6st14Vl/TpgCCZMZL
-         lxlRxrbABaoAs0uOnxCSSLEVFhmiFZmNV2THoWt4eblPOJeUskosOdAjVoQuxK3VNZwp
-         zYWQ==
-X-Gm-Message-State: AOJu0YxagTOrgueqzsqqmeOMaUA2CiuKvUOYoqUIM6gJIFxWGNV5NzYK
-	Xz3Dmj9k9UP0Y4hvV4XU/elXGU+uc+gliAeXznzM1b1vUtnIFss6APb1Sg==
-X-Gm-Gg: ASbGncsqEVWIKK/N+YPtYNyKUd2nYVaB9D4TL2e+BdvY28Ob27XQSToABjFl3L47uY/
-	AXbIIT6d6nZeXlNKpSru4X9u8ZYXOs0rIuE6G/SLmPhwugeTE5nVMD7ahfRZ6kaUnHaK4qfVnWT
-	wePMJrVbohaWKbgoSANAbZHLi39L5f+WIOsVlD6IYobRs6B4YDQWXQrTz+C+QJpRlhMZNrIACGC
-	ONLY6uyH75FwbbzsmRAA6bv19ZqJPF34IxVatBg9qmU2KImqWO1brWybKN3BVQ4BTG9pm27PdkP
-	iGC7TSEn9Wc1C1E91Qh9/RjTixTu+pZ0txlPRlfoJkwrcl59x8tZj6d39jkRrygc14KeIfTnJDL
-	O2eml8c8Tz98TR/c=
-X-Google-Smtp-Source: AGHT+IHwE4DM0JUskEgUnwY5l5TziwQzQmMz//45AfxohgItU6xab/F9UoiQdWp4h++rosDEZifOkQ==
-X-Received: by 2002:a05:620a:2549:b0:7c5:56c0:a8 with SMTP id af79cd13be357-7c7a7659969mr135047485a.1.1744246774043;
-        Wed, 09 Apr 2025 17:59:34 -0700 (PDT)
+        bh=mujuAB2P5xapTkmLzG9rvA7e+z7OOYkqAyA+5+v8/uo=;
+        b=Gj6SsVXPr8Ocde6E1V5FF4HIi4q+X3t+eQ3afT1KxtHnanS4I3P2d8JKFZ9bJBN4GS
+         5Ii4sYpGHe694jBfkB0+jGr2hx+jXozEIfDvm5hLhaswTV1n+yFIMKSU2EFguwc4Qvc1
+         PkaiTxoRbCAvIkKbMywwK707LOg8v7C07JJlqD7qwPXOFD8IHOu3Q8gmQvE1Q5L3keDz
+         iyApiYIevhSLIFOxSkFlAlJxwD0EmwsQzcmywc6f3A05XjcFyYsY01lVxcPE1w7t6MZd
+         V0hywvpPeWmtel0XWofwvOr7M7RDEDfL1r4/635pg+VqN2+Wgrs4gLf9uPh7PAZUrCEb
+         WNyg==
+X-Gm-Message-State: AOJu0YzPgkriaZxFgu0UjHOR40zds8YMqiyjmr21l690ZpFTYP3DgCoH
+	DB2rgNB8/RW4mN3loGbgPSZohfz5XqBYDQuMseel0qITrVenem3KP9wCjA==
+X-Gm-Gg: ASbGncvfPRuPXo1IH1cEZWBkzp/3GKQoYP6QoXwq7nBDOaxtqw0+rKrWS5yEYc3cUHz
+	GbJM9ERj/R1Nd3aija5S330Tlr0lnWv0piDnW/bHDrIoYXgqCpS0VAC1Oqnibmu39Ji28RA/6lA
+	D89QSDtY8iJv/Z4KjRw5zNzhGlt0xl/s9OcaKnmkO8jF6SNbGoGNQQZFsUVTEgib/S8FtIdQ0yk
+	jApuAQkpnnt3vrVunMYZ/IzHOqGV8qVlhMBqEnu1RwK+s6yrOi74yogH5uMn4Rs5uXYf3eWDyWN
+	hkqjA89DH6GdlPXnSzycY7dD9cDR04Qb5OERHufUS4L5DGKHO5zvVZYnCnR72RcwZ+QluDC5Wda
+	9noveiC8rrQKXPEg=
+X-Google-Smtp-Source: AGHT+IGiC0wxIKVAYN+qM9uXVnocF+7Ky9tlCEp6HAiLzbJqcU+48i/0+uDCdBrHmaGx1GlEDSsSmg==
+X-Received: by 2002:a05:620a:d81:b0:7c5:5584:dc1b with SMTP id af79cd13be357-7c7a76d04b6mr178797085a.54.1744246776211;
+        Wed, 09 Apr 2025 17:59:36 -0700 (PDT)
 Received: from aford-System-Version.. (c-75-72-162-184.hsd1.mn.comcast.net. [75.72.162.184])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c7a895180esm9590685a.46.2025.04.09.17.59.32
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c7a895180esm9590685a.46.2025.04.09.17.59.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 17:59:33 -0700 (PDT)
+        Wed, 09 Apr 2025 17:59:35 -0700 (PDT)
 From: Adam Ford <aford173@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: aford@beaconembedded.com,
@@ -82,17 +82,17 @@ Cc: aford@beaconembedded.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 5/9] arm64: dts: imx8mn-beacon: Fix HDMI sound output
-Date: Wed,  9 Apr 2025 19:58:59 -0500
-Message-ID: <20250410005912.118732-5-aford173@gmail.com>
+Subject: [PATCH 6/9] arm64: dts: imx8mm-beacon: Configure Ethernet reset and IRQ GPIO
+Date: Wed,  9 Apr 2025 19:59:00 -0500
+Message-ID: <20250410005912.118732-6-aford173@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250410005912.118732-1-aford173@gmail.com>
 References: <20250410005912.118732-1-aford173@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_175935_855818_456D928A 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250409_175937_856067_A847B499 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,28 +107,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HDMI bridge chip's sound card enumerates, but it does not generate
-sound. This is because the sai5 node is missing the flag telling it
-to set the mclk as output.
+The ethernet PHY setup assumes the bootloader will pull the PHY out
+of reset,but it's not guaranteed.  The PHY is also currently
+setup to poll, because it does not configure the IRQ. Enable
+both GPIO settings for better optimal ethernet performance.
 
-Fixes: 1d6880ceef43 ("arm64: dts: imx8mn-beacon: Add HDMI video with sound")
 Signed-off-by: Adam Ford <aford173@gmail.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dts | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dts b/arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dts
-index 1df5ceb11387..37fc5ed98d7f 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-beacon-kit.dts
-@@ -124,6 +124,7 @@ &sai5 {
- 	assigned-clock-parents = <&clk IMX8MN_AUDIO_PLL1_OUT>;
- 	assigned-clock-rates = <24576000>;
- 	#sound-dai-cells = <0>;
-+	fsl,sai-mclk-direction-output;
- 	status = "okay";
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
+index 9ba0cb89fa24..ed7a1be4a1a6 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
+@@ -78,6 +78,9 @@ mdio {
+ 		ethphy0: ethernet-phy@0 {
+ 			compatible = "ethernet-phy-ieee802.3-c22";
+ 			reg = <0>;
++			reset-gpios = <&gpio4 22 GPIO_ACTIVE_LOW>;
++			interrupt-parent = <&gpio1>;
++			interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
+ 		};
+ 	};
  };
- 
+@@ -315,6 +318,7 @@ MX8MM_IOMUXC_ENET_TXC_ENET1_RGMII_TXC	0x1f
+ 			MX8MM_IOMUXC_ENET_RXC_ENET1_RGMII_RXC	0x91
+ 			MX8MM_IOMUXC_ENET_RX_CTL_ENET1_RGMII_RX_CTL	0x91
+ 			MX8MM_IOMUXC_ENET_TX_CTL_ENET1_RGMII_TX_CTL	0x1f
++			MX8MM_IOMUXC_GPIO1_IO10_GPIO1_IO10             0x146
+ 			MX8MM_IOMUXC_SAI2_RXC_GPIO4_IO22	0x19
+ 		>;
+ 	};
 -- 
 2.48.1
 
