@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B4CC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 21:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5093AC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 21:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U52MJDfr1VFwPO3KAXZBFK9yxe8xszZGGIt3c7v7YB8=; b=YFcjI7sKTX+FVHFZb1KdeyD5qy
-	bsRBzX9ZgVItDKhc8AhhRnqM6JJvt589qEOnSaM1e2I+vp5qEI4PiJh3Be3GilcJ+odMMo1JXIws6
-	JX8L6dUsdW17mGTRJk66OqlbrZACn36csTm9RKjG4UFbhFsf8HTbCZlDtPTBNLmV1ht4TUxcS/7Fq
-	3nBTt7IAN3ptoI7YQbyvYzPHIGwcStf06G8dgYko6+vPGxDLA+4FT5UzBmKVXCrlVm1XBloWlvFbB
-	cV83n+JUJH3UrJdGACPFPwHTYgqZVTYmHrJ/7M5gdDRlkktSfSSJlrhmAKBpB32I5pDLSYBlRJ54x
-	Yp1As6RA==;
+	bh=ybir7tfTAHb1IAwCZdx4uOJ0VlyfrS4XL0hUQYNhB+Q=; b=F4jUyiGGz3t5bcNCFzY2r89PqD
+	eRwsYJEfKGHiTBHnHcYhtUOCNta+YqMNplnz9tBT3F9KYK1LpT4I+ZgZiPIkWpyWnSpSbW2+Wcbpd
+	61xTGUzE/zBLvMGjX12B5PFlR/+2MbUWHm0/8kl5bRRu15/UiOCvLzWAWpNUQbTCiCHPGKG/CmADk
+	unHnoZyigadOJliEHYE5gfqGOdsM1OmAXwHctOnbMtW/txidtTopDkiZIVdeWL9VHWq8EdQfDN6lY
+	YM9f2+vxy3jknP6ZjhG7cEalwXkWlBtTQ7ZX8kcn+nIX0SNxI0ssBOwrvaeRUB+A9Owp/W24xbMhb
+	0W88uiWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2z7j-0000000BsM8-2uIy;
-	Thu, 10 Apr 2025 21:07:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u2z9V-0000000BsTH-1grl;
+	Thu, 10 Apr 2025 21:09:37 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2z5w-0000000Bs6z-0GIT
+	id 1u2z7B-0000000BsHz-3SoN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 21:05:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744319155;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=U52MJDfr1VFwPO3KAXZBFK9yxe8xszZGGIt3c7v7YB8=;
-	b=C5W3o3g+jcGxdWJjQw4/VNGGgWpT3J1+OG/WctW7YswV3uxk9vhImz6/xj9P5RPrrein2g
-	14lAdVZKQI74E0likPkfpMwi/XcOveXR1fLtTs3qI5ptfa6lVdtlRYDzyUeMMSaHkZpyWd
-	Q34CUY+sej2Kg14pikHG04gWuJEDiTg=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-459-hRG8wmIcNaC82wSzyayK5A-1; Thu,
- 10 Apr 2025 17:05:51 -0400
-X-MC-Unique: hRG8wmIcNaC82wSzyayK5A-1
-X-Mimecast-MFC-AGG-ID: hRG8wmIcNaC82wSzyayK5A_1744319149
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 695BF1800361;
-	Thu, 10 Apr 2025 21:05:48 +0000 (UTC)
-Received: from dhcp-27-174.brq.redhat.com (unknown [10.45.224.222])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id A74C819560AD;
-	Thu, 10 Apr 2025 21:05:44 +0000 (UTC)
-Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
-	oleg@redhat.com; Thu, 10 Apr 2025 23:05:12 +0200 (CEST)
-Date: Thu, 10 Apr 2025 23:05:08 +0200
-From: Oleg Nesterov <oleg@redhat.com>
-To: Tze-nan Wu <Tze-nan.Wu@mediatek.com>
-Cc: Christian Brauner <brauner@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	wsd_upstream@mediatek.com, bobule.chang@mediatek.com,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	chenqiwu <chenqiwu@xiaomi.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [RFC PATCH] exit: Skip panic in do_exit() during poweroff
-Message-ID: <20250410210507.GD15280@redhat.com>
-References: <20250410143937.1829272-1-Tze-nan.Wu@mediatek.com>
+	Thu, 10 Apr 2025 21:07:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 664FAA4AA46;
+	Thu, 10 Apr 2025 21:01:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69BBDC4CEDD;
+	Thu, 10 Apr 2025 21:07:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744319232;
+	bh=KwyzvKEFF2j5LkPa6b0yQ0XGOhj8/U4qBjPGsD96guw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rnE6spxUyg5djIvitXPXVeyRhdmU+5eVVtmfhMDcYPzjQCjBYBuwmHYxdZDyXNXAF
+	 qQca0offnA82uwYeRkGXieqswdVKZC81jKkc8Dkchby+7RlejDCbc+ylspa+EJfKkh
+	 qEEugRAAns2xCVAj26UkSsM8eWjBDVOrJemZ/MkDVpRT3OIS6JJCPNDrCX32wLZvA3
+	 sqLKfbobB2UVWOfATbGFXrm0aduOrdPOBKPNjUDa2RP0iAwkcF1HddGiNIF1g25pOQ
+	 nH6G34EiRLKcQgzyjvFZ8vx486JubmUpNq7JIyep8jU3IrIJSJ9Nssc965nvhwEK60
+	 ocf/0iZilHBNA==
+Date: Thu, 10 Apr 2025 16:07:11 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Thomas Richard <thomas.richard@bootlin.com>
+Cc: Shawn Guo <shawnguo@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, linux-watchdog@vger.kernel.org,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	linux-kernel@vger.kernel.org, Guenter Roeck <linux@roeck-us.net>,
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 1/2] dt-bindings: watchdog: fsl,scu-wdt: Document imx8qm
+Message-ID: <174431923074.1071351.3036987096266250197.robh@kernel.org>
+References: <20250407-imx8qm-watchdog-v1-0-20c219b15fd2@bootlin.com>
+ <20250407-imx8qm-watchdog-v1-1-20c219b15fd2@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250410143937.1829272-1-Tze-nan.Wu@mediatek.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+In-Reply-To: <20250407-imx8qm-watchdog-v1-1-20c219b15fd2@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_140556_179228_011500FA 
-X-CRM114-Status: GOOD (  36.91  )
+X-CRM114-CacheID: sfid-20250410_140713_927676_FAF8EF48 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,158 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Well...
 
-Let me repeat. I don't understand the kernel/reboot.c paths, you can
-safely ignore me.
-
-But I still think that you target the wrong goal. Quite possibly I am
-wrong.
-
-On 04/10, Tze-nan Wu wrote:
->
-> If PID 1 exits due to the unreliable userspace after kernel_power_off()
-> invoked,
-
-Why. Why the global init does do_exit()? It should not, that is all.
-It doesn't matter if it is single threaded or not.
-
-As for sys_reboot(), I think that kernel_power_off() must be __noreturn,
-and sys_reboot() should use BUG() after LINUX_REBOOT_CMD_POWER_OFF/_HALT
-instead of do_exit().
-
-If nothing else. do_exit() also does debug_check_no_locks_held() and
-sys_reboot() calls do_exit() with system_transition_mutex held.
-
-IOW. IMO, it is not that do_exit() needs some changes. The very fact
-that the global init does do_exit() is wrong, this should be fixed.
-
-But again, again, I can't really comment.
-
-Oleg.
-
-> the panic follow by the last thread of global init exited in
-> do_exit() will stop the kernel_power_off() procedure, turn a shutdown
-> behavior into panic flow(reboot).
->
-> Add a condition check to ensure that the panic triggered by the last
-> thread of the global init exiting, only occurs while:
-> ( system_state != SYSTEM_POWER_OFF and system_state != SYSTEM_RESTART).
-> Otherwise, WARN() instead.
->
-> [On Android 16 with arm64 arch]
-> Here's a scenario where the global init exits during kernel_power_off:
-> If PID 1 encounters a page fault after kernel_power_off() has been
-> invoked, the kernel will fail to handle the page fault because the
-> disk(UFS) has already shut down.
-> Consequently, the kernel will send a SIGBUS to PID 1 to indicate the
-> page fault failure, and ultimately, the panic will occur after PID 1
-> exits due to receiving the SIGBUS.
->
->             cpu1                           cpu2
->           ----------                     ----------
->     kernel_power_off() start
->         UFS shutdown
->             ...                	       PID 1 page fault
->             ...                    page fault handle failure
->             ...			             PID 1 received SIGBUS
->             ...                             panic
->    kernel_power_off() not done
->
-> Backtrace while PID 1 received signal 7:
->    init-1 [007] d..1 41239.922385: \
->       signal_generate: sig=7 errno=0 code=2 comm=init pid=1 grp=0 res=0
->    init-1 [007] d..1 41239.922389: kernel_stack: <stack trace>
->    => __send_signal_locked
->    => send_signal_locked
->    => force_sig_info_to_task
->    => force_sig_fault
->    => arm64_force_sig_fault
->    => do_page_fault
->    => do_translation_fault
->    => do_mem_abort
->    => el0_ia
->    => el0t_64_sync_handler
->
-> Simplified kernel log:
-> kernel_power_off() invoked by pt_notify_thread.
-> [41239.526109] pt_notify_threa: reboot set flag, old value 0x********,
-> *.
-> [41239.526114] pt_notify_threa: reboot set flag new value 0x********.
-> UFS reject I/O after kerenl_power_off.
-> [41239.686411]  scsi +scsi******** apexd: sd* ******** rejecting I/O to
-> offline device.
-> Lots of I/O error & erofs error happened after kernel_power_off().
-> [41239.690312] apexd: I/O error, dev sdc, sector ******* op ***:(READ)
-> flags 0x**** phys_seg ** prio class 0.
-> [41239.690465] apexd: I/O error, dev sdc, sector ******* op ***:(READ)
-> flags 0x**** phys_seg ** prio class 0.
-> ...
-> ...
-> [41239.922265] init: erofs: (device ****): z_erofs_read_folio: read
-> error * @ *** of nid ********.
-> [41239.922341] init: erofs: (device ****): z_erofs_read_folio: read
-> error * @ *** of nid ********.
-> Finally device panic due to PID 1 received SIGBUS.
-> [41239.923789] init: Kernel panic - not syncing: Attempted to kill init!
-> exitcode=0x00000007
->
-> Fixes: 43cf75d96409 ("exit: panic before exit_mm() on global init exit")
-> Link: https://lore.kernel.org/all/20191219104223.xvk6ppfogoxrgmw6@wittgenstein/
-> Signed-off-by: Tze-nan Wu <Tze-nan.Wu@mediatek.com>
+On Mon, 07 Apr 2025 19:03:25 +0200, Thomas Richard wrote:
+> Add an entry for 'fsl,imx8qm-sc-wdt' as imx8qm also contains the SCU
+> watchdog block.
+> 
+> Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
 > ---
->
-> I am also wondering if this patch is reasonable?
->
-> From my perspective, there are two reasons not to trigger such panic
-> during kernel_power_off() or kernel_restart():
->   1. It is not worthwhile to interrupt kernel_power_off() by a panic
->      resulted from userspace instability.
->   2. The panic in do_exit() was originally designed to ensure a usable
->      coredump if the last thread of the global init process exited.
-> 	 However, capture a coredump triggered by userspace crash after
->      kernel_power_off() seems not particularly useful, in my opinion.
->
-> In certain scenarios, a kernel module may need to directly power off
-> from kernel space to protect hardware (e.g., thermal protection).
-> In my opinion, rather than causing a panic during kernel_power_off(),
-> it sounds better to allow the device to complete its power-off process.
->
-> Appreciate for any comment on this, if there's any better way to
-> handle this panic, please point me out.
->
-> ---
->  kernel/exit.c | 14 ++++++++++----
->  1 file changed, 10 insertions(+), 4 deletions(-)
->
-> diff --git a/kernel/exit.c b/kernel/exit.c
-> index 1dcddfe537ee..23cb6b42a1f1 100644
-> --- a/kernel/exit.c
-> +++ b/kernel/exit.c
-> @@ -901,11 +901,17 @@ void __noreturn do_exit(long code)
->  	if (group_dead) {
->  		/*
->  		 * If the last thread of global init has exited, panic
-> -		 * immediately to get a useable coredump.
-> +		 * immediately to get a usable coredump, except when the
-> +		 * device is currently powering off or restarting.
->  		 */
-> -		if (unlikely(is_global_init(tsk)))
-> -			panic("Attempted to kill init! exitcode=0x%08x\n",
-> -				tsk->signal->group_exit_code ?: (int)code);
-> +		if (unlikely(is_global_init(tsk))) {
-> +			if (system_state != SYSTEM_POWER_OFF &&
-> +			    system_state != SYSTEM_RESTART)
-> +				panic("Attempted to kill init! exitcode=0x%08x\n",
-> +				      tsk->signal->group_exit_code ?: (int)code);
-> +			WARN(1, "Attempted to kill init! exitcode=0x%08x\n",
-> +			     tsk->signal->group_exit_code ?: (int)code);
-> +		}
->
->  #ifdef CONFIG_POSIX_TIMERS
->  		hrtimer_cancel(&tsk->signal->real_timer);
-> --
-> 2.45.2
->
+>  Documentation/devicetree/bindings/watchdog/fsl,scu-wdt.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
