@@ -4,156 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4721BC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 14:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D25C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 14:40:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3D2r0wWHKczvjUF/tv5MmStdU1NLuFn0cuvHMaJys7U=; b=kF+Br6dxqPQ/XX2u6mmL3Gez9g
-	4E3a9KGA/oLRYw07wuO6Ae1iOlsity8wSdL+UryVkNXORrkt/QNllNPd68NRypXPb5vFRfZ4RCi9S
-	7xSqMJ8dHL2SUtF3TKtx32VxmlhGryQQ0bCRjlc3mgAwQo2wlDAm/4Q00UNX+qXG/3G9YhdwyHOSD
-	paaned/mFUS1dgQNOuS4J5Y+7JFwGRbB6ZZTyEsCBkEBuz00aek1Fis1Z0SvuII+wVVxv24BrnIkU
-	l/MVmSU6X1e+qCc0YVv9miP8nn16941MIptyFqP52F3WyL/OpBLabpUGmQ6fbGCN2W9Jjw+S4aHun
-	OmYMa4Bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S+Yzj2sNit6Ca9Nf2dt31SOFg8bHzMrAn7WYk6TbiRY=; b=AkKGg0dDT5rqGpjoR87TdX2bqn
+	IYOibCxa6EvPUBtdwKEX+NM1HhVuHe2h+WhHsjtWCTQVgquE8/KfqCXoqFi203OroUTi/M7Py7ILU
+	XymVP8JsQmFOg8vOU4+yKbCE3zMhf+GeazxeOwXFl4vM/9zs0XLUvpZDJr0TkMPe7kEAJ19kBUXYP
+	VKNPP5JjDQEZEu3V6FQW3xg3V7zGPzOAgV9f+6X/3LUmlsc6kRFiTn7L7TRCJXzeqQqLwz2cQGDMH
+	n4LS42MmRV8YAY6SvulJ7JDjNFJyXFAgW9gZ9zAyxsk8MJLGj0RKGdomNlKzIvPZBVcU8ZbI1+Q7h
+	sXYR/G7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2syG-0000000Arf7-2GiS;
-	Thu, 10 Apr 2025 14:33:36 +0000
-Received: from mail-db5eur02on2060d.outbound.protection.outlook.com ([2a01:111:f403:2608::60d] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1u2t4X-0000000AsMc-2jUN;
+	Thu, 10 Apr 2025 14:40:05 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2swJ-0000000ArMP-2z7X
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 14:31:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q5f7XuBUvTcMhNxxN/WLsCaNi8MBuLzsIoptLg7X4XxJmbZjLYc0n6lXevlHvJgN5eO3ulD9M8wBL+wPm6mdA5a3qL7E2HD1xGqhegiHVSQP3k3c7s5CWZrlKj2txRTCUtWaTfCuDlpGuJ7EM0wwvCQKZXoqbtBs5axRWwGFtFOC/4JuZRbBzIOAYrysf/l4RILN3GPC5NsqCS5L6HAevdar2z2zLuKys8BHw0gbXKLH5zlYTvEzG2tGUPWN8Tu3Rp4SioyiIEA2AgLNDiFsYjab0PM233TPmYIMhWvbdj9sUNY5i22d8BIplPuZ7p+yahNeKDxENrbVqgQJv4S0Vw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3D2r0wWHKczvjUF/tv5MmStdU1NLuFn0cuvHMaJys7U=;
- b=eVIl/pRljgJTNTBy7+0oaDKuInpsejw3b27DBBZ/H6EFoSTLCbUCX5R7l3lNxYGdGC4pJSmMNJ1n4/vac2F1aaWbqgvDGHrCXtuBoV+iArJP5c8060JTr+EeFONWSeJUJxov7nkgeUZIcq+j+vbF5yTQCJtI+dbYCZb1EkY14QU+XgIvQIvm1areejsGzhGKVa/led9lOq99/PTBtwJtBRUGPDpIU/ei3GHut50jWkZmMq6NqMq4Kd4FY1k9SOqWTOm5iY/r6zsE1PYJFhG2VlDeGVdMKf8n1It0Z40JkQ9qMjtV9/34TCDalFHFOtuK73/yz2o+hk5/6jWs67Kd3Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3D2r0wWHKczvjUF/tv5MmStdU1NLuFn0cuvHMaJys7U=;
- b=M3vquscPQQ35sGD6XXP9UJbkld02O35XytDuW5Xm6VAzrBsGeZ5fsb5V2tOD9tM2Ov5gN4lJjQdfZ4PgpqLuLyycC7Zb3Ce4O21YKzCahIurdLTHzp3CVWQGmxiGO1uV6QhX4LHjV2IJoNw78rwpqfPzxG8Hs9VFXDrCVhXy84OefCYKOLIOBF/h4be2LoeISrxvvZnv7z8DaswQfQth7CrK9/YKrWogclC8MQsMHK0LZkh9Mi+rjB8KrUnfNID3PR/GH2hD9AOZkXmdGMzkK6Br5oqLQL52K/2ypTctD6S4JVGzN2RAWyYzr57N8qNap1OpG9KplrPZe2hERnijUQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA1PR04MB10675.eurprd04.prod.outlook.com (2603:10a6:102:48f::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.31; Thu, 10 Apr
- 2025 14:31:32 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.021; Thu, 10 Apr 2025
- 14:31:32 +0000
-Date: Thu, 10 Apr 2025 10:31:19 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, s32@nxp.com, imx@lists.linux.dev,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>
-Subject: Re: [PATCH] arm64: dts: s32gxxxa-rdb: add RTC module over I2C0
-Message-ID: <Z/fWNxhtLb7Mz20R@lizhi-Precision-Tower-5810>
-References: <20250410133028.5871-1-ciprianmarian.costea@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250410133028.5871-1-ciprianmarian.costea@oss.nxp.com>
-X-ClientProxiedBy: SJ0PR05CA0028.namprd05.prod.outlook.com
- (2603:10b6:a03:33b::33) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1u2t2c-0000000As9t-32Jk;
+	Thu, 10 Apr 2025 14:38:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1744295884;
+	bh=YIlYBspB5X+XSsa4+3taaxhNn00GpJC566S6ta2+o6M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Z4nj2Sp8Tf9VIOV5k2nhD7NoAInQRKFJD+8YdNvg6jTh/3j8kLnWQU04ynl8hDRyr
+	 gbTqLMoGfErFpSUnnVc6i7n1C3eQZn16X4OhICBZdT4Fj8VUQ2fbbtpry9Ou3gccyf
+	 ao4qtKRRpgXp7ISs/+VkfudlB8pn4onEKm5OC8wAEXWxoelDzA+abhAX8uFdgRTpFb
+	 CU+JNHU0SFW2K457DDauJENLNg/udLbLCAnRyG08pdLN99/pNbaw5mngPtdvX9w9Rs
+	 FfY+70JYDEK72dlFbuUzFY9I7Tk6g+pPQpyIRbikveDOMZyTvcuh9Z3zqpEzyNiB7U
+	 x95FUNMGqnlWA==
+Received: from [192.168.33.15] (fi-19-199-243.service.infuturo.it [151.19.199.243])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6819517E078A;
+	Thu, 10 Apr 2025 16:38:02 +0200 (CEST)
+Message-ID: <d725bafb-8cd9-4f40-b708-2760776bda72@collabora.com>
+Date: Thu, 10 Apr 2025 16:38:00 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA1PR04MB10675:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9cb23c44-c098-4167-3631-08dd783c63b2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WzZNPnCDIJEM/9zkAqOeRtVKBBB+T8O8Bhap7p3kuUJ05euxkvkwApuUl91T?=
- =?us-ascii?Q?DnUrXQwGfdK3/Kt4MvS9I3OlfZepq6OPPQ/HOZLOMkDsSK29oo/OkdTCdQW6?=
- =?us-ascii?Q?lQVxAC8Jlq5RrGG180TKySwUYmLei1keAXHeERLy13gyGGJUMMLpfRtQuMRY?=
- =?us-ascii?Q?ooacNDRTCWitl4QNzcsjBzH5muUqDuSuDax6gFYWtDPiGf7q04e/FTVST9hl?=
- =?us-ascii?Q?GgdGa1sMC7VyZoUh4oGTAzX+rJmtS5iiiQ7P1RQnJMS5Fa8LVRzOEMHLu38k?=
- =?us-ascii?Q?EatOrDT4BHVb3dcAimVljNj+cJcoGWYkCpWcPXnihCEBPArsq1LOqpn4V9ly?=
- =?us-ascii?Q?xsBXB7IpeAhfz3neuiFzx6uPd+Y0ES+lfswesWz+54RwNBcmEeKT9AxRg/3j?=
- =?us-ascii?Q?rxn3XoLZAo6WLAozwQX/M+nZGUBCD0htXnI69qC0kyCh4jC8jUc6fq5XloI1?=
- =?us-ascii?Q?HB701ZZZzXCFM2LDAzRVC+irStiNiTbWhmwhRlhiODH5PFwqMTk1p+Yzjg7c?=
- =?us-ascii?Q?8LhYHA81Njy0J8DOhu9n+iYL6m2Jqm7sXk5LZeU+eWeWri1FtmaUopvNIsEP?=
- =?us-ascii?Q?q2wMwD8HxJBXBo0+RIM23KO8cKRUQE6GwwnH/OgZq5WBMmpqm+15R6w4lfPs?=
- =?us-ascii?Q?nkDv1Ioupm0zqcYefGF2W3adZSEk1CrZeWueYD+G5RaGUEkKtYMF+AQCz3BT?=
- =?us-ascii?Q?WIX6fnVLUspQNDdutp741Q5P6FvjGJtP9UqwF42Z0+GqwOojV/y68eX3SSxz?=
- =?us-ascii?Q?euOGE/BkSYjKUYZRc4WvoTvOHXZzqkisjNyKqMOKmDmEo3GcXkHB0qIW+X7c?=
- =?us-ascii?Q?3tTKLrIYv2KwGiNSN41hs5IhcbOH+BW0hYfpupZ2O4Frsj/xVQ/QZiQvoCoQ?=
- =?us-ascii?Q?mXzj05SzAPFVnhHTmTJHCPF3Ey14/DS2tOfC2OH/Ep82ANg5VmxoNdqT+9Rb?=
- =?us-ascii?Q?MPVU59MRqyEef4N0QARaE1ss6fKn8lE3uR5N0XKsVD5QLsDJqtUVkZdysx/s?=
- =?us-ascii?Q?0MqD2r7LgoV4cg+ME9xoGQoWQ/Dq9YR0bibNAoCDNeGUegNCNtLiopfBmuBE?=
- =?us-ascii?Q?BuR76sjuplSac8Lx+QZKOZ1Yh9A084H/T0+my81gCEDRT9EmOWV6wdfvMKZB?=
- =?us-ascii?Q?iIYQGZzENf16qie6Oy2gaKHpXlSo/lttazkU4Ar8U3OYBfDNZ+osYmkLfUzA?=
- =?us-ascii?Q?4n+dBJwOQRjrERmifrSIROf8nRCccizDpW4H10FmOc1FVuT2aZkFHgxS5yiX?=
- =?us-ascii?Q?kNQ5mvCXVAd5aAuTqACyR6Ii3bHsVf3lwwTGJwRX2PtYUdd5URtTU0aurj0i?=
- =?us-ascii?Q?8ObmVFj/9SFvkwSRYIVYGjICy6EmTzGq4q5hFGTr0U/nzCbmg7zs+y0K+KQi?=
- =?us-ascii?Q?n0sxLTXRrFwKdiLk2bp+iJa6ShaHSbzE5EoLHnYK/KehYEVu+a4gHo9zcORx?=
- =?us-ascii?Q?Yal5JitQBw0ZVx2Pm/sOln1bIJ9o4YzE?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?O+jgi0lErsZzinduYdPJmk4+ku0O0kVYY9/ZfmyTARbnZwOdU7mvrkXwYBk/?=
- =?us-ascii?Q?Sasu3LfTA2dB+NgAgHMgzMozE7yFfYJv6lZnkPnyuWVKgE55VZLT9+J1pvVH?=
- =?us-ascii?Q?3sSK4GHKyxAV6z3JZ/OS14xee5jOe4Bei3QtmXno8p0yvBxCNs08YhoTWWcD?=
- =?us-ascii?Q?LsP4CsywnIKpa5IqLVYZz5bULuMhazrDAUxNkdGwyem7Ak3DNHzPNa9rgpqw?=
- =?us-ascii?Q?CUyCW2NAHAzFFnjFbw1Py6jhRxaKYiVKaPdjs429hd7s+ogGPzHMRycQU7du?=
- =?us-ascii?Q?TJu8zT7euRbjZ/ygawZq5IYQASZf9Fudh2bmeeJR5bD8I6iXFqYOVLzew8Up?=
- =?us-ascii?Q?4z5mTEV3PgAvcFeQPX9g11tLjQgIDUBJRqnQL5xxeuk4PHxsqsJiVc+nZ0Vq?=
- =?us-ascii?Q?iw/BH8+UkiUo5CVVNMlLnQlAsVfGg1jO/4sInY2WQMJC6urXaXFRZhU35tEa?=
- =?us-ascii?Q?eiUYyZH/O8/oKJwbGHAtSoLckgwSkVsHcsPmdVTeUzSh59nJVC7ASEMCKPAJ?=
- =?us-ascii?Q?Q+dsI+ZeUPExDWsAY6eKryADuaaBc7vuoR3yBpGjYnJVEUlKO4kQ09RF4o0L?=
- =?us-ascii?Q?5Ly6FSbr34zwgOVmKy+4skKVeR3Hwc+fDKz+VHvoAbbtZeI4uGpF3L55xZzF?=
- =?us-ascii?Q?10a3rLZHIL2ywZw8nLUUh9phvw4ymFlMZGVVVFq3eRNocnE9siaLZlK02DsN?=
- =?us-ascii?Q?hIWyT9c3aERTbItDKBuLxbXIaM5Sf2g9z/WUFfbBgtUDuispb/E8V6bAIa+m?=
- =?us-ascii?Q?jDE4o2v/6IOrLkZlOSVzfBiw+d66bMqHNlhpU/3jSU1Pprcsb8ZKPceY9ZtO?=
- =?us-ascii?Q?zteb1yGbgKORd83FSo0JqricRb4jKEJSOO7Tf+w1DQFiODTCk4X0DV/CyxFD?=
- =?us-ascii?Q?g7nAYCBQzyi+7jllNA7IoCSxbvzZVnaEq1BvA22COrCEG/2dikDuYbQlpBqz?=
- =?us-ascii?Q?JDM/8djhge0VF8VFAx5rdfgS2v/Y2udmno7wmdXXT5suWttxrce6/lN3lvrs?=
- =?us-ascii?Q?zqqoupiI0ZOrhBsVRIZWrY4YGHBNdmK7qbYqhZtZ1Y2KsAB61jtXTyAaKm4o?=
- =?us-ascii?Q?l81kxZpjrhWUTPCodQ8SYeKoMR2YUT7iRlNfh/Hjb7R38UzUs54oXBBI+baE?=
- =?us-ascii?Q?OUA5GxN7dUHzJfWC4quP9s+xkxCTtKu+JwYwZc0wLTH7xli+q4yODaz2Swdo?=
- =?us-ascii?Q?4KGDrIEsj+g+6ySflIMGygvenC8656hWO/xCJ/k1t+GLa+EpcmPeAbPaR7Go?=
- =?us-ascii?Q?UqKDmcUgi1gwbODahlhf5cG1yLq7pRbMEz+w+yGJWzpl8UagQ+nTB57iLFDu?=
- =?us-ascii?Q?45OCo610V+bujzETQqDzEpIQm3Xx9oSqxHOVwWL4ojdm6mtzb6qwYVWx9i8i?=
- =?us-ascii?Q?6wnLrwEz0V4Jpyg4Jn6eJhAxCkHtJcXJ2CU4uxlsMMIpFIjVUnjxKB52/STA?=
- =?us-ascii?Q?pyf8IbaIN0exB42dCse5Gk3tENxL2C+zbx1RsLqpO01hd/CpcV1h5ufKR2lY?=
- =?us-ascii?Q?7JV5b4azMPzA/Fm1upmNwQneJa7xoGXhqE5IA4d5K1KC3b41t6zRHDNRjURG?=
- =?us-ascii?Q?Z4ukOMp+cHR+wZjqUjo=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9cb23c44-c098-4167-3631-08dd783c63b2
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2025 14:31:32.5601
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NEMsbYwreDZiKSaPXY+rcUc5d1hM3y8wT+QHAeRd5DAvkiNJz2BFPKSQDXFZ0SWqHG9eOu8kTtyZ1s39NY5EoA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10675
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] mmc: mtk-sd: Add condition to enable 'single' burst
+ type
+To: Axe Yang <axe.yang@mediatek.com>,
+ Chaotian Jing <chaotian.jing@mediatek.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, yong.mao@mediatek.com,
+ qingliang.li@mediatek.com, andy-ld.lu@mediatek.com,
+ Wenbin Mei <wenbin.mei@mediatek.com>
+Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250410075314.6439-1-axe.yang@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250410075314.6439-1-axe.yang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_073135_787093_BB433A3B 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250410_073806_949219_5090BC62 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,47 +80,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 04:30:28PM +0300, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->
-> S32G274A-RDB2 and S32G399A-RDB3 boards have a PCA85073A RTC hardware module
-> available and connected over I2C0. Note that the RTC module is not battery
-> backed.
+Il 10/04/25 09:52, Axe Yang ha scritto:
+> This change add a condition for 'single' burst type selection.
+> 
+> Read AXI_LEN field from EMMC50_CFG2(AHB2AXI wrapper) register, if the
+> value is not 0, it means the HWIP is using AXI as AMBA bus, which do
+> not support 'single' burst type.
+> 
 
-Suggested commit message:
+You're missing a Suggested-by tag :-)
 
-arm64: dts: s32gxxxa-rdb: Add PCA85073A RTC module over I2C0
+After adding it,
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Add support for the PCA85073A RTC module connected via I2C0 on
-S32G274A-RDB2 and S32G399A-RDB3 boards.
-
-Note that the RTC module is not battery backed.
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
->
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> Signed-off-by: Axe Yang <axe.yang@mediatek.com>
 > ---
->  arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-> index ba53ec622f0b..4587e1cb8835 100644
-> --- a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-> @@ -153,6 +153,11 @@ pcal6524: gpio-expander@22 {
->  		gpio-controller;
->  		#gpio-cells = <2>;
->  	};
+> This change dependents on 'mmc: mtk-sd: Cleanups for register R/W':
+> 
+> https://patchwork.kernel.org/project/linux-mediatek/cover/20250325110701.52623-1-angelogioacchino.delregno@collabora.com/
+> ---
+>   drivers/mmc/host/mtk-sd.c | 16 ++++++++++++----
+>   1 file changed, 12 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
+> index ceeae1aeac94..2e4bd5166c17 100644
+> --- a/drivers/mmc/host/mtk-sd.c
+> +++ b/drivers/mmc/host/mtk-sd.c
+> @@ -84,6 +84,7 @@
+>   #define EMMC51_CFG0	 0x204
+>   #define EMMC50_CFG0      0x208
+>   #define EMMC50_CFG1      0x20c
+> +#define EMMC50_CFG2      0x21c
+>   #define EMMC50_CFG3      0x220
+>   #define SDC_FIFO_CFG     0x228
+>   #define CQHCI_SETTING	 0x7fc
+> @@ -306,7 +307,10 @@
+>   /* EMMC50_CFG1 mask */
+>   #define EMMC50_CFG1_DS_CFG        BIT(28)  /* RW */
+>   
+> -#define EMMC50_CFG3_OUTS_WR       GENMASK(4, 0)  /* RW */
+> +/* EMMC50_CFG2 mask */
+> +#define EMMC50_CFG2_AXI_SET_LEN   GENMASK(27, 24) /* RW */
 > +
-> +	pca85073a: rtc@51 {
-> +		compatible = "nxp,pca85073a";
-> +		reg = <0x51>;
-> +	};
->  };
->
->  &i2c2 {
-> --
-> 2.45.2
->
+> +#define EMMC50_CFG3_OUTS_WR       GENMASK(4, 0)   /* RW */
+>   
+>   #define SDC_FIFO_CFG_WRVALIDSEL   BIT(24)  /* RW */
+>   #define SDC_FIFO_CFG_RDVALIDSEL   BIT(25)  /* RW */
+> @@ -1917,9 +1921,13 @@ static void msdc_init_hw(struct msdc_host *host)
+>   	pb1_val |= FIELD_PREP(MSDC_PATCH_BIT1_CMDTA, 1);
+>   	pb1_val |= MSDC_PB1_DDR_CMD_FIX_SEL;
+>   
+> -	/* Set single burst mode, auto sync state clear, block gap stop clk */
+> -	pb1_val |= MSDC_PB1_SINGLE_BURST | MSDC_PB1_RSVD20 |
+> -		   MSDC_PB1_AUTO_SYNCST_CLR | MSDC_PB1_MARK_POP_WATER;
+> +	/* Support 'single' burst type only when AXI_LEN is 0 */
+> +	sdr_get_field(host->base + EMMC50_CFG2, EMMC50_CFG2_AXI_SET_LEN, &val);
+> +	if (!val)
+> +		pb1_val |= MSDC_PB1_SINGLE_BURST;
+> +
+> +	/* Set auto sync state clear, block gap stop clk */
+> +	pb1_val |= MSDC_PB1_RSVD20 | MSDC_PB1_AUTO_SYNCST_CLR | MSDC_PB1_MARK_POP_WATER;
+>   
+>   	/* Set low power DCM, use HCLK for GDMA, use MSDC CLK for everything else */
+>   	pb1_val |= MSDC_PB1_LP_DCM_EN | MSDC_PB1_RSVD3 |
+
+
 
