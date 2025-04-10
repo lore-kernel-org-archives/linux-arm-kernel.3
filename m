@@ -4,108 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F164C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 18:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C00C369AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 18:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RVEmfdcIK+nAC24P6F8Ud5S0YAAGuFYjRvgCZ39ZrCQ=; b=ppQhJw/KYdnTuPsBN9C6W5r6eO
-	+NfTBYarSGiRZWOUmeXwYn/chHHWHxST9c7Ze0nBS2+nFH+EmHjeCJ0qkU6c2fLl9ht7zNJxId/lN
-	8hr36UqkC8/XBsHfqorKpPRgZ0U1LBpu3CgfAL0kKtKOi4ElxVPmKdtZFZ2dhVs/7LFA6DUpWEfv5
-	S0RmxkXSK/2XPWwagvvsKBuug5eys2CRQFJYbqF9rXr/hcyFP2moCh+6+LCFW0R7Aiw/CUbEadUpT
-	3anr6vl7pVpS1sj54O/MgKYxfy5NYgJBnJiVhfsHs5uP0+o7sFL7f5/isrhhVF/SLYvUwBcaPvarB
-	nFEsnMrA==;
+	bh=Cnx4OebNvscgLUnjsl3TmGloIkUAMbbfRDLKnM/gyf8=; b=n6dcaFck5NvYjM3C6T60FdRN3O
+	eAmGQbel/PmKxWUD302VG4H9AbGhmdEkHE8ztl4iWIqRxG/v6xihZG6NG6TzzNdPJ6BdFK8IzgwYa
+	Eykode8ZHk0iS9bdnwWi51KYGQ1NFNu2j7NZoCyAw+WIGsgnJCXWDII/y3M6hiBMuitgchXg2wlXv
+	nZUvp4YGgdkzkQJLIgTFp5PveyeWl5wy1MqYoM1grcXx4Pzr60tYv4ggF5CCsfJg/jLOvaN27bub3
+	uh2aTFhAEheCkEYjA6MbAzlPt36vw/1M7rXy7ZgYQETyYZ9+MnamHdLoAuJ/xoREPzTfIAD/dnQuz
+	PxRvbbew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2wgH-0000000BWLq-3Mq2;
-	Thu, 10 Apr 2025 18:31:17 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1u2wgP-0000000BWRq-2jEx;
+	Thu, 10 Apr 2025 18:31:25 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2vd8-0000000BMa0-1K9W;
-	Thu, 10 Apr 2025 17:23:59 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-39c2688619bso665324f8f.1;
-        Thu, 10 Apr 2025 10:23:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744305836; x=1744910636; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=RVEmfdcIK+nAC24P6F8Ud5S0YAAGuFYjRvgCZ39ZrCQ=;
-        b=m9t/RrWfzN3ejrUcFLtu3NGpbdNof2lwVq6Ts7pt9fdrlw4rx7t+Lg9Ho2nxt9FxFu
-         Bw5ueHMh0hoG4UsCcBpY5b4njIeNAEqRXWAfBbKkN15OpLScPOLDF0TkmcoGN/S0Qiue
-         SKJRedAmgWo0FvfRg2n3Kz5Dqh8VLZKccOUZzq/Dw/otzoNwpYBONJn3oREe+nERxfdx
-         7DA+ACPx+vuQPuvfDO/7C3ytPl6Nx78LBZS6Ssp3uyo9roE+LCO7bdYPED3oy6nw0UJP
-         r2CQmeooIRyUSCWe6Tazom5kASNhhnIDB2v/EELc67vHsw1W8/CyEVdgkuKyUkGJf/4r
-         +l9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744305836; x=1744910636;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RVEmfdcIK+nAC24P6F8Ud5S0YAAGuFYjRvgCZ39ZrCQ=;
-        b=tKO/2gSRHbabXXvRAzhZIQaGIBSOtNlIlDx4nbT0YNUwv2gxG6o/iAmE4RXzmOl6um
-         J7CpJ0pXBQr7JfoFd8XQCQSB3rPnSYWESR0VIOyYyeFHAbMR/ILWp9wYdzobzx933fvJ
-         GBfdWCDe2AVTiJRgVU7cybPHO2RqE0qL4uJFI7auc7OZtS2Q0abpUu+ljvO/IIuSLYH0
-         mv/RnpaJv2Eyzzbzegzk3NVpMkRIvEIve/2pOj8/uHtPy6DoTyVY7aTtwOCtcbq6OzNA
-         m7zzIpq9gYAXC07YNIbYTEqD+SqYA5WCN+nHamv5gLIqc37jj29h/RGfi1ELrRJP1QM0
-         h6KQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVmjsQ8pjpB/jzN9cQPVLUGYbMV52SU+7tDbYtZLdfZvtT1W5YTDvGrbMlYtpUmdJtsj9wTuo8kKA6vFZNrnFfM@lists.infradead.org, AJvYcCWxX28uuZWXtmQzU13dS7t7srDT5B6aVTR+eYF6uMvYJl04YMQqDOFNi58ZyQBrBcvxgpBFUZHzrLqzwqZalds=@lists.infradead.org
-X-Gm-Message-State: AOJu0YweetLD3LNAp1qPXdNb1Smz7n1Hzn+WIslX5V3BLGnceUd4wVS3
-	H0TiXMamw+zSpJ/T3Wmyi+AM5XHzgCeoI9nz9UcYgUJ/R51S5dLo
-X-Gm-Gg: ASbGnctL4Aj4OCLCbpRJt+wc6JgmZUX5jyXBHAq6TgDNBYzz5S1/IacqvOFfhvJ0q/e
-	mwadNT4DcaryqLea6jjv3308pk+7xZOMC+jhQUajloO3I/DxQrUVmaW2nyicRhsZAqc3ixodLBQ
-	KIbIDX1HGXrMrYwAVAJqzO6Kv8oaVSaKOTc98h5HPa3R7RfUmNAu/y3JpwcHcb4zgr2yuw8s4WQ
-	2u1xMh9hzqpPgDWuYg461jPaPUBVUYgSNJTslKhbpvXiNsktu471v56BHdELnb/RIHctCgW28/q
-	Y5keXluCnrvDB5KZX4T8VOpxXhaWhuisQo5QvgzMIZrfQ2Kw/P+XqY1U4jeULJvDnGNl5fr8NN1
-	soTKFToE=
-X-Google-Smtp-Source: AGHT+IFqhoIbl8rG6Xm1pydrcNvSBmIecSBYlMaEofFIFMZzgUR9B34igWvZcOG2E52kzZjCqGGyAw==
-X-Received: by 2002:a05:6000:2586:b0:391:3aaf:1d5d with SMTP id ffacd0b85a97d-39d8f47497bmr3207232f8f.27.1744305836300;
-        Thu, 10 Apr 2025 10:23:56 -0700 (PDT)
-Received: from Ansuel-XPS. (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39d893f0a75sm5495874f8f.62.2025.04.10.10.23.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 10:23:55 -0700 (PDT)
-Message-ID: <67f7feab.df0a0220.40a6f.c911@mx.google.com>
-X-Google-Original-Message-ID: <Z_f-qflwHutRYS6_@Ansuel-XPS.>
-Date: Thu, 10 Apr 2025 19:23:53 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, Simon Horman <horms@kernel.org>,
+	id 1u2w2w-0000000BReO-3s9D;
+	Thu, 10 Apr 2025 17:50:40 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1ADA2352;
+	Thu, 10 Apr 2025 19:48:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1744307318;
+	bh=LU5dwri1TjU740CvlReL/wlTOs+9Az6hmBvzPrhh88E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PDX8KAwgi86ce2bRZRSSM1USB2zOndffk2GMIjRwwbDCSqGWV1F3a+IZni7iRoXln
+	 RYCqrRdwWQ2Y2IvcJWA/HS9azfvtog9PlEbC/ge0EEZyJUoa4DaurTI2AnfiVlXwoc
+	 sKXutYrzfCLnsHz2Rb4v83vflzuJZ4lomlBoCaFw=
+Date: Thu, 10 Apr 2025 20:50:10 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v14 06/16] net: mdio: regmap: prepare support
- for multiple valid addr
-References: <20250408095139.51659-1-ansuelsmth@gmail.com>
- <20250408095139.51659-7-ansuelsmth@gmail.com>
- <6f29a01d-35da-4d51-b309-a1799950a707@lunn.ch>
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel@collabora.com,
+	linux-media@vger.kernel.org,
+	Sebastian Fricke <sebastian.fricke@collabora.com>
+Subject: Re: [PATCH v2 1/5] media: mc: add manual request completion
+Message-ID: <20250410175010.GF27870@pendragon.ideasonboard.com>
+References: <20250410-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v2-0-5b99ec0450e6@collabora.com>
+ <20250410-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v2-1-5b99ec0450e6@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <6f29a01d-35da-4d51-b309-a1799950a707@lunn.ch>
+In-Reply-To: <20250410-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v2-1-5b99ec0450e6@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_102358_352031_D81C3030 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20250410_105039_102518_F7522EB0 
+X-CRM114-Status: GOOD (  41.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,23 +76,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 07:18:02PM +0200, Andrew Lunn wrote:
-> On Tue, Apr 08, 2025 at 11:51:13AM +0200, Christian Marangi wrote:
-> > Rework the valid_addr and convert it to a mask in preparation for mdio
-> > regmap to support multiple valid addr in the case the regmap can support
-> > it.
+Hi Nicolas,
+
+Thank you for the patch.
+
+On Thu, Apr 10, 2025 at 11:39:56AM -0400, Nicolas Dufresne wrote:
+> From: Hans Verkuil <hverkuil@xs4all.nl>
 > 
-> I think it would be good to pull these MDIO regmap patches out into a
-> series of their own. We know there is a user, so i'm happy for us the
-> accept it without that user. But this code needs further discusion,
-> which will be irrelevant for the switch.
->
+> By default when the last request object is completed, the whole
+> request completes as well.
+> 
+> But sometimes you want to manually complete a request in a driver,
+> so add a manual complete mode for this.
 
-Ok so how you would like to proceed for the remaining patch? Repost as RFC?
+I didn't immediately understand this was about delaying completion of
+the request. It would be nice to make that more explicit in the commit
+message and in the documentation of
+media_request_mark_manual_completion(). A sample use case would also
+help.
 
-Still waiting feedback for nvmem and mfd so I would love to get feedback
-for them (that are also irrelevant to the switch)
+> In req_queue the driver marks the request for manual completion by
+> calling media_request_mark_manual_completion, and when the driver
+> wants to manually complete the request it calls
+> media_request_manual_complete().
+> 
+> Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> ---
+>  drivers/media/mc/mc-request.c | 38 ++++++++++++++++++++++++++++++++++++--
+>  include/media/media-request.h | 36 +++++++++++++++++++++++++++++++++++-
+>  2 files changed, 71 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
+> index 5edfc2791ce7c7485def5db675bbf53ee223d837..398d0806d1d274eb8c454fc5c37b77476abe1e74 100644
+> --- a/drivers/media/mc/mc-request.c
+> +++ b/drivers/media/mc/mc-request.c
+> @@ -54,6 +54,7 @@ static void media_request_clean(struct media_request *req)
+>  	req->access_count = 0;
+>  	WARN_ON(req->num_incomplete_objects);
+>  	req->num_incomplete_objects = 0;
+> +	req->manual_completion = false;
+>  	wake_up_interruptible_all(&req->poll_wait);
+>  }
+>  
+> @@ -313,6 +314,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
+>  	req->mdev = mdev;
+>  	req->state = MEDIA_REQUEST_STATE_IDLE;
+>  	req->num_incomplete_objects = 0;
+> +	req->manual_completion = false;
+>  	kref_init(&req->kref);
+>  	INIT_LIST_HEAD(&req->objects);
+>  	spin_lock_init(&req->lock);
+> @@ -459,7 +461,7 @@ void media_request_object_unbind(struct media_request_object *obj)
+>  
+>  	req->num_incomplete_objects--;
+>  	if (req->state == MEDIA_REQUEST_STATE_QUEUED &&
+> -	    !req->num_incomplete_objects) {
+> +	    !req->num_incomplete_objects && !req->manual_completion) {
+>  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+>  		completed = true;
+>  		wake_up_interruptible_all(&req->poll_wait);
+> @@ -488,7 +490,7 @@ void media_request_object_complete(struct media_request_object *obj)
+>  	    WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
+>  		goto unlock;
+>  
+> -	if (!--req->num_incomplete_objects) {
+> +	if (!--req->num_incomplete_objects && !req->manual_completion) {
+>  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+>  		wake_up_interruptible_all(&req->poll_wait);
+>  		completed = true;
+> @@ -499,3 +501,35 @@ void media_request_object_complete(struct media_request_object *obj)
+>  		media_request_put(req);
+>  }
+>  EXPORT_SYMBOL_GPL(media_request_object_complete);
+> +
+> +void media_request_manual_complete(struct media_request *req)
+> +{
+> +	unsigned long flags;
+> +	bool completed = false;
+> +
+> +	if (WARN_ON(!req))
+> +		return;
+> +	if (WARN_ON(!req->manual_completion))
+> +		return;
+> +
+> +	spin_lock_irqsave(&req->lock, flags);
+> +	if (WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
+> +		goto unlock;
+> +
+> +	req->manual_completion = false;
+> +	/*
+> +	 * It is expected that all other objects in this request are
+> +	 * completed when this function is called. WARN if that is
+> +	 * not the case.
+> +	 */
+> +	if (!WARN_ON(req->num_incomplete_objects)) {
+> +		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+> +		wake_up_interruptible_all(&req->poll_wait);
+> +		completed = true;
+> +	}
+> +unlock:
+> +	spin_unlock_irqrestore(&req->lock, flags);
+> +	if (completed)
+> +		media_request_put(req);
+> +}
+> +EXPORT_SYMBOL_GPL(media_request_manual_complete);
+> diff --git a/include/media/media-request.h b/include/media/media-request.h
+> index d4ac557678a78372222704400c8c96cf3150b9d9..645d18907be7148ca50dcc9248ff06bd8ccdf953 100644
+> --- a/include/media/media-request.h
+> +++ b/include/media/media-request.h
+> @@ -56,6 +56,10 @@ struct media_request_object;
+>   * @access_count: count the number of request accesses that are in progress
+>   * @objects: List of @struct media_request_object request objects
+>   * @num_incomplete_objects: The number of incomplete objects in the request
+> + * @manual_completion: if true, then the request won't be marked as completed
+> + * when @num_incomplete_objects reaches 0. Call media_request_manual_complete()
+> + * to set this field to false and complete the request
+
+I'd drop "set this field to false and " here.
+
+> + * if @num_incomplete_objects == 0.
+
+ * after @num_incomplete_objects reaches 0.
+
+>   * @poll_wait: Wait queue for poll
+>   * @lock: Serializes access to this struct
+>   */
+> @@ -68,6 +72,7 @@ struct media_request {
+>  	unsigned int access_count;
+>  	struct list_head objects;
+>  	unsigned int num_incomplete_objects;
+> +	bool manual_completion;
+>  	wait_queue_head_t poll_wait;
+>  	spinlock_t lock;
+>  };
+> @@ -218,6 +223,35 @@ media_request_get_by_fd(struct media_device *mdev, int request_fd);
+>  int media_request_alloc(struct media_device *mdev,
+>  			int *alloc_fd);
+>  
+> +/**
+> + * media_request_mark_manual_completion - Set manual_completion to true
+> + *
+> + * @req: The request
+> + *
+> + * Mark that the request has to be manually completed by calling
+> + * media_request_manual_complete().
+> + *
+> + * This function should be called in the req_queue callback.
+
+s/should/shall/ unless it's not a hard requirement. Any way to catch
+incorrect call patterns ?
+
+> + */
+> +static inline void
+> +media_request_mark_manual_completion(struct media_request *req)
+> +{
+> +	req->manual_completion = true;
+> +}
+> +
+> +/**
+> + * media_request_manual_complete - Set manual_completion to false
+
+The main purpose of the function is to complete the request, not setting
+manual_completion to false.
+
+> + *
+> + * @req: The request
+> + *
+> + * Set @manual_completion to false, and if @num_incomplete_objects
+> + * is 0, then mark the request as completed.
+> + *
+> + * If there are still incomplete objects in the request, then
+> + * WARN for that since that suggests a driver error.
+
+If that's an error then I'd document it more explicitly, as the first
+sentence makes it sound that both cases are valid. Maybe
+
+ * This function completes a request that was marked for manual completion by an
+ * earlier call to media_request_mark_manual_completion(). The request's
+ * @manual_completion flag is reset to false.
+ *
+ * All objects contained in the request must have been completed previously. It
+ * is an error to call this function otherwise. The request will not be
+ * completed in that case, and the function will WARN.
+
+> + */
+> +void media_request_manual_complete(struct media_request *req);
+> +
+>  #else
+>  
+>  static inline void media_request_get(struct media_request *req)
+> @@ -336,7 +370,7 @@ void media_request_object_init(struct media_request_object *obj);
+>   * @req: The media request
+>   * @ops: The object ops for this object
+>   * @priv: A driver-specific priv pointer associated with this object
+> - * @is_buffer: Set to true if the object a buffer object.
+> + * @is_buffer: Set to true if the object is a buffer object.
+>   * @obj: The object
+>   *
+>   * Bind this object to the request and set the ops and priv values of
 
 -- 
-	Ansuel
+Regards,
+
+Laurent Pinchart
 
