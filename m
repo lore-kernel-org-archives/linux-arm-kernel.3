@@ -4,101 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B63DEC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAAAC369A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4fNZA+lk5C21yXUFwCx6jyNHzAoSsvMZ7ySKgArljjo=; b=vQW5enrR8Kd7EgNg6LnCyXThDI
-	lvk3t6FuGQmL1TT/vAGEF0DO6e4hfvqeIfwzAa9ZHUYhnwdrRslNfc8/wzwi2xtcqhUDWYQPglXCK
-	Dd2tN/upFZAfs7YKUsliyt5OMyr2F3bNKj2xeDMoyxgraoZKJK80HkaYvaWaHrLzYZ/cUZEtYa7KZ
-	i2edZQFJUz9qo/qhG8ialKBAFmu8+M8yu7UkhTFvMCAno5Z4Pc1xCxSbzfqS7CmAJEi/YkonN+rTS
-	+uWQJwatv17xcxsHSjnr1xg4uGGlVxDxDUbic1C4MllG4vsPKX92pKlQdBvKKnZGOB9/uYSkUGbn6
-	P5DCn5rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3Uo5er/uYGpDnrC4qdUdTQ+M350k6gcqOXroe0mMArE=; b=q/ylISHksUYHgMbe2qBDzc8ItP
+	pP7Mi6X7Q+TdWREA0W21MZOZAYSi9W/jFyB99+B/ukC3569aqYFrGwK2ee8zsOt8MIq6re5zmAu5/
+	ngIEd0y9fl5N1KAKDPeVDf01EE4/FRj0AB1DfMJ/2/QfhJhBjvO3gzrD/DDTk4sgkrRRCUlhUSJfm
+	fqNfGQIFGwB5OE+cV0EKq4QKJHeCRwtShg5QrOzIn7dpLpMf3wwJX3Jx6x8Blaco7Xf91ZjAa1MKS
+	GNdThyAQ3h1nqAG8DmGVRK3jv7RhAw98bXuNPHQcj1+qGtSmcnWZScBOHDEqGhNWOxqXlfhfPoERF
+	361lzRcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pv9-0000000AEpf-2wMv;
-	Thu, 10 Apr 2025 11:18:11 +0000
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	id 1u2pvK-0000000AFA5-43fL;
+	Thu, 10 Apr 2025 11:18:22 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2odP-0000000A0T5-36d0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 09:55:52 +0000
-Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53A60F8V032471;
-	Thu, 10 Apr 2025 10:55:28 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=4
-	fNZA+lk5C21yXUFwCx6jyNHzAoSsvMZ7ySKgArljjo=; b=Ty4LvjWqlGtJQfMvC
-	g++UB2sTyBxiLMP7jCLcVUXmL9J7skBsypbu20aIdv5wu1HF/yZDlrZq+Lkb4IAW
-	+l6OILshGF3Z2q1n2IVBL5ERsUiCL9Ib+sBVeQL0wzvRJ/+bc4R4fizYjui16c1W
-	pRvxidRS5lhr6EQF7LiMP1DoMWOVQPRXAqNTmecCE7CHd5wakt49G7jcNm7poU2E
-	g9W31g5+Tu6tmNT2GfYMLKrQ6D06VGAOTXmCJZYewZla5sfR6rtse03IwlXMwUKa
-	QiSW5qYeteNVsp8yYncSUh5W7YRt0EmprKdCEFGO/QBl+Lzq7laQ15XsdRV7pTvK
-	YVYLA==
-Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 45w86h1d34-6
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 10 Apr 2025 10:55:28 +0100 (BST)
-Received: from
- 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
- (172.25.6.134) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 10 Apr 2025 10:55:25 +0100
-From: Matt Coster <matt.coster@imgtec.com>
-Date: Thu, 10 Apr 2025 10:55:11 +0100
-Subject: [PATCH v6 12/18] drm/imagination: Use callbacks for fw irq
- handling
+	id 1u2oi7-0000000A1U1-0nF2;
+	Thu, 10 Apr 2025 10:00:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744279239; x=1775815239;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ONUHM5dAa9V9tNPfQhvJhcJq9TbPfVh38gul5GwseA0=;
+  b=Fux1xUHgpwGhqjq7nNpdXhE4Ehm1haJXLUZaNBaROTOkpfC0JNxfAH5G
+   NPU68Ib+r3LHpsVu3aGD96o+n5ubWiYmX51LNA24XuBnNdyIn8WLmW3Za
+   6xPX126FhcQhrxc13S3qEtsIKXaRhE5/nqUg00ezxddTb38nHsVj1IUZK
+   NEI85xqZM8mLAcScRQz1kb5Xrkc/888Li7SVOMwKnw3DFtk3hnkv4Fd27
+   70RQeKYMx/qBLWJXDRbJVs81oLj1WQAYKmT/E5HrYODr86Nukmyl4C5cZ
+   91tliRmvKnEtOjv40l69u1UgOWf6HQRr21mTtKv9QW1i3ryP669bUkxyE
+   w==;
+X-CSE-ConnectionGUID: tfCAnchXSyCbWWZfS9fCnw==
+X-CSE-MsgGUID: dQ1hywIKR8yBs3juWinBMw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11399"; a="57159392"
+X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
+   d="scan'208";a="57159392"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2025 03:00:37 -0700
+X-CSE-ConnectionGUID: 05lbWpcNR3KWflc7G4CuNA==
+X-CSE-MsgGUID: YLZYCk0KSbOI90zQomq2Sw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,202,1739865600"; 
+   d="scan'208";a="133980819"
+Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
+  by fmviesa004.fm.intel.com with ESMTP; 10 Apr 2025 03:00:34 -0700
+Received: from kbuild by b207828170a5 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u2ohz-0009tz-0B;
+	Thu, 10 Apr 2025 10:00:31 +0000
+Date: Thu, 10 Apr 2025 17:59:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-crypto@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, openbmc@lists.ozlabs.org
+Subject: Re: [PATCH 3/3] hwrng: npcm - Add a local variable for struct device
+ pointer
+Message-ID: <202504101705.PeW9QC3m-lkp@intel.com>
+References: <20250410070623.3676647-4-sakari.ailus@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250410-sets-bxs-4-64-patch-v1-v6-12-eda620c5865f@imgtec.com>
-References: <20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com>
-In-Reply-To: <20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com>
-To: Frank Binns <frank.binns@imgtec.com>,
-        Matt Coster
-	<matt.coster@imgtec.com>,
-        David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-        "Vignesh
- Raghavendra" <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
-        "Michal
- Wilczynski" <m.wilczynski@samsung.com>,
-        Alessio Belle
-	<alessio.belle@imgtec.com>,
-        Alexandru Dadu <alexandru.dadu@imgtec.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7452;
- i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=jpHwzrjowDkpdHoaZcO1f45rsyO9HISv2/yS1c3RlZ0=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaR/n9qUEXpULHcdd3TQ0VOKN+1fvzx5ou8u34TIcw7eg
- Vobz5iu6ChlYRDjYJAVU2TZscJyhdofNS2JG7+KYeawMoEMYeDiFICJPLvF8L+Up3umaJ7bCu0P
- bOY/tURbFghvSlFxuMjaO/HIY+sM1sOMDCvk3at1L92rl7tg6Lp1U+odSf4dE2OsmC9rv8k922k
- zkxUA
-X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
- fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
-X-Originating-IP: [172.25.6.134]
-X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=MLNgmNZl c=1 sm=1 tr=0 ts=67f79590 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=UtEzwyU9vMAA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=Y33Pwm5EY2qbWUOeHhAA:9
- a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: LOWUnrvZyHmim4GrOCePZKS6wa-K1QzH
-X-Proofpoint-ORIG-GUID: LOWUnrvZyHmim4GrOCePZKS6wa-K1QzH
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250410070623.3676647-4-sakari.ailus@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_025548_154571_47081EB5 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20250410_030039_302890_95E67B51 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,207 +98,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This allows for more versatility in checking and clearing firmware
-registers used for interrupt handling.
+Hi Sakari,
 
-Signed-off-by: Matt Coster <matt.coster@imgtec.com>
-Reviewed-by: Frank Binns <frank.binns@imgtec.com>
----
-Changes in v6:
-- Add Frank's Rb
-- Link to v5: https://lore.kernel.org/r/20250326-sets-bxs-4-64-patch-v1-v5-12-e4c46e8280a9@imgtec.com
-Changes in v5:
-- None
-- Link to v4: https://lore.kernel.org/r/20250320-sets-bxs-4-64-patch-v1-v4-12-d987cf4ca439@imgtec.com
-Changes in v4:
-- None
-- Link to v3: https://lore.kernel.org/r/20250310-sets-bxs-4-64-patch-v1-v3-12-143b3dbef02f@imgtec.com
-Changes in v3:
-- None
-- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-14-3fd45d9fb0cf@imgtec.com
-Changes in v2:
-- None
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-14-4ed30e865892@imgtec.com
----
- drivers/gpu/drm/imagination/pvr_device.h  | 18 +++++++++++++
- drivers/gpu/drm/imagination/pvr_fw.h      | 45 +++++++++----------------------
- drivers/gpu/drm/imagination/pvr_fw_meta.c | 22 ++++++++++-----
- drivers/gpu/drm/imagination/pvr_fw_mips.c | 22 ++++++++++-----
- 4 files changed, 63 insertions(+), 44 deletions(-)
+kernel test robot noticed the following build errors:
 
-diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
-index 12bf0b9e5bfb48ef9e5ed9faa44e0896b7555f49..eb5da8c7040fc9e9751f433279cb0c92fd4d1336 100644
---- a/drivers/gpu/drm/imagination/pvr_device.h
-+++ b/drivers/gpu/drm/imagination/pvr_device.h
-@@ -739,4 +739,22 @@ pvr_ioctl_union_padding_check(void *instance, size_t union_offset,
- 					      __union_size, __member_size);  \
- 	})
- 
-+/*
-+ * These utility functions should more properly be placed in pvr_fw.h, but that
-+ * would cause a dependency cycle between that header and this one. Since
-+ * they're primarily used in pvr_device.c, let's put them in here for now.
-+ */
-+
-+static __always_inline bool
-+pvr_fw_irq_pending(struct pvr_device *pvr_dev)
-+{
-+	return pvr_dev->fw_dev.defs->irq_pending(pvr_dev);
-+}
-+
-+static __always_inline void
-+pvr_fw_irq_clear(struct pvr_device *pvr_dev)
-+{
-+	pvr_dev->fw_dev.defs->irq_clear(pvr_dev);
-+}
-+
- #endif /* PVR_DEVICE_H */
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
-index 88ad713468ce3a1ee459b04dde5363c24791a4f1..ab69f40a7fbc6304171f16dd16d825a68b0362a5 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.h
-+++ b/drivers/gpu/drm/imagination/pvr_fw.h
-@@ -167,29 +167,22 @@ struct pvr_fw_defs {
- 	int (*wrapper_init)(struct pvr_device *pvr_dev);
- 
- 	/**
--	 * @irq: FW Interrupt information.
-+	 * @irq_pending: Check interrupt status register for pending interrupts.
- 	 *
--	 * Those are processor dependent, and should be initialized by the
--	 * processor backend in pvr_fw_funcs::init().
-+	 * @pvr_dev: Target PowerVR device.
-+	 *
-+	 * This function is mandatory.
- 	 */
--	struct {
--		/** @status_reg: FW interrupt status register. */
--		u32 status_reg;
-+	bool (*irq_pending)(struct pvr_device *pvr_dev);
- 
--		/**
--		 * @clear_reg: FW interrupt clear register.
--		 *
--		 * If @status_reg == @clear_reg, we clear by write a bit to zero,
--		 * otherwise we clear by writing a bit to one.
--		 */
--		u32 clear_reg;
--
--		/** @status_mask: Bitmask of events to listen for in the status_reg. */
--		u32 status_mask;
--
--		/** @clear_mask: Value to write to the clear_reg in order to clear FW IRQs. */
--		u32 clear_mask;
--	} irq;
-+	/**
-+	 * @irq_clear: Clear pending interrupts.
-+	 *
-+	 * @pvr_dev: Target PowerVR device.
-+	 *
-+	 * This function is mandatory.
-+	 */
-+	void (*irq_clear)(struct pvr_device *pvr_dev);
- 
- 	/**
- 	 * @has_fixed_data_addr: Specify whether the firmware fixed data must be loaded at the
-@@ -390,18 +383,6 @@ struct pvr_fw_device {
- 	} fw_objs;
- };
- 
--#define pvr_fw_irq_read_reg(pvr_dev, name) \
--	pvr_cr_read32((pvr_dev), (pvr_dev)->fw_dev.defs->irq.name ## _reg)
--
--#define pvr_fw_irq_write_reg(pvr_dev, name, value) \
--	pvr_cr_write32((pvr_dev), (pvr_dev)->fw_dev.defs->irq.name ## _reg, value)
--
--#define pvr_fw_irq_pending(pvr_dev) \
--	(pvr_fw_irq_read_reg(pvr_dev, status) & (pvr_dev)->fw_dev.defs->irq.status_mask)
--
--#define pvr_fw_irq_clear(pvr_dev) \
--	pvr_fw_irq_write_reg(pvr_dev, clear, (pvr_dev)->fw_dev.defs->irq.clear_mask)
--
- enum pvr_fw_processor_type {
- 	PVR_FW_PROCESSOR_TYPE_META = 0,
- 	PVR_FW_PROCESSOR_TYPE_MIPS,
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-index 41485769fc7cfb643ce7b0ac814d142fa7e15325..60db3668ad3ca355b797693b000c0b1ac816316e 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-@@ -532,6 +532,20 @@ pvr_meta_vm_unmap(struct pvr_device *pvr_dev, struct pvr_fw_object *fw_obj)
- 			 fw_obj->fw_mm_node.start, fw_obj->fw_mm_node.size);
- }
- 
-+static bool
-+pvr_meta_irq_pending(struct pvr_device *pvr_dev)
-+{
-+	return pvr_cr_read32(pvr_dev, ROGUE_CR_META_SP_MSLVIRQSTATUS) &
-+	       ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN;
-+}
-+
-+static void
-+pvr_meta_irq_clear(struct pvr_device *pvr_dev)
-+{
-+	pvr_cr_write32(pvr_dev, ROGUE_CR_META_SP_MSLVIRQSTATUS,
-+		       ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_CLRMSK);
-+}
-+
- const struct pvr_fw_defs pvr_fw_defs_meta = {
- 	.init = pvr_meta_init,
- 	.fw_process = pvr_meta_fw_process,
-@@ -539,11 +553,7 @@ const struct pvr_fw_defs pvr_fw_defs_meta = {
- 	.vm_unmap = pvr_meta_vm_unmap,
- 	.get_fw_addr_with_offset = pvr_meta_get_fw_addr_with_offset,
- 	.wrapper_init = pvr_meta_wrapper_init,
--	.irq = {
--		.status_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
--		.clear_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
--		.status_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN,
--		.clear_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_CLRMSK,
--	},
-+	.irq_pending = pvr_meta_irq_pending,
-+	.irq_clear = pvr_meta_irq_clear,
- 	.has_fixed_data_addr = false,
- };
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_mips.c b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-index 5feae0dc85ab51cb3c4e67885bf53cf88d8fa531..7526dddbf5205f3472287f32af8ec7e97ba0fce4 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_mips.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-@@ -225,6 +225,20 @@ pvr_mips_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
- 	       ROGUE_FW_HEAP_MIPS_BASE;
- }
- 
-+static bool
-+pvr_mips_irq_pending(struct pvr_device *pvr_dev)
-+{
-+	return pvr_cr_read32(pvr_dev, ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS) &
-+	       ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN;
-+}
-+
-+static void
-+pvr_mips_irq_clear(struct pvr_device *pvr_dev)
-+{
-+	pvr_cr_write32(pvr_dev, ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR,
-+		       ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR_EVENT_EN);
-+}
-+
- const struct pvr_fw_defs pvr_fw_defs_mips = {
- 	.init = pvr_mips_init,
- 	.fini = pvr_mips_fini,
-@@ -233,11 +247,7 @@ const struct pvr_fw_defs pvr_fw_defs_mips = {
- 	.vm_unmap = pvr_vm_mips_unmap,
- 	.get_fw_addr_with_offset = pvr_mips_get_fw_addr_with_offset,
- 	.wrapper_init = pvr_mips_wrapper_init,
--	.irq = {
--		.status_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS,
--		.clear_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR,
--		.status_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN,
--		.clear_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR_EVENT_EN,
--	},
-+	.irq_pending = pvr_mips_irq_pending,
-+	.irq_clear = pvr_mips_irq_clear,
- 	.has_fixed_data_addr = true,
- };
+[auto build test ERROR on char-misc/char-misc-testing]
+[also build test ERROR on char-misc/char-misc-next char-misc/char-misc-linus herbert-cryptodev-2.6/master linus/master v6.15-rc1 next-20250410]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Sakari-Ailus/hwrng-atmel-Add-a-local-variable-for-struct-device-pointer/20250410-151223
+base:   char-misc/char-misc-testing
+patch link:    https://lore.kernel.org/r/20250410070623.3676647-4-sakari.ailus%40linux.intel.com
+patch subject: [PATCH 3/3] hwrng: npcm - Add a local variable for struct device pointer
+config: csky-randconfig-001-20250410 (https://download.01.org/0day-ci/archive/20250410/202504101705.PeW9QC3m-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250410/202504101705.PeW9QC3m-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504101705.PeW9QC3m-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   drivers/char/hw_random/npcm-rng.c: In function 'npcm_rng_read':
+>> drivers/char/hw_random/npcm-rng.c:58:9: error: expected ',' or ';' before 'int'
+      58 |         int retval = 0;
+         |         ^~~
+>> drivers/char/hw_random/npcm-rng.c:78:17: error: 'retval' undeclared (first use in this function)
+      78 |                 retval++;
+         |                 ^~~~~~
+   drivers/char/hw_random/npcm-rng.c:78:17: note: each undeclared identifier is reported only once for each function it appears in
+>> drivers/char/hw_random/npcm-rng.c:87:1: warning: control reaches end of non-void function [-Wreturn-type]
+      87 | }
+         | ^
+
+
+vim +58 drivers/char/hw_random/npcm-rng.c
+
+c98429297d8b25a Tomer Maimon 2019-09-12  53  
+c98429297d8b25a Tomer Maimon 2019-09-12  54  static int npcm_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
+c98429297d8b25a Tomer Maimon 2019-09-12  55  {
+c98429297d8b25a Tomer Maimon 2019-09-12  56  	struct npcm_rng *priv = to_npcm_rng(rng);
+11fd03b27c8824f Sakari Ailus 2025-04-10  57  	struct device *dev = (struct device *)priv->rng.priv
+c98429297d8b25a Tomer Maimon 2019-09-12 @58  	int retval = 0;
+c98429297d8b25a Tomer Maimon 2019-09-12  59  	int ready;
+c98429297d8b25a Tomer Maimon 2019-09-12  60  
+11fd03b27c8824f Sakari Ailus 2025-04-10  61  	pm_runtime_get_sync(dev);
+c98429297d8b25a Tomer Maimon 2019-09-12  62  
+c2fb644638ae45c Tomer Maimon 2020-09-24  63  	while (max) {
+c98429297d8b25a Tomer Maimon 2019-09-12  64  		if (wait) {
+c2fb644638ae45c Tomer Maimon 2020-09-24  65  			if (readb_poll_timeout(priv->base + NPCM_RNGCS_REG,
+c98429297d8b25a Tomer Maimon 2019-09-12  66  					       ready,
+c98429297d8b25a Tomer Maimon 2019-09-12  67  					       ready & NPCM_RNG_DATA_VALID,
+c98429297d8b25a Tomer Maimon 2019-09-12  68  					       NPCM_RNG_POLL_USEC,
+c98429297d8b25a Tomer Maimon 2019-09-12  69  					       NPCM_RNG_TIMEOUT_USEC))
+c98429297d8b25a Tomer Maimon 2019-09-12  70  				break;
+c98429297d8b25a Tomer Maimon 2019-09-12  71  		} else {
+c2fb644638ae45c Tomer Maimon 2020-09-24  72  			if ((readb(priv->base + NPCM_RNGCS_REG) &
+c98429297d8b25a Tomer Maimon 2019-09-12  73  			    NPCM_RNG_DATA_VALID) == 0)
+c98429297d8b25a Tomer Maimon 2019-09-12  74  				break;
+c98429297d8b25a Tomer Maimon 2019-09-12  75  		}
+c98429297d8b25a Tomer Maimon 2019-09-12  76  
+c2fb644638ae45c Tomer Maimon 2020-09-24  77  		*(u8 *)buf = readb(priv->base + NPCM_RNGD_REG);
+c2fb644638ae45c Tomer Maimon 2020-09-24 @78  		retval++;
+c2fb644638ae45c Tomer Maimon 2020-09-24  79  		buf++;
+c2fb644638ae45c Tomer Maimon 2020-09-24  80  		max--;
+c98429297d8b25a Tomer Maimon 2019-09-12  81  	}
+c98429297d8b25a Tomer Maimon 2019-09-12  82  
+11fd03b27c8824f Sakari Ailus 2025-04-10  83  	pm_runtime_mark_last_busy(dev);
+11fd03b27c8824f Sakari Ailus 2025-04-10  84  	pm_runtime_put_sync_autosuspend(dev);
+c98429297d8b25a Tomer Maimon 2019-09-12  85  
+c98429297d8b25a Tomer Maimon 2019-09-12  86  	return retval || !wait ? retval : -EIO;
+c98429297d8b25a Tomer Maimon 2019-09-12 @87  }
+c98429297d8b25a Tomer Maimon 2019-09-12  88  
 
 -- 
-2.49.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
