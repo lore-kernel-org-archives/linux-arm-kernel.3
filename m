@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B9BC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 14:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33A3C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 14:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z42B21KEPFqr0yfnrtJ5Puij+WZLSGwRZ2mD2yRwGsA=; b=Vi1ekFwJhoEH/X5uUVu0NBM9hp
-	OdWwDdTPsJ7ckFolh/Hl5qqNKXh1O881uTXaov50RsmaZY/c9nFcjKP6wlNAVts2GOylqwvldHQHX
-	i/wF7aO21FA9+FifGzEb4kaPSTzcc1BfR6Agil3NgFheVwUY6DpOmCZYQf/nChxVLDpEVFHP5nn+E
-	8jxdY0PJb/xEsgMY3UamHTSbBkp3g+CrZY55NGbepePDQ9tbkyJs034G1T5OVmJIo1WjTowmE+j5X
-	6DbX7geFIxqOpjd0dpIcvakyO1o+Ygr/5HTCn0unh8CzgL/PR+jJ9KnlSjCqyUVM+AYdqksgEx0vA
-	1nbBOdVQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HFFlRsHmkfCAfT1r8bHMoX+en4QQPLYm5hFUxXgPcTw=; b=2zG8s0FccGpVz4WM46SoYZ2jib
+	fwDsjqNLQsH7OVJbNgkRDjK6MSkwPc92Uyge01QLawOKS5oTZk0jEMrWTHxrAIRobt28SABgeovik
+	kmVwLBbAuC1E5eWKcsIGhPJgC45dHevJsN65L8vXKehFBvvrelToLHc6r541ZhO8ffEu8idG5Yo6Y
+	jS0OG4awDgltF5NCZWhvFCdnybpcHPX3fo6zHbzgnvWIeKlQUKW2SHDkYQiXfuJ9GbUPxP0/3vAYA
+	RlX7Z17gfhhQERfJQCBp6HgnXLRBGxpE8R5rmr7IdLElv4M6Hv/USxWb8O7WqJZaTVJz0alUiLUME
+	7EAfXAmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2tE0-0000000Au9i-1SGQ;
-	Thu, 10 Apr 2025 14:49:52 +0000
+	id 1u2tFu-0000000AuTt-3M3h;
+	Thu, 10 Apr 2025 14:51:50 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2t4W-0000000AsM5-0L67;
-	Thu, 10 Apr 2025 14:40:05 +0000
+	id 1u2t4Y-0000000AsMh-26d9;
+	Thu, 10 Apr 2025 14:40:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744296002;
-	bh=88N8hc6MaDmCB2E+c9BN0cKVbLYbqOereIkJ5ciR0Mk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KbHfDuCRZIADQ6itxCf6zf34AonLoaUiKxevLMmuXUe2Pyun+fAyAXXSIEmcg7x8l
-	 de/BwQ6iL+l1wSRr+7IVbGgq7jjW9Xhap2YgI5+HfOdygI8XM1x2ydbgB+GvGNsRQD
-	 0zxR3cEPUFwDXxixueqXBYhUOSi1jEiC7PPeStVVpzSBBn4VwipcXewmP5LtESsmdw
-	 DbNr1uwSRO6e66BN6IyTh5cwMJvQZU2t0noSBwzCJ2P8C2oZeStnRiQCZXvYC+f4sq
-	 XxF0k7ywOOwCVBh6eyg7i1d1CUU+j5PfaytBSMtvRTZZMNJrHxIfP/lef8FdNGQd+K
-	 v8vuWpEcD0C3g==
+	s=mail; t=1744296005;
+	bh=icgSlyT8oxnnPGuXt7Y2g4cMU2st21h/iIDOi7whekM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ZR42CSNhj8cwmqQSIXezIYZEXc8W7USjy6K7mXEqiz05+UGfUGOh3/Cd5Gf28hS8R
+	 ONKddh0ul61T+IL74Uq4vd2M9xb4fOiq4cOdvwLR0olEKC6Z0sodUi2a1n9/mRGq79
+	 7he+6Sf7z3Vh+JXkiFaXlRVx2yTdoPIVVa/lNXedCtUx5gYQkEDOIM1o+cCdF5alMU
+	 dz1AT3ZiKq7TMyXkODfnptTKhLtr2n2p3Od7or5eCl8aQVkctg9DGC43Z3tWnJ4MAw
+	 UMbw/ftt0CBAt0REacBcvPdg8OQwa7T9b4+UKUMnPGxJxXgHtlGRrwAha8oQfLfDTQ
+	 9jME0EOgPor3g==
 Received: from IcarusMOD.eternityproject.eu (fi-19-199-243.service.infuturo.it [151.19.199.243])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 491C217E10F7;
-	Thu, 10 Apr 2025 16:40:00 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0243617E1134;
+	Thu, 10 Apr 2025 16:40:02 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: yong.wu@mediatek.com
 Cc: krzk@kernel.org,
@@ -55,15 +55,17 @@ Cc: krzk@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v1 0/2] MediaTek Dimensity 1200 - Add SMI support
-Date: Thu, 10 Apr 2025 16:39:56 +0200
-Message-ID: <20250410143958.475846-1-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v1 1/2] dt-bindings: memory: mtk-smi: Add support for MT6893
+Date: Thu, 10 Apr 2025 16:39:57 +0200
+Message-ID: <20250410143958.475846-2-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250410143958.475846-1-angelogioacchino.delregno@collabora.com>
+References: <20250410143958.475846-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_074004_265663_C105CF45 
-X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-CacheID: sfid-20250410_074006_693248_E9815CA7 
+X-CRM114-Status: UNSURE (   8.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,19 +81,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding basic support for the OnePlus Nord 2 5G
-DN2103 smartphone, this series adds support for the Smart Multimedia
-Interface and Local Arbiters of the MediaTek Dimensity 1200 (MT6893) SoC.
+Add support for the Smart Multimedia Interface's Common and Local
+Arbiter HW as found in the MediaTek Dimensity 1200 (MT6893) SoC.
 
-AngeloGioacchino Del Regno (2):
-  dt-bindings: memory: mtk-smi: Add support for MT6893
-  memory: mtk-smi: Add support for Dimensity 1200 MT6893 SMI
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../bindings/memory-controllers/mediatek,smi-common.yaml         | 1 +
+ .../bindings/memory-controllers/mediatek,smi-larb.yaml           | 1 +
+ 2 files changed, 2 insertions(+)
 
- .../mediatek,smi-common.yaml                  |  1 +
- .../memory-controllers/mediatek,smi-larb.yaml |  1 +
- drivers/memory/mtk-smi.c                      | 52 +++++++++++++++++++
- 3 files changed, 54 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
+index 2f36ac23604c..0762e0ff66ef 100644
+--- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
++++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
+@@ -33,6 +33,7 @@ properties:
+           - mediatek,mt2712-smi-common
+           - mediatek,mt6779-smi-common
+           - mediatek,mt6795-smi-common
++          - mediatek,mt6893-smi-common
+           - mediatek,mt8167-smi-common
+           - mediatek,mt8173-smi-common
+           - mediatek,mt8183-smi-common
+diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
+index 2381660b324c..2e7fac4b5094 100644
+--- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
++++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
+@@ -21,6 +21,7 @@ properties:
+           - mediatek,mt2712-smi-larb
+           - mediatek,mt6779-smi-larb
+           - mediatek,mt6795-smi-larb
++          - mediatek,mt6893-smi-larb
+           - mediatek,mt8167-smi-larb
+           - mediatek,mt8173-smi-larb
+           - mediatek,mt8183-smi-larb
 -- 
 2.49.0
 
