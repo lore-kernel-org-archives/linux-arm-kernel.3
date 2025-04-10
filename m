@@ -4,98 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3EBC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 07:55:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97DCFC369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 07:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zmLueEOSOx1TOZ/xE11puxSYTKnDaeqcR4nW9ehtutQ=; b=Kx+wYfawRUniBTENY3lBJkwHa5
-	Es76C0v8SR8p6tPdrLeWXj2CH4WjQfn6GKznCcTf5/M4sPNTflNoN8td+GkvHm44MqiupMyji6aJJ
-	3tzOP6RUZlIA9Gnk3BdhRiZlv7EOkLVUVvuX71vXcYUoM70IZgxGKyEzTe4VwKIllbmx+0h35GmYA
-	ePZfA1X3al2tAbiXZ6PiCFWcPdJU3OqQ5V7OQE+wyleLQY+s170eadMFUR6jmj7BPk9z7HUyeIqvU
-	J0R8ee6SEHW2kLv/bSEgEbinLs6NiPmOYtYfR6lJMoO3VE98hn8RbxEewQUGjOMxJUdl2dOEtH3DM
-	lw738evA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0zVIHbiJYGOefo5LjvyO1/q53DhAvedWNN5OK/79x6s=; b=RV6bJP3kzegWEtlBsDv4bHyENQ
+	t3Lo9EjZdPcG9keErYSs7WXMu4exVf/h8AlMOywFgVjgIlEqyUUznrsiLX5hEN42BxA22l1395sm+
+	pyWOHkBy6J+D/HwG2UhZsZuEzU2EcPuU2lPNCij60qya60ob7gXykYVqWhUrgHHgKcZEm5xUE1sgp
+	xfkZ3ZOmtSzepyh18Jc+VoPqWMDqFSWfSRcHGrxjzHeUt1cZpmmHKaS3kWqjnYH/48aLEaf7m+E70
+	7M9kridVakNy2QS3pOeafHP7MNLOKwEpTKHxceN2X2Nwx6wjp7TMJskaVS3lAGGMoM+VoDraT7zCP
+	iYxHKNJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2mkP-00000009djp-2FHx;
-	Thu, 10 Apr 2025 07:54:53 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1u2mmB-00000009e1F-2WdW;
+	Thu, 10 Apr 2025 07:56:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2m8z-00000009VRZ-3R8y
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 07:16:15 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43d0782d787so3169525e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 00:16:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1744269371; x=1744874171; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zmLueEOSOx1TOZ/xE11puxSYTKnDaeqcR4nW9ehtutQ=;
-        b=TtgZhPVv+Uyxjc9Z47zOcAsnhdZM7K6DYu4E2L/NIvLhFco+V4NkL47wflk9dRVh79
-         x+9pZZSekx9ZEcCD/SeJCIP3lQsZew2yX/rC5EpTZnULdJRPCp66K/k/Y5faAntdnzkY
-         15LAXTOnzyzdoM1elS8EMAhNoPFuiR/UjyuJwIYWbiTybB/rTDq7dmEHKmR6QV47rJky
-         t2QaQqY0KW2vFFc2ccoNJVf0lyZLJhZshby+Wz2N+ZkRf75YXKV/8+Mr+la5bQoLdkOT
-         q1oRmQS1Jty++DNUmukaPTcXmCQNTFEcHXQ3za0aqonqeySuhjF3OVAGDEwxvC9gFQjk
-         603Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744269372; x=1744874172;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zmLueEOSOx1TOZ/xE11puxSYTKnDaeqcR4nW9ehtutQ=;
-        b=HTpP+qE8VA9quuAd6UPDJlumoyjzUZaCeIjN9TUUvLTi7yzFgBNlpSlh3f4446IyRy
-         1o2a5ftzvQldPQXq7WtSKW6A91YacnF0RelK/+Lin745uUu7lfGF9L2nFiFGGZ13UuiR
-         Fxw7II6xRekf21mOI6TSjSL+Ih4ZCuxlKizaP9mLBdwdcm66Lu+1Y3FbmQj7pHchDIUJ
-         dlQZ7a+Ne4glILHPe6hhkCUeOvBs3YV7za2XN114KPtrGFyuvdqzTV4PtXO2ZcmQtouF
-         zvcN5n/ep4Be7K+AKSHZt1rIGJSZqr31kHcOScuxqgnV+sFyBhxdwrsu9goDJ1pp23vs
-         SUUA==
-X-Gm-Message-State: AOJu0Yz2WXxmiI15PmRiRP0CThGCELvBnT84+FOXUDBNjl6NZGqbeuNd
-	LznvDDp+BMpmE98M7YBjCtkWMP6cs9K77Op3HRZKGvgViz7KUOUhbAkQr/Zg7qw=
-X-Gm-Gg: ASbGncszfKSl/MCQLhVSJumClsF/2rp1z5qH0vckZxjZux9nXr4slry3B5EAq2+Zcc5
-	xuMQoeWxc4JvqrbrvTK0bOvsRHh26blu2vtImz5HTlZXKDDK/A4RBVAPxp2GxvHseRv2XT6OVIK
-	8cP1r9z3PZgl9OVLh8pAKx4rOMR6a4/RdtHbYkkYeVICI4OJN0W/R7+YTfN0qU9C2sD0e98C46v
-	a18tQ8cStbV3RBVTWfZe98KUSVZv6tG1F5zVZCUbuiiJLYhwDDCJKqt22lgb0H+IjUjDzzGaW1/
-	hA1NO1ILtuf6NvLEWp/Uswib9f68FFtRkFrR3xMCHqE+LaLQNkUYHjafne8=
-X-Google-Smtp-Source: AGHT+IEz5IG00lmAVwHCdXdSnJ2Z0KQTlp+V18IFUkzrkAAyElIVx0JjEnVPmuw7GvI+SO1ZUwQhPQ==
-X-Received: by 2002:a05:600c:4ec9:b0:43c:ea1a:720c with SMTP id 5b1f17b1804b1-43f2ff0540fmr11919285e9.18.1744269371500;
-        Thu, 10 Apr 2025 00:16:11 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43f2066d069sm45329215e9.17.2025.04.10.00.16.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Apr 2025 00:16:10 -0700 (PDT)
-Message-ID: <b8f356b8-b242-41da-a654-d937a354fc1e@tuxon.dev>
-Date: Thu, 10 Apr 2025 10:16:07 +0300
+	id 1u2m9R-00000009VaP-3BIv;
+	Thu, 10 Apr 2025 07:16:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9D5B95C4A15;
+	Thu, 10 Apr 2025 07:14:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B00AC4CEDD;
+	Thu, 10 Apr 2025 07:16:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744269400;
+	bh=m6s8SJ1hYayKV7qLClv8Iavh8Zvv3LC6jgfJaiRLauE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Wyf/xc9C4YwqJzO2eIeXu8d//gsVeWCr8NmsGVxPywQvV+lNM9iS9kxKFUsU9miHa
+	 vuTwmsmecM3KeK8l4UL9nfWrVNCZy0rS/UkFXH8Y9mBSTFS/2JCSpeG2IUqFKLIgNh
+	 rahYuAvf6cEWHFm7nX7uqlx7rx/TAwVFGRymWuFqBf2jRSRcKRQtH5DEQ7hPtnfv1Y
+	 BkpxQz0KZzeOue22niXVLNNd5Yzvn5axbIMbSTSLYpUulevGXkKmnQjGTFAnrbAH3c
+	 +0J4/bTrLc/mKNeZ22UhEN4w69NXuV+pdjwcJbiFr8k92CXz618EmChpTtqgZ+R28Z
+	 O2Ug/HbTptx2A==
+Date: Thu, 10 Apr 2025 09:16:37 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Davide Caratti <dcaratti@redhat.com>
+Subject: Re: [PATCH net-next v2] net: airoha: Add matchall filter offload
+ support
+Message-ID: <Z_dwVVEWJp_VFBB4@lore-desk>
+References: <20250409-airoha-hw-rx-ratelimit-v2-1-694e4fda5c91@kernel.org>
+ <20250409163737.2b6c13e3@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/10] pinctrl: at91-pio4: use new GPIO line value setter
- callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
- Ludovic Desroches <ludovic.desroches@microchip.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Xianwei Zhao <xianwei.zhao@amlogic.com>,
- Patrick Rudolph <patrick.rudolph@9elements.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250408-gpiochip-set-rv-pinctrl-part1-v1-0-c9d521d7c8c7@linaro.org>
- <20250408-gpiochip-set-rv-pinctrl-part1-v1-1-c9d521d7c8c7@linaro.org>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <20250408-gpiochip-set-rv-pinctrl-part1-v1-1-c9d521d7c8c7@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vr9WzxqUsueq2Hu9"
+Content-Disposition: inline
+In-Reply-To: <20250409163737.2b6c13e3@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_001614_044537_C6F06F79 
-X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-CacheID: sfid-20250410_001641_855925_FC18242C 
+X-CRM114-Status: UNSURE (   8.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,15 +79,56 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--vr9WzxqUsueq2Hu9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 08.04.2025 10:17, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> 
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> On Wed, 09 Apr 2025 01:15:32 +0200 Lorenzo Bianconi wrote:
+> > +	airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(0),
+> > +		     FIELD_PREP(DFT_CPORT_MASK(7), FE_PSE_PORT_CDM1) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(6), FE_PSE_PORT_CDM1) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(5), FE_PSE_PORT_CDM1) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM1) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM1) |
+>=20
+> Coccicheck spotted that the previous line is duplicated..
+>=20
+> > +		     FIELD_PREP(DFT_CPORT_MASK(3), FE_PSE_PORT_CDM1) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(2), FE_PSE_PORT_CDM1) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(1), FE_PSE_PORT_CDM1) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(0), FE_PSE_PORT_CDM1));
+> > +	airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(1),
+> > +		     FIELD_PREP(DFT_CPORT_MASK(7), FE_PSE_PORT_CDM2) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(6), FE_PSE_PORT_CDM2) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(5), FE_PSE_PORT_CDM2) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM2) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM2) |
+>=20
+> .. and here.
+>=20
+> > +		     FIELD_PREP(DFT_CPORT_MASK(3), FE_PSE_PORT_CDM2) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(2), FE_PSE_PORT_CDM2) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(1), FE_PSE_PORT_CDM2) |
+> > +		     FIELD_PREP(DFT_CPORT_MASK(0), FE_PSE_PORT_CDM2));
+> --=20
+> pw-bot: cr
 
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+ack, I will fix them in v3.
+
+Regards,
+Lorenzo
+
+--vr9WzxqUsueq2Hu9
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ/dwVQAKCRA6cBh0uS2t
+rJJ3AQDcVrSpTTdSIus3bj+lu3WIoqb3wBPZz2xLxzFleoFWVgD/cu8WjRUgCIom
+wA3SRQG3EzL/ROFBeSPAzg7pV0UZRgY=
+=fX2L
+-----END PGP SIGNATURE-----
+
+--vr9WzxqUsueq2Hu9--
 
