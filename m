@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA3CC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 19:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 544C2C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 19:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GIf52GlovbvkGrmF0yuwN/3vnWv6uH/x4VM7bLG+QCY=; b=PUtHGO/vBvp7eC5O0veSL6NDxO
-	HG6uaJHYXTH1qbIvo0ho+I04rFoYLWDcFBtGNG+HDsZRrCqrvgR0traKEDPxqs0VezULeWr4Ll4a0
-	NB/EMQ14bDDJUtqyGj/iAIctf/aD/p83WHtFP+n2W/w0WD7+//MUAzSCWm5GVRt/8xZAh9VoRVL3e
-	0f8/P9H3sOChTJPwmU8HOyudrUkGadGiEfKmmvXe7OXII7ualzHVRpOH1kltreXtqmbsQ125g88Q2
-	18PUhlOSvyYKoZA38q+bCa/SWiQD3b/Q/UTKCSK7vw7EVBivwM1lAQMYquGRHx/QmCDUaPhIUViBe
-	JRDzyJzQ==;
+	bh=uJ44KL1v8cclERlkY/9+gHNrRoHqolMrfYg+/+KMHGY=; b=FcCTuhf2aV8WnUT4/O/CWvUnzp
+	8Li2PYLNUbIJ9PCC+BWBvrKAe7/l9N+7k5LlZlaDTsYIkHIHQAtXhczydiYVlQxn5WsvrLOxKVefm
+	kK3z1JVxsqzCpXuoYy50ckbhSQMMEqiTdewRDZ0lNsptJYG0glFHWOKaWcRtS3XbRWnsRvMHJFsUs
+	sJ6RFl2zWHHlvylP8+bAw0ucedXjrXncBhTCBAk6z/Sz27kRvTfb2t2cHmhGDlj9aBidTv1nHb/NP
+	yjDc60t1ifkddU+BzisVqY8uX3uEfKu73vpWCrpt2X5ihFo+ETOtJPAVIGTcre8IDmQpgIiljZzHc
+	zTt6IoKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2xK6-0000000Bbvb-3xqy;
-	Thu, 10 Apr 2025 19:12:26 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2xIG-0000000BbfD-2H9E
+	id 1u2xSk-0000000BdNS-1cdW;
+	Thu, 10 Apr 2025 19:21:22 +0000
+Received: from mail-ua1-x931.google.com ([2607:f8b0:4864:20::931])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2xQw-0000000Bd1D-0ugI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 19:10:34 +0000
-Received: from [10.137.184.60] (unknown [131.107.159.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id B95962114DA8;
-	Thu, 10 Apr 2025 12:10:30 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B95962114DA8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1744312231;
-	bh=GIf52GlovbvkGrmF0yuwN/3vnWv6uH/x4VM7bLG+QCY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=P7hSa02M3iPJfwyVRh9ul8Qqg3w3S9nzYdXt1Jguz+zzE2jU7vdU4NAeqNKF9CJpV
-	 SLgW6C2o4uN4t7kSkTROtIOX2QqjDT3/uXC+0yxmK45wBRqoJVxJonTcXFFAeY59o2
-	 mMrZ3NYMSyQOYMfz6rugX2MXe3gTtYW6AzauSq5U=
-Message-ID: <fb7de79c-100c-4423-a6f5-6f7b9acfccbc@linux.microsoft.com>
-Date: Thu, 10 Apr 2025 12:10:30 -0700
+	Thu, 10 Apr 2025 19:19:31 +0000
+Received: by mail-ua1-x931.google.com with SMTP id a1e0cc1a2514c-86d3805a551so530797241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 12:19:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1744312768; x=1744917568; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uJ44KL1v8cclERlkY/9+gHNrRoHqolMrfYg+/+KMHGY=;
+        b=h7l4YEkXeN+bCrMnyPr0zmCc5+G3uAPViYR73MPEllM0URuwAbp/wfrxWw714jApLv
+         LLZiDyqy45dsGXoZZHyV+St9evmOwP75TYb91keh2wBoAmSIwSH70JUbRwYc7z0zKidE
+         yxkZ5DRRsdmS1F+Zq18PuMHPdT1cu0kXUdXLGM/1zlS2WRB9STf7rcGWyBmbzQAFRG3O
+         kiMrWNGXP0iGQXwBejivA/uDSgyvPAlRQugymthCUVLAfyc3U28CQ4TDMVayz7t/+/wS
+         LG6SJDWZ4onMBo1bgmhgOBlOuipxAKsvBoLR6QcMppWlOR074pGIFqzz3YHApwIsZJdT
+         RRtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744312768; x=1744917568;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uJ44KL1v8cclERlkY/9+gHNrRoHqolMrfYg+/+KMHGY=;
+        b=GwMFx+3SrgQZNy3OVRWBpGWu14HLr+za3fLmvj4uNdhnVpG83Rdzjs9SWT6WtJcta4
+         ZWFysZ5Itq4EfQgurDRmhew2uGPjvdBdmh8atFvsuffo30ulneInU+uQk5WGLu2sKm2b
+         GYuJtMDdctEjz15I/B94ZClj5xQn/XBau6lMKaQsGThenM/PVUJf9v1BDB55gJ3dCr2M
+         rh7LEnJMe1uXso0zaIAN2k/izYi0ZfpSkKQ5GwFC7mp4bJ1NdYc+5WdAfLZrGtV+GK/x
+         aKV2igCsR59I04Jj9TgK0bQZrGKTdvDKR420oolfmIMVeCZF7z873frp0E1JNjjzLqAx
+         HoAA==
+X-Forwarded-Encrypted: i=1; AJvYcCUGbykdPX0cPUmqJ0Xn9KGwPqHAAX8cdNTuGft4aVVfR3yzcSxx89d5D9G1FueO7OtBUKQsDPIXh0z8gQi2Xm7a@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMjJR08u2r9EQnoylQQ81J5DqiTPaqeQkgiFx9DPgmOgUU7ECj
+	YQD7nWZWF91fgHsLnf/6g9lUnIYY4woEjWEM6djxY/66jY+evMCtY8W9Ji8IZM/CRgJln7LbsMZ
+	jaqRhXDNTmdBvU3Mqk1jF2lc9Mzwq5iDKtEjCfQ==
+X-Gm-Gg: ASbGncugu3V+13hsXESZ0QdtZp6d2EuSxo0yP1pm3OH+YuuN392H4yoPXaqaukInTzh
+	LO1JBvnakvL/RQgEUvFVLPSAdRk4eZOwK6GBzBj3cIbiSQ6q4Dbl7aeFEmarJgp87jeHfzcQDcs
+	NyQovtw7AWeZ01TRBM2mC738Ze1n3aXazOJu3pIFLcRHezbWrZpbzhYJa3
+X-Google-Smtp-Source: AGHT+IHU6YSwa0MLo8eCVOlFo/lHCz4iATY4ROkZpkiR5Y6ykoDC8YdvHIZgJD1qNNAUnzcTLOICHJeYH9sIlGNd8og=
+X-Received: by 2002:a05:6102:5718:b0:4c1:76a4:aee4 with SMTP id
+ ada2fe7eead31-4c9d35d5f51mr4752389137.19.1744312768378; Thu, 10 Apr 2025
+ 12:19:28 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next 1/6] Documentation: hyperv: Confidential VMBus
-To: ALOK TIWARI <alok.a.tiwari@oracle.com>, aleksander.lobakin@intel.com,
- andriy.shevchenko@linux.intel.com, arnd@arndb.de, bp@alien8.de,
- catalin.marinas@arm.com, corbet@lwn.net, dakr@kernel.org,
- dan.j.williams@intel.com, dave.hansen@linux.intel.com, decui@microsoft.com,
- gregkh@linuxfoundation.org, haiyangz@microsoft.com, hch@lst.de,
- hpa@zytor.com, James.Bottomley@HansenPartnership.com,
- Jonathan.Cameron@huawei.com, kys@microsoft.com, leon@kernel.org,
- lukas@wunner.de, luto@kernel.org, m.szyprowski@samsung.com,
- martin.petersen@oracle.com, mingo@redhat.com, peterz@infradead.org,
- quic_zijuhu@quicinc.com, robin.murphy@arm.com, tglx@linutronix.de,
- wei.liu@kernel.org, will@kernel.org, iommu@lists.linux.dev,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org, x86@kernel.org
-Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
- sunilmut@microsoft.com
-References: <20250409000835.285105-1-romank@linux.microsoft.com>
- <20250409000835.285105-2-romank@linux.microsoft.com>
- <724f9f7d-137b-4cf5-aff5-bbb9727c23c1@oracle.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <724f9f7d-137b-4cf5-aff5-bbb9727c23c1@oracle.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <CA+G9fYve7+nXJNoV48TksXoMeVjgJuP8Gs=+1br+Qur1DPWV4A@mail.gmail.com>
+ <20250403011849.GA3138383@ax162> <CA+G9fYtrsLHvMH=ofmdS3MMsMTEj3k0PD7=qsRsA4WkSqLkCzQ@mail.gmail.com>
+ <20250405002757.GA836042@ax162>
+In-Reply-To: <20250405002757.GA836042@ax162>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Fri, 11 Apr 2025 00:49:17 +0530
+X-Gm-Features: ATxdqUGxZ781SEBtkgK3P-Nu9oNJpMn3ybOmTk6SMAJm8t2wE9n95hV6rO8wxr8
+Message-ID: <CA+G9fYv=jUunRgUs=ROptP4p5DNxUuUHxYsnWaxUUXbiwdszsA@mail.gmail.com>
+Subject: Re: v6.14-12245-g91e5bfe317d8: Boot regression: rk3399-rock-pi-4b
+ dragonboard-410c dragonboard-845c no console output
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: open list <linux-kernel@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, lkft-triage@lists.linaro.org, 
+	Linux Regressions <regressions@lists.linux.dev>, clang-built-linux <llvm@lists.linux.dev>, 
+	Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Anders Roxell <anders.roxell@linaro.org>, 
+	Kees Cook <keescook@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_121032_602543_AF2B1E76 
-X-CRM114-Status: UNSURE (   6.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250410_121930_269205_46BD9BF0 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,33 +101,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, 5 Apr 2025 at 05:58, Nathan Chancellor <nathan@kernel.org> wrote:
+>
+> On Thu, Apr 03, 2025 at 04:17:44PM +0530, Naresh Kamboju wrote:
+> > I=E2=80=99ve re-run the tests to validate the boot behavior on the Rock=
+ Pi 4 board
+> > with different Clang nightly versions and the latest mainline kernel.
+> >
+> > The combination using clang-nightly:20250319 successfully booted the
+> > Rock Pi 4 board.
+> > However, the combination using clang-nightly:20250401 failed to boot
+> > the same board.
+> >
+> > "name": "clang",
+> > "version": "21.0.0",
+> > "version_full": "Debian clang version 21.0.0
+> > (++20250401112529+290d7b82cb5d-1~exp1~20250401112547.1360)"
+> >
+> > Reference:
+> >  - https://lkft.validation.linaro.org/scheduler/job/8196258
+> >  - https://lkft.validation.linaro.org/scheduler/job/8196275
+>
+> Thank you for verifying. Do you test with clang-20 and if so, are tests
+> at that same revision passing? I want to make sure this is an LLVM
+> regression before trying to get into figuring out how to bisect with
+> your setup. Another way to do that is to see if clang-nightly boots are
+> failing on the stable branches, which would point to Linux not being at
+> fault.
+
+clang-nightly boot failed with stable-rc 6.12, 6.13 and 6.14 and
+mainline and next on following devices and virtual platforms.
+- dragonboard-410c
+- dragonboard-845c
+- rk3399-rock-pi-4b
+- Juno-r2
+- e850-96
+- FVP (Fast Models Fixed Virtual Platforms)
+
+Boot Test links,
+- https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.12.y/build/v6.=
+12.23-2-g8e0839d16957/testrun/28076019/suite/boot/test/clang-nightly-lkftco=
+nfig-kselftest/history/
+- https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.12.y/build/v6.=
+12.23-2-g8e0839d16957/testrun/28076006/suite/boot/test/clang-nightly-lkftco=
+nfig-lto-thing/history/
+-  https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.12.y/build/v6=
+.12.23-2-g8e0839d16957/testrun/28076009/suite/boot/test/clang-nightly-lkftc=
+onfig-hardening/history/
 
 
-On 4/10/2025 9:54 AM, ALOK TIWARI wrote:
-> 
-> 
+Lore link,
+ - https://lore.kernel.org/all/CA+G9fYve7+nXJNoV48TksXoMeVjgJuP8Gs=3D+1br+Q=
+ur1DPWV4A@mail.gmail.com/
 
-[...]
-
-> 
-> typo trsuted  -> trusted
-> 
->> +To support confidential communication with the paravisor, a VmBus client
->> +will first attempt to use regular, non-isolated mechanisms for 
->> communication.
->> +To do this, it must:
-> 
-
-Thanks for your help with this patch, and the other ones!! I'll make
-sure to use the spellchecker on the patches before sending another
-version out.
-
-> 
-> Thanks,
-> Alok
-
--- 
-Thank you,
-Roman
-
+>
+> Cheers,
+> Nathan
 
