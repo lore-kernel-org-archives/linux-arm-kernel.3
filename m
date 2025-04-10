@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A326CC369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 07:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E79AC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 07:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uHfbW2BwhNKtYp0DwDcnPQM1979WkjuSa3wL4YpUPVA=; b=1jcXju0vDRlAztOY43sAzZP6LC
-	niOex5Yn96pVTo0Y4fRekldCONrP84vzUi2Rosu8N9OHWwE+9awEXBuDjZwAhX7WvEDXQ8g6rZHGg
-	/Nj/DBCYV2om7K9DOfn5tsd3LK6wsqnd9vtzDenc5Oh8qD00DJ0oABibgMGODWVwfKRAQfp8GA2FD
-	dyyT3Qv2mW6IL04EVP9JHbtD58/qXdRa9zy8rA41pfIRPc040t1+/RV0W9tOQ2y1XD6+K//Bn+e8C
-	v5ow8cfhIwpIPr7QZKbi/wTJHWlw90yganjBGwmB/Ct6gg9c3v5H8K9Qgay371obAHHLVE7HNosQm
-	RPzhof0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LhTk5eEl1mfzJeZRCk8tqJRARMxVGHA4PYoLJRHQY/U=; b=eotOlcZM70hnCsG4J8vwDTtrqv
+	XYfZDbFFuIFokKpGAxNNbFeG2Nc8+seOI2FswsNHSN3K5FrXPHRkuMYMhtqO78sg4ZJ4WukDEH/aW
+	dDNhpDxXJx358X2MsHeYbiq2wZRO2WszodO51bbmUv3V9sEX16/RGNBDEf6Gfd5jvla4p3NfRzHaP
+	J2nKitAm+fxcBepYifGJeEeAtaeyOU7BiPT8SpbkbhyCspnznil5ZekN/xPKlUyI2qJm7kRAvN9vm
+	tjzrwsZL4J8EaWQBukYUIRGI6GOUxmYTsnldI45Ix02jm2oGeQZMk5Nf1WDUTsg1+HnooVEgN7BGU
+	ue74bPMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2mAK-00000009Vm7-2zpE;
-	Thu, 10 Apr 2025 07:17:37 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1u2mC6-00000009WD7-18pa;
+	Thu, 10 Apr 2025 07:19:26 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lgA-00000009PsW-3E1t;
-	Thu, 10 Apr 2025 06:46:29 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id CB5D64435C;
-	Thu, 10 Apr 2025 06:46:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1744267582;
+	id 1u2lgI-00000009Ptm-3Woe
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 06:46:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1744267594; x=1775803594;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=LhTk5eEl1mfzJeZRCk8tqJRARMxVGHA4PYoLJRHQY/U=;
+  b=R2hdi96ci5bXYDSxmHhOOWnUopRnuFYK+InXI3ymlmxrcA77PsgWT0IY
+   DhHDGli1Rv6fBPzCs0z1nueWyLSUFsCAJip6khA04wrVp58AcWh4su1xo
+   PS3LZd0dL3ti6Cft6Utdpz0OoNHBE8PuV2QwiuRrPFNPDu7KjXUgeShku
+   KGQROtLuqQ5odgjRskBiBItvtEXmXHyA1BLbOT10LUzV7IEEUfBv2Qv2U
+   4WbiqJO2HVthOiEcfTHOMXzj7U9eYrjimXdboi3r7hAOga5B5IiooR4S9
+   om8aKq9VHr9QzdNACF/3EI1e10lbLBcg26+UXpNK6EBWSzN6WhJOQZiMy
+   g==;
+X-CSE-ConnectionGUID: 62GB+poBTYesEavmwqwQdg==
+X-CSE-MsgGUID: AYRWs7IISduZAutwYzqOwg==
+X-IronPort-AV: E=Sophos;i="6.15,202,1739833200"; 
+   d="scan'208";a="43444076"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 10 Apr 2025 08:46:31 +0200
+X-CheckPoint: {67F76947-F-F35B2447-E1635CDE}
+X-MAIL-CPID: 7D6055AE6D1CC76D938C826B4F8389AB_1
+X-Control-Analysis: str=0001.0A006378.67F76945.0019,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 00ECD166944;
+	Thu, 10 Apr 2025 08:46:25 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1744267587;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=uHfbW2BwhNKtYp0DwDcnPQM1979WkjuSa3wL4YpUPVA=;
-	b=Dj7FSe+kWXd23IvbZ+MSy+pec7Gjo7DJP4LDzOxce5VjGLvIS6UX7tnz07Fbv2sOsYGiH8
-	LsTB5QxV2U7fToDLGpA7wJFGJhr9oG3kvS4U0YoGuE2eAy+N/1zeJ/rsEVWSv79oZwbG46
-	DATvE87ImDnDaOjkUMUY2HtE36Fua6NoNfADlYSQV+t+UfdDkJJ+FfS3TKtdTNNj95VQzt
-	Pkuy1FlNsUg3hd3j9WRkD70FhN3TMGK0VDfGDFvFsH48rctlSY2SPuTK+ymns7AScMV43T
-	LQvaRoMg9v5qrS1z0EhaWPk7As1QOwqqTANPgzYzRSlI+8QDasNT/QNch3O15g==
-Date: Thu, 10 Apr 2025 08:46:18 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Vladimir Oltean <olteanv@gmail.com>, Srinivas
- Kandagatla <srinivas.kandagatla@linaro.org>, Heiner Kallweit
- <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, "Chester A.
- Unal" <chester.a.unal@arinc9.com>, Daniel Golle <daniel@makrotopia.org>,
- DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>, Simon
- Horman <horms@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, upstream@airoha.com
-Subject: Re: [net-next PATCH v14 07/16] net: mdio: regmap: add support for
- C45 read/write
-Message-ID: <20250410084618.43edc269@fedora.home>
-In-Reply-To: <67f620a1.050a0220.347fc7.1fee@mx.google.com>
-References: <20250408095139.51659-1-ansuelsmth@gmail.com>
-	<20250408095139.51659-8-ansuelsmth@gmail.com>
-	<20250409090751.6bc42b5b@fedora.home>
-	<67f620a1.050a0220.347fc7.1fee@mx.google.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	bh=LhTk5eEl1mfzJeZRCk8tqJRARMxVGHA4PYoLJRHQY/U=;
+	b=PSAvIW3Plv9L8n0jLSX4an9g+Uo2DobBiEFKAGC930tF4ujS3LaszrX8dokMs/O6uxhEgs
+	6naRi983sXQDmQ1Sd/IZ1Kt3npiGSfZRoMLdqjVTPzB/da0VXxyiL7I6HLwESgCNEZ/bh5
+	UtWt4ZEX9D/GMMZHY2z6eQTtM2UtKEFMlOUbPIgsZBdUo/FTGuwSRf6N2diIhAM7UB0Ijm
+	20HTJEpBDxtmOabWKd7wU0inXrPNtlxuR+mmV7shbNpNxwcVA3wXFe+V06Of+PHd61p3tl
+	JAQqYZ0JBNyUltp/bMKBG5lRDMKDhSSE2Iwyld3Eg0/Bh15ZaCMrDUmnqwEGlg==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de,
+ linux-arm-kernel@lists.infradead.org
+Cc: kernel@pengutronix.de, festevam@gmail.com, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ aisheng.dong@nxp.com, peng.fan@nxp.com, frank.li@nxp.com,
+ Jacky Bai <ping.bai@nxp.com>
+Subject: Re: [PATCH v5 3/3] arm64: dts: freescale: Add minimal dts support for imx943
+ evk
+Date: Thu, 10 Apr 2025 08:46:25 +0200
+Message-ID: <3627104.iIbC2pHGDl@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250410062826.3344545-4-ping.bai@nxp.com>
+References: <20250410062826.3344545-1-ping.bai@nxp.com>
+ <20250410062826.3344545-4-ping.bai@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdekvdduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdejpdhrtghpthhtoheprghnshhuvghlshhmthhhsehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhgvvgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkr
- hiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_234627_443080_A60DCA20 
-X-CRM114-Status: GOOD (  43.44  )
+X-CRM114-CacheID: sfid-20250409_234635_387637_3F826E4C 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,95 +100,273 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Apr 2025 09:24:13 +0200
-Christian Marangi <ansuelsmth@gmail.com> wrote:
+Hi,
 
-> On Wed, Apr 09, 2025 at 09:07:51AM +0200, Maxime Chevallier wrote:
-> > Hi Christian,
-> > 
-> > On Tue,  8 Apr 2025 11:51:14 +0200
-> > Christian Marangi <ansuelsmth@gmail.com> wrote:
-> >   
-> > > Add support for C45 read/write for mdio regmap. This can be done
-> > > by enabling the support_encoded_addr bool in mdio regmap config and by
-> > > using the new API devm_mdio_regmap_init to init a regmap.
-> > > 
-> > > To support C45, additional info needs to be appended to the regmap
-> > > address passed to regmap OPs.
-> > > 
-> > > The logic applied to the regmap address value:
-> > > - First the regnum value (20, 16)
-> > > - Second the devnum value (25, 21)
-> > > - A bit to signal if it's C45 (26)
-> > > 
-> > > devm_mdio_regmap_init MUST be used to register a regmap for this to
-> > > correctly handle internally the encode/decode of the address.
-> > > 
-> > > Drivers needs to define a mdio_regmap_init_config where an optional regmap
-> > > name can be defined and MUST define C22 OPs (mdio_read/write).
-> > > To support C45 operation also C45 OPs (mdio_read/write_c45).
-> > > 
-> > > The regmap from devm_mdio_regmap_init will internally decode the encoded
-> > > regmap address and extract the various info (addr, devnum if C45 and
-> > > regnum). It will then call the related OP and pass the extracted values to
-> > > the function.
-> > > 
-> > > Example for a C45 read operation:
-> > > - With an encoded address with C45 bit enabled, it will call the
-> > >   .mdio_read_c45 and addr, devnum and regnum will be passed.
-> > >   .mdio_read_c45 will then return the val and val will be stored in the
-> > >   regmap_read pointer and will return 0. If .mdio_read_c45 returns
-> > >   any error, then the regmap_read will return such error.
-> > > 
-> > > With support_encoded_addr enabled, also C22 will encode the address in
-> > > the regmap address and .mdio_read/write will called accordingly similar
-> > > to C45 operation.  
-> > 
-> > This driver's orginal goal is to address the case where we have a
-> > PHY-like device that has the same register layout and behaviour as a
-> > C22 PHY, but where the registers are not accesses through MDIO (MMIO
-> > for example, as in altera-tse or dwmac-socfpga, or potentially SPI even
-> > though  there's no example upstream).
-> > 
-> > What is done here is quite different, I guess it could work if we have
-> > MMIO C45 phys that understand the proposed encoding, but I don't really
-> > understand the dance where C45 accesses are wrapped by this mdio-regmap
-> > driver into regmap accesss, but the regmap itself converts it back to
-> > C45 accesses. Is it just so that it fits well with MFD ?  
-> 
-> The main task of this wrapping is to remove from the dev side having to
-> handle the encode/decode part. regmap address is still a single value
-> but if a phy is mmio mapped is difficult to support c45 since you need 3
-> different values (phy id, mmd and addr)
-> 
-> With this implementation a c45 that is mmio mapped can implement
-> whatever way he wants to configure each parameter for read/write
-> operation.
-> 
-> Example the ecoding might be on different mask and with the additional
-> function it can be reorganized following the specific mask.
-> 
-> > 
-> > I'm not really against that, it still converts mdio access to regmap so
-> > there's that, but is there a way to elaborate or document somewhere why
-> > we need to do go through C45 -> regmap -> C45 instead of just
-> > writing a mii_bus driver in the first place ?  
-> 
-> This was askek to prevent creating additional ""trivial"" mdio driver
-> that would all do the same task. Since mdio-regmap was already in place
-> it could have been extended with a more generic approach.
+Am Donnerstag, 10. April 2025, 08:28:26 CEST schrieb Jacky Bai:
+> Add the minimal board dts support for i.MX943 EVK. Only the
+> console uart, SD & eMMC are enabled for linux basic boot.
+>=20
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  - v5 changes:
+>   - remove the unused and not documented 'fsl,cd-gpio-wakeup-disable'
+>     property from usdhc node.
+>=20
+>  - v4 changes:
+>   - no
+>=20
+>  - v3 changes:
+>   - no
+>=20
+>  - v2 changes:
+>   - newly added for board dts
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile       |   1 +
+>  arch/arm64/boot/dts/freescale/imx943-evk.dts | 195 +++++++++++++++++++
+>  2 files changed, 196 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx943-evk.dts
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts=
+/freescale/Makefile
+> index b6d3fe26d621..2fe86fc6d73a 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -303,6 +303,7 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx93-tqma9352-mba93xxla.=
+dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-var-som-symphony.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-15x15-evk.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-19x19-evk.dtb
+> +dtb-$(CONFIG_ARCH_MXC) +=3D imx943-evk.dtb
 
-Ah yes that's the point I was missing, I've browsed more in depth and
-indeed in V11 Vlad suggested to use this.
+Uh, please sort the entries alphabetically, thus imx94 goes before imx95.
 
-> Any hint on where to better document this?
+> =20
+>  imx8mm-kontron-dl-dtbs			:=3D imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dt=
+bo
+> =20
+> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/bo=
+ot/dts/freescale/imx943-evk.dts
+> new file mode 100644
+> index 000000000000..b0bb08bb67d5
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> @@ -0,0 +1,195 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright 2024-2025 NXP
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "imx943.dtsi"
+> +
+> +/ {
+> +	compatible =3D "fsl,imx943-evk", "fsl,imx94";
+> +	model =3D "NXP i.MX943 EVK board";
+> +
+> +	aliases {
+> +		mmc0 =3D &usdhc1;
+> +		mmc1 =3D &usdhc2;
+> +		serial0 =3D &lpuart1;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path =3D &lpuart1;
+> +	};
+> +
+> +	reg_usdhc2_vmmc: regulator-usdhc2 {
+> +		compatible =3D "regulator-fixed";
+> +		off-on-delay-us =3D <12000>;
+> +		pinctrl-0 =3D <&pinctrl_reg_usdhc2_vmmc>;
+> +		pinctrl-names =3D "default";
+> +		regulator-max-microvolt =3D <3300000>;
+> +		regulator-min-microvolt =3D <3300000>;
+> +		regulator-name =3D "VDD_SD2_3V3";
+> +		gpio =3D <&gpio4 27 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +	};
+> +
+> +	reserved-memory {
+> +		ranges;
+> +		#address-cells =3D <2>;
+> +		#size-cells =3D <2>;
+> +
+> +		linux,cma {
+> +			compatible =3D "shared-dma-pool";
+> +			alloc-ranges =3D <0 0x80000000 0 0x7f000000>;
+> +			reusable;
+> +			size =3D <0 0x10000000>;
+> +			linux,cma-default;
+> +		};
+> +	};
+> +
+> +	memory@80000000 {
+> +		reg =3D <0x0 0x80000000 0x0 0x80000000>;
+> +		device_type =3D "memory";
+> +	};
+> +};
+> +
+> +&lpuart1 {
+> +	pinctrl-0 =3D <&pinctrl_uart1>;
+> +	pinctrl-names =3D "default";
+> +	status =3D "okay";
+> +};
+> +
+> +&scmi_iomuxc {
+> +	pinctrl_uart1: uart1grp {
+> +		fsl,pins =3D <
+> +			IMX94_PAD_UART1_TXD__LPUART1_TX		0x31e
+> +			IMX94_PAD_UART1_RXD__LPUART1_RX		0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
+> +		fsl,pins =3D <
+> +			IMX94_PAD_SD1_CLK__USDHC1_CLK		0x158e
+> +			IMX94_PAD_SD1_CMD__USDHC1_CMD		0x138e
+> +			IMX94_PAD_SD1_DATA0__USDHC1_DATA0	0x138e
+> +			IMX94_PAD_SD1_DATA1__USDHC1_DATA1	0x138e
+> +			IMX94_PAD_SD1_DATA2__USDHC1_DATA2	0x138e
+> +			IMX94_PAD_SD1_DATA3__USDHC1_DATA3	0x138e
+> +			IMX94_PAD_SD1_DATA4__USDHC1_DATA4	0x138e
+> +			IMX94_PAD_SD1_DATA5__USDHC1_DATA5	0x138e
+> +			IMX94_PAD_SD1_DATA6__USDHC1_DATA6	0x138e
+> +			IMX94_PAD_SD1_DATA7__USDHC1_DATA7	0x138e
+> +			IMX94_PAD_SD1_STROBE__USDHC1_STROBE	0x158e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
+> +		fsl,pins =3D <
+> +			IMX94_PAD_SD1_CLK__USDHC1_CLK		0x15fe
+> +			IMX94_PAD_SD1_CMD__USDHC1_CMD		0x13fe
+> +			IMX94_PAD_SD1_DATA0__USDHC1_DATA0	0x13fe
+> +			IMX94_PAD_SD1_DATA1__USDHC1_DATA1	0x13fe
+> +			IMX94_PAD_SD1_DATA2__USDHC1_DATA2	0x13fe
+> +			IMX94_PAD_SD1_DATA3__USDHC1_DATA3	0x13fe
+> +			IMX94_PAD_SD1_DATA4__USDHC1_DATA4	0x13fe
+> +			IMX94_PAD_SD1_DATA5__USDHC1_DATA5	0x13fe
+> +			IMX94_PAD_SD1_DATA6__USDHC1_DATA6	0x13fe
+> +			IMX94_PAD_SD1_DATA7__USDHC1_DATA7	0x13fe
+> +			IMX94_PAD_SD1_STROBE__USDHC1_STROBE	0x15fe
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc1: usdhc1grp {
+> +		fsl,pins =3D <
+> +			IMX94_PAD_SD1_CLK__USDHC1_CLK		0x158e
+> +			IMX94_PAD_SD1_CMD__USDHC1_CMD		0x138e
+> +			IMX94_PAD_SD1_DATA0__USDHC1_DATA0	0x138e
+> +			IMX94_PAD_SD1_DATA1__USDHC1_DATA1	0x138e
+> +			IMX94_PAD_SD1_DATA2__USDHC1_DATA2	0x138e
+> +			IMX94_PAD_SD1_DATA3__USDHC1_DATA3	0x138e
+> +			IMX94_PAD_SD1_DATA4__USDHC1_DATA4	0x138e
+> +			IMX94_PAD_SD1_DATA5__USDHC1_DATA5	0x138e
+> +			IMX94_PAD_SD1_DATA6__USDHC1_DATA6	0x138e
+> +			IMX94_PAD_SD1_DATA7__USDHC1_DATA7	0x138e
+> +			IMX94_PAD_SD1_STROBE__USDHC1_STROBE	0x158e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+> +		fsl,pins =3D <
+> +			IMX94_PAD_SD2_CLK__USDHC2_CLK		0x158e
+> +			IMX94_PAD_SD2_CMD__USDHC2_CMD		0x138e
+> +			IMX94_PAD_SD2_DATA0__USDHC2_DATA0	0x138e
+> +			IMX94_PAD_SD2_DATA1__USDHC2_DATA1	0x138e
+> +			IMX94_PAD_SD2_DATA2__USDHC2_DATA2	0x138e
+> +			IMX94_PAD_SD2_DATA3__USDHC2_DATA3	0x138e
+> +			IMX94_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+> +		fsl,pins =3D <
+> +			IMX94_PAD_SD2_CLK__USDHC2_CLK		0x15fe
+> +			IMX94_PAD_SD2_CMD__USDHC2_CMD		0x13fe
+> +			IMX94_PAD_SD2_DATA0__USDHC2_DATA0	0x13fe
+> +			IMX94_PAD_SD2_DATA1__USDHC2_DATA1	0x13fe
+> +			IMX94_PAD_SD2_DATA2__USDHC2_DATA2	0x13fe
+> +			IMX94_PAD_SD2_DATA3__USDHC2_DATA3	0x13fe
+> +			IMX94_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
+> +		fsl,pins =3D <
+> +			IMX94_PAD_SD2_CD_B__GPIO4_IO20		0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2: usdhc2grp {
+> +		fsl,pins =3D <
+> +			IMX94_PAD_SD2_CLK__USDHC2_CLK		0x158e
+> +			IMX94_PAD_SD2_CMD__USDHC2_CMD		0x138e
+> +			IMX94_PAD_SD2_DATA0__USDHC2_DATA0	0x138e
+> +			IMX94_PAD_SD2_DATA1__USDHC2_DATA1	0x138e
+> +			IMX94_PAD_SD2_DATA2__USDHC2_DATA2	0x138e
+> +			IMX94_PAD_SD2_DATA3__USDHC2_DATA3	0x138e
+> +			IMX94_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_reg_usdhc2_vmmc: usdhc2regvmmcgrp {
+> +		fsl,pins =3D <
+> +			IMX94_PAD_SD2_RESET_B__GPIO4_IO27	0x31e
+> +		>;
+> +	};
+> +};
+> +
+> +&usdhc1 {
+> +	pinctrl-0 =3D <&pinctrl_usdhc1>;
+> +	pinctrl-1 =3D <&pinctrl_usdhc1_100mhz>;
+> +	pinctrl-2 =3D <&pinctrl_usdhc1_200mhz>;
+> +	pinctrl-3 =3D <&pinctrl_usdhc1>;
+> +	pinctrl-names =3D "default", "state_100mhz", "state_200mhz", "sleep";
 
-Given the simplicity of the driver, I think this commit log is good
-enough then :)
+Is the sleep pinctrl necessary if it is the same as 'default'?
 
-Let's go for it and hopefully this can be reused elsewhere !
+> +	bus-width =3D <8>;
+> +	non-removable;
+> +	no-sdio;
+> +	no-sd;
+> +	status =3D "okay";
+> +};
+> +
+> +&usdhc2 {
+> +	pinctrl-0 =3D <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-1 =3D <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-2 =3D <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-3 =3D <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-names =3D "default", "state_100mhz", "state_200mhz", "sleep";
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Same here.
 
-Maxime
+> +	bus-width =3D <4>;
+> +	cd-gpios =3D <&gpio4 20 GPIO_ACTIVE_LOW>;
+> +	vmmc-supply =3D <&reg_usdhc2_vmmc>;
+
+This is probably also 'no-mmc', no? Maybe even 'no-sdio'.
+
+Best regards,
+Alexander
+
+> +	status =3D "okay";
+> +};
+> +
+> +&wdog3 {
+> +	fsl,ext-reset-output;
+> +	status =3D "okay";
+> +};
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
