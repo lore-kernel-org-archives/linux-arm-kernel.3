@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 210D3C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A2BC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 16:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DHBSu1KngsiVRF76updGFY5IFNjCsj5epMsSJtNhjQk=; b=P9VFU/ySdivAW7EsCb2qKD3MQ5
-	xkmafIElmIlJ2sRLFCMGK0rhFX54pl99e9Y8I93AnpiW0e2Hl2Ou9+tg09dlQ1V51EFF7WlGoQKbC
-	zXA900s+a/UmYOmFX9sgEUDmtWyw14uSCfpaFQiT3uaHquEconkw0mVv+BtGx0QgKbryWKKOloBZj
-	UETlXrp+NLK7KwbeUalsFfpQ5Vzo39dXxoTLtwBIi2Ia/xLwcW8jYbYhhSrXtAAh3SJDlrtwFQueX
-	k/+ukqXcDnUOfMZUo0LcMoo+bKP4f7CuKF0Wg8iKIer/OG0GxA7Yq7ldGk6uvZzca5sYyR9Sf0iYx
-	CzOoXGqw==;
+	bh=AybTr3vHkv9bjR0MdwdwolSeLzJ6b1qEnsEa+UgYJ3Y=; b=Wsdv08Tjgb0z2+r2ISsukKLwYJ
+	uqimDlZDlfXQVJy9iW9IMCaUwUYy2+H4By3EQXoUw7v2dhWpyaVApytZE7WP0CrZ7UeNLcmKGIl8E
+	0GZORVqAR3Ks6vls/tbvdAUsApiwCBvdkuOtQ6Dtgm9TnsZz0ly7R66cq3fd9eXO1N3o7A7imIgNi
+	ufwweb/PS1VxQeOyBXrsNLgdO6eA3KmqFP/zX0JTF9aEkOcjONUFvWkZooKEtMmLHfjLGNQoWZTDG
+	uqkCr+V0qwY5S2QeWtXThZGRfBI+AEGEhKFmi2TvLXAAlTsab+thGXWn5mgsyHqTYiZGgCAhmmvzA
+	E57UGnJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2v9G-0000000BGzJ-16k1;
-	Thu, 10 Apr 2025 16:53:06 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u2vB2-0000000BHGC-1Bcm;
+	Thu, 10 Apr 2025 16:54:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2u87-0000000B4yq-1o52;
-	Thu, 10 Apr 2025 15:47:52 +0000
+	id 1u2u89-0000000B50E-3G7g;
+	Thu, 10 Apr 2025 15:47:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1942FA4A928;
-	Thu, 10 Apr 2025 15:42:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16781C4CEDD;
-	Thu, 10 Apr 2025 15:47:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 114C844527;
+	Thu, 10 Apr 2025 15:47:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80D35C4CEEB;
+	Thu, 10 Apr 2025 15:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744300070;
-	bh=iDeiMpH2/KxFQOc/7AuYydAb8NCVCSm+fEB6mcijRro=;
+	s=k20201202; t=1744300071;
+	bh=zdpdwCUxt4/JGxD9zT4n5tnKqmSCQRjKtGwRibbyTKY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=N3WR9nvbHwdU8OqfFIc/mAfEz0Nmc09RDoFYeBK7Cd1q4dU8AiGidDCnyDh2Yd6Ff
-	 khtIEZeAm5b3jsSSJCwlepHT5Cjj7NPKSZRHCw+YnxgdCh+KREBBp8Lv14VEFi4Dwi
-	 RlYARWcnQS1qsk7DPNfsjiBO0DHdhlse12UYxFM9X2jY8w8vYAu8NxrNxkiG4smfD2
-	 K+u7CqTDULdw+eay4gEuHbdO4mN6JROOW/+cMc8jwjY3mdH4cOIFRIqM2LD4ggstNg
-	 XT+EhJsutbL2iP7y0ydVIsOgAupR55qA+AUnocPW19n1khPPot918ofQg6cvjhRrCs
-	 aMHf0ORhxZLHg==
+	b=Tp2pgYbwXQf4eNwmKaH2Y9ewJRXbwjukqmEfd7gasC1BhxcwjreBEF/j1FACoOJ3n
+	 fKdwiHbTde/95llhHDX8LEPLU4Q4kNtch6X4Gtag9EjN2DFSU8oWDvoTpT/y2sS1Pn
+	 YmTtSWsXG0o9T5Sg1Jk0GmoLLj5liyC4MKb2I4in0MtWDSMgjb7jQH7P54PdHi0Fge
+	 /tyeSwBW8Wh77LfjdWWAOh6WEV2iDOQG5FKK3zDdiLTqnwsmbzSybdW8BOIUXAcbdX
+	 0UJ7W6RDn1M45MgKlVI+3jHU6otRqGgsNJieEZO0dRqPBzL4/hTBj9ujca+//zyDCU
+	 vOQslelhGs3xw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 10 Apr 2025 10:47:24 -0500
-Subject: [PATCH v2 03/17] arm64: dts: microchip: sparx5: Fix CPU node
- "enable-method" property dependencies
+Date: Thu, 10 Apr 2025 10:47:25 -0500
+Subject: [PATCH v2 04/17] arm64: dts: qcom: qdu1000: Fix qcom,freq-domain
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250410-dt-cpu-schema-v2-3-63d7dc9ddd0a@kernel.org>
+Message-Id: <20250410-dt-cpu-schema-v2-4-63d7dc9ddd0a@kernel.org>
 References: <20250410-dt-cpu-schema-v2-0-63d7dc9ddd0a@kernel.org>
 In-Reply-To: <20250410-dt-cpu-schema-v2-0-63d7dc9ddd0a@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -83,11 +82,12 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
  linux-rockchip@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  linux-renesas-soc@vger.kernel.org, linux-mips@vger.kernel.org, 
- linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org
+ linux-pm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_084751_608385_C8B1DB96 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20250410_084753_877942_D08A705B 
+X-CRM114-Status: UNSURE (   9.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,34 +103,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "spin-table" enable-method requires "cpu-release-addr" property,
-so add a dummy entry. It is assumed the bootloader will fill in the
-correct values.
+The correct property name is 'qcom,freq-domain', not
+'qcom,freq-domains'.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
-Tested-by: Daniel Machon <daniel.machon@microchip.com>
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 ---
- arch/arm64/boot/dts/microchip/sparx5_pcb_common.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/qcom/qdu1000.dtsi | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/microchip/sparx5_pcb_common.dtsi b/arch/arm64/boot/dts/microchip/sparx5_pcb_common.dtsi
-index 32bb76b3202a..83bf5c81b5f7 100644
---- a/arch/arm64/boot/dts/microchip/sparx5_pcb_common.dtsi
-+++ b/arch/arm64/boot/dts/microchip/sparx5_pcb_common.dtsi
-@@ -12,10 +12,12 @@ &psci {
- 
- &cpu0 {
- 	enable-method = "spin-table";
-+	cpu-release-addr = /bits/ 64 <0>;
- };
- 
- &cpu1 {
- 	enable-method = "spin-table";
-+	cpu-release-addr = /bits/ 64 <0>;
- };
- 
- &uart0 {
+diff --git a/arch/arm64/boot/dts/qcom/qdu1000.dtsi b/arch/arm64/boot/dts/qcom/qdu1000.dtsi
+index f973aa8f7477..7c8d78fd7ebf 100644
+--- a/arch/arm64/boot/dts/qcom/qdu1000.dtsi
++++ b/arch/arm64/boot/dts/qcom/qdu1000.dtsi
+@@ -47,7 +47,7 @@ cpu0: cpu@0 {
+ 			enable-method = "psci";
+ 			power-domains = <&cpu_pd0>;
+ 			power-domain-names = "psci";
+-			qcom,freq-domains = <&cpufreq_hw 0>;
++			qcom,freq-domain = <&cpufreq_hw 0>;
+ 			next-level-cache = <&l2_0>;
+ 			l2_0: l2-cache {
+ 				compatible = "cache";
+@@ -70,7 +70,7 @@ cpu1: cpu@100 {
+ 			enable-method = "psci";
+ 			power-domains = <&cpu_pd1>;
+ 			power-domain-names = "psci";
+-			qcom,freq-domains = <&cpufreq_hw 0>;
++			qcom,freq-domain = <&cpufreq_hw 0>;
+ 			next-level-cache = <&l2_100>;
+ 			l2_100: l2-cache {
+ 				compatible = "cache";
+@@ -88,7 +88,7 @@ cpu2: cpu@200 {
+ 			enable-method = "psci";
+ 			power-domains = <&cpu_pd2>;
+ 			power-domain-names = "psci";
+-			qcom,freq-domains = <&cpufreq_hw 0>;
++			qcom,freq-domain = <&cpufreq_hw 0>;
+ 			next-level-cache = <&l2_200>;
+ 			l2_200: l2-cache {
+ 				compatible = "cache";
+@@ -106,7 +106,7 @@ cpu3: cpu@300 {
+ 			enable-method = "psci";
+ 			power-domains = <&cpu_pd3>;
+ 			power-domain-names = "psci";
+-			qcom,freq-domains = <&cpufreq_hw 0>;
++			qcom,freq-domain = <&cpufreq_hw 0>;
+ 			next-level-cache = <&l2_300>;
+ 			l2_300: l2-cache {
+ 				compatible = "cache";
 
 -- 
 2.47.2
