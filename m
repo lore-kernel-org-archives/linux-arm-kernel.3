@@ -4,75 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB9DC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 15:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7975C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 15:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WOVxH9t50z2mxC0bReHcwFEZS+zI/QXisi8z9/R9uFA=; b=aEmaQmTf1esMafyk+tE+EvyDDS
-	DkKOFmq/9tDqxr7CEDw163QqkETSRXOL4LDjwtS+8o1qbaOeKHorzmOn6/zto78UdDbCcg7nVZotf
-	XMgZ8DCIdQTQ3plJ6hvAz1g+075XmE70se+g9A0DF27H8jn/r5Nl44YIf77D3ZABBGhQxmZIVMBsY
-	HcTHnTKGfG5KB+5MCUX3DMQR+SgZ/PrUI9Ej9dcNyUR6tY9zPAjejsoUk3YJADR3IHSxQ38pErG4A
-	Op+iwaaNO7Y4P7kWIn5p3CcHaxjHZX0q2bcuF+2xGX0/kftURNYfoVq5TEa0pM0+8WIUyzsS2N1kD
-	5T4AZQeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BVmez/e0MNtk92q16T3oioQzdZTnBgQ95XSEbrXfEFE=; b=IHoYq2VbAvm3nIlJrdFvrtibyy
+	+Xk+DhlNqU5/SijTN4SZ2+TAhRz9yUefjYcO/f8R0za1/pdH5Om02ZA53mHDi5lKjWhWRMjS2M9DZ
+	NgxFelxMgETlcI/NiK5zLykncCpZVG7rXgCvf3EGiS5jAGx3u65rNJyzUAgRcQhRUmmY4+a+xjkQQ
+	ufF53HQHctCyylUPV0MJm0vNFj8C29mEQsDdhJTYnNv85QASAJ8VyN4GbEFhBNAzdYOzGfHCuYkkN
+	2DAjsvRgwC2ZxycXVi3neeJTH+khlYRS5fSscSZ/OUHvAy/fXCuVSQgZ1Jjisj/ia/gv2JCb6cpuy
+	Ey5UdaaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2uI2-0000000B6kN-3rko;
-	Thu, 10 Apr 2025 15:58:06 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1u2uID-0000000B6nD-3Khn;
+	Thu, 10 Apr 2025 15:58:17 +0000
+Received: from mail-db8eur05on2061d.outbound.protection.outlook.com ([2a01:111:f403:2614::61d] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2t4M-0000000AsKC-2scO;
-	Thu, 10 Apr 2025 14:39:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1744295993;
-	bh=UM8eRGMMrRlZ9igteIR0+9yJOLiReCR0kDQJdYbv4lA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZmOQdVz9NGS7NtFcyLuTddjNxN/VL6lXI10K5TmTGBFSR+g4LggqeFGpH3bYffs96
-	 zCVbGjwNHHlKNUictGQELTvAUbebWiIf34aCRUGIuiInyxvI7NFmLqc8fE8A2ZMSSI
-	 0c+eqKx4Rv5aqtfEnVli1ceZntCv2/RbvJGr2e6kpuVbLbEjEz/cQHJNIWGU3ZhvmT
-	 Ls3Bb5mZnSEMQ6k5aHgu1BKThYHDFzd7cflyMd9pKMivsqHKi7zmvjPnaTQuG0AGZt
-	 BBZ0o6uVJpwK2WDqTzftQJrpY4Hsr6yss4Rr/hFGxiJuK17OYFDagSwog/J+/k0Kqt
-	 eVGcsYEuJNobg==
-Received: from IcarusMOD.eternityproject.eu (fi-19-199-243.service.infuturo.it [151.19.199.243])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 45AD717E0CA7;
-	Thu, 10 Apr 2025 16:39:51 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: robh@kernel.org
-Cc: krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ulf.hansson@linaro.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	fshao@chromium.org,
-	y.oudjana@protonmail.com,
-	wenst@chromium.org,
-	lihongbo22@huawei.com,
-	mandyjh.liu@mediatek.com,
-	mbrugger@suse.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v1 1/3] dt-bindings: power: mediatek: Support Dimensity 1200 MT6893 MTCMOS
-Date: Thu, 10 Apr 2025 16:39:42 +0200
-Message-ID: <20250410143944.475773-2-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250410143944.475773-1-angelogioacchino.delregno@collabora.com>
-References: <20250410143944.475773-1-angelogioacchino.delregno@collabora.com>
+	id 1u2tTY-0000000Ax76-0Azr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 15:05:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m43qYZyMAxOn1dm1RnNf343dD5rrsnbwFwXCtYWSuBdt+ags+TSWqy8vhFAs64wUnSMvOLRftpLGgGWrqGkEG7a8RxchT90wCznrWdJi/t0TMGcFLtQrM5L3dSKjOtrqPxgagRSMaKwwpZbgJgof3B9nEc9AuPo75Gz0vn4xZLYiao20+602ON2AgK1RG985Ds2v4hbaqszH39t7CuqjGqKQ+Q4IrRez1+8UxJ+Adod2BAAm3Z16NzY6NqAnKr1lzH11D3+I+2DCzGbiwQ1cmLjpHry/y1AHCO0BfNQJhxtJ/R8FAYFYWCjyPgRzJIyHBp9dufxuZ7BJliseNZeUBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BVmez/e0MNtk92q16T3oioQzdZTnBgQ95XSEbrXfEFE=;
+ b=hGTwQZpWOxse+RsT+8/v0VBhJCkSBmQ0GR0sevyKbCoqBejaZ3Fm0YILR2t/QKiAoL8eSnHZHCul701SH7IJftWcrSEZoNk92A21vKnF91Ap+gUvo6frCGKMNjh82YbGX9QWtU+Vcw9tak+K0mav+MW08bR7kmHPAm3iICppYdfF3eU/G6CDGR5n8nxcLMy/r5q2xD79mnozbaq64HAT34AzySF4FRe1qU3M9g4UI4oaiIglefWqajlESWkyAq5MefbUMAEv9Ouir/L+Jgj/yVsZJupNm6Dnd0etlVEOnO8JMImi1eZ56KW1/6PTh3cvUBF4zeVsVBUXhJyGB6kD7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BVmez/e0MNtk92q16T3oioQzdZTnBgQ95XSEbrXfEFE=;
+ b=PAPT099/m5zJW6fiW3p501Gx1Zr5P9QeUefCQ6t/Zez8md/JYjQ6SomRdTpPqe9xHagsQyF+OS2k664Vi6MHGi+ndFxCi1mJSq0tsaKWJfALVidt7IhvZc1i0pF4fJFnAzfkpCmp4ptrOtcCXFSzX4L+tiiNBwBbZNvOITEEovSa8txWwZVIdbEX2+m3T/7lfAGTqhAB98eqswVoP8QpIFNYM6dMKaOifp2ML2BExct3k4iUqO2OkbK/3Fyjildl8q4e14DvzJOPKjMR5a3X55tyPKtegUi5Kk8V85wKQYKiBV8xpUWOp1JwuB6dvGYk/weeF4FFoyAW2ZFM4LcPkw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS8PR04MB9093.eurprd04.prod.outlook.com (2603:10a6:20b:444::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Thu, 10 Apr
+ 2025 15:05:52 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8632.021; Thu, 10 Apr 2025
+ 15:05:52 +0000
+Date: Thu, 10 Apr 2025 11:05:44 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+Subject: Re: [PATCH 07/13] arm64: dts: freescale: imx93-phyboard-segin:
+ Disable SD-card write-protect
+Message-ID: <Z/feSO9YbHd2lBxr@lizhi-Precision-Tower-5810>
+References: <20250410090251.1103979-1-primoz.fiser@norik.com>
+ <20250410090251.1103979-8-primoz.fiser@norik.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250410090251.1103979-8-primoz.fiser@norik.com>
+X-ClientProxiedBy: BYAPR07CA0096.namprd07.prod.outlook.com
+ (2603:10b6:a03:12b::37) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB9093:EE_
+X-MS-Office365-Filtering-Correlation-Id: 213627c0-c490-4cac-57a7-08dd78412fc2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|7416014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?d9aaquSNX9P0FWbpBQ2dkmDAIDBkgbm4ohIb3oq7BuwmNF6leAli9M7xw5Eo?=
+ =?us-ascii?Q?5gKnZXN6a/uN9eqHTxPtD2WuF9h3S1P1hLT//veIj6K/uTxcSPPJmU/VwZNC?=
+ =?us-ascii?Q?OxQ3yrRQzz3AtfkpBu3ruRju0HuiyAM8HqU6HEANsclfQQPmYXx9e8VRdqa7?=
+ =?us-ascii?Q?pv1PVf6+qqnshaYvdNlCpYgl+tk29B8V4cgF865XQLqYFvdEaDhXJ7hmu6k2?=
+ =?us-ascii?Q?DecLLsU1P79TIvFwy8eILkQmv3Hq2udAl26LpynorbYzxyv5QYhzMbQcsnqc?=
+ =?us-ascii?Q?CocBVKY7hFzP4TbUyu4nc85nb70YuCGBeSLpsp4afcFnNupm9irGN2x2gLkN?=
+ =?us-ascii?Q?NYAiNpzS84+nB9/ZyPCcjfrp9X0xcDAiIS/baSP23wqzTBl3x2eXABEgc3BS?=
+ =?us-ascii?Q?7XCC5Z5goi7zU3HYtz2WChjKDfNgmlCRaHp9PrkI1pWyNIMEFe1UozrALQzY?=
+ =?us-ascii?Q?W3OOQRRVOlCcZI/MSnSR94H/isH3mrvxw2UOp+T0KW5mgt3NnIkVMjS3iKMV?=
+ =?us-ascii?Q?VXpCLK2e+8aP4D4OS446Jy0QVWRwZf+2vZlO9cbBUkfiW/dn8GB9pcCWycpV?=
+ =?us-ascii?Q?1cdxaM/OAlLWKbu39X1VsUyHHT/7dQn+qdzTuRJeBoBz4MNPM4gYMIdCujsF?=
+ =?us-ascii?Q?/zSHg55+BIe98Oy5UJIiaHoixvs3ZItrBCM4Clrr8SFt94TKVY1oOK9gpbtU?=
+ =?us-ascii?Q?50XIRZne0OykSr6/LQbcUWGW9bYvvL6eYbLMxDQgTAH+i8fZUtldCc7HMkTF?=
+ =?us-ascii?Q?f1AErYFhm6x4aKRiyixPQ2cn4/MNMrH2x8QbWg/y9LQwk5SR/xWe1MMaR26p?=
+ =?us-ascii?Q?ZRETcyfThlZxte4SEI9xpFnE5qCzj4AzXHzu+/KXBE6BOVJs2nmSh3ghIhW4?=
+ =?us-ascii?Q?b5tedxMuS0iykzMTmKQYrqVvg4SSbvOrX2Bt8H0iCP/87QcHsiVrl5vmXUqD?=
+ =?us-ascii?Q?NwjNacozSZGqXQ9y8DdidamhdG29/B2JQcXoAJoYkl4Vt9P2KhI7n1rBIjW5?=
+ =?us-ascii?Q?1GGFEBkLK8DM8NSuj+Nth9TV2Ft+xBIfewukU6fEV4YHaWj5GWFIrrVgVtJV?=
+ =?us-ascii?Q?ulMtLcVC/rBFiPSCLcdsAs804ZNMXo7mQVqsPVJy3u+Igd9JcsG/mnO7GdMk?=
+ =?us-ascii?Q?zRC85D+tTV2lAsZZpDVi7lwqm0mwZ83/uLuhycji+lmXBOnVIdx/JZi9/U7e?=
+ =?us-ascii?Q?AHNzbHUDhWWhqIWGzp74jCT8FO6FKEMekK8Vb3l/fk4DhVRWX1XviLiBK6gj?=
+ =?us-ascii?Q?m+0UifqU0nHTekV73r5uxPCPvvtyTUym3K7/xk1hbos9P4VPTpZGXpEA6P4i?=
+ =?us-ascii?Q?raM3N7k8FJmX4mhDCV7ifaq4hAicWFSy3DMKREcHORw1RM6eREY1q98+VqQl?=
+ =?us-ascii?Q?oMAD03/iekLkoVkr+oVz5ifM8ST1bcc91bFZYHf51UtF6SVYPaRU1MINKGzY?=
+ =?us-ascii?Q?UKM+kUcx9mwAmNojzFNBcw32IBMfU58U?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?O/aao3VnbI/1x6MKJB9JZBuqFvd7SXtL3jq6RB6GCe9cFhOSAYUw+7WyTVBy?=
+ =?us-ascii?Q?mfPuK50ElxF3/hDKAZzEDrqUTHpdUZko82YQSib1LYNSUFjtUiRTeOdz9X8+?=
+ =?us-ascii?Q?LL9+lWvOXIQDZ2BlL3oxSaJvjFhhUxqIMDoBDTNR1sSvbP7ZsqC1iBJfyKKH?=
+ =?us-ascii?Q?z9WVoTo9AsXZGtlgv3X2QbuwlfYeFyM60tURPZ04jnGysGyEEBlmMf266Pyp?=
+ =?us-ascii?Q?o+CdicrQlpuac+yf1+UgBub/+GzLsfftg0RQE03YuSSIqQwHaaZyckAj3GTQ?=
+ =?us-ascii?Q?SLDxaw/tU7jwWRgBFxuFOKh6D3KoeiLkdy1FMNJAnDdLmQMxx5wOHuQlmxQq?=
+ =?us-ascii?Q?SJytNA9TZCksZc6XzHktyXxzSW1aEyC1EDdYWkVVZGBbPS2OmOQJP16evHlP?=
+ =?us-ascii?Q?iIzfnjMU+xdBEIUBWcpAoxxtd5mS8eNBYQ5luQnOpFi115xgjDkmbrxggHEx?=
+ =?us-ascii?Q?d90DwXTYJrH5A5c7sfFhba+nZHNE9bufAd8GEPajGCqKqwLyVcPCiddCy634?=
+ =?us-ascii?Q?yNMmwliLaNhIqKX9kH+w00fe3rcNc/wFtiHsPafvjGaaouyF9Eqme5Lq3vbf?=
+ =?us-ascii?Q?aN4AtsOIDnE8IwWw6jolVQH0/ipDoaChQJz9wmZbec8v533qlhHOUAqRBzck?=
+ =?us-ascii?Q?24amMe3LEqGZ5QKJ/WkoWQMiXUWCGQhkXz7yrVoVK/CBOVaUNHHe9ykXGYlJ?=
+ =?us-ascii?Q?1jZWrKtEsmYKM1/WzDfiUE3YXO8X7bXsI87W8OxEc7wf6fGGILxwi4rL2Dcb?=
+ =?us-ascii?Q?DLyDe6Pt+YsMKxiUkNFlyMohrCkDO/nijpNv92eYejuxGK4cIXvlv/GgDjvB?=
+ =?us-ascii?Q?yFraO5dc5ZZZ9mJ8GbLfjp0u8aTbTiEpqJU/W9cx7W3hkXaMK4BvScHAtfrG?=
+ =?us-ascii?Q?tYTfjqX2bCmM7uDRhCANrZANhnoeGJwUHFeelk444O+n8EFXBKhX8I6v+WZx?=
+ =?us-ascii?Q?9/UiSuk5nGQeYaoiBF1p80zmeEdxDnMFAmfvs9BQdMZoR2UnLXNup5gC41t5?=
+ =?us-ascii?Q?8tr7vh6NjpE6EyWb2cP2ee83OH9BBl3qXhjZ+0RaZC9jURt4gYDkMyE2dCOx?=
+ =?us-ascii?Q?dLy7B3bE+Bwj8DDA8bCh0hBMITbw8ageyWxF4cU+JyE08YwH5SxhpwfH4hv3?=
+ =?us-ascii?Q?Zaw8DsXd9UvCCZCZUwyn5FacYfLIJaQ9aaJMW1d1nIXUN4Znki0otsUAq6ss?=
+ =?us-ascii?Q?5Stl5IZNCyxxGaXlSUvdIlrD5IGXDgh45xNPEx6Wt6V2uE7SExtblEvGCKXt?=
+ =?us-ascii?Q?y7HBL1NCwDE7dOhGU6wqWS70lhVpJiN7aiUsvJQpobCx8HxHqrhw01tZPQjt?=
+ =?us-ascii?Q?xGqppHVaBSOVbZuQN27QPPruhadrQYdG6JUF2thbRFy1ODK3/2/jD2c5VnkH?=
+ =?us-ascii?Q?8gQBavZ2tXxuOwFNQ3Q2zuzOAbssAmu+/q9sIARjc6qRL+Fzj8TABVxPpxyB?=
+ =?us-ascii?Q?0vevDlXur65otm/OnafaWMwSLS8d5pm7DEZXfo69rk2aMAFu0kl/fBjvhIh0?=
+ =?us-ascii?Q?BAC2K3457rNC8FPc9RxeuVxGbygn2R5IS+y5+xSqWKBJgAfRpQ4sKHM6lJ1m?=
+ =?us-ascii?Q?UJIan/UrVel5B9AUpJmfOBufLyNpiOS8YmiI3jtG?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 213627c0-c490-4cac-57a7-08dd78412fc2
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2025 15:05:52.7927
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: adzDICyg8rhI0fEG5YnpWmLIxyib3rWFs3k0zIT1DkAsK08L2s0Lc+xXeG2nav00kXrd/B1JLY1+uYJ1xJ9O/g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_073954_875136_B89CAB7C 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250410_080556_084657_76DA6FA4 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,78 +162,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Power Domains (MTCMOS) integrated into the
-MediaTek Dimensity 1200 (MT6893) SoC.
+On Thu, Apr 10, 2025 at 11:02:45AM +0200, Primoz Fiser wrote:
+> Add disable-wp flag (write-protect) to usdhc2 node (SD-card) to get rid
+> of the following kernel boot warning:
+>
+>   host does not support reading read-only switch, assuming write-enable
+>
+> Micro SD cards can't be physically write-protected like full-sized
+> cards. Thus disable this feature.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../power/mediatek,power-controller.yaml      |  2 ++
- .../dt-bindings/power/mediatek,mt6893-power.h | 35 +++++++++++++++++++
- 2 files changed, 37 insertions(+)
- create mode 100644 include/dt-bindings/power/mediatek,mt6893-power.h
+"Thus add disable-wp property".
 
-diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-index 591a080ca3ff..9c7cc632abee 100644
---- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-+++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
-@@ -25,6 +25,7 @@ properties:
-     enum:
-       - mediatek,mt6735-power-controller
-       - mediatek,mt6795-power-controller
-+      - mediatek,mt6893-power-controller
-       - mediatek,mt8167-power-controller
-       - mediatek,mt8173-power-controller
-       - mediatek,mt8183-power-controller
-@@ -88,6 +89,7 @@ $defs:
-         description: |
-           Power domain index. Valid values are defined in:
-               "include/dt-bindings/power/mt6795-power.h" - for MT8167 type power domain.
-+              "include/dt-bindings/power/mediatek,mt6893-power.h" - for MT6893 type power domain.
-               "include/dt-bindings/power/mt8167-power.h" - for MT8167 type power domain.
-               "include/dt-bindings/power/mt8173-power.h" - for MT8173 type power domain.
-               "include/dt-bindings/power/mt8183-power.h" - for MT8183 type power domain.
-diff --git a/include/dt-bindings/power/mediatek,mt6893-power.h b/include/dt-bindings/power/mediatek,mt6893-power.h
-new file mode 100644
-index 000000000000..aeab51bb2ad8
---- /dev/null
-+++ b/include/dt-bindings/power/mediatek,mt6893-power.h
-@@ -0,0 +1,35 @@
-+/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-+/*
-+ * Copyright (c) 2025 Collabora Ltd
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ */
-+
-+#ifndef _DT_BINDINGS_POWER_MT6893_POWER_H
-+#define _DT_BINDINGS_POWER_MT6893_POWER_H
-+
-+#define MT6893_POWER_DOMAIN_CONN		0
-+#define MT6893_POWER_DOMAIN_MFG0		1
-+#define MT6893_POWER_DOMAIN_MFG1		2
-+#define MT6893_POWER_DOMAIN_MFG2		3
-+#define MT6893_POWER_DOMAIN_MFG3		4
-+#define MT6893_POWER_DOMAIN_MFG4		5
-+#define MT6893_POWER_DOMAIN_MFG5		6
-+#define MT6893_POWER_DOMAIN_MFG6		7
-+#define MT6893_POWER_DOMAIN_ISP			8
-+#define MT6893_POWER_DOMAIN_ISP2		9
-+#define MT6893_POWER_DOMAIN_IPE			10
-+#define MT6893_POWER_DOMAIN_VDEC0		11
-+#define MT6893_POWER_DOMAIN_VDEC1		12
-+#define MT6893_POWER_DOMAIN_VENC0		13
-+#define MT6893_POWER_DOMAIN_VENC1		14
-+#define MT6893_POWER_DOMAIN_MDP			15
-+#define MT6893_POWER_DOMAIN_DISP		16
-+#define MT6893_POWER_DOMAIN_AUDIO		17
-+#define MT6893_POWER_DOMAIN_ADSP		18
-+#define MT6893_POWER_DOMAIN_CAM			19
-+#define MT6893_POWER_DOMAIN_CAM_RAWA		20
-+#define MT6893_POWER_DOMAIN_CAM_RAWB		21
-+#define MT6893_POWER_DOMAIN_CAM_RAWC		22
-+#define MT6893_POWER_DOMAIN_DP_TX		23
-+
-+#endif /* _DT_BINDINGS_POWER_MT6893_POWER_H */
--- 
-2.49.0
-
+Frank
+>
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+> index 902b523fc92c..3d5cd0561362 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+> @@ -48,6 +48,7 @@ &usdhc2 {
+>  	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_cd>;
+>  	bus-width = <4>;
+>  	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
+> +	disable-wp;
+>  	no-mmc;
+>  	no-sdio;
+>  	vmmc-supply = <&reg_usdhc2_vmmc>;
+> --
+> 2.34.1
+>
 
