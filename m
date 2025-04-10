@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A764DC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 09:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF77FC369A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 09:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y+KXEI6OfVHvtP8Yf5k0bZWTlMoRiewsHyens3ukaaA=; b=LvOB4985KRuhgHPbAaX/Gf+xvN
-	4Wk0namBdtBwV8DqSVfEcuYzhdih6Vh3m6LplshOKOu5EoVcQhZk9DzFTEsdhnj+VsjLN/+7Hw97l
-	tEbfh4EHeHMuF+w//ryF+TeVoO4EzMRFO7ZH6WxkQ13nj0Nv2YvugusABQyWdfruqP5C1nM0KK3dE
-	hHSn3nBHrQuqf0Fv9BZl8JRECVSnS4sw3yIc9x+VeaVEViSZBULaKSukC8NfEc3oeHBRgJH8HDS45
-	CBpr7f0WfB3Xt249Zo5tIeT0tYlf4ii+BYpYn9JtXZP343pRzPHsMFpHgndghFLNPPROMUBSyM1hG
-	fkxEB4xQ==;
+	bh=ZXCoP5L2J4BtwaEH2n2GCfyW7YWDh/4SAhqwGfBIa/Q=; b=0/XjtTxXUu3+vnz+rStjPZVPe4
+	H04ulJj7esztWCffIdcoWJFUjIEhsihlmkUfZfKje3s4P8rA0Rh2ICfrBj899vEg7E9C8fJ8aaxwC
+	JdI0IThgc5HCq/Fs5TClpFd9dojFuufAzzuIWP8b9Ip6XHMXp5jquLwhVeZ42/JYLt3yOHHBFSAjb
+	Qwrsi1lEQckn7hPT5Df0p4yBCG0Aozm/UVQP7jjDzLyh+SBGuqAUYOntNOVRGGUKTeRRkzQbfdnUp
+	nAz8RrTOYMvB9VuAkXHRsEyI0bEy2tWdpqJm+MmBiCOXpw/6P9Ynn9P0IPQfrE93CyrjRNnGeCJug
+	lCO4VdxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2nub-00000009sts-0M5W;
-	Thu, 10 Apr 2025 09:09:29 +0000
+	id 1u2nwN-00000009tK1-37wH;
+	Thu, 10 Apr 2025 09:11:19 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2nU3-00000009mog-335J;
-	Thu, 10 Apr 2025 08:42:04 +0000
+	id 1u2nfO-00000009pAN-1hLa;
+	Thu, 10 Apr 2025 08:53:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=y+KXEI6OfVHvtP8Yf5k0bZWTlMoRiewsHyens3ukaaA=; b=X3SXzwhrZNjCMiHFIVo/6tYZp2
-	J9Eq9+lx5Iy15hkVHSiZzPGG8gDoF/5kc2JgDA3EhmWLY7J4YdoUO97e6h7hNEYqCsIapXpkfBw9U
-	Rod8dzIGU5gOE3nSNsgv+X3UkuviVRMtKUt5F3XRnqekucRmVJEW3wqb3lAejccWSxN4C8Z3xOMEn
-	P8gNxyGsRd0MKYxVbHLXwtKipGXMxhoNRtJGpMHJ04zu99U3PQGz/RF9g91c3ZvRY6VCmSLtK4PRe
-	/dDFXtWqlZShpL+/vApuPsisnRin9YMtDGM5JjbP9jpZJfxjUMC5KdXHa9wH8KqfJHMBSWG2xSluP
-	WgEgkf5Q==;
+	bh=ZXCoP5L2J4BtwaEH2n2GCfyW7YWDh/4SAhqwGfBIa/Q=; b=LMOo6+ICnSo9wd/0x+KdGHWkKq
+	UgRoQTSd6ftNQ2A3885oQ20jGkdFObG4rxEVQtA2/ql8+vxJsCjYsuq5C7VsleaICi/CHRrTgvz0o
+	F/J8eT0tGLFZa/REVQbL/ko/0ScVNyQi7eCydsEc29zJBUGjBuFu/Ou5NN8A2OxEY8/7iwe7oTCP1
+	PwLUH/PUkw/EcOskWbW83yCVv4iGmroK9jbUrFJwquqoY0WXHbWxrNyhDewufFLhy2kuI3C9WXO3a
+	minoMr0ucy2l9tO62kueLB8Yvq82UiDojWW+zajgua6aqtDGaGwPjPCrOX+lqK9+aYc1uCbJBuL0r
+	4YmpVI5A==;
 Received: from i53875b95.versanet.de ([83.135.91.149] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1u2nTv-0002qP-DJ; Thu, 10 Apr 2025 10:41:55 +0200
+	id 1u2nfH-00036h-1n; Thu, 10 Apr 2025 10:53:39 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Damon Ding <damon.ding@rock-chips.com>,
-	Lucas Stach <l.stach@pengutronix.de>
+To: Andy Yan <andyshrk@163.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
+	cristian.ciocaltea@collabora.com,
+	hjc@rock-chips.com,
 	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
-	kernel@pengutronix.de,
-	patchwork-lst@pengutronix.de
-Subject: Re: (subset) [PATCH 1/2] drm/rockchip: vop: remove redundant condition check
-Date: Thu, 10 Apr 2025 10:41:43 +0200
-Message-ID: <174427445693.820310.13302074233531246812.b4-ty@sntech.de>
+	Andy Yan <andy.yan@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: Re: [PATCH v2] drm/rockchip: dw_hdmi_qp: Fix io init for dw_hdmi_qp_rockchip_resume
+Date: Thu, 10 Apr 2025 10:53:28 +0200
+Message-ID: <174427520238.842175.9547277934386341429.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250207182247.215537-1-l.stach@pengutronix.de>
-References: <20250207182247.215537-1-l.stach@pengutronix.de>
+In-Reply-To: <20250317102757.565679-1-andyshrk@163.com>
+References: <20250317102757.565679-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_014203_760555_F39E650A 
-X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-CacheID: sfid-20250410_015346_440864_66757B13 
+X-CRM114-Status: UNSURE (   8.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,20 +81,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 07 Feb 2025 19:22:46 +0100, Lucas Stach wrote:
-> Instead of checking the same thing twice in a row, fold the second
-> condition into the first clause.
+On Mon, 17 Mar 2025 18:27:53 +0800, Andy Yan wrote:
+> Use cfg->ctrl_ops->io_init callback make it work for all platform.
+> And it's also gets rid of code duplication
 > 
 > 
 
 Applied, thanks!
 
-[1/2] drm/rockchip: vop: remove redundant condition check
-      commit: bcdc354a0a545e0e78c6f068e5a11c0285e06eeb
-
-
-Andy suggested a name change for a function in patch2.
-
+[1/1] drm/rockchip: dw_hdmi_qp: Fix io init for dw_hdmi_qp_rockchip_resume
+      commit: 1d34597a1e23004c7dd0ab5f58ba1ef95fd9ded5
 
 Best regards,
 -- 
