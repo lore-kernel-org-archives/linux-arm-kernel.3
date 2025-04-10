@@ -4,68 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7434C369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C27C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 11:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dsVWrf0xzWyYwyghGB7xrazS0Xxr4ZxY8zXtzb8k0qA=; b=dZqtSbP068/DgZvSYai1lFLPMv
-	EoNilsPQpvi0g0aN5AB5J70DMfni1tIIcJtQiySKexivZc3HHOUe1fRNHfZO/pODNSXmjap3CvAxK
-	pxz1TeQUglOULoxURm5KqTRC9eD6ntXLPEXGhG6NxyLMqqsQegMkR4otbC3BbZtpEvBwCqsiw48yn
-	isWQHiUcaVjdKGpCg2L8o2xx3lzhb0/wkENXEFEZSdGN6gsPORbF8YJemD0chb4RWYnZ6XdNYWERX
-	DMPoTmBJkZyJp1tiDZJw+jz8qON4NxgHQUEAHz6HufX6KpR2JcN3ezpCd9hMRI+EA57+6rq8ZvO2+
-	q/s235DQ==;
+	bh=2KqeieDg+BW2dZtXfWsXbnC5UqYZA7jIz7y5IK/Qyso=; b=ekuG5Sw4GePSfjSPCgbzoWPI/b
+	2P0ZQLJfXLULSyf1cOeuR+DHiTrdFjDqbSt5PkuxEa4XrdbLZGQjhPoq1HdejcQCM+xKry4TJbszM
+	NjjIZd07HaEsrmnD91B/AG1/ZIo5Tna+/JSQBJLisfco9N/96lXgzih7f0hv05OQGz153yFdr3VTw
+	nfIGZ/T1342fwZVar5XQfLTFQlE0SO4Z+S7/BamXQW6rGg8mE9dbvXnKTI9tLVDYQvRcTQuT22Twu
+	iy0uUlWVTsxEpLzc3IRUgEs8+Hm5euaCLTuX/ufm/SWXh4mc5/bguOdaaVwkBmNHxZOhibhg7Um5Q
+	P578YEHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2pvw-0000000AG1U-2pHJ;
-	Thu, 10 Apr 2025 11:19:00 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1u2pw2-0000000AG8O-2Oy2;
+	Thu, 10 Apr 2025 11:19:06 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ozV-0000000A4Ld-0bS5
+	id 1u2p1Q-0000000A4ea-48TN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 10:18:39 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c68:389d:1fcb:c0f8:ff7c:208d])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 45F8F352;
-	Thu, 10 Apr 2025 12:16:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1744280191;
-	bh=dsVWrf0xzWyYwyghGB7xrazS0Xxr4ZxY8zXtzb8k0qA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T455zsZkqCtAYV7CEXOaCyxkmPXL6S7RjI6CqzMR5E6/1PRJQkRyadBCB5M/4UzZN
-	 iNwrbvCy1TIzOtyH/VopN+vkScWsWjLBQ3+fD3ukqSjFBti/AXPTYIyHax2HdMVWFq
-	 VrPL4r7Dyd27jjlHzRou0C/HSSCmBwy6LgPzcxFM=
-Date: Thu, 10 Apr 2025 15:48:25 +0530
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-To: Devarsh Thakkar <devarsht@ti.com>
-Cc: Andrew Davis <afd@ti.com>, Judith Mendez <jm@ti.com>, 
-	Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>, Nishanth Menon <nm@ti.com>, Hari Nagalla <hnagalla@ti.com>, 
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Beleswar Padhi <b-padhi@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Markus Schneider-Pargmann <msp@baylibre.com>, praneeth@ti.com, "Khasim, Syed Mohammed" <khasim@ti.com>, 
-	tomi.valkeinen@ideasonboard.com, v-krishnamoorthy@ti.com, s-tripathy@ti.com, s-tripathi1@ti.com, 
-	c-shilwant@ti.com
-Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
- remote processors
-Message-ID: <czmir7yvss3oreveesyrjqfdcawyn2axtstomsj3yx5sntqwo2@r3udnsyrxvkp>
-References: <20250405001518.1315273-1-jm@ti.com>
- <20250405001518.1315273-7-jm@ti.com>
- <6868f593-0728-4e92-a57b-87db6a0037f6@ti>
- <f42607f5-e39d-48a1-89c0-11d4982a2426@ti.com>
- <e131298f-3713-482a-a740-ff89709270b4@ti.com>
- <091c0869-525b-4b40-b5fe-a5c1907ec606@ti.com>
+	Thu, 10 Apr 2025 10:20:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hgOnj9KCY/8QJFwdFOWyVdbgOu9OWn49cGvpcJh36PjMDVtVCNrCnJMwaW7kj0LO/EMymKMmRH7+mf8LLeBIYT/ZXD7X1SGAHy9tMngXbLaFQkX5g6c2P66PZJC9y3lygDBhOQQX79IFcf9QGhEhPd1OpLfaMQ4jgEmVRQV+oEzTV4p96UqRuKHN0c5rqVQ8bHF6Fw5a3+PwA+doEUp/2cf2z1Oci5l7SRjApQCHsEbIKfweSGxb1V+na7c+yfxBdNi57ixt7ljFKeerIg5qu3tTa40PELyKLD9TPzzkK1GDsTfU83CiTE3B//DhPz9DVY4LfGlX2KZwa6ztfITXdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2KqeieDg+BW2dZtXfWsXbnC5UqYZA7jIz7y5IK/Qyso=;
+ b=f5/53UMV14+JDirN+HcI8r479WCVLF3jActbbvEz713b4qU6mCNV7s+h+aWAjPX3r1eQHYCUoMUsCYHYqIK7SgG9wYGQBDX3GJTQk5ZU1VzIOX9NtIvqpIARniAY6ibm2elTWELKKmZ9vo3jKWirWZ9NkXm8U9BLeoFhq0LTxmjDQpM9lAsmtV50daeseYW4eZJ88Y82q20S0vGcDbg2q3h3b+bXfaxtwNwg4wcXBzzNvXBlt+zORWKSPwCP0WgHMV74pYOWfVI9CgfCvWDWwSw+XGwYgixMwyzSaBu8A9WQE5NalCW6wdJADsFZAHGmC4UyePrDYXNAe8wboq+2pg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2KqeieDg+BW2dZtXfWsXbnC5UqYZA7jIz7y5IK/Qyso=;
+ b=Jsiwc4hJqIabJvuOOqWQondj4KQ0kpleCUEiUuYkoUdkItB4lIziJczJ3BzVMN07cdWZH104onSk13kyGIG5H+J9vE3JH/7Q+F2t8TmMQ+0Lt3N6glhR6ZIF/BmcFoPzU0eifHXsW0ekhYabXpKUIBQfZUR00an7iEZJHzD1zUA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
+ BY3PR01MB6530.prod.exchangelabs.com (2603:10b6:a03:368::24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8606.34; Thu, 10 Apr 2025 10:20:32 +0000
+Received: from SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9%3]) with mapi id 15.20.8632.024; Thu, 10 Apr 2025
+ 10:20:31 +0000
+Message-ID: <4d1bdea5-43c3-4ca9-9275-feadf158e86e@os.amperecomputing.com>
+Date: Thu, 10 Apr 2025 15:50:24 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: nv: Forward hvc traps if originated from
+ nested VM
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com
+References: <20250410070743.1072583-1-gankulkarni@os.amperecomputing.com>
+ <86mscolc0b.wl-maz@kernel.org>
+Content-Language: en-US
+From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+In-Reply-To: <86mscolc0b.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0100.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:af::9) To SJ2PR01MB8101.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::10)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="e3db444jyk2gutly"
-Content-Disposition: inline
-In-Reply-To: <091c0869-525b-4b40-b5fe-a5c1907ec606@ti.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|BY3PR01MB6530:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8fde5b00-7e25-40a0-a863-08dd7819528e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SXh1Y2VRWDFlWE1qRkkxekoxclFmNWJudGg2YnovaGpLd3R3RCtKZTBmREQ1?=
+ =?utf-8?B?aStxZ0tveCtiYzhLVVZ3TDU4bFFCT0xkYklHQUo3YWJPdDdpRjlXcXdQWEly?=
+ =?utf-8?B?cHdSSUNQVUdNdXpWdnlGM3UwdTBGaFVOem9UQ2FjbXcrVEZMOWcyYlZJYnJM?=
+ =?utf-8?B?T3B4NXJKS1BhKzhqcG14WVBGOU9TNjdDRXlCMkdwSE9JWGJxdHpQbVpITXJB?=
+ =?utf-8?B?cmVRMlpCNHFKdGlMUjlDOURrT01GNGZZcUJ3UVNmQ0MxUzZwRmhjd0xiSEkw?=
+ =?utf-8?B?S0JlOUtYUG1OMG9ja3lsc08wQTBpWmg3OVp2bjVtWnk0SERDdzlFWW5uQzNx?=
+ =?utf-8?B?STQvbXEwRXhBS25WYVdGUCtGNmdBZHgwdlR4a1dpTG1KREkyeUlOUko2NGRS?=
+ =?utf-8?B?NnhWbUJWMU5iTVBqOFhPZjhCbnJWWnNJcDZBTXVUaE5GSGprOGFkQWtsdzZh?=
+ =?utf-8?B?L3ZEeUpmVk4vVWhVR01ZM3N6UWpqSjk2cnE3RGxMSjBKNDd2R3ExWllhaTI1?=
+ =?utf-8?B?Vy91OW5HRmoxblhqS0NmNFBHZG10NWR5RVlIeXdzZXlaMHdDVkVDTk5wemFv?=
+ =?utf-8?B?TjVrbzJrTjBhZnFCWVQwRlZTRHNpOWxBSElnWnFaNkdKTjF2NjlYNG5wOUJa?=
+ =?utf-8?B?ZU8xWGwra0ZlV29CQXpCblpKNTBuNW1TbElscG5VWWZUNE5TeHRSQmVhYkdW?=
+ =?utf-8?B?MlZnZUY3MmJ1RUhRRlBBU25xNHdJb05VOVdDYk1xZU1QQmZaSzViY1dhRUZu?=
+ =?utf-8?B?Y1VMNHVxZTZXeUdOeE9NL3JrbWo3ODRTQTBMOVJ6NHVVRjhrWjR2dEQ4OWZp?=
+ =?utf-8?B?bElEMEpnM1hzcmZ3UHoxdTVUTUpXRFUvZCtFOVkyK2tadkFnSW16SmdHWnZx?=
+ =?utf-8?B?UTVlRVdhcjl0SFZGUzh3bUhKRUc3YklVaXhTRlhGOWplSEN4OUdlOHo3aHNv?=
+ =?utf-8?B?WmU0Q2VUSERvT1J4SHRsNHRiUVdFcE10Q0QvTjlCcXo3TWlmWk5sTnJDRkc0?=
+ =?utf-8?B?R3kxVUs4K2syZFhxTllncDdzMUJoNU1neXpsd1UzRktocHRpM3Q3bGJjc09a?=
+ =?utf-8?B?ZHlOMnp1UUc2eW1LdzNhNGtSb3NvYjNUS2VjVk15UWdDcmhZR3RsaFE2S1VR?=
+ =?utf-8?B?dXp3akZ3cldpRzZQSWptRXh0QkxNZEZIZ3gzWmREVDdGdm5TNmg4RTBBcUpG?=
+ =?utf-8?B?RC95djlWSkxhUlphOXJtcXRsNEhwcUtNUFhOUlcxMFczeE91TVN5T1FmaUpR?=
+ =?utf-8?B?cnJ4ajg5OG1HK0dpVkRHczA0RlF5bUZpKzRxTDZabkpPeWRJRTJkOUg0Wis0?=
+ =?utf-8?B?U2lnN0hvdTA4ZGZ1c3Zya214VHJoWlNDOWc0dzQ4Y1ZwdVdCVVBYbGVVZERX?=
+ =?utf-8?B?Si8wVXdOMitqSWhzcm1xTHpKajk4cWVtaUh0SUdoSnpzMlM4VU9COWNkSCsr?=
+ =?utf-8?B?T3B2UEhEQ0NZL3pGNnhTR3Fzb090ZDU3VDc4VTYwYWdWb2VTcE1oVVRXaS9p?=
+ =?utf-8?B?YkhCUHVraTBYZ3NhSlp0WHBlWXlrdGN1NnB2MURDNXZOcnlXaHNUK0d2MDRt?=
+ =?utf-8?B?d0xoWGNrWEMwclRvM0kvYWxkS3UxMjR0LzBiWmxWQW40RUIzcis1R0pleTdD?=
+ =?utf-8?B?MTErS2tSTHloaU5nZndBTUhaNXVsOUdBa2FrcSs1SnlRQ1FNc282UzhBd2Ry?=
+ =?utf-8?B?K2NlNDQwdlBBcGtKYXJvTzJZV24zUDByNCtFZ1BtVkdMZmw2KzZaU1l1bFRH?=
+ =?utf-8?B?ckNZcGdaVmd0d3pOVGIxdzIwK2RNdlkwc082TXlxUk10Q0JTRlduQUNxTzVC?=
+ =?utf-8?B?eXhwQTUwTXhaZm9xQTl0SjV5R2wyZVNsTmYzNmFoL2poeG16U0ZEMXYyT3po?=
+ =?utf-8?Q?avFJAUvxquSFz?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VFFGMkl0cTZJZ0paa3NtdnpTSXVXcTFuaStzUkVmTXk3eVdySjRoQ3l0dHpC?=
+ =?utf-8?B?YzZYTFdKYjN0TW1pSWRHUWFnbisxbE42d1ptZ0tyYVUwcnc3aU4zV3VTNUN0?=
+ =?utf-8?B?Vi9qQUtBYmp4NnE1Ym9zSGlLNWRHVFhSb2ZrR1dxdzQvMXY4WEd0RklteUV0?=
+ =?utf-8?B?YTlvaWdnWGZhNWxKOXJLU2dBWkxiejAyV1BQaDltOTNrWUMyRTJLdFVQbVY5?=
+ =?utf-8?B?VzRQVnZicDlKQXNLYjJvcXQ0NTRyYkRScllzbWhRejRFU0t3UDVIOFVEY3RP?=
+ =?utf-8?B?S1dyN1JWYTFuSUFVWWxQUWdhdlBLdFhjVS8vUG8xU2NTRmFzS1VwVk9lL1I3?=
+ =?utf-8?B?R0F2Q0pLbEFiSEtqRURKOUw1WXhQTEtndEh0VGJ3MmhUeTFDSHRWdU91OWgr?=
+ =?utf-8?B?aUlURjBuUEVVR1VBQzFrcGxlWnMrdjUxbVRoSFQ2VXY0N2VVQmZiYlVrVG9t?=
+ =?utf-8?B?ZUhkaHRhV1NBSG9YRTcvc0FwUXZtUlRsaDNyb2tuYWRlb0RXQXhEVFJSQjlv?=
+ =?utf-8?B?NUlKWkRQd25VMHVhbkl0MmtJMVR4cGlCczlvZGFEbUxqSlluVUZIcmYzVGpy?=
+ =?utf-8?B?clU5bDBDUTZnYXd1WUFrQWZ3WWVidW02TTVJb1RXWTRaaGdZRWo0ZHdOdXBH?=
+ =?utf-8?B?VXVTaTl6bHU4dTNaSFNvMXZ4eS9IUjFHN1dVbWEwZ00wcVFUR3o1ZUNJbjJJ?=
+ =?utf-8?B?clpQRG9oMGtGNUdnNVZ3OUd3aVprbVltZDBqZzlqMEJNdWtyWEpJMmYzdUNy?=
+ =?utf-8?B?UEY5RXZRM1hPZzNqR1h5K0EvYVJTeGxLL1JyaTViRE90NFh1YTZhUnNOU0FS?=
+ =?utf-8?B?N1V5TWQyN21mcEQvckdxakJhdmZiUDFJenVCNUJ4SUZQRkRHYUJrZ1NQenpD?=
+ =?utf-8?B?VFhzSUNIL3BjTmhjRlJSZloyYTBsRU5kcXU2ZFd2eWJUNVNrRHZGNE5YcHE4?=
+ =?utf-8?B?Yi9WMHR4c3FoMGFkQVNwenU0U3NPWXBsaFUydk8ycjU5U2t2NVZxOU1MODdj?=
+ =?utf-8?B?TVBoT3B6ekp0c3hMeTRZcW55c1BQZnhqL09HcFJ3NW9nWHpQL2NDajF1bUg4?=
+ =?utf-8?B?UHFaVlBybDJKSHMyQnNrTzhlN3QxUlFBazVVWVV0b1B3clZJRC82ZlpTWHpJ?=
+ =?utf-8?B?cEIxY08yVElCUHBXalZUaUVYdXh6K3huZXF3NEN2OCtOM251RWZMVmF4aHJq?=
+ =?utf-8?B?OFZacjFVMlRCTWZHQUZHQ3BTTUJ0WTAyRkl4MDdHNTZtR3pKRWRYRWpPL0Ns?=
+ =?utf-8?B?MnM4Y2NtaEU3eVB0UTV2OWZjZnErcXZvakRzc3p3S2xWOVYxMmIwYmVBYmRK?=
+ =?utf-8?B?M0VyVU1yMUdwZjRwOGdlOWUvMTJ2bTFVVXZnS25qZ1BqaE5KZllvZ3FYMTIx?=
+ =?utf-8?B?VUVLL3BMNExCOHYveWlZRjRrcXpDTE5za3l4eGhaOFRhZ0dROS9PemF3NklE?=
+ =?utf-8?B?WXQxd3N6RVB5cUNuOGoxVERTcmE1Sjk4L1lqTWQyZkZHYlFUVVhpb3lXdWk3?=
+ =?utf-8?B?VlBzQzFLLzAvUHJoNXpTZUZweWljTEdTYWNES1JxSGRVQXRuL2JjdmVaSnQy?=
+ =?utf-8?B?aU0wRzk1MW0zUkg4Tnd0MGo4dHE5Wm5iTE5OWGdIV2dCNnZST0hpVTd2TnRR?=
+ =?utf-8?B?d0JHQ1Fmd3F0SkVHN2RHc1BiUFR5ZUhVWU42L1o3YVMrN3Fzb241M3JuTlQy?=
+ =?utf-8?B?Z2toUytFTHMrV09XOW93R2FNdDJwcG5Bb0gxZitzNmFOVFNhVkxzbEo5Nk5h?=
+ =?utf-8?B?RFlIOUJJSWtiODVUNVhkN2pYc2h0amt0QTlFNUJ3alhBWVhPUWFwbkFXZGVN?=
+ =?utf-8?B?UXdVZk9WZ0xic1JPcEdTZ1JncEVWRVgzc2tzQmdlTDNmYUx1T3NxU2NMYkJa?=
+ =?utf-8?B?THhRM3Nha2JoKzc5dTlzTFNkV1JSdXFhRXlSUXV6b1FkZFcvTTRSR1p5VDhI?=
+ =?utf-8?B?MytHZWVVMTJKN2xoNUdRVDUxdmdUVkVNdU5UbUJodFJZbnYrRGxlVmVmdEhB?=
+ =?utf-8?B?dzA0SjI3M1dnZ25CUWFYRkpTcVJnbVhMaUpHTE96WWVvWmdUUzkwQXFtREds?=
+ =?utf-8?B?ZGtudDBEaGI0TWlSQ2JkYjhKdVZGQWh5dlVUc25rYXRZMWxYODR5UEFPQW51?=
+ =?utf-8?B?SlRsSUloNlpCZzR0K0l2UUNtSjBBNStGMWtENi9pUDZDM2oySkU1cUV5TWRS?=
+ =?utf-8?Q?Nx6S4R+YU1Bdq5GsTyU96Lw=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8fde5b00-7e25-40a0-a863-08dd7819528e
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2025 10:20:31.4440
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hnAiOoK7Y+rm8sHaICPAK0myUNziXDuBE9yCzOuR6uNDwOA7hHRF3W84Rx7FxUj1Kjs4Vijaqy4F/TDozRMkKp6rth8Pob1U8fbV2ojeN3pc/jfWkKhYDcA5pcFQFJ17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY3PR01MB6530
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_031837_673355_C2130B02 
-X-CRM114-Status: GOOD (  69.56  )
+X-CRM114-CacheID: sfid-20250410_032037_042013_A9B4C5E0 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,429 +179,31 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---e3db444jyk2gutly
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 06/11] arm64: dts: ti: k3-am62a7-sk: Enable IPC with
- remote processors
-MIME-Version: 1.0
 
-Hi Devarsh,
+On 10-04-2025 12:49 pm, Marc Zyngier wrote:
+> On Thu, 10 Apr 2025 08:07:43 +0100,
+> Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+>>
+>> It was discovered while trying selftest(smccc_filter) that the
+>> hvc trap is getting forwarded to guest hypervisor even if it is
+>> originated from itself.
+>>
+>> HVC traps from guest hypervisor should be handled by the host
+>> hypervisor and traps originating from nested VM should be
+>> forwarded. Adding check to forward only if the hvc is trapped
+>> from the nested VM.
+> 
+> I disagree. HVC from EL2 must be routed to the same EL2. HVC from EL1
+> must be routed to the EL2 controlling EL1.
 
-Thanks for the cc here.
+Thanks, Understood, In NV case, hvc has to be forwarded to L1 
+irrespective of it origin (L1 or L2). Need to add hvc handler in the 
+smccc_filter.c for the vm (when run as L1), so that it is handled and 
+returns with required args set.
 
-On Apr 10, 2025 at 14:30:59 +0530, Devarsh Thakkar wrote:
-> Hi Andrew, Judith,
->=20
-> Thanks for the quick revert.
->=20
-> On 07/04/25 21:28, Andrew Davis wrote:
-> > On 4/7/25 9:13 AM, Judith Mendez wrote:
-> > > Hi Devarsh,
-> > >=20
-> > > On 4/7/25 8:54 AM, Devarsh Thakkar wrote:
-> > > > Hi Judith,
-> > > >=20
-> > > > On 05/04/25 05:45, Judith Mendez wrote:
-> > > > =C2=A0> From: Devarsh Thakkar <devarsht@ti.com>
-> > > > >=20
-> > > >=20
-> > > > Thanks for the patch.
-> > > >=20
-> > > > > For each remote proc, reserve memory for IPC and bind the mailbox
-> > > > > assignments. Two memory regions are reserved for each remote proc=
-essor.
-> > > > > The first region of 1MB of memory is used for Vring shared buffers
-> > > > > and the second region is used as external memory to the
-> > > > > remote processor
-> > > > > for the resource table and for tracebuffer allocations.
-> > > > >=20
-> > > > > Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-> > > > > Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> > > > > Signed-off-by: Judith Mendez <jm@ti.com>
-> > > > > ---
-> > > > > =C2=A0 arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 96
-> > > > > +++++++++++++++++++++ ++--
-> > > > > =C2=A0 1 file changed, 90 insertions(+), 6 deletions(-)
-> > > > >=20
-> > > > > diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> > > > > b/arch/arm64/ boot/dts/ti/k3-am62a7-sk.dts
-> > > > > index 1c9d95696c839..7d817b447c1d0 100644
-> > > > > --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> > > > > +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> > > > > @@ -52,6 +52,42 @@ linux,cma {
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 linux,cma-default;
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 c7x_0_dma_memory_regi=
-on: c7x-dma-memory@99800000 {
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 compatible =3D "shared-dma-pool";
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 reg =3D <0x00 0x99800000 0x00 0x100000>;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 no-map;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 c7x_0_memory_region: =
-c7x-memory@99900000 {
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 compatible =3D "shared-dma-pool";
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 reg =3D <0x00 0x99900000 0x00 0xf00000>;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 no-map;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mcu_r5fss0_core0_dma_=
-memory_region: r5f-dma-memory@9b800000 {
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 compatible =3D "shared-dma-pool";
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 reg =3D <0x00 0x9b800000 0x00 0x100000>;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 no-map;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mcu_r5fss0_core0_memo=
-ry_region: r5f-dma-memory@9b900000 {
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 compatible =3D "shared-dma-pool";
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 reg =3D <0x00 0x9b900000 0x00 0xf00000>;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 no-map;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wkup_r5fss0_core0_dma=
-_memory_region: r5f-dma-memory@9c800000 {
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 compatible =3D "shared-dma-pool";
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 reg =3D <0x00 0x9c800000 0x00 0x100000>;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 no-map;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wkup_r5fss0_core0_mem=
-ory_region: r5f-dma-memory@9c900000 {
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 compatible =3D "shared-dma-pool";
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 reg =3D <0x00 0x9c900000 0x00 0xf00000>;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 no-map;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > +
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 secure_tfa=
-_ddr: tfa@9e780000 {
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 reg =3D <0x00 0x9e780000 0x00 0x80000>;
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 alignment =3D <0x1000>;
-> > > > > @@ -63,12 +99,6 @@ secure_ddr: optee@9e800000 {
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 alignment =3D <0x1000>;
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 no-map;
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > -
-> > > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wkup_r5fss0_core0_mem=
-ory_region: r5f-dma-memory@9c900000 {
-> > > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 compatible =3D "shared-dma-pool";
-> > > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 reg =3D <0x00 0x9c900000 0x00 0x01e00000>;
-> > > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 no-map;
-> > > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > >=20
-> > > > This is missing the edgeAI specific remote-core carveouts and
-> > > > RTOS- to-RTOS IPC memory regions [1] being used by edgeAI
-> > > > firmwares which come as pre-packaged in the official SDK release
-> > > > for AM62A.
-> > > >=20
-> > > > There is only one official SDK release for AM62A (which is
-> > > > edgeAI based) [2] which packages these edgeAI remoteproc
-> > > > firmwares and in my view it is a fair expectation that remote
-> > > > core careveouts in device- tree should align with firmwares
-> > > > released in SDK.
-> > > >=20
-> >=20
-> > Why should Linux upstream care about what we do in our current evil
-> > vendor SDKs?
->=20
-> These carveouts are specific to remote-cores and so have to match with
-> firmwares running in these remote-cores. The debate is on which firmwares=
- it
-> should match to. The firmwares being packaged in SDK are the most used-on=
-es
-> and so in my view it is safe to account them as the official ones, unless
-> of-course there is a major overhaul and re-architecture planned and accep=
-ted
-> for these firmwares in which case we should wait for it.
->=20
-> > We change things around every cycle, and do all kinds of hacky things to
-> > just
-> > "make it work" for the current SDK release.
-> >=20
->=20
-> I don't see any changes done in memory map for last set of releases, but
-> agreed if there is big architecture change planned for these firmwares th=
-en
-> we should rather wait for updated firmwares then adding bloated carve-out=
-s.
->=20
-> > > > This is because most developers (including me) and vendors
-> > > > download this official SDK release and use it with latest
-> > > > upstream kernel and modules (right now we are applying required
-> > > > patches locally) and this patch won't suffice for this, in-fact
-> > > > it won't work since the remoteproc firmwares are already using
-> > > > regions beyond the reserved- regions from this patch.
-> >=20
-> > Then that firmware team should fix their firmware, Linux should not
-> > do things just because some builds of a firmware did the wrong thing.
->=20
-> Maybe some optimizations would be missing, but carve-outs for lot of thin=
-gs
-> which these firm-wares do out-of-box (and not even related fully to AI) a=
-re
-> missing. For e.g. there is RTOS-to-RTOS IPC test which runs on startup and
-> there is no reserved region for same, this would lead to tricky failures.
-> The DM R5 remote core also controls ISP, but all required regions for same
-> are also not present either.
->=20
-> >=20
-> > Just a random example from the top of my mind here, a while back
-> > someone on the codec firmware team decided to take the standard RPMSG
-> > name service structure and modify it to suit some specific usecase
-> > they had, suddenly all the firmware we made for AM57x devices stopped
-> > working on upstream kernels. Instead of fixing the firmware we just
-> > carried a hack for the same in our vendor kernel trees. Now customers
-> > have no path to use this old firmware on newer kernels as adding the
-> > hack to upstream Linux (rightly) failed [0].
-> >=20
-> > Let's not do that again, if we have firmware that doesn't follow
-> > upstream, then let's fix the firmware, not hack around it upstream.
-> >=20
-> > The edgeAI firmware folks have no issue ignoring existing upstream
-> > IPC carveouts and simply replacing them all with their own custom
-> > ones in their SDK[1], I see no reason they cannot continue doing that
-> > if they don't want to fix their firmware.
-> >=20
->=20
-> There is no apples-to-apples comparison with TDA4VM, unlike AM62A7 it off=
-ers
-> SDK for both edgeAI and generic Linux [1], so if someone just uses latest
-> upstream kernel and device-tree with this generic linux SDK, that would
-> still work without any overlays applied or carveouts added. Same is not t=
-rue
-> for AM62A, as AM62A offers only edgeAI SDK with firmwares packaged for AI
-> use-cases. So if someone, just replaces latest upstream kernel and
-> device-tree with the patches from this series in edgeAI wic image, it won=
-'t
-> work cleanly due to missing carve-outs.
->=20
-> Also even if we keep aside edgeAI, basic camera+ISP use-case won't work
-> without the carveouts and we would prefer not to clone another layer to g=
-rab
-> the overlay and apply it every-time we want to test run camera+ISP (and e=
-ven
-> the edgeAI use-case) on AM62A which would be a pain.
->=20
 
-On the basic camera + ISP usecase, afaiu the downstream edgeAI SDK uses=20
-custom gstreamer elements that make calls to the aforementioned R5 core=20
-that controls the ISP. On top of that there are additional gstreamer=20
-patches that are not yet posted upstream for review from the community,=20
-so the userspace design isn't really set in stone, or upstream-friendly=20
-yet.=20
-
-IMO if that architecture is still under discussion, it might be better=20
-to keep the edgeAI specific carveouts out of the upstream DTs.. just in=20
-case the carevouts have to go away, or change significantly.
-
-If you are sure that the regions and firmware architecture is set in=20
-stone and won't be updated even if there is a complete redesign of the=20
-userspace/application level stack for accessing the ISP (let's say using=20
-libcamera), only then it makes sense to add the carveouts right now.
-
-> > >=20
-> > > I understand your point, currently with this patch remoteproc loading
-> > > will not work for some cores. However, the goal here is to standardize
-> > > as much as possible the memory carveout sizes, push the "demo firmwar=
-e"
-> > > to request resources the correct way from resource table, and move aw=
-ay
-> > > from this dependency and limitations that we have with our firmware.
->=20
-> I understand this, but my view is that w.r.t firmware only goal should not
-> just be tp demonstrate correct way of requesting resources from
-> resource-tables, optimize the carve-outs etc but also to demonstrate the
-> primary use-cases (camera+ISP+edgeAI) which the device is capable of.
->=20
-> > > should soon be able to generate our own firmware using Zephyr,=C2=A0 =
-which
-> > > Andrew is pioneering, so with this firmware we should move to the
-> > > correct direction upstream. Downstream we are still using the memory
-> > > carveout sizes that the firmware folk want so desperately to keep, for
-> > > now..
-> > >=20
-> >=20
-> > +1
-> >=20
-> > I have this Zephyr based firmware for AM62A working and it uses the
-> > standard IPC regions as specified in this patch. I'll be posting the PR
-> > for it in Zephyr upstream by the end of week.
-> >=20
->=20
-> I understand this, but will this zephyr based firmware support vision +
-> edgeAI analytics ? Does it demonstrate all the unique capabilities of AM6=
-2A
-> SoC ? If not, then what would be utility of such firmware on AM62A where
-> these are the primary use-cases w.r.t AM62A ?
->=20
-> Why should upstream device-tree use carve-outs which match to this demo
-> zephyr based firmware (which apparently not many are using and is not goi=
-ng
-> into any official SDK release) instead of official firmwares going into S=
-DK
-> ? SDK released firmwares are being used by so many customers and SDK
-> documentation maps to it, but zephyr firmware that is being pitched here,
-> who would be the potential users and what would be it's utility ?
->=20
-> [1]: https://www.ti.com/tool/PROCESSOR-SDK-J721E
->=20
-> Regards
-> Devarsh
->=20
-> > For this patch as it is:
-> >=20
-> > Acked-by: Andrew Davis <afd@ti.com>
-> >=20
->=20
->=20
-> > Andrew
-> >=20
-> > [0] https://lore.kernel.org/lkml/20241011123922.23135-1-richard@nod.at/
-> > [1] https://git.ti.com/cgit/edgeai/meta-edgeai/tree/recipes-kernel/
-> > linux/linux-ti-staging/j721e-evm/0001-arm64-dts-ti-Add-DTB-overlays-for-
-> > vision-apps-and-ed.patch?h=3Dkirkstone
-> >=20
-> > > ~ Judith
-> > >=20
-> > > >=20
-> > > > [1]:
-> > > > https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/tree/
-> > > > arch/arm64/boot/dts/ti/k3-am62a7-sk.dts?h=3Dti-linux-6.6.y-cicd#n103
-> > > > [2]: https://www.ti.com/tool/PROCESSOR-SDK-AM62A
-> > > >=20
-> > > > Regards
-> > > > Devarsh
-> > > >=20
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 opp-table {
-> > > > > @@ -741,3 +771,57 @@ dpi1_out: endpoint {
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
-> > > > > =C2=A0 };
-> > > > > +
-> > > > > +&mailbox0_cluster0 {
-> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0 mbox_r5_0: mbox-r5-0 {
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-rx =3D <0 0 0=
->;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-tx =3D <1 0 0=
->;
-> > > > > +=C2=A0=C2=A0=C2=A0 };
-> > > > > +};
-> > > > > +
-> > > > > +&mailbox0_cluster1 {
-> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0 mbox_c7x_0: mbox-c7x-0 {
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-rx =3D <0 0 0=
->;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-tx =3D <1 0 0=
->;
-> > > > > +=C2=A0=C2=A0=C2=A0 };
-> > > > > +};
-> > > > > +
-> > > > > +&mailbox0_cluster2 {
-> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0 mbox_mcu_r5_0: mbox-mcu-r5-0 {
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-rx =3D <0 0 0=
->;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ti,mbox-tx =3D <1 0 0=
->;
-> > > > > +=C2=A0=C2=A0=C2=A0 };
-> > > > > +};
-> > > > > +
-> > > > > +&wkup_r5fss0 {
-> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
-> > > > > +};
-> > > > > +
-> > > > > +&wkup_r5fss0_core0 {
-> > > > > +=C2=A0=C2=A0=C2=A0 mboxes =3D <&mailbox0_cluster0>, <&mbox_r5_0>;
-> > > > > +=C2=A0=C2=A0=C2=A0 memory-region =3D <&wkup_r5fss0_core0_dma_mem=
-ory_region>,
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 <&wkup_r5fss0_core0_memory_region>;
-> > > > > +};
-> > > > > +
-> > > > > +&mcu_r5fss0 {
-> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
-> > > > > +};
-> > > > > +
-> > > > > +&mcu_r5fss0_core0 {
-> > > > > +=C2=A0=C2=A0=C2=A0 mboxes =3D <&mailbox0_cluster2>, <&mbox_mcu_r=
-5_0>;
-> > > > > +=C2=A0=C2=A0=C2=A0 memory-region =3D <&mcu_r5fss0_core0_dma_memo=
-ry_region>,
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 <&mcu_r5fss0_core0_memory_region>;
-> > > > > +};
-> > > > > +
-> > > > > +&c7x_0 {
-> > > > > +=C2=A0=C2=A0=C2=A0 mboxes =3D <&mailbox0_cluster1>, <&mbox_c7x_0=
->;
-> > > > > +=C2=A0=C2=A0=C2=A0 memory-region =3D <&c7x_0_dma_memory_region>,
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 <&c7x_0_memory_region>;
-> > > > > +=C2=A0=C2=A0=C2=A0 status =3D "okay";
-> > > > > +};
-> > > >=20
-> > >=20
-> >=20
->=20
->=20
-
---=20
+-- 
 Thanks,
-Jai
+Ganapat/GK
 
---e3db444jyk2gutly
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAmf3mvEACgkQQ96R+SSa
-cUWkGhAAzCCnr4vaiqwl+eFE71335Drwwdm32P7PapSrveFwTaWYyVaAHV6ua/Cm
-sbvbJuHPgh9LIy2zNEq2EnsjfA513NovuM4yoGA5x1LBb2q/OtfhS8xDlxza0aJ4
-wN/jkJmTZJ7R+Oc3nvZBtLMLzlfhNFZFV92ob472rFGE9gS8V5KjcEJ5GAMAQqfd
-KMCdN3nqza9bVLnMDg8jTPJVR2K5ktonx3CyuIg44Q0Zgrxqj9otqm/QcF2Gt3gj
-jDQKMU9Ryowcm4SLoE/xlKOWQj1hwtY9HsegR4A7dzGDm//XIBo3iXCWsAMbWD1f
-+enRtwycF96a1A/tei1yfNGj2yFVxamiUCtVA27i8XHr2Sfewl4zSSIhDYGJMU5o
-UxwjpKy4DGaPZuIH1h9TF1jFFouQgs9XZJBxk/IE6yzU1eU/W8eVgT6oBQCpVRL8
-FwAk4mUYNKiy4axTD1H5Xb8Z5JwpycuqZcp8j0GJPYDty2iYIxEZv55C7LciPfgA
-jL2Y/g7sx4rCPXTUGlKy4QnfJDm3pdxp6QbLnqsvgdjFA/6UGQyhGRolZCgoOkJy
-BANT1OM2ZN4B8OnIrcwrRcnecYsaTKqAU/ecEf1N/Zr6NQZNQbNbbC/KEoGrNH3G
-pRViFRX9b2Washmr6+9sy3XfKsFqbzz1p8OMsdQDLJSZnJaJW5s=
-=3GrP
------END PGP SIGNATURE-----
-
---e3db444jyk2gutly--
 
