@@ -4,115 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB436C369A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 12:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E29CFC3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 12:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1af3Acrq13omiCmpt+yfFcpHFjByQr6jExJ1EFKRn6w=; b=FvRLc4+S5CaCNme4lxshMmQKP1
-	L5h+u5NS8r87IogEXiUyIcatjJRPJaMgD3XEJZXsG5DlK/bmQJCIooAFRAFdFtOg2A3tXnyQaCkXe
-	iObhLR9aOHmYeqC8G82lp7lUbvetdjybPLE8Q1Dj7gnV+kWLHuuquGLIywwHSSnJVxRx6my554i1u
-	f6pyYHf3nzxbXebIYLbK0Z3SAhpvs4T1PIGd5MzZRuMCiIIA9cgwY/zHXzOPlhDslV2IJSIx6gfYR
-	iUrjVjKRDVunJfhcEXa3BI6ZPCBVfSM+UkqZk6gA2ZrxpGHiwaZQ2fuCWdyZdzifbUxSo7U2cAGyB
-	lxVzB3nA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TOGuWJKD0WzESm/bo5U4hXHCwzgbA73NauItgs6mHmQ=; b=BHXcloLWSPMzUZoaVc/698Lzs7
+	Xlk1KHbeVJPU99aTJf9t/4ByFdik2BosCNw4QJww5BCEzi8xcnATODeB7ApSaIB5nWhWKaZTMy0er
+	0oDu6lRh8yb5+qM7dk6woy0t29IcZWhiWMKVUdkVuijDJ6BO0yaebuHnHEoNJCT9Qg58t4ULJIsLW
+	zFRZSfhl43DZ8O2l0Lcd1nWh+QHF/fu4PgI1vrvZ43zvOEsdMCDj+llNiZBZimnf/1Bq7jzYxGtM8
+	8ZWD1a2lxx4fpYdwUgqrUoh4KgdYyBedcV8OKM01VdYcknNA2CER8CUZhM1AlGSgHH3pXRHSXCxH3
+	nIDFne0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rPr-0000000AZwz-0HdR;
-	Thu, 10 Apr 2025 12:53:59 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1u2rRb-0000000AaD1-0rKL;
+	Thu, 10 Apr 2025 12:55:47 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rIh-0000000AYS6-2w8D;
-	Thu, 10 Apr 2025 12:46:36 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id B389A254020B;
-	Thu, 10 Apr 2025 08:46:33 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-05.internal (MEProxy); Thu, 10 Apr 2025 08:46:34 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1744289193;
-	 x=1744375593; bh=1af3Acrq13omiCmpt+yfFcpHFjByQr6jExJ1EFKRn6w=; b=
-	CTgul6S/PRDtZviO5Qr6XiWIQjRJhlNlaftnJevYu/kQvu1s8Z420F2Ibs97+uRw
-	Q78FBsti/k939A+EgHm7EbBzkG8zXEBtM1c4DlNNSKVRp23v7RSojkDxqYWBK8bu
-	JFJCbEHttBvbRcOCifjby3duW8p4mbrqO/jUQe09YRvYvahrbEHiTp6KZ8k2Vc4U
-	8/wr3L3XpYzg/MYlmopmC0amruLXr5jD0Ex/l1PcNvOFybwV23hFgP/SDVXt4GFY
-	DPpTpQmoQD5eULdN3gQfG2ASkAjFjpD1ABz2UPxjyHRkyELYjwyFkh5xJZ8PaGmQ
-	8RnkXWG1qkQUdYF9105pqA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1744289193; x=
-	1744375593; bh=1af3Acrq13omiCmpt+yfFcpHFjByQr6jExJ1EFKRn6w=; b=K
-	apeDGnNm5BzuSGD5u4h+sayd3St/4HtGMW08wMmVL6Qmdlda+wwfyK39c4i9TLzv
-	4OhaykoJb9H2dtdEgypwrpHW5/dJ3uaY6/qz5EXz5n1B5EwtX8L07PHpibcoQ6f/
-	qnNNyIFQ7+JIzx9mAS3R1r8xt9ePn8/FWMXlw6I3uYHzzL5FRDlOP8UZc7QppbbR
-	XVGzl7HYmbSbbTPJ7QUeBJeF43imDCywIf30n2TO5lHvjuhuJpvezAZNuraxnQDf
-	cwcoo+NqgQYao17PKUBzMhp9Bgj/iwl9KAVmB2vZIMgwLN4XM0Nzfys6+CZcWbk0
-	Ut89RCle7MFql0lYruPTw==
-X-ME-Sender: <xms:qL33Z72OD5mAzq3NyH6zwHcRV4DKl2bxafPGEcgc9mnv_wQSxlhFpQ>
-    <xme:qL33Z6GwD-puoPGmTiC3FCJrvsMUY7uubst4qSCcvJ_1UsIrzORCH8VEJ544wqidB
-    OpC6qaUKK1WIjdGlGk>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdekleehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
-    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
-    udelpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinh
-    hugidrohhrghdruhhkpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthhhinhhordgu
-    vghlrhgvghhnohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopegurghvvghmse
-    gurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnshhuvghlshhmthhhsehgmhgr
-    ihhlrdgtohhmpdhrtghpthhtohepughqfhgvgihtsehgmhgrihhlrdgtohhmpdhrtghpth
-    htohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrthht
-    hhhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtohepvgguuhhmrgiivghtse
-    hgohhoghhlvgdrtghomhdprhgtphhtthhopehrughunhhlrghpsehinhhfrhgruggvrggu
-    rdhorhhg
-X-ME-Proxy: <xmx:qL33Z74yKyuv9T4pmEnAnQIrf6FHKoaFItdOIjFSdZid9siM6yKo5A>
-    <xmx:qL33Zw27BgErfILdNjIIpynzf4X7HG4rJ8jFKr1LaQU_0XdhaCdQhw>
-    <xmx:qL33Z-EWK24u-Mtl3szpATHpieoba8qfoPQUOvjWJT5GrOI_RzOX8Q>
-    <xmx:qL33Zx-AOVVboYLW94rdIKplVfrhPWR8WUM4aYETGu13OdgJPoqXfQ>
-    <xmx:qb33Z_8YEeexYNtkkz26Eyv4VIHGVq_pY59-ppJbee4kNWCVWNqGfGEV>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 4D3DE2220074; Thu, 10 Apr 2025 08:46:32 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1u2rKN-0000000AYqI-1ndX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 10 Apr 2025 12:48:20 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1u2rKC-00081a-9j; Thu, 10 Apr 2025 14:48:08 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1u2rKB-004Guz-1D;
+	Thu, 10 Apr 2025 14:48:07 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1u2rKB-00093a-0z;
+	Thu, 10 Apr 2025 14:48:07 +0200
+Message-ID: <2bb410e34babc4c66895e8e74cf014f89127914d.camel@pengutronix.de>
+Subject: Re: [PATCH 2/2] spi: stm32-ospi: Make usage of
+ reset_control_acquire/release() API
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Patrice Chotard <patrice.chotard@foss.st.com>, Mark Brown
+ <broonie@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Thu, 10 Apr 2025 14:48:07 +0200
+In-Reply-To: <20250410-b4-upstream_ospi_reset_update-v1-2-74126a8ceb9c@foss.st.com>
+References: <20250410-b4-upstream_ospi_reset_update-v1-0-74126a8ceb9c@foss.st.com>
+	 <20250410-b4-upstream_ospi_reset_update-v1-2-74126a8ceb9c@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-X-ThreadId: T2340d8c52bdbc82d
-Date: Thu, 10 Apr 2025 14:46:11 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Christian Marangi" <ansuelsmth@gmail.com>
-Cc: "Andrew Lunn" <andrew@lunn.ch>, "Heiner Kallweit" <hkallweit1@gmail.com>,
- "Russell King" <linux@armlinux.org.uk>,
- "David S . Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>, "Daniel Golle" <daniel@makrotopia.org>,
- "Qingfang Deng" <dqfext@gmail.com>,
- "SkyLake Huang" <SkyLake.Huang@mediatek.com>,
- "Matthias Brugger" <matthias.bgg@gmail.com>,
- "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
- "Randy Dunlap" <rdunlap@infradead.org>, "Simon Horman" <horms@kernel.org>,
- Netdev <netdev@vger.kernel.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Message-Id: <487b3b92-59e8-4ce5-88da-1d8176392d87@app.fastmail.com>
-In-Reply-To: <67f7a015.df0a0220.287b40.53b2@mx.google.com>
-References: <20250410100410.348-1-ansuelsmth@gmail.com>
- <c108aee9-f668-4cd7-b276-d5e0a266eaa4@app.fastmail.com>
- <67f7a015.df0a0220.287b40.53b2@mx.google.com>
-Subject: Re: [net-next PATCH v2 1/2] net: phy: mediatek: permit to compile test GE SOC
- PHY driver
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_054635_797851_3548A721 
-X-CRM114-Status: GOOD (  22.64  )
+X-CRM114-CacheID: sfid-20250410_054819_464570_53F98F80 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,54 +81,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025, at 12:40, Christian Marangi wrote:
-> On Thu, Apr 10, 2025 at 12:31:05PM +0200, Arnd Bergmann wrote:
->> On Thu, Apr 10, 2025, at 12:04, Christian Marangi wrote:
->> > When commit 462a3daad679 ("net: phy: mediatek: fix compile-test
->> > dependencies") fixed the dependency, it should have also introduced
->> > an or on COMPILE_TEST to permit this driver to be compile-tested even if
->> > NVMEM_MTK_EFUSE wasn't selected
->> 
->> Why does this matter? NVMEM_MTK_EFUSE can be enabled for both
->> allmodconfig and randconfig builds on any architecture, so you
->> get build coverage either way, it's just a little less likely
->> to be enabled in randconfig I guess?
->>
->
-> If we base stuff on the fact that everything is selected or that a
-> random config by luck selects it, then COMPILE_TEST doesn't make sense
-> at all.
->
-> For my personal test, I wanted to test the driver on a simple x86 build
-> without having to depend on ARCH or having to cross compile. Won't
-> happen on real world scenario? Totally. I should be able to compile it?
-> Yes.
+On Do, 2025-04-10 at 14:23 +0200, Patrice Chotard wrote:
+> As ospi reset is consumed by both OMM and OSPI drivers, use the reset
+> acquire/release mechanism which ensure exclusive reset usage.
+>=20
+> This avoid to call reset_control_get/put() in OMM driver each time
+> we need to reset OSPI children and guarantee the reset line stays
+> deasserted.
+>=20
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> ---
+>  drivers/spi/spi-stm32-ospi.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
+> index 668022098b1eac3628f0677e6d786e5a267346be..96fa362432f13c19e4dde63d9=
+64a0db64c8ade95 100644
+> --- a/drivers/spi/spi-stm32-ospi.c
+> +++ b/drivers/spi/spi-stm32-ospi.c
+> @@ -804,7 +804,7 @@ static int stm32_ospi_get_resources(struct platform_d=
+evice *pdev)
+>  		return ret;
+>  	}
+> =20
+> -	ospi->rstc =3D devm_reset_control_array_get_optional_exclusive(dev);
+> +	ospi->rstc =3D devm_reset_control_array_get_exclusive_released(dev);
 
-Being able to compile test the driver yourself is clearly
-a good idea, I just don't think that requires the dependency to
-be conditional here.
+Why does this drop _optional?
 
->> I would expect this to break the build with CONFIG_NVMEM=m
->> and MEDIATEK_GE_SOC_PHY=y.
->> 
->> The normal thing here would be to have a dependency on
->> CONFIG_NVMEM in place of the NVMEM_MTK_EFUSE dependency,
->> or possible on 'NVMEM || !NVMEM' if you want to make it
->> more likely to be enabled in randconfig builds.
->> 
->
-> The big idea of these dependency is that... In MTK the internal PHY of
-> the switch needs calibration or it won't work hence it doesn't make
-> sense to select the PHY as it won't ever work without the NVMEM driver.
+Also, since _acquire() is right below in the same function, I see no
+benefit in requesting the reset control in released state.
 
-That's not how dependencies normally work: the driver also fails
-to work correctly if you are missing the correct pinctrl or led
-driver, or the syscon, yet you don't list them explicitly because
-you just need them for the machine to work correctly.
+>  	if (IS_ERR(ospi->rstc))
+>  		return dev_err_probe(dev, PTR_ERR(ospi->rstc),
+>  				     "Can't get reset\n");
+> @@ -937,9 +937,11 @@ static int stm32_ospi_probe(struct platform_device *=
+pdev)
+>  		goto err_pm_enable;
+> =20
+>  	if (ospi->rstc) {
 
-The driver dependencies should just list what you need to build,
-regardless of whether you are compile-testing or building a driver
-that is going to be used.
+This check only makes sense if the reset control (array) is optional,
+otherwise ospi->rstc can never be NULL.
 
-    Arnd
+> +		reset_control_acquire(ospi->rstc);
+
+This is missing error handling. Alternatively, you could just use the
+normal request function to get an already-acquired reset control.
+
+>  		reset_control_assert(ospi->rstc);
+>  		udelay(2);
+>  		reset_control_deassert(ospi->rstc);
+> +		reset_control_release(ospi->rstc);
+>  	}
+> =20
+>  	ret =3D spi_register_controller(ctrl);
+
+regards
+Philipp
+
 
