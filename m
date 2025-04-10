@@ -4,61 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078CDC3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF2FC369A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 10 Apr 2025 13:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JXnN/jSE0qRy72K/iNpWMtM5JNQccqWAQlrX93rjQJI=; b=AyBBjnumHMlxucP6+ozQVtbzS7
-	Cfv5t4e2XhiEpVdkC2DvCYZBh6EmQtNXGZxcReQLFNK1k7GhbqIxAJjc1MlEaKH54jB9yzrYNHrf+
-	xSAQ2FrtJuehM7hFZ7R0nn5Gxl/Jm6qtOzoC6KEXesQkYrrhktv4DX6bYhrpibP2TowLxt/wESo3/
-	Pq6S428zzwluXu61gSdq/x0l9K0fnfVmA2QEAl/IjkefjNFbETvyEhe+HV6Wv5GXKpzIT+i0OBWEC
-	gjIiwbL3HlHcSPBae5Owpm7V1pYowbGhEYTaSE36X9n9BpYsad9YXzAJD/CFeZe95zLIN4eWcyhua
-	u9GGLCSA==;
+	bh=UtA5gEjIdlbSvKgOUXHBQThchBGfso4/X0OKyeayV/w=; b=SDvsf8lGUnQpTNuJPAfbl+0UJr
+	xxC/fh99KgsnPZWZgfzHMB6Upl3skzARfZQMcdHseauWoirtCwbtNqaH6XDWA34jAywn1iLLJeGcN
+	Txh9F+AT/ONrUGoc5i9zJm8MdsgYigwzrm8icJb6LSdylk5PMxwOELGbMLqVUK7KcY0j2wKzbrkYm
+	oub4JjrNoGl/Fi2vP8Yj9jT5hbnSc8ZsvQlocLI8+bzCZpXPSuhXOckOApjOOtCCTPdzErShAgLko
+	Z4cY6WZ6Vxmk33wAkN9keO+BLfUdiUub393Uq02RvoRZ3jn0EVaQLbjo7KPLYfBSSCXw4/XP2Rgth
+	MbGjcy+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2riL-0000000AceY-0jh9;
-	Thu, 10 Apr 2025 13:13:05 +0000
-Received: from mail-m15589.qiye.163.com ([101.71.155.89])
+	id 1u2rrM-0000000AeFP-42mo;
+	Thu, 10 Apr 2025 13:22:24 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2qXF-0000000AOqt-2Fuq
+	id 1u2rpZ-0000000AdpS-2ngM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 10 Apr 2025 11:57:34 +0000
-Received: from localhost.localdomain (unknown [122.224.147.158])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 11665dc58;
-	Thu, 10 Apr 2025 19:42:29 +0800 (GMT+08:00)
-From: Shouping Wang <allen.wang@hj-micro.com>
-To: will@kernel.org
-Cc: robin.murphy@arm.com,
-	mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	allen.wang@hj-micro.com,
-	peter.du@hj-micro.com,
-	andy.xu@hj-micro.com
-Subject: [PATCH 2/2] perf:arm-ni: support PMUs to share IRQs for different clock domains
-Date: Thu, 10 Apr 2025 19:42:14 +0800
-Message-ID: <20250410114214.1599777-3-allen.wang@hj-micro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250410114214.1599777-1-allen.wang@hj-micro.com>
-References: <20250410114214.1599777-1-allen.wang@hj-micro.com>
+	Thu, 10 Apr 2025 13:20:35 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53ADKRQo1297586
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 10 Apr 2025 08:20:27 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744291227;
+	bh=UtA5gEjIdlbSvKgOUXHBQThchBGfso4/X0OKyeayV/w=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=OuKGFnMMx+MGvEHE8CmdC489iJJG7mN1JssoJ3A6Ftsa1C46guZVqrplScEry3sZ+
+	 WV6gHSc4YDhfyhpYR4RMQv1vHqnLs4/PpxH2vWGi+iZ/P6opqIhfbJVofEKKnFdW91
+	 67pce3rXPZgG3jXXfI+1U4MLYMck6OvLWw2VU/WY=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53ADKRAK029560
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 10 Apr 2025 08:20:27 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 10
+ Apr 2025 08:20:26 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 10 Apr 2025 08:20:26 -0500
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53ADKMAE056004;
+	Thu, 10 Apr 2025 08:20:23 -0500
+Message-ID: <acd087a1-c10d-43dd-8900-d05591b0c4b0@ti.com>
+Date: Thu, 10 Apr 2025 18:50:22 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s: add rng node
+To: Michael Walle <mwalle@kernel.org>, Manorit Chawdhry <m-chawdhry@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20250313144155.2382316-1-mwalle@kernel.org>
+ <837cba5f-f49e-4cbf-9cbe-2b25f7c9d4b8@ti.com>
+ <D8UECOJ2NMCU.3ALYIKSODJ479@kernel.org>
+ <1ad2d8c2-6a0d-419d-984d-4974adb0e1f0@ti.com>
+ <D8V323NBB32P.3P8H103L83HZK@kernel.org>
+ <e2a37e72-d9c8-4329-8a5a-f2c9865cdb5d@ti.com>
+ <ea82dc29e93d53b659916f2fed10982b@kernel.org>
+ <20250409103303.dkrrvp7mdctx32pd@uda0497581-HP>
+ <D92X7T33NU3T.VSZM5K7U602S@kernel.org>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <D92X7T33NU3T.VSZM5K7U602S@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZH0xLVk9CH0kYSRlKTktNGFYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSUlVSUlPVUpPTFVKTkNZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
-	tLVUpCS0tZBg++
-X-HM-Tid: 0a961f8235f009d9kunm11665dc58
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MAg6EBw4IjIDSzcPEE4aTDY2
-	IjkKFDZVSlVKTE9PSUNOSE5LSE9JVTMWGhIXVRoXFx4VVQwaFRw7ExFWFhIYCRRVGBQWRVlXWRIL
-	WUFZSklJVUlJT1VKT0xVSk5DWVdZCAFZQU9CQk43Bg++
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_045733_778776_F689FF8F 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20250410_062033_871960_A6FDC5C7 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,155 +99,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM NI700 contains multiple clock domains, each with a PMU.
-In some hardware implementations, these PMUs under the same device
-share a common interrupt line. The current codes implementation
-only supports requesting a separate IRQ for each clock domain's PMU.
+Hi Michael,
 
-Here, a single interrupt handler is registered for shared interrupt.
-Within this handler, the interrupt status of all PMUs sharing the
-interrupt is checked.
+On 4/10/2025 4:56 PM, Michael Walle wrote:
+> Hi Manorit,
+>
+>>>>>>>>> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+>>>>>>>>> [..]
+>>>>>>>> For completeness , this is ok to add this node but
+>>>>>>>> should be kept disabled
+>>>>>>> Shouldn't it be "reserved" then, see [1].
+>>>>>> yes, should be reserved.
+>>>>>>
+>>>>>> With marking status as reserved.
+>>>>>>
+>>>>>> Please use Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+>>>>> Thanks.
+>>>>>
+>>>>>>>> similar to
+>>>>>>>>
+>>>>>>>> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi#L662
+>>>>>>> j784s4, j721e and j721s2 have them enabled. What is the rule here?
+>>>>>> J784s4, j721e and j721s2 SOCs has two TRNG blocks,
+>>>>>>
+>>>>>> example for j721e, one is used by kernel [0] and another by
+>>>>>> optee [1].
+>>>>>>
+>>>>>>
+>>>>>>> You also disable the hwrng in optee in your evm according to [2]:
+>>>>>>> CFG_WITH_SOFTWARE_PRNG=y
+>>>>>> We are planning to use this hardware block by secure firmware.
+>>>>>>
+>>>>>> Therefore request not to use by optee as well
+>>>>> How will you be able to access the RNG from linux and u-boot? I'm
+>>>>> asking because I'll need it in u-boot for the lwip stack and the
+>>>>> HTTPS protocol.
+>>>> For now,  If you need TRNG then I can suggest to use optee TRNG (ie
+>>>> build
+>>>> optee with HW TRNG).
+>>> I'll be using an uboot TRNG driver. But how will that work in
+>>> the future if the RNG is used by the secure firmware?
+>> Wondering if this would be of interest to you [0]. I think since this
+>> device only has one TRNG, there has to be a master around and we can
+>> mitigate that from OP-TEE as of now, incase anything changes in future
+>> then the communication channel between OP-TEE and the secure firmware
+>> can be established but currently it's still at work. I think the best
+>> way to go forward is to get the numbers from OP-TEE atm IMHO.
+> I saw the optee rng. But as of now, the instructions are to use a
+> software PRNG for optee. Thus, if someone compiles optee by
+> following the instructions, it's unlikely to work.
+>
+> Would TI willing to agree to change the building docs and enable the
+> TRNG in optee and then work on moving the TRNG into the secure
+> firmware and build a channel between optee and that firmware? Right
+> now, the TRNG seems pretty useless as we cannot use it neither from
+> u-boot or linux (and being future proof).
 
-Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
----
- drivers/perf/arm-ni.c | 77 +++++++++++++++++++++++++++++--------------
- 1 file changed, 53 insertions(+), 24 deletions(-)
+Thanks for note,
 
-diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-index 3f3d2e0f91fa..611085e89436 100644
---- a/drivers/perf/arm-ni.c
-+++ b/drivers/perf/arm-ni.c
-@@ -104,6 +104,7 @@ struct arm_ni_cd {
- 	u16 id;
- 	int num_units;
- 	int irq;
-+	s8 irq_friend;
- 	int cpu;
- 	struct hlist_node cpuhp_node;
- 	struct pmu pmu;
-@@ -446,26 +447,31 @@ static irqreturn_t arm_ni_handle_irq(int irq, void *dev_id)
- {
- 	struct arm_ni_cd *cd = dev_id;
- 	irqreturn_t ret = IRQ_NONE;
--	u32 reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
-+	u32 reg;
- 
--	if (reg & (1U << NI_CCNT_IDX)) {
--		ret = IRQ_HANDLED;
--		if (!(WARN_ON(!cd->ccnt))) {
--			arm_ni_event_read(cd->ccnt);
--			arm_ni_init_ccnt(cd);
-+	for (;;) {
-+		reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
-+		if (reg & (1U << NI_CCNT_IDX)) {
-+			ret = IRQ_HANDLED;
-+			if (!(WARN_ON(!cd->ccnt))) {
-+				arm_ni_event_read(cd->ccnt);
-+				arm_ni_init_ccnt(cd);
-+			}
- 		}
--	}
--	for (int i = 0; i < NI_NUM_COUNTERS; i++) {
--		if (!(reg & (1U << i)))
--			continue;
--		ret = IRQ_HANDLED;
--		if (!(WARN_ON(!cd->evcnt[i]))) {
--			arm_ni_event_read(cd->evcnt[i]);
--			arm_ni_init_evcnt(cd, i);
-+		for (int i = 0; i < NI_NUM_COUNTERS; i++) {
-+			if (!(reg & (1U << i)))
-+				continue;
-+			ret = IRQ_HANDLED;
-+			if (!(WARN_ON(!cd->evcnt[i]))) {
-+				arm_ni_event_read(cd->evcnt[i]);
-+				arm_ni_init_evcnt(cd, i);
-+			}
- 		}
-+		writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
-+		if (!cd->irq_friend)
-+			return ret;
-+		cd += cd->irq_friend;
- 	}
--	writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
--	return ret;
- }
- 
- static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_start)
-@@ -538,12 +544,6 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
- 	if (cd->irq < 0)
- 		return cd->irq;
- 
--	err = devm_request_irq(ni->dev, cd->irq, arm_ni_handle_irq,
--			       IRQF_NOBALANCING | IRQF_NO_THREAD,
--			       dev_name(ni->dev), cd);
--	if (err)
--		return err;
--
- 	cd->cpu = cpumask_local_spread(0, dev_to_node(ni->dev));
- 	cd->pmu = (struct pmu) {
- 		.module = THIS_MODULE,
-@@ -603,6 +603,30 @@ static void arm_ni_probe_domain(void __iomem *base, struct arm_ni_node *node)
- 	node->num_components = readl_relaxed(base + NI_CHILD_NODE_INFO);
- }
- 
-+static int arm_ni_irq_init(struct arm_ni *ni)
-+{
-+	int irq;
-+	int err = 0;
-+
-+	for (int i = 0; i < ni->num_cds; i++) {
-+		irq = ni->cds[i].irq;
-+		for (int j = i; j--; ) {
-+			if (ni->cds[j].irq == irq) {
-+				ni->cds[j].irq_friend = i-j;
-+				goto next;
-+			}
-+		}
-+		err =  devm_request_irq(ni->dev, irq, arm_ni_handle_irq,
-+					IRQF_NOBALANCING | IRQF_NO_THREAD,
-+					 dev_name(ni->dev), &ni->cds[i]);
-+		if (err)
-+			return err;
-+next:
-+		;
-+	}
-+	return 0;
-+}
-+
- static int arm_ni_probe(struct platform_device *pdev)
- {
- 	struct arm_ni_node cfg, vd, pd, cd;
-@@ -611,6 +635,7 @@ static int arm_ni_probe(struct platform_device *pdev)
- 	void __iomem *base;
- 	static atomic_t id;
- 	int num_cds;
-+	int ret;
- 	u32 reg, part;
- 
- 	/*
-@@ -669,8 +694,6 @@ static int arm_ni_probe(struct platform_device *pdev)
- 			reg = readl_relaxed(vd.base + NI_CHILD_PTR(p));
- 			arm_ni_probe_domain(base + reg, &pd);
- 			for (int c = 0; c < pd.num_components; c++) {
--				int ret;
--
- 				reg = readl_relaxed(pd.base + NI_CHILD_PTR(c));
- 				arm_ni_probe_domain(base + reg, &cd);
- 				ret = arm_ni_init_cd(ni, &cd, res->start);
-@@ -683,6 +706,12 @@ static int arm_ni_probe(struct platform_device *pdev)
- 		}
- 	}
- 
-+	ret = arm_ni_irq_init(ni);
-+	if (ret) {
-+		arm_ni_remove(pdev);
-+		return ret;
-+	}
-+
- 	return 0;
- }
- 
--- 
-2.43.0
+I agree to update doc two times
 
+1) with current state ie use optee based trng
+
+2) When fw based trng is available,
+
+
+>
+> -michael
 
