@@ -4,87 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC524C369A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 17:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54619C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 17:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+eht9iaQ6o1fN2gEoUHVMqICYWehtz7ZUwi+FbnEXgE=; b=ds4nH1S1sba6sDC8wJA5P9XVsk
-	LFgjLWbLdtcGEYqnnGEYLV34YD/CUku6I3+WnLzTV56m/BbCP7gGfepPKO4F3XFfjjzcA+2/UiNE7
-	5+Rb3Z6FvhHUFUKIcADRJuXFjwsIA7cogyiwe0mn8jevBU8JIONdQlSZ6NQDbE2Kx+MPMk4YowV8Y
-	aR6Do6IXgY67oonqc2kOdUcH+0CssHZtFPBveT57uqFfWNTIqYdV8L0ARJYQPc8tY2m6VleFyKcZa
-	lq9d90S3XrE7Lbozf2UfsYX00fIjt/Lt2L2SQogMkuP5q4vnqOsEfynJqnV4rBYNNZBe5Mtx4VyVN
-	Oi9vZ4JA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vfPoSRfQH477/CFLb6ZTwRTcQNsLhqllklqufNLvGCM=; b=amCbDTCQ9uYE2Je9jvyYsKMG8O
+	jlPFJ/v6CfKGrds0m7m/a0u/avUZQtO/RSV1ZmVE0ZA4J8mg9mi/n42FGKDx1OEY1VVQrM5Pha+WV
+	mUkVLnkh/SJSbdAgRSNMJpUUSfTbLltrX09U0Mlp7lA0U5ENZNS9uH1Xd1EN0dXxp1J9MQoSCpHbL
+	V1fZ4/Mikizj0LCQ7M5oA7iQCT7uDtbTjExMHc2d2dyrsJIkc5xyaUlJlIWhcg4o7LmyLFFfrvJZ/
+	GsRXY01H2gaYhGVM0jUVGNuGzuAj3DyWV4lHMfnf1SeIrbKRjYcOBABNtUsVzXOfb2BZRwoXjEQzK
+	850JexPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3IPv-0000000EZ4b-0Jfb;
-	Fri, 11 Apr 2025 17:43:51 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1u3IRh-0000000EZFg-34yw;
+	Fri, 11 Apr 2025 17:45:41 +0000
+Received: from smtp-fw-52003.amazon.com ([52.119.213.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3IHW-0000000EXqK-3fOG
+	id 1u3IOV-0000000EYw3-18d6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 17:35:12 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2242ac37caeso9445ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 10:35:09 -0700 (PDT)
+	Fri, 11 Apr 2025 17:42:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1744392909; x=1744997709; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+eht9iaQ6o1fN2gEoUHVMqICYWehtz7ZUwi+FbnEXgE=;
-        b=xp7ZlXZwWuhN4Y0h9A5ERyM4efEq/90xwQsvwy4tikMVFE6kxP7ihBJUgD+cNFbmy0
-         NEE3JwLvLWxPpRxIM577//RJG2b+KiElWSdznhjHxXd07wzQBlSnlVGwoMMRT15FOqUI
-         F/bNwkcPxrRNyOwFsOgmZvwTZDMlZY3spxTyutTEHs+NMdqXGJhs/p4B+Yi0rudw/Cp3
-         aQC8OJWAPk60QqwC5SBFDtuZ2jIfRWySYVLixsRPLnrllCBVMVmiP5F+UrxNag9fIU2Y
-         pYc9zZAzEIaZhAYbxlHo80aVs22GGpgFv4aa+npB5whSrNPm1ZwPArqm6pzftCNmizOS
-         /RTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744392909; x=1744997709;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+eht9iaQ6o1fN2gEoUHVMqICYWehtz7ZUwi+FbnEXgE=;
-        b=rkFu2VQ0j24rKUq4mnmPJObfgFcqwhDeJ2e2jFLG9w/B7+Wns+q7/XTsBub5G1yMqI
-         rQTt9klX2f0OhMsZBMvkpbGwPi7dVhlKfmV11kjP5k1o8lvI12q66XfbH+ofy4YKOETX
-         sGmzFVwARjxGTJYh5pNWZgddIlXvm63D46FPo8xYEcVkv+7RcWUDi7seezG478ZP1/c0
-         Fc6hZVbvTf4icgOkH1B6rbBDYS7ARjzpdmwkRC+0GR8B/k0kB2oJ9rKhxAxf9dgi7eZQ
-         IiBjcxaA5x2+nJJMo52kyp1jLIM93J+wcsKKLOyCqmjf3bHhGBx3k+/GLkU1SvDaIDk+
-         81gQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV9GeGveJSNVoiP+4vC7jqlyv8mRLy0Q5mjeYhwdbH9zBE8UttMw8ZXKxwb9k8uZz7twsPODxUDmJuZeJWdTljN@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlGLm43MQ4qw9HYDY2BZ/eXO+7eyLrHzeg/u446izRkE/CeW8A
-	lbTYB1uTcPf37FQW8vMhgl5WYBdYWm11T9HL0LLHRGTb49yLoyZRRp6hISWgzTxYX6qeFSFpgGV
-	59L0TxbnEuGal4oRa8F4BZI8GdArv8jJ9ffxl
-X-Gm-Gg: ASbGnctONgC+1Lit5bTWuWW3ICQT+qSVX2BZS8acVdAKoKHvsPVj49+5mtNgt6JDGLi
-	u8blTnURgjdfiXwd92EeHiiv9kiwO6+MnEsXn7Ww/hRkiIoKOtqlWWH4Kuis/gxcdDNhqlq9lKG
-	ReWJ3kE1atJNdT4pSxzk/fNy0=
-X-Google-Smtp-Source: AGHT+IFsqGb2NI4C998L4eRk5pxG9ZDV+EPyXU0sBnQYjqjaZsqLTIZPs5b8kewYg6GP32+Vd/vVcfo+p6pguFqbuOY=
-X-Received: by 2002:a17:902:c40e:b0:216:21cb:2e06 with SMTP id
- d9443c01a7336-22bea920b31mr3043845ad.19.1744392908956; Fri, 11 Apr 2025
- 10:35:08 -0700 (PDT)
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1744393343; x=1775929343;
+  h=from:to:cc:date:message-id:references:in-reply-to:
+   content-id:content-transfer-encoding:mime-version:subject;
+  bh=vfPoSRfQH477/CFLb6ZTwRTcQNsLhqllklqufNLvGCM=;
+  b=LzATx9ena3pV/ZISPZK1NnhSpIL8poHH72T601WARSEpMGsVWelEcLqX
+   LwtlrVdbaM4Z0bfN60gy9YBj1zDTBnGH4iwzKDsiia/Fau6YpnoMOQzCL
+   LAE9OdnYd0Our+hmawKePE59YElK9tB2Mn3f3JgsmeEgAGCso3Ogq8aRt
+   A=;
+X-IronPort-AV: E=Sophos;i="6.15,205,1739836800"; 
+   d="scan'208";a="82951899"
+Subject: Re: [PATCH v10 10/11] arm64: idle: export arch_cpu_idle()
+Thread-Topic: [PATCH v10 10/11] arm64: idle: export arch_cpu_idle()
+Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
+  by smtp-border-fw-52003.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Apr 2025 17:42:19 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [10.0.21.151:8072]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.8.63:2525] with esmtp (Farcaster)
+ id 0532a55d-5243-42fd-a042-f17c28a7bc62; Fri, 11 Apr 2025 17:42:18 +0000 (UTC)
+X-Farcaster-Flow-ID: 0532a55d-5243-42fd-a042-f17c28a7bc62
+Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Fri, 11 Apr 2025 17:42:18 +0000
+Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
+ EX19D032UWA003.ant.amazon.com (10.13.139.37) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Fri, 11 Apr 2025 17:42:17 +0000
+Received: from EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497]) by
+ EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497%5]) with mapi id
+ 15.02.1544.014; Fri, 11 Apr 2025 17:42:17 +0000
+From: "Okanovic, Haris" <harisokn@amazon.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
+	<kvm@vger.kernel.org>, "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"xueshuai@linux.alibaba.com" <xueshuai@linux.alibaba.com>,
+	"ankur.a.arora@oracle.com" <ankur.a.arora@oracle.com>
+CC: "joao.m.martins@oracle.com" <joao.m.martins@oracle.com>,
+	"boris.ostrovsky@oracle.com" <boris.ostrovsky@oracle.com>, "maz@kernel.org"
+	<maz@kernel.org>, "zhenglifeng1@huawei.com" <zhenglifeng1@huawei.com>,
+	"konrad.wilk@oracle.com" <konrad.wilk@oracle.com>, "cl@gentwo.org"
+	<cl@gentwo.org>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"maobibo@loongson.cn" <maobibo@loongson.cn>, "pbonzini@redhat.com"
+	<pbonzini@redhat.com>, "misono.tomohiro@fujitsu.com"
+	<misono.tomohiro@fujitsu.com>, "daniel.lezcano@linaro.org"
+	<daniel.lezcano@linaro.org>, "arnd@arndb.de" <arnd@arndb.de>,
+	"mtosatti@redhat.com" <mtosatti@redhat.com>, "will@kernel.org"
+	<will@kernel.org>, "lenb@kernel.org" <lenb@kernel.org>,
+	"peterz@infradead.org" <peterz@infradead.org>, "vkuznets@redhat.com"
+	<vkuznets@redhat.com>, "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
+	"Okanovic, Haris" <harisokn@amazon.com>, "rafael@kernel.org"
+	<rafael@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>
+Thread-Index: AQHbgkz0Ww97KFD5dk6R1pgSTFxUF7OeIC2AgADtWYA=
+Date: Fri, 11 Apr 2025 17:42:17 +0000
+Message-ID: <87639d1b017b6032c1d5382567415fad4e2c9e4e.camel@amazon.com>
+References: <20250218213337.377987-1-ankur.a.arora@oracle.com>
+	 <20250218213337.377987-11-ankur.a.arora@oracle.com>
+	 <18875bd7-bf01-4ba8-b38a-4c0767e3130e@linux.alibaba.com>
+In-Reply-To: <18875bd7-bf01-4ba8-b38a-4c0767e3130e@linux.alibaba.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.106.178.33]
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <3A0A36EF8CE7174988CDDF9482C3DAC5@amazon.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20250408171530.140858-1-mark.barnett@arm.com> <Z_ZcRiHTGljxEEdN@gmail.com>
- <2fa741d8-13c7-49c0-a6c5-540a7c2cf3a7@arm.com>
-In-Reply-To: <2fa741d8-13c7-49c0-a6c5-540a7c2cf3a7@arm.com>
-From: Ian Rogers <irogers@google.com>
-Date: Fri, 11 Apr 2025 10:34:56 -0700
-X-Gm-Features: ATxdqUEZa_1pWKSod4wY40ZarBa-DN6S4qpDe5Ur1LE7Pb1ofS8DC8N_Fn09SwQ
-Message-ID: <CAP-5=fUukVQMRHUQ9Mpx38H-7VNLt4mDj-jaYgn8Tf4zjecD-A@mail.gmail.com>
-Subject: Re: [PATCH v4 0/5] A mechanism for efficient support for per-function metrics
-To: Mark Barnett <mark.barnett@arm.com>
-Cc: Ingo Molnar <mingo@kernel.org>, peterz@infradead.org, mingo@redhat.com, 
-	acme@kernel.org, namhyung@kernel.org, ben.gainey@arm.com, 
-	deepak.surti@arm.com, ak@linux.intel.com, will@kernel.org, 
-	james.clark@arm.com, mark.rutland@arm.com, alexander.shishkin@linux.intel.com, 
-	jolsa@kernel.org, adrian.hunter@intel.com, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_103510_916572_B7204866 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20250411_104223_465386_63FC63FB 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +115,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 4:08=E2=80=AFAM Mark Barnett <mark.barnett@arm.com>=
- wrote:
-> Tool Integration
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->
-> We've been using a python script to process the data into a report. We
-> can look at implementing this directly in perf report, if that is
-> required. However, I'm nervous about making the new feature the default
-> behaviour for the tool.
->
-> This feature has been integrated into our tools [1] for the last 12
-> months, and has received a lot of testing on Arm Neoverse hardware.
-> Other platforms have received less rigorous testing. In my opinion, more
-> work would be needed to validate the PMU hardware & software
-> characteristics of other architectures before this can be made the defaul=
-t.
-
-Hi Mark,
-
-Wrt testing, in v6.14 we've fixed up the python scripting with perf a
-bit more and there is an example that parses an event and then dumps
-samples here:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/tree/tools/perf/python/tracepoint.py?h=3Dperf-tools-next
-There is also the perf script integration for things like flame graphs:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/tree/tools/perf/scripts/python/flamegraph.py?h=3Dperf-tools-next#n96
-
-I don't think work should be gated on cleaning up perf report, top,
-etc. which still needs clean up for things like hybrid events. As the
-histograms should use the sample's period then I believe things should
-just work in much the same way as leader sampling can work. It'd be
-worth checking.
-
-Thanks,
-Ian
+T24gRnJpLCAyMDI1LTA0LTExIGF0IDExOjMyICswODAwLCBTaHVhaSBYdWUgd3JvdGU6DQo+ID4g
+Q0FVVElPTjogVGhpcyBlbWFpbCBvcmlnaW5hdGVkIGZyb20gb3V0c2lkZSBvZiB0aGUgb3JnYW5p
+emF0aW9uLiBEbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bmxlc3MgeW91
+IGNhbiBjb25maXJtIHRoZSBzZW5kZXIgYW5kIGtub3cgdGhlIGNvbnRlbnQgaXMgc2FmZS4NCj4g
+PiANCj4gPiANCj4gPiANCj4gPiDlnKggMjAyNS8yLzE5IDA1OjMzLCBBbmt1ciBBcm9yYSDlhpnp
+gZM6DQo+ID4gPiA+IE5lZWRlZCBmb3IgY3B1aWRsZS1oYWx0cG9sbC4NCj4gPiA+ID4gDQo+ID4g
+PiA+IEFja2VkLWJ5OiBXaWxsIERlYWNvbiA8d2lsbEBrZXJuZWwub3JnPg0KPiA+ID4gPiBTaWdu
+ZWQtb2ZmLWJ5OiBBbmt1ciBBcm9yYSA8YW5rdXIuYS5hcm9yYUBvcmFjbGUuY29tPg0KPiA+ID4g
+PiAtLS0NCj4gPiA+ID4gICBhcmNoL2FybTY0L2tlcm5lbC9pZGxlLmMgfCAxICsNCj4gPiA+ID4g
+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykNCj4gPiA+ID4gDQo+ID4gPiA+IGRpZmYg
+LS1naXQgYS9hcmNoL2FybTY0L2tlcm5lbC9pZGxlLmMgYi9hcmNoL2FybTY0L2tlcm5lbC9pZGxl
+LmMNCj4gPiA+ID4gaW5kZXggMDVjZmIzNDdlYzI2Li5iODViYTBkZjliMDIgMTAwNjQ0DQo+ID4g
+PiA+IC0tLSBhL2FyY2gvYXJtNjQva2VybmVsL2lkbGUuYw0KPiA+ID4gPiArKysgYi9hcmNoL2Fy
+bTY0L2tlcm5lbC9pZGxlLmMNCj4gPiA+ID4gQEAgLTQzLDMgKzQzLDQgQEAgdm9pZCBfX2NwdWlk
+bGUgYXJjaF9jcHVfaWRsZSh2b2lkKQ0KPiA+ID4gPiAgICAgICAgKi8NCj4gPiA+ID4gICAgICAg
+Y3B1X2RvX2lkbGUoKTsNCj4gPiANCj4gPiBIaSwgQW5rdXIsDQo+ID4gDQo+ID4gV2l0aCBoYWx0
+cG9sbF9kcml2ZXIgcmVnaXN0ZXJlZCwgYXJjaF9jcHVfaWRsZSgpIG9uIHg4NiBjYW4gc2VsZWN0
+DQo+ID4gbXdhaXRfaWRsZSgpIGluIGlkbGUgdGhyZWFkcy4NCj4gPiANCj4gPiBJdCB1c2UgTU9O
+SVRPUiBzZXRzIHVwIGFuIGVmZmVjdGl2ZSBhZGRyZXNzIHJhbmdlIHRoYXQgaXMgbW9uaXRvcmVk
+DQo+ID4gZm9yIHdyaXRlLXRvLW1lbW9yeSBhY3Rpdml0aWVzOyBNV0FJVCBwbGFjZXMgdGhlIHBy
+b2Nlc3NvciBpbg0KPiA+IGFuIG9wdGltaXplZCBzdGF0ZSAodGhpcyBtYXkgdmFyeSBiZXR3ZWVu
+IGRpZmZlcmVudCBpbXBsZW1lbnRhdGlvbnMpDQo+ID4gdW50aWwgYSB3cml0ZSB0byB0aGUgbW9u
+aXRvcmVkIGFkZHJlc3MgcmFuZ2Ugb2NjdXJzLg0KPiA+IA0KPiA+IFNob3VsZCBhcmNoX2NwdV9p
+ZGxlKCkgb24gYXJtNjQgYWxzbyB1c2UgdGhlIExEWFIvV0ZFDQo+ID4gdG8gYXZvaWQgd2FrZXVw
+IElQSSBsaWtlIHg4NiBtb25pdG9yL213YWl0Pw0KDQpXRkUgd2lsbCB3YWtlIGZyb20gdGhlIGV2
+ZW50IHN0cmVhbSwgd2hpY2ggY2FuIGhhdmUgc2hvcnQgc3ViLW1zDQpwZXJpb2RzIG9uIG1hbnkg
+c3lzdGVtcy4gTWF5IGJlIHNvbWV0aGluZyB0byBjb25zaWRlciB3aGVuIFdGRVQgaXMgbW9yZQ0K
+d2lkZWx5IGF2YWlsYWJsZS4NCg0KPiA+IA0KPiA+IFRoYW5rcy4NCj4gPiBTaHVhaQ0KPiA+IA0K
+PiA+IA0KDQpSZWdhcmRzLA0KSGFyaXMgT2thbm92aWMNCkFXUyBHcmF2aXRvbiBTb2Z0d2FyZQ0K
+DQo=
 
