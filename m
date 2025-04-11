@@ -4,79 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 919CCC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE97C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vq5qWpYQwtAn+8K0fBlNkwMKc2ZES2aYbbqGIKGkRWw=; b=k6CfSiwbQoz7l7jQ8VWVTHLZ8v
-	BsZn8hYKBgnaGL0eFTYulBasIaWPqmr2f6TPx7W1ncBWM4b/Icf6jIxJdFKZEe75etRbS2/VJpDpK
-	q14poHgFWL+c6HMw8Ol7A3Vn/u2VmO1DDcblFgAEp7+JPffGJpAzik7Oerd3SoEVOx4SRC+CPoy2Q
-	oTkYJTzFcHdd3U7V7xWTV+riH9juzWQ9+JWdcqDlpNaNHFGYeKNV0RjfLtpf8Wm4Mlafj+Sjs3p2p
-	i+k0VFcqJBi9AODX80tdPFRs2JxG6Uhkx/2weFid7zx6JkrQhxNTFHiyNKlGDkPI6kkHss4EeRXso
-	55Swh1mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ahE45842u7TdL15efT6Z7ZHkp/0EW6XeVJ2l3pr4tVY=; b=2tGubPF4pzVsXoCfLGPuhQ4Zue
+	cR86ZNpzDMSMnEW5ve5O2O/QTnadPe7XVMBBa/Vlis8ou4MFWbsTm5EXCaqJSuu2IIUy9rjMQiIBv
+	stRY3049IH3cebY08uGBETVsj7XMMxSkbeKoj+o91S+EM5RmWRQKhs64i6D7LwKUk+Z5ByQFOntmK
+	SGUgQO1NiqqBih8xVaOrzZTcWeqAR9c7u+iAgsJclxRk+oS4xPkaO5TYUAuVTAqb0Hf04GKidOhcS
+	deuGH9KdEUS31j8VZGvL35uY3vC69+2+en8BIqgolJhmSrid/Ut/hn97wbNClolqdn2bEK7Ldtj+V
+	mEnFA4og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Ekq-0000000Dz7H-2VOj;
-	Fri, 11 Apr 2025 13:49:12 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u3Eme-0000000DzRt-17Xv;
+	Fri, 11 Apr 2025 13:51:04 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3EXI-0000000Dwsv-41Y2
+	id 1u3EXp-0000000Dx0F-34js
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 13:35:14 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDYgPT2086377
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 08:34:42 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744378482;
-	bh=vq5qWpYQwtAn+8K0fBlNkwMKc2ZES2aYbbqGIKGkRWw=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=LM0H+poPMU7hM+cfUkNMeLijFODEYYO0coGabaLfjrtAZ4NLl45vnP/M3Z7tghlzj
-	 yKrGfqAnaQKVs0zMEWWDFVF0mEtR1RxFsjH3mVY4aRYLVrGfn3KbWdlybreA174xUP
-	 a/Lzd8N/0j09AsZFmQuBLZSO6WKIBIf0GqDNdBe4=
-Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDYgMw047723
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 08:34:42 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 08:34:41 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 08:34:42 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BDYbPA110090;
-	Fri, 11 Apr 2025 08:34:38 -0500
-Message-ID: <44c3ec3d-2fa3-4a61-8c93-5ef4791fcf8a@ti.com>
-Date: Fri, 11 Apr 2025 19:04:36 +0530
+	Fri, 11 Apr 2025 13:35:46 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2264c9d0295so198825ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 06:35:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1744378544; x=1744983344; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ahE45842u7TdL15efT6Z7ZHkp/0EW6XeVJ2l3pr4tVY=;
+        b=OQnj0UrKYxmuUycRuBH/zWLyW/26d7oxIjaQyi81uzHMs4T3Vl8ZQ27tgW9FiNmvXi
+         YoMjz0MO6YHQaGYkDD0P4tdPegLCimq9FkxwOOFq/CJE0Xk3GrzZMrFWBqXnZsMlpYTD
+         q4yIpCBNtAbwaJg+KFAUFnzRkwxUjDh9//Dps5qUde8ib/Ba9nYtWWkdBu3IkCPeS8z4
+         FlmddNEglM7LRRZvzswtR4KyNFuWJ4eyE5yuF5g8qcxqMJTCJRd9+Up1tQCFQKeM/RgN
+         GmEuIth50KfnVOByvBS5Xg7k6dq3JooA4tA/lyjHYagBF54B8yVNYP6phrTMazisHyl0
+         m6wA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744378544; x=1744983344;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ahE45842u7TdL15efT6Z7ZHkp/0EW6XeVJ2l3pr4tVY=;
+        b=Th5VsAECV7czRk4WEosJdPR1SIjsiwRjuVzItzFZe14AFnWgtnZR7SyFajnxJPcxj5
+         bA7kATcQJX/XO2NZzgrZlWt3VGWaOcQ0Muy48D4sedFxTOpW2RRdb3PZDURr5ruV4KK6
+         IKOIzAEe+C6ZIQJFX9D/38Ps/TYx8xtPQShq9u1vR6W5Iwh7n1B0ufLM+hlB1CRgRKZD
+         +VHVKmFeqizk2jcV2AEtZ2CM4BaSxDkskNqqpoP+MYXCoINy37DE5+u2jOBpC3QiluoC
+         55RU6hKOZXyF6/74cTcExTv5lNj3kWvFC1Ma+g2gctWlU2o8niCkG5WdUtE0Qk+M38mS
+         UxPw==
+X-Forwarded-Encrypted: i=1; AJvYcCWCSR9WsWEZeql6v/FC2xV0vPoTMhmXCcD2G84K4vpNL1z6t3SZlTHt69xKPdFllI4NNj+o5jvG3qYhlx4NfaV2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6l6E75ITbt3ztV+Gd+3N/eFvtgR/Yr3q5Gi/gNLLOA7ezJUsx
+	ObSGSTDSZx8vOxgvNOA8Zk4qWo0EsZFh0W9UcLm/zonuGbEuAoGqDh8DyaZMfw==
+X-Gm-Gg: ASbGncuifcTznfHjZ5ducmWHIwYEtqjyrhxQ86eTd/2Ws4OlR8ERtI5p9cjB9mDM0Dr
+	316yCE+dDwx7sRx08hXLZV4sKOxpC+fLWgsElJOH4tkQ0ILWatsjEa3/Fz11ci6a3f6HI49Pf2o
+	IR5gh6HIraUlfkUlwzKT8YypEKcJpazmRcWyolEgE0p2k0uzbRuttfVHPN/xi32SHpN8VJnylV1
+	hGPSrFfKJPYWsAuEa/z2shHR8eAG0HeqK1azi/xzYLMqPIIG+clVTRZn/4f7+fjaSjTrQ0spsRF
+	16C2OH1veN9gsDcSJIDOP9ne+2tBdrFvbAImb9FTBAB6eQsLOzjSCLWIF3YzP3JPJfHVF+o/wCY
+	=
+X-Google-Smtp-Source: AGHT+IFuZy5EqTvHAoVOBfr4Fk23t7EUqNIlbLfmzgyWRo1kRCsj3C5cAT42IIfvlQGQQk8a2X+0UQ==
+X-Received: by 2002:a17:903:1b65:b0:216:2839:145 with SMTP id d9443c01a7336-22bea8acbadmr2351335ad.1.1744378543195;
+        Fri, 11 Apr 2025 06:35:43 -0700 (PDT)
+Received: from google.com (188.152.87.34.bc.googleusercontent.com. [34.87.152.188])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bd2198be9sm1459659b3a.9.2025.04.11.06.35.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Apr 2025 06:35:42 -0700 (PDT)
+Date: Fri, 11 Apr 2025 13:35:34 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, Nicolin Chen <nicolinc@nvidia.com>,
+	will@kernel.org, joro@8bytes.org, jsnitsel@redhat.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with
+ the same ID
+Message-ID: <Z_kaprkADtmMLyiH@google.com>
+References: <20250411044706.356395-1-nicolinc@nvidia.com>
+ <b62f5ea3-99cd-4e9e-a2a8-cb325308ed34@arm.com>
+ <20250411130155.GD8423@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] arm64: dts: ti: j721e-sk: Add DT nodes for power
- regulators
-To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
-        <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-        <stable@vger.kernel.org>, <u-kumar1@ti.com>
-References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
- <20250409134128.2098195-2-y-abhilashchandra@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250409134128.2098195-2-y-abhilashchandra@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250411130155.GD8423@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_063513_101198_B7112AC2 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20250411_063545_781445_AA59914C 
+X-CRM114-Status: GOOD (  43.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,82 +102,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Apr 11, 2025 at 10:01:55AM -0300, Jason Gunthorpe wrote:
+> On Fri, Apr 11, 2025 at 01:10:29PM +0100, Robin Murphy wrote:
+> 
+> > This is adding support for StreamID aliasing between devices, and as such it
+> > is incomplete. It's not OK to just allow devices to arbitrarily rewrite each
+> > other's STEs,
+> 
+> Okay, yes, we should be checking the iommu_group before permitting two
+> devices to share the STE. That is an easy fix, see below
+> 
+> > Aliases can only be permitted within a group, which means
+> > arm_smmu_device_group() also has to check and account for them in the first
+> > place - note that that applies to PCI devices as well, because as
+> > soon as we
+> 
+> On this system the alias come from the PCI DMA alias support and
+> pci_device_group() is already correctly grouping things.
+> 
+> Aliases from other places, like the IORT, never did work..
+> 
+> > allow StreamID aliasing at all then we're inherently allowing RID->SID
+> > mappings to alias outside the PCI hierarchy in ways that pci_device_group()
+> > can't know about. It should work out basically the same as SMMUv2, just with
+> > the streams tree in place of the S2CR array.
+> 
+> You mean the logic in v2's arm_smmu_device_group() to consult the
+> stream map to select the group if the IORT is creating aliases? Yes it
+> could be done..
+> 
+> However, this is a significant regression fix and I think we can be
+> confident there are no IORT tables in the wild that have aliases or
+> they would already be broken.
+> 
+> How about we add the missing validation that the group is the same,
+> that is easy to do and should be there anyhow:
+> 
+> static int arm_smmu_streams_cmp_node(struct rb_node *lhs,
+> 				     const struct rb_node *rhs)
+> {
+> 	struct arm_smmu_stream *stream_lhs =
+> 		&rb_entry(lhs, struct arm_smmu_stream, node);
+> 	struct arm_smmu_stream *stream_rhs =
+> 		rb_entry(rhs, struct arm_smmu_stream, node);
+> 
+> 	if (stream_lhs->id < stream_rhs->id)
+> 		return -1;
+> 	if (stream_lhs->id > stream_rhs->id)
+> 		return 1;
+> 
+> 	/*
+> 	 * The stream table can have multiple nodes with the same ID if there
+> 	 * are DMA aliases. If multiple masters share the same iommu group then
+> 	 * they can use the overlapping STEs within the group.
+> 	 */
+> 	if (stream_lhs->master->dev->iommu_group ==
+> 	    stream_rhs->master->dev->iommu_group) {
+> 		if (stream_lhs < stream_rhs)
+> 			return -1;
+> 		if (stream_lhs > stream_rhs)
+> 			return 1;
+> 	}
+> 	return 0;
+> }
+> 
+> That change will narrow this patch to only enable PCI DMA aliases that
+> already generate the correct iommu groupings. Other sources of alising
+> that don't generate the right groupings will continue to fail as they
+> do today.
+> 
 
-On 4/9/2025 7:11 PM, Yemike Abhilash Chandra wrote:
-> Add device tree nodes for two power regulators on the J721E SK board.
-> vsys_5v0: A fixed regulator representing the 5V supply output from the
-> LM61460 and vdd_sd_dv: A GPIO-controlled TLV71033 regulator.
->
-> J721E-SK schematics: https://www.ti.com/lit/zip/sprr438
-> Fixes: 1bfda92a3a36 ("arm64: dts: ti: Add support for J721E SK")
+Isn't the device grouped *after* the ops->probe_device call? I see that
+the dev->iommu_group is assigned the ops->probe_device call in
+iommu_init_device.. so I guess this would still fail?
 
-For me does not looks like a fix, you can adding missing nodes
+Thanks,
+Praan
 
-
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-> ---
->   arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 31 ++++++++++++++++++++++++++
->   1 file changed, 31 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> index 440ef57be294..4965957e6545 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> @@ -184,6 +184,17 @@ vsys_3v3: fixedregulator-vsys3v3 {
->   		regulator-boot-on;
->   	};
->   
-> +	vsys_5v0: fixedregulator-vsys5v0 {
-> +		/* Output of LM61460 */
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vsys_5v0";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vusb_main>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
->   	vdd_mmc1: fixedregulator-sd {
->   		compatible = "regulator-fixed";
->   		pinctrl-names = "default";
-> @@ -211,6 +222,20 @@ vdd_sd_dv_alt: gpio-regulator-tps659411 {
->   			 <3300000 0x1>;
->   	};
->   
-> +	vdd_sd_dv: gpio-regulator-TLV71033 {
-> +		compatible = "regulator-gpio";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&vdd_sd_dv_pins_default>;
-> +		regulator-name = "tlv71033";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-boot-on;
-> +		vin-supply = <&vsys_5v0>;
-> +		gpios = <&main_gpio0 118 GPIO_ACTIVE_HIGH>;
-> +		states = <1800000 0x0>,
-> +			 <3300000 0x1>;
-> +	};
-> +
->   	transceiver1: can-phy1 {
->   		compatible = "ti,tcan1042";
->   		#phy-cells = <0>;
-> @@ -613,6 +638,12 @@ J721E_WKUP_IOPAD(0xd4, PIN_OUTPUT, 7) /* (G26) WKUP_GPIO0_9 */
->   		>;
->   	};
->   
-> +	vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
-> +		pinctrl-single,pins = <
-> +			J721E_IOPAD(0x1dc, PIN_INPUT, 7) /* (Y1) SPI1_CLK.GPIO0_118 */
-
-Shouldn't be this pin be output to control regulator ?
-
-
-> +		>;
-> +	};
-> +
->   	wkup_uart0_pins_default: wkup-uart0-default-pins {
->   		pinctrl-single,pins = <
->   			J721E_WKUP_IOPAD(0xa0, PIN_INPUT, 0) /* (J29) WKUP_UART0_RXD */
+> Then I propose continuing to wait for a user before adding support for
+> more alias scenarios to arm_smmu_device_group()?
+> 
+> > > +	/*
+> > > +	 * If there are DMA alises then there are multiple devices with the same
+> > > +	 * stream ID and we cannot reliably convert from SID to master.
+> > > +	 */
+> > > +	if (node->rb_left &&
+> > > +	    rb_entry(node->rb_left, struct arm_smmu_stream, node)->id == sid)
+> > > +		return NULL;
+> > > +	if (node->rb_right &&
+> > > +	    rb_entry(node->rb_right, struct arm_smmu_stream, node)->id == sid)
+> > > +		return NULL;
+> > 
+> > This doesn't really work - the whole mechanism needs to fundamentally change
+> > to mapping StreamIDs to groups rather than to devices. Then it's really up
+> > to individual callers what they want to do if the group has more than one
+> > device.
+> 
+> There are only two callers. One is using it to print the log message,
+> in this case it will fall back to the unknown stream ID path and still
+> print a log message. This could perhaps print the group ID # instead
+> of the raw stream ID but I wouldn't do that in a regression fix rc
+> patch.
+> 
+> The other is doing stall/future PRI, and I don't think we should be
+> doing iommu_group based fault reporting at all. Returning NULL
+> effectively disables it.
+> 
+> Jason
 
