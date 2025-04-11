@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33E2C369A9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71662C36010
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 10:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IFilB1CWtJRNPPBhabQDjIrMR//U86n9XWn9p+phq6s=; b=tdtNzIkAQ+1OyRPU809AdYnTQM
-	6yUx6X32PgohzSzvNa6evctOnBnktx53YroE65qnbmnC5vVmzNC4ILM/0VcZxPaMcIjA7M1t4JDYw
-	bF4jNbdVd84vjCxHlemlALl1JSkc+5NwbdD8jUtIZb6HhYC2Xv2hav2z/xW/DkOoqm5zvyf8wJzOz
-	hzYUzmb31P+TeJteUM/ot24e9OiRvQhravB1vsjK2mxtzp9p6LrDk0DmyiKMmkOsaChOOWRhmAfGe
-	kTGFT3LNLcQOgBD4Rv1/+9tDnt4e/sbAFXMcuh6o2fAVJ2USjmvR6N0ST2uURdi2zScdzELzeCZUA
-	9ZIWnUvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RUtckf2By7ovYzHFdZxm3MQs2w3WPu0UdZn4w9+dO1I=; b=X1toZDOULvnH9DNVP93mcutVZb
+	m9HtQ7ekcGLCUakT7Du4mgKEAfLof+2/heYvjTOQAJJTsUAKW8p+uBY/99JdP5ly8Hqwn6pRaiGUP
+	sWxvhFhtygbAuQE5OZz3vS60j6r7UbgnY73C38EA0wi29W5uJP4EalzlSWY4VRKpSRyUmITWPIGn9
+	upib06pjSUthvsSU0KIBSS0G0jth0291f+8vJ7LXcYfZYyhmMnPEApj+H0IHTXeQqkzEFnH0I+nf3
+	ZwqTFdJpFAcUXkr8MTAy+HoSoNn1G2v583CdnInvcHVB6odpdoaIvAS/IWqAan8sB8xOL4YK3SNYt
+	nsJeb9/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3BUI-0000000DMW7-2mUY;
-	Fri, 11 Apr 2025 10:19:54 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3B6c-0000000DGOt-1REN
+	id 1u3BUJ-0000000DMXb-3I4l;
+	Fri, 11 Apr 2025 10:19:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u3BAu-0000000DHge-2alF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 09:55:27 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1744365322;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IFilB1CWtJRNPPBhabQDjIrMR//U86n9XWn9p+phq6s=;
-	b=lldZTB8aa3KylyrLGpWT3q3PIdaWlu4BkIKbhmi0Vwqtf5DpEsfRYbG0LTyUr8+UgMqsaH
-	92IE8hVzpaQ7jIFVvXotuqddCs4ueHRNSSA6AyTt0QCzL+hZ/Jl7FpwyGA+0lqMHB8FnYk
-	2ZgN331Fp2lWsN9GaB9sn4KSR857ErFolh8FNe/CPpOuIk2Kq27+9vbRagUYNHAISi/T01
-	yrAl0oBah/SlbViI/yxNkYS8aAk92ZxuyTKzMPaQvoBmkzLGp6OkGZXXKLUcNVgRR2NyBD
-	0xM+1NGeJGFLPwrVbbp1P73nRYoDlcdaYxT1hchYih7EoHKH316WSu9KeA1L4A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1744365322;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IFilB1CWtJRNPPBhabQDjIrMR//U86n9XWn9p+phq6s=;
-	b=K/Gh8U4CXj+l1NLqONuUhEP+NCa3T+gi/I84He2UrtbFNxqfACmP8QJbhrqX8/KZ7DBdSC
-	bhnQPg63Dk/LunCA==
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier
- <maz@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Sascha Bischoff <sascha.bischoff@arm.com>, Timothy Hayes
- <timothy.hayes@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Liam.Howlett@oracle.com, ast@kernel.org
-Subject: Re: [PATCH 20/24] irqchip/gic-v5: Add GICv5 LPI/IPI support
-In-Reply-To: <Z/jgL52ZVdcxTEkP@lpieralisi>
-References: <20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org>
- <20250408-gicv5-host-v1-20-1f26db465f8d@kernel.org>
- <Z/jgL52ZVdcxTEkP@lpieralisi>
-Date: Fri, 11 Apr 2025 11:55:22 +0200
-Message-ID: <87plhjrpit.ffs@tglx>
+	Fri, 11 Apr 2025 09:59:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3182106F;
+	Fri, 11 Apr 2025 02:59:49 -0700 (PDT)
+Received: from [10.57.43.36] (unknown [10.57.43.36])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E30C83F6A8;
+	Fri, 11 Apr 2025 02:59:47 -0700 (PDT)
+Message-ID: <23d02991-3bc6-41e2-bb8b-a38786071c43@arm.com>
+Date: Fri, 11 Apr 2025 10:59:46 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] coresight: add coresight Trace Network On Chip
+ driver
+To: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com>
+ <20250411-trace-noc-v3-2-1f19ddf7699b@quicinc.com>
+Content-Language: en-GB
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250411-trace-noc-v3-2-1f19ddf7699b@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_025526_528064_5DDF29F6 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250411_025952_758142_5B1AFC9E 
+X-CRM114-Status: GOOD (  35.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,50 +71,353 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11 2025 at 11:26, Lorenzo Pieralisi wrote:
-> On Tue, Apr 08, 2025 at 12:50:19PM +0200, Lorenzo Pieralisi wrote:
->> Maple tree entries are not used by the driver, only the range tracking
->> is required - therefore the driver first finds an empty area large
->> enough to contain the required number of LPIs then checks the
->> adjacent (and possibly occupied) LPI ranges and try to merge them
->> together, reducing maple tree slots usage.
->
-> The maple tree usage for this purpose is an RFC at this stage.
->
-> Added Alexei because I know BPF arena used the maple tree in
-> a similar way in the past and moved to a range tree because
-> the BPF arena requires a special purpose mem allocator.
->
-> As Thomas already pointed out a plain bitmap could do even though
-> it requires preallocating memory up to 2MB (or we can grow it
-> dynamically).
->
-> We could allocate IDs using an IDA as well, though that's 1 by 1,
-> we allocate LPI INTIDs 1 by 1 - mostly, upon MSI allocation, so
-> using an IDA could do (AFAIU it works for 0..INT_MAX we need
-> 0..2^24 worst case).
+On 11/04/2025 09:57, Yuanfang Zhang wrote:
+> Add a driver to support Coresight device Trace Network On Chip (TNOC),
+> which is an integration hierarchy integrating functionalities of TPDA
+> and funnels. It aggregates the trace and transports to coresight trace
+> bus.
+> 
+> Compared to current configuration, it has the following advantages:
+> 1. Reduce wires between subsystems.
+> 2. Continue cleaning the infrastructure.
+> 3. Reduce Data overhead by transporting raw data from source to target.
+> 
+>    +------------------------+                +-------------------------+
+>    | Video Subsystem        |                |Video Subsystem          |
+>    |       +-------------+  |                |       +------------+    |
+>    |       | Video TPDM  |  |                |       | Video TPDM |    |
+>    |       +-------------+  |                |       +------------+    |
+>    |            |           |                |              |          |
+>    |            v           |                |              v          |
+>    |   +---------------+    |                |        +-----------+    |
+>    |   | Video funnel  |    |                |        |Video TNOC |    |
+>    |   +---------------+    |                |        +-----------+    |
+>    +------------|-----------+                +------------|------------+
+>                 |                                         |
+>                 v-----+                                   |
+> +--------------------|---------+                         |
+> |  Multimedia        v         |                         |
+> |  Subsystem   +--------+      |                         |
+> |              |  TPDA  |      |                         v
+> |              +----|---+      |              +---------------------+
+> |                   |          |              |   Aggoregator TNOC  |
+> |                   |          |              +----------|----------+
+> |                   +--        |                         |
+> |                     |        |                         |
+> |                     |        |                         |
+> |              +------v-----+  |                         |
+> |              |  Funnel    |  |                         |
+> |              +------------+  |                         |
+> +----------------|-------------+                         |
+>                   |                                       |
+>                   v                                       v
+>        +--------------------+                    +------------------+
+>        |   Coresight Sink   |                    |  Coresight Sink  |
+>        +--------------------+                    +------------------+
 
-The point is that you really only need a 1-bit storage per entry,
-i.e. used/unused. You won't use any of the storage functions of maple
-tree, idr or whatever.
+If each NOC has TraceID, how do you reliably decode the trace ?
+Is there a single NOC/TPDA in the path from Source to sink ?
 
-So the obvious choice is a bitmap and as you said, it's trivial to start
-with a reasonably sized one and reallocate during runtime if the need
-arises.
+> 
+>         Current Configuration                            TNOC
+> 
+> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+> ---
+>   drivers/hwtracing/coresight/Kconfig          |  13 ++
+>   drivers/hwtracing/coresight/Makefile         |   1 +
+>   drivers/hwtracing/coresight/coresight-tnoc.c | 186 +++++++++++++++++++++++++++
+>   drivers/hwtracing/coresight/coresight-tnoc.h |  34 +++++
+>   4 files changed, 234 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+> index ecd7086a5b83e86b6bc8ea039d6d26a628334ed3..f20600d58f38568f8178f69d3f678c2df2cbca7e 100644
+> --- a/drivers/hwtracing/coresight/Kconfig
+> +++ b/drivers/hwtracing/coresight/Kconfig
+> @@ -259,4 +259,17 @@ config CORESIGHT_DUMMY
+>   
+>   	  To compile this driver as a module, choose M here: the module will be
+>   	  called coresight-dummy.
+> +
+> +config CORESIGHT_TNOC
+> +	tristate "Coresight Trace Network On Chip driver"
+> +	help
+> +	  This driver provides support for Trace Network On Chip (TNOC) component.
+> +	  TNOC is an interconnect used to collect traces from various subsystems
+> +	  and transport to a coresight trace sink. It sits in the different
+> +	  tiles of SOC and aggregates the trace local to the tile and transports
+> +	  it another tile or to coresight trace sink eventually.
+> +
+> +	  To compile this driver as a module, choose M here: the module will be
+> +	  called coresight-tnoc.
+> +
+>   endif
+> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+> index 8e62c3150aebd1e82b445fafc97a0a9b44397b0e..880e9ed6bfe9c711492c6a2cd972751f56dd8010 100644
+> --- a/drivers/hwtracing/coresight/Makefile
+> +++ b/drivers/hwtracing/coresight/Makefile
+> @@ -34,6 +34,7 @@ obj-$(CONFIG_CORESIGHT_SINK_TPIU) += coresight-tpiu.o
+>   obj-$(CONFIG_CORESIGHT_SINK_ETBV10) += coresight-etb10.o
+>   obj-$(CONFIG_CORESIGHT_LINKS_AND_SINKS) += coresight-funnel.o \
+>   					   coresight-replicator.o
+> +obj-$(CONFIG_CORESIGHT_TNOC) += coresight-tnoc.o
+>   obj-$(CONFIG_CORESIGHT_SOURCE_ETM3X) += coresight-etm3x.o
+>   coresight-etm3x-y := coresight-etm3x-core.o coresight-etm-cp14.o \
+>   		     coresight-etm3x-sysfs.o
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..2ec4ead892f0166a3e84f777679c0f73f5da0e83
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+> @@ -0,0 +1,186 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> + #include <linux/amba/bus.h>
+> + #include <linux/coresight.h>
+> + #include <linux/device.h>
+> + #include <linux/io.h>
+> + #include <linux/kernel.h>
+> + #include <linux/module.h>
+> + #include <linux/of.h>
+> + #include <linux/platform_device.h>
+> +
+> +#include "coresight-priv.h"
+> +#include "coresight-tnoc.h"
+> +#include "coresight-trace-id.h"
+> +
+> +DEFINE_CORESIGHT_DEVLIST(trace_noc_devs, "traceNoc");
+> +
+> +static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
+> +{
+> +	u32 val;
+> +
+> +	/* Set ATID */
+> +	writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
+> +
+> +	/* Config sync CR */
+> +	writel_relaxed(TRACE_NOC_SYN_VAL, drvdata->base + TRACE_NOC_SYNCR);
 
-The reallocation happens in domain::ops::alloc() which is fully
-preemptible context, i.e. no restrictions vs. allocations.
+See my comment below about SYN_VAL. Please add a meaningful comment than
+explaining what is obvious from the code.
 
-For the top-most domain, the callers hold domain::mutex, which excludes
-concurrency vs. ops::alloc/free(). If the bitmap is in a domain further
-down the hierarchy then you need your own mutex there.
+> +
+> +	/* Set Ctrl register */
 
-Thanks,
+Same here. Comment need not explain what is obvious from the code. But
+a description of why we choose the values below is helpful.
 
-       tglx
+> +	val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
+> +
+> +	val = val & ~TRACE_NOC_CTRL_FLAGTYPE;
+> +	val = val | TRACE_NOC_CTRL_FREQTYPE;
+> +	val = val | TRACE_NOC_CTRL_PORTEN;
+> +
+> +	writel(val, drvdata->base + TRACE_NOC_CTRL);
+> +}
+> +
+> +static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
+> +			    struct coresight_connection *outport)
+> +{
+> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +	spin_lock(&drvdata->spinlock);
+> +	if (csdev->refcnt == 0)
+> +		trace_noc_enable_hw(drvdata);
+> +
+> +	csdev->refcnt++;
+> +	spin_unlock(&drvdata->spinlock);
+> +
+> +	dev_dbg(drvdata->dev, "Trace NOC is enabled\n");
+> +	return 0;
+> +}
+> +
+> +static void trace_noc_disable_hw(struct trace_noc_drvdata *drvdata)
+> +{
+> +	writel(0x0, drvdata->base + TRACE_NOC_CTRL);
+> +}
+> +
+> +static void trace_noc_disable(struct coresight_device *csdev, struct coresight_connection *inport,
+> +			      struct coresight_connection *outport)
+> +{
+> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +	spin_lock(&drvdata->spinlock);
+> +	if (--csdev->refcnt == 0)
+> +		trace_noc_disable_hw(drvdata);
+> +
+> +	spin_unlock(&drvdata->spinlock);
+> +	dev_dbg(drvdata->dev, "Trace NOC is disabled\n");
+> +}
+> +
+> +static int trace_noc_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
+> +			__maybe_unused struct coresight_device *sink)
+> +{
+> +	struct trace_noc_drvdata *drvdata;
+> +
+> +	drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +	return drvdata->atid;
+> +}
+> +
+> +static const struct coresight_ops_link trace_noc_link_ops = {
+> +	.enable		= trace_noc_enable,
+> +	.disable	= trace_noc_disable,
+> +};
+> +
+> +static const struct coresight_ops trace_noc_cs_ops = {
+> +	.trace_id	= trace_noc_id,
+> +	.link_ops	= &trace_noc_link_ops,
+> +};
+> +
+> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
+> +{
+> +	int atid;
+> +
+> +	atid = coresight_trace_id_get_system_id();
+> +	if (atid < 0)
+> +		return atid;
+> +
+> +	drvdata->atid = atid;
+> +
+> +	return 0;
+> +}
+> +
+> +static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+> +{
+> +	struct device *dev = &adev->dev;
+> +	struct coresight_platform_data *pdata;
+> +	struct trace_noc_drvdata *drvdata;
+> +	struct coresight_desc desc = { 0 };
+> +	int ret;
+> +
+> +	desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
+> +	if (!desc.name)
+> +		return -ENOMEM;
+> +	pdata = coresight_get_platform_data(dev);
+> +	if (IS_ERR(pdata))
+> +		return PTR_ERR(pdata);
+> +	adev->dev.platform_data = pdata;
+> +
+> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> +	if (!drvdata)
+> +		return -ENOMEM;
+> +
+> +	drvdata->dev = &adev->dev;
+> +	dev_set_drvdata(dev, drvdata);
+> +
+> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
+> +	if (!drvdata->base)
+> +		return -ENOMEM;
+> +
+> +	spin_lock_init(&drvdata->spinlock);
+> +
+> +	ret = trace_noc_init_default_data(drvdata);
+> +	if (ret)
+> +		return ret;
+> +
+> +	desc.ops = &trace_noc_cs_ops;
+> +	desc.type = CORESIGHT_DEV_TYPE_LINK;
+> +	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
+> +	desc.pdata = adev->dev.platform_data;
+> +	desc.dev = &adev->dev;
+> +	desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
+> +	drvdata->csdev = coresight_register(&desc);
+> +	if (IS_ERR(drvdata->csdev))
+> +		return PTR_ERR(drvdata->csdev);
+> +
+> +	pm_runtime_put(&adev->dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void trace_noc_remove(struct amba_device *adev)
+> +{
+> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+> +
+> +	coresight_trace_id_put_system_id(drvdata->atid);
+> +	coresight_unregister(drvdata->csdev);
+> +}
+> +
+> +static struct amba_id trace_noc_ids[] = {
+> +	{
+> +		.id     = 0x000f0c00,
+> +		.mask   = 0x000fff00,
+
+Is the mask sufficient ? fyi, the tpdm mask was fixed in
+commit c8ea5f41b421.
+
+Suzuk
 
 
+> +	},
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(amba, trace_noc_ids);
+> +
+> +static struct amba_driver trace_noc_driver = {
+> +	.drv = {
+> +		.name   = "coresight-trace-noc",
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe          = trace_noc_probe,
+> +	.remove		= trace_noc_remove,
+> +	.id_table	= trace_noc_ids,
+> +};
+> +
+> +module_amba_driver(trace_noc_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("Trace NOC driver");
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..1291a153412c1c92be530cffe25fb56c2fca0395
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.h
+> @@ -0,0 +1,34 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#define TRACE_NOC_CTRL      0x008
+> +#define TRACE_NOC_XLD       0x010
+> +#define TRACE_NOC_FREQVAL   0x018
+> +#define TRACE_NOC_SYNCR     0x020
+> +
+> +/* Enable generation of output ATB traffic.*/
+> +#define TRACE_NOC_CTRL_PORTEN   BIT(0)
+> +/* Sets the type of issued ATB FLAG packets.*/
+> +#define TRACE_NOC_CTRL_FLAGTYPE BIT(7)
+> +/* Sets the type of issued ATB FREQ packet*/
+> +#define TRACE_NOC_CTRL_FREQTYPE BIT(8)
+> +
+> +#define TRACE_NOC_SYN_VAL	0xFFFF
 
+TRACE_NOC_SYNCR_xx ?
 
+What does VAL indicate ? It sounds too generic to indicate anything 
+meaningful. Does it mean, allow all inputs ?
+
+Suzuki
+
+> +
+> +/*
+> + * struct trace_noc_drvdata - specifics associated to a trace noc component
+> + * @base:	memory mapped base address for this component.
+> + * @dev:	device node for trace_noc_drvdata.
+> + * @csdev:	component vitals needed by the framework.
+> + * @spinlock:	only one at a time pls.
+> + * @atid:	id for the trace packet.
+> + */
+> +struct trace_noc_drvdata {
+> +	void __iomem		*base;
+> +	struct device		*dev;
+> +	struct coresight_device	*csdev;
+> +	spinlock_t		spinlock; /* lock for the drvdata. */
+> +	u32			atid;
+> +};
+> 
 
 
