@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 844E6C3601E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 00:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BE6C3601E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 00:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LEj/TlILN37TPKrS4vVDvJow8Rh350Q5eqqNTt+HqJQ=; b=zEd+5lR8kgbSr2OrV46gDDFsVh
-	yP+aq5o0NA/xpLHxCio0aB2f1Ix2dR0FGDzli9iMTF6rgqvj72aAZWNDDf004fPX1tDVLuP64OnfV
-	eSAinGF72m2G3ZmQhpQJi7Uot7LhCIrAottI4jqQsFdSqD3pdsx8s0CXE+DFgD+KAow1xZDtxJD8H
-	fDmMR1zGYXfypF9zE7RHS+7lYJ5EFoAEd22kTdxY3gT9qYQMEmaKTdhDObFArtoHkpwzlGXtZi+tP
-	ZAit78UpX1kOUC95yuJvCPrD6LM6fD+nmuUFSk7uVQNWKAu3Vl7YguRWWYMJQFDb4xE4JCuLl4maI
-	eSW+njtg==;
+	bh=2n9pQ7lqkOTFMiL/4NeGhhQeB/25Nn+RC/N+U/7ad+c=; b=aKOXyhP1MwXN5fLcGIqTew6TTx
+	aEKQ3XSzEafbTJFeY37DPWpivX4wwenxG+v93KCW81rT1dpOOmeBNkR7V97+CEeEW/qdEbkwvYzPh
+	L+TKbIsiU+hbbv8u57HrqIBCUfyEx0cZ7+khDSNqKwUbuxlI5ZprWf2/L4wQUickqFhTOKPWtTTRA
+	hVx/sH34Q2hOqkBomOrq+5BOM/Q/PuWKFX45dhKWqLydj/k5udi8zE77k0+3EZfvJFHizEsMfAK41
+	zCdtsRbdQyC06L4hXXeICWFKgQfvS2LfO91Nf7H5Bw7ddGXDRYXFXimDuQh9A4/Y6mGQo2vkOrNjZ
+	KKjV9XTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u32Ja-0000000C8Gi-3KNt;
-	Fri, 11 Apr 2025 00:32:14 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1u32Nr-0000000C8sM-0qyV;
+	Fri, 11 Apr 2025 00:36:39 +0000
+Received: from mail-pf1-f177.google.com ([209.85.210.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u32Hm-0000000C8B1-2FPr
+	id 1u32M2-0000000C8gJ-3JpE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 00:30:24 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-739b3fe7ce8so1348959b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 17:30:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744331421; x=1744936221; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LEj/TlILN37TPKrS4vVDvJow8Rh350Q5eqqNTt+HqJQ=;
-        b=NAf0XI8W/saP3DRIpdyCz9zlFfl7o5DSqhIkgqFi/H8Nhnla9MRDONly0kplFocn0R
-         2kcO4vTKp6qoKCsMxtCGPVj4QbxhafOsR3MgOmAXmy8w2DfvguFa4/GINg6pYtM8cR0x
-         Q81OUuCK+RKKLqff/Yo0YuwZuNRo3Mpvwq098oPg94OJSxtycBmrgjw4Y+oTkFI8iDXL
-         GyOUZnpgUSM4kCaIWB3T73eQABJjWGwb15/WLN9/ErX2GmHRdbei/81C0OZeiuHuE4O2
-         9K5BKWbuJbK3sd3Cbh9PryY1Lf/nl8KI823caCaEE0qOIaB4g9raslpWV21sgD68xLAc
-         QSlw==
+	Fri, 11 Apr 2025 00:34:48 +0000
+Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-736bfa487c3so1274427b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Apr 2025 17:34:46 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744331421; x=1744936221;
+        d=1e100.net; s=20230601; t=1744331686; x=1744936486;
         h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LEj/TlILN37TPKrS4vVDvJow8Rh350Q5eqqNTt+HqJQ=;
-        b=aOE88zkaPOGX39qnf2MEicjmeS6IpvcRPjgayBoUp42BlSmUN3gSwtE9Qs7dUNFTZ0
-         nfahdLGrBewDs/kr87MGKxCZdUhWhhIXKfcjotrb0ZCFhyzFHgp8EF73F2P3Bf7tLXVA
-         sLhGxtj67BGuq6EanYiOt/iQKpddW7dvaaVPG1Liv5KL7qb2+NyS7ubruyU9dwDMPbue
-         mQ2sL60MP6JhSPDWwN04mYxcA4IGVNMrFpvsYgqDof01o24WjyRrsAQJvk7khIIZl8Qa
-         8sUAD1YApJ7pL+6SfScuRJ529RwHU5kTFFEjOq2RzOMYOivLjN/bRccokh2Sh1sAGkFC
-         So2w==
-X-Forwarded-Encrypted: i=1; AJvYcCUaotuc8z8c0TBQyhdvQfuK3dzNO6rhw1K5IitFg8sTqC3uokdBw0u8a2tCuy45EYitAgfmYCtnCfhyg3OoG4YK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvZj18kDrfcY3OIrbexdxjumNcjmUYXbiNRg9wMGQ2nTPxDWCN
-	GEagRWX4jt1JqUkuzW9o+qPz243KOGQJw4KdjTPQUnLeQquFhlEyyWcxuMbgaMc=
-X-Gm-Gg: ASbGnctGZz/8epQqZpSAPCzZxfB6A2F3LqkZ0xRwlYBM/PIHwwsm+S00pGNUT1bdCkR
-	tiTztr36ayU9vbT9CnYa/srTPop+pRRpuRJCQzDKV1CGEWrqhgGVXJZQ2GhwzskJgz+W67nRMLl
-	n3WjOjgigipQxan/slXJWtHBs/KPd3XtA5LiaFAKQlIkINoARw+v1W7Yte5Ep61hQZTA8DQxCnR
-	T3gPjM1LK5fwAoZS0bFkRMRNPnaqdISUrvSqil3z34XdX2ox/ktxq09ZCvjq3Zi8JQ6mCIGuqnz
-	bL/IMHixoBFcEIJbhyFMFqd5gVKXvqziE7FkK+4=
-X-Google-Smtp-Source: AGHT+IHK+hZPSxDXu+yULAA+P8ggs/de/t3JfqukjQr3W1pHmgkXMe4iexgqgEe5uUDhbixl0eakvA==
-X-Received: by 2002:a17:90b:388c:b0:2ff:5a9d:937f with SMTP id 98e67ed59e1d1-308237e1b7emr1466823a91.24.1744331421495;
-        Thu, 10 Apr 2025 17:30:21 -0700 (PDT)
+        bh=2n9pQ7lqkOTFMiL/4NeGhhQeB/25Nn+RC/N+U/7ad+c=;
+        b=KVf+Da8ez4lUBUieYc06AGXzYcXvft7AFXsqK4LtaPM7Jf++Ub9VLWCQhFrBfyjmnW
+         6XFRdU5adRauVCoHFlcUpEVGp5jy5c/fZJCl4T9WqugBBXuJRi12cwT3lzMu59YwlpNt
+         WRu03j/pRjCF1TKHgyV0D9Xv3AqQYTSk3n3VqOQtbsUDKh5Lqzvuf0r38CIjnTSbYy5v
+         GKJQ++yjSdARZjjPA93Gsqkosb9KiDc3dOrS1YnBGBaqnq8KErVjjx9xE8eDvvPPOlnR
+         DW5FMDrqbGlXQIywjC6d8l9tY+2j38Az828iTXGFCkjswCojUD8w3EL3nYNrJ1e4ICDu
+         uJLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXYmQBTqnNpbJzEYddGbPxkaFIfayK0TkuN5izbXMniwuhNqXoZyCxD50EWsfxGdqkMlDOlHcuGZwq+hVNWoUiB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzc0KfsUf556D/0BMS6TJ5xGcCSL2ZPxbZMGBvK5qEavRI6sUt6
+	6zkW8qbVbr/MaSuCXDn69YRLU/tgjIZ4Oy60FsWBqEZlKwumdsUfI0FmDm+6Y24=
+X-Gm-Gg: ASbGncuyLhPwI9NaAvw67zFreWCtIWGi4FP1Whd/VFkAINaEVrsirJZPpoMNj4EL6+I
+	r6lq74mAnccS6k0faILiWiSpi8I7Vbdagp5OVLZTm70lkNXcFPrq3WavWhEiKgmg3Z7LKdgCr/A
+	XTp7kkoqR2n48YtFVnBRzZ36ZRlz4AfyDewVasECWZS+P7GUhld/T96H2a4QhyeaYIORlr9xsvK
+	S93mYA82F3CdhA51pz8Ckku1t0JNeWd1KCxi9d30IWwH60n46zM4Q7NCUekBsnjPft2kxh8PjyF
+	yyYGsmblQSADtKp44npcOo2cjO4LP+9XfXKY94Ny5XQFA21Ajg==
+X-Google-Smtp-Source: AGHT+IGQAAV5woR4RVRjXO9TpIAsphvWKT0jMORsfI7xQgrPS++t8q5XWvn8GDPpegpqJNYEQ9nN9w==
+X-Received: by 2002:a05:6a00:1481:b0:736:ab1e:b1ab with SMTP id d2e1a72fcca58-73bd0e97a1emr1046946b3a.0.1744331685906;
+        Thu, 10 Apr 2025 17:34:45 -0700 (PDT)
 Received: from localhost ([97.126.182.119])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-306dd11e666sm4395562a91.15.2025.04.10.17.30.20
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bd22f0f28sm213644b3a.97.2025.04.10.17.34.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 17:30:20 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Sukrut Bellary <sbellary@baylibre.com>, Russell King
- <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>, Tony Lindgren
- <tony@atomide.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Nishanth
- Menon <nm@ti.com>, Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Sukrut Bellary <sbellary@baylibre.com>, Aaro Koskinen
- <aaro.koskinen@iki.fi>, Andreas Kemnade <andreas@kemnade.info>, Roger
- Quadros <rogerq@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Santosh
- Shilimkar <ssantosh@kernel.org>, Bajjuri Praneeth <praneeth@ti.com>,
- Raghavendra Vignesh <vigneshr@ti.com>, Bin Liu <b-liu@ti.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
- linux-pm@vger.kernel.org
-Subject: Re: [PATCH 0/4] PM: TI: AM335x: PM STANDBY fixes
-In-Reply-To: <20250318230042.3138542-1-sbellary@baylibre.com>
-References: <20250318230042.3138542-1-sbellary@baylibre.com>
-Date: Thu, 10 Apr 2025 17:30:20 -0700
-Message-ID: <7h34efy1yb.fsf@baylibre.com>
+        Thu, 10 Apr 2025 17:34:45 -0700 (PDT)
+From: Kevin Hilman <khilman@kernel.org>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, Krzysztof Kozlowski
+ <krzysztof.kozlowski@linaro.org>, Tony Lindgren <tony@atomide.com>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, linux-omap@vger.kernel.org,
+ devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 4/5] ARM: dts: ti: omap: use correct ohci/ehci node
+ names
+In-Reply-To: <20250330193833.21970-11-wsa+renesas@sang-engineering.com>
+References: <20250330193833.21970-7-wsa+renesas@sang-engineering.com>
+ <20250330193833.21970-11-wsa+renesas@sang-engineering.com>
+Date: Thu, 10 Apr 2025 17:34:45 -0700
+Message-ID: <7hzfgnwn6i.fsf@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_173022_842047_934F9720 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20250410_173446_846313_42A421E3 
+X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,24 +90,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sukrut Bellary <sbellary@baylibre.com> writes:
+Wolfram Sang <wsa+renesas@sang-engineering.com> writes:
 
-> This patch series fixes the Power management issues on TI's am335x soc.
+> They should be named "usb@".
 >
-> on AM335x, the wakeup doesn't work in the case of STANDBY.
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
-This series is specifically targetted at the AM335x EVM (which I don't
-have to test), so I'd appreciate getting any test reports for this
-before I queue it up.
-
-For AM335x, I currently only have the ICEv2 and Beaglebone Black,
-neithor of which support suspend resume with RTC wake AFAICT.  If they
-do, please enlighten me. :)
-
-I was able to do a basic boot test on the 2 boards I have with this
-series applied on top of v6.15-rc1 and basic boot still works, but I was
-not able to test the PM path that's being changed here, so any tests on
-AM3 platforms that actually use this path are appreciated.
+Thanks, queuing for OMAP.
 
 Kevin
 
