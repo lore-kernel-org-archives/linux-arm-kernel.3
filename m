@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97530C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE0CC369AF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z1/nNUIFGXE6LFF+d4YwvIEc4Kciht20sPaPOMMio7c=; b=asBncQ/2ODniXrO+uFbzrr3mPY
-	ZMEzWrS5EdMB3KLciH43uqINMi/E4zAtKMMVexLqoLrHAeKwpdVw6CoLgvmv4TTSBNMssAwKyXEqw
-	aID28AaNhsQC0KnnxNJFLzQTpFeHl/xQ6MB8vFMntYdof0eJaW0LlwTFfJe55p5tmQy3vdlqMdRIu
-	qhSR3TPpX4n7us7Th7HLY/AaunbQqmFlYTfwJo3CqzFSLMUzUCXAhGfmeuCka6sFvw2ACWPZ/+0fH
-	X/uQCppMSHYsLJqVbLhhsjapk6CCSn/VlI51iiOW3navtSo88QOUIs67O2kmPWIwce0IcHTyeaNdD
-	aDpiAApA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rdBe+uF56KhkOuabVb/m7WvzCAHrcIAYgMQIeJhFnuo=; b=sT+m73ZOsGr7sp9Ck8ieDwBYlR
+	+wBckqmjWO4GR5dBkF/tZLm7mLFqIB/yv87bCzv+tiscrEJUlykIxdZXpvMNm/4Rbo1HbzI6bqkmj
+	Ejs8GPav9I+lTzWV04UOKCaD5b4Le1mO8ef6YIVIFRXSOaj0H47wEUWuOkgKkOu+OMA90x3Nnms5i
+	jFVhBMPJKTmHjh8zdA3vGpRvYq5wJcm3GTgCve8BEuwfEEeHxM2ajYhgRG07D8YtLfvnoJci5tuvY
+	tAB2oJr2NCVGyEWWVzvf4V/s143ektanwH/V2S3/87ftmuddJabJ/BnJli+BUSieM70g9JynJs2Pu
+	LY/q/oEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FQ0-0000000E6FC-0jKz;
-	Fri, 11 Apr 2025 14:31:44 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u3FRn-0000000E6gm-3m9I;
+	Fri, 11 Apr 2025 14:33:35 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FCQ-0000000E3f0-0ZLg
+	id 1u3FEs-0000000E4De-1Ji6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 14:17:43 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BEHbl32094889
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 09:17:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1744381057;
-	bh=z1/nNUIFGXE6LFF+d4YwvIEc4Kciht20sPaPOMMio7c=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=U8OmFibV6W67vclOB7974WizPyD/km+DsqSpxO3R12f6uuNAlezzoUOgyx2+QIJFW
-	 u+qWAdvuZnr1QMbJtj+RQS38qsAoiNLb1KxDplErtYIto1AqW//A2mOxTqxCuA37Cv
-	 9166fbnauxJi+p0moAtgLpJkizvMgtv4y/Q/n0IM=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BEHb8i107722
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 11 Apr 2025 09:17:37 -0500
-Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
- Apr 2025 09:17:37 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 11 Apr 2025 09:17:37 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BEHako022556;
-	Fri, 11 Apr 2025 09:17:36 -0500
-Date: Fri, 11 Apr 2025 19:47:35 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: "Kumar, Udit" <u-kumar1@ti.com>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <rogerq@kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>
-Subject: Re: [PATCH v2 2/2] arm64: dts: ti: k3-j722s-main: Disable
- "serdes_wiz0" and "serdes_wiz1"
-Message-ID: <475a1ac1-abb1-4c6e-b5b2-3f1a3399d5c4@ti.com>
-References: <20250408103606.3679505-1-s-vadapalli@ti.com>
- <20250408103606.3679505-3-s-vadapalli@ti.com>
- <7b2f69ad-48aa-4aa9-be0e-f0edae272bdb@ti.com>
+	Fri, 11 Apr 2025 14:20:16 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-39ac8e7688aso1226992f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 07:20:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1744381212; x=1744986012; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rdBe+uF56KhkOuabVb/m7WvzCAHrcIAYgMQIeJhFnuo=;
+        b=FPb3GoFiIChJ9dFmTRzCGLEvH84MfRVO0Dtm/S2g2CSuE86wWAvCdC7IL6dWqYxWAC
+         zkQmop7Ry9EwK/EhecfuzXnrHYGT/wLKmY2qR/KvynONCoZxZojAhIH+Zl7aoyY90dpw
+         RqKdwwEsJcfowcp/ldWEB1uGJfp4bCUO5R6ItisHU+qA/qUNUYROIgLBjkBe7c7XBJx8
+         bTmxtJaDOZKObTM/2J0kFrT82ezu6bTTqXp9nUAtrjIjepxg4iDfYUUJS0eFfoebMf6G
+         IVndALcYC1jnMExK3HVDBTRUgZ+NS2CrRmKxiUrIW8zs7RkzAHPFad6l1EjOuPvxbHiN
+         XOyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744381212; x=1744986012;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rdBe+uF56KhkOuabVb/m7WvzCAHrcIAYgMQIeJhFnuo=;
+        b=Vca1gM6atst5jTx0EzRhMM+agGcI7O7HZQ/tsMLUEjuJUiE75Uhwz6p1xVd31fqd7p
+         A0ZFyl4UYZJ2hehRJCg2VzjrgoiyXEEXMMCbUjuogiA7+OtkJkL7TImV9RqDH51Ud1ac
+         vddQ4A8zCvX90lZYy6zbZMV2uX4kSZ9lAY1eFb2Kb1hB/zLUuVE4OJ1ldntUhHvJi3Tc
+         K/SIGUbrV/0OcbBFa4A+ua6v2FFAjVy43vE0FFv9Ji5bcDt9IhyTEjhdDnZyUIJh3/OH
+         pL99zLsNnXqcNh9aS30SWq9o+hVQAI05VhNun+F9OAL+wztTZ/QsHJQrj4emLJXEZLdz
+         VGXA==
+X-Gm-Message-State: AOJu0YxDKV/P6YvGRLZf8bxqHCFjROVpJ1TkQlP6z4U5FMhTWJ80UD1y
+	Q1Lglluhp6xmGCPrb28qhDwYq5RZMDuQmkpj9biMPM+y0aQ21jb9LezL38mIB0A=
+X-Gm-Gg: ASbGnct/TNZNz16DtdJc426vA8HPEy6QAoGzDIWHMdHiR/BulrbsluKlWT8qv3DY5xp
+	FihgvnDWlPEwHGGmNLY2V5PL3FYOrWE2aGZXxmqdtAwEzpfqWwAClHNWfmbYW7qLkDO4qMwOvVS
+	oiiaKHANkjYjKdJrRlS6ZBbMI4seUUzjkhurW9+sRz68mJDPaw2ycUAg5ADw1Ogxs4kbrQRtH6s
+	pOCDq9rk1DObMAyGvjDUWSqpVYZDXKAXNfuuH+WTOfTJjPtE3ryXy/83fNuEs3+8NiUjlW+C675
+	ivkPNUgcKVLcS9a/AZnvd/1V93CehmKRE5s7tluSxXtFykEEWCEWYDSJdq/QynQOoWg/qHoBZJL
+	mfKRw+CC9iQ==
+X-Google-Smtp-Source: AGHT+IFZ4lJFn1G3FTPM3/pefChplb5Ul1NZ2T59kDMMnV2Japyqu1iF66jX5ixamcxpq9HuXW+pSg==
+X-Received: by 2002:a05:6000:1a8a:b0:391:1139:2653 with SMTP id ffacd0b85a97d-39eaaec9e98mr2481396f8f.52.1744381212408;
+        Fri, 11 Apr 2025 07:20:12 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:5ee:79d0:cf9d:bb30:5951:692? ([2a01:e0a:5ee:79d0:cf9d:bb30:5951:692])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39eaf43cb43sm2138998f8f.65.2025.04.11.07.20.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 11 Apr 2025 07:20:12 -0700 (PDT)
+Message-ID: <8ea16b0a-85aa-4ff7-8531-9eb253a9575a@baylibre.com>
+Date: Fri, 11 Apr 2025 16:20:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <7b2f69ad-48aa-4aa9-be0e-f0edae272bdb@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] rtc: mt6397: Fix mt6357 RTC year offset handling
+ for hwclock commands
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Eddie Huang <eddie.huang@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Macpaul Lin <macpaul.lin@mediatek.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250109-enable-rtc-v2-0-d7ddc3e73c57@baylibre.com>
+ <20250109-enable-rtc-v2-2-d7ddc3e73c57@baylibre.com>
+ <4d916221-d9ea-4e08-8d22-1be1982323ee@collabora.com>
+Content-Language: en-US
+From: Alexandre Mergnat <amergnat@baylibre.com>
+In-Reply-To: <4d916221-d9ea-4e08-8d22-1be1982323ee@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_071742_272662_7374C53B 
-X-CRM114-Status: GOOD (  28.83  )
+X-CRM114-CacheID: sfid-20250411_072014_352922_555CB665 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,72 +106,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 07:31:52PM +0530, Kumar, Udit wrote:
 
-Hello Udit,
 
+On 02/04/2025 15:03, AngeloGioacchino Del Regno wrote:
+> Il 02/04/25 12:51, Alexandre Mergnat ha scritto:
+>> The mt6357 RTC was failing when using the `hwclock -r --verbose` command,
+>> despite reading correctly through sysfs. There is high chance for other
+>> platform to be impacted by the year offset handling issue.
+>>
+>> The hardware RTC registers store years relative to 1968, but the driver
+>> wasn't consistently applying the offset when converting between
+>> hardware and Linux time representation.
+>>
+>> This inconsistency caused alarm rollover failures during device
+>> registration, with the error "alarm rollover not handled -22" in the
+>> logs, causing hwclock commands to fail.
+>>
+>> The ioctl interface used by the hwclock command requires proper time
+>> range validation that wasn't happening with the inconsistent year
+>> offsets.
+>>
+>> Fixes the issue by applying the year offset in all operations:
+>>     - Adding (RTC_MIN_YEAR - RTC_BASE_YEAR) when reading from hardware
+>>     - Subtracting the same offset when writing to hardware
+>>     - Using the same logic for both regular time and alarm operations
+>>
+>> With these changes, the hwclock command works correctly and time
+>> values are consistently handled across all interfaces.
+>>
+>> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+>> ---
+>>   drivers/rtc/rtc-mt6397.c | 13 ++++++++-----
+>>   1 file changed, 8 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/drivers/rtc/rtc-mt6397.c b/drivers/rtc/rtc-mt6397.c
+>> index 692c00ff544b2..ba52e225dc8fa 100644
+>> --- a/drivers/rtc/rtc-mt6397.c
+>> +++ b/drivers/rtc/rtc-mt6397.c
+>> @@ -77,7 +77,8 @@ static int __mtk_rtc_read_time(struct mt6397_rtc *rtc,
+>>       tm->tm_mday = data[RTC_OFFSET_DOM];
+>>       tm->tm_wday = data[RTC_OFFSET_DOW];
+>>       tm->tm_mon = data[RTC_OFFSET_MTH] & RTC_TC_MTH_MASK;
+>> -    tm->tm_year = data[RTC_OFFSET_YEAR];
+>> +    /* The RTC registers store years since 1968 (hardware's base year) */
+>> +    tm->tm_year = data[RTC_OFFSET_YEAR] + (RTC_MIN_YEAR - RTC_BASE_YEAR);
 > 
-> On 4/8/2025 4:06 PM, Siddharth Vadapalli wrote:
-> > Since "serdes0" and "serdes1" which are the sub-nodes of "serdes_wiz0"
-> > and "serdes_wiz1" respectively, have been disabled in the SoC file already,
-> > and, given that these sub-nodes will only be enabled in a board file if the
-> > board utilizes any of the SERDES instances and the peripherals bound to
-> > them, we end up in a situation where the board file doesn't explicitly
-> > disable "serdes_wiz0" and "serdes_wiz1". As a consequence of this, the
-> > following errors show up when booting Linux:
-> > 
-> >    wiz bus@f0000:phy@f000000: probe with driver wiz failed with error -12
-> >    ...
-> >    wiz bus@f0000:phy@f010000: probe with driver wiz failed with error -12
-> > 
-> > To not only fix the above, but also, in order to follow the convention of
-> > disabling device-tree nodes in the SoC file and enabling them in the board
-> > files for those boards which require them, disable "serdes_wiz0" and
-> > "serdes_wiz1" device-tree nodes.
-> > 
-> > Fixes: 628e0a0118e6 ("arm64: dts: ti: k3-j722s-main: Add SERDES and PCIe support")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > ---
-> > 
-> > v1 of this patch is at:
-> > https://lore.kernel.org/r/20250408060636.3413856-3-s-vadapalli@ti.com/
-> > Changes since v1:
-> > - Added "Fixes" tag and updated commit message accordingly.
-> > 
-> > Regards,
-> > Siddharth.
-> > 
-> >   arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 4 ++++
-> >   1 file changed, 4 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> > index 6850f50530f1..beda9e40e931 100644
-> > --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> > +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> > @@ -32,6 +32,8 @@ serdes_wiz0: phy@f000000 {
-> >   		assigned-clocks = <&k3_clks 279 1>;
-> >   		assigned-clock-parents = <&k3_clks 279 5>;
-> > +		status = "disabled";
-> > +
+> This patch received a NACK because of RTC_MIN_YEAR_OFFSET.
 > 
-> Since you are disabling parent node.
-> 
-> Do you still want to carry status = "disabled" in child nodes serdes0 and
-> serdes1.
+> What you're doing here is avoiding to use the "RTC_MIN_YEAR_OFFSET" definition name
+> but otherwise doing the very same thing that was NACKed before.
 
-I could drop it, but then the patches will look something like:
-1) Patch 1: Same as the first patch in this series
-2) Patch 2: Current patch + Remove status = "disabled" within serdes0/1
-3) Patch 3: Removed redundant status = "okay" within serdes0/1 in
-            k3-j722s-evm.dts
+You're right sorry. In my mind, the rtc framework was working well, then I try-hard to
+fix the issue in this driver... but I was wrong. :(
+The RTC framework have issues so fixes should be in the framework directly. My next suggestion:
+https://lore.kernel.org/r/20250109-enable-rtc-v3-0-f003e8144419@baylibre.com
 
-Updated Patch 2 and the new Patch 3 mentioned above aren't necessarily a
-complete "Fix" and have other changes in addition to the "Fix". For that
-reason, the changes associated with the updated patch 2 and the new patch 3
-could be a separate series, unless you believe that they should go
-together in the current series. Please let me know.
 
+-- 
 Regards,
-Siddharth.
+Alexandre
 
