@@ -4,51 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D9DC369AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97530C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vz0gst0zM0zA/cG9CcgJd4aazGq5n75R+kcCVIucFW4=; b=gpJ7SZfm6/05MFea/0ZjknmKm2
-	Zcr+FYLMAhrll2UxSs+XuNg4X745/ylTG5/wL75Gai/s5VOf4K/+1C8QI8XyTk6W6+QtsmQ/adb1r
-	Qnevri1v7wgR4LiW6l7E9XEMvBal1I9vm1+2yWEFMjEOjH9dmbNQ9U5DeOy4ir5S6qxkqeU0XhLRU
-	ZHD4A3ib+toh4clo7GxkIoOOGqUnLUpkSgODJv1ukN1ucfHCk12RMazu8zvNPU1x0vFTiv3G+RtE6
-	MRn0H9kw361Z01Wjys5VxDamqPBregf44f76NFJ2uKbYRaqgi30bwPzmCC0m+RbWp5lKl0Olr3X2h
-	bP1PaJWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z1/nNUIFGXE6LFF+d4YwvIEc4Kciht20sPaPOMMio7c=; b=asBncQ/2ODniXrO+uFbzrr3mPY
+	ZMEzWrS5EdMB3KLciH43uqINMi/E4zAtKMMVexLqoLrHAeKwpdVw6CoLgvmv4TTSBNMssAwKyXEqw
+	aID28AaNhsQC0KnnxNJFLzQTpFeHl/xQ6MB8vFMntYdof0eJaW0LlwTFfJe55p5tmQy3vdlqMdRIu
+	qhSR3TPpX4n7us7Th7HLY/AaunbQqmFlYTfwJo3CqzFSLMUzUCXAhGfmeuCka6sFvw2ACWPZ/+0fH
+	X/uQCppMSHYsLJqVbLhhsjapk6CCSn/VlI51iiOW3navtSo88QOUIs67O2kmPWIwce0IcHTyeaNdD
+	aDpiAApA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FOD-0000000E5pm-0cTe;
-	Fri, 11 Apr 2025 14:29:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3F4L-0000000E2Jc-05uo
+	id 1u3FQ0-0000000E6FC-0jKz;
+	Fri, 11 Apr 2025 14:31:44 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u3FCQ-0000000E3f0-0ZLg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 14:09:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12CA8106F;
-	Fri, 11 Apr 2025 07:09:20 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 84E8D3F694;
-	Fri, 11 Apr 2025 07:09:19 -0700 (PDT)
-From: Robin Murphy <robin.murphy@arm.com>
-To: joro@8bytes.org,
-	will@kernel.org
-Cc: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	jgg@nvidia.com,
-	nicolinc@nvidia.com
-Subject: [PATCH] iommu/arm-smmu-v3: Fail aliasing StreamIDs more gracefully
-Date: Fri, 11 Apr 2025 15:09:14 +0100
-Message-Id: <39d54e49c8476efc4653e352150d44b185d6d50f.1744380554.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
+	Fri, 11 Apr 2025 14:17:43 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BEHbl32094889
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 09:17:37 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744381057;
+	bh=z1/nNUIFGXE6LFF+d4YwvIEc4Kciht20sPaPOMMio7c=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=U8OmFibV6W67vclOB7974WizPyD/km+DsqSpxO3R12f6uuNAlezzoUOgyx2+QIJFW
+	 u+qWAdvuZnr1QMbJtj+RQS38qsAoiNLb1KxDplErtYIto1AqW//A2mOxTqxCuA37Cv
+	 9166fbnauxJi+p0moAtgLpJkizvMgtv4y/Q/n0IM=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BEHb8i107722
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 11 Apr 2025 09:17:37 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
+ Apr 2025 09:17:37 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 11 Apr 2025 09:17:37 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BEHako022556;
+	Fri, 11 Apr 2025 09:17:36 -0500
+Date: Fri, 11 Apr 2025 19:47:35 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: "Kumar, Udit" <u-kumar1@ti.com>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <rogerq@kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <stable@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: ti: k3-j722s-main: Disable
+ "serdes_wiz0" and "serdes_wiz1"
+Message-ID: <475a1ac1-abb1-4c6e-b5b2-3f1a3399d5c4@ti.com>
+References: <20250408103606.3679505-1-s-vadapalli@ti.com>
+ <20250408103606.3679505-3-s-vadapalli@ti.com>
+ <7b2f69ad-48aa-4aa9-be0e-f0edae272bdb@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <7b2f69ad-48aa-4aa9-be0e-f0edae272bdb@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_070921_102223_812FD079 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20250411_071742_272662_7374C53B 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,43 +90,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We've never supported StreamID aliasing between devices, and as such
-they will never have had functioning DMA, but this is not fatal to the
-SMMU itself. Although aliasing between hard-wired platform device
-StreamIDs would tend to raise questions about the whole system, in
-practice it's far more likely to occur relatively innocently due to
-legacy PCI bridges, where the underlying StreamID mappings are still
-perfectly reasonable.
+On Fri, Apr 11, 2025 at 07:31:52PM +0530, Kumar, Udit wrote:
 
-As such, return a more benign -ENODEV when failing probe for such an
-unsupported device (and log a more obvious error message), so that it
-doesn't break the entire SMMU probe now that bus_iommu_probe() runs in
-the right order and can propagate that error back. The end result is
-still that the device doesn't get an IOMMU group and probably won't
-work, same as before.
+Hello Udit,
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> On 4/8/2025 4:06 PM, Siddharth Vadapalli wrote:
+> > Since "serdes0" and "serdes1" which are the sub-nodes of "serdes_wiz0"
+> > and "serdes_wiz1" respectively, have been disabled in the SoC file already,
+> > and, given that these sub-nodes will only be enabled in a board file if the
+> > board utilizes any of the SERDES instances and the peripherals bound to
+> > them, we end up in a situation where the board file doesn't explicitly
+> > disable "serdes_wiz0" and "serdes_wiz1". As a consequence of this, the
+> > following errors show up when booting Linux:
+> > 
+> >    wiz bus@f0000:phy@f000000: probe with driver wiz failed with error -12
+> >    ...
+> >    wiz bus@f0000:phy@f010000: probe with driver wiz failed with error -12
+> > 
+> > To not only fix the above, but also, in order to follow the convention of
+> > disabling device-tree nodes in the SoC file and enabling them in the board
+> > files for those boards which require them, disable "serdes_wiz0" and
+> > "serdes_wiz1" device-tree nodes.
+> > 
+> > Fixes: 628e0a0118e6 ("arm64: dts: ti: k3-j722s-main: Add SERDES and PCIe support")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > ---
+> > 
+> > v1 of this patch is at:
+> > https://lore.kernel.org/r/20250408060636.3413856-3-s-vadapalli@ti.com/
+> > Changes since v1:
+> > - Added "Fixes" tag and updated commit message accordingly.
+> > 
+> > Regards,
+> > Siddharth.
+> > 
+> >   arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 4 ++++
+> >   1 file changed, 4 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> > index 6850f50530f1..beda9e40e931 100644
+> > --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> > +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> > @@ -32,6 +32,8 @@ serdes_wiz0: phy@f000000 {
+> >   		assigned-clocks = <&k3_clks 279 1>;
+> >   		assigned-clock-parents = <&k3_clks 279 5>;
+> > +		status = "disabled";
+> > +
+> 
+> Since you are disabling parent node.
+> 
+> Do you still want to carry status = "disabled" in child nodes serdes0 and
+> serdes1.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index b4c21aaed126..c06459f7077b 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -3400,9 +3400,9 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
- 		/* Insert into SID tree */
- 		if (rb_find_add(&new_stream->node, &smmu->streams,
- 				arm_smmu_streams_cmp_node)) {
--			dev_warn(master->dev, "stream %u already in tree\n",
-+			dev_warn(master->dev, "Aliasing StreamID 0x%x unsupported, expect DMA to be broken\n",
- 				 sid);
--			ret = -EINVAL;
-+			ret = -ENODEV;
- 			break;
- 		}
- 	}
--- 
-2.39.2.101.g768bb238c484.dirty
+I could drop it, but then the patches will look something like:
+1) Patch 1: Same as the first patch in this series
+2) Patch 2: Current patch + Remove status = "disabled" within serdes0/1
+3) Patch 3: Removed redundant status = "okay" within serdes0/1 in
+            k3-j722s-evm.dts
 
+Updated Patch 2 and the new Patch 3 mentioned above aren't necessarily a
+complete "Fix" and have other changes in addition to the "Fix". For that
+reason, the changes associated with the updated patch 2 and the new patch 3
+could be a separate series, unless you believe that they should go
+together in the current series. Please let me know.
+
+Regards,
+Siddharth.
 
