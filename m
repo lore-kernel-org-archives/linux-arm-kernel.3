@@ -4,75 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBF6C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 06:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF858C369A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 06:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B5tqHLMKf7g8Wxc9Q71D/XsmV0B59emr8eOs+ci5NQI=; b=4Z4qBOyEgFvTkGE3ghfzbVHVMC
-	36paPcdDfC1ZljzmB3vMeZ7DlkIgAjzrSVlBWPztVrq9id3dKenElLQjwkqHm8uWF31s+9ub/42vD
-	LjWQUkhVvXmDq2QcDC360g0iMNlcGk0zhBTSRghUb1oE/yrtku9dmpMLMdGt995lmQsUH9kAsREq8
-	chwZmATYKUU3a/uOVaAG0pBirKd8trk3uFlfKmKNJA+i9xf95eTsSmlzopdBtsOQpw5P33yHI1n3F
-	hV8EgFX03VVrsZqmitRUknUTtKaDITkAN8IwAlqjpDnGnweGj20lmCfxDo5b0m+CkKkKF+BwZCd82
-	2hjTnXmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V+FiDkwM5bRV8CJZW/HsNBOqSTMzvNrJiblPEx1ni6U=; b=WZxsNFLJJ4ddM00xt3VymCuLUc
+	gLMNXYaJ3joDrTxBzK1A7aI5VAZnM5TR6/g0aCVuTFRb5TlMtWdkPhe/YrKhJAvNnb9gIpIVTjMcQ
+	V4r+6H6DBE61VhC1ieY2//EeaEw5VKVT87zLa8AeNKvr0hcJ3OY5egGVFozWFQBUdSWyx/8U5BBcO
+	4vjjXy5Dpp9+1Ea3bL+kVz3o3US79l4VswP1JoMfkv4lFeHZ2eiB5J8vdlLOAEGjZjqbGv/cgmaB9
+	+O9gQwulkzANqpUK3WhXTgEpqa4GJOpLbkGexQAJx/VA9uhfipRA0HAVcsCgV+Lc5qt93hpio/hlh
+	7Szs8Fvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u37YW-0000000Cfbh-2X9S;
-	Fri, 11 Apr 2025 06:08:00 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u37aK-0000000Cg7D-22Qy;
+	Fri, 11 Apr 2025 06:09:52 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3797-0000000CZWP-2Iic;
-	Fri, 11 Apr 2025 05:41:47 +0000
-X-UUID: a4fad3f6169711f0a1e849db4cc18d44-20250410
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=B5tqHLMKf7g8Wxc9Q71D/XsmV0B59emr8eOs+ci5NQI=;
-	b=ZGSORI51ENGs8HTKctwhcJLU9SjYQXPhMCKsU0P5/Dp9cS32kGG1T0AKhZNeskanlGGicOVSESf9z9DJViPw3ROYboFuRqEYJ6qvWUxkGCImhqVR8WJG6d+6YBxW3fxPu7ixwrXQ1JCk3kX8HQ1ux5YmSgVmFbmfxrzzweaaVWY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:24edb5f2-bb47-4614-8789-180b6418674e,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:0ef645f,CLOUDID:a00b1f8b-0afe-4897-949e-8174746b1932,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
-X-UUID: a4fad3f6169711f0a1e849db4cc18d44-20250410
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <axe.yang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1899495937; Thu, 10 Apr 2025 22:41:41 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 11 Apr 2025 13:41:38 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 11 Apr 2025 13:41:37 +0800
-From: Axe Yang <axe.yang@mediatek.com>
-To: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson
-	<ulf.hansson@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	<yong.mao@mediatek.com>, <qingliang.li@mediatek.com>,
-	<andy-ld.lu@mediatek.com>, Wenbin Mei <wenbin.mei@mediatek.com>
-CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	Axe Yang <axe.yang@mediatek.com>
-Subject: [RESEND v2] mmc: mtk-sd: Add condition to enable 'single' burst type
-Date: Fri, 11 Apr 2025 13:40:25 +0800
-Message-ID: <20250411054134.31822-1-axe.yang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1u37BV-0000000CaIl-3Rt1;
+	Fri, 11 Apr 2025 05:44:16 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53AMCZbY004127;
+	Fri, 11 Apr 2025 05:44:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=V+FiDkwM5bRV8CJZW
+	/HsNBOqSTMzvNrJiblPEx1ni6U=; b=ZqXSiafnXaUTVsz/1FNXAfA9KpP04RQd+
+	4AT8s9wZmxu1fF3UMyv9BycoLmOLQ6pDHch/zMcHaTzgR1qvaHbjHQ6T3W89EERd
+	4uMU8x4ee9p5s5/Z864VubCSQATqK7HsYWz6kw/aYdE7cXJQfGlNZC4hOS2blHqk
+	ANerr1jt76asVO6R2yeMmYxf5Dlzy+knR+YBM6RMmuXKwxxO3VQlmAKondjE9M+7
+	qfBzMKHPHuwDiq4NtM9NIxH9zHobqDuBLVYUhZGkT3ZL1SVzkw/wz0l431xMXEHu
+	aeq6fckmdfnEOngsk+cDOcf49bAwJcsDROZ55cuNbTOgqTLJ6N44g==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45xe13vfta-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Apr 2025 05:44:07 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 53B1bltY025510;
+	Fri, 11 Apr 2025 05:44:06 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 45ugbm9gws-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Apr 2025 05:44:05 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 53B5i4Lc52691412
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 05:44:04 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id F385B20043;
+	Fri, 11 Apr 2025 05:44:03 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2063220040;
+	Fri, 11 Apr 2025 05:44:03 +0000 (GMT)
+Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 11 Apr 2025 05:44:03 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com (haven.au.ibm.com [9.63.198.114])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 6349A60AC3;
+	Fri, 11 Apr 2025 15:43:57 +1000 (AEST)
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org
+Cc: x86@kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
+        christophe.leroy@csgroup.eu
+Subject: [PATCH v14 05/11] mm/page_table_check: Reinstate address parameter in [__]page_table_check_pmd_clear()
+Date: Fri, 11 Apr 2025 15:43:48 +1000
+Message-ID: <20250411054354.511145-6-ajd@linux.ibm.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250411054354.511145-1-ajd@linux.ibm.com>
+References: <20250411054354.511145-1-ajd@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: uOBT-gwSeKfRJ2B6V8auVjunVoMrBGqf
+X-Proofpoint-GUID: uOBT-gwSeKfRJ2B6V8auVjunVoMrBGqf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-11_01,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0 mlxscore=0
+ bulkscore=0 malwarescore=0 phishscore=0 mlxlogscore=911 adultscore=0
+ suspectscore=0 priorityscore=1501 spamscore=0 impostorscore=0
+ clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502280000 definitions=main-2504110038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_224145_603361_83340699 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20250410_224413_913573_2AF71601 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,65 +109,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This change add a condition for 'single' burst type selection.
+From: Rohan McLure <rmclure@linux.ibm.com>
 
-Read AXI_LEN field from EMMC50_CFG2(AHB2AXI wrapper) register, if the
-value is not 0, it means the HWIP is using AXI as AMBA bus, which do
-not support 'single' burst type.
+This reverts commit 1831414cd729 ("mm/page_table_check: remove unused
+parameter in [__]page_table_check_pmd_clear").
 
-Suggested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Axe Yang <axe.yang@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reinstate previously unused parameters for the purpose of supporting
+powerpc platforms, as many do not encode user/kernel ownership of the
+page in the pte, but instead in the address of the access.
+
+Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
+Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
 ---
-This change dependents on 'mmc: mtk-sd: Cleanups for register R/W':
+ arch/arm64/include/asm/pgtable.h |  2 +-
+ arch/riscv/include/asm/pgtable.h |  2 +-
+ arch/x86/include/asm/pgtable.h   |  2 +-
+ include/linux/page_table_check.h | 11 +++++++----
+ include/linux/pgtable.h          |  2 +-
+ mm/page_table_check.c            |  5 +++--
+ 6 files changed, 14 insertions(+), 10 deletions(-)
 
-https://patchwork.kernel.org/project/linux-mediatek/cover/20250325110701.52623-1-angelogioacchino.delregno@collabora.com/
----
- drivers/mmc/host/mtk-sd.c | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-index ceeae1aeac94..2e4bd5166c17 100644
---- a/drivers/mmc/host/mtk-sd.c
-+++ b/drivers/mmc/host/mtk-sd.c
-@@ -84,6 +84,7 @@
- #define EMMC51_CFG0	 0x204
- #define EMMC50_CFG0      0x208
- #define EMMC50_CFG1      0x20c
-+#define EMMC50_CFG2      0x21c
- #define EMMC50_CFG3      0x220
- #define SDC_FIFO_CFG     0x228
- #define CQHCI_SETTING	 0x7fc
-@@ -306,7 +307,10 @@
- /* EMMC50_CFG1 mask */
- #define EMMC50_CFG1_DS_CFG        BIT(28)  /* RW */
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 6410c3583ca0..3ccebb6c090e 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -1349,7 +1349,7 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+ {
+ 	pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
  
--#define EMMC50_CFG3_OUTS_WR       GENMASK(4, 0)  /* RW */
-+/* EMMC50_CFG2 mask */
-+#define EMMC50_CFG2_AXI_SET_LEN   GENMASK(27, 24) /* RW */
-+
-+#define EMMC50_CFG3_OUTS_WR       GENMASK(4, 0)   /* RW */
+-	page_table_check_pmd_clear(mm, pmd);
++	page_table_check_pmd_clear(mm, address, pmd);
  
- #define SDC_FIFO_CFG_WRVALIDSEL   BIT(24)  /* RW */
- #define SDC_FIFO_CFG_RDVALIDSEL   BIT(25)  /* RW */
-@@ -1917,9 +1921,13 @@ static void msdc_init_hw(struct msdc_host *host)
- 	pb1_val |= FIELD_PREP(MSDC_PATCH_BIT1_CMDTA, 1);
- 	pb1_val |= MSDC_PB1_DDR_CMD_FIX_SEL;
+ 	return pmd;
+ }
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index d348186f4731..beafa053a768 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -879,7 +879,7 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+ {
+ 	pmd_t pmd = __pmd(atomic_long_xchg((atomic_long_t *)pmdp, 0));
  
--	/* Set single burst mode, auto sync state clear, block gap stop clk */
--	pb1_val |= MSDC_PB1_SINGLE_BURST | MSDC_PB1_RSVD20 |
--		   MSDC_PB1_AUTO_SYNCST_CLR | MSDC_PB1_MARK_POP_WATER;
-+	/* Support 'single' burst type only when AXI_LEN is 0 */
-+	sdr_get_field(host->base + EMMC50_CFG2, EMMC50_CFG2_AXI_SET_LEN, &val);
-+	if (!val)
-+		pb1_val |= MSDC_PB1_SINGLE_BURST;
-+
-+	/* Set auto sync state clear, block gap stop clk */
-+	pb1_val |= MSDC_PB1_RSVD20 | MSDC_PB1_AUTO_SYNCST_CLR | MSDC_PB1_MARK_POP_WATER;
+-	page_table_check_pmd_clear(mm, pmd);
++	page_table_check_pmd_clear(mm, address, pmd);
  
- 	/* Set low power DCM, use HCLK for GDMA, use MSDC CLK for everything else */
- 	pb1_val |= MSDC_PB1_LP_DCM_EN | MSDC_PB1_RSVD3 |
+ 	return pmd;
+ }
+diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+index 5a71a884858e..c385ba804fda 100644
+--- a/arch/x86/include/asm/pgtable.h
++++ b/arch/x86/include/asm/pgtable.h
+@@ -1387,7 +1387,7 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm, unsigned long
+ {
+ 	pmd_t pmd = native_pmdp_get_and_clear(pmdp);
+ 
+-	page_table_check_pmd_clear(mm, pmd);
++	page_table_check_pmd_clear(mm, addr, pmd);
+ 
+ 	return pmd;
+ }
+diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
+index d01a00ffc1f9..0a6ebfa46a31 100644
+--- a/include/linux/page_table_check.h
++++ b/include/linux/page_table_check.h
+@@ -15,7 +15,8 @@ extern struct page_ext_operations page_table_check_ops;
+ 
+ void __page_table_check_zero(struct page *page, unsigned int order);
+ void __page_table_check_pte_clear(struct mm_struct *mm, pte_t pte);
+-void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd);
++void __page_table_check_pmd_clear(struct mm_struct *mm, unsigned long addr,
++				  pmd_t pmd);
+ void __page_table_check_pud_clear(struct mm_struct *mm, unsigned long addr,
+ 				  pud_t pud);
+ void __page_table_check_ptes_set(struct mm_struct *mm, unsigned long addr,
+@@ -52,12 +53,13 @@ static inline void page_table_check_pte_clear(struct mm_struct *mm, pte_t pte)
+ 	__page_table_check_pte_clear(mm, pte);
+ }
+ 
+-static inline void page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd)
++static inline void page_table_check_pmd_clear(struct mm_struct *mm,
++					      unsigned long addr, pmd_t pmd)
+ {
+ 	if (static_branch_likely(&page_table_check_disabled))
+ 		return;
+ 
+-	__page_table_check_pmd_clear(mm, pmd);
++	__page_table_check_pmd_clear(mm, addr, pmd);
+ }
+ 
+ static inline void page_table_check_pud_clear(struct mm_struct *mm,
+@@ -123,7 +125,8 @@ static inline void page_table_check_pte_clear(struct mm_struct *mm, pte_t pte)
+ {
+ }
+ 
+-static inline void page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd)
++static inline void page_table_check_pmd_clear(struct mm_struct *mm,
++					      unsigned long addr, pmd_t pmd)
+ {
+ }
+ 
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 5cc978ef1330..52553aaa2039 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -637,7 +637,7 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+ 	pmd_t pmd = *pmdp;
+ 
+ 	pmd_clear(pmdp);
+-	page_table_check_pmd_clear(mm, pmd);
++	page_table_check_pmd_clear(mm, address, pmd);
+ 
+ 	return pmd;
+ }
+diff --git a/mm/page_table_check.c b/mm/page_table_check.c
+index aad4b7e2194d..9a6cfea0c1d4 100644
+--- a/mm/page_table_check.c
++++ b/mm/page_table_check.c
+@@ -156,7 +156,8 @@ void __page_table_check_pte_clear(struct mm_struct *mm, pte_t pte)
+ }
+ EXPORT_SYMBOL(__page_table_check_pte_clear);
+ 
+-void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd)
++void __page_table_check_pmd_clear(struct mm_struct *mm, unsigned long addr,
++				  pmd_t pmd)
+ {
+ 	if (&init_mm == mm)
+ 		return;
+@@ -227,7 +228,7 @@ void __page_table_check_pmd_set(struct mm_struct *mm, unsigned long addr,
+ 
+ 	page_table_check_pmd_flags(pmd);
+ 
+-	__page_table_check_pmd_clear(mm, *pmdp);
++	__page_table_check_pmd_clear(mm, addr, *pmdp);
+ 	if (pmd_user_accessible_page(pmd)) {
+ 		page_table_check_set(pmd_pfn(pmd), PMD_SIZE >> PAGE_SHIFT,
+ 				     pmd_write(pmd));
 -- 
-2.46.0
+2.49.0
 
 
