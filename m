@@ -4,150 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF97C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6268AC369AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 14:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yKC2NWEFRh4Mg74B8DZ+LDLhKYuiWDMJnfj4IpNnt3s=; b=vVNSqni4pesjd3fluWymWwcX6+
-	JkT6KL0gn04/SOAaEmW10xgZWCgYHdfCMitQxl4ciK6kWNAvTMrIbWkVFtNnNsx+Viz2Tjqv/Tybn
-	5EfYo2gKt3bB9ijS09oZKG+Val6207FCIOrQaBxYPihdNEOrlHRdffSLphCNDJeP5t1Z1zbc+Hemo
-	fHRDV6xopQ/pcHfaFrSi1RTao3s6fq7/ehnTaDPzV5nVhSWMIwHJ/OrErncSinGZ9FWjKBOPtDmeX
-	8l5T7LPoS0UT1Cnt21i+VdRWIhCw7du0ZDKLZqo3/H2ZFcV/Jf2AOzzFz4LY3APXKPkyl8KhGPmI/
-	nfTHWPOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z5Mp5PjDazBwJKD9kj/i3cvmnBHjj8MU6FFvSOWimtU=; b=EdyFpvxBUeGLcDiYLxyK7Jwx8c
+	1ASlh8jEsrDwHVtF0sHplwLDQhbo45TFe6tdof6kR539sYNs04h01Bf3o7ipXLhOJM/c3HzK7B2iO
+	Dsa4T4xsB56vIWdnaST7YaDmScTg9aZboVommPQIGzVUInhaBlwOyB2HxYxdLrNKv7otzGBPtN+Jc
+	xkEU6Hp3UFOyc7eXMt9OhSty4mvpcqeesnvhS8Sh+gqNB29h+WP+hdPpNbPNI1xydtS5H7jEOUBKJ
+	IFZWCP8LjSpiYYx6C/1UF9Bg210HYUh0uLtgCst2NxrK+IlFMCbgy24y9tIluFJVwJv0L/jSV1PPE
+	s/wa+7zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Fp7-0000000EAcb-1ZsU;
-	Fri, 11 Apr 2025 14:57:41 +0000
-Received: from mail-westeuropeazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c201::7] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1u3Fpe-0000000EAkU-43nn;
+	Fri, 11 Apr 2025 14:58:15 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3FVB-0000000E7PJ-0OCO
+	id 1u3EaW-0000000DxLj-48Qa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 14:37:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LBxeD71KfWlQDub8+CqmaeaLdhWww0Clf3iHGNlih6cuilRfgDCg6LIQgVcw10CwVPjvXaX2srTe1jQk92xpKzx82PnXBn/HVgXqXrYXq8l5wIBn0XMw6qE/rMeNAYE1u1AdnoQq3JaiTrMNGqSM/F8opH5EFO4rV9luNHGL1QMAMws0zvLKjBkXgg/USBc5eyjqIPCVUqfG8EJ39DcEdMs6Du7ZZrtCr0YPCX/2zefVuqAbv1BWDyHGgwVTB1DkI24iDuix6R97n+I5HpiEFKBNdOx3i5QwCzhbR9dinbIDc/lKRvie+w7smibXbTmD2tKcrKh9X8DrCc8jbh0L0Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yKC2NWEFRh4Mg74B8DZ+LDLhKYuiWDMJnfj4IpNnt3s=;
- b=k2ZB8HvEbuhmLFv5Uq747PpCl7Kw+S29U9u70kQH9snePi+VbZ/poHgyhYwPFph8QpU/iRgpov6e/s10p8Qd3e0nM8RBT+YnBdifn/lbTe/sw5WEo9TmLMy2s3zrErBQlvWvh1tjUfMFPjitNKnEsMF2GirFkX7hApxpq8LjabABFWHrVsEw3yXXHBou0RbNBEIYt5Uz7ZAZpG8+ADdlGVEh42bAyIY1nwA40GZw62oUs18zFNsMj/OgZkbfr21B/ETOK6syEkxPbN1F34biGr0Sr63clG2a9NbtHXcaI0jQ5tiIRU+qQwRhCfSxubhCV4Cp3xvMS8TkkhKzafINHw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yKC2NWEFRh4Mg74B8DZ+LDLhKYuiWDMJnfj4IpNnt3s=;
- b=h1lJBKFFMx8the/XkBXYOx/zbY/wONIt0eZpbR50Cdqkv7obhI8KeFgmGLuK1L80c6XBedecsvg2uJZQJcEmmexVOw64zPPTdB/2TpbURSd8wcMGoGmIcSpjStmtomhMk1wqkT1MQe32/2aFpujf4Sr8sOasCm6wHrENWt7m0EG6CIKY6DX7z++4w0yTqV03izJoM89tgjl2Apz3mQB7rudAjf9lzJc161N60lqogJ/KKS10YwqGXvJIv8ZwBDMSSodtler1q49sLFxSS2tVafs+eSVgfpzq3RnqaJURXQ5BWoqjnhEKS1ufpm1s/SANpNFD90xTCpzMQkSxZyUGvg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PAWPR04MB9987.eurprd04.prod.outlook.com (2603:10a6:102:387::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Fri, 11 Apr
- 2025 14:37:01 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%4]) with mapi id 15.20.8606.033; Fri, 11 Apr 2025
- 14:37:01 +0000
-Date: Fri, 11 Apr 2025 10:36:53 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: ming.qian@oss.nxp.com
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
-	mirela.rabulea@oss.nxp.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	xiahong.bao@nxp.com, eagle.zhou@nxp.com, linux-imx@nxp.com,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/4] media: imx-jpeg: Move mxc_jpeg_free_slot_data()
- ahead
-Message-ID: <Z/kpBXvJe/n2YHg7@lizhi-Precision-Tower-5810>
-References: <20250411074347.809-1-ming.qian@oss.nxp.com>
- <20250411074347.809-2-ming.qian@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250411074347.809-2-ming.qian@oss.nxp.com>
-X-ClientProxiedBy: SJ0PR05CA0209.namprd05.prod.outlook.com
- (2603:10b6:a03:330::34) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Fri, 11 Apr 2025 13:38:34 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDcPjX2086911
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 08:38:25 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1744378705;
+	bh=z5Mp5PjDazBwJKD9kj/i3cvmnBHjj8MU6FFvSOWimtU=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=ahzxC4vlWCrURiNSqahg/NcY/wlhdcOKJTRl+MxTp8D183C/b7u+NaSHo6BKRccMx
+	 ATswupEEkzRFcZIoyTqKVP4Kh1WhMLeNgRbvU/4hU5c2JWxlJtfTVMBvrfb0e+vnQu
+	 qKWy+Lir84OaBh+sFi3cwNBlMqTXP5E2VHizUbmc=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53BDcPUX081979
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 11 Apr 2025 08:38:25 -0500
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 11
+ Apr 2025 08:38:24 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 11 Apr 2025 08:38:24 -0500
+Received: from [10.249.136.157] ([10.249.136.157])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53BDcJf0098684;
+	Fri, 11 Apr 2025 08:38:20 -0500
+Message-ID: <16713a1b-1e74-4b08-bd4c-12dc0a9d32df@ti.com>
+Date: Fri, 11 Apr 2025 19:08:18 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PAWPR04MB9987:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6edf4791-fa96-4462-b852-08dd790651f4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nJUn82gkQpZ8whrMZks4GW0Gc/AK4b1gUMFRASDhwauJqd86nq8yak2OomWl?=
- =?us-ascii?Q?pxJWElRp0y8vuv5d2GMyQ4Mib8HH9MzCRbarELk8InMLmA7QaFB2fNYNekM3?=
- =?us-ascii?Q?mMPbViBbSXrOsBcGrI2DOcmTUa1lC+41AFSqxJDTGzQ1QeyTMmeM+9mfqb8W?=
- =?us-ascii?Q?EQjW3oa5QGeiiuvbNFOKrso+FnKLZS7hbEa69nq1uqxeeaHiLSVhV6FBYJ2Y?=
- =?us-ascii?Q?t5nrlEcHKjXQqUOox6V3vi/AoCLj6znSRw9vZtc5h3+UW0GFKHnfloQRTNuU?=
- =?us-ascii?Q?8GswWg5QiMxPdmkwcx+ki/zoCBgqdpqQbJmANwJNI6t2nYfDIcId9hq/eHH7?=
- =?us-ascii?Q?LKS0U3f6b1Wue06RTGcJHh5DHbyTlGsWe14GP3Cbnszz87cEFMzzNik1jXvQ?=
- =?us-ascii?Q?ja45S/B10qguT5qpH9hFliN1NbcofYJh4iuBc2iwFPqClilIWpMdkf62XUFV?=
- =?us-ascii?Q?Qbhrx+ezxosIC3rfr8PQBOUom2chPmwmVwMXqHamsisYc6aDZ7ABA3+LKcRP?=
- =?us-ascii?Q?V/V+SIQSZjrZDWoD+/sreHpuavn7SpaX+YJoGnoNSH78FBgn35hiMDH4bghX?=
- =?us-ascii?Q?6DWipCpT3Oa7HAsJBmjaTY6S5UT4vMrQ93jotXHGCo9QFZ/j5yf5fGGMytGo?=
- =?us-ascii?Q?zYWk6rpvfNYlXFsuQPYD19uFP8hFNluLRD0lN+JSoOUVJccRAJylYl8CY3nD?=
- =?us-ascii?Q?H7FN4WabaWb4fbslOUAjsPQHQ8yBppFckbYAEY+T64WleOr/RKGNgA8kW1ZD?=
- =?us-ascii?Q?rF+1I7Lnk1UWftHL14+3Pqo7bGWhyVKuoMrMvTykhHjsk4hC3A40o8v2592K?=
- =?us-ascii?Q?8WnuV0gXKpMUbIsUYIE0Y3xRJMBosMoDy7D8wAQ2aqmz3JKIJb476oqbMJSe?=
- =?us-ascii?Q?+YKy3FBGuww2fxLqYO84pywHqfAY8j06J+PnSCQWlE6xrLxm688lc51NU7SJ?=
- =?us-ascii?Q?68gAyKaAD3dBLKlTeHn4BRaKPD4A2jD9IQ7JEw6kcDclbokcKDFO2ARbWuxu?=
- =?us-ascii?Q?n7pX45HAgsr6J5Vs+yG7P5X1pFIjZnpB8P8y5P2tHGsU98o4TrY5Y9gYeiVF?=
- =?us-ascii?Q?BOTRrEtF0+FaGIJrVZhyr3km+XbToOQmSUDRyy8rNQ4LkU15UEgB5/mcNPdA?=
- =?us-ascii?Q?qdIEl00ZDpKdWUSmUzwNT2BI5boa/+vOibNrgEvjUr3JJoM1rE2QUOcoZPZG?=
- =?us-ascii?Q?uTtPQbgH0Vzg8AP12qPd74yJj6Aq6Vm8V57/gkDnusViIwYWCxxTMRJ0OiqC?=
- =?us-ascii?Q?sDslSP5qujIS1vbRjyKfP9oxvCmLFfgpR9iX9Im3pGysv8BJUqpzistaiZGz?=
- =?us-ascii?Q?dG+cJ3CymtEQpRJOZY71S8HYcV4DoPTxJBOwYDPIWjE8HIr+8Ieyk/IBK9sh?=
- =?us-ascii?Q?TH1rAgFRSt1D+xf/cK1O8mhrMzEgPysslr/GKPRc4w3/jYhuhj/qru7F8VvF?=
- =?us-ascii?Q?M5MOHbXbjHQNDPJABBNUHzrSNJC+luv0RRQ7ggiPw341/LtUFforU97VHNX4?=
- =?us-ascii?Q?3vWFd4pDQy8OWTQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AFwjJ+cytVlqd+LTbbqCKB6HYaX6MokLTabvMUjPZzmHjQq6F0/A90ZZVXdB?=
- =?us-ascii?Q?G5tvjMqqJFvNoqDTFLnmAQhtLyfqIV6nOJTzVESZeVfJ/p8uFxQON6Xk1K/I?=
- =?us-ascii?Q?pbselAFQeBmvxXWcHOYvvKKaqVogPWHBZoGuXkQKlQ+hZaxLgnzmnW8oSE7T?=
- =?us-ascii?Q?U+S8kkrUse6TlOpdq4q9+PnZ5lKV9eiukdzqaal6/BhuBO8eq3do3mKVspS2?=
- =?us-ascii?Q?tT8hKYmIVGItfyN+lekkfHJMzDEl90c69EYiZfNVP4kJcQZLQ15RMOPi7B7j?=
- =?us-ascii?Q?3gLE6PMtb1VuoWkGgwRuCv5XtFRBsQVCwsz7nHuq0JO08UfgEXnbz5gelgoa?=
- =?us-ascii?Q?Ke4mQYWBz4ylsrNcgoIDE4YCqf6oCMNwbVO4YRXkktbzvy+xZad5BNB478Uk?=
- =?us-ascii?Q?IqUbtNeY/2zk4JgdjFW/ESdPESV0fABM2VybIByages1NRa4UCeONpIBHApW?=
- =?us-ascii?Q?XBYLuoFy4WtL+ZeH95Z6Y5aRrxa3Qyht2O/NTMttQG5B2DV4TQoLUQLsS35X?=
- =?us-ascii?Q?ps4GPjMZItjpLTQmcWLFEq+KqpYGEPC/62vRJHWATEl/oLOdkpuuLw/WEwWc?=
- =?us-ascii?Q?PKzpLa/dZaIJdNIeEYne/GEY4DKQkXmL9ZignAs45beBAbjxVfEI05k9s1tG?=
- =?us-ascii?Q?Kj7ouNeHsobeS6T/NFbhCBMz+OSzhb4H075XE4B/v1yYLw3Gn72fkpFpGVAU?=
- =?us-ascii?Q?Olt+LjLxTEcPFsyvi04vDMh2SG+y2D7eziEgg7jKZSP6JJPmHe5ADb4zhWNM?=
- =?us-ascii?Q?OGZqKJrMbDK6AdIwRf+Y0OFAeIIuc+lPvEGF/FnnUrzno7BxEkUlm3Ei0Y3o?=
- =?us-ascii?Q?89MMG2WM0PC0lXpmx8tg/mQVnMSKanq4kttVtDRYelUAavdcxYxWAO5g78ua?=
- =?us-ascii?Q?vQ6wXOvlv/excz9l1Xrrpz1nWsfxaiLXgS8Own7SHPoDbvr7XofpqVYqyZU0?=
- =?us-ascii?Q?cZ38Dmd9s5b0Bv4sPN1KxQDSycTSeUFQXqiJ3WDVgIaNl5bfQt3Juu5ywnSN?=
- =?us-ascii?Q?t9Cz41L+sEjE1tlncyEocaMaYwocL5lti/ixnzoLjG2nvvej9UkrrwuSkPQF?=
- =?us-ascii?Q?7V3o62mjWBs4JKBRuJsF8/THtsEYw6Ium6hs4cqRfvXntQz/Lu6Zch21jUDq?=
- =?us-ascii?Q?q6sj8nBYH/jq7XpWQK7GegCGAgDdYgHNIYrcXZQclJZZc1nEigEbvkXHpoXe?=
- =?us-ascii?Q?RR4g/xBWigcuM6YqxE5X4CsPlLHEIK/mr6q3fE5KN01Ihjq11LGyTs7XE3jd?=
- =?us-ascii?Q?8/DCuAIoz14wiyUEJMTuS6jrDRfacKv5OZGFQg2OhYcKJgEGi7g5l2uAvHrI?=
- =?us-ascii?Q?mZ2Z1zIeXBuiJQ7uGNpqiDIq8Kde7ZuGSHx+DZtbyDRiUj8ENwSNrZlyF6Lh?=
- =?us-ascii?Q?zAQ1RCZ3FIcnECDea6FuT52C5N6Q2Ea2gRECRe59MnCjOtxQnUXUVHzIyFIq?=
- =?us-ascii?Q?edJHBP5udmyr6yCIFp/GtdLaHAZVAoAqeHl/flExVZgCU9HmvWSqyU76k8a/?=
- =?us-ascii?Q?5eIeYUzOnJBjRXML3b8AEhpmdxJ0KZ7fVEAbcixMw3QBL/eEyHJnePSLLVhj?=
- =?us-ascii?Q?g8YaJo5DAI8IGe5xamUs7CVx7yE5yHNsp9u7/pwl?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6edf4791-fa96-4462-b852-08dd790651f4
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2025 14:37:01.2491
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MKnefvzLrwkMh5fFe0rj9libjqrV45UOwpJY9FtAzhMKqgbIM8R4g51a/L2wxGQtcSjgSxyH4yGHfapU+yShHA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9987
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/7] arm64: dts: ti: k3-j721e-sk: Add requiried voltage
+ supplies for IMX219
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
+        <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <jai.luthra@linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <u-kumar1@ti.com>, <stable@vger.kernel.org>
+References: <20250409134128.2098195-1-y-abhilashchandra@ti.com>
+ <20250409134128.2098195-5-y-abhilashchandra@ti.com>
+Content-Language: en-US
+From: "Francis, Neha" <n-francis@ti.com>
+In-Reply-To: <20250409134128.2098195-5-y-abhilashchandra@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_073705_133341_68A9278F 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20250411_063833_115705_AFEE8987 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,96 +91,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 11, 2025 at 03:43:40PM +0800, ming.qian@oss.nxp.com wrote:
-> From: Ming Qian <ming.qian@oss.nxp.com>
->
-> Move function mxc_jpeg_free_slot_data() above mxc_jpeg_alloc_slot_data()
-> allowing to call that function during allocation failures.
-> No functional changes are made.
->
-> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+On 4/9/2025 7:11 PM, Yemike Abhilash Chandra wrote:
+> The device tree overlay for the IMX219 sensor requires three voltage
+> supplies to be defined: VANA (analog), VDIG (digital core), and VDDL
+> (digital I/O). Add the corresponding voltage supply definitions to avoid
+> dtbs_check warnings.
+> 
+> Fixes: f767eb918096 ("arm64: dts: ti: k3-j721e-sk: Add overlay for IMX219")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 > ---
->  .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 46 +++++++++++--------
->  1 file changed, 26 insertions(+), 20 deletions(-)
->
-> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> index 0e6ee997284b..b2f7e9ad1885 100644
-> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> @@ -752,6 +752,32 @@ static int mxc_get_free_slot(struct mxc_jpeg_slot_data *slot_data)
->  	return -1;
->  }
->
-> +static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
-> +{
-> +	/* free descriptor for decoding/encoding phase */
-> +	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
-> +			  jpeg->slot_data.desc,
-> +			  jpeg->slot_data.desc_handle);
-> +	jpeg->slot_data.desc = NULL;
-> +	jpeg->slot_data.desc_handle = 0;
+>  .../dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso  | 33 +++++++++++++++++++
+>  1 file changed, 33 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso b/arch/arm64/boot/dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso
+> index 4a395d1209c8..4eb3cffab032 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk-csi2-dual-imx219.dtso
 
-You add above two lines, it is not simple move function. Move above two
-line change to next patch.
+The link to the schematics seems to need updation, would like to see where these
+regulators are mentioned, can't find them in [0] which I assume is the latest link.
 
-Frank
-
+> @@ -19,6 +19,33 @@ clk_imx219_fixed: imx219-xclk {
+>  		#clock-cells = <0>;
+>  		clock-frequency = <24000000>;
+>  	};
 > +
-> +	/* free descriptor for encoder configuration phase / decoder DHT */
-> +	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
-> +			  jpeg->slot_data.cfg_desc,
-> +			  jpeg->slot_data.cfg_desc_handle);
-> +	jpeg->slot_data.cfg_desc_handle = 0;
-> +	jpeg->slot_data.cfg_desc = NULL;
-
-The same here.
-
+> +	reg_2p8v: regulator-2p8v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "2P8V";
+> +		regulator-min-microvolt = <2800000>;
+> +		regulator-max-microvolt = <2800000>;
+> +		vin-supply = <&vdd_sd_dv>;
+> +		regulator-always-on;
+> +	};
 > +
-> +	/* free configuration stream */
-> +	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
-> +			  jpeg->slot_data.cfg_stream_vaddr,
-> +			  jpeg->slot_data.cfg_stream_handle);
-> +	jpeg->slot_data.cfg_stream_vaddr = NULL;
-> +	jpeg->slot_data.cfg_stream_handle = 0;
-
-The same here.
-
+> +	reg_1p8v: regulator-1p8v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "1P8V";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		vin-supply = <&vdd_sd_dv>;
+> +		regulator-always-on;
+> +	};
 > +
-> +	jpeg->slot_data.used = false;
-> +}
-> +
->  static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
->  {
->  	struct mxc_jpeg_desc *desc;
-> @@ -798,26 +824,6 @@ static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
->  	return false;
->  }
->
-> -static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
-> -{
-> -	/* free descriptor for decoding/encoding phase */
-> -	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
-> -			  jpeg->slot_data.desc,
-> -			  jpeg->slot_data.desc_handle);
-> -
-> -	/* free descriptor for encoder configuration phase / decoder DHT */
-> -	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
-> -			  jpeg->slot_data.cfg_desc,
-> -			  jpeg->slot_data.cfg_desc_handle);
-> -
-> -	/* free configuration stream */
-> -	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
-> -			  jpeg->slot_data.cfg_stream_vaddr,
-> -			  jpeg->slot_data.cfg_stream_handle);
-> -
-> -	jpeg->slot_data.used = false;
-> -}
-> -
->  static void mxc_jpeg_check_and_set_last_buffer(struct mxc_jpeg_ctx *ctx,
->  					       struct vb2_v4l2_buffer *src_buf,
->  					       struct vb2_v4l2_buffer *dst_buf)
-> --
-> 2.43.0-rc1
->
+> +	reg_1p2v: regulator-1p2v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "1P2V";
+> +		regulator-min-microvolt = <1200000>;
+> +		regulator-max-microvolt = <1200000>;
+> +		vin-supply = <&vdd_sd_dv>;
+> +		regulator-always-on;
+> +	};
+>  };
+>  
+>  &csi_mux {
+> @@ -34,6 +61,9 @@ imx219_0: imx219-0@10 {
+>  		reg = <0x10>;
+>  
+>  		clocks = <&clk_imx219_fixed>;
+> +		VANA-supply = <&reg_2p8v>;
+> +		VDIG-supply = <&reg_1p8v>;
+> +		VDDL-supply = <&reg_1p2v>;
+>  
+>  		port {
+>  			csi2_cam0: endpoint {
+> @@ -55,6 +85,9 @@ imx219_1: imx219-1@10 {
+>  		reg = <0x10>;
+>  
+>  		clocks = <&clk_imx219_fixed>;
+> +		VANA-supply = <&reg_2p8v>;
+> +		VDIG-supply = <&reg_1p8v>;
+> +		VDDL-supply = <&reg_1p2v>;
+>  
+>  		port {
+>  			csi2_cam1: endpoint {
+[0] https://datasheets.raspberrypi.com/camera/camera-module-2-schematics.pdf
+
+-- 
+Thanking You
+Neha Malcom Francis
+
 
