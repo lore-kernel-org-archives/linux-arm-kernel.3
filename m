@@ -4,65 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47737C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F024EC36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 12:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U9d66kb7/vE36gQLDJb7/vZWHFmhs1s0f2aM9ltyDH8=; b=w8rlCcaJaoD0/eGgKvE9uXZoFk
-	6HV9ucxKu4mEJ2MObR2Cbp0yssswzdh8LocaES+WlWRIKgbW13QZ7dK0hBvgNIjBf8CuAtctWC7vP
-	JhJgoitUVYGAUz3n7CUmu2zt92V2TbTVlfvRS5Bpu5CWQWfebD9862PTbTtDSkHKiwkDP+J5xrc2l
-	IifAQX++Za6xO+821G8bOJ3YQaBInM+mWspNFiZD7EDjcDxhyqbmgu10pQzLytdz40EoVKIeJ5EcM
-	QHoHWx26U+b5v1RHQntR1hUGHqIV0XXiKhm8JrSJSeUHQbQB8Rs6to6m+vkkLB4dTXqE0epmNO8df
-	jF2HG2tQ==;
+	bh=ewPqe0ENTvABefSiT7U08Qo7bk9mQG6n0EAixrnzi54=; b=25iC8veLKsfNItzh0TesDWa9nL
+	6FNfsPShNbo/jgZkPN47lKLZBLql7qhEWquysoIhQHxJrDo3H1mV0HPF2OWhcqZC5ZRBQOjEgJBaT
+	6hrGiXk6ftIGdvzflFczOzuHpFNA+1Y04P1Y3d9RTep3BbyJBI9bPYqAbmAv+OmwOCImfD4BxrwgH
+	AQHAWXSIR8uQxAF6VtprC85IAA4JcvHDiHdQQ22r1dewdGN+DKIdYfnmLcUwaHZxU21YohJHGfS17
+	sACUR5p0YgpCyFyx3vZ1UCMxwNwiD7Y+90MNZFpIeOCbRy58YVGAMz69KpoPWrtFL9HvGRI3wydbN
+	WzXQ5zSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3DO3-0000000DigQ-1qEL;
-	Fri, 11 Apr 2025 12:21:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3DDs-0000000Dge4-3AI8;
-	Fri, 11 Apr 2025 12:11:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2D5085C684F;
-	Fri, 11 Apr 2025 12:08:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 478BBC4CEE2;
-	Fri, 11 Apr 2025 12:11:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744373463;
-	bh=EVla19k7Xz+stoAyJo+yqYuYF6XV6eRPPI+AlLJ62TU=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=qT6QbywFqYsrdZFdqe20nIlTmNihKMZ+lrEgG5/C7gEaUewM5LBELkTBrqpdZjuRI
-	 O/DjsxQpgNfd2xZrhmjeGVszCnpmAFkEgA40zr4Nhm9ZsGgIzup3Qir7rbxSSTpL3Q
-	 xpGU7cToXWwkXxApwWT3pxdwEwwnzu1ZY3U3ftgWvnKiK1IGW78X6c6kVAVQ1l/REu
-	 RFNrCBsL0tHgiXPkCRBdmbGrpCLc3j82Yr9wXGp1HtaBQAdF4j1DKsmrmdfA5XssOS
-	 gjXithieX0VGwQFLQkNqVLZwNguljxQcmOgMTbf62mw/LL7k4lusUfSR9xMhoacxKC
-	 euYyM3VAwNCyg==
-From: Vinod Koul <vkoul@kernel.org>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Anand Moon <linux.amoon@gmail.com>
-In-Reply-To: <20250410133332.294556-1-linux.amoon@gmail.com>
-References: <20250410133332.294556-1-linux.amoon@gmail.com>
-Subject: Re: [PATCH v1 0/6] Messon: Simplify error handling with
- dev_err_probe()
-Message-Id: <174437346092.673939.9321583863717790007.b4-ty@kernel.org>
-Date: Fri, 11 Apr 2025 17:41:00 +0530
+	id 1u3DPr-0000000Dj0z-0gVW;
+	Fri, 11 Apr 2025 12:23:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u3DE5-0000000Dggd-1COQ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Apr 2025 12:11:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D0550106F;
+	Fri, 11 Apr 2025 05:11:13 -0700 (PDT)
+Received: from [10.57.71.210] (unknown [10.57.71.210])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D9EC3F694;
+	Fri, 11 Apr 2025 05:11:12 -0700 (PDT)
+Message-ID: <b62f5ea3-99cd-4e9e-a2a8-cb325308ed34@arm.com>
+Date: Fri, 11 Apr 2025 13:10:29 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Allow stream table to have nodes with
+ the same ID
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org
+Cc: joro@8bytes.org, jgg@nvidia.com, jsnitsel@redhat.com, praan@google.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250411044706.356395-1-nicolinc@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250411044706.356395-1-nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_051104_850258_26A63D0E 
-X-CRM114-Status: UNSURE (   4.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250411_051117_427935_4244F932 
+X-CRM114-Status: GOOD (  37.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,35 +66,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 10 Apr 2025 19:03:15 +0530, Anand Moon wrote:
-> Use dev_err_probe() for phy resources to indicate the deferral
-> reason when waiting for the resource to come up.
+On 2025-04-11 5:47 am, Nicolin Chen wrote:
+> From: Jason Gunthorpe <jgg@nvidia.com>
 > 
-> Note: The following patch for RTC:
+> ASPEED VGA card has two built-in devices:
+>   0008:06:00.0 PCI bridge: ASPEED Technology, Inc. AST1150 PCI-to-PCI Bridge (rev 06)
+>   0008:07:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 52)
 > 
-> phy: amlogic: phy-meson-axg-pcie: Fix PHY creation order in axg-pcie probe
+> Its toplogy looks like this:
+>   +-[0008:00]---00.0-[01-09]--+-00.0-[02-09]--+-00.0-[03]----00.0  Sandisk Corp Device 5017
+>                               |               +-01.0-[04]--
+>                               |               +-02.0-[05]----00.0  NVIDIA Corporation Device
+>                               |               +-03.0-[06-07]----00.0-[07]----00.0  ASPEED Technology, Inc. ASPEED Graphics Family
+>                               |               +-04.0-[08]----00.0  Renesas Technology Corp. uPD720201 USB 3.0 Host Controller
+>                               |               \-05.0-[09]----00.0  Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
+>                               \-00.1  PMC-Sierra Inc. Device 4028
 > 
-> [...]
+> Being a legacy PCI device that does not have RID on the wire, the system
+> does not preserve a RID for that PCI bridge (0008:06), so the IORT code
+> has to dma alias for iort_pci_iommu_init() via pci_for_each_dma_alias(),
+> resulting in both of them getting the same Stream ID.
+> 
+> On a kernel prior to v6.15-rc1, there has been an overlooked warning:
+>    pci 0008:07:00.0: vgaarb: setting as boot VGA device
+>    pci 0008:07:00.0: vgaarb: bridge control possible
+>    pci 0008:07:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
+>    pcieport 0008:06:00.0: Adding to iommu group 14
+>    ast 0008:07:00.0: stream 67328 already in tree   <===== WARNING
+>    ast 0008:07:00.0: enabling device (0002 -> 0003)
+>    ast 0008:07:00.0: Using default configuration
+>    ast 0008:07:00.0: AST 2600 detected
+>    ast 0008:07:00.0: [drm] Using analog VGA
+>    ast 0008:07:00.0: [drm] dram MCLK=396 Mhz type=1 bus_width=16
+>    [drm] Initialized ast 0.1.0 for 0008:07:00.0 on minor 0
+>    ast 0008:07:00.0: [drm] fb0: astdrmfb frame buffer device
+> 
+> As such a legacy system might not use DMA at all, an iommu_probe_device()
+> failure didn't actually break it, except that warning that does not block
+> the system boot flow.
+> 
+> With v6.15-rc, since the commit bcb81ac6ae3c ("iommu: Get DT/ACPI parsing
+> into the proper probe path"), the error returned with the warning is moved
+> to the IOMMU device probe flow, e.g. call trace with SMMUv3:
+>    arm_smmu_probe_device+0x15c/0x4c0
+>    __iommu_probe_device+0x150/0x4f8
+>    probe_iommu_group+0x44/0x80
+>    bus_for_each_dev+0x7c/0x100
+>    bus_iommu_probe+0x48/0x1a8
+>    iommu_device_register+0xb8/0x178
+>    arm_smmu_device_probe+0x1350/0x1db0
+> 
+> This then fails the entire SMMU driver probe:
+>    arm-smmu-v3 arm-smmu-v3.9.auto: found companion CMDQV device: NVDA200C:04
+>    arm-smmu-v3 arm-smmu-v3.9.auto: option mask 0x10
+>    arm-smmu-v3 arm-smmu-v3.9.auto: ias 48-bit, oas 48-bit (features 0x001e1fbf)
+>    arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for cmdq
+>    arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for evtq
+>    arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for priq
+>    arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for vcmdq0
+>    arm-smmu-v3 arm-smmu-v3.9.auto: allocated 524288 entries for vcmdq1
+>    arm-smmu-v3 arm-smmu-v3.9.auto: msi_domain absent - falling back to wired irqs
+>    arm-smmu-v3 arm-smmu-v3.9.auto: no priq irq - PRI will be broken
+>    pci 0008:00:00.0: Adding to iommu group 10
+>    pci 0008:01:00.0: Adding to iommu group 11
+>    pci 0008:01:00.1: Adding to iommu group 12
+>    pci 0008:02:00.0: Adding to iommu group 13
+>    pci 0008:02:01.0: Adding to iommu group 14
+>    pci 0008:02:02.0: Adding to iommu group 15
+>    pci 0008:02:03.0: Adding to iommu group 16
+>    pci 0008:02:04.0: Adding to iommu group 17
+>    pci 0008:02:05.0: Adding to iommu group 18
+>    pci 0008:03:00.0: Adding to iommu group 19
+>    pci 0008:05:00.0: Adding to iommu group 20
+>    pci 0008:06:00.0: Adding to iommu group 21
+>    pci 0008:07:00.0: stream 67328 already in tree
+>    arm-smmu-v3 arm-smmu-v3.9.auto: Failed to register iommu
+>    arm-smmu-v3 arm-smmu-v3.9.auto: probe with driver arm-smmu-v3 failed with error -22
+> 
+> Given that a device bundled with a legacy PCI bridge could have duplicated
+> Stream IDs, the concept of a stream_id tree with unique node in the SMMUv3
+> driver doesn't work any more.
+> 
+> Change the arm_smmu_streams_cmp_node() to allow the stream table to hold
+> multiple nodes with the same Stream ID. Meanwhile, the reverse lookup from
+> the Stream ID to a device pointer will have to be broken, i.e. the eventq
+> handler will no longer find the device with a Stream ID in such cases.
 
-Applied, thanks!
+Heh, I was about to start looking at this one myself once I finished 
+making sense of the Juno issue...
 
-[1/6] phy: amlogic: phy-meson-gxl-usb2: Simplify error handling with dev_err_probe()
-      commit: 05457917e50c3d6bf75d2e3b99c7e6709a4a6844
-[2/6] phy: amlogic: phy-meson-g12a-usb2: Simplify error handling with dev_err_probe()
-      commit: 9bff4ef29a6409850c27df705da54277a8e836f2
-[3/6] phy: amlogic: phy-meson-axg-mipi-pcie-analog: Simplify error handling with dev_err_probe()
-      commit: de39730f9258e9984892c0af68a3e884ad19acea
-[4/6] phy: amlogic: phy-meson-axg-mipi-dphy: Simplify error handling with dev_err_probe()
-      commit: a77e2e899841937798bff0924c03d4d0e4963aa3
-[5/6] phy: amlogic: phy-meson-axg-pcie: Simplify error handling with dev_err_probe()
-      commit: fef364bd4c9cf712c91e0013f5f304f4e7f09198
-[6/6] phy: amlogic: phy-meson-axg-pcie: Fix PHY creation order in axg-pcie probe
-      commit: bdeff6d8a211c832f5ce1a65aff17f4a5e6de00f
+This is adding support for StreamID aliasing between devices, and as 
+such it is incomplete. It's not OK to just allow devices to arbitrarily 
+rewrite each other's STEs, that's the whole reason this uniqueness check 
+exists in the first place! Aliases can only be permitted within a group, 
+which means arm_smmu_device_group() also has to check and account for 
+them in the first place - note that that applies to PCI devices as well, 
+because as soon as we allow StreamID aliasing at all then we're 
+inherently allowing RID->SID mappings to alias outside the PCI hierarchy 
+in ways that pci_device_group() can't know about. It should work out 
+basically the same as SMMUv2, just with the streams tree in place of the 
+S2CR array.
 
-Best regards,
--- 
-~Vinod
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 31 +++++++++++++++++++--
+>   1 file changed, 29 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index b4c21aaed126..5ce64dc78e12 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -1762,8 +1762,25 @@ static int arm_smmu_streams_cmp_key(const void *lhs, const struct rb_node *rhs)
+>   static int arm_smmu_streams_cmp_node(struct rb_node *lhs,
+>   				     const struct rb_node *rhs)
+>   {
+> -	return arm_smmu_streams_cmp_key(
+> -		&rb_entry(lhs, struct arm_smmu_stream, node)->id, rhs);
+> +	struct arm_smmu_stream *stream_lhs =
+> +		rb_entry(lhs, struct arm_smmu_stream, node);
+> +	struct arm_smmu_stream *stream_rhs =
+> +		rb_entry(rhs, struct arm_smmu_stream, node);
+> +
+> +	if (stream_lhs->id < stream_rhs->id)
+> +		return -1;
+> +	if (stream_lhs->id > stream_rhs->id)
+> +		return 1;
+> +
+> +	/*
+> +	 * The stream table can have multiple nodes with the same ID if there
+> +	 * are DMA aliases.
+> +	 */
+> +	if (stream_lhs < stream_rhs)
+> +		return -1;
+> +	if (stream_lhs > stream_rhs)
+> +		return 1;
+> +	return 0;
+>   }
+>   
+>   static struct arm_smmu_master *
+> @@ -1776,6 +1793,16 @@ arm_smmu_find_master(struct arm_smmu_device *smmu, u32 sid)
+>   	node = rb_find(&sid, &smmu->streams, arm_smmu_streams_cmp_key);
+>   	if (!node)
+>   		return NULL;
+> +	/*
+> +	 * If there are DMA alises then there are multiple devices with the same
+> +	 * stream ID and we cannot reliably convert from SID to master.
+> +	 */
+> +	if (node->rb_left &&
+> +	    rb_entry(node->rb_left, struct arm_smmu_stream, node)->id == sid)
+> +		return NULL;
+> +	if (node->rb_right &&
+> +	    rb_entry(node->rb_right, struct arm_smmu_stream, node)->id == sid)
+> +		return NULL;
 
+This doesn't really work - the whole mechanism needs to fundamentally 
+change to mapping StreamIDs to groups rather than to devices. Then it's 
+really up to individual callers what they want to do if the group has 
+more than one device.
+
+Thanks,
+Robin.
+
+>   	return rb_entry(node, struct arm_smmu_stream, node)->master;
+>   }
+>   
 
 
