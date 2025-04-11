@@ -4,83 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA230C36010
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4410C36010
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Apr 2025 13:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sah0SVBmFLpz4h/jlec344lM1AesPXbeFTOSULVxmM4=; b=X0LrQfKcSrYETi68RJ98nLn8ci
-	UmRXqNyioCQwKdaj1jLTkkT6r/XFEc2RCjndwPyA99DqQ6g2Lxh9XN9r//tvFnr0aTRzvaCKYTGTI
-	FdWQIBDGjVYNHkh+TSly19COvLr1P8zEpcRkuSwFf5WdkIwDad0FU9MtyEAtVysTUArQp3lXcHeMQ
-	0KN6liR3SftH3wEeNY4XRiiceID/awTJIO+pe6e1URPwQonNMtCjzqPQgqejcdaSsPFO2hFgT39jG
-	IhL+3J56aQxrY7mg/wht2XAWXvfNYEGiP/kMCBTcvdAxhQQ6YwaoJu+wR+20uYG1qdZmWG04ZtDuu
-	y5Z6YncQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z7ifqa6N+2VsPbK0TdvsdwoEvR7+fGFe43iGVaC3mdc=; b=CXpLoqt5LWmP9JonDDBa4D0AY2
+	wxrMvU74c5tVVToWoMEckyxZf980Tv0tgb5nFs4rdlz/CJprSS1pOm9QHdU0TsSxmh77CabSMkgDK
+	kR/o4/PDa5Qj3bmnfyipjmOihr0qyor/QU3mZBJm7mO93KcM4hf+shQzJH06HlW5dEU8OV14rajg7
+	tjHPdMdnBwNRhbuUMGM790AJGYwjczEthHi3lJpxnveZiCNz0UxVGx953h/d1MEJDP2uXDk8zvrcg
+	zmkannFAIZTsfkSr5lJ3QkiFgfG7+3+akUt5i/N3Gll0PZVMvc1wUK5X7u13A1wVWp/Lz0ITKvezQ
+	wyUDyP/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3EhG-0000000DyST-3bKs;
-	Fri, 11 Apr 2025 13:45:30 +0000
-Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
+	id 1u3Ej3-0000000Dykv-3iMv;
+	Fri, 11 Apr 2025 13:47:21 +0000
+Received: from mail-vi1eur05on20608.outbound.protection.outlook.com ([2a01:111:f403:2613::608] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3EKr-0000000DtZ4-12JZ
+	id 1u3EMD-0000000DtsY-0V0V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Apr 2025 13:22:23 +0000
-Received: by mail-lf1-x142.google.com with SMTP id 2adb3069b0e04-54991d85f99so3185142e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Apr 2025 06:22:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744377739; x=1744982539; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sah0SVBmFLpz4h/jlec344lM1AesPXbeFTOSULVxmM4=;
-        b=ksNsz5vBDLBtJXCEe11W4tjNhIb0tCYfkana3zA8smDWYZEWJyB+0x4mpQOgUlFGOx
-         YsHgLjoLEabXcqstCklQd4CC7aG+qPtBwTwBZbr8WD7vGxGORXx61Jdwxe3NNZWR8eEW
-         HiGT85uNmGkLxBvYGTB1VR5uv2BFzlAsuhybXZyx7ys5kcCtgRNOzq4lf5VnOy3KIbDF
-         hCRG8AXJQEkotoI+Pmkjk30uW9qGjary1daYrCrA7UOHzm8C5Rtk0vOoqDUVjs44pl0I
-         obncetTGElDLjFdved7qn/vtFFeNXtFy23M+fzyLs+Hmhke6IXlXsd1Dv95b0SYHGqKm
-         ZwGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744377739; x=1744982539;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=sah0SVBmFLpz4h/jlec344lM1AesPXbeFTOSULVxmM4=;
-        b=qxR2e9ib0nn91KUZynCk01qoQptqVV4CipH7CtQlysNoSd1oaR4cFUmE6VVAfCSDQY
-         ZCjmeF0zigqC4qSrk9kzF6rYCu8JNnVp9yCzMRz8EOpnEY39xx9vujmekPq37TLLNarb
-         kuMFsqaJEH+ZsmiDVZy7ncwyWohv4A/ej06xbEjwHnf2jrP9q9CMdTs9BqPTXmuJqZce
-         koy3cCT5JxbdA1Uw6+jyCTM9yB9mfZzKDiyqa6MObPG6k7uaEJbXir55MAv0Ze6T2uE4
-         1QQzKq687smCqr02KSXpnXevP/mi0XCT06G1pP+jUCyuGPM71+Fhh+s/YG34PyDGVqvr
-         lofw==
-X-Forwarded-Encrypted: i=1; AJvYcCU2WHD4oYkN7F4JPpAhUrFwPG/3V2KimlbtMcug5Khp+lnKd4Vz2Mcv5BaH5trh+eCDGyNVvSOkToS7qw++36VV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIYALWjdQxbx190XWVUwEnLNiZyzuzivLOqbzxCZ+DiQDcJXQ7
-	1U6eIk2eAB99DCdXLGI2BtXVQ4lPoenAilsVUNSOVpV4yFSVAdu8WIPqVXkaREOZ4m48TT91+OW
-	y/J1U41Gvzy3qAZA3l6Gjb9/pVy8=
-X-Gm-Gg: ASbGncvgP3xkstYZfhqYsKuDLIVcB0pLiHLCCvbDOmpk8nAjVm2rHP3g4RV04zd3f6M
-	t8gJQit29caIjsNyhzNH9NB4DgBwyuQpRz2K5CdFnCx+IWDbfY9mcTLXKoPv7VToda8gJ/2949H
-	JINQfG6Z5+LlzpQG9wCOwagQ==
-X-Google-Smtp-Source: AGHT+IHw+lifGU70y9Vd72DyBga7i8AjGwQnPrs/Ioo3jLXofjG+CAq6Y1GhP4WwWrG6KrV6FXm0JU1muYB3vRAji0U=
-X-Received: by 2002:a05:651c:312a:b0:30d:c4c3:eafa with SMTP id
- 38308e7fff4ca-31048972d82mr10675451fa.7.1744377738559; Fri, 11 Apr 2025
- 06:22:18 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250405113020.80387-1-bsdhenrymartin@gmail.com> <2025041119-debit-cosmic-f41c@gregkh>
-In-Reply-To: <2025041119-debit-cosmic-f41c@gregkh>
-From: henry martin <bsdhenrymartin@gmail.com>
-Date: Fri, 11 Apr 2025 21:22:07 +0800
-X-Gm-Features: ATxdqUGEZYsaCXX5XdyoJ9leRiLY8Ans_fSIobpjEITgHPNCVrlUjQY0Xk24xqI
-Message-ID: <CAEnQdOoikipXfvBUcfmFUp8As4+K58Bb=oeFKmEH8x_nqkTX_g@mail.gmail.com>
-Subject: Re: [PATCH v2] usb/gadget: Add NULL check in ast_vhub_init_dev()
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 11 Apr 2025 13:23:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vaXbEfdO3+RPr8UT+pQGEM9de1/BEdVaIjyo9ZTREntGDEWgP7TkpZeJXkcNeuPB18ibanklPH6IWQf+KU9HQ1mqnEVk2LYrvDcB0Ak1n7agKPn5Xez/O0jxTNqAGkg0fCMgSWn5DAdiCmuDqGB6c5Cs7sFVWL6mREjUFFW+4r6GnoU7orVkDa9IB2LU+u4zD4yLwr+ndk0Ye02MtNrht6z2kv2npzbif2YynaivJQDenPALdsESkmMix/Eh7vIpqSFAqDLQ7iD08HFKjU7V0AegcB4j1PLkSSuO9nl2TWIKbbRcGiKPj0GqkCt2yhirzGjvLtQ57lM60/s2k35Frg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Z7ifqa6N+2VsPbK0TdvsdwoEvR7+fGFe43iGVaC3mdc=;
+ b=iH/Z7pGUdp4h6poTvQ0T89xCpew+UcEnOac5FAIoYx+kiSsdwQxyI6ZK5i/jIPfFLWBt/xmDsJS12FX2I3VOsbaHYxh6/85/99qIL2C+e2DMUPsDxvvTrC63Fhx3aInggLAU9kAxxTl9aIf+thPhWErtPQgLPI+kwynjtHs5H/4rH6Ego7UevIQFyZ6Ar4OFFBMS6Qov6iaLSmte8Dfl+CFRWu7apoLBVqVoefZuKHOuWgpu9CD/lTRBkHiiXQusdr+wg2saCQmL+6L2njfYZcEQ9AIWaTMJ5yp2pM8Os4JvDT7f9tqoKxA9StNwj5IpIoh1RbxdDSETIbZLq64Wuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Z7ifqa6N+2VsPbK0TdvsdwoEvR7+fGFe43iGVaC3mdc=;
+ b=J7iadoiEsLs3KXyGUMhb2Y++cEg7UqcAQpIAHQJc4xDt4f/iMpnnWC21WAr61y6m1CFDcyFgqOhxFvkraC57ZwMs6CbsW4frl1DazFDwfONEeftXAOvisxG7GK8KICwrsr/wmxp7ypJIXQfqPFSyMy9AO6vJotUQzDaSag2rIBkH3I+6Gpooe1TvhAFBmD9Ht/yFcazDXWdy04SNaCihxl1alUNguY1L8Jllb3EiMGIjyGVlBqm7N9mtWa6BAr8udXFYqgbrqqSfum6Bcm3ddNb30IQnH1JAmYVmaoYGgm+UI7EBd+OgmllfQdPJJJrFnx5cGPr8zsv01sYzzigfiQ==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB8PR04MB6811.eurprd04.prod.outlook.com (2603:10a6:10:fa::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Fri, 11 Apr
+ 2025 13:23:35 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8632.025; Fri, 11 Apr 2025
+ 13:23:32 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Hiago De Franco <hiagofranco@gmail.com>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>
+CC: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "regressions@lists.linux.dev"
+	<regressions@lists.linux.dev>, Hiago De Franco <hiago.franco@toradex.com>
+Subject: RE: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when Cortex-M4
+ is running and it was started by U-Boot bootaux
+Thread-Topic: [REGRESSION] Kernel reboots unexpectdely on i.MX8X when
+ Cortex-M4 is running and it was started by U-Boot bootaux
+Thread-Index: AQHbpWxIyVwHrK1A2UqE7zPASmzQ0LOedbwAgAAHyXA=
+Date: Fri, 11 Apr 2025 13:23:32 +0000
+Message-ID: <PAXPR04MB8459ED6CE869173D4051257088B62@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250404141713.ac2ntcsjsf7epdfa@hiago-nb>
+ <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
+In-Reply-To: <20250411125024.i2pib4hyeq4g6ffw@hiago-nb>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DB8PR04MB6811:EE_
+x-ms-office365-filtering-correlation-id: c75b544f-b651-4a50-06ed-08dd78fc0e41
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?kGXjnapULFRiTBCrdwigZI1HWIupZrY++PUBn+a/WjWRdSJfzKOQ5xTse0fc?=
+ =?us-ascii?Q?1hT9gRC0ldy3MhTbav463+cgCvBvWW63kDzmVuG+ERmHiLgs7NMMWjKB7Zl7?=
+ =?us-ascii?Q?+jAcOse7lXQ7ZsBZzowxaYKb/cLv+MaFd1WO+0CLa9uJYbZfaGMcDVNFxnWC?=
+ =?us-ascii?Q?dIYFUH7+Xv/eX3VFAzuzK3kpsVzLJvFkliLsAzgzlcJwHXh1xmIm9vI+WqQG?=
+ =?us-ascii?Q?chcL7g28LBCxcVmevqvvz+k+uAWNIWqm4vPJvYN1UJnD0Ka3eJWy9Lj/leZo?=
+ =?us-ascii?Q?pEM89yfnZpDvwIAFoxjGv765ER0lrbLS8Z8gAYs3StPL5RNEWRaYS0cUMqFl?=
+ =?us-ascii?Q?h7EHgH9o4UriQG7SpgxMXFguBIq4Z0+EXC/fDvdYzB0WEkXY3qnHoCup/isp?=
+ =?us-ascii?Q?Cf7HBneRgEdgMJjtygLYj/c7IGUapsXgD+ptcu3q1rgQjN2q4uC5/wGBQmdj?=
+ =?us-ascii?Q?aEXmkILI2BwYLVR0qNlYZYEyy+aXU57dDvx6ZJoBAFArYni3SpC0JTo3VFlN?=
+ =?us-ascii?Q?HxAE5+ziZs0WK6xfLqCiOdeS1TjpCfBC1SrTM5qNmMo25xqdaKzg+RlmLwRY?=
+ =?us-ascii?Q?K/BnyvG0kpf9TJPbVeeVyT5z1rOA6zECVx/NUuGSVPB7WDxZbGKZe27h2ZO3?=
+ =?us-ascii?Q?dSbUKc7JE9SfQlfpKEl7aaURGoLMOoaQmysDrFMCaNmgYJfu0HwOUXnVOzsS?=
+ =?us-ascii?Q?OYpGn+hCnUaMx3b0bdlEajnmCplIPuRLVQFl/kRTWKtUuo7+N1g2chIFTsGg?=
+ =?us-ascii?Q?1bWcaQAdg8YgVRAXFiLXnvXNNdu7xc6ISddxtwRXw6eI5a4u9R5mP/wD8c+y?=
+ =?us-ascii?Q?PEsVDVcAihP0b159HaOLLcgARGlVOYqWLTOSOqq/4QJqDF/oK60ksKr1FcJU?=
+ =?us-ascii?Q?KJy9iyReZQ3v43eBTIbqvdFkAD9Qiza/yVlh/UMI2zTXOTfrpDytAnjEnKJu?=
+ =?us-ascii?Q?GrQvO3Sjkf0W7bVHqtQQstwDjXC1vXvV4ntFhT9fHOZfKZl5PhvzEkLaW7q/?=
+ =?us-ascii?Q?2Q74Fxj9NjmxMmSx+LxSeJDirmqgqr8OqUsh562DBcQyVWHMTpcJjutra8z/?=
+ =?us-ascii?Q?nXUv7Ux9z/c/zGIjs9Z555PKTUP14MjagT1+zdlqOi95ibYvQsXlV3HSfzZ7?=
+ =?us-ascii?Q?0T51trXogBJrvnNnGZhNsb2ERt7N5vBAuql22hq3g8XYWbbFqmJFKN6MA8YR?=
+ =?us-ascii?Q?jemH64DTkIbUszKldOG1pn6sKL0CKxx9WLay8DfdWetPtNnByNXvub0nWcP4?=
+ =?us-ascii?Q?THCrGsEYA6Dn3rbDeZDrkJtXtuZrCx6tAyMqnt7LbD/FOgz+9TlJCBDgedKs?=
+ =?us-ascii?Q?rRrJDO416/hbAkQovnKbn0z+ebpDwm1a6+Hfui/HgqHj2TmzIrIDQ4t1PCiy?=
+ =?us-ascii?Q?Owg6OZlBPSskohQA2la2q/pQ5trNPrJgLFStGDRIRA8qBDGtBAjCN+Rq4Tr0?=
+ =?us-ascii?Q?0au/fIeEB91ZQcEiPh47LnFvOXFlvW18UmMFOsF8+Pn5tNgoNCJ0zQ=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ORhBxP5OFDlryCHVIZF4GjZftOelB9A01HrtoQL5QvPer/Z7rdqSTY5+rlHz?=
+ =?us-ascii?Q?idh7EK23/YX3R2n/pfd6ddgcNmhzLwQEcNxZ0Vnw0fxwmSz+eJNg1OoGlJ9C?=
+ =?us-ascii?Q?cnqcO9RNM4b2NByCIMMSOi6eyTFGbBFdhG29lXRgldErYJ5uWP+9+6Wa/c6Y?=
+ =?us-ascii?Q?Ux1rTMFUrVYreYz/zuEpi6Epq+bUVagwQMuzs228Fs5ZDkKNmQu8VwuBOn3Q?=
+ =?us-ascii?Q?PRnvmol3S0vNFv3nxg8M1O/Dt0sMqBPsxaWiUfZNqXSGT/Hz9/0lbPZWheif?=
+ =?us-ascii?Q?J41fpE7nienpv0SFebArjn7sVtAhEFx9vHXeAgaMMghgXlXndjFlJTQcmiGr?=
+ =?us-ascii?Q?DJK+XzSNAMAmh6NWv4q23FDsWwIm5HL+0SS3NjyI293nGMab8l1Gm7L/8394?=
+ =?us-ascii?Q?oqcD9UqWBjxNvuJ1+orbLGQ/JBW/jZ2RxQFLZAa4K6g+V5EVVi9PWpyx+Qk8?=
+ =?us-ascii?Q?gneMaYQR8YNpZTmZT8s3pcQw3NRsoe3zeCstJbtJlxN1QlqBoXNVQtNnOUIH?=
+ =?us-ascii?Q?UT+jn746gGQvA6YQxkQ29/I8JiMsF6S87W5uChIEGv65f63UByVveSmk7g3l?=
+ =?us-ascii?Q?l7u2O4LivMFOOZ45kHlGMLjKVyziKbHnwbTBYjqsXOUiZqExA6b9dh59KcVC?=
+ =?us-ascii?Q?xr0HoyXeLekfuPI9Ek5vv9Lem+EpKgplO4fmhKXCtLp5qqH2yRC4tU7AkCd3?=
+ =?us-ascii?Q?GPe5fYywneDd6rCR89uvt0La56F4Xiu4+DOPXu/Ar32HLa8yQkrJ/7rVJdkf?=
+ =?us-ascii?Q?vlgk+gwALGYiEUeSkO4q1Jxy/X2DdFDGPkHCo45WqrRdFiXHtGShvKYVYwFG?=
+ =?us-ascii?Q?R8MXtIAnSvGeYNfGnai6puvS0keCO2pTTPu4ijyXdA/9pbOq821xLdpKhBq6?=
+ =?us-ascii?Q?k6FWnRQU+2mf05WCJ5OKgLYsEOoD7GXgIoktAMX+63PkWzVql1YwGUmbT2dW?=
+ =?us-ascii?Q?2RaaHw3cPXSxIkWDP/wROj0ppneim67DP1cBZF7pPie/PKY5aKT95V1NlOmh?=
+ =?us-ascii?Q?m43tm6C9s9tzjNjhdU+tVTxvUZR9oMT5GdCJ9cjcFVRVxQE+kKXpTdkra9FT?=
+ =?us-ascii?Q?9SKKnLkOSngsoTDji2siMcvH194LnAvHnIrokxPnLBP4nYyJIBSsW8oKBw7S?=
+ =?us-ascii?Q?bffzsyl8x43TNkNS4rgQcDakGrirOQ5GbukMij9XtmsSL4CwyBeZLBg7X3Kv?=
+ =?us-ascii?Q?r/ehWiq5InTk5GQiSI7g6grTo8JzSSLEvWJ6tDylFwxqiYKX5yqnTMWUvzY4?=
+ =?us-ascii?Q?+HFdPoIIQ2Bw0KIrJFRu6SOdcFAKtdI4MCrtpJ+b6CqsiL6q+sQy3zgOuI9M?=
+ =?us-ascii?Q?CNbsN1DfXoJLQOKN7OLPiX1a2eyjKN1I/KvPP1FSKnsjkQf5MY6Rjxfeia0b?=
+ =?us-ascii?Q?nMGjROM+RnSCyp/DcN/d9Ja6ynzW3X0Lvv/KdV80Ji38XCNm0sjNPJBVJ6nY?=
+ =?us-ascii?Q?do/UtO68wxRiYn95I9p0sjgk38Ch57eLGxPE4w/Lh62HBfeUnP+JaHEL63Sg?=
+ =?us-ascii?Q?Jb9tbcyPuxv3xVzF9EdOw3cb2eaqDEZk0uII6lb+rj7dZqSI1/q3DAtsYXHn?=
+ =?us-ascii?Q?ZD12DuObfZhWgfYws14=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c75b544f-b651-4a50-06ed-08dd78fc0e41
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Apr 2025 13:23:32.2090
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qOrFtEwNzGeIY4kmLq5VNo7af2nocDGa7r0ey7S5NG29vI/004O/e0iETpYOW3hMxQg8e76OKGkBBJ3A2lwRfw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6811
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_062221_282631_70774853 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20250411_062345_160818_E713C036 
+X-CRM114-Status: GOOD (  30.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,60 +165,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg,
+Hi,
 
-Thanks for the review.
+Sorry for late.
+> Subject: Re: [REGRESSION] Kernel reboots unexpectdely on i.MX8X
+> when Cortex-M4 is running and it was started by U-Boot bootaux
+>=20
+> On Fri, Apr 04, 2025 at 11:17:13AM -0300, Hiago De Franco wrote:
+> > #regzbot introduced: 4f6c983261
+> >
+> > Hi Peng and all,
+> >
+> > Commit 4f6c9832613b ("genpd: imx: scu-pd: initialize is_off
+> according
+> > to HW state") introduced a regression where the Kernel reboots
+> > unexpectedly (without any warnings, crashes or errors) when the
+> > Cortex-M4 was loaded and running by U-Boot, using the bootaux
+> command:
+> >
+> > # load mmc 0:2 ${loadaddr} /home/root/hello_world.bin # bootaux
+> > ${loadaddr} 0 # boot
+> >
+> > This is a simple hello world binary that prints a message into the
+> > M40.UART0 pin (demo from NXP MCUXpresso).
 
-This patch was made against v6.14. I=E2=80=99ll rebase it onto v6.15-rc1 an=
-d send a v3
-shortly.
+Which release is this image from?
 
-Best regards,
-Henry
+> >
+> > Before this commit, everything worked as expected, Linux boots fine
+> > and the HMP core keeps running and printing messages to the UART.
+> > After the commit, the kernel reboots at the beggining of the boot
+> > process. The only relevant message is printed by U-Boot after reset:
+> >
+> > "Reset cause: SCFW fault reset"
+> >
+> > This commit was bisectabled, the same device tree, u-boot version,
+> and
+> > SCFW versions were used. Reverting this commit fixes the issues.
+> >
+> > For testing purposes, I created the following patch which also fixes
+> > the
+> > issue:
+> >
+> > diff --git a/drivers/pmdomain/imx/scu-pd.c
+> > b/drivers/pmdomain/imx/scu-pd.c index
+> 38f3cdd21042..0477b3fb4991
+> > 100644
+> > --- a/drivers/pmdomain/imx/scu-pd.c
+> > +++ b/drivers/pmdomain/imx/scu-pd.c
+> > @@ -539,6 +539,9 @@ imx_scu_add_pm_domain(struct device
+> *dev, int idx,
+> >                 return NULL;
+> >         }
+> >
+> > +       if (strstr("cm40", sc_pd->name) !=3D NULL)
+> > +               is_off =3D true;
+> > +
+> >         ret =3D pm_genpd_init(&sc_pd->pd, NULL, is_off);
+> >         if (ret) {
+> >                 dev_warn(dev, "failed to init pd %s rsrc id %d",
+> >
+> >
+> > Test Environment:
+> > - Hardware: Colibri iMX8DX 1GB with Colbiri Evaluation Board.
+> > - U-Boot Version: 2024.04
+> > - U-Boot Build info:
+> > 	SCFW 83624b99, SECO-FW c9de51c0, IMX-MKIMAGE
+> 4622115c, ATF 7c64d4e
+> >
+> > The issue is not present on: v6.5
+> >
+> > The real root cause is still unclear to me. Anybody has any ideas? I
+> > am happy to share more details if needed.
 
-Greg KH <gregkh@linuxfoundation.org> =E4=BA=8E2025=E5=B9=B44=E6=9C=8811=E6=
-=97=A5=E5=91=A8=E4=BA=94 21:06=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Sat, Apr 05, 2025 at 07:30:20PM +0800, Henry Martin wrote:
-> > devm_kasprintf() returns NULL when memory allocation fails. Currently,
-> > ast_vhub_init_dev() does not check for this case, which results in a
-> > NULL pointer dereference.
+Have you tried pd_ignore_unused?=20
+
+I think it is linux power down M4 which M4 is running, then SCFW
+reports error. So please give a try pd_ignore_unused.
+
+If this is the case, may I know do you have m4 nodes in dts and
+with power domain included?
+
+Anyway, I will give a try on i.MX8QM EVK.
+
+>=20
+> Hello everyone, as this introduced a regression, should I send a revert
+> for 4f6c983261?=20
+
+Please wait a while, I think we need find root cause.
+
+Thanks,
+Peng.
+
+Or any ideas that might help fix this issue?
+>=20
 > >
-> > Add NULL check after devm_kasprintf() to prevent this issue.
-> >
-> > Cc: stable@vger.kernel.org    # v4.18
-> > Fixes: 7ecca2a4080c ("usb/gadget: Add driver for Aspeed SoC virtual hub=
-")
-> > Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-> > ---
-> > V1 -> V2: Add Cc: stable label and correct commit message.
-> >
-> >  drivers/usb/gadget/udc/aspeed-vhub/dev.c | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gad=
-get/udc/aspeed-vhub/dev.c
-> > index 573109ca5b79..5b7d41a990d7 100644
-> > --- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-> > +++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-> > @@ -548,6 +548,8 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsign=
-ed int idx)
-> >       d->vhub =3D vhub;
-> >       d->index =3D idx;
-> >       d->name =3D devm_kasprintf(parent, GFP_KERNEL, "port%d", idx+1);
-> > +     if (!d->name)
-> > +             return -ENOMEM;
-> >       d->regs =3D vhub->regs + 0x100 + 0x10 * idx;
-> >
-> >       ast_vhub_init_ep0(vhub, &d->ep0, d);
-> > --
-> > 2.34.1
-> >
->
-> What kernel version did you make this against?  It does not apply to
-> 6.15-rc1 for me :(
->
-> thanks,
->
-> greg k-h
+> > Cheers,
+> > Hiago.
+>=20
+> Cheers,
+> Hiago.
 
